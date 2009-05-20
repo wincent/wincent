@@ -61,10 +61,14 @@ let filetype_m='objc'
 " automatic, language-dependent indentation, syntax coloring and other
 " functionality
 filetype indent plugin on
+syntax on
 
 color wincent       " modified version of default MacVim scheme (light yellow background)
 
 let mapleader=","
+
+" XP Template: default mapping of <C-\> doesn't work on most European keyboards
+let g:xptemplate_key='<F5>' " doesn't work for some reason
 
 " http://vim.wikia.com/wiki/Detect_window_creation_with_WinEnter
 autocmd VimEnter * autocmd WinEnter * let w:created=1
