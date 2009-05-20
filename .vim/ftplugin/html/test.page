@@ -1,0 +1,554 @@
+
+<!--  -------------Author--------------- -->
+<!-- `$author^                           -->
+
+
+
+drdr.xp
+
+drdr.xp
+
+
+<!--  -------------doctype_html3---------------              -->
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN"> -->
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+
+<!--  -------------doctype_xhtml1_strict---------------                                                            -->
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> -->
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+
+<!--  -------------Date--------------- -->
+<!-- `date()^                          -->
+
+
+
+2009 May 10
+
+2009 May 10
+
+
+<!--  -------------br--------------- -->
+<!-- <br/>                           -->
+
+
+
+<br/>
+
+<br/>
+
+
+<!--  -------------doctype_html4_frameset---------------                                                       -->
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Frameset//EN" "http://www.w3.org/TR/REC-html40/frameset.dtd"> -->
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Frameset//EN" "http://www.w3.org/TR/REC-html40/frameset.dtd">
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Frameset//EN" "http://www.w3.org/TR/REC-html40/frameset.dtd">
+
+
+<!--  -------------script---------------                   -->
+<!-- <script language="javascript" type="text/javascript"> -->
+<!-- `cursor^                                              -->
+<!-- </script>                                             -->
+
+
+
+<script language="javascript" type="text/javascript">
+  
+</script>
+
+<script language="javascript" type="text/javascript">
+  
+</script>
+
+
+<!--  -------------doctype_xhtml1_transitional---------------                                                                  -->
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> -->
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<!--  -------------div_--------------- -->
+<!-- <div>`wrapped^</div>              -->
+
+
+<div>WRAPPED_TEXT</div>
+
+<div>WRAPPED_TEXT</div>
+
+
+
+<!--  -------------scrlink---------------                                          -->
+<!-- <script language="javascript" type="text/javascript" src="`cursor^"></script> -->
+
+
+
+<script language="javascript" type="text/javascript" src=""></script>
+
+<script language="javascript" type="text/javascript" src=""></script>
+
+
+<!--  -------------ver---------------                    -->
+<!-- <?xml version="`ver^1.0^" encoding="`enc^utf-8^" ?> -->
+
+
+
+<?xml version="1.0" encoding="utf-8" ?>
+
+<?xml version="ver_TYPED" encoding="enc_TYPED" ?>
+
+
+<!--  -------------cc_--------------- -->
+<!-- `$CL^ `wrapped^ `$CR^            -->
+
+
+<!-- WRAPPED_TEXT -->
+
+<!-- WRAPPED_TEXT -->
+
+
+
+<!--  -------------_---------------                    -->
+<!-- <`tag^`...^ `name^="`val^"`...^>`wrapped^</`tag^> -->
+
+
+<tag name="val" name="val">WRAPPED_TEXT</tag>
+
+<tag_TYPED_TYPED>WRAPPED_TEXT</tag_TYPED>
+
+
+
+<!--  -------------a--------------- -->
+<!-- <a href="`href^">`cursor^</a>  -->
+
+
+
+<a href="href"></a>
+
+<a href="href_TYPED"></a>
+
+
+<!--  -------------h_--------------- -->
+<!-- <h`n^>`wrapped^</h`n^>          -->
+
+
+<h1>WRAPPED_TEXT</h1>
+
+<hn_TYPED>WRAPPED_TEXT</hn_TYPED>
+
+
+
+<!--  -------------h--------------- -->
+<!-- <h`n^>`cursor^</h`n^>          -->
+
+
+
+<h1></h1>
+
+<hn_TYPED></hn_TYPED>
+
+
+<!--  -------------doctype_xthml1_frameset---------------                                                              -->
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd"> -->
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+
+
+<!--  -------------doctype_html41_strict---------------                                         -->
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> -->
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+
+<!--  -------------p--------------- -->
+<!-- <p`^>`cursor^</p>              -->
+
+
+
+<p></p>
+
+<p_TYPED></p>
+
+
+<!--  -------------cb--------------- -->
+<!-- `$CL^                           -->
+<!--  `$CM^ `cursor^                 -->
+<!--  `$CR^                          -->
+
+
+
+<!--
+
+-->
+
+<!--
+
+-->
+
+
+<!--  -------------cc--------------- -->
+<!-- `$CL^ `cursor^ `$CR^            -->
+
+
+
+<!--  -->
+
+<!--  -->
+
+
+<!--  -------------cd--------------- -->
+<!-- `$CL^`$CM^                      -->
+<!--  `$CM^ `cursor^                 -->
+<!--  `$CR^                          -->
+
+
+
+<!--
+
+-->
+
+<!--
+
+-->
+
+
+<!--  -------------t---------------   -->
+<!-- <`tag^`...^ `name^="`val^"`...^> -->
+<!--     `cursor^                     -->
+<!-- </`tag^>                         -->
+
+
+
+<tag name="val" name="val">
+
+</tag>
+
+<tag_TYPED_TYPED>
+
+</tag_TYPED>
+
+
+<!--  -------------doctype_html41_frameset---------------                                                  -->
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd"> -->
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+
+
+<!--  -------------class--------------- -->
+<!-- class="`^"                         -->
+
+
+
+class
+
+class
+
+
+<!--  -------------cl--------------- -->
+<!-- `$CS^ `cursor^                  -->
+
+
+
+
+
+
+
+
+<!--  -------------table2--------------- -->
+<!-- <table>                             -->
+<!--   <tr>                              -->
+<!--     <td>`text^^</td>`...2^          -->
+<!--     <td>`text^^</td>`...2^          -->
+<!--   </tr>`...0^                       -->
+<!--   <tr>                              -->
+<!--     <td>`text^^</td>`...1^          -->
+<!--     <td>`text^^</td>`...1^          -->
+<!--   </tr>`...0^                       -->
+<!-- </table>                            -->
+
+
+
+<table>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td>text_TYPED</td>2_TYPED
+  </tr>0_TYPED
+</table>
+
+
+<!--  -------------table3---------------                                                                -->
+<!-- <table id="`id^">`CntStart("i", "0")^                                                              -->
+<!--   <tr>`CntStart("j", "0")^                                                                         -->
+<!--     <td id="`^R("id")_{Cnt("i")}_{CntIncr("j")}^">`text^^</td>`...2^                               -->
+<!--     <td id="`^R("id")_{Cnt("i")}_{CntIncr("j")}^">`text^^</td>`...2^                               -->
+<!--   </tr>`tr...^                                                                                     -->
+<!--   <tr>                                                                                             -->
+<!--     <td id="\`\^CntStart("j","0")R("id")_{CntIncr("i")}_{CntIncr("j")}\^">\`text\^\^</td>\`td...\^ -->
+<!--     <td id="\\\`\\\^R("id")_{Cnt("i")}_{CntIncr("j")}\\\^">\\\`text\\\^\\\^</td>\\\`td...\\\^\^\^  -->
+<!--   </tr>\`tr...\^^^                                                                                 -->
+<!-- </table>                                                                                           -->
+
+
+
+<table id="id">
+  <tr>
+    <td id="id_0_1"></td>
+    <td id="id_0_2"></td>
+    <td id="id_0_3"></td>
+  </tr>
+  <tr>
+    <td id="id_1_1"></td>
+    <td id="id_1_2"></td>
+    <td id="id_1_3"></td>
+  </tr>
+  <tr>
+    <td id="id_2_1"></td>
+  </tr>
+</table>
+
+<table id="id_TYPED">
+  <tr>
+    <td id="0_TYPED">text_TYPED</td>2_TYPED
+  </tr>tr_TYPED
+</table>
+
+
+<!--  -------------html---------------                                                                                             -->
+<!-- <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"> -->
+<!-- <html>                                                                                                                        -->
+<!--   <head>                                                                                                                      -->
+<!--     <meta http-equiv=\"Content-Type\" content=\"text/html; charset=`encoding^utf-8^\"/>                                       -->
+<!--     <link rel=\"stylesheet\" type=\"text/css\" href=\"\" />                                                                   -->
+<!--     <style></style>                                                                                                           -->
+<!--     <title>`title^E('%:r')^</title>                                                                                           -->
+<!--     <script language=\"javascript\" type=\"text/javascript\">                                                                 -->
+<!--       <!-- _cmt_                                                                                                              -->
+<!--     </script>                                                                                                                 -->
+<!--   </head>                                                                                                                     -->
+<!--   <body>                                                                                                                      -->
+<!--     `cursor^                                                                                                                  -->
+<!--   </body>                                                                                                                     -->
+<!-- </html>                                                                                                                       -->
+
+
+
+<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">
+<html>
+  <head>
+    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>
+    <link rel=\"stylesheet\" type=\"text/css\" href=\"\" />
+    <style></style>
+    <title>/tmp/v966569/0/test</title>
+    <script language=\"javascript\" type=\"text/javascript\">
+      <!-- -->
+    </script>
+  </head>
+  <body>
+    
+  </body>
+</html>
+
+<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">
+<html>
+  <head>
+    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=encoding_TYPED\"/>
+    <link rel=\"stylesheet\" type=\"text/css\" href=\"\" />
+    <style></style>
+    <title>title_TYPED</title>
+    <script language=\"javascript\" type=\"text/javascript\">
+      <!-- -->
+    </script>
+  </head>
+  <body>
+    
+  </body>
+</html>
+
+
+<!--  -------------doctype_xhtml11---------------                                      -->
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/1999/xhtml"> -->
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/1999/xhtml">
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/1999/xhtml">
+
+
+<!--  -------------p_--------------- -->
+<!-- <p>`wrapped^</p>                -->
+
+
+<p>WRAPPED_TEXT</p>
+
+<p>WRAPPED_TEXT</p>
+
+
+
+<!--  -------------doctype_html4_strict---------------                                              -->
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"> -->
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+
+
+<!--  -------------CDATA_--------------- -->
+<!-- <![CDATA[                           -->
+<!-- `cursor^                            -->
+<!-- ]]>                                 -->
+
+
+
+<![CDATA[
+
+]]>
+
+<![CDATA[
+
+]]>
+
+
+<!--  -------------a_--------------- -->
+<!-- <a href="">`wrapped^</a>        -->
+
+
+<a href="">WRAPPED_TEXT</a>
+
+<a href="">WRAPPED_TEXT</a>
+
+
+
+<!--  -------------div--------------- -->
+<!-- <div`^>`cursor^</div>            -->
+
+
+
+<div></div>
+
+<div_TYPED></div>
+
+
+<!--  -------------doctype_html4_loose---------------                                                           -->
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"> -->
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+
+
+<!--  -------------table--------------- -->
+<!-- `createTable()^                    -->
+
+
+
+<table id='id'>
+  <tr>
+    <td id="pre_1_1"></td>
+  </tr>
+</table>
+
+<table id='id_TYPED'>
+  <tr>
+    <td id="pre_TYPED_1_1"></td>
+  </tr>
+</table>
+
+
+<!--  -------------doctype_html41_loose---------------                                                      -->
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> -->
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+
+<!--  -------------id--------------- -->
+<!-- id="`^"                         -->
+
+
+
+id
+
+id
+
+
+<!--  -------------Email--------------- -->
+<!-- `$email^                           -->
+
+
+
+bal@bla
+
+bal@bla
+
+
+<!--  -------------File--------------- -->
+<!-- `file()^                          -->
+
+
+
+test.page
+
+test.page
+
+
+<!--  -------------style---------------                      -->
+<!-- <?xml-stylesheet type="`style^text/css^" href="`from^"> -->
+
+
+
+<?xml-stylesheet type="text/css" href="from">
+
+<?xml-stylesheet type="style_TYPED" href="from_TYPED">
+

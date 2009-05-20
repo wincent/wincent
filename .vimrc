@@ -1,0 +1,94 @@
+set hlsearch                      " highlight search strings
+set incsearch                     " incremental search ("find as you type")
+set ignorecase                    " ignore case when searching
+set smartcase                     " except when search string includes a capital letter
+set number                        " show line numbers in gutter
+set ruler                         " show line/column info at bottom of buffer
+set ww=h,l,<,>,[,]                " allow h/l/left/right to cross line boundaries
+set autoread                      " if not changed in Vim, automatically pick up changes after "git co" etc
+set guioptions-=T                 " don't show toolbar
+set guifont=Monaco:h10            " the best programming font, Monaco 10
+set hidden                        " allows you to hide buffers with unsaved changes without being prompted
+set wildmenu                      " show options as list when switching buffers etc
+set wildmode=list:longest         " shell-like autocomplete to unambiguous portion
+set history=1000                  " longer search and command history (default is 20)
+set scrolloff=3                   " start scrolling 3 lines before edge of viewport
+set backupdir=~/.vim/tmp/backup,. " keep backup files out of the way
+set directory=~/.vim/tmp/swap,.   " keep swap files out of the way
+
+" all languages
+set shiftwidth=2                  " spaces per tab (when shifting)
+set tabstop=2                     " spaces per tab
+set expandtab                     " always use spaces instead of tabs
+set smarttab                      " <tab>
+set list                          " show whitespace
+set listchars=eol:¶,tab:>-,extends:»,precedes:«,trail:•
+set autoindent
+
+" Ruby
+autocmd FileType ruby set smartindent
+autocmd FileType ruby set tabstop=2
+autocmd FileType ruby set shiftwidth=2
+
+" C
+autocmd FileType c set tabstop=4
+autocmd FileType c set shiftwidth=4
+
+" Objective-C
+let filetype_m='objc'
+
+" load indent files (automatic, language-dependent indentation)
+filetype indent on
+
+color wincent       " modified version of default MacVim scheme (light yellow background)
+
+let mapleader=","
+
+" http://vim.wikia.com/wiki/Detect_window_creation_with_WinEnter
+autocmd VimEnter * autocmd WinEnter * let w:created=1
+autocmd VimEnter * let w:created=1
+
+" http://vim.wikia.com/wiki/Highlight_text_beyond_80_columns
+let w:m1=matchadd('LineProximity',  '\%<81v.\%>75v', -1)  " for first window at launch
+let w:m2=matchadd('LineOverflow',   '\%<133v.\%>80v', -1) " for first window at launch
+let w:m2=matchadd('LineHardLimit',  '\%>132v.\+', -1)     " for first window at launch
+
+" for all other windows
+autocmd WinEnter * if !exists('w:created') | let w:m1=matchadd('LineProximity', '\%<81v.\%>75v', -1) | endif
+autocmd WinEnter * if !exists('w:created') | let w:m2=matchadd('LineOverflow',  '\%<133v.\%>80v', -1) | endif
+autocmd WinEnter * if !exists('w:created') | let w:m2=matchadd('LineHardLimit', '\%>132v.\+', -1) | endif
+
+" see changes made to current buffer since file was loaded
+" (from vimrc example file)
+" to get out of diff mode do :diffoff!
+if !exists(":DiffOrig")
+  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+		  \ | wincmd p | diffthis
+endif
+
+" ,e -- edit file, starting in same directory as current file
+map <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+
+" emulate Command-T in TextMate
+map <leader>t :FuzzyFinderFile<CR>
+map <leader>b :FuzzyFinderBuffer<CR>
+
+" set up :Ack command as replacement for :grep
+function! AckGrep(command)
+  cexpr system("ack " . a:command)
+  cw " show quickfix window already
+endfunction
+command! -nargs=+ -complete=file Ack call AckGrep(<q-args>)
+map <leader>a :Ack<space>
+
+function! RunSpec(command)
+  if a:command == ''
+    let dir = 'spec'
+  else
+    let dir = a:command
+  endif
+  cexpr system("spec -r spec/vim_formatter.rb -f Spec::Runner::Formatter::VimFormatter " . dir)"a:command)
+  cw
+endfunction
+command! -nargs=? -complete=file Spec call RunSpec(<q-args>)
+map <leader>s :Spec<space>
