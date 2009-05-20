@@ -4,7 +4,7 @@ set incsearch                     " incremental search ("find as you type")
 set ignorecase                    " ignore case when searching
 set smartcase                     " except when search string includes a capital letter
 set number                        " show line numbers in gutter
-set ruler                         " show line/column info at bottom of buffer
+set laststatus=2                  " always show status line
 set ww=h,l,<,>,[,]                " allow h/l/left/right to cross line boundaries
 set autoread                      " if not changed in Vim, automatically pick up changes after "git co" etc
 set guioptions-=T                 " don't show toolbar
@@ -17,6 +17,25 @@ set scrolloff=3                   " start scrolling 3 lines before edge of viewp
 set backupdir=~/.vim/tmp/backup,. " keep backup files out of the way
 set directory=~/.vim/tmp/swap,.   " keep swap files out of the way
 set ttimeoutlen=50                " speed up O etc in the Terminal
+
+" statusline
+" cf the default statusline: %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+" format markers:
+"   %< truncation point
+"   %n buffer number
+"   %f relative path to file
+"   %m modified flag [+] (modified), [-] (unmodifiable) or nothing
+"   %r readonly flag [RO]
+"   %y filetype [ruby]
+"   %= split point for left and right justification
+"   %-35. width specification
+"   %l current line number
+"   %L number of lines in buffer
+"   %c current column number
+"   %V current virtual column number (-n), if different from %c
+"   %P percentage through buffer
+"   %) end of width specification
+set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 
 " all languages
 set shiftwidth=2                  " spaces per tab (when shifting)
