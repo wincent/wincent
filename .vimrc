@@ -15,6 +15,7 @@ set history=1000                  " longer search and command history (default i
 set scrolloff=3                   " start scrolling 3 lines before edge of viewport
 set backupdir=~/.vim/tmp/backup,. " keep backup files out of the way
 set directory=~/.vim/tmp/swap,.   " keep swap files out of the way
+set ttimeoutlen=50                " speed up O etc in the Terminal
 
 " all languages
 set shiftwidth=2                  " spaces per tab (when shifting)
