@@ -138,14 +138,17 @@ function! GitCommit(args)
     let git_output = s:SystemGit('commit ' . args)
     let $EDITOR = editor_save
 
+    " signoff already handled, so don't pass through -s/--signoff again
+    let args = substitute(args, '\k\@<!\(-s\|--signoff\)\>', '', 'g')
+
     execute printf('%s %sCOMMIT_EDITMSG', g:git_command_edit, git_dir)
-    setlocal filetype=git-status bufhidden=wipe
+    setlocal filetype=gitcommit bufhidden=wipe
     augroup GitCommit
-        autocmd BufWritePre  <buffer> g/^#\|^\s*$/d | setlocal fileencoding=utf-8
-        execute printf("autocmd BufWritePost <buffer> call GitDoCommand('commit %s -F ' . expand('%%')) | autocmd! GitCommit * <buffer>", args)
+        autocmd BufRead <buffer> setlocal fileencoding=utf-8
+        execute printf("autocmd BufUnload <buffer> call GitDoCommand('commit %s --cleanup=strip -F ' . expand('<afile>')) | autocmd! GitCommit * <buffer>", args)
     augroup END
 endfunction
-
+"
 " Checkout.
 function! GitCheckout(args)
     call GitDoCommand('checkout ' . a:args)
