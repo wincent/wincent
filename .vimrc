@@ -58,8 +58,9 @@ autocmd FileType c set shiftwidth=4
 " Objective-C
 let filetype_m='objc'
 
-" load indent files (automatic, language-dependent indentation)
-filetype indent on
+" automatic, language-dependent indentation, syntax coloring and other
+" functionality
+filetype indent plugin on
 
 color wincent       " modified version of default MacVim scheme (light yellow background)
 
