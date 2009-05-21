@@ -3,3 +3,5 @@
 --type-set=haml=.haml
 --type-set=ragel=.rl
 --type-set=sass=.sass
+--type-set=txt=.txt
+--type-set=xcconfig=.xcconfig
