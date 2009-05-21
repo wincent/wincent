@@ -1,0 +1,4 @@
+--pager=less
+--type-set=haml=.haml
+--type-set=sass=.sass
+--type-set=builder=.builder
