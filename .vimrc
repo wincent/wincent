@@ -17,6 +17,11 @@ set scrolloff=3                   " start scrolling 3 lines before edge of viewp
 set backupdir=~/.vim/tmp/backup,. " keep backup files out of the way
 set directory=~/.vim/tmp/swap,.   " keep swap files out of the way
 set ttimeoutlen=50                " speed up O etc in the Terminal
+set virtualedit=block             " allow cursor to move where there is no text in visual block mode
+set showmatch                     " show matching brackets
+set showcmd                       " extra info in command line
+set nojoinspaces                  " don't autoinsert two spaces after '.', '?', '!' for join command
+set wildignore+=*.o               " don't offer to autocomplete object files
 
 " statusline
 " cf the default statusline: %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
