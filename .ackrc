@@ -1,4 +1,5 @@
 --pager=less
---type-set=haml=.haml
---type-set=sass=.sass
 --type-set=builder=.builder
+--type-set=haml=.haml
+--type-set=ragel=.rl
+--type-set=sass=.sass
