@@ -244,31 +244,6 @@ check_cr()
   done)
 }
 
-# prepare Synergy button set distribution archive
-buttonarchive()
-{
-  # loop through the args
-  while [ -n "$1" ]
-  do
-    /bin/chmod -R 644 "$1"
-    /bin/chmod 755 "$1"
-    /bin/rm -f "$1/.DS_Store"
-    /usr/bin/touch "$1/.typeAttributes.dict"
-    /bin/cp -v /dev/null "$1/Info.plist/..namedfork/rsrc"
-    /bin/cp -v /dev/null "$1/nextImage.png/..namedfork/rsrc"
-    /bin/cp -v /dev/null "$1/pauseImage.png/..namedfork/rsrc"
-    /bin/cp -v /dev/null "$1/playImage.png/..namedfork/rsrc"
-    /bin/cp -v /dev/null "$1/playPauseImage.png/..namedfork/rsrc"
-    /bin/cp -v /dev/null "$1/stopImage.png/..namedfork/rsrc"
-    /bin/cp -v /dev/null "$1/prevImage.png/..namedfork/rsrc"
-    /bin/rm -f "$1.tar"
-    /bin/rm -f "$1.tar.gz"
-    /usr/bin/tar -c -v "$1" > "$1.tar"
-    /usr/bin/gzip --verbose -9 "$1.tar"
-    shift
-  done
-}
-
 # zap resource forks
 zap()
 {
