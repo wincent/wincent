@@ -176,10 +176,6 @@ alias monitor_backup="pushd ${HOME}; until false; do ll | grep bz2 | awk ' { pri
 
 alias igrep="grep -i"
 
-# enable IRB auto-completion
-# NOTE: this should probably go in .irbrc, no here
-alias irb="irb --readline -r irb/completion"
-
 #
 # Functions
 #
