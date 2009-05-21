@@ -359,7 +359,6 @@ complete -a unalias
 # type, which and whereis complete on commands
 complete -c type which whereis
 
-complete -o default -A hostname nslookup host ping traceroute
 complete -o default -A group chgrp
 complete -o default -A user chown
 
