@@ -350,24 +350,13 @@ regmv()
 # Completions
 #
 
-# make directory commands see only directories
-complete -d cd pushd
-
-# unalias completes with aliases
-complete -a unalias
-
-# type, which and whereis complete on commands
-complete -c type which whereis
-
-complete -o default -A group chgrp
-complete -o default -A user chown
-
-#
-# Other files
-#
-
 BASH_COMPLETION=~/.bash/completion/bash_completion
 test -f $BASH_COMPLETION && . $BASH_COMPLETION
 
 GIT_COMPLETION=~/.git-completion.sh
 test -f $GIT_COMPLETION && . $GIT_COMPLETION
+
+# whereis completes on commands
+# (not so useful seeing as whereis only searches standard binary dirs, not user
+# PATH)
+complete -c command whereis
