@@ -49,20 +49,7 @@ ECHONOCOLOR="\e[0m"
 # Prompt
 #
 
-#OPENTITLEBAR="\[\033]0;"
-#CLOSETITLEBAR="\007\]"
-
-# for a long time I had \W in the title bar and \w in the prompt; now swapped
-#TITLEBAR="${OPENTITLEBAR}\W${CLOSETITLEBAR}"
-#TITLEBAR="${OPENTITLEBAR}\w${CLOSETITLEBAR}"
-
-# also had \u in the prompt for a long time; dropped it
-#PROMPT="${GREEN}\h:${BLUE}\w ${NOCOLOR}\u${RED}\$ ${NOCOLOR}"
-PROMPT="${GREEN}\h:${BLUE}\W${RED}\$ ${NOCOLOR}"
-
-# previously set the titlebar from the prompt
-#export PS1="${TITLEBAR}${PROMPT}"
-export PS1="${PROMPT}"
+export PS1="${GREEN}\h:${BLUE}\W${RED}\$ ${NOCOLOR}"
 
 #
 # Title bar
@@ -73,12 +60,6 @@ OPENTITLEBAR="\033]0;"
 CLOSETITLEBAR="\007"
 
 trap 'printf "${OPENTITLEBAR} `history 1 | cut -b8-` - `pwd` ${CLOSETITLEBAR}"' DEBUG
-
-# this function isn't used, but will keep it around anyway
-function set_title ()
-{
-  echo -n -e "\033]0;$*\007"
-}
 
 #
 # History
@@ -92,15 +73,15 @@ export HISTFILESIZE=10000
 export HISTCONTROL=ignoredups
 
 export HOSTFILE=~/.bash_hostfile
+export HISTIGNORE="exit"
 
-HISTIGNORE="exit"
-export HISTIGNORE
 
 #
 # Shell options
 #
 
-# prevent accidental CTRL-D from exiting the shell (multiple CTRL-Ds will still work)
+# prevent accidental CTRL-D from exiting the shell (multiple CTRL-Ds will still
+# work)
 set -o ignoreeof
 
 # silently correct typos in directory names when using the "cd" builtin
@@ -123,25 +104,25 @@ shopt -u hostcomplete
 # Environment
 #
 
-export SVKMERGE=FileMerge
-export CVSROOT=/usr/local/cvsrep
-export PAGER=/usr/bin/less
+export PAGER=less
 export EDITOR=vim
 
-# filename (if known), line number if known, falling back to percent if known, falling back to byte offset, falling back to dash
+# filename (if known), line number if known, falling back to percent if known,
+# falling back to byte offset, falling back to dash
 export LESSPROMPT='?f%f .?ltLine %lt:?pt%pt\%:?btByte %bt:-...'
 
-# F = exit immediately if fits on first screen, M = verbose prompt, R = ANSI color support, X = prevent output from being cleared
+# F = exit immediately if fits on first screen, M = verbose prompt, R = ANSI
+# color support, X = prevent output from being cleared
 export LESS=FMRX
 
 # for the benefit of CPAN and potentially others
 export FTP_PASSIVE=1
 
 # colour ls listings
-CLICOLOR=true
+export CLICOLOR=true
 
 # /usr/local/bin has to come first so that custom Ruby install will be used (1.8.6)
-PATH=/usr/local/bin:$PATH:$HOME/bin:/Developer/Tools:/usr/X11R6/bin
+PATH=$PATH:/usr/local/bin:$HOME/bin:/Developer/Tools:/usr/X11R6/bin
 PATH=$PATH:/usr/local/mysql/bin
 export PATH
 
@@ -153,16 +134,11 @@ export MANPATH
 # don't export CDPATH (can cause problems with shell scripts etc)
 CDPATH=.:~:~/trabajo:/usr/local
 
-# for ANTLR
-export CLASSPATH=".:/usr/local/antlr/lib/antlr-3.0.1-custom.jar"
-export CLASSPATH="$CLASSPATH:/usr/local/antlr/lib/antlr-2.7.7.jar"
-export CLASSPATH="$CLASSPATH:/usr/local/antlr/lib/antlr-runtime-3.0.1.jar"
-export CLASSPATH="$CLASSPATH:/usr/local/antlr/lib/stringtemplate-3.1b1.jar"
-
 #
 # Aliases
 #
 
+# shortcut to the bestest editor in the world
 alias m="mvim --remote-silent"
 
 # distinguish folders in ls listings
@@ -182,23 +158,23 @@ alias cd..="cd .."
 alias h="history"
 
 # the only kind of "top" listing I ever seem to do (and "top -u" is deprecated)
-alias top="/usr/bin/top -ocpu -Otime"
+alias top="top -ocpu -Otime"
 
 # human readable du and df
-alias du="echo -e \"${ECHORED}/usr/bin/du -h [alias]${ECHONOCOLOR}\";\
-          /usr/bin/du -h"
+alias du="echo -e \"${ECHORED}du -h [alias]${ECHONOCOLOR}\";\
+          du -h"
 
-alias df="echo -e \"${ECHORED}/bin/df -h [alias]${ECHONOCOLOR}\";\
-          /bin/df -h"
+alias df="echo -e \"${ECHORED}df -h [alias]${ECHONOCOLOR}\";\
+          df -h"
 
-alias pstree="echo -e \"${ECHORED}/usr/local/bin/pstree -w[alias]${ECHONOCOLOR}\";\
-              /usr/local/bin/pstree -w"
+alias pstree="echo -e \"${ECHORED}pstree -w[alias]${ECHONOCOLOR}\";\
+              pstree -w"
 
-alias mirror="/usr/local/bin/wget -H -p -k"
+alias mirror="wget -H -p -k"
 
-alias monitor_backup="pushd ${HOME}; until /usr/bin/false; do ll | grep bz2 | awk ' { print \$6 } '; sleep 60; done; popd"
+alias monitor_backup="pushd ${HOME}; until false; do ll | grep bz2 | awk ' { print \$6 } '; sleep 60; done; popd"
 
-alias igrep="/usr/bin/grep -i"
+alias igrep="grep -i"
 
 # enable IRB auto-completion
 # NOTE: this should probably go in .irbrc, no here
@@ -299,7 +275,7 @@ zap()
   # loop through the args
   while [ -n "$1" ]
   do
-    /bin/cp -v /dev/null "$1/..namedfork/rsrc"
+    cp -v /dev/null "$1/..namedfork/rsrc"
     shift
   done
 }
@@ -338,7 +314,7 @@ sr()
 {
   while [ -n "$1" ]
   do
-    /bin/cp -i -v /dev/null "$1/..namedfork/rsrc"
+    cp -i -v /dev/null "$1/..namedfork/rsrc"
     shift
   done
 }
