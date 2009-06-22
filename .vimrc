@@ -62,6 +62,8 @@ autocmd FileType c set shiftwidth=4
 
 " Objective-C
 let filetype_m='objc'
+autocmd FileType objc set tabstop=4
+autocmd FileType objc set shiftwidth=4
 
 " automatic, language-dependent indentation, syntax coloring and other
 " functionality
