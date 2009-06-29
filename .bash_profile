@@ -141,6 +141,8 @@ CDPATH=.:~:~/trabajo:/usr/local
 # shortcut to the bestest editor in the world
 alias m="mvim --remote-silent"
 
+alias yuicompressor='java -jar ~/trabajo/vendor/yuicompressor/yuicompressor.jar'
+
 # distinguish folders in ls listings
 alias ls="/bin/ls -F"
 alias l="/bin/ls -F"
