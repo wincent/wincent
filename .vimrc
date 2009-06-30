@@ -48,7 +48,7 @@ set tabstop=2                     " spaces per tab
 set expandtab                     " always use spaces instead of tabs
 set smarttab                      " <tab>
 set list                          " show whitespace
-set listchars=eol:¶,tab:>-,extends:»,precedes:«,trail:•
+set listchars=nbsp:¬,eol:¶,tab:>-,extends:»,precedes:«,trail:•
 set autoindent
 
 " Ruby
