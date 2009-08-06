@@ -40,6 +40,14 @@
 #       with the bash.showDirtyState variable, which defaults to true
 #       once GIT_PS1_SHOWDIRTYSTATE is enabled.
 #
+#       You can also see if currently something is stashed, by setting
+#       GIT_PS1_SHOWSTASHSTATE to a nonempty value. If something is stashed,
+#       then a '$' will be shown next to the branch name.
+#
+#       If you would like to see if there're untracked files, then you can
+#       set GIT_PS1_SHOWUNTRACKEDFILES to a nonempty value. If there're
+#       untracked files, then a '%' will be shown next to the branch name.
+#
 # To submit patches:
 #
 #    *) Read Documentation/SubmittingPatches
@@ -84,26 +92,24 @@ __git_ps1 ()
 	if [ -n "$g" ]; then
 		local r
 		local b
-		if [ -d "$g/rebase-apply" ]; then
-			if [ -f "$g/rebase-apply/rebasing" ]; then
-				r="|REBASE"
-		elif [ -f "$g/rebase-apply/applying" ]; then
-				r="|AM"
-			else
-				r="|AM/REBASE"
-			fi
-			b="$(git symbolic-ref HEAD 2>/dev/null)"
-		elif [ -f "$g/rebase-merge/interactive" ]; then
+		if [ -f "$g/rebase-merge/interactive" ]; then
 			r="|REBASE-i"
 			b="$(cat "$g/rebase-merge/head-name")"
 		elif [ -d "$g/rebase-merge" ]; then
 			r="|REBASE-m"
 			b="$(cat "$g/rebase-merge/head-name")"
 		else
-			if [ -f "$g/MERGE_HEAD" ]; then
+			if [ -d "$g/rebase-apply" ]; then
+				if [ -f "$g/rebase-apply/rebasing" ]; then
+					r="|REBASE"
+				elif [ -f "$g/rebase-apply/applying" ]; then
+					r="|AM"
+				else
+					r="|AM/REBASE"
+				fi
+			elif [ -f "$g/MERGE_HEAD" ]; then
 				r="|MERGING"
-			fi
-			if [ -f "$g/BISECT_LOG" ]; then
+			elif [ -f "$g/BISECT_LOG" ]; then
 				r="|BISECTING"
 			fi
 
@@ -129,6 +135,8 @@ __git_ps1 ()
 
 		local w
 		local i
+		local s
+		local u
 		local c
 
 		if [ "true" = "$(git rev-parse --is-inside-git-dir 2>/dev/null)" ]; then
@@ -150,14 +158,21 @@ __git_ps1 ()
 					fi
 				fi
 			fi
+			if [ -n "${GIT_PS1_SHOWSTASHSTATE-}" ]; then
+			        git rev-parse --verify refs/stash >/dev/null 2>&1 && s="$"
+			fi
+
+			if [ -n "${GIT_PS1_SHOWUNTRACKEDFILES-}" ]; then
+			   if [ -n "$(git ls-files --others --exclude-standard)" ]; then
+			      u="%"
+			   fi
+			fi
 		fi
 
-		if [ -n "$b" ]; then
-			if [ -n "${1-}" ]; then
-				printf "$1" "$c${b##refs/heads/}$w$i$r"
-			else
-				printf " (%s)" "$c${b##refs/heads/}$w$i$r"
-			fi
+		if [ -n "${1-}" ]; then
+			printf "$1" "$c${b##refs/heads/}$w$i$s$u$r"
+		else
+			printf " (%s)" "$c${b##refs/heads/}$w$i$s$u$r"
 		fi
 	fi
 }
@@ -923,7 +938,7 @@ _git_diff ()
 }
 
 __git_mergetools_common="diffuse ecmerge emerge kdiff3 meld opendiff
-			tkdiff vimdiff gvimdiff xxdiff
+			tkdiff vimdiff gvimdiff xxdiff araxis
 "
 
 _git_difftool ()
@@ -1110,7 +1125,7 @@ _git_ls_tree ()
 __git_log_common_options="
 	--not --all
 	--branches --tags --remotes
-	--first-parent --no-merges
+	--first-parent --merges --no-merges
 	--max-count=
 	--max-age= --since= --after=
 	--min-age= --until= --before=
@@ -1161,7 +1176,7 @@ _git_log ()
 			$__git_log_shortlog_options
 			$__git_log_gitk_options
 			--root --topo-order --date-order --reverse
-			--follow
+			--follow --full-diff
 			--abbrev-commit --abbrev=
 			--relative-date --date=
 			--pretty= --format= --oneline
@@ -1295,7 +1310,7 @@ _git_rebase ()
 }
 
 __git_send_email_confirm_options="always never auto cc compose"
-__git_send_email_suppresscc_options="author self cc ccbody sob cccmd body all"
+__git_send_email_suppresscc_options="author self cc bodycc sob cccmd body all"
 
 _git_send_email ()
 {
@@ -1334,6 +1349,36 @@ _git_send_email ()
 	COMPREPLY=()
 }
 
+__git_config_get_set_variables ()
+{
+	local prevword word config_file= c=$COMP_CWORD
+	while [ $c -gt 1 ]; do
+		word="${COMP_WORDS[c]}"
+		case "$word" in
+		--global|--system|--file=*)
+			config_file="$word"
+			break
+			;;
+		-f|--file)
+			config_file="$word $prevword"
+			break
+			;;
+		esac
+		prevword=$word
+		c=$((--c))
+	done
+
+	git --git-dir="$(__gitdir)" config $config_file --list 2>/dev/null |
+	while read line
+	do
+		case "$line" in
+		*.*=*)
+			echo "${line/=*/}"
+			;;
+		esac
+	done
+}
+
 _git_config ()
 {
 	local cur="${COMP_WORDS[COMP_CWORD]}"
@@ -1365,7 +1410,8 @@ _git_config ()
 		__gitcomp "$(__git_merge_strategies)"
 		return
 		;;
-	color.branch|color.diff|color.interactive|color.status|color.ui)
+	color.branch|color.diff|color.interactive|\
+	color.showbranch|color.status|color.ui)
 		__gitcomp "always never auto"
 		return
 		;;
@@ -1400,6 +1446,10 @@ _git_config ()
 		__gitcomp "$__git_send_email_suppresscc_options"
 		return
 		;;
+	--get|--get-all|--unset|--unset-all)
+		__gitcomp "$(__git_config_get_set_variables)"
+		return
+		;;
 	*.*)
 		COMPREPLY=()
 		return
@@ -1419,7 +1469,7 @@ _git_config ()
 	branch.*.*)
 		local pfx="${cur%.*}."
 		cur="${cur##*.}"
-		__gitcomp "remote merge mergeoptions" "$pfx" "$cur"
+		__gitcomp "remote merge mergeoptions rebase" "$pfx" "$cur"
 		return
 		;;
 	branch.*)
@@ -1466,7 +1516,7 @@ _git_config ()
 		cur="${cur##*.}"
 		__gitcomp "
 			url proxy fetch push mirror skipDefaultUpdate
-			receivepack uploadpack tagopt
+			receivepack uploadpack tagopt pushurl
 			" "$pfx" "$cur"
 		return
 		;;
@@ -1484,6 +1534,7 @@ _git_config ()
 		;;
 	esac
 	__gitcomp "
+		add.ignore-errors
 		alias.
 		apply.whitespace
 		branch.autosetupmerge
@@ -1510,6 +1561,7 @@ _git_config ()
 		color.interactive.help
 		color.interactive.prompt
 		color.pager
+		color.showbranch
 		color.status
 		color.status.added
 		color.status.changed
@@ -1821,6 +1873,7 @@ _git_show_branch ()
 		__gitcomp "
 			--all --remotes --topo-order --current --more=
 			--list --independent --merge-base --no-name
+			--color --no-color
 			--sha1-name --sparse --topics --reflog
 			"
 		return
@@ -1841,10 +1894,10 @@ _git_stash ()
 		save,--*)
 			__gitcomp "--keep-index"
 			;;
-		apply,--*)
+		apply,--*|pop,--*)
 			__gitcomp "--index"
 			;;
-		show,--*|drop,--*|pop,--*|branch,--*)
+		show,--*|drop,--*|branch,--*)
 			COMPREPLY=()
 			;;
 		show,*|apply,*|drop,*|pop,*|branch,*)
