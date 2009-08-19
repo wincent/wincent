@@ -77,6 +77,10 @@ let mapleader=","
 " XP Template: default mapping of <C-\> doesn't work on most European keyboards
 let g:xptemplate_key='<F5>'
 
+" a.vim
+let g:alternateExtensions_m = "h"
+let g:alternateExtensions_h = "m,c,mm,cpp,cxx,cc,CC"
+
 " http://vim.wikia.com/wiki/Detect_window_creation_with_WinEnter
 autocmd VimEnter * autocmd WinEnter * let w:created=1
 autocmd VimEnter * let w:created=1
