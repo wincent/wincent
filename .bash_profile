@@ -62,6 +62,40 @@ CLOSETITLEBAR="\007"
 trap 'printf "${OPENTITLEBAR} `history 1 | cut -b8-` - `pwd` ${CLOSETITLEBAR}"' DEBUG
 
 #
+# Tab titles
+#
+
+# Based on hack by Christopher Stawarz found at:
+#   http://pseudogreen.org/blog/set_tab_names_in_leopard_terminal.html
+function set_tab_title
+{
+  local title="${1##*/}"
+  if [[ "$title" = "src" ]]; then
+    # special case: if PWD is "src", the parent directory is probably more
+    # interesting
+    title="${1%%/src}"
+    title="${title##*/}"
+  fi
+  if [[ -z "$title" ]]; then
+    title="root"
+  fi
+  local tmpdir=~/Library/Caches/${FUNCNAME}_temp
+  local cmdfile="$tmpdir/$title"
+  if [[ -n ${CURRENT_TAB_TITLE_PID:+1} ]]; then
+    kill $CURRENT_TAB_TITLE_PID
+  fi
+  mkdir -p $tmpdir
+  ln /bin/sleep "$cmdfile"
+  "$cmdfile" 10 &
+  CURRENT_TAB_TITLE_PID=$(jobs -x echo %+)
+  disown %+
+  kill -STOP $CURRENT_TAB_TITLE_PID
+  command rm -f "$cmdfile"
+}
+
+PROMPT_COMMAND='set_tab_title "$PWD"'
+
+#
 # History
 #
 
