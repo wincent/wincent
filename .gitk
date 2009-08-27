@@ -1,0 +1,32 @@
+set mainfont {{Lucida Grande} 9}
+set textfont {Monaco 9}
+set uifont {{Lucida Grande} 9 bold}
+set tabstop 8
+set findmergefiles 0
+set maxgraphpct 50
+set maxwidth 16
+set cmitmode patch
+set wrapcomment none
+set autoselect 1
+set showneartags 1
+set showlocalchanges 1
+set datetimeformat {%Y-%m-%d %H:%M:%S}
+set limitdiffs 1
+set bgcolor white
+set fgcolor black
+set colors {green red blue magenta darkgrey brown orange}
+set diffcolors {red "#00a000" blue}
+set markbgcolor #e0e0ff
+set diffcontext 3
+set selectbgcolor gray85
+set extdifftool opendiff
+set perfile_attrs 0
+set geometry(main) 1126x760+5+27
+set geometry(state) normal
+set geometry(topwidth) 1124
+set geometry(topheight) 309
+set geometry(pwsash0) "418 1"
+set geometry(pwsash1) "591 1"
+set geometry(botwidth) 572
+set geometry(botheight) 439
+set permviews {}
