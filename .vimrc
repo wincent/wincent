@@ -129,3 +129,5 @@ function! RunSpec(command)
 endfunction
 command! -nargs=? -complete=file Spec call RunSpec(<q-args>)
 map <leader>s :Spec<space>
+
+source $VIMRUNTIME/macros/matchit.vim
