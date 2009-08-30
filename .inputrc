@@ -1,0 +1,67 @@
+# Key bindings for Bash by Wincent Colaiuta
+# Created 4 December 2003
+
+# corresponds to "\033[3~" in the Terminal keyboard settings window
+"\e[3~": delete-char
+
+set bell-style visible
+
+# by default, if filename completion is performed on a symbolic link pointing
+# to a directory, append a slash
+set mark-symlinked-directories on
+
+# word movement (normally M-f, M-b, but can't use Meta on a Spanish keyboard
+# without losing the ability to type important keys like: \ @ € [ ] { } )
+# as a result, setting these here has no effect: must paste
+# "\033b" and "\033f" into the Terminal keyboard settings window
+#"\M-[D": backward-word
+#"\M-[C": forward-word
+
+# Control-A and Control-E are the defaults here (and continue to work)
+# but Control-Left and Control-Right are a bit more pleasant to use
+# Must also configure the Terminal to send "\033[5D" and "\033[5C"
+# for Control-Left and Control-Right respectively, otherwise readline
+# will never see these keystrokes:
+"\e[5D": beginning-of-line
+"\e[5C": end-of-line
+
+# Hit ESC repeatedly to cycle through possible completions (ProjectBuilder)
+#ESC: menu-complete
+# bug: can hit ESC to choose completion, but on pressing return key, only
+# the text entered up until the time of the ESC key press is actually used
+# or a previous completion is used rather than the currently displayed one
+# also, you have to hit ESC twice in order for it to work
+
+# Hit tab to show a list of possible completions, ignoring case
+set completion-ignore-case on
+set show-all-if-ambiguous on
+set visible-stats on
+
+# Search history for commands matching text typed so far:
+# bug.. if you find a match, delete a few characters and hit up/down again
+# you get a literal up key "]" printed to the shell
+
+# you can also trip a bug by hitting the "end" of the history buffer in
+# either direction
+
+# - using the Up/Down arrow keys
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
+# forward delete
+"\e[3~": delete-char
+
+# enable 8-bit input (do not strip 8th bit from input)
+set meta-flag on
+
+# synonym for meta-flag
+set input-meta on
+
+# display 8-bit characters directly (rather than as a meta-prefixed escape sequence)
+set output-meta on
+
+# do not convert 8-bit characters into ASCII key sequences
+set convert-meta off
+
+# bell style
+set bell-style visible
