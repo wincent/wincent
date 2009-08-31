@@ -222,7 +222,11 @@ alias igrep="grep -i"
 inetu()
 {
   test "$TERM_PROGRAM" = "Apple_Terminal" && ts novel
-  ssh $1@wincent1.inetu.net
+  if [ -z "$1" ]; then
+    ssh wincent1.inetu.net
+  else
+    ssh $1@wincent1.inetu.net
+  fi
   test "$TERM_PROGRAM" = "Apple_Terminal" && ts wincent
 }
 
