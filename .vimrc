@@ -14,6 +14,7 @@ set wildmenu                      " show options as list when switching buffers 
 set wildmode=longest:full,full    " shell-like autocomplete to unambiguous portion
 set history=1000                  " longer search and command history (default is 20)
 set scrolloff=3                   " start scrolling 3 lines before edge of viewport
+set sidescrolloff=3               " same, but for columns
 set backupdir=~/.vim/tmp/backup,. " keep backup files out of the way
 set directory=~/.vim/tmp/swap,.   " keep swap files out of the way
 set ttimeoutlen=50                " speed up O etc in the Terminal
