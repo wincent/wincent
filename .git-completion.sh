@@ -318,13 +318,9 @@ __git_remotes ()
 		echo ${i#$d/remotes/}
 	done
 	[ "$ngoff" ] && shopt -u nullglob
-	for i in $(git --git-dir="$d" config --list); do
-		case "$i" in
-		remote.*.url=*)
-			i="${i#remote.}"
-			echo "${i/.url=*/}"
-			;;
-		esac
+	for i in $(git --git-dir="$d" config --get-regexp 'remote\..*\.url' 2>/dev/null); do
+		i="${i#remote.}"
+		echo "${i/.url*/}"
 	done
 }
 
@@ -500,7 +496,7 @@ __git_all_commands ()
 		return
 	fi
 	local i IFS=" "$'\n'
-	for i in $(git help -a|egrep '^ ')
+	for i in $(git help -a|egrep '^  [a-zA-Z0-9]')
 	do
 		case $i in
 		*--*)             : helper pattern;;
@@ -605,11 +601,11 @@ __git_porcelain_commandlist="$(__git_porcelain_commands 2>/dev/null)"
 __git_aliases ()
 {
 	local i IFS=$'\n'
-	for i in $(git --git-dir="$(__gitdir)" config --list); do
+	for i in $(git --git-dir="$(__gitdir)" config --get-regexp "alias\..*" 2>/dev/null); do
 		case "$i" in
 		alias.*)
 			i="${i#alias.}"
-			echo "${i/=*/}"
+			echo "${i/ */}"
 			;;
 		esac
 	done
@@ -628,8 +624,8 @@ __git_aliased_command ()
 	done
 }
 
-# __git_find_subcommand requires 1 argument
-__git_find_subcommand ()
+# __git_find_on_cmdline requires 1 argument
+__git_find_on_cmdline ()
 {
 	local word subcommand c=1
 
@@ -674,8 +670,9 @@ _git_am ()
 	--*)
 		__gitcomp "
 			--3way --committer-date-is-author-date --ignore-date
+			--ignore-whitespace --ignore-space-change
 			--interactive --keep --no-utf8 --signoff --utf8
-			--whitespace=
+			--whitespace= --scissors
 			"
 		return
 	esac
@@ -695,6 +692,7 @@ _git_apply ()
 			--stat --numstat --summary --check --index
 			--cached --index-info --reverse --reject --unidiff-zero
 			--apply --no-add --exclude=
+			--ignore-whitespace --ignore-space-change
 			--whitespace= --inaccurate-eof --verbose
 			"
 		return
@@ -746,7 +744,7 @@ _git_bisect ()
 	__git_has_doubledash && return
 
 	local subcommands="start bad good skip reset visualize replay log run"
-	local subcommand="$(__git_find_subcommand "$subcommands")"
+	local subcommand="$(__git_find_on_cmdline "$subcommands")"
 	if [ -z "$subcommand" ]; then
 		__gitcomp "$subcommands"
 		return
@@ -816,7 +814,21 @@ _git_checkout ()
 {
 	__git_has_doubledash && return
 
-	__gitcomp "$(__git_refs)"
+	local cur="${COMP_WORDS[COMP_CWORD]}"
+	case "$cur" in
+	--conflict=*)
+		__gitcomp "diff3 merge" "" "${cur##--conflict=}"
+		;;
+	--*)
+		__gitcomp "
+			--quiet --ours --theirs --track --no-track --merge
+			--conflict= --patch
+			"
+		;;
+	*)
+		__gitcomp "$(__git_refs)"
+		;;
+	esac
 }
 
 _git_cherry ()
@@ -886,6 +898,7 @@ _git_commit ()
 		__gitcomp "
 			--all --author= --signoff --verify --no-verify
 			--edit --amend --include --only --interactive
+			--dry-run
 			"
 		return
 	esac
@@ -918,6 +931,8 @@ __git_diff_common_options="--stat --numstat --shortstat --summary
 			--inter-hunk-context=
 			--patience
 			--raw
+			--dirstat --dirstat= --dirstat-by-file
+			--dirstat-by-file= --cumulative
 "
 
 _git_diff ()
@@ -1047,6 +1062,7 @@ _git_grep ()
 			--extended-regexp --basic-regexp --fixed-strings
 			--files-with-matches --name-only
 			--files-without-match
+			--max-depth
 			--count
 			--and --or --not --all-match
 			"
@@ -1170,6 +1186,10 @@ _git_log ()
 		__gitcomp "$__git_log_date_formats" "" "${cur##--date=}"
 		return
 		;;
+	--decorate=*)
+		__gitcomp "long short" "" "${cur##--decorate=}"
+		return
+		;;
 	--*)
 		__gitcomp "
 			$__git_log_common_options
@@ -1182,7 +1202,7 @@ _git_log ()
 			--pretty= --format= --oneline
 			--cherry-pick
 			--graph
-			--decorate
+			--decorate --decorate=
 			--walk-reflogs
 			--parents --children
 			$merge
@@ -1529,13 +1549,14 @@ _git_config ()
 	url.*.*)
 		local pfx="${cur%.*}."
 		cur="${cur##*.}"
-		__gitcomp "insteadof" "$pfx" "$cur"
+		__gitcomp "insteadOf pushInsteadOf" "$pfx" "$cur"
 		return
 		;;
 	esac
 	__gitcomp "
 		add.ignore-errors
 		alias.
+		apply.ignorewhitespace
 		apply.whitespace
 		branch.autosetupmerge
 		branch.autosetuprebase
@@ -1753,7 +1774,7 @@ _git_config ()
 _git_remote ()
 {
 	local subcommands="add rename rm show prune update set-head"
-	local subcommand="$(__git_find_subcommand "$subcommands")"
+	local subcommand="$(__git_find_on_cmdline "$subcommands")"
 	if [ -z "$subcommand" ]; then
 		__gitcomp "$subcommands"
 		return
@@ -1765,13 +1786,9 @@ _git_remote ()
 		;;
 	update)
 		local i c='' IFS=$'\n'
-		for i in $(git --git-dir="$(__gitdir)" config --list); do
-			case "$i" in
-			remotes.*)
-				i="${i#remotes.}"
-				c="$c ${i/=*/}"
-				;;
-			esac
+		for i in $(git --git-dir="$(__gitdir)" config --get-regexp "remotes\..*" 2>/dev/null); do
+			i="${i#remotes.}"
+			c="$c ${i/ */}"
 		done
 		__gitcomp "$c"
 		;;
@@ -1781,6 +1798,11 @@ _git_remote ()
 	esac
 }
 
+_git_replace ()
+{
+	__gitcomp "$(__git_refs)"
+}
+
 _git_reset ()
 {
 	__git_has_doubledash && return
@@ -1788,7 +1810,7 @@ _git_reset ()
 	local cur="${COMP_WORDS[COMP_CWORD]}"
 	case "$cur" in
 	--*)
-		__gitcomp "--merge --mixed --hard --soft"
+		__gitcomp "--merge --mixed --hard --soft --patch"
 		return
 		;;
 	esac
@@ -1884,18 +1906,30 @@ _git_show_branch ()
 
 _git_stash ()
 {
+	local cur="${COMP_WORDS[COMP_CWORD]}"
+	local save_opts='--keep-index --no-keep-index --quiet --patch'
 	local subcommands='save list show apply clear drop pop create branch'
-	local subcommand="$(__git_find_subcommand "$subcommands")"
+	local subcommand="$(__git_find_on_cmdline "$subcommands")"
 	if [ -z "$subcommand" ]; then
-		__gitcomp "$subcommands"
+		case "$cur" in
+		--*)
+			__gitcomp "$save_opts"
+			;;
+		*)
+			if [ -z "$(__git_find_on_cmdline "$save_opts")" ]; then
+				__gitcomp "$subcommands"
+			else
+				COMPREPLY=()
+			fi
+			;;
+		esac
 	else
-		local cur="${COMP_WORDS[COMP_CWORD]}"
 		case "$subcommand,$cur" in
 		save,--*)
-			__gitcomp "--keep-index"
+			__gitcomp "$save_opts"
 			;;
 		apply,--*|pop,--*)
-			__gitcomp "--index"
+			__gitcomp "--index --quiet"
 			;;
 		show,--*|drop,--*|branch,--*)
 			COMPREPLY=()
@@ -1916,7 +1950,7 @@ _git_submodule ()
 	__git_has_doubledash && return
 
 	local subcommands="add status init update summary foreach sync"
-	if [ -z "$(__git_find_subcommand "$subcommands")" ]; then
+	if [ -z "$(__git_find_on_cmdline "$subcommands")" ]; then
 		local cur="${COMP_WORDS[COMP_CWORD]}"
 		case "$cur" in
 		--*)
@@ -1938,7 +1972,7 @@ _git_svn ()
 		proplist show-ignore show-externals branch tag blame
 		migrate
 		"
-	local subcommand="$(__git_find_subcommand "$subcommands")"
+	local subcommand="$(__git_find_on_cmdline "$subcommands")"
 	if [ -z "$subcommand" ]; then
 		__gitcomp "$subcommands"
 	else
@@ -2137,6 +2171,7 @@ _git ()
 	push)        _git_push ;;
 	rebase)      _git_rebase ;;
 	remote)      _git_remote ;;
+	replace)     _git_replace ;;
 	reset)       _git_reset ;;
 	revert)      _git_revert ;;
 	rm)          _git_rm ;;
