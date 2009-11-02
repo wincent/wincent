@@ -1,6 +1,7 @@
 --pager=less
 --type-add=ruby=.builder
 --type-add=ruby=.rake
+--type-add=ruby=.feature
 --type-set=haml=.haml
 --type-set=ragel=.rl
 --type-set=sass=.sass
