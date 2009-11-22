@@ -3,8 +3,6 @@ set lines=999     " create windows with maximum height by default
 
 if has("gui_macvim")
   set fuopt+=maxhorz                      " grow to maximum horizontal width on entering fullscreen mode
-  macmenu &Edit.Find.Find\.\.\. key=<nop> " free up Command-F
-  map <D-f> :set invfu<CR>                " toggle fullscreen mode
 
   macmenu &File.Open\ Tab\.\.\. key=<nop> " free up Command-T
   macmenu &File.New\ Tab key=<D-T>        " 'New Tab' is now Shift-Command-T
