@@ -2,6 +2,7 @@ set columns=132   " default GUI window width (80) is too narrow
 set lines=999     " create windows with maximum height by default
 
 if has("gui_macvim")
+  set noanti                              " no antialiasing
   set fuopt+=maxhorz                      " grow to maximum horizontal width on entering fullscreen mode
 
   macmenu &File.Open\ Tab\.\.\. key=<nop> " free up Command-T
