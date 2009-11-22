@@ -157,7 +157,7 @@ export CLICOLOR=true
 
 # /usr/local/bin has to come first so that custom Ruby install will be used (1.8.6)
 PATH=$PATH:/usr/local/bin:$HOME/bin:/Developer/Tools:/usr/X11R6/bin
-PATH=$PATH:/usr/local/mysql/bin
+PATH=$PATH:/usr/local/mysql/bin:/usr/local/jruby/bin
 export PATH
 
 MANPATH=/usr/share/man:/usr/local/man:/usr/local/share/man:/usr/X11R6/man
