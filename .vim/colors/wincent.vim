@@ -31,7 +31,7 @@ hi Folded       guibg=#E6E6E6 guifg=DarkBlue
 hi IncSearch    gui=reverse
 hi ModeMsg      gui=bold
 hi MoreMsg      gui=bold guifg=SeaGreen4
-hi NonText      gui=bold guifg=Blue
+hi NonText      guifg=Grey
 hi Pmenu        guibg=LightSteelBlue1
 hi PmenuSbar    guibg=Grey
 hi PmenuSel     guifg=White guibg=SkyBlue4
