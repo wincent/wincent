@@ -159,6 +159,7 @@ export CLICOLOR=true
 export EC2_HOME=~/bin/ec2-api-tools-1.3-46266
 export EC2_PRIVATE_KEY=~/.ec2/pk.pem
 export EC2_CERT=~/.ec2/cert.pem
+export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home
 
 # /usr/local/bin has to come first so that custom Ruby install will be used (1.8.6)
 PATH=$PATH:/usr/local/bin:$HOME/bin:/Developer/Tools:/usr/X11R6/bin
