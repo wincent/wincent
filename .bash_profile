@@ -155,9 +155,15 @@ export FTP_PASSIVE=1
 # colour ls listings
 export CLICOLOR=true
 
+# for Amazon Web Services EC2 API
+export EC2_HOME=~/bin/ec2-api-tools-1.3-46266
+export EC2_PRIVATE_KEY=~/.ec2/pk.pem
+export EC2_CERT=~/.ec2/cert.pem
+
 # /usr/local/bin has to come first so that custom Ruby install will be used (1.8.6)
 PATH=$PATH:/usr/local/bin:$HOME/bin:/Developer/Tools:/usr/X11R6/bin
 PATH=$PATH:/usr/local/mysql/bin:/usr/local/jruby/bin
+PATH=$PATH:$EC2_HOME/bin
 export PATH
 
 MANPATH=/usr/share/man:/usr/local/man:/usr/local/share/man:/usr/X11R6/man
