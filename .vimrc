@@ -108,8 +108,8 @@ endif
 map <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 " emulate Command-T in TextMate
-map <leader>t :FufFile<CR>
-map <leader>b :FufBuffer<CR>
+map <silent> <leader>t :FufFile<CR>
+map <silent> <leader>b :FufBuffer<CR>
 
 " set up :Ack command as replacement for :grep
 function! AckGrep(command)
