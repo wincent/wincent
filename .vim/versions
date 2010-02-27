@@ -1,3 +1,8 @@
+fugitive.vim
+http://www.vim.org/scripts/script.php?script_id=2975
+1.0
+2010-02-15
+
 fuzzyfinder.vim
 http://www.vim.org/scripts/script.php?script_id=1984
 3.5
@@ -32,11 +37,6 @@ The NERD tree
 http://www.vim.org/scripts/script.php?script_id=1658
 4.1.0
 2009-12-01
-
-vim-git
-http://github.com/motemen/git-vim/tree/master
-73a1817
-2009-05-05
 
 xptemplate
 http://www.vim.org/scripts/script.php?script_id=2611
