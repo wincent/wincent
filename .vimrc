@@ -111,6 +111,9 @@ map <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 map <silent> <leader>t :FufFile<CR>
 map <silent> <leader>b :FufBuffer<CR>
 
+" allow 'a/c/i' to match 'app/controllers/issues_controller.rb'
+let g:fuf_abbrevMap = {'/': ['*/']}
+
 " set up :Ack command as replacement for :grep
 function! AckGrep(command)
   cexpr system("ack " . a:command)
