@@ -108,7 +108,6 @@ endif
 map <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 " emulate Command-T in TextMate
-map <silent> <leader>t :FufFile<CR>
 map <silent> <leader>b :FufBuffer<CR>
 
 " allow 'a/c/i' to match 'app/controllers/issues_controller.rb'

@@ -8,7 +8,7 @@ if has("gui_macvim")
   " free up Command T
   macmenu &File.Open\ Tab\.\.\. key=<nop>
   macmenu &File.New\ Tab key=<D-T>        " 'New Tab' is now Shift-Command-T
-  map <D-t> :FuzzyFinderFile<CR>
+  map <D-t> :CommandT<CR>
 
   " free up Command O
   macmenu &File.Open\.\.\. key=<nop>
