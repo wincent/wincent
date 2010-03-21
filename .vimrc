@@ -52,6 +52,9 @@ set list                          " show whitespace
 set listchars=nbsp:¬,eol:¶,tab:>-,extends:»,precedes:«,trail:•
 set autoindent
 
+" Quickfix listing
+autocmd BufReadPost quickfix setlocal so=0
+
 " Ruby
 autocmd FileType ruby set smartindent
 autocmd FileType ruby set tabstop=2
