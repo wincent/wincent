@@ -20,4 +20,8 @@ if has("gui_macvim")
   imap <D-a> <C-o>A
   imap <D-i> <C-o>I
   imap <D-0> <C-o>gI
+
+  " normal mode mappings
+  nnoremap <silent> <D-j> :call SwapWithNext()<CR>
+  nnoremap <silent> <D-k> :call SwapWithPrevious()<CR>
 endif
