@@ -110,11 +110,11 @@ endif
 " ,e -- edit file, starting in same directory as current file
 map <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
-" emulate Command-T in TextMate
+" FuzzyFinder
 map <silent> <leader>b :FufBuffer<CR>
 
-" allow 'a/c/i' to match 'app/controllers/issues_controller.rb'
-let g:fuf_abbrevMap = {'/': ['*/']}
+" Command-T
+let g:CommandTMaxHeight = 30
 
 " set up :Ack command as replacement for :grep
 function! AckGrep(command)
