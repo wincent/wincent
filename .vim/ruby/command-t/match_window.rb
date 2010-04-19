@@ -42,7 +42,6 @@ module CommandT
 
       # global settings (must manually save and restore)
       @settings = Settings.new
-      @settings.save
       VIM::set_option 'timeoutlen=0'    # respond immediately to mappings
       VIM::set_option 'nohlsearch'      # don't highlight search strings
       VIM::set_option 'noinsertmode'    # don't make Insert mode the default
@@ -53,8 +52,10 @@ module CommandT
       VIM::set_option 'noequalalways'   # don't auto-balance window sizes
 
       # create match window and set it up
+      split_location = options[:match_window_at_top] ? 'topleft' : 'botright'
+      split_command = "silent! #{split_location} 1split GoToFile"
       [
-        'silent! botright 1split GoToFile',
+        split_command,
         'setlocal bufhidden=delete',  # delete buf when no longer displayed
         'setlocal buftype=nofile',    # buffer is not related to any file
         'setlocal nomodifiable',      # prevent manual edits
@@ -240,11 +241,6 @@ module CommandT
             @buffer.append line - 1, match_text_for_idx(idx)
           end
         end
-      end
-
-      # delete excess lines
-      while (line = @buffer.count) > actual_lines do
-        @buffer.delete line
       end
       lock
     end

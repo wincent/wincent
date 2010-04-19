@@ -21,7 +21,7 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 
-require 'command-t/base'
+require 'command-t/finder'
 require 'command-t/match_window'
 require 'command-t/prompt'
 
@@ -29,21 +29,17 @@ module CommandT
   class Controller
     def initialize
       @prompt = Prompt.new
-      @max_height = get_number('g:CommandTMaxHeight') || 0
-      @scanner = CommandT::Base.new nil,
-        :max_files              => get_number('g:CommandTMaxFiles'),
-        :max_depth              => get_number('g:CommandTMaxDepth'),
-        :always_show_dot_files  => get_bool('g:CommandTAlwaysShowDotFiles'),
-        :never_show_dot_files   => get_bool('g:CommandTNeverShowDotFiles'),
-        :scan_dot_directories   => get_bool('g:CommandTScanDotDirectories'),
-        :excludes               => get_string('&wildignore')
+      set_up_max_height
+      set_up_finder
     end
 
     def show
-      @scanner.path   = VIM::pwd
+      @finder.path    = VIM::pwd
       @initial_window = $curwin
       @initial_buffer = $curbuf
-      @match_window   = MatchWindow.new :prompt => @prompt
+      @match_window   = MatchWindow.new \
+        :prompt               => @prompt,
+        :match_window_at_top  => get_bool('g:CommandTMatchWindowAtTop')
       @focus          = @prompt
       @prompt.focus
       register_for_key_presses
@@ -58,10 +54,11 @@ module CommandT
     end
 
     def flush
-      @scanner.flush
+      set_up_max_height
+      set_up_finder
     end
 
-    def key_pressed
+    def handle_key
       key = VIM::evaluate('a:arg').to_i.chr
       if @focus == @prompt
         @prompt.add! key
@@ -71,14 +68,14 @@ module CommandT
       end
     end
 
-    def backspace_pressed
+    def backspace
       if @focus == @prompt
         @prompt.backspace!
         list_matches
       end
     end
 
-    def delete_pressed
+    def delete
       if @focus == @prompt
         @prompt.delete!
         list_matches
@@ -136,6 +133,20 @@ module CommandT
 
   private
 
+    def set_up_max_height
+      @max_height = get_number('g:CommandTMaxHeight') || 0
+    end
+
+    def set_up_finder
+      @finder = CommandT::Finder.new nil,
+        :max_files              => get_number('g:CommandTMaxFiles'),
+        :max_depth              => get_number('g:CommandTMaxDepth'),
+        :always_show_dot_files  => get_bool('g:CommandTAlwaysShowDotFiles'),
+        :never_show_dot_files   => get_bool('g:CommandTNeverShowDotFiles'),
+        :scan_dot_directories   => get_bool('g:CommandTScanDotDirectories'),
+        :excludes               => get_string('&wildignore')
+    end
+
     def get_number name
       return nil if VIM::evaluate("exists(\"#{name}\")").to_i == 0
       VIM::evaluate("#{name}").to_i
@@ -177,6 +188,14 @@ module CommandT
         ":call CommandT#{function}(#{param})<CR>"
     end
 
+    def xterm?
+      !!(VIM::evaluate('&term') =~ /\Axterm/)
+    end
+
+    def vt100?
+      !!(VIM::evaluate('&term') =~ /\Avt100/)
+    end
+
     def register_for_key_presses
       # "normal" keys (interpreted literally)
       numbers     = ('0'..'9').to_a.join
@@ -184,33 +203,33 @@ module CommandT
       uppercase   = lowercase.upcase
       punctuation = '<>`@#~!"$%&/()=+*-_.,;:?\\\'{}[] ' # and space
       (numbers + lowercase + uppercase + punctuation).each_byte do |b|
-        map "<Char-#{b}>", 'KeyPressed', b
+        map "<Char-#{b}>", 'HandleKey', b
       end
 
-      # "special" keys
-      map '<BS>',     'BackspacePressed'
-      map '<Del>',    'DeletePressed'
-      map '<CR>',     'AcceptSelection'
-      map '<C-CR>',   'AcceptSelectionSplit'
-      map '<C-s>',    'AcceptSelectionSplit'
-      map '<C-t>',    'AcceptSelectionTab'
-      map '<C-v>',    'AcceptSelectionVSplit'
-      map '<Tab>',    'ToggleFocus'
-      map '<Esc>',    'Cancel'
-      map '<C-c>',    'Cancel'
-      map '<C-n>',    'SelectNext'
-      map '<C-p>',    'SelectPrev'
-      map '<C-j>',    'SelectNext'
-      map '<C-k>',    'SelectPrev'
-      map '<Down>',   'SelectNext'
-      map '<Up>',     'SelectPrev'
-      map '<C-u>',    'Clear'
-      map '<Left>',   'CursorLeft'
-      map '<Right>',  'CursorRight'
-      map '<C-h>',    'CursorLeft'
-      map '<C-l>',    'CursorRight'
-      map '<C-e>',    'CursorEnd'
-      map '<C-a>',    'CursorStart'
+      # "special" keys (overridable by settings)
+      { 'Backspace'             => '<BS>',
+        'Delete'                => '<Del>',
+        'AcceptSelection'       => '<CR>',
+        'AcceptSelectionSplit'  => ['<C-CR>', '<C-s>'],
+        'AcceptSelectionTab'    => '<C-t>',
+        'AcceptSelectionVSplit' => '<C-v>',
+        'ToggleFocus'           => '<Tab>',
+        'Cancel'                => ['<C-c>', '<Esc>'],
+        'SelectNext'            => ['<C-n>', '<C-j>', '<Down>'],
+        'SelectPrev'            => ['<C-p>', '<C-k>', '<Up>'],
+        'Clear'                 => '<C-u>',
+        'CursorLeft'            => ['<Left>', '<C-h>'],
+        'CursorRight'           => ['<Right>', '<C-l>'],
+        'CursorEnd'             => '<C-e>',
+        'CursorStart'           => '<C-a>' }.each do |key, value|
+        if override = get_string("g:CommandT#{key}Map")
+          map override, key
+        else
+          [value].flatten.each do |mapping|
+            map mapping, key unless mapping == '<Esc>' && (xterm? || vt100?)
+          end
+        end
+      end
     end
 
     # Returns the desired maximum number of matches, based on available
@@ -223,7 +242,7 @@ module CommandT
     end
 
     def list_matches
-      matches = @scanner.sorted_matches_for @prompt.abbrev, :limit => match_limit
+      matches = @finder.sorted_matches_for @prompt.abbrev, :limit => match_limit
       @match_window.matches = matches
     end
   end # class Controller
