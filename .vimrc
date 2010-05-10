@@ -95,12 +95,12 @@ let g:line_overflow   = '\%<133v.\%>80v'
 let g:line_hard_limit = '\%>132v.\+'
 let w:m1=matchadd('LineProximity',  g:line_proximity, -1)   " for first window at launch
 let w:m2=matchadd('LineOverflow',   g:line_overflow, -1)    " for first window at launch
-let w:m2=matchadd('LineHardLimit',  g:line_hard_limit, -1)  " for first window at launch
+let w:m3=matchadd('LineHardLimit',  g:line_hard_limit, -1)  " for first window at launch
 
 " for all other windows
 autocmd WinEnter * if !exists('w:created') | let w:m1=matchadd('LineProximity', g:line_proximity, -1) | endif
 autocmd WinEnter * if !exists('w:created') | let w:m2=matchadd('LineOverflow',  g:line_overflow, -1) | endif
-autocmd WinEnter * if !exists('w:created') | let w:m2=matchadd('LineHardLimit', g:line_hard_limit, -1) | endif
+autocmd WinEnter * if !exists('w:created') | let w:m3=matchadd('LineHardLimit', g:line_hard_limit, -1) | endif
 
 " see changes made to current buffer since file was loaded
 " (from vimrc example file)
