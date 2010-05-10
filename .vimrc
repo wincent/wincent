@@ -90,9 +90,25 @@ autocmd VimEnter * autocmd WinEnter * let w:created=1
 autocmd VimEnter * let w:created=1
 
 " http://vim.wikia.com/wiki/Highlight_text_beyond_80_columns
-let g:line_proximity  = '\%<81v.\%>75v'
-let g:line_overflow   = '\%<133v.\%>80v'
-let g:line_hard_limit = '\%>132v.\+'
+let g:default_line_proximity_limit = 75
+let g:default_line_overflow_limit = 80
+let g:default_line_hard_limit = 132
+let g:line_proximity =
+      \'\%<' .
+      \ string(g:default_line_overflow_limit) .
+      \ 'v.\%>' .
+      \ string(g:default_line_proximity_limit) .
+      \ 'v'
+let g:line_overflow =
+      \ '\%<' .
+      \ string(g:default_line_hard_limit + 1) .
+      \ 'v.\%>' .
+      \ string(g:default_line_overflow_limit) .
+      \ 'v'
+let g:line_hard_limit =
+      \ '\%>' .
+      \ string(g:default_line_hard_limit) .
+      \ 'v.\+'
 let w:m1=matchadd('LineProximity',  g:line_proximity, -1)   " for first window at launch
 let w:m2=matchadd('LineOverflow',   g:line_overflow, -1)    " for first window at launch
 let w:m3=matchadd('LineHardLimit',  g:line_hard_limit, -1)  " for first window at launch
