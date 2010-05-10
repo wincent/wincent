@@ -59,6 +59,7 @@ autocmd BufReadPost quickfix setlocal so=0
 autocmd FileType ruby set smartindent
 autocmd FileType ruby set tabstop=2
 autocmd FileType ruby set shiftwidth=2
+autocmd FileType ruby call HighlightLongLines(0, 0, 0)
 
 " C
 autocmd FileType c set tabstop=4
@@ -89,34 +90,30 @@ let g:alternateExtensions_h = "m,c,mm,cpp,cxx,cc,CC"
 autocmd VimEnter * autocmd WinEnter * let w:created=1
 autocmd VimEnter * let w:created=1
 
-" http://vim.wikia.com/wiki/Highlight_text_beyond_80_columns
-let g:default_line_proximity_limit = 75
-let g:default_line_overflow_limit = 80
-let g:default_line_hard_limit = 132
-let g:line_proximity =
-      \'\%<' .
-      \ string(g:default_line_overflow_limit) .
-      \ 'v.\%>' .
-      \ string(g:default_line_proximity_limit) .
-      \ 'v'
-let g:line_overflow =
-      \ '\%<' .
-      \ string(g:default_line_hard_limit + 1) .
-      \ 'v.\%>' .
-      \ string(g:default_line_overflow_limit) .
-      \ 'v'
-let g:line_hard_limit =
-      \ '\%>' .
-      \ string(g:default_line_hard_limit) .
-      \ 'v.\+'
-let w:m1=matchadd('LineProximity',  g:line_proximity, -1)   " for first window at launch
-let w:m2=matchadd('LineOverflow',   g:line_overflow, -1)    " for first window at launch
-let w:m3=matchadd('LineHardLimit',  g:line_hard_limit, -1)  " for first window at launch
-
-" for all other windows
-autocmd WinEnter * if !exists('w:created') | let w:m1=matchadd('LineProximity', g:line_proximity, -1) | endif
-autocmd WinEnter * if !exists('w:created') | let w:m2=matchadd('LineOverflow',  g:line_overflow, -1) | endif
-autocmd WinEnter * if !exists('w:created') | let w:m3=matchadd('LineHardLimit', g:line_hard_limit, -1) | endif
+function! HighlightLongLines(proximity, overflow, hardlimit)
+  let proximity = a:proximity == 0 ? 75 : a:proximity
+  let overflow  = a:overflow == 0  ? 80 : a:overflow
+  let hardlimit = a:hardlimit == 0 ? 132 : a:hardlimit
+  let proximity_highlight =
+        \'\%<' .
+        \ string(overflow) .
+        \ 'v.\%>' .
+        \ string(proximity) .
+        \ 'v'
+  let overflow_highlight =
+        \ '\%<' .
+        \ string(hardlimit) .
+        \ 'v.\%>' .
+        \ string(overflow) .
+        \ 'v'
+  let hardlimit_highlight =
+        \ '\%>' .
+        \ string(hardlimit) .
+        \ 'v.\+'
+  let w:m1=matchadd('LineProximity',  proximity_highlight, -1)
+  let w:m2=matchadd('LineOverflow',   overflow_highlight, -1)
+  let w:m3=matchadd('LineHardLimit',  hardlimit_highlight, -1)
+endfunction
 
 " see changes made to current buffer since file was loaded
 " (from vimrc example file)
