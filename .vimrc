@@ -90,14 +90,17 @@ autocmd VimEnter * autocmd WinEnter * let w:created=1
 autocmd VimEnter * let w:created=1
 
 " http://vim.wikia.com/wiki/Highlight_text_beyond_80_columns
-let w:m1=matchadd('LineProximity',  '\%<81v.\%>75v', -1)  " for first window at launch
-let w:m2=matchadd('LineOverflow',   '\%<133v.\%>80v', -1) " for first window at launch
-let w:m2=matchadd('LineHardLimit',  '\%>132v.\+', -1)     " for first window at launch
+let g:line_proximity  = '\%<81v.\%>75v'
+let g:line_overflow   = '\%<133v.\%>80v'
+let g:line_hard_limit = '\%>132v.\+'
+let w:m1=matchadd('LineProximity',  g:line_proximity, -1)   " for first window at launch
+let w:m2=matchadd('LineOverflow',   g:line_overflow, -1)    " for first window at launch
+let w:m2=matchadd('LineHardLimit',  g:line_hard_limit, -1)  " for first window at launch
 
 " for all other windows
-autocmd WinEnter * if !exists('w:created') | let w:m1=matchadd('LineProximity', '\%<81v.\%>75v', -1) | endif
-autocmd WinEnter * if !exists('w:created') | let w:m2=matchadd('LineOverflow',  '\%<133v.\%>80v', -1) | endif
-autocmd WinEnter * if !exists('w:created') | let w:m2=matchadd('LineHardLimit', '\%>132v.\+', -1) | endif
+autocmd WinEnter * if !exists('w:created') | let w:m1=matchadd('LineProximity', g:line_proximity, -1) | endif
+autocmd WinEnter * if !exists('w:created') | let w:m2=matchadd('LineOverflow',  g:line_overflow, -1) | endif
+autocmd WinEnter * if !exists('w:created') | let w:m2=matchadd('LineHardLimit', g:line_hard_limit, -1) | endif
 
 " see changes made to current buffer since file was loaded
 " (from vimrc example file)
