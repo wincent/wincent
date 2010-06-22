@@ -381,3 +381,6 @@ test -f $GIT_COMPLETION && . $GIT_COMPLETION
 # (not so useful seeing as whereis only searches standard binary dirs, not user
 # PATH)
 complete -c command whereis
+
+# Third-party
+if [[ -s /Users/wincent/.rvm/scripts/rvm ]] ; then source /Users/wincent/.rvm/scripts/rvm ; fi
