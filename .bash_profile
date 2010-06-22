@@ -178,6 +178,9 @@ export PYTHONPATH=/usr/local/lib/python2.5/site-packages
 # don't export CDPATH (can cause problems with shell scripts etc)
 CDPATH=.:~:~/trabajo:/usr/local
 
+# make Bundler do passwordless installs to a sandbox rather than to the system
+BUNDLE_PATH=~/.bundle
+
 #
 # Aliases
 #
