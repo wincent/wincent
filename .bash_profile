@@ -174,12 +174,12 @@ export MANPATH
 # for hg
 export PYTHONPATH=/usr/local/lib/python2.5/site-packages
 
+# make Bundler do passwordless installs to a sandbox rather than to the system
+export BUNDLE_PATH=~/.bundle
+
 # on attempting to "cd" search current directory first, then home dir etc
 # don't export CDPATH (can cause problems with shell scripts etc)
 CDPATH=.:~:~/trabajo:/usr/local
-
-# make Bundler do passwordless installs to a sandbox rather than to the system
-BUNDLE_PATH=~/.bundle
 
 #
 # Aliases
