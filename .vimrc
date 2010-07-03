@@ -143,6 +143,9 @@ endfunction
 command! -nargs=+ -complete=file Ack call AckGrep(<q-args>)
 map <leader>a :Ack<space>
 
+" delete all buffers, except for those with unsaved changes
+map <leader>bda :bufdo silent! bdelete<CR>
+
 function! RunSpec(command)
   if a:command == ''
     let dir = 'spec'
