@@ -86,9 +86,6 @@ let g:xptemplate_key='<F5>'
 let g:alternateExtensions_m = "h"
 let g:alternateExtensions_h = "m,c,mm,cpp,cxx,cc,CC"
 
-" minibufexpl.vim
-let g:miniBufExplMapCTabSwitchBufs = 1
-
 " http://vim.wikia.com/wiki/Detect_window_creation_with_WinEnter
 autocmd VimEnter * autocmd WinEnter * let w:created=1
 autocmd VimEnter * let w:created=1
