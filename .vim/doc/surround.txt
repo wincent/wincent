@@ -28,9 +28,9 @@ Vim 7 is recommended for full functionality.
 MAPPINGS                                        *surround-mappings*
 
 Delete surroundings is *ds* .  The next character given determines the target
-to delete.  The exact nature of the target are explained in |surround-targets|
+to delete.  The exact nature of the target is explained in |surround-targets|
 but essentially it is the last character of a |text-object|.  This mapping
-deletes the difference between the "inner" object and "an" object.  This is
+deletes the difference between the "i"nner object and "a"n object.  This is
 easiest to understand with some examples:
 
   Old text                  Command     New text ~
@@ -49,7 +49,7 @@ below in |surround-replacements|.  Once again, examples are in order.
   (123+4*56)/2              cs)[        [ 123+456 ]/2
   <div>Yo!*</div>           cst<p>      <p>Yo!</p>
 
-*ys* takes an valid Vim motion or text object as the first object, and wraps
+*ys* takes a valid Vim motion or text object as the first object, and wraps
 it using the second argument as with |cs|.  (Unfortunately there's no good
 mnemonic for "ys".)
 
@@ -66,22 +66,26 @@ There is also *yS* and *ySS* which indent the surrounded text and place it
 on a line of its own.
 
 In visual mode, a simple "s" with an argument wraps the selection.  This is
-referred to as the *vs* mapping, although ordinarily there will be
+referred to as the *vS* mapping, although ordinarily there will be
 additional keystrokes between the v and s.  In linewise visual mode, the
-surroundings are placed on separate lines.  In blockwise visual mode, each
-line is surrounded.
+surroundings are placed on separate lines and indented.  In blockwise visual
+mode, each line is surrounded.
 
-An "S" in visual mode (*vS*) behaves similarly but always places the
-surroundings on separate lines.  Additionally, the surrounded text is
-indented.  In blockwise visual mode, using "S" instead of "s" instead skips
-trailing whitespace.
+A "gS" in visual mode, known as *vgS* , behaves similarly.  In linewise visual
+mode, the automatic indenting is surpressed.  In blockwise visual mode, this
+enables surrounding past the end of the like with 'virtualedit' set (there
+seems to be no way in Vim Script to differentiate between a jagged end of line
+selection and a virtual block selected past the end of the line, so two maps
+were needed).
 
-Note that "s" and "S" already have valid meaning in visual mode, but it is
-identical to "c".  If you have muscle memory for "s" and would like to use a
-different key, add your own mapping and the existing one will be disabled.
+Additionally, there is a legacy "s" or *vs* mapping which is basically the
+same as |vS|.  Due to popular demand of wanting to use "s" as Vim does to mean
+replacing the selection (also available as "c"), this mapping is going away.
+If you were one of these people and would like to disable "s" with the current
+release, indicate this to surround.vim by assigning the "s" mapping to
+something else.
 >
-  vmap <Leader>s <Plug>Vsurround
-  vmap <Leader>S <Plug>VSurround
+  xmap <Leader>s <Plug>Vsurround
 <
                                                 *i_CTRL-G_s* *i_CTRL-G_S*
 Finally, there is an experimental insert mode mapping on <C-G>s and <C-S>.
@@ -101,7 +105,7 @@ supported in the version of Vim used (Vim 7 adds several text objects, and
 thus is highly recommended).  All targets are currently just one character.
 
 Eight punctuation marks, (, ), {, }, [, ], <, and >, represent themselves
-and their counterpart.  If the opening mark is used, contained whitespace is
+and their counterparts.  If the opening mark is used, contained whitespace is
 also trimmed.  The targets b, B, r, and a are aliases for ), }, ], and >
 (the first two mirror Vim; the second two are completely arbitrary and
 subject to change).

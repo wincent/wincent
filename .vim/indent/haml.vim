@@ -16,7 +16,7 @@ setlocal indentkeys=o,O,*<Return>,},],0),!^F,=end,=else,=elsif,=rescue,=ensure,=
 
 " Only define the function once.
 if exists("*GetHamlIndent")
-  " finish
+  finish
 endif
 
 let s:attributes = '\%({.\{-\}}\|\[.\{-\}\]\)'

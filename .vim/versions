@@ -5,13 +5,19 @@ http://www.vim.org/scripts/script.php?script_id=3025
 
 fugitive.vim
 http://www.vim.org/scripts/script.php?script_id=2975
-1.1
-2010-03-21
+http://github.com/tpope/vim-fugitive
+794c214
+2010-06-28
 
 fuzzyfinder.vim
 http://www.vim.org/scripts/script.php?script_id=1984
 3.5
 2009-12-03
+
+haml.vim
+http://github.com/tpope/vim-haml
+30405bd
+21 June 2010
 
 minibufexpl.vim
 http://vim.sourceforge.net/scripts/script.php?script_id=159
@@ -20,8 +26,9 @@ http://vim.sourceforge.net/scripts/script.php?script_id=159
 
 rails.vim
 http://www.vim.org/scripts/script.php?script_id=1567
-3.4
-2009-03-27
+http://github.com/tpope/vim-rails
+c9a73db
+2010-06-22
 
 repeat.vim
 http://www.vim.org/scripts/script.php?script_id=2136
@@ -30,8 +37,9 @@ http://www.vim.org/scripts/script.php?script_id=2136
 
 surround.vim
 http://www.vim.org/scripts/script.php?script_id=1697
-1.34
-2008-02-15
+http://github.com/tpope/vim-surround
+1.90 (ad5690f)
+2010-03-06
 
 The NERD commenter
 http://www.vim.org/scripts/script.php?script_id=1218
