@@ -146,7 +146,7 @@ export EDITOR=vim
 export LESSPROMPT='?f%f .?ltLine %lt:?pt%pt\%:?btByte %bt:-...'
 
 # F = exit immediately if fits on first screen, M = verbose prompt, R = ANSI
-# color support, X = prevent output from being cleared
+# color support, X = prevent output from being cleared
 export LESS=FMRX
 
 # for the benefit of CPAN and potentially others
