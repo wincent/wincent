@@ -225,6 +225,8 @@ alias monitor_backup="pushd ${HOME}; until false; do ll | grep bz2 | awk ' { pri
 
 alias igrep="grep -i"
 
+alias b="bundle exec"
+
 #
 # Functions
 #
