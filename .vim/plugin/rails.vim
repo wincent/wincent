@@ -1,5 +1,5 @@
 " rails.vim - Detect a rails application
-" Author:       Tim Pope <vimNOSPAM@tpope.info>
+" Author:       Tim Pope <vimNOSPAM@tpope.org>
 " GetLatestVimScripts: 1567 1 :AutoInstall: rails.vim
 " URL:          http://rails.vim.tpope.net/
 
@@ -8,24 +8,10 @@
 " :help add-local-help (hint: :helptags ~/.vim/doc) Afterwards, you should be
 " able to do :help rails
 
-" ============================================================================
-
-" Exit quickly when:
-" - this plugin was already loaded (or disabled)
-" - when 'compatible' is set
-if &cp || (exists("g:loaded_rails") && g:loaded_rails) && !(exists("g:rails_debug") && g:rails_debug)
+if exists('g:loaded_rails') || &cp || v:version < 700
   finish
 endif
 let g:loaded_rails = 1
-
-" Apparently, the nesting level within Vim when the Ruby interface is
-" initialized determines how much stack space Ruby gets.  In previous
-" versions of rails.vim, sporadic stack overflows occured when omnicomplete
-" was used.  This was apparently due to rails.vim having first initialized
-" ruby deep in a nested function call.
-if has("ruby")
-  silent! ruby nil
-endif
 
 " Utility Functions {{{1
 
@@ -70,22 +56,17 @@ call s:SetOptDefault("rails_statusline",1)
 call s:SetOptDefault("rails_syntax",1)
 call s:SetOptDefault("rails_mappings",1)
 call s:SetOptDefault("rails_abbreviations",1)
-call s:SetOptDefault("rails_ctags_arguments","--exclude=facebox.js --exclude=\"*.*.js\"")
-call s:SetOptDefault("rails_expensive",1)
-call s:SetOptDefault("rails_dbext",g:rails_expensive)
+call s:SetOptDefault("rails_ctags_arguments","--exclude=\"*.js\"")
 call s:SetOptDefault("rails_default_file","README")
-call s:SetOptDefault("rails_default_database","")
 call s:SetOptDefault("rails_root_url",'http://localhost:3000/')
 call s:SetOptDefault("rails_modelines",0)
-call s:SetOptDefault("rails_menu",1)
+call s:SetOptDefault("rails_menu",!has('mac'))
 call s:SetOptDefault("rails_gnu_screen",1)
 call s:SetOptDefault("rails_history_size",5)
-call s:SetOptDefault("rails_generators","controller\nintegration_test\nmailer\nmigration\nmodel\nobserver\nplugin\nresource\nscaffold\nsession_migration")
-if g:rails_dbext
-  if exists("g:loaded_dbext") && executable("sqlite3") && ! executable("sqlite")
-    " Since dbext can't find it by itself
-    call s:SetOptDefault("dbext_default_SQLITE_bin","sqlite3")
-  endif
+call s:SetOptDefault("rails_generators","controller\ngenerator\nhelper\nintegration_test\nmailer\nmetal\nmigration\nmodel\nobserver\nperformance_test\nplugin\nresource\nscaffold\nscaffold_controller\nsession_migration\nstylesheets")
+if exists("g:loaded_dbext") && executable("sqlite3") && ! executable("sqlite")
+  " Since dbext can't find it by itself
+  call s:SetOptDefault("dbext_default_SQLITE_bin","sqlite3")
 endif
 
 " }}}1
@@ -155,6 +136,42 @@ augroup END
 command! -bar -bang -nargs=* -complete=dir Rails :if s:autoload()|call rails#new_app_command(<bang>0,<f-args>)|endif
 
 " }}}1
+" abolish.vim support {{{1
+
+function! s:function(name)
+    return function(substitute(a:name,'^s:',matchstr(expand('<sfile>'), '<SNR>\d\+_'),''))
+endfunction
+
+augroup railsPluginAbolish
+  autocmd!
+  autocmd VimEnter * call s:abolish_setup()
+augroup END
+
+function! s:abolish_setup()
+  if exists('g:Abolish') && has_key(g:Abolish,'Coercions')
+    if !has_key(g:Abolish.Coercions,'l')
+      let g:Abolish.Coercions.l = s:function('s:abolish_l')
+    endif
+    if !has_key(g:Abolish.Coercions,'t')
+      let g:Abolish.Coercions.t = s:function('s:abolish_t')
+    endif
+  endif
+endfunction
+
+function! s:abolish_l(word)
+  let singular = rails#singularize(a:word)
+  return a:word ==? singular ? rails#pluralize(a:word) : singular
+endfunction
+
+function! s:abolish_t(word)
+  if a:word =~# '\u'
+    return rails#pluralize(rails#underscore(a:word))
+  else
+    return rails#singularize(rails#camelize(a:word))
+  endif
+endfunction
+
+" }}}1
 " Menus {{{1
 
 if !(g:rails_menu && has("menu"))
@@ -197,16 +214,16 @@ function! s:CreateMenus() abort
       exe menucmd.g:rails_installed_menu.'.&Alternate\ file\	:A\ /\ [f :A<CR>'
       exe menucmd.g:rails_installed_menu.'.&File\ under\ cursor\	gf :Rfind<CR>'
     endif
-    exe menucmd.g:rails_installed_menu.'.&Other\ files.Application\ &Controller :find app/controllers/application.rb<CR>'
-    exe menucmd.g:rails_installed_menu.'.&Other\ files.Application\ &Helper :find app/helpers/application_helper.rb<CR>'
-    exe menucmd.g:rails_installed_menu.'.&Other\ files.Application\ &Javascript :find public/javascripts/application.js<CR>'
+    exe menucmd.g:rails_installed_menu.'.&Other\ files.Application\ &Controller :Rcontroller application<CR>'
+    exe menucmd.g:rails_installed_menu.'.&Other\ files.Application\ &Helper :Rhelper application<CR>'
+    exe menucmd.g:rails_installed_menu.'.&Other\ files.Application\ &Javascript :Rjavascript application<CR>'
     exe menucmd.g:rails_installed_menu.'.&Other\ files.Application\ &Layout :Rlayout application<CR>'
-    exe menucmd.g:rails_installed_menu.'.&Other\ files.Application\ &README :find doc/README_FOR_APP<CR>'
-    exe menucmd.g:rails_installed_menu.'.&Other\ files.&Environment :find config/environment.rb<CR>'
-    exe menucmd.g:rails_installed_menu.'.&Other\ files.&Database\ Configuration :find config/database.yml<CR>'
+    exe menucmd.g:rails_installed_menu.'.&Other\ files.Application\ &README :R doc/README_FOR_APP<CR>'
+    exe menucmd.g:rails_installed_menu.'.&Other\ files.&Environment :Renvironment<CR>'
+    exe menucmd.g:rails_installed_menu.'.&Other\ files.&Database\ Configuration :R config/database.yml<CR>'
     exe menucmd.g:rails_installed_menu.'.&Other\ files.Database\ &Schema :Rmigration 0<CR>'
-    exe menucmd.g:rails_installed_menu.'.&Other\ files.R&outes :find config/routes.rb<CR>'
-    exe menucmd.g:rails_installed_menu.'.&Other\ files.&Test\ Helper :find test/test_helper.rb<CR>'
+    exe menucmd.g:rails_installed_menu.'.&Other\ files.R&outes :Rinitializer<CR>'
+    exe menucmd.g:rails_installed_menu.'.&Other\ files.&Test\ Helper :Rintegrationtest<CR>'
     exe menucmd.g:rails_installed_menu.'.-FSep- :'
     exe menucmd.g:rails_installed_menu.'.Ra&ke\	:Rake :Rake<CR>'
     let menucmd = substitute(menucmd,'200 $','500 ','')
