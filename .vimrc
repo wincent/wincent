@@ -24,6 +24,9 @@ set showmatch                     " show matching brackets
 set showcmd                       " extra info in command line
 set nojoinspaces                  " don't autoinsert two spaces after '.', '?', '!' for join command
 set wildignore+=*.o,.git          " patterns to ignore during file-navigation
+set foldmethod=syntax
+set foldlevelstart=1
+set foldlevel=1
 
 " statusline
 " cf the default statusline: %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
