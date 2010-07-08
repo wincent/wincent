@@ -52,16 +52,6 @@ ECHONOCOLOR="\e[0m"
 export PS1="${GREEN}\h:${BLUE}\W${RED}\$ ${NOCOLOR}"
 
 #
-# Title bar
-#
-
-# note that is different than the version used in the old prompt-based solution
-OPENTITLEBAR="\033]0;"
-CLOSETITLEBAR="\007"
-
-trap 'printf "${OPENTITLEBAR} `history 1 | cut -b8-` - `pwd` ${CLOSETITLEBAR}"' DEBUG
-
-#
 # Tab titles
 #
 
@@ -161,9 +151,28 @@ export EC2_PRIVATE_KEY=~/.ec2/pk.pem
 export EC2_CERT=~/.ec2/cert.pem
 export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home
 
-# /usr/local/bin has to come first so that custom Ruby install will be used (1.8.6)
-PATH=$PATH:/usr/local/bin:$HOME/bin:/Developer/Tools:/usr/X11R6/bin
-PATH=$PATH:/usr/local/mysql/bin:/usr/local/jruby/bin
+# make Bundler do passwordless installs to a sandbox rather than to the system
+export BUNDLE_PATH=~/.bundle
+
+# usually something like:
+#   /usr/bin
+#   /bin
+#   /usr/sbin
+#   /sbin
+#   /usr/local/bin
+#   /usr/texbin
+#   /usr/X11/bin
+#   /usr/local/sbin
+SYSTEM_PATH=$PATH
+unset PATH
+
+# keep these on separate lines to make changing their order easier
+PATH=$PATH:$HOME/.bundle/bin
+PATH=$PATH:$SYSTEM_PATH
+PATH=$PATH:$HOME/bin
+PATH=$PATH:/usr/local/mysql/bin
+PATH=$PATH:/usr/local/jruby/bin
+PATH=$PATH:/Developer/Tools
 PATH=$PATH:$EC2_HOME/bin
 export PATH
 
@@ -174,12 +183,19 @@ export MANPATH
 # for hg
 export PYTHONPATH=/usr/local/lib/python2.5/site-packages
 
-# make Bundler do passwordless installs to a sandbox rather than to the system
-export BUNDLE_PATH=~/.bundle
-
 # on attempting to "cd" search current directory first, then home dir etc
 # don't export CDPATH (can cause problems with shell scripts etc)
 CDPATH=.:~:~/trabajo:/usr/local
+
+#
+# Title bar
+#
+
+# note that is different than the version used in the old prompt-based solution
+OPENTITLEBAR="\033]0;"
+CLOSETITLEBAR="\007"
+
+trap 'printf "${OPENTITLEBAR} `history 1 | cut -b8-` - `pwd` ${CLOSETITLEBAR}"' DEBUG
 
 #
 # Aliases
