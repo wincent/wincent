@@ -137,7 +137,7 @@ map <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 map <silent> <leader>b :FufBuffer<CR>
 
 " Command-T
-let g:CommandTMaxHeight = 30
+let g:CommandTMaxHeight = 10
 
 " set up :Ack command as replacement for :grep
 function! AckGrep(command)
