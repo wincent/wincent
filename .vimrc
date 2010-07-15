@@ -156,7 +156,7 @@ function! RunSpec(command)
   else
     let dir = a:command
   endif
-  cexpr system("spec -r spec/vim_formatter.rb -f Spec::Runner::Formatter::VimFormatter " . dir)"a:command)
+  cexpr system("bin/rspec -r spec/support/vim_formatter.rb -f RSpec::Core::Formatters::VimFormatter " . dir)"a:command)
   cw
 endfunction
 command! -nargs=? -complete=file Spec call RunSpec(<q-args>)
