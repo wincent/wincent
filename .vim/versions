@@ -35,6 +35,11 @@ http://www.vim.org/scripts/script.php?script_id=2136
 1.0
 2008-01-31
 
+snipMate.vim
+http://github.com/msanders/snipmate.vim
+f5a75d07
+8 April 2010
+
 surround.vim
 http://www.vim.org/scripts/script.php?script_id=1697
 http://github.com/tpope/vim-surround
@@ -50,8 +55,3 @@ The NERD tree
 http://www.vim.org/scripts/script.php?script_id=1658
 4.1.0
 2009-12-01
-
-xptemplate
-http://www.vim.org/scripts/script.php?script_id=2611
-0.3.7.16
-2009-05-17
