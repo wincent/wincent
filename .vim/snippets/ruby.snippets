@@ -502,3 +502,39 @@ snippet tas
 	task :${2:task_name => [:dependent, :tasks]} do
 		${3}
 	end
+
+# wincent additions
+snippet spec
+	require File.expand_path('../spec_helper', File.dirname(__FILE__))
+	
+	describe '${1}' do
+		${2}
+	end
+snippet desc
+	describe '${1}' do
+		${2}
+	end
+snippet con
+	context '${1}' do
+		${2}
+	end
+snippet bef
+	before do
+		${1}
+	end
+snippet it
+	it '${1}' do
+		${2}
+	end
+snippet bg
+	background do
+		${1}
+	end
+snippet feat
+	feature '${1}' do
+		${2}
+	end
+snippet scen
+	scenario '${1}' do
+		${2}
+	end
