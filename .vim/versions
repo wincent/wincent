@@ -1,7 +1,8 @@
 command-t.vim
 http://www.vim.org/scripts/script.php?script_id=3025
-0.5.1
-2010-04-11
+http://git.wincent.com/command-t.git
+043a24a
+2010-07-18
 
 fugitive.vim
 http://www.vim.org/scripts/script.php?script_id=2975

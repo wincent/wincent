@@ -21,26 +21,23 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 
+require 'command-t/vim/screen'
+require 'command-t/vim/window'
+
 module CommandT
-  class Stub
-    @@load_error = ['command-t.vim could not load the C extension',
-                    'Please see INSTALLATION and TROUBLE-SHOOTING in the help',
-                    'For more information type:    :help command-t']
-
-    def show
-      warn *@@load_error
+  module VIM
+    def self.has_syntax?
+      ::VIM::evaluate('has("syntax")').to_i != 0
     end
 
-    def flush
-      warn *@@load_error
+    def self.pwd
+      ::VIM::evaluate 'getcwd()'
     end
 
-  private
-
-    def warn *msg
-      ::VIM::command 'echohl WarningMsg'
-      msg.each { |m| ::VIM::command "echo '#{m}'" }
-      ::VIM::command 'echohl none'
+    # Escape a string for safe inclusion in a Vim single-quoted string
+    # (single quotes escaped by doubling, everything else is literal)
+    def self.escape_for_single_quotes str
+      str.gsub "'", "''"
     end
-  end # class Stub
+  end # module VIM
 end # module CommandT
