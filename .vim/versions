@@ -1,9 +1,3 @@
-command-t.vim
-http://www.vim.org/scripts/script.php?script_id=3025
-http://git.wincent.com/command-t.git
-043a24a
-2010-07-18
-
 fugitive.vim
 http://www.vim.org/scripts/script.php?script_id=2975
 http://github.com/tpope/vim-fugitive
