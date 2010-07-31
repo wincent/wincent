@@ -1,3 +1,7 @@
+" add paths of plug-ins installed under ~/.vim/bundle to runtime path
+filetype off
+call pathogen#runtime_append_all_bundles()
+
 set nocompatible                  " just in case system-wide vimrc has set this otherwise
 set hlsearch                      " highlight search strings
 set incsearch                     " incremental search ("find as you type")
