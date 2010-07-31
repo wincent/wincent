@@ -1,24 +1,42 @@
+pathogen.vim
+  http://github.com/tpope/vim-pathogen
+  f4f79bc7 (1.2+)
+  2010-05-17
+
+-----------------------------------------------------------------------------
+
 fuzzyfinder.vim
-http://www.vim.org/scripts/script.php?script_id=1984
-3.5
-2009-12-03
+  http://www.vim.org/scripts/script.php?script_id=1984
+  3.5
+  2009-12-03
+  Install:
+    curl -o /tmp/vim-fuzzyfinder.zip \
+            http://www.vim.org/scripts/download_script.php?src_id=11852
+    unzip /tmp/vim-fuzzyfinder.zip -d ~/.vim/bundle/fuzzyfinder
 
 minibufexpl.vim
-http://vim.sourceforge.net/scripts/script.php?script_id=159
-6.3.2
-2004-11-18
-
-pathogen.vim
-http://github.com/tpope/vim-pathogen
-f4f79bc7 (1.2+)
-2010-05-17
+  http://vim.sourceforge.net/scripts/script.php?script_id=159
+  6.3.2
+  2004-11-18
+  Install:
+    mkdir -p ~/.vim/bundle/minibufexpl/plugin
+    curl -o ~/.vim/bundle/minibufexpl/plugin/minibufexpl.vim \
+            http://vim.sourceforge.net/scripts/download_script.php?src_id=3640
 
 The NERD commenter
-http://www.vim.org/scripts/script.php?script_id=1218
-2.2.2
-2009-03-30
+  http://www.vim.org/scripts/script.php?script_id=1218
+  2.2.2
+  2009-03-30
+  Install:
+    curl -o /tmp/NERD_commenter.zip \
+            http://www.vim.org/scripts/download_script.php?src_id=10318
+    unzip /tmp/NERD_commenter.zip -d ~/.vim/bundle/NERD_commenter
 
 The NERD tree
-http://www.vim.org/scripts/script.php?script_id=1658
-4.1.0
-2009-12-01
+  http://www.vim.org/scripts/script.php?script_id=1658
+  4.1.0
+  2009-12-01
+  Install:
+    curl -o /tmp/NERD_tree.zip \
+            http://www.vim.org/scripts/download_script.php?src_id=11834
+    unzip /tmp/NERD_tree.zip -d ~/.vim/bundle/NERD_tree
