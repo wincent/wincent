@@ -5,6 +5,17 @@ pathogen.vim
 
 -----------------------------------------------------------------------------
 
+a.vim
+  http://www.vim.org/scripts/script.php?script_id=31
+  2.18
+  2007-06-07
+  Install:
+    mkdir -p ~/.vim/bundle/a/{doc,plugin}
+    curl -o ~/.vim/bundle/a/plugin/a.vim \
+            http://www.vim.org/scripts/download_script.php?src_id=7218
+    curl -o ~/.vim/bundle/a/doc/alternate.txt \
+            http://www.vim.org/scripts/download_script.php?src_id=6347
+
 fuzzyfinder.vim
   http://www.vim.org/scripts/script.php?script_id=1984
   3.5
