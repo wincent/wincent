@@ -8,7 +8,7 @@ set bell-style visible
 
 # by default, if filename completion is performed on a symbolic link pointing
 # to a directory, append a slash
-set mark-symlinked-directories on
+set mark-symlinked-directories
 
 # word movement (normally M-f, M-b, but can't use Meta on a Spanish keyboard
 # without losing the ability to type important keys like: \ @ € [ ] { } )
@@ -33,9 +33,9 @@ set mark-symlinked-directories on
 # also, you have to hit ESC twice in order for it to work
 
 # Hit tab to show a list of possible completions, ignoring case
-set completion-ignore-case on
-set show-all-if-ambiguous on
-set visible-stats on
+set completion-ignore-case
+set show-all-if-ambiguous
+set visible-stats
 
 # Search history for commands matching text typed so far:
 # bug.. if you find a match, delete a few characters and hit up/down again
@@ -52,13 +52,13 @@ set visible-stats on
 "\e[3~": delete-char
 
 # enable 8-bit input (do not strip 8th bit from input)
-set meta-flag on
+set meta-flag
 
 # synonym for meta-flag
-set input-meta on
+set input-meta
 
 # display 8-bit characters directly (rather than as a meta-prefixed escape sequence)
-set output-meta on
+set output-meta
 
 # do not convert 8-bit characters into ASCII key sequences
 set convert-meta off
