@@ -62,6 +62,3 @@ set output-meta on
 
 # do not convert 8-bit characters into ASCII key sequences
 set convert-meta off
-
-# bell style
-set bell-style visible
