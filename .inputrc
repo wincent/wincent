@@ -62,3 +62,6 @@ set output-meta
 
 # do not convert 8-bit characters into ASCII key sequences
 set convert-meta off
+
+# experimenting with vi editing mode
+#set editing-mode vi
