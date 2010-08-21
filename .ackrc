@@ -6,5 +6,6 @@
 --type-set=ragel=.rl
 --type-set=sass=.sass
 --type-set=txt=.txt
+--type-set=walrus=.tmpl
 --type-set=wikitext=.wikitext
 --type-set=xcconfig=.xcconfig
