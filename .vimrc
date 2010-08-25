@@ -61,6 +61,9 @@ set autoindent
 " Quickfix listing
 autocmd BufReadPost quickfix setlocal so=0
 
+" Conque
+autocmd FileType conque_term setlocal nolist " suppress whitespace highlighting
+
 " Ruby
 autocmd FileType ruby set smartindent
 autocmd FileType ruby set tabstop=2
@@ -145,6 +148,17 @@ function! AckGrep(command)
 endfunction
 command! -nargs=+ -complete=file Ack call AckGrep(<q-args>)
 map <leader>a :Ack<space>
+
+" :Term to bring up Conque (:Terms to bring up in a new split)
+function! s:Term()
+  execute 'ConqueTerm bash'
+endfunction
+command! Term call s:Term()
+
+function! s:Terms()
+  execute 'ConqueTermSplit bash'
+endfunction
+command! Terms call s:Terms()
 
 " delete all buffers, except for those with unsaved changes
 map <leader>bda :bufdo silent! bdelete<CR>
