@@ -16,6 +16,13 @@ a.vim
     curl -o ~/.vim/bundle/a/doc/alternate.txt \
             http://www.vim.org/scripts/download_script.php?src_id=6347
 
+Conque
+  http://code.google.com/p/conque/
+  1.1
+  2010-05-27
+  Install:
+    svn export http://conque.googlecode.com/svn/tags/conque_1.1 bundle/conque
+
 fuzzyfinder.vim
   http://www.vim.org/scripts/script.php?script_id=1984
   3.5
