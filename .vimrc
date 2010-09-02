@@ -59,10 +59,13 @@ set listchars=nbsp:¬,eol:¶,tab:>-,extends:»,precedes:«,trail:•
 set autoindent
 
 " Quickfix listing
-autocmd BufReadPost quickfix setlocal so=0
+autocmd BufReadPost quickfix setlocal so=0 | setlocal nolist
 
 " Conque
 autocmd FileType conque_term setlocal nolist " suppress whitespace highlighting
+
+" NERDTree
+autocmd FileType nerdtree setlocal nolist " suppress whitespace highlighting
 
 " Ruby
 autocmd FileType ruby set smartindent
@@ -94,6 +97,7 @@ let g:alternateExtensions_h = "m,c,mm,cpp,cxx,cc,CC"
 
 " minibufexpl.vim
 let g:miniBufExplMapCTabSwitchBufs = 1
+autocmd BufEnter -MiniBufExplorer- setlocal nolist " suppress whitespace highlighting
 
 " http://vim.wikia.com/wiki/Detect_window_creation_with_WinEnter
 autocmd VimEnter * autocmd WinEnter * let w:created=1
