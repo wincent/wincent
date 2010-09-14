@@ -51,6 +51,7 @@ set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 
 " all languages
 set shiftwidth=2                  " spaces per tab (when shifting)
+set shiftround                    " always indent by multiple of shiftwidth
 set tabstop=2                     " spaces per tab
 set expandtab                     " always use spaces instead of tabs
 set smarttab                      " <tab>
