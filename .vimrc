@@ -82,6 +82,9 @@ let filetype_m='objc'
 autocmd FileType objc set tabstop=4
 autocmd FileType objc set shiftwidth=4
 
+" RSpec
+autocmd BufNewFile,BufRead *_spec.rb set ft=ruby.spec
+
 " automatic, language-dependent indentation, syntax coloring and other
 " functionality
 filetype indent plugin on
