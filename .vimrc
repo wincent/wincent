@@ -210,15 +210,18 @@ function! SwapWithNext()
   call SwapLines(n, n + 1)
 endfunction
 
+" multi-mode mappings (Normal, Visual, Operating-pending modes)
+noremap Y y$
+
 " Command mode mappings
-cnoremap <C-a> <Home> " jump to start of command line
-cnoremap <C-e> <End>  " jump to end of command line
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
 
 " Normal mode mappings
-nnoremap <C-h> <C-w>h " select window to left
-nnoremap <C-j> <C-w>j " select window below
-nnoremap <C-k> <C-w>k " select window above
-nnoremap <C-l> <C-w>l " select window to right
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 nnoremap <silent> <leader>j :call SwapWithNext()<CR>
 nnoremap <silent> <leader>k :call SwapWithPrevious()<CR>
 
