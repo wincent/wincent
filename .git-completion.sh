@@ -255,7 +255,7 @@ __git_ps1 ()
 				(describe)
 					git describe HEAD ;;
 				(* | default)
-					git describe --exact-match HEAD ;;
+					git describe --tags --exact-match HEAD ;;
 				esac 2>/dev/null)" ||
 
 				b="$(cut -c1-7 "$g/HEAD" 2>/dev/null)..." ||
@@ -1125,7 +1125,7 @@ _git_diff ()
 	case "$cur" in
 	--*)
 		__gitcomp "--cached --staged --pickaxe-all --pickaxe-regex
-			--base --ours --theirs
+			--base --ours --theirs --no-index
 			$__git_diff_common_options
 			"
 		return
