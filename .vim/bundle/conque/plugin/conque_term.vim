@@ -1,9 +1,10 @@
 " FILE:     plugin/conque_term.vim {{{
 " AUTHOR:   Nico Raffo <nicoraffo@gmail.com>
-" MODIFIED: 2010-05-27
-" VERSION:  1.1, for Vim 7.0
+" WEBSITE:  http://conque.googlecode.com
+" MODIFIED: 2010-11-15
+" VERSION:  2.0, for Vim 7.0
 " LICENSE:
-" Conque - pty interaction in Vim
+" Conque - Vim terminal/console emulator
 " Copyright (C) 2009-2010 Nico Raffo 
 "
 " MIT License
@@ -37,11 +38,33 @@ endif
 " **** CONFIG **********************************************************************************************
 " **********************************************************************************************************
 
+" {{{
+
+" automatically go into insert mode when entering buffer {{{
+if !exists('g:ConqueTerm_InsertOnEnter')
+    let g:ConqueTerm_InsertOnEnter = 0
+endif " }}}
+
+" Allow user to use <C-w> keys to switch window in insert mode. {{{
+if !exists('g:ConqueTerm_CWInsert')
+    let g:ConqueTerm_CWInsert = 0
+endif " }}}
+
 " Choose key mapping to leave insert mode {{{
 " If you choose something other than '<Esc>', then <Esc> will be sent to terminal
 " Using a different key will usually fix Alt/Meta key issues
 if !exists('g:ConqueTerm_EscKey')
     let g:ConqueTerm_EscKey = '<Esc>'
+endif " }}}
+
+" Use this key to send selected text to conque. {{{
+if !exists('g:ConqueTerm_SendVisKey')
+    let g:ConqueTerm_SendVisKey = '<F9>'
+endif " }}}
+
+" Use this key to toggle terminal key mappings. {{{
+if !exists('g:ConqueTerm_ToggleKey')
+    let g:ConqueTerm_ToggleKey = '<F8>'
 endif " }}}
 
 " Enable color. {{{
@@ -70,10 +93,31 @@ if !exists('g:ConqueTerm_PromptRegex')
     let g:ConqueTerm_PromptRegex = '^\w\+@[0-9A-Za-z_.-]\+:[0-9A-Za-z_./\~,:-]\+\$'
 endif " }}}
 
-" Allow user to use <C-w> keys to switch window in insert mode. {{{
-if !exists('g:ConqueTerm_CWInsert')
-    let g:ConqueTerm_CWInsert = 0
+" Choose which Python version to attempt to load first {{{
+" Valid values are 2, 3 or 0 (no preference)
+if !exists('g:ConqueTerm_PyVersion')
+    let g:ConqueTerm_PyVersion = 2
 endif " }}}
+
+" Path to python.exe. (Windows only) {{{
+" By default, Conque will check C:\PythonNN\python.exe then will search system path
+" If you have installed Python in an unusual location and it's not in your path, fill in the full path below
+" E.g. 'C:\Program Files\Python\Python27\python.exe'
+if !exists('g:ConqueTerm_PyExe')
+    let g:ConqueTerm_PyExe = ''
+endif " }}}
+
+" Automatically close buffer when program exits {{{
+if !exists('g:ConqueTerm_CloseOnEnd')
+    let g:ConqueTerm_CloseOnEnd = 0
+endif " }}}
+
+" Send function key presses to terminal {{{
+if !exists('g:ConqueTerm_SendFunctionKeys')
+    let g:ConqueTerm_SendFunctionKeys = 0
+endif " }}}
+
+" }}}
 
 " **********************************************************************************************************
 " **** Startup *********************************************************************************************
@@ -82,7 +126,8 @@ endif " }}}
 " Startup {{{
 
 let g:ConqueTerm_Loaded = 1
-let g:ConqueTerm_Idx = 1
+let g:ConqueTerm_Idx = 0
+let g:ConqueTerm_Version = 200
 
 command! -nargs=+ -complete=shellcmd ConqueTerm call conque_term#open(<q-args>)
 command! -nargs=+ -complete=shellcmd ConqueTermSplit call conque_term#open(<q-args>, ['belowright split'])
@@ -91,3 +136,4 @@ command! -nargs=+ -complete=shellcmd ConqueTermTab call conque_term#open(<q-args
 
 " }}}
 
+" vim:foldmethod=marker

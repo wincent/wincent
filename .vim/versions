@@ -18,10 +18,10 @@ a.vim
 
 Conque
   http://code.google.com/p/conque/
-  1.1
-  2010-05-27
+  2.0
+  2010-11-16
   Install:
-    svn export http://conque.googlecode.com/svn/tags/conque_1.1 bundle/conque
+    svn export http://conque.googlecode.com/svn/tags/conque_2.0 bundle/conque
 
 fuzzyfinder.vim
   http://www.vim.org/scripts/script.php?script_id=1984
