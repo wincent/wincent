@@ -57,7 +57,7 @@ hi WarningMsg   guifg=Firebrick2
 hi WildMenu     guibg=SkyBlue guifg=Black
 hi lCursor      guibg=fg guifg=bg
 if has("gui_macvim")
-  hi Normal       gui=NONE guifg=MacTextColor guibg=#FFFFB6
+  hi Normal       gui=NONE guifg=MacTextColor guibg=#FFFFC6
   hi Visual       guibg=MacSelectedTextBackgroundColor
 else
   hi Normal       gui=NONE guifg=Black guibg=White
