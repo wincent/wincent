@@ -102,6 +102,7 @@ let g:alternateExtensions_h = "m,c,mm,cpp,cxx,cc,CC"
 " minibufexpl.vim
 let g:miniBufExplMapCTabSwitchBufs = 1
 autocmd BufEnter -MiniBufExplorer- setlocal nolist " suppress whitespace highlighting
+map <silent> <leader>m :MiniBufExplorer<CR>
 
 " http://vim.wikia.com/wiki/Detect_window_creation_with_WinEnter
 autocmd VimEnter * autocmd WinEnter * let w:created=1
