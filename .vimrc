@@ -1,31 +1,31 @@
 call pathogen#runtime_append_all_bundles()  " add .vim/bundle subdirs to runtime path
 call pathogen#helptags()                    " wasteful, but no shortage of grunt available
 
-set nocompatible                  " just in case system-wide vimrc has set this otherwise
-set hlsearch                      " highlight search strings
-set incsearch                     " incremental search ("find as you type")
-set ignorecase                    " ignore case when searching
-set smartcase                     " except when search string includes a capital letter
-set number                        " show line numbers in gutter
-set laststatus=2                  " always show status line
-set ww=h,l,<,>,[,]                " allow h/l/left/right to cross line boundaries
-set autoread                      " if not changed in Vim, automatically pick up changes after "git co" etc
-set guioptions-=T                 " don't show toolbar
-set guifont=Consolas:h18          " the best programming font for old people, Consolas 18
-set hidden                        " allows you to hide buffers with unsaved changes without being prompted
-set wildmenu                      " show options as list when switching buffers etc
-set wildmode=longest:full,full    " shell-like autocomplete to unambiguous portion
-set history=1000                  " longer search and command history (default is 20)
-set scrolloff=3                   " start scrolling 3 lines before edge of viewport
-set sidescrolloff=3               " same, but for columns
-set backupdir=~/.vim/tmp/backup,. " keep backup files out of the way
-set directory=~/.vim/tmp/swap,.   " keep swap files out of the way
-set ttimeoutlen=50                " speed up O etc in the Terminal
-set virtualedit=block             " allow cursor to move where there is no text in visual block mode
-set showmatch                     " show matching brackets
-set showcmd                       " extra info in command line
-set nojoinspaces                  " don't autoinsert two spaces after '.', '?', '!' for join command
-set wildignore+=*.o,.git          " patterns to ignore during file-navigation
+set nocompatible                      " just in case system-wide vimrc has set this otherwise
+set hlsearch                          " highlight search strings
+set incsearch                         " incremental search ("find as you type")
+set ignorecase                        " ignore case when searching
+set smartcase                         " except when search string includes a capital letter
+set number                            " show line numbers in gutter
+set laststatus=2                      " always show status line
+set ww=h,l,<,>,[,]                    " allow h/l/left/right to cross line boundaries
+set autoread                          " if not changed in Vim, automatically pick up changes after "git co" etc
+set guioptions-=T                     " don't show toolbar
+set guifont=Consolas\ for\ BBEdit:h14 " the best programming font for old people, Consolas 18
+set hidden                            " allows you to hide buffers with unsaved changes without being prompted
+set wildmenu                          " show options as list when switching buffers etc
+set wildmode=longest:full,full        " shell-like autocomplete to unambiguous portion
+set history=1000                      " longer search and command history (default is 20)
+set scrolloff=3                       " start scrolling 3 lines before edge of viewport
+set sidescrolloff=3                   " same, but for columns
+set backupdir=~/.vim/tmp/backup,.     " keep backup files out of the way
+set directory=~/.vim/tmp/swap,.       " keep swap files out of the way
+set ttimeoutlen=50                    " speed up O etc in the Terminal
+set virtualedit=block                 " allow cursor to move where there is no text in visual block mode
+set showmatch                         " show matching brackets
+set showcmd                           " extra info in command line
+set nojoinspaces                      " don't autoinsert two spaces after '.', '?', '!' for join command
+set wildignore+=*.o,.git              " patterns to ignore during file-navigation
 set foldmethod=indent
 set foldlevelstart=1
 set foldlevel=1
