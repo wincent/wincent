@@ -1,5 +1,5 @@
-" add paths of plug-ins installed under ~/.vim/bundle to runtime path
-call pathogen#runtime_append_all_bundles()
+call pathogen#runtime_append_all_bundles()  " add .vim/bundle subdirs to runtime path
+call pathogen#helptags()                    " wasteful, but no shortage of grunt available
 
 set nocompatible                  " just in case system-wide vimrc has set this otherwise
 set hlsearch                      " highlight search strings
