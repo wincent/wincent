@@ -108,6 +108,9 @@ map <silent> <leader>m :MiniBufExplorer<CR>
 autocmd VimEnter * autocmd WinEnter * let w:created=1
 autocmd VimEnter * let w:created=1
 
+" rsync files from laptop to workstation on every file write
+autocmd BufWritePost $HOME/work/unversioned/**/* silent !touch $HOME/work/unversioned/.rsync-needed
+
 function! HighlightLongLines(proximity, overflow, hardlimit)
   let proximity = a:proximity == 0 ? 75 : a:proximity
   let overflow  = a:overflow == 0  ? 80 : a:overflow
