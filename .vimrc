@@ -144,9 +144,6 @@ endif
 " ,e -- edit file, starting in same directory as current file
 map <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
-" FuzzyFinder
-map <silent> <leader>b :FufBuffer<CR>
-
 " Command-T
 let g:CommandTMaxHeight = 10
 let g:CommandTMaxFiles  = 30000
