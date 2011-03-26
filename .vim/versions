@@ -23,15 +23,6 @@ Conque
   Install:
     svn export http://conque.googlecode.com/svn/tags/conque_2.0 bundle/conque
 
-fuzzyfinder.vim
-  http://www.vim.org/scripts/script.php?script_id=1984
-  3.5
-  2009-12-03
-  Install:
-    curl -o /tmp/vim-fuzzyfinder.zip \
-            http://www.vim.org/scripts/download_script.php?src_id=11852
-    unzip /tmp/vim-fuzzyfinder.zip -d ~/.vim/bundle/fuzzyfinder
-
 minibufexpl.vim
   http://vim.sourceforge.net/scripts/script.php?script_id=159
   6.3.2
