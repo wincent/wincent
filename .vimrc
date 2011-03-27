@@ -151,6 +151,7 @@ map <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 let g:CommandTMaxHeight          = 10
 let g:CommandTMaxFiles           = 30000
 let g:CommandTScanDotDirectories = 1
+map <leader>f :CommandTFlush<CR>
 
 " set up :Ack command as replacement for :grep
 function! AckGrep(command)
