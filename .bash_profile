@@ -134,8 +134,8 @@ unset PATH
 
 # keep these on separate lines to make changing their order easier
 PATH=$PATH:$HOME/.bundle/bin
-PATH=$PATH:$SYSTEM_PATH
 PATH=$PATH:$HOME/bin
+PATH=$PATH:$SYSTEM_PATH
 PATH=$PATH:/usr/local/mysql/bin
 PATH=$PATH:/usr/local/jruby/bin
 PATH=$PATH:/Developer/Tools
