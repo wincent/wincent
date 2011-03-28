@@ -143,7 +143,7 @@ PATH=$PATH:$EC2_HOME/bin
 export PATH
 
 MANPATH=/usr/share/man:/usr/local/man:/usr/local/share/man:/usr/X11R6/man
-MANPATH=$MANPATH:/usr/local/mysql/man
+MANPATH=$MANPATH:/usr/local/mysql/man:$HOME/share/man
 export MANPATH
 
 # for hg
