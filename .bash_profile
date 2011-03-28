@@ -112,9 +112,9 @@ export FTP_PASSIVE=1
 export CLICOLOR=true
 
 # for Amazon Web Services EC2 API
-export EC2_HOME=~/bin/ec2-api-tools-1.3-46266
-export EC2_PRIVATE_KEY=~/.ec2/pk.pem
-export EC2_CERT=~/.ec2/cert.pem
+export EC2_HOME=~/bin/ec2-api-tools
+export EC2_PRIVATE_KEY=~/.ssh/ec2wincent_pk.pem
+export EC2_CERT=~/.ssh/ec2wincent_cert.pem
 export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home
 
 # make Bundler do passwordless installs to a sandbox rather than to the system
