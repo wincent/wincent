@@ -188,19 +188,6 @@ alias cd..="cd .."
 
 alias h="history"
 
-# the only kind of "top" listing I ever seem to do (and "top -u" is deprecated)
-alias top="top -ocpu -Otime"
-
-# human readable du and df
-alias du="echo -e \"${ECHORED}du -h [alias]${ECHONOCOLOR}\";\
-          du -h"
-
-alias df="echo -e \"${ECHORED}df -h [alias]${ECHONOCOLOR}\";\
-          df -h"
-
-alias pstree="echo -e \"${ECHORED}pstree -w[alias]${ECHONOCOLOR}\";\
-              pstree -w"
-
 alias mirror="wget -H -p -k"
 
 alias monitor_backup="pushd ${HOME}; until false; do ll | grep bz2 | awk ' { print \$6 } '; sleep 60; done; popd"
