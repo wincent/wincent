@@ -22,6 +22,7 @@ set backupdir=~/.vim/tmp/backup,.     " keep backup files out of the way
 set directory=~/.vim/tmp/swap,.       " keep swap files out of the way
 set ttimeoutlen=50                    " speed up O etc in the Terminal
 set virtualedit=block                 " allow cursor to move where there is no text in visual block mode
+set cursorline                        " highlight current line
 set showmatch                         " show matching brackets
 set showcmd                           " extra info in command line
 set nojoinspaces                      " don't autoinsert two spaces after '.', '?', '!' for join command
