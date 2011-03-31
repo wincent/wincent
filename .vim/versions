@@ -23,15 +23,6 @@ Conque
   Install:
     svn export http://conque.googlecode.com/svn/tags/conque_2.0 bundle/conque
 
-minibufexpl.vim
-  http://vim.sourceforge.net/scripts/script.php?script_id=159
-  6.3.2
-  2004-11-18
-  Install:
-    mkdir -p ~/.vim/bundle/minibufexpl/plugin
-    curl -o ~/.vim/bundle/minibufexpl/plugin/minibufexpl.vim \
-            http://vim.sourceforge.net/scripts/download_script.php?src_id=3640
-
 The NERD commenter
   http://www.vim.org/scripts/script.php?script_id=1218
   2.2.2
