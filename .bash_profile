@@ -351,6 +351,11 @@ put()
   (cd $HOME/work/unversioned && make put)
 }
 
+hydra()
+{
+  curl http://d/hydra/$1
+}
+
 #
 # Completions
 #
