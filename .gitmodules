@@ -1,24 +1,32 @@
 [submodule ".vim/bundle/command-t"]
+	ignore = untracked
 	path = .vim/bundle/command-t
 	url = git://git.wincent.com/command-t.git
 [submodule ".vim/bundle/surround"]
+	ignore = untracked
 	path = .vim/bundle/surround
 	url = git://github.com/tpope/vim-surround.git
 [submodule ".vim/bundle/repeat"]
+	ignore = untracked
 	path = .vim/bundle/repeat
 	url = git://github.com/tpope/vim-repeat.git
 [submodule ".vim/bundle/rails"]
+	ignore = untracked
 	path = .vim/bundle/rails
 	url = git://github.com/tpope/vim-rails.git
 [submodule ".vim/bundle/haml"]
+	ignore = untracked
 	path = .vim/bundle/haml
 	url = git://github.com/tpope/vim-haml.git
 [submodule ".vim/bundle/snipmate"]
+	ignore = untracked
 	path = .vim/bundle/snipmate
 	url = git://github.com/msanders/snipmate.vim.git
 [submodule ".vim/bundle/fugitive"]
+	ignore = untracked
 	path = .vim/bundle/fugitive
 	url = git://github.com/tpope/vim-fugitive.git
 [submodule ".vim/bundle/git"]
+	ignore = untracked
 	path = .vim/bundle/git
 	url = git://github.com/tpope/vim-git.git
