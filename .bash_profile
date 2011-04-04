@@ -354,6 +354,7 @@ put()
 hydra()
 {
   curl http://d/hydra/$1
+  echo # curl doesn't return a trailing newline
 }
 
 #
