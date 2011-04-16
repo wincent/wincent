@@ -219,6 +219,8 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+nnoremap <C-kPlus> <C-w>+
+nnoremap <C-kMinus> <C-w>-
 nnoremap <silent> <leader>j :call SwapWithNext()<CR>
 nnoremap <silent> <leader>k :call SwapWithPrevious()<CR>
 
