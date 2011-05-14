@@ -73,7 +73,7 @@ autocmd FileType nerdtree setlocal nolist " suppress whitespace highlighting
 autocmd FileType ruby set smartindent
 autocmd FileType ruby set tabstop=2
 autocmd FileType ruby set shiftwidth=2
-autocmd FileType ruby call HighlightLongLines(0, 0, 0)
+"autocmd FileType ruby call HighlightLongLines(0, 0, 0)
 
 " C
 autocmd FileType c set tabstop=4
