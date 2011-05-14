@@ -92,7 +92,8 @@ autocmd BufNewFile,BufRead *_spec.rb set ft=ruby.spec
 filetype indent plugin on
 syntax on
 
-color wincent       " modified version of default MacVim scheme (light yellow background)
+set background=light
+color solarized
 
 let mapleader=","
 
