@@ -182,6 +182,13 @@ endfunction
 command! -nargs=? -complete=file Spec call RunSpec(<q-args>)
 map <leader>s :Spec<space>
 
+if has("gui_macvim")
+  " in MacVim we don't have a tty
+  command W w !SUDO_ASKPASS=~/bin/askpass sudo tee % > /dev/null
+else
+  command W w !sudo tee % > /dev/null
+endif
+
 " functions for moving lines up or down within buffer
 " based on:
 "   http://stackoverflow.com/questions/741814/move-entire-line-up-and-down-in-vim
