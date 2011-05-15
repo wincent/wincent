@@ -31,11 +31,14 @@
 	path = .vim/bundle/git
 	url = git://github.com/tpope/vim-git.git
 [submodule ".vim/bundle/vim-coffee-script"]
+	ignore = untracked
 	path = .vim/bundle/vim-coffee-script
 	url = git://github.com/kchmck/vim-coffee-script.git
 [submodule ".vim/bundle/vim-colors-solarized"]
+	ignore = untracked
 	path = .vim/bundle/vim-colors-solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
 [submodule ".vim/bundle/gundo"]
+	ignore = untracked
 	path = .vim/bundle/gundo
 	url = http://github.com/sjl/gundo.vim.git
