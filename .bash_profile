@@ -291,16 +291,6 @@ pid()
   done
 }
 
-# sr = strip resource fork(s) .. aliases are basically useless in bash
-sr()
-{
-  while [ -n "$1" ]
-  do
-    cp -i -v /dev/null "$1/..namedfork/rsrc"
-    shift
-  done
-}
-
 # regmv = regex + mv (mv with regex parameter specification)
 #   example: regmv '/\.tif$/.tiff/' *
 #   replaces .tif with .tiff for all files in current dir
