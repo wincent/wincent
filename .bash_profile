@@ -137,10 +137,11 @@ SYSTEM_PATH=$PATH
 unset PATH
 
 # keep these on separate lines to make changing their order easier
-PATH=$PATH:$HOME/bin
-PATH=$PATH:$SYSTEM_PATH
+PATH=$HOME/bin
+PATH=$PATH:/usr/local/bin
 PATH=$PATH:/usr/local/mysql/bin
 PATH=$PATH:/usr/local/jruby/bin
+PATH=$PATH:$SYSTEM_PATH
 PATH=$PATH:/Developer/Tools
 PATH=$PATH:$EC2_HOME/bin
 export PATH
