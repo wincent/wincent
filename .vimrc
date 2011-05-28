@@ -151,6 +151,9 @@ let g:CommandTMaxFiles            = 30000
 let g:CommandTScanDotDirectories  = 1
 map <leader>f :CommandTFlush<CR>
 
+" Gundo
+map <leader>u :GundoToggle<CR>
+
 " set up :Ack command as replacement for :grep
 function! AckGrep(command)
   cexpr system("ack " . a:command)
