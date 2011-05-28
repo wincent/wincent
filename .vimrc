@@ -173,6 +173,9 @@ function! s:Terms()
 endfunction
 command! Terms call s:Terms()
 
+" delete all buffers, except for those with unsaved changes
+map <leader>da :bufdo silent! bdelete<CR>
+
 function! RunSpec(command)
   if a:command == ''
     let dir = 'spec'
