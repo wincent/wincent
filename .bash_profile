@@ -161,7 +161,7 @@ CDPATH=.:~:~/trabajo:/usr/local
 OPENTITLEBAR="\033]0;"
 CLOSETITLEBAR="\007"
 
-trap 'printf "${OPENTITLEBAR} `history 1 | cut -b8-` - `pwd` ${CLOSETITLEBAR}"' DEBUG
+trap 'printf "${OPENTITLEBAR} `history 1 | cut -b8- | sed 's/%/%%/'` - `pwd` ${CLOSETITLEBAR}"' DEBUG
 
 #
 # Aliases
