@@ -1,4 +1,4 @@
-# Copyright 2003-2010 Wincent Colaiuta. All rights reserved.
+# Copyright 2003-2011 Wincent Colaiuta. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -40,10 +40,6 @@ BRIGHTBLUE="\[\e[1;34m\]"
 BRIGHTCYAN="\[\e[1;36m\]"
 
 NOCOLOR="\[\e[0m\]"
-
-# colours for use in echo -e statements
-ECHORED="\e[0;31m"
-ECHONOCOLOR="\e[0m"
 
 #
 # Prompt
