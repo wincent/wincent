@@ -20,7 +20,8 @@ end
 
 def clone_repo
   return if DOT_FILES.exist?
-  system_or_die 'git', 'clone', 'git://git.wincent.com/wincent.git', DOT_FILES
+  system_or_die 'git', 'clone', '--recursive',
+    'git://git.wincent.com/wincent.git', DOT_FILES
 end
 
 def dot_files
