@@ -42,8 +42,8 @@ end
 
 def link_dot_files
   dot_files.each do |file|
-    backup file
     link = HOME + file.basename
+    backup link
     puts "Symlinking #{file} as #{link}"
     FileUtils.ln_sf file, link
   end
