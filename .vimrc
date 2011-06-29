@@ -92,7 +92,9 @@ autocmd BufNewFile,BufRead *_spec.rb set ft=ruby.spec
 filetype indent plugin on
 syntax on
 
+" colorscheme
 set background=light
+let g:solarized_visibility='low'
 color solarized
 
 let mapleader=","
@@ -221,6 +223,16 @@ function! SwapWithNext()
   endif
   call SwapLines(n, n + 1)
 endfunction
+
+function! s:ToggleVisibility()
+  if g:solarized_visibility != 'high'
+    let g:solarized_visibility = 'high'
+  else
+    let g:solarized_visibility = 'low'
+  endif
+  color solarized
+endfunction
+map <leader>w :call <SID>ToggleVisibility()<CR>
 
 " multi-mode mappings (Normal, Visual, Operating-pending modes)
 noremap Y y$
