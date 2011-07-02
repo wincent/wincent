@@ -97,6 +97,10 @@ set background=light
 let g:solarized_visibility='low'
 color solarized
 
+if has('mouse')
+  set mouse=a
+endif
+
 let mapleader=","
 
 " a.vim
