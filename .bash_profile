@@ -329,9 +329,9 @@ put()
   (cd $HOME/work/unversioned && make put)
 }
 
-hydra()
+buffet()
 {
-  curl http://d/hydra/$1
+  curl http://d/buffet/$1
   echo # curl doesn't return a trailing newline
 }
 
