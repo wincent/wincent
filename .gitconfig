@@ -1,0 +1,27 @@
+[user]
+	name = Wincent Colaiuta
+	email = win@wincent.com
+[log]
+	decorate = short
+[color]
+	ui = auto
+[pager]
+	status = true
+	show-branch = true
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	oneline = log --oneline
+	both = diff HEAD
+	patch = add --patch
+	staged = diff --cached
+	amend = commit --amend
+	graph = log --oneline --graph
+	abbrev = rev-parse --short
+[core]
+	excludesfile = ~/.gitignore
+[difftool]
+	prompt = false
+[rebase]
+	autosquash = true
