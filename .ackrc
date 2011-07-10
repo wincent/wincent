@@ -1,4 +1,5 @@
 --pager=less
+--sort-files
 --type-add=ruby=.builder
 --type-add=ruby=.rake
 --type-add=ruby=.feature
