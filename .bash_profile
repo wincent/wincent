@@ -351,4 +351,4 @@ test -f $GIT_COMPLETION && . $GIT_COMPLETION
 complete -c command whereis
 
 # Third-party
-if [[ -s /Users/wincent/.rvm/scripts/rvm ]] ; then source /Users/wincent/.rvm/scripts/rvm ; fi
+if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
