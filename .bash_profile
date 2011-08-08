@@ -117,9 +117,6 @@ export EC2_PRIVATE_KEY=~/.ssh/ec2wincent_pk.pem
 export EC2_CERT=~/.ssh/ec2wincent_cert.pem
 export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home
 
-# make Bundler do passwordless installs to a sandbox rather than to the system
-export BUNDLE_PATH=~/.bundle
-
 # usually something like:
 #   /usr/bin
 #   /bin
@@ -345,4 +342,9 @@ test -f $GIT_COMPLETION && . $GIT_COMPLETION
 complete -c command whereis
 
 # Third-party
-if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
+if [[ -s $HOME/.rvm/scripts/rvm ]]; then
+  source $HOME/.rvm/scripts/rvm
+else
+  # make Bundler do passwordless installs to a sandbox rather than to the system
+  export BUNDLE_PATH=~/.bundle
+fi
