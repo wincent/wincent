@@ -329,12 +329,6 @@ put()
   (cd $HOME/work/unversioned && make put)
 }
 
-buffet()
-{
-  curl http://d/buffet/$1
-  echo # curl doesn't return a trailing newline
-}
-
 #
 # Completions
 #
