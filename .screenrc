@@ -1,0 +1,16 @@
+hardstatus alwayslastline
+hardstatus string "%w"
+
+startup_message off
+
+bind k eval "focus up"
+bind j eval "focus down"
+bind h eval "focus left"
+bind l eval "focus right"
+
+split -h
+focus next
+screen
+layout save layout
+
+defscrollback 100000
