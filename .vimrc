@@ -2,6 +2,7 @@ call pathogen#runtime_append_all_bundles()  " add .vim/bundle subdirs to runtime
 call pathogen#helptags()                    " wasteful, but no shortage of grunt available
 
 set nocompatible                      " just in case system-wide vimrc has set this otherwise
+set backspace=indent,start,eol
 set hlsearch                          " highlight search strings
 set incsearch                         " incremental search ("find as you type")
 set ignorecase                        " ignore case when searching
