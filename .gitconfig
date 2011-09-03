@@ -25,3 +25,5 @@
 	prompt = false
 [rebase]
 	autosquash = true
+[rerere]
+	enabled = true
