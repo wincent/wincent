@@ -42,3 +42,22 @@
 	ignore = untracked
 	path = .vim/bundle/gundo
 	url = http://github.com/sjl/gundo.vim.git
+[submodule ".vim/bundle/Align"]
+	ignore = untracked
+	path = .vim/bundle/Align
+	url = git://github.com/vim-scripts/Align.git
+[submodule ".vim/bundle/a.vim"]
+	path = .vim/bundle/a.vim
+	url = git://github.com/vim-scripts/a.vim.git
+[submodule ".vim/bundle/Conque-Shell"]
+	ignore = untracked
+	path = .vim/bundle/Conque-Shell
+	url = git://github.com/vim-scripts/Conque-Shell.git
+[submodule ".vim/bundle/The-NERD-Commenter"]
+	ignore = untracked
+	path = .vim/bundle/The-NERD-Commenter
+	url = git://github.com/vim-scripts/The-NERD-Commenter.git
+[submodule ".vim/bundle/The-NERD-tree"]
+	ignore = untracked
+	path = .vim/bundle/The-NERD-tree
+	url = git://github.com/vim-scripts/The-NERD-tree.git
