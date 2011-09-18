@@ -105,8 +105,6 @@ if has('mouse')
   set mouse=a
 endif
 
-let mapleader=","
-
 " a.vim
 let g:alternateExtensions_m = "h"
 let g:alternateExtensions_h = "m,c,mm,cpp,cxx,cc,CC"
