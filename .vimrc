@@ -85,6 +85,9 @@ let filetype_m='objc'
 autocmd FileType objc set tabstop=4
 autocmd FileType objc set shiftwidth=4
 
+" Prolog
+let filetype_pl='prolog'
+
 " RSpec
 autocmd BufNewFile,BufRead *_spec.rb set ft=ruby.spec
 
