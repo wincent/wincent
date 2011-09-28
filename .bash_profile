@@ -326,6 +326,11 @@ put()
   (cd $HOME/work/unversioned && make put)
 }
 
+refresh_agent()
+{
+  test -f ~/.ssh-agent && source ~/.ssh-agent
+}
+
 #
 # Completions
 #
