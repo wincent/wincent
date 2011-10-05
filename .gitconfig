@@ -18,7 +18,7 @@
 	staged = diff --cached
 	amend = commit --amend
 	graph = log --oneline --graph
-	abbrev = rev-parse --short
+	abbrev = !sh -c 'git rev-parse --short ${1-`echo HEAD`}' -
 [core]
 	excludesfile = ~/.gitignore
 [difftool]
