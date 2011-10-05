@@ -15,9 +15,17 @@ def dot_files
   end
 end
 
+def delete_old_backup file
+  if file.exist?
+    puts "Removing old backup #{file}"
+    FileUtils.rm file
+  end
+end
+
 def backup file
   if file.exist?
     destination = "#{file}.bak"
+    delete_old_backup file
     puts "Backing up #{file} to #{destination}"
     FileUtils.mv file, destination, :force => true
   end
