@@ -25,7 +25,7 @@ end
 def backup file
   if file.exist?
     destination = "#{file}.bak"
-    delete_old_backup file
+    delete_old_backup destination
     puts "Backing up #{file} to #{destination}"
     FileUtils.mv file, destination, :force => true
   end
