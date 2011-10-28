@@ -183,16 +183,6 @@ alias ......="cd ../../.."
 # my single most frequent typo:
 alias cd..="cd .."
 
-alias h="history"
-
-alias mirror="wget -H -p -k"
-
-alias monitor_backup="pushd ${HOME}; until false; do ll | grep bz2 | awk ' { print \$6 } '; sleep 60; done; popd"
-
-alias igrep="grep -i"
-
-alias b="bundle exec"
-
 alias refresh_agent="test -f ~/.ssh-agent && source ~/.ssh-agent"
 
 #
