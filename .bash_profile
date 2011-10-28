@@ -193,6 +193,8 @@ alias igrep="grep -i"
 
 alias b="bundle exec"
 
+alias refresh_agent="test -f ~/.ssh-agent && source ~/.ssh-agent"
+
 #
 # Functions
 #
@@ -324,11 +326,6 @@ get()
 put()
 {
   (cd $HOME/work/unversioned && make put)
-}
-
-refresh_agent()
-{
-  test -f ~/.ssh-agent && source ~/.ssh-agent
 }
 
 #
