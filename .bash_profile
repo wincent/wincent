@@ -189,6 +189,7 @@ alias ......="cd ../../.."
 # my single most frequent typo:
 alias cd..="cd .."
 
+alias dump_agent="export | grep SSH_AUTH_SOCK > ~/.ssh-agent"
 alias refresh_agent="test -f ~/.ssh-agent && source ~/.ssh-agent"
 
 #
