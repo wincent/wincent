@@ -91,7 +91,12 @@ shopt -u hostcomplete
 #
 
 export PAGER=less
-export EDITOR=vim
+
+if [ -x $HOME/bin/vim ]; then
+  export EDITOR=$HOME/bin/vim
+else
+  export EDITOR=vim
+fi
 
 # filename (if known), line number if known, falling back to percent if known,
 # falling back to byte offset, falling back to dash
