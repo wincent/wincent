@@ -314,11 +314,6 @@ regmv()
   done
 }
 
-get()
-{
-  (cd $HOME/work/unversioned && make get)
-}
-
 put()
 {
   (cd $HOME/work/unversioned && make put)
