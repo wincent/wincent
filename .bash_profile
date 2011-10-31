@@ -102,9 +102,10 @@ fi
 # falling back to byte offset, falling back to dash
 export LESSPROMPT='?f%f .?ltLine %lt:?pt%pt\%:?btByte %bt:-...'
 
-# F = exit immediately if fits on first screen, M = verbose prompt, R = ANSI
-# color support, X = prevent output from being cleared
-export LESS=FMRX
+# M = verbose prompt,
+# R = ANSI color support,
+# X = prevent output from being cleared
+export LESS=MRX
 
 if [ -x /usr/local/bin/src-hilite-lesspipe.sh ]; then
   export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
