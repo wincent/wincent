@@ -192,6 +192,7 @@ alias ......="cd ../../.."
 # my single most frequent typo:
 alias cd..="cd .."
 
+# see also "ssh-reagent" function below
 alias dump_agent="export | grep SSH_ > ~/.ssh-agent"
 alias refresh_agent="test -f ~/.ssh-agent && source ~/.ssh-agent && ssh-add -l"
 
@@ -321,6 +322,18 @@ regmv()
 put()
 {
   (cd $HOME/work/unversioned && make put)
+}
+
+ssh-reagent () {
+  for agent in /tmp/ssh-*/agent.*; do
+    export SSH_AUTH_SOCK=$agent
+    if ssh-add -l 2>&1 > /dev/null; then
+      echo Found working SSH Agent:
+      ssh-add -l
+      return
+    fi
+  done
+  echo Cannot find ssh agent - maybe you should reconnect and forward it?
 }
 
 #
