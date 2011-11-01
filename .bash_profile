@@ -86,6 +86,9 @@ shopt -s extglob
 # interferes with my ssh completion below)
 shopt -u hostcomplete
 
+# prevent CTRL-S from capturing all output; I basically only ever hit it by mistake
+stty -ixon
+
 #
 # Environment
 #
