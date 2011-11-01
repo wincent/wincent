@@ -18,6 +18,7 @@
 	abbrev = !sh -c 'git rev-parse --short ${1-`echo HEAD`}' -
 [core]
 	excludesfile = ~/.gitignore
+	pager = less -FRSX
 [difftool]
 	prompt = false
 [rebase]
