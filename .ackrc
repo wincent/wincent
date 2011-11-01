@@ -1,4 +1,4 @@
---pager=less
+--pager=less -FRSX
 --sort-files
 --type-add=ruby=.builder
 --type-add=ruby=.rake
