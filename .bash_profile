@@ -152,9 +152,6 @@ MANPATH=/usr/share/man:/usr/local/man:/usr/local/share/man:/usr/X11R6/man
 MANPATH=$MANPATH:/usr/local/mysql/man:$HOME/share/man
 export MANPATH
 
-# for hg
-export PYTHONPATH=/usr/local/lib/python2.5/site-packages
-
 # on attempting to "cd" search current directory first, then home dir etc
 # don't export CDPATH (can cause problems with shell scripts etc)
 CDPATH=.:~:~/trabajo:/usr/local
