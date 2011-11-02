@@ -2,7 +2,7 @@ call pathogen#runtime_append_all_bundles()  " add .vim/bundle subdirs to runtime
 call pathogen#helptags()                    " wasteful, but no shortage of grunt available
 
 set nocompatible                      " just in case system-wide vimrc has set this otherwise
-set backspace=indent,start,eol
+set backspace=indent,start,eol        " allow unrestricted backspacing in insert mode
 set hlsearch                          " highlight search strings
 set incsearch                         " incremental search ("find as you type")
 set ignorecase                        " ignore case when searching
@@ -29,8 +29,8 @@ set showcmd                           " extra info in command line
 set nojoinspaces                      " don't autoinsert two spaces after '.', '?', '!' for join command
 set wildignore+=*.o,.git              " patterns to ignore during file-navigation
 set shortmess+=A                      " ignore annoying swapfile messages
-set foldmethod=indent
-set foldlevelstart=1
+set foldmethod=indent                 " not as cool as syntax, but faster
+set foldlevelstart=1                  " start with some but not all folds closed
 set foldlevel=1
 
 " statusline
@@ -155,7 +155,7 @@ endfunction
 " to get out of diff mode do :diffoff!
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
+      \ | wincmd p | diffthis
 endif
 
 " ,e -- edit file, starting in same directory as current file
