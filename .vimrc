@@ -244,7 +244,11 @@ function! s:ToggleVisibility()
   if g:solarized_visibility != 'high'
     let g:solarized_visibility = 'high'
   else
-    let g:solarized_visibility = 'low'
+    if &term =~ "xterm"
+      let g:solarized_visibility = 'medium'
+    else
+      let g:solarized_visibility = 'low'
+    endif
   endif
   color solarized
 endfunction
