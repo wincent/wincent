@@ -112,6 +112,9 @@ color solarized
 
 if has('mouse')
   set mouse=a
+  if &term =~ "xterm"
+    set ttymouse=xterm2
+  endif
 endif
 
 " a.vim
