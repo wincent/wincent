@@ -168,6 +168,11 @@ let g:CommandTMaxFiles             = 30000
 let g:CommandTMaxCachedDirectories = 10
 let g:CommandTScanDotDirectories   = 1
 map <leader>f :CommandTFlush<CR>
+if &term =~ "xterm"
+  let g:CommandTCancelMap     = ['<ESC>', '<C-c>']
+  let g:CommandTSelectNextMap = ['<C-n>', '<C-j>', '<ESC>OB']
+  let g:CommandTSelectPrevMap = ['<C-p>', '<C-k>', '<ESC>OA']
+endif
 
 " Gundo
 map <leader>u :GundoToggle<CR>
