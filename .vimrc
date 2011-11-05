@@ -101,13 +101,7 @@ syntax on
 
 " colorscheme
 set background=light
-if &term =~ "xterm"
-  " default behavior
-else
-  " in the terminal this makes trailing whitespace invisible
-  " but in MacVim it's just more subtle, without being invisible
-  let g:solarized_visibility='low'
-endif
+let g:solarized_visibility='low'
 color solarized
 
 if has('mouse')
@@ -259,11 +253,7 @@ function! s:ToggleVisibility()
   if g:solarized_visibility != 'high'
     let g:solarized_visibility = 'high'
   else
-    if &term =~ "xterm"
-      let g:solarized_visibility = 'medium'
-    else
-      let g:solarized_visibility = 'low'
-    endif
+    let g:solarized_visibility = 'low'
   endif
   color solarized
 endfunction
