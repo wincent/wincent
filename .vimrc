@@ -119,6 +119,8 @@ if has('mouse')
     " inside Vim -- but luckily, setting it up from within the VimEnter
     " autocmd works
     autocmd VimEnter * set ttymouse=xterm2
+    autocmd FocusGained * set ttymouse=xterm2
+    autocmd BufEnter * set ttymouse=xterm2
   endif
 endif
 
