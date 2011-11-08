@@ -25,3 +25,7 @@
 	autosquash = true
 [rerere]
 	enabled = true
+[help]
+	autocorrect = 10
+[merge]
+	log = 1000
