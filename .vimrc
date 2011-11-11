@@ -178,6 +178,10 @@ if &term =~ "xterm"
   let g:CommandTSelectPrevMap = ['<C-p>', '<C-k>', '<ESC>OA']
 endif
 
+" prevent Align.vim from defining a bunch of maps starting with <leader>t
+" and introducing an annoying delay when opening Command-T
+let g:loaded_AlignMapsPlugin = "v41"
+
 " Gundo
 map <leader>u :GundoToggle<CR>
 
