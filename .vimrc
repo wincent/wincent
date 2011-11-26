@@ -172,6 +172,7 @@ let g:CommandTMaxFiles             = 30000
 let g:CommandTMaxCachedDirectories = 10
 let g:CommandTScanDotDirectories   = 1
 map <leader>f :CommandTFlush<CR>
+map <leader>j :CommandTJump<CR>
 if &term =~ "xterm"
   let g:CommandTCancelMap     = ['<ESC>', '<C-c>']
   let g:CommandTSelectNextMap = ['<C-n>', '<C-j>', '<ESC>OB']
@@ -226,33 +227,6 @@ else
   command W w !sudo tee % > /dev/null
 endif
 
-" functions for moving lines up or down within buffer
-" based on:
-"   http://stackoverflow.com/questions/741814/move-entire-line-up-and-down-in-vim
-function! SwapLines(l1, l2)
-  let current = getline(a:l1)
-  let other   = getline(a:l2)
-  call setline(a:l1, other)
-  call setline(a:l2, current)
-  exec a:l2
-endfunction
-
-function! SwapWithPrevious()
-  let n = line('.')
-  if n == 1
-    return
-  endif
-  call SwapLines(n, n - 1)
-endfunction
-
-function! SwapWithNext()
-  let n = line('.')
-  if n == line('$')
-    return
-  endif
-  call SwapLines(n, n + 1)
-endfunction
-
 function! s:ToggleVisibility()
   if g:solarized_visibility != 'high'
     let g:solarized_visibility = 'high'
@@ -277,7 +251,5 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-kPlus> <C-w>+
 nnoremap <C-kMinus> <C-w>-
-nnoremap <silent> <leader>j :call SwapWithNext()<CR>
-nnoremap <silent> <leader>k :call SwapWithPrevious()<CR>
 
 source $VIMRUNTIME/macros/matchit.vim
