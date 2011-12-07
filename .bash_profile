@@ -124,7 +124,15 @@ export CLICOLOR=true
 export EC2_HOME=~/bin/ec2-api-tools
 export EC2_PRIVATE_KEY=~/.ssh/ec2wincent_pk.pem
 export EC2_CERT=~/.ssh/ec2wincent_cert.pem
-export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home
+
+case "$(uname)" in
+  Darwin*)
+    export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home
+    ;;
+  Linux*)
+    export JAVA_HOME=/usr/lib/jvm/jre-1.6.0-openjdk.x86_64
+    ;;
+esac
 
 # usually something like:
 #   /usr/bin
@@ -146,6 +154,7 @@ PATH=$PATH:/usr/local/jruby/bin
 PATH=$PATH:$SYSTEM_PATH
 PATH=$PATH:/Developer/Tools
 PATH=$PATH:$EC2_HOME/bin
+PATH=$PATH:$HOME/maven/apache-maven-2.2.1/bin
 export PATH
 
 MANPATH=/usr/share/man:/usr/local/man:/usr/local/share/man:/usr/X11R6/man
