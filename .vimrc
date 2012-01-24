@@ -61,12 +61,20 @@ set smarttab                      " <tab>
 set list                          " show whitespace
 set listchars=nbsp:¬,eol:¶,tab:>-,extends:»,precedes:«,trail:•
 set autoindent
+set textwidth=80
+if exists('+colorcolumn')
+  set cc=+0
+endif
 
 " Quickfix listing
 autocmd BufReadPost quickfix setlocal so=0 | setlocal nolist
 
+" Git commit messages
+autocmd FileType gitcommit setlocal textwidth=72
+
 " Conque
 autocmd FileType conque_term setlocal nolist " suppress whitespace highlighting
+autocmd FileType conque_term setlocal textwidth=0
 
 " NERDTree
 autocmd FileType nerdtree setlocal nolist " suppress whitespace highlighting
@@ -75,7 +83,6 @@ autocmd FileType nerdtree setlocal nolist " suppress whitespace highlighting
 autocmd FileType ruby set smartindent
 autocmd FileType ruby set tabstop=2
 autocmd FileType ruby set shiftwidth=2
-"autocmd FileType ruby call HighlightLongLines(0, 0, 0)
 
 " C
 autocmd FileType c set tabstop=4
@@ -128,31 +135,6 @@ autocmd VimEnter * let w:created=1
 
 " rsync files from laptop to workstation on every file write
 autocmd BufWritePost $HOME/work/unversioned/**/* silent !touch $HOME/work/unversioned/.rsync-needed
-
-function! HighlightLongLines(proximity, overflow, hardlimit)
-  let proximity = a:proximity == 0 ? 75 : a:proximity
-  let overflow  = a:overflow == 0  ? 80 : a:overflow
-  let hardlimit = a:hardlimit == 0 ? 132 : a:hardlimit
-  let proximity_highlight =
-        \'\%<' .
-        \ string(overflow) .
-        \ 'v.\%>' .
-        \ string(proximity) .
-        \ 'v'
-  let overflow_highlight =
-        \ '\%<' .
-        \ string(hardlimit) .
-        \ 'v.\%>' .
-        \ string(overflow) .
-        \ 'v'
-  let hardlimit_highlight =
-        \ '\%>' .
-        \ string(hardlimit) .
-        \ 'v.\+'
-  let w:m1=matchadd('LineProximity',  proximity_highlight, -1)
-  let w:m2=matchadd('LineOverflow',   overflow_highlight, -1)
-  let w:m3=matchadd('LineHardLimit',  hardlimit_highlight, -1)
-endfunction
 
 " see changes made to current buffer since file was loaded
 " (from vimrc example file)
