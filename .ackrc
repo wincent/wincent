@@ -4,6 +4,7 @@
 --type-add=ruby=.rake
 --type-add=ruby=.feature
 --type-set=haml=.haml
+--type-set=puppet=.pp
 --type-set=ragel=.rl
 --type-set=sass=.sass
 --type-set=txt=.txt
