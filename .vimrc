@@ -107,9 +107,14 @@ filetype indent plugin on
 syntax on
 
 " colorscheme
-set background=light
-let g:solarized_visibility='low'
-color solarized
+if filereadable(expand("~/.vim/dark"))
+  set background=dark
+  color elflord
+else
+  set background=light
+  let g:solarized_visibility='low'
+  color solarized
+endif
 
 if has('mouse')
   set mouse=a
