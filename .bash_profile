@@ -28,18 +28,10 @@
 # in man tcsh (see LS_COLORS)
 
 # colours for use in prompts
-RED="\[\e[0;31m\]"
-GREEN="\[\e[0;32m\]"
-YELLOW="\[\e[0;33m\]"
-BLUE="\[\e[0;34m\]"
-PURPLE="\[\e[0;35m\]"
-CYAN="\[\e[0;36m\]"
-
-BRIGHTRED="\[\e[1;31m\]"
-BRIGHTBLUE="\[\e[1;34m\]"
-BRIGHTCYAN="\[\e[1;36m\]"
-
-NOCOLOR="\[\e[0m\]"
+GREEN='\e[0;32m'
+BLUE='\e[0;34m'
+RED='\e[0;31m'
+NOCOLOR='\e[0m'
 
 #
 # Prompt
@@ -169,11 +161,10 @@ CDPATH=.:~:~/trabajo:/usr/local
 # Title bar
 #
 
-# note that is different than the version used in the old prompt-based solution
 OPENTITLEBAR="\033]0;"
 CLOSETITLEBAR="\007"
 
-trap 'printf "${OPENTITLEBAR} `history 1 | cut -b8- | sed 's/%/%%/g'` - `pwd` ${CLOSETITLEBAR}"' DEBUG
+trap 'printf "${OPENTITLEBAR}`history 1 | cut -b8- | sed 's/%/%%/g'`${CLOSETITLEBAR}"' DEBUG
 
 #
 # Aliases
