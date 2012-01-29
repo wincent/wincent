@@ -154,7 +154,7 @@ if !exists(":DiffOrig")
 endif
 
 " \e -- edit file, starting in same directory as current file
-map <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+nnoremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 " \zz -- Zap trailing whitespace in the current buffer.
 "
@@ -169,8 +169,8 @@ let g:CommandTMaxHeight            = 10
 let g:CommandTMaxFiles             = 30000
 let g:CommandTMaxCachedDirectories = 10
 let g:CommandTScanDotDirectories   = 1
-map <leader>f :CommandTFlush<CR>
-map <leader>j :CommandTJump<CR>
+nnoremap <leader>f :CommandTFlush<CR>
+nnoremap <silent> <leader>j :CommandTJump<CR>
 if &term =~ "screen" || &term =~ "xterm"
   let g:CommandTCancelMap     = ['<ESC>', '<C-c>']
   let g:CommandTSelectNextMap = ['<C-n>', '<C-j>', '<ESC>OB']
@@ -182,7 +182,7 @@ endif
 let g:loaded_AlignMapsPlugin = "v41"
 
 " Gundo
-map <leader>u :GundoToggle<CR>
+nnoremap <silent> <leader>u :GundoToggle<CR>
 
 " set up :Ack command as replacement for :grep
 function! AckGrep(command)
@@ -190,7 +190,7 @@ function! AckGrep(command)
   cw " show quickfix window already
 endfunction
 command! -nargs=+ -complete=file Ack call AckGrep(<q-args>)
-map <leader>a :Ack<space>
+nnoremap <leader>a :Ack<space>
 
 " :Term to bring up Conque (:Terms to bring up in a new split)
 function! s:Term()
@@ -204,7 +204,7 @@ endfunction
 command! Terms call s:Terms()
 
 " delete all buffers, except for those with unsaved changes
-map <leader>da :bufdo silent! bdelete<CR>
+nnoremap <leader>da :bufdo silent! bdelete<CR>
 
 command W w !sudo tee % > /dev/null
 
@@ -216,7 +216,7 @@ function! s:ToggleVisibility()
   endif
   color solarized
 endfunction
-map <leader>w :call <SID>ToggleVisibility()<CR>
+nnoremap <leader>w :call <SID>ToggleVisibility()<CR>
 
 " multi-mode mappings (Normal, Visual, Operating-pending modes)
 noremap Y y$
