@@ -206,18 +206,6 @@ command! Terms call s:Terms()
 " delete all buffers, except for those with unsaved changes
 map <leader>da :bufdo silent! bdelete<CR>
 
-function! RunSpec(command)
-  if a:command == ''
-    let dir = 'spec'
-  else
-    let dir = a:command
-  endif
-  cexpr system("bin/rspec -r spec/support/vim_formatter.rb -f RSpec::Core::Formatters::VimFormatter " . dir)"a:command)
-  cw
-endfunction
-command! -nargs=? -complete=file Spec call RunSpec(<q-args>)
-map <leader>s :Spec<space>
-
 if has("gui_macvim")
   " in MacVim we don't have a tty
   command W w !SUDO_ASKPASS=~/bin/askpass sudo tee % > /dev/null
