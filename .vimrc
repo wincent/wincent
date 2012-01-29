@@ -206,12 +206,7 @@ command! Terms call s:Terms()
 " delete all buffers, except for those with unsaved changes
 map <leader>da :bufdo silent! bdelete<CR>
 
-if has("gui_macvim")
-  " in MacVim we don't have a tty
-  command W w !SUDO_ASKPASS=~/bin/askpass sudo tee % > /dev/null
-else
-  command W w !sudo tee % > /dev/null
-endif
+command W w !sudo tee % > /dev/null
 
 function! s:ToggleVisibility()
   if g:solarized_visibility != 'high'
