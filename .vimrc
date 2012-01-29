@@ -153,8 +153,15 @@ if !exists(":DiffOrig")
       \ | wincmd p | diffthis
 endif
 
-" ,e -- edit file, starting in same directory as current file
+" \e -- edit file, starting in same directory as current file
 map <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+
+" \zz -- Zap trailing whitespace in the current buffer.
+"
+"        As this one is somewhat destructive and relatively close to the
+"        oft-used <leader>a mapping, make this one a double key-stroke.
+"
+nnoremap <silent> <leader>zz :let _last_search=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_last_search <Bar> :noh<CR>
 
 " Command-T
 let g:CommandTMatchWindowReverse   = 1
