@@ -122,7 +122,7 @@ endif
 
 if has('mouse')
   set mouse=a
-  if &term =~ "xterm"
+  if &term =~ "screen" || &term =~ "xterm"
     " for some reason, doing this directly with 'set ttymouse=xterm2'
     " doesn't work -- 'set ttymouse?' returns xterm2 but the mouse
     " makes tmux enter copy mode instead of selecting or scrolling
@@ -164,7 +164,7 @@ let g:CommandTMaxCachedDirectories = 10
 let g:CommandTScanDotDirectories   = 1
 map <leader>f :CommandTFlush<CR>
 map <leader>j :CommandTJump<CR>
-if &term =~ "xterm"
+if &term =~ "screen" || &term =~ "xterm"
   let g:CommandTCancelMap     = ['<ESC>', '<C-c>']
   let g:CommandTSelectNextMap = ['<C-n>', '<C-j>', '<ESC>OB']
   let g:CommandTSelectPrevMap = ['<C-p>', '<C-k>', '<ESC>OA']
