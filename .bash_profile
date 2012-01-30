@@ -53,7 +53,6 @@ export HISTCONTROL=ignoredups
 export HOSTFILE=~/.bash_hostfile
 export HISTIGNORE="exit"
 
-
 #
 # Shell options
 #
@@ -321,11 +320,11 @@ put()
   (cd $HOME/work/unversioned && make put)
 }
 
-ssh-reagent () {
+ssh-reagent() {
   for agent in /tmp/ssh-*/agent.*; do
     echo Trying $agent
     export SSH_AUTH_SOCK=$agent
-    if ssh-add -l 2>&1 > /dev/null; then
+    if ssh-add -l &> /dev/null; then
       echo Found working SSH Agent:
       ssh-add -l
       return
@@ -349,7 +348,10 @@ test -f $GIT_COMPLETION && . $GIT_COMPLETION
 # PATH)
 complete -c command whereis
 
+#
 # Third-party
+#
+
 if [[ -s $HOME/.rvm/scripts/rvm ]]; then
   source $HOME/.rvm/scripts/rvm
 else
