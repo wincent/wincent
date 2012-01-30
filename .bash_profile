@@ -155,7 +155,7 @@ export MANPATH
 
 # on attempting to "cd" search current directory first, then home dir etc
 # don't export CDPATH (can cause problems with shell scripts etc)
-CDPATH=.:~:~/trabajo:/usr/local
+CDPATH=.:~
 
 #
 # Title bar
