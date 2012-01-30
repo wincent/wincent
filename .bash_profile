@@ -315,11 +315,6 @@ regmv()
   done
 }
 
-put()
-{
-  (cd $HOME/work/unversioned && make put)
-}
-
 ssh-reagent() {
   for agent in /tmp/ssh-*/agent.*; do
     echo Trying $agent
