@@ -1,4 +1,4 @@
-# Copyright 2003-2011 Wincent Colaiuta. All rights reserved.
+# Copyright 2003-2012 Wincent Colaiuta. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -114,7 +114,7 @@ export CLICOLOR=true
 
 # for Amazon Web Services EC2 API
 export EC2_HOME=~/bin/ec2-api-tools
-export EC2_PRIVATE_KEY=~/.ssh/ec2wincent_pk.pem
+export EC2_PRIVATE_KEY=~/.ssh/ec2wincent_cert_pk.pem
 export EC2_CERT=~/.ssh/ec2wincent_cert.pem
 
 case "$(uname)" in
