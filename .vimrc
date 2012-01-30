@@ -21,10 +21,12 @@ set scrolloff=3                       " start scrolling 3 lines before edge of v
 set sidescrolloff=3                   " same, but for columns
 set backupdir=~/.vim/tmp/backup,.     " keep backup files out of the way
 set directory=~/.vim/tmp/swap,.       " keep swap files out of the way
+
 if has('persistent_undo')
-  set undodir=~/.vim/tmp/undo,.        " keep undo files out of the way
+  set undodir=~/.vim/tmp/undo,.       " keep undo files out of the way
   set undofile                        " actually use undo files
 endif
+
 set ttimeoutlen=50                    " speed up O etc in the Terminal
 set virtualedit=block                 " allow cursor to move where there is no text in visual block mode
 set cursorline                        " highlight current line
@@ -216,6 +218,8 @@ function! s:ToggleVisibility()
   endif
   color solarized
 endfunction
+
+" mnemonic: [w]hitespace
 nnoremap <leader>w :call <SID>ToggleVisibility()<CR>
 
 " multi-mode mappings (Normal, Visual, Operating-pending modes)
