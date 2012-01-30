@@ -144,9 +144,6 @@ let g:alternateExtensions_h = "m,c,mm,cpp,cxx,cc,CC"
 autocmd VimEnter * autocmd WinEnter * let w:created=1
 autocmd VimEnter * let w:created=1
 
-" rsync files from laptop to workstation on every file write
-autocmd BufWritePost $HOME/work/unversioned/**/* silent !touch $HOME/work/unversioned/.rsync-needed
-
 " see changes made to current buffer since file was loaded
 " (from vimrc example file)
 " to get out of diff mode do :diffoff!
