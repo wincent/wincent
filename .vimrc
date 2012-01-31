@@ -120,6 +120,7 @@ else
   set background=light
   let g:solarized_visibility='low'
   color solarized
+  set t_Co=16
 endif
 
 if has('mouse')
