@@ -68,7 +68,7 @@ set list                          " show whitespace
 set listchars=nbsp:¬,eol:¶,tab:>-,extends:»,precedes:«,trail:•
 set autoindent
 set textwidth=80
-if has('colorcolumn')
+if exists('+colorcolumn')
   set cc=+0
 endif
 
