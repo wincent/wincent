@@ -148,10 +148,6 @@ PATH=$PATH:$EC2_HOME/bin
 PATH=$PATH:$HOME/maven/apache-maven-2.2.1/bin
 export PATH
 
-MANPATH=/usr/share/man:/usr/local/man:/usr/local/share/man:/usr/X11R6/man
-MANPATH=$MANPATH:/usr/local/mysql/man:$HOME/share/man
-export MANPATH
-
 # on attempting to "cd" search current directory first, then home dir etc
 # don't export CDPATH (can cause problems with shell scripts etc)
 CDPATH=.:~
