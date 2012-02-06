@@ -61,3 +61,6 @@
 	ignore = untracked
 	path = .vim/bundle/The-NERD-tree
 	url = git://github.com/vim-scripts/The-NERD-tree.git
+[submodule ".vim/bundle/vim-soy"]
+	path = .vim/bundle/vim-soy
+	url = git://github.com/duganchen/vim-soy.git
