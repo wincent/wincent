@@ -64,3 +64,10 @@
 [submodule ".vim/bundle/vim-soy"]
 	path = .vim/bundle/vim-soy
 	url = git://github.com/duganchen/vim-soy.git
+[submodule ".vim/bundle/vim-textobj-user"]
+	ignore = untracked
+	path = .vim/bundle/vim-textobj-user
+	url = git://github.com/kana/vim-textobj-user.git
+[submodule ".vim/bundle/vim-textobj-rubyblock"]
+	path = .vim/bundle/vim-textobj-rubyblock
+	url = git://github.com/nelstrom/vim-textobj-rubyblock.git
