@@ -171,6 +171,7 @@ let g:CommandTMaxCachedDirectories = 10
 let g:CommandTScanDotDirectories   = 1
 nnoremap <leader>f :CommandTFlush<CR>
 nnoremap <silent> <leader>j :CommandTJump<CR>
+nnoremap <leader>g :CommandTTag<CR>
 if &term =~ "screen" || &term =~ "xterm"
   let g:CommandTCancelMap     = ['<ESC>', '<C-c>']
   let g:CommandTSelectNextMap = ['<C-n>', '<C-j>', '<ESC>OB']
