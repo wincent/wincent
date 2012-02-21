@@ -186,12 +186,12 @@ let g:loaded_AlignMapsPlugin = "v41"
 nnoremap <silent> <leader>u :GundoToggle<CR>
 
 " set up :Ack command as replacement for :grep
-function! AckGrep(command)
-  cexpr system("ack " . a:command)
-  cw " show quickfix window already
-endfunction
-command! -nargs=+ -complete=file Ack call AckGrep(<q-args>)
+set grepprg=ack\ --column
+set grepformat=%f:%l:%c:%m
+command! -nargs=+ -complete=file Ack execute 'silent! grep! <args>' | redraw!
 nnoremap <leader>a :Ack<space>
+autocmd QuickFixCmdPost [^l]* nested cw
+autocmd QuickFixCmdPost l* nested lw
 
 " :Term to bring up Conque (:Terms to bring up in a new split)
 function! s:Term()
