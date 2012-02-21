@@ -190,6 +190,8 @@ set grepprg=ack\ --column
 set grepformat=%f:%l:%c:%m
 command! -nargs=+ -complete=file Ack execute 'silent! grep! <args>' | redraw!
 nnoremap <leader>a :Ack<space>
+command! -nargs=+ -complete=file Lack execute 'silent! lgrep! <args>' | redraw!
+nnoremap <leader>l :Lack<space>
 autocmd QuickFixCmdPost [^l]* nested cw
 autocmd QuickFixCmdPost l* nested lw
 
