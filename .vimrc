@@ -185,15 +185,25 @@ let g:loaded_AlignMapsPlugin = "v41"
 " Gundo
 nnoremap <silent> <leader>u :GundoToggle<CR>
 
-" set up :Ack command as replacement for :grep
 set grepprg=ack\ --column
 set grepformat=%f:%l:%c:%m
-command! -nargs=+ -complete=file Ack execute 'silent! grep! <args>' | redraw!
-nnoremap <leader>a :Ack<space>
-command! -nargs=+ -complete=file Lack execute 'silent! lgrep! <args>' | redraw!
-nnoremap <leader>l :Lack<space>
 autocmd QuickFixCmdPost [^l]* nested cw
 autocmd QuickFixCmdPost l* nested lw
+
+function! AckGrep(command)
+  cexpr system("ack --column " . a:command)
+  cw
+endfunction
+
+function! LackGrep(command)
+  lexpr system("ack --column " . a:command)
+  lw
+endfunction
+
+command! -nargs=+ -complete=file Ack call AckGrep(<q-args>)
+nnoremap <leader>a :Ack<space>
+command! -nargs=+ -complete=file Lack call LackGrep(<q-args>)
+nnoremap <leader>l :Lack<space>
 
 " :Term to bring up Conque (:Terms to bring up in a new split)
 function! s:Term()
