@@ -71,3 +71,7 @@
 [submodule ".vim/bundle/vim-textobj-rubyblock"]
 	path = .vim/bundle/vim-textobj-rubyblock
 	url = git://github.com/nelstrom/vim-textobj-rubyblock.git
+[submodule ".vim/bundle/vim-ragtag"]
+	ignore = untracked
+	path = .vim/bundle/vim-ragtag
+	url = git://github.com/tpope/vim-ragtag.git
