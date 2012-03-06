@@ -175,7 +175,7 @@ alias ls="/bin/ls -F"
 alias l="/bin/ls -F"
 
 # ll = long listing (full details)
-alias ll="/bin/ls -laoF"
+alias ll="/bin/ls -laF"
 
 alias ..="cd .."
 alias ....="cd ../.."
