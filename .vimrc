@@ -211,6 +211,10 @@ nnoremap <leader>a :Ack<space>
 command! -nargs=+ -complete=file Lack call LackGrep(<q-args>)
 nnoremap <leader>l :Lack<space>
 
+" make Vim's regexen more Perl-like
+nnoremap / /\v
+vnoremap / /\v
+
 " :Term to bring up Conque (:Terms to bring up in a new split)
 function! s:Term()
   execute 'ConqueTerm bash'
