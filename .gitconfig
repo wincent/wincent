@@ -29,3 +29,5 @@
 	autocorrect = 10
 [merge]
 	log = 1000
+[push]
+	default = upstream
