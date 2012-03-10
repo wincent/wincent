@@ -165,9 +165,6 @@ trap 'printf "${OPENTITLEBAR}`history 1 | cut -b8- | sed 's/%/%%/g'`${CLOSETITLE
 # Aliases
 #
 
-# shortcut to the bestest editor in the world
-alias m="mvim --remote-silent"
-
 alias yuicompressor='java -jar ~/trabajo/vendor/yuicompressor/yuicompressor.jar'
 
 # distinguish folders in ls listings
