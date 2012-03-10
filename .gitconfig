@@ -16,6 +16,7 @@
 	amend = commit --amend
 	graph = log --oneline --graph
 	abbrev = !sh -c 'git rev-parse --short ${1-`echo HEAD`}' -
+	br = branch
 [core]
 	excludesfile = ~/.gitignore
 	pager = less -FRSX
