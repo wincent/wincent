@@ -3,7 +3,7 @@
 	amend = commit --amend
 	both = diff HEAD
 	br = branch
-	ci = commit
+	ci = commit -v
 	co = checkout
 	graph = log --oneline --graph
 	oneline = log --oneline
