@@ -1,36 +1,36 @@
-[log]
-	decorate = short
-[color]
-	ui = auto
-[pager]
-	status = true
-	show-branch = true
 [alias]
-	st = status
+	abbrev = !sh -c 'git rev-parse --short ${1-`echo HEAD`}' -
+	amend = commit --amend
+	both = diff HEAD
+	br = branch
 	ci = commit
 	co = checkout
-	oneline = log --oneline
-	both = diff HEAD
-	patch = add --patch
-	staged = diff --cached
-	amend = commit --amend
 	graph = log --oneline --graph
-	abbrev = !sh -c 'git rev-parse --short ${1-`echo HEAD`}' -
-	br = branch
+	oneline = log --oneline
+	patch = add --patch
+	st = status
+	staged = diff --cached
+[branch "master"]
+	rebase = true
+[color]
+	ui = auto
 [core]
 	excludesfile = ~/.gitignore
 	pager = less -FRSX
 [difftool]
 	prompt = false
+[help]
+	autocorrect = 10
+[log]
+	decorate = short
+[merge]
+	log = 1000
+[pager]
+	show-branch = true
+	status = true
+[push]
+	default = upstream
 [rebase]
 	autosquash = true
 [rerere]
 	enabled = true
-[help]
-	autocorrect = 10
-[merge]
-	log = 1000
-[push]
-	default = upstream
-[branch "master"]
-	rebase = true
