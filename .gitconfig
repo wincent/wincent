@@ -31,3 +31,5 @@
 	log = 1000
 [push]
 	default = upstream
+[branch "master"]
+	rebase = true
