@@ -35,6 +35,7 @@ set showcmd                           " extra info in command line
 set nojoinspaces                      " don't autoinsert two spaces after '.', '?', '!' for join command
 set wildignore+=*.o,.git              " patterns to ignore during file-navigation
 set shortmess+=A                      " ignore annoying swapfile messages
+set shortmess+=I                      " no splash screen
 set foldmethod=indent                 " not as cool as syntax, but faster
 set foldlevelstart=1                  " start with some but not all folds closed
 set foldlevel=1
