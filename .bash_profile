@@ -167,6 +167,9 @@ trap 'printf "${OPENTITLEBAR}`history 1 | cut -b8- | sed 's/%/%%/g'`${CLOSETITLE
 
 alias yuicompressor='java -jar ~/trabajo/vendor/yuicompressor/yuicompressor.jar'
 
+# for the benefit of my colleagues
+alias g=git
+
 # distinguish folders in ls listings
 alias ls="/bin/ls -F"
 alias l="/bin/ls -F"
