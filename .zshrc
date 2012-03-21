@@ -24,7 +24,7 @@ alias ll='ls -laF'
 
 autoload -U colors
 colors
-export PS1="%{$fg[green]%}%n%{$reset_color%}:%{$fg[blue]%}%1~%{$fg[red]%}%(!.#.$)%{$reset_color%} "
+export PS1="%{$fg[green]%}%m%{$reset_color%}:%{$fg[blue]%}%1~%{$fg[red]%}%(!.#.$)%{$reset_color%} "
 
 #
 # History
