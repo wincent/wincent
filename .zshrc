@@ -47,3 +47,11 @@ setopt histverify           # confirm history expansion (!$, !!, !foo)
 setopt ignoreeof            # prevent accidental C-d from exiting shell
 setopt interactivecomments  # allow comments, even in interactive shells
 setopt sharehistory         # share history across shells
+
+#
+# Bindings
+#
+
+bindkey -e # emacs bindings, set to -v for vi bindings
+bindkey "\e[A" history-search-backward  # cursor up
+bindkey "\e[B" history-search-forward   # cursor down
