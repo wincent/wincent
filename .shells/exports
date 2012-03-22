@@ -1,0 +1,32 @@
+export PAGER=less
+
+if [ -x $HOME/bin/vim ]; then
+  export EDITOR=$HOME/bin/vim
+else
+  export EDITOR=vim
+fi
+
+# filename (if known), line number if known, falling back to percent if known,
+# falling back to byte offset, falling back to dash
+export LESSPROMPT='?f%f .?ltLine %lt:?pt%pt\%:?btByte %bt:-...'
+
+# M = verbose prompt,
+# R = ANSI color support,
+# X = prevent output from being cleared
+export LESS=MRX
+
+#if [ -x /usr/local/bin/src-hilite-lesspipe.sh ]; then
+  #export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
+#fi
+
+# for the benefit of CPAN and potentially others
+export FTP_PASSIVE=1
+
+# colour ls listings
+export CLICOLOR=true
+
+# for Amazon Web Services EC2 API
+export EC2_HOME=~/bin/ec2-api-tools
+export EC2_PRIVATE_KEY=~/.ssh/ec2wincent_cert_pk.pem
+export EC2_CERT=~/.ssh/ec2wincent_cert.pem
+

@@ -55,3 +55,18 @@ setopt sharehistory         # share history across shells
 bindkey -e # emacs bindings, set to -v for vi bindings
 bindkey "\e[A" history-search-backward  # cursor up
 bindkey "\e[B" history-search-forward   # cursor down
+
+source $HOME/.shells/exports
+source $HOME/.shells/path
+source $HOME/.shells/functions
+
+#
+# Third-party
+#
+
+if [[ -s $HOME/.rvm/scripts/rvm ]]; then
+  source $HOME/.rvm/scripts/rvm
+else
+  # make Bundler do passwordless installs to a sandbox rather than to the system
+  export BUNDLE_PATH=~/.bundle
+fi
