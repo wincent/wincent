@@ -63,3 +63,37 @@ else
   # make Bundler do passwordless installs to a sandbox rather than to the system
   export BUNDLE_PATH=~/.bundle
 fi
+
+#
+# Hooks
+#
+
+autoload -U add-zsh-hook
+
+function set-window-title() {
+  print -Pn "\e]2;$1\a"
+}
+
+function set-tab-title() {
+  print -Pn "\e]1;$1\a"
+}
+
+function set-tab-and-window-title() {
+  print -Pn "\e]0;$1\a"
+}
+
+function update-window-title-precmd() {
+  set-tab-and-window-title `history | tail -1 | cut -b8-`
+}
+add-zsh-hook precmd update-window-title-precmd
+
+function update-window-title-preexec() {
+  emulate -L zsh
+  setopt extended_glob
+
+  # skip ENV=settings, sudo, ssh; show first distinctive word of command;
+  # mostly stolen from:
+  #   https://github.com/robbyrussell/oh-my-zsh/blob/master/lib/termsupport.zsh
+  set-tab-and-window-title ${2[(wr)^(*=*|ssh|sudo)]}
+}
+add-zsh-hook preexec update-window-title-preexec
