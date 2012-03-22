@@ -7,18 +7,6 @@ compinit
 source ~/.git-completion.sh
 
 #
-# Aliases
-#
-
-alias ....='cd ../..'
-alias b=bundle
-alias be=bundle exec
-alias cd..='cd ..'
-alias g=git
-alias l='ls -F'
-alias ll='ls -laF'
-
-#
 # Prompt
 #
 
@@ -56,9 +44,14 @@ bindkey -e # emacs bindings, set to -v for vi bindings
 bindkey "\e[A" history-beginning-search-backward  # cursor up
 bindkey "\e[B" history-beginning-search-forward   # cursor down
 
+#
+# Other
+#
+
+source $HOME/.shells/aliases
 source $HOME/.shells/exports
-source $HOME/.shells/path
 source $HOME/.shells/functions
+source $HOME/.shells/path
 
 #
 # Third-party
