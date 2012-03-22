@@ -84,37 +84,7 @@ stty -ixon
 # Environment
 #
 
-export PAGER=less
-
-if [ -x $HOME/bin/vim ]; then
-  export EDITOR=$HOME/bin/vim
-else
-  export EDITOR=vim
-fi
-
-# filename (if known), line number if known, falling back to percent if known,
-# falling back to byte offset, falling back to dash
-export LESSPROMPT='?f%f .?ltLine %lt:?pt%pt\%:?btByte %bt:-...'
-
-# M = verbose prompt,
-# R = ANSI color support,
-# X = prevent output from being cleared
-export LESS=MRX
-
-if [ -x /usr/local/bin/src-hilite-lesspipe.sh ]; then
-  export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
-fi
-
-# for the benefit of CPAN and potentially others
-export FTP_PASSIVE=1
-
-# colour ls listings
-export CLICOLOR=true
-
-# for Amazon Web Services EC2 API
-export EC2_HOME=~/bin/ec2-api-tools
-export EC2_PRIVATE_KEY=~/.ssh/ec2wincent_cert_pk.pem
-export EC2_CERT=~/.ssh/ec2wincent_cert.pem
+source $HOME/.shells/exports
 
 case "$(uname)" in
   Darwin*)
@@ -125,28 +95,7 @@ case "$(uname)" in
     ;;
 esac
 
-# usually something like:
-#   /usr/bin
-#   /bin
-#   /usr/sbin
-#   /sbin
-#   /usr/local/bin
-#   /usr/texbin
-#   /usr/X11/bin
-#   /usr/local/sbin
-SYSTEM_PATH=$PATH
-unset PATH
-
-# keep these on separate lines to make changing their order easier
-PATH=$HOME/bin
-PATH=$PATH:/usr/local/bin
-PATH=$PATH:/usr/local/mysql/bin
-PATH=$PATH:/usr/local/jruby/bin
-PATH=$PATH:$SYSTEM_PATH
-PATH=$PATH:/Developer/Tools
-PATH=$PATH:$EC2_HOME/bin
-PATH=$PATH:$HOME/maven/apache-maven-2.2.1/bin
-export PATH
+source $HOME/.shells/path
 
 # on attempting to "cd" search current directory first, then home dir etc
 # don't export CDPATH (can cause problems with shell scripts etc)
@@ -161,34 +110,7 @@ CLOSETITLEBAR="\007"
 
 trap 'printf "${OPENTITLEBAR}`history 1 | cut -b8- | sed 's/%/%%/g'`${CLOSETITLEBAR}"' DEBUG
 
-#
-# Aliases
-#
-
-alias yuicompressor='java -jar ~/trabajo/vendor/yuicompressor/yuicompressor.jar'
-
-# for the benefit of my colleagues
-alias b=bundle
-alias be="bundle exec"
-alias g=git
-
-# distinguish folders in ls listings
-alias ls="/bin/ls -F"
-alias l="/bin/ls -F"
-
-# ll = long listing (full details)
-alias ll="/bin/ls -laF"
-
-alias ..="cd .."
-alias ....="cd ../.."
-alias ......="cd ../../.."
-
-# my single most frequent typo:
-alias cd..="cd .."
-
-# see also "ssh-reagent" function below
-alias dump_agent="export | grep SSH_ > ~/.ssh-agent"
-alias refresh_agent="test -f ~/.ssh-agent && source ~/.ssh-agent && ssh-add -l"
+source $HOME/.shells/aliases
 
 #
 # Functions
@@ -313,21 +235,7 @@ regmv()
   done
 }
 
-ssh-reagent() {
-  for agent in /tmp/ssh-*/agent.*; do
-    echo Trying $agent
-    export SSH_AUTH_SOCK=$agent
-    if $HOME/.bash/timeout3 -t 1 ssh-add -l &> /dev/null; then
-      echo Found working SSH Agent:
-      ssh-add -l
-      return
-    else
-      echo 'Looks dead; removing'
-      rm -r $agent
-    fi
-  done
-  echo Cannot find ssh agent - maybe you should reconnect and forward it?
-}
+source $HOME/.shells/functions
 
 #
 # Completions
