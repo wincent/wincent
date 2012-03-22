@@ -51,8 +51,12 @@ setopt sharehistory         # share history across shells
 #
 
 bindkey -e # emacs bindings, set to -v for vi bindings
-bindkey "\e[A" history-beginning-search-backward  # cursor up
-bindkey "\e[B" history-beginning-search-forward   # cursor down
+
+autoload history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "\e[A" history-beginning-search-backward-end  # cursor up
+bindkey "\e[B" history-beginning-search-forward-end   # cursor down
 
 #
 # Other
