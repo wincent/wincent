@@ -7,6 +7,16 @@ compinit
 source ~/.git-completion.sh
 
 #
+# Correction
+#
+
+# exceptions to auto-correction
+alias bundle='nocorrect bundle'
+alias man='nocorrect man'
+alias mkdir='nocorrect mkdir'
+alias mv='nocorrect mv'
+
+#
 # Prompt
 #
 
