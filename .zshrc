@@ -66,6 +66,7 @@ source $HOME/.shells/aliases
 source $HOME/.shells/exports
 source $HOME/.shells/functions
 source $HOME/.shells/path
+source $HOME/.shells/vars
 
 #
 # Third-party

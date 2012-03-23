@@ -97,9 +97,7 @@ esac
 
 source $HOME/.shells/path
 
-# on attempting to "cd" search current directory first, then home dir etc
-# don't export CDPATH (can cause problems with shell scripts etc)
-CDPATH=.:~
+source $HOME/.shells/vars
 
 #
 # Title bar
