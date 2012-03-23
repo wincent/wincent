@@ -111,3 +111,9 @@ function update-window-title-preexec() {
   set-tab-and-window-title ${2[(wr)^(*=*|ssh|sudo)]}
 }
 add-zsh-hook preexec update-window-title-preexec
+
+#
+# Misc
+#
+
+SHELL=$(which zsh)
