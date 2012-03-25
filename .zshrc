@@ -113,6 +113,12 @@ function update-window-title-preexec() {
 }
 add-zsh-hook preexec update-window-title-preexec
 
+function auto-ls-after-cd() {
+  emulate -L zsh
+  ls -a
+}
+add-zsh-hook chpwd auto-ls-after-cd
+
 #
 # Misc
 #
