@@ -15,28 +15,29 @@ def dot_files
   end
 end
 
-def delete_old_backup file
-  if file.exist?
-    puts "Removing old backup #{file}"
-    FileUtils.rm file
+def delete file_or_directory
+  if file_or_directory.exist?
+    puts "Removing #{file_or_directory}"
+    FileUtils.rm_r file_or_directory, :force => true, :secure => true
   end
 end
 
-def backup file
-  if file.exist?
-    destination = file.sub /\z/, '.bak'
-    delete_old_backup destination
-    puts "Backing up #{file} to #{destination}"
-    FileUtils.mv file, destination, :force => true
+def backup file_or_directory
+  if file_or_directory.exist? && !file_or_directory.symlink?
+    destination = file_or_directory.sub /\z/, '.bak'
+    delete destination
+    puts "Moving #{file_or_directory} to #{destination}"
+    FileUtils.mv file_or_directory, destination, :force => true
   end
 end
 
 def link_dot_files
-  dot_files.each do |file|
-    link = HOME + file.basename
+  dot_files.each do |file_or_directory|
+    link = HOME + file_or_directory.basename
     backup link
-    puts "Symlinking #{file} as #{link}"
-    FileUtils.ln_sf file, link
+    delete link
+    puts "Symlinking #{file_or_directory} as #{link}"
+    FileUtils.ln_s file_or_directory, link
   end
 end
 
