@@ -7,7 +7,7 @@ HOME      = Pathname.new ENV['HOME']
 DOT_FILES = Pathname.new File.expand_path(File.dirname(__FILE__))
 
 def dot_files
-  @dot_files ||= Dir[DOT_FILES + 'dot-*'].map do |file|
+  Dir[DOT_FILES + 'dot-*'].map do |file|
     path      = Pathname.new file
     dot_file  = path.basename.to_s.sub(/\Adot-/, '.')
     puts "Found dot-file #{dot_file}"
