@@ -213,6 +213,9 @@ nnoremap <leader>a :Ack<space>
 command! -nargs=+ -complete=file Lack call LackGrep(<q-args>)
 nnoremap <leader>l :Lack<space>
 
+" call :Ack with word currently under cursor (mnemonic: selection)
+nnoremap <leader>s :Ack <C-r><C-w><CR>
+
 " make Vim's regexen more Perl-like
 nnoremap / /\v
 vnoremap / /\v
