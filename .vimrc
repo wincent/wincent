@@ -1,5 +1,6 @@
-call pathogen#runtime_append_all_bundles()  " add .vim/bundle subdirs to runtime path
-call pathogen#helptags()                    " wasteful, but no shortage of grunt available
+runtime bundle/pathogen/autoload/pathogen.vim
+call pathogen#infect()                " add .vim/bundle subdirs to runtime path
+call pathogen#helptags()              " wasteful, but no shortage of grunt available
 
 set nocompatible                      " just in case system-wide vimrc has set this otherwise
 set backspace=indent,start,eol        " allow unrestricted backspacing in insert mode
