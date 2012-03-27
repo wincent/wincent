@@ -85,7 +85,8 @@ autocmd FileType conque_term setlocal nolist " suppress whitespace highlighting
 autocmd FileType conque_term setlocal textwidth=0
 
 " NERDTree
-autocmd FileType nerdtree setlocal nolist " suppress whitespace highlighting
+autocmd FileType nerdtree setlocal nolist       " suppress whitespace highlighting
+autocmd FileType nerdtree setlocal nofoldenable " suppress folding
 
 " Ruby
 autocmd FileType ruby set smartindent
