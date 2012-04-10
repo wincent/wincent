@@ -184,7 +184,6 @@ if &term =~ "screen" || &term =~ "xterm"
   let g:CommandTCancelMap     = ['<ESC>', '<C-c>']
   let g:CommandTSelectNextMap = ['<C-j>', '<ESC>OB']
   let g:CommandTSelectPrevMap = ['<C-k>', '<ESC>OA']
-  let g:CommandTAcceptSelectionSplitMap = ['<C-s>', '<C-p>']
 endif
 
 " prevent Align.vim from defining a bunch of maps starting with <leader>t
