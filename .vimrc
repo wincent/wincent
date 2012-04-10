@@ -182,8 +182,9 @@ nnoremap <silent> <leader>j :CommandTJump<CR>
 nnoremap <leader>g :CommandTTag<CR>
 if &term =~ "screen" || &term =~ "xterm"
   let g:CommandTCancelMap     = ['<ESC>', '<C-c>']
-  let g:CommandTSelectNextMap = ['<C-n>', '<C-j>', '<ESC>OB']
-  let g:CommandTSelectPrevMap = ['<C-p>', '<C-k>', '<ESC>OA']
+  let g:CommandTSelectNextMap = ['<C-j>', '<ESC>OB']
+  let g:CommandTSelectPrevMap = ['<C-k>', '<ESC>OA']
+  let g:CommandTAcceptSelectionSplitMap = ['<C-s>', '<C-p>']
 endif
 
 " prevent Align.vim from defining a bunch of maps starting with <leader>t
