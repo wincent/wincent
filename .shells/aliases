@@ -1,6 +1,6 @@
 alias ....='cd ../..'
 alias b=bundle
-alias be=bundle exec
+alias be='bundle exec'
 alias cd..='cd ..'
 alias g=git
 alias l='ls -F'
