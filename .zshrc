@@ -38,7 +38,7 @@ export SAVEHIST=$HISTSIZE
 setopt autocd               # .. is shortcut for cd .. (etc)
 setopt correct              # command auto-correction
 setopt correctall           # argument auto-correction
-unsetopt flowcontrol        # disable start (C-s) and stop (C-q) characters
+setopt noflowcontrol        # disable start (C-s) and stop (C-q) characters
 setopt histignorealldups    # filter duplicates from history
 setopt histignorespace      # don't record commands starting with a space
 setopt histverify           # confirm history expansion (!$, !!, !foo)
@@ -64,6 +64,7 @@ bindkey "\e[B" history-beginning-search-forward-end   # cursor down
 #
 
 source $HOME/.shells/aliases
+source $HOME/.shells/common
 source $HOME/.shells/exports
 source $HOME/.shells/functions
 source $HOME/.shells/path
