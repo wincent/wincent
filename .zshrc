@@ -36,6 +36,7 @@ export SAVEHIST=$HISTSIZE
 # Options
 #
 setopt autocd               # .. is shortcut for cd .. (etc)
+setopt autoparamslash       # tab completing directory appends a slash
 setopt correct              # command auto-correction
 setopt correctall           # argument auto-correction
 setopt noflowcontrol        # disable start (C-s) and stop (C-q) characters
