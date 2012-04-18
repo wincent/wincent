@@ -66,8 +66,8 @@ tmp=`mktemp -t git-jump.XXXXXX` || exit 1
 type "mode_$mode" >/dev/null 2>&1 || { usage >&2; exit 1; }
 if test -t 1; then
   "mode_$mode" "$@" >"$tmp"
+  test -s "$tmp" || exit 0
+  open_editor "$tmp"
 else
   "mode_$mode" "$@"
 fi
-test -s "$tmp" || exit 0
-open_editor "$tmp"
