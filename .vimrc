@@ -216,6 +216,14 @@ nnoremap <leader>l :Lack<space>
 " call :Ack with word currently under cursor (mnemonic: selection)
 nnoremap <leader>s :Ack <C-r><C-w><CR>
 
+function! GitJump(command)
+  cexpr system("git jump " . a:command)
+  cw
+endfunction
+
+command! -nargs=+ -complete=file GitJump call GitJump(<q-args>)
+nnoremap <leader>d :GitJump diff<space>
+
 " make Vim's regexen more Perl-like
 nnoremap / /\v
 vnoremap / /\v
