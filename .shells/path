@@ -3,6 +3,7 @@ unset PATH
 
 # keep these on separate lines to make changing their order easier
 PATH=$HOME/bin
+PATH=$PATH:$HOME/.shells/bin
 PATH=$PATH:/usr/local/bin
 PATH=$PATH:$SYSTEM_PATH
 PATH=$PATH:$EC2_HOME/bin
