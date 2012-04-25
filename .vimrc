@@ -111,7 +111,7 @@ autocmd FileType prolog set shiftwidth=2
 autocmd BufNewFile,BufRead *_spec.rb set ft=ruby.spec
 
 " Jasmine
-autocmd BufNewFile,BufRead *Spec.js set ft=javascript.jasmine
+autocmd BufNewFile,BufRead *_spec.js set ft=javascript.jasmine
 
 " automatic, language-dependent indentation, syntax coloring and other
 " functionality
