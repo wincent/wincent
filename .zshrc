@@ -61,6 +61,9 @@ zle -N history-beginning-search-forward-end history-search-end
 bindkey "\e[A" history-beginning-search-backward-end  # cursor up
 bindkey "\e[B" history-beginning-search-forward-end   # cursor down
 
+autoload -U select-word-style
+select-word-style bash # only alphanumeric chars are consider WORDCHARS
+
 #
 # Other
 #
