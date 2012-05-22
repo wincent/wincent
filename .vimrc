@@ -151,6 +151,9 @@ let g:alternateExtensions_h = "m,c,mm,cpp,cxx,cc,CC"
 autocmd VimEnter * autocmd WinEnter * let w:created=1
 autocmd VimEnter * let w:created=1
 
+" like the autocmd described in `:h last-position-jump` but we add `:foldopen!`
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | exe "silent! foldopen!" | endif
+
 " see changes made to current buffer since file was loaded
 " (from vimrc example file)
 " to get out of diff mode do :diffoff!
