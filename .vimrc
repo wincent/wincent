@@ -8,7 +8,7 @@ set hlsearch                          " highlight search strings
 set incsearch                         " incremental search ("find as you type")
 set ignorecase                        " ignore case when searching
 set smartcase                         " except when search string includes a capital letter
-set number                            " show line numbers in gutter
+set relativenumber                    " show relative numbers in gutter
 set laststatus=2                      " always show status line
 set ww=h,l,<,>,[,]                    " allow h/l/left/right to cross line boundaries
 set autoread                          " if not changed in Vim, automatically pick up changes after "git co" etc
@@ -75,7 +75,7 @@ if exists('+colorcolumn')
 endif
 
 " Quickfix listing
-autocmd BufReadPost quickfix setlocal so=0 | setlocal nolist
+autocmd BufReadPost quickfix setlocal so=0 | setlocal nolist | setlocal number
 
 " Git commit messages
 autocmd FileType gitcommit setlocal textwidth=72
