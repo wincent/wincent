@@ -56,7 +56,7 @@
 [submodule ".vim/bundle/The-NERD-Commenter"]
 	ignore = untracked
 	path = .vim/bundle/The-NERD-Commenter
-	url = git://github.com/vim-scripts/The-NERD-Commenter.git
+	url = git://github.com/scrooloose/nerdcommenter.git
 [submodule ".vim/bundle/The-NERD-tree"]
 	ignore = untracked
 	path = .vim/bundle/The-NERD-tree
