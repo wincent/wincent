@@ -258,8 +258,6 @@ command! Terms call s:Terms()
 " delete all buffers, except for those with unsaved changes
 nnoremap <leader>da :bufdo silent! bdelete<CR>
 
-command W w !sudo tee % > /dev/null
-
 function! s:ToggleVisibility()
   if g:solarized_visibility != 'high'
     let g:solarized_visibility = 'high'
@@ -288,3 +286,8 @@ nnoremap <C-kPlus> <C-w>+
 nnoremap <C-kMinus> <C-w>-
 
 source $VIMRUNTIME/macros/matchit.vim
+
+" After this file is sourced, plug-in code will be evaluated.
+" See ~/.vim/after for files evaluated after that.
+" See `:scriptnames` for a list of all scripts, in evaluation order.
+" Launch Vim with `vim --startuptime vim.log` for profiling info.
