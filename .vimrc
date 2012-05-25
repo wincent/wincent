@@ -31,7 +31,7 @@ endif
 set ttimeoutlen=50                    " speed up O etc in the Terminal
 set virtualedit=block                 " allow cursor to move where there is no text in visual block mode
 set cursorline                        " highlight current line
-set showmatch                         " show matching brackets
+set noshowmatch                       " don't jump between matching brackets
 set showcmd                           " extra info in command line
 set nojoinspaces                      " don't autoinsert two spaces after '.', '?', '!' for join command
 set wildignore+=*.o,.git              " patterns to ignore during file-navigation
