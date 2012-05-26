@@ -65,7 +65,7 @@ set shiftwidth=2                  " spaces per tab (when shifting)
 set shiftround                    " always indent by multiple of shiftwidth
 set tabstop=2                     " spaces per tab
 set expandtab                     " always use spaces instead of tabs
-set smarttab                      " <tab>
+set smarttab                      " <tab>/<BS> indent/dedent in leading whitespace
 set list                          " show whitespace
 set listchars=nbsp:¬,eol:¶,tab:>-,extends:»,precedes:«,trail:•
 set autoindent
