@@ -13,7 +13,7 @@ set laststatus=2                      " always show status line
 set ww=h,l,<,>,[,]                    " allow h/l/left/right to cross line boundaries
 set autoread                          " if not changed in Vim, automatically pick up changes after "git co" etc
 set guioptions-=T                     " don't show toolbar
-set guifont=Monaco:h12
+set guifont=Consolas:h13
 set hidden                            " allows you to hide buffers with unsaved changes without being prompted
 set wildmenu                          " show options as list when switching buffers etc
 set wildmode=longest:full,full        " shell-like autocomplete to unambiguous portion
