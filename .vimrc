@@ -80,10 +80,6 @@ autocmd BufReadPost quickfix setlocal so=0 | setlocal nolist | setlocal number
 " Git commit messages
 autocmd FileType gitcommit setlocal textwidth=72
 
-" Conque
-autocmd FileType conque_term setlocal nolist " suppress whitespace highlighting
-autocmd FileType conque_term setlocal textwidth=0
-
 " NERDTree
 autocmd FileType nerdtree setlocal nolist       " suppress whitespace highlighting
 autocmd FileType nerdtree setlocal nofoldenable " suppress folding
@@ -243,17 +239,6 @@ nnoremap <leader>d :GitJump diff<space>
 " make Vim's regexen more Perl-like
 nnoremap / /\v
 vnoremap / /\v
-
-" :Term to bring up Conque (:Terms to bring up in a new split)
-function! s:Term()
-  execute 'ConqueTerm bash'
-endfunction
-command! Term call s:Term()
-
-function! s:Terms()
-  execute 'ConqueTermSplit bash'
-endfunction
-command! Terms call s:Terms()
 
 " delete all buffers, except for those with unsaved changes
 nnoremap <leader>da :bufdo silent! bdelete<CR>

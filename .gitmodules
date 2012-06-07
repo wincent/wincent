@@ -49,10 +49,6 @@
 [submodule ".vim/bundle/a.vim"]
 	path = .vim/bundle/a.vim
 	url = git://github.com/vim-scripts/a.vim.git
-[submodule ".vim/bundle/Conque-Shell"]
-	ignore = untracked
-	path = .vim/bundle/Conque-Shell
-	url = git://github.com/vim-scripts/Conque-Shell.git
 [submodule ".vim/bundle/The-NERD-Commenter"]
 	ignore = untracked
 	path = .vim/bundle/The-NERD-Commenter
