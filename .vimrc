@@ -76,33 +76,34 @@ if exists('+colorcolumn')
 endif
 
 " Quickfix listing
-autocmd BufReadPost quickfix setlocal so=0 | setlocal nolist | setlocal number
+autocmd BufReadPost quickfix
+      \ setlocal nocursorcolumn |
+      \ setlocal nolist |
+      \ setlocal number |
+      \ setlocal so=0
 
 " Git commit messages
 autocmd FileType gitcommit setlocal textwidth=72
 
 " NERDTree
-autocmd FileType nerdtree setlocal nolist       " suppress whitespace highlighting
-autocmd FileType nerdtree setlocal nofoldenable " suppress folding
+autocmd FileType nerdtree
+      \ setlocal nocursorcolumn |
+      \ setlocal nofoldenable |
+      \ setlocal nolist
 
 " Ruby
-autocmd FileType ruby set smartindent
-autocmd FileType ruby set tabstop=2
-autocmd FileType ruby set shiftwidth=2
+autocmd FileType ruby set shiftwidth=2 | set smartindent | set tabstop=2
 
 " C
-autocmd FileType c set tabstop=4
-autocmd FileType c set shiftwidth=4
+autocmd FileType c set shiftwidth=4 | set tabstop=4
 
 " Objective-C
 let filetype_m='objc'
-autocmd FileType objc set tabstop=4
-autocmd FileType objc set shiftwidth=4
+autocmd FileType objc set shiftwidth=4 | set tabstop=4
 
 " Prolog
 let filetype_pl='prolog'
-autocmd FileType prolog set tabstop=2
-autocmd FileType prolog set shiftwidth=2
+autocmd FileType prolog set shiftwidth=2 | set tabstop=2
 
 " RSpec
 autocmd BufNewFile,BufRead *_spec.rb set ft=ruby.spec
@@ -134,9 +135,7 @@ if has('mouse')
     " makes tmux enter copy mode instead of selecting or scrolling
     " inside Vim -- but luckily, setting it up from within the VimEnter
     " autocmd works
-    autocmd VimEnter * set ttymouse=xterm2
-    autocmd FocusGained * set ttymouse=xterm2
-    autocmd BufEnter * set ttymouse=xterm2
+    autocmd BufEnter,FocusGained,VimEnter * set ttymouse=xterm2
   endif
 endif
 
