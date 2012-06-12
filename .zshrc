@@ -41,6 +41,7 @@ setopt clobber              # allow clobbering with >, no need to use >!
 setopt correct              # command auto-correction
 setopt correctall           # argument auto-correction
 setopt noflowcontrol        # disable start (C-s) and stop (C-q) characters
+setopt nonomatch            # unmatched patterns are left unchanged
 setopt histignorealldups    # filter duplicates from history
 setopt histignorespace      # don't record commands starting with a space
 setopt histverify           # confirm history expansion (!$, !!, !foo)
