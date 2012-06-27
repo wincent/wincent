@@ -1,3 +1,5 @@
+--ignore-dir=tmp
+--ignore-dir=coverage
 --pager=less -FRSX
 --sort-files
 --type-add=ruby=.builder
