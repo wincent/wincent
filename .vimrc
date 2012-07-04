@@ -8,7 +8,6 @@ set hlsearch                          " highlight search strings
 set incsearch                         " incremental search ("find as you type")
 set ignorecase                        " ignore case when searching
 set smartcase                         " except when search string includes a capital letter
-set relativenumber                    " show relative numbers in gutter
 set laststatus=2                      " always show status line
 set ww=h,l,<,>,[,]                    " allow h/l/left/right to cross line boundaries
 set autoread                          " if not changed in Vim, automatically pick up changes after "git co" etc
@@ -60,6 +59,28 @@ set foldlevel=1
 "   %P percentage through buffer
 "   %) end of width specification
 set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
+
+if exists('+relativenumber')
+  set relativenumber                  " show relative numbers in gutter
+else
+  set number                          " show line numbers in gutter
+endif
+
+" adapted from: http://matt.tarbit.org/2011/07/30/toggling-relative-linenumbering
+function! s:ToggleNumbering()
+  if exists('+relativenumber')
+    if &relativenumber
+      set number
+    else
+      set relativenumber
+    end
+  else
+    set number!
+  endif
+endfunction
+
+" toggle relative line numbering (mnemonic: "[r]elative)
+nnoremap <leader>r :call <SID>ToggleNumbering()<CR>
 
 " all languages
 set shiftwidth=2                  " spaces per tab (when shifting)
