@@ -12,7 +12,7 @@
 	graph = log --oneline --graph
 	oneline = log --oneline
 	patch = add --patch
-	refresh = !git stash && git fetch && git rebase origin/master && git stash pop
+	refresh = !ssh-add -l && STASH=$(git stash) && git fetch && git rebase origin/master && test \"$STASH\" != \"No local changes to save\" && git stash pop
 	st = status
 	staged = diff --cached
 [branch "master"]
