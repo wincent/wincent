@@ -9,6 +9,7 @@
 --type-set=puppet=.pp
 --type-set=ragel=.rl
 --type-set=sass=.sass
+--type-set=sass=.scss
 --type-set=txt=.txt
 --type-set=walrus=.tmpl
 --type-set=wikitext=.wikitext
