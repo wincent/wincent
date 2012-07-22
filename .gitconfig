@@ -13,6 +13,7 @@
 	oneline = log --oneline
 	patch = add --patch
 	refresh = !ssh-add -l && STASH=$(git stash) && git fetch && git rebase origin/master && test \"$STASH\" != \"No local changes to save\" && git stash pop
+	reword = commit --amend --only --
 	st = status
 	staged = diff --cached
 [branch "master"]
