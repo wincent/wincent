@@ -87,11 +87,15 @@ endfunction
 " toggle relative line numbering (mnemonic: "[r]elative)
 nnoremap <leader>r :call <SID>ToggleNumbering()<CR>
 
-" change shape of cursor in insert mode in iTerm 2; that's all
-" should degrade gracefully elsewhere, for example in Terminal.app, or inside a
-" Tmux session
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+" change shape of cursor in insert mode in iTerm 2;
+" should degrade gracefully elsewhere
+if exists('$TMUX')
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+else
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+endif
 
 " all languages
 set shiftwidth=2                  " spaces per tab (when shifting)
