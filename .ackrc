@@ -3,13 +3,13 @@
 --pager=less -FRSX
 --sort-files
 --type-add=ruby=.builder
---type-add=ruby=.rake
 --type-add=ruby=.feature
+--type-add=ruby=.rake
+--type-set=css=.scss
 --type-set=haml=.haml
 --type-set=puppet=.pp
 --type-set=ragel=.rl
 --type-set=sass=.sass
---type-set=sass=.scss
 --type-set=txt=.txt
 --type-set=walrus=.tmpl
 --type-set=wikitext=.wikitext
