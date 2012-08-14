@@ -216,7 +216,6 @@ let g:CommandTMaxHeight            = 10
 let g:CommandTMaxFiles             = 30000
 let g:CommandTMaxCachedDirectories = 10
 let g:CommandTScanDotDirectories   = 1
-nnoremap <leader>f :CommandTFlush<CR>
 nnoremap <silent> <leader>j :CommandTJump<CR>
 nnoremap <leader>g :CommandTTag<CR>
 if &term =~ "screen" || &term =~ "xterm"
