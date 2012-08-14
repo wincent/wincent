@@ -66,6 +66,10 @@ bindkey "\e[B" history-beginning-search-forward-end   # cursor down
 autoload -U select-word-style
 select-word-style bash # only alphanumeric chars are considered WORDCHARS
 
+autoload edit-command-line
+zle -N edit-command-line
+bindkey '^Xe' edit-command-line
+
 #
 # Other
 #
