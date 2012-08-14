@@ -30,7 +30,12 @@ endif
 set ttimeoutlen=50                    " speed up O etc in the Terminal
 set virtualedit=block                 " allow cursor to move where there is no text in visual block mode
 set cursorline                        " highlight current line
-set cursorcolumn                      " highlight current column
+
+if exists('+cursorcolumn')
+  " disable for now due to performance issues
+  "set cursorcolumn                   " highlight current column
+endif
+
 set noshowmatch                       " don't jump between matching brackets
 set showcmd                           " extra info in command line
 set nojoinspaces                      " don't autoinsert two spaces after '.', '?', '!' for join command
@@ -192,7 +197,7 @@ nnoremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 "
 nnoremap <silent> <leader>zz :let _last_search=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_last_search <Bar> :noh<CR>
 
-nnoremap <leader>n :noh<CR>
+nnoremap <leader>n :set nocursorcolumn <bar> noh<CR>
 
 " Command-T
 let g:CommandTMatchWindowReverse   = 1
@@ -258,7 +263,9 @@ command! -nargs=+ -complete=file GitJump call GitJump(<q-args>)
 nnoremap <leader>d :GitJump diff<space>
 
 " make Vim's regexen more Perl-like
-nnoremap / /\v
+" turn on cursorcolumn only temporarily here; it's a big performance hit, but
+" really useful for disambiguating the current match
+nnoremap / :set cursorcolumn <CR> /\v
 vnoremap / /\v
 
 " delete all buffers, except for those with unsaved changes
