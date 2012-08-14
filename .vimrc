@@ -38,7 +38,7 @@ if exists('+cursorcolumn')
 endif
 
 set noshowmatch                       " don't jump between matching brackets
-set showcmd                           " extra info in command line
+set showcmd                           " extra info at end of command line
 set nojoinspaces                      " don't autoinsert two spaces after '.', '?', '!' for join command
 set wildignore+=*.o,.git              " patterns to ignore during file-navigation
 set shortmess+=A                      " ignore annoying swapfile messages
@@ -106,8 +106,8 @@ set expandtab                     " always use spaces instead of tabs
 set smarttab                      " <tab>/<BS> indent/dedent in leading whitespace
 set list                          " show whitespace
 set listchars=nbsp:¬,eol:¶,tab:>-,extends:»,precedes:«,trail:•
-set autoindent
-set textwidth=80
+set autoindent                    " maintain indent of current line
+set textwidth=80                  " automatically hard wrap at 80 columns
 if exists('+colorcolumn')
   set cc=+0
 endif
