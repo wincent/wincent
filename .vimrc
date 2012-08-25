@@ -33,7 +33,7 @@ set virtualedit=block                 " allow cursor to move where there is no t
 set wildignore+=*.o,.git              " patterns to ignore during file-navigation
 set wildmenu                          " show options as list when switching buffers etc
 set wildmode=longest:full,full        " shell-like autocomplete to unambiguous portion
-set ww=h,l,<,>,[,]                    " allow h/l/left/right to cross line boundaries
+set whichwrap=b,h,l,s,<,>,[,],~       " allow <BS>/h/l/<Left>/<Right>/<Space>, ~ to cross line boundaries
 
 if has('persistent_undo')
   set undodir=~/.vim/tmp/undo,.       " keep undo files out of the way
