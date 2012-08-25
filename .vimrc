@@ -3,49 +3,47 @@ call pathogen#infect()                " add .vim/bundle subdirs to runtime path
 call pathogen#helptags()              " wasteful, but no shortage of grunt available
 
 set nocompatible                      " just in case system-wide vimrc has set this otherwise
-set backspace=indent,start,eol        " allow unrestricted backspacing in insert mode
-set hlsearch                          " highlight search strings
-set incsearch                         " incremental search ("find as you type")
-set ignorecase                        " ignore case when searching
-set smartcase                         " except when search string includes a capital letter
-set laststatus=2                      " always show status line
-set ww=h,l,<,>,[,]                    " allow h/l/left/right to cross line boundaries
 set autoread                          " if not changed in Vim, automatically pick up changes after "git co" etc
+set backspace=indent,start,eol        " allow unrestricted backspacing in insert mode
+set backupdir=~/.vim/tmp/backup,.     " keep backup files out of the way
+set cursorline                        " highlight current line
+set directory=~/.vim/tmp/swap,.       " keep swap files out of the way
+set foldlevel=1
+set foldlevelstart=1                  " start with some but not all folds closed
+set foldmethod=indent                 " not as cool as syntax, but faster
 set formatoptions+=n                  " smart auto-indenting inside numbered lists
-set guioptions-=T                     " don't show toolbar
 set guifont=Consolas:h13
+set guioptions-=T                     " don't show toolbar
 set hidden                            " allows you to hide buffers with unsaved changes without being prompted
+set history=1000                      " longer search and command history (default is 20)
+set hlsearch                          " highlight search strings
+set ignorecase                        " ignore case when searching
+set incsearch                         " incremental search ("find as you type")
+set laststatus=2                      " always show status line
+set nojoinspaces                      " don't autoinsert two spaces after '.', '?', '!' for join command
+set noshowmatch                       " don't jump between matching brackets
+set scrolloff=3                       " start scrolling 3 lines before edge of viewport
+set shortmess+=A                      " ignore annoying swapfile messages
+set shortmess+=I                      " no splash screen
+set showcmd                           " extra info at end of command line
+set sidescrolloff=3                   " same, but for columns
+set smartcase                         " except when search string includes a capital letter
+set ttimeoutlen=50                    " speed up O etc in the Terminal
+set virtualedit=block                 " allow cursor to move where there is no text in visual block mode
+set wildignore+=*.o,.git              " patterns to ignore during file-navigation
 set wildmenu                          " show options as list when switching buffers etc
 set wildmode=longest:full,full        " shell-like autocomplete to unambiguous portion
-set history=1000                      " longer search and command history (default is 20)
-set scrolloff=3                       " start scrolling 3 lines before edge of viewport
-set sidescrolloff=3                   " same, but for columns
-set backupdir=~/.vim/tmp/backup,.     " keep backup files out of the way
-set directory=~/.vim/tmp/swap,.       " keep swap files out of the way
+set ww=h,l,<,>,[,]                    " allow h/l/left/right to cross line boundaries
 
 if has('persistent_undo')
   set undodir=~/.vim/tmp/undo,.       " keep undo files out of the way
   set undofile                        " actually use undo files
 endif
 
-set ttimeoutlen=50                    " speed up O etc in the Terminal
-set virtualedit=block                 " allow cursor to move where there is no text in visual block mode
-set cursorline                        " highlight current line
-
 if exists('+cursorcolumn')
   " disable for now due to performance issues
   "set cursorcolumn                   " highlight current column
 endif
-
-set noshowmatch                       " don't jump between matching brackets
-set showcmd                           " extra info at end of command line
-set nojoinspaces                      " don't autoinsert two spaces after '.', '?', '!' for join command
-set wildignore+=*.o,.git              " patterns to ignore during file-navigation
-set shortmess+=A                      " ignore annoying swapfile messages
-set shortmess+=I                      " no splash screen
-set foldmethod=indent                 " not as cool as syntax, but faster
-set foldlevelstart=1                  " start with some but not all folds closed
-set foldlevel=1
 
 " statusline
 " cf the default statusline: %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
