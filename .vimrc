@@ -278,7 +278,7 @@ nnoremap <leader>d :GitJump diff<space>
 " make Vim's regexen more Perl-like
 " turn on cursorcolumn only temporarily here; it's a big performance hit, but
 " really useful for disambiguating the current match
-nnoremap / :set cursorcolumn <CR> /\v
+nnoremap / :silent! set cursorcolumn<CR>/\v
 vnoremap / /\v
 
 " delete all buffers, except for those with unsaved changes
