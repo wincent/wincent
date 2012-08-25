@@ -311,6 +311,9 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-kPlus> <C-w>+
 nnoremap <C-kMinus> <C-w>-
 
+" Insert mode mappings
+inoremap jj <Esc>
+
 source $VIMRUNTIME/macros/matchit.vim
 
 " After this file is sourced, plug-in code will be evaluated.
