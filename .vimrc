@@ -8,7 +8,6 @@ set backspace=indent,start,eol        " allow unrestricted backspacing in insert
 set backupdir=~/.vim/tmp/backup,.     " keep backup files out of the way
 set cursorline                        " highlight current line
 set directory=~/.vim/tmp/swap,.       " keep swap files out of the way
-set foldlevel=1
 set foldlevelstart=1                  " start with some but not all folds closed
 set foldmethod=indent                 " not as cool as syntax, but faster
 set formatoptions+=n                  " smart auto-indenting inside numbered lists
