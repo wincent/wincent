@@ -1,6 +1,6 @@
 [alias]
 	abbrev = !sh -c 'git rev-parse --short ${1-`echo HEAD`}' -
-	amend = commit --amend
+	amend = commit --amend -v
 	both = diff HEAD
 	br = branch
 	ci = commit -v
@@ -21,7 +21,7 @@
 	refresh = !ssh-add -l && STASH=$(git stash) && git fetch && git rebase origin/master && test \"$STASH\" != \"No local changes to save\" && git stash pop
 
 	# requires Git 1.7.11.3 or later
-	reword = commit --amend --only --
+	reword = commit --amend --only -v --
 
 	st = status
 	staged = diff --cached
