@@ -86,14 +86,21 @@ endfunction
 " toggle relative line numbering (mnemonic: "[r]elative)
 nnoremap <leader>r :call <SID>ToggleNumbering()<CR>
 
-" change shape of cursor in insert mode in iTerm 2;
-" should degrade gracefully elsewhere
-if exists('$TMUX')
-  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-else
-  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+" change shape of cursor in insert mode in iTerm 2
+if exists('$ITERM_PROFILE')
+  if exists('$TMUX')
+    " in theory this should work -- see https://gist.github.com/1195581 -- but
+    " it corrupts the screen when doing r<ESC> (leaves visible ^]r on the right)
+    "let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+    "let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+
+    " this works with a hack to the ~/.tmux.conf file
+    let &t_SI = "\<Esc>[3 q"
+    let &t_EI = "\<Esc>[0 q"
+  else
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+  endif
 endif
 
 " all languages
