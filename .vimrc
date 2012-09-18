@@ -102,7 +102,7 @@ if exists('$ITERM_PROFILE')
   endif
 endif
 
-" all languages
+" defaults for all languages
 set shiftwidth=2                  " spaces per tab (when shifting)
 set shiftround                    " always indent by multiple of shiftwidth
 set tabstop=2                     " spaces per tab
@@ -116,27 +116,23 @@ if exists('+colorcolumn')
   set cc=+0
 endif
 
-" Quickfix listing
-autocmd BufReadPost quickfix
-      \ setlocal nocursorcolumn |
-      \ setlocal nolist |
-      \ setlocal number |
-      \ setlocal so=0
+" C
+autocmd FileType c set shiftwidth=4 | set tabstop=4
 
 " Git commit messages
 autocmd FileType gitcommit setlocal textwidth=72
+
+" Go
+autocmd FileType go set shiftwidth=4 | set tabstop=4 | set noexpandtab
+
+" Jasmine
+autocmd BufNewFile,BufRead *_spec.js set ft=javascript.jasmine
 
 " NERDTree
 autocmd FileType nerdtree
       \ setlocal nocursorcolumn |
       \ setlocal nofoldenable |
       \ setlocal nolist
-
-" Ruby
-autocmd FileType ruby set shiftwidth=2 | set smartindent | set tabstop=2
-
-" C
-autocmd FileType c set shiftwidth=4 | set tabstop=4
 
 " Objective-C
 let filetype_m='objc'
@@ -146,11 +142,18 @@ autocmd FileType objc set shiftwidth=4 | set tabstop=4
 let filetype_pl='prolog'
 autocmd FileType prolog set shiftwidth=2 | set tabstop=2
 
+" Quickfix listing
+autocmd BufReadPost quickfix
+      \ setlocal nocursorcolumn |
+      \ setlocal nolist |
+      \ setlocal number |
+      \ setlocal so=0
+
 " RSpec
 autocmd BufNewFile,BufRead *_spec.rb set ft=ruby.spec
 
-" Jasmine
-autocmd BufNewFile,BufRead *_spec.js set ft=javascript.jasmine
+" Ruby
+autocmd FileType ruby set shiftwidth=2 | set smartindent | set tabstop=2
 
 " automatic, language-dependent indentation, syntax coloring and other
 " functionality
