@@ -15,6 +15,10 @@
 	# requires Git 1.6.3 or later
 	oneline = log --oneline
 
+	# this is supplemental to, rather than a replacement for, the oneline alias
+	# because it (annoyingly) always uses a pager, even when one isn't needed
+	lg = log --pretty=format:'%C(yellow)%h%Creset%C(red bold)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%aN>%Creset'
+
 	# requires Git 1.5.4 or later
 	patch = add -p
 
