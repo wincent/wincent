@@ -27,6 +27,9 @@
 	# requires Git 1.7.11.3 or later
 	reword = commit --amend --only -v --
 
+	# requires Git 1.6.2 or later
+	rollback = !sh -c 'git reset --merge HEAD~${1-1}' -
+
 	st = status
 	staged = diff --cached
 
