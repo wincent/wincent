@@ -202,6 +202,9 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "norm
 " except for Git commit messages, where this gets old really fast
 autocmd BufReadPost COMMIT_EDITMSG exec "normal! gg"
 
+" disable paste mode on leaving insert mode
+autocmd InsertLeave * set nopaste
+
 " see changes made to current buffer since file was loaded
 " (from vimrc example file)
 " to get out of diff mode do :diffoff!
