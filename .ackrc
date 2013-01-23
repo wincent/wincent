@@ -5,7 +5,8 @@
 --type-add=ruby=.builder
 --type-add=ruby=.feature
 --type-add=ruby=.rake
---type-set=css=.scss
+--type-add=css=.css
+--type-add=css=.scss
 --type-set=haml=.haml
 --type-set=puppet=.pp
 --type-set=ragel=.rl
