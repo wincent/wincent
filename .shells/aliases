@@ -5,4 +5,4 @@ alias cd..='cd ..'
 alias g=git
 alias l='ls -F'
 alias ll='ls -laF'
-alias ttr='touch tmp/restart.txt'
+alias t=tmux
