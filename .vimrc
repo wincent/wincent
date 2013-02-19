@@ -291,6 +291,8 @@ endfunction
 command! -nargs=+ -complete=file GitJump call GitJump(<q-args>)
 nnoremap <leader>d :GitJump diff<space>
 
+nnoremap <leader>y :call system('nc localhost 8377', @0)<CR>
+
 " make Vim's regexen more Perl-like
 " turn on cursorcolumn only temporarily here; it's a big performance hit, but
 " really useful for disambiguating the current match
