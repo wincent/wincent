@@ -85,8 +85,8 @@ source $HOME/.shells/vars
 # Third-party
 #
 
-if [[ -s $HOME/.rvm/scripts/rvm ]]; then
-  source $HOME/.rvm/scripts/rvm
+if [ -f $HOME/.rbenv/bin/rbenv ]; then
+  eval "$(rbenv init -)"
 else
   # make Bundler do passwordless installs to a sandbox rather than to the system
   export BUNDLE_PATH=~/.bundle
