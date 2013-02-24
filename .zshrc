@@ -131,9 +131,3 @@ function auto-ls-after-cd() {
   ls -a
 }
 add-zsh-hook chpwd auto-ls-after-cd
-
-#
-# Misc
-#
-
-SHELL=$(which zsh)
