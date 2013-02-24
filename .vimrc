@@ -38,6 +38,10 @@ set wildmenu                          " show options as list when switching buff
 set wildmode=longest:full,full        " shell-like autocomplete to unambiguous portion
 set whichwrap=b,h,l,s,<,>,[,],~       " allow <BS>/h/l/<Left>/<Right>/<Space>, ~ to cross line boundaries
 
+if has('syntax')
+  set spellfile=~/.vim/.spellfile.utf-8.add
+endif
+
 if has('persistent_undo')
   set undodir=~/.vim/tmp/undo,.       " keep undo files out of the way
   set undofile                        " actually use undo files
