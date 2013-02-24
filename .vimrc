@@ -8,8 +8,10 @@ set backspace=indent,start,eol        " allow unrestricted backspacing in insert
 set backupdir=~/.vim/tmp/backup,.     " keep backup files out of the way
 set cursorline                        " highlight current line
 set directory=~/.vim/tmp/swap,.       " keep swap files out of the way
-set foldlevelstart=1                  " start with some but not all folds closed
-set foldmethod=indent                 " not as cool as syntax, but faster
+if has('folding')
+  set foldlevelstart=1                " start with some but not all folds closed
+  set foldmethod=indent               " not as cool as syntax, but faster
+endif
 set formatoptions+=n                  " smart auto-indenting inside numbered lists
 set guifont=Consolas:h13
 set guioptions-=T                     " don't show toolbar
@@ -24,7 +26,9 @@ set noshowmatch                       " don't jump between matching brackets
 set scrolloff=3                       " start scrolling 3 lines before edge of viewport
 set shortmess+=A                      " ignore annoying swapfile messages
 set shortmess+=I                      " no splash screen
-set showcmd                           " extra info at end of command line
+if has('showcmd')
+  set showcmd                         " extra info at end of command line
+endif
 set sidescrolloff=3                   " same, but for columns
 set smartcase                         " except when search string includes a capital letter
 set ttimeoutlen=50                    " speed up O etc in the Terminal
@@ -44,24 +48,25 @@ if exists('+cursorcolumn')
   "set cursorcolumn                   " highlight current column
 endif
 
-" statusline
-" cf the default statusline: %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
-" format markers:
-"   %< truncation point
-"   %n buffer number
-"   %f relative path to file
-"   %m modified flag [+] (modified), [-] (unmodifiable) or nothing
-"   %r readonly flag [RO]
-"   %y filetype [ruby]
-"   %= split point for left and right justification
-"   %-35. width specification
-"   %l current line number
-"   %L number of lines in buffer
-"   %c current column number
-"   %V current virtual column number (-n), if different from %c
-"   %P percentage through buffer
-"   %) end of width specification
-set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
+if has('statusline')
+  " cf the default statusline: %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+  " format markers:
+  "   %< truncation point
+  "   %n buffer number
+  "   %f relative path to file
+  "   %m modified flag [+] (modified), [-] (unmodifiable) or nothing
+  "   %r readonly flag [RO]
+  "   %y filetype [ruby]
+  "   %= split point for left and right justification
+  "   %-35. width specification
+  "   %l current line number
+  "   %L number of lines in buffer
+  "   %c current column number
+  "   %V current virtual column number (-n), if different from %c
+  "   %P percentage through buffer
+  "   %) end of width specification
+  set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
+endif
 
 if exists('+relativenumber')
   set relativenumber                  " show relative numbers in gutter
@@ -129,10 +134,10 @@ autocmd FileType go set shiftwidth=4 | set tabstop=4 | set noexpandtab
 autocmd BufNewFile,BufRead *_spec.js set ft=javascript.jasmine
 
 " NERDTree
-autocmd FileType nerdtree
-      \ setlocal nocursorcolumn |
-      \ setlocal nofoldenable |
-      \ setlocal nolist
+autocmd FileType nerdtree setlocal nocursorcolumn | setlocal nolist
+if has('folding')
+  autocmd FileType nerdtree setlocal nofoldenable
+endif
 
 " Objective-C
 let filetype_m='objc'
@@ -196,8 +201,12 @@ let g:alternateExtensions_h = "m,c,mm,cpp,cxx,cc,CC"
 autocmd VimEnter * autocmd WinEnter * let w:created=1
 autocmd VimEnter * let w:created=1
 
-" like the autocmd described in `:h last-position-jump` but we add `:foldopen!`
-autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | exe "silent! foldopen!" | endif
+if has('folding')
+  " like the autocmd described in `:h last-position-jump` but we add `:foldopen!`
+  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+else
+  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | exe "silent! foldopen!" | endif
+endif
 
 " except for Git commit messages, where this gets old really fast
 autocmd BufReadPost COMMIT_EDITMSG exec "normal! gg" |
@@ -235,7 +244,9 @@ let g:CommandTMaxHeight            = 10
 let g:CommandTMaxFiles             = 30000
 let g:CommandTMaxCachedDirectories = 10
 let g:CommandTScanDotDirectories   = 1
-nnoremap <silent> <leader>j :CommandTJump<CR>
+if has('jumplist')
+  nnoremap <silent> <leader>j :CommandTJump<CR>
+endif
 nnoremap <leader>g :CommandTTag<CR>
 if &term =~ "screen" || &term =~ "xterm"
   let g:CommandTCancelMap     = ['<ESC>', '<C-c>']
