@@ -329,6 +329,7 @@ endfunction
 command! -nargs=+ -complete=file GitJump call GitJump(<q-args>)
 nnoremap <leader>d :GitJump diff<space>
 
+" Clipper
 nnoremap <leader>y :call system('nc localhost 8377', @0)<CR>
 
 " make Vim's regexen more Perl-like
