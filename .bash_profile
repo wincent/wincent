@@ -82,20 +82,8 @@ shopt -u hostcomplete
 #
 
 source $HOME/.shells/exports
-
-case "$(uname)" in
-  Darwin*)
-    export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home
-    ;;
-  Linux*)
-    export JAVA_HOME=/usr/lib/jvm/jre-1.6.0-openjdk.x86_64
-    ;;
-esac
-
 source $HOME/.shells/path
-
 source $HOME/.shells/vars
-
 source $HOME/.shells/common
 
 #

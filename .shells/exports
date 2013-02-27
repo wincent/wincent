@@ -1,10 +1,23 @@
 export PAGER=less
 
+# PATH isn't set yet (.shells/path depends on this file), so we do the following
+# instead of a simple `export EDITOR=$(which vim)`:
 if [ -x $HOME/bin/vim ]; then
   export EDITOR=$HOME/bin/vim
 else
   export EDITOR=vim
 fi
+
+case "$(uname)" in
+  Darwin*)
+    if [ -x /usr/libexec/java_home ]; then
+      export JAVA_HOME=$(/usr/libexec/java_home)
+    fi
+    ;;
+  Linux*)
+    export JAVA_HOME=/usr/lib/jvm/jre-1.6.0-openjdk.x86_64
+    ;;
+esac
 
 # filename (if known), line number if known, falling back to percent if known,
 # falling back to byte offset, falling back to dash
@@ -29,4 +42,3 @@ export CLICOLOR=true
 export EC2_HOME=~/bin/ec2-api-tools
 export EC2_PRIVATE_KEY=~/.ssh/ec2wincent_cert_pk.pem
 export EC2_CERT=~/.ssh/ec2wincent_cert.pem
-
