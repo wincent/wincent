@@ -281,10 +281,6 @@ if &term =~ "screen" || &term =~ "xterm"
   let g:CommandTSelectPrevMap = ['<C-k>', '<ESC>OA']
 endif
 
-" prevent Align.vim from defining a bunch of maps starting with <leader>t
-" and introducing an annoying delay when opening Command-T
-let g:loaded_AlignMapsPlugin = "v41"
-
 " Gundo
 nnoremap <silent> <leader>u :GundoToggle<CR>
 

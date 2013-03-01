@@ -42,10 +42,6 @@
 	ignore = untracked
 	path = .vim/bundle/gundo
 	url = http://github.com/sjl/gundo.vim.git
-[submodule ".vim/bundle/Align"]
-	ignore = untracked
-	path = .vim/bundle/Align
-	url = git://github.com/vim-scripts/Align.git
 [submodule ".vim/bundle/a.vim"]
 	path = .vim/bundle/a.vim
 	url = git://github.com/vim-scripts/a.vim.git
@@ -80,3 +76,6 @@
 [submodule ".vim/bundle/vim-golang"]
 	path = .vim/bundle/vim-golang
 	url = git://github.com/jnwhiteh/vim-golang.git
+[submodule ".vim/bundle/tabular"]
+	path = .vim/bundle/tabular
+	url = git://github.com/godlygeek/tabular.git
