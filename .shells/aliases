@@ -4,6 +4,7 @@ alias be='bundle exec'
 alias cd..='cd ..'
 alias clip='nc localhost 8377'
 alias g=git
+alias groot='cd $(git rev-parse --show-toplevel 2> /dev/null || echo -n ".")'
 alias l='ls -F'
 alias ll='ls -laF'
 alias t=tmux
