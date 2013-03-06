@@ -1,0 +1,84 @@
+config defaultToCurrentScreen true
+
+# Monitor Aliases
+alias internal 1440x900
+alias external 1920x1200
+
+# Position Aliases
+alias full              move                    screenOriginX;screenOriginY screenSizeX;screenSizeY
+
+# halves
+alias top               push up                 bar-resize:screenSizeY/2
+alias right             push right              bar-resize:screenSizeX/2
+alias bottom            push down               bar-resize:screenSizeY/2
+alias left              push left               bar-resize:screenSizeX/2
+
+# thirds
+alias small-top         push up                 bar-resize:screenSizeY/3
+alias small-right       push right              bar-resize:screenSizeX/3
+alias small-bottom      push down               bar-resize:screenSizeY/3
+alias small-left        push left               bar-resize:screenSizeX/3
+
+# two thirds
+alias big-top           push up                 bar-resize:2*screenSizeY/3
+alias big-right         push right              bar-resize:2*screenSizeX/3
+alias big-bottom        push down               bar-resize:2*screenSizeY/3
+alias big-left          push left               bar-resize:2*screenSizeX/3
+
+# corners
+alias top-right         corner top-right        resize:screenSizeX/2;screenSizeY/2
+alias bottom-right      corner bottom-right     resize:screenSizeX/2;screenSizeY/2
+alias bottom-left       corner bottom-left      resize:screenSizeX/2;screenSizeY/2
+alias top-left          corner top-left         resize:screenSizeX/2;screenSizeY/2
+
+# centered
+alias small-center      move                    screenOriginX+screenSizeX/3;screenOriginY+screenSizeY/3 screenSizeX/3;screenSizeY/3
+alias big-center        move                    screenOriginX+screenSizeX/4;screenOriginY+screenSizeY/4 screenSizeX/2;screenSizeY/2
+
+# Move Bindings
+bind                    down:ctrl;alt;cmd       chain ${full} | ${full} next
+bind                    pad5:ctrl;alt           chain ${small-center} | ${small-center} next
+bind                    pad5:ctrl;alt;cmd       chain ${big-center} | ${big-center} next
+
+# Push Bindings
+bind                    up:ctrl;alt             chain ${top} | ${top} next
+bind                    right:ctrl;alt          chain ${right} | ${right} next
+bind                    down:ctrl;alt           chain ${bottom} | ${bottom} next
+bind                    left:ctrl;alt           chain ${left} | ${left} next
+bind                    pad8:ctrl;alt           chain ${small-top} | ${small-top} next
+bind                    pad6:ctrl;alt           chain ${small-right} | ${small-right} next
+bind                    pad2:ctrl;alt           chain ${small-bottom} | ${small-bottom} next
+bind                    pad4:ctrl;alt           chain ${small-left} | ${small-left} next
+bind                    pad8:ctrl;alt;cmd       chain ${big-top} | ${big-top} next
+bind                    pad6:ctrl;alt;cmd       chain ${big-right} | ${big-right} next
+bind                    pad2:ctrl;alt;cmd       chain ${big-bottom} | ${big-bottom} next
+bind                    pad4:ctrl;alt;cmd       chain ${big-left} | ${big-left} next
+
+# Corner Bindings
+bind                    pad1:ctrl;alt           chain ${bottom-left} | ${bottom-left} next
+bind                    pad3:ctrl;alt           chain ${bottom-right} | ${bottom-right} next
+bind                    pad7:ctrl;alt           chain ${top-left} | ${top-left} next
+bind                    pad9:ctrl;alt           chain ${top-right} | ${top-right} next
+
+# Layouts
+layout                  one-monitor             'Adium':IGNORE_FAIL,TITLE_ORDER_REGEX=Contact   throw ${internal}
+layout                  one-monitor             'Google Chrome':REPEAT_LAST                     ${full} ${internal}
+layout                  one-monitor             'Google Chrome Canary':REPEAT_LAST              ${full} ${internal}
+layout                  one-monitor             'iTerm':REPEAT_LAST                             ${full} ${internal}
+layout                  one-monitor             'Propane'                                       ${right} ${internal}
+layout                  one-monitor             'Skype'                                         ${right} ${internal}
+
+layout                  two-monitors            'Adium':IGNORE_FAIL,TITLE_ORDER_REGEX=Contact   throw ${external}
+layout                  two-monitors            'Google Chrome':REPEAT_LAST                     ${full} ${external}
+layout                  two-monitors            'Google Chrome Canary':REPEAT_LAST              ${full} ${external}
+layout                  two-monitors            'iTerm':REPEAT_LAST                             ${full} ${external}
+layout                  two-monitors            'Propane'                                       ${left} ${internal}
+layout                  two-monitors            'Skype'                                         ${right} ${internal}
+
+# for testing layouts
+# bind f1:ctrl;alt;cmd layout one-monitor
+# bind f2:ctrl;alt;cmd layout two-monitors
+
+# Autoswitching
+default                 one-monitor             resolutions:${internal}
+default                 two-monitors            resolutions:${internal};${external}
