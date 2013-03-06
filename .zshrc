@@ -3,7 +3,7 @@
 #
 
 autoload -U compinit
-compinit
+compinit -u
 source ~/.git-completion.sh
 
 #
