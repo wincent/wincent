@@ -4,6 +4,7 @@ require 'fileutils'
 require 'pathname'
 
 HOME      = Pathname.new ENV['HOME']
+BACKUPS   = HOME + '.backups'
 DOT_FILES = Pathname.new File.expand_path(File.dirname(__FILE__))
 
 def dot_files
@@ -15,16 +16,17 @@ def dot_files
   end
 end
 
-def delete file_or_directory
+def delete(file_or_directory)
   if file_or_directory.exist?
     puts "Removing #{file_or_directory}"
     FileUtils.rm_r file_or_directory, :force => true, :secure => true
   end
 end
 
-def backup file_or_directory
+def backup(file_or_directory)
   if file_or_directory.exist? && !file_or_directory.symlink?
-    destination = file_or_directory.sub /\z/, '.bak'
+    BACKUPS.mkpath unless BACKUPS.exist?
+    destination = BACKUPS + file_or_directory.basename
     delete destination
     puts "Moving #{file_or_directory} to #{destination}"
     FileUtils.mv file_or_directory, destination, :force => true
