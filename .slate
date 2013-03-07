@@ -65,7 +65,7 @@ layout                  one-monitor             'Adium':IGNORE_FAIL,TITLE_ORDER_
 layout                  one-monitor             'Google Chrome':REPEAT_LAST                     ${full} ${internal}
 layout                  one-monitor             'Google Chrome Canary':REPEAT_LAST              ${full} ${internal}
 layout                  one-monitor             'iTerm':REPEAT_LAST                             ${full} ${internal}
-layout                  one-monitor             'Propane'                                       ${right} ${internal}
+layout                  one-monitor             'Propane'                                       ${left} ${internal}
 layout                  one-monitor             'Skype'                                         ${right} ${internal}
 
 layout                  two-monitors            'Adium':IGNORE_FAIL,TITLE_ORDER_REGEX=Contact   throw ${external}
