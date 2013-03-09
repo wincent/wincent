@@ -73,15 +73,13 @@ if has('statusline')
 endif
 
 if exists('+relativenumber')
-  set relativenumber                  " show relative numbers in gutter
-else
-  set number                          " show line numbers in gutter
-endif
+  set relativenumber " show relative numbers in gutter
 
-if exists('+relativenumber')
   " cycle through number, relativenumber and no numbering
   nnoremap <leader>r :set <c-r>={ '00': 'r', '01': 'no', '10': ''}[&rnu . &nu]<CR>nu<CR>
 else
+  set number " show line numbers in gutter
+
   " toggle line numbers on and off
   nnoremap <leader>r :set nu!<cr>
 endif
