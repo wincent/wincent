@@ -78,21 +78,13 @@ else
   set number                          " show line numbers in gutter
 endif
 
-" adapted from: http://matt.tarbit.org/2011/07/30/toggling-relative-linenumbering
-function! s:ToggleNumbering()
-  if exists('+relativenumber')
-    if &relativenumber
-      set number
-    else
-      set relativenumber
-    end
-  else
-    set number!
-  endif
-endfunction
-
-" toggle relative line numbering (mnemonic: "[r]elative)
-nnoremap <leader>r :call <SID>ToggleNumbering()<CR>
+if exists('+relativenumber')
+  " cycle through number, relativenumber and no numbering
+  nnoremap <leader>r :set <c-r>={ '00': 'r', '01': 'no', '10': ''}[&rnu . &nu]<CR>nu<CR>
+else
+  " toggle line numbers on and off
+  nnoremap <leader>r :set nu!<cr>
+endif
 
 " change shape of cursor in insert mode in iTerm 2
 if exists('$ITERM_PROFILE')
