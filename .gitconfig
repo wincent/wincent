@@ -35,6 +35,10 @@
 	st = status
 	staged = diff --cached
 
+[branch]
+	autosetupmerge = always
+	autosetuprebase = local
+
 [branch "master"]
 	rebase = true
 
@@ -44,6 +48,10 @@
 [core]
 	excludesfile = ~/.gitignore
 	pager = less -FRSX
+
+# ignored by Git older than 1.8.2
+[diff]
+	algorithm = histogram
 
 [difftool]
 	prompt = false
@@ -74,6 +82,3 @@
 # ignored by Git older than 1.7.10
 [include]
 	path = .gitconfig.local
-[branch]
-	autosetupmerge = always
-	autosetuprebase = local
