@@ -1,9 +1,17 @@
 config defaultToCurrentScreen true
 
 # Monitor Aliases
-alias internal 1440x900
-alias external 1920x1200
-alias grotto 1080x1920
+alias internal          1440x900
+alias external          1920x1200
+alias grotto            1080x1920
+
+# App Aliases
+alias adium             'Adium':IGNORE_FAIL,TITLE_ORDER_REGEX=Contact,REPEAT_LAST
+alias chrome            'Google Chrome':REPEAT_LAST
+alias canary            'Google Chrome Canary':REPEAT_LAST
+alias term              'iTerm':REPEAT_LAST
+alias propane           'Propane'
+alias skype             'Skype'
 
 # Position Aliases
 alias full              move                    screenOriginX;screenOriginY screenSizeX;screenSizeY
@@ -62,26 +70,26 @@ bind                    pad7:ctrl;alt           chain ${top-left} | ${top-left} 
 bind                    pad9:ctrl;alt           chain ${top-right} | ${top-right} next
 
 # Layouts
-layout                  one-monitor             'Adium':IGNORE_FAIL,TITLE_ORDER_REGEX=Contact,REPEAT_LAST throw ${internal} | ${small-center} ${internal}
-layout                  one-monitor             'Google Chrome':REPEAT_LAST                               ${full} ${internal}
-layout                  one-monitor             'Google Chrome Canary':REPEAT_LAST                        ${full} ${internal}
-layout                  one-monitor             'iTerm':REPEAT_LAST                                       ${full} ${internal}
-layout                  one-monitor             'Propane'                                                 ${left} ${internal}
-layout                  one-monitor             'Skype'                                                   ${right} ${internal}
+layout                  one-monitor             ${adium}    throw ${internal} | ${small-center} ${internal}
+layout                  one-monitor             ${chrome}   ${full} ${internal}
+layout                  one-monitor             ${canary}   ${full} ${internal}
+layout                  one-monitor             ${term}     ${full} ${internal}
+layout                  one-monitor             ${propane}  ${left} ${internal}
+layout                  one-monitor             ${skype}    ${right} ${internal}
 
-layout                  two-monitors            'Adium':IGNORE_FAIL,TITLE_ORDER_REGEX=Contact,REPEAT_LAST throw ${external} | ${big-center} ${external}
-layout                  two-monitors            'Google Chrome':REPEAT_LAST                               ${full} ${external}
-layout                  two-monitors            'Google Chrome Canary':REPEAT_LAST                        ${full} ${external}
-layout                  two-monitors            'iTerm':REPEAT_LAST                                       ${full} ${external}
-layout                  two-monitors            'Propane'                                                 ${left} ${internal}
-layout                  two-monitors            'Skype'                                                   ${right} ${internal}
+layout                  two-monitors            ${adium}    throw ${external} | ${big-center} ${external}
+layout                  two-monitors            ${chrome}   ${full} ${external}
+layout                  two-monitors            ${canary}   ${full} ${external}
+layout                  two-monitors            ${term}     ${full} ${external}
+layout                  two-monitors            ${propane}  ${left} ${internal}
+layout                  two-monitors            ${skype}    ${right} ${internal}
 
-layout                  two-monitors-grotto     'Adium':IGNORE_FAIL,TITLE_ORDER_REGEX=Contact,REPEAT_LAST throw ${internal} | ${big-center} ${internal}
-layout                  two-monitors-grotto     'Google Chrome':REPEAT_LAST                               ${full} ${external}
-layout                  two-monitors-grotto     'Google Chrome Canary':REPEAT_LAST                        ${full} ${external}
-layout                  two-monitors-grotto     'iTerm':REPEAT_LAST                                       ${full} ${internal}
-layout                  two-monitors-grotto     'Propane'                                                 ${left} ${internal}
-layout                  two-monitors-grotto     'Skype'                                                   ${right} ${internal}
+layout                  two-monitors-grotto     ${adium}    throw ${internal} | ${big-center} ${internal}
+layout                  two-monitors-grotto     ${chrome}   ${full} ${external}
+layout                  two-monitors-grotto     ${canary}   ${full} ${external}
+layout                  two-monitors-grotto     ${term}     ${full} ${internal}
+layout                  two-monitors-grotto     ${propane}  ${left} ${internal}
+layout                  two-monitors-grotto     ${skype}    ${right} ${internal}
 
 # for testing layouts
 # bind f1:ctrl;alt;cmd layout one-monitor
