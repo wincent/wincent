@@ -162,18 +162,18 @@ syntax on
 " colorscheme
 if filereadable(expand("~/.vim/dark"))
   set background=dark
-  color elflord
 else
   set background=light
-  let g:solarized_visibility='low'
-  color solarized
-  set t_Co=16
-
-  " this override won't survive a roundtrip to background=dark (where the paren
-  " highlighting is mostly ok as-is) and back, but it's still a win for the
-  " common case
-  highlight MatchParen ctermbg=7 ctermfg=11 cterm=underline term=underline
 endif
+
+let g:solarized_visibility='low'
+color solarized
+set t_Co=16
+
+" this override won't survive a roundtrip to background=dark (where the paren
+" highlighting is mostly ok as-is) and back, but it's still a win for the
+" common case
+highlight MatchParen ctermbg=7 ctermfg=11 cterm=underline term=underline
 
 if has('mouse')
   set mouse=a
