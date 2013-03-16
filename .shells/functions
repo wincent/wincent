@@ -13,3 +13,12 @@ ssh-reagent() {
   done
   echo Cannot find ssh agent - maybe you should reconnect and forward it?
 }
+
+tmux() {
+  if [ -z "$@" ]; then
+    local dir=$(basename $(pwd))
+    command tmux attach -t "$dir" &> /dev/null || command tmux new -s "$dir"
+  else
+    command tmux "$@"
+  fi
+}
