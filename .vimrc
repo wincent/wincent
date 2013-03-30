@@ -85,8 +85,11 @@ else
 endif
 
 " change shape of cursor in insert mode in iTerm 2
-if exists('$ITERM_PROFILE')
-  if exists('$TMUX')
+let s:iterm = exists('$ITERM_PROFILE')
+let s:tmux = exists('$TMUX')
+
+if s:iterm
+  if s:tmux
     " in theory this should work -- see https://gist.github.com/1195581 -- but
     " it corrupts the screen when doing r<ESC> (leaves visible ^]r on the right)
     "let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
