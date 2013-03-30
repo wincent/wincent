@@ -84,24 +84,40 @@ else
   nnoremap <leader>r :set nu!<cr>
 endif
 
+" terminal-specific magic
+let s:iterm   = exists('$ITERM_PROFILE')
+let s:screen  = &term =~ 'screen'
+let s:tmux    = exists('$TMUX')
+let s:xterm   = &term =~ 'xterm'
+
+function! s:EscapeEscapes(string)
+  " double each <Esc>
+  return substitute(a:string, "\<Esc>", "\<Esc>\<Esc>", "g")
+endfunction
+
+function! s:TmuxWrap(string)
+  if strlen(a:string) == 0
+    return ""
+  end
+
+  let tmux_begin  = "\<Esc>Ptmux;"
+  let tmux_end    = "\<Esc>\\"
+
+  return tmux_begin . s:EscapeEscapes(a:string) . tmux_end
+endfunction
+
 " change shape of cursor in insert mode in iTerm 2
-let s:iterm = exists('$ITERM_PROFILE')
-let s:tmux = exists('$TMUX')
-
 if s:iterm
-  if s:tmux
-    " in theory this should work -- see https://gist.github.com/1195581 -- but
-    " it corrupts the screen when doing r<ESC> (leaves visible ^]r on the right)
-    "let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-    "let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+  let start_insert  = "\<Esc>]50;CursorShape=1\x7"
+  let end_insert    = "\<Esc>]50;CursorShape=0\x7"
 
-    " this works with a hack to the ~/.tmux.conf file
-    let &t_SI = "\<Esc>[3 q"
-    let &t_EI = "\<Esc>[0 q"
-  else
-    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+  if s:tmux
+    let start_insert  = s:TmuxWrap(start_insert)
+    let end_insert    = s:TmuxWrap(end_insert)
   endif
+
+  let &t_SI = start_insert
+  let &t_EI = end_insert
 endif
 
 " defaults for all languages
@@ -180,7 +196,7 @@ highlight MatchParen ctermbg=7 ctermfg=11 cterm=underline term=underline
 
 if has('mouse')
   set mouse=a
-  if &term =~ "screen" || &term =~ "xterm"
+  if s:screen || s:xterm
     " for some reason, doing this directly with 'set ttymouse=xterm2'
     " doesn't work -- 'set ttymouse?' returns xterm2 but the mouse
     " makes tmux enter copy mode instead of selecting or scrolling
@@ -193,7 +209,7 @@ endif
 " make use of Xterm "bracketed paste mode"
 " http://www.xfree86.org/current/ctlseqs.html#Bracketed%20Paste%20Mode
 " http://stackoverflow.com/questions/5585129
-if &term =~ "screen" || &term =~ "xterm"
+if s:screen || s:xterm
   function! s:BeginXTermPaste(ret)
     set paste
     return a:ret
@@ -268,7 +284,7 @@ if has('jumplist')
   nnoremap <silent> <leader>j :CommandTJump<CR>
 endif
 nnoremap <leader>g :CommandTTag<CR>
-if &term =~ "screen" || &term =~ "xterm"
+if s:screen || s:xterm
   let g:CommandTCancelMap     = ['<ESC>', '<C-c>']
   let g:CommandTSelectNextMap = ['<C-j>', '<ESC>OB']
   let g:CommandTSelectPrevMap = ['<C-k>', '<ESC>OA']
