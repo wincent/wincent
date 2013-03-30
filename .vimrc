@@ -197,12 +197,7 @@ highlight MatchParen ctermbg=7 ctermfg=11 cterm=underline term=underline
 if has('mouse')
   set mouse=a
   if s:screen || s:xterm
-    " for some reason, doing this directly with 'set ttymouse=xterm2'
-    " doesn't work -- 'set ttymouse?' returns xterm2 but the mouse
-    " makes tmux enter copy mode instead of selecting or scrolling
-    " inside Vim -- but luckily, setting it up from within the VimEnter
-    " autocmd works
-    autocmd BufEnter,FocusGained,VimEnter * set ttymouse=xterm2
+    set ttymouse=xterm2
   endif
 endif
 autocmd FocusGained * checktime
