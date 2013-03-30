@@ -92,9 +92,9 @@ layout                  two-monitors-grotto     ${propane}  ${left} ${internal}
 layout                  two-monitors-grotto     ${skype}    ${right} ${internal}
 
 # for testing layouts
-# bind f1:ctrl;alt;cmd layout one-monitor
-# bind f2:ctrl;alt;cmd layout two-monitors
-# bind f3:ctrl;alt;cmd layout two-monitors-grotto
+bind f1:ctrl;alt;cmd layout one-monitor
+bind f2:ctrl;alt;cmd layout two-monitors
+bind f3:ctrl;alt;cmd layout two-monitors-grotto
 
 # Autoswitching
 default                 one-monitor             resolutions:${internal}
