@@ -16,8 +16,8 @@ ssh-reagent() {
 
 tmux() {
   if [ -z "$@" ]; then
-    local dir=$(basename $(pwd))
-    command tmux attach -t "$dir" &> /dev/null || command tmux new -s "$dir"
+    # attach to existing session, or create one, based on current directory
+    command tmux new -A -s "$(basename $(pwd))"
   else
     command tmux "$@"
   fi
