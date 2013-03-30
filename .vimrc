@@ -226,7 +226,9 @@ function! s:RunFocusGainedAutocmd()
   let cmdline = getcmdline()
   let cmdpos  = getcmdpos()
 
-  silent doautocmd FocusGained %
+  " our checktime autocmd will produce:
+  " E523: Not allowed here:   checktime
+  silent! doautocmd FocusGained %
 
   call setcmdpos(cmdpos)
   return cmdline
