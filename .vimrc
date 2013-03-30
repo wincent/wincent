@@ -205,6 +205,45 @@ if has('mouse')
     autocmd BufEnter,FocusGained,VimEnter * set ttymouse=xterm2
   endif
 endif
+autocmd FocusGained * checktime
+
+" enable focus reporting on entering Vim
+let &t_ti .= "\e[?1004h"
+" disable focus reporting on leaving Vim
+let &t_te = "\e[?1004l" . &t_te
+
+function! s:RunFocusLostAutocmd()
+  let cmdline = getcmdline()
+  let cmdpos  = getcmdpos()
+
+  silent doautocmd FocusLost %
+
+  call setcmdpos(cmdpos)
+  return cmdline
+endfunction
+
+function! s:RunFocusGainedAutocmd()
+  let cmdline = getcmdline()
+  let cmdpos  = getcmdpos()
+
+  silent doautocmd FocusGained %
+
+  call setcmdpos(cmdpos)
+  return cmdline
+endfunction
+
+execute "set <f20>=\<Esc>[O"
+execute "set <f21>=\<Esc>[I"
+cnoremap <silent> <f20> <c-\>e<SID>RunFocusLostAutocmd()<cr>
+cnoremap <silent> <f21> <c-\>e<SID>RunFocusGainedAutocmd()<cr>
+inoremap <silent> <f20> <c-o>:silent doautocmd FocusLost %<cr>
+inoremap <silent> <f21> <c-o>:silent doautocmd FocusGained %<cr>
+nnoremap <silent> <f20> :doautocmd FocusLost %<cr>
+nnoremap <silent> <f21> :doautocmd FocusGained %<cr>
+onoremap <silent> <f20> <Esc>:silent doautocmd FocusLost %<cr>
+onoremap <silent> <f21> <Esc>:silent doautocmd FocusGained %<cr>
+vnoremap <silent> <f20> <Esc>:silent doautocmd FocusLost %<cr>gv
+vnoremap <silent> <f21> <Esc>:silent doautocmd FocusGained %<cr>gv
 
 " make use of Xterm "bracketed paste mode"
 " http://www.xfree86.org/current/ctlseqs.html#Bracketed%20Paste%20Mode
