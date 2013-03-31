@@ -137,12 +137,6 @@ endif
 let filetype_m='objc'
 let filetype_pl='prolog'
 
-" Jasmine
-autocmd BufNewFile,BufRead *_spec.js set ft=javascript.jasmine
-
-" RSpec
-autocmd BufNewFile,BufRead *_spec.rb set ft=ruby.spec
-
 " automatic, language-dependent indentation, syntax coloring and other
 " functionality
 filetype indent plugin on
