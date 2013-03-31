@@ -3,4 +3,5 @@ if exists(':Tabularize')
   AddTabularPattern hash_rocket /=>
   AddTabularPattern json /:
   AddTabularPattern symbol /:/l1c0
+  AddTabularPattern equals /=
 endif
