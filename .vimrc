@@ -308,7 +308,7 @@ nnoremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 "
 nnoremap <silent> <leader>zz :let _last_search=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_last_search <Bar> :noh<CR>
 
-nnoremap <leader>n :set nocursorcolumn <bar> noh<CR>
+nnoremap <leader>n :set nocursorcolumn <Bar> noh <Bar> echo<CR>
 
 " Command-T
 let g:CommandTMatchWindowReverse   = 1
