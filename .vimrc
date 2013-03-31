@@ -274,22 +274,6 @@ nnoremap <silent> <leader>zz :let _last_search=@/ <Bar> :%s/\s\+$//e <Bar> :let 
 
 nnoremap <leader>n :set nocursorcolumn <Bar> noh <Bar> echo<CR>
 
-" Command-T
-let g:CommandTMatchWindowReverse   = 1
-let g:CommandTMaxHeight            = 10
-let g:CommandTMaxFiles             = 30000
-let g:CommandTMaxCachedDirectories = 10
-let g:CommandTScanDotDirectories   = 1
-if has('jumplist')
-  nnoremap <silent> <leader>j :CommandTJump<CR>
-endif
-nnoremap <leader>g :CommandTTag<CR>
-if s:screen || s:xterm
-  let g:CommandTCancelMap     = ['<ESC>', '<C-c>']
-  let g:CommandTSelectNextMap = ['<C-j>', '<ESC>OB']
-  let g:CommandTSelectPrevMap = ['<C-k>', '<ESC>OA']
-endif
-
 " Gundo
 nnoremap <silent> <leader>u :GundoToggle<CR>
 
