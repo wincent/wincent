@@ -142,17 +142,6 @@ let filetype_pl='prolog'
 filetype indent plugin on
 syntax on
 
-" colorscheme
-if filereadable(expand("~/.vim/dark"))
-  set background=dark
-else
-  set background=light
-endif
-
-let g:solarized_visibility='low'
-color solarized
-set t_Co=16
-
 if has('mouse')
   set mouse=a
   if s:screen || s:xterm
@@ -324,23 +313,6 @@ vnoremap / /\v
 
 " delete all buffers, except for those with unsaved changes
 nnoremap <leader>da :bufdo silent! bdelete<CR>
-
-function! s:ToggleVisibility()
-  if g:solarized_visibility != 'high'
-    let g:solarized_visibility = 'high'
-  else
-    let g:solarized_visibility = 'low'
-  endif
-  color solarized
-
-  " this override won't survive a roundtrip to background=dark (where the paren
-  " highlighting is mostly ok as-is) and back, but it's still a win for the
-  " common case
-  highlight MatchParen ctermbg=7 ctermfg=11 cterm=underline term=underline
-endfunction
-
-" mnemonic: [w]hitespace
-nnoremap <leader>w :call <SID>ToggleVisibility()<CR>
 
 " multi-mode mappings (Normal, Visual, Operating-pending modes)
 noremap Y y$
