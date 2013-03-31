@@ -133,44 +133,15 @@ if exists('+colorcolumn')
   set cc=+0
 endif
 
-" C
-autocmd FileType c set shiftwidth=4 | set tabstop=4
-
-" Git commit messages
-autocmd FileType gitcommit setlocal textwidth=72
-
-" Go
-autocmd FileType go set shiftwidth=4 | set tabstop=4 | set noexpandtab
+" extension -> filetype mappings
+let filetype_m='objc'
+let filetype_pl='prolog'
 
 " Jasmine
 autocmd BufNewFile,BufRead *_spec.js set ft=javascript.jasmine
 
-" NERDTree
-autocmd FileType nerdtree setlocal nocursorcolumn | setlocal nolist
-if has('folding')
-  autocmd FileType nerdtree setlocal nofoldenable
-endif
-
-" Objective-C
-let filetype_m='objc'
-autocmd FileType objc set shiftwidth=4 | set tabstop=4
-
-" Prolog
-let filetype_pl='prolog'
-autocmd FileType prolog set shiftwidth=2 | set tabstop=2
-
-" Quickfix listing
-autocmd BufReadPost quickfix
-      \ setlocal nocursorcolumn |
-      \ setlocal nolist |
-      \ setlocal number |
-      \ setlocal so=0
-
 " RSpec
 autocmd BufNewFile,BufRead *_spec.rb set ft=ruby.spec
-
-" Ruby
-autocmd FileType ruby set shiftwidth=2 | set smartindent | set tabstop=2
 
 " automatic, language-dependent indentation, syntax coloring and other
 " functionality
