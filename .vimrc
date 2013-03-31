@@ -241,8 +241,7 @@ else
 endif
 
 " except for Git commit messages, where this gets old really fast
-autocmd BufReadPost COMMIT_EDITMSG exec "normal! gg" |
-  \ setlocal spell
+autocmd BufReadPost COMMIT_EDITMSG exec "normal! gg"
 
 " disable paste mode on leaving insert mode
 autocmd InsertLeave * set nopaste
