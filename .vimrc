@@ -11,14 +11,6 @@ let filetype_pl='prolog'
 filetype indent plugin on
 syntax on
 
-" see changes made to current buffer since file was loaded
-" (from vimrc example file)
-" to get out of diff mode do :diffoff!
-if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-      \ | wincmd p | diffthis
-endif
-
 source $VIMRUNTIME/macros/matchit.vim
 
 " After this file is sourced, plug-in code will be evaluated.
