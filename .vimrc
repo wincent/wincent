@@ -253,9 +253,6 @@ nnoremap <silent> <leader>zz :let _last_search=@/ <Bar> :%s/\s\+$//e <Bar> :let 
 
 nnoremap <leader>n :set nocursorcolumn <Bar> noh <Bar> echo<CR>
 
-" Gundo
-nnoremap <silent> <leader>u :GundoToggle<CR>
-
 set grepprg=ack\ --column
 set grepformat=%f:%l:%c:%m
 autocmd QuickFixCmdPost [^l]* nested cw
