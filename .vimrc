@@ -319,7 +319,12 @@ nnoremap <leader>y :call system('nc localhost 8377', @0)<CR>
 " make Vim's regexen more Perl-like
 " turn on cursorcolumn only temporarily here; it's a big performance hit, but
 " really useful for disambiguating the current match
-nnoremap / :silent! set cursorcolumn<CR>/\v
+if exists('+cursorcolumn')
+  nnoremap / :silent! set cursorcolumn<CR>/\v
+else
+  nnoremap / /\v
+endif
+
 vnoremap / /\v
 
 " delete all buffers, except for those with unsaved changes

@@ -1,4 +1,6 @@
-set nocursorcolumn
+if exists('+cursorcolumn')
+  set nocursorcolumn
+endif
 
 if has('folding')
   set nofoldenable
