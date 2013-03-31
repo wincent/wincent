@@ -85,7 +85,7 @@ else
 endif
 
 " terminal-specific magic
-let s:iterm   = exists('$ITERM_PROFILE')
+let s:iterm   = exists('$ITERM_PROFILE') || filereadable(expand("~/.vim/assume-iterm"))
 let s:screen  = &term =~ 'screen'
 let s:tmux    = exists('$TMUX')
 let s:xterm   = &term =~ 'xterm'
