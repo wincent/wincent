@@ -2,7 +2,6 @@ runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()                " add .vim/bundle subdirs to runtime path
 call pathogen#helptags()              " wasteful, but no shortage of grunt available
 
-set nocompatible                      " just in case system-wide vimrc has set this otherwise
 set autoread                          " if not changed in Vim, automatically pick up changes after "git co" etc
 set backspace=indent,start,eol        " allow unrestricted backspacing in insert mode
 set backupdir=~/.vim/tmp/backup,.     " keep backup files out of the way
