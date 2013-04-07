@@ -45,6 +45,9 @@
 [color]
 	ui = auto
 
+[color "status"]
+	untracked = blue
+
 [core]
 	excludesfile = ~/.gitignore
 	pager = less -FRSX
