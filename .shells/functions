@@ -19,6 +19,6 @@ tmux() {
     # attach to existing session, or create one, based on current directory
     command tmux new -A -s "$(basename $(pwd))"
   else
-    command tmux "$@"
+    command tmux $@
   fi
 }
