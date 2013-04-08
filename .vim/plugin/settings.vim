@@ -22,7 +22,7 @@ if has('folding')
 endif
 
 set formatoptions+=n                  " smart auto-indenting inside numbered lists
-set guifont=Monaco:h12
+set guifont=Consolas:h13
 set guioptions-=T                     " don't show toolbar
 set hidden                            " allows you to hide buffers with unsaved changes without being prompted
 set history=1000                      " longer search and command history (default is 20)
