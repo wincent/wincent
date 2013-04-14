@@ -23,8 +23,19 @@ alias sudo='nocorrect sudo'
 
 autoload -U colors
 colors
+
+# http://zsh.sourceforge.net/Doc/Release/User-Contributions.html
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' stagedstr "%{$fg[yellow]%}●%{$reset_color%}" # default 'S'
+zstyle ':vcs_info:*' unstagedstr "%{$fg[red]%}●%{$reset_color%}" # default 'U'
+zstyle ':vcs_info:*' formats '[%b%m%u%c] ' # default ' (%s)-[%b]%u%c-'
+zstyle ':vcs_info:*' actionformats '[%b|%a%m%u%c] ' # default ' (%s)-[%b|%a]%u%c-'
+
+setopt PROMPT_SUBST
 export PS1="%{$fg[green]%}%m%{$reset_color%}:%{$fg[blue]%}%1~%{$fg[red]%}%(!.#.$)%{$reset_color%} "
-export RPROMPT="%{$fg[blue]%}%~%{$reset_color%}"
+export RPROMPT="\${vcs_info_msg_0_}%{$fg[blue]%}%~%{$reset_color%}"
 export SPROMPT="zsh: correct %{$fg[red]%}'%R'%{$reset_color%} to %{$fg[red]%}'%r'%{$reset_color%} [%B%Uy%u%bes, %B%Un%u%bo, %B%Ue%u%bdit, %B%Ua%u%bbort]? "
 
 #
@@ -133,3 +144,6 @@ function auto-ls-after-cd() {
   ls -a
 }
 add-zsh-hook chpwd auto-ls-after-cd
+
+# for prompt
+add-zsh-hook precmd vcs_info
