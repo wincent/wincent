@@ -24,6 +24,7 @@ alias sudo='nocorrect sudo'
 autoload -U colors
 colors
 export PS1="%{$fg[green]%}%m%{$reset_color%}:%{$fg[blue]%}%1~%{$fg[red]%}%(!.#.$)%{$reset_color%} "
+export RPROMPT="%{$fg[blue]%}%~%{$reset_color%}"
 
 #
 # History
