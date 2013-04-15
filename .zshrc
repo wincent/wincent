@@ -30,8 +30,15 @@ zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr "%{$fg[yellow]%}●%{$reset_color%}" # default 'S'
 zstyle ':vcs_info:*' unstagedstr "%{$fg[red]%}●%{$reset_color%}" # default 'U'
-zstyle ':vcs_info:*' formats '[%b%m%u%c] ' # default ' (%s)-[%b]%u%c-'
-zstyle ':vcs_info:*' actionformats '[%b|%a%m%u%c] ' # default ' (%s)-[%b|%a]%u%c-'
+zstyle ':vcs_info:*' formats '[%b%m%c%u] ' # default ' (%s)-[%b]%c%u-'
+zstyle ':vcs_info:*' actionformats '[%b|%a%m%c%u] ' # default ' (%s)-[%b|%a]%c%u-'
+zstyle ':vcs_info:git+set-message:*' hooks git-untracked
+
+function +vi-git-untracked() {
+  if [[ -n $(git ls-files --exclude-standard --others 2> /dev/null) ]]; then
+    hook_com[unstaged]+="%{$fg[blue]%}●%{$reset_color%}"
+  fi
+}
 
 setopt PROMPT_SUBST
 export PS1="%{$fg[green]%}%m%{$reset_color%}:%{$fg[blue]%}%1~%{$fg[red]%}%(!.#.$)%{$reset_color%} "
