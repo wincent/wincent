@@ -49,6 +49,7 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-kPlus> <C-w>+
 nnoremap <C-kMinus> <C-w>-
+nnoremap <Space> <C-f>
 
 " Insert mode mappings
 inoremap jj <Esc>
