@@ -4,7 +4,6 @@
 
 autoload -U compinit
 compinit -u
-fpath=(~/.zsh/completion $fpath) # Git completion
 
 #
 # Correction
