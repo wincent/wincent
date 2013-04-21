@@ -36,4 +36,5 @@ endfunction
 " mnemonic: [w]hitespace
 nnoremap <leader>w :call <SID>CycleColorScheme('', '')<CR>
 
+let g:solarized_italic=1
 call s:CycleColorScheme('light', 'low')
