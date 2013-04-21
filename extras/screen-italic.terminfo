@@ -1,0 +1,20 @@
+# A screen-based TERMINFO that adds the escape sequences for italic,
+# and overwrites conflicting sequences for standout text.
+#
+# Based on:
+#
+#   https://gist.github.com/sos4nt/3187620
+#
+# Install:
+#
+#   mkdir ~/.terminfo # otpional; can also install to $HOME/share/terminfo
+#   tic screen-italic.terminfo
+#
+# Usage:
+#
+#   export TERM=screen-italic
+#
+screen-italic|screen with italic,
+  sitm=\E[3m, ritm=\E[23m,
+  smso=\E[7m, rmso=\E[27m,
+  use=screen,
