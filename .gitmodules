@@ -79,3 +79,6 @@
 [submodule ".vim/bundle/tabular"]
 	path = .vim/bundle/tabular
 	url = git://github.com/godlygeek/tabular.git
+[submodule "extras/solarized"]
+	path = extras/solarized
+	url = git://github.com/altercation/solarized.git

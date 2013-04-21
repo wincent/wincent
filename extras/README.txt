@@ -1,3 +1,8 @@
+- solarized
+
+  For convenience, the official Solarized repo, containing the iTerm 2 color
+  files.
+
 - .terminfo
 
   Not linked by default as it is not needed on all machines I work on.
