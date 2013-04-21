@@ -25,7 +25,6 @@ function! s:CycleColorScheme(background, visibility)
 
   let g:solarized_visibility = visibility
   color solarized
-  set t_Co=16
   execute "set background=" . background
 
   " MatchParen highlighting is hard to see; make it more obvious
