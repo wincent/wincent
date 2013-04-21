@@ -37,7 +37,7 @@
 [submodule ".vim/bundle/vim-colors-solarized"]
 	ignore = untracked
 	path = .vim/bundle/vim-colors-solarized
-	url = git://github.com/altercation/vim-colors-solarized.git
+	url = git://github.com/wincent/vim-colors-solarized.git
 [submodule ".vim/bundle/gundo"]
 	ignore = untracked
 	path = .vim/bundle/gundo
