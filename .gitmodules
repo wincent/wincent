@@ -82,3 +82,6 @@
 [submodule "extras/solarized"]
 	path = extras/solarized
 	url = git://github.com/altercation/solarized.git
+[submodule ".vim/bundle/vim-dispatch"]
+	path = .vim/bundle/vim-dispatch
+	url = git://github.com/tpope/vim-dispatch.git
