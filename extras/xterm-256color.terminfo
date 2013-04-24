@@ -7,7 +7,12 @@
 # Install:
 #
 #   mkdir ~/.terminfo # optional; can also install to $HOME/share/terminfo
-#   tic xterm-256color-italic.terminfo
+#   infocmp xterm-256color > xterm-256color.terminfo.original # backup
+#   mkdir dry-run
+#   tic -o dry-run xterm-256color.terminfo
+#   infocmp -A dry-run xterm-256color > xterm-256color.terminfo.new
+#   diff -u xterm-256color.terminfo.{original,new}
+#   tic xterm-256color-italic.terminfo # overwrites the old terminfo
 #
 # Check existing italic and standout settings:
 #
@@ -17,10 +22,6 @@
 #
 #  echo `tput sitm`italics`tput ritm` `tput smso`standout`tput rmso`
 #
-# Usage:
-#
-#   export TERM=xterm-256color-italic
-#
-xterm-256color-italic|xterm with 256 colors and italic,
+xterm-256color|xterm with 256 colors and italic,
   sitm=\E[3m, ritm=\E[23m,
   use=xterm-256color,
