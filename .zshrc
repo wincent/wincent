@@ -27,7 +27,7 @@ colors
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' stagedstr "%{$fg[yellow]%}●%{$reset_color%}" # default 'S'
+zstyle ':vcs_info:*' stagedstr "%{$fg[green]%}●%{$reset_color%}" # default 'S'
 zstyle ':vcs_info:*' unstagedstr "%{$fg[red]%}●%{$reset_color%}" # default 'U'
 zstyle ':vcs_info:*' formats '[%b%m%c%u] ' # default ' (%s)-[%b]%c%u-'
 zstyle ':vcs_info:*' actionformats '[%b|%a%m%c%u] ' # default ' (%s)-[%b|%a]%c%u-'
