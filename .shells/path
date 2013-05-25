@@ -7,6 +7,7 @@ PATH=$PATH:$HOME/.shells/bin
 PATH=$PATH:$HOME/.rbenv/bin
 PATH=$PATH:/usr/local/bin
 PATH=$PATH:/usr/local/sbin
+PATH=$PATH:/usr/local/share/npm/bin
 PATH=$PATH:$SYSTEM_PATH
 PATH=$PATH:$EC2_HOME/bin
 PATH=$PATH:$HOME/maven/apache-maven-2.2.1/bin
