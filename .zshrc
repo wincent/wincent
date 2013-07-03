@@ -153,3 +153,12 @@ add-zsh-hook chpwd auto-ls-after-cd
 
 # for prompt
 add-zsh-hook precmd vcs_info
+
+
+# local and host-specific overrides
+
+LOCAL_RC=$HOME/.zshlocal
+test -f $LOCAL_RC && source $LOCAL_RC
+
+HOST_RC=$HOME/.zsh/host/$(hostname -s)
+test -f $HOST_RC && source $HOST_RC
