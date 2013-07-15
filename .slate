@@ -93,8 +93,8 @@ layout                  two-monitors-cinema     ${propane}  ${left} ${internal}
 layout                  two-monitors-cinema     ${skype}    ${right} ${internal}
 
 layout                  two-monitors-grotto     ${adium}    throw ${internal} | ${big-center} ${internal}
-layout                  two-monitors-grotto     ${chrome}   ${full} ${external}
-layout                  two-monitors-grotto     ${canary}   ${full} ${external}
+layout                  two-monitors-grotto     ${chrome}   ${full} ${grotto}
+layout                  two-monitors-grotto     ${canary}   ${full} ${grotto}
 layout                  two-monitors-grotto     ${term}     ${full} ${internal}
 layout                  two-monitors-grotto     ${propane}  ${left} ${internal}
 layout                  two-monitors-grotto     ${skype}    ${right} ${internal}
