@@ -4,6 +4,7 @@ config defaultToCurrentScreen true
 alias internal          1440x900
 alias external          1920x1200
 alias grotto            1080x1920
+alias cinema            2560x1440
 
 # App Aliases
 alias adium             'Adium':IGNORE_FAIL,TITLE_ORDER_REGEX=Contact,REPEAT_LAST
@@ -84,6 +85,13 @@ layout                  two-monitors            ${term}     ${full} ${external}
 layout                  two-monitors            ${propane}  ${left} ${internal}
 layout                  two-monitors            ${skype}    ${right} ${internal}
 
+layout                  two-monitors-cinema     ${adium}    throw ${cinema} | ${big-center} ${cinema}
+layout                  two-monitors-cinema     ${chrome}   ${right} ${cinema}
+layout                  two-monitors-cinema     ${canary}   ${right} ${cinema}
+layout                  two-monitors-cinema     ${term}     ${left} ${cinema}
+layout                  two-monitors-cinema     ${propane}  ${left} ${internal}
+layout                  two-monitors-cinema     ${skype}    ${right} ${internal}
+
 layout                  two-monitors-grotto     ${adium}    throw ${internal} | ${big-center} ${internal}
 layout                  two-monitors-grotto     ${chrome}   ${full} ${external}
 layout                  two-monitors-grotto     ${canary}   ${full} ${external}
@@ -100,3 +108,4 @@ bind f3:ctrl;alt;cmd layout two-monitors-grotto
 default                 one-monitor             resolutions:${internal}
 default                 two-monitors            resolutions:${internal};${external}
 default                 two-monitors-grotto     resolutions:${internal};${grotto}
+default                 two-monitors-cinema     resolutions:${internal};${cinema}
