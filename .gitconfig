@@ -51,6 +51,7 @@
 [core]
 	excludesfile = ~/.gitignore
 	pager = less -FRSX
+	attributesfile = ~/.gitattributes
 
 # ignored by Git older than 1.8.2
 [diff]
