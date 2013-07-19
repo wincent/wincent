@@ -8,11 +8,12 @@ alias cinema            2560x1440
 
 # App Aliases
 alias adium             'Adium':IGNORE_FAIL,TITLE_ORDER_REGEX=Contact,REPEAT_LAST
-alias chrome            'Google Chrome':REPEAT_LAST
 alias canary            'Google Chrome Canary':REPEAT_LAST
-alias term              'iTerm':REPEAT_LAST
+alias chrome            'Google Chrome':REPEAT_LAST
 alias propane           'Propane'
 alias skype             'Skype'
+alias term              'iTerm':REPEAT_LAST
+alias textual           'Textual'
 
 # Position Aliases
 alias full              move                    screenOriginX;screenOriginY screenSizeX;screenSizeY
@@ -71,38 +72,43 @@ bind                    pad7:ctrl;alt           chain ${top-left} | ${top-left} 
 bind                    pad9:ctrl;alt           chain ${top-right} | ${top-right} next
 
 # Layouts
-layout                  one-monitor             ${adium}    throw ${internal} | ${small-center} ${internal}
-layout                  one-monitor             ${chrome}   ${full} ${internal}
+layout                  one-monitor             ${adium}    throw ${internal} | ${big-center} ${internal}
 layout                  one-monitor             ${canary}   ${full} ${internal}
-layout                  one-monitor             ${term}     ${full} ${internal}
+layout                  one-monitor             ${chrome}   ${full} ${internal}
 layout                  one-monitor             ${propane}  ${left} ${internal}
 layout                  one-monitor             ${skype}    ${right} ${internal}
+layout                  one-monitor             ${term}     ${full} ${internal}
+layout                  one-monitor             ${textual}  ${big-center} ${internal}
 
 layout                  two-monitors            ${adium}    throw ${external} | ${big-center} ${external}
-layout                  two-monitors            ${chrome}   ${full} ${external}
 layout                  two-monitors            ${canary}   ${full} ${external}
-layout                  two-monitors            ${term}     ${full} ${external}
+layout                  two-monitors            ${chrome}   ${full} ${external}
 layout                  two-monitors            ${propane}  ${left} ${internal}
 layout                  two-monitors            ${skype}    ${right} ${internal}
+layout                  two-monitors            ${term}     ${full} ${external}
+layout                  two-monitors            ${textual}  ${full} ${internal}
 
 layout                  two-monitors-cinema     ${adium}    throw ${cinema} | ${big-center} ${cinema}
-layout                  two-monitors-cinema     ${chrome}   ${right} ${cinema}
 layout                  two-monitors-cinema     ${canary}   ${right} ${cinema}
-layout                  two-monitors-cinema     ${term}     ${left} ${cinema}
+layout                  two-monitors-cinema     ${chrome}   ${right} ${cinema}
 layout                  two-monitors-cinema     ${propane}  ${left} ${internal}
 layout                  two-monitors-cinema     ${skype}    ${right} ${internal}
+layout                  two-monitors-cinema     ${term}     ${left} ${cinema}
+layout                  two-monitors-cinema     ${textual}  ${full} ${internal}
 
 layout                  two-monitors-grotto     ${adium}    throw ${internal} | ${big-center} ${internal}
-layout                  two-monitors-grotto     ${chrome}   ${full} ${grotto}
 layout                  two-monitors-grotto     ${canary}   ${full} ${grotto}
-layout                  two-monitors-grotto     ${term}     ${full} ${internal}
+layout                  two-monitors-grotto     ${chrome}   ${full} ${grotto}
 layout                  two-monitors-grotto     ${propane}  ${left} ${internal}
 layout                  two-monitors-grotto     ${skype}    ${right} ${internal}
+layout                  two-monitors-grotto     ${term}     ${full} ${internal}
+layout                  two-monitors-grotto     ${textual}  ${full} ${internal}
 
 # for testing layouts
 bind f1:ctrl;alt;cmd layout one-monitor
 bind f2:ctrl;alt;cmd layout two-monitors
-bind f3:ctrl;alt;cmd layout two-monitors-grotto
+bind f3:ctrl;alt;cmd layout two-monitors-cinema
+bind f4:ctrl;alt;cmd layout two-monitors-grotto
 
 # Autoswitching
 default                 one-monitor             resolutions:${internal}
