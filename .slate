@@ -78,7 +78,7 @@ layout                  one-monitor             ${chrome}   ${full} ${internal}
 layout                  one-monitor             ${propane}  ${left} ${internal}
 layout                  one-monitor             ${skype}    ${right} ${internal}
 layout                  one-monitor             ${term}     ${full} ${internal}
-layout                  one-monitor             ${textual}  ${big-center} ${internal}
+layout                  one-monitor             ${textual}  ${full} ${internal}
 
 layout                  two-monitors            ${adium}    throw ${external} | ${big-center} ${external}
 layout                  two-monitors            ${canary}   ${full} ${external}
