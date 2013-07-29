@@ -53,3 +53,5 @@ nnoremap <Space> <C-f>
 
 " Insert mode mappings
 inoremap jj <Esc>
+inoremap jk <Esc>
+inoremap kj <Esc>
