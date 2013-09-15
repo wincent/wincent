@@ -54,11 +54,9 @@ nnoremap <C-kPlus> <C-w>+
 nnoremap <C-kMinus> <C-w>-
 nnoremap <Space> <C-f>
 
-" Insert mode mappings
-inoremap jj <Esc>
-inoremap jk <Esc>
-inoremap kj <Esc>
-
 " for each time K has produced timely, useful results, I have pressed it 10,000
 " times without meaning to, triggering an annoying delay
 nnoremap K <nop>
+
+" Insert mode mappings
+inoremap jj <Esc>
