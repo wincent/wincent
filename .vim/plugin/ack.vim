@@ -1,16 +1,32 @@
-set grepprg=ack\ --column
-set grepformat=%f:%l:%c:%m
+if executable('ag')       " The Silver Searcher: faster than ack
+  let s:ackprg = 'ag --column --nocolor --nogroup'
+elseif executable('ack')  " Ack: better than grep
+  let s:ackprg = 'ack --column'
+elseif executable('grep') " Grep: it's just grep
+  let s:ackprg = &grepprg " default is: grep -n $* /dev/null
+endif
+
+if !empty(s:ackprg)
+  let &grepprg=s:ackprg
+  set grepformat=%f:%l:%c:%m
+endif
 
 autocmd QuickFixCmdPost [^l]* nested cw
 autocmd QuickFixCmdPost l* nested lw
 
 function! AckGrep(command)
-  cexpr system("ack --column " . a:command)
+  if empty(s:ackprg)
+    return
+  endif
+  cexpr system(s:ackprg . ' ' . a:command)
   cw
 endfunction
 
 function! LackGrep(command)
-  lexpr system("ack --column " . a:command)
+  if empty(s:ackprg)
+    return
+  endif
+  lexpr system(s:ackprg . ' ' . a:command)
   lw
 endfunction
 
