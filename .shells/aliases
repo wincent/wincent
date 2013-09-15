@@ -1,4 +1,5 @@
 alias ....='cd ../..'
+alias :e=vim
 alias :wq=exit
 alias a=ack
 alias b=bundle
