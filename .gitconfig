@@ -29,6 +29,7 @@
 
 	st = status
 	staged = diff --cached
+	ten = log --oneline -10
 
 [branch]
 	autosetupmerge = always
