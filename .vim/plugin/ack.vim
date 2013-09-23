@@ -39,7 +39,7 @@ nnoremap <leader>l :Lack<space>
 nnoremap <leader>s :Ack <C-r><C-w><CR>
 
 " populate the :args list with the filenames currently in the quickfix window
-command! -nargs=0 -bar Qargs execute 'args' QuickfixFilenames()
+command! -bar Qargs execute 'args' QuickfixFilenames()
 function! QuickfixFilenames()
   let buffer_numbers = {}
   for quickfix_item in getqflist()
