@@ -24,10 +24,14 @@ ssh-reagent() {
 }
 
 tmux() {
+  # stolen from: https://gist.github.com/lann/6771001
+  SOCK_SYMLINK=~/.ssh/ssh_auth_sock
+  [ -r $SSH_AUTH_SOCK ] && ln -sf $SSH_AUTH_SOCK $SOCK_SYMLINK
+
   if [[ -z "$@" ]]; then
     # attach to existing session, or create one, based on current directory
-    command tmux new -A -s "$(basename $(pwd))"
+    env SSH_AUTH_SOCK=$SOCK_SYMLINK tmux new -A -s "$(basename $(pwd))"
   else
-    command tmux $@
+    env SSH_AUTH_SOCK=$SOCK_SYMLINK tmux $@
   fi
 }
