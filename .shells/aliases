@@ -14,7 +14,6 @@ alias ll='ls -laF'
 alias o='git oneline'
 alias oo='git oneline -10'
 alias p='git refresh'
-alias r=ssh-reagent
 alias s=ssh
 alias t=tmux
 alias v=vim
