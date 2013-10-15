@@ -21,7 +21,14 @@
 #
 # Check that the terminal does the right thing:
 #
-#  echo `tput sitm`italics`tput ritm` `tput smso`standout`tput rmso`
+#   echo `tput sitm`italics`tput ritm` `tput smso`standout`tput rmso`
+#
+# Add something like this (actual path may vary) to your .bash_profile/.zshrc to
+# make sure that the right TERMINFO entries are consulted:
+#
+#   if [ -d $HOME/share/terminfo ]; then
+#     export TERMINFO=$HOME/share/terminfo
+#   fi
 #
 screen-256color|screen with 256 colors and italic,
   sitm=\E[3m, ritm=\E[23m,
