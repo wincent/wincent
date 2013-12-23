@@ -18,4 +18,3 @@ alias s=ssh
 alias serve='python -m SimpleHTTPServer' # optional arg: port (defaults to 8000)
 alias t=tmux
 alias v=vim
-alias z=zeus
