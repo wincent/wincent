@@ -82,6 +82,10 @@
 [status]
 	submodulesummary = true
 
+[user]
+	email = win@wincent.com
+	name = Wincent Colaiuta
+
 # ignored by Git older than 1.7.10
 [include]
 	path = .gitconfig.local
