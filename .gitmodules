@@ -18,10 +18,6 @@
 	ignore = untracked
 	path = .vim/bundle/haml
 	url = git://github.com/tpope/vim-haml.git
-[submodule ".vim/bundle/snipmate"]
-	ignore = untracked
-	path = .vim/bundle/snipmate
-	url = git://github.com/msanders/snipmate.vim.git
 [submodule ".vim/bundle/fugitive"]
 	ignore = untracked
 	path = .vim/bundle/fugitive
@@ -88,3 +84,6 @@
 [submodule ".vim/bundle/emmet-vim"]
 	path = .vim/bundle/emmet-vim
 	url = git@github.com:mattn/emmet-vim.git
+[submodule ".vim/bundle/ultisnips"]
+	path = .vim/bundle/ultisnips
+	url = git@github.com:SirVer/ultisnips.git
