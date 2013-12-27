@@ -2,12 +2,8 @@ snippet css "External CSS link tag"
 <link rel="stylesheet" type="text/css" href="${1:file}.css">
 endsnippet
 
-snippet script "External script tag" !
-<script src="${1:file}.js"></script>
-endsnippet
-
-snippet script "Inline script tag"
-<script>
-  ${1}
-</script>
+# use the optional src attribute to make an external link;
+# delete it to make an embedded script
+snippet script "Script tag" !
+<script${1: src="${2:file}.js"}>$0</script>
 endsnippet
