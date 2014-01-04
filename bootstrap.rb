@@ -25,7 +25,7 @@ def dot_files(&block)
 end
 
 def delete(file_or_directory)
-  if file_or_directory.exist?
+  if file_or_directory.exist? || file_or_directory.symlink?
     debug "Removing #{file_or_directory}", ' remove'
     FileUtils.rm_r file_or_directory, :force => true, :secure => true
   end
