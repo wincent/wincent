@@ -51,8 +51,8 @@ if has('showcmd')
   set showcmd                         " extra info at end of command line
 endif
 
-set sidescrolloff=3                   " same, but for columns
-set smartcase                         " except when search string includes a capital letter
+set sidescrolloff=3                   " same as scolloff, but for columns
+set smartcase                         " case-sensitive search if search string includes a capital letter
 set smarttab                          " <tab>/<BS> indent/dedent in leading whitespace
 
 if has('syntax')
