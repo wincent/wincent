@@ -1,7 +1,7 @@
-set linebreak
-set spell
-set textwidth=0
-set wrap
+setlocal linebreak
+setlocal spell
+setlocal textwidth=0
+setlocal wrap
 
 nmap <buffer> j gj
 nmap <buffer> k gk

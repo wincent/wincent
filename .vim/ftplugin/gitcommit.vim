@@ -1,6 +1,6 @@
 if has('folding')
-  set nofoldenable
+  setlocal nofoldenable
 endif
 
-set spell
-set textwidth=72
+setlocal spell
+setlocal textwidth=72

@@ -1,9 +1,9 @@
 if exists('+cursorcolumn')
-  set nocursorcolumn
+  setlocal nocursorcolumn
 endif
 
 if has('folding')
-  set nofoldenable
+  setlocal nofoldenable
 endif
 
-set nolist
+setlocal nolist

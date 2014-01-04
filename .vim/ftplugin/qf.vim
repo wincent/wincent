@@ -1,7 +1,7 @@
 if exists('+cursorcolumn')
-  set nocursorcolumn
+  setlocal nocursorcolumn
 endif
 
-set nolist
-set number
-set scrolloff=0
+setlocal nolist
+setlocal number
+setlocal scrolloff=0

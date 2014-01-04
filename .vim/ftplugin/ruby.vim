@@ -1,3 +1,3 @@
-set shiftwidth=2
-set smartindent
-set tabstop=2
+setlocal shiftwidth=2
+setlocal smartindent
+setlocal tabstop=2
