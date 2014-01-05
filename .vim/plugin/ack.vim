@@ -11,8 +11,11 @@ if !empty(s:ackprg)
   set grepformat=%f:%l:%c:%m
 endif
 
-autocmd QuickFixCmdPost [^l]* nested cw
-autocmd QuickFixCmdPost l* nested lw
+augroup wincent_ack
+  autocmd!
+  autocmd QuickFixCmdPost [^l]* nested cw
+  autocmd QuickFixCmdPost l* nested lw
+augroup END
 
 function! AckGrep(command)
   if empty(s:ackprg)

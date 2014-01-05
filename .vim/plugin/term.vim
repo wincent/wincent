@@ -40,7 +40,10 @@ if has('mouse')
     set ttymouse=xterm2
   endif
 endif
-autocmd FocusGained * checktime
+augroup wincent_term
+  autocmd!
+  autocmd FocusGained * checktime
+augroup END
 
 " enable focus reporting on entering Vim
 let &t_ti .= "\e[?1004h"
