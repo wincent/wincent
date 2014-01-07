@@ -39,8 +39,10 @@ vnoremap <leader>zc
   \gv:s/\v  +/\r/g<CR>
   \gvj:sort<CR>
   \V}k:!column -c 78<CR>
+  \:let _tabstop=&tabstop<CR>
   \:set tabstop=8<CR>
   \V}:retab<CR>
+  \:let &tabstop=_tabstop<CR>
   \gv>:noh<CR>
 
 " delete all buffers, except for those with unsaved changes
