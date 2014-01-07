@@ -34,19 +34,14 @@ vnoremap / /\v
 
 " a macro I recorded to rebalance/resort the columns in the Command-T "authors"
 " section; requires that the author names be visually selected:
-vnoremap <leader>zc <Esc>
-  \`<O=====<Esc>
-  \`>o=====<Esc>
-  \kV?=====<CR>
-  \j:s/\v  +/\r/g<CR>
-  \V?=====<CR>
-  \j:g/^$/d<CR>
-  \?=====<CR>
-  \jVNk:sort<CR>
-  \gv:!column -c 78<CR>
+vnoremap <leader>zc 
+  \:s/\v^ +//g<CR>
+  \gv:s/\v  +/\r/g<CR>
+  \gvj:sort<CR>
+  \V}k:!column -c 78<CR>
   \:set tabstop=8<CR>
-  \VNk:retab<CR>
-  \gv>Nddndd
+  \V}:retab<CR>
+  \gv>:noh<CR>
 
 " delete all buffers, except for those with unsaved changes
 nnoremap <leader>da :bufdo silent! bdelete<CR>
