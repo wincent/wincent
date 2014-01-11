@@ -94,5 +94,6 @@
 	path = .vim/bundle/vim-jsx
 	url = git://github.com/mxw/vim-jsx.git
 [submodule ".vim/bundle/vim-ragel"]
+	ignore = untracked
 	path = .vim/bundle/vim-ragel
 	url = git://github.com/cfobel/vim-ragel.git
