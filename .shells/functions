@@ -1,12 +1,3 @@
-ssh() {
-  if [[ -z "$@" ]]; then
-    # common case: getting to my workstation
-    command ssh humus
-  else
-    command ssh $@
-  fi
-}
-
 tmux() {
   # stolen from: https://gist.github.com/lann/6771001
   SOCK_SYMLINK=~/.ssh/ssh_auth_sock
