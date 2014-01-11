@@ -37,7 +37,7 @@
 [submodule ".vim/bundle/gundo"]
 	ignore = untracked
 	path = .vim/bundle/gundo
-	url = http://github.com/sjl/gundo.vim.git
+	url = git://github.com/sjl/gundo.vim.git
 [submodule ".vim/bundle/a.vim"]
 	path = .vim/bundle/a.vim
 	url = git://github.com/vim-scripts/a.vim.git
@@ -83,16 +83,16 @@
 	url = git://github.com/tpope/vim-dispatch.git
 [submodule ".vim/bundle/emmet-vim"]
 	path = .vim/bundle/emmet-vim
-	url = git@github.com:mattn/emmet-vim.git
+	url = git://github.com/mattn/emmet-vim.git
 [submodule ".vim/bundle/ultisnips"]
 	path = .vim/bundle/ultisnips
-	url = git@github.com:SirVer/ultisnips.git
+	url = git://github.com/SirVer/ultisnips.git
 [submodule ".vim/bundle/vim-javscript"]
 	path = .vim/bundle/vim-javscript
-	url = git@github.com:pangloss/vim-javascript.git
+	url = git://github.com/pangloss/vim-javascript.git
 [submodule ".vim/bundle/vim-jsx"]
 	path = .vim/bundle/vim-jsx
-	url = git@github.com:mxw/vim-jsx.git
+	url = git://github.com/mxw/vim-jsx.git
 [submodule ".vim/bundle/vim-ragel"]
 	path = .vim/bundle/vim-ragel
-	url = git@github.com:cfobel/vim-ragel.git
+	url = git://github.com/cfobel/vim-ragel.git
