@@ -93,3 +93,6 @@
 [submodule ".vim/bundle/vim-jsx"]
 	path = .vim/bundle/vim-jsx
 	url = git@github.com:mxw/vim-jsx.git
+[submodule ".vim/bundle/vim-ragel"]
+	path = .vim/bundle/vim-ragel
+	url = git@github.com:cfobel/vim-ragel.git
