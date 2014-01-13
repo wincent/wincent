@@ -20,4 +20,4 @@ source $VIMRUNTIME/macros/matchit.vim
 "
 " To see all leader mappings currently in use:
 "
-"   grep -R leader .vimrc .vim/plugin | perl -pe 's/.+(<leader>\w+).+/\1/' | sort | uniq
+"   grep -R leader .vim/vimrc .vim/plugin | perl -pe 's/.+(<leader>\w+).+/\1/' | sort | uniq
