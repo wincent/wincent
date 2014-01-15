@@ -34,11 +34,10 @@ set list                              " show whitespace
 set listchars=nbsp:¬,eol:¶,tab:>-,extends:»,precedes:«,trail:•
 set nojoinspaces                      " don't autoinsert two spaces after '.', '?', '!' for join command
 set noshowmatch                       " don't jump between matching brackets
+set number                            " show line numbers in gutter
 
 if exists('+relativenumber')
   set relativenumber                  " show relative numbers in gutter
-else
-  set number                          " show line numbers in gutter
 endif
 
 set scrolloff=3                       " start scrolling 3 lines before edge of viewport

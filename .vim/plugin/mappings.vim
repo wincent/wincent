@@ -1,6 +1,10 @@
 if exists('+relativenumber')
-  " cycle through number, relativenumber and no numbering
-  nnoremap <leader>r :set <c-r>={ '00': 'r', '01': 'no', '10': ''}[&rnu . &nu]<CR>nu<CR>
+  " cycle through relativenumber + number, number (only), and no numbering
+  nnoremap <leader>r :<c-r>={
+        \ '00': 'set rnu   <bar> set nu',
+        \ '01': 'set nornu <bar> set nu',
+        \ '10': 'set nornu <bar> set nonu',
+        \ '11': 'set nornu <bar> set nu' }[&nu . &rnu]<cr><cr>
 else
   " toggle line numbers on and off
   nnoremap <leader>r :set nu!<cr>
