@@ -42,6 +42,9 @@
 [color]
 	ui = auto
 
+[color "interactive"]
+	prompt = blue reverse
+
 [color "status"]
 	untracked = blue
 
