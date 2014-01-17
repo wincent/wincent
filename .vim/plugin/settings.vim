@@ -71,6 +71,8 @@ endif
 
 set virtualedit=block                 " allow cursor to move where there is no text in visual block mode
 set wildignore+=*.o,.git,tmp          " patterns to ignore during file-navigation
+set wildignore+=bower_components      " typically lots of vendored files in here
+set wildignore+=node_modules          " again; often thousands of vendored files
 set wildmenu                          " show options as list when switching buffers etc
 set wildmode=longest:full,full        " shell-like autocomplete to unambiguous portion
 set whichwrap=b,h,l,s,<,>,[,],~       " allow <BS>/h/l/<Left>/<Right>/<Space>, ~ to cross line boundaries
