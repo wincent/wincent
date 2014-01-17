@@ -61,7 +61,7 @@
 	prompt = false
 
 [help]
-	autocorrect = 10
+	autocorrect = 2
 
 [log]
 	decorate = short
