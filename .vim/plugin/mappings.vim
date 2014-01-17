@@ -69,7 +69,7 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-kPlus> <C-w>+
 nnoremap <C-kMinus> <C-w>-
-nnoremap <Space> <C-f>
+nnoremap <Space> za
 
 " for each time K has produced timely, useful results, I have pressed it 10,000
 " times without meaning to, triggering an annoying delay
