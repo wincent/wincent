@@ -104,7 +104,7 @@ source $HOME/.shells/vars
 # Third-party
 #
 
-if which rbenv > /dev/null; then
+if which rbenv &> /dev/null; then
   eval "$(rbenv init -)"
 else
   # make Bundler do passwordless installs to a sandbox rather than to the system
