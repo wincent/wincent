@@ -1,6 +1,6 @@
 runtime bundle/pathogen/autoload/pathogen.vim
-call pathogen#infect()                " add .vim/bundle subdirs to runtime path
-call pathogen#helptags()              " wasteful, but no shortage of grunt available
+call pathogen#infect()   " add .vim/bundle subdirs to runtime path
+call pathogen#helptags() " wasteful, but no shortage of grunt available
 
 " extension -> filetype mappings
 let filetype_m='objc'
@@ -12,6 +12,9 @@ filetype indent plugin on
 syntax on
 
 source $VIMRUNTIME/macros/matchit.vim
+
+" allow for per-host overrides; usually stored in ~/.vim/vimrc.local
+runtime vimrc.local
 
 " After this file is sourced, plug-in code will be evaluated.
 " See ~/.vim/after for files evaluated after that.
