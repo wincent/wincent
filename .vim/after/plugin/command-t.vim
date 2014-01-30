@@ -3,6 +3,7 @@
 "
 let g:CommandTMatchWindowReverse   = 1
 let g:CommandTMaxFiles             = 500000
+let g:CommandTMaxHeight            = 30
 let g:CommandTMaxCachedDirectories = 10
 let g:CommandTScanDotDirectories   = 1
 
