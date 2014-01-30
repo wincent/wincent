@@ -17,11 +17,18 @@ augroup wincent_ack
   autocmd QuickFixCmdPost l* nested lw
 augroup END
 
+function s:escape(arg)
+  " split on spaces, shellescape each word, and join
+  let l:words = split(a:arg)
+  let l:escaped = map(l:words, 'shellescape(v:val)')
+  return join(l:escaped)
+endfunction
+
 function! AckGrep(command)
   if empty(s:ackprg)
     return
   endif
-  cexpr system(s:ackprg . ' ' . a:command)
+  cexpr system(s:ackprg . ' ' . s:escape(a:command))
   cw
 endfunction
 
@@ -29,7 +36,7 @@ function! LackGrep(command)
   if empty(s:ackprg)
     return
   endif
-  lexpr system(s:ackprg . ' ' . a:command)
+  lexpr system(s:ackprg . ' ' . s:escape(a:command))
   lw
 endfunction
 
