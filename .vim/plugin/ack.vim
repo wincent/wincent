@@ -18,10 +18,18 @@ augroup wincent_ack
 augroup END
 
 function s:escape(arg)
-  " split on spaces, shellescape each word, and join
-  let l:words = split(a:arg)
-  let l:escaped = map(l:words, 'shellescape(v:val)')
-  return join(l:escaped)
+  " The basic strategy is to split on spaces, shellescape each word, and join.
+  "
+  " To support an edge-case (the ability to search for strings with spaces in
+  " them, however, we swap out escaped spaces first (subsituting the unlikely
+  " "<!!S!!>") and then swap them back in at the end. This allows us to perform
+  " searches like:
+  "
+  "   :Ack -i \bFoo_?Bar\b
+  "   :Ack that's\ nice\ dear
+  "
+  " and so on...
+  return substitute(join(map(split(substitute(a:arg, '\ ', '<!!S!!>', 'g')), 'shellescape(v:val)')), '<!!S!!>', ' ', 'g')
 endfunction
 
 function! AckGrep(command)
