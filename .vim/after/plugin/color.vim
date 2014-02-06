@@ -37,4 +37,8 @@ endfunction
 nnoremap <leader>w :call <SID>CycleColorScheme('', '')<CR>
 
 let g:solarized_italic=1
-call s:CycleColorScheme('light', 'low')
+if filereadable(expand("~/.vim/dark"))
+  call s:CycleColorScheme('dark', 'low')
+else " default
+  call s:CycleColorScheme('light', 'low')
+endif
