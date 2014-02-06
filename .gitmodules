@@ -1,7 +1,7 @@
 [submodule ".vim/bundle/command-t"]
 	ignore = untracked
 	path = .vim/bundle/command-t
-	url = https://github.com/wincent/command-t.git
+	url = https://github.com/wincent/Command-T.git
 [submodule ".vim/bundle/surround"]
 	ignore = untracked
 	path = .vim/bundle/surround
