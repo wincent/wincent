@@ -97,3 +97,6 @@
 	ignore = untracked
 	path = .vim/bundle/vim-ragel
 	url = https://github.com/cfobel/vim-ragel.git
+[submodule ".vim/bundle/vim-markdown"]
+	path = .vim/bundle/vim-markdown
+	url = https://github.com/tpope/vim-markdown.git
