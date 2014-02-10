@@ -7,6 +7,15 @@ ssh() {
   fi
 }
 
+mosh() {
+  if [[ -z "$@" ]]; then
+    # common case: getting to my workstation
+    command mosh sandbox
+  else
+    command mosh $@
+  fi
+}
+
 tmux() {
   # stolen from: https://gist.github.com/lann/6771001
   SOCK_SYMLINK=~/.ssh/ssh_auth_sock
