@@ -4,7 +4,7 @@ if exists('+relativenumber')
         \ '00': 'set rnu   <bar> set nu',
         \ '01': 'set nornu <bar> set nu',
         \ '10': 'set nornu <bar> set nonu',
-        \ '11': 'set nornu <bar> set nu' }[&nu . &rnu]<cr><cr>
+        \ '11': 'set nornu <bar> set nu' }[&nu . &rnu]<cr><cr><cr>
 else
   " toggle line numbers on and off
   nnoremap <leader>r :set nu!<cr>
