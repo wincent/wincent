@@ -17,9 +17,11 @@ mosh() {
 }
 
 tmux() {
-  # stolen from: https://gist.github.com/lann/6771001
+  # inspired by: https://gist.github.com/lann/6771001
   SOCK_SYMLINK=~/.ssh/ssh_auth_sock
-  [ -r $SSH_AUTH_SOCK ] && ln -sf $SSH_AUTH_SOCK $SOCK_SYMLINK
+  if [ -r $SSH_AUTH_SOCK -a ! -L $SSH_AUTH_SOCK ]; then
+    ln -sf $SSH_AUTH_SOCK $SOCK_SYMLINK
+  fi
 
   if [[ -z "$@" ]]; then
     # attach to existing session, or create one, based on current directory
