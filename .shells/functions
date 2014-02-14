@@ -1,7 +1,7 @@
 ssh() {
   if [[ -z "$@" ]]; then
     # common case: getting to my workstation
-    command ssh sandbox
+    command ssh sandbox-clipper
   else
     command ssh $@
   fi
