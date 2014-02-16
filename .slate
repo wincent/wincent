@@ -8,7 +8,6 @@ alias cinema            2560x1440
 alias adium             'Adium':IGNORE_FAIL,TITLE_ORDER_REGEX=Contact,REPEAT_LAST
 alias canary            'Google Chrome Canary':REPEAT_LAST
 alias chrome            'Google Chrome':REPEAT_LAST
-alias propane           'Propane'
 alias skype             'Skype'
 alias term              'iTerm':REPEAT_LAST
 alias textual           'Textual'
@@ -73,7 +72,6 @@ bind                    pad9:ctrl;alt           chain ${top-right} | ${top-right
 layout                  one-monitor             ${adium}    throw ${internal} | ${big-center} ${internal}
 layout                  one-monitor             ${canary}   ${full} ${internal}
 layout                  one-monitor             ${chrome}   ${full} ${internal}
-layout                  one-monitor             ${propane}  ${left} ${internal}
 layout                  one-monitor             ${skype}    ${right} ${internal}
 layout                  one-monitor             ${term}     ${full} ${internal}
 layout                  one-monitor             ${textual}  ${full} ${internal}
@@ -81,7 +79,6 @@ layout                  one-monitor             ${textual}  ${full} ${internal}
 layout                  two-monitors            ${adium}    throw ${cinema} | ${big-center} ${cinema}
 layout                  two-monitors            ${canary}   ${right} ${cinema}
 layout                  two-monitors            ${chrome}   ${right} ${cinema}
-layout                  two-monitors            ${propane}  ${left} ${internal}
 layout                  two-monitors            ${skype}    ${right} ${internal}
 layout                  two-monitors            ${term}     ${left} ${cinema}
 layout                  two-monitors            ${textual}  ${full} ${internal}
