@@ -44,29 +44,16 @@ alias small-center      move                    screenOriginX+screenSizeX/3;scre
 alias big-center        move                    screenOriginX+screenSizeX/4;screenOriginY+screenSizeY/4 screenSizeX/2;screenSizeY/2
 
 # Move Bindings
-bind                    down:ctrl;alt;cmd       chain ${full} | ${full} next
-bind                    pad5:ctrl;alt           chain ${small-center} | ${small-center} next
-bind                    pad5:ctrl;alt;cmd       chain ${big-center} | ${big-center} next
+bind                    down:ctrl;alt;cmd       chain ${full} | ${big-center} | ${small-center} | ${full} next | ${big-center} next | ${small-center} next
 
 # Push Bindings
-bind                    up:ctrl;alt             chain ${top} | ${top} next
-bind                    right:ctrl;alt          chain ${right} | ${right} next
-bind                    down:ctrl;alt           chain ${bottom} | ${bottom} next
-bind                    left:ctrl;alt           chain ${left} | ${left} next
-bind                    pad8:ctrl;alt           chain ${small-top} | ${small-top} next
-bind                    pad6:ctrl;alt           chain ${small-right} | ${small-right} next
-bind                    pad2:ctrl;alt           chain ${small-bottom} | ${small-bottom} next
-bind                    pad4:ctrl;alt           chain ${small-left} | ${small-left} next
-bind                    pad8:ctrl;alt;cmd       chain ${big-top} | ${big-top} next
-bind                    pad6:ctrl;alt;cmd       chain ${big-right} | ${big-right} next
-bind                    pad2:ctrl;alt;cmd       chain ${big-bottom} | ${big-bottom} next
-bind                    pad4:ctrl;alt;cmd       chain ${big-left} | ${big-left} next
+bind                    up:ctrl;alt             chain ${top} | ${small-top} | ${big-top} | ${top} next | ${small-top} next | ${big-top} next
+bind                    right:ctrl;alt          chain ${right} | ${small-right} | ${big-right} | ${right} next | ${small-right} next | ${big-right} next
+bind                    down:ctrl;alt           chain ${bottom} | ${small-bottom} | ${big-bottom} | ${bottom} next | ${small-bottom} next | ${big-bottom} next
+bind                    left:ctrl;alt           chain ${left} | ${small-left} | ${big-left} | ${left} next | ${small-left} next | ${big-left} next
 
 # Corner Bindings
-bind                    pad1:ctrl;alt           chain ${bottom-left} | ${bottom-left} next
-bind                    pad3:ctrl;alt           chain ${bottom-right} | ${bottom-right} next
-bind                    pad7:ctrl;alt           chain ${top-left} | ${top-left} next
-bind                    pad9:ctrl;alt           chain ${top-right} | ${top-right} next
+bind                    up:ctrl;alt;cmd         chain ${top-left} | ${top-right} | ${bottom-right} | ${bottom-left} | ${top-left} next | ${top-right} next | ${bottom-right} next | ${bottom-left} next
 
 # Layouts
 layout                  one-monitor             ${adium}    throw ${internal} | ${big-center} ${internal}
