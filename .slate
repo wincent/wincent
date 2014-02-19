@@ -48,16 +48,16 @@ bind                    left:ctrl;alt;cmd       focus left
 bind                    right:ctrl;alt;cmd      focus right
 
 # Move Bindings
-bind                    down:ctrl;alt;cmd       chain ${full} | ${big-center} | ${small-center} | ${full} next | ${big-center} next | ${small-center} next
+bind                    down:ctrl;alt;cmd       chain ${full} ${cinema} | ${big-center} ${cinema} | ${small-center} ${cinema} | ${full} ${internal} | ${big-center} ${internal} | ${small-center} ${internal}
 
 # Push Bindings
-bind                    up:ctrl;alt             chain ${top} | ${small-top} | ${big-top} | ${top} next | ${small-top} next | ${big-top} next
-bind                    right:ctrl;alt          chain ${right} | ${small-right} | ${big-right} | ${right} next | ${small-right} next | ${big-right} next
-bind                    down:ctrl;alt           chain ${bottom} | ${small-bottom} | ${big-bottom} | ${bottom} next | ${small-bottom} next | ${big-bottom} next
-bind                    left:ctrl;alt           chain ${left} | ${small-left} | ${big-left} | ${left} next | ${small-left} next | ${big-left} next
+bind                    up:ctrl;alt             chain ${top} ${cinema} | ${small-top} ${cinema} | ${big-top} ${cinema} | ${top} ${internal} | ${small-top} ${internal} | ${big-top} ${internal}
+bind                    right:ctrl;alt          chain ${right} ${cinema} | ${small-right} ${cinema} | ${big-right} ${cinema} | ${right} ${internal} | ${small-right} ${internal} | ${big-right} ${internal}
+bind                    down:ctrl;alt           chain ${bottom} ${cinema} | ${small-bottom} ${cinema} | ${big-bottom} ${cinema} | ${bottom} ${internal} | ${small-bottom} ${internal} | ${big-bottom} ${internal}
+bind                    left:ctrl;alt           chain ${left} ${cinema} | ${small-left} ${cinema} | ${big-left} ${cinema} | ${left} ${internal} | ${small-left} ${internal} | ${big-left} ${internal}
 
 # Corner Bindings
-bind                    up:ctrl;alt;cmd         chain ${top-left} | ${top-right} | ${bottom-right} | ${bottom-left} | ${top-left} next | ${top-right} next | ${bottom-right} next | ${bottom-left} next
+bind                    up:ctrl;alt;cmd         chain ${top-left} ${cinema} | ${top-right} ${cinema} | ${bottom-right} ${cinema} | ${bottom-left} ${cinema} | ${top-left} ${internal} | ${top-right} ${internal} | ${bottom-right} ${internal} | ${bottom-left} ${internal}
 
 # Layouts
 layout                  one-monitor             ${adium}    throw ${internal} | ${big-center} ${internal}
