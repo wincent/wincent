@@ -30,6 +30,7 @@ set hlsearch                          " highlight search strings
 set ignorecase                        " ignore case when searching
 set incsearch                         " incremental search ("find as you type")
 set laststatus=2                      " always show status line
+set lazyredraw                        " don't bother updating screen during macro playback
 set list                              " show whitespace
 set listchars=nbsp:¬,eol:¶,tab:>-,extends:»,precedes:«,trail:•
 set nojoinspaces                      " don't autoinsert two spaces after '.', '?', '!' for join command
