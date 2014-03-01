@@ -157,7 +157,7 @@ add-zsh-hook precmd vcs_info
 
 # local and host-specific overrides
 
-LOCAL_RC=$HOME/.zshlocal
+LOCAL_RC=$HOME/.zshrc.local
 test -f $LOCAL_RC && source $LOCAL_RC
 
 HOST_RC=$HOME/.zsh/host/$(hostname -s)
