@@ -1,1 +1,0 @@
-export GIT_EXEC_PATH="$(dirname $(rbenv which ruby)):$(git --exec-path)"
