@@ -5,18 +5,23 @@ install apple-gcc42
 install autoconf
 install automake
 install clipper
+install cloc
 install cmake
+install cscope
 install ctags
 install elinks
 install freetype
+install gd
 install gdbm
-install git
+install git --with-pcre
 install gnupg
 install go
 install gpg-agent
 install htop-osx
+install iftop
 install imagemagick
 install jpeg
+install json-c
 install libassuan
 install libevent
 install libgcrypt
@@ -25,11 +30,14 @@ install libksba
 install libpng
 install libtool
 install libyaml
+install libyubikey
 install links
+install macvim
 install mariadb
 install memcached
 install mercurial
 install mldonkey
+install mobile-shell
 install nginx
 install node
 install objective-caml
@@ -39,6 +47,7 @@ install pcre
 install pinentry
 install pkg-config
 install pngquant
+install protobuf
 install pstree
 install pth
 install pwgen
@@ -58,4 +67,5 @@ install vim
 install watch
 install wget
 install xz
+install ykpers
 install zsh
