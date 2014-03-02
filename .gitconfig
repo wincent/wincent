@@ -1,5 +1,6 @@
 [alias]
 	abbrev = !sh -c 'git rev-parse --short ${1-`echo HEAD`}' -
+	ack = grep --break --heading
 	amend = commit --amend -v
 	both = diff HEAD
 	br = branch
@@ -59,6 +60,13 @@
 
 [difftool]
 	prompt = false
+
+[grep]
+  lineNumber = true
+
+  # requires Git built with PCRE support; ie:
+  #   brew install git --with-pcre (on OS X)
+  patternType = perl
 
 [help]
 	autocorrect = 2
