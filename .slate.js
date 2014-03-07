@@ -227,7 +227,8 @@ function nextScreen(screen) {
   return monitors[nextIndex % monitors.length];
 }
 
-var lastChainSeen;
+var lastSeenChain;
+var lastSeenPID;
 
 /**
  * Chain an array of operations
@@ -237,7 +238,7 @@ var lastChainSeen;
  *
  * - chains always start on the screen the window is currently on
  * - a chain will be reset after 5 seconds of inactivity, or on switching from
- *   one chain to another
+ *   one chain to another, or on switching from one app to another
  *
  * @param {array} functions The operations (as functions) to be chained
  * @returns {function} A function that will return operations in chained order,
@@ -250,9 +251,13 @@ function chain(functions) {
 
   return function(window) {
     var screen = window.screen();
+    var pid    = window.app().pid();
     var now    = Date.now();
-    if (lastChainSeen !== functions || lastSeenAt < now - resetChainAfter) {
-      lastChainSeen = functions;
+    if (lastSeenChain !== functions ||
+        lastSeenPID !== pid ||
+        lastSeenAt < now - resetChainAfter) {
+      lastSeenChain = functions;
+      lastSeenPID = pid;
       sequenceNumber = 0;
     } else {
       if (sequenceNumber && !((sequenceNumber + 1) % functions.length)) {
