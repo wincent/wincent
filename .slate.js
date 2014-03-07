@@ -73,6 +73,16 @@ slate.layout('two-monitors', {
 slate.default([internal], oneMonitor);
 slate.default([internal, cinema], twoMonitors);
 
+slate.on('windowOpened', function(event, window) {
+  if (window.app().name() === 'iTerm') {
+    if (slate.screenCount() === 1) {
+      window.doOperation(move(0).screen(window.screen()));
+    } else {
+      window.doOperation(push(left, 1 / 2).screen(window.screen()));
+    }
+  }
+});
+
 slate.bindAll({
   'up:ctrl;alt': chain([
     push(up, 1 / 2),
