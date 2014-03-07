@@ -248,7 +248,7 @@ var lastSeenWindow;
  * behaviors:
  *
  * - chains always start on the screen the window is currently on
- * - a chain will be reset after 5 seconds of inactivity, or on switching from
+ * - a chain will be reset after 1 second of inactivity, or on switching from
  *   one chain to another, or on switching from one app to another, or from one
  *   window to another
  *
