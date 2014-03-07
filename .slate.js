@@ -239,7 +239,7 @@ function nextScreen(screen) {
 }
 
 var lastSeenChain;
-var lastSeenPID;
+var lastSeenWindow;
 
 /**
  * Chain an array of operations
@@ -249,7 +249,8 @@ var lastSeenPID;
  *
  * - chains always start on the screen the window is currently on
  * - a chain will be reset after 5 seconds of inactivity, or on switching from
- *   one chain to another, or on switching from one app to another
+ *   one chain to another, or on switching from one app to another, or from one
+ *   window to another
  *
  * @param {array} functions The operations (as functions) to be chained
  * @returns {function} A function that will return operations in chained order,
@@ -262,13 +263,12 @@ function chain(functions) {
 
   return function(window) {
     var screen = window.screen();
-    var pid    = window.app().pid();
+    var id     = fingerprint(window);
     var now    = Date.now();
     if (lastSeenChain !== functions ||
-        lastSeenPID !== pid ||
-        lastSeenAt < now - resetChainAfter) {
+        lastSeenAt < now - resetChainAfter ||
+        !_.isEqual(lastSeenWindow, id)) {
       lastSeenChain = functions;
-      lastSeenPID = pid;
       sequenceNumber = 0;
     } else {
       if (sequenceNumber && !((sequenceNumber + 1) % functions.length)) {
@@ -280,6 +280,37 @@ function chain(functions) {
 
     var operation = functions[sequenceNumber % functions.length];
     window.doOperation(operation.screen(screen));
+    lastSeenWindow = fingerprint(window);
+  };
+}
+
+/**
+ * Returns a fingerprint that can be used to (heuristically) compare one window
+ * to another.
+ *
+ * The OS X accessibility APIs don't expose window identity information, so we
+ * have to infer it from geometry (origin, dimensions) and app ownership. Note
+ * that we special-case iTerm and don't include the title in the fingerprint for
+ * its windows because it has a habit of dynamically changing titles
+ * (temporarily annotating with column and row count information), and it is not
+ * a race that we can reliably win.
+ *
+ * @see http://stackoverflow.com/questions/6178860/getting-window-number-through-osx-accessibility-api
+ *
+ * @param {object} window A Slate Window instance.
+ * @returns {object} A an object that can be compared for equality with
+ * `_.isEqual()`.
+ */
+function fingerprint(window) {
+  var rect = window.rect();
+
+  return {
+    x:       rect.x,
+    y:       rect.y,
+    width:   rect.width,
+    height:  rect.height,
+    title:   window.app().name() === 'iTerm' ? 'iTerm' : window.title(),
+    pid:     window.pid(),
   };
 }
 
