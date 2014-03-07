@@ -62,7 +62,7 @@ slate.layout('two-monitors', {
     operations: [push(right, 1 / 2).screen(cinema)],
     repeat: true,
   },
-  'Google Chrome Canary': { /* Doesn't match any more */
+  'Google Chrome Canary': {
     operations: [push(left, 1 / 2).screen(cinema)],
     repeat: true,
   },
