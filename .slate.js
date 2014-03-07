@@ -23,8 +23,9 @@ var topLeft     = 'top-left';
 var second      = seconds = 1000;
 
 // operations for layouts
-var hideSpotify = slate.operation('hide', { app: 'Spotify' });
-var focusITerm = slate.operation('focus', { app: 'iTerm' });
+var hideSpotify  = slate.operation('hide', { app: 'Spotify' });
+var focusITerm   = slate.operation('focus', { app: 'iTerm' });
+var focusTextual = slate.operation('focus', { app: 'Textual' });
 
 slate.layout('one-monitor', {
   _before_: { operations: [hideSpotify] },
@@ -48,7 +49,7 @@ slate.layout('one-monitor', {
 
 slate.layout('two-monitors', {
   _before_: { operations: [hideSpotify] },
-  _after_: { operations: [focusITerm] },
+  _after_: { operations: [focusTextual, focusITerm] },
   iTerm: {
     operations: [
       push(left, 1 / 2).screen(cinema),
