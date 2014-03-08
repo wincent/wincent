@@ -30,11 +30,7 @@ var focusTextual = slate.operation('focus', { app: 'Textual' });
 slate.layout('one-monitor', {
   _before_: { operations: [hideSpotify] },
   _after_: { operations: [focusITerm] },
-  'Google Chrome': {
-    operations: [move(0).screen(internal)],
-    repeat: true,
-  },
-  'Google Chrome Canary': {
+  'Google Chrome': { // Canary matches here as well
     operations: [move(0).screen(internal)],
     repeat: true,
   },
@@ -59,11 +55,15 @@ slate.layout('two-monitors', {
     'sort-title': true,
   },
   'Google Chrome': {
-    operations: [push(right, 1 / 2).screen(cinema)],
-    repeat: true,
-  },
-  'Google Chrome Canary': {
-    operations: [push(left, 1 / 2).screen(cinema)],
+    operations: [function(window) {
+      var app = window.app();
+      if (typeof app.bundleIdentifier === 'function' &&
+          app.bundleIdentifier() === 'com.google.Chrome.canary') {
+        window.doOperation(push(left, 1 / 2).screen(cinema));
+      } else {
+        window.doOperation(push(right, 1 / 2).screen(cinema));
+      }
+    }],
     repeat: true,
   },
   Skype: { operations: [push(right, 1 / 2).screen(internal)] },
