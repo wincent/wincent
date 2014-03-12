@@ -16,6 +16,13 @@ nnoremap <leader><leader> <C-^>
 " \e -- edit file, starting in same directory as current file
 nnoremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
+" \p -- show the path of the current file
+" (useful when you have a lot of splits and the status line gets truncated)
+nnoremap <leader>p :echo expand("%")<CR>
+
+" \pp -- like \p, but additionally yanks the filename and sends it off to Clipper
+nnoremap <leader>pp :let @0=expand("%") <Bar> :Clip<CR> :echo expand("%")<CR>
+
 " \zz -- Zap trailing whitespace in the current buffer.
 "
 "        As this one is somewhat destructive and relatively close to the
