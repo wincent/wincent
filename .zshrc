@@ -25,7 +25,7 @@ colors
 
 # http://zsh.sourceforge.net/Doc/Release/User-Contributions.html
 autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' enable git hg
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr "%{$fg[green]%}●%{$reset_color%}" # default 'S'
 zstyle ':vcs_info:*' unstagedstr "%{$fg[red]%}●%{$reset_color%}" # default 'U'
