@@ -101,5 +101,6 @@
 	path = .vim/bundle/vim-markdown
 	url = https://github.com/tpope/vim-markdown.git
 [submodule ".vim/bundle/vim-lawrencium"]
+	ignore = untracked
 	path = .vim/bundle/vim-lawrencium
 	url = https://github.com/ludovicchabant/vim-lawrencium.git
