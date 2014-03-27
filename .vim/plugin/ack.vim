@@ -29,7 +29,7 @@ function s:escape(arg)
   "   :Ack that's\ nice\ dear
   "
   " and so on...
-  return substitute(join(map(split(substitute(a:arg, '\ ', '<!!S!!>', 'g')), 'shellescape(v:val)')), '<!!S!!>', ' ', 'g')
+  return substitute(join(map(split(substitute(a:arg, '\\ ', '<!!S!!>', 'g')), 'shellescape(v:val)')), '<!!S!!>', ' ', 'g')
 endfunction
 
 function! AckGrep(command)
