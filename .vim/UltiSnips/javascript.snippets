@@ -4,8 +4,16 @@ function${1: name}(${2:arg}) {
 }
 endsnippet
 
+snippet dir "console.dir"
+console.dir(${1});
+endsnippet
+
 snippet log "console.log"
 console.log(${1});
+endsnippet
+
+snippet req "require" !b
+var ${1:ModuleName} = require('`!p snip.rv = t[1]`${2}');
 endsnippet
 
 snippet strict "'use strict' declaration" b
