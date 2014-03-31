@@ -1,8 +1,68 @@
-snippet fun "function" !
-function${1: name}(${2:arg}) {
+#
+# React
+#
+
+snippet cdm "componentDidMount" b
+componentDidMount: function() {
 	$0
+},
+endsnippet
+
+snippet cdup "componentDidUpdate" b
+componentDidUpdate: function(prevProps, prevState) {
+	$0
+},
+endsnippet
+
+snippet cwm "componentWillMount" b
+componentWillMount: function() {
+	$0
+},
+endsnippet
+
+snippet cwrp "componentWillReceiveProps" b
+componentWillReceiveProps: function(nextProps) {
+	$0
+},
+endsnippet
+
+snippet cwum "componentWillUnmount" b
+componentWillUnmount: function() {
+	$0
+},
+endsnippet
+
+snippet cwup "componentWillUpdate" b
+componentWillUpdate: function(nextProps, nextState) {
+	$0
+},
+endsnippet
+
+snippet gdp "getDefaultProps" b
+getDefaultProps: function() {
+	return {
+		$0
+	};
 }
 endsnippet
+
+snippet gis "getInitialState" b
+getInitialState: function() {
+	return {
+		$0
+	};
+}
+endsnippet
+
+snippet scu "shouldComponentUpdate" b
+shouldComponentUpdate: function(nextProps, nextState) {
+	return ${1:true};
+}
+endsnippet
+
+#
+# console methods
+#
 
 snippet dir "console.dir"
 console.dir(${1});
@@ -10,6 +70,16 @@ endsnippet
 
 snippet log "console.log"
 console.log(${1});
+endsnippet
+
+#
+# other
+#
+
+snippet fun "function" !
+function${1: name}(${2:arg}) {
+	$0
+}
 endsnippet
 
 snippet req "require" !b
