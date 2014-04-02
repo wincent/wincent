@@ -1,0 +1,42 @@
+#!/bin/sh
+
+# Many of these settings taken (or modified) from:
+
+#   https://github.com/mathiasbynens/dotfiles/commits/master/.osx
+#
+# Numbers in square brackets indicate system version on which these settings
+# were last verified to work.
+
+# [10.9] https://wincent.com/wiki/AppleFontSmoothing
+defaults -currentHost write -g AppleFontSmoothing -int 1
+
+# [10.9] System Preferences -> Desktop & Screen Saver -> Transluscent menu bar -> off
+# Requires logout.
+defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
+
+# [10.9] Expand save panel by default
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
+
+ # [10.9] Expand print panel by default
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
+
+# [10.9] Use plain text mode for new TextEdit documents
+defaults write com.apple.TextEdit RichText -int 0
+
+# [10.9] Disable press-and-hold for keys in favor of key repeat
+# Requires logout.
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
+# [10.9] Show the ~/Library folder
+chflags nohidden ~/Library
+
+# [10.9] Finder: disable window animations and Get Info animations
+defaults write com.apple.finder DisableAllAnimations -bool true
+
+# [10.9] Finder: allow text selection in Quick Look
+defaults write com.apple.finder QLEnableTextSelection -bool true
+
+# [10.9] Disable the warning when changing a file extension
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
