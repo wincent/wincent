@@ -37,9 +37,14 @@ endif
 if has('mouse')
   set mouse=a
   if s:screen || s:xterm
-    set ttymouse=xterm2
+    if has('mouse_sgr')
+      set ttymouse=sgr
+    else
+      set ttymouse=xterm2
+    endif
   endif
 endif
+
 augroup wincent_term
   autocmd!
   autocmd FocusGained * checktime
