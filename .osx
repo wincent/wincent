@@ -7,8 +7,8 @@
 # Numbers in square brackets indicate system version on which these settings
 # were last verified to work.
 
-# [10.9] https://wincent.com/wiki/AppleFontSmoothing
-defaults -currentHost write -g AppleFontSmoothing -int 1
+# [10.9] Tweak subpixel font rendering (https://wincent.com/wiki/AppleFontSmoothing)
+defaults -currentHost write NSGlobalDomain AppleFontSmoothing -int 1
 
 # [10.9] System Preferences -> Desktop & Screen Saver -> Transluscent menu bar -> off
 # Requires logout.
@@ -40,3 +40,19 @@ defaults write com.apple.finder QLEnableTextSelection -bool true
 
 # [10.9] Disable the warning when changing a file extension
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+# [10.9] Disable smart quotes, dashes, ellipses
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+
+# [10.9] Disable auto-correct
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
+# [10.9] Finder: show all filename extensions
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# [10.9] Finder: allow quitting via Command-Q; doing so will also hide desktop icons
+defaults write com.apple.finder QuitMenuItem -bool true
+
+# [10.9] Display full POSIX path as Finder window title
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
