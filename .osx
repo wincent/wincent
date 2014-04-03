@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -x
+
 # Many of these settings taken (or modified) from:
 
 #   https://github.com/mathiasbynens/dotfiles/commits/master/.osx
@@ -54,5 +56,32 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 # [10.9] Finder: allow quitting via Command-Q; doing so will also hide desktop icons
 defaults write com.apple.finder QuitMenuItem -bool true
 
-# [10.9] Display full POSIX path as Finder window title
-defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+# [10.9] [Don't] display full POSIX path as Finder window title
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool false
+
+# [10.9] Finder: show status bar
+defaults write com.apple.finder ShowStatusBar -bool true
+
+# [10.9] Finder: show path bar
+defaults write com.apple.finder ShowPathbar -bool true
+
+# [10.9] Require password immediately after sleep or screen saver begins
+defaults write com.apple.screensaver askForPassword -int 1
+defaults write com.apple.screensaver askForPasswordDelay -int 0
+
+# [10.9] Misc `systemsetup` settings: see `man systemsetup`
+sudo systemsetup -settimezone America/Los_Angeles
+sudo systemsetup -setusingnetworktime on
+sudo systemsetup -setcomputersleep 60
+sudo systemsetup -setdisplaysleep 15
+sudo systemsetup -setharddisksleep Never
+sudo systemsetup -setrestartfreeze on
+sudo systemsetup -setremoteappleevents off
+
+# [10.9] Disable the sudden motion sensor as it’s not useful for SSDs
+# [Probably useless; no way to verify this command works]
+sudo pmset -a sms 0
+
+# [10.9] Disable local Time Machine snapshots
+sudo tmutil disable
+sudo tmutil disablelocal
