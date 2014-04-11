@@ -69,6 +69,9 @@ defaults write com.apple.finder ShowPathbar -bool true
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
+# [10.9] Automatically quit printer app once the print jobs complete
+defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
+
 # [10.9] Misc `systemsetup` settings: see `man systemsetup`
 sudo systemsetup -settimezone America/Los_Angeles
 sudo systemsetup -setusingnetworktime on
