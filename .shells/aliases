@@ -4,7 +4,8 @@ alias :qa=exit
 alias :sp='test -n "$TMUX" && tmux split-window'
 alias :vs='test -n "$TMUX" && tmux split-window -h'
 alias :wq=exit
-alias a=ack
+alias a=ag
+alias ag='ag --pager="less -FRSX"'
 alias b=bundle
 alias be='bundle exec'
 alias cd..='cd ..'
