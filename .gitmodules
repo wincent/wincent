@@ -104,3 +104,6 @@
 	ignore = untracked
 	path = .vim/bundle/vim-lawrencium
 	url = https://github.com/ludovicchabant/vim-lawrencium.git
+[submodule ".vim/bundle/vim-easydir"]
+	path = .vim/bundle/vim-easydir
+	url = https://github.com/dockyard/vim-easydir.git
