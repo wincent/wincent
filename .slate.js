@@ -73,14 +73,31 @@ slate.layout('two-monitors', {
 slate.default([internal], oneMonitor);
 slate.default([internal, cinema], twoMonitors);
 
-slate.on('windowOpened', function(event, window) {
-  if (window.app().name() === 'iTerm') {
-    if (slate.screenCount() === 1) {
-      window.doOperation(move(0).screen(window.screen()));
-    } else {
-      window.doOperation(push(left, 1 / 2).screen(window.screen()));
-    }
+function handleEvent(app, window) {
+  if (!window) {
+    return;
   }
+
+  switch (app) {
+    case 'iTerm':
+      if (slate.screenCount() === 1) {
+        window.doOperation(move(0).screen(window.screen()));
+      } else {
+        window.doOperation(push(left, 1 / 2).screen(window.screen()));
+      }
+      break;
+    case 'Textual':
+      window.doOperation(move(0).screen(internal));
+      break;
+  }
+}
+
+slate.on('windowOpened', function(event, window) {
+  handleEvent(window.app().name(), window);
+});
+
+slate.on('appOpened', function(event, app) {
+  handleEvent(app.name(), app.mainWindow());
 });
 
 slate.bindAll({
