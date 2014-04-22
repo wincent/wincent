@@ -1,0 +1,26 @@
+%include ~/.hgrc.local
+
+# http://mercurial.selenic.com/wiki/PagerExtension
+[pager]
+# commands which should use a pager
+
+# default is:
+#   annotate, cat, diff, export, grep, heads, help, incoming, locate, log, outgoing, parents, sl, smartlog, status, tags, tip
+# we add:
+#   man
+#   show (also affects `ex`; oddly, adding `ex` does not affect `show`)
+#   whatchanged
+attend = annotate, cat, diff, export, grep, heads, help, incoming, locate, log, outgoing, parents, sl, smartlog, status, tags, tip, man, show, whatchanged
+
+[alias]
+# garbage collect commits that aren't reachable from bookmarks
+cleanup = strip -r "all() - ::bookmark()"
+
+# muscle memory
+show = ex
+clean = purge
+
+# braindeadness
+man = help
+
+whatchanged = log --stat -f
