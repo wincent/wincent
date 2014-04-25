@@ -76,19 +76,25 @@ endsnippet
 # other
 #
 
+snippet ** "docblock" b
+/**
+ * ${1}
+ */
+endsnippet
+
 snippet fun "function" !
 function${1: name}(${2:arg}) {
 	$0
 }
 endsnippet
 
-snippet jsx "@jsx declaration"
+snippet jsx "@jsx declaration" b
 /**
  * @jsx React.DOM
  */
 endsnippet
 
-snippet pm "@providesModule declaration"
+snippet pm "@providesModule declaration" b
 /**
  * @providesModule ${1:`!p snip.rv = snip.basename or 'ModuleName'`}
 ${2: * @jsx React.DOM
