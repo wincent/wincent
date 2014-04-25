@@ -107,3 +107,9 @@
 [submodule ".vim/bundle/vim-easydir"]
 	path = .vim/bundle/vim-easydir
 	url = https://github.com/dockyard/vim-easydir.git
+[submodule ".vim/bundle/YouCompleteMe"]
+	path = .vim/bundle/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule ".vim/bundle/supertab"]
+	path = .vim/bundle/supertab
+	url = https://github.com/ervandew/supertab.git
