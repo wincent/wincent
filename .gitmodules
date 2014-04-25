@@ -26,10 +26,6 @@
 	ignore = untracked
 	path = .vim/bundle/git
 	url = https://github.com/tpope/vim-git.git
-[submodule ".vim/bundle/vim-coffee-script"]
-	ignore = untracked
-	path = .vim/bundle/vim-coffee-script
-	url = https://github.com/kchmck/vim-coffee-script.git
 [submodule ".vim/bundle/vim-colors-solarized"]
 	ignore = untracked
 	path = .vim/bundle/vim-colors-solarized
@@ -49,9 +45,6 @@
 	ignore = untracked
 	path = .vim/bundle/The-NERD-tree
 	url = https://github.com/vim-scripts/The-NERD-tree.git
-[submodule ".vim/bundle/vim-soy"]
-	path = .vim/bundle/vim-soy
-	url = https://github.com/duganchen/vim-soy.git
 [submodule ".vim/bundle/vim-textobj-user"]
 	ignore = untracked
 	path = .vim/bundle/vim-textobj-user
