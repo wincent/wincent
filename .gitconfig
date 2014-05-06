@@ -95,8 +95,8 @@
 	submodulesummary = true
 
 [user]
-	email = win@wincent.com
-	name = Wincent Colaiuta
+	email = greg@hurrell.net
+	name = Greg Hurrell
 
 # ignored by Git older than 1.7.10
 [include]
