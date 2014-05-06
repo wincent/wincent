@@ -2,6 +2,16 @@
 # React
 #
 
+snippet cc "createClass" b
+var ${1:ModuleName} = React.createClass({
+	render: function() {
+		$0
+	}
+});
+
+module.exports = `!p snip.rv = t[1]`;
+endsnippet
+
 snippet cdm "componentDidMount" b
 componentDidMount: function() {
 	$0
