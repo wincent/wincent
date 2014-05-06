@@ -30,12 +30,17 @@ nnoremap <leader>pp :let @0=expand("%") <Bar> :Clip<CR> :echo expand("%")<CR>
 "
 nnoremap <silent> <leader>zz :let _last_search=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_last_search <Bar> :noh<CR>
 
-nnoremap <leader>n :set nocursorcolumn <Bar> noh <Bar> echo<CR>
+if has('gui_running')
+  nnoremap <leader>n :noh <Bar> echo<CR>
+else
+  " for performance, we only use 'cursorcolumn' in the GUI
+  nnoremap <leader>n :set nocursorcolumn <Bar> noh <Bar> echo<CR>
+endif
 
 " make Vim's regexen more Perl-like
 " turn on cursorcolumn only temporarily here; it's a big performance hit, but
 " really useful for disambiguating the current match
-if exists('+cursorcolumn')
+if exists('+cursorcolumn') && !has('gui_running')
   nnoremap / :silent! set cursorcolumn<CR>/\v
 else
   nnoremap / /\v

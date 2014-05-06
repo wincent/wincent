@@ -8,8 +8,10 @@ if exists('+colorcolumn')
 endif
 
 if exists('+cursorcolumn')
-  " disable for now due to performance issues
-  "set cursorcolumn                   " highlight current column
+  " for now, we only do this in the GUI due to performance issues
+  if has('gui_running')
+    set cursorcolumn                  " highlight current column
+  endif
 endif
 
 set cursorline                        " highlight current line
