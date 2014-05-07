@@ -78,7 +78,15 @@ function handleEvent(app, window) {
     return;
   }
 
-  switch (app) {
+  switch (app.name()) {
+    case 'Google Chrome':
+      if (typeof app.bundleIdentifier === 'function' &&
+          app.bundleIdentifier() === 'com.google.Chrome.canary') {
+        window.doOperation(push(left, 1 / 2).screen(cinema));
+      } else {
+        window.doOperation(push(right, 1 / 2).screen(cinema));
+      }
+      break;
     case 'iTerm':
       if (slate.screenCount() === 1) {
         window.doOperation(move(0).screen(window.screen()));
@@ -93,11 +101,11 @@ function handleEvent(app, window) {
 }
 
 slate.on('windowOpened', function(event, window) {
-  handleEvent(window.app().name(), window);
+  handleEvent(window.app(), window);
 });
 
 slate.on('appOpened', function(event, app) {
-  handleEvent(app.name(), app.mainWindow());
+  handleEvent(app, app.mainWindow());
 });
 
 slate.bindAll({
