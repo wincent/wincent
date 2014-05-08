@@ -28,6 +28,7 @@ var focusITerm   = slate.operation('focus', { app: 'iTerm' });
 var focusTextual = slate.operation('focus', { app: 'Textual' });
 
 function positionChrome(window) {
+  var app = window.app();
   if (slate.screenCount() === 1) {
     window.doOperation(move(0).screen(internal));
   } else {
