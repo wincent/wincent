@@ -27,11 +27,24 @@ var hideSpotify  = slate.operation('hide', { app: 'Spotify' });
 var focusITerm   = slate.operation('focus', { app: 'iTerm' });
 var focusTextual = slate.operation('focus', { app: 'Textual' });
 
+function positionChrome(window) {
+  if (slate.screenCount() === 1) {
+    window.doOperation(move(0).screen(internal));
+  } else {
+    if (typeof app.bundleIdentifier === 'function' &&
+        app.bundleIdentifier() === 'com.google.Chrome.canary') {
+      window.doOperation(push(left, 1 / 2).screen(cinema));
+    } else {
+      window.doOperation(push(right, 1 / 2).screen(cinema));
+    }
+  }
+}
+
 slate.layout('one-monitor', {
   _before_: { operations: [hideSpotify] },
   _after_: { operations: [focusITerm] },
-  'Google Chrome': { // Canary matches here as well
-    operations: [move(0).screen(internal)],
+  'Google Chrome': {
+    operations: [positionChrome],
     repeat: true,
   },
   iTerm: {
@@ -55,15 +68,7 @@ slate.layout('two-monitors', {
     'sort-title': true,
   },
   'Google Chrome': {
-    operations: [function(window) {
-      var app = window.app();
-      if (typeof app.bundleIdentifier === 'function' &&
-          app.bundleIdentifier() === 'com.google.Chrome.canary') {
-        window.doOperation(push(left, 1 / 2).screen(cinema));
-      } else {
-        window.doOperation(push(right, 1 / 2).screen(cinema));
-      }
-    }],
+    operations: [positionChrome],
     repeat: true,
   },
   Skype: { operations: [push(right, 1 / 2).screen(internal)] },
@@ -80,16 +85,7 @@ function handleEvent(app, window) {
 
   switch (app.name()) {
     case 'Google Chrome':
-      if (slate.screenCount() === 1) {
-        window.doOperation(move(0).screen(internal));
-      } else {
-        if (typeof app.bundleIdentifier === 'function' &&
-            app.bundleIdentifier() === 'com.google.Chrome.canary') {
-          window.doOperation(push(left, 1 / 2).screen(cinema));
-        } else {
-          window.doOperation(push(right, 1 / 2).screen(cinema));
-        }
-      }
+      positionChrome(window);
       break;
     case 'iTerm':
       if (slate.screenCount() === 1) {
