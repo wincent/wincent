@@ -28,7 +28,25 @@ var focusITerm   = slate.operation('focus', { app: 'iTerm' });
 var focusTextual = slate.operation('focus', { app: 'Textual' });
 
 function positionChrome(window) {
+  if (window.hidden()) {
+    return;
+  }
+
+  // only operate on first window; Chrome usually does something intelligent
+  // with the rest
   var app = window.app();
+  var windowCount = 0;
+  app.eachWindow(function(w) {
+    // for each new window we open, we actually get called twice; once with an
+    // empty title (which we ignore) and once with the real thing
+    if (w.title() !== '' && !w.hidden()) {
+      windowCount++;
+    }
+  });
+  if (windowCount > 1) {
+    return;
+  }
+
   if (slate.screenCount() === 1) {
     window.doOperation(move(0).screen(internal));
   } else {
