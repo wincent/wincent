@@ -80,11 +80,15 @@ function handleEvent(app, window) {
 
   switch (app.name()) {
     case 'Google Chrome':
-      if (typeof app.bundleIdentifier === 'function' &&
-          app.bundleIdentifier() === 'com.google.Chrome.canary') {
-        window.doOperation(push(left, 1 / 2).screen(cinema));
+      if (slate.screenCount() === 1) {
+        window.doOperation(move(0).screen(internal));
       } else {
-        window.doOperation(push(right, 1 / 2).screen(cinema));
+        if (typeof app.bundleIdentifier === 'function' &&
+            app.bundleIdentifier() === 'com.google.Chrome.canary') {
+          window.doOperation(push(left, 1 / 2).screen(cinema));
+        } else {
+          window.doOperation(push(right, 1 / 2).screen(cinema));
+        }
       }
       break;
     case 'iTerm':
