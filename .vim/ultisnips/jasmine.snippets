@@ -1,23 +1,29 @@
 snippet desc "describe() block"
-describe('${1}', function() {
+describe('${1}', () => {
 	${2}
 });
 endsnippet
 
 snippet con "context() block"
-context('${1}', function() {
+context('${1}', () => {
 	${2}
 });
 endsnippet
 
+snippet aft "after() block"
+afterEach(() => {
+	${1}
+});
+endsnippet
+
 snippet bef "before() block"
-beforeEach(function() {
+beforeEach(() => {
 	${1}
 });
 endsnippet
 
 snippet it "it() block"
-it('${1}', function() {
+it('${1}', () => {
 	${2}
 });
 endsnippet
