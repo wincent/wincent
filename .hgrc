@@ -8,9 +8,10 @@
 #   annotate, cat, diff, export, grep, heads, help, incoming, locate, log, outgoing, parents, sl, smartlog, status, tags, tip
 # we add:
 #   man
+#   shelve
 #   show (also affects `ex`; oddly, adding `ex` does not affect `show`)
 #   whatchanged
-attend = annotate, cat, diff, export, grep, heads, help, incoming, locate, log, outgoing, parents, sl, smartlog, status, tags, tip, man, show, whatchanged
+attend = annotate, cat, diff, export, grep, heads, help, incoming, locate, log, outgoing, parents, shelve, sl, smartlog, status, tags, tip, man, show, whatchanged
 
 [alias]
 # garbage collect commits that aren't reachable from bookmarks
