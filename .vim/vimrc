@@ -1,6 +1,6 @@
+" add .vim/bundle subdirs to runtime path
 runtime bundle/pathogen/autoload/pathogen.vim
-call pathogen#infect()   " add .vim/bundle subdirs to runtime path
-call pathogen#helptags() " wasteful, but no shortage of grunt available
+call pathogen#infect()
 
 " extension -> filetype mappings
 let filetype_m='objc'
