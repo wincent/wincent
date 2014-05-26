@@ -8,6 +8,10 @@ cd .vim/bundle/command-t
 git checkout next
 cd -
 
+cd .vim/bundle/vim-colors-solarized
+git checkout italics
+cd -
+
 git submodule foreach git pull --recurse-submodules
 
 # once YouCompleteMe is stable again, will delete this
