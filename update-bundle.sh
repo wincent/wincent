@@ -1,23 +1,26 @@
-#!/bin/sh
+#!/usr/local/bin/zsh
 
 set -e
 
+typeset -A REVS
+REVS=(
+  command-t next
+  vim-colors-solarized italics
+  YouCompleteMe a1feade
+)
+
 git submodule foreach git checkout master
 
-cd .vim/bundle/command-t
-git checkout next
-cd -
-
-cd .vim/bundle/vim-colors-solarized
-git checkout italics
-cd -
+for PROJECT in ${(k)REVS}; do
+  cd .vim/bundle/$PROJECT
+  git checkout $REVS[$PROJECT]
+  cd -
+done
 
 git submodule foreach git pull --recurse-submodules
 
-# once YouCompleteMe is stable again, will delete this
 # when YouCompleteMe updates, install it with its install.sh script
 cd .vim/bundle/YouCompleteMe
-git checkout a1feade
 git submodule update --init --recursive
 cd -
 
