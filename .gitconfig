@@ -14,7 +14,7 @@
 	fixup = !sh -c 'git commit --fixup=$1 ${@:2}' -
 
 	# requires Git 1.6.3 or later
-	graph = log --oneline --graph
+	graph = log --graph --pretty=format:'%C(yellow)%h%Creset%C(red bold)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%aN>%Creset'
 
 	oneline = log --pretty=format:'%C(yellow)%h%Creset%C(red bold)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%aN>%Creset'
 
@@ -31,7 +31,7 @@
 
 	st = status
 	staged = diff --cached
-	ten = log --oneline -10
+	ten = log -10 --pretty=format:'%C(yellow)%h%Creset%C(red bold)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%aN>%Creset'
 
 [branch]
 	autosetupmerge = always
