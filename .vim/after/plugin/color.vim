@@ -29,8 +29,12 @@ function! s:CycleColorScheme(background, visibility)
 
   " MatchParen highlighting is hard to see; make it more obvious
   let ctermbg = background == 'light' ? 7 : 8
-  execute "highlight MatchParen ctermbg=" . ctermbg .
+  execute "hi MatchParen ctermbg=" . ctermbg .
         \ " ctermfg=11 cterm=underline term=underline"
+
+  " Override garish search highlighting; default is:
+  " term=reverse cterm=reverse ctermfg=3 guibg=Yellow
+  execute "hi Search term=reverse cterm=reverse ctermfg=4 guifg=#268bd2"
 endfunction
 
 " mnemonic: [w]hitespace
