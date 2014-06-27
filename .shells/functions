@@ -1,9 +1,12 @@
-ssh() {
-  if [[ -z "$@" ]]; then
-    # common case: getting to my workstation
-    command ssh sandbox-clipper
+# until .agrc exists...
+# (https://github.com/ggreer/the_silver_searcher/pull/257)
+ag() {
+  if [[ "$ITERM_PROFILE" = 'Solarized Dark' ]]; then
+    # italic blue paths, pink line numbers, underlined white matches
+    command ag --pager="less -FRSX" --color-path=34\;3 --color-line-number=35 --color-match=37\;1\;4 $@
   else
-    command ssh $@
+    # italic blue paths, pink line numbers, underlined purple matches
+    command ag --pager="less -FRSX" --color-path=34\;3 --color-line-number=35 --color-match=35\;1\;4 $@
   fi
 }
 
@@ -13,6 +16,15 @@ mosh() {
     command mosh sandbox
   else
     command mosh $@
+  fi
+}
+
+ssh() {
+  if [[ -z "$@" ]]; then
+    # common case: getting to my workstation
+    command ssh sandbox-clipper
+  else
+    command ssh $@
   fi
 }
 
