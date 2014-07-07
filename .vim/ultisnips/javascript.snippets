@@ -3,7 +3,7 @@
 #
 
 snippet cc "createClass" b
-var ${1:ModuleName} = React.createClass({
+var ${1:`!p snip.rv = snip.basename or 'ModuleName'`} = React.createClass({
 	render: function() {
 		$0
 	}
