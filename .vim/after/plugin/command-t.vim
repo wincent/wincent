@@ -20,3 +20,24 @@ if has('jumplist')
 endif
 
 nnoremap <leader>g :CommandTTag<CR>
+
+"
+" buffer/split/tab re-use magic
+"
+
+function! s:GotoOrOpen(command, ...)
+  for file in a:000
+    if bufexists(file)
+      exec "sb " . file
+    else
+      exec a:command . " " . file
+    endif
+  endfor
+endfunction
+
+command! -nargs=+ GotoOrOpen call s:GotoOrOpen(<f-args>)
+
+let g:CommandTAcceptSelectionCommand = 'GotoOrOpen e'
+let g:CommandTAcceptSelectionTabCommand = 'GotoOrOpen tabe'
+let g:CommandTAcceptSelectionSplitCommand = 'GotoOrOpen sp'
+let g:CommandTAcceptSelectionVSplitCommand = 'GotoOrOpen vs'

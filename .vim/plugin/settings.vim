@@ -63,6 +63,7 @@ endif
 
 set splitbelow                        " open horizontal splits below current window
 set splitright                        " open vertical splits to the right of the current window
+set switchbuf=usetab                  " try to reuse windows/tabs when switching buffers
 set tabstop=2                         " spaces per tab
 set textwidth=80                      " automatically hard wrap at 80 columns
 set ttimeoutlen=50                    " speed up O etc in the Terminal
