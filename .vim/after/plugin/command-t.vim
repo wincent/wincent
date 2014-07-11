@@ -27,7 +27,7 @@ nnoremap <leader>g :CommandTTag<CR>
 
 function! s:GotoOrOpen(command, ...)
   for file in a:000
-    if bufexists(file)
+    if bufwinnr(file) != -1
       exec "sb " . file
     else
       exec a:command . " " . file
