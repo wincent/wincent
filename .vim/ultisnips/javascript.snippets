@@ -3,7 +3,7 @@
 #
 
 snippet cc "createClass" b
-var ${1:`!p snip.rv = snip.basename or 'ModuleName'`} = React.createClass({
+var ${1:`!p snip.rv = re.sub('\.react$', '', snip.basename or 'ModuleName')`} = React.createClass({
 	render: function() {
 		$0
 	}
