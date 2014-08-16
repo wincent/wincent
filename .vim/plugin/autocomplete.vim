@@ -1,5 +1,6 @@
 " YouCompleteMe and UltiSnips compatibility, with the helper of supertab
 " (via http://stackoverflow.com/a/22253548/1626737)
+let g:SuperTabCrMapping = 0
 let g:SuperTabDefaultCompletionType = '<C-n>'
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
