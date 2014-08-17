@@ -75,10 +75,10 @@ if has('persistent_undo')
 endif
 
 set virtualedit=block                 " allow cursor to move where there is no text in visual block mode
+set whichwrap=b,h,l,s,<,>,[,],~       " allow <BS>/h/l/<Left>/<Right>/<Space>, ~ to cross line boundaries
 set wildignore+=*.o,*.rej,tmp         " patterns to ignore during file-navigation
 set wildignore+=.git,.hg              " version control meta data
 set wildignore+=bower_components      " typically lots of vendored files in here
 set wildignore+=node_modules          " again; often thousands of vendored files
 set wildmenu                          " show options as list when switching buffers etc
 set wildmode=longest:full,full        " shell-like autocomplete to unambiguous portion
-set whichwrap=b,h,l,s,<,>,[,],~       " allow <BS>/h/l/<Left>/<Right>/<Space>, ~ to cross line boundaries
