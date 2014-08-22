@@ -7,9 +7,9 @@ augroup wincent
 
   if has('folding')
     " like the autocmd described in `:h last-position-jump` but we add `:foldopen!`
-    autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-  else
     autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | exe "silent! foldopen!" | endif
+  else
+    autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
   endif
 
   " except for Git commit messages, where this gets old really fast
