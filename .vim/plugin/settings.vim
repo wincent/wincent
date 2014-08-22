@@ -20,6 +20,7 @@ set expandtab                         " always use spaces instead of tabs
 
 if has('folding')
   set foldmethod=indent               " not as cool as syntax, but faster
+  set foldlevelstart=99               " start unfolded
 endif
 
 set formatoptions+=n                  " smart auto-indenting inside numbered lists
