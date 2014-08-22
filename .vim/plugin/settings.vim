@@ -19,7 +19,6 @@ set directory=~/.vim/tmp/swap,.       " keep swap files out of the way
 set expandtab                         " always use spaces instead of tabs
 
 if has('folding')
-  set foldlevelstart=1                " start with some but not all folds closed
   set foldmethod=indent               " not as cool as syntax, but faster
 endif
 
