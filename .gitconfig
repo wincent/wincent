@@ -62,11 +62,11 @@
 	prompt = false
 
 [grep]
-  lineNumber = true
+	lineNumber = true
 
-  # requires Git built with PCRE support; ie:
-  #   brew install git --with-pcre (on OS X)
-  patternType = perl
+	# requires Git built with PCRE support; ie:
+	#   brew install git --with-pcre (on OS X)
+	patternType = perl
 
 [help]
 	autocorrect = 2
