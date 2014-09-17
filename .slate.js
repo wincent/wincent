@@ -24,7 +24,7 @@ var second      = seconds = 1000;
 
 // operations for layouts
 var hideSpotify  = slate.operation('hide', { app: 'Spotify' });
-var focusITerm   = slate.operation('focus', { app: 'iTerm' });
+var focusITerm   = slate.operation('focus', { app: 'iTerm2' });
 var focusTextual = slate.operation('focus', { app: 'Textual' });
 
 function positionChrome(window) {
@@ -66,7 +66,7 @@ slate.layout('one-monitor', {
     operations: [positionChrome],
     repeat: true,
   },
-  iTerm: {
+  iTerm2: {
     operations: [move(0).screen(internal)],
     repeat: true,
     'sort-title': true,
@@ -78,7 +78,7 @@ slate.layout('one-monitor', {
 slate.layout('two-monitors', {
   _before_: { operations: [hideSpotify] },
   _after_: { operations: [focusTextual, focusITerm] },
-  iTerm: {
+  iTerm2: {
     operations: [
       push(left, 1 / 2).screen(cinema),
       push(right, 1 / 2).screen(cinema),
@@ -106,7 +106,7 @@ function handleEvent(app, window) {
     case 'Google Chrome':
       positionChrome(window);
       break;
-    case 'iTerm':
+    case 'iTerm2':
       if (slate.screenCount() === 1) {
         window.doOperation(move(0).screen(window.screen()));
       } else {
@@ -353,7 +353,7 @@ function fingerprint(window) {
     y:       rect.y,
     width:   rect.width,
     height:  rect.height,
-    title:   window.app().name() === 'iTerm' ? 'iTerm' : window.title(),
+    title:   window.app().name() === 'iTerm2' ? 'iTerm2' : window.title(),
     pid:     window.pid(),
   };
 }
