@@ -32,9 +32,29 @@ nnoremap <leader>g :CommandTTag<CR>
 " buffer/split/tab re-use magic
 "
 
+function! s:BufHidden(buffer)
+  let bufno = bufnr(a:buffer)
+  let listed_buffers = ''
+
+  redir => listed_buffers
+  silent ls
+  redir END
+
+  for line in split(listed_buffers, "\n")
+    let components = split(line)
+    if components[0] == bufno
+      return match(components[1], 'h') != -1
+    endif
+  endfor
+  return 0
+endfunction
+
 function! s:GotoOrOpen(command, ...)
   for file in a:000
-    if bufwinnr(file) != -1
+    " bufwinnr() doesn't see windows in other tabs, meaning we open them again
+    " instead of switching to the other tab; but bufexists() sees hidden
+    " buffers, and if we try to open one of those, we get an unwanted split.
+    if bufwinnr(file) != -1 || (bufexists(file) && !s:BufHidden(file))
       exec "sb " . file
     else
       exec a:command . " " . file
