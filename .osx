@@ -12,9 +12,8 @@ set -x
 # [10.9] Tweak subpixel font rendering (https://wincent.com/wiki/AppleFontSmoothing)
 defaults -currentHost write NSGlobalDomain AppleFontSmoothing -int 1
 
-# [10.9] System Preferences -> Desktop & Screen Saver -> Transluscent menu bar -> off
-# Requires logout.
-defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
+# [10.10] System Preferences -> Accessibility -> Display -> Reduce Transparency
+defaults write com.apple.universalaccess reduceTransparency -bool true
 
 # [10.9] Expand save panel by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
