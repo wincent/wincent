@@ -15,6 +15,10 @@ defaults -currentHost write NSGlobalDomain AppleFontSmoothing -int 1
 # [10.10] System Preferences -> Accessibility -> Display -> Reduce Transparency
 defaults write com.apple.universalaccess reduceTransparency -bool true
 
+# [10.10] System Preferences -> General -> Appearance -> Graphite
+# (default is 1, "Blue")
+defaults write NSGlobalDomain AppleAquaColorVariant -int 6
+
 # [10.9] Expand save panel by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
