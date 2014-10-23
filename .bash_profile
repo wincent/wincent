@@ -218,9 +218,5 @@ complete -c command whereis
 # Third-party
 #
 
-if [[ -s $HOME/.rvm/scripts/rvm ]]; then
-  source $HOME/.rvm/scripts/rvm
-else
-  # make Bundler do passwordless installs to a sandbox rather than to the system
-  export BUNDLE_PATH=~/.bundle
-fi
+# make Bundler do passwordless installs to a sandbox rather than to the system
+export BUNDLE_PATH=~/.bundle
