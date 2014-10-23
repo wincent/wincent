@@ -206,7 +206,7 @@ source $HOME/.shells/functions
 BASH_COMPLETION=~/.bash/completion/bash_completion
 test -f $BASH_COMPLETION && . $BASH_COMPLETION
 
-GIT_COMPLETION=~/.git-completion.sh
+GIT_COMPLETION=~/.bash/git-completion.sh
 test -f $GIT_COMPLETION && . $GIT_COMPLETION
 
 # whereis completes on commands
