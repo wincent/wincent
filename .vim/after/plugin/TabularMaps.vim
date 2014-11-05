@@ -1,4 +1,5 @@
 if exists(':Tabularize')
+  AddTabularPattern commas /,\zs
   AddTabularPattern hash /:\zs
   AddTabularPattern hash_rocket /=>
   AddTabularPattern json /:
