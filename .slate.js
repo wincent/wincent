@@ -25,7 +25,7 @@ var second      = seconds = 1000;
 // operations for layouts
 var hideSpotify  = slate.operation('hide', { app: 'Spotify' });
 var focusITerm   = slate.operation('focus', { app: 'iTerm2' });
-var focusTextual = slate.operation('focus', { app: 'Textual' });
+var focusTextual = slate.operation('focus', { app: 'Textual IRC Client' });
 
 function positionChrome(window) {
   if (window.hidden()) {
@@ -72,7 +72,7 @@ slate.layout('one-monitor', {
     'sort-title': true,
   },
   Skype: { operations: [push(right, 1 / 2).screen(internal)] },
-  Textual: { operations: [move(0).screen(internal)] },
+  'Textual IRC Client': { operations: [move(0).screen(internal)] },
 });
 
 slate.layout('two-monitors', {
@@ -91,7 +91,7 @@ slate.layout('two-monitors', {
     repeat: true,
   },
   Skype: { operations: [push(right, 1 / 2).screen(internal)] },
-  Textual: { operations: [move(0).screen(internal)] },
+  'Textual IRC Client': { operations: [move(0).screen(internal)] },
 });
 
 slate.default([internal], oneMonitor);
@@ -113,7 +113,7 @@ function handleEvent(app, window) {
         window.doOperation(push(left, 1 / 2).screen(window.screen()));
       }
       break;
-    case 'Textual':
+    case 'Textual IRC Client':
       window.doOperation(move(0).screen(internal));
       break;
   }
