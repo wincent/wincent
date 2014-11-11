@@ -86,4 +86,3 @@ nnoremap <Space> za
 " for each time K has produced timely, useful results, I have pressed it 10,000
 " times without meaning to, triggering an annoying delay
 nnoremap K <nop>
-
