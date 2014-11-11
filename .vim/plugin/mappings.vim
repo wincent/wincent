@@ -87,5 +87,3 @@ nnoremap <Space> za
 " times without meaning to, triggering an annoying delay
 nnoremap K <nop>
 
-" Insert mode mappings
-inoremap jj <Esc>
