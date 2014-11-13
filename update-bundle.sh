@@ -24,4 +24,4 @@ cd .vim/bundle/YouCompleteMe
 git submodule update --init --recursive
 cd -
 
-vim -c "call pathogen#helptags() | quit"
+vim -c "Helptags | quit"
