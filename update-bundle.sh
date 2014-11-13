@@ -17,7 +17,7 @@ for PROJECT in ${(k)REVS}; do
   cd -
 done
 
-git submodule foreach git pull --recurse-submodules
+git submodule foreach 'git pull --recurse-submodules || :'
 
 # when YouCompleteMe updates, install it with its install.sh script
 cd .vim/bundle/YouCompleteMe
