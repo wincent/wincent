@@ -34,9 +34,6 @@
 	ignore = untracked
 	path = .vim/bundle/gundo
 	url = https://github.com/sjl/gundo.vim.git
-[submodule ".vim/bundle/a.vim"]
-	path = .vim/bundle/a.vim
-	url = https://github.com/vim-scripts/a.vim.git
 [submodule ".vim/bundle/The-NERD-Commenter"]
 	ignore = untracked
 	path = .vim/bundle/The-NERD-Commenter
