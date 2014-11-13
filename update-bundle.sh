@@ -2,6 +2,9 @@
 
 set -e
 
+SCRIPT=${(%):-%N} # via http://stackoverflow.com/a/23259585
+. "$SCRIPT/../.shells/path" # make sure we can find preferred Vim
+
 typeset -A REVS
 REVS=(
   command-t next
