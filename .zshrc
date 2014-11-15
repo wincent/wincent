@@ -58,6 +58,7 @@ export SAVEHIST=$HISTSIZE
 
 setopt autocd               # .. is shortcut for cd .. (etc)
 setopt autoparamslash       # tab completing directory appends a slash
+setopt autopushd            # cd automatically pushes old dir onto dir stack
 setopt clobber              # allow clobbering with >, no need to use >!
 setopt correct              # command auto-correction
 setopt correctall           # argument auto-correction
@@ -69,6 +70,8 @@ setopt histverify           # confirm history expansion (!$, !!, !foo)
 setopt ignoreeof            # prevent accidental C-d from exiting shell
 setopt interactivecomments  # allow comments, even in interactive shells
 setopt printexitvalue       # for non-zero exit status
+setopt pushdignoredups      # don't push multiple copies of same dir onto stack
+setopt pushdsilent          # don't print dir stack after pushing/popping
 setopt sharehistory         # share history across shells
 
 #
@@ -157,6 +160,15 @@ add-zsh-hook chpwd auto-ls-after-cd
 # for prompt
 add-zsh-hook precmd vcs_info
 
+# adds `cdr` command for navigating to recent directories
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
+
+# enable menu-style completion for cdr
+zstyle ':completion:*:*:cdr:*:*' menu selection
+
+# fall through to cd if cdr is passed a non-recent dir as an argument
+zstyle ':chpwd:*' recent-dirs-default true
 
 # local and host-specific overrides
 
