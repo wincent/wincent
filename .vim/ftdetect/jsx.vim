@@ -5,7 +5,7 @@ function! s:ScanFile()
     let nmax = 500
   endif
   while n < nmax
-    if getline(n) =~ "\\v<React\\.|<jsx>"
+    if getline(n) =~ "\\v<React\\."
       return 1
       break
     endif
