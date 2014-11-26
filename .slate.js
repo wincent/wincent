@@ -20,7 +20,8 @@ var topRight    = 'top-right';
 var bottomRight = 'bottom-right';
 var bottomLeft  = 'bottom-left';
 var topLeft     = 'top-left';
-var second      = seconds = 1000;
+var second      = 1000;
+var seconds     = second;
 
 // operations for layouts
 var hideSpotify  = slate.operation('hide', { app: 'Spotify' });
@@ -303,7 +304,7 @@ var lastSeenWindow;
 function chain(functions) {
   var lastSeenAt;
   var sequenceNumber;
-  var resetChainAfter = 1 * second;
+  var resetChainAfter = 2 * seconds;
 
   return function(window) {
     var screen = window.screen();
