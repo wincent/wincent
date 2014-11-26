@@ -1,0 +1,8 @@
+export TERMINFO=$HOME/.terminfo
+
+# see commit aca6273 in the wincent.com Git repo for more details
+ulimit -n 2048
+
+# FB-specific
+PATH=$PATH:~/src/devtools/arcanist/bin
+export PATH
