@@ -23,6 +23,7 @@ if has('folding')
   set foldlevelstart=99               " start unfolded
 endif
 
+set formatoptions+=j                  " remove comment leader when joining comment lines
 set formatoptions+=n                  " smart auto-indenting inside numbered lists
 set guifont=Consolas:h13
 set guioptions-=T                     " don't show toolbar
