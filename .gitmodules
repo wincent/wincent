@@ -107,3 +107,6 @@
 [submodule ".vim/bundle/vim-projectionist"]
 	path = .vim/bundle/vim-projectionist
 	url = https://github.com/tpope/vim-projectionist.git
+[submodule ".vim/bundle/vim-textobj-comment"]
+	path = .vim/bundle/vim-textobj-comment
+	url = https://github.com/glts/vim-textobj-comment.git
