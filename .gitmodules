@@ -8,7 +8,7 @@
 [submodule ".vim/bundle/command-t"]
 	ignore = untracked
 	path = .vim/bundle/command-t
-	url = https://github.com/wincent/Command-T.git
+	url = https://github.com/wincent/command-t.git
 [submodule ".vim/bundle/emmet-vim"]
 	path = .vim/bundle/emmet-vim
 	url = https://github.com/mattn/emmet-vim.git
