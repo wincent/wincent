@@ -34,10 +34,6 @@
 	ignore = untracked
 	path = .vim/bundle/gundo
 	url = https://github.com/sjl/gundo.vim.git
-[submodule ".vim/bundle/The-NERD-Commenter"]
-	ignore = untracked
-	path = .vim/bundle/The-NERD-Commenter
-	url = https://github.com/scrooloose/nerdcommenter.git
 [submodule ".vim/bundle/The-NERD-tree"]
 	ignore = untracked
 	path = .vim/bundle/The-NERD-tree
@@ -110,3 +106,6 @@
 [submodule ".vim/bundle/vim-textobj-comment"]
 	path = .vim/bundle/vim-textobj-comment
 	url = https://github.com/glts/vim-textobj-comment.git
+[submodule ".vim/bundle/tcomment_vim"]
+	path = .vim/bundle/tcomment_vim
+	url = https://github.com/tomtom/tcomment_vim.git
