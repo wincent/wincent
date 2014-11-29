@@ -1,7 +1,3 @@
-[submodule ".vim/bundle/The-NERD-tree"]
-	ignore = untracked
-	path = .vim/bundle/The-NERD-tree
-	url = https://github.com/vim-scripts/The-NERD-tree.git
 [submodule ".vim/bundle/YouCompleteMe"]
 	path = .vim/bundle/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe.git
@@ -16,6 +12,10 @@
 	ignore = untracked
 	path = .vim/bundle/gundo
 	url = https://github.com/sjl/gundo.vim.git
+[submodule ".vim/bundle/nerdtree"]
+	ignore = untracked
+	path = .vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
 [submodule ".vim/bundle/supertab"]
 	path = .vim/bundle/supertab
 	url = https://github.com/ervandew/supertab.git
