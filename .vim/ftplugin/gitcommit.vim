@@ -3,4 +3,3 @@ if has('folding')
 endif
 
 setlocal spell
-setlocal textwidth=72
