@@ -3,18 +3,18 @@
 nnoremap <leader>c :syntax sync fromstart<cr>
 
 if exists('+relativenumber')
-  " cycle through relativenumber + number, number (only), and no numbering
+  " \r -- cycle through relativenumber + number, number (only), and no numbering
   nnoremap <leader>r :<c-r>={
         \ '00': 'set rnu   <bar> set nu',
         \ '01': 'set nornu <bar> set nu',
         \ '10': 'set nornu <bar> set nonu',
         \ '11': 'set nornu <bar> set nu' }[&nu . &rnu]<cr><cr><cr>
 else
-  " toggle line numbers on and off
+  " \r -- toggle line numbers on and off
   nnoremap <leader>r :set nu!<cr>
 endif
 
-" open last buffer
+" \\ -- open last buffer
 nnoremap <leader><leader> <C-^>
 
 " \e -- edit file, starting in same directory as current file
@@ -31,10 +31,10 @@ nnoremap <leader>pp :let @0=expand("%") <Bar> :Clip<CR> :echo expand("%")<CR>
 "
 "        As this one is somewhat destructive and relatively close to the
 "        oft-used <leader>a mapping, make this one a double key-stroke.
-"
 nnoremap <silent> <leader>zz :let _last_search=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_last_search <Bar> :noh<CR>
 
 if has('gui_running')
+  " \n -- no search highlighting
   nnoremap <leader>n :noh <Bar> echo<CR>
 else
   " for performance, we only use 'cursorcolumn' in the GUI
@@ -52,8 +52,8 @@ endif
 
 vnoremap / /\v
 
-" a macro I recorded to rebalance/resort the columns in the Command-T "authors"
-" section; requires that the author names be visually selected:
+" \zc -- a macro I recorded to rebalance/resort the columns in the Command-T
+"        "authors" section; requires that the author names be visually selected:
 vnoremap <leader>zc 
   \:s/\v^ +//g<CR>
   \gv:s/\v  +/\r/g<CR>
@@ -65,10 +65,10 @@ vnoremap <leader>zc
   \:let &tabstop=_tabstop<CR>
   \gv>:noh<CR>
 
-" delete all buffers, except for those with unsaved changes
+" \da -- delete all buffers, except for those with unsaved changes
 nnoremap <leader>da :bufdo silent! bdelete<CR>
 
-" Ruby 1.8 Hashes to 1.9
+" \h -- Ruby 1.8 Hashes to 1.9
 nnoremap <leader>h :%s/\v(:)@<!:([a-zA-Z_][a-zA-Z_0-9]*)(\s*)\=\>\s?/\2:\3/gce<cr>
 
 " multi-mode mappings (Normal, Visual, Operating-pending modes)
