@@ -6,7 +6,7 @@ Linuxes.
 ## Dependencies:
 
 * tmux 1.9a+ (http://tmux.sourceforge.net/)
-* Vim 7.3+ (http://www.vim.org/) with Ruby and Python support (although there's
+* Vim 7.4+ (http://www.vim.org/) with Ruby and Python support (although there's
   a reasonable amount of feature detection in order to degrade gracefully)
 * relatively recent Zsh (http://www.zsh.org/); older, staler Bash config still available as a
   fallback
