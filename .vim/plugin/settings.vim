@@ -79,6 +79,7 @@ if has('persistent_undo')
 endif
 
 set virtualedit=block                 " allow cursor to move where there is no text in visual block mode
+set visualbell t_vb=                  " stop annoying beeping for non-error errors
 set whichwrap=b,h,l,s,<,>,[,],~       " allow <BS>/h/l/<Left>/<Right>/<Space>, ~ to cross line boundaries
 set wildignore+=*.o,*.rej             " patterns to ignore during file-navigation
 set wildmenu                          " show options as list when switching buffers etc
