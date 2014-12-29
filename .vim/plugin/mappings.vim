@@ -50,11 +50,11 @@ else
   nnoremap / /\v
 endif
 
-vnoremap / /\v
+xnoremap / /\v
 
 " \zc -- a macro I recorded to rebalance/resort the columns in the Command-T
 "        "authors" section; requires that the author names be visually selected:
-vnoremap <leader>zc 
+xnoremap <leader>zc
   \:s/\v^ +//g<CR>
   \gv:s/\v  +/\r/g<CR>
   \gvj:sort<CR>
