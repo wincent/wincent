@@ -34,7 +34,7 @@ function! s:CycleColorScheme(background, visibility)
 
   " Override garish search highlighting; default is:
   " term=reverse cterm=reverse ctermfg=3 guibg=Yellow
-  execute "hi Search term=reverse cterm=reverse ctermfg=4 guifg=#268bd2"
+  hi Search term=reverse cterm=reverse ctermfg=4 guifg=#268bd2
 endfunction
 
 " mnemonic: [w]hitespace
