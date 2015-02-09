@@ -1,12 +1,12 @@
 " cf the default statusline: %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 if has('statusline')
-  set statusline=\          " space
-  set statusline+=%n        " buffer number
-  set statusline+=:         " (literal)
-  set statusline+=%<        " truncation point, if not enough width available
-  set statusline+=%f        " relative path to file
-  set statusline+=\         " space
-  set statusline+=%1*       " switch to User1 highlight group (italics)
+  set statusline=\    " space
+  set statusline+=%n  " buffer number
+  set statusline+=:   " (literal)
+  set statusline+=%<  " truncation point, if not enough width available
+  set statusline+=%f  " relative path to file
+  set statusline+=\   " space
+  set statusline+=%1* " switch to User1 highlight group (italics)
 
   " needs to be all on one line:
   "   %(                   start item group
@@ -19,25 +19,25 @@ if has('statusline')
   "   %)                   end item group
   set statusline+=%([%M%R%{statusline#Ft()}%{statusline#Fenc()}]%)
 
-  set statusline+=%*        " reset highlight group
-  set statusline+=%=        " split point for left and right groups
-  set statusline+=\         " space
-  set statusline+=line      " (literal)
-  set statusline+=\         " space
-  set statusline+=%l        " current line number
-  set statusline+=/         " space
-  set statusline+=%L        " number of lines in buffer
-  set statusline+=,         " (literal)
-  set statusline+=\         " space
-  set statusline+=col       " (literal)
-  set statusline+=\         " space
-  set statusline+=%c        " current column number
-  set statusline+=%V        " current virtual column number (-n), if different
-  set statusline+=\         " space
-  set statusline+=(         " (literal)
-  set statusline+=%p        " percentage through buffer
-  set statusline+=%%        " literal %
-  set statusline+=)         " (literal)
+  set statusline+=%*   " reset highlight group
+  set statusline+=%=   " split point for left and right groups
+  set statusline+=\    " space
+  set statusline+=line " (literal)
+  set statusline+=\    " space
+  set statusline+=%l   " current line number
+  set statusline+=/    " space
+  set statusline+=%L   " number of lines in buffer
+  set statusline+=,    " (literal)
+  set statusline+=\    " space
+  set statusline+=col  " (literal)
+  set statusline+=\    " space
+  set statusline+=%c   " current column number
+  set statusline+=%V   " current virtual column number (-n), if different
+  set statusline+=\    " space
+  set statusline+=(    " (literal)
+  set statusline+=%p   " percentage through buffer
+  set statusline+=%%   " literal %
+  set statusline+=)    " (literal)
 
   function! statusline#Ft()
     if strlen(&ft)
