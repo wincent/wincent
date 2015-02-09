@@ -22,14 +22,14 @@ if has('statusline')
   set statusline+=%*        " reset highlight group
   set statusline+=%=        " split point for left and right groups
   set statusline+=\         " space
-  set statusline+=line:     " (literal)
+  set statusline+=line      " (literal)
   set statusline+=\         " space
   set statusline+=%l        " current line number
   set statusline+=/         " space
   set statusline+=%L        " number of lines in buffer
   set statusline+=,         " (literal)
   set statusline+=\         " space
-  set statusline+=col:      " (literal)
+  set statusline+=col       " (literal)
   set statusline+=\         " space
   set statusline+=%c        " current column number
   set statusline+=%V        " current virtual column number (-n), if different
