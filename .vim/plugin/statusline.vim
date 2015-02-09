@@ -41,17 +41,17 @@ if has('statusline')
 
   function! statusline#Ft()
     if strlen(&ft)
-      return "," . &ft
+      return ',' . &ft
     else
-      return ""
+      return ''
     endif
   endfunction
 
   function! statusline#Fenc()
-    if strlen(&fenc) && &fenc != "utf-8"
-      return "," . &fenc
+    if strlen(&fenc) && &fenc != 'utf-8'
+      return ',' . &fenc
     else
-      return ""
+      return ''
     endif
   endfunction
 
