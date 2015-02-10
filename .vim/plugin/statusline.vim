@@ -22,14 +22,13 @@ if has('statusline')
   set statusline+=%*   " reset highlight group
   set statusline+=%=   " split point for left and right groups
   set statusline+=\    " space
-  set statusline+=line " (literal)
+  set statusline+=ℓ    " (literal, \u2113 "SCRIPT SMALL L")
   set statusline+=\    " space
   set statusline+=%l   " current line number
   set statusline+=/    " separator
   set statusline+=%L   " number of lines in buffer
-  set statusline+=,    " (literal)
   set statusline+=\    " space
-  set statusline+=col  " (literal)
+  set statusline+=@   " (literal)
   set statusline+=\    " space
   set statusline+=%c   " current column number
   set statusline+=%V   " current virtual column number (-n), if different
