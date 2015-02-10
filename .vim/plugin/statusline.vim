@@ -1,7 +1,6 @@
 " cf the default statusline: %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 if has('statusline')
-  set statusline=\    " space
-  set statusline+=%n  " buffer number
+  set statusline=%n   " buffer number
   set statusline+=:   " (literal)
   set statusline+=%<  " truncation point, if not enough width available
   set statusline+=%f  " relative path to file
@@ -28,15 +27,15 @@ if has('statusline')
   set statusline+=/    " separator
   set statusline+=%L   " number of lines in buffer
   set statusline+=\    " space
-  set statusline+=@   " (literal)
+  set statusline+=@    " (literal)
   set statusline+=\    " space
   set statusline+=%c   " current column number
   set statusline+=%V   " current virtual column number (-n), if different
   set statusline+=\    " space
-  set statusline+=(    " (literal)
+  set statusline+=%1*  " switch to User1 highlight group (italics)
   set statusline+=%p   " percentage through buffer
   set statusline+=%%   " literal %
-  set statusline+=)    " (literal)
+  set statusline+=%*   " reset highlight group
 
   function! statusline#Ft()
     if strlen(&ft)
