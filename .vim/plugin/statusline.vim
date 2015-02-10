@@ -25,7 +25,7 @@ if has('statusline')
   set statusline+=line " (literal)
   set statusline+=\    " space
   set statusline+=%l   " current line number
-  set statusline+=/    " space
+  set statusline+=/    " separator
   set statusline+=%L   " number of lines in buffer
   set statusline+=,    " (literal)
   set statusline+=\    " space
