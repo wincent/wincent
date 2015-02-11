@@ -58,14 +58,12 @@ if has('statusline')
     autocmd ColorScheme *
       \ if &background == 'light' |
       \   hi User1 term=italic,reverse
-      \            cterm=italic,reverse
-      \            gui=italic,reverse
-      \            ctermfg=10 ctermbg=7 |
+      \            cterm=italic,reverse ctermfg=10 ctermbg=7
+      \            gui=italic,reverse guifg=#586e75 guibg=#eee8d5 |
       \ else |
       \   hi User1 term=italic,reverse
-      \            cterm=italic,reverse
-      \            gui=italic,reverse
-      \            ctermfg=14 ctermbg=0 |
+      \            cterm=italic,reverse ctermfg=14 ctermbg=0
+      \            gui=italic,reverse guifg=#93a1a1 guibg=#073642 |
       \ endif
   augroup END
 endif
