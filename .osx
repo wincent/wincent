@@ -23,6 +23,9 @@ defaults write NSGlobalDomain AppleAquaColorVariant -int 6
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 
+# [10.10.2] Make sheets drop down (almost) instantly
+defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
+
  # [10.9] Expand print panel by default
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
