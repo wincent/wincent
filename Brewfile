@@ -84,6 +84,7 @@ install the_silver_searcher
 install tig
 install tmux
 install tree
+install v8
 install valgrind
 install vim
 install watch
