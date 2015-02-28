@@ -5,6 +5,7 @@ install ant
 install apple-gcc42
 install autoconf
 install automake
+install caskroom/cask/brew-cask
 install clipper
 install cloc
 install cloog
@@ -93,3 +94,26 @@ install wget
 install xz
 install ykpers
 install zsh
+
+# Casks (http://caskroom.io/)
+
+tap caskroom/versions
+
+cask install arq
+cask install google-chrome
+cask install google-chrome-canary
+cask install firefox
+cask install firefoxdeveloperedition
+cask install flux
+cask install isolator
+cask install istat-menus
+cask install iterm2-nightly
+cask install karabiner
+cask install nvalt
+cask install omnidisksweeper
+cask install skype
+cask install spotify
+cask install steam
+cask install superduper
+cask install textmate
+cask install vlc
