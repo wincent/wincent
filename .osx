@@ -30,6 +30,18 @@ defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 
+# [10.10.2] System Preferences -> Sound -> Sound Effects -> Play feedback when
+# volume is changed
+defaults write NSGlobalDomain com.apple.sound.beep.feedback -bool false
+
+# [10.10.2] Finder -> Preferences -> General -> Spring-loaded folders and
+# windows -> Delay (short)
+defaults write NSGlobalDomain com.apple.springing.delay -float 0
+
+# [10.10.2] Finder -> Preferences -> General -> Spring-loaded folders and
+# windows
+defaults write NSGlobalDomain com.apple.springing.enabled -bool true
+
 # [10.9] Use plain text mode for new TextEdit documents
 defaults write com.apple.TextEdit RichText -int 0
 
