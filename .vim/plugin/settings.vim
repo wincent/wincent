@@ -1,3 +1,5 @@
+scriptencoding utf-8
+
 set autoindent                        " maintain indent of current line
 set autoread                          " if not changed in Vim, automatically pick up changes after "git checkout" etc
 set backspace=indent,start,eol        " allow unrestricted backspacing in insert mode

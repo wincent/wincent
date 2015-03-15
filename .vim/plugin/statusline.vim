@@ -1,3 +1,5 @@
+scriptencoding utf-8
+
 " cf the default statusline: %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 if has('statusline')
   set statusline=%n   " buffer number
