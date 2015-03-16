@@ -1,119 +1,116 @@
-# install with `brew bundle`
-
-install ack
-install ant
-install apple-gcc42
-install autoconf
-install automake
-install caskroom/cask/brew-cask
-install clipper
-install cloc
-install cloog
-install closure-compiler
-install cmake
-install cscope
-install ctags
-install elinks
-install fontconfig
-install freetype
-install gcc
-install gd
-install gdbm
-install gettext
-install git --with-pcre
-install glib
-install gmp
-install gnupg
-install gnutls
-install go
-install gpg-agent
-install htop-osx
-install iftop
-install imagemagick
-install isl
-install jpeg
-install json-c
-install libassuan
-install libevent
-install libffi
-install libgcrypt
-install libgpg-error
-install libksba
-install libmpc
-install libpng
-install libtasn1
-install libtiff
-install libtool
-install libyaml
-install libyubikey
-install links
-install macvim
-install makedepend
-install mariadb
-install memcached
-install mercurial
-install mldonkey
-install mobile-shell
-install mpfr
-install nettle
-install nginx
-install node
-install objective-caml
-install openssl
-install optipng
-install ossp-uuid
-install pcre
-install pinentry
-install pixman
-install pkg-config
-install pngquant
-install postgresql
-install protobuf
-install pstree
-install pth
-install pwgen
-install qemu
-install qt
-install ragel
-install rbenv
-install readline
-install redis
-install rhino
-install ruby-build
-install s3cmd
-install the_silver_searcher
-install tig
-install tmux
-install tree
-install v8
-install valgrind
-install vim
-install watch
-install watchman
-install wget
-install xz
-install ykpers
-install zsh
-
-# Casks (http://caskroom.io/)
-
-tap caskroom/versions
-
-cask install arq
-cask install google-chrome
-cask install google-chrome-canary
-cask install firefox
-cask install firefoxdeveloperedition
-cask install flux
-cask install isolator
-cask install istat-menus
-cask install iterm2-nightly
-cask install karabiner
-cask install nvalt
-cask install omnidisksweeper
-cask install skype
-cask install spotify
-cask install steam
-cask install superduper
-cask install textmate
-cask install vlc
+tap 'caskroom/cask'
+tap 'caskroom/versions'
+tap 'homebrew/brewdler'
+tap 'homebrew/versions'
+brew 'ack'
+brew 'ant'
+brew 'autoconf'
+brew 'automake'
+brew 'brew-cask'
+brew 'clipper'
+brew 'cloc'
+brew 'cloog'
+brew 'closure-compiler'
+brew 'cmake'
+brew 'cscope'
+brew 'ctags'
+brew 'elinks'
+brew 'fontconfig'
+brew 'freetype'
+brew 'fswatch'
+brew 'gcc'
+brew 'gd'
+brew 'gdbm'
+brew 'gettext'
+brew 'git', args: ['with-pcre']
+brew 'glib'
+brew 'gmp'
+brew 'gnupg'
+brew 'gnutls'
+brew 'go'
+brew 'gpg-agent'
+brew 'htop-osx'
+brew 'iftop'
+brew 'imagemagick'
+brew 'isl'
+brew 'jpeg'
+brew 'json-c'
+brew 'libassuan'
+brew 'libevent'
+brew 'libffi'
+brew 'libgcrypt'
+brew 'libgpg-error'
+brew 'libksba'
+brew 'libmpc'
+brew 'libpng'
+brew 'libtasn1'
+brew 'libtiff'
+brew 'libtool'
+brew 'libyaml'
+brew 'libyubikey'
+brew 'links'
+brew 'macvim'
+brew 'makedepend'
+brew 'mariadb'
+brew 'memcached'
+brew 'mercurial'
+brew 'mldonkey'
+brew 'mobile-shell'
+brew 'mpfr'
+brew 'nettle'
+brew 'nginx'
+brew 'node'
+brew 'objective-caml'
+brew 'openssl'
+brew 'optipng'
+brew 'ossp-uuid'
+brew 'pcre'
+brew 'pinentry'
+brew 'pixman'
+brew 'pkg-config'
+brew 'pngquant'
+brew 'postgresql'
+brew 'protobuf'
+brew 'pstree'
+brew 'pth'
+brew 'pwgen'
+brew 'qemu'
+brew 'qt'
+brew 'ragel'
+brew 'rbenv'
+brew 'readline'
+brew 'redis'
+brew 'rhino'
+brew 'ruby-build'
+brew 's3cmd'
+brew 'the_silver_searcher'
+brew 'tig'
+brew 'tmux'
+brew 'tree'
+brew 'v8'
+brew 'valgrind', args: ['HEAD']
+brew 'vim'
+brew 'watch'
+brew 'watchman'
+brew 'wget'
+brew 'xz'
+brew 'ykpers'
+brew 'zsh'
+cask 'arq'
+cask 'firefox'
+cask 'firefoxdeveloperedition'
+cask 'flux'
+cask 'google-chrome'
+cask 'google-chrome-canary'
+cask 'isolator'
+cask 'istat-menus'
+cask 'iterm2-nightly'
+cask 'karabiner'
+cask 'nvalt'
+cask 'omnidisksweeper'
+cask 'skype'
+cask 'spotify'
+cask 'steam'
+cask 'superduper'
+cask 'textmate'
+cask 'vlc'
