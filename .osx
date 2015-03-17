@@ -19,12 +19,52 @@ defaults write com.apple.universalaccess reduceTransparency -bool true
 # (default is 1, "Blue")
 defaults write NSGlobalDomain AppleAquaColorVariant -int 6
 
+# [10.10.2] System Preferences -> General -> Sidebar icon size -> Small
+defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 1
+
+# [10.10.2] System Preferences -> General -> Show scroll bars ->
+# Automatically based on mouse or trackpad
+defaults write NSGlobalDomain AppleShowScrollBars Automatic
+
+# [10.10.2] System Preferences -> General -> Click in scroll bar to ->
+# Jump to the next page
+defaults write NSGlobalDomain AppleScrollerPagingBehavior -int 0
+
+# [10.10.2] System Preferences -> General ->
+# [Don't] Ask to keep changes when closing documents
+defaults write NSGlobalDomain NSCloseAlwaysConfirmsChanges -int 0
+
+# [10.10.2] System Preferences -> General ->
+# [Don't] Close windows when quitting an app
+defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -int 0
+
+# [10.10.2] System Preferences -> General -> Recent items
+defaults write com.apple.recentitems RecentApplications -dict-add MaxAmount 50
+defaults write com.apple.recentitems RecentDocuments -dict-add MaxAmount 50
+defaults write com.apple.recentitems RecentServers -dict-add MaxAmount 50
+
 # [10.9] Expand save panel by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 
 # [10.10.2] Make sheets drop down (almost) instantly
 defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
+
+# [10.10.2] System Preferences -> Desktop & Screen Saver -> Screen Saver ->
+# Show with clock
+defaults -currentHost write com.apple.screensaver showClock -int 1
+
+# [10.10.2] System Preferences -> Desktop & Screen Saver -> Screen Saver ->
+# Start after -> 5 Minutes
+defaults -currentHost write com.apple.screensaver idleTime -int 300
+
+# [10.10.2] System Preferences -> Desktop & Screen Saver -> Screen Saver ->
+# Hot Corners -> [Bottom Left] Start Screen Saver
+defaults write com.apple.dock wvous-bl-corner -int 5
+
+# [10.10.2] System Preferences -> Desktop & Screen Saver -> Screen Saver ->
+# Hot Corners -> [Top Right] Disable Screen Saver
+defaults write com.apple.dock wvous-tr-corner -int 6
 
  # [10.9] Expand print panel by default
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
