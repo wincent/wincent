@@ -13,10 +13,11 @@
 
 	fixup = !sh -c 'git commit --fixup=$1 ${@:2}' -
 
-	# requires Git 1.6.3 or later
-	graph = log --graph --pretty=format:'%C(yellow)%h%Creset%C(red bold)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%aN>%Creset'
+	# requires Git 1.6.3 or later; %C(auto) requires Git 1.8.3 or later
+	graph = log --graph --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%aN>%Creset'
 
-	oneline = log --pretty=format:'%C(yellow)%h%Creset%C(red bold)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%aN>%Creset'
+	# %C(auto) requires Git 1.8.3 or later
+	oneline = log --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%aN>%Creset'
 
 	# requires Git 1.5.4 or later
 	patch = add -p
@@ -31,7 +32,9 @@
 
 	st = status
 	staged = diff --cached
-	ten = log -10 --pretty=format:'%C(yellow)%h%Creset%C(red bold)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%aN>%Creset'
+
+	# %C(auto) requires Git 1.8.3 or later
+	ten = log -10 --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%aN>%Creset'
 
 [branch]
 	autosetupmerge = always
