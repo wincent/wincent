@@ -3,10 +3,10 @@
 ag() {
   if [[ "$ITERM_PROFILE" = 'Solarized Dark' ]]; then
     # italic blue paths, pink line numbers, underlined white matches
-    command ag --pager="less -FRSX" --color-path=34\;3 --color-line-number=35 --color-match=37\;1\;4 $@
+    command ag --pager="less -FRSX" --color-path=34\;3 --color-line-number=35 --color-match=37\;1\;4 "$@"
   else
     # italic blue paths, pink line numbers, underlined purple matches
-    command ag --pager="less -FRSX" --color-path=34\;3 --color-line-number=35 --color-match=35\;1\;4 $@
+    command ag --pager="less -FRSX" --color-path=34\;3 --color-line-number=35 --color-match=35\;1\;4 "$@"
   fi
 }
 
@@ -15,7 +15,7 @@ mosh() {
     # common case: getting to my workstation
     command mosh sandbox
   else
-    command mosh $@
+    command mosh "$@"
   fi
 }
 
@@ -24,21 +24,22 @@ ssh() {
     # common case: getting to my workstation
     command ssh sandbox-clipper
   else
-    command ssh $@
+    command ssh "$@"
   fi
 }
 
 tmux() {
   # inspired by: https://gist.github.com/lann/6771001
   SOCK_SYMLINK=~/.ssh/ssh_auth_sock
-  if [ -r $SSH_AUTH_SOCK -a ! -L $SSH_AUTH_SOCK ]; then
-    ln -sf $SSH_AUTH_SOCK $SOCK_SYMLINK
+  if [ -r "$SSH_AUTH_SOCK" -a ! -L "$SSH_AUTH_SOCK" ]; then
+    ln -sf "$SSH_AUTH_SOCK" $SOCK_SYMLINK
   fi
 
   if [[ -z "$@" ]]; then
     # attach to existing session, or create one, based on current directory
-    env SSH_AUTH_SOCK=$SOCK_SYMLINK tmux new -A -s "$(basename $(pwd))"
+    SESSION_NAME=$(basename "$(pwd)")
+    env SSH_AUTH_SOCK=$SOCK_SYMLINK tmux new -A -s "$SESSION_NAME"
   else
-    env SSH_AUTH_SOCK=$SOCK_SYMLINK tmux $@
+    env SSH_AUTH_SOCK=$SOCK_SYMLINK tmux "$@"
   fi
 }

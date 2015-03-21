@@ -58,10 +58,10 @@ shopt -u hostcomplete
 # Environment
 #
 
-source $HOME/.shells/exports
-source $HOME/.shells/path
-source $HOME/.shells/vars
-source $HOME/.shells/common
+source "$HOME/.shells/exports"
+source "$HOME/.shells/path"
+source "$HOME/.shells/vars"
+source "$HOME/.shells/common"
 
 #
 # Title bar
@@ -72,7 +72,7 @@ CLOSETITLEBAR="\007"
 
 trap 'printf "${OPENTITLEBAR}`history 1 | cut -b8- | sed 's/%/%%/g'`${CLOSETITLEBAR}"' DEBUG
 
-source $HOME/.shells/aliases
+source "$HOME/.shells/aliases"
 
 #
 # Functions
@@ -118,7 +118,7 @@ check_cr()
   for FILE in $(find . -type f)
   do
     TYPE=$(file -b "$FILE")
-    if [[ "$TYPE" =~ 'text' ]]; then
+    if [[ "$TYPE" =~ text ]]; then
       if ! perl -ne "exit 1 if m/\r/;" "$FILE"; then
         echo "CR detected in : $FILE"
       else
@@ -160,16 +160,6 @@ countsource()
   fi
 }
 
-# get pid of named command(s)
-pid()
-{
-  while [ -n "$1" ]
-  do
-    ps axww -o pid,command | grep -i "$1" | grep -v grep | awk '{print $1}'
-    shift
-  done
-}
-
 # regmv = regex + mv (mv with regex parameter specification)
 #   example: regmv '/\.tif$/.tiff/' *
 #   replaces .tif with .tiff for all files in current dir
@@ -189,7 +179,7 @@ regmv()
   shift
   while [ -n "$1" ]
   do
-    newname=`echo "$1" | sed "s${regex}g"`
+    newname=$(echo "$1" | sed "s${regex}g")
     if [ "${newname}" != "$1" ]; then
       mv -i -v "$1" "$newname"
     fi
@@ -197,7 +187,7 @@ regmv()
   done
 }
 
-source $HOME/.shells/functions
+source "$HOME/.shells/functions"
 
 #
 # Completions
