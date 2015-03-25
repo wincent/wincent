@@ -27,14 +27,14 @@ Linuxes.
   local system clipboard.
 * On OS X, [iTerm2](http://www.iterm2.com/) with
   [Solarized](http://ethanschoonover.com/solarized) color scheme(s) installed.
-* [Ruby](https://www.ruby-lang.org/), to run the `bootstrap.rb` installation
-  script.
+* [GNU Make](https://www.gnu.org/software/make/) to perform setup via the
+  included `Makefile`.
 
 ## Installation
 
 ```sh
 git clone --recursive git://git.wincent.com/wincent.git
-wincent/bootstrap.rb
+make all # see make help for other possible targets
 ```
 
 ## General characteristics
