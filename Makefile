@@ -20,17 +20,28 @@ ifneq (1,$(words $(abspath $(PWD))))
 $(error PWD must contain no whitespace)
 endif
 
-.PHONY: all dotfiles help homebrew install terminfo vim
+.PHONY: all brew brewdler dotfiles help homebrew install terminfo vim
 
 # Default target.
 install: dotfiles
 
 all: dotfiles homebrew terminfo vim
 
+/usr/local/bin/brew:
+	curl -L https://raw.githubusercontent.com/Homebrew/install/master/install -o install-homebrew
+	ruby install-homebrew
+
+/usr/local/Library/Taps/homebrew/homebrew-brewdler: | brew
+	brew tap homebrew/brewdler
+
+brew: | /usr/local/bin/brew
+
+brewdler: | /usr/local/Library/Taps/homebrew/homebrew-brewdler
+
 dotfiles: $(DOT_FILES)
 
-homebrew:
-	@echo TODO: implement
+homebrew: brew brewdler
+	brew brewdle
 
 # TODO: consider using recursive Makefile for this
 terminfo:

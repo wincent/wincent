@@ -4,3 +4,4 @@
 *.bak
 *.temp
 .vim/dark
+/install-homebrew
