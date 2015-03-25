@@ -1,7 +1,7 @@
-.DS_Store
-*~
-\#*\#
 *.bak
 *.temp
-.vim/dark
+*~
+.DS_Store
+/.vim/dark
 /install-homebrew
+\#*\#
