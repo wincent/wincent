@@ -47,9 +47,15 @@ homebrew: brew brewdler
 terminfo:
 	@echo TODO: implement
 
-# TODO: consider using recursive Makefile for this
+# TODO: consider running YouCompleteMe/install.sh on first run
 vim:
-	@echo TODO: implement
+	git submodule foreach git checkout master
+	(cd .vim/bundle/command-t && git checkout next)
+	(cd .vim/bundle/vim-colors-solarized && git checkout italics)
+	(cd .vim/bundle/YouCompleteMe && git checkout a1feade)
+	git submodule foreach 'git pull --recurse-submodules || :'
+	(cd .vim/bundle/YouCompleteMe && git submodule update --init --recursive)
+	vim -u NONE -N -c 'runtime bundle/vim-pathogen/autoload/pathogen.vim | Helptags | quit'
 
 $(BACKUPS):
 	mkdir -p $@
