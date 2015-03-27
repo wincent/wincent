@@ -109,3 +109,6 @@
 [submodule "extras/solarized"]
 	path = extras/solarized
 	url = https://github.com/altercation/solarized.git
+[submodule "vendor/ansible"]
+	path = vendor/ansible
+	url = https://github.com/ansible/ansible.git
