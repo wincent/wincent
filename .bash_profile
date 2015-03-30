@@ -62,6 +62,7 @@ source "$HOME/.shells/exports"
 source "$HOME/.shells/path"
 source "$HOME/.shells/vars"
 source "$HOME/.shells/common"
+source "$HOME/.shells/colors"
 
 #
 # Title bar
