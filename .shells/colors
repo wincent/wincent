@@ -9,6 +9,11 @@ color() {
   BACKGROUND="$1"
   SCHEME="$2"
 
+  if [ $# -eq 0 -a -s "$BASE16_CONFIG" ]; then
+    cat ~/.vim/.base16
+    return
+  fi
+
   if [[ "$SCHEME" = 'help' ]]; then
     BACKGROUND='help'
   fi
