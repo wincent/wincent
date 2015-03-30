@@ -30,7 +30,7 @@ color() {
     echo 'color light [harmonic16|ocean|tomorrow|twilight|...]'
     echo
     echo 'Available schemes:'
-    ls ~/.shells/base16-shell/base16-*.sh | \
+    find ~/.shells/base16-shell -name 'base16-*.sh' | \
       sed -E 's|.+/base16-||' | \
       sed -E 's/\.(dark|light)\.sh/ (\1)/' | \
       column
