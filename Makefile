@@ -49,10 +49,7 @@ terminfo:
 
 # TODO: consider running YouCompleteMe/install.sh on first run
 vim:
-	git submodule foreach git checkout master
-	(cd .vim/bundle/command-t && git checkout next)
-	(cd .vim/bundle/vim-colors-solarized && git checkout italics)
-	(cd .vim/bundle/YouCompleteMe && git checkout a1feade)
+	git submodule foreach 'BRANCH=$$(git config -f $$toplevel/.gitmodules submodule."$$path".branch || echo master) && git checkout $$BRANCH'
 	git submodule foreach 'git pull --recurse-submodules || :'
 	(cd .vim/bundle/YouCompleteMe && git submodule update --init --recursive)
 	vim -u NONE -N -c 'runtime bundle/vim-pathogen/autoload/pathogen.vim | Helptags | quit'
