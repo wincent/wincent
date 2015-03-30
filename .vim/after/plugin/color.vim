@@ -1,48 +1,33 @@
-" Called with explicit "background" and "visibility" parameters, sets the
-" background ("light" or "dark") and whitespace visibility ("high" or "low").
-"
-" Without an explicit parameter, cycles through:
-"
-"   Solarized light, low visibility
-"   Solarized light, high visibility
-"   Solarized dark, low visibility
-"   Solarized dark, high visibility
-"
-function! s:CycleColorScheme(background, visibility)
-  if strlen(a:background) != 0 && strlen(a:visibility) != 0
-    let background = a:background
-    let visibility = a:visibility
-  else
-    let current = &background . ':' .g:solarized_visibility
-    let next = { 'light:low':  ['light', 'high'],
-               \ 'light:high': ['dark',  'low'],
-               \ 'dark:low':   ['dark',  'high'],
-               \ 'dark:high':  ['light', 'low'] }[current]
+function s:CheckColorScheme()
+  let g:base16colorspace=256
 
-    let background = next[0]
-    let visibility = next[1]
-  end
+  let s:config_file = expand('~/.vim/.base16')
 
-  let g:solarized_visibility = visibility
-  execute "set background=" . background
-  color solarized
+  if filereadable(s:config_file)
+    let s:config = readfile(s:config_file, '', 2)
 
-  " MatchParen highlighting is hard to see; make it more obvious
-  let ctermbg = background == 'light' ? 7 : 8
-  execute "hi MatchParen ctermbg=" . ctermbg .
-        \ " ctermfg=11 cterm=underline term=underline"
+    if s:config[1] =~ '^dark\|light$'
+      exe 'set background=' . s:config[1]
+    else
+      echoerr 'Bad background ' . s:config[1] . ' in ' . s:config_file
+    endif
 
-  " Override garish search highlighting; default is:
-  " term=reverse cterm=reverse ctermfg=3 guibg=Yellow
-  hi Search term=reverse cterm=reverse ctermfg=4 guifg=#268bd2
+    if filereadable(expand('~/.vim/bundle/base16-vim/colors/base16-' . s:config[0] . '.vim'))
+      exe 'color base16-' . s:config[0]
+    else
+      echoerr 'Bad scheme ' . s:config[0] . ' in ' . s:config_file
+    endif
+  else " default
+    set background=light
+    color base16-solarized
+  endif
 endfunction
 
-" mnemonic: [w]hitespace
-nnoremap <leader>w :call <SID>CycleColorScheme('', '')<CR>
+augroup autocolor
+  autocmd!
+  autocmd FocusGained * call s:CheckColorScheme()
+augroup END
 
-let g:solarized_italic=1
-if filereadable(expand("~/.vim/dark"))
-  call s:CycleColorScheme('dark', 'low')
-else " default
-  call s:CycleColorScheme('light', 'low')
-endif
+" TODO: get italics working
+" TODO: only set background/color if something actually changed
+call s:CheckColorScheme()

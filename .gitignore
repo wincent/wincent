@@ -2,6 +2,6 @@
 *.temp
 *~
 .DS_Store
-/.vim/dark
+/.vim/.base16
 /install-homebrew
 \#*\#

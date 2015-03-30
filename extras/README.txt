@@ -1,8 +1,3 @@
-- solarized
-
-  For convenience, the official Solarized repo, containing the iTerm 2 color
-  files.
-
 - *.terminfo
 
   Terminfo files with italic capabilities added; these can be installed with:

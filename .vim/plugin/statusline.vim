@@ -55,17 +55,57 @@ if has('statusline')
     endif
   endfunction
 
+  " (Re-)create User1 highlight group, based on StatusLine group but with
+  " italics added; most of this logic is borrowed from:
+  " http://stackoverflow.com/a/1333025
+  function s:UpdateUser1()
+    redir => l:group
+    exe 'silent hi StatusLine'
+    redir END
+
+    " Traverse links back to authoritative group.
+    while l:group =~ 'links to'
+      let l:index = stridx(l:group, 'links to') + len('links to')
+      let l:linked = strpart(l:group, l:index + 1)
+      redir => l:group
+      exe 'silent hi ' . l:linked
+      redir END
+    endwhile
+
+    " Extract the highlighting details (the bit after "xxx")
+    let l:matches = matchlist(l:group, '\<xxx\>\s\+\(.*\)')
+    let l:original = l:matches[1]
+
+    for l:lhs in ['gui', 'term', 'cterm']
+      " Check for existing setting.
+      let l:matches = matchlist(
+        \   l:original,
+        \   '^\([^ ]\+ \)\?' .
+        \   '\(' . l:lhs . '=[^ ]\+\)' .
+        \   '\( .\+\)\?$'
+        \ )
+      if l:matches == []
+        " No setting, add one with just "italic" in it
+        let l:original .= ' ' . l:lhs . '=italic'
+      else
+        " Existing setting; check whether "italic" is already in it.
+        let l:start = l:matches[1]
+        let l:value = l:matches[2]
+        let l:end = l:matches[3]
+        if l:value =~ '.*italic.*'
+          continue
+        else
+          let l:original = l:start . l:value . ',italic' . l:end
+        endif
+      endif
+    endfor
+
+    " Actually (re-)create the group.
+    exe 'hi User1 ' . l:original
+  endfunction
+
   augroup statusline
     autocmd!
-    autocmd ColorScheme *
-      \ if &background == 'light' |
-      \   hi User1 term=italic,reverse
-      \            cterm=italic,reverse ctermfg=10 ctermbg=7
-      \            gui=italic,reverse guifg=#586e75 guibg=#eee8d5 |
-      \ else |
-      \   hi User1 term=italic,reverse
-      \            cterm=italic,reverse ctermfg=14 ctermbg=0
-      \            gui=italic,reverse guifg=#93a1a1 guibg=#073642 |
-      \ endif
+    autocmd ColorScheme * call s:UpdateUser1()
   augroup END
 endif

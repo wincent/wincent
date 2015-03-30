@@ -101,6 +101,7 @@ bindkey ' ' magic-space # do history expansion on space
 
 source $HOME/.shells/aliases
 source $HOME/.shells/common
+source $HOME/.shells/colors
 source $HOME/.shells/exports
 source $HOME/.shells/functions
 source $HOME/.shells/path

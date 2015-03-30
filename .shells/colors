@@ -1,0 +1,45 @@
+#
+# Colors
+#
+
+BASE16_DIR=~/.shells/base16-shell
+BASE16_CONFIG=~/.vim/.base16
+
+dark() {
+  FILE="$BASE16_DIR/base16-$1.dark.sh"
+  if [[ -x "$FILE" ]]; then
+    echo "$1" > "$BASE16_CONFIG"
+    echo dark >> "$BASE16_CONFIG"
+    "$FILE"
+  else
+    echo "Scheme '$1' not found in $BASE16_DIR"
+    return 1
+  fi
+}
+
+light() {
+  FILE="$BASE16_DIR/base16-$1.light.sh"
+  if [[ -x "$FILE" ]]; then
+    echo "$1" > "$BASE16_CONFIG"
+    echo light >> "$BASE16_CONFIG"
+    "$FILE"
+  else
+    echo "Scheme '$1' not found in $BASE16_DIR"
+    return 1
+  fi
+}
+
+if [[ -s "$BASE16_CONFIG" ]]; then
+  SCHEME=$(head -1 "$BASE16_CONFIG")
+  BACKGROUND=$(sed -n -e '2 p' "$BASE16_CONFIG")
+  if [ "$BACKGROUND" = 'dark' ]; then
+    dark "$SCHEME"
+  elif [ "$BACKGROUND" = 'light' ]; then
+    light "$SCHEME"
+  else
+    echo "error: unknown background type in $BASE16_CONFIG"
+  fi
+else
+  # default
+  dark ocean
+fi
