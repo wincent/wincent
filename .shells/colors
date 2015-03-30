@@ -5,28 +5,50 @@
 BASE16_DIR=~/.shells/base16-shell
 BASE16_CONFIG=~/.vim/.base16
 
-dark() {
-  FILE="$BASE16_DIR/base16-$1.dark.sh"
-  if [[ -x "$FILE" ]]; then
-    echo "$1" > "$BASE16_CONFIG"
-    echo dark >> "$BASE16_CONFIG"
-    "$FILE"
-  else
-    echo "Scheme '$1' not found in $BASE16_DIR"
-    return 1
+color() {
+  BACKGROUND="$1"
+  SCHEME="$2"
+
+  if [[ "$SCHEME" = 'help' ]]; then
+    BACKGROUND='help'
   fi
+
+  case "$BACKGROUND" in
+  dark|light)
+    FILE="$BASE16_DIR/base16-$SCHEME.$BACKGROUND.sh"
+    if [[ -x "$FILE" ]]; then
+      echo "$SCHEME" > "$BASE16_CONFIG"
+      echo "$BACKGROUND" >> "$BASE16_CONFIG"
+      "$FILE"
+    else
+      echo "Scheme '$SCHEME' not found in $BASE16_DIR"
+      return 1
+    fi
+    ;;
+  help)
+    echo 'color dark [ashes|default|ocean|railscasts|tomorrow|twilight|...]'
+    echo 'color light [harmonic16|ocean|tomorrow|twilight|...]'
+    echo
+    echo 'Available schemes:'
+    ls ~/.shells/base16-shell/base16-*.sh | \
+      sed -E 's|.+/base16-||' | \
+      sed -E 's/\.(dark|light)\.sh/ (\1)/' | \
+      column
+      ;;
+
+  *)
+    echo 'Unknown subcommand: use one of {dark,light,help}'
+    ;;
+  esac
+
+}
+
+dark() {
+  color dark "$1"
 }
 
 light() {
-  FILE="$BASE16_DIR/base16-$1.light.sh"
-  if [[ -x "$FILE" ]]; then
-    echo "$1" > "$BASE16_CONFIG"
-    echo light >> "$BASE16_CONFIG"
-    "$FILE"
-  else
-    echo "Scheme '$1' not found in $BASE16_DIR"
-    return 1
-  fi
+  color light "$1"
 }
 
 if [[ -s "$BASE16_CONFIG" ]]; then
