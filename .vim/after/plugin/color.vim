@@ -21,6 +21,9 @@ function s:CheckColorScheme()
     set background=light
     color base16-solarized
   endif
+
+  " Give statusline.vim a chance to re-set User1
+  doautocmd ColorScheme
 endfunction
 
 augroup autocolor
