@@ -26,7 +26,6 @@ Linuxes.
 * [Clipper](https://wincent.com/products/clipper) for transparent access to the
   local system clipboard.
 * On OS X, [iTerm2](http://www.iterm2.com/) with
-  [Solarized](http://ethanschoonover.com/solarized) color scheme(s) installed.
 * [GNU Make](https://www.gnu.org/software/make/) to perform setup via the
   included `Makefile`.
 
