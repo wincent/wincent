@@ -18,8 +18,10 @@ function s:CheckColorScheme()
       echoerr 'Bad scheme ' . s:config[0] . ' in ' . s:config_file
     endif
   else " default
+    " Nice light schemes: harmonic16, ocean, tomorrow, twilight
+    " Nice dark schemes: ashes, default, ocean, railscasts, tomorrow, twilight
     set background=light
-    color base16-solarized
+    color base16-tomorrow
   endif
 
   exe 'hi Comment ' . ItalicizeGroup('Comment')
