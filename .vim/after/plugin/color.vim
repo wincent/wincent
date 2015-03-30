@@ -22,6 +22,8 @@ function s:CheckColorScheme()
     color base16-solarized
   endif
 
+  exe 'hi Comment ' . ItalicizeGroup('Comment')
+
   " Give statusline.vim a chance to re-set User1
   doautocmd ColorScheme
 endfunction
@@ -31,6 +33,5 @@ augroup autocolor
   autocmd FocusGained * call s:CheckColorScheme()
 augroup END
 
-" TODO: get italics working
 " TODO: only set background/color if something actually changed
 call s:CheckColorScheme()
