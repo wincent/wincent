@@ -43,5 +43,5 @@ function ItalicizeGroup(group)
     endif
   endfor
 
-  return l:original
+  return tr(l:original, "\r\n", '  ')
 endfunction
