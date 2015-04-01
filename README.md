@@ -26,14 +26,14 @@ Linuxes.
 * [Clipper](https://wincent.com/products/clipper) for transparent access to the
   local system clipboard.
 * On OS X, [iTerm2](http://www.iterm2.com/) with
-* [GNU Make](https://www.gnu.org/software/make/) to perform setup via the
-  included `Makefile`.
+* [Python](https://www.python.org/) to perform setup via the included `install`
+  command.
 
 ## Installation
 
 ```sh
 git clone --recursive git://git.wincent.com/wincent.git
-make all # see make help for other possible targets
+./install
 ```
 
 ## General characteristics

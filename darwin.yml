@@ -1,0 +1,5 @@
+---
+- hosts: localhost
+  roles:
+    - { role: dotfiles, tags: ['dotfiles'] }
+    # TODO: more here...

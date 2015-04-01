@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# TODO: check ansible cloned and installed etc here?
+python vendor/virtualenv/virtualenv.py python
+source python/bin/activate
+pip install paramiko PyYAML Jinja2 httplib2
+
+# this has an intermediate failing command... but works overall
+source vendor/ansible/hacking/env-setup
+
+HOST_OS=$(uname)
+
+if [[ "$HOST_OS" = 'Darwin' ]]; then
+  ansible-playbook -i inventory darwin.yml
+elif [[ "$HOST_OS" = 'Linux' ]]; then
+  ansible-playbook -i inventory linux.yml
+else
+  echo "Unknown host OS: $HOST_OS"
+  exit 1
+fi
