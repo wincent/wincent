@@ -1,8 +1,6 @@
 #!/bin/bash
 
-# TODO: turn this off with next Ansible update
-# (problem fixed in https://github.com/ansible/ansible/commit/4aa3ac41)
-# set -e
+set -e
 
 ANSIBLE_ENV_SETUP=vendor/ansible/hacking/env-setup
 VIRTUALENV_SETUP=vendor/virtualenv/virtualenv.py
