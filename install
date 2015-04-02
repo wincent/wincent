@@ -10,7 +10,7 @@ VIRTUALENV_ACTIVATE=$VIRTUALENV_TARGET_DIR/bin/activate
 if [ "$1" = '--force' ]; then
   FORCE=1
 elif [ -n "$1" ]; then
-  echo "Unrecognized argument(s): $@"
+  echo "Unrecognized argument(s): $*"
   echo "Supported arguments: [--force]"
   exit 1
 fi
