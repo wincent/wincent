@@ -11,16 +11,24 @@ VIRTUALENV_SETUP=vendor/virtualenv/virtualenv.py
 VIRTUALENV_TARGET_DIR=python
 VIRTUALENV_ACTIVATE=$VIRTUALENV_TARGET_DIR/bin/activate
 
+usage() {
+  echo "Supported arguments:"
+  echo "  -f/--force"
+  echo "  -h/--help"
+  echo "  -v/--verbose (repeat for more verbosity)"
+}
+
 while [ $# -gt 0 ]; do
   if [ "$1" = '--force' -o "$1" = '-f' ]; then
     FORCE=1
   elif [ "$1" = '--verbose' -o "$1" = '-v' ]; then
     VERBOSE=$((VERBOSE + 1))
+  elif [ "$1" = '--help' -o "$1" = '-h' ]; then
+    usage
+    exit
   elif [ -n "$1" ]; then
     echo "Unrecognized argument(s): $*"
-    echo "Supported arguments:"
-    echo "  -f/--force"
-    echo "  -v/--verbose (repeat for more verbosity)"
+    usage
     exit 1
   fi
   shift
