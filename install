@@ -23,7 +23,7 @@ while [ $# -gt 0 ]; do
     FORCE=1
   elif [ "$1" = '--verbose' -o "$1" = '-v' ]; then
     VERBOSE=$((VERBOSE + 1))
-  elif [ "$1" = '--help' -o "$1" = '-h' ]; then
+  elif [ "$1" = '--help' -o "$1" = '-h' -o "$1" = 'help' ]; then
     usage
     exit
   elif [ -n "$1" ]; then
