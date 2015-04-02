@@ -15,7 +15,7 @@ while [ $# -gt 0 ]; do
   if [ "$1" = '--force' -o "$1" = '-f' ]; then
     FORCE=1
   elif [ "$1" = '--verbose' -o "$1" = '-v' ]; then
-    VERBOSE=$(expr ${VERBOSE-0} + 1)
+    VERBOSE=$((VERBOSE + 1))
   elif [ -n "$1" ]; then
     echo "Unrecognized argument(s): $*"
     echo "Supported arguments:"
@@ -28,7 +28,7 @@ done
 
 if [[ $VERBOSE ]]; then
   DEV_NULL=/dev/stdout
-  if [[ $VERBOSE > 1 ]]; then
+  if [ $VERBOSE -gt 1 ]; then
     echo 'Enabling extremely verbose output'
     set -x
   fi
