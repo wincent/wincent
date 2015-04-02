@@ -31,10 +31,24 @@ Linuxes.
 
 ## Installation
 
+After cloning, run the `install` script:
+
 ```sh
 git clone --recursive git://git.wincent.com/wincent.git
 ./install
 ```
+
+As a fallback strategy, in case the `install` script fails, you can symlink the
+dotfiles by hand with a command like the following:
+
+```sh
+for DOTFILE in $(find roles/dotfiles/files -maxdepth 1 -name '.*' | tail -n +2); do
+  ln -sf $PWD/$DOTFILE ~
+done
+```
+
+**Note:** The `ln -sf` command will overwrite existing files, but will fail to
+overwrite existing directories.
 
 ## General characteristics
 
