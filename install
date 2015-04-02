@@ -1,11 +1,44 @@
 #!/bin/bash
 
-# TODO: check ansible cloned and installed etc here?
-python vendor/virtualenv/virtualenv.py python
-source python/bin/activate
-pip install paramiko PyYAML Jinja2 httplib2
+# TODO: turn this off with next Ansible update
+# (problem fixed in https://github.com/ansible/ansible/commit/4aa3ac41)
+# set -e
 
-# this has an intermediate failing command... but works overall
+ANSIBLE_ENV_SETUP=vendor/ansible/hacking/env-setup
+VIRTUALENV_SETUP=vendor/virtualenv/virtualenv.py
+VIRTUALENV_TARGET_DIR=python
+VIRTUALENV_ACTIVATE=$VIRTUALENV_TARGET_DIR/bin/activate
+
+if [ ! -e $VIRTUALENV_SETUP ]; then
+  echo "Not found: $VIRTUALENV_SETUP"
+  echo "Did you forget to 'git submodule update --init --recursive'?"
+  exit 1
+fi
+
+if [ ! -e $ANSIBLE_ENV_SETUP ]; then
+  echo "Not found: $ANSIBLE_ENV_SETUP"
+  echo "Did you forget to 'git submodule update --init --recursive'?"
+  exit 1
+fi
+
+if [ ! -e $VIRTUALENV_ACTIVATE ]; then
+  python $VIRTUALENV_SETUP $VIRTUALENV_TARGET_DIR
+fi
+source $VIRTUALENV_ACTIVATE
+
+if [[ \
+  -z $(pip show paramiko) || \
+  -z $(pip show PyYAML) || \
+  -z $(pip show Jinja2) || \
+  -z $(pip show httplib2) \
+  ]]; then
+  if ! pip install paramiko PyYAML Jinja2 httplib2; then
+    echo "Failed: pip install"
+    echo "Did you forget to 'export https_proxy=fwdproxy:8080' or similar?"
+    exit 1
+  fi
+fi
+
 source vendor/ansible/hacking/env-setup
 
 HOST_OS=$(uname)
