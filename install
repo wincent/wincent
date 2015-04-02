@@ -26,12 +26,7 @@ if [ ! -e $VIRTUALENV_ACTIVATE ]; then
 fi
 source $VIRTUALENV_ACTIVATE
 
-if [[ \
-  -z $(pip show paramiko) || \
-  -z $(pip show PyYAML) || \
-  -z $(pip show Jinja2) || \
-  -z $(pip show httplib2) \
-  ]]; then
+if [[ -z $(pip show paramiko PyYAML Jinja2 httplib2) ]]; then
   if ! pip install paramiko PyYAML Jinja2 httplib2; then
     echo "Failed: pip install"
     echo "Did you forget to 'export https_proxy=fwdproxy:8080' or similar?"
