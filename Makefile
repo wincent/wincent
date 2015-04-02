@@ -1,13 +1,12 @@
-.PHONY: all brew brewdler help homebrew terminfo vim
+.PHONY: all brew brewdler help homebrew vim
 
 # Default target.
 help:
 	@echo 'make all      - install everything'
 	@echo 'make homebrew - install/update Homebrew bundle'
-	@echo 'make terminfo - install terminfo entries'
 	@echo 'make vim      - install Vim configuration'
 
-all: homebrew terminfo vim
+all: homebrew vim
 
 /usr/local/bin/brew:
 	curl -L https://raw.githubusercontent.com/Homebrew/install/master/install -o install-homebrew
@@ -22,10 +21,6 @@ brewdler: | /usr/local/Library/Taps/homebrew/homebrew-brewdler
 
 homebrew: brew brewdler
 	brew brewdle
-
-# TODO: consider using recursive Makefile for this
-terminfo:
-	@echo TODO: implement
 
 # TODO: consider running YouCompleteMe/install.sh on first run
 vim:

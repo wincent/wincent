@@ -1,0 +1,11 @@
+---
+- name: terminfo | create target directory
+  file: path={{ terminfo_path }} state=directory
+
+- name: terminfo | update terminfo files
+  command:
+    tic -o {{ terminfo_path }} {{ ansible_env.PWD }}/roles/terminfo/files/{{ item }}
+  with_items:
+    - screen-256color.terminfo
+    - screen.terminfo
+    - xterm-256color.terminfo
