@@ -45,7 +45,7 @@ elif [[ ! $FORCE ]]; then
   echo "Skipping pip installs (already exists); use --force to override"
 fi
 
-source vendor/ansible/hacking/env-setup
+source vendor/ansible/hacking/env-setup &> /dev/null
 
 HOST_OS=$(uname)
 
