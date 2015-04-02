@@ -25,7 +25,7 @@ Linuxes.
 * Relatively recent [Git](http://git-scm.com/).
 * [Clipper](https://wincent.com/products/clipper) for transparent access to the
   local system clipboard.
-* On OS X, [iTerm2](http://www.iterm2.com/) with
+* On OS X, [iTerm2](http://www.iterm2.com/).
 * [Python](https://www.python.org/) to perform setup via the included `install`
   command.
 
