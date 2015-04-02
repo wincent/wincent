@@ -1,26 +1,17 @@
 ---
+- name: Create backup directory
+  file: path=~/.backups state=directory
+
+- name: Backup originals
+  command:
+    mv ~/{{ item }} ~/.backups/
+    creates=~/.backups/{{ item }}
+    removes=~/{{ item }}
+  with_items: dotfiles
+
 - name: Symlink dotfiles
   file: src={{ ansible_env.PWD }}/roles/dotfiles/files/{{ item }}
-        dest=~/{{ item }}
+        path=~/{{ item }}
         state=link
         force=yes
-  with_items:
-    - .ackrc
-    - .bash
-    - .bash_profile
-    - .gitattributes
-    - .gitconfig
-    - .gitignore
-    - .gitk
-    - .gvimrc
-    - .hgrc
-    - .inputrc
-    - .rdebugrc
-    - .rspec
-    - .screenrc
-    - .shells
-    - .slate.js
-    - .tmux.conf
-    - .vim
-    - .zsh
-    - .zshrc
+  with_items: dotfiles

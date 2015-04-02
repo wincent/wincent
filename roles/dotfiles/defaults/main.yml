@@ -1,0 +1,21 @@
+---
+dotfiles:
+  - .ackrc
+  - .bash
+  - .bash_profile
+  - .gitattributes
+  - .gitconfig
+  - .gitignore
+  - .gitk
+  - .gvimrc
+  - .hgrc
+  - .inputrc
+  - .rdebugrc
+  - .rspec
+  - .screenrc
+  - .shells
+  - .slate.js
+  - .tmux.conf
+  - .vim
+  - .zsh
+  - .zshrc
