@@ -80,9 +80,9 @@ source vendor/ansible/hacking/env-setup &> $DEV_NULL
 HOST_OS=$(uname)
 
 if [ "$HOST_OS" = 'Darwin' ]; then
-  ansible-playbook -i inventory darwin.yml
+  ansible-playbook -i inventory ${VERBOSE+-v} darwin.yml
 elif [ "$HOST_OS" = 'Linux' ]; then
-  ansible-playbook -i inventory linux.yml
+  ansible-playbook -i inventory ${VERBOSE+-v} linux.yml
 else
   echo "Unknown host OS: $HOST_OS"
   exit 1
