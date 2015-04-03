@@ -1,2 +1,5 @@
 ---
-command_t_base: '{{ ansible_env.PWD }}/roles/dotfiles/files/.vim/bundle/command-t'
+build_you_complete_me: false
+vim_bundle_base: '{{ ansible_env.PWD}}/roles/dotfiles/files/.vim/bundle'
+command_t_base: '{{ vim_bundle_base }}/command-t'
+you_complete_me_base: '{{ vim_bundle_base }}/YouCompleteMe'

@@ -9,3 +9,4 @@
   vars:
     command_t_bundle: ext.bundle
     vim_update_bundle: true
+    build_you_complete_me: true
