@@ -1,2 +1,2 @@
 ---
-command_t_base: roles/dotfiles/files/.vim/bundle/command-t
+command_t_base: '{{ ansible_env.PWD }}/roles/dotfiles/files/.vim/bundle/command-t'
