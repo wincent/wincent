@@ -7,6 +7,7 @@
   failed_when: original_check.rc > 1
   register: original_check
   with_items: dotfiles
+  changed_when: false
 
 - name: dotfiles | backup originals
   command:
