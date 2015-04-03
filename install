@@ -11,11 +11,18 @@ VIRTUALENV_SETUP=vendor/virtualenv/virtualenv.py
 VIRTUALENV_TARGET_DIR=python
 VIRTUALENV_ACTIVATE=$VIRTUALENV_TARGET_DIR/bin/activate
 
+
 usage() {
-  echo "Supported arguments:"
+  echo "./install [options] [roles...]"
+  echo "Supported options:"
   echo "  -f/--force"
   echo "  -h/--help"
   echo "  -v/--verbose (repeat for more verbosity)"
+  echo "Supported roles:"
+  find roles -type d -maxdepth 1 -mindepth 1 | \
+    sort | \
+    sed -E 's|^roles/||' | \
+    column
 }
 
 while [ $# -gt 0 ]; do
@@ -27,9 +34,17 @@ while [ $# -gt 0 ]; do
     usage
     exit
   elif [ -n "$1" ]; then
-    echo "Unrecognized argument(s): $*"
-    usage
-    exit 1
+    if [ -d "roles/$1" ]; then
+      if [ -z "$ROLES" ]; then
+        ROLES="--tags $1"
+      else
+        ROLES="$ROLES,$1"
+      fi
+    else
+      echo "Unrecognized argument(s): $*"
+      usage
+      exit 1
+    fi
   fi
   shift
 done
@@ -80,9 +95,9 @@ source vendor/ansible/hacking/env-setup &> $DEV_NULL
 HOST_OS=$(uname)
 
 if [ "$HOST_OS" = 'Darwin' ]; then
-  ansible-playbook -i inventory ${VERBOSE+-v} darwin.yml
+  ansible-playbook -i inventory ${VERBOSE+-v} ${ROLES} darwin.yml
 elif [ "$HOST_OS" = 'Linux' ]; then
-  ansible-playbook -i inventory ${VERBOSE+-v} linux.yml
+  ansible-playbook -i inventory ${VERBOSE+-v} ${ROLES} linux.yml
 else
   echo "Unknown host OS: $HOST_OS"
   exit 1
