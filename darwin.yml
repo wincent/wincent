@@ -8,5 +8,5 @@
     # TODO: more here...
   vars:
     command_t_bundle: ext.bundle
-    vim_update_bundle: true
+    update_vim_bundle: true
     build_you_complete_me: true

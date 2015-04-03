@@ -1,5 +1,5 @@
 ---
 - include: bundle.yml
-  when: vim_update_bundle
+  when: update_vim_bundle
 
 - include: build.yml
