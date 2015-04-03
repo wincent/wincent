@@ -1,4 +1,4 @@
-source $ADMIN_SCRIPST/vim/biggrep.vim
+source $ADMIN_SCRIPTS/vim/biggrep.vim
 
 let g:CommandTFileScanner = 'watchman'
 let g:CommandTInputDebounce = 200
