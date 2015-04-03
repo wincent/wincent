@@ -1,0 +1,17 @@
+---
+
+# `defaults read` commands fail with exit status 255 if invoked improperly, but
+# 1 for non-fatal problems, such as missing values.
+
+- name: defaults | register existing values
+  command: defaults {{ item.read }}
+  register: existing_defaults
+  with_items: osx_defaults
+  failed_when: existing_defaults.rc > 1
+
+- name: defaults | update defaults
+  command: defaults {{ item.0.write }}
+  when: item.1.stdout != item.0.expected
+  with_together:
+    - osx_defaults
+    - existing_defaults.results

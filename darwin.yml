@@ -5,7 +5,7 @@
     - { role: terminfo, tags: ['terminfo'] }
     - { role: homebrew, tags: ['homebrew'] }
     - { role: vim, tags: ['vim'] }
-    # TODO: more here...
+    - { role: defaults, tags: ['defaults'] }
   vars:
     command_t_bundle: ext.bundle
     update_vim_bundle: true
