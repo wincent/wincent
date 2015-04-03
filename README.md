@@ -38,6 +38,9 @@ git clone --recursive git://git.wincent.com/wincent.git
 ./install
 ```
 
+This sets up a local Python environment using the bundled virtualenv, bootstraps
+Ansible, and then uses Ansible to copy the dotfiles and configure the machine.
+
 As a fallback strategy, in case the `install` script fails, you can symlink the
 dotfiles by hand with a command like the following:
 
