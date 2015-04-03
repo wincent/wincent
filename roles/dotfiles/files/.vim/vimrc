@@ -1,5 +1,5 @@
 " add .vim/bundle subdirs to runtime path
-runtime bundle/vim-pathogen/autoload/pathogen.vim
+source $HOME/.vim/bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
 " extension -> filetype mappings
@@ -21,8 +21,15 @@ let g:tcommentTextObjectInlineComment=''
 " the default (g<) is a bit awkward to type
 let g:tcommentMapLeaderUncommentAnyway='gu'
 
-" allow for per-host overrides; usually stored in ~/.vim/vimrc.local
-runtime vimrc.local
+" allow for per-machine overrides in ~/.vim/host/hostname and ~/.vim/vimrc.local
+let s:hostfile = $HOME . '/.vim/host/' . substitute(hostname(), "\\..*", '', '')
+if filereadable(s:hostfile)
+  execute 'source ' . s:hostfile
+endif
+let s:vimrc_local = $HOME . '/.vim/vimrc.local'
+if filereadable(s:vimrc_local)
+  execute 'source ' . s:vimrc_local
+endif
 
 " After this file is sourced, plug-in code will be evaluated.
 " See ~/.vim/after for files evaluated after that.

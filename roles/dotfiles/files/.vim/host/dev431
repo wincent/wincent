@@ -1,0 +1,21 @@
+source $ADMIN_SCRIPST/vim/biggrep.vim
+
+let g:CommandTFileScanner = 'watchman'
+let g:CommandTInputDebounce = 200
+
+" disable check on save; too annoying
+"let g:fb_hack_on = 0
+
+" don't pollute my runtimepath with dozens of random files
+let g:fb_source_admin = 0
+
+" don't mess with my options
+let g:fb_default_opts = 0
+
+" don't mess with my files
+let g:fb_kill_whitespace = 0
+
+source $ADMIN_SCRIPTS/master.vimrc
+
+" YouCompleteMe wants Python 2, but I want 3
+let g:loaded_youcompleteme = 1
