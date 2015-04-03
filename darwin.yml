@@ -4,4 +4,8 @@
     - { role: dotfiles, tags: ['dotfiles'] }
     - { role: terminfo, tags: ['terminfo'] }
     - { role: homebrew, tags: ['homebrew'] }
+    - { role: vim, tags: ['vim'] }
     # TODO: more here...
+  vars:
+    command_t_bundle: ext.bundle
+    vim_update_bundle: true

@@ -1,0 +1,3 @@
+---
+- name: vim | update bundle
+  command: "{{ ansible_env.PWD }}/roles/vim/files/update-bundle"

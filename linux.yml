@@ -3,5 +3,7 @@
   roles:
     - { role: dotfiles, tags: ['dotfiles'] }
     - { role: terminfo, tags: ['terminfo'] }
+    - { role: vim, tags: ['vim'] }
   vars:
+    command_t_bundle: ext.so
     terminfo_path: ~/share/terminfo
