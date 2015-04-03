@@ -19,7 +19,7 @@ usage() {
   echo "  -h/--help"
   echo "  -v/--verbose (repeat for more verbosity)"
   echo "Supported roles:"
-  find roles -type d -maxdepth 1 -mindepth 1 | \
+  find roles -maxdepth 1 -mindepth 1 -type d | \
     sort | \
     sed -E 's|^roles/||' | \
     column
