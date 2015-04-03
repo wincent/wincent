@@ -3,4 +3,5 @@
   roles:
     - { role: dotfiles, tags: ['dotfiles'] }
     - { role: terminfo, tags: ['terminfo'] }
+    - { role: homebrew, tags: ['homebrew'] }
     # TODO: more here...

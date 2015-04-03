@@ -1,26 +1,11 @@
-.PHONY: all brew brewdler help homebrew vim
+.PHONY: all help vim
 
 # Default target.
 help:
 	@echo 'make all      - install everything'
-	@echo 'make homebrew - install/update Homebrew bundle'
 	@echo 'make vim      - install Vim configuration'
 
-all: homebrew vim
-
-/usr/local/bin/brew:
-	curl -L https://raw.githubusercontent.com/Homebrew/install/master/install -o install-homebrew
-	ruby install-homebrew
-
-/usr/local/Library/Taps/homebrew/homebrew-brewdler: | brew
-	brew tap homebrew/brewdler
-
-brew: | /usr/local/bin/brew
-
-brewdler: | /usr/local/Library/Taps/homebrew/homebrew-brewdler
-
-homebrew: brew brewdler
-	brew brewdle
+all: vim
 
 # TODO: consider running YouCompleteMe/install.sh on first run
 vim:
