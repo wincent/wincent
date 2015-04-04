@@ -1,2 +1,3 @@
 /roles/dotfiles/files/.vim/.base16
+/roles/ssh/files/ssh_config
 /python

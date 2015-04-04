@@ -1,0 +1,17 @@
+---
+- name: ssh | create .ssh directory
+  file: path=~/.ssh state=directory mode=0700
+
+- name: ssh | check for config file
+  stat: path={{ ssh_config_path }}
+  register: config_stat
+
+- name: ssh | report on config file
+  fail: msg='{{ ssh_config_path }} does not exist; run "{{ git_cipher_path }}"'
+  when: not config_stat.stat.exists
+
+- name: ssh | install config file
+  file: src={{ ssh_config_path }}
+        path=~/.ssh/config
+        force=yes
+        state=link

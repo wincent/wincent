@@ -117,3 +117,6 @@
 [submodule "vendor/virtualenv"]
 	path = vendor/virtualenv
 	url = https://github.com/pypa/virtualenv.git
+[submodule "vendor/git-cipher"]
+	path = vendor/git-cipher
+	url = https://github.com/wincent/git-cipher.git
