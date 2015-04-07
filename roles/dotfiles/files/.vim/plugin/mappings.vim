@@ -22,10 +22,10 @@ nnoremap <leader>e :edit <C-R>=expand('%:p:h') . '/' <CR>
 
 " \p -- show the path of the current file
 " (useful when you have a lot of splits and the status line gets truncated)
-nnoremap <leader>p :echo expand("%")<CR>
+nnoremap <leader>p :echo expand('%')<CR>
 
 " \pp -- like \p, but additionally yanks the filename and sends it off to Clipper
-nnoremap <leader>pp :let @0=expand("%") <Bar> :Clip<CR> :echo expand("%")<CR>
+nnoremap <leader>pp :let @0=expand('%') <Bar> :Clip<CR> :echo expand('%')<CR>
 
 " \zz -- Zap trailing whitespace in the current buffer.
 "
