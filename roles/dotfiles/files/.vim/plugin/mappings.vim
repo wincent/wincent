@@ -18,7 +18,7 @@ endif
 nnoremap <leader><leader> <C-^>
 
 " \e -- edit file, starting in same directory as current file
-nnoremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+nnoremap <leader>e :edit <C-R>=expand('%:p:h') . '/' <CR>
 
 " \p -- show the path of the current file
 " (useful when you have a lot of splits and the status line gets truncated)
@@ -35,10 +35,10 @@ nnoremap <silent> <leader>zz :let _last_search=@/ <Bar> :%s/\s\+$//e <Bar> :let 
 
 if has('gui_running')
   " \n -- no search highlighting
-  nnoremap <leader>n :noh <Bar> echo<CR>
+  nnoremap <leader>n :nohlsearch <Bar> echo<CR>
 else
   " for performance, we only use 'cursorcolumn' in the GUI
-  nnoremap <leader>n :set nocursorcolumn <Bar> noh <Bar> echo<CR>
+  nnoremap <leader>n :set nocursorcolumn <Bar> nohlsearch <Bar> echo<CR>
 endif
 
 " make Vim's regexen more Perl-like
@@ -63,7 +63,7 @@ xnoremap <leader>zc
   \:set tabstop=8<CR>
   \V}:retab<CR>
   \:let &tabstop=_tabstop<CR>
-  \gv>:noh<CR>
+  \gv>:nohlsearch<CR>
 
 " \da -- delete all buffers, except for those with unsaved changes
 nnoremap <leader>da :bufdo silent! bdelete<CR>

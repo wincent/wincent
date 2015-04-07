@@ -7,13 +7,13 @@ function s:CheckColorScheme()
     let s:config = readfile(s:config_file, '', 2)
 
     if s:config[1] =~ '^dark\|light$'
-      exe 'set background=' . s:config[1]
+      execute 'set background=' . s:config[1]
     else
       echoerr 'Bad background ' . s:config[1] . ' in ' . s:config_file
     endif
 
     if filereadable(expand('~/.vim/bundle/base16-vim/colors/base16-' . s:config[0] . '.vim'))
-      exe 'color base16-' . s:config[0]
+      execute 'color base16-' . s:config[0]
     else
       echoerr 'Bad scheme ' . s:config[0] . ' in ' . s:config_file
     endif

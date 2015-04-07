@@ -55,9 +55,9 @@ function! s:GotoOrOpen(command, ...)
     " instead of switching to the other tab; but bufexists() sees hidden
     " buffers, and if we try to open one of those, we get an unwanted split.
     if bufwinnr(file) != -1 || (bufexists(file) && !s:BufHidden(file))
-      exec "sb " . file
+      execute 'sb ' . file
     else
-      exec a:command . " " . file
+      execute a:command . ' ' . file
     endif
   endfor
 endfunction

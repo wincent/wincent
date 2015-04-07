@@ -3,7 +3,7 @@
 " http://stackoverflow.com/a/1333025
 function ItalicizeGroup(group)
   redir => l:group
-  exe 'silent hi ' . a:group
+  execute 'silent highlight ' . a:group
   redir END
 
   " Traverse links back to authoritative group.
@@ -11,7 +11,7 @@ function ItalicizeGroup(group)
     let l:index = stridx(l:group, 'links to') + len('links to')
     let l:linked = strpart(l:group, l:index + 1)
     redir => l:group
-    exe 'silent hi ' . l:linked
+    execute 'silent highlight ' . l:linked
     redir END
   endwhile
 

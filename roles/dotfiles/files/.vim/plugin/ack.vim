@@ -37,7 +37,7 @@ function! AckGrep(command)
     return
   endif
   cexpr system(s:ackprg . ' ' . s:escape(a:command))
-  cw
+  cwindow
 endfunction
 
 function! LackGrep(command)
@@ -45,7 +45,7 @@ function! LackGrep(command)
     return
   endif
   lexpr system(s:ackprg . ' ' . s:escape(a:command))
-  lw
+  lwindow
 endfunction
 
 " Run the specified substitution command on all the files in the quickfix list

@@ -57,7 +57,7 @@ if has('statusline')
 
   function s:UpdateUser1()
     let l:highlight = ItalicizeGroup('StatusLine')
-    exe 'hi User1 ' . l:highlight
+    execute 'highlight User1 ' . l:highlight
   endfunction
 
   augroup WincentStatusline
