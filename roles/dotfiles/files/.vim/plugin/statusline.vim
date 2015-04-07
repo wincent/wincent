@@ -60,7 +60,7 @@ if has('statusline')
     exe 'hi User1 ' . l:highlight
   endfunction
 
-  augroup statusline
+  augroup WincentStatusline
     autocmd!
     autocmd ColorScheme * call s:UpdateUser1()
   augroup END

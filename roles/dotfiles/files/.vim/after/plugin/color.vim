@@ -28,7 +28,7 @@ function s:CheckColorScheme()
   doautocmd ColorScheme
 endfunction
 
-augroup autocolor
+augroup WincentAutocolor
   autocmd!
   autocmd FocusGained * call s:CheckColorScheme()
 augroup END

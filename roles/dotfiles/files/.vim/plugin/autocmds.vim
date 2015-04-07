@@ -1,4 +1,4 @@
-augroup wincent
+augroup WincentAutocmds
   autocmd!
 
   " http://vim.wikia.com/wiki/Detect_window_creation_with_WinEnter
