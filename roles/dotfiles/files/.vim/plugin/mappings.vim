@@ -18,7 +18,7 @@ endif
 nnoremap <leader><leader> <C-^>
 
 " \e -- edit file, starting in same directory as current file
-nnoremap <leader>e :edit <C-R>=expand('%:p:h') . '/' <CR>
+nnoremap <leader>e :edit <C-R>=expand('%:p:h') . '/'<CR>
 
 " \p -- show the path of the current file
 " (useful when you have a lot of splits and the status line gets truncated)
