@@ -1,7 +1,2 @@
-function! VcsJump(command)
-  cexpr system("vcs-jump " . a:command . " 2> /dev/null")
-  cwindow
-endfunction
-
-command! -nargs=+ -complete=file VcsJump call VcsJump(<q-args>)
+command! -nargs=+ -complete=file VcsJump call vcs#jump(<q-args>)
 nnoremap <leader>d :VcsJump diff<space>
