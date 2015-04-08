@@ -1,12 +1,12 @@
 " terminal-specific magic
-let s:iterm   = exists('$ITERM_PROFILE') || exists('$ITERM_SESSION_ID') || filereadable(expand("~/.vim/.assume-iterm"))
+let s:iterm   = exists('$ITERM_PROFILE') || exists('$ITERM_SESSION_ID') || filereadable(expand('~/.vim/.assume-iterm'))
 let s:screen  = &term =~ 'screen'
 let s:tmux    = exists('$TMUX')
 let s:xterm   = &term =~ 'xterm'
 
 function! s:EscapeEscapes(string)
   " double each <Esc>
-  return substitute(a:string, "\<Esc>", "\<Esc>\<Esc>", "g")
+  return substitute(a:string, "\<Esc>", "\<Esc>\<Esc>", 'g')
 endfunction
 
 function! s:TmuxWrap(string)
@@ -106,9 +106,9 @@ if s:screen || s:xterm
   let &t_te = "\e[?2004l" . &t_te
 
   set pastetoggle=<Esc>[201~
-  inoremap <expr> <Esc>[200~ <SID>BeginXTermPaste("")
-  nnoremap <expr> <Esc>[200~ <SID>BeginXTermPaste("i")
-  vnoremap <expr> <Esc>[200~ <SID>BeginXTermPaste("c")
+  inoremap <expr> <Esc>[200~ <SID>BeginXTermPaste('')
+  nnoremap <expr> <Esc>[200~ <SID>BeginXTermPaste('i')
+  vnoremap <expr> <Esc>[200~ <SID>BeginXTermPaste('c')
   cnoremap <Esc>[200~ <nop>
   cnoremap <Esc>[201~ <nop>
 endif
