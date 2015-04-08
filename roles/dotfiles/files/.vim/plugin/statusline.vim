@@ -14,11 +14,11 @@ if has('statusline')
   "   [                    left bracket (literal)
   "   %M                   modified flag: ,+/,- (modified/unmodifiable) or nothing
   "   %R                   read-only flag: ,RO or nothing
-  "   %{statusline#Ft()}   filetype (not using %Y because I don't want caps)
-  "   %{statusline#Fenc()} file-encoding if not UTF-8
+  "   %{statusline#ft()}   filetype (not using %Y because I don't want caps)
+  "   %{statusline#fenc()} file-encoding if not UTF-8
   "   ]                    right bracket (literal)
   "   %)                   end item group
-  set statusline+=%([%M%R%{statusline#Ft()}%{statusline#Fenc()}]%)
+  set statusline+=%([%M%R%{statusline#ft()}%{statusline#fenc()}]%)
 
   set statusline+=%*   " reset highlight group
   set statusline+=%=   " split point for left and right groups
@@ -39,29 +39,8 @@ if has('statusline')
   set statusline+=%%   " literal %
   set statusline+=%*   " reset highlight group
 
-  function! statusline#Ft()
-    if strlen(&ft)
-      return ',' . &ft
-    else
-      return ''
-    endif
-  endfunction
-
-  function! statusline#Fenc()
-    if strlen(&fenc) && &fenc != 'utf-8'
-      return ',' . &fenc
-    else
-      return ''
-    endif
-  endfunction
-
-  function s:UpdateUser1()
-    let l:highlight = functions#italicize_group('StatusLine')
-    execute 'highlight User1 ' . l:highlight
-  endfunction
-
   augroup WincentStatusline
     autocmd!
-    autocmd ColorScheme * call s:UpdateUser1()
+    autocmd ColorScheme * call statusline#update_user1()
   augroup END
 endif
