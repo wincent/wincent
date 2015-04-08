@@ -22,7 +22,7 @@ function s:CheckColorScheme()
     color base16-tomorrow
   endif
 
-  exe 'hi Comment ' . ItalicizeGroup('Comment')
+  execute 'highlight Comment ' . functions#italicize_group('Comment')
 
   " Give statusline.vim a chance to re-set User1
   doautocmd ColorScheme

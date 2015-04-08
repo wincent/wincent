@@ -56,7 +56,7 @@ if has('statusline')
   endfunction
 
   function s:UpdateUser1()
-    let l:highlight = ItalicizeGroup('StatusLine')
+    let l:highlight = functions#italicize_group('StatusLine')
     execute 'highlight User1 ' . l:highlight
   endfunction
 
