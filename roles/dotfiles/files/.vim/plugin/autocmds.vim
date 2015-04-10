@@ -17,4 +17,8 @@ augroup WincentAutocmds
 
   " disable paste mode on leaving insert mode
   autocmd InsertLeave * set nopaste
+
+  " make current window more obvious by setting cursorline only there
+  autocmd VimEnter,WinEnter * setlocal cursorline
+  autocmd WinLeave * setlocal nocursorline
 augroup END
