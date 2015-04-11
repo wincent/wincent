@@ -18,7 +18,12 @@ augroup WincentAutocmds
   " disable paste mode on leaving insert mode
   autocmd InsertLeave * set nopaste
 
-  " make current window more obvious by setting cursorline only there
-  autocmd VimEnter,WinEnter * setlocal cursorline
-  autocmd WinLeave * setlocal nocursorline
+  " Make current window more obvious by turning off some features in non-current
+  " windows.
+  if exists('+colorcolumn')
+    autocmd VimEnter,WinEnter * setlocal colorcolumn=+0
+    autocmd WinLeave * setlocal colorcolumn=0
+  endif
+  autocmd VimEnter,WinEnter * setlocal cursorline | setlocal list | setlocal statusline=
+  autocmd WinLeave * setlocal nocursorline | setlocal nolist | setlocal statusline=%n:%<%f
 augroup END
