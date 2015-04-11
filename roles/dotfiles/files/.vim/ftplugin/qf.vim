@@ -12,5 +12,5 @@ set scrolloff=0
 augroup WincentQuickfix
   autocmd!
   autocmd BufLeave <buffer> execute 'set scrolloff=' . s:original_scrolloff
-  autocmd BufEnter <buffer> set scrolloff=0 | set nocursorline
+  autocmd BufEnter <buffer> set scrolloff=0 | setlocal nocursorline
 augroup END
