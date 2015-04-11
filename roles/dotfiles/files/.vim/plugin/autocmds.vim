@@ -24,6 +24,6 @@ augroup WincentAutocmds
     autocmd VimEnter,WinEnter * setlocal colorcolumn=+0
     autocmd WinLeave * setlocal colorcolumn=0
   endif
-  autocmd VimEnter,WinEnter * setlocal cursorline | setlocal list | setlocal statusline=
-  autocmd WinLeave * setlocal nocursorline | setlocal nolist | setlocal statusline=%n:%<%f
+  autocmd VimEnter,WinEnter * setlocal cursorline | setlocal statusline=
+  autocmd WinLeave * setlocal nocursorline | setlocal statusline=%n:%<%f
 augroup END
