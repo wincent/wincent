@@ -1,7 +1,7 @@
 function! s:ScanFile()
   let n = 1
-  let nmax = line("$")
-  if line("$") > 500
+  let nmax = line('$')
+  if line('$') > 500
     let nmax = 500
   endif
   while n < nmax

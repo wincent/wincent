@@ -47,7 +47,7 @@ endfunction
 " way for mnemonics, as it will most often be preceded by an :Ack invocation.)
 function! ack#acks(command)
   if match(a:command, '\v^/.+/.*/$') == -1 " crude sanity check
-    throw "Expected a substitution expression (/foo/bar/); got: " . a:command
+    throw 'Expected a substitution expression (/foo/bar/); got: ' . a:command
   endif
 
   let l:filenames = QuickfixFilenames()
