@@ -14,7 +14,7 @@ let g:CommandTWildIgnore .= ',**/bower_components/*'
 let g:CommandTWildIgnore .= ',**/node_modules/*'
 let g:CommandTWildIgnore .= ',**/tmp/*'
 
-if &term =~ 'screen' || &term =~ 'xterm'
+if &term =~# 'screen' || &term =~# 'xterm'
   let g:CommandTCancelMap = ['<ESC>', '<C-c>']
 endif
 

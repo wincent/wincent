@@ -51,7 +51,7 @@ function! ack#acks(command)
   endif
 
   let l:filenames = QuickfixFilenames()
-  if l:filenames == ''
+  if l:filenames ==# ''
     throw 'Quickfix filenames must be present, but there are none'
   endif
 

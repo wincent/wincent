@@ -7,7 +7,7 @@ function! statusline#ft()
 endfunction
 
 function! statusline#fenc()
-  if strlen(&fenc) && &fenc != 'utf-8'
+  if strlen(&fenc) && &fenc !=# 'utf-8'
     return ',' . &fenc
   else
     return ''

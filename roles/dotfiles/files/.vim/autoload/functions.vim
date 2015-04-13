@@ -7,7 +7,7 @@ function functions#italicize_group(group)
   redir END
 
   " Traverse links back to authoritative group.
-  while l:group =~ 'links to'
+  while l:group =~# 'links to'
     let l:index = stridx(l:group, 'links to') + len('links to')
     let l:linked = strpart(l:group, l:index + 1)
     redir => l:group
@@ -35,7 +35,7 @@ function functions#italicize_group(group)
       let l:start = l:matches[1]
       let l:value = l:matches[2]
       let l:end = l:matches[3]
-      if l:value =~ '.*italic.*'
+      if l:value =~# '.*italic.*'
         continue
       else
         let l:original = l:start . l:value . ',italic' . l:end

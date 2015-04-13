@@ -1,8 +1,8 @@
 " terminal-specific magic
 let s:iterm   = exists('$ITERM_PROFILE') || exists('$ITERM_SESSION_ID') || filereadable(expand('~/.vim/.assume-iterm'))
-let s:screen  = &term =~ 'screen'
+let s:screen  = &term =~# 'screen'
 let s:tmux    = exists('$TMUX')
-let s:xterm   = &term =~ 'xterm'
+let s:xterm   = &term =~# 'xterm'
 
 " Change shape of cursor in insert mode in iTerm 2.
 if s:iterm

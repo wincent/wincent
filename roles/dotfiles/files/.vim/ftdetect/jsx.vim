@@ -5,7 +5,7 @@ function! s:ScanFile()
     let nmax = 500
   endif
   while n < nmax
-    if getline(n) =~ "\\v<React\\."
+    if getline(n) =~# "\\v<React\\."
       return 1
       break
     endif
@@ -15,15 +15,15 @@ function! s:ScanFile()
 endfunction
 
 function! s:DetectJSX(file)
-  if a:file =~ "\\v\\.html"
+  if a:file =~# "\\v\\.html"
     if s:ScanFile()
       set ft=html.jsx
     endif
-  elseif a:file =~ "\\v(_spec|Spec|-test)\\.js"
+  elseif a:file =~# "\\v(_spec|Spec|-test)\\.js"
     if s:ScanFile()
       set ft=javascript.jasmine.jsx
     endif
-  elseif a:file =~ "\\v\\.js"
+  elseif a:file =~# "\\v\\.js"
     if s:ScanFile()
       set ft=javascript.jsx
     endif

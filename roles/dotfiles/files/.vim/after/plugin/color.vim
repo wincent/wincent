@@ -6,7 +6,7 @@ function s:CheckColorScheme()
   if filereadable(s:config_file)
     let s:config = readfile(s:config_file, '', 2)
 
-    if s:config[1] =~ '^dark\|light$'
+    if s:config[1] =~# '^dark\|light$'
       execute 'set background=' . s:config[1]
     else
       echoerr 'Bad background ' . s:config[1] . ' in ' . s:config_file
