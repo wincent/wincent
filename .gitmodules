@@ -7,7 +7,7 @@
 	url = https://github.com/chriskempson/base16-vim.git
 [submodule "roles/dotfiles/files/.vim/bundle/command-t"]
 	branch = next
-	ignore = untracked
+	ignore = dirty
 	path = roles/dotfiles/files/.vim/bundle/command-t
 	url = https://github.com/wincent/command-t.git
 [submodule "roles/dotfiles/files/.vim/bundle/emmet-vim"]
