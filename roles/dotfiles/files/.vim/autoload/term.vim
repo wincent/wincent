@@ -1,9 +1,9 @@
-function! term#escape(string)
+function! term#escape(string) abort
   " double each <Esc>
   return substitute(a:string, "\<Esc>", "\<Esc>\<Esc>", 'g')
 endfunction
 
-function! term#wrap(string)
+function! term#wrap(string) abort
   if strlen(a:string) == 0
     return ''
   end
@@ -14,7 +14,7 @@ function! term#wrap(string)
   return l:tmux_begin . term#escape(a:string) . l:tmux_end
 endfunction
 
-function! term#focus_lost()
+function! term#focus_lost() abort
   let cmdline = getcmdline()
   let cmdpos  = getcmdpos()
 
@@ -24,7 +24,7 @@ function! term#focus_lost()
   return cmdline
 endfunction
 
-function! term#focus_gained()
+function! term#focus_gained() abort
   let cmdline = getcmdline()
   let cmdpos  = getcmdpos()
 
@@ -36,7 +36,7 @@ function! term#focus_gained()
   return cmdline
 endfunction
 
-function! term#paste(ret)
+function! term#paste(ret) abort
   set paste
   return a:ret
 endfunction

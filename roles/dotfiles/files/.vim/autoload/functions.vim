@@ -1,7 +1,7 @@
 " Find a highlight group and augment it with "italic" styling, returning a
 " string suitable for passing to `:hi`. Most of this logic is borrowed from:
 " http://stackoverflow.com/a/1333025
-function functions#italicize_group(group)
+function! functions#italicize_group(group) abort
   redir => l:group
   execute 'silent highlight ' . a:group
   redir END

@@ -1,4 +1,4 @@
-function! statusline#ft()
+function! statusline#ft() abort
   if strlen(&ft)
     return ',' . &ft
   else
@@ -6,7 +6,7 @@ function! statusline#ft()
   endif
 endfunction
 
-function! statusline#fenc()
+function! statusline#fenc() abort
   if strlen(&fenc) && &fenc !=# 'utf-8'
     return ',' . &fenc
   else
@@ -14,7 +14,7 @@ function! statusline#fenc()
   endif
 endfunction
 
-function statusline#update_user1()
+function! statusline#update_user1() abort
   let l:highlight = functions#italicize_group('StatusLine')
   execute 'highlight User1 ' . l:highlight
 endfunction

@@ -1,4 +1,4 @@
-function s:escape(arg)
+function! s:escape(arg) abort
   " The basic strategy is to split on spaces, shellescape each word, and join.
   "
   " To support an edge-case (the ability to search for strings with spaces in
@@ -13,7 +13,7 @@ function s:escape(arg)
   return substitute(join(map(split(substitute(a:arg, '\\ ', '<!!S!!>', 'g')), 'shellescape(v:val)')), '<!!S!!>', ' ', 'g')
 endfunction
 
-function! ack#ack(command)
+function! ack#ack(command) abort
   if empty(&grepprg)
     return
   endif
@@ -21,7 +21,7 @@ function! ack#ack(command)
   cwindow
 endfunction
 
-function! ack#lack(command)
+function! ack#lack(command) abort
   if empty(&grepprg)
     return
   endif
@@ -45,7 +45,7 @@ endfunction
 "
 " (Note: there's nothing specific to Ack in this function; it's just named this
 " way for mnemonics, as it will most often be preceded by an :Ack invocation.)
-function! ack#acks(command)
+function! ack#acks(command) abort
   if match(a:command, '\v^/.+/.*/$') == -1 " crude sanity check
     throw 'Expected a substitution expression (/foo/bar/); got: ' . a:command
   endif
@@ -60,7 +60,7 @@ function! ack#acks(command)
 endfunction
 
 " Populate the :args list with the filenames currently in the quickfix window.
-function! ack#qargs()
+function! ack#qargs() abort
   let l:buffer_numbers = {}
   for l:item in getqflist()
     let l:buffer_numbers[l:item['bufnr']] = bufname(l:item['bufnr'])
