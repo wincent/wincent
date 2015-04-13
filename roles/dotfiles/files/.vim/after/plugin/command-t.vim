@@ -7,12 +7,12 @@ let g:CommandTMaxFiles             = 500000
 let g:CommandTMaxHeight            = 30
 let g:CommandTScanDotDirectories   = 1
 
-let g:CommandTWildIgnore = &wildignore .
-      \ ',**/.git/*' .
-      \ ',**/.hg/*' .
-      \ ',**/bower_components/*' .
-      \ ',**/node_modules/*' .
-      \ ',**/tmp/*'
+let g:CommandTWildIgnore = &wildignore
+let g:CommandTWildIgnore .= ',**/.git/*'
+let g:CommandTWildIgnore .= ',**/.hg/*'
+let g:CommandTWildIgnore .= ',**/bower_components/*'
+let g:CommandTWildIgnore .= ',**/node_modules/*'
+let g:CommandTWildIgnore .= ',**/tmp/*'
 
 if &term =~ 'screen' || &term =~ 'xterm'
   let g:CommandTCancelMap = ['<ESC>', '<C-c>']
