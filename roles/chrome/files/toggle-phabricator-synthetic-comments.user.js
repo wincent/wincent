@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name           Phabricator: Toggle Flow Errors
+// @name           Phabricator: Toggle "synthetic" (bot) comments
 // @version        0.0.1
-// @description    Allows toggling Flow errors on Phabricator diffs.
+// @description    Allows toggling "synthetic" (bot) comments on Phabricator diffs.
 // @match          https://secure.phabricator.com/*
 // @match          https://phabricator.fb.com/*
 // ==/UserScript==
@@ -19,10 +19,10 @@ function injectStyles(styles) {
 }
 
 injectStyles(
-  '.hidden-flow-error {' +
+  '.hidden-synthetic-comment {' +
     'display: none' +
   '}' +
-  '.toggle-flow {' +
+  '.toggle-synthetic-comment {' +
     'margin-right: 12px;' +
   '}'
 );
@@ -46,8 +46,8 @@ injectJS(function(global) {
     if (updateHistoryFooter) {
       var toggleLink = JX.$N(
         'button',
-        {type: 'button', className: 'toggle-flow black', sigil: 'toggle-flow'},
-        'Hide Flow Errors'
+        {type: 'button', className: 'toggle-synthetic-comment black', sigil: 'toggle-synthetic-comment'},
+        'Hide Bot Comments'
       );
       updateHistoryFooter.insertBefore(
         toggleLink,
@@ -56,27 +56,27 @@ injectJS(function(global) {
     }
   })();
 
-  function forEachFlowError(callback) {
+  function forEachSyntheticComment(callback) {
     $$('tr.inline').forEach(function(inlineRow) {
-      var inlineLine = $('.differential-inline-comment-line', inlineRow);
-      if (inlineLine.textContent.indexOf('Flow error:')) {
+      var inlineLine = $('.differential-inline-comment-synthetic', inlineRow);
+      if (inlineLine) {
         callback(inlineRow);
       }
     });
   }
 
-  var hideFlowErrors = false;
+  var hide = false;
 
-  JX.Stratcom.listen('click', 'toggle-flow', function(event) {
-    hideFlowErrors = !hideFlowErrors;
+  JX.Stratcom.listen('click', 'toggle-synthetic-comment', function(event) {
+    hide = !hide;
 
-    var toggleLink = event.getNode('toggle-flow');
-    JX.DOM.alterClass(toggleLink, 'black', !hideFlowErrors);
-    JX.DOM.alterClass(toggleLink, 'grey', hideFlowErrors);
-    JX.DOM.setContent(toggleLink, hideFlowErrors ? 'Show Flow Errors' : 'Hide Flow Errors');
+    var toggleLink = event.getNode('toggle-synthetic-comment');
+    JX.DOM.alterClass(toggleLink, 'black', !hide);
+    JX.DOM.alterClass(toggleLink, 'grey', hide);
+    JX.DOM.setContent(toggleLink, hide ? 'Show Bot Comments' : 'Hide Bot Comments');
 
-    forEachFlowError(function(row) {
-      JX.DOM.alterClass(row, 'hidden-flow-error', hideFlowErrors);
+    forEachSyntheticComment(function(row) {
+      JX.DOM.alterClass(row, 'hidden-synthetic-comment', hide);
     });
 
     event.prevent();
