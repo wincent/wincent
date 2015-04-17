@@ -1,4 +1,4 @@
-" YouCompleteMe and UltiSnips compatibility, with the helper of supertab
+" YouCompleteMe and UltiSnips compatibility, with the help of Supertab
 " (via http://stackoverflow.com/a/22253548/1626737)
 let g:SuperTabCrMapping = 0
 let g:SuperTabDefaultCompletionType = '<C-n>'
