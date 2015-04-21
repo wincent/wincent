@@ -1,15 +1,17 @@
 %include ~/.hgrc.local
 
 [alias]
+# muscle memory
+clean = purge
+
 # garbage collect commits that aren't reachable from bookmarks
 cleanup = strip -r "all() - ::bookmark()"
 
-# muscle memory
-show = ex
-clean = purge
-
 # braindeadness
 man = help
+
+# muscle memory
+show = ex
 
 whatchanged = log --stat -f
 
