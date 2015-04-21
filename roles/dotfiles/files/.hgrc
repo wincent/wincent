@@ -27,3 +27,10 @@ whatchanged = log --stat -f
 #   show (also affects `ex`; oddly, adding `ex` does not affect `show`)
 #   whatchanged
 attend = annotate, cat, diff, export, grep, heads, help, incoming, locate, log, outgoing, parents, shelve, sl, smartlog, status, tags, tip, man, show, whatchanged
+
+[revsetalias]
+# Commits on the named topic branch; eg. topic(foobar)
+topic = only(bookmark($1))
+
+# Commits not reachable from bookmarks.
+unreachable = all() - ::bookmark()
