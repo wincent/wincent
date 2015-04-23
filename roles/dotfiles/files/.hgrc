@@ -34,3 +34,6 @@ topic($1) = only(bookmark($1))
 
 # Commits not reachable from bookmarks.
 unreachable = all() - ::bookmark()
+
+# Merge base of current rev and master.
+base = children(ancestor(master, .)) & ::.
