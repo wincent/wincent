@@ -1,6 +1,6 @@
 " \c -- fix (most) syntax highlighting problems in current buffer
 " (mnemonic: coloring)
-nnoremap <leader>c :syntax sync fromstart<cr>
+nnoremap <silent> <leader>c :syntax sync fromstart<cr>
 
 if exists('+relativenumber')
   " \r -- cycle through relativenumber + number, number (only), and no numbering
