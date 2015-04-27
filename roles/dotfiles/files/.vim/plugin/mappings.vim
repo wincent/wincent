@@ -35,10 +35,10 @@ nnoremap <silent> <leader>zz :let _last_search=@/ <Bar> :%s/\s\+$//e <Bar> :let 
 
 if has('gui_running')
   " \n -- no search highlighting
-  nnoremap <leader>n :nohlsearch <Bar> echo<CR>
+  nnoremap <silent> <leader>n :nohlsearch<CR>
 else
   " for performance, we only use 'cursorcolumn' in the GUI
-  nnoremap <leader>n :set nocursorcolumn <Bar> nohlsearch <Bar> echo<CR>
+  nnoremap <silent> <leader>n :set nocursorcolumn <Bar> nohlsearch<CR>
 endif
 
 " make Vim's regexen more Perl-like
