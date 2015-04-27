@@ -31,7 +31,7 @@ nnoremap <leader>pp :let @0=expand('%') <Bar> :Clip<CR> :echo expand('%')<CR>
 "
 "        As this one is somewhat destructive and relatively close to the
 "        oft-used <leader>a mapping, make this one a double key-stroke.
-nnoremap <silent> <leader>zz :let _last_search=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_last_search <Bar> :noh<CR>
+nnoremap <silent> <leader>zz :let _last_search=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_last_search <Bar> :nohlsearch<CR>
 
 if has('gui_running')
   " \n -- no search highlighting
