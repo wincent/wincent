@@ -1,3 +1,9 @@
+snippet license "license" b
+// Copyright 2015-present Greg Hurrell. All rights reserved.
+// Licensed under the terms of the MIT license.
+$1
+endsnippet
+
 #
 # Flow
 #
@@ -18,6 +24,19 @@ endsnippet
 # React
 #
 
+global !p
+"""
+Checks the current buffer to see whether React ES6 syntax should be used.
+"""
+def react_es6():
+	buffer = vim.current.buffer
+	for line in buffer:
+		if re.search('React.createClass', line):
+			return False;
+	return True;
+endglobal
+
+
 snippet cc "createClass" b
 var ${1:`!p snip.rv = re.sub('\.react$', '', snip.basename or 'ModuleName')`} = React.createClass({
 	render: function() {
@@ -29,39 +48,39 @@ module.exports = $1;
 endsnippet
 
 snippet cdm "componentDidMount" b
-componentDidMount: function() {
+componentDidMount`!p snip.rv = '' if react_es6() else ': function'`() {
 	$0
-},
+}`!p snip.rv = '' if react_es6() else ','`
 endsnippet
 
 snippet cdu "componentDidUpdate" b
-componentDidUpdate: function(prevProps, prevState) {
+componentDidUpdate`!p snip.rv = '' if react_es6() else ': function'`(prevProps, prevState) {
 	$0
-},
+}`!p snip.rv = '' if react_es6() else ','`
 endsnippet
 
 snippet cwm "componentWillMount" b
-componentWillMount: function() {
+componentWillMount`!p snip.rv = '' if react_es6() else ': function'`() {
 	$0
-},
+}`!p snip.rv = '' if react_es6() else ','`
 endsnippet
 
 snippet cwrp "componentWillReceiveProps" b
-componentWillReceiveProps: function(nextProps) {
+componentWillReceiveProps`!p snip.rv = '' if react_es6() else ': function'`(nextProps) {
 	$0
-},
+}`!p snip.rv = '' if react_es6() else ','`
 endsnippet
 
 snippet cwum "componentWillUnmount" b
-componentWillUnmount: function() {
+componentWillUnmount`!p snip.rv = '' if react_es6() else ': function'`() {
 	$0
-},
+}`!p snip.rv = '' if react_es6() else ','`
 endsnippet
 
 snippet cwu "componentWillUpdate" b
-componentWillUpdate: function(nextProps, nextState) {
+componentWillUpdate`!p snip.rv = '' if react_es6() else ': function'`(nextProps, nextState) {
 	$0
-},
+}`!p snip.rv = '' if react_es6() else ','`
 endsnippet
 
 snippet gdp "getDefaultProps" b
@@ -81,9 +100,9 @@ getInitialState: function() {
 endsnippet
 
 snippet scu "shouldComponentUpdate" b
-shouldComponentUpdate: function(nextProps, nextState) {
+shouldComponentUpdate`!p snip.rv = '' if react_es6() else ': function'`(nextProps, nextStates) {
 	return ${1:true};
-},
+}`!p snip.rv = '' if react_es6() else ','`
 endsnippet
 
 #
@@ -114,27 +133,24 @@ function${1: name}(${2:arg}) {
 }
 endsnippet
 
-snippet jsx "@jsx declaration" b
-/**
- * @jsx React.DOM
- */
-endsnippet
-
 snippet pm "@providesModule declaration" b
 /**
  * @providesModule ${1:`!p snip.rv = snip.basename or 'ModuleName'`}
-${2: * @jsx React.DOM
-} */
+ */
 
 ${3:'use strict';
 
 }$0
 endsnippet
 
-snippet req "require" !b
+snippet "^imp(ort)?" "import" !br
+import ${1:Module} from '${2}$1${3}';
+endsnippet
+
+snippet "^req(uire)?" "require" !br
 var ${1:ModuleName} = require('$1${2}');
 endsnippet
 
-snippet strict "'use strict' declaration" b
+snippet "^(use|strict)" "'use strict' declaration" br
 'use strict';
 endsnippet
