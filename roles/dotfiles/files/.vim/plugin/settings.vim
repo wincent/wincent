@@ -82,6 +82,12 @@ endif
 
 if has('viminfo')
   set viminfo+=n~/.vim/tmp/viminfo    " override ~/.viminfo default
+
+  if !empty(glob('~/.vim/tmp/viminfo'))
+    if !filereadable(expand('~/.vim/tmp/viminfo'))
+      echoerr 'warning: ~/.vim/tmp/viminfo exists but is not readable'
+    endif
+  endif
 endif
 
 set virtualedit=block                 " allow cursor to move where there is no text in visual block mode
