@@ -80,6 +80,10 @@ if has('persistent_undo')
   set undofile                        " actually use undo files
 endif
 
+if has('viminfo')
+  set viminfo+=n~/.vim/tmp/viminfo    " override ~/.viminfo default
+endif
+
 set virtualedit=block                 " allow cursor to move where there is no text in visual block mode
 set visualbell t_vb=                  " stop annoying beeping for non-error errors
 set whichwrap=b,h,l,s,<,>,[,],~       " allow <BS>/h/l/<Left>/<Right>/<Space>, ~ to cross line boundaries
