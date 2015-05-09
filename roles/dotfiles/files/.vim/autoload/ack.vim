@@ -50,7 +50,7 @@ function! ack#acks(command) abort
     throw 'Expected a substitution expression (/foo/bar/); got: ' . a:command
   endif
 
-  let l:filenames = QuickfixFilenames()
+  let l:filenames = ack#qargs()
   if l:filenames ==# ''
     throw 'Quickfix filenames must be present, but there are none'
   endif
