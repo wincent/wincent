@@ -22,7 +22,7 @@ color() {
   dark|light)
     FILE="$BASE16_DIR/base16-$SCHEME.$BACKGROUND.sh"
     if [[ -x "$FILE" ]]; then
-      echo "$SCHEME" > "$BASE16_CONFIG"
+      echo "$SCHEME" >! "$BASE16_CONFIG"
       echo "$BACKGROUND" >> "$BASE16_CONFIG"
       "$FILE"
     else
