@@ -67,6 +67,7 @@ slate.layout('one-monitor', {
     operations: [positionChrome],
     repeat: true,
   },
+  Fantastical: { operations: [move(0).screen(internal)] },
   iTerm2: {
     operations: [move(0).screen(internal)],
     repeat: true,
@@ -79,6 +80,7 @@ slate.layout('one-monitor', {
 slate.layout('two-monitors', {
   _before_: { operations: [hideSpotify] },
   _after_: { operations: [focusTextual, focusITerm] },
+  Fantastical: { operations: [move(0).screen(internal)] },
   iTerm2: {
     operations: [
       push(left, 1 / 2).screen(cinema),
@@ -106,6 +108,9 @@ function handleEvent(app, window) {
   switch (app.name()) {
     case 'Google Chrome':
       positionChrome(window);
+      break;
+    case 'Fantastical':
+      window.doOperation(move(0).screen(internal));
       break;
     case 'iTerm2':
       if (slate.screenCount() === 1) {
