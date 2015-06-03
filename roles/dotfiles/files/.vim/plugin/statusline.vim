@@ -41,6 +41,6 @@ if has('statusline')
 
   augroup WincentStatusline
     autocmd!
-    autocmd ColorScheme * call statusline#update_user1()
+    autocmd ColorScheme * call statusline#update_highlight()
   augroup END
 endif
