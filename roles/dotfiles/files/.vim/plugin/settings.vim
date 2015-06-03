@@ -6,7 +6,8 @@ set backspace=indent,start,eol        " allow unrestricted backspacing in insert
 set backupdir=~/.vim/tmp/backup,.     " keep backup files out of the way
 
 if exists('+colorcolumn')
-  set colorcolumn=+0
+  " Highlight up to 255 columns (this is the current Vim max) beyond 'textwidth'
+  let &l:colorcolumn='+' . join(range(0, 254), ',+')
 endif
 
 if exists('+cursorcolumn')

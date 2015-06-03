@@ -21,7 +21,7 @@ augroup WincentAutocmds
   " Make current window more obvious by turning off some features in non-current
   " windows.
   if exists('+colorcolumn')
-    autocmd VimEnter,WinEnter * setlocal colorcolumn=+0
+    autocmd VimEnter,WinEnter * let &l:colorcolumn='+' . join(range(0, 254), ',+')
     autocmd WinLeave * setlocal colorcolumn=0
   endif
   autocmd VimEnter,WinEnter * setlocal cursorline | setlocal statusline=
