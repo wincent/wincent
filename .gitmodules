@@ -123,3 +123,6 @@
 [submodule "roles/dotfiles/files/.vim/bundle/vim-orgmode"]
 	path = roles/dotfiles/files/.vim/bundle/vim-orgmode
 	url = https://github.com/jceb/vim-orgmode.git
+[submodule "roles/dotfiles/files/.vim/bundle/vim-speeddating"]
+	path = roles/dotfiles/files/.vim/bundle/vim-speeddating
+	url = https://github.com/tpope/vim-speeddating.git
