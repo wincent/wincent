@@ -120,3 +120,6 @@
 [submodule "vendor/git-cipher"]
 	path = vendor/git-cipher
 	url = https://github.com/wincent/git-cipher.git
+[submodule "roles/dotfiles/files/.vim/bundle/vim-orgmode"]
+	path = roles/dotfiles/files/.vim/bundle/vim-orgmode
+	url = https://github.com/jceb/vim-orgmode.git
