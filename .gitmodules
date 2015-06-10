@@ -1,5 +1,5 @@
 [submodule "roles/dotfiles/files/.vim/bundle/YouCompleteMe"]
-	branch = a1feade
+	ignore = dirty
 	path = roles/dotfiles/files/.vim/bundle/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe.git
 [submodule "roles/dotfiles/files/.vim/bundle/base16-vim"]
