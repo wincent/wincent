@@ -1,5 +1,4 @@
 ---
-build_you_complete_me: false
 vim_bundle_base: '{{ ansible_env.PWD}}/roles/dotfiles/files/.vim/bundle'
 command_t_base: '{{ vim_bundle_base }}/command-t'
 update_vim_bundle: false

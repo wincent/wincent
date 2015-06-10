@@ -13,4 +13,3 @@
 
 - name: vim | install YouCompleteMe
   command: ./install.sh chdir={{ you_complete_me_base }}
-  when: build_you_complete_me
