@@ -43,15 +43,12 @@ function! autocomplete#expand_or_jump(direction)
         return "\<Tab>"
       endif
     else
+      " BUG: jumping backwards never works
       call UltiSnips#JumpBackwards()
-      if g:ulti_jump_backwards_res == 0
-        " We did not jump backwards.
-        " BUG: doesn't work, this always ends up being a forwards tab
-        return "\<S-Tab>"
-      endif
     endif
   endif
 
-  " No popup is visible, a snippet was expanded, or we jumped, so nothing to do.
+  " No popup is visible, a snippet was expanded, or we jumped, or we failed to
+  " jump backwards, so nothing to do.
   return ''
 endfunction
