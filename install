@@ -19,10 +19,10 @@ usage() {
   echo "  -h/--help"
   echo "  -v/--verbose (repeat for more verbosity)"
   echo "Supported roles:"
-  find roles -maxdepth 1 -mindepth 1 -type d | \
-    sort | \
-    sed -E 's|^roles/||' | \
-    column
+  for ROLE in $(ls roles); do
+    echo "  $ROLE"
+    echo "    $(cat roles/$ROLE/description)"
+  done
 }
 
 while [ $# -gt 0 ]; do
