@@ -48,7 +48,8 @@ Note that if you're behind a firewall you may need to set up a temporary
 ### Install
 
 ```sh
-./install
+./install        # installs everything on the local machine
+./install --help # info on installing specific roles, force-installing etc
 ```
 
 This sets up a local Python environment using the bundled virtualenv, bootstraps
