@@ -21,9 +21,6 @@
 	ignore = untracked
 	path = roles/dotfiles/files/.vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
-[submodule "roles/dotfiles/files/.vim/bundle/supertab"]
-	path = roles/dotfiles/files/.vim/bundle/supertab
-	url = https://github.com/ervandew/supertab.git
 [submodule "roles/dotfiles/files/.vim/bundle/tabular"]
 	path = roles/dotfiles/files/.vim/bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
