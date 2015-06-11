@@ -137,7 +137,7 @@ ${VISUAL:/((?m)^)/ * /g}$0
  */
 endsnippet
 
-snippet fun "function" !
+snippet "^func?" "function" !r
 function${1: name}(${2:arg}) {
 	$0
 }
@@ -157,8 +157,8 @@ snippet "^imp(ort)?" "import" !br
 import ${1:Module} from '${2}$1${3}';
 endsnippet
 
-snippet "^req(uire)?" "require" !br
-var ${1:ModuleName} = require('$1${2}');
+snippet "^req(u|ui|uir|uire)?" "require" !br
+var ${1:ModuleName} = require('${2}$1${3}');
 endsnippet
 
 snippet "^(use|strict)" "'use strict' declaration" br
