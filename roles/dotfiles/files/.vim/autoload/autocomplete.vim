@@ -21,6 +21,7 @@ function! autocomplete#teardown_mappings()
   silent sunmap <expr> <CR>
 endfunction
 
+let g:ulti_jump_backwards_res = 0
 let g:ulti_jump_forwards_res = 0
 let g:ulti_expand_res = 0
 
@@ -35,16 +36,18 @@ function! autocomplete#expand_or_jump(direction)
       else
         return "\<C-P>"
       endif
-    else
+    elseif a:direction == 'N'
       call UltiSnips#JumpForwards()
       if g:ulti_jump_forwards_res == 0
         " We did not jump forwards.
-        if a:direction == 'N'
-          return "\<Tab>"
-        else
-          " BUG: doesn't work, this always ends up being a forwards tab
-          return "\<S-Tab>"
-        endif
+        return "\<Tab>"
+      endif
+    else
+      call UltiSnips#JumpBackwards()
+      if g:ulti_jump_backwards_res == 0
+        " We did not jump backwards.
+        " BUG: doesn't work, this always ends up being a forwards tab
+        return "\<S-Tab>"
       endif
     endif
   endif
