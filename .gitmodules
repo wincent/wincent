@@ -28,8 +28,9 @@
 	path = roles/dotfiles/files/.vim/bundle/tcomment_vim
 	url = https://github.com/tomtom/tcomment_vim.git
 [submodule "roles/dotfiles/files/.vim/bundle/ultisnips"]
+	branch = wincent
 	path = roles/dotfiles/files/.vim/bundle/ultisnips
-	url = https://github.com/SirVer/ultisnips.git
+	url = https://github.com/wincent/ultisnips.git
 [submodule "roles/dotfiles/files/.vim/bundle/vim-dispatch"]
 	path = roles/dotfiles/files/.vim/bundle/vim-dispatch
 	url = https://github.com/tpope/vim-dispatch.git
