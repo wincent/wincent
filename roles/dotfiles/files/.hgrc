@@ -36,4 +36,4 @@ topic($1) = only(bookmark($1))
 unreachable = all() - ::bookmark()
 
 # Merge base of current rev and master.
-base = children(ancestor(master, .)) & ::.
+base = ancestor(master, .)
