@@ -1,14 +1,9 @@
 " TODO: handle motions
-function! qf#delete()
+function! qf#delete() range
+  let l:line = a:firstline
   let l:list = getqflist()
-  let l:start = line('v')
-  let l:end = line('.')
-  let l:line = l:start
 
-  " BUG: in visual mode, this function gets called once per line, which means
-  " the following doesn't work (line numbers change, making subsequent deletions
-  " invalid)
-  while l:line >= l:start && l:line <= l:end
+  while l:line >= a:firstline && l:line <= a:lastline
     " Non-dictionary items will be ignored. This effectively deletes the line.
     let l:list[l:line - 1] = 0
     let l:line = l:line + 1
@@ -16,7 +11,7 @@ function! qf#delete()
   call setqflist(l:list, 'r')
 
   " Show to next entry.
-  execute 'cc ' . l:end
+  execute 'cc ' . a:lastline
 
   " Move focus back to quickfix listing.
   execute "normal \<C-W>\<C-P>"
