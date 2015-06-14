@@ -45,3 +45,15 @@ function! functions#italicize_group(group) abort
 
   return tr(l:original, "\r\n", '  ')
 endfunction
+
+" Switch to plaintext mode with: call functions#plaintext()
+function! functions#plaintext()
+  setlocal linebreak
+  setlocal nolist
+  setlocal textwidth=0
+  setlocal wrap
+  setlocal wrapmargin=0
+
+  nnoremap <buffer> j gj
+  nnoremap <buffer> k gk
+endfunction
