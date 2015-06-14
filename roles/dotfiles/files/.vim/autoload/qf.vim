@@ -13,5 +13,11 @@ function! qf#delete()
     let l:list[l:line - 1] = 0
     let l:line = l:line + 1
   endwhile
-  call setqflist(l:list)
+  call setqflist(l:list, 'r')
+
+  " Show to next entry.
+  execute 'cc ' . l:end
+
+  " Move focus back to quickfix listing.
+  execute "normal \<C-W>\<C-P>"
 endfunction
