@@ -14,3 +14,8 @@ augroup WincentQuickfix
   autocmd BufLeave <buffer> execute 'set scrolloff=' . s:original_scrolloff
   autocmd BufEnter <buffer> set scrolloff=0 | setlocal nocursorline
 augroup END
+
+" Make it easy to remove entries from the quickfix listing.
+" TODO: distinguish between quickfix and location list
+nnoremap <buffer> <silent> dd :call qf#delete()<CR>
+vnoremap <buffer> <silent> d :call qf#delete()<CR>
