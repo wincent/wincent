@@ -17,5 +17,6 @@ augroup END
 
 " Make it easy to remove entries from the quickfix listing.
 " TODO: distinguish between quickfix and location list
+nnoremap <buffer> <silent> d :set operatorfunc=qf#delete_motion<CR>g@
 nnoremap <buffer> <silent> dd :call qf#delete()<CR>
 vnoremap <buffer> <silent> d :call qf#delete()<CR>
