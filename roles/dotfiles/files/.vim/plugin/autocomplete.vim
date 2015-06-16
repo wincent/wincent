@@ -25,3 +25,15 @@ let g:ycm_seed_identifiers_with_syntax = 1
 
 " Disable unhelpful semantic completions.
 let g:ycm_filetype_specific_completion_to_disable = {'*': 1}
+
+" Same as default, but with "markdown" and "text" removed.
+let g:ycm_filetype_blacklist = {
+      \   'notes': 1,
+      \   'unite': 1,
+      \   'tagbar': 1,
+      \   'pandoc': 1,
+      \   'qf': 1,
+      \   'vimwiki': 1,
+      \   'infolog': 1,
+      \   'mail': 1
+      \ }
