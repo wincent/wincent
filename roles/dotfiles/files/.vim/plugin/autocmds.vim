@@ -24,6 +24,12 @@ augroup WincentAutocmds
     autocmd VimEnter,WinEnter * let &l:colorcolumn='+' . join(range(0, 254), ',+')
     autocmd WinLeave * let &l:colorcolumn=join(range(1, 255), ',')
   endif
+  if exists('+cursorcolumn')
+    if has('gui_running')
+      autocmd InsertLeave,VimEnter,WinEnter * setlocal cursorcolumn
+      autocmd InsertEnter,WinLeave * setlocal nocursorcolumn
+    endif
+  endif
   autocmd InsertLeave,VimEnter,WinEnter * setlocal cursorline | setlocal statusline=
   autocmd InsertEnter,WinLeave * setlocal nocursorline | setlocal statusline=%n:%<%f
 augroup END
