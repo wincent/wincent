@@ -14,6 +14,11 @@ autocmd User UltiSnipsUnmapInnerKeys call autocomplete#teardown_mappings()
 let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
 
+" Using <F18> instead of the default of <C-y> to avoid slowness caused by
+" disambiguation delay you get with <C-y> and a bunch of emmit.vim mappings
+" (which all start with the `<C-y>` prefix).
+let g:ycm_key_list_accept_completion = ['<F18>']
+
 " Additional UltiSnips config.
 let g:UltiSnipsSnippetsDir = '~/.vim/ultisnips'
 let g:UltiSnipsSnippetDirectories = ['ultisnips']

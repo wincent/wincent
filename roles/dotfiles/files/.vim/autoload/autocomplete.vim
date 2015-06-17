@@ -11,11 +11,9 @@ function! autocomplete#setup_mappings()
   execute 'snoremap <buffer> <silent> ' . g:UltiSnipsJumpBackwardTrigger .
         \ ' <Esc>:call autocomplete#expand_or_jump("P")<cr>'
 
-  " One additional mapping of our own.
-  " BUG: seems you have to do <CR> twice to actual finalize completion
-  " (this happens even with the standard <C-Y>
-  inoremap <expr> <buffer> <silent> <CR> pumvisible() ? "\<C-Y>" : "\<CR>"
-  snoremap <expr> <buffer> <silent> <CR> pumvisible() ? "\<C-Y>" : "\<CR>"
+  " One additional mapping of our own: accept completion with <CR>.
+  imap <expr> <buffer> <silent> <CR> pumvisible() ? "\<F18>" : "\<CR>"
+  smap <expr> <buffer> <silent> <CR> pumvisible() ? "\<F18>" : "\<CR>"
 
   let s:expansion_active = 1
 endfunction
