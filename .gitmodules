@@ -10,9 +10,6 @@
 	ignore = dirty
 	path = roles/dotfiles/files/.vim/bundle/command-t
 	url = https://github.com/wincent/command-t.git
-[submodule "roles/dotfiles/files/.vim/bundle/emmet-vim"]
-	path = roles/dotfiles/files/.vim/bundle/emmet-vim
-	url = https://github.com/mattn/emmet-vim.git
 [submodule "roles/dotfiles/files/.vim/bundle/gundo"]
 	ignore = untracked
 	path = roles/dotfiles/files/.vim/bundle/gundo
@@ -49,9 +46,6 @@
 	ignore = untracked
 	path = roles/dotfiles/files/.vim/bundle/vim-git
 	url = https://github.com/tpope/vim-git.git
-[submodule "roles/dotfiles/files/.vim/bundle/vim-golang"]
-	path = roles/dotfiles/files/.vim/bundle/vim-golang
-	url = https://github.com/jnwhiteh/vim-golang.git
 [submodule "roles/dotfiles/files/.vim/bundle/vim-haml"]
 	ignore = untracked
 	path = roles/dotfiles/files/.vim/bundle/vim-haml
@@ -62,10 +56,6 @@
 [submodule "roles/dotfiles/files/.vim/bundle/vim-jsx"]
 	path = roles/dotfiles/files/.vim/bundle/vim-jsx
 	url = https://github.com/mxw/vim-jsx.git
-[submodule "roles/dotfiles/files/.vim/bundle/vim-lawrencium"]
-	ignore = untracked
-	path = roles/dotfiles/files/.vim/bundle/vim-lawrencium
-	url = https://github.com/ludovicchabant/vim-lawrencium.git
 [submodule "roles/dotfiles/files/.vim/bundle/vim-markdown"]
 	path = roles/dotfiles/files/.vim/bundle/vim-markdown
 	url = https://github.com/tpope/vim-markdown.git
@@ -75,14 +65,6 @@
 [submodule "roles/dotfiles/files/.vim/bundle/vim-projectionist"]
 	path = roles/dotfiles/files/.vim/bundle/vim-projectionist
 	url = https://github.com/tpope/vim-projectionist.git
-[submodule "roles/dotfiles/files/.vim/bundle/vim-ragel"]
-	ignore = untracked
-	path = roles/dotfiles/files/.vim/bundle/vim-ragel
-	url = https://github.com/cfobel/vim-ragel.git
-[submodule "roles/dotfiles/files/.vim/bundle/vim-ragtag"]
-	ignore = untracked
-	path = roles/dotfiles/files/.vim/bundle/vim-ragtag
-	url = https://github.com/tpope/vim-ragtag.git
 [submodule "roles/dotfiles/files/.vim/bundle/vim-rails"]
 	ignore = untracked
 	path = roles/dotfiles/files/.vim/bundle/vim-rails
