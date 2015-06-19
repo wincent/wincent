@@ -1,4 +1,5 @@
 [submodule "roles/dotfiles/files/.vim/bundle/YouCompleteMe"]
+	branch = wincent
 	ignore = dirty
 	path = roles/dotfiles/files/.vim/bundle/YouCompleteMe
 	url = https://github.com/wincent/YouCompleteMe.git
