@@ -12,8 +12,8 @@ function! autocomplete#setup_mappings()
         \ ' <Esc>:call autocomplete#expand_or_jump("P")<cr>'
 
   " One additional mapping of our own: accept completion with <CR>.
-  imap <expr> <buffer> <silent> <CR> pumvisible() ? "\<F18>" : "\<CR>"
-  smap <expr> <buffer> <silent> <CR> pumvisible() ? "\<F18>" : "\<CR>"
+  imap <expr> <buffer> <silent> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+  smap <expr> <buffer> <silent> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 
   let s:expansion_active = 1
 endfunction
