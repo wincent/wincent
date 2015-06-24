@@ -6,16 +6,16 @@ augroup WincentAutocmds
   autocmd VimEnter * let w:created=1
 
   if has('folding')
-    " like the autocmd described in `:h last-position-jump` but we add `:foldopen!`
+    " Like the autocmd described in `:h last-position-jump` but we add `:foldopen!`.
     autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line('$') | execute "normal! g`\"" | execute 'silent! foldopen!' | endif
   else
     autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line('$') | execute "normal! g`\"" | endif
   endif
 
-  " except for Git commit messages, where this gets old really fast
+  " Except for Git commit messages, where this gets old really fast.
   autocmd BufReadPost COMMIT_EDITMSG execute 'normal! gg'
 
-  " disable paste mode on leaving insert mode
+  " Disable paste mode on leaving insert mode.
   autocmd InsertLeave * set nopaste
 
   " Make current window more obvious by turning off/adjusting some features in non-current
@@ -32,4 +32,10 @@ augroup WincentAutocmds
   endif
   autocmd InsertLeave,VimEnter,WinEnter * setlocal cursorline | setlocal statusline=
   autocmd InsertEnter,WinLeave * setlocal nocursorline | setlocal statusline=%n:%<%f
+
+  if has('mksession')
+    " Save/restore folds and cursor position.
+    autocmd BufWritePost,BufLeave,WinLeave ?* if autocmds#should_mkview() | mkview | endif
+    autocmd BufWinEnter ?* if autocmds#should_mkview() | silent loadview | endif
+  endif
 augroup END
