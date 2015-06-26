@@ -41,15 +41,17 @@ else
   nnoremap <silent> <leader>n :set nocursorcolumn <Bar> nohlsearch<CR>
 endif
 
-" make Vim's regexen more Perl-like
-" turn on cursorcolumn only temporarily here; it's a big performance hit, but
-" really useful for disambiguating the current match
+" Make Vim's regexen more Perl-like.
+" We turn on cursorcolumn only temporarily here; it's a performance hit, but
+" really useful for disambiguating the current match.
 if exists('+cursorcolumn') && !has('gui_running')
   nnoremap / :silent! set cursorcolumn<CR>/\v
 else
   nnoremap / /\v
 endif
-
+cnoremap %s/ <c-r>=(getcmdtype() == ':' && getcmdpos() == 1 ? '%s/\v' : '%s/')<CR>
+cnoremap g/ <c-r>=(getcmdtype() == ':' && getcmdpos() == 1 ? 'g/\v' : 'g/')<CR>
+cnoremap v/ <c-r>=(getcmdtype() == ':' && getcmdpos() == 1 ? 'v/\v' : 'v/')<CR>
 xnoremap / /\v
 
 " \zc -- a macro I recorded to rebalance/resort the columns in the Command-T
