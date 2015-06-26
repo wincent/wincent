@@ -67,9 +67,6 @@ xnoremap <leader>zc
   \:let &tabstop=_tabstop<CR>
   \gv>:nohlsearch<CR>
 
-" \h -- Ruby 1.8 Hashes to 1.9
-nnoremap <leader>h :%s/\v(:)@<!:([a-zA-Z_][a-zA-Z_0-9]*)(\s*)\=\>\s?/\2:\3/gce<cr>
-
 " multi-mode mappings (Normal, Visual, Operating-pending modes)
 noremap Y y$
 
