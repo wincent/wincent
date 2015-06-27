@@ -1,4 +1,6 @@
-setlocal spell
+if has('syntax')
+  setlocal spell
+endif
 
 " Common reviewers.
 iabbrev <buffer> c cpojer,

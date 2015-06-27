@@ -2,4 +2,6 @@ if has('folding')
   setlocal nofoldenable
 endif
 
-setlocal spell
+if has('syntax')
+  setlocal spell
+endif
