@@ -3,8 +3,10 @@ if exists('+cursorcolumn')
 endif
 
 setlocal nolist
+if exists('+relativenumber')
+  setlocal norelativenumber
+endif
 setlocal number
-setlocal norelativenumber
 
 " Want to set scrolloff only for the qf window, but it is a global option.
 let s:original_scrolloff = &scrolloff
