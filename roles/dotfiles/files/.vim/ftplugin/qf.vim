@@ -15,6 +15,10 @@ augroup WincentQuickfix
   autocmd BufEnter <buffer> set scrolloff=0 | setlocal nocursorline
 augroup END
 
+" Don't let built-in plug-in override our setting here.
+let b:did_ftplugin=1
+execute 'setlocal statusline=' . g:WincentQuickfixStatusline
+
 " Make it easy to remove entries from the quickfix listing.
 " TODO: distinguish between quickfix and location list
 nnoremap <buffer> <silent> d :set operatorfunc=qf#delete_motion<CR>g@

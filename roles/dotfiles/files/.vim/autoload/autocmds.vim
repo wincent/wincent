@@ -46,28 +46,7 @@ function! s:get_custom_statusline(action)
     if a:action == 'blur'
       return 'Quickfix'
     else
-      " Subset from plugin/statusline.vim (can't comment inline with line
-      " continuation markers without Vim freaking out).
-      return 'Quickfix'
-            \ . '%<'
-            \ . '\ '
-            \ . '%='
-            \ . '\ '
-            \ . 'ℓ'
-            \ . '\ '
-            \ . '%l'
-            \ . '/'
-            \ . '%L'
-            \ . '\ '
-            \ . '@'
-            \ . '\ '
-            \ . '%c'
-            \ . '%V'
-            \ . '\ '
-            \ . '%1*'
-            \ . '%p'
-            \ . '%%'
-            \ . '%*'
+      return g:WincentQuickfixStatusline
     endif
   endif
 
