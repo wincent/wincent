@@ -30,8 +30,10 @@ augroup WincentAutocmds
       autocmd InsertEnter,WinLeave * setlocal nocursorcolumn
     endif
   endif
-  autocmd InsertLeave,VimEnter,WinEnter * setlocal cursorline | setlocal statusline=
-  autocmd InsertEnter,WinLeave * setlocal nocursorline | setlocal statusline=%n:%<%f
+  autocmd InsertEnter * setlocal nocursorline
+  autocmd InsertLeave * setlocal cursorline
+  autocmd VimEnter,WinEnter * setlocal cursorline | setlocal statusline=
+  autocmd WinLeave * setlocal nocursorline | setlocal statusline=%n:%<%f
 
   if has('mksession')
     " Save/restore folds and cursor position.
