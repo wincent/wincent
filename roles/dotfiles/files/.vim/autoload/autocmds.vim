@@ -7,13 +7,13 @@ function! autocmds#should_mkview()
         \ index(g:WincentMkviewFiletypeBlacklist, &filetype) == -1
 endfunction
 
-function! autocmds#focus_statusline()
+function! autocmds#blur_statusline()
   if s:statusline_changes_allowed()
     setlocal statusline=%n:%<%f
   endif
 endfunction
 
-function! autocmds#blur_statusline()
+function! autocmds#focus_statusline()
   if s:statusline_changes_allowed()
     setlocal statusline=
   endif
