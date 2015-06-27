@@ -4,6 +4,7 @@ endif
 
 setlocal nolist
 setlocal number
+setlocal norelativenumber
 
 " Want to set scrolloff only for the qf window, but it is a global option.
 let s:original_scrolloff = &scrolloff
