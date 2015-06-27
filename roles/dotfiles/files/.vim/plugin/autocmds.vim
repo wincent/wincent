@@ -34,7 +34,7 @@ augroup WincentAutocmds
   autocmd InsertEnter,WinLeave * setlocal nocursorline
 
   if has('statusline')
-    autocmd VimEnter,WinEnter * call autocmds#focus_statusline()
+    autocmd BufFilePost,VimEnter,WinEnter * call autocmds#focus_statusline()
     autocmd WinLeave * call autocmds#blur_statusline()
   endif
 
