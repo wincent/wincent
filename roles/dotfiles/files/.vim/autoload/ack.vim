@@ -17,8 +17,17 @@ function! ack#ack(command) abort
   if empty(&grepprg)
     return
   endif
-  cexpr system(&grepprg . ' ' . s:escape(a:command))
-  cwindow
+
+  let l:original_makeprg = &l:makeprg
+  let l:original_errorformat = &l:errorformat
+  try
+    let &l:makeprg = &grepprg . ' ' . s:escape(a:command)
+    let &l:errorformat = &grepformat
+    Make
+  finally
+    let &l:makeprg = l:original_makeprg
+    let &l:errorformat = l:original_errorformat
+  endtry
 endfunction
 
 function! ack#lack(command) abort
