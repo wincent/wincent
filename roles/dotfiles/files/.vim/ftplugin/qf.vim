@@ -8,6 +8,8 @@ if exists('+relativenumber')
 endif
 setlocal number
 
+setlocal nowrap
+
 " Want to set scrolloff only for the qf window, but it is a global option.
 let s:original_scrolloff = &scrolloff
 set scrolloff=0
