@@ -1,18 +1,41 @@
+" The basic strategy is to split on spaces, expand wildcards for non-option
+" arguments, shellescape each word, and join.
+"
+" To support an edge-case (the ability to search for strings with spaces in
+" them, however, we swap out escaped spaces first (subsituting the unlikely
+" "<!!S!!>") and then swap them back in at the end. This allows us to perform
+" searches like:
+"
+"   :Ack -i \bFoo_?Bar\b
+"   :Ack that's\ nice\ dear
+"
+" and so on...
 function! s:escape(arg) abort
-  " The basic strategy is to split on spaces, shellescape each word, and join.
-  "
-  " To support an edge-case (the ability to search for strings with spaces in
-  " them, however, we swap out escaped spaces first (subsituting the unlikely
-  " "<!!S!!>") and then swap them back in at the end. This allows us to perform
-  " searches like:
-  "
-  "   :Ack -i \bFoo_?Bar\b
-  "   :Ack that's\ nice\ dear
-  "
-  " and so on...
   let l:escaped_spaces_replaced_with_markers = substitute(a:arg, '\\ ', '<!!S!!>', 'g')
   let l:split_on_spaces = split(l:escaped_spaces_replaced_with_markers)
-  let l:each_word_shell_escaped = map(l:split_on_spaces, 'shellescape(v:val)')
+
+  let l:seen_search_pattern = 0
+  let l:expanded_args = []
+  for l:arg in l:split_on_spaces
+    if l:arg =~# '^-'
+      " Options get passed through as-is.
+      call add(l:expanded_args, l:arg)
+    elseif l:seen_search_pattern
+      let l:file_args = glob(l:arg, 1, 1) " Ignore 'wildignore', return a list.
+      if len(l:file_args)
+        call extend(l:expanded_args, l:file_args)
+      else
+        " Let through to `ag`/`ack`/`grep`, which will throw ENOENT.
+        call add(l:expanded_args, l:arg)
+      endif
+    else
+      " First non-option arg is considered to be search pattern.
+      let l:seen_search_pattern = 1
+      call add(l:expanded_args, l:arg)
+    endif
+  endfor
+
+  let l:each_word_shell_escaped = map(l:expanded_args, 'shellescape(v:val)')
   let l:joined = join(l:each_word_shell_escaped)
   return substitute(l:joined, '<!!S!!>', ' ', 'g')
 endfunction
