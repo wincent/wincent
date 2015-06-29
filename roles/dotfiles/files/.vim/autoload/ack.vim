@@ -10,7 +10,11 @@ function! s:escape(arg) abort
   "   :Ack that's\ nice\ dear
   "
   " and so on...
-  return substitute(join(map(split(substitute(a:arg, '\\ ', '<!!S!!>', 'g')), 'shellescape(v:val)')), '<!!S!!>', ' ', 'g')
+  let l:escaped_spaces_replaced_with_markers = substitute(a:arg, '\\ ', '<!!S!!>', 'g')
+  let l:split_on_spaces = split(l:escaped_spaces_replaced_with_markers)
+  let l:each_word_shell_escaped = map(l:split_on_spaces, 'shellescape(v:val)')
+  let l:joined = join(l:each_word_shell_escaped)
+  return substitute(l:joined, '<!!S!!>', ' ', 'g')
 endfunction
 
 function! ack#ack(command) abort
