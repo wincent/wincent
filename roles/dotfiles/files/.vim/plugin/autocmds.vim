@@ -30,8 +30,8 @@ augroup WincentAutocmds
       autocmd InsertEnter,WinLeave * setlocal nocursorcolumn
     endif
   endif
-  autocmd InsertLeave,VimEnter,WinEnter * setlocal cursorline
-  autocmd InsertEnter,WinLeave * setlocal nocursorline
+  autocmd InsertLeave,VimEnter,WinEnter * if autocmds#should_cursorline() | setlocal cursorline | endif
+  autocmd InsertEnter,WinLeave * if autocmds#should_cursorline() | setlocal nocursorline | endif
 
   if has('statusline')
     autocmd BufFilePost,VimEnter,WinEnter * call autocmds#focus_statusline()

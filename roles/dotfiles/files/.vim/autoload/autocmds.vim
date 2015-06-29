@@ -1,6 +1,11 @@
-" Loosely based on: http://vim.wikia.com/wiki/Make_views_automatic
+let g:WincentCursorlineBlacklist = ['command-t']
 let g:WincentMkviewFiletypeBlacklist = ['hgcommit', 'gitcommit']
 
+function! autocmds#should_cursorline()
+  return index(g:WincentCursorlineBlacklist, &filetype) == -1
+endfunction
+
+" Loosely based on: http://vim.wikia.com/wiki/Make_views_automatic
 function! autocmds#should_mkview()
   return
         \ &buftype == '' &&
