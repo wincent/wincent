@@ -46,7 +46,11 @@ injectJS(function(global) {
     if (updateHistoryFooter) {
       var toggleLink = JX.$N(
         'button',
-        {type: 'button', className: 'toggle-synthetic-comment black', sigil: 'toggle-synthetic-comment'},
+        {
+          type: 'button',
+          className: 'toggle-synthetic-comment black phabricatordefault-button',
+          sigil: 'toggle-synthetic-comment',
+        },
         'Hide Bot Comments'
       );
       updateHistoryFooter.insertBefore(
