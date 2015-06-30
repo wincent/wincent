@@ -6,14 +6,18 @@ function! mappings#very_magic_slash()
     return '/'
   endif
 
+  " For simplicity, only consider "/" typed at the end of the command-line.
   let l:pos = getcmdpos()
   let l:cmd = getcmdline()
+  if len(l:cmd) + 1 != l:pos
+    return '/'
+  endif
 
-  if l:pos == 2 && l:cmd ==# 'g'
+  if l:cmd ==# 'g'
     return '/\v'
-  elseif l:pos == 2 && l:cmd ==# 'v'
+  elseif l:cmd ==# 'v'
     return '/\v'
-  elseif l:pos == 3 && l:cmd ==# '%s'
+  elseif l:cmd ==# '%s'
     return '/\v'
   endif
 
