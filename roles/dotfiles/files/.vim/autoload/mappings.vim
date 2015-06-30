@@ -26,11 +26,7 @@ function! mappings#very_magic_slash()
     endif
   endwhile
 
-  if l:cmd ==# 'g'
-    return '/\v'
-  elseif l:cmd ==# 'v'
-    return '/\v'
-  elseif l:cmd ==# 's'
+  if index(['g', 's', 'v'], l:cmd) != -1
     return '/\v'
   endif
 
