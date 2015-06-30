@@ -49,10 +49,8 @@ if exists('+cursorcolumn') && !has('gui_running')
 else
   nnoremap / /\v
 endif
-cnoremap %s/ <c-r>=(getcmdtype() == ':' && getcmdpos() == 1 ? '%s/\v' : '%s/')<CR>
-cnoremap g/ <c-r>=(getcmdtype() == ':' && getcmdpos() == 1 ? 'g/\v' : 'g/')<CR>
-cnoremap v/ <c-r>=(getcmdtype() == ':' && getcmdpos() == 1 ? 'v/\v' : 'v/')<CR>
 xnoremap / /\v
+cnoremap <expr> / mappings#very_magic_slash()
 
 " \zc -- a macro I recorded to rebalance/resort the columns in the Command-T
 "        "authors" section; requires that the author names be visually selected:
