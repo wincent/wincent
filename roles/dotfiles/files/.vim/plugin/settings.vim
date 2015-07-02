@@ -55,6 +55,7 @@ set shiftround                        " always indent by multiple of shiftwidth
 set shiftwidth=2                      " spaces per tab (when shifting)
 set shortmess+=A                      " ignore annoying swapfile messages
 set shortmess+=I                      " no splash screen
+set shortmess+=a                      " use abbreviations in messages eg. `[RO]` instead of `[readonly]`
 
 if has('showcmd')
   set showcmd                         " extra info at end of command line
