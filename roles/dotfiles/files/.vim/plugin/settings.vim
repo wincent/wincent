@@ -55,7 +55,13 @@ set shiftround                        " always indent by multiple of shiftwidth
 set shiftwidth=2                      " spaces per tab (when shifting)
 set shortmess+=A                      " ignore annoying swapfile messages
 set shortmess+=I                      " no splash screen
+set shortmess+=O                      " file-read message overwrites previous
+set shortmess+=T                      " truncate non-file messages in middle
+set shortmess+=W                      " don't echo "[w]"/"[written]" when writing
 set shortmess+=a                      " use abbreviations in messages eg. `[RO]` instead of `[readonly]`
+set shortmess+=o                      " overwrite file-written messages
+set shortmess+=s                      " don't echo search wrap messages
+set shortmess+=t                      " truncate file messages at start
 
 if has('showcmd')
   set showcmd                         " extra info at end of command line
