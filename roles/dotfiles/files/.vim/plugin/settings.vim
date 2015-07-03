@@ -64,7 +64,10 @@ endif
 set sidescrolloff=3                   " same as scolloff, but for columns
 set smartcase                         " case-sensitive search if search string includes a capital letter
 set smarttab                          " <tab>/<BS> indent/dedent in leading whitespace
-set softtabstop=-1                    " use 'shiftwidth' for tab/bs at end of line
+
+if v:progname !=# 'vi'
+  set softtabstop=-1                  " use 'shiftwidth' for tab/bs at end of line
+endif
 
 if has('syntax')
   set spellfile=~/.vim/.spellfile.utf-8.add
