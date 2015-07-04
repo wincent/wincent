@@ -34,12 +34,23 @@ nnoremap <leader>pp :let @0=expand('%') <Bar> :Clip<CR> :echo expand('%')<CR>
 nnoremap <silent> <leader>zz :let _last_search=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_last_search <Bar> :nohlsearch<CR>
 
 " \n -- no search highlighting
-nnoremap <silent> <leader>n :nohlsearch<CR>
+nnoremap <silent> <leader>n :nohlsearch<CR>:call mappings#clear_highlight()<CR>
 
 " Make Vim's regexen more Perl-like.
-nnoremap / /\v
-xnoremap / /\v
+nnoremap <expr> / mappings#prepare_highlight('/\v')
+nnoremap <expr> ? mappings#prepare_highlight('?\v')
+xnoremap <expr> / mappings#prepare_highlight('/\v')
+xnoremap <expr> ? mappings#prepare_highlight('?\v')
 cnoremap <expr> / mappings#very_magic_slash()
+
+" Remain centered when moving to next/previous search.
+" Make current search match more obvious.
+nnoremap <silent> # #zz:call mappings#hlmatch()<CR>
+nnoremap <silent> * *zz:call mappings#hlmatch()<CR>
+nnoremap <silent> N Nzz:call mappings#hlmatch()<CR>
+nnoremap <silent> g# g#zz:call mappings#hlmatch()<CR>
+nnoremap <silent> g* g*zz:call mappings#hlmatch()<CR>
+nnoremap <silent> n nzz:call mappings#hlmatch()<CR>
 
 " \zc -- a macro I recorded to rebalance/resort the columns in the Command-T
 "        "authors" section; requires that the author names be visually selected:
@@ -73,11 +84,3 @@ nnoremap <Space> za
 " for each time K has produced timely, useful results, I have pressed it 10,000
 " times without meaning to, triggering an annoying delay
 nnoremap K <nop>
-
-" Remain centered when moving to next/previous search
-nnoremap # #zz
-nnoremap * *zz
-nnoremap N Nzz
-nnoremap g# g#zz
-nnoremap g* g*zz
-nnoremap n nzz

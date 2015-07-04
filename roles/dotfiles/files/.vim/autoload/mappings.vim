@@ -4,7 +4,7 @@
 "
 " Doesn't handle the full list of possible range types (specified in `:h
 " cmdline-ranges`), but catches the most common ones.
-function! mappings#very_magic_slash()
+function! mappings#very_magic_slash() abort
   if getcmdtype() != ':'
     return '/'
   endif
@@ -27,7 +27,7 @@ function! mappings#very_magic_slash()
   endwhile
 
   if index(['g', 's', 'v'], l:cmd) != -1
-    return '/\v'
+    return mappings#prepare_highlight('/\v')
   endif
 
   return '/'
@@ -58,4 +58,38 @@ function! s:strip_ranges(cmdline)
   let l:cmdline = substitute(l:cmdline, '^;', '', '') " ; (separator)
 
   return l:cmdline
+endfunction
+
+" Prepare to highlight the match as soon as the cursor moves to it.
+function! mappings#prepare_highlight(result) abort
+  augroup WincentHightlightMatch
+    autocmd!
+    autocmd CursorMoved * :call mappings#hlmatch()
+  augroup END
+  return a:result
+endfunction
+
+let s:hlmatch = 0
+
+" Clear previously applied match highlighting.
+function! mappings#clear_highlight() abort
+  if s:hlmatch > 0
+    call matchdelete(s:hlmatch)
+    let s:hlmatch = 0
+  endif
+endfunction
+
+" Apply highlighting to the current search match.
+function! mappings#hlmatch() abort
+  augroup WincentHightlightMatch
+    autocmd!
+  augroup END
+
+  call mappings#clear_highlight()
+
+  " \c case insensitive
+  " \%# current cursor position
+  " @/ current search pattern
+  let l:pattern = '\c\%#' . @/
+  let s:hlmatch = matchadd('IncSearch', l:pattern)
 endfunction
