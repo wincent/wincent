@@ -33,22 +33,11 @@ nnoremap <leader>pp :let @0=expand('%') <Bar> :Clip<CR> :echo expand('%')<CR>
 "        oft-used <leader>a mapping, make this one a double key-stroke.
 nnoremap <silent> <leader>zz :let _last_search=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_last_search <Bar> :nohlsearch<CR>
 
-if has('gui_running')
-  " \n -- no search highlighting
-  nnoremap <silent> <leader>n :nohlsearch<CR>
-else
-  " for performance, we only use 'cursorcolumn' in the GUI
-  nnoremap <silent> <leader>n :set nocursorcolumn <Bar> nohlsearch<CR>
-endif
+" \n -- no search highlighting
+nnoremap <silent> <leader>n :nohlsearch<CR>
 
 " Make Vim's regexen more Perl-like.
-" We turn on cursorcolumn only temporarily here; it's a performance hit, but
-" really useful for disambiguating the current match.
-if exists('+cursorcolumn') && !has('gui_running')
-  nnoremap / :silent! set cursorcolumn<CR>/\v
-else
-  nnoremap / /\v
-endif
+nnoremap / /\v
 xnoremap / /\v
 cnoremap <expr> / mappings#very_magic_slash()
 

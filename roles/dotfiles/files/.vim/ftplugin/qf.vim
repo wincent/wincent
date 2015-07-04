@@ -1,7 +1,3 @@
-if exists('+cursorcolumn')
-  setlocal nocursorcolumn
-endif
-
 setlocal nolist
 if exists('+relativenumber')
   setlocal norelativenumber

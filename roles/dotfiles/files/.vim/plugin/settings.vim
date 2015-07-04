@@ -10,13 +10,6 @@ if exists('+colorcolumn')
   let &l:colorcolumn='+' . join(range(0, 254), ',+')
 endif
 
-if exists('+cursorcolumn')
-  " for now, we only do this in the GUI due to performance issues
-  if has('gui_running')
-    set cursorcolumn                  " highlight current column
-  endif
-endif
-
 set cursorline                        " highlight current line
 set directory=~/.vim/tmp/swap,.       " keep swap files out of the way
 set expandtab                         " always use spaces instead of tabs
