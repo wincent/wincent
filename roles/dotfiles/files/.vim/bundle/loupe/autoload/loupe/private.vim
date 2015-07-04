@@ -1,10 +1,13 @@
+" Copyright 2015-present Greg Hurrell. All rights reserved.
+" Licensed under the terms of the BSD 2-clause license.
+
 " Dynamically returns "/" or "/\v" depending on the location of the just-typed
 " "/" within the command-line. Only "/" that looks to be at the start of a
 " command gets replaced.
 "
 " Doesn't handle the full list of possible range types (specified in `:h
 " cmdline-ranges`), but catches the most common ones.
-function! loupe#very_magic_slash() abort
+function! loupe#private#very_magic_slash() abort
   if getcmdtype() != ':'
     return '/'
   endif
@@ -27,7 +30,7 @@ function! loupe#very_magic_slash() abort
   endwhile
 
   if index(['g', 's', 'v'], l:cmd) != -1
-    return loupe#prepare_highlight('/\v')
+    return loupe#private#prepare_highlight('/\v')
   endif
 
   return '/'
@@ -61,16 +64,18 @@ function! s:strip_ranges(cmdline)
 endfunction
 
 " Prepare to highlight the match as soon as the cursor moves to it.
-function! loupe#prepare_highlight(result) abort
-  augroup LoupeHightlightMatch
-    autocmd!
-    autocmd CursorMoved * :call loupe#hlmatch()
-  augroup END
+function! loupe#private#prepare_highlight(result) abort
+  if has('autocmd')
+    augroup LoupeHightlightMatch
+      autocmd!
+      autocmd CursorMoved * :call loupe#private#hlmatch()
+    augroup END
+  endif
   return a:result
 endfunction
 
 " Clear previously applied match highlighting.
-function! loupe#clear_highlight() abort
+function! loupe#private#clear_highlight() abort
   if exists('w:hlmatch')
     call matchdelete(w:hlmatch)
     unlet w:hlmatch
@@ -78,16 +83,28 @@ function! loupe#clear_highlight() abort
 endfunction
 
 " Apply highlighting to the current search match.
-function! loupe#hlmatch() abort
-  augroup LoupeHightlightMatch
-    autocmd!
-  augroup END
+function! loupe#private#hlmatch() abort
+  " When g:loupeHighlight is set (and it is set to "IncSearch" by default), use
+  " that highlight group to make the current search result stand out.
+  let l:highlight = exists('g:LoupeHighlight') ? g:LoupeHighlight : 'IncSearch'
+  if empty(l:highlight)
+    return
+  endif
 
-  call loupe#clear_highlight()
+  if has('autocmd')
+    augroup LoupeHightlightMatch
+      autocmd!
+    augroup END
+  endif
+
+  call loupe#private#clear_highlight()
 
   " \c case insensitive
   " \%# current cursor position
   " @/ current search pattern
   let l:pattern = '\c\%#' . @/
-  let w:hlmatch = matchadd('IncSearch', l:pattern)
+
+  if exists('*matchadd')
+    let w:hlmatch = matchadd(l:highlight, l:pattern)
+  endif
 endfunction
