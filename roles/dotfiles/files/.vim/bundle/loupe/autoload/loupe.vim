@@ -4,7 +4,7 @@
 "
 " Doesn't handle the full list of possible range types (specified in `:h
 " cmdline-ranges`), but catches the most common ones.
-function! mappings#very_magic_slash() abort
+function! loupe#very_magic_slash() abort
   if getcmdtype() != ':'
     return '/'
   endif
@@ -27,7 +27,7 @@ function! mappings#very_magic_slash() abort
   endwhile
 
   if index(['g', 's', 'v'], l:cmd) != -1
-    return mappings#prepare_highlight('/\v')
+    return loupe#prepare_highlight('/\v')
   endif
 
   return '/'
@@ -61,10 +61,10 @@ function! s:strip_ranges(cmdline)
 endfunction
 
 " Prepare to highlight the match as soon as the cursor moves to it.
-function! mappings#prepare_highlight(result) abort
+function! loupe#prepare_highlight(result) abort
   augroup WincentHightlightMatch
     autocmd!
-    autocmd CursorMoved * :call mappings#hlmatch()
+    autocmd CursorMoved * :call loupe#hlmatch()
   augroup END
   return a:result
 endfunction
@@ -72,7 +72,7 @@ endfunction
 let s:hlmatch = 0
 
 " Clear previously applied match highlighting.
-function! mappings#clear_highlight() abort
+function! loupe#clear_highlight() abort
   if s:hlmatch > 0
     call matchdelete(s:hlmatch)
     let s:hlmatch = 0
@@ -80,12 +80,12 @@ function! mappings#clear_highlight() abort
 endfunction
 
 " Apply highlighting to the current search match.
-function! mappings#hlmatch() abort
+function! loupe#hlmatch() abort
   augroup WincentHightlightMatch
     autocmd!
   augroup END
 
-  call mappings#clear_highlight()
+  call loupe#clear_highlight()
 
   " \c case insensitive
   " \%# current cursor position
