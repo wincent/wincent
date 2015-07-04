@@ -62,7 +62,7 @@ endfunction
 
 " Prepare to highlight the match as soon as the cursor moves to it.
 function! loupe#prepare_highlight(result) abort
-  augroup WincentHightlightMatch
+  augroup LoupeHightlightMatch
     autocmd!
     autocmd CursorMoved * :call loupe#hlmatch()
   augroup END
@@ -81,7 +81,7 @@ endfunction
 
 " Apply highlighting to the current search match.
 function! loupe#hlmatch() abort
-  augroup WincentHightlightMatch
+  augroup LoupeHightlightMatch
     autocmd!
   augroup END
 
