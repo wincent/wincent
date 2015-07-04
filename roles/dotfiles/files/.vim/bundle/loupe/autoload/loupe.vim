@@ -69,13 +69,11 @@ function! loupe#prepare_highlight(result) abort
   return a:result
 endfunction
 
-let s:hlmatch = 0
-
 " Clear previously applied match highlighting.
 function! loupe#clear_highlight() abort
-  if s:hlmatch > 0
-    call matchdelete(s:hlmatch)
-    let s:hlmatch = 0
+  if exists('w:hlmatch')
+    call matchdelete(w:hlmatch)
+    unlet w:hlmatch
   endif
 endfunction
 
@@ -91,5 +89,5 @@ function! loupe#hlmatch() abort
   " \%# current cursor position
   " @/ current search pattern
   let l:pattern = '\c\%#' . @/
-  let s:hlmatch = matchadd('IncSearch', l:pattern)
+  let w:hlmatch = matchadd('IncSearch', l:pattern)
 endfunction
