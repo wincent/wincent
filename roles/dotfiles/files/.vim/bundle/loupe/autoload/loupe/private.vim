@@ -82,6 +82,17 @@ function! loupe#private#clear_highlight() abort
   endif
 endfunction
 
+" Called from WinEnter autocmd to clean up stray `matchadd()` vestiges.
+" If we switch into a window and there is no 'hlsearch' in effect but we do have
+" a `w:loupe_hlmatch` variable, it means that `:nohighight` was probably run
+" from another window and we should clean up the straggling match and the
+" window-local variable.
+function! loupe#private#cleanup() abort
+  if !v:hlsearch
+    call loupe#private#clear_highlight()
+  endif
+endfunction
+
 " Apply highlighting to the current search match.
 function! loupe#private#hlmatch() abort
   " When g:loupeHighlight is set (and it is set to "IncSearch" by default), use

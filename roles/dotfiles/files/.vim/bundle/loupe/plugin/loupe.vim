@@ -59,6 +59,14 @@ execute 'nnoremap <silent> g# g#' . s:center_string . ':call loupe#private#hlmat
 execute 'nnoremap <silent> g* g*' . s:center_string . ':call loupe#private#hlmatch()<CR>'
 execute 'nnoremap <silent> n n' . s:center_string . ':call loupe#private#hlmatch()<CR>'
 
+" Clean-up stray `matchadd()` vestiges.
+if has('autocmd') && has('extra_search')
+  augroup LoupeCleanUp
+    autocmd!
+    autocmd WinEnter * :call loupe#private#cleanup()
+  augroup END
+endif
+
 " Restore 'cpoptions' to its former value.
 let &cpoptions = s:cpoptions
 unlet s:cpoptions
