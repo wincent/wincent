@@ -32,6 +32,16 @@ nnoremap <silent> <Plug>LoupeClearHighlight
       \ :nohlsearch<CR>
       \ :call loupe#private#clear_highlight()<CR>
 
+" Make `:nohlsearch` behave like <Plug>LoupeClearHighlight.
+cabbrev <silent> <expr> noh (getcmdtype() == ':' && getcmdpos() == 4 ? 'noh <bar> call loupe#private#clear_highlight()<CR>' : 'noh')
+cabbrev <silent> <expr> nohl (getcmdtype() == ':' && getcmdpos() == 5 ? 'nohl <bar> call loupe#private#clear_highlight()<CR>' : 'nohl')
+cabbrev <silent> <expr> nohls (getcmdtype() == ':' && getcmdpos() == 6 ? 'nohls <bar> call loupe#private#clear_highlight()<CR>' : 'nohls')
+cabbrev <silent> <expr> nohlse (getcmdtype() == ':' && getcmdpos() == 7 ? 'nohlse <bar> call loupe#private#clear_highlight()<CR>' : 'nohlse')
+cabbrev <silent> <expr> nohlsea (getcmdtype() == ':' && getcmdpos() == 8 ? 'nohlsea <bar> call loupe#private#clear_highlight()<CR>' : 'nohlsea')
+cabbrev <silent> <expr> nohlsear (getcmdtype() == ':' && getcmdpos() == 9 ? 'nohlsear <bar> call loupe#private#clear_highlight()<CR>' : 'nohlsear')
+cabbrev <silent> <expr> nohlsearc (getcmdtype() == ':' && getcmdpos() == 10 ? 'nohlsearc <bar> call loupe#private#clear_highlight()<CR>' : 'nohlsearc')
+cabbrev <silent> <expr> nohlsearch (getcmdtype() == ':' && getcmdpos() == 11 ? 'nohlsearch <bar> call loupe#private#clear_highlight()<CR>' : 'nohlsearch')
+
 " When g:LoupeVeryMagic is true (and it is by default), make Vim's regexen more
 " Perl-like.
 function s:MagicString()
