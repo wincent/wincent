@@ -12,6 +12,7 @@ let g:loupe_loaded = 1
 let s:cpoptions = &cpoptions
 set cpoptions&vim
 
+" Reasonable defaults for search-related settings.
 set history=1000 " Longer search and command history (default is 50).
 if has('extra_search')
   set hlsearch   " Highlight search strings.
