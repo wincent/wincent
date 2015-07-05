@@ -1,3 +1,6 @@
+[submodule "roles/dotfiles/files/.shells/base16-shell"]
+	path = roles/dotfiles/files/.shells/base16-shell
+	url = https://github.com/chriskempson/base16-shell.git
 [submodule "roles/dotfiles/files/.vim/bundle/YouCompleteMe"]
 	branch = wincent
 	ignore = dirty
@@ -15,6 +18,10 @@
 	ignore = untracked
 	path = roles/dotfiles/files/.vim/bundle/gundo
 	url = https://github.com/sjl/gundo.vim.git
+[submodule "roles/dotfiles/files/.vim/bundle/loupe"]
+	ignore = dirty
+	path = roles/dotfiles/files/.vim/bundle/loupe
+	url = https://github.com/wincent/loupe.git
 [submodule "roles/dotfiles/files/.vim/bundle/nerdtree"]
 	ignore = untracked
 	path = roles/dotfiles/files/.vim/bundle/nerdtree
@@ -74,6 +81,9 @@
 	ignore = untracked
 	path = roles/dotfiles/files/.vim/bundle/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
+[submodule "roles/dotfiles/files/.vim/bundle/vim-speeddating"]
+	path = roles/dotfiles/files/.vim/bundle/vim-speeddating
+	url = https://github.com/tpope/vim-speeddating.git
 [submodule "roles/dotfiles/files/.vim/bundle/vim-surround"]
 	ignore = untracked
 	path = roles/dotfiles/files/.vim/bundle/vim-surround
@@ -88,23 +98,13 @@
 	ignore = untracked
 	path = roles/dotfiles/files/.vim/bundle/vim-textobj-user
 	url = https://github.com/kana/vim-textobj-user.git
-[submodule "roles/dotfiles/files/.shells/base16-shell"]
-	path = roles/dotfiles/files/.shells/base16-shell
-	url = https://github.com/chriskempson/base16-shell.git
 [submodule "vendor/ansible"]
 	branch = v1.9.0.1-1
 	path = vendor/ansible
 	url = https://github.com/ansible/ansible.git
-[submodule "vendor/virtualenv"]
-	path = vendor/virtualenv
-	url = https://github.com/pypa/virtualenv.git
 [submodule "vendor/git-cipher"]
 	path = vendor/git-cipher
 	url = https://github.com/wincent/git-cipher.git
-[submodule "roles/dotfiles/files/.vim/bundle/vim-speeddating"]
-	path = roles/dotfiles/files/.vim/bundle/vim-speeddating
-	url = https://github.com/tpope/vim-speeddating.git
-[submodule "roles/dotfiles/files/.vim/bundle/loupe"]
-	ignore = dirty
-	path = roles/dotfiles/files/.vim/bundle/loupe
-	url = https://github.com/wincent/loupe.git
+[submodule "vendor/virtualenv"]
+	path = vendor/virtualenv
+	url = https://github.com/pypa/virtualenv.git
