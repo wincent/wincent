@@ -44,24 +44,21 @@ function! s:strip_ranges(cmdline)
   let l:modifier = '\([+-]\d*\)*'
 
   " Range tokens as specified in `:h cmdline-ranges`.
-  " Separators as specified in `:h :,` and `:h :;`.
-  for l:pattern in [
-        \   '^\d\+',
-        \   '^\.',
-        \   '^$',
-        \   '^%',
-        \   "^'[a-z]\\c",
-        \   "^'[<>]",
-        \   '^/[^/]\+/',
-        \   '^?[^?]\+?',
-        \   '^\\/',
-        \   '^\\?',
-        \   '^\\&',
-        \   '^,',
-        \   '^;'
-        \ ]
-    let l:cmdline = substitute(l:cmdline, l:pattern . l:modifier, '', '')
-  endfor
+  let l:cmdline = substitute(l:cmdline, '^\d\+' . l:modifier, '', '') " line number
+  let l:cmdline = substitute(l:cmdline, '^\.' . l:modifier, '', '') " current line
+  let l:cmdline = substitute(l:cmdline, '^$' . l:modifier, '', '') " last line in file
+  let l:cmdline = substitute(l:cmdline, '^%' . l:modifier, '', '') " entire file
+  let l:cmdline = substitute(l:cmdline, "^'[a-z]\\c" . l:modifier, '', '') " mark t (or T)
+  let l:cmdline = substitute(l:cmdline, "^'[<>]" . l:modifier, '', '') " visual selection marks
+  let l:cmdline = substitute(l:cmdline, '^/[^/]\+/' . l:modifier, '', '') " /{pattern}/
+  let l:cmdline = substitute(l:cmdline, '^?[^?]\+?' . l:modifier, '', '') " ?{pattern}?
+  let l:cmdline = substitute(l:cmdline, '^\\/' . l:modifier, '', '') " \/ (next match of previous pattern)
+  let l:cmdline = substitute(l:cmdline, '^\\?' . l:modifier, '', '') " \? (last match of previous pattern)
+  let l:cmdline = substitute(l:cmdline, '^\\&' . l:modifier, '', '') " \& (last match of previous substitution)
+
+  " Separators (see: `:h :,` and `:h :;`).
+  let l:cmdline = substitute(l:cmdline, '^,', '', '') " , (separator)
+  let l:cmdline = substitute(l:cmdline, '^;', '', '') " ; (separator)
 
   return l:cmdline
 endfunction
