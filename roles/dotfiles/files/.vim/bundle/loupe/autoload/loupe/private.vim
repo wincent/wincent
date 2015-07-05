@@ -76,9 +76,9 @@ endfunction
 
 " Clear previously applied match highlighting.
 function! loupe#private#clear_highlight() abort
-  if exists('w:hlmatch')
-    call matchdelete(w:hlmatch)
-    unlet w:hlmatch
+  if exists('w:loupe_hlmatch')
+    call matchdelete(w:loupe_hlmatch)
+    unlet w:loupe_hlmatch
   endif
 endfunction
 
@@ -86,7 +86,7 @@ endfunction
 function! loupe#private#hlmatch() abort
   " When g:loupeHighlight is set (and it is set to "IncSearch" by default), use
   " that highlight group to make the current search result stand out.
-  let l:highlight = exists('g:LoupeHighlight') ? g:LoupeHighlight : 'IncSearch'
+  let l:highlight = exists('g:LoupeHighlightGroup') ? g:LoupeHighlightGroup : 'IncSearch'
   if empty(l:highlight)
     return
   endif
@@ -105,6 +105,6 @@ function! loupe#private#hlmatch() abort
   let l:pattern = '\c\%#' . @/
 
   if exists('*matchadd')
-    let w:hlmatch = matchadd(l:highlight, l:pattern)
+    let w:loupe_hlmatch = matchadd(l:highlight, l:pattern)
   endif
 endfunction
