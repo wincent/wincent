@@ -3,17 +3,19 @@
 
 " Provide users with means to prevent loading, as recommended in `:h
 " write-plugin`.
-if exists('g:loupe_loaded') || &compatible || v:version < 700
+if exists('g:LoupeLoaded') || &compatible || v:version < 700
   finish
 endif
-let g:loupe_loaded = 1
+let g:LoupeLoaded = 1
 
 " Temporarily set 'cpoptions' to Vim default as per `:h use-cpo-save`.
 let s:cpoptions = &cpoptions
 set cpoptions&vim
 
 " Reasonable defaults for search-related settings.
-set history=1000 " Longer search and command history (default is 50).
+if &history < 1000
+  set history=1000 " Longer search and command history (default is 50).
+endif
 if has('extra_search')
   set hlsearch   " Highlight search strings.
   set incsearch  " Incremental search ("find as you type").
