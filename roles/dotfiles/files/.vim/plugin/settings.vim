@@ -27,10 +27,6 @@ set formatoptions+=n                  " smart auto-indenting inside numbered lis
 set guifont=Consolas:h13
 set guioptions-=T                     " don't show toolbar
 set hidden                            " allows you to hide buffers with unsaved changes without being prompted
-set history=1000                      " longer search and command history (default is 20)
-set hlsearch                          " highlight search strings
-set ignorecase                        " ignore case when searching
-set incsearch                         " incremental search ("find as you type")
 set laststatus=2                      " always show status line
 set lazyredraw                        " don't bother updating screen during macro playback
 set list                              " show whitespace
@@ -53,7 +49,6 @@ set shortmess+=T                      " truncate non-file messages in middle
 set shortmess+=W                      " don't echo "[w]"/"[written]" when writing
 set shortmess+=a                      " use abbreviations in messages eg. `[RO]` instead of `[readonly]`
 set shortmess+=o                      " overwrite file-written messages
-set shortmess+=s                      " don't echo search wrap messages
 set shortmess+=t                      " truncate file messages at start
 
 if has('showcmd')
@@ -61,7 +56,6 @@ if has('showcmd')
 endif
 
 set sidescrolloff=3                   " same as scolloff, but for columns
-set smartcase                         " case-sensitive search if search string includes a capital letter
 set smarttab                          " <tab>/<BS> indent/dedent in leading whitespace
 
 if v:progname !=# 'vi'

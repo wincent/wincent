@@ -12,6 +12,15 @@ let g:loupe_loaded = 1
 let s:cpoptions = &cpoptions
 set cpoptions&vim
 
+set history=1000 " Longer search and command history (default is 50).
+if has('extra_search')
+  set hlsearch   " Highlight search strings.
+  set incsearch  " Incremental search ("find as you type").
+endif
+set ignorecase   " Ignore case when searching.
+set shortmess+=s " Don't echo search wrap messages.
+set smartcase    " Case-sensitive search if search string includes a capital letter.
+
 " Map <leader>n to clear search highlighting.
 let s:map = exists('g:LoupeClearHighlightMap') ? g:LoupeClearHighlightMap : 1
 if s:map
