@@ -26,7 +26,7 @@ set smartcase    " Case-sensitive search if search string includes a capital let
 let s:map = exists('g:LoupeClearHighlightMap') ? g:LoupeClearHighlightMap : 1
 if s:map
   if !hasmapto('<Plug>LoupeClearHighlight') && maparg('<leader>n', 'n') ==# ''
-    silent! nmap <silent> <unique> <leader>n <Plug>LoupeClearHighlight
+    nmap <silent> <unique> <leader>n <Plug>LoupeClearHighlight
   endif
 endif
 nnoremap <silent> <Plug>LoupeClearHighlight
