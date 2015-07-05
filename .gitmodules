@@ -105,5 +105,6 @@
 	path = roles/dotfiles/files/.vim/bundle/vim-speeddating
 	url = https://github.com/tpope/vim-speeddating.git
 [submodule "roles/dotfiles/files/.vim/bundle/loupe"]
+	ignore = dirty
 	path = roles/dotfiles/files/.vim/bundle/loupe
 	url = https://github.com/wincent/loupe.git
