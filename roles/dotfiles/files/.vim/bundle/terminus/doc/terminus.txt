@@ -167,7 +167,7 @@ A mirror exists at:
 
 Official releases are listed at:
 
-  http://www.vim.org/scripts/script.php?script_id=ID <------------------ TODO
+  http://www.vim.org/scripts/script.php?script_id=5216
 
 
 LICENSE                                                      *terminus-license*
@@ -203,7 +203,7 @@ Terminus is written and maintained by Greg Hurrell <greg@hurrell.net>.
 
 HISTORY                                                      *terminus-history*
 
-0.1 (not yet released)
+0.1 (6 July 2015)
 
 - initial release, extracted from my dotfiles
   (https://github.com/wincent/wincent)
