@@ -1,0 +1,213 @@
+*terminus.txt* Terminus plug-in for Vim                                *terminus*
+
+CONTENTS                                                    *terminus-contents*
+
+1. Intro            |terminus-intro|
+2. Installation     |terminus-installation|
+3. Options          |terminus-options|
+4. Overrides        |terminus-overrides|
+5. Website          |terminus-website|
+6. License          |terminus-license|
+7. Authors          |terminus-authors|
+8. History          |terminus-history|
+
+
+INTRO                                                          *terminus-intro*
+
+    "terminus (noun, pl. termini or terminuses)
+    the end of a railroad or other transportation route, or a station at such
+    a point; a terminal."
+
+                                                            *terminus-features*
+Terminus enhances Vim's integration with the terminal in four ways,
+particularly when using tmux (https://tmux.github.io/) and iTerm
+(https://www.iterm2.com/), closing the gap between terminal and GUI Vim:
+
+1. Cursor shape change in insert mode ~
+
+In insert mode, the cursor shape changes to a thin vertical bar. On leaving
+inset mode, it reverts to the standard "block" shape.
+
+2. Improved mouse support ~
+
+Activates 'mouse' support in all modes and additionally tries to activate
+|sgr-mouse| support, which allows the mouse to work "even in columns beyond
+223".
+
+3. Focus reporting ~
+
+Allows Vim to receive |FocusGained| and |FocusLost| events, even in the
+terminal and inside tmux. This is in turn used to fire the |:checktime|
+command, which, in conjunction with the 'autoread', allows Vim to
+automatically pick up changes made by other processes when switching to and
+from Vim.
+
+4. "Bracketed Paste" mode ~
+
+Sets up "Bracketed Paste" mode, which means you can forget about manually
+setting the 'paste' option and simply go ahead and paste in any mode.
+
+
+INSTALLATION                                            *terminus-installation*
+
+To install Terminus, use your plug-in management system of choice.
+
+If you don't have a "plug-in management system of choice", I recommend
+Pathogen (https://github.com/tpope/vim-pathogen) due to its simplicity and
+robustness. Assuming that you have Pathogen installed and configured, and that
+you want to install Terminus into `~/.vim/bundle`, you can do so with: >
+
+  git clone https://github.com/wincent/terminus.git ~/.vim/bundle/terminus
+
+Alternatively, if you use a Git submodule for each Vim plug-in, you could do
+the following after `cd`-ing into the top-level of your Git superproject: >
+
+  git submodule add https://github.com/wincent/terminus.git ~/vim/bundle/terminus
+  git submodule init
+
+To generate help tags under Pathogen, you can do so from inside Vim with: >
+
+  :call pathogen#helptags()
+
+
+OPTIONS                                                      *terminus-options*
+
+                                                        *g:TerminusCursorShape*
+  |g:TerminusCursorShape|                                  boolean (default: 1)
+
+  Controls whether cursor shape changes are made when entering or leaving
+  insert mode. To disable, set to 0: >
+
+    let g:TerminusCursorShape=0
+<
+                                                              *g:TerminusMouse*
+  |g:TerminusMouse|                                         boolean (default: 1)
+
+  Controls whether Terminus attempts to improve mouse function by setting the
+  'mouse' and 'typemouse' settings. To disable this action, set to 0: >
+
+    let g:TerminusMouse=0
+<
+                                                     *g:TerminusFocusReporting*
+  |g:TerminusFocusReporting|                               boolean (default: 1)
+
+  Controls whether Terminus attempts to enable focus reporting and therefore
+  |FocusGained| and |FocusLost| events, which then trigger the |:checktime|
+  command and allow changed files to be refreshed automatically via
+  'autoread'. To disable this feature, set to 0: >
+
+    let g:TerminusFocusReporting=0
+<
+                                                     *g:TerminusBracketedPaste*
+  |g:TerminusBracketedPaste|                               boolean (default: 1)
+
+  Controls whether Terminus attempts to set-up Bracketed Paste mode. To
+  disable, set to 0: >
+
+    let g:TerminusBracketedPaste=0
+<
+                                                        *terminus-assume-iterm*
+                                                        *g:TerminusAssumeITerm*
+  |g:TerminusAssumeITerm|                                      any (no default)
+
+  Terminus will try to autodetect when Vim is running inside of iTerm,
+  but it is possible that when running on a remote host via SSH the necessary
+  environment variables (`$ITERM_PROFILE` or `$ITERM_SESSION_ID`) may not be
+  present.
+
+  In this case, it is possible to signal to Terminus that iTerm is operative by
+  doing either of the following:
+
+  - Touching (ie. creating) a file at `~/.vim/.assume-iterm`.
+  - Setting |g:TerminusAssumeITerm| to any value
+
+                                                             *g:TerminusLoaded*
+  |g:TerminusLoaded|                                           any (no default)
+
+  To prevent Terminus from being loaded, set |g:TerminusLoaded| to any value
+  in your |.vimrc|. For example: >
+
+    let g:TerminusLoaded=1
+<
+
+OVERRIDES                                                  *terminus-overrides*
+
+Terminus sets some Vim settings to reasonable defaults in order to provide a
+good "out of the box" experience:
+
+                                                            *terminus-autoread*
+  'autoread'
+
+  Turned on (if a file change made outside of Vim is detected as the result of
+  running the |:checktime| command, reloads the file).
+
+                                                         *terminus-ttimeoutlen*
+  'ttimeoutlen'
+
+  Reduced to 50 (milliseconds) to speed of the response of some mappings (for
+  example, |O|) in the terminal. If the effective 'ttimeoulen' is already 50
+  or lower, Terminus leaves this setting untouched.
+
+To override any of these choices, you can place overrides in an
+|after-directory| (ie. `~/.vim/after/plugin/terminus.vim`). For example: >
+
+  " Override Terminus' 'autoread' setting.
+  set noautoread
+
+
+WEBSITE                                                      *terminus-website*
+
+The official Terminus source code repo is at:
+
+  http://git.wincent.com/terminus.git
+
+A mirror exists at:
+
+  https://github.com/wincent/terminus
+
+Official releases are listed at:
+
+  http://www.vim.org/scripts/script.php?script_id=ID <------------------ TODO
+
+
+LICENSE                                                      *terminus-license*
+
+Copyright 2015-present Greg Hurrell. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice,
+   this list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+
+
+AUTHORS                                                      *terminus-authors*
+
+Terminus is written and maintained by Greg Hurrell <greg@hurrell.net>.
+
+
+HISTORY                                                      *terminus-history*
+
+0.1 (not yet released)
+
+- initial release, extracted from my dotfiles
+  (https://github.com/wincent/wincent)
+
+
+-----------------------------------------------------------------------------
+vim:tw=78:ft=help:

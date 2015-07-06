@@ -1,7 +1,6 @@
 scriptencoding utf-8
 
 set autoindent                        " maintain indent of current line
-set autoread                          " if not changed in Vim, automatically pick up changes after "git checkout" etc
 set backspace=indent,start,eol        " allow unrestricted backspacing in insert mode
 set backupdir=~/.vim/tmp/backup,.     " keep backup files out of the way
 
@@ -71,7 +70,6 @@ set splitright                        " open vertical splits to the right of the
 set switchbuf=usetab                  " try to reuse windows/tabs when switching buffers
 set tabstop=2                         " spaces per tab
 set textwidth=80                      " automatically hard wrap at 80 columns
-set ttimeoutlen=50                    " speed up O etc in the Terminal
 
 if has('persistent_undo')
   set undodir=~/.vim/tmp/undo,.       " keep undo files out of the way
