@@ -1,4 +1,7 @@
-function! terminus#private#escape(string) abort
+" Copyright 2015-present Greg Hurrell. All rights reserved.
+" Licensed under the terms of the BSD 2-clause license.
+
+function! s:escape(string) abort
   " Double each <Esc>.
   return substitute(a:string, "\<Esc>", "\<Esc>\<Esc>", 'g')
 endfunction
@@ -11,7 +14,7 @@ function! terminus#private#wrap(string) abort
   let l:tmux_begin="\<Esc>Ptmux;"
   let l:tmux_end="\<Esc>\\"
 
-  return l:tmux_begin . terminus#private#escape(a:string) . l:tmux_end
+  return l:tmux_begin . s:escape(a:string) . l:tmux_end
 endfunction
 
 function! terminus#private#focus_lost() abort
