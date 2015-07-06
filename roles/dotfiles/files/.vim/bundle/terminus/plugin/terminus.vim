@@ -10,8 +10,8 @@ if s:iterm
   let end_insert    = "\<Esc>]50;CursorShape=0\x7"
 
   if s:tmux
-    let start_insert  = term#wrap(start_insert)
-    let end_insert    = term#wrap(end_insert)
+    let start_insert  = terminus#wrap(start_insert)
+    let end_insert    = terminus#wrap(end_insert)
   endif
 
   let &t_SI = start_insert
@@ -41,8 +41,8 @@ let &t_te = "\e[?1004l" . &t_te
 
 execute "set <f20>=\<Esc>[O"
 execute "set <f21>=\<Esc>[I"
-cnoremap <silent> <f20> <c-\>eterm#focus_lost()<cr>
-cnoremap <silent> <f21> <c-\>eterm#focus_gained()<cr>
+cnoremap <silent> <f20> <c-\>eterminus#focus_lost()<cr>
+cnoremap <silent> <f21> <c-\>eterminus#focus_gained()<cr>
 inoremap <silent> <f20> <c-o>:silent doautocmd FocusLost %<cr>
 inoremap <silent> <f21> <c-o>:silent doautocmd FocusGained %<cr>
 nnoremap <silent> <f20> :doautocmd FocusLost %<cr>
@@ -63,9 +63,9 @@ if s:screen || s:xterm
   let &t_te = "\e[?2004l" . &t_te
 
   set pastetoggle=<Esc>[201~
-  inoremap <expr> <Esc>[200~ term#paste('')
-  nnoremap <expr> <Esc>[200~ term#paste('i')
-  vnoremap <expr> <Esc>[200~ term#paste('c')
+  inoremap <expr> <Esc>[200~ terminus#paste('')
+  nnoremap <expr> <Esc>[200~ terminus#paste('i')
+  vnoremap <expr> <Esc>[200~ terminus#paste('c')
   cnoremap <Esc>[200~ <nop>
   cnoremap <Esc>[201~ <nop>
 endif
