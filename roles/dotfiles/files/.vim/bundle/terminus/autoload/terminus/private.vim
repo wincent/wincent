@@ -8,32 +8,32 @@ function! terminus#private#wrap(string) abort
     return ''
   end
 
-  let l:tmux_begin  = "\<Esc>Ptmux;"
-  let l:tmux_end    = "\<Esc>\\"
+  let l:tmux_begin="\<Esc>Ptmux;"
+  let l:tmux_end="\<Esc>\\"
 
   return l:tmux_begin . terminus#private#escape(a:string) . l:tmux_end
 endfunction
 
 function! terminus#private#focus_lost() abort
-  let cmdline = getcmdline()
-  let cmdpos  = getcmdpos()
+  let l:cmdline=getcmdline()
+  let l:cmdpos=getcmdpos()
 
   silent doautocmd FocusLost %
 
-  call setcmdpos(cmdpos)
-  return cmdline
+  call setcmdpos(l:cmdpos)
+  return l:cmdline
 endfunction
 
 function! terminus#private#focus_gained() abort
-  let cmdline = getcmdline()
-  let cmdpos  = getcmdpos()
+  let l:cmdline=getcmdline()
+  let l:cmdpos=getcmdpos()
 
   " our checktime autocmd will produce:
   " E523: Not allowed here:   checktime
   silent! doautocmd FocusGained %
 
-  call setcmdpos(cmdpos)
-  return cmdline
+  call setcmdpos(l:cmdpos)
+  return l:cmdline
 endfunction
 
 function! terminus#private#paste(ret) abort

@@ -1,21 +1,21 @@
 " terminal-specific magic
-let s:iterm   = exists('$ITERM_PROFILE') || exists('$ITERM_SESSION_ID') || filereadable(expand('~/.vim/.assume-iterm'))
-let s:screen  = &term =~# 'screen'
-let s:tmux    = exists('$TMUX')
-let s:xterm   = &term =~# 'xterm'
+let s:iterm=exists('$ITERM_PROFILE') || exists('$ITERM_SESSION_ID') || filereadable(expand('~/.vim/.assume-iterm'))
+let s:screen=&term =~# 'screen'
+let s:tmux=exists('$TMUX')
+let s:xterm=&term =~# 'xterm'
 
 " Change shape of cursor in insert mode in iTerm 2.
 if s:iterm
-  let start_insert  = "\<Esc>]50;CursorShape=1\x7"
-  let end_insert    = "\<Esc>]50;CursorShape=0\x7"
+  let s:start_insert="\<Esc>]50;CursorShape=1\x7"
+  let s:end_insert="\<Esc>]50;CursorShape=0\x7"
 
   if s:tmux
-    let start_insert  = terminus#private#wrap(start_insert)
-    let end_insert    = terminus#private#wrap(end_insert)
+    let s:start_insert=terminus#private#wrap(s:start_insert)
+    let s:end_insert=terminus#private#wrap(s:end_insert)
   endif
 
-  let &t_SI = start_insert
-  let &t_EI = end_insert
+  let &t_SI=s:start_insert
+  let &t_EI=s:end_insert
 endif
 
 if has('mouse')
@@ -35,9 +35,9 @@ augroup WincentTerm
 augroup END
 
 " enable focus reporting on entering Vim
-let &t_ti .= "\e[?1004h"
+let &t_ti.="\e[?1004h"
 " disable focus reporting on leaving Vim
-let &t_te = "\e[?1004l" . &t_te
+let &t_te="\e[?1004l" . &t_te
 
 execute "set <f20>=\<Esc>[O"
 execute "set <f21>=\<Esc>[I"
@@ -57,10 +57,10 @@ vnoremap <silent> <f21> <Esc>:silent doautocmd FocusGained %<cr>gv
 " http://stackoverflow.com/questions/5585129
 if s:screen || s:xterm
   " enable bracketed paste mode on entering Vim
-  let &t_ti .= "\e[?2004h"
+  let &t_ti.="\e[?2004h"
 
   " disable bracketed paste mode on leaving Vim
-  let &t_te = "\e[?2004l" . &t_te
+  let &t_te="\e[?2004l" . &t_te
 
   set pastetoggle=<Esc>[201~
   inoremap <expr> <Esc>[200~ terminus#private#paste('')
