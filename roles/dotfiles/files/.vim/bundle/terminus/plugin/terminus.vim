@@ -29,7 +29,7 @@ if has('mouse')
   endif
 endif
 
-augroup WincentTerm
+augroup Terminus
   autocmd!
   autocmd FocusGained * checktime
 augroup END
