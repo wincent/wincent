@@ -1,3 +1,6 @@
+[submodule ".vim/bundle/terminus"]
+	path = .vim/bundle/terminus
+	url = https://github.com/wincent/terminus.git
 [submodule "roles/dotfiles/files/.shells/base16-shell"]
 	path = roles/dotfiles/files/.shells/base16-shell
 	url = https://github.com/chriskempson/base16-shell.git
@@ -108,6 +111,3 @@
 [submodule "vendor/virtualenv"]
 	path = vendor/virtualenv
 	url = https://github.com/pypa/virtualenv.git
-[submodule ".vim/bundle/terminus"]
-	path = .vim/bundle/terminus
-	url = https://github.com/wincent/terminus.git
