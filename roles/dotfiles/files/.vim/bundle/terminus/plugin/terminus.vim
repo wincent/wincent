@@ -1,4 +1,3 @@
-" terminal-specific magic
 let s:iterm=exists('$ITERM_PROFILE') || exists('$ITERM_SESSION_ID') || filereadable(expand('~/.vim/.assume-iterm'))
 let s:screen=&term =~# 'screen'
 let s:tmux=exists('$TMUX')
@@ -34,9 +33,9 @@ augroup Terminus
   autocmd FocusGained * checktime
 augroup END
 
-" enable focus reporting on entering Vim
+" Enable focus reporting on entering Vim.
 let &t_ti.="\e[?1004h"
-" disable focus reporting on leaving Vim
+" Disable focus reporting on leaving Vim.
 let &t_te="\e[?1004l" . &t_te
 
 execute "set <f20>=\<Esc>[O"
@@ -52,14 +51,14 @@ onoremap <silent> <f21> <Esc>:silent doautocmd FocusGained %<cr>
 vnoremap <silent> <f20> <Esc>:silent doautocmd FocusLost %<cr>gv
 vnoremap <silent> <f21> <Esc>:silent doautocmd FocusGained %<cr>gv
 
-" make use of Xterm "bracketed paste mode"
-" http://www.xfree86.org/current/ctlseqs.html#Bracketed%20Paste%20Mode
-" http://stackoverflow.com/questions/5585129
+" Make use of Xterm "bracketed paste mode". See:
+"  - http://www.xfree86.org/current/ctlseqs.html#Bracketed%20Paste%20Mode
+"  - http://stackoverflow.com/questions/5585129
 if s:screen || s:xterm
-  " enable bracketed paste mode on entering Vim
+  " Enable bracketed paste mode on entering Vim.
   let &t_ti.="\e[?2004h"
 
-  " disable bracketed paste mode on leaving Vim
+  " Disable bracketed paste mode on leaving Vim.
   let &t_te="\e[?2004l" . &t_te
 
   set pastetoggle=<Esc>[201~

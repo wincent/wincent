@@ -1,5 +1,5 @@
 function! terminus#private#escape(string) abort
-  " double each <Esc>
+  " Double each <Esc>.
   return substitute(a:string, "\<Esc>", "\<Esc>\<Esc>", 'g')
 endfunction
 
@@ -28,8 +28,8 @@ function! terminus#private#focus_gained() abort
   let l:cmdline=getcmdline()
   let l:cmdpos=getcmdpos()
 
-  " our checktime autocmd will produce:
-  " E523: Not allowed here:   checktime
+  " Our checktime autocmd will produce:
+  "   E523: Not allowed here:   checktime
   silent! doautocmd FocusGained %
 
   call setcmdpos(l:cmdpos)
