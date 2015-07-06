@@ -108,3 +108,6 @@
 [submodule "vendor/virtualenv"]
 	path = vendor/virtualenv
 	url = https://github.com/pypa/virtualenv.git
+[submodule ".vim/bundle/terminus"]
+	path = .vim/bundle/terminus
+	url = https://github.com/wincent/terminus.git
