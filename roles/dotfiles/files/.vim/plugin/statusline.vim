@@ -39,8 +39,10 @@ if has('statusline')
   set statusline+=%%   " literal %
   set statusline+=%*   " reset highlight group
 
-  augroup WincentStatusline
-    autocmd!
-    autocmd ColorScheme * call statusline#update_highlight()
-  augroup END
+  if has('autocmd')
+    augroup WincentStatusline
+      autocmd!
+      autocmd ColorScheme * call statusline#update_highlight()
+    augroup END
+  endif
 endif

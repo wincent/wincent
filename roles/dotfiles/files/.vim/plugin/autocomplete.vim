@@ -6,10 +6,12 @@ let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
 " Prevent UltiSnips from removing our carefully-crafted mappings.
 let g:UltiSnipsMappingsToIgnore = ['autocomplete']
 
-autocmd! User UltiSnipsMapInnerKeys
-autocmd User UltiSnipsMapInnerKeys call autocomplete#setup_mappings()
-autocmd! User UltiSnipsUnmapInnerKeys
-autocmd User UltiSnipsUnmapInnerKeys call autocomplete#teardown_mappings()
+if has('autocmd')
+  autocmd! User UltiSnipsMapInnerKeys
+  autocmd User UltiSnipsMapInnerKeys call autocomplete#setup_mappings()
+  autocmd! User UltiSnipsUnmapInnerKeys
+  autocmd User UltiSnipsUnmapInnerKeys call autocomplete#teardown_mappings()
+endif
 
 let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
