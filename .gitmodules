@@ -29,16 +29,19 @@
 [submodule "roles/dotfiles/files/.vim/bundle/tabular"]
 	path = roles/dotfiles/files/.vim/bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
-[submodule "roles/dotfiles/files/.vim/bundle/terminus"]
-	path = roles/dotfiles/files/.vim/bundle/terminus
-	url = https://github.com/wincent/terminus.git
 [submodule "roles/dotfiles/files/.vim/bundle/tcomment_vim"]
 	path = roles/dotfiles/files/.vim/bundle/tcomment_vim
 	url = https://github.com/tomtom/tcomment_vim.git
+[submodule "roles/dotfiles/files/.vim/bundle/terminus"]
+	path = roles/dotfiles/files/.vim/bundle/terminus
+	url = https://github.com/wincent/terminus.git
 [submodule "roles/dotfiles/files/.vim/bundle/ultisnips"]
 	branch = wincent
 	path = roles/dotfiles/files/.vim/bundle/ultisnips
 	url = https://github.com/wincent/ultisnips.git
+[submodule "roles/dotfiles/files/.vim/bundle/vim-clipper"]
+	path = roles/dotfiles/files/.vim/bundle/vim-clipper
+	url = https://github.com/wincent/vim-clipper.git
 [submodule "roles/dotfiles/files/.vim/bundle/vim-dispatch"]
 	path = roles/dotfiles/files/.vim/bundle/vim-dispatch
 	url = https://github.com/tpope/vim-dispatch.git
@@ -111,6 +114,3 @@
 [submodule "vendor/virtualenv"]
 	path = vendor/virtualenv
 	url = https://github.com/pypa/virtualenv.git
-[submodule "roles/dotfiles/files/.vim/bundle/vim-clipper"]
-	path = roles/dotfiles/files/.vim/bundle/vim-clipper
-	url = https://github.com/wincent/vim-clipper.git
