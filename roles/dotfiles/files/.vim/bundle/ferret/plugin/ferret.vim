@@ -12,11 +12,11 @@ let g:FerretLoaded = 1
 let s:cpoptions = &cpoptions
 set cpoptions&vim
 
-if executable('ag')       " The Silver Searcher: faster than ack
+if executable('ag') " The Silver Searcher: faster than ack.
   let s:ackprg = 'ag --column --nocolor --nogroup'
-elseif executable('ack')  " Ack: better than grep
+elseif executable('ack') " Ack: better than grep.
   let s:ackprg = 'ack --column'
-elseif executable('grep') " Grep: it's just grep
+elseif executable('grep') " Grep: it's just grep.
   let s:ackprg = &grepprg " default is: grep -n $* /dev/null
 endif
 
