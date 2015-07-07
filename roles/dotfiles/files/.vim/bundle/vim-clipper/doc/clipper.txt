@@ -1,0 +1,146 @@
+*clipper.txt* Clipper plug-in for Vim                       *clipper* *vim-clipper*
+
+CONTENTS                                                     *clipper-contents*
+
+1. Intro           |clipper-intro|
+2. Installation    |clipper-installation|
+3. Options         |clipper-options|
+4. Mappings        |clipper-mappings|
+5. Website         |clipper-website|
+6. License         |clipper-license|
+7. Authors         |clipper-authors|
+8. History         |clipper-history|
+
+
+INTRO                                                           *clipper-intro*
+
+    "clipper (noun)
+    an instrument for cutting or trimming small pieces off things."
+
+                                                             *clipper-features*
+vim-clipper provides integration between Vim and Clipper
+(https://github.com/wincent/clipper), which is an OS X "launch agent" that
+runs in the background providing a service that exposes the local clipboard to
+tmux sessions and other processes running both locally and remotely.
+
+Specifically, vim-clipper provides a |:Clip| command, to send the last-yanked
+text to Clipper, and it sets up a <leader>y mapping that calls |:Clip|.
+
+
+INSTALLATION                                             *clipper-installation*
+
+To install vim-clipper, use your plug-in management system of choice.
+
+If you don't have a "plug-in management system of choice", I recommend
+Pathogen (https://github.com/tpope/vim-pathogen) due to its simplicity and
+robustness. Assuming that you have Pathogen installed and configured, and that
+you want to install vim-clipper into `~/.vim/bundle`, you can do so with: >
+
+  git clone https://github.com/wincent/vim-clipper.git ~/.vim/bundle/vim-clipper
+
+Alternatively, if you use a Git submodule for each Vim plug-in, you could do
+the following after `cd`-ing into the top-level of your Git superproject: >
+
+  git submodule add https://github.com/wincent/vim-clipper.git ~/vim/bundle/vim-clipper
+  git submodule init
+
+To generate help tags under Pathogen, you can do so from inside Vim with: >
+
+  :call pathogen#helptags()
+
+
+OPTIONS                                                       *clipper-options*
+
+                                                                 *g:ClipperMap*
+  |g:ClipperMap|                                           boolean (default: 1)
+
+  Controls whether to set up the |<Plug>ClipperClip| mapping. To prevent any
+  mapping from being configured, set to 0 in your |.vimrc|: >
+
+    let g:ClipperMap=0
+<
+                                                              *g:ClipperLoaded*
+  |g:Clipper|                                                  any (no default)
+
+  To prevent vim-clipper from being loaded, set |g:ClipperLoaded| to any value
+  in your |.vimrc|. For example: >
+
+    let g:ClipperLoaded=1
+
+
+MAPPINGS                                                     *clipper-mappings*
+
+                                                            *<Plug>ClipperClip*
+vim-clipper maps <leader>y to |<Plug>ClipperClip|, which sends the last-yanked
+text to Clipper. To use an alternative mapping instead, create a different one
+in your |.vimrc| instead using |:nmap|: >
+
+  " Instead of <leader>y, use <leader>x.
+  nmap <leader>x <Plug>ClipperClip
+
+Note that vim-clipper will not try to set up its <leader>y mapping if any of
+the following are true:
+
+- A mapping for <leader>y already exists.
+- An alternative mapping for |<Plug>ClipperClip| has already been set up from
+  a |.vimrc|.
+- The mapping has been suppressed by setting |g:ClipperMap| to 1 in your
+  |.vimrc|.
+
+
+WEBSITE                                                       *clipper-website*
+
+The official vim-clipper source code repo is at:
+
+  http://git.wincent.com/vim-clipper.git
+
+A mirror exists at:
+
+  https://github.com/wincent/vim-clipper
+
+Official releases are listed at:
+
+  http://www.vim.org/scripts/script.php?script_id=5217
+
+
+LICENSE                                                       *clipper-license*
+
+Copyright 2015-present Greg Hurrell. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice,
+   this list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+
+
+AUTHORS                                                       *clipper-authors*
+
+vim-clipper is written and maintained by Greg Hurrell <greg@hurrell.net>.
+
+
+HISTORY                                                       *clipper-history*
+
+0.1 (6 July 2015)
+
+- initial release, extracted from my dotfiles
+  (https://github.com/wincent/wincent)
+
+
+-----------------------------------------------------------------------------
+vim:tw=78:ft=help:
