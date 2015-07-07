@@ -83,12 +83,14 @@ endfunction
 " way for mnemonics, as it will most often be preceded by an :Ack invocation.)
 function! ferret#acks(command) abort
   if match(a:command, '\v^/.+/.*/$') == -1 " crude sanity check
-    throw 'Expected a substitution expression (/foo/bar/); got: ' . a:command
+    echoerr 'Ferret: Expected a substitution expression (/foo/bar/); got: ' . a:command
+    return
   endif
 
   let l:filenames = ferret#qargs()
   if l:filenames ==# ''
-    throw 'Quickfix filenames must be present, but there are none'
+    echoerr 'Ferret: Quickfix filenames must be present, but there are none'
+    return
   endif
 
   execute 'args' l:filenames
