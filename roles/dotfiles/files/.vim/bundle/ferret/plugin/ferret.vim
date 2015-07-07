@@ -39,21 +39,21 @@ command! -nargs=1 Acks call ferret#acks(<q-args>)
 
 let s:map=exists('g:FerretMap') ? g:FerretMap : 1
 if s:map
-  if !hasmapto('<Plug>FerretAck') && maparg('<leader>a', 'n') ==# ''
-    nmap <unique> <leader>a <Plug>FerretAck
+  if !hasmapto('<Plug>(FerretAck)') && maparg('<leader>a', 'n') ==# ''
+    nmap <unique> <leader>a <Plug>(FerretAck)
   endif
-  nnoremap <Plug>FerretAck :Ack<space>
+  nnoremap <Plug>(FerretAck) :Ack<space>
 
   if !hasmapto('<Plug>FerretLack') && maparg('<leader>l', 'n') ==# ''
-    nmap <unique> <leader>l <Plug>FerretLack
+    nmap <unique> <leader>l <Plug>(FerretLack)
   endif
-  nnoremap <Plug>FerretLack :Lack<space>
+  nnoremap <Plug>(FerretLack) :Lack<space>
 
-  if !hasmapto('<Plug>FerretAckWord') && maparg('<leader>s', 'n') ==# ''
+  if !hasmapto('<Plug>(FerretAckWord)') && maparg('<leader>s', 'n') ==# ''
     " Call :Ack with word currently under cursor (mnemonic: selection).
-    nmap <unique> <leader>s <Plug>FerretAckWord
+    nmap <unique> <leader>s <Plug>(FerretAckWord)
   endif
-  nnoremap <Plug>FerretAckWord :Ack <C-r><C-w><CR>
+  nnoremap <Plug>(FerretAckWord) :Ack <C-r><C-w><CR>
 endif
 
 " Populate the :args list with the filenames currently in the quickfix window.
