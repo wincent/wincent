@@ -14,17 +14,17 @@
 "
 " and so on...
 function! s:escape(arg) abort
-  let l:escaped_spaces_replaced_with_markers = substitute(a:arg, '\\ ', '<!!S!!>', 'g')
-  let l:split_on_spaces = split(l:escaped_spaces_replaced_with_markers)
+  let l:escaped_spaces_replaced_with_markers=substitute(a:arg, '\\ ', '<!!S!!>', 'g')
+  let l:split_on_spaces=split(l:escaped_spaces_replaced_with_markers)
 
-  let l:seen_search_pattern = 0
-  let l:expanded_args = []
+  let l:seen_search_pattern=0
+  let l:expanded_args=[]
   for l:arg in l:split_on_spaces
     if l:arg =~# '^-'
       " Options get passed through as-is.
       call add(l:expanded_args, l:arg)
     elseif l:seen_search_pattern
-      let l:file_args = glob(l:arg, 1, 1) " Ignore 'wildignore', return a list.
+      let l:file_args=glob(l:arg, 1, 1) " Ignore 'wildignore', return a list.
       if len(l:file_args)
         call extend(l:expanded_args, l:file_args)
       else
@@ -33,13 +33,13 @@ function! s:escape(arg) abort
       endif
     else
       " First non-option arg is considered to be search pattern.
-      let l:seen_search_pattern = 1
+      let l:seen_search_pattern=1
       call add(l:expanded_args, l:arg)
     endif
   endfor
 
-  let l:each_word_shell_escaped = map(l:expanded_args, 'shellescape(v:val)')
-  let l:joined = join(l:each_word_shell_escaped)
+  let l:each_word_shell_escaped=map(l:expanded_args, 'shellescape(v:val)')
+  let l:joined=join(l:each_word_shell_escaped)
   return substitute(l:joined, '<!!S!!>', ' ', 'g')
 endfunction
 
@@ -48,15 +48,15 @@ function! ferret#ack(command) abort
     return
   endif
 
-  let l:original_makeprg = &l:makeprg
-  let l:original_errorformat = &l:errorformat
+  let l:original_makeprg=&l:makeprg
+  let l:original_errorformat=&l:errorformat
   try
-    let &l:makeprg = &grepprg . ' ' . s:escape(a:command)
-    let &l:errorformat = &grepformat
+    let &l:makeprg=&grepprg . ' ' . s:escape(a:command)
+    let &l:errorformat=&grepformat
     Make
   finally
-    let &l:makeprg = l:original_makeprg
-    let &l:errorformat = l:original_errorformat
+    let &l:makeprg=l:original_makeprg
+    let &l:errorformat=l:original_errorformat
   endtry
 endfunction
 
@@ -90,7 +90,7 @@ function! ferret#acks(command) abort
     return
   endif
 
-  let l:filenames = ferret#qargs()
+  let l:filenames=ferret#qargs()
   if l:filenames ==# ''
     echoerr 'Ferret: Quickfix filenames must be present, but there are none'
     return
@@ -102,9 +102,9 @@ endfunction
 
 " Populate the :args list with the filenames currently in the quickfix window.
 function! ferret#qargs() abort
-  let l:buffer_numbers = {}
+  let l:buffer_numbers={}
   for l:item in getqflist()
-    let l:buffer_numbers[l:item['bufnr']] = bufname(l:item['bufnr'])
+    let l:buffer_numbers[l:item['bufnr']]=bufname(l:item['bufnr'])
   endfor
   return join(map(values(l:buffer_numbers), 'fnameescape(v:val)'))
 endfunction
