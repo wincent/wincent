@@ -25,11 +25,13 @@ if !empty(s:ackprg)
   set grepformat=%f:%l:%c:%m
 endif
 
-augroup Ferret
-  autocmd!
-  autocmd QuickFixCmdPost [^l]* nested cwindow
-  autocmd QuickFixCmdPost l* nested lwindow
-augroup END
+if has('autocmd')
+  augroup Ferret
+    autocmd!
+    autocmd QuickFixCmdPost [^l]* nested cwindow
+    autocmd QuickFixCmdPost l* nested lwindow
+  augroup END
+endif
 
 command! -nargs=+ -complete=file Ack call ferret#ack(<q-args>)
 command! -nargs=+ -complete=file Lack call ferret#lack(<q-args>)
