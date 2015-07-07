@@ -40,7 +40,7 @@ function! s:escape(arg) abort
   return substitute(l:joined, '<!!S!!>', ' ', 'g')
 endfunction
 
-function! ack#ack(command) abort
+function! ferret#ack(command) abort
   if empty(&grepprg)
     return
   endif
@@ -57,7 +57,7 @@ function! ack#ack(command) abort
   endtry
 endfunction
 
-function! ack#lack(command) abort
+function! ferret#lack(command) abort
   if empty(&grepprg)
     return
   endif
@@ -81,12 +81,12 @@ endfunction
 "
 " (Note: there's nothing specific to Ack in this function; it's just named this
 " way for mnemonics, as it will most often be preceded by an :Ack invocation.)
-function! ack#acks(command) abort
+function! ferret#acks(command) abort
   if match(a:command, '\v^/.+/.*/$') == -1 " crude sanity check
     throw 'Expected a substitution expression (/foo/bar/); got: ' . a:command
   endif
 
-  let l:filenames = ack#qargs()
+  let l:filenames = ferret#qargs()
   if l:filenames ==# ''
     throw 'Quickfix filenames must be present, but there are none'
   endif
@@ -96,7 +96,7 @@ function! ack#acks(command) abort
 endfunction
 
 " Populate the :args list with the filenames currently in the quickfix window.
-function! ack#qargs() abort
+function! ferret#qargs() abort
   let l:buffer_numbers = {}
   for l:item in getqflist()
     let l:buffer_numbers[l:item['bufnr']] = bufname(l:item['bufnr'])
