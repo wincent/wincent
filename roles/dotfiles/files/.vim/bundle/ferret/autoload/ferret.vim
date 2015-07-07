@@ -1,3 +1,6 @@
+" Copyright 2015-present Greg Hurrell. All rights reserved.
+" Licensed under the terms of the BSD 2-clause license.
+
 " The basic strategy is to split on spaces, expand wildcards for non-option
 " arguments, shellescape each word, and join.
 "
