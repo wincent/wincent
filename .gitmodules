@@ -111,3 +111,6 @@
 [submodule "vendor/virtualenv"]
 	path = vendor/virtualenv
 	url = https://github.com/pypa/virtualenv.git
+[submodule "roles/dotfiles/files/.vim/bundle/vim-clipper"]
+	path = roles/dotfiles/files/.vim/bundle/vim-clipper
+	url = https://github.com/wincent/vim-clipper.git
