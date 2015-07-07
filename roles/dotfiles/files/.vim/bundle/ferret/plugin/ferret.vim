@@ -27,8 +27,8 @@ endif
 
 augroup Ferret
   autocmd!
-  autocmd QuickFixCmdPost [^l]* nested cw
-  autocmd QuickFixCmdPost l* nested lw
+  autocmd QuickFixCmdPost [^l]* nested cwindow
+  autocmd QuickFixCmdPost l* nested lwindow
 augroup END
 
 command! -nargs=+ -complete=file Ack call ferret#ack(<q-args>)
