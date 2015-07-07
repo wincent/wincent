@@ -12,7 +12,7 @@ let g:ClipperLoaded = 1
 let s:cpoptions = &cpoptions
 set cpoptions&vim
 
-command! Clip call clipper#clip()
+command! Clip call clipper#private#clip()
 
 let s:map = exists('g:ClipperMap') ? g:ClipperMap : 1
 if s:map
