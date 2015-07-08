@@ -35,7 +35,7 @@ if has('autocmd')
     if has('mksession')
       " Save/restore folds and cursor position.
       autocmd BufWritePost,BufLeave,WinLeave ?* if autocmds#should_mkview() | mkview | endif
-      autocmd BufWinEnter ?* if autocmds#should_mkview() | silent loadview | endif
+      autocmd BufWinEnter ?* if autocmds#should_mkview() | silent! loadview | endif
     endif
   augroup END
 endif
