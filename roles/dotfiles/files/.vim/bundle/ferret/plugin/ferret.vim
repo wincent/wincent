@@ -33,9 +33,9 @@ if has('autocmd')
   augroup END
 endif
 
-command! -nargs=+ -complete=file Ack call ferret#ack(<q-args>)
-command! -nargs=+ -complete=file Lack call ferret#lack(<q-args>)
-command! -nargs=1 Acks call ferret#acks(<q-args>)
+command! -nargs=+ -complete=file Ack call ferret#private#ack(<q-args>)
+command! -nargs=+ -complete=file Lack call ferret#private#lack(<q-args>)
+command! -nargs=1 Acks call ferret#private#acks(<q-args>)
 
 let s:map=exists('g:FerretMap') ? g:FerretMap : 1
 if s:map
