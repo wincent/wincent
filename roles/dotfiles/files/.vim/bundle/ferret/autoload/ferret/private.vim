@@ -1,3 +1,6 @@
+" Copyright 2015-present Greg Hurrell. All rights reserved.
+" Licensed under the terms of the BSD 2-clause license.
+
 " Remove lines a:first through a:last from the quickfix listing.
 function! s:delete(first, last)
   let l:list = getqflist()
@@ -18,12 +21,12 @@ function! s:delete(first, last)
 endfunction
 
 " Visual mode deletion and `dd` mapping (special case).
-function! qf#delete() range
+function! ferret#private#qf_delete() range
   call s:delete(a:firstline, a:lastline)
 endfunction
 
 " Motion-based deletion from quickfix listing.
-function! qf#delete_motion(type, ...)
+function! ferret#private#qf_delete_motion(type, ...)
   " Save.
   let l:selection = &selection
   let &selection = 'inclusive'
