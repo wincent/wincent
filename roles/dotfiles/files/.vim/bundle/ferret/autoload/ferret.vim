@@ -48,16 +48,23 @@ function! ferret#ack(command) abort
     return
   endif
 
-  let l:original_makeprg=&l:makeprg
-  let l:original_errorformat=&l:errorformat
-  try
-    let &l:makeprg=&grepprg . ' ' . s:escape(a:command)
-    let &l:errorformat=&grepformat
-    Make
-  finally
-    let &l:makeprg=l:original_makeprg
-    let &l:errorformat=l:original_errorformat
-  endtry
+  " Prefer vim-dispatch unless otherwise instructed.
+  let l:dispatch = exists('g:FerretDispatch') ? g:FerretDispatch : 1
+  if l:dispatch && exists(':Make') == 2
+    let l:original_makeprg=&l:makeprg
+    let l:original_errorformat=&l:errorformat
+    try
+      let &l:makeprg=&grepprg . ' ' . s:escape(a:command)
+      let &l:errorformat=&grepformat
+      Make
+    finally
+      let &l:makeprg=l:original_makeprg
+      let &l:errorformat=l:original_errorformat
+    endtry
+  else
+    cexpr system(&grepprg . ' ' . s:escape(a:command))
+    cwindow
+  endif
 endfunction
 
 function! ferret#lack(command) abort
