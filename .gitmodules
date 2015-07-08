@@ -114,3 +114,6 @@
 [submodule "vendor/virtualenv"]
 	path = vendor/virtualenv
 	url = https://github.com/pypa/virtualenv.git
+[submodule "roles/dotfiles/files/.vim/bundle/ferret"]
+	path = roles/dotfiles/files/.vim/bundle/ferret
+	url = https://github.com/wincent/ferret.git
