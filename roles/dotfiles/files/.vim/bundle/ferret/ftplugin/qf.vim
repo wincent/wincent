@@ -13,11 +13,13 @@ setlocal nowrap
 let s:original_scrolloff=&scrolloff
 set scrolloff=0
 
-augroup WincentQuickfix
-  autocmd!
-  autocmd BufLeave <buffer> execute 'set scrolloff=' . s:original_scrolloff
-  autocmd BufEnter <buffer> set scrolloff=0 | setlocal nocursorline
-augroup END
+if has('autocmd')
+  augroup FerretQF
+    autocmd!
+    autocmd BufLeave <buffer> execute 'set scrolloff=' . s:original_scrolloff
+    autocmd BufEnter <buffer> set scrolloff=0 | setlocal nocursorline
+  augroup END
+endif
 
 " Make it easy to remove entries from the quickfix listing.
 nnoremap <buffer> <silent> d :set operatorfunc=ferret#private#qf_delete_motion<CR>g@
