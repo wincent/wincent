@@ -91,9 +91,15 @@ if has('mksession')
   set viewoptions=cursor,folds        " save/restore just these (with `:{mk,load}view`)
 endif
 
-set virtualedit=block                 " allow cursor to move where there is no text in visual block mode
+if has('virtualedit')
+  set virtualedit=block               " allow cursor to move where there is no text in visual block mode
+endif
 set visualbell t_vb=                  " stop annoying beeping for non-error errors
 set whichwrap=b,h,l,s,<,>,[,],~       " allow <BS>/h/l/<Left>/<Right>/<Space>, ~ to cross line boundaries
-set wildignore+=*.o,*.rej             " patterns to ignore during file-navigation
-set wildmenu                          " show options as list when switching buffers etc
+if has('wildignore')
+  set wildignore+=*.o,*.rej           " patterns to ignore during file-navigation
+endif
+if has('wildmenu')
+  set wildmenu                        " show options as list when switching buffers etc
+endif
 set wildmode=longest:full,full        " shell-like autocomplete to unambiguous portion
