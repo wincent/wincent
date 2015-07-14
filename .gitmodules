@@ -36,9 +36,8 @@
 	path = roles/dotfiles/files/.vim/bundle/terminus
 	url = https://github.com/wincent/terminus.git
 [submodule "roles/dotfiles/files/.vim/bundle/ultisnips"]
-	branch = wincent
 	path = roles/dotfiles/files/.vim/bundle/ultisnips
-	url = https://github.com/wincent/ultisnips.git
+	url = https://github.com/SirVer/ultisnips.git
 [submodule "roles/dotfiles/files/.vim/bundle/vim-clipper"]
 	path = roles/dotfiles/files/.vim/bundle/vim-clipper
 	url = https://github.com/wincent/vim-clipper.git

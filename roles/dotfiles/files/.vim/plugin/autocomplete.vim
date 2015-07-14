@@ -7,10 +7,10 @@ let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
 let g:UltiSnipsMappingsToIgnore = ['autocomplete']
 
 if has('autocmd')
-  autocmd! User UltiSnipsMapInnerKeys
-  autocmd User UltiSnipsMapInnerKeys call autocomplete#setup_mappings()
-  autocmd! User UltiSnipsUnmapInnerKeys
-  autocmd User UltiSnipsUnmapInnerKeys call autocomplete#teardown_mappings()
+  autocmd! User UltiSnipsEnterFirstSnippet
+  autocmd User UltiSnipsEnterFirstSnippet call autocomplete#setup_mappings()
+  autocmd! User UltiSnipsExitLastSnippet
+  autocmd User UltiSnipsExitLastSnippet call autocomplete#teardown_mappings()
 endif
 
 let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
