@@ -1,5 +1,10 @@
+let g:WincentColorColumnBlacklist = ['nerdtree']
 let g:WincentCursorlineBlacklist = ['command-t']
 let g:WincentMkviewFiletypeBlacklist = ['hgcommit', 'gitcommit']
+
+function! autocmds#should_colorcolumn()
+  return index(g:WincentColorColumnBlacklist, &filetype) == -1
+endfunction
 
 function! autocmds#should_cursorline()
   return index(g:WincentCursorlineBlacklist, &filetype) == -1
