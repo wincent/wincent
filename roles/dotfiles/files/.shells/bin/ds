@@ -65,6 +65,18 @@ def parallel(args)
   end
 end
 
+def projects
+  @projects ||= begin
+    if ARGV.size.zero?
+      `hg status static_upstream`.chomp.split("\n").map do |line|
+        line[%r{\A[A-Z] static_upstream/([^/]+?)/}, 1]
+      end.uniq
+    else
+      ARGV
+    end
+  end
+end
+
 def red(string)
   colorize(string, 31)
 end
@@ -122,7 +134,7 @@ if options[:resolve]
     end
   end
 elsif options[:watch]
-  if ARGV.size.zero?
+  if projects.size.zero?
     die 'error: ds requires at least 1 project name'
   end
 
@@ -131,7 +143,7 @@ elsif options[:watch]
     File.expand_path('.'),
     'ds', {
       :expression => [
-        'anyof', *(ARGV.map { |project|
+        'anyof', *(projects.map { |project|
           [
             'dirname',
             'static_upstream/' + project,
@@ -151,7 +163,7 @@ elsif options[:watch]
 
     if update['subscription'] == 'ds' && update['files']
       updated = update['files'].inject(Set.new) do |set, file|
-        project = ARGV.find do |arg|
+        project = projects.find do |arg|
           file.index('static_upstream/' + arg + '/')
         end
         set.add(project) if project
@@ -187,12 +199,12 @@ elsif options[:watch]
       stdin.puts subscribe
       stdin.close_write
 
-      status green("Watching #{ARGV.join(', ')} [Press CTRL-C to interrupt]")
+      status green("Watching #{projects.join(', ')} [Press CTRL-C to interrupt]")
       thread.join
     end
   rescue Interrupt
     status yellow('Caught interrupt [exiting]')
   end
 else # --no-watch
-  parallel(ARGV).each { |project| update(project) }
+  parallel(projects).each { |project| update(project) }
 end
