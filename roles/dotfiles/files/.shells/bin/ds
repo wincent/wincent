@@ -1,0 +1,198 @@
+#!/usr/bin/env ruby
+
+begin
+  require 'json'
+rescue LoadError
+  # For Ruby 1.8.7
+  require 'rubygems'
+  require 'json'
+end
+
+require 'open3'
+require 'optparse'
+require 'set'
+require 'shellwords'
+
+# For Ruby 1.8.7
+require 'thread'
+
+options = {}
+OptionParser.new do |opts|
+  opts.banner = 'Usage: ds [--resolve|--watch] [PROJECT...]'
+
+  opts.on('-w', '--watch', 'Watch continuously') do |w|
+    options[:watch] = w
+  end
+
+  opts.on('-r', '--resolve', 'Resolve downsteam conflicts') do |r|
+    options[:resolve] = r
+  end
+end.parse!
+
+def bold(string)
+  colorize(string, 1)
+end
+
+def colorize(string, color)
+  "\e[#{color}m#{string}\e[0m"
+end
+
+def conflicts
+  `hg resolve -l`.chomp.split("\n")
+end
+
+def green(string)
+  colorize(string, 32)
+end
+
+def die(msg)
+  status red(msg)
+  exit 1
+end
+
+# Returns an enumerator that spawns a new thread for each item in `args`.
+# Blocks until all threads have completed execution.
+def parallel(args)
+  Object.new.tap do |object|
+    object.instance_variable_set('@args', args)
+    def object.each(&block)
+      instance_variable_get('@args').map do |arg|
+        Thread.new do
+          block.call(arg)
+        end
+      end.each { |thread| thread.join }
+    end
+  end
+end
+
+def red(string)
+  colorize(string, 31)
+end
+
+def run(*args)
+  command = args.map { |arg| Shellwords.escape(arg) }.join(' ')
+  system command
+  if !$?.exitstatus.zero?
+    status yellow("warning: command `#{command}` exited with status #{$?.exitstatus}")
+  end
+end
+
+@mutex = Mutex.new
+def status(msg)
+  # Prevent threaded output from colliding mid-line.
+  @mutex.synchronize do
+    puts bold('[' + Time.now.strftime('%H:%M:%S.%L') + ']') + ": #{msg}"
+  end
+end
+
+def update(project)
+  status green("Updating #{project}")
+
+  # Make use of undocumented --silent option (no prompts).
+  run 'fjs', 'update', project, '--with-shims', '--silent', '--site=tablet'
+  run 'fjs', 'update', project, '--with-shims', '--silent', '--site=www'
+
+  # Re-sign as well, in case fjs goes crazy.
+  run 'fjs', 'update', project, '--with-shims', '--silent', '--site=tablet'
+  run 'fjs', 'update', project, '--with-shims', '--silent', '--site=www'
+end
+
+def yellow(string)
+  colorize(string, 33)
+end
+
+if options[:resolve]
+  upstream = conflicts.grep(%r{\AU\s+static_upstream/})
+  downstream = conflicts.grep(%r{\AU\s+.+/downstream/}).
+    map { |path| path.match(%r{/downstream/(.+?)/})[1] }.
+    uniq
+  if upstream.size > 0
+    status red(upstream)
+    die 'error: Conflicts in upstream must be manually resolved'
+  else
+    parallel(downstream).each { |project| update(project) }
+    if $?.exitstatus.zero?
+      # If it looks like `fjs` succeeded go ahead and mark as resolved.
+      run 'hg', 'resolve', '-ma'
+    end
+    if conflicts.all? { |line| %r{\AR\s+} }
+      status green('Conflicts successfully resolved')
+    else
+      die 'error: Conflicts remain; manual intervention required'
+    end
+  end
+elsif options[:watch]
+  if ARGV.size.zero?
+    die 'error: ds requires at least 1 project name'
+  end
+
+  subscribe = [
+    'subscribe',
+    File.expand_path('.'),
+    'ds', {
+      :expression => [
+        'anyof', *(ARGV.map { |project|
+          [
+            'dirname',
+            'static_upstream/' + project,
+          ]
+        })
+      ],
+      :fields => ['name'],
+    }
+  ].to_json
+
+  def handle(update)
+    if update['error']
+      return status(red("Error: #{update['error']}"))
+    elsif update['subscribe']
+      return # Ignore initial subscription message
+    end
+
+    if update['subscription'] == 'ds' && update['files']
+      updated = update['files'].inject(Set.new) do |set, file|
+        project = ARGV.find do |arg|
+          file.index('static_upstream/' + arg + '/')
+        end
+        set.add(project) if project
+        set
+      end
+
+      parallel(updated).each { |project| update(project) }
+    end
+  end
+
+  begin
+    # Would use --no-pretty here to get one object per line (and make the output
+    # easy to parse), but there appears to be a Watchman bug (or maybe not; see:
+    # http://stackoverflow.com/a/26694218/2103996) which causes it to block with
+    # incomplete output when using --no-pretty and piping to a non tty. You can
+    # repro this with `echo $QUERY | watchman -p -j --no-pretty | cat`)
+    Open3.popen3('watchman', '-p', '-j') do |stdin, stdout, wait_thr|
+      thread = Thread.new(stdout) do |out|
+        json = ''
+        out.each do |line|
+          json << line
+          if line =~ /\A\}/ # Last line of JSON object.
+            begin
+              handle(JSON[json])
+            rescue JSON::ParserError => e
+              puts json
+              status red("JSON error: #{e}")
+            end
+            json = ''
+          end
+        end
+      end
+      stdin.puts subscribe
+      stdin.close_write
+
+      status green("Watching #{ARGV.join(', ')} [Press CTRL-C to interrupt]")
+      thread.join
+    end
+  rescue Interrupt
+    status yellow('Caught interrupt [exiting]')
+  end
+else # --no-watch
+  parallel(ARGV).each { |project| update(project) }
+end
