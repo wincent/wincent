@@ -10,7 +10,7 @@ if exists('+colorcolumn')
 endif
 
 set cursorline                        " highlight current line
-set directory=~/.vim/tmp/swap,.       " keep swap files out of the way
+set directory=~/.vim/tmp/swap//,.     " keep swap files out of the way
 set expandtab                         " always use spaces instead of tabs
 
 if has('folding')
