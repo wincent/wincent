@@ -4,6 +4,7 @@ require 'json'
 require 'shellwords'
 require 'tmpdir'
 
+# Grabs the next command line argument, aborting if there is none.
 def arg
   ARGV.shift.tap do |arg|
     if arg.nil?
@@ -12,19 +13,29 @@ def arg
   end
 end
 
+# Returns the name of the currently checked-out branch.
 def current_branch
   `git rev-parse --abbrev-ref HEAD`.chomp
 end
 
+# Returns the number of the PR corresponding to the currently checked-out
+# branch, or `nil` if the current branch doesn't follow the "pull/N" format.
+def current_pr
+  current_branch[%r{\Apull/(\d+)\z}, 1]
+end
+
+# Prints `msg` and aborts the program.
 def die(msg)
   puts "error: #{msg}"
   exit 1
 end
 
+# Returns the URL for the contents of the specified PR as a patch.
 def pr(number)
   "https://github.com/#{project}/pull/#{number}.patch"
 end
 
+# Infers the GitHub project name (ie. "user/project") from the repo remotes.
 def project
   `git remote -v`
     .chomp
@@ -40,11 +51,23 @@ def project
     end[%r{github\.com[:/]([^ ]+?)(\.git)? \(fetch\)}, 1]
 end
 
+# Run `command` using `system()`, aborting the script if it returns a non-zero
+# exit code.
+def run(command)
+  system(command)
+  status = $?.exitstatus
+  if !status.zero?
+    die "command (#{command}) failed with non-zero exit status (#{status})"
+  end
+end
+
+# Prints usage information.
 def usage
   puts <<-END.gsub(/^ {4}/, '')
     Usage:
       git hub get <pr>        [fetch a PR to a local branch]
       git hub link [pr]       [show web URL for PR]
+      git hub merge [pr]      [merge a PR]
       git hub ls              [list open PRs]
       git hub show <pr>       [show a PR on standard out]
   END
@@ -56,32 +79,57 @@ if ARGV.length.zero?
 end
 
 case ARGV.shift
+
 when 'get'
   number = arg
   url = Shellwords.shellescape(pr(number))
   Dir.mktmpdir do |dir|
-    %x{
-      git checkout -B pull/#{Shellwords.shellescape(number)} &&
-      curl -L -f -o #{dir}/PULL -s #{url} &&
-      git am #{dir}/PULL
-    }
-    if !$?.exitstatus.zero?
-      die "command failed; you may need to `git am --abort`"
-    end
+    run "git checkout -B pull/#{Shellwords.shellescape(number)}"
+    run "curl -L -f -o #{dir}/PULL -s #{url}"
+    run "git am #{dir}/PULL"
   end
+
 when 'link'
   base = "https://github.com/#{project}/"
   pull = ARGV.shift
-  current = pull || current_branch[%r{\Apull/(\d+)\z}, 1]
+  current = pull || current_pr
   puts base + (current.nil? ? 'pulls' : "pull/#{Integer(current)}")
+
 when 'ls'
   url = Shellwords.shellescape("https://api.github.com/repos/#{project}/pulls")
   JSON[%x{curl -L -s -f #{url}}].map do |pull|
     puts "#{pull['number']}: #{pull['title']}"
   end
+
+when 'merge'
+  pull = ARGV.shift
+  current = current_pr
+  # If no explicit PR specified, assume we want to merge current PR to master.
+  if pull.nil?
+    if current.nil?
+      die "no explicit PR number provided, and can't infer from current branch"
+    end
+    pull = current
+    run 'git checkout master'
+  else
+    # Explicit PR provided
+    if current_branch == "pull/#{pull}"
+      die "can't merge `#{current_branch}` into `#{current_branch}`"
+    end
+  end
+  message = Shellwords.shellescape(
+    <<-END.gsub(/^ {6}/, '')
+      Merge branch 'pull/#{pull}'
+
+      Originally submitted at: https://github.com/#{project}/pull/#{pull}
+    END
+  )
+  run "git merge --log -m #{message} --no-ff pull/#{pull}"
+
 when 'show'
   url = Shellwords.shellescape(pr(arg))
   system "curl -L -f #{url}"
+
 else
   usage
 end
