@@ -1,0 +1,72 @@
+#!/usr/bin/env ruby
+
+require 'shellwords'
+require 'tmpdir'
+
+def arg
+  ARGV.shift.tap do |arg|
+    if arg.nil?
+      die 'expected an argument; got none'
+    end
+  end
+end
+
+def die(msg)
+  puts "error: #{msg}"
+  exit 1
+end
+
+def project
+  `git remote -v`
+    .chomp
+    .split(/\n/)
+    .grep(/github/)
+    .grep(/fetch/)
+    .first
+    .tap do |remote|
+      if remote.nil?
+        die 'failed to locate GitHub remote'
+      end
+    end[%r{github\.com[:/]([^ ]+?)(\.git)? \(fetch\)}, 1]
+end
+
+def pr(number)
+  "https://github.com/#{project}/pull/#{number}.patch"
+end
+
+def usage
+  puts <<-END.gsub(/^ {4}/, '')
+    Usage:
+      git hub get <pr>        [fetch a PR to a local branch]
+      git hub ls              [list open PRs]
+      git hub show <pr>       [show a PR on standard out]
+  END
+end
+
+if ARGV.length.zero?
+  usage
+  exit
+end
+
+case ARGV.shift
+when 'get'
+  number = arg
+  url = Shellwords.shellescape(pr(number))
+  Dir.mktmpdir do |dir|
+    %x{
+      git checkout -B pull/#{Shellwords.shellescape(number)} &&
+      curl -L -o #{dir}/PULL -s #{url} &&
+      git am #{dir}/PULL
+    }
+    if !$?.exitstatus.zero?
+      die "command failed; you may need to `git am --abort`"
+    end
+  end
+when 'ls'
+  die 'not yet implemented'
+when 'show'
+  url = Shellwords.shellescape(pr(arg))
+  system "curl -L #{url}"
+else
+  usage
+end
