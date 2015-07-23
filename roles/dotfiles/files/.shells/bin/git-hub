@@ -12,6 +12,10 @@ def arg
   end
 end
 
+def current_branch
+  `git rev-parse --abbrev-ref HEAD`.chomp
+end
+
 def die(msg)
   puts "error: #{msg}"
   exit 1
@@ -68,7 +72,8 @@ when 'get'
 when 'link'
   base = "https://github.com/#{project}/"
   pull = ARGV.shift
-  puts base + (pull.nil? ? 'pulls' : "pull/#{Integer(pull)}")
+  current = pull || current_branch[%r{\Apull/(\d+)\z}, 1]
+  puts base + (current.nil? ? 'pulls' : "pull/#{Integer(current)}")
 when 'ls'
   url = Shellwords.shellescape("https://api.github.com/repos/#{project}/pulls")
   JSON[%x{curl -L -s -f #{url}}].map do |pull|
