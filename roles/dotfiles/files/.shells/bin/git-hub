@@ -40,6 +40,7 @@ def usage
   puts <<-END.gsub(/^ {4}/, '')
     Usage:
       git hub get <pr>        [fetch a PR to a local branch]
+      git hub link [pr]       [show web URL for PR]
       git hub ls              [list open PRs]
       git hub show <pr>       [show a PR on standard out]
   END
@@ -64,6 +65,10 @@ when 'get'
       die "command failed; you may need to `git am --abort`"
     end
   end
+when 'link'
+  base = "https://github.com/#{project}/"
+  pull = ARGV.shift
+  puts base + (pull.nil? ? 'pulls' : "pull/#{Integer(pull)}")
 when 'ls'
   url = Shellwords.shellescape("https://api.github.com/repos/#{project}/pulls")
   JSON[%x{curl -L -s -f #{url}}].map do |pull|
