@@ -17,6 +17,10 @@ def die(msg)
   exit 1
 end
 
+def pr(number)
+  "https://github.com/#{project}/pull/#{number}.patch"
+end
+
 def project
   `git remote -v`
     .chomp
@@ -30,10 +34,6 @@ def project
         die 'failed to locate GitHub remote'
       end
     end[%r{github\.com[:/]([^ ]+?)(\.git)? \(fetch\)}, 1]
-end
-
-def pr(number)
-  "https://github.com/#{project}/pull/#{number}.patch"
 end
 
 def usage
