@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
+require 'json'
 require 'shellwords'
 require 'tmpdir'
 
@@ -20,7 +21,8 @@ def project
   `git remote -v`
     .chomp
     .split(/\n/)
-    .grep(/github/)
+    .grep(/\A(github|origin)\s/)
+    .grep(/github\.com/)
     .grep(/fetch/)
     .first
     .tap do |remote|
@@ -63,7 +65,10 @@ when 'get'
     end
   end
 when 'ls'
-  die 'not yet implemented'
+  url = Shellwords.shellescape("https://api.github.com/repos/#{project}/pulls")
+  JSON[%x{curl -L -s #{url}}].map do |pull|
+    puts "#{pull['number']}: #{pull['title']}"
+  end
 when 'show'
   url = Shellwords.shellescape(pr(arg))
   system "curl -L #{url}"
