@@ -57,7 +57,7 @@ when 'get'
   Dir.mktmpdir do |dir|
     %x{
       git checkout -B pull/#{Shellwords.shellescape(number)} &&
-      curl -L -o #{dir}/PULL -s #{url} &&
+      curl -L -f -o #{dir}/PULL -s #{url} &&
       git am #{dir}/PULL
     }
     if !$?.exitstatus.zero?
@@ -66,12 +66,16 @@ when 'get'
   end
 when 'ls'
   url = Shellwords.shellescape("https://api.github.com/repos/#{project}/pulls")
-  JSON[%x{curl -L -s #{url}}].map do |pull|
+  JSON[%x{curl -L -s -f #{url}}].map do |pull|
     puts "#{pull['number']}: #{pull['title']}"
   end
 when 'show'
   url = Shellwords.shellescape(pr(arg))
-  system "curl -L #{url}"
+  system "curl -L -f #{url}"
 else
   usage
+end
+
+if ARGV.length > 0
+  puts "warning: excess arguments (#{ARGV.inspect}) ignored"
 end
