@@ -116,3 +116,6 @@
 [submodule "roles/dotfiles/files/.vim/bundle/ferret"]
 	path = roles/dotfiles/files/.vim/bundle/ferret
 	url = https://github.com/wincent/ferret.git
+[submodule "roles/dotfiles/files/.vim/bundle/vim-ansible-yaml"]
+	path = roles/dotfiles/files/.vim/bundle/vim-ansible-yaml
+	url = https://github.com/chase/vim-ansible-yaml.git
