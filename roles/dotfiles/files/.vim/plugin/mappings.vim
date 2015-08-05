@@ -62,6 +62,9 @@ nnoremap <C-kPlus> <C-w>+
 nnoremap <C-kMinus> <C-w>-
 nnoremap <Space> za
 
+" Like vim-vinegar.
+nnoremap - :silent edit <C-R>=empty(expand('%')) ? '.' : expand('%:p:h')<CR><CR>
+
 " Visual mode mappings
 xnoremap <C-h> <C-w>h
 xnoremap <C-j> <C-w>j
