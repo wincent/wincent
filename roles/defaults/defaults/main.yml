@@ -236,3 +236,21 @@ osx_defaults:
     expected: '1'
     description: System Preferences -> Accessibility -> Display -> Reduce Transparency
     last_tested: '10.10'
+
+  - read: read com.googlecode.iterm2 AdjustWindowForFontSizeChange
+    write: write com.googlecode.iterm2 AdjustWindowForFontSizeChange -bool false
+    expected: 0
+    description: iTerm2 -> Preferences -> General -> Adjust window when changing font size
+    last_tested: '2.9.20150224-nightly'
+
+  - read: read com.googlecode.iterm2 HideScrollbar
+    write: write com.googlecode.iterm2 HideScrollbar -bool true
+    expected: 1
+    description: iTerm2 -> Preferences -> General -> Hide scrollbars
+    last_tested: '2.9.20150224-nightly'
+
+  - read: read com.googlecode.iterm2 UseLionStyleFullscreen
+    write: write com.googlecode.iterm2 UseLionStyleFullscreen -bool false
+    expected: 0
+    description: iTerm2 -> Preferences -> General -> Native full screen windows
+    last_tested: '2.9.20150224-nightly'
