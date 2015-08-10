@@ -10,6 +10,7 @@ dotfiles:
   - .gvimrc
   - .hgrc
   - .inputrc
+  - .npmrc
   - .rdebugrc
   - .rspec
   - .screenrc
