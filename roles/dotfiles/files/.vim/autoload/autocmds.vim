@@ -1,6 +1,6 @@
 let g:WincentColorColumnBlacklist = ['diff', 'gundo', 'nerdtree', 'qf']
 let g:WincentCursorlineBlacklist = ['command-t']
-let g:WincentMkviewFiletypeBlacklist = ['hgcommit', 'gitcommit']
+let g:WincentMkviewFiletypeBlacklist = ['diff', 'hgcommit', 'gitcommit']
 
 function! autocmds#should_colorcolumn()
   return index(g:WincentColorColumnBlacklist, &filetype) == -1
