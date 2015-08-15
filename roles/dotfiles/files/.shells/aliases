@@ -8,6 +8,7 @@ alias a=ag
 alias b=bundle
 alias be='bundle exec'
 alias cd..='cd ..'
+alias cdtmp='cd `mktemp -d /tmp/$USER-XXXXXX`'
 alias clip='nc localhost 8377'
 alias e=exit
 alias f='ssh -N -f sandbox-clipper'
