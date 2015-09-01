@@ -35,14 +35,26 @@ def pr(number)
   "https://github.com/#{project}/pull/#{number}.patch"
 end
 
+# Preferred remotes, in priority order.
+PREFERRED_REMOTES = %w[
+  upstream
+  github
+  origin
+]
+MAX_INT = 1 << (1.size * 8 - 2) - 1
+
 # Infers the GitHub project name (ie. "user/project") from the repo remotes.
 def project
   `git remote -v`
     .chomp
     .split(/\n/)
-    .grep(/\A(github|origin)\s/)
+    .grep(/\A(#{PREFERRED_REMOTES.join('|')})\s/)
     .grep(/github\.com/)
     .grep(/fetch/)
+    .sort { |a, b|
+      PREFERRED_REMOTES.find_index(a) || MAX_INT <=>
+      PREFERRED_REMOTES.find_index(b) || MAX_INT
+    }
     .first
     .tap do |remote|
       if remote.nil?
