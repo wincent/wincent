@@ -87,6 +87,9 @@
 	show-branch = true
 	status = true
 
+[push]
+	default = simple
+
 [rebase]
 	autosquash = true
 
