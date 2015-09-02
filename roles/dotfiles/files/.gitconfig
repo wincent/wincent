@@ -88,6 +88,7 @@
 	status = true
 
 [push]
+	# Added in Git 1.7.11, default in 2.0, but still required (to avoid warning).
 	default = simple
 
 [rebase]
