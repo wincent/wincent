@@ -87,10 +87,6 @@
 	show-branch = true
 	status = true
 
-[push]
-	# requires Git 1.7.5 or later
-	default = upstream
-
 [rebase]
 	autosquash = true
 
