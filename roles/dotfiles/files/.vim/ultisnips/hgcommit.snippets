@@ -1,0 +1,39 @@
+global !p
+def mention(name):
+	if re.match('^Reviewe(d By|rs): ', vim.current.window.buffer[vim.current.window.cursor[0] - 1]):
+		return name
+	else:
+		return '@' + name
+endglobal
+
+snippet c "cpojer mention"
+`!p snip.rv = mention('cpojer')`
+endsnippet
+
+snippet f "fabio mention"
+`!p snip.rv = mention('fabio')`
+endsnippet
+
+snippet j "joesavona mention"
+`!p snip.rv = mention('joesavona')`
+endsnippet
+
+snippet k "jkassens mention"
+`!p snip.rv = mention('jkassens')`
+endsnippet
+
+snippet s "steveluscher mention"
+`!p snip.rv = mention('steveluscher')`
+endsnippet
+
+snippet t "yungsters mention"
+`!p snip.rv = mention('yungsters')`
+endsnippet
+
+snippet v "voideanvalue mention"
+`!p snip.rv = mention('voideanvalue')`
+endsnippet
+
+snippet y "yuzhi mention"
+`!p snip.rv = mention('yuzhi')`
+endsnippet
