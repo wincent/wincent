@@ -46,4 +46,4 @@ endif
 "
 " To see all mappings, including those from plug-ins:
 "
-"   :map <space>
+"   vim -c 'set t_te=' -c 'set t_ti=' -c 'map <space>' -c q | sort
