@@ -1,29 +1,31 @@
-" add .vim/bundle subdirs to runtime path
+" Add .vim/bundle subdirs to runtime path.
 source $HOME/.vim/bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
 let mapleader="\<Space>"
 
-" extension -> filetype mappings
+" Extension -> filetype mappings.
 let filetype_m='objc'
 let filetype_pl='prolog'
 
-" automatic, language-dependent indentation, syntax coloring and other
-" functionality
+" Automatic, language-dependent indentation, syntax coloring and other
+" functionality.
 filetype indent plugin on
 syntax on
 
 source $VIMRUNTIME/macros/matchit.vim
 
-" prevent tcomment from making a zillion mappings (we just want the operator)
+" Prevent tcomment from making a zillion mappings (we just want the operator).
 let g:tcommentMapLeader1=''
 let g:tcommentMapLeader2=''
 let g:tcommentMapLeaderCommentAnyway=''
 let g:tcommentTextObjectInlineComment=''
-" the default (g<) is a bit awkward to type
+
+" The default (g<) is a bit awkward to type.
 let g:tcommentMapLeaderUncommentAnyway='gu'
 
-" allow for per-machine overrides in ~/.vim/host/hostname and ~/.vim/vimrc.local
+" Allow for per-machine overrides in ~/.vim/host/hostname and
+" ~/.vim/vimrc.local.
 let s:hostfile = $HOME . '/.vim/host/' . substitute(hostname(), "\\..*", '', '')
 if filereadable(s:hostfile)
   execute 'source ' . s:hostfile
