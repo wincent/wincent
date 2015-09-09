@@ -29,6 +29,11 @@ nnoremap <leader>p :echo expand('%')<CR>
 " off to Clipper.
 nnoremap <leader>pp :let @0=expand('%') <Bar> :Clip<CR> :echo expand('%')<CR>
 
+nnoremap <leader>h :h<space>
+nnoremap <leader>q :q<CR>
+nnoremap <leader>w :w<CR>
+nnoremap <leader>x :x<CR>
+
 " <leader>zz -- Zap trailing whitespace in the current buffer.
 "
 "        As this one is somewhat destructive and relatively close to the

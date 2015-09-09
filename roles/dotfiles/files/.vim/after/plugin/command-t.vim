@@ -27,8 +27,6 @@ if has('jumplist')
   nnoremap <silent> <leader>j :CommandTJump<CR>
 endif
 
-nnoremap <leader>g :CommandTTag<CR>
-
 "
 " buffer/split/tab re-use magic
 "
