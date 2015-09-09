@@ -2,7 +2,6 @@
 source $HOME/.vim/bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
-
 let mapleader="\<Space>"
 
 " extension -> filetype mappings
