@@ -60,7 +60,6 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-kPlus> <C-w>+
 nnoremap <C-kMinus> <C-w>-
-nnoremap <Space> za
 
 " Like vim-vinegar.
 nnoremap - :silent edit <C-R>=empty(expand('%')) ? '.' : expand('%:p:h')<CR><CR>

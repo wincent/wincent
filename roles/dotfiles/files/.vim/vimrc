@@ -2,6 +2,9 @@
 source $HOME/.vim/bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
+
+let mapleader="\<Space>"
+
 " extension -> filetype mappings
 let filetype_m='objc'
 let filetype_pl='prolog'
