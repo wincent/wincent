@@ -29,15 +29,15 @@ if has('autocmd')
       " Save/restore folds and cursor position.
       autocmd BufWritePost,BufLeave,WinLeave ?* if autocmds#should_mkview() | mkview | endif
       if has('folding')
-        autocmd BufWinEnter ?* if autocmds#should_mkview() | silent! loadview | silent! foldopen! | endif
+        autocmd BufWinEnter ?* if autocmds#should_mkview() | silent! loadview | execute 'silent! ' . line('.') . 'foldopen!' | endif
       else
         autocmd BufWinEnter ?* if autocmds#should_mkview() | silent! loadview | endif
       endif
     elseif has('folding')
       " Like the autocmd described in `:h last-position-jump` but we add `:foldopen!`.
-      autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line('$') | execute "normal! g`\"" | silent! foldopen! | endif
+      autocmd BufWinEnter * if line("'\"") > 1 && line("'\"") <= line('$') | execute "normal! g`\"" | execute 'silent! ' . line("'\"") . 'foldopen!' | endif
     else
-      autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line('$') | execute "normal! g`\"" | endif
+      autocmd BufWinEnter * if line("'\"") > 1 && line("'\"") <= line('$') | execute "normal! g`\"" | endif
     endif
   augroup END
 endif
