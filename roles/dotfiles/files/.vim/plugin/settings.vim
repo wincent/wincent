@@ -61,10 +61,6 @@ if v:progname !=# 'vi'
   set softtabstop=-1                  " use 'shiftwidth' for tab/bs at end of line
 endif
 
-if has('syntax')
-  set spellfile=~/.vim/.spellfile.utf-8.add
-endif
-
 set splitbelow                        " open horizontal splits below current window
 set splitright                        " open vertical splits to the right of the current window
 set switchbuf=usetab                  " try to reuse windows/tabs when switching buffers
