@@ -30,6 +30,7 @@ nnoremap <leader>p :echo expand('%')<CR>
 nnoremap <leader>pp :let @0=expand('%') <Bar> :Clip<CR> :echo expand('%')<CR>
 
 nnoremap <leader>h :h<space>
+nnoremap <leader>o :only<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>x :x<CR>
