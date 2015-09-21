@@ -6,10 +6,6 @@
     <appendix>ARROWS: Space+HJKL=arrows</appendix>
     <appendix>BLANK: Space+B=Repeating space</appendix>
     <appendix></appendix>
-    <appendix>IMPORTANT: in the "Key Repeat" tab, you must set:</appendix>
-    <appendix>- Initial modifier wait: 150ms</appendix>
-    <appendix>- Timeout: 300ms</appendix>
-    <appendix>- Delay until repeat: 500ms</appendix>
     <identifier>private.spacefn</identifier>
 
     <!-- Space is our new Fn modifier -->
@@ -17,8 +13,13 @@
       --KeyOverlaidModifier--
       KeyCode::SPACE,
       KeyCode::VK_MODIFIER_EXTRA4,
+      ModifierFlag::SANDS2,
       KeyCode::SPACE
     </autogen>
+    <block>
+      <modifier_only>ModifierFlag::SANDS2</modifier_only>
+      <autogen>__BlockUntilKeyUp__ KeyCode::SPACE</autogen>
+    </block>
 
     <!-- Arrow keys: HJKL -->
     <autogen>
