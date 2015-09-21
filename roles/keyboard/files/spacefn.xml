@@ -2,32 +2,56 @@
 <root>
   <!-- "SpaceFN" layout (https://geekhack.org/index.php?topic=51069.0) -->
   <item>
-    <name>SpaceFN layout (Colemak)</name>
-    <appendix>ARROWS: Space+HNEI=arrows</appendix>
+    <name>SpaceFN layout</name>
+    <appendix>ARROWS: Space+HJKL=arrows</appendix>
     <appendix>BLANK: Space+B=Repeating space</appendix>
     <appendix></appendix>
     <appendix>IMPORTANT: in the "Key Repeat" tab, you must set:</appendix>
     <appendix>- Initial modifier wait: 150ms</appendix>
     <appendix>- Timeout: 300ms</appendix>
     <appendix>- Delay until repeat: 500ms</appendix>
-    <identifier>private.spacefn-colemak</identifier>
+    <identifier>private.spacefn</identifier>
 
     <!-- Space is our new Fn modifier -->
-    <autogen>--KeyOverlaidModifier-- KeyCode::SPACE,
-                                     KeyCode::VK_MODIFIER_EXTRA4, KeyCode::SPACE</autogen>
+    <autogen>
+      --KeyOverlaidModifier--
+      KeyCode::SPACE,
+      KeyCode::VK_MODIFIER_EXTRA4,
+      KeyCode::SPACE
+    </autogen>
 
-    <!-- Arrow keys: HEIO -->
-    <autogen>--KeyToKey-- KeyCode::E, ModifierFlag::EXTRA4,
-                          KeyCode::CURSOR_UP</autogen>
-    <autogen>--KeyToKey-- KeyCode::H, ModifierFlag::EXTRA4,
-                          KeyCode::CURSOR_LEFT</autogen>
-    <autogen>--KeyToKey-- KeyCode::N, ModifierFlag::EXTRA4,
-                          KeyCode::CURSOR_DOWN</autogen>
-    <autogen>--KeyToKey-- KeyCode::I, ModifierFlag::EXTRA4,
-                          KeyCode::CURSOR_RIGHT</autogen>
+    <!-- Arrow keys: HJKL -->
+    <autogen>
+      --KeyToKey--
+      KeyCode::K,
+      ModifierFlag::EXTRA4,
+      KeyCode::CURSOR_UP
+    </autogen>
+    <autogen>
+      --KeyToKey--
+      KeyCode::H,
+      ModifierFlag::EXTRA4,
+      KeyCode::CURSOR_LEFT
+    </autogen>
+    <autogen>
+      --KeyToKey--
+      KeyCode::J,
+      ModifierFlag::EXTRA4,
+      KeyCode::CURSOR_DOWN
+    </autogen>
+    <autogen>
+      --KeyToKey--
+      KeyCode::L,
+      ModifierFlag::EXTRA4,
+      KeyCode::CURSOR_RIGHT
+    </autogen>
 
     <!-- space+B is an autorepeat space -->
-    <autogen>--KeyToKey-- KeyCode::B, ModifierFlag::EXTRA4,
-                          KeyCode::SPACE</autogen>
+    <autogen>
+      --KeyToKey--
+      KeyCode::B,
+      ModifierFlag::EXTRA4,
+      KeyCode::SPACE
+    </autogen>
   </item>
 </root>
