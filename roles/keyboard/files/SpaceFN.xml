@@ -3,22 +3,22 @@
 
   <!-- This file is a Keyremap4MacBook definition file that allows you to use the "SpaceFN"
        keyboard layout on your Mac.
-       
+
        The main point of the SpaceFN layout is to turn your spacebar into a single big "Fn" key
        that will give you access to all the navigation and function keys without moving your hand
        from the home row.
-       
+
        SpaceFN can work on any keyboard, but is especially well suited for "60%" ones because
        it allows access to all the navigation and function keys from the alphabetical cluster.
        It doesn't require a dedicated Fn key and doesn't change the primary function of any key.
 
 
     HOW TO USE:
-  
+
     - You must have KeyRemap4MacBook installed on your Mac, or you must install it first.
       KeyRemap4MacBook works on ALL Macs, is free, and is available here:
         https://pqrs.org/macosx/keyremap4macbook/
-    
+
     - NOTE: "private.xml" is the file where one can create shortcuts and definitions that
             KeyRemap4MacBook will use.
             It is located in /Users/you/Library/Application Support/KeyRemap4MacBook
@@ -32,7 +32,7 @@
             - Open "KeyRemap4MacBook"
             Now you are in the folder where the "private.xml" file should be. You may not have
             one at this time, so the folder may be empty.
-  
+
     - If you already have a "private.xml" file:
       - Save this text as SpaceFN.xml in the same directory as your "private.xml" file.
       - Edit your "private.xml" file and add this line after the first "<root>" line:
@@ -56,7 +56,7 @@
       - Check this box: "SpaceFN layout - Basic stuff"
       - Consider checking some of the other "SpaceFN layout" boxes depending on your needs.
         Changes take place immediately.
-  
+
   -->
 
   <item>
@@ -90,7 +90,7 @@
     <appendix>BLANK:     Space+B=Repeating space</appendix>
     <appendix>Fxx:          Space+1…=F1..F12</appendix>
     <appendix></appendix>
-    <appendix>IMPORTANT: in the "Key Repeat" tab, you must set:</appendix> 
+    <appendix>IMPORTANT: in the "Key Repeat" tab, you must set:</appendix>
     <appendix>- Initial modifier wait: 150ms</appendix>
     <appendix>- Timeout: 300ms</appendix>
     <appendix>- Delay until repeat: 500ms</appendix>
@@ -148,7 +148,7 @@
     <autogen>--KeyToKey-- KeyCode::EQUAL, ModifierFlag::EXTRA4,
                           KeyCode::F12</autogen>
   </item>
-  
+
   <item>
     <name>SpaceFN layout - ESC on backquote</name>
     <appendix>Check this box to have the backquote key do Escape.</appendix>
@@ -164,7 +164,7 @@
     <autogen>--KeyToKey-- KeyCode::COMMA, ModifierFlag::EXTRA4,
                           KeyCode::BACKQUOTE, ModifierFlag::SHIFT_L</autogen>
   </item>
-  
+
   <item>
     <name>SpaceFN layout - ESC on space+E</name>
     <appendix>Check this box to have space+E do Escape.</appendix>
@@ -174,7 +174,7 @@
     <autogen>--KeyToKey-- KeyCode::E, ModifierFlag::EXTRA4,
                           KeyCode::ESCAPE</autogen>
   </item>
-  
+
   <item>
     <name>SpaceFN layout - PgUp, PgDn, Home, End (MAC MODE)</name>
     <appendix>HOME/END:         Space+U=Home  Space+O=End  (begin and end of DOCUMENT)</appendix>
@@ -189,7 +189,7 @@
     <autogen>--KeyToKey-- KeyCode::N, ModifierFlag::EXTRA4,
                           KeyCode::PAGEDOWN</autogen>
   </item>
-  
+
   <item>
     <name>SpaceFN layout - PgUp, PgDn, Home, End (PC MODE)</name>
     <appendix>HOME/END:         Space+U=Home  Space+O=End  (begin and end of LINE)</appendix>
@@ -212,7 +212,7 @@
     <autogen>--KeyToKey-- KeyCode::N, ModifierFlag::EXTRA4,
                           KeyCode::PAGEDOWN, ModifierFlag::OPTION_L</autogen>
   </item>
-  
+
   <item>
     <name>SpaceFN layout - Mute, Vol-, Vol+</name>
     <appendix>Check this box to have space + "P", "[" and "]" do Mute, Vol- and Vol+.</appendix>
@@ -225,7 +225,7 @@
     <autogen>--KeyToConsumer-- KeyCode::BRACKET_RIGHT, ModifierFlag::EXTRA4,
                                ConsumerKeyCode::VOLUME_UP</autogen>
   </item>
-  
+
   <item>
     <name>SpaceFN layout - PrintScreen, ScrollLock, Pause</name>
     <appendix>Check this box to have space + "P", "[" and "]" do PrtScr, ScrLk and Pause.</appendix>
@@ -239,5 +239,5 @@
     <autogen>--KeyToKey-- KeyCode::BRACKET_RIGHT, ModifierFlag::EXTRA4,
                           KeyCode::PC_PAUSE</autogen>
   </item>
-  
+
 </root>
