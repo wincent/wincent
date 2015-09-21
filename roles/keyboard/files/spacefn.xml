@@ -2,72 +2,32 @@
 <root>
   <!-- "SpaceFN" layout (https://geekhack.org/index.php?topic=51069.0) -->
   <item>
-    <name>SpaceFN layout - Basic stuff</name>
-    <appendix></appendix>
-    <appendix>You must check at least this box to activate the SpaceFN features.</appendix>
-    <appendix></appendix>
-    <appendix>ARROWS:  Space+IJKL=arrows</appendix>
-    <appendix>DEL:         Space+Backspace=Del</appendix>
-    <appendix>INS:          Space+\=Ins</appendix>
-    <appendix>BLANK:     Space+B=Repeating space</appendix>
-    <appendix>Fxx:          Space+1…=F1..F12</appendix>
+    <name>SpaceFN layout (Colemak)</name>
+    <appendix>ARROWS: Space+HNEI=arrows</appendix>
+    <appendix>BLANK: Space+B=Repeating space</appendix>
     <appendix></appendix>
     <appendix>IMPORTANT: in the "Key Repeat" tab, you must set:</appendix>
     <appendix>- Initial modifier wait: 150ms</appendix>
     <appendix>- Timeout: 300ms</appendix>
     <appendix>- Delay until repeat: 500ms</appendix>
-    <identifier>remap.KB607_ct</identifier>
+    <identifier>private.spacefn-colemak</identifier>
 
     <!-- Space is our new Fn modifier -->
     <autogen>--KeyOverlaidModifier-- KeyCode::SPACE,
                                      KeyCode::VK_MODIFIER_EXTRA4, KeyCode::SPACE</autogen>
 
-    <!-- Arrow keys: IJKL -->
-    <autogen>--KeyToKey-- KeyCode::I, ModifierFlag::EXTRA4,
+    <!-- Arrow keys: HEIO -->
+    <autogen>--KeyToKey-- KeyCode::E, ModifierFlag::EXTRA4,
                           KeyCode::CURSOR_UP</autogen>
-    <autogen>--KeyToKey-- KeyCode::J, ModifierFlag::EXTRA4,
+    <autogen>--KeyToKey-- KeyCode::H, ModifierFlag::EXTRA4,
                           KeyCode::CURSOR_LEFT</autogen>
-    <autogen>--KeyToKey-- KeyCode::K, ModifierFlag::EXTRA4,
+    <autogen>--KeyToKey-- KeyCode::N, ModifierFlag::EXTRA4,
                           KeyCode::CURSOR_DOWN</autogen>
-    <autogen>--KeyToKey-- KeyCode::L, ModifierFlag::EXTRA4,
+    <autogen>--KeyToKey-- KeyCode::I, ModifierFlag::EXTRA4,
                           KeyCode::CURSOR_RIGHT</autogen>
-
-    <!-- DEL on space+Enter -->
-    <autogen>--KeyToKey-- KeyCode::DELETE, ModifierFlag::EXTRA4,
-                          KeyCode::FORWARD_DELETE</autogen>
-
-    <!-- INS on space+Tab -->
-    <autogen>--KeyToKey-- KeyCode::BACKSLASH, ModifierFlag::EXTRA4,
-                          KeyCode::PC_INSERT</autogen>
 
     <!-- space+B is an autorepeat space -->
     <autogen>--KeyToKey-- KeyCode::B, ModifierFlag::EXTRA4,
                           KeyCode::SPACE</autogen>
-
-    <!-- Function keys -->
-    <autogen>--KeyToKey-- KeyCode::KEY_1, ModifierFlag::EXTRA4,
-                          KeyCode::F1</autogen>
-    <autogen>--KeyToKey-- KeyCode::KEY_2, ModifierFlag::EXTRA4,
-                          KeyCode::F2</autogen>
-    <autogen>--KeyToKey-- KeyCode::KEY_3, ModifierFlag::EXTRA4,
-                          KeyCode::F3</autogen>
-    <autogen>--KeyToKey-- KeyCode::KEY_4, ModifierFlag::EXTRA4,
-                          KeyCode::F4</autogen>
-    <autogen>--KeyToKey-- KeyCode::KEY_5, ModifierFlag::EXTRA4,
-                          KeyCode::F5</autogen>
-    <autogen>--KeyToKey-- KeyCode::KEY_6, ModifierFlag::EXTRA4,
-                          KeyCode::F6</autogen>
-    <autogen>--KeyToKey-- KeyCode::KEY_7, ModifierFlag::EXTRA4,
-                          KeyCode::F7</autogen>
-    <autogen>--KeyToKey-- KeyCode::KEY_8, ModifierFlag::EXTRA4,
-                          KeyCode::F8</autogen>
-    <autogen>--KeyToKey-- KeyCode::KEY_9, ModifierFlag::EXTRA4,
-                          KeyCode::F9</autogen>
-    <autogen>--KeyToKey-- KeyCode::KEY_0, ModifierFlag::EXTRA4,
-                          KeyCode::F10</autogen>
-    <autogen>--KeyToKey-- KeyCode::MINUS, ModifierFlag::EXTRA4,
-                          KeyCode::F11</autogen>
-    <autogen>--KeyToKey-- KeyCode::EQUAL, ModifierFlag::EXTRA4,
-                          KeyCode::F12</autogen>
   </item>
 </root>
