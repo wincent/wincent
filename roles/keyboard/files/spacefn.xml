@@ -4,8 +4,7 @@
   <modifierdef>SPACEFN</modifierdef>
   <item>
     <name>SpaceFN layout</name>
-    <appendix>ARROWS: Space+HJKL=arrows</appendix>
-    <appendix></appendix>
+    <appendix><![CDATA[Space + (Colemak: UNEI, Qwerty: IJKL) -> Arrows]]></appendix>
     <identifier>private.spacefn</identifier>
 
     <!-- Space is our new Fn modifier -->
@@ -21,22 +20,22 @@
       <autogen>__BlockUntilKeyUp__ KeyCode::SPACE</autogen>
     </block>
 
-    <!-- Arrow keys: HJKL -->
+    <!-- Arrow keys -->
     <autogen>
       --KeyToKey--
-      KeyCode::K,
+      KeyCode::I,
       ModifierFlag::SPACEFN,
       KeyCode::CURSOR_UP
     </autogen>
     <autogen>
       --KeyToKey--
-      KeyCode::H,
+      KeyCode::J,
       ModifierFlag::SPACEFN,
       KeyCode::CURSOR_LEFT
     </autogen>
     <autogen>
       --KeyToKey--
-      KeyCode::J,
+      KeyCode::K,
       ModifierFlag::SPACEFN,
       KeyCode::CURSOR_DOWN
     </autogen>
