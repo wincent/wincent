@@ -10,7 +10,7 @@
 
     <!-- Space is our new Fn modifier -->
     <autogen>
-      --KeyOverlaidModifier--
+      --KeyOverlaidModifierWithRepeat--
       KeyCode::SPACE,
       KeyCode::VK_MODIFIER_EXTRA4,
       ModifierFlag::SANDS2,
@@ -45,14 +45,6 @@
       KeyCode::L,
       ModifierFlag::EXTRA4,
       KeyCode::CURSOR_RIGHT
-    </autogen>
-
-    <!-- space+B is an autorepeat space -->
-    <autogen>
-      --KeyToKey--
-      KeyCode::B,
-      ModifierFlag::EXTRA4,
-      KeyCode::SPACE
     </autogen>
   </item>
 </root>

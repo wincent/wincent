@@ -39,9 +39,11 @@
 		<integer>1</integer>
 		<key>private.spacefn-colemak</key>
 		<integer>1</integer>
-		<key>remap.controlL2controlL_delete</key>
+		<key>remap.controlL2controlL_delete_keyrepeat</key>
 		<integer>1</integer>
 		<key>remap.return2controlL_return</key>
+		<integer>1</integer>
+		<key>remap.return2controlL_return_keyrepeat</key>
 		<integer>1</integer>
 		<key>remap.shiftLshiftR_to_capslock</key>
 		<integer>1</integer>
