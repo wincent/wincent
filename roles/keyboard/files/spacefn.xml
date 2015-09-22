@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <root>
   <!-- "SpaceFN" layout (https://geekhack.org/index.php?topic=51069.0) -->
+  <modifierdef>SPACEFN</modifierdef>
   <item>
     <name>SpaceFN layout</name>
     <appendix>ARROWS: Space+HJKL=arrows</appendix>
-    <appendix>BLANK: Space+B=Repeating space</appendix>
     <appendix></appendix>
     <identifier>private.spacefn</identifier>
 
@@ -12,12 +12,12 @@
     <autogen>
       --KeyOverlaidModifierWithRepeat--
       KeyCode::SPACE,
-      KeyCode::VK_MODIFIER_EXTRA4,
-      ModifierFlag::SANDS2,
+      KeyCode::VK_MODIFIER_SPACEFN,
+      ModifierFlag::SPACEFN,
       KeyCode::SPACE
     </autogen>
     <block>
-      <modifier_only>ModifierFlag::SANDS2</modifier_only>
+      <modifier_only>ModifierFlag::SPACEFN</modifier_only>
       <autogen>__BlockUntilKeyUp__ KeyCode::SPACE</autogen>
     </block>
 
@@ -25,25 +25,25 @@
     <autogen>
       --KeyToKey--
       KeyCode::K,
-      ModifierFlag::EXTRA4,
+      ModifierFlag::SPACEFN,
       KeyCode::CURSOR_UP
     </autogen>
     <autogen>
       --KeyToKey--
       KeyCode::H,
-      ModifierFlag::EXTRA4,
+      ModifierFlag::SPACEFN,
       KeyCode::CURSOR_LEFT
     </autogen>
     <autogen>
       --KeyToKey--
       KeyCode::J,
-      ModifierFlag::EXTRA4,
+      ModifierFlag::SPACEFN,
       KeyCode::CURSOR_DOWN
     </autogen>
     <autogen>
       --KeyToKey--
       KeyCode::L,
-      ModifierFlag::EXTRA4,
+      ModifierFlag::SPACEFN,
       KeyCode::CURSOR_RIGHT
     </autogen>
   </item>
