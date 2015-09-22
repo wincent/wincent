@@ -1,0 +1,11 @@
+---
+- name: keyboards | ensure Karabiner support directory exists
+  file: path="~/Library/Application Support/Karabiner" state=directory
+
+- name: keyboards | copy Karabiner private.xml files
+  copy: dest="~/Library/Application Support/Karabiner/{{ item }}"
+        src={{ ansible_env.PWD }}/roles/keyboard/files/{{ item }}
+  with_items:
+    - private.xml
+    - spacefn.xml
+    - yubikey.xml
