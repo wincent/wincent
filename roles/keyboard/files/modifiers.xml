@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<root>
+  <item>
+    <name>Control_L to Control_L</name>
+    <appendix><![CDATA[(+ When you type Control_L only, send Delete) + [KeyRepeat]]]></appendix>
+    <identifier>private.controlL2controlL_delete_keyrepeat_block</identifier>
+
+    <autogen>
+      --KeyOverlaidModifierWithRepeat--
+      KeyCode::CONTROL_L,
+      KeyCode::CONTROL_L,
+      KeyCode::DELETE
+    </autogen>
+    <block>
+      <modifier_only>ModifierFlag::CONTROL_L</modifier_only>
+      <autogen>__BlockUntilKeyUp__ KeyCode::DELETE</autogen>
+    </block>
+ </item>
+
+  <item>
+    <name>Return to Control_R</name>
+    <appendix><![CDATA[(+ When you type Return only, send Return) + [KeyRepeat]]]></appendix>
+    <identifier>private.return2controlR_return_keyrepeat_block</identifier>
+
+    <autogen>
+      --KeyOverlaidModifierWithRepeat--
+      KeyCode::RETURN,
+      KeyCode::CONTROL_R,
+      KeyCode::RETURN
+    </autogen>
+    <block>
+      <modifier_only>ModifierFlag::CONTROL_R</modifier_only>
+      <autogen>__BlockUntilKeyUp__ KeyCode::RETURN</autogen>
+    </block>
+ </item>
+</root>

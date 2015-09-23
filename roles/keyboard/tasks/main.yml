@@ -6,6 +6,7 @@
   copy: dest="~/Library/Application Support/Karabiner/{{ item }}"
         src={{ ansible_env.PWD }}/roles/keyboard/files/{{ item }}
   with_items:
+    - modifiers.xml
     - private.xml
     - spacefn.xml
     - yubikey.xml

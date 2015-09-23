@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <root>
-  <include path="yubikey.xml" />
+  <include path="modifiers.xml" />
   <include path="spacefn.xml" />
+  <include path="yubikey.xml" />
 </root>
