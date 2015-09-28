@@ -14,3 +14,8 @@ unsetting
 mergeable
 npm
 repo
+permalinks
+fallback
+metadata
+gitignore
+GraphQL
