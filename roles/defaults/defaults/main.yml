@@ -21,6 +21,12 @@ osx_defaults:
     description: System Preferences -> Desktop & Screen Saver -> Screen Saver -> Start after -> 5 Minutes
     last_tested: '[10.10.2]'
 
+  - read: read NSGlobalDomain _HIHideMenuBar
+    write: write NSGlobalDomain _HIHideMenuBar -int 1
+    expected: '1'
+    description: System Preferences -> General -> Appearance -> Automatically hide and show the menu bar
+    last_tested: '10.11'
+
   - read: read NSGlobalDomain AppleAquaColorVariant
     write: write NSGlobalDomain AppleAquaColorVariant -int 6
     expected: '6'
