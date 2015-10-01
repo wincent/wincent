@@ -73,6 +73,7 @@ slate.layout('one-monitor', {
     repeat: true,
     'sort-title': true,
   },
+  MailMate: { operations: [move(0).screen(internal)] },
   Skype: { operations: [push(right, 1 / 2).screen(internal)] },
   'Textual IRC Client': { operations: [move(0).screen(internal)] },
 });
@@ -93,6 +94,7 @@ slate.layout('two-monitors', {
     operations: [positionChrome],
     repeat: true,
   },
+  MailMate: { operations: [push(left, 1 / 2).screen(cinema)] },
   Skype: { operations: [push(right, 1 / 2).screen(internal)] },
   'Textual IRC Client': { operations: [move(0).screen(internal)] },
 });
