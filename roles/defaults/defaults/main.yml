@@ -249,10 +249,22 @@ osx_defaults:
     description: iTerm2 -> Preferences -> General -> Adjust window when changing font size
     last_tested: '2.9.20150224-nightly'
 
+  - read: read com.googlecode.iterm2 HideActivityIndicator
+    write: write com.googlecode.iterm2 HideActivityIndicator -bool true
+    expected: 1
+    description: iTerm2 -> Preferences -> Appearance -> Hide tab activity indicator
+    last_tested: '2.9.20150224-nightly'
+
   - read: read com.googlecode.iterm2 HideScrollbar
     write: write com.googlecode.iterm2 HideScrollbar -bool true
     expected: 1
-    description: iTerm2 -> Preferences -> General -> Hide scrollbars
+    description: iTerm2 -> Preferences -> Appearance -> Hide scrollbars
+    last_tested: '2.9.20150224-nightly'
+
+  - read: read com.googlecode.iterm2 OptimumTabWidth
+    write: write com.googlecode.iterm2 OptimumTabWidth -int 275
+    expected: 275
+    description: iTerm2 -> Preferences -> Advanced -> Tabs: Preferred tab width
     last_tested: '2.9.20150224-nightly'
 
   - read: read com.googlecode.iterm2 UseLionStyleFullscreen
