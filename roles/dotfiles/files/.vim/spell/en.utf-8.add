@@ -19,3 +19,7 @@ fallback
 metadata
 gitignore
 GraphQL
+wikitext
+middleware
+webpack
+versioned
