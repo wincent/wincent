@@ -121,6 +121,13 @@ function handleEvent(app, window) {
         window.doOperation(push(left, 1 / 2).screen(window.screen()));
       }
       break;
+    case 'MailMate':
+      if (slate.screenCount() === 1) {
+        window.doOperation(move(0).screen(internal));
+      } else {
+        window.doOperation(push(left, 1 / 2).screen(cinema));
+      }
+      break;
     case 'Textual IRC Client':
       window.doOperation(move(0).screen(internal));
       break;
