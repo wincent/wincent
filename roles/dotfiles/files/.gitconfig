@@ -30,6 +30,10 @@
 	# requires Git 1.6.2 or later
 	rollback = !sh -c 'git reset --merge HEAD~${1-1}' -
 
+	# "smartlog", although it's not that smart.
+	# Equivalent to `git graph --all --simplify-by-decoration.
+	sl = log --graph --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%aN>%Creset' --all --simplify-by-decoration
+
 	st = status
 	staged = diff --cached
 
