@@ -1,4 +1,4 @@
-source $ADMIN_SCRIPTS/vim/biggrep.vim
+source $LOCAL_ADMIN_SCRIPTS/vim/biggrep.vim
 
 let g:CommandTFileScanner = 'watchman'
 let g:CommandTInputDebounce = 200
@@ -15,4 +15,4 @@ let g:fb_default_opts = 0
 " don't mess with my files
 let g:fb_kill_whitespace = 0
 
-source $ADMIN_SCRIPTS/master.vimrc
+source $LOCAL_ADMIN_SCRIPTS/master.vimrc
