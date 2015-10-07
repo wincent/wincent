@@ -28,7 +28,25 @@ var hideSpotify  = slate.operation('hide', { app: 'Spotify' });
 var focusITerm   = slate.operation('focus', { app: 'iTerm2' });
 var focusTextual = slate.operation('focus', { app: 'Textual IRC Client' });
 
-function positionChrome(window) {
+function isMailMateInbox(window) {
+  var title = window.title();
+  return (
+    title === 'No mailbox selected' ||
+    title.match(/\bInbox \(\d+ messages?\)/)
+  );
+}
+
+function positionMailMate(screenCount, window) {
+  if (isMailMateInbox(window)) {
+    if (screenCount === 1) {
+      window.doOperation(move(0).screen(internal));
+    } else {
+      window.doOperation(push(left, 1 / 2).screen(cinema));
+    }
+  }
+}
+
+function positionChrome(screenCount, window) {
   if (window.hidden()) {
     return;
   }
@@ -48,7 +66,7 @@ function positionChrome(window) {
     return;
   }
 
-  if (slate.screenCount() === 1) {
+  if (screenCount === 1) {
     window.doOperation(move(0).screen(internal));
   } else {
     if (typeof app.bundleIdentifier === 'function' &&
@@ -63,17 +81,20 @@ function positionChrome(window) {
 slate.layout('one-monitor', {
   _before_: { operations: [hideSpotify] },
   _after_: { operations: [focusITerm] },
+  Fantastical: { operations: [move(0).screen(internal)] },
   'Google Chrome': {
-    operations: [positionChrome],
+    operations: [positionChrome.bind(null, 1)],
     repeat: true,
   },
-  Fantastical: { operations: [move(0).screen(internal)] },
   iTerm2: {
     operations: [move(0).screen(internal)],
     repeat: true,
     'sort-title': true,
   },
-  MailMate: { operations: [move(0).screen(internal)] },
+  MailMate: {
+    operations: [positionMailMate.bind(null, 1)],
+    repeat: true,
+  },
   Skype: { operations: [push(right, 1 / 2).screen(internal)] },
   'Textual IRC Client': { operations: [move(0).screen(internal)] },
 });
@@ -82,6 +103,10 @@ slate.layout('two-monitors', {
   _before_: { operations: [hideSpotify] },
   _after_: { operations: [focusTextual, focusITerm] },
   Fantastical: { operations: [move(0).screen(internal)] },
+  'Google Chrome': {
+    operations: [positionChrome.bind(null, 2)],
+    repeat: true,
+  },
   iTerm2: {
     operations: [
       push(left, 1 / 2).screen(cinema),
@@ -90,11 +115,10 @@ slate.layout('two-monitors', {
     repeat: true,
     'sort-title': true,
   },
-  'Google Chrome': {
-    operations: [positionChrome],
+  MailMate: {
+    operations: [positionMailMate.bind(null, 2)],
     repeat: true,
   },
-  MailMate: { operations: [push(left, 1 / 2).screen(cinema)] },
   Skype: { operations: [push(right, 1 / 2).screen(internal)] },
   'Textual IRC Client': { operations: [move(0).screen(internal)] },
 });
@@ -109,7 +133,7 @@ function handleEvent(app, window) {
 
   switch (app.name()) {
     case 'Google Chrome':
-      positionChrome(window);
+      positionChrome(slate.screenCount(), window);
       break;
     case 'Fantastical':
       window.doOperation(move(0).screen(internal));
@@ -122,11 +146,7 @@ function handleEvent(app, window) {
       }
       break;
     case 'MailMate':
-      if (slate.screenCount() === 1) {
-        window.doOperation(move(0).screen(internal));
-      } else {
-        window.doOperation(push(left, 1 / 2).screen(cinema));
-      }
+      positionMailMate(slate.screenCount(), window);
       break;
     case 'Textual IRC Client':
       window.doOperation(move(0).screen(internal));
@@ -372,5 +392,3 @@ function fingerprint(window) {
     pid:     window.pid(),
   };
 }
-
-slate.log('finished loading config');
