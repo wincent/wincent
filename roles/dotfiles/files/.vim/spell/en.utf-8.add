@@ -23,3 +23,7 @@ wikitext
 middleware
 webpack
 versioned
+memcached
+transpile
+Redis
+MailMate
