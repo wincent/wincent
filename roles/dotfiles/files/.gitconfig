@@ -54,6 +54,10 @@
 [color]
 	ui = auto
 
+[color "diff-highlight"]
+	oldHighlight = red 236 dim
+	newHighlight = green 236 dim
+
 [color "interactive"]
 	prompt = blue reverse
 
@@ -62,7 +66,7 @@
 
 [core]
 	excludesfile = ~/.gitignore
-	pager = less -iFMRSX
+	pager = sh -c "~/.shells/bin/diff-highlight | less -iFMRSX" -
 	attributesfile = ~/.gitattributes
 
 # ignored by Git older than 1.8.2
