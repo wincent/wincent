@@ -31,9 +31,13 @@ tmux() {
   fi
 
   if [[ -z "$@" ]]; then
-    # attach to existing session, or create one, based on current directory
-    SESSION_NAME=$(basename "$(pwd)")
-    env SSH_AUTH_SOCK=$SOCK_SYMLINK tmux new -A -s "$SESSION_NAME"
+    if [ -x ./.tmux ]; then
+      ./.tmux
+    else
+      # Attach to existing session, or create one, based on current directory.
+      SESSION_NAME=$(basename "$(pwd)")
+      env SSH_AUTH_SOCK=$SOCK_SYMLINK tmux new -A -s "$SESSION_NAME"
+    fi
   else
     env SSH_AUTH_SOCK=$SOCK_SYMLINK tmux "$@"
   fi
