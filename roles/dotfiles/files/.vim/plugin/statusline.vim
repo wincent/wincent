@@ -3,7 +3,7 @@ scriptencoding utf-8
 " cf the default statusline: %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 if has('statusline')
   set statusline=%#Error#
-  set statusline+=%{statusline#gutterpadding()}
+  set statusline+=%{statusline#gutterpadding(1)}
   set statusline+=%n  " buffer number
   set statusline+=\   " space
   set statusline+=%*  " reset color

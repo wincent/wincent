@@ -1,6 +1,6 @@
-function! statusline#gutterpadding() abort
+function! statusline#gutterpadding(subtractBufferNumber) abort
   let l:gutterWidth=max([strlen(line('$')), &numberwidth]) + 1
-  let l:bufferNumberWidth=strlen(winbufnr(0))
+  let l:bufferNumberWidth=a:subtractBufferNumber ? strlen(winbufnr(0)) : 0
   let l:padding=repeat(' ', l:gutterWidth - l:bufferNumberWidth - 1)
   return l:padding
 endfunction

@@ -19,7 +19,14 @@ endfunction
 
 function! autocmds#blur_statusline()
   " Default blurred statusline (buffer number: filename).
-  call s:update_statusline('%#User2#%{statusline#gutterpadding()}%n\ %<%f%=%*', 'blur')
+  let l:blurred='%#User2#' " higlight (same as MatchParens, plus italics)
+  let l:blurred.='%{statusline#gutterpadding(0)}'
+  let l:blurred.='\ ' " space
+  let l:blurred.='%<' " truncation point
+  let l:blurred.='%f' " filename
+  let l:blurred.='%=' " split left/right halves (makes background cover whole)
+  let l:blurred.='%*' " reset highlight
+  call s:update_statusline(l:blurred, 'blur')
 endfunction
 
 function! autocmds#focus_statusline()
