@@ -2,8 +2,12 @@ scriptencoding utf-8
 
 " cf the default statusline: %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 if has('statusline')
-  set statusline=%n   " buffer number
-  set statusline+=:   " (literal)
+  set statusline=%#Error#
+  set statusline+=%{statusline#gutterpadding()}
+  set statusline+=%n  " buffer number
+  set statusline+=\   " space
+  set statusline+=%*  " reset color
+  set statusline+=\   " space
   set statusline+=%<  " truncation point, if not enough width available
   set statusline+=%f  " relative path to file
   set statusline+=\   " space

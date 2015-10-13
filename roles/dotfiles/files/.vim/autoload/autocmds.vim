@@ -19,7 +19,7 @@ endfunction
 
 function! autocmds#blur_statusline()
   " Default blurred statusline (buffer number: filename).
-  call s:update_statusline('%n:%<%f', 'blur')
+  call s:update_statusline('%#User2#%{statusline#gutterpadding()}%n\ %<%f%=%*', 'blur')
 endfunction
 
 function! autocmds#focus_statusline()
