@@ -6,6 +6,6 @@
   command:
     tic -o {{ terminfo_path }} roles/terminfo/files/{{ item }}
   with_items:
-    - screen-256color.terminfo
-    - screen.terminfo
+    - tmux.terminfo
+    - tmux-256color.terminfo
     - xterm-256color.terminfo

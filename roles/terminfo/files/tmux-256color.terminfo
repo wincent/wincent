@@ -1,0 +1,2 @@
+tmux-256color|tmux with 256 colors,
+  use=screen-256color, use=tmux,
