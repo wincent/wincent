@@ -1,0 +1,16 @@
+#!/usr/local/bin/zsh
+
+# Print a UNIX timestamp, optionally adjusted via a param (+1h, -55m etc).
+TS=$(expr \
+  $(date +%s) \
+  $( \
+    echo "$@" | \
+    sed -e 's/-/ - /g' | \
+    sed -e 's/+/ + /g' | \
+    sed -e 's/m/ * 60/g' | \
+    sed -e 's/h/ * 3600/g' | \
+    sed -e 's/d/ * 86400/g' \
+  ) \
+)
+
+echo $TS $(date +%z)
