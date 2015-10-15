@@ -264,7 +264,7 @@ osx_defaults:
   - read: read com.googlecode.iterm2 OptimumTabWidth
     write: write com.googlecode.iterm2 OptimumTabWidth -int 275
     expected: 275
-    description: iTerm2 -> Preferences -> Advanced -> Tabs: Preferred tab width
+    description: iTerm2 -> Preferences -> Advanced -> Tabs -> Preferred tab width
     last_tested: '2.9.20150224-nightly'
 
   - read: read com.googlecode.iterm2 UseLionStyleFullscreen
