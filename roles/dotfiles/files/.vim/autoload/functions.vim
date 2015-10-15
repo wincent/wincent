@@ -50,6 +50,7 @@ endfunction
 function! functions#plaintext()
   setlocal linebreak
   setlocal nolist
+  setlocal spell
   setlocal textwidth=0
   setlocal wrap
   setlocal wrapmargin=0
