@@ -120,3 +120,6 @@
 [submodule "roles/dotfiles/files/.vim/bundle/vim-ansible-yaml"]
 	path = roles/dotfiles/files/.vim/bundle/vim-ansible-yaml
 	url = https://github.com/chase/vim-ansible-yaml.git
+[submodule "roles/dotfiles/files/.vim/bundle/vim-jade"]
+	path = roles/dotfiles/files/.vim/bundle/vim-jade
+	url = https://github.com/digitaltoad/vim-jade.git
