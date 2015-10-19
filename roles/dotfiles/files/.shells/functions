@@ -5,6 +5,12 @@ ag() {
   command ag --pager="less -FRSX" --color-path=34\;3 --color-line-number=35 --color-match=35\;1\;4 "$@"
 }
 
+history() {
+  # This is a function because Zsh aliases can't take arguments.
+  local DEFAULT=-1000
+  builtin history ${1:-$DEFAULT}
+}
+
 mosh() {
   if [[ -z "$@" ]]; then
     # common case: getting to my workstation

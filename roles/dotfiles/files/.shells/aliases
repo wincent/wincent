@@ -14,6 +14,7 @@ alias e=exit
 alias f='ssh -N -f sandbox-clipper'
 alias g=git
 alias groot='cd $(git rev-parse --show-toplevel 2> /dev/null || echo -n ".")'
+alias h=history
 alias k='ssh sandbox killall -u glh sshd'
 alias l='ls -F'
 alias ll='ls -laF'
