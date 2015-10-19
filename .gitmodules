@@ -59,10 +59,6 @@
 	ignore = untracked
 	path = roles/dotfiles/files/.vim/bundle/vim-git
 	url = https://github.com/tpope/vim-git.git
-[submodule "roles/dotfiles/files/.vim/bundle/vim-haml"]
-	ignore = untracked
-	path = roles/dotfiles/files/.vim/bundle/vim-haml
-	url = https://github.com/tpope/vim-haml.git
 [submodule "roles/dotfiles/files/.vim/bundle/vim-javascript"]
 	path = roles/dotfiles/files/.vim/bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
@@ -78,10 +74,6 @@
 [submodule "roles/dotfiles/files/.vim/bundle/vim-projectionist"]
 	path = roles/dotfiles/files/.vim/bundle/vim-projectionist
 	url = https://github.com/tpope/vim-projectionist.git
-[submodule "roles/dotfiles/files/.vim/bundle/vim-rails"]
-	ignore = untracked
-	path = roles/dotfiles/files/.vim/bundle/vim-rails
-	url = https://github.com/tpope/vim-rails.git
 [submodule "roles/dotfiles/files/.vim/bundle/vim-repeat"]
 	ignore = untracked
 	path = roles/dotfiles/files/.vim/bundle/vim-repeat
