@@ -37,10 +37,6 @@ export LESSPROMPT='?f%f .?ltLine %lt:?pt%pt\%:?btByte %bt:-...'
 # X = prevent output from being cleared
 export LESS=iFMRSX
 
-#if [ -x /usr/local/bin/src-hilite-lesspipe.sh ]; then
-  #export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
-#fi
-
 # for the benefit of CPAN and potentially others
 export FTP_PASSIVE=1
 
