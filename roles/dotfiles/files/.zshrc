@@ -178,3 +178,13 @@ test -f $HOST_RC && source $HOST_RC
 
 LOCAL_RC=$HOME/.zshrc.local
 test -f $LOCAL_RC && source $LOCAL_RC
+
+#
+# /etc/motd
+#
+
+if [ -e /etc/motd ]; then
+  if ! cmp -s $HOME/.hushlogin /etc/motd; then
+    tee $HOME/.hushlogin < /etc/motd
+  fi
+fi
