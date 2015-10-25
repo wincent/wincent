@@ -34,8 +34,7 @@ export LESSPROMPT='?f%f .?ltLine %lt:?pt%pt\%:?btByte %bt:-...'
 # M = verbose prompt
 # R = ANSI color support
 # S = chop long lines (rather than wrap them onto next line)
-# X = prevent output from being cleared
-export LESS=iFMRSX
+export LESS=iFMRS
 
 # for the benefit of CPAN and potentially others
 export FTP_PASSIVE=1
