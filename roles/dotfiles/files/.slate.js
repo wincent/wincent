@@ -5,7 +5,8 @@ slate.configAll({
 // monitors
 var internal = '1440x900';
 var cinema   = '2560x1440';
-var monitors = [internal, cinema];
+var dell     = '2560x1600';
+var monitors = [internal, cinema, dell];
 
 // layouts
 var oneMonitor  = 'one-monitor';
@@ -36,12 +37,41 @@ function isMailMateInbox(window) {
   );
 }
 
+// Return the screen object corresponding to a `dimensions` string, or `null` if
+// no such screen exists.
+function findScreen(dimensions) {
+  var found = null;
+  slate.eachScreen(function(screen) {
+    if (found) {
+      return;
+    }
+    var rect = screen.rect();
+    if (dimensions === rect.width + 'x' + rect.height) {
+      found = screen;
+    }
+  });
+  return found;
+}
+
+function getExternal() {
+  return monitors.reduce(function(found, monitor) {
+    if (monitor === internal) {
+      return found;
+    }
+    var screen = findScreen(monitor);
+    if (screen) {
+      found = monitor;
+    }
+    return found;
+  });
+}
+
 function positionMailMate(screenCount, window) {
   if (isMailMateInbox(window)) {
     if (screenCount === 1) {
       window.doOperation(move(0).screen(internal));
     } else {
-      window.doOperation(push(left, 1 / 2).screen(cinema));
+      window.doOperation(push(left, 1 / 2).screen(getExternal()));
     }
   }
 }
@@ -71,9 +101,9 @@ function positionChrome(screenCount, window) {
   } else {
     if (typeof app.bundleIdentifier === 'function' &&
         app.bundleIdentifier() === 'com.google.Chrome.canary') {
-      window.doOperation(push(left, 1 / 2).screen(cinema));
+      window.doOperation(push(left, 1 / 2).screen(getExternal()));
     } else {
-      window.doOperation(push(right, 1 / 2).screen(cinema));
+      window.doOperation(push(right, 1 / 2).screen(getExternal()));
     }
   }
 }
@@ -109,8 +139,8 @@ slate.layout('two-monitors', {
   },
   iTerm2: {
     operations: [
-      push(left, 1 / 2).screen(cinema),
-      push(right, 1 / 2).screen(cinema),
+      push(left, 1 / 2).screen(getExternal()),
+      push(right, 1 / 2).screen(getExternal()),
     ],
     repeat: true,
     'sort-title': true,
@@ -125,6 +155,7 @@ slate.layout('two-monitors', {
 
 slate.default([internal], oneMonitor);
 slate.default([internal, cinema], twoMonitors);
+slate.default([internal, dell], twoMonitors);
 
 function handleEvent(app, window) {
   if (!window) {
@@ -314,7 +345,15 @@ function nextScreen(screen) {
   var description = dimensions.width + 'x' + dimensions.height;
   var nextIndex   = monitors.indexOf(description) + 1;
 
-  return monitors[nextIndex % monitors.length];
+  // Loop through at most once looking for an existing screen.
+  for (var i = 0; i < monitors.length; i++) {
+    var next = monitors[nextIndex % monitors.length];
+    var found = findScreen(next);
+    if (found) {
+      return next;
+    }
+    nextIndex++;
+  }
 }
 
 var lastSeenChain;
