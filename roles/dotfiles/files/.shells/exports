@@ -30,11 +30,10 @@ fi
 export LESSPROMPT='?f%f .?ltLine %lt:?pt%pt\%:?btByte %bt:-...'
 
 # i = case-insensitive searches, unless uppercase characters in search string
-# F = exit immediately if output fits on one screen
 # M = verbose prompt
 # R = ANSI color support
 # S = chop long lines (rather than wrap them onto next line)
-export LESS=iFMRS
+export LESS=iMRS
 
 # for the benefit of CPAN and potentially others
 export FTP_PASSIVE=1
