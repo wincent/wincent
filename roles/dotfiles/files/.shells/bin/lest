@@ -42,7 +42,7 @@ fi
 
 # `cat` file into `wc` via a pipe to suppress emission of filename.
 LENGTH=$(cat "$BUFFER" | wc -l)
-if [[ $LENGTH < $LINES ]]; then
+if (( $LENGTH < $LINES )); then
   # Assume `less` exited immediately because last file was too short (-F).
   # And we cleared the screen (because we didn't pass -X).
   cat "$BUFFER"
