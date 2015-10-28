@@ -11,6 +11,62 @@ history() {
   builtin history ${1:-$DEFAULT}
 }
 
+# Wrapper for `less` that allows us to use `-F` without `-X`, and still see
+# short files that would otherwise disappear with the alternate screen before
+# being seen. (Avoiding `-X` means we can make the scroll wheel work in `less`
+# when in tmux.)
+#
+# Based on:
+#   https://github.com/johnmellor/scripts/blob/a8788bf50ec1d5c2d0441d/bin/least
+less() {
+  local BUFFER=$(mktemp)
+  trap "rm \"$BUFFER\"" EXIT
+
+  # function-local equivalent of `set -e`
+  if [ "$(basename $SHELL)" = "zsh" ]; then
+    # Zsh gets some extra polish, Bash misses out because it would be too
+    # fiddly; see: http://unix.stackexchange.com/a/208021
+    setopt local_options err_return
+  fi
+
+  # Base settings:
+  # F = exit immediately if output fits on one screen
+  # M = verbose prompt
+  # R = ANSI color support
+  # S = chop long lines (rather than wrap them onto the next line)
+  # i = case-insensitive searches, unless uppercase characters in search string
+  local LESS=FMRSi
+
+  [[ -n $LINES ]] || local LINES=$(tput lines)
+  [[ -n $COLUMNS ]] || local COLUMNS=$(tput columns)
+
+  if [[ -t 0 ]]; then
+    # stdin is interactive terminal.
+    if [[ $# = 0 ]]; then
+      # Special case for no args: let `less` show its error message.
+      LESS=$LESS command less
+    else
+      # Hack to get last argument
+      #   http://stackoverflow.com/a/1853993/2103996
+      local LAST
+      for LAST; do true; done
+
+      LESS= command less "$LAST" 2> /dev/null | tee "$BUFFER" | LESS=$LESS command less "$@"
+    fi
+  else
+    # stdin is file or pipe.
+    tee "$BUFFER" | LESS=$LESS command less "$@"
+  fi
+
+  # `cat` file into `wc` via a pipe to suppress emission of filename.
+  local LENGTH=$(cat "$BUFFER" | wc -l)
+  if [[ $LENGTH < $LINES ]]; then
+    # Assume `less` exited immediately because last file was too short (-F).
+    # And we cleared the screen (because we didn't pass -X).
+    cat "$BUFFER"
+  fi
+}
+
 mosh() {
   if [[ -z "$@" ]]; then
     # common case: getting to my workstation
