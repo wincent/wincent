@@ -5,6 +5,7 @@
     - { role: dotfiles, tags: ['dotfiles'] }
     - { role: terminfo, tags: ['terminfo'] }
     - { role: homebrew, tags: ['homebrew'] }
+    - { role: shell, tags: ['shell'] }
     - { role: vim, tags: ['vim'] }
     - { role: defaults, tags: ['defaults'] }
     - { role: ssh, tags: ['ssh'] }
