@@ -1,8 +1,19 @@
 hs.grid.setGrid('12x12') -- allows us to place on quarters, thirds and halves
 hs.window.animationDuration = 0 -- disable animations
 
+local screenCount = #hs.screen.allScreens()
 local logLevel = 'debug'
 local log = hs.logger.new('wincent', logLevel)
+
+local layoutConfig = {
+  ['com.googlecode.iterm2'] = (function(window)
+    if screenCount == 1 then
+      hs.grid.set(window, '0,0 12x12') -- full screen
+    else
+      hs.grid.set(window, '0,0 6x12') -- left half
+    end
+  end),
+}
 
 -- Event-handling
 --
@@ -30,6 +41,10 @@ function handleAppEvent(element, event)
   if event == events.windowCreated then
     log.df('[event] window %s created', element:id())
     watchWindow(element)
+    local bundleID = element:application():bundleID()
+    if layoutConfig[bundleID] then
+      layoutConfig[bundleID](element)
+    end
   else
     log.wf('unexpected app event %d received', event)
   end
