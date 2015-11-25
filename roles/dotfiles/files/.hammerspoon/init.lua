@@ -4,8 +4,9 @@ hs.window.animationDuration = 0 -- disable animations
 local lastSeenChain = nil
 local lastSeenWindow = nil
 
+-- chain the specified movement commands
 function chain(movements)
-  local chainResetInterval = 2000
+  local chainResetInterval = 2 -- seconds
   local cycleLength = #movements
   local sequenceNumber = 1
 
