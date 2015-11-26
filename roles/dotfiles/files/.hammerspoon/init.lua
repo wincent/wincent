@@ -29,24 +29,14 @@ local grid = {
 
 local layoutConfig = {
   _before_ = (function()
-    -- Hide spotify.
-    local spotify = hs.application.get('com.spotify.client')
-    if spotify then
-      spotify:hide()
-    end
+    hide('com.spotify.client')
   end),
 
   _after_ = (function()
     -- Make sure Textual appears in front of Skype, and iTerm in front of
     -- others.
-    local textual = hs.application.get('com.codeux.irc.textual5')
-    if textual then
-      textual:activate()
-    end
-    local iterm = hs.application.get('com.googlecode.iterm2')
-    if iterm then
-      iterm:activate()
-    end
+    activate('com.codeux.irc.textual5')
+    activate('com.googlecode.iterm2')
   end),
 
   ['com.codeux.irc.textual5'] = (function(window)
@@ -103,6 +93,20 @@ local layoutConfig = {
 --
 -- Utility and helper functions.
 --
+
+function hide(bundleID)
+  local app = hs.application.get(bundleID)
+  if app then
+    app:hide()
+  end
+end
+
+function activate(bundleID)
+  local app = hs.application.get(bundleID)
+  if app then
+    app:activate()
+  end
+end
 
 function isMailMateMailViewer(window)
   local title = window:title()
