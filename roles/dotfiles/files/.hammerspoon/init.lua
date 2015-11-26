@@ -28,6 +28,27 @@ local grid = {
 }
 
 local layoutConfig = {
+  _before_ = (function()
+    -- Hide spotify.
+    local spotify = hs.application.get('com.spotify.client')
+    if spotify then
+      spotify:hide()
+    end
+  end),
+
+  _after_ = (function()
+    -- Make sure Textual appears in front of Skype, and iTerm in front of
+    -- others.
+    local textual = hs.application.get('com.codeux.irc.textual5')
+    if textual then
+      textual:activate()
+    end
+    local iterm = hs.application.get('com.googlecode.iterm2')
+    if iterm then
+      iterm:activate()
+    end
+  end),
+
   ['com.codeux.irc.textual5'] = (function(window)
     hs.grid.set(window, grid.fullScreen, internalDisplay())
   end),
@@ -88,6 +109,8 @@ function internalDisplay()
 end
 
 function activateLayout(forceScreenCount)
+  layoutConfig._before_()
+
   for bundleID, callback in pairs(layoutConfig) do
     local application = hs.application.get(bundleID)
     if application then
@@ -99,6 +122,8 @@ function activateLayout(forceScreenCount)
       end
     end
   end
+
+  layoutConfig._after_()
 end
 
 -- Event-handling
