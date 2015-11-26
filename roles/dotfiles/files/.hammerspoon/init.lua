@@ -82,6 +82,8 @@ function isMailMateMailViewer(window)
 end
 
 function internalDisplay()
+  -- Fun fact: this resolution matches both the 13" MacBook Air and the 15"
+  -- (Retina) MacBook Pro.
   return hs.screen.find('1440x900')
 end
 
