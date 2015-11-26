@@ -39,7 +39,7 @@ local layoutConfig = {
   ['com.freron.MailMate'] = (function(window)
     if isMailMateMailViewer(window) then
       if screenCount == 1 then
-        hs.grid.set(window, grid.fullScreen, internalDisplay())
+        hs.grid.set(window, grid.fullScreen)
       else
         hs.grid.set(window, grid.leftHalf, hs.screen.primaryScreen())
       end
