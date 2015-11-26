@@ -2,7 +2,7 @@ hs.grid.setGrid('12x12') -- allows us to place on quarters, thirds and halves
 hs.window.animationDuration = 0 -- disable animations
 
 local screenCount = #hs.screen.allScreens()
-local logLevel = 'debug'
+local logLevel = 'debug' -- generally want 'debug' or 'info'
 local log = hs.logger.new('wincent', logLevel)
 
 local grid = {
