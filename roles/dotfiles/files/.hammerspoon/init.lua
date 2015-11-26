@@ -46,6 +46,22 @@ local layoutConfig = {
     end
   end),
 
+  ['com.google.Chrome'] = (function(window)
+    if screenCount == 1 then
+      hs.grid.set(window, grid.fullScreen)
+    else
+      hs.grid.set(window, grid.rightHalf, hs.screen.primaryScreen())
+    end
+  end),
+
+  ['com.google.Chrome.canary'] = (function(window)
+    if screenCount == 1 then
+      hs.grid.set(window, grid.fullScreen)
+    else
+      hs.grid.set(window, grid.leftHalf, hs.screen.primaryScreen())
+    end
+  end),
+
   ['com.googlecode.iterm2'] = (function(window)
     if screenCount == 1 then
       hs.grid.set(window, grid.fullScreen)
