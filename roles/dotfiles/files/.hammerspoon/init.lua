@@ -208,6 +208,9 @@ function tearDownEventHandling()
   globalWatcher:stop()
   globalWatcher = nil
 
+  screenWatcher:stop()
+  screenWatcher = nil
+
   for pid, _ in pairs(watchers) do
     unwatchApp(pid)
   end
