@@ -28,6 +28,12 @@ local grid = {
 }
 
 local layoutConfig = {
+  ['com.codeux.irc.textual5'] = (function(window)
+    hs.grid.set(window, grid.fullScreen, internalDisplay())
+  end),
+  ['com.flexibits.fantastical2.mac'] = (function(window)
+    hs.grid.set(window, grid.fullScreen, internalDisplay())
+  end),
   ['com.freron.MailMate'] = (function(window)
     if isMailMateMailViewer(window) then
       if screenCount == 1 then
@@ -83,10 +89,6 @@ function handleAppEvent(element, event)
   if event == events.windowCreated then
     log.df('[event] window %s created', element:id())
     watchWindow(element)
-    local bundleID = element:application():bundleID()
-    if layoutConfig[bundleID] then
-      layoutConfig[bundleID](element)
-    end
   else
     log.wf('unexpected app event %d received', event)
   end
@@ -142,9 +144,17 @@ function unwatchApp(pid)
 end
 
 function watchWindow(window)
-  local pid = window:application():pid()
+  local application = window:application()
+  local pid = application:pid()
   local windows = watchers[pid].windows
   if window:isStandard() then
+    -- Do initial layout-handling.
+    local bundleID = application:bundleID()
+    if layoutConfig[bundleID] then
+      layoutConfig[bundleID](window)
+    end
+
+    -- Watch for window-closed events.
     local id = window:id()
     if not windows[id] then
       local watcher = window:newWatcher(handleWindowEvent, {
