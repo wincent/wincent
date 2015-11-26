@@ -8,6 +8,7 @@ dotfiles:
   - .gitignore
   - .gitk
   - .gvimrc
+  - .hammerspoon
   - .hgrc
   - .inputrc
   - .npmrc
@@ -15,7 +16,6 @@ dotfiles:
   - .rspec
   - .screenrc
   - .shells
-  - .slate.js
   - .tmux.conf
   - .vim
   - .zsh
