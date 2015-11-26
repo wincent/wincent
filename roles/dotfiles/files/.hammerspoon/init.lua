@@ -28,6 +28,15 @@ local grid = {
 }
 
 local layoutConfig = {
+  ['com.freron.MailMate'] = (function(window)
+    if isMailMateMailViewer(window) then
+      if screenCount == 1 then
+        hs.grid.set(window, grid.fullScreen, internalDisplay())
+      else
+        hs.grid.set(window, grid.leftHalf, hs.screen.primaryScreen())
+      end
+    end
+  end),
   ['com.googlecode.iterm2'] = (function(window)
     if screenCount == 1 then
       hs.grid.set(window, grid.fullScreen)
@@ -36,6 +45,16 @@ local layoutConfig = {
     end
   end),
 }
+
+function isMailMateMailViewer(window)
+  local title = window:title()
+  return title == 'No mailbox selected' or
+    string.find(title, '%(%d+ messages?%)')
+end
+
+function internalDisplay()
+  return hs.screen.find('1440x900')
+end
 
 -- Event-handling
 --
