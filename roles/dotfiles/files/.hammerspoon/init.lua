@@ -99,7 +99,7 @@ function watchApp(app)
   watcher:start({events.windowCreated})
 
   -- Watch already-existing windows.
-  for i, window in pairs(app:allWindows()) do
+  for _, window in pairs(app:allWindows()) do
     watchWindow(window)
   end
 end
@@ -112,7 +112,7 @@ function unwatchApp(pid)
   end
 
   appWatcher.watcher:stop()
-  for i, watcher in pairs(appWatcher.windows) do
+  for _, watcher in pairs(appWatcher.windows) do
     watcher:stop()
   end
   watchers[pid] = nil
@@ -145,9 +145,9 @@ function initEventHandling()
 
   -- Watch already-running applications.
   local apps = hs.application.runningApplications()
-  for i = 1, #apps do
-    if apps[i]:bundleID() ~= 'org.hammerspoon.Hammerspoon' then
-      watchApp(apps[i])
+  for _, app in pairs(apps) do
+    if app:bundleID() ~= 'org.hammerspoon.Hammerspoon' then
+      watchApp(app)
     end
   end
 end
