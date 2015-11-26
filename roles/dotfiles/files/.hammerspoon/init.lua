@@ -32,7 +32,7 @@ local layoutConfig = {
     if screenCount == 1 then
       hs.grid.set(window, grid.fullScreen)
     else
-      hs.grid.set(window, grid.leftHalf)
+      hs.grid.set(window, grid.leftHalf, hs.screen.primaryScreen())
     end
   end),
 }
