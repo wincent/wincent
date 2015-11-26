@@ -54,8 +54,9 @@ function handleGlobalEvent(name, eventType, app)
     watchApp(app)
   elseif eventType == hs.application.watcher.terminated then
     -- Only the PID is set for terminated apps, so can't log bundleID.
-    log.df('[event] terminated PID %d', app:pid())
-    unwatchApp(app)
+    local pid = app:pid()
+    log.df('[event] terminated PID %d', pid)
+    unwatchApp(pid)
   end
 end
 
@@ -103,8 +104,7 @@ function watchApp(app)
   end
 end
 
-function unwatchApp(app)
-  local pid = app:pid()
+function unwatchApp(pid)
   local appWatcher = watchers[pid]
   if not appWatcher then
     log.wf('attempted unwatch for unknown PID %d', pid)
@@ -155,6 +155,10 @@ end
 function tearDownEventHandling()
   globalWatcher:stop()
   globalWatcher = nil
+
+  for pid, _ in pairs(watchers) do
+    unwatchApp(pid)
+  end
 end
 
 initEventHandling()
@@ -228,8 +232,8 @@ hs.hotkey.bind({'ctrl', 'alt', 'cmd'}, 'down', chain({
 function reloadConfig(files)
   for _, file in pairs(files) do
     if file:sub(-4) == '.lua' then
+      tearDownEventHandling()
       hs.reload()
-      return
     end
   end
 end
