@@ -83,6 +83,10 @@ function handleWindowEvent(window, event, watcher, info)
   end
 end
 
+function handleScreenEvent()
+  screenCount = #hs.screen.allScreens()
+end
+
 function watchApp(app)
   local pid = app:pid()
   if watchers[pid] then
@@ -135,10 +139,6 @@ function watchWindow(window)
 end
 
 function initEventHandling()
-  if globalWatcher then
-    log.w('attempted global watch, but watcher already initialized')
-  end
-
   -- Watch for application-level events.
   globalWatcher = hs.application.watcher.new(handleGlobalEvent)
   globalWatcher:start()
@@ -150,6 +150,10 @@ function initEventHandling()
       watchApp(app)
     end
   end
+
+  -- Watch for screen changes.
+  screenWatcher = hs.screen.watcher.new(handleScreenEvent)
+  screenWatcher:start()
 end
 
 function tearDownEventHandling()
@@ -176,6 +180,7 @@ function chain(movements)
     local win = hs.window.frontmostWindow()
     local id = win:id()
     local now = hs.timer.secondsSinceEpoch()
+    local screen = win:screen()
 
     if
       lastSeenChain ~= movements or
@@ -184,13 +189,14 @@ function chain(movements)
     then
       sequenceNumber = 1
       lastSeenChain = movements
-    -- elseif (sequenceNumber == cycleLength) then
-    -- TODO: at end of chain, restart chain on next screen
+    elseif (sequenceNumber == 1) then
+      -- At end of chain, restart chain on next screen.
+      screen = screen:next()
     end
     lastSeenAt = now
     lastSeenWindow = id
 
-    hs.grid.set(win, movements[sequenceNumber])
+    hs.grid.set(win, movements[sequenceNumber], screen)
     sequenceNumber = sequenceNumber % cycleLength + 1
   end
 end
