@@ -94,6 +94,10 @@ local layoutConfig = {
       hs.grid.set(window, grid.leftHalf, hs.screen.primaryScreen())
     end
   end),
+
+  ['com.skype.skype'] = (function(window)
+    hs.grid.set(window, grid.rightHalf, internalDisplay())
+  end),
 }
 
 function isMailMateMailViewer(window)
