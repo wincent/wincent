@@ -5,12 +5,34 @@ local screenCount = #hs.screen.allScreens()
 local logLevel = 'debug'
 local log = hs.logger.new('wincent', logLevel)
 
+local grid = {
+  topHalf = '0,0 12x6',
+  topThird = '0,0 12x4',
+  topTwoThirds = '0,0 12x8',
+  rightHalf = '6,0 6x12',
+  rightThird = '8,0 4x12',
+  rightTwoThirds = '4,0 8x12',
+  bottomHalf = '0,6 12x6',
+  bottomThird = '0,8 12x4',
+  bottomTwoThirds = '0,4 12x8',
+  leftHalf = '0,0 6x12',
+  leftThird = '0,0 4x12',
+  leftTwoThirds = '0,0 8x12',
+  topLeft = '0,0 6x6',
+  topRight = '6,0 6x6',
+  bottomRight = '6,6 6x6',
+  bottomLeft = '0,6 6x6',
+  fullScreen = '0,0 12x12',
+  centeredBig = '3,3 6x6',
+  centeredSmall = '4,4 4x4',
+}
+
 local layoutConfig = {
   ['com.googlecode.iterm2'] = (function(window)
     if screenCount == 1 then
-      hs.grid.set(window, '0,0 12x12') -- full screen
+      hs.grid.set(window, grid.fullScreen)
     else
-      hs.grid.set(window, '0,0 6x12') -- left half
+      hs.grid.set(window, grid.leftHalf)
     end
   end),
 }
@@ -170,33 +192,33 @@ function chain(movements)
 end
 
 hs.hotkey.bind({'ctrl', 'alt'}, 'up', chain({
-  '0,0 12x6', -- top half
-  '0,0 12x4', -- top third
-  '0,0 12x8', -- top two thirds
+  grid.topHalf,
+  grid.topThird,
+  grid.topTwoThirds,
 }))
 hs.hotkey.bind({'ctrl', 'alt'}, 'right', chain({
-  '6,0 6x12', -- right half
-  '8,0 4x12', -- right third
-  '4,0 8x12', -- right two thirds
+  grid.rightHalf,
+  grid.rightThird,
+  grid.rightTwoThirds,
 }))
 hs.hotkey.bind({'ctrl', 'alt'}, 'down', chain({
-  '0,6 12x6', -- bottom half
-  '0,8 12x4', -- bottom third
-  '0,4 12x8', -- bottom two thirds
+  grid.bottomHalf,
+  grid.bottomThird,
+  grid.bottomTwoThirds,
 }))
 hs.hotkey.bind({'ctrl', 'alt'}, 'left', chain({
-  '0,0 6x12', -- left half
-  '0,0 4x12', -- left third
-  '0,0 8x12', -- left two thirds
+  grid.leftHalf,
+  grid.leftThird,
+  grid.leftTwoThirds,
 }))
 hs.hotkey.bind({'ctrl', 'alt', 'cmd'}, 'up', chain({
-  '0,0 6x6', -- top-left corner
-  '6,0 6x6', -- top-right corner
-  '6,6 6x6', -- bottom-right corner
-  '0,6 6x6', -- bottom-left corner
+  grid.topLeft,
+  grid.topRight,
+  grid.bottomRight,
+  grid.bottomLeft,
 }))
 hs.hotkey.bind({'ctrl', 'alt', 'cmd'}, 'down', chain({
-  '0,0 12x12', -- full screen
-  '3,3 6x6', -- centered, big
-  '4,4 4x4', -- centered, small
+  grid.fullScreen,
+  grid.centeredBig,
+  grid.centeredSmall,
 }))
