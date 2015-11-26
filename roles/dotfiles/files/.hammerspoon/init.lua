@@ -100,6 +100,10 @@ local layoutConfig = {
   end),
 }
 
+--
+-- Utility and helper functions.
+--
+
 function isMailMateMailViewer(window)
   local title = window:title()
   return title == 'No mailbox selected' or
@@ -271,7 +275,15 @@ initEventHandling()
 local lastSeenChain = nil
 local lastSeenWindow = nil
 
--- chain the specified movement commands
+-- Chain the specified movement commands.
+--
+-- This is like the "chain" feature in Slate, but with a couple of enhancements:
+--
+--  - Chains always start on the screen the window is currently on.
+--  - A chain will be reset after 2 seconds of inactivity, or on switching from
+--    one chain to another, or on switching from one app to another, or from one
+--    window to another.
+--
 function chain(movements)
   local chainResetInterval = 2 -- seconds
   local cycleLength = #movements
@@ -301,6 +313,10 @@ function chain(movements)
     sequenceNumber = sequenceNumber % cycleLength + 1
   end
 end
+
+--
+-- Key bindings.
+--
 
 hs.hotkey.bind({'ctrl', 'alt'}, 'up', chain({
   grid.topHalf,
@@ -349,7 +365,9 @@ hs.hotkey.bind({'ctrl', 'alt', 'cmd'}, 'f2', (function()
   activateLayout(2)
 end))
 
+--
 -- Auto-reload config on change.
+--
 
 function reloadConfig(files)
   for _, file in pairs(files) do
