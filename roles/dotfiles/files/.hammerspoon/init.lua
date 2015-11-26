@@ -31,9 +31,11 @@ local layoutConfig = {
   ['com.codeux.irc.textual5'] = (function(window)
     hs.grid.set(window, grid.fullScreen, internalDisplay())
   end),
+
   ['com.flexibits.fantastical2.mac'] = (function(window)
     hs.grid.set(window, grid.fullScreen, internalDisplay())
   end),
+
   ['com.freron.MailMate'] = (function(window)
     if isMailMateMailViewer(window) then
       if screenCount == 1 then
@@ -43,6 +45,7 @@ local layoutConfig = {
       end
     end
   end),
+
   ['com.googlecode.iterm2'] = (function(window)
     if screenCount == 1 then
       hs.grid.set(window, grid.fullScreen)
