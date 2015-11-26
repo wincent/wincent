@@ -36,9 +36,10 @@ local layoutConfig = {
     hs.grid.set(window, grid.fullScreen, internalDisplay())
   end),
 
-  ['com.freron.MailMate'] = (function(window)
+  ['com.freron.MailMate'] = (function(window, forceScreenCount)
+    local count = forceScreenCount or screenCount
     if isMailMateMailViewer(window) then
-      if screenCount == 1 then
+      if count == 1 then
         hs.grid.set(window, grid.fullScreen)
       else
         hs.grid.set(window, grid.leftHalf, hs.screen.primaryScreen())
@@ -46,24 +47,27 @@ local layoutConfig = {
     end
   end),
 
-  ['com.google.Chrome'] = (function(window)
-    if screenCount == 1 then
+  ['com.google.Chrome'] = (function(window, forceScreenCount)
+    local count = forceScreenCount or screenCount
+    if count == 1 then
       hs.grid.set(window, grid.fullScreen)
     else
       hs.grid.set(window, grid.rightHalf, hs.screen.primaryScreen())
     end
   end),
 
-  ['com.google.Chrome.canary'] = (function(window)
-    if screenCount == 1 then
+  ['com.google.Chrome.canary'] = (function(window, forceScreenCount)
+    local count = forceScreenCount or screenCount
+    if count == 1 then
       hs.grid.set(window, grid.fullScreen)
     else
       hs.grid.set(window, grid.leftHalf, hs.screen.primaryScreen())
     end
   end),
 
-  ['com.googlecode.iterm2'] = (function(window)
-    if screenCount == 1 then
+  ['com.googlecode.iterm2'] = (function(window, forceScreenCount)
+    local count = forceScreenCount or screenCount
+    if count == 1 then
       hs.grid.set(window, grid.fullScreen)
     else
       hs.grid.set(window, grid.leftHalf, hs.screen.primaryScreen())
@@ -79,6 +83,20 @@ end
 
 function internalDisplay()
   return hs.screen.find('1440x900')
+end
+
+function activateLayout(forceScreenCount)
+  for bundleID, callback in pairs(layoutConfig) do
+    local application = hs.application.get(bundleID)
+    if application then
+      local windows = application:visibleWindows()
+      for _, window in pairs(windows) do
+        if window:isStandard() then
+          callback(window, forceScreenCount)
+        end
+      end
+    end
+  end
 end
 
 -- Event-handling
@@ -125,6 +143,7 @@ end
 
 function handleScreenEvent()
   screenCount = #hs.screen.allScreens()
+  activateLayout(screenCount)
 end
 
 function watchApp(app)
@@ -257,32 +276,47 @@ hs.hotkey.bind({'ctrl', 'alt'}, 'up', chain({
   grid.topThird,
   grid.topTwoThirds,
 }))
+
 hs.hotkey.bind({'ctrl', 'alt'}, 'right', chain({
   grid.rightHalf,
   grid.rightThird,
   grid.rightTwoThirds,
 }))
+
 hs.hotkey.bind({'ctrl', 'alt'}, 'down', chain({
   grid.bottomHalf,
   grid.bottomThird,
   grid.bottomTwoThirds,
 }))
+
 hs.hotkey.bind({'ctrl', 'alt'}, 'left', chain({
   grid.leftHalf,
   grid.leftThird,
   grid.leftTwoThirds,
 }))
+
 hs.hotkey.bind({'ctrl', 'alt', 'cmd'}, 'up', chain({
   grid.topLeft,
   grid.topRight,
   grid.bottomRight,
   grid.bottomLeft,
 }))
+
 hs.hotkey.bind({'ctrl', 'alt', 'cmd'}, 'down', chain({
   grid.fullScreen,
   grid.centeredBig,
   grid.centeredSmall,
 }))
+
+hs.hotkey.bind({'ctrl', 'alt', 'cmd'}, 'f1', (function()
+  hs.alert('One-monitor layout')
+  activateLayout(1)
+end))
+
+hs.hotkey.bind({'ctrl', 'alt', 'cmd'}, 'f2', (function()
+  hs.alert('Two-monitor layout')
+  activateLayout(2)
+end))
 
 -- Auto-reload config on change.
 
