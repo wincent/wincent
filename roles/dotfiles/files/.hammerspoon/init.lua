@@ -188,7 +188,7 @@ end
 function watchApp(app)
   local pid = app:pid()
   if watchers[pid] then
-    log.wf('attempted watch for already-watch PID %d', pid)
+    log.wf('attempted watch for already-watched PID %d', pid)
     return
   end
 
