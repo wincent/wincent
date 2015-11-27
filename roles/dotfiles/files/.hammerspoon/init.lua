@@ -163,8 +163,13 @@ end
 
 function handleAppEvent(element, event)
   if event == events.windowCreated then
-    log.df('[event] window %s created', element:id())
-    watchWindow(element)
+    if pcall(function()
+      log.df('[event] window %s created', element:id())
+    end) then
+      watchWindow(element)
+    else
+      log.wf('error thrown trying to access element in handleAppEvent')
+    end
   else
     log.wf('unexpected app event %d received', event)
   end
