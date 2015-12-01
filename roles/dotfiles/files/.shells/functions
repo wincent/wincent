@@ -25,7 +25,8 @@ ssh() {
     # common case: getting to my workstation
     command ssh sandbox-clipper
   else
-    command ssh "$@"
+    local LOCAL_TERM=$(echo -n "$TERM" | sed -e s/tmux/screen/)
+    env TERM=$LOCAL_TERM command ssh "$@"
   fi
 }
 
