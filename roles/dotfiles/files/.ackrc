@@ -1,7 +1,7 @@
 --ignore-dir=coverage
 --ignore-dir=log
 --ignore-dir=tmp
---pager=lest
+--pager=less -iFMRSX
 --sort-files
 --type-add=ruby=.builder
 --type-add=ruby=.feature
