@@ -13,3 +13,8 @@
 
 - name: vim | install YouCompleteMe
   command: ./install.sh chdir={{ you_complete_me_base }}
+
+- name: vim | create or update spell file
+  command:
+    vim -u NONE -N -c 'mkspell! {{ spellfile }} | quit'
+    creates={{ spellfile }}.spl

@@ -1,5 +1,6 @@
 ---
 vim_bundle_base: '{{ ansible_env.PWD}}/roles/dotfiles/files/.vim/bundle'
 command_t_base: '{{ vim_bundle_base }}/command-t'
+spellfile: '{{ ansible_env.PWD }}/roles/dotfiles/files/.vim/spell/en.utf-8.add'
 update_vim_bundle: false
 you_complete_me_base: '{{ vim_bundle_base }}/YouCompleteMe'
