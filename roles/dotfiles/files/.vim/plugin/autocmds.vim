@@ -39,5 +39,7 @@ if has('autocmd')
     else
       autocmd BufWinEnter * if line("'\"") > 1 && line("'\"") <= line('$') | execute "normal! g`\"" | endif
     endif
+
+    autocmd BufWritePost */spell/*.add silent! :mkspell! %
   augroup END
 endif
