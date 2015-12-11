@@ -3,6 +3,7 @@ APIs
 AgileBits
 Ansible
 BFS
+Clojure
 CoffeeScript
 Colemak
 DFS
@@ -17,8 +18,11 @@ GraphQL
 JS
 Keychain
 LastPass
+Lua
 MailMate
 MySQL
+OCaml
+PHP
 PowerPC
 Redis
 TOTP
@@ -34,12 +38,15 @@ blog
 codepath
 committer
 config
+configs
+cron
 diff
 etc
 fallback
 filesystem
 filetype
 gitignore
+gzip
 hacky
 iCloud
 iOS
