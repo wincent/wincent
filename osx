@@ -2,6 +2,18 @@
 
 set -x
 
+defaults -currentHost write com.apple.systemuiserver dontAutoLoad -array \
+  "/Applications/Utilities/Keychain Access.app/Contents/Resources/Keychain.menu" \
+  "/System/Library/CoreServices/Menu Extras/Battery.menu" \
+  "/System/Library/CoreServices/Menu Extras/Clock.menu" \
+  "/System/Library/CoreServices/Menu Extras/TimeMachine.menu" \
+  "/System/Library/CoreServices/Menu Extras/Volume.menu"
+
+defaults write com.apple.systemuiserver menuExtras -array \
+  "/System/Library/CoreServices/Menu Extras/AirPort.menu" \
+  "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
+  "/System/Library/CoreServices/Menu Extras/TextInput.menu"
+
 # [10.9] Show the ~/Library folder
 chflags nohidden ~/Library
 
