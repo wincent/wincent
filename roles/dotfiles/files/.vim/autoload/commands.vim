@@ -1,9 +1,16 @@
+function s:preview(file)
+  " TODO: remove this hack once new version of Marked 2 is out:
+  " http://support.markedapp.com/discussions/questions/8670
+  silent! execute "!xattr -d com.apple.quarantine " . a:file
+  silent execute "!open -a 'Marked 2.app' " . a:file
+endfunction
+
 function commands#preview(...)
   if a:0 == 0
-    execute "!open -a 'Marked 2.app' ". expand('%')
-    return
+    call s:preview(expand('%'))
+  else
+    for l:file in a:000
+      call s:preview(l:file)
+    endfor
   endif
-  for l:file in a:000
-    execute "!open -a 'Marked 2.app' " . l:file
-  endfor
 endfunction
