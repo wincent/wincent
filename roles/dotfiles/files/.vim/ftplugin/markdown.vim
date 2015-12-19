@@ -1,0 +1,1 @@
+call functions#plaintext()
