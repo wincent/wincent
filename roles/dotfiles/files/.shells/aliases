@@ -20,6 +20,7 @@ alias l='ls -F'
 alias ll='ls -laF'
 alias m=mosh
 alias o='git oneline'
+alias p='git patch'
 alias oo='git oneline -10'
 alias r='git refresh'
 alias s=ssh
