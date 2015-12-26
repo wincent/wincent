@@ -21,14 +21,6 @@ if &term =~# 'screen' || &term =~# 'xterm'
 endif
 
 "
-" mappings
-"
-
-if has('jumplist')
-  nnoremap <silent> <leader>j :CommandTJump<CR>
-endif
-
-"
 " buffer/split/tab re-use magic
 "
 
