@@ -1,18 +1,36 @@
+" Replaces newlines with spaces.
+function! functions#sub_newlines(string) abort
+  return tr(a:string, "\r\n", '  ')
+endfunction
+
+" Runs a command and returns the captured output as a single line.
+"
+" Useful when we don't want to let long lines on narrow windows produce unwanted
+" embedded newlines.
+function! functions#capture_line(command) abort
+  redir => l:capture
+  execute a:command
+  redir END
+
+  return functions#sub_newlines(l:capture)
+endfunction
+
+" Gets the current value of a highlight group.
+function! functions#capture_highlight(group) abort
+  return functions#capture_line('silent highlight ' . a:group)
+endfunction
+
 " Find a highlight group and augment it with "italic" styling, returning a
 " string suitable for passing to `:hi`. Most of this logic is borrowed from:
 " http://stackoverflow.com/a/1333025
 function! functions#italicize_group(group) abort
-  redir => l:group
-  execute 'silent highlight ' . a:group
-  redir END
+  let l:group = functions#capture_highlight(a:group)
 
   " Traverse links back to authoritative group.
   while l:group =~# 'links to'
     let l:index = stridx(l:group, 'links to') + len('links to')
     let l:linked = strpart(l:group, l:index + 1)
-    redir => l:group
-    execute 'silent highlight ' . l:linked
-    redir END
+    let l:group = functions#capture_highlight(l:linked)
   endwhile
 
   " Extract the highlighting details (the bit after "xxx")
@@ -43,7 +61,7 @@ function! functions#italicize_group(group) abort
     endif
   endfor
 
-  return tr(l:original, "\r\n", '  ')
+  return functions#sub_newlines(l:original)
 endfunction
 
 " Switch to plaintext mode with: call functions#plaintext()
