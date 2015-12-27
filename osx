@@ -2,6 +2,7 @@
 
 set -x
 
+# [10.11.1]
 defaults -currentHost write com.apple.systemuiserver dontAutoLoad -array \
   "/Applications/Utilities/Keychain Access.app/Contents/Resources/Keychain.menu" \
   "/System/Library/CoreServices/Menu Extras/Battery.menu" \
@@ -9,18 +10,19 @@ defaults -currentHost write com.apple.systemuiserver dontAutoLoad -array \
   "/System/Library/CoreServices/Menu Extras/TimeMachine.menu" \
   "/System/Library/CoreServices/Menu Extras/Volume.menu"
 
+# [10.11.1]
 defaults write com.apple.systemuiserver menuExtras -array \
   "/System/Library/CoreServices/Menu Extras/AirPort.menu" \
   "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
   "/System/Library/CoreServices/Menu Extras/TextInput.menu"
 
-# [10.9] Show the ~/Library folder
+# [10.11.1] Show the ~/Library folder
 chflags nohidden ~/Library
 
 # [10.9] Misc `systemsetup` settings: see `man systemsetup`
-sudo systemsetup -settimezone America/Los_Angeles
+sudo systemsetup -settimezone US/Pacific
 sudo systemsetup -setusingnetworktime on
-sudo systemsetup -setcomputersleep 60
+sudo systemsetup -setcomputersleep Never
 sudo systemsetup -setdisplaysleep 15
 sudo systemsetup -setharddisksleep Never
 sudo systemsetup -setrestartfreeze on
