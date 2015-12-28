@@ -25,6 +25,7 @@ MySQL
 OCaml
 PHP
 PowerPC
+RVM
 Redis
 SDK
 TOTP
@@ -41,6 +42,7 @@ backend
 blog
 cheatsheet
 checkboxes
+chruby
 codepath
 colocated
 committer
@@ -80,6 +82,7 @@ permalinks
 programmatically
 prototypal
 quicksort
+rbenv
 refactor
 repo
 repos
