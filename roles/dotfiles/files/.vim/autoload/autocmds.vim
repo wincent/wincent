@@ -43,7 +43,7 @@ function! s:update_statusline(default, action)
     " Do nothing.
     "
     " Note that order matters here because of Vimscript's insane coercion rules:
-    " when comparing a string to a number, the string gets coorced to 0, which
+    " when comparing a string to a number, the string gets coerced to 0, which
     " means that all strings `== 0`. So, we must check for string-ness first,
     " above.
     return
