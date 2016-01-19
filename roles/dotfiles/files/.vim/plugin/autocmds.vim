@@ -6,9 +6,6 @@ if has('autocmd')
     autocmd VimEnter * autocmd WinEnter * let w:created=1
     autocmd VimEnter * let w:created=1
 
-    " Except for Git commit messages, where this gets old really fast.
-    autocmd BufReadPost COMMIT_EDITMSG execute 'normal! gg'
-
     " Disable paste mode on leaving insert mode.
     autocmd InsertLeave * set nopaste
 
