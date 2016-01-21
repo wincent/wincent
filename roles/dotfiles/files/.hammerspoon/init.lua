@@ -256,13 +256,15 @@ function watchWindow(window)
 
     -- Watch for window-closed events.
     local id = window:id()
-    if not windows[id] then
-      local watcher = window:newWatcher(handleWindowEvent, {
-        id = id,
-        pid = pid,
-      })
-      windows[id] = watcher
-      watcher:start({events.elementDestroyed})
+    if id then
+      if not windows[id] then
+        local watcher = window:newWatcher(handleWindowEvent, {
+          id = id,
+          pid = pid,
+        })
+        windows[id] = watcher
+        watcher:start({events.elementDestroyed})
+      end
     end
   end
 end
