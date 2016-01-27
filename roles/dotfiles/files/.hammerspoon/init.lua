@@ -66,7 +66,12 @@ local layoutConfig = {
     if count == 1 then
       hs.grid.set(window, grid.fullScreen)
     else
-      hs.grid.set(window, grid.rightHalf, hs.screen.primaryScreen())
+      -- First/odd windows go on the RIGHT side of the screen.
+      -- Second/even windows go on the LEFT side.
+      -- (Note this is the opposite of what we do with Canary.)
+      local windows = windowCount(window:application())
+      local side = windows % 2 == 0 and grid.leftHalf or grid.rightHalf
+      hs.grid.set(window, side, hs.screen.primaryScreen())
     end
   end),
 
@@ -75,7 +80,12 @@ local layoutConfig = {
     if count == 1 then
       hs.grid.set(window, grid.fullScreen)
     else
-      hs.grid.set(window, grid.leftHalf, hs.screen.primaryScreen())
+      -- First/odd windows go on the LEFT side of the screen.
+      -- Second/even windows go on the RIGHT side.
+      -- (Note this is the opposite of what we do with Chrome.)
+      local windows = windowCount(window:application())
+      local side = windows % 2 == 0 and grid.rightHalf or grid.leftHalf
+      hs.grid.set(window, side, hs.screen.primaryScreen())
     end
   end),
 
@@ -96,6 +106,22 @@ local layoutConfig = {
 --
 -- Utility and helper functions.
 --
+
+-- Returns the number of standard, non-minimized windows in the application.
+--
+-- (For Chrome, which has two windows per visible window on screen, but only one
+-- window per minimized window).
+function windowCount(app)
+  local count = 0
+  if app then
+    for _, window in pairs(app:allWindows()) do
+      if window:isStandard() and not window:isMinimized() then
+        count = count + 1
+      end
+    end
+  end
+  return count
+end
 
 function hide(bundleID)
   local app = hs.application.get(bundleID)
