@@ -93,18 +93,26 @@ if has('persistent_undo')
 endif
 
 if has('viminfo')
-  set viminfo+=n~/.vim/tmp/viminfo    " override ~/.viminfo default
+  if exists('$SUDO_USER')
+    set viminfo=                      " don't create root-owned files
+  else
+    set viminfo+=n~/.vim/tmp/viminfo  " override ~/.viminfo default
 
-  if !empty(glob('~/.vim/tmp/viminfo'))
-    if !filereadable(expand('~/.vim/tmp/viminfo'))
-      echoerr 'warning: ~/.vim/tmp/viminfo exists but is not readable'
+    if !empty(glob('~/.vim/tmp/viminfo'))
+      if !filereadable(expand('~/.vim/tmp/viminfo'))
+        echoerr 'warning: ~/.vim/tmp/viminfo exists but is not readable'
+      endif
     endif
   endif
 endif
 
 if has('mksession')
-  set viewdir=~/.vim/tmp/view         " override ~/.vim/view default
-  set viewoptions=cursor,folds        " save/restore just these (with `:{mk,load}view`)
+  if exists('$SUDO_USER')
+    set viewoptions=                  " don't create root-owned files
+  else
+    set viewdir=~/.vim/tmp/view       " override ~/.vim/view default
+    set viewoptions=cursor,folds      " save/restore just these (with `:{mk,load}view`)
+  endif
 endif
 
 if has('virtualedit')
