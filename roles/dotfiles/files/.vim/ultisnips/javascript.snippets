@@ -48,7 +48,7 @@ endglobal
 
 
 snippet cc "createClass" b
-var ${1:`!p snip.rv = re.sub('\.react$', '', snip.basename or 'ModuleName')`} = React.createClass({
+const ${1:`!p snip.rv = re.sub('\.react$', '', snip.basename or 'ModuleName')`} = React.createClass({
 	render: function() {
 		$0
 	}
@@ -166,7 +166,7 @@ import ${1:Module} from '${2}$1${3}';
 endsnippet
 
 snippet "req(u|ui|uir|uire)?" "require" !br
-var ${1:ModuleName} = require('${2}$1${3}');
+const ${1:ModuleName} = require('${2}$1${3}');
 endsnippet
 
 snippet "(use|strict)" "'use strict' declaration" br
