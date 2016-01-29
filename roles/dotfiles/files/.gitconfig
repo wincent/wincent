@@ -42,7 +42,7 @@
 	# %C(auto) requires Git 1.8.3 or later
 	ten = log -10 --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%aN>%Creset'
 
-# compensate for brain damage caused by using Mercurial
+	# compensate for brain damage caused by using Mercurial
 	up = checkout
 
 [branch]
