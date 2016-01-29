@@ -7,7 +7,9 @@ if exists('$SUDO_USER')
   set nobackup                        " don't create root-owned files
   set nowritebackup                   " don't create root-owned files
 else
-  set backupdir=~/.vim/tmp/backup,.   " keep backup files out of the way
+  set backupdir=~/local/.vim/tmp/backup
+  set backupdir+=~/.vim/tmp/backup    " keep backup files out of the way
+  set backupdir+=.
 endif
 
 if exists('+colorcolumn')
@@ -20,7 +22,9 @@ set cursorline                        " highlight current line
 if exists('$SUDO_USER')
   set noswapfile                      " don't create root-owned files
 else
-  set directory=~/.vim/tmp/swap//,.   " keep swap files out of the way
+  set directory=~/local/.vim/tmp/swap//
+  set directory+=~/.vim/tmp/swap//    " keep swap files out of the way
+  set directory+=.
 endif
 
 set expandtab                         " always use spaces instead of tabs
@@ -87,7 +91,9 @@ if has('persistent_undo')
   if exists('$SUDO_USER')
     set noundofile                    " don't create root-owned files
   else
-    set undodir=~/.vim/tmp/undo,.     " keep undo files out of the way
+    set undodir=~/local/.vim/tmp/undo
+    set undodir+=~/.vim/tmp/undo      " keep undo files out of the way
+    set undodir+=.
     set undofile                      " actually use undo files
   endif
 endif
@@ -96,7 +102,11 @@ if has('viminfo')
   if exists('$SUDO_USER')
     set viminfo=                      " don't create root-owned files
   else
-    set viminfo+=n~/.vim/tmp/viminfo  " override ~/.viminfo default
+    if isdirectory('~/local/.vim/tmp')
+      set viminfo+=n~/local/.vim/tmp/viminfo
+    else
+      set viminfo+=n~/.vim/tmp/viminfo " override ~/.viminfo default
+    endif
 
     if !empty(glob('~/.vim/tmp/viminfo'))
       if !filereadable(expand('~/.vim/tmp/viminfo'))
@@ -110,7 +120,11 @@ if has('mksession')
   if exists('$SUDO_USER')
     set viewoptions=                  " don't create root-owned files
   else
-    set viewdir=~/.vim/tmp/view       " override ~/.vim/view default
+    if isdirectory('~/local/.vim/tmp')
+      set viewdir=~/local/.vim/tmp/view
+    else
+      set viewdir=~/.vim/tmp/view     " override ~/.vim/view default
+    endif
     set viewoptions=cursor,folds      " save/restore just these (with `:{mk,load}view`)
   endif
 endif
