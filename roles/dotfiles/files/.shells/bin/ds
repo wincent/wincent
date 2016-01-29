@@ -69,7 +69,7 @@ def projects
   @projects ||= begin
     if ARGV.size.zero?
       `hg status static_upstream`.chomp.split("\n").map do |line|
-        line[%r{\A[A-Z] static_upstream/([^/]+?)/}, 1]
+        line[%r{\A[A-Z?] static_upstream/([^/]+?)/}, 1]
       end.uniq
     else
       ARGV
