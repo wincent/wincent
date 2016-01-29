@@ -3,3 +3,6 @@
   when: update_vim_bundle
 
 - include: build.yml
+
+- include: local.yml
+  when: use_local_vim_dir

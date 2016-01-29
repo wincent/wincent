@@ -7,3 +7,4 @@
   vars:
     command_t_bundle: ext.so
     terminfo_path: ~/share/terminfo
+    use_local_vim_dir: true
