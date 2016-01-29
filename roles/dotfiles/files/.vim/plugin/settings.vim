@@ -2,7 +2,13 @@ scriptencoding utf-8
 
 set autoindent                        " maintain indent of current line
 set backspace=indent,start,eol        " allow unrestricted backspacing in insert mode
-set backupdir=~/.vim/tmp/backup,.     " keep backup files out of the way
+
+if exists('$SUDO_USER')
+  set nobackup                        " don't create root-owned files
+  set nowritebackup                   " don't create root-owned files
+else
+  set backupdir=~/.vim/tmp/backup,.   " keep backup files out of the way
+endif
 
 if exists('+colorcolumn')
   " Highlight up to 255 columns (this is the current Vim max) beyond 'textwidth'
@@ -10,7 +16,13 @@ if exists('+colorcolumn')
 endif
 
 set cursorline                        " highlight current line
-set directory=~/.vim/tmp/swap//,.     " keep swap files out of the way
+
+if exists('$SUDO_USER')
+  set noswapfile                      " don't create root-owned files
+else
+  set directory=~/.vim/tmp/swap//,.   " keep swap files out of the way
+endif
+
 set expandtab                         " always use spaces instead of tabs
 
 if has('folding')
@@ -72,8 +84,12 @@ set tabstop=2                         " spaces per tab
 set textwidth=80                      " automatically hard wrap at 80 columns
 
 if has('persistent_undo')
-  set undodir=~/.vim/tmp/undo,.       " keep undo files out of the way
-  set undofile                        " actually use undo files
+  if exists('$SUDO_USER')
+    set noundofile                    " don't create root-owned files
+  else
+    set undodir=~/.vim/tmp/undo,.     " keep undo files out of the way
+    set undofile                      " actually use undo files
+  endif
 endif
 
 if has('viminfo')
