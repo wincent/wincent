@@ -2,9 +2,6 @@ hs.grid.setGrid('12x12') -- allows us to place on quarters, thirds and halves
 hs.window.animationDuration = 0 -- disable animations
 
 local screenCount = #hs.screen.allScreens()
-local screenGeometries = hs.fnutils.map(hs.screen.allScreens(), function(screen)
-  return screen:currentMode().desc
-end)
 local logLevel = 'info' -- generally want 'debug' or 'info'
 local log = hs.logger.new('wincent', logLevel)
 
@@ -215,26 +212,14 @@ function handleWindowEvent(window, event, watcher, info)
 end
 
 function handleScreenEvent()
-  -- Make sure that something noteworthy (display count, geometry) actually
-  -- changed.
+  -- Make sure that something noteworthy (display count) actually
+  -- changed. We no longer check geometry because we were seeing spurious
+  -- events.
   local screens = hs.screen.allScreens()
-  if #screens == screenCount then
-    if screenCount == 1 then
-      return
-    end
-    local changed = false
-    for i, screen in pairs(screens) do
-      if screenGeometries[i] ~= screen:currentMode().desc then
-        changed = true
-      end
-    end
-    if not changed then
-      return
-    end
+  if not #screens == screenCount then
+    screenCount = #screens
+    activateLayout(screenCount)
   end
-
-  screenCount = #screens
-  activateLayout(screenCount)
 end
 
 function watchApp(app)
