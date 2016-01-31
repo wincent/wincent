@@ -218,7 +218,7 @@ function handleScreenEvent()
   -- Make sure that something noteworthy (display count, geometry) actually
   -- changed.
   local screens = hs.screen.allScreens()
-  if #screens == screenCount then
+  if #screens == screenCount and not screenCount == 1 then
     local changed = false
     for i, screen in pairs(screens) do
       if screenGeometries[i] ~= screen:currentMode().desc then
