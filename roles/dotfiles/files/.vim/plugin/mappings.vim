@@ -41,20 +41,6 @@ nnoremap <leader>x :xit<CR>
 "        oft-used <leader>a mapping, make this one a double key-stroke.
 nnoremap <silent> <leader>zz :let _last_search=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_last_search <Bar> :nohlsearch<CR>
 
-" <leader>zc -- A macro I recorded to rebalance/resort the columns in the
-" Command-T "authors" section; requires that the author names be visually
-" selected (mnemonic: columns):
-xnoremap <leader>zc
-  \:s/\v^ +//g<CR>
-  \gv:s/\v  +/\r/g<CR>
-  \gvj:sort<CR>
-  \V}k:!column -c 78<CR>
-  \:let _tabstop=&tabstop<CR>
-  \:set tabstop=8<CR>
-  \V}:retab<CR>
-  \:let &tabstop=_tabstop<CR>
-  \gv>:nohlsearch<CR>
-
 " Multi-mode mappings (Normal, Visual, Operating-pending modes).
 noremap Y y$
 
