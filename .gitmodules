@@ -114,3 +114,6 @@
 [submodule "roles/dotfiles/files/.vim/bundle/vim-jade"]
 	path = roles/dotfiles/files/.vim/bundle/vim-jade
 	url = https://github.com/digitaltoad/vim-jade.git
+[submodule "roles/dotfiles/files/.vim/bundle/neco-ghc"]
+	path = roles/dotfiles/files/.vim/bundle/neco-ghc
+	url = https://github.com/eagletmt/neco-ghc.git
