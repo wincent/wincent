@@ -1,3 +1,5 @@
+setlocal colorcolumn=
+
 if has('folding')
   setlocal nofoldenable
 endif
