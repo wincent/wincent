@@ -8,4 +8,5 @@ PATH=$PATH:/usr/local/bin
 PATH=$PATH:/usr/local/sbin
 PATH=$PATH:$SYSTEM_PATH
 PATH=$PATH:$EC2_HOME/bin
+PATH=$PATH:$HOME/.cabal/bin
 export PATH
