@@ -27,7 +27,20 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 
 " Disable unhelpful semantic completions.
-let g:ycm_filetype_specific_completion_to_disable = {'*': 1}
+let g:ycm_filetype_specific_completion_to_disable = {
+      \   'gitcommit': 1,
+      \   'javascript': 1,
+      \   'ruby': 1
+      \ }
+
+let g:ycm_semantic_triggers = {
+      \   'haskell': [
+      \     '.',
+      \     '(',
+      \     ',',
+      \     ', '
+      \   ]
+      \ }
 
 " Same as default, but with "markdown" and "text" removed.
 let g:ycm_filetype_blacklist = {
