@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name           Phabricator: Toggle "synthetic" (bot) comments
-// @version        0.0.1
+// @version        0.0.2
 // @description    Allows toggling "synthetic" (bot) comments on Phabricator diffs.
 // @match          https://secure.phabricator.com/*
 // @match          https://phabricator.fb.com/*
@@ -62,7 +62,10 @@ injectJS(function(global) {
 
   function forEachSyntheticComment(callback) {
     $$('tr.inline').forEach(function(inlineRow) {
-      var inlineLine = $('.differential-inline-comment-synthetic', inlineRow);
+      var inlineLine = $(
+        '.differential-lint-comment,.differential-inline-comment-synthetic',
+        inlineRow
+      );
       if (inlineLine) {
         callback(inlineRow);
       }
