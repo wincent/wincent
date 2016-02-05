@@ -37,3 +37,6 @@ unreachable = all() - ::bookmark()
 
 # Merge base of current rev and master.
 base = ancestor(master, .)
+
+[ui]
+username = Greg Hurrell <glh@fb.com>
