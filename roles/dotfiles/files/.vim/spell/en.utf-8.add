@@ -21,6 +21,7 @@ Keychain
 LastPass
 Lua
 MailMate
+Monoids
 MySQL
 OCaml
 PHP
@@ -28,6 +29,7 @@ PowerPC
 RVM
 Redis
 SDK
+SLOC
 TOTP
 UI
 URLs
@@ -36,9 +38,11 @@ Wincent
 abandonware
 admin
 app
+applicatives
 async
 auth
 backend
+backticks
 blog
 cheatsheet
 checkboxes
@@ -49,7 +53,9 @@ committer
 config
 configs
 cron
+dedupes
 diff
+dotfiles
 etc
 fallback
 filesystem
@@ -74,6 +80,7 @@ microservice
 middleware
 mkview
 monit
+monoids
 nginx
 npm
 ok
@@ -93,11 +100,15 @@ terminfo
 tmux
 toolchain
 transpile
+typeclass
 unarchive
+underdelivered
 uninstalling
 unsetting
+unstyled
 versioned
 vim
 webpack
 wiki
 wikitext
+zsh
