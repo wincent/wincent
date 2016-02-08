@@ -47,7 +47,7 @@ tmux() {
   # Check for .tmux file (poor man's Tmuxinator).
   if [ -x .tmux ]; then
     # Prompt the first time we see a given .tmux file before running it.
-    local DIGEST=$(openssl sha -sha512 .tmux)
+    local DIGEST="$(openssl sha -sha512 .tmux)"
     if ! grep -q "$DIGEST" ~/..tmux.digests 2> /dev/null; then
       cat .tmux
       read -k 1 -r \
