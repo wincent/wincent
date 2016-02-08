@@ -68,3 +68,10 @@ xnoremap <C-l> <C-w>l
 " For each time K has produced timely, useful results, I have pressed it 10,000
 " times without meaning to, triggering an annoying delay.
 nnoremap K <nop>
+
+" Repurpose cursor keys (accessible near homerow via "SpaceFN" layout) for one
+" of my most oft-use key sequences.
+nnoremap <silent> <Up> :cprevious<cr>
+nnoremap <silent> <Down> :cnext<cr>
+nnoremap <silent> <Left> :cpfile<cr>
+nnoremap <silent> <Right> :cnfile<cr>
