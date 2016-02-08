@@ -46,10 +46,6 @@ endif
 " See `:scriptnames` for a list of all scripts, in evaluation order.
 " Launch Vim with `vim --startuptime vim.log` for profiling info.
 "
-" To see personally-defined leader mappings:
-"
-"   grep -hRE 'map.+<leader>' ~/.vim/plugin | perl -pe 's/.+(<leader>\S+).+/\1/' | sort | uniq
-"
-" To see all mappings, including those from plug-ins:
+" To see all leader mappings, including those from plug-ins:
 "
 "   vim -c 'set t_te=' -c 'set t_ti=' -c 'map <space>' -c q | sort
