@@ -216,7 +216,7 @@ function handleScreenEvent()
   -- changed. We no longer check geometry because we were seeing spurious
   -- events.
   local screens = hs.screen.allScreens()
-  if not #screens == screenCount then
+  if not (#screens == screenCount) then
     screenCount = #screens
     activateLayout(screenCount)
   end
