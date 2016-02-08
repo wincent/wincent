@@ -1,6 +1,6 @@
 " <leader>c -- Fix (most) syntax highlighting problems in current buffer
 " (mnemonic: coloring).
-nnoremap <silent> <leader>c :syntax sync fromstart<cr>
+nnoremap <silent> <leader>c :syntax sync fromstart<CR>
 
 if exists('+relativenumber')
   " <leader>r -- Cycle through relativenumber + number, number (only), and no
@@ -9,10 +9,10 @@ if exists('+relativenumber')
         \ '00': 'set rnu   <bar> set nu',
         \ '01': 'set nornu <bar> set nu',
         \ '10': 'set nornu <bar> set nonu',
-        \ '11': 'set nornu <bar> set nu' }[&nu . &rnu]<cr><cr><cr>
+        \ '11': 'set nornu <bar> set nu' }[&nu . &rnu]<CR><CR><CR>
 else
   " <leader>r -- Toggle line numbers on and off (mnemonic: relative).
-  nnoremap <leader>r :set nu!<cr>
+  nnoremap <leader>r :set nu!<CR>
 endif
 
 " <leader><leader> -- Open last buffer.
@@ -71,7 +71,7 @@ nnoremap K <nop>
 
 " Repurpose cursor keys (accessible near homerow via "SpaceFN" layout) for one
 " of my most oft-use key sequences.
-nnoremap <silent> <Up> :cprevious<cr>
-nnoremap <silent> <Down> :cnext<cr>
-nnoremap <silent> <Left> :cpfile<cr>
-nnoremap <silent> <Right> :cnfile<cr>
+nnoremap <silent> <Up> :cprevious<CR>
+nnoremap <silent> <Down> :cnext<CR>
+nnoremap <silent> <Left> :cpfile<CR>
+nnoremap <silent> <Right> :cnfile<CR>
