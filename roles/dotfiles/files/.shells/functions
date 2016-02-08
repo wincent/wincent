@@ -38,7 +38,7 @@ tmux() {
   fi
 
   if [[ -z "$@" ]]; then
-    if [ -x ./.tmux ]; then
+    if [ -x .tmux ]; then
       ./.tmux
     else
       # Attach to existing session, or create one, based on current directory.
