@@ -17,11 +17,10 @@ Linuxes.
 
 ## Dependencies
 
-* [tmux](http://tmux.sourceforge.net/) 1.9a+.
-* [Vim](http://www.vim.org/) 7.4+ with Ruby and Python support (although there's
+* [tmux](http://tmux.sourceforge.net/) 2.1 or later.
+* [Vim](http://www.vim.org/) 7.4 or later with Ruby and Python support (although there's
   a reasonable amount of feature detection in order to degrade gracefully).
-* Relatively recent [Zsh](http://www.zsh.org/); older, staler Bash config still
-  available as a fallback.
+* Relatively recent [Zsh](http://www.zsh.org/).
 * Relatively recent [Git](http://git-scm.com/).
 * [Clipper](https://wincent.com/products/clipper) for transparent access to the
   local system clipboard.
