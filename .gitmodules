@@ -117,3 +117,6 @@
 [submodule "roles/dotfiles/files/.vim/bundle/neco-ghc"]
 	path = roles/dotfiles/files/.vim/bundle/neco-ghc
 	url = https://github.com/eagletmt/neco-ghc.git
+[submodule "roles/dotfiles/files/.vim/bundle/vim-abolish"]
+	path = roles/dotfiles/files/.vim/bundle/vim-abolish
+	url = https://github.com/tpope/vim-abolish.git
