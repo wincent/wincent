@@ -96,6 +96,7 @@ repos
 segfaults
 spellfile
 stateful
+submodule
 submodules
 terminfo
 tmux
