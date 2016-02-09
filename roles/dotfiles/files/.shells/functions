@@ -14,7 +14,7 @@ history() {
 mosh() {
   if [[ -z "$@" ]]; then
     # common case: getting to my workstation
-    command mosh sandbox
+    command mosh -6 sandbox
   else
     command mosh "$@"
   fi
