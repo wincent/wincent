@@ -25,7 +25,7 @@
 [submodule "roles/dotfiles/files/.vim/bundle/nerdtree"]
 	ignore = untracked
 	path = roles/dotfiles/files/.vim/bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
+	url = https://github.com/wincent/nerdtree.git
 [submodule "roles/dotfiles/files/.vim/bundle/tabular"]
 	path = roles/dotfiles/files/.vim/bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
