@@ -9,3 +9,8 @@ let g:NERDTreeMinimalUI=1
 
 " Let <leader><leader> (^#) return from NERDTree window.
 let g:NERDTreeCreatePrefix='silent keepalt keepjumps'
+
+augroup WincentNERDTree
+  autocmd!
+  autocmd User NERDTreeInit call autocmds#attempt_select_last_file()
+augroup END

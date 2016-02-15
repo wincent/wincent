@@ -2,6 +2,13 @@ let g:WincentColorColumnBlacklist = ['diff', 'gundo', 'nerdtree', 'qf']
 let g:WincentCursorlineBlacklist = ['command-t']
 let g:WincentMkviewFiletypeBlacklist = ['diff', 'hgcommit', 'gitcommit']
 
+function! autocmds#attempt_select_last_file()
+  let l:previous=expand('#:t')
+  if l:previous != ''
+    call search('\v<' . l:previous . '>')
+  endif
+endfunction
+
 function! autocmds#should_colorcolumn()
   return index(g:WincentColorColumnBlacklist, &filetype) == -1
 endfunction
