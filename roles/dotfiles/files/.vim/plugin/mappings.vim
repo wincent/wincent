@@ -35,6 +35,9 @@ nnoremap <leader>q :quit<CR>
 nnoremap <leader>w :write<CR>
 nnoremap <leader>x :xit<CR>
 
+" Toggle fold at current position.
+nnoremap <tab> za
+
 " <leader>zz -- Zap trailing whitespace in the current buffer.
 "
 "        As this one is somewhat destructive and relatively close to the
