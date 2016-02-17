@@ -117,16 +117,12 @@ if has('viminfo')
 endif
 
 if has('mksession')
-  if exists('$SUDO_USER')
-    set viewoptions=                  " don't create root-owned files
+  if isdirectory('~/local/.vim/tmp')
+    set viewdir=~/local/.vim/tmp/view
   else
-    if isdirectory('~/local/.vim/tmp')
-      set viewdir=~/local/.vim/tmp/view
-    else
-      set viewdir=~/.vim/tmp/view     " override ~/.vim/view default
-    endif
-    set viewoptions=cursor,folds      " save/restore just these (with `:{mk,load}view`)
+    set viewdir=~/.vim/tmp/view       " override ~/.vim/view default
   endif
+  set viewoptions=cursor,folds        " save/restore just these (with `:{mk,load}view`)
 endif
 
 if has('virtualedit')

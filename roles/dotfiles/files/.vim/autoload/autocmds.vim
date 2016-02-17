@@ -21,7 +21,8 @@ endfunction
 function! autocmds#should_mkview()
   return
         \ &buftype == '' &&
-        \ index(g:WincentMkviewFiletypeBlacklist, &filetype) == -1
+        \ index(g:WincentMkviewFiletypeBlacklist, &filetype) == -1 &&
+        \ !exists('$SUDO_USER') " Don't create root-owned files.
 endfunction
 
 function! autocmds#blur_statusline()
