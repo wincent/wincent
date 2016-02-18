@@ -3,6 +3,7 @@ dotfiles:
   - .ackrc
   - .bash
   - .bash_profile
+  - .emacs.d
   - .gitattributes
   - .gitconfig
   - .gitignore
