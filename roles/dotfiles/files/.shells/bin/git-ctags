@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# Update the ctags file for a Git repo.
+#
+# Based on:
+#   - http://tbaggery.com/2011/08/08/effortless-ctags-with-git.html
+#   - https://github.com/sds/dot/blob/2edc4832305d0d1/plugins/git/scripts/ctags
+
+set -e
+dir="$(git rev-parse --git-dir)"
+err="$dir/$$.tags.err"
+trap 'rm -f "$dir/$$.tags" "$err"' EXIT
+echo 'Indexing...'
+if git ls-files | ctags --tag-relative -L - -f "$dir/$$.tags" 2> "$err"; then
+  mv "$dir/$$.tags" "$dir/tags"
+else
+  status=$?
+  cat "$err"
+  exit $status
+fi
