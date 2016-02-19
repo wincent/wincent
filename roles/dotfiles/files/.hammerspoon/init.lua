@@ -154,7 +154,12 @@ function activateLayout(forceScreenCount)
     if application then
       local windows = application:visibleWindows()
       for _, window in pairs(windows) do
-        if window:isStandard() then
+        -- Note special handling for iTerm: windows without title bars are
+        -- non-standard.
+        if
+          window:isStandard() or
+          bundleID == 'com.googlecode.iterm2'
+        then
           callback(window, forceScreenCount)
         end
       end
