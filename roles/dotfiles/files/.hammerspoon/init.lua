@@ -264,9 +264,13 @@ end
 
 function watchWindow(window)
   local application = window:application()
+  local bundleID = application:bundleID()
   local pid = application:pid()
   local windows = watchers[pid].windows
-  if window:isStandard() then
+  if
+    window:isStandard() or
+    bundleID == 'com.googlecode.iterm2'
+  then
     -- Do initial layout-handling.
     local bundleID = application:bundleID()
     if layoutConfig[bundleID] then
