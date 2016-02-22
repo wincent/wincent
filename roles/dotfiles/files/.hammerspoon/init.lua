@@ -419,6 +419,11 @@ hs.hotkey.bind({'ctrl', 'alt', 'cmd'}, 'f2', (function()
   activateLayout(2)
 end))
 
+hs.hotkey.bind({'ctrl', 'alt', 'cmd'}, 'f3', (function()
+  hs.alert('Hammerspoon console')
+  hs.openConsole()
+end))
+
 --
 -- Auto-reload config on change.
 --
