@@ -1,16 +1,41 @@
-# My "dotfiles"
+# "dotfiles" and system configuration
 
-These should work reasonably well on current OS X and recent Red Hat-like Linuxes.
+![](https://raw.githubusercontent.com/wincent/wincent/media/screenshot.png)
+
+* Target platforms: OS X and Red Hat-like Linuxes (eg. CentOS).
+* Set-up method: ~~Beautiful and intricate snowflake~~ incredibly over-engineered [Ansible](https://www.ansible.com/) orchestration.
 
 ## Features
 
+### Dotfiles
+
+[A set of dotfiles](https://github.com/wincent/wincent/tree/master/roles/dotfiles/files) that I've been tweaking and twiddling since the early 2000s ([under version control](https://github.com/wincent/wincent/commit/61a7e2a830edb7) since 2009). Characteristics include:
+
 * Sane Vim pasting via bracketed paste mode.
-* Write access to local clipboard from local and remote hosts, inside and outside of tmux.
+* Write access to local clipboard from local and remote hosts, inside and outside of tmux (via [Clipper](https://github.com/wincent/clipper)).
 * Full mouse support (pane/split resizing, scrolling, text selection) in Vim and tmux.
 * Focus/lost events for Vim inside tmux.
 * Cursor shape toggles on entering Vim.
 * Italics in the terminal.
-* Bundles a (not-excessive) number of useful Vim plug-ins.
+* Bundles a (not-excessive) number of [useful Vim plug-ins](https://github.com/wincent/wincent/tree/master/roles/dotfiles/files/.vim/bundle).
+* Relative restrained Zsh config, Bash-like but with a few Zsh perks.
+* Unified color-handling via [Base16 Shell](https://github.com/chriskempson/base16-shell).
+* Encrypted versioning of files with sensitive content (via [git-cipher](https://github.com/wincent/git-cipher)).
+* Comprehensive [Hammerspoon](http://www.hammerspoon.org/) [config](https://github.com/wincent/wincent/tree/master/roles/dotfiles/files/.hammerspoon).
+
+### Homebrew
+
+On OS X, [the `homebrew` role](https://github.com/wincent/wincent/tree/master/roles/homebrew) installs [a bunch of useful software](https://github.com/wincent/wincent/blob/master/roles/homebrew/files/Brewfile).
+
+### Keyboard customization
+
+On OS X, [the `keyboard` role](https://github.com/wincent/wincent/tree/master/roles/keyboard) uses [Karabiner](https://pqrs.org/osx/karabiner/) to:
+
+* Make Caps Lock serve as Backspace (when tapped), repeated Backspace (when pressed and held), and Left Control (when chorded with another key).
+* Make Return serve as Return (when tapped), repeated Return (when pressed and held), and Right Control (when chorded with another key).
+* Turn Caps Lock on by tapping both Shift keys simultaneously (turn it off by tapping either Shift key on its own).
+* Adds a "SpaceFN" layer that can be activated by holding down Space while hitting other keys; I use this to make the cursor keys available on or near the home row in any app.
+* Make the YubiKey work with the Colemak keyboard layout.
 
 ## Dependencies
 
@@ -56,7 +81,7 @@ done
 
 **Note:** The `ln -sf` command will overwrite existing files, but will fail to overwrite existing directories.
 
-## General characteristics
+## Design process
 
 * For a long time I resisted the temptation to add a large number of aliases; I wanted to be able to sit down in front of any machine and be comfortable with the standard tools; there has been a little "feature creep" since then, but I feel things are still pretty much in control.
 * My first goal with my Zsh config was to reach feature parity with what I had with Bash, and then add a minimal number of bells and whistles.
