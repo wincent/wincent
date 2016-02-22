@@ -140,6 +140,16 @@ function isMailMateMailViewer(window)
     string.find(title, '%(%d+ messages?%)')
 end
 
+function canManageWindow(window)
+  local application = window:application()
+  local bundleID = application:bundleID()
+
+  -- Special handling for iTerm: windows without title bars are
+  -- non-standard.
+  return window:isStandard() or
+    bundleID == 'com.googlecode.iterm2'
+end
+
 function internalDisplay()
   -- Fun fact: this resolution matches both the 13" MacBook Air and the 15"
   -- (Retina) MacBook Pro.
@@ -154,12 +164,7 @@ function activateLayout(forceScreenCount)
     if application then
       local windows = application:visibleWindows()
       for _, window in pairs(windows) do
-        -- Note special handling for iTerm: windows without title bars are
-        -- non-standard.
-        if
-          window:isStandard() or
-          bundleID == 'com.googlecode.iterm2'
-        then
+        if canManageWindow(window) then
           callback(window, forceScreenCount)
         end
       end
@@ -267,10 +272,7 @@ function watchWindow(window)
   local bundleID = application:bundleID()
   local pid = application:pid()
   local windows = watchers[pid].windows
-  if
-    window:isStandard() or
-    bundleID == 'com.googlecode.iterm2'
-  then
+  if canManageWindow(window) then
     -- Do initial layout-handling.
     local bundleID = application:bundleID()
     if layoutConfig[bundleID] then
