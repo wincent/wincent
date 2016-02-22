@@ -52,7 +52,7 @@ On OS X, [the `keyboard` role](https://github.com/wincent/wincent/tree/master/ro
 ### Clone
 
 ```sh
-git clone --recursive git://git.wincent.com/wincent.git
+git clone --recursive https://github.com/wincent/wincent.git
 ```
 
 Note that if you're behind a firewall you may need to set up a temporary `~/.gitconfig` with appropriate proxy configuration with a format such as:
