@@ -29,10 +29,12 @@ function s:CheckColorScheme()
 endfunction
 
 if v:progname !=# 'vi'
-  augroup WincentAutocolor
-    autocmd!
-    autocmd FocusGained * call s:CheckColorScheme()
-  augroup END
+  if has('autocmd')
+    augroup WincentAutocolor
+      autocmd!
+      autocmd FocusGained * call s:CheckColorScheme()
+    augroup END
+  endif
 
   " TODO: only set background/color if something actually changed
   call s:CheckColorScheme()
