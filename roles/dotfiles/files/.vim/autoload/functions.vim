@@ -75,6 +75,4 @@ function! functions#plaintext()
 
   nnoremap <buffer> j gj
   nnoremap <buffer> k gk
-  nnoremap <buffer> <Down> gj
-  nnoremap <buffer> <Up> gk
 endfunction
