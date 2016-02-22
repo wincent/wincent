@@ -26,3 +26,16 @@
 (setq
   linum-relative-current-symbol ""
   linum-relative-format "%3s ")
+
+(require 'whitespace)
+(global-whitespace-mode)
+(setq whitespace-style (quote (tabs newline tab-mark newline-mark)))
+(setq whitespace-display-mappings
+      (newline-mark 10 [182 10])
+      (tab-mark 9 [8677 9] [92 9])))
+
+(unless window-system
+  (require 'mouse)
+  (xterm-mouse-mode)
+  (global-set-key [mouse-4] (lambda () (interactive) (scroll-down 1)))
+  (global-set-key [mouse-5] (lambda () (interactive) (scroll-up 1))))
