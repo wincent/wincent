@@ -107,7 +107,7 @@ brew 'shellcheck'
 brew 'sqlite'
 brew 'the_silver_searcher'
 brew 'tig'
-brew 'tmux'
+brew 'tmux', args: ['HEAD']
 brew 'tree'
 brew 'unar'
 brew 'v8'
