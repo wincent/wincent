@@ -31,6 +31,7 @@ let g:ycm_seed_identifiers_with_syntax = 1
 
 " Disable unhelpful semantic completions.
 let g:ycm_filetype_specific_completion_to_disable = {
+      \   'c': 1,
       \   'gitcommit': 1,
       \   'javascript': 1,
       \   'ruby': 1
