@@ -102,12 +102,10 @@ def update(project)
 
   # Make use of undocumented --silent option (no prompts).
   run 'fjs', 'update', project, '--with-shims', '--silent', '--site=mobile'
-  run 'fjs', 'update', project, '--with-shims', '--silent', '--site=tablet'
   run 'fjs', 'update', project, '--with-shims', '--silent', '--site=www'
 
   # Re-sign as well, in case fjs goes crazy.
   run 'fjs', 'resign', project, '--with-shims', '--silent', '--site=mobile'
-  run 'fjs', 'resign', project, '--with-shims', '--silent', '--site=tablet'
   run 'fjs', 'resign', project, '--with-shims', '--silent', '--site=www'
 end
 
