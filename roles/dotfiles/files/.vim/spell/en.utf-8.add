@@ -20,6 +20,7 @@ GraphQL
 Hammerspoon
 Heroku
 JS
+JSON
 Karabiner
 Keychain
 LastPass
@@ -33,6 +34,7 @@ Perf
 Phabricator
 PowerPC
 RVM
+Recurse
 Redis
 SDK
 SLOC
@@ -62,6 +64,7 @@ configs
 cron
 dedupes
 diff
+dotfile
 dotfiles
 etc
 fallback
@@ -83,7 +86,9 @@ linter
 loadview
 memcached
 memoization
+memoize
 memoized
+memoizing
 mergeable
 metadata
 microservice
@@ -98,10 +103,13 @@ nvALT
 ok
 passphrases
 permalinks
+prescan
 programmatically
 prototypal
 quicksort
 rbenv
+recurse
+recursed
 recursing
 refactor
 repo
@@ -124,6 +132,8 @@ unstyled
 versioned
 vim
 webpack
+webviews
+whitespace
 wiki
 wikitext
 zsh
