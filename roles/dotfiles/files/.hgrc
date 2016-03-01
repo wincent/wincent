@@ -15,6 +15,15 @@ show = ex
 
 whatchanged = log --stat -f
 
+[experimental]
+evolution=all
+
+[extensions]
+directaccess=!
+evolve=
+fbamend=!
+inhibit=!
+
 # http://mercurial.selenic.com/wiki/PagerExtension
 [pager]
 # commands which should use a pager
