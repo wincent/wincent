@@ -1,7 +1,6 @@
 source $LOCAL_ADMIN_SCRIPTS/vim/biggrep.vim
 
 let g:CommandTFileScanner = 'watchman'
-let g:CommandTInputDebounce = 200
 
 " disable check on save; too annoying
 "let g:fb_hack_on = 0
