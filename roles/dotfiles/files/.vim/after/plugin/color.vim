@@ -18,8 +18,8 @@ function s:CheckColorScheme()
       echoerr 'Bad scheme ' . s:config[0] . ' in ' . s:config_file
     endif
   else " default
-    set background=light
-    color base16-tomorrow
+    set background=dark
+    color base16-ocean
   endif
 
   execute 'highlight Comment ' . functions#italicize_group('Comment')
