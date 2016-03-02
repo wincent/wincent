@@ -4,7 +4,8 @@
 let g:CommandTMaxCachedDirectories = 10
 let g:CommandTMaxFiles             = 1000000
 let g:CommandTScanDotDirectories   = 1
-let g:CommandTTraverseSCM          = 'dir'
+let g:CommandTTraverseSCM          = 'pwd'
+let g:CommandTFileScanner          = 'watchman'
 
 let g:CommandTWildIgnore = &wildignore
 let g:CommandTWildIgnore .= ',**/.git/*'
