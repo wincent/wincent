@@ -1,4 +1,4 @@
-nnoremap <silent> <leader>u :GundoToggle<CR>
+nnoremap <silent> <Leader>u :GundoToggle<CR>
 
 " The diff preview tends to be tiny and unreadable; give it more space.
 let g:gundo_preview_bottom=1

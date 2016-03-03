@@ -7,7 +7,7 @@ let g:NERDTreeWinSize=40
 " Disable display of '?' text and 'Bookmarks' label.
 let g:NERDTreeMinimalUI=1
 
-" Let <leader><leader> (^#) return from NERDTree window.
+" Let <Leader><Leader> (^#) return from NERDTree window.
 let g:NERDTreeCreatePrefix='silent keepalt keepjumps'
 
 if has('autocmd')
