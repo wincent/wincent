@@ -1,4 +1,4 @@
-" <Leader>c -- Fix (most) syntax highlighting problems in current buffer
+" <LocalLeader>c -- Fix (most) syntax highlighting problems in current buffer
 " (mnemonic: coloring).
 nnoremap <silent> <LocalLeader>c :syntax sync fromstart<CR>
 
