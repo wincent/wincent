@@ -1,11 +1,12 @@
 "
-" settings
+" Settings.
 "
+
 let g:CommandTMaxCachedDirectories = 10
-let g:CommandTMaxFiles             = 1000000
-let g:CommandTScanDotDirectories   = 1
-let g:CommandTTraverseSCM          = 'pwd'
-let g:CommandTFileScanner          = 'watchman'
+let g:CommandTMaxFiles = 1000000
+let g:CommandTScanDotDirectories = 1
+let g:CommandTTraverseSCM = 'pwd'
+let g:CommandTFileScanner = 'watchman'
 
 let g:CommandTWildIgnore = &wildignore
 let g:CommandTWildIgnore .= ',**/.git/*'
@@ -19,7 +20,7 @@ if &term =~# 'screen' || &term =~# 'xterm'
 endif
 
 "
-" buffer/split/tab re-use magic
+" Buffer/split/tab re-use magic.
 "
 
 function! s:BufHidden(buffer)
