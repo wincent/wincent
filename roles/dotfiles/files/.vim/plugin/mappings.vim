@@ -1,6 +1,6 @@
 " <leader>c -- Fix (most) syntax highlighting problems in current buffer
 " (mnemonic: coloring).
-nnoremap <silent> <leader>c :syntax sync fromstart<CR>
+nnoremap <silent> <LocalLeader>c :syntax sync fromstart<CR>
 
 if exists('+relativenumber')
   " <leader>r -- Cycle through relativenumber + number, number (only), and no
@@ -29,7 +29,6 @@ nnoremap <leader>p :echo expand('%')<CR>
 " off to Clipper.
 nnoremap <leader>pp :let @0=expand('%') <Bar> :Clip<CR> :echo expand('%')<CR>
 
-nnoremap <leader>h :help<space>
 nnoremap <leader>o :only<CR>
 nnoremap <leader>q :quit<CR>
 nnoremap <leader>w :write<CR>

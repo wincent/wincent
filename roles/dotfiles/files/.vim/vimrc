@@ -3,6 +3,7 @@ source $HOME/.vim/bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
 let mapleader="\<Space>"
+let maplocalleader="\\"
 
 " Extension -> filetype mappings.
 let filetype_m='objc'

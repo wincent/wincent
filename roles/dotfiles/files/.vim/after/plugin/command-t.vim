@@ -20,6 +20,17 @@ if &term =~# 'screen' || &term =~# 'xterm'
 endif
 
 "
+" Mappings.
+"
+
+nmap <unique> <Leader>c <Plug>(CommandTCommand)
+nmap <unique> <Leader>h <Plug>(CommandTHelp)
+nmap <unique> <LocalLeader>h <Plug>(CommandTHistory)
+nmap <unique> <LocalLeader>l <Plug>(CommandTLine)
+nmap <unique> <LocalLeader>s <Plug>(CommandTSearch)
+nmap <unique> <LocalLeader>t <Plug>(CommandTTag)
+
+"
 " Buffer/split/tab re-use magic.
 "
 
