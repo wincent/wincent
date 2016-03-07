@@ -78,9 +78,24 @@ jump() {
     echo "jump: single argument required, got $#"
     return 1
   else
-    cd ~$1
+    if [ $(hash -d|cut -d= -f1|grep -c "^$1\$") = 0 ]; then
+      # Not in `hash -d`: assume it's just a dir.
+      cd $1
+    else
+      cd ~$1
+    fi
   fi
 }
+
+_jump_complete() {
+  local word completions
+  word="$1"
+  completions="$(hash -d|cut -d= -f1)"
+  reply=( "${(ps:\n:)completions}" )
+}
+
+# Complete filenames and `hash -d` entries.
+compctl -f -K _jump_complete jump
 
 if [ -e $HOME/.shells/functions.private ]; then
   source $HOME/.shells/functions.private
