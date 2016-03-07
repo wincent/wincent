@@ -107,6 +107,9 @@ source $HOME/.shells/functions
 source $HOME/.shells/path
 source $HOME/.shells/vars
 
+test -e $HOME/.shells/common.private && source $HOME/.shells/common.private
+test -e $HOME/.shells/functions.private && source $HOME/.shells/functions.private
+
 #
 # Third-party
 #

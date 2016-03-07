@@ -96,7 +96,3 @@ _jump_complete() {
 
 # Complete filenames and `hash -d` entries.
 compctl -f -K _jump_complete jump
-
-if [ -e $HOME/.shells/functions.private ]; then
-  source $HOME/.shells/functions.private
-fi

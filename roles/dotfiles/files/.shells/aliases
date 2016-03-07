@@ -14,6 +14,7 @@ alias be='bundle exec'
 alias cd..='cd ..'
 alias cdtmp='cd $(mktemp -d $TMPDIR/$USER-cdtmp-XXXXXX)'
 alias clip='nc localhost 8377'
+alias d=hash -d
 alias e=exit
 alias f='ssh -N -f sandbox-clipper'
 alias g=git
