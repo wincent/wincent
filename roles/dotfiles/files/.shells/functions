@@ -68,3 +68,20 @@ tmux() {
   SESSION_NAME=$(basename "$(pwd)")
   env SSH_AUTH_SOCK=$SOCK_SYMLINK tmux new -A -s "$SESSION_NAME"
 }
+
+# Convenience function for jumping to hashed directory aliases
+# (ie. `j rn` -> `jump rn` -> `cd ~rn`).
+jump() {
+  if [ $# -eq 0 ]; then
+    cd -
+  elif [ $# -gt 1 ]; then
+    echo "jump: single argument required, got $#"
+    return 1
+  else
+    cd ~$1
+  fi
+}
+
+if [ -e $HOME/.shells/functions.private ]; then
+  source $HOME/.shells/functions.private
+fi
