@@ -124,14 +124,6 @@ test -e "$CHRUBY/auto.sh" && . "$CHRUBY/auto.sh"
 
 autoload -U add-zsh-hook
 
-function set-window-title() {
-  print -Pn "\e]2;$1\a"
-}
-
-function set-tab-title() {
-  print -Pn "\e]1;$1\a"
-}
-
 function set-tab-and-window-title() {
   print -Pn "\e]0;$1\a"
 }
