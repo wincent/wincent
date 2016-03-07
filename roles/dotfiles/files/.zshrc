@@ -125,7 +125,8 @@ test -e "$CHRUBY/auto.sh" && . "$CHRUBY/auto.sh"
 autoload -U add-zsh-hook
 
 function set-tab-and-window-title() {
-  print -Pn "\e]0;$1\a"
+  local CMD="${1:gs/$/\\$}"
+  print -Pn "\e]0;$CMD:q\a"
 }
 
 function update-window-title-precmd() {
