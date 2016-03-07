@@ -52,6 +52,8 @@ async
 auth
 backend
 backticks
+bitmask
+bitmasks
 blog
 cheatsheet
 checkboxes
@@ -104,6 +106,7 @@ octothorpe
 ok
 overpromising
 passphrases
+perf
 permalinks
 prescan
 programmatically
@@ -119,6 +122,7 @@ repos
 segfaults
 spellfile
 stateful
+struct
 submodule
 submodules
 terminfo
