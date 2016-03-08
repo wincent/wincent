@@ -27,6 +27,10 @@
   linum-relative-current-symbol ""
   linum-relative-format "%3s ")
 
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))
+(setq web-mode-content-types-alist '(("jsx" . "\\.js[x]?\\'")))
+
 (require 'whitespace)
 (global-whitespace-mode)
 (setq whitespace-style (quote (tabs newline tab-mark newline-mark)))
