@@ -142,7 +142,7 @@ function update-window-title-preexec() {
   # skip ENV=settings, sudo, ssh; show first distinctive word of command;
   # mostly stolen from:
   #   https://github.com/robbyrussell/oh-my-zsh/blob/master/lib/termsupport.zsh
-  set-tab-and-window-title ${2[(wr)^(*=*|ssh|sudo)]}
+  set-tab-and-window-title ${2[(wr)^(*=*|mosh|ssh|sudo)]}
 }
 add-zsh-hook preexec update-window-title-preexec
 
