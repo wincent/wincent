@@ -23,6 +23,7 @@
 	path = roles/dotfiles/files/.vim/bundle/loupe
 	url = https://github.com/wincent/loupe.git
 [submodule "roles/dotfiles/files/.vim/bundle/nerdtree"]
+	branch = keepalt
 	ignore = untracked
 	path = roles/dotfiles/files/.vim/bundle/nerdtree
 	url = https://github.com/wincent/nerdtree.git
