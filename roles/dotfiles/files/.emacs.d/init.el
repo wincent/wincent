@@ -4,6 +4,8 @@
 (setq package-enable-at-startup nil)
 (package-initialize)
 
+(load-theme 'base16-ocean-dark 1)
+
 (require 'helm-config)
 (helm-mode 1)
 
