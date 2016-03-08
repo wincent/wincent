@@ -6,6 +6,9 @@
 
 (load-theme 'base16-ocean-dark 1)
 
+; Highlight current line.
+(global-hl-line-mode 1)
+
 (require 'helm-config)
 (helm-mode 1)
 
