@@ -33,12 +33,14 @@
 (require 'evil-surround)
 (global-evil-surround-mode 1)
 
+; Relative line numbers.
 (require 'linum-relative)
 (linum-relative-global-mode)
 (setq
   linum-relative-current-symbol ""
   linum-relative-format "%3s ")
 
+; JSX syntax highlighting.
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))
 (setq web-mode-content-types-alist '(("jsx" . "\\.js[x]?\\'")))
