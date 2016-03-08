@@ -39,9 +39,10 @@ function +vi-git-untracked() {
   fi
 }
 
+RPROMPT_BASE="\${vcs_info_msg_0_}%{$fg[blue]%}%~%{$reset_color%}"
 setopt PROMPT_SUBST
 export PS1="%{$fg[green]%}%m%{$reset_color%}:%{$fg[blue]%}%1~%{$fg[red]%}%(!.#.$)%{$reset_color%} "
-export RPROMPT="\${vcs_info_msg_0_}%{$fg[blue]%}%~%{$reset_color%}"
+export RPROMPT=$RPROMPT_BASE
 export SPROMPT="zsh: correct %{$fg[red]%}'%R'%{$reset_color%} to %{$fg[red]%}'%r'%{$reset_color%} [%B%Uy%u%bes, %B%Un%u%bo, %B%Ue%u%bdit, %B%Ua%u%bbort]? "
 
 #
@@ -144,6 +145,23 @@ function update-window-title-preexec() {
   set-tab-and-window-title ${2[(wr)^(*=*|ssh|sudo)]}
 }
 add-zsh-hook preexec update-window-title-preexec
+
+typeset -F SECONDS
+function record-start-time() {
+  ZSH_START_TIME=${ZSH_START_TIME:-$SECONDS}
+}
+
+add-zsh-hook preexec record-start-time
+
+function report-start-time() {
+  if [ $ZSH_START_TIME ]; then
+    local ELAPSED=$(print -f "%.2f" $(($SECONDS - $ZSH_START_TIME)))
+    export RPROMPT="%{$fg[cyan]%}${ELAPSED}s%{$reset_color%} $RPROMPT_BASE"
+    unset ZSH_START_TIME
+  fi
+}
+
+add-zsh-hook precmd report-start-time
 
 function auto-ls-after-cd() {
   emulate -L zsh
