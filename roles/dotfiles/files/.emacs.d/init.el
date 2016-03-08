@@ -9,6 +9,13 @@
 ; Highlight current line.
 (global-hl-line-mode 1)
 
+; Save/restore command history etc across sessions.
+(require 'savehist)
+(setq savehist-additional-variables '(extended-command-history global-mark-ring mark-ring search-ring regexp-search-ring))
+(setq savehist-file "~/.emacs.d/savehist")
+(setq history-length 10000)
+(savehist-mode 1)
+
 (require 'helm-config)
 (helm-mode 1)
 
