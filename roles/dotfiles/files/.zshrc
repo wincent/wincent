@@ -100,16 +100,16 @@ bindkey ' ' magic-space # do history expansion on space
 # Other
 #
 
-source $HOME/.shells/aliases
-source $HOME/.shells/common
-source $HOME/.shells/colors
-source $HOME/.shells/exports
-source $HOME/.shells/functions
-source $HOME/.shells/path
-source $HOME/.shells/vars
+source $HOME/.zsh/aliases
+source $HOME/.zsh/common
+source $HOME/.zsh/colors
+source $HOME/.zsh/exports
+source $HOME/.zsh/functions
+source $HOME/.zsh/path
+source $HOME/.zsh/vars
 
-test -e $HOME/.shells/common.private && source $HOME/.shells/common.private
-test -e $HOME/.shells/functions.private && source $HOME/.shells/functions.private
+test -e $HOME/.zsh/common.private && source $HOME/.zsh/common.private
+test -e $HOME/.zsh/functions.private && source $HOME/.zsh/functions.private
 
 #
 # Third-party

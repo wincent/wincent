@@ -16,7 +16,6 @@ dotfiles:
   - .rdebugrc
   - .rspec
   - .screenrc
-  - .shells
   - .tmux.conf
   - .vim
   - .zsh
