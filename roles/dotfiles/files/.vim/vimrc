@@ -1,3 +1,8 @@
+" Temporary workaround for MacVim blowing up for any Python plug-in.
+if has('gui')
+  let g:pathogen_blacklist=['YouCompleteMe', 'gundo', 'ultisnips']
+endif
+
 " Add .vim/bundle subdirs to runtime path.
 source $HOME/.vim/bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
