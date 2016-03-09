@@ -61,17 +61,18 @@ if (require.main === module) {
 function transformer(file, api, options) {
   const j = api.jscodeshift;
   const expression = j.template.expression;
+  const substitutions = options.config;
 
   return j(file.source)
     .find(j.Identifier)
-    .replaceWith(p => options.config.reduce((node, substitution) => {
+    .replaceWith(p => substitutions.reduce((node, substitution) => {
       const pattern = new RegExp(substitution.pattern);
       const replacement = substitution.replacement;
       return j.identifier(node.name.replace(pattern, replacement));
     }, p.node))
     .closest(j.File)
     .find(j.Literal)
-    .replaceWith(p => options.config.reduce((node, substitution) => {
+    .replaceWith(p => substitutions.reduce((node, substitution) => {
       const pattern = new RegExp(substitution.pattern, 'g');
       const replacement = substitution.replacement;
       return j.literal(node.value.replace(pattern, replacement));
