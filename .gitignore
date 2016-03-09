@@ -1,8 +1,9 @@
+/python
+/roles/dotfiles/files/.emacs.d/savehist
 /roles/dotfiles/files/.npmrc
-/roles/dotfiles/files/.zsh/common.private
-/roles/dotfiles/files/.zsh/functions.private
 /roles/dotfiles/files/.vim/.base16
 /roles/dotfiles/files/.vim/spell/en.utf-8.add.spl
 /roles/dotfiles/files/.vim/tmp/viminfo
+/roles/dotfiles/files/.zsh/common.private
+/roles/dotfiles/files/.zsh/functions.private
 /roles/ssh/files/ssh_config
-/python
