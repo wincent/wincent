@@ -2,7 +2,7 @@
 # Colors
 #
 
-BASE16_DIR=~/.shells/base16-shell
+BASE16_DIR=~/.zsh/base16-shell
 BASE16_CONFIG=~/.vim/.base16
 
 color() {
@@ -35,7 +35,7 @@ color() {
     echo 'color light [harmonic16|ocean|tomorrow|twilight|...]'
     echo
     echo 'Available schemes:'
-    find ~/.shells/base16-shell -name 'base16-*.sh' | \
+    find ~/.zsh/base16-shell -name 'base16-*.sh' | \
       sed -E 's|.+/base16-||' | \
       sed -E 's/\.(dark|light)\.sh/ (\1)/' | \
       column
