@@ -1,0 +1,82 @@
+#!/usr/bin/env node
+
+// Rename identifiers and string literals matching a pattern.
+// eg. rename-identifiers '(relay|Relay)Context' '$1Environment'
+
+'use strict';
+
+const path = require('path');
+const util = require('util');
+
+const EXIT_FAILURE = 1;
+
+function print() {
+  process.stdout.write(util.format.apply(null, arguments) + '\n');
+}
+
+function usage() {
+  print(
+    'Usage: %s PATTERN REPLACEMENT [PATTERN REPLACEMENT]...',
+    path.basename(__filename)
+  );
+}
+
+if (require.main === module) {
+  // Invoked as executable.
+  const args = process.argv.slice(2);
+
+  if (!args.length) {
+    usage();
+    process.exit();
+  } else if (args.length % 2 !== 0) {
+    usage();
+    process.exit(EXIT_FAILURE);
+  }
+
+  const config = [];
+  while (args.length) {
+    config.push({
+      pattern: args.shift(),
+      replacement: args.shift(),
+    });
+  }
+
+  const child_process = require('child_process');
+  const jscodeshift = child_process.spawn('jscodeshift', [
+    '-t',
+    __filename,
+    '--config=' + JSON.stringify(config),
+    path.resolve('.')
+  ]);
+  jscodeshift.stdout.on('data', data => process.stdout.write(data));
+  jscodeshift.stderr.on('data', data => process.stderr.write(data));
+  jscodeshift.on('exit', (code, signal) => process.exit(code !== 0 ? code : 0));
+  jscodeshift.on('error', err => {
+    print("h");
+    print('%s', err);
+    process.exit(1);
+  });
+}
+
+function transformer(file, api, options) {
+  const j = api.jscodeshift;
+  const expression = j.template.expression;
+
+  return j(file.source)
+    .find(j.Identifier)
+    .replaceWith(p => options.config.reduce((node, substitution) => {
+      const pattern = new RegExp(substitution.pattern);
+      const replacement = substitution.replacement;
+      return j.identifier(node.name.replace(pattern, replacement));
+    }, p.node))
+    .closest(j.File)
+    .find(j.Literal)
+    .replaceWith(p => options.config.reduce((node, substitution) => {
+      const pattern = new RegExp(substitution.pattern, 'g');
+      const replacement = substitution.replacement;
+      return j.literal(node.value.replace(pattern, replacement));
+    }, p.node))
+    .toSource({quote: 'single', trailingComma: true});
+}
+
+module.exports = transformer;
