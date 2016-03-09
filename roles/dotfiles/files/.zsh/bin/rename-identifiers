@@ -21,10 +21,7 @@ function usage() {
   );
 }
 
-if (require.main === module) {
-  // Invoked as executable.
-  const args = process.argv.slice(2);
-
+function checkArgs(args) {
   if (!args.length) {
     usage();
     process.exit();
@@ -32,7 +29,9 @@ if (require.main === module) {
     usage();
     process.exit(EXIT_FAILURE);
   }
+}
 
+function prepareConfig(args) {
   const config = [];
   while (args.length) {
     config.push({
@@ -40,7 +39,10 @@ if (require.main === module) {
       replacement: args.shift(),
     });
   }
+  return config;
+}
 
+function runTransform(config) {
   const child_process = require('child_process');
   const jscodeshift = child_process.spawn('jscodeshift', [
     '-t',
@@ -52,10 +54,17 @@ if (require.main === module) {
   jscodeshift.stderr.on('data', data => process.stderr.write(data));
   jscodeshift.on('exit', (code, signal) => process.exit(code !== 0 ? code : 0));
   jscodeshift.on('error', err => {
-    print("h");
     print('%s', err);
     process.exit(1);
   });
+}
+
+if (require.main === module) {
+  // Invoked as executable.
+  const args = process.argv.slice(2);
+  checkArgs(args);
+  const config = prepareConfig(args);
+  runTransform(config);
 }
 
 function transformer(file, api, options) {
