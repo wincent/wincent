@@ -41,7 +41,7 @@ function +vi-git-untracked() {
 
 RPROMPT_BASE="\${vcs_info_msg_0_}%{$fg[blue]%}%~%{$reset_color%}"
 setopt PROMPT_SUBST
-export PS1="%{$fg[green]%}%m%{$reset_color%}:%{$fg[blue]%}%1~%{$fg[red]%}%(!.#.$)%{$reset_color%} "
+export PS1="%{$fg[green]%}${SSH_TTY:+%n@%m}%{$reset_color%}${SSH_TTY:+:}%{$fg[blue]%}%1~%{$fg[red]%}%(!.#.$)%{$reset_color%} "
 export RPROMPT=$RPROMPT_BASE
 export SPROMPT="zsh: correct %{$fg[red]%}'%R'%{$reset_color%} to %{$fg[red]%}'%r'%{$reset_color%} [%B%Uy%u%bes, %B%Un%u%bo, %B%Ue%u%bdit, %B%Ua%u%bbort]? "
 
