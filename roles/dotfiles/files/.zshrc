@@ -96,6 +96,11 @@ bindkey '^x^e' edit-command-line
 
 bindkey ' ' magic-space # do history expansion on space
 
+# Replace standard history-incremental-search-{backward,forward} bindings.
+# These are the same but permit patterns (eg. a*b) to be used.
+bindkey "^r" history-incremental-pattern-search-backward
+bindkey "^s" history-incremental-pattern-search-forward
+
 #
 # Other
 #
