@@ -185,7 +185,9 @@ add-zsh-hook preexec record-start-time
 function report-start-time() {
   if [ $ZSH_START_TIME ]; then
     local ELAPSED=$(print -f "%.2f" $(($SECONDS - $ZSH_START_TIME)))
-    export RPROMPT="%{$fg[cyan]%}${ELAPSED}s%{$reset_color%} $RPROMPT_BASE"
+    local ITALIC_ON=$'\e[3m'
+    local ITALIC_OFF=$'\e[23m'
+    export RPROMPT="%{$fg[cyan]%}%{$ITALIC_ON%}${ELAPSED}s%{$ITALIC_OFF%}%{$reset_color%} $RPROMPT_BASE"
     unset ZSH_START_TIME
   fi
 }
