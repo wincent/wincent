@@ -27,8 +27,8 @@ colors
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git hg
 zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' stagedstr "%{$fg[green]%}●%{$reset_color%}" # default 'S'
-zstyle ':vcs_info:*' unstagedstr "%{$fg[red]%}●%{$reset_color%}" # default 'U'
+zstyle ':vcs_info:*' stagedstr "%F{green}●%f" # default 'S'
+zstyle ':vcs_info:*' unstagedstr "%F{red}●%f" # default 'U'
 zstyle ':vcs_info:*' use-simple true
 zstyle ':vcs_info:git+set-message:*' hooks git-untracked
 zstyle ':vcs_info:git*:*' formats '[%b%m%c%u] ' # default ' (%s)-[%b]%c%u-'
@@ -59,15 +59,15 @@ function +vi-hg-message() {
 
 function +vi-git-untracked() {
   if [[ -n $(git ls-files --exclude-standard --others 2> /dev/null) ]]; then
-    hook_com[unstaged]+="%{$fg[blue]%}●%{$reset_color%}"
+    hook_com[unstaged]+="%F{blue}●%f"
   fi
 }
 
-RPROMPT_BASE="\${vcs_info_msg_0_}%{$fg[blue]%}%~%{$reset_color%}"
+RPROMPT_BASE="\${vcs_info_msg_0_}%F{blue}%~%f"
 setopt PROMPT_SUBST
-export PS1="%{$fg[green]%}${SSH_TTY:+%n@%m}%{$reset_color%}%B${SSH_TTY:+:}%b%{$fg[blue]%}%1~%(?..%K{yellow}%B!%b%k)%{$fg[red]%}%B%(!.#.$)%b%{$reset_color%} "
+export PS1="%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%1~%(?..%K{yellow}%B!%b%k)%F{red}%B%(!.#.$)%b%f "
 export RPROMPT=$RPROMPT_BASE
-export SPROMPT="zsh: correct %{$fg[red]%}'%R'%{$reset_color%} to %{$fg[red]%}'%r'%{$reset_color%} [%B%Uy%u%bes, %B%Un%u%bo, %B%Ue%u%bdit, %B%Ua%u%bbort]? "
+export SPROMPT="zsh: correct %F{red}'%R'%f to %F{red}'%r'%f [%B%Uy%u%bes, %B%Un%u%bo, %B%Ue%u%bdit, %B%Ua%u%bbort]? "
 
 #
 # History
@@ -187,7 +187,7 @@ function report-start-time() {
     local ELAPSED=$(print -f "%.2f" $(($SECONDS - $ZSH_START_TIME)))
     local ITALIC_ON=$'\e[3m'
     local ITALIC_OFF=$'\e[23m'
-    export RPROMPT="%{$fg[cyan]%}%{$ITALIC_ON%}${ELAPSED}s%{$ITALIC_OFF%}%{$reset_color%} $RPROMPT_BASE"
+    export RPROMPT="%F{cyan}%{$ITALIC_ON%}${ELAPSED}s%{$ITALIC_OFF%}%f $RPROMPT_BASE"
     unset ZSH_START_TIME
   fi
 }
