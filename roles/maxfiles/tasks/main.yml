@@ -1,0 +1,18 @@
+---
+# Not bothering with templating these because this is cheap and Apple will
+# probably change everything in the future anyway.
+#
+# @see http://unix.stackexchange.com/questions/108174/how-to-persist-ulimit-settings-in-osx-mavericks
+- name: maxfiles | configure limit files
+  copy: group=wheel
+        mode=0644
+        owner=root
+        dest=/Library/LaunchDaemons/{{ item }}
+        src={{ item }}
+  with_items:
+    - limit.maxproc.plist
+    - limit.maxfiles.plist
+  become: yes
+
+- name: maxfiles | copy maxfiles.zsh
+  copy: dest=~/.zshenv.d/maxfiles.zsh src=maxfiles.zsh

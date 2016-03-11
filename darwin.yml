@@ -3,6 +3,7 @@
   roles:
     - { role: keyboard, tags: ['keyboard'] }
     - { role: dotfiles, tags: ['dotfiles'] }
+    - { role: maxfiles, tags: ['maxfiles'] }
     - { role: terminfo, tags: ['terminfo'] }
     - { role: homebrew, tags: ['homebrew'] }
     - { role: shell, tags: ['shell'] }
