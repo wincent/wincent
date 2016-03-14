@@ -9,7 +9,10 @@ if has('statusline')
   set statusline+=%*  " reset color
   set statusline+=\   " space
   set statusline+=%<  " truncation point, if not enough width available
-  set statusline+=%f  " relative path to file
+  set statusline+=%{statusline#fileprefix()} " relative path to file
+  set statusline+=%3* " switch to User3 highlight group (bold)
+  set statusline+=%t  " filename
+  set statusline+=%*  " reset highlight group
   set statusline+=\   " space
   set statusline+=%1* " switch to User1 highlight group (italics)
 

@@ -5,6 +5,15 @@ function! statusline#gutterpadding(subtractBufferNumber) abort
   return l:padding
 endfunction
 
+function! statusline#fileprefix() abort
+  let l:basename=expand('%:h')
+  if l:basename == '' || l:basename == '.'
+    return ''
+  else
+    return l:basename . '/'
+  endif
+endfunction
+
 function! statusline#ft() abort
   if strlen(&ft)
     return ',' . &ft
@@ -23,12 +32,16 @@ endfunction
 
 function! statusline#update_highlight() abort
   " Update StatusLine to use italics.
-  let l:highlight = functions#italicize_group('StatusLine')
+  let l:highlight=functions#italicize_group('StatusLine')
   execute 'highlight User1 ' . l:highlight
 
   " Update MatchParen to use italics.
-  let l:highlight = functions#italicize_group('MatchParen')
+  let l:highlight=functions#italicize_group('MatchParen')
   execute 'highlight User2 ' . l:highlight
+
+  " StatusLine + bold
+  let l:highlight=functions#embolden_group('StatusLine')
+  execute 'highlight User3 ' . l:highlight
 
   " Make not-current window status lines visible against ColorColumn background.
   " Note that we can't use an exact copy of StatusLine here because in that case

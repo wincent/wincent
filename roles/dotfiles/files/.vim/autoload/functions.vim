@@ -20,6 +20,8 @@ function! functions#capture_highlight(group) abort
   return functions#capture_line('silent highlight ' . a:group)
 endfunction
 
+" Extracts a highlight string from a group, recursively traversing linked
+" groups, and returns a string suitable for passing to `:highlight`.
 function! functions#extract_highlight(group) abort
   let l:group = functions#capture_highlight(a:group)
 
@@ -36,10 +38,19 @@ function! functions#extract_highlight(group) abort
   return l:original
 endfunction
 
-" Find a highlight group and augment it with "italic" styling, returning a
-" string suitable for passing to `:hi`. Most of this logic is borrowed from:
-" http://stackoverflow.com/a/1333025
+" Returns an italicized copy of `group` suitable for passing to `:highlight`.
 function! functions#italicize_group(group) abort
+  return functions#decorate_group('italic', a:group)
+endfunction
+
+" Returns a bold copy of `group` suitable for passing to `:highlight`.
+function! functions#embolden_group(group) abort
+  return functions#decorate_group('bold', a:group)
+endfunction
+
+" Returns a copy of `group` decorated with `style` (eg. "bold", "italic" etc)
+" suitable for passing to `:highlight`.
+function! functions#decorate_group(style, group) abort
   let l:original = functions#extract_highlight(a:group)
 
   for l:lhs in ['gui', 'term', 'cterm']
@@ -51,17 +62,17 @@ function! functions#italicize_group(group) abort
       \   '\( .\+\)\?$'
       \ )
     if l:matches == []
-      " No setting, add one with just "italic" in it
-      let l:original .= ' ' . l:lhs . '=italic'
+      " No setting, add one with just a:style in it
+      let l:original .= ' ' . l:lhs . '=' . a:style
     else
-      " Existing setting; check whether "italic" is already in it.
+      " Existing setting; check whether a:style is already in it.
       let l:start = l:matches[1]
       let l:value = l:matches[2]
       let l:end = l:matches[3]
-      if l:value =~# '.*italic.*'
+      if l:value =~# '.*' . a:style . '.*'
         continue
       else
-        let l:original = l:start . l:value . ',italic' . l:end
+        let l:original = l:start . l:value . ',' . a:style . l:end
       endif
     endif
   endfor
