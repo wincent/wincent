@@ -20,10 +20,7 @@ function! functions#capture_highlight(group) abort
   return functions#capture_line('silent highlight ' . a:group)
 endfunction
 
-" Find a highlight group and augment it with "italic" styling, returning a
-" string suitable for passing to `:hi`. Most of this logic is borrowed from:
-" http://stackoverflow.com/a/1333025
-function! functions#italicize_group(group) abort
+function! functions#extract_highlight(group) abort
   let l:group = functions#capture_highlight(a:group)
 
   " Traverse links back to authoritative group.
@@ -36,6 +33,14 @@ function! functions#italicize_group(group) abort
   " Extract the highlighting details (the bit after "xxx")
   let l:matches = matchlist(l:group, '\<xxx\>\s\+\(.*\)')
   let l:original = l:matches[1]
+  return l:original
+endfunction
+
+" Find a highlight group and augment it with "italic" styling, returning a
+" string suitable for passing to `:hi`. Most of this logic is borrowed from:
+" http://stackoverflow.com/a/1333025
+function! functions#italicize_group(group) abort
+  let l:original = functions#extract_highlight(a:group)
 
   for l:lhs in ['gui', 'term', 'cterm']
     " Check for existing setting.
