@@ -31,8 +31,8 @@ color() {
     fi
     ;;
   help)
-    echo 'color dark [ashes|default|ocean|railscasts|tomorrow|twilight|...]'
-    echo 'color light [harmonic16|ocean|tomorrow|twilight|...]'
+    echo 'color dark [ocean|grayscale|ashes|default|railscasts|tomorrow|twilight|...]'
+    echo 'color light [grayscale|harmonic16|ocean|tomorrow|twilight|...]'
     echo
     echo 'Available schemes:'
     find ~/.zsh/base16-shell -name 'base16-*.sh' | \
