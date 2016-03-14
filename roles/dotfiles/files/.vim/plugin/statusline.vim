@@ -4,47 +4,47 @@ scriptencoding utf-8
 if has('statusline')
   set statusline=%#Error#
   set statusline+=%{statusline#gutterpadding(1)}
-  set statusline+=%n  " buffer number
-  set statusline+=\   " space
-  set statusline+=%*  " reset color
-  set statusline+=\   " space
-  set statusline+=%<  " truncation point, if not enough width available
-  set statusline+=%{statusline#fileprefix()} " relative path to file
-  set statusline+=%3* " switch to User3 highlight group (bold)
-  set statusline+=%t  " filename
-  set statusline+=%*  " reset highlight group
-  set statusline+=\   " space
-  set statusline+=%1* " switch to User1 highlight group (italics)
+  set statusline+=%n                         " Buffer number.
+  set statusline+=\                          " Space.
+  set statusline+=%*                         " Reset highlight group.
+  set statusline+=\                          " Space.
+  set statusline+=%<                         " Truncation point, if not enough width available.
+  set statusline+=%{statusline#fileprefix()} " Relative path to file's directory.
+  set statusline+=%3*                        " Switch to User3 highlight group (bold).
+  set statusline+=%t                         " Filename.
+  set statusline+=%*                         " Reset highlight group.
+  set statusline+=\                          " Space.
+  set statusline+=%1*                        " Switch to User1 highlight group (italics).
 
-  " needs to be all on one line:
-  "   %(                   start item group
-  "   [                    left bracket (literal)
-  "   %M                   modified flag: ,+/,- (modified/unmodifiable) or nothing
-  "   %R                   read-only flag: ,RO or nothing
-  "   %{statusline#ft()}   filetype (not using %Y because I don't want caps)
-  "   %{statusline#fenc()} file-encoding if not UTF-8
-  "   ]                    right bracket (literal)
-  "   %)                   end item group
+  " Needs to be all on one line:
+  "   %(                   Start item group.
+  "   [                    Left bracket (literal).
+  "   %M                   Modified flag: ,+/,- (modified/unmodifiable) or nothing.
+  "   %R                   Read-only flag: ,RO or nothing.
+  "   %{statusline#ft()}   Filetype (not using %Y because I don't want caps).
+  "   %{statusline#fenc()} File-encoding if not UTF-8.
+  "   ]                    Right bracket (literal).
+  "   %)                   End item group.
   set statusline+=%([%M%R%{statusline#ft()}%{statusline#fenc()}]%)
 
-  set statusline+=%*   " reset highlight group
-  set statusline+=%=   " split point for left and right groups
-  set statusline+=\    " space
-  set statusline+=ℓ    " (literal, \u2113 "SCRIPT SMALL L")
-  set statusline+=\    " space
-  set statusline+=%l   " current line number
-  set statusline+=/    " separator
-  set statusline+=%L   " number of lines in buffer
-  set statusline+=\    " space
-  set statusline+=@    " (literal)
-  set statusline+=\    " space
-  set statusline+=%c   " current column number
-  set statusline+=%V   " current virtual column number (-n), if different
-  set statusline+=\    " space
-  set statusline+=%1*  " switch to User1 highlight group (italics)
-  set statusline+=%p   " percentage through buffer
-  set statusline+=%%   " literal %
-  set statusline+=%*   " reset highlight group
+  set statusline+=%*   " Reset highlight group.
+  set statusline+=%=   " Split point for left and right groups.
+  set statusline+=\    " Space.
+  set statusline+=ℓ    " (Literal, \u2113 "SCRIPT SMALL L").
+  set statusline+=\    " Space.
+  set statusline+=%l   " Current line number.
+  set statusline+=/    " Separator.
+  set statusline+=%L   " Number of lines in buffer.
+  set statusline+=\    " Space.
+  set statusline+=@    " (Literal).
+  set statusline+=\    " Space.
+  set statusline+=%c   " Current column number.
+  set statusline+=%V   " Current virtual column number (-n), if different.
+  set statusline+=\    " Space.
+  set statusline+=%1*  " Switch to User1 highlight group (italics).
+  set statusline+=%p   " Percentage through buffer.
+  set statusline+=%%   " Literal %.
+  set statusline+=%*   " Reset highlight group.
 
   if has('autocmd')
     augroup WincentStatusline
