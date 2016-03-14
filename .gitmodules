@@ -27,9 +27,6 @@
 	ignore = untracked
 	path = roles/dotfiles/files/.vim/bundle/nerdtree
 	url = https://github.com/wincent/nerdtree.git
-[submodule "roles/dotfiles/files/.vim/bundle/tabular"]
-	path = roles/dotfiles/files/.vim/bundle/tabular
-	url = https://github.com/godlygeek/tabular.git
 [submodule "roles/dotfiles/files/.vim/bundle/tcomment_vim"]
 	path = roles/dotfiles/files/.vim/bundle/tcomment_vim
 	url = https://github.com/tomtom/tcomment_vim.git
@@ -121,3 +118,6 @@
 [submodule "roles/dotfiles/files/.vim/bundle/vim-abolish"]
 	path = roles/dotfiles/files/.vim/bundle/vim-abolish
 	url = https://github.com/tpope/vim-abolish.git
+[submodule "roles/dotfiles/files/.vim/bundle/vim-lion"]
+	path = roles/dotfiles/files/.vim/bundle/vim-lion
+	url = https://github.com/tommcdo/vim-lion.git
