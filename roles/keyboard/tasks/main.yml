@@ -7,7 +7,7 @@
         src={{ ansible_env.PWD }}/roles/keyboard/files/{{ item }}
   with_items:
     - modifiers.xml
-    - realforce.xml
     - private.xml
+    - realforce.xml
     - spacefn.xml
     - yubikey.xml
