@@ -14,11 +14,20 @@
     <appendix><![CDATA["Pause" (F15) is power on/off]]></appendix>
     <identifier>private.realforce_f_keys</identifier>
 
-    <!-- F-keys like Mac F-Keys, skipping F5/F6 (keyboard backlight brightness) -->
-    <autogen>__KeyToKey__ KeyCode::F1, ConsumerKeyCode::BRIGHTNESS_DOWN</autogen>
-    <autogen>__KeyToKey__ KeyCode::F2, ConsumerKeyCode::BRIGHTNESS_UP</autogen>
+    <!-- F-keys like Mac F-Keys -->
+
+    <!-- Remap F1 -> F14 (external display brightness;
+         ConsumerKeyCode::BRIGHTNESS_DOWN would be internal display.) -->
+    <autogen>__KeyToKey__ KeyCode::F1, KeyCode::F14</autogen>
+
+    <!-- Remap F2 -> F15 (external display brightness;
+         ConsumerKeyCode::BRIGHTNESS_UP would be internal display.) -->
+    <autogen>__KeyToKey__ KeyCode::F2, KeyCode::F15</autogen>
+
     <autogen>__KeyToKey__ KeyCode::F3, KeyCode::MISSION_CONTROL</autogen>
     <autogen>__KeyToKey__ KeyCode::F4, KeyCode::LAUNCHPAD</autogen>
+
+    <!-- Skip F5/F6 (keyboard backlight brightness). -->
     <autogen>__KeyToKey__ KeyCode::F7, ConsumerKeyCode::MUSIC_PREV</autogen>
     <autogen>__KeyToKey__ KeyCode::F8, ConsumerKeyCode::MUSIC_PLAY</autogen>
     <autogen>__KeyToKey__ KeyCode::F9, ConsumerKeyCode::MUSIC_NEXT</autogen>
@@ -30,8 +39,8 @@
     <autogen>__KeyToKey__ KeyCode::F13, KeyCode::FN</autogen>
 
     <!-- Hold down "FN" modifier to have function keys behave as function keys -->
-    <autogen>__KeyToKey__ KeyCode::F1, ModifierFlag:FN, KeyCode::F1</autogen>
-    <autogen>__KeyToKey__ KeyCode::F2, ModifierFlag:FN, KeyCode::F2</autogen>
+    <autogen>__KeyToKey__ KeyCode::F1, ModifierFlag::FN, KeyCode::F1</autogen>
+    <autogen>__KeyToKey__ KeyCode::F2, ModifierFlag::FN, KeyCode::F2</autogen>
     <autogen>__KeyToKey__ KeyCode::F3, ModifierFlag::FN, KeyCode::F3</autogen>
     <autogen>__KeyToKey__ KeyCode::F4, ModifierFlag::FN, KeyCode::F4</autogen>
     <autogen>__KeyToKey__ KeyCode::F5, ModifierFlag::FN, KeyCode::F5</autogen>
