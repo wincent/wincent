@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <root>
   <include path="modifiers.xml" />
+  <include path="realforce.xml" />
   <include path="spacefn.xml" />
   <include path="yubikey.xml" />
 </root>
