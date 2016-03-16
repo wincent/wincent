@@ -43,6 +43,7 @@ zstyle ':vcs_info:hg*+gen-hg-bookmark-string:*' hooks hg-bookmarks
 zstyle ':vcs_info:hg*+set-message:*' hooks hg-message
 
 function +vi-hg-bookmarks() {
+  emulate -L zsh
   if [[ -n "${hook_com[hg-active-bookmark]}" ]]; then
     hook_com[hg-bookmark-string]="${(Mj:,:)@}"
     ret=1
@@ -50,6 +51,8 @@ function +vi-hg-bookmarks() {
 }
 
 function +vi-hg-message() {
+  emulate -L zsh
+
   # Suppress hg branch display if we can display a bookmark instead.
   if [[ -n "${hook_com[misc]}" ]]; then
     hook_com[branch]=''
@@ -58,6 +61,7 @@ function +vi-hg-message() {
 }
 
 function +vi-git-untracked() {
+  emulate -L zsh
   if [[ -n $(git ls-files --exclude-standard --others 2> /dev/null) ]]; then
     hook_com[unstaged]+="%F{blue}●%f"
   fi
@@ -155,11 +159,13 @@ test -e "$CHRUBY/auto.sh" && . "$CHRUBY/auto.sh"
 autoload -U add-zsh-hook
 
 function set-tab-and-window-title() {
+  emulate -L zsh
   local CMD="${1:gs/$/\\$}"
   print -Pn "\e]0;$CMD:q\a"
 }
 
 function update-window-title-precmd() {
+  emulate -L zsh
   set-tab-and-window-title `history | tail -1 | cut -b8-`
 }
 add-zsh-hook precmd update-window-title-precmd
@@ -177,12 +183,14 @@ add-zsh-hook preexec update-window-title-preexec
 
 typeset -F SECONDS
 function record-start-time() {
+  emulate -L zsh
   ZSH_START_TIME=${ZSH_START_TIME:-$SECONDS}
 }
 
 add-zsh-hook preexec record-start-time
 
 function report-start-time() {
+  emulate -L zsh
   if [ $ZSH_START_TIME ]; then
     local DELTA=$(($SECONDS - $ZSH_START_TIME))
     local DAYS=$((~~($DELTA / 86400)))

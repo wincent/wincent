@@ -1,17 +1,23 @@
 # until .agrc exists...
 # (https://github.com/ggreer/the_silver_searcher/pull/257)
-ag() {
+function ag() {
+  emulate -L zsh
+
   # italic blue paths, pink line numbers, underlined purple matches
   command ag --pager="less -iFMRSX" --color-path=34\;3 --color-line-number=35 --color-match=35\;1\;4 "$@"
 }
 
-history() {
+function history() {
+  emulate -L zsh
+
   # This is a function because Zsh aliases can't take arguments.
   local DEFAULT=-1000
   builtin history ${1:-$DEFAULT}
 }
 
-mosh() {
+function mosh() {
+  emulate -L zsh
+
   if [[ -z "$@" ]]; then
     # common case: getting to my workstation
     command mosh -6 sandbox
@@ -20,7 +26,9 @@ mosh() {
   fi
 }
 
-ssh() {
+function ssh() {
+  emulate -L zsh
+
   if [[ -z "$@" ]]; then
     # common case: getting to my workstation
     command ssh sandbox-clipper
@@ -30,7 +38,9 @@ ssh() {
   fi
 }
 
-tmux() {
+function tmux() {
+  emulate -L zsh
+
   # Make sure even pre-existing tmux sessions use the latest SSH_AUTH_SOCK.
   # (Inspired by: https://gist.github.com/lann/6771001)
   local SOCK_SYMLINK=~/.ssh/ssh_auth_sock
@@ -71,7 +81,9 @@ tmux() {
 
 # Convenience function for jumping to hashed directory aliases
 # (ie. `j rn` -> `jump rn` -> `cd ~rn`).
-jump() {
+function jump() {
+  emulate -L zsh
+
   if [ $# -eq 0 ]; then
     cd -
   elif [ $# -gt 1 ]; then
@@ -87,7 +99,8 @@ jump() {
   fi
 }
 
-_jump_complete() {
+function _jump_complete() {
+  emulate -L zsh
   local word completions
   word="$1"
   completions="$(hash -d|cut -d= -f1)"
