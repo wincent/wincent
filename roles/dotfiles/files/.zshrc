@@ -184,10 +184,26 @@ add-zsh-hook preexec record-start-time
 
 function report-start-time() {
   if [ $ZSH_START_TIME ]; then
-    local ELAPSED=$(print -f "%.2f" $(($SECONDS - $ZSH_START_TIME)))
+    local DELTA=$(($SECONDS - $ZSH_START_TIME))
+    local DAYS=$((~~($DELTA / 86400)))
+    local HOURS=$((~~(($DELTA - $DAYS * 86400) / 3600)))
+    local MINUTES=$((~~(($DELTA - $DAYS * 86400 - $HOURS * 3600) / 60)))
+    local SECS=$(($DELTA - $DAYS * 86400 - $HOURS * 3600 - $MINUTES * 60))
+    local ELAPSED=''
+    test "$DAYS" != '0' && ELAPSED="${DAYS}d"
+    test "$HOURS" != '0' && ELAPSED="${ELAPSED}${HOURS}h"
+    test "$MINUTES" != '0' && ELAPSED="${ELAPSED}${MINUTES}m"
+    if [ "$ELAPSED" = '' ]; then
+      SECS="$(print -f "%.2f" $SECS)s"
+    elif [ "$DAYS" != '0' ]; then
+      SECS=''
+    else
+      SECS="$((~~$SECS))s"
+    fi
+    ELAPSED="${ELAPSED}${SECS}"
     local ITALIC_ON=$'\e[3m'
     local ITALIC_OFF=$'\e[23m'
-    export RPROMPT="%F{cyan}%{$ITALIC_ON%}${ELAPSED}s%{$ITALIC_OFF%}%f $RPROMPT_BASE"
+    export RPROMPT="%F{cyan}%{$ITALIC_ON%}${ELAPSED}%{$ITALIC_OFF%}%f $RPROMPT_BASE"
     unset ZSH_START_TIME
   fi
 }
