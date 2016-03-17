@@ -2,18 +2,9 @@
 " (mnemonic: coloring).
 nnoremap <silent> <LocalLeader>c :syntax sync fromstart<CR>
 
-if exists('+relativenumber')
-  " <Leader>r -- Cycle through relativenumber + number, number (only), and no
-  " numbering (mnemonic: relative).
-  nnoremap <Leader>r :<c-r>={
-        \ '00': 'set rnu   <bar> set nu',
-        \ '01': 'set nornu <bar> set nu',
-        \ '10': 'set nornu <bar> set nonu',
-        \ '11': 'set nornu <bar> set nu' }[&nu . &rnu]<CR><CR><CR>
-else
-  " <Leader>r -- Toggle line numbers on and off (mnemonic: relative).
-  nnoremap <Leader>r :set nu!<CR>
-endif
+" <Leader>r -- Cycle through relativenumber + number, number (only), and no
+" numbering (mnemonic: relative).
+nnoremap <silent> <Leader>r :call mappings#cycle_numbering()<CR>
 
 " <Leader><Leader> -- Open last buffer.
 nnoremap <Leader><Leader> <C-^>
