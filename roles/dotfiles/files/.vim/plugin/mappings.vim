@@ -42,7 +42,7 @@ nnoremap <s-tab> za
 "
 "        As this one is somewhat destructive and relatively close to the
 "        oft-used <leader>a mapping, make this one a double key-stroke.
-nnoremap <silent> <Leader>zz :let _last_search=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_last_search <Bar> :nohlsearch<CR>
+nnoremap <silent> <Leader>zz :call mappings#zap()<CR>
 
 " Multi-mode mappings (Normal, Visual, Operating-pending modes).
 noremap Y y$
