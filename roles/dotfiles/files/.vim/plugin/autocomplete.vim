@@ -33,6 +33,7 @@ let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_filetype_specific_completion_to_disable = {
       \   'c': 1,
       \   'gitcommit': 1,
+      \   'haskell': 1,
       \   'javascript': 1,
       \   'ruby': 1
       \ }
