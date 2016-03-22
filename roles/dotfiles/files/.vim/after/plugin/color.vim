@@ -38,6 +38,5 @@ if v:progname !=# 'vi'
     augroup END
   endif
 
-  " TODO: only set background/color if something actually changed
   call s:CheckColorScheme()
 endif
