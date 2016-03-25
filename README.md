@@ -39,7 +39,7 @@ On OS X, [the `keyboard` role](https://github.com/wincent/wincent/tree/master/ro
 
 ## Dependencies
 
-* [tmux](http://tmux.sourceforge.net/) 2.1 or later.
+* [tmux](http://tmux.sourceforge.net/) 2.2 or later.
 * [Vim](http://www.vim.org/) 7.4 or later with Ruby and Python support (although there's a reasonable amount of feature detection in order to degrade gracefully).
 * Relatively recent [Zsh](http://www.zsh.org/).
 * Relatively recent [Git](http://git-scm.com/).
