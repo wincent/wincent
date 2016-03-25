@@ -4,6 +4,7 @@ dotfiles:
   - .bash
   - .bash_profile
   - .emacs.d
+  - .ghci
   - .gitattributes
   - .gitconfig
   - .gitignore
