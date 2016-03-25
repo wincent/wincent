@@ -215,6 +215,8 @@ function report-start-time() {
     local ITALIC_OFF=$'\e[23m'
     export RPROMPT="%F{cyan}%{$ITALIC_ON%}${ELAPSED}%{$ITALIC_OFF%}%f $RPROMPT_BASE"
     unset ZSH_START_TIME
+  else
+    export RPROMPT="$RPROMPT_BASE"
   fi
 }
 
