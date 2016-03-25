@@ -1,1 +1,1 @@
-:set prompt  "λ: "
+:set prompt "\ESC[1;34m\STXλ: \ESC[0m\STX"
