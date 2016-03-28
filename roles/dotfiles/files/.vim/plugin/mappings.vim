@@ -35,6 +35,9 @@ nnoremap <s-tab> za
 "        oft-used <leader>a mapping, make this one a double key-stroke.
 nnoremap <silent> <Leader>zz :call mappings#zap()<CR>
 
+" Avoid unintentional switches to Ex mode.
+nmap Q q
+
 " Multi-mode mappings (Normal, Visual, Operating-pending modes).
 noremap Y y$
 
