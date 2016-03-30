@@ -124,3 +124,6 @@
 [submodule "roles/dotfiles/files/.vim/bundle/vim-signature"]
 	path = roles/dotfiles/files/.vim/bundle/vim-signature
 	url = https://github.com/kshenoy/vim-signature.git
+[submodule "roles/dotfiles/files/.vim/bundle/pinnacle"]
+	path = roles/dotfiles/files/.vim/bundle/pinnacle
+	url = https://github.com/wincent/pinnacle.git
