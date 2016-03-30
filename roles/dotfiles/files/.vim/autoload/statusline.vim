@@ -32,15 +32,15 @@ endfunction
 
 function! statusline#update_highlight() abort
   " Update StatusLine to use italics.
-  let l:highlight=functions#italicize_group('StatusLine')
+  let l:highlight=pinnacle#italicize('StatusLine')
   execute 'highlight User1 ' . l:highlight
 
   " Update MatchParen to use italics.
-  let l:highlight=functions#italicize_group('MatchParen')
+  let l:highlight=pinnacle#italicize('MatchParen')
   execute 'highlight User2 ' . l:highlight
 
   " StatusLine + bold
-  let l:highlight=functions#embolden_group('StatusLine')
+  let l:highlight=pinnacle#embolden('StatusLine')
   execute 'highlight User3 ' . l:highlight
 
   " Make not-current window status lines visible against ColorColumn background.

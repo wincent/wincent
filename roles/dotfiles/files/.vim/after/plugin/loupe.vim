@@ -1,7 +1,7 @@
 " - Copy `Search` highlight to `LoupeHighlight`
 " - Link `Search` to `VisualNOS`
 function! s:SetUpLoupeHighlight()
-  execute 'highlight! LoupeHighlight ' . functions#extract_highlight('Search')
+  execute 'highlight! LoupeHighlight ' . pinnacle#extract_highlight('Search')
   highlight! link Search VisualNOS
 endfunction
 

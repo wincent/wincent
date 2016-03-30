@@ -22,7 +22,7 @@ function s:CheckColorScheme()
     color base16-ocean
   endif
 
-  execute 'highlight Comment ' . functions#italicize_group('Comment')
+  execute 'highlight Comment ' . pinnacle#italicize('Comment')
 
   " Allow for overrides:
   " - `statusline.vim` will re-set User1, User2.
