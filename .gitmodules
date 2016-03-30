@@ -1,6 +1,3 @@
-[submodule "roles/dotfiles/files/.zsh/base16-shell"]
-	path = roles/dotfiles/files/.zsh/base16-shell
-	url = https://github.com/chriskempson/base16-shell.git
 [submodule "roles/dotfiles/files/.vim/bundle/YouCompleteMe"]
 	branch = wincent
 	ignore = dirty
@@ -14,6 +11,10 @@
 	ignore = dirty
 	path = roles/dotfiles/files/.vim/bundle/command-t
 	url = https://github.com/wincent/command-t.git
+[submodule "roles/dotfiles/files/.vim/bundle/ferret"]
+	ignore = untracked
+	path = roles/dotfiles/files/.vim/bundle/ferret
+	url = https://github.com/wincent/ferret.git
 [submodule "roles/dotfiles/files/.vim/bundle/gundo"]
 	ignore = untracked
 	path = roles/dotfiles/files/.vim/bundle/gundo
@@ -22,11 +23,17 @@
 	ignore = dirty
 	path = roles/dotfiles/files/.vim/bundle/loupe
 	url = https://github.com/wincent/loupe.git
+[submodule "roles/dotfiles/files/.vim/bundle/neco-ghc"]
+	path = roles/dotfiles/files/.vim/bundle/neco-ghc
+	url = https://github.com/eagletmt/neco-ghc.git
 [submodule "roles/dotfiles/files/.vim/bundle/nerdtree"]
 	branch = keepalt
 	ignore = untracked
 	path = roles/dotfiles/files/.vim/bundle/nerdtree
 	url = https://github.com/wincent/nerdtree.git
+[submodule "roles/dotfiles/files/.vim/bundle/pinnacle"]
+	path = roles/dotfiles/files/.vim/bundle/pinnacle
+	url = https://github.com/wincent/pinnacle.git
 [submodule "roles/dotfiles/files/.vim/bundle/tcomment_vim"]
 	path = roles/dotfiles/files/.vim/bundle/tcomment_vim
 	url = https://github.com/tomtom/tcomment_vim.git
@@ -36,12 +43,21 @@
 [submodule "roles/dotfiles/files/.vim/bundle/ultisnips"]
 	path = roles/dotfiles/files/.vim/bundle/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
+[submodule "roles/dotfiles/files/.vim/bundle/vim-abolish"]
+	path = roles/dotfiles/files/.vim/bundle/vim-abolish
+	url = https://github.com/tpope/vim-abolish.git
+[submodule "roles/dotfiles/files/.vim/bundle/vim-ansible-yaml"]
+	path = roles/dotfiles/files/.vim/bundle/vim-ansible-yaml
+	url = https://github.com/chase/vim-ansible-yaml.git
 [submodule "roles/dotfiles/files/.vim/bundle/vim-clipper"]
 	path = roles/dotfiles/files/.vim/bundle/vim-clipper
 	url = https://github.com/wincent/vim-clipper.git
 [submodule "roles/dotfiles/files/.vim/bundle/vim-dispatch"]
 	path = roles/dotfiles/files/.vim/bundle/vim-dispatch
 	url = https://github.com/tpope/vim-dispatch.git
+[submodule "roles/dotfiles/files/.vim/bundle/vim-docvim"]
+	path = roles/dotfiles/files/.vim/bundle/vim-docvim
+	url = https://github.com/wincent/vim-docvim.git
 [submodule "roles/dotfiles/files/.vim/bundle/vim-easydir"]
 	ignore = untracked
 	path = roles/dotfiles/files/.vim/bundle/vim-easydir
@@ -57,12 +73,18 @@
 	ignore = untracked
 	path = roles/dotfiles/files/.vim/bundle/vim-git
 	url = https://github.com/tpope/vim-git.git
+[submodule "roles/dotfiles/files/.vim/bundle/vim-jade"]
+	path = roles/dotfiles/files/.vim/bundle/vim-jade
+	url = https://github.com/digitaltoad/vim-jade.git
 [submodule "roles/dotfiles/files/.vim/bundle/vim-javascript"]
 	path = roles/dotfiles/files/.vim/bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
 [submodule "roles/dotfiles/files/.vim/bundle/vim-jsx"]
 	path = roles/dotfiles/files/.vim/bundle/vim-jsx
 	url = https://github.com/mxw/vim-jsx.git
+[submodule "roles/dotfiles/files/.vim/bundle/vim-lion"]
+	path = roles/dotfiles/files/.vim/bundle/vim-lion
+	url = https://github.com/tommcdo/vim-lion.git
 [submodule "roles/dotfiles/files/.vim/bundle/vim-markdown"]
 	path = roles/dotfiles/files/.vim/bundle/vim-markdown
 	url = https://github.com/tpope/vim-markdown.git
@@ -76,6 +98,9 @@
 	ignore = untracked
 	path = roles/dotfiles/files/.vim/bundle/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
+[submodule "roles/dotfiles/files/.vim/bundle/vim-signature"]
+	path = roles/dotfiles/files/.vim/bundle/vim-signature
+	url = https://github.com/kshenoy/vim-signature.git
 [submodule "roles/dotfiles/files/.vim/bundle/vim-speeddating"]
 	path = roles/dotfiles/files/.vim/bundle/vim-speeddating
 	url = https://github.com/tpope/vim-speeddating.git
@@ -93,6 +118,9 @@
 	ignore = untracked
 	path = roles/dotfiles/files/.vim/bundle/vim-textobj-user
 	url = https://github.com/kana/vim-textobj-user.git
+[submodule "roles/dotfiles/files/.zsh/base16-shell"]
+	path = roles/dotfiles/files/.zsh/base16-shell
+	url = https://github.com/chriskempson/base16-shell.git
 [submodule "vendor/ansible"]
 	path = vendor/ansible
 	url = https://github.com/ansible/ansible.git
@@ -102,31 +130,3 @@
 [submodule "vendor/virtualenv"]
 	path = vendor/virtualenv
 	url = https://github.com/pypa/virtualenv.git
-[submodule "roles/dotfiles/files/.vim/bundle/ferret"]
-	ignore = untracked
-	path = roles/dotfiles/files/.vim/bundle/ferret
-	url = https://github.com/wincent/ferret.git
-[submodule "roles/dotfiles/files/.vim/bundle/vim-ansible-yaml"]
-	path = roles/dotfiles/files/.vim/bundle/vim-ansible-yaml
-	url = https://github.com/chase/vim-ansible-yaml.git
-[submodule "roles/dotfiles/files/.vim/bundle/vim-jade"]
-	path = roles/dotfiles/files/.vim/bundle/vim-jade
-	url = https://github.com/digitaltoad/vim-jade.git
-[submodule "roles/dotfiles/files/.vim/bundle/neco-ghc"]
-	path = roles/dotfiles/files/.vim/bundle/neco-ghc
-	url = https://github.com/eagletmt/neco-ghc.git
-[submodule "roles/dotfiles/files/.vim/bundle/vim-abolish"]
-	path = roles/dotfiles/files/.vim/bundle/vim-abolish
-	url = https://github.com/tpope/vim-abolish.git
-[submodule "roles/dotfiles/files/.vim/bundle/vim-lion"]
-	path = roles/dotfiles/files/.vim/bundle/vim-lion
-	url = https://github.com/tommcdo/vim-lion.git
-[submodule "roles/dotfiles/files/.vim/bundle/vim-signature"]
-	path = roles/dotfiles/files/.vim/bundle/vim-signature
-	url = https://github.com/kshenoy/vim-signature.git
-[submodule "roles/dotfiles/files/.vim/bundle/pinnacle"]
-	path = roles/dotfiles/files/.vim/bundle/pinnacle
-	url = https://github.com/wincent/pinnacle.git
-[submodule "roles/dotfiles/files/.vim/bundle/vim-docvim"]
-	path = roles/dotfiles/files/.vim/bundle/vim-docvim
-	url = https://github.com/wincent/vim-docvim.git
