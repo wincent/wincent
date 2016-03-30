@@ -127,3 +127,6 @@
 [submodule "roles/dotfiles/files/.vim/bundle/pinnacle"]
 	path = roles/dotfiles/files/.vim/bundle/pinnacle
 	url = https://github.com/wincent/pinnacle.git
+[submodule "roles/dotfiles/files/.vim/bundle/vim-docvim"]
+	path = roles/dotfiles/files/.vim/bundle/vim-docvim
+	url = https://github.com/wincent/vim-docvim.git
