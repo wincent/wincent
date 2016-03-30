@@ -6,7 +6,7 @@
   command: test -e ~/{{ item }} -a ! -L ~/{{ item }}
   failed_when: original_check.rc > 1
   register: original_check
-  with_items: dotfiles
+  with_items: '{{dotfiles}}'
   changed_when: false
 
 - name: dotfiles | backup originals
@@ -15,8 +15,8 @@
     creates=~/.backups/{{ item.0 }}
     removes=~/{{ item.0 }}
   with_together:
-    - dotfiles
-    - original_check.results
+    - '{{dotfiles}}'
+    - '{{original_check.results}}'
   when: item.1.rc == 0 # item exists and is not a symlink
 
 - name: dotfiles | create symlinks
@@ -24,7 +24,7 @@
         path=~/{{ item }}
         state=link
         force=yes
-  with_items: dotfiles
+  with_items: '{{dotfiles}}'
 
 # Provide an extension point for other roles to dump .zshenv stuff into.
 - name: dotfiles | make ~/.zshenv.d

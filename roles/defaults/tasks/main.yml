@@ -6,7 +6,7 @@
 - name: defaults | register existing values
   command: defaults {{ item.read }}
   register: existing_defaults
-  with_items: osx_defaults
+  with_items: '{{osx_defaults}}'
   failed_when: existing_defaults.rc > 1
   changed_when: false
 
@@ -14,5 +14,5 @@
   command: defaults {{ item.0.write }}
   when: item.1.stdout != item.0.expected
   with_together:
-    - osx_defaults
-    - existing_defaults.results
+    - '{{osx_defaults}}'
+    - '{{existing_defaults.results}}'
