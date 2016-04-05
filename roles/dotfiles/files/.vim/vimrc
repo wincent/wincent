@@ -38,7 +38,7 @@ if filereadable(s:hostfile)
 endif
 
 " Inglorious hack to share config across dev* machines.
-if matchstr(hostname(), '\v^dev\d+\.') != ''
+if matchstr(hostname(), '\v^dev(vm)?\d+\.') != ''
   execute 'source ' . $HOME . '/.vim/host/dev-star'
 endif
 
