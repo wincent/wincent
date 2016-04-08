@@ -9,7 +9,7 @@
   <item>
     <name>Mac-like F-keys on Realforce</name>
     <appendix><![CDATA[Make Realforce F-keys behave like Mac F-keys]]></appendix>
-    <appendix><![CDATA[Use F13 as "FN" modifier]]></appendix>
+    <appendix><![CDATA[Use F13 as "FN" modifier (lock)]]></appendix>
     <appendix><![CDATA[Hold down F13 ("FN") to get normal function key behavior]]></appendix>
     <appendix><![CDATA["Pause" (F15) is power on/off]]></appendix>
     <identifier>private.realforce_f_keys</identifier>
@@ -49,8 +49,13 @@
     <autogen>__KeyToKey__ KeyCode::F11, ConsumerKeyCode::VOLUME_DOWN</autogen>
     <autogen>__KeyToKey__ KeyCode::F12, ConsumerKeyCode::VOLUME_UP</autogen>
 
-    <!-- F13 serves as "FN" modifier -->
-    <autogen>__KeyToKey__ KeyCode::F13, KeyCode::FN</autogen>
+    <!-- F13 serves as "FN" modifier (lock), effectively toggling F-key overrides. -->
+    <autogen>
+      __KeyOverlaidModifier__
+      KeyCode::F13,
+      KeyCode::FN,
+      KeyCode::VK_LOCK_FN
+    </autogen>
 
     <!-- "Pause" (F15) is power -->
     <autogen>__KeyToKey__ KeyCode::PC_PAUSE, KeyCode::VK_IOHIDPOSTEVENT_NX_POWER_KEY</autogen>
