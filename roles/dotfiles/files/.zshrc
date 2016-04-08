@@ -224,7 +224,11 @@ add-zsh-hook precmd report-start-time
 
 function auto-ls-after-cd() {
   emulate -L zsh
-  ls -a
+  # Only in response to a user-initiated `cd`, not indirectly (eg. via another
+  # function).
+  if [ "$ZSH_EVAL_CONTEXT" = "toplevel:shfunc" ]; then
+    ls -a
+  fi
 }
 add-zsh-hook chpwd auto-ls-after-cd
 
