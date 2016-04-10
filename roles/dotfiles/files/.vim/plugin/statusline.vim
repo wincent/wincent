@@ -36,7 +36,7 @@ if has('statusline')
   set statusline+=/    " Separator.
   set statusline+=%L   " Number of lines in buffer.
   set statusline+=\    " Space.
-  set statusline+=@    " (Literal).
+  set statusline+=𝚌    " (Literal, \u1d68c "MATHEMATICAL MONOSPACE SMALL C").
   set statusline+=\    " Space.
   set statusline+=%c   " Current column number.
   set statusline+=%V   " Current virtual column number (-n), if different.
