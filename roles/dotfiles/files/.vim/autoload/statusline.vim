@@ -10,7 +10,8 @@ function! statusline#fileprefix() abort
   if l:basename == '' || l:basename == '.'
     return ''
   else
-    return l:basename . '/'
+    " Make sure we show $HOME as ~.
+    return substitute(l:basename . '/', '\C^' . $HOME, '~', '')
   endif
 endfunction
 
