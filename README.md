@@ -4,6 +4,10 @@
 
 * Target platforms: OS X and Red Hat-like Linuxes (eg. CentOS).
 * Set-up method: ~~Beautiful and intricate snowflake~~ incredibly over-engineered [Ansible](https://www.ansible.com/) orchestration.
+* Visible in the screenshot:
+  * [Ocean (dark)](https://chriskempson.github.io/base16/#ocean) color scheme.
+  * Adobe Source Code Pro (Light) font.
+  * Vim, running inside tmux, inside iTerm2, on OS X "El Capitan".
 
 ## Features
 
@@ -18,8 +22,9 @@
 * Cursor shape toggles on entering Vim.
 * Italics in the terminal.
 * Bundles a (not-excessive) number of [useful Vim plug-ins](https://github.com/wincent/wincent/tree/master/roles/dotfiles/files/.vim/bundle).
-* Relative restrained Zsh config, Bash-like but with a few Zsh perks.
-* Unified color-handling via [Base16 Shell](https://github.com/chriskempson/base16-shell).
+* Conservative Vim configuration (very few overrides of core functionality; most changes are unobtrusive enhancements; some additional functionality exposed via `<Leader>` and `<LocalLeader>` mappings.
+* Relatively restrained Zsh config, Bash-like but with a few Zsh perks, such as right-side prompt, auto-cd hooks, command elapsed time printing and such.
+* Unified color-handling (across iTerm2 and Vim) via [Base16 Shell](https://github.com/chriskempson/base16-shell).
 * Encrypted versioning of files with sensitive content (via [git-cipher](https://github.com/wincent/git-cipher)).
 * Comprehensive [Hammerspoon](http://www.hammerspoon.org/) [config](https://github.com/wincent/wincent/tree/master/roles/dotfiles/files/.hammerspoon).
 
@@ -36,7 +41,7 @@ On OS X, [the `keyboard` role](https://github.com/wincent/wincent/tree/master/ro
 * Turn Caps Lock on by tapping both Shift keys simultaneously (turn it off by tapping either Shift key on its own).
 * Adds a "SpaceFN" layer that can be activated by holding down Space while hitting other keys; I use this to make the cursor keys available on or near the home row in any app.
 * Make the YubiKey work with the Colemak keyboard layout.
-* Makes the function keys on my external Realforce keyboard behave like the "media" keys on Apple's keyboards.
+* Makes the function keys on my external Realforce keyboard behave like the "media" keys on Apple's keyboards. F13 serves as a sticky "fn" key, and F15 as Power.
 
 ## Dependencies
 
@@ -81,10 +86,3 @@ done
 ```
 
 **Note:** The `ln -sf` command will overwrite existing files, but will fail to overwrite existing directories.
-
-## Design process
-
-* For a long time I resisted the temptation to add a large number of aliases; I wanted to be able to sit down in front of any machine and be comfortable with the standard tools; there has been a little "feature creep" since then, but I feel things are still pretty much in control.
-* My first goal with my Zsh config was to reach feature parity with what I had with Bash, and then add a minimal number of bells and whistles.
-* For similar reasons, I've tried to keep my Vim config close to standard; it is relatively "pimped" out, but the core functionality is mostly unmodified.
-* I've resisted importing massive swathes of configuration provided by other people, or large libraries of code, preferring instead to understand, research and implement features on an as-needed basis.
