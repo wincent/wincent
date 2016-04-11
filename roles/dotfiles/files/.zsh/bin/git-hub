@@ -63,6 +63,12 @@ def project
     end[%r{github\.com[:/]([^ ]+?)(\.git)? \(fetch\)}, 1]
 end
 
+def link(pull)
+  base = "https://github.com/#{project}/"
+  current = pull || current_pr
+  base + (current.nil? ? 'pulls' : "pull/#{Integer(current)}")
+end
+
 # Run `command` using `system()`, aborting the script if it returns a non-zero
 # exit code.
 def run(command)
@@ -103,17 +109,12 @@ when 'get'
   end
 
 when 'link'
-  base = "https://github.com/#{project}/"
   pull = ARGV.shift
-  current = pull || current_pr
-  puts base + (current.nil? ? 'pulls' : "pull/#{Integer(current)}")
+  puts link(pull)
 
 when 'open'
-  base = "https://github.com/#{project}/"
   pull = ARGV.shift
-  current = pull || current_pr
-  link = base + (current.nil? ? 'pulls' : "pull/#{Integer(current)}")
-  run "open #{link}"
+  run "open #{link(pull)}"
 
 when 'ls'
   url = Shellwords.shellescape("https://api.github.com/repos/#{project}/pulls")
