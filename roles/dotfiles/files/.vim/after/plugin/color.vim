@@ -25,7 +25,7 @@ function s:CheckColorScheme()
   execute 'highlight Comment ' . pinnacle#italicize('Comment')
 
   " Allow for overrides:
-  " - `statusline.vim` will re-set User1, User2.
+  " - `statusline.vim` will re-set User1, User2 etc.
   " - `after/plugin/loupe.vim` will override Search.
   doautocmd ColorScheme
 endfunction
