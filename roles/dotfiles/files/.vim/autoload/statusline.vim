@@ -40,15 +40,23 @@ function! statusline#update_highlight() abort
   let l:highlight=pinnacle#italicize('MatchParen')
   execute 'highlight User2 ' . l:highlight
 
-  " StatusLine + bold
+  " StatusLine + bold.
   let l:highlight=pinnacle#embolden('StatusLine')
   execute 'highlight User3 ' . l:highlight
 
-  " Inverted Error styling.
+  " Inverted Error styling, for left-hand side "Powerline" triangle.
+  let l:prefix=has('gui') ? 'gui' : 'cterm'
   let l:fg=synIDattr(synIDtrans(hlID('Error')), 'bg')
   let l:bg=synIDattr(synIDtrans(hlID('StatusLine')), 'bg')
-  let l:prefix=has('gui') ? 'gui' : 'cterm'
   execute 'highlight User4 ' . l:prefix . 'fg=' . l:fg . ' ' . l:prefix . 'bg=' . l:bg
+
+  " Right-hand side section.
+  let l:bg=synIDattr(synIDtrans(hlID('User2')), 'fg')
+  let l:fg=synIDattr(synIDtrans(hlID('User3')), 'fg')
+  execute 'highlight User5 ' . l:prefix . '=bold ' . l:prefix . 'fg=' . l:bg . ' ' . l:prefix . 'bg=' . l:fg
+
+  " Right-hand side section + italic.
+  execute 'highlight User6 ' . l:prefix . '=bold,italic ' . l:prefix . 'fg=' . l:bg . ' ' . l:prefix . 'bg=' . l:fg
 
   " Make not-current window status lines visible against ColorColumn background.
   " Note that we can't use an exact copy of StatusLine here because in that case
