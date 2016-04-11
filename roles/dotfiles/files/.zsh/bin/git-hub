@@ -80,6 +80,7 @@ def usage
       git hub get <pr>        [fetch a PR to a local branch]
       git hub link [pr]       [show web URL for PR]
       git hub merge [pr]      [merge a PR]
+      git hub open [pr]       [open web URL for PR]
       git hub ls              [list open PRs]
       git hub show <pr>       [show a PR on standard out]
   END
@@ -106,6 +107,13 @@ when 'link'
   pull = ARGV.shift
   current = pull || current_pr
   puts base + (current.nil? ? 'pulls' : "pull/#{Integer(current)}")
+
+when 'open'
+  base = "https://github.com/#{project}/"
+  pull = ARGV.shift
+  current = pull || current_pr
+  link = base + (current.nil? ? 'pulls' : "pull/#{Integer(current)}")
+  run "open #{link}"
 
 when 'ls'
   url = Shellwords.shellescape("https://api.github.com/repos/#{project}/pulls")
