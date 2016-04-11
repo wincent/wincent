@@ -44,6 +44,12 @@ function! statusline#update_highlight() abort
   let l:highlight=pinnacle#embolden('StatusLine')
   execute 'highlight User3 ' . l:highlight
 
+  " Inverted Error styling.
+  let l:fg=synIDattr(synIDtrans(hlID('Error')), 'bg')
+  let l:bg=synIDattr(synIDtrans(hlID('StatusLine')), 'bg')
+  let l:prefix=has('gui') ? 'gui' : 'cterm'
+  execute 'highlight User4 ' . l:prefix . 'fg=' . l:fg . ' ' . l:prefix . 'bg=' . l:bg
+
   " Make not-current window status lines visible against ColorColumn background.
   " Note that we can't use an exact copy of StatusLine here because in that case
   " Vim will helpfully(?) fill in the background with "^^^".

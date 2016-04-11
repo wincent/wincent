@@ -7,6 +7,9 @@ if has('statusline')
   set statusline+=%n                         " Buffer number.
   set statusline+=\                          " Space.
   set statusline+=%*                         " Reset highlight group.
+  set statusline+=%4*                        " Switch to User4 highlight group (Powerline arrow).
+  set statusline+=                          " Powerline arrow.
+  set statusline+=%*                         " Reset highlight group.
   set statusline+=\                          " Space.
   set statusline+=%<                         " Truncation point, if not enough width available.
   set statusline+=%{statusline#fileprefix()} " Relative path to file's directory.
