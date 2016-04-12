@@ -32,6 +32,8 @@ if has('statusline')
 
   set statusline+=%*   " Reset highlight group.
   set statusline+=%=   " Split point for left and right groups.
+
+  set statusline+=\    " Space.
   set statusline+=    " Powerline arrow.
   set statusline+=%5*  " Switch to User5 highlight group.
   set statusline+=\    " Space.
