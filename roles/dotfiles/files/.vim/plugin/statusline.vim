@@ -45,8 +45,7 @@ if has('statusline')
   set statusline+=\    " Space.
   set statusline+=𝚌    " (Literal, \u1d68c "MATHEMATICAL MONOSPACE SMALL C").
   set statusline+=\    " Space.
-  set statusline+=%c   " Current column number.
-  set statusline+=%V   " Current virtual column number (-n), if different.
+  set statusline+=%v   " Current virtual column number.
   set statusline+=\    " Space.
   set statusline+=%*   " Reset highlight group.
   set statusline+=%6*  " Switch to User6 highlight group.
