@@ -13,6 +13,8 @@ man = help
 # muscle memory
 show = ex
 
+turds = !find . -name '*.orig' -exec rm -i {} \;
+
 whatchanged = log --stat -f
 
 [experimental]
