@@ -11,6 +11,9 @@ compinit -u
 # - Substring complete (ie. bar -> foobar).
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
+# Colorize completions using default `ls` colors.
+zstyle ':completion:*' list-colors ''
+
 #
 # Correction
 #
