@@ -26,8 +26,6 @@
 	p = add -p
 	patch = add -p
 
-	refresh = !STASH=$(git stash) && git fetch origin && git rebase origin/master && test \"$STASH\" != \"No local changes to save\" && git stash pop
-
 	# requires Git 1.7.11.3 or later
 	reword = commit --amend --only -v --
 

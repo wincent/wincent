@@ -28,7 +28,6 @@ alias m=mosh
 alias o='git oneline'
 alias p='git patch'
 alias oo='git oneline -10'
-alias r='git refresh'
 alias s=ssh
 alias serve='python -m SimpleHTTPServer' # optional arg: port (defaults to 8000)
 alias t=tmux
