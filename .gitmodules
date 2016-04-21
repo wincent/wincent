@@ -1,122 +1,122 @@
-[submodule "roles/dotfiles/files/.vim/bundle/YouCompleteMe"]
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/YouCompleteMe"]
 	branch = wincent
 	ignore = dirty
-	path = roles/dotfiles/files/.vim/bundle/YouCompleteMe
+	path = roles/dotfiles/files/.vim/pack/bundle/start/YouCompleteMe
 	url = https://github.com/wincent/YouCompleteMe.git
-[submodule "roles/dotfiles/files/.vim/bundle/base16-vim"]
-	path = roles/dotfiles/files/.vim/bundle/base16-vim
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/base16-vim"]
+	path = roles/dotfiles/files/.vim/pack/bundle/start/base16-vim
 	url = https://github.com/chriskempson/base16-vim.git
-[submodule "roles/dotfiles/files/.vim/bundle/command-t"]
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/command-t"]
 	branch = next
 	ignore = dirty
-	path = roles/dotfiles/files/.vim/bundle/command-t
+	path = roles/dotfiles/files/.vim/pack/bundle/start/command-t
 	url = https://github.com/wincent/command-t.git
-[submodule "roles/dotfiles/files/.vim/bundle/ferret"]
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/ferret"]
 	ignore = untracked
-	path = roles/dotfiles/files/.vim/bundle/ferret
+	path = roles/dotfiles/files/.vim/pack/bundle/start/ferret
 	url = https://github.com/wincent/ferret.git
-[submodule "roles/dotfiles/files/.vim/bundle/gundo"]
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/gundo"]
 	ignore = untracked
-	path = roles/dotfiles/files/.vim/bundle/gundo
+	path = roles/dotfiles/files/.vim/pack/bundle/start/gundo
 	url = https://github.com/sjl/gundo.vim.git
-[submodule "roles/dotfiles/files/.vim/bundle/loupe"]
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/loupe"]
 	ignore = dirty
-	path = roles/dotfiles/files/.vim/bundle/loupe
+	path = roles/dotfiles/files/.vim/pack/bundle/start/loupe
 	url = https://github.com/wincent/loupe.git
-[submodule "roles/dotfiles/files/.vim/bundle/neco-ghc"]
-	path = roles/dotfiles/files/.vim/bundle/neco-ghc
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/neco-ghc"]
+	path = roles/dotfiles/files/.vim/pack/bundle/start/neco-ghc
 	url = https://github.com/eagletmt/neco-ghc.git
-[submodule "roles/dotfiles/files/.vim/bundle/nerdtree"]
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/nerdtree"]
 	branch = keepalt
 	ignore = untracked
-	path = roles/dotfiles/files/.vim/bundle/nerdtree
+	path = roles/dotfiles/files/.vim/pack/bundle/start/nerdtree
 	url = https://github.com/wincent/nerdtree.git
-[submodule "roles/dotfiles/files/.vim/bundle/pinnacle"]
-	path = roles/dotfiles/files/.vim/bundle/pinnacle
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/pinnacle"]
+	path = roles/dotfiles/files/.vim/pack/bundle/start/pinnacle
 	url = https://github.com/wincent/pinnacle.git
-[submodule "roles/dotfiles/files/.vim/bundle/tcomment_vim"]
-	path = roles/dotfiles/files/.vim/bundle/tcomment_vim
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/tcomment_vim"]
+	path = roles/dotfiles/files/.vim/pack/bundle/start/tcomment_vim
 	url = https://github.com/tomtom/tcomment_vim.git
-[submodule "roles/dotfiles/files/.vim/bundle/terminus"]
-	path = roles/dotfiles/files/.vim/bundle/terminus
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/terminus"]
+	path = roles/dotfiles/files/.vim/pack/bundle/start/terminus
 	url = https://github.com/wincent/terminus.git
-[submodule "roles/dotfiles/files/.vim/bundle/ultisnips"]
-	path = roles/dotfiles/files/.vim/bundle/ultisnips
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/ultisnips"]
+	path = roles/dotfiles/files/.vim/pack/bundle/start/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
-[submodule "roles/dotfiles/files/.vim/bundle/vim-abolish"]
-	path = roles/dotfiles/files/.vim/bundle/vim-abolish
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-abolish"]
+	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-abolish
 	url = https://github.com/tpope/vim-abolish.git
-[submodule "roles/dotfiles/files/.vim/bundle/vim-ansible-yaml"]
-	path = roles/dotfiles/files/.vim/bundle/vim-ansible-yaml
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-ansible-yaml"]
+	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-ansible-yaml
 	url = https://github.com/chase/vim-ansible-yaml.git
-[submodule "roles/dotfiles/files/.vim/bundle/vim-clipper"]
-	path = roles/dotfiles/files/.vim/bundle/vim-clipper
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-clipper"]
+	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-clipper
 	url = https://github.com/wincent/vim-clipper.git
-[submodule "roles/dotfiles/files/.vim/bundle/vim-dispatch"]
-	path = roles/dotfiles/files/.vim/bundle/vim-dispatch
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-dispatch"]
+	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-dispatch
 	url = https://github.com/tpope/vim-dispatch.git
-[submodule "roles/dotfiles/files/.vim/bundle/vim-docvim"]
-	path = roles/dotfiles/files/.vim/bundle/vim-docvim
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-docvim"]
+	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-docvim
 	url = https://github.com/wincent/vim-docvim.git
-[submodule "roles/dotfiles/files/.vim/bundle/vim-easydir"]
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-easydir"]
 	ignore = untracked
-	path = roles/dotfiles/files/.vim/bundle/vim-easydir
+	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-easydir
 	url = https://github.com/dockyard/vim-easydir.git
-[submodule "roles/dotfiles/files/.vim/bundle/vim-eunuch"]
-	path = roles/dotfiles/files/.vim/bundle/vim-eunuch
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-eunuch"]
+	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-eunuch
 	url = https://github.com/tpope/vim-eunuch.git
-[submodule "roles/dotfiles/files/.vim/bundle/vim-fugitive"]
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-fugitive"]
 	ignore = untracked
-	path = roles/dotfiles/files/.vim/bundle/vim-fugitive
+	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule "roles/dotfiles/files/.vim/bundle/vim-git"]
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-git"]
 	ignore = untracked
-	path = roles/dotfiles/files/.vim/bundle/vim-git
+	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-git
 	url = https://github.com/tpope/vim-git.git
-[submodule "roles/dotfiles/files/.vim/bundle/vim-jade"]
-	path = roles/dotfiles/files/.vim/bundle/vim-jade
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-jade"]
+	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-jade
 	url = https://github.com/digitaltoad/vim-jade.git
-[submodule "roles/dotfiles/files/.vim/bundle/vim-javascript"]
-	path = roles/dotfiles/files/.vim/bundle/vim-javascript
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-javascript"]
+	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
-[submodule "roles/dotfiles/files/.vim/bundle/vim-jsx"]
-	path = roles/dotfiles/files/.vim/bundle/vim-jsx
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-jsx"]
+	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-jsx
 	url = https://github.com/mxw/vim-jsx.git
-[submodule "roles/dotfiles/files/.vim/bundle/vim-lion"]
-	path = roles/dotfiles/files/.vim/bundle/vim-lion
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-lion"]
+	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-lion
 	url = https://github.com/tommcdo/vim-lion.git
-[submodule "roles/dotfiles/files/.vim/bundle/vim-markdown"]
-	path = roles/dotfiles/files/.vim/bundle/vim-markdown
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-markdown"]
+	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-markdown
 	url = https://github.com/tpope/vim-markdown.git
-[submodule "roles/dotfiles/files/.vim/bundle/vim-pathogen"]
-	path = roles/dotfiles/files/.vim/bundle/vim-pathogen
+[submodule "roles/dotfiles/files/.vim/pack/bundle/opt/vim-pathogen"]
+	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen.git
-[submodule "roles/dotfiles/files/.vim/bundle/vim-projectionist"]
-	path = roles/dotfiles/files/.vim/bundle/vim-projectionist
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-projectionist"]
+	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-projectionist
 	url = https://github.com/tpope/vim-projectionist.git
-[submodule "roles/dotfiles/files/.vim/bundle/vim-repeat"]
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-repeat"]
 	ignore = untracked
-	path = roles/dotfiles/files/.vim/bundle/vim-repeat
+	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
-[submodule "roles/dotfiles/files/.vim/bundle/vim-signature"]
-	path = roles/dotfiles/files/.vim/bundle/vim-signature
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-signature"]
+	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-signature
 	url = https://github.com/kshenoy/vim-signature.git
-[submodule "roles/dotfiles/files/.vim/bundle/vim-speeddating"]
-	path = roles/dotfiles/files/.vim/bundle/vim-speeddating
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-speeddating"]
+	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-speeddating
 	url = https://github.com/tpope/vim-speeddating.git
-[submodule "roles/dotfiles/files/.vim/bundle/vim-surround"]
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-surround"]
 	ignore = untracked
-	path = roles/dotfiles/files/.vim/bundle/vim-surround
+	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-surround
 	url = https://github.com/tpope/vim-surround.git
-[submodule "roles/dotfiles/files/.vim/bundle/vim-textobj-comment"]
-	path = roles/dotfiles/files/.vim/bundle/vim-textobj-comment
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-textobj-comment"]
+	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-textobj-comment
 	url = https://github.com/glts/vim-textobj-comment.git
-[submodule "roles/dotfiles/files/.vim/bundle/vim-textobj-rubyblock"]
-	path = roles/dotfiles/files/.vim/bundle/vim-textobj-rubyblock
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-textobj-rubyblock"]
+	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-textobj-rubyblock
 	url = https://github.com/nelstrom/vim-textobj-rubyblock.git
-[submodule "roles/dotfiles/files/.vim/bundle/vim-textobj-user"]
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-textobj-user"]
 	ignore = untracked
-	path = roles/dotfiles/files/.vim/bundle/vim-textobj-user
+	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-textobj-user
 	url = https://github.com/kana/vim-textobj-user.git
 [submodule "roles/dotfiles/files/.zsh/base16-shell"]
 	path = roles/dotfiles/files/.zsh/base16-shell

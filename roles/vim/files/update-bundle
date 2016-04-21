@@ -3,25 +3,25 @@
 set -e
 
 # Conditionals here are to ensure we only do any work in submodules under
-# roles/dotfiles/files/.vim/bundle:
+# roles/dotfiles/files/.vim/pack/bundle:
 
 git submodule foreach '
-  if [ "${path##roles/dotfiles/files/.vim/bundle/}" != "$path" ]; then
+  if [ "${path##roles/dotfiles/files/.vim/pack/bundle/}" != "$path" ]; then
     BRANCH=$(git config -f $toplevel/.gitmodules submodule."$path".branch || echo master)
     git checkout $BRANCH
   fi
 '
 
 git submodule foreach '
-  if [ "${path##roles/dotfiles/files/.vim/bundle/}" != "$path" ]; then
+  if [ "${path##roles/dotfiles/files/.vim/pack/bundle/}" != "$path" ]; then
     git pull --recurse-submodules || :
   fi
 '
 
 git submodule foreach '
-  if [ "${path##roles/dotfiles/files/.vim/bundle/}" != "$path" ]; then
+  if [ "${path##roles/dotfiles/files/.vim/pack/bundle/}" != "$path" ]; then
     git submodule update --init --recursive || :
   fi
 '
 
-vim -u NONE -N -c 'runtime bundle/vim-pathogen/autoload/pathogen.vim | Helptags | quit'
+vim -u NONE -N -c "runtime pack/bundle/opt/vim-pathogen/autoload/pathogen.vim | Helptags | quit"

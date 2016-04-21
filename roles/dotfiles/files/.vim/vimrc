@@ -1,12 +1,3 @@
-" Temporary workaround for MacVim blowing up for any Python plug-in.
-if has('gui')
-  let g:pathogen_blacklist=['YouCompleteMe', 'gundo', 'ultisnips']
-endif
-
-" Add .vim/bundle subdirs to runtime path.
-source $HOME/.vim/bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
-
 let mapleader="\<Space>"
 let maplocalleader="\\"
 
@@ -45,6 +36,19 @@ endif
 let s:vimrc_local = $HOME . '/.vim/vimrc.local'
 if filereadable(s:vimrc_local)
   execute 'source ' . s:vimrc_local
+endif
+
+" Temporary workaround for MacVim blowing up for any Python plug-in.
+if has('gui')
+  let g:pathogen_blacklist=['YouCompleteMe', 'gundo', 'ultisnips']
+endif
+
+if has('packages')
+  packloadall
+else
+  " Use Pathogen for plug-in loading.
+  source $HOME/.vim/pack/bundle/opt/vim-pathogen/autoload/pathogen.vim
+  call pathogen#infect('pack/bundle/start/{}')
 endif
 
 " After this file is sourced, plug-in code will be evaluated.
