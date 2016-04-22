@@ -46,13 +46,13 @@ function! statusline#update_highlight() abort
 
   " Inverted Error styling, for left-hand side "Powerline" triangle.
   let l:prefix=has('gui') ? 'gui' : 'cterm'
-  let l:fg=synIDattr(synIDtrans(hlID('Error')), 'bg')
-  let l:bg=synIDattr(synIDtrans(hlID('StatusLine')), 'bg')
+  let l:fg=synIDattr(synIDtrans(hlID('Error')), 'bg', l:prefix)
+  let l:bg=synIDattr(synIDtrans(hlID('StatusLine')), 'bg', l:prefix)
   execute 'highlight User4 ' . l:prefix . 'fg=' . l:fg . ' ' . l:prefix . 'bg=' . l:bg
 
   " Right-hand side section.
-  let l:bg=synIDattr(synIDtrans(hlID('User2')), 'fg')
-  let l:fg=synIDattr(synIDtrans(hlID('User3')), 'fg')
+  let l:bg=synIDattr(synIDtrans(hlID('User2')), 'fg', l:prefix)
+  let l:fg=synIDattr(synIDtrans(hlID('User3')), 'fg', l:prefix)
   execute 'highlight User5 ' . l:prefix . '=bold ' . l:prefix . 'fg=' . l:bg . ' ' . l:prefix . 'bg=' . l:fg
 
   " Right-hand side section + italic (used for %).
