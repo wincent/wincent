@@ -36,3 +36,16 @@ function! functions#keynote() abort
     echoerr 'functions#keynote() should be run from within a GUI instance of Vim'
   endif
 endfunction
+
+" Sort a .gitmodules file.
+"
+" See also: https://wincent.com/wiki/Sorting_.gitmodules_entries_with_Vim
+function! functions#sortgitmodules(...) abort
+  if &ft ==# 'gitconfig' || a:0
+    silent %s/\v\n\t/@@@/e
+    %sort
+    silent %s/\v\@\@\@/\r\t/ge
+  else
+    echomsg 'Not a "gitconfig" file: use `functions#sortgitmodules(1)` to force'
+  endif
+endfunction
