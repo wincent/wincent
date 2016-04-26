@@ -1,3 +1,6 @@
+[submodule "roles/dotfiles/files/.vim/pack/bundle/opt/vim-pathogen"]
+	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-pathogen
+	url = https://github.com/tpope/vim-pathogen.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/YouCompleteMe"]
 	branch = wincent
 	ignore = dirty
@@ -39,6 +42,9 @@
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/ultisnips"]
 	path = roles/dotfiles/files/.vim/pack/bundle/start/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/undotree"]
+	path = roles/dotfiles/files/.vim/pack/bundle/start/undotree
+	url = https://github.com/mbbill/undotree.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-abolish"]
 	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-abolish
 	url = https://github.com/tpope/vim-abolish.git
@@ -84,9 +90,6 @@
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-markdown"]
 	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-markdown
 	url = https://github.com/tpope/vim-markdown.git
-[submodule "roles/dotfiles/files/.vim/pack/bundle/opt/vim-pathogen"]
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-pathogen
-	url = https://github.com/tpope/vim-pathogen.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-projectionist"]
 	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-projectionist
 	url = https://github.com/tpope/vim-projectionist.git
@@ -126,6 +129,3 @@
 [submodule "vendor/virtualenv"]
 	path = vendor/virtualenv
 	url = https://github.com/pypa/virtualenv.git
-[submodule "roles/dotfiles/files/.vim/pack/bundle/start/undotree"]
-	path = roles/dotfiles/files/.vim/pack/bundle/start/undotree
-	url = https://github.com/mbbill/undotree.git
