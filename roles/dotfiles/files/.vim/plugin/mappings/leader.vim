@@ -14,7 +14,7 @@ nnoremap <Leader><Leader> <C-^>
 " <Leader>e -- Edit file, starting in same directory as current file.
 nnoremap <Leader>e :edit <C-R>=expand('%:p:h') . '/'<CR>
 
-" <leader>p -- Show the path of the current file (mnemonic: path; useful when
+" <Leader>p -- Show the path of the current file (mnemonic: path; useful when
 " you have a lot of splits and the status line gets truncated).
 nnoremap <Leader>p :echo expand('%')<CR>
 
