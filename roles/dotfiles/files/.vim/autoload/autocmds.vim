@@ -1,4 +1,4 @@
-let g:WincentColorColumnBlacklist = ['diff', 'gundo', 'nerdtree', 'qf']
+let g:WincentColorColumnBlacklist = ['diff', 'undotree', 'nerdtree', 'qf']
 let g:WincentCursorlineBlacklist = ['command-t']
 let g:WincentMkviewFiletypeBlacklist = ['diff', 'hgcommit', 'gitcommit']
 

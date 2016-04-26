@@ -15,10 +15,6 @@
 	ignore = untracked
 	path = roles/dotfiles/files/.vim/pack/bundle/start/ferret
 	url = https://github.com/wincent/ferret.git
-[submodule "roles/dotfiles/files/.vim/pack/bundle/start/gundo"]
-	ignore = untracked
-	path = roles/dotfiles/files/.vim/pack/bundle/start/gundo
-	url = https://github.com/sjl/gundo.vim.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/loupe"]
 	ignore = dirty
 	path = roles/dotfiles/files/.vim/pack/bundle/start/loupe
@@ -130,3 +126,6 @@
 [submodule "vendor/virtualenv"]
 	path = vendor/virtualenv
 	url = https://github.com/pypa/virtualenv.git
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/undotree"]
+	path = roles/dotfiles/files/.vim/pack/bundle/start/undotree
+	url = https://github.com/mbbill/undotree.git
