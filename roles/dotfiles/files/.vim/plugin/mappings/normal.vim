@@ -32,3 +32,12 @@ nnoremap <silent> <Right> :cnfile<CR>
 " Store relative line number jumps in the jumplist if they exceed a threshold.
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : '') . 'k'
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : '') . 'j'
+
+" Trialling this one from:
+"   https://www.reddit.com/r/vim/comments/4gjbqn/what_tricks_do_you_use_instead_of_popular_plugins/d2i2ogxo
+" May also consider something like:
+"   https://www.reddit.com/r/vim/comments/4gjbqn/what_tricks_do_you_use_instead_of_popular_plugins/d2iatu9
+" Reservations:
+" - `*` normally skips to next word; this does not.
+" - I don't like how I can't see what the original contents were while editing.
+nnoremap c* *Ncgn
