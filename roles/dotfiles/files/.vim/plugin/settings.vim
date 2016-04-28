@@ -130,6 +130,7 @@ if has('virtualedit')
 endif
 set visualbell t_vb=                  " stop annoying beeping for non-error errors
 set whichwrap=b,h,l,s,<,>,[,],~       " allow <BS>/h/l/<Left>/<Right>/<Space>, ~ to cross line boundaries
+set wildcharm=<C-z>                   " substitue for 'wildchar' (<Tab>) in macros
 if has('wildignore')
   set wildignore+=*.o,*.rej           " patterns to ignore during file-navigation
 endif
