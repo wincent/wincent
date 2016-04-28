@@ -4,8 +4,8 @@
 nnoremap <Leader><Leader> <C-^>
 
 " Change all instances of current word (mnemonic: edit).
-execute "nnoremap <Leader>e :,$s/\\v<<C-r>=expand('<cword>')<CR>>//gc<Bar>1,''-&&"
-      \ . repeat('<Left>', 11)
+execute "nnoremap <Leader>e :,$s/\\v<<C-r>=expand('<cword>')<CR>>//gce<Bar>1,''-&&"
+      \ . repeat('<Left>', 12)
 
 nnoremap <Leader>o :only<CR>
 
