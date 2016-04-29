@@ -3,9 +3,6 @@
 " <Leader><Leader> -- Open last buffer.
 nnoremap <Leader><Leader> <C-^>
 
-" Change all instances of current word (mnemonic: edit).
-nnoremap <Leader>e :Substitute/\v<<C-R>=expand('<cword>')<CR>>//<Left>
-
 nnoremap <Leader>o :only<CR>
 
 " <Leader>p -- Show the path of the current file (mnemonic: path; useful when
