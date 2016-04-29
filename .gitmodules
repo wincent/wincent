@@ -129,3 +129,6 @@
 [submodule "vendor/virtualenv"]
 	path = vendor/virtualenv
 	url = https://github.com/pypa/virtualenv.git
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/scalpel"]
+	path = roles/dotfiles/files/.vim/pack/bundle/start/scalpel
+	url = https://github.com/wincent/scalpel.git
