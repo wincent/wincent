@@ -1,4 +1,15 @@
 #
+# Teh H4xx
+#
+
+if [ "$(uname)" = "Darwin" ]; then
+  # Suppress unwanted Homebrew-installed stuff.
+  if [ -e /usr/local/share/zsh/site-functions/_git ]; then
+    mv -f /usr/local/share/zsh/site-functions/{,disabled.}_git
+  fi
+fi
+
+#
 # Completion
 #
 
