@@ -40,7 +40,7 @@ endif
 
 " Temporary workaround for MacVim blowing up for any Python plug-in.
 if has('gui')
-  let g:pathogen_blacklist=['YouCompleteMe', 'gundo', 'ultisnips']
+  let g:pathogen_blacklist=['YouCompleteMe', 'ultisnips']
 endif
 
 if has('packages')

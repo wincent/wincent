@@ -75,10 +75,10 @@ function! s:get_custom_statusline(action) abort
   if &ft == 'command-t'
     " Will use Command-T-provided buffer name, but need to escape spaces.
     return '\ \ ' . substitute(bufname('%'), ' ', '\\ ', 'g')
-  elseif &ft == 'diff' && bufname('%') == '__Gundo_Preview__'
-    return 'Gundo\ Preview' " Less ugly, and nothing really useful to show.
-  elseif &ft == 'gundo'
-    return 'Gundo' " Less ugly, and nothing really useful to show.
+  elseif &ft == 'diff' && exists('t:diffpanel') && t:diffpanel.bufname == bufname('%')
+    return 'Undotree\ preview' " Less ugly, and nothing really useful to show.
+  elseif &ft == 'undotree'
+    return 0 " Don't override; undotree does its own thing.
   elseif &ft == 'nerdtree'
     return 0 " Don't override; NERDTree does its own thing.
   elseif &ft == 'qf'
