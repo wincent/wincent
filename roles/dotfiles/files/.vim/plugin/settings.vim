@@ -67,6 +67,10 @@ set shortmess+=a                      " use abbreviations in messages eg. `[RO]`
 set shortmess+=o                      " overwrite file-written messages
 set shortmess+=t                      " truncate file messages at start
 
+if has('linebreak')
+  let &showbreak='⤷ '
+endif
+
 if has('showcmd')
   set showcmd                         " extra info at end of command line
 endif
