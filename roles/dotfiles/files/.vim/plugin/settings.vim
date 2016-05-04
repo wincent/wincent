@@ -42,6 +42,7 @@ set formatoptions+=n                  " smart auto-indenting inside numbered lis
 set guifont=Source\ Code\ Pro\ Light:h13
 set guioptions-=T                     " don't show toolbar
 set hidden                            " allows you to hide buffers with unsaved changes without being prompted
+set highlight+=@:ColorColumn          " ~/@ at end of window, 'showbreak'
 set laststatus=2                      " always show status line
 set lazyredraw                        " don't bother updating screen during macro playback
 set list                              " show whitespace
