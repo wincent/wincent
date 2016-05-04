@@ -2,23 +2,23 @@ let g:WincentColorColumnBlacklist = ['diff', 'undotree', 'nerdtree', 'qf']
 let g:WincentCursorlineBlacklist = ['command-t']
 let g:WincentMkviewFiletypeBlacklist = ['diff', 'hgcommit', 'gitcommit']
 
-function! autocmds#attempt_select_last_file()
+function! autocmds#attempt_select_last_file() abort
   let l:previous=expand('#:t')
   if l:previous != ''
     call search('\v<' . l:previous . '>')
   endif
 endfunction
 
-function! autocmds#should_colorcolumn()
+function! autocmds#should_colorcolumn() abort
   return index(g:WincentColorColumnBlacklist, &filetype) == -1
 endfunction
 
-function! autocmds#should_cursorline()
+function! autocmds#should_cursorline() abort
   return index(g:WincentCursorlineBlacklist, &filetype) == -1
 endfunction
 
 " Loosely based on: http://vim.wikia.com/wiki/Make_views_automatic
-function! autocmds#should_mkview()
+function! autocmds#should_mkview() abort
   if exists('*haslocaldir') && haslocaldir()
     return 0
   else
@@ -29,7 +29,7 @@ function! autocmds#should_mkview()
   endif
 endfunction
 
-function! autocmds#blur_statusline()
+function! autocmds#blur_statusline() abort
   " Default blurred statusline (buffer number: filename).
   let l:blurred='%#User2#' " higlight (same as MatchParens, plus italics)
   let l:blurred.='%{statusline#gutterpadding(0)}'
@@ -41,12 +41,12 @@ function! autocmds#blur_statusline()
   call s:update_statusline(l:blurred, 'blur')
 endfunction
 
-function! autocmds#focus_statusline()
+function! autocmds#focus_statusline() abort
   " `setlocal statusline=` will revert to global 'statusline' setting.
   call s:update_statusline('', 'focus')
 endfunction
 
-function! s:update_statusline(default, action)
+function! s:update_statusline(default, action) abort
   let l:statusline = s:get_custom_statusline(a:action)
   if type(l:statusline) == type('')
     " Apply custom statusline.
@@ -64,7 +64,7 @@ function! s:update_statusline(default, action)
   endif
 endfunction
 
-function! s:get_custom_statusline(action)
+function! s:get_custom_statusline(action) abort
   if &ft == 'command-t'
     " Will use Command-T-provided buffer name, but need to escape spaces.
     return '\ \ ' . substitute(bufname('%'), ' ', '\\ ', 'g')
