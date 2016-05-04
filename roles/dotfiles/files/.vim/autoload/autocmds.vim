@@ -19,10 +19,14 @@ endfunction
 
 " Loosely based on: http://vim.wikia.com/wiki/Make_views_automatic
 function! autocmds#should_mkview()
-  return
-        \ &buftype == '' &&
-        \ index(g:WincentMkviewFiletypeBlacklist, &filetype) == -1 &&
-        \ !exists('$SUDO_USER') " Don't create root-owned files.
+  if exists('*haslocaldir') && haslocaldir()
+    return 0
+  else
+    return
+          \ &buftype == '' &&
+          \ index(g:WincentMkviewFiletypeBlacklist, &filetype) == -1 &&
+          \ !exists('$SUDO_USER') " Don't create root-owned files.
+  endif
 endfunction
 
 function! autocmds#blur_statusline()
