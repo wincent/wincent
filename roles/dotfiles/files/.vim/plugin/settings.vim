@@ -46,7 +46,7 @@ set highlight+=@:ColorColumn          " ~/@ at end of window, 'showbreak'
 set laststatus=2                      " always show status line
 set lazyredraw                        " don't bother updating screen during macro playback
 set list                              " show whitespace
-set listchars=nbsp:¬,tab:>-,extends:»,precedes:«,trail:•
+set listchars=nbsp:⦸,tab:>-,extends:»,precedes:«,trail:•
 set nojoinspaces                      " don't autoinsert two spaces after '.', '?', '!' for join command
 set noshowmatch                       " don't jump between matching brackets
 set number                            " show line numbers in gutter
