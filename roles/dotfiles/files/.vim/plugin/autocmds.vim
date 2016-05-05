@@ -20,7 +20,7 @@ if has('autocmd')
     autocmd InsertLeave,VimEnter,WinEnter * if autocmds#should_cursorline() | setlocal cursorline | endif
     autocmd InsertEnter,WinLeave * if autocmds#should_cursorline() | setlocal nocursorline | endif
     if has('statusline')
-      autocmd BufFilePost,FocusGained,VimEnter,WinEnter * call autocmds#focus_statusline()
+      autocmd BufEnter,FocusGained,VimEnter,WinEnter * call autocmds#focus_statusline()
       autocmd FocusLost,WinLeave * call autocmds#blur_statusline()
     endif
 
