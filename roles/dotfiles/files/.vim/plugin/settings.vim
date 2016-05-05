@@ -51,7 +51,12 @@ set highlight+=c:LineNr               " blend vertical separators with line numb
 set laststatus=2                      " always show status line
 set lazyredraw                        " don't bother updating screen during macro playback
 set list                              " show whitespace
-set listchars=nbsp:⦸,tab:>-,extends:»,precedes:«,trail:•
+set listchars=nbsp:⦸                  " CIRCLED REVERSE SOLIDUS (U+29B8, UTF-8: E2 A6 B8)
+set listchars+=tab:▷┅                 " WHITE RIGHT-POINTING TRIANGLE (U+25B7, UTF-8: E2 96 B7)
+                                      " + BOX DRAWINGS HEAVY TRIPLE DASH HORIZONTAL (U+2505, UTF-8: E2 94 85)
+set listchars+=extends:»              " RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB, UTF-8: C2 BB)
+set listchars+=precedes:«             " LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB, UTF-8: C2 AB)
+set listchars+=trail:•                " BULLET (U+2022, UTF-8: E2 80 A2)
 set nojoinspaces                      " don't autoinsert two spaces after '.', '?', '!' for join command
 set noshowmatch                       " don't jump between matching brackets
 set number                            " show line numbers in gutter
@@ -73,7 +78,7 @@ set shortmess+=o                      " overwrite file-written messages
 set shortmess+=t                      " truncate file messages at start
 
 if has('linebreak')
-  let &showbreak='⤷ '
+  let &showbreak='⤷ '                 " ARROW POINTING DOWNWARDS THEN CURVING RIGHTWARDS (U+2937, UTF-8: E2 A4 B7)
 endif
 
 if has('showcmd')
