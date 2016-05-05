@@ -26,7 +26,6 @@
 	path = roles/dotfiles/files/.vim/pack/bundle/start/neco-ghc
 	url = https://github.com/eagletmt/neco-ghc.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/nerdtree"]
-	branch = keepalt
 	ignore = untracked
 	path = roles/dotfiles/files/.vim/pack/bundle/start/nerdtree
 	url = https://github.com/wincent/nerdtree.git
