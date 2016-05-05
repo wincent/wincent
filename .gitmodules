@@ -29,7 +29,7 @@
 	branch = keepalt
 	ignore = untracked
 	path = roles/dotfiles/files/.vim/pack/bundle/start/nerdtree
-	url = https://github.com/wincent/nerdtree.git
+	url = https://github.com/scrooloose/nerdtree.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/pinnacle"]
 	path = roles/dotfiles/files/.vim/pack/bundle/start/pinnacle
 	url = https://github.com/wincent/pinnacle.git
@@ -44,7 +44,7 @@
 	url = https://github.com/SirVer/ultisnips.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/undotree"]
 	path = roles/dotfiles/files/.vim/pack/bundle/start/undotree
-	url = https://github.com/wincent/undotree.git
+	url = https://github.com/mbbill/undotree.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-abolish"]
 	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-abolish
 	url = https://github.com/tpope/vim-abolish.git
