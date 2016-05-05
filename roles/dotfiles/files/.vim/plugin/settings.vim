@@ -96,8 +96,14 @@ if has('syntax')
   set spellcapcheck=                  " don't check for capital letters at start of sentence
 endif
 
-set splitbelow                        " open horizontal splits below current window
-set splitright                        " open vertical splits to the right of the current window
+if has('windows')
+  set splitbelow                      " open horizontal splits below current window
+endif
+
+if has('vertsplit')
+  set splitright                      " open vertical splits to the right of the current window
+endif
+
 set switchbuf=usetab                  " try to reuse windows/tabs when switching buffers
 set tabstop=2                         " spaces per tab
 set textwidth=80                      " automatically hard wrap at 80 columns
