@@ -18,7 +18,7 @@ def usage()
     [supports: git, hg]
 
     merge: elements are merge conflicts. Arguments are ignored.
-    [supports: git]
+    [supports: git, hg]
 
     grep: elements are grep hits. Arguments are given to grep.
     [supports: git]
@@ -121,11 +121,17 @@ def mode_diff(args)
 end
 
 def mode_merge(__args__ignored)
-  require_git()
+  if git?
+    command = 'git ls-files -u'
+    filter = "perl -pe 's/^.*?\\t//"
+  else
+    command = 'hg resolve -l'
+    filter = "perl -pe 's/^U\\s+//'"
+  end
   puts %x{
-    git ls-files -u |
-    perl -pe 's/^.*?\t//' |
-    sort -u |
+    #{command} |
+    #{filter} |
+    sort |
     while IFS= read fn; do
       grep -Hn '^<<<<<<<' "$fn"
     done
