@@ -12,6 +12,10 @@ else
   set backupdir+=.
 endif
 
+if has('linebreak')
+  set breakindent                     " indent wrapped lines to match start
+endif
+
 if exists('+colorcolumn')
   " Highlight up to 255 columns (this is the current Vim max) beyond 'textwidth'
   let &l:colorcolumn='+' . join(range(0, 254), ',+')
@@ -50,6 +54,11 @@ set highlight+=N:DiffText             " make current line number stand out a lit
 set highlight+=c:LineNr               " blend vertical separators with line numbers
 set laststatus=2                      " always show status line
 set lazyredraw                        " don't bother updating screen during macro playback
+
+if has('linebreak')
+  set linebreak                       " wrap long lines at characters in 'breakat'
+endif
+
 set list                              " show whitespace
 set listchars=nbsp:⦸                  " CIRCLED REVERSE SOLIDUS (U+29B8, UTF-8: E2 A6 B8)
 set listchars+=tab:▷┅                 " WHITE RIGHT-POINTING TRIANGLE (U+25B7, UTF-8: E2 96 B7)

@@ -1,6 +1,5 @@
 " Switch to plaintext mode with: call functions#plaintext()
 function! functions#plaintext() abort
-  setlocal linebreak
   setlocal nolist
   setlocal spell
   setlocal textwidth=0
