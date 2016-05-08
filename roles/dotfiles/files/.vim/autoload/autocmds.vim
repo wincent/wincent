@@ -38,13 +38,11 @@ endfunction
 
 function! autocmds#blur_statusline() abort
   " Default blurred statusline (buffer number: filename).
-  let l:blurred='%#User2#' " higlight (same as MatchParens, plus italics)
-  let l:blurred.='%{statusline#gutterpadding(0)}'
+  let l:blurred='%{statusline#gutterpadding(0)}'
   let l:blurred.='\ ' " space
   let l:blurred.='%<' " truncation point
   let l:blurred.='%f' " filename
   let l:blurred.='%=' " split left/right halves (makes background cover whole)
-  let l:blurred.='%*' " reset highlight
   call s:update_statusline(l:blurred, 'blur')
 endfunction
 

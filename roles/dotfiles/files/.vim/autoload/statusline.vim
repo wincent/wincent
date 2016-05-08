@@ -59,8 +59,10 @@ function! statusline#update_highlight() abort
   execute 'highlight User6 ' . l:prefix . '=bold,italic ' . l:prefix . 'fg=' . l:bg . ' ' . l:prefix . 'bg=' . l:fg
 
   " Make not-current window status lines visible against ColorColumn background.
-  " Note that we can't use an exact copy of StatusLine here because in that case
-  " Vim will helpfully(?) fill in the background with "^^^".
+  " Note that we can't link directly to StatusLine here because in that case
+  " Vim will fill in the background with "^^^" in a way that can't be overridden
+  " even with `let &fillchars='stl: ,stlnc: '` or similar. In any case, our
+  " User2 provides more visual distinction, so is strictly superior.
   highlight clear StatusLineNC
   highlight! link StatusLineNC User2
 endfunction
