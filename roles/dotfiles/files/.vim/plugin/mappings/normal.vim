@@ -1,8 +1,11 @@
 " Normal mode mappings.
 
 " Toggle fold at current position.
-" (Using s-tab to avoid collision between <tab> and <C-i>).
-nnoremap <s-tab> za
+nnoremap <Tab> za
+
+" Relying on Karabiner to avoid collision between <Tab> and <C-i> (have it send
+" F6 instead for <C-i>).
+nnoremap <F6> <C-i>
 
 " Avoid unintentional switches to Ex mode.
 nmap Q q

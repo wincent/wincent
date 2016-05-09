@@ -3,5 +3,6 @@
   <include path="modifiers.xml" />
   <include path="realforce.xml" />
   <include path="spacefn.xml" />
+  <include path="terminal.xml" />
   <include path="yubikey.xml" />
 </root>
