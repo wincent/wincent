@@ -1,0 +1,4 @@
+---
+# Needed for Markdown completion of Masochist files.
+- name: vim | install redis via pip
+  pip: name=redis

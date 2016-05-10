@@ -6,3 +6,6 @@
 
 - include: local.yml
   when: use_local_vim_dir
+
+- include: masochist.yml
+  when: install_masochist_vim_dependencies
