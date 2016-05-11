@@ -132,3 +132,6 @@
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/scalpel"]
 	path = roles/dotfiles/files/.vim/pack/bundle/start/scalpel
 	url = https://github.com/wincent/scalpel.git
+[submodule "vendor/base16-iterm2"]
+	path = vendor/base16-iterm2
+	url = https://github.com/chriskempson/base16-iterm2.git
