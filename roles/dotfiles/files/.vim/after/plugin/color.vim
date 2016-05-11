@@ -21,7 +21,7 @@ function s:CheckColorScheme()
     endif
   else " default
     set background=dark
-    color base16-ocean
+    color base16-tomorrow
   endif
 
   execute 'highlight Comment ' . pinnacle#italicize('Comment')

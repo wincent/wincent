@@ -31,7 +31,7 @@ color() {
     fi
     ;;
   help)
-    echo 'color dark [ocean|grayscale|ashes|default|railscasts|tomorrow|twilight|...]'
+    echo 'color dark [tomorrow|ocean|grayscale|ashes|default|railscasts|twilight|...]'
     echo 'color light [grayscale|harmonic16|ocean|tomorrow|twilight|...]'
     echo
     echo 'Available schemes:'
@@ -67,6 +67,6 @@ if [[ -s "$BASE16_CONFIG" ]]; then
     echo "error: unknown background type in $BASE16_CONFIG"
   fi
 else
-  # default
-  dark ocean
+  # Default.
+  dark tomorrow
 fi

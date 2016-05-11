@@ -5,7 +5,7 @@
 * Target platforms: OS X and Red Hat-like Linuxes (eg. CentOS).
 * Set-up method: ~~Beautiful and intricate snowflake~~ incredibly over-engineered [Ansible](https://www.ansible.com/) orchestration.
 * Visible in the screenshot:
-  * [Ocean (dark)](https://chriskempson.github.io/base16/#ocean) color scheme.
+  * [Tomorrow (dark)](https://chriskempson.github.io/base16/#tomorrow) color scheme.
   * Adobe Source Code Pro (Light) font.
   * Vim, running inside tmux, inside iTerm2, on OS X "El Capitan".
 
