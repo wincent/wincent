@@ -2,7 +2,7 @@ scriptencoding utf-8
 
 " cf the default statusline: %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 if has('statusline')
-  set statusline=%#Error#
+  set statusline=%7*                         " Switch to User7 highlight group
   set statusline+=%{statusline#gutterpadding(1)}
   set statusline+=%n                         " Buffer number.
   set statusline+=\                          " Space.
@@ -57,6 +57,8 @@ if has('statusline')
     augroup WincentStatusline
       autocmd!
       autocmd ColorScheme * call statusline#update_highlight()
+      autocmd User FerretAsyncStart call statusline#async_start()
+      autocmd User FerretAsyncFinish call statusline#async_finish()
     augroup END
   endif
 endif

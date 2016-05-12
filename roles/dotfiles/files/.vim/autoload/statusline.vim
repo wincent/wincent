@@ -31,6 +31,18 @@ function! statusline#fenc() abort
   endif
 endfunction
 
+let g:wincent_statusline_status_highlight='Error'
+
+function! statusline#async_start() abort
+  let g:wincent_statusline_status_highlight='IncSearch'
+  call statusline#update_highlight()
+endfunction
+
+function! statusline#async_finish() abort
+  let g:wincent_statusline_status_highlight='Error'
+  call statusline#update_highlight()
+endfunction
+
 function! statusline#update_highlight() abort
   " Update StatusLine to use italics (used for filetype).
   let l:highlight=pinnacle#italicize('StatusLine')
@@ -46,7 +58,7 @@ function! statusline#update_highlight() abort
 
   " Inverted Error styling, for left-hand side "Powerline" triangle.
   let l:prefix=has('gui') || has('termguicolors') ? 'gui' : 'cterm'
-  let l:fg=synIDattr(synIDtrans(hlID('Error')), 'bg', l:prefix)
+  let l:fg=synIDattr(synIDtrans(hlID(g:wincent_statusline_status_highlight)), 'bg', l:prefix)
   let l:bg=synIDattr(synIDtrans(hlID('StatusLine')), 'bg', l:prefix)
   execute 'highlight User4 ' . l:prefix . 'fg=' . l:fg . ' ' . l:prefix . 'bg=' . l:bg
 
@@ -60,4 +72,6 @@ function! statusline#update_highlight() abort
 
   highlight clear StatusLineNC
   highlight! link StatusLineNC User1
+
+  execute 'highlight! link User7 ' . g:wincent_statusline_status_highlight
 endfunction
