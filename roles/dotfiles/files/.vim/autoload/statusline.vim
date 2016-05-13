@@ -31,15 +31,15 @@ function! statusline#fenc() abort
   endif
 endfunction
 
-let s:wincent_statusline_status_highlight='PmenuSel'
+let s:wincent_statusline_status_highlight='Identifier'
 
 function! statusline#async_start() abort
-  let s:wincent_statusline_status_highlight='IncSearch'
+  let s:wincent_statusline_status_highlight='Constant'
   call statusline#update_highlight()
 endfunction
 
 function! statusline#async_finish() abort
-  let s:wincent_statusline_status_highlight='PmenuSel'
+  let s:wincent_statusline_status_highlight='Identifier'
   call statusline#update_highlight()
 endfunction
 
@@ -58,9 +58,12 @@ function! statusline#update_highlight() abort
 
   " Inverted Error styling, for left-hand side "Powerline" triangle.
   let l:prefix=has('gui') || has('termguicolors') ? 'gui' : 'cterm'
-  let l:fg=synIDattr(synIDtrans(hlID(s:wincent_statusline_status_highlight)), 'bg', l:prefix)
+  let l:fg=synIDattr(synIDtrans(hlID(s:wincent_statusline_status_highlight)), 'fg', l:prefix)
   let l:bg=synIDattr(synIDtrans(hlID('StatusLine')), 'bg', l:prefix)
   execute 'highlight User4 ' . l:prefix . 'fg=' . l:fg . ' ' . l:prefix . 'bg=' . l:bg
+
+  " And opposite for the buffer number area.
+  execute 'highlight User7 ' . l:prefix . 'fg=' . l:bg . ' ' . l:prefix . 'bg=' . l:fg
 
   " Right-hand side section.
   let l:bg=synIDattr(synIDtrans(hlID('User2')), 'fg', l:prefix)
@@ -72,6 +75,4 @@ function! statusline#update_highlight() abort
 
   highlight clear StatusLineNC
   highlight! link StatusLineNC User1
-
-  execute 'highlight! link User7 ' . s:wincent_statusline_status_highlight
 endfunction
