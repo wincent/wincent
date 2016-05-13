@@ -40,6 +40,8 @@ function! autocmds#blur_statusline() abort
   " Default blurred statusline (buffer number: filename).
   let l:blurred='%{statusline#gutterpadding(0)}'
   let l:blurred.='\ ' " space
+  let l:blurred.='\ ' " space
+  let l:blurred.='\ ' " space
   let l:blurred.='%<' " truncation point
   let l:blurred.='%f' " filename
   let l:blurred.='%=' " split left/right halves (makes background cover whole)
