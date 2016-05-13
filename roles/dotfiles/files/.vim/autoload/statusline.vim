@@ -63,7 +63,9 @@ function! statusline#update_highlight() abort
   execute 'highlight User4 ' . l:prefix . 'fg=' . l:fg . ' ' . l:prefix . 'bg=' . l:bg
 
   " And opposite for the buffer number area.
-  execute 'highlight User7 ' . l:prefix . 'fg=' . l:bg . ' ' . l:prefix . 'bg=' . l:fg
+  execute 'highlight User7 cterm=bold gui=bold term=bold ' .
+        \ l:prefix . 'fg=' . synIDattr(synIDtrans(hlID('Normal')), 'fg', l:prefix) . ' ' .
+        \ l:prefix . 'bg=' . l:fg
 
   " Right-hand side section.
   let l:bg=synIDattr(synIDtrans(hlID('User2')), 'fg', l:prefix)
