@@ -1,6 +1,7 @@
 ---
 dotfiles:
   - .ackrc
+  - .agignore
   - .bash
   - .bash_profile
   - .emacs.d
