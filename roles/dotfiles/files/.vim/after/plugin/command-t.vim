@@ -18,6 +18,7 @@ let g:CommandTWildIgnore.=',*/.hg'
 let g:CommandTWildIgnore.=',*/bower_components'
 let g:CommandTWildIgnore.=',*/node_modules'
 let g:CommandTWildIgnore.=',*/tmp'
+let g:CommandTWildIgnore.=',*/vendor'
 
 "
 " Mappings.
@@ -72,3 +73,8 @@ let g:CommandTAcceptSelectionCommand = 'GotoOrOpen e'
 let g:CommandTAcceptSelectionTabCommand = 'GotoOrOpen tabe'
 let g:CommandTAcceptSelectionSplitCommand = 'GotoOrOpen sp'
 let g:CommandTAcceptSelectionVSplitCommand = 'GotoOrOpen vs'
+
+let s:path = expand('<sfile>:p:h') . '/command-t.private.vim'
+if filereadable(s:path)
+  execute "source " . s:path
+endif
