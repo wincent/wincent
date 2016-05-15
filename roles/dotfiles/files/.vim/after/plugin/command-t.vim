@@ -76,5 +76,5 @@ let g:CommandTAcceptSelectionVSplitCommand = 'GotoOrOpen vs'
 
 let s:path = expand('<sfile>:p:h') . '/command-t.private.vim'
 if filereadable(s:path)
-  execute "source " . s:path
+  execute 'source ' . s:path
 endif
