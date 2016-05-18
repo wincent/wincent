@@ -54,9 +54,6 @@
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-clipper"]
 	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-clipper
 	url = https://github.com/wincent/vim-clipper.git
-[submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-dispatch"]
-	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-dispatch
-	url = https://github.com/tpope/vim-dispatch.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-docvim"]
 	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-docvim
 	url = https://github.com/wincent/vim-docvim.git
