@@ -1,4 +1,6 @@
 hs.grid.setGrid('12x12') -- allows us to place on quarters, thirds and halves
+hs.grid.MARGINX = 0
+hs.grid.MARGINY = 0
 hs.window.animationDuration = 0 -- disable animations
 
 local screenCount = #hs.screen.allScreens()
