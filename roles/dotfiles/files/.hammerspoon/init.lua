@@ -427,6 +427,36 @@ hs.hotkey.bind({'ctrl', 'alt', 'cmd'}, 'f3', (function()
 end))
 
 --
+-- Screencast layout
+--
+
+function prepareScreencast()
+  local screen = 'Color LCD'
+  local top = {x=0, y=0, w=1, h=.92}
+  local bottom = {x=.4, y=.82, w=.5, h=.1}
+  local windowLayout = {
+    {'iTerm2', nil, screen, top, nil, nil},
+    {'Google Chrome', nil, screen, top, nil, nil},
+    {'KeyCastr', nil, screen, bottom, nil, nil},
+  }
+
+  hs.application.launchOrFocus('KeyCastr')
+  local chrome = hs.appfinder.appFromName('Google Chrome')
+  local iterm = hs.appfinder.appFromName('iTerm2')
+  for key, app in pairs(hs.application.runningApplications()) do
+    if app == chrome or app == iterm or app:name() == 'KeyCastr' then
+      app:unhide()
+    else
+      app:hide()
+    end
+  end
+  hs.layout.apply(windowLayout)
+end
+
+-- `open hammerspoon://screencast`
+hs.urlevent.bind('screencast', prepareScreencast)
+
+--
 -- Auto-reload config on change.
 --
 
