@@ -15,7 +15,7 @@ end
 
 # Returns the name of the currently checked-out branch.
 def current_branch
-  `git rev-parse --abbrev-ref HEAD`.chomp
+  capture('git rev-parse --abbrev-ref HEAD')
 end
 
 # Returns the number of the PR corresponding to the currently checked-out
@@ -43,10 +43,15 @@ PREFERRED_REMOTES = %w[
 ]
 MAX_INT = 1 << (1.size * 8 - 2) - 1
 
+def capture(command)
+  result = `#{command}`.chomp
+  check(command)
+  result
+end
+
 # Infers the GitHub project name (ie. "user/project") from the repo remotes.
 def project
-  `git remote -v`
-    .chomp
+  capture('git remote -v')
     .split(/\n/)
     .grep(/\A(#{PREFERRED_REMOTES.join('|')})\s/)
     .grep(/github\.com/)
@@ -73,6 +78,10 @@ end
 # exit code.
 def run(command)
   system(command)
+  check(command)
+end
+
+def check(command)
   status = $?.exitstatus
   if !status.zero?
     die "command (#{command}) failed with non-zero exit status (#{status})"
@@ -131,7 +140,9 @@ when 'merge'
       die "no explicit PR number provided, and can't infer from current branch"
     end
     pull = current
-    run 'git checkout master'
+    target = capture("git config branch.#{current_branch}.merge")
+    target = capture("git rev-parse --abbrev-ref #{target}")
+    run "git checkout #{target}"
   else
     # Explicit PR provided
     if current_branch == "pull/#{pull}"
