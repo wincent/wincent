@@ -90,6 +90,9 @@
 [help]
 	autocorrect = 2
 
+[interactive]
+	diffFilter = diff-highlight
+
 [log]
 	decorate = short
 
