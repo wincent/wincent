@@ -110,6 +110,10 @@
 [status]
 	submodulesummary = true
 
+[submodule]
+	# Added in Git 2.9.0.
+	fetchJobs = 4
+
 [user]
 	email = greg@hurrell.net
 	name = Greg Hurrell
