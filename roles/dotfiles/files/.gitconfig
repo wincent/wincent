@@ -74,6 +74,9 @@
 [diff]
 	algorithm = histogram
 
+	# Added in Git 2.9.0 (experimental): more readable diffs.
+	compactionHeuristic = true
+
 [difftool]
 	prompt = false
 
