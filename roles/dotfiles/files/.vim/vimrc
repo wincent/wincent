@@ -17,6 +17,11 @@ let g:CommandTEngine='isengard'
 let g:CommandTClientLog='/tmp/clog'
 let g:CommandTServerLog='/tmp/slog'
 
+" Would be useful mappings, but they interfe with my default window movement
+" bindings (<C-j> and <C-k>).
+let g:NERDTreeMapJumpPrevSibling='<Nop>'
+let g:NERDTreeMapJumpNextSibling='<Nop>'
+
 " Prevent tcomment from making a zillion mappings (we just want the operator).
 let g:tcommentMapLeader1=''
 let g:tcommentMapLeader2=''
