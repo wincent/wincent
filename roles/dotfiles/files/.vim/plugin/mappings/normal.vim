@@ -3,6 +3,9 @@
 " Toggle fold at current position.
 nnoremap <Tab> za
 
+" Repeat last macro.
+nnoremap <Enter> @@
+
 " Relying on Karabiner to avoid collision between <Tab> and <C-i> (have it send
 " F6 instead for <C-i>).
 nnoremap <F6> <C-i>
