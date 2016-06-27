@@ -3,8 +3,8 @@
 " Toggle fold at current position.
 nnoremap <Tab> za
 
-" Repeat last macro.
-nnoremap <Enter> @@
+" Repeat last macro if in a normal buffer.
+nnoremap <silent> <expr> <CR> empty(&buftype) ? '@@' : '<CR>'
 
 " Relying on Karabiner to avoid collision between <Tab> and <C-i> (have it send
 " F6 instead for <C-i>).
