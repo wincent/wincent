@@ -1,1 +1,2 @@
-autocmd BufNewFile,BufRead new-commit set filetype=arc
+autocmd BufNewFile,BufRead differential-update-comments,new-commit set filetype=arc
+
