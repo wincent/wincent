@@ -35,7 +35,7 @@ color() {
     echo 'color light [grayscale|harmonic16|ocean|tomorrow|twilight|...]'
     echo
     echo 'Available schemes:'
-    find ~/.zsh/base16-shell -name 'base16-*.sh' | \
+    find "$BASE16_DIR" -name 'base16-*.sh' | \
       sed -E 's|.+/base16-||' | \
       sed -E 's/\.(dark|light)\.sh/ (\1)/' | \
       column
