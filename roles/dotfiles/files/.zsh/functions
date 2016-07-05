@@ -79,6 +79,15 @@ function tmux() {
   env SSH_AUTH_SOCK=$SOCK_SYMLINK tmux new -A -s "$SESSION_NAME"
 }
 
+# Bounce the Dock icon, if iTerm does not have focus.
+function bounce() {
+  if [ -n "$TMUX" ]; then
+    print -Pn "Ptmux;]1337;RequestAttention=1\\"
+  else
+    print -Pn "]1337;RequestAttention=1"
+  fi
+}
+
 # Convenience function for jumping to hashed directory aliases
 # (ie. `j rn` -> `jump rn` -> `cd ~rn`).
 function jump() {
