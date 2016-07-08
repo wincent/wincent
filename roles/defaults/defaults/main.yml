@@ -231,6 +231,12 @@ osx_defaults:
     description: Require password immediately after sleep or screen saver begins
     last_tested: '[10.9]'
 
+  - read: read com.apple.spaces spans-displays
+    write: write com.apple.spaces spans-displays -bool true
+    expected: '1'
+    description: System Preferences -> Mission Control -> Displays have separate Spaces
+    last_tested: '[10.11.5]'
+
   - read: read com.apple.TextEdit RichText
     write: write com.apple.TextEdit RichText -int 0
     expected: '0'
