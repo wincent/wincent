@@ -7,6 +7,7 @@
 	path = roles/dotfiles/files/.vim/pack/bundle/start/YouCompleteMe
 	url = https://github.com/wincent/YouCompleteMe.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/base16-vim"]
+	branch = 98aa775c5fd9156ada4f912a9af41f1c020da55d
 	path = roles/dotfiles/files/.vim/pack/bundle/start/base16-vim
 	url = https://github.com/chriskempson/base16-vim.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/command-t"]
