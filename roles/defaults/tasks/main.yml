@@ -16,3 +16,55 @@
   with_together:
     - '{{osx_defaults}}'
     - '{{existing_defaults.results}}'
+
+- name: defaults | System Preferences -> Users & Groups -> Login Options -> Show fast user switching menu as "Icon"
+  osx_defaults: key=userMenuExtraStyle type=int value=2
+
+- name: defaults | Activity Monitor -> View -> Dock Icon -> Show CPU History
+  osx_defaults: domain=com.apple.ActivityMonitor key=IconType type=int value=6
+
+- name: defaults | System Preferences -> Dock -> Automatically hide and show Dock
+  osx_defaults: domain=com.apple.dock key=autohide type=bool value=true
+
+- name: defaults | Finder Preferences -> Open folders in tabs instead of new windows
+  osx_defaults: domain=com.apple.finder key=FinderSpawnTab type=bool value=false
+
+- name: defaults | Finder Preferences -> New Finder windows show
+  osx_defaults: domain=com.apple.finder key=NewWindowTargetPath value=file:///Users/glh/
+
+- name: defaults | Finder Preferences -> Sidebar -> Tags -> Recent Tags
+  osx_defaults: domain=com.apple.finder key=ShowRecentTags type=bool value=false
+
+- name: defaults | System Preferences -> Sound -> Sound Effects -> Play user interface sound effects
+  osx_defaults: domain=com.apple.systemsound key=com.apple.sound.uiaudio.enabled type=int value=0
+
+- name: defaults | System Preferences -> Accessibility -> Display -> Reduce transparency
+  osx_defaults: domain=com.apple.universalaccess key=reduceTransparency type=bool value=false
+
+- name: defaults | System Preferences -> Accessibility -> Zoom -> Smooth images
+  osx_defaults: domain=com.apple.universalaccess key=closeViewSmoothImages type=bool value=false
+
+- name: defaults | System Preferences -> Accessibility -> Zoom -> Use scroll gesture with modifier keys to zoom (Control)
+  osx_defaults: domain={{ item.domain }}  key={{ item.key }}  type={{ item.type }}  value={{ item.value }}
+  with_items:
+    - domain: com.apple.universalaccess
+      key: closeViewScrollWheelToggle
+      type: bool
+      value: true
+    - domain: com.apple.driver.AppleBluetoothMultitouch.trackpad
+      key: HIDScrollZoomModifierMask
+      type: int
+      value: 262144
+    - domain: com.apple.AppleMultitouchTrackpad
+      key: HIDScrollZoomModifierMask
+      type: int
+      value: 262144
+
+- name: defaults | Hammerspoon preferences -> Show dock icon
+  osx_defaults: domain=org.hammerspoon.Hammerspoon key=MJShowDockIconKey type=bool value=false
+
+- name: defaults | Hammerspoon preferences -> Keep Console window on top
+  osx_defaults: domain=org.hammerspoon.Hammerspoon key=MJKeepConsoleOnTopKey type=bool value=true
+
+- name: defaults | Karabiner preferences -> Misc & Uninstall -> Miscellaneous -> Show icon in menu bar
+  osx_defaults: domain=org.pqrs.Karabiner key=isStatusbarEnable type=bool value=false
