@@ -1,8 +1,10 @@
-tap 'caskroom/cask'
+cask_args appdir: '/Applications'
+
 tap 'caskroom/versions'
-tap 'homebrew/brewdler'
+tap 'homebrew/bundle'
 tap 'homebrew/versions'
 tap 'neovim/neovim'
+
 brew 'ack'
 brew 'ant'
 brew 'aspcud'
@@ -24,7 +26,7 @@ brew 'cscope'
 brew 'ctags'
 brew 'dirmngr'
 brew 'elinks'
-brew 'emacs', args: ['with-cocoa'] # to link to /Applications, `brew linkapps emacs`
+brew 'emacs', args: ['with-cocoa']
 brew 'ffmpeg'
 brew 'fontconfig'
 brew 'freetype'
@@ -70,11 +72,12 @@ brew 'libusb'
 brew 'libusb-compat'
 brew 'libvo-aacenc'
 brew 'libyaml'
-brew 'libyubikey'
+#brew 'libyubikey'
 brew 'links'
 brew 'macvim'
 brew 'makedepend'
 brew 'mariadb'
+#brew 'mas'
 brew 'memcached'
 brew 'mldonkey'
 brew 'mobile-shell'
@@ -122,10 +125,11 @@ brew 'wget'
 brew 'x264'
 brew 'xvid'
 brew 'xz'
-brew 'ykpers'
+#brew 'ykpers'
 brew 'zsh'
+
 cask '1password-beta'
-#cask 'arq'
+cask 'arq'
 cask 'bartender'
 cask 'dropbox'
 cask 'firefox'
@@ -133,7 +137,7 @@ cask 'firefoxdeveloperedition'
 cask 'flux'
 cask 'google-chrome-canary'
 cask 'hammerspoon'
-#cask 'isolator'
+cask 'isolator'
 cask 'istat-menus'
 cask 'iterm2-nightly'
 cask 'java'
@@ -149,3 +153,22 @@ cask 'tcl'
 cask 'textmate'
 cask 'vlc'
 cask 'xquartz'
+
+#
+# mas (Mac App Store)
+#
+# mas is a neat idea, but in practice worse than just clicking
+# around in the app. Several apps fail to install, and others
+# are invisible to the search (replaced by newer, paid versions).
+#
+#mas 'Diagrammix', id: 418534796
+#mas 'Fantastical', id: 975937182
+#mas 'Kindle', id: 405399194
+#mas 'Marked 2', id: 890031187
+#mas 'Net Monitor', id: 480482806
+# ScreenFlow 4 (not listed) -> (now) ScreenFlow 6
+#mas 'Skitch', id: 425955336
+#mas 'Textual 5', id: 896450579
+#mas 'The Unarchiver', id: 425424353 # Fails
+#mas 'Wunderlist', id: 410628904 # Fails
+# xScope (not listed) -> (now) xScope 4
