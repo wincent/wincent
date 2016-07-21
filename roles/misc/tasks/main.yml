@@ -1,0 +1,6 @@
+---
+- name: misc | ensure directories exist
+  file: path={{ item }} state=directory
+  with_items:
+    - ~/Archives
+    - ~/Local

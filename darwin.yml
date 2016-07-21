@@ -11,6 +11,7 @@
     - { role: defaults, tags: ['defaults'] }
     - { role: ssh, tags: ['ssh'] }
     - { role: cron, tags: ['cron'] }
+    - { role: misc, tags: ['misc'] }
   vars:
     command_t_bundle: ext.bundle
     update_vim_bundle: true
