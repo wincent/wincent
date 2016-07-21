@@ -1,6 +1,6 @@
 " If UltiSnips' own "after" hook runs after us (and `:scriptnames` shows that it
 " does), don't let it overwrite us.
-let did_UltiSnips_after=1
+let b:did_after_plugin_ultisnips_after=1
 
 " Note: assuming here that `g:UltiSnipsExpandTrigger` and
 " `g:UltiSnipsJumpForwardTrigger` are the same.
