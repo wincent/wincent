@@ -4,3 +4,9 @@
   with_items:
     - ~/Archives
     - ~/Local
+
+- name: misc | touch ~/mbox
+  file: path=~/mbox state=touch
+
+- name: misc | hide ~/mbox
+  command: chflags hidden ~/mbox
