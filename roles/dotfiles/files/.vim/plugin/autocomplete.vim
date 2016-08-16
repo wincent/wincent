@@ -21,8 +21,11 @@ let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
 let g:ycm_key_list_accept_completion = ['<C-y>']
 
 " Additional UltiSnips config.
-let g:UltiSnipsSnippetsDir = '~/.vim/ultisnips'
-let g:UltiSnipsSnippetDirectories = ['ultisnips']
+let g:UltiSnipsSnippetsDir = $HOME . '/.vim/ultisnips'
+let g:UltiSnipsSnippetDirectories = [
+      \ $HOME . '/.vim/ultisnips',
+      \ $HOME . '/.vim/ultisnips-private'
+      \ ]
 
 " Additional YouCompleteMe config.
 let g:ycm_complete_in_comments = 1
