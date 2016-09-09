@@ -34,3 +34,15 @@ nnoremap <silent> <LocalLeader>c :syntax sync fromstart<CR>
 
 " <LocalLeader>e -- Edit file, starting in same directory as current file.
 nnoremap <LocalLeader>e :edit <C-R>=expand('%:p:h') . '/'<CR>
+
+" <LocalLeader>x -- Turn references to the word under the cursor to references
+" to the WORD under the cursor:
+"
+" eg. if the cursor is on the first "w":
+"
+"     [@wincent](https://github.com/wincent)
+"
+" Can be used to turn all references to "wincent" into links to "@wincent".
+"
+" (mnemonic: e[X]tract handle)
+nnoremap <LocalLeader>x :%s#\v<C-r><c-w>#<C-r><C-a>#gc<CR>
