@@ -100,7 +100,7 @@ if has('showcmd')
   set showcmd                         " extra info at end of command line
 endif
 
-set sidescrolloff=3                   " same as scolloff, but for columns
+set sidescrolloff=3                   " same as scrolloff, but for columns
 set smarttab                          " <tab>/<BS> indent/dedent in leading whitespace
 
 if v:progname !=# 'vi'
@@ -171,7 +171,7 @@ if has('virtualedit')
 endif
 set visualbell t_vb=                  " stop annoying beeping for non-error errors
 set whichwrap=b,h,l,s,<,>,[,],~       " allow <BS>/h/l/<Left>/<Right>/<Space>, ~ to cross line boundaries
-set wildcharm=<C-z>                   " substitue for 'wildchar' (<Tab>) in macros
+set wildcharm=<C-z>                   " substitute for 'wildchar' (<Tab>) in macros
 if has('wildignore')
   set wildignore+=*.o,*.rej           " patterns to ignore during file-navigation
 endif
