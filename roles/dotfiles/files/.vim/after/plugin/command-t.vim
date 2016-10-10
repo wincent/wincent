@@ -60,7 +60,7 @@ function! s:GotoOrOpen(command_and_args)
   " instead of switching to the other tab; but bufexists() sees hidden
   " buffers, and if we try to open one of those, we get an unwanted split.
   if bufwinnr(l:file) != -1 || (bufexists(l:file) && !s:BufHidden(l:file))
-    execute 'sb ' . l:file
+    execute 'sbuffer ' . l:file
   else
     execute l:command . l:file
   endif
