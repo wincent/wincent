@@ -38,6 +38,7 @@
 	path = roles/dotfiles/files/.vim/pack/bundle/start/tcomment_vim
 	url = https://github.com/tomtom/tcomment_vim.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/terminus"]
+	branch = next
 	path = roles/dotfiles/files/.vim/pack/bundle/start/terminus
 	url = https://github.com/wincent/terminus.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/ultisnips"]
