@@ -2,4 +2,6 @@
 let b:did_ftplugin=1
 execute 'setlocal statusline=' . g:WincentQuickfixStatusline
 
-setlocal colorcolumn=
+if exists('+colorcolumn')
+  setlocal colorcolumn=
+endif
