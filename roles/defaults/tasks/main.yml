@@ -183,7 +183,7 @@
 
 # Last tested: 10.11
 - name: defaults | System Preferences -> General -> Appearance -> Automatically hide and show the menu bar
-  osx_defaults: key=_HIHideMenuBar type=int value=1
+  osx_defaults: key=_HIHideMenuBar type=bool value=true
 
 # Last tested: 10.10
 - name: defaults | System Preferences -> General -> Appearance -> Graphite
@@ -192,18 +192,6 @@
 # Last tested: [10.10.2]
 - name: defaults | System Preferences -> General -> Click in scroll bar to -> Jump to the next page
   osx_defaults: key=AppleScrollerPagingBehavior type=int value=0
-
-# Last tested: [10.10.2]
-- name: defaults | System Preferences -> General -> Recent items
-  osx_defaults: domain=com.apple.recentitems key=RecentServers type=dict-add value=MaxAmount
-
-# Last tested: [10.10.2]
-- name: defaults | System Preferences -> General -> Recent items
-  osx_defaults: domain=com.apple.recentitems key=RecentDocuments type=dict-add value=MaxAmount
-
-# Last tested: [10.10.2]
-- name: defaults | System Preferences -> General -> Recent items
-  osx_defaults: domain=com.apple.recentitems key=RecentApplications type=dict-add value=MaxAmount
 
 # Last tested: [10.10.2]
 - name: defaults | System Preferences -> General -> Show scroll bars -> Automatically based on mouse or trackpad
