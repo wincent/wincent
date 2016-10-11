@@ -17,6 +17,10 @@
     - '{{osx_defaults}}'
     - '{{existing_defaults.results}}'
 
+# Many of these settings taken (or modified) from:
+#
+#   https://github.com/mathiasbynens/dotfiles/commits/master/.osx
+
 - name: defaults | System Preferences -> Users & Groups -> Login Options -> Show fast user switching menu as "Icon"
   osx_defaults: key=userMenuExtraStyle type=int value=2
 
@@ -68,3 +72,187 @@
 
 - name: defaults | Karabiner preferences -> Misc & Uninstall -> Miscellaneous -> Show icon in menu bar
   osx_defaults: domain=org.pqrs.Karabiner key=isStatusbarEnable type=bool value=false
+
+# Last tested: 10.9
+- name: defaults | Automatically quit printer app once the print jobs complete
+  osx_defaults: domain=com.apple.print.PrintingPrefs key="Quit When Finished" type=bool value=true
+
+# Last tested: [10.9]
+- name: defaults | Disable auto-correct
+  osx_defaults: key=NSAutomaticSpellingCorrectionEnabled type=bool value=false
+
+# Last tested: [10.9]
+- name: defaults | Disable press-and-hold for keys in favor of key repeat Requires logout.
+  osx_defaults: key=ApplePressAndHoldEnabled type=bool value=false
+
+# Last tested: [10.9]
+- name: defaults | Disable smart quotes, dashes, ellipses
+  osx_defaults: key=NSAutomaticDashSubstitutionEnabled type=bool value=false
+
+# Last tested: [10.9]
+- name: defaults | Disable smart quotes, dashes, ellipses
+  osx_defaults: key=NSAutomaticQuoteSubstitutionEnabled type=bool value=false
+
+# Last tested: [10.9]
+- name: defaults | Disable the warning when changing a file extension
+  osx_defaults: domain=com.apple.finder key=FXEnableExtensionChangeWarning type=bool value=false
+
+# Last tested: [10.9]
+- name: defaults | Don't display full POSIX path as Finder window title
+  osx_defaults: domain=com.apple.finder key=_FXShowPosixPathInTitle type=bool value=false
+
+# Last tested: [10.9]
+- name: defaults | Expand print panel by default
+  osx_defaults: key=PMPrintingExpandedStateForPrint type=bool value=true
+
+# Last tested: [10.9]
+- name: defaults | Expand print panel by default
+  osx_defaults: key=PMPrintingExpandedStateForPrint2 type=bool value=true
+
+# Last tested: [10.9]
+- name: defaults | Expand save panel by default
+  osx_defaults: key=NSNavPanelExpandedStateForSaveMode type=bool value=true
+
+# Last tested: [10.9]
+- name: defaults | Expand save panel by default
+  osx_defaults: key=NSNavPanelExpandedStateForSaveMode2 type=bool value=true
+
+# Last tested: [10.10.2]
+- name: defaults | Finder -> Preferences -> General -> Spring-loaded folders and windows
+  osx_defaults: key=com.apple.springing.enabled type=bool value=true
+
+# Last tested: [10.10.2]
+- name: defaults | Finder -> Preferences -> General -> Spring-loaded folders and windows -> Delay (short)
+  osx_defaults: key=com.apple.springing.delay type=float value=0
+
+# Last tested: [10.9]
+- name: defaults | Finder -> allow quitting via Command-Q; doing so will also hide desktop icons
+  osx_defaults: domain=com.apple.finder key=QuitMenuItem type=bool value=true
+
+# Last tested: [10.9]
+- name: defaults | Finder -> allow text selection in Quick Look
+  osx_defaults: domain=com.apple.finder key=QLEnableTextSelection type=bool value=true
+
+# Last tested: [10.9]
+- name: defaults | Finder -> disable window animations and Get Info animations
+  osx_defaults: domain=com.apple.finder key=DisableAllAnimations type=bool value=true
+
+# Last tested: [10.9]
+- name: defaults | Finder -> show all filename extensions
+  osx_defaults: key=AppleShowAllExtensions type=bool value=true
+
+# Last tested: [10.9]
+- name: defaults | Finder -> show path bar
+  osx_defaults: domain=com.apple.finder key=ShowPathbar type=bool value=true
+
+# Last tested: [10.9]
+- name: defaults | Finder -> show status bar
+  osx_defaults: domain=com.apple.finder key=ShowStatusBar type=bool value=true
+
+# Last tested: [10.10.2]
+- name: defaults | Make sheets drop down (almost) instantly
+  osx_defaults: key=NSWindowResizeTime type=float value=0.001
+
+# Last tested: [10.9]
+- name: defaults | Require password immediately after sleep or screen saver begins
+  osx_defaults: domain=com.apple.screensaver key=askForPassword type=int value=1
+
+# Last tested: [10.9]
+- name: defaults | Require password immediately after sleep or screen saver begins
+  osx_defaults: domain=com.apple.screensaver key=askForPasswordDelay type=int value=0
+
+# Last tested: 10.10
+- name: defaults | System Preferences -> Accessibility -> Display -> Reduce Transparency
+  osx_defaults: domain=com.apple.universalaccess key=reduceTransparency type=bool value=true
+
+# Last tested: [10.10.2]
+- name: defaults | System Preferences -> Desktop & Screen Saver -> Screen Saver -> Hot Corners -> [Bottom Left] Start Screen Saver
+  osx_defaults: domain=com.apple.dock key=wvous-bl-corner type=int value=5
+
+# Last tested: [10.10.2]
+- name: defaults | System Preferences -> Desktop & Screen Saver -> Screen Saver -> Hot Corners -> [Top Right] Disable Screen Saver
+  osx_defaults: domain=com.apple.dock key=wvous-tr-corner type=int value=6
+
+# Last tested: [10.10.2]
+- name: defaults | System Preferences -> Desktop & Screen Saver -> Screen Saver -> Show with clock
+  osx_defaults: domain=com.apple.screensaver host=currentHost key=showClock type=int value=1
+
+# Last tested: [10.10.2]
+- name: defaults | System Preferences -> Desktop & Screen Saver -> Screen Saver -> Start after -> 5 Minutes
+  osx_defaults: domain=com.apple.screensaver host=currentHost key=idleTime type=int value=300
+
+# Last tested: 10.11
+- name: defaults | System Preferences -> General -> Appearance -> Automatically hide and show the menu bar
+  osx_defaults: key=_HIHideMenuBar type=int value=1
+
+# Last tested: 10.10
+- name: defaults | System Preferences -> General -> Appearance -> Graphite
+  osx_defaults: key=AppleAquaColorVariant type=int value=6
+
+# Last tested: [10.10.2]
+- name: defaults | System Preferences -> General -> Click in scroll bar to -> Jump to the next page
+  osx_defaults: key=AppleScrollerPagingBehavior type=int value=0
+
+# Last tested: [10.10.2]
+- name: defaults | System Preferences -> General -> Recent items
+  osx_defaults: domain=com.apple.recentitems key=RecentServers type=dict-add value=MaxAmount
+
+# Last tested: [10.10.2]
+- name: defaults | System Preferences -> General -> Recent items
+  osx_defaults: domain=com.apple.recentitems key=RecentDocuments type=dict-add value=MaxAmount
+
+# Last tested: [10.10.2]
+- name: defaults | System Preferences -> General -> Recent items
+  osx_defaults: domain=com.apple.recentitems key=RecentApplications type=dict-add value=MaxAmount
+
+# Last tested: [10.10.2]
+- name: defaults | System Preferences -> General -> Show scroll bars -> Automatically based on mouse or trackpad
+  osx_defaults: key=AppleShowScrollBars type=string value=Automatic
+
+# Last tested: [10.10.2]
+- name: defaults | System Preferences -> General -> Sidebar icon size -> Small
+  osx_defaults: key=NSTableViewDefaultSizeMode type=int value=1
+
+# Last tested: [10.10.2]
+- name: defaults | System Preferences -> General -> [Don't] Ask to keep changes when closing documents
+  osx_defaults: key=NSCloseAlwaysConfirmsChanges type=int value=0
+
+# Last tested: [10.10.2]
+- name: defaults | System Preferences -> General -> [Don't] Close windows when quitting an app
+  osx_defaults: key=NSQuitAlwaysKeepsWindows type=int value=0
+
+# Last tested: [10.11.5]
+- name: defaults | System Preferences -> Mission Control -> Displays have separate Spaces
+  osx_defaults: domain=com.apple.spaces key=spans-displays type=bool value=true
+
+# Last tested: [10.10.2]
+- name: defaults | System Preferences -> Sound -> Sound Effects -> Play feedback when volume is changed
+  osx_defaults: key=com.apple.sound.beep.feedback type=bool value=false
+
+# Last tested: 10.9
+- name: defaults | Tweak subpixel font rendering (https://wincent.com/wiki/AppleFontSmoothing)
+  osx_defaults: host=currentHost key=AppleFontSmoothing type=int value=1
+
+# Last tested: [10.9]
+- name: defaults | Use plain text mode for new TextEdit documents
+  osx_defaults: domain=com.apple.TextEdit key=RichText type=int value=0
+
+# Last tested: 2.9.20150224-nightly
+- name: defaults | iTerm2 -> Preferences -> Advanced -> Tabs -> Preferred tab width
+  osx_defaults: domain=com.googlecode.iterm2 key=OptimumTabWidth type=int value=275
+
+# Last tested: 2.9.20150224-nightly
+- name: defaults | iTerm2 -> Preferences -> Appearance -> Hide scrollbars
+  osx_defaults: domain=com.googlecode.iterm2 key=HideScrollbar type=bool value=true
+
+# Last tested: 2.9.20150224-nightly
+- name: defaults | iTerm2 -> Preferences -> Appearance -> Hide tab activity indicator
+  osx_defaults: domain=com.googlecode.iterm2 key=HideActivityIndicator type=bool value=true
+
+# Last tested: 2.9.20150224-nightly
+- name: defaults | iTerm2 -> Preferences -> General -> Adjust window when changing font size
+  osx_defaults: domain=com.googlecode.iterm2 key=AdjustWindowForFontSizeChange type=bool value=false
+
+# Last tested: 2.9.20150224-nightly
+- name: defaults | iTerm2 -> Preferences -> General -> Native full screen windows
+  osx_defaults: domain=com.googlecode.iterm2 key=UseLionStyleFullscreen type=bool value=false
