@@ -21,57 +21,8 @@
 #
 #   https://github.com/mathiasbynens/dotfiles/commits/master/.osx
 
-- name: defaults | System Preferences -> Users & Groups -> Login Options -> Show fast user switching menu as "Icon"
-  osx_defaults: key=userMenuExtraStyle type=int value=2
-
 - name: defaults | Activity Monitor -> View -> Dock Icon -> Show CPU History
   osx_defaults: domain=com.apple.ActivityMonitor key=IconType type=int value=6
-
-- name: defaults | System Preferences -> Dock -> Automatically hide and show Dock
-  osx_defaults: domain=com.apple.dock key=autohide type=bool value=true
-
-- name: defaults | Finder Preferences -> Open folders in tabs instead of new windows
-  osx_defaults: domain=com.apple.finder key=FinderSpawnTab type=bool value=false
-
-- name: defaults | Finder Preferences -> New Finder windows show
-  osx_defaults: domain=com.apple.finder key=NewWindowTargetPath value=file:///Users/glh/
-
-- name: defaults | Finder Preferences -> Sidebar -> Tags -> Recent Tags
-  osx_defaults: domain=com.apple.finder key=ShowRecentTags type=bool value=false
-
-- name: defaults | System Preferences -> Sound -> Sound Effects -> Play user interface sound effects
-  osx_defaults: domain=com.apple.systemsound key=com.apple.sound.uiaudio.enabled type=int value=0
-
-- name: defaults | System Preferences -> Accessibility -> Display -> Reduce transparency
-  osx_defaults: domain=com.apple.universalaccess key=reduceTransparency type=bool value=false
-
-- name: defaults | System Preferences -> Accessibility -> Zoom -> Smooth images
-  osx_defaults: domain=com.apple.universalaccess key=closeViewSmoothImages type=bool value=false
-
-- name: defaults | System Preferences -> Accessibility -> Zoom -> Use scroll gesture with modifier keys to zoom (Control)
-  osx_defaults: domain={{ item.domain }}  key={{ item.key }}  type={{ item.type }}  value={{ item.value }}
-  with_items:
-    - domain: com.apple.universalaccess
-      key: closeViewScrollWheelToggle
-      type: bool
-      value: true
-    - domain: com.apple.driver.AppleBluetoothMultitouch.trackpad
-      key: HIDScrollZoomModifierMask
-      type: int
-      value: 262144
-    - domain: com.apple.AppleMultitouchTrackpad
-      key: HIDScrollZoomModifierMask
-      type: int
-      value: 262144
-
-- name: defaults | Hammerspoon preferences -> Show dock icon
-  osx_defaults: domain=org.hammerspoon.Hammerspoon key=MJShowDockIconKey type=bool value=false
-
-- name: defaults | Hammerspoon preferences -> Keep Console window on top
-  osx_defaults: domain=org.hammerspoon.Hammerspoon key=MJKeepConsoleOnTopKey type=bool value=true
-
-- name: defaults | Karabiner preferences -> Misc & Uninstall -> Miscellaneous -> Show icon in menu bar
-  osx_defaults: domain=org.pqrs.Karabiner key=isStatusbarEnable type=bool value=false
 
 # Last tested: 10.9
 - name: defaults | Automatically quit printer app once the print jobs complete
@@ -118,12 +69,12 @@
   osx_defaults: key=NSNavPanelExpandedStateForSaveMode2 type=bool value=true
 
 # Last tested: [10.10.2]
-- name: defaults | Finder -> Preferences -> General -> Spring-loaded folders and windows
-  osx_defaults: key=com.apple.springing.enabled type=bool value=true
-
-# Last tested: [10.10.2]
 - name: defaults | Finder -> Preferences -> General -> Spring-loaded folders and windows -> Delay (short)
   osx_defaults: key=com.apple.springing.delay type=float value=0
+
+# Last tested: [10.10.2]
+- name: defaults | Finder -> Preferences -> General -> Spring-loaded folders and windows
+  osx_defaults: key=com.apple.springing.enabled type=bool value=true
 
 # Last tested: [10.9]
 - name: defaults | Finder -> allow quitting via Command-Q; doing so will also hide desktop icons
@@ -149,6 +100,24 @@
 - name: defaults | Finder -> show status bar
   osx_defaults: domain=com.apple.finder key=ShowStatusBar type=bool value=true
 
+- name: defaults | Finder Preferences -> New Finder windows show
+  osx_defaults: domain=com.apple.finder key=NewWindowTargetPath value=file:///Users/glh/
+
+- name: defaults | Finder Preferences -> Open folders in tabs instead of new windows
+  osx_defaults: domain=com.apple.finder key=FinderSpawnTab type=bool value=false
+
+- name: defaults | Finder Preferences -> Sidebar -> Tags -> Recent Tags
+  osx_defaults: domain=com.apple.finder key=ShowRecentTags type=bool value=false
+
+- name: defaults | Hammerspoon preferences -> Keep Console window on top
+  osx_defaults: domain=org.hammerspoon.Hammerspoon key=MJKeepConsoleOnTopKey type=bool value=true
+
+- name: defaults | Hammerspoon preferences -> Show dock icon
+  osx_defaults: domain=org.hammerspoon.Hammerspoon key=MJShowDockIconKey type=bool value=false
+
+- name: defaults | Karabiner preferences -> Misc & Uninstall -> Miscellaneous -> Show icon in menu bar
+  osx_defaults: domain=org.pqrs.Karabiner key=isStatusbarEnable type=bool value=false
+
 # Last tested: [10.10.2]
 - name: defaults | Make sheets drop down (almost) instantly
   osx_defaults: key=NSWindowResizeTime type=float value=0.001
@@ -165,6 +134,28 @@
 - name: defaults | System Preferences -> Accessibility -> Display -> Reduce Transparency
   osx_defaults: domain=com.apple.universalaccess key=reduceTransparency type=bool value=true
 
+- name: defaults | System Preferences -> Accessibility -> Display -> Reduce transparency
+  osx_defaults: domain=com.apple.universalaccess key=reduceTransparency type=bool value=false
+
+- name: defaults | System Preferences -> Accessibility -> Zoom -> Smooth images
+  osx_defaults: domain=com.apple.universalaccess key=closeViewSmoothImages type=bool value=false
+
+- name: defaults | System Preferences -> Accessibility -> Zoom -> Use scroll gesture with modifier keys to zoom (Control)
+  osx_defaults: domain={{ item.domain }}  key={{ item.key }}  type={{ item.type }}  value={{ item.value }}
+  with_items:
+    - domain: com.apple.universalaccess
+      key: closeViewScrollWheelToggle
+      type: bool
+      value: true
+    - domain: com.apple.driver.AppleBluetoothMultitouch.trackpad
+      key: HIDScrollZoomModifierMask
+      type: int
+      value: 262144
+    - domain: com.apple.AppleMultitouchTrackpad
+      key: HIDScrollZoomModifierMask
+      type: int
+      value: 262144
+
 # Last tested: [10.10.2]
 - name: defaults | System Preferences -> Desktop & Screen Saver -> Screen Saver -> Hot Corners -> [Bottom Left] Start Screen Saver
   osx_defaults: domain=com.apple.dock key=wvous-bl-corner type=int value=5
@@ -180,6 +171,9 @@
 # Last tested: [10.10.2]
 - name: defaults | System Preferences -> Desktop & Screen Saver -> Screen Saver -> Start after -> 5 Minutes
   osx_defaults: domain=com.apple.screensaver host=currentHost key=idleTime type=int value=300
+
+- name: defaults | System Preferences -> Dock -> Automatically hide and show Dock
+  osx_defaults: domain=com.apple.dock key=autohide type=bool value=true
 
 # Last tested: 10.11
 - name: defaults | System Preferences -> General -> Appearance -> Automatically hide and show the menu bar
@@ -216,6 +210,12 @@
 # Last tested: [10.10.2]
 - name: defaults | System Preferences -> Sound -> Sound Effects -> Play feedback when volume is changed
   osx_defaults: key=com.apple.sound.beep.feedback type=bool value=false
+
+- name: defaults | System Preferences -> Sound -> Sound Effects -> Play user interface sound effects
+  osx_defaults: domain=com.apple.systemsound key=com.apple.sound.uiaudio.enabled type=int value=0
+
+- name: defaults | System Preferences -> Users & Groups -> Login Options -> Show fast user switching menu as "Icon"
+  osx_defaults: key=userMenuExtraStyle type=int value=2
 
 # Last tested: 10.9
 - name: defaults | Tweak subpixel font rendering (https://wincent.com/wiki/AppleFontSmoothing)
