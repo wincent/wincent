@@ -2,8 +2,10 @@
 " Settings.
 "
 
-if &term =~# 'screen' || &term =~# 'xterm'
+if &term =~# 'screen' || &term =~# 'tmux' || &term =~# 'xterm'
   let g:CommandTCancelMap=['<ESC>', '<C-c>']
+  let g:CommandTSelectNextMap = ['<C-n>', '<C-j>', '<Down>', '<ESC>OB']
+  let g:CommandTSelectPrevMap = ['<C-p>', '<C-k>', '<Up>', '<ESC>OA']
 endif
 
 let g:CommandTEncoding='UTF-8'
