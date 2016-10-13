@@ -119,6 +119,7 @@ if has('vertsplit')
   set splitright                      " open vertical splits to the right of the current window
 endif
 
+set swapsync=                         " let OS sync swapfiles lazily
 set switchbuf=usetab                  " try to reuse windows/tabs when switching buffers
 set tabstop=2                         " spaces per tab
 
@@ -138,6 +139,8 @@ if has('persistent_undo')
     set undofile                      " actually use undo files
   endif
 endif
+
+set updatecount=80                    " update swapfiles every 80 typed chars
 
 if has('viminfo')
   if exists('$SUDO_USER')
