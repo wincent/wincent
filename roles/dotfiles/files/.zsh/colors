@@ -25,6 +25,15 @@ color() {
       echo "$SCHEME" >! "$BASE16_CONFIG"
       echo "$BACKGROUND" >> "$BASE16_CONFIG"
       "$FILE"
+
+      if [ -n "$TMUX" ]; then
+        local BG=$(grep color_background= "$FILE" | cut -d \" -f2 | sed -e 's#/##g')
+        local CC=$(grep color18= "$FILE" | cut -d \" -f2 | sed -e 's#/##g')
+        if [ -n "$BG" -a -n "$CC" ]; then
+          command tmux set window-active-style "bg=#$BG"
+          command tmux set window-style "bg=#$CC"
+        fi
+      fi
     else
       echo "Scheme '$SCHEME' not found in $BASE16_DIR"
       return 1
