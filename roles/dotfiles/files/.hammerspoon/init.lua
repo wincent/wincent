@@ -60,6 +60,11 @@ local layoutConfig = {
     end
   end),
 
+  ['com.github.atom'] = (function(window)
+    -- Leave room for simulator to the right.
+    hs.grid.set(window, grid.leftTwoThirds, internalDisplay())
+  end),
+
   ['com.google.Chrome'] = (function(window, forceScreenCount)
     local count = forceScreenCount or screenCount
     if count == 1 then
