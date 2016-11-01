@@ -97,7 +97,7 @@ if has('linebreak')
 endif
 
 if has('showcmd')
-  set showcmd                         " extra info at end of command line
+  set noshowcmd                       " don't show extra info at end of command line
 endif
 
 set sidescrolloff=3                   " same as scrolloff, but for columns
