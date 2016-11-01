@@ -43,6 +43,9 @@ alias -s md='open -a "Marked 2.app"'
 # Global aliases
 # (work at any position within the command line)
 #
-#alias -g L="|less"
 
+# Mnemonic: "[L]ess"
+alias -g L="|less"
+
+# Mnemonic: "[R]eset"
 alias -g R=";clear;test -n "$TMUX" && tmux clear-history;"
