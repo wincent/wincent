@@ -253,6 +253,8 @@ function report-start-time() {
 
 add-zsh-hook precmd report-start-time
 
+add-zsh-hook precmd bounce
+
 function auto-ls-after-cd() {
   emulate -L zsh
   # Only in response to a user-initiated `cd`, not indirectly (eg. via another
