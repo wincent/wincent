@@ -44,3 +44,5 @@ alias -s md='open -a "Marked 2.app"'
 # (work at any position within the command line)
 #
 #alias -g L="|less"
+
+alias -g R=";clear;test -n "$TMUX" && tmux clear-history;"
