@@ -3,7 +3,8 @@
 " Toggle fold at current position.
 nnoremap <Tab> za
 
-nnoremap <silent> <CR> :call mappings#normal#repeatlastmacro()<CR>
+" Replay last macro, or @q if no specific last macro has been previously played.
+nnoremap <expr> <silent> <CR> empty(&buftype) ? ':call mappings#normal#repeatlastmacro()<CR>' : '<CR>'
 
 " Relying on Karabiner to avoid collision between <Tab> and <C-i> (have it send
 " F6 instead for <C-i>).
