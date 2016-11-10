@@ -48,3 +48,11 @@ function! functions#sortgitmodules(...) abort
     echomsg 'Not a "gitconfig" file: use `functions#sortgitmodules(1)` to force'
   endif
 endfunction
+
+" http://stackoverflow.com/a/39348498/2103996
+function! functions#clearregisters() abort
+  let l:regs=split('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-"', '\zs')
+  for l:reg in l:regs
+    call setreg(l:reg, [])
+  endfor
+endfunction
