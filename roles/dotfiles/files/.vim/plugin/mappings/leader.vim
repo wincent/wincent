@@ -17,7 +17,7 @@ nnoremap <Leader>q :quit<CR>
 
 " <Leader>r -- Cycle through relativenumber + number, number (only), and no
 " numbering (mnemonic: relative).
-nnoremap <silent> <Leader>r :call mappings#cycle_numbering()<CR>
+nnoremap <silent> <Leader>r :call mappings#leader#cycle_numbering()<CR>
 
 nnoremap <Leader>w :write<CR>
 nnoremap <Leader>x :xit<CR>
@@ -26,7 +26,7 @@ nnoremap <Leader>x :xit<CR>
 "
 "        As this one is somewhat destructive and relatively close to the
 "        oft-used <leader>a mapping, make this one a double key-stroke.
-nnoremap <silent> <Leader>zz :call mappings#zap()<CR>
+nnoremap <silent> <Leader>zz :call mappings#leader#zap()<CR>
 
 " <LocalLeader>c -- Fix (most) syntax highlighting problems in current buffer
 " (mnemonic: coloring).

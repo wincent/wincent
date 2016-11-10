@@ -1,5 +1,5 @@
 " Cycle through relativenumber + number, number (only), and no numbering.
-function! mappings#cycle_numbering() abort
+function! mappings#leader#cycle_numbering() abort
   if exists('+relativenumber')
     execute {
           \ '00': 'set relativenumber   | set number',
@@ -13,7 +13,7 @@ function! mappings#cycle_numbering() abort
 endfunction
 
 " Zap trailing whitespace.
-function! mappings#zap() abort
+function! mappings#leader#zap() abort
   let l:pos=getcurpos()
   let l:search=@/
   keepjumps %substitute/\s\+$//e
