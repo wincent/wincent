@@ -151,6 +151,8 @@ cask 'steam'
 cask 'superduper'
 cask 'tcl'
 cask 'textmate'
+cask 'transmission'
+cask 'tunnelblick'
 cask 'vlc'
 cask 'xquartz'
 
