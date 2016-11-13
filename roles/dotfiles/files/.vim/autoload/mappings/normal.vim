@@ -38,8 +38,13 @@ function! mappings#normal#repeat_last_macro() abort
   " running `mappings#normal#spy_on_registers()`.
   if s:last_register != ''
     call feedkeys('@' . s:last_register, 'n')
+    let s:last_register=''
   else
-    " Last resort.
-    call feedkeys('@q', 'n')
+    try
+      normal @@
+    catch /E748/ " No previously used register.
+      " Last resort.
+      call feedkeys('@q', 'n')
+    endtry
   endif
 endfunction

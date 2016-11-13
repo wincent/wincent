@@ -3,7 +3,7 @@
 " Toggle fold at current position.
 nnoremap <Tab> za
 
-" Replay last-recorded macro, or @q if no specific last macro has been previously played.
+" Replay last-recorded macro, or @q if no specific last macro has been previously recorded.
 nnoremap <expr> <silent> <CR> empty(&buftype) ? ':call mappings#normal#repeat_last_macro()<CR>' : '<CR>'
 
 " Try to figure out which macro was the last updated.
