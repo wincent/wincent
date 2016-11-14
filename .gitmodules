@@ -134,3 +134,6 @@
 [submodule "vendor/base16-iterm2"]
 	path = vendor/base16-iterm2
 	url = https://github.com/chriskempson/base16-iterm2.git
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/replay"]
+	path = roles/dotfiles/files/.vim/pack/bundle/start/replay
+	url = https://github.com/wincent/replay.git
