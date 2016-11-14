@@ -1,3 +1,6 @@
+" Copyright 2016-present Greg Hurrell. All rights reserved.
+" Licensed under the terms of the MIT license.
+
 let s:registers={}
 let s:last_register=''
 let s:is_recording=0
