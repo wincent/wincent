@@ -21,21 +21,21 @@ function! s:StoreAndCheckRegisters() abort
 endfunction
 
 " Function called whenever we stop and start recording a macro.
-function! mappings#normal#spy_on_registers() abort
+function! replay#spy_on_registers() abort
   let s:is_recording=!s:is_recording
   call s:StoreAndCheckRegisters()
   return 'q'
 endfunction
 
 " Function called when user presses <CR> to repeat last macro.
-function! mappings#normal#repeat_last_macro() abort
+function! replay#repeat_last_macro() abort
   if s:is_recording
     call feedkeys("\<CR>", 'n')
     return
   endif
   call s:StoreAndCheckRegisters()
   " Don't use `normal @q` so as to avoid remapping the `q` and
-  " running `mappings#normal#spy_on_registers()`.
+  " running `replay#spy_on_registers()`.
   if s:last_register != ''
     call feedkeys('@' . s:last_register, 'n')
     let s:last_register=''
