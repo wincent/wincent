@@ -50,10 +50,6 @@ if has('statusline')
   set statusline+=%{virtcol('$')} " Line width in virtual columns.
   set statusline+=\               " Space.
   set statusline+=%*              " Reset highlight group.
-  set statusline+=%6*             " Switch to User6 highlight group.
-  set statusline+=%p              " Percentage through buffer.
-  set statusline+=%%              " Literal %.
-  set statusline+=%*              " Reset highlight group.
 
   if has('autocmd')
     augroup WincentStatusline
