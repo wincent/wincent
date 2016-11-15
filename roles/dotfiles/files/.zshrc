@@ -91,11 +91,23 @@ function +vi-git-untracked() {
 
 RPROMPT_BASE="\${vcs_info_msg_0_}%F{blue}%~%f"
 setopt PROMPT_SUBST
-# Note use a non-breaking space at the end of the prompt because we can use it as
-# a find pattern to jump back in tmux.
-export PS1="%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%1~%(?..%F{yellow}%B!%b%f)%F{red}%B%(!.#.$)%b%f "
+
+# Anonymous function to avoid leaking NBSP variable.
+function () {
+  if [[ -n "$TMUX" ]]; then
+    # Note use a non-breaking space at the end of the prompt because we can use it as
+    # a find pattern to jump back in tmux.
+    local NBSP=' '
+    export PS1="%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%1~%(?..%F{yellow}%B!%b%f)%F{red}%B%(!.#.$)%b%f$NBSP"
+    export ZLE_RPROMPT_INDENT=0
+  else
+    # Don't bother with ZLE_RPROMPT_INDENT here, because it ends up eating the
+    # space after PS1.
+    export PS1="%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%1~%(?..%F{yellow}%B!%b%f)%F{red}%B%(!.#.$)%b%f "
+  fi
+}
+
 export RPROMPT=$RPROMPT_BASE
-export ZLE_RPROMPT_INDENT=0
 export SPROMPT="zsh: correct %F{red}'%R'%f to %F{red}'%r'%f [%B%Uy%u%bes, %B%Un%u%bo, %B%Ue%u%bdit, %B%Ua%u%bbort]? "
 
 #
