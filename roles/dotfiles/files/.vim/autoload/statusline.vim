@@ -31,6 +31,31 @@ function! statusline#fenc() abort
   endif
 endfunction
 
+function! statusline#lhs() abort
+  let l:line=statusline#gutterpadding(1)
+  if winwidth(0) > 40
+    let l:line.=bufnr('')
+    let l:line.=' '
+  endif
+  return l:line
+endfunction
+
+function! statusline#rhs() abort
+  let l:line=' '
+  if winwidth(0) > 80
+    let l:line.='ℓ ' " (Literal, \u2113 "SCRIPT SMALL L").
+    let l:line.=line('.')
+    let l:line.='/'
+    let l:line.=line('$')
+    let l:line.=' 𝚌 ' " (Literal, \u1d68c "MATHEMATICAL MONOSPACE SMALL C").
+    let l:line.=virtcol('.')
+    let l:line.='/'
+    let l:line.=virtcol('$')
+    let l:line.=' '
+  endif
+  return l:line
+endfunction
+
 let s:wincent_statusline_status_highlight='Identifier'
 
 function! statusline#async_start() abort
