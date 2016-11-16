@@ -5,7 +5,7 @@ hs.window.animationDuration = 0 -- disable animations
 
 local screenCount = #hs.screen.allScreens()
 local logLevel = 'info' -- generally want 'debug' or 'info'
-local log = hs.logger.new('wincent', logLevel)
+local log = hs.logger.new('wincent', logLevel) -- log with log.w or similar
 
 local grid = {
   topHalf = '0,0 12x6',
@@ -349,6 +349,10 @@ end
 -- `open hammerspoon://screencast`
 hs.urlevent.bind('screencast', prepareScreencast)
 
+--
+-- General utility
+--
+
 function table.val_to_str ( v )
   if "string" == type( v ) then
     v = string.gsub( v, "\n", "\\n" )
@@ -423,17 +427,30 @@ local returnChording = false
 local repeatThreshold = .5
 local syntheticEvent = 94025 -- magic number chosen "at random"
 local eventSourceUserData = hs.eventtap.event.properties['eventSourceUserData']
+local keyboardEventKeyboardType = hs.eventtap.event.properties['keyboardEventKeyboardType']
+local internalKeyboardType = 43
+local externalKeyboardType = 40
 
 function keyDownHandler(evt)
+  local keyboardType = evt:getProperty(keyboardEventKeyboardType)
   local userData = evt:getProperty(eventSourceUserData)
   if userData == syntheticEvent then
     return
   end
   local flags = evt:getFlags()
+  local keyCode = evt:getKeyCode()
+  if keyCode == hs.keycodes.map['i'] then
+    if deepEquals(flags, {ctrl = true}) then
+      local frontmost = hs.application.frontmostApplication():bundleID()
+      if frontmost == 'com.googlecode.iterm2' or frontmost == 'org.vim.MacVim' then
+        hs.eventtap.event.newKeyEvent({}, 'f6', true):setProperty(eventSourceUserData, syntheticEvent):post()
+        return true
+      end
+    end
+  end
   if not deepEquals(flags, {}) then
     return
   end
-  local keyCode = evt:getKeyCode()
   local when = hs.timer.secondsSinceEpoch()
   if keyCode == hs.keycodes.map['return'] then
     if not returnInitialDown then
