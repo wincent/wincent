@@ -3,9 +3,10 @@ hs.grid.MARGINX = 0
 hs.grid.MARGINY = 0
 hs.window.animationDuration = 0 -- disable animations
 
+local events = require 'events'
+local log = require 'log'
+
 local screenCount = #hs.screen.allScreens()
-local logLevel = 'info' -- generally want 'debug' or 'info'
-local log = hs.logger.new('wincent', logLevel) -- log with log.w or similar
 
 local grid = {
   topHalf = '0,0 12x6',
@@ -220,6 +221,7 @@ function tearDownEventHandling()
 end
 
 initEventHandling()
+events.subscribe('reload', tearDownEventHandling)
 
 local lastSeenChain = nil
 local lastSeenWindow = nil

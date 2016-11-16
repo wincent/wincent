@@ -2,6 +2,9 @@
 -- Auto-reload config on change.
 --
 
+local events = require 'events'
+local log = require 'log'
+
 local function reloadConfig(files)
   local reload = false
   for _, file in pairs(files) do
@@ -10,14 +13,17 @@ local function reloadConfig(files)
     end
   end
   if reload then
-    -- TODO: publish a global event
-    -- tearDownEventHandling()
+    events.emit('reload')
     hs.reload()
   end
 end
 
 return {
   init = (function()
-    hs.pathwatcher.new(os.getenv('HOME') .. '/.hammerspoon/', reloadConfig):start()
+    local watcher = hs.pathwatcher.new(
+      os.getenv('HOME') .. '/.hammerspoon/',
+      reloadConfig
+    )
+    watcher:start()
   end)
 }
