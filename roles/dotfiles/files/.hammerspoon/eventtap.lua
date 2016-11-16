@@ -19,7 +19,13 @@ local syntheticEvent = 94025 -- magic number chosen "at random"
 local eventSourceUserData = hs.eventtap.event.properties['eventSourceUserData']
 local keyboardEventKeyboardType = hs.eventtap.event.properties['keyboardEventKeyboardType']
 local internalKeyboardType = 43
-local externalKeyboardType = 40
+local externalKeyboardType = 40 -- YubiKey as well...
+
+-- These are keys that do one thing when tapped but act like modifiers when
+-- chorded.
+local conditionalKeys = {}
+-- "return" is a reserved word, so have to use longhand:
+conditionalKeys['return'] = {}
 
 local function keyHandler(evt)
   local userData = evt:getProperty(eventSourceUserData)
