@@ -448,7 +448,7 @@ function keyDownHandler(evt)
     end
   else
     if returnInitialDown then
-      if when - returnInitialDown < repeatThreshold then
+      if returnChording or when - returnInitialDown < repeatThreshold then
         returnChording = true
         local synthetic = evt:copy()
         synthetic:setFlags({ctrl = true})
