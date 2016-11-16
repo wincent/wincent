@@ -3,6 +3,7 @@ hs.grid.MARGINX = 0
 hs.grid.MARGINY = 0
 hs.window.animationDuration = 0 -- disable animations
 
+local deepEquals = require 'deepEquals'
 local events = require 'events'
 local log = require 'log'
 
@@ -389,34 +390,6 @@ function table.tostring( tbl )
     end
   end
   return "{" .. table.concat( result, "," ) .. "}"
-end
-
-function deepEquals(a, b)
-  local typeA = type(a)
-  local typeB = type(b)
-  if typeA ~= typeB then
-    return false
-  end
-  if typeA ~= 'table' then
-    return a == b
-  end
-  local meta = getmetatable(a)
-  if meta and meta.__eq then
-    return a == b
-  end
-  for k, v in pairs(a) do
-    local other = b[k]
-    if other == nil or not deepEquals(v, other) then
-      return false
-    end
-  end
-  for k, v in pairs(b) do
-    local other = a[k]
-    if other == nil or not deepEquals(v, other) then
-      return false
-    end
-  end
-  return true
 end
 
 -- Trying to limp along without Karabiner in Sierra.
