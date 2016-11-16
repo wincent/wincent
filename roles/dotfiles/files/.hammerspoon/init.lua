@@ -511,21 +511,5 @@ keyDownTap:start()
 keyUpTap = hs.eventtap.new({hs.eventtap.event.types.keyUp}, keyUpHandler)
 keyUpTap:start()
 
---
--- Auto-reload config on change.
---
-
-function reloadConfig(files)
-  local reload = false
-  for _, file in pairs(files) do
-    if file:sub(-4) == '.lua' then
-      reload = true
-    end
-  end
-  if reload then
-    tearDownEventHandling()
-    hs.reload()
-  end
-end
-
-local pathwatcher = hs.pathwatcher.new(os.getenv('HOME') .. '/.hammerspoon/', reloadConfig):start()
+local reloader = require 'reloader'
+reloader.init()
