@@ -349,6 +349,151 @@ end
 -- `open hammerspoon://screencast`
 hs.urlevent.bind('screencast', prepareScreencast)
 
+function table.val_to_str ( v )
+  if "string" == type( v ) then
+    v = string.gsub( v, "\n", "\\n" )
+    if string.match( string.gsub(v,"[^'\"]",""), '^"+$' ) then
+      return "'" .. v .. "'"
+    end
+    return '"' .. string.gsub(v,'"', '\\"' ) .. '"'
+  else
+    return "table" == type( v ) and table.tostring( v ) or
+      tostring( v )
+  end
+end
+
+function table.key_to_str ( k )
+  if "string" == type( k ) and string.match( k, "^[_%a][_%a%d]*$" ) then
+    return k
+  else
+    return "[" .. table.val_to_str( k ) .. "]"
+  end
+end
+
+function table.tostring( tbl )
+  local result, done = {}, {}
+  for k, v in ipairs( tbl ) do
+    table.insert( result, table.val_to_str( v ) )
+    done[ k ] = true
+  end
+  for k, v in pairs( tbl ) do
+    if not done[ k ] then
+      table.insert( result,
+        table.key_to_str( k ) .. "=" .. table.val_to_str( v ) )
+    end
+  end
+  return "{" .. table.concat( result, "," ) .. "}"
+end
+
+function deepEquals(a, b)
+  local typeA = type(a)
+  local typeB = type(b)
+  if typeA ~= typeB then
+    return false
+  end
+  if typeA ~= 'table' then
+    return a == b
+  end
+  local meta = getmetatable(a)
+  if meta and meta.__eq then
+    return a == b
+  end
+  for k, v in pairs(a) do
+    local other = b[k]
+    if other == nil or not deepEquals(v, other) then
+      return false
+    end
+  end
+  for k, v in pairs(b) do
+    local other = a[k]
+    if other == nil or not deepEquals(v, other) then
+      return false
+    end
+  end
+  return true
+end
+
+-- Trying to limp along without Karabiner in Sierra.
+function modifierHandler(evt)
+  local flags=evt:getFlags()
+end
+
+local returnInitialDown = nil
+local returnChording = false
+local repeatThreshold = .5
+local syntheticEvent = 94025 -- magic number chosen "at random"
+local eventSourceUserData = hs.eventtap.event.properties['eventSourceUserData']
+
+function keyDownHandler(evt)
+  local userData = evt:getProperty(eventSourceUserData)
+  if userData == syntheticEvent then
+    return
+  end
+  local flags = evt:getFlags()
+  if not deepEquals(flags, {}) then
+    return
+  end
+  local keyCode = evt:getKeyCode()
+  local when = hs.timer.secondsSinceEpoch()
+  if keyCode == hs.keycodes.map['return'] then
+    if not returnInitialDown then
+      returnInitialDown = when
+      return true -- suppress initial event
+    else
+      if when - returnInitialDown > repeatThreshold then
+        return false -- let the event through
+      else
+        return true -- suppress until we hit the threshold
+      end
+    end
+  else
+    if returnInitialDown then
+      if when - returnInitialDown < repeatThreshold then
+        returnChording = true
+        local synthetic = evt:copy()
+        synthetic:setFlags({ctrl = true})
+        synthetic:setProperty(eventSourceUserData, syntheticEvent)
+        synthetic:post()
+        return true -- suppress the event
+      end
+    end
+  end
+end
+
+-- NOTE: getProperty on event keyboardEventKeyboardType may be useful
+function keyUpHandler(evt)
+  local userData = evt:getProperty(eventSourceUserData)
+  if userData == syntheticEvent then
+    return
+  end
+  local keyCode = evt:getKeyCode()
+  if keyCode == hs.keycodes.map['return'] then
+    if returnChording then
+      returnChording = false
+      return true
+    end
+
+    local when = hs.timer.secondsSinceEpoch()
+    if when - returnInitialDown <= repeatThreshold then
+      returnInitialDown = nil
+      local synthetic = hs.eventtap.event.newKeyEvent({}, 'return', true)
+      synthetic:setProperty(eventSourceUserData, syntheticEvent)
+      synthetic:post()
+      return false
+    else
+      returnInitialDown = nil
+      return true
+    end
+  end
+end
+
+modifierTap = hs.eventtap.new({hs.eventtap.event.types.flagsChanged}, modifierHandler)
+modifierTap:start()
+keyDownTap = hs.eventtap.new({hs.eventtap.event.types.keyDown}, keyDownHandler)
+keyDownTap:start()
+keyUpTap = hs.eventtap.new({hs.eventtap.event.types.keyUp}, keyUpHandler)
+keyUpTap:start()
+
 --
 -- Auto-reload config on change.
 --
