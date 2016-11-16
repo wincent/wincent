@@ -516,11 +516,15 @@ keyUpTap:start()
 --
 
 function reloadConfig(files)
+  local reload = false
   for _, file in pairs(files) do
     if file:sub(-4) == '.lua' then
-      tearDownEventHandling()
-      hs.reload()
+      reload = true
     end
+  end
+  if reload then
+    tearDownEventHandling()
+    hs.reload()
   end
 end
 
