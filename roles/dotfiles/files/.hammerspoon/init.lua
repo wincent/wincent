@@ -3,7 +3,6 @@ hs.grid.MARGINX = 0
 hs.grid.MARGINY = 0
 hs.window.animationDuration = 0 -- disable animations
 
-local deepEquals = require 'deepEquals'
 local events = require 'events'
 local log = require 'log'
 
@@ -392,99 +391,7 @@ function table.tostring( tbl )
   return "{" .. table.concat( result, "," ) .. "}"
 end
 
--- Trying to limp along without Karabiner in Sierra.
-function modifierHandler(evt)
-  local flags=evt:getFlags()
-end
-
-local returnInitialDown = nil
-local returnChording = false
-local repeatThreshold = .5
-local syntheticEvent = 94025 -- magic number chosen "at random"
-local eventSourceUserData = hs.eventtap.event.properties['eventSourceUserData']
-local keyboardEventKeyboardType = hs.eventtap.event.properties['keyboardEventKeyboardType']
-local internalKeyboardType = 43
-local externalKeyboardType = 40
-
-function keyDownHandler(evt)
-  local keyboardType = evt:getProperty(keyboardEventKeyboardType)
-  local userData = evt:getProperty(eventSourceUserData)
-  if userData == syntheticEvent then
-    return
-  end
-  local flags = evt:getFlags()
-  local keyCode = evt:getKeyCode()
-  if keyCode == hs.keycodes.map['i'] then
-    if deepEquals(flags, {ctrl = true}) then
-      local frontmost = hs.application.frontmostApplication():bundleID()
-      if frontmost == 'com.googlecode.iterm2' or frontmost == 'org.vim.MacVim' then
-        hs.eventtap.event.newKeyEvent({}, 'f6', true):setProperty(eventSourceUserData, syntheticEvent):post()
-        return true
-      end
-    end
-  end
-  if not deepEquals(flags, {}) then
-    return
-  end
-  local when = hs.timer.secondsSinceEpoch()
-  if keyCode == hs.keycodes.map['return'] then
-    if not returnInitialDown then
-      returnInitialDown = when
-      return true -- suppress initial event
-    else
-      if when - returnInitialDown > repeatThreshold then
-        return false -- let the event through
-      else
-        return true -- suppress until we hit the threshold
-      end
-    end
-  else
-    if returnInitialDown then
-      if returnChording or when - returnInitialDown < repeatThreshold then
-        returnChording = true
-        local synthetic = evt:copy()
-        synthetic:setFlags({ctrl = true})
-        synthetic:setProperty(eventSourceUserData, syntheticEvent)
-        synthetic:post()
-        return true -- suppress the event
-      end
-    end
-  end
-end
-
--- NOTE: getProperty on event keyboardEventKeyboardType may be useful
-function keyUpHandler(evt)
-  local userData = evt:getProperty(eventSourceUserData)
-  if userData == syntheticEvent then
-    return
-  end
-  local keyCode = evt:getKeyCode()
-  if keyCode == hs.keycodes.map['return'] then
-    if returnChording then
-      returnChording = false
-      return true
-    end
-
-    local when = hs.timer.secondsSinceEpoch()
-    if when - returnInitialDown <= repeatThreshold then
-      returnInitialDown = nil
-      local synthetic = hs.eventtap.event.newKeyEvent({}, 'return', true)
-      synthetic:setProperty(eventSourceUserData, syntheticEvent)
-      synthetic:post()
-      return false
-    else
-      returnInitialDown = nil
-      return true
-    end
-  end
-end
-
-modifierTap = hs.eventtap.new({hs.eventtap.event.types.flagsChanged}, modifierHandler)
-modifierTap:start()
-keyDownTap = hs.eventtap.new({hs.eventtap.event.types.keyDown}, keyDownHandler)
-keyDownTap:start()
-keyUpTap = hs.eventtap.new({hs.eventtap.event.types.keyUp}, keyUpHandler)
-keyUpTap:start()
-
+local eventtap = require 'eventtap'
+eventtap.init()
 local reloader = require 'reloader'
 reloader.init()
