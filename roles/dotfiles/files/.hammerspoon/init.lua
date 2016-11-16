@@ -116,7 +116,7 @@ local layoutConfig = {
 --
 -- (For Chrome, which has two windows per visible window on screen, but only one
 -- window per minimized window).
-function windowCount(app)
+local function windowCount(app)
   local count = 0
   if app then
     for _, window in pairs(app:allWindows()) do
@@ -128,27 +128,27 @@ function windowCount(app)
   return count
 end
 
-function hide(bundleID)
+local function hide(bundleID)
   local app = hs.application.get(bundleID)
   if app then
     app:hide()
   end
 end
 
-function activate(bundleID)
+local function activate(bundleID)
   local app = hs.application.get(bundleID)
   if app then
     app:activate()
   end
 end
 
-function isMailMateMailViewer(window)
+local function isMailMateMailViewer(window)
   local title = window:title()
   return title == 'No mailbox selected' or
     string.find(title, '%(%d+ messages?%)')
 end
 
-function canManageWindow(window)
+local function canManageWindow(window)
   local application = window:application()
   local bundleID = application:bundleID()
 
@@ -158,13 +158,13 @@ function canManageWindow(window)
     bundleID == 'com.googlecode.iterm2'
 end
 
-function internalDisplay()
+local function internalDisplay()
   -- Fun fact: this resolution matches both the 13" MacBook Air and the 15"
   -- (Retina) MacBook Pro.
   return hs.screen.find('1440x900')
 end
 
-function activateLayout(forceScreenCount)
+local function activateLayout(forceScreenCount)
   layoutConfig._before_()
 
   for bundleID, callback in pairs(layoutConfig) do
@@ -186,7 +186,7 @@ end
 -- Event-handling
 --
 
-function handleWindowEvent(window)
+local function handleWindowEvent(window)
   if canManageWindow(window) then
     local application = window:application()
     local bundleID = application:bundleID()
@@ -199,7 +199,7 @@ end
 local windowFilter=hs.window.filter.new()
 windowFilter:subscribe(hs.window.filter.windowCreated, handleWindowEvent)
 
-function handleScreenEvent()
+local function handleScreenEvent()
   -- Make sure that something noteworthy (display count) actually
   -- changed. We no longer check geometry because we were seeing spurious
   -- events.
@@ -210,12 +210,12 @@ function handleScreenEvent()
   end
 end
 
-function initEventHandling()
+local function initEventHandling()
   screenWatcher = hs.screen.watcher.new(handleScreenEvent)
   screenWatcher:start()
 end
 
-function tearDownEventHandling()
+local function tearDownEventHandling()
   screenWatcher:stop()
   screenWatcher = nil
 end
@@ -235,7 +235,7 @@ local lastSeenWindow = nil
 --    one chain to another, or on switching from one app to another, or from one
 --    window to another.
 --
-function chain(movements)
+local function chain(movements)
   local chainResetInterval = 2 -- seconds
   local cycleLength = #movements
   local sequenceNumber = 1
@@ -325,7 +325,7 @@ end))
 -- Screencast layout
 --
 
-function prepareScreencast()
+local function prepareScreencast()
   local screen = 'Color LCD'
   local top = {x=0, y=0, w=1, h=.92}
   local bottom = {x=.4, y=.82, w=.5, h=.1}
