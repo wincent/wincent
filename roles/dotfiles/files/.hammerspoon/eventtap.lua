@@ -69,9 +69,23 @@ local externalKeyboardType = 40 -- YubiKey as well...
 
 -- These are keys that do one thing when tapped but act like modifiers when
 -- chorded.
-local conditionalKeys = {}
+local conditionalKeys = {
+  f7 = {
+    tapped = 'delete',
+    chorded = 'ctrl',
+    downAt = nil,
+    isChording = false,
+    expectedFlags = {fn = true},
+  },
+}
 -- "return" is a reserved word, so have to use longhand:
-conditionalKeys['return'] = {}
+conditionalKeys['return'] = {
+  tapped = 'return',
+  chorded = 'ctrl',
+  downAt = nil,
+  isChording = false,
+  expectedFlags = {},
+}
 
 local function keyHandler(evt)
   local userData = evt:getProperty(eventSourceUserData)
@@ -81,9 +95,9 @@ local function keyHandler(evt)
   local eventType = evt:getType()
   local keyboardType = evt:getProperty(keyboardEventKeyboardType)
   local keyCode = evt:getKeyCode()
+  local flags = evt:getFlags()
   local when = hs.timer.secondsSinceEpoch()
   if eventType == keyDown then
-    local flags = evt:getFlags()
     if keyCode == hs.keycodes.map['i'] then
       if deepEquals(flags, {ctrl = true}) then
         local frontmost = hs.application.frontmostApplication():bundleID()
@@ -93,49 +107,61 @@ local function keyHandler(evt)
         end
       end
     end
-    if not deepEquals(flags, {}) then
-      return
-    end
-    if keyCode == hs.keycodes.map['return'] then
-      if not returnInitialDown then
-        returnInitialDown = when
-        return true -- suppress initial event
-      else
-        if when - returnInitialDown > repeatThreshold then
-          return false -- let the event through
+
+    -- Check for conditional keys.
+    -- Along the way, note which conditional key(s) are already down.
+    local activeConditionals = {}
+    for keyName, config in pairs(conditionalKeys) do
+      if keyCode == hs.keycodes.map[keyName] then
+        if not deepEquals(flags, config.expectedFlags) then
+          return false -- Let event through.
+        elseif not config.downAt then
+          config.downAt = when
+          return true -- Suppress initial event.
+        elseif when - config.downAt > repeatThreshold then
+          return false -- Let the event through.
         else
-          return true -- suppress until we hit the threshold
+          return true -- Suppress until we hit the threshold.
         end
+      elseif config.downAt then
+        activeConditionals[keyName] = config
       end
-    else
-      if returnInitialDown then
-        if returnChording or when - returnInitialDown < repeatThreshold then
-          returnChording = true
+    end
+
+    -- Potentially begin chording against the active conditionals.
+    for keyName, config in pairs(activeConditionals) do
+      if config.isChording or when - config.downAt < repeatThreshold then
+        if deepEquals(flags, config.expectedFlags) then
+          config.isChording = true
           local synthetic = evt:copy()
-          synthetic:setFlags({ctrl = true})
+          local syntheticFlags = {}
+          syntheticFlags[config.chorded] = true
+          synthetic:setFlags(syntheticFlags)
           synthetic:setProperty(eventSourceUserData, syntheticEvent)
           synthetic:post()
-          return true -- suppress the event
+          return true -- Suppress the event.
         end
       end
     end
   elseif eventType == keyUp then
-    if keyCode == hs.keycodes.map['return'] then
-      if returnChording then
-        returnChording = false
-        return true
-      end
+    for keyName, config in pairs(conditionalKeys) do
+      if keyCode == hs.keycodes.map[keyName] then
+        if config.isChording then
+          config.isChording = false
+          return true
+        end
 
-      -- BUG: returnInitialDown may be nil!
-      if when - returnInitialDown <= repeatThreshold then
-        returnInitialDown = nil
-        local synthetic = hs.eventtap.event.newKeyEvent({}, 'return', true)
-        synthetic:setProperty(eventSourceUserData, syntheticEvent)
-        synthetic:post()
-        return false
-      else
-        returnInitialDown = nil
-        return true
+        local downAt = config.downAt
+        config.downAt = nil
+        if deepEquals(flags, config.expectedFlags) and
+          when - downAt <= repeatThreshold then
+          local synthetic = hs.eventtap.event.newKeyEvent({}, config.tapped, true)
+          synthetic:setProperty(eventSourceUserData, syntheticEvent)
+          synthetic:post()
+          return false
+        else
+          return true
+        end
       end
     end
   end
