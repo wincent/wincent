@@ -8,8 +8,54 @@ local log = require 'log'
 local keyDown = hs.eventtap.event.types.keyDown
 local keyUp = hs.eventtap.event.types.keyUp
 
+local controlKeyCode = 59 -- For some reason this one not in hs.keycodes.map.
+local controlDown = {ctrl = true}
+local controlUp = {}
+local controlPressed = nil
+local repeatDelay = hs.eventtap.keyRepeatDelay()
+local repeatInterval = hs.eventtap.keyRepeatInterval()
+local controlTimer = nil
+local controlRepeatTimer = nil
+
 local function modifierHandler(evt)
   local flags=evt:getFlags()
+  local keyCode = evt:getKeyCode()
+
+  -- Going to fire a fake f7 key-press so that we can handle this in the
+  -- keyHandler function along with Return.
+  if keyCode == controlKeyCode then
+    -- We only start timers when Control is pressed alone, but we clean them up
+    -- unconditionally when it is released, so as not to leak.
+    if flags['ctrl'] == nil and controlPressed == true then
+      controlPressed = false
+      hs.eventtap.event.newKeyEvent({}, 'f7', false):post()
+      if controlTimer ~= nil then
+        controlTimer:stop()
+      end
+      if controlRepeatTimer ~= nil then
+        controlRepeatTimer:stop()
+      end
+    elseif deepEquals(flags, controlDown) then
+      controlPressed = true
+      hs.eventtap.event.newKeyEvent({}, 'f7', true):post()
+
+      -- We don't get repeat events for modifiers. Have to fake them.
+      controlTimer = hs.timer.doAfter(
+        repeatDelay,
+        (function()
+          if controlPressed then
+            controlRepeatTimer = hs.timer.doUntil(
+              (function() return controlPressed == false end),
+              (function()
+                hs.eventtap.event.newKeyEvent({}, 'f7', true):post()
+              end),
+              repeatInterval
+            )
+          end
+        end)
+      )
+    end
+  end
 end
 
 local returnInitialDown = nil
