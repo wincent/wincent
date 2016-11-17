@@ -4,7 +4,9 @@ hs.grid.MARGINY = 0
 hs.window.animationDuration = 0 -- disable animations
 
 local events = require 'events'
+local eventtap = require 'eventtap'
 local log = require 'log'
+local reloader = require 'reloader'
 
 -- Forward function declarations.
 local activate = nil
@@ -336,6 +338,11 @@ hs.hotkey.bind({'ctrl', 'alt', 'cmd'}, 'f3', (function()
   hs.openConsole()
 end))
 
+hs.hotkey.bind({'ctrl', 'alt', 'cmd'}, 'f4', (function()
+  hs.alert('Hammerspoon reload')
+  reloader.reload()
+end))
+
 --
 -- Screencast layout
 --
@@ -406,7 +413,5 @@ function table.tostring( tbl )
   return "{" .. table.concat( result, "," ) .. "}"
 end
 
-local eventtap = require 'eventtap'
 eventtap.init()
-local reloader = require 'reloader'
 reloader.init()
