@@ -58,8 +58,6 @@ local function modifierHandler(evt)
   end
 end
 
-local returnInitialDown = nil
-local returnChording = false
 local repeatThreshold = .5
 local syntheticEvent = 94025 -- magic number chosen "at random"
 local eventSourceUserData = hs.eventtap.event.properties['eventSourceUserData']
@@ -114,12 +112,18 @@ local function keyHandler(evt)
     for keyName, config in pairs(conditionalKeys) do
       if keyCode == hs.keycodes.map[keyName] then
         if not deepEquals(flags, config.expectedFlags) then
-          return false -- Let event through.
+          local synthetic = hs.eventtap.event.newKeyEvent({}, config.tapped, true)
+          synthetic:setProperty(eventSourceUserData, syntheticEvent)
+          synthetic:post()
+          return true
         elseif not config.downAt then
           config.downAt = when
           return true -- Suppress initial event.
         elseif when - config.downAt > repeatThreshold then
-          return false -- Let the event through.
+          local synthetic = hs.eventtap.event.newKeyEvent({}, config.tapped, true)
+          synthetic:setProperty(eventSourceUserData, syntheticEvent)
+          synthetic:post()
+          return true -- Let the event through.
         else
           return true -- Suppress until we hit the threshold.
         end
