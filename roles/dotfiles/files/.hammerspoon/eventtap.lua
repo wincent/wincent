@@ -64,6 +64,7 @@ local eventSourceUserData = hs.eventtap.event.properties['eventSourceUserData']
 local keyboardEventKeyboardType = hs.eventtap.event.properties['keyboardEventKeyboardType']
 local internalKeyboardType = 43
 local externalKeyboardType = 40 -- YubiKey as well...
+local stopPropagation = true
 
 -- These are keys that do one thing when tapped but act like modifiers when
 -- chorded.
@@ -101,7 +102,7 @@ local function keyHandler(evt)
         local frontmost = hs.application.frontmostApplication():bundleID()
         if frontmost == 'com.googlecode.iterm2' or frontmost == 'org.vim.MacVim' then
           hs.eventtap.event.newKeyEvent({}, 'f6', true):setProperty(eventSourceUserData, syntheticEvent):post()
-          return true
+          return stopPropagation
         end
       end
     end
@@ -111,22 +112,15 @@ local function keyHandler(evt)
     local activeConditionals = {}
     for keyName, config in pairs(conditionalKeys) do
       if keyCode == hs.keycodes.map[keyName] then
-        if not deepEquals(flags, config.expectedFlags) then
+        if not deepEquals(flags, config.expectedFlags) or
+          (config.downAt and when - config.downAt > repeatThreshold) then
           local synthetic = hs.eventtap.event.newKeyEvent({}, config.tapped, true)
           synthetic:setProperty(eventSourceUserData, syntheticEvent)
           synthetic:post()
-          return true
         elseif not config.downAt then
           config.downAt = when
-          return true -- Suppress initial event.
-        elseif when - config.downAt > repeatThreshold then
-          local synthetic = hs.eventtap.event.newKeyEvent({}, config.tapped, true)
-          synthetic:setProperty(eventSourceUserData, syntheticEvent)
-          synthetic:post()
-          return true -- Let the event through.
-        else
-          return true -- Suppress until we hit the threshold.
         end
+        return stopPropagation
       elseif config.downAt then
         activeConditionals[keyName] = config
       end
@@ -143,7 +137,7 @@ local function keyHandler(evt)
           synthetic:setFlags(syntheticFlags)
           synthetic:setProperty(eventSourceUserData, syntheticEvent)
           synthetic:post()
-          return true -- Suppress the event.
+          return stopPropagation
         end
       end
     end
@@ -152,20 +146,17 @@ local function keyHandler(evt)
       if keyCode == hs.keycodes.map[keyName] then
         if config.isChording then
           config.isChording = false
-          return true
-        end
-
-        local downAt = config.downAt
-        config.downAt = nil
-        if deepEquals(flags, config.expectedFlags) and
-          when - downAt <= repeatThreshold then
-          local synthetic = hs.eventtap.event.newKeyEvent({}, config.tapped, true)
-          synthetic:setProperty(eventSourceUserData, syntheticEvent)
-          synthetic:post()
-          return false
         else
-          return true
+          local downAt = config.downAt
+          config.downAt = nil
+          if deepEquals(flags, config.expectedFlags) and
+            when - downAt <= repeatThreshold then
+            local synthetic = hs.eventtap.event.newKeyEvent({}, config.tapped, true)
+            synthetic:setProperty(eventSourceUserData, syntheticEvent)
+            synthetic:post()
+          end
         end
+        return stopPropagation
       end
     end
   end
