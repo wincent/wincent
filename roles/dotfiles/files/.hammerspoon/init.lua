@@ -415,3 +415,5 @@ end
 
 eventtap.init()
 reloader.init()
+
+log.i('Config loaded')
