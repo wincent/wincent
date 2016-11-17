@@ -62,10 +62,17 @@ local function modifierHandler(evt)
     end
   elseif keyCode == keyCodes.leftShift or keyCode == keyCodes.rightShift then
     if deepEquals(flags, shiftDown) then
-      -- TODO: something like:
-      -- hs.eventtap.event.newSystemKeyEvent('CAPS_LOCK', true):post()
-      -- hs.timer.usleep(200000) -- TODO use timer instead
-      -- hs.eventtap.event.newSystemKeyEvent('CAPS_LOCK', false):post()
+      if false then
+        -- TODO: something like the following, which seems unlikely to work
+        -- given what the internets say (requires custom keyboard driver).
+        hs.eventtap.event.newSystemKeyEvent('CAPS_LOCK', true):post()
+        hs.timer.doAfter(
+          .5,
+          (function()
+            hs.eventtap.event.newSystemKeyEvent('CAPS_LOCK', false):post()
+          end)
+        )
+      end
     else
       -- TODO: other modifiers pressed, reset state.
     end
