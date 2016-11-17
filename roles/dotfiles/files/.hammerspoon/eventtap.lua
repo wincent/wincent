@@ -22,29 +22,36 @@ local repeatInterval = hs.eventtap.keyRepeatInterval()
 local controlTimer = nil
 local controlRepeatTimer = nil
 
+local function cancelTimers()
+  if controlTimer ~= nil then
+    controlTimer:stop()
+    controlTimer = nil
+  end
+  if controlRepeatTimer ~= nil then
+    controlRepeatTimer:stop()
+    controlRepeatTimer = nil
+  end
+end
+
 local function modifierHandler(evt)
   local flags=evt:getFlags()
   local keyCode = evt:getKeyCode()
 
-  -- Going to fire a fake f7 key-press so that we can handle this in the
-  -- keyHandler function along with Return.
+  -- Going to fire a fake delete key-press so that we can handle this in the
+  -- keyHandler function along with return.
   if keyCode == keyCodes.control then
     -- We only start timers when Control is pressed alone, but we clean them up
     -- unconditionally when it is released, so as not to leak.
     if flags['ctrl'] == nil and controlPressed == true then
       controlPressed = false
-      hs.eventtap.event.newKeyEvent({}, 'f7', false):post()
-      if controlTimer ~= nil then
-        controlTimer:stop()
-      end
-      if controlRepeatTimer ~= nil then
-        controlRepeatTimer:stop()
-      end
+      hs.eventtap.event.newKeyEvent({}, 'delete', false):post()
+      cancelTimers()
     elseif deepEquals(flags, controlDown) then
       controlPressed = true
-      hs.eventtap.event.newKeyEvent({}, 'f7', true):post()
+      hs.eventtap.event.newKeyEvent({}, 'delete', true):post()
 
       -- We don't get repeat events for modifiers. Have to fake them.
+      cancelTimers()
       controlTimer = hs.timer.doAfter(
         repeatDelay,
         (function()
@@ -52,7 +59,7 @@ local function modifierHandler(evt)
             controlRepeatTimer = hs.timer.doUntil(
               (function() return controlPressed == false end),
               (function()
-                hs.eventtap.event.newKeyEvent({}, 'f7', true):post()
+                hs.eventtap.event.newKeyEvent({}, 'delete', true):post()
               end),
               repeatInterval
             )
@@ -90,12 +97,14 @@ local stopPropagation = true
 -- These are keys that do one thing when tapped but act like modifiers when
 -- chorded.
 local conditionalKeys = {
-  f7 = {
+  delete = {
     tapped = 'delete',
     chorded = 'ctrl',
     downAt = nil,
     isChording = false,
-    expectedFlags = {fn = true},
+    -- Caps Lock is mapped to control, so during chording, keyDown events should
+    -- have these flags.
+    expectedFlags = {ctrl = true},
   },
 }
 -- "return" is a reserved word, so have to use longhand:
@@ -133,11 +142,13 @@ local function keyHandler(evt)
     local activeConditionals = {}
     for keyName, config in pairs(conditionalKeys) do
       if keyCode == hs.keycodes.map[keyName] then
-        if not deepEquals(flags, config.expectedFlags) or
+        if not deepEquals(flags, {}) or
           (config.downAt and when - config.downAt > repeatThreshold) then
-          local synthetic = hs.eventtap.event.newKeyEvent({}, config.tapped, true)
-          synthetic:setProperty(eventSourceUserData, syntheticEvent)
-          synthetic:post()
+          if not config.isChording then
+            local synthetic = hs.eventtap.event.newKeyEvent({}, config.tapped, true)
+            synthetic:setProperty(eventSourceUserData, syntheticEvent)
+            synthetic:post()
+          end
         elseif not config.downAt then
           config.downAt = when
         end
@@ -170,7 +181,7 @@ local function keyHandler(evt)
         else
           local downAt = config.downAt
           config.downAt = nil
-          if deepEquals(flags, config.expectedFlags) and
+          if deepEquals(flags, {}) and
             when - downAt <= repeatThreshold then
             local synthetic = hs.eventtap.event.newKeyEvent({}, config.tapped, true)
             synthetic:setProperty(eventSourceUserData, syntheticEvent)
