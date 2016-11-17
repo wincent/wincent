@@ -2,12 +2,12 @@
 
 ![](https://raw.githubusercontent.com/wincent/wincent/media/screenshot.png)
 
-* Target platforms: OS X and Red Hat-like Linuxes (eg. CentOS).
+* Target platforms: macOS and Red Hat-like Linuxes (eg. CentOS).
 * Set-up method: ~~Beautiful and intricate snowflake~~ incredibly over-engineered [Ansible](https://www.ansible.com/) orchestration.
 * Visible in the screenshot:
   * [Tomorrow (dark)](https://chriskempson.github.io/base16/#tomorrow) color scheme.
   * Adobe Source Code Pro (Light) font.
-  * Vim, running inside tmux, inside iTerm2, on OS X "El Capitan".
+  * Vim, running inside tmux, inside iTerm2, on macOS "El Capitan".
 
 ## Features
 
@@ -30,19 +30,22 @@
 
 ### Homebrew
 
-On OS X, [the `homebrew` role](https://github.com/wincent/wincent/tree/master/roles/homebrew) installs [a bunch of useful software](https://github.com/wincent/wincent/blob/master/roles/homebrew/files/Brewfile).
+On macOS, [the `homebrew` role](https://github.com/wincent/wincent/tree/master/roles/homebrew) installs [a bunch of useful software](https://github.com/wincent/wincent/blob/master/roles/homebrew/files/Brewfile).
 
 ### Keyboard customization
 
-On OS X, [the `keyboard` role](https://github.com/wincent/wincent/tree/master/roles/keyboard) uses [Karabiner](https://pqrs.org/osx/karabiner/) to:
+On macOS, Hammerspoon is used to provide the functionality previously provided in [the `keyboard` role](https://github.com/wincent/wincent/tree/c250a81d235bef574d3a7cf2f2bb7a585bcd9686/roles/keyboard) via [Karabiner](https://pqrs.org/osx/karabiner/):
 
 * Make Caps Lock serve as Backspace (when tapped), repeated Backspace (when pressed and held), and Left Control (when chorded with another key).
 * Make Return serve as Return (when tapped), repeated Return (when pressed and held), and Right Control (when chorded with another key).
-* Turn Caps Lock on by tapping both Shift keys simultaneously (turn it off by tapping either Shift key on its own).
+* Maps Control-I to F6 in the terminal so that it can be mapped independently from Tab in Vim.
+
+Other functionality that *used* to come via Karabiner isn't (yet) supported because Karabiner itself doesn't support macOS Sierra, and its successor, [Karabiner-Elements](https://github.com/tekezo/Karabiner-Elements), still has a pretty primitive feature set:
+
 * Adds a "SpaceFN" layer that can be activated by holding down Space while hitting other keys; I use this to make the cursor keys available on or near the home row in any app.
+* Turn Caps Lock on by tapping both Shift keys simultaneously (turn it off by tapping either Shift key on its own).
 * Make the YubiKey work with the Colemak keyboard layout.
 * Makes the function keys on my external Realforce keyboard behave like the "media" keys on Apple's keyboards. F13 serves as a sticky "fn" key, and F15 as Power.
-* Maps Control-I to F6 in the terminal so that it can be mapped independently from Tab in Vim.
 
 ## Dependencies
 
@@ -51,7 +54,7 @@ On OS X, [the `keyboard` role](https://github.com/wincent/wincent/tree/master/ro
 * Relatively recent [Zsh](http://www.zsh.org/).
 * Relatively recent [Git](http://git-scm.com/).
 * [Clipper](https://wincent.com/products/clipper) for transparent access to the local system clipboard.
-* On OS X, [iTerm2](http://www.iterm2.com/).
+* On macOS, [iTerm2](http://www.iterm2.com/). Additionally, only the latest version of macOS (currently Sierra) gets actively tested.
 * [Python](https://www.python.org/) to perform setup via the included `install` command.
 
 ## Installation

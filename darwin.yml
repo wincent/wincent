@@ -1,7 +1,6 @@
 ---
 - hosts: localhost
   roles:
-    - { role: keyboard, tags: ['keyboard'] }
     - { role: dotfiles, tags: ['dotfiles'] }
     - { role: maxfiles, tags: ['maxfiles'] }
     - { role: terminfo, tags: ['terminfo'] }
