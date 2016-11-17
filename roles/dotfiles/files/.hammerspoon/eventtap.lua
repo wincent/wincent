@@ -5,6 +5,11 @@
 local deepEquals = require 'deepEquals'
 local log = require 'log'
 
+-- Forward function declarations.
+local cancelTimers = nil
+local modifierHandler = nil
+local keyHandler = nil
+
 local keyDown = hs.eventtap.event.types.keyDown
 local keyUp = hs.eventtap.event.types.keyUp
 
@@ -22,7 +27,7 @@ local repeatInterval = hs.eventtap.keyRepeatInterval()
 local controlTimer = nil
 local controlRepeatTimer = nil
 
-local function cancelTimers()
+cancelTimers = (function()
   if controlTimer ~= nil then
     controlTimer:stop()
     controlTimer = nil
@@ -31,9 +36,9 @@ local function cancelTimers()
     controlRepeatTimer:stop()
     controlRepeatTimer = nil
   end
-end
+end)
 
-local function modifierHandler(evt)
+modifierHandler = (function(evt)
   local flags=evt:getFlags()
   local keyCode = evt:getKeyCode()
 
@@ -84,7 +89,7 @@ local function modifierHandler(evt)
       -- TODO: other modifiers pressed, reset state.
     end
   end
-end
+end)
 
 local repeatThreshold = .5
 local syntheticEvent = 94025 -- magic number chosen "at random"
@@ -116,7 +121,7 @@ conditionalKeys['return'] = {
   expectedFlags = {},
 }
 
-local function keyHandler(evt)
+keyHandler = (function(evt)
   local userData = evt:getProperty(eventSourceUserData)
   if userData == syntheticEvent then
     return
@@ -192,7 +197,7 @@ local function keyHandler(evt)
       end
     end
   end
-end
+end)
 
 return {
   init = (function()
