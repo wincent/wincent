@@ -8,10 +8,15 @@ local log = require 'log'
 local keyDown = hs.eventtap.event.types.keyDown
 local keyUp = hs.eventtap.event.types.keyUp
 
-local controlKeyCode = 59 -- For some reason this one not in hs.keycodes.map.
+local keyCodes = {
+  control = 59, -- TODO that's leftControl; figure out rightControl
+  leftShift = 56,
+  rightShift = 60,
+}
 local controlDown = {ctrl = true}
 local controlUp = {}
 local controlPressed = nil
+local shiftDown = {shift = true}
 local repeatDelay = hs.eventtap.keyRepeatDelay()
 local repeatInterval = hs.eventtap.keyRepeatInterval()
 local controlTimer = nil
@@ -23,7 +28,7 @@ local function modifierHandler(evt)
 
   -- Going to fire a fake f7 key-press so that we can handle this in the
   -- keyHandler function along with Return.
-  if keyCode == controlKeyCode then
+  if keyCode == keyCodes.control then
     -- We only start timers when Control is pressed alone, but we clean them up
     -- unconditionally when it is released, so as not to leak.
     if flags['ctrl'] == nil and controlPressed == true then
@@ -54,6 +59,15 @@ local function modifierHandler(evt)
           end
         end)
       )
+    end
+  elseif keyCode == keyCodes.leftShift or keyCode == keyCodes.rightShift then
+    if deepEquals(flags, shiftDown) then
+      -- TODO: something like:
+      -- hs.eventtap.event.newSystemKeyEvent('CAPS_LOCK', true):post()
+      -- hs.timer.usleep(200000) -- TODO use timer instead
+      -- hs.eventtap.event.newSystemKeyEvent('CAPS_LOCK', false):post()
+    else
+      -- TODO: other modifiers pressed, reset state.
     end
   end
 end
