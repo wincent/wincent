@@ -26,6 +26,7 @@ local repeatDelay = hs.eventtap.keyRepeatDelay()
 local repeatInterval = hs.eventtap.keyRepeatInterval()
 local controlTimer = nil
 local controlRepeatTimer = nil
+local logWarningThreshold = 15
 
 cancelTimers = (function()
   if controlTimer ~= nil then
@@ -147,6 +148,12 @@ keyHandler = (function(evt)
     local activeConditionals = {}
     for keyName, config in pairs(conditionalKeys) do
       if keyCode == hs.keycodes.map[keyName] then
+        if config.downAt and when - config.downAt > logWarningThreshold then
+          log.w(
+            'Suspicious keyDown event received for ' .. keyName .. ' at ' ..
+            when .. ' (original downAt was ' .. config.downAt .. ')'
+          )
+        end
         if not deepEquals(flags, {}) or
           (config.downAt and when - config.downAt > repeatThreshold) then
           if not config.isChording then
