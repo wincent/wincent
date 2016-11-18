@@ -4,6 +4,7 @@
 
 local deepEquals = require 'deepEquals'
 local log = require 'log'
+local util = require 'util'
 
 -- Forward function declarations.
 local cancelTimers = nil
@@ -20,8 +21,9 @@ local eventSourceUserData = properties.eventSourceUserData
 local keyboardEventKeyboardType = properties.keyboardEventKeyboardType
 local keyboardEventAutorepeat = properties.keyboardEventAutorepeat
 local timer = hs.timer
+local t = util.t
 
-local repeatThreshold = .5
+local chordThreshold = .5
 local syntheticEvent = 94025 -- magic number chosen "at random"
 local internalKeyboardType = 43
 local externalKeyboardType = 40 -- YubiKey as well...
@@ -63,7 +65,7 @@ modifierHandler = (function(evt)
   if keyCode == keyCodes.leftControl or keyCode == keyCodes.rightControl then
     -- We only start timers when Control is pressed alone, but we clean them up
     -- unconditionally when it is released, so as not to leak.
-    if flags['ctrl'] == nil and controlPressed == true then
+    if flags.ctrl == nil and controlPressed == true then
       controlPressed = false
       event.newKeyEvent({}, 'delete', false):post()
       cancelTimers()
@@ -142,7 +144,7 @@ keyHandler = (function(evt)
   local flags = evt:getFlags()
   local when = timer.secondsSinceEpoch()
   if eventType == keyDown then
-    if keyCode == hs.keycodes.map['i'] then
+    if keyCode == hs.keycodes.map.i then
       if deepEquals(flags, {ctrl = true}) then
         local frontmost = hs.application.frontmostApplication():bundleID()
         if frontmost == 'com.googlecode.iterm2' or frontmost == 'org.vim.MacVim' then
@@ -166,11 +168,9 @@ keyHandler = (function(evt)
           )
         end
         if not deepEquals(flags, {}) or
-          (config.downAt and when - config.downAt > repeatThreshold) then
+          (config.downAt and when - config.downAt > chordThreshold) then
           if not config.isChording then
-            event.newKeyEvent({}, config.tapped, true):
-              setProperty(eventSourceUserData, syntheticEvent):
-              post()
+            return
           end
         elseif not config.downAt then
           config.downAt = when
@@ -183,7 +183,7 @@ keyHandler = (function(evt)
 
     -- Potentially begin chording against the active conditionals.
     for keyName, config in pairs(activeConditionals) do
-      if config.isChording or when - config.downAt < repeatThreshold then
+      if config.isChording or when - config.downAt < chordThreshold then
         if deepEquals(flags, config.expectedFlags) then
           config.isChording = true
           local syntheticFlags = {}
@@ -204,13 +204,14 @@ keyHandler = (function(evt)
         config.downAt = nil
         if config.isChording then
           config.isChording = false
+        elseif deepEquals(flags, {}) and
+          downAt and
+          when - downAt <= chordThreshold then
+          event.newKeyEvent({}, config.tapped, true):
+            setProperty(eventSourceUserData, syntheticEvent):
+            post()
         else
-          if deepEquals(flags, {}) and
-            when - downAt <= repeatThreshold then
-            event.newKeyEvent({}, config.tapped, true):
-              setProperty(eventSourceUserData, syntheticEvent):
-              post()
-          end
+          return
         end
         return stopPropagation
       end
@@ -220,12 +221,7 @@ end)
 
 return {
   init = (function()
-    local modifierTap = eventtap.new(
-      {event.types.flagsChanged},
-      modifierHandler
-    )
-    modifierTap:start()
-    local keyTap = eventtap.new({keyDown, keyUp}, keyHandler)
-    keyTap:start()
+    eventtap.new({types.flagsChanged}, modifierHandler):start()
+    eventtap.new({keyDown, keyUp}, keyHandler):start()
   end)
 }
