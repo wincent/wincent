@@ -141,6 +141,7 @@ keyHandler = (function(evt)
   local eventType = evt:getType()
   local keyboardType = evt:getProperty(keyboardEventKeyboardType)
   local keyCode = evt:getKeyCode()
+  local isRepeatEvent = (evt:getProperty(keyboardEventAutorepeat) ~= 0)
   local flags = evt:getFlags()
   local when = timer.secondsSinceEpoch()
   if eventType == keyDown then
@@ -161,12 +162,24 @@ keyHandler = (function(evt)
     local activeConditionals = {}
     for keyName, config in pairs(conditionalKeys) do
       if keyCode == hs.keycodes.map[keyName] then
-        if config.downAt and when - config.downAt > logWarningThreshold then
-          log.w(
-            'Suspicious keyDown event received for ' .. keyName .. ' at ' ..
-            when .. ' (original downAt was ' .. config.downAt .. ')'
-          )
+        -- Sanity checks.
+        if config.downAt then
+          if when - config.downAt > logWarningThreshold then
+            log.w(
+              'Suspicious keyDown event received for ' .. keyName .. ' at ' ..
+              when .. ' (original downAt was ' .. config.downAt .. ')'
+            )
+          end
+        else
+          if isRepeatEvent then
+            config.downAt = when - repeatDelay
+            log.w(
+              'No downAt recorded for repeating keyDown event for ' ..
+              keyName .. ' (using best guess ' .. config.downAt .. ')'
+            )
+          end
         end
+
         if not deepEquals(flags, {}) or
           (config.downAt and when - config.downAt > chordThreshold) then
           if not config.isChording then
