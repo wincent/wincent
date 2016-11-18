@@ -111,23 +111,23 @@ end)
 
 -- These are keys that do one thing when tapped but act like modifiers when
 -- chorded.
-local conditionalKeys = {
-  delete = {
-    tapped = 'delete',
-    chorded = 'ctrl',
-    downAt = nil,
-    isChording = false,
-    -- Caps Lock is mapped to control, so during chording, keyDown events should
-    -- have these flags.
-    expectedFlags = {ctrl = true},
-  },
+local conditionalKeys = {}
+conditionalKeys.delete = {
+  tapped = 'delete',
+  chorded = 'ctrl',
+  downAt = nil,
+  isChording = false,
+  isRepeating = false,
+  -- Caps Lock is mapped to control, so during chording, keyDown events should
+  -- have these flags.
+  expectedFlags = {ctrl = true},
 }
--- "return" is a reserved word, so have to use longhand:
 conditionalKeys['return'] = {
   tapped = 'return',
   chorded = 'ctrl',
   downAt = nil,
   isChording = false,
+  isRepeating = false,
   expectedFlags = {},
 }
 
