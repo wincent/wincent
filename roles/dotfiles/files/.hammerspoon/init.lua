@@ -341,7 +341,7 @@ hs.hotkey.bind({'ctrl', 'alt', 'cmd'}, 'f4', (function()
   hs.notify.show(
     'Hammerspoon',
     'Reloaded in the background',
-    'Press Control+Option-Command-F3 to see console.'
+    'Press ⌃⌥⌘F3 to reveal the console.'
   )
   reloader.reload()
 end))
