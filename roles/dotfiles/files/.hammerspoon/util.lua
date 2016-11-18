@@ -15,7 +15,7 @@ valueToString = (function(v)
     end
     return '"' .. string.gsub(v, '"', '\\"') .. '"'
   else
-    return 'table' == type(v) and tableTostring(v) or
+    return 'table' == type(v) and tableToString(v) or
       tostring( v )
   end
 end)
