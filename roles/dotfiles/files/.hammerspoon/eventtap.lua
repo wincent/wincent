@@ -236,5 +236,8 @@ return {
   init = (function()
     eventtap.new({types.flagsChanged}, modifierHandler):start()
     eventtap.new({keyDown, keyUp}, keyHandler):start()
-  end)
+  end),
+  __debug = {
+    conditionalKeys = conditionalKeys,
+  },
 }
