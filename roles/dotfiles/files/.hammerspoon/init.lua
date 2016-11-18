@@ -339,7 +339,11 @@ hs.hotkey.bind({'ctrl', 'alt', 'cmd'}, 'f3', (function()
 end))
 
 hs.hotkey.bind({'ctrl', 'alt', 'cmd'}, 'f4', (function()
-  hs.alert('Hammerspoon reload')
+  hs.notify.show(
+    'Hammerspoon',
+    'Reloaded in the background',
+    'Press Control+Option-Command-F3 to see console.'
+  )
   reloader.reload()
 end))
 
