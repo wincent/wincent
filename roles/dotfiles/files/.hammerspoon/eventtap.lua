@@ -28,7 +28,8 @@ local externalKeyboardType = 40 -- YubiKey as well...
 local stopPropagation = true
 
 local keyCodes = {
-  control = 59, -- TODO that's leftControl; figure out rightControl
+  leftControl = 59,
+  rightControl = 62,
   leftShift = 56,
   rightShift = 60,
 }
@@ -59,7 +60,7 @@ modifierHandler = (function(evt)
 
   -- Going to fire a fake delete key-press so that we can handle this in the
   -- keyHandler function along with return.
-  if keyCode == keyCodes.control then
+  if keyCode == keyCodes.leftControl or keyCode == keyCodes.rightControl then
     -- We only start timers when Control is pressed alone, but we clean them up
     -- unconditionally when it is released, so as not to leak.
     if flags['ctrl'] == nil and controlPressed == true then
