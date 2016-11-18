@@ -334,7 +334,6 @@ hs.hotkey.bind({'ctrl', 'alt', 'cmd'}, 'f2', (function()
 end))
 
 hs.hotkey.bind({'ctrl', 'alt', 'cmd'}, 'f3', (function()
-  hs.alert('Hammerspoon console')
   hs.openConsole()
 end))
 
