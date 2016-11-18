@@ -181,11 +181,11 @@ keyHandler = (function(evt)
   elseif eventType == keyUp then
     for keyName, config in pairs(conditionalKeys) do
       if keyCode == hs.keycodes.map[keyName] then
+        local downAt = config.downAt
+        config.downAt = nil
         if config.isChording then
           config.isChording = false
         else
-          local downAt = config.downAt
-          config.downAt = nil
           if deepEquals(flags, {}) and
             when - downAt <= repeatThreshold then
             local synthetic = hs.eventtap.event.newKeyEvent({}, config.tapped, true)
