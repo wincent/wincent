@@ -54,7 +54,7 @@ cancelTimers = (function()
 end)
 
 modifierHandler = (function(evt)
-  local flags=evt:getFlags()
+  local flags = evt:getFlags()
   local keyCode = evt:getKeyCode()
 
   -- Going to fire a fake delete key-press so that we can handle this in the
