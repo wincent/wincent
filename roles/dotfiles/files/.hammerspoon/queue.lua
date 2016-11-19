@@ -33,12 +33,8 @@ return {
       end),
       pet
     }, {
-      __index = (function(t, k)
-        if k == 'length' then
-          return length
-        else
-          return nil
-        end
+      __len = (function(t)
+        return length
       end),
     })
   end),
