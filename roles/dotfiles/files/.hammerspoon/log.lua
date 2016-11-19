@@ -2,7 +2,6 @@
 -- Simple logging facility.
 --
 
---
 -- Possible values, from most to least verbose:
 --
 --   - verbose
@@ -12,7 +11,7 @@
 --   - error
 --   - nothing
 --
-local logLevel = 'debug' -- 'info'
+local logLevel = 'info'
 
 local log = hs.logger.new('wincent', logLevel)
 
