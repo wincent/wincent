@@ -61,7 +61,7 @@ modifierHandler = (function(evt)
   local flags = evt:getFlags()
   local keyCode = evt:getKeyCode()
   log.df(
-    'flagsChaged %d [%s] (%s)',
+    'flagsChanged %d [%s] (%s)',
     keyCode,
     hs.keycodes.map[keyCode],
     t(flags)
