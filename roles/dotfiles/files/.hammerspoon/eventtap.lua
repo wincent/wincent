@@ -130,6 +130,7 @@ conditionalKeys.delete = {
   -- Caps Lock is mapped to control, so during chording, keyDown events should
   -- have these flags.
   expectedFlags = {ctrl = true},
+  queue = {},
 }
 conditionalKeys['return'] = {
   tapped = 'return',
@@ -138,6 +139,7 @@ conditionalKeys['return'] = {
   isChording = false,
   isRepeating = false,
   expectedFlags = {},
+  queue = {},
 }
 
 keyHandler = (function(evt)
@@ -176,33 +178,16 @@ keyHandler = (function(evt)
     local activeConditionals = {}
     for keyName, config in pairs(conditionalKeys) do
       if keyCode == hs.keycodes.map[keyName] then
-        -- Sanity checks.
-        if config.downAt then
-          if when - config.downAt > logWarningThreshold then
-            log.w(
-              'Suspicious keyDown event received for ' .. keyName .. ' at ' ..
-              when .. ' (original downAt was ' .. config.downAt .. ')'
-            )
-          end
-        elseif isRepeatEvent then
-          config.downAt = when - repeatDelay
-          log.w(
-            'No downAt recorded for repeating keyDown event for ' ..
-            keyName .. ' (using best guess ' .. config.downAt .. ')'
-          )
-        else
-          -- Initial down.
-          -- TODO: set up timer to assume up event if none received (and no
-          -- repeats received within an interval?)
+        activeConditionals[keyName] = config
+        if not config.downAt then
+          config.downAt = when
         end
 
         if not deepEquals(flags, {}) or
-          (config.downAt and when - config.downAt > chordThreshold) then
+          when - config.downAt > chordThreshold then
           if not config.isChording then
             return
           end
-        elseif not config.downAt then
-          config.downAt = when
         end
         return stopPropagation
       elseif config.downAt then
