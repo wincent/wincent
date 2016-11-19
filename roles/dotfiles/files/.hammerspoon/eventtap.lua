@@ -59,6 +59,12 @@ end)
 modifierHandler = (function(evt)
   local flags = evt:getFlags()
   local keyCode = evt:getKeyCode()
+  log.df(
+    'flagsChaged %d [%s] (%s)',
+    keyCode,
+    hs.keycodes.map[keyCode],
+    t(flags)
+  )
 
   -- Going to fire a fake delete key-press so that we can handle this in the
   -- keyHandler function along with return.
@@ -258,12 +264,16 @@ keyHandler = (function(evt)
   end
 end)
 
+local modifierTap = nil
+local keyTap = nil
 return {
   init = (function()
-    eventtap.new({types.flagsChanged}, modifierHandler):start()
-    eventtap.new({keyDown, keyUp}, keyHandler):start()
+    modifierTap = eventtap.new({types.flagsChanged}, modifierHandler):start()
+    keyTap = eventtap.new({keyDown, keyUp}, keyHandler):start()
   end),
   __debug = {
     conditionalKeys = conditionalKeys,
+    getKeyTap = (function() return keyTap end),
+    getModifierTap = (function() return modifierTap end),
   },
 }
