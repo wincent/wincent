@@ -145,6 +145,13 @@ keyHandler = (function(evt)
   local flags = evt:getFlags()
   local when = timer.secondsSinceEpoch()
   if eventType == keyDown then
+    log.df(
+      'keyDown %d [%s] (%s), repeat = %s',
+      keyCode,
+      hs.keycodes.map[keyCode],
+      t(flags),
+      isRepeatEvent
+    )
     if keyCode == hs.keycodes.map.i then
       if deepEquals(flags, {ctrl = true}) then
         local frontmost = hs.application.frontmostApplication():bundleID()
@@ -170,14 +177,16 @@ keyHandler = (function(evt)
               when .. ' (original downAt was ' .. config.downAt .. ')'
             )
           end
+        elseif isRepeatEvent then
+          config.downAt = when - repeatDelay
+          log.w(
+            'No downAt recorded for repeating keyDown event for ' ..
+            keyName .. ' (using best guess ' .. config.downAt .. ')'
+          )
         else
-          if isRepeatEvent then
-            config.downAt = when - repeatDelay
-            log.w(
-              'No downAt recorded for repeating keyDown event for ' ..
-              keyName .. ' (using best guess ' .. config.downAt .. ')'
-            )
-          end
+          -- Initial down.
+          -- TODO: set up timer to assume up event if none received (and no
+          -- repeats received within an interval?)
         end
 
         if not deepEquals(flags, {}) or
@@ -201,6 +210,12 @@ keyHandler = (function(evt)
           config.isChording = true
           local syntheticFlags = {}
           syntheticFlags[config.chorded] = true
+          log.df(
+            'posting synthetic (chorded) event %d [%s] with flags %s',
+            keyCode,
+            hs.keycodes.map[keyCode],
+            t(syntheticFlags)
+          )
           evt:
             copy():
             setFlags(syntheticFlags):
@@ -211,6 +226,12 @@ keyHandler = (function(evt)
       end
     end
   elseif eventType == keyUp then
+    log.df(
+      'keyUp %d [%s] (%s)',
+      keyCode,
+      hs.keycodes.map[keyCode],
+      t(flags)
+    )
     for keyName, config in pairs(conditionalKeys) do
       if keyCode == hs.keycodes.map[keyName] then
         local downAt = config.downAt
@@ -220,6 +241,11 @@ keyHandler = (function(evt)
         elseif deepEquals(flags, {}) and
           downAt and
           when - downAt <= chordThreshold then
+          log.df(
+            'posting synthetic (tap) event %d [%s]',
+            keyCode,
+            hs.keycodes.map[keyCode]
+          )
           event.newKeyEvent({}, config.tapped, true):
             setProperty(eventSourceUserData, syntheticEvent):
             post()
