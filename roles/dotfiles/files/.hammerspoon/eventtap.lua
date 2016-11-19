@@ -4,6 +4,7 @@
 
 local deepEquals = require 'deepEquals'
 local log = require 'log'
+local retain = require 'retain'
 local util = require 'util'
 
 -- Forward function declarations.
@@ -268,8 +269,8 @@ local modifierTap = nil
 local keyTap = nil
 return {
   init = (function()
-    modifierTap = eventtap.new({types.flagsChanged}, modifierHandler):start()
-    keyTap = eventtap.new({keyDown, keyUp}, keyHandler):start()
+    modifierTap = retain(eventtap.new({types.flagsChanged}, modifierHandler):start())
+    keyTap = retain(eventtap.new({keyDown, keyUp}, keyHandler):start())
   end),
   __debug = {
     conditionalKeys = conditionalKeys,
