@@ -8,7 +8,7 @@ local keyToString = nil
 local tableToString = nil
 
 valueToString = (function(v)
-  if "string" == type(v) then
+  if 'string' == type(v) then
     v = string.gsub(v, '\n', '\\n')
     if string.match(string.gsub(v,"[^'\"]",""), '^"+$') then
       return "'" .. v .. "'"
@@ -16,7 +16,7 @@ valueToString = (function(v)
     return '"' .. string.gsub(v, '"', '\\"') .. '"'
   else
     return 'table' == type(v) and tableToString(v) or
-      tostring( v )
+      tostring(v)
   end
 end)
 

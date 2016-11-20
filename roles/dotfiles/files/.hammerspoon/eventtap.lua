@@ -5,6 +5,7 @@
 local deepEquals = require 'deepEquals'
 local log = require 'log'
 local retain = require 'retain'
+local queue = require 'queue'
 local util = require 'util'
 
 -- Forward function declarations.
@@ -21,6 +22,7 @@ local properties = event.properties
 local eventSourceUserData = properties.eventSourceUserData
 local keyboardEventKeyboardType = properties.keyboardEventKeyboardType
 local keyboardEventAutorepeat = properties.keyboardEventAutorepeat
+local keyCodes = hs.keycodes.map
 local timer = hs.timer
 local t = util.t
 
@@ -30,7 +32,8 @@ local internalKeyboardType = 43
 local externalKeyboardType = 40 -- YubiKey as well...
 local stopPropagation = true
 
-local keyCodes = {
+-- Key codes not present in hs.keycodes.map.
+local extraKeyCodes = {
   leftControl = 59,
   rightControl = 62,
   leftShift = 56,
@@ -63,13 +66,13 @@ modifierHandler = (function(evt)
   log.df(
     'flagsChanged %d [%s] (%s)',
     keyCode,
-    hs.keycodes.map[keyCode],
+    keyCodes[keyCode],
     t(flags)
   )
 
   -- Going to fire a fake delete key-press so that we can handle this in the
   -- keyHandler function along with return.
-  if keyCode == keyCodes.leftControl or keyCode == keyCodes.rightControl then
+  if keyCode == extraKeyCodes.leftControl or keyCode == extraKeyCodes.rightControl then
     -- We only start timers when Control is pressed alone, but we clean them up
     -- unconditionally when it is released, so as not to leak.
     if flags.ctrl == nil and controlPressed == true then
@@ -99,7 +102,7 @@ modifierHandler = (function(evt)
         end)
       )
     end
-  elseif keyCode == keyCodes.leftShift or keyCode == keyCodes.rightShift then
+  elseif keyCode == extraKeyCodes.leftShift or keyCode == extraKeyCodes.rightShift then
     if deepEquals(flags, shiftDown) then
       if false then
         -- TODO: something like the following, which seems unlikely to work
@@ -121,25 +124,25 @@ end)
 -- These are keys that do one thing when tapped but act like modifiers when
 -- chorded.
 local conditionalKeys = {}
-conditionalKeys.delete = {
+conditionalKeys[keyCodes.delete] = {
   tapped = 'delete',
   chorded = 'ctrl',
   downAt = nil,
   isChording = false,
   isRepeating = false,
-  -- Caps Lock is mapped to control, so during chording, keyDown events should
-  -- have these flags.
+  -- Caps Lock is mapped to control, so during chording, keyDown events for
+  -- other keys should have these flags.
   expectedFlags = {ctrl = true},
-  queue = {},
+  pending = queue.create(),
 }
-conditionalKeys['return'] = {
+conditionalKeys[keyCodes['return']] = {
   tapped = 'return',
   chorded = 'ctrl',
   downAt = nil,
   isChording = false,
   isRepeating = false,
   expectedFlags = {},
-  queue = {},
+  pending = queue.create(),
 }
 
 keyHandler = (function(evt)
@@ -157,11 +160,11 @@ keyHandler = (function(evt)
     log.df(
       'keyDown %d [%s] (%s), repeat = %s',
       keyCode,
-      hs.keycodes.map[keyCode],
+      keyCodes[keyCode],
       t(flags),
       isRepeatEvent
     )
-    if keyCode == hs.keycodes.map.i then
+    if keyCode == keyCodes.i then
       if deepEquals(flags, {ctrl = true}) then
         local frontmost = hs.application.frontmostApplication():bundleID()
         if frontmost == 'com.googlecode.iterm2' or frontmost == 'org.vim.MacVim' then
@@ -174,77 +177,187 @@ keyHandler = (function(evt)
     end
 
     -- Check for conditional keys.
-    -- Along the way, note which conditional key(s) are already down.
-    local activeConditionals = {}
-    for keyName, config in pairs(conditionalKeys) do
-      if keyCode == hs.keycodes.map[keyName] then
-        activeConditionals[keyName] = config
-        if not config.downAt then
-          config.downAt = when
-        end
-
-        if not deepEquals(flags, {}) or
-          when - config.downAt > chordThreshold then
-          if not config.isChording then
-            return
-          end
-        end
-        return stopPropagation
-      elseif config.downAt then
-        activeConditionals[keyName] = config
+    local config = conditionalKeys[keyCode]
+    if config then
+      if not config.downAt then
+        config.downAt = when
       end
+
+      if not deepEquals(flags, {}) or
+        when - config.downAt > chordThreshold then
+        if not config.isChording then
+          return
+        end
+      end
+      return stopPropagation
     end
 
-    -- Potentially begin chording against the active conditionals.
-    for keyName, config in pairs(activeConditionals) do
-      if config.isChording or when - config.downAt < chordThreshold then
-        if deepEquals(flags, config.expectedFlags) then
-          config.isChording = true
-          local syntheticFlags = {}
-          syntheticFlags[config.chorded] = true
+    -- Potentially begin chording against the first found active conditional.
+    for _, config in pairs(conditionalKeys) do
+      if config.downAt then
+        local syntheticFlags = {}
+        syntheticFlags[config.chorded] = true
+        if config.isChording then
+          if deepEquals(flags, config.expectedFlags) then
+            log.df(
+              'posting synthetic (chorded) keyDown %d [%s] with flags %s',
+              keyCode,
+              keyCodes[keyCode],
+              t(syntheticFlags)
+            )
+            evt:
+              copy():
+              setFlags(syntheticFlags):
+              setProperty(eventSourceUserData, syntheticEvent):
+              post()
+            return stopPropagation
+          else
+            -- Chording but flags don't match. Let through unaltered.
+            -- NOTE: may not be right behavior for Caps Lock (because that will
+            -- end up with Control flag regardless).
+            return
+          end
+        elseif when - config.downAt < chordThreshold then
+          -- Not chording (yet). Hold this in queue until we know whether this
+          -- is a chord or just a fast key press.
           log.df(
-            'posting synthetic (chorded) event %d [%s] with flags %s',
+            'enqueuing pending keyDown %d [%s] with flags %s',
             keyCode,
-            hs.keycodes.map[keyCode],
+            keyCodes[keyCode],
             t(syntheticFlags)
           )
-          evt:
-            copy():
-            setFlags(syntheticFlags):
-            setProperty(eventSourceUserData, syntheticEvent):
-            post()
+          config.pending.enqueue(
+            evt:
+              copy():
+              setFlags(syntheticFlags):
+              setProperty(eventSourceUserData, syntheticEvent)
+          )
           return stopPropagation
+        else
+          -- Not chording, but this is happening too late to start chording.
+          log.d('not chording, but this is happening too late for us ' ..
+          when .. ' vs ' .. config.downAt .. '(' .. chordThreshold .. ')')
+          return
         end
+
+        -- Note the simplifying assumption: guaranteed to `return` if we found
+        -- an active conditional; we'll just take that one (ie. first wins;
+        -- could also consider latest wins).
       end
     end
   elseif eventType == keyUp then
     log.df(
       'keyUp %d [%s] (%s)',
       keyCode,
-      hs.keycodes.map[keyCode],
+      keyCodes[keyCode],
       t(flags)
     )
-    for keyName, config in pairs(conditionalKeys) do
-      if keyCode == hs.keycodes.map[keyName] then
-        local downAt = config.downAt
-        config.downAt = nil
-        if config.isChording then
-          config.isChording = false
-        elseif deepEquals(flags, {}) and
-          downAt and
-          when - downAt <= chordThreshold then
-          log.df(
-            'posting synthetic (tap) event %d [%s]',
-            keyCode,
-            hs.keycodes.map[keyCode]
-          )
-          event.newKeyEvent({}, config.tapped, true):
-            setProperty(eventSourceUserData, syntheticEvent):
-            post()
-        else
-          return
+    local config = conditionalKeys[keyCode]
+    if config then
+      config.downAt = nil
+      if config.chording then
+        config.chording = false
+        return stopPropagation
+      elseif #config.pending > 0 then
+        -- Not chording and we had something pending (user is typing fast):
+        -- flush it!
+        --
+        --   Caps Lock *---------*
+        --   X              *------*
+        --
+        while true do
+          local pending = config.pending.dequeue()
+          if pending then
+            log.df(
+              'flushing queue keyDown %d [%s]',
+              pending:getKeyCode(),
+              keyCodes[pending:getKeyCode()]
+            )
+            pending:setFlags({}):post()
+          else
+            break
+          end
         end
         return stopPropagation
+      else
+        -- Not chording and nothing pending; this was a chord:
+        --
+        --   Caps Lock *---------*
+        --   X              *---*
+        --
+        local syntheticFlags = {}
+        syntheticFlags[config.chorded] = true
+        log.df(
+          'posting synthetic (chorded) keyUp %d [%s] with flags %s',
+          keyCode,
+          keyCodes[keyCode],
+          t(syntheticFlags)
+        )
+        event.newKeyEvent(syntheticFlags, keyCodes[keyCode], true):
+          setProperty(eventSourceUserData, syntheticEvent):
+          post()
+        return stopPropagation
+      end
+    end
+
+    -- Again, check for active conditionals.
+    for _, config in pairs(conditionalKeys) do
+      if config.downAt then
+        if config.isChording then
+          while true do
+            local pending = config.pending.dequeue()
+            if pending then
+              local syntheticFlags = {}
+              syntheticFlags[config.chorded] = true
+              log.df(
+                'flushing queue keyDown %d [%s] with flags %s',
+                pending:getKeyCode(),
+                keyCodes[pending:getKeyCode()],
+                t(syntheticFlags)
+              )
+              pending:setFlags(syntheticFlags):post()
+            else
+              break
+            end
+          end
+          return -- Can generally ignore these.
+        elseif when - config.downAt >= chordThreshold then
+          -- Not chording and too late to start now. Allow it through
+          while true do
+            local pending = config.pending.dequeue()
+            if pending then
+              log.df(
+                'flushing queue keyDown %d [%s]',
+                pending:getKeyCode(),
+                keyCodes[pending:getKeyCode()]
+              )
+              pending:post()
+            else
+              break
+            end
+          end
+          return
+        else
+          -- Not chording. Drain the queue and start chording.
+          config.isChording = true
+          local syntheticFlags = {}
+          syntheticFlags[config.chorded] = true
+          while true do
+            local pending = config.pending.dequeue()
+            if pending then
+              log.df(
+                'flushing queue keyDown %d [%s] with flags %s',
+                pending:getKeyCode(),
+                keyCodes[pending:getKeyCode()],
+                t(syntheticFlags)
+              )
+              pending:setFlags(syntheticFlags):post()
+            else
+              break
+            end
+          end
+          return stopPropagation
+        end
       end
     end
   end
