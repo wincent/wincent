@@ -133,7 +133,6 @@ conditionalKeys[keyCodes.delete] = {
   -- Caps Lock is mapped to control, so during chording, keyDown events for
   -- other keys should have these flags.
   expectedFlags = {ctrl = true},
-  pending = queue.create(),
 }
 conditionalKeys[keyCodes['return']] = {
   tapped = 'return',
@@ -142,8 +141,8 @@ conditionalKeys[keyCodes['return']] = {
   isChording = false,
   isRepeating = false,
   expectedFlags = {},
-  pending = queue.create(),
 }
+local pendingEvents = queue.create()
 
 keyHandler = (function(evt)
   local userData = evt:getProperty(eventSourceUserData)
@@ -226,7 +225,7 @@ keyHandler = (function(evt)
             keyCodes[keyCode],
             t(syntheticFlags)
           )
-          config.pending.enqueue(
+          pendingEvents.enqueue(
             evt:
               copy():
               setFlags(syntheticFlags):
@@ -258,7 +257,7 @@ keyHandler = (function(evt)
       if config.chording then
         config.chording = false
         return stopPropagation
-      elseif #config.pending > 0 then
+      elseif #pendingEvents > 0 then
         -- Not chording and we had something pending (user is typing fast):
         -- flush it!
         --
@@ -266,7 +265,7 @@ keyHandler = (function(evt)
         --   X              *------*
         --
         while true do
-          local pending = config.pending.dequeue()
+          local pending = pendingEvents.dequeue()
           if pending then
             log.df(
               'flushing queue keyDown %d [%s]',
@@ -305,7 +304,7 @@ keyHandler = (function(evt)
       if config.downAt then
         if config.isChording then
           while true do
-            local pending = config.pending.dequeue()
+            local pending = pendingEvents.dequeue()
             if pending then
               local syntheticFlags = {}
               syntheticFlags[config.chorded] = true
@@ -324,7 +323,7 @@ keyHandler = (function(evt)
         elseif when - config.downAt >= chordThreshold then
           -- Not chording and too late to start now. Allow it through
           while true do
-            local pending = config.pending.dequeue()
+            local pending = pendingEvents.dequeue()
             if pending then
               log.df(
                 'flushing queue keyDown %d [%s]',
@@ -343,7 +342,7 @@ keyHandler = (function(evt)
           local syntheticFlags = {}
           syntheticFlags[config.chorded] = true
           while true do
-            local pending = config.pending.dequeue()
+            local pending = pendingEvents.dequeue()
             if pending then
               log.df(
                 'flushing queue keyDown %d [%s] with flags %s',
@@ -372,6 +371,7 @@ return {
   end),
   __debug = {
     conditionalKeys = conditionalKeys,
+    pendingEvents = pendingEvents,
     getKeyTap = (function() return keyTap end),
     getModifierTap = (function() return modifierTap end),
   },
