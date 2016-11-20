@@ -254,8 +254,8 @@ keyHandler = (function(evt)
     local config = conditionalKeys[keyCode]
     if config then
       config.downAt = nil
-      if config.chording then
-        config.chording = false
+      if config.isChording then
+        config.isChording = false
         return stopPropagation
       elseif #pendingEvents > 0 then
         -- Not chording and we had something pending (user is typing fast):
@@ -279,15 +279,14 @@ keyHandler = (function(evt)
         end
         return stopPropagation
       else
-        -- Not chording and nothing pending; this was a chord:
+        -- Not chording and nothing pending; this was a tap:
         --
         --   Caps Lock *---------*
-        --   X              *---*
         --
+        -- BUG: if previously were chording, bummer
         local syntheticFlags = {}
-        syntheticFlags[config.chorded] = true
         log.df(
-          'posting synthetic (chorded) keyUp %d [%s] with flags %s',
+          'posting synthetic (tap) keyDown %d [%s] with flags %s',
           keyCode,
           keyCodes[keyCode],
           t(syntheticFlags)
@@ -309,10 +308,11 @@ keyHandler = (function(evt)
               local syntheticFlags = {}
               syntheticFlags[config.chorded] = true
               log.df(
-                'flushing queue keyDown %d [%s] with flags %s',
+                'flushing queue keyDown %d [%s] with flags %s config %s',
                 pending:getKeyCode(),
                 keyCodes[pending:getKeyCode()],
-                t(syntheticFlags)
+                t(syntheticFlags),
+                t(config)
               )
               pending:setFlags(syntheticFlags):post()
             else
@@ -345,18 +345,38 @@ keyHandler = (function(evt)
             local pending = pendingEvents.dequeue()
             if pending then
               log.df(
-                'flushing queue keyDown %d [%s] with flags %s',
+                'flushing queue keyDown %d [%s] with flags %s config 2 %s',
                 pending:getKeyCode(),
                 keyCodes[pending:getKeyCode()],
-                t(syntheticFlags)
+                t(syntheticFlags),
+                t(config)
               )
               pending:setFlags(syntheticFlags):post()
             else
               break
             end
           end
-          return stopPropagation
+          return -- stopPropagation
         end
+      else
+        local syntheticFlags = {}
+        syntheticFlags[config.chorded] = true
+        while true do
+          local pending = pendingEvents.dequeue()
+          if pending then
+            log.df(
+              'flushing queue keyDown %d [%s] with flags %s config 3 %s',
+              pending:getKeyCode(),
+              keyCodes[pending:getKeyCode()],
+              t(syntheticFlags),
+              t(config)
+            )
+            pending:setFlags(syntheticFlags):post()
+          else
+            break
+          end
+        end
+        return
       end
     end
   end
