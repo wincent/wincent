@@ -28,8 +28,6 @@ local t = util.t
 
 local chordThreshold = .5
 
-local rolloverThreshold = .2
-
 local injectedEvent = 94025
 
 local modifierEvent = 94117
@@ -145,6 +143,7 @@ conditionalKeys[keyCodes.delete] = {
   -- other keys should have these flags.
   expectedFlags = {ctrl = true},
   expectedUserData = modifierEvent,
+  rolloverThreshold = 0.2,
 }
 conditionalKeys[keyCodes['return']] = {
   tapped = 'return',
@@ -154,6 +153,7 @@ conditionalKeys[keyCodes['return']] = {
   isRepeating = false,
   expectedFlags = {},
   expectedUserData = 0,
+  rolloverThreshold = chordThreshold,
 }
 local pendingEvents = queue.create()
 
@@ -223,7 +223,7 @@ keyHandler = (function(evt)
             -- end up with Control flag regardless).
             return
           end
-        elseif when - config.downAt < rolloverThreshold then
+        elseif when - config.downAt < config.rolloverThreshold then
           -- This was pretty darn fast; most likely a roll-over.
           config.isChording = true
           if deepEquals(flags, config.expectedFlags) then
