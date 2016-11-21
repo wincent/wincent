@@ -270,10 +270,13 @@ keyHandler = (function(evt)
         --   Caps Lock *---------*
         --
         -- BUG: if previously were chording, bummer
-        local syntheticFlags = {}
-        event.newKeyEvent(syntheticFlags, keyCodes[keyCode], true):
-          setProperty(eventSourceUserData, syntheticEvent):
-          post()
+        if deepEquals(flags, {}) then
+          event.newKeyEvent({}, keyCodes[keyCode], true):
+            setProperty(eventSourceUserData, syntheticEvent):
+            post()
+        else
+          return
+        end
       end
       return stopPropagation
     end
