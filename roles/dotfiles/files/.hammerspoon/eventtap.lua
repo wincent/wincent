@@ -132,7 +132,6 @@ conditionalKeys[keyCodes.delete] = {
   chorded = 'ctrl',
   downAt = nil,
   isChording = false,
-  isRepeating = false,
   -- Caps Lock is mapped to control, so during chording, keyDown events for
   -- other keys should have these flags.
   expectedFlags = {ctrl = true},
@@ -144,7 +143,6 @@ conditionalKeys[keyCodes['return']] = {
   chorded = 'ctrl',
   downAt = nil,
   isChording = false,
-  isRepeating = false,
   expectedFlags = {},
   expectedUserData = 0,
   rolloverThreshold = chordThreshold,
