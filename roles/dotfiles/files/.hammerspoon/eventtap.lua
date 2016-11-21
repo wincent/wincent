@@ -223,6 +223,20 @@ keyHandler = (function(evt)
             -- end up with Control flag regardless).
             return
           end
+        elseif when - config.downAt < rolloverThreshold then
+          -- This was pretty darn fast; most likely a roll-over.
+          config.isChording = true
+          if deepEquals(flags, config.expectedFlags) then
+            evt:
+              copy():
+              setFlags(injectedFlags):
+              setProperty(eventSourceUserData, injectedEvent):
+              post()
+            return stopPropagation
+          else
+            -- Chording but flags don't match. Let through unaltered.
+            return
+          end
         elseif when - config.downAt < chordThreshold then
           -- Not chording (yet). Hold this in queue until we know whether this
           -- is a chord or just a fast key press.
