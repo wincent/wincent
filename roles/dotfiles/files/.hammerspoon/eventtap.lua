@@ -164,7 +164,11 @@ keyHandler = (function(evt)
     if keyCode == keyCodes.i then
       if deepEquals(flags, {ctrl = true}) then
         local frontmost = hs.application.frontmostApplication():bundleID()
-        if frontmost == 'com.googlecode.iterm2' or frontmost == 'org.vim.MacVim' then
+        if (
+          frontmost == 'com.apple.Terminal' or
+          frontmost == 'com.googlecode.iterm2' or
+          frontmost == 'org.vim.MacVim'
+        ) then
           event.newKeyEvent({}, 'f6', true):
             setProperty(eventSourceUserData, injectedEvent):
             post()
