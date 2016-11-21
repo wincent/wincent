@@ -198,12 +198,6 @@ keyHandler = (function(evt)
         syntheticFlags[config.chorded] = true
         if config.isChording then
           if deepEquals(flags, config.expectedFlags) then
-            log.df(
-              'posting synthetic (chorded) keyDown %d [%s] with flags %s',
-              keyCode,
-              keyCodes[keyCode],
-              t(syntheticFlags)
-            )
             evt:
               copy():
               setFlags(syntheticFlags):
@@ -219,12 +213,6 @@ keyHandler = (function(evt)
         elseif when - config.downAt < chordThreshold then
           -- Not chording (yet). Hold this in queue until we know whether this
           -- is a chord or just a fast key press.
-          log.df(
-            'enqueuing pending keyDown %d [%s] with flags %s',
-            keyCode,
-            keyCodes[keyCode],
-            t(syntheticFlags)
-          )
           pendingEvents.enqueue(
             evt:
               copy():
@@ -234,8 +222,6 @@ keyHandler = (function(evt)
           return stopPropagation
         else
           -- Not chording, but this is happening too late to start chording.
-          log.d('not chording, but this is happening too late for us ' ..
-          when .. ' vs ' .. config.downAt .. '(' .. chordThreshold .. ')')
           return
         end
 
@@ -267,11 +253,6 @@ keyHandler = (function(evt)
         while true do
           local pending = pendingEvents.dequeue()
           if pending then
-            log.df(
-              'flushing queue keyDown %d [%s]',
-              pending:getKeyCode(),
-              keyCodes[pending:getKeyCode()]
-            )
             pending:setFlags({}):post()
           else
             break
@@ -285,12 +266,6 @@ keyHandler = (function(evt)
         --
         -- BUG: if previously were chording, bummer
         local syntheticFlags = {}
-        log.df(
-          'posting synthetic (tap) keyDown %d [%s] with flags %s',
-          keyCode,
-          keyCodes[keyCode],
-          t(syntheticFlags)
-        )
         event.newKeyEvent(syntheticFlags, keyCodes[keyCode], true):
           setProperty(eventSourceUserData, syntheticEvent):
           post()
@@ -307,13 +282,6 @@ keyHandler = (function(evt)
             if pending then
               local syntheticFlags = {}
               syntheticFlags[config.chorded] = true
-              log.df(
-                'flushing queue keyDown %d [%s] with flags %s config %s',
-                pending:getKeyCode(),
-                keyCodes[pending:getKeyCode()],
-                t(syntheticFlags),
-                t(config)
-              )
               pending:setFlags(syntheticFlags):post()
             else
               break
@@ -325,11 +293,6 @@ keyHandler = (function(evt)
           while true do
             local pending = pendingEvents.dequeue()
             if pending then
-              log.df(
-                'flushing queue keyDown %d [%s]',
-                pending:getKeyCode(),
-                keyCodes[pending:getKeyCode()]
-              )
               pending:post()
             else
               break
@@ -344,13 +307,6 @@ keyHandler = (function(evt)
           while true do
             local pending = pendingEvents.dequeue()
             if pending then
-              log.df(
-                'flushing queue keyDown %d [%s] with flags %s config 2 %s',
-                pending:getKeyCode(),
-                keyCodes[pending:getKeyCode()],
-                t(syntheticFlags),
-                t(config)
-              )
               pending:setFlags(syntheticFlags):post()
             else
               break
@@ -364,13 +320,6 @@ keyHandler = (function(evt)
         while true do
           local pending = pendingEvents.dequeue()
           if pending then
-            log.df(
-              'flushing queue keyDown %d [%s] with flags %s config 3 %s',
-              pending:getKeyCode(),
-              keyCodes[pending:getKeyCode()],
-              t(syntheticFlags),
-              t(config)
-            )
             pending:setFlags(syntheticFlags):post()
           else
             break
