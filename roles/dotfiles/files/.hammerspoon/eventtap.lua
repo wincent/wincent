@@ -199,6 +199,7 @@ keyHandler = (function(evt)
         local probablyChording =
           when - config.downAt < config.rolloverThreshold
         if config.isChording or probablyChording then
+          config.isChording = true
           if deepEquals(flags, config.expectedFlags) then
             evt:
               copy():
