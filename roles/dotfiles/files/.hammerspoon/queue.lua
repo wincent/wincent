@@ -19,8 +19,8 @@ return {
         length = length + 1
       end),
       dequeue = (function()
-        length = length - 1
         if head then
+          length = length - 1
           item = head.item
           if head == tail then
             tail = nil

@@ -250,6 +250,13 @@ keyHandler = (function(evt)
         --   Caps Lock *---------*
         --   X              *------*
         --
+        event.newKeyEvent(
+          {},
+          config.tapped,
+          true
+        ):
+          setProperty(eventSourceUserData, syntheticEvent):
+          post()
         while true do
           local pending = pendingEvents.dequeue()
           if pending then
