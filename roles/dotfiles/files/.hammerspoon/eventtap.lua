@@ -27,7 +27,13 @@ local timer = hs.timer
 local t = util.t
 
 local chordThreshold = .5
-local syntheticEvent = 94025 -- magic number chosen "at random"
+
+local rolloverThreshold = .2
+
+local injectedEvent = 94025
+
+local modifierEvent = 94117
+
 local internalKeyboardType = 43
 local externalKeyboardType = 40 -- YubiKey as well...
 local stopPropagation = true
@@ -77,11 +83,15 @@ modifierHandler = (function(evt)
     -- unconditionally when it is released, so as not to leak.
     if flags.ctrl == nil and controlPressed == true then
       controlPressed = false
-      event.newKeyEvent({}, 'delete', false):post()
+      event.newKeyEvent({}, 'delete', false):
+        setProperty(eventSourceUserData, modifierEvent):
+        post()
       cancelTimers()
     elseif deepEquals(flags, controlDown) then
       controlPressed = true
-      event.newKeyEvent({}, 'delete', true):post()
+      event.newKeyEvent({}, 'delete', true):
+        setProperty(eventSourceUserData, modifierEvent):
+        post()
 
       -- We don't get repeat events for modifiers. Have to fake them.
       cancelTimers()
@@ -93,6 +103,7 @@ modifierHandler = (function(evt)
               (function() return controlPressed == false end),
               (function()
                 event.newKeyEvent({}, 'delete', true):
+                  setProperty(eventSourceUserData, modifierEvent):
                   setProperty(keyboardEventAutorepeat, 1):
                   post()
               end),
@@ -133,6 +144,7 @@ conditionalKeys[keyCodes.delete] = {
   -- Caps Lock is mapped to control, so during chording, keyDown events for
   -- other keys should have these flags.
   expectedFlags = {ctrl = true},
+  expectedUserData = modifierEvent,
 }
 conditionalKeys[keyCodes['return']] = {
   tapped = 'return',
@@ -141,12 +153,13 @@ conditionalKeys[keyCodes['return']] = {
   isChording = false,
   isRepeating = false,
   expectedFlags = {},
+  expectedUserData = 0,
 }
 local pendingEvents = queue.create()
 
 keyHandler = (function(evt)
   local userData = evt:getProperty(eventSourceUserData)
-  if userData == syntheticEvent then
+  if userData == injectedEvent then
     return
   end
   local eventType = evt:getType()
@@ -168,7 +181,7 @@ keyHandler = (function(evt)
         local frontmost = hs.application.frontmostApplication():bundleID()
         if frontmost == 'com.googlecode.iterm2' or frontmost == 'org.vim.MacVim' then
           event.newKeyEvent({}, 'f6', true):
-            setProperty(eventSourceUserData, syntheticEvent):
+            setProperty(eventSourceUserData, injectedEvent):
             post()
           return stopPropagation
         end
@@ -177,7 +190,7 @@ keyHandler = (function(evt)
 
     -- Check for conditional keys.
     local config = conditionalKeys[keyCode]
-    if config then
+    if config and config.expectedUserData == userData then
       if not config.downAt then
         config.downAt = when
       end
@@ -194,14 +207,14 @@ keyHandler = (function(evt)
     -- Potentially begin chording against the first found active conditional.
     for _, config in pairs(conditionalKeys) do
       if config.downAt then
-        local syntheticFlags = {}
-        syntheticFlags[config.chorded] = true
+        local injectedFlags = {}
+        injectedFlags[config.chorded] = true
         if config.isChording then
           if deepEquals(flags, config.expectedFlags) then
             evt:
               copy():
-              setFlags(syntheticFlags):
-              setProperty(eventSourceUserData, syntheticEvent):
+              setFlags(injectedFlags):
+              setProperty(eventSourceUserData, injectedEvent):
               post()
             return stopPropagation
           else
@@ -216,8 +229,8 @@ keyHandler = (function(evt)
           pendingEvents.enqueue(
             evt:
               copy():
-              setFlags(syntheticFlags):
-              setProperty(eventSourceUserData, syntheticEvent)
+              setFlags(injectedFlags):
+              setProperty(eventSourceUserData, injectedEvent)
           )
           return stopPropagation
         else
@@ -238,7 +251,7 @@ keyHandler = (function(evt)
       t(flags)
     )
     local config = conditionalKeys[keyCode]
-    if config then
+    if config and config.expectedUserData == userData then
       config.downAt = nil
       if config.isChording then
         config.isChording = false
@@ -254,7 +267,7 @@ keyHandler = (function(evt)
           config.tapped,
           true
         ):
-          setProperty(eventSourceUserData, syntheticEvent):
+          setProperty(eventSourceUserData, injectedEvent):
           post()
         while true do
           local pending = pendingEvents.dequeue()
@@ -272,7 +285,7 @@ keyHandler = (function(evt)
         -- BUG: if previously were chording, bummer
         if deepEquals(flags, {}) then
           event.newKeyEvent({}, keyCodes[keyCode], true):
-            setProperty(eventSourceUserData, syntheticEvent):
+            setProperty(eventSourceUserData, injectedEvent):
             post()
         else
           return
@@ -288,9 +301,9 @@ keyHandler = (function(evt)
           while true do
             local pending = pendingEvents.dequeue()
             if pending then
-              local syntheticFlags = {}
-              syntheticFlags[config.chorded] = true
-              pending:setFlags(syntheticFlags):post()
+              local injectedFlags = {}
+              injectedFlags[config.chorded] = true
+              pending:setFlags(injectedFlags):post()
             else
               break
             end
@@ -309,12 +322,12 @@ keyHandler = (function(evt)
           -- Not chording. Drain the queue and start chording.
           if #pendingEvents > 0 then
             config.isChording = true
-            local syntheticFlags = {}
-            syntheticFlags[config.chorded] = true
+            local injectedFlags = {}
+            injectedFlags[config.chorded] = true
             while true do
               local pending = pendingEvents.dequeue()
               if pending then
-                pending:setFlags(syntheticFlags):post()
+                pending:setFlags(injectedFlags):post()
               else
                 break
               end
