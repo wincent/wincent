@@ -242,7 +242,6 @@ keyHandler = (function(evt)
       config.downAt = nil
       if config.isChording then
         config.isChording = false
-        return stopPropagation
       elseif #pendingEvents > 0 then
         -- Not chording and we had something pending (user is typing fast):
         -- flush it!
@@ -265,7 +264,6 @@ keyHandler = (function(evt)
             break
           end
         end
-        return stopPropagation
       else
         -- Not chording and nothing pending; this was a tap:
         --
@@ -276,8 +274,8 @@ keyHandler = (function(evt)
         event.newKeyEvent(syntheticFlags, keyCodes[keyCode], true):
           setProperty(eventSourceUserData, syntheticEvent):
           post()
-        return stopPropagation
       end
+      return stopPropagation
     end
 
     -- Again, check for active conditionals.
@@ -294,7 +292,6 @@ keyHandler = (function(evt)
               break
             end
           end
-          return -- Can generally ignore these.
         elseif when - config.downAt >= chordThreshold then
           -- Not chording and too late to start now. Allow it through
           while true do
@@ -305,22 +302,23 @@ keyHandler = (function(evt)
               break
             end
           end
-          return
         else
           -- Not chording. Drain the queue and start chording.
-          config.isChording = true
-          local syntheticFlags = {}
-          syntheticFlags[config.chorded] = true
-          while true do
-            local pending = pendingEvents.dequeue()
-            if pending then
-              pending:setFlags(syntheticFlags):post()
-            else
-              break
+          if #pendingEvents > 0 then
+            config.isChording = true
+            local syntheticFlags = {}
+            syntheticFlags[config.chorded] = true
+            while true do
+              local pending = pendingEvents.dequeue()
+              if pending then
+                pending:setFlags(syntheticFlags):post()
+              else
+                break
+              end
             end
           end
-          return -- stopPropagation
         end
+        return
       end
     end
   end
