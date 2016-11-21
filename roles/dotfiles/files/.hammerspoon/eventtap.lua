@@ -314,18 +314,6 @@ keyHandler = (function(evt)
           end
           return -- stopPropagation
         end
-      else
-        local syntheticFlags = {}
-        syntheticFlags[config.chorded] = true
-        while true do
-          local pending = pendingEvents.dequeue()
-          if pending then
-            pending:setFlags(syntheticFlags):post()
-          else
-            break
-          end
-        end
-        return
       end
     end
   end
