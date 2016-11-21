@@ -67,12 +67,6 @@ end)
 modifierHandler = (function(evt)
   local flags = evt:getFlags()
   local keyCode = evt:getKeyCode()
-  log.df(
-    'flagsChanged %d [%s] (%s)',
-    keyCode,
-    keyCodes[keyCode],
-    t(flags)
-  )
 
   -- Going to fire a fake delete key-press so that we can handle this in the
   -- keyHandler function along with return.
@@ -169,13 +163,6 @@ keyHandler = (function(evt)
   local flags = evt:getFlags()
   local when = timer.secondsSinceEpoch()
   if eventType == keyDown then
-    log.df(
-      'keyDown %d [%s] (%s), repeat = %s',
-      keyCode,
-      keyCodes[keyCode],
-      t(flags),
-      isRepeatEvent
-    )
     if keyCode == keyCodes.i then
       if deepEquals(flags, {ctrl = true}) then
         local frontmost = hs.application.frontmostApplication():bundleID()
@@ -209,7 +196,9 @@ keyHandler = (function(evt)
       if config.downAt then
         local injectedFlags = {}
         injectedFlags[config.chorded] = true
-        if config.isChording then
+        local probablyChording =
+          when - config.downAt < config.rolloverThreshold
+        if config.isChording or probablyChording then
           if deepEquals(flags, config.expectedFlags) then
             evt:
               copy():
@@ -221,20 +210,6 @@ keyHandler = (function(evt)
             -- Chording but flags don't match. Let through unaltered.
             -- NOTE: may not be right behavior for Caps Lock (because that will
             -- end up with Control flag regardless).
-            return
-          end
-        elseif when - config.downAt < config.rolloverThreshold then
-          -- This was pretty darn fast; most likely a roll-over.
-          config.isChording = true
-          if deepEquals(flags, config.expectedFlags) then
-            evt:
-              copy():
-              setFlags(injectedFlags):
-              setProperty(eventSourceUserData, injectedEvent):
-              post()
-            return stopPropagation
-          else
-            -- Chording but flags don't match. Let through unaltered.
             return
           end
         elseif when - config.downAt < chordThreshold then
@@ -258,12 +233,6 @@ keyHandler = (function(evt)
       end
     end
   elseif eventType == keyUp then
-    log.df(
-      'keyUp %d [%s] (%s)',
-      keyCode,
-      keyCodes[keyCode],
-      t(flags)
-    )
     local config = conditionalKeys[keyCode]
     if config and config.expectedUserData == userData then
       config.downAt = nil
@@ -276,11 +245,7 @@ keyHandler = (function(evt)
         --   Caps Lock *---------*
         --   X              *------*
         --
-        event.newKeyEvent(
-          {},
-          config.tapped,
-          true
-        ):
+        event.newKeyEvent({}, config.tapped, true):
           setProperty(eventSourceUserData, injectedEvent):
           post()
         while true do
@@ -332,19 +297,17 @@ keyHandler = (function(evt)
               break
             end
           end
-        else
+        elseif #pendingEvents > 0 then
           -- Not chording. Drain the queue and start chording.
-          if #pendingEvents > 0 then
-            config.isChording = true
-            local injectedFlags = {}
-            injectedFlags[config.chorded] = true
-            while true do
-              local pending = pendingEvents.dequeue()
-              if pending then
-                pending:setFlags(injectedFlags):post()
-              else
-                break
-              end
+          config.isChording = true
+          local injectedFlags = {}
+          injectedFlags[config.chorded] = true
+          while true do
+            local pending = pendingEvents.dequeue()
+            if pending then
+              pending:setFlags(injectedFlags):post()
+            else
+              break
             end
           end
         end
