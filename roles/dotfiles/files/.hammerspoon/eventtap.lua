@@ -265,39 +265,17 @@ keyHandler = (function(evt)
     -- Again, check for active conditionals.
     for _, config in pairs(conditionalKeys) do
       if config.downAt then
-        if config.isChording then
-          while true do
-            local pending = pendingEvents.dequeue()
-            if pending then
-              local injectedFlags = {}
-              injectedFlags[config.chorded] = true
-              pending:setFlags(injectedFlags):post()
-            else
-              break
-            end
-          end
-        elseif when - config.downAt >= repeatDelay then
-          -- Not chording and too late to start now. Allow it through
-          while true do
-            local pending = pendingEvents.dequeue()
-            if pending then
-              pending:post()
-            else
-              break
-            end
-          end
-        elseif #pendingEvents > 0 then
-          -- Not chording. Drain the queue and start chording.
+        local injectedFlags = {}
+        if config.isChording or #pendingEvents > 0 then
           config.isChording = true
-          local injectedFlags = {}
           injectedFlags[config.chorded] = true
-          while true do
-            local pending = pendingEvents.dequeue()
-            if pending then
-              pending:setFlags(injectedFlags):post()
-            else
-              break
-            end
+        end
+        while true do
+          local pending = pendingEvents.dequeue()
+          if pending then
+            pending:setFlags(injectedFlags):post()
+          else
+            break
           end
         end
         return
