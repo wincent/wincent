@@ -20,7 +20,7 @@ local module = {
   df = log.df,
   i = log.i,
   w = log.w,
-  wf = log.w,
+  wf = log.wf,
 
   -- Convenience methods, simpler than doing this in the console:
   --
