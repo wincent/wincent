@@ -179,17 +179,13 @@ keyHandler = (function(evt)
       if not config.downAt then
         config.downAt = when
       end
-
-      -- TODO: consider edge case here around repeating event that maybe even
-      -- be isChording, and then user presses another modifier and the next
-      -- repeat event comes in
-      if not deepEquals(flags, {}) or
-        when - config.downAt > repeatDelay then
-        if not config.isChording then
-          return
-        end
+      if (
+        deepEquals(flags, {}) and
+        (config.isChording or when - config.downAt < repeatDelay)
+      ) then
+        return stopPropagation
       end
-      return stopPropagation
+      return
     end
 
     -- Potentially begin chording against the first found active conditional.
