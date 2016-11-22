@@ -203,11 +203,6 @@ keyHandler = (function(evt)
               setProperty(eventSourceUserData, injectedEvent):
               post()
             return stopPropagation
-          else
-            -- Chording but flags don't match. Let through unaltered.
-            -- NOTE: may not be right behavior for Caps Lock (because that will
-            -- end up with Control flag regardless).
-            return
           end
         elseif when - config.downAt < repeatDelay then
           -- Not chording (yet). Hold this in queue until we know whether this
@@ -219,14 +214,12 @@ keyHandler = (function(evt)
               setProperty(eventSourceUserData, injectedEvent)
           )
           return stopPropagation
-        else
-          -- Not chording, but this is happening too late to start chording.
-          return
         end
 
         -- Note the simplifying assumption: guaranteed to `return` if we found
         -- an active conditional; we'll just take that one (ie. first wins;
         -- could also consider latest wins).
+        return
       end
     end
   elseif eventType == keyUp then
