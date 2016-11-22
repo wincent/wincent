@@ -236,12 +236,16 @@ keyHandler = (function(evt)
       config.downAt = nil
       if config.isChording then
         config.isChording = false
-      elseif #pendingEvents > 0 then
+      else
         -- Not chording and we had something pending (user is typing fast):
         -- flush it!
         --
         --   Caps Lock *---------*
         --   X              *------*
+        --
+        -- And if nothing pending; this was a tap:
+        --
+        --   Caps Lock *---------*
         --
         event.newKeyEvent({}, config.tapped, true):
           setProperty(eventSourceUserData, injectedEvent):
@@ -254,21 +258,8 @@ keyHandler = (function(evt)
             break
           end
         end
-      else
-        -- Not chording and nothing pending; this was a tap:
-        --
-        --   Caps Lock *---------*
-        --
-        -- BUG: if previously were chording, bummer
-        if deepEquals(flags, {}) then
-          event.newKeyEvent({}, keyCodes[keyCode], true):
-            setProperty(eventSourceUserData, injectedEvent):
-            post()
-        else
-          return
-        end
       end
-      return stopPropagation
+      return
     end
 
     -- Again, check for active conditionals.
