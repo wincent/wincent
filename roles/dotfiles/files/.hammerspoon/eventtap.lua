@@ -341,10 +341,4 @@ return {
     modifierTap = retain(eventtap.new({types.flagsChanged}, modifierHandler):start())
     keyTap = retain(eventtap.new({keyDown, keyUp}, keyHandler):start())
   end),
-  __debug = {
-    conditionalKeys = conditionalKeys,
-    pendingEvents = pendingEvents,
-    getKeyTap = (function() return keyTap end),
-    getModifierTap = (function() return modifierTap end),
-  },
 }
