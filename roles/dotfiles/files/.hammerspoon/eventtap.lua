@@ -26,10 +26,14 @@ local keyCodes = hs.keycodes.map
 local timer = hs.timer
 local t = util.t
 
-local chordThreshold = .5
-
+-- Magic number chosen "at random" to tag an event injected by the tap which
+-- should be ignored by the tap.
 local injectedEvent = 94025
 
+-- Magic number chosen "at random" to tag an event generated in a modifier
+-- position (for example, Caps Lock -> mapped to Control in System Preferences ->
+-- transformed into "delete", but tagged so as to distinguish it from a "real"
+-- delete coming from elsewhere on the keyboard).
 local modifierEvent = 94117
 
 local internalKeyboardType = 43
@@ -155,7 +159,7 @@ conditionalKeys[keyCodes['return']] = {
   isChording = false,
   expectedFlags = {},
   expectedUserData = 0,
-  rolloverThreshold = chordThreshold,
+  rolloverThreshold = repeatDelay,
 }
 local pendingEvents = queue.create()
 
@@ -198,8 +202,11 @@ keyHandler = (function(evt)
         config.downAt = when
       end
 
+      -- TODO: consider edge case here around repeating event that maybe even
+      -- be isChording, and then user presses another modifier and the next
+      -- repeat event comes in
       if not deepEquals(flags, {}) or
-        when - config.downAt > chordThreshold then
+        when - config.downAt > repeatDelay then
         if not config.isChording then
           return
         end
@@ -229,7 +236,7 @@ keyHandler = (function(evt)
             -- end up with Control flag regardless).
             return
           end
-        elseif when - config.downAt < chordThreshold then
+        elseif when - config.downAt < repeatDelay then
           -- Not chording (yet). Hold this in queue until we know whether this
           -- is a chord or just a fast key press.
           pendingEvents.enqueue(
@@ -304,7 +311,7 @@ keyHandler = (function(evt)
               break
             end
           end
-        elseif when - config.downAt >= chordThreshold then
+        elseif when - config.downAt >= repeatDelay then
           -- Not chording and too late to start now. Allow it through
           while true do
             local pending = pendingEvents.dequeue()
