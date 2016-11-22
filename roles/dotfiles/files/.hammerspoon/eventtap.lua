@@ -341,11 +341,9 @@ keyHandler = (function(evt)
   end
 end)
 
-local modifierTap = nil
-local keyTap = nil
 return {
   init = (function()
-    modifierTap = retain(eventtap.new({types.flagsChanged}, modifierHandler):start())
-    keyTap = retain(eventtap.new({keyDown, keyUp}, keyHandler):start())
+    retain(eventtap.new({types.flagsChanged}, modifierHandler):start())
+    retain(eventtap.new({keyDown, keyUp}, keyHandler):start())
   end),
 }
