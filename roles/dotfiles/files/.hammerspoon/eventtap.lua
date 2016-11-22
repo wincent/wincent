@@ -21,7 +21,6 @@ local keyDown = types.keyDown
 local keyUp = types.keyUp
 local properties = event.properties
 local eventSourceUserData = properties.eventSourceUserData
-local keyboardEventKeyboardType = properties.keyboardEventKeyboardType
 local keyboardEventAutorepeat = properties.keyboardEventAutorepeat
 local keyCodes = hs.keycodes.map
 local timer = hs.timer
@@ -43,15 +42,11 @@ local extraKeyCodes = {
   leftShift = 56,
   rightShift = 60,
 }
-local controlDown = {ctrl = true}
-local controlUp = {}
 local controlPressed = nil
-local shiftDown = {shift = true}
 local repeatDelay = eventtap.keyRepeatDelay()
 local repeatInterval = eventtap.keyRepeatInterval()
 local controlTimer = nil
 local controlRepeatTimer = nil
-local logWarningThreshold = 15
 
 cancelTimers = (function()
   if controlTimer ~= nil then
@@ -79,7 +74,7 @@ modifierHandler = (function(evt)
         setProperty(eventSourceUserData, modifierEvent):
         post()
       cancelTimers()
-    elseif deepEquals(flags, controlDown) then
+    elseif deepEquals(flags, {ctrl = true}) then
       controlPressed = true
       event.newKeyEvent({}, 'delete', true):
         setProperty(eventSourceUserData, modifierEvent):
@@ -106,7 +101,7 @@ modifierHandler = (function(evt)
       )
     end
   elseif keyCode == extraKeyCodes.leftShift or keyCode == extraKeyCodes.rightShift then
-    if deepEquals(flags, shiftDown) then
+    if deepEquals(flags, {shift = true}) then
       if false then
         -- TODO: something like the following, which seems unlikely to work
         -- given what the internets say (requires custom keyboard driver).
@@ -170,9 +165,7 @@ keyHandler = (function(evt)
     return
   end
   local eventType = evt:getType()
-  local keyboardType = evt:getProperty(keyboardEventKeyboardType)
   local keyCode = evt:getKeyCode()
-  local isRepeatEvent = (evt:getProperty(keyboardEventAutorepeat) ~= 0)
   local flags = evt:getFlags()
   local when = timer.secondsSinceEpoch()
   if eventType == keyDown then
