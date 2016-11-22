@@ -5,7 +5,6 @@
 local deepEquals = require 'deepEquals'
 local retain = require 'retain'
 local queue = require 'queue'
-local util = require 'util'
 
 -- Forward function declarations.
 local cancelTimers = nil
@@ -247,9 +246,11 @@ keyHandler = (function(evt)
         --
         --   Caps Lock *---------*
         --
-        event.newKeyEvent({}, config.tapped, true):
-          setProperty(eventSourceUserData, injectedEvent):
-          post()
+        if deepEquals(flags, {}) then
+          event.newKeyEvent(flags, config.tapped, true):
+            setProperty(eventSourceUserData, injectedEvent):
+            post()
+        end
         while true do
           local pending = pendingEvents.dequeue()
           if pending then
