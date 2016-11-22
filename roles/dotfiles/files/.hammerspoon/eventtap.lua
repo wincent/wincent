@@ -3,7 +3,6 @@
 --
 
 local deepEquals = require 'deepEquals'
-local log = require 'log'
 local retain = require 'retain'
 local queue = require 'queue'
 local util = require 'util'
@@ -24,7 +23,6 @@ local eventSourceUserData = properties.eventSourceUserData
 local keyboardEventAutorepeat = properties.keyboardEventAutorepeat
 local keyCodes = hs.keycodes.map
 local timer = hs.timer
-local t = util.t
 
 -- Magic number chosen "at random" to tag an event injected by the tap which
 -- should be ignored by the tap.
@@ -36,15 +34,11 @@ local injectedEvent = 94025
 -- delete coming from elsewhere on the keyboard).
 local modifierEvent = 94117
 
-local internalKeyboardType = 43
-local externalKeyboardType = 40 -- YubiKey as well...
-local stopPropagation = true
+local stopPropagation = true -- For readability.
 
 -- Key codes not present in hs.keycodes.map.
 local extraKeyCodes = {
   leftControl = 59,
-  leftShift = 56,
-  rightShift = 60,
 }
 local controlPressed = nil
 local repeatDelay = eventtap.keyRepeatDelay()
@@ -103,22 +97,6 @@ modifierHandler = (function(evt)
           end
         end)
       )
-    end
-  elseif keyCode == extraKeyCodes.leftShift or keyCode == extraKeyCodes.rightShift then
-    if deepEquals(flags, {shift = true}) then
-      if false then
-        -- TODO: something like the following, which seems unlikely to work
-        -- given what the internets say (requires custom keyboard driver).
-        event.newSystemKeyEvent('CAPS_LOCK', true):post()
-        timer.doAfter(
-          .5,
-          (function()
-            event.newSystemKeyEvent('CAPS_LOCK', false):post()
-          end)
-        )
-      end
-    else
-      -- TODO: other modifiers pressed, reset state.
     end
   end
 end)
