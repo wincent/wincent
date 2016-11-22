@@ -15,6 +15,7 @@ local keyHandler = nil
 
 local eventtap = hs.eventtap
 local event = eventtap.event
+local find = hs.fnutils.find
 local types = event.types
 local keyDown = types.keyDown
 local keyUp = types.keyUp
@@ -127,14 +128,15 @@ end)
 -- Straight-forward key-to-key mappings.
 local mappings = {}
 mappings[keyCodes.i] = {
-  keyCode = keyCodes.i,
-  flags = {ctrl = true},
-  toKeyCode = 'f6',
-  toFlags = {},
-  apps = {
-    'com.apple.Terminal',
-    'com.googlecode.iterm2',
-    'org.vim.MacVim',
+  {
+    flags = {ctrl = true},
+    toKeyCode = 'f6',
+    toFlags = {},
+    apps = {
+      'com.apple.Terminal',
+      'com.googlecode.iterm2',
+      'org.vim.MacVim',
+    },
   },
 }
 
@@ -176,24 +178,24 @@ keyHandler = (function(evt)
   local when = timer.secondsSinceEpoch()
   if eventType == keyDown then
     -- Deal with basic key-to-key mappings first.
-    local mapping = mappings[keyCode]
+    local mapping = mappings[keyCode] and find(mappings[keyCode], (function(mapping)
+      return deepEquals(flags, mapping.flags)
+    end))
     if mapping then
-      if keyCode == mapping.keyCode and deepEquals(flags, mapping.flags) then
-        local performMapping = true
-        if mapping.apps then
-          local frontmost = hs.application.frontmostApplication():bundleID()
-          if not hs.fnutils.find(mapping.apps, (function(bundleID)
-            return frontmost == bundleID
-          end)) then
-            performMapping = false
-          end
+      local performMapping = true
+      if mapping.apps then
+        local frontmost = hs.application.frontmostApplication():bundleID()
+        if not find(mapping.apps, (function(bundleID)
+          return frontmost == bundleID
+        end)) then
+          performMapping = false
         end
-        if performMapping then
-          event.newKeyEvent(mapping.toFlags, mapping.toKeyCode, true):
-            setProperty(eventSourceUserData, injectedEvent):
-            post()
-          return stopPropagation
-        end
+      end
+      if performMapping then
+        event.newKeyEvent(mapping.toFlags, mapping.toKeyCode, true):
+          setProperty(eventSourceUserData, injectedEvent):
+          post()
+        return stopPropagation
       end
     end
 
