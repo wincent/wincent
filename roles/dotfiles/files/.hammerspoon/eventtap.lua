@@ -124,6 +124,20 @@ modifierHandler = (function(evt)
   end
 end)
 
+-- Straight-forward key-to-key mappings.
+local mappings = {}
+mappings[keyCodes.i] = {
+  keyCode = keyCodes.i,
+  flags = {ctrl = true},
+  toKeyCode = 'f6',
+  toFlags = {},
+  apps = {
+    'com.apple.Terminal',
+    'com.googlecode.iterm2',
+    'org.vim.MacVim',
+  },
+}
+
 -- These are keys that do one thing when tapped but act like modifiers when
 -- chorded.
 local conditionalKeys = {}
@@ -161,15 +175,21 @@ keyHandler = (function(evt)
   local flags = evt:getFlags()
   local when = timer.secondsSinceEpoch()
   if eventType == keyDown then
-    if keyCode == keyCodes.i then
-      if deepEquals(flags, {ctrl = true}) then
-        local frontmost = hs.application.frontmostApplication():bundleID()
-        if (
-          frontmost == 'com.apple.Terminal' or
-          frontmost == 'com.googlecode.iterm2' or
-          frontmost == 'org.vim.MacVim'
-        ) then
-          event.newKeyEvent({}, 'f6', true):
+    -- Deal with basic key-to-key mappings first.
+    local mapping = mappings[keyCode]
+    if mapping then
+      if keyCode == mapping.keyCode and deepEquals(flags, mapping.flags) then
+        local performMapping = true
+        if mapping.apps then
+          local frontmost = hs.application.frontmostApplication():bundleID()
+          if not hs.fnutils.find(mapping.apps, (function(bundleID)
+            return frontmost == bundleID
+          end)) then
+            performMapping = false
+          end
+        end
+        if performMapping then
+          event.newKeyEvent(mapping.toFlags, mapping.toKeyCode, true):
             setProperty(eventSourceUserData, injectedEvent):
             post()
           return stopPropagation
