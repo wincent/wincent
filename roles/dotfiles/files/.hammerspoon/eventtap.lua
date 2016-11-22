@@ -40,7 +40,6 @@ local stopPropagation = true
 -- Key codes not present in hs.keycodes.map.
 local extraKeyCodes = {
   leftControl = 59,
-  rightControl = 62,
   leftShift = 56,
   rightShift = 60,
 }
@@ -71,7 +70,7 @@ modifierHandler = (function(evt)
 
   -- Going to fire a fake delete key-press so that we can handle this in the
   -- keyHandler function along with return.
-  if keyCode == extraKeyCodes.leftControl or keyCode == extraKeyCodes.rightControl then
+  if keyCode == extraKeyCodes.leftControl then
     -- We only start timers when Control is pressed alone, but we clean them up
     -- unconditionally when it is released, so as not to leak.
     if flags.ctrl == nil and controlPressed == true then
