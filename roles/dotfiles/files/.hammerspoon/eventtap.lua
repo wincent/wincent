@@ -1,6 +1,138 @@
---
--- Trying to limp along without Karabiner in Sierra.
---
+--[[
+
+# Eventtap module
+
+## Basic handling
+
+In a perfect world, we'd only have two scenarios for key presses:
+
+**Chorded combinations:** User holds down a modifier, and while it is down,
+presses and releases another key. For example, to clear the terminal
+(Control-L):
+
+    Control *--------------*
+          L       *----*
+
+**Normal typing:** User presses and releases one key after another. For example,
+to type "BAR":
+
+          B *----*
+          A         *----*
+          R                 *----*
+
+In practice, reality is more complicated. Users typing quickly typically engage
+in "roll-over" in which successive keys are pressed before the preceding key is
+released:
+
+          B *----*
+          A     *----*
+          R         *----*
+
+This also happens for chorded combinations. The user may be have the mental
+model of "hold down a modifier, and while it is down, press and release another
+key", but in reality many instances of this end up being roll-over scenarios
+too:
+
+    Control *----*
+          L     *----*
+
+This becomes a problem for us here where we have multi-role "conditional" keys,
+that should be:
+
+1. One key (such as "Backspace" or "Enter") when tapped.
+2. That key, repeated, when pressed and held.
+3. A modifier (such as "Control") when chorded with another key.
+
+Give such a key, how are we to distinguish between these two cases?
+
+      Control *----*
+            L     *----*
+
+    Backspace *----*
+            L     *----*
+
+The same keys are pressed, with the same timing, but in one case the user
+intends to chord a combination and in the other he/she intends to delete a
+character and type another.
+
+Based on logging millisecond-level timing information and observing my own
+typing, I've found that most chording events happen in the 70-200ms range (that
+is, time elapsed between the modifier going down and the companion key going
+down). The key repeat delay is ~416ms, and the repeat interval is ~33ms.
+
+The heuristic applied here, then, is that if a key follows a potential modifier
+by less than a threshold of 200ms, we assume that the user intends to chord and
+fire the combination immediately. This matches the behavior of normal modifier
+keys, which fire their combination immediately upon key-down.
+
+If the threshold is exceeded, but still less than the repeat delay (416ms), we
+put the event into a pending queue so that we can decide whether it is a chord
+or a roll-over based on when key-up (or an autorepeating key-down) arrives. If
+we see a key-up event before 416ms, we consider this to be a tap (ie. we assume
+roll-over rather than a chord). The risk of a false positive here is not too
+concerning: worst that can happen is we wind up doing something like
+"Backspace-then-insert-space", which is generally unlikely to be a destructive
+operation. In a nut-shell: the essence of this heuristic is that, for these
+special keys:
+
+- The very fastest rollovers are likely to be chording attempts.
+- For not-quite-as-fast rollovers, we assume tap attempts, to make it possible
+  for the user to do quick erase then insert.
+- It's always possible to force a chording interpetation by doing a strict
+  chord, in which the other key is released before the modifier
+  (notwithstanding the fact that pressing and holding the modifier for long
+  enough without explictly initiating a chord or a rollover will trigger an
+  autorepeating tap).
+
+This level of nuance is almost certainly overkill, but the ability to enqueue
+pending events will come in handy when we come to implement the SpaceFN layout,
+when it will be absolutely necessary to block processing until we see key-up.
+
+The threshold is customizable, so I have it tuned very fast on the "Caps Lock"
+side, where I tend to do very fast inwards rolls, while on the "Return" side I
+opt for a higher threshold matching the repeat delay (416ms). This means that
+any press within that window is considered a chord. It's possible that this is
+too sensitive, making it harder to type fast roll-over sequences involving
+"Return-followed-by-something-else".
+
+## SpaceFN layout
+
+When I implement this layer, things are going to get more complicated.
+In the basic case, we must support this:
+
+    Space *----*
+        N      *----*
+
+That is, fast typing with frequent rollover (very common when using the space
+key), but also:
+
+    Space *-----------*
+        N      *----*
+
+That is, the intent to activate the SpaceFN layer, meaning that we have to defer
+emitting the space until we've seen the key-up event from the "N" key (subject
+to a time out).
+
+So far, that's definitely within the realm of the straighforwardly
+implementable, but bear in mind that we will want to deal with modifiers as
+well. For example, consider that we want to move back a word by doing
+"Option-Space-N":
+
+    Option *---------------*
+     Space   *------------*
+         N         *---*
+
+Again, not too bad, but consider when we want to combine this with a
+multi-purpose key again:
+
+   Caps Lock *-----------------*
+       Space    *-------------*
+           N           *----*
+
+This might be a little tricky to reconcile with my use of Control-Space as my
+tmux prefix.
+
+--]]
 
 local deepEquals = require 'deepEquals'
 local retain = require 'retain'
