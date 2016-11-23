@@ -334,7 +334,8 @@ hs.hotkey.bind({'ctrl', 'alt', 'cmd'}, 'f2', (function()
 end))
 
 hs.hotkey.bind({'ctrl', 'alt', 'cmd'}, 'f3', (function()
-  hs.openConsole()
+  hs.console.alpha(.75)
+  hs.toggleConsole()
 end))
 
 hs.hotkey.bind({'ctrl', 'alt', 'cmd'}, 'f4', (function()
