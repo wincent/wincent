@@ -43,9 +43,13 @@ luma() {
 color() {
   SCHEME="$1"
 
-  if [ $# -eq 0 -a -s "$BASE16_CONFIG" ]; then
-    cat ~/.vim/.base16
-    return
+  if [ $# -eq 0 ]; then
+    if [ -s "$BASE16_CONFIG" ]; then
+      cat ~/.vim/.base16
+      return
+    else
+      SCHEME=help
+    fi
   fi
 
   case "$SCHEME" in
