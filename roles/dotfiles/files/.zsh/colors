@@ -2,8 +2,6 @@
 # Colors
 #
 
-BASE16_CONFIG=~/.vim/.base16
-
 # Takes a hex color in the form of "RRGGBB" and outputs its luma (0-255, where
 # 0 is black and 255 is white).
 #
@@ -38,61 +36,63 @@ luma() {
   echo "$COLOR_LUMA"
 }
 
-color() {
-  local SCHEME="$1"
-  local BASE16_DIR=~/.zsh/base16-shell/scripts
-
-  if [ $# -eq 0 ]; then
-    if [ -s "$BASE16_CONFIG" ]; then
-      cat ~/.vim/.base16
-      return
-    else
-      SCHEME=help
-    fi
-  fi
-
-  case "$SCHEME" in
-  help)
-    echo 'color [tomorrow-night|ocean|grayscale-light|...]'
-    echo
-    echo 'Available schemes:'
-    find "$BASE16_DIR" -name 'base16-*.sh' | \
-      sed -E 's|.+/base16-||' | \
-      sed -E 's/\.sh//' | \
-      column
-      ;;
-  *)
-    FILE="$BASE16_DIR/base16-$SCHEME.sh"
-    if [[ -e "$FILE" ]]; then
-      local BG=$(grep color_background= "$FILE" | cut -d \" -f2 | sed -e 's#/##g')
-      local LUMA=$(luma "$BG")
-      local LIGHT=$((LUMA > 127.5))
-      local BACKGROUND=dark
-      if [ "$LIGHT" -eq 1 ]; then
-        BACKGROUND=light
-      fi
-
-      echo "$SCHEME" >! "$BASE16_CONFIG"
-      echo "$BACKGROUND" >> "$BASE16_CONFIG"
-      sh "$FILE"
-
-      if [ -n "$TMUX" ]; then
-        local CC=$(grep color18= "$FILE" | cut -d \" -f2 | sed -e 's#/##g')
-        if [ -n "$BG" -a -n "$CC" ]; then
-          command tmux set window-active-style "bg=#$BG"
-          command tmux set window-style "bg=#$CC"
-        fi
-      fi
-    else
-      echo "Scheme '$SCHEME' not found in $BASE16_DIR"
-      return 1
-    fi
-    ;;
-  esac
-
-}
-
 function () {
+  local BASE16_CONFIG=~/.vim/.base16
+
+  color() {
+    local SCHEME="$1"
+    local BASE16_DIR=~/.zsh/base16-shell/scripts
+
+    if [ $# -eq 0 ]; then
+      if [ -s "$BASE16_CONFIG" ]; then
+        cat ~/.vim/.base16
+        return
+      else
+        SCHEME=help
+      fi
+    fi
+
+    case "$SCHEME" in
+    help)
+      echo 'color [tomorrow-night|ocean|grayscale-light|...]'
+      echo
+      echo 'Available schemes:'
+      find "$BASE16_DIR" -name 'base16-*.sh' | \
+        sed -E 's|.+/base16-||' | \
+        sed -E 's/\.sh//' | \
+        column
+        ;;
+    *)
+      FILE="$BASE16_DIR/base16-$SCHEME.sh"
+      if [[ -e "$FILE" ]]; then
+        local BG=$(grep color_background= "$FILE" | cut -d \" -f2 | sed -e 's#/##g')
+        local LUMA=$(luma "$BG")
+        local LIGHT=$((LUMA > 127.5))
+        local BACKGROUND=dark
+        if [ "$LIGHT" -eq 1 ]; then
+          BACKGROUND=light
+        fi
+
+        echo "$SCHEME" >! "$BASE16_CONFIG"
+        echo "$BACKGROUND" >> "$BASE16_CONFIG"
+        sh "$FILE"
+
+        if [ -n "$TMUX" ]; then
+          local CC=$(grep color18= "$FILE" | cut -d \" -f2 | sed -e 's#/##g')
+          if [ -n "$BG" -a -n "$CC" ]; then
+            command tmux set window-active-style "bg=#$BG"
+            command tmux set window-style "bg=#$CC"
+          fi
+        fi
+      else
+        echo "Scheme '$SCHEME' not found in $BASE16_DIR"
+        return 1
+      fi
+      ;;
+    esac
+
+  }
+
   if [[ -s "$BASE16_CONFIG" ]]; then
     local SCHEME=$(head -1 "$BASE16_CONFIG")
     local BACKGROUND=$(sed -n -e '2 p' "$BASE16_CONFIG")
