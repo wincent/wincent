@@ -90,6 +90,7 @@ inline
 keychains
 linter
 loadview
+macOS
 memcached
 memoization
 memoize
