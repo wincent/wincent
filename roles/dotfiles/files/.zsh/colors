@@ -12,8 +12,7 @@ BASE16_CONFIG=~/.vim/.base16
 luma() {
   local COLOR_HEX=$1
 
-  if [ -z "$COLOR_HEX" ]
-  then
+  if [ -z "$COLOR_HEX" ]; then
     echo "Missing argument hex color (RRGGBB)"
     return 1
   fi
