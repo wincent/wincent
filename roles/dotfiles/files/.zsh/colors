@@ -2,7 +2,6 @@
 # Colors
 #
 
-BASE16_DIR=~/.zsh/base16-shell/scripts
 BASE16_CONFIG=~/.vim/.base16
 
 # Takes a hex color in the form of "RRGGBB" and outputs its luma (0-255, where
@@ -40,7 +39,8 @@ luma() {
 }
 
 color() {
-  SCHEME="$1"
+  local SCHEME="$1"
+  local BASE16_DIR=~/.zsh/base16-shell/scripts
 
   if [ $# -eq 0 ]; then
     if [ -s "$BASE16_CONFIG" ]; then
@@ -92,14 +92,16 @@ color() {
 
 }
 
-if [[ -s "$BASE16_CONFIG" ]]; then
-  SCHEME=$(head -1 "$BASE16_CONFIG")
-  BACKGROUND=$(sed -n -e '2 p' "$BASE16_CONFIG")
-  if [ "$BACKGROUND" != 'dark' -a "$BACKGROUND" != 'light' ]; then
-    echo "warning: unknown background type in $BASE16_CONFIG"
+function () {
+  if [[ -s "$BASE16_CONFIG" ]]; then
+    local SCHEME=$(head -1 "$BASE16_CONFIG")
+    local BACKGROUND=$(sed -n -e '2 p' "$BASE16_CONFIG")
+    if [ "$BACKGROUND" != 'dark' -a "$BACKGROUND" != 'light' ]; then
+      echo "warning: unknown background type in $BASE16_CONFIG"
+    fi
+    color "$SCHEME"
+  else
+    # Default.
+    color tomorrow-night
   fi
-  color "$SCHEME"
-else
-  # Default.
-  color tomorrow-night
-fi
+}
