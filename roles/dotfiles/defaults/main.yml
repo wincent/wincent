@@ -4,6 +4,7 @@ dotfiles:
   - .agignore
   - .bash
   - .bash_profile
+  - .clipper.json
   - .emacs.d
   - .ghci
   - .gitattributes
