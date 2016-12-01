@@ -12,11 +12,6 @@ syntax on
 
 source $VIMRUNTIME/macros/matchit.vim
 
-" TODO: remove once Command-T 5.0 is out
-let g:CommandTEngine='isengard'
-let g:CommandTClientLog='/tmp/clog'
-let g:CommandTServerLog='/tmp/slog'
-
 " Would be useful mappings, but they interfe with my default window movement
 " bindings (<C-j> and <C-k>).
 let g:NERDTreeMapJumpPrevSibling='<Nop>'
