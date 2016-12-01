@@ -91,3 +91,9 @@ function! s:get_custom_statusline(action) abort
 
   return 1 " Use default.
 endfunction
+
+function autocmds#idleboot() abort
+  augroup WincentIdleboot
+    autocmd!
+  augroup END
+endfunction
