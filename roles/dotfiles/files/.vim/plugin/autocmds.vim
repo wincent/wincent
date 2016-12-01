@@ -45,6 +45,8 @@ if has('autocmd')
   " Wait until idle to run additional "boot" commands.
   augroup WincentIdleboot
     autocmd!
-    autocmd CursorHold,CursorHoldI * call autocmds#idleboot()
+    if has('vim_starting')
+      autocmd CursorHold,CursorHoldI * call autocmds#idleboot()
+    endif
   augroup END
 endif
