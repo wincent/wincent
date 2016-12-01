@@ -96,4 +96,6 @@ function autocmds#idleboot() abort
   augroup WincentIdleboot
     autocmd!
   augroup END
+
+  doautocmd User WincentDefer
 endfunction
