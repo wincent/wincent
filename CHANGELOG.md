@@ -1,5 +1,11 @@
 # Changelog
 
+## 2016-11-30
+
+### Enhancement
+
+* Fine-tuned Vim startup performance from 500ms down to 150ms.
+
 ## 2016-11-29
 
 ### Breaking
