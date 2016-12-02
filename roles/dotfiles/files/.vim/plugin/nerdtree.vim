@@ -20,3 +20,5 @@ if has('autocmd')
     autocmd User NERDTreeInit call autocmds#attempt_select_last_file()
   augroup END
 endif
+
+call defer#packadd('nerdtree', 'NERD_tree.vim')

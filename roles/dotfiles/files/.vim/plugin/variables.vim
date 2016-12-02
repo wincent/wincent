@@ -22,7 +22,4 @@ let g:WincentQuickfixStatusline =
       \ . '%%'
       \ . '%*'
 
-augroup WincentVariables
-  autocmd!
-  autocmd User WincentDefer call variables#init()
-augroup END
+call defer#defer('call variables#init()')
