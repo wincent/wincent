@@ -15,10 +15,6 @@ function! defer#packadd(pack, plugin) abort
   execute "call defer#defer('call s:packadd(\"' . a:pack . '\", \"' . a:plugin . '\")')"
 endfunction
 
-function s:SID()
-  return matchstr(expand('<sfile>'), '<SNR>\zs\d\+\ze_SID$')
-endfun
-
 function! s:packadd(pack, plugin) abort
   if has('packages')
     execute 'packadd ' . a:pack
