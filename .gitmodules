@@ -137,3 +137,6 @@
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/replay"]
 	path = roles/dotfiles/files/.vim/pack/bundle/start/replay
 	url = https://github.com/wincent/replay.git
+[submodule "roles/dotfiles/files/.mutt/mutt-notmuch-py"]
+	path = roles/dotfiles/files/.mutt/mutt-notmuch-py
+	url = https://github.com/honza/mutt-notmuch-py.git
