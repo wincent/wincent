@@ -29,7 +29,7 @@
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/nerdtree"]
 	branch = wincent
 	ignore = untracked
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/nerdtree
+	path = roles/dotfiles/files/.vim/pack/nerdtree/opt/nerdtree
 	url = https://github.com/wincent/nerdtree.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/pinnacle"]
 	path = roles/dotfiles/files/.vim/pack/bundle/start/pinnacle
