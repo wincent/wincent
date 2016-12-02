@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import re, subprocess
+import os, re, subprocess
 
 def get_keychain_pass(account=None, server=None):
     params = {
@@ -8,7 +8,7 @@ def get_keychain_pass(account=None, server=None):
         'command': 'find-internet-password',
         'account': account,
         'server': server,
-        'keychain': '/Users/glh/Library/Keychains/login.keychain',
+        'keychain': os.environ['HOME'] + '/Library/Keychains/login.keychain',
     }
     command = "%(security)s -v %(command)s -g -a %(account)s -s %(server)s %(keychain)s" % params
     output = subprocess.check_output(command, shell=True, stderr=subprocess.STDOUT)
