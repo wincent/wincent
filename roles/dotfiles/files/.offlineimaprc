@@ -174,7 +174,7 @@ fsync = false
 # Mailbox name recorder
 ##################################################
 
-[mbnames]
+# [mbnames]
 
 # Offlineimap can record your mailbox names in a format you specify.
 # You can define the header, each mailbox item, the separator,
@@ -710,7 +710,8 @@ remotepasseval = get_keychain_pass(account="greg+mutt@hurrell.net", server="imap
 # You can also use fingerprint verification via cert_fingerprint.
 # See below for more verbose explanation.
 #
-#sslcacertfile = /path/to/cacertfile.crt
+# OS-DEFAULT doesn't work, so use this:
+sslcacertfile = /usr/local/etc/openssl/cert.pem
 
 
 # This option stands in the [Repository Gmail-Remote] section.
@@ -1061,6 +1062,7 @@ remoteuser = greg@hurrell.net
 #
 maxconnections = 1
 
+realdelete = no
 
 # This option stands in the [Repository Gmail-Remote] section.
 #

@@ -17,6 +17,7 @@ dotfiles:
   - .inputrc
   - .notmuch-config
   - .npmrc
+  - .offlineimaprc
   - .rdebugrc
   - .rspec
   - .screenrc
