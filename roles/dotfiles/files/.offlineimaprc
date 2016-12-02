@@ -72,7 +72,7 @@
 #
 # Always use ASCII characters only.
 #
-accounts = Test
+accounts = Gmail
 
 
 # This option stands in the [general] section.
@@ -107,7 +107,7 @@ accounts = Test
 #
 # You can override this with a command-line option -u.
 #
-#ui = basic
+ui = TTYUI
 
 
 # This option stands in the [general] section.
@@ -136,7 +136,7 @@ accounts = Test
 #
 # Tilde and environment variable expansions will be performed.
 #
-#pythonfile = ~/.offlineimap.py
+pythonfile = ~/.mutt/offlineimap.py
 
 
 # This option is in the [general] section.
@@ -167,7 +167,7 @@ accounts = Test
 # SQLite honors this option since v7.0.8+. However, those SQLite improvements
 # are still EXPERIMENTAL.
 #
-#fsync = true
+fsync = false
 
 
 ##################################################
@@ -253,18 +253,18 @@ accounts = Test
 # This is an account definition clause.  You'll have one of these for each
 # account listed in the "accounts" option in [general] section (above).
 
-[Account Test]
+[Account Gmail]
 
 # These settings specify the two folders that you will be syncing.
 # You'll need to have a "Repository ..." section for each one.
 
-localrepository = LocalExample
-remoterepository = RemoteExample
+localrepository = Gmail-Local
+remoterepository = Gmail-Remote
 
 
 ########## Advanced settings
 
-# This option stands in the [Account Test] section.
+# This option stands in the [Account Gmail] section.
 #
 # You can have Offlineimap continue running indefinitely, automatically syncing
 # your mail periodically.  If you want that, specify how frequently to do that
@@ -276,7 +276,7 @@ remoterepository = RemoteExample
 #autorefresh = 5
 
 
-# This option stands in the [Account Test] section.
+# This option stands in the [Account Gmail] section.
 #
 # OfflineImap can replace a number of full updates by quick synchronizations.
 # This option is ignored if maxage or startdate are used.
@@ -302,7 +302,7 @@ remoterepository = RemoteExample
 #quick = 10
 
 
-# This option stands in the [Account Test] section.
+# This option stands in the [Account Gmail] section.
 #
 # You can specify a pre and post sync hook to execute a external command.  In
 # this case a call to imapfilter to filter mail before the sync process starts
@@ -311,18 +311,18 @@ remoterepository = RemoteExample
 # The pre sync script has to complete before a sync to the account will start.
 #
 #presynchook = imapfilter -c someotherconfig.lua
-#postsynchook = notifysync.sh
+postsynchook = notmuch new
 
 
-# This option stands in the [Account Test] section.
+# This option stands in the [Account Gmail] section.
 #
 # The historical backend is 'plain' which writes out the state in plain text
 # files. See manual.
 #
-#status_backend = sqlite
+status_backend = sqlite
 
 
-# This option stands in the [Account Test] section.
+# This option stands in the [Account Gmail] section.
 #
 # If you have a limited amount of bandwidth available you can exclude larger
 # messages (e.g. those with large attachments etc).  If you do this it will
@@ -336,7 +336,7 @@ remoterepository = RemoteExample
 #maxsize = 2000000
 
 
-# This option stands in the [Account Test] section.
+# This option stands in the [Account Gmail] section.
 #
 # maxage enables you to sync only recent messages. There are two ways to specify
 # what "recent" means: if maxage is given as an integer, then only messages from
@@ -360,7 +360,7 @@ remoterepository = RemoteExample
 #maxage = 2015-04-01
 
 
-# This option stands in the [Account Test] section.
+# This option stands in the [Account Gmail] section.
 #
 # Maildir file format uses colon (:) separator between uniq name and info.
 # Unfortunatelly colon is not allowed character in windows file name. If you
@@ -371,7 +371,7 @@ remoterepository = RemoteExample
 #maildir-windows-compatible = no
 
 
-# This option stands in the [Account Test] section.
+# This option stands in the [Account Gmail] section.
 #
 # Specifies if we want to sync GMail labels with the local repository.
 # Effective only for GMail IMAP repositories.
@@ -381,7 +381,7 @@ remoterepository = RemoteExample
 #synclabels = no
 
 
-# This option stands in the [Account Test] section.
+# This option stands in the [Account Gmail] section.
 #
 # Name of the header to use for label storage.  Format for the header
 # value differs for different headers, because there are some de-facto
@@ -400,7 +400,7 @@ remoterepository = RemoteExample
 #labelsheader = X-Keywords
 
 
-# This option stands in the [Account Test] section.
+# This option stands in the [Account Gmail] section.
 #
 # Set of labels to be ignored.  Comma-separated list.  GMail-specific
 # labels all start with backslash ('\').
@@ -410,7 +410,7 @@ remoterepository = RemoteExample
 #ignorelabels = \Inbox, \Starred, \Sent, \Draft, \Spam, \Trash, \Important
 
 
-# This option stands in the [Account Test] section.
+# This option stands in the [Account Gmail] section.
 #
 # Offlineimap can strip off some headers when your messages are propagated
 # back to the IMAP server.  This option carries the comma-separated list
@@ -425,7 +425,7 @@ remoterepository = RemoteExample
 #filterheaders = X-Some-Weird-Header
 
 
-# This option stands in the [Account Test] section.
+# This option stands in the [Account Gmail] section.
 #
 # Use proxy connection for this account. Usefull to bypass the GFW in China.
 # To specify a proxy connection, join proxy type, host and port with colons.
@@ -437,12 +437,12 @@ remoterepository = RemoteExample
 #proxy = SOCKS5:IP:9999
 
 
-[Repository LocalExample]
+# [Repository LocalExample]
 
 # Each repository requires a "type" declaration. The types supported for
 # local repositories are Maildir, GmailMaildir and IMAP.
 #
-type = Maildir
+# type = Maildir
 
 
 # This option stands in the [Repository LocalExample] section.
@@ -451,7 +451,7 @@ type = Maildir
 # to maildirs created under this path.  Offlineimap will create the
 # maildirs for you as needed.
 #
-localfolders = ~/Test
+# localfolders = ~/Test
 
 
 # This option stands in the [Repository LocalExample] section.
@@ -487,7 +487,7 @@ localfolders = ~/Test
 # Propagate deletions from local to remote. Messages deleted in this repository
 # won't get deleted on remote if set to "no". Default is yes.
 #
-# See sync_deletes in the RemoteExample section, too.
+# See sync_deletes in the Gmail-Remote section, too.
 #
 #sync_deletes = yes
 
@@ -568,7 +568,7 @@ localfolders = ~/Test
 #customflag_c = NonJunk
 #customflag_d = ToDo
 
-[Repository GmailLocalExample]
+[Repository Gmail-Local]
 
 # This type of repository enables syncing of Gmail. All Maildir
 # configuration settings are also valid here but the utime_from_header.
@@ -582,16 +582,25 @@ localfolders = ~/Test
 # a while.
 #
 type = GmailMaildir
+localfolders = ~/.mail/greg-hurrell.net
 
+# Map weird remote folder names to FS-friendly ones for local use.
+nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
+                            'sent':    '[Gmail]/Sent Mail',
+                            'spam':    '[Gmail]/Spam',
+                            'starred': '[Gmail]/Starred',
+                            'trash':   '[Gmail]/Trash',
+                            'archive': '[Gmail]/All Mail',
+                            }.get(folder, folder)
 
-[Repository RemoteExample]
+[Repository Gmail-Remote]
 
 # The remote repository.  We only support IMAP or Gmail here.
 #
-type = IMAP
+type = Gmail
 
 
-# This option stands in the [Repository RemoteExample] section.
+# This option stands in the [Repository Gmail-Remote] section.
 #
 # Configure which address family to use for the connection. If not specified,
 # AF_UNSPEC is used as a fallback (default).
@@ -603,7 +612,7 @@ type = IMAP
 #ipv6 = False
 
 
-# These options stands in the [Repository RemoteExample] section.
+# These options stands in the [Repository Gmail-Remote] section.
 #
 # The following can fetch the account credentials via a python expression that
 # is parsed from the pythonfile parameter. For example, a function called
@@ -622,15 +631,17 @@ type = IMAP
 # The returned value must be unicode type.
 #remotepasseval = getcredentials("filename", "hostname", "passwd")
 
+remotepasseval = get_keychain_pass(account="greg+mutt@hurrell.net", server="imap.gmail.com")
 
-# This option stands in the [Repository RemoteExample] section.
+
+# This option stands in the [Repository Gmail-Remote] section.
 #
 # Specify the remote hostname.
 #
-remotehost = examplehost
+# remotehost = examplehost
 
 
-# This option stands in the [Repository RemoteExample] section.
+# This option stands in the [Repository Gmail-Remote] section.
 #
 # Whether or not to use STARTTLS. STARTTLS allows to upgrade a plain connection
 # to TLS or SSL after negociation with the server. While a server might pretend
@@ -646,7 +657,7 @@ remotehost = examplehost
 #starttls = yes
 
 
-# This option stands in the [Repository RemoteExample] section.
+# This option stands in the [Repository Gmail-Remote] section.
 #
 # Whether or not to use SSL.
 #
@@ -660,7 +671,7 @@ remotehost = examplehost
 #ssl = yes
 
 
-# This option stands in the [Repository RemoteExample] section.
+# This option stands in the [Repository Gmail-Remote] section.
 #
 # SSL Client certificate (optional).
 #
@@ -669,7 +680,7 @@ remotehost = examplehost
 #sslclientcert = /path/to/file.crt
 
 
-# This option stands in the [Repository RemoteExample] section.
+# This option stands in the [Repository Gmail-Remote] section.
 #
 # SSL Client key (optional).
 #
@@ -678,7 +689,7 @@ remotehost = examplehost
 #sslclientkey = /path/to/file.key
 
 
-# This option stands in the [Repository RemoteExample] section.
+# This option stands in the [Repository Gmail-Remote] section.
 #
 # SSL CA Cert(s) to verify the server cert against (optional).
 # No SSL verification is done without this option. If it is
@@ -702,7 +713,7 @@ remotehost = examplehost
 #sslcacertfile = /path/to/cacertfile.crt
 
 
-# This option stands in the [Repository RemoteExample] section.
+# This option stands in the [Repository Gmail-Remote] section.
 #
 # If you connect via SSL/TLS (ssl = yes) and you have no CA certificate
 # specified, Offlineimap will refuse to sync as it connects to a server
@@ -726,7 +737,7 @@ remotehost = examplehost
 #cert_fingerprint = <SHA1_of_server_certificate_here>[, <another_SHA1>]
 
 
-# This option stands in the [Repository RemoteExample] section.
+# This option stands in the [Repository Gmail-Remote] section.
 #
 # Set SSL version to use (optional).
 #
@@ -750,7 +761,7 @@ remotehost = examplehost
 #ssl_version = ssl23
 
 
-# This option stands in the [Repository RemoteExample] section.
+# This option stands in the [Repository Gmail-Remote] section.
 #
 # TLS support level (optional).
 #
@@ -779,21 +790,21 @@ remotehost = examplehost
 #tls_level = tls_compat
 
 
-# This option stands in the [Repository RemoteExample] section.
+# This option stands in the [Repository Gmail-Remote] section.
 #
 # Specify the port.  If not specified, use a default port.
 #
 #remoteport = 993
 
 
-# This option stands in the [Repository RemoteExample] section.
+# This option stands in the [Repository Gmail-Remote] section.
 #
 # Specify the remote user name.
 #
-remoteuser = username
+remoteuser = greg@hurrell.net
 
 
-# This option stands in the [Repository RemoteExample] section.
+# This option stands in the [Repository Gmail-Remote] section.
 #
 # Specify the user to be authorized as.  Sometimes we want to
 # authenticate with our login/password, but tell the server that we
@@ -809,7 +820,7 @@ remoteuser = username
 #remote_identity = authzuser
 
 
-# This option stands in the [Repository RemoteExample] section.
+# This option stands in the [Repository Gmail-Remote] section.
 #
 # Specify which authentication/authorization mechanisms we should try and the
 # order in which Offlineimap will try them.
@@ -824,7 +835,7 @@ remoteuser = username
 #auth_mechanisms = GSSAPI, XOAUTH2, CRAM-MD5, PLAIN, LOGIN
 
 
-# This option stands in the [Repository RemoteExample] section.
+# This option stands in the [Repository Gmail-Remote] section.
 #
 # XOAUTH2 authentication (for instance, to use with Gmail).
 #
@@ -945,7 +956,7 @@ remoteuser = username
 ########## Advanced settings
 
 
-# These options stands in the [Repository RemoteExample] section.
+# These options stands in the [Repository Gmail-Remote] section.
 #
 # Tunnels. There are two types:
 #
@@ -969,7 +980,7 @@ remoteuser = username
 #transporttunnel = openssl s_client -host myimap -port 993 -quiet
 
 
-# This option stands in the [Repository RemoteExample] section.
+# This option stands in the [Repository Gmail-Remote] section.
 #
 # Some IMAP servers need a "reference" which often refers to the "folder root".
 #
@@ -984,7 +995,7 @@ remoteuser = username
 #reference = Mail
 
 
-# This option stands in the [Repository RemoteExample] section.
+# This option stands in the [Repository Gmail-Remote] section.
 #
 # IMAP defines an encoding for non-ASCII ("international") characters. Enable
 # this option if you want to decode them to the nowadays ubiquitous UTF-8.
@@ -1007,7 +1018,7 @@ remoteuser = username
 #decodefoldernames = no
 
 
-# This option stands in the [Repository RemoteExample] section.
+# This option stands in the [Repository Gmail-Remote] section.
 #
 # In between synchronisations, Offlineimap can monitor mailboxes for new
 # messages using the IDLE command. If you want to enable this, specify here the
@@ -1031,7 +1042,7 @@ remoteuser = username
 #idlefolders = ['INBOX', 'INBOX.Alerts']
 
 
-# This option stands in the [Repository RemoteExample] section.
+# This option stands in the [Repository Gmail-Remote] section.
 #
 # Offlineimap can use a compressed connection to the IMAP server.
 # This can result in faster downloads for some cases.
@@ -1039,7 +1050,7 @@ remoteuser = username
 #usecompression = yes
 
 
-# This option stands in the [Repository RemoteExample] section.
+# This option stands in the [Repository Gmail-Remote] section.
 #
 # Offlineimap can use multiple connections to the server in order
 # to perform multiple synchronization actions simultaneously.
@@ -1048,10 +1059,10 @@ remoteuser = username
 # cases, it may slow things down.  The safe answer is 1.  You should
 # probably never set it to a value more than 5.
 #
-#maxconnections = 2
+maxconnections = 1
 
 
-# This option stands in the [Repository RemoteExample] section.
+# This option stands in the [Repository Gmail-Remote] section.
 #
 # If you want to ensure that only one single thread is used to synchronize each
 # folder, set this to 'yes'. If this is set, only one thread will be used to
@@ -1065,7 +1076,7 @@ remoteuser = username
 #singlethreadperfolder = no
 
 
-# This option stands in the [Repository RemoteExample] section.
+# This option stands in the [Repository Gmail-Remote] section.
 #
 # Offlineimap normally closes IMAP server connections between refreshes if
 # the global option autorefresh is specified.  If you wish it to keep the
@@ -1077,7 +1088,7 @@ remoteuser = username
 #holdconnectionopen = no
 
 
-# This option stands in the [Repository RemoteExample] section.
+# This option stands in the [Repository Gmail-Remote] section.
 #
 # If you want to have "keepalives" sent while waiting between syncs, specify the
 # amount of time IN SECONDS between keepalives here.  Note that sometimes more
@@ -1087,7 +1098,7 @@ remoteuser = username
 #keepalive = 60
 
 
-# This option stands in the [Repository RemoteExample] section.
+# This option stands in the [Repository Gmail-Remote] section.
 #
 # Normally, Offlineimap will expunge deleted messages from the server.  You can
 # disable that if you wish.  This means that Offlineimap will mark them deleted
@@ -1101,7 +1112,7 @@ remoteuser = username
 #expunge = no
 
 
-# This option stands in the [Repository RemoteExample] section.
+# This option stands in the [Repository Gmail-Remote] section.
 #
 # Specify whether to process all mail folders on the server, or only
 # those listed as "subscribed".
@@ -1111,7 +1122,7 @@ remoteuser = username
 #subscribedonly = no
 
 
-# This option stands in the [Repository RemoteExample] section.
+# This option stands in the [Repository Gmail-Remote] section.
 #
 # You can specify a folder translator.  This must be a eval-able.
 #
@@ -1136,8 +1147,17 @@ remoteuser = username
 #
 #nametrans = lambda foldername: re.sub('^INBOX\.*', '.', foldername)
 
+nametrans = lambda folder: {'[Gmail]/Drafts':    'drafts',
+                            '[Gmail]/Sent Mail': 'sent',
+                            '[Gmail]/Starred':   'starred',
+                            '[Gmail]/Spam':      'spam',
+                            '[Gmail]/Trash':     'trash',
+                            '[Gmail]/All Mail':  'archive',
+                            }.get(folder, folder)
 
-# This option stands in the [Repository RemoteExample] section.
+
+
+# This option stands in the [Repository Gmail-Remote] section.
 #
 # Determines if folderfilter will be invoked on each run (dynamic folder
 # filtering) or filtering status will be determined at startup (default
@@ -1146,7 +1166,7 @@ remoteuser = username
 #dynamic_folderfilter = False
 
 
-# This option stands in the [Repository RemoteExample] section.
+# This option stands in the [Repository Gmail-Remote] section.
 #
 # You can specify which folders to sync using the folderfilter setting. You can
 # provide any python function (e.g. a lambda function) which will be invoked for
@@ -1178,8 +1198,9 @@ remoteuser = username
 #    'INBOX', 'Sent Mail',
 #    'Deleted Items', 'Received']
 
+folderfilter = lambda folder: folder not in ['[Gmail]/Important']
 
-# This option stands in the [Repository RemoteExample] section.
+# This option stands in the [Repository Gmail-Remote] section.
 #
 # You can specify folderincludes to include additional folders.  It should
 # return a Python list.  This might be used to include a folder that was
@@ -1193,7 +1214,7 @@ remoteuser = username
 #folderincludes = ['debian.user', 'debian.personal']
 
 
-# This option stands in the [Repository RemoteExample] section.
+# This option stands in the [Repository Gmail-Remote] section.
 #
 # If you do not want to have any folders created on this repository,
 # set the createfolders variable to False, the default is True. Using
@@ -1203,7 +1224,7 @@ remoteuser = username
 #createfolders = True
 
 
-# This option stands in the [Repository RemoteExample] section.
+# This option stands in the [Repository Gmail-Remote] section.
 #
 # Propagate deletions from remote to local. Messages deleted in this repository
 # won't get deleted on the local repositor if set to "no". Default is yes.
@@ -1213,7 +1234,7 @@ remoteuser = username
 #sync_deletes = yes
 
 
-# This option stands in the [Repository RemoteExample] section.
+# This option stands in the [Repository Gmail-Remote] section.
 #
 # 'foldersort' determines how folders are sorted.
 #
@@ -1227,7 +1248,7 @@ remoteuser = username
 #foldersort = lambda x, y: -cmp(x, y)
 
 
-# This option stands in the [Repository RemoteExample] section.
+# This option stands in the [Repository Gmail-Remote] section.
 #
 # Enable 1-way synchronization. When setting 'readonly' to True, this
 # repository will not be modified during synchronization. Usefull to
@@ -1242,7 +1263,7 @@ remoteuser = username
 #readonly = False
 
 
-# This option stands in the [Repository RemoteExample] section.
+# This option stands in the [Repository Gmail-Remote] section.
 #
 # You can specify a newmail hook to execute an external command upon receipt
 # of new mail in the INBOX.
@@ -1255,7 +1276,7 @@ remoteuser = username
 #"cvlc --play-and-stop --play-and-exit /path/to/sound/file.mp3 > /dev/null 2>&1")
 
 
-# This option stands in the [Repository RemoteExample] section.
+# This option stands in the [Repository Gmail-Remote] section.
 #
 # If offlineiamp is having troubles to download some UIDS, it's possible to get
 # them ignored in a list. This only ignore the download.
@@ -1267,7 +1288,7 @@ remoteuser = username
 #copy_ignore_eval = lambda foldername: {'INBOX': [2, 3, 4]}.get(foldername)
 
 
-[Repository GmailExample]
+# [Repository GmailExample]
 
 # A repository using Gmail's IMAP interface.
 #
@@ -1296,14 +1317,14 @@ remoteuser = username
 # Side note: Gmail will keep the deleted emails in "Gmail\All Mail" unless you
 # defined it differently in your online settings.
 #
-type = Gmail
+# type = Gmail
 
 
 # This option stands in the [Repository GmailExample] section.
 #
 # Specify the Gmail user name. This is the only mandatory parameter.
 #
-remoteuser = username@gmail.com
+# remoteuser = username@gmail.com
 
 
 # This option stands in the [Repository GmailExample] section.
