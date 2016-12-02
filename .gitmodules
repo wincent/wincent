@@ -4,7 +4,7 @@
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/YouCompleteMe"]
 	branch = wincent
 	ignore = dirty
-	path = roles/dotfiles/files/.vim/pack/bundle/start/YouCompleteMe
+	path = roles/dotfiles/files/.vim/pack/YouCompleteMe/opt/YouCompleteMe
 	url = https://github.com/wincent/YouCompleteMe.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/base16-vim"]
 	path = roles/dotfiles/files/.vim/pack/bundle/start/base16-vim

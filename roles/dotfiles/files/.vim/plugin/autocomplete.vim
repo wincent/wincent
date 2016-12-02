@@ -66,3 +66,5 @@ let g:ycm_filetype_blacklist = {
       \   'infolog': 1,
       \   'mail': 1
       \ }
+
+call defer#packadd('YouCompleteMe', 'youcompleteme.vim')
