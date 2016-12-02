@@ -15,6 +15,7 @@ dotfiles:
   - .hammerspoon
   - .hgrc
   - .inputrc
+  - .msmtprc
   - .notmuch-config
   - .npmrc
   - .offlineimaprc
