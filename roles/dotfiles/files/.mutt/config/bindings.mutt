@@ -1,0 +1,31 @@
+# Needed so that the line-editor will accept IMAP folders with spaces in their
+# names.
+bind editor <space> noop
+
+bind pager u exit
+
+bind generic x tag-entry
+bind index x tag-thread # probably want to unbind t which does this as well
+
+bind index,pager m noop
+bind index,pager c mail # Compose.
+
+bind pager gg top
+bind pager G bottom
+bind pager k previous-line
+bind pager j next-line
+bind pager \Cu previous-page
+bind pager \Cd next-page
+bind index gg first-entry
+bind index G last-entry
+bind index <tab> collapse-thread
+bind index,pager a group-reply # Reply all
+bind index,pager <down> sidebar-next
+bind index,pager <up> sidebar-prev
+bind index,pager <right> sidebar-open
+bind index,pager b sidebar-toggle-visible
+
+bind attach <return> view-mailcap
+
+bind editor <Tab> complete-query
+bind editor ^T complete

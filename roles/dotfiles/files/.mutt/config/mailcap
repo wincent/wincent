@@ -1,0 +1,25 @@
+# MS Word documents
+# application/msword; ~/.mutt/view_attachment.sh %s "-" '/Applications/TextEdit.app'
+
+# Images
+image/jpg; ~/.mutt/view_attachment.sh %s jpg
+image/jpeg; ~/.mutt/view_attachment.sh %s jpg
+image/pjpeg; ~/.mutt/view_attachment.sh %s jpg
+image/png; ~/.mutt/view_attachment.sh %s png
+image/gif; ~/.mutt/view_attachment.sh %s gif
+
+# PDFs
+application/pdf; ~/.mutt/view_attachment.sh %s pdf
+
+# HTML
+
+# Explicitly render in browser with "v" (view attachment):
+text/html; ~/.mutt/view_attachment.sh %s html
+
+# Try to display implicitly using w3m:
+text/html; w3m -I %{charset} -T text/html; copiousoutput;
+
+text/plain; less
+
+# Unidentified files
+application/octet-stream; ~/.mutt/view_attachment.sh %s "-"

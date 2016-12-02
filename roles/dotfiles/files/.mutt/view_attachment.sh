@@ -57,7 +57,7 @@
 #
 
 # the tmp directory to use.
-tmpdir="$HOME/.tmp/mutt_attach"
+tmpdir="$HOME/.mutt/tmp/attachments"
 
 # the name of the debug file if debugging is turned on.
 debug_file=$tmpdir/debug

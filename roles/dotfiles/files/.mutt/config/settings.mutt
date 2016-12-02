@@ -1,0 +1,73 @@
+set from = 'greg@hurrell.net'
+set realname = 'Greg Hurrell'
+
+# TODO: figure out whether I really need this
+set header_cache =~/.mutt/cache/headers
+set message_cachedir =~/.mutt/cache/bodies
+set certificate_file =~/.mutt/certificates
+
+set move = no  # Stop asking to move read messages to mbox!
+# set imap_keepalive = 900
+
+set mail_check = 60 # default checking interval of 5 (seconds) is crazy.
+set imap_check_subscribed = yes
+set edit_headers = yes
+
+# Don't keep a local copy of sent messages (Gmail's SMTP server will do that).
+unset record
+set copy = no
+
+set sidebar_visible = yes
+set sort = reverse-threads
+set sort_aux = last-date-received
+set abort_nosubject = no
+
+# Include quoted copy of message in reply.
+set include = yes
+
+# Instead of asking, always reply to Reply-to:
+set reply_to = yes
+
+set attribution = "%n wrote:\n"
+
+# No wrapped line markers.
+set markers = no
+set mark_old = no
+
+unset imap_passive
+
+set delete = yes # delete without confirming
+set wait_key = no
+set forward_quote = yes
+set fast_reply = yes
+set pager_stop = yes # don't move to the next message when paging past the bottom of a message
+set resolve = no # don't auto-advance to the next message after every single op
+set pager_index_lines = 12
+set menu_scroll = yes
+set tilde = yes
+set editor = 'vim +100' # Move to bottom.
+
+set alias_file = $HOME/.mutt/aliases.mutt
+set uncollapse_jump = yes
+
+set ssl_force_tls = yes
+set sendmail = "/usr/local/bin/msmtp -a gmail"
+set sendmail_wait = 0
+set mailcap_path = "~/.mutt/config/mailcap"
+
+set sidebar_divider_char = '│'
+set sidebar_format = "%B (%N)"
+set sidebar_delim_chars = '/'
+set sidebar_short_path = yes
+set sidebar_folder_indent = yes
+
+set imap_delim_chars = '/'
+
+set query_command = "reattach-to-user-namespace contacts -Sf '%eTOKEN%n' '%s' | sed -e 's/TOKEN/\t/g'"
+
+# REMOTE GMAIL FOLDERS
+# TODO: replace with offlineimap
+set folder = 'imaps://imap.gmail.com:993'
+set spoolfile = '+INBOX'
+set postponed ='+[Google Mail]/Drafts'
+set trash = '+[Google Mail]/Trash'

@@ -1,0 +1,11 @@
+#!/bin/sh
+
+if [ $# -ne 2 ]; then
+  echo "Usage: $0 ACCOUNT SERVER"
+  exit 1
+fi
+ACCOUNT="$1"
+SERVER="$2"
+KEYCHAIN="$HOME/Library/Keychains/login.keychain"
+
+security find-internet-password -w -a "$ACCOUNT" -s "$SERVER" "$KEYCHAIN"

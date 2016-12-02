@@ -1,0 +1,6 @@
+source $HOME/.mutt/config/aliases.mutt
+source $HOME/.mutt/config/bindings.mutt
+source $HOME/.mutt/config/colors.mutt
+source $HOME/.mutt/config/commands.mutt
+source $HOME/.mutt/config/macros.mutt
+source $HOME/.mutt/config/settings.mutt

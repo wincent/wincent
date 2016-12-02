@@ -1,0 +1,4 @@
+# Automatically feed HTML emails through w3m, but only if there is no
+# alternative.
+auto_view text/html
+alternative_order text/plain text/enriched text/html

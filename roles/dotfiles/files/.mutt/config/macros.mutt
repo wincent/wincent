@@ -1,0 +1,26 @@
+macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
+macro index ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
+macro index gs "<change-folder>=[Gmail]/Starred<enter>" "Go to starred messages"
+macro index gt "<change-folder>=[Gmail]/Sent Mail<enter>" "Go to Sent Mail"
+macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
+macro index,pager gl "<change-folder>?" "Go to 'Label'"
+
+macro index,pager e "<save-message>=[Gmail]/All Mail<enter><enter>" "Archive"
+macro index,pager \# "<save-message>=[Gmail]/Trash<enter><enter>" "Trash"
+
+# make this conditional on not being in the inbox already?
+macro index u "<change-folder>=INBOX<enter>" "Go to inbox"
+
+macro pager x "<tag-message><exit>"
+
+# Not sure if I want to use space as a "leader" like this...
+macro pager <space>u "|urlview<enter>" "call urlview to open links"
+
+macro index,pager U <set-flag>N "Mark as unread"
+macro index,pager I <clear-flag>N "Mark as read"
+
+# Macro to toggle alternates (plain <-> html), based on:
+# https://groups.google.com/d/msg/comp.mail.mutt/9I702oMwQQE/JqdLnp3j9WAJ
+macro pager ,@aoh= "<enter-command>unalternative_order *; alternative_order text/html text/plain text/enriched; macro pager A ,@aot= 'toggle alternative order'<enter><exit><display-message>"
+macro pager ,@aot= "<enter-command>unalternative_order *; alternative_order text/plain text/enriched text/html; macro pager A ,@aoh= 'toggle alternative order'<enter><exit><display-message>"
+macro pager A ,@aoh= "toggle alternative order"
