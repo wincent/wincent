@@ -7,7 +7,6 @@ set message_cachedir =~/.mutt/cache/bodies
 set certificate_file =~/.mutt/certificates
 
 set move = no  # Stop asking to move read messages to mbox!
-# set imap_keepalive = 900
 
 set mail_check = 60 # default checking interval of 5 (seconds) is crazy.
 set imap_check_subscribed = yes
@@ -61,13 +60,14 @@ set sidebar_delim_chars = '/'
 set sidebar_short_path = yes
 set sidebar_folder_indent = yes
 
-set imap_delim_chars = '/'
+# Not using any nesting, nor multiple accounts, so the default indent is a waste
+# of space.
+set sidebar_indent_string = ''
 
 set query_command = "reattach-to-user-namespace contacts -Sf '%eTOKEN%n' '%s' | sed -e 's/TOKEN/\t/g'"
 
-# REMOTE GMAIL FOLDERS
-# TODO: replace with offlineimap
-set folder = 'imaps://imap.gmail.com:993'
-set spoolfile = '+INBOX'
-set postponed ='+[Google Mail]/Drafts'
-set trash = '+[Google Mail]/Trash'
+set folder = ~/.mail
+set spoolfile = "+greg-hurrell.net/INBOX"
+set mbox = "+greg-hurrell.net/archive"
+set postponed ='+greg-hurrell.net/drafts'
+set trash = '+greg-hurrell.net/trash'

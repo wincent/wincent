@@ -2,33 +2,60 @@
 
 [general]
 
-accounts = Gmail
+accounts = greg-hurrell.net
 ui = TTYUI
 pythonfile = ~/.mutt/offlineimap.py
 fsync = false
 
-[Account Gmail]
+[mbnames]
 
-localrepository = Gmail-Local
-remoterepository = Gmail-Remote
+# We have offlineimap record the mailbox names into a file that mutt can source.
+# This gives us explicit control over the ordering in the sidebar.
+enabled = yes
+filename = ~/.mutt/config/mailboxes.mutt
+header = "mailboxes "
+peritem = "+%(accountname)s/%(foldername)s"
+
+# Sort important folders up the top, and everything else by account/foldername.
+sort_keyfunc = lambda d: ({'INBOX': '00',
+                           'starred': '01',
+                           'sent': '02',
+                           'drafts': '03',
+                           'archive': '04',
+                           'trash': '05',
+                           'spam': '06',
+                           }.get(d['foldername'], '99'), d['accountname'], d['foldername'])
+
+# For now I don't have any that I want to exclude, but can do that later:
+# folderfilter = lambda accountname, foldername: not re.search('(^bak.*|.*drafts$|.*spam$|.*sent$|.*trash$)', foldername)
+
+sep = " "
+footer = "\n"
+incremental = no
+
+[Account greg-hurrell.net]
+
+localrepository = greg-hurrell.net-Local
+remoterepository = greg-hurrell.net-Remote
 postsynchook = notmuch new
 status_backend = sqlite
 
-[Repository Gmail-Local]
+[Repository greg-hurrell.net-Local]
 
 type = GmailMaildir
 localfolders = ~/.mail/greg-hurrell.net
 
 # Map weird remote folder names to FS-friendly ones for local use.
-nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
-                            'sent':    '[Gmail]/Sent Mail',
-                            'spam':    '[Gmail]/Spam',
-                            'starred': '[Gmail]/Starred',
-                            'trash':   '[Gmail]/Trash',
-                            'archive': '[Gmail]/All Mail',
+# TODO: upper case first letter
+nametrans = lambda folder: {'drafts':            '[Gmail]/Drafts',
+                            'sent':              '[Gmail]/Sent Mail',
+                            'spam':              '[Gmail]/Spam',
+                            'starred':           '[Gmail]/Starred',
+                            'trash':             '[Gmail]/Trash',
+                            'archive':           '[Gmail]/All Mail',
                             }.get(folder, folder)
 
-[Repository Gmail-Remote]
+[Repository greg-hurrell.net-Remote]
 
 type = Gmail
 remotepasseval = get_keychain_pass(account="greg+mutt@hurrell.net", server="imap.gmail.com")
