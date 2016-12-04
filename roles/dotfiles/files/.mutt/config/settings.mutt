@@ -68,6 +68,6 @@ set query_command = "reattach-to-user-namespace contacts -Sf '%eTOKEN%n' '%s' | 
 
 set folder = ~/.mail
 set spoolfile = "+greg-hurrell.net/INBOX"
-set mbox = "+greg-hurrell.net/archive"
-set postponed ='+greg-hurrell.net/drafts'
-set trash = '+greg-hurrell.net/trash'
+set mbox = "+greg-hurrell.net/Archive"
+set postponed ='+greg-hurrell.net/Drafts'
+set trash = '+greg-hurrell.net/Trash'
