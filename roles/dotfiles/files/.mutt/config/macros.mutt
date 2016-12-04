@@ -5,19 +5,35 @@ macro index,pager gt "<change-folder>+Home/Home.Sent<enter>" "Go to Sent Mail"
 macro index,pager gd "<change-folder>+Home/Home.Drafts<enter>" "Go to drafts"
 macro index,pager gl "<change-folder>?" "Go to 'Label'"
 
-macro index,pager e "<save-message>><enter><enter>" "Archive"
-macro index,pager \# "<save-message>+Home/Home.Trash<enter><enter>" "Trash"
+macro pager e "<save-message>><enter><enter>" "Archive"
+macro index e "<tag-prefix><save-message>><enter><enter>" "Archive"
+macro pager \# "<save-message>+Home/Home.Trash<enter><enter>" "Trash"
+macro index \# "<tag-prefix><save-message>+Home/Home.Trash<enter><enter>" "Trash"
 
 # make this conditional on not being in the inbox already?
 macro index u "<change-folder>!<enter>" "Go to inbox"
 
 macro pager x "<tag-message><exit>"
 
+# Select all.
+macro index *a "<tag-pattern>~A<enter>"
+
+# Deselect all (mnemonic: "select [n]one"); for efficiency we only untag tagged.
+macro index *n "<untag-pattern>~T<enter>"
+
+# Select read.
+macro index *r "<untag-pattern>~T<enter><tag-pattern>~R<enter>"
+
+# Select unread.
+macro index *u "<untag-pattern>~T<enter><tag-pattern>~U<enter>"
+
 # Not sure if I want to use space as a "leader" like this...
 macro pager <space>u "|urlview<enter>" "call urlview to open links"
 
-macro index,pager U <set-flag>N "Mark as unread"
-macro index,pager I <clear-flag>N "Mark as read"
+macro pager U <set-flag>N "Mark as unread"
+macro index U <tag-prefix><set-flag>N "Mark as unread"
+macro pager I <clear-flag>N "Mark as read"
+macro index I <tag-prefix><clear-flag>N "Mark as read"
 
 # Macro to toggle alternates (plain <-> html), based on:
 # https://groups.google.com/d/msg/comp.mail.mutt/9I702oMwQQE/JqdLnp3j9WAJ
