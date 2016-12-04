@@ -1,12 +1,12 @@
 macro index,pager gi "<change-folder>!<enter>" "Go to inbox"
 macro index,pager ga "<change-folder>><enter>" "Go to all mail"
-macro index,pager gs "<change-folder>+greg-hurrell.net/Starred<enter>" "Go to starred messages"
-macro index,pager gt "<change-folder>+greg-hurrell.net/Sent<enter>" "Go to Sent Mail"
-macro index,pager gd "<change-folder>+greg-hurrell.net/Drafts<enter>" "Go to drafts"
+macro index,pager gs "<change-folder>+greg-hurrell.net/Home.Starred<enter>" "Go to starred messages"
+macro index,pager gt "<change-folder>+greg-hurrell.net/Home.Sent<enter>" "Go to Sent Mail"
+macro index,pager gd "<change-folder>+greg-hurrell.net/Home.Drafts<enter>" "Go to drafts"
 macro index,pager gl "<change-folder>?" "Go to 'Label'"
 
 macro index,pager e "<save-message>><enter><enter>" "Archive"
-macro index,pager \# "<save-message>+greg-hurrell.net/Trash<enter><enter>" "Trash"
+macro index,pager \# "<save-message>+greg-hurrell.net/Home.Trash<enter><enter>" "Trash"
 
 # make this conditional on not being in the inbox already?
 macro index u "<change-folder>!<enter>" "Go to inbox"

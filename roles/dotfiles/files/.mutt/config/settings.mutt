@@ -56,18 +56,13 @@ set mailcap_path = "~/.mutt/config/mailcap"
 
 set sidebar_divider_char = '│'
 set sidebar_format = "%B (%N)"
-set sidebar_delim_chars = '/'
 set sidebar_short_path = yes
 set sidebar_folder_indent = yes
-
-# Not using any nesting, nor multiple accounts, so the default indent is a waste
-# of space.
-set sidebar_indent_string = ''
 
 set query_command = "reattach-to-user-namespace contacts -Sf '%eTOKEN%n' '%s' | sed -e 's/TOKEN/\t/g'"
 
 set folder = ~/.mail
-set spoolfile = "+greg-hurrell.net/INBOX"
-set mbox = "+greg-hurrell.net/Archive"
-set postponed ='+greg-hurrell.net/Drafts'
-set trash = '+greg-hurrell.net/Trash'
+set spoolfile = "+greg-hurrell.net/Home"
+set mbox = "+greg-hurrell.net/Home.Archive"
+set postponed ='+greg-hurrell.net/Home.Drafts'
+set trash = '+greg-hurrell.net/Home.Trash'

@@ -17,14 +17,21 @@ header = "mailboxes "
 peritem = "+%(accountname)s/%(foldername)s"
 
 # Sort important folders up the top, and everything else by account/foldername.
-sort_keyfunc = lambda d: ({'INBOX': '00',
-                           'Starred': '01',
-                           'Sent': '02',
-                           'Drafts': '03',
-                           'Archive': '04',
-                           'Trash': '05',
-                           'Spam': '06',
-                           }.get(d['foldername'], '99'), d['accountname'], d['foldername'])
+sort_keyfunc = lambda d: (d['accountname'],
+                          {'Home': '00',
+                           'Home.Starred': '01',
+                           'Home.Sent': '02',
+                           'Home.Drafts': '03',
+                           'Home.Archive': '04',
+                           'Home.Trash': '05',
+                           'Home.Spam': '06',
+                           'Work': '00',
+                           'Work.Sent': '02',
+                           'Work.Drafts': '03',
+                           'Work.Archive': '04',
+                           'Work.Trash': '05',
+                           'Work.Spam': '06',
+                           }.get(d['foldername'], '99'), d['foldername'])
 
 # For now I don't have any that I want to exclude, but can do that later:
 # folderfilter = lambda accountname, foldername: not re.search('(^bak.*|.*drafts$|.*spam$|.*sent$|.*trash$)', foldername)
@@ -45,15 +52,14 @@ status_backend = sqlite
 type = GmailMaildir
 localfolders = ~/.mail/greg-hurrell.net
 
-# Map weird remote folder names to FS-friendly ones for local use.
-# TODO: upper case first letter
-nametrans = lambda folder: {'Drafts':            '[Gmail]/Drafts',
-                            'Sent':              '[Gmail]/Sent Mail',
-                            'Spam':              '[Gmail]/Spam',
-                            'Starred':           '[Gmail]/Starred',
-                            'Trash':             '[Gmail]/Trash',
-                            'Archive':           '[Gmail]/All Mail',
-                            }.get(folder, folder)
+nametrans = lambda folder: {'Home':                   'INBOX',
+                            'Home.Drafts':            '[Gmail]/Drafts',
+                            'Home.Sent':              '[Gmail]/Sent Mail',
+                            'Home.Spam':              '[Gmail]/Spam',
+                            'Home.Starred':           '[Gmail]/Starred',
+                            'Home.Trash':             '[Gmail]/Trash',
+                            'Home.Archive':           '[Gmail]/All Mail',
+                            }.get(folder) or re.sub('^Home\.', '', folder)
 
 [Repository greg-hurrell.net-Remote]
 
@@ -63,11 +69,12 @@ sslcacertfile = /usr/local/etc/openssl/cert.pem
 remoteuser = greg@hurrell.net
 maxconnections = 1
 realdelete = no
-nametrans = lambda folder: {'[Gmail]/Drafts':    'Drafts',
-                            '[Gmail]/Sent Mail': 'Sent',
-                            '[Gmail]/Starred':   'Starred',
-                            '[Gmail]/Spam':      'Spam',
-                            '[Gmail]/Trash':     'Trash',
-                            '[Gmail]/All Mail':  'Archive',
-                            }.get(folder, folder)
+nametrans = lambda folder: {'INBOX':             'Home',
+                            '[Gmail]/Drafts':    'Home.Drafts',
+                            '[Gmail]/Sent Mail': 'Home.Sent',
+                            '[Gmail]/Starred':   'Home.Starred',
+                            '[Gmail]/Spam':      'Home.Spam',
+                            '[Gmail]/Trash':     'Home.Trash',
+                            '[Gmail]/All Mail':  'Home.Archive',
+                            }.get(folder) or re.sub('/', '.', 'Home.' + folder)
 folderfilter = lambda folder: folder not in ['[Gmail]/Important']
