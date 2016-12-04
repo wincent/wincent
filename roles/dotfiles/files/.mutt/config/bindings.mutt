@@ -7,6 +7,7 @@ bind index <tab> collapse-thread
 bind index G last-entry
 bind index gg first-entry
 bind index x tag-thread # Probably want to unbind t which does this as well.
+bind index,pager N search-opposite # Usually toggles/marks "New" status, but we have U/I for that.
 bind index,pager <down> sidebar-next
 bind index,pager <right> sidebar-open
 bind index,pager <up> sidebar-prev
