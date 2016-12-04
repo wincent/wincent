@@ -66,9 +66,8 @@ set sidebar_indent_string = ''
 
 set query_command = "reattach-to-user-namespace contacts -Sf '%eTOKEN%n' '%s' | sed -e 's/TOKEN/\t/g'"
 
-set my_account = '+greg-hurrell.net'
 set folder = ~/.mail
-set spoolfile = "$my_account/INBOX"
-set mbox = "$my_account/Archive"
-set postponed ='$my_account/Drafts'
-set trash = '$my_account/Trash'
+set spoolfile = "+greg-hurrell.net/INBOX"
+set mbox = "+greg-hurrell.net/Archive"
+set postponed ='+greg-hurrell.net/Drafts'
+set trash = '+greg-hurrell.net/Trash'
