@@ -2,7 +2,7 @@
 
 [general]
 
-accounts = greg-hurrell.net
+accounts = Home
 ui = TTYUI
 pythonfile = ~/.mutt/offlineimap.py
 fsync = false
@@ -40,17 +40,17 @@ sep = " "
 footer = "\n"
 incremental = no
 
-[Account greg-hurrell.net]
+[Account Home]
 
-localrepository = greg-hurrell.net-Local
-remoterepository = greg-hurrell.net-Remote
+localrepository = Home-Local
+remoterepository = Home-Remote
 postsynchook = notmuch new
 status_backend = sqlite
 
-[Repository greg-hurrell.net-Local]
+[Repository Home-Local]
 
 type = GmailMaildir
-localfolders = ~/.mail/greg-hurrell.net
+localfolders = ~/.mail/Home
 
 nametrans = lambda folder: {'Home':                   'INBOX',
                             'Home.Drafts':            '[Gmail]/Drafts',
@@ -61,7 +61,7 @@ nametrans = lambda folder: {'Home':                   'INBOX',
                             'Home.Archive':           '[Gmail]/All Mail',
                             }.get(folder) or re.sub('^Home\.', '', folder)
 
-[Repository greg-hurrell.net-Remote]
+[Repository Home-Remote]
 
 type = Gmail
 remotepasseval = get_keychain_pass(account="greg+mutt@hurrell.net", server="imap.gmail.com")
@@ -69,6 +69,11 @@ sslcacertfile = /usr/local/etc/openssl/cert.pem
 remoteuser = greg@hurrell.net
 maxconnections = 1
 realdelete = no
+
+# Skip XOAUTH2 because I haven't bothered to configure it, which makes it print
+# a noisy error.
+auth_mechanisms = GSSAPI, CRAM-MD5, PLAIN, LOGIN
+
 nametrans = lambda folder: {'INBOX':             'Home',
                             '[Gmail]/Drafts':    'Home.Drafts',
                             '[Gmail]/Sent Mail': 'Home.Sent',
