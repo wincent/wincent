@@ -134,3 +134,55 @@ folderfilter = lambda folder: folder in ['INBOX',
                                          'Drafts',
                                          'Junk E-Mail',
                                          'Sent Items']
+
+# Work around endemic:
+#
+#   From: Microsoft Exchange Server 2010
+#   Subject: Retrieval using the IMAP4 protocol failed for the following message: 15541
+#
+# Could also delete + expunge the offending messages, but I am too lazy for
+# that. This is a little less work.
+#
+# See:
+#
+# - http://www.offlineimap.org/server/imap/error/2016/01/27/error-no-such-number.html
+# - https://github.com/OfflineIMAP/offlineimap/issues/62
+#
+copy_ignore_eval = lambda foldername: {'Work.Trash':
+                                         [4949,
+                                          4962,
+                                          4964,
+                                          4967,
+                                          4969,
+                                          4985,
+                                          4997,
+                                          5009,
+                                          5014,
+                                          5031,
+                                          5051,
+                                          5057,
+                                          5059,
+                                          5070,
+                                          5096,
+                                          5097,
+                                          5098,
+                                          5114,
+                                          5125,
+                                          ],
+                                       'Work.Archive':
+                                         [85862,
+                                          93992,
+                                          93997,
+                                          95838,
+                                          106359,
+                                          106360,
+                                          106369,
+                                          324291,
+                                          324297,
+                                          324298,
+                                          324306,
+                                          324308,
+                                          324310,
+                                          324343,
+                                          324354,
+                                          ]}.get(foldername)
