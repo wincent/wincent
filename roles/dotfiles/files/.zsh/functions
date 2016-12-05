@@ -92,9 +92,9 @@ function email() {
   if ! tmux has-session -t email 2> /dev/null; then
     # Make saved attachments go to ~/Downloads by default.
     tmux new-session -d -s email -c ~/Downloads -n mutt
-    tmux send-keys -t email:mutt "mutt" Enter
+    tmux send-keys -t email:mutt mutt Enter
     tmux new-window -t email -c ~ -n sync
-    tmux send-keys -t email:sync "offlineimap -k autorefresh=5" Enter
+    tmux send-keys -t email:sync offlineimap Enter
   fi
   if [ -z "$TMUX" ]; then
     tmux attach -t email:mutt
