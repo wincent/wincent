@@ -1,4 +1,3 @@
-set from = 'greg@hurrell.net'
 set realname = 'Greg Hurrell'
 
 # TODO: figure out whether I really need this
@@ -50,7 +49,6 @@ set alias_file = $HOME/.mutt/aliases.mutt
 set uncollapse_jump = yes
 
 set ssl_force_tls = yes
-set sendmail = "/usr/local/bin/msmtp -a gmail"
 set sendmail_wait = 0
 set mailcap_path = "~/.mutt/config/mailcap"
 
@@ -63,22 +61,23 @@ set sidebar_indent_string = ' '
 set query_command = "reattach-to-user-namespace contacts -Sf '%eTOKEN%n' '%s' | sed -e 's/TOKEN/\t/g'"
 
 set folder = ~/.mail
-set spoolfile = "+Home/Home"
-set mbox = "+Home/Home.Archive"
+set spoolfile = '+Home/Home'
+set mbox = '+Home/Home.Archive'
 set postponed ='+Home/Home.Drafts'
 set trash = '+Home/Home.Trash'
+set sendmail = '/usr/local/bin/msmtp -a home'
+set from = 'greg@hurrell.net'
 
-folder-hook . set spoolfile = "+Home/Home"
-folder-hook . set mbox = "+Home/Home.Archive"
-folder-hook . set postponed ='+Home/Home.Drafts'
-folder-hook . set trash = '+Home/Home.Trash'
-
-folder-hook +Home/ set spoolfile = "+Home/Home"
-folder-hook +Home/ set mbox = "+Home/Home.Archive"
+folder-hook +Home/ set spoolfile = '+Home/Home'
+folder-hook +Home/ set mbox = '+Home/Home.Archive'
 folder-hook +Home/ set postponed ='+Home/Home.Drafts'
 folder-hook +Home/ set trash = '+Home/Home.Trash'
+folder-hook +Home/ set sendmail = '/usr/local/bin/msmtp\ -a\ home'
+folder-hook +Home/ set from = 'greg@hurrell.net'
 
-folder-hook +Work/ set spoolfile = "+Work/Work"
-folder-hook +Work/ set mbox = "+Work/Work.Archive"
+folder-hook +Work/ set spoolfile = '+Work/Work'
+folder-hook +Work/ set mbox = '+Work/Work.Archive'
 folder-hook +Work/ set postponed ='+Work/Work.Drafts'
 folder-hook +Work/ set trash = '+Work/Work.Trash'
+folder-hook +Work/ set sendmail = '/usr/local/bin/msmtp\ -a\ work'
+folder-hook +Work/ set from = 'glh@fb.com'
