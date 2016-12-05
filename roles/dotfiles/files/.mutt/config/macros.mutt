@@ -1,14 +1,18 @@
+# Legend:
+#   ! = $spoolfile (INBOX)
+#   > = $mbox (Archive)
+
 macro index,pager gi "<change-folder>!<enter>" "Go to inbox"
 macro index,pager ga "<change-folder>><enter>" "Go to all mail"
-macro index,pager gs "<change-folder>+Home/Home.Starred<enter>" "Go to starred messages"
-macro index,pager gt "<change-folder>+Home/Home.Sent<enter>" "Go to Sent Mail"
-macro index,pager gd "<change-folder>+Home/Home.Drafts<enter>" "Go to drafts"
+macro index,pager gs "<change-folder>!.Starred<enter>" "Go to starred messages"
+macro index,pager gt "<change-folder>!.Sent<enter>" "Go to Sent Mail"
+macro index,pager gd "<change-folder>!.Drafts<enter>" "Go to drafts"
 macro index,pager gl "<change-folder>?" "Go to 'Label'"
 
 macro pager e "<save-message>><enter><enter>" "Archive"
 macro index e "<tag-prefix><save-message>><enter><enter>" "Archive"
-macro pager \# "<save-message>+Home/Home.Trash<enter><enter>" "Trash"
-macro index \# "<tag-prefix><save-message>+Home/Home.Trash<enter><enter>" "Trash"
+macro pager \# "<save-message>!.Trash<enter><enter>" "Trash"
+macro index \# "<tag-prefix><save-message>!.Trash<enter><enter>" "Trash"
 
 # make this conditional on not being in the inbox already?
 macro index u "<change-folder>!<enter>" "Go to inbox"
