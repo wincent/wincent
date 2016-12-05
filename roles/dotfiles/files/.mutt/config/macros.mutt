@@ -1,6 +1,7 @@
 # Legend:
 #   ! = $spoolfile (INBOX)
 #   > = $mbox (Archive)
+#   ; = <tag-prefix> (operate on tagged messages if possible, or current message if nothi=ng tagged)
 
 macro index,pager gi "<change-folder>!<enter>" "Go to inbox"
 macro index,pager ga "<change-folder>><enter>" "Go to all mail"
@@ -9,10 +10,17 @@ macro index,pager gt "<change-folder>!.Sent<enter>" "Go to Sent Mail"
 macro index,pager gd "<change-folder>!.Drafts<enter>" "Go to drafts"
 macro index,pager gl "<change-folder>?" "Go to 'Label'"
 
+# These ones not standard Gmail.
+macro index,pager gh "<change-folder>+Home/Home<enter>" "Go home"
+macro index,pager gw "<change-folder>+Work/Work<enter>" "Go work"
+
 macro pager e "<save-message>><enter><enter>" "Archive"
-macro index e "<tag-prefix><save-message>><enter><enter>" "Archive"
+macro index e ";<save-message>><enter><enter>" "Archive"
 macro pager \# "<save-message>!.Trash<enter><enter>" "Trash"
-macro index \# "<tag-prefix><save-message>!.Trash<enter><enter>" "Trash"
+macro index \# ";<save-message>!.Trash<enter><enter>" "Trash"
+
+macro pager s "<flag-message>" "Star/Unstar"
+macro index s ";<flag-message>" "Star/Unstar"
 
 # make this conditional on not being in the inbox already?
 macro index u "<change-folder>!<enter>" "Go to inbox"
@@ -35,9 +43,9 @@ macro index *u "<untag-pattern>~T<enter><tag-pattern>~U<enter>"
 macro pager <space>u "|urlview<enter>" "call urlview to open links"
 
 macro pager U <set-flag>N "Mark as unread"
-macro index U <tag-prefix><set-flag>N "Mark as unread"
+macro index U ";<set-flag>N" "Mark as unread"
 macro pager I <clear-flag>N "Mark as read"
-macro index I <tag-prefix><clear-flag>N "Mark as read"
+macro index I ";<clear-flag>N" "Mark as read"
 
 # Macro to toggle alternates (plain <-> html), based on:
 # https://groups.google.com/d/msg/comp.mail.mutt/9I702oMwQQE/JqdLnp3j9WAJ

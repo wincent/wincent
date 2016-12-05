@@ -15,7 +15,8 @@ bind index,pager <up> sidebar-prev
 bind index,pager a group-reply # Reply all
 bind index,pager b sidebar-toggle-visible
 bind index,pager c mail # Compose.
-bind index,pager m noop
+bind index,pager m noop # Use "c" (Gmail default) instead.
+bind index,pager F noop # Use "s" (Gmail default) instead.
 bind pager G bottom
 bind pager \Cd next-page
 bind pager \Cu previous-page
