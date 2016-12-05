@@ -43,7 +43,7 @@ set resolve = no # don't auto-advance to the next message after every single op
 set pager_index_lines = 12
 set menu_scroll = yes
 set tilde = yes
-set editor = 'vim +100' # Move to bottom.
+set editor = 'vim +/^$ +nohlsearch' # Move past headers.
 
 set alias_file = $HOME/.mutt/aliases.mutt
 set uncollapse_jump = yes
