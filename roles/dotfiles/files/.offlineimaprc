@@ -2,10 +2,11 @@
 
 [general]
 
-accounts = Home
+accounts = Home, Work
 ui = TTYUI
 pythonfile = ~/.mutt/offlineimap.py
 fsync = false
+maxsyncaccounts = 4
 
 [mbnames]
 
@@ -83,3 +84,53 @@ nametrans = lambda folder: {'INBOX':             'Home',
                             '[Gmail]/All Mail':  'Home.Archive',
                             }.get(folder) or re.sub('/', '.', 'Home.' + folder)
 folderfilter = lambda folder: folder not in ['[Gmail]/Important']
+
+[Account Work]
+
+localrepository = Work-Local
+remoterepository = Work-Remote
+postsynchook = notmuch new
+status_backend = sqlite
+
+[Repository Work-Local]
+
+type = Maildir
+localfolders = ~/.mail/Work
+
+nametrans = lambda folder: {'Work':       'INBOX',
+                            'Work.Sent':  'Sent Items',
+                            'Work.Spam':  'Junk E-Mail',
+                            'Work.Trash': 'Deleted Items',
+                            }.get(folder) or re.sub('^Work\.', '', folder)
+
+[Repository Work-Remote]
+
+type = IMAP
+remotepasseval = get_keychain_pass(account="glh@fb.com", server="outlook.office365.com")
+sslcacertfile = /usr/local/etc/openssl/cert.pem
+remoteuser = glh@fb.com
+remotehost = outlook.office365.com
+remoteport = 993
+ssl = yes
+maxconnections = 1
+realdelete = no
+
+# Skip XOAUTH2 because I haven't bothered to configure it, which makes it print
+# a noisy error.
+auth_mechanisms = GSSAPI, CRAM-MD5, PLAIN, LOGIN
+
+nametrans = lambda folder: {'INBOX':         'Work',
+                            'Sent Items':    'Work.Sent',
+                            'Junk E-Mail':   'Work.Spam',
+                            'Deleted Items': 'Work.Trash',
+                            }.get(folder) or re.sub('/', '.', 'Work.' + folder)
+
+# Unlike "Home", for "Work" we use a whitelist instead of blacklist for now
+# because I am not in the habit of creating folders for different kinds of
+# email (it's either inbox-worthy, archiveable, or trashable).
+folderfilter = lambda folder: folder in ['INBOX',
+                                         'Archive',
+                                         'Deleted Items',
+                                         'Drafts',
+                                         'Junk E-Mail',
+                                         'Sent Items']
