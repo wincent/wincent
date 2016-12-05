@@ -67,3 +67,18 @@ set spoolfile = "+Home/Home"
 set mbox = "+Home/Home.Archive"
 set postponed ='+Home/Home.Drafts'
 set trash = '+Home/Home.Trash'
+
+folder-hook . set spoolfile = "+Home/Home"
+folder-hook . set mbox = "+Home/Home.Archive"
+folder-hook . set postponed ='+Home/Home.Drafts'
+folder-hook . set trash = '+Home/Home.Trash'
+
+folder-hook +Home/ set spoolfile = "+Home/Home"
+folder-hook +Home/ set mbox = "+Home/Home.Archive"
+folder-hook +Home/ set postponed ='+Home/Home.Drafts'
+folder-hook +Home/ set trash = '+Home/Home.Trash'
+
+folder-hook +Work/ set spoolfile = "+Work/Work"
+folder-hook +Work/ set mbox = "+Work/Work.Archive"
+folder-hook +Work/ set postponed ='+Work/Work.Drafts'
+folder-hook +Work/ set trash = '+Work/Work.Trash'
