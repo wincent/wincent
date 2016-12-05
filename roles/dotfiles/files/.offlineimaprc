@@ -7,7 +7,6 @@ ui = TTYUI
 pythonfile = ~/.mutt/offlineimap.py
 fsync = false
 maxsyncaccounts = 4
-autorefresh = 5
 
 [mbnames]
 
@@ -48,6 +47,8 @@ localrepository = Home-Local
 remoterepository = Home-Remote
 postsynchook = notmuch new
 status_backend = sqlite
+autorefresh = 1
+quick = 15
 
 [Repository Home-Local]
 
@@ -92,6 +93,8 @@ localrepository = Work-Local
 remoterepository = Work-Remote
 postsynchook = notmuch new
 status_backend = sqlite
+autorefresh = 1
+quick = 15
 
 [Repository Work-Local]
 
