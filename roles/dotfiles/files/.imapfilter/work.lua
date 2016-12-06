@@ -81,7 +81,8 @@ function run()
   messages:move_messages(work.Archive)
 
   requests = differential:
-    match_field('X-Phabricator-Mail-Tags', '<differential-review-request')
+    match_field('X-Phabricator-Mail-Tags', '<differential-review-request'):
+    is_unflagged()
   self = requests:match_field('X-Differential-Reviewer', phabricator_user)
   team = requests:match_field('X-Differential-Reviewer', phabricator_team)
   messages = requests * (self + team)
