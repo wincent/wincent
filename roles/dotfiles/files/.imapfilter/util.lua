@@ -23,6 +23,11 @@ function get_pass(account, host)
   return trim(output)
 end
 
+function print_status(messages, description)
+  label = #messages == 1 and 'message' or 'messages'
+  print(description .. ': applied to ' .. #messages .. ' ' .. label)
+end
+
 function sleep(seconds)
   os.execute('sleep ' .. tonumber(seconds))
 end

@@ -15,11 +15,6 @@ function connect()
   }
 end
 
-function print_status(messages, description)
-  label = #messages == 1 and 'message' or 'messages'
-  print(description .. ': applied to ' .. #messages .. ' ' .. label)
-end
-
 function run()
   print "work: run"
 
