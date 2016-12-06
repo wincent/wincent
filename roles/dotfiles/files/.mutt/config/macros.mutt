@@ -8,7 +8,7 @@ macro index,pager ga "<change-folder>><enter>" "Go to all mail"
 macro index,pager gs "<change-folder>!.Starred<enter>" "Go to starred messages"
 macro index,pager gt "<change-folder>!.Sent<enter>" "Go to Sent Mail"
 macro index,pager gd "<change-folder>!.Drafts<enter>" "Go to drafts"
-macro index,pager gl "<change-folder>?" "Go to 'Label'"
+macro index,pager gl "<change-folder>?<toggle-mailboxes>" "Go to 'Label'"
 
 # These ones not standard Gmail.
 macro index,pager gh "<change-folder>+Home/Home<enter>" "Go home"
@@ -43,7 +43,11 @@ macro index *r "<untag-pattern>~T<enter><tag-pattern>~R<enter>"
 macro index *u "<untag-pattern>~T<enter><tag-pattern>~U<enter>"
 
 # Not sure if I want to use space as a "leader" like this...
-macro pager <space>u "|urlview<enter>" "call urlview to open links"
+macro pager <space>u "|urlview<enter>" "Call urlview to open links"
+
+# [m]ove a mail to another folder (in Gmail, "m" would be "[m]ute").
+macro pager m "<save-message>?<toggle-mailboxes>" "Move to..."
+macro index m ";<save-message>?<toggle-mailboxes>" "Move to..."
 
 macro pager U <set-flag>N "Mark as unread"
 macro index U ";<set-flag>N" "Mark as unread"
