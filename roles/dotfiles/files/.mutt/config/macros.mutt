@@ -14,10 +14,12 @@ macro index,pager gl "<change-folder>?" "Go to 'Label'"
 macro index,pager gh "<change-folder>+Home/Home<enter>" "Go home"
 macro index,pager gw "<change-folder>+Work/Work<enter>" "Go work"
 
-macro pager e "<save-message>><enter><enter>" "Archive"
+macro pager e "<save-message>><enter><enter><exit>" "Archive"
 macro index e ";<save-message>><enter><enter>" "Archive"
 macro pager \# "<save-message>!.Trash<enter><enter>" "Trash"
 macro index \# ";<save-message>!.Trash<enter><enter>" "Trash"
+macro pager ! "<save-message>!.Spam<enter><enter>" "Mark as spam"
+macro index ! ";<save-message>!.Spam<enter><enter>" "Mark as spam"
 
 macro pager s "<flag-message>" "Star/Unstar"
 macro index s ";<flag-message>" "Star/Unstar"
@@ -25,6 +27,7 @@ macro index s ";<flag-message>" "Star/Unstar"
 # make this conditional on not being in the inbox already?
 macro index u "<change-folder>!<enter>" "Go to inbox"
 
+macro index x "<tag-message>"
 macro pager x "<tag-message><exit>"
 
 # Select all.

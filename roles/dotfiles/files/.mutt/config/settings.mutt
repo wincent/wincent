@@ -19,6 +19,7 @@ set sidebar_visible = yes
 set sort = reverse-threads
 set sort_aux = last-date-received
 set abort_nosubject = no
+set abort_unmodified = no
 
 # Include quoted copy of message in reply.
 set include = yes
@@ -52,6 +53,16 @@ set ssl_force_tls = yes
 set sendmail_wait = 0
 set mailcap_path = "~/.mutt/config/mailcap"
 
+# Default is: "%4C %Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %s"
+#
+# Changes:
+# - Show time in date/time.
+# - Show local date/time.
+#
+set index_format = "%4C %Z %[%b %d %R] %-15.15L (%?l?%4l&%4c?) %s"
+
+set user_agent = no # Don't add User-Agent header.
+
 set sidebar_divider_char = '│'
 set sidebar_format = "%B (%N)"
 set sidebar_short_path = yes
@@ -61,6 +72,7 @@ set sidebar_indent_string = ' '
 set query_command = "reattach-to-user-namespace contacts -Sf '%eTOKEN%n' '%s' | sed -e 's/TOKEN/\t/g'"
 
 set folder = ~/.mail
+set spoolfile = '+Home/Home'
 set spoolfile = '+Home/Home'
 set mbox = '+Home/Home.Archive'
 set postponed ='+Home/Home.Drafts'
@@ -74,6 +86,8 @@ folder-hook +Home/ set postponed ='+Home/Home.Drafts'
 folder-hook +Home/ set trash = '+Home/Home.Trash'
 folder-hook +Home/ set sendmail = '/usr/local/bin/msmtp\ -a\ home'
 folder-hook +Home/ set from = 'greg@hurrell.net'
+folder-hook +Home/ unset record
+folder-hook +Home/ set copy = no
 
 folder-hook +Work/ set spoolfile = '+Work/Work'
 folder-hook +Work/ set mbox = '+Work/Work.Archive'
@@ -81,3 +95,5 @@ folder-hook +Work/ set postponed ='+Work/Work.Drafts'
 folder-hook +Work/ set trash = '+Work/Work.Trash'
 folder-hook +Work/ set sendmail = '/usr/local/bin/msmtp\ -a\ work'
 folder-hook +Work/ set from = 'glh@fb.com'
+folder-hook +Work/ set record = '+Work/Work.Sent'
+folder-hook +Home/ set copy = yes

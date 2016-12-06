@@ -103,7 +103,7 @@ localfolders = ~/.mail/Work
 
 nametrans = lambda folder: {'Work':       'INBOX',
                             'Work.Sent':  'Sent Items',
-                            'Work.Spam':  'Junk E-Mail',
+                            'Work.Spam':  'Junk Email',
                             'Work.Trash': 'Deleted Items',
                             }.get(folder) or re.sub('^Work\.', '', folder)
 
@@ -125,7 +125,7 @@ auth_mechanisms = GSSAPI, CRAM-MD5, PLAIN, LOGIN
 
 nametrans = lambda folder: {'INBOX':         'Work',
                             'Sent Items':    'Work.Sent',
-                            'Junk E-Mail':   'Work.Spam',
+                            'Junk Email':    'Work.Spam',
                             'Deleted Items': 'Work.Trash',
                             }.get(folder) or re.sub('/', '.', 'Work.' + folder)
 
@@ -136,7 +136,7 @@ folderfilter = lambda folder: folder in ['INBOX',
                                          'Archive',
                                          'Deleted Items',
                                          'Drafts',
-                                         'Junk E-Mail',
+                                         'Junk Email',
                                          'Sent Items']
 
 # Work around endemic:

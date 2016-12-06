@@ -1,13 +1,14 @@
 bind attach <return> view-mailcap
+bind attach u exit
 bind editor <Tab> complete-query
 bind editor <space> noop # So line-editor can accept folders with spaces in their names.
 bind editor ^T complete
 bind generic x tag-entry
 bind index <tab> collapse-thread
 bind index G last-entry
+bind index L bottom-page # Defaults to list-reply
 bind index gg first-entry
-bind index t noop # Usually "tag-thread", but want to use "x" (Gmail key) instead.
-bind index x tag-thread
+bind index t tag-thread # Usually "tag-entry", but we use "x" (Gmail key) for that.
 bind index,pager N search-opposite # Usually toggles/marks "New" status, but we have U/I for that.
 bind index,pager <down> sidebar-next
 bind index,pager <right> sidebar-open
@@ -24,3 +25,4 @@ bind pager gg top
 bind pager j next-line
 bind pager k previous-line
 bind pager u exit
+bind index V noop # Normally bound to "show-version".
