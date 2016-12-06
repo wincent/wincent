@@ -69,6 +69,11 @@ function run()
   print_status(messages, '[Planned Changes To] not direct reviewer -> archive')
   messages:move_messages(work.Archive)
 
+  -- trunkagent's comments on other people's diffs.
+  messages = differential:contain_from('trunkagent') - mine
+  print_status(messages, "trunkagent comments on other people's diffs -> archive")
+  messages:move_messages(work.Archive)
+
   -- 'Ch1rpBot' matches from, but 'Ch1rpBot <noreply@fb.com>' does not.
   chirp_bot = work.INBOX:contain_from('Ch1rpBot')
   messages = chirp_bot:contain_subject('[land] [success]')
