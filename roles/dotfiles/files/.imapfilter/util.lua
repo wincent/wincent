@@ -43,8 +43,9 @@ end
 
 function print_status(messages, description)
   label = #messages == 1 and 'message' or 'messages'
+  bg = #messages > 0 and colors.green.bg or colors.yellow.bg
   print(
-    escape(colors.black.fg, colors.green.bg) ..
+    escape(colors.black.fg, bg) ..
     description .. ': applied to ' .. #messages .. ' ' .. label ..
     escape(colors.reset)
   )
