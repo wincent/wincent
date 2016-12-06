@@ -27,9 +27,9 @@ function run()
   print_status(messages, '* -> Lists')
   messages:move_messages(home.Lists)
 
-  messages =
-    inbox:contain_from('Lambda-Legal@lambdalegal.org') *
-    inbox:match_field('X-campaignid', '.')
+  messages = inbox:
+    contain_from('Lambda-Legal@lambdalegal.org'):
+    match_field('X-campaignid', '.')
   print_status(messages, 'Lambda Legal -> Lists')
   messages:move_messages(home.Lists)
 
