@@ -75,6 +75,18 @@ function run()
   messages = requests * (self + team)
   print_status(messages, '[Request] (direct) -> Important')
   messages:mark_flagged()
+
+  -- Archive abandoned and related emails as well.
+  abandoned = differential:contain_subject('[Abandoned]'):
+    contain_field('X-Differential-Status', 'Abandoned')
+  for _, message in ipairs(abandoned) do
+    mbox, uid = table.unpack(message)
+    rev_key = string.gsub(mbox[uid]:fetch_field('In-Reply-To'), 'In%-Reply%-To: ', '')
+    related = differential:contain_field('In-Reply-To', rev_key) + differential:contain_field('Message-ID', rev_key)
+    abandoned = abandoned + related
+  end
+  print_status(abandoned, '[Abandoned] + related -> archive')
+  abandoned:move_messages(work.Archive)
 end
 
 if os.getenv('DEBUG') then
