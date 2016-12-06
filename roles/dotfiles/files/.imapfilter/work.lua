@@ -25,11 +25,17 @@ function run()
 
   work = connect()
 
+  -- NOTE: Beware the use of contain_field when talking to an MS server; it is
+  -- totally unreliable, so must use the slower match_field method. See:
+  --
+  -- - https://github.com/lefcha/imapfilter/issues/14
+  -- - https://github.com/lefcha/imapfilter/issues/33
   phabricator = work.INBOX:match_field('X-Phabricator-Sent-This-Message', '.')
   differential = phabricator:contain_subject('[Differential]')
-  reviewer = differential:contain_field('X-Differential-Reviewer', phabricator_user)
-  commented = differential:contain_field('X-Phabricator-Mail-Tags', '<differential-comment>')
+  reviewer = differential:match_field('X-Differential-Reviewer', phabricator_user)
+  commented = differential:match_field('X-Phabricator-Mail-Tags', '<differential-comment>')
   uncommented = differential - commented
+  mine = differential:match_field('X-Differential-Author', phabricator_user)
 
   messages = phabricator:contain_from(me)
   print_status(messages, 'My [Phabricator] actions -> archive & mark read')
@@ -37,13 +43,19 @@ function run()
   messages:move_messages(work.Archive)
 
   closed = differential:contain_subject('[Closed]')
-  messages = closed:contain_field('X-Phabricator-Mail-Tags', '<differential-committed>')
+  messages = closed:match_field('X-Phabricator-Mail-Tags', '<differential-committed>')
   print_status(messages, '[Closed] -> archive')
   messages:move_messages(work.Archive)
 
   accepted_and_shipped = differential:contain_subject('[Accepted and Shipped]')
   messages = accepted_and_shipped * uncommented
   print_status(messages, '[Accepted and Shipped] without comments -> archive')
+  messages:move_messages(work.Archive)
+
+  accepted = differential:contain_subject('[Accepted]')
+  interim = accepted * uncommented
+  messages = (accepted * uncommented) - mine
+  print_status(messages, "[Accepted] without comments (others' diffs) -> archive")
   messages:move_messages(work.Archive)
 
   -- Metadata changes (not "[Updated, N line(s)]") without comments.
@@ -69,20 +81,20 @@ function run()
   messages:move_messages(work.Archive)
 
   requests = differential:
-    contain_field('X-Phabricator-Mail-Tags', '<differential-review-request')
-  self = requests:contain_field('X-Differential-Reviewer', phabricator_user)
-  team = requests:contain_field('X-Differential-Reviewer', phabricator_team)
+    match_field('X-Phabricator-Mail-Tags', '<differential-review-request')
+  self = requests:match_field('X-Differential-Reviewer', phabricator_user)
+  team = requests:match_field('X-Differential-Reviewer', phabricator_team)
   messages = requests * (self + team)
   print_status(messages, '[Request] (direct) -> Important')
   messages:mark_flagged()
 
   -- Archive abandoned and related emails as well.
   abandoned = differential:contain_subject('[Abandoned]'):
-    contain_field('X-Differential-Status', 'Abandoned')
+    match_field('X-Differential-Status', 'Abandoned')
   for _, message in ipairs(abandoned) do
     mbox, uid = table.unpack(message)
     rev_key = string.gsub(mbox[uid]:fetch_field('In-Reply-To'), 'In%-Reply%-To: ', '')
-    related = differential:contain_field('In-Reply-To', rev_key) + differential:contain_field('Message-ID', rev_key)
+    related = differential:match_field('In-Reply-To', rev_key) + differential:match_field('Message-ID', rev_key)
     abandoned = abandoned + related
   end
   print_status(abandoned, '[Abandoned] + related -> archive')
