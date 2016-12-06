@@ -37,9 +37,9 @@ function run()
   -- Notifications
   --
 
-  messages =
-    inbox:contain_cc('your_activity@noreply.github.com') +
-    inbox:contain_cc(me)
+  messages = inbox:
+    contain_cc('your_activity@noreply.github.com'):
+    contain_cc(me)
   print_status(messages, 'GitHub own activity -> archive & mark read')
   messages:mark_seen()
   messages:delete_messages() -- Archive
