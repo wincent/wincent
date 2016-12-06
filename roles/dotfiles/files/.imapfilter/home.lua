@@ -1,11 +1,12 @@
 dofile(os.getenv('HOME') .. '/.imapfilter/util.lua')
 
 local password = get_pass('greg+mutt@hurrell.net', 'imap.gmail.com')
+local me = 'greg@hurrell.net'
 
 function connect()
   return IMAP {
     server = 'imap.gmail.com',
-    username = 'greg@hurrell.net',
+    username = me,
     password = password,
     ssl = 'auto',
   }
@@ -25,6 +26,23 @@ function run()
     inbox:contain_from('members@nrdcaction.org')
   print_status(messages, '* -> Lists')
   messages:move_messages(home.Lists)
+
+  messages =
+    inbox:contain_from('Lambda-Legal@lambdalegal.org') *
+    inbox:match_field('X-campaignid', '.')
+  print_status(messages, 'Lambda Legal -> Lists')
+  messages:move_messages(home.Lists)
+
+  --
+  -- Notifications
+  --
+
+  messages =
+    inbox:contain_cc('your_activity@noreply.github.com') +
+    inbox:contain_cc(me)
+  print_status(messages, 'GitHub own activity -> archive & mark read')
+  messages:mark_seen()
+  messages:delete_messages() -- Archive
 end
 
 if os.getenv('DEBUG') then

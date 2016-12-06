@@ -1,5 +1,23 @@
 -- A bunch of global utility functions.
 
+local colors = {
+  black = {fg = 30, bg = 40},
+  red = {fg = 31, bg = 41},
+  green = {fg = 32, bg = 42},
+  yellow = {fg = 33, bg = 43},
+  blue = {fg = 34, bg = 44},
+  magenta = {fg = 35, bg = 45},
+  cyan = {fg = 36, bg = 46},
+  white = {fg = 37, bg = 47},
+  reset = 0,
+}
+
+function escape(...)
+  local arg = {...}
+  local joined = table.concat(arg, ';')
+  return '\027[' .. joined .. 'm'
+end
+
 -- Alternative to `become_daemon(60, callback, true, true)`.
 -- (Can interact with via Control-C; Useful for running in a tmux pane.)
 function forever(callback, interval)
@@ -25,7 +43,11 @@ end
 
 function print_status(messages, description)
   label = #messages == 1 and 'message' or 'messages'
-  print(description .. ': applied to ' .. #messages .. ' ' .. label)
+  print(
+    escape(colors.black.fg, colors.green.bg) ..
+    description .. ': applied to ' .. #messages .. ' ' .. label ..
+    escape(colors.reset)
+  )
 end
 
 function sleep(seconds)
