@@ -43,6 +43,14 @@ function run()
   print_status(messages, 'GitHub own activity -> archive & mark read')
   messages:mark_seen()
   messages:delete_messages() -- Archive
+
+  --
+  -- Recruiting
+  --
+
+  messages = inbox:contain_from('mirrorplacement.com')
+  print_status(messages, '* -> Recruiting')
+  messages:move_messages(home.Recruiting)
 end
 
 if os.getenv('DEBUG') then
