@@ -62,7 +62,23 @@ function run()
   -- - https://github.com/lefcha/imapfilter/issues/33
   work = connect()
   inbox = work.INBOX
-  archive = work.Archive
+
+  archived = Set {}
+
+  archive = (function(messages, description)
+    messages = messages - archived
+    print_status(messages, description .. ' -> archive')
+    messages:move_messages(work.Archive)
+    archived = archived + messages
+  end)
+
+  archive_and_mark_read = (function(messages, description)
+    messages = messages - archived
+    print_status(messages, description .. ' -> archive & mark read')
+    messages:mark_seen()
+    messages:move_messages(work.Archive)
+    archived = archived + messages
+  end)
 
   --
   -- Phabricator
@@ -81,7 +97,7 @@ function run()
   -- Phabricator puts a `Reply-To` header containing an ID which includes the
   -- diff number, and all subsequent notifications reference that ID in their
   -- `In-Reply-To` header.
-  messages = phabricator:contain_from(me)
+  messages = differential:contain_from(me)
   touched = Set {}
   for _, message in ipairs(messages) do
     mbox, uid = table.unpack(message)
@@ -99,52 +115,42 @@ function run()
     end
   end
   messages = messages + touched
-  print_status(messages, 'My [Phabricator] actions -> archive & mark read')
-  messages:mark_seen()
-  messages:move_messages(archive)
+  archive_and_mark_read(messages, 'My [Phabricator] actions')
 
   closed = differential:contain_subject('[Closed]')
   messages = closed:match_field('X-Phabricator-Mail-Tags', '<differential-committed>')
-  print_status(messages, '[Closed] -> archive')
-  messages:move_messages(archive)
+  archive(messages, '[Closed]')
 
   accepted_and_shipped = differential:contain_subject('[Accepted and Shipped]')
   messages = accepted_and_shipped * uncommented
-  print_status(messages, '[Accepted and Shipped] without comments -> archive')
-  messages:move_messages(archive)
+  archive(messages, '[Accepted and Shipped] without comments')
 
   accepted = differential:contain_subject('[Accepted]')
   interim = accepted * uncommented
   messages = (accepted * uncommented) - mine
-  print_status(messages, "[Accepted] without comments (others' diffs) -> archive")
-  messages:move_messages(archive)
+  archive(messages, "[Accepted] without comments (others' diffs)")
 
   -- Metadata changes (not "[Updated, N line(s)]") without comments.
   updated = differential:contain_subject('[Updated]')
   messages = updated - commented
-  print_status(messages, '[Updated] without comments -> archive')
-  messages:move_messages(archive)
+  archive(messages, '[Updated] without comments')
 
   planned = differential:contain_subject('[Planned Changes To]')
   messages = planned - commented
-  print_status(messages, '[Planned Changes To] without comments -> archive')
-  messages:move_messages(archive)
+  archive(messages, '[Planned Changes To] without comments')
 
   -- If I'm not direct reviewer, I can probably ignore these.
   messages = planned - reviewer
-  print_status(messages, '[Planned Changes To] not direct reviewer -> archive')
-  messages:move_messages(archive)
+  archive(messages, '[Planned Changes To] not direct reviewer')
 
   -- trunkagent's comments on other people's diffs.
   messages = differential:contain_from('trunkagent') - mine
-  print_status(messages, "trunkagent comments on other people's diffs -> archive")
-  messages:move_messages(archive)
+  archive(messages, "trunkagent comments on other people's diffs")
 
   -- 'Ch1rpBot' matches from, but 'Ch1rpBot <noreply@fb.com>' does not.
   chirp_bot = inbox:contain_from('Ch1rpBot')
   messages = chirp_bot:contain_subject('[land] [success]')
-  print_status(messages, '[land] [success] -> archive')
-  messages:move_messages(archive)
+  archive(messages, '[land] [success]')
 
   requests = differential:
     match_field('X-Phabricator-Mail-Tags', '<differential-review-request'):
@@ -164,12 +170,10 @@ function run()
     related = differential:match_field('In-Reply-To', revision_id) + differential:match_field('Message-ID', revision_id)
     abandoned = abandoned + related
   end
-  print_status(abandoned, '[Abandoned] + related -> archive')
-  abandoned:move_messages(archive)
+  archive(abandoned, '[Abandoned] + related')
 
   messages = inbox:contain_from('facebookmail.com'):match_field('X-Facebook-Notify', 'page_fan')
-  print_status(messages, 'Page notifications -> archive')
-  messages:move_messages(archive)
+  archive(messages, 'Page notifications')
 end
 
 if os.getenv('DEBUG') then
