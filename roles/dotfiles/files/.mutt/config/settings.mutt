@@ -53,6 +53,8 @@ set ssl_force_tls = yes
 set sendmail_wait = 0
 set mailcap_path = "~/.mutt/config/mailcap"
 
+set text_flowed = yes
+
 # Default is: "%4C %Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %s"
 #
 # Changes:
