@@ -42,8 +42,7 @@ macro index *r "<untag-pattern>~T<enter><tag-pattern>~R<enter>"
 # Select unread.
 macro index *u "<untag-pattern>~T<enter><tag-pattern>~U<enter>"
 
-# Not sure if I want to use space as a "leader" like this...
-macro pager <space>u "|urlview<enter>" "Call urlview to open links"
+macro pager \\u "|urlview<enter>" "Call urlview to open links"
 
 # [m]ove a mail to another folder (in Gmail, "m" would be "[m]ute").
 macro pager m "<save-message>?<toggle-mailboxes>" "Move to..."
