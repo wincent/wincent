@@ -3,7 +3,7 @@ color index brightcolor7 color0 "~U" # Unread messages
 color index color19 color0 "~D" # Deleted messages
 color index brightcolor11 color0 "~T" # "Tagged" (selected) messages.
 
-# color tree color5 color0 # arrow in threads
+color tree color5 default # arrow in threads
 color error brightcolor1 color0
 color hdrdefault color5 color0
 color indicator color0 color2
