@@ -88,7 +88,7 @@ function run()
     m = mbox[uid]
     parent_date = parse_internal_date(m:fetch_date())
     revision_id = string.gsub(mbox[uid]:fetch_field('In-Reply-To'), 'In%-Reply%-To: ', '')
-    related = differential:match_field('In-Reply-To', revision_id) + differential:match_field('Reply-To', revision_id)
+    related = differential:match_field('In-Reply-To', revision_id) + differential:match_field('Message-ID', revision_id)
     for _, message in ipairs(related) do
       mbox, uid = table.unpack(message)
       m = mbox[uid]
@@ -161,7 +161,7 @@ function run()
   for _, message in ipairs(abandoned) do
     mbox, uid = table.unpack(message)
     revision_id = string.gsub(mbox[uid]:fetch_field('In-Reply-To'), 'In%-Reply%-To: ', '')
-    related = differential:match_field('In-Reply-To', revision_id) + differential:match_field('Reply-To', revision_id)
+    related = differential:match_field('In-Reply-To', revision_id) + differential:match_field('Message-ID', revision_id)
     abandoned = abandoned + related
   end
   print_status(abandoned, '[Abandoned] + related -> archive')
