@@ -14,12 +14,16 @@ macro index,pager gl "<change-folder>?<toggle-mailboxes>" "Go to 'Label'"
 macro index,pager gh "<change-folder>+Home/Home<enter>" "Go home"
 macro index,pager gw "<change-folder>+Work/Work<enter>" "Go work"
 
-macro pager e "<save-message>><enter><enter><exit>" "Archive"
-macro index e "<tag-prefix-cond><save-message>><enter><enter><end-cond>" "Archive"
-macro pager \# "<save-message>!.Trash<enter><enter><exit>" "Trash"
-macro index \# ";<save-message>!.Trash<enter><enter>" "Trash"
-macro pager ! "<save-message>!.Spam<enter><enter>" "Mark as spam"
-macro index ! ";<save-message>!.Spam<enter><enter>" "Mark as spam"
+
+# "Smart" equivalent to `set resolve = yes`: see "{next,previous}.mutt" for
+# info.
+macro index j "<next-undeleted><enter-command>source ~/.mutt/config/next.mutt<enter>" "Next undeleted"
+macro index k "<previous-undeleted><enter-command>source ~/.mutt/config/previous.mutt<enter>" "Previous undeleted"
+macro pager J "<next-entry><enter-command>source ~/.mutt/config/next.mutt<enter>" "Next entry"
+macro pager K "<previous-entry><enter-command>source ~/.mutt/config/previous.mutt<enter>" "Next entry"
+
+# Default direction is "down".
+source ~/.mutt/config/next.mutt
 
 macro pager s "<flag-message>" "Star/Unstar"
 macro index s ";<flag-message>" "Star/Unstar"
@@ -38,6 +42,8 @@ macro index *n "<untag-pattern>~T<enter>"
 
 # Select read.
 macro index *r "<untag-pattern>~T<enter><tag-pattern>~R<enter>"
+
+macro pager t "<exit><tag-thread>" "Tag thread"
 
 # Select unread.
 macro index *u "<untag-pattern>~T<enter><tag-pattern>~U<enter>"
@@ -59,4 +65,4 @@ macro pager ,@aoh= "<enter-command>unalternative_order *; alternative_order text
 macro pager ,@aot= "<enter-command>unalternative_order *; alternative_order text/plain text/enriched text/html; macro pager A ,@aoh= 'toggle alternative order'<enter><exit><display-message>"
 macro pager A ,@aoh= "toggle alternative order"
 
-macro index S "<enter-command>unset wait_key<enter><shell-escape>~/.mutt/mutt-notmuch-py/mutt-notmuch-py ~/.mail/Temporary/Search<enter><enter-command>mailboxes '+Temporary/Search'<enter><change-folder-readonly>+Temporary/Search<enter>" "search mail (using notmuch)"
+macro index,pager S "<enter-command>unset wait_key<enter><shell-escape>~/.mutt/mutt-notmuch-py/mutt-notmuch-py ~/.mail/Temporary/Search<enter><enter-command>mailboxes '+Temporary/Search'<enter><change-folder-readonly>+Temporary/Search<enter>" "search mail (using notmuch)"

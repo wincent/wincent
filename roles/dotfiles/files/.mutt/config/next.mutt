@@ -1,0 +1,15 @@
+# "Smart" equivalent to `set resolve = yes`.
+#
+# If the user is navigating "down" (ie. pressing "j") we source this file which
+# means that operations that deal with messages "resolve" in the current
+# direction of movement.
+#
+# See also the companion file, "next.mutt".
+
+macro index ! "<tag-prefix-cond><save-message>!.Spam<enter><enter><next-undeleted><end-cond>" "Mark as spam"
+macro index \# "<tag-prefix-cond><save-message>!.Trash<enter><enter><next-undeleted><end-cond>" "Trash"
+macro index e ";<save-message>><enter><enter><next-undeleted>" "Archive"
+
+macro pager ! "<save-message>!.Spam<enter><enter><next-undeleted>" "Mark as spam"
+macro pager \# "<save-message>!.Trash<enter><enter><next-undeleted>" "Trash"
+macro pager e "<save-message>><enter><enter><next-undeleted>" "Archive"
