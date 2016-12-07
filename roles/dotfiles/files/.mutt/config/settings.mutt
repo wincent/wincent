@@ -96,4 +96,4 @@ folder-hook +Work/ set trash = '+Work/Work.Trash'
 folder-hook +Work/ set sendmail = '/usr/local/bin/msmtp\ -a\ work'
 folder-hook +Work/ set from = 'glh@fb.com'
 folder-hook +Work/ set record = '+Work/Work.Sent'
-folder-hook +Home/ set copy = yes
+folder-hook +Work/ set copy = yes
