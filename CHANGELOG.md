@@ -1,5 +1,9 @@
 # Changelog
 
+## 2016-12-02
+
+* Added `mutt` config.
+
 ## 2016-11-30
 
 ### Enhancement

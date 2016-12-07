@@ -47,6 +47,85 @@ Other functionality that *used* to come via Karabiner isn't (yet) supported beca
 * Make the YubiKey work with the Colemak keyboard layout.
 * Makes the function keys on my external Realforce keyboard behave like the "media" keys on Apple's keyboards. F13 serves as a sticky "fn" key, and F15 as Power.
 
+### Mutt
+
+A number of tools are used to provide command-line access to Gmail and Office IMAP accounts.
+
+* [mutt](http://www.mutt.org/): For reading email.
+* [offlineimap](http://www.offlineimap.org/): For maintaining a local cache of messages for offline access.
+* [notmuch](https://notmuchmail.org/): For fast search.
+* [msmtp](http://msmtp.sourceforge.net/): For sending email.
+* [w3m](http://w3m.sourceforge.net/): For viewing HTML emails.
+* [urlview](https://packages.debian.org/sid/misc/urlview): For opening URLs from inside mutt.
+* [contacts](http://www.gnufoo.org/contacts/contacts.html): For integration with the macOS Contacts.
+* [reattach-to-user-name-space](https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard): So that `contacts` works correctly inside `tmux`.
+* [imapfilter](https://github.com/lefcha/imapfilter/): For filtering.
+
+In order for all this to work, a few items have to be stored in the macOS keychain:
+
+* For sending mail:
+  * An item with (for Gmail):
+    * "Keychain Item Name": smtp://smtp.gmail.com (corresponds to the "host" field in `~/.msmtprc`).
+    * "Account Name": username@example.net (corresponds to the "user" field in `~/.msmtprc`).
+  * An item with (for Office):
+    * "Keychain Item Name": smtp://smtp.office365.com:587 (corresponds to the "host" field in `~/.msmtprc`).
+    * "Account Name": username@example.com (corresponds to the "user" field in `~/.msmtprc`).
+* For receiving mail:
+  * An item with (for Gmail):
+    * "Keychain Item Name": imap://imap.gmail.com (implied in `~/.offlineimaprc` when using `type = GmailMaildir`).
+    * "Account Name": username+mutt@example.net (corresponds to the "remoteuser" field in `~/.offlineimaprc`).
+  * An item with (for Office):
+    * "Keychain Item Name": imap://outlook.office365.com:993
+    * "Account Name": username@example.com
+
+The following Gmail-like/Vim-like bindings are configured:
+
+* `e`: Archive (but note: leaves copy of mail in mailbox until next sync; force an immediate sync with `$`).
+* `#`: Trash mail.
+* `!`: Mark as spam.
+* `gi`: Go to inbox.
+* `ga`: Go to archive.
+* `gt`: Go to sent mail.
+* `gd`: Go to drafts.
+* `gs`: Go to starred mail.
+* `gl`: Go to a label (folder).
+* `x`: Toggle selection on entry (see also `t`).
+* `c`: Compose new message.
+* `s`: Toggle star.
+* `*a`: Select all.
+* `*n`: Deselect all (mnemonic: "select none").
+* `*r`: Select read messages.
+* `*u`: Select unread messages.
+* `Shift-U`: Mark as unread.
+* `Shift-I`: Mark as read.
+
+Standard `mutt` stuff:
+
+* `v`: View attachments (including alternate parts for a multipart message).
+
+Non-Gmail extensions:
+
+* `gh`: Go to home account (mnemonic: "[g]o [h]ome!").
+* `gw`: Go to work account (mnemonic: "[g]et to [w]ork!".
+* `t`: Toggle selection on entire thread (see also `x`).
+* `A` show alternate MIME-type in MIME-multipart messages.
+* `S`: Search all using [Xapian query syntax](https://xapian.org/docs/queryparser.html):
+  * `+foo`: Must include "foo".
+  * `-bar`: Must not includ "bar".
+  * `AND`, `OR`, `NOT`, `XOR`: Self-evident.
+  * `foo NEAR bar`: "foo" within 10 words of "bar" (order-independent).
+  * `foo ADJ bar`: Like `NEAR`, but "foo" must appear earlier than "bar".
+  * `"foo bar"`: Match entire phrase.
+  * `foo*`: Match "foo", "food", "foobar" etc.
+  * `subject:this`, `subject:"one two"`
+  * `{from,to}:john`, `{from,to}:me@example.com`
+  * `folder:Home/Home` (prefix search)
+  * `date:today`, `date:7d` (and much more)
+  * `is:unread`
+* `\u`: Open list of URLs in message (via `urlview`).
+* `b`: Toggle (mailboxes) sidebar.
+* `m`: Move message(s).
+
 ## Dependencies
 
 * [tmux](http://tmux.sourceforge.net/) 2.3 or later.
