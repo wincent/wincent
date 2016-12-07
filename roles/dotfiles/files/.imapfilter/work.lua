@@ -64,18 +64,26 @@ function run()
   inbox = work.INBOX
 
   --
-  -- Actions
+  -- Rules
   --
 
-  archive = (function(messages, description)
+  archive = (function(description, matcher)
+    messages = matcher()
     print_status(messages, description .. ' -> archive')
     messages:move_messages(work.Archive)
   end)
 
-  archive_and_mark_read = (function(messages, description)
+  archive_and_mark_read = (function(description, matcher)
+    messages = matcher()
     print_status(messages, description .. ' -> archive & mark read')
     messages:mark_seen()
     messages:move_messages(work.Archive)
+  end)
+
+  flag = (function(description, matcher)
+    messages = matcher()
+    print_status(messages, description .. ' -> Important')
+    messages:mark_flagged()
   end)
 
   --
@@ -168,75 +176,84 @@ function run()
 
   -- Assume that anything I have taken action on, I have seen all previous
   -- actions.
-  differential = get.differential():contain_from(me)
-  messages = differential + differential_related(differential)
-  archive_and_mark_read(messages, 'My [Phabricator] actions')
+  archive_and_mark_read('My [Differential] actions', (function()
+    differential = get.differential():contain_from(me)
+    return differential + differential_related(differential)
+  end))
 
-  messages = get.differential():contain_subject('[Closed]')
-  messages = get.committed(messages)
-  archive(messages, '[Closed]')
+  archive('[Closed]', (function()
+    messages = get.differential():contain_subject('[Closed]')
+    return get.committed(messages)
+  end))
 
-  accepted_and_shipped = get.differential():
-    contain_subject('[Accepted and Shipped]')
-  commented = get.commented(accepted_and_shipped)
-  uncommented = accepted_and_shipped - commented
-  archive(uncommented, '[Accepted and Shipped] without comments')
+  archive('[Accepted and Shipped] without comments', (function()
+    accepted_and_shipped = get.differential():
+      contain_subject('[Accepted and Shipped]')
+    commented = get.commented(accepted_and_shipped)
+    return accepted_and_shipped - commented
+  end))
 
-  accepted = get.differential():contain_subject('[Accepted]')
-  commented = get.commented(accepted)
-  uncommented = accepted - commented
-  messages = uncommented - get.authored(uncommented)
-  archive(messages, "[Accepted] without comments (others' diffs)")
+  archive("[Accepted] without comments (others' diffs)", (function()
+    accepted = get.differential():contain_subject('[Accepted]')
+    commented = get.commented(accepted)
+    uncommented = accepted - commented
+    return uncommented - get.authored(uncommented)
+  end))
 
   -- Metadata changes (not "[Updated, N line(s)]") without comments.
-  updated = get.differential():contain_subject('[Updated]')
-  messages = updated - get.commented(updated)
-  archive(messages, '[Updated] without comments')
+  archive('[Updated] without comments', (function()
+    updated = get.differential():contain_subject('[Updated]')
+    return updated - get.commented(updated)
+  end))
 
-  planned = get.planned(get.differential())
-  messages = planned - get.commented(planned)
-  archive(messages, '[Planned Changes To] without comments')
+  archive('[Planned Changes To] without comments', (function()
+    planned = get.planned(get.differential())
+    return planned - get.commented(planned)
+  end))
 
   -- If I'm not direct reviewer, I can probably ignore these.
-  planned = get.planned(get.differential())
-  messages = planned - get.reviewer(planned)
-  archive(messages, '[Planned Changes To] not direct reviewer')
+  archive('[Planned Changes To] not direct reviewer', (function()
+    planned = get.planned(get.differential())
+    return get.reviewer(planned)
+  end))
 
-  -- trunkagent's comments on other people's diffs.
-  messages = get.differential():contain_from('trunkagent')
-  messages = messages - get.authored(messages)
-  archive(messages, "trunkagent comments on other people's diffs")
+  archive("trunkagent comments on other people's diffs", (function()
+    messages = get.differential():contain_from('trunkagent')
+    return messages - get.authored(messages)
+  end))
 
-  requests = get.requested(get.differential()):is_unflagged()
-  self = requests:match_field('X-Differential-Reviewer', phabricator_user)
-  team = requests:match_field('X-Differential-Reviewer', phabricator_team)
-  messages = requests * (self + team)
-  print_status(messages, '[Request] (direct) -> Important')
-  messages:mark_flagged()
+  flag('[Request] (direct)', (function()
+    requests = get.requested(get.differential()):is_unflagged()
+    self = requests:match_field('X-Differential-Reviewer', phabricator_user)
+    team = requests:match_field('X-Differential-Reviewer', phabricator_team)
+    return requests * (self + team)
+  end))
 
   -- Archive abandoned and related emails as well.
-  abandoned = get.differential():contain_subject('[Abandoned]'):
-    match_field('X-Differential-Status', 'Abandoned')
-  messages = abandoned + differential_related(abandoned, {all = true})
-  archive(messages, '[Abandoned] + related')
+  archive('[Abandoned] + related', (function()
+    abandoned = get.differential():contain_subject('[Abandoned]'):
+      match_field('X-Differential-Status', 'Abandoned')
+    return abandoned + differential_related(abandoned, {all = true})
+  end))
 
   --
   -- Miscellaneous
   --
 
   -- 'Ch1rpBot' matches from, but 'Ch1rpBot <noreply@fb.com>' does not.
-  chirp_bot = inbox:contain_from('Ch1rpBot')
-  messages = chirp_bot:contain_subject('[land] [success]')
-  archive(messages, '[land] [success]')
+  archive('[land] [success]', (function()
+    return inbox:contain_from('Ch1rpBot'):contain_subject('[land] [success]')
+  end))
 
   --
   -- Business
   --
 
-  messages = inbox:
-    contain_from('facebookmail.com'):
-    match_field('X-Facebook-Notify', 'page_fan')
-  archive(messages, 'Page notifications')
+  archive('Page notifications', (function()
+    return inbox:
+      contain_from('facebookmail.com'):
+      match_field('X-Facebook-Notify', 'page_fan')
+  end))
 end
 
 if os.getenv('DEBUG') then
