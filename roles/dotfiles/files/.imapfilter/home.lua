@@ -1,4 +1,4 @@
-dofile(os.getenv('HOME') .. '/.imapfilter/util.lua')
+dofile(os.getenv('HOME') .. '/.imapfilter/common.lua')
 
 local password = get_pass('greg+mutt@hurrell.net', 'imap.gmail.com')
 local me = 'greg@hurrell.net'

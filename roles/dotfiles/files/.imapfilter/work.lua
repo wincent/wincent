@@ -1,4 +1,4 @@
-dofile(os.getenv('HOME') .. '/.imapfilter/util.lua')
+dofile(os.getenv('HOME') .. '/.imapfilter/common.lua')
 
 local me = 'glh@fb.com'
 local password = get_pass(me, 'outlook.office365.com')
