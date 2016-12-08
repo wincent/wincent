@@ -50,4 +50,4 @@ export EC2_CERT=~/.ssh/ec2wincent_cert.pem
 
 export GPG_TTY=$(tty)
 
-export GO_PATH=~/code/go
+export GOPATH=~/code/go
