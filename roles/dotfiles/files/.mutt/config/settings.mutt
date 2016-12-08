@@ -8,6 +8,7 @@ set certificate_file =~/.mutt/certificates
 set move = no  # Stop asking to move read messages to mbox!
 
 set edit_headers = yes
+set mail_check_stats = yes
 
 # Don't keep a local copy of sent messages (Gmail's SMTP server will do that).
 unset record
