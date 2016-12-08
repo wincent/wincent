@@ -22,7 +22,10 @@ end
 -- (Can interact with via Control-C; Useful for running in a tmux pane.)
 function forever(callback, interval)
   while true do
+    start = os.time()
+    print 'Running callback.'
     callback()
+    print('Callback completed in ' .. (os.time() - start) .. 's.')
     print(
       'Sleeping for ' ..
       tonumber(interval) ..

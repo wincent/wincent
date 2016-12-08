@@ -13,7 +13,6 @@ function connect()
 end
 
 function run()
-  print "home: run"
   home = connect()
   inbox = home.INBOX
 
@@ -29,7 +28,8 @@ function run()
 
   messages = (
     inbox:contain_from('Lambda-Legal@lambdalegal.org') +
-    inbox:contain_from('givewell.org')
+    inbox:contain_from('givewell.org') +
+    inbox:contain_from('no-reply@thetrevorproject.org')
   ):match_field('X-campaignid', '.')
   print_status(messages, 'Campaigns -> Lists')
   messages:move_messages(home.Lists)

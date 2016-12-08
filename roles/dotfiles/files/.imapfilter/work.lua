@@ -53,8 +53,6 @@ function parse_internal_date(date_string)
 end
 
 function run()
-  print "work: run"
-
   -- NOTE: Beware the use of contain_field when talking to an MS server; it is
   -- totally unreliable, so must use the slower match_field method. See:
   --
@@ -118,6 +116,10 @@ function run()
         'X-Phabricator-Mail-Tags',
         '<differential-review-request>'
       )
+    end),
+
+    accepted = (function(messages)
+      return messages:contain_subject('[Accepted]')
     end),
 
     planned = (function(messages)
@@ -194,7 +196,7 @@ function run()
   end))
 
   archive("[Accepted] without comments (others' diffs)", (function()
-    accepted = get.differential():contain_subject('[Accepted]')
+    accepted = get.accepted(get.differential())
     commented = get.commented(accepted)
     uncommented = accepted - commented
     return uncommented - get.authored(uncommented)
@@ -217,8 +219,27 @@ function run()
     return get.reviewer(planned)
   end))
 
+  archive("[Commandeered] other people's diff without comment", (function()
+    messages = get.differential():contain_subject('[Commandeered]')
+    messages = messages - get.authored(messages)
+    return messages - get.commented(messages)
+  end))
+
   archive("trunkagent comments on other people's diffs", (function()
     messages = get.differential():contain_from('trunkagent')
+    return messages - get.authored(messages)
+  end))
+
+  archive("other people's [FBSync] diffs", (function()
+    differential = get.differential()
+
+    -- As long as I never work directly *on* FBSync, this shouldn't have any
+    -- false positives.
+    messages =
+      get.requested(differential):contain_body('This revision was automatically created by the [FBSync]') +
+      get.accepted(differential):contain_body('Automatically approved by the `fbsync` script') +
+      get.commented(differential):contain_body('using `fbsync` script to sync')
+
     return messages - get.authored(messages)
   end))
 
