@@ -22,7 +22,7 @@ text/html; elinks -dump %s -dump-charset %{charset} -force-html; nametemplate=%s
 # Or, alternatively:
 # text/html; w3m -I %{charset} -T text/html; copiousoutput;
 
-text/plain; view '+set filetype=mail' '+set nofoldenable' '+set nomodifiable' -
+text/plain; ~/.mutt/view_mail.sh %s %{charset}; needsterminal
 
 # Unidentified files
 application/octet-stream; ~/.mutt/view_attachment.sh %s "-"
