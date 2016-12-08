@@ -111,7 +111,7 @@ nametrans = lambda folder: {'Work':       'INBOX',
 [Repository Work-Remote]
 
 type = IMAP
-remotepasseval = get_keychain_pass(account="glh@fb.com", server="outlook.office365.com")
+remotepasseval = get_keychain_pass(account="glh+mutt@fb.com", server="outlook.office365.com")
 sslcacertfile = /usr/local/etc/openssl/cert.pem
 remoteuser = glh@fb.com
 remotehost = outlook.office365.com

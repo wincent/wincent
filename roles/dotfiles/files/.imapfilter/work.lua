@@ -1,7 +1,7 @@
 dofile(os.getenv('HOME') .. '/.imapfilter/common.lua')
 
 local me = 'glh@fb.com'
-local password = get_pass(me, 'outlook.office365.com')
+local password = get_pass('glh+mutt@fb.com', 'outlook.office365.com')
 local phabricator_user = '<PHID-USER-dfiqtsjr7q4b4fu336uy>'
 local phabricator_team = '<PHID-PROJ-vgzmhfup375n4lfv4xka>'
 

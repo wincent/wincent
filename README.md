@@ -60,23 +60,25 @@ A number of tools are used to provide command-line access to Gmail and Office IM
 * [contacts](http://www.gnufoo.org/contacts/contacts.html): For integration with the macOS Contacts.
 * [reattach-to-user-name-space](https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard): So that `contacts` works correctly inside `tmux`.
 * [imapfilter](https://github.com/lefcha/imapfilter/): For filtering.
+* [passage](https://github.com/wincent/passage): For mediating interaction with the macOS keychain.
 
 In order for all this to work, a few items have to be stored in the macOS keychain:
 
-* For sending mail:
-  * An item with (for Gmail):
-    * "Keychain Item Name": smtp://smtp.gmail.com (corresponds to the "host" field in `~/.msmtprc`).
-    * "Account Name": username@example.net (corresponds to the "user" field in `~/.msmtprc`).
-  * An item with (for Office):
-    * "Keychain Item Name": smtp://smtp.office365.com:587 (corresponds to the "host" field in `~/.msmtprc`).
-    * "Account Name": username@example.com (corresponds to the "user" field in `~/.msmtprc`).
-* For receiving mail:
-  * An item with (for Gmail):
-    * "Keychain Item Name": imap://imap.gmail.com (implied in `~/.offlineimaprc` when using `type = GmailMaildir`).
-    * "Account Name": username+mutt@example.net (corresponds to the "remoteuser" field in `~/.offlineimaprc`).
-  * An item with (for Office):
-    * "Keychain Item Name": imap://outlook.office365.com:993
-    * "Account Name": username@example.com
+* Four "generic" (A.K.A. "application") keychain items (that is, without protocols, only hostnames):
+  * For sending mail:
+    * An item with (for Gmail):
+      * "Keychain Item Name": smtp.gmail.com (corresponds to the "host" field in `~/.msmtprc`).
+      * "Account Name": username+mutt@example.net (corresponds to the "user" field in `~/.msmtprc`).
+    * An item with (for Office):
+      * "Keychain Item Name": smtp.office365.com (corresponds to the "host" field in `~/.msmtprc`).
+      * "Account Name": username+mutt@example.com (corresponds to the "user" field in `~/.msmtprc`).
+  * For receiving mail:
+    * An item with (for Gmail):
+      * "Keychain Item Name": imap.gmail.com (implied in `~/.offlineimaprc` when using `type = GmailMaildir`).
+      * "Account Name": username+mutt@example.net (corresponds to the "remoteuser" field in `~/.offlineimaprc`).
+    * An item with (for Office):
+      * "Keychain Item Name": outlook.office365.com
+      * "Account Name": username+mutt@example.com
 
 The following Gmail-like/Vim-like bindings are configured:
 
