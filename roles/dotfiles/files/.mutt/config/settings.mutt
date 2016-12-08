@@ -69,6 +69,7 @@ set sidebar_short_path = yes
 set sidebar_folder_indent = yes
 set sidebar_indent_string = ' '
 
+set read_inc = 1000
 set query_command = "reattach-to-user-namespace contacts -Sf '%eTOKEN%n' '%s' | sed -e 's/TOKEN/\t/g'"
 
 set folder = ~/.mail
