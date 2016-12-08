@@ -75,7 +75,6 @@ set query_command = "reattach-to-user-namespace contacts -Sf '%eTOKEN%n' '%s' | 
 
 set folder = ~/.mail
 set spoolfile = '+Home/Home'
-set spoolfile = '+Home/Home'
 set mbox = '+Home/Home.Archive'
 set postponed ='+Home/Home.Drafts'
 set trash = '+Home/Home.Trash'
