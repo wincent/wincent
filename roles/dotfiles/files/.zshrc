@@ -13,6 +13,8 @@ fi
 # Completion
 #
 
+fpath=($HOME/.zsh/completions $fpath)
+
 autoload -U compinit
 compinit -u
 

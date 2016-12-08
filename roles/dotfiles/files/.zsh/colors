@@ -56,6 +56,9 @@ color() {
     echo 'color [tomorrow-night|ocean|grayscale-light|...]'
     echo
     echo 'Available schemes:'
+    color ls
+    ;;
+  ls)
     find "$BASE16_DIR" -name 'base16-*.sh' | \
       sed -E 's|.+/base16-||' | \
       sed -E 's/\.sh//' | \
