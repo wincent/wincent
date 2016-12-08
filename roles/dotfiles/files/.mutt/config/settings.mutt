@@ -8,7 +8,6 @@ set certificate_file =~/.mutt/certificates
 set move = no  # Stop asking to move read messages to mbox!
 
 set mail_check = 60 # default checking interval of 5 (seconds) is crazy.
-set imap_check_subscribed = yes
 set edit_headers = yes
 
 # Don't keep a local copy of sent messages (Gmail's SMTP server will do that).
@@ -32,8 +31,6 @@ set attribution = "%n wrote:\n"
 # No wrapped line markers.
 set markers = no
 set mark_old = no
-
-unset imap_passive
 
 set delete = yes # delete without confirming
 set wait_key = no
