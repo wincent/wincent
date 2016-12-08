@@ -1,101 +1,49 @@
-set realname = 'Greg Hurrell'
-
-# TODO: figure out whether I really need this
-set header_cache =~/.mutt/cache/headers
-set message_cachedir =~/.mutt/cache/bodies
-set certificate_file =~/.mutt/certificates
-
-set move = no  # Stop asking to move read messages to mbox!
-
-set edit_headers = yes
-set mail_check_stats = yes
-
-# Don't keep a local copy of sent messages (Gmail's SMTP server will do that).
-unset record
-set copy = no
-
-set sidebar_visible = yes
-set sort = reverse-threads
-set sort_aux = last-date-received
 set abort_nosubject = no
 set abort_unmodified = no
-
-# Include quoted copy of message in reply.
-set include = yes
-
-# Instead of asking, always reply to Reply-to:
-set reply_to = yes
-
-set attribution = "%n wrote:\n"
-
-# No wrapped line markers.
-set markers = no
-set mark_old = no
-
-set delete = yes # delete without confirming
-set wait_key = no
-set forward_quote = yes
-set fast_reply = yes
-set pager_stop = yes # don't move to the next message when paging past the bottom of a message
-set resolve = no # don't auto-advance to the next message after every single op
-set pager_index_lines = 12
-set menu_scroll = yes
-set tilde = yes
-set editor = 'vim +/^$ +nohlsearch' # Move past headers.
-
 set alias_file = $HOME/.mutt/aliases.mutt
-set uncollapse_jump = yes
-
-set ssl_force_tls = yes
-set sendmail_wait = 0
-set mailcap_path = "~/.mutt/config/mailcap"
+set attribution = "%n wrote:\n"
+set certificate_file =~/.mutt/certificates
+set delete = yes # Delete without confirming.
+set edit_headers = yes
+set editor = 'vim +/^$ +nohlsearch' # Move past headers.
+set fast_reply = yes
+set forward_quote = yes
+set header_cache =~/.mutt/cache/headers
+set include = yes # Include quoted copy of message in reply.
 
 # Default is: "%4C %Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %s"
 #
 # Changes:
 # - Show time in date/time.
 # - Show local date/time.
-#
 set index_format = "%4C %Z %[%b %d %R] %-15.15L (%?l?%4l&%4c?) %s"
 
-set user_agent = no # Don't add User-Agent header.
-
-set sidebar_divider_char = '│'
-set sidebar_format = "%B (%N)"
-set sidebar_short_path = yes
-set sidebar_folder_indent = yes
-set sidebar_indent_string = ' '
-
-set read_inc = 1000
-set sleep_time = 0
+set mail_check_stats = yes
+set mailcap_path = "~/.mutt/config/mailcap"
+set mark_old = no
+set markers = no # No wrapped line markers.
+set menu_scroll = yes
+set message_cachedir =~/.mutt/cache/bodies
+set move = no  # Stop asking to move read messages to mbox!
+set pager_index_lines = 12
+set pager_stop = yes # Don't move to the next message when paging past the bottom of a message.
 set query_command = "reattach-to-user-namespace contacts -Sf '%eTOKEN%n' '%s' | sed -e 's/TOKEN/\t/g'"
-
-set folder = ~/.mail
-set spoolfile = '+Home/Home'
-set mbox = '+Home/Home.Archive'
-set postponed ='+Home/Home.Drafts'
-set trash = '+Home/Home.Trash'
-set sendmail = '/usr/local/bin/msmtp -a home'
-set from = 'greg@hurrell.net'
-
-folder-hook +Home/ set spoolfile = '+Home/Home'
-folder-hook +Home/ set mbox = '+Home/Home.Archive'
-folder-hook +Home/ set postponed ='+Home/Home.Drafts'
-folder-hook +Home/ set trash = '+Home/Home.Trash'
-folder-hook +Home/ set sendmail = '/usr/local/bin/msmtp\ -a\ home'
-folder-hook +Home/ set from = 'greg@hurrell.net'
-folder-hook +Home/ unset record
-folder-hook +Home/ set copy = no
-
-folder-hook +Work/ set spoolfile = '+Work/Work'
-folder-hook +Work/ set mbox = '+Work/Work.Archive'
-folder-hook +Work/ set postponed ='+Work/Work.Drafts'
-folder-hook +Work/ set trash = '+Work/Work.Trash'
-folder-hook +Work/ set sendmail = '/usr/local/bin/msmtp\ -a\ work'
-folder-hook +Work/ set from = 'glh@fb.com'
-folder-hook +Work/ set record = '+Work/Work.Sent'
-folder-hook +Work/ set copy = yes
-
-# Allow editing of `From:` header in composer to alter sending account.
-send2-hook '~f ^greg@hurrell\.net$' 'set sendmail = "/usr/local/bin/msmtp -a home"; unset record; set copy = no'
-send2-hook '~f ^glh@fb\.com$' 'set sendmail = "/usr/local/bin/msmtp -a work"; set record = "+Work/Work.Sent"; set copy = yes'
+set read_inc = 1000
+set realname = 'Greg Hurrell'
+set reply_to = yes # Instead of asking, always reply to Reply-to:
+set resolve = no # Don't auto-advance to the next message after every single op.
+set sendmail_wait = 0
+set sidebar_divider_char = '│'
+set sidebar_folder_indent = yes
+set sidebar_format = "%B (%N)"
+set sidebar_indent_string = ' '
+set sidebar_short_path = yes
+set sidebar_visible = yes
+set sleep_time = 0
+set sort = reverse-threads
+set sort_aux = last-date-received
+set ssl_force_tls = yes
+set tilde = yes
+set uncollapse_jump = yes
+set user_agent = no # Don't add User-Agent header.
+set wait_key = no

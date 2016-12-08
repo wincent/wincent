@@ -1,0 +1,31 @@
+set copy = no
+set folder = ~/.mail
+set from = 'greg@hurrell.net'
+set mbox = '+Home/Home.Archive'
+set postponed ='+Home/Home.Drafts'
+unset record
+set sendmail = '/usr/local/bin/msmtp -a home'
+set spoolfile = '+Home/Home'
+set trash = '+Home/Home.Trash'
+
+folder-hook +Home/ set copy = no
+folder-hook +Home/ set from = 'greg@hurrell.net'
+folder-hook +Home/ set mbox = '+Home/Home.Archive'
+folder-hook +Home/ set postponed ='+Home/Home.Drafts'
+folder-hook +Home/ unset record
+folder-hook +Home/ set sendmail = '/usr/local/bin/msmtp\ -a\ home'
+folder-hook +Home/ set spoolfile = '+Home/Home'
+folder-hook +Home/ set trash = '+Home/Home.Trash'
+
+folder-hook +Work/ set copy = yes
+folder-hook +Work/ set from = 'glh@fb.com'
+folder-hook +Work/ set mbox = '+Work/Work.Archive'
+folder-hook +Work/ set postponed ='+Work/Work.Drafts'
+folder-hook +Work/ set record = '+Work/Work.Sent'
+folder-hook +Work/ set sendmail = '/usr/local/bin/msmtp\ -a\ work'
+folder-hook +Work/ set spoolfile = '+Work/Work'
+folder-hook +Work/ set trash = '+Work/Work.Trash'
+
+# Allow editing of `From:` header in composer to alter sending account.
+send2-hook '~f ^greg@hurrell\.net$' 'set sendmail = "/usr/local/bin/msmtp -a home"; unset record; set copy = no'
+send2-hook '~f ^glh@fb\.com$' 'set sendmail = "/usr/local/bin/msmtp -a work"; set record = "+Work/Work.Sent"; set copy = yes'
