@@ -7,7 +7,6 @@ set certificate_file =~/.mutt/certificates
 
 set move = no  # Stop asking to move read messages to mbox!
 
-set mail_check = 60 # default checking interval of 5 (seconds) is crazy.
 set edit_headers = yes
 
 # Don't keep a local copy of sent messages (Gmail's SMTP server will do that).
