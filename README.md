@@ -55,7 +55,7 @@ A number of tools are used to provide command-line access to Gmail and Office IM
 * [offlineimap](http://www.offlineimap.org/): For maintaining a local cache of messages for offline access.
 * [notmuch](https://notmuchmail.org/): For fast search.
 * [msmtp](http://msmtp.sourceforge.net/): For sending email.
-* [w3m](http://w3m.sourceforge.net/): For viewing HTML emails.
+* [elinks](http://elinks.or.cz/): For viewing HTML emails.
 * [urlview](https://packages.debian.org/sid/misc/urlview): For opening URLs from inside mutt.
 * [contacts](http://www.gnufoo.org/contacts/contacts.html): For integration with the macOS Contacts.
 * [reattach-to-user-name-space](https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard): So that `contacts` works correctly inside `tmux`.
