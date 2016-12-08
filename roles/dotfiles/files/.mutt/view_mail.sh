@@ -2,7 +2,7 @@
 
 COLUMNS=${COLUMNS:-`tput cols`}
 TMPFILE="$1"
-ENCODING="$2"
+ENCODING="${2:utf-8}"
 
 # Need to copy the file because mutt will delete it before Vim can read it.
 DIR=$(mktemp -d)
