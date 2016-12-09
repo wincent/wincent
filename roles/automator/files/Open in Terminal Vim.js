@@ -1,5 +1,5 @@
 // 1. Open Automator.
-// 2. Create new application at "~/bin/Open in Terminal Vim.js".
+// 2. Create new application at "~/bin/Open in Terminal Vim.app".
 // 3. Add an "Run JavaScript" action.
 // 3. Paste in this code.
 // 4. Set all JS files to open via this app.
