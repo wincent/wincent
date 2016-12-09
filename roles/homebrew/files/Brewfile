@@ -119,6 +119,7 @@ brew 'ruby-install'
 brew 's3cmd'
 brew 'shellcheck'
 brew 'sqlite'
+brew 'terminal-notifier'
 brew 'the_silver_searcher'
 brew 'tig'
 brew 'tmux', args: ['HEAD']
