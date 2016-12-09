@@ -32,7 +32,6 @@ set read_inc = 1000
 set realname = 'Greg Hurrell'
 set reply_to = yes # Instead of asking, always reply to Reply-to:
 set resolve = no # Don't auto-advance to the next message after every single op.
-set sendmail_wait = 0
 set sidebar_divider_char = '│'
 set sidebar_folder_indent = yes
 set sidebar_format = "%B (%N)"
