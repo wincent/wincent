@@ -128,6 +128,18 @@ Non-Gmail extensions:
 * `b`: Toggle (mailboxes) sidebar.
 * `m`: Move message(s).
 
+To have `mailto` links open up in `mutt` in iTerm:
+
+1. In *iTerm2* → *Preferences* → *Profiles* → *General*, create a copy of your default profile by clicking on *Other Actions...* and selecting *Duplicate Profile*.
+2. Name the copy something identifying, like "Mutt".
+3. Under *Command*, select the *Command* radio button and enter `/usr/bin/env MAILTO=$$URL$$ /usr/local/bin/zsh -ic "/usr/local/bin/mutt -- $MAILTO"`:
+4. Under *URL Schemes* → *Schemes handled:*, select `mailto`.
+
+Notes:
+
+* `$$URL$$` is documented [here](https://groups.google.com/d/msg/iterm2-discuss/TFPl1D_miIU/uDVV2ZZpYWQJ).
+* The convoluted use of `env` and `zsh` is required to get terminal colors working correctly.
+
 ## Dependencies
 
 * [tmux](http://tmux.sourceforge.net/) 2.3 or later.
