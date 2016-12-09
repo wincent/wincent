@@ -1,2 +1,2 @@
-/certificates
-/notmuch.history
+*
+!/attachments/.gitignore
