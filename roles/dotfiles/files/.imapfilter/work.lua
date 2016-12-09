@@ -148,7 +148,8 @@ function run()
   -- (`{all = false}`), only messages older than `messages` are considered.
   differential_related = (function(messages, options)
     all = options and options.all
-    related = Set {}
+    differential = get.differential()
+    results = Set {}
     for _, message in ipairs(messages) do
       mbox, uid = table.unpack(message)
       m = mbox[uid]
@@ -160,16 +161,17 @@ function run()
       )
       related = differential:match_field('In-Reply-To', revision_id) +
         differential:match_field('Message-ID', revision_id)
+
       for _, message in ipairs(related) do
         mbox, uid = table.unpack(message)
         m = mbox[uid]
         date = all or parse_internal_date(m:fetch_date())
         if all or date <= parent_date then
-          table.insert(related, message)
+          table.insert(results, message)
         end
       end
     end
-    return related
+    return results
   end)
 
   --
@@ -252,7 +254,7 @@ function run()
 
   -- Archive abandoned and related emails as well.
   archive('[Abandoned] + related', (function()
-    abandoned = get.differential():contain_subject('[Abandoned]'):
+    abandoned = get.differential():
       match_field('X-Differential-Status', 'Abandoned')
     return abandoned + differential_related(abandoned, {all = true})
   end))
