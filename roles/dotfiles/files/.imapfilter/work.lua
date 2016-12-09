@@ -254,7 +254,7 @@ function run()
 
   -- Archive abandoned and related emails as well.
   archive('[Abandoned] + related', (function()
-    abandoned = get.differential():
+    abandoned = get.differential():contain_subject('[Abandoned]'):
       match_field('X-Differential-Status', 'Abandoned')
     return abandoned + differential_related(abandoned, {all = true})
   end))
