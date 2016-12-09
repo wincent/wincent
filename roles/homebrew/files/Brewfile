@@ -184,3 +184,5 @@ cask 'xquartz'
 #mas 'The Unarchiver', id: 425424353 # Fails
 #mas 'Wunderlist', id: 410628904 # Fails
 # xScope (not listed) -> (now) xScope 4
+
+brew linkapps
