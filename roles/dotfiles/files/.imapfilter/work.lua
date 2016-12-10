@@ -279,10 +279,10 @@ function run()
   end))
 end
 
-if os.getenv('DEBUG') then
-  print 'DEBUG is set: running once.'
+if os.getenv('ONCE') then
+  print 'ONCE is set: running once.'
   run_and_log_time(run)
 else
-  print 'Looping, to run once set DEBUG.'
+  print 'Looping, to run once set ONCE.'
   forever(run, 60)
 end
