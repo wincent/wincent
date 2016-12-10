@@ -18,14 +18,18 @@ function escape(...)
   return '\027[' .. joined .. 'm'
 end
 
+function run_and_log_time(callback)
+  start = os.time()
+  print 'Running callback.'
+  callback()
+  print('Callback completed in ' .. (os.time() - start) .. 's.')
+end
+
 -- Alternative to `become_daemon(60, callback, true, true)`.
 -- (Can interact with via Control-C; Useful for running in a tmux pane.)
 function forever(callback, interval)
   while true do
-    start = os.time()
-    print 'Running callback.'
-    callback()
-    print('Callback completed in ' .. (os.time() - start) .. 's.')
+    run_and_log_time(callback)
     print(
       'Sleeping for ' ..
       tonumber(interval) ..

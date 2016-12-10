@@ -281,7 +281,7 @@ end
 
 if os.getenv('DEBUG') then
   print 'DEBUG is set: running once.'
-  run()
+  run_and_log_time(run)
 else
   print 'Looping, to run once set DEBUG.'
   forever(run, 60)
