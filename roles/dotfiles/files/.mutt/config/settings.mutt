@@ -9,6 +9,7 @@ set editor = 'vim +/^$ +nohlsearch' # Move past headers.
 set fast_reply = yes
 set forward_quote = yes
 set header_cache =~/.mutt/cache/headers
+set header_cache_compress = no
 set include = yes # Include quoted copy of message in reply.
 
 # Default is: "%4C %Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %s"
@@ -23,7 +24,6 @@ set mailcap_path = "~/.mutt/config/mailcap"
 set mark_old = no
 set markers = no # No wrapped line markers.
 set menu_scroll = yes
-set message_cachedir =~/.mutt/cache/bodies
 set move = no  # Stop asking to move read messages to mbox!
 set pager_index_lines = 12
 set pager_stop = yes # Don't move to the next message when paging past the bottom of a message.
