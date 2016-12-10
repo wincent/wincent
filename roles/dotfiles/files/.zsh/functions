@@ -94,11 +94,11 @@ function email() {
     tmux new-session -d -s email -c ~/Downloads -n mutt
     tmux send-keys -t email:mutt mutt Enter
     tmux new-window -t email -c ~ -n sync
-    tmux send-keys -t email:sync offlineimap Enter
-    tmux new-window -t email -c ~/.imapfilter -n home-filter
-    tmux send-keys -t email:home-filter 'imapfilter -vc home.lua' Enter
-    tmux new-window -t email -c ~/.imapfilter -n work-filter
-    tmux send-keys -t email:work-filter 'imapfilter -vc work.lua' Enter
+    tmux send-keys -t email:sync '/usr/local/bin/offlineimap || reattach-to-user-namespace terminal-notifier -title offlineimap -message "offlineimap exited"' Enter
+    # tmux new-window -t email -c ~/.imapfilter -n home-filter
+    # tmux send-keys -t email:home-filter 'imapfilter -vc home.lua || reattach-to-user-namespace terminal-notifier -title imapfilter -message "imapfilter (home) exited"' Enter
+    # tmux new-window -t email -c ~/.imapfilter -n work-filter
+    # tmux send-keys -t email:work-filter 'imapfilter -vc work.lua || reattach-to-user-namespace terminal-notifier -tilte imapfilter -message "imapfilter (work) exited"' Enter
   fi
   if [ -z "$TMUX" ]; then
     tmux attach -t email:mutt

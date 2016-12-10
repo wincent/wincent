@@ -46,6 +46,7 @@ incremental = no
 
 localrepository = Home-Local
 remoterepository = Home-Remote
+presynchook = env DEBUG=1 imapfilter -vc ~/.imapfilter/home.lua
 postsynchook = notmuch new
 status_backend = sqlite
 autorefresh = 1
@@ -92,6 +93,7 @@ folderfilter = lambda folder: folder not in ['[Gmail]/Important']
 
 localrepository = Work-Local
 remoterepository = Work-Remote
+presynchook = env DEBUG=1 imapfilter -vc ~/.imapfilter/work.lua
 postsynchook = notmuch new
 status_backend = sqlite
 autorefresh = 1
