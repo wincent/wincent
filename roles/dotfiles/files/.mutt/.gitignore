@@ -1,3 +1,4 @@
 /certificates
 /cache
+/hooks/.notmuch.lock
 *.pyc
