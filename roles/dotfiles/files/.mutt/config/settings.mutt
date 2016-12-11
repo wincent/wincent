@@ -19,8 +19,11 @@ set include = yes # Include quoted copy of message in reply.
 # - Show local date/time.
 set index_format = "%4C %Z %[%b %d %R] %-15.15L (%?l?%4l&%4c?) %s"
 
+set mail_check = 60
 set mail_check_stats = yes
+set mail_check_stats_interval = 300
 set mailcap_path = "~/.mutt/config/mailcap"
+set maildir_header_cache_verify = no
 set mark_old = no
 set markers = no # No wrapped line markers.
 set menu_scroll = yes
@@ -43,6 +46,7 @@ set sort_aux = last-date-received
 set ssl_force_tls = yes
 set tilde = yes
 set time_inc = 250
+set timeout = 0
 set uncollapse_jump = yes
 set user_agent = no # Don't add User-Agent header.
 set wait_key = no
