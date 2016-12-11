@@ -16,6 +16,7 @@ dotfiles:
   - .hgrc
   - .imapfilter
   - .inputrc
+  - .lbdbrc
   - .msmtprc
   - .mutt
   - .notmuch-config
