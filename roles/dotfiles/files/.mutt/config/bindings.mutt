@@ -4,6 +4,7 @@ bind editor <Tab> complete-query
 bind editor <space> noop # So line-editor can accept folders with spaces in their names.
 bind editor ^T complete
 bind generic x tag-entry
+bind index <space> next-page
 bind index <tab> collapse-thread
 bind index G last-entry
 bind index L bottom-page # Defaults to list-reply
