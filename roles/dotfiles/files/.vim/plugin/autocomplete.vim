@@ -50,12 +50,19 @@ let g:ycm_semantic_triggers = {
       \     ',',
       \     ', '
       \   ],
+      \   'mail': [
+      \     're!^Bcc:(.*, ?| ?)',
+      \     're!^Cc:(.*, ?| ?)',
+      \     're!^From:(.*, ?| ?)',
+      \     're!^Reply-To:(.*, ?| ?)',
+      \     're!^To:(.*, ?| ?)'
+      \   ],
       \   'markdown': [
       \     ']('
       \   ]
       \ }
 
-" Same as default, but with "markdown" and "text" removed.
+" Same as default, but with "mail", "markdown" and "text" removed.
 let g:ycm_filetype_blacklist = {
       \   'notes': 1,
       \   'unite': 1,
@@ -64,7 +71,6 @@ let g:ycm_filetype_blacklist = {
       \   'qf': 1,
       \   'vimwiki': 1,
       \   'infolog': 1,
-      \   'mail': 1
       \ }
 
 call defer#packadd('YouCompleteMe', 'youcompleteme.vim')
