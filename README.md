@@ -114,7 +114,7 @@ Non-Gmail extensions:
 * `A` show alternate MIME-type in MIME-multipart messages.
 * `S`: Search all using [Xapian query syntax](https://xapian.org/docs/queryparser.html):
   * `+foo`: Must include "foo".
-  * `-bar`: Must not includ "bar".
+  * `-bar`: Must not include "bar".
   * `AND`, `OR`, `NOT`, `XOR`: Self-evident.
   * `foo NEAR bar`: "foo" within 10 words of "bar" (order-independent).
   * `foo ADJ bar`: Like `NEAR`, but "foo" must appear earlier than "bar".
