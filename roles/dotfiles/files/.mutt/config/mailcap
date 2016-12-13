@@ -19,9 +19,6 @@ text/html; ~/.mutt/view_attachment.sh %s html
 # Try to display implicitly using elinks:
 text/html; elinks -dump %s -dump-charset %{charset} -force-html; nametemplate=%s.html; copiousoutput
 
-# Or, alternatively:
-# text/html; w3m -I %{charset} -T text/html; copiousoutput;
-
 text/plain; ~/.mutt/view_mail.sh %s %{charset}; needsterminal
 
 # Unidentified files

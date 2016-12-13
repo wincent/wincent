@@ -131,7 +131,6 @@ brew 'urlview'
 brew 'v8'
 brew 'valgrind'
 brew 'vim', args: ['HEAD']
-brew 'w3m'
 brew 'watch'
 brew 'wget'
 brew 'x264'
