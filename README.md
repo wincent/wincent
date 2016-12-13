@@ -52,7 +52,7 @@ Other functionality that *used* to come via Karabiner isn't (yet) supported beca
 A number of tools are used to provide command-line access to Gmail and Office IMAP accounts.
 
 * [mutt](http://www.mutt.org/): For reading email.
-* [offlineimap](http://www.offlineimap.org/): For maintaining a local cache of messages for offline access.
+* [isync](http://isync.sourceforge.net/): For maintaining a local cache of messages for offline access.
 * [notmuch](https://notmuchmail.org/): For fast search.
 * [msmtp](http://msmtp.sourceforge.net/): For sending email.
 * [elinks](http://elinks.or.cz/): For viewing HTML emails.
@@ -75,8 +75,8 @@ In order for all this to work, a few items have to be stored in the macOS keycha
       * "Account Name": username+mutt@example.com (corresponds to the "user" field in `~/.msmtprc`).
   * For receiving mail:
     * An item with (for Gmail):
-      * "Keychain Item Name": imap.gmail.com (implied in `~/.offlineimaprc` when using `type = GmailMaildir`).
-      * "Account Name": username+mutt@example.net (corresponds to the "remoteuser" field in `~/.offlineimaprc`).
+      * "Keychain Item Name": imap.gmail.com (corresponds to the "Host" field in `~/.mbsyncrc`).
+      * "Account Name": username+mutt@example.net (corresponds to the "PassCmd" field in `~/.mbsyncrc`).
     * An item with (for Office):
       * "Keychain Item Name": outlook.office365.com
       * "Account Name": username+mutt@example.com

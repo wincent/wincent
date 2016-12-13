@@ -22,7 +22,6 @@ dotfiles:
   - .mutt
   - .notmuch-config
   - .npmrc
-  - .offlineimaprc
   - .rdebugrc
   - .rspec
   - .screenrc
