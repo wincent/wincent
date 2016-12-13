@@ -18,6 +18,7 @@ dotfiles:
   - .inputrc
   - .lbdbrc
   - .msmtprc
+  - .mbsyncrc
   - .mutt
   - .notmuch-config
   - .npmrc

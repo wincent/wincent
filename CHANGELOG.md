@@ -1,5 +1,21 @@
 # Changelog
 
+## 2016-12-13
+
+* Switched from `offlineimap` to `mbsync` (in the `isync` package) for mail synchronization.
+
+## 2016-12-12
+
+* Added address autocompletion (via custom YouCompleteMe completer) inside Vim buffers of with filetype "mail".
+
+## 2016-12-11
+
+* Switched from `contacts` to `lbdb` for searching contacts.
+
+## 2016-12-07
+
+* Switched from `w3m` to `elinks` for viewing links within emails.
+
 ## 2016-12-02
 
 * Added `mutt` config.

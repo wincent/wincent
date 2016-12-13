@@ -29,3 +29,13 @@
 # Provide an extension point for other roles to dump .zshenv stuff into.
 - name: dotfiles | make ~/.zshenv.d
   file: path=~/.zshenv.d state=directory
+
+# Make some directories required by configuration in the dotfiles; these should
+# probably be separate roles.
+- name: dotfiles | create auxiliary directories
+  file: path={{ item }} state=directory
+  with_items:
+    # mbsync will die on first sync without these.
+    - ~/.mail
+    - ~/.mail/Home
+    - ~/.mail/Work
