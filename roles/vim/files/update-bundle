@@ -24,4 +24,15 @@ git submodule foreach '
   fi
 '
 
-vim -u NONE -N -c "runtime pack/bundle/opt/vim-pathogen/autoload/pathogen.vim | Helptags | quit"
+# Update help tags.
+(
+  cd ~/.vim/pack
+
+  PACKS=""
+  for PACK in $(find . -type d -maxdepth 1 -path '*/*' | cut -f 2 -d / | grep -v bundle
+  ); do
+    PACKS="${PACKS}packadd $PACK | "
+  done
+
+  vim -u NONE -N -c "${PACKS}runtime pack/bundle/opt/vim-pathogen/autoload/pathogen.vim | Helptags | quit"
+)
