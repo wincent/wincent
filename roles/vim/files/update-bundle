@@ -29,8 +29,7 @@ git submodule foreach '
   cd ~/.vim/pack
 
   PACKS=""
-  for PACK in $(find . -type d -maxdepth 1 -path '*/*' | cut -f 2 -d / | grep -v bundle
-  ); do
+  for PACK in $(find . -type d -maxdepth 1 -path '*/*' | cut -f 2 -d / | grep -v bundle); do
     PACKS="${PACKS}packadd $PACK | "
   done
 
