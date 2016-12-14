@@ -6,10 +6,10 @@
 #
 # See also the companion file, "next.mutt".
 
-macro index ! "<tag-prefix-cond><save-message>!.Spam<enter><enter><next-undeleted><end-cond>" "Mark as spam"
-macro index \# "<tag-prefix-cond><save-message>!.Trash<enter><enter><next-undeleted><end-cond>" "Trash"
-macro index e ";<save-message>><enter><enter><next-undeleted>" "Archive"
+macro index ! "<tag-prefix-cond><save-message>!.Spam<enter><enter><next-undeleted><end-cond>" "mark as spam"
+macro index \# "<tag-prefix-cond><save-message>!.Trash<enter><enter><next-undeleted><end-cond>" "trash"
+macro index e ";<save-message>><enter><enter><next-undeleted>" "archive"
 
-macro pager ! "<save-message>!.Spam<enter><enter><next-undeleted>" "Mark as spam"
-macro pager \# "<save-message>!.Trash<enter><enter><next-undeleted>" "Trash"
-macro pager e "<save-message>><enter><enter><next-undeleted>" "Archive"
+macro pager ! "<save-message>!.Spam<enter><enter><next-undeleted>" "mark as spam"
+macro pager \# "<save-message>!.Trash<enter><enter><next-undeleted>" "trash"
+macro pager e "<save-message>><enter><enter><next-undeleted>" "archive"
