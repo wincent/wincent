@@ -24,7 +24,7 @@ while true; do
   echo
 
   time mbsync "$ACCOUNT" || {
-    reattach-to-user-namespace
+    reattach-to-user-namespace \
       terminal-notifier -title mbsync -message "mbsync ($ACCOUNT) exited"
     exit 1
   }
