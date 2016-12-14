@@ -9,7 +9,7 @@ set spoolfile = '+Home/Home'
 set trash = '+Home/Home.Trash'
 
 # Normally <delete-pattern>.
-macro index,pager D "<shell-escape>~/.mutt/scripts/download.sh home<enter>" "Download messages"
+macro index,pager D "<shell-escape>~/.mutt/scripts/download.sh home<enter><sync-mailbox>" "Download messages"
 
 folder-hook +Home/ set copy = no
 folder-hook +Home/ set from = 'greg@hurrell.net'
@@ -19,7 +19,7 @@ folder-hook +Home/ unset record
 folder-hook +Home/ set sendmail = '/usr/local/bin/msmtp\ -a\ home'
 folder-hook +Home/ set spoolfile = '+Home/Home'
 folder-hook +Home/ set trash = '+Home/Home.Trash'
-folder-hook +Home/ macro index,pager D '<shell-escape>~/.mutt/scripts/download.sh\ home<enter>' 'Download\ messages'
+folder-hook +Home/ macro index,pager D '<shell-escape>~/.mutt/scripts/download.sh\ home<enter><sync-mailbox>' 'Download\ messages'
 
 folder-hook +Work/ set copy = yes
 folder-hook +Work/ set from = 'glh@fb.com'
@@ -29,7 +29,7 @@ folder-hook +Work/ set record = '+Work/Work.Sent'
 folder-hook +Work/ set sendmail = '/usr/local/bin/msmtp\ -a\ work'
 folder-hook +Work/ set spoolfile = '+Work/Work'
 folder-hook +Work/ set trash = '+Work/Work.Trash'
-folder-hook +Home/ macro index,pager D '<shell-escape>~/.mutt/scripts/download.sh\ work<enter>' 'Download\ messages'
+folder-hook +Work/ macro index,pager D '<shell-escape>~/.mutt/scripts/download.sh\ work<enter><sync-mailbox>' 'Download\ messages'
 
 # Allow editing of `From:` header in composer to alter sending account.
 send2-hook '~f ^greg@hurrell\.net$' 'set sendmail = "/usr/local/bin/msmtp -a home"; unset record; set copy = no'
