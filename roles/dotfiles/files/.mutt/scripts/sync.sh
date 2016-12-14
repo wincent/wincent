@@ -38,7 +38,7 @@ while true; do
   echo
   echo "Updating mailboxes listing:"
 
-  ~/.mutt/mailboxes.rb
+  ~/.mutt/scripts/mailboxes.rb
 
   echo "Finished at $(date)."
   echo "Sleeping for 1m..."

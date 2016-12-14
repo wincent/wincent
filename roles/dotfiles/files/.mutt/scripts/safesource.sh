@@ -4,7 +4,7 @@
 #
 # Usage in muttrc:
 #
-#     source `$HOME/.mutt/safesource $HOME/.mutt/config/example.mutt`
+#     source `$HOME/.mutt/scripts/safesource.sh $HOME/.mutt/config/example.mutt`
 
 FILE=$1
 

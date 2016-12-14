@@ -70,7 +70,7 @@ Expunge Slave
 Sync Pull
 
 # Lower-case "h" here to match "~/.imapfilter/home.lua" script name (see
-# "~/.mutt/sync.sh").
+# "~/.mutt/scripts/sync.sh").
 Group home
 Channel Home-Home
 Channel Home-Drafts
@@ -143,7 +143,7 @@ Expunge Slave
 Sync Pull
 
 # Lower-case "w" here to match "~/.imapfilter/work.lua" script name (see
-# "~/.mutt/sync.sh").
+# "~/.mutt/scripts/sync.sh").
 Group work
 Channel Work-Work
 Channel Work-Sent
