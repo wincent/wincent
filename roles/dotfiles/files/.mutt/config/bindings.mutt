@@ -21,6 +21,7 @@ bind index,pager \Cu previous-page
 bind index,pager a group-reply # Reply all
 bind index,pager b sidebar-toggle-visible
 bind index,pager c mail # Compose.
+bind index,pager d noop # Usually <delete-message>, but we use "#" for that instead.
 bind index,pager m noop # Use "c" (Gmail default) instead.
 bind pager <space> next-page
 bind pager G bottom
