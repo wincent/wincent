@@ -172,7 +172,7 @@ local extraKeyCodes = {
   leftControl = 59,
 }
 local controlPressed = nil
-local repeatDelay = eventtap.keyRepeatDelay()
+local repeatDelay = eventtap.keyRepeatDelay() * 2
 local repeatInterval = eventtap.keyRepeatInterval()
 local controlTimer = nil
 local controlRepeatTimer = nil
