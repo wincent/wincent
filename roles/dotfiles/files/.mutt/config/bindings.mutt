@@ -2,20 +2,55 @@ bind attach <return> view-mailcap
 bind attach u exit
 bind editor <Tab> complete-query
 bind editor <space> noop # So line-editor can accept folders with spaces in their names.
-bind editor ^T complete
+bind editor \CT complete
+bind generic * noop # Normally <last-entry>.
+bind generic < noop # Normally <previous-line>.
+bind generic = noop # Normally <first-entry>.
+bind generic > noop # Normally <next-line>.
+bind generic [ noop # Normally <half-up>.
+bind generic ] noop # Normally <half-down>.
 bind generic x tag-entry
+bind generic z noop # Normally <next-page>.
+bind index % noop # Normally <toggle-write>.
+bind index <Esc><Tab> noop # Normally <previous-new-then-unread>.
+bind index <Esc>V noop # Normally <collapse-all>.
+bind index <Esc>t noop # Normally <tag-thread>, which we have bound to t.
+bind index <Esc>v noop # Normally <collapse-thread>, which we have bound to <tab>.
 bind index <space> next-page
 bind index <tab> collapse-thread
 bind index G last-entry
 bind index L bottom-page # Defaults to list-reply
+bind index Q noop # Normally <query>.
+bind index T noop # Normally <tag-pattern>.
 bind index V noop # Normally bound to "show-version".
+bind index \CT noop # Normally <untag-pattern>.
 bind index gg first-entry
 bind index t tag-thread # Usually "tag-entry", but we use "x" (Gmail key) for that.
+bind index,pager & noop # Normally <link-threads>.
+bind index,pager . noop # Normally <buffy-list>.
+bind index,pager <Esc>C noop # Normally <decode-copy>.
+bind index,pager <Esc>P noop # Normally <check-traditional-pgp>.
+bind index,pager <Esc>c noop # Normally <change-folder-readonly>.
+bind index,pager <Esc>d noop # Normally <delete-subthread>.
+bind index,pager <Esc>k noop # Normally <mail-key>.
+bind index,pager <Esc>n noop # Normally <next-subthread>.
+bind index,pager <Esc>p noop # Normally <next-subthread>.
+bind index,pager <Esc>r noop # Normally <read-subthread>.
+bind index,pager <Esc>s noop # Normally <decode-save>.
+bind index,pager <Esc>u noop # Normally <undelete-subthread>.
 bind index,pager <down> sidebar-next
 bind index,pager <right> sidebar-open
 bind index,pager <up> sidebar-prev
 bind index,pager F noop # Use "s" (Gmail default) instead.
 bind index,pager N search-opposite # Usually toggles/marks "New" status, but we have U/I for that.
+bind index,pager O noop # Normally <sort-reverse>.
+bind index,pager P noop # Normally <parent-message>.
+bind index,pager W noop # Normally <clear-flag>.
+bind index,pager \CB noop # Normally bound to show URLs with `urlview`.
+bind index,pager \CE noop # Normally <edit-type>.
+bind index,pager \CF noop # Normally <forget-passphrase>.
+bind index,pager \CK noop # Normally <extract-keys>.
+bind index,pager \CR noop # Normally <read-thread>.
 bind index,pager \Cd next-page
 bind index,pager \Cu previous-page
 bind index,pager a group-reply # Reply all
@@ -23,9 +58,20 @@ bind index,pager b sidebar-toggle-visible
 bind index,pager c mail # Compose.
 bind index,pager d noop # Usually <delete-message>, but we use "#" for that instead.
 bind index,pager m noop # Use "c" (Gmail default) instead.
+bind index,pager p noop # Normally <print-message>.
+bind index,pager w noop # Normally <set-flag>.
+bind index,pager y noop # Normally <change-folder>..., which we have bound to gl.
+bind index,pager | noop # Normally <pipe-message>.
+bind pager <BackSpace> noop # Normally <previous-line>.
 bind pager <space> next-page
 bind pager G bottom
+bind pager Q noop # Normally <quit>.
+bind pager T noop # Normally <toggle-quoted>.
+bind pager V noop # Normally <show-version>.
+bind pager ^ noop # Normally <top>, which we have bound to gg.
 bind pager gg top
+bind pager i noop # Normally <exit>, but that is also bound to q.
 bind pager j next-line
 bind pager k previous-line
+bind pager o noop # Normally <sort-mailbox>.
 bind pager u exit
