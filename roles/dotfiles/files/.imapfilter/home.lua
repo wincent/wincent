@@ -29,6 +29,7 @@ function run()
   messages = (
     inbox:contain_from('Lambda-Legal@lambdalegal.org') +
     inbox:contain_from('givewell.org') +
+    inbox:contain_from('info@ppnorcal.org') +
     inbox:contain_from('no-reply@thetrevorproject.org')
   ):match_field('X-campaignid', '.')
   print_status(messages, 'Campaigns -> Lists')
