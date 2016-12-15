@@ -48,7 +48,7 @@ macro pager t "<exit><tag-thread>" "tag thread"
 # Select unread.
 macro index *u "<untag-pattern>~T<enter><tag-pattern>~U<enter>" "select unread"
 
-macro pager \\u "<enter-command>set pipe_decode = yes<enter>|urlview<enter><enter-command>set pipe_decode = no<enter>" "view URLs"
+macro index,pager \\u "<enter-command>set pipe_decode = yes<enter><pipe-message>urlview<enter><enter-command>set pipe_decode = no<enter>" "view URLs"
 
 # [m]ove a mail to another folder (in Gmail, "m" would be "[m]ute").
 macro pager m "<save-message>?<toggle-mailboxes>" "move to..."
