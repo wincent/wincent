@@ -47,6 +47,8 @@ bind index,pager N search-opposite # Usually toggles/marks "New" status, but we 
 bind index,pager O noop # Normally <sort-reverse>.
 bind index,pager P noop # Normally <parent-message>.
 bind index,pager W noop # Normally <clear-flag>.
+bind index,pager \\b bounce-message # Normally "b", but we use that for scrolling.
+bind index,pager \\s sidebar-toggle-visible
 bind index,pager \CB noop # Normally bound to show URLs with `urlview`.
 bind index,pager \CE noop # Normally <edit-type>.
 bind index,pager \CF noop # Normally <forget-passphrase>.
@@ -55,7 +57,7 @@ bind index,pager \CR noop # Normally <read-thread>.
 bind index,pager \Cd next-page
 bind index,pager \Cu previous-page
 bind index,pager a group-reply # Reply all
-bind index,pager b sidebar-toggle-visible
+bind index,pager b previous-page # Normally <bounce-message>, but we use \b for that.
 bind index,pager c mail # Compose.
 bind index,pager d noop # Usually <delete-message>, but we use "#" for that instead.
 bind index,pager m noop # Use "c" (Gmail default) instead.
