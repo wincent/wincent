@@ -15,8 +15,8 @@ color status color20 color19
 color header brightcolor5 color0 "^(From)"
 color header brightcolor5 color0 "^(Subject)"
 
-color sidebar_indicator color0 color2
-color sidebar_highlight brightcolor1 color0
+color sidebar_indicator brightcolor2 color0
+color sidebar_highlight color0 brightcolor2
 
 color quoted color6 color0
 color quoted1 color4 color0
