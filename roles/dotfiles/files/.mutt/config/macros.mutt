@@ -1,7 +1,6 @@
 # Legend:
 #   ! = $spoolfile (INBOX)
 #   > = $mbox (Archive)
-#   ; = <tag-prefix> (operate on tagged messages if possible, or current message if nothi=ng tagged)
 
 macro index,pager gi "<change-folder>!<enter>" "go to inbox"
 macro index,pager ga "<change-folder>><enter>" "go to all mail"
@@ -26,7 +25,7 @@ macro pager K "<previous-entry><enter-command>source ~/.mutt/config/previous.mut
 source ~/.mutt/config/next.mutt
 
 macro pager s "<flag-message>" "star/unstar"
-macro index s ";<flag-message>" "star/unstar"
+macro index s "<tag-prefix><flag-message>" "star/unstar"
 
 # make this conditional on not being in the inbox already?
 macro index u "<change-folder>!<enter>" "go to inbox"
@@ -52,12 +51,12 @@ macro index,pager \\u "<enter-command>set pipe_decode = yes<enter><pipe-message>
 
 # [m]ove a mail to another folder (in Gmail, "m" would be "[m]ute").
 macro pager m "<save-message>?<toggle-mailboxes>" "move to..."
-macro index m ";<save-message>?<toggle-mailboxes>" "move to..."
+macro index m "<tag-prefix><save-message>?<toggle-mailboxes>" "move to..."
 
 macro pager U <set-flag>N "mark as unread"
-macro index U ";<set-flag>N" "mark as unread"
+macro index U "<tag-prefix><set-flag>N" "mark as unread"
 macro pager I <clear-flag>N "mark as read"
-macro index I ";<clear-flag>N" "mark as read"
+macro index I "<tag-prefix><clear-flag>N" "mark as read"
 
 # Macro to toggle alternates (plain <-> html), based on:
 # https://groups.google.com/d/msg/comp.mail.mutt/9I702oMwQQE/JqdLnp3j9WAJ
