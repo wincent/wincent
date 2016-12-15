@@ -185,16 +185,25 @@ done
 
 **Note:** The `ln -sf` command will overwrite existing files, but will fail to overwrite existing directories.
 
-If PyCrypto causes the install to fail at:
+### Troubleshooting
+
+#### pycrypto install fails with "'gmp.h' file not found"
+
+If pycrypto causes the install to fail at:
 
 ```sh
 src/_fastmath.c:36:11: fatal error: 'gmp.h' file not found
 ```
 
-then open a new terminal session and try:
+due to [a missing GMP dependency](http://stackoverflow.com/questions/15375171/pycrypto-install-fatal-error-gmp-h-file-not-found), try:
+
 ```sh
-export https_proxy=fwdproxy:8080						# configure temporary proxy (as per the install prompt)
-brew install gmp								
-env "CFLAGS=-I/usr/local/include -L/usr/local/lib" pip install pycrypto		
-./install --force --verbose
+brew install gmp
+env "CFLAGS=-I/usr/local/include -L/usr/local/lib" pip install pycrypto
+```
+
+And then installing again:
+
+```sh
+./install --force
 ```
