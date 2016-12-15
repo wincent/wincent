@@ -184,3 +184,41 @@ done
 ```
 
 **Note:** The `ln -sf` command will overwrite existing files, but will fail to overwrite existing directories.
+
+### Troubleshooting
+
+#### pycrypto install fails with "'gmp.h' file not found"
+
+If pycrypto causes the install to fail at:
+
+```sh
+src/_fastmath.c:36:11: fatal error: 'gmp.h' file not found
+```
+
+due to [a missing GMP dependency](http://stackoverflow.com/questions/15375171/pycrypto-install-fatal-error-gmp-h-file-not-found), try:
+
+```sh
+brew install gmp
+env "CFLAGS=-I/usr/local/include -L/usr/local/lib" pip install pycrypto
+```
+
+And then installing again:
+
+```sh
+./install --force
+```
+
+### License
+
+Unless otherwise noted, the contents of this repo are in the public domain. See the [LICENSE](LICENSE) for details.
+
+### Authors
+
+The repo is written and maintained by Greg Hurrell [greg@hurrell.net](mailto:greg@hurrell.net). Other contributors that have submitted patches include, in alphabetical order:
+
+- Joe Lencioni
+- Zac Collier
+
+This list produced with:
+
+    :read !git shortlog -s | grep -v 'Greg Hurrell' | cut -f 2-3 | sed -e 's/^/- /'
