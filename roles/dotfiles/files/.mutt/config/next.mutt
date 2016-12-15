@@ -8,7 +8,7 @@
 
 macro index ! "<tag-prefix-cond><save-message>!.Spam<enter><enter><next-undeleted><end-cond>" "mark as spam"
 macro index \# "<tag-prefix-cond><save-message>!.Trash<enter><enter><next-undeleted><end-cond>" "trash"
-macro index e ";<save-message>><enter><enter><next-undeleted>" "archive"
+macro index e "<tag-prefix><save-message>><enter><enter><next-undeleted>" "archive"
 
 macro pager ! "<save-message>!.Spam<enter><enter><next-undeleted>" "mark as spam"
 macro pager \# "<save-message>!.Trash<enter><enter><next-undeleted>" "trash"

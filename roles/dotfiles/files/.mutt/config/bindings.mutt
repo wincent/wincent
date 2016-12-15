@@ -4,6 +4,7 @@ bind editor <Tab> complete-query
 bind editor <space> noop # So line-editor can accept folders with spaces in their names.
 bind editor \CT complete
 bind generic * noop # Normally <last-entry>.
+bind generic \; noop # Normally <tag-prefix>.
 bind generic < noop # Normally <previous-line>.
 bind generic = noop # Normally <first-entry>.
 bind generic > noop # Normally <next-line>.
