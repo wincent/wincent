@@ -7,6 +7,7 @@ set delete = yes # Delete without confirming.
 set edit_headers = yes
 set editor = 'vim +/^$ +nohlsearch' # Move past headers.
 set fast_reply = yes
+set folder_format = '%2C %N %f %> (%m messages) %d'
 set forward_quote = yes
 set header_cache =~/.mutt/cache/headers
 set header_cache_compress = no
