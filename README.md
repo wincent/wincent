@@ -210,7 +210,7 @@ And then installing again:
 
 ### License
 
-Unless otherwise noted, the contents of this repo are in the public domain. See the [LICENSE](LICENSE) for details.
+Unless otherwise noted, the contents of this repo are in the public domain. See the [LICENSE](LICENSE.md) for details.
 
 ### Authors
 
