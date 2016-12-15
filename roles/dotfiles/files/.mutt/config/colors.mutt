@@ -5,10 +5,10 @@ color error brightcolor1 color0
 color hdrdefault color5 color0
 color header brightcolor5 color0 "^(From)"
 color header brightcolor5 color0 "^(Subject)"
-color index brightcolor11 color0 "~T" # "Tagged" (selected) messages.
+color index color7 color0 "~A" # All messages
 color index brightcolor7 color0 "~U" # Unread messages
 color index color19 color0 "~D" # Deleted messages
-color index color7 color0 "~A" # All messages
+color index brightcolor11 color0 "~T" # "Tagged" (selected) messages.
 color indicator color0 color2
 color message color3 color0 # Connection messages etc.
 color prompt color3 color0
