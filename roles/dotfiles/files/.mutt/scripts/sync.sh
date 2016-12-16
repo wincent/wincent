@@ -23,7 +23,7 @@ while true; do
   echo "Running mbsync ($ACCOUNT):"
   echo
 
-  time mbsync "$ACCOUNT" || {
+  time gtimeout 600 mbsync "$ACCOUNT" || {
     reattach-to-user-namespace \
       terminal-notifier -title mbsync -message "mbsync ($ACCOUNT) exited"
     exit 1
