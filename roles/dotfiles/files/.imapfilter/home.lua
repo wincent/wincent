@@ -30,7 +30,8 @@ function run()
     inbox:contain_from('Lambda-Legal@lambdalegal.org') +
     inbox:contain_from('givewell.org') +
     inbox:contain_from('info@ppnorcal.org') +
-    inbox:contain_from('no-reply@thetrevorproject.org')
+    inbox:contain_from('no-reply@thetrevorproject.org') +
+    inbox:contain_from('pponline@ppfa.org')
   ):match_field('X-campaignid', '.')
   print_status(messages, 'Campaigns -> Lists')
   messages:move_messages(home.Lists)
@@ -43,6 +44,15 @@ function run()
   print_status(messages, 'GitHub own activity -> archive & mark read')
   messages:mark_seen()
   messages:delete_messages() -- Archive
+
+  --
+  -- Cron
+  --
+  messages = inbox
+    :contain_from('root@masochist.unixhosts.net')
+    :contain_subject('cron.daily')
+  print_status(messages, 'Cron -> Cron')
+  messages:move_messages(home.Cron)
 
   --
   -- Recruiting
