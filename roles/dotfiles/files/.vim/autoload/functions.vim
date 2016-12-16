@@ -56,3 +56,13 @@ function! functions#clearregisters() abort
     call setreg(l:reg, [])
   endfor
 endfunction
+
+" Like :echoerr, but without the stack trace.
+function! functions#echoerr(msg) abort
+  try
+    echohl ErrorMsg
+    echomsg a:msg
+  finally
+    echohl None
+  endtry
+endfunction

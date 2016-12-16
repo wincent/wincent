@@ -32,7 +32,8 @@ nnoremap <silent> <Leader>zz :call mappings#leader#zap()<CR>
 " (mnemonic: coloring).
 nnoremap <silent> <LocalLeader>c :syntax sync fromstart<CR>
 
-nnoremap <silent> <LocalLeader>d :call functions#private#diffusion()<CR>
+nnoremap <silent> <LocalLeader>d :OpenInDiffusion<CR>
+nnoremap <silent> <LocalLeader>s :Search<CR>
 
 " <LocalLeader>e -- Edit file, starting in same directory as current file.
 nnoremap <LocalLeader>e :edit <C-R>=expand('%:p:h') . '/'<CR>

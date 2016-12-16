@@ -29,7 +29,6 @@ nmap <unique> <Leader>c <Plug>(CommandTCommand)
 nmap <unique> <Leader>h <Plug>(CommandTHelp)
 nmap <unique> <LocalLeader>h <Plug>(CommandTHistory)
 nmap <unique> <LocalLeader>l <Plug>(CommandTLine)
-nmap <unique> <LocalLeader>s <Plug>(CommandTSearch)
 nmap <unique> <LocalLeader>t <Plug>(CommandTTag)
 
 let s:path = expand('<sfile>:p:h') . '/command-t.private.vim'
