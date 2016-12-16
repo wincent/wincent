@@ -19,13 +19,13 @@ bind index <Esc>t noop # Normally <tag-thread>, which we have bound to t.
 bind index <Esc>v noop # Normally <collapse-thread>, which we have bound to <tab>.
 bind index <space> next-page
 bind index <tab> collapse-thread
-bind index G last-entry
+bind browser,index G last-entry
 bind index L bottom-page # Defaults to list-reply
 bind index Q noop # Normally <query>.
 bind index T noop # Normally <tag-pattern>.
 bind index V noop # Normally bound to "show-version".
 bind index \CT noop # Normally <untag-pattern>.
-bind index gg first-entry
+bind browser,index gg first-entry
 bind index t tag-thread # Usually "tag-entry", but we use "x" (Gmail key) for that.
 bind index,pager & noop # Normally <link-threads>.
 bind index,pager . noop # Normally <buffy-list>.

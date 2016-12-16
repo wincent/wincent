@@ -8,10 +8,18 @@ macro index,pager gs "<change-folder>!.Starred<enter>" "go to starred messages"
 macro index,pager gt "<change-folder>!.Sent<enter>" "go to Sent Mail"
 macro index,pager gd "<change-folder>!.Drafts<enter>" "go to drafts"
 macro index,pager gl "<change-folder>?<toggle-mailboxes>" "go to 'Label'"
+macro browser gi "<exit><change-folder>!<enter>" "go to inbox"
+macro browser ga "<exit><change-folder>><enter>" "go to all mail"
+macro browser gs "<exit><change-folder>!.Starred<enter>" "go to starred messages"
+macro browser gt "<exit><change-folder>!.Sent<enter>" "go to Sent Mail"
+macro browser gd "<exit><change-folder>!.Drafts<enter>" "go to drafts"
+macro browser gl "<exit><change-folder>?<toggle-mailboxes>" "go to 'Label'"
 
 # These ones not standard Gmail.
 macro index,pager gh "<change-folder>+Home/Home<enter>" "go home"
 macro index,pager gw "<change-folder>+Work/Work<enter>" "go work"
+macro browser gh "<exit><change-folder>+Home/Home<enter>" "go home"
+macro browser gw "<exit><change-folder>+Work/Work<enter>" "go work"
 
 
 # "Smart" equivalent to `set resolve = yes`: see "{next,previous}.mutt" for
@@ -41,6 +49,8 @@ macro index *n "<untag-pattern>~T<enter>" "deselect all"
 
 # Select read.
 macro index *r "<untag-pattern>~T<enter><tag-pattern>~R<enter>" "select read"
+
+macro pager l "<exit><limit>" "limit"
 
 macro pager t "<exit><tag-thread>" "tag thread"
 
