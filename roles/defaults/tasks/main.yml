@@ -171,9 +171,9 @@
 - name: defaults | System Preferences -> Desktop & Screen Saver -> Screen Saver -> Hot Corners -> [Top Right] Disable Screen Saver
   osx_defaults: domain=com.apple.dock key=wvous-tr-corner type=int value=6
 
-# Last tested: [10.10.2]
+# Last tested: [10.12.1]
 - name: defaults | System Preferences -> Desktop & Screen Saver -> Screen Saver -> Show with clock
-  osx_defaults: domain=com.apple.screensaver host=currentHost key=showClock type=int value=1
+  osx_defaults: domain=com.apple.screensaver host=currentHost key=showClock type=bool value=false
 
 # Last tested: [10.10.2]
 - name: defaults | System Preferences -> Desktop & Screen Saver -> Screen Saver -> Start after -> 5 Minutes
