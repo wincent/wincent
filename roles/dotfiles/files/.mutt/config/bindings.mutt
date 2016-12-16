@@ -1,14 +1,34 @@
+bind attach <Esc>e noop # Normally <resend-message>.
+bind attach <enter> view-mailcap # Normally <view-attach>.
 bind attach <return> view-mailcap
+bind attach <tab> collapse-parts # Normally "v".
+bind attach f noop # Normally <forward-message>.
+bind attach i noop # Normally <ispell>.
+bind attach m noop # Normally <view-mailcap>, which we have bound to <return>.
+bind attach r noop # Normally <reply>.
 bind attach u exit
+bind attach v noop # Normally <collapse-parts>, we use <tab> instead.
+bind attach,compose,index,pager | noop # Normally <pipe-entry> or <pipe-message>.
+bind attach,index L bottom-page # Normally <list-reply>.
+bind attach,index,pager <Esc>P noop # Normally <check-traditional-pgp>.
+bind attach,index,pager \CB noop # Normally bound to show URLs with `urlview`.
+bind attach,index,pager \CE noop # Normally <edit-type>.
+bind attach,index,pager \CF noop # Normally <forget-passphrase>.
+bind attach,index,pager \CK noop # Normally <extract-keys>.
+bind attach,index,pager b previous-page # Normally <bounce-message>, but we use \b for that.
+bind attach,index,pager d noop # Usually <delete-entry> or <delete-message>, but we use "#" for that instead.
+bind attach,index,pager p noop # Normally <print-entry> or <print-message>.
+bind browser,index G last-entry
+bind browser,index gg first-entry
 bind editor <Tab> complete-query
 bind editor <space> noop # So line-editor can accept folders with spaces in their names.
 bind editor \CT complete
 bind generic * noop # Normally <last-entry>.
-bind generic \; noop # Normally <tag-prefix>.
 bind generic < noop # Normally <previous-line>.
 bind generic = noop # Normally <first-entry>.
 bind generic > noop # Normally <next-line>.
 bind generic [ noop # Normally <half-up>.
+bind generic \; noop # Normally <tag-prefix>.
 bind generic ] noop # Normally <half-down>.
 bind generic x tag-entry
 bind generic z noop # Normally <next-page>.
@@ -19,18 +39,14 @@ bind index <Esc>t noop # Normally <tag-thread>, which we have bound to t.
 bind index <Esc>v noop # Normally <collapse-thread>, which we have bound to <tab>.
 bind index <space> next-page
 bind index <tab> collapse-thread
-bind browser,index G last-entry
-bind index L bottom-page # Defaults to list-reply
 bind index Q noop # Normally <query>.
 bind index T noop # Normally <tag-pattern>.
 bind index V noop # Normally bound to "show-version".
 bind index \CT noop # Normally <untag-pattern>.
-bind browser,index gg first-entry
 bind index t tag-thread # Usually "tag-entry", but we use "x" (Gmail key) for that.
 bind index,pager & noop # Normally <link-threads>.
 bind index,pager . noop # Normally <buffy-list>.
 bind index,pager <Esc>C noop # Normally <decode-copy>.
-bind index,pager <Esc>P noop # Normally <check-traditional-pgp>.
 bind index,pager <Esc>c noop # Normally <change-folder-readonly>.
 bind index,pager <Esc>d noop # Normally <delete-subthread>.
 bind index,pager <Esc>k noop # Normally <mail-key>.
@@ -47,24 +63,16 @@ bind index,pager N search-opposite # Usually toggles/marks "New" status, but we 
 bind index,pager O noop # Normally <sort-reverse>.
 bind index,pager P noop # Normally <parent-message>.
 bind index,pager W noop # Normally <clear-flag>.
-bind index,pager \\b bounce-message # Normally "b", but we use that for scrolling.
-bind index,pager \\s sidebar-toggle-visible
-bind index,pager \CB noop # Normally bound to show URLs with `urlview`.
-bind index,pager \CE noop # Normally <edit-type>.
-bind index,pager \CF noop # Normally <forget-passphrase>.
-bind index,pager \CK noop # Normally <extract-keys>.
 bind index,pager \CR noop # Normally <read-thread>.
 bind index,pager \Cd next-page
 bind index,pager \Cu previous-page
+bind index,pager \\b bounce-message # Normally "b", but we use that for scrolling.
+bind index,pager \\s sidebar-toggle-visible
 bind index,pager a group-reply # Reply all
-bind index,pager b previous-page # Normally <bounce-message>, but we use \b for that.
 bind index,pager c mail # Compose.
-bind index,pager d noop # Usually <delete-message>, but we use "#" for that instead.
 bind index,pager m noop # Use "c" (Gmail default) instead.
-bind index,pager p noop # Normally <print-message>.
 bind index,pager w noop # Normally <set-flag>.
 bind index,pager y noop # Normally <change-folder>..., which we have bound to gl.
-bind index,pager | noop # Normally <pipe-message>.
 bind pager <BackSpace> noop # Normally <previous-line>.
 bind pager <space> next-page
 bind pager G bottom
