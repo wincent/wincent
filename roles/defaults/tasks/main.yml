@@ -19,7 +19,8 @@
 
 # Many of these settings taken (or modified) from:
 #
-#   https://github.com/mathiasbynens/dotfiles/commits/master/.osx
+#   https://github.com/mathiasbynens/dotfiles/blob/master/.macos
+#
 
 - name: defaults | Activity Monitor -> View -> Dock Icon -> Show CPU History
   osx_defaults: domain=com.apple.ActivityMonitor key=IconType type=int value=6
