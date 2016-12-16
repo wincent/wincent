@@ -1,7 +1,5 @@
 #!/bin/sh
 
-set -e
-
 if [ $# -ne 1 ]; then
   echo "error: expected exactly 1 argument, got $#"
   exit 1
