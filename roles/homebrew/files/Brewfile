@@ -82,7 +82,6 @@ brew 'lockrun'
 brew 'macvim'
 brew 'makedepend'
 brew 'mariadb'
-#brew 'mas'
 brew 'memcached'
 brew 'mldonkey'
 brew 'mobile-shell'
@@ -166,22 +165,3 @@ cask 'transmission'
 cask 'tunnelblick'
 cask 'vlc'
 cask 'xquartz'
-
-#
-# mas (Mac App Store)
-#
-# mas is a neat idea, but in practice worse than just clicking
-# around in the app. Several apps fail to install, and others
-# are invisible to the search (replaced by newer, paid versions).
-#
-#mas 'Diagrammix', id: 418534796
-#mas 'Fantastical', id: 975937182
-#mas 'Kindle', id: 405399194
-#mas 'Marked 2', id: 890031187
-#mas 'Net Monitor', id: 480482806
-# ScreenFlow 4 (not listed) -> (now) ScreenFlow 6
-#mas 'Skitch', id: 425955336
-#mas 'Textual 5', id: 896450579
-#mas 'The Unarchiver', id: 425424353 # Fails
-#mas 'Wunderlist', id: 410628904 # Fails
-# xScope (not listed) -> (now) xScope 4
