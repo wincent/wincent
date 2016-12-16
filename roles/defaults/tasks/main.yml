@@ -122,9 +122,6 @@
 - name: defaults | Hammerspoon preferences -> Show dock icon
   osx_defaults: domain=org.hammerspoon.Hammerspoon key=MJShowDockIconKey type=bool value=false
 
-- name: defaults | Karabiner preferences -> Misc & Uninstall -> Miscellaneous -> Show icon in menu bar
-  osx_defaults: domain=org.pqrs.Karabiner key=isStatusbarEnable type=bool value=false
-
 # Last tested: [10.10.2]
 - name: defaults | Make sheets drop down (almost) instantly
   osx_defaults: key=NSWindowResizeTime type=float value=0.001

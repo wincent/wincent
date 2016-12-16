@@ -50,6 +50,7 @@
     * "SpaceFN" layer.
   * Features unlikely to be ported due to technical constraints:
     * `<Shift>` control over Caps Lock state.
+  * Features that will not be ported because they can be solved by other means:
     * Remapping of YubiKey to work with Colemak.
 
 ## 2016-11-14
