@@ -64,4 +64,4 @@ macro pager ,@aoh= "<enter-command>unalternative_order *; alternative_order text
 macro pager ,@aot= "<enter-command>unalternative_order *; alternative_order text/plain text/enriched text/html; macro pager A ,@aoh= 'toggle alternative order'<enter><exit><display-message>"
 macro pager A ,@aoh= "toggle alternative order"
 
-macro index,pager S "<enter-command>unset wait_key<enter><shell-escape>~/.mutt/mutt-notmuch-py/mutt-notmuch-py --history-path=~/.mutt/tmp/notmuch.history ~/.mail/Temporary/Search<enter><enter-command>mailboxes '+Temporary/Search'<enter><change-folder-readonly>+Temporary/Search<enter>" "search mail (using notmuch)"
+macro index,pager S "<enter-command>unset wait_key<enter><shell-escape>~/.mutt/vendor/mutt-notmuch-py/mutt-notmuch-py --history-path=~/.mutt/tmp/notmuch.history ~/.mail/Temporary/Search<enter><enter-command>mailboxes '+Temporary/Search'<enter><change-folder-readonly>+Temporary/Search<enter>" "search mail (using notmuch)"
