@@ -44,7 +44,6 @@ Other functionality that *used* to come via Karabiner isn't (yet) supported beca
 
 * Adds a "SpaceFN" layer that can be activated by holding down Space while hitting other keys; I use this to make the cursor keys available on or near the home row in any app.
 * Turn Caps Lock on by tapping both Shift keys simultaneously (turn it off by tapping either Shift key on its own).
-* Make the YubiKey work with the Colemak keyboard layout.
 * Makes the function keys on my external Realforce keyboard behave like the "media" keys on Apple's keyboards. F13 serves as a sticky "fn" key, and F15 as Power.
 
 ### Mutt
