@@ -89,9 +89,10 @@ function run()
   -- Recruiting
   --
 
-  messages = inbox:contain_from('mirrorplacement.com')
+  messages = Set {}
+  all = inbox:select_all()
   for i, address in ipairs(RECRUITERS) do
-    messages = messages + inbox:contain_from(address)
+    messages = messages + all:match_from(address)
   end
   print_status(messages, '* -> Recruiting')
   messages:move_messages(home.Recruiting)
