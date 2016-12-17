@@ -1,4 +1,5 @@
 dofile(os.getenv('HOME') .. '/.imapfilter/common.lua')
+dofile(os.getenv('HOME') .. '/.imapfilter/private.lua')
 
 local password = get_pass('greg+mutt@hurrell.net', 'imap.gmail.com')
 local me = 'greg@hurrell.net'
@@ -89,6 +90,9 @@ function run()
   --
 
   messages = inbox:contain_from('mirrorplacement.com')
+  for i, address in ipairs(RECRUITERS) do
+    messages = messages + inbox:contain_from(address)
+  end
   print_status(messages, '* -> Recruiting')
   messages:move_messages(home.Recruiting)
 end
