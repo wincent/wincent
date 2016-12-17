@@ -92,7 +92,7 @@ function! s:get_custom_statusline(action) abort
   return 1 " Use default.
 endfunction
 
-function autocmds#idleboot() abort
+function! autocmds#idleboot() abort
   " Make sure we automatically call autocmds#idleboot() only once.
   augroup WincentIdleboot
     autocmd!
@@ -101,4 +101,31 @@ function autocmds#idleboot() abort
   " Make sure we run deferred tasks exactly once.
   doautocmd User WincentDefer
   autocmd! User WincentDefer
+endfunction
+
+" Directories where we want to perform auto-encryption on save.
+let s:encrypted={}
+let s:encrypted[expand('~/code/ansible-configs')]='vendor/git-cipher/bin/git-cipher'
+let s:encrypted[expand('~/code/wincent')]='vendor/git-cipher/bin/git-cipher'
+
+" Update encryptable files after saving.
+function! autocmds#encrypt(file) abort
+  let l:base=fnamemodify(a:file, ':h')
+  let l:directories=keys(s:encrypted)
+  for l:directory in l:directories
+    if stridx(a:file, l:directory) == 0
+      let l:encrypted=l:base . '/.' . fnamemodify(a:file, ':t') . '.encrypted'
+      if filewritable(l:encrypted) == 1
+        let l:executable=l:directory . '/' . s:encrypted[l:directory]
+        if executable(l:executable)
+          call system(
+                \   fnamemodify(l:executable, ':S') .
+                \   ' encrypt ' .
+                \   shellescape(a:file)
+                \ )
+        endif
+      endif
+      break
+    endif
+  endfor
 endfunction

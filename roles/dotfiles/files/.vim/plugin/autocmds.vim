@@ -40,6 +40,8 @@ if has('autocmd')
     endif
 
     autocmd BufWritePost */spell/*.add silent! :mkspell! %
+
+    autocmd BufWritePost * call autocmds#encrypt(expand('<afile>:p'))
   augroup END
 
   " Wait until idle to run additional "boot" commands.
