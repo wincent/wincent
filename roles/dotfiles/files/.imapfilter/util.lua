@@ -1,6 +1,21 @@
 -- A bunch of global utility functions.
 
-local colors = {
+local MONTHS = {
+  Jan = 1,
+  Feb = 2,
+  Mar = 3,
+  Apr = 4,
+  May = 5,
+  Jun = 6,
+  Jul = 7,
+  Aug = 8,
+  Sep = 9,
+  Oct = 10,
+  Nov = 11,
+  Dec = 12,
+}
+
+local COLORS = {
   black = {fg = 30, bg = 40},
   red = {fg = 31, bg = 41},
   green = {fg = 32, bg = 42},
@@ -50,11 +65,11 @@ end
 
 function print_status(messages, description)
   label = #messages == 1 and 'message' or 'messages'
-  bg = #messages > 0 and colors.green.bg or colors.yellow.bg
+  bg = #messages > 0 and COLORS.green.bg or COLORS.yellow.bg
   print(
-    escape(colors.black.fg, bg) ..
+    escape(COLORS.black.fg, bg) ..
     description .. ': applied to ' .. #messages .. ' ' .. label ..
-    escape(colors.reset)
+    escape(COLORS.reset)
   )
 end
 
@@ -64,4 +79,26 @@ end
 
 function trim(str)
   return str:gsub('^%s+', ''):gsub('%s+$', '')
+end
+
+-- Parses an IMAP INTERNALDATE string (RFC 3501).
+--
+-- Expects a string with format "dd-Mon-yyyy hh:mm:ss +hhmm".
+--
+-- See: http://tools.ietf.org/html/rfc3501#section-2.3.3
+function parse_internal_date(date_string)
+  -- Based on: http://stackoverflow.com/a/4600967/2103996
+  format = '(%d+)-(%a+)-(%d+) (%d+):(%d+):(%d+) ([+-]%d+)'
+  day, month, year, hour, min, sec, zone = date_string:match(format)
+  month = MONTHS[month]
+  local_offset = os.time() - os.time(os.date('!*t'))
+  offset = tonumber(zone) - local_offset
+  return os.time({
+    day = day,
+    month = month,
+    year = year,
+    hour = hour,
+    min = min,
+    sec = sec,
+  }) + offset
 end

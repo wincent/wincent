@@ -5,21 +5,6 @@ local password = get_pass('glh+mutt@fb.com', 'outlook.office365.com')
 local phabricator_user = '<PHID-USER-dfiqtsjr7q4b4fu336uy>'
 local phabricator_team = '<PHID-PROJ-vgzmhfup375n4lfv4xka>'
 
-local MONTHS = {
-  Jan = 1,
-  Feb = 2,
-  Mar = 3,
-  Apr = 4,
-  May = 5,
-  Jun = 6,
-  Jul = 7,
-  Aug = 8,
-  Sep = 9,
-  Oct = 10,
-  Nov = 11,
-  Dec = 12,
-}
-
 function connect()
   return IMAP {
     server = 'outlook.office365.com',
@@ -28,28 +13,6 @@ function connect()
     password = password,
     ssl = 'auto',
   }
-end
-
--- Parses an IMAP INTERNALDATE string (RFC 3501).
---
--- Expects a string with format "dd-Mon-yyyy hh:mm:ss +hhmm".
---
--- See: http://tools.ietf.org/html/rfc3501#section-2.3.3
-function parse_internal_date(date_string)
-  -- Based on: http://stackoverflow.com/a/4600967/2103996
-  format = '(%d+)-(%a+)-(%d+) (%d+):(%d+):(%d+) ([+-]%d+)'
-  day, month, year, hour, min, sec, zone = date_string:match(format)
-  month = MONTHS[month]
-  local_offset = os.time() - os.time(os.date('!*t'))
-  offset = tonumber(zone) - local_offset
-  return os.time({
-    day = day,
-    month = month,
-    year = year,
-    hour = hour,
-    min = min,
-    sec = sec,
-  }) + offset
 end
 
 function run()

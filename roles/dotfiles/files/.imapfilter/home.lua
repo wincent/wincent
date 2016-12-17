@@ -16,6 +16,35 @@ function run()
   home = connect()
   inbox = home.INBOX
 
+  github = (function()
+    return inbox:contain_from('notifications@github.com')
+  end)
+
+  github_related = (function(messages)
+    results = Set {}
+    for _, message in ipairs(messages) do
+      mbox, uid = table.unpack(message)
+      m = mbox[uid]
+      parent_date = all or parse_internal_date(m:fetch_date())
+      pull_id = string.gsub(
+        mbox[uid]:fetch_field('In-Reply-To'),
+        'In%-Reply%-To: ',
+        ''
+      )
+      all_github = github()
+      related = all_github:match_field('In-Reply-To', pull_id) +
+        all_github:match_field('Message-ID', pull_id) for _, message in ipairs(related) do
+        mbox, uid = table.unpack(message)
+        m = mbox[uid]
+        date = all or parse_internal_date(m:fetch_date())
+        if all or date <= parent_date then
+          table.insert(results, message)
+        end
+      end
+    end
+    return results
+  end)
+
   --
   -- Mailing lists
   --
@@ -41,6 +70,7 @@ function run()
   --
 
   messages = inbox:contain_field('X-GitHub-Sender', 'wincent')
+  messages = messages + github_related(messages)
   print_status(messages, 'GitHub own activity -> archive & mark read')
   messages:mark_seen()
   messages:delete_messages() -- Archive
