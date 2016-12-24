@@ -2,6 +2,7 @@
 /roles/dotfiles/files/.emacs.d/savehist
 /roles/dotfiles/files/.imapfilter/private.lua
 /roles/dotfiles/files/.mutt/offlineimap.pyc
+/roles/dotfiles/files/.mutt/scripts/vendor
 /roles/dotfiles/files/.npmrc
 /roles/dotfiles/files/.vim/.base16
 /roles/dotfiles/files/.vim/after/plugin/command-t.private.vim
