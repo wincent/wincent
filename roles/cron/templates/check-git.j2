@@ -7,6 +7,7 @@ set -e
 cd $(/usr/bin/mktemp -d)
 
 LOCK_FILE="$HOME/Library/Cron/.check-git.lock"
+REPO="git://git.wincent.com/passage.git"
 
 if [ $# -gt 1 ]; then
   echo "Expected no more than 1 argument (pause, resume): got $#"
@@ -30,7 +31,7 @@ fi
     --quiet \
     -- \
       /usr/local/bin/git clone \
-        --bare --depth 1 --quiet --single-branch git://git.wincent.com/wincent.git || \
+        --bare --depth 1 --quiet --single-branch "$REPO" || \
         $HOME/bin/dialog \
           -title 'git.wincent.com clone test failed' \
-          -message 'Unable to complete clone of git://git.wincent.com/wincent.git'
+          -message "Unable to complete clone of $REPO"
