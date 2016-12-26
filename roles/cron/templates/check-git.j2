@@ -6,9 +6,27 @@ set -e
 
 cd $(/usr/bin/mktemp -d)
 
+LOCK_FILE="$HOME/Library/Cron/.check-git.lock"
+
+if [ $# -gt 1 ]; then
+  echo "Expected no more than 1 argument (pause, resume): got $#"
+  exit 1
+fi
+if [ $# -eq 1 ]; then
+  if [ "$1" = "pause" ]; then
+    touch "$LOCK_FILE"
+  elif [ "$1" = "resume" ]; then
+    rm -f "$LOCK_FILE"
+  else
+    echo "Unexpected argument: $1 (supported arguments: pause, resume)"
+    exit 1
+  fi
+  exit
+fi
+
 /usr/local/bin/gtimeout 600 \
   /usr/local/bin/lockrun \
-    --lockfile $HOME/Library/Cron/.check-git.lock \
+    --lockfile "$LOCK_FILE" \
     --quiet \
     -- \
       /usr/local/bin/git clone \
