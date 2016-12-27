@@ -7,7 +7,7 @@ set -e
 cd $(/usr/bin/mktemp -d)
 
 LOCK_FILE="$HOME/Library/Cron/.check-git.lock"
-REPO="git://git.wincent.com/passage.git"
+REPO="git://git.wincent.com/null.git"
 
 if [ $# -gt 1 ]; then
   echo "Expected no more than 1 argument (pause, resume): got $#"
