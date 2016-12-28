@@ -53,14 +53,11 @@ set sleep_time = 0
 set sort = reverse-threads
 set sort_aux = last-date-received
 set ssl_force_tls = yes
-
-# Would have liked to use emoji and emdash for this, but doesn't work.
-# See: https://dev.mutt.org/trac/ticket/3024
-set status_chars = ' +#~'
+set status_chars = '—+#~'
 
 # Default is: -%r-Mutt: %f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?l? %l?]---(%s/%S)-%>-(%P)---
 # Note the "hyphens" here are actually emdashes (\u2014):
-set status_format = "%f%r [%?M?%M/?%m messages, %?n?%n new, ?%?d?%d deleted, ?%?F?%F important, ?%?t?%t selected, ?%?p?%p drafts, ?%l]———(%s/%S)—%>—(%P)———"
+set status_format = "%f%r—[%?M?%M/?%m messages, %?n?%n new, ?%?d?%d deleted, ?%?F?%F important, ?%?t?%t selected, ?%?p?%p drafts, ?%l]———(%s/%S)—%>—(%P)———"
 
 set tilde = yes
 set time_inc = 250
