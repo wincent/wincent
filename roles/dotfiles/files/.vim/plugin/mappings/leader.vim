@@ -19,7 +19,7 @@ nnoremap <Leader>q :quit<CR>
 " numbering (mnemonic: relative).
 nnoremap <silent> <Leader>r :call mappings#leader#cycle_numbering()<CR>
 
-nnoremap <silent> <Leader>u :call defer#lazy('undotree', 'undotree', 'nnoremap <silent> <lt>Leader>u :UndotreeToggle<lt>CR>', 'UndotreeToggle')<CR>
+nnoremap <silent> <Leader>u :call defer#lazy('undotree', 'undotree', 'nnoremap <silent> <lt>Leader>u :UndotreeToggle<lt>CR>', 'UndotreeToggle', 'after#undotree#init()')<CR>
 
 nnoremap <Leader>w :write<CR>
 nnoremap <Leader>x :xit<CR>

@@ -1,7 +1,9 @@
-let g:undotree_HighlightChangedText=0
-let g:undotree_SetFocusWhenToggle=1
-let g:undotree_WindowLayout=2
-let g:undotree_DiffCommand='diff -u'
+function! after#undotree#init() abort
+  let g:undotree_HighlightChangedText=0
+  let g:undotree_SetFocusWhenToggle=1
+  let g:undotree_WindowLayout=2
+  let g:undotree_DiffCommand='diff -u'
+endfunction
 
 " Mappings to emulate Gundo behavior.
 function! g:Undotree_CustomMap()
