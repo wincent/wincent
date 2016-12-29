@@ -48,7 +48,7 @@
 	path = roles/dotfiles/files/.vim/pack/undotree/opt/undotree
 	url = https://github.com/mbbill/undotree.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-abolish"]
-	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-abolish
+	path = roles/dotfiles/files/.vim/pack/vim-abolish/opt/vim-abolish
 	url = https://github.com/tpope/vim-abolish.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-ansible-yaml"]
 	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-ansible-yaml
