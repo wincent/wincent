@@ -144,6 +144,7 @@ brew 'readline'
 brew 'reattach-to-user-namespace'
 brew 'redis', restart_service: true
 brew 'rhino'
+brew 'ripgrep'
 brew 'ruby'
 brew 'ruby-install'
 brew 's3cmd'
