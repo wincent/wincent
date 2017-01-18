@@ -1,5 +1,21 @@
 #!/bin/sh
 
+if [ $# -eq 1 ]; then
+  case $1 in
+    home|work)
+      "$HOME/.mutt/scripts/sync.sh" "$1" || reattach-to-user-namespace terminal-notifier -title mutt -message "~/.mutt/scripts/sync.sh ($1) exited" Enter
+      exit 0
+      ;;
+    *)
+      echo "Unrecognized argument: $1 (supported arguments: home, work)"
+      exit 1
+      ;;
+  esac
+elif [ $# -ne 0 ]; then
+  echo "Expected 0 or 1 arguments, got $#"
+  exit 1
+fi
+
 function signal() {
   SIGNAL=$1
   PIDFILE=$2
