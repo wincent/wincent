@@ -97,6 +97,8 @@ function email() {
     tmux send-keys -t email:sync '~/.mutt/scripts/sync.sh home || reattach-to-user-namespace terminal-notifier -title mutt -message "~/.mutt/scripts/sync.sh (home) exited"' Enter
     tmux split-window -t email:sync -h -c ~/.mutt
     tmux send-keys -t email:sync.right '~/.mutt/scripts/sync.sh work || reattach-to-user-namespace terminal-notifier -title mutt -message "~/.mutt/scripts/sync.sh (work) exited"' Enter
+    tmux split-window -t email:sync -v -f -l 8 -c ~/.mutt
+    tmux send-keys -t email:sync.bottom '~/.mutt/scripts/control.sh' Enter
   fi
   if [ -z "$TMUX" ]; then
     tmux attach -t email:mutt
