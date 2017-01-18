@@ -238,7 +238,7 @@ function run()
   archive('Page notifications', (function()
     return inbox:
       contain_from('facebookmail.com'):
-      match_field('X-Facebook-Notify', 'biz_acct_accept_user_join|page_fan')
+      match_field('X-Facebook-Notify', 'biz_acct_accept_user_join|biz_perm_proxy_request|page_fan')
   end))
 end
 
