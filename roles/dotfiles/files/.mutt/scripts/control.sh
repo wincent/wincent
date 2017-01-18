@@ -38,10 +38,8 @@ function resume() {
   signal "-CONT" "$PIDFILE"
 }
 
-echo "Control process started (type \"help\" for help):"
+COMMAND=help
 while true; do
-  /bin/echo -n "> "
-  read COMMAND
   case $COMMAND in
     exit|exi|ex|e)
       exit
@@ -74,4 +72,6 @@ while true; do
       echo "Valid commands: exit, help, pause, resume, sync"
       ;;
   esac
+  /bin/echo -n "> "
+  read COMMAND
 done
