@@ -66,7 +66,9 @@ checkboxes
 chruby
 codepath
 colocated
+colocation
 committer
+composability
 composable
 concerningly
 config
@@ -139,6 +141,7 @@ stateful
 struct
 submodule
 submodules
+subtree
 terminfo
 timestamp
 tmux
