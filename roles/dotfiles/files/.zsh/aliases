@@ -47,6 +47,9 @@ alias -s md='open -a "Marked 2.app"'
 # Mnemonic: "[G]rep"
 alias -g G="|grep"
 
+# Mnemonic: "[H]ead"
+alias -g H="|head"
+
 # Mnemonic: "[L]ess"
 alias -g L="|less"
 
