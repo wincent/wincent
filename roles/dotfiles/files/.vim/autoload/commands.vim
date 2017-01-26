@@ -66,7 +66,7 @@ endfunction
 
 " Try to open the module under the cursor in Diffusion.
 "
-" Depends on g:search_base being set up in `pluging/private.vim`.
+" Depends on g:search_base being set up in `plugin/private.vim`.
 function! s:search(query)
   " ibgs: normal search
   " ibgl: "lucky" search, if results unambiguous
