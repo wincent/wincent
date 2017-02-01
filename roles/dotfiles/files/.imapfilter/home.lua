@@ -86,6 +86,13 @@ function run()
   messages:move_messages(home.Cron)
 
   --
+  -- Logwatch
+  --
+  messages = inbox:contain_from('logwatch@masochist.unixhosts.net')
+  print_status(messages, 'Logwatch -> Logwatch')
+  messages:move_messages(home.Logwatch)
+
+  --
   -- Recruiting
   --
 
