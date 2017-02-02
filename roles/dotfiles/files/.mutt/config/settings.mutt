@@ -11,7 +11,7 @@ set delete = yes # Delete without confirming.
 set edit_headers = yes
 set editor = 'vim +/^$ +nohlsearch' # Move past headers.
 set fast_reply = yes
-set folder_format = '%2C %N %f %> (%m messages) %d'
+set folder_format = '%2C %N %f %> %d'
 set forward_quote = yes
 set header_cache =~/.mutt/cache/headers
 set header_cache_compress = no
@@ -25,8 +25,6 @@ set include = yes # Include quoted copy of message in reply.
 set index_format = "%4C %Z %[%b %d %R] %-15.15L (%?l?%4l&%4c?) %s"
 
 set mail_check = 60
-set mail_check_stats = yes
-set mail_check_stats_interval = 300
 set mailcap_path = "~/.mutt/config/mailcap"
 set maildir_header_cache_verify = no
 set mark_old = no
@@ -61,7 +59,7 @@ set status_format = "%f%r—[%?M?%M/?%m messages, %?n?%n new, ?%?d?%d deleted, ?
 
 set tilde = yes
 set time_inc = 250
-set timeout = 0
+set timeout = 60
 set ts_enabled = yes
 
 # Default is: Mutt with %?m?%m messages&no messages?%?n? [%n NEW]?
