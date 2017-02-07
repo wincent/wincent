@@ -242,6 +242,7 @@ function run()
         'X-Facebook-Notify',
         'biz_acct_accept_user_join|' ..
         'biz_finance_perm|' ..
+        'biz_obj_access_request|' ..
         'biz_perm_proxy_request|' ..
         'page_fan'
       )
