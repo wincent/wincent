@@ -10,7 +10,7 @@
 #           Along the way, discern the file type or use the type
 #           That is given.
 #
-#           Finally use 'open' or 'open -a' if the third argument is
+#           Finally use 'open' or 'open -b' if the third argument is
 #           given.
 #
 #
@@ -27,7 +27,7 @@
 #
 #                      Open Office and MS Office for example.
 #
-#     $3 is open with.  as in open -a 'open with this .app' foo.xls
+#     $3 is open with.  as in open -b com.example.app foo.xls
 #
 # Examples:  These are typical .mailcap entries which use this program.
 #
@@ -123,5 +123,5 @@ fi
 if [ -z $open_with ]; then
     open $newfile
 else
-    open -a "$open_with" $newfile
+    open -b "$open_with" $newfile
 fi

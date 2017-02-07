@@ -1,5 +1,5 @@
 # MS Word documents
-# application/msword; ~/.mutt/scripts/view_attachment.sh %s "-" '/Applications/TextEdit.app'
+# application/msword; ~/.mutt/scripts/view_attachment.sh %s "-" com.apple.TextEdit
 
 # Images
 image/jpg; ~/.mutt/scripts/view_attachment.sh %s jpg
@@ -10,6 +10,9 @@ image/gif; ~/.mutt/scripts/view_attachment.sh %s gif
 
 # PDFs
 application/pdf; ~/.mutt/scripts/view_attachment.sh %s pdf
+
+# Calendar invites.
+text/calendar; ~/.mutt/scripts/view_attachment.sh %s ics com.flexibits.fantastical2.mac
 
 # HTML
 
