@@ -6,3 +6,9 @@ setlocal spell
 " (see https://gist.github.com/arenevier/1142114)
 " but going with something dumb and simple for now.
 setlocal spelllang=en,es
+
+" If we're booting right into a mail composition instance from mutt we want par
+" to be immediately active; otherwise it is deferred.
+if has('vim_starting')
+  call par#setup()
+endif

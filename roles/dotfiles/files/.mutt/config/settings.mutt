@@ -8,6 +8,10 @@ set attach_format = '%u%D%I %t%4n %T%.40d%> [%.12m/%.12M, %.6e%?C?, %C?, %s] '
 set attribution = "%n wrote:\n"
 set certificate_file =~/.mutt/certificates
 set delete = yes # Delete without confirming.
+
+# Mangles auto-viewed HTML mail so not going to do this for now.
+# set display_filter =par\ rTbgqR\ B=.,?_A_a_0\ Q=_s\\>
+
 set edit_headers = yes
 set editor = 'vim +/^$ +nohlsearch' # Move past headers.
 set fast_reply = yes
