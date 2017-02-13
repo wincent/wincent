@@ -75,6 +75,7 @@ brew 'isl'
 brew 'isync', args: ['with-berkeley-db']
 brew 'jemalloc'
 brew 'jpeg'
+brew 'jq'
 brew 'json-c'
 brew 'lame'
 brew 'less'
