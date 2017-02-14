@@ -45,6 +45,9 @@ alias -s md='open -a "Marked 2.app"'
 # (work at any position within the command line)
 #
 
+# Mnemonic: "[C]lip"
+alias -g C="|clip"
+
 # Mnemonic: "[G]rep"
 alias -g G="|grep"
 
