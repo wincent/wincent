@@ -1,5 +1,25 @@
 # Changelog
 
+## 2017-02-09
+
+* Use `par` to re-wrap text in Vim.
+
+## 2017-01-19
+
+* Get emoji working in the pager.
+
+## 2016-12-24
+
+* Use Markdown to send HTML email.
+
+## 2016-12-16
+
+* Add retry with exponential backoff to mail sync script.
+
+## 2016-12-14
+
+* Colorize man pages.
+
 ## 2016-12-13
 
 * Switched from `offlineimap` to `mbsync` (in the `isync` package) for mail synchronization.
