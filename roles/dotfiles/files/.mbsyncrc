@@ -123,6 +123,7 @@ Patterns !INBOX
 Patterns !"Deleted Items"
 Patterns !"Junk Email"
 Patterns !"Sent Items"
+Patterns !Archive1
 Patterns !Calendar*
 Patterns !Clutter
 Patterns !Contacts
