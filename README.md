@@ -184,7 +184,7 @@ done
 
 **Note:** The `ln -sf` command will overwrite existing files, but will fail to overwrite existing directories.
 
-**Warning:** Beware of the .gitconfig, you need to change for your user name and email address:
+**Warning:** Beware of the `.gitconfig`, you need to change for your user name and email address:
 
 ```sh
 $ git config --global user.name "John Doe"
