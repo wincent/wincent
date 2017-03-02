@@ -184,6 +184,13 @@ done
 
 **Note:** The `ln -sf` command will overwrite existing files, but will fail to overwrite existing directories.
 
+**Warning:** Beware of the `.gitconfig`, you need to change for your user name and email address:
+
+```sh
+$ git config --global user.name "John Doe"
+$ git config --global user.email johndoe@example.com
+```
+
 ### Troubleshooting
 
 #### pycrypto install fails with "'gmp.h' file not found"
@@ -216,6 +223,7 @@ Unless otherwise noted, the contents of this repo are in the public domain. See 
 The repo is written and maintained by Greg Hurrell &lt;[greg@hurrell.net](mailto:greg@hurrell.net)&gt; Other contributors that have submitted patches include, in alphabetical order:
 
 - Joe Lencioni
+- Victor Igor
 - Zac Collier
 
 This list produced with:
