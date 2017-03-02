@@ -223,6 +223,7 @@ Unless otherwise noted, the contents of this repo are in the public domain. See 
 The repo is written and maintained by Greg Hurrell &lt;[greg@hurrell.net](mailto:greg@hurrell.net)&gt; Other contributors that have submitted patches include, in alphabetical order:
 
 - Joe Lencioni
+- Victor Igor
 - Zac Collier
 
 This list produced with:
