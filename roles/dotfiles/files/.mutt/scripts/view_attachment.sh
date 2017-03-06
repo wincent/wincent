@@ -72,6 +72,9 @@ open_with=$3
 # make sure the tmpdir exists.
 mkdir -p $tmpdir
 
+# clean it out
+find $tmpdir -maxdepth 1 -mtime +30 -type f -name '[!.]*' -delete
+
 # Mutt puts everything in /tmp by default.
 # This gets the basic filename from the full pathname.
 filename=`basename $1`
