@@ -43,12 +43,15 @@ macro pager x "<tag-message><exit>" "select message"
 
 # Select all.
 macro index *a "<tag-pattern>~A<enter>" "select all"
+macro pager *a "<exit><tag-pattern>~A<enter>" "select all"
 
 # Deselect all (mnemonic: "select [n]one"); for efficiency we only untag tagged.
 macro index *n "<untag-pattern>~T<enter>" "deselect all"
+macro pager *n "<exit><untag-pattern>~T<enter>" "deselect all"
 
 # Select read.
 macro index *r "<untag-pattern>~T<enter><tag-pattern>~R<enter>" "select read"
+macro pager *r "<exit><untag-pattern>~T<enter><tag-pattern>~R<enter>" "select read"
 
 macro pager l "<exit><limit>" "limit"
 
@@ -56,6 +59,7 @@ macro pager t "<exit><tag-thread>" "tag thread"
 
 # Select unread.
 macro index *u "<untag-pattern>~T<enter><tag-pattern>~U<enter>" "select unread"
+macro pager *u "<exit><untag-pattern>~T<enter><tag-pattern>~U<enter>" "select unread"
 
 macro index,pager \\u "<enter-command>set pipe_decode = yes<enter><pipe-message>urlview<enter><enter-command>set pipe_decode = no<enter>" "view URLs"
 
