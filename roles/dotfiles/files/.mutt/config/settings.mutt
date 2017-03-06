@@ -29,6 +29,7 @@ set include = yes # Include quoted copy of message in reply.
 set index_format = "%4C %Z %[%b %d %R] %-15.15L (%?l?%4l&%4c?) %s"
 
 set mail_check = 60
+set mail_check_recent = no
 set mailcap_path = "~/.mutt/config/mailcap"
 set maildir_header_cache_verify = no
 set mark_old = no
