@@ -72,10 +72,6 @@ open_with=$3
 # make sure the tmpdir exists.
 mkdir -p $tmpdir
 
-# clean it out.  Remove this if you want the directory
-# to accumulate attachment files.
-rm -f $tmpdir/*
-
 # Mutt puts everything in /tmp by default.
 # This gets the basic filename from the full pathname.
 filename=`basename $1`
