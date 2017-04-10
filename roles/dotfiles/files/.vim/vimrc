@@ -15,6 +15,10 @@ syntax on
 
 source $VIMRUNTIME/macros/matchit.vim
 
+" Stark highlighting is enough to see the current match; don't need the
+" centering, which can be annoying.
+let g:LoupeCenterResults=0
+
 " Would be useful mappings, but they interfe with my default window movement
 " bindings (<C-j> and <C-k>).
 let g:NERDTreeMapJumpPrevSibling='<Nop>'
