@@ -93,7 +93,7 @@ function! statusline#update_highlight() abort
         \ l:prefix . 'bg=' . l:fg
 
   " Right-hand side section.
-  let l:bg=synIDattr(synIDtrans(hlID('User2')), 'fg', l:prefix)
+  let l:bg=synIDattr(synIDtrans(hlID('Cursor')), 'fg', l:prefix)
   let l:fg=synIDattr(synIDtrans(hlID('User3')), 'fg', l:prefix)
   execute 'highlight User5 ' . l:prefix . '=bold ' . l:prefix . 'fg=' . l:bg . ' ' . l:prefix . 'bg=' . l:fg
 
