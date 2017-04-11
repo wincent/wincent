@@ -88,6 +88,32 @@ function bounce() {
   fi
 }
 
+# regmv = regex + mv (mv with regex parameter specification)
+#   example: regmv '/\.tif$/.tiff/' *
+#   replaces .tif with .tiff for all files in current dir
+#   must quote the regex otherwise "\." becomes "."
+# limitations: ? doesn't seem to work in the regex, nor *
+regmv()
+{
+  if [ $# -lt 2 ]; then
+    echo "  Usage: regmv 'regex' file(s)"
+    echo "  Where:       'regex' should be of the format '/find/replace/'"
+    echo "Example: regmv '/\.tif\$/.tiff/' *"
+    echo "   Note: Must quote/escape the regex otherwise \"\.\" becomes \".\""
+    return 1
+  fi
+  regex="$1"
+  shift
+  while [ -n "$1" ]
+  do
+    newname=$(echo "$1" | sed "s${regex}g")
+    if [ "${newname}" != "$1" ]; then
+      mv -i -v "$1" "$newname"
+    fi
+    shift
+  done
+}
+
 function email() {
   if ! tmux has-session -t email 2> /dev/null; then
     # Make saved attachments go to ~/Downloads by default.
