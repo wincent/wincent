@@ -26,6 +26,17 @@ function mosh() {
   fi
 }
 
+function mvim() {
+  emulate -L zsh
+
+  # Makes user-installed fonts visible to MacVim.
+  if which reattach-to-user-namespace &> /dev/null ; then
+    reattach-to-user-namespace mvim
+  else
+    command mvim
+  fi
+}
+
 function ssh() {
   emulate -L zsh
 
