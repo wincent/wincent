@@ -34,7 +34,9 @@ function run()
       )
       all_github = github()
       related = all_github:match_field('In-Reply-To', pull_id) +
-        all_github:match_field('Message-ID', pull_id) for _, message in ipairs(related) do
+        all_github:match_field('Message-ID', pull_id)
+
+      for _, message in ipairs(related) do
         mbox, uid = table.unpack(message)
         m = mbox[uid]
         date = all or parse_internal_date(m:fetch_date())
