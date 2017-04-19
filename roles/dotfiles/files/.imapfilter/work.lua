@@ -257,7 +257,7 @@ function run()
   -- Notifications
   --
 
-  archive('GitHub own activity -> archive & mark read', (function()
+  archive_and_mark_read('GitHub own activity -> archive & mark read', (function()
     own = inbox:match_field('X-GitHub-Sender', 'wincent')
     return own + github_related(own)
   end))
