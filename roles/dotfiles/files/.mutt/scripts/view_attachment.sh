@@ -108,7 +108,14 @@ newfile=$tmpdir/$newfile
 
 # Copy the file to our new spot so mutt can't delete it
 # before the app has a chance to view it.
-cp $1 $newfile
+if [ $type = "html" -a -n "$CHARSET" ]; then
+  # Hack alert. Not all HTML email is well-formed (gasp!). If we have a $CHARSET
+  # variable, jam a tag at the top of the document (even above the doctype!) to
+  # maximize Chrome's chances of rendering it correctly.
+  cat <(echo "<meta charset=\"$CHARSET\"/>") $1 > $newfile
+else
+  cp $1 $newfile
+fi
 
 if [ $debug = "yes" ]; then
     echo "File:" $file "TYPE:" $type >> $debug_file

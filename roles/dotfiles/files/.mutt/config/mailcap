@@ -17,7 +17,7 @@ text/calendar; ~/.mutt/scripts/view_attachment.sh %s ics com.flexibits.fantastic
 # HTML
 
 # Explicitly render in browser with "v" (view attachment):
-text/html; ~/.mutt/scripts/view_attachment.sh %s html
+text/html; CHARSET=%{charset} ~/.mutt/scripts/view_attachment.sh %s html
 
 # Try to display implicitly using elinks:
 text/html; elinks -dump %s -dump-charset %{charset} -force-html; nametemplate=%s.html; copiousoutput
