@@ -1,3 +1,7 @@
+if v:progname == 'vi'
+  set noloadplugins
+endif
+
 let mapleader="\<Space>"
 let maplocalleader="\\"
 
@@ -55,12 +59,14 @@ if has('gui')
   let g:pathogen_blacklist=['YouCompleteMe', 'ultisnips']
 endif
 
-if has('packages')
-  packloadall
-else
-  " Use Pathogen for plug-in loading.
-  source $HOME/.vim/pack/bundle/opt/vim-pathogen/autoload/pathogen.vim
-  call pathogen#infect('pack/bundle/start/{}')
+if &loadplugins
+  if has('packages')
+    packloadall
+  else
+    " Use Pathogen for plug-in loading.
+    source $HOME/.vim/pack/bundle/opt/vim-pathogen/autoload/pathogen.vim
+    call pathogen#infect('pack/bundle/start/{}')
+  endif
 endif
 
 " After this file is sourced, plug-in code will be evaluated.
