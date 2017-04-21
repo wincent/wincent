@@ -1,7 +1,7 @@
-function! statusline#gutterpadding(subtractBufferNumber) abort
-  let l:gutterWidth=max([strlen(line('$')) + 1, &numberwidth])
-  let l:bufferNumberWidth=a:subtractBufferNumber ? strlen(winbufnr(0)) : 0
-  let l:padding=repeat(' ', l:gutterWidth - l:bufferNumberWidth)
+function! statusline#gutterpadding() abort
+  let l:minwidth=2
+  let l:gutterWidth=max([strlen(line('$')) + 1, &numberwidth, l:minwidth])
+  let l:padding=repeat(' ', l:gutterWidth - 1)
   return l:padding
 endfunction
 
@@ -32,11 +32,8 @@ function! statusline#fenc() abort
 endfunction
 
 function! statusline#lhs() abort
-  let l:line=statusline#gutterpadding(1)
-  if winwidth(0) > 40
-    let l:line.=bufnr('')
-    let l:line.=' '
-  endif
+  let l:line=statusline#gutterpadding()
+  let l:line.=&modified ? '+ ' : '  '
   return l:line
 endfunction
 
