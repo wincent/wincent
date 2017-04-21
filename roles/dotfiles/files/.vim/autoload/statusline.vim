@@ -79,23 +79,35 @@ function! statusline#update_highlight() abort
   execute 'highlight User3 ' . l:highlight
 
   " Inverted Error styling, for left-hand side "Powerline" triangle.
-  let l:prefix=has('gui') || has('termguicolors') ? 'gui' : 'cterm'
-  let l:fg=synIDattr(synIDtrans(hlID(s:wincent_statusline_status_highlight)), 'fg', l:prefix)
-  let l:bg=synIDattr(synIDtrans(hlID('StatusLine')), 'bg', l:prefix)
-  execute 'highlight User4 ' . l:prefix . 'fg=' . l:fg . ' ' . l:prefix . 'bg=' . l:bg
+  let l:fg=pinnacle#extract_fg(s:wincent_statusline_status_highlight)
+  let l:bg=pinnacle#extract_bg('StatusLine')
+  execute 'highlight User4 ' . pinnacle#highlight({'bg': l:bg, 'fg': l:fg})
 
   " And opposite for the buffer number area.
-  execute 'highlight User7 cterm=bold gui=bold term=bold ' .
-        \ l:prefix . 'fg=' . synIDattr(synIDtrans(hlID('Normal')), 'fg', l:prefix) . ' ' .
-        \ l:prefix . 'bg=' . l:fg
+  execute 'highlight User7 ' .
+        \ pinnacle#highlight({
+        \   'bg': l:fg,
+        \   'fg': pinnacle#extract_fg('Normal'),
+        \   'term': 'bold'
+        \ })
 
   " Right-hand side section.
-  let l:bg=synIDattr(synIDtrans(hlID('Cursor')), 'fg', l:prefix)
-  let l:fg=synIDattr(synIDtrans(hlID('User3')), 'fg', l:prefix)
-  execute 'highlight User5 ' . l:prefix . '=bold ' . l:prefix . 'fg=' . l:bg . ' ' . l:prefix . 'bg=' . l:fg
+  let l:bg=pinnacle#extract_fg('Cursor')
+  let l:fg=pinnacle#extract_fg('User3')
+  execute 'highlight User5 ' .
+        \ pinnacle#highlight({
+        \   'bg': l:fg,
+        \   'fg': l:bg,
+        \   'term': 'bold'
+        \ })
 
   " Right-hand side section + italic (used for %).
-  execute 'highlight User6 ' . l:prefix . '=bold,italic ' . l:prefix . 'fg=' . l:bg . ' ' . l:prefix . 'bg=' . l:fg
+  execute 'highlight User6 ' .
+        \ pinnacle#highlight({
+        \   'bg': l:fg,
+        \   'fg': l:bg,
+        \   'term': 'bold,italic'
+        \ })
 
   highlight clear StatusLineNC
   highlight! link StatusLineNC User1
