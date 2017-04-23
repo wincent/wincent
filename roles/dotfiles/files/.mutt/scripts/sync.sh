@@ -31,6 +31,15 @@ function backoff() {
 }
 
 while true; do
+  if [ -x "${HOME}/.mutt/hooks/presync/${ACCOUNT}.sh" ]; then
+    "${HOME}/.mutt/hooks/presync/${ACCOUNT}.sh" || {
+      echo "Presync hook exited with status $?; skipping sync."
+      sleep 60
+      BACKOFF=0
+      continue
+    }
+  fi
+
   delay
 
   echo "Running imapfilter ($ACCOUNT):"
