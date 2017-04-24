@@ -167,10 +167,6 @@ local modifierEvent = 94117
 
 local stopPropagation = true -- For readability.
 
--- Key codes not present in hs.keycodes.map.
-local extraKeyCodes = {
-  leftControl = 59,
-}
 local controlPressed = nil
 local repeatDelay = eventtap.keyRepeatDelay() * 2
 local repeatInterval = eventtap.keyRepeatInterval()
@@ -193,8 +189,9 @@ modifierHandler = (function(evt)
   local keyCode = evt:getKeyCode()
 
   -- Going to fire a fake delete key-press so that we can handle this in the
-  -- keyHandler function along with return.
-  if keyCode == extraKeyCodes.leftControl then
+  -- keyHandler function along with return. Note the "ctrl" here is left
+  -- control (we don't need any special handling for "rightctrl").
+  if keyCode == keyCodes.ctrl then
     -- We only start timers when Control is pressed alone, but we clean them up
     -- unconditionally when it is released, so as not to leak.
     if flags.ctrl == nil and controlPressed == true then
