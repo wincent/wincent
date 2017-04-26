@@ -37,6 +37,8 @@ local keyHandler = (function(evt)
     if humanReadable == 'space' then
       humanReadable = ' '
     else
+      -- "Break" here so that next keypress won't create a {di,tri}gram.
+      events = {}
       return
     end
   end
