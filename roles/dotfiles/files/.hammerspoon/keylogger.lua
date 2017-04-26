@@ -30,15 +30,15 @@ local keyHandler = (function(evt)
   local when = timer.secondsSinceEpoch()
   local keyCode = evt:getKeyCode()
   local humanReadable = keyCodes[keyCode]
+  if evt:getProperty(keyboardEventAutorepeat) == 1 then
+    return
+  end
   if not humanReadable or #humanReadable ~= 1 then
     if humanReadable == 'space' then
       humanReadable = ' '
     else
       return
     end
-  end
-  if evt:getProperty(keyboardEventAutorepeat) == 1 then
-    return
   end
   local last = {humanReadable = humanReadable, when = when}
   table.insert(events, last)
