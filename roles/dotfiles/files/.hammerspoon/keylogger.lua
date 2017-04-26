@@ -13,7 +13,9 @@ local eventtap = hs.eventtap
 local sqlite = hs.sqlite3
 local timer = hs.timer
 local keyCodes = hs.keycodes.map
-local keyDown = eventtap.event.types.keyDown
+local event = eventtap.event
+local keyDown = event.types.keyDown
+local keyboardEventAutorepeat = event.properties.keyboardEventAutorepeat
 
 local db = nil
 local events = {}
@@ -29,6 +31,9 @@ local keyHandler = (function(evt)
   local keyCode = evt:getKeyCode()
   local humanReadable = keyCodes[keyCode]
   if not humanReadable or #humanReadable ~= 1 then
+    return
+  end
+  if evt:getProperty(keyboardEventAutorepeat) == 1 then
     return
   end
   local last = {humanReadable = humanReadable, when = when}
