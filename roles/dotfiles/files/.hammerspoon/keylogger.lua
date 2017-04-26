@@ -31,7 +31,11 @@ local keyHandler = (function(evt)
   local keyCode = evt:getKeyCode()
   local humanReadable = keyCodes[keyCode]
   if not humanReadable or #humanReadable ~= 1 then
-    return
+    if humanReadable == 'space' then
+      humanReadable = ' '
+    else
+      return
+    end
   end
   if evt:getProperty(keyboardEventAutorepeat) == 1 then
     return
