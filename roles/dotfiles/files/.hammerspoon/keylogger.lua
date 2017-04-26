@@ -90,6 +90,8 @@ return {
     -- Write to db every minute.
     local interval = 60 -- Seconds.
     retain(timer.doEvery(interval, (function ()
+      local start = timer.secondsSinceEpoch()
+      local operationCount = 0
       for label, grams in pairs({unigrams = unigrams, digrams = digrams, trigrams = trigrams}) do
         local counts = {}
         for _, gram in pairs(grams) do
@@ -122,7 +124,13 @@ return {
             log.d('step() failed with result ' .. result)
           end
           statement:reset()
+          operationCount = operationCount + 1
         end
+        log.d(string.format(
+          'keylogger: completed %d operations in %.4f seconds',
+          operationCount,
+          timer.secondsSinceEpoch() - start
+        ))
       end
 
       unigrams = {}
