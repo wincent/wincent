@@ -53,16 +53,35 @@ function! statusline#rhs() abort
   return l:line
 endfunction
 
-let s:wincent_statusline_status_highlight='Identifier'
+let s:default_lhs_color='Identifier'
+let s:async_lhs_color='Constant'
+let s:modified_lhs_color='ModeMsg'
+let s:wincent_statusline_status_highlight=s:default_lhs_color
+let s:async=0
 
 function! statusline#async_start() abort
-  let s:wincent_statusline_status_highlight='Constant'
-  call statusline#update_highlight()
+  let s:async=1
+  call statusline#check_modified()
 endfunction
 
 function! statusline#async_finish() abort
-  let s:wincent_statusline_status_highlight='Identifier'
-  call statusline#update_highlight()
+  let s:async=0
+  call statusline#check_modified()
+endfunction
+
+function! statusline#check_modified() abort
+  if &modified && s:wincent_statusline_status_highlight != s:modified_lhs_color
+    let s:wincent_statusline_status_highlight=s:modified_lhs_color
+    call statusline#update_highlight()
+  elseif !&modified
+    if s:async && s:wincent_statusline_status_highlight != s:async_lhs_color
+      let s:wincent_statusline_status_highlight=s:async_lhs_color
+      call statusline#update_highlight()
+    elseif !s:async && s:wincent_statusline_status_highlight != s:default_lhs_color
+      let s:wincent_statusline_status_highlight=s:default_lhs_color
+      call statusline#update_highlight()
+    endif
+  endif
 endfunction
 
 function! statusline#update_highlight() abort

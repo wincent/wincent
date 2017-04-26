@@ -42,6 +42,11 @@ if has('statusline')
       autocmd ColorScheme * call statusline#update_highlight()
       autocmd User FerretAsyncStart call statusline#async_start()
       autocmd User FerretAsyncFinish call statusline#async_finish()
+      if exists('#TextChangedI')
+        autocmd BufWinEnter,BufWritePost,FileWritePost,TextChanged,TextChangedI,WinEnter * call statusline#check_modified()
+      else
+        autocmd BufWinEnter,BufWritePost,FileWritePost,WinEnter * call statusline#check_modified()
+      endif
     augroup END
   endif
 endif
