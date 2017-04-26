@@ -76,27 +76,24 @@ return {
     local base = os.getenv('HOME') .. '/.hammerspoon/'
     db = sqlite.open(base .. '/keylogger.sqlite3')
     db:exec([[
-      CREATE TABLE IF NOT EXISTS unigrams (ngram VARCHAR(1), count INTEGER, timestamp INTEGER);
-      CREATE TABLE IF NOT EXISTS digrams (ngram VARCHAR(2), count INTEGER, timestamp INTEGER);
-      CREATE TABLE IF NOT EXISTS trigrams (ngram VARCHAR(3), count INTEGER, timestamp INTEGER);
+      CREATE TABLE IF NOT EXISTS unigrams (ngram VARCHAR(1), count INTEGER);
+      CREATE TABLE IF NOT EXISTS digrams (ngram VARCHAR(2), count INTEGER);
+      CREATE TABLE IF NOT EXISTS trigrams (ngram VARCHAR(3), count INTEGER);
 
-      CREATE UNIQUE INDEX IF NOT EXISTS unigrams_ngram_timestamp ON unigrams (ngram, timestamp);
-      CREATE UNIQUE INDEX IF NOT EXISTS digrams_ngram_timestamp ON digrams (ngram, timestamp);
-      CREATE UNIQUE INDEX IF NOT EXISTS trigrams_ngram_timestamp ON trigrams (ngram, timestamp);
+      CREATE UNIQUE INDEX IF NOT EXISTS unigrams_ngram ON unigrams (ngram);
+      CREATE UNIQUE INDEX IF NOT EXISTS digrams_ngram ON digrams (ngram);
+      CREATE UNIQUE INDEX IF NOT EXISTS trigrams_ngram ON trigrams (ngram);
     ]])
 
     retain(eventtap.new({keyDown}, keyHandler):start())
 
-    -- Write to db every hour. We use very coarse buckets to avoid logging too
-    -- much literal (non-aggregate) data.
-    local interval = 60 * 60 -- every hour
+    -- Write to db every minute.
+    local interval = 60 -- Seconds.
     retain(timer.doEvery(interval, (function ()
       for label, grams in pairs({unigrams = unigrams, digrams = digrams, trigrams = trigrams}) do
         local counts = {}
         for _, gram in pairs(grams) do
-          local floor = math.floor(gram.when)
-          local timestamp = floor - floor % interval
-          local key = gram.humanReadable .. ':' .. timestamp
+          local key = gram.humanReadable
           if counts[key] == nil then
             counts[key] = 0
           end
@@ -104,22 +101,18 @@ return {
         end
         local statement = db:prepare(
             'INSERT OR REPLACE INTO ' .. label ..
-            '  (ngram, count, timestamp) ' ..
+            '  (ngram, count) ' ..
             'VALUES (' ..
             '  :ngram, ' ..
             '  COALESCE((SELECT :count + count ' ..
             '            FROM ' .. label .. ' ' ..
-            '            WHERE ngram = :ngram ' ..
-            '            AND timestamp = :timestamp), :count), ' ..
-            '  :timestamp)'
+            '            WHERE ngram = :ngram), ' ..
+            '            :count))'
           )
-        for key, count in pairs(counts) do
-          local ngram = string.match(key, '^.+:'):sub(1, -2)
-          local timestamp = string.match(key, '%d+$')
+        for ngram, count in pairs(counts) do
           local status = statement:bind_names({
             ngram = ngram,
             count = count,
-            timestamp = timestamp,
           })
           if status ~= sqlite.OK then
             log.d('bind_names() failed with status ' .. status)
