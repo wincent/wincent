@@ -149,6 +149,10 @@ Notes:
 * [Clipper](https://wincent.com/products/clipper) for transparent access to the local system clipboard.
 * On macOS, [iTerm2](http://www.iterm2.com/). Additionally, only the latest version of macOS (currently Sierra) gets actively tested.
 * [Python](https://www.python.org/) to perform setup via the included `install` command.
+* [Ruby](https://www.ruby-lang.org/en/downloads/).
+* [CMake](https://cmake.org/download/) is required for YouCompleteMe.
+* [Powerline](http://powerline.readthedocs.io/en/master/installation.html).
+
 
 ## Installation
 
@@ -212,6 +216,27 @@ And then installing again:
 
 ```sh
 ./install --force
+```
+
+#### Missing symbols & ligatures in Vim (Linux)
+
+If symbols appear corrupted in Vim, first ensure that your terminal emulator supports UTF-8. Then, check to see if you've properly configured your system-wide UTF-8 support.
+
+Issue this test command:
+
+```bash
+export LC_ALL=en_US.UTF-8
+```
+
+Then run `vim`. Powerline symbols & statusline ligatures should be working.
+
+To persist this `LC_*` variable binding, edit your `locale` accordingly:
+
+```bash
+/etc/locale.conf
+
+LANG=en_US.UTF-8
+LC_ALL=en_US.UTF-8
 ```
 
 ### License
