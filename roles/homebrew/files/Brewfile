@@ -159,7 +159,7 @@ brew 'talloc'
 brew 'terminal-notifier'
 brew 'the_silver_searcher'
 brew 'tig'
-brew 'tmux', args: ['HEAD']
+brew 'tmux'
 brew 'tokyo-cabinet'
 brew 'tree'
 brew 'unar'
