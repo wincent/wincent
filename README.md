@@ -6,7 +6,7 @@
 * Set-up method: ~~Beautiful and intricate snowflake~~ incredibly over-engineered [Ansible](https://www.ansible.com/) orchestration.
 * Visible in the screenshot:
   * [Tomorrow Night](https://chriskempson.github.io/base16) color scheme.
-  * Adobe Source Code Pro (Light) font.
+  * [Adobe Source Code Pro](https://github.com/adobe-fonts/source-code-pro) (Light) font.
   * Vim, running inside tmux, inside iTerm2, on macOS "El Capitan".
 
 ## Features
@@ -151,7 +151,7 @@ Notes:
 * [Python](https://www.python.org/) to perform setup via the included `install` command.
 * [Ruby](https://www.ruby-lang.org/en/downloads/).
 * [CMake](https://cmake.org/download/) is required for YouCompleteMe.
-* [Powerline](http://powerline.readthedocs.io/en/master/installation.html).
+* [Adobe Source Code Pro](https://github.com/adobe-fonts/source-code-pro) or any other fixed-width font that includes the [Powerline glyphs](http://powerline.readthedocs.io/en/master/installation.html#fonts-installation).
 
 
 ## Installation
