@@ -149,10 +149,9 @@ Notes:
 * [Clipper](https://wincent.com/products/clipper) for transparent access to the local system clipboard.
 * On macOS, [iTerm2](http://www.iterm2.com/). Additionally, only the latest version of macOS (currently Sierra) gets actively tested.
 * [Python](https://www.python.org/) to perform setup via the included `install` command.
-* [Ruby](https://www.ruby-lang.org/en/downloads/).
-* [CMake](https://cmake.org/download/) is required for YouCompleteMe.
+* [Ruby](https://www.ruby-lang.org/).
+* [CMake](https://cmake.org/) is required for YouCompleteMe.
 * [Adobe Source Code Pro](https://github.com/adobe-fonts/source-code-pro) or any other fixed-width font that includes the [Powerline glyphs](http://powerline.readthedocs.io/en/master/installation.html#fonts-installation).
-
 
 ## Installation
 
