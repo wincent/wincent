@@ -43,8 +43,9 @@ function! autocmds#blur_window() abort
       " This allows us to gracefully handle duplicate autocmds.
       let w:wincent_matches=[]
     endif
-    let l:start=line('w0')
-    let l:end=line('w$')
+    let l:height=&lines
+    let l:start=max([1, line('w0') - l:height])
+    let l:end=min([line('$'), line('w$') + l:height])
     while l:start <= l:end
       let l:next=l:start + 8
       let l:id=matchaddpos(
