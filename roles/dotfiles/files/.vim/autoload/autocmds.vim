@@ -36,8 +36,6 @@ function! autocmds#mkview() abort
   endif
 endfunction
 
-let s:blur_color=has('gui') ? 'StatusLine' : 'EndOfBuffer'
-
 function! autocmds#blur_window() abort
   if autocmds#should_colorcolumn()
     if !exists('w:wincent_matches')
@@ -50,7 +48,7 @@ function! autocmds#blur_window() abort
     while l:start <= l:end
       let l:next=l:start + 8
       let l:id=matchaddpos(
-            \   s:blur_color,
+            \   'StatusLine',
             \   range(l:start, min([l:end, l:next])),
             \   1000
             \ )
