@@ -217,9 +217,9 @@ And then installing again:
 ./install --force
 ```
 
-#### Missing symbols & ligatures in Vim (Linux)
+#### Broken Unicode in Vim (Linux)
 
-If symbols appear corrupted in Vim, first ensure that your terminal emulator supports UTF-8. Then, check to see if you've properly configured your system-wide UTF-8 support.
+If Unicode symbols appear missing or corrupted in Vim, first ensure that your terminal emulator supports UTF-8. Then, check to see if you've properly configured your system-wide UTF-8 support.
 
 Issue this test command:
 
@@ -227,7 +227,7 @@ Issue this test command:
 export LC_ALL=en_US.UTF-8
 ```
 
-Then run `vim`. Powerline symbols & statusline ligatures should be working.
+Then run `vim`. Unicode in the statusline should be working.
 
 To persist this `LC_*` variable binding, edit your `locale` accordingly:
 
