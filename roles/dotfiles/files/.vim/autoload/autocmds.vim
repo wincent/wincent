@@ -36,6 +36,35 @@ function! autocmds#mkview() abort
   endif
 endfunction
 
+function! autocmds#blur_window() abort
+  let w:wincent_matches=[]
+  let l:start=line('w0')
+  let l:end=line('w$')
+  while l:start <= l:end
+    let l:next=l:start + 8
+    let l:id=matchaddpos(
+          \   'EndOfBuffer',
+          \   range(l:start, min([l:end, l:next])),
+          \   1000
+          \ )
+    call add(w:wincent_matches, l:id)
+    let l:start=l:next
+  endwhile
+endfunction
+
+function! autocmds#focus_window() abort
+  if exists('w:wincent_matches')
+    for l:match in w:wincent_matches
+      try
+        call matchdelete(l:match)
+      catch
+        " Don't know why yet, but I see this when bluring help windows.
+        " May need to exclude those.
+      endtry
+    endfor
+  endif
+endfunction
+
 function! autocmds#blur_statusline() abort
   " Default blurred statusline (buffer number: filename).
   let l:blurred='%{statusline#gutterpadding()}'
