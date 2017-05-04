@@ -6,7 +6,7 @@
 * Set-up method: ~~Beautiful and intricate snowflake~~ incredibly over-engineered [Ansible](https://www.ansible.com/) orchestration.
 * Visible in the screenshot:
   * [Tomorrow Night](https://chriskempson.github.io/base16) color scheme.
-  * Adobe Source Code Pro (Light) font.
+  * [Adobe Source Code Pro](https://github.com/adobe-fonts/source-code-pro) (Light) font.
   * Vim, running inside tmux, inside iTerm2, on macOS "El Capitan".
 
 ## Features
@@ -149,6 +149,9 @@ Notes:
 * [Clipper](https://wincent.com/products/clipper) for transparent access to the local system clipboard.
 * On macOS, [iTerm2](http://www.iterm2.com/). Additionally, only the latest version of macOS (currently Sierra) gets actively tested.
 * [Python](https://www.python.org/) to perform setup via the included `install` command.
+* [Ruby](https://www.ruby-lang.org/).
+* [CMake](https://cmake.org/) is required for YouCompleteMe.
+* [Adobe Source Code Pro](https://github.com/adobe-fonts/source-code-pro) or any other fixed-width font that includes the [Powerline glyphs](http://powerline.readthedocs.io/en/master/installation.html#fonts-installation).
 
 ## Installation
 
@@ -212,6 +215,27 @@ And then installing again:
 
 ```sh
 ./install --force
+```
+
+#### Broken Unicode in Vim (Linux)
+
+If Unicode symbols appear missing or corrupted in Vim, first ensure that your terminal emulator supports UTF-8. Then, check to see if you've properly configured your system-wide UTF-8 support.
+
+Issue this test command:
+
+```bash
+export LC_ALL=en_US.UTF-8
+```
+
+Then run `vim`. Unicode in the statusline should be working.
+
+To persist this `LC_*` variable binding, edit your `locale` accordingly:
+
+```bash
+/etc/locale.conf
+
+LANG=en_US.UTF-8
+LC_ALL=en_US.UTF-8
 ```
 
 ### License
