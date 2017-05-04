@@ -16,13 +16,6 @@ if exists('&belloff')
   set belloff=all                     " never ring the bell for any reason
 endif
 
-if has('linebreak')
-  set breakindent                     " indent wrapped lines to match start
-  if exists('&breakindentopt')
-    set breakindentopt=sbr            " put showbreak indicator before indent
-  endif
-endif
-
 if exists('+colorcolumn')
   " Highlight up to 255 columns (this is the current Vim max) beyond 'textwidth'
   let &l:colorcolumn='+' . join(range(0, 254), ',+')
@@ -93,7 +86,7 @@ set shortmess+=o                      " overwrite file-written messages
 set shortmess+=t                      " truncate file messages at start
 
 if has('linebreak')
-  let &showbreak='  ↳ '               " DOWNWARDS ARROW WITH TIP RIGHTWARDS (U+21B3, UTF-8: E2 86 B3)
+  let &showbreak='↳ '                 " DOWNWARDS ARROW WITH TIP RIGHTWARDS (U+21B3, UTF-8: E2 86 B3)
 endif
 
 if has('showcmd')
