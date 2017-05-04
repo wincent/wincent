@@ -44,8 +44,9 @@ function! autocmds#blur_window() abort
       let w:wincent_matches=[]
     endif
     let l:height=&lines
-    let l:start=max([1, line('w0') - l:height])
-    let l:end=min([line('$'), line('w$') + l:height])
+    let l:slop=l:height / 2
+    let l:start=max([1, line('w0') - l:slop])
+    let l:end=min([line('$'), line('w$') + l:slop])
     while l:start <= l:end
       let l:next=l:start + 8
       let l:id=matchaddpos(
