@@ -19,7 +19,7 @@ endif
 if has('linebreak')
   set breakindent                     " indent wrapped lines to match start
   if exists('&breakindentopt')
-    set breakindentopt=shift:2        " emphasize broken lines by indenting them
+    set breakindentopt=sbr            " put showbreak indicator before indent
   endif
 endif
 
@@ -93,7 +93,7 @@ set shortmess+=o                      " overwrite file-written messages
 set shortmess+=t                      " truncate file messages at start
 
 if has('linebreak')
-  let &showbreak='↳ '                 " DOWNWARDS ARROW WITH TIP RIGHTWARDS (U+21B3, UTF-8: E2 86 B3)
+  let &showbreak='  ↳ '               " DOWNWARDS ARROW WITH TIP RIGHTWARDS (U+21B3, UTF-8: E2 86 B3)
 endif
 
 if has('showcmd')
