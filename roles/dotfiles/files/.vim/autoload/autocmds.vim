@@ -52,7 +52,7 @@ function! autocmds#blur_window() abort
       let l:id=matchaddpos(
             \   'StatusLine',
             \   range(l:start, min([l:end, l:next])),
-            \   1000
+            \   0
             \ )
       call add(w:wincent_matches, l:id)
       let l:start=l:next
