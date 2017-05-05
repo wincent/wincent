@@ -94,10 +94,11 @@ def usage
     Usage:
       git hub get <pr>        [fetch a PR to a local branch]
       git hub link [pr]       [show web URL for PR]
+      git hub ls              [list open PRs]
       git hub merge [pr]      [merge a PR]
       git hub open [pr]       [open web URL for PR]
-      git hub ls              [list open PRs]
       git hub show [pr]       [show a PR on standard out]
+      git hub update          [pull in new commits from current PR]
   END
 end
 
@@ -115,6 +116,21 @@ when 'get'
     run "git checkout -B pull/#{Shellwords.shellescape(number)}"
     run "curl -L -f -o #{dir}/PULL -s #{url}"
     run "git am #{dir}/PULL"
+  end
+
+when 'update'
+  number = current_pr
+  if number.nil?
+    die "can't infer PR number from current branch"
+  end
+  url = Shellwords.shellescape(pr(number))
+  Dir.mktmpdir do |dir|
+    run "curl -L -f -o #{dir}/PULL -s #{url}"
+    system "git am #{dir}/PULL"
+    if !$?.exitstatus.zero?
+      puts 'Initial attempt to apply failed; trying `git am --skip`'
+      run 'git am --skip'
+    end
   end
 
 when 'link'
