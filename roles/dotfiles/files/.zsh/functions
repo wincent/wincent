@@ -188,9 +188,9 @@ function wr() {
     if [ "$COLS" -gt "$THRESHOLD" ]; then
       tmux split-window -t WriteRoom -h -p 25
       tmux split-window -t WriteRoom.1 -b -h -p 25
-      tmux select-pane -t WriteRoom.1
+      tmux select-pane -t WriteRoom.2
     fi
-    tmux send-keys -t WriteRoom.1 "vim -c CommandT" Enter
+    tmux send-keys -t WriteRoom.2 "vim -c CommandT" Enter
   fi
   if [ -z "$TMUX" ]; then
     tmux attach -t WriteRoom
