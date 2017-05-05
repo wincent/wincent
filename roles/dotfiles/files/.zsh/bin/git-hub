@@ -97,7 +97,7 @@ def usage
       git hub merge [pr]      [merge a PR]
       git hub open [pr]       [open web URL for PR]
       git hub ls              [list open PRs]
-      git hub show <pr>       [show a PR on standard out]
+      git hub show [pr]       [show a PR on standard out]
   END
 end
 
@@ -159,7 +159,11 @@ when 'merge'
   run "git merge --log -m #{message} --no-ff pull/#{pull}"
 
 when 'show'
-  url = Shellwords.shellescape(pr(arg))
+  number = ARGV.shift || current_pr
+  if number.nil?
+    die "no explicit PR number provided, and can't infer from current branch"
+  end
+  url = Shellwords.shellescape(pr(number))
   system "curl -L -f #{url}"
 
 else
