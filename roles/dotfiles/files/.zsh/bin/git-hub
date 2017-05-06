@@ -127,9 +127,14 @@ when 'update'
   Dir.mktmpdir do |dir|
     run "curl -L -f -o #{dir}/PULL -s #{url}"
     system "git am #{dir}/PULL"
-    if !$?.exitstatus.zero?
-      puts 'Initial attempt to apply failed; trying `git am --skip`'
-      run 'git am --skip'
+    while !$?.exitstatus.zero?
+      print 'Attempt to apply failed; run `git am --skip`? [y/n] '
+      if gets.downcase.chomp === 'y'
+        system 'git am --skip'
+      else
+        run 'git am --abort'
+        break
+      end
     end
   end
 
