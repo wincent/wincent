@@ -5,6 +5,7 @@ dotfiles:
   - .bash
   - .bash_profile
   - .clipper.json
+  - .config/ranger
   - .emacs.d
   - .ghci
   - .gitattributes

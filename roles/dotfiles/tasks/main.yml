@@ -1,4 +1,7 @@
 ---
+- name: dotfiles | make ~/.config
+  file: path=~/.config state=directory
+
 - name: dotfiles | create backup directory
   file: path=~/.backups state=directory
 
