@@ -144,6 +144,7 @@ brew 'python'
 brew 'qemu'
 brew 'qt'
 brew 'ragel'
+brew 'ranger'
 brew 'readline'
 brew 'reattach-to-user-namespace'
 brew 'redis', restart_service: true
