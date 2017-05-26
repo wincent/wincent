@@ -140,3 +140,6 @@
 [submodule "roles/dotfiles/files/.mutt/mutt-notmuch-py"]
 	path = roles/dotfiles/files/.mutt/vendor/mutt-notmuch-py
 	url = https://github.com/honza/mutt-notmuch-py.git
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/indentLine"]
+	path = roles/dotfiles/files/.vim/pack/bundle/start/indentLine
+	url = https://github.com/Yggdroot/indentLine.git
