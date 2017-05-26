@@ -38,19 +38,38 @@ function! statusline#lhs() abort
 endfunction
 
 function! statusline#rhs() abort
-  let l:line=' '
+  let l:rhs=' '
   if winwidth(0) > 80
-    let l:line.='ℓ ' " (Literal, \u2113 "SCRIPT SMALL L").
-    let l:line.=line('.')
-    let l:line.='/'
-    let l:line.=line('$')
-    let l:line.=' 𝚌 ' " (Literal, \u1d68c "MATHEMATICAL MONOSPACE SMALL C").
-    let l:line.=virtcol('.')
-    let l:line.='/'
-    let l:line.=virtcol('$')
-    let l:line.=' '
+    let l:column=virtcol('.')
+    let l:width=virtcol('$')
+    let l:line=line('.')
+    let l:height=line('$')
+
+    " Add padding to stop rhs from changing too much as we move the cursor.
+    let l:padding=len(l:height) - len(l:line)
+    if (l:padding)
+      let l:rhs.=repeat(' ', l:padding)
+    endif
+
+    let l:rhs.='ℓ ' " (Literal, \u2113 "SCRIPT SMALL L").
+    let l:rhs.=l:line
+    let l:rhs.='/'
+    let l:rhs.=l:height
+    let l:rhs.=' 𝚌 ' " (Literal, \u1d68c "MATHEMATICAL MONOSPACE SMALL C").
+    let l:rhs.=l:column
+    let l:rhs.='/'
+    let l:rhs.=l:width
+    let l:rhs.=' '
+
+    " Add padding to stop rhs from changing too much as we move the cursor.
+    if len(l:column) < 2
+      let l:rhs.=' '
+    endif
+    if len(l:width) < 2
+      let l:rhs.=' '
+    endif
   endif
-  return l:line
+  return l:rhs
 endfunction
 
 let s:default_lhs_color='Identifier'
