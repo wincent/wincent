@@ -14,8 +14,6 @@ let filetype_pl='prolog'
 filetype indent plugin on
 syntax on
 
-source $VIMRUNTIME/macros/matchit.vim
-
 " Stark highlighting is enough to see the current match; don't need the
 " centering, which can be annoying.
 let g:LoupeCenterResults=0
@@ -59,10 +57,11 @@ endif
 if &loadplugins
   if has('packages')
     packloadall
+    packadd! matchit
   else
-    " Use Pathogen for plug-in loading.
     source $HOME/.vim/pack/bundle/opt/vim-pathogen/autoload/pathogen.vim
     call pathogen#infect('pack/bundle/start/{}')
+    source $VIMRUNTIME/macros/matchit.vim
   endif
 endif
 
