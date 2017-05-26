@@ -143,3 +143,6 @@
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/indentLine"]
 	path = roles/dotfiles/files/.vim/pack/bundle/start/indentLine
 	url = https://github.com/Yggdroot/indentLine.git
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-json"]
+	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-json
+	url = https://github.com/elzr/vim-json.git
