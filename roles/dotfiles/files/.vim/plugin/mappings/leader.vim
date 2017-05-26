@@ -49,3 +49,9 @@ nnoremap <LocalLeader>e :edit <C-R>=expand('%:p:h') . '/'<CR>
 "
 " (mnemonic: e[X]tract handle)
 nnoremap <LocalLeader>x :%s#\v<C-r><c-w>#<C-r><C-a>#gc<CR>
+
+" Stop annoying paren match highlighting from flashing all over the screen,
+" or start it.
+"
+" (mnemonic: [m]atch paren)
+nnoremap <silent> <Leader>m :execute (exists('g:loaded_matchparen') ? 'No' : 'Do') . 'MatchParen'<CR>

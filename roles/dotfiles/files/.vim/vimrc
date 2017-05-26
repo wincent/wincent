@@ -9,9 +9,6 @@ let maplocalleader="\\"
 let filetype_m='objc'
 let filetype_pl='prolog'
 
-" Stop annoying paren match highlighting from flashing all over the screen.
-let loaded_matchparen=1
-
 " Automatic, language-dependent indentation, syntax coloring and other
 " functionality.
 filetype indent plugin on
