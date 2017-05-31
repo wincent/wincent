@@ -11,10 +11,15 @@ let g:projectionist_heuristics = {
       \
       \     '*.js': {
       \       'alternate': [
+      \         '{dirname}/{basename}.test.js',
       \         '{dirname}/__tests__/{basename}-test.js',
       \         '{dirname}/__tests__/{basename}-mocha.js'
       \       ],
       \       'type': 'source'
+      \     },
+      \     '*.test.js': {
+      \       'alternate': '{basename}.js',
+      \       'type': 'test',
       \     },
       \     '**/__tests__/*-mocha.js': {
       \       'alternate': '{dirname}/{basename}.js',
