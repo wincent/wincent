@@ -57,7 +57,9 @@ endif
 if &loadplugins
   if has('packages')
     packloadall
-    packadd! matchit
+    if !has('nvim')
+      packadd! matchit
+    endif
   else
     source $HOME/.vim/pack/bundle/opt/vim-pathogen/autoload/pathogen.vim
     call pathogen#infect('pack/bundle/start/{}')
