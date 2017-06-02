@@ -1,5 +1,9 @@
 " Switch to plaintext mode with: call functions#plaintext()
 function! functions#plaintext() abort
+  if has('conceal')
+    let b:indentLine_ConcealOptionSet=1 " Don't let indentLine overwrite us.
+    setlocal concealcursor=nc
+  endif
   setlocal nolist
   setlocal spell
   setlocal textwidth=0
