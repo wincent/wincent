@@ -24,6 +24,16 @@ class Source(Base):
         self.__candidates = None
 
     def on_event(self, context):
+        self.__cache()
+
+    def gather_candidates(self, context):
+        result = self.__pattern.search(context['input'])
+        if result is not None:
+            if not self.__candidates:
+                self.__cache()
+            return self.__candidates
+
+    def __cache(self):
         self.__candidates = []
         data = self.__lbdbq('.')
         if data:
@@ -35,13 +45,6 @@ class Source(Base):
                     self.__candidates.append({'word': address, 'kind': source})
                 except:
                     pass
-
-    def gather_candidates(self, context):
-        result = self.__pattern.search(context['input'])
-        if result is not None:
-            if not self.__candidates:
-                self.on_event(context)
-            return self.__candidates
 
     def __find_lbdbq_binary(self):
         return self.vim.call('exepath', 'lbdbq')
