@@ -1,3 +1,4 @@
+*.pyc
 /python
 /roles/dotfiles/files/.emacs.d/savehist
 /roles/dotfiles/files/.hammerspoon/keylogger.sqlite3
