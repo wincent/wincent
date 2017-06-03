@@ -2,6 +2,9 @@
 - name: dotfiles | make ~/.config
   file: path=~/.config state=directory
 
+- name: dotfiles | symlink nvim to vim
+  file: path=~/.config/nvim src=~/.vim state=link
+
 - name: dotfiles | create backup directory
   file: path=~/.backups state=directory
 

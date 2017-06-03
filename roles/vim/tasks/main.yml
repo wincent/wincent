@@ -9,3 +9,6 @@
 
 - include: masochist.yml
   when: install_masochist_vim_dependencies
+
+- include: nvim.yml
+  when: install_nvim_dependencies

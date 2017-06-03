@@ -6,3 +6,4 @@ update_vim_bundle: false
 use_local_vim_dir: false
 you_complete_me_base: '{{ vim_bundle_base }}/YouCompleteMe/opt/YouCompleteMe'
 install_masochist_vim_dependencies: false
+install_nvim_dependencies: false
