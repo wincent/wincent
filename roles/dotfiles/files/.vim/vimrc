@@ -57,7 +57,13 @@ endif
 if &loadplugins
   if has('packages')
     packloadall
-    if !has('nvim')
+    if has('nvim')
+      packadd! deoplete
+
+      " Don't forget to run :UpdateRemotePlugins to populate
+      " `~/.local/share/nvim/rplugin.vim`.
+      call deoplete#enable()
+    else
       packadd! matchit
     endif
   else

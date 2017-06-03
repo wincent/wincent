@@ -146,3 +146,6 @@
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-json"]
 	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-json
 	url = https://github.com/elzr/vim-json.git
+[submodule "roles/dotfiles/files/.vim/pack/deoplete/opt/deoplete"]
+	path = roles/dotfiles/files/.vim/pack/deoplete/opt/deoplete
+	url = https://github.com/Shougo/deoplete.nvim.git
