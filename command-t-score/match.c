@@ -2,7 +2,6 @@
 // Licensed under the terms of the BSD 2-clause license.
 
 #include <float.h> /* for DBL_MAX */
-#include "ruby_compat.h"
 
 #define UNSET_BITMASK (-1)
 #define UNSET_SCORE FLT_MAX
@@ -119,12 +118,12 @@ float recursive_match(
 }
 
 float calculate_match(
-    VALUE haystack,
-    VALUE needle,
-    VALUE case_sensitive,
-    VALUE always_show_dot_files,
-    VALUE never_show_dot_files,
-    VALUE recurse,
+    const char *haystack,
+    const char *needle,
+    int case_sensitive,
+    int always_show_dot_files,
+    int never_show_dot_files,
+    int recurse,
     long needle_bitmask,
     long *haystack_bitmask
 ) {
@@ -132,16 +131,16 @@ float calculate_match(
     long i;
     float score             = 1.0;
     int compute_bitmasks    = *haystack_bitmask == UNSET_BITMASK;
-    m.haystack_p            = RSTRING_PTR(haystack);
-    m.haystack_len          = RSTRING_LEN(haystack);
-    m.needle_p              = RSTRING_PTR(needle);
-    m.needle_len            = RSTRING_LEN(needle);
+    m.haystack_p            = haystack;
+    m.haystack_len          = strlen(haystack);
+    m.needle_p              = needle;
+    m.needle_len            = strlen(needle);
     m.rightmost_match_p     = NULL;
     m.max_score_per_char    = (1.0 / m.haystack_len + 1.0 / m.needle_len) / 2;
-    m.always_show_dot_files = always_show_dot_files == Qtrue;
-    m.never_show_dot_files  = never_show_dot_files == Qtrue;
-    m.case_sensitive        = (int)case_sensitive;
-    m.recurse               = recurse == Qtrue;
+    m.always_show_dot_files = always_show_dot_files;
+    m.never_show_dot_files  = never_show_dot_files;
+    m.case_sensitive        = case_sensitive;
+    m.recurse               = recurse;
 
     // Special case for zero-length search string.
     if (m.needle_len == 0) {
