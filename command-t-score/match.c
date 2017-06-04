@@ -2,10 +2,9 @@
 // Licensed under the terms of the BSD 2-clause license.
 
 #include <float.h> /* for DBL_MAX */
-#include "match.h"
-#include "ext.h"
 #include "ruby_compat.h"
 
+#define UNSET_BITMASK (-1)
 #define UNSET_SCORE FLT_MAX
 
 // Use a struct to make passing params during recursion easier.
