@@ -14,10 +14,7 @@ typedef struct {
     long    needle_len;             // Length of same.
     long    *rightmost_match_p;     // Rightmost match for each char in needle.
     float   max_score_per_char;
-    int     always_show_dot_files;  // Boolean.
-    int     never_show_dot_files;   // Boolean.
     int     case_sensitive;         // Boolean.
-    int     recurse;                // Boolean.
     float   *memo;                  // Memoization.
 } matchinfo_t;
 
@@ -46,17 +43,7 @@ float recursive_match(
             }
             c = m->needle_p[i];
             d = m->haystack_p[j];
-            if (d == '.') {
-                if (j == 0 || m->haystack_p[j - 1] == '/') { // This is a dot-file.
-                    int dot_search = c == '.'; // Searching for a dot.
-                    if (
-                        m->never_show_dot_files ||
-                        (!dot_search && !m->always_show_dot_files)
-                    ) {
-                        return *memoized = 0.0;
-                    }
-                }
-            } else if (d >= 'A' && d <= 'Z' && !m->case_sensitive) {
+            if (d >= 'A' && d <= 'Z' && !m->case_sensitive) {
                 d += 'a' - 'A'; // Add 32 to downcase.
             }
 
@@ -94,7 +81,7 @@ float recursive_match(
                     score_for_char *= factor;
                 }
 
-                if (j < m->rightmost_match_p[i] && m->recurse) {
+                if (j < m->rightmost_match_p[i]) {
                     sub_score = recursive_match(m, j + 1, i, last_idx, score);
                     if (sub_score > seen_score) {
                         seen_score = sub_score;
@@ -108,9 +95,6 @@ float recursive_match(
                     // Whole string matched.
                     return *memoized;
                 }
-                if (!m->recurse) {
-                    break;
-                }
             }
         }
     }
@@ -121,9 +105,6 @@ float calculate_match(
     const char *haystack,
     const char *needle,
     int case_sensitive,
-    int always_show_dot_files,
-    int never_show_dot_files,
-    int recurse,
     long needle_bitmask,
     long *haystack_bitmask
 ) {
@@ -137,105 +118,67 @@ float calculate_match(
     m.needle_len            = strlen(needle);
     m.rightmost_match_p     = NULL;
     m.max_score_per_char    = (1.0 / m.haystack_len + 1.0 / m.needle_len) / 2;
-    m.always_show_dot_files = always_show_dot_files;
-    m.never_show_dot_files  = never_show_dot_files;
     m.case_sensitive        = case_sensitive;
-    m.recurse               = recurse;
 
     // Special case for zero-length search string.
     if (m.needle_len == 0) {
-        // Filter out dot files.
-        if (m.never_show_dot_files || !m.always_show_dot_files) {
-            for (i = 0; i < m.haystack_len; i++) {
-                char c = m.haystack_p[i];
-                if (c == '.' && (i == 0 || m.haystack_p[i - 1] == '/')) {
-                    return -1.0;
-                }
-            }
-        }
-    } else {
-        long haystack_limit;
-        long memo_size;
-        long needle_idx;
-        long mask;
-        long rightmost_match_p[m.needle_len];
+        return score;
+    }
 
-        if (*haystack_bitmask != UNSET_BITMASK) {
-            if ((needle_bitmask & *haystack_bitmask) != needle_bitmask) {
-                return 0.0;
-            }
-        }
+    long haystack_limit;
+    long memo_size;
+    long needle_idx;
+    long mask;
+    long rightmost_match_p[m.needle_len];
 
-        // Pre-scan string:
-        // - Bail if it can't match at all.
-        // - Record rightmost match for each character (prune search space).
-        // - Record bitmask for haystack to speed up future searches.
-        m.rightmost_match_p = rightmost_match_p;
-        needle_idx = m.needle_len - 1;
-        mask = 0;
-        for (i = m.haystack_len - 1; i >= 0; i--) {
-            char c = m.haystack_p[i];
-            char lower = c >= 'A' && c <= 'Z' ? c + ('a' - 'A') : c;
-            if (!m.case_sensitive) {
-                c = lower;
-            }
-            if (compute_bitmasks) {
-                mask |= (1 << (lower - 'a'));
-            }
-
-            if (needle_idx >= 0) {
-                char d = m.needle_p[needle_idx];
-                if (c == d) {
-                    rightmost_match_p[needle_idx] = i;
-                    needle_idx--;
-                }
-            }
-        }
-        if (compute_bitmasks) {
-            *haystack_bitmask = mask;
-        }
-        if (needle_idx != -1) {
+    if (*haystack_bitmask != UNSET_BITMASK) {
+        if ((needle_bitmask & *haystack_bitmask) != needle_bitmask) {
             return 0.0;
         }
+    }
 
-        // Prepare for memoization.
-        haystack_limit = rightmost_match_p[m.needle_len - 1] + 1;
-        memo_size = m.needle_len * haystack_limit;
-        {
-            float memo[memo_size];
-            for (i = 0; i < memo_size; i++) {
-                memo[i] = UNSET_SCORE;
-            }
-            m.memo = memo;
-            score = recursive_match(&m, 0, 0, 0, 0.0);
-
-#ifdef DEBUG
-            fprintf(stdout, "   ");
-            for (i = 0; i < m.needle_len; i++) {
-                fprintf(stdout, "    %c   ", m.needle_p[i]);
-            }
-            fprintf(stdout, "\n");
-            for (i = 0; i < memo_size; i++) {
-                char formatted[8];
-                if (i % m.needle_len == 0) {
-                    long haystack_idx = i / m.needle_len;
-                    fprintf(stdout, "%c: ", m.haystack_p[haystack_idx]);
-                }
-                if (memo[i] == UNSET_SCORE) {
-                    snprintf(formatted, sizeof(formatted), "    -  ");
-                } else {
-                    snprintf(formatted, sizeof(formatted), " %-.4f", memo[i]);
-                }
-                fprintf(stdout, "%s", formatted);
-                if ((i + 1) % m.needle_len == 0) {
-                    fprintf(stdout, "\n");
-                } else {
-                    fprintf(stdout, " ");
-                }
-            }
-            fprintf(stdout, "Final score: %f\n\n", score);
-#endif
+    // Pre-scan string:
+    // - Bail if it can't match at all.
+    // - Record rightmost match for each character (prune search space).
+    // - Record bitmask for haystack to speed up future searches.
+    m.rightmost_match_p = rightmost_match_p;
+    needle_idx = m.needle_len - 1;
+    mask = 0;
+    for (i = m.haystack_len - 1; i >= 0; i--) {
+        char c = m.haystack_p[i];
+        char lower = c >= 'A' && c <= 'Z' ? c + ('a' - 'A') : c;
+        if (!m.case_sensitive) {
+            c = lower;
         }
+        if (compute_bitmasks) {
+            mask |= (1 << (lower - 'a'));
+        }
+
+        if (needle_idx >= 0) {
+            char d = m.needle_p[needle_idx];
+            if (c == d) {
+                rightmost_match_p[needle_idx] = i;
+                needle_idx--;
+            }
+        }
+    }
+    if (compute_bitmasks) {
+        *haystack_bitmask = mask;
+    }
+    if (needle_idx != -1) {
+        return 0.0;
+    }
+
+    // Prepare for memoization.
+    haystack_limit = rightmost_match_p[m.needle_len - 1] + 1;
+    memo_size = m.needle_len * haystack_limit;
+    {
+        float memo[memo_size];
+        for (i = 0; i < memo_size; i++) {
+            memo[i] = UNSET_SCORE;
+        }
+        m.memo = memo;
+        score = recursive_match(&m, 0, 0, 0, 0.0);
     }
     return score;
 }
