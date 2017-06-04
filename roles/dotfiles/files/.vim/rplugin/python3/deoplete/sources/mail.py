@@ -15,6 +15,7 @@ class Source(Base):
         self.name = 'mail'
         self.mark = '[@]'
         self.matchers = ['matcher_length', 'matcher_full_fuzzy']
+        self.sorters = ['sorter_smart']
         self.min_pattern_length = 0
         self.limit = 1000000
 
