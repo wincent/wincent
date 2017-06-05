@@ -23,6 +23,7 @@ dotfiles:
   - .mutt
   - .notmuch-config
   - .npmrc
+  - .pypirc
   - .rdebugrc
   - .rspec
   - .screenrc
