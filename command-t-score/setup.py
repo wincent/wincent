@@ -17,4 +17,15 @@ This is the fuzzy match scoring algorithm, extracted from the Command-T (vim
 plugin)project.
 ''',
        ext_package = 'commandt',
-       ext_modules = [Extension('score', ['commandt/score/score.c'])])
+       ext_modules = [Extension('score', ['commandt/score/score.c'])],
+       classifiers = [
+           # From: https://pypi.python.org/pypi?%3Aaction=list_classifiers
+           'Development Status :: 3 - Alpha',
+           'Intended Audience :: Developers',
+           'License :: OSI Approved :: BSD License',
+           'Operating System :: MacOS :: MacOS X',
+           'Operating System :: POSIX',
+           'Programming Language :: C',
+           'Programming Language :: Python :: 3 :: Only',
+           ],
+       )
