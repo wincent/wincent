@@ -139,7 +139,6 @@ float calculate_match(
     // Pre-scan string:
     // - Bail if it can't match at all.
     // - Record rightmost match for each character (prune search space).
-    // - Record bitmask for haystack to speed up future searches.
     m.rightmost_match_p = rightmost_match_p;
     needle_idx = m.needle_len - 1;
     mask = 0;
