@@ -6,7 +6,7 @@
 from distutils.core import setup, Extension
 
 setup (name = 'commandt-score',
-       version = '0.1',
+       version = '0.1.0',
        description = 'Command-T fuzzy match scoring algorithm',
        author = 'Greg Hurrell',
        author_email = 'greg@hurrell.net',
