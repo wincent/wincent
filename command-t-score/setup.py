@@ -1,6 +1,11 @@
-# Build with:
+# Build, test, distribute with:
 #
-#       python3 setup.py build
+#       rm -r build dist              # Clean.
+#       python3 setup.py build        # Build.
+#       pip3 install --upgrade .      # Test locally.
+#       python3 setup.py sdist        # Prepare source distribution.
+#       python3 setup.py bdist_wheel  # Prepare binary distribution.
+#       twine upload dist/*           # Distribute.
 #
 # For more info, see: https://docs.python.org/3/extending/building.html
 from setuptools import setup, Extension

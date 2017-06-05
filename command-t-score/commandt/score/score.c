@@ -1,17 +1,6 @@
 #include <Python.h>
 #include <float.h> /* for FLT_MAX */
 
-/**
- * Test with:
- *
- *      pip3 install --upgrade .
- *
- * Then, in the `python3` REPL:
- *
- *      import score
- *      score.calc("foo", "foobar")
- */
-
 #define UNSET_SCORE FLT_MAX
 
 // Use a struct to make passing params during recursion easier.
