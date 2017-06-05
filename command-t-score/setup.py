@@ -3,7 +3,7 @@
 #       python3 setup.py build
 #
 # For more info, see: https://docs.python.org/3/extending/building.html
-from distutils.core import setup, Extension
+from setuptools import setup, Extension
 
 setup (name = 'commandt-score',
        version = '0.1.0',
