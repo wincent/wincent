@@ -5,7 +5,6 @@ from deoplete.util import parse_buffer_pattern, getlines
 
 import re
 from subprocess import PIPE, Popen
-import string
 
 class Source(Base):
     def __init__(self, vim):
