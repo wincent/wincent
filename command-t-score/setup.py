@@ -18,6 +18,7 @@ plugin)project.
 ''',
        ext_package = 'commandt',
        ext_modules = [Extension('score', ['commandt/score/score.c'])],
+       license = 'BSD',
        classifiers = [
            # From: https://pypi.python.org/pypi?%3Aaction=list_classifiers
            'Development Status :: 3 - Alpha',
