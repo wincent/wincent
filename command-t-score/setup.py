@@ -6,7 +6,7 @@
 from setuptools import setup, Extension
 
 setup (name = 'commandt.score',
-       version = '0.1.0',
+       version = '0.1.1',
        description = 'Command-T fuzzy match scoring algorithm',
        author = 'Greg Hurrell',
        author_email = 'greg@hurrell.net',
@@ -14,7 +14,7 @@ setup (name = 'commandt.score',
        packages = ['commandt.score'],
        long_description = '''
 This is the fuzzy match scoring algorithm, extracted from the Command-T (vim
-plugin)project.
+plugin) project.
 ''',
        ext_package = 'commandt',
        ext_modules = [Extension('score', ['commandt/score/score.c'])],
