@@ -12,7 +12,7 @@ class Filter(Base):
         rank = context['vars']['deoplete#_rank']
         complete_str = context['complete_str']
         input_len = len(complete_str)
-        smart_case = complete_str.lower() != complete_str
-        # TODO: support smartcase again
+        smart_case = int(complete_str.lower() != complete_str)
         return sorted(context['candidates'],
-                key=lambda x: -1 * score.calc(complete_str, x['word']))
+                key=lambda x: -1 * score.calc(complete_str, x['word'],
+                    smart_case))

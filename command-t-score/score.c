@@ -178,13 +178,16 @@ float calculate_match(
 static PyObject *score_calc(PyObject *self, PyObject *args) {
     const char *needle;
     const char *haystack;
+    int case_sensitive;
 
     // See: https://docs.python.org/3/c-api/arg.html
-    if (!PyArg_ParseTuple(args, "ss", &needle, &haystack)) {
+    if (!PyArg_ParseTuple(args, "ssi", &needle, &haystack, &case_sensitive)) {
         return NULL;
     }
 
-    return PyFloat_FromDouble(calculate_match(haystack, needle, 0));
+    return PyFloat_FromDouble(
+        calculate_match(haystack, needle, case_sensitive)
+    );
 }
 
 #define SENTINEL {NULL, NULL, 0, NULL}
