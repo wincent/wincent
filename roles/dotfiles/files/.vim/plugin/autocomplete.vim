@@ -78,6 +78,17 @@ if has('nvim')
   inoremap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
   inoremap <expr><C-k> pumvisible() ? "\<C-p>" : "\<C-j>"
   inoremap <expr><Up> pumvisible() ? "\<C-p>" : "\<Up>"
+
+  call deoplete#custom#set(
+        \   'masochist',
+        \   'content',
+        \   expand('~/code/masochist-pages')
+        \ )
+  call deoplete#custom#set(
+        \   'masochist',
+        \   'config',
+        \   expand('~/code/masochist/src/server/constants.js')
+        \ )
 else
   call defer#packadd('YouCompleteMe', 'youcompleteme.vim')
 endif
