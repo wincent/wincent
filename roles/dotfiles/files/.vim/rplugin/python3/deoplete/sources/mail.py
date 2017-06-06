@@ -1,8 +1,5 @@
 from .base import Base
 
-from itertools import chain
-from deoplete.util import parse_buffer_pattern, getlines
-
 import re
 from subprocess import PIPE, Popen
 
@@ -63,7 +60,7 @@ class Source(Base):
             process = Popen(command, stderr = PIPE, stdout = PIPE)
             out, err = process.communicate()
             if not process.returncode:
-                lines = out.decode('utf-8').split('\n')
+                lines = out.decode().split('\n')
                 if len(lines) > 1:
                     lines.pop(0)
                     return lines
