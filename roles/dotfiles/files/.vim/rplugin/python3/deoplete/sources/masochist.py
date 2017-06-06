@@ -57,7 +57,7 @@ class Source(Base):
                     for (kind, name) in raw_candidates ]
 
     def __active(self, context):
-        path = self.vim.call('expand', '%') or self.vim.call('getcwd')
+        path = self.vim.call('expand', '%:p') or self.vim.call('getcwd')
         content = util.get_custom(context['custom'], 'masochist', 'content', '')
         return content and path.find(content) == 0
 
