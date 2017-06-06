@@ -13,7 +13,7 @@ set delete = yes # Delete without confirming.
 # set display_filter =par\ rTbgqR\ B=.,?_A_a_0\ Q=_s\\>
 
 set edit_headers = yes
-set editor = 'vim +/^$ +nohlsearch' # Move past headers.
+set editor = 'nvim +/^$ +nohlsearch' # Move past headers.
 set fast_reply = yes
 set folder_format = '%4C %t %f'
 set forward_quote = yes
