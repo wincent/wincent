@@ -30,6 +30,12 @@ class Source(Base):
                 self.__cache()
             return self.__candidates
 
+    def get_complete_position(self, context):
+        colon = re.search(r': ?', context['input'])
+        comma = re.search(r'.+, ?', context['input'])
+        return max(colon.end() if colon else -1,
+                comma.end() if comma else -1)
+
     def __cache(self):
         self.__candidates = []
         data = self.__lbdbq('.')
