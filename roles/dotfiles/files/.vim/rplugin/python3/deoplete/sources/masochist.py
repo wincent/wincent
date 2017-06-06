@@ -24,6 +24,10 @@ class Source(Base):
     def on_event(self, context):
         self.__cache()
 
+    def get_complete_position(self, context):
+        position = context['input'].rfind('(')
+        return position if position < 0 else position + 1
+
     def gather_candidates(self, context):
         result = self.__pattern.search(context['input'])
         if result is not None:
