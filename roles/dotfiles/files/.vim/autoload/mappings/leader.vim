@@ -12,6 +12,17 @@ function! mappings#leader#cycle_numbering() abort
   endif
 endfunction
 
+function! mappings#leader#matchparen() abort
+  " Preserve current window becaus {Do,No}MatchParen cycle with :windo.
+  let l:currwin=winnr()
+  if exists('g:loaded_matchparen')
+    NoMatchParen
+  else
+    DoMatchParen
+  endif
+  execute l:currwin . 'wincmd w'
+endfunction
+
 " Zap trailing whitespace.
 function! mappings#leader#zap() abort
   let l:pos=getcurpos()

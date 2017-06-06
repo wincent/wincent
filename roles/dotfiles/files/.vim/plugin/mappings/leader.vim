@@ -54,4 +54,4 @@ nnoremap <LocalLeader>x :%s#\v<C-r><c-w>#<C-r><C-a>#gc<CR>
 " or start it.
 "
 " (mnemonic: [m]atch paren)
-nnoremap <silent> <Leader>m :execute (exists('g:loaded_matchparen') ? 'No' : 'Do') . 'MatchParen'<CR>
+nnoremap <silent> <Leader>m :call mappings#leader#matchparen()<CR>
