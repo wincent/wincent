@@ -34,6 +34,10 @@ alias serve='python -m SimpleHTTPServer' # optional arg: port (defaults to 8000)
 alias t=tmux
 alias v=vim
 
+if command -v nvim &> /dev/null; then
+  alias vim=nvim # Use `\vim` or `command vim` to get the real vim.
+fi
+
 #
 # Suffix aliases
 # (eg. "foo.md" to open Markdown files in "Marked 2.app")
