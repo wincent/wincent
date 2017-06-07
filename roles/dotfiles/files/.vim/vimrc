@@ -54,9 +54,6 @@ if has('gui')
   let g:pathogen_blacklist=['YouCompleteMe', 'ultisnips']
 endif
 
-if has('nvim')
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-endif
 
 if &loadplugins
   if has('packages')
