@@ -10,7 +10,7 @@ function! defer#defer(evalable) abort
   endif
 endfunction
 
-" Specific function for defering a `:packadd` operation.
+" Convenience function specifically for defering a `:packadd` operation.
 function! defer#packadd(pack, plugin) abort
   execute "call defer#defer('call plugin#packadd(\"' . a:pack . '\", \"' . a:plugin . '\")')"
 endfunction
