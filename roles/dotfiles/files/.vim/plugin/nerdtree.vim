@@ -24,6 +24,16 @@ endif
 call plugin#lazy({
       \   'pack': 'nerdtree',
       \   'plugin': 'NERD_tree.vim',
+      \   'commands': {
+      \     'NERDTree': '-n=? -complete=dir -bar',
+      \     'NERDTreeCWD': '-n=0 -bar',
+      \     'NERDTreeClose': '-n=0 -bar',
+      \     'NERDTreeFind': '-n=0 -bar',
+      \     'NERDTreeFocus': '-n=0 -bar',
+      \     'NERDTreeFromBookmark': '-n=1 -bar',
+      \     'NERDTreeMirror': '-n=0 -bar',
+      \     'NERDTreeToggle': '-n=? -complete=dir -bar',
+      \   },
       \   'nnoremap': {
       \     '<silent> -': ":silent edit <C-R>=empty(expand('%')) ? '.' : fnameescape(expand('%:p:h'))<CR><CR>"
       \   }
