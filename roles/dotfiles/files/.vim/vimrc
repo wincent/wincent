@@ -54,7 +54,6 @@ if has('gui')
   let g:pathogen_blacklist=['YouCompleteMe', 'ultisnips']
 endif
 
-
 if &loadplugins
   if has('packages')
     packloadall
