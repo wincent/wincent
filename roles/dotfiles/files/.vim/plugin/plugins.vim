@@ -6,8 +6,7 @@ call plugin#lazy({
       \   'nnoremap': [
       \     ['<silent> <Leader>u', ':UndotreeToggle<CR>']
       \   ],
-      \   'onload': [
-      \     'call after#undotree#init()',
-      \     'UndotreeToggle'
+      \   'beforeload': [
+      \     'call wincent#undotree#init()'
       \   ]
       \ })

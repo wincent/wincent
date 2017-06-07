@@ -21,4 +21,13 @@ if has('autocmd')
   augroup END
 endif
 
-call defer#packadd('nerdtree', 'NERD_tree.vim')
+call plugin#lazy({
+      \   'pack': 'nerdtree',
+      \   'plugin': 'NERD_tree.vim',
+      \   'nnoremap': [
+      \     [
+      \       '<silent> -',
+      \       ":silent edit <C-R>=empty(expand('%')) ? '.' : fnameescape(expand('%:p:h'))<CR><CR>"
+      \     ]
+      \   ]
+      \ })

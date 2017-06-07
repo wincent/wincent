@@ -5,7 +5,10 @@ function! plugin#lazy(config) abort
   let s:plugins[l:id]=a:config
   if has_key(a:config, 'nnoremap')
     for l:mapping in a:config.nnoremap
-      execute 'nnoremap ' . l:mapping[0] . ' :call <SID>load("' . l:id . '")<CR>'
+      execute 'nnoremap ' .
+        \ l:mapping[0] .
+        \ ' :call <SID>load("' . l:id . '")<CR>' .
+        \ l:mapping[1]
     endfor
   endif
 endfunction
@@ -15,14 +18,19 @@ function! s:load(id) abort
   let l:split=split(a:id, '::')
   let l:pack=l:split[0]
   let l:plugin=l:split[1]
+  if has_key(l:config, 'beforeload')
+    for l:item in l:config.beforeload
+      execute l:item
+    endfor
+  endif
   call plugin#packadd(l:pack, l:plugin)
   if has_key(l:config, 'nnoremap')
     for l:mapping in l:config.nnoremap
       execute 'nnoremap ' . l:mapping[0] . ' ' . l:mapping[1]
     endfor
   endif
-  if has_key(l:config, 'onload')
-    for l:item in l:config.onload
+  if has_key(l:config, 'afterload')
+    for l:item in l:config.afterload
       execute l:item
     endfor
   endif
