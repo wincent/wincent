@@ -77,23 +77,12 @@ if has('nvim')
   " Don't forget to run :UpdateRemotePlugins to populate
   " `~/.local/share/nvim/rplugin.vim`.
   packadd! deoplete
-  call deoplete#enable()
+  call defer#defer('call autocomplete#deoplete_init()')
 
   inoremap <expr><C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
   inoremap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
   inoremap <expr><C-k> pumvisible() ? "\<C-p>" : "\<C-j>"
   inoremap <expr><Up> pumvisible() ? "\<C-p>" : "\<Up>"
-
-  call deoplete#custom#set(
-        \   'masochist',
-        \   'content',
-        \   expand('~/code/masochist-pages')
-        \ )
-  call deoplete#custom#set(
-        \   'masochist',
-        \   'config',
-        \   expand('~/code/masochist/src/server/constants.js')
-        \ )
 else
   call defer#packadd('YouCompleteMe', 'youcompleteme.vim')
 endif

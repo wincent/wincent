@@ -63,3 +63,22 @@ function! autocomplete#expand_or_jump(direction)
   " jump backwards, so nothing to do.
   return ''
 endfunction
+
+let s:deoplete_init_done=0
+function! autocomplete#deoplete_init() abort
+  if s:deoplete_init_done || !has('nvim')
+    return
+  endif
+  let s:deoplete_init_done=1
+  call deoplete#enable()
+  call deoplete#custom#set(
+        \   'masochist',
+        \   'content',
+        \   expand('~/code/masochist-pages')
+        \ )
+  call deoplete#custom#set(
+        \   'masochist',
+        \   'config',
+        \   expand('~/code/masochist/src/server/constants.js')
+        \ )
+endfunction

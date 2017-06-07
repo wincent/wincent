@@ -10,3 +10,5 @@ setlocal spelllang=en,es
 
 nnoremap <buffer> j gj
 nnoremap <buffer> k gk
+
+call autocomplete#deoplete_init()
