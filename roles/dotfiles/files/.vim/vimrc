@@ -57,19 +57,9 @@ endif
 if &loadplugins
   if has('packages')
     packloadall
-    if has('nvim')
-      packadd! deoplete
-
-      " Don't forget to run :UpdateRemotePlugins to populate
-      " `~/.local/share/nvim/rplugin.vim`.
-      call deoplete#enable()
-    else
-      packadd! matchit
-    endif
   else
     source $HOME/.vim/pack/bundle/opt/vim-pathogen/autoload/pathogen.vim
     call pathogen#infect('pack/bundle/start/{}')
-    source $VIMRUNTIME/macros/matchit.vim
   endif
 endif
 

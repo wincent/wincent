@@ -74,6 +74,11 @@ let g:ycm_filetype_blacklist = {
       \ }
 
 if has('nvim')
+  " Don't forget to run :UpdateRemotePlugins to populate
+  " `~/.local/share/nvim/rplugin.vim`.
+  packadd! deoplete
+  call deoplete#enable()
+
   inoremap <expr><C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
   inoremap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
   inoremap <expr><C-k> pumvisible() ? "\<C-p>" : "\<C-j>"
