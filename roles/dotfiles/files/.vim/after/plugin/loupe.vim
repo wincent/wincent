@@ -1,5 +1,6 @@
 function! s:SetUpLoupeHighlight()
-  highlight! link Search Underlined
+  highlight! clear Search
+  execute 'highlight! Search ' . pinnacle#embolden('Underlined')
 endfunction
 
 if has('autocmd')
