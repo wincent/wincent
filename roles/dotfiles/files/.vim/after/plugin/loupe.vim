@@ -1,5 +1,5 @@
 function! s:SetUpLoupeHighlight()
-  highlight! link Search VisualNOS
+  highlight! link Search Underlined
 endfunction
 
 if has('autocmd')
