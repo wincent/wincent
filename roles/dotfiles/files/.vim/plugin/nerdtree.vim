@@ -24,10 +24,8 @@ endif
 call plugin#lazy({
       \   'pack': 'nerdtree',
       \   'plugin': 'NERD_tree.vim',
-      \   'nnoremap': [
-      \     [
-      \       '<silent> -',
-      \       ":silent edit <C-R>=empty(expand('%')) ? '.' : fnameescape(expand('%:p:h'))<CR><CR>"
-      \     ]
+      \   'nnoremap': {
+      \     '<silent> -': ":silent edit <C-R>=empty(expand('%')) ? '.' : fnameescape(expand('%:p:h'))<CR><CR>"
+      \   }
       \   ]
       \ })

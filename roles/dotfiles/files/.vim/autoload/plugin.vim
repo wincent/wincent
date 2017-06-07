@@ -4,7 +4,7 @@ function! plugin#lazy(config) abort
   let l:id=a:config.pack . '::' . a:config.plugin
   let s:plugins[l:id]=a:config
   if has_key(a:config, 'nnoremap')
-    for l:mapping in a:config.nnoremap
+    for l:mapping in items(a:config.nnoremap)
       execute 'nnoremap ' .
         \ l:mapping[0] .
         \ ' :call <SID>load("' . l:id . '")<CR>' .
@@ -25,7 +25,7 @@ function! s:load(id) abort
   endif
   call plugin#packadd(l:pack, l:plugin)
   if has_key(l:config, 'nnoremap')
-    for l:mapping in l:config.nnoremap
+    for l:mapping in items(l:config.nnoremap)
       execute 'nnoremap ' . l:mapping[0] . ' ' . l:mapping[1]
     endfor
   endif
