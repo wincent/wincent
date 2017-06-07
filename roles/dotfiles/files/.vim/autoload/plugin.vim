@@ -19,8 +19,8 @@ function! plugin#lazy(config) abort
   if has_key(a:config, 'nnoremap')
     for l:mapping in items(a:config.nnoremap)
       execute 'nnoremap ' .
-        \ l:mapping[0] .
-        \ ' :' . l:load . '<CR>' .
+        \ l:mapping[0] . ' ' .
+        \ ':' . l:load . '<CR>' .
         \ l:mapping[1]
     endfor
   endif
