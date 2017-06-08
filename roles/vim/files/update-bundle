@@ -29,9 +29,11 @@ git submodule foreach '
   cd ~/.vim/pack
 
   PACKS=""
-  for PACK in $(find . -type d -maxdepth 1 -path '*/*' | cut -f 2 -d / | grep -v bundle); do
-    PACKS="${PACKS}packadd $PACK | "
+  for PACK in $(find . -type d -maxdepth 3 -path '*/opt/*' | cut -f 4 -d /); do
+    PACKS="${PACKS}packadd! $PACK | "
   done
 
-  vim -u NONE -N -c "${PACKS}runtime pack/bundle/opt/vim-pathogen/autoload/pathogen.vim | Helptags | quit"
+  COMMANDS="packloadall | call pathogen#helptags() | quit"
+  echo "Running: vim -u NONE -N -c \"${PACKS}${COMMANDS}\""
+  vim -u NONE -N -c "${PACKS}${COMMANDS}"
 )
