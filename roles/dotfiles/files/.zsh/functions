@@ -182,7 +182,7 @@ function wr() {
   local THRESHOLD=200
   local COLS=$(tput cols)
   if ! tmux has-session -t WriteRoom 2> /dev/null; then
-    tmux new-session -d -s WriteRoom -c ~/Documents/Corpus
+    tmux new-session -d -s WriteRoom -c ~/Documents/Corpus -x $(tput cols) -y $(tput lines)
     # TODO: something less clowny here (want width of created session, not width
     # of current pane).
     if [ "$COLS" -gt "$THRESHOLD" ]; then
