@@ -3,7 +3,7 @@
 if [ $# -eq 1 ]; then
   case $1 in
     home|work)
-      "$HOME/.mutt/scripts/sync.sh" "$1" || reattach-to-user-namespace terminal-notifier -title mutt -message "~/.mutt/scripts/sync.sh ($1) exited" Enter
+      "$HOME/.mutt/scripts/sync.sh" "$1" || terminal-notifier -title mutt -message "~/.mutt/scripts/sync.sh ($1) exited" Enter
       exit 0
       ;;
     *)

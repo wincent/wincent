@@ -42,7 +42,7 @@ set pager_format = '=%b %C/%m: %-20.20F   %s%*—(%P)'
 
 set pager_index_lines = 12
 set pager_stop = yes # Don't move to the next message when paging past the bottom of a message.
-set query_command="reattach-to-user-namespace lbdbq %s 2> /dev/null"
+set query_command="lbdbq %s 2> /dev/null"
 set realname = 'Greg Hurrell'
 set reply_to = yes # Instead of asking, always reply to Reply-to:
 set resolve = no # Don't auto-advance to the next message after every single op.

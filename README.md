@@ -58,7 +58,6 @@ A number of tools are used to provide command-line access to Gmail and Office IM
 * [urlview](https://packages.debian.org/sid/misc/urlview): For opening URLs from inside mutt.
 * [terminal-notifier](https://github.com/julienXX/terminal-notifier): For notifications.
 * [lbdb](https://www.spinnaker.de/lbdb/): Contact autocompletion drawing from a number of sources, such as previous messages, aliases, and macOS Contacts (which can be configured to synchronize Google contacts as well).
-* [reattach-to-user-name-space](https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard): So that `lbdb` can query the macOS Contacts, and `terminal-notifier` can do its thing, even inside `tmux`.
 * [imapfilter](https://github.com/lefcha/imapfilter/): For filtering.
 * [passage](https://github.com/wincent/passage): For mediating interaction with the macOS keychain.
 

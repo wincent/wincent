@@ -16,7 +16,6 @@ class Source(Base):
         self.limit = 1000000
 
         self.__pattern = re.compile('^(Bcc|Cc|From|Reply-To|To):(.*, ?| ?)')
-        self.__wrapper = self.__find_reattach_to_user_namespace_binary()
         self.__binary = self.__find_lbdbq_binary()
         self.__candidates = None
 
@@ -52,16 +51,10 @@ class Source(Base):
     def __find_lbdbq_binary(self):
         return self.vim.call('exepath', 'lbdbq')
 
-    def __find_reattach_to_user_namespace_binary(self):
-        return self.vim.call('exepath', 'reattach-to-user-namespace')
-
     def __lbdbq(self, query):
         if not self.__binary:
             return None
-        if self.__wrapper:
-            command = [self.__wrapper, self.__binary, query]
-        else:
-            command = [self.__binary, query]
+        command = [self.__binary, query]
         try:
             process = Popen(command, stderr = PIPE, stdout = PIPE)
             out, err = process.communicate()

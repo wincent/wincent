@@ -46,8 +46,7 @@ while true; do
   echo
 
   ONCE=1 time imapfilter -vc "${HOME}/.imapfilter/${ACCOUNT}.lua" || {
-    reattach-to-user-namespace \
-      terminal-notifier -title imapfilter -message "imapfilter ($ACCOUNT) exited"
+    terminal-notifier -title imapfilter -message "imapfilter ($ACCOUNT) exited"
     backoff
     continue
   }
@@ -57,8 +56,7 @@ while true; do
   echo
 
   time gtimeout 600 mbsync "$ACCOUNT" || {
-    reattach-to-user-namespace \
-      terminal-notifier -title mbsync -message "mbsync ($ACCOUNT) exited"
+    terminal-notifier -title mbsync -message "mbsync ($ACCOUNT) exited"
     backoff
     continue
   }
