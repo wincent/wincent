@@ -41,6 +41,7 @@ luma() {
 color() {
   local SCHEME="$1"
   local BASE16_DIR=~/.zsh/base16-shell/scripts
+  local BASE16_CONFIG_PREVIOUS="$BASE16_CONFIG.previous"
 
   if [ $# -eq 0 ]; then
     if [ -s "$BASE16_CONFIG" ]; then
@@ -64,7 +65,21 @@ color() {
       sed -E 's/\.sh//' | \
       column
       ;;
+  -)
+    local PREVIOUS_SCHEME=$(head -n1 "$BASE16_CONFIG_PREVIOUS")
+    color "$PREVIOUS_SCHEME"
+    ;;
   *)
+    # Check to see if the requested scheme is the same as the current scheme,
+    # and if it is, bail out. This avoids overwriting the previous scheme file
+    # with a duplicate, allowing `color -` to be more useful in more situations.
+    if [[ -s "$BASE16_CONFIG" ]]; then
+      local CURRENT_SCHEME=$(head -n1 "$BASE16_CONFIG")
+      if [[ "$SCHEME" = "$CURRENT_SCHEME" ]]; then
+        return
+      fi
+    fi
+
     FILE="$BASE16_DIR/base16-$SCHEME.sh"
     if [[ -e "$FILE" ]]; then
       local BG=$(grep color_background= "$FILE" | cut -d \" -f2 | sed -e 's#/##g')
@@ -73,6 +88,10 @@ color() {
       local BACKGROUND=dark
       if [ "$LIGHT" -eq 1 ]; then
         BACKGROUND=light
+      fi
+
+      if [[ -s "$BASE16_CONFIG" ]]; then
+        mv -f "$BASE16_CONFIG" "$BASE16_CONFIG_PREVIOUS"
       fi
 
       echo "$SCHEME" >! "$BASE16_CONFIG"
