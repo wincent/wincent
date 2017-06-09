@@ -3,6 +3,7 @@
 /roles/dotfiles/files/.emacs.d/savehist
 /roles/dotfiles/files/.hammerspoon/keylogger.sqlite3
 /roles/dotfiles/files/.imapfilter/private.lua
+/roles/dotfiles/files/.mutt/config/aliases.mutt
 /roles/dotfiles/files/.mutt/hooks/presync/work.sh
 /roles/dotfiles/files/.mutt/offlineimap.pyc
 /roles/dotfiles/files/.mutt/scripts/vendor
