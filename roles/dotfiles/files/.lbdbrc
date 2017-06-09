@@ -1,5 +1,5 @@
 # See /usr/local/etc/lbdb.rc for base configuration.
 
 METHODS="m_inmail m_muttalias m_osx_addressbook"
-MUTT_DIRECTORY="$HOME/.mutt"
-MUTTALIAS_FILES="config/aliases.mutt"
+MUTT_DIRECTORY="$HOME/.mutt/config"
+MUTTALIAS_FILES="aliases.mutt"
