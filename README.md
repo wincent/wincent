@@ -128,6 +128,11 @@ Non-Gmail extensions:
 * `b`: Toggle (mailboxes) sidebar.
 * `m`: Move message(s).
 
+Other stuff:
+
+* `<Tab>` autocompletes addresses from the lbdb database.
+* `<C-t>` autocompletes aliases.
+
 To have `mailto` links open up in `mutt` in iTerm:
 
 1. In *iTerm2* → *Preferences* → *Profiles* → *General*, create a copy of your default profile by clicking on *Other Actions...* and selecting *Duplicate Profile*.
