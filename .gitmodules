@@ -14,7 +14,6 @@
 	path = roles/dotfiles/files/.vim/pack/bundle/start/command-t
 	url = https://github.com/wincent/command-t.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/ferret"]
-	branch = next
 	ignore = untracked
 	path = roles/dotfiles/files/.vim/pack/bundle/start/ferret
 	url = https://github.com/wincent/ferret.git
@@ -26,7 +25,6 @@
 	path = roles/dotfiles/files/.vim/pack/bundle/start/neco-ghc
 	url = https://github.com/eagletmt/neco-ghc.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/nerdtree"]
-	branch = wincent
 	ignore = untracked
 	path = roles/dotfiles/files/.vim/pack/nerdtree/opt/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
@@ -37,7 +35,6 @@
 	path = roles/dotfiles/files/.vim/pack/bundle/start/tcomment_vim
 	url = https://github.com/tomtom/tcomment_vim.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/terminus"]
-	branch = next
 	path = roles/dotfiles/files/.vim/pack/bundle/start/terminus
 	url = https://github.com/wincent/terminus.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/ultisnips"]
