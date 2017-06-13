@@ -9,6 +9,8 @@
   with_items: '{{osx_defaults}}'
   failed_when: existing_defaults.rc > 1
   changed_when: false
+  loop_control:
+    label: "{{item.description}}"
 
 - name: defaults | update defaults
   command: defaults {{ item.0.write }}
@@ -16,6 +18,8 @@
   with_together:
     - '{{osx_defaults}}'
     - '{{existing_defaults.results}}'
+  loop_control:
+    label: "{{item.0.description}}"
 
 # Many of these settings taken (or modified) from:
 #
@@ -159,6 +163,8 @@
       key: HIDScrollZoomModifierMask
       type: int
       value: 262144
+  loop_control:
+    label: "{{item.domain}} {{item.key}}"
 
 # Last tested: [10.10.2]
 - name: defaults | System Preferences -> Desktop & Screen Saver -> Screen Saver -> Hot Corners -> [Bottom Left] Start Screen Saver
