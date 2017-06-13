@@ -8,7 +8,7 @@ function! wincent#mappings#leader#cycle_numbering() abort
           \ '11': 'set norelativenumber | set number' }[&number . &relativenumber]
   else
     " No relative numbering, just toggle numbers on and off.
-    set number!<CR>
+    set number!
   endif
 endfunction
 
