@@ -1,3 +1,6 @@
+[submodule "roles/dotfiles/files/.mutt/mutt-notmuch-py"]
+	path = roles/dotfiles/files/.mutt/vendor/mutt-notmuch-py
+	url = https://github.com/honza/mutt-notmuch-py.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/opt/vim-pathogen"]
 	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen.git
@@ -17,6 +20,9 @@
 	ignore = untracked
 	path = roles/dotfiles/files/.vim/pack/bundle/start/ferret
 	url = https://github.com/wincent/ferret.git
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/indentLine"]
+	path = roles/dotfiles/files/.vim/pack/bundle/start/indentLine
+	url = https://github.com/Yggdroot/indentLine.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/loupe"]
 	ignore = dirty
 	path = roles/dotfiles/files/.vim/pack/bundle/start/loupe
@@ -31,6 +37,12 @@
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/pinnacle"]
 	path = roles/dotfiles/files/.vim/pack/bundle/start/pinnacle
 	url = https://github.com/wincent/pinnacle.git
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/replay"]
+	path = roles/dotfiles/files/.vim/pack/bundle/start/replay
+	url = https://github.com/wincent/replay.git
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/scalpel"]
+	path = roles/dotfiles/files/.vim/pack/bundle/start/scalpel
+	url = https://github.com/wincent/scalpel.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/tcomment_vim"]
 	path = roles/dotfiles/files/.vim/pack/bundle/start/tcomment_vim
 	url = https://github.com/tomtom/tcomment_vim.git
@@ -76,6 +88,9 @@
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-javascript"]
 	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-json"]
+	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-json
+	url = https://github.com/elzr/vim-json.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-jsx"]
 	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-jsx
 	url = https://github.com/mxw/vim-jsx.git
@@ -112,36 +127,21 @@
 	ignore = untracked
 	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-textobj-user
 	url = https://github.com/kana/vim-textobj-user.git
+[submodule "roles/dotfiles/files/.vim/pack/deoplete/opt/deoplete"]
+	path = roles/dotfiles/files/.vim/pack/deoplete/opt/deoplete
+	url = https://github.com/Shougo/deoplete.nvim.git
 [submodule "roles/dotfiles/files/.zsh/base16-shell"]
 	path = roles/dotfiles/files/.zsh/base16-shell
 	url = https://github.com/chriskempson/base16-shell.git
 [submodule "vendor/ansible"]
 	path = vendor/ansible
 	url = https://github.com/ansible/ansible.git
+[submodule "vendor/base16-iterm2"]
+	path = vendor/base16-iterm2
+	url = https://github.com/chriskempson/base16-iterm2.git
 [submodule "vendor/git-cipher"]
 	path = vendor/git-cipher
 	url = https://github.com/wincent/git-cipher.git
 [submodule "vendor/virtualenv"]
 	path = vendor/virtualenv
 	url = https://github.com/pypa/virtualenv.git
-[submodule "roles/dotfiles/files/.vim/pack/bundle/start/scalpel"]
-	path = roles/dotfiles/files/.vim/pack/bundle/start/scalpel
-	url = https://github.com/wincent/scalpel.git
-[submodule "vendor/base16-iterm2"]
-	path = vendor/base16-iterm2
-	url = https://github.com/chriskempson/base16-iterm2.git
-[submodule "roles/dotfiles/files/.vim/pack/bundle/start/replay"]
-	path = roles/dotfiles/files/.vim/pack/bundle/start/replay
-	url = https://github.com/wincent/replay.git
-[submodule "roles/dotfiles/files/.mutt/mutt-notmuch-py"]
-	path = roles/dotfiles/files/.mutt/vendor/mutt-notmuch-py
-	url = https://github.com/honza/mutt-notmuch-py.git
-[submodule "roles/dotfiles/files/.vim/pack/bundle/start/indentLine"]
-	path = roles/dotfiles/files/.vim/pack/bundle/start/indentLine
-	url = https://github.com/Yggdroot/indentLine.git
-[submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-json"]
-	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-json
-	url = https://github.com/elzr/vim-json.git
-[submodule "roles/dotfiles/files/.vim/pack/deoplete/opt/deoplete"]
-	path = roles/dotfiles/files/.vim/pack/deoplete/opt/deoplete
-	url = https://github.com/Shougo/deoplete.nvim.git
