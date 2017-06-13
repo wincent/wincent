@@ -77,7 +77,7 @@ endfunction
 
 function! autocmds#blur_statusline() abort
   " Default blurred statusline (buffer number: filename).
-  let l:blurred='%{statusline#gutterpadding()}'
+  let l:blurred='%{wincent#statusline#gutterpadding()}'
   let l:blurred.='\ ' " space
   let l:blurred.='\ ' " space
   let l:blurred.='\ ' " space
