@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 [alias]
 	abbrev = !sh -c 'git rev-parse --short ${1-`echo HEAD`}' -
 	ack = grep --break --heading
@@ -125,8 +127,12 @@
 	fetchJobs = 4
 
 [user]
-	email = greg@hurrell.net
-	name = Greg Hurrell
+{% if git_user_email != '' %}
+	email = {{ git_user_email }}
+{% endif %}
+{% if git_user_name != '' %}
+	name = {{ git_user_name }}
+{% endif %}
 
 # ignored by Git older than 1.7.10
 [include]

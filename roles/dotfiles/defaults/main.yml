@@ -1,5 +1,5 @@
 ---
-dotfiles:
+dotfile_files:
   - .ackrc
   - .agignore
   - .bash
@@ -9,7 +9,6 @@ dotfiles:
   - .emacs.d
   - .ghci
   - .gitattributes
-  - .gitconfig
   - .gitignore
   - .gitk
   - .gvimrc
@@ -33,3 +32,9 @@ dotfiles:
   - .zsh
   - .zshenv
   - .zshrc
+
+dotfile_templates:
+  - .gitconfig
+
+git_user_email: '{{"greg@hurrell.net" if lookup("env", "USER") == "glh" else ""}}'
+git_user_name: '{{"Greg Hurrell" if lookup("env", "USER") == "glh" else ""}}'
