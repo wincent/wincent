@@ -11,4 +11,4 @@ call matchaddpos('ErrorMsg', [[1, 72, 1000]])
 
 " This slows down initialization but it's too damn useful not to have it right
 " from the start.
-call autocomplete#deoplete_init()
+call wincent#autocomplete#deoplete_init()

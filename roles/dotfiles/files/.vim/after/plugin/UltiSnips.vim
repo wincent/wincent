@@ -5,10 +5,10 @@ let b:did_after_plugin_ultisnips_after=1
 " Note: assuming here that `g:UltiSnipsExpandTrigger` and
 " `g:UltiSnipsJumpForwardTrigger` are the same.
 execute 'inoremap <silent> ' . g:UltiSnipsExpandTrigger .
-      \ ' <C-R>=autocomplete#expand_or_jump("N")<CR>'
+      \ ' <C-R>=wincent#autocomplete#expand_or_jump("N")<CR>'
 execute 'snoremap <silent> ' . g:UltiSnipsExpandTrigger .
-      \ ' <Esc>:call autocomplete#expand_or_jump("N")<CR>'
+      \ ' <Esc>:call wincent#autocomplete#expand_or_jump("N")<CR>'
 execute 'inoremap <silent> ' . g:UltiSnipsJumpBackwardTrigger .
-      \ ' <C-R>=autocomplete#expand_or_jump("P")<CR>'
+      \ ' <C-R>=wincent#autocomplete#expand_or_jump("P")<CR>'
 execute 'snoremap <silent> ' . g:UltiSnipsJumpBackwardTrigger .
-      \ ' <Esc>:call autocomplete#expand_or_jump("P")<CR>'
+      \ ' <Esc>:call wincent#autocomplete#expand_or_jump("P")<CR>'

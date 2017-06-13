@@ -1,15 +1,15 @@
 let s:expansion_active = 0
 
-function! autocomplete#setup_mappings()
+function! wincent#autocomplete#setup_mappings()
   " Overwrite the mappings that UltiSnips sets up during expansion.
   execute 'inoremap <buffer> <silent> ' . g:UltiSnipsJumpForwardTrigger .
-        \ ' <C-R>=autocomplete#expand_or_jump("N")<CR>'
+        \ ' <C-R>=wincent#autocomplete#expand_or_jump("N")<CR>'
   execute 'snoremap <buffer> <silent> ' . g:UltiSnipsJumpForwardTrigger .
-        \ ' <Esc>:call autocomplete#expand_or_jump("N")<CR>'
+        \ ' <Esc>:call wincent#autocomplete#expand_or_jump("N")<CR>'
   execute 'inoremap <buffer> <silent> ' . g:UltiSnipsJumpBackwardTrigger .
-        \ ' <C-R>=autocomplete#expand_or_jump("P")<CR>'
+        \ ' <C-R>=wincent#autocomplete#expand_or_jump("P")<CR>'
   execute 'snoremap <buffer> <silent> ' . g:UltiSnipsJumpBackwardTrigger .
-        \ ' <Esc>:call autocomplete#expand_or_jump("P")<CR>'
+        \ ' <Esc>:call wincent#autocomplete#expand_or_jump("P")<CR>'
 
   " One additional mapping of our own: accept completion with <CR>.
   imap <expr> <buffer> <silent> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
@@ -18,7 +18,7 @@ function! autocomplete#setup_mappings()
   let s:expansion_active = 1
 endfunction
 
-function! autocomplete#teardown_mappings()
+function! wincent#autocomplete#teardown_mappings()
   silent! iunmap <expr> <buffer> <CR>
   silent! sunmap <expr> <buffer> <CR>
 
@@ -29,7 +29,7 @@ let g:ulti_jump_backwards_res = 0
 let g:ulti_jump_forwards_res = 0
 let g:ulti_expand_res = 0
 
-function! autocomplete#expand_or_jump(direction)
+function! wincent#autocomplete#expand_or_jump(direction)
   call UltiSnips#ExpandSnippet()
   if g:ulti_expand_res == 0
     " No expansion occurred.
@@ -65,7 +65,7 @@ function! autocomplete#expand_or_jump(direction)
 endfunction
 
 let s:deoplete_init_done=0
-function! autocomplete#deoplete_init() abort
+function! wincent#autocomplete#deoplete_init() abort
   if s:deoplete_init_done || !has('nvim')
     return
   endif
