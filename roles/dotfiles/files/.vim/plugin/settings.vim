@@ -52,6 +52,11 @@ set hidden                            " allows you to hide buffers with unsaved 
 set highlight+=@:ColorColumn          " ~/@ at end of window, 'showbreak'
 set highlight+=N:DiffText             " make current line number stand out a little
 set highlight+=c:LineNr               " blend vertical separators with line numbers
+
+if exists('&inccommand')
+  set inccommand=split                " live preview of :s results
+endif
+
 set laststatus=2                      " always show status line
 set lazyredraw                        " don't bother updating screen during macro playback
 
