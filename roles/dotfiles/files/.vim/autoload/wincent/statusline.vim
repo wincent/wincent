@@ -78,7 +78,7 @@ let s:modified_lhs_color='ModeMsg'
 let s:wincent_statusline_status_highlight=s:default_lhs_color
 let s:async=0
 
-function! statusline#async_start() abort
+function! wincent#statusline#async_start() abort
   let s:async=1
   call wincent#statusline#check_modified()
 endfunction
