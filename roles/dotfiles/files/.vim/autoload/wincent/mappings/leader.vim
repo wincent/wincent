@@ -1,5 +1,5 @@
 " Cycle through relativenumber + number, number (only), and no numbering.
-function! mappings#leader#cycle_numbering() abort
+function! wincent#mappings#leader#cycle_numbering() abort
   if exists('+relativenumber')
     execute {
           \ '00': 'set relativenumber   | set number',
@@ -12,7 +12,7 @@ function! mappings#leader#cycle_numbering() abort
   endif
 endfunction
 
-function! mappings#leader#matchparen() abort
+function! wincent#mappings#leader#matchparen() abort
   " Preserve current window becaus {Do,No}MatchParen cycle with :windo.
   let l:currwin=winnr()
   if exists('g:loaded_matchparen')
@@ -24,7 +24,7 @@ function! mappings#leader#matchparen() abort
 endfunction
 
 " Zap trailing whitespace.
-function! mappings#leader#zap() abort
+function! wincent#mappings#leader#zap() abort
   let l:pos=getcurpos()
   let l:search=@/
   keepjumps %substitute/\s\+$//e
