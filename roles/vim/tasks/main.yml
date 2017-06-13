@@ -1,14 +1,14 @@
 ---
-- include: bundle.yml
+- import_tasks: bundle.yml
   when: update_vim_bundle
 
-- include: build.yml
+- import_tasks: build.yml
 
-- include: local.yml
+- import_tasks: local.yml
   when: use_local_vim_dir
 
-- include: masochist.yml
+- import_tasks: masochist.yml
   when: install_masochist_vim_dependencies
 
-- include: nvim.yml
+- import_tasks: nvim.yml
   when: install_nvim_dependencies
