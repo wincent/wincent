@@ -22,4 +22,4 @@ let g:WincentQuickfixStatusline =
       \ . '%%'
       \ . '%*'
 
-call defer#defer('call variables#init()')
+call wincent#defer#defer('call variables#init()')

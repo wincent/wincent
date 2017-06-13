@@ -1,4 +1,4 @@
-call defer#defer('call plugins#abolish()')
+call wincent#defer#defer('call plugins#abolish()')
 
 call plugin#lazy({
       \   'pack': 'undotree',
