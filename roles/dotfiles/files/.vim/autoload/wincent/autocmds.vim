@@ -2,30 +2,30 @@ let g:WincentColorColumnBlacklist = ['diff', 'undotree', 'nerdtree', 'qf']
 let g:WincentCursorlineBlacklist = ['command-t']
 let g:WincentMkviewFiletypeBlacklist = ['diff', 'hgcommit', 'gitcommit']
 
-function! autocmds#attempt_select_last_file() abort
+function! wincent#autocmds#attempt_select_last_file() abort
   let l:previous=expand('#:t')
   if l:previous != ''
     call search('\v<' . l:previous . '>')
   endif
 endfunction
 
-function! autocmds#should_colorcolumn() abort
+function! wincent#autocmds#should_colorcolumn() abort
   return index(g:WincentColorColumnBlacklist, &filetype) == -1
 endfunction
 
-function! autocmds#should_cursorline() abort
+function! wincent#autocmds#should_cursorline() abort
   return index(g:WincentCursorlineBlacklist, &filetype) == -1
 endfunction
 
 " Loosely based on: http://vim.wikia.com/wiki/Make_views_automatic
-function! autocmds#should_mkview() abort
+function! wincent#autocmds#should_mkview() abort
   return
         \ &buftype == '' &&
         \ index(g:WincentMkviewFiletypeBlacklist, &filetype) == -1 &&
         \ !exists('$SUDO_USER') " Don't create root-owned files.
 endfunction
 
-function! autocmds#mkview() abort
+function! wincent#autocmds#mkview() abort
   if exists('*haslocaldir') && haslocaldir()
     " We never want to save an :lcd command, so hack around it...
     cd -
@@ -36,8 +36,8 @@ function! autocmds#mkview() abort
   endif
 endfunction
 
-function! autocmds#blur_window() abort
-  if autocmds#should_colorcolumn()
+function! wincent#autocmds#blur_window() abort
+  if wincent#autocmds#should_colorcolumn()
     if !exists('w:wincent_matches')
       " Instead of unconditionally resetting, append to existing array.
       " This allows us to gracefully handle duplicate autocmds.
@@ -60,8 +60,8 @@ function! autocmds#blur_window() abort
   endif
 endfunction
 
-function! autocmds#focus_window() abort
-  if autocmds#should_colorcolumn()
+function! wincent#autocmds#focus_window() abort
+  if wincent#autocmds#should_colorcolumn()
     if exists('w:wincent_matches')
       for l:match in w:wincent_matches
         try
@@ -75,7 +75,7 @@ function! autocmds#focus_window() abort
   endif
 endfunction
 
-function! autocmds#blur_statusline() abort
+function! wincent#autocmds#blur_statusline() abort
   " Default blurred statusline (buffer number: filename).
   let l:blurred='%{wincent#statusline#gutterpadding()}'
   let l:blurred.='\ ' " space
@@ -88,7 +88,7 @@ function! autocmds#blur_statusline() abort
   call s:update_statusline(l:blurred, 'blur')
 endfunction
 
-function! autocmds#focus_statusline() abort
+function! wincent#autocmds#focus_statusline() abort
   " `setlocal statusline=` will revert to global 'statusline' setting.
   call s:update_statusline('', 'focus')
 endfunction
@@ -132,8 +132,8 @@ function! s:get_custom_statusline(action) abort
   return 1 " Use default.
 endfunction
 
-function! autocmds#idleboot() abort
-  " Make sure we automatically call autocmds#idleboot() only once.
+function! wincent#autocmds#idleboot() abort
+  " Make sure we automatically call wincent#autocmds#idleboot() only once.
   augroup WincentIdleboot
     autocmd!
   augroup END
@@ -149,7 +149,7 @@ let s:encrypted[expand('~/code/ansible-configs')]='vendor/git-cipher/bin/git-cip
 let s:encrypted[expand('~/code/wincent')]='vendor/git-cipher/bin/git-cipher'
 
 " Update encryptable files after saving.
-function! autocmds#encrypt(file) abort
+function! wincent#autocmds#encrypt(file) abort
   let l:base=fnamemodify(a:file, ':h')
   let l:directories=keys(s:encrypted)
   for l:directory in l:directories

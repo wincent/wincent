@@ -17,7 +17,7 @@ let g:NERDTreeMouseMode=2
 if has('autocmd')
   augroup WincentNERDTree
     autocmd!
-    autocmd User NERDTreeInit call autocmds#attempt_select_last_file()
+    autocmd User NERDTreeInit call wincent#autocmds#attempt_select_last_file()
   augroup END
 endif
 
