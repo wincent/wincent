@@ -35,9 +35,11 @@
 	path = roles/dotfiles/files/.vim/pack/nerdtree/opt/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/pinnacle"]
+	ignore = untracked
 	path = roles/dotfiles/files/.vim/pack/bundle/start/pinnacle
 	url = https://github.com/wincent/pinnacle.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/replay"]
+	ignore = untracked
 	path = roles/dotfiles/files/.vim/pack/bundle/start/replay
 	url = https://github.com/wincent/replay.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/scalpel"]
