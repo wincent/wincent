@@ -31,7 +31,7 @@ function! s:open_in_diffusion(file)
   endfor
 
   if l:relative_path == ''
-    call functions#echoerr('Could not find repo configuration for file ' . a:file)
+    call wincent#functions#echoerr('Could not find repo configuration for file ' . a:file)
     return
   endif
 
@@ -59,7 +59,7 @@ function! commands#open_in_diffusion(...) abort
   endfor
 
   if !l:did_open
-    call functions#echoerr('No filename')
+    call wincent#functions#echoerr('No filename')
     return
   endif
 endfunction

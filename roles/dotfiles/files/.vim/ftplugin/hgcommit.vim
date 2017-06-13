@@ -2,7 +2,7 @@ if has('syntax')
   setlocal spell
 endif
 
-call functions#plaintext()
+call wincent#functions#plaintext()
 
 " Can't just use 'colorcolumn' here because it's really only the first line
 " whose length we care about, and our focus tricks elsewhere would overwrite

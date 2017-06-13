@@ -1,1 +1,1 @@
-call functions#plaintext()
+call wincent#functions#plaintext()
