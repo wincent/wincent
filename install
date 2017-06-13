@@ -17,6 +17,10 @@ usage() {
   echo "  -f/--force"
   echo "  -h/--help"
   echo "  -v/--verbose (repeat for more verbosity)"
+  echo "Other options (passed through to Ansible):"
+  echo "  --check"
+  echo "  --step"
+  echo "  --start-at-task='role | task'"
   echo "Supported roles:"
   for ROLE in $(ls roles); do
     echo "  $ROLE"
@@ -24,6 +28,7 @@ usage() {
   done
 }
 
+EXTRA_ARGS=()
 while [ $# -gt 0 ]; do
   if [ "$1" = '--force' -o "$1" = '-f' ]; then
     FORCE=1
@@ -39,6 +44,8 @@ while [ $# -gt 0 ]; do
       else
         ROLES="$ROLES,$1"
       fi
+    elif [[ "$1" == --* ]]; then
+      EXTRA_ARGS+=("$1")
     else
       echo "Unrecognized argument(s): $*"
       usage
@@ -94,9 +101,9 @@ source vendor/ansible/hacking/env-setup &> $DEV_NULL
 HOST_OS=$(uname)
 
 if [ "$HOST_OS" = 'Darwin' ]; then
-  ansible-playbook --ask-become-pass -i inventory ${VERBOSE+-v} ${ROLES} darwin.yml
+  ansible-playbook --ask-become-pass -i inventory ${VERBOSE+-v} ${ROLES} ${EXTRA_ARGS[@]} darwin.yml
 elif [ "$HOST_OS" = 'Linux' ]; then
-  ansible-playbook -i inventory ${VERBOSE+-v} ${ROLES} linux.yml
+  ansible-playbook -i inventory ${VERBOSE+-v} ${ROLES} ${EXTRA_ARGS[@]} linux.yml
 else
   echo "Unknown host OS: $HOST_OS"
   exit 1
