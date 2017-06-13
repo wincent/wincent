@@ -12,5 +12,5 @@ endfunction
 
 " Convenience function specifically for defering a `:packadd` operation.
 function! wincent#defer#packadd(pack, plugin) abort
-  execute "call wincent#defer#defer('call plugin#packadd(\"' . a:pack . '\", \"' . a:plugin . '\")')"
+  execute "call wincent#defer#defer('call wincent#plugin#packadd(\"' . a:pack . '\", \"' . a:plugin . '\")')"
 endfunction

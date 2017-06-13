@@ -21,7 +21,7 @@ if has('autocmd')
   augroup END
 endif
 
-call plugin#lazy({
+call wincent#plugin#lazy({
       \   'pack': 'nerdtree',
       \   'plugin': 'NERD_tree.vim',
       \   'commands': {

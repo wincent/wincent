@@ -1,6 +1,6 @@
 let s:plugins={}
 
-function! plugin#lazy(config) abort
+function! wincent#plugin#lazy(config) abort
   let l:id=a:config.pack . '::' . a:config.plugin
   let s:plugins[l:id]=a:config
   let l:load='call <SID>load("' . l:id . '")'
@@ -36,7 +36,7 @@ function! s:load(id) abort
       execute l:item
     endfor
   endif
-  call plugin#packadd(l:pack, l:plugin)
+  call wincent#plugin#packadd(l:pack, l:plugin)
   if has_key(l:config, 'nnoremap')
     for l:mapping in items(l:config.nnoremap)
       execute 'nnoremap ' . l:mapping[0] . ' ' . l:mapping[1]
@@ -49,7 +49,7 @@ function! s:load(id) abort
   endif
 endfunction
 
-function! plugin#packadd(pack, plugin) abort
+function! wincent#plugin#packadd(pack, plugin) abort
   if has('packages')
     execute 'packadd ' . a:pack
   else

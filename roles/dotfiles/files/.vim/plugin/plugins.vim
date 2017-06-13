@@ -1,6 +1,6 @@
-call wincent#defer#defer('call plugins#abolish()')
+call wincent#defer#defer('call wincent#plugins#abolish()')
 
-call plugin#lazy({
+call wincent#plugin#lazy({
       \   'pack': 'undotree',
       \   'plugin': 'undotree.vim',
       \   'nnoremap': {

@@ -1,5 +1,5 @@
-function! plugins#abolish() abort
-  call plugin#packadd('vim-abolish', 'abolish.vim')
+function! wincent#plugins#abolish() abort
+  call wincent#plugin#packadd('vim-abolish', 'abolish.vim')
 
   Abolish aboud about
   Abolish ahve have
