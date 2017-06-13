@@ -116,6 +116,11 @@ if exists('&swapsync')
   set swapsync=                       " let OS sync swapfiles lazily
 endif
 set switchbuf=usetab                  " try to reuse windows/tabs when switching buffers
+
+if has('syntax')
+  set synmaxcol=200                   " don't bother syntax highlighting long lines
+endif
+
 set tabstop=2                         " spaces per tab
 
 if has('termguicolors')
