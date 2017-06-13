@@ -13,7 +13,7 @@ function! wincent#mappings#leader#cycle_numbering() abort
 endfunction
 
 function! wincent#mappings#leader#matchparen() abort
-  " Preserve current window becaus {Do,No}MatchParen cycle with :windo.
+  " Preserve current window because {Do,No}MatchParen cycle with :windo.
   let l:currwin=winnr()
   if exists('g:loaded_matchparen')
     NoMatchParen
