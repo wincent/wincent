@@ -57,7 +57,7 @@ function! wincent#plugin#packadd(pack, plugin) abort
   end
 endfunction
 
-function! s:infect(pack, plugin)
+function! s:infect(pack, plugin) abort
   if !exists('g:loaded_pathogen')
     source $HOME/.vim/pack/bundle/opt/vim-pathogen/autoload/pathogen.vim
   endif

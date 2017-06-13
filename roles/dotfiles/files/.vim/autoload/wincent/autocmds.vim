@@ -4,7 +4,7 @@ let g:WincentMkviewFiletypeBlacklist = ['diff', 'hgcommit', 'gitcommit']
 
 function! wincent#autocmds#attempt_select_last_file() abort
   let l:previous=expand('#:t')
-  if l:previous != ''
+  if l:previous !=# ''
     call search('\v<' . l:previous . '>')
   endif
 endfunction
@@ -20,7 +20,7 @@ endfunction
 " Loosely based on: http://vim.wikia.com/wiki/Make_views_automatic
 function! wincent#autocmds#should_mkview() abort
   return
-        \ &buftype == '' &&
+        \ &buftype ==# '' &&
         \ index(g:WincentMkviewFiletypeBlacklist, &filetype) == -1 &&
         \ !exists('$SUDO_USER') " Don't create root-owned files.
 endfunction
@@ -112,17 +112,17 @@ function! s:update_statusline(default, action) abort
 endfunction
 
 function! s:get_custom_statusline(action) abort
-  if &ft == 'command-t'
+  if &ft ==# 'command-t'
     " Will use Command-T-provided buffer name, but need to escape spaces.
     return '\ \ ' . substitute(bufname('%'), ' ', '\\ ', 'g')
-  elseif &ft == 'diff' && exists('t:diffpanel') && t:diffpanel.bufname == bufname('%')
+  elseif &ft ==# 'diff' && exists('t:diffpanel') && t:diffpanel.bufname ==# bufname('%')
     return 'Undotree\ preview' " Less ugly, and nothing really useful to show.
-  elseif &ft == 'undotree'
+  elseif &ft ==# 'undotree'
     return 0 " Don't override; undotree does its own thing.
-  elseif &ft == 'nerdtree'
+  elseif &ft ==# 'nerdtree'
     return 0 " Don't override; NERDTree does its own thing.
-  elseif &ft == 'qf'
-    if a:action == 'blur'
+  elseif &ft ==# 'qf'
+    if a:action ==# 'blur'
       return 'Quickfix'
     else
       return g:WincentQuickfixStatusline

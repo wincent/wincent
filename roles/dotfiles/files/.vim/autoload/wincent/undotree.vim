@@ -6,7 +6,7 @@ function! wincent#undotree#init() abort
 endfunction
 
 " Mappings to emulate Gundo behavior.
-function! g:Undotree_CustomMap()
+function! g:Undotree_CustomMap() abort
   " Normally j, k just move and J, K actually revert; lets make j, k revert too.
   nmap <buffer> j <Plug>UndotreeGoPreviousState
   nmap <buffer> k <Plug>UndotreeGoNextState

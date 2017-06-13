@@ -1,3 +1,5 @@
+scriptencoding utf-8
+
 function! wincent#statusline#gutterpadding() abort
   let l:minwidth=2
   let l:gutterWidth=max([strlen(line('$')) + 1, &numberwidth, l:minwidth])
@@ -7,7 +9,7 @@ endfunction
 
 function! wincent#statusline#fileprefix() abort
   let l:basename=expand('%:h')
-  if l:basename == '' || l:basename == '.'
+  if l:basename ==# '' || l:basename ==# '.'
     return ''
   else
     " Make sure we show $HOME as ~.

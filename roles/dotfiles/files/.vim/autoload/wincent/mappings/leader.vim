@@ -25,10 +25,5 @@ endfunction
 
 " Zap trailing whitespace.
 function! wincent#mappings#leader#zap() abort
-  let l:pos=getcurpos()
-  let l:search=@/
-  keepjumps %substitute/\s\+$//e
-  let @/=l:search
-  nohlsearch
-  call setpos('.', l:pos)
+  call wincent#functions#substitute('\s\+$', '', '')
 endfunction
