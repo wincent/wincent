@@ -25,7 +25,7 @@ if has('statusline')
   "   %{wincent#statusline#fenc()} File-encoding if not UTF-8.
   "   ]                            Right bracket (literal).
   "   %)                           End item group.
-  set statusline+=%([%R%{wincent#statusline#ft()}%{statusline#fenc()}]%)
+  set statusline+=%([%R%{wincent#statusline#ft()}%{wincent#statusline#fenc()}]%)
 
   set statusline+=%*   " Reset highlight group.
   set statusline+=%=   " Split point for left and right groups.
