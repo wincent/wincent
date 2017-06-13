@@ -5,7 +5,7 @@ function! s:preview(file)
   silent execute "!open -a 'Marked 2.app' " . shellescape(a:file)
 endfunction
 
-function! commands#preview(...) abort
+function! wincent#commands#preview(...) abort
   if a:0 == 0
     call s:preview(expand('%'))
   else
@@ -43,7 +43,7 @@ endfunction
 " selection) in Diffusion.
 "
 " Depends on `g:diffusion_map` being set up in `plugin/private.vim`.
-function! commands#open_in_diffusion(...) abort
+function! wincent#commands#open_in_diffusion(...) abort
   if a:0 == 0
     let l:files=[expand('%')]
   else
@@ -87,7 +87,7 @@ function! s:url_encode(string)
         \ )
 endfunction
 
-function! commands#search(query) abort
+function! wincent#commands#search(query) abort
   if a:query == ''
     call s:search(expand('<cword>'))
   else
