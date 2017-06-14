@@ -147,3 +147,6 @@
 [submodule "vendor/virtualenv"]
 	path = vendor/virtualenv
 	url = https://github.com/pypa/virtualenv.git
+[submodule "roles/dotfiles/files/.zsh/zsh-autosuggestions"]
+	path = roles/dotfiles/files/.zsh/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions

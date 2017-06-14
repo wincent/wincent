@@ -314,6 +314,12 @@ LOCAL_RC=$HOME/.zshrc.local
 test -f $LOCAL_RC && source $LOCAL_RC
 
 #
+# Plug-ins
+#
+
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+#
 # /etc/motd
 #
 
