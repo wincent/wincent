@@ -317,6 +317,7 @@ test -f $LOCAL_RC && source $LOCAL_RC
 # Plug-ins
 #
 
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=0'
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 #
