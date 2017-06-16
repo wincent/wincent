@@ -34,14 +34,16 @@ On macOS, [the `homebrew` role](https://github.com/wincent/wincent/tree/master/r
 
 ### Keyboard customization
 
-On macOS, Hammerspoon is used to provide the functionality previously provided in [the `keyboard` role](https://github.com/wincent/wincent/tree/c250a81d235bef574d3a7cf2f2bb7a585bcd9686/roles/keyboard) via [Karabiner](https://pqrs.org/osx/karabiner/):
+On macOS, [Karabiner-Elements](https://github.com/tekezo/Karabiner-Elements/) is used for the following:
 
-* Make Caps Lock serve as Backspace (when tapped), repeated Backspace (when pressed and held), and Left Control (when chorded with another key).
-* Make Return serve as Return (when tapped), repeated Return (when pressed and held), and Right Control (when chorded with another key).
-* Maps Control-I to F6 in the terminal so that it can be mapped independently from Tab in Vim.
+* Make Caps Lock serve as Backspace (when tapped) and Left Control (when chorded with another key).
+* Make Return serve as Return (when tapped) and Right Control (when chorded with another key).
+* Maps Control-I to F6 so that it can be mapped independently from Tab in Vim.
 
-Other functionality that *used* to come via Karabiner isn't (yet) supported because Karabiner itself doesn't support macOS Sierra, and its successor, [Karabiner-Elements](https://github.com/tekezo/Karabiner-Elements), still has a pretty primitive feature set:
+Other functionality that *used* to come via Karabiner but isn't (yet) supported by Karabiner-Elements, or I haven't gotten around to doing it:
 
+* Map Control-I only in the Terminal and in MacVim, not globally.
+* Make Caps Lock and Return fire repeating backspace and Return events when pressed and held.
 * Adds a "SpaceFN" layer that can be activated by holding down Space while hitting other keys; I use this to make the cursor keys available on or near the home row in any app.
 * Turn Caps Lock on by tapping both Shift keys simultaneously (turn it off by tapping either Shift key on its own).
 * Makes the function keys on my external Realforce keyboard behave like the "media" keys on Apple's keyboards. F13 serves as a sticky "fn" key, and F15 as Power.

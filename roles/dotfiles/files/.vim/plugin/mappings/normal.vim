@@ -3,8 +3,8 @@
 " Toggle fold at current position.
 nnoremap <Tab> za
 
-" Relying on Hammerspoon to avoid collision between <Tab> and <C-i> (have it
-" send F6 instead for <C-i>).
+" Relying on Karabiner-Elements to avoid collision between <Tab> and
+" <C-i> (have it send F6 instead for <C-i>).
 nnoremap <F6> <C-i>
 
 " Avoid unintentional switches to Ex mode.
