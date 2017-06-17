@@ -110,9 +110,24 @@
                                         ]
                                     }
                                 },
-                                "parameters": {
-                                    "basic": {
-                                        "to_if_alone_timeout_milliseconds": 500
+                                "to": [
+                                    {
+                                        "key_code": "caps_lock"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "Right and Left Shift together -> Caps Lock",
+                                "from": {
+                                    "key_code": "left_shift",
+                                    "modifiers": {
+                                        "mandatory": [
+                                          "right_shift"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
                                     }
                                 },
                                 "to": [
