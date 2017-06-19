@@ -6,18 +6,20 @@
 local events = require 'events'
 local log = require 'log'
 
-local handleScreenEvent = nil
+local handleEvent = nil
 local reload = nil
-local updateKarabinerProfile = nil
+local selectProfile = nil
 local watcher = nil
 
-local screenCount = #hs.screen.allScreens()
-
-handleScreenEvent = (function()
-  local screens = hs.screen.allScreens()
-  if not (#screens == screenCount) then
-    screenCount = #screens
-    updateKarabinerProfile()
+handleEvent = (function(event)
+  if event.vendorID == 2131 and event.productID == 273 then
+    if event.eventType == 'added' then
+      log.i('Realforce added')
+      selectProfile('Realforce')
+    else
+      log.i('Realforce removed')
+      selectProfile('Internal')
+    end
   end
 end)
 
@@ -26,15 +28,19 @@ reload = (function()
   watcher = nil
 end)
 
-updateKarabinerProfile = (function()
-  log.i('checking updating profile')
+selectProfile = (function(profile)
+  hs.execute(
+    '/Library/Application\\ Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli ' ..
+    '--select-profile ' ..
+    profile
+  )
 end)
 
 events.subscribe('reload', reload)
 
 return {
   init = (function()
-    watcher = hs.screen.watcher.new(handleScreenEvent)
+    watcher = hs.usb.watcher.new(handleEvent)
     watcher:start()
   end),
 }
