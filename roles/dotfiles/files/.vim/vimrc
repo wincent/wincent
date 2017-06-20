@@ -49,9 +49,11 @@ if filereadable(s:vimrc_local)
   execute 'source ' . s:vimrc_local
 endif
 
-" Temporary workaround for MacVim blowing up for any Python plug-in.
 if has('gui')
-  let g:pathogen_blacklist=['YouCompleteMe', 'ultisnips']
+  " Temporary workaround for MacVim. It supposedly has +python/dyn and
+  " +python3/dyn, but if Python 3 loads first, YCM won't work. Force
+  " Python 2 to load first.
+  call has('python')
 endif
 
 if &loadplugins
