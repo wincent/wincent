@@ -51,7 +51,11 @@ endif
 
 if has('gui')
   " Turn off scrollbars. (Default on macOS is "egmrL").
-  set guioptions-=LRblr
+  set guioptions-=L
+  set guioptions-=R
+  set guioptions-=b
+  set guioptions-=l
+  set guioptions-=r
 
   " Temporary workaround for MacVim. It supposedly has +python/dyn and
   " +python3/dyn, but if Python 3 loads first, YCM won't work. Force
