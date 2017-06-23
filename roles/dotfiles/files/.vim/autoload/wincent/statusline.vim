@@ -35,7 +35,7 @@ endfunction
 
 function! wincent#statusline#lhs() abort
   let l:line=wincent#statusline#gutterpadding()
-  let l:line.=&modified ? '+ ' : '  '
+  let l:line.=&modified ? '★ ' : '  '
   return l:line
 endfunction
 
