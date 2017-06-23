@@ -37,5 +37,4 @@ call wincent#plugin#lazy({
       \   'nnoremap': {
       \     '<silent> -': ":silent edit <C-R>=empty(expand('%')) ? '.' : fnameescape(expand('%:p:h'))<CR><CR>"
       \   }
-      \   ]
       \ })
