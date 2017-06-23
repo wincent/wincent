@@ -11,7 +11,7 @@
                     {
                         "manipulators": [
                             {
-                                "description": "Change caps_lock to control when used as modifier, escape when used alone",
+                                "description": "Change caps_lock to control when used as modifier, backspace when used alone",
                                 "from": {
                                     "key_code": "caps_lock",
                                     "modifiers": {
@@ -181,7 +181,7 @@
                     {
                         "manipulators": [
                             {
-                                "description": "Change caps_lock to control when used as modifier, escape when used alone",
+                                "description": "Change caps_lock to control when used as modifier, backspace when used alone",
                                 "from": {
                                     "key_code": "caps_lock",
                                     "modifiers": {
