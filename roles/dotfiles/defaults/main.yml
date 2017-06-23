@@ -6,6 +6,7 @@ dotfile_files:
   - .bash
   - .bash_profile
   - .clipper.json
+  - .config/karabiner
   - .config/ranger
   - .emacs.d
   - .ghci
