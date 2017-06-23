@@ -86,6 +86,11 @@ fi
 
 source $VIRTUALENV_ACTIVATE
 
+# Troubleshooting during OS upgrades, or new machine installs: may need:
+#
+#   sudo -H pip install --upgrade cryptography
+#   pip install --upgrade pip
+#
 if [[ -z $(pip show paramiko PyYAML Jinja2 httplib2) || $FORCE ]]; then
   if ! pip install paramiko pycrypto PyYAML Jinja2 httplib2 &> $DEV_NULL; then
     echo "Failed: pip install"
