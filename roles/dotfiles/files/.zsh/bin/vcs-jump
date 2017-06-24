@@ -122,7 +122,7 @@ def mode_merge(__args__ignored)
     filter = "perl -pe 's/^.*?\\t//"
   else
     command = 'hg resolve -l'
-    filter = "egrep -e '^U\s+' | perl -pe 's#^U\\s+##{root}#/'"
+    filter = "egrep -e '^U\\s+' | perl -pe 's#^U\\s+##{root}/#'"
   end
   puts %x{
     #{command} |
