@@ -103,7 +103,7 @@ end
 
 def mode_diff(args)
   args = shellescape(args)
-  diff =  git? ? `git diff --relative #{args}` : `hg diff --git #{args}`
+  diff =  git? ? `git diff --relative #{args}` : `hg diff --git --root . #{args}`
   idx  = nil
   file = nil
 
