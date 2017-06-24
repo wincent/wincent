@@ -21,7 +21,7 @@ def usage()
     [supports: git, hg]
 
     grep: elements are grep hits. Arguments are given to grep.
-    [supports: git]
+    [supports: git, hg]
   EOF
 end
 
@@ -141,7 +141,7 @@ def mode_grep(args)
   if git?
     puts %x{git grep -n #{shellescape args} | perl -pe 's/[ \t]+/ /g; s/^ *//;'}
   else
-    raise 'error: "grep" mode only works in Git repositories'
+    puts %x{hg grep -n #{shellescape args} | perl -pe 's/[ \t]+/ /g; s/^ *//;'}
   end
 end
 
