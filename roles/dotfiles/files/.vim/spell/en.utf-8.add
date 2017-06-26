@@ -85,6 +85,7 @@ filetype
 gitignore
 gzip
 hacky
+heterogenous
 homogenous
 hostnames
 iCloud
@@ -127,6 +128,7 @@ prototypal
 quicksort
 rbenv
 rebase
+rebased
 recurse
 recursed
 recursing
