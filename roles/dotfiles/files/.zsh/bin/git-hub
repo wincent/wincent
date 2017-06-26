@@ -49,8 +49,7 @@ def capture(command)
   result
 end
 
-# Infers the GitHub project name (ie. "user/project") from the repo remotes.
-def project
+def remote_config
   capture('git remote -v')
     .split(/\n/)
     .grep(/\A(#{PREFERRED_REMOTES.join('|')})\s/)
@@ -60,12 +59,16 @@ def project
       PREFERRED_REMOTES.find_index(a) || MAX_INT <=>
       PREFERRED_REMOTES.find_index(b) || MAX_INT
     }
-    .first
-    .tap do |remote|
-      if remote.nil?
-        die 'failed to locate GitHub remote'
-      end
-    end[%r{github\.com[:/]([^ ]+?)(\.git)? \(fetch\)}, 1]
+    .first or die 'failed to locate GitHub remote'
+end
+
+def remote
+  remote_config[%r{^(\w+)\s+\S*github\.com\S+\s+\(fetch\)}, 1]
+end
+
+# Infers the GitHub project name (ie. "user/project") from the repo remotes.
+def project
+  remote_config[%r{github\.com[:/]([^ ]+?)(\.git)? \(fetch\)}, 1]
 end
 
 def link(pull)
@@ -113,9 +116,9 @@ when 'get'
   number = arg
   url = Shellwords.shellescape(pr(number))
   Dir.mktmpdir do |dir|
-    run "git checkout -B pull/#{Shellwords.shellescape(number)}"
-    run "curl -L -f -o #{dir}/PULL -s #{url}"
-    run "git am #{dir}/PULL"
+    branch = "pull/#{Shellwords.shellescape(number)}"
+    run "git fetch #{remote} pull/#{Shellwords.shellescape(number)}/head:#{branch}"
+    run "git checkout #{branch}"
   end
 
 when 'update'
