@@ -8,7 +8,7 @@
         {
             "complex_modifications": {
                 "parameters": {
-                    "basic.to_if_alone_timeout_milliseconds": 1000
+                    "basic.to_if_alone_timeout_milliseconds": 500
                 },
                 "rules": [
                     {
@@ -21,11 +21,6 @@
                                         "optional": [
                                             "any"
                                         ]
-                                    }
-                                },
-                                "parameters": {
-                                    "basic": {
-                                        "to_if_alone_timeout_milliseconds": 500
                                     }
                                 },
                                 "to": [
@@ -53,11 +48,6 @@
                                         "optional": [
                                             "any"
                                         ]
-                                    }
-                                },
-                                "parameters": {
-                                    "basic": {
-                                        "to_if_alone_timeout_milliseconds": 500
                                     }
                                 },
                                 "to": [
@@ -181,7 +171,7 @@
         {
             "complex_modifications": {
                 "parameters": {
-                    "basic.to_if_alone_timeout_milliseconds": 1000
+                    "basic.to_if_alone_timeout_milliseconds": 500
                 },
                 "rules": [
                     {
@@ -194,11 +184,6 @@
                                         "optional": [
                                             "any"
                                         ]
-                                    }
-                                },
-                                "parameters": {
-                                    "basic": {
-                                        "to_if_alone_timeout_milliseconds": 500
                                     }
                                 },
                                 "to": [
@@ -226,11 +211,6 @@
                                         "optional": [
                                             "any"
                                         ]
-                                    }
-                                },
-                                "parameters": {
-                                    "basic": {
-                                        "to_if_alone_timeout_milliseconds": 500
                                     }
                                 },
                                 "to": [
