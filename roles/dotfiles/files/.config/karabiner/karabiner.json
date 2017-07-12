@@ -88,7 +88,17 @@
                                         ]
                                     }
                                 ],
-                                "type": "basic"
+                                "type": "basic",
+                                "conditions": [
+                                  {
+                                    "type": "frontmost_application_if",
+                                    "bundle_identifiers": [
+                                      "^com\\.apple\\.Terminal$",
+                                      "^com\\.googlecode\\.iterm2$",
+                                      "^org\\.vim\\.MacVim\\.plist$"
+                                    ]
+                                  }
+                                ]
                             },
                             {
                                 "description": "Left and Right Shift together -> Caps Lock",
@@ -251,7 +261,17 @@
                                         ]
                                     }
                                 ],
-                                "type": "basic"
+                                "type": "basic",
+                                "conditions": [
+                                  {
+                                    "type": "frontmost_application_if",
+                                    "bundle_identifiers": [
+                                      "^com\\.apple\\.Terminal$",
+                                      "^com\\.googlecode\\.iterm2$",
+                                      "^org\\.vim\\.MacVim\\.plist$"
+                                    ]
+                                  }
+                                ]
                             },
                             {
                                 "description": "Left and Right Shift together -> Caps Lock",
