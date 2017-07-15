@@ -29,15 +29,19 @@ Karabiner
 Keychain
 LastPass
 Lua
+MVC
 MailMate
+MongoDB
 Monoid
 Monoids
 MySQL
 OCaml
 PHP
+PRs
 Perf
 Phabricator
 PowerPC
+RESTful
 RVM
 Recurse
 Redis
@@ -54,6 +58,7 @@ abandonware
 admin
 app
 applicatives
+apps
 async
 auth
 backend
@@ -76,6 +81,7 @@ configs
 cron
 dedupes
 diff
+diffs
 dotfile
 dotfiles
 eg
@@ -93,9 +99,11 @@ iCloud
 iOS
 iTerm
 iframe
+impactful
 infocmp
 inline
 introspection
+jQuery
 keychains
 linter
 loadview
