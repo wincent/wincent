@@ -68,6 +68,16 @@
                                 "type": "basic"
                             },
                             {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^org\\.vim\\.MacVim\\.plist$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
                                 "description": "Change control+I to F6",
                                 "from": {
                                     "key_code": "l",
@@ -88,17 +98,7 @@
                                         ]
                                     }
                                 ],
-                                "type": "basic",
-                                "conditions": [
-                                  {
-                                    "type": "frontmost_application_if",
-                                    "bundle_identifiers": [
-                                      "^com\\.apple\\.Terminal$",
-                                      "^com\\.googlecode\\.iterm2$",
-                                      "^org\\.vim\\.MacVim\\.plist$"
-                                    ]
-                                  }
-                                ]
+                                "type": "basic"
                             },
                             {
                                 "description": "Left and Right Shift together -> Caps Lock",
@@ -241,6 +241,16 @@
                                 "type": "basic"
                             },
                             {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^org\\.vim\\.MacVim\\.plist$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
                                 "description": "Change control+I to F6",
                                 "from": {
                                     "key_code": "l",
@@ -261,17 +271,7 @@
                                         ]
                                     }
                                 ],
-                                "type": "basic",
-                                "conditions": [
-                                  {
-                                    "type": "frontmost_application_if",
-                                    "bundle_identifiers": [
-                                      "^com\\.apple\\.Terminal$",
-                                      "^com\\.googlecode\\.iterm2$",
-                                      "^org\\.vim\\.MacVim\\.plist$"
-                                    ]
-                                  }
-                                ]
+                                "type": "basic"
                             },
                             {
                                 "description": "Left and Right Shift together -> Caps Lock",
