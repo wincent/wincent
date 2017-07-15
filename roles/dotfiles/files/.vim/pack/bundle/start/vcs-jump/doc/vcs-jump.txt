@@ -1,0 +1,10 @@
+*vcs-jmp.txt*                  vcs-jump plug-in for Vim                  *vcs-jmp*
+
+CONTENTS                                                      *vcs-jmp-contents*
+
+1. Intro     |vcs-jmp-intro|
+
+INTRO                                                            *vcs-jmp-intro*
+
+This plug-in allows you to jump to useful places within a Git or Mercurial
+repository.
