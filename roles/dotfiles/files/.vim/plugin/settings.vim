@@ -12,6 +12,10 @@ else
   set backupdir+=.
 endif
 
+if has('wildignore')
+  set backupskip+=*.re,*.rei          " prevent bsb's watch mode from getting confused
+endif
+
 if exists('&belloff')
   set belloff=all                     " never ring the bell for any reason
 endif
