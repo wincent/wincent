@@ -30,12 +30,7 @@
                                 ],
                                 "to_if_alone": [
                                     {
-                                        "key_code": "delete_or_backspace",
-                                        "modifiers": {
-                                            "optional": [
-                                                "any"
-                                            ]
-                                        }
+                                        "key_code": "delete_or_backspace"
                                     }
                                 ],
                                 "type": "basic"
@@ -57,12 +52,7 @@
                                 ],
                                 "to_if_alone": [
                                     {
-                                        "key_code": "return_or_enter",
-                                        "modifiers": {
-                                            "optional": [
-                                                "any"
-                                            ]
-                                        }
+                                        "key_code": "return_or_enter"
                                     }
                                 ],
                                 "type": "basic"
@@ -203,12 +193,7 @@
                                 ],
                                 "to_if_alone": [
                                     {
-                                        "key_code": "delete_or_backspace",
-                                        "modifiers": {
-                                            "optional": [
-                                                "any"
-                                            ]
-                                        }
+                                        "key_code": "delete_or_backspace"
                                     }
                                 ],
                                 "type": "basic"
