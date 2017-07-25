@@ -89,8 +89,7 @@
                 "description":"Space as fn",
                 "type":"basic",
                 "from":{
-                  "key_code":"spacebar",
-                  "modifiers":{"optional":["any"]}
+                  "key_code":"spacebar"
                 },
                 "to":[{"key_code":"fn"}],
                 "to_if_alone":[{"key_code":"spacebar"}]
