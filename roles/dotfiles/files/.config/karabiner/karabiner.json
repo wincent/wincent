@@ -12,9 +12,59 @@
                 },
                 "rules": [
                     {
+                        "description": "SpaceFN layer",
                         "manipulators": [
                             {
-                                "description": "Change caps_lock to control when used as modifier, backspace when used alone",
+                                "from": {
+                                    "key_code": "spacebar"
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "SpaceFN",
+                                            "value": 1
+                                        }
+                                    }
+                                ],
+                                "to_after_key_up": [
+                                    {
+                                        "set_variable": {
+                                            "name": "SpaceFN",
+                                            "value": 0
+                                        }
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "spacebar"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "SpaceFN",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "i"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "up_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Change caps_lock to control when used as modifier, backspace when used alone",
+                        "manipulators": [
+                            {
                                 "from": {
                                     "key_code": "caps_lock",
                                     "modifiers": {
@@ -34,9 +84,13 @@
                                     }
                                 ],
                                 "type": "basic"
-                            },
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Change return to control when used as modifier, return when used alone",
+                        "manipulators": [
                             {
-                                "description": "Change return to control when used as modifier, return when used alone",
                                 "from": {
                                     "key_code": "return_or_enter",
                                     "modifiers": {
@@ -56,7 +110,12 @@
                                     }
                                 ],
                                 "type": "basic"
-                            },
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Change control+I to F6",
+                        "manipulators": [
                             {
                                 "conditions": [
                                     {
@@ -68,7 +127,6 @@
                                         "type": "frontmost_application_if"
                                     }
                                 ],
-                                "description": "Change control+I to F6",
                                 "from": {
                                     "key_code": "l",
                                     "modifiers": {
@@ -89,9 +147,13 @@
                                     }
                                 ],
                                 "type": "basic"
-                            },
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Left and Right Shift together -> Caps Lock",
+                        "manipulators": [
                             {
-                                "description": "Left and Right Shift together -> Caps Lock",
                                 "from": {
                                     "key_code": "right_shift",
                                     "modifiers": {
@@ -111,7 +173,6 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "Right and Left Shift together -> Caps Lock",
                                 "from": {
                                     "key_code": "left_shift",
                                     "modifiers": {
@@ -302,6 +363,7 @@
                     }
                 ]
             },
+            "description": "Same as \"Internal\" profile but with Option and Command swapped",
             "devices": [
                 {
                     "disable_built_in_keyboard_if_exists": false,
