@@ -4,7 +4,6 @@ hs.grid.MARGINY = 0
 hs.window.animationDuration = 0 -- disable animations
 
 local events = require 'events'
-local karabiner = require 'karabiner'
 local log = require 'log'
 local reloader = require 'reloader'
 
@@ -377,7 +376,6 @@ end)
 -- `open hammerspoon://screencast`
 hs.urlevent.bind('screencast', prepareScreencast)
 
-karabiner.init()
 reloader.init()
 
 log.i('Config loaded')
