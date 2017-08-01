@@ -8,6 +8,8 @@ setlocal spell
 " but going with something dumb and simple for now.
 setlocal spelllang=en,es
 
+setlocal synmaxcol=0
+
 nnoremap <buffer> j gj
 nnoremap <buffer> k gk
 
