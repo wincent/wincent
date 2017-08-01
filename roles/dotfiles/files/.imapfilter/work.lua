@@ -284,6 +284,7 @@ function run()
         'biz_finance_perm|' ..
         'biz_obj_access_request|' ..
         'biz_perm_proxy_request|' ..
+        'biz_two_factor|' ..
         'page_fan|' ..
         'page_follow'
       )
