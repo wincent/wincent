@@ -17,11 +17,13 @@ Facebook
 Facebook's
 FileMaker
 GitHub
+Gmail
 GraphQL
 GraphiQL
 GraphiQL's
 Hammerspoon
 Heroku
+Homebrew
 Hurrell
 JS
 JSON
@@ -30,6 +32,7 @@ Keychain
 LastPass
 Lua
 MVC
+MacVim
 MailMate
 MongoDB
 Monoid
@@ -43,6 +46,7 @@ Phabricator
 PowerPC
 RESTful
 RVM
+Realforce
 Recurse
 Redis
 Redux
@@ -61,6 +65,8 @@ applicatives
 apps
 async
 auth
+autocompletes
+autocompletion
 backend
 backticks
 bitmask
@@ -89,6 +95,8 @@ etc
 fallback
 filesystem
 filetype
+foo
+foobar
 gitignore
 gzip
 hacky
@@ -100,10 +108,12 @@ iOS
 iTerm
 iframe
 impactful
+inbox
 infocmp
 inline
 introspection
 jQuery
+keychain
 keychains
 linter
 loadview
@@ -127,6 +137,7 @@ nginx
 npm
 nvALT
 octothorpe
+offline
 ok
 overpromising
 passphrases
@@ -148,6 +159,7 @@ refactor
 repo
 repos
 screensaver
+screenshot
 segfaults
 shows
 spellfile
@@ -156,6 +168,7 @@ struct
 submodule
 submodules
 subtree
+symlink
 terminfo
 timestamp
 tmux
