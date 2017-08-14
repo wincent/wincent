@@ -63,6 +63,8 @@ macro pager *u "<exit><untag-pattern>~T<enter><tag-pattern>~U<enter>" "select un
 
 macro index,pager \\u "<enter-command>set pipe_decode = yes<enter><pipe-message>urlview<enter><enter-command>set pipe_decode = no<enter>" "view URLs"
 
+macro index,pager | "<pipe-message>" "pipe message to..."
+
 # [m]ove a mail to another folder (in Gmail, "m" would be "[m]ute").
 macro pager m "<save-message>?<toggle-mailboxes>" "move to..."
 macro index m "<tag-prefix><save-message>?<toggle-mailboxes>" "move to..."
