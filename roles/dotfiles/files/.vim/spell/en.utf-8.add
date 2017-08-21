@@ -86,6 +86,7 @@ config
 configs
 cron
 dedupes
+destructuring
 diff
 diffs
 dotfile
