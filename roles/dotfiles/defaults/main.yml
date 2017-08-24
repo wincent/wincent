@@ -36,6 +36,7 @@ dotfile_files:
   - .zshrc
 
 dotfile_templates:
+  - .gemrc
   - .gitconfig
 
 git_user_email: '{{"greg@hurrell.net" if lookup("env", "USER") == "glh" else ""}}'
