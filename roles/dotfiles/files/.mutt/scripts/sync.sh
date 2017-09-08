@@ -55,7 +55,7 @@ while true; do
   echo "Running mbsync ($ACCOUNT):"
   echo
 
-  time gtimeout 600 mbsync "$ACCOUNT" || {
+  time gtimeout 3600 mbsync "$ACCOUNT" || {
     terminal-notifier -title mbsync -message "mbsync ($ACCOUNT) exited"
     backoff
     continue
