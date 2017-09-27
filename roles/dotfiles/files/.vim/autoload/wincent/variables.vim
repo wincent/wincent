@@ -9,12 +9,14 @@ function! wincent#variables#init() abort
   let l:lines=split(l:dirs, '\n')
   for l:line in l:lines
     let l:pair=split(l:line, '=')
-    let l:var=l:pair[0]
-    let l:dir=l:pair[1]
+    if len(l:pair) == 2
+      let l:var=l:pair[0]
+      let l:dir=l:pair[1]
 
-    " Make sure we don't clobber any pre-existing variables.
-    if !exists('$' . l:var)
-      execute 'let $' . l:var . '="' . l:dir . '"'
+      " Make sure we don't clobber any pre-existing variables.
+      if !exists('$' . l:var)
+        execute 'let $' . l:var . '="' . l:dir . '"'
+      endif
     endif
   endfor
 endfunction
