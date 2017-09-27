@@ -35,10 +35,8 @@ if has('autocmd')
       autocmd BufEnter,FocusGained,VimEnter,WinEnter * call wincent#autocmds#focus_statusline()
       autocmd FocusLost,WinLeave * call wincent#autocmds#blur_statusline()
     endif
-    if exists('*matchaddpos')
-      autocmd BufEnter,FocusGained,VimEnter,WinEnter * call wincent#autocmds#focus_window()
-      autocmd FocusLost,WinLeave * call wincent#autocmds#blur_window()
-    endif
+    autocmd BufEnter,FocusGained,VimEnter,WinEnter * call wincent#autocmds#focus_window()
+    autocmd FocusLost,WinLeave * call wincent#autocmds#blur_window()
 
     if has('mksession')
       " Save/restore folds and cursor position.
