@@ -44,7 +44,9 @@ endfunction
 
 function! wincent#autocmds#focus_window() abort
   if wincent#autocmds#should_colorcolumn()
-    ownsyntax on
+    if !empty(&ft)
+      ownsyntax on
+    endif
   endif
 endfunction
 
