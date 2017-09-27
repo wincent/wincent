@@ -53,9 +53,13 @@ set formatoptions+=n                  " smart auto-indenting inside numbered lis
 set guifont=Source\ Code\ Pro\ Light:h13
 set guioptions-=T                     " don't show toolbar
 set hidden                            " allows you to hide buffers with unsaved changes without being prompted
-set highlight+=@:ColorColumn          " ~/@ at end of window, 'showbreak'
-set highlight+=N:DiffText             " make current line number stand out a little
-set highlight+=c:LineNr               " blend vertical separators with line numbers
+
+if !has('nvim')
+  " Sync with corresponding nvim settings in ~/.vim/plugin/autocmds.vim:
+  set highlight+=@:ColorColumn        " ~/@ at end of window, 'showbreak'
+  set highlight+=N:DiffText           " make current line number stand out a little
+  set highlight+=c:LineNr             " blend vertical separators with line numbers
+endif
 
 if exists('&inccommand')
   set inccommand=split                " live preview of :s results
