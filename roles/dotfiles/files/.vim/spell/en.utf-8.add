@@ -56,6 +56,7 @@ TOTP
 UI
 URLs
 UX
+WebSockets
 Wincent
 YubiKey
 abandonware
@@ -158,6 +159,7 @@ recurse
 recursed
 recursing
 refactor
+reflows
 repo
 repos
 screensaver
@@ -186,6 +188,7 @@ unsetting
 unstyled
 unsubscription
 versioned
+viewport
 vim
 webpack
 webviews
