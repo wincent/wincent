@@ -13,3 +13,4 @@ sources: --http-proxy {{ http_proxy }}
 specification: --http-proxy {{ http_proxy }}
 update: --http-proxy {{ http_proxy }}
 {% endif %}
+gem: --bindir /usr/local/bin
