@@ -1,2 +1,2 @@
-ulimit -n 65535
+ulimit -n 10240
 ulimit -u 1064
