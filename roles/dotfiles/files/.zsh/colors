@@ -65,7 +65,9 @@ color() {
         BACKGROUND=light
       fi
 
-      cp "$BASE16_CONFIG" "$BASE16_CONFIG_PREVIOUS"
+      if [ -e "$BASE16_CONFIG" ]; then
+        cp "$BASE16_CONFIG" "$BASE16_CONFIG_PREVIOUS"
+      fi
 
       echo "$SCHEME" >! "$BASE16_CONFIG"
       echo "$BACKGROUND" >> "$BASE16_CONFIG"
