@@ -11,7 +11,7 @@ MAX_BACKOFF=480 # 8 minutes
 
 PIDFILE="$HOME/.mutt/tmp/sync-$1.pid"
 echo $$ > "$PIDFILE"
-trap "rm -f '$PIDFILE'" SIGTERM
+trap "rm -f '$PIDFILE'; exit" SIGTERM
 
 function delay() {
   if [ $BACKOFF -ne 0 ]; then
