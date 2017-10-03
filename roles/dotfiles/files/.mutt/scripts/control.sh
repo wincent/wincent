@@ -33,6 +33,12 @@ function term() {
   signal "-TERM" "$PIDFILE"
 }
 
+# Named `kill9` to avoid collision with `kill` utility.
+function kill9() {
+  PIDFILE=$1
+  signal "-KILL" "$PIDFILE"
+}
+
 function pause() {
   PIDFILE=$1
   signal "-STOP" "$PIDFILE"
@@ -55,10 +61,11 @@ while true; do
       echo "Commands:"
       echo "  exit               - exit this control loop"
       echo "  help               - show this help"
+      echo "  kill [home|work]   - kill (-9) email sync"
       echo "  pause [home|work]  - pause email sync"
       echo "  resume [home|work] - resume email sync"
       echo "  sync [home|work]   - force an immediate email sync"
-      echo "  term [home|work]   - terminate an email sync"
+      echo "  term [home|work]   - terminate (TERM) email sync"
       ;;
     pause|paus|pau|pa|p)
       echo "Pausing:"
@@ -94,6 +101,15 @@ while true; do
       else
         term "$HOME/.mutt/tmp/sync-home.pid"
         term "$HOME/.mutt/tmp/sync-work.pid"
+      fi
+      ;;
+    kill|kil|ki|k)
+      echo "Killing:"
+      if [ -n "$TARGET" ]; then
+        kill9 "$HOME/.mutt/tmp/sync-${TARGET}.pid"
+      else
+        kill9 "$HOME/.mutt/tmp/sync-home.pid"
+        kill9 "$HOME/.mutt/tmp/sync-work.pid"
       fi
       ;;
     *)
