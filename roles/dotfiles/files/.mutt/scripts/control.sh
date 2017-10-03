@@ -43,11 +43,6 @@ function resume() {
   signal "-CONT" "$PIDFILE"
 }
 
-function invalid() {
-  echo "Invalid command: $COMMAND"
-  echo "Valid commands: exit, help, pause, resume, sync"
-}
-
 set -f # Avoid wildcard expansion.
 
 COMMAND=help
@@ -102,14 +97,16 @@ while true; do
       fi
       ;;
     *)
-      invalid
+      echo "Invalid command: $COMMAND"
+      echo "Valid commands: exit, help, pause, resume, sync, term"
       ;;
   esac
   while true; do
     /bin/echo -n "> "
     read -a INPUT
-    if [ ${#array[@]} -gt 2 ]; then
-      invalid
+    if [ ${#INPUT[@]} -gt 2 ]; then
+      echo "Invalid input: ${INPUT[@]}"
+      echo "See \"help\" for usage information"
       continue
     fi
     COMMAND=${INPUT[0]}
