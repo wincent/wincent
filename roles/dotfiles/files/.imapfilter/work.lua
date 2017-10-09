@@ -282,6 +282,7 @@ function run()
         'X-Facebook-Notify',
         'biz_acct_accept_user_join|' ..
         'biz_finance_perm|' ..
+        'biz_add_location_pages|' ..
         'biz_obj_access_request|' ..
         'biz_ownership_claim|' ..
         'biz_perm_proxy_request|' ..
