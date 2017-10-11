@@ -136,7 +136,7 @@
 
 # Last tested: [10.9]
 - name: defaults | Require password immediately after sleep or screen saver begins
-  osx_defaults: domain=com.apple.screensaver key=askForPasswordDelay type=int value=0
+  osx_defaults: domain=com.apple.screensaver key=askForPasswordDelay type=float value=0
 
 # Last tested: 10.10
 - name: defaults | System Preferences -> Accessibility -> Display -> Reduce Transparency
