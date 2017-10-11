@@ -106,9 +106,9 @@ source vendor/ansible/hacking/env-setup &> $DEV_NULL
 HOST_OS=$(uname)
 
 if [ "$HOST_OS" = 'Darwin' ]; then
-  ansible-playbook --ask-become-pass -i inventory ${VERBOSE+-v} ${ROLES} ${EXTRA_ARGS[@]} darwin.yml
+  ansible-playbook --ask-become-pass -i inventory ${VERBOSE+-v} ${ROLES} "${EXTRA_ARGS[@]}" darwin.yml
 elif [ "$HOST_OS" = 'Linux' ]; then
-  ansible-playbook -i inventory ${VERBOSE+-v} ${ROLES} ${EXTRA_ARGS[@]} linux.yml
+  ansible-playbook -i inventory ${VERBOSE+-v} ${ROLES} "${EXTRA_ARGS[@]}" linux.yml
 else
   echo "Unknown host OS: $HOST_OS"
   exit 1
