@@ -184,14 +184,14 @@ cask '1password-beta'
 cask 'alfred'
 cask 'arq'
 cask 'bartender'
-cask 'dropbox'
-cask 'firefox'
+cask 'dropbox', args: ['force']
+cask 'firefox', args: ['force']
 cask 'firefoxdeveloperedition'
 cask 'google-chrome-canary'
 cask 'hammerspoon'
 cask 'isolator'
 cask 'istat-menus'
-cask 'iterm2-nightly'
+cask 'iterm2-nightly', args: ['force']
 cask 'java'
 cask 'karabiner-elements'
 cask 'nvalt'
