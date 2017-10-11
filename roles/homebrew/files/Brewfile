@@ -113,7 +113,7 @@ brew 'mobile-shell'
 brew 'mpfr'
 brew 'msgpack'
 brew 'msmtp'
-brew 'mutt', args: ['HEAD']
+brew 'mutt'
 brew 'neovim'
 brew 'nettle'
 brew 'nginx'
