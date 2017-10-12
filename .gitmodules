@@ -84,9 +84,6 @@
 	ignore = untracked
 	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-git
 	url = https://github.com/tpope/vim-git.git
-[submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-jade"]
-	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-jade
-	url = https://github.com/digitaltoad/vim-jade.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-javascript"]
 	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
