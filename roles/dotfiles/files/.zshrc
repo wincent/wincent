@@ -318,7 +318,7 @@ test -f $LOCAL_RC && source $LOCAL_RC
 #
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=0'
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=59'
 
 # Uncomment this to get syntax highlighting:
 # source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
