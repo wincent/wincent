@@ -239,6 +239,10 @@
 - name: defaults | Use plain text mode for new TextEdit documents
   osx_defaults: domain=com.apple.TextEdit key=RichText type=int value=0
 
+# Last tested: 3.1.3
+- name: defaults | iTerm2 -> Preferences -> Advanced -> Windows -> Terminal windows resize smoothly
+  osx_defaults: domain=com.googlecode.iterm2 key=DisableWindowSizeSnap type=bool value=true
+
 # Last tested: 2.9.20150224-nightly
 - name: defaults | iTerm2 -> Preferences -> Advanced -> Tabs -> Preferred tab width
   osx_defaults: domain=com.googlecode.iterm2 key=OptimumTabWidth type=int value=275
