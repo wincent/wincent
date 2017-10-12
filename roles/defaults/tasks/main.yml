@@ -263,6 +263,10 @@
 - name: defaults | iTerm2 -> Preferences -> Appearance -> Stretch tabs to fill bar
   osx_defaults: domain=com.googlecode.iterm2 key=StretchTabsToFillBar type=bool value=true
 
+# Last tested: 3.1.3 (default: 5)
+- name: defaults | iTerm2 -> Preferences -> Advanced -> General -> Width of left and right margins in terminal panes
+  osx_defaults: domain=com.googlecode.iterm2 key=TerminalMargin type=int value=1
+
 # Last tested: 2.9.20150224-nightly
 - name: defaults | iTerm2 -> Preferences -> General -> Native full screen windows
   osx_defaults: domain=com.googlecode.iterm2 key=UseLionStyleFullscreen type=bool value=false
