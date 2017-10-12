@@ -255,6 +255,10 @@
 - name: defaults | iTerm2 -> Preferences -> Appearance -> Hide tab activity indicator
   osx_defaults: domain=com.googlecode.iterm2 key=HideActivityIndicator type=bool value=true
 
+# Last tested: 3.1.3 (they still show on mouseover)
+- name: defaults | iTerm2 -> Preferences -> Appearance -> Show tab close buttons
+  osx_defaults: domain=com.googlecode.iterm2 key=HideTabCloseButton type=bool value=true
+
 # Last tested: 2.9.20150224-nightly
 - name: defaults | iTerm2 -> Preferences -> General -> Adjust window when changing font size
   osx_defaults: domain=com.googlecode.iterm2 key=AdjustWindowForFontSizeChange type=bool value=false
