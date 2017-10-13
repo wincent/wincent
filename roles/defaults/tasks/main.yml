@@ -67,7 +67,7 @@
   osx_defaults: domain=com.apple.finder key=_FXShowPosixPathInTitle type=bool value=false
 
 # Last tested: [10.12.6]
-- name: defaults | New Finder windows show: $HOME
+- name: defaults | New Finder windows show $HOME
   osx_defaults: domain=com.apple.finder key=NewWindowTarget type=string value=PfHm
 
 # Last tested: [10.9]
