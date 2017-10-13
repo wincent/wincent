@@ -1,29 +1,26 @@
-# Key bindings for Bash by Wincent Colaiuta
-# Created 4 December 2003
-
 set bell-style visible
 
-# by default, if filename completion is performed on a symbolic link pointing
-# to a directory, append a slash
+# By default, if filename completion is performed on a symbolic link pointing
+# to a directory, append a slash.
 set mark-symlinked-directories
 
-# Hit tab to show a list of possible completions, ignoring case
+# Hit tab to show a list of possible completions, ignoring case>
 set completion-ignore-case
 set show-all-if-ambiguous
 set visible-stats
 
-# - using the Up/Down arrow keys
+# Using the Up/Down arrow keys.
 "\e[A": history-search-backward
 "\e[B": history-search-forward
 
-# enable 8-bit input (do not strip 8th bit from input)
+# Enable 8-bit input (do not strip 8th bit from input).
 set meta-flag
 
-# synonym for meta-flag
+# Synonym for meta-flag.
 set input-meta
 
-# display 8-bit characters directly (rather than as a meta-prefixed escape sequence)
+# Display 8-bit characters directly (rather than as a meta-prefixed escape sequence).
 set output-meta
 
-# do not convert 8-bit characters into ASCII key sequences
+# Do not convert 8-bit characters into ASCII key sequences.
 set convert-meta off
