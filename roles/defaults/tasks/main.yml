@@ -29,6 +29,9 @@
 - name: defaults | Activity Monitor -> View -> Dock Icon -> Show CPU History
   osx_defaults: domain=com.apple.ActivityMonitor key=IconType type=int value=6
 
+- name: defaults | Siri -> Enable Siri
+  osx_defaults: domain=com.apple.assistant.support key="Assistant Enabled" type=bool value=false
+
 - name: defaults | Don't create .DS_Store files on network volumes.
   osx_defaults: domain=com.apple.desktopservices key=DSDontWriteNetworkStores type=bool value=true
 
