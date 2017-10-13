@@ -169,7 +169,7 @@ select-word-style bash # only alphanumeric chars are considered WORDCHARS
 
 autoload -U edit-command-line
 zle -N edit-command-line
-bindkey '^x^e' edit-command-line
+bindkey '^x^x' edit-command-line
 
 bindkey ' ' magic-space # do history expansion on space
 
