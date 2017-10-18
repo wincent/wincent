@@ -7,6 +7,7 @@ set -e
 cd $(/usr/bin/mktemp -d)
 
 LOCK_FILE="$HOME/Library/Cron/.check-git.lock"
+KILL_FILE="$HOME/Library/Cron/.check-git.kill"
 REPO="git://git.wincent.com/null.git"
 
 if [ $# -gt 1 ]; then
@@ -15,13 +16,17 @@ if [ $# -gt 1 ]; then
 fi
 if [ $# -eq 1 ]; then
   if [ "$1" = "pause" ]; then
-    touch "$LOCK_FILE"
-  elif [ "$1" = "resume" ]; then
-    rm -f "$LOCK_FILE"
+    touch "$KILL_FILE"
+  elif [ "$1" = "resum" ]; then
+    rm -f "$KILL_FILE"
   else
     echo "Unexpected argument: $1 (supported arguments: pause, resume)"
     exit 1
   fi
+  exit
+fi
+
+if [ -e "$KILL_FILE" ]; then
   exit
 fi
 
