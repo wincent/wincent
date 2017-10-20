@@ -17,7 +17,7 @@ fi
 if [ $# -eq 1 ]; then
   if [ "$1" = "pause" ]; then
     touch "$KILL_FILE"
-  elif [ "$1" = "resum" ]; then
+  elif [ "$1" = "resume" ]; then
     rm -f "$KILL_FILE"
   else
     echo "Unexpected argument: $1 (supported arguments: pause, resume)"
