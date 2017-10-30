@@ -36,6 +36,7 @@ dotfile_files:
   - .zshrc
 
 dotfile_templates:
+  - .corpusrc
   - .gemrc
   - .gitconfig
 
