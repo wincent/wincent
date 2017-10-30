@@ -1,4 +1,5 @@
 {
+  "__warning__": "{{ ansible_managed }}",
   "notesDirectory": "~/Dropbox (Facebook)/Corpus",
-  "noteFontFamily": "Consolas, Monaco"
+  "noteFontFamily": "'Source Code Pro', Consolas, Monaco"
 }
