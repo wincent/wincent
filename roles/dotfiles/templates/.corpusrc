@@ -1,5 +1,5 @@
 {
   // {{ ansible_managed }}
-  "notesDirectory": "~/Dropbox (Facebook)/Corpus",
+  "notesDirectory": "{{ corpus_notes }}",
   "noteFontFamily": "'Source Code Pro', Consolas, Monaco"
 }
