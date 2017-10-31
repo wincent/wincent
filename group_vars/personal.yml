@@ -1,0 +1,2 @@
+---
+corpus_notes: '{{ "~/Dropbox/Corpus" | expanduser }}'
