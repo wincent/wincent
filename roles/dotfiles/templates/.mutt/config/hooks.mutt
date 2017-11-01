@@ -1,3 +1,4 @@
+# {{ ansible_managed }}
 set copy = no
 set folder = ~/.mail
 set from = 'greg@hurrell.net'

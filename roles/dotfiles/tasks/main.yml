@@ -34,6 +34,9 @@
         force=yes
   with_items: '{{dotfile_files}}'
 
+# Note some nasty dependencies here between creating the symlinks (eg.
+# effectively creating ~/mutt/config/) and then templating into it (eg.
+# ~/.mutt/config/hooks.mutt).
 - name: dotfiles | create templates
   template: src={{ item }} dest={{ ansible_env.HOME }}/{{ item }}
   with_items: '{{dotfile_templates}}'

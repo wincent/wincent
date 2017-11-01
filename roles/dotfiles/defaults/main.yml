@@ -39,6 +39,7 @@ dotfile_templates:
   - .corpusrc
   - .gemrc
   - .gitconfig
+  - .mutt/config/hooks.mutt
 
 git_user_email: '{{"greg@hurrell.net" if lookup("env", "USER") == "glh" else ""}}'
 git_user_name: '{{"Greg Hurrell" if lookup("env", "USER") == "glh" else ""}}'
