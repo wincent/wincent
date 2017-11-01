@@ -13,8 +13,11 @@
 - name: homebrew | tap bundle
   homebrew_tap: tap=homebrew/bundle state=present
 
+- name: homebrew | prepare Brewfile
+  template: dest="~/Library/Preferences/Brewfile" mode=0644 src=Brewfile
+
 - name: homebrew | bundle
-  command: brew bundle chdir=roles/homebrew/files
+  command: brew bundle chdir="~/Library/Preferences"
 
 - name: homebrew | clean up old versions
   command: brew cleanup

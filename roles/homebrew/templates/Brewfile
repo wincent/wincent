@@ -1,4 +1,6 @@
 # Based on the output of `brew bundle dump` (which must be run outside of tmux).
+#
+# {{ ansible_managed }}
 
 cask_args appdir: '/Applications'
 
