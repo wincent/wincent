@@ -203,13 +203,13 @@ cask 'transmission'
 
 {% endif %}
 # General applications.
-cask '1password-beta'
+cask 'caskroom/versions/1password-beta'
 cask 'alfred'
 cask 'bartender'
 # cask 'dropbox'
 # cask 'firefox'
-cask 'firefoxdeveloperedition'
-cask 'google-chrome-canary'
+cask 'caskroom/versions/firefoxdeveloperedition'
+cask 'caskroom/versions/google-chrome-canary'
 cask 'hammerspoon'
 cask 'isolator'
 cask 'istat-menus'
