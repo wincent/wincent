@@ -18,11 +18,9 @@ tap 'tavianator/tap'
 brew 'awscli'
 brew 'cabal-install'
 brew 'closure-compiler'
-brew 'emacs', args: ['with-cocoa']
 brew 'ghc'
 brew 'mariadb'
 brew 'memcached', restart_service: true
-brew 'mldonkey'
 brew 'nginx'
 brew 'redis', restart_service: true
 
@@ -197,7 +195,6 @@ brew 'zsh'
 # Only on personal machines.
 cask 'arq'
 cask 'steam'
-cask 'superduper'
 cask 'transmission'
 
 {% endif %}
@@ -219,11 +216,9 @@ cask 'istat-menus'
 # cask 'iterm2-nightly'
 cask 'java'
 cask 'karabiner-elements'
-cask 'nvalt'
 cask 'omnidisksweeper'
 cask 'skype'
 cask 'spotify'
 cask 'tcl'
-cask 'textmate'
 cask 'vlc'
 cask 'xquartz'
