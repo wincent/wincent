@@ -13,16 +13,35 @@ tap 'homebrew/services'
 tap 'homebrew/versions'
 tap 'tavianator/tap'
 
+{% if 'personal' in group_names %}
+# Only on personal machines.
+brew 'awscli'
+brew 'cabal-install'
+brew 'closure-compiler'
+brew 'emacs', args: ['with-cocoa']
+brew 'ghc'
+brew 'mariadb'
+brew 'memcached', restart_service: true
+brew 'mldonkey'
+brew 'nginx'
+brew 'redis', restart_service: true
+
+{% endif %}
+{% if 'work' in group_names %}
+# Only on work machines.
+brew 'libyubikey'
+brew 'ykpers'
+
+{% endif %}
+# General packages.
 brew 'abook'
 brew 'ack'
 brew 'ant'
 brew 'aspcud'
 brew 'autoconf'
 brew 'automake'
-brew 'awscli'
 brew 'bdw-gc'
 brew 'berkeley-db'
-brew 'cabal-install'
 brew 'cairo'
 brew 'camlp4'
 brew 'chruby'
@@ -30,14 +49,12 @@ brew 'clasp'
 brew 'clipper', restart_service: true
 brew 'cloc'
 brew 'cloog'
-brew 'closure-compiler'
 brew 'cmake'
 brew 'coreutils'
 brew 'cscope'
 brew 'ctags'
 brew 'dirmngr'
 brew 'elinks'
-brew 'emacs', args: ['with-cocoa']
 brew 'ffmpeg'
 brew 'fontconfig'
 brew 'freetype'
@@ -49,7 +66,6 @@ brew 'gdb'
 brew 'gdbm'
 brew 'gdk-pixbuf'
 brew 'gettext'
-brew 'ghc'
 brew 'gifsicle'
 brew 'git', args: ['with-pcre']
 brew 'glib'
@@ -103,15 +119,11 @@ brew 'libuv'
 brew 'libvo-aacenc'
 brew 'libvterm'
 brew 'libyaml'
-brew 'libyubikey'
 brew 'links'
 brew 'lockrun'
 brew 'lua'
 brew 'macvim'
 brew 'makedepend'
-brew 'mariadb'
-brew 'memcached', restart_service: true
-brew 'mldonkey'
 brew 'mobile-shell'
 brew 'mpfr'
 brew 'msgpack'
@@ -119,7 +131,6 @@ brew 'msmtp'
 brew 'mutt'
 brew 'neovim'
 brew 'nettle'
-brew 'nginx'
 brew 'node'
 brew 'notmuch'
 brew 'ocaml'
@@ -151,7 +162,6 @@ brew 'ragel'
 brew 'ranger'
 brew 'readline'
 brew 'reattach-to-user-namespace'
-brew 'redis', restart_service: true
 brew 'rhino'
 brew 'ripgrep'
 brew 'ruby-install'
@@ -181,12 +191,23 @@ brew 'xapian'
 brew 'xvid'
 brew 'xz'
 brew 'yarn'
-brew 'ykpers'
 brew 'zsh'
 
+{% if 'personal' in group_names %}
+# Only on personal machines.
+cask 'arq'
+cask 'steam'
+cask 'superduper'
+cask 'transmission'
+
+{% endif %}
+{% if 'work' in group_names %}
+# Only on work machines.
+
+{% endif %}
+# General applications.
 cask '1password-beta'
 cask 'alfred'
-cask 'arq'
 cask 'bartender'
 # cask 'dropbox'
 # cask 'firefox'
@@ -202,10 +223,7 @@ cask 'nvalt'
 cask 'omnidisksweeper'
 cask 'skype'
 cask 'spotify'
-cask 'steam'
-cask 'superduper'
 cask 'tcl'
 cask 'textmate'
-cask 'transmission'
 cask 'vlc'
 cask 'xquartz'
