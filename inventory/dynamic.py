@@ -9,7 +9,7 @@ if host == 'glh-mbp':
     group = 'work'
 elif host == 'retiro':
     group = 'personal'
-elif re.match('devvm\d+', host):
+elif re.match(r'dev(vm)?\d+', host):
     group = 'devservers'
 else:
     group = 'local'
