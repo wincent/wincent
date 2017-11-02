@@ -38,7 +38,9 @@
 # effectively creating ~/mutt/config/) and then templating into it (eg.
 # ~/.mutt/config/hooks.mutt).
 - name: dotfiles | create templates
-  template: src={{ item }} dest={{ ansible_env.HOME }}/{{ item }}
+  template: dest={{ ansible_env.HOME }}/{{ item }}
+            mode={{ '0755' if item.endswith('.sh') else '0644' }}
+            src={{ item }}
   with_items: '{{dotfile_templates}}'
 
 # Provide an extension point for other roles to dump .zshenv stuff into.
