@@ -1,5 +1,31 @@
 # Changelog
 
+## 2017-11-01
+
+* Mutt now uses different configs for work and personal machines.
+
+## 2017-10-20
+
+* Add `fzf`-powered functions for finding directories and history entries.
+
+## 2017-06-16
+
+* Switch to Karabiner-Elements.
+
+## 2017-06-14
+
+* Start using zsh-autosuggestions plug-in.
+
+## 2017-06-06
+
+* Neovim is now the default `$EDITOR`.
+
+## 2017-05-03
+
+* Shell prompt now shows `$SHLVL` by repeating the `$` or `#` symbol.
+* Shell prompt now indicates the presence of background jobs with a `*`.
+* Vim now turns off syntax highlighting in inactive splits.
+
 ## 2017-02-09
 
 * Use `par` to re-wrap text in Vim.
