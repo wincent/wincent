@@ -8,7 +8,6 @@ dotfile_files:
   - .clipper.json
   - .config/karabiner
   - .config/ranger
-  - .emacs.d
   - .ghci
   - .gitattributes
   - .gitignore

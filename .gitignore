@@ -1,6 +1,5 @@
 *.pyc
 /python
-/roles/dotfiles/files/.emacs.d/savehist
 /roles/dotfiles/files/.hammerspoon/keylogger.sqlite3
 /roles/dotfiles/files/.imapfilter/private.lua
 /roles/dotfiles/files/.mutt/config/aliases.mutt
