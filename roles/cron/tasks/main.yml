@@ -3,7 +3,7 @@
   file: path="~/Library/Cron" state=directory
 
 - name: cron | copy check-git script
-  template: dest="~/Library/Cron/check-git" mode=0755 src=check-git.j2
+  template: dest="~/Library/Cron/check-git" mode=0755 src=check-git
 
 - name: cron | schedule check-git cron job
   cron: name="check-git" hour="8,12,16,20" job="$HOME/Library/Cron/check-git"
