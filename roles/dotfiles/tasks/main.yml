@@ -36,7 +36,7 @@
 
 # Note some nasty dependencies here between creating the symlinks (eg.
 # effectively creating ~/mutt/config/) and then templating into it (eg.
-# ~/.mutt/config/hooks.mutt).
+# ~/.mutt/config/settings.mutt).
 - name: dotfiles | create templates
   template: dest={{ ansible_env.HOME }}/{{ item }}
             mode={{ '0755' if item.endswith('.sh') else '0644' }}
