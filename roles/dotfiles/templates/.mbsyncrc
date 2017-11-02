@@ -21,6 +21,7 @@ Account {{ imap_nickname }}
 MaildirStore Local
 Path ~/.mail/
 Inbox ~/.mail/INBOX
+SubFolders Verbatim
 
 Channel INBOX
 Master :Remote:INBOX
@@ -76,6 +77,7 @@ Master :Remote:
 Slave :Local:
 Patterns *
 Patterns !INBOX
+Patterns !Search
 Patterns !Sent
 Patterns !Spam
 Patterns !Trash

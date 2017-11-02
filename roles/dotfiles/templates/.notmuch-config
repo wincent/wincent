@@ -13,23 +13,8 @@
 # configured here named ".notmuch".
 #
 [database]
-path={{ '~' | expanduser }}
+path={{ '~/.mail' | expanduser }}
 
-# User configuration
-#
-# Here is where you can let notmuch know how you would like to be
-# addressed. Valid settings are
-#
-#	name		Your full name.
-#	primary_email	Your primary email address.
-#	other_email	A list (separated by ';') of other email addresses
-#			at which you receive email.
-#
-# Notmuch will use the various email addresses configured here when
-# formatting replies. It will avoid including your own addresses in the
-# recipient list of replies, and will set the From address based on the
-# address to which the original email was addressed.
-#
 [user]
 name=Greg Hurrell
 primary_email=greg@hurrell.net
