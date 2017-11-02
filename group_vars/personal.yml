@@ -1,2 +1,12 @@
 ---
 corpus_notes: '{{ "~/Dropbox/Corpus" | expanduser }}'
+
+imap_nickname: Gmail
+imap_server: imap.gmail.com
+imap_user: greg@hurrell.net
+imap_keychain_item: greg+mutt@hurrell.net
+
+smtp_server: smtp.gmail.com
+smtp_from: greg@hurrell.net
+smtp_user: greg@hurrell.net
+smtp_keychain_item: greg+mutt@hurrell.net

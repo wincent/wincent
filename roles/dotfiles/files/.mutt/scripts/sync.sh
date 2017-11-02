@@ -1,15 +1,9 @@
 #!/bin/sh
 
-if [ $# -ne 1 ]; then
-  echo "error: expected exactly 1 argument, got $#"
-  exit 1
-fi
-
-ACCOUNT="$1"
 BACKOFF=0
 MAX_BACKOFF=480 # 8 minutes
 
-PIDFILE="$HOME/.mutt/tmp/sync-$1.pid"
+PIDFILE="$HOME/.mutt/tmp/sync.pid"
 echo $$ > "$PIDFILE"
 trap "rm -f '$PIDFILE'; exit" SIGTERM
 
@@ -31,8 +25,8 @@ function backoff() {
 }
 
 while true; do
-  if [ -x "${HOME}/.mutt/hooks/presync/${ACCOUNT}.sh" ]; then
-    "${HOME}/.mutt/hooks/presync/${ACCOUNT}.sh" || {
+  if [ -x "${HOME}/.mutt/hooks/presync.sh" ]; then
+    "${HOME}/.mutt/hooks/presync.sh" || {
       echo "Presync hook exited with status $?; skipping sync."
       sleep 60
       BACKOFF=0
@@ -42,30 +36,30 @@ while true; do
 
   delay
 
-  echo "Running imapfilter ($ACCOUNT):"
+  echo "Running imapfilter:"
   echo
 
-  ONCE=1 time imapfilter -vc "${HOME}/.imapfilter/${ACCOUNT}.lua" || {
-    terminal-notifier -title imapfilter -message "imapfilter ($ACCOUNT) exited"
+  ONCE=1 time imapfilter -v || {
+    terminal-notifier -title imapfilter -message "imapfilter exited"
     backoff
     continue
   }
 
   echo
-  echo "Running mbsync ($ACCOUNT):"
+  echo "Running mbsync:"
   echo
 
-  time gtimeout 3600 mbsync "$ACCOUNT" || {
-    terminal-notifier -title mbsync -message "mbsync ($ACCOUNT) exited"
+  time gtimeout 3600 mbsync Everything || {
+    terminal-notifier -title mbsync -message "mbsync exited"
     backoff
     continue
   }
 
   echo
-  echo "Running postsync hooks ($ACCOUNT):"
+  echo "Running postsync hooks:"
   echo
 
-  time ~/.mutt/hooks/postsync/$ACCOUNT.sh # Runs notmuch, lbdb-fetchaddr etc
+  time ~/.mutt/hooks/postsync.sh # Runs notmuch, lbdb-fetchaddr etc
 
   echo
   echo "Updating mailboxes listing:"

@@ -1,0 +1,120 @@
+# {{ ansible_managed }}
+
+# Global defaults
+Create Both
+Expunge Both
+SyncState *
+
+IMAPAccount {{ imap_nickname }}
+Host {{ imap_server }}
+User {{ imap_user }}
+PassCmd "get-keychain-pass {{ imap_keychain_item }} {{ imap_server }}"
+SSLType IMAPS
+AuthMechs LOGIN
+{% if 'work' in group_names %}
+PipelineDepth 1
+{% endif %}
+
+IMAPStore Remote
+Account {{ imap_nickname }}
+
+MaildirStore Local
+Path ~/.mail/
+Inbox ~/.mail/INBOX
+
+Channel INBOX
+Master :Remote:INBOX
+Slave :Local:INBOX
+
+{% if 'personal' in group_names %}
+Channel Drafts
+Master :Remote:"[Gmail]/Drafts"
+Slave :Local:Drafts
+{% endif %}
+
+Channel Sent
+{% if 'personal' in group_names %}
+Master :Remote:"[Gmail]/Sent Mail"
+{% elif 'work' in group_names %}
+Master :Remote:"Sent Items"
+{% endif %}
+Slave :Local:Sent
+
+{% if 'personal' in group_names %}
+Channel Starred
+Master :Remote:"[Gmail]/Starred"
+Slave :Local:Starred
+{% endif %}
+
+Channel Spam
+{% if 'personal' in group_names %}
+Master :Remote:"[Gmail]/Spam"
+{% elif 'work' in group_names %}
+Master :Remote:"Junk Email"
+{% endif %}
+Slave :Local:Spam
+
+Channel Trash
+{% if 'personal' in group_names %}
+Master :Remote:"[Gmail]/Trash"
+{% elif 'work' in group_names %}
+Master :Remote:"Deleted Items"
+{% endif %}
+Slave :Local:Trash
+
+{% if 'personal' in group_names %}
+Channel Archive
+Master :Remote:"[Gmail]/All Mail"
+Slave :Local:Archive
+{% endif %}
+
+# Catch-all for everything else: note that the `Patterns` have to exclude both
+# the remote and local names for all the folders we want to exclude (except
+# "INBOX", which is special-cased, it would seem).
+Channel Catchall
+Master :Remote:
+Slave :Local:
+Patterns *
+Patterns !INBOX
+Patterns !Sent
+Patterns !Spam
+Patterns !Trash
+{% if 'personal' in group_names %}
+Patterns ![Gmail]*
+Patterns !Archive
+Patterns !Drafts
+Patterns !Starred
+{% endif %}
+{% if 'work' in group_names %}
+Patterns !"Deleted Items"
+Patterns !"Junk Email"
+Patterns !"Sent Items"
+Patterns !Archive1
+Patterns !Calendar*
+Patterns !Clutter
+Patterns !Contacts
+Patterns !Journal
+Patterns !Notes
+Patterns !Outbox
+Patterns !Tasks
+{% endif %}
+
+# For doing a quick sync of just the INBOX with `mbsync Download`.
+Channel Download
+Master :Remote:INBOX
+Slave :Local:INBOX
+Create Slave
+Expunge Slave
+Sync Pull
+
+Group Everything
+Channel INBOX
+Channel Sent
+Channel Spam
+Channel Trash
+Channel Catchall
+{% if 'personal' in group_names %}
+Channel Archive
+Channel Drafts
+Channel Starred
+{% endif %}

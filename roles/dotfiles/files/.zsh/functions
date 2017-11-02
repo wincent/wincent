@@ -159,9 +159,7 @@ function email() {
     tmux new-session -d -s email -c ~/Downloads -n mutt
     tmux send-keys -t email:mutt mutt Enter
     tmux new-window -t email -c ~/.mutt -n sync
-    tmux send-keys -t email:sync '~/.mutt/scripts/control.sh home' Enter
-    tmux split-window -t email:sync -h -c ~/.mutt
-    tmux send-keys -t email:sync.right '~/.mutt/scripts/control.sh work' Enter
+    tmux send-keys -t email:sync '~/.mutt/scripts/control.sh --daemon' Enter
     tmux split-window -t email:sync -v -f -l 8 -c ~/.mutt
     tmux send-keys -t email:sync.bottom '~/.mutt/scripts/control.sh' Enter
   fi

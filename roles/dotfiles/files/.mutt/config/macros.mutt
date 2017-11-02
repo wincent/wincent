@@ -15,13 +15,6 @@ macro browser gt "<exit><change-folder>!.Sent<enter>" "go to Sent Mail"
 macro browser gd "<exit><change-folder>!.Drafts<enter>" "go to drafts"
 macro browser gl "<exit><change-folder>?<toggle-mailboxes>" "go to 'Label'"
 
-# These ones not standard Gmail.
-macro index,pager gh "<change-folder>+Home/Home<enter>" "go home"
-macro index,pager gw "<change-folder>+Work/Work<enter>" "go work"
-macro browser gh "<exit><change-folder>+Home/Home<enter>" "go home"
-macro browser gw "<exit><change-folder>+Work/Work<enter>" "go work"
-
-
 # "Smart" equivalent to `set resolve = yes`: see "{next,previous}.mutt" for
 # info.
 macro index j "<next-undeleted><enter-command>source ~/.mutt/config/next.mutt<enter>" "next undeleted"
@@ -80,6 +73,9 @@ macro pager ,@aoh= "<enter-command>unalternative_order *; alternative_order text
 macro pager ,@aot= "<enter-command>unalternative_order *; alternative_order text/plain text/enriched text/html; macro pager A ,@aoh= 'toggle alternative order'<enter><exit><display-message>"
 macro pager A ,@aoh= "toggle alternative order"
 
-macro index,pager S "<enter-command>unset wait_key<enter><shell-escape>~/.mutt/vendor/mutt-notmuch-py/mutt-notmuch-py --history-path=~/.mutt/tmp/notmuch.history ~/.mail/Temporary/Search<enter><enter-command>mailboxes '+Temporary/Search'<enter><change-folder-readonly>+Temporary/Search<enter>" "search mail (using notmuch)"
+macro index,pager S "<enter-command>unset wait_key<enter><shell-escape>~/.mutt/vendor/mutt-notmuch-py/mutt-notmuch-py --history-path=~/.mutt/tmp/notmuch.history ~/.mail/Search<enter><enter-command>mailboxes '+Search'<enter><change-folder-readonly>+Search<enter>" "search mail (using notmuch)"
 
 macro attach e "<exit>e" "archive"
+
+# Normally <delete-pattern>.
+macro index,pager D "<shell-escape>~/.mutt/scripts/download.sh<enter><sync-mailbox>" "download messages"

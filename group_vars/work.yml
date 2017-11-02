@@ -1,2 +1,12 @@
 ---
 corpus_notes: '{{ "~/Dropbox (Facebook)/Corpus" | expanduser }}'
+
+imap_nickname: FB
+imap_server: outlook.office365.com
+imap_user: glh@fb.com
+imap_keychain_item: glh+mutt@fb.com
+
+smtp_server: smtp.office365.com
+smtp_from: glh@fb.com
+smtp_user: glh@fb.com
+smtp_keychain_item: glh+mutt@fb.com

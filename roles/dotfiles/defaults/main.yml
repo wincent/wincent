@@ -19,10 +19,7 @@ dotfile_files:
   - .imapfilter
   - .inputrc
   - .lbdbrc
-  - .msmtprc
-  - .mbsyncrc
   - .mutt
-  - .notmuch-config
   - .npmrc
   - .pypirc
   - .rdebugrc
@@ -39,7 +36,22 @@ dotfile_templates:
   - .corpusrc
   - .gemrc
   - .gitconfig
-  - .mutt/config/hooks.mutt
+  - .imapfilter/config.lua
+  - .mbsyncrc
+  - .msmtprc
+  - .mutt/config/settings.mutt
+  - .mutt/hooks/presync.sh
+  - .notmuch-config
 
 git_user_email: '{{"greg@hurrell.net" if lookup("env", "USER") == "glh" else ""}}'
 git_user_name: '{{"Greg Hurrell" if lookup("env", "USER") == "glh" else ""}}'
+
+imap_nickname: ISP
+imap_server: imap.example.com
+imap_user: user@example.com
+imap_keychain_item: user@example.com
+
+smtp_server: smtp.example.com
+smtp_from: user@example.com
+smtp_user: user@example.com
+smtp_keychain_item: user@example.com

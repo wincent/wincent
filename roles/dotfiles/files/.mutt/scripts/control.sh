@@ -2,12 +2,12 @@
 
 if [ $# -eq 1 ]; then
   case $1 in
-    home|work)
+    --daemon)
       "$HOME/.mutt/scripts/sync.sh" "$1" || terminal-notifier -title mutt -message "~/.mutt/scripts/sync.sh ($1) exited" Enter
       exit 0
       ;;
     *)
-      echo "Unrecognized argument: $1 (supported arguments: home, work)"
+      echo "Unrecognized argument: $1 (supported arguments: --daemon)"
       exit 1
       ;;
   esac
@@ -59,58 +59,33 @@ while true; do
       ;;
     help|hel|he|h|\?)
       echo "Commands:"
-      echo "  exit               - exit this control loop"
-      echo "  help               - show this help"
-      echo "  kill [home|work]   - kill (-9) email sync"
-      echo "  pause [home|work]  - pause email sync"
-      echo "  resume [home|work] - resume email sync"
-      echo "  sync [home|work]   - force an immediate email sync"
-      echo "  term [home|work]   - terminate (TERM) email sync"
+      echo "  exit   - exit this control loop"
+      echo "  help   - show this help"
+      echo "  kill   - kill (-9) email sync"
+      echo "  pause  - pause email sync"
+      echo "  resume - resume email sync"
+      echo "  sync   - force an immediate email sync"
+      echo "  term   - terminate (TERM) email sync"
       ;;
     pause|paus|pau|pa|p)
       echo "Pausing:"
-      if [ -n "$TARGET" ]; then
-        pause "$HOME/.mutt/tmp/sync-${TARGET}.pid"
-      else
-        pause "$HOME/.mutt/tmp/sync-home.pid"
-        pause "$HOME/.mutt/tmp/sync-work.pid"
-      fi
+      pause "$HOME/.mutt/tmp/sync.pid"
       ;;
     resume|resum|resu|res|re|r)
       echo "Resuming:"
-      if [ -n "$TARGET" ]; then
-        resume "$HOME/.mutt/tmp/sync-${TARGET}.pid"
-      else
-        resume "$HOME/.mutt/tmp/sync-home.pid"
-        resume "$HOME/.mutt/tmp/sync-work.pid"
-      fi
+      resume "$HOME/.mutt/tmp/sync.pid"
       ;;
     sync|syn|sy|s)
       echo "Syncing:"
-      if [ -n "$TARGET" ]; then
-        "$HOME/.mutt/scripts/download.sh" $TARGET
-      else
-        "$HOME/.mutt/scripts/download.sh" home
-        "$HOME/.mutt/scripts/download.sh" work
-      fi
+      "$HOME/.mutt/scripts/download.sh"
       ;;
     term|ter|te|t)
       echo "Terminating:"
-      if [ -n "$TARGET" ]; then
-        term "$HOME/.mutt/tmp/sync-${TARGET}.pid"
-      else
-        term "$HOME/.mutt/tmp/sync-home.pid"
-        term "$HOME/.mutt/tmp/sync-work.pid"
-      fi
+      term "$HOME/.mutt/tmp/sync.pid"
       ;;
     kill|kil|ki|k)
       echo "Killing:"
-      if [ -n "$TARGET" ]; then
-        kill9 "$HOME/.mutt/tmp/sync-${TARGET}.pid"
-      else
-        kill9 "$HOME/.mutt/tmp/sync-home.pid"
-        kill9 "$HOME/.mutt/tmp/sync-work.pid"
-      fi
+      kill9 "$HOME/.mutt/tmp/sync.pid"
       ;;
     *)
       echo "Invalid command: $COMMAND"
@@ -120,20 +95,12 @@ while true; do
   while true; do
     /bin/echo -n "> "
     read -a INPUT
-    if [ ${#INPUT[@]} -gt 2 ]; then
+    if [ ${#INPUT[@]} -gt 1 ]; then
       echo "Invalid input: ${INPUT[@]}"
       echo "See \"help\" for usage information"
       continue
     fi
     COMMAND=${INPUT[0]}
-    TARGET=${INPUT[1]}
-    if [ -n "$TARGET" ]; then
-      if [ "$TARGET" != "home" -a "$TARGET" != "work" ]; then
-        echo "Invalid target: $TARGET"
-        echo "Valid targets: home, work"
-        continue
-      fi
-    fi
     break
   done
 done

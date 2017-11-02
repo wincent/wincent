@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+#
 # .notmuch-config - Configuration file for the notmuch mail system
 #
 # For more information about notmuch, see https://notmuchmail.org
@@ -11,7 +13,7 @@
 # configured here named ".notmuch".
 #
 [database]
-path=/Users/glh/.mail
+path={{ '~' | expanduser }}
 
 # User configuration
 #
@@ -48,7 +50,7 @@ primary_email=greg@hurrell.net
 #
 [new]
 tags=unread;inbox;
-ignore=Temporary
+ignore=Search
 
 # Search configuration
 #
