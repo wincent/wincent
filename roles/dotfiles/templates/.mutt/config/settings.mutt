@@ -62,7 +62,7 @@ set record = '+Sent'
 {% endif %}
 set reply_to = yes # Instead of asking, always reply to Reply-to:
 set resolve = no # Don't auto-advance to the next message after every single op.
-set sendmail = 'env BUNDLE_GEMFILE=$HOME/.mutt/scripts/Gemfile $HOME/.mutt/scripts/msmtp.rb'
+set sendmail = "env BUNDLE_GEMFILE=$HOME/.mutt/scripts/Gemfile $HOME/.mutt/scripts/msmtp.rb"
 set sidebar_divider_char = '│'
 set sidebar_folder_indent = yes
 set sidebar_format = "%B%?n?*?"
