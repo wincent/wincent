@@ -194,6 +194,9 @@ brew 'zsh'
 {% if 'personal' in group_names %}
 # Only on personal machines.
 cask 'arq'
+cask 'dropbox'
+cask 'firefox'
+cask 'google-chrome'
 cask 'steam'
 cask 'transmission'
 
@@ -204,12 +207,10 @@ cask 'transmission'
 {% endif %}
 # General applications.
 cask 'caskroom/versions/1password-beta'
-cask 'alfred'
-cask 'bartender'
-# cask 'dropbox'
-# cask 'firefox'
 cask 'caskroom/versions/firefoxdeveloperedition'
 cask 'caskroom/versions/google-chrome-canary'
+cask 'alfred'
+cask 'bartender'
 cask 'hammerspoon'
 cask 'isolator'
 cask 'istat-menus'
