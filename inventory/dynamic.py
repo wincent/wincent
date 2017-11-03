@@ -7,7 +7,7 @@ host = socket.gethostname()
 
 if host == 'glh-mbp':
     group = 'work'
-elif host == 'retiro':
+elif host == 'retiro.local':
     group = 'personal'
 elif re.match(r'dev(vm)?\d+', host):
     group = 'devservers'
