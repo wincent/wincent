@@ -32,6 +32,11 @@ let g:tcommentTextObjectInlineComment=''
 " The default (g<) is a bit awkward to type.
 let g:tcommentMapLeaderUncommentAnyway='gu'
 
+let g:LanguageClient_serverCommands = {
+    \ 'reason': ['ocaml-language-server', '--stdio'],
+    \ 'ocaml': ['ocaml-language-server', '--stdio'],
+    \ }
+
 " Allow for per-machine overrides in ~/.vim/host/hostname and
 " ~/.vim/vimrc.local.
 let s:hostfile = $HOME . '/.vim/host/' . substitute(hostname(), "\\..*", '', '')
