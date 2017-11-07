@@ -150,7 +150,6 @@
 [submodule "roles/dotfiles/files/.zsh/zsh-syntax-highlighting"]
 	path = roles/dotfiles/files/.zsh/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
-[submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-reason"]
-	ignore = untracked
-	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-reason
-	url = https://github.com/reasonml/vim-reason.git
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-reason-plus"]
+	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-reason-plus
+	url = https://github.com/reasonml-editor/vim-reason-plus.git
