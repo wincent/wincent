@@ -83,6 +83,8 @@ if has('nvim')
   inoremap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
   inoremap <expr><C-k> pumvisible() ? "\<C-p>" : "\<C-j>"
   inoremap <expr><Up> pumvisible() ? "\<C-p>" : "\<Up>"
+
+  packadd! LanguageClient-neovim
 else
   call wincent#defer#packadd('YouCompleteMe', 'youcompleteme.vim')
 endif
