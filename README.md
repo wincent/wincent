@@ -107,8 +107,6 @@ Standard `mutt` stuff:
 
 Non-Gmail extensions:
 
-* `gh`: Go to home account (mnemonic: "[g]o [h]ome!").
-* `gw`: Go to work account (mnemonic: "[g]et to [w]ork!".
 * `t`: Toggle selection on entire thread (see also `x`).
 * `A` show alternate MIME-type in MIME-multipart messages.
 * `S`: Search all using [Xapian query syntax](https://xapian.org/docs/queryparser.html):
