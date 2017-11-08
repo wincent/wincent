@@ -54,18 +54,23 @@ set -f # Avoid wildcard expansion.
 COMMAND=help
 while true; do
   case $COMMAND in
+    download|downloa|downlo|downl|down|dow|do|d)
+      echo "Downloading:"
+      "$HOME/.mutt/scripts/download.sh"
+      ;;
     exit|exi|ex|e)
       exit
       ;;
     help|hel|he|h|\?)
       echo "Commands:"
-      echo "  exit   - exit this control loop"
-      echo "  help   - show this help"
-      echo "  kill   - kill (-9) email sync"
-      echo "  pause  - pause email sync"
-      echo "  resume - resume email sync"
-      echo "  sync   - force an immediate email sync"
-      echo "  term   - terminate (TERM) email sync"
+      echo "  download - force an immediate INBOX sync"
+      echo "  exit     - exit this control loop"
+      echo "  help     - show this help"
+      echo "  kill     - kill (-9) email sync"
+      echo "  pause    - pause email sync"
+      echo "  resume   - resume email sync"
+      echo "  sync     - force an immediate full sync"
+      echo "  term     - terminate (TERM) email sync"
       ;;
     pause|paus|pau|pa|p)
       echo "Pausing:"
@@ -77,7 +82,7 @@ while true; do
       ;;
     sync|syn|sy|s)
       echo "Syncing:"
-      "$HOME/.mutt/scripts/download.sh"
+      "$HOME/.mutt/scripts/download.sh" Everything
       ;;
     term|ter|te|t)
       echo "Terminating:"

@@ -1,4 +1,4 @@
 #!/bin/sh
 
 echo "Downloading..."
-mbsync Download
+mbsync "${1:-Download}"
