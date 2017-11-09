@@ -1,5 +1,9 @@
 # Changelog
 
+## 2017-11-08
+
+* Dump YouCompleteMe.
+
 ## 2017-11-01
 
 * Mutt now uses different configs for work and personal machines.

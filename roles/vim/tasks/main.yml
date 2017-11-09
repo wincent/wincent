@@ -8,4 +8,6 @@
   when: install_masochist_vim_dependencies
 
 - import_tasks: nvim.yml
-  when: install_nvim_dependencies
+
+- import_tasks: deoplete.yml
+  when: install_deoplete_extensions

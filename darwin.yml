@@ -15,4 +15,4 @@
     command_t_bundle: ext.bundle
     update_vim_bundle: true
     install_masochist_vim_dependencies: true
-    install_nvim_dependencies: true
+    install_deoplete_extensions: true

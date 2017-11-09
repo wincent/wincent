@@ -11,9 +11,6 @@
     creates={{ command_t_base }}/ruby/command-t/ext/command-t/{{ command_t_bundle }}
     chdir={{ command_t_base }}/ruby/command-t/ext/command-t
 
-- name: vim | install YouCompleteMe
-  command: ./install.sh chdir={{ you_complete_me_base }}
-
 - name: vim | create or update spell file
   command:
     vim -u NONE -N -c 'mkspell! {{ spellfile }} | quit'

@@ -4,11 +4,6 @@
 [submodule "roles/dotfiles/files/.vim/pack/bundle/opt/vim-pathogen"]
 	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen.git
-[submodule "roles/dotfiles/files/.vim/pack/bundle/start/YouCompleteMe"]
-	branch = wincent
-	ignore = dirty
-	path = roles/dotfiles/files/.vim/pack/YouCompleteMe/opt/YouCompleteMe
-	url = https://github.com/wincent/YouCompleteMe.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/base16-vim"]
 	path = roles/dotfiles/files/.vim/pack/bundle/start/base16-vim
 	url = https://github.com/chriskempson/base16-vim.git

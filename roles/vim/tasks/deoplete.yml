@@ -1,0 +1,33 @@
+---
+# Optional really; just allows us to release updates to deoplete sorter
+# extension dependency (commandt.score).
+- name: vim | install twine via pip3
+  pip: executable=pip3 name=twine
+
+- name: vim | install commandt.score via pip3
+  pip: executable=pip3 name=commandt.score
+
+- name: vim | require .vim symlink to have been established
+  stat: path=~/.vim
+  register: dot_vim_stat
+  failed_when: dot_vim_stat.stat.islnk is not defined or not dot_vim_stat.stat.islnk
+
+- name: vim | create deoplete directories
+  file: path={{ item }} state=directory
+  with_items:
+    - ~/.vim/rplugin
+    - ~/.vim/rplugin/python3
+    - ~/.vim/rplugin/python3/deoplete
+    - ~/.vim/rplugin/python3/deoplete/filter
+    - ~/.vim/rplugin/python3/deoplete/sources
+  when: dot_vim_stat.stat.islnk is defined and dot_vim_stat.stat.islnk
+
+- name: vim | copy deoplete extensions
+  file: force=yes
+        path=~/{{ item }}
+        src={{ ansible_env.PWD }}/roles/vim/files/{{ item }}
+        state=link
+  with_items:
+    - .vim/rplugin/python3/deoplete/filter/sorter_smart.py
+    - .vim/rplugin/python3/deoplete/sources/mail.py
+    - .vim/rplugin/python3/deoplete/sources/masochist.py
