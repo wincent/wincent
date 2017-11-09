@@ -4,7 +4,7 @@ dofile(os.getenv('HOME') .. '/.imapfilter/common.lua')
 dofile(os.getenv('HOME') .. '/.imapfilter/private.lua')
 
 local me = '{{ imap_user }}'
-local password = get_pass('{{ imap_keychain_item }}', '{{ imap_server }}')
+local password = get_pass('{{ imap_keychain_account }}', '{{ imap_keychain_name }}')
 
 function connect()
   return IMAP {

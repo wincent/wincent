@@ -48,9 +48,11 @@ git_user_name: '{{"Greg Hurrell" if lookup("env", "USER") == "glh" else ""}}'
 imap_nickname: ISP
 imap_server: imap.example.com
 imap_user: user@example.com
-imap_keychain_item: user@example.com
+imap_keychain_account: user@example.com
+imap_keychain_name: example.com
 
 smtp_server: smtp.example.com
 smtp_from: user@example.com
 smtp_user: user@example.com
-smtp_keychain_item: user@example.com
+smtp_keychain_account: user@example.com
+smtp_keychain_name: example.com

@@ -64,21 +64,9 @@ A number of tools are used to provide command-line access to Gmail and Office IM
 
 In order for all this to work, a few items have to be stored in the macOS keychain:
 
-* Four "generic" (A.K.A. "application") keychain items (that is, without protocols, only hostnames):
-  * For sending mail:
-    * An item with (for Gmail):
-      * "Keychain Item Name": smtp.gmail.com (corresponds to the "host" field in `~/.msmtprc`).
-      * "Account Name": username+mutt@example.net (corresponds to the "user" field in `~/.msmtprc`).
-    * An item with (for Office):
-      * "Keychain Item Name": smtp.office365.com (corresponds to the "host" field in `~/.msmtprc`).
-      * "Account Name": username+mutt@example.com (corresponds to the "user" field in `~/.msmtprc`).
-  * For receiving mail:
-    * An item with (for Gmail):
-      * "Keychain Item Name": imap.gmail.com (corresponds to the "Host" field in `~/.mbsyncrc`).
-      * "Account Name": username+mutt@example.net (corresponds to the "PassCmd" field in `~/.mbsyncrc`).
-    * An item with (for Office):
-      * "Keychain Item Name": outlook.office365.com
-      * "Account Name": username+mutt@example.com
+* A "generic" (A.K.A. "application") keychain items (that is, without protocols, only hostnames):
+  * "Keychain Item Name": example.net (corresponds to the "host" field in `~/.msmtprc`, and "Host" field in `~/.mbsyncrc`).
+  * "Account Name": username+mutt@example.net (corresponds to the "user" field in `~/.msmtprc`, and "PassCmd" field in `~/.mbsynrc`).
 
 The following Gmail-like/Vim-like bindings are configured:
 

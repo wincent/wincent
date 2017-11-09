@@ -8,7 +8,7 @@ SyncState *
 IMAPAccount {{ imap_nickname }}
 Host {{ imap_server }}
 User {{ imap_user }}
-PassCmd "get-keychain-pass {{ imap_keychain_item }} {{ imap_server }}"
+PassCmd "get-keychain-pass {{ imap_keychain_account }} {{ imap_keychain_name }}"
 SSLType IMAPS
 AuthMechs LOGIN
 {% if 'work' in group_names %}
