@@ -158,6 +158,12 @@ Note that if you're behind a firewall you may need to set up a temporary `~/.git
 	proxy = fwdproxy:8080
 ```
 
+Or alternatively:
+
+```sh
+env http_proxy=http://fwdproxy:8080 https_proxy=http://fwdproxy:8080 git clone --recursive https://github.com/wincent/wincent
+```
+
 ### Install
 
 ```sh
