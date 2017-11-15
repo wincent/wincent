@@ -305,7 +305,12 @@ zstyle ':completion:*:*:cdr:*:*' menu selection
 # fall through to cd if cdr is passed a non-recent dir as an argument
 zstyle ':chpwd:*' recent-dirs-default true
 
-# local and host-specific overrides
+# Local and host-specific overrides.
+
+DEV_RC=$HOME/.zsh/host/dev-star
+if [ $(hostname -s) =~ '^dev(vm)?[[:digit:]]+' ]; then
+  test -f $DEV_RC && source $DEV_RC
+fi
 
 HOST_RC=$HOME/.zsh/host/$(hostname -s)
 test -f $HOST_RC && source $HOST_RC
