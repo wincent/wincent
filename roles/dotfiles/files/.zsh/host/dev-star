@@ -1,0 +1,3 @@
+# See also ~/.zsh/common.private for other paths.
+
+hash -d www=~/www
