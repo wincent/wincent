@@ -22,7 +22,8 @@ function! s:open_in_diffusion(file) abort
     let l:base=g:diffusion_map[l:repo]
     let l:var='$' . l:repo
     if exists(l:var)
-      let l:directory=eval(l:var)
+      let l:directory=resolve(eval(l:var))
+
       if stridx(a:file, l:directory) == 0
         let l:relative_path=strcharpart(a:file, strchars(l:directory))
         break
@@ -35,8 +36,17 @@ function! s:open_in_diffusion(file) abort
     return
   endif
 
-  let l:url=shellescape(l:base . s:url_encode(l:relative_path))
-  call system('open ' . l:url)
+  if has('macunix')
+    " We don't just check for `executable('open')` to avoid false positives on
+    " non-macOS systems.
+    let l:url=shellescape(l:base . s:url_encode(l:relative_path))
+    call system('open ' . l:url)
+  else
+    let l:url=l:base . l:relative_path
+    call setreg('@', l:url)
+    call clipper#private#clip()
+    echomsg 'URL copied to clipboard.'
+  endif
 endfunction
 
 " Opens the specified files (or the current file if there is no explicit
