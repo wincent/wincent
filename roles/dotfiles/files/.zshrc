@@ -198,10 +198,10 @@ source $HOME/.zsh/common
 source $HOME/.zsh/colors
 source $HOME/.zsh/exports
 source $HOME/.zsh/functions
+source $HOME/.zsh/hash
 source $HOME/.zsh/path
 source $HOME/.zsh/vars
 
-test -e $HOME/.zsh/common.private && source $HOME/.zsh/common.private
 test -e $HOME/.zsh/functions.private && source $HOME/.zsh/functions.private
 
 #

@@ -2,8 +2,7 @@ function! wincent#variables#init() abort
   " Set up shortcut variables for "hash -d" directories.
   let l:dirs=system(
         \ 'zsh -c "' .
-        \ 'test -e ~/.zsh/common.private && ' .
-        \ 'source ~/.zsh/common.private; ' .
+        \ 'source ~/.zsh/hash; ' .
         \ 'hash -d"'
         \ )
   let l:lines=split(l:dirs, '\n')

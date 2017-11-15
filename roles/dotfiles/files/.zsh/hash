@@ -1,0 +1,5 @@
+# Shortcuts for paths.
+# (eg. cd ~www; but also, `jump www`/`j www`)
+# For a full list, run `hash -d` (alias `d`).
+
+test -d ~/www && hash -d www=~/www
