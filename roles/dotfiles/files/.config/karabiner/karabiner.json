@@ -87,7 +87,8 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "left_control"
+                                        "key_code": "left_control",
+                                        "lazy": true
                                     }
                                 ],
                                 "to_if_alone": [
@@ -113,7 +114,8 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "right_control"
+                                        "key_code": "right_control",
+                                        "lazy": true
                                     }
                                 ],
                                 "to_if_alone": [
