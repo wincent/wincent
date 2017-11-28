@@ -6,10 +6,10 @@
 #
 # See also the companion file, "previous.mutt".
 
-macro index ! "<tag-prefix-cond><save-message>!.Spam<enter><enter><previous-undeleted><end-cond>" "mark as spam"
-macro index \# "<tag-prefix-cond><save-message>!.Trash<enter><enter><previous-undeleted><end-cond>" "trash"
+macro index ! "<tag-prefix-cond><save-message>=Spam<enter><enter><previous-undeleted><end-cond>" "mark as spam"
+macro index \# "<tag-prefix-cond><save-message>=Trash<enter><enter><previous-undeleted><end-cond>" "trash"
 macro index e "<tag-prefix><save-message>><enter><enter><previous-undeleted>" "archive"
 
-macro pager ! "<save-message>!.Spam<enter><enter><previous-undeleted>" "mark as spam"
-macro pager \# "<save-message>!.Trash<enter><enter><previous-undeleted>" "trash"
+macro pager ! "<save-message>=Spam<enter><enter><previous-undeleted>" "mark as spam"
+macro pager \# "<save-message>=Trash<enter><enter><previous-undeleted>" "trash"
 macro pager e "<save-message>><enter><enter><previous-undeleted>" "archive"
