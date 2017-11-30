@@ -88,6 +88,7 @@ Patterns !Drafts
 Patterns !Starred
 {% endif %}
 {% if 'work' in group_names %}
+Patterns !"Conversation History"
 Patterns !"Deleted Items"
 Patterns !"Junk Email"
 Patterns !"Sent Items"
