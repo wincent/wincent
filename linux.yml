@@ -1,9 +1,9 @@
 ---
 - hosts: localhost
   roles:
-    - { role: dotfiles, tags: ['dotfiles'] }
-    - { role: terminfo, tags: ['terminfo'] }
-    - { role: vim, tags: ['vim'] }
+    - { role: dotfiles, tags: dotfiles }
+    - { role: terminfo, tags: terminfo }
+    - { role: vim, tags: vim }
   vars:
     command_t_bundle: ext.so
     http_proxy: "http://fwdproxy:8080"
