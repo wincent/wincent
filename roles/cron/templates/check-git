@@ -37,6 +37,6 @@ fi
     -- \
       /usr/local/bin/git clone \
         --bare --depth 1 --quiet --single-branch "$REPO" || \
-        $HOME/bin/dialog \
+        terminal-notifier \
           -title 'git.wincent.com clone test failed' \
           -message "Unable to complete clone of $REPO"
