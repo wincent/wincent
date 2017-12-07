@@ -8,17 +8,17 @@
     - "~/Library/Application Support/iTerm2/DynamicProfiles"
     - "~/Library/Application Support/iTerm2/Sources"
 
-- name: iterm | copy Dynamic Profiles
-  copy: src="{{ item }}" dest="~/Library/Application Support/iTerm2/DynamicProfiles"
+- name: iterm | link Dynamic Profiles
+  file: state=link src="{{ item }}" dest="~/Library/Application Support/iTerm2/DynamicProfiles/{{ item | basename }}"
   with_fileglob:
     - "roles/iterm/files/DynamicProfiles/*.json"
 
-- name: iterm | copy Sources
-  copy: src="{{ item }}" dest="~/Library/Application Support/iTerm2/Sources"
+- name: iterm | link Sources
+  file: state=link src="{{ item }}" dest="~/Library/Application Support/iTerm2/Sources/{{ item | basename }}"
   with_fileglob:
     - "roles/iterm/files/Sources/*.json"
 
-- name: iterm | check symbolic links
+- name: iterm | check switchable symbolic links
   stat: path="~/Library/Application Support/iTerm2/DynamicProfiles/{{ item.dest }}"
   with_items: '{{ iterm_dynamic_profiles.retina }}'
   register: dynamic_profiles_stat_info
@@ -26,7 +26,7 @@
 
 # We only link these ones if they don't already exist;
 # once created, Hammerspoon manages the links.
-- name: iterm | set up symbolic links
+- name: iterm | set up switchable symbolic links
   file:
     dest="~/Library/Application Support/iTerm2/DynamicProfiles/{{ item.1.dest }}"
     src="~/Library/Application Support/iTerm2/Sources/{{ item.1.src }}"
