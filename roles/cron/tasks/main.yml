@@ -10,4 +10,4 @@
 
 - name: cron | fix login hangs
   cron: name="fix-login-hangs" minute="0" job="/usr/bin/killall -9 opendirectoryd" user=root
-  become: yes
+  become: !!bool yes

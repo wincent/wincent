@@ -5,4 +5,4 @@
     group=wheel
     line=/usr/local/bin/zsh
     owner=root
-  become: yes
+  become: !!bool yes

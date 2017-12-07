@@ -12,7 +12,7 @@
   with_items:
     - limit.maxproc.plist
     - limit.maxfiles.plist
-  become: yes
+  become: !!bool yes
 
 - name: maxfiles | copy maxfiles.zsh
   copy: dest=~/.zshenv.d/maxfiles.zsh src=maxfiles.zsh
