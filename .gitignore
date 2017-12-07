@@ -1,6 +1,6 @@
 *.pyc
 /python
-/roles/dotfiles/files/.hammerspoon/keylogger.sqlite3
+/roles/dotfiles/files/.hammerspoon/iterm.lua
 /roles/dotfiles/files/.imapfilter/private.lua
 /roles/dotfiles/files/.mutt/config/aliases.mutt
 /roles/dotfiles/files/.mutt/hooks/presync/work.sh

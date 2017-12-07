@@ -35,6 +35,7 @@ dotfile_templates:
   - .corpusrc
   - .gemrc
   - .gitconfig
+  - .hammerspoon/iterm.lua
   - .imapfilter/config.lua
   - .mbsyncrc
   - .msmtprc

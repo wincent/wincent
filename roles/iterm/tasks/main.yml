@@ -19,13 +19,9 @@
     - "roles/iterm/files/Sources/*.json"
 
 - name: iterm | check symbolic links
-  stat: path="~/Library/Application Support/iTerm2/DynamicProfiles/{{ item }}"
-  with_items:
-    # TODO: this is brittle because it has to stay in sync with the below
-    # (shift into a variable and share instead)
-    - Mutt.json
-    - Wincent.json
-  register: dynamic_profiles
+  stat: path="~/Library/Application Support/iTerm2/DynamicProfiles/{{ item.dest }}"
+  with_items: '{{ iterm_dynamic_profiles.retina }}'
+  register: dynamic_profiles_stat_info
   changed_when: false
 
 # We only link these ones if they don't already exist;
@@ -35,9 +31,5 @@
     dest="~/Library/Application Support/iTerm2/DynamicProfiles/{{ item.1.dest }}"
     src="~/Library/Application Support/iTerm2/Sources/{{ item.1.src }}"
     state=link
-  with_indexed_items:
-    - dest: Mutt.json
-      src: 40-Mutt-Retina.json
-    - dest: Wincent.json
-      src: 10-Retina.json
-  when: not dynamic_profiles.results[item.0].stat.exists
+  with_indexed_items: '{{ iterm_dynamic_profiles.retina }}'
+  when: not dynamic_profiles_stat_info.results[item.0].stat.exists
