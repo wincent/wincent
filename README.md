@@ -121,10 +121,8 @@ Other stuff:
 
 To have `mailto` links open up in `mutt` in iTerm:
 
-1. In *iTerm2* → *Preferences* → *Profiles* → *General*, create a copy of your default profile by clicking on *Other Actions...* and selecting *Duplicate Profile*.
-2. Name the copy something identifying, like "Mutt".
-3. Under *Command*, select the *Command* radio button and enter `/usr/bin/env MAILTO=$$URL$$ /usr/local/bin/zsh -ic "/usr/local/bin/mutt -- $MAILTO"`:
-4. Under *URL Schemes* → *Schemes handled:*, select `mailto`.
+1. In *iTerm2* → *Preferences* → *Profiles* → *General*, select the "Mutt" profile.
+2. Under *URL Schemes* → *Schemes handled:*, select `mailto`.
 
 Notes:
 

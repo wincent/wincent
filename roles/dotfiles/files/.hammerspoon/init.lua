@@ -4,6 +4,7 @@ hs.grid.MARGINY = 0
 hs.window.animationDuration = 0 -- disable animations
 
 local events = require 'events'
+local iterm = require 'iterm'
 local log = require 'log'
 local reloader = require 'reloader'
 
@@ -182,6 +183,7 @@ end)
 
 activateLayout = (function(forceScreenCount)
   layoutConfig._before_()
+  events.emit('layout', forceScreenCount)
 
   for bundleID, callback in pairs(layoutConfig) do
     local application = hs.application.get(bundleID)
@@ -235,9 +237,6 @@ tearDownEventHandling = (function()
   screenWatcher:stop()
   screenWatcher = nil
 end)
-
-initEventHandling()
-events.subscribe('reload', tearDownEventHandling)
 
 local lastSeenChain = nil
 local lastSeenWindow = nil
@@ -376,6 +375,9 @@ end)
 -- `open hammerspoon://screencast`
 hs.urlevent.bind('screencast', prepareScreencast)
 
+iterm.init()
 reloader.init()
+initEventHandling()
+events.subscribe('reload', tearDownEventHandling)
 
 log.i('Config loaded')

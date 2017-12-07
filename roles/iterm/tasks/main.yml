@@ -1,0 +1,43 @@
+---
+# iTerm will create some of these on first run, but we specify all here
+# for completeness.
+- name: iterm | make directories
+  file: path="{{ item }}" state=directory
+  with_items:
+    - "~/Library/Application Support/iTerm2"
+    - "~/Library/Application Support/iTerm2/DynamicProfiles"
+    - "~/Library/Application Support/iTerm2/Sources"
+
+- name: iterm | copy Dynamic Profiles
+  copy: src="{{ item }}" dest="~/Library/Application Support/iTerm2/DynamicProfiles"
+  with_fileglob:
+    - "roles/iterm/files/DynamicProfiles/*.json"
+
+- name: iterm | copy Sources
+  copy: src="{{ item }}" dest="~/Library/Application Support/iTerm2/Sources"
+  with_fileglob:
+    - "roles/iterm/files/Sources/*.json"
+
+- name: iterm | check symbolic links
+  stat: path="~/Library/Application Support/iTerm2/DynamicProfiles/{{ item }}"
+  with_items:
+    # TODO: this is brittle because it has to stay in sync with the below
+    # (shift into a variable and share instead)
+    - Mutt.json
+    - Wincent.json
+  register: dynamic_profiles
+  changed_when: false
+
+# We only link these ones if they don't already exist;
+# once created, Hammerspoon manages the links.
+- name: iterm | set up symbolic links
+  file:
+    dest="~/Library/Application Support/iTerm2/DynamicProfiles/{{ item.1.dest }}"
+    src="~/Library/Application Support/iTerm2/Sources/{{ item.1.src }}"
+    state=link
+  with_indexed_items:
+    - dest: Mutt.json
+      src: 40-Mutt-Retina.json
+    - dest: Wincent.json
+      src: 10-Retina.json
+  when: not dynamic_profiles.results[item.0].stat.exists

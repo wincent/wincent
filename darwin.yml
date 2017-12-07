@@ -1,6 +1,7 @@
 ---
 - hosts: localhost
   roles:
+    - { role: iterm, tags: ['iterm'] }
     - { role: dotfiles, tags: ['dotfiles'] }
     - { role: maxfiles, tags: ['maxfiles'] }
     - { role: terminfo, tags: ['terminfo'] }

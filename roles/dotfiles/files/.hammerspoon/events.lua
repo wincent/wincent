@@ -5,13 +5,13 @@
 local registry = {}
 
 return {
-  emit = (function(eventName)
+  emit = (function(eventName, ...)
     local callbacks = registry[eventName]
     if callbacks == nil then
       return
     end
     for _, callback in ipairs(callbacks) do
-      callback()
+      callback(...)
     end
   end),
 
