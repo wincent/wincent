@@ -156,7 +156,7 @@ if has('persistent_undo')
 endif
 
 set updatecount=80                    " update swapfiles every 80 typed chars
-set updatetime=2000                   " same as YCM
+set updatetime=2000                   " CursorHold interval
 
 if has('viminfo')
   if exists('$SUDO_USER')

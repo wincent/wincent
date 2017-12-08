@@ -61,11 +61,6 @@ if has('gui')
   set guioptions-=b
   set guioptions-=l
   set guioptions-=r
-
-  " Temporary workaround for MacVim. It supposedly has +python/dyn and
-  " +python3/dyn, but if Python 3 loads first, YCM won't work. Force
-  " Python 2 to load first.
-  call has('python')
 endif
 
 if &loadplugins

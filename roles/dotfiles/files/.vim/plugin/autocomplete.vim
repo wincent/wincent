@@ -33,6 +33,4 @@ if has('nvim')
   inoremap <expr><Up> pumvisible() ? "\<C-p>" : "\<Up>"
 
   packadd! LanguageClient-neovim
-else
-  call wincent#defer#packadd('YouCompleteMe', 'youcompleteme.vim')
 endif

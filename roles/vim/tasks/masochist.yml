@@ -1,10 +1,6 @@
 ---
 # Needed for Markdown completion of Masochist files.
 
-# For Vim + YCM.
-- name: vim | install redis via pip2
-  pip: executable=pip2 name=redis
-
-  # For Neovim + deoplete.nvim.
+# For Neovim + deoplete.nvim.
 - name: vim | install redis via pip3
   pip: executable=pip3 name=redis
