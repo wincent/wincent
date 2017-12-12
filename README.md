@@ -165,11 +165,18 @@ env http_proxy=http://fwdproxy:8080 https_proxy=http://fwdproxy:8080 git clone -
 ### Install
 
 ```sh
-./install        # installs everything on the local machine
-./install --help # info on installing specific roles, force-installing etc
+./install          # Installs everything on the local machine.
+./install --help   # Info on installing specific roles, force-installing etc.
+./install dotfiles # Just install dotfiles.
 ```
 
 This sets up a local Python environment using the bundled virtualenv, bootstraps Ansible, and then uses Ansible to copy the dotfiles and configure the machine.
+
+Again, if you're behind a firewall, you may need to make use of a proxy during the initial run:
+
+```sh
+env http_proxy=http://fwdproxy:8080 https_proxy=http://fwdproxy:8080 ./install
+```
 
 As a fallback strategy, in case the `install` script fails, you can symlink the dotfiles by hand with a command like the following:
 
