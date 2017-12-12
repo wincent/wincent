@@ -2,3 +2,6 @@
 corpus_notes: "{{ '~/Documents/Corpus' | expanduser }}"
 git_cipher_path: vendor/git-cipher/bin/git-cipher
 http_proxy: ""
+iterm_dynamic_profiles:
+  external: []
+  retina: []
