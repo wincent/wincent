@@ -59,6 +59,8 @@ macro index,pager \\u "<enter-command>set pipe_decode = yes<enter><pipe-message>
 macro index,pager | "<pipe-message>" "pipe message to..."
 macro index,pager O "<pipe-message>cat > ~/Desktop/original-msg.txt" "save [O]riginal message"
 
+macro attach S "<tag-prefix><save-entry><kill-line>~/Downloads" "[S]ave all (tagged) attachments"
+
 # [m]ove a mail to another folder (in Gmail, "m" would be "[m]ute").
 macro pager m "<save-message>?<toggle-mailboxes>" "move to..."
 macro index m "<tag-prefix><save-message>?<toggle-mailboxes>" "move to..."
