@@ -94,6 +94,7 @@ color() {
     echo
     echo 'Available schemes:'
     color ls
+    return
     ;;
   ls)
     find "$BASE16_DIR" -name 'base16-*.sh' | \
