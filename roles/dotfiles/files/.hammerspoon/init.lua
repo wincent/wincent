@@ -18,7 +18,6 @@ local handleWindowEvent = nil
 local hide = nil
 local initEventHandling = nil
 local internalDisplay = nil
-local isMailMateMailViewer = nil
 local prepareScreencast = nil
 local tearDownEventHandling = nil
 local windowCount = nil
@@ -53,29 +52,12 @@ local layoutConfig = {
   end),
 
   _after_ = (function()
-    -- Make sure Textual appears in front of Skype, and iTerm in front of
-    -- others.
-    activate('com.codeux.irc.textual5')
+    -- Make sure iTerm appears in front of others.
     activate('com.googlecode.iterm2')
-  end),
-
-  ['com.codeux.irc.textual5'] = (function(window)
-    hs.grid.set(window, grid.fullScreen, internalDisplay())
   end),
 
   ['com.flexibits.fantastical2.mac'] = (function(window)
     hs.grid.set(window, grid.fullScreen, internalDisplay())
-  end),
-
-  ['com.freron.MailMate'] = (function(window, forceScreenCount)
-    local count = forceScreenCount or screenCount
-    if isMailMateMailViewer(window) then
-      if count == 1 then
-        hs.grid.set(window, grid.fullScreen)
-      else
-        hs.grid.set(window, grid.leftHalf, hs.screen.primaryScreen())
-      end
-    end
   end),
 
   ['com.github.atom'] = (function(window)
@@ -119,10 +101,6 @@ local layoutConfig = {
       hs.grid.set(window, grid.leftHalf, hs.screen.primaryScreen())
     end
   end),
-
-  ['com.skype.skype'] = (function(window)
-    hs.grid.set(window, grid.rightHalf, internalDisplay())
-  end),
 }
 
 --
@@ -157,12 +135,6 @@ activate = (function(bundleID)
   if app then
     app:activate()
   end
-end)
-
-isMailMateMailViewer = (function(window)
-  local title = window:title()
-  return title == 'No mailbox selected' or
-    string.find(title, '%(%d+ messages?%)')
 end)
 
 canManageWindow = (function(window)
