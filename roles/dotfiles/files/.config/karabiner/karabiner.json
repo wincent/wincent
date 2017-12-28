@@ -97,6 +97,11 @@
                                         "key_code": "delete_or_backspace"
                                     }
                                 ],
+                                "to_if_held_down": [
+                                    {
+                                        "key_code": "delete_or_backspace"
+                                    }
+                                ],
                                 "type": "basic"
                             }
                         ]
@@ -120,6 +125,11 @@
                                     }
                                 ],
                                 "to_if_alone": [
+                                    {
+                                        "key_code": "return_or_enter"
+                                    }
+                                ],
+                                "to_if_held_down": [
                                     {
                                         "key_code": "return_or_enter"
                                     }
