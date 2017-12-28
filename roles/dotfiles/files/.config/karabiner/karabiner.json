@@ -18,7 +18,12 @@
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "spacebar"
+                                    "key_code": "spacebar",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
                                 },
                                 "to_if_held_down": [
                                     {
