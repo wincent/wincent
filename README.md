@@ -239,6 +239,10 @@ LANG=en_US.UTF-8
 LC_ALL=en_US.UTF-8
 ```
 
+### See also
+
+- [High-level overview of how this repo works (screencast)](https://youtu.be/__0Dquj7y9g).
+
 ### License
 
 Unless otherwise noted, the contents of this repo are in the public domain. See the [LICENSE](LICENSE.md) for details.
