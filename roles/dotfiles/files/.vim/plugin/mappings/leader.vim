@@ -38,6 +38,15 @@ nnoremap <silent> <LocalLeader>s :Search<CR>
 " <LocalLeader>e -- Edit file, starting in same directory as current file.
 nnoremap <LocalLeader>e :edit <C-R>=expand('%:p:h') . '/'<CR>
 
+
+" <LocalLeader>p -- [P]rint the syntax highlighting group(s) that apply at the
+" current cursor position.
+"
+" Taken from: http://vim.wikia.com/wiki/Identify_the_syntax_highlighting_group_used_at_the_cursor
+nnoremap <LocalLeader>p :echo 'hi<' . synIDattr(synID(line('.'),col('.'),1),'name') . '> trans<'
+\ . synIDattr(synID(line('.'),col('.'),0),'name') . '> lo<'
+\ . synIDattr(synIDtrans(synID(line('.'),col('.'),1)),'name') . '>'<CR>
+
 " <LocalLeader>x -- Turn references to the word under the cursor to references
 " to the WORD under the cursor:
 "
