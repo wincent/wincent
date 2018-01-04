@@ -1,0 +1,4 @@
+FB_NO_ALIASES=1
+source $LOCAL_ADMIN_SCRIPTS/master.shellrc
+
+alias tt="command t"
