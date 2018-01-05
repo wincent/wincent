@@ -151,3 +151,6 @@
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/LanguageClient-neovim"]
 	path = roles/dotfiles/files/.vim/pack/LanguageClient-neovim/opt/LanguageClient-neovim
 	url = https://github.com/autozimu/LanguageClient-neovim.git
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-zsh"]
+	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-zsh
+	url = https://github.com/chrisbra/vim-zsh.git
