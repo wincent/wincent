@@ -18,7 +18,7 @@ syntax on
 " centering, which can be annoying.
 let g:LoupeCenterResults=0
 
-" Would be useful mappings, but they interfe with my default window movement
+" Would be useful mappings, but they interfere with my default window movement
 " bindings (<C-j> and <C-k>).
 let g:NERDTreeMapJumpPrevSibling='<Nop>'
 let g:NERDTreeMapJumpNextSibling='<Nop>'
