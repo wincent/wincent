@@ -4,7 +4,7 @@
 # means that operations that deal with messages "resolve" in the current
 # direction of movement.
 #
-# See also the companion file, "previous.mutt".
+# See also the companion file, "next.mutt".
 
 macro index ! "<tag-prefix-cond><save-message>=Spam<enter><enter><previous-undeleted><end-cond>" "mark as spam"
 macro index \# "<tag-prefix-cond><save-message>=Trash<enter><enter><previous-undeleted><end-cond>" "trash"
