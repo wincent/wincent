@@ -228,8 +228,9 @@
 - name: defaults | System Preferences -> Sound -> Sound Effects -> Play feedback when volume is changed
   osx_defaults: key=com.apple.sound.beep.feedback type=bool value=false
 
+# Last tested: [10.13.3]
 - name: defaults | System Preferences -> Sound -> Sound Effects -> Play user interface sound effects
-  osx_defaults: domain=com.apple.systemsound key=com.apple.sound.uiaudio.enabled type=int value=0
+  osx_defaults: key=com.apple.sound.uiaudio.enabled type=int value=0
 
 - name: defaults | System Preferences -> Users & Groups -> Login Options -> Show fast user switching menu as "Icon"
   osx_defaults: key=userMenuExtraStyle type=int value=2
