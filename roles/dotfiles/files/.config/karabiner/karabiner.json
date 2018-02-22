@@ -8,6 +8,7 @@
         {
             "complex_modifications": {
                 "parameters": {
+                    "basic.simultaneous_threshold_milliseconds": 50,
                     "basic.to_delayed_action_delay_milliseconds": 500,
                     "basic.to_if_alone_timeout_milliseconds": 500,
                     "basic.to_if_held_down_threshold_milliseconds": 500
@@ -25,12 +26,10 @@
                                         ]
                                     }
                                 },
-                                "to_if_held_down": [
+                                "to": [
                                     {
-                                        "set_variable": {
-                                            "name": "SpaceFN",
-                                            "value": 1
-                                        }
+                                        "key_code": "spacebar",
+                                        "repeat": false
                                     }
                                 ],
                                 "to_after_key_up": [
@@ -41,11 +40,13 @@
                                         }
                                     }
                                 ],
-                                "to": [
-                                  {
-                                    "key_code": "spacebar",
-                                    "repeat":  false
-                                  }
+                                "to_if_held_down": [
+                                    {
+                                        "set_variable": {
+                                            "name": "SpaceFN",
+                                            "value": 1
+                                        }
+                                    }
                                 ],
                                 "type": "basic"
                             },
@@ -587,6 +588,7 @@
         {
             "complex_modifications": {
                 "parameters": {
+                    "basic.simultaneous_threshold_milliseconds": 50,
                     "basic.to_delayed_action_delay_milliseconds": 500,
                     "basic.to_if_alone_timeout_milliseconds": 1000,
                     "basic.to_if_held_down_threshold_milliseconds": 500
