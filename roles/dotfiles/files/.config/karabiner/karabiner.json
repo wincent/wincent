@@ -772,33 +772,22 @@
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "right_shift",
                                     "modifiers": {
-                                        "mandatory": [
-                                            "left_shift"
-                                        ],
                                         "optional": [
                                             "any"
                                         ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "caps_lock"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "left_shift",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "right_shift"
-                                        ],
-                                        "optional": [
-                                            "any"
-                                        ]
+                                    },
+                                    "simultaneous": [
+                                        {
+                                            "key_code": "left_shift"
+                                        },
+                                        {
+                                            "key_code": "right_shift"
+                                        }
+                                    ],
+                                    "simultaneous_options": {
+                                        "key_down_order": "insensitive",
+                                        "key_up_order": "insensitive"
                                     }
                                 },
                                 "to": [
