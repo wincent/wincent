@@ -97,11 +97,15 @@ const DEVICE_DEFAULTS = {
   simple_modifications: [],
 };
 
+const IDENTIFIER_DEFAULTS = {
+  is_keyboard: true,
+  is_pointing_device: false,
+};
+
 const APPLE_INTERNAL = {
   ...DEVICE_DEFAULTS,
   identifiers: {
-    is_keyboard: true,
-    is_pointing_device: false,
+    ...IDENTIFIER_DEFAULTS,
     product_id: 628,
     vendor_id: 1452,
   },
@@ -110,8 +114,7 @@ const APPLE_INTERNAL = {
 const REALFORCE = {
   ...DEVICE_DEFAULTS,
   identifiers: {
-    is_keyboard: true,
-    is_pointing_device: false,
+    ...IDENTIFIER_DEFAULTS,
     product_id: 273,
     vendor_id: 2131,
   },
@@ -124,8 +127,7 @@ const REALFORCE = {
 const YUBIKEY = {
   ...DEVICE_DEFAULTS,
   identifiers: {
-    is_keyboard: true,
-    is_pointing_device: false,
+    ...IDENTIFIER_DEFAULTS,
     product_id: 1031,
     vendor_id: 4176,
   },
