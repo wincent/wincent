@@ -46,7 +46,7 @@ function spaceFN(from, to) {
         },
       },
       parameters: {
-        'basic.simultaneous_threshold_milliseconds': 500, /* Default: 1000 */
+        'basic.simultaneous_threshold_milliseconds': 500 /* Default: 1000 */,
       },
       to: [
         {
@@ -139,7 +139,7 @@ const DEFAULT_PROFILE = {
     parameters: {
       'basic.simultaneous_threshold_milliseconds': 50,
       'basic.to_delayed_action_delay_milliseconds': 500,
-      'basic.to_if_alone_timeout_milliseconds': 500, /* Default: 1000 */
+      'basic.to_if_alone_timeout_milliseconds': 500 /* Default: 1000 */,
       'basic.to_if_held_down_threshold_milliseconds': 500,
     },
     rules: [
