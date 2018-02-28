@@ -17,6 +17,51 @@ function swap(a, b) {
   return [...fromTo(a, b), ...fromTo(b, a)];
 }
 
+const APPLE_INTERNAL = {
+  disable_built_in_keyboard_if_exists: false,
+  fn_function_keys: [],
+  identifiers: {
+    is_keyboard: true,
+    is_pointing_device: false,
+    product_id: 628,
+    vendor_id: 1452,
+  },
+  ignore: false,
+  manipulate_caps_lock_led: true,
+  simple_modifications: [],
+};
+
+const REALFORCE = {
+  disable_built_in_keyboard_if_exists: false,
+  fn_function_keys: [],
+  identifiers: {
+    is_keyboard: true,
+    is_pointing_device: false,
+    product_id: 273,
+    vendor_id: 2131,
+  },
+  ignore: false,
+  manipulate_caps_lock_led: true,
+  simple_modifications: [
+    ...swap('left_command', 'left_option'),
+    ...swap('right_command', 'right_option'),
+  ],
+};
+
+const YUBIKEY = {
+  disable_built_in_keyboard_if_exists: false,
+  fn_function_keys: [],
+  identifiers: {
+    is_keyboard: true,
+    is_pointing_device: false,
+    product_id: 1031,
+    vendor_id: 4176,
+  },
+  ignore: true,
+  manipulate_caps_lock_led: false,
+  simple_modifications: [],
+};
+
 function spaceFN(from, to) {
   return [
     {
@@ -242,50 +287,7 @@ process.stdout.write(
               },
             ],
           },
-          devices: [
-            {
-              disable_built_in_keyboard_if_exists: false,
-              fn_function_keys: [],
-              identifiers: {
-                is_keyboard: true,
-                is_pointing_device: false,
-                product_id: 1031,
-                vendor_id: 4176,
-              },
-              ignore: true,
-              manipulate_caps_lock_led: false,
-              simple_modifications: [],
-            },
-            {
-              disable_built_in_keyboard_if_exists: false,
-              fn_function_keys: [],
-              identifiers: {
-                is_keyboard: true,
-                is_pointing_device: false,
-                product_id: 273,
-                vendor_id: 2131,
-              },
-              ignore: false,
-              manipulate_caps_lock_led: true,
-              simple_modifications: [
-                ...swap('left_command', 'left_option'),
-                ...swap('right_command', 'right_option'),
-              ],
-            },
-            {
-              disable_built_in_keyboard_if_exists: false,
-              fn_function_keys: [],
-              identifiers: {
-                is_keyboard: true,
-                is_pointing_device: false,
-                product_id: 628,
-                vendor_id: 1452,
-              },
-              ignore: false,
-              manipulate_caps_lock_led: true,
-              simple_modifications: [],
-            },
-          ],
+          devices: [YUBIKEY, REALFORCE, APPLE_INTERNAL],
           fn_function_keys: [
             ...fromTo('f1', 'display_brightness_decrement'),
             ...fromTo('f2', 'display_brightness_increment'),
@@ -318,21 +320,7 @@ process.stdout.write(
             },
             rules: [],
           },
-          devices: [
-            {
-              disable_built_in_keyboard_if_exists: false,
-              fn_function_keys: [],
-              identifiers: {
-                is_keyboard: true,
-                is_pointing_device: false,
-                product_id: 1031,
-                vendor_id: 4176,
-              },
-              ignore: true,
-              manipulate_caps_lock_led: false,
-              simple_modifications: [],
-            },
-          ],
+          devices: [YUBIKEY],
           fn_function_keys: [
             ...fromTo('f1', 'display_brightness_decrement'),
             ...fromTo('f2', 'display_brightness_increment'),
