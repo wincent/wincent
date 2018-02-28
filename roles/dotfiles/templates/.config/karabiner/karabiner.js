@@ -1,5 +1,9 @@
 #!/usr/bin/env node
 
+/*
+ * Format with: prettier --write karabiner.js
+ */
+
 function fromTo(from, to) {
   return [
     {
