@@ -89,7 +89,7 @@ function swap(a, b) {
   return [...fromTo(a, b), ...fromTo(b, a)];
 }
 
-const BASE_DEVICE = {
+const DEVICE_DEFAULTS = {
   disable_built_in_keyboard_if_exists: false,
   fn_function_keys: [],
   ignore: false,
@@ -98,7 +98,7 @@ const BASE_DEVICE = {
 };
 
 const APPLE_INTERNAL = {
-  ...BASE_DEVICE,
+  ...DEVICE_DEFAULTS,
   identifiers: {
     is_keyboard: true,
     is_pointing_device: false,
@@ -108,7 +108,7 @@ const APPLE_INTERNAL = {
 };
 
 const REALFORCE = {
-  ...BASE_DEVICE,
+  ...DEVICE_DEFAULTS,
   identifiers: {
     is_keyboard: true,
     is_pointing_device: false,
@@ -122,7 +122,7 @@ const REALFORCE = {
 };
 
 const YUBIKEY = {
-  ...BASE_DEVICE,
+  ...DEVICE_DEFAULTS,
   identifiers: {
     is_keyboard: true,
     is_pointing_device: false,
