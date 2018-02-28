@@ -761,25 +761,19 @@
         {
           "disable_built_in_keyboard_if_exists": false,
           "fn_function_keys": [],
+          "ignore": true,
+          "manipulate_caps_lock_led": false,
+          "simple_modifications": [],
           "identifiers": {
             "is_keyboard": true,
             "is_pointing_device": false,
             "product_id": 1031,
             "vendor_id": 4176
-          },
-          "ignore": true,
-          "manipulate_caps_lock_led": false,
-          "simple_modifications": []
+          }
         },
         {
           "disable_built_in_keyboard_if_exists": false,
           "fn_function_keys": [],
-          "identifiers": {
-            "is_keyboard": true,
-            "is_pointing_device": false,
-            "product_id": 273,
-            "vendor_id": 2131
-          },
           "ignore": false,
           "manipulate_caps_lock_led": true,
           "simple_modifications": [
@@ -815,20 +809,26 @@
                 "key_code": "right_command"
               }
             }
-          ]
+          ],
+          "identifiers": {
+            "is_keyboard": true,
+            "is_pointing_device": false,
+            "product_id": 273,
+            "vendor_id": 2131
+          }
         },
         {
           "disable_built_in_keyboard_if_exists": false,
           "fn_function_keys": [],
+          "ignore": false,
+          "manipulate_caps_lock_led": true,
+          "simple_modifications": [],
           "identifiers": {
             "is_keyboard": true,
             "is_pointing_device": false,
             "product_id": 628,
             "vendor_id": 1452
-          },
-          "ignore": false,
-          "manipulate_caps_lock_led": true,
-          "simple_modifications": []
+          }
         }
       ],
       "fn_function_keys": [
@@ -951,15 +951,15 @@
         {
           "disable_built_in_keyboard_if_exists": false,
           "fn_function_keys": [],
+          "ignore": true,
+          "manipulate_caps_lock_led": false,
+          "simple_modifications": [],
           "identifiers": {
             "is_keyboard": true,
             "is_pointing_device": false,
             "product_id": 1031,
             "vendor_id": 4176
-          },
-          "ignore": true,
-          "manipulate_caps_lock_led": false,
-          "simple_modifications": []
+          }
         }
       ],
       "fn_function_keys": [

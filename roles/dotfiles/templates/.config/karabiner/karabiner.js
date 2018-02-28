@@ -89,31 +89,32 @@ function swap(a, b) {
   return [...fromTo(a, b), ...fromTo(b, a)];
 }
 
-const APPLE_INTERNAL = {
+const BASE_DEVICE = {
   disable_built_in_keyboard_if_exists: false,
   fn_function_keys: [],
+  ignore: false,
+  manipulate_caps_lock_led: true,
+  simple_modifications: [],
+};
+
+const APPLE_INTERNAL = {
+  ...BASE_DEVICE,
   identifiers: {
     is_keyboard: true,
     is_pointing_device: false,
     product_id: 628,
     vendor_id: 1452,
   },
-  ignore: false,
-  manipulate_caps_lock_led: true,
-  simple_modifications: [],
 };
 
 const REALFORCE = {
-  disable_built_in_keyboard_if_exists: false,
-  fn_function_keys: [],
+  ...BASE_DEVICE,
   identifiers: {
     is_keyboard: true,
     is_pointing_device: false,
     product_id: 273,
     vendor_id: 2131,
   },
-  ignore: false,
-  manipulate_caps_lock_led: true,
   simple_modifications: [
     ...swap('left_command', 'left_option'),
     ...swap('right_command', 'right_option'),
@@ -121,8 +122,7 @@ const REALFORCE = {
 };
 
 const YUBIKEY = {
-  disable_built_in_keyboard_if_exists: false,
-  fn_function_keys: [],
+  ...BASE_DEVICE,
   identifiers: {
     is_keyboard: true,
     is_pointing_device: false,
@@ -131,7 +131,6 @@ const YUBIKEY = {
   },
   ignore: true,
   manipulate_caps_lock_led: false,
-  simple_modifications: [],
 };
 
 const DEFAULT_PROFILE = {
