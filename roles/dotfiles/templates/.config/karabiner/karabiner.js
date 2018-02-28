@@ -135,13 +135,18 @@ const YUBIKEY = {
   manipulate_caps_lock_led: false,
 };
 
+const PARAMETER_DEFAULTS = {
+  'basic.simultaneous_threshold_milliseconds': 50,
+  'basic.to_delayed_action_delay_milliseconds': 500,
+  'basic.to_if_alone_timeout_milliseconds': 1000,
+  'basic.to_if_held_down_threshold_milliseconds': 500,
+};
+
 const DEFAULT_PROFILE = {
   complex_modifications: {
     parameters: {
-      'basic.simultaneous_threshold_milliseconds': 50,
-      'basic.to_delayed_action_delay_milliseconds': 500,
+      ...PARAMETER_DEFAULTS,
       'basic.to_if_alone_timeout_milliseconds': 500 /* Default: 1000 */,
-      'basic.to_if_held_down_threshold_milliseconds': 500,
     },
     rules: [
       {
@@ -309,12 +314,7 @@ const DEFAULT_PROFILE = {
 
 const VANILLA_PROFILE = {
   complex_modifications: {
-    parameters: {
-      'basic.simultaneous_threshold_milliseconds': 50,
-      'basic.to_delayed_action_delay_milliseconds': 500,
-      'basic.to_if_alone_timeout_milliseconds': 1000,
-      'basic.to_if_held_down_threshold_milliseconds': 500,
-    },
+    parameters: PARAMETER_DEFAULTS,
     rules: [],
   },
   devices: [YUBIKEY],
