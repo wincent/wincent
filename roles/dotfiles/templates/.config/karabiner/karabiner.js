@@ -134,6 +134,212 @@ function spaceFN(from, to) {
   ];
 }
 
+const DEFAULT_PROFILE = {
+  complex_modifications: {
+    parameters: {
+      'basic.simultaneous_threshold_milliseconds': 50,
+      'basic.to_delayed_action_delay_milliseconds': 500,
+      'basic.to_if_alone_timeout_milliseconds': 500,
+      'basic.to_if_held_down_threshold_milliseconds': 500,
+    },
+    rules: [
+      {
+        description: 'SpaceFN layer',
+        manipulators: [
+          ...spaceFN('b', 'spacebar'),
+          ...spaceFN('u', 'right_arrow'),
+          ...spaceFN('y', 'down_arrow'),
+          ...spaceFN('h', 'left_arrow'),
+          ...spaceFN('n', 'up_arrow'),
+          ...spaceFN('l', 'right_arrow'),
+          ...spaceFN('k', 'down_arrow'),
+          ...spaceFN('j', 'left_arrow'),
+          ...spaceFN('i', 'up_arrow'),
+        ],
+      },
+      {
+        description:
+          'Change Caps Lock to Control when used as modifier, Backspace when used alone',
+        manipulators: [
+          {
+            from: {
+              key_code: 'caps_lock',
+              modifiers: {
+                optional: ['any'],
+              },
+            },
+            to: [
+              {
+                key_code: 'left_control',
+                lazy: true,
+              },
+            ],
+            to_if_alone: [
+              {
+                key_code: 'delete_or_backspace',
+              },
+            ],
+            to_if_held_down: [
+              {
+                key_code: 'delete_or_backspace',
+              },
+            ],
+            type: 'basic',
+          },
+        ],
+      },
+      {
+        description:
+          'Change Return to Control when used as modifier, Return when used alone',
+        manipulators: [
+          {
+            from: {
+              key_code: 'return_or_enter',
+              modifiers: {
+                optional: ['any'],
+              },
+            },
+            to: [
+              {
+                key_code: 'right_control',
+                lazy: true,
+              },
+            ],
+            to_if_alone: [
+              {
+                key_code: 'return_or_enter',
+              },
+            ],
+            to_if_held_down: [
+              {
+                key_code: 'return_or_enter',
+              },
+            ],
+            type: 'basic',
+          },
+        ],
+      },
+      {
+        description: 'Change Control+I to F6 in Vim',
+        manipulators: [
+          {
+            conditions: [
+              {
+                bundle_identifiers: [
+                  '^com\\.apple\\.Terminal$',
+                  '^com\\.googlecode\\.iterm2$',
+                  '^org\\.vim\\.MacVim\\.plist$',
+                ],
+                type: 'frontmost_application_if',
+              },
+            ],
+            from: {
+              key_code: 'l',
+              modifiers: {
+                mandatory: ['control'],
+                optional: ['any'],
+              },
+            },
+            to: [
+              {
+                key_code: 'f6',
+                modifiers: ['fn'],
+              },
+            ],
+            type: 'basic',
+          },
+        ],
+      },
+      {
+        description: 'Left and Right Shift together toggle Caps Lock',
+        manipulators: [
+          {
+            from: {
+              modifiers: {
+                optional: ['any'],
+              },
+              simultaneous: [
+                {
+                  key_code: 'left_shift',
+                },
+                {
+                  key_code: 'right_shift',
+                },
+              ],
+              simultaneous_options: {
+                key_down_order: 'insensitive',
+                key_up_order: 'insensitive',
+              },
+            },
+            to: [
+              {
+                key_code: 'caps_lock',
+              },
+            ],
+            type: 'basic',
+          },
+        ],
+      },
+    ],
+  },
+  devices: [YUBIKEY, REALFORCE, APPLE_INTERNAL],
+  fn_function_keys: [
+    ...fromTo('f1', 'display_brightness_decrement'),
+    ...fromTo('f2', 'display_brightness_increment'),
+    ...fromTo('f3', 'mission_control'),
+    ...fromTo('f4', 'launchpad'),
+    ...fromTo('f5', 'illumination_decrement'),
+    ...fromTo('f6', 'illumination_increment'),
+    ...fromTo('f7', 'rewind'),
+    ...fromTo('f8', 'play_or_pause'),
+    ...fromTo('f9', 'fastforward'),
+    ...fromTo('f10', 'mute'),
+    ...fromTo('f11', 'volume_decrement'),
+    ...fromTo('f12', 'volume_increment'),
+  ],
+  name: 'Default',
+  selected: true,
+  simple_modifications: [],
+  virtual_hid_keyboard: {
+    caps_lock_delay_milliseconds: 0,
+    keyboard_type: 'ansi',
+  },
+};
+
+const VANILLA_PROFILE = {
+  complex_modifications: {
+    parameters: {
+      'basic.simultaneous_threshold_milliseconds': 50,
+      'basic.to_delayed_action_delay_milliseconds': 500,
+      'basic.to_if_alone_timeout_milliseconds': 1000,
+      'basic.to_if_held_down_threshold_milliseconds': 500,
+    },
+    rules: [],
+  },
+  devices: [YUBIKEY],
+  fn_function_keys: [
+    ...fromTo('f1', 'display_brightness_decrement'),
+    ...fromTo('f2', 'display_brightness_increment'),
+    ...fromTo('f3', 'mission_control'),
+    ...fromTo('f4', 'launchpad'),
+    ...fromTo('f5', 'illumination_decrement'),
+    ...fromTo('f6', 'illumination_increment'),
+    ...fromTo('f7', 'rewind'),
+    ...fromTo('f8', 'play_or_pause'),
+    ...fromTo('f9', 'fastforward'),
+    ...fromTo('f10', 'mute'),
+    ...fromTo('f11', 'volume_decrement'),
+    ...fromTo('f12', 'volume_increment'),
+  ],
+  name: 'Vanilla',
+  selected: false,
+  simple_modifications: [],
+  virtual_hid_keyboard: {
+    caps_lock_delay_milliseconds: 0,
+    keyboard_type: 'ansi',
+  },
+};
+
 process.stdout.write(
   JSON.stringify(
     {
@@ -142,212 +348,7 @@ process.stdout.write(
         show_in_menu_bar: true,
         show_profile_name_in_menu_bar: false,
       },
-      profiles: [
-        {
-          complex_modifications: {
-            parameters: {
-              'basic.simultaneous_threshold_milliseconds': 50,
-              'basic.to_delayed_action_delay_milliseconds': 500,
-              'basic.to_if_alone_timeout_milliseconds': 500,
-              'basic.to_if_held_down_threshold_milliseconds': 500,
-            },
-            rules: [
-              {
-                description: 'SpaceFN layer',
-                manipulators: [
-                  ...spaceFN('b', 'spacebar'),
-                  ...spaceFN('u', 'right_arrow'),
-                  ...spaceFN('y', 'down_arrow'),
-                  ...spaceFN('h', 'left_arrow'),
-                  ...spaceFN('n', 'up_arrow'),
-                  ...spaceFN('l', 'right_arrow'),
-                  ...spaceFN('k', 'down_arrow'),
-                  ...spaceFN('j', 'left_arrow'),
-                  ...spaceFN('i', 'up_arrow'),
-                ],
-              },
-              {
-                description:
-                  'Change Caps Lock to Control when used as modifier, Backspace when used alone',
-                manipulators: [
-                  {
-                    from: {
-                      key_code: 'caps_lock',
-                      modifiers: {
-                        optional: ['any'],
-                      },
-                    },
-                    to: [
-                      {
-                        key_code: 'left_control',
-                        lazy: true,
-                      },
-                    ],
-                    to_if_alone: [
-                      {
-                        key_code: 'delete_or_backspace',
-                      },
-                    ],
-                    to_if_held_down: [
-                      {
-                        key_code: 'delete_or_backspace',
-                      },
-                    ],
-                    type: 'basic',
-                  },
-                ],
-              },
-              {
-                description:
-                  'Change Return to Control when used as modifier, Return when used alone',
-                manipulators: [
-                  {
-                    from: {
-                      key_code: 'return_or_enter',
-                      modifiers: {
-                        optional: ['any'],
-                      },
-                    },
-                    to: [
-                      {
-                        key_code: 'right_control',
-                        lazy: true,
-                      },
-                    ],
-                    to_if_alone: [
-                      {
-                        key_code: 'return_or_enter',
-                      },
-                    ],
-                    to_if_held_down: [
-                      {
-                        key_code: 'return_or_enter',
-                      },
-                    ],
-                    type: 'basic',
-                  },
-                ],
-              },
-              {
-                description: 'Change Control+I to F6 in Vim',
-                manipulators: [
-                  {
-                    conditions: [
-                      {
-                        bundle_identifiers: [
-                          '^com\\.apple\\.Terminal$',
-                          '^com\\.googlecode\\.iterm2$',
-                          '^org\\.vim\\.MacVim\\.plist$',
-                        ],
-                        type: 'frontmost_application_if',
-                      },
-                    ],
-                    from: {
-                      key_code: 'l',
-                      modifiers: {
-                        mandatory: ['control'],
-                        optional: ['any'],
-                      },
-                    },
-                    to: [
-                      {
-                        key_code: 'f6',
-                        modifiers: ['fn'],
-                      },
-                    ],
-                    type: 'basic',
-                  },
-                ],
-              },
-              {
-                description: 'Left and Right Shift together toggle Caps Lock',
-                manipulators: [
-                  {
-                    from: {
-                      modifiers: {
-                        optional: ['any'],
-                      },
-                      simultaneous: [
-                        {
-                          key_code: 'left_shift',
-                        },
-                        {
-                          key_code: 'right_shift',
-                        },
-                      ],
-                      simultaneous_options: {
-                        key_down_order: 'insensitive',
-                        key_up_order: 'insensitive',
-                      },
-                    },
-                    to: [
-                      {
-                        key_code: 'caps_lock',
-                      },
-                    ],
-                    type: 'basic',
-                  },
-                ],
-              },
-            ],
-          },
-          devices: [YUBIKEY, REALFORCE, APPLE_INTERNAL],
-          fn_function_keys: [
-            ...fromTo('f1', 'display_brightness_decrement'),
-            ...fromTo('f2', 'display_brightness_increment'),
-            ...fromTo('f3', 'mission_control'),
-            ...fromTo('f4', 'launchpad'),
-            ...fromTo('f5', 'illumination_decrement'),
-            ...fromTo('f6', 'illumination_increment'),
-            ...fromTo('f7', 'rewind'),
-            ...fromTo('f8', 'play_or_pause'),
-            ...fromTo('f9', 'fastforward'),
-            ...fromTo('f10', 'mute'),
-            ...fromTo('f11', 'volume_decrement'),
-            ...fromTo('f12', 'volume_increment'),
-          ],
-          name: 'Default',
-          selected: true,
-          simple_modifications: [],
-          virtual_hid_keyboard: {
-            caps_lock_delay_milliseconds: 0,
-            keyboard_type: 'ansi',
-          },
-        },
-        {
-          complex_modifications: {
-            parameters: {
-              'basic.simultaneous_threshold_milliseconds': 50,
-              'basic.to_delayed_action_delay_milliseconds': 500,
-              'basic.to_if_alone_timeout_milliseconds': 1000,
-              'basic.to_if_held_down_threshold_milliseconds': 500,
-            },
-            rules: [],
-          },
-          devices: [YUBIKEY],
-          fn_function_keys: [
-            ...fromTo('f1', 'display_brightness_decrement'),
-            ...fromTo('f2', 'display_brightness_increment'),
-            ...fromTo('f3', 'mission_control'),
-            ...fromTo('f4', 'launchpad'),
-            ...fromTo('f5', 'illumination_decrement'),
-            ...fromTo('f6', 'illumination_increment'),
-            ...fromTo('f7', 'rewind'),
-            ...fromTo('f8', 'play_or_pause'),
-            ...fromTo('f9', 'fastforward'),
-            ...fromTo('f10', 'mute'),
-            ...fromTo('f11', 'volume_decrement'),
-            ...fromTo('f12', 'volume_increment'),
-          ],
-          name: 'Vanilla',
-          selected: false,
-          simple_modifications: [],
-          virtual_hid_keyboard: {
-            caps_lock_delay_milliseconds: 0,
-            keyboard_type: 'ansi',
-          },
-        },
-      ],
+      profiles: [DEFAULT_PROFILE, VANILLA_PROFILE],
     },
     null,
     2,
