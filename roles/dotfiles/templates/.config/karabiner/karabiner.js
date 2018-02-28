@@ -142,7 +142,37 @@ const PARAMETER_DEFAULTS = {
   'basic.to_if_held_down_threshold_milliseconds': 500,
 };
 
+const VANILLA_PROFILE = {
+  complex_modifications: {
+    parameters: PARAMETER_DEFAULTS,
+    rules: [],
+  },
+  devices: [YUBIKEY],
+  fn_function_keys: [
+    ...fromTo('f1', 'display_brightness_decrement'),
+    ...fromTo('f2', 'display_brightness_increment'),
+    ...fromTo('f3', 'mission_control'),
+    ...fromTo('f4', 'launchpad'),
+    ...fromTo('f5', 'illumination_decrement'),
+    ...fromTo('f6', 'illumination_increment'),
+    ...fromTo('f7', 'rewind'),
+    ...fromTo('f8', 'play_or_pause'),
+    ...fromTo('f9', 'fastforward'),
+    ...fromTo('f10', 'mute'),
+    ...fromTo('f11', 'volume_decrement'),
+    ...fromTo('f12', 'volume_increment'),
+  ],
+  name: 'Vanilla',
+  selected: false,
+  simple_modifications: [],
+  virtual_hid_keyboard: {
+    caps_lock_delay_milliseconds: 0,
+    keyboard_type: 'ansi',
+  },
+};
+
 const DEFAULT_PROFILE = {
+  ...VANILLA_PROFILE,
   complex_modifications: {
     parameters: {
       ...PARAMETER_DEFAULTS,
@@ -289,56 +319,8 @@ const DEFAULT_PROFILE = {
     ],
   },
   devices: [YUBIKEY, REALFORCE, APPLE_INTERNAL],
-  fn_function_keys: [
-    ...fromTo('f1', 'display_brightness_decrement'),
-    ...fromTo('f2', 'display_brightness_increment'),
-    ...fromTo('f3', 'mission_control'),
-    ...fromTo('f4', 'launchpad'),
-    ...fromTo('f5', 'illumination_decrement'),
-    ...fromTo('f6', 'illumination_increment'),
-    ...fromTo('f7', 'rewind'),
-    ...fromTo('f8', 'play_or_pause'),
-    ...fromTo('f9', 'fastforward'),
-    ...fromTo('f10', 'mute'),
-    ...fromTo('f11', 'volume_decrement'),
-    ...fromTo('f12', 'volume_increment'),
-  ],
   name: 'Default',
   selected: true,
-  simple_modifications: [],
-  virtual_hid_keyboard: {
-    caps_lock_delay_milliseconds: 0,
-    keyboard_type: 'ansi',
-  },
-};
-
-const VANILLA_PROFILE = {
-  complex_modifications: {
-    parameters: PARAMETER_DEFAULTS,
-    rules: [],
-  },
-  devices: [YUBIKEY],
-  fn_function_keys: [
-    ...fromTo('f1', 'display_brightness_decrement'),
-    ...fromTo('f2', 'display_brightness_increment'),
-    ...fromTo('f3', 'mission_control'),
-    ...fromTo('f4', 'launchpad'),
-    ...fromTo('f5', 'illumination_decrement'),
-    ...fromTo('f6', 'illumination_increment'),
-    ...fromTo('f7', 'rewind'),
-    ...fromTo('f8', 'play_or_pause'),
-    ...fromTo('f9', 'fastforward'),
-    ...fromTo('f10', 'mute'),
-    ...fromTo('f11', 'volume_decrement'),
-    ...fromTo('f12', 'volume_increment'),
-  ],
-  name: 'Vanilla',
-  selected: false,
-  simple_modifications: [],
-  virtual_hid_keyboard: {
-    caps_lock_delay_milliseconds: 0,
-    keyboard_type: 'ansi',
-  },
 };
 
 process.stdout.write(
