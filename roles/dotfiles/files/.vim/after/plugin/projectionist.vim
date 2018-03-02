@@ -29,24 +29,26 @@ let g:projectionist_heuristics = {
       \       'alternate': '{dirname}/{basename}.js',
       \       'type': 'test'
       \     },
-      \     '*.re': {
+      \     'src/*.re': {
       \       'alternate': [
-      \         '{}_test.re',
-      \         '{}.rei'
+      \         '__tests__/{}_test.re',
+      \         'src/{}_test.re',
+      \         'src/{}.rei'
       \       ],
       \       'type': 'source'
       \     },
-      \     '*.rei': {
+      \     'src/*.rei': {
       \       'alternate': [
-      \         '{}.re',
-      \         '{}_test.re',
+      \         'src/{}.re',
+      \         '__tests__/{}_test.re',
+      \         'src/{}_test.re',
       \       ],
       \       'type': 'header'
       \     },
-      \     '*_test.re': {
+      \     '__tests__/*_test.re': {
       \       'alternate': [
-      \         '{}.rei',
-      \         '{}.re',
+      \         'src/{}.rei',
+      \         'src/{}.re',
       \       ],
       \       'type': 'test'
       \     }
