@@ -7,6 +7,7 @@ function! wincent#functions#plaintext() abort
   setlocal nolist
   if has('syntax')
     setlocal spell
+    setlocal spelllang=en,es
   endif
   setlocal textwidth=0
   setlocal wrap
