@@ -3,6 +3,11 @@
 " <Leader><Leader> -- Open last buffer.
 nnoremap <Leader><Leader> <C-^>
 
+" <Leader>f -- Format buffer.
+if has('nvim')
+  nnoremap <Leader>f :call LanguageClient_textDocument_formatting()<CR>
+endif
+
 nnoremap <Leader>o :only<CR>
 
 " <Leader>p -- Show the path of the current file (mnemonic: path; useful when
