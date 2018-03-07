@@ -5,7 +5,9 @@ function! wincent#functions#plaintext() abort
     setlocal concealcursor=nc
   endif
   setlocal nolist
-  setlocal spell
+  if has('syntax')
+    setlocal spell
+  endif
   setlocal textwidth=0
   setlocal wrap
   setlocal wrapmargin=0
