@@ -202,8 +202,6 @@ source $HOME/.zsh/hash
 source $HOME/.zsh/path
 source $HOME/.zsh/vars
 
-test -e $HOME/.zsh/functions.private && source $HOME/.zsh/functions.private
-
 #
 # Third-party
 #
