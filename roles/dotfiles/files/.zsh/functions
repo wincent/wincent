@@ -132,8 +132,7 @@ function bounce() {
 #   replaces .tif with .tiff for all files in current dir
 #   must quote the regex otherwise "\." becomes "."
 # limitations: ? doesn't seem to work in the regex, nor *
-regmv()
-{
+regmv() {
   if [ $# -lt 2 ]; then
     echo "  Usage: regmv 'regex' file(s)"
     echo "  Where:       'regex' should be of the format '/find/replace/'"
