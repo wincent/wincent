@@ -225,3 +225,36 @@ function wr() {
     tmux switch-client -t WriteRoom
   fi
 }
+
+# "[t]ime[w]arp" by setting GIT_AUTHOR_DATE and GIT_COMMITTER_DATE.
+function tw() {
+  local TS=$(ts "$@")
+  echo "Spawning subshell with timestamp: $TS"
+  env GIT_AUTHOR_DATE="$TS" GIT_COMMITTER_DATE="$TS" zsh
+}
+
+# "tick" by incrementing GIT_AUTHOR_DATE and GIT_COMMITTER_DATE.
+function tick() {
+  if [ -z "$GIT_AUTHOR_DATE" -o -z "$GIT_COMMITTER_DATE" ]; then
+    echo 'Expected $GIT_AUTHOR_DATE and $GIT_COMMITTER_DATE to be set.'
+    echo 'Did you forget to timewarp with `tw`?'
+  else
+    # Fragile assumption: dates are in format produced by `tw`/`ts`.
+    local TS=$(expr \
+      $(echo $GIT_AUTHOR_DATE | cut -d ' ' -f 1) \
+      $( \
+        echo "$@" | \
+        sed -e 's/-/ - /g' | \
+        sed -e 's/+/ + /g' | \
+        sed -e 's/s//g' | \
+        sed -e 's/m/ * 60/g' | \
+        sed -e 's/h/ * 3600/g' | \
+        sed -e 's/d/ * 86400/g' \
+      ) \
+    )
+    local TZ=$(date +%z)
+    echo "Bumping timestamp to: $TS $TZ"
+    export GIT_AUTHOR_DATE="$TS $TZ"
+    export GIT_COMMITTER_DATE="$TS $TZ"
+  fi
+}
