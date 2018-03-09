@@ -242,15 +242,7 @@ function tick() {
     # Fragile assumption: dates are in format produced by `tw`/`ts`.
     local TS=$(expr \
       $(echo $GIT_AUTHOR_DATE | cut -d ' ' -f 1) \
-      $( \
-        echo "$@" | \
-        sed -e 's/-/ - /g' | \
-        sed -e 's/+/ + /g' | \
-        sed -e 's/s//g' | \
-        sed -e 's/m/ * 60/g' | \
-        sed -e 's/h/ * 3600/g' | \
-        sed -e 's/d/ * 86400/g' \
-      ) \
+      $(parseoffset "$@") \
     )
     local TZ=$(date +%z)
     echo "Bumping timestamp to: $TS $TZ"

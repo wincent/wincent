@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# Parse an adjustment string (eg. +1h, -55m etc) to an expression representing
+# the equivalent offset, in seconds.
+#
+# For example:
+#
+#     parseoffset +1h -10s
+#
+# Prints:
+#
+#     + 1 * 3600 - 10
+#
+echo "$@" | \
+  sed -e 's/-/ - /g' | \
+  sed -e 's/+/ + /g' | \
+  sed -e 's/s//g' | \
+  sed -e 's/m/ * 60/g' | \
+  sed -e 's/h/ * 3600/g' | \
+  sed -e 's/d/ * 86400/g' | \
+  sed -e 's/w/ * 86400 * 7/g' | \
+  sed -e 's/y/ * 86400 * 365/g'
