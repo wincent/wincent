@@ -6,7 +6,6 @@ dotfile_files:
   - .bash
   - .bash_profile
   - .clipper.json
-  - .config/karabiner
   - .config/ranger
   - .ghci
   - .gitattributes
@@ -32,6 +31,7 @@ dotfile_files:
   - .zshrc
 
 dotfile_templates:
+  - .config/karabiner/karabiner.json
   - .corpusrc
   - .gemrc
   - .gitconfig

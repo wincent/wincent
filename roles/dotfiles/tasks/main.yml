@@ -2,6 +2,9 @@
 - name: dotfiles | make ~/.config
   file: path=~/.config state=directory
 
+- name: dotfiles | make ~/.config/karabiner
+  file: path=~/.config/karabiner state=directory
+
 - name: dotfiles | symlink nvim to vim
   file: path=~/.config/nvim src=~/.vim state=link force=yes
 
@@ -33,6 +36,10 @@
         state=link
         force=yes
   with_items: '{{dotfile_files}}'
+
+- name: dotfiles | prepare Karabiner config
+  command: '{{ ansible_env.PWD }}/roles/dotfiles/support/karabiner.js'
+  register: karabiner_config
 
 # Note some nasty dependencies here between creating the symlinks (eg.
 # effectively creating ~/mutt/config/) and then templating into it (eg.
