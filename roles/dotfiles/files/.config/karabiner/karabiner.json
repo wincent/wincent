@@ -808,6 +808,22 @@
               "to": {
                 "key_code": "right_command"
               }
+            },
+            {
+              "from": {
+                "key_code": "application"
+              },
+              "to": {
+                "key_code": "fn"
+              }
+            },
+            {
+              "from": {
+                "key_code": "pause"
+              },
+              "to": {
+                "key_code": "power"
+              }
             }
           ],
           "identifiers": {

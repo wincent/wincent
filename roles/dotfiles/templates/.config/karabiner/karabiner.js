@@ -121,6 +121,8 @@ const REALFORCE = {
   simple_modifications: [
     ...swap('left_command', 'left_option'),
     ...swap('right_command', 'right_option'),
+    ...fromTo('application', 'fn'),
+    ...fromTo('pause', 'power'),
   ],
 };
 

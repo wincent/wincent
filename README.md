@@ -42,11 +42,9 @@ On macOS, [Karabiner-Elements](https://github.com/tekezo/Karabiner-Elements/) is
 * Toggle Caps Lock on by tapping both Shift keys simultaneously.
 * Makes the function keys on my external Realforce keyboard behave like the "media" keys on Apple's keyboards.
 * Swap Option and Command keys on my external Realforce keyboard.
+* Make the "application" key (extra modifier key on right-hand side) behave as "fn" on Realforce keyboard.
+* Make "pause" (at far-right of function key row) behave as "power" (effectively, sleep) on Realforce keyboard.
 * Adds a "SpaceFN" layer that can be activated by holding down Space while hitting other keys; I use this to make the cursor keys available on or near the home row in any app.
-
-Other functionality that *used* to come via Karabiner but isn't (yet) supported by Karabiner-Elements, or I haven't gotten around to doing it:
-
-* On my external Realforce keyboard F13 serves as a sticky "fn" key, and F15 as Power.
 
 ### Mutt
 
