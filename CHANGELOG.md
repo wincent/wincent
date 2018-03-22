@@ -1,5 +1,37 @@
 # Changelog
 
+## 2018-03-21
+
+* Set up "fn" and "power" key equivalents on external keyboard.
+
+## 2018-03-08
+
+* Add `tw` and `tick` shell utilities.
+
+## 2018-03-06
+
+* Prevent `'spelllang'` Vim setting from getting blown away in Markdown files.
+
+## 2017-12-28
+
+* Make Caps Lock and Return repeat when held down.
+* Add back SpaceFN layer.
+* Add `<LocalLeader>p` Vim mapping to print the highlight groups that apply at the current cursor position.
+
+## 2017-12-22
+
+* Add "J"/"K" bindings to move Vim visual selection up and down.
+* Add convenience `wincent#debug#log()` function to Vim for debugging purposes.
+
+## 2017-12-15
+
+* Add "O" macro to mutt to save original message (mnemonic: "[O]riginal").
+* Add "S" macro to mutt to save all attachments (mnemonic: "[S]ave").
+
+## 2017-12-06
+
+* Use iTerm dynamic profiles to change the font size when an external monitor is present.
+
 ## 2017-11-08
 
 * Dump YouCompleteMe.

@@ -95,7 +95,8 @@ Standard `mutt` stuff:
 Non-Gmail extensions:
 
 * `t`: Toggle selection on entire thread (see also `x`).
-* `A` show alternate MIME-type in MIME-multipart messages.
+* `A`: Show alternate MIME-type in MIME-multipart messages.
+* `O`: Save original message.
 * `S`: Search all using [Xapian query syntax](https://xapian.org/docs/queryparser.html):
   * `+foo`: Must include "foo".
   * `-bar`: Must not include "bar".
@@ -117,6 +118,10 @@ Other stuff:
 
 * `<Tab>` autocompletes addresses from the lbdb database.
 * `<C-t>` autocompletes aliases.
+
+Attachment menu bindings:
+
+* `S`: Save all attachments.
 
 To have `mailto` links open up in `mutt` in iTerm:
 
