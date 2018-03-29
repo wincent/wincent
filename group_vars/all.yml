@@ -3,5 +3,13 @@ corpus_notes: "{{ '~/Documents/Corpus' | expanduser }}"
 git_cipher_path: vendor/git-cipher/bin/git-cipher
 http_proxy: ""
 iterm_dynamic_profiles:
-  external: []
-  retina: []
+  external:
+    - dest: Mutt.json
+      src: 40-Mutt-4K.json
+    - dest: Wincent.json
+      src: 10-4K.json
+  retina:
+    - dest: Mutt.json
+      src: 40-Mutt-Retina.json
+    - dest: Wincent.json
+      src: 10-Retina.json
