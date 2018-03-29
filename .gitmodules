@@ -147,6 +147,7 @@
 	path = roles/dotfiles/files/.zsh/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-reason-plus"]
+	ignore = dirty
 	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-reason-plus
 	url = https://github.com/reasonml-editor/vim-reason-plus.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/LanguageClient-neovim"]
