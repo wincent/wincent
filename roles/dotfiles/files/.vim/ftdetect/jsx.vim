@@ -21,7 +21,7 @@ function! s:DetectJSX(file)
     endif
   elseif a:file =~# "\\v(_spec|Spec|-test|\\.test)\\.js"
     if s:ScanFile()
-      set ft=javascript.jasmine.jsx
+      set ft=javascript.jest.jsx
     endif
   elseif a:file =~# "\\v\\.js"
     if s:ScanFile()
