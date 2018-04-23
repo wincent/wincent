@@ -390,6 +390,7 @@ function run()
         'biz_ownership_claim|' ..
         'biz_perm_proxy_request|' ..
         'biz_two_factor|' ..
+        'ig_business_asset_auto_added|' ..
         'page_fan|' ..
         'page_follow'
       )
