@@ -2,7 +2,6 @@
 dotfile_files:
   - .ackrc
   - .agignore
-  - .alacritty.yml
   - .bash
   - .bash_profile
   - .clipper.json
