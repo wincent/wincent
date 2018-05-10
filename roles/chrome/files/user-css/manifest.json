@@ -3,9 +3,10 @@
   "content_scripts": [
     {
       "matches": ["*://*/*"],
-      "exclude_globs": [
+      "exclude_matches": [
         "*://*.messenger.com/*",
-        "*://*.facebook.com/chat/*"
+        "*://*.facebook.com/chat/*",
+        "*://web.whatsapp.com/*"
       ],
       "css": ["User.css"]
     }
