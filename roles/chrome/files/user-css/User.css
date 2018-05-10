@@ -1,0 +1,8 @@
+/* Retina cut-off is 192dpi, so the following applies to the lower DPI of the 4k
+ * display.
+ */
+@media (max-resolution: 191dpi) {
+  html {
+    zoom: 1.3;
+  }
+}

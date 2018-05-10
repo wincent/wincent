@@ -1,0 +1,12 @@
+{
+  "name": "User stylesheet",
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "css": ["User.css"]
+    }
+  ],
+  "version": "0.0.0",
+  "description": "User stylesheet",
+  "manifest_version": 2
+}
