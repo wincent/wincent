@@ -2,12 +2,8 @@
   "name": "User stylesheet",
   "content_scripts": [
     {
-      "matches": ["*://*/*"],
-      "exclude_matches": [
-        "*://*.messenger.com/*",
-        "*://*.facebook.com/chat/*",
-        "*://web.whatsapp.com/*"
-      ],
+      "matches": ["*://*.facebook.com/intern/diff/*"],
+      "exclude_matches": [],
       "css": ["User.css"]
     }
   ],
