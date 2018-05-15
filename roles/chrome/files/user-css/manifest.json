@@ -2,7 +2,7 @@
   "name": "User stylesheet",
   "content_scripts": [
     {
-      "matches": ["*://*.facebook.com/intern/diff/*"],
+      "matches": ["*://xxx.facebook.com/intern/diff/*"],
       "exclude_matches": [],
       "css": ["User.css"]
     }
