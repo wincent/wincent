@@ -34,17 +34,6 @@ function history() {
   builtin history ${1:-$DEFAULT}
 }
 
-function mosh() {
-  emulate -L zsh
-
-  if [[ -z "$@" ]]; then
-    # common case: getting to my workstation
-    command mosh -6 sandbox
-  else
-    command mosh "$@"
-  fi
-}
-
 function mvim() {
   emulate -L zsh
 
@@ -70,7 +59,7 @@ function ssh() {
 
   if [[ -z "$@" ]]; then
     # common case: getting to my workstation
-    command ssh sandbox-clipper
+    command ssh dev
   else
     local LOCAL_TERM=$(echo -n "$TERM" | sed -e s/tmux/screen/)
     env TERM=$LOCAL_TERM command ssh "$@"
