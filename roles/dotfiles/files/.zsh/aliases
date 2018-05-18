@@ -20,7 +20,6 @@ alias g=git
 alias groot='cd $(git rev-parse --show-toplevel 2> /dev/null || echo -n ".")'
 alias h=history
 alias j=jump
-alias k='__temp() { rm -f ~/.ssh/glh@* && ssh ${1:-sandbox} rm -f .clipper.sock; unfunction __temp}; __temp'
 alias l='ls -F'
 alias ll='ls -laF'
 alias o='git oneline'
