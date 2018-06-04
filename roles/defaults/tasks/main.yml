@@ -275,6 +275,10 @@
 - name: defaults | iTerm2 -> Preferences -> Advanced -> General -> Width of left and right margins in terminal panes
   osx_defaults: domain=com.googlecode.iterm2 key=TerminalMargin type=int value=1
 
+# Last tested: 3.2.20180604-nightly (default: ?)
+- name: defaults | iTerm2 -> Preferences -> Advanced -> General -> Width of left and right margins in terminal panes
+  osx_defaults: domain=com.googlecode.iterm2 key=TerminalVMargin type=int value=2
+
 # Last tested: 2.9.20150224-nightly
 - name: defaults | iTerm2 -> Preferences -> General -> Native full screen windows
   osx_defaults: domain=com.googlecode.iterm2 key=UseLionStyleFullscreen type=bool value=false
