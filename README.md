@@ -97,7 +97,7 @@ Non-Gmail extensions:
 * `t`: Toggle selection on entire thread (see also `x`).
 * `A`: Show alternate MIME-type in MIME-multipart messages.
 * `O`: Save original message.
-* `S`: Search all using [Xapian query syntax](https://xapian.org/docs/queryparser.html):
+* `S`: Search all using [Xapian query syntax](https://xapian.org/docs/queryparser.html) ([notmuch-specific reference documentation](https://notmuchmail.org/manpages/notmuch-search-terms-7/)):
   * `+foo`: Must include "foo".
   * `-bar`: Must not include "bar".
   * `AND`, `OR`, `NOT`, `XOR`: Self-evident.
@@ -105,10 +105,22 @@ Non-Gmail extensions:
   * `foo ADJ bar`: Like `NEAR`, but "foo" must appear earlier than "bar".
   * `"foo bar"`: Match entire phrase.
   * `foo*`: Match "foo", "food", "foobar" etc.
-  * `subject:this`, `subject:"one two"`
-  * `{from,to}:john`, `{from,to}:me@example.com`
-  * `folder:Home/Home` (prefix search)
-  * `date:today`, `date:7d` (and much more)
+  * `subject:this`, `subject:"one two"` (two consecutive words), `subject:(one two)` (two words anywhere in subject), `subject:one AND subject:two` (two words anywhere in subject).
+  * `subject:/some regex.*/`
+  * `from:john`, `from:me@example.com`
+  * `to:john`, `to:me@example.com`
+  * `folder:Sent` (prefix search)
+  * `date:today`
+  * `date:yesterday`
+  * `date:3d` (exactly 3 days ago)
+  * `date:14d..7d` (a week ago)
+  * `date:10d..` (since 10 days ago)
+  * `date:..3d` (until 3 days ago)
+  * `date:"last week"` (preceding Monday through Sunday)
+  * `date:"this week"` or `date:this_week` or `date:this-week` (Monday to present day)
+  * `date:"last year"` (also works with `years`, `months`, `hours`/`hrs`, `minutes`/`mins`, `seconds`/`secs` etc).
+  * `date:june`
+  * `date:2018-06-01`
   * `is:unread`
 * `\u`: Open list of URLs in message (via `urlview`).
 * `b`: Toggle (mailboxes) sidebar.
