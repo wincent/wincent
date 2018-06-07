@@ -13,4 +13,4 @@ tmux send-keys -t dot:vim "sleep .25; vim -c CommandT" Enter
 tmux split-window -t dot:vim -h
 tmux send-keys -t dot:vim.right "git st" Enter
 
-tmux attach -t dot:vim.left
+tmux attach -t dot:vim.right
