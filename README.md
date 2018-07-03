@@ -122,6 +122,12 @@ Non-Gmail extensions:
   * `date:june`
   * `date:2018-06-01`
   * `is:unread`
+* `l`: Limit listed messages:
+  * `~f bob` (from bob)
+  * `~s foo` (subject contains "foo"; "Foo" would search case-sensitively)
+  * `~s foo.+bar` (subject contains pattern)
+  * `!~s foo` (subject does not contain "foo")
+  * `~d >1m` (messages more than 1 month old)
 * `\u`: Open list of URLs in message (via `urlview`).
 * `b`: Toggle (mailboxes) sidebar.
 * `m`: Move message(s).
