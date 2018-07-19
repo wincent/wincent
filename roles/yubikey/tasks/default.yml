@@ -1,6 +1,0 @@
----
-- name: yubikey | tweak settings
-  command: ykpersonalize -u -1 -v -oled-inv -ofast-trig -oappend-cr -ouse-numeric-keypad
-
-- name: yubikey | remap for Colemak
-  command: ykpersonalize -S 06050a0e08170b0f1c11180d16090c1986858a8e88978b8f9c91988d96898c99271e1f202122232425262b9e28

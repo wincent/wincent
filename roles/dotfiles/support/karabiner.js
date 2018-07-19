@@ -126,17 +126,6 @@ const REALFORCE = {
   ],
 };
 
-const YUBIKEY = {
-  ...DEVICE_DEFAULTS,
-  identifiers: {
-    ...IDENTIFIER_DEFAULTS,
-    product_id: 1031,
-    vendor_id: 4176,
-  },
-  ignore: true,
-  manipulate_caps_lock_led: false,
-};
-
 const PARAMETER_DEFAULTS = {
   'basic.simultaneous_threshold_milliseconds': 50,
   'basic.to_delayed_action_delay_milliseconds': 500,
@@ -149,7 +138,7 @@ const VANILLA_PROFILE = {
     parameters: PARAMETER_DEFAULTS,
     rules: [],
   },
-  devices: [YUBIKEY],
+  devices: [],
   fn_function_keys: [
     ...fromTo('f1', 'display_brightness_decrement'),
     ...fromTo('f2', 'display_brightness_increment'),
@@ -320,7 +309,7 @@ const DEFAULT_PROFILE = {
       },
     ],
   },
-  devices: [YUBIKEY, REALFORCE, APPLE_INTERNAL],
+  devices: [REALFORCE, APPLE_INTERNAL],
   name: 'Default',
   selected: true,
 };

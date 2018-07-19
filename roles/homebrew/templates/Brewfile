@@ -25,12 +25,6 @@ brew 'nginx'
 brew 'redis', restart_service: true
 
 {% endif %}
-{% if 'work' in group_names %}
-# Only on work machines.
-brew 'libyubikey'
-brew 'ykpers'
-
-{% endif %}
 # General packages.
 brew 'abook'
 brew 'ack'
