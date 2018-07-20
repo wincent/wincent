@@ -9,11 +9,7 @@ set attach_format = '%u%D%I %t%4n %T%.40d%> [%.12m/%.12M, %.6e%?C?, %C?, %s] '
 
 set attribution = "%n wrote:\n"
 set certificate_file =~/.mutt/certificates
-{% if 'personal' in group_names %}
 set copy = no
-{% elif 'work' in group_names %}
-set copy = yes
-{% endif %}
 set delete = yes # Delete without confirming.
 
 # Mangles auto-viewed HTML mail so not going to do this for now.
@@ -55,11 +51,7 @@ set pager_stop = yes # Don't move to the next message when paging past the botto
 set postponed ='+Drafts'
 set query_command="lbdbq %s 2> /dev/null"
 set realname = 'Greg Hurrell'
-{% if 'personal' in group_names %}
 unset record
-{% elif 'work' in group_names %}
-set record = '+Sent'
-{% endif %}
 set reply_to = yes # Instead of asking, always reply to Reply-to:
 set resolve = no # Don't auto-advance to the next message after every single op.
 set sendmail = "env BUNDLE_GEMFILE=$HOME/.mutt/scripts/Gemfile $HOME/.mutt/scripts/msmtp.rb"
