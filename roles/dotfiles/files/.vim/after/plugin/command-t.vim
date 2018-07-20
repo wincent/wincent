@@ -33,8 +33,3 @@ nmap <unique> <Leader>h <Plug>(CommandTHelp)
 nmap <unique> <LocalLeader>h <Plug>(CommandTHistory)
 nmap <unique> <LocalLeader>l <Plug>(CommandTLine)
 nmap <unique> <LocalLeader>t <Plug>(CommandTTag)
-
-let s:path = expand('<sfile>:p:h') . '/command-t.private.vim'
-if filereadable(s:path)
-  execute 'source ' . s:path
-endif
