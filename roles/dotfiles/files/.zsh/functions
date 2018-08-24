@@ -103,7 +103,7 @@ function tmux() {
   fi
 
   # Attach to existing session, or create one, based on current directory.
-  SESSION_NAME=$(basename "$(pwd)")
+  SESSION_NAME=$(basename "${$(pwd)//[.]/_}")
   env SSH_AUTH_SOCK=$SOCK_SYMLINK tmux new -A -s "$SESSION_NAME"
 }
 
