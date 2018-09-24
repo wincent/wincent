@@ -1,8 +1,10 @@
+APFS
 API
 APIs
 AgileBits
 Ansible
 BFS
+BeOS
 CentOS
 Clojure
 CoffeeScript
@@ -21,6 +23,7 @@ Gmail
 GraphQL
 GraphiQL
 GraphiQL's
+HFS
 Hammerspoon
 Heroku
 Homebrew
@@ -90,6 +93,7 @@ dedupes
 destructuring
 diff
 diffs
+discoverability
 dotfile
 dotfiles
 eg
@@ -97,6 +101,7 @@ etc
 fallback
 filesystem
 filetype
+folksonomy
 foo
 foobar
 gitignore
