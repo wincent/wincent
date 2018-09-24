@@ -1,3 +1,12 @@
+" Turn on spell-checking.
+function! wincent#functions#spell() abort
+  if has('syntax')
+    setlocal spell
+    setlocal spellfile=~/.vim/spell/en.utf-8.add
+    setlocal spelllang=en,es
+  endif
+endfunction
+
 " Switch to plaintext mode with: call wincent#functions#plaintext()
 function! wincent#functions#plaintext() abort
   if has('conceal')
@@ -5,13 +14,11 @@ function! wincent#functions#plaintext() abort
     setlocal concealcursor=nc
   endif
   setlocal nolist
-  if has('syntax')
-    setlocal spell
-    setlocal spelllang=en,es
-  endif
   setlocal textwidth=0
   setlocal wrap
   setlocal wrapmargin=0
+
+  call wincent#functions#spell()
 
   nnoremap <buffer> j gj
   nnoremap <buffer> k gk

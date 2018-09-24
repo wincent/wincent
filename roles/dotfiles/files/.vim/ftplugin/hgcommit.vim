@@ -1,7 +1,3 @@
-if has('syntax')
-  setlocal spell
-endif
-
 call wincent#functions#plaintext()
 
 " Can't just use 'colorcolumn' here because it's really only the first line
