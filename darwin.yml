@@ -3,7 +3,7 @@
   roles:
     - { role: iterm, tags: iterm }
     - { role: dotfiles, tags: dotfiles }
-    - { role: maxfiles, tags: maxfiles }
+    - { role: launchd, tags: launchd }
     - { role: terminfo, tags: terminfo }
     - { role: homebrew, tags: homebrew }
     - { role: shell, tags: shell }

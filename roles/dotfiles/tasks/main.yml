@@ -54,6 +54,11 @@
 - name: dotfiles | make ~/.zshenv.d
   file: path=~/.zshenv.d state=directory
 
+# Override insanely low open file limits on macOS.
+- name: dotfiles | copy maxfiles.zsh
+  copy: dest=~/.zshenv.d/maxfiles.zsh src=maxfiles.zsh
+  when: ansible_os_family == "Darwin"
+
 # Make some directories required by configuration in the dotfiles; these should
 # probably be separate roles.
 - name: dotfiles | create auxiliary directories
