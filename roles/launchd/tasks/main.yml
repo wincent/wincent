@@ -1,15 +1,24 @@
 ---
-# Not bothering with templating these because this is cheap and Apple will
-# probably change everything in the future anyway.
-#
 # @see http://unix.stackexchange.com/questions/108174/how-to-persist-ulimit-settings-in-osx-mavericks
-- name: launchd | configure limit files
-  copy: group=wheel
-        mode=0644
-        owner=root
-        dest=/Library/LaunchDaemons/{{ item }}
-        src={{ item }}
+- name: launchd | configure (global) LaunchDaemons
+  template: group=wheel
+            mode=0644
+            owner=root
+            dest=/Library/LaunchDaemons/{{ item.label }}.plist
+            src=run.plist
   with_items:
-    - limit.maxproc.plist
-    - limit.maxfiles.plist
+    - label: limit.maxproc
+      args: ['limit', 'maxproc', 2048, 2048]
+    - label: limit.maxfiles
+      args: ['limit', 'maxfiles', 65536, 65536]
   become: !!bool yes
+
+- name: launchd | configure (local) LaunchAgents
+  template: mode=0644
+            dest=~/Library/LaunchAgents/{{ item.label }}.plist
+            src=run.plist
+  with_items:
+    - label: setenv.lang
+      args: ['setenv', 'LANG', 'en_US.UTF-8']
+    - label: setenv.lc_time
+      args: ['setenv', 'LC_TIME', 'en_AU.UTF-8']

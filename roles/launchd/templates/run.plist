@@ -3,14 +3,13 @@
 <plist version="1.0">
   <dict>
     <key>Label</key>
-    <string>limit.maxfiles</string>
+    <string>{{ item.label }}</string>
     <key>ProgramArguments</key>
     <array>
       <string>launchctl</string>
-      <string>limit</string>
-      <string>maxfiles</string>
-      <string>65536</string>
-      <string>65536</string>
+{% for arg in item.args %}
+      <string>{{ arg }}</string>
+{% endfor %}
     </array>
     <key>RunAtLoad</key>
     <true/>
