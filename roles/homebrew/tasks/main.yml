@@ -21,6 +21,3 @@
 
 - name: homebrew | clean up old versions
   command: brew cleanup
-
-- name: homebrew | clean up old casks
-  command: brew cask cleanup
