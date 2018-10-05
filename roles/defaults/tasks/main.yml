@@ -9,6 +9,7 @@
   with_items: '{{osx_defaults}}'
   failed_when: existing_defaults.rc > 1
   changed_when: false
+  check_mode: no
   loop_control:
     label: "{{item.description}}"
 

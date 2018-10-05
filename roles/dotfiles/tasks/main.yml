@@ -17,6 +17,7 @@
   register: original_check
   with_items: '{{dotfile_files + dotfile_templates}}'
   changed_when: false
+  check_mode: no
 
 - name: dotfiles | backup originals
   command:
