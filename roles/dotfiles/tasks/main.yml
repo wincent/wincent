@@ -14,7 +14,8 @@
 - name: dotfiles | check for non-symlink originals
   stat: path="~/{{ item }}"
   register: original_check
-  with_items: '{{dotfile_files + dotfile_templates}}'
+  loop: '{{dotfile_files + dotfile_templates}}'
+  changed_when: original_check.stat.exists and not original_check.stat.islnk
 
 - name: dotfiles | show original_check
   debug:
@@ -26,9 +27,8 @@
     mv ~/{{ item.0 }} ~/.backups/
     creates=~/.backups/{{ item.0 }}
     removes=~/{{ item.0 }}
-  with_together:
-    - '{{dotfile_files + dotfile_templates}}'
-    - '{{original_check.results}}'
+  loop:
+    '{{ (dotfile_files + dotfile_templates) | zip(original_check.results) | list }}'
   when: item.1.stat.exists and not item.1.stat.islnk
   loop_control:
     label: '{{item.0}}'
@@ -38,7 +38,7 @@
         path=~/{{ item }}
         state=link
         force=yes
-  with_items: '{{dotfile_files}}'
+  loop: '{{dotfile_files}}'
 
 - name: dotfiles | prepare Karabiner config
   command: '{{ ansible_env.PWD }}/roles/dotfiles/support/karabiner.js'
@@ -57,7 +57,7 @@
   template: dest={{ ansible_env.HOME }}/{{ item }}
             mode={{ '0755' if item.endswith('.sh') else '0644' }}
             src={{ item }}
-  with_items: '{{dotfile_templates}}'
+  loop: '{{dotfile_templates}}'
 
 # Provide an extension point for other roles to dump .zshenv stuff into.
 - name: dotfiles | make ~/.zshenv.d
@@ -72,6 +72,6 @@
 # probably be separate roles.
 - name: dotfiles | create auxiliary directories
   file: path={{ item }} state=directory
-  with_items:
+  loop:
     # mbsync will die on first sync without this:
     - ~/.mail

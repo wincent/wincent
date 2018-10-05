@@ -3,26 +3,26 @@
 # for completeness.
 - name: iterm | make directories
   file: path="{{ item }}" state=directory
-  with_items:
+  loop:
     - "~/Library/Application Support/iTerm2"
     - "~/Library/Application Support/iTerm2/DynamicProfiles"
     - "~/Library/Application Support/iTerm2/Sources"
 
 - name: iterm | link Dynamic Profiles
   file: state=link src="{{ item }}" dest="~/Library/Application Support/iTerm2/DynamicProfiles/{{ item | basename }}"
-  with_fileglob:
-    - "roles/iterm/files/DynamicProfiles/*.json"
+  loop: '{{ lookup("fileglob", "roles/iterm/files/DynamicProfiles/*.json", wantlist=True) }}'
 
 - name: iterm | link Sources
   file: state=link src="{{ item }}" dest="~/Library/Application Support/iTerm2/Sources/{{ item | basename }}"
-  with_fileglob:
-    - "roles/iterm/files/Sources/*.json"
+  loop: '{{ lookup("fileglob", "roles/iterm/files/Sources/*.json", wantlist=True) }}'
 
 - name: iterm | check switchable symbolic links
   stat: path="~/Library/Application Support/iTerm2/DynamicProfiles/{{ item.dest }}"
-  with_items: '{{ iterm_dynamic_profiles.retina }}'
+  loop: '{{ iterm_dynamic_profiles.retina }}'
   register: dynamic_profiles_stat_info
   changed_when: false
+  loop_control:
+    label: '{{ item.dest }}'
 
 - name: iterm | show dynamic_profiles_stat_info
   debug:
@@ -33,8 +33,11 @@
 # once created, Hammerspoon manages the links.
 - name: iterm | set up switchable symbolic links
   file:
-    dest="~/Library/Application Support/iTerm2/DynamicProfiles/{{ item.1.dest }}"
-    src="~/Library/Application Support/iTerm2/Sources/{{ item.1.src }}"
+    dest="~/Library/Application Support/iTerm2/DynamicProfiles/{{ item.dest }}"
+    src="~/Library/Application Support/iTerm2/Sources/{{ item.src }}"
     state=link
-  with_indexed_items: '{{ iterm_dynamic_profiles.retina }}'
-  when: not dynamic_profiles_stat_info.results[item.0].stat.exists
+  loop: '{{ iterm_dynamic_profiles.retina }}'
+  loop_control:
+    index_var: index
+    label: '{{ item.dest }}@ -> {{ item.src }}'
+  when: not dynamic_profiles_stat_info.results[index].stat.exists

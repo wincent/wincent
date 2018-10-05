@@ -1,7 +1,7 @@
 ---
 - name: misc | ensure directories exist
   file: path={{ item }} state=directory
-  with_items:
+  loop:
     - ~/Archives
     - ~/Local
 
@@ -10,7 +10,7 @@
 
 - name: misc | hide items
   command: chflags hidden {{ item }}
-  with_items:
+  loop:
     - ~/mbox
 
 - name: misc | install prefnerd

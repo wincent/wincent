@@ -19,7 +19,7 @@
 
 - name: vim | create deoplete directories
   file: path={{ item }} state=directory
-  with_items:
+  loop:
     - ~/.vim/rplugin
     - ~/.vim/rplugin/python3
     - ~/.vim/rplugin/python3/deoplete
@@ -32,7 +32,7 @@
         path=~/{{ item }}
         src={{ ansible_env.PWD }}/roles/vim/files/{{ item }}
         state=link
-  with_items:
+  loop:
     - .vim/rplugin/python3/deoplete/filter/sorter_smart.py
     - .vim/rplugin/python3/deoplete/sources/mail.py
     - .vim/rplugin/python3/deoplete/sources/masochist.py

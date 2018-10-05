@@ -6,18 +6,18 @@
 osx_defaults:
   - read: read com.apple.recentitems RecentApplications
     write: write com.apple.recentitems RecentApplications -dict-add MaxAmount 50
-    expected: '50' # can't read a value from a nested dictionary, always updates
+    expected: 'MaxAmount = 50'
     description: System Preferences -> General -> Recent items (Applications)
     last_tested: '[10.10.2]'
 
   - read: read com.apple.recentitems RecentDocuments
     write: write com.apple.recentitems RecentDocuments -dict-add MaxAmount 50
-    expected: '50' # can't read a value from a nested dictionary, always updates
+    expected: 'MaxAmount = 50'
     description: System Preferences -> General -> Recent items (Documents)
     last_tested: '[10.10.2]'
 
   - read: read com.apple.recentitems RecentServers
     write: write com.apple.recentitems RecentServers -dict-add MaxAmount 50
-    expected: '50' # can't read a value from a nested dictionary, always updates
+    expected: 'MaxAmount = 50'
     description: System Preferences -> General -> Recent items (Servers)
     last_tested: '[10.10.2]'

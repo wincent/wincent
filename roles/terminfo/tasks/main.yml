@@ -5,7 +5,7 @@
 - name: terminfo | update terminfo files
   command:
     tic -o {{ terminfo_path }} roles/terminfo/files/{{ item }}
-  with_items:
+  loop:
     - tmux.terminfo
     - tmux-256color.terminfo
     - xterm-256color.terminfo

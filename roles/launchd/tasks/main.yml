@@ -6,19 +6,23 @@
             owner=root
             dest=/Library/LaunchDaemons/{{ item.label }}.plist
             src=run.plist
-  with_items:
+  loop:
     - label: limit.maxproc
       args: ['limit', 'maxproc', 2048, 2048]
     - label: limit.maxfiles
       args: ['limit', 'maxfiles', 65536, 65536]
+  loop_control:
+    label: '{{item.label}}'
   become: !!bool yes
 
 - name: launchd | configure (local) LaunchAgents
   template: mode=0644
             dest=~/Library/LaunchAgents/{{ item.label }}.plist
             src=run.plist
-  with_items:
+  loop:
     - label: setenv.lang
       args: ['setenv', 'LANG', 'en_US.UTF-8']
     - label: setenv.lc_time
       args: ['setenv', 'LC_TIME', 'en_AU.UTF-8']
+  loop_control:
+    label: '{{item.label}}'

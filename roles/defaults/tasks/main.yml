@@ -6,7 +6,7 @@
 - name: defaults | register existing values
   command: defaults {{ item.read }}
   register: existing_defaults
-  with_items: '{{osx_defaults}}'
+  loop: '{{osx_defaults}}'
   failed_when: existing_defaults.rc > 1
   changed_when: false
   check_mode: no
@@ -20,10 +20,9 @@
 
 - name: defaults | update defaults
   command: defaults {{ item.0.write }}
-  when: item.1.stdout != item.0.expected
-  with_together:
-    - '{{osx_defaults}}'
-    - '{{existing_defaults.results}}'
+  when: item.1.stdout is not search(item.0.expected)
+  loop:
+    '{{ osx_defaults | zip(existing_defaults.results) | list }}'
   loop_control:
     label: "{{item.0.description}}"
 
@@ -163,7 +162,7 @@
 
 - name: defaults | System Preferences -> Accessibility -> Zoom -> Use scroll gesture with modifier keys to zoom (Control)
   osx_defaults: domain={{ item.domain }}  key={{ item.key }}  type={{ item.type }}  value={{ item.value }}
-  with_items:
+  loop:
     - domain: com.apple.universalaccess
       key: closeViewScrollWheelToggle
       type: bool
