@@ -219,6 +219,44 @@ git config --global user.email johndoe@example.com
 
 ### Troubleshooting
 
+#### General Ansible troubleshooting
+
+Flags passed to `./install` are propagated to the underlying Ansible invocation, which means that you can do things like:
+
+```sh
+# Run in "check" (dry-run) mode.
+./install --check
+
+# Show before-and-after delta of changes.
+./install --diff
+
+# Both of the above together.
+./install --check --diff
+
+# Show various levels of debug output.
+./install --verbose
+./install -vv
+./install -vvv
+./install -vvvv
+
+# Confirm each task before running it (--step), and begin
+# execution from a specific task (--start-at-task).
+./install --step --start-at-task='dotfiles | create backup directory'
+```
+
+You can also inspect variables by adding a task that uses the "debug" module in a role:
+
+```yaml
+- name: buggy task
+  stat: path="~/{{ item }}"
+  register: stat_result
+  with_items: '{{ dotfile_files + dotfile_templates }}'
+
+- name: debugging bad stat info
+  debug:
+    var: stat_result
+```
+
 #### pycrypto install fails with "'gmp.h' file not found"
 
 If pycrypto causes the install to fail at:
