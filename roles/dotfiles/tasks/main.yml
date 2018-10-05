@@ -12,12 +12,9 @@
   file: path=~/.backups state=directory
 
 - name: dotfiles | check for non-symlink originals
-  command: test -e ~/{{ item }} -a ! -L ~/{{ item }}
-  failed_when: original_check.rc > 1
+  stat: path="~/{{ item }}"
   register: original_check
   with_items: '{{dotfile_files + dotfile_templates}}'
-  changed_when: false
-  check_mode: no
 
 - name: dotfiles | backup originals
   command:
@@ -27,7 +24,7 @@
   with_together:
     - '{{dotfile_files + dotfile_templates}}'
     - '{{original_check.results}}'
-  when: item.1.rc == 0 # item exists and is not a symlink
+  when: item.1.stat.exists and not item.1.stat.islnk
   loop_control:
     label: '{{item.0}}'
 
