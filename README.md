@@ -213,8 +213,8 @@ done
 **Warning:** Beware of the `.gitconfig`, you need to change for your user name and email address:
 
 ```sh
-$ git config --global user.name "John Doe"
-$ git config --global user.email johndoe@example.com
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
 ```
 
 ### Troubleshooting
