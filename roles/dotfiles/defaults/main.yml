@@ -2,8 +2,6 @@
 dotfile_files:
   - .ackrc
   - .agignore
-  - .bash
-  - .bash_profile
   - .clipper.json
   - .config/ranger
   - .ghci
