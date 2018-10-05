@@ -13,6 +13,11 @@
   loop_control:
     label: "{{item.description}}"
 
+- name: defaults | show existing_defaults
+  debug:
+    var: existing_defaults
+    verbosity: 2
+
 - name: defaults | update defaults
   command: defaults {{ item.0.write }}
   when: item.1.stdout != item.0.expected

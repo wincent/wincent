@@ -16,7 +16,7 @@ usage() {
   echo "Supported options:"
   echo "  -f/--force"
   echo "  -h/--help"
-  echo "  -v/--verbose (repeat for more verbosity)"
+  echo "  -v/--verbose (repeat up to four times for more verbosity)"
   echo "Other options (passed through to Ansible):"
   echo "  --check"
   echo "  --step"
@@ -34,6 +34,12 @@ while [ $# -gt 0 ]; do
     FORCE=1
   elif [ "$1" = '--verbose' -o "$1" = '-v' ]; then
     VERBOSE=$((VERBOSE + 1))
+  elif [ "$1" = '-vv' ]; then
+    VERBOSE=$((VERBOSE + 2))
+  elif [ "$1" = '-vvv' ]; then
+    VERBOSE=$((VERBOSE + 3))
+  elif [ "$1" = '-vvvv' ]; then
+    VERBOSE=$((VERBOSE + 4))
   elif [ "$1" = '--help' -o "$1" = '-h' -o "$1" = 'help' ]; then
     usage
     exit
@@ -57,7 +63,7 @@ done
 
 if [[ $VERBOSE ]]; then
   DEV_NULL=/dev/stdout
-  if [ $VERBOSE -gt 1 ]; then
+  if [ $VERBOSE -ge 4 ]; then
     echo 'Enabling extremely verbose output'
     set -x
   fi
@@ -106,9 +112,9 @@ source vendor/ansible/hacking/env-setup &> $DEV_NULL
 HOST_OS=$(uname)
 
 if [ "$HOST_OS" = 'Darwin' ]; then
-  ansible-playbook --ask-become-pass -i inventory ${VERBOSE+-v} ${ROLES} "${EXTRA_ARGS[@]}" darwin.yml
+  ansible-playbook --ask-become-pass -i inventory ${VERBOSE+-$(printf 'v%.0s' $(seq $VERBOSE))} ${ROLES} "${EXTRA_ARGS[@]}" darwin.yml
 elif [ "$HOST_OS" = 'Linux' ]; then
-  ansible-playbook -i inventory ${VERBOSE+-v} ${ROLES} "${EXTRA_ARGS[@]}" linux.yml
+  ansible-playbook -i inventory ${VERBOSE+-$(printf 'v%.0s' $(seq $VERBOSE))} ${ROLES} "${EXTRA_ARGS[@]}" linux.yml
 else
   echo "Unknown host OS: $HOST_OS"
   exit 1

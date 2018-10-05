@@ -24,6 +24,11 @@
   register: dynamic_profiles_stat_info
   changed_when: false
 
+- name: iterm | show dynamic_profiles_stat_info
+  debug:
+    var: dynamic_profiles_stat_info
+    verbosity: 2
+
 # We only link these ones if they don't already exist;
 # once created, Hammerspoon manages the links.
 - name: iterm | set up switchable symbolic links

@@ -6,6 +6,11 @@
   stat: path={{ ssh_config_path }}
   register: config_stat
 
+- name: ssh | show config_stat
+  debug:
+    var: config_stat
+    verbosity: 2
+
 - name: ssh | report on config file
   fail: msg='{{ ssh_config_path }} does not exist; run "{{ git_cipher_path }}"'
   when: not config_stat.stat.exists and lookup("env", "USER") == "glh"

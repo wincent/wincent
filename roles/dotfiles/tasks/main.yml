@@ -16,6 +16,11 @@
   register: original_check
   with_items: '{{dotfile_files + dotfile_templates}}'
 
+- name: dotfiles | show original_check
+  debug:
+    var: original_check
+    verbosity: 2
+
 - name: dotfiles | backup originals
   command:
     mv ~/{{ item.0 }} ~/.backups/
@@ -39,6 +44,11 @@
   command: '{{ ansible_env.PWD }}/roles/dotfiles/support/karabiner.js'
   register: karabiner_config
   check_mode: no
+
+- name: dotfiles | show karabiner_config
+  debug:
+    var: karabiner_config
+    verbosity: 2
 
 # Note some nasty dependencies here between creating the symlinks (eg.
 # effectively creating ~/mutt/config/) and then templating into it (eg.

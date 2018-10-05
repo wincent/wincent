@@ -257,6 +257,8 @@ You can also inspect variables by adding a task that uses the "debug" module in 
     var: stat_result
 ```
 
+Note that for convenience, "debug" tasks have already been inserted for all variables that are `register`-ed in the existing roles, with verbosity thresholds of 2, meaning that they will be logged automatically when the install is run using `./install -vv` or more.
+
 #### pycrypto install fails with "'gmp.h' file not found"
 
 If pycrypto causes the install to fail at:

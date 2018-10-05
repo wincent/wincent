@@ -12,6 +12,11 @@
   register: dot_vim_stat
   failed_when: not dot_vim_stat.stat.exists or not dot_vim_stat.stat.islnk
 
+- name: vim | show dot_vim_stat
+  debug:
+    var: dot_vim_stat
+    verbosity: 2
+
 - name: vim | create deoplete directories
   file: path={{ item }} state=directory
   with_items:
