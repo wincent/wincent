@@ -71,12 +71,12 @@ function! wincent#autocomplete#deoplete_init() abort
   endif
   let s:deoplete_init_done=1
   call deoplete#enable()
-  call deoplete#custom#set(
+  call deoplete#custom#source(
         \   'masochist',
         \   'content',
         \   expand('~/code/masochist-pages')
         \ )
-  call deoplete#custom#set(
+  call deoplete#custom#source(
         \   'masochist',
         \   'config',
         \   expand('~/code/masochist/src/server/constants.js')
