@@ -7,7 +7,3 @@
 
 - name: cron | schedule check-git cron job
   cron: name="check-git" hour="8,12,16,20" job="$HOME/Library/Cron/check-git"
-
-- name: cron | fix login hangs
-  cron: name="fix-login-hangs" minute="0" job="/usr/bin/killall -9 opendirectoryd" user=root
-  become: !!bool yes
