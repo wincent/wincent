@@ -10,7 +10,7 @@
 - name: vim | require .vim symlink to have been established
   stat: path=~/.vim
   register: dot_vim_stat
-  failed_when: dot_vim_stat.stat.islnk is not defined or not dot_vim_stat.stat.islnk
+  failed_when: not dot_vim_stat.stat.exists or not dot_vim_stat.stat.islnk
 
 - name: vim | create deoplete directories
   file: path={{ item }} state=directory
@@ -20,7 +20,7 @@
     - ~/.vim/rplugin/python3/deoplete
     - ~/.vim/rplugin/python3/deoplete/filter
     - ~/.vim/rplugin/python3/deoplete/sources
-  when: dot_vim_stat.stat.islnk is defined and dot_vim_stat.stat.islnk
+  when: dot_vim_stat.stat.exists and dot_vim_stat.stat.islnk
 
 - name: vim | copy deoplete extensions
   file: force=yes
