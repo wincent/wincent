@@ -152,6 +152,7 @@
 	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-reason-plus
 	url = https://github.com/reasonml-editor/vim-reason-plus.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/LanguageClient-neovim"]
+	ignore = dirty
 	path = roles/dotfiles/files/.vim/pack/LanguageClient-neovim/opt/LanguageClient-neovim
 	url = https://github.com/autozimu/LanguageClient-neovim.git
 	branch = next
