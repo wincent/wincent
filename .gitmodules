@@ -18,8 +18,7 @@
 	url = https://github.com/wincent/ferret.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/indentLine"]
 	path = roles/dotfiles/files/.vim/pack/bundle/start/indentLine
-	url = https://github.com/wincent/indentLine.git
-	branch = wincent
+	url = https://github.com/Yggdroot/indentLine.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/loupe"]
 	ignore = dirty
 	path = roles/dotfiles/files/.vim/pack/bundle/start/loupe
