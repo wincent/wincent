@@ -158,3 +158,6 @@
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-zsh"]
 	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-zsh
 	url = https://github.com/chrisbra/vim-zsh.git
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/goyo.vim"]
+	path = roles/dotfiles/files/.vim/pack/bundle/start/goyo.vim
+	url = https://github.com/junegunn/goyo.vim.git
