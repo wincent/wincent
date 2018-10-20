@@ -97,6 +97,9 @@ set shortmess+=O                      " file-read message overwrites previous
 set shortmess+=T                      " truncate non-file messages in middle
 set shortmess+=W                      " don't echo "[w]"/"[written]" when writing
 set shortmess+=a                      " use abbreviations in messages eg. `[RO]` instead of `[readonly]`
+if has('patch-7.4.314')
+  set shortmess+=c                    " completion messages
+endif
 set shortmess+=o                      " overwrite file-written messages
 set shortmess+=t                      " truncate file messages at start
 
