@@ -82,6 +82,11 @@ if has('autocmd')
     augroup END
     augroup! WincentAutocmds
 
+    augroup WincentAutocolor
+      autocmd!
+    augroup END
+    augroup! WincentAutocolor
+
     set statusline=\ 
     set nocursorline
     set noshowmode
