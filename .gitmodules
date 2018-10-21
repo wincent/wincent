@@ -4,6 +4,11 @@
 [submodule "roles/dotfiles/files/.vim/pack/bundle/opt/vim-pathogen"]
 	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen.git
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/LanguageClient-neovim"]
+	ignore = dirty
+	path = roles/dotfiles/files/.vim/pack/LanguageClient-neovim/opt/LanguageClient-neovim
+	url = https://github.com/autozimu/LanguageClient-neovim.git
+	branch = next
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/base16-vim"]
 	path = roles/dotfiles/files/.vim/pack/bundle/start/base16-vim
 	url = https://github.com/chriskempson/base16-vim.git
@@ -16,6 +21,9 @@
 	ignore = untracked
 	path = roles/dotfiles/files/.vim/pack/bundle/start/ferret
 	url = https://github.com/wincent/ferret.git
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/goyo.vim"]
+	path = roles/dotfiles/files/.vim/pack/bundle/start/goyo.vim
+	url = https://github.com/junegunn/goyo.vim.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/indentLine"]
 	path = roles/dotfiles/files/.vim/pack/bundle/start/indentLine
 	url = https://github.com/Yggdroot/indentLine.git
@@ -98,6 +106,10 @@
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-projectionist"]
 	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-projectionist
 	url = https://github.com/tpope/vim-projectionist.git
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-reason-plus"]
+	ignore = dirty
+	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-reason-plus
+	url = https://github.com/reasonml-editor/vim-reason-plus.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-repeat"]
 	ignore = untracked
 	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-repeat
@@ -122,12 +134,21 @@
 	ignore = untracked
 	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-textobj-user
 	url = https://github.com/kana/vim-textobj-user.git
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-zsh"]
+	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-zsh
+	url = https://github.com/chrisbra/vim-zsh.git
 [submodule "roles/dotfiles/files/.vim/pack/deoplete/opt/deoplete"]
 	path = roles/dotfiles/files/.vim/pack/deoplete/opt/deoplete
 	url = https://github.com/Shougo/deoplete.nvim.git
 [submodule "roles/dotfiles/files/.zsh/base16-shell"]
 	path = roles/dotfiles/files/.zsh/base16-shell
 	url = https://github.com/chriskempson/base16-shell.git
+[submodule "roles/dotfiles/files/.zsh/zsh-autosuggestions"]
+	path = roles/dotfiles/files/.zsh/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
+[submodule "roles/dotfiles/files/.zsh/zsh-syntax-highlighting"]
+	path = roles/dotfiles/files/.zsh/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
 [submodule "vendor/ansible"]
 	path = vendor/ansible
 	url = https://github.com/ansible/ansible.git
@@ -140,24 +161,3 @@
 [submodule "vendor/virtualenv"]
 	path = vendor/virtualenv
 	url = https://github.com/pypa/virtualenv.git
-[submodule "roles/dotfiles/files/.zsh/zsh-autosuggestions"]
-	path = roles/dotfiles/files/.zsh/zsh-autosuggestions
-	url = https://github.com/zsh-users/zsh-autosuggestions
-[submodule "roles/dotfiles/files/.zsh/zsh-syntax-highlighting"]
-	path = roles/dotfiles/files/.zsh/zsh-syntax-highlighting
-	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
-[submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-reason-plus"]
-	ignore = dirty
-	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-reason-plus
-	url = https://github.com/reasonml-editor/vim-reason-plus.git
-[submodule "roles/dotfiles/files/.vim/pack/bundle/start/LanguageClient-neovim"]
-	ignore = dirty
-	path = roles/dotfiles/files/.vim/pack/LanguageClient-neovim/opt/LanguageClient-neovim
-	url = https://github.com/autozimu/LanguageClient-neovim.git
-	branch = next
-[submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-zsh"]
-	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-zsh
-	url = https://github.com/chrisbra/vim-zsh.git
-[submodule "roles/dotfiles/files/.vim/pack/bundle/start/goyo.vim"]
-	path = roles/dotfiles/files/.vim/pack/bundle/start/goyo.vim
-	url = https://github.com/junegunn/goyo.vim.git
