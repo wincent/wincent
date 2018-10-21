@@ -56,6 +56,8 @@ if has('autocmd')
     augroup END
   endfunction
 
+  call s:WincentAutocmds()
+
   " Wait until idle to run additional "boot" commands.
   augroup WincentIdleboot
     autocmd!
