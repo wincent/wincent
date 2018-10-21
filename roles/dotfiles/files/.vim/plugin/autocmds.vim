@@ -87,15 +87,12 @@ if has('autocmd')
     augroup END
     augroup! WincentAutocolor
 
+    set showbreak=
     set statusline=\ 
     set nocursorline
     set noshowmode
 
-    if has('nvim')
-      highlight! NonText ctermbg=bg ctermfg=bg guibg=bg guifg=bg
-      highlight! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
-      set fillchars=eob:\ 
-    endif
+    highlight! NonText ctermbg=bg ctermfg=bg guibg=bg guifg=bg
 
     if exists('$TMUX')
       silent !tmux set status off
