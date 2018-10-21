@@ -200,16 +200,14 @@ function wr() {
     # TODO: something less clowny here (want width of created session, not width
     # of current pane).
     if [ "$COLS" -gt "$THRESHOLD" ]; then
-      tmux split-window -t WriteRoom -h -p 25
-      tmux split-window -t WriteRoom.1 -b -h -p 25
-      tmux select-pane -t WriteRoom.2
-      tmux send-keys -t WriteRoom.2 "sleep .25; vim -c CommandT" Enter
+      local PERCENT=25
     else
-      tmux split-window -t WriteRoom -h -p 20
-      tmux split-window -t WriteRoom.1 -b -h -p 20
-      tmux select-pane -t WriteRoom.2
-      tmux send-keys -t WriteRoom.2 "sleep .25; vim -c CommandT" Enter
+      local PERCENT=20
     fi
+    tmux split-window -t WriteRoom -h -p $PERCENT
+    tmux split-window -t WriteRoom.1 -b -h -p $PERCENT
+    tmux select-pane -t WriteRoom.2
+    tmux send-keys -t WriteRoom.2 "sleep .25; vim -c CommandT" Enter
   fi
   if [ -z "$TMUX" ]; then
     tmux attach -t WriteRoom
