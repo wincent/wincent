@@ -203,7 +203,7 @@ function wr() {
       tmux split-window -t WriteRoom -h -p 25
       tmux split-window -t WriteRoom.1 -b -h -p 25
       tmux select-pane -t WriteRoom.2
-      tmux send-keys -t WriteRoom.2 "vim -c CommandT" Enter
+      tmux send-keys -t WriteRoom.2 "sleep .25; vim -c CommandT" Enter
     else
       tmux send-keys -t WriteRoom "vim -c CommandT" Enter
     fi
