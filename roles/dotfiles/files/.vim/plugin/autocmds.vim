@@ -69,6 +69,8 @@ if has('autocmd')
   " Goyo
   "
 
+  let s:settings={}
+
   function! s:goyo_enter()
     augroup WincentAutocmds
       autocmd!
@@ -79,6 +81,13 @@ if has('autocmd')
       autocmd!
     augroup END
     augroup! WincentAutocolor
+
+    let s:settings = {
+          \   'showbreak': &showbreak,
+          \   'statusline': &statusline,
+          \   'cursorline': &cursorline,
+          \   'showmode': &showmode
+          \ }
 
     set showbreak=
     set statusline=\ 
@@ -93,6 +102,13 @@ if has('autocmd')
   endfunction
 
   function! s:goyo_leave()
+    for [k, v] in items(s:settings)
+      execute 'let &' . k . '=' . string(v)
+    endfor
+
+    highlight clear NonText
+    highlight link NonText Conceal
+
     if exists('$TMUX')
       silent !tmux set status on
     endif
