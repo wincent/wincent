@@ -22,7 +22,7 @@
 	path = roles/dotfiles/files/.vim/pack/bundle/start/ferret
 	url = https://github.com/wincent/ferret.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/goyo.vim"]
-	path = roles/dotfiles/files/.vim/pack/bundle/start/goyo.vim
+	path = roles/dotfiles/files/.vim/pack/goyo/opt/goyo
 	url = https://github.com/junegunn/goyo.vim.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/indentLine"]
 	path = roles/dotfiles/files/.vim/pack/bundle/start/indentLine
