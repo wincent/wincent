@@ -205,7 +205,10 @@ function wr() {
       tmux select-pane -t WriteRoom.2
       tmux send-keys -t WriteRoom.2 "sleep .25; vim -c CommandT" Enter
     else
-      tmux send-keys -t WriteRoom "vim -c CommandT" Enter
+      tmux split-window -t WriteRoom -h -p 20
+      tmux split-window -t WriteRoom.1 -b -h -p 20
+      tmux select-pane -t WriteRoom.2
+      tmux send-keys -t WriteRoom.2 "sleep .25; vim -c CommandT" Enter
     fi
   fi
   if [ -z "$TMUX" ]; then
