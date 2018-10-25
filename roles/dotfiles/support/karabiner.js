@@ -4,6 +4,8 @@
  * Format with: prettier --write karabiner.js
  */
 
+const EXEMPTIONS = ['com.factorio', 'com.feralinteractive.dirtrally'];
+
 function fromTo(from, to) {
   return [
     {
@@ -15,6 +17,10 @@ function fromTo(from, to) {
       },
     },
   ];
+}
+
+function bundleIdentifier(identifier) {
+  return '^' + identifier.replace(/\./g, '\\.') + '$';
 }
 
 function spaceFN(from, to) {
@@ -162,7 +168,42 @@ const VANILLA_PROFILE = {
   },
 };
 
-const DEFAULT_PROFILE = {
+function applyExemptions(profile) {
+  const base = {
+    type: 'frontmost_application_unless',
+    bundle_identifiers: EXEMPTIONS.map(bundleIdentifier),
+  };
+
+  // Would be simpler to just mutate, but writing this in immutable style
+  // anyway.
+  return {
+    ...profile,
+    complex_modifications: {
+      ...Object.entries(profile.complex_modifications).reduce((acc, [k, v]) => {
+        if (k === 'rules') {
+          acc[k] = v.map(rule => {
+            return {
+              ...rule,
+              manipulators: rule.manipulators.map(manipulator => {
+                return {
+                  ...manipulator,
+                  conditions: manipulator.conditions
+                    ? [...manipulator.conditions, base]
+                    : [base],
+                };
+              }),
+            };
+          });
+        } else {
+          acc[k] = v;
+        }
+        return acc;
+      }, {}),
+    },
+  };
+}
+
+const DEFAULT_PROFILE = applyExemptions({
   ...VANILLA_PROFILE,
   complex_modifications: {
     parameters: {
@@ -253,9 +294,9 @@ const DEFAULT_PROFILE = {
             conditions: [
               {
                 bundle_identifiers: [
-                  '^com\\.apple\\.Terminal$',
-                  '^com\\.googlecode\\.iterm2$',
-                  '^org\\.vim\\.MacVim\\.plist$',
+                  bundleIdentifier('com.apple.Terminal'),
+                  bundleIdentifier('com.googlecode.iterm2'),
+                  bundleIdentifier('org.vim.MacVim.plist'),
                 ],
                 type: 'frontmost_application_if',
               },
@@ -312,7 +353,7 @@ const DEFAULT_PROFILE = {
   devices: [REALFORCE, APPLE_INTERNAL],
   name: 'Default',
   selected: true,
-};
+});
 
 process.stdout.write(
   JSON.stringify(
