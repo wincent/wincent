@@ -1,5 +1,12 @@
 #!/usr/bin/env node
 
+/**
+ * Tests for our karabiner.json generator script.
+ *
+ * These are probably overkill, but then, so is the script, and in any case, I
+ * like my code to have Zarro Boogs.
+ */
+
 /*
  * Format with: prettier --write karabiner.js
  */
