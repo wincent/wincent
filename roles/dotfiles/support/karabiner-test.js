@@ -11,6 +11,11 @@ const {
   isObject,
 } = require('./karabiner');
 
-(() => {
-  assert(true, 'blinking light demo');
+(function test_bundleIdentifier() {
+  (function $() {
+    assert(
+      bundleIdentifier('com.apple.TextEdit') === '^com\\.apple\\.TextEdit$',
+      $
+    );
+  })();
 })();
