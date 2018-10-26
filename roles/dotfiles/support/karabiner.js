@@ -168,39 +168,106 @@ const VANILLA_PROFILE = {
   },
 };
 
+function isObject(item) {
+  return (
+    item !== null && Object.prototype.toString.call(item) === '[object Object]'
+  );
+}
+
+function deepCopy(item) {
+  if (Array.isArray(item)) {
+    return item.map(deepCopy);
+  } else if (isObject(item)) {
+    const copy = {};
+    Object.entries(item).forEach(([k, v]) => {
+      copy[k] = deepCopy(v);
+    });
+    return copy;
+  }
+  return item;
+}
+
+/**
+ * Visit the data structure, `item`, navigating to `path` and passing the
+ * value(s) at that location into the `updater` function, which may return a
+ * substitute value or the original item (if no changes are made, the original
+ * item is returned).
+ *
+ * `path` is a tiny JSONPath subset, and may contain:
+ *
+ * - `$`: selects the root object.
+ * - `.child`: selects a child property.
+ * - `[start:end]`: selects an array slice; `end` is optional.
+ */
+function visit(item, path, updater) {
+  const match = path.match(
+    /^(?<root>\$)|\.(?<child>\w+)|\[(?<slice>.+?)\]|(?<done>$)/,
+  );
+  const {
+    groups: { root, child, slice },
+  } = match;
+  const subpath = path.slice(match[0].length);
+  if (root) {
+    return visit(item, subpath, updater);
+  } else if (child) {
+    const next = visit(item[child], subpath, updater);
+    if (next !== undefined) {
+      return {
+        ...deepCopy(item),
+        [child]: next,
+      };
+    }
+  } else if (slice) {
+    const {
+      groups: { start, end },
+    } = slice.match(/^(?<start>\d+):(?<end>\d+)?$/);
+    let array;
+    for (
+      let i = start, max = (end == null ? item.length : end);
+      i < max;
+      i++
+    ) {
+      const next = visit(item[i], subpath, updater);
+      if (next !== undefined) {
+        if (!array) {
+          array = deepCopy(item.slice(0, i));
+        }
+        array[i] = next;
+      } else if (array) {
+        array[i] = deepCopy(item[i]);
+      }
+    }
+    return array;
+  } else {
+    const next = updater(item);
+    return next === item ? undefined : next;
+  }
+}
+
 function applyExemptions(profile) {
-  const base = {
+  const exemptions = {
     type: 'frontmost_application_unless',
     bundle_identifiers: EXEMPTIONS.map(bundleIdentifier),
   };
 
-  // Would be simpler to just mutate, but writing this in immutable style
-  // anyway.
-  return {
-    ...profile,
-    complex_modifications: {
-      ...Object.entries(profile.complex_modifications).reduce((acc, [k, v]) => {
-        if (k === 'rules') {
-          acc[k] = v.map(rule => {
-            return {
-              ...rule,
-              manipulators: rule.manipulators.map(manipulator => {
-                return {
-                  ...manipulator,
-                  conditions: manipulator.conditions
-                    ? [...manipulator.conditions, base]
-                    : [base],
-                };
-              }),
-            };
-          });
-        } else {
-          acc[k] = v;
+  return visit(
+    profile,
+    '$.complex_modifications.rules[0:].manipulators[0:].conditions',
+    conditions => {
+      if (conditions) {
+        if (
+          conditions.some(
+            condition => condition.type === 'frontmost_application_if',
+          )
+        ) {
+          return conditions;
         }
-        return acc;
-      }, {}),
+        return [...deepCopy(conditions), exemptions];
+      } else {
+        return [exemptions];
+      }
     },
-  };
+  );
 }
 
 const DEFAULT_PROFILE = applyExemptions({
