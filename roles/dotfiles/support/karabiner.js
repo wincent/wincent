@@ -4,8 +4,6 @@
  * Format with: prettier --write karabiner.js
  */
 
-const EXEMPTIONS = ['com.factorio', 'com.feralinteractive.dirtrally'];
-
 function fromTo(from, to) {
   return [
     {
@@ -243,6 +241,8 @@ function visit(item, path, updater) {
     return next === item ? undefined : next;
   }
 }
+
+const EXEMPTIONS = ['com.factorio', 'com.feralinteractive.dirtrally'];
 
 function applyExemptions(profile) {
   const exemptions = {
