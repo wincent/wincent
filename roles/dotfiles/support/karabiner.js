@@ -220,11 +220,7 @@ function visit(item, path, updater) {
       groups: { start, end },
     } = slice.match(/^(?<start>\d+):(?<end>\d+)?$/);
     let array;
-    for (
-      let i = start, max = (end == null ? item.length : end);
-      i < max;
-      i++
-    ) {
+    for (let i = start, max = end == null ? item.length : end; i < max; i++) {
       const next = visit(item[i], subpath, updater);
       if (next !== undefined) {
         if (!array) {
@@ -433,13 +429,7 @@ const CONFIG = {
 
 if (require.main === module) {
   // Script is being executed directly.
-  process.stdout.write(
-    JSON.stringify(
-      CONFIG,
-      null,
-      2,
-    ) + '\n',
-  );
+  process.stdout.write(JSON.stringify(CONFIG, null, 2) + '\n');
 } else {
   // File is being `require`-ed as a module.
   module.exports = {
