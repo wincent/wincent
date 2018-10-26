@@ -5,7 +5,7 @@
  */
 
 const assert = require('assert');
-const { bundleIdentifier, deepCopy, isObject } = require('./karabiner');
+const { bundleIdentifier, deepCopy, isObject, visit } = require('./karabiner');
 
 (function test_bundleIdentifier() {
   (function $() {
@@ -94,5 +94,82 @@ const { bundleIdentifier, deepCopy, isObject } = require('./karabiner');
   // Objects are objects.
   (function $() {
     assert(isObject({}), $);
+  })();
+})();
+
+(function test_visit() {
+  const subject = () => ({
+    foo: 1,
+    bar: [
+      {
+        a: [{}, { deep: { prop: 3 } }],
+      },
+      {
+        a: [],
+        b: [{ deep: { prop: 10 } }],
+      },
+    ],
+  });
+
+  // Helpers for readability.
+  const string = JSON.stringify;
+  const squish = s => s.replace(/\s+/g, '');
+
+  // Replacing the entire document.
+  (function $() {
+    const updated = visit(subject(), '$', root => 'replacement');
+    assert(updated === 'replacement', $);
+  })();
+
+  // Setting a property on an object.
+  (function $() {
+    const updated = visit(subject(), '$.foo', value => value + 5);
+    assert(
+      string(updated) ===
+        squish(`{
+          "foo": 6,
+          "bar": [
+            {
+              "a": [{}, { "deep": { "prop": 3 } }]
+            },
+            {
+              "a": [],
+              "b": [{ "deep": { "prop": 10 } }]
+            }
+          ]
+        }`),
+      $,
+    );
+  })();
+
+  // Modifying a list.
+  (function $() {
+    let counter = 10;
+    const updated = visit(subject(), '$.bar[0:]', _ => counter++);
+    assert(
+      string(updated) ===
+        squish(`{
+          "foo": 1,
+          "bar": [10, 11]
+        }`),
+      $,
+    );
+  })();
+
+  // Re-cycling subtrees.
+  (function $() {
+    const original = subject();
+    const updated = visit(original, '$.bar[0:].a[0:].deep', value => 'xxx');
+
+    assert(
+      updated !== original &&
+        updated.foo === original.foo &&
+        updated.bar !== original.bar &&
+        updated.bar[0] !== original.bar[0] &&
+        updated.bar[0].a !== original.bar[0].a &&
+        updated.bar[0].a[0] !== original.bar[0].a[0] &&
+        updated.bar[1] === original.bar[1],
+      $,
+    );
   })();
 })();

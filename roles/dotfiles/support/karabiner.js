@@ -211,7 +211,7 @@ function visit(item, path, updater) {
     const next = visit(item[child], subpath, updater);
     if (next !== undefined) {
       return {
-        ...deepCopy(item),
+        ...item,
         [child]: next,
       };
     }
@@ -224,11 +224,11 @@ function visit(item, path, updater) {
       const next = visit(item[i], subpath, updater);
       if (next !== undefined) {
         if (!array) {
-          array = deepCopy(item.slice(0, i));
+          array = item.slice(0, i);
         }
         array[i] = next;
       } else if (array) {
-        array[i] = deepCopy(item[i]);
+        array[i] = item[i];
       }
     }
     return array;
@@ -436,5 +436,6 @@ if (require.main === module) {
     bundleIdentifier,
     deepCopy,
     isObject,
+    visit,
   };
 }
