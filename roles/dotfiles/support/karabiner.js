@@ -422,17 +422,28 @@ const DEFAULT_PROFILE = applyExemptions({
   selected: true,
 });
 
-process.stdout.write(
-  JSON.stringify(
-    {
-      global: {
-        check_for_updates_on_startup: true,
-        show_in_menu_bar: true,
-        show_profile_name_in_menu_bar: false,
-      },
-      profiles: [DEFAULT_PROFILE, VANILLA_PROFILE],
-    },
-    null,
-    2,
-  ) + '\n',
-);
+const CONFIG = {
+  global: {
+    check_for_updates_on_startup: true,
+    show_in_menu_bar: true,
+    show_profile_name_in_menu_bar: false,
+  },
+  profiles: [DEFAULT_PROFILE, VANILLA_PROFILE],
+};
+
+if (require.main === module) {
+  // Script is being executed directly.
+  process.stdout.write(
+    JSON.stringify(
+      CONFIG,
+      null,
+      2,
+    ) + '\n',
+  );
+} else {
+  // File is being `require`-ed as a module.
+  module.exports = {
+    isObject,
+    deepCopy,
+  };
+}
