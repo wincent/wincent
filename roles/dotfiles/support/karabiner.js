@@ -443,7 +443,8 @@ if (require.main === module) {
 } else {
   // File is being `require`-ed as a module.
   module.exports = {
-    isObject,
+    bundleIdentifier,
     deepCopy,
+    isObject,
   };
 }

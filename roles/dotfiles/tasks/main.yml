@@ -40,6 +40,9 @@
         force=yes
   loop: '{{dotfile_files}}'
 
+- name: dotfiles | test Karabiner generator
+  command: '{{ ansible_env.PWD }}/roles/dotfiles/support/karabiner-test.js'
+
 - name: dotfiles | prepare Karabiner config
   command: '{{ ansible_env.PWD }}/roles/dotfiles/support/karabiner.js'
   register: karabiner_config
