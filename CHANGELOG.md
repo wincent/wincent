@@ -1,5 +1,9 @@
 # Changelog
 
+## 2018-10-20
+
+* [Vim]: Set up [Goyo](https://github.com/junegunn/goyo.vim).
+
 ## 2018-03-21
 
 * Set up "fn" and "power" key equivalents on external keyboard.
