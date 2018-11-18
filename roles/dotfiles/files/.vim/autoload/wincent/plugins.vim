@@ -7,7 +7,7 @@ function! wincent#plugins#abolish() abort
   Abolish hte the
   Abolish paramater parameter
   Abolish provied{,d,s} provide{}
-  Abolish submodlue submodule
+  Abolish submodlue{,s} submodule{}
   Abolish teh the
   Abolish updaet{,ed,es} update{}
   Abolish varient{,s} variant{}
