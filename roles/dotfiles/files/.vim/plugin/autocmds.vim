@@ -101,9 +101,25 @@ if has('autocmd')
     if exists('$TMUX')
       silent !tmux set status off
     endif
+
+    let b:quitting=0
+    let b:quitting_bang=0
+    if has('patch-7.3.544')
+      autocmd QuitPre <buffer> let b:quitting=1
+      cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
+    endif
   endfunction
 
   function! s:goyo_leave()
+    let l:is_last_buffer=len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+    if b:quitting && l:is_last_buffer
+      if b:quitting_bang
+        qa!
+      else
+        qa
+      endif
+    endif
+
     for [k, v] in items(s:settings)
       execute 'let &' . k . '=' . string(v)
     endfor
