@@ -64,3 +64,6 @@ alias -g L="|less"
 
 # Mnemonic: "[R]eset"
 alias -g R=";clear;test -n "$TMUX" && tmux clear-history;"
+
+# Mnemonic: "[W]c"
+alias -g W="|wc -l"
