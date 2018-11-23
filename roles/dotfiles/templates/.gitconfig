@@ -119,6 +119,14 @@
 [rerere]
 	enabled = true
 
+[sendemail]
+	smtpEncryption = tls
+	smtpServer = smtp.gmail.com
+	smtpServerPort = 587
+{% if git_user_email != '' %}
+	smtpUser = {{ git_user_email }}
+{% endif %}
+
 [status]
 	submodulesummary = true
 
