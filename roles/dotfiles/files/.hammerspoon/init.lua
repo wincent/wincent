@@ -5,6 +5,7 @@ hs.window.animationDuration = 0 -- disable animations
 
 local events = require 'events'
 local iterm = require 'iterm'
+local karabiner = require 'karabiner'
 local log = require 'log'
 local reloader = require 'reloader'
 
@@ -348,6 +349,7 @@ end)
 hs.urlevent.bind('screencast', prepareScreencast)
 
 iterm.init()
+karabiner.init()
 reloader.init()
 initEventHandling()
 events.subscribe('reload', tearDownEventHandling)
