@@ -26,12 +26,17 @@ set header_cache =~/.mutt/cache/headers
 set header_cache_compress = no
 set include = yes # Include quoted copy of message in reply.
 
-# Default is: "%4C %Z %{{ '{%b' }} %d} %-15.15L (%?l?%4l&%4c?) %s"
+# Default is: "%4C %Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %s"
 #
 # Changes:
-# - Show time in date/time.
+# - Use index-format-hook to set date/time dynamically (see below).
 # - Show local date/time.
-set index_format = "%4C %Z %[%b %d %R] %-15.15L (%?l?%4l&%4c?) %s"
+set index_format = "%4C %Z %-10.10@reldate@ %-15.15L (%?l?%4l&%4c?) %s"
+
+# First-match wins.
+index-format-hook reldate "~d<24H" "%[%R]"       # Show time.
+index-format-hook reldate "~d>11m" "%[%d/%m/%Y]" # Show long date (with year).
+index-format-hook reldate "~A"     "%[%d %b]"    # Show short date.
 
 set mail_check = 60
 set mail_check_recent = no
