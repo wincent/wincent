@@ -115,7 +115,7 @@ function () {
   # Note use a non-breaking space near the end of the prompt because we can use it as
   # a find pattern to jump back in tmux.
   local NBSP=' '
-  export PS1="%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%B%1~%b%F{yellow}%B%(1j.*.)%(?..!)%b%f${NBSP}%F{red}%B${SUFFIX}%b%f "
+  export PS1="%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%B%1~%b%F{yellow}%B%(1j.*.)%(?..!)%b%f%F{red}%B${SUFFIX}%b%f${NBSP} "
   if [[ -n "$TMUXING" ]]; then
     # Outside tmux, ZLE_RPROMPT_INDENT ends up eating the space after PS1, and
     # prompt still gets corrupted even if we add an extra space to compensate.
