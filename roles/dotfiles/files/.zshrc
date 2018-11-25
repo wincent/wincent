@@ -94,9 +94,12 @@ function +vi-git-untracked() {
 RPROMPT_BASE="\${vcs_info_msg_0_}%F{blue}%~%f"
 setopt PROMPT_SUBST
 
-# Anonymous function to avoid leaking NBSP variable.
+# Anonymous function to avoid leaking variables.
 function () {
-  if [[ -n "$TMUX" ]]; then
+  # Check for tmux by looking at $TERM, because $TMUX won't be propagated to any
+  # nested sudo shells but $TERM will.
+  local TMUXING=$([[ "$TERM" =~ "tmux" ]] && echo tmux)
+  if [ -n "$TMUXING" -a $EUID -ne 0 ]; then
     local LVL=$(($SHLVL - 1))
   else
     local LVL=$SHLVL
@@ -110,10 +113,11 @@ function () {
   # a find pattern to jump back in tmux.
   local NBSP=' '
   export PS1="%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%1~%F{yellow}%B%(1j.*.)%(?..!)%b%f${NBSP}%F{red}%B${SUFFIX}%b%f "
-  if [[ -n "$TMUX" ]]; then
-    # Don't bother with ZLE_RPROMPT_INDENT outside of tmux, because it ends up eating the
-    # space after PS1.
-    export ZLE_RPROMPT_INDENT=0
+  export ZLE_RPROMPT_INDENT=0
+  if [[ -z "$TMUXING" ]]; then
+    # Outside tmux, ZLE_RPROMPT_INDENT ends up eating the space after PS1, so
+    # add an extra to compensate.
+    export PS1="$PS1 "
   fi
 }
 
