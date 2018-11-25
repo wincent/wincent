@@ -9,7 +9,7 @@ fi
 
 tmux new-session -d -s dot -n vim -x $(tput cols) -y $(tput lines)
 
-tmux send-keys -t dot:vim "sleep .25; vim -c CommandT" Enter
+tmux send-keys -t dot:vim "vim -c CommandTBoot" Enter
 tmux split-window -t dot:vim -h
 tmux send-keys -t dot:vim.right "git st" Enter
 
