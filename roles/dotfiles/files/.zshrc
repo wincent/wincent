@@ -99,10 +99,7 @@ function () {
   # Check for tmux by looking at $TERM, because $TMUX won't be propagated to any
   # nested sudo shells but $TERM will.
   local TMUXING=$([[ "$TERM" =~ "tmux" ]] && echo tmux)
-  if [ -n "$TMUXING" -a -z "$TMUX" ]; then
-    # Probably a root shell created inside a non-root tmux session.
-    local LVL=$SHLVL
-  elif [ -n "$TMUXING" -a $EUID -ne 0 ]; then
+  if [ -n "$TMUXING" -a -n "$TMUX" ]; then
     local LVL=$(($SHLVL - 1))
   else
     local LVL=$SHLVL
