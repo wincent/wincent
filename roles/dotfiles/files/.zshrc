@@ -116,11 +116,10 @@ function () {
   # a find pattern to jump back in tmux.
   local NBSP=' '
   export PS1="%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%1~%F{yellow}%B%(1j.*.)%(?..!)%b%f${NBSP}%F{red}%B${SUFFIX}%b%f "
-  export ZLE_RPROMPT_INDENT=0
-  if [[ -z "$TMUXING" ]]; then
-    # Outside tmux, ZLE_RPROMPT_INDENT ends up eating the space after PS1, so
-    # add an extra to compensate.
-    export PS1="$PS1 "
+  if [[ -n "$TMUXING" ]]; then
+    # Outside tmux, ZLE_RPROMPT_INDENT ends up eating the space after PS1, and
+    # prompt still gets corrupted even if we add an extra space to compensate.
+    export ZLE_RPROMPT_INDENT=0
   fi
 }
 
