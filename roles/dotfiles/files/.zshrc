@@ -100,8 +100,11 @@ function () {
   # nested sudo shells but $TERM will.
   local TMUXING=$([[ "$TERM" =~ "tmux" ]] && echo tmux)
   if [ -n "$TMUXING" -a -n "$TMUX" ]; then
+    # In a a tmux session created in a non-root or root shell.
     local LVL=$(($SHLVL - 1))
   else
+    # Either in a root shell created inside a non-root tmux session,
+    # or not in a tmux session.
     local LVL=$SHLVL
   fi
   if [[ $EUID -eq 0 ]]; then
