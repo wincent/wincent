@@ -33,3 +33,22 @@ nmap <unique> <Leader>h <Plug>(CommandTHelp)
 nmap <unique> <LocalLeader>h <Plug>(CommandTHistory)
 nmap <unique> <LocalLeader>l <Plug>(CommandTLine)
 nmap <unique> <LocalLeader>t <Plug>(CommandTTag)
+
+" Convenience for starting Command-T at launch without causing freak-out inside
+" tmux.
+
+function s:CommandTPreBoot()
+  augroup CommandTBoot
+    autocmd!
+    autocmd VimEnter * call s:CommandTPostBoot()
+  augroup END
+endfunction
+
+function s:CommandTPostBoot()
+  augroup CommandTBoot
+    autocmd!
+  augroup END
+  CommandT
+endfunction
+
+command CommandTBoot call s:CommandTPreBoot()
