@@ -108,14 +108,11 @@ function () {
     local LVL=$SHLVL
   fi
   if [[ $EUID -eq 0 ]]; then
-    local SUFFIX=$(printf '#%.0s' {1..$LVL})
+    local SUFFIX='%F{yellow}%n%f'$(printf '%%F{yellow}\u276f%.0s%%f' {1..$LVL})
   else
-    local SUFFIX=$(printf '\$%.0s' {1..$LVL})
+    local SUFFIX=$(printf '%%F{red}\u276f%.0s%%f' {1..$LVL})
   fi
-  # Note use a non-breaking space near the end of the prompt because we can use it as
-  # a find pattern to jump back in tmux.
-  local NBSP=' '
-  export PS1="%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%B%1~%b%F{yellow}%B%(1j.*.)%(?..!)%b%f%F{red}%B${SUFFIX}%b%f${NBSP} "
+  export PS1="%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%B%1~%b%F{yellow}%B%(1j.*.)%(?..!)%b%f %B${SUFFIX}%b "
   if [[ -n "$TMUXING" ]]; then
     # Outside tmux, ZLE_RPROMPT_INDENT ends up eating the space after PS1, and
     # prompt still gets corrupted even if we add an extra space to compensate.
