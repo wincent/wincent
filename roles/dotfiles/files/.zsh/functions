@@ -189,33 +189,6 @@ function _jump_complete() {
 # Complete filenames and `hash -d` entries.
 compctl -f -K _jump_complete jump
 
-# WriteRoom-style focused workspace.
-function wr() {
-  emulate -L zsh
-
-  local THRESHOLD=200
-  local COLS=$(tput cols)
-  if ! tmux has-session -t WriteRoom 2> /dev/null; then
-    tmux new-session -d -s WriteRoom -c ~/Documents/Corpus -x $(tput cols) -y $(tput lines)
-    # TODO: something less clowny here (want width of created session, not width
-    # of current pane).
-    if [ "$COLS" -gt "$THRESHOLD" ]; then
-      local PERCENT=25
-    else
-      local PERCENT=20
-    fi
-    tmux split-window -t WriteRoom -h -p $PERCENT
-    tmux split-window -t WriteRoom.1 -b -h -p $PERCENT
-    tmux select-pane -t WriteRoom.2
-    tmux send-keys -t WriteRoom.2 "sleep .25; vim -c CommandT" Enter
-  fi
-  if [ -z "$TMUX" ]; then
-    tmux attach -t WriteRoom
-  else
-    tmux switch-client -t WriteRoom
-  fi
-}
-
 # "[t]ime[w]arp" by setting GIT_AUTHOR_DATE and GIT_COMMITTER_DATE.
 function tw() {
   local TS=$(ts "$@")
