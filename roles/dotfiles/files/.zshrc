@@ -151,6 +151,7 @@ export SAVEHIST=$HISTSIZE
 setopt AUTO_CD                 # [default] .. is shortcut for cd .. (etc)
 setopt AUTO_PARAM_SLASH        # tab completing directory appends a slash
 setopt AUTO_PUSHD              # [default] cd automatically pushes old dir onto dir stack
+setopt AUTO_RESUME             # allow simple commands to resume backgrounded jobs
 setopt CLOBBER                 # allow clobbering with >, no need to use >!
 setopt CORRECT                 # [default] command auto-correction
 setopt CORRECT_ALL             # [default] argument auto-correction
