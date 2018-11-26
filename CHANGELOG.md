@@ -1,5 +1,9 @@
 # Changelog
 
+## 2018-11-25
+
+* [Zsh]: Overhaul prompt.
+
 ## 2018-10-20
 
 * [Vim]: Set up [Goyo](https://github.com/junegunn/goyo.vim).
