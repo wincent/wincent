@@ -19,13 +19,17 @@ autoload -U compinit
 compinit -u
 
 # Make completion:
-# - Case-insensitive.
+# - Try exact (case-sensitive) match first.
+# - Then fall back to case-insensitive.
 # - Accept abbreviations after . or _ or - (ie. f.b -> foo.bar).
 # - Substring complete (ie. bar -> foobar).
-zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' matcher-list '' '+m:{[:lower:]}={[:upper:]}' '+m:{[:upper:]}={[:lower:]}' '+m:{_-}={-_}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
 # Colorize completions using default `ls` colors.
 zstyle ':completion:*' list-colors ''
+
+# Allow completion of ..<Tab> to ../ and beyond.
+zstyle -e ':completion:*' special-dirs '[[ $PREFIX = (../)#(..) ]] && reply=(..)'
 
 #
 # Correction
@@ -149,6 +153,8 @@ setopt HIST_IGNORE_SPACE       # [default] don't record commands starting with a
 setopt HIST_VERIFY             # confirm history expansion (!$, !!, !foo)
 setopt IGNORE_EOF              # [default] prevent accidental C-d from exiting shell
 setopt INTERACTIVE_COMMENTS    # [default] allow comments, even in interactive shells
+setopt LIST_PACKED             # make completion lists more densely packed
+setopt MENU_COMPLETE           # auto-insert first possible ambiguous completion
 setopt NO_NOMATCH              # [default] unmatched patterns are left unchanged
 setopt PRINT_EXIT_VALUE        # [default] for non-zero exit status
 setopt PUSHD_IGNORE_DUPS       # don't push multiple copies of same dir onto stack
