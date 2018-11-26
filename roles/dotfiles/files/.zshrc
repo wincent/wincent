@@ -135,25 +135,25 @@ export SAVEHIST=$HISTSIZE
 # Options
 #
 
-setopt autocd               # .. is shortcut for cd .. (etc)
-setopt autoparamslash       # tab completing directory appends a slash
-setopt autopushd            # cd automatically pushes old dir onto dir stack
-setopt clobber              # allow clobbering with >, no need to use >!
-setopt correct              # command auto-correction
-setopt correctall           # argument auto-correction
-setopt noflowcontrol        # disable start (C-s) and stop (C-q) characters
-setopt nonomatch            # unmatched patterns are left unchanged
-setopt nohistignorealldups  # don't filter duplicates from history
-setopt nohistignoredups     # don't filter contiguous duplicates from history
-setopt histfindnodups       # don't show dupes when searching
-setopt histignorespace      # don't record commands starting with a space
-setopt histverify           # confirm history expansion (!$, !!, !foo)
-setopt ignoreeof            # prevent accidental C-d from exiting shell
-setopt interactivecomments  # allow comments, even in interactive shells
-setopt printexitvalue       # for non-zero exit status
-setopt pushdignoredups      # don't push multiple copies of same dir onto stack
-setopt pushdsilent          # don't print dir stack after pushing/popping
-setopt sharehistory         # share history across shells
+setopt AUTO_CD                 # .. is shortcut for cd .. (etc)
+setopt AUTO_PARAM_SLASH        # tab completing directory appends a slash
+setopt AUTO_PUSHD              # cd automatically pushes old dir onto dir stack
+setopt CLOBBER                 # allow clobbering with >, no need to use >!
+setopt CORRECT                 # command auto-correction
+setopt CORRECT_ALL             # argument auto-correction
+setopt NO_FLOW_CONTROL         # disable start (C-s) and stop (C-q) characters
+setopt NO_NOMATCH              # unmatched patterns are left unchanged
+setopt NO_HIST_IGNORE_ALL_DUPS # don't filter duplicates from history
+setopt NO_HIST_IGNORE_DUPS     # don't filter contiguous duplicates from history
+setopt HIST_FIND_NO_DUPS       # don't show dupes when searching
+setopt HIST_IGNORE_SPACE       # don't record commands starting with a space
+setopt HIST_VERIFY             # confirm history expansion (!$, !!, !foo)
+setopt IGNORE_EOF              # prevent accidental C-d from exiting shell
+setopt INTERACTIVE_COMMENTS    # allow comments, even in interactive shells
+setopt PRINT_EXIT_VALUE        # for non-zero exit status
+setopt PUSHD_IGNORE_DUPS       # don't push multiple copies of same dir onto stack
+setopt PUSHD_SILENT            # don't print dir stack after pushing/popping
+setopt SHARE_HISTORY           # share history across shells
 
 #
 # Bindings
@@ -233,7 +233,7 @@ add-zsh-hook precmd update-window-title-precmd
 
 function update-window-title-preexec() {
   emulate -L zsh
-  setopt extended_glob
+  setopt EXTENDED_GLOB
 
   # skip ENV=settings, sudo, ssh; show first distinctive word of command;
   # mostly stolen from:
