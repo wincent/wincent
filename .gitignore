@@ -1,4 +1,5 @@
 *.pyc
+/media
 /python
 /roles/dotfiles/files/.hammerspoon/iterm.lua
 /roles/dotfiles/files/.imapfilter/private.lua
