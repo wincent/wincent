@@ -44,11 +44,6 @@ if filereadable(s:hostfile)
   execute 'source ' . s:hostfile
 endif
 
-" Inglorious hack to share config across dev* machines.
-if matchstr(hostname(), '\v^dev(vm)?\d+\.') != ''
-  execute 'source ' . $HOME . '/.vim/host/dev-star'
-endif
-
 let s:vimrc_local = $HOME . '/.vim/vimrc.local'
 if filereadable(s:vimrc_local)
   execute 'source ' . s:vimrc_local

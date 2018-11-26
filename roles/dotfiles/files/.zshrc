@@ -309,11 +309,6 @@ zstyle ':chpwd:*' recent-dirs-default true
 LOCAL_RC=$HOME/.zshrc.local
 test -f $LOCAL_RC && source $LOCAL_RC
 
-DEV_RC=$HOME/.zsh/host/dev-star
-if [ $(hostname -s) =~ '^dev(vm)?[[:digit:]]+' ]; then
-  test -f $DEV_RC && source $DEV_RC
-fi
-
 HOST_RC=$HOME/.zsh/host/$(hostname -s)
 test -f $HOST_RC && source $HOST_RC
 
