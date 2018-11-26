@@ -143,7 +143,9 @@ setopt correct              # command auto-correction
 setopt correctall           # argument auto-correction
 setopt noflowcontrol        # disable start (C-s) and stop (C-q) characters
 setopt nonomatch            # unmatched patterns are left unchanged
-setopt histignorealldups    # filter duplicates from history
+setopt nohistignorealldups  # don't filter duplicates from history
+setopt nohistignoredups     # don't filter contiguous duplicates from history
+setopt histfindnodups       # don't show dupes when searching
 setopt histignorespace      # don't record commands starting with a space
 setopt histverify           # confirm history expansion (!$, !!, !foo)
 setopt ignoreeof            # prevent accidental C-d from exiting shell
