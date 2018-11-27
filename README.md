@@ -55,7 +55,6 @@ On macOS, [Karabiner-Elements](https://github.com/tekezo/Karabiner-Elements/) is
 - `color`: change terminal and Vim color scheme.
 - `email`: convenience wrapper to spawn (or attach to) a tmux session running `mutt` and `mbsync`.
 - `fd`: "find directory" using fast `bfs` and `fzf`; automatically `cd`s into the selected directory.
-- `fda`: "find directory, all" (as per `fd`, but also includes hidden directories).
 - `fh`: "find [in] history"; selecting a history item inserts it into the command line but does not execute it.
 - `history`: overrides the (tiny) default history count.
 - `jump` (aliased to `j`): to jump to hashed directories.
