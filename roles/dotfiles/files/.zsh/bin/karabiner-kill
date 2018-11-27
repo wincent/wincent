@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# As this script will be called from Hammerspoon where the UID
+# environment variable is not set, grab the UID ourselves here if need be.
+if [ -z "$UID" ]; then
+  UID=$(id -u)
+fi
+
+launchctl bootout gui/"$UID" /Library/LaunchAgents/org.pqrs.karabiner.karabiner_console_user_server.plist
+launchctl disable gui/"$UID"/org.pqrs.karabiner.karabiner_console_user_server
+
+# Depends on /private/etc/sudoers.d/karabiner-sudoers:
+sudo launchctl unload /Library/LaunchDaemons/org.pqrs.karabiner.karabiner_observer.plist
+sudo launchctl unload /Library/LaunchDaemons/org.pqrs.karabiner.karabiner_grabber.plist
+
+echo "💀 Karabiner-Elements killed"
