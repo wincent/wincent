@@ -1,4 +1,15 @@
 #
+# Global
+#
+
+# Create a hash table for globally stashing variables without polluting main
+# scope with a bunch of identifiers.
+typeset -A __WINCENT
+
+__WINCENT[ITALIC_ON]=$'\e[3m'
+__WINCENT[ITALIC_OFF]=$'\e[23m'
+
+#
 # Teh H4xx
 #
 
@@ -38,7 +49,7 @@ zstyle ':completion:*:complete:(cd|pushd):*' tag-order 'local-directories named-
 
 # Categorize completion suggestions with headings:
 zstyle ':completion:*' group-name ''
-zstyle ':completion:*:descriptions' format %F{default}%B%{$'\e[3m'%}--- %d ---%{$'\e[23m'%}%b%f
+zstyle ':completion:*:descriptions' format %F{default}%B%{$__WINCENT[ITALIC_ON]%}--- %d ---%{$__WINCENT[ITALIC_OFF]%}%b%f
 
 #
 # Correction
@@ -286,9 +297,7 @@ function report-start-time() {
       SECS="$((~~$SECS))s"
     fi
     ELAPSED="${ELAPSED}${SECS}"
-    local ITALIC_ON=$'\e[3m'
-    local ITALIC_OFF=$'\e[23m'
-    export RPROMPT="%F{cyan}%{$ITALIC_ON%}${ELAPSED}%{$ITALIC_OFF%}%f $RPROMPT_BASE"
+    export RPROMPT="%F{cyan}%{$__WINCENT[ITALIC_ON]%}${ELAPSED}%{$__WINCENT[ITALIC_OFF]%}%f $RPROMPT_BASE"
     unset ZSH_START_TIME
   else
     export RPROMPT="$RPROMPT_BASE"

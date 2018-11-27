@@ -103,7 +103,7 @@ function tmux() {
   fi
 
   # Attach to existing session, or create one, based on current directory.
-  SESSION_NAME=$(basename "${$(pwd)//[.:]/_}")
+  local SESSION_NAME=$(basename "${$(pwd)//[.:]/_}")
   env SSH_AUTH_SOCK=$SOCK_SYMLINK tmux new -A -s "$SESSION_NAME"
 }
 
@@ -122,6 +122,8 @@ function bounce() {
 #   must quote the regex otherwise "\." becomes "."
 # limitations: ? doesn't seem to work in the regex, nor *
 regmv() {
+  emulate -L zsh
+
   if [ $# -lt 2 ]; then
     echo "  Usage: regmv 'regex' file(s)"
     echo "  Where:       'regex' should be of the format '/find/replace/'"
@@ -129,11 +131,11 @@ regmv() {
     echo "   Note: Must quote/escape the regex otherwise \"\.\" becomes \".\""
     return 1
   fi
-  regex="$1"
+  local regex="$1"
   shift
   while [ -n "$1" ]
   do
-    newname=$(echo "$1" | sed "s${regex}g")
+    local newname=$(echo "$1" | sed "s${regex}g")
     if [ "${newname}" != "$1" ]; then
       mv -i -v "$1" "$newname"
     fi
@@ -142,6 +144,8 @@ regmv() {
 }
 
 function email() {
+  emulate -L zsh
+
   if ! tmux has-session -t email 2> /dev/null; then
     # Make saved attachments go to ~/Downloads by default.
     tmux new-session -d -s email -c ~/Downloads -n mutt
@@ -180,6 +184,7 @@ function jump() {
 
 function _jump_complete() {
   emulate -L zsh
+
   local word completions
   word="$1"
   completions="$(hash -d|cut -d= -f1)"
@@ -191,6 +196,8 @@ compctl -f -K _jump_complete jump
 
 # "[t]ime[w]arp" by setting GIT_AUTHOR_DATE and GIT_COMMITTER_DATE.
 function tw() {
+  emulate -L zsh
+
   local TS=$(ts "$@")
   echo "Spawning subshell with timestamp: $TS"
   env GIT_AUTHOR_DATE="$TS" GIT_COMMITTER_DATE="$TS" zsh
@@ -198,6 +205,8 @@ function tw() {
 
 # "tick" by incrementing GIT_AUTHOR_DATE and GIT_COMMITTER_DATE.
 function tick() {
+  emulate -L zsh
+
   if [ -z "$GIT_AUTHOR_DATE" -o -z "$GIT_COMMITTER_DATE" ]; then
     echo 'Expected $GIT_AUTHOR_DATE and $GIT_COMMITTER_DATE to be set.'
     echo 'Did you forget to timewarp with `tw`?'

@@ -2,13 +2,15 @@
 # Colors
 #
 
-BASE16_CONFIG=~/.vim/.base16
+__WINCENT[BASE16_CONFIG]=~/.vim/.base16
 
 # Takes a hex color in the form of "RRGGBB" and outputs its luma (0-255, where
 # 0 is black and 255 is white).
 #
 # Based on: https://github.com/lencioni/dotfiles/blob/b1632a04/.shells/colors
 luma() {
+  emulate -L zsh
+
   local COLOR_HEX=$1
 
   if [ -z "$COLOR_HEX" ]; then
@@ -39,13 +41,15 @@ luma() {
 }
 
 color() {
+  emulate -L zsh
+
   local SCHEME="$1"
   local BASE16_DIR=~/.zsh/base16-shell/scripts
-  local BASE16_CONFIG_PREVIOUS="${BASE16_CONFIG}.previous"
+  local BASE16_CONFIG_PREVIOUS="${__WINCENT[BASE16_CONFIG]}.previous"
   local STATUS=0
 
   if [ $# -eq 0 ]; then
-    if [ -s "$BASE16_CONFIG" ]; then
+    if [ -s "$__WINCENT[BASE16_CONFIG]" ]; then
       cat ~/.vim/.base16
       return
     else
@@ -55,7 +59,7 @@ color() {
 
   __color() {
     SCHEME=$1
-    FILE="$BASE16_DIR/base16-$SCHEME.sh"
+    local FILE="$BASE16_DIR/base16-$SCHEME.sh"
     if [[ -e "$FILE" ]]; then
       local BG=$(grep color_background= "$FILE" | cut -d \" -f2 | sed -e 's#/##g')
       local LUMA=$(luma "$BG")
@@ -65,12 +69,12 @@ color() {
         BACKGROUND=light
       fi
 
-      if [ -e "$BASE16_CONFIG" ]; then
-        cp "$BASE16_CONFIG" "$BASE16_CONFIG_PREVIOUS"
+      if [ -e "$__WINCENT[BASE16_CONFIG]" ]; then
+        cp "$__WINCENT[BASE16_CONFIG]" "$BASE16_CONFIG_PREVIOUS"
       fi
 
-      echo "$SCHEME" >! "$BASE16_CONFIG"
-      echo "$BACKGROUND" >> "$BASE16_CONFIG"
+      echo "$SCHEME" >! "$__WINCENT[BASE16_CONFIG]"
+      echo "$BACKGROUND" >> "$__WINCENT[BASE16_CONFIG]"
       sh "$FILE"
 
       if [ -n "$TMUX" ]; then
@@ -121,11 +125,13 @@ color() {
 }
 
 function () {
-  if [[ -s "$BASE16_CONFIG" ]]; then
-    local SCHEME=$(head -1 "$BASE16_CONFIG")
-    local BACKGROUND=$(sed -n -e '2 p' "$BASE16_CONFIG")
+  emulate -L zsh
+
+  if [[ -s "$__WINCENT[BASE16_CONFIG]" ]]; then
+    local SCHEME=$(head -1 "$__WINCENT[BASE16_CONFIG]")
+    local BACKGROUND=$(sed -n -e '2 p' "$__WINCENT[BASE16_CONFIG]")
     if [ "$BACKGROUND" != 'dark' -a "$BACKGROUND" != 'light' ]; then
-      echo "warning: unknown background type in $BASE16_CONFIG"
+      echo "warning: unknown background type in $__WINCENT[BASE16_CONFIG]"
     fi
     color "$SCHEME"
   else
