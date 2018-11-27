@@ -48,6 +48,23 @@ On macOS, [Karabiner-Elements](https://github.com/tekezo/Karabiner-Elements/) is
 
 ### Zsh
 
+#### Functions
+
+- `ag`: Transparently wraps the `ag` executable so as to provide a centralized place to set defaults for that command (seeing as it has no "rc" file).
+- `bounce`: bounce the macOS Dock icon if the terminal is not in the foreground.
+- `color`: change terminal and Vim color scheme.
+- `email`: convenience wrapper to spawn (or attach to) a tmux session running `mutt` and `mbsync`.
+- `fd`: "find directory" using fast `bfs` and `fzf`; automatically `cd`s into the selected directory.
+- `fda`: "find directory, all" (as per `fd`, but also includes hidden directories).
+- `fh`: "find [in] history"; selecting a history item inserts it into the command line but does not execute it.
+- `history`: overrides the (tiny) default history count.
+- `jump` (aliased to `j`): to jump to hashed directories.
+- `regmv`: bulk-rename files (eg. `regmv '/\.tif$/.tiff/' *`).
+- `scratch`: create a random temporary scratch directory and `cd` into it.
+- `tick`: moves an existing time warp (eg. `tick +1h`); see `tw` below for a description of time warp.
+- `tmux`: wrapper that reattches to pre-existing sessions, or creates new ones based on the current directory name; additionally, looks for a `.tmux` file to set up windows and panes (note that the first time a given `.tmux` file is encountered the wrapper asks the user whether to trust or skip it).
+- `tw` ("time warp"): overrides `GIT_AUTHOR_DATE` and `GIT_COMMITTER_DATE` (eg. `tw -1d`).
+
 #### Prompt
 
 Zsh is configured with the following prompt:
