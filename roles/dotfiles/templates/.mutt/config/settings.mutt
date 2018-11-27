@@ -26,7 +26,7 @@ set header_cache =~/.mutt/cache/headers
 set header_cache_compress = no
 set include = yes # Include quoted copy of message in reply.
 
-# Default is: "%4C %Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %s"
+# Default is: {{ '"%4C %Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %s"' }}
 #
 # Changes:
 # - Use index-format-hook to set date/time dynamically (see below).
