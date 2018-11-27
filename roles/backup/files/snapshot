@@ -1,0 +1,37 @@
+#!/usr/bin/env ruby
+
+require 'date'
+require 'fileutils'
+require 'pathname'
+
+HOME          = Pathname.new ENV['HOME']
+SNAPSHOTS_DIR = Pathname.new(__FILE__).realpath.dirname + 'snapshots'
+
+# scheme: snapshots/2011-11-27/1322445375
+#    (ie: snapshots/date/UNIX-timestamp)
+SNAPSHOT_DIR  = SNAPSHOTS_DIR + Date.today.to_s + Time.now.to_i.to_s
+
+TO_COPY = [
+  '.aws/config',
+  '.awssecret*',
+  '.gem/credentials*',
+  '.gnupg/*',
+  '.netrc',
+  '.s3cfg',
+  '.ssh/*',
+  '.vim_org.yml',
+  'Documents/Corpus/*',
+  'Dropbox/**/*.p12',
+  'Library/Keychains/*',
+]
+
+TO_COPY.each do |src|
+  Pathname.glob(HOME + src).each do |src|
+    next if src.symlink?
+    next if src.socket?
+
+    dst = SNAPSHOT_DIR + src.relative_path_from(HOME)
+    dst.dirname.mkpath
+    FileUtils.cp_r(src, dst)
+  end
+end

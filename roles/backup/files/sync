@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+
+require 'pathname'
+require 'shellwords'
+
+src_dir = Pathname.new(__dir__).dirname # data/.. (ie. root of the volume)
+puts "rsync from #{src_dir} to:"
+volumes = Pathname.glob('/Volumes/*').select do |dir|
+  dir != src_dir && !dir.symlink?
+end
+volumes.each_with_index do |dir, index|
+  puts "#{index + 1}: #{dir.basename}"
+end
+while true
+  print '> '
+  choice = Integer(gets)
+  if choice < 1 || choice > volumes.length
+    puts "Invalid choice: #{choice}"
+  else
+    break
+  end
+end
+
+dest_dir = volumes[choice - 1]
+puts "Copying from #{src_dir.to_s} to #{dest_dir.to_s}"
+puts 'Be prepared to enter password at `sudo` prompt'
+system "sudo rsync -vaE --progress #{src_dir.to_s.shellescape}/ #{dest_dir.to_s.shellescape}/"
