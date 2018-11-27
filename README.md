@@ -155,11 +155,10 @@ Non-Gmail extensions:
   * `foo ADJ bar`: Like `NEAR`, but "foo" must appear earlier than "bar".
   * `"foo bar"`: Match entire phrase.
   * `foo*`: Match "foo", "food", "foobar" etc.
-  * `subject:this`, `subject:"one two"` (two consecutive words), `subject:(one two)` (two words anywhere in subject), `subject:one AND subject:two` (two words anywhere in subject).
-  * `subject:/some regex.*/`
+  * `subject:this`, `subject:"one two"` (two consecutive words), `subject:(one two)` (either or both words anywhere in subject), `subject:one AND subject:two` (both words anywhere in subject).
+  * `subject:/regex.*/` (but note, quotes are needed for patterns containing spaces; eg. `subject:"/a b/"`).
   * `from:john`, `from:me@example.com`
   * `to:john`, `to:me@example.com`
-  * `folder:Sent` (prefix search)
   * `date:today`
   * `date:yesterday`
   * `date:3d` (exactly 3 days ago)
@@ -171,7 +170,14 @@ Non-Gmail extensions:
   * `date:"last year"` (also works with `years`, `months`, `hours`/`hrs`, `minutes`/`mins`, `seconds`/`secs` etc).
   * `date:june`
   * `date:2018-06-01`
-  * `is:unread`
+  * `is:{tag}`: eg. `is:unread`, `is:flagged` (ie. starred); to see all tags, run `notmuch search --output=tags '*'`:
+    * `attachment`
+    * `flagged`
+    * `inbox` (not very meaningful as *everything* gets this tag when indexed via `notmuch new`)
+    * `replied`
+    * `signed`
+    * `unread`
+  * `id:messageId@example.net` (search by Message-Id).
 * `l`: Limit listed messages:
   * `~f bob` (from bob)
   * `~s foo` (subject contains "foo"; "Foo" would search case-sensitively)
