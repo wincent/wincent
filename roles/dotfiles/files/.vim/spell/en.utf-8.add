@@ -139,6 +139,7 @@ microservice
 middleware
 misclick
 mkview
+modeline
 monit
 monoid
 monoids
@@ -181,6 +182,7 @@ submodule
 submodules
 subtree
 symlink
+templated
 terminfo
 timestamp
 tmux
