@@ -23,7 +23,7 @@ function fda() {
 # fh - "find [in] history"
 # From: https://github.com/junegunn/fzf/wiki/examples#command-history
 function fh() {
-  print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
+  print -z $(fc -l 1 | fzf +s --tac | sed 's/ *[0-9]* *//')
 }
 
 function history() {
