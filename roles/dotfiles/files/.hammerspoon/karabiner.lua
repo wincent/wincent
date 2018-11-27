@@ -3,7 +3,6 @@
 -- https://github.com/tekezo/Karabiner-Elements/issues/1645
 --
 
-local events = require 'events'
 local log = require 'log'
 
 local trim = (function(s)
