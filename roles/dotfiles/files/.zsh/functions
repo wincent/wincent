@@ -30,8 +30,7 @@ function history() {
   emulate -L zsh
 
   # This is a function because Zsh aliases can't take arguments.
-  local DEFAULT=-1000
-  builtin history ${1:-$DEFAULT}
+  fc -l 1
 }
 
 function mvim() {
