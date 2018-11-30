@@ -19,7 +19,7 @@ return {
   init = (function()
     local watcher = hs.caffeinate.watcher.new(
       function(event)
-        if event == hs.caffeinate.watcher.systemWillSleep then
+        if event == hs.caffeinate.watcher.screensDidLock then
           disable()
         elseif event == hs.caffeinate.watcher.screensDidUnlock then
           enable()
