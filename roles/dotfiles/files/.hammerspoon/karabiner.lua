@@ -2,7 +2,7 @@
 -- Attempted workaround for:
 -- https://github.com/tekezo/Karabiner-Elements/issues/1645
 --
--- In the event that the machine goes to sleep before this can finishing
+-- In the event that the machine goes to sleep before this can finish
 -- running, Karabiner-Elements may still be running at the lock
 -- screen. In that case, hit Right Shift three times and say "there's no
 -- place like home", which Karabiner-Elements will take as a cue to disable
