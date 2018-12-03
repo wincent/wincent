@@ -9,6 +9,7 @@
       "Prompt Before Closing 2" : 0,
       "Rows" : 25,
       "Use Italic Font" : true,
+      "Use Custom Window Title" : false,
       "Right Option Key Sends" : 0,
       "Character Encoding" : 4,
       "Triggers" : [
