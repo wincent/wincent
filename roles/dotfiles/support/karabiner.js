@@ -289,14 +289,20 @@ const DEFAULT_PROFILE = applyExemptions({
         ],
       },
       {
-        description: 'Disable Karabiner-Elements with Right-Shift x 3',
+        description:
+          'Disable Karabiner-Elements with Fn+Control+Option+Command+Z',
         manipulators: [
           {
             type: 'basic',
             from: {
-              key_code: 'right_shift',
+              key_code: 'z',
               modifiers: {
-                optional: ['any'],
+                mandatory: [
+                  'fn',
+                  'left_control',
+                  'left_command',
+                  'left_option',
+                ],
               },
             },
             to: [
@@ -304,96 +310,6 @@ const DEFAULT_PROFILE = applyExemptions({
                 shell_command: 'osascript ~/.zsh/bin/karabiner-kill.scpt',
               },
             ],
-            conditions: [
-              {
-                type: 'variable_if',
-                name: 'right_shift x 2',
-                value: 1,
-              },
-            ],
-          },
-          {
-            type: 'basic',
-            from: {
-              key_code: 'right_shift',
-              modifiers: {
-                optional: ['any'],
-              },
-            },
-            to: [
-              {
-                set_variable: {
-                  name: 'right_shift x 2',
-                  value: 1,
-                },
-              },
-              {
-                key_code: 'right_shift',
-              },
-            ],
-            to_delayed_action: {
-              to_if_invoked: [
-                {
-                  set_variable: {
-                    name: 'right_shift x 2',
-                    value: 0,
-                  },
-                },
-              ],
-              to_if_canceled: [
-                {
-                  set_variable: {
-                    name: 'right_shift x 2',
-                    value: 0,
-                  },
-                },
-              ],
-            },
-            conditions: [
-              {
-                type: 'variable_if',
-                name: 'right_shift x 1',
-                value: 1,
-              },
-            ],
-          },
-          {
-            type: 'basic',
-            from: {
-              key_code: 'right_shift',
-              modifiers: {
-                optional: ['any'],
-              },
-            },
-            to: [
-              {
-                set_variable: {
-                  name: 'right_shift x 1',
-                  value: 1,
-                },
-              },
-              {
-                key_code: 'right_shift',
-              },
-            ],
-            to_delayed_action: {
-              to_if_invoked: [
-                {
-                  set_variable: {
-                    name: 'right_shift x 1',
-                    value: 0,
-                  },
-                },
-              ],
-              to_if_canceled: [
-                {
-                  set_variable: {
-                    name: 'right_shift x 1',
-                    value: 0,
-                  },
-                },
-              ],
-            },
           },
         ],
       },
