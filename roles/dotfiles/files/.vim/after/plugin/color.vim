@@ -29,13 +29,18 @@ function s:CheckColorScheme()
   " Hide (or at least make less obvious) the EndOfBuffer region
   highlight! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
 
-  " Sync with corresponding non-nvim settings in ~/.vim/plugin/settings.vim:
+  " Sync with corresponding non-nvim 'highlight' settings in
+  " ~/.vim/plugin/settings.vim:
   highlight clear NonText
   highlight link NonText Conceal
   highlight clear CursorLineNr
   highlight link CursorLineNr DiffText
   highlight clear VertSplit
   highlight link VertSplit LineNr
+
+  " Resolve clash with ColorColumn.
+  " Instead of linking to Normal (which has a higher priority, link to nothing).
+  highlight link vimUserFunc NONE
 
   " Allow for overrides:
   " - `statusline.vim` will re-set User1, User2 etc.
