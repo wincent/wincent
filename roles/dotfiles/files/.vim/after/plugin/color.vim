@@ -38,9 +38,17 @@ function s:CheckColorScheme()
   highlight clear VertSplit
   highlight link VertSplit LineNr
 
-  " Resolve clash with ColorColumn.
+  " Resolve clashes with ColorColumn.
   " Instead of linking to Normal (which has a higher priority, link to nothing).
   highlight link vimUserFunc NONE
+
+  " For Git commits, suppress the background of these groups:
+  for l:group in ['DiffAdded', 'DiffFile', 'DiffNewFile', 'DiffLine', 'DiffRemoved']
+    " TODO: make a strip command in pinnacle for this use case
+    let l:fg=pinnacle#extract_fg(l:group)
+    execute 'highlight! clear ' . l:group
+    execute 'highlight! ' . l:group . ' ' . pinnacle#highlight({'fg': l:fg})
+  endfor
 
   " Allow for overrides:
   " - `statusline.vim` will re-set User1, User2 etc.
