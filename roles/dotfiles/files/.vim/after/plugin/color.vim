@@ -44,10 +44,9 @@ function s:CheckColorScheme()
 
   " For Git commits, suppress the background of these groups:
   for l:group in ['DiffAdded', 'DiffFile', 'DiffNewFile', 'DiffLine', 'DiffRemoved']
-    " TODO: make a strip command in pinnacle for this use case
-    let l:fg=pinnacle#extract_fg(l:group)
+    let l:highlight=filter(pinnacle#dump(l:group), 'v:key != "bg"')
     execute 'highlight! clear ' . l:group
-    execute 'highlight! ' . l:group . ' ' . pinnacle#highlight({'fg': l:fg})
+    execute 'highlight! ' . l:group . ' ' . pinnacle#highlight(l:highlight)
   endfor
 
   " Allow for overrides:
