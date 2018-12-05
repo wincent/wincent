@@ -1,5 +1,5 @@
 if has('autocmd')
-  function s:WincentAutocmds()
+  function! s:WincentAutocmds()
     augroup WincentAutocmds
       autocmd!
 
