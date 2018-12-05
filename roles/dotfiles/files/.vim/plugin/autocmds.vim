@@ -15,8 +15,8 @@ if has('autocmd')
       " Make current window more obvious by turning off/adjusting some features in non-current
       " windows.
       if exists('+winhighlight')
-        autocmd BufEnter,FocusGained,VimEnter,WinEnter * if wincent#autocmds#should_colorcolumn() | set winhighlight= | endif
-        autocmd FocusLost,WinLeave * if wincent#autocmds#should_colorcolumn() | set winhighlight=CursorLineNr:LineNr,EndOfBuffer:ColorColumn,IncSearch:ColorColumn,Normal:ColorColumn,NormalNC:ColorColumn,SignColumn:ColorColumn | endif
+        autocmd BufEnter,FocusGained,VimEnter,WinEnter * set winhighlight=
+        autocmd FocusLost,WinLeave * set winhighlight=CursorLineNr:LineNr,EndOfBuffer:ColorColumn,IncSearch:ColorColumn,Normal:ColorColumn,NormalNC:ColorColumn,SignColumn:ColorColumn
         if exists('+colorcolumn')
           autocmd BufEnter,FocusGained,VimEnter,WinEnter * if wincent#autocmds#should_colorcolumn() | let &l:colorcolumn='+' . join(range(0, 254), ',+') | endif
         endif
