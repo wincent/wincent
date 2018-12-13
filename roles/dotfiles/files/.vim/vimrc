@@ -34,11 +34,15 @@ let g:tcomment_mapleader_uncomment_anyway='gu'
 
 let g:LanguageClient_serverCommands = {}
 if executable('flow')
-  let g:LanguageClient_serverCommands['javascript']=[exepath('flow'), 'lsp']
+  let s:flow=[exepath('flow'), 'lsp']
+  let g:LanguageClient_serverCommands['javascript']=s:flow
+  let g:LanguageClient_serverCommands['javascript.jest']=s:flow
+  let g:LanguageClient_serverCommands['javascript.jsx']=s:flow
 endif
 if executable('ocaml-language-server')
-  let g:LanguageClient_serverCommands['reason']=[exepath('ocaml-language-server')]
-  let g:LanguageClient_serverCommands['ocaml']=[exepath('ocaml-language-server')]
+  let s:ocaml=[exepath('ocaml-language-server')]
+  let g:LanguageClient_serverCommands['reason']=s:ocaml
+  let g:LanguageClient_serverCommands['ocaml']=s:ocaml
 endif
 
 " Allow for per-machine overrides in ~/.vim/host/hostname and
