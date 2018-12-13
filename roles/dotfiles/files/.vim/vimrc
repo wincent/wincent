@@ -45,6 +45,7 @@ if executable('ocaml-language-server')
   let g:LanguageClient_serverCommands['ocaml']=s:ocaml
 endif
 let g:LanguageClient_diagnosticsList='Location'
+let g:LanguageClient_diagnosticsSignsMax=0
 
 " Allow for per-machine overrides in ~/.vim/host/hostname and
 " ~/.vim/vimrc.local.
