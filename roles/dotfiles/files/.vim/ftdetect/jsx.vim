@@ -5,7 +5,7 @@ function! s:ScanFile()
     let nmax = 500
   endif
   while n < nmax
-    if getline(n) =~# "\\v<React\\."
+    if getline(n) =~# "\\v<React>"
       return 1
       break
     endif
@@ -14,21 +14,14 @@ function! s:ScanFile()
   return 0
 endfunction
 
-function! s:DetectJSX(file)
-  if a:file =~# "\\v\\.html"
-    if s:ScanFile()
-      set ft=html.jsx
-    endif
-  elseif a:file =~# "\\v(_spec|Spec|-test|\\.test)\\.js"
-    if s:ScanFile()
-      set ft=javascript.jest.jsx
-    endif
-  elseif a:file =~# "\\v\\.js"
-    if s:ScanFile()
-      set ft=javascript.jsx
-    endif
+function! s:DetectJSX()
+  if match(&filetype, '\v<jsx>') != -1
+    return
+  endif
+  if s:ScanFile()
+    noautocmd set filetype+=.jsx
   endif
 endfunction
 
-autocmd BufNewFile,BufRead *.js.jsx set ft=javascript.jsx
-autocmd BufNewFile,BufRead *.html,*.js call s:DetectJSX(expand("<afile>"))
+autocmd BufNewFile,BufRead *.js.jsx noautocmd set filetype+=.jsx
+autocmd BufNewFile,BufRead *.html,*.js call s:DetectJSX()
