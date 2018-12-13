@@ -41,6 +41,7 @@ function s:CheckColorScheme()
   " Resolve clashes with ColorColumn.
   " Instead of linking to Normal (which has a higher priority, link to nothing).
   highlight link vimUserFunc NONE
+  highlight link NERDTreeFile NONE
 
   " For Git commits, suppress the background of these groups:
   for l:group in ['DiffAdded', 'DiffFile', 'DiffNewFile', 'DiffLine', 'DiffRemoved']
