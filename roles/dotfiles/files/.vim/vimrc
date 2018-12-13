@@ -33,11 +33,19 @@ let g:tcomment_textobject_inlinecomment=''
 let g:tcomment_mapleader_uncomment_anyway='gu'
 
 let g:LanguageClient_serverCommands = {}
+
+" Install with `npm install -g flow-bin` or
+" `npm install -g javascript-typescript-langserver`.
 if executable('flow') && filereadable('.flowconfig')
-  let s:flow=[exepath('flow'), 'lsp']
-  let g:LanguageClient_serverCommands['javascript']=s:flow
-  let g:LanguageClient_serverCommands['javascript.jest']=s:flow
-  let g:LanguageClient_serverCommands['javascript.jsx']=s:flow
+  let s:js=[exepath('flow'), 'lsp']
+elseif executable('javascript-typescript-langserver')
+  let s:js=[exepath('javascript-typescript-langserver')]
+endif
+if exists('s:js')
+  let g:LanguageClient_serverCommands['javascript']=s:js
+  let g:LanguageClient_serverCommands['javascript.jest']=s:js
+  let g:LanguageClient_serverCommands['javascript.jest.jsx']=s:js
+  let g:LanguageClient_serverCommands['javascript.jsx']=s:js
 endif
 if executable('ocaml-language-server')
   let s:ocaml=[exepath('ocaml-language-server')]
