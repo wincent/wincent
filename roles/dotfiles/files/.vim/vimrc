@@ -33,7 +33,7 @@ let g:tcomment_textobject_inlinecomment=''
 let g:tcomment_mapleader_uncomment_anyway='gu'
 
 let g:LanguageClient_serverCommands = {}
-if executable('flow')
+if executable('flow') && filereadable('.flowconfig')
   let s:flow=[exepath('flow'), 'lsp']
   let g:LanguageClient_serverCommands['javascript']=s:flow
   let g:LanguageClient_serverCommands['javascript.jest']=s:flow
