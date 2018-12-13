@@ -32,10 +32,14 @@ let g:tcomment_textobject_inlinecomment=''
 " The default (g<) is a bit awkward to type.
 let g:tcomment_mapleader_uncomment_anyway='gu'
 
-let g:LanguageClient_serverCommands = {
-    \ 'reason': ['ocaml-language-server', '--stdio'],
-    \ 'ocaml': ['ocaml-language-server', '--stdio'],
-    \ }
+let g:LanguageClient_serverCommands = {}
+if executable('flow')
+  let g:LanguageClient_serverCommands['javascript']=[exepath('flow'), 'lsp']
+endif
+if executable('ocaml-language-server')
+  let g:LanguageClient_serverCommands['reason']=[exepath('ocaml-language-server')]
+  let g:LanguageClient_serverCommands['ocaml']=[exepath('ocaml-language-server')]
+endif
 
 " Allow for per-machine overrides in ~/.vim/host/hostname and
 " ~/.vim/vimrc.local.
