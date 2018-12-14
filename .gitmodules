@@ -161,3 +161,6 @@
 [submodule "vendor/virtualenv"]
 	path = vendor/virtualenv
 	url = https://github.com/pypa/virtualenv.git
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/typescript-vim"]
+	path = roles/dotfiles/files/.vim/pack/bundle/start/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim.git
