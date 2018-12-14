@@ -43,8 +43,8 @@ if executable('flow') && filereadable('.flowconfig')
   let g:LanguageClient_serverCommands['javascript.jest.jsx']=s:flow
   let g:LanguageClient_serverCommands['javascript.jsx']=s:flow
 endif
-if executable('javascript-typescript-langserver') && filereadable('tsconfig.json')
-  let s:ts=[exepath('javascript-typescript-langserver')]
+if executable('javascript-typescript-stdio') && filereadable('tsconfig.json')
+  let s:ts=[exepath('javascript-typescript-stdio')]
   let g:LanguageClient_serverCommands['typescript']=s:ts
 endif
 if executable('ocaml-language-server')
