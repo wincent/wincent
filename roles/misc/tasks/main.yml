@@ -24,6 +24,7 @@
   loop:
     - bs-platform
     - flow-bin
+    - flow-typed
     - gatsby-cli
     - ocaml-language-server
     - reason-cli
