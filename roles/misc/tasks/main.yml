@@ -19,5 +19,14 @@
 # Note: Won't work without Node (which means homebrew role has to have run
 # first, but I don't want to declare an explicit, heavyweight dependency in this
 # role).
-- name: misc | install source-map-explorer
-  npm: name=source-map-explorer global=yes
+- name: misc | install global NPM modules
+  npm: name={{ item }} global=yes
+  loop:
+    - bs-platform
+    - flow-bin
+    - gatsby-cli
+    - ocaml-language-server
+    - reason-cli
+    - source-map-explorer
+    - typescript
+    - typescript-language-server
