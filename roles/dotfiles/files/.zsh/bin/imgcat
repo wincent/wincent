@@ -5,7 +5,7 @@
 # only accepts ESC backslash for ST. We use TERM instead of TMUX because TERM
 # gets passed through ssh.
 function print_osc() {
-    if [[ $TERM == screen* ]] ; then
+    if [[ $TERM == tmux* ]] ; then
         printf "\033Ptmux;\033\033]"
     else
         printf "\033]"
@@ -14,7 +14,7 @@ function print_osc() {
 
 # More of the tmux workaround described above.
 function print_st() {
-    if [[ $TERM == screen* ]] ; then
+    if [[ $TERM == tmux* ]] ; then
         printf "\a\033\\"
     else
         printf "\a"
