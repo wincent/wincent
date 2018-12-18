@@ -1,5 +1,9 @@
 # Changelog
 
+## 2018-12-18
+
+* [Vim,Zsh]: Switched default color scheme to "default-dark".
+
 ## 2018-11-25
 
 * [Zsh]: Overhaul prompt.
