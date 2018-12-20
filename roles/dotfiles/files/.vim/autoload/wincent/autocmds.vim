@@ -118,7 +118,17 @@ function! s:get_custom_statusline(action) abort
     return 0 " Don't override; NERDTree does its own thing.
   elseif &ft ==# 'qf'
     if a:action ==# 'blur'
-      return 'Quickfix'
+      return
+            \ '%{wincent#statusline#gutterpadding()}'
+            \ . '\ '
+            \ . '\ '
+            \ . '\ '
+            \ . '\ '
+            \ . '%<'
+            \ . '%q'
+            \ . '\ '
+            \ . '%{get(w:,\"quickfix_title\",\"\")}'
+            \ . '%='
     else
       return g:WincentQuickfixStatusline
     endif

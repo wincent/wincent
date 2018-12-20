@@ -1,27 +1,25 @@
 scriptencoding uft-8
 
-" Subset from plugin/statusline.vim (can't comment inline with line continuation
-" markers without Vim freaking out).
+" Variant of statusline from plugin/statusline.vim (can't comment inline
+" with line continuation markers without Vim freaking out).
 let g:WincentQuickfixStatusline =
-      \ 'Quickfix'
+      \ '%7*'
+      \ . '%{wincent#statusline#lhs()}'
+      \ . '%*'
+      \ . '%4*'
+      \ . ''
+      \ . '\ '
+      \ . '%*'
+      \ . '%q'
+      \ . '\ '
+      \ . '%{get(w:,\"quickfix_title\",\"\")}'
       \ . '%<'
       \ . '\ '
       \ . '%='
       \ . '\ '
-      \ . 'ℓ'
-      \ . '\ '
-      \ . '%l'
-      \ . '/'
-      \ . '%L'
-      \ . '\ '
-      \ . '@'
-      \ . '\ '
-      \ . '%c'
-      \ . '%V'
-      \ . '\ '
-      \ . '%1*'
-      \ . '%p'
-      \ . '%%'
+      \ . ''
+      \ . '%5*'
+      \ . '%{wincent#statusline#rhs()}'
       \ . '%*'
 
 call wincent#defer#defer('call wincent#variables#init()')
