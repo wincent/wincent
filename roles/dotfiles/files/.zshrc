@@ -246,7 +246,7 @@ test -e "$CHRUBY/auto.sh" && . "$CHRUBY/auto.sh"
 
 autoload -U add-zsh-hook
 
-function set-tab-and-window-title() {
+function -set-tab-and-window-title() {
   emulate -L zsh
   local CMD="${1:gs/$/\\$}"
   print -Pn "\e]0;$CMD:q\a"
@@ -258,29 +258,29 @@ function set-tab-and-window-title() {
 HISTCMD_LOCAL=0
 
 # Executed before displaying prompt.
-function update-window-title-precmd() {
+function -update-window-title-precmd() {
   emulate -L zsh
   if [[ HISTCMD_LOCAL -eq 0 ]]; then
     # About to display prompt for the first time; nothing interesting to show in
     # the history. Show $PWD.
-    set-tab-and-window-title "$(basename $PWD)"
+    -set-tab-and-window-title "$(basename $PWD)"
   else
     local LAST=$(history | tail -1 | awk '{print $2}')
     if [ -n "$TMUX" ]; then
       # Inside tmux, just show the last command: tmux will prefix it with the
       # session name (for context).
-      set-tab-and-window-title "$LAST"
+      -set-tab-and-window-title "$LAST"
     else
       # Outside tmux, show $PWD (for context) followed by the last command.
-      set-tab-and-window-title "$(basename $PWD) > $LAST"
+      -set-tab-and-window-title "$(basename $PWD) > $LAST"
     fi
   fi
 }
-add-zsh-hook precmd update-window-title-precmd
+add-zsh-hook precmd -update-window-title-precmd
 
 # Executed before executing a command: $2 is one-line (truncated) version of
 # the command.
-function update-window-title-preexec() {
+function -update-window-title-preexec() {
   emulate -L zsh
   setopt EXTENDED_GLOB
   HISTCMD_LOCAL=$((++HISTCMD_LOCAL))
@@ -292,23 +292,22 @@ function update-window-title-preexec() {
   if [ -n "$TMUX" ]; then
     # Inside tmux, show the running command: tmux will prefix it with the
     # session name (for context).
-    set-tab-and-window-title "$TRIMMED"
+    -set-tab-and-window-title "$TRIMMED"
   else
     # Outside tmux, show $PWD (for context) followed by the running command.
-    set-tab-and-window-title "$(basename $PWD) > $TRIMMED"
+    -set-tab-and-window-title "$(basename $PWD) > $TRIMMED"
   fi
 }
-add-zsh-hook preexec update-window-title-preexec
+add-zsh-hook preexec -update-window-title-preexec
 
 typeset -F SECONDS
-function record-start-time() {
+function -record-start-time() {
   emulate -L zsh
   ZSH_START_TIME=${ZSH_START_TIME:-$SECONDS}
 }
+add-zsh-hook preexec -record-start-time
 
-add-zsh-hook preexec record-start-time
-
-function report-start-time() {
+function -report-start-time() {
   emulate -L zsh
   if [ $ZSH_START_TIME ]; then
     local DELTA=$(($SECONDS - $ZSH_START_TIME))
@@ -334,12 +333,11 @@ function report-start-time() {
     export RPROMPT="$RPROMPT_BASE"
   fi
 }
-
-add-zsh-hook precmd report-start-time
+add-zsh-hook precmd -report-start-time
 
 add-zsh-hook precmd bounce
 
-function auto-ls-after-cd() {
+function -auto-ls-after-cd() {
   emulate -L zsh
   # Only in response to a user-initiated `cd`, not indirectly (eg. via another
   # function).
@@ -347,16 +345,16 @@ function auto-ls-after-cd() {
     ls -a
   fi
 }
-add-zsh-hook chpwd auto-ls-after-cd
+add-zsh-hook chpwd -auto-ls-after-cd
 
 # Remember each command we run.
-function record-command() {
+function -record-command() {
   __WINCENT[LAST_COMMAND]="$2"
 }
-add-zsh-hook preexec record-command
+add-zsh-hook preexec -record-command
 
 # Update vcs_info (slow) after any command that probably changed it.
-function maybe-show-vcs-info() {
+function -maybe-show-vcs-info() {
   local LAST="$__WINCENT[LAST_COMMAND]"
 
   # In case user just hit enter, overwrite LAST_COMMAND, because preexec
@@ -373,7 +371,7 @@ function maybe-show-vcs-info() {
       ;;
   esac
 }
-add-zsh-hook precmd maybe-show-vcs-info
+add-zsh-hook precmd -maybe-show-vcs-info
 
 # adds `cdr` command for navigating to recent directories
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
