@@ -349,8 +349,32 @@ function auto-ls-after-cd() {
 }
 add-zsh-hook chpwd auto-ls-after-cd
 
-# for prompt
-add-zsh-hook precmd vcs_info
+# Remember each command we run.
+function record-command() {
+  __WINCENT[LAST_COMMAND]="$2"
+}
+add-zsh-hook preexec record-command
+
+# Update vcs_info (slow) after any command that probably changed it.
+function maybe-show-vcs-info() {
+  local LAST="$__WINCENT[LAST_COMMAND]"
+
+  # In case user just hit enter, overwrite LAST_COMMAND, because preexec
+  # won't run and it will otherwise linger.
+  __WINCENT[LAST_COMMAND]="<unset>"
+
+  # Check first word; via:
+  # http://tim.vanwerkhoven.org/post/2012/10/28/ZSH/Bash-string-manipulation
+  case "$LAST[(w)1]" in
+    cd|cp|git|rm|touch|mv|)
+      vcs_info
+      ;;
+    *)
+      ;;
+  esac
+}
+add-zsh-hook precmd maybe-show-vcs-info
+
 
 # adds `cdr` command for navigating to recent directories
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
