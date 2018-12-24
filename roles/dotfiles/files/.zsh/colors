@@ -48,15 +48,6 @@ color() {
   local BASE16_CONFIG_PREVIOUS="${__WINCENT[BASE16_CONFIG]}.previous"
   local STATUS=0
 
-  if [ $# -eq 0 ]; then
-    if [ -s "$__WINCENT[BASE16_CONFIG]" ]; then
-      cat ~/.vim/.base16
-      return
-    else
-      SCHEME=help
-    fi
-  fi
-
   __color() {
     SCHEME=$1
     local FILE="$BASE16_DIR/base16-$SCHEME.sh"
@@ -91,6 +82,17 @@ color() {
       STATUS=1
     fi
   }
+
+  if [ $# -eq 0 ]; then
+    if [ -s "$__WINCENT[BASE16_CONFIG]" ]; then
+      cat "$__WINCENT[BASE16_CONFIG]"
+      local SCHEME=$(head -1 "$__WINCENT[BASE16_CONFIG]")
+      __color "$SCHEME"
+      return
+    else
+      SCHEME=help
+    fi
+  fi
 
   case "$SCHEME" in
   help)
