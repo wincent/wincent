@@ -375,7 +375,6 @@ function maybe-show-vcs-info() {
 }
 add-zsh-hook precmd maybe-show-vcs-info
 
-
 # adds `cdr` command for navigating to recent directories
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
