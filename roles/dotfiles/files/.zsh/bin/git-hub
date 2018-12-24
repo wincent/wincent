@@ -117,8 +117,10 @@ when 'get'
   url = Shellwords.shellescape(pr(number))
   Dir.mktmpdir do |dir|
     branch = "pull/#{Shellwords.shellescape(number)}"
+    upstream = current_branch
     run "git fetch #{remote} pull/#{Shellwords.shellescape(number)}/head:#{branch}"
     run "git checkout #{branch}"
+    run "git branch --set-upstream-to=#{upstream} #{branch}"
   end
 
 when 'update'
