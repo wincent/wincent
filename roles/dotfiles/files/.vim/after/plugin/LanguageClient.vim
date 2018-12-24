@@ -24,6 +24,6 @@ if has('nvim')
       nnoremap <buffer> <silent> K :call LanguageClient#textDocument_hover()<CR>
     endif
   endfunction
-endif
 
-autocmd FileType * call s:Config()
+  autocmd FileType * call s:Config()
+endif
