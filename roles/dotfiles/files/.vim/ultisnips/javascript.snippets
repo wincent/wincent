@@ -1,6 +1,6 @@
 snippet license "license" b
 /**
- * Copyright 2015-present Greg Hurrell. All rights reserved.
+ * Copyright 2019-present Greg Hurrell. All rights reserved.
  * Licensed under the terms of the MIT license.
  */
 $1
@@ -14,8 +14,6 @@ snippet flow "flow" b
 /**
  * @flow
  */
-
-'use strict';
 
 ${1:`!p snip.rv = snip.basename or 'ModuleName'`}$0
 
@@ -155,17 +153,7 @@ function${1: name}(${2:arg}) {
 }
 endsnippet
 
-snippet pm "@providesModule declaration" b
-/**
- * @providesModule ${1:`!p snip.rv = snip.basename or 'ModuleName'`}
- */
-
-${3:'use strict';
-
-}$0
-endsnippet
-
-snippet "imp(ort)?" "import" !br
+snippet "imp(o|or|ort)?" "import" !br
 import ${1:Module} from '${2}$1${3}';
 endsnippet
 
