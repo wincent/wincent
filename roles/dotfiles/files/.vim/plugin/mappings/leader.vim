@@ -32,7 +32,6 @@ nnoremap <silent> <Leader>zz :call wincent#mappings#leader#zap()<CR>
 " (mnemonic: coloring).
 nnoremap <silent> <LocalLeader>c :syntax sync fromstart<CR>
 
-nnoremap <silent> <LocalLeader>d :OpenInDiffusion<CR>
 nnoremap <silent> <LocalLeader>s :Search<CR>
 
 " <LocalLeader>e -- Edit file, starting in same directory as current file.
