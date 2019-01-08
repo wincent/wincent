@@ -13,7 +13,7 @@ function! wincent#statusline#fileprefix() abort
     return ''
   else
     " Make sure we show $HOME as ~.
-    return fnamemodify(l:basename, ':~:.')
+    return fnamemodify(l:basename, ':~:.') . '/'
   endif
 endfunction
 
