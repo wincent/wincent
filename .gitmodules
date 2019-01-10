@@ -164,3 +164,6 @@
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/typescript-vim"]
 	path = roles/dotfiles/files/.vim/pack/bundle/start/typescript-vim
 	url = https://github.com/leafgarland/typescript-vim.git
+[submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-slime"]
+	path = roles/dotfiles/files/.vim/pack/bundle/start/vim-slime
+	url = https://github.com/jpalardy/vim-slime.git
