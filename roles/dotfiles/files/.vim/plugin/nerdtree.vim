@@ -35,6 +35,7 @@ call wincent#plugin#lazy({
       \     'NERDTreeToggle': '-n=? -complete=dir -bar',
       \   },
       \   'nnoremap': {
-      \     '<silent> -': ":silent edit <C-R>=empty(expand('%')) ? '.' : fnameescape(expand('%:p:h'))<CR><CR>"
+      \     '<silent> -': ":silent edit <C-R>=empty(expand('%')) ? '.' : fnameescape(expand('%:p:h'))<CR><CR>",
+      \     '<C-_>': ':NERDTreeFind<CR>'
       \   }
       \ })
