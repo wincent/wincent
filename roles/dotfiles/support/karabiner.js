@@ -115,6 +115,15 @@ const APPLE_INTERNAL_US = {
   },
 };
 
+const APPLE_INTERNAL_ES = {
+  ...DEVICE_DEFAULTS,
+  identifiers: {
+    ...IDENTIFIER_DEFAULTS,
+    product_id: 636,
+    vendor_id: 1452,
+  },
+};
+
 const REALFORCE = {
   ...DEVICE_DEFAULTS,
   identifiers: {
@@ -438,7 +447,7 @@ const DEFAULT_PROFILE = applyExemptions({
       },
     ],
   },
-  devices: [REALFORCE, APPLE_INTERNAL_US],
+  devices: [REALFORCE, APPLE_INTERNAL_US, APPLE_INTERNAL_ES],
   name: 'Default',
   selected: true,
 });
