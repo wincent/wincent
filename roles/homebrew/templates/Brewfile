@@ -5,12 +5,9 @@
 cask_args appdir: '/Applications'
 
 tap 'caskroom/cask'
-tap 'caskroom/versions'
 tap 'homebrew/bundle'
 tap 'homebrew/core'
-tap 'homebrew/dupes'
 tap 'homebrew/services'
-tap 'homebrew/versions'
 tap 'tavianator/tap'
 
 # General packages.
