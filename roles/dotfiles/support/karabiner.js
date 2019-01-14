@@ -106,7 +106,7 @@ const IDENTIFIER_DEFAULTS = {
   is_pointing_device: false,
 };
 
-const APPLE_INTERNAL = {
+const APPLE_INTERNAL_US = {
   ...DEVICE_DEFAULTS,
   identifiers: {
     ...IDENTIFIER_DEFAULTS,
@@ -438,7 +438,7 @@ const DEFAULT_PROFILE = applyExemptions({
       },
     ],
   },
-  devices: [REALFORCE, APPLE_INTERNAL],
+  devices: [REALFORCE, APPLE_INTERNAL_US],
   name: 'Default',
   selected: true,
 });
