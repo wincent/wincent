@@ -11,7 +11,7 @@ local log = require 'log'
 local switchProfiles = nil
 
 switchProfiles = (function(screenCount)
-  if screenCount == 1 then
+  if screenCount == 1 or screenCount == 2 then
     log.i('Configuring iTerm for Retina (internal) display')
 {% for entry in iterm_dynamic_profiles.retina %}
     hs.execute("ln -sf \"$HOME/Library/Application Support/iTerm2/Sources/{{ entry.src }}\" \"$HOME/Library/Application Support/iTerm2/DynamicProfiles/{{ entry.dest }}\"")
