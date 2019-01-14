@@ -2,10 +2,10 @@
 - hosts: localhost
   roles:
     - { role: iterm, tags: iterm }
+    - { role: homebrew, tags: homebrew }
     - { role: dotfiles, tags: dotfiles }
     - { role: launchd, tags: launchd }
     - { role: terminfo, tags: terminfo }
-    - { role: homebrew, tags: homebrew }
     - { role: shell, tags: shell }
     - { role: vim, tags: vim }
     - { role: defaults, tags: defaults }
