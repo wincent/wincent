@@ -71,12 +71,7 @@ local layoutConfig = {
     if count == 1 then
       hs.grid.set(window, grid.fullScreen)
     else
-      -- First/odd windows go on the RIGHT side of the screen.
-      -- Second/even windows go on the LEFT side.
-      -- (Note this is the opposite of what we do with Canary.)
-      local windows = windowCount(window:application())
-      local side = windows % 2 == 0 and grid.leftHalf or grid.rightHalf
-      hs.grid.set(window, side, hs.screen.primaryScreen())
+      hs.grid.set(window, grid.fullScreen, hs.screen.primaryScreen())
     end
   end),
 
@@ -85,12 +80,7 @@ local layoutConfig = {
     if count == 1 then
       hs.grid.set(window, grid.fullScreen)
     else
-      -- First/odd windows go on the LEFT side of the screen.
-      -- Second/even windows go on the RIGHT side.
-      -- (Note this is the opposite of what we do with Chrome.)
-      local windows = windowCount(window:application())
-      local side = windows % 2 == 0 and grid.rightHalf or grid.leftHalf
-      hs.grid.set(window, side, hs.screen.primaryScreen())
+      hs.grid.set(window, grid.fullScreen, hs.screen.primaryScreen())
     end
   end),
 
@@ -99,8 +89,12 @@ local layoutConfig = {
     if count == 1 then
       hs.grid.set(window, grid.fullScreen)
     else
-      hs.grid.set(window, grid.leftHalf, hs.screen.primaryScreen())
+      hs.grid.set(window, grid.fullScreen, hs.screen.primaryScreen())
     end
+  end),
+
+  ['com.tinyspeck.slackmacgap'] = (function(window)
+    hs.grid.set(window, grid.fullScreen, internalDisplay())
   end),
 }
 
@@ -148,10 +142,14 @@ canManageWindow = (function(window)
     bundleID == 'com.googlecode.iterm2'
 end)
 
+local macBookAir13 = '1440x900'
+local macBookPro15_2015 = '1440x900'
+local macBookPro15_2019 = '1680x1050'
+local samsung_S24C450 = '1920x1200'
+
 internalDisplay = (function()
-  -- Fun fact: this resolution matches both the 13" MacBook Air and the 15"
-  -- (Retina) MacBook Pro.
-  return hs.screen.find('1440x900')
+  return hs.screen.find(macBookPro15_2015) or
+    hs.screen.find(macBookPro15_2019)
 end)
 
 activateLayout = (function(forceScreenCount)
