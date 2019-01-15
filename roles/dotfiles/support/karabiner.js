@@ -122,6 +122,11 @@ const APPLE_INTERNAL_ES = {
     product_id: 636,
     vendor_id: 1452,
   },
+  simple_modifications: [
+    ...fromTo('non_us_backslash', 'grave_accent_and_tilde'),
+    ...fromTo('grave_accent_and_tilde', 'left_shift'),
+    ...fromTo('backslash', 'return_or_enter'),
+  ],
 };
 
 const REALFORCE = {
