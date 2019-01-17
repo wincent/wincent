@@ -174,3 +174,13 @@ function! wincent#autocmds#encrypt(file) abort
     endif
   endfor
 endfunction
+
+function wincent#autocmds#apply_overrides(file, type) abort
+  if match(a:type, '\<javascript\>') != -1
+    if wincent#liferay#detect(a:file)
+      setlocal noexpandtab
+      setlocal shiftwidth=4
+      setlocal tabstop=4
+    endif
+  endif
+endfunction
