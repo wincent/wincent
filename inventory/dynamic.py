@@ -5,12 +5,10 @@ import socket
 
 host = socket.gethostname()
 
-if host == 'glh-mbp':
+if re.search(r'\bliferay\b', host):
     group = 'work'
 elif re.match(r'retiro(?:\.(?:local|lan)?)?\Z', host):
     group = 'personal'
-elif re.match(r'dev(?:vm)?\d+', host):
-    group = 'devservers'
 else:
     group = 'local'
 
