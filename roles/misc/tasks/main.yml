@@ -31,3 +31,11 @@
     - source-map-explorer
     - typescript
     - typescript-language-server
+
+- name: misc | install Work-related NPM modules
+  npm: name={{ item }} global=yes
+  loop:
+    - gh
+    - gh-jira
+    - 'gradle-launcher'
+  when: "'work' in group_names"
