@@ -9,6 +9,22 @@ let g:projectionist_heuristics = {
       \       'type': 'header'
       \     },
       \
+      \     '*.ts': {
+      \       'alternate': [
+      \         '{dirname}/{basename}.test.ts',
+      \         '{dirname}/__tests__/{basename}-test.ts'
+      \       ],
+      \       'type': 'source'
+      \     },
+      \     '*.test.ts': {
+      \       'alternate': '{basename}.ts',
+      \       'type': 'test',
+      \     },
+      \     '**/__tests__/*-test.ts': {
+      \       'alternate': '{dirname}/{basename}.ts',
+      \       'type': 'test'
+      \     },
+      \
       \     '*.js': {
       \       'alternate': [
       \         '{dirname}/{basename}.test.js',
@@ -29,6 +45,7 @@ let g:projectionist_heuristics = {
       \       'alternate': '{dirname}/{basename}.js',
       \       'type': 'test'
       \     },
+      \
       \     'src/*.re': {
       \       'alternate': [
       \         '__tests__/{}_test.re',
