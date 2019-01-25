@@ -1,4 +1,4 @@
-autocmd FileType javascript call s:Test()
+autocmd FileType javascript,typescript call s:Test()
 
 function s:Test()
   let l:file=expand('<afile>')
@@ -6,7 +6,7 @@ function s:Test()
   if match(&filetype, '\v<jest>') != -1
     return
   endif
-  if match(l:file, '\v(_spec|Spec|-test|\.test)\.js$') != -1
+  if match(l:file, '\v(_spec|Spec|-test|\.test)\.(js|ts)$') != -1
     noautocmd set filetype+=.jest
   endif
 endfunction
