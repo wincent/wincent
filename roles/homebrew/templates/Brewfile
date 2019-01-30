@@ -176,12 +176,13 @@ brew 'xvid'
 brew 'xz'
 brew 'yarn'
 brew 'zsh'
-
 {% if 'work' in group_names %}
-# Work packagdes
-brew 'mysql@5.7'
 
+# Work packagdes
+brew 'docker'
+brew 'mysql@5.7'
 {% endif %}
+
 # General applications.
 cask 'alfred'
 cask 'arq'
@@ -206,3 +207,8 @@ cask 'tcl'
 cask 'transmission'
 cask 'vlc'
 cask 'xquartz'
+{% if 'work' in group_names %}
+
+# Work casks
+cask 'docker'
+{% endif %}
