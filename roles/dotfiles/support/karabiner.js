@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /*
- * Format with: prettier --write karabiner.js
+ * Format with: npx prettier --write karabiner.js
  */
 
 function fromTo(from, to) {
@@ -300,6 +300,42 @@ const DEFAULT_PROFILE = applyExemptions({
           ...spaceFN('k', 'down_arrow'),
           ...spaceFN('j', 'left_arrow'),
           ...spaceFN('i', 'up_arrow'),
+        ],
+      },
+      {
+        description: 'Tab + Return to Backslash',
+        manipulators: [
+          {
+            from: {
+              modifiers: {
+                optional: ['any'],
+              },
+              simultaneous: [
+                {
+                  key_code: 'tab',
+                },
+                {
+                  key_code: 'return_or_enter',
+                },
+              ],
+              simultaneous_options: {
+                key_down_order: 'insensitive',
+                key_up_order: 'insensitive',
+              },
+            },
+            to: [
+              {
+                key_code: 'backslash',
+              },
+            ],
+            conditions: [
+              {
+                type: 'device_if',
+                identifiers: [APPLE_INTERNAL_ES.identifiers],
+              },
+            ],
+            type: 'basic',
+          },
         ],
       },
       {
