@@ -1,3 +1,19 @@
+# Perform daily builds of portal codebases.
+function daily() {
+  if ! ssh-add -l > /dev/null; then
+    ssh-add ~/.ssh/id_rsa_2048b_20180102
+  fi
+
+  parallel -v 'cd {} && git pull' ::: ~/code/portal{,-ee}/liferay-binaries-cache-2017 && \
+  parallel -v 'cd {} && git pull' ::: ~/code/portal{/liferay-portal,-ee/liferay-portal-ee} && \
+  parallel -v --line-buffer 'cd {} && ant all 2>&1 | tee $PWD/ant-$(basename $(dirname {})).out' ::: ~/code/portal{/liferay-portal,-ee/liferay-portal-ee}
+}
+
+# Reset the dev database by dropping all tables.
 function truncatedb() {
   echo "set foreign_key_checks=1;" | (echo "select concat('drop table if exists ', table_name, ';') from information_schema.tables where table_schema='lportal_master';" | mysql -u root -B | tail -n +2 && cat;) | (echo "set foreign_key_checks=0;" && cat;) | mysql -u root lportal_master
+
+  echo
+  echo "Done"
+  echo "Now run 'ant all'"
 }
