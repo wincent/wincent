@@ -181,6 +181,7 @@ function wincent#autocmds#apply_overrides(file, type) abort
       setlocal noexpandtab
       setlocal shiftwidth=4
       setlocal tabstop=4
+      setlocal noshiftround
     endif
   endif
 endfunction
