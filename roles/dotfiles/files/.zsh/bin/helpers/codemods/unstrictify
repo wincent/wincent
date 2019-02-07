@@ -1,0 +1,43 @@
+/**
+ * Removes 'use strict' declarations and hoists contents out of IIFE into the
+ * top-level.
+ *
+ * BEWARE: very crude; happens to work with the format of the specific files
+ * that I tried it with, but will certainly mangle things in other cases.
+ *
+ * Run with:
+ *
+ * ```
+ * rg '\s['"']use strict" -l --type js -g '!someExcludedFile.js' | \
+ *    xargs jscodeshift -t ~/.zsh/bin/helpers/codemods/unstrictify
+ * ```
+ */
+module.exports = function transformer(file, api) {
+  const j = api.jscodeshift;
+  const root = j(file.source);
+
+  root.find(j.ExpressionStatement, {directive: 'use strict'})
+    .forEach((path, i) => {
+      if (i) {
+        // Only want to do this once.
+        console.warn('Found > 1 "use strict" declaration');
+        return;
+      }
+      const parent = path.parentPath;
+      j(path).remove();
+      const nodes = j(parent).nodes();
+      const body = root.get().value.program.body;
+
+      for (let i = body.length - 1; i >= 0; i--) {
+        if (j(body[i]).isOfType(j.ExpressionStatement)) {
+          delete body[i];
+          break;
+        }
+      }
+      j(parent).nodes().forEach(nodes => {
+        body.push(...nodes);
+      });
+    });
+
+  return root.toSource();
+};
