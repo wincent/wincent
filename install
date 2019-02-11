@@ -62,14 +62,12 @@ while [ $# -gt 0 ]; do
 done
 
 if [[ $VERBOSE ]]; then
-  DEV_NULL=/dev/stdout
   if [ $VERBOSE -ge 4 ]; then
     echo 'Enabling extremely verbose output'
     set -x
   fi
 else
   trap 'echo "Exiting: run with -v/--verbose for more info"' EXIT
-  DEV_NULL=/dev/null
 fi
 
 if [ ! -e $VIRTUALENV_SETUP ]; then
@@ -85,7 +83,11 @@ if [ ! -e $ANSIBLE_ENV_SETUP ]; then
 fi
 
 if [[ ! -e $VIRTUALENV_ACTIVATE || $FORCE ]]; then
-  python $VIRTUALENV_SETUP $VIRTUALENV_TARGET_DIR &> $DEV_NULL
+  if [[ $VERBOSE ]]; then
+    python $VIRTUALENV_SETUP $VIRTUALENV_TARGET_DIR
+  else
+    python $VIRTUALENV_SETUP $VIRTUALENV_TARGET_DIR &> /dev/null
+  fi
 elif [ -e $VIRTUALENV_ACTIVATE ]; then
   echo "Skipping virtualenv install (already exists); use --force to override"
 fi
@@ -98,16 +100,27 @@ source $VIRTUALENV_ACTIVATE
 #   pip install --upgrade pip
 #
 if [[ -z $(pip show paramiko pycrypto PyYAML Jinja2 httplib2) || $FORCE ]]; then
-  if ! pip install paramiko pycrypto PyYAML Jinja2 httplib2 &> $DEV_NULL; then
+  set +e
+  if [[ $VERBOSE ]]; then
+    pip install paramiko pycrypto PyYAML Jinja2 httplib2
+  else
+    pip install paramiko pycrypto PyYAML Jinja2 httplib2 &> /dev/null
+  fi
+  if [ $? -ne 0 ]; then
     echo "Failed: pip install"
     echo "Did you forget to 'export https_proxy=fwdproxy:8080' or similar?"
     exit 1
   fi
+  set -e
 elif [[ ! $FORCE ]]; then
   echo "Skipping pip installs (already exists); use --force to override"
 fi
 
-source vendor/ansible/hacking/env-setup &> $DEV_NULL
+if [[ $VERBOSE ]]; then
+  source vendor/ansible/hacking/env-setup
+else
+  source vendor/ansible/hacking/env-setup &> /dev/null
+fi
 
 HOST_OS=$(uname)
 
