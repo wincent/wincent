@@ -21,11 +21,12 @@ let g:UltiSnipsSnippetDirectories = [
       \ $HOME . '/.vim/ultisnips-private'
       \ ]
 
+packadd LanguageClient-neovim
+
 if has('nvim')
   " Don't forget to run :UpdateRemotePlugins to populate
   " `~/.local/share/nvim/rplugin.vim`.
   packadd deoplete
-  packadd LanguageClient-neovim
   call wincent#defer#defer('call wincent#autocomplete#deoplete_init()')
 
   inoremap <expr><C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
