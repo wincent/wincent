@@ -32,6 +32,11 @@ let g:tcomment_textobject_inlinecomment=''
 " The default (g<) is a bit awkward to type.
 let g:tcomment_mapleader_uncomment_anyway='gu'
 
+let g:LanguageClient_rootMarkers = {
+      \   'javascript': ['tsconfig.json', '.flowconfig', 'package.json'],
+      \   'typescript': ['tsconfig.json', '.flowconfig', 'package.json']
+      \ }
+
 let g:LanguageClient_serverCommands = {}
 
 " From `npm install -g javascript-typescript-langserver`:
