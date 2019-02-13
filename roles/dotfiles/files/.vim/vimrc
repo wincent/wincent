@@ -34,25 +34,57 @@ let g:tcomment_mapleader_uncomment_anyway='gu'
 
 let g:LanguageClient_serverCommands = {}
 
-" Install with `npm install -g flow-bin` or
-" `npm install -g javascript-typescript-langserver`.
-if executable('flow') && filereadable('.flowconfig')
-  let s:js=[exepath('flow'), 'lsp']
-elseif executable('javascript-typescript-stdio')
-  let s:js=[exepath('javascript-typescript-stdio')]
-  let g:LanguageClient_serverCommands['typescript']=s:js
+" From `npm install -g javascript-typescript-langserver`:
+let s:ts_lsp=executable('javascript-typescript-stdio') ?
+      \ [exepath('javascript-typescript-stdio')] :
+      \ []
+
+" From `npm install -g flow-bin`:
+let s:flow_lsp=executable('flow') ?
+      \ [exepath('flow'), 'lsp'] :
+      \ []
+
+let s:ts_filetypes=[
+      \   'typescript',
+      \   'typescript.jsx',
+      \   'typescript.jest',
+      \   'typescript.jest.jsx'
+      \ ]
+
+let s:js_filetypes=[
+      \   'javascript',
+      \   'javascript.jsx',
+      \   'javascript.jest',
+      \   'javascript.jest.jsx'
+      \ ]
+
+if s:ts_lsp != []
+  for s:ts_filetype in s:ts_filetypes
+    let g:LanguageClient_serverCommands[s:ts_filetype]=s:ts_lsp
+  endfor
 endif
-if exists('s:js')
-  let g:LanguageClient_serverCommands['javascript']=s:js
-  let g:LanguageClient_serverCommands['javascript.jest']=s:js
-  let g:LanguageClient_serverCommands['javascript.jest.jsx']=s:js
-  let g:LanguageClient_serverCommands['javascript.jsx']=s:js
+
+if s:ts_lsp != [] && filereadable('tsconfig.json')
+  let s:js_lsp=s:ts_lsp
+elseif s:flow_lsp != [] && filereadable('.flowconfig')
+  let s:js_lsp=s:flow_lsp
+elseif s:ts_lsp != []
+  let s:js_lsp=s:ts_lsp
 endif
+
+if exists('s:js_lsp')
+  let g:LanguageClient_serverCommands['javascript']=s:js_lsp
+  let g:LanguageClient_serverCommands['javascript.jest']=s:js_lsp
+  let g:LanguageClient_serverCommands['javascript.jest.jsx']=s:js_lsp
+  let g:LanguageClient_serverCommands['javascript.jsx']=s:js_lsp
+endif
+
 if executable('ocaml-language-server')
-  let s:ocaml=[exepath('ocaml-language-server')]
-  let g:LanguageClient_serverCommands['reason']=s:ocaml
-  let g:LanguageClient_serverCommands['ocaml']=s:ocaml
+  let s:ocaml_lsp=[exepath('ocaml-language-server')]
+  let g:LanguageClient_serverCommands['reason']=s:ocaml_lsp
+  let g:LanguageClient_serverCommands['ocaml']=s:ocaml_lsp
 endif
+
 let g:LanguageClient_diagnosticsList='Location'
 let g:LanguageClient_diagnosticsSignsMax=0
 

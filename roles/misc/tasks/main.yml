@@ -26,11 +26,11 @@
     - flow-bin
     - flow-typed
     - gatsby-cli
+    - javascript-typescript-langserver
     - ocaml-language-server
     - reason-cli
     - source-map-explorer
     - typescript
-    - typescript-language-server
 
 - name: misc | install Work-related NPM modules
   npm: name={{ item }} global=yes
