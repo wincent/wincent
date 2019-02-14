@@ -13,6 +13,10 @@ function! s:Config()
 
     " K -- lookup keyword
     nnoremap <buffer> <silent> K :call LanguageClient#textDocument_hover()<CR>
+
+    if exists('+signcolumn')
+      setlocal signcolumn=yes
+    endif
   endif
 endfunction
 
