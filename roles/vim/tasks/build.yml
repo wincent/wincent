@@ -11,6 +11,12 @@
     creates={{ command_t_base }}/ruby/command-t/ext/command-t/{{ command_t_bundle }}
     chdir={{ command_t_base }}/ruby/command-t/ext/command-t
 
+- name: vim | build LanguageClient-neovim
+  command:
+    ./install.sh
+    chdir={{ language_client_base }}
+    creates={{ language_client_base }}/bin/languageclient
+
 - name: vim | create or update spell file
   command:
     vim -u NONE -N -c 'mkspell! {{ spellfile }} | quit'
