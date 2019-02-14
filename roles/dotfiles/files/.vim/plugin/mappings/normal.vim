@@ -25,6 +25,11 @@ nnoremap <silent> <Down> :cnext<CR>
 nnoremap <silent> <Left> :cpfile<CR>
 nnoremap <silent> <Right> :cnfile<CR>
 
+nnoremap <silent> <S-Up> :lprevious<CR>
+nnoremap <silent> <S-Down> :lnext<CR>
+nnoremap <silent> <S-Left> :lpfile<CR>
+nnoremap <silent> <S-Right> :lnfile<CR>
+
 " Store relative line number jumps in the jumplist if they exceed a threshold.
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : '') . 'k'
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : '') . 'j'
