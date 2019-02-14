@@ -33,10 +33,10 @@ let g:tcomment_textobject_inlinecomment=''
 let g:tcomment_mapleader_uncomment_anyway='gu'
 
 let g:LanguageClient_diagnosticsDisplay = {
-      \   1: {'signTexthl': 'LineNr'},
-      \   2: {'signTexthl': 'LineNr'},
-      \   3: {'signTexthl': 'LineNr'},
-      \   4: {'signTexthl': 'LineNr'},
+      \   1: {'signTexthl': 'LineNr', 'virtualTexthl': 'User8'},
+      \   2: {'signTexthl': 'LineNr', 'virtualTexthl': 'User8'},
+      \   3: {'signTexthl': 'LineNr', 'virtualTexthl': 'User8'},
+      \   4: {'signTexthl': 'LineNr', 'virtualTexthl': 'User8'},
       \ }
 
 let g:LanguageClient_rootMarkers = {

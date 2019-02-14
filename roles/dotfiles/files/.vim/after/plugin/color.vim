@@ -50,6 +50,9 @@ function s:CheckColorScheme()
     execute 'highlight! ' . l:group . ' ' . pinnacle#highlight(l:highlight)
   endfor
 
+  let l:highlight=pinnacle#italicize('ModeMsg')
+  execute 'highlight User8 ' . l:highlight
+
   " Allow for overrides:
   " - `statusline.vim` will re-set User1, User2 etc.
   " - `after/plugin/loupe.vim` will override Search.
