@@ -184,9 +184,9 @@ function wincent#autocmds#apply_overrides(file, type) abort
       setlocal noshiftround
 
       if &formatprg !=# '' && executable('par')
-        " Strip "T", which turns tabs to spaces.
-        " TODO: Still needs some work but it's better than with "T".
-        let &l:formatprg=substitute(&formatprg, 'T', '', '')
+        " "T", turns tabs to spaces, and I can't seem to turn it off, but I can
+        " at least make it use the right number of them.
+        let &l:formatprg=substitute(&formatprg, 'T', 'T4', '')
       endif
     endif
   endif
