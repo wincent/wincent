@@ -11,11 +11,15 @@
     creates={{ command_t_base }}/ruby/command-t/ext/command-t/{{ command_t_bundle }}
     chdir={{ command_t_base }}/ruby/command-t/ext/command-t
 
+- name: vim | check languageclient
+  stat: path={{ language_client_base }}/bin/languageclient
+  register: language_client_status
+
 - name: vim | build LanguageClient-neovim
   command:
     ./install.sh
     chdir={{ language_client_base }}
-    creates={{ language_client_base }}/bin/languageclient
+  when: (language_client_status is not defined or not language_client_status.stat.exists) or (vim_bundle_update is defined and vim_bundle_update.changed)
 
 - name: vim | create or update spell file
   command:

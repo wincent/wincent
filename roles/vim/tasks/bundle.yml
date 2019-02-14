@@ -1,6 +1,7 @@
 ---
 - name: vim | update bundle
   command: "{{ ansible_env.PWD }}/roles/vim/files/update-bundle"
+  register: vim_bundle_update
 
 - name: vim | install vim-vint
   pip: executable=pip2 name=vim-vint
