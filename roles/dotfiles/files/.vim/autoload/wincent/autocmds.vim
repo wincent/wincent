@@ -185,9 +185,22 @@ function wincent#autocmds#apply_overrides(file, type) abort
 
       if match(&formatprg, '^par ') != -1
         " "T", turns tabs to spaces, and I can't seem to turn it off, but I can
-        " at least make it use the right number of them.
+        " at least make it use the right number of them...
         let &l:formatprg=substitute(&formatprg, 'T\d*', 'T4', '')
+
+        " ... and then override the |gq| operator to do a |:retab!| after
+        " applying.
+        map <buffer> gq <Plug>(operator-format-and-retab)
+        call operator#user#define('format-and-retab', 'wincent#autocmds#format')
       endif
     endif
+  endif
+endfunction
+
+function! wincent#autocmds#format(motion) abort
+  if has('ex_extra')
+    let l:v=operator#user#visual_command_from_wise_name(a:motion)
+    silent execute 'normal!' '`[' . l:v . '`]gq'
+    '[,']retab!
   endif
 endfunction
