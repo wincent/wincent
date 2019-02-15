@@ -81,6 +81,7 @@ function! wincent#autocomplete#deoplete_init() abort
         \   'config',
         \   expand('~/code/masochist/src/server/constants.js')
         \ )
+  call deoplete#custom#source('file', 'rank', 2000)
   call deoplete#custom#source('ultisnips', 'rank', 1000)
   call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])
 endfunction
