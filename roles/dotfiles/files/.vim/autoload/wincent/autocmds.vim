@@ -1,4 +1,5 @@
-let g:WincentColorColumnBlacklist = ['diff', 'fugitiveblame', 'undotree', 'nerdtree', 'qf']
+let g:WincentColorColumnBufferNameBlacklist = ['__LanguageClient__']
+let g:WincentColorColumnFileTypeBlacklist = ['diff', 'fugitiveblame', 'undotree', 'nerdtree', 'qf']
 let g:WincentCursorlineBlacklist = ['command-t']
 let g:WincentMkviewFiletypeBlacklist = ['diff', 'hgcommit', 'gitcommit']
 
@@ -10,7 +11,10 @@ function! wincent#autocmds#attempt_select_last_file() abort
 endfunction
 
 function! wincent#autocmds#should_colorcolumn() abort
-  return index(g:WincentColorColumnBlacklist, &filetype) == -1
+  if index(g:WincentColorColumnBufferNameBlacklist, bufname(bufnr('%'))) != -1
+    return 0
+  endif
+  return index(g:WincentColorColumnFileTypeBlacklist, &filetype) == -1
 endfunction
 
 function! wincent#autocmds#should_cursorline() abort
