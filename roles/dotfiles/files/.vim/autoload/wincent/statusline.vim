@@ -6,9 +6,14 @@ function! wincent#statusline#gutterpadding() abort
     if &signcolumn == 'yes'
       let l:signcolumn=2
     elseif &signcolumn == 'auto'
-      redir => l:signs
-      silent execute 'sign place buffer=' . bufnr('$')
-      redir END
+      if exists('*execute')
+        let l:signs=execute('sign place buffer=' .bufnr('$'))
+      else
+        let l:signs=''
+        silent! redir => l:signs
+        silent execute 'sign place buffer=' . bufnr('$')
+        redir END
+      end
       if match(l:signs, 'line=') != -1
         let l:signcolumn=2
       endif
