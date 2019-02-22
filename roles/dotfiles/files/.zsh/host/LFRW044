@@ -4,10 +4,10 @@ function daily() {
     ssh-add ~/.ssh/id_rsa_2048b_20180102
   fi
 
-  parallel -v 'cd {} && git checkout master && git pull --ff-only origin master' ::: ~/code/portal{,-ee}/liferay-binaries-cache-2017 && \
-  parallel -v 'cd {} && git checkout master && git pull --ff-only upstream master' ::: ~/code/portal{/liferay-portal,-ee/liferay-portal-ee} && \
-  parallel -v --line-buffer 'cd {} && ant all 2>&1 | tee $PWD/ant-$(basename $(dirname {})).out' ::: ~/code/portal{/liferay-portal,-ee/liferay-portal-ee} && \
-  parallel -v 'cd {} && git tag "daily/good/$(date +%Y-%m-%d)"' ::: ~/code/portal{/liferay-portal,-ee/liferay-portal-ee}
+  parallel -v --halt-on-error soon,fail=1 'cd {} && git checkout master && git pull --ff-only origin master' ::: ~/code/portal{,-ee}/liferay-binaries-cache-2017 && \
+  parallel -v --halt-on-error soon,fail=1 'cd {} && git checkout master && git pull --ff-only upstream master' ::: ~/code/portal{/liferay-portal,-ee/liferay-portal-ee} && \
+  parallel -v --halt-on-error soon,fail=1 --line-buffer 'cd {} && ant all 2>&1 | tee $PWD/ant-$(basename $(dirname {})).out' ::: ~/code/portal{/liferay-portal,-ee/liferay-portal-ee} && \
+  parallel -v --halt-on-error soon,fail=1 'cd {} && git tag "daily/good/$(date +%Y-%m-%d)"' ::: ~/code/portal{/liferay-portal,-ee/liferay-portal-ee}
 }
 
 # Reset the dev database by dropping all tables.
