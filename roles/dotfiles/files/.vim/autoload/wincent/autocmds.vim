@@ -1,5 +1,5 @@
 let g:WincentColorColumnBufferNameBlacklist = ['__LanguageClient__']
-let g:WincentColorColumnFileTypeBlacklist = ['diff', 'fugitiveblame', 'undotree', 'nerdtree', 'qf']
+let g:WincentColorColumnFileTypeBlacklist = ['command-t', 'diff', 'fugitiveblame', 'undotree', 'nerdtree', 'qf']
 let g:WincentCursorlineBlacklist = ['command-t']
 let g:WincentMkviewFiletypeBlacklist = ['diff', 'hgcommit', 'gitcommit']
 
