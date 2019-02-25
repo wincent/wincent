@@ -1,3 +1,14 @@
+# Directory shortcuts:
+
+function __directory_shortcuts() {
+  local ALLOY_EDITOR=~/code/portal/liferay-portal/modules/apps/frontend-editor/frontend-editor-alloyeditor-web
+
+  test -d "$ALLOY_EDITOR" && hash -d alloy="$ALLOY_EDITOR"
+
+  unfunction __directory_shortcuts
+}
+__directory_shortcuts
+
 # Perform daily builds of portal codebases.
 function daily() {
   if ! ssh-add -l > /dev/null; then
