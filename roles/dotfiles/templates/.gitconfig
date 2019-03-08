@@ -55,6 +55,8 @@
 	# compensate for brain damage caused by using Mercurial
 	up = checkout
 
+	wc = whatchanged
+
 [branch]
 	autosetupmerge = always
 	autosetuprebase = local
