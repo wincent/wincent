@@ -18,4 +18,5 @@
 /roles/dotfiles/files/.vim/tmp/shada
 /roles/dotfiles/files/.vim/tmp/viminfo
 /roles/dotfiles/files/.vim/ultisnips-private/markdown.snippets
+/roles/dotfiles/files/.zsh/exports.private
 /roles/ssh/files/ssh_config
