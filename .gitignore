@@ -15,6 +15,7 @@
 /roles/dotfiles/files/.vim/after/plugin/command-t.private.vim
 /roles/dotfiles/files/.vim/plugin/private.vim
 /roles/dotfiles/files/.vim/spell/en.utf-8.add.spl
+/roles/dotfiles/files/.vim/tmp/shada
 /roles/dotfiles/files/.vim/tmp/viminfo
 /roles/dotfiles/files/.vim/ultisnips-private/markdown.snippets
 /roles/ssh/files/ssh_config

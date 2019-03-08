@@ -167,19 +167,23 @@ endif
 set updatecount=80                    " update swapfiles every 80 typed chars
 set updatetime=2000                   " CursorHold interval
 
-if has('viminfo')
-  if exists('$SUDO_USER')
-    set viminfo=                      " don't create root-owned files
-  else
-    if isdirectory('~/local/.vim/tmp')
-      set viminfo+=n~/local/.vim/tmp/viminfo
-    else
-      set viminfo+=n~/.vim/tmp/viminfo " override ~/.viminfo default
-    endif
+if has('viminfo') " ie. Vim.
+  let s:viminfo='viminfo'
+elseif has('shada') " ie. Neovim.
+  let s:viminfo='shada'
+endif
 
-    if !empty(glob('~/.vim/tmp/viminfo'))
-      if !filereadable(expand('~/.vim/tmp/viminfo'))
-        echoerr 'warning: ~/.vim/tmp/viminfo exists but is not readable'
+if exists('s:viminfo')
+  if exists('$SUDO_USER')
+    " Don't create root-owned files.
+    execute 'set ' . s:viminfo . '='
+  else
+    " Override ~/.viminfo default.
+    execute 'set ' . s:viminfo . '+=n~/.vim/tmp/' . s:viminfo
+
+    if !empty(glob('~/.vim/tmp/' . s:viminfo))
+      if !filereadable(expand('~/.vim/tmp/' . s:viminfo))
+        echoerr 'warning: ~/.vim/tmp/' . s:viminfo . ' exists but is not readable'
       endif
     endif
   endif
