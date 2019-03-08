@@ -175,8 +175,23 @@ if exists('s:viminfo')
     " Don't create root-owned files.
     execute 'set ' . s:viminfo . '='
   else
-    " Override ~/.viminfo default.
-    execute 'set ' . s:viminfo . '+=n~/.vim/tmp/' . s:viminfo
+    " Defaults:
+    "   Neovim: !,'100,<50,s10,h
+    "   Vim:    '100,<50,s10,h
+    "
+    " - ! save/restore global variables (only all-uppercase variables)
+    " - '100 save/restore marks from last 100 files
+    " - <50 save/restore 50 lines from each register
+    " - s10 max item size 10KB
+    " - h do not save/restore 'hlsearch' setting
+    "
+    " Our overrides:
+    " - '0 store marks for 0 files
+    " - <0 don't save registers
+    " - f0 don't store file marks
+    " - n: store in ~/.vim/tmp
+    "
+    execute 'set ' . s:viminfo . "='0,<0,f0,n~/.vim/tmp/" . s:viminfo
 
     if !empty(glob('~/.vim/tmp/' . s:viminfo))
       if !filereadable(expand('~/.vim/tmp/' . s:viminfo))
