@@ -282,11 +282,11 @@ done
 
 **Note:** The `ln -sf` command will overwrite existing files, but will fail to overwrite existing directories.
 
-**Warning:** Beware of the `.gitconfig`, you need to change for your user name and email address:
+**Note:** Given that `~/.gitconfig` is included with these dotfiles, any local modifications or overrides that you apply should be added to `~/.gitconfig.local` instead; for example:
 
 ```sh
-git config --global user.name "John Doe"
-git config --global user.email johndoe@example.com
+git config --file ~/.gitconfig.local user.name "John Doe"
+git config --file ~/.gitconfig.local user.email johndoe@example.com
 ```
 
 ### Troubleshooting
