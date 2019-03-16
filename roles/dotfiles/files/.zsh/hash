@@ -6,7 +6,7 @@
 
 # Work machine:
 if [ $(hostname -s) = 'LFRW044' ]; then
-  function __directory_shortcuts() {
+  () {
     local ALLOY_EDITOR=~/code/portal/liferay-portal/modules/apps/frontend-editor/frontend-editor-alloyeditor-web
     local DEPLOY=~/code/portal/bundles/deploy
     local TOMCAT=~/code/portal/bundles/tomcat-9.0.10
@@ -14,8 +14,5 @@ if [ $(hostname -s) = 'LFRW044' ]; then
     test -d "$ALLOY_EDITOR" && hash -d alloy="$ALLOY_EDITOR"
     test -d "$DEPLOY" && hash -d deploy="$DEPLOY"
     test -d "$TOMCAT" && hash -d tomcat="$TOMCAT"
-
-    unfunction __directory_shortcuts
   }
-  __directory_shortcuts
 fi
