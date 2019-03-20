@@ -13,7 +13,7 @@ if [ $(hostname -s) = 'LFRW044' ]; then
     local TOMCAT=~/code/portal/bundles/tomcat-9.0.10
 
     test -d "$ALLOY_EDITOR" && hash -d alloy="$ALLOY_EDITOR"
-    test -d "$CKEDITOR" && hash -d deploy="$CKEDITOR"
+    test -d "$CKEDITOR" && hash -d ckeditor="$CKEDITOR"
     test -d "$DEPLOY" && hash -d deploy="$DEPLOY"
     test -d "$TOMCAT" && hash -d tomcat="$TOMCAT"
   }
