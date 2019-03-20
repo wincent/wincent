@@ -8,10 +8,12 @@
 if [ $(hostname -s) = 'LFRW044' ]; then
   () {
     local ALLOY_EDITOR=~/code/portal/liferay-portal/modules/apps/frontend-editor/frontend-editor-alloyeditor-web
+    local CKEDITOR=~/code/portal/liferay-portal/modules/apps/frontend-editor/frontend-editor-ckeditor-web
     local DEPLOY=~/code/portal/bundles/deploy
     local TOMCAT=~/code/portal/bundles/tomcat-9.0.10
 
     test -d "$ALLOY_EDITOR" && hash -d alloy="$ALLOY_EDITOR"
+    test -d "$CKEDITOR" && hash -d deploy="$CKEDITOR"
     test -d "$DEPLOY" && hash -d deploy="$DEPLOY"
     test -d "$TOMCAT" && hash -d tomcat="$TOMCAT"
   }
