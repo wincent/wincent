@@ -178,9 +178,10 @@ brew 'yarn'
 brew 'zsh'
 {% if 'work' in group_names %}
 
-# Work packagdes
+# Work packages
 brew 'docker'
 brew 'mysql@5.7'
+brew 'watchman'
 {% endif %}
 
 # General applications.
