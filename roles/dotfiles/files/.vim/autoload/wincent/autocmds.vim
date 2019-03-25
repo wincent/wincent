@@ -184,7 +184,7 @@ function! wincent#autocmds#encrypt(file) abort
   endfor
 endfunction
 
-function wincent#autocmds#apply_overrides(file, type) abort
+function! wincent#autocmds#apply_overrides(file, type) abort
   if match(a:type, '\<\(html\|javascript\|json\|typescript\)\>') != -1
     if wincent#liferay#detect(a:file)
       setlocal noexpandtab
