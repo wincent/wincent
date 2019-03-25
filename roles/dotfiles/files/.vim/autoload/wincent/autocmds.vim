@@ -30,14 +30,19 @@ function! wincent#autocmds#should_mkview() abort
 endfunction
 
 function! wincent#autocmds#mkview() abort
-  if exists('*haslocaldir') && haslocaldir()
-    " We never want to save an :lcd command, so hack around it...
-    cd -
-    mkview
-    lcd -
-  else
-    mkview
-  endif
+  try
+    if exists('*haslocaldir') && haslocaldir()
+      " We never want to save an :lcd command, so hack around it...
+      cd -
+      mkview
+      lcd -
+    else
+      mkview
+    endif
+  catch /E190/
+    " Legit reasons for a failure to write a backup include its name or
+    " path length exceeding NAME_MAX or PATH_MAX.
+  endtry
 endfunction
 
 function! s:get_spell_settings() abort
