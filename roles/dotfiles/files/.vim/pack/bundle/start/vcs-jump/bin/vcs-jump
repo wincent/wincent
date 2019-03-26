@@ -128,6 +128,7 @@ def mode_merge(__args__ignored)
     #{command} |
     #{filter} |
     sort |
+    uniq |
     while IFS= read fn; do
       grep -Hn '^<<<<<<<' "$fn"
     done
