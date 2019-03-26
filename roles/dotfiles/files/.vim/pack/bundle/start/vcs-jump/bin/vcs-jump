@@ -119,7 +119,7 @@ end
 def mode_merge(__args__ignored)
   if git?
     command = 'git ls-files -u'
-    filter = "perl -pe 's/^.*?\\t//"
+    filter = "perl -pe 's/^.*?\\t//'"
   else
     command = 'hg resolve -l'
     filter = "egrep -e '^U\\s+' | perl -pe 's#^U\\s+##{root}/#'"
