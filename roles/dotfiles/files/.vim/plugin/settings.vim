@@ -37,8 +37,9 @@ set expandtab                         " always use spaces instead of tabs
 
 if has('folding')
   if has('windows')
-    set fillchars=vert:┃              " BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
+    set fillchars=diff:⋰             " UP RIGHT DIAGONAL ELLIPSIS (U+22F0, UTF-8: E2 8B B0)
     set fillchars+=fold:·             " MIDDLE DOT (U+00B7, UTF-8: C2 B7)
+    set fillchars+=vert:┃              " BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
   endif
 
   if has('nvim-0.3.1')
