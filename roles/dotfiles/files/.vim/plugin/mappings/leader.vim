@@ -32,6 +32,14 @@ nnoremap <silent> <Leader>zz :call wincent#mappings#leader#zap()<CR>
 " (mnemonic: coloring).
 nnoremap <silent> <LocalLeader>c :syntax sync fromstart<CR>
 
+" <LocalLeader>d... -- Diff mode bindings:
+" - <LocalLeader>dd: show diff view (mnemonic: [d]iff)
+" - <LocalLeader>dh: choose hunk from left (mnemonic: [h] = left)
+" - <LocalLeader>dl: show diff view (mnemonic: [l] = right)
+nnoremap <silent> <LocalLeader>dd :Gvdiff<CR>
+nnoremap <silent> <LocalLeader>dh :diffget //2<CR>
+nnoremap <silent> <LocalLeader>dl :diffget //3<CR>
+
 nnoremap <silent> <LocalLeader>s :Search<CR>
 
 " <LocalLeader>e -- Edit file, starting in same directory as current file.
