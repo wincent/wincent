@@ -1,3 +1,9 @@
+function s:RemoveBg(group)
+    let l:highlight=filter(pinnacle#dump(a:group), 'v:key != "bg"')
+    execute 'highlight! clear ' . a:group
+    execute 'highlight! ' . a:group . ' ' . pinnacle#highlight(l:highlight)
+endfunction
+
 function s:CheckColorScheme()
   if !has('termguicolors')
     let g:base16colorspace=256
@@ -47,10 +53,13 @@ function s:CheckColorScheme()
 
   " For Git commits, suppress the background of these groups:
   for l:group in ['DiffAdded', 'DiffFile', 'DiffNewFile', 'DiffLine', 'DiffRemoved']
-    let l:highlight=filter(pinnacle#dump(l:group), 'v:key != "bg"')
-    execute 'highlight! clear ' . l:group
-    execute 'highlight! ' . l:group . ' ' . pinnacle#highlight(l:highlight)
+    call s:RemoveBg(l:group)
   endfor
+
+  " More subtle highlighting during merge conflict resolution.
+  highlight clear DiffAdd
+  highlight clear DiffChange
+  call s:RemoveBg('DiffText')
 
   let l:highlight=pinnacle#italicize('ModeMsg')
   execute 'highlight User8 ' . l:highlight

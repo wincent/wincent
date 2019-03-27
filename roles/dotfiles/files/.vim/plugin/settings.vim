@@ -25,6 +25,7 @@ if exists('+colorcolumn')
 endif
 
 set cursorline                        " highlight current line
+set diffopt+=foldcolumn:0             " don't show fold column in diff view
 
 if exists('$SUDO_USER')
   set noswapfile                      " don't create root-owned files
