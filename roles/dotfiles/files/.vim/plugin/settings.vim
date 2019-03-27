@@ -65,7 +65,7 @@ if !has('nvim')
   " Sync with corresponding nvim :highlight commands in ~/.vim/plugin/autocmds.vim:
   set highlight+=@:Conceal            " ~/@ at end of window, 'showbreak'
   set highlight+=D:Conceal            " override DiffDelete
-  set highlight+=N:DiffText           " make current line number stand out a little
+  set highlight+=N:FoldColumn         " make current line number stand out a little
   set highlight+=c:LineNr             " blend vertical separators with line numbers
 endif
 

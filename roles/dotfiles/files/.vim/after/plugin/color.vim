@@ -39,8 +39,10 @@ function s:CheckColorScheme()
   " ~/.vim/plugin/settings.vim:
   highlight clear NonText
   highlight link NonText Conceal
+
   highlight clear CursorLineNr
-  highlight link CursorLineNr DiffText
+  execute 'highlight CursorLineNr ' . pinnacle#extract_highlight('DiffText')
+
   highlight clear DiffDelete
   highlight link DiffDelete Conceal
   highlight clear VertSplit
