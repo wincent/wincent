@@ -35,6 +35,8 @@ function s:CheckColorScheme()
   highlight link NonText Conceal
   highlight clear CursorLineNr
   highlight link CursorLineNr DiffText
+  highlight clear DiffDelete
+  highlight link DiffDelete Conceal
   highlight clear VertSplit
   highlight link VertSplit LineNr
 

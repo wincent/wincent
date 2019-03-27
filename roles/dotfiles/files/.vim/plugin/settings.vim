@@ -37,8 +37,8 @@ set expandtab                         " always use spaces instead of tabs
 
 if has('folding')
   if has('windows')
-    set fillchars=diff:⋰             " UP RIGHT DIAGONAL ELLIPSIS (U+22F0, UTF-8: E2 8B B0)
-    set fillchars+=fold:·             " MIDDLE DOT (U+00B7, UTF-8: C2 B7)
+    set fillchars=diff:∙               " BULLET OPERATOR (U+2219, UTF-8: E2 88 99)
+    set fillchars+=fold:·              " MIDDLE DOT (U+00B7, UTF-8: C2 B7)
     set fillchars+=vert:┃              " BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
   endif
 
@@ -63,6 +63,7 @@ set hidden                            " allows you to hide buffers with unsaved 
 if !has('nvim')
   " Sync with corresponding nvim :highlight commands in ~/.vim/plugin/autocmds.vim:
   set highlight+=@:Conceal            " ~/@ at end of window, 'showbreak'
+  set highlight+=D:Conceal            " override DiffDelete
   set highlight+=N:DiffText           " make current line number stand out a little
   set highlight+=c:LineNr             " blend vertical separators with line numbers
 endif
