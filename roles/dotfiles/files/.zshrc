@@ -189,6 +189,8 @@ setopt SHARE_HISTORY           # share history across shells
 
 bindkey -e # emacs bindings, set to -v for vi bindings
 
+bindkey '^[[Z' reverse-menu-complete # make Shift-tab go to previous completion
+
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
