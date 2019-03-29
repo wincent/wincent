@@ -181,6 +181,7 @@ brew 'zsh'
 # Work packages
 brew 'docker'
 brew 'mysql@5.7'
+brew 'telnet'
 brew 'watchman'
 {% endif %}
 
