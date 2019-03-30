@@ -1,5 +1,54 @@
 # Changelog
 
+## 2019-03-29
+
+* [Zsh]: Make Shift-Tab go to previous completion.
+* [Vim]: Force use of NERDTree instead of netrw when opening Vim with a directory argument.
+
+## 2019-03-27
+
+* [Vim]: Improve set-up for doing merge conflict resolution.
+
+## 2019-03-08
+
+* [Zsh]: Add `git wc` alias for `git whatchanged`.
+
+## 2019-02-27
+
+* [Zsh]: Add `git message` (shortcut: `git msg`) alias.
+
+## 2019-02-15
+
+* [Vim]: Make deoplete rank file-path matches above others.
+
+## 2019-02-14
+
+* [Vim]: `<S-Up>`, `<S-Down>` etc can be used to navigate with location list results.
+
+## 2019-02-07
+
+* [Vim]: Apply tweaks for working in repos that use tabs instead of spaces.
+
+## 2019-01-25
+
+* [Vim]: Make improvements for working with TypeScript.
+
+## 2019-01-23
+
+* [Zsh]: Add `git ff` alias for doing fast-forward merges.
+
+## 2019-01-10
+
+* [Vim]: Bind `<C-minus>` to `:NERDTreeFind`, to complement the existing `-` binding that does in-place directory navigation (vim-vinegar style).
+
+## 2019-01-03
+
+* [Vim]: `J` and `K` visual mode mappings now take a count.
+
+## 2018-12-24
+
+* [Zsh]: Running `color` without arguments refreshes the color scheme in the current window.
+
 ## 2018-12-18
 
 * [Vim,Zsh]: Switched default color scheme to "default-dark".
