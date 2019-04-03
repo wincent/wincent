@@ -9,6 +9,7 @@ if [ $(hostname -s) = 'LFRW044' ]; then
   () {
     local ALLOY_EDITOR=~/code/portal/liferay-portal/modules/apps/frontend-editor/frontend-editor-alloyeditor-web
     local CKEDITOR=~/code/portal/liferay-portal/modules/apps/frontend-editor/frontend-editor-ckeditor-web
+    local PORTAL=~/code/portal/liferay-portal
     local DEPLOY=~/code/portal/bundles/deploy
     local MODULES=~/code/portal/liferay-portal/modules
     local TOMCAT=~/code/portal/bundles/tomcat-9.0.10
@@ -17,6 +18,7 @@ if [ $(hostname -s) = 'LFRW044' ]; then
     test -d "$CKEDITOR" && hash -d ckeditor="$CKEDITOR"
     test -d "$DEPLOY" && hash -d deploy="$DEPLOY"
     test -d "$MODULES" && hash -d modules="$MODULES"
+    test -d "$PORTAL" && hash -d portal="$PORTAL"
     test -d "$TOMCAT" && hash -d tomcat="$TOMCAT"
   }
 fi
