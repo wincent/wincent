@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Reset the dev database by dropping all tables.
+
+read -p '☠️  Really delete the database? (press "y" to confirm) ' -n 1 -r
+echo
+
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+  echo "set foreign_key_checks=1;" | (echo "select concat('drop table if exists ', table_name, ';') from information_schema.tables where table_schema='lportal_master';" | mysql -u root -B | tail -n +2 && cat;) | (echo "set foreign_key_checks=0;" && cat;) | mysql -u root lportal_master
+
+  echo
+  echo "Done"
+  echo "Now run 'ant all', maybe..."
+fi

@@ -1,0 +1,3 @@
+#!/bin/sh
+
+$HOME/code/portal/bundles/tomcat-9.0.10/bin/catalina.sh run

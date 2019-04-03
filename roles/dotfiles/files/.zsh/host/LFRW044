@@ -1,19 +1,4 @@
-# Perform daily builds of portal codebases.
-function daily() {
-  if ! ssh-add -l > /dev/null; then
-    ssh-add ~/.ssh/id_rsa_2048b_20180102
-  fi
+# Host-specific config here.
 
-  parallel -v --halt-on-error soon,fail=1 'cd {} && git checkout master && git pull --ff-only origin master' ::: ~/code/portal{,-ee}/liferay-binaries-cache-2017 && \
-  parallel -v --halt-on-error soon,fail=1 'cd {} && git checkout master && git pull --ff-only upstream master' ::: ~/code/portal{/liferay-portal,-ee/liferay-portal-ee} && \
-  parallel -v --halt-on-error soon,fail=1 --line-buffer 'set -o pipefail; cd {} && ant all 2>&1 | tee $PWD/ant-$(basename $(dirname {})).out && git tag "daily/good/$(date +%Y-%m-%d)" && git tag -f daily/good/latest' ::: ~/code/portal{/liferay-portal,-ee/liferay-portal-ee}
-}
-
-# Reset the dev database by dropping all tables.
-function truncatedb() {
-  echo "set foreign_key_checks=1;" | (echo "select concat('drop table if exists ', table_name, ';') from information_schema.tables where table_schema='lportal_master';" | mysql -u root -B | tail -n +2 && cat;) | (echo "set foreign_key_checks=0;" && cat;) | mysql -u root lportal_master
-
-  echo
-  echo "Done"
-  echo "Now run 'ant all', maybe..."
-}
+PATH=$PATH:$HOME/.zsh/host/LFRW044-bin
+export PATH

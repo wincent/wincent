@@ -1,0 +1,57 @@
+#!/usr/bin/env node
+
+const child_process = require('child_process');
+const fs = require('fs');
+const path = require('path');
+
+function log(...messages) {
+  console.log(...messages);
+}
+
+function error(...messages) {
+  log('error: ', ...messages);
+}
+
+function die(...messages) {
+  if (messages.length) {
+    log(...messages);
+  }
+  process.exit(1);
+}
+
+function run(command, ...args) {
+  const { error, status } = child_process.spawnSync(command, args, {
+    stdio: 'inherit',
+  });
+  if (error) {
+    throw error;
+  }
+  if (status) {
+    throw new Error(
+      `\`${[command, ...args].join(' ')}\` exited with status ${status}`,
+    );
+  }
+}
+
+function getHelper(command) {
+  const helper = path.join(__dirname, 'portool-helpers', command);
+  return fs.existsSync(helper) ? helper : null;
+}
+
+const HELP = 'run `portool help` to see available commands';
+
+function main(_node, _script, command, ...args) {
+  if (!command) {
+    die(`must supply command: ${HELP}`);
+  }
+  const helper = getHelper(command);
+  if (!helper) {
+    die(`no such command: ${command} - ${HELP}`);
+  }
+
+  run(helper, ...args);
+}
+
+main(...process.argv);
+
+// vim: ft=javascript

@@ -1,0 +1,9 @@
+#!/bin/sh
+
+echo "Usage: portool <subcommand> [...arguments]"
+echo
+echo "Subcommands:"
+echo "  daily        ☀️  run daily builds"
+echo "  help         🤷 show this help"
+echo "  tomcat       😺 run the server"
+echo "  truncatedb   ☠️  clean database (destructively!)"
