@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# Tail the daily build log, specifically the portal-ee build log, because you
+# already see the non-ee build output whenever you run `portool daily`.
+tail -F ~/code/portal-ee/liferay-portal-ee/ant-portal-ee.out
