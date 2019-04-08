@@ -13,7 +13,7 @@ if [ $(hostname -s) = 'LFRW044' ]; then
     local PORTAL=~/code/portal/liferay-portal
     local DEPLOY=~/code/portal/bundles/deploy
     local MODULES=~/code/portal/liferay-portal/modules
-    local TOMCAT=~/code/portal/bundles/tomcat-9.0.10
+    local TOMCAT=~/code/portal/bundles/tomcat-9.0.17
 
     test -d "$ALLOY_EDITOR" && hash -d alloy="$ALLOY_EDITOR"
     test -d "$CKEDITOR" && hash -d ckeditor="$CKEDITOR"
