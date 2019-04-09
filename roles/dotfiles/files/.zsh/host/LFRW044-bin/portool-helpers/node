@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Run the liferay-portal version of node.
+
+NODE_BINDIR="$HOME/code/portal/liferay-portal/build/node/bin"
+NODE_BINARY="$NODE_BINDIR/node"
+
+if [ ! -x "$NODE_BINARY" ]; then
+  echo "error: no $NODE_BINARY executable"
+  exit 1
+fi
+
+env PATH="$NODE_BINDIR:$PATH" node "$@"
