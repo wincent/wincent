@@ -19,18 +19,50 @@ function die(...messages) {
   process.exit(1);
 }
 
+// The lowest signal number (via `man 3 signal`).
+const SIGHUP = 1;
+
+// The highest signal number (via `man 3 signal`).
+const SIGUSR2 = 31;
+
 function run(command, ...args) {
-  const { error, status } = child_process.spawnSync(command, args, {
-    stdio: 'inherit',
+  return new Promise((resolve, reject) => {
+    let resolved = false;
+    const child = child_process.spawn(command, args, {stdio: 'inherit'});
+
+    process.on('SIGINT', () => {
+      child.kill('SIGINT');
+    });
+
+    child.on('error', err => {
+      if (!resolved) {
+        resolved = true;
+        reject(err);
+      }
+    });
+
+    child.on('exit', (code) => {
+      if (!resolved) {
+        resolved = true;
+        if (code) {
+          let err;
+          const description = `\`${[command, ...args].join(' ')}\``;
+          if (code >= 128 + SIGHUP || code <= 128 + SIGUSR2) {
+            err = new Error(
+              `${description} exited due to signal ${code - 128}`,
+            );
+          } else {
+            err = new Error(
+              `${description} exited with status ${code}`,
+            );
+          }
+          reject(err);
+        } else {
+          resolve();
+        }
+      }
+    });
   });
-  if (error) {
-    throw error;
-  }
-  if (status) {
-    throw new Error(
-      `\`${[command, ...args].join(' ')}\` exited with status ${status}`,
-    );
-  }
 }
 
 function getHelper(command) {
@@ -40,7 +72,7 @@ function getHelper(command) {
 
 const HELP = 'run `portool help` to see available commands';
 
-function main(_node, _script, command, ...args) {
+async function main(_node, _script, command, ...args) {
   if (!command) {
     die(`must supply command: ${HELP}`);
   }
@@ -49,9 +81,13 @@ function main(_node, _script, command, ...args) {
     die(`no such command: ${command} - ${HELP}`);
   }
 
-  run(helper, ...args);
+  await run(helper, ...args);
 }
 
-main(...process.argv);
+main(...process.argv)
+  .catch(err => {
+    error(err);
+    process.exit(1);
+  });
 
 // vim: ft=javascript
