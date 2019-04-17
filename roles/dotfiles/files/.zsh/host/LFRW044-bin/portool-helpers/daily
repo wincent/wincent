@@ -7,7 +7,5 @@ fi
 
 parallel -v --halt-on-error soon,fail=1 'cd {1} && git remote update --prune && git checkout {2} && git pull --ff-only origin {2}' ::: ~/code/portal{,-ee}/liferay-binaries-cache-2017 :::+ master master && \
 parallel -v --halt-on-error soon,fail=1 'cd {1} && git remote update --prune && git checkout {2} && git pull --ff-only upstream {2}' ::: ~/code/portal{/liferay-portal,-ee/liferay-portal-ee} :::+ master master-private && \
-
-(cd ~/code/portal-ee/liferay-portal-ee && ant -f build-working-dir.xml)
-
+(cd ~/code/portal-ee/liferay-portal-ee && ant -f build-working-dir.xml) && \
 parallel -v --halt-on-error soon,fail=1 --line-buffer 'set -o pipefail; cd {} && ant all 2>&1 | tee $PWD/ant-$(basename $(dirname {})).out && git tag "daily/good/$(date +%Y-%m-%d)" && git tag -f daily/good/latest' ::: ~/code/portal{/liferay-portal,-ee/liferay-portal-ee}
