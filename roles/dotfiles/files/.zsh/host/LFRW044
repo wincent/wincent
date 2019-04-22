@@ -2,3 +2,30 @@
 
 PATH=$PATH:$HOME/.zsh/host/LFRW044-bin
 export PATH
+
+# To make builds work better:
+export ANT_OPTS="-Xmx8192m -XX:MaxPermSize=2048m"
+export GRADLE_OPTS="$ANT_OPTS"
+
+# Settings originally in: ~/code/portal/bundles/tomcat-9.0.17/bin/setenv.sh
+
+# Recommend settings from https://github.com/julien/notes/blob/master/portal.md
+#CATALINA_OPTS="$CATALINA_OPTS -Dfile.encoding=UTF8 -Djava.net.preferIPv4Stack=true -Dorg.apache.catalina.loader.WebappClassLoader.ENABLE_CLEAR_REFERENCES=false -Duser.timezone=GMT -Xms4096m -Xmx4096m -XX:MaxNewSize=2048m -XX:MaxMetaspaceSize=768m -XX:MetaspaceSize=768m -XX:NewSize=2560m -XX:SurvivorRatio=7"
+
+# Out-of-thebox 9.0.10 opts:
+#CATALINA_OPTS="$CATALINA_OPTS -Dfile.encoding=UTF8 -Djava.net.preferIPv4Stack=true -Dorg.apache.catalina.loader.WebappClassLoader.ENABLE_CLEAR_REFERENCES=false -Duser.timezone=GMT -Xms2560m -Xmx2560m -XX:MaxNewSize=1536m -XX:MaxMetaspaceSize=512m -XX:MetaspaceSize=512m -XX:NewSize=1536m -XX:SurvivorRatio=7"
+
+# Out-of-the-box 9.0.17 opts:
+#CATALINA_OPTS="$CATALINA_OPTS -Dfile.encoding=UTF8 -Djava.net.preferIPv4Stack=true -Duser.timezone=GMT -Xms2560m -Xmx2560m -XX:MaxNewSize=1536m -XX:MaxMetaspaceSize=512m -XX:MetaspaceSize=512m -XX:NewSize=1536m -XX:SurvivorRatio=7"
+
+# Opts we're actually using:
+#
+# - Set MaxNewSixe to 2560m instead of 2048m to avoid:
+#
+#     NewSize (2621440k) is greater than the MaxNewSize (2097152k). A new max generation size of 2621440k will be used.
+#
+# - Added:
+#
+#     -Dorg.apache.catalina.loader.WebappClassLoader.ENABLE_CLEAR_REFERENCES=false
+#
+export CATALINA_OPTS="-Dfile.encoding=UTF8 -Djava.net.preferIPv4Stack=true -Dorg.apache.catalina.loader.WebappClassLoader.ENABLE_CLEAR_REFERENCES=false -Duser.timezone=GMT -Xms4096m -Xmx4096m -XX:MaxNewSize=2560m -XX:MaxMetaspaceSize=768m -XX:MetaspaceSize=768m -XX:NewSize=2560m -XX:SurvivorRatio=7"
