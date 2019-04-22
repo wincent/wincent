@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# Aggressively cleans portal checkouts (use when build fails).
+parallel -v --halt-on-error soon,fail=1 --line-buffer 'cd {} && git clean -fdx' ::: ~/code/portal{/liferay-portal,-ee/liferay-portal-ee}
