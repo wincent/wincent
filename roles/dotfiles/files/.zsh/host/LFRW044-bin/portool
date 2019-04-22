@@ -47,7 +47,7 @@ function run(command, ...args) {
         if (code) {
           let err;
           const description = `\`${[command, ...args].join(' ')}\``;
-          if (code >= 128 + SIGHUP || code <= 128 + SIGUSR2) {
+          if (code >= 128 + SIGHUP && code <= 128 + SIGUSR2) {
             err = new Error(
               `${description} exited due to signal ${code - 128}`,
             );
