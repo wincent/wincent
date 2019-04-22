@@ -34,7 +34,7 @@ if [[ $NUKE_LEVEL > 0 ]]; then
 fi
 
 if [[ $NUKE_LEVEL > 1 ]]; then
-  echo "☠️ Cleaning up temporary files..."
+  echo "💥 Cleaning up temporary files..."
 
   rm -r ~/code/portal/bundles/osgi/state \
         ~/code/portal/bundles/data \
@@ -42,7 +42,7 @@ if [[ $NUKE_LEVEL > 1 ]]; then
 fi
 
 if [[ $NUKE_LEVEL > 2 ]]; then
-  echo "☠️ \"git clean\"-ing..."
+  echo "☢️ \"git clean\"-ing..."
 
   parallel -v --halt-on-error soon,fail=1 --line-buffer 'cd {} && git clean -fdx' ::: ~/code/portal{/liferay-portal,-ee/liferay-portal-ee}
 fi
