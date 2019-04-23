@@ -11,7 +11,7 @@ signal_ant() {
   fi
 
   for PID in $PIDS; do
-    GROUP=$(ps -p "$PID" -o pgid | sed 1d)
+    GROUP=$(ps -p "$PID" -o pgid | sed -e 1d -e 's/ *//')
     if [ -z "$GROUP" ]; then
       echo "error: unable to determine process group of process $PID"
       exit 1
