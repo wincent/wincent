@@ -1,1 +1,23 @@
-tomcat
+#!/bin/sh
+
+BUNDLES="$HOME/code/portal/bundles"
+PROPERTIES="$BUNDLES/portal-ext.properties"
+
+case "$1" in
+  prod|produ|produc|product|producti|productio|production)
+    echo "🏎  Launching tomcat with prod settings"
+    ln -sf "$BUNDLES/portal-ext.properties.prod" "$PROPERTIES"
+          ;;
+  dev|deve|devel|develo|develop|developm|developme|developmen|development)
+    echo "🐢 Launching tomcat with dev settings"
+    ln -sf "$BUNDLES/portal-ext.properties.dev" "$PROPERTIES"
+          ;;
+  *)
+    if [ -L "$PROPERTIES" ]; then
+      PROPERTIES=$(readlink "$PROPERTIES")
+    fi
+    echo "No explicit dev|prod argument: launching with $PROPERTIES"
+    ;;
+esac
+
+$BUNDLES/tomcat-9.0.17/bin/catalina.sh run

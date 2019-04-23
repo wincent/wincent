@@ -1,0 +1,8 @@
+#!/bin/sh
+
+BUNDLES="$HOME/code/portal/bundles"
+
+set -e
+
+$BUNDLES/tomcat-9.0.17/bin/catalina.sh stop 30
+$BUNDLES/tomcat-9.0.17/bin/catalina.sh run
