@@ -5,11 +5,11 @@ PROPERTIES="$BUNDLES/portal-ext.properties"
 
 case "$1" in
   prod|produ|produc|product|producti|productio|production)
-    echo "Launching tomcat with prod settings"
+    echo "🏎  Launching tomcat with prod settings"
     ln -sf "$BUNDLES/portal-ext.properties.prod" "$PROPERTIES"
           ;;
   dev|deve|devel|develo|develop|developm|developme|developmen|development)
-    echo "Launching tomcat with dev settings"
+    echo "🐢 Launching tomcat with dev settings"
     ln -sf "$BUNDLES/portal-ext.properties.dev" "$PROPERTIES"
           ;;
   *)
