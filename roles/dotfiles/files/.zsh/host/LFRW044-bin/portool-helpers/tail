@@ -2,4 +2,10 @@
 
 # Tail the daily build log, specifically the portal-ee build log, because you
 # already see the non-ee build output whenever you run `portool daily`.
-tail -F ~/code/portal-ee/liferay-portal-ee/ant-portal-ee.out
+
+source "${BASH_SOURCE%/*}/.common.sh"
+
+# "Never" give up (> 2 ** 100).
+ATTEMPTS=100
+
+backoff tail -F ~/code/portal-ee/liferay-portal-ee/ant-portal-ee.outt
