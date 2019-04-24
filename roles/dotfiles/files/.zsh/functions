@@ -8,16 +8,16 @@ function ag() {
 }
 
 # fd - "find directory"
-# From: https://github.com/junegunn/fzf/wiki/examples#changing-directory
+# Inspired by: https://github.com/junegunn/fzf/wiki/examples#changing-directory
 function fd() {
   local DIR
-  DIR=$(bfs ${1:-.} -type d 2> /dev/null | fzf +m) && cd "$DIR"
+  DIR=$(bfs ${1:-.} -type d 2> /dev/null | sk --no-multi) && cd "$DIR"
 }
 
 # fh - "find [in] history"
-# From: https://github.com/junegunn/fzf/wiki/examples#command-history
+# Inspired by: https://github.com/junegunn/fzf/wiki/examples#command-history
 function fh() {
-  print -z $(fc -l 1 | fzf +s --tac | sed 's/ *[0-9]*\*\{0,1\} *//')
+  print -z $(fc -l 1 | sk --no-multi --tac | sed 's/ *[0-9]*\*\{0,1\} *//')
 }
 
 function history() {
