@@ -1,5 +1,5 @@
 #!/bin/bash
 
-echo "🖌 Running \"gradlew formatSource -a\""
+echo "🖌  Running \"gradlew formatSource -a\""
 
 gradlew formatSource -a
