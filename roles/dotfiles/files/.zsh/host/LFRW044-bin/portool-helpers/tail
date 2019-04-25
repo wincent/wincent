@@ -8,4 +8,4 @@ source "${BASH_SOURCE%/*}/.common.sh"
 # "Never" give up (> 2 ** 100).
 ATTEMPTS=100
 
-backoff tail -F ~/code/portal-ee/liferay-portal-ee/ant-portal-ee.outt
+backoff tail -F ~/code/portal-ee/liferay-portal-ee/ant-portal-ee.out
