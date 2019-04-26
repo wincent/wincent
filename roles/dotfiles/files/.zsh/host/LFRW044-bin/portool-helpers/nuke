@@ -36,9 +36,9 @@ fi
 if [[ $NUKE_LEVEL > 1 ]]; then
   echo "💥 Cleaning up temporary files..."
 
-  rm -r ~/code/portal/bundles/osgi/state \
-        ~/code/portal/bundles/data \
-        ~/code/portal/bundles/tomcat-9.0.17/work
+  rm -rf ~/code/portal/bundles/osgi/state \
+         ~/code/portal/bundles/data \
+         ~/code/portal/bundles/tomcat-9.0.17/work
 fi
 
 if [[ $NUKE_LEVEL > 2 ]]; then
