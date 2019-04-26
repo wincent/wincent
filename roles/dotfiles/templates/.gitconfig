@@ -15,6 +15,7 @@
 
 	ff = merge --ff-only
 	fixup = !sh -c 'git commit --fixup=$1 ${@:2}' -
+	fresh = remote update --prune
 
 	# equivalent to: graph --all
 	gr = log --graph --all --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%aN>%Creset'
