@@ -1,5 +1,5 @@
 ---
-corpus_notes: '{{ "~/Dropbox (Facebook)/Corpus" | expanduser }}'
+corpus_notes: '{{ "~/Documents/Corpus" | expanduser }}'
 
 imap_nickname: FB
 imap_server: outlook.office365.com
