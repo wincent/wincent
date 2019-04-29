@@ -1,7 +1,7 @@
 #!/bin/sh
 
-# As this script will be called from Hammerspoon where the UID
-# environment variable is not set, grab the UID ourselves here if need be.
+# If called from Hammerspoon where the UID environment variable is not
+# set, grab the UID ourselves.
 if [ -z "$UID" ]; then
   UID=$(id -u)
 fi
