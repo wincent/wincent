@@ -99,12 +99,12 @@ source $VIRTUALENV_ACTIVATE
 #   sudo -H pip install --upgrade cryptography
 #   pip install --upgrade pip
 #
-if [[ -z $(pip show paramiko pycrypto PyYAML Jinja2 httplib2) || $FORCE ]]; then
+if [[ -z $(pip show paramiko cryptography PyYAML Jinja2 httplib2) || $FORCE ]]; then
   set +e
   if [[ $VERBOSE ]]; then
-    pip install paramiko pycrypto PyYAML Jinja2 httplib2
+    pip install paramiko cryptography PyYAML Jinja2 httplib2
   else
-    pip install paramiko pycrypto PyYAML Jinja2 httplib2 &> /dev/null
+    pip install paramiko cryptography PyYAML Jinja2 httplib2 &> /dev/null
   fi
   if [ $? -ne 0 ]; then
     echo "Failed: pip install"
