@@ -59,6 +59,9 @@ def remote_config
       PREFERRED_REMOTES.find_index(a) || MAX_INT <=>
       PREFERRED_REMOTES.find_index(b) || MAX_INT
     }
+    .select { |line|
+      ENV['REMOTE'] ? line.split(/\W+/).first === ENV['REMOTE'] : true
+    }
     .first or die 'failed to locate GitHub remote'
 end
 
@@ -102,6 +105,9 @@ def usage
       git hub open [pr]       [open web URL for PR]
       git hub show [pr]       [show a PR on standard out]
       git hub update          [pull in new commits from current PR]
+
+    Environment variables:
+      REMOTE=...              [override auto-detected remote name]
   END
 end
 
