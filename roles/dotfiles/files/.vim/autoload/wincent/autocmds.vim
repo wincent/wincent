@@ -185,8 +185,10 @@ function! wincent#autocmds#encrypt(file) abort
 endfunction
 
 function! wincent#autocmds#apply_overrides(file, type) abort
-  if match(a:type, '\<\(html\|java\|javascript\|json\|typescript\)\>') != -1
-    if wincent#liferay#detect(a:file)
+  let l:pattern=join(g:wincent_override_filetypes, '\|')
+  if match(a:type, '\<\(' . l:pattern . '\)\>') != -1
+    let l:detected=wincent#liferay#detect(a:file)
+    if l:detected
       setlocal noexpandtab
       setlocal shiftwidth=4
       setlocal tabstop=4
@@ -201,6 +203,12 @@ function! wincent#autocmds#apply_overrides(file, type) abort
         " applying.
         map <buffer> gq <Plug>(operator-format-and-retab)
         call operator#user#define('format-and-retab', 'wincent#autocmds#format')
+      endif
+
+      if l:detected == 2
+        " Additional settings for main liferay-portal repo.
+        setlocal noendofline
+        setlocal nofixendofline
       endif
     endif
   endif
