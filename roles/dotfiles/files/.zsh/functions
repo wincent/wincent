@@ -196,7 +196,9 @@ function jump() {
     echo "jump: single argument required, got $#"
     return 1
   else
-    if [ $(hash -d|cut -d= -f1|grep -c "^$1\$") = 0 ]; then
+    local dir="${1%%/*}"
+
+    if [ $(hash -d|cut -d= -f1|grep -c "^${dir}\$") = 0 ]; then
       # Not in `hash -d`: assume it's just a dir.
       cd $1
     else
