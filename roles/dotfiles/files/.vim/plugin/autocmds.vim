@@ -1,4 +1,5 @@
 let g:wincent_override_filetypes=[
+      \   'bnd',
       \   'groovy',
       \   'html',
       \   'javascript',
