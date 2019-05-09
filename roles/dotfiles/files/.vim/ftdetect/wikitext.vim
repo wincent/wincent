@@ -1,1 +1,1 @@
-autocmd BufNewFile,BufRead *.wikitext set ft=wikitext
+autocmd BufNewFile,BufRead *.wikitext set filetype=wikitext

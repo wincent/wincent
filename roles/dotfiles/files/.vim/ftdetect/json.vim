@@ -1,1 +1,1 @@
-autocmd BufNewFile,BufRead .eslintrc set ft=json
+autocmd BufNewFile,BufRead .eslintrc set filetype=json

@@ -1,1 +1,1 @@
-autocmd BufNewFile,BufRead .pryrc,Guardfile set ft=ruby
+autocmd BufNewFile,BufRead .pryrc,Guardfile set filetype=ruby

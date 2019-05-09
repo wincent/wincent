@@ -1,1 +1,1 @@
-autocmd BufNewFile,BufRead *.mutt set ft=muttrc
+autocmd BufNewFile,BufRead *.mutt set filetype=muttrc
