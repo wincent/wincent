@@ -27,6 +27,7 @@
     - flow-typed
     - gatsby-cli
     - javascript-typescript-langserver
+    - neovim
     - ocaml-language-server
     - reason-cli
     - source-map-explorer
