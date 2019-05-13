@@ -1,0 +1,34 @@
+#!/bin/sh
+
+# Helper to deploy a named module without having to navigate to it.
+
+if [ $# -eq 0 ]; then
+  echo "error: expected at least 1 (module name) argument"
+  exit
+fi
+
+cd ~/code/portal/liferay-portal
+
+while (( "$#" )); do
+  echo "⏱  Remaining modules to deploy: $#"
+
+  MODULE="$1"
+  GRADLE="$MODULE/build.gradle"
+
+  if [ ! -f "$GRADLE" ]; then
+    GRADLE=$(find modules/apps -name build.gradle -type f -path "*/${MODULE}/*" -maxdepth 3 | head -1)
+  fi
+
+  if [ -z "$GRADLE" ]; then
+    echo "error: couldn't find module \`$MODULE\`"
+    exit 1
+  fi
+
+  DIR=$(dirname "$GRADLE")
+
+  echo "✅ Found $MODULE module at $DIR"
+
+  (cd "$DIR" && gradlew clean deploy -a)
+
+  shift
+done
