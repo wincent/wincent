@@ -2,33 +2,57 @@
 
 # Helper to deploy a named module without having to navigate to it.
 
+ROOT=~/code/portal/liferay-portal
+
+function deploy() {
+  DIR=$1
+  (cd $DIR && gradlew clean deploy -a)
+}
+
 if [ $# -eq 0 ]; then
-  echo "error: expected at least 1 (module name) argument"
-  exit
+  # No arguments: try to find nearest ancestor directory with a "build.gradle"
+  # file.
+  DIR=$PWD
+
+  while true; do
+    if [ -f "$DIR/build.gradle" ]; then
+      MODULE=$(basename "$DIR")
+      LOCATION=$(realpath $DIR --relative-to="$ROOT")
+      echo "✅ Found $MODULE at $LOCATION"
+      deploy "$DIR"
+      break
+    fi
+
+    if [ "$DIR" = "/" ]; then
+      echo "error: no build.gradle found in $PWD or any of its ancestors"
+      exit 1
+    fi
+    DIR=$(dirname "$DIR")
+  done
+else
+  # Try to find and build named modules.
+  cd "$ROOT"
+
+  while (( "$#" )); do
+    echo "⏱  Remaining modules to deploy: $#"
+
+    MODULE="$1"
+    GRADLE="$MODULE/build.gradle"
+
+    if [ ! -f "$GRADLE" ]; then
+      GRADLE=$(find modules/apps -name build.gradle -type f -path "*/${MODULE}/*" -maxdepth 3 | head -1)
+    fi
+
+    if [ -z "$GRADLE" ]; then
+      echo "error: couldn't find module \`$MODULE\`"
+      exit 1
+    fi
+
+    DIR=$(dirname "$GRADLE")
+
+    echo "✅ Found $MODULE module at $DIR"
+    deploy "$DIR"
+
+    shift
+  done
 fi
-
-cd ~/code/portal/liferay-portal
-
-while (( "$#" )); do
-  echo "⏱  Remaining modules to deploy: $#"
-
-  MODULE="$1"
-  GRADLE="$MODULE/build.gradle"
-
-  if [ ! -f "$GRADLE" ]; then
-    GRADLE=$(find modules/apps -name build.gradle -type f -path "*/${MODULE}/*" -maxdepth 3 | head -1)
-  fi
-
-  if [ -z "$GRADLE" ]; then
-    echo "error: couldn't find module \`$MODULE\`"
-    exit 1
-  fi
-
-  DIR=$(dirname "$GRADLE")
-
-  echo "✅ Found $MODULE module at $DIR"
-
-  (cd "$DIR" && gradlew clean deploy -a)
-
-  shift
-done
