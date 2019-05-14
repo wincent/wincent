@@ -1,3 +1,16 @@
+function! wincent#liferay#deploy() abort
+  try
+    cd %:h
+    if exists(':terminal')
+      split +terminal\ portool\ deploy
+    else
+      !portool deploy
+    endif
+  finally
+    cd -
+  endtry
+endfunction
+
 " TODO: make it possible to set up directory-specific overrides which
 " take precedence over the auto-detection mechanism.
 let s:directories={}

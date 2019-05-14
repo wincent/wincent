@@ -121,9 +121,13 @@ endif
 
 let g:LanguageClient_diagnosticsList='Location'
 
-" Allow for per-machine overrides in ~/.vim/host/hostname and
+" Allow for per-machine overrides in ~/.vim/host/$HOSTNAME.vim and
 " ~/.vim/vimrc.local.
-let s:hostfile = $HOME . '/.vim/host/' . substitute(hostname(), "\\..*", '', '')
+let s:hostfile =
+      \ $HOME .
+      \ '/.vim/host/' .
+      \ substitute(hostname(), "\\..*", '', '') .
+      \ '.vim'
 if filereadable(s:hostfile)
   execute 'source ' . s:hostfile
 endif
