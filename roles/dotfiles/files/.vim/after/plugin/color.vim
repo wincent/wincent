@@ -21,13 +21,13 @@ function s:CheckColorScheme()
     endif
 
     if filereadable(expand('~/.vim/pack/bundle/start/base16-vim/colors/base16-' . s:config[0] . '.vim'))
-      execute 'color base16-' . s:config[0]
+      execute 'colorscheme base16-' . s:config[0]
     else
       echoerr 'Bad scheme ' . s:config[0] . ' in ' . s:config_file
     endif
   else " default
     set background=dark
-    color base16-default-dark
+    colorscheme base16-default-dark
   endif
 
   execute 'highlight Comment ' . pinnacle#italicize('Comment')
