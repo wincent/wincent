@@ -2,6 +2,7 @@ function! wincent#liferay#deploy() abort
   try
     cd %:h
     if exists(':terminal')
+      autocmd TermOpen * ++once execute "normal! G \<c-w>p"
       split +terminal\ portool\ deploy
     else
       !portool deploy
