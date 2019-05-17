@@ -1,3 +1,10 @@
+function! wincent#commands#find(args) abort
+    set errorformat+=%f
+
+    " TODO: make this async
+    cexpr system('find ' . a:args)
+endfunction
+
 function! s:preview(file) abort
   " TODO: remove this hack once new version of Marked 2 is out:
   " http://support.markedapp.com/discussions/questions/8670

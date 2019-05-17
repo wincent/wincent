@@ -20,6 +20,12 @@ function fh() {
   print -z $(fc -l 1 | sk --no-multi --tac | sed 's/ *[0-9]*\*\{0,1\} *//')
 }
 
+
+# TODO: decide whether this is a reasonable idea
+function files() {
+  find "$@" | xargs -o $EDITOR
+}
+
 # Print headers, following redirects.
 # Based on: https://stackoverflow.com/a/10060342/2103996
 function headers() {
