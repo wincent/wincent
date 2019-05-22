@@ -6,6 +6,7 @@ let g:wincent_override_filetypes=[
       \   'jproperties',
       \   'json',
       \   'jsp',
+      \   'scss',
       \   'typescript',
       \   'xml'
       \ ]
