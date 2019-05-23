@@ -1,4 +1,8 @@
 function! s:SetUpLoupeHighlight()
+  if !wincent#pinnacle#active()
+    return
+  endif
+
   execute 'highlight! QuickFixLine ' . pinnacle#extract_highlight('PmenuSel')
 
   highlight! clear Search

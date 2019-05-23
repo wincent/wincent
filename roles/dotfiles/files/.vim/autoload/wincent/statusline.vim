@@ -129,6 +129,10 @@ function! wincent#statusline#check_modified() abort
 endfunction
 
 function! wincent#statusline#update_highlight() abort
+  if !wincent#pinnacle#active()
+    return
+  endif
+
   " Update StatusLine to use italics (used for filetype).
   let l:highlight=pinnacle#italicize('StatusLine')
   execute 'highlight User1 ' . l:highlight

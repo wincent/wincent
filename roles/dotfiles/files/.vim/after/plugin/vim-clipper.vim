@@ -1,3 +1,7 @@
+if !exists('g:ClipperLoaded')
+  finish
+endif
+
 call clipper#set_invocation('')
 
 let g:ClipperAddress='~/.clipper.sock'
