@@ -148,10 +148,54 @@ endif
 
 if &loadplugins
   if has('packages')
+    packadd! base16-vim
+    packadd! command-t
+    packadd! ferret
+    packadd! indentLine
+    packadd! loupe
+    packadd! neco-ghc
+    packadd! pinnacle
+    packadd! replay
+    packadd! scalpel
+    packadd! tcomment_vim
+    packadd! terminus
+    packadd! typescript-vim
+    packadd! ultisnips
+    packadd! vcs-jump
+    packadd! vcs-jump
+    packadd! vcs-jump
+    packadd! vcs-jump
+    packadd! vcs-jump
+    packadd! vcs-jump
+    packadd! vim-ansible-yaml
+    packadd! vim-clipper
+    packadd! vim-docvim
+    packadd! vim-easydir
+    packadd! vim-eunuch
+    packadd! vim-fugitive
+    packadd! vim-git
+    packadd! vim-javascript
+    packadd! vim-json
+    packadd! vim-jsx
+    packadd! vim-lion
+    packadd! vim-markdown
+    packadd! vim-operator-user
+    packadd! vim-projectionist
+    packadd! vim-reason-plus
+    packadd! vim-repeat
+    packadd! vim-signature
+    packadd! vim-slime
+    packadd! vim-speeddating
+    packadd! vim-surround
+    packadd! vim-textobj-comment
+    packadd! vim-textobj-rubyblock
+    packadd! vim-textobj-user
+    packadd! vim-zsh
+
     packloadall
   else
     source $HOME/.vim/pack/bundle/opt/vim-pathogen/autoload/pathogen.vim
-    call pathogen#infect('pack/bundle/start/{}')
+    call pathogen#infect('pack/bundle/opt/{}')
   endif
 endif
 
