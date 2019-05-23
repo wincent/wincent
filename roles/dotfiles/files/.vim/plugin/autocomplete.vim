@@ -21,8 +21,6 @@ let g:UltiSnipsSnippetDirectories = [
       \ $HOME . '/.vim/ultisnips-private'
       \ ]
 
-packadd LanguageClient-neovim
-
 if has('nvim')
   " Don't forget to run :UpdateRemotePlugins to populate
   " `~/.local/share/nvim/rplugin.vim`.
