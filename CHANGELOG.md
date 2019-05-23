@@ -1,5 +1,9 @@
 # Changelog
 
+## 2019-05-23
+
+* [Vim]: Moved plug-in submodules into "[~/.vim/pack/bundle/opt](https://github.com/wincent/wincent/tree/master/roles/dotfiles/files/.vim/pack/bundle/opt)"
+
 ## 2019-03-29
 
 * [Zsh]: Make Shift-Tab go to previous completion.
