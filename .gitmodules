@@ -6,7 +6,7 @@
 	url = https://github.com/tpope/vim-pathogen.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/LanguageClient-neovim"]
 	ignore = dirty
-	path = roles/dotfiles/files/.vim/pack/LanguageClient-neovim/opt/LanguageClient-neovim
+	path = roles/dotfiles/files/.vim/pack/bundle/opt/LanguageClient-neovim
 	url = https://github.com/autozimu/LanguageClient-neovim.git
 	branch = next
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/base16-vim"]
@@ -22,7 +22,7 @@
 	path = roles/dotfiles/files/.vim/pack/bundle/opt/ferret
 	url = https://github.com/wincent/ferret.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/goyo.vim"]
-	path = roles/dotfiles/files/.vim/pack/goyo/opt/goyo
+	path = roles/dotfiles/files/.vim/pack/bundle/opt/goyo
 	url = https://github.com/junegunn/goyo.vim.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/indentLine"]
 	path = roles/dotfiles/files/.vim/pack/bundle/opt/indentLine
@@ -36,7 +36,7 @@
 	url = https://github.com/eagletmt/neco-ghc.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/nerdtree"]
 	ignore = untracked
-	path = roles/dotfiles/files/.vim/pack/nerdtree/opt/nerdtree
+	path = roles/dotfiles/files/.vim/pack/bundle/opt/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/pinnacle"]
 	ignore = untracked
@@ -59,10 +59,10 @@
 	path = roles/dotfiles/files/.vim/pack/bundle/opt/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/undotree"]
-	path = roles/dotfiles/files/.vim/pack/undotree/opt/undotree
+	path = roles/dotfiles/files/.vim/pack/bundle/opt/undotree
 	url = https://github.com/mbbill/undotree.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-abolish"]
-	path = roles/dotfiles/files/.vim/pack/vim-abolish/opt/vim-abolish
+	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-abolish
 	url = https://github.com/tpope/vim-abolish.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/vim-ansible-yaml"]
 	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-ansible-yaml
@@ -138,7 +138,7 @@
 	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-zsh
 	url = https://github.com/chrisbra/vim-zsh.git
 [submodule "roles/dotfiles/files/.vim/pack/deoplete/opt/deoplete"]
-	path = roles/dotfiles/files/.vim/pack/deoplete/opt/deoplete
+	path = roles/dotfiles/files/.vim/pack/bundle/opt/deoplete
 	url = https://github.com/Shougo/deoplete.nvim.git
 [submodule "roles/dotfiles/files/.zsh/base16-shell"]
 	path = roles/dotfiles/files/.zsh/base16-shell
