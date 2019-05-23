@@ -44,5 +44,5 @@ fi
 if [[ $NUKE_LEVEL > 2 ]]; then
   echo "☢️  \"git clean\"-ing..."
 
-  parallel -v --halt-on-error soon,fail=1 --line-buffer 'cd {} && git clean -fdx' ::: ~/code/portal{/liferay-portal,-ee/liferay-portal-ee} ~/code/portal{,-ee}/liferay-binaries-cache-2017
+  parallel -v --halt-on-error soon,fail=1 --line-buffer 'cd {} && git clean -fdx' ::: ~/code/portal{/liferay-portal,-ee/liferay-portal-ee}
 fi
