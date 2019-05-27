@@ -81,14 +81,18 @@ let g:projectionist_heuristics = {
 function! s:UpdateProjections()
   let l:cwd=getcwd()
   if l:cwd == expand('~/code/liferay-npm-tools')
-    let g:projectionist_heuristics['*']['packages/liferay-npm-scripts/src/*.js'] = {
-      \   'alternate': 'packages/liferay-npm-scripts/__tests__/{}.js',
-      \   'type': 'source'
-      \ }
-    let g:projectionist_heuristics['*']['packages/liferay-npm-scripts/__tests__/*.js'] = {
-      \   'alternate': 'packages/liferay-npm-scripts/src/{}.js',
-      \   'type': 'test'
-      \ }
+    function! s:Callback(idx, pkg)
+      let g:projectionist_heuristics['*'][a:pkg . '/src/*.js'] = {
+        \   'alternate': a:pkg . '/__tests__/{}.js',
+        \   'type': 'source'
+        \ }
+      let g:projectionist_heuristics['*'][a:pkg . '/__tests__/*.js'] = {
+        \   'alternate': a:pkg . '/src/{}.js',
+        \   'type': 'test'
+        \ }
+    endfunction
+
+    call map(glob('packages/*', 0, 1), function('s:Callback'))
   endif
 endfunction
 
