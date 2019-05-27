@@ -71,3 +71,32 @@ let g:projectionist_heuristics = {
       \     }
       \   }
       \ }
+
+" Provide config for repos where I:
+"
+" - want special config
+" - don't want to (or can't) commit a custom ".projections.json" file
+" - can't set useful heuristics based on what's in the root directory
+"
+function! s:UpdateProjections()
+  let l:cwd=getcwd()
+  if l:cwd == expand('~/code/liferay-npm-tools')
+    let g:projectionist_heuristics['*']['packages/liferay-npm-scripts/src/*.js'] = {
+      \   'alternate': 'packages/liferay-npm-scripts/__tests__/{}.js',
+      \   'type': 'source'
+      \ }
+    let g:projectionist_heuristics['*']['packages/liferay-npm-scripts/__tests__/*.js'] = {
+      \   'alternate': 'packages/liferay-npm-scripts/src/{}.js',
+      \   'type': 'test'
+      \ }
+  endif
+endfunction
+
+call s:UpdateProjections()
+
+if has('autocmd')
+  augroup WincentProjectionist
+    autocmd!
+    autocmd DirChanged * call <SID>UpdateProjections()
+  augroup END
+endif
