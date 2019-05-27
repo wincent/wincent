@@ -9,43 +9,6 @@ let g:projectionist_heuristics = {
       \       'type': 'header'
       \     },
       \
-      \     '*.ts': {
-      \       'alternate': [
-      \         '{dirname}/{basename}.test.ts',
-      \         '{dirname}/__tests__/{basename}-test.ts'
-      \       ],
-      \       'type': 'source'
-      \     },
-      \     '*.test.ts': {
-      \       'alternate': '{basename}.ts',
-      \       'type': 'test',
-      \     },
-      \     '**/__tests__/*-test.ts': {
-      \       'alternate': '{dirname}/{basename}.ts',
-      \       'type': 'test'
-      \     },
-      \
-      \     '*.js': {
-      \       'alternate': [
-      \         '{dirname}/{basename}.test.js',
-      \         '{dirname}/__tests__/{basename}-test.js',
-      \         '{dirname}/__tests__/{basename}-mocha.js'
-      \       ],
-      \       'type': 'source'
-      \     },
-      \     '*.test.js': {
-      \       'alternate': '{basename}.js',
-      \       'type': 'test',
-      \     },
-      \     '**/__tests__/*-mocha.js': {
-      \       'alternate': '{dirname}/{basename}.js',
-      \       'type': 'test'
-      \     },
-      \     '**/__tests__/*-test.js': {
-      \       'alternate': '{dirname}/{basename}.js',
-      \       'type': 'test'
-      \     },
-      \
       \     'src/*.re': {
       \       'alternate': [
       \         '__tests__/{}_test.re',
@@ -71,6 +34,32 @@ let g:projectionist_heuristics = {
       \     }
       \   }
       \ }
+
+" Set up projections for JS variants.
+function! s:Callback(idx, extension)
+  let g:projectionist_heuristics['*']['*' . a:extension] = {
+      \       'alternate': [
+      \         '{dirname}/{basename}.test' . a:extension,
+      \         '{dirname}/__tests__/{basename}-test' . a:extension,
+      \         '{dirname}/__tests__/{basename}-mocha' . a:extension
+      \       ],
+      \       'type': 'source'
+      \     }
+  let g:projectionist_heuristics['*']['*.test' . a:extension] = {
+      \       'alternate': '{basename}' . a:extension,
+      \       'type': 'test',
+      \     }
+  let g:projectionist_heuristics['*']['**/__tests__/*-test' . a:extension] = {
+      \       'alternate': '{dirname}/{basename}.ts',
+      \       'type': 'test'
+      \     }
+  let g:projectionist_heuristics['*']['**/__tests__/*-mocha' . a:extension] = {
+      \       'alternate': '{dirname}/{basename}' . a:extension,
+      \       'type': 'test'
+      \     }
+endfunction
+
+call map(['.js', '.jsx', '.ts', '.tsx'], function ('s:Callback'))
 
 " Provide config for repos where I:
 "
