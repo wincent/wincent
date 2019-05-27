@@ -36,30 +36,28 @@ let g:projectionist_heuristics = {
       \ }
 
 " Set up projections for JS variants.
-function! s:Callback(idx, extension)
-  let g:projectionist_heuristics['*']['*' . a:extension] = {
+for s:extension in ['.js', '.jsx', '.ts', '.tsx']
+  let g:projectionist_heuristics['*']['*' . s:extension] = {
       \       'alternate': [
-      \         '{dirname}/{basename}.test' . a:extension,
-      \         '{dirname}/__tests__/{basename}-test' . a:extension,
-      \         '{dirname}/__tests__/{basename}-mocha' . a:extension
+      \         '{dirname}/{basename}.test' . s:extension,
+      \         '{dirname}/__tests__/{basename}-test' . s:extension,
+      \         '{dirname}/__tests__/{basename}-mocha' . s:extension
       \       ],
       \       'type': 'source'
       \     }
-  let g:projectionist_heuristics['*']['*.test' . a:extension] = {
-      \       'alternate': '{basename}' . a:extension,
+  let g:projectionist_heuristics['*']['*.test' . s:extension] = {
+      \       'alternate': '{basename}' . s:extension,
       \       'type': 'test',
       \     }
-  let g:projectionist_heuristics['*']['**/__tests__/*-test' . a:extension] = {
+  let g:projectionist_heuristics['*']['**/__tests__/*-test' . s:extension] = {
       \       'alternate': '{dirname}/{basename}.ts',
       \       'type': 'test'
       \     }
-  let g:projectionist_heuristics['*']['**/__tests__/*-mocha' . a:extension] = {
-      \       'alternate': '{dirname}/{basename}' . a:extension,
+  let g:projectionist_heuristics['*']['**/__tests__/*-mocha' . s:extension] = {
+      \       'alternate': '{dirname}/{basename}' . s:extension,
       \       'type': 'test'
       \     }
-endfunction
-
-call map(['.js', '.jsx', '.ts', '.tsx'], function ('s:Callback'))
+endfor
 
 " Provide config for repos where I:
 "
@@ -70,18 +68,16 @@ call map(['.js', '.jsx', '.ts', '.tsx'], function ('s:Callback'))
 function! s:UpdateProjections()
   let l:cwd=getcwd()
   if l:cwd == expand('~/code/liferay-npm-tools')
-    function! s:Callback(idx, pkg)
-      let g:projectionist_heuristics['*'][a:pkg . '/src/*.js'] = {
-        \   'alternate': a:pkg . '/__tests__/{}.js',
+    for l:pkg in glob('packages/*', 0, 1)
+      let g:projectionist_heuristics['*'][l:pkg . '/src/*.js'] = {
+        \   'alternate': l:pkg . '/__tests__/{}.js',
         \   'type': 'source'
         \ }
-      let g:projectionist_heuristics['*'][a:pkg . '/__tests__/*.js'] = {
-        \   'alternate': a:pkg . '/src/{}.js',
+      let g:projectionist_heuristics['*'][l:pkg . '/__tests__/*.js'] = {
+        \   'alternate': l:pkg . '/src/{}.js',
         \   'type': 'test'
         \ }
-    endfunction
-
-    call map(glob('packages/*', 0, 1), function('s:Callback'))
+    endfor
   endif
 endfunction
 
