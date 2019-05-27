@@ -35,28 +35,36 @@ let g:projectionist_heuristics = {
       \   }
       \ }
 
+" Helper function for batch-updating the g:projectionist_heuristics variable.
+function! s:project(...)
+  for [l:pattern, l:projection] in a:000
+    let g:projectionist_heuristics['*'][l:pattern] = l:projection
+  endfor
+endfunction
+
 " Set up projections for JS variants.
 for s:extension in ['.js', '.jsx', '.ts', '.tsx']
-  let g:projectionist_heuristics['*']['*' . s:extension] = {
-      \       'alternate': [
-      \         '{dirname}/{basename}.test' . s:extension,
-      \         '{dirname}/__tests__/{basename}-test' . s:extension,
-      \         '{dirname}/__tests__/{basename}-mocha' . s:extension
-      \       ],
-      \       'type': 'source'
-      \     }
-  let g:projectionist_heuristics['*']['*.test' . s:extension] = {
-      \       'alternate': '{basename}' . s:extension,
-      \       'type': 'test',
-      \     }
-  let g:projectionist_heuristics['*']['**/__tests__/*-test' . s:extension] = {
-      \       'alternate': '{dirname}/{basename}.ts',
-      \       'type': 'test'
-      \     }
-  let g:projectionist_heuristics['*']['**/__tests__/*-mocha' . s:extension] = {
-      \       'alternate': '{dirname}/{basename}' . s:extension,
-      \       'type': 'test'
-      \     }
+  call s:project(
+        \ ['*' . s:extension, {
+        \   'alternate': [
+        \     '{dirname}/{basename}.test' . s:extension,
+        \     '{dirname}/__tests__/{basename}-test' . s:extension,
+        \     '{dirname}/__tests__/{basename}-mocha' . s:extension
+        \   ],
+        \   'type': 'source'
+        \ }],
+        \ ['*.test' . s:extension, {
+        \   'alternate': '{basename}' . s:extension,
+        \   'type': 'test',
+        \ }],
+        \ ['**/__tests__/*-test' . s:extension, {
+        \   'alternate': '{dirname}/{basename}.ts',
+        \   'type': 'test'
+        \ }],
+        \ ['**/__tests__/*-mocha' . s:extension, {
+        \   'alternate': '{dirname}/{basename}' . s:extension,
+        \   'type': 'test'
+        \ }])
 endfor
 
 " Provide config for repos where I:
@@ -69,14 +77,15 @@ function! s:UpdateProjections()
   let l:cwd=getcwd()
   if l:cwd == expand('~/code/liferay-npm-tools')
     for l:pkg in glob('packages/*', 0, 1)
-      let g:projectionist_heuristics['*'][l:pkg . '/src/*.js'] = {
-        \   'alternate': l:pkg . '/__tests__/{}.js',
-        \   'type': 'source'
-        \ }
-      let g:projectionist_heuristics['*'][l:pkg . '/__tests__/*.js'] = {
-        \   'alternate': l:pkg . '/src/{}.js',
-        \   'type': 'test'
-        \ }
+      call s:project(
+            \ [l:pkg . '/src/*.js', {
+            \   'alternate': l:pkg . '/__tests__/{}.js',
+            \   'type': 'source'
+            \ }],
+            \ [l:pkg . '/__tests__/*.js', {
+            \   'alternate': l:pkg . '/src/{}.js',
+            \   'type': 'test'
+            \ }])
     endfor
   endif
 endfunction
