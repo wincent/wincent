@@ -197,8 +197,6 @@ if &loadplugins
     packadd vim-markdown
     packadd vim-reason-plus
     packadd vim-soy
-
-    packloadall
   else
     source $HOME/.vim/pack/bundle/opt/vim-pathogen/autoload/pathogen.vim
     call pathogen#infect('pack/bundle/opt/{}')
