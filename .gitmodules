@@ -174,3 +174,6 @@
 [submodule "skim"]
 	path = roles/dotfiles/files/.zsh/skim
 	url = https://github.com/lotabout/skim.git
+[submodule "vim-soy"]
+	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-soy
+	url = https://github.com/duganchen/vim-soy.git

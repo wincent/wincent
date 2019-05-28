@@ -160,29 +160,19 @@ if &loadplugins
     packadd! scalpel
     packadd! tcomment_vim
     packadd! terminus
-    packadd! typescript-vim
-    packadd! ultisnips
     packadd! vcs-jump
     packadd! vcs-jump
     packadd! vcs-jump
     packadd! vcs-jump
     packadd! vcs-jump
     packadd! vcs-jump
-    packadd! vim-ansible-yaml
     packadd! vim-clipper
     packadd! vim-docvim
     packadd! vim-easydir
     packadd! vim-eunuch
-    packadd! vim-fugitive
-    packadd! vim-git
-    packadd! vim-javascript
-    packadd! vim-json
-    packadd! vim-jsx
     packadd! vim-lion
-    packadd! vim-markdown
     packadd! vim-operator-user
     packadd! vim-projectionist
-    packadd! vim-reason-plus
     packadd! vim-repeat
     packadd! vim-signature
     packadd! vim-slime
@@ -192,6 +182,21 @@ if &loadplugins
     packadd! vim-textobj-rubyblock
     packadd! vim-textobj-user
     packadd! vim-zsh
+
+    " These ones have ftdetect directories, so load them with `:packadd` instead
+    " of `:packadd!` + `:packloadall`.
+    " TODO: wrap this up in a helper function to make it automatic
+    packadd typescript-vim
+    packadd ultisnips
+    packadd vim-ansible-yaml
+    packadd vim-fugitive
+    packadd vim-git
+    packadd vim-javascript
+    packadd vim-json
+    packadd vim-jsx
+    packadd vim-markdown
+    packadd vim-reason-plus
+    packadd vim-soy
 
     packloadall
   else
