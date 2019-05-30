@@ -5,6 +5,67 @@ if ! ssh-add -l > /dev/null; then
   ssh-add ~/.ssh/id_rsa_2048b_20180102
 fi
 
-parallel -v --halt-on-error soon,fail=1 'cd {1} && git remote update --prune && git checkout {2} && git pull --ff-only upstream {2}' ::: ~/code/portal{/liferay-portal,-ee/liferay-portal-ee} :::+ master master-private && \
-(cd ~/code/portal-ee/liferay-portal-ee && ant -f build-working-dir.xml) && \
-parallel -v --halt-on-error soon,fail=1 --line-buffer 'set -o pipefail; cd {} && ant all 2>&1 | tee $PWD/ant-$(basename $(dirname {})).out && git tag "daily/good/$(date +%Y-%m-%d)" && git tag -f daily/good/latest' ::: ~/code/portal{/liferay-portal,-ee/liferay-portal-ee}
+if [ $# -eq 0 ]; then
+  # Build all the things.
+  parallel -v \
+    --halt-on-error soon,fail=1 \
+    'cd {1} && git remote update --prune && git checkout {2} && git pull --ff-only upstream {2}' \
+    ::: \
+      ~/code/portal-ee/liferay-portal-ee \
+      ~/code/portal-master/liferay-portal \
+      ~/code/portal/liferay-portal \
+    :::+ \
+      master \
+      master-private \
+      master \
+  && \
+  (cd ~/code/portal-ee/liferay-portal-ee && ant -f build-working-dir.xml) && \
+  parallel -v \
+    --halt-on-error soon,fail=1 \
+    --line-buffer \
+    'set -o pipefail; cd {} && ant all 2>&1 | tee $PWD/ant-$(basename $(dirname {})).out && git tag "daily/good/$(date +%Y-%m-%d)" && git tag -f daily/good/latest' \
+    ::: \
+      ~/code/portal-ee/liferay-portal-ee \
+      ~/code/portal-master/liferay-portal \
+      ~/code/portal/liferay-portal
+else
+  for TARGET in "$@"; do
+    case "$TARGET" in
+      ee)
+        (
+          cd ~/code/portal-ee/liferay-portal-ee &&
+          git remote update --prune &&
+          git checkout master-private &&
+          git pull --ff-only upstream master-private &&
+          ant -f build-working-dir.xml &&
+          ant all 2>&1 | tee ant-portal-ee.out &&
+          git tag "daily/good/$(date +%Y-%m-%d)"
+        )
+        ;;
+      master)
+        (
+          cd ~/code/portal-master/liferay-portal &&
+          git remote update --prune &&
+          git checkout master &&
+          git pull --ff-only upstream master &&
+          ant all 2>&1 | tee ant-master.out &&
+          git tag "daily/good/$(date +%Y-%m-%d)"
+        )
+        ;;
+      portal)
+        (
+          cd ~/code/portal/liferay-portal &&
+          git remote update --prune &&
+          git checkout master &&
+          git pull --ff-only upstream master &&
+          ant all 2>&1 | tee ant-portal.out &&
+          git tag "daily/good/$(date +%Y-%m-%d)"
+        )
+        ;;
+      *)
+        echo "Unrecognized target: $TARGET"
+        exit 1
+        ;;
+    esac
+  done
+fi
