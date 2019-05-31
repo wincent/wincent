@@ -148,66 +148,86 @@ endif
 
 if &loadplugins
   if has('packages')
-    packadd! LanguageClient-neovim
-    packadd! base16-vim
-    packadd! command-t
-    packadd! ferret
-    packadd! indentLine
-    packadd! loupe
-    packadd! neco-ghc
-    packadd! pinnacle
-    packadd! replay
-    packadd! scalpel
-    packadd! tcomment_vim
-    packadd! terminus
-    packadd! vcs-jump
-    packadd! vcs-jump
-    packadd! vcs-jump
-    packadd! vcs-jump
-    packadd! vcs-jump
-    packadd! vcs-jump
-    packadd! vim-clipper
-    packadd! vim-docvim
-    packadd! vim-easydir
-    packadd! vim-eunuch
-    packadd! vim-lion
-    packadd! vim-operator-user
-    packadd! vim-projectionist
-    packadd! vim-repeat
-    packadd! vim-signature
-    packadd! vim-slime
-    packadd! vim-speeddating
-    packadd! vim-surround
-    packadd! vim-textobj-comment
-    packadd! vim-textobj-rubyblock
-    packadd! vim-textobj-user
-    packadd! vim-zsh
+    packadd vim-pathogen
 
-    " These ones have ftdetect directories, so load them with `:packadd` instead
-    " of `:packadd!` + `:packloadall`.
-    " TODO: wrap this up in a helper function to make it automatic
-    packadd typescript-vim
-    packadd ultisnips
-    packadd vim-ansible-yaml
-    packadd vim-fugitive
-    packadd vim-git
-    packadd vim-javascript
-    packadd vim-json
-    packadd vim-jsx
-    packadd vim-markdown
-    packadd vim-reason-plus
-    packadd vim-soy
+    " Make a map of package names to booleans indicating whether they have an
+    " ftdetect component.
+    let s:ftdetect={}
+    for s:packpath in pathogen#split(&packpath)
+      for s:package in glob(s:packpath . '/pack/*/opt/*', 1, 1)
+        let s:name=fnamemodify(s:package, ':t')
+        let s:ftdetect[s:name]=isdirectory(s:package . '/ftdetect')
+      endfor
+    endfor
+
+    " Wrapper for `:packadd` that uses `:packadd` or `:packadd!` depending on
+    " whether the plugin has an "ftdetect" directory or not.
+    function! s:Packadd(pack)
+      if get(s:ftdetect, a:pack, 0)
+        execute 'packadd ' . a:pack
+      else
+        execute 'packadd! ' . a:pack
+      endif
+    endfunction
+
+    command! -nargs=1 Packadd call s:Packadd(<q-args>)
+
+    Packadd LanguageClient-neovim
+    Packadd base16-vim
+    Packadd command-t
+    Packadd ferret
+    Packadd indentLine
+    Packadd loupe
+    Packadd neco-ghc
+    Packadd pinnacle
+    Packadd replay
+    Packadd scalpel
+    Packadd tcomment_vim
+    Packadd terminus
+    Packadd typescript-vim
+    Packadd ultisnips
+    Packadd vcs-jump
+    Packadd vcs-jump
+    Packadd vcs-jump
+    Packadd vcs-jump
+    Packadd vcs-jump
+    Packadd vcs-jump
+    Packadd vim-ansible-yaml
+    Packadd vim-clipper
+    Packadd vim-docvim
+    Packadd vim-easydir
+    Packadd vim-eunuch
+    Packadd vim-fugitive
+    Packadd vim-git
+    Packadd vim-javascript
+    Packadd vim-json
+    Packadd vim-jsx
+    Packadd vim-lion
+    Packadd vim-markdown
+    Packadd vim-operator-user
+    Packadd vim-projectionist
+    Packadd vim-reason-plus
+    Packadd vim-repeat
+    Packadd vim-signature
+    Packadd vim-slime
+    Packadd vim-soy
+    Packadd vim-speeddating
+    Packadd vim-surround
+    Packadd vim-textobj-comment
+    Packadd vim-textobj-rubyblock
+    Packadd vim-textobj-user
+    Packadd vim-zsh
   else
     source $HOME/.vim/pack/bundle/opt/vim-pathogen/autoload/pathogen.vim
     call pathogen#infect('pack/bundle/opt/{}')
   endif
 endif
 
-" After this file is sourced, plug-in code will be evaluated.
+" After this file is sourced, plugin code will be evaluated.
 " See ~/.vim/after for files evaluated after that.
 " See `:scriptnames` for a list of all scripts, in evaluation order.
 " Launch Vim with `vim --startuptime vim.log` for profiling info.
 "
-" To see all leader mappings, including those from plug-ins:
+" To see all leader mappings, including those from plugins:
 "
 "   vim -c 'set t_te=' -c 'set t_ti=' -c 'map <space>' -c q | sort
