@@ -6,7 +6,11 @@ ROOT=~/code/portal/liferay-portal
 
 function deploy() {
   DIR=$1
-  (cd $DIR && gradlew clean deploy -a)
+  if [ -n "$ALL" ]; then
+    (cd $DIR && gradlew clean deploy)
+  else
+    (cd $DIR && gradlew clean deploy -a)
+  fi
 }
 
 if [ $# -eq 0 ]; then
