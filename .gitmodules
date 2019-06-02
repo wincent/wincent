@@ -177,3 +177,7 @@
 [submodule "vim-soy"]
 	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-soy
 	url = https://github.com/duganchen/vim-soy.git
+[submodule "vcs-jump"]
+	ignore = untracked
+	path = roles/dotfiles/files/.vim/pack/bundle/opt/vcs-jump
+	url = https://github.com/wincent/vcs-jump.git
