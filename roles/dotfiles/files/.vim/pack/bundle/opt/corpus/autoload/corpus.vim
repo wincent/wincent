@@ -10,16 +10,49 @@ function! corpus#choose(selection) abort
   pclose
 endfunction
 
+" TODO: decide whether this file-name searching makes any sense at all
+" might just want to use Ferret (or `git grep`); i think we do...
 function! corpus#cmdline_changed(char) abort
   if a:char == ':'
     let l:line=getcmdline()
     let l:match=matchlist(l:line, '\v^\s*Corpus\s+(.{-})\s*$')
     if len(l:match)
-      let l:file=l:match[1]
-      if len(l:file)
-        echomsg 'checking: "'.l:file.'"'
-        if corpus#exists(l:file)
-          call corpus#preview(l:file)
+
+      let l:arg=l:match[1]
+
+      if len(l:arg)
+        let l:command=[
+              \   'git',
+              \   '-C',
+              \   corpus#directory(),
+              \   'grep',
+              \   '-I',
+              \   '-P',
+              \   '-l',
+              \   '-z',
+              \   '--all-match',
+              \   '--full-name',
+              \   '--untracked',
+              \ ]
+
+        " Like 'smartcase', will be case-insensitive unless argument contains an
+        " uppercase letter.
+        if match(l:arg, '\v[A-Z]') == -1
+          call add(l:command, '-i')
+        endif
+
+        for l:term in split(l:arg)
+          call extend(l:command, ['-e', l:term])
+        endfor
+        call extend(l:command, ['--', '*.md'])
+        let l:files=corpus#run(l:command)
+        if len(l:files) == 1
+          " We expect one lone line from `git grep`, and Vim will have turned
+          " NUL bytes inside that line into newlines, so we split again.
+          for l:file in split(l:files[0], '\n')
+            call corpus#preview(l:file)
+            return
+          endfor
         endif
       endif
     endif
@@ -83,4 +116,11 @@ function! corpus#preview(basename) abort
   let l:file=corpus#file(a:basename)
   execute 'pedit ' . fnameescape(l:file)
   redraw
+endfunction
+
+function! corpus#run(args) abort
+  let l:args=copy(a:args)
+  call map(l:args, {i, word -> shellescape(word)})
+  let l:command=join(l:args, ' ')
+  return systemlist(l:command)
 endfunction
