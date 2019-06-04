@@ -8,7 +8,11 @@ function! wincent#liferay#deploy() abort
       !portool deploy
     endif
   finally
-    cd -
+    try
+      cd -
+    catch /E186/
+      " No previous directory.
+    endtry
   endtry
 endfunction
 
