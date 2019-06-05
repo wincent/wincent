@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Perform daily builds of portal codebases.
 if ! ssh-add -l > /dev/null; then
@@ -29,7 +29,13 @@ if [ $# -eq 0 ]; then
       ~/code/portal-master/liferay-portal \
       ~/code/portal-ee/liferay-portal-ee
 else
-  for TARGET in "$@"; do
+  if [ $# -eq 1 -a $1 = 'all' ]; then
+    TARGETS=(portal master ee)
+  else
+    TARGETS=("$@")
+  fi
+
+  for TARGET in "${TARGETS[@]}"; do
     case "$TARGET" in
       ee)
         (
