@@ -10,49 +10,30 @@ function! corpus#choose(selection) abort
   pclose
 endfunction
 
-" TODO: decide whether this file-name searching makes any sense at all
-" might just want to use Ferret (or `git grep`); i think we do...
 function! corpus#cmdline_changed(char) abort
   if a:char == ':'
     let l:line=getcmdline()
     let l:match=matchlist(l:line, '\v^\s*Corpus\s+(.{-})\s*$')
     if len(l:match)
+      " call corpus#open_loclist()
+      call corpus#open_qflist()
 
-      let l:arg=l:match[1]
+      let l:terms=l:match[1]
+      if len(l:terms)
+        " Weight title matches higher
+        " TODO: weight left-most matches higher
+        let l:results=corpus#search_titles(l:terms)
+        call extend(l:results, corpus#search_content(l:terms))
+        if len(l:results)
+          call corpus#preview(l:results[0])
 
-      if len(l:arg)
-        let l:command=[
-              \   'git',
-              \   '-C',
-              \   corpus#directory(),
-              \   'grep',
-              \   '-I',
-              \   '-P',
-              \   '-l',
-              \   '-z',
-              \   '--all-match',
-              \   '--full-name',
-              \   '--untracked',
-              \ ]
-
-        " Like 'smartcase', will be case-insensitive unless argument contains an
-        " uppercase letter.
-        if match(l:arg, '\v[A-Z]') == -1
-          call add(l:command, '-i')
-        endif
-
-        for l:term in split(l:arg)
-          call extend(l:command, ['-e', l:term])
-        endfor
-        call extend(l:command, ['--', '*.md'])
-        let l:files=corpus#run(l:command)
-        if len(l:files) == 1
-          " We expect one lone line from `git grep`, and Vim will have turned
-          " NUL bytes inside that line into newlines, so we split again.
-          for l:file in split(l:files[0], '\n')
-            call corpus#preview(l:file)
-            return
-          endfor
+          " Update location list.
+          let l:list=map(l:results, {i, val -> {
+                \   'filename': val,
+                \   'lnum': 1
+                \ }})
+          " call setloclist(0, l:list, 'r', {'title': 'Corpus'})
+          call setqflist([], 'r', {'items': l:list, 'title': 'Corpus'})
         endif
       endif
     endif
@@ -104,12 +85,57 @@ function! corpus#exists(basename) abort
   return filereadable(corpus#file(a:basename))
 endfunction
 
+" Get the full path to a file in the Corpus directory.
 function! corpus#file(basename) abort
   return corpus#join(corpus#directory(), a:basename)
 endfunction
 
+" Join multiple path components using a separator (/).
 function! corpus#join(...) abort
   return join(a:000, '/')
+endfunction
+
+" Returns 1 if all needles are present in haystack.
+function! corpus#match(haystack, needles) abort
+  let l:haystack_len=len(a:haystack)
+  for l:needle in a:needles
+    let l:index=stridx(a:haystack, l:needle)
+    if l:index==-1
+      " Needle wasn't found.
+      return 0
+    else
+      if l:index + len(l:needle) == l:haystack_len
+        " Needle was found, but only if we include the extension in the
+        " haystack, and we don't want to do that.
+        return 0
+      endif
+    endif
+  endfor
+
+  " No needles were missing: success.
+  " Note that this means that an empty search always matches.
+  return 1
+endfunction
+
+function! corpus#open_loclist() abort
+  let l:wininfo=getwininfo()
+  let l:loclists=filter(getwininfo(), 'v:val.loclist')
+  if !len(l:loclists)
+    try
+      lopen
+    catch /./
+      " Could happen if preview window has focus, for example.
+    endtry
+  endif
+endfunction
+
+function! corpus#open_qflist() abort
+  let l:wininfo=getwininfo()
+  let l:qflist=filter(getwininfo(), 'v:val.quickfix && !v:val.loclist')
+  if !len(l:qflist)
+    call setqflist([], 'r', {'title': 'Corpus'})
+    copen
+  endif
 endfunction
 
 function! corpus#preview(basename) abort
@@ -123,4 +149,60 @@ function! corpus#run(args) abort
   call map(l:args, {i, word -> shellescape(word)})
   let l:command=join(l:args, ' ')
   return systemlist(l:command)
+endfunction
+
+" This isn't ideal, but we do content searches with Git and title searches
+" internally, which means that if you search for "foo bar" and we have a
+" document called "foo.md" with contents "bar", we won't find it.
+"
+" In order to provide unified search, we'd need to do all searching internally,
+" or all searching externally via a custom process.
+function! corpus#search_content(terms) abort
+  let l:command=[
+        \   'git',
+        \   '-C',
+        \   corpus#directory(),
+        \   'grep',
+        \   '-I',
+        \   '-F',
+        \   '-l',
+        \   '-z',
+        \   '--all-match',
+        \   '--full-name',
+        \   '--untracked',
+        \ ]
+
+  if !corpus#smartcase(a:terms)
+    call add(l:command, '-i')
+  endif
+
+  for l:term in split(a:terms)
+    call extend(l:command, ['-e', l:term])
+  endfor
+  call extend(l:command, ['--', '*.md'])
+  let l:files=corpus#run(l:command)
+  if len(l:files) == 1
+    " We expect one lone line from `git grep`, and Vim will have turned
+    " NUL bytes inside that line into newlines, so we split again.
+    return split(l:files[0], '\n')
+  else
+    return []
+  endif
+endfunction
+
+function! corpus#search_titles(terms) abort
+  let l:smartcase=corpus#smartcase(a:terms)
+  let l:terms=split(a:terms)
+
+  if !l:smartcase
+    map(l:terms, {i, val -> tolower(val)})
+  endif
+
+  return filter(copy(s:notes), {i, val -> corpus#match(l:smartcase ? val : tolower(val), l:terms)})
+endfunction
+
+" Like 'smartcase', will be case-insensitive unless argument contains an
+" uppercase letter.
+function! corpus#smartcase(terms) abort
+  return match(a:terms, '\v[A-Z]') == -1
 endfunction
