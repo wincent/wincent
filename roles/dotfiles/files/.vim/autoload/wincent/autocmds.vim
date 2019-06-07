@@ -206,9 +206,12 @@ function! wincent#autocmds#apply_overrides(file, type) abort
       endif
 
       if l:detected == 2
-        " Additional settings for main liferay-portal repo.
-        setlocal noendofline
-        setlocal nofixendofline
+        " Additional settings for main liferay-portal repo, but not for *.js or
+        " *.scss.
+        if match(a:type, '\<\(javascript\|scss\)\>') == -1
+          setlocal noendofline
+          setlocal nofixendofline
+        endif
       endif
     endif
   endif
