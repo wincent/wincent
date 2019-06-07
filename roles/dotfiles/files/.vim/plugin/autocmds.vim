@@ -1,3 +1,4 @@
+" Filetypes that we might want to apply directory-specific overrides to.
 let g:wincent_override_filetypes=[
       \   'bnd',
       \   'groovy',
