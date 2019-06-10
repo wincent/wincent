@@ -121,6 +121,14 @@ if filereadable('/usr/local/bin/python3')
   let g:python3_host_prog='/usr/local/bin/python3'
 endif
 
+" Normally <leader>s (mnemonic: "[s]earch");
+" use <leader>f instead (mnemonic: "[f]ind")
+nmap <leader>f <Plug>(FerretAckWord)
+
+" Normally <leader>r (mnemonic: "[r]eplace");
+" use <leader>s (mnemonic: "[s]ubstitute") instead.
+nmap <leader>s <Plug>(FerretAcks)
+
 " Allow for per-machine overrides in ~/.vim/host/$HOSTNAME.vim and
 " ~/.vim/vimrc.local.
 let s:hostfile =
