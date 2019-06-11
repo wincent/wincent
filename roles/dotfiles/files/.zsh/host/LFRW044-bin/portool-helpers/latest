@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Report the latest successful builds in each repo.
+
+for REPO in \
+      ~/code/portal/liferay-portal \
+      ~/code/portal-master/liferay-portal \
+      ~/code/portal-ee/liferay-portal-ee
+do
+  echo "Latest successful $(basename $(dirname $REPO)) build:"
+  echo -n "  "
+  git -C $REPO tag --sort=creatordate -l 'daily/good/2*' -n | head -1
+  echo
+done
