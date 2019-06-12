@@ -79,10 +79,10 @@ function! s:UpdateProjections()
     for l:pkg in glob('packages/*', 0, 1)
       call s:project(
             \ [l:pkg . '/src/*.js', {
-            \   'alternate': l:pkg . '/__tests__/{}.js',
+            \   'alternate': l:pkg . '/test/{}.js',
             \   'type': 'source'
             \ }],
-            \ [l:pkg . '/__tests__/*.js', {
+            \ [l:pkg . '/test/*.js', {
             \   'alternate': l:pkg . '/src/{}.js',
             \   'type': 'test'
             \ }])
