@@ -9,6 +9,6 @@ for REPO in \
 do
   echo "Latest successful $(basename $(dirname $REPO)) build:"
   echo -n "  "
-  git -C $REPO tag --sort=creatordate -l 'daily/good/2*' -n | head -1
+  git -C $REPO tag --sort=-creatordate -l 'daily/good/2*' -n | head -1
   echo
 done
