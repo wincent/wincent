@@ -7,6 +7,7 @@ let g:wincent_override_filetypes=[
       \   'jproperties',
       \   'json',
       \   'jsp',
+      \   'npmbundler',
       \   'scss',
       \   'soy',
       \   'typescript',
