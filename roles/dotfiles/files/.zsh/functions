@@ -225,6 +225,23 @@ function _jump_complete() {
 # Complete filenames and `hash -d` entries.
 compctl -f -K _jump_complete jump
 
+# Print a pruned version of a tree.
+#
+# Examples:
+#
+#   # Print all "*.js" files in src:
+#   subtree '*.js' src
+#
+#   # Print all "*.js" files in the current directory:
+#   subtree '*.js'
+#
+#   # Print all "*.js" and "*.ts" files in current directory:
+#   subtree '*.js|*.ts'
+#
+function subtree() {
+  tree -a --prune -P "$@"
+}
+
 # "[t]ime[w]arp" by setting GIT_AUTHOR_DATE and GIT_COMMITTER_DATE.
 function tw() {
   emulate -L zsh
