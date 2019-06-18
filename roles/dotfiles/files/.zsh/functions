@@ -197,18 +197,15 @@ function jump() {
   emulate -L zsh
 
   if [ $# -eq 0 ]; then
-    cd -
-  elif [ $# -gt 1 ]; then
-    echo "jump: single argument required, got $#"
-    return 1
+    fd
   else
-    local dir="${1%%/*}"
+    local dir="${*%%/}"
 
     if [ $(hash -d|cut -d= -f1|grep -c "^${dir}\$") = 0 ]; then
       # Not in `hash -d`: use as initial argument to fd.
-      fd $1
+      fd "$*"
     else
-      cd ~$1
+      cd ~"$dir"
     fi
   fi
 }
