@@ -12,7 +12,6 @@ alias a=ag
 alias b=bundle
 alias be='bundle exec'
 alias cd..='cd ..'
-alias cdtmp='cd $(mktemp -d $TMPDIR/$USER-cdtmp-XXXXXX)'
 alias clip='nc -U ~/.clipper.sock'
 alias d='hash -d'
 alias e=exit
