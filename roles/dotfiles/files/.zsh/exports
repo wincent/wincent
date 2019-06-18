@@ -1,3 +1,7 @@
+# Stop (eg.) `git push github` from triggering:
+# zsh: correct 'github' to '.github' [yes, no, edit, abort]?
+export CORRECT_IGNORE_FILE='.*'
+
 export PAGER=less
 
 if which nvim &> /dev/null; then
