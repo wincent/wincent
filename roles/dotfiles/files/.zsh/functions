@@ -205,8 +205,8 @@ function jump() {
     local dir="${1%%/*}"
 
     if [ $(hash -d|cut -d= -f1|grep -c "^${dir}\$") = 0 ]; then
-      # Not in `hash -d`: assume it's just a dir.
-      cd $1
+      # Not in `hash -d`: use as initial argument to fd.
+      fd $1
     else
       cd ~$1
     fi
