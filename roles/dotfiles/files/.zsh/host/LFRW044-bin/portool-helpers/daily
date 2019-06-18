@@ -47,7 +47,8 @@ else
           git pull --ff-only upstream master-private &&
           ant -f build-working-dir.xml &&
           ant all 2>&1 | tee ant-portal-ee.out &&
-          git tag "daily/good/$(date +%Y-%m-%d)"
+          git tag "daily/good/$(date +%Y-%m-%d)" &&
+          git tag -f "daily/good/latest"
         )
         ;;
       master)
@@ -57,7 +58,8 @@ else
           git checkout master &&
           git pull --ff-only upstream master &&
           ant all 2>&1 | tee ant-master.out &&
-          git tag "daily/good/$(date +%Y-%m-%d)"
+          git tag "daily/good/$(date +%Y-%m-%d)" &&
+          git tag -f "daily/good/latest"
         )
         ;;
       portal)
@@ -67,7 +69,8 @@ else
           git checkout master &&
           git pull --ff-only upstream master &&
           ant all 2>&1 | tee ant-portal.out &&
-          git tag "daily/good/$(date +%Y-%m-%d)"
+          git tag "daily/good/$(date +%Y-%m-%d)" &&
+          git tag -f "daily/good/latest"
         )
         ;;
       *)
