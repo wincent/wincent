@@ -35,6 +35,8 @@ else
     TARGETS=("$@")
   fi
 
+  set -o pipefail
+
   for TARGET in "${TARGETS[@]}"; do
     case "$TARGET" in
       ee)
