@@ -160,13 +160,13 @@ regmv() {
     echo "   Note: Must quote/escape the regex otherwise \"\.\" becomes \".\""
     return 1
   fi
-  local regex="$1"
+  local REGEX="$1"
   shift
   while [ -n "$1" ]
   do
-    local newname=$(echo "$1" | sed "s${regex}g")
-    if [ "${newname}" != "$1" ]; then
-      mv -i -v "$1" "$newname"
+    local NEWNAME=$(echo "$1" | sed "s${REGEX}g")
+    if [ "${NEWNAME}" != "$1" ]; then
+      mv -i -v "$1" "$NEWNAME"
     fi
     shift
   done
@@ -199,13 +199,13 @@ function jump() {
   if [ $# -eq 0 ]; then
     fd
   else
-    local dir="${*%%/}"
+    local DIR="${*%%/}"
 
-    if [ $(hash -d|cut -d= -f1|grep -c "^${dir}\$") = 0 ]; then
+    if [ $(hash -d|cut -d= -f1|grep -c "^${DIR}\$") = 0 ]; then
       # Not in `hash -d`: use as initial argument to fd.
       fd "$*"
     else
-      cd ~"$dir"
+      cd ~"$DIR"
     fi
   fi
 }
@@ -213,10 +213,9 @@ function jump() {
 function _jump_complete() {
   emulate -L zsh
 
-  local word completions
-  word="$1"
-  completions="$(hash -d|cut -d= -f1)"
-  reply=( "${(ps:\n:)completions}" )
+  local COMPLETIONS
+  COMPLETIONS="$(hash -d|cut -d= -f1)"
+  reply=( "${(ps:\n:)COMPLETIONS}" )
 }
 
 # Complete filenames and `hash -d` entries.
