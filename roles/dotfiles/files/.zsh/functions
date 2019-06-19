@@ -11,7 +11,7 @@ function ag() {
 # Inspired by: https://github.com/junegunn/fzf/wiki/examples#changing-directory
 function fd() {
   local DIR
-  DIR=$(bfs -type d 2> /dev/null | sk --no-multi --preview='test -n "{}" && ls {}' -q "$1") && cd "$DIR"
+  DIR=$(bfs -type d 2> /dev/null | sk --no-multi --preview='test -n "{}" && ls {}' -q "$*") && cd "$DIR"
 }
 
 # fh - "find [in] history"
