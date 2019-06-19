@@ -3,6 +3,9 @@
 " <Leader><Leader> -- Open last buffer.
 nnoremap <Leader><Leader> <C-^>
 
+" <Leader>g -- git grep for something (mnemonic: [g]it [g]rep).
+nnoremap <Leader>g :VcsJump grep<Space>
+
 nnoremap <Leader>o :only<CR>
 
 " <Leader>p -- Show the path of the current file (mnemonic: path; useful when
