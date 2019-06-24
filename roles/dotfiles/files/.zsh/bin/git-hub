@@ -52,7 +52,6 @@ end
 def remote_config
   capture('git remote -v')
     .split(/\n/)
-    .grep(/\A(#{PREFERRED_REMOTES.join('|')})\s/)
     .grep(/github\.com/)
     .grep(/fetch/)
     .sort { |a, b|
