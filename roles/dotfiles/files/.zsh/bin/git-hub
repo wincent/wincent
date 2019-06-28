@@ -38,6 +38,7 @@ end
 # Preferred remotes, in priority order.
 PREFERRED_REMOTES = %w[
   upstream
+  upstream-rw
   github
   origin
 ]
@@ -59,13 +60,13 @@ def remote_config
       PREFERRED_REMOTES.find_index(b) || MAX_INT
     }
     .select { |line|
-      ENV['REMOTE'] ? line.split(/\W+/).first === ENV['REMOTE'] : true
+      ENV['REMOTE'] ? line.split(/\s+/).first === ENV['REMOTE'] : true
     }
     .first or die 'failed to locate GitHub remote'
 end
 
 def remote
-  remote_config[%r{^(\w+)\s+\S*github\.com\S+\s+\(fetch\)}, 1]
+  remote_config[%r{^(\S+)\s+\S*github\.com\S+\s+\(fetch\)}, 1]
 end
 
 # Infers the GitHub project name (ie. "user/project") from the repo remotes.
