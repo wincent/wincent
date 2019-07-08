@@ -19,7 +19,7 @@
 
 	# Shortcut for updating all remotes and fast-forwarding to a specific one:
 	# eg. `git get upstream/master`
-	get = !sh -c 'git fresh && git ff "$@"'
+	get = "!f() { git fresh && git ff \"$@\"; }; f"
 
 	# equivalent to: graph --all
 	gr = log --graph --all --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%aN>%Creset'
