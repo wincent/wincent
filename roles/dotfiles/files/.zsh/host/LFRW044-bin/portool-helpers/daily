@@ -45,6 +45,7 @@ else
           git remote update --prune &&
           git checkout master-private &&
           git pull --ff-only upstream master-private &&
+          git clean -fdx &&
           ant -f build-working-dir.xml &&
           ant all 2>&1 | tee ant-portal-ee.out &&
           git tag "daily/good/$(date +%Y-%m-%d)" &&
