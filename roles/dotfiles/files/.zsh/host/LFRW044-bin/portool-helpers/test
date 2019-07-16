@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Run all tests.
+
+git grep -l '"test": ".*liferay-npm-scripts test.*"' -- '*/package.json' package.json | \
+  xargs -n 1 dirname | \
+  xargs -n 1 sh -c 'cd $0 && yarn test'
