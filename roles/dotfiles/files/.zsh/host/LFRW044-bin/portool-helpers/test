@@ -2,6 +2,14 @@
 
 # Run all tests.
 
+# Get the last parameter (the directory, from xargs) with "${!#}":
+# https://stackoverflow.com/questions/1215538/extract-parameters-before-last-parameter-in
+#
+# Get the other parameters with "$0 ${@:1:$#-1}":
+# https://stackoverflow.com/questions/37624085/delete-final-positional-argument-from-command-in-bash
+#
+# Use `xargs -o` to allow interaction (eg. for `portool test --watch`):
+# https://unix.stackexchange.com/questions/44426/xargs-and-vi-input-is-not-from-a-terminal
 git grep -l '"test": ".*liferay-npm-scripts test.*"' -- '*/package.json' package.json | \
   xargs -n 1 dirname | \
-  xargs -n 1 sh -c 'cd $0 && yarn test'
+  xargs -n 1 -o bash -c 'cd ${!#} && yarn test $0 "${@:1:$#-1}"' "$@"
