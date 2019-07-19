@@ -13,6 +13,6 @@ do
   echo "${bold_color}Latest successful $(basename $(dirname $REPO)) build:${reset_color}"
   echo
   echo -n "  "
-  git -C $REPO tag --sort=-creatordate -l 'daily/good/2*' -n | head -1
+  git -C $REPO tag --sort=-creatordate -l 'daily/'$(basename $(dirname $REPO))'good/2*' -n | head -1
   echo
 done
