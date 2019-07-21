@@ -41,16 +41,22 @@ let g:LanguageClient_rootMarkers = {
 
 let g:LanguageClient_serverCommands = {}
 
-if exists('$DEBUG_LSP_LOGFILE')
-  let s:debug_args=['--trace', '--logfile', $DEBUG_LSP_LOGFILE]
-else
-  let s:debug_args=[]
+if exists('$DEBUG_LC_LOGFILE')
+  let g:LanguageClient_loggingFile=$DEBUG_LC_LOGFILE
+  let g:LanguageClient_loggingLevel='DEBUG'
 endif
 
+" if exists('$DEBUG_LSP_LOGFILE')
+"   let s:debug_args=['--trace', '--logfile', $DEBUG_LSP_LOGFILE]
+" else
+"   let s:debug_args=[]
+" endif
+"
 " From `npm install -g javascript-typescript-langserver`:
-let s:ts_lsp=executable('javascript-typescript-stdio') ?
-      \ extend([exepath('javascript-typescript-stdio')], s:debug_args) :
-      \ []
+" let s:ts_lsp=executable('javascript-typescript-stdio') ?
+"       \ extend([exepath('javascript-typescript-stdio')], s:debug_args) :
+"       \ []
+"
 
 if exists('$DEBUG_LSP_LOGFILE')
   let s:debug_args=[
@@ -64,9 +70,9 @@ else
 endif
 
 " From `npm install -g typescript-language-server`:
-" let s:ts_lsp= executable('typescript-language-server') ?
-"         \ extend([exepath('typescript-language-server'), '--stdio'], s:debug_args) :
-"         \ []
+let s:ts_lsp=executable('typescript-language-server') ?
+        \ extend([exepath('typescript-language-server'), '--stdio'], s:debug_args) :
+        \ []
 
 " From `npm install -g flow-bin`:
 let s:flow_lsp=executable('flow') ?
