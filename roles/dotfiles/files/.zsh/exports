@@ -79,3 +79,5 @@ export GPG_TTY=$(tty)
 export GOPATH=~/code/go
 
 test -e $HOME/.zsh/exports.private && source $HOME/.zsh/exports.private
+
+test -d $HOME/n && export N_PREFIX="$HOME/n"
