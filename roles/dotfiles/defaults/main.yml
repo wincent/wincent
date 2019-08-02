@@ -2,6 +2,7 @@
 dotfile_files:
   - .ackrc
   - .agignore
+  - .alacritty.yml
   - .clipper.json
   - .config/ranger
   - .gh.json
