@@ -12,11 +12,13 @@
   when: not cipher_check.rc == 0
   changed_when: not cipher_check.rc == 0
 
-- name: dotfiles | make ~/.config
-  file: path=~/.config state=directory
-
-- name: dotfiles | make ~/.config/karabiner
-  file: path=~/.config/karabiner state=directory
+- name: dotfiles | make ~/.config directories
+  file: path={{ item }} state=directory
+  loop:
+    - ~/.config
+    - ~/.config/alacritty
+    - ~/.config/karabiner
+    - ~/.config/kitty
 
 - name: dotfiles | symlink nvim to vim
   file: path=~/.config/nvim src=~/.vim state=link force=yes
