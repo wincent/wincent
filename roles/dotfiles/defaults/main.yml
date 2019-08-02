@@ -3,7 +3,7 @@ dotfile_files:
   - .ackrc
   - .agignore
   - .config/alacritty/alacritty.yml
-  - .config/kitty/kitty.conf
+  - .config/kitty
   - .clipper.json
   - .config/ranger
   - .gh.json

@@ -181,3 +181,6 @@
 	ignore = untracked
 	path = roles/dotfiles/files/.vim/pack/bundle/opt/vcs-jump
 	url = https://github.com/wincent/vcs-jump.git
+[submodule "base16-kitty"]
+	path = roles/dotfiles/files/.config/kitty/base16-kitty
+	url = https://github.com/kdrag0n/base16-kitty.git

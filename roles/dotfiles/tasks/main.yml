@@ -18,7 +18,6 @@
     - ~/.config
     - ~/.config/alacritty
     - ~/.config/karabiner
-    - ~/.config/kitty
 
 - name: dotfiles | symlink nvim to vim
   file: path=~/.config/nvim src=~/.vim state=link force=yes
