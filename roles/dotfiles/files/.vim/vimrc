@@ -81,9 +81,9 @@ let s:flow_lsp=executable('flow') ?
 
 let s:ts_filetypes=[
       \   'typescript',
-      \   'typescript.jsx',
+      \   'typescript.tsx',
       \   'typescript.jest',
-      \   'typescript.jest.jsx'
+      \   'typescript.jest.tsx'
       \ ]
 
 let s:js_filetypes=[
