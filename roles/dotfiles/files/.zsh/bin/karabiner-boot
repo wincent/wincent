@@ -20,7 +20,8 @@ launchctl enable gui/"$UID"/org.pqrs.karabiner.karabiner_console_user_server
 
 # Turn key repeat back on:
 if command -v dry &> /dev/null; then
-  dry 0.033333 > /dev/null
+  # 0.016667 = Aim for 60 fps, 0.033333 = Aim for 30 fps
+  dry 0.0166666666667 > /dev/null
 fi
 
 echo "🐣 Karabiner-Elements bootstrapped"

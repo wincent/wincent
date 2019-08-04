@@ -18,6 +18,26 @@ if [ "$(uname)" = "Darwin" ]; then
   if [ -e /usr/local/share/zsh/site-functions/_git ]; then
     mv -f /usr/local/share/zsh/site-functions/{,disabled.}_git
   fi
+
+  # Set 60 fps key repeat rate
+  #
+  # This (might be) faster than fatest rate acheivable with:
+  #
+  #     defaults write NSGlobalDomain KeyRepeat -int 1
+  #
+  # Fastest rate available from UI corresponds to:
+  #
+  #     defaults write NSGlobalDomain KeyRepeat -int 2
+  #
+  # Slowest rate available from UI corresponds to:
+  #
+  #     defaults write NSGlobalDomain KeyRepeat -int 120
+  #
+  # See: https://github.com/mathiasbynens/dotfiles/issues/687
+  #
+  if command -v dry &> /dev/null; then
+    dry 0.0166666666667 > /dev/null
+  fi
 fi
 
 #
