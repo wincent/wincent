@@ -1,22 +1,3 @@
-" Filetypes that we might want to apply directory-specific overrides to.
-let g:wincent_override_filetypes=[
-      \   'bnd',
-      \   'conf',
-      \   'groovy',
-      \   'html',
-      \   'java',
-      \   'javascript',
-      \   'jproperties',
-      \   'json',
-      \   'jsp',
-      \   'ignore',
-      \   'npmbundler',
-      \   'scss',
-      \   'soy',
-      \   'typescript',
-      \   'xml'
-      \ ]
-
 if has('autocmd')
   function! s:WincentAutocmds()
     augroup WincentAutocmds
@@ -77,8 +58,7 @@ if has('autocmd')
       " When we later expand it with ":p", that will make it look like a
       " file (eg. "javascript") in the current directory. Fortunately, this
       " serves our purposes adequately.
-      let s:pattern=join(g:wincent_override_filetypes, ',')
-      execute 'autocmd FileType ' . s:pattern . " call wincent#autocmds#apply_overrides(expand('<afile>'), expand('<amatch>'))"
+      autocmd FileType * call wincent#autocmds#apply_overrides(expand('<afile>'), expand('<amatch>'))
     augroup END
   endfunction
 

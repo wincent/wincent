@@ -184,8 +184,29 @@ function! wincent#autocmds#encrypt(file) abort
   endfor
 endfunction
 
+" Filetypes that we might want to apply directory-specific overrides to.
+let s:wincent_override_filetypes=[
+      \   'bnd',
+      \   'conf',
+      \   'groovy',
+      \   'html',
+      \   'java',
+      \   'javascript',
+      \   'jproperties',
+      \   'json',
+      \   'jsp',
+      \   'ignore',
+      \   'npmbundler',
+      \   'scss',
+      \   'soy',
+      \   'tsx',
+      \   'typescript',
+      \   'xml'
+      \ ]
+
+
 function! wincent#autocmds#apply_overrides(file, type) abort
-  let l:pattern=join(g:wincent_override_filetypes, '\|')
+  let l:pattern=join(s:wincent_override_filetypes, '\|')
   if match(a:type, '\<\(' . l:pattern . '\)\>') != -1
     let l:detected=wincent#liferay#detect(a:file)
     if l:detected
