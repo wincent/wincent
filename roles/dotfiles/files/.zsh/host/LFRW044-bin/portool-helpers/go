@@ -11,6 +11,7 @@ if ! tmux has-session -t=$SESSION 2> /dev/null; then
 
   # 1. Main editor window
   tmux split-window -t $SESSION:vim -h
+  tmux send-keys -t $SESSION:vim.right "portool status" Enter
 
   # 2. General shell use
   tmux new-window -t $SESSION
