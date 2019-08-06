@@ -1,0 +1,40 @@
+#!/bin/sh
+
+set -e
+
+SESSION=liferay-portal
+
+if ! tmux has-session -t=$SESSION 2> /dev/null; then
+  cd ~/code/portal/liferay-portal
+
+  tmux new-session -d -s $SESSION -n vim -x $(tput cols) -y $(tput lines)
+
+  # 1. Main editor window
+  tmux split-window -t $SESSION:vim -h
+
+  # 2. General shell use
+  tmux new-window -t $SESSION
+  tmux split-window -t $SESSION:zsh -h
+
+  # 3. Tomcat
+  tmux new-window -t $SESSION -n tomcat
+  tmux send-keys -t $SESSION:tomcat "portool run"
+
+  # 4. Daily
+  tmux new-window -t $SESSION -n daily
+  tmux send-keys -t $SESSION:daily "portool daily all"
+
+  # 5. portal-master
+  tmux new-window -t $SESSION -n master -c ~/code/portal-master/liferay-portal
+  tmux send-keys -t $SESSION:master "git status" Enter
+
+  # 6. portal-ee
+  tmux new-window -t $SESSION -n ee -c ~/code/portal-ee/liferay-portal-ee
+  tmux send-keys -t $SESSION:ee "git status" Enter
+fi
+
+if [ -n "$TMUX" ]; then
+  tmux switch-client -t $SESSION
+else
+  tmux attach -t $SESSION:vim.right
+fi

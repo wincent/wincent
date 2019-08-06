@@ -5,6 +5,7 @@ echo
 echo "Subcommands:"
 echo "  daily [ee|master|portal]          ☀️  run daily builds"
 echo "  deploy                            🚀 deploy a module"
+echo "  go                                💼 connect to development session"
 echo "  help                              🤷 show this help"
 echo "  latest                            🏗  report latest successful builds"
 echo "  node                              🥝 run portal version of node"
