@@ -10,8 +10,11 @@ while (( "$#" )); do
     -ff)
       NUKE_LEVEL=$(($NUKE_LEVEL + 2))
       ;;
-    -ff*)
+    -fff)
       NUKE_LEVEL=$(($NUKE_LEVEL + 3))
+      ;;
+    -fff*)
+      NUKE_LEVEL=$(($NUKE_LEVEL + 4))
       ;;
   esac
 
@@ -23,7 +26,8 @@ if [[ $NUKE_LEVEL == 0 ]]; then
   echo
   echo "  -f: truncate database"
   echo "  -ff: truncate database, kill caches"
-  echo "  -fff: truncate database, kill caches, \"git clean\""
+  echo "  -fff: truncate database, kill caches, \"git clean\" (most)"
+  echo "  -ffff: truncate database, kill caches, \"git clean\" (everything)"
   echo
 fi
 
@@ -42,6 +46,12 @@ if [[ $NUKE_LEVEL > 1 ]]; then
 fi
 
 if [[ $NUKE_LEVEL > 2 ]]; then
+  echo "☢️  \"git clean\"-ing..."
+
+  parallel -v --halt-on-error soon,fail=1 --line-buffer 'cd {} && git clean -fdx -e '"'"'build.*.properties'"'"' -e '"'"'app.server.*.properties'"'" ::: ~/code/portal{/liferay-portal,-ee/liferay-portal-ee}
+fi
+
+if [[ $NUKE_LEVEL > 3 ]]; then
   echo "☢️  \"git clean\"-ing..."
 
   parallel -v --halt-on-error soon,fail=1 --line-buffer 'cd {} && git clean -fdx' ::: ~/code/portal{/liferay-portal,-ee/liferay-portal-ee}
