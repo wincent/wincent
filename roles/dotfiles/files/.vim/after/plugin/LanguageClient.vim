@@ -20,7 +20,16 @@ function! s:Config()
   endif
 endfunction
 
+function! s:BindK()
+  nnoremap <buffer> <silent> K :close<CR>
+endfunction
+
 augroup WincentLanguageClientAutocmds
   autocmd!
   autocmd FileType * call s:Config()
+
+  if has('nvim') && exists('*nvim_open_win')
+    " Can use floating window.
+    autocmd BufEnter __LanguageClient__ call s:BindK()
+  endif
 augroup END
