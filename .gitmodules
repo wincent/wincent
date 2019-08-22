@@ -184,3 +184,6 @@
 [submodule "base16-kitty"]
 	path = roles/dotfiles/files/.config/kitty/base16-kitty
 	url = https://github.com/kdrag0n/base16-kitty.git
+[submodule "float-preview.nvim"]
+	path = roles/dotfiles/files/.vim/pack/bundle/opt/float-preview.nvim
+	url = https://github.com/ncm2/float-preview.nvim.git

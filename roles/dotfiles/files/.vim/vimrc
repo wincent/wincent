@@ -28,6 +28,7 @@ let g:tcomment_textobject_inlinecomment=''
 let g:tcomment_mapleader_uncomment_anyway='gu'
 
 let g:LanguageClient_useFloatingHover=1
+let g:LanguageClient_hoverPreview='Always'
 let g:LanguageClient_diagnosticsDisplay = {
       \   1: {'signTexthl': 'LineNr', 'virtualTexthl': 'User8'},
       \   2: {'signTexthl': 'LineNr', 'virtualTexthl': 'User8'},
