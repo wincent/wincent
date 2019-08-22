@@ -110,10 +110,9 @@ elseif s:ts_lsp != []
 endif
 
 if exists('s:js_lsp')
-  let g:LanguageClient_serverCommands['javascript']=s:js_lsp
-  let g:LanguageClient_serverCommands['javascript.jest']=s:js_lsp
-  let g:LanguageClient_serverCommands['javascript.jest.jsx']=s:js_lsp
-  let g:LanguageClient_serverCommands['javascript.jsx']=s:js_lsp
+  for s:js_filetype in s:js_filetypes
+    let g:LanguageClient_serverCommands[s:js_filetype]=s:js_lsp
+  endfor
 endif
 
 if executable('ocaml-language-server')
