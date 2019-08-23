@@ -10,9 +10,16 @@ PORTAL="$HOME/code/portal/liferay-portal"
 
 mkdir -p "$BUNDLES" "$PORTAL"
 
-cp "$PROPERTIES/portal-ext.properties.dev" "$BUNDLES"
-cp "$PROPERTIES/portal-ext.properties.prod" "$BUNDLES"
+copy() {
+  SOURCE=$1
+  DEST=$2
+
+  cat <(echo "# vim: set nomodifiable : edit $SOURCE instead then run \`portool setup\`, or use \`:set modifiable\` to force."; echo) "$SOURCE" > "$DEST"
+}
+
+copy "$PROPERTIES/portal-ext.properties.dev" "$BUNDLES/portal-ext.properties.dev"
+copy "$PROPERTIES/portal-ext.properties.prod" "$BUNDLES/portal-ext.properties.prod"
 
 ln -sf "$BUNDLES/portal-ext.properties.dev" "$BUNDLES/portal-ext.properties"
 
-cp "$PROPERTIES/build.properties" "$PORTAL/build.$USER.properties"
+copy "$PROPERTIES/build.properties" "$PORTAL/build.$USER.properties"
