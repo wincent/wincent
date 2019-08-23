@@ -66,8 +66,19 @@ function run(command, ...args) {
 }
 
 function getHelper(command) {
-  const helper = path.join(__dirname, 'portool-helpers', command);
-  return fs.existsSync(helper) ? helper : null;
+  if (command.match(/^\w+$/)) {
+    const helper = path.join(__dirname, 'portool-helpers', command);
+
+    try {
+      fs.accessSync(helper, fs.constants.X_OK);
+
+      if (fs.statSync(helper).isFile()) {
+        return helper;
+      }
+    } catch {
+      // Doesn't exist, not a file (ie. directory), or not executable etc.
+    }
+  }
 }
 
 const HELP = 'run `portool help` to see available commands';
