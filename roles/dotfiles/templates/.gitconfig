@@ -62,6 +62,10 @@
 
 	wc = whatchanged
 
+	# similar to whatchanged, but gives a dir-level overview (takes param to
+	# diff against; defaults to HEAD if not provided)
+	wd = diff --dirstat
+
 [branch]
 	autosetupmerge = always
 	autosetuprebase = local
