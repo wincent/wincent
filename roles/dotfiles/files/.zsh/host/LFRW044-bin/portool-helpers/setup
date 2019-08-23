@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# "Installs" a copy of liferay-portal config files.
+
+set -e
+
+PROPERTIES="${BASH_SOURCE%/*}/properties"
+BUNDLES="$HOME/code/portal/bundles"
+PORTAL="$HOME/code/portal/liferay-portal"
+
+mkdir -p "$BUNDLES" "$PORTAL"
+
+cp "$PROPERTIES/portal-ext.properties.dev" "$BUNDLES"
+cp "$PROPERTIES/portal-ext.properties.prod" "$BUNDLES"
+
+ln -sf "$BUNDLES/portal-ext.properties.dev" "$BUNDLES/portal-ext.properties"
+
+cp "$PROPERTIES/build.properties" "$PORTAL/build.$USER.properties"
