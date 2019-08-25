@@ -21,8 +21,8 @@ function! s:Config()
 endfunction
 
 function! s:Bind()
-  nnoremap <buffer> <silent> K :close<CR>
-  nnoremap <buffer> <silent> <Esc> :close<CR>
+  nnoremap <buffer> <silent> K :call LanguageClient#closeFloatingHover()<CR>
+  nnoremap <buffer> <silent> <Esc> :call LanguageClient#closeFloatingHover()<CR>
 endfunction
 
 augroup WincentLanguageClientAutocmds
