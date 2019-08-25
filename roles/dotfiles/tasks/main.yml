@@ -56,11 +56,13 @@
 
 - name: dotfiles | test Karabiner generator
   command: '{{ ansible_env.PWD }}/roles/dotfiles/support/karabiner-test.js'
+  when: use_karabiner
 
 - name: dotfiles | prepare Karabiner config
   command: '{{ ansible_env.PWD }}/roles/dotfiles/support/karabiner.js'
   register: karabiner_config
   check_mode: no
+  when: use_karabiner
 
 - name: dotfiles | show karabiner_config
   debug:
@@ -72,6 +74,7 @@
 - name: dotfiles | set up karabiner-sudoers
   template: dest=/private/etc/sudoers.d/karabiner-sudoers src=karabiner-sudoers
   become: !!bool yes
+  when: use_karabiner
 
 # Note some nasty dependencies here between creating the symlinks (eg.
 # effectively creating ~/mutt/config/) and then templating into it (eg.
