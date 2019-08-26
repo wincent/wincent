@@ -22,4 +22,5 @@ copy "$PROPERTIES/portal-ext.properties.prod" "$BUNDLES/portal-ext.properties.pr
 
 ln -sf "$BUNDLES/portal-ext.properties.dev" "$BUNDLES/portal-ext.properties"
 
+copy "$PROPERTIES/app.server.properties" "$PORTAL/app.server.$USER.properties"
 copy "$PROPERTIES/build.properties" "$PORTAL/build.$USER.properties"
