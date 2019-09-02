@@ -6,11 +6,22 @@ ROOT=~/code/portal/liferay-portal
 
 function deploy() {
   DIR=$1
+
+  # Construct command line based on variables:
+  #
+  #   portool deploy                    -> gradlew deploy -a
+  #   ALL=1 portool deploy              -> gradlew deploy
+  #   CLEAN=1 portool deploy            -> gradlew clean deploy -a
+  #   ALL=1 CLEAN=1 portool deploy      -> gradlew clean deploy
+  #
   if [ -n "$ALL" ]; then
-    (cd $DIR && gradlew clean deploy)
+    COMMAND="gradlew ${CLEAN:+clean }deploy"
   else
-    (cd $DIR && gradlew clean deploy -a)
+    COMMAND="gradlew ${CLEAN:+clean }deploy -a"
   fi
+
+  echo "$COMMAND"
+  eval "cd \"\$DIR\" && $COMMAND"
 }
 
 if [ $# -eq 0 ]; then
