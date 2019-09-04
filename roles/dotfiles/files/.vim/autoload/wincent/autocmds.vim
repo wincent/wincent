@@ -39,9 +39,10 @@ function! wincent#autocmds#mkview() abort
     else
       mkview
     endif
-  catch /E190/
-    " Legit reasons for a failure to write a backup include its name or
-    " path length exceeding NAME_MAX or PATH_MAX.
+  catch /\<E186\>/
+    " No previous directory: probably a `git` operation.
+  catch /\<E190\>/
+    " Could be name or path length exceeding NAME_MAX or PATH_MAX.
   endtry
 endfunction
 
