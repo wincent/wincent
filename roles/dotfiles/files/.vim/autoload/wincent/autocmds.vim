@@ -66,6 +66,10 @@ function! wincent#autocmds#blur_window() abort
   if wincent#autocmds#should_colorcolumn()
     let l:settings=s:get_spell_settings()
     ownsyntax off
+    set nolist
+    if has('conceal')
+      set conceallevel=0
+    endif
     call s:set_spell_settings(l:settings)
   endif
 endfunction
@@ -75,6 +79,10 @@ function! wincent#autocmds#focus_window() abort
     if !empty(&ft)
       let l:settings=s:get_spell_settings()
       ownsyntax on
+      set list
+      if has('conceal')
+        set conceallevel=1
+      endif
       call s:set_spell_settings(l:settings)
     endif
   endif
