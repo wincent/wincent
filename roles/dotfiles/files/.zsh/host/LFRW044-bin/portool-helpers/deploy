@@ -21,7 +21,7 @@ function deploy() {
   fi
 
   echo "$COMMAND"
-  eval "cd \"\$DIR\" && $COMMAND"
+  eval "(cd \"\$DIR\" && $COMMAND)"
 }
 
 if [ $# -eq 0 ]; then
