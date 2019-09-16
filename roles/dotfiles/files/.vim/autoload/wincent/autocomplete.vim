@@ -107,7 +107,7 @@ function! wincent#autocomplete#smart_tab() abort
       let l:previous_char=matchstr(l:prefix, '.$')
       let l:previous_column=strlen(l:prefix) - strlen(l:previous_char) + 1
       let l:current_column=virtcol([line('.'), l:previous_column]) + 1
-      let l:remainder=l:current_column % l:sw
+      let l:remainder=(l:current_column - 1) % l:sw
       let l:move=(l:remainder == 0 ? l:sw : l:sw - l:remainder)
       return repeat(' ', l:move)
     endif
