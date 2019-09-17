@@ -27,7 +27,13 @@ case "$(uname)" in
       if /usr/libexec/java_home &> /dev/null ; then
         export ANT_OPTS="-Xmx4096m -Xms4096m -XX:MaxPermSize=1024m -XX:-UseGCOverheadLimit -Dorg.gradle.workers.max=4"
         export GRADLE_OPTS="-Dorg.gradle.workers.max=4"
-        export JAVA_HOME=$(/usr/libexec/java_home)
+
+        if /usr/libexec/java_home -v1.8.0 &> /dev/null; then
+          export JAVA_HOME=$(/usr/libexec/java_home -v1.8.0)
+        else
+          export JAVA_HOME=$(/usr/libexec/java_home)
+        fi
+
         export JAVA_OPTS="-Xmx4096m -Xms1024m -XX:MaxPermSize=512m"
       fi
     fi
