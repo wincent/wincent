@@ -1,3 +1,3 @@
 #compdef portool
 
-_values 'subcommands' $(ls ~/.zsh/host/LFRW044-bin/portool-helpers)
+_values 'subcommands' $(ls ~/.zsh/liferay/bin/portool-helpers)

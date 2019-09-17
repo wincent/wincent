@@ -4,8 +4,10 @@
 
 # test -d $SOME_DIR && hash -d $SHORTCUT=$SOME_DIR
 
-# Work machine:
-if [ $(hostname -s) = 'LFRW044' ]; then
+HOSTNAME=$(hostname -s)
+
+# Work stuff:
+if [ "$HOSTNAME" = 'LFRW044' -o "$HOSTNAME" = 'retiro' ]; then
   () {
     local ALLOY_EDITOR=~/code/portal/liferay-portal/modules/apps/frontend-editor/frontend-editor-alloyeditor-web
     local CKEDITOR=~/code/portal/liferay-portal/modules/apps/frontend-editor/frontend-editor-ckeditor-web
