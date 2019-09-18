@@ -129,22 +129,17 @@ function! wincent#autocomplete#smart_bs() abort
       return "\<BS>"
     else
       " Delete enough spaces to take us back to the previous tabstop.
-      let l:sw=s:ShiftWidth()
-      let l:previous_char=matchstr(l:prefix, '.$')
-      let l:previous_column=strlen(l:prefix) - strlen(l:previous_char) + 1
-      let l:current_column=virtcol([line('.'), l:previous_column]) + 1
-      let l:remainder=(l:current_column - 1)% l:sw
-      let l:count=(l:remainder == 0 ? l:sw : l:remainder)
-      let l:sequence=''
-      for l:index in range(l:col - 2, l:col - l:count - 1, -1)
-        if l:index > 0 && l:prefix[l:index] ==# ' '
-          let l:sequence.="\<BS>"
-        else
-          break
-        endif
-      endfor
-      return l:sequence
-    endif
+      "
+      " Originally I was calculating the number of <BS> to send, but Vim
+      " has some special casing that causes one <BS> to delete multiple
+      " characters even when 'expandtab' is off (eg. if you hit <BS> after
+      " pressing <CR> on a line with trailing whitespace and Vim inserts
+      " whitespace to match.
+      "
+      " So, turn 'expandtab' on temporarily and let Vim figure out what
+      " a single <BS> should do.
+      return "\<C-\>\<C-o>:set expandtab\<CR>" .
+            \ "\<C-\>\<C-o>:set noexpandtab\<CR>\<BS>"
   endif
 endfunction
 
