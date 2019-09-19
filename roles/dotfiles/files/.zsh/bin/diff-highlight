@@ -89,7 +89,7 @@ sub handle_line {
 		}
 	}
 
-	if ($in_hunk) {
+	if ($in_hunk && $ENV{'SHOW_TABS'}) {
 		# HACK: should make this align on tab-stops instead of assuming 4 characters.
 		$orig =~ s/\t/▷┅┅┅/g;
 	}
@@ -102,12 +102,14 @@ sub handle_line {
 		push @removed, $orig;
 	}
 	elsif (/^$COLOR*\+/) {
-		# HACK: for some reason there is a reset after "+" but not "-",
-		# which causes tabs to appear as white in added lines.
-		$orig =~ s/(?:$COLOR)|(?:\x1b\[m)//g;
+		if ($ENV{'SHOW_TABS'}) {
+			# HACK: for some reason there is a reset after "+" but not "-",
+			# which causes tabs to appear as white in added lines.
+			$orig =~ s/(?:$COLOR)|(?:\x1b\[m)//g;
 
-		# BUG: if I append $RESET here I get mismatched filter error here sometimes
-		$orig = $NEW_HIGHLIGHT[0] . $orig;
+			# BUG: if I append $RESET here I get mismatched filter error here sometimes
+			$orig = $NEW_HIGHLIGHT[0] . $orig;
+		}
 
 		push @added, $orig;
 	}
