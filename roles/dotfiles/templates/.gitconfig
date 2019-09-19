@@ -78,10 +78,10 @@
 	ui = auto
 
 [color "diff-highlight"]
-	oldnormal = red
-	oldhighlight = red bold 238
-	newnormal = green
-	newhighlight = green bold 238
+	newhighlight = reverse
+	newreset = noreverse
+	oldhighlight = reverse
+	oldreset = noreverse
 
 [color "interactive"]
 	prompt = blue reverse

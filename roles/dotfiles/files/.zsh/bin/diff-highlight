@@ -13,14 +13,25 @@ my $NULL = File::Spec->devnull();
 # Highlight by reversing foreground and background. You could do
 # other things like bold or underline if you prefer.
 my @OLD_HIGHLIGHT = (
-	color_config('color.diff-highlight.oldnormal'),
-	color_config('color.diff-highlight.oldhighlight', "\x1b[7m"),
-	color_config('color.diff-highlight.oldreset', "\x1b[27m")
+	# HACK: use Git color names here instead of ANSI codes
+	color_config('color.diff-highlight.oldnormal', 'normal'),
+	color_config('color.diff-highlight.oldhighlight', 'reverse'),
+	color_config('color.diff-highlight.oldreset', 'noreverse')
 );
 my @NEW_HIGHLIGHT = (
 	color_config('color.diff-highlight.newnormal', $OLD_HIGHLIGHT[0]),
 	color_config('color.diff-highlight.newhighlight', $OLD_HIGHLIGHT[1]),
 	color_config('color.diff-highlight.newreset', $OLD_HIGHLIGHT[2])
+);
+
+# HACK
+# On 24-bit color support, see:
+# https://stackoverflow.com/questions/4842424/list-of-ansi-color-escape-sequences
+# iTerm support: https://gist.github.com/XVilka/8346728
+my @COLORS= (
+	color_config('color.diff.context', 'white'),
+	color_config('color.diff.old', 'red'),
+	color_config('color.diff.new', 'green')
 );
 
 my $RESET = "\x1b[m";
@@ -89,9 +100,13 @@ sub handle_line {
 		}
 	}
 
-	if ($in_hunk && $ENV{'SHOW_TABS'}) {
-		# HACK: should make this align on tab-stops instead of assuming 4 characters.
-		$orig =~ s/\t/▷┅┅┅/g;
+	# HACK
+	if ($in_hunk && !$ENV{'HIDE_TABS'} && !/^$COLOR*[-+]/) {
+		# TODO: should make this actually align on tab-stops instead of assuming 4
+		# characters.
+
+		# Dark gray
+		$orig =~ s/\t/\x1b[38;5;238m▷┅┅┅$COLORS[0]/g;
 	}
 
 	if (!$in_hunk) {
@@ -99,13 +114,28 @@ sub handle_line {
 		$in_hunk = /^$COLOR*\@\@ /;
 	}
 	elsif (/^$COLOR*-/) {
+		if (!$ENV{'HIDE_TABS'}) {
+			# HACK: for some reason there is a reset after "+" but not "-",
+			# which causes tabs to appear as white in added lines.
+			# $orig =~ s/(?:$COLOR)|(?:\x1b\[m)//g;
+
+			# Darkish red.
+			$orig =~ s/\t/\x1b[38;2;84;0;0m▷┅┅┅$COLORS[1]/g;
+
+			# BUG: if I append $RESET here I get mismatched filter error here sometimes
+			$orig = $NEW_HIGHLIGHT[0] . $orig;
+		}
+
 		push @removed, $orig;
 	}
 	elsif (/^$COLOR*\+/) {
-		if ($ENV{'SHOW_TABS'}) {
+		if (!$ENV{'HIDE_TABS'}) {
 			# HACK: for some reason there is a reset after "+" but not "-",
 			# which causes tabs to appear as white in added lines.
-			$orig =~ s/(?:$COLOR)|(?:\x1b\[m)//g;
+			# $orig =~ s/(?:$COLOR)|(?:\x1b\[m)//g;
+
+			# Darkish green.
+			$orig =~ s/\t/\x1b[38;2;0;46;0m▷┅┅┅$COLORS[2]/g;
 
 			# BUG: if I append $RESET here I get mismatched filter error here sometimes
 			$orig = $NEW_HIGHLIGHT[0] . $orig;
@@ -147,15 +177,11 @@ sub highlight_stdin {
 	flush();
 }
 
-# Ideally we would feed the default as a human-readable color to
-# git-config as the fallback value. But diff-highlight does
-# not otherwise depend on git at all, and there are reports
-# of it being used in other settings. Let's handle our own
-# fallback, which means we will work even if git can't be run.
+# HACK: Depend on Git to turn $default color names into escape sequences.
 sub color_config {
 	my ($key, $default) = @_;
-	my $s = `git config --get-color $key 2>$NULL`;
-	return length($s) ? $s : $default;
+	my $s = `git config --get-color $key $default 2>$NULL`;
+	return length($s) ? $s : '';
 }
 
 sub show_hunk {
@@ -262,9 +288,12 @@ sub highlight_line {
 	my $mid = join('', @{$line}[$prefix..$suffix]);
 	my $end = join('', @{$line}[($suffix+1)..$#$line]);
 
+	# HACK
+	return join('', $start, $mid, $end);
+
 	# If we have a "normal" color specified, then take over the whole line.
 	# Otherwise, we try to just manipulate the highlighted bits.
-	if (defined $theme->[0]) {
+	if (0 && defined $theme->[0]) {
 		s/$COLOR//g for ($start, $mid, $end);
 		chomp $end;
 		return join('',
