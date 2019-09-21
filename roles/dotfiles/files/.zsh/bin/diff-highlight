@@ -101,7 +101,7 @@ sub handle_line {
 	}
 
 	# HACK
-	if ($in_hunk && !$ENV{'HIDE_TABS'} && !/^$COLOR*[-+]/) {
+	if ($in_hunk && !/^$COLOR*[-+]/) {
 		# TODO: should make this actually align on tab-stops instead of assuming 4
 		# characters.
 
@@ -114,32 +114,26 @@ sub handle_line {
 		$in_hunk = /^$COLOR*\@\@ /;
 	}
 	elsif (/^$COLOR*-/) {
-		if (!$ENV{'HIDE_TABS'}) {
-			# HACK: for some reason there is a reset after "+" but not "-",
-			# which causes tabs to appear as white in added lines.
-			# $orig =~ s/(?:$COLOR)|(?:\x1b\[m)//g;
+		# HACK: for some reason there is a reset after "+" but not "-",
+		# which causes tabs to appear as white in added lines.
 
-			# Darkish red.
-			$orig =~ s/\t/\x1b[38;2;84;0;0m▷┅┅┅$COLORS[1]/g;
+		# Darkish red.
+		$orig =~ s/\t/\x1b[38;2;84;0;0m▷┅┅┅$COLORS[1]/g;
 
-			# BUG: if I append $RESET here I get mismatched filter error here sometimes
-			$orig = $NEW_HIGHLIGHT[0] . $orig;
-		}
+		# BUG: if I append $RESET here I get mismatched filter error here sometimes
+		$orig = $NEW_HIGHLIGHT[0] . $orig;
 
 		push @removed, $orig;
 	}
 	elsif (/^$COLOR*\+/) {
-		if (!$ENV{'HIDE_TABS'}) {
-			# HACK: for some reason there is a reset after "+" but not "-",
-			# which causes tabs to appear as white in added lines.
-			# $orig =~ s/(?:$COLOR)|(?:\x1b\[m)//g;
+		# HACK: for some reason there is a reset after "+" but not "-",
+		# which causes tabs to appear as white in added lines.
 
-			# Darkish green.
-			$orig =~ s/\t/\x1b[38;2;0;46;0m▷┅┅┅$COLORS[2]/g;
+		# Darkish green.
+		$orig =~ s/\t/\x1b[38;2;0;46;0m▷┅┅┅$COLORS[2]/g;
 
-			# BUG: if I append $RESET here I get mismatched filter error here sometimes
-			$orig = $NEW_HIGHLIGHT[0] . $orig;
-		}
+		# BUG: if I append $RESET here I get mismatched filter error here sometimes
+		$orig = $NEW_HIGHLIGHT[0] . $orig;
 
 		push @added, $orig;
 	}
