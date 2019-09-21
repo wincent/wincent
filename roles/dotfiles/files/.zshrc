@@ -84,6 +84,10 @@ zstyle ':completion:*:complete:(cd|pushd):*' tag-order 'local-directories named-
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*:descriptions' format %F{default}%B%{$__WINCENT[ITALIC_ON]%}--- %d ---%{$__WINCENT[ITALIC_OFF]%}%b%f
 
+# Enable keyboard navigation of completions in menu
+# (not just tab/shift-tab but cursor keys as well):
+zstyle ':completion:*' menu select
+
 #
 # Correction
 #
