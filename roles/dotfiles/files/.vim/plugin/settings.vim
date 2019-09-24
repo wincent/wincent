@@ -119,6 +119,7 @@ if has('showcmd')
   set noshowcmd                       " don't show extra info at end of command line
 endif
 
+set sidescroll=0                      " sidescroll in jumps because terminals are slow
 set sidescrolloff=3                   " same as scrolloff, but for columns
 set smarttab                          " <tab>/<BS> indent/dedent in leading whitespace
 
