@@ -180,6 +180,7 @@ if &loadplugins
     packadd! vcs-jump
     packadd! vim-ansible-yaml
     packadd! vim-clipper
+    packadd! vim-dispatch
     packadd! vim-docvim
     packadd! vim-easydir
     packadd! vim-eunuch

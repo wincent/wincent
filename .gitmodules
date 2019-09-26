@@ -187,3 +187,6 @@
 [submodule "float-preview.nvim"]
 	path = roles/dotfiles/files/.vim/pack/bundle/opt/float-preview.nvim
 	url = https://github.com/ncm2/float-preview.nvim.git
+[submodule "vim-dispatch"]
+	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-dispatch
+	url = https://github.com/tpope/vim-dispatch.git
