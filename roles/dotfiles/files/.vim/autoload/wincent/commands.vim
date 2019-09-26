@@ -24,6 +24,14 @@ function! wincent#commands#lint() abort
   Make
 endfunction
 
+function! wincent#commands#typecheck() abort
+  " Make subsequent `:make` work (eg. invoked by Dispatch's `m<CR>` mapping).
+  compiler tsc
+
+  " Do an immediate Make.
+  Make
+endfunction
+
 function! wincent#commands#mvim() abort
   let l:filename=expand('%')
   if empty(l:filename)
