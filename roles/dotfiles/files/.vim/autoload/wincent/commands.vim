@@ -14,6 +14,16 @@ function! s:Open(app, file)
   silent execute '!open -a ' . shellescape(a:app) . ' ' . shellescape(a:file)
 endfunction
 
+function! wincent#commands#lint() abort
+  " TODO: make this smart about which compiler plug-in to used based on location
+
+  " Make subsequent `:make` work.
+  compiler eslint
+
+  " Do an immediate dispatch.
+  Dispatch -compiler=eslint
+endfunction
+
 function! wincent#commands#mvim() abort
   let l:filename=expand('%')
   if empty(l:filename)

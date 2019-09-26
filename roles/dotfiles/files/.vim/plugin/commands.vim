@@ -2,7 +2,7 @@
 " TODO: check escaping is correct
 command! -nargs=* -complete=file Find call wincent#commands#find(<q-args>)
 
-command! Lint cexpr system('yarn lint --format unix')
+command! Lint call wincent#commands#lint()
 
 command! Mvim call wincent#commands#mvim()
 
