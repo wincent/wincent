@@ -17,11 +17,11 @@ endfunction
 function! wincent#commands#lint() abort
   " TODO: make this smart about which compiler plug-in to used based on location
 
-  " Make subsequent `:make` work.
+  " Make subsequent `:make` work (eg. invoked by Dispatch's `m<CR>` mapping).
   compiler eslint
 
-  " Do an immediate dispatch.
-  Dispatch -compiler=eslint
+  " Do an immediate Make.
+  Make
 endfunction
 
 function! wincent#commands#mvim() abort
