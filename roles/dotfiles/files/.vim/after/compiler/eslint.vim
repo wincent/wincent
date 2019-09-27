@@ -38,13 +38,14 @@ execute 'CompilerSet makeprg=' . s:lint
 " - %m = error message
 " - %-Q = pop the last file from the stack; '-' do not include line
 " - %-G = ignore this message, consisting of...
-" - %.$# = dot (anything) '*' (zero or more)
+" - %.%# = dot (anything) '*' (zero or more)
 
-CompilerSet errorformat=%-P%f
-CompilerSet errorformat+=%\\s%#%l:%c%\\s%\\+%trror%\\s%\\+%m
-CompilerSet errorformat+=%\\s%#%l:%c%\\s%\\+%tarning%\\s%\\+%m
-CompilerSet errorformat+=%-Q
-CompilerSet errorformat+=%-G%.%#
+CompilerSet errorformat=
+      \%-P%f,
+      \%\\s%#%l:%c%\\s%\\+%trror%\\s%\\+%m,
+      \%\\s%#%l:%c%\\s%\\+%tarning%\\s%\\+%m,
+      \%-Q,
+      \%-G%.%#
 
 finish " Sample output follows:
 yarn run v1.17.3
