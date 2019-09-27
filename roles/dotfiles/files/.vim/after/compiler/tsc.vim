@@ -7,13 +7,10 @@ let s:lint='yarn\ run\ tsc\ --noEmit'
 execute 'CompilerSet makeprg=' . s:lint
 
 CompilerSet errorformat=
-      \%-Gyarn\ run\ v%\\d%\\+.%\\d%\\+.%\\d%\\+,
-      \%-G$\ tsc\ --noEmit,
-      \%-GFound\ %\\d%\\+\ errors%\\?.,
-      \%-Gerror\ Command\ failed\ with\ exit\ code\ %\\d%\\+.,
-      \%-Ginfo\ Visit\ https://%.%#,
       \%E%f:%l:%c%\\s%#-%\\s%#%trror%\\s%#TS%n:%\\s%#%m,
-      \%C%\\s%\\+%m
+      \%C%\\d%.%#,
+      \%C%\\s%.%#,
+      \%-G%[%^\ 0-9]%.%#
 
 finish " Sample output follows:
 yarn run v1.17.3
