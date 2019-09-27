@@ -6,8 +6,7 @@ let s:lint='yarn\ run\ tsc\ --noEmit'
 
 execute 'CompilerSet makeprg=' . s:lint
 
-CompilerSet errorformat=
-CompilerSet errorformat+=%E%f:%l:%c%\\s-\\%\\s%trror\\%\\sTS%n:%\\s%m
+CompilerSet errorformat=%E%f:%l:%c%\\s%#-%\\s%#%trror%\\s%#TS%n:%\\s%#%m
 CompilerSet errorformat+=%C%\\s%\\+%m
 
 finish " Sample output follows:

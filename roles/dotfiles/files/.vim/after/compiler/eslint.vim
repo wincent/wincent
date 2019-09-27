@@ -40,8 +40,7 @@ execute 'CompilerSet makeprg=' . s:lint
 " - %-G = ignore this message, consisting of...
 " - %.$# = dot (anything) '*' (zero or more)
 
-CompilerSet errorformat=
-CompilerSet errorformat+=%-P%f
+CompilerSet errorformat=%-P%f
 CompilerSet errorformat+=%\\s%#%l:%c%\\s%\\+%trror%\\s%\\+%m
 CompilerSet errorformat+=%\\s%#%l:%c%\\s%\\+%tarning%\\s%\\+%m
 CompilerSet errorformat+=%-Q
