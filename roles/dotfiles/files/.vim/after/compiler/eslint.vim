@@ -27,19 +27,6 @@ endif
 
 execute 'CompilerSet makeprg=' . s:lint
 
-" See :h error-file-format
-"
-" - %-P%f = (P)ush (f)ile onto stack; '-' means do not include line in output
-" - %\\s = \s (whitespace)
-" - %# = '*' (zero or more)
-" - %\\+ = + (one or more)
-" - %l:%c = line:column
-" - %trror = error type (1-char)
-" - %m = error message
-" - %-Q = pop the last file from the stack; '-' do not include line
-" - %-G = ignore this message, consisting of...
-" - %.%# = dot (anything) '*' (zero or more)
-
 CompilerSet errorformat=
       \%-P%f,
       \%\\s%#%l:%c%\\s%\\+%trror%\\s%\\+%m,
