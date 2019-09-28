@@ -8,8 +8,8 @@ execute 'CompilerSet makeprg=' . s:lint
 
 CompilerSet errorformat=
       \%E%f:%l:%c%\\s%#-%\\s%#%trror%\\s%#TS%n:%\\s%#%m,
-      \%C%\\d%.%#,
-      \%C%\\s%.%#,
+      \%C%\\d\\+%.%#,
+      \%C%\\s\\+%.%#,
       \%-G%[%^\ 0-9]%.%#
 
 finish " Sample output follows:
