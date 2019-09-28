@@ -1,8 +1,10 @@
 # `'errorformat'` cheatsheet
 
+## Testing
+
 Do `:call wincent#debug#compiler()` to test a compiler plugin (`:h write-compiler-plugin`).
 
-Formats (see `:h error-file-format` for more):
+## Formats
 
 | Symbol                            | Meaning                                                           |
 | --------------------------------- | ----------------------------------------------------------------- |
@@ -24,8 +26,14 @@ Formats (see `:h error-file-format` for more):
 | `%[]`                             | character class                                                   |
 | `%^`                              | `^` (ie. `%[%^...]` = `[^...]`)                                   |
 
-How formats work:
+See `:h error-file-format` for more.
+
+## How formats work:
 
 - Whitespace after commas is ignored.
 - Patterns match entire lines by default (ie. `%^` and `%$` are not generally useful).
 - For each line in output, formats are tried one after another until one matches.
+
+## See also
+
+- [Compiler plugins bundled with Neovim](https://github.com/neovim/neovim/tree/master/runtime/compiler)
