@@ -8,7 +8,8 @@ execute 'CompilerSet makeprg=' . s:lint
 
 CompilerSet errorformat=
       \%E%f:%l:%c%\\s%\\+-%\\s%\\+%trror%\\s%\\+TS%n:%\\s%\\+%m,
-      \%-G%[%^\ 0-9]%.%#
+      \%-G%[%^\ 0-9]%.%#,
+      \%-G%\\s%#
 
 finish " Sample output follows:
 yarn run v1.17.3
