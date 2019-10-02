@@ -31,34 +31,44 @@ if [[ $NUKE_LEVEL == 0 ]]; then
   echo
 fi
 
+if [[ $PWD = $HOME/code/portal-master* ]]; then
+  BASE=$HOME/code/portal-master
+elif [[ $PWD = $HOME/code/portal-ee* ]]; then
+  BASE=$HOME/code/portal-ee
+else
+  BASE=$HOME/code/portal
+fi
+
 if [[ $NUKE_LEVEL > 0 ]]; then
   # Target "lportal_master" (corresponds to main
   # portal/liferay-portal checkout) by default, except when in
   # the portal-master/liferay-portal checkout (in which case use
   # "lportal2_master").
-  [[ $PWD = $HOME/code/portal-master* ]] && DB=lportal2_master || DB=lportal_master
+  [[ $BASE = $HOME/code/portal-master ]] && DB=lportal2_master || DB=lportal_master
 
   echo "☠️  Deleting db ($DB)..."
 
   echo "set foreign_key_checks=1;" | (echo "select concat('drop table if exists ', table_name, ';') from information_schema.tables where table_schema='$DB';" | mysql -u root -B | tail -n +2 && cat;) | (echo "set foreign_key_checks=0;" && cat;) | mysql -u root "$DB"
 fi
 
-if [[ $NUKE_LEVEL > 1 ]]; then
-  echo "💥 Cleaning up temporary files..."
+TARGET="~${BASE#$HOME}"
 
-  rm -rf ~/code/portal/bundles/osgi/state \
-         ~/code/portal/bundles/data \
-         ~/code/portal/bundles/tomcat-9.0.17/work
+if [[ $NUKE_LEVEL > 1 ]]; then
+  echo "💥 Cleaning up temporary files in $TARGET..."
+
+  rm -rf "$BASE/bundles/osgi/state" \
+         "$BASE/bundles/data" \
+         "$BASE/bundles/tomcat-9.0.17/work"
 fi
 
 if [[ $NUKE_LEVEL > 2 ]]; then
-  echo "☢️  \"git clean\"-ing..."
+  echo "☢️  \"git clean\"-ing $TARGET..."
 
-  parallel -v --halt-on-error soon,fail=1 --line-buffer 'cd {} && git clean -fdx -e '"'"'build.*.properties'"'"' -e '"'"'app.server.*.properties'"'" ::: ~/code/portal{/liferay-portal,-ee/liferay-portal-ee}
+  (cd "$BASE" && git clean -fdx -e 'build.*.properties' -e 'app.server.*.properties')
 fi
 
 if [[ $NUKE_LEVEL > 3 ]]; then
-  echo "☢️  \"git clean\"-ing..."
+  echo "☢️  \"git clean\"-ing $TARGET..."
 
-  parallel -v --halt-on-error soon,fail=1 --line-buffer 'cd {} && git clean -fdx' ::: ~/code/portal{/liferay-portal,-ee/liferay-portal-ee}
+  (cd "$BASE" && git clean -fdx)
 fi
