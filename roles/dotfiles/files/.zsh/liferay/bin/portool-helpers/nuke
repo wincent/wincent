@@ -74,4 +74,13 @@ if [[ $NUKE_LEVEL > 3 ]]; then
   echo "☢️  \"git clean\"-ing $TARGET..."
 
   (cd "$FULL" && git clean -fdx)
+
+  if [ $BASE = $HOME/code/portal ]; then
+    echo
+    read -p "Do you want to run \`portool setup\` to restore properties files? " -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+      portool setup
+    fi
+  fi
 fi
