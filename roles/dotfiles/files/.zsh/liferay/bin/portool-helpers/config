@@ -33,7 +33,7 @@ RESET='\033[0m'
 case $ACTION in
   add|ad|a)
     ADD=$(ls $CONFIGS | sk)
-    echo -e "${PURPLE}Adding $ADD $DIR/${RESET}"
+    echo -e "${PURPLE}Adding $ADD to $DIR/${RESET}"
     cp "$CONFIGS/$ADD" $DIR/
     ;;
   help|hel|he|h)
