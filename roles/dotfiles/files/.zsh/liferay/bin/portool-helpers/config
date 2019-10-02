@@ -1,0 +1,62 @@
+#!/bin/bash
+
+# Manages config files for liferay-portal
+
+set -e
+
+CONFIGS="${BASH_SOURCE%/*}/configs"
+DIR="$HOME/code/portal/bundles/osgi/configs"
+
+usage() {
+  echo "Usage:"
+  echo "  portool configs add"
+  echo "  portool configs help"
+  echo "  portool configs ls"
+  echo "  portool configs remove"
+}
+
+if [ $# -eq 0 ]; then
+  usage
+  exit
+elif [ $# -ne 1 ]; then
+  usage
+  exit 1
+fi
+
+ACTION=$1
+
+GREEN='\033[0;32m'
+PURPLE='\033[0;35m'
+RED='\033[0;31m'
+RESET='\033[0m'
+
+case $ACTION in
+  add|ad|a)
+    ADD=$(ls $CONFIGS | sk)
+    echo -e "${PURPLE}Adding $ADD $DIR/${RESET}"
+    cp "$CONFIGS/$ADD" $DIR/
+    ;;
+  help|hel|he|h)
+    usage
+    exit
+    ;;
+  list|lis|li|l|ls)
+    COLS=$(tput cols)
+    echo -e "${GREEN}Available configs:${RESET}"
+    echo
+    ls "$CONFIGS" | sed 's/^/    /' | cut -c 1-$COLS
+    echo
+    echo -e "${GREEN}Installed configs:${RESET}"
+    echo
+    ls "$DIR" | sed 's/^/    /' | cut -c 1-$COLS
+    ;;
+  remove|remov|remo|rem|re|r|rm)
+    RM=$(ls $DIR | sk)
+    echo -e "${RED}Removing: ${RM}${RESET}"
+    rm "$DIR/$RM"
+    ;;
+  *)
+    usage
+    exit 1
+    ;;
+esac
