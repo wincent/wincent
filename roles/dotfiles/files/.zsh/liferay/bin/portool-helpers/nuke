@@ -33,10 +33,13 @@ fi
 
 if [[ $PWD = $HOME/code/portal-master* ]]; then
   BASE=$HOME/code/portal-master
+  FULL=$BASE/liferay-portal
 elif [[ $PWD = $HOME/code/portal-ee* ]]; then
   BASE=$HOME/code/portal-ee
+  FULL=$BASE/liferay-portal-ee
 else
   BASE=$HOME/code/portal
+  FULL=$BASE/liferay-portal
 fi
 
 if [[ $NUKE_LEVEL > 0 ]]; then
@@ -64,11 +67,11 @@ fi
 if [[ $NUKE_LEVEL > 2 ]]; then
   echo "☢️  \"git clean\"-ing $TARGET..."
 
-  (cd "$BASE" && git clean -fdx -e 'build.*.properties' -e 'app.server.*.properties')
+  (cd "$FULL" && git clean -fdx -e 'build.*.properties' -e 'app.server.*.properties')
 fi
 
 if [[ $NUKE_LEVEL > 3 ]]; then
   echo "☢️  \"git clean\"-ing $TARGET..."
 
-  (cd "$BASE" && git clean -fdx)
+  (cd "$FULL" && git clean -fdx)
 fi
