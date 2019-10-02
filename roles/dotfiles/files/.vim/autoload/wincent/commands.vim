@@ -42,11 +42,78 @@ function! wincent#commands#mvim() abort
   call s:Open('MacVim.app', l:filename)
 endfunction
 
+" Map of .git directories to GitHub user-or-org/project identifiers.
+let s:directories={}
+
+function! s:open_on_github(file) abort
+  let l:git_dir=wincent#git#get_git_dir(a:file)
+  if l:git_dir == ''
+    call wincent#functions#echoerr('No .git directory found above ' . a:file)
+    return
+  endif
+
+  let l:key=l:git_dir
+  if !has_key(s:directories, l:key)
+    let s:directories[l:key]=-1
+
+    try
+      let l:remotes=system('git --git-dir=' . shellescape(l:git_dir) . ' remote -v')
+      " Look for lines like these:
+      "
+      "   remote-a git@github.com:user-or-org/repo.git (...)
+      "   remote-b https://github.com/user-or-org/repo.git (...)
+      "
+      for l:remote in ['github', 'upstream', 'upstream-rw', 'origin']
+        let l:match=matchlist(
+              \   l:remotes,
+              \   '\(^\|\n\)' .
+              \       l:remote .
+              \       '\s\+\(git@github\.com:\|https://github\.com/\)\(\S\{-}\)\(\.git\)\?\s'
+              \ )
+        if len(l:match)
+          let s:directories[l:key]=l:match[3]
+          break
+        endif
+      endfor
+    catch
+      " Cool, cool...
+    endtry
+  endif
+
+  let l:address=s:directories[l:key]
+
+  if l:address != -1
+    let l:root=fnamemodify(l:git_dir, ':h')
+    let l:relative_path=strcharpart(a:file, strchars(l:root))
+    let l:url=shellescape('https://github.com/' . l:address . '/tree/master' . l:relative_path)
+    call system('open ' . l:url)
+  endif
+endfunction
+
 function! s:preview(file) abort
   " TODO: remove this hack once new version of Marked 2 is out:
   " http://support.markedapp.com/discussions/questions/8670
   silent! execute '!xattr -d com.apple.quarantine ' . shellescape(a:file)
   call s:Open('Marked 2.app', a:file)
+endfunction
+
+function! wincent#commands#open_on_github(...) abort
+  if a:0 == 0
+    let l:files=[expand('%')]
+  else
+    let l:files=a:000
+  endif
+  let l:did_open=0
+  for l:file in l:files
+    let l:file=fnamemodify(l:file, ':p')
+    if l:file !=# ''
+      call s:open_on_github(l:file)
+      let l:did_open=1
+    endif
+  endfor
+  if !l:did_open
+    call wincent#functions#echoerr('No filename')
+  endif
 endfunction
 
 function! wincent#commands#preview(...) abort
