@@ -44,9 +44,16 @@ else
           cd ~/code/portal-ee/liferay-portal-ee &&
           git remote update --prune &&
           git checkout master-private &&
-          git pull --ff-only upstream master-private &&
-          git push origin upstream/master-private:master-private &&
-          git push origin upstream/7.2.x:7.2.x &&
+          git fetch upstream master-private \
+            +master:master \
+            +7.0.x:7.0.x \
+            +7.0.x-private:7.0.x-private \
+            +7.1.x:7.1.x \
+            +7.1.x-private:7.1.x-private \
+            +7.2.x:7.2.x \
+            +7.2.x-private:7.2.x-private &&
+          git merge --ff-only upstream/master-private &&
+          git push origin -f : &&
           git clean -fdx &&
           ant -f build-working-dir.xml &&
           ant all 2>&1 | tee ant-portal-ee.out &&
