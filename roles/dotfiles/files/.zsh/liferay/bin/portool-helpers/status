@@ -36,6 +36,6 @@ do
 
   echo
 
-  echo "  Tomcat PID: $(pgrep -o -f "Dcatalina.base=$(dirname $REPO)/bundles/tomcat")"
+  echo "  Tomcat PID: $(pgrep -o -f "Dcatalina.base=$(dirname $REPO)/bundles/tomcat" || echo Not running)"
   echo
 done
