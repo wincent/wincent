@@ -1,19 +1,11 @@
 function! wincent#liferay#deploy() abort
-  try
-    cd %:h
-    if exists(':terminal')
-      autocmd TermOpen * ++once execute "normal! G \<c-w>p"
-      split +terminal\ portool\ deploy
-    else
-      !portool deploy
-    endif
-  finally
-    try
-      cd -
-    catch /E186/
-      " No previous directory.
-    endtry
-  endtry
+  let l:dir=expand('%:h:S')
+  if exists(':terminal')
+    autocmd TermOpen * ++once execute "normal! G \<c-w>p"
+    execute 'split +terminal\ cd\ ' . substitute(l:dir, ' ', '\\ ', 'g') . '\ &&\ portool\ deploy'
+  else
+    execute '!cd ' . l:dir . ' && portool deploy'
+  endif
 endfunction
 
 " TODO: make it possible to set up directory-specific overrides which
