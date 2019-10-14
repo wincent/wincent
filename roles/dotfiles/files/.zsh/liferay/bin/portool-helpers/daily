@@ -11,13 +11,20 @@ else
   TARGETS=("$@")
 fi
 
+function tildify() {
+  local RAW=$1
+  local DIR=$(cd $(dirname $RAW) && dirs +0)
+  local FILE=$(basename $RAW)
+  echo "$DIR/$FILE"
+}
+
 set -o pipefail
 
 for TARGET in "${TARGETS[@]}"; do
   case "$TARGET" in
     ee)
       LOG_FILE=~/code/portal-ee/liferay-portal-ee/ant-portal-ee.out
-      LOG_DESC=$(cd $(dirname $LOG_FILE) && dirs +0)
+      LOG_DESC=$(tildify $LOG_FILE)
       (
         echo "ee build started: logging to $LOG_DESC" &&
         exec 1<&- &&
@@ -47,7 +54,7 @@ for TARGET in "${TARGETS[@]}"; do
       ;;
     master)
       LOG_FILE=~/code/portal-master/liferay-portal/ant-master.out
-      LOG_DESC=$(cd $(dirname $LOG_FILE) && dirs +0)
+      LOG_DESC=$(tildify $LOG_FILE)
       (
         echo "master build started: logging to $LOG_DESC" &&
         exec 1<&- &&
@@ -66,7 +73,7 @@ for TARGET in "${TARGETS[@]}"; do
       ;;
     portal)
       LOG_FILE=~/code/portal/liferay-portal/ant-portal.out
-      LOG_DESC=$(cd $(dirname $LOG_FILE) && dirs +0)
+      LOG_DESC=$(tildify $LOG_FILE)
       (
         echo "portal build started: logging to $LOG_DESC" &&
         exec 1<&- &&
