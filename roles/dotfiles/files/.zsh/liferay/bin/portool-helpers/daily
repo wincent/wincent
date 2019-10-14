@@ -40,7 +40,14 @@ else
   for TARGET in "${TARGETS[@]}"; do
     case "$TARGET" in
       ee)
+        LOG_FILE=~/code/portal-ee/liferay-portal-ee/ant-portal-ee.out
+        LOG_DESC=$(cd $(dirname $LOG_FILE) && dirs +0)
         (
+          echo "ee build started: logging to $LOG_DESC" &&
+          exec 1<&- &&
+          exec 2<&- &&
+          exec 1<>$LOG_FILE &&
+          exec 2>&1 &&
           cd ~/code/portal-ee/liferay-portal-ee &&
           git remote update --prune &&
           git checkout master-private &&
@@ -56,33 +63,50 @@ else
           git push origin -f : &&
           git clean -fdx &&
           ant -f build-working-dir.xml &&
-          ant all 2>&1 | tee ant-portal-ee.out &&
+          ant all &&
           git tag "daily/portal-ee/good/$(date +%Y-%m-%d)" &&
-          git tag -f "daily/portal-ee/good/latest"
-        )
+          git tag -f "daily/portal-ee/good/latest" &&
+          echo "ee build finished"
+        ) || echo "ee build failed: please see $LOG_DESC for details"
         ;;
       master)
+        LOG_FILE=~/code/portal-master/liferay-portal/ant-master.out
+        LOG_DESC=$(cd $(dirname $LOG_FILE) && dirs +0)
         (
+          echo "master build started: logging to $LOG_DESC" &&
+          exec 1<&- &&
+          exec 2<&- &&
+          exec 1<>$LOG_FILE &&
+          exec 2>&1 &&
           cd ~/code/portal-master/liferay-portal &&
           git remote update --prune &&
           git checkout master &&
           git pull --ff-only upstream master &&
-          ant all 2>&1 | tee ant-master.out &&
+          ant all &&
           git tag "daily/portal-master/good/$(date +%Y-%m-%d)" &&
-          git tag -f "daily/portal-master/good/latest"
-        )
+          git tag -f "daily/portal-master/good/latest" &&
+          echo "master build finished"
+        ) || echo "master build failed: please see $LOG_DESC for details"
         ;;
       portal)
+        LOG_FILE=~/code/portal/liferay-portal/ant-portal.out
+        LOG_DESC=$(cd $(dirname $LOG_FILE) && dirs +0)
         (
+          echo "portal build started: logging to $LOG_DESC" &&
+          exec 1<&- &&
+          exec 2<&- &&
+          exec 1<>$LOG_FILE &&
+          exec 2>&1 &&
           cd ~/code/portal/liferay-portal &&
           git remote update --prune &&
           git checkout master &&
           git pull --ff-only upstream master &&
           git push origin upstream/master:master &&
-          ant all 2>&1 | tee ant-portal.out &&
+          ant all &&
           git tag "daily/portal/good/$(date +%Y-%m-%d)" &&
-          git tag -f "daily/portal/good/latest"
-        )
+          git tag -f "daily/portal/good/latest" &&
+          echo "portal build finished"
+        ) || echo "portal build failed: please see $LOG_DESC for details"
         ;;
       *)
         echo "Unrecognized target: $TARGET"
