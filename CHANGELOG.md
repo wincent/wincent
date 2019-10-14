@@ -1,8 +1,64 @@
 # Changelog
 
+## 2019-10-13
+
+* [Vim]: Switched from [tpope/vim-markdown](https://github.com/tpope/vim-markdown) to [plasticboy/vim-markdown](https://github.com/plasticboy/vim-markdown); note that because this is replacing one submodule with another of the same name you may need to remove the old submodule directory with `rm` as well as removing the corresponding config in your local `.git/config` in order for the next `git submodule update --init` to succeed.
+
+## 2019-10-02
+
+* [Vim]: Add `:OpenOnGitHub` command.
+
+## 2019-09-27
+
+* [Vim]: Add `:Typecheck` command.
+
+## 2019-09-24
+
+* [Vim]: Add `:Lint` command.
+
+## 2019-09-19
+
+* [Zsh]: Make tabs visible in `git-diff` output.
+
+## 2019-09-14
+
+* [Vim]: Implement "smart tab" functionality (ie. in projects that use tabs, use tabs for indentation and spacing for alignment).
+
+## 2019-09-14
+
+* [Zsh]: Add `git cp` alias for `git cherry-pick`.
+
+## 2019-08-23
+
+* [Zsh]: Add `git wd` alias for `git diff --dirstat` (mnemonic: "[w]hat(changed) [d]irectory").
+
+## 2019-08-22
+
+* [Vim]: Use floating preview window for LSP "hover" functionality.
+
+## 2019-07-21
+
+* [Vim]: Switch from javascript-typescript-langserver to typescript-language-server.
+
+## 2019-06-26
+
+* [Zsh]: Add `git get` alias equivalent to a `git fresh` (see below) followed by a `git merge`.
+
+## 2019-06-17
+
+* [Zsh]: Add `subtree` function (eg. `subtree '*.js'`, or `subtree '*.js|*.ts' src`).
+
+## 2019-06-07
+
+* [Vim]: Add `table` snippet for use in Markdown files.
+
 ## 2019-05-23
 
 * [Vim]: Moved plug-in submodules into "[~/.vim/pack/bundle/opt](https://github.com/wincent/wincent/tree/master/roles/dotfiles/files/.vim/pack/bundle/opt)"
+
+## 2019-04-26
+
+* [Zsh]: Add `git fresh` alias for `git remote update --prune`.
 
 ## 2019-03-29
 
