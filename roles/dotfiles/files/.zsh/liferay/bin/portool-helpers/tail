@@ -8,4 +8,37 @@ source "${BASH_SOURCE%/*}/.common.sh"
 # "Never" give up (> 2 ** 100).
 ATTEMPTS=100
 
-backoff tail -F ~/code/portal-ee/liferay-portal-ee/ant-portal-ee.out
+EE=$HOME/code/portal-ee/liferay-portal-ee/ant-portal-ee.out
+MASTER=$HOME/code/portal-master/liferay-portal/ant-master.out
+PORTAL=$HOME/code/portal/liferay-portal/ant-portal.out
+
+if [ $# -eq 0 ]; then
+  if [[ $PWD = $HOME/code/portal-ee* ]]; then
+    LOG=$EE
+  elif [[ $PWD = $HOME/code/portal-master* ]]; then
+    LOG=$MASTER
+  else
+    LOG=$PORTAL
+  fi
+elif [ $# -eq 1 ]; then
+  case "$1" in
+    ee)
+      LOG=$EE
+      ;;
+    master)
+      LOG=$MASTER
+      ;;
+    portal)
+      LOG=$PORTAL
+      ;;
+    *)
+      echo "Unrecognized target \"$1\" not in: portal | master | ee"
+      exit 1
+      ;;
+  esac
+else
+  echo "Expected 0 or 1 arguments: portal | master | ee"
+  exit 1
+fi
+
+backoff tail -F "$LOG"
