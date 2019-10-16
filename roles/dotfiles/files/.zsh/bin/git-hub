@@ -98,7 +98,8 @@ end
 def usage
   puts <<-END.gsub(/^ {4}/, '')
     Usage:
-      git hub get <pr>        [fetch a PR to a local branch]
+      git hub fetch <pr>      [fetch a PR]
+      git hub get <pr>        [fetch and checkout a PR]
       git hub link [pr]       [show web URL for PR]
       git hub ls              [list open PRs]
       git hub merge [pr]      [merge a PR]
@@ -118,16 +119,22 @@ end
 
 case ARGV.shift
 
+when 'fetch'
+  number = arg
+  url = Shellwords.shellescape(pr(number))
+  branch = "pull/#{Shellwords.shellescape(number)}"
+  upstream = current_branch
+  run "git fetch #{remote} pull/#{Shellwords.shellescape(number)}/head:#{branch}"
+  run "git branch --set-upstream-to=#{upstream} #{branch}"
+
 when 'get'
   number = arg
   url = Shellwords.shellescape(pr(number))
-  Dir.mktmpdir do |dir|
-    branch = "pull/#{Shellwords.shellescape(number)}"
-    upstream = current_branch
-    run "git fetch #{remote} pull/#{Shellwords.shellescape(number)}/head:#{branch}"
-    run "git checkout #{branch}"
-    run "git branch --set-upstream-to=#{upstream} #{branch}"
-  end
+  branch = "pull/#{Shellwords.shellescape(number)}"
+  upstream = current_branch
+  run "git fetch #{remote} pull/#{Shellwords.shellescape(number)}/head:#{branch}"
+  run "git checkout #{branch}"
+  run "git branch --set-upstream-to=#{upstream} #{branch}"
 
 when 'update'
   number = current_pr
