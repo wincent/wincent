@@ -117,24 +117,34 @@ if ARGV.length.zero?
   exit
 end
 
+def fetch(number)
+  url = Shellwords.shellescape(pr(number))
+  branch = "pull/#{Shellwords.shellescape(number)}"
+  run "git fetch --update-head-ok #{remote} +pull/#{Shellwords.shellescape(number)}/head:#{branch}"
+  branch
+end
+
 case ARGV.shift
 
 when 'fetch'
-  number = arg
-  url = Shellwords.shellescape(pr(number))
-  branch = "pull/#{Shellwords.shellescape(number)}"
-  upstream = current_branch
-  run "git fetch #{remote} pull/#{Shellwords.shellescape(number)}/head:#{branch}"
-  run "git branch --set-upstream-to=#{upstream} #{branch}"
+  if ARGV.length.zero?
+    number = current_pr
+    if number.nil?
+      die "can't infer PR number from current branch"
+    end
+    fetch(number)
+  else
+    while number = ARGV.shift
+      fetch(number)
+    end
+  end
 
 when 'get'
   number = arg
-  url = Shellwords.shellescape(pr(number))
-  branch = "pull/#{Shellwords.shellescape(number)}"
+  branch = fetch(number)
   upstream = current_branch
-  run "git fetch #{remote} pull/#{Shellwords.shellescape(number)}/head:#{branch}"
-  run "git checkout #{branch}"
   run "git branch --set-upstream-to=#{upstream} #{branch}"
+  run "git checkout #{branch}"
 
 when 'update'
   number = current_pr
