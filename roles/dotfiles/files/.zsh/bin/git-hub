@@ -167,8 +167,18 @@ when 'update'
   end
 
 when 'link'
-  pull = ARGV.shift
-  puts link(pull)
+  if ARGV.length.zero?
+    number = current_pr
+    if number.nil?
+      die "can't infer PR number from current branch"
+    end
+    numbers = [number]
+  else
+    numbers = ARGV
+  end
+  while number = numbers.shift
+    puts link(number)
+  end
 
 when 'open'
   pull = ARGV.shift
