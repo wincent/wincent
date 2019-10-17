@@ -44,7 +44,7 @@ for TARGET in "${TARGETS[@]}"; do
           +7.2.x-private:7.2.x-private &&
         git merge --ff-only upstream/master-private &&
         git push origin -f : &&
-        git clean -fdx -e "$LOG_FILE" &&
+        git clean -fdx -e ant-portal-ee.out &&
         ant -f build-working-dir.xml &&
         ant all &&
         git tag "daily/portal-ee/good/$(date +%Y-%m-%d)" &&
