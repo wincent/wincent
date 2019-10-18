@@ -45,7 +45,7 @@ endfunction
 " Map of .git directories to GitHub user-or-org/project identifiers.
 let s:directories={}
 
-function! s:open_on_github(file) abort
+function! s:open_on_github(file, range) abort
   let l:git_dir=wincent#git#get_git_dir(a:file)
   if l:git_dir == ''
     call wincent#functions#echoerr('No .git directory found above ' . a:file)
@@ -85,7 +85,7 @@ function! s:open_on_github(file) abort
   if l:address != -1
     let l:root=fnamemodify(l:git_dir, ':h')
     let l:relative_path=strcharpart(a:file, strchars(l:root))
-    let l:url=shellescape('https://github.com/' . l:address . '/tree/master' . l:relative_path)
+    let l:url=shellescape('https://github.com/' . l:address . '/tree/master' . l:relative_path . a:range)
     call system('open ' . l:url)
   endif
 endfunction
@@ -97,9 +97,20 @@ function! s:preview(file) abort
   call s:Open('Marked 2.app', a:file)
 endfunction
 
-function! wincent#commands#open_on_github(...) abort
+function! wincent#commands#open_on_github(...) abort range
+  let l:range=''
   if a:0 == 0
     let l:files=[expand('%')]
+
+    " Note: line numbers may not be accurate because we always open the HEAD of
+    " the master branch.
+    if visualmode() != ''
+      if a:firstline == a:lastline
+        let l:range='#L' . a:firstline
+      else
+        let l:range='#L' . a:firstline . '-L' . a:lastline
+      endif
+    endif
   else
     let l:files=a:000
   endif
@@ -107,7 +118,7 @@ function! wincent#commands#open_on_github(...) abort
   for l:file in l:files
     let l:file=fnamemodify(l:file, ':p')
     if l:file !=# ''
-      call s:open_on_github(l:file)
+      call s:open_on_github(l:file, l:range)
       let l:did_open=1
     endif
   endfor

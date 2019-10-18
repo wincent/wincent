@@ -2,7 +2,7 @@
 " TODO: check escaping is correct
 command! -nargs=* -complete=file Find call wincent#commands#find(<q-args>)
 
-command! -nargs=* -complete=file OpenOnGitHub call wincent#commands#open_on_github(<f-args>)
+command! -nargs=* -complete=file -range OpenOnGitHub <line1>,<line2>call wincent#commands#open_on_github(<f-args>)
 
 command! Lint call wincent#commands#lint()
 
