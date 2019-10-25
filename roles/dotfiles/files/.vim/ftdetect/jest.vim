@@ -1,7 +1,7 @@
 autocmd FileType * call s:Test()
 
 function! s:Test()
-  if match(&filetype, '\v<javascript|typescript>') == -1
+  if match(&filetype, '\v<javascript|javascriptreact|typescript|typescriptreact>') == -1
     return
   endif
 
