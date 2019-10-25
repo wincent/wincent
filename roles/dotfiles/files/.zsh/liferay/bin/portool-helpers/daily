@@ -39,7 +39,7 @@ for TARGET in "${TARGETS[@]}"; do
           +7.0.x:7.0.x \
           +7.0.x-private:7.0.x-private \
           +7.1.x:7.1.x \
-          +7.1.x-private:7.1.x-private \
+          +7.1.x-private:7.1.x-private && \
         git merge --ff-only upstream/master-private &&
         git push origin -f : &&
         # TODO: re-enable DXP builds after migration is over.
