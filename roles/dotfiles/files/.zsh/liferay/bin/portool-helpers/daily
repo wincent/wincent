@@ -27,6 +27,7 @@ for TARGET in "${TARGETS[@]}"; do
       LOG_DESC=$(tildify $LOG_FILE)
       (
         echo "ee build started: logging to $LOG_DESC" &&
+        echo > $LOG_FILE &&
         exec 1<&- &&
         exec 2<&- &&
         exec 1<>$LOG_FILE &&
@@ -57,6 +58,7 @@ for TARGET in "${TARGETS[@]}"; do
       LOG_DESC=$(tildify $LOG_FILE)
       (
         echo "master build started: logging to $LOG_DESC" &&
+        echo > $LOG_FILE &&
         exec 1<&- &&
         exec 2<&- &&
         exec 1<>$LOG_FILE &&
@@ -76,6 +78,7 @@ for TARGET in "${TARGETS[@]}"; do
       LOG_DESC=$(tildify $LOG_FILE)
       (
         echo "portal build started: logging to $LOG_DESC" &&
+        echo > $LOG_FILE &&
         exec 1<&- &&
         exec 2<&- &&
         exec 1<>$LOG_FILE &&
