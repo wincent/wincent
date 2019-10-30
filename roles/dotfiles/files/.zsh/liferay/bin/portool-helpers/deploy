@@ -55,7 +55,7 @@ else
     GRADLE="$MODULE/build.gradle"
 
     if [ ! -f "$GRADLE" ]; then
-      GRADLE=$(find modules/apps -name build.gradle -type f -path "*/${MODULE}/*" -maxdepth 3 | head -1)
+      GRADLE=$(find modules/apps modules/dxp/apps -type f -path "*/${MODULE}/build.gradle" -maxdepth 3 -mindepth 2 | head -1)
     fi
 
     if [ -z "$GRADLE" ]; then
