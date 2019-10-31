@@ -19,9 +19,17 @@ function! s:DetectJSX()
     return
   endif
   if s:ScanFile()
-    noautocmd set filetype+=.jsx
+    call s:SetJSX()
   endif
 endfunction
 
-autocmd BufNewFile,BufRead *.js.jsx noautocmd set filetype+=.jsx
+function! s:SetJSX()
+  noautocmd set filetype+=.jsx
+
+  if exists(':LanguageClientStart') == 2
+    LanguageClientStart
+  endif
+endfunction
+
+autocmd BufNewFile,BufRead *.js.jsx,*.jsx call s:SetJSX()
 autocmd BufNewFile,BufRead *.html,*.js call s:DetectJSX()

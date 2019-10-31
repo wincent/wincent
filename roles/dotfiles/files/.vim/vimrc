@@ -46,11 +46,6 @@ let g:LanguageClient_diagnosticsDisplay={
       \   4: {'signTexthl': 'LineNr', 'virtualTexthl': 'User8'},
       \ }
 
-let g:LanguageClient_rootMarkers={
-      \   'javascript': ['tsconfig.json', '.flowconfig', 'package.json'],
-      \   'typescript': ['tsconfig.json', '.flowconfig', 'package.json']
-      \ }
-
 let g:LanguageClient_serverCommands={}
 
 if exists('$DEBUG_LC_LOGFILE')
@@ -105,8 +100,11 @@ let s:js_filetypes=[
       \   'javascript.jest.jsx'
       \ ]
 
+let g:LanguageClient_rootMarkers={}
+
 if s:ts_lsp != []
   for s:ts_filetype in s:ts_filetypes
+    let g:LanguageClient_rootMarkers[s:ts_filetype] = ['tsconfig.json', '.flowconfig', 'package.json']
     let g:LanguageClient_serverCommands[s:ts_filetype]=s:ts_lsp
   endfor
 endif
@@ -121,6 +119,7 @@ endif
 
 if exists('s:js_lsp')
   for s:js_filetype in s:js_filetypes
+    let g:LanguageClient_rootMarkers[s:js_filetype] = ['tsconfig.json', '.flowconfig', 'package.json']
     let g:LanguageClient_serverCommands[s:js_filetype]=s:js_lsp
   endfor
 endif
