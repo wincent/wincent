@@ -31,7 +31,7 @@ let g:tcomment_mapleader_uncomment_anyway='gu'
 
 " Turn off most of the features of this plug-in; I really just want the folding.
 let g:vim_markdown_override_foldtext=0
-let g:vim_markdown_no_default_key_mappings = 1
+let g:vim_markdown_no_default_key_mappings=1
 let g:vim_markdown_emphasis_multiline=0
 let g:vim_markdown_conceal=0
 let g:vim_markdown_frontmatter=1
@@ -39,19 +39,19 @@ let g:vim_markdown_new_list_item_indent=0
 
 let g:LanguageClient_useFloatingHover=1
 let g:LanguageClient_hoverPreview='Always'
-let g:LanguageClient_diagnosticsDisplay = {
+let g:LanguageClient_diagnosticsDisplay={
       \   1: {'signTexthl': 'LineNr', 'virtualTexthl': 'User8'},
       \   2: {'signTexthl': 'LineNr', 'virtualTexthl': 'User8'},
       \   3: {'signTexthl': 'LineNr', 'virtualTexthl': 'User8'},
       \   4: {'signTexthl': 'LineNr', 'virtualTexthl': 'User8'},
       \ }
 
-let g:LanguageClient_rootMarkers = {
+let g:LanguageClient_rootMarkers={
       \   'javascript': ['tsconfig.json', '.flowconfig', 'package.json'],
       \   'typescript': ['tsconfig.json', '.flowconfig', 'package.json']
       \ }
 
-let g:LanguageClient_serverCommands = {}
+let g:LanguageClient_serverCommands={}
 
 if exists('$DEBUG_LC_LOGFILE')
   let g:LanguageClient_loggingFile=$DEBUG_LC_LOGFILE
@@ -157,7 +157,7 @@ if filereadable(s:hostfile)
   execute 'source ' . s:hostfile
 endif
 
-let s:vimrc_local = $HOME . '/.vim/vimrc.local'
+let s:vimrc_local=$HOME . '/.vim/vimrc.local'
 if filereadable(s:vimrc_local)
   execute 'source ' . s:vimrc_local
 endif
