@@ -25,5 +25,12 @@ theme.images.fast.load.check.request.parameter=true
 theme.images.fast.load=false
 tunnel.servlet.hosts.allowed=0:0:0:0:0:0:0:1
 
+# Uncomment this to enable the "deployFast" task (works for CSS, JS, JSP only):
+#
+#    gradlew deploy # initial deploy
+#    gradlew deployFast -at # subsequent changes
+#
+work.dir.override.enabled=true
+
 # Extras:
 module.framework.properties.initial.system.check.enabled=true
