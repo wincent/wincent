@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# TODO: error if not in a module directory
+# TODO: error if work.dir.override.enabled=true isn't in effect
+gradlew deploy && gradlew deployFast -at
