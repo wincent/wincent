@@ -30,13 +30,14 @@ backoff() {
   return $exitCode
 }
 
-signal_ant() {
+signal_proc() {
   SIG=$1
+  TARGET=$2
 
-  PIDS=$(pgrep -f '/usr/local/bin/ant all')
+  PIDS=$(pgrep -f "$TARGET")
 
   if [ -z "$PIDS" ]; then
-    echo "error: \`ant all\` is not running - nothing to send $SIG to"
+    echo "error: \`$TARGET\` is not running - nothing to send $SIG to"
     exit 1
   fi
 
