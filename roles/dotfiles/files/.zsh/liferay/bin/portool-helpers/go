@@ -23,7 +23,7 @@ if ! tmux has-session -t=$SESSION 2> /dev/null; then
 
   # 4. Daily
   tmux new-window -t $SESSION -n daily
-  tmux send-keys -t $SESSION:daily "portool daily all"
+  tmux send-keys -t $SESSION:daily "portool daily"
 
   # 5. portal-master
   tmux new-window -t $SESSION -n master -c ~/code/portal-master/liferay-portal
