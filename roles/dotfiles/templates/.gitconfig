@@ -103,6 +103,11 @@
 
 [difftool]
 	prompt = false
+{% if github_username != '' %}
+
+[github]
+	username = {{ github_username }}
+{% endif %}
 
 [grep]
 	lineNumber = true
