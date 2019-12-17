@@ -133,6 +133,10 @@
 	show-branch = true
 	status = true
 
+[protocol]
+	# Added in Git 2.18.0.
+	version = 2
+
 [push]
 	# Added in Git 1.7.11, default in 2.0, but still required (to avoid warning).
 	default = simple
