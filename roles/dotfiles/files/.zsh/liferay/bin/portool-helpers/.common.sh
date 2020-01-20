@@ -30,6 +30,40 @@ backoff() {
   return $exitCode
 }
 
+node_path() {
+  local DIR=$PWD
+
+  local NODE_BINDIR="$HOME/code/portal/liferay-portal/build/node/bin"
+
+  # File to use to find nearest liferay-portal checkout.
+  local SENTINEL=release.properties
+
+  while [ -n "$DIR" ]; do
+    if [ -e "$DIR/$SENTINEL" ]; then
+      local EXECUTABLE="$DIR/build/node/bin/node"
+
+      if [ -x "$EXECUTABLE" ]; then
+        echo "info: using $EXECUTABLE" >&2
+
+        NODE_BINDIR="$DIR/build/node/bin"
+      fi
+
+      break
+    else
+      DIR=${DIR%/*}
+    fi
+  done
+
+  local NODE_BINARY="$NODE_BINDIR/node"
+
+  if [ ! -x "$NODE_BINARY" ]; then
+    echo "error: no $NODE_BINARY executable" >&2
+    exit 1
+  fi
+
+  echo $NODE_BINDIR
+}
+
 signal_proc() {
   SIG=$1
   TARGET=$2

@@ -1,13 +1,9 @@
-#!/bin/sh
+#!/bin/bash
 
 # Run `yarn` using the liferay-portal version of node.
 
-NODE_BINDIR="$HOME/code/portal/liferay-portal/build/node/bin"
-NODE_BINARY="$NODE_BINDIR/node"
+source "${BASH_SOURCE%/*}/.common.sh"
 
-if [ ! -x "$NODE_BINARY" ]; then
-  echo "error: no $NODE_BINARY executable"
-  exit 1
-fi
+NODE_BINDIR=$(node_path)
 
 env PATH="$NODE_BINDIR:$PATH" yarn "$@"
