@@ -11,6 +11,7 @@ if [ "$HOSTNAME" = 'LFRW044' -o "$HOSTNAME" = 'retiro' ]; then
   () {
     local ALLOY_EDITOR=~/code/portal/liferay-portal/modules/apps/frontend-editor/frontend-editor-alloyeditor-web
     local CKEDITOR=~/code/portal/liferay-portal/modules/apps/frontend-editor/frontend-editor-ckeditor-web
+    local COMMERCE=~/code/commerce/liferay-portal-ee
     local EE=~/code/portal-ee/liferay-portal-ee
     local PORTAL=~/code/portal/liferay-portal
     local DEPLOY=~/code/portal/bundles/deploy
@@ -19,6 +20,7 @@ if [ "$HOSTNAME" = 'LFRW044' -o "$HOSTNAME" = 'retiro' ]; then
 
     test -d "$ALLOY_EDITOR" && hash -d alloy="$ALLOY_EDITOR"
     test -d "$CKEDITOR" && hash -d ckeditor="$CKEDITOR"
+    test -d "$COMMERCE" && hash -d commerce="$COMMERCE"
     test -d "$DEPLOY" && hash -d deploy="$DEPLOY"
     test -d "$EE" && hash -d ee="$EE"
     test -d "$MODULES" && hash -d modules="$MODULES"
