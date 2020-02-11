@@ -7,7 +7,8 @@ set -e
 
 git submodule foreach '
   if [ "${path##roles/dotfiles/files/.vim/pack/}" != "$path" ]; then
-    BRANCH=$(git config -f $toplevel/.gitmodules submodule."$path".branch || echo master)
+    NAME=$(basename $path)
+    BRANCH=$(git config -f $toplevel/.gitmodules submodule."$NAME".branch || echo master)
     git checkout $BRANCH
   fi
 '
