@@ -4,12 +4,17 @@ require 'json'
 require 'shellwords'
 require 'tmpdir'
 
-# Grabs the next command line argument, aborting if there is none.
-def arg(description)
-  ARGV.shift.tap do |arg|
-    if arg.nil?
+# Grabs the next command line argument, aborting if there is none and a default
+# is not provided.
+def arg(description, default = nil)
+  if ARGV.length.zero?
+    if default.nil?
       die "expected a <#{description}> argument; got none"
+    else
+      default
     end
+  else
+    ARGV.shift
   end
 end
 
@@ -108,18 +113,18 @@ end
 def usage
   puts <<-END.gsub(/^ {4}/, '')
     Usage:
-      git hub fetch <pr>      [fetch a PR]
-      git hub get <pr>        [fetch and checkout a PR]
-      git hub link [pr]       [show web URL for PR]
-      git hub ls              [list open PRs]
-      git hub merge [pr]      [merge a PR]
-      git hub open [pr]       [open web URL for PR]
-      git hub send <username> [send a PR to a user]
-      git hub show [pr]       [show a PR on standard out]
-      git hub update          [pull in new commits from current PR]
+      git hub fetch <pr>                [fetch a PR]
+      git hub get <pr>                  [fetch and checkout a PR]
+      git hub link [pr]                 [show web URL for PR]
+      git hub ls                        [list open PRs]
+      git hub merge [pr]                [merge a PR]
+      git hub open [pr]                 [open web URL for PR]
+      git hub send <user> [branch]      [send a PR to a user + branch]
+      git hub show [pr]                 [show a PR on standard out]
+      git hub update                    [pull in new commits from current PR]
 
     Environment variables:
-      REMOTE=...              [override auto-detected remote name]
+      REMOTE=...                        [override auto-detected remote name]
   END
 end
 
@@ -158,9 +163,10 @@ when 'get'
   run "git checkout #{branch}"
 
 when 'send'
-  target = arg('username')
+  target = arg('user')
+  branch = arg('branch', 'master')
   repo = project.sub(%r{^[^/]+/}, '')
-  url = "https://github.com/#{target}/#{repo}/compare/master...#{username}:#{current_branch}"
+  url = "https://github.com/#{target}/#{repo}/compare/#{branch}...#{username}:#{current_branch}"
   run "open #{Shellwords.shellescape(url)}"
 
 when 'update'
