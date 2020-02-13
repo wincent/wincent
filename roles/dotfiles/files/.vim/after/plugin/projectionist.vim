@@ -92,7 +92,7 @@ endfunction
 
 call s:UpdateProjections()
 
-if has('autocmd')
+if has('autocmd') && exists('#DirChanged')
   augroup WincentProjectionist
     autocmd!
     autocmd DirChanged * call <SID>UpdateProjections()
