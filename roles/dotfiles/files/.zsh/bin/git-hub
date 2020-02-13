@@ -209,8 +209,12 @@ when 'open'
 
 when 'ls'
   url = Shellwords.shellescape("https://api.github.com/repos/#{project}/pulls")
-  JSON[%x{curl -L -s -f #{url}}].map do |pull|
-    puts "#{pull['number']}: #{pull['title']}"
+  begin
+    JSON[%x{curl -L -s -f #{url}}].map do |pull|
+      puts "#{pull['number']}: #{pull['title']}"
+    end
+  rescue JSON::ParserError
+    die "Unable to get info for #{project}; is this a private repo?"
   end
 
 when 'merge'
