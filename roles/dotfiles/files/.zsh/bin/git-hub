@@ -115,6 +115,7 @@ def usage
     Usage:
       git hub fetch <pr>                [fetch a PR]
       git hub get <pr>                  [fetch and checkout a PR]
+      git hub go                        [open project in browser]
       git hub link [pr]                 [show web URL for PR]
       git hub ls                        [list open PRs]
       git hub merge [pr]                [merge a PR]
@@ -161,6 +162,10 @@ when 'get'
   upstream = current_branch
   run "git branch --set-upstream-to=#{upstream} #{branch}"
   run "git checkout #{branch}"
+
+when 'go'
+  url = "https://github.com/#{project}/"
+  run "open #{Shellwords.shellescape(url)}"
 
 when 'send'
   target = arg('user')
