@@ -17,6 +17,7 @@
 	ff = merge --ff-only
 	fixup = !sh -c 'git commit --fixup=$1 ${@:2}' -
 	fresh = remote update --prune
+	full = show --format=fuller
 
 	# Shortcut for updating all remotes and fast-forwarding to a specific one:
 	# eg. `git get upstream/master`
