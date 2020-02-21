@@ -1,9 +1,5 @@
 #!/usr/bin/env node
 
-/*
- * Format with: npx prettier --write karabiner.js
- */
-
 function fromTo(from, to) {
   return [
     {
@@ -216,7 +212,7 @@ function visit(item, path, updater) {
     /^(?<root>\$)|\.(?<child>\w+)|\[(?<slice>.+?)\]|(?<done>$)/,
   );
   const {
-    groups: { root, child, slice },
+    groups: {root, child, slice},
   } = match;
   const subpath = path.slice(match[0].length);
   if (root) {
@@ -231,7 +227,7 @@ function visit(item, path, updater) {
     }
   } else if (slice) {
     const {
-      groups: { start, end },
+      groups: {start, end},
     } = slice.match(/^(?<start>\d+):(?<end>\d+)?$/);
     let array;
     for (let i = start, max = end == null ? item.length : end; i < max; i++) {

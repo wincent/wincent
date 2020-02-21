@@ -7,12 +7,8 @@
  * like my code to have Zarro Boogs.
  */
 
-/*
- * Format with: prettier --write karabiner.js
- */
-
 const assert = require('assert');
-const { bundleIdentifier, deepCopy, isObject, visit } = require('./karabiner');
+const {bundleIdentifier, deepCopy, isObject, visit} = require('./karabiner');
 
 (function test_bundleIdentifier() {
   (function $() {
@@ -109,11 +105,11 @@ const { bundleIdentifier, deepCopy, isObject, visit } = require('./karabiner');
     foo: 1,
     bar: [
       {
-        a: [{}, { deep: { prop: 3 } }],
+        a: [{}, {deep: {prop: 3}}],
       },
       {
         a: [],
-        b: [{ deep: { prop: 10 } }],
+        b: [{deep: {prop: 10}}],
       },
     ],
   });

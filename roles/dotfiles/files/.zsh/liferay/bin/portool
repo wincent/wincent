@@ -23,18 +23,20 @@ function die(...messages) {
 async function confirm(prompt) {
   const readline = createInterface({
     input: process.stdin,
-    output: process.stdout
+    output: process.stdout,
   });
 
   return new Promise(resolve => {
     readline.question(`${prompt} [y/n] `, resolve);
 
     readline.write('y');
-  }).then(result => {
-    return /^\s*y(es?)?\s*$/i.test(result);
-  }).finally(() => {
-    readline.close();
-  });
+  })
+    .then(result => {
+      return /^\s*y(es?)?\s*$/i.test(result);
+    })
+    .finally(() => {
+      readline.close();
+    });
 }
 
 // The lowest signal number (via `man 3 signal`).
@@ -59,7 +61,7 @@ function run(command, ...args) {
       }
     });
 
-    child.on('exit', (code) => {
+    child.on('exit', code => {
       if (!resolved) {
         resolved = true;
         if (code) {
@@ -70,9 +72,7 @@ function run(command, ...args) {
               `${description} exited due to signal ${code - 128}`,
             );
           } else {
-            err = new Error(
-              `${description} exited with status ${code}`,
-            );
+            err = new Error(`${description} exited with status ${code}`);
           }
           reject(err);
         } else {
@@ -97,12 +97,12 @@ async function getHelper(command) {
     } catch (error) {
       if (error.code === 'ENOENT') {
         // Check for a possible match.
-        const candidates = fs.readdirSync(dir).filter(
-          entry => /^[a-z]/.test(entry)
-        );
+        const candidates = fs
+          .readdirSync(dir)
+          .filter(entry => /^[a-z]/.test(entry));
 
-        const prefixMatches = candidates.filter(
-          entry => entry.startsWith(command)
+        const prefixMatches = candidates.filter(entry =>
+          entry.startsWith(command),
         );
 
         if (prefixMatches.length === 1) {
@@ -111,15 +111,20 @@ async function getHelper(command) {
         } else if (prefixMatches.length > 1) {
           // Multiple possible prefix matches.
           log(
-            `Ambiguous command ${JSON.stringify(command)} - did you mean one of?\n` +
-            '\n' +
-            prefixMatches.map(prefix => `  ${prefix}`).join('\n') +
-            '\n'
+            `Ambiguous command ${JSON.stringify(
+              command,
+            )} - did you mean one of?\n` +
+              '\n' +
+              prefixMatches.map(prefix => `  ${prefix}`).join('\n') +
+              '\n',
           );
         } else {
           // Prompt for confirmation of best fuzzy match guess.
           const fuzzyMatches = candidates
-            .map(candidate => ({candidate, score: jaroWinkler(candidate, command)}))
+            .map(candidate => ({
+              candidate,
+              score: jaroWinkler(candidate, command),
+            }))
             .filter(({score}) => score)
             .sort((a, b) => {
               if (a.score < b.score) {
@@ -136,11 +141,15 @@ async function getHelper(command) {
 
           if (proposed) {
             log(
-              `Command ${JSON.stringify(command)} invoked, which does not exist.\n`
+              `Command ${JSON.stringify(
+                command,
+              )} invoked, which does not exist.\n`,
             );
 
             const proceed = await confirm(
-              `Do you want to run ${JSON.stringify(proposed.candidate)} instead?`
+              `Do you want to run ${JSON.stringify(
+                proposed.candidate,
+              )} instead?`,
             );
 
             if (proceed) {
@@ -200,13 +209,13 @@ function jaroWinkler(a, b) {
 
   let m = 0;
 
-  const range = (Math.floor(Math.max(s1.length, s2.length) / 2)) - 1;
+  const range = Math.floor(Math.max(s1.length, s2.length) / 2) - 1;
   const s1Matches = new Array(s1.length);
   const s2Matches = new Array(s2.length);
 
   for (let i = 0; i < s1.length; i++) {
-    const low  = (i >= range) ? i - range : 0;
-    const high = (i + range <= (s2.length - 1)) ? (i + range) : (s2.length - 1);
+    const low = i >= range ? i - range : 0;
+    const high = i + range <= s2.length - 1 ? i + range : s2.length - 1;
 
     for (let j = low; j <= high; j++) {
       if (s1Matches[i] !== true && s2Matches[j] !== true && s1[i] === s2[j]) {
@@ -246,7 +255,7 @@ function jaroWinkler(a, b) {
   }
 
   // "sim" is the Jaro similarity ("sim[j]").
-  let sim = (m / s1.length + m / s2.length + (m - (transpositions / 2)) / m) / 3;
+  let sim = (m / s1.length + m / s2.length + (m - transpositions / 2) / m) / 3;
 
   // Apply prefix scaling to obtain Jaro-Winkler similarity ("sim[w]").
 
@@ -282,10 +291,9 @@ async function main(_node, _script, command, ...args) {
   await run(helper, ...args);
 }
 
-main(...process.argv)
-  .catch(err => {
-    error(err);
-    process.exit(1);
-  });
+main(...process.argv).catch(err => {
+  error(err);
+  process.exit(1);
+});
 
 // vim: ft=javascript
