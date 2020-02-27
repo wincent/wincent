@@ -9,10 +9,10 @@ DIR="$HOME/code/portal/bundles/osgi/configs"
 
 usage() {
   echo "Usage:"
-  echo "  portool configs add"
-  echo "  portool configs help"
-  echo "  portool configs ls"
-  echo "  portool configs remove"
+  echo "  portool config add"
+  echo "  portool config help"
+  echo "  portool config ls"
+  echo "  portool config remove"
 }
 
 if [ $# -eq 0 ]; then
