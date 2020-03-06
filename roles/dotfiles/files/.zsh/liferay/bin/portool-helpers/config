@@ -9,21 +9,20 @@ DIR="$HOME/code/portal/bundles/osgi/configs"
 
 usage() {
   echo "Usage:"
-  echo "  portool config add"
+  echo "  portool config add [pattern]"
   echo "  portool config help"
   echo "  portool config ls"
-  echo "  portool config remove"
+  echo "  portool config remove [pattern]"
 }
 
 if [ $# -eq 0 ]; then
   usage
   exit
-elif [ $# -ne 1 ]; then
-  usage
-  exit 1
 fi
 
 ACTION=$1
+
+shift
 
 GREEN='\033[0;32m'
 PURPLE='\033[0;35m'
@@ -32,7 +31,7 @@ RESET='\033[0m'
 
 case $ACTION in
   add|ad|a)
-    ADD=$(ls $CONFIGS | sk)
+    ADD=$(ls $CONFIGS | sk -q "$*")
     echo -e "${PURPLE}[ADD]: $ADD${RESET}"
     cp "$CONFIGS/$ADD" $DIR/
     ;;
@@ -41,6 +40,10 @@ case $ACTION in
     exit
     ;;
   list|lis|li|l|ls)
+    if [ $# -gt 0 ]; then
+      usage
+      exit 1
+    fi
     COLS=$(tput cols)
     echo -e "${GREEN}Available configs:${RESET}"
     echo
@@ -51,7 +54,7 @@ case $ACTION in
     ls "$DIR" | sed 's/^/    /' | cut -c 1-$COLS
     ;;
   remove|remov|remo|rem|re|r|rm)
-    RM=$(ls $DIR | sk)
+    RM=$(ls $DIR | sk -q "$*")
     echo -e "${RED}[REM]: ${RM}${RESET}"
     rm "$DIR/$RM"
     ;;
