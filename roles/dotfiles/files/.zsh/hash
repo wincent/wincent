@@ -7,7 +7,7 @@
 HOSTNAME=$(hostname -s)
 
 # Work stuff:
-if [ "$HOSTNAME" = 'LFRW044' -o "$HOSTNAME" = 'retiro' ]; then
+if [ "$HOSTNAME:u" = 'LFRW044' -o "$HOSTNAME:l" = 'retiro' ]; then
   () {
     local ALLOY_EDITOR=~/code/portal/liferay-portal/modules/apps/frontend-editor/frontend-editor-alloyeditor-web
     local CKEDITOR=~/code/portal/liferay-portal/modules/apps/frontend-editor/frontend-editor-ckeditor-web
