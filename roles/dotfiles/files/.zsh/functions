@@ -65,7 +65,7 @@ function scratch() {
   echo "  $SCRATCH"
   (cd $SCRATCH; zsh)
   echo "Removing scratch directory"
-  rm -r "$SCRATCH"
+  rm -rf "$SCRATCH"
 }
 
 function ssh() {
