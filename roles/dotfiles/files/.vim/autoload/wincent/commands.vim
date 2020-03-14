@@ -42,6 +42,17 @@ function! wincent#commands#mvim() abort
   call s:Open('MacVim.app', l:filename)
 endfunction
 
+function! wincent#commands#vim() abort
+  let l:filename=expand('%:p')
+  if empty(l:filename)
+    echoerr 'No current file'
+    return
+  endif
+
+  let l:url=shellescape(l:filename)
+  call system('open vim://' . l:url)
+endfunction
+
 " Map of .git directories to GitHub user-or-org/project identifiers.
 let s:directories={}
 
