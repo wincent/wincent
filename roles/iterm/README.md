@@ -68,7 +68,7 @@ The "Mutt.json" and "Wincent.json" profiles are just symlinks to the "real" prof
 
 We use this as a shortcut for opening a new iTerm window using Vim to display a file. For example, to open `/etc/passwd` we could `open vim:///etc/passwd`. In reality the reason we want to be able to do this is to set up a Vim command (`:Vim`) to open the current file in a new Vim instance, independently of the current context (often that means outside of tmux).
 
-This relies on `duti` as [described here](https://boinkor.net/2016/12/configuring-iterm2-for-mosh-urls/] to register `vim://` as a URL scheme and tell macOS LaunchServices that iTerm is the handler for it:
+This relies on `duti` as [described here](https://boinkor.net/2016/12/configuring-iterm2-for-mosh-urls/) to register `vim://` as a URL scheme and tell macOS LaunchServices that iTerm is the handler for it:
 
 ```sh
 brew install duti
