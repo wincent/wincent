@@ -5,7 +5,7 @@
       "Guid": "8C012B27-65E8-470D-83FA-B5485479863D",
       "Dynamic Profile Parent Name": "Base",
       "Custom Command" : "Yes",
-      "Command" : "\/usr\/bin\/env OPEN=$$RES$$ \/usr\/local\/bin\/zsh -ic \"\/usr\/local\/bin\/nvim $OPEN\""
+      "Command" : "\/usr\/local\/bin\/zsh -ic \"\/usr\/local\/bin\/nvim $$RES$$\""
     }
   ]
 }
