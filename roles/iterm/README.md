@@ -78,5 +78,5 @@ duti -s com.googlecode.iterm2 vim
 And then we configure iTerm to associate a specific profile's GUID with that URL scheme:
 
 ```sh
-defaults write com.googlecode.iterm2 URLHandlersByGuid -dict-add vim C9389479-10A0-4D67-BCDF-80BA2CA3A3D6
+defaults write com.googlecode.iterm2 URLHandlersByGuid -dict-add vim 18A475CE-8744-4C20-AFAE-AAEBF4F20F40
 ```
