@@ -34,11 +34,6 @@ endfunction
 
 function! wincent#commands#mvim() abort
   let l:filename=expand('%')
-  if empty(l:filename)
-    echoerr 'No current file'
-    return
-  endif
-
   call s:Open('MacVim.app', l:filename)
 endfunction
 
