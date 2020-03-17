@@ -1,0 +1,41 @@
+#!/bin/bash
+
+set -e
+
+REPO_ROOT="${BASH_SOURCE%/*}"
+DENO_BASE="$REPO_ROOT/vendor/deno"
+DENO_INSTALLER="$DENO_BASE/install.sh"
+DENO_INSTALL="$DENO_BASE/local"
+DENO_EXE="$DENO_INSTALL/bin/deno"
+DENO_TYPES="$DENO_BASE/types.d.ts"
+
+for ARG in "$@"; do
+  if [ "$ARG" = "--force" -o "$ARG" = "-f" ]; then
+    FORCE=1
+  fi
+done
+
+if [[ ! -e "$DENO_INSTALLER" || $FORCE ]]; then
+  echo "[status] Fetching Deno installer"
+  command curl -fsSL -o "$DENO_INSTALLER" https://deno.land/x/install/install.sh
+else
+  echo "[skip] Fetch Deno installer; use -f to force re-fetch"
+fi
+
+if [[ ! -e "$DENO_EXE" || $FORCE ]]; then
+  echo "[status] Run Deno installer"
+  export DENO_INSTALL
+  command sh "$DENO_INSTALLER"
+else
+  echo "[skip] Run Deno installer; use -f to force re-install"
+fi
+
+if [[ ! -e "$DENO_TYPES" || $FORCE ]]; then
+  echo "[status] Generate Deno types"
+  "$DENO_EXE" types > "$DENO_TYPES"
+else
+  echo "[skip] Generate Deno types; use -f to force re-generation"
+fi
+
+echo "[status] Running main"
+"$DENO_EXE" run --allow-all lib/main.ts "$@"
