@@ -111,6 +111,7 @@ brew "mpfr"
 brew "msgpack"
 brew "msmtp"
 brew "mutt"
+brew "mtr"
 # brew "n"
 brew "neovim", args: ["HEAD"]
 brew "nettle"
