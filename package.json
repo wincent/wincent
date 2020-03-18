@@ -10,5 +10,11 @@
   "scripts": {
     "format:check": "npx prettier --check \"**/*.js\" \"*.json\" \"*.md\" roles/dotfiles/files/.zsh/liferay/bin/portool",
     "format": "npx prettier --write \"**/*.js\" \"*.json\" \"*.md\" roles/dotfiles/files/.zsh/liferay/bin/portool"
+  },
+  "dependencies": {
+    "typescript": "3.8.3"
+  },
+  "devDependencies": {
+    "@types/node": "*"
   }
 }

@@ -1,5 +1,6 @@
 *.pyc
 /media
+/node_modules
 /python
 /roles/dotfiles/files/.gh.json
 /roles/dotfiles/files/.hammerspoon/iterm.lua

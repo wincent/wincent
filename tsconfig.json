@@ -1,3 +1,9 @@
 {
-  "include": ["src/**/*.ts", "vendor/deno/types.d.ts"]
+  "compilerOptions": {
+    "module": "CommonJS",
+    "outDir": "./lib",
+    "strict": true,
+    "target": "ES2019"
+  },
+  "include": ["src/**/*.ts"]
 }
