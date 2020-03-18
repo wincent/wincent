@@ -190,3 +190,6 @@
 [submodule "vim-markdown"]
 	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-markdown
 	url = https://github.com/plasticboy/vim-markdown.git
+[submodule "n"]
+	path = vendor/n
+	url = https://github.com/tj/n.git
