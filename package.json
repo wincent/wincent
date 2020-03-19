@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "main": "/dev/null",
   "private": true,
-  "repository": "git@git.wincent.com:/pub/git/public/wincent.git",
+  "repository": "https://github.com/wincent/wincent.git",
   "author": "Greg Hurrell <greg@hurrell.net>",
   "license": "Public Domain",
   "scripts": {
