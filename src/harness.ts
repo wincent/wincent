@@ -5,11 +5,7 @@ const TESTS: Array<[string, () => void]> = [];
 export function expect(value: unknown) {
   return {
     toBe(expected: unknown) {
-      assert.equal(
-        value,
-        expected,
-        `Expected ${value} to be ${expected}`
-      );
+      assert.equal(value, expected, `Expected ${value} to be ${expected}`);
     },
   };
 }

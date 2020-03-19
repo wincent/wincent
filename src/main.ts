@@ -10,9 +10,8 @@ async function main() {
   await test();
 }
 
-main()
-  .catch(error => {
-    log(`Error: ${error}`);
+main().catch(error => {
+  log(`Error: ${error}`);
 
-    process.exit(1);
-  });
+  process.exit(1);
+});

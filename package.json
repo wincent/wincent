@@ -8,8 +8,8 @@
   "author": "Greg Hurrell <greg@hurrell.net>",
   "license": "Public Domain",
   "scripts": {
-    "format:check": "npx prettier --check \"**/*.js\" \"*.json\" \"*.md\" roles/dotfiles/files/.zsh/liferay/bin/portool",
-    "format": "npx prettier --write \"**/*.js\" \"*.json\" \"*.md\" roles/dotfiles/files/.zsh/liferay/bin/portool"
+    "format:check": "npx prettier --check \"**/*.{js,ts}\" \"*.json\" \"*.md\" roles/dotfiles/files/.zsh/liferay/bin/portool",
+    "format": "npx prettier --write \"**/*.{js,ts}\" \"*.json\" \"*.md\" roles/dotfiles/files/.zsh/liferay/bin/portool"
   },
   "dependencies": {
     "typescript": "3.8.3"
