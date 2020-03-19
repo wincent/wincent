@@ -12,8 +12,7 @@ yarn --frozen-lockfile --no-default-rc --no-progress --silent
 
 log_info "Building"
 
-# TODO: make bin/tsc
-yarn run --silent tsc
+tsc
 
 log_info "Running main"
 
