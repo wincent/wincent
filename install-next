@@ -8,14 +8,16 @@ NODE_EXE="$BIN_DIR/node"
 YARN_EXE="$BIN_DIR/yarn"
 MAIN_EXE="$REPO_ROOT/lib/main.js"
 
-echo "[status] Installing TypeScript"
+source "$BIN_DIR/common"
+
+log_info "Installing TypeScript"
 
 "$YARN_EXE" --frozen-lockfile --no-default-rc --no-progress --silent
 
-echo "[status] Building"
+log_info "Building"
 
 "$YARN_EXE" run --silent tsc
 
-echo "[status] Running main"
+log_info "Running main"
 
 "$NODE_EXE" "$MAIN_EXE" "$@"

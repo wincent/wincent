@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# https://stackoverflow.com/a/2684300
+if [[ "${BASH_SOURCE[0]}" = "${0}" ]]; then
+  echo "[error] script \"$0\" is intended to be sourced, not executed directly"
+  exit 1
+fi
+
+log_debug() {
+  if [[ -n $DEBUG ]]; then
+    echo "[debug] $*" > /dev/stderr
+  fi
+}
+
+log_error() {
+  echo "[warn] $*" > /dev/stderr
+}
+
+log_info() {
+  echo "[info] $*" > /dev/stderr
+}
+
+log_warn() {
+  echo "[warn] $*" > /dev/stderr
+}

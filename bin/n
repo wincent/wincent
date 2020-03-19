@@ -3,22 +3,25 @@
 set -e
 
 REPO_ROOT="${BASH_SOURCE%/*}/.."
+BIN_DIR="$REPO_ROOT/bin"
 VENDOR_ROOT="$REPO_ROOT/vendor"
 N_EXE="$VENDOR_ROOT/n/bin/n"
 N_PREFIX="$VENDOR_ROOT/node"
 
 export N_PREFIX
 
+source "$BIN_DIR/common"
+
 if [[ ! -x $N_EXE ]]; then
-  echo "[abort] No executable at $N_EXE; did you forget to \`git submodule init\`?" /dev/stderr
+  log_error "No executable at $N_EXE; did you forget to \`git submodule init\`?"
   exit 1
 fi
 
 if ! "$N_EXE" which lts &> /dev/null; then
-  echo "[status] Installing Node LTS version" > /dev/stderr
+  log_info "Installing Installing Node LTS version"
   "$N_EXE" lts
 else
-  echo "[status] Using Node LTS installation" > /dev/stderr
+  log_debug "Using Node LTS installation"
 fi
 
 "$N_EXE" "$@"
