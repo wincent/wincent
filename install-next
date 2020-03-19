@@ -16,6 +16,7 @@ log_info "Installing TypeScript"
 
 log_info "Building"
 
+# TODO: make bin/tsc
 "$YARN_EXE" run --silent tsc
 
 log_info "Running main"
