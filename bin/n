@@ -13,7 +13,7 @@ export N_PREFIX
 source "$BIN_DIR/common"
 
 if [[ ! -x $N_EXE ]]; then
-  log_error "No executable at $N_EXE; did you forget to \`git submodule init\`?"
+  log_error "No executable at $N_EXE; did you forget to \`git submodule update\`?"
   exit 1
 fi
 
