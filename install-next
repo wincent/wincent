@@ -3,38 +3,19 @@
 set -e
 
 REPO_ROOT="${BASH_SOURCE%/*}"
+BIN_DIR="$REPO_ROOT/bin"
+NODE_EXE="$BIN_DIR/node"
+YARN_EXE="$BIN_DIR/yarn"
 MAIN_EXE="$REPO_ROOT/lib/main.js"
-VENDOR_ROOT="$REPO_ROOT/vendor"
-N_EXE="$VENDOR_ROOT/n/bin/n"
-N_PREFIX="$VENDOR_ROOT/node"
-YARN_EXE="$VENDOR_ROOT/yarn-v1.22.4/bin/yarn"
-
-export N_PREFIX
-
-for ARG in "$@"; do
-  if [ "$ARG" = "--force" -o "$ARG" = "-f" ]; then
-    FORCE=1
-  fi
-done
-
-if [[ ! -x $N_EXE ]]; then
-  echo "[abort] No executable at $N_EXE; did you forget to \`git submodule init\`?"
-  exit 1
-fi
-
-if ! "$N_EXE" which lts &> /dev/null; then
-  echo "[status] Installing Node LTS version"
-  "$N_EXE" lts
-fi
 
 echo "[status] Installing TypeScript"
 
-"$N_EXE" exec lts "$YARN_EXE" --frozen-lockfile --no-default-rc --no-progress --silent
+"$YARN_EXE" --frozen-lockfile --no-default-rc --no-progress --silent
 
 echo "[status] Building"
 
-"$N_EXE" exec lts "$YARN_EXE" run --silent tsc
+"$YARN_EXE" run --silent tsc
 
 echo "[status] Running main"
 
-"$N_EXE" run lts "$MAIN_EXE" "$@"
+"$NODE_EXE" "$MAIN_EXE" "$@"

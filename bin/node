@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -e
+
+REPO_ROOT="${BASH_SOURCE%/*}/.."
+N_EXE="$REPO_ROOT/bin/n"
+
+"$N_EXE" run lts "$@"

@@ -1,0 +1,24 @@
+#!/bin/bash
+
+set -e
+
+REPO_ROOT="${BASH_SOURCE%/*}/.."
+VENDOR_ROOT="$REPO_ROOT/vendor"
+N_EXE="$VENDOR_ROOT/n/bin/n"
+N_PREFIX="$VENDOR_ROOT/node"
+
+export N_PREFIX
+
+if [[ ! -x $N_EXE ]]; then
+  echo "[abort] No executable at $N_EXE; did you forget to \`git submodule init\`?" /dev/stderr
+  exit 1
+fi
+
+if ! "$N_EXE" which lts &> /dev/null; then
+  echo "[status] Installing Node LTS version" > /dev/stderr
+  "$N_EXE" lts
+else
+  echo "[status] Using Node LTS installation" > /dev/stderr
+fi
+
+"$N_EXE" "$@"
