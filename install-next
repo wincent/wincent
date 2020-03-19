@@ -3,22 +3,18 @@
 set -e
 
 REPO_ROOT="${BASH_SOURCE%/*}"
-BIN_DIR="$REPO_ROOT/bin"
-NODE_EXE="$BIN_DIR/node"
-YARN_EXE="$BIN_DIR/yarn"
-MAIN_EXE="$REPO_ROOT/lib/main.js"
 
-source "$BIN_DIR/common"
+source "$REPO_ROOT/bin/common"
 
 log_info "Installing TypeScript"
 
-"$YARN_EXE" --frozen-lockfile --no-default-rc --no-progress --silent
+yarn --frozen-lockfile --no-default-rc --no-progress --silent
 
 log_info "Building"
 
 # TODO: make bin/tsc
-"$YARN_EXE" run --silent tsc
+yarn run --silent tsc
 
 log_info "Running main"
 
-"$NODE_EXE" "$MAIN_EXE" "$@"
+node "$REPO_ROOT/lib/main.js" "$@"

@@ -3,7 +3,9 @@
 set -e
 
 REPO_ROOT="${BASH_SOURCE%/*}/.."
-N_EXE="$REPO_ROOT/bin/n"
+
+source "$REPO_ROOT/bin/common"
+
 YARN_EXE="$REPO_ROOT/vendor/yarn-v1.22.4/bin/yarn"
 
-"$N_EXE" exec lts "$YARN_EXE" "$@"
+n exec lts "$YARN_EXE" "$@"

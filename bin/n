@@ -3,14 +3,14 @@
 set -e
 
 REPO_ROOT="${BASH_SOURCE%/*}/.."
-BIN_DIR="$REPO_ROOT/bin"
+
+source "$REPO_ROOT/bin/common"
+
 VENDOR_ROOT="$REPO_ROOT/vendor"
 N_EXE="$VENDOR_ROOT/n/bin/n"
 N_PREFIX="$VENDOR_ROOT/node"
 
 export N_PREFIX
-
-source "$BIN_DIR/common"
 
 if [[ ! -x $N_EXE ]]; then
   log_error "No executable at $N_EXE; did you forget to \`git submodule update\`?"

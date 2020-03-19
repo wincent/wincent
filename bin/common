@@ -6,6 +6,14 @@ if [[ "${BASH_SOURCE[0]}" = "${0}" ]]; then
   exit 1
 fi
 
+# https://stackoverflow.com/a/12694189/2103996
+REPO_ROOT="${BASH_SOURCE%/*}/.."
+
+# https://stackoverflow.com/a/4045350/2103996
+BIN_DIR=$(cd "$REPO_ROOT/bin" && pwd)
+
+export PATH="$BIN_DIR":$PATH
+
 log_debug() {
   if [[ -n $DEBUG ]]; then
     echo "[debug] $*" > /dev/stderr
