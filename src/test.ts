@@ -2,6 +2,8 @@ import * as fs from 'fs';
 import * as path from 'path';
 import {promisify} from 'util';
 
+import {run} from './harness';
+
 const readdir = promisify(fs.readdir);
 
 export default async function test() {
@@ -17,6 +19,8 @@ export default async function test() {
       // print results
     }
   }
+
+  run();
 }
 
 // TODO: move into separate module

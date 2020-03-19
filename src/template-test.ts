@@ -1,10 +1,6 @@
-import * as assert from 'assert';
-
+import {expect, test} from './harness';
 import template from './template';
 
-// TODO provide some kind of `it` wrapper?
-assert.equal(
-  template('process me'),
-  'PROCESS ME',
-  'must be uppercase'
-);
+test('must be uppercase', () => {
+  expect(template('process me')).toBe('PROCESS ME');
+});
