@@ -18,7 +18,7 @@ export default async function test() {
     }
   }
 
-  run();
+  await run();
 }
 
 // TODO: move into separate module
