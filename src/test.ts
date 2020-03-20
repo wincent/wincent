@@ -15,8 +15,6 @@ export default async function test() {
       } catch (error) {
         console.log('caught', error);
       }
-
-      // print results
     }
   }
 

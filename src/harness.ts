@@ -1,6 +1,10 @@
 import * as assert from 'assert';
 
-const TESTS: Array<[string, () => void]> = [];
+import {COLORS, log, print} from './console';
+
+const {green, red, yellow} = COLORS;
+
+const TESTS: Array<[string, () => void | Promise<void>]> = [];
 
 export function expect(value: unknown) {
   return {
@@ -14,20 +18,31 @@ export function test(description: string, callback: () => void): void {
   TESTS.push([description, callback]);
 }
 
-export function run() {
-  const errors = [];
+export async function run() {
+  let failureCount = 0;
+  let successCount = 0;
 
-  TESTS.forEach(([description, callback]) => {
+  for (const [description, callback] of TESTS) {
     try {
-      console.log(description);
-      callback();
+      print(yellow.reverse` TEST `, description);
+      await callback();
+      successCount++;
+      await print.clear();
+      log(green.reverse` PASS `, description);
     } catch (error) {
-      console.log(error);
-      errors.push(error);
+      await print.clear();
+      log(red.reverse` FAIL `, description);
     }
-  });
+  }
 
-  if (errors.length) {
-    // bail...
+  log();
+  log(
+    green.bold`${successCount} passed` + ',',
+    red.bold`${failureCount} failed` + ',',
+    `${successCount + failureCount} total`,
+  );
+
+  if (failureCount) {
+    process.exit(1);
   }
 }

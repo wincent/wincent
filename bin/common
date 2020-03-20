@@ -6,11 +6,17 @@ if [[ "${BASH_SOURCE[0]}" = "${0}" ]]; then
   exit 1
 fi
 
-# https://stackoverflow.com/a/12694189/2103996
-REPO_ROOT="${BASH_SOURCE%/*}/.."
+# Get directory of current script:
+#
+#     https://stackoverflow.com/a/12694189/2103996
 
-# https://stackoverflow.com/a/4045350/2103996
-BIN_DIR=$(cd "$REPO_ROOT/bin" && pwd)
+# and convert to absolute path:
+#
+#     https://stackoverflow.com/a/4045350/2103996
+#
+REPO_ROOT=$(cd "${BASH_SOURCE%/*}/.." && pwd)
+
+BIN_DIR="$REPO_ROOT/bin"
 
 export PATH="$BIN_DIR":$PATH
 

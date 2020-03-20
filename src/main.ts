@@ -1,4 +1,4 @@
-import log from './log';
+import {log} from './console';
 import test from './test';
 
 // argv[0] = node executable

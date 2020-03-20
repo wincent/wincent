@@ -10,6 +10,10 @@ log_info "Installing TypeScript"
 
 yarn --frozen-lockfile --no-default-rc --no-progress --silent
 
+log_info "Cleaning"
+
+rm -r "$REPO_ROOT"/lib/*
+
 log_info "Building"
 
 tsc
