@@ -98,6 +98,7 @@ export function* tokenize(input: string): Generator<Token> {
             kind: 'HostText',
             text: input.slice(i, match.index),
           };
+
           yield {
             kind: 'EndDelimiter',
           };
@@ -137,6 +138,7 @@ export function* tokenize(input: string): Generator<Token> {
         kind: 'TemplateText',
         text: input.slice(i),
       };
+
       break;
     }
   }
