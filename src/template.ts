@@ -79,8 +79,12 @@ type TemplateText = {
   text: string;
 };
 
+/**
+ * ERB
+ * https://stackoverflow.com/a/25626629/2103996
+ */
 export function* tokenize(input: string): Generator<Token> {
-  const delimiter = /(<%=|<%|%>)/g;
+  const delimiter = /(<%=|<%-|<%|-%>|%>)/g;
 
   let i = 0;
 
@@ -93,7 +97,25 @@ export function* tokenize(input: string): Generator<Token> {
       const text = match[0];
 
       if (inHost) {
-        if (text === '%>') {
+        if (text === '-%>') {
+          yield {
+            kind: 'HostText',
+            text: input.slice(i, match.index),
+          };
+
+          yield {
+            kind: 'EndDelimiter',
+          };
+
+          // Remove next character if it is a newline.
+          if (input[delimiter.lastIndex] === '\n') {
+            delimiter.lastIndex++;
+            i = match.index! + text.length + 1;
+            continue;
+          }
+
+          inHost = false;
+        } else if (text === '%>') {
           yield {
             kind: 'HostText',
             text: input.slice(i, match.index),

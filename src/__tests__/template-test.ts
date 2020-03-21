@@ -121,6 +121,16 @@ test('tokenize() handles a template containing a statement', () => {
   ]);
 });
 
+test('tokenize() eats a newline after a "-%>" delimiter', () => {
+  expect([...tokenize('before\n<% something -%>\nafter')]).toEqual([
+    {kind: 'TemplateText', text: 'before\n'},
+    {kind: 'StartStatement'},
+    {kind: 'HostText', text: ' something '},
+    {kind: 'EndDelimiter'},
+    {kind: 'TemplateText', text: 'after'},
+  ]);
+});
+
 test('tokenize() complains about unexpected start delimiters', () => {
   expect(() => [...tokenize('outer <% inner <%')]).toThrow(
     'Unexpected start delimiter "<%" at index 15',
