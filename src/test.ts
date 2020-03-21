@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import {promisify} from 'util';
 
-import {run} from './harness';
+import {run} from './test/harness';
 
 const readdir = promisify(fs.readdir);
 

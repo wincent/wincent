@@ -1,5 +1,5 @@
 import dedent from '../dedent';
-import {expect, test} from '../harness';
+import {expect, test} from '../test/harness';
 import {compile, fill, tokenize} from '../template';
 
 test('compile() compiles an empty template', () => {

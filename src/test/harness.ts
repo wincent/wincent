@@ -1,6 +1,6 @@
 import * as assert from 'assert';
 
-import {COLORS, log, print} from './console';
+import {COLORS, log, print} from '../console';
 
 const {green, red, yellow} = COLORS;
 
