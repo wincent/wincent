@@ -4,6 +4,7 @@
   loop:
     - ~/Archives
     - ~/Local
+    - ~/n
 
 - name: misc | touch ~/mbox
   file: path=~/mbox state=touch
@@ -12,6 +13,7 @@
   command: chflags hidden {{ item }}
   loop:
     - ~/mbox
+    - ~/n
 
 - name: misc | install prefnerd
   gem: name=prefnerd user_install=yes
