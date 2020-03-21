@@ -26,17 +26,15 @@ test('compile() compiles a template containing an expression', () => {
   `);
 });
 
-// TODO: decide whether we want to offer whitespace-slurping variants (<%- and
-// -%>).
 test('compile() compiles a template containing statements', () => {
   expect(
     compile(dedent`
-    first
-    <% if (true) { %>
-    second
-    <% } %>
-    third
-  `),
+      first
+      <% if (true) { %>
+      second
+      <% } %>
+      third
+    `),
   ).toBe(dedent`
     let __buffer__ = "";
     __buffer__ += "first\\n";
@@ -44,6 +42,25 @@ test('compile() compiles a template containing statements', () => {
     __buffer__ += "\\nsecond\\n";
     }
     __buffer__ += "\\nthird\\n";
+    return __buffer__;
+  `);
+
+  // In practice, you'd probably use the slurping variants ("<%-", "-%>").
+  expect(
+    compile(dedent`
+      first
+      <%- if (true) { -%>
+      second
+      <%- } -%>
+      third
+    `),
+  ).toBe(dedent`
+    let __buffer__ = "";
+    __buffer__ += "first\\n";
+    if (true) {
+    __buffer__ += "second\\n";
+    }
+    __buffer__ += "third\\n";
     return __buffer__;
   `);
 });
@@ -69,16 +86,15 @@ test('fill() complains when required scope is missing', () => {
 });
 
 test('fill() fills a template containing statements', () => {
-  // TODO: seems like we're going to want to do something with blank lines
   expect(
     fill(
       dedent`
-    first
-    <% if (something === 'that') { %>
-    second
-    <% } %>
-    third
-  `,
+        first
+        <% if (something === 'that') { %>
+        second
+        <% } %>
+        third
+      `,
       {something: 'that'},
     ),
   ).toBe(dedent`
@@ -87,6 +103,58 @@ test('fill() fills a template containing statements', () => {
     second
 
     third
+  `);
+
+  // In practice, you'd use the slurping variants ("<%-", "-%>").
+  expect(
+    fill(
+      dedent`
+        first
+        <%- if (something === 'that') { -%>
+        second
+        <%- } -%>
+        third
+      `,
+      {something: 'that'},
+    ),
+  ).toBe(dedent`
+    first
+    second
+    third
+  `);
+});
+
+test('fill() correctly handles indented slurping delimiters', () => {
+  expect(
+    fill(
+      dedent`
+        #start
+          <%- if (something === 'that') { -%>
+          middle
+          <%- } -%>
+        #end
+      `,
+      {something: 'that'},
+    ),
+  ).toBe(dedent`
+    #start
+      middle
+    #end
+  `);
+});
+
+test('fill() correctly handles slurping delimiters at edges of template', () => {
+  expect(
+    fill(
+      dedent`
+        <%- if (something === 'that') { -%>
+        conditional
+        <%- } -%>
+      `,
+      {something: 'that'},
+    ),
+  ).toBe(dedent`
+    conditional
   `);
 });
 
@@ -123,6 +191,34 @@ test('tokenize() handles a template containing a statement', () => {
 
 test('tokenize() eats a newline after a "-%>" delimiter', () => {
   expect([...tokenize('before\n<% something -%>\nafter')]).toEqual([
+    {kind: 'TemplateText', text: 'before\n'},
+    {kind: 'StartStatement'},
+    {kind: 'HostText', text: ' something '},
+    {kind: 'EndDelimiter'},
+    {kind: 'TemplateText', text: 'after'},
+  ]);
+
+  expect([...tokenize('before\n<%= something -%>\nafter')]).toEqual([
+    {kind: 'TemplateText', text: 'before\n'},
+    {kind: 'StartExpression'},
+    {kind: 'HostText', text: ' something '},
+    {kind: 'EndDelimiter'},
+    {kind: 'TemplateText', text: 'after'},
+  ]);
+});
+
+test('tokenize() eats whitespace between previous newline and "<%-" delimiter', () => {
+  expect([...tokenize('before\n  <%- something %>\nafter')]).toEqual([
+    {kind: 'TemplateText', text: 'before\n'},
+    {kind: 'StartStatement'},
+    {kind: 'HostText', text: ' something '},
+    {kind: 'EndDelimiter'},
+    {kind: 'TemplateText', text: '\nafter'},
+  ]);
+
+  // But note that, more realistically, "<%-" and "-%>" are generally used
+  // together.
+  expect([...tokenize('before\n  <%- something -%>\nafter')]).toEqual([
     {kind: 'TemplateText', text: 'before\n'},
     {kind: 'StartStatement'},
     {kind: 'HostText', text: ' something '},

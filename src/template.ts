@@ -123,10 +123,18 @@ export function* tokenize(input: string): Generator<Token> {
           );
         }
       } else {
-        yield {
-          kind: 'TemplateText',
-          text: input.slice(i, match.index),
-        };
+        if (text === '<%-') {
+          // Eat whitspace between previous newline and delimiter.
+          yield {
+            kind: 'TemplateText',
+            text: input.slice(i, match.index).replace(/(^|\n)[ \t]+$/, '$1'),
+          };
+        } else {
+          yield {
+            kind: 'TemplateText',
+            text: input.slice(i, match.index),
+          };
+        }
 
         inHost = true;
 
@@ -134,7 +142,7 @@ export function* tokenize(input: string): Generator<Token> {
           yield {
             kind: 'StartExpression',
           };
-        } else if (text === '<%') {
+        } else if (text.startsWith('<%')) {
           yield {
             kind: 'StartStatement',
           };
