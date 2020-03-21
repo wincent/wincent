@@ -97,7 +97,7 @@ export function* tokenize(input: string): Generator<Token> {
       const text = match[0];
 
       if (inHost) {
-        if (text === '-%>') {
+        if (text.endsWith('%>')) {
           yield {
             kind: 'HostText',
             text: input.slice(i, match.index),
@@ -107,25 +107,16 @@ export function* tokenize(input: string): Generator<Token> {
             kind: 'EndDelimiter',
           };
 
-          // Remove next character if it is a newline.
-          if (input[delimiter.lastIndex] === '\n') {
-            delimiter.lastIndex++;
-            i = match.index! + text.length + 1;
-            continue;
+          inHost = false;
+
+          if (text === '-%>') {
+            // Remove next character if it is a newline.
+            if (input[delimiter.lastIndex] === '\n') {
+              delimiter.lastIndex++;
+              i = match.index! + text.length + 1;
+              continue;
+            }
           }
-
-          inHost = false;
-        } else if (text === '%>') {
-          yield {
-            kind: 'HostText',
-            text: input.slice(i, match.index),
-          };
-
-          yield {
-            kind: 'EndDelimiter',
-          };
-
-          inHost = false;
         } else {
           throw new Error(
             `Unexpected start delimiter "${text}" at index ${match.index}`,
