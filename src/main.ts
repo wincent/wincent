@@ -1,3 +1,5 @@
+import './Fig';
+
 import {log} from './console';
 import test from './test';
 
@@ -9,6 +11,9 @@ log.debug(JSON.stringify(process.argv, null, 2));
 async function main() {
   log.info('Running tests');
   await test();
+
+  log.info('Running runbooks');
+  require('../aspects/terminfo');
 }
 
 main().catch(error => {

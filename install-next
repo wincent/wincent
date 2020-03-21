@@ -20,4 +20,4 @@ tsc
 
 log_info "Running main"
 
-node "$REPO_ROOT/lib/main.js" "$@"
+node "$REPO_ROOT/lib/src/main.js" "$@"
