@@ -2,18 +2,18 @@ import * as fs from 'fs';
 import * as path from 'path';
 import {promisify} from 'util';
 
+import {log} from './console';
 import {run} from './test/harness';
 
 const readdir = promisify(fs.readdir);
 
 export default async function test() {
-  // TODO: log start here, maybe show timing
   for await (const file of walk(__dirname)) {
     if (file.endsWith('-test.js')) {
       try {
         require(file);
       } catch (error) {
-        console.log('caught', error);
+        log.error(error);
       }
     }
   }

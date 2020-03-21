@@ -84,8 +84,12 @@ export function test(description: string, callback: () => void): void {
 }
 
 export async function run() {
+  const start = Date.now();
+
   let failureCount = 0;
   let successCount = 0;
+
+  log();
 
   for (const [description, callback] of TESTS) {
     try {
@@ -104,18 +108,20 @@ export async function run() {
     }
   }
 
+  const elapsed = ((Date.now() - start) / 1000).toFixed(2);
+
   const successSummary = successCount
     ? green.bold`${successCount} passed`
     : '0 passed';
+
   const failureSummary = failureCount
     ? red.bold`${failureCount} failed`
     : `0 failed`;
 
+  const totalSummary = `${successCount + failureCount} total in ${elapsed}s`;
+
   log();
-  log(
-    `${successSummary}, ${failureSummary}, ${successCount +
-      failureCount} total`,
-  );
+  log(`${successSummary}, ${failureSummary}, ${totalSummary}`);
 
   if (failureCount) {
     process.exit(1);
