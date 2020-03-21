@@ -1,5 +1,6 @@
 /**
- * Returns a "compiled" template (a string containing a function body).
+ * Returns a "compiled" template (a string containing a function body that can
+ * be evaluated to produce the template output).
  */
 export function compile(source: string) {
   let output = 'let __buffer__ = "";\n';
@@ -37,6 +38,11 @@ type JSONValue =
   | {[property: string]: JSONValue}
   | Array<JSONValue>;
 
+/**
+ * "Fills" a compiled template, which means evaluating it with the supplied
+ * `scope` that provides variables and any other material that maybe needed,
+ * producing the final string result.
+ */
 export function fill(
   template: string,
   scope: {[property: string]: JSONValue} = {},
@@ -80,8 +86,72 @@ type TemplateText = {
 };
 
 /**
- * ERB
- * https://stackoverflow.com/a/25626629/2103996
+ * Tokenizes an input string loosely following the syntax of ERB ("Embedded
+ * Ruby") as described here:
+ *
+ *    https://stackoverflow.com/q/7996695/2103996
+ *
+ * Delimiters are:
+ *
+ *  - "<%=": starts an expression.
+ *  - "<%": starts a statement.
+ *  - "<%-": starts a statement, slurping preceding whitespace.
+ *  - "%>": ends a statement or expression.
+ *  - "-%>": ends a statement or expression, slurping following whitespace.
+ *
+ * Not supported:
+ *
+ *  - "<%#": comments.
+ *
+ * For the specific nuances of "<%-" and "-%>" see:
+ *
+ *    https://stackoverflow.com/a/25626629/2103996
+ *
+ * Note that there is no escaping, so to include a literal delimiter such as
+ * "%>" (or any other) in a template, you would have to split it up as follows:
+ *
+ *    This is how we include literal delimiters like <%= "%" + ">" %> in a
+ *    template.
+ *
+ * This is an example template:
+ *
+ *    This is "template text". It is unrestricted, other than the stipulation
+ *    above that there is no escaping.
+ *
+ *    <%- this is a statement -%>
+ *
+ *    Statements appear inside delimiters. The text inside is called "host
+ *    text" and should be valid source text in the host language of the template
+ *    engine (ie. JavaScript). Note that the above statement breaks this rule
+ *    because it is not valid JavaScript.
+ *
+ *    <%= this is an expression -%>
+ *
+ *    Expressions also appear inside delimiters. Again, we call the text inside
+ *    "host text" and expected it to be valid source text (in JavaScript).
+ *
+ * See the tests for more realistic examples.
+ *
+ * Note that all of this is a departure from the Jinja syntax previously used
+ * when this repo used Ansible:
+ *
+ *  - https://jinja.palletsprojects.com/
+ *  - https://github.com/ansible/ansible
+ *
+ * Jinja used "{{"/"}}" for expressions and "{%"/"%}" for statements, but with
+ * the switch to JS as a "host language", this would have lead to some
+ * hard-to-read constructs:
+ *
+ *    {%- if (test) { -%}
+ *    something
+ *    {%- } -%}
+ *
+ * Which reads somewhat more nicely with ERB-style delimiters:
+ *
+ *    <%- if (test) { -%>
+ *    something
+ *    <%- } -%>
+ *
  */
 export function* tokenize(input: string): Generator<Token> {
   const delimiter = /(<%=|<%-|<%|-%>|%>)/g;
@@ -164,73 +234,3 @@ export function* tokenize(input: string): Generator<Token> {
     }
   }
 }
-
-/*
-
-examples of stuff used in templates (we only have 10)
-
-# {{ ansible_managed }}
-{% if http_proxy != '' %}
-{% endif %}
-path={{ '~/.mail' | expanduser }}
-{{ lookup('env', 'USER') }} ...
-  "notesDirectory": "{{ corpus_notes }}",
-IMAPAccount {{ imap_nickname }}
-{% if github_username != '' %}
-{% if 'work' in group_names %}
-    <string>{{ item.label }}</string>
-
-
-basically want to tokenize incredibly simply based on tokens "{{" "}}" "{%" "%}" etc
-
-print anything outside it, and eval the rest
-
-
-eg
-
-
-foo bar
-
-{% if (true) { %}
-baz
-{% } else { %}
-bing
-{% } %}
-
-should compile to:
-
-let result = 'foo bar\n';
-if (true) {
-result += 'baz'
-} else {
-result += 'bing'
-}
-return result;
-
-and we eval it to get actual final output
-
-to decide: whether to auto-wrap constructs
-like "if true" to "if (true) {"
-
-or to use alternative tags (eg. <% %>)
-
-<% if (test) { %>
-
-(more readable, less magic)
-
-<%= whatever %>
-
-and whether to support {%- -%} <%- -%> etc
-
-GOTCHA: .gitconfig template has <% in it
-
-don't want to implement escaping, so that would have to be
-
-some stuff <%= '<%' %>
-
-note: cannot do <%= '%>' %>
-
-would have to write that as: <%= '%' + '>' %>
-
-
-*/
