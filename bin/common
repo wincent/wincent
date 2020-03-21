@@ -20,20 +20,27 @@ BIN_DIR="$REPO_ROOT/bin"
 
 export PATH="$BIN_DIR":$PATH
 
+# https://stackoverflow.com/a/5947802/2103996
+BOLD='\033[0;1m'
+PURPLE='\033[1;35m'
+RED='\033[1;31m'
+RESET='\033[0m'
+YELLOW='\033[1;33m'
+
 log_debug() {
   if [[ -n $DEBUG ]]; then
-    echo "[debug] $*" > /dev/stderr
+    echo -e "${PURPLE}[debug]${RESET} $*" > /dev/stderr
   fi
 }
 
 log_error() {
-  echo "[warn] $*" > /dev/stderr
+  echo -e "${RED}[error]${RESET} $*" > /dev/stderr
 }
 
 log_info() {
-  echo "[info] $*" > /dev/stderr
+  echo -e "${BOLD}[info]${RESET} $*" > /dev/stderr
 }
 
 log_warn() {
-  echo "[warn] $*" > /dev/stderr
+  echo -e "${YELLOW}[warning]${RESET} $*" > /dev/stderr
 }
