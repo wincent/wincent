@@ -104,11 +104,17 @@ export async function run() {
     }
   }
 
+  const successSummary = successCount
+    ? green.bold`${successCount} passed`
+    : '0 passed';
+  const failureSummary = failureCount
+    ? red.bold`${failureCount} failed`
+    : `0 failed`;
+
   log();
   log(
-    green.bold`${successCount} passed` + ',',
-    red.bold`${failureCount} failed` + ',',
-    `${successCount + failureCount} total`,
+    `${successSummary}, ${failureSummary}, ${successCount +
+      failureCount} total`,
   );
 
   if (failureCount) {
