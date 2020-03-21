@@ -1,7 +1,53 @@
-export default function template(input: string) {
-  // return a "compiled" template
-  // ie. a function that can be evaluated in context
-  return input.toUpperCase();
+/**
+ * Returns a "compiled" template (a string containing a function body).
+ */
+export function compile(source: string) {
+  let output = 'let __buffer__ = "";\n';
+
+  let context = 'TemplateText';
+
+  for (const token of tokenize(source)) {
+    if (token.kind === 'TemplateText') {
+      output += `__buffer__ += ${JSON.stringify(token.text)};\n`;
+    } else if (token.kind === 'HostText') {
+      if (context === 'Expression') {
+        output += `__buffer__ += (${token.text.trim()});\n`;
+      } else if (context === 'Statement') {
+        output += `${token.text.trim()}\n`;
+      }
+    } else if (token.kind === 'StartExpression') {
+      context = 'Expression';
+    } else if (token.kind === 'StartStatement') {
+      context = 'Statement';
+    } else if (token.kind === 'EndDelimiter') {
+      context = 'TemplateText';
+    }
+  }
+
+  output += 'return __buffer__;\n';
+
+  return output;
+}
+
+type JSONValue =
+  | boolean
+  | null
+  | number
+  | string
+  | {[property: string]: JSONValue}
+  | Array<JSONValue>;
+
+export function fill(
+  template: string,
+  scope: {[property: string]: JSONValue} = {},
+) {
+  const context = Object.entries(scope).map(
+    ([key, value]) => `const ${key} = ${JSON.stringify(value)};\n`,
+  );
+
+  const sandbox = new Function(context + compile(template));
+
+  return sandbox();
 }
 
 type Token =
