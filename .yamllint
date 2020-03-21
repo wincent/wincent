@@ -1,8 +1,0 @@
----
-extends: default
-rules:
-  comments:
-    min-spaces-from-content: 1
-  line-length:
-    level: warning
-    max: 132
