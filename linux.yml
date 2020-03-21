@@ -6,5 +6,4 @@
     - { role: vim, tags: vim }
   vars:
     command_t_bundle: ext.so
-    http_proxy: "http://fwdproxy:8080"
     terminfo_path: ~/share/terminfo
