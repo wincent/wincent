@@ -1,6 +1,10 @@
 import {clearLine, cursorTo} from 'readline';
 
-export {default as COLORS} from './console/colors';
+import COLORS from './console/colors';
+
+export {COLORS};
+
+const {bold, purple, red, yellow} = COLORS;
 
 export function clear() {
   return new Promise(resolve => {
@@ -8,6 +12,18 @@ export function clear() {
       cursorTo(process.stderr, 0, undefined, resolve);
     });
   });
+}
+
+function debug(message: string) {
+  log(purple.bold`[debug]` + ` ${message}`);
+}
+
+function error(message: string) {
+  log(red.bold`[error]` + ` ${message}`);
+}
+
+function info(message: string) {
+  log(bold`[info]` + ` ${message}`);
 }
 
 export function log(...args: Array<any>) {
@@ -33,5 +49,14 @@ export function print(...args: Array<any>) {
   );
 }
 
+function warn(message: string) {
+  log(yellow.bold`[warning]` + ` ${message}`);
+}
+
 log.clear = clear;
+log.debug = debug;
+log.error = error;
+log.info = info;
+log.warn = warn;
+
 print.clear = clear;

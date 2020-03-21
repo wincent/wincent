@@ -4,6 +4,7 @@
  */
 const BOLD = '\x1b[1m';
 const GREEN = '\x1b[32m';
+const PURPLE = '\x1b[35m';
 const RED = '\x1b[31m';
 const RESET = '\x1b[0m';
 const REVERSE = '\x1b[7m';
@@ -56,6 +57,31 @@ function green(input: any, ...interpolations: unknown[]) {
     return style(interpolate(input as any, interpolations), GREEN);
   } else {
     return style(input, GREEN);
+  }
+}
+
+/**
+ * Regular function.
+ *
+ * @overload
+ */
+function purple(input: string): string;
+
+/**
+ * Tagged template literal.
+ *
+ * @overload
+ */
+function purple(
+  input: TemplateStringsArray,
+  ...interpolations: unknown[]
+): string;
+
+function purple(input: any, ...interpolations: unknown[]) {
+  if (Array.isArray(input)) {
+    return style(interpolate(input as any, interpolations), PURPLE);
+  } else {
+    return style(input, PURPLE);
   }
 }
 
@@ -174,6 +200,20 @@ const COLORS = {
     }
   },
 
+  purple(
+    this: unknown,
+    strings: TemplateStringsArray,
+    ...interpolations: unknown[]
+  ): string {
+    const result = purple(strings, ...interpolations);
+
+    if (typeof this === 'function') {
+      return this.call(null, result);
+    } else {
+      return result;
+    }
+  },
+
   red(
     this: unknown,
     strings: TemplateStringsArray,
@@ -220,6 +260,7 @@ const COLORS = {
 export default {
   bold: Object.assign(COLORS.bold, COLORS),
   green: Object.assign(COLORS.green, COLORS),
+  purple: Object.assign(COLORS.purple, COLORS),
   red: Object.assign(COLORS.red, COLORS),
   reverse: Object.assign(COLORS.reverse, COLORS),
   yellow: Object.assign(COLORS.yellow, COLORS),
