@@ -24,7 +24,7 @@ export function expect(value: unknown) {
       assert.strictEqual(
         value,
         expected,
-        `Expected ${stringify(value)} to be ${stringify(expected)}`,
+        `Expected ${stringify(value)} to be ${stringify(expected)}`
       );
     },
 
@@ -32,7 +32,7 @@ export function expect(value: unknown) {
       assert.deepStrictEqual(
         value,
         expected,
-        `Expected ${stringify(value)} to equal ${stringify(expected)}`,
+        `Expected ${stringify(value)} to equal ${stringify(expected)}`
       );
     },
 
@@ -58,20 +58,20 @@ export function expect(value: unknown) {
           assert.ok(
             message.includes(expected),
             `Expected message ${stringify(message)} to contain ${stringify(
-              expected,
-            )}`,
+              expected
+            )}`
           );
         } else if (expected instanceof RegExp) {
           assert.ok(
             expected.test(message),
             `Expected message ${stringify(message)} to match ${stringify(
-              expected,
-            )}`,
+              expected
+            )}`
           );
         } else {
           assert.ok(
             caught instanceof expected,
-            `Expected error to be instance of ${expected}`,
+            `Expected error to be instance of ${expected}`
           );
         }
       }

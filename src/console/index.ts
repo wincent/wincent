@@ -45,7 +45,7 @@ export function print(...args: Array<any>) {
           return '???';
         }
       })
-      .join(' '),
+      .join(' ')
   );
 }
 

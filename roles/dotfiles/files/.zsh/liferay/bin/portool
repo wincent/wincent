@@ -69,7 +69,7 @@ function run(command, ...args) {
           const description = `\`${[command, ...args].join(' ')}\``;
           if (code >= 128 + SIGHUP && code <= 128 + SIGUSR2) {
             err = new Error(
-              `${description} exited due to signal ${code - 128}`,
+              `${description} exited due to signal ${code - 128}`
             );
           } else {
             err = new Error(`${description} exited with status ${code}`);
@@ -102,7 +102,7 @@ async function getHelper(command) {
           .filter((entry) => /^[a-z]/.test(entry));
 
         const prefixMatches = candidates.filter((entry) =>
-          entry.startsWith(command),
+          entry.startsWith(command)
         );
 
         if (prefixMatches.length === 1) {
@@ -112,11 +112,11 @@ async function getHelper(command) {
           // Multiple possible prefix matches.
           log(
             `Ambiguous command ${JSON.stringify(
-              command,
+              command
             )} - did you mean one of?\n` +
               '\n' +
               prefixMatches.map((prefix) => `  ${prefix}`).join('\n') +
-              '\n',
+              '\n'
           );
         } else {
           // Prompt for confirmation of best fuzzy match guess.
@@ -142,14 +142,14 @@ async function getHelper(command) {
           if (proposed) {
             log(
               `Command ${JSON.stringify(
-                command,
-              )} invoked, which does not exist.\n`,
+                command
+              )} invoked, which does not exist.\n`
             );
 
             const proceed = await confirm(
               `Do you want to run ${JSON.stringify(
-                proposed.candidate,
-              )} instead?`,
+                proposed.candidate
+              )} instead?`
             );
 
             if (proceed) {

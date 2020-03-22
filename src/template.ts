@@ -45,10 +45,10 @@ type JSONValue =
  */
 export function fill(
   template: string,
-  scope: {[property: string]: JSONValue} = {},
+  scope: {[property: string]: JSONValue} = {}
 ) {
   const context = Object.entries(scope).map(
-    ([key, value]) => `const ${key} = ${JSON.stringify(value)};\n`,
+    ([key, value]) => `const ${key} = ${JSON.stringify(value)};\n`
   );
 
   const sandbox = new Function(context + compile(template));
@@ -189,7 +189,7 @@ export function* tokenize(input: string): Generator<Token> {
           }
         } else {
           throw new Error(
-            `Unexpected start delimiter "${text}" at index ${match.index}`,
+            `Unexpected start delimiter "${text}" at index ${match.index}`
           );
         }
       } else {
@@ -218,7 +218,7 @@ export function* tokenize(input: string): Generator<Token> {
           };
         } else if (text === '%>') {
           throw new Error(
-            `Unexpected end delimiter "%>" at index ${match.index}`,
+            `Unexpected end delimiter "%>" at index ${match.index}`
           );
         }
       }

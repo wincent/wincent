@@ -14,7 +14,7 @@ const {bundleIdentifier, deepCopy, isObject, visit} = require('./karabiner');
   (function $() {
     assert(
       bundleIdentifier('com.apple.TextEdit') === '^com\\.apple\\.TextEdit$',
-      $,
+      $
     );
   })();
 })();
@@ -33,7 +33,7 @@ const {bundleIdentifier, deepCopy, isObject, visit} = require('./karabiner');
     assert(
       JSON.stringify(copy) ===
         '{"object":{"isInner":true},"array":[1,2,[3,4]]}',
-      $,
+      $
     );
   })();
 
@@ -141,7 +141,7 @@ const {bundleIdentifier, deepCopy, isObject, visit} = require('./karabiner');
             }
           ]
         }`),
-      $,
+      $
     );
   })();
 
@@ -155,7 +155,7 @@ const {bundleIdentifier, deepCopy, isObject, visit} = require('./karabiner');
           "foo": 1,
           "bar": [10, 11]
         }`),
-      $,
+      $
     );
   })();
 
@@ -172,7 +172,7 @@ const {bundleIdentifier, deepCopy, isObject, visit} = require('./karabiner');
         updated.bar[0].a !== original.bar[0].a &&
         updated.bar[0].a[0] !== original.bar[0].a[0] &&
         updated.bar[1] === original.bar[1],
-      $,
+      $
     );
   })();
 })();
