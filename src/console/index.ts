@@ -1,6 +1,6 @@
 import {clearLine, cursorTo} from 'readline';
 
-import COLORS from './console/colors';
+import COLORS from './colors';
 
 export {COLORS};
 

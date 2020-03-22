@@ -2,13 +2,13 @@ import * as fs from 'fs';
 import * as path from 'path';
 import {promisify} from 'util';
 
-import {log} from './console';
-import {run} from './test/harness';
+import {log} from '../console';
+import {run} from './harness';
 
 const readdir = promisify(fs.readdir);
 
 export default async function test() {
-  for await (const file of walk(__dirname)) {
+  for await (const file of walk(path.join(__dirname, '..'))) {
     if (file.endsWith('-test.js')) {
       try {
         require(file);
