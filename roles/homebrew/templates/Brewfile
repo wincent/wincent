@@ -182,6 +182,7 @@ brew "xvid"
 brew "xz"
 # brew "yarn"
 brew "zsh"
+brew "zsh-history-substring-search"
 {% if 'work' in group_names %}
 
 # Work packages

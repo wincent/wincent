@@ -231,11 +231,11 @@ if tput cbt &> /dev/null; then
   bindkey "$(tput cbt)" reverse-menu-complete # make Shift-tab go to previous completion
 fi
 
-autoload history-search-end
-zle -N history-beginning-search-backward-end history-search-end
-zle -N history-beginning-search-forward-end history-search-end
-bindkey "\e[A" history-beginning-search-backward-end  # cursor up
-bindkey "\e[B" history-beginning-search-forward-end   # cursor down
+if [ -e /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh ]; then
+  source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+  bindkey '^[[A' history-substring-search-up
+  bindkey '^[[B' history-substring-search-down
+fi
 
 autoload -U select-word-style
 select-word-style bash # only alphanumeric chars are considered WORDCHARS
