@@ -259,11 +259,11 @@ function applyExemptions(profile) {
   return visit(
     profile,
     '$.complex_modifications.rules[0:].manipulators[0:].conditions',
-    conditions => {
+    (conditions) => {
       if (conditions) {
         if (
           conditions.some(
-            condition => condition.type === 'frontmost_application_if',
+            (condition) => condition.type === 'frontmost_application_if',
           )
         ) {
           return conditions;

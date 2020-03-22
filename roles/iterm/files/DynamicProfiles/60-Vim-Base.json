@@ -4,8 +4,8 @@
       "Name": "Vim (Base)",
       "Guid": "8C012B27-65E8-470D-83FA-B5485479863D",
       "Dynamic Profile Parent Name": "Base",
-      "Custom Command" : "Yes",
-      "Command" : "\/usr\/local\/bin\/zsh -ic \"\/usr\/local\/bin\/nvim $$RES$$\""
+      "Custom Command": "Yes",
+      "Command": "/usr/local/bin/zsh -ic \"/usr/local/bin/nvim $$RES$$\""
     }
   ]
 }

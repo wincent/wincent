@@ -116,17 +116,17 @@ const {bundleIdentifier, deepCopy, isObject, visit} = require('./karabiner');
 
   // Helpers for readability.
   const string = JSON.stringify;
-  const squish = s => s.replace(/\s+/g, '');
+  const squish = (s) => s.replace(/\s+/g, '');
 
   // Replacing the entire document.
   (function $() {
-    const updated = visit(subject(), '$', root => 'replacement');
+    const updated = visit(subject(), '$', (root) => 'replacement');
     assert(updated === 'replacement', $);
   })();
 
   // Setting a property on an object.
   (function $() {
-    const updated = visit(subject(), '$.foo', value => value + 5);
+    const updated = visit(subject(), '$.foo', (value) => value + 5);
     assert(
       string(updated) ===
         squish(`{
@@ -148,7 +148,7 @@ const {bundleIdentifier, deepCopy, isObject, visit} = require('./karabiner');
   // Modifying a list.
   (function $() {
     let counter = 10;
-    const updated = visit(subject(), '$.bar[0:]', _ => counter++);
+    const updated = visit(subject(), '$.bar[0:]', (_) => counter++);
     assert(
       string(updated) ===
         squish(`{
@@ -162,7 +162,7 @@ const {bundleIdentifier, deepCopy, isObject, visit} = require('./karabiner');
   // Re-cycling subtrees.
   (function $() {
     const original = subject();
-    const updated = visit(original, '$.bar[0:].a[0:].deep', value => 'xxx');
+    const updated = visit(original, '$.bar[0:].a[0:].deep', (value) => 'xxx');
 
     assert(
       updated !== original &&

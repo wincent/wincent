@@ -13,10 +13,10 @@ export {root};
 export {variable};
 
 export interface Fig {
-  command: typeof command,
-  file: typeof file,
-  path: typeof path,
-  root: typeof root,
-  task: typeof task,
-  variable: typeof variable,
+  command: typeof command;
+  file: typeof file;
+  path: typeof path;
+  root: typeof root;
+  task: typeof task;
+  variable: typeof variable;
 }

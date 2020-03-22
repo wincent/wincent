@@ -26,12 +26,12 @@ async function confirm(prompt) {
     output: process.stdout,
   });
 
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     readline.question(`${prompt} [y/n] `, resolve);
 
     readline.write('y');
   })
-    .then(result => {
+    .then((result) => {
       return /^\s*y(es?)?\s*$/i.test(result);
     })
     .finally(() => {
@@ -54,14 +54,14 @@ function run(command, ...args) {
       child.kill('SIGINT');
     });
 
-    child.on('error', err => {
+    child.on('error', (err) => {
       if (!resolved) {
         resolved = true;
         reject(err);
       }
     });
 
-    child.on('exit', code => {
+    child.on('exit', (code) => {
       if (!resolved) {
         resolved = true;
         if (code) {
@@ -99,9 +99,9 @@ async function getHelper(command) {
         // Check for a possible match.
         const candidates = fs
           .readdirSync(dir)
-          .filter(entry => /^[a-z]/.test(entry));
+          .filter((entry) => /^[a-z]/.test(entry));
 
-        const prefixMatches = candidates.filter(entry =>
+        const prefixMatches = candidates.filter((entry) =>
           entry.startsWith(command),
         );
 
@@ -115,13 +115,13 @@ async function getHelper(command) {
               command,
             )} - did you mean one of?\n` +
               '\n' +
-              prefixMatches.map(prefix => `  ${prefix}`).join('\n') +
+              prefixMatches.map((prefix) => `  ${prefix}`).join('\n') +
               '\n',
           );
         } else {
           // Prompt for confirmation of best fuzzy match guess.
           const fuzzyMatches = candidates
-            .map(candidate => ({
+            .map((candidate) => ({
               candidate,
               score: jaroWinkler(candidate, command),
             }))
@@ -291,7 +291,7 @@ async function main(_node, _script, command, ...args) {
   await run(helper, ...args);
 }
 
-main(...process.argv).catch(err => {
+main(...process.argv).catch((err) => {
   error(err);
   process.exit(1);
 });

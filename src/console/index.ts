@@ -7,7 +7,7 @@ export {COLORS};
 const {bold, purple, red, yellow} = COLORS;
 
 export function clear() {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     clearLine(process.stderr, 0, () => {
       cursorTo(process.stderr, 0, undefined, resolve);
     });
@@ -34,7 +34,7 @@ export function log(...args: Array<any>) {
 export function print(...args: Array<any>) {
   process.stderr.write(
     args
-      .map(arg => {
+      .map((arg) => {
         try {
           if (typeof arg === 'object' && arg) {
             return JSON.stringify(arg, null, 2);

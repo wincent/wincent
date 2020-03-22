@@ -13,9 +13,8 @@ export default function task(name: string, callback: (Fig: Fig) => void) {
 
   const ancestors = relative(root, caller).split(sep);
 
-  const aspect = ancestors[0] === 'lib' &&
-    ancestors[1] === 'aspects' &&
-    ancestors[2];
+  const aspect =
+    ancestors[0] === 'lib' && ancestors[1] === 'aspects' && ancestors[2];
 
   if (!aspect) {
     throw new Error(`Unable to determine aspect for ${caller}`);

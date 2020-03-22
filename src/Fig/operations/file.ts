@@ -7,12 +7,12 @@ export default function file({
   path,
   src,
   state,
-} : {
-  path: string,
-  mode?: string,
-  src?: string,
-  state: 'directory' | 'file' | 'link' | 'touch',
-  force?: boolean
+}: {
+  path: string;
+  mode?: string;
+  src?: string;
+  state: 'directory' | 'file' | 'link' | 'touch';
+  force?: boolean;
 }) {
   log(`file: ${path} -> ${state}`);
 }

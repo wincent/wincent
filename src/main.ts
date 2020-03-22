@@ -20,7 +20,7 @@ async function main() {
   // TODO: decide whether to register tasks for deferred running, or run them eagerly
 }
 
-main().catch(error => {
+main().catch((error) => {
   log.error(error);
 
   process.exit(1);
