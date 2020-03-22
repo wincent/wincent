@@ -8,13 +8,19 @@ const schema = {
     properties: {
       platforms: {
         type: 'object',
-        patternProperties: {
-          '.*': {
+        properties: {
+          darwin: {
             type: 'array',
             items: {
               type: 'string',
             },
           },
+          linux: {
+            type: 'array',
+            items: {
+              type: 'string',
+            },
+          }
         },
         profiles: {
           type: 'object',
