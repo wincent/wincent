@@ -30,14 +30,6 @@ export function compile(source: string) {
   return output;
 }
 
-type JSONValue =
-  | boolean
-  | null
-  | number
-  | string
-  | {[property: string]: JSONValue}
-  | Array<JSONValue>;
-
 /**
  * "Fills" a compiled template, which means evaluating it with the supplied
  * `scope` that provides variables and any other material that maybe needed,
