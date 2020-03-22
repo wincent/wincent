@@ -21,7 +21,7 @@ export default function task(name: string, callback: (Fig: Fig) => void) {
   }
 
   // TODO: use `caller` to make namespaced task name.
-  // TODO: read "meta.json" from aspect, if it exists
+  // TODO: read "aspect.json" from aspect
   console.log(`caller: ${aspect}`);
 
   // TODO: make this less verbose?; need to explicitly recreate this object here

@@ -1,4 +1,4 @@
-This role manages `TERMINFO` files that add escape sequences for italic,
+This aspect manages `TERMINFO` files that add escape sequences for italic,
 and overwrite conflicting sequences for standout text.
 
 To check that the terminal does the right thing:
