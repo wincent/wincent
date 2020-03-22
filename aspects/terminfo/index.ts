@@ -1,14 +1,18 @@
-// because we want relative file access, will have to direct it via API (because
-// files are in "aspects" but we are built in "lib/aspects"
+import {task} from '../../src/Fig';
 
-// - name: terminfo | create target directory
-//   file: path={{ terminfo_path }} state=directory
-Fig.task('create target directory');
+task('create target directory', ({file, variable}) => {
+  file({
+    path: variable('terminfo_path'),
+    state: 'directory'
+  });
+});
 
-// - name: terminfo | update terminfo files
-//   command:
-//     tic -o {{ terminfo_path }} roles/terminfo/files/{{ item }}
-//   loop:
-//     - tmux.terminfo
-//     - tmux-256color.terminfo
-//     - xterm-256color.terminfo
+task('update terminfo files', ({command, path, variable}) => {
+  [
+    'tmux.terminfo',
+    'tmux-256color.terminfo',
+    'xterm-256color.terminfo',
+  ].forEach(item => {
+    command('tic', '-o', variable('terminfo_path'), path.file(item))
+  });
+});
