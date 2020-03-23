@@ -5,7 +5,7 @@ const assert = require('assert');
  *
  * @see https://json-schema.org/
  */
-const schemas = {
+const SCHEMAS = {
   Project: {
     properties: {
       platforms: {
@@ -39,14 +39,126 @@ const schemas = {
   },
 };
 
-for (const [typeName, typeSchema] of Object.entries(schemas)) {
-  let output =
-    '/**\n' +
-    ' * @generated\n' +
-    ' */\n' +
-    '\n' +
-    `export interface ${typeName} {\n`;
+class Builder {
+  constructor({tabWidth = 2} = {}) {
+    this.indentLevel = 0;
+    this.output = '';
+    this.tabWidth = tabWidth;
+  }
 
+  arrow(params, value) {
+    this.printIndent().print(`${params} => `);
+
+    if (typeof value === 'function') {
+      return this.line(`{`).block(value).line('}');
+    } else {
+      return this.print(value);
+    }
+  }
+
+  blank() {
+    return this.print('\n');
+  }
+
+  block(callback) {
+    this.indent();
+
+    callback();
+
+    return this.dedent();
+  }
+
+  call(name, args) {
+    this.print(`.${name}`);
+
+    if (typeof args === 'function') {
+      return this.line('(').block(args).line(');');
+    } else {
+      return this.print(`(${args})`);
+    }
+  }
+
+  dedent() {
+    this.indentLevel--;
+
+    assert(this.indentLevel >= 0, 'Indent level must be non-negative');
+
+    return this;
+  }
+
+  ['function'](open, callback) {
+    return this.line(`export function ${open} {`).block(callback).line('}');
+  }
+
+  // TODO: handle else if/else with ...rest
+  ['if'](condition, callback, ...rest) {
+    return this.line(`if (${condition}) {`).block(callback).line('}');
+  }
+
+  indent() {
+    this.indentLevel++;
+
+    return this;
+  }
+
+  interface(name, callback = () => {}) {
+    return this.line(`export interface ${name} {`).block(callback).line(`}`);
+  }
+
+  docblock(...lines) {
+    this.line('/**');
+
+    lines.forEach((line) => this.line(` * ${line}`));
+
+    return this.line(' */');
+  }
+
+  print(text) {
+    this.output += text;
+
+    return this;
+  }
+
+  last() {
+    const length = this.output.length;
+
+    if (length) {
+      return this.output[length - 1];
+    } else {
+      return null;
+    }
+  }
+
+  line(line) {
+    return this.printIndent().print(`${line}\n`);
+  }
+
+  property(key, value) {
+    this.printIndent().print(`${key}: `);
+
+    if (typeof value === 'function') {
+      value();
+    } else {
+      this.line(`${value};`);
+    }
+
+    return this;
+  }
+
+  printIndent() {
+    const length = this.output.length;
+
+    if (!length || this.last() === '\n') {
+      const indent = ' '.repeat(this.indentLevel * this.tabWidth);
+
+      this.print(indent);
+    }
+
+    return this;
+  }
+}
+
+for (const [typeName, typeSchema] of Object.entries(SCHEMAS)) {
   if (typeSchema.type !== 'object') {
     // We only generate interfaces, which means we need objects.
     throw new Error(
@@ -56,143 +168,155 @@ for (const [typeName, typeSchema] of Object.entries(schemas)) {
     );
   }
 
+  const b = new Builder();
+
+  b.docblock('@generated').blank();
+
   const options = {
+    builder: b,
     required: new Set(typeSchema.required || []),
-    indentLevel: 2,
   };
 
-  if (typeSchema.properties) {
-    for (const [propertyName, propertySchema] of Object.entries(
-      typeSchema.properties
-    )) {
-      output += genProperty(propertyName, propertySchema, options);
+  b.interface(typeName, () => {
+    if (typeSchema.properties) {
+      for (const [propertyName, propertySchema] of Object.entries(
+        typeSchema.properties
+      )) {
+        genProperty(propertyName, propertySchema, options);
+      }
     }
-  }
 
-  if (typeSchema.patternProperties) {
-    for (const [pattern, patternSchema] of Object.entries(
-      typeSchema.patternProperties
-    )) {
-      output += genPatternProperty(pattern, patternSchema, options);
+    if (typeSchema.patternProperties) {
+      for (const [pattern, patternSchema] of Object.entries(
+        typeSchema.patternProperties
+      )) {
+        genPatternProperty(pattern, patternSchema, options);
+      }
     }
-  }
-
-  output += '}\n\n';
-
-  output += genAssertFunction(typeName, typeSchema, {
-    required: options.required,
   });
 
-  process.stdout.write(output);
+  b.blank();
+
+  genAssertFunction(typeName, typeSchema, options);
+
+  process.stdout.write(b.output);
 }
 
 function genAssertFunction(typeName, typeSchema, options) {
-  // TODO: consider implementing a builder pattern here because it may be more
-  // robust
-  let output = '';
+  const b = options.builder;
 
   const fn = `assert${typeName}`;
 
-  output += `export function ${fn}(json: any): asserts json is ${typeName} {\n`;
-  output += `  if (!json || typeof json !== 'object') {\n`;
-  output += `    throw new Error('${fn}: Supplied value is not an object');\n`;
-  output += `  }\n`;
-  output += `\n`;
+  b.function(`${fn}(json: any): asserts json is ${typeName}`, () => {
+    b.if(`!json || typeof json !== 'object'`, () => {
+      b.line(`throw new Error('${fn}: Supplied value is not an object');`);
+    }).blank();
 
-  if (options.required.size) {
-    const required = Array.from(options.required)
-      .map((item) => `'${item}'`)
-      .join(', ');
+    if (options.required.size) {
+      const required = Array.from(options.required)
+        .map((item) => `'${item}'`)
+        .join(', ');
 
-    output += `  const missingKeys = [${required}].filter(key => {\n`;
-    output += `    return !json.hasOwnProperty(key);\n`;
-    output += `  }\n`;
-    output += `\n`;
-    output += `  if (missingKeys.length) {\n`;
-    output += `    throw new Error(\n`;
-    output += `      \`${fn}: Missing required keys: \${missingKeys.join(', ')}\`\n`;
-    output += `    );\n`;
-    output += `  }\n`;
-    output += `\n`;
-  }
-
-  if (!typeSchema.patternProperties && typeSchema.properties) {
-    const allowed = Object.keys(typeSchema.properties)
-      .map((item) => `'${item}'`)
-      .join(', ');
-
-    output += `  const allowedKeys = new Set([${allowed}]);\n`;
-    output += `\n`;
-    output += `  const excessKeys = Object.keys(json).filter(\n`;
-    output += `    (key: any) => !allowedKeys.has(key)\n`;
-    output += `  );\n`;
-    output += `\n`;
-  }
-
-  if (typeSchema.properties) {
-    Object.entries(typeSchema.properties).forEach(
-      ([propertyName, propertySchema]) => {
-        output += `  if (json.hasOwnProperty('${propertyName}')) {\n`;
-        output += `    const ${propertyName} = json.${propertyName};\n`;
-        output += `\n`;
-
-        if (propertySchema.type === 'object') {
-          output += `    if (!${propertyName} || typeof ${propertyName} !== 'object') {\n`;
-          output += `      throw new Error('${fn}: "${propertyName}" value is not an object');\n`;
-          output += `    }\n`;
-          output += `\n`;
-        }
-
-        output += `  }\n`;
-        output += `\n`;
-      }
-    );
-  }
-
-  output += '}\n';
-
-  return output;
-}
-
-function genProperty(propertyName, propertySchema, options = {}) {
-  let output = '';
-
-  const indent = ' '.repeat(options.indentLevel);
-
-  const optional = options.required.has(propertyName) ? '' : '?';
-
-  output += `${indent}${propertyName}${optional}: `;
-
-  if (propertySchema.type === 'array') {
-    output += 'Array<';
-    output += propertySchema.items.type;
-    output += '>;\n';
-  } else if (propertySchema.type === 'object') {
-    output += `{\n`;
-
-    if (propertySchema.properties) {
-      Object.entries(propertySchema.properties).forEach(
-        ([subpropertyName, subpropertySchema]) => {
-          output += genProperty(subpropertyName, subpropertySchema, {
-            ...options,
-            indentLevel: options.indentLevel + 2,
+      b.printIndent()
+        .print(`const missingKeys = [${required}]`)
+        .call('filter', () => {
+          b.arrow(`key`, () => {
+            b.line(`return !json.hasOwnProperty(key);`);
           });
+        })
+        .blank()
+        .if('missingKeys.length', () => {
+          b.line(`throw new Error(`)
+            .indent()
+            .line(
+              `\`${fn}: Missing required keys: \${missingKeys.join(', ')}\``
+            )
+            .dedent()
+            .line(`);`);
+        })
+        .blank();
+    }
+
+    if (!typeSchema.patternProperties && typeSchema.properties) {
+      const allowed = Object.keys(typeSchema.properties)
+        .map((item) => `'${item}'`)
+        .join(', ');
+
+      b.line(`const allowedKeys = new Set([${allowed}]);`)
+        .blank()
+        .printIndent()
+        .print(`const excessKeys = Object.keys(json)`)
+        .call('filter', () => {
+          b.arrow('(key: any)', () => {
+            b.line(' return !allowedKeys.has(key);');
+          });
+        })
+        .blank();
+    }
+
+    if (typeSchema.properties) {
+      Object.entries(typeSchema.properties).forEach(
+        ([propertyName, propertySchema]) => {
+          b.if(`json.hasOwnProperty('${propertyName}'))`, () => {
+            b.line(`const ${propertyName} = json.${propertyName};`).blank();
+
+            if (propertySchema.type === 'object') {
+              b.if(
+                `!${propertyName} || typeof ${propertyName} !== 'object'`,
+                () => {
+                  b.line(
+                    `throw new Error('${fn}: "${propertyName}" value is not an object');`
+                  );
+                }
+              );
+            }
+          }).blank();
         }
       );
     }
+  });
+}
 
-    if (propertySchema.patternProperties) {
-      for (const [pattern, patternSchema] of Object.entries(
-        propertySchema.patternProperties
-      )) {
-        output += genPatternProperty(pattern, patternSchema, {
-          ...options,
-          indentLevel: options.indentLevel + 2,
-        });
+function genProperty(propertyName, propertySchema, options) {
+  const b = options.builder;
+
+  let output = '';
+
+  const optional = options.required.has(propertyName) ? '' : '?';
+
+  const key = `${propertyName}${optional}`;
+
+  let value;
+
+  if (propertySchema.type === 'array') {
+    value = `Array<${propertySchema.items.type}>`;
+  } else if (propertySchema.type === 'object') {
+    value = () => {
+      b.line('{').indent();
+
+      const nextOptions = {
+        ...options,
+        required: new Set(propertySchema.required || []),
+      };
+
+      if (propertySchema.properties) {
+        Object.entries(propertySchema.properties).forEach(
+          ([subpropertyName, subpropertySchema]) => {
+            genProperty(subpropertyName, subpropertySchema, nextOptions);
+          }
+        );
       }
-    }
 
-    output += `${indent}};\n`;
+      if (propertySchema.patternProperties) {
+        for (const [pattern, patternSchema] of Object.entries(
+          propertySchema.patternProperties
+        )) {
+          genPatternProperty(pattern, patternSchema, nextOptions);
+        }
+      }
+
+      b.dedent().line('}');
+    };
   } else {
     throw new Error(
       `Property ${JSON.stringify(
@@ -201,7 +325,7 @@ function genProperty(propertyName, propertySchema, options = {}) {
     );
   }
 
-  return output;
+  b.property(key, value);
 }
 
 function genPatternProperty(pattern, patternSchema, options) {
@@ -213,31 +337,15 @@ function genPatternProperty(pattern, patternSchema, options) {
     );
   }
 
-  const indent = ' '.repeat(options.indentLevel);
+  const b = options.builder;
 
-  let output = `${indent}[key: string]: `;
+  let value;
 
   if (patternSchema.type === 'string') {
-    output += 'string;\n';
+    value = 'string';
   } else {
-    throw new Error('Implement');
+    throw new Error('TODO: Implement');
   }
 
-  return output;
-}
-
-class Builder {
-  constructor() {
-    this.indentLevel = 0;
-  }
-
-  dedent() {
-    this.indentLevel = this.indentLevel - 2;
-
-    assert(indentLevel >= 0, 'Indent level must be non-negative');
-  }
-
-  indent() {
-    this.indentLevel = this.indentLevel + 2;
-  }
+  b.property('[key: string]', value);
 }
