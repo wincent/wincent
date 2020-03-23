@@ -1,3 +1,5 @@
+const assert = require('assert');
+
 /**
  * Subset of JSON Schema.
  *
@@ -222,4 +224,20 @@ function genPatternProperty(pattern, patternSchema, options) {
   }
 
   return output;
+}
+
+class Builder {
+  constructor() {
+    this.indentLevel = 0;
+  }
+
+  dedent() {
+    this.indentLevel = this.indentLevel - 2;
+
+    assert(indentLevel >= 0, 'Indent level must be non-negative');
+  }
+
+  indent() {
+    this.indentLevel = this.indentLevel + 2;
+  }
 }
