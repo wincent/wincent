@@ -229,6 +229,16 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=59'
 
 source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
+# Note that this will only ensure unique history if we supply a prefix
+# before hitting "up" (ie. we perform a "search"). HIST_FIND_NO_DUPS
+# won't prevent dupes from appearing when just hitting "up" without a
+# prefix (ie. that's "zle up-line-or-history" and not classified as a
+# "search"). This is a difference from the old behavior I used to have with
+# "history-beginning-search-backward-end".
+#
+# https://superuser.com/a/1494647/322531
+HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
+
 # Uncomment this to get syntax highlighting:
 # source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
