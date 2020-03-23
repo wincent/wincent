@@ -20,4 +20,4 @@ case "$1" in
     ;;
 esac
 
-$BUNDLES/tomcat-9.0.17/bin/catalina.sh run
+$BUNDLES/tomcat-9.0.33/bin/catalina.sh run
