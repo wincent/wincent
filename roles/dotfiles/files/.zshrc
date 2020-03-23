@@ -205,9 +205,9 @@ setopt CLOBBER                 # allow clobbering with >, no need to use >!
 setopt CORRECT                 # [default] command auto-correction
 setopt CORRECT_ALL             # [default] argument auto-correction
 setopt NO_FLOW_CONTROL         # disable start (C-s) and stop (C-q) characters
-setopt NO_HIST_IGNORE_ALL_DUPS # don't filter duplicates from history
-setopt NO_HIST_IGNORE_DUPS     # don't filter contiguous duplicates from history
+setopt NO_HIST_IGNORE_ALL_DUPS # don't filter non-contiguous duplicates from history
 setopt HIST_FIND_NO_DUPS       # don't show dupes when searching
+setopt HIST_IGNORE_DUPS        # do filter contiguous duplicates from history
 setopt HIST_IGNORE_SPACE       # [default] don't record commands starting with a space
 setopt HIST_VERIFY             # confirm history expansion (!$, !!, !foo)
 setopt IGNORE_EOF              # [default] prevent accidental C-d from exiting shell
@@ -233,8 +233,8 @@ source /usr/local/share/zsh-history-substring-search/zsh-history-substring-searc
 # before hitting "up" (ie. we perform a "search"). HIST_FIND_NO_DUPS
 # won't prevent dupes from appearing when just hitting "up" without a
 # prefix (ie. that's "zle up-line-or-history" and not classified as a
-# "search"). This is a difference from the old behavior I used to have with
-# "history-beginning-search-backward-end".
+# "search"). So, we have HIST_IGNORE_DUPS to make life bearable for that
+# case.
 #
 # https://superuser.com/a/1494647/322531
 HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
