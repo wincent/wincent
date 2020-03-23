@@ -221,6 +221,18 @@ setopt PUSHD_SILENT            # [default] don't print dir stack after pushing/p
 setopt SHARE_HISTORY           # share history across shells
 
 #
+# Plug-ins
+#
+
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=59'
+
+source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+
+# Uncomment this to get syntax highlighting:
+# source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+#
 # Bindings
 #
 
@@ -231,11 +243,8 @@ if tput cbt &> /dev/null; then
   bindkey "$(tput cbt)" reverse-menu-complete # make Shift-tab go to previous completion
 fi
 
-if [ -e /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh ]; then
-  source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-  bindkey '^[[A' history-substring-search-up
-  bindkey '^[[B' history-substring-search-down
-fi
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 autoload -U select-word-style
 select-word-style bash # only alphanumeric chars are considered WORDCHARS
@@ -438,16 +447,6 @@ test -f $LOCAL_RC && source $LOCAL_RC
 
 HOST_RC=$HOME/.zsh/host/$(hostname -s)
 test -f $HOST_RC && source $HOST_RC
-
-#
-# Plug-ins
-#
-
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=59'
-
-# Uncomment this to get syntax highlighting:
-# source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #
 # /etc/motd

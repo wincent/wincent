@@ -193,3 +193,6 @@
 [submodule "n"]
 	path = vendor/n
 	url = https://github.com/tj/n.git
+[submodule "zsh-history-substring-search"]
+	path = roles/dotfiles/files/.zsh/zsh-history-substring-search
+	url = https://github.com/zsh-users/zsh-history-substring-search
