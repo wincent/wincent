@@ -254,26 +254,53 @@ function genAssertFunction(typeName, typeSchema, options) {
         .blank();
     }
 
-    if (typeSchema.properties) {
-      Object.entries(typeSchema.properties).forEach(
-        ([propertyName, propertySchema]) => {
-          b.if(`json.hasOwnProperty('${propertyName}'))`, () => {
-            b.line(`const ${propertyName} = json.${propertyName};`).blank();
+    function genAssertProperties(obj, properties) {
+      if (!properties) {
+        return;
+      }
 
-            if (propertySchema.type === 'object') {
+      Object.entries(properties).forEach(([propertyName, propertySchema]) => {
+        b.if(`${obj}.hasOwnProperty('${propertyName}'))`, () => {
+          b.line(`const ${propertyName} = ${obj}.${propertyName};`).blank();
+
+          if (propertySchema.type === 'object') {
+            b.if(
+              `!${propertyName} || typeof ${propertyName} !== 'object'`,
+              () => {
+                b.line(
+                  `throw new Error('${fn}: "${propertyName}" value is not an object');`
+                );
+              }
+            ).blank();
+
+            genAssertProperties(propertyName, propertySchema.properties);
+          } else if (propertySchema.type === 'array') {
+            b.if(`!Array.isArray(${propertyName})`, () => {
+              b.line(
+                `throw new Error('${fn}: "${propertyName}" value is not an array');`
+              );
+            });
+
+            const itemType = propertySchema.items.type;
+            if (
+              itemType === 'string' ||
+              itemType === 'number' // TODO: maybe others
+            ) {
               b.if(
-                `!${propertyName} || typeof ${propertyName} !== 'object'`,
+                `${propertyName}.some((item) => typeof item !== '${itemType}')`,
                 () => {
                   b.line(
-                    `throw new Error('${fn}: "${propertyName}" value is not an object');`
+                    `throw new Error('${fn}: "${propertyName}" must be an array of ${itemType}s');`
                   );
                 }
               );
             }
-          }).blank();
-        }
-      );
+          }
+        }).blank();
+      });
     }
+
+    genAssertProperties('json', typeSchema.properties);
   });
 }
 
