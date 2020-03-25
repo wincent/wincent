@@ -59,6 +59,10 @@ class Builder {
     return this.line(`export function ${open} {`).block(callback).line('}');
   }
 
+  getIndent() {
+    return ' '.repeat(this.indentLevel * this.tabWidth);
+  }
+
   // TODO: handle else if/else with ...rest
   ['if'](condition, callback, ...rest) {
     return this.line(`if (${condition}) {`).block(callback).line('}');
@@ -124,7 +128,7 @@ class Builder {
     const length = this.output.length;
 
     if (!length || this.last() === '\n') {
-      const indent = ' '.repeat(this.indentLevel * this.tabWidth);
+      const indent = this.getIndent();
 
       this.print(indent);
     }

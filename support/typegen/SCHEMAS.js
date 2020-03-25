@@ -1,3 +1,16 @@
+const fs = require('fs');
+const path = require('path');
+
+const aspects = (() => {
+  const directory = path.join(__dirname, '../../aspects');
+
+  const entries = fs.readdirSync(directory, {withFileTypes: true});
+
+  return entries
+    .filter(entry => entry.isDirectory())
+    .map(entry => entry.name);
+})();
+
 /**
  * Subset of JSON Schema.
  *
@@ -5,30 +18,28 @@
  */
 const SCHEMAS = {
   Project: {
+    definitions: {
+      Aspect: {
+        type: 'string',
+        enum: aspects,
+      }
+    },
     properties: {
       platforms: {
         type: 'object',
         properties: {
           darwin: {
             type: 'array',
-            items: {
-              type: 'string',
-            },
+            items: {'$ref': '#/definitions/Aspect'},
           },
           linux: {
             type: 'array',
-            items: {
-              type: 'string',
-            },
+            items: {'$ref': '#/definitions/Aspect'},
           },
         },
       },
       profiles: {
         type: 'object',
-        // TODO: make these aspects, read from filesystem...
-        // which means that we can use an exhaustive case statement when
-        // loading/running aspects
-        // (still need to decide whether they should be lazy or eager)
         patternProperties: {
           '.*': {
             type: 'string',

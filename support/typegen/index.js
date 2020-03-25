@@ -6,48 +6,87 @@ const Builder = require('./Builder');
 
 const SCHEMAS = require('./SCHEMAS');
 
-for (const [typeName, typeSchema] of Object.entries(SCHEMAS)) {
-  // We only generate interfaces, which means we need objects.
-  assert(typeSchema.type === 'object');
+/**
+ * Generate types and runtime assertion functions for the types defined in
+ * `SCHEMAS`.
+ *
+ * Note that this is not intended to provide generic support for all of
+ * the features used in JSON Schema. (If you needed that you would use a
+ * project like the json-schema-to-typescript NPM package.)
+ */
+function main() {
+  for (const [typeName, typeSchema] of Object.entries(SCHEMAS)) {
+    // We only generate interfaces, which means we need objects.
+    assert(typeSchema.type === 'object');
 
-  const b = new Builder();
+    const b = new Builder();
 
-  b.docblock('vim: set nomodifiable :', '', '@generated')
-    .blank()
-    .line(`import * as assert from 'assert';`)
-    .blank();
+    b.docblock('vim: set nomodifiable :', '', '@generated')
+      .blank()
+      .line(`import * as assert from 'assert';`)
+      .blank();
 
-  b.interface(typeName, () => {
-    const options = {
-      builder: b,
-      required: new Set(typeSchema.required || []),
-    };
+    if (typeSchema.definitions) {
+      // Create types.
+      Object.entries(typeSchema.definitions).forEach(([name, value]) => {
+        if (value.enum) {
+          b.line(`type ${name} =`).indent();
 
-    if (typeSchema.properties) {
-      for (const [propertyName, propertySchema] of Object.entries(
-        typeSchema.properties
-      )) {
-        genProperty(propertyName, propertySchema, options);
-      }
+          value.enum.forEach((v, i) => {
+            const semicolon = i < value.enum.length - 1 ? '' : ';';
+
+            b.line(`| '${v}'${semicolon}`);
+          });
+
+          b.dedent().blank();
+        }
+      });
+
+      // Create sets for runtime checking.
+      Object.entries(typeSchema.definitions).forEach(([name, value]) => {
+        if (value.enum) {
+          b.line(`const ${name.toUpperCase()} = new Set<${name}>([`)
+            .indent();
+
+          value.enum.forEach(v => b.line(`'${v}'`));
+
+          b.dedent().line(']);').blank();
+        }
+      });
     }
 
-    if (typeSchema.patternProperties) {
-      for (const [pattern, patternSchema] of Object.entries(
-        typeSchema.patternProperties
-      )) {
-        genPatternProperty(pattern, patternSchema, options);
+    b.interface(typeName, () => {
+      const options = {
+        builder: b,
+        required: new Set(typeSchema.required || []),
+      };
+
+      if (typeSchema.properties) {
+        for (const [propertyName, propertySchema] of Object.entries(
+          typeSchema.properties
+        )) {
+          genProperty(propertyName, propertySchema, options);
+        }
       }
-    }
-  });
 
-  b.blank();
+      if (typeSchema.patternProperties) {
+        for (const [pattern, patternSchema] of Object.entries(
+          typeSchema.patternProperties
+        )) {
+          genPatternProperty(pattern, patternSchema, options);
+        }
+      }
+    });
 
-  genAssertFunction(typeName, typeSchema, {builder: b});
+    b.blank();
 
-  fs.writeFileSync(
-    path.join(__dirname, `../../src/types/${typeName.toLowerCase()}.ts`),
-    b.output
-  );
+    genAssertFunction(typeName, typeSchema, {builder: b});
+
+    fs.writeFileSync(
+      path.join(__dirname, `../../src/types/${typeName.toLowerCase()}.ts`),
+      b.output
+    );
+  }
 }
 
 function genAssertFunction(typeName, typeSchema, options) {
@@ -112,15 +151,19 @@ function genAssertFunction(typeName, typeSchema, options) {
               } else if (propertySchema.type === 'array') {
                 b.assert(`Array.isArray(${propertyName})`);
 
-                const itemType = propertySchema.items.type;
+                if (propertySchema.items.$ref) {
+                  console.log('TODO: impl');
+                } else {
+                  const itemType = propertySchema.items.type;
 
-                if (
-                  itemType === 'string' ||
-                  itemType === 'number' // TODO: maybe others
-                ) {
-                  b.assert(
-                    `${propertyName}.every((item: any) => typeof item === '${itemType}')`
-                  );
+                  if (
+                    itemType === 'string' ||
+                    itemType === 'number' // TODO: maybe others
+                  ) {
+                    b.assert(
+                      `${propertyName}.every((item: any) => typeof item === '${itemType}')`
+                    );
+                  }
                 }
               }
             });
@@ -162,6 +205,7 @@ function genProperty(propertyName, propertySchema, options) {
   let value;
 
   if (propertySchema.type === 'array') {
+    // TODO impl this
     value = `Array<${propertySchema.items.type}>`;
   } else if (propertySchema.type === 'object') {
     value = () => {
@@ -216,3 +260,5 @@ function genPatternProperty(pattern, patternSchema, options) {
 
   b.property('[key: string]', value);
 }
+
+main();
