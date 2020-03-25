@@ -122,6 +122,7 @@ export async function run() {
 
   log();
   log(`${successSummary}, ${failureSummary}, ${totalSummary}`);
+  log();
 
   if (failureCount) {
     process.exit(1);
