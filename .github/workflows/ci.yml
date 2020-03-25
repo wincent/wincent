@@ -1,6 +1,6 @@
 # Based on: https://github.com/actions/starter-workflows/blob/master/ci/node.js.yml
 
-name: Node.js CI
+name: ci
 
 on:
   push:

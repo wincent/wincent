@@ -1,5 +1,6 @@
 # "dotfiles" and system configuration
 
+![](https://github.com/wincent/wincent/workflows/ci/badge.svg)
 ![](https://raw.githubusercontent.com/wincent/wincent/media/screenshot.png)
 
 - Target platforms: macOS and Red Hat-like Linuxes (eg. CentOS).
