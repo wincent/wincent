@@ -7,8 +7,8 @@ const aspects = (() => {
   const entries = fs.readdirSync(directory, {withFileTypes: true});
 
   return entries
-    .filter(entry => entry.isDirectory())
-    .map(entry => entry.name);
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => entry.name);
 })();
 
 /**
@@ -22,7 +22,7 @@ const SCHEMAS = {
       Aspect: {
         type: 'string',
         enum: aspects,
-      }
+      },
     },
     properties: {
       platforms: {
@@ -30,11 +30,11 @@ const SCHEMAS = {
         properties: {
           darwin: {
             type: 'array',
-            items: {'$ref': '#/definitions/Aspect'},
+            items: {$ref: '#/definitions/Aspect'},
           },
           linux: {
             type: 'array',
-            items: {'$ref': '#/definitions/Aspect'},
+            items: {$ref: '#/definitions/Aspect'},
           },
         },
       },

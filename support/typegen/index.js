@@ -45,10 +45,9 @@ function main() {
       // Create sets for runtime checking.
       Object.entries(typeSchema.definitions).forEach(([name, value]) => {
         if (value.enum) {
-          b.line(`const ${name.toUpperCase()} = new Set<${name}>([`)
-            .indent();
+          b.line(`const ${name.toUpperCase()} = new Set<${name}>([`).indent();
 
-          value.enum.forEach(v => b.line(`'${v}'`));
+          value.enum.forEach((v) => b.line(`'${v}'`));
 
           b.dedent().line(']);').blank();
         }
@@ -89,8 +88,20 @@ function main() {
   }
 }
 
+function extractTargetFromRef(node) {
+  const ref = node.$ref;
+
+  if (ref) {
+    const [, target] = ref.match(/^#\/definitions\/(\w+)/) || [];
+
+    return target;
+  }
+}
+
 function genAssertFunction(typeName, typeSchema, options) {
   const b = options.builder;
+
+  const definitions = typeSchema.definitions || {};
 
   b.function(
     `assert${typeName}(json: any): asserts json is ${typeName}`,
@@ -151,8 +162,18 @@ function genAssertFunction(typeName, typeSchema, options) {
               } else if (propertySchema.type === 'array') {
                 b.assert(`Array.isArray(${propertyName})`);
 
-                if (propertySchema.items.$ref) {
-                  console.log('TODO: impl');
+                const target = extractTargetFromRef(propertySchema.items);
+
+                if (target) {
+                  const definition = definitions[target];
+
+                  assert(definition);
+
+                  if (definition.enum) {
+                    b.assert(
+                      `${propertyName}.every((item: any) => ${target.toUpperCase()}.has(item))`
+                    );
+                  }
                 } else {
                   const itemType = propertySchema.items.type;
 
@@ -205,8 +226,13 @@ function genProperty(propertyName, propertySchema, options) {
   let value;
 
   if (propertySchema.type === 'array') {
-    // TODO impl this
-    value = `Array<${propertySchema.items.type}>`;
+    const target = extractTargetFromRef(propertySchema.items);
+
+    if (target) {
+      value = `Array<${target}>`;
+    } else {
+      value = `Array<${propertySchema.items.type}>`;
+    }
   } else if (propertySchema.type === 'object') {
     value = () => {
       b.line('{').indent();
