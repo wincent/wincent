@@ -1,95 +1,76 @@
+/**
+ * vim: set nomodifiable :
+ *
+ * @generated
+ */
+
 import * as assert from 'assert';
-import * as fs from 'fs';
-import {promisify} from 'util';
-
-import {log} from '../console';
-
-const readFile = promisify(fs.readFile);
-
-type Platform = 'darwin' | 'linux';
 
 export interface Project {
   platforms: {
-    [name in Platform]: Array<string>;
-  };
+    darwin?: Array<string>;
+    linux?: Array<string>;
+  }
   profiles?: {
-    [name: string]: string;
-  };
+    [key: string]: string;
+  }
 }
-
-const PLATFORMS = new Set<Platform>(['darwin', 'linux']);
-
-const PROPERTIES = new Set<keyof Project>(['platforms', 'profiles']);
 
 export function assertProject(json: any): asserts json is Project {
   assert(json && typeof json === 'object');
 
-  const missingKeys = json.hasOwnProperty('platforms') ? [] : ['platforms'];
-
-  if (missingKeys.length) {
-    throw new Error(
-      `assertProject: Missing required keys: ${missingKeys.join(', ')}`
-    );
-  }
-
-  const platforms = json.platforms;
-
-  if (!platforms || typeof platforms !== 'object') {
-    throw new Error('assertProject: "platforms" value is not an object');
-  }
-
-  const invalidPlatforms = Object.keys(platforms).filter(
-    (value: any) => !PLATFORMS.has(value)
+  const missingKeys = ['platforms'].filter(
+    key => {
+      return !json.hasOwnProperty(key);
+    }
   );
 
-  if (invalidPlatforms.length) {
-    throw new Error(
-      `assertProject: Invalid platform(s) ${invalidPlatforms.join(', ')}`
-    );
-  }
+  assert(!missingKeys.length);
 
-  Object.entries(platforms).forEach(([name, aspects]) => {
-    if (
-      !Array.isArray(aspects) ||
-      aspects.some((aspect) => typeof aspect !== 'string')
-    ) {
-      throw new Error(
-        `assertProject: Value for platform ${name} must be an array of strings`
-      );
-    }
-  });
+  const allowedKeys = new Set(['platforms', 'profiles']);
 
   const excessKeys = Object.keys(json).filter(
-    (key: any) => !PROPERTIES.has(key)
+    (key: any) => {
+       return !allowedKeys.has(key);
+    }
   );
 
-  if (excessKeys.length) {
-    throw new Error(
-      `assertProject: Contains excess keys: ${excessKeys.join(', ')}`
+  assert(!excessKeys.length);
+
+  if (json.hasOwnProperty('platforms')) {
+    const platforms = json.platforms;
+
+    assert(platforms && typeof platforms === 'object');
+
+    const allowedKeys = new Set(['darwin', 'linux']);
+
+    const excessKeys = Object.keys(platforms).filter(
+      (key: any) => {
+         return !allowedKeys.has(key);
+      }
     );
+
+    assert(!excessKeys.length);
+
+    if (platforms.hasOwnProperty('darwin')) {
+      const darwin = platforms.darwin;
+
+      assert(Array.isArray(darwin));
+      assert(darwin.every((item: any) => typeof item === 'string'));
+    }
+
+    if (platforms.hasOwnProperty('linux')) {
+      const linux = platforms.linux;
+
+      assert(Array.isArray(linux));
+      assert(linux.every((item: any) => typeof item === 'string'));
+    }
   }
 
   if (json.hasOwnProperty('profiles')) {
     const profiles = json.profiles;
 
-    if (!profiles || typeof profiles !== 'object') {
-      throw new Error('assertProject: "profiles" value is not an object');
-    }
-
-    if (!Object.values(profiles).every((value) => typeof value === 'string')) {
-      throw new Error('assertProject: "profiles" object contains non-string');
-    }
+    assert(profiles && typeof profiles === 'object');
+    assert(Object.values(profiles).every((value) => typeof value === 'string'));
   }
-}
-
-export async function readProject(path: string): Promise<Project> {
-  log.info(`Reading project: ${path}`);
-
-  const json = await readFile(path, 'utf8');
-
-  const project = JSON.parse(json);
-
-  assertProject(project);
-
-  return project;
 }

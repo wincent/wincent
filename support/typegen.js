@@ -1,4 +1,6 @@
 const assert = require('assert');
+const fs = require('fs');
+const path = require('path');
 
 /**
  * Subset of JSON Schema.
@@ -56,8 +58,12 @@ class Builder {
     }
   }
 
-  assert(condition) {
-    return this.line(`assert(${condition});`);
+  assert(condition, message = null) {
+    if (message) {
+      return this.line(`assert(${condition}, ${message});`);
+    } else {
+      return this.line(`assert(${condition});`);
+    }
   }
 
   blank() {
@@ -112,7 +118,13 @@ class Builder {
   docblock(...lines) {
     this.line('/**');
 
-    lines.forEach((line) => this.line(` * ${line}`));
+    lines.forEach((line) => {
+      if (/^\s*$/.test(line)) {
+        this.line(` *`);
+      } else {
+        this.line(` * ${line}`);
+      }
+    });
 
     return this.line(' */');
   }
@@ -168,7 +180,7 @@ for (const [typeName, typeSchema] of Object.entries(SCHEMAS)) {
 
   const b = new Builder();
 
-  b.docblock('@generated')
+  b.docblock('vim: set nomodifiable :', '', '@generated')
     .blank()
     .line(`import * as assert from 'assert';`)
     .blank();
@@ -200,7 +212,10 @@ for (const [typeName, typeSchema] of Object.entries(SCHEMAS)) {
 
   genAssertFunction(typeName, typeSchema, {builder: b});
 
-  process.stdout.write(b.output);
+  fs.writeFileSync(
+    path.join(__dirname, `../src/types/${typeName.toLowerCase()}.ts`),
+    b.output
+  );
 }
 
 function genAssertFunction(typeName, typeSchema, options) {
@@ -229,7 +244,7 @@ function genAssertFunction(typeName, typeSchema, options) {
             .print(`const missingKeys = [${required}]`)
             .call('filter', () => {
               b.arrow(`key`, () => {
-                b.line(`return !json.hasOwnProperty(key);`);
+                b.line(`return !${obj}.hasOwnProperty(key);`);
               });
             })
             .blank()
@@ -245,7 +260,7 @@ function genAssertFunction(typeName, typeSchema, options) {
             .line(`const allowedKeys = new Set([${allowed}]);`)
             .blank()
             .printIndent()
-            .print(`const excessKeys = Object.keys(json)`)
+            .print(`const excessKeys = Object.keys(${obj})`)
             .call('filter', () => {
               b.arrow('(key: any)', () => {
                 b.line(' return !allowedKeys.has(key);');
@@ -257,7 +272,7 @@ function genAssertFunction(typeName, typeSchema, options) {
 
         Object.entries({...properties}).forEach(
           ([propertyName, propertySchema]) => {
-            b.blank().if(`${obj}.hasOwnProperty('${propertyName}'))`, () => {
+            b.blank().if(`${obj}.hasOwnProperty('${propertyName}')`, () => {
               b.line(`const ${propertyName} = ${obj}.${propertyName};`).blank();
 
               if (propertySchema.type === 'object') {
@@ -272,7 +287,7 @@ function genAssertFunction(typeName, typeSchema, options) {
                   itemType === 'number' // TODO: maybe others
                 ) {
                   b.assert(
-                    `${propertyName}.every((item) => typeof item === '${itemType}')`
+                    `${propertyName}.every((item: any) => typeof item === '${itemType}')`
                   );
                 }
               }
@@ -290,7 +305,7 @@ function genAssertFunction(typeName, typeSchema, options) {
             propertySchema.type === 'number'
           ) {
             b.assert(
-              `Object.values(${obj}).every((value) => value typeof === '${propertySchema.type}'`
+              `Object.values(${obj}).every((value) => typeof value === '${propertySchema.type}')`
             );
           } else if (propertySchema.type === 'array') {
             // TODO: impl

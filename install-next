@@ -12,9 +12,14 @@ yarn --frozen-lockfile --no-default-rc --no-progress --silent
 
 log_info "Cleaning"
 
-rm -r "$REPO_ROOT"/lib/*
+rm -rf "$REPO_ROOT"/lib/*
+rm -rf "$REPO_ROOT"/src/types/*
 
-log_info "Building"
+log_info "Generating TypeScript types"
+
+node "$REPO_ROOT/support/typegen.js"
+
+log_info "Compiling TypeScript source to JavaScript"
 
 tsc
 

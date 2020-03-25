@@ -1,15 +1,11 @@
-import * as fs from 'fs';
 import * as os from 'os';
 import * as path from 'path';
-import {promisify} from 'util';
 
 import {root} from './Fig';
 import {log} from './console';
+import readProject from './readProject';
 import regExpFromString from './regExpFromString';
 import test from './test';
-import {readProject} from './types/project';
-
-const readFile = promisify(fs.readFile);
 
 // argv[0] = node executable
 // argv[1] = JS script
