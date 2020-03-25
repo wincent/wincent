@@ -56,6 +56,10 @@ class Builder {
     }
   }
 
+  assert(condition) {
+    return this.line(`assert(${condition});`);
+  }
+
   blank() {
     return this.print('\n');
   }
@@ -159,25 +163,22 @@ class Builder {
 }
 
 for (const [typeName, typeSchema] of Object.entries(SCHEMAS)) {
-  if (typeSchema.type !== 'object') {
-    // We only generate interfaces, which means we need objects.
-    throw new Error(
-      `Schema ${JSON.stringify(
-        typeName
-      )} must have type "object" but it was ${JSON.stringify(typeSchema.type)}`
-    );
-  }
+  // We only generate interfaces, which means we need objects.
+  assert(typeSchema.type === 'object');
 
   const b = new Builder();
 
-  b.docblock('@generated').blank();
-
-  const options = {
-    builder: b,
-    required: new Set(typeSchema.required || []),
-  };
+  b.docblock('@generated')
+    .blank()
+    .line(`import * as assert from 'assert';`)
+    .blank();
 
   b.interface(typeName, () => {
+    const options = {
+      builder: b,
+      required: new Set(typeSchema.required || []),
+    };
+
     if (typeSchema.properties) {
       for (const [propertyName, propertySchema] of Object.entries(
         typeSchema.properties
@@ -197,7 +198,7 @@ for (const [typeName, typeSchema] of Object.entries(SCHEMAS)) {
 
   b.blank();
 
-  genAssertFunction(typeName, typeSchema, options);
+  genAssertFunction(typeName, typeSchema, {builder: b});
 
   process.stdout.write(b.output);
 }
@@ -205,103 +206,101 @@ for (const [typeName, typeSchema] of Object.entries(SCHEMAS)) {
 function genAssertFunction(typeName, typeSchema, options) {
   const b = options.builder;
 
-  const fn = `assert${typeName}`;
+  b.function(
+    `assert${typeName}(json: any): asserts json is ${typeName}`,
+    () => {
+      function genAssertProperties(obj, typeSchema) {
+        b.assert(`${obj} && typeof ${obj} === 'object'`);
 
-  b.function(`${fn}(json: any): asserts json is ${typeName}`, () => {
-    b.if(`!json || typeof json !== 'object'`, () => {
-      b.line(`throw new Error('${fn}: Supplied value is not an object');`);
-    }).blank();
+        const {patternProperties, properties} = typeSchema;
 
-    if (options.required.size) {
-      const required = Array.from(options.required)
-        .map((item) => `'${item}'`)
-        .join(', ');
+        if (!patternProperties && !properties) {
+          return;
+        }
 
-      b.printIndent()
-        .print(`const missingKeys = [${required}]`)
-        .call('filter', () => {
-          b.arrow(`key`, () => {
-            b.line(`return !json.hasOwnProperty(key);`);
-          });
-        })
-        .blank()
-        .if('missingKeys.length', () => {
-          b.line(`throw new Error(`)
-            .indent()
-            .line(
-              `\`${fn}: Missing required keys: \${missingKeys.join(', ')}\``
-            )
-            .dedent()
-            .line(`);`);
-        })
-        .blank();
-    }
+        if (typeSchema.required && typeSchema.required.length) {
+          const required = typeSchema.required
+            .map((item) => `'${item}'`)
+            .sort()
+            .join(', ');
 
-    if (!typeSchema.patternProperties && typeSchema.properties) {
-      const allowed = Object.keys(typeSchema.properties)
-        .map((item) => `'${item}'`)
-        .join(', ');
+          b.blank()
+            .printIndent()
+            .print(`const missingKeys = [${required}]`)
+            .call('filter', () => {
+              b.arrow(`key`, () => {
+                b.line(`return !json.hasOwnProperty(key);`);
+              });
+            })
+            .blank()
+            .assert('!missingKeys.length');
+        }
 
-      b.line(`const allowedKeys = new Set([${allowed}]);`)
-        .blank()
-        .printIndent()
-        .print(`const excessKeys = Object.keys(json)`)
-        .call('filter', () => {
-          b.arrow('(key: any)', () => {
-            b.line(' return !allowedKeys.has(key);');
-          });
-        })
-        .blank();
-    }
+        if (!patternProperties && properties) {
+          const allowed = Object.keys(properties)
+            .map((item) => `'${item}'`)
+            .join(', ');
 
-    function genAssertProperties(obj, properties) {
-      if (!properties) {
-        return;
-      }
+          b.blank()
+            .line(`const allowedKeys = new Set([${allowed}]);`)
+            .blank()
+            .printIndent()
+            .print(`const excessKeys = Object.keys(json)`)
+            .call('filter', () => {
+              b.arrow('(key: any)', () => {
+                b.line(' return !allowedKeys.has(key);');
+              });
+            })
+            .blank()
+            .assert('!excessKeys.length');
+        }
 
-      Object.entries(properties).forEach(([propertyName, propertySchema]) => {
-        b.if(`${obj}.hasOwnProperty('${propertyName}'))`, () => {
-          b.line(`const ${propertyName} = ${obj}.${propertyName};`).blank();
+        Object.entries({...properties}).forEach(
+          ([propertyName, propertySchema]) => {
+            b.blank().if(`${obj}.hasOwnProperty('${propertyName}'))`, () => {
+              b.line(`const ${propertyName} = ${obj}.${propertyName};`).blank();
 
-          if (propertySchema.type === 'object') {
-            b.if(
-              `!${propertyName} || typeof ${propertyName} !== 'object'`,
-              () => {
-                b.line(
-                  `throw new Error('${fn}: "${propertyName}" value is not an object');`
-                );
-              }
-            ).blank();
+              if (propertySchema.type === 'object') {
+                genAssertProperties(propertyName, propertySchema);
+              } else if (propertySchema.type === 'array') {
+                b.assert(`Array.isArray(${propertyName})`);
 
-            genAssertProperties(propertyName, propertySchema.properties);
-          } else if (propertySchema.type === 'array') {
-            b.if(`!Array.isArray(${propertyName})`, () => {
-              b.line(
-                `throw new Error('${fn}: "${propertyName}" value is not an array');`
-              );
-            });
+                const itemType = propertySchema.items.type;
 
-            const itemType = propertySchema.items.type;
-            if (
-              itemType === 'string' ||
-              itemType === 'number' // TODO: maybe others
-            ) {
-              b.if(
-                `${propertyName}.some((item) => typeof item !== '${itemType}')`,
-                () => {
-                  b.line(
-                    `throw new Error('${fn}: "${propertyName}" must be an array of ${itemType}s');`
+                if (
+                  itemType === 'string' ||
+                  itemType === 'number' // TODO: maybe others
+                ) {
+                  b.assert(
+                    `${propertyName}.every((item) => typeof item === '${itemType}')`
                   );
                 }
-              );
-            }
+              }
+            });
           }
-        }).blank();
-      });
-    }
+        );
 
-    genAssertProperties('json', typeSchema.properties);
-  });
+        assert(
+          !patternProperties || Object.keys(patternProperties).length <= 1
+        );
+
+        Object.values({...patternProperties}).forEach((propertySchema) => {
+          if (
+            propertySchema.type === 'string' ||
+            propertySchema.type === 'number'
+          ) {
+            b.assert(
+              `Object.values(${obj}).every((value) => value typeof === '${propertySchema.type}'`
+            );
+          } else if (propertySchema.type === 'array') {
+            // TODO: impl
+          }
+        });
+      }
+
+      genAssertProperties('json', typeSchema);
+    }
+  );
 }
 
 function genProperty(propertyName, propertySchema, options) {
@@ -356,13 +355,7 @@ function genProperty(propertyName, propertySchema, options) {
 }
 
 function genPatternProperty(pattern, patternSchema, options) {
-  if (pattern !== '.*') {
-    throw new Error(
-      `Unsupported index type - expected ".*" but got ${JSON.stringify(
-        pattern
-      )}`
-    );
-  }
+  assert(pattern === '.*');
 
   const b = options.builder;
 

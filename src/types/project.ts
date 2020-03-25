@@ -1,3 +1,4 @@
+import * as assert from 'assert';
 import * as fs from 'fs';
 import {promisify} from 'util';
 
@@ -21,9 +22,7 @@ const PLATFORMS = new Set<Platform>(['darwin', 'linux']);
 const PROPERTIES = new Set<keyof Project>(['platforms', 'profiles']);
 
 export function assertProject(json: any): asserts json is Project {
-  if (!json || typeof json !== 'object') {
-    throw new Error('assertProject: Supplied value is not an object');
-  }
+  assert(json && typeof json === 'object');
 
   const missingKeys = json.hasOwnProperty('platforms') ? [] : ['platforms'];
 
