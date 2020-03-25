@@ -1,4 +1,5 @@
 /lib
 /roles/dotfiles/files/.vim
+/roles/dotfiles/templates/.config/karabiner/karabiner.json
 /src/types
 /vendor
