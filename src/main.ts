@@ -1,6 +1,7 @@
 import * as os from 'os';
 import * as path from 'path';
 
+import Attributes from './Attributes';
 import {root} from './Fig';
 import {log} from './console';
 import readProject from './readProject';
@@ -32,18 +33,19 @@ async function main() {
 
   log.info(`Profile: ${profile || 'n/a'}`);
 
+  const attributes = new Attributes();
+
+  const platform = await attributes.getPlatform();
+
+  log.info(`Platform: ${platform}`);
+
   log.info('Running runbooks');
 
   const platforms = project.platforms;
 
-  // TODO: logic to determine whether to load/run which runbooks
-
-  // const platform = await getPlatform();
-  const platform = 'darwin';
-
   const aspects = project.platforms[platform];
 
-  aspects.forEach(aspect => {
+  aspects.forEach((aspect) => {
     switch (aspect) {
       case 'terminfo':
         require('../aspects/terminfo');
