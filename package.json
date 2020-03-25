@@ -8,7 +8,7 @@
   "author": "Greg Hurrell <greg@hurrell.net>",
   "license": "Public Domain",
   "scripts": {
-    "ci": "yarn ci",
+    "ci": "yarn format:check",
     "format:check": "npx prettier --check \"**/*.{js,json,ts}\" \"*.md\" roles/dotfiles/files/.zsh/liferay/bin/portool",
     "format": "npx prettier --write \"**/*.{js,json,ts}\" \"*.md\" roles/dotfiles/files/.zsh/liferay/bin/portool"
   },
