@@ -82,7 +82,7 @@ function main() {
     genAssertFunction(typeName, typeSchema, {builder: b});
 
     fs.writeFileSync(
-      path.join(__dirname, `../../src/types/${typeName.toLowerCase()}.ts`),
+      path.join(__dirname, `../../src/types/${typeName}.ts`),
       b.output
     );
   }

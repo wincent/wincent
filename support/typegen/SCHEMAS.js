@@ -37,6 +37,7 @@ const SCHEMAS = {
             items: {$ref: '#/definitions/Aspect'},
           },
         },
+        required: ['darwin', 'linux'],
       },
       profiles: {
         type: 'object',

@@ -34,8 +34,22 @@ async function main() {
 
   log.info('Running runbooks');
 
-  // TODO: logic to determine whether to load/run this runbook
-  require('../aspects/terminfo');
+  const platforms = project.platforms;
+
+  // TODO: logic to determine whether to load/run which runbooks
+
+  // const platform = await getPlatform();
+  const platform = 'darwin';
+
+  const aspects = project.platforms[platform];
+
+  aspects.forEach(aspect => {
+    switch (aspect) {
+      case 'terminfo':
+        require('../aspects/terminfo');
+        break;
+    }
+  });
 
   // TODO: decide whether to register tasks for deferred running, or run them eagerly
 }

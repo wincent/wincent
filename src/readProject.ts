@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import {promisify} from 'util';
 
 import {log} from './console';
-import {Project, assertProject} from './types/project';
+import {Project, assertProject} from './types/Project';
 
 const readFile = promisify(fs.readFile);
 
