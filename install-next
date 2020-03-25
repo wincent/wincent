@@ -17,7 +17,7 @@ rm -rf "$REPO_ROOT"/src/types/*
 
 log_info "Generating TypeScript types"
 
-node "$REPO_ROOT/support/typegen.js"
+node "$REPO_ROOT/support/typegen"
 
 log_info "Compiling TypeScript source to JavaScript"
 
