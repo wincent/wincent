@@ -29,12 +29,40 @@ const SCHEMAS = {
         type: 'object',
         properties: {
           darwin: {
-            type: 'array',
-            items: {$ref: '#/definitions/Aspect'},
+            type: 'object',
+            properties: {
+              aspects: {
+                type: 'array',
+                items: {$ref: '#/definitions/Aspect'},
+              },
+              variables: {
+                type: 'object',
+                patternProperties: {
+                  '.*': {
+                    type: 'string',
+                  },
+                },
+              }
+            },
+            required: ['aspects']
           },
           linux: {
-            type: 'array',
-            items: {$ref: '#/definitions/Aspect'},
+            type: 'object',
+            properties: {
+              aspects: {
+                type: 'array',
+                items: {$ref: '#/definitions/Aspect'},
+              },
+              variables: {
+                type: 'object',
+                patternProperties: {
+                  '.*': {
+                    type: 'string',
+                  },
+                },
+              }
+            },
+            required: ['aspects']
           },
         },
         required: ['darwin', 'linux'],
@@ -43,7 +71,21 @@ const SCHEMAS = {
         type: 'object',
         patternProperties: {
           '.*': {
-            type: 'string',
+            type: 'object',
+            properties: {
+              pattern: {
+                type: 'string'
+              },
+              variables: {
+                type: 'object',
+                patternProperties: {
+                  '.*': {
+                    type: 'string'
+                  }
+                }
+              }
+            },
+            required: ['pattern']
           },
         },
       },

@@ -260,6 +260,11 @@ function genProperty(propertyName, propertySchema, options) {
 
       b.dedent().line('}');
     };
+  } else if (
+    propertySchema.type === 'string' ||
+    propertySchema.type === 'number'
+  ) {
+    value = propertySchema.type;
   } else {
     throw new Error(
       `Property ${JSON.stringify(
@@ -280,6 +285,34 @@ function genPatternProperty(pattern, patternSchema, options) {
 
   if (patternSchema.type === 'string') {
     value = 'string';
+  } else if (patternSchema.type === 'object') {
+    // TODO: eliminate repetition here (very similar to code in genProperty)
+    value = () => {
+      b.line('{').indent();
+
+      const nextOptions = {
+        ...options,
+        required: new Set(patternSchema.required || []),
+      };
+
+      if (patternSchema.properties) {
+        Object.entries(patternSchema.properties).forEach(
+          ([subpropertyName, subpropertySchema]) => {
+            genProperty(subpropertyName, subpropertySchema, nextOptions);
+          }
+        );
+      }
+
+      if (patternSchema.patternProperties) {
+        for (const [pattern, patternSchema] of Object.entries(
+          patternSchema.patternProperties
+        )) {
+          genPatternProperty(pattern, patternSchema, nextOptions);
+        }
+      }
+
+      b.dedent().line('}');
+    };
   } else {
     throw new Error('TODO: Implement');
   }

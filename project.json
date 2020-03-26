@@ -1,10 +1,22 @@
 {
   "platforms": {
-    "darwin": ["terminfo"],
-    "linux": ["terminfo"]
+    "darwin": {
+      "aspects": ["terminfo"],
+      "variables": {}
+    },
+    "linux": {
+      "aspects": ["terminfo"],
+      "variables": {}
+    }
   },
   "profiles": {
-    "personal": "/\\bretiro\\b/i",
-    "work": "/\\blfrw044\\b/i"
+    "personal": {
+      "pattern": "/\\bretiro\\b/i",
+      "variables": {}
+    },
+    "work": {
+      "pattern": "/\\blfrw044\\b/i",
+      "variables": {}
+    }
   }
 }
