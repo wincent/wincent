@@ -42,9 +42,9 @@ const SCHEMAS = {
                     type: 'string',
                   },
                 },
-              }
+              },
             },
-            required: ['aspects']
+            required: ['aspects'],
           },
           linux: {
             type: 'object',
@@ -60,9 +60,9 @@ const SCHEMAS = {
                     type: 'string',
                   },
                 },
-              }
+              },
             },
-            required: ['aspects']
+            required: ['aspects'],
           },
         },
         required: ['darwin', 'linux'],
@@ -74,18 +74,18 @@ const SCHEMAS = {
             type: 'object',
             properties: {
               pattern: {
-                type: 'string'
+                type: 'string',
               },
               variables: {
                 type: 'object',
                 patternProperties: {
                   '.*': {
-                    type: 'string'
-                  }
-                }
-              }
+                    type: 'string',
+                  },
+                },
+              },
             },
-            required: ['pattern']
+            required: ['pattern'],
           },
         },
       },

@@ -214,14 +214,41 @@ function genAssertFunction(typeName, typeSchema, options) {
   );
 }
 
+function genObjectValue(schema, options) {
+  const b = options.builder;
+
+  return () => {
+    b.line('{').indent();
+
+    const nextOptions = {
+      ...options,
+      required: new Set(schema.required || []),
+    };
+
+    if (schema.properties) {
+      Object.entries(schema.properties).forEach(
+        ([propertyName, propertySchema]) => {
+          genProperty(propertyName, propertySchema, nextOptions);
+        }
+      );
+    }
+
+    if (schema.patternProperties) {
+      for (const [pattern, patternSchema] of Object.entries(
+        schema.patternProperties
+      )) {
+        genPatternProperty(pattern, patternSchema, nextOptions);
+      }
+    }
+
+    b.dedent().line('}');
+  };
+}
+
 function genProperty(propertyName, propertySchema, options) {
   const b = options.builder;
 
-  let output = '';
-
   const optional = options.required.has(propertyName) ? '' : '?';
-
-  const key = `${propertyName}${optional}`;
 
   let value;
 
@@ -234,35 +261,10 @@ function genProperty(propertyName, propertySchema, options) {
       value = `Array<${propertySchema.items.type}>`;
     }
   } else if (propertySchema.type === 'object') {
-    value = () => {
-      b.line('{').indent();
-
-      const nextOptions = {
-        ...options,
-        required: new Set(propertySchema.required || []),
-      };
-
-      if (propertySchema.properties) {
-        Object.entries(propertySchema.properties).forEach(
-          ([subpropertyName, subpropertySchema]) => {
-            genProperty(subpropertyName, subpropertySchema, nextOptions);
-          }
-        );
-      }
-
-      if (propertySchema.patternProperties) {
-        for (const [pattern, patternSchema] of Object.entries(
-          propertySchema.patternProperties
-        )) {
-          genPatternProperty(pattern, patternSchema, nextOptions);
-        }
-      }
-
-      b.dedent().line('}');
-    };
+    value = genObjectValue(propertySchema, options);
   } else if (
-    propertySchema.type === 'string' ||
-    propertySchema.type === 'number'
+    propertySchema.type === 'number' ||
+    propertySchema.type === 'string'
   ) {
     value = propertySchema.type;
   } else {
@@ -273,46 +275,22 @@ function genProperty(propertyName, propertySchema, options) {
     );
   }
 
+  const key = `${propertyName}${optional}`;
+
   b.property(key, value);
 }
 
-function genPatternProperty(pattern, patternSchema, options) {
+function genPatternProperty(pattern, schema, options) {
   assert(pattern === '.*');
 
   const b = options.builder;
 
   let value;
 
-  if (patternSchema.type === 'string') {
-    value = 'string';
-  } else if (patternSchema.type === 'object') {
-    // TODO: eliminate repetition here (very similar to code in genProperty)
-    value = () => {
-      b.line('{').indent();
-
-      const nextOptions = {
-        ...options,
-        required: new Set(patternSchema.required || []),
-      };
-
-      if (patternSchema.properties) {
-        Object.entries(patternSchema.properties).forEach(
-          ([subpropertyName, subpropertySchema]) => {
-            genProperty(subpropertyName, subpropertySchema, nextOptions);
-          }
-        );
-      }
-
-      if (patternSchema.patternProperties) {
-        for (const [pattern, patternSchema] of Object.entries(
-          patternSchema.patternProperties
-        )) {
-          genPatternProperty(pattern, patternSchema, nextOptions);
-        }
-      }
-
-      b.dedent().line('}');
-    };
+  if (schema.type === 'number' || schema.type === 'string') {
+    value = schema.type;
+  } else if (schema.type === 'object') {
+    value = genObjectValue(schema, options);
   } else {
     throw new Error('TODO: Implement');
   }
