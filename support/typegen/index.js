@@ -21,10 +21,7 @@ function main() {
 
     const b = new Builder();
 
-    b.docblock('vim: set nomodifiable :', '', '@generated')
-      .blank()
-      .line(`import * as assert from 'assert';`)
-      .blank();
+    b.docblock('vim: set nomodifiable :', '', '@generated').blank();
 
     if (typeSchema.definitions) {
       // Create types.
@@ -79,6 +76,19 @@ function main() {
 
     b.blank();
 
+    // Can't use Node's own `assert` here because it's not currently
+    // typed as an "assert" function in the TS sense.
+    b.function(
+      'assert(condition: any, message?: string): asserts condition',
+      () => {
+        b.if('!condition', () => {
+          b.line(
+            "throw new Error(`assert(): ${message || 'assertion failed'}`);"
+          );
+        });
+      }
+    ).blank();
+
     genAssertFunction(typeName, typeSchema, {builder: b});
 
     fs.writeFileSync(
@@ -107,7 +117,10 @@ function genAssertFunction(typeName, typeSchema, options) {
     `assert${typeName}(json: any): asserts json is ${typeName}`,
     () => {
       function genAssertProperties(obj, typeSchema) {
-        b.assert(`${obj} && typeof ${obj} === 'object'`);
+        // Order matters here (TypeScript bug?):
+        // - `typeof x === 'object' && x`: narrows to "object"
+        // - `x && typeof x === 'object'`: narrows to "object | null"
+        b.assert(`typeof ${obj} === 'object' && ${obj}`);
 
         const {patternProperties, properties} = typeSchema;
 
@@ -144,7 +157,7 @@ function genAssertFunction(typeName, typeSchema, options) {
             .printIndent()
             .print(`const excessKeys = Object.keys(${obj})`)
             .call('filter', () => {
-              b.arrow('(key: any)', () => {
+              b.arrow('key', () => {
                 b.line(' return !allowedKeys.has(key);');
               });
             })
@@ -155,7 +168,9 @@ function genAssertFunction(typeName, typeSchema, options) {
         Object.entries({...properties}).forEach(
           ([propertyName, propertySchema]) => {
             b.blank().if(`${obj}.hasOwnProperty('${propertyName}')`, () => {
-              b.line(`const ${propertyName} = ${obj}.${propertyName};`).blank();
+              b.line(
+                `const ${propertyName}: unknown = (${obj} as any).${propertyName};`
+              ).blank();
 
               if (propertySchema.type === 'object') {
                 genAssertProperties(propertyName, propertySchema);
@@ -178,14 +193,21 @@ function genAssertFunction(typeName, typeSchema, options) {
                   const itemType = propertySchema.items.type;
 
                   if (
-                    itemType === 'string' ||
-                    itemType === 'number' // TODO: maybe others
+                    itemType === 'number' ||
+                    itemType === 'string' // TODO: maybe others
                   ) {
                     b.assert(
                       `${propertyName}.every((item: any) => typeof item === '${itemType}')`
                     );
                   }
                 }
+              } else if (
+                propertySchema.type === 'number' ||
+                propertySchema.type === 'string'
+              ) {
+                b.assert(`typeof ${propertyName} === '${propertySchema.type}'`);
+              } else {
+                throw new Error('Not implemented');
               }
             });
           }
@@ -197,12 +219,22 @@ function genAssertFunction(typeName, typeSchema, options) {
 
         Object.values({...patternProperties}).forEach((propertySchema) => {
           if (
-            propertySchema.type === 'string' ||
-            propertySchema.type === 'number'
+            propertySchema.type === 'number' ||
+            propertySchema.type === 'string'
           ) {
-            b.assert(
+            b.blank().assert(
               `Object.values(${obj}).every((value) => typeof value === '${propertySchema.type}')`
             );
+          } else if (propertySchema.type === 'object') {
+            b.blank()
+              .line(
+                `const valid = Object.values(${obj}).every((value: unknown) => {`
+              )
+              .indent();
+
+            genAssertProperties('value', propertySchema);
+
+            b.line('return true;').dedent().line('});').blank().assert('valid');
           } else if (propertySchema.type === 'array') {
             // TODO: impl
           }

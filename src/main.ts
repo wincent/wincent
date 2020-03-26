@@ -25,7 +25,7 @@ async function main() {
   const profiles = project.profiles ?? {};
 
   const [profile] =
-    Object.entries(profiles).find(([, pattern]) => {
+    Object.entries(profiles).find(([, {pattern}]) => {
       if (regExpFromString(pattern).test(hostname)) {
         return true;
       }
@@ -43,7 +43,7 @@ async function main() {
 
   const platforms = project.platforms;
 
-  const aspects = project.platforms[platform];
+  const {aspects} = project.platforms[platform];
 
   aspects.forEach((aspect) => {
     switch (aspect) {
