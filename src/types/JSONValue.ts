@@ -15,28 +15,21 @@ export function assertJSONValue(value: unknown): asserts value is JSONValue {
       value === null
     ) {
       return true;
-    } else if (Array.isArray(value)) {
-      if (seen.has(value)) {
-        return false;
-      } else {
-        seen.add(value);
-      }
+    } else if (Array.isArray(value) && !seen.has(value)) {
+      seen.add(value);
 
       return value.every(isJSON);
     } else if (
       typeof value === 'object' &&
-      Object.prototype.toString.call(value) === '[object Object]'
+      Object.prototype.toString.call(value) === '[object Object]' &&
+      !seen.has(value)
     ) {
-      if (seen.has(value)) {
-        return false;
-      } else {
-        seen.add(value);
-      }
+      seen.add(value);
 
       return Object.values(value!).every(isJSON);
-    } else {
-      return false;
     }
+
+    return false;
   }
 
   assert(isJSON(value));
