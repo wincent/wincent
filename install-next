@@ -12,8 +12,8 @@ yarn --frozen-lockfile --no-default-rc --no-progress --silent
 
 log_info "Cleaning"
 
-rm -rf "$REPO_ROOT"/lib/*
-rm -rf "$REPO_ROOT"/src/types/*
+git clean -fq -- "$REPO_ROOT"/lib
+git clean -fq -- "$REPO_ROOT"/src/types
 
 log_info "Generating TypeScript types"
 

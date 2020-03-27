@@ -18,17 +18,20 @@ const aspects = (() => {
  */
 
 const DEFINITIONS = {
+  JSONValue: {
+    anyOf: [
+      {type: 'array'},
+      {type: 'boolean'},
+      {type: 'null'},
+      {type: 'number'},
+      {type: 'object'},
+      {type: 'string'},
+    ],
+  },
   Variables: {
     type: 'object',
     patternProperties: {
-      '.*': {
-        anyOf: [
-          {type: 'boolean'},
-          {type: 'null'},
-          {type: 'number'},
-          {type: 'string'},
-        ],
-      },
+      '.*': {$ref: '#/definitions/JSONValue'},
     },
   },
 };

@@ -1,2 +1,12 @@
+#
+# Generated files.
+#
+
 *
+
+#
+# Manually maintained files.
+#
+
+!/JSONValue.ts
 !/.gitignore

@@ -31,6 +31,9 @@ function main() {
 
     b.docblock('vim: set nomodifiable :', '', '@generated').blank();
 
+    // May be unused, but add just in case.
+    b.line(`import {assertJSONValue} from './JSONValue';`).blank();
+
     // Create types.
     Object.entries(definitions).forEach(([name, value]) => {
       if (value.enum) {
@@ -224,7 +227,15 @@ function genAssertFunction(typeName, typeSchema, options) {
         );
 
         Object.values({...patternProperties}).forEach((propertySchema) => {
-          if (propertySchema.anyOf) {
+          const target = extractTargetFromRef(propertySchema);
+
+          if (target) {
+            propertySchema = definitions[target];
+          }
+
+          if (isJSONValue(propertySchema)) {
+            b.blank().line(`Object.values(${obj}).forEach(assertJSONValue)`);
+          } else if (propertySchema.anyOf) {
             const conditions = propertySchema.anyOf.map(({type}) => {
               if (
                 type === 'boolean' ||
@@ -356,12 +367,20 @@ function genProperty(propertyName, propertySchema, options) {
 function genPatternProperty(pattern, schema, options) {
   assert(pattern === '.*');
 
-  const b = options.builder;
+  const {builder: b, definitions} = options;
+
+  const target = extractTargetFromRef(schema);
+
+  if (target) {
+    schema = definitions[target];
+  }
 
   let value;
 
-  if (schema.anyOf) {
-    // TODO: support non-simple types too.
+  if (isJSONValue(schema)) {
+    value = 'JSONValue';
+  } else if (schema.anyOf) {
+    // TODO: handle non-simple types here.
     value = schema.anyOf.map(({type}) => type).join(' | ');
   } else if (schema.type === 'number' || schema.type === 'string') {
     value = schema.type;
@@ -372,6 +391,36 @@ function genPatternProperty(pattern, schema, options) {
   }
 
   b.property('[key: string]', value);
+}
+
+/**
+ * Identify our shorthand for any JSONValue:
+ *
+ *    (any) array | boolean | null | number | (any) object | string
+ */
+function isJSONValue(schema) {
+  const items = new Set([
+    'array',
+    'boolean',
+    'null',
+    'number',
+    'object',
+    'string',
+  ]);
+
+  const {anyOf} = schema;
+
+  if (anyOf && anyOf.length === items.size) {
+    anyOf.forEach((schema) => {
+      if (Object.keys(schema).length === 1) {
+        items.delete(schema.type);
+      }
+    });
+
+    return !items.size;
+  }
+
+  return false;
 }
 
 main();
