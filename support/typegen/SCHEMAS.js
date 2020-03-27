@@ -17,6 +17,25 @@ const aspects = (() => {
  * @see https://json-schema.org/
  */
 const SCHEMAS = {
+  Aspect: {
+    properties: {
+      description: {
+        type: 'string',
+      },
+      variables: {
+        type: 'object',
+        patternProperties: {
+          '.*': {
+            // TODO: should make all these variables more broad
+            // eg boolean | null | number | string -- possibly more
+            type: 'string',
+          },
+        },
+      },
+    },
+    required: ['description'],
+    type: 'object',
+  },
   Project: {
     definitions: {
       Aspect: {

@@ -4,6 +4,7 @@ import * as path from 'path';
 import Attributes from './Attributes';
 import {root} from './Fig';
 import {log} from './console';
+import readAspect from './readAspect';
 import readProject from './readProject';
 import regExpFromString from './regExpFromString';
 import test from './test';
@@ -39,19 +40,23 @@ async function main() {
 
   log.info(`Platform: ${platform}`);
 
-  log.info('Running runbooks');
-
   const platforms = project.platforms;
 
   const {aspects} = project.platforms[platform];
 
-  aspects.forEach((aspect) => {
+  for (const aspect of aspects) {
+    const {description, variables} = await readAspect(
+      path.join(root, 'aspects', aspect, 'aspect.json')
+    );
+    log.info(`${aspect}: ${description}`);
+    console.log(variables);
+
     switch (aspect) {
       case 'terminfo':
         require('../aspects/terminfo');
         break;
     }
-  });
+  }
 
   // TODO: decide whether to register tasks for deferred running, or run them eagerly
 }

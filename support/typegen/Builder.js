@@ -55,8 +55,24 @@ class Builder {
     return this;
   }
 
-  ['function'](open, callback) {
-    return this.line(`export function ${open} {`).block(callback).line('}');
+  ['function'](open, ...rest) {
+    let callback;
+    let options = {export: true};
+
+    if (typeof rest[0] === 'function') {
+      callback = rest[0];
+    } else {
+      options = {...options, ...rest[0]};
+      callback = rest[1];
+    }
+
+    if (options.export) {
+      this.line(`export function ${open} {`).block(callback).line('}');
+    } else {
+      this.line(`function ${open} {`).block(callback).line('}');
+    }
+
+    return this;
   }
 
   getIndent() {

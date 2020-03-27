@@ -80,6 +80,7 @@ function main() {
     // typed as an "assert" function in the TS sense.
     b.function(
       'assert(condition: any, message?: string): asserts condition',
+      {export: false},
       () => {
         b.if('!condition', () => {
           b.line(
