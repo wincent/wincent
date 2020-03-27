@@ -13,7 +13,11 @@ export default async function readProject(path: string): Promise<Project> {
 
   const project = JSON.parse(json);
 
-  assertProject(project);
+  try {
+    assertProject(project);
+  } catch (error) {
+    throw new Error(`${error.message} in ${path}`);
+  }
 
   return project;
 }

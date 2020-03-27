@@ -13,7 +13,11 @@ export default async function readAspect(path: string): Promise<Aspect> {
 
   const aspect = JSON.parse(json);
 
-  assertAspect(aspect);
+  try {
+    assertAspect(aspect);
+  } catch (error) {
+    throw new Error(`${error.message} in ${path}`);
+  }
 
   return aspect;
 }
