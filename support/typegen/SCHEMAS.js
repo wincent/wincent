@@ -16,28 +16,38 @@ const aspects = (() => {
  *
  * @see https://json-schema.org/
  */
+
+const DEFINITIONS = {
+  Variables: {
+    type: 'object',
+    patternProperties: {
+      '.*': {
+        anyOf: [
+          {type: 'boolean'},
+          {type: 'null'},
+          {type: 'number'},
+          {type: 'string'},
+        ],
+      },
+    },
+  },
+};
+
 const SCHEMAS = {
   Aspect: {
+    definitions: DEFINITIONS,
     properties: {
       description: {
         type: 'string',
       },
-      variables: {
-        type: 'object',
-        patternProperties: {
-          '.*': {
-            // TODO: should make all these variables more broad
-            // eg boolean | null | number | string -- possibly more
-            type: 'string',
-          },
-        },
-      },
+      variables: {$ref: '#/definitions/Variables'},
     },
     required: ['description'],
     type: 'object',
   },
   Project: {
     definitions: {
+      ...DEFINITIONS,
       Aspect: {
         type: 'string',
         enum: aspects,
@@ -54,14 +64,7 @@ const SCHEMAS = {
                 type: 'array',
                 items: {$ref: '#/definitions/Aspect'},
               },
-              variables: {
-                type: 'object',
-                patternProperties: {
-                  '.*': {
-                    type: 'string',
-                  },
-                },
-              },
+              variables: {$ref: '#/definitions/Variables'},
             },
             required: ['aspects'],
           },
@@ -72,14 +75,7 @@ const SCHEMAS = {
                 type: 'array',
                 items: {$ref: '#/definitions/Aspect'},
               },
-              variables: {
-                type: 'object',
-                patternProperties: {
-                  '.*': {
-                    type: 'string',
-                  },
-                },
-              },
+              variables: {$ref: '#/definitions/Variables'},
             },
             required: ['aspects'],
           },
@@ -95,14 +91,7 @@ const SCHEMAS = {
               pattern: {
                 type: 'string',
               },
-              variables: {
-                type: 'object',
-                patternProperties: {
-                  '.*': {
-                    type: 'string',
-                  },
-                },
-              },
+              variables: {$ref: '#/definitions/Variables'},
             },
             required: ['pattern'],
           },
