@@ -3,7 +3,7 @@ import * as path from 'path';
 
 import Attributes from './Attributes';
 import Context from './Fig/Context';
-import * as Fig from './Fig';
+import {root} from './Fig';
 import * as TaskRegistry from './Fig/TaskRegistry';
 import {log} from './console';
 import merge from './merge';
@@ -22,7 +22,7 @@ async function main() {
 
   await test();
 
-  const project = await readProject(path.join(Fig.root, 'project.json'));
+  const project = await readProject(path.join(root, 'project.json'));
 
   const hostname = os.hostname();
 
@@ -66,7 +66,7 @@ async function main() {
   // touching filesystem).
   for (const aspect of aspects) {
     const {description, variables: aspectVariables = {}} = await readAspect(
-      path.join(Fig.root, 'aspects', aspect, 'aspect.json')
+      path.join(root, 'aspects', aspect, 'aspect.json')
     );
     log.info(`${aspect}: ${description}`);
 
@@ -79,7 +79,7 @@ async function main() {
       // everything with `await` keywords... better to use blocking sync
       // everywhere I think
       Context.withContext({aspect, variables}, () => {
-        callback(Fig);
+        callback();
       });
     }
   }

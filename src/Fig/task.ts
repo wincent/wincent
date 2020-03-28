@@ -1,6 +1,5 @@
 import {relative, sep} from 'path';
 
-import type {Fig} from '../Fig';
 import {assertAspect} from '../types/Project';
 import * as TaskRegistry from './TaskRegistry';
 import getCaller from '../getCaller';
@@ -10,7 +9,7 @@ import * as path from './path';
 import {default as root} from './root';
 import {default as variable} from './variable';
 
-export default function task(name: string, callback: (Fig: Fig) => void) {
+export default function task(name: string, callback: () => void) {
   const caller = getCaller();
 
   const ancestors = relative(root, caller).split(sep);

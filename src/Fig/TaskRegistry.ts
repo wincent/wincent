@@ -1,7 +1,6 @@
-import type {Fig} from '../Fig';
 import type {Aspect} from '../types/Project';
 
-type Callback = (Fig: Fig) => void;
+type Callback = () => void;
 
 const callbacks = new Map<Aspect, Array<Callback>>();
 
