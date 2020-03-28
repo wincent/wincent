@@ -12,3 +12,7 @@ export function register(aspect: Aspect, callback: Callback) {
 
   callbacks.get(aspect)!.push(callback);
 }
+
+export function get(aspect: Aspect): Array<Callback> {
+  return callbacks.get(aspect) || [];
+}

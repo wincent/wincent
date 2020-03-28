@@ -2,7 +2,8 @@ import * as os from 'os';
 import * as path from 'path';
 
 import Attributes from './Attributes';
-import {root} from './Fig';
+import * as Fig from './Fig';
+import * as TaskRegistry from './Fig/TaskRegistry';
 import {log} from './console';
 import merge from './merge';
 import readAspect from './readAspect';
@@ -20,7 +21,7 @@ async function main() {
 
   await test();
 
-  const project = await readProject(path.join(root, 'project.json'));
+  const project = await readProject(path.join(Fig.root, 'project.json'));
 
   const hostname = os.hostname();
 
@@ -49,18 +50,8 @@ async function main() {
     platform
   ];
 
-  const baseVariables = merge(profileVariables, platformVariables);
-
+  // Register tasks.
   for (const aspect of aspects) {
-    const {description, variables: aspectVariables = {}} = await readAspect(
-      path.join(root, 'aspects', aspect, 'aspect.json')
-    );
-    log.info(`${aspect}: ${description}`);
-
-    const mergedVariables = merge(aspectVariables, baseVariables);
-
-    log.debug(`variables:\n\n${JSON.stringify(mergedVariables, null, 2)}\n`);
-
     switch (aspect) {
       case 'terminfo':
         require('../aspects/terminfo');
@@ -68,7 +59,22 @@ async function main() {
     }
   }
 
-  // TODO: decide whether to register tasks for deferred running, or run them eagerly
+  const baseVariables = merge(profileVariables, platformVariables);
+
+  // Execute tasks. (Separate step so we can bail on configuration errors before
+  // touching filesystem).
+  for (const aspect of aspects) {
+    const {description, variables: aspectVariables = {}} = await readAspect(
+      path.join(Fig.root, 'aspects', aspect, 'aspect.json')
+    );
+    log.info(`${aspect}: ${description}`);
+
+    const mergedVariables = merge(aspectVariables, baseVariables);
+
+    log.debug(`variables:\n\n${JSON.stringify(mergedVariables, null, 2)}\n`);
+
+    TaskRegistry.get(aspect).forEach((callback) => callback(Fig));
+  }
 }
 
 main().catch((error) => {
