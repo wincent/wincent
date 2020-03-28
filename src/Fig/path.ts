@@ -5,6 +5,7 @@ import {join} from 'path';
  * active aspect (eg. `aspects/${aspect}/files/${name}`).
  */
 export function file(...path: Array<string>): string {
+  // TODO: sub [something] for actual value
   return join('aspects', '[something]', 'files', ...path);
 }
 

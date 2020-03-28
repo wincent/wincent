@@ -1,6 +1,8 @@
 import {relative, sep} from 'path';
 
 import type {Fig} from '../Fig';
+import {assertAspect} from '../types/Project';
+import * as TaskRegistry from './TaskRegistry';
 import getCaller from '../getCaller';
 import {default as command} from './operations/command';
 import {default as file} from './operations/file';
@@ -20,17 +22,10 @@ export default function task(name: string, callback: (Fig: Fig) => void) {
     throw new Error(`Unable to determine aspect for ${caller}`);
   }
 
+  assertAspect(aspect);
   // TODO: use `caller` to make namespaced task name.
 
-  // Create a new `Fig` object here to avoid circular dependency.
-  callback({
-    command,
-    file,
-    path,
-    root,
-    task,
-    variable,
-  });
+  TaskRegistry.register(aspect, callback);
   // TODO: decide how to make context available to these functions. can either
   // register it somewhere global, or pass it as a config object (and can use
   // bind() for that)

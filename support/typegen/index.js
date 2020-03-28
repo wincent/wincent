@@ -37,26 +37,24 @@ function main() {
     // Create types.
     Object.entries(definitions).forEach(([name, value]) => {
       if (value.enum) {
-        b.line(`type ${name} =`).indent();
+        b.line(`const ${name}Values = [`).indent();
 
-        value.enum.forEach((v, i) => {
-          const semicolon = i < value.enum.length - 1 ? '' : ';';
-
-          b.line(`| '${v}'${semicolon}`);
+        value.enum.forEach((v) => {
+          b.line(`'${v}',`);
         });
 
-        b.dedent().blank();
+        b.dedent().line('] as const;').blank();
+
+        b.line(`export type ${name} = typeof ${name}Values[number];`).blank();
       }
     });
 
-    // Create sets for runtime checking.
+    // Create sets for runtime checks.
     Object.entries(definitions).forEach(([name, value]) => {
       if (value.enum) {
-        b.line(`const ${name.toUpperCase()} = new Set<${name}>([`).indent();
-
-        value.enum.forEach((v) => b.line(`'${v}'`));
-
-        b.dedent().line(']);').blank();
+        b.line(
+          `const ${name.toUpperCase()} = new Set<${name}>(${name}Values);`
+        ).blank();
       }
     });
 
@@ -79,6 +77,18 @@ function main() {
     });
 
     b.blank();
+
+    // Create runtime checks.
+    Object.entries(definitions).forEach(([name, value]) => {
+      if (value.enum) {
+        b.function(
+          `assert${name}(value: any): asserts value is ${name}`,
+          () => {
+            b.assert(`${name.toUpperCase()}.has(value)`);
+          }
+        ).blank();
+      }
+    });
 
     // Can't use Node's own `assert` here because it's not currently
     // typed as an "assert" function in the TS sense.
@@ -184,7 +194,7 @@ function genAssertFunction(typeName, typeSchema, options) {
               if (propertySchema.type === 'object') {
                 genAssertProperties(propertyName, propertySchema);
               } else if (propertySchema.type === 'array') {
-                b.assert(`Array.isArray(${propertyName})`);
+                b.assert(`Array.isArray(${propertyName})`).blank();
 
                 const target = extractTargetFromRef(propertySchema.items);
 
@@ -194,9 +204,7 @@ function genAssertFunction(typeName, typeSchema, options) {
                   assert(definition);
 
                   if (definition.enum) {
-                    b.assert(
-                      `${propertyName}.every((item: any) => ${target.toUpperCase()}.has(item))`
-                    );
+                    b.line(`${propertyName}.forEach(assert${target});`);
                   }
                 } else {
                   const itemType = propertySchema.items.type;

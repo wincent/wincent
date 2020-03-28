@@ -51,6 +51,8 @@ const SCHEMAS = {
   Project: {
     definitions: {
       ...DEFINITIONS,
+      // TODO: rename the enum to avoid confusion with other type above
+      // maybe call this one AspectName or something?
       Aspect: {
         type: 'string',
         enum: aspects,
