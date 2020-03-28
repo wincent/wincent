@@ -1,8 +1,8 @@
 import {default as command} from './operations/command';
-import {default as task} from './task';
 import {default as file} from './operations/file';
 import * as path from './path';
 import {default as root} from './root';
+import {default as task} from './task';
 import {default as variable} from './variable';
 
 export {command};

@@ -8,11 +8,7 @@ task('create target directory', ({file, variable}) => {
 });
 
 task('update terminfo files', ({command, path, variable}) => {
-  [
-    'tmux.terminfo',
-    'tmux-256color.terminfo',
-    'xterm-256color.terminfo',
-  ].forEach((item) => {
-    command('tic', '-o', variable('terminfo_path'), path.file(item));
-  });
+  for (const file of path.files('*.terminfo')) {
+    command('tic', '-o', variable('terminfo_path'), file);
+  }
 });

@@ -73,7 +73,11 @@ async function main() {
 
     log.debug(`variables:\n\n${JSON.stringify(mergedVariables, null, 2)}\n`);
 
-    TaskRegistry.get(aspect).forEach((callback) => callback(Fig));
+    for (const callback of TaskRegistry.get(aspect)) {
+      // TODO: may want to make these async, but will end up polluting
+      // everything with `await` keywords...
+      callback(Fig);
+    }
   }
 }
 

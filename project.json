@@ -6,7 +6,9 @@
     },
     "linux": {
       "aspects": ["terminfo"],
-      "variables": {}
+      "variables": {
+        "terminfo_path": "~/share/terminfo"
+      }
     }
   },
   "profiles": {
