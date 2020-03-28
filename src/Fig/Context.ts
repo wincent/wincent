@@ -1,5 +1,7 @@
 import * as assert from 'assert';
 
+import Attributes from '../Attributes';
+
 import type {Aspect} from '../types/Project';
 
 /**
@@ -8,8 +10,13 @@ import type {Aspect} from '../types/Project';
  * lightweight/implicit as possible.
  */
 class Context {
+  #attributes: Attributes;
   #currentAspect?: Aspect;
   #currentVariables?: Variables;
+
+  constructor() {
+    this.#attributes = new Attributes();
+  }
 
   withContext(
     {aspect, variables}: {aspect: Aspect; variables: Variables},
@@ -27,6 +34,10 @@ class Context {
       this.#currentAspect = previousAspect;
       this.#currentVariables = previousVariables;
     }
+  }
+
+  get attributes(): Attributes {
+    return this.#attributes;
   }
 
   get currentAspect(): Aspect {

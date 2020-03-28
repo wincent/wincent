@@ -1,11 +1,23 @@
-import capture from './capture';
+import * as os from 'os';
 
+/**
+ * Immutable system attributes (read-only).
+ */
 export default class Attributes {
+  #homedir?: string;
   #platform?: 'darwin' | 'linux';
 
-  async getPlatform(): Promise<'darwin' | 'linux'> {
+  get homedir(): string {
+    if (!this.#homedir) {
+      this.#homedir = os.homedir();
+    }
+
+    return this.#homedir;
+  }
+
+  get platform(): 'darwin' | 'linux' {
     if (!this.#platform) {
-      const uname = await capture('uname', '-s');
+      const uname = os.type();
 
       if (uname === 'Darwin') {
         this.#platform = 'darwin';

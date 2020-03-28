@@ -1,7 +1,6 @@
 import * as os from 'os';
 import * as path from 'path';
 
-import Attributes from './Attributes';
 import Context from './Fig/Context';
 import {root} from './Fig';
 import * as TaskRegistry from './Fig/TaskRegistry';
@@ -41,9 +40,7 @@ async function main() {
     ? profiles[profile]!.variables ?? {}
     : {};
 
-  const attributes = new Attributes();
-
-  const platform = await attributes.getPlatform();
+  const platform = Context.attributes.platform;
 
   log.info(`Platform: ${platform}`);
 
