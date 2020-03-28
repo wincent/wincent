@@ -2,6 +2,7 @@ import * as os from 'os';
 import * as path from 'path';
 
 import Attributes from './Attributes';
+import Context from './Fig/Context';
 import * as Fig from './Fig';
 import * as TaskRegistry from './Fig/TaskRegistry';
 import {log} from './console';
@@ -69,14 +70,17 @@ async function main() {
     );
     log.info(`${aspect}: ${description}`);
 
-    const mergedVariables = merge(aspectVariables, baseVariables);
+    const variables = merge(aspectVariables, baseVariables);
 
-    log.debug(`variables:\n\n${JSON.stringify(mergedVariables, null, 2)}\n`);
+    log.debug(`variables:\n\n${JSON.stringify(variables, null, 2)}\n`);
 
     for (const callback of TaskRegistry.get(aspect)) {
       // TODO: may want to make these async, but will end up polluting
-      // everything with `await` keywords...
-      callback(Fig);
+      // everything with `await` keywords... better to use blocking sync
+      // everywhere I think
+      Context.withContext({aspect, variables}, () => {
+        callback(Fig);
+      });
     }
   }
 }

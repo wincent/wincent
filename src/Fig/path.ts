@@ -1,6 +1,7 @@
 import * as fs from 'fs';
 import {join} from 'path';
 
+import Context from './Context';
 import globToRegExp from './globToRegExp';
 
 // TODO: think about exporting these separately
@@ -10,18 +11,14 @@ import globToRegExp from './globToRegExp';
  * active aspect (eg. `aspects/${aspect}/files/${name}`).
  */
 export function file(...path: Array<string>): string {
-  // TODO: get actual aspect
-  const aspect = 'terminfo';
-
-  return join('aspects', aspect, 'files', ...path);
+  return join('aspects', Context.currentAspect, 'files', ...path);
 }
 
 /**
  * Very simple glob-based file search (doesn't supported nested directories).
  */
 export function files(glob: string): Array<string> {
-  // TODO: get actual aspect
-  const aspect = 'terminfo';
+  const aspect = Context.currentAspect;
 
   const regExp = globToRegExp(glob);
 
@@ -34,6 +31,6 @@ export function files(glob: string): Array<string> {
 }
 
 export function template(...path: Array<string>): string {
-  // TODO: actually implement
-  return path[0];
+  // TODO: actually compile/fill template (will want a cache, I think)
+  return join('aspects', Context.currentAspect, 'templates', ...path);
 }

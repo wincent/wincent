@@ -1,6 +1,7 @@
 import {log} from '../../console';
 
 // TODO decide whether we want a separate "directory" operation
+// TODO: implement auto-expand of ~
 export default function file({
   force,
   mode,

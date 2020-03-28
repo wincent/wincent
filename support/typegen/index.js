@@ -31,8 +31,10 @@ function main() {
 
     b.docblock('vim: set nomodifiable :', '', '@generated').blank();
 
-    // May be unused, but add just in case.
-    b.line(`import {assertJSONValue} from './JSONValue';`).blank();
+    // Don't know whether these will be needed yet, but add just in case.
+    b.line(`import assert from '../assert';`)
+      .line(`import {assertJSONValue} from './JSONValue';`)
+      .blank();
 
     // Create types.
     Object.entries(definitions).forEach(([name, value]) => {
@@ -89,20 +91,6 @@ function main() {
         ).blank();
       }
     });
-
-    // Can't use Node's own `assert` here because it's not currently
-    // typed as an "assert" function in the TS sense.
-    b.function(
-      'assert(condition: any, message?: string): asserts condition',
-      {export: false},
-      () => {
-        b.if('!condition', () => {
-          b.line(
-            "throw new Error(`assert(): ${message || 'assertion failed'}`);"
-          );
-        });
-      }
-    ).blank();
 
     genAssertFunction(typeName, typeSchema, options);
 
