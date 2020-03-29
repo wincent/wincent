@@ -28,57 +28,32 @@ export default function file({
 
 function directory(path: string) {
   const target = expand(path);
-  const {root} = parse(target);
 
-  // Instead of doing a naive split, which would yield something like:
-  //
-  //    '', 'a', 'b', 'c'
-  //
-  // We pull off the root, and then stick it back on in our `reduce()`
-  // call so as to obtain:
-  //
-  //    '/', 'a', 'b', 'c'
-  //
-  // When we `join` successively, we'll get "/", then "/a", then "/a/b"
-  // etc.
-  const components = target.slice(root.length).split(sep);
+  // TODO: find out if ansible replaces regular file with dir or just errors?
+  if (fs.existsSync(target)) {
+    try {
+      const stat = fs.statSync(target);
 
-  components.reduce((current, component, i) => {
-    if (current === '') {
-      // Something went wrong on a previous iteration.
-      return '';
-    }
-
-    const next = join(current, component);
-    const isLast = i === components.length - 1;
-
-    if (fs.existsSync(next)) {
-      try {
-        const stat = fs.statSync(next);
-
-        if (!stat.isDirectory()) {
-          log.error(
-            `cannot create directory ${target} at non-directory ${next}`
-          );
-          return '';
-        }
-      } catch (error) {
-        log.error(`failed to stat: ${next}`);
-        return '';
+      if (stat.isDirectory()) {
+        // TODO: log "ok: ..."
+        log.info(`ok: directory ${path}`);
+      } else {
+        log.error(`${path} already exists but is not a directory`);
       }
-
-      if (isLast) {
-        log.info(`exists: ${next}`);
-      }
-
-      return next;
-    } else {
-      log.info(`creating: ${next}`);
-      // TODO: actually create
+    } catch (error) {
+      log.error(`failed to stat: ${path}`);
     }
-
-    return next;
-  }, root);
+  } else {
+    // TODO: decide on who to log this stuff in a standard way
+    // ok: ...
+    // changed: ...
+    // skipping: ...
+    // at end:
+    // "PLAY RECAP"
+    // ok=16 changed=7 unreachable=0 failed=0 skipped=2 rescued=0 ignored=0
+    log.notice(`changed: directory ${path}`);
+    fs.mkdirSync(target, {recursive: true});
+  }
 }
 
 function expand(path: string) {

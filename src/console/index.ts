@@ -1,10 +1,25 @@
+/**
+ * Syslog levels:
+ *
+ * - 0, emergency (not implemented): "system is unusable"
+ * - 1, alert (not implemented): "action must be taken immediately"
+ * - 2, critical (not implemented): "hard device errors"
+ * - 3, error: "error conditions"
+ * - 4, warning: "warning conditions"
+ * - 5, notice: "normal but significant conditions"
+ * - 6, info: "informational messages"
+ * - 7, debug: "debug-level messages"
+ *
+ * @see https://en.wikipedia.org/wiki/Syslog
+ */
+
 import {clearLine, cursorTo} from 'readline';
 
 import COLORS from './colors';
 
 export {COLORS};
 
-const {bold, purple, red, yellow} = COLORS;
+const {bold, green, purple, red, yellow} = COLORS;
 
 export function clear() {
   return new Promise((resolve) => {
@@ -29,6 +44,10 @@ function info(message: string) {
 export function log(...args: Array<any>) {
   print(...args);
   print('\n');
+}
+
+function notice(message: string) {
+  log(green.bold`[notice]` + ` ${message}`);
 }
 
 export function print(...args: Array<any>) {
@@ -57,6 +76,7 @@ log.clear = clear;
 log.debug = debug;
 log.error = error;
 log.info = info;
+log.notice = notice;
 log.warn = warn;
 
 print.clear = clear;
