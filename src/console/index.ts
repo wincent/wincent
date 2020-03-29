@@ -21,6 +21,18 @@ export {COLORS};
 
 const {bold, green, purple, red, yellow} = COLORS;
 
+const PREFIXES = ['debug', 'error', 'info', 'notice', 'warning'];
+
+const PREFIX_LENGTH = PREFIXES.reduce((acc, prefix) => {
+  return Math.max(`[${prefix}] `.length, acc);
+}, 0);
+
+const PREFIX_MAP = Object.fromEntries(
+  PREFIXES.map((prefix) => {
+    return [prefix, `[${prefix}] `.padEnd(PREFIX_LENGTH)];
+  })
+);
+
 export function clear() {
   return new Promise((resolve) => {
     clearLine(process.stderr, 0, () => {
@@ -30,15 +42,15 @@ export function clear() {
 }
 
 function debug(message: string) {
-  log(purple.bold`[debug]` + ` ${message}`);
+  log(purple.bold`${PREFIX_MAP.debug}` + message);
 }
 
 function error(message: string) {
-  log(red.bold`[error]` + ` ${message}`);
+  log(red.bold`${PREFIX_MAP.error}` + message);
 }
 
 function info(message: string) {
-  log(bold`[info]` + ` ${message}`);
+  log(bold`${PREFIX_MAP.info}` + message);
 }
 
 export function log(...args: Array<any>) {
@@ -47,7 +59,7 @@ export function log(...args: Array<any>) {
 }
 
 function notice(message: string) {
-  log(green.bold`[notice]` + ` ${message}`);
+  log(green.bold`${PREFIX_MAP.notice}` + message);
 }
 
 export function print(...args: Array<any>) {
@@ -69,7 +81,7 @@ export function print(...args: Array<any>) {
 }
 
 function warn(message: string) {
-  log(yellow.bold`[warning]` + ` ${message}`);
+  log(yellow.bold`${PREFIX_MAP.warning}` + message);
 }
 
 log.clear = clear;

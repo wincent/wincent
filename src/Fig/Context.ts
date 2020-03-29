@@ -1,21 +1,71 @@
 import * as assert from 'assert';
 
 import Attributes from '../Attributes';
+import * as status from './status';
 
 import type {Aspect} from '../types/Project';
 
 /**
- * Here's some more global state (and a companion to
- * TaskRegistry). Necessary in order to keep our "aspect" DSL as
- * lightweight/implicit as possible.
+ * Try to keep nasty global state all together in one place.
+ *
+ * TODO: move global state out of TaskRegisty
+ *
+ * Global state helps keep our "aspect" DSL as lightweight/implicit as
+ * possible.
  */
 class Context {
   #attributes: Attributes;
+
+  // TODO: decide how to deal with "recap"; ansible prints something like this:
+  //
+  // PLAY RECAP
+  // ok=16 changed=7 unreachable=0 failed=0 skipped=2 rescued=0 ignored=0
+  #counts: {
+    changed: number;
+    failed: number;
+    ok: number;
+    skipped: number;
+  };
+
   #currentAspect?: Aspect;
+
   #currentVariables?: Variables;
 
   constructor() {
     this.#attributes = new Attributes();
+
+    this.#counts = {
+      changed: 0,
+      failed: 0,
+      ok: 0,
+      skipped: 0,
+    };
+  }
+
+  informChanged(message: string) {
+    this.#counts.changed++;
+
+    status.changed(message);
+  }
+
+  informFailed(message: string) {
+    this.#counts.failed++;
+
+    status.failed(message);
+
+    // TODO throw!
+  }
+
+  informOk(message: string) {
+    this.#counts.ok++;
+
+    status.ok(message);
+  }
+
+  informSkipped(message: string) {
+    this.#counts.skipped++;
+
+    status.skipped(message);
   }
 
   withContext(
