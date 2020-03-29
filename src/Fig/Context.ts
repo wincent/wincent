@@ -1,9 +1,18 @@
 import * as assert from 'assert';
 
 import Attributes from '../Attributes';
+import ErrorWithMetadata from '../ErrorWithMetadata';
 import * as status from './status';
 
+import type {Metadata} from '../ErrorWithMetadata';
 import type {Aspect} from '../types/Project';
+
+type Counts = {
+  changed: number;
+  failed: number;
+  ok: number;
+  skipped: number;
+};
 
 /**
  * Try to keep nasty global state all together in one place.
@@ -20,12 +29,7 @@ class Context {
   //
   // PLAY RECAP
   // ok=16 changed=7 unreachable=0 failed=0 skipped=2 rescued=0 ignored=0
-  #counts: {
-    changed: number;
-    failed: number;
-    ok: number;
-    skipped: number;
-  };
+  #counts: Counts;
 
   #currentAspect?: Aspect;
 
@@ -48,12 +52,30 @@ class Context {
     status.changed(message);
   }
 
-  informFailed(message: string) {
+  /**
+   * @overload
+   */
+  informFailed(error: ErrorWithMetadata): never;
+
+  /**
+   * @overload
+   */
+  informFailed(message: string, metadata?: Metadata): never;
+
+  informFailed(...args: Array<any>): never {
+    let error: ErrorWithMetadata;
+
+    if (typeof args[0] === 'string') {
+      error = new ErrorWithMetadata(args[0], args[1]);
+    } else {
+      error = args[0];
+    }
+
     this.#counts.failed++;
 
-    status.failed(message);
+    status.failed(error.message);
 
-    // TODO throw!
+    throw error;
   }
 
   informOk(message: string) {
@@ -88,6 +110,10 @@ class Context {
 
   get attributes(): Attributes {
     return this.#attributes;
+  }
+
+  get counts() {
+    return this.#counts;
   }
 
   get currentAspect(): Aspect {

@@ -1,6 +1,7 @@
 import * as os from 'os';
 import * as path from 'path';
 
+import ErrorWithMetadata from './ErrorWithMetadata';
 import Context from './Fig/Context';
 import {root} from './Fig';
 import * as TaskRegistry from './Fig/TaskRegistry';
@@ -69,24 +70,46 @@ async function main() {
 
   // Execute tasks. (Separate step so we can bail on configuration errors before
   // touching filesystem).
-  for (const aspect of aspects) {
-    const {description, variables: aspectVariables = {}} = await readAspect(
-      path.join(root, 'aspects', aspect, 'aspect.json')
-    );
-    log.info(`${aspect}: ${description}`);
+  try {
+    for (const aspect of aspects) {
+      const {description, variables: aspectVariables = {}} = await readAspect(
+        path.join(root, 'aspects', aspect, 'aspect.json')
+      );
+      log.info(`${aspect}: ${description}`);
 
-    const variables = merge(aspectVariables, baseVariables);
+      const variables = merge(aspectVariables, baseVariables);
 
-    log.debug(`variables:\n\n${JSON.stringify(variables, null, 2)}\n`);
+      log.debug(`variables:\n\n${JSON.stringify(variables, null, 2)}\n`);
 
-    for (const callback of TaskRegistry.get(aspect)) {
-      // TODO: may want to make these async, but will end up polluting
-      // everything with `await` keywords... better to use blocking sync
-      // everywhere I think
-      Context.withContext({aspect, variables}, () => {
-        callback();
-      });
+      for (const callback of TaskRegistry.get(aspect)) {
+        // TODO: may want to make these async, but will end up polluting
+        // everything with `await` keywords... better to use blocking sync
+        // everywhere I think
+        Context.withContext({aspect, variables}, () => {
+          callback();
+        });
+      }
     }
+  } catch (error) {
+    if (error instanceof ErrorWithMetadata) {
+      if (error.metadata) {
+        log.error(
+          `${error.message}\n\n${JSON.stringify(error.metadata, null, 2)}\n`
+        );
+      } else {
+        log.error(error.message);
+      }
+    } else {
+      log.error(error.toString());
+    }
+  } finally {
+    const counts = Object.entries(Context.counts)
+      .map(([name, count]) => {
+        return `${name}=${count}`;
+      })
+      .join(' ');
+
+    log.info(`Summary: ${counts}`);
   }
 }
 
