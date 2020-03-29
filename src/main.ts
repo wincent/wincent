@@ -60,6 +60,9 @@ async function main() {
   // Register tasks.
   for (const aspect of aspects) {
     switch (aspect) {
+      case 'launchd':
+        require('../aspects/launchd');
+        break;
       case 'terminfo':
         require('../aspects/terminfo');
         break;
