@@ -4,7 +4,9 @@ set -e
 
 REPO_ROOT="${BASH_SOURCE%/*}"
 
-source "$REPO_ROOT/bin/common"
+cd "$REPO_ROOT"
+
+source bin/common
 
 log_info "Installing TypeScript"
 
@@ -12,12 +14,12 @@ yarn --frozen-lockfile --no-default-rc --no-progress --silent
 
 log_info "Cleaning"
 
-git clean -fq -- "$REPO_ROOT"/lib
-git clean -fq -- "$REPO_ROOT"/src/types
+git clean -fq -- lib
+git clean -fq -- src/types
 
 log_info "Generating TypeScript types"
 
-node "$REPO_ROOT/support/typegen"
+node support/typegen
 
 log_info "Compiling TypeScript source to JavaScript"
 
@@ -25,4 +27,4 @@ tsc
 
 log_info "Running main"
 
-node "$REPO_ROOT/lib/src/main.js" "$@"
+node lib/src/main.js "$@"

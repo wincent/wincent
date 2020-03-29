@@ -1,8 +1,7 @@
 import * as fs from 'fs';
-import {join, parse, sep} from 'path';
 
-import Context from '../Context';
 import {log} from '../../console';
+import expand from '../../expand';
 
 // TODO decide whether we want a separate "directory" operation
 // TODO: implement auto-expand of ~
@@ -54,12 +53,4 @@ function directory(path: string) {
     log.notice(`changed: directory ${path}`);
     fs.mkdirSync(target, {recursive: true});
   }
-}
-
-function expand(path: string) {
-  if (path.startsWith('~/')) {
-    return join(Context.attributes.homedir, path.slice(2));
-  }
-
-  return path;
 }

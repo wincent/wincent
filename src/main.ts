@@ -9,6 +9,7 @@ import merge from './merge';
 import readAspect from './readAspect';
 import readProject from './readProject';
 import regExpFromString from './regExpFromString';
+import simplify from './simplify';
 import test from './test';
 
 // argv[0] = node executable
@@ -17,6 +18,13 @@ import test from './test';
 log.debug(JSON.stringify(process.argv, null, 2));
 
 async function main() {
+  if (process.cwd() === root) {
+    log.info(`Working from root: ${simplify(root)}`);
+  } else {
+    log.notice(`Changing to root: ${simplify(root)}`);
+    process.chdir(root);
+  }
+
   log.info('Running tests');
 
   await test();
