@@ -1,6 +1,3 @@
-PATH=$PATH:$HOME/.zsh/liferay/bin
-export PATH
-
 # To make builds work better:
 export ANT_OPTS="-Xmx8192m -XX:MaxPermSize=2048m"
 export GRADLE_OPTS="$ANT_OPTS"

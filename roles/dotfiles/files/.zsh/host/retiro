@@ -1,5 +1,8 @@
 # Host-specific config.
 
-source $HOME/.zsh/liferay/exports
-
 alias irl=.irl.rb 2017 10 31
+
+# Some work from home stuff on this host too.
+
+source $HOME/.zsh/liferay/exports
+source $HOME/.zsh/liferay/path
