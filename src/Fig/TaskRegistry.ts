@@ -1,17 +1,23 @@
 import type {Aspect} from '../types/Project';
 
-type Callback = () => void;
+type Callback = () => Promise<void>;
 
-const callbacks = new Map<Aspect, Array<Callback>>();
+export default class TaskRegistry {
+  #callbacks: Map<Aspect, Array<[Callback, string]>>;
 
-export function register(aspect: Aspect, callback: Callback) {
-  if (!callbacks.has(aspect)) {
-    callbacks.set(aspect, []);
+  constructor() {
+    this.#callbacks = new Map();
   }
 
-  callbacks.get(aspect)!.push(callback);
-}
+  register(aspect: Aspect, callback: Callback, name: string) {
+    if (!this.#callbacks.has(aspect)) {
+      this.#callbacks.set(aspect, []);
+    }
 
-export function get(aspect: Aspect): Array<Callback> {
-  return callbacks.get(aspect) || [];
+    this.#callbacks.get(aspect)!.push([callback, name]);
+  }
+
+  get(aspect: Aspect): Array<[Callback, string]> {
+    return this.#callbacks.get(aspect) || [];
+  }
 }

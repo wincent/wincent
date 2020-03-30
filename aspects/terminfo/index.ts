@@ -1,14 +1,14 @@
-import {command, file, path, task, variable} from '../../src/Fig';
+import {command, file, resource, task, variable} from '../../src/Fig';
 
-task('create target directory', () => {
-  file({
+task('create target directory', async () => {
+  await file({
     path: variable.string('terminfo_path'),
     state: 'directory',
   });
 });
 
-task('update terminfo files', () => {
-  for (const terminfo of path.files('*.terminfo')) {
-    command('tic', '-o', variable.string('terminfo_path'), terminfo);
+task('update terminfo files', async () => {
+  for (const terminfo of resource.files('*.terminfo')) {
+    await command('tic', '-o', variable.string('terminfo_path'), terminfo);
   }
 });

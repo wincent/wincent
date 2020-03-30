@@ -1,15 +1,11 @@
 import {relative, sep} from 'path';
 
 import {assertAspect} from '../types/Project';
-import * as TaskRegistry from './TaskRegistry';
 import getCaller from '../getCaller';
-import {default as command} from './operations/command';
-import {default as file} from './operations/file';
-import * as path from './path';
+import Context from './Context';
 import {default as root} from './root';
-import {default as variable} from './variable';
 
-export default function task(name: string, callback: () => void) {
+export default function task(name: string, callback: () => Promise<void>) {
   const caller = getCaller();
 
   const ancestors = relative(root, caller).split(sep);
@@ -24,8 +20,5 @@ export default function task(name: string, callback: () => void) {
   assertAspect(aspect);
   // TODO: use `caller` to make namespaced task name.
 
-  TaskRegistry.register(aspect, callback);
-  // TODO: decide how to make context available to these functions. can either
-  // register it somewhere global, or pass it as a config object (and can use
-  // bind() for that)
+  Context.tasks.register(aspect, callback, name);
 }

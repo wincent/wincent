@@ -1,33 +1,43 @@
-import {spawnSync} from 'child_process';
+import * as child_process from 'child_process';
 
 import ErrorWithMetadata from './ErrorWithMetadata';
 
-export default function spawn(command: string, ...args: Array<string>) {
-  const {error, signal, status, stderr, stdout} = spawnSync(command, args, {
-    stdio: ['inherit', 'pipe', 'pipe'],
-  });
+export default async function spawn(
+  command: string,
+  ...args: Array<string>
+): Promise<void> {
+  return new Promise((resolve, reject) => {
+    let stderr = '';
+    let stdout = '';
 
-  if (error || signal || status) {
-    const description = [command, ...args].join(' ');
+    function fail(message: string) {
+      const description = [command, ...args].join(' ');
+      const metadata = {stderr, stdout};
 
-    let message;
-
-    if (error) {
-      message = `command ${description} encountered error: ${error}`;
-    } else if (signal) {
-      message = `command ${description} exited due to signal ${signal}`;
-    } else if (status) {
-      message = `command ${description} exited with status ${status}`;
-    } else {
-      // Will never get here, but need an "else" to keep TypeScript happy.
-      message = `command ${description} failed`;
+      reject(
+        new ErrorWithMetadata(`command ${description} ${message}`, metadata)
+      );
     }
 
-    const metadata = {
-      stderr: stderr.toString(),
-      stdout: stderr.toString(),
-    };
+    const child = child_process.spawn(command, args, {
+      stdio: ['inherit', 'pipe', 'pipe'],
+    });
 
-    throw new ErrorWithMetadata(message, metadata);
-  }
+    child.stderr.on('data', (data) => (stderr += data.toString()));
+    child.stdout.on('data', (data) => (stdout += data.toString()));
+
+    child.on('error', (error) => {
+      fail(`encountered error: ${error}`);
+    });
+
+    child.on('exit', (code, signal) => {
+      if (code) {
+        fail(`exited with status ${code}`);
+      } else if (signal) {
+        fail(`exited due to signal ${signal}`);
+      } else {
+        resolve();
+      }
+    });
+  });
 }

@@ -4,7 +4,6 @@ import * as path from 'path';
 import ErrorWithMetadata from './ErrorWithMetadata';
 import Context from './Fig/Context';
 import {root} from './Fig';
-import * as TaskRegistry from './Fig/TaskRegistry';
 import {log} from './console';
 import merge from './merge';
 import readAspect from './readAspect';
@@ -84,12 +83,11 @@ async function main() {
 
       log.debug(`variables:\n\n${JSON.stringify(variables, null, 2)}\n`);
 
-      for (const callback of TaskRegistry.get(aspect)) {
-        // TODO: may want to make these async, but will end up polluting
-        // everything with `await` keywords... better to use blocking sync
-        // everywhere I think
-        Context.withContext({aspect, variables}, () => {
-          callback();
+      for (const [callback, name] of Context.tasks.get(aspect)) {
+        log.info(`task: ${name}`);
+
+        await Context.withContext({aspect, variables}, async () => {
+          await callback();
         });
       }
     }

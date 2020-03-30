@@ -6,6 +6,7 @@ import * as os from 'os';
 export default class Attributes {
   #homedir?: string;
   #platform?: 'darwin' | 'linux';
+  #username?: string;
 
   get homedir(): string {
     if (!this.#homedir) {
@@ -29,5 +30,13 @@ export default class Attributes {
     }
 
     return this.#platform;
+  }
+
+  get username(): string {
+    if (!this.#username) {
+      this.#username = os.userInfo().username;
+    }
+
+    return this.#username;
   }
 }

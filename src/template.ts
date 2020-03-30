@@ -1,3 +1,7 @@
+export type Scope = {
+  [property: string]: JSONValue;
+};
+
 /**
  * Returns a "compiled" template (a string containing a function body that can
  * be evaluated to produce the template output).
@@ -35,15 +39,12 @@ export function compile(source: string) {
  * `scope` that provides variables and any other material that maybe needed,
  * producing the final string result.
  */
-export function fill(
-  template: string,
-  scope: {[property: string]: JSONValue} = {}
-) {
+export function fill(compiled: string, scope: Scope = {}) {
   const context = Object.entries(scope).map(
     ([key, value]) => `const ${key} = ${JSON.stringify(value)};\n`
   );
 
-  const sandbox = new Function(context + compile(template));
+  const sandbox = new Function(context + compiled);
 
   return sandbox();
 }

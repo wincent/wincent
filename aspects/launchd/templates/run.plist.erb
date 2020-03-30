@@ -3,13 +3,13 @@
 <plist version="1.0">
   <dict>
     <key>Label</key>
-    <string><%= item.label %></string>
+    <string><%= variables.label %></string>
     <key>ProgramArguments</key>
     <array>
       <string>launchctl</string>
-<%- for (const argument in item.arguments) { %>
-      <string><%= arg %></string>
-<%- } %>
+<%- for (const argument of variables.arguments) { -%>
+      <string><%= argument %></string>
+<%- } -%>
     </array>
     <key>RunAtLoad</key>
     <true/>

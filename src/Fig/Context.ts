@@ -2,7 +2,10 @@ import * as assert from 'assert';
 
 import Attributes from '../Attributes';
 import ErrorWithMetadata from '../ErrorWithMetadata';
+import prompt from '../prompt';
 import * as status from './status';
+import Compiler from '../Compiler';
+import TaskRegistry from './TaskRegistry';
 
 import type {Metadata} from '../ErrorWithMetadata';
 import type {Aspect} from '../types/Project';
@@ -17,26 +20,21 @@ type Counts = {
 /**
  * Try to keep nasty global state all together in one place.
  *
- * TODO: move global state out of TaskRegisty
- *
  * Global state helps keep our "aspect" DSL as lightweight/implicit as
  * possible.
  */
 class Context {
   #attributes: Attributes;
-
-  // TODO: decide how to deal with "recap"; ansible prints something like this:
-  //
-  // PLAY RECAP
-  // ok=16 changed=7 unreachable=0 failed=0 skipped=2 rescued=0 ignored=0
+  #compiler: Compiler;
   #counts: Counts;
-
   #currentAspect?: Aspect;
-
   #currentVariables?: Variables;
+  #sudoPassphrase?: Promise<string>;
+  #tasks: TaskRegistry;
 
   constructor() {
     this.#attributes = new Attributes();
+    this.#compiler = new Compiler();
 
     this.#counts = {
       changed: 0,
@@ -44,6 +42,12 @@ class Context {
       ok: 0,
       skipped: 0,
     };
+
+    this.#tasks = new TaskRegistry();
+  }
+
+  compile(path: string) {
+    return this.#compiler.compile(path);
   }
 
   informChanged(message: string) {
@@ -90,9 +94,9 @@ class Context {
     status.skipped(message);
   }
 
-  withContext(
+  async withContext(
     {aspect, variables}: {aspect: Aspect; variables: Variables},
-    callback: () => void
+    callback: () => Promise<void>
   ) {
     let previousAspect = this.#currentAspect;
     let previousVariables = this.#currentVariables;
@@ -101,7 +105,7 @@ class Context {
       this.#currentAspect = aspect;
       this.#currentVariables = variables;
 
-      callback();
+      await callback();
     } finally {
       this.#currentAspect = previousAspect;
       this.#currentVariables = previousVariables;
@@ -134,6 +138,23 @@ class Context {
 
   set currentVariables(variables: Variables) {
     this.#currentVariables = variables;
+  }
+
+  get sudoPassphrase(): Promise<string> {
+    if (!this.#sudoPassphrase) {
+      this.#sudoPassphrase = prompt(`Password [will not be echoed]: `, {
+        private: true,
+      });
+    }
+
+    return this.#sudoPassphrase;
+  }
+
+  // TODO: note that I might be going overboard here with private
+  // variables for stuff that I really don't have to worry about getting
+  // meddled with
+  get tasks(): TaskRegistry {
+    return this.#tasks;
   }
 }
 

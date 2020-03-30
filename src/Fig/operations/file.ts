@@ -6,7 +6,7 @@ import Context from '../Context';
 
 // TODO decide whether we want a separate "directory" operation
 // TODO: implement auto-expand of ~
-export default function file({
+export default async function file({
   force,
   mode,
   path,
@@ -18,7 +18,7 @@ export default function file({
   src?: string;
   state: 'directory' | 'file' | 'link' | 'touch';
   force?: boolean;
-}) {
+}): Promise<void> {
   if (state === 'directory') {
     directory(path);
   }

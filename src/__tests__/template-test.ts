@@ -66,35 +66,39 @@ test('compile() compiles a template containing statements', () => {
 });
 
 test('fill() fills an empty template', () => {
-  expect(fill('')).toBe('');
+  expect(fill(compile(''))).toBe('');
 });
 
 test('fill() fills a template containing only template text', () => {
-  expect(fill('stuff')).toBe('stuff');
+  expect(fill(compile('stuff'))).toBe('stuff');
 });
 
 test('fill() fills a template containing an expression', () => {
-  expect(fill('stuff <%= "here" %>')).toBe('stuff here');
+  expect(fill(compile('stuff <%= "here" %>'))).toBe('stuff here');
 });
 
 test('fill() fills a template that relies on scope', () => {
-  expect(fill('name: <%= name %>', {name: 'Bob'})).toBe('name: Bob');
+  expect(fill(compile('name: <%= name %>'), {name: 'Bob'})).toBe('name: Bob');
 });
 
 test('fill() complains when required scope is missing', () => {
-  expect(() => fill('name: <%= name %>')).toThrow('name is not defined');
+  expect(() => fill(compile('name: <%= name %>'))).toThrow(
+    'name is not defined'
+  );
 });
 
 test('fill() fills a template containing statements', () => {
   expect(
     fill(
-      dedent`
-        first
-        <% if (something === 'that') { %>
-        second
-        <% } %>
-        third
-      `,
+      compile(
+        dedent`
+          first
+          <% if (something === 'that') { %>
+          second
+          <% } %>
+          third
+        `
+      ),
       {something: 'that'}
     )
   ).toBe(dedent`
@@ -108,13 +112,15 @@ test('fill() fills a template containing statements', () => {
   // In practice, you'd use the slurping variants ("<%-", "-%>").
   expect(
     fill(
-      dedent`
-        first
-        <%- if (something === 'that') { -%>
-        second
-        <%- } -%>
-        third
-      `,
+      compile(
+        dedent`
+          first
+          <%- if (something === 'that') { -%>
+          second
+          <%- } -%>
+          third
+        `
+      ),
       {something: 'that'}
     )
   ).toBe(dedent`
@@ -127,13 +133,15 @@ test('fill() fills a template containing statements', () => {
 test('fill() correctly handles indented slurping delimiters', () => {
   expect(
     fill(
-      dedent`
-        #start
-          <%- if (something === 'that') { -%>
-          middle
-          <%- } -%>
-        #end
-      `,
+      compile(
+        dedent`
+          #start
+            <%- if (something === 'that') { -%>
+            middle
+            <%- } -%>
+          #end
+        `
+      ),
       {something: 'that'}
     )
   ).toBe(dedent`
@@ -146,11 +154,13 @@ test('fill() correctly handles indented slurping delimiters', () => {
 test('fill() correctly handles slurping delimiters at edges of template', () => {
   expect(
     fill(
-      dedent`
-        <%- if (something === 'that') { -%>
-        conditional
-        <%- } -%>
-      `,
+      compile(
+        dedent`
+          <%- if (something === 'that') { -%>
+          conditional
+          <%- } -%>
+        `
+      ),
       {something: 'that'}
     )
   ).toBe(dedent`

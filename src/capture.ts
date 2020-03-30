@@ -1,5 +1,6 @@
 import {spawn} from 'child_process';
 
+// TODO decide if we still need this, and we can make it async
 export default async function capture(command: string, ...args: Array<string>) {
   return new Promise((resolve, reject) => {
     const child = spawn(command, args, {
