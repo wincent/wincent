@@ -31,6 +31,7 @@ export default async function sudo(
 
     const child = child_process.spawn('sudo', [
       '-S',
+      '-k',
       '-p',
       PROMPT_TEXT,
       '--',
