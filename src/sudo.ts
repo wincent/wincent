@@ -39,8 +39,9 @@ export default async function sudo(
       ...args,
     ]);
 
-    // Sadly, we'll still see "Sorry, try again" if the wrong password is
-    // supplied, because sudo is logging it directly to /dev/tty, not to stderr.
+    // Sadly, we'll may see "Sorry, try again" if the wrong password is
+    // supplied, because sudo may be configured to log it directly to
+    // /dev/tty, not to stderr (true on macOS, not on Amazon Linux).
     //
     // See: https://github.com/sudo-project/sudo/blob/972670bf/plugins/sudoers/sudo_printf.c#L47
     child.stderr.on('data', (data) => {
