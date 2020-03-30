@@ -1,5 +1,7 @@
 import * as assert from 'assert';
 
+import ErrorWithMetadata from '../ErrorWithMetadata';
+
 import {COLORS, log, print} from '../console';
 
 const {green, red, yellow} = COLORS;
@@ -125,6 +127,6 @@ export async function run() {
   log();
 
   if (failureCount) {
-    process.exit(1);
+    throw new ErrorWithMetadata('Test suite failed');
   }
 }

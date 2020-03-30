@@ -6,6 +6,7 @@ type Options = {
 };
 
 type Result = {
+  command: string;
   error: Error | null;
   signal: string | null;
   status: number | null;
@@ -19,7 +20,12 @@ export default async function sudo(
   options: Options
 ): Promise<Result> {
   return new Promise((resolve, reject) => {
+    const prompt = `sudo[${randomBytes(16).toString('hex')}]:`;
+
+    const sudoArgs = ['-S', '-k', '-p', prompt, '--'];
+
     const result = {
+      command: ['sudo', ...sudoArgs, command, ...args].join(' '),
       error: null,
       signal: null,
       status: null,
@@ -27,25 +33,15 @@ export default async function sudo(
       stdout: '',
     };
 
-    const PROMPT_TEXT = `sudo[${randomBytes(16).toString('hex')}]:`;
+    const child = child_process.spawn('sudo', [...sudoArgs, command, ...args]);
 
-    const child = child_process.spawn('sudo', [
-      '-S',
-      '-k',
-      '-p',
-      PROMPT_TEXT,
-      '--',
-      command,
-      ...args,
-    ]);
-
-    // Sadly, we'll may see "Sorry, try again" if the wrong password is
+    // Sadly, we may see "Sorry, try again" if the wrong password is
     // supplied, because sudo may be configured to log it directly to
     // /dev/tty, not to stderr (true on macOS, not on Amazon Linux).
     //
     // See: https://github.com/sudo-project/sudo/blob/972670bf/plugins/sudoers/sudo_printf.c#L47
     child.stderr.on('data', (data) => {
-      if (data.toString() === PROMPT_TEXT) {
+      if (data.toString() === prompt) {
         child.stdin.write(`${options.passphrase}\n`);
 
         // No point in retrying; by calling `end()` here we'll get one shot.

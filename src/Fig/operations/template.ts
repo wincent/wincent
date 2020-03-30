@@ -1,5 +1,6 @@
 import * as fs from 'fs';
 
+import ErrorWithMetadata from '../../ErrorWithMetadata';
 import {log} from '../../console';
 import expand from '../../expand';
 import sudo from '../../sudo';
@@ -31,14 +32,14 @@ export default async function template({
     const passphrase = await Context.sudoPassphrase;
     const result = await sudo('ls', ['-l', '/var/audit'], {passphrase});
 
-    console.log(result);
+    if (result.status !== 0) {
+      throw new ErrorWithMetadata(`Failed command`, {
+        ...result,
+        error: result.error?.toString() ?? null,
+      });
+    }
 
     // chown in node works with numeric uid and gid
-    // TODO: is there a way to check when sudo pass has expired?
-    // can run `sudo -v` to validate, but it may prompt
-    // how to pass password to sudo?
-    // may be able to hack it with askpass option and fake helper
-    // can use -S/--stdin it seems
   } else {
     // open, write, mode
     // can't chown, i think? without uid and gid
