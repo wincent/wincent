@@ -17,7 +17,7 @@ export default async function template({
 }: {
   group?: string;
   path: string;
-  mode?: string;
+  mode?: Mode;
   owner?: string;
   src: string;
   variables: Variables;

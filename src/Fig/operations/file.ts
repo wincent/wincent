@@ -14,7 +14,7 @@ export default async function file({
   state,
 }: {
   path: string;
-  mode?: string;
+  mode?: Mode;
   src?: string;
   state: 'directory' | 'file' | 'link' | 'touch';
   force?: boolean;
