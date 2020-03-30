@@ -18,6 +18,10 @@ import test from './test';
 log.debug(JSON.stringify(process.argv, null, 2));
 
 async function main() {
+  if (Context.attributes.uid === 0) {
+    throw new ErrorWithMetadata('Cannot run as root');
+  }
+
   if (process.cwd() === root) {
     log.info(`Working from root: ${simplify(root)}`);
   } else {
@@ -91,18 +95,6 @@ async function main() {
         });
       }
     }
-  } catch (error) {
-    if (error instanceof ErrorWithMetadata) {
-      if (error.metadata) {
-        log.error(
-          `${error.message}\n\n${JSON.stringify(error.metadata, null, 2)}\n`
-        );
-      } else {
-        log.error(error.message);
-      }
-    } else {
-      log.error(error.toString());
-    }
   } finally {
     const counts = Object.entries(Context.counts)
       .map(([name, count]) => {
@@ -115,7 +107,17 @@ async function main() {
 }
 
 main().catch((error) => {
-  log.error(error);
+  if (error instanceof ErrorWithMetadata) {
+    if (error.metadata) {
+      log.error(
+        `${error.message}\n\n${JSON.stringify(error.metadata, null, 2)}\n`
+      );
+    } else {
+      log.error(error.message);
+    }
+  } else {
+    log.error(error.toString());
+  }
 
   process.exit(1);
 });
