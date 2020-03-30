@@ -14,9 +14,7 @@ export default async function prompt(
   // https://stackoverflow.com/a/33500118/2103996
   const stdout = new Writable({
     write: (chunk, _encoding, callback) => {
-      if (muted) {
-        process.stdout.write('*'.repeat(chunk.toString().length));
-      } else {
+      if (!muted) {
         process.stdout.write(chunk);
       }
       callback();
@@ -31,9 +29,12 @@ export default async function prompt(
   });
 
   try {
-    const response = new Promise<string>((resolve) =>
-      rl.question(text, resolve)
-    );
+    const response = new Promise<string>((resolve) => {
+      rl.question(text, (response) => {
+        process.stdout.write('\n');
+        resolve(response);
+      });
+    });
 
     muted = !!options.private;
 
