@@ -86,7 +86,9 @@ export default async function compare({
         return diff;
       } else if (stats === null) {
         diff.error = new ErrorWithMetadata(
-          `Cannot stat ${stringify(path)} because parent ${stringify(parent)} does not exist`
+          `Cannot stat ${stringify(path)} because parent ${stringify(
+            parent
+          )} does not exist`
         );
       } else {
         // Parent exists.
@@ -115,6 +117,18 @@ export default async function compare({
         `Cannot replace object ${stringify(path)} of unknown type with file`
       );
     }
+
+    if (typeof contents === 'string') {
+      try {
+        const actual = await fs.readFile(path, 'utf8');
+        if (actual !== contents) {
+          diff.contents = contents;
+        }
+      } catch (error) {
+        // TODO: if this is a perms issue, that might be ok as long as user has
+        // specified "user"
+      }
+    }
   } else if (state === 'directory') {
     if (stats.isDirectory()) {
       // Want "directory", have "directory": no state change required.
@@ -127,13 +141,17 @@ export default async function compare({
         const entity = stats.isFile() ? 'file' : 'symbolic link';
 
         diff.error = new ErrorWithMetadata(
-          `Cannot replace ${entity} ${stringify(path)} with directory without 'force'`
+          `Cannot replace ${entity} ${stringify(
+            path
+          )} with directory without 'force'`
         );
       }
     } else {
       // We're not going to bother with "exotic" types such as sockets etc.
       diff.error = new ErrorWithMetadata(
-        `Cannot replace object ${stringify(path)} of unknown type with directory`
+        `Cannot replace object ${stringify(
+          path
+        )} of unknown type with directory`
       );
     }
   } else if (state === 'link') {

@@ -47,7 +47,7 @@ export function expect(value: unknown) {
     },
 
     toMatch(expected: unknown) {
-      if ((expected instanceof RegExp)) {
+      if (expected instanceof RegExp) {
         assert(
           expected.test(String(value)),
           `Expected ${stringify(value)} to match ${stringify(expected)}`
@@ -103,10 +103,7 @@ export function expect(value: unknown) {
 const RAQUO = '\u00bb';
 
 export function test(description: string, callback: () => void) {
-  TESTS.push([
-    [...context, description].join(` ${RAQUO} `),
-    callback
-  ]);
+  TESTS.push([[...context, description].join(` ${RAQUO} `), callback]);
 }
 
 export async function run() {

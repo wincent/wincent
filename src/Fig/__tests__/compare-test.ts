@@ -21,12 +21,33 @@ function fixture(...components: Array<string>): string {
 
 describe('compare()', () => {
   describe('with {state: file} (implied)', () => {
-    test('returns an "empty" object for files that match', async () => {
+    test('indicates when the file exists', async () => {
       const path = fixture('sample');
 
       const diff = await compare({path});
 
       expect(diff).toEqual({path});
+    });
+
+    test('indicates when contents match', async () => {
+      const path = fixture('sample');
+
+      const diff = await compare({path, contents: 'sample contents\n'});
+
+      expect(diff).toEqual({
+        path,
+      });
+    });
+
+    test('indicates when contents do not match', async () => {
+      const path = fixture('sample');
+
+      const diff = await compare({path, contents: 'something'});
+
+      expect(diff).toEqual({
+        contents: 'something',
+        path,
+      });
     });
   });
 
@@ -46,7 +67,7 @@ describe('compare()', () => {
 
       expect(diff).toEqual({
         path,
-        state: 'file'
+        state: 'file',
       });
     });
 

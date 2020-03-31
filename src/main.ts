@@ -12,7 +12,6 @@ import regExpFromString from './regExpFromString';
 import simplify from './simplify';
 import test from './test';
 
-
 async function main() {
   if (Context.attributes.uid === 0) {
     throw new ErrorWithMetadata('Cannot run as root');
@@ -20,7 +19,7 @@ async function main() {
 
   let testsOnly = false;
 
-  process.argv.forEach(arg => {
+  process.argv.forEach((arg) => {
     if (arg === '--debug') {
       setLogLevel(LOG_LEVEL.DEBUG);
     } else if (arg === '--quiet' || arg === '-q') {
