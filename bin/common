@@ -28,24 +28,56 @@ RED='\033[1;31m'
 RESET='\033[0m'
 YELLOW='\033[1;33m'
 
+# No associative arrays in Bash < v4, so can't do:
+#
+#   declare -A LOG_LEVEL
+#
+LOG_LEVEL_EMERGENCY=0
+LOG_LEVEL_ALERT=1
+LOG_LEVEL_CRITICAL=2
+LOG_LEVEL_ERROR=3
+LOG_LEVEL_WARNING=4
+LOG_LEVEL_NOTICE=5
+LOG_LEVEL_INFO=6
+LOG_LEVEL_DEBUG=7
+
+LOG_LEVEL=$LOG_LEVEL_INFO
+
+for VAR in "$@"
+do
+  if [[ $VAR = "--debug" ]]; then
+    LOG_LEVEL=$LOG_LEVEL_DEBUG
+  elif [[ $VAR = "--quiet" || $VAR = "-q" ]]; then
+    LOG_LEVEL=$LOG_LEVEL_ERROR
+  fi
+done
+
 log_debug() {
-  if [[ -n $DEBUG ]]; then
+  if [[ $LOG_LEVEL -ge $LOG_LEVEL_DEBUG ]]; then
     echo -e "${PURPLE}[debug]  ${RESET} $*" > /dev/stderr
   fi
 }
 
 log_error() {
-  echo -e "${RED}[error]  ${RESET} $*" > /dev/stderr
+  if [[ $LOG_LEVEL -ge $LOG_LEVEL_ERROR ]]; then
+    echo -e "${RED}[error]  ${RESET} $*" > /dev/stderr
+  fi
 }
 
 log_info() {
-  echo -e "${BOLD}[info]   ${RESET} $*" > /dev/stderr
+  if [[ $LOG_LEVEL -ge $LOG_LEVEL_INFO ]]; then
+    echo -e "${BOLD}[info]   ${RESET} $*" > /dev/stderr
+  fi
 }
 
 log_notice() {
-  echo -e "${GREEN}[notice] ${RESET} $*" > /dev/stderr
+  if [[ $LOG_LEVEL -ge $LOG_LEVEL_NOTICE ]]; then
+    echo -e "${GREEN}[notice] ${RESET} $*" > /dev/stderr
+  fi
 }
 
 log_warn() {
-  echo -e "${YELLOW}[warning]${RESET} $*" > /dev/stderr
+  if [[ $LOG_LEVEL -ge $LOG_LEVEL_WARNING ]]; then
+    echo -e "${YELLOW}[warning]${RESET} $*" > /dev/stderr
+  fi
 }

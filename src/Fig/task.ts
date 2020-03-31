@@ -19,6 +19,8 @@ export default function task(name: string, callback: () => Promise<void>) {
 
   assertAspect(aspect);
   // TODO: use `caller` to make namespaced task name.
+  // (will be useful for --start-at)
+  // also, we can make an interactive mode that lets us choose where to start
 
   Context.tasks.register(aspect, callback, name);
 }

@@ -4,7 +4,7 @@ import * as path from 'path';
 import ErrorWithMetadata from './ErrorWithMetadata';
 import Context from './Fig/Context';
 import {root} from './Fig';
-import {log} from './console';
+import {LOG_LEVEL, log, setLogLevel} from './console';
 import merge from './merge';
 import readAspect from './readAspect';
 import readProject from './readProject';
@@ -12,15 +12,24 @@ import regExpFromString from './regExpFromString';
 import simplify from './simplify';
 import test from './test';
 
-// argv[0] = node executable
-// argv[1] = JS script
-// argv[2] = script arg 0 etc
-log.debug(JSON.stringify(process.argv, null, 2));
 
 async function main() {
   if (Context.attributes.uid === 0) {
     throw new ErrorWithMetadata('Cannot run as root');
   }
+
+  process.argv.forEach(arg => {
+    if (arg === '--debug') {
+      setLogLevel(LOG_LEVEL.DEBUG);
+    } else if (arg === '--quiet' || arg === '-q') {
+      setLogLevel(LOG_LEVEL.ERROR);
+    }
+  });
+
+  // argv[0] = node executable
+  // argv[1] = JS script
+  // argv[2] = script arg 0 etc
+  log.debug(JSON.stringify(process.argv, null, 2));
 
   if (process.cwd() === root) {
     log.info(`Working from root: ${simplify(root)}`);
