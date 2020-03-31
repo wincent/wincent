@@ -2,7 +2,7 @@ import * as assert from 'assert';
 
 import ErrorWithMetadata from '../ErrorWithMetadata';
 
-import {COLORS, log, print} from '../console';
+import {COLORS, LOG_LEVEL, getLogLevel, log, print} from '../console';
 
 const {green, red, yellow} = COLORS;
 
@@ -18,6 +18,14 @@ function stringify(value: unknown) {
   } catch {
     return Object.prototype.toString.call(value);
   }
+}
+
+let context: Array<string> = [];
+
+export function describe(description: string, callback: () => void) {
+  context.push(description);
+  callback();
+  context.pop();
 }
 
 export function expect(value: unknown) {
@@ -36,6 +44,17 @@ export function expect(value: unknown) {
         expected,
         `Expected ${stringify(value)} to equal ${stringify(expected)}`
       );
+    },
+
+    toMatch(expected: unknown) {
+      if ((expected instanceof RegExp)) {
+        assert(
+          expected.test(String(value)),
+          `Expected ${stringify(value)} to match ${stringify(expected)}`
+        );
+      } else {
+        throw new Error(`Expected RegExp but received ${typeof expected}`);
+      }
     },
 
     toThrow(expected: string | typeof Error | RegExp) {
@@ -81,12 +100,19 @@ export function expect(value: unknown) {
   };
 }
 
-export function test(description: string, callback: () => void): void {
-  TESTS.push([description, callback]);
+const RAQUO = '\u00bb';
+
+export function test(description: string, callback: () => void) {
+  TESTS.push([
+    [...context, description].join(` ${RAQUO} `),
+    callback
+  ]);
 }
 
 export async function run() {
   const start = Date.now();
+
+  const logLevel = getLogLevel();
 
   let failureCount = 0;
   let successCount = 0;
@@ -98,8 +124,11 @@ export async function run() {
       print(yellow.reverse` TEST `, description);
       await callback();
       successCount++;
+      // BUG: doesn't clear if line is too wide for terminal
       await print.clear();
-      log(green.reverse` PASS `, description);
+      if (logLevel >= LOG_LEVEL.DEBUG) {
+        log(green.reverse` PASS `, description);
+      }
     } catch (error) {
       failureCount++;
       await print.clear();
@@ -124,6 +153,9 @@ export async function run() {
 
   log();
   log(`${successSummary}, ${failureSummary}, ${totalSummary}`);
+  if (logLevel < LOG_LEVEL.DEBUG) {
+    log('Rerun with --debug to see full results');
+  }
   log();
 
   if (failureCount) {

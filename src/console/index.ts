@@ -104,6 +104,10 @@ export function print(...args: Array<any>) {
   );
 }
 
+export function getLogLevel(): LogLevel {
+  return logLevel;
+}
+
 export function setLogLevel(level: LogLevel) {
   logLevel = level;
 }

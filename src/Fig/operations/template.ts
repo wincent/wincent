@@ -6,8 +6,10 @@ import expand from '../../expand';
 import sudo from '../../sudo';
 import {compile, fill} from '../../template';
 import Context from '../Context';
+import compare from '../compare';
 
 export default async function template({
+  force,
   group,
   mode,
   owner,
@@ -15,6 +17,7 @@ export default async function template({
   src,
   variables = {},
 }: {
+  force?: boolean;
   group?: string;
   path: string;
   mode?: Mode;
@@ -23,9 +26,22 @@ export default async function template({
   variables: Variables;
 }): Promise<void> {
   const target = expand(path);
+
   log.info(`template ${src} -> ${target}`);
 
-  const filled = (await Context.compile(src)).fill({variables});
+  const contents = (await Context.compile(src)).fill({variables});
+
+  const diff = await compare({
+    contents,
+    force,
+    group,
+    mode,
+    owner,
+    path,
+    state: 'file',
+  });
+
+  console.log(diff);
 
   if (owner && owner !== Context.attributes.username) {
     log.notice(`needs sudo: ${Context.attributes.username} -> ${owner}`);
@@ -47,12 +63,12 @@ export default async function template({
     // TODO extract this somewhere else
     // need low-level filesystem ops that are consumed by the high-level
     // user-accessible ops
-    let contents;
+    let current;
 
     if (fs.existsSync(target)) {
-      contents = fs.readFileSync(target, 'utf8');
+      current = fs.readFileSync(target, 'utf8');
 
-      if (contents !== filled) {
+      if (current !== contents) {
         log.info('change!');
       } else {
         log.info('no change');

@@ -18,11 +18,19 @@ async function main() {
     throw new ErrorWithMetadata('Cannot run as root');
   }
 
+  let testsOnly = false;
+
   process.argv.forEach(arg => {
     if (arg === '--debug') {
       setLogLevel(LOG_LEVEL.DEBUG);
     } else if (arg === '--quiet' || arg === '-q') {
       setLogLevel(LOG_LEVEL.ERROR);
+    } else if (arg === '--test') {
+      testsOnly = true;
+    } else if (arg === '--help' || arg === '-h') {
+      // TODO: print and exit
+    } else {
+      // TODO: error for bad args
     }
   });
 
@@ -41,6 +49,10 @@ async function main() {
   log.info('Running tests');
 
   await test();
+
+  if (testsOnly) {
+    return;
+  }
 
   const project = await readProject(path.join(root, 'project.json'));
 
