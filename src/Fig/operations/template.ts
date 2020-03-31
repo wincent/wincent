@@ -3,7 +3,8 @@ import * as fs from 'fs';
 import ErrorWithMetadata from '../../ErrorWithMetadata';
 import {log} from '../../console';
 import expand from '../../expand';
-import sudo from '../../sudo';
+import run from '../../run';
+import stat from '../../stat';
 import {compile, fill} from '../../template';
 import Context from '../Context';
 import compare from '../compare';
@@ -37,7 +38,7 @@ export default async function template({
     group,
     mode,
     owner,
-    path,
+    path: target,
     state: 'file',
   });
 
@@ -46,7 +47,7 @@ export default async function template({
   if (owner && owner !== Context.attributes.username) {
     log.notice(`needs sudo: ${Context.attributes.username} -> ${owner}`);
     const passphrase = await Context.sudoPassphrase;
-    const result = await sudo('ls', ['-l', '/var/audit'], {passphrase});
+    const result = await run('ls', ['-l', '/var/audit'], {passphrase});
 
     if (result.status !== 0) {
       throw new ErrorWithMetadata(`Failed command`, {

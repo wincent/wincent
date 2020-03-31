@@ -2,7 +2,7 @@ import * as child_process from 'child_process';
 import {randomBytes} from 'crypto';
 
 type Options = {
-  passphrase: string;
+  passphrase?: string;
 };
 
 type Result = {
@@ -14,18 +14,24 @@ type Result = {
   stdout: string;
 };
 
-export default async function sudo(
+/**
+ * Run a command and return the result, escalating with `sudo` if a `passhprase`
+ * is supplied via the `options` parameter.
+ */
+export default async function run(
   command: string,
   args: Array<string>,
-  options: Options
+  options: Options = {}
 ): Promise<Result> {
   return new Promise((resolve, reject) => {
     const prompt = `sudo[${randomBytes(16).toString('hex')}]:`;
 
-    const sudoArgs = ['-S', '-k', '-p', prompt, '--'];
+    const final = options.passphrase
+      ? ['sudo', '-S', '-k', '-p', prompt, '--', command, ...args]
+      : [command, ...args];
 
     const result = {
-      command: ['sudo', ...sudoArgs, command, ...args].join(' '),
+      command: final.join(' '),
       error: null,
       signal: null,
       status: null,
@@ -33,7 +39,7 @@ export default async function sudo(
       stdout: '',
     };
 
-    const child = child_process.spawn('sudo', [...sudoArgs, command, ...args]);
+    const child = child_process.spawn(final[0], final.slice(1));
 
     // Sadly, we may see "Sorry, try again" if the wrong password is
     // supplied, because sudo may be configured to log it directly to

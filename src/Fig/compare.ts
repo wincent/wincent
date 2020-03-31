@@ -66,6 +66,9 @@ export default async function compare({
 
   const stats = await lstat(path);
 
+  // BUG: if you specify "owner": "root", we should be able to manage files that
+  // only root can stat, but this code stats as an unprivileged user
+  // (to fix this, port to use stat.ts instead
   if (stats instanceof Error) {
     // Can't stat; bail.
     diff.error = stats;
@@ -175,6 +178,9 @@ async function lstat(path: string): Promise<Stats | Error | null> {
   } catch (error) {
     if (error.code === 'ENOENT') {
       return null;
+    } else if (error.code === 'EACCES') {
+      // "permission denied"
+      return error;
     } else {
       return error;
     }

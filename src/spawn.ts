@@ -2,6 +2,11 @@ import * as child_process from 'child_process';
 
 import ErrorWithMetadata from './ErrorWithMetadata';
 
+/**
+ * Fire-and-forget child process execution.
+ *
+ * Doesn't return stderr or stdout; resolves on success and rejects on failure.
+ */
 export default async function spawn(
   command: string,
   ...args: Array<string>
