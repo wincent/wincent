@@ -121,10 +121,15 @@ export async function run() {
 
   for (const [description, callback] of TESTS) {
     try {
-      print(yellow.reverse` TEST `, description);
+      // Need to stay within one line if `clear()` calls below are to work.
+      const trimmedDescription = description.slice(
+        0,
+        process.stderr.columns - ' TEST '.length - 1
+      );
+
+      print(yellow.reverse` TEST `, trimmedDescription);
       await callback();
       successCount++;
-      // BUG: doesn't clear if line is too wide for terminal
       await print.clear();
       if (logLevel >= LOG_LEVEL.DEBUG) {
         log(green.reverse` PASS `, description);
