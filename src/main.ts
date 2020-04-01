@@ -5,7 +5,9 @@ import ErrorWithMetadata from './ErrorWithMetadata';
 import Context from './Fig/Context';
 import {root} from './Fig';
 import {LOG_LEVEL, log, setLogLevel} from './console';
+import escapeRegExpPattern from './escapeRegExpPattern';
 import merge from './merge';
+import prompt from './prompt';
 import readAspect from './readAspect';
 import readProject from './readProject';
 import regExpFromString from './regExpFromString';
@@ -16,6 +18,16 @@ async function main() {
   if (Context.attributes.uid === 0) {
     throw new ErrorWithMetadata('Cannot run as root');
   }
+
+  const startAt = {
+    found: false,
+    fuzzy: undefined,
+    literal: '',
+  } as {
+    found: boolean;
+    fuzzy?: RegExp;
+    literal: string;
+  };
 
   let testsOnly = false;
 
@@ -28,6 +40,14 @@ async function main() {
       testsOnly = true;
     } else if (arg === '--help' || arg === '-h') {
       // TODO: print and exit
+    } else if (arg.startsWith('--start-at-task=')) {
+      startAt.literal = (arg.match(/^--start-at-task=(.*)/)?.[1] ?? '').trim();
+      startAt.fuzzy = new RegExp(
+        ['', ...startAt.literal.split(/\s+/).map(escapeRegExpPattern), ''].join(
+          '.*'
+        ),
+        'i'
+      );
     } else {
       // TODO: error for bad args
     }
@@ -81,6 +101,8 @@ async function main() {
   ];
 
   // Register tasks.
+  const candidateTasks = [];
+
   for (const aspect of aspects) {
     switch (aspect) {
       case 'launchd':
@@ -90,12 +112,69 @@ async function main() {
         require('../aspects/terminfo');
         break;
     }
+
+    // Check for an exact match of the starting task if `--start-at-task=` was
+    // supplied.
+    for (const [, name] of Context.tasks.get(aspect)) {
+      if (name === startAt.literal) {
+        startAt.found = true;
+      } else if (!startAt.found && startAt.fuzzy && startAt.fuzzy.test(name)) {
+        candidateTasks.push(name);
+      }
+    }
+  }
+
+  if (!startAt.found && candidateTasks.length === 1) {
+    log.notice(`Matching task found: ${candidateTasks[0]}`);
+
+    log();
+
+    const reply = await prompt('Start running at this task? [y/n]: ');
+
+    if (/^\s*y(?:e(?:s)?)?\s*$/i.test(reply)) {
+      startAt.found = true;
+      startAt.literal = candidateTasks[0];
+    } else {
+      throw new ErrorWithMetadata('User aborted');
+    }
+  } else if (!startAt.found && candidateTasks.length > 1) {
+    log.notice(`${candidateTasks.length} tasks found:\n`);
+
+    const width = candidateTasks.length.toString().length;
+
+    while (!startAt.found) {
+      candidateTasks.forEach((name, i) => {
+        log(`${(i + 1).toString().padStart(width)}: ${name}`);
+      });
+
+      log();
+
+      const reply = await prompt('Start at task number: ');
+
+      const choice = parseInt(reply.trim(), 10);
+
+      if (
+        Number.isNaN(choice) ||
+        choice < 1 ||
+        choice > candidateTasks.length
+      ) {
+        log.warn(
+          `Invalid choice ${JSON.stringify(
+            reply
+          )}; try again or press CTRL-C to abort.`
+        );
+
+        log();
+      } else {
+        startAt.found = true;
+        startAt.literal = candidateTasks[choice - 1];
+      }
+    }
   }
 
   const baseVariables = merge(profileVariables, platformVariables);
 
-  // Execute tasks. (Separate step so we can bail on configuration errors before
-  // touching filesystem).
+  // Execute tasks.
   try {
     for (const aspect of aspects) {
       const {description, variables: aspectVariables = {}} = await readAspect(
@@ -105,14 +184,17 @@ async function main() {
 
       const variables = merge(aspectVariables, baseVariables);
 
-      log.debug(`variables:\n\n${JSON.stringify(variables, null, 2)}\n`);
+      // log.debug(`variables:\n\n${JSON.stringify(variables, null, 2)}\n`);
 
       for (const [callback, name] of Context.tasks.get(aspect)) {
-        log.info(`task: ${name}`);
+        if (!startAt.found || name === startAt.literal) {
+          startAt.found = false;
+          log.info(`task: ${name}`);
 
-        await Context.withContext({aspect, variables}, async () => {
-          await callback();
-        });
+          await Context.withContext({aspect, variables}, async () => {
+            await callback();
+          });
+        }
       }
     }
   } finally {
