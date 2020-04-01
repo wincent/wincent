@@ -1,24 +1,13 @@
 import * as assert from 'assert';
 
 import ErrorWithMetadata from '../ErrorWithMetadata';
-
+import {RAQUO} from '../Unicode';
 import {COLORS, LOG_LEVEL, getLogLevel, log, print} from '../console';
+import stringify from '../stringify';
 
 const {green, red, yellow} = COLORS;
 
 const TESTS: Array<[string, () => void | Promise<void>]> = [];
-
-function stringify(value: unknown) {
-  try {
-    if (value instanceof RegExp) {
-      return value.toString();
-    } else {
-      return JSON.stringify(value);
-    }
-  } catch {
-    return Object.prototype.toString.call(value);
-  }
-}
 
 let context: Array<string> = [];
 
@@ -99,8 +88,6 @@ export function expect(value: unknown) {
     },
   };
 }
-
-const RAQUO = '\u00bb';
 
 export function test(description: string, callback: () => void) {
   TESTS.push([[...context, description].join(` ${RAQUO} `), callback]);

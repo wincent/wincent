@@ -1,4 +1,4 @@
-import {LOG_LEVEL, log, setLogLevel} from './console';
+import {LOG_LEVEL, setLogLevel} from './console';
 import escapeRegExpPattern from './escapeRegExpPattern';
 
 import type {LogLevel} from './console';

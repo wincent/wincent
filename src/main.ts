@@ -12,6 +12,7 @@ import readAspect from './readAspect';
 import readProject from './readProject';
 import regExpFromString from './regExpFromString';
 import simplify from './simplify';
+import stringify from './stringify';
 import test from './test';
 
 async function main() {
@@ -19,14 +20,13 @@ async function main() {
     throw new ErrorWithMetadata('Cannot run as root');
   }
 
-  const options = getOptions(process.argv);
+  // Skip first two args (node executable and main.js script).
+  const options = getOptions(process.argv.slice(2));
 
   setLogLevel(options.logLevel);
 
-  // argv[0] = node executable
-  // argv[1] = JS script
-  // argv[2] = script arg 0 etc
-  log.debug(JSON.stringify(process.argv, null, 2));
+  log.debug('process.argv:\n\n' + stringify(process.argv) + '\n');
+  log.debug('getOptions():\n\n' + stringify(options) + '\n');
 
   if (process.cwd() === root) {
     log.info(`Working from root: ${simplify(root)}`);
