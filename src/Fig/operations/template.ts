@@ -4,7 +4,7 @@ import ErrorWithMetadata from '../../ErrorWithMetadata';
 import {log} from '../../console';
 import expand from '../../expand';
 import run from '../../run';
-import stat from '../../stat';
+import tempfile from '../../tempfile';
 import {compile, fill} from '../../template';
 import Context from '../Context';
 import compare from '../compare';
@@ -28,8 +28,6 @@ export default async function template({
 }): Promise<void> {
   const target = expand(path);
 
-  log.info(`template ${src} -> ${target}`);
-
   const contents = (await Context.compile(src)).fill({variables});
 
   const diff = await compare({
@@ -42,8 +40,6 @@ export default async function template({
     state: 'file',
   });
 
-  console.log(diff);
-
   if (owner && owner !== Context.attributes.username) {
     log.notice(`needs sudo: ${Context.attributes.username} -> ${owner}`);
     const passphrase = await Context.sudoPassphrase;
@@ -55,25 +51,15 @@ export default async function template({
         error: result.error?.toString() ?? null,
       });
     }
-
-    // chown in node works with numeric uid and gid
   } else {
-    // open, write, mode
-    // can't chown, i think? without uid and gid
+    if (diff.contents) {
+      log.info('change!');
+      const temp = await tempfile(contents);
 
-    // TODO extract this somewhere else
-    // need low-level filesystem ops that are consumed by the high-level
-    // user-accessible ops
-    let current;
-
-    if (fs.existsSync(target)) {
-      current = fs.readFileSync(target, 'utf8');
-
-      if (current !== contents) {
-        log.info('change!');
-      } else {
-        log.info('no change');
-      }
+      // TODO: cp from temp to target
+      // TODO: deal with group/owner/mode etc
+    } else {
+      Context.informOk(`template ${path}`);
     }
   }
 }

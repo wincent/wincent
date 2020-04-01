@@ -26,7 +26,9 @@ const TYPE_MAP = {
  * on it to stat root-owned files; we need to be able to run a separate too,
  * with `sudo` if necessary.
  */
-export default async function stat(path: string): Promise<Stats> {
+export default async function stat(
+  path: string
+): Promise<Error | Stats | null> {
   if (Context.attributes.platform === 'darwin') {
     const formats = {
       group: '%Sg',
@@ -73,7 +75,9 @@ export default async function stat(path: string): Promise<Stats> {
         };
       }
 
-      if (!/permission denied/i.test(stderr)) {
+      if (/no such file/i.test(stderr)) {
+        return null;
+      } else if (!/permission denied/i.test(stderr)) {
         // Give up...
         break;
       }

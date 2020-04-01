@@ -1,9 +1,13 @@
+// TODO: move a lot of the stuff that is currently under "Fig/" out of it
+// (original intent was to have a separation between generic stuff and
+// configuration-framework-specific entities. But in practice, the use of global
+// state and the amount of coupling we have between different modules means we
+// may as well consider them all to be equal citizens.
 import {promises as fs} from 'fs';
 import {dirname} from 'path';
 
 import ErrorWithMetadata from '../ErrorWithMetadata';
-
-import type {Stats} from 'fs';
+import stat from '../stat';
 
 // TODO: decide whether the Ansible definition of "force" (which we use below)
 // is the one that we want to actual stick with.
@@ -64,7 +68,7 @@ export default async function compare({
 }: Compare) {
   const diff: Diff = {path};
 
-  const stats = await lstat(path);
+  const stats = await stat(path);
 
   // BUG: if you specify "owner": "root", we should be able to manage files that
   // only root can stat, but this code stats as an unprivileged user
@@ -82,7 +86,7 @@ export default async function compare({
       // it can be created), and one of its parents not existing (in which case
       // we have to bail).
       const parent = dirname(path);
-      const stats = await lstat(parent);
+      const stats = await stat(parent);
       if (stats instanceof Error) {
         // Unlikely (we were able to stat object but not its parent).
         diff.error = stats;
@@ -104,13 +108,13 @@ export default async function compare({
 
   // Object exists.
   if (state === 'file') {
-    if (stats.isFile()) {
+    if (stats.type === 'file') {
       // Want "file", have "file": no state change required.
-    } else if (stats.isSymbolicLink()) {
+    } else if (stats.type === 'link') {
       // Going to have to overwrite symlink.
       diff.force = true;
       diff.state = 'file';
-    } else if (stats.isDirectory()) {
+    } else if (stats.type === 'directory') {
       diff.error = new ErrorWithMetadata(
         `Cannot replace directory ${stringify(path)} with file`
       );
@@ -133,15 +137,15 @@ export default async function compare({
       }
     }
   } else if (state === 'directory') {
-    if (stats.isDirectory()) {
+    if (stats.type === 'directory') {
       // Want "directory", have "directory": no state change required.
-    } else if (stats.isFile() || stats.isSymbolicLink()) {
+    } else if (stats.type === 'file' || stats.type === 'link') {
       if (force) {
         // Will have to remove file/link before creating directory.
         diff.force = true;
         diff.state = state;
       } else {
-        const entity = stats.isFile() ? 'file' : 'symbolic link';
+        const entity = stats.type === 'file' ? 'file' : 'symbolic link';
 
         diff.error = new ErrorWithMetadata(
           `Cannot replace ${entity} ${stringify(
@@ -166,23 +170,4 @@ export default async function compare({
   }
 
   return diff;
-}
-
-/**
- * Wrapper for `fs.lstat` that returns a `Stats` object when `path` exists and is
- * accessible, `null` when the path does not exist, and an `Error` otherwise.
- */
-async function lstat(path: string): Promise<Stats | Error | null> {
-  try {
-    return await fs.lstat(path);
-  } catch (error) {
-    if (error.code === 'ENOENT') {
-      return null;
-    } else if (error.code === 'EACCES') {
-      // "permission denied"
-      return error;
-    } else {
-      return error;
-    }
-  }
 }
