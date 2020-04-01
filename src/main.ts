@@ -4,8 +4,8 @@ import * as path from 'path';
 import ErrorWithMetadata from './ErrorWithMetadata';
 import Context from './Fig/Context';
 import {root} from './Fig';
-import {LOG_LEVEL, log, setLogLevel} from './console';
-import escapeRegExpPattern from './escapeRegExpPattern';
+import {log, setLogLevel} from './console';
+import getOptions from './getOptions';
 import merge from './merge';
 import prompt from './prompt';
 import readAspect from './readAspect';
@@ -19,39 +19,9 @@ async function main() {
     throw new ErrorWithMetadata('Cannot run as root');
   }
 
-  const startAt = {
-    found: false,
-    fuzzy: undefined,
-    literal: '',
-  } as {
-    found: boolean;
-    fuzzy?: RegExp;
-    literal: string;
-  };
+  const options = getOptions(process.argv);
 
-  let testsOnly = false;
-
-  process.argv.forEach((arg) => {
-    if (arg === '--debug') {
-      setLogLevel(LOG_LEVEL.DEBUG);
-    } else if (arg === '--quiet' || arg === '-q') {
-      setLogLevel(LOG_LEVEL.ERROR);
-    } else if (arg === '--test') {
-      testsOnly = true;
-    } else if (arg === '--help' || arg === '-h') {
-      // TODO: print and exit
-    } else if (arg.startsWith('--start-at-task=')) {
-      startAt.literal = (arg.match(/^--start-at-task=(.*)/)?.[1] ?? '').trim();
-      startAt.fuzzy = new RegExp(
-        ['', ...startAt.literal.split(/\s+/).map(escapeRegExpPattern), ''].join(
-          '.*'
-        ),
-        'i'
-      );
-    } else {
-      // TODO: error for bad args
-    }
-  });
+  setLogLevel(options.logLevel);
 
   // argv[0] = node executable
   // argv[1] = JS script
@@ -69,7 +39,7 @@ async function main() {
 
   await test();
 
-  if (testsOnly) {
+  if (options.testsOnly) {
     return;
   }
 
@@ -116,15 +86,19 @@ async function main() {
     // Check for an exact match of the starting task if `--start-at-task=` was
     // supplied.
     for (const [, name] of Context.tasks.get(aspect)) {
-      if (name === startAt.literal) {
-        startAt.found = true;
-      } else if (!startAt.found && startAt.fuzzy && startAt.fuzzy.test(name)) {
+      if (name === options.startAt.literal) {
+        options.startAt.found = true;
+      } else if (
+        !options.startAt.found &&
+        options.startAt.fuzzy &&
+        options.startAt.fuzzy.test(name)
+      ) {
         candidateTasks.push(name);
       }
     }
   }
 
-  if (!startAt.found && candidateTasks.length === 1) {
+  if (!options.startAt.found && candidateTasks.length === 1) {
     log.notice(`Matching task found: ${candidateTasks[0]}`);
 
     log();
@@ -132,17 +106,17 @@ async function main() {
     const reply = await prompt('Start running at this task? [y/n]: ');
 
     if (/^\s*y(?:e(?:s)?)?\s*$/i.test(reply)) {
-      startAt.found = true;
-      startAt.literal = candidateTasks[0];
+      options.startAt.found = true;
+      options.startAt.literal = candidateTasks[0];
     } else {
       throw new ErrorWithMetadata('User aborted');
     }
-  } else if (!startAt.found && candidateTasks.length > 1) {
+  } else if (!options.startAt.found && candidateTasks.length > 1) {
     log.notice(`${candidateTasks.length} tasks found:\n`);
 
     const width = candidateTasks.length.toString().length;
 
-    while (!startAt.found) {
+    while (!options.startAt.found) {
       candidateTasks.forEach((name, i) => {
         log(`${(i + 1).toString().padStart(width)}: ${name}`);
       });
@@ -166,8 +140,8 @@ async function main() {
 
         log();
       } else {
-        startAt.found = true;
-        startAt.literal = candidateTasks[choice - 1];
+        options.startAt.found = true;
+        options.startAt.literal = candidateTasks[choice - 1];
       }
     }
   }
@@ -187,8 +161,8 @@ async function main() {
       // log.debug(`variables:\n\n${JSON.stringify(variables, null, 2)}\n`);
 
       for (const [callback, name] of Context.tasks.get(aspect)) {
-        if (!startAt.found || name === startAt.literal) {
-          startAt.found = false;
+        if (!options.startAt.found || name === options.startAt.literal) {
+          options.startAt.found = false;
           log.info(`task: ${name}`);
 
           await Context.withContext({aspect, variables}, async () => {

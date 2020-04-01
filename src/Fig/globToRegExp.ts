@@ -1,5 +1,4 @@
 import escapeRegExpPattern from '../escapeRegExpPattern';
-
 /**
  * Just supports simple globs ("*") for now.
  */

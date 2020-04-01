@@ -6,7 +6,7 @@ export {COLORS};
 
 type ValueOf<T> = T[keyof T];
 
-type LogLevel = ValueOf<typeof LOG_LEVEL>;
+export type LogLevel = ValueOf<typeof LOG_LEVEL>;
 
 const {bold, green, purple, red, yellow} = COLORS;
 
