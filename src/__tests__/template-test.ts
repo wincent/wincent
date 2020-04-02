@@ -252,8 +252,3 @@ test('tokenize() complains about unexpected end delimiters', () => {
     'Unexpected end delimiter "%>" at index 7'
   );
 });
-
-// TODO: "finish" harness
-// TODO: make templating system
-// TODO: make yaml parser
-// TODO: make task runner

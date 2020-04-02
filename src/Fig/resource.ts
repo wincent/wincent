@@ -31,6 +31,5 @@ export function files(glob: string): Array<string> {
 }
 
 export function template(...path: Array<string>): string {
-  // TODO: actually compile/fill template (will want a cache, I think)
   return join('aspects', Context.currentAspect, 'templates', ...path);
 }
