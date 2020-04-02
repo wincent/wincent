@@ -224,9 +224,15 @@ setopt SHARE_HISTORY           # share history across shells
 # Plug-ins
 #
 
+# NOTE: must come before zsh-history-substring-search & zsh-syntax-highlighting.
+autoload -U select-word-style
+select-word-style bash # only alphanumeric chars are considered WORDCHARS
+
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=59'
 
+
+# NOTE: must come after select-word-style.
 source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # Note that this will only ensure unique history if we supply a prefix
@@ -239,7 +245,9 @@ source /usr/local/share/zsh-history-substring-search/zsh-history-substring-searc
 # https://superuser.com/a/1494647/322531
 HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
 
+
 # Uncomment this to get syntax highlighting:
+# NOTE: must come after select-word-style.
 # source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #
@@ -259,9 +267,6 @@ bindkey '^P' history-substring-search-up
 bindkey '^N' history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
-
-autoload -U select-word-style
-select-word-style bash # only alphanumeric chars are considered WORDCHARS
 
 autoload -U edit-command-line
 zle -N edit-command-line
