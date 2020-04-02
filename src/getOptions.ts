@@ -34,6 +34,24 @@ export default async function getOptions(
     testsOnly: false,
   };
 
+  const directory = path.join(root, 'aspects');
+
+  const entries = await fs.readdir(directory, {withFileTypes: true});
+
+  const aspects: Array<[string, string]> = [];
+
+  for (const entry of entries) {
+    if (entry.isDirectory()) {
+      const name = entry.name;
+
+      const {description} = await readAspect(
+        path.join(directory, name, 'aspect.json')
+      );
+
+      aspects.push([name, description]);
+    }
+  }
+
   for (const arg of args) {
     if (arg === '--debug' || arg === '-d') {
       options.logLevel = LOG_LEVEL.DEBUG;
@@ -42,7 +60,7 @@ export default async function getOptions(
     } else if (arg === '--test' || arg === '-t') {
       options.testsOnly = true;
     } else if (arg === '--help' || arg === '-h') {
-      await printUsage();
+      await printUsage(aspects);
       throw new ErrorWithMetadata('aborting');
     } else if (arg.startsWith('--start-at-task=')) {
       options.startAt.literal = (
@@ -66,15 +84,7 @@ export default async function getOptions(
   return options;
 }
 
-async function printUsage() {
-  const directory = path.join(root, 'aspects');
-
-  const entries = await fs.readdir(directory, {withFileTypes: true});
-
-  const aspects = entries
-    .filter((entry) => entry.isDirectory())
-    .map((entry) => entry.name);
-
+async function printUsage(aspects: Array<[string, string]>) {
   // TODO: actually implement all the switches mentioned here
   log(
     dedent`
@@ -97,11 +107,7 @@ async function printUsage() {
     `
   );
 
-  for (const aspect of aspects) {
-    const {description} = await readAspect(
-      path.join(directory, aspect, 'aspect.json')
-    );
-
+  for (const [aspect, description] of aspects) {
     log(`  ${aspect}`);
     log(`    ${description}`);
   }
