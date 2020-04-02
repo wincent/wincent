@@ -2,7 +2,7 @@ import * as assert from 'assert';
 
 import ErrorWithMetadata from '../ErrorWithMetadata';
 import {RAQUO} from '../Unicode';
-import {COLORS, LOG_LEVEL, getLogLevel, log, print} from '../console';
+import {COLORS, LOG_LEVEL, debug, getLogLevel, log, print} from '../console';
 import stringify from '../stringify';
 
 const {green, red, yellow} = COLORS;
@@ -96,12 +96,10 @@ export function test(description: string, callback: () => void) {
 export async function run() {
   const start = Date.now();
 
-  const logLevel = getLogLevel();
-
   let failureCount = 0;
   let successCount = 0;
 
-  log();
+  debug(() => log());
 
   for (const [description, callback] of TESTS) {
     try {
@@ -111,13 +109,13 @@ export async function run() {
         process.stderr.columns - ' TEST '.length - 1
       );
 
-      print(yellow.reverse` TEST `, trimmedDescription);
+      debug(() => print(yellow.reverse` TEST `, trimmedDescription));
       await callback();
       successCount++;
-      await print.clear();
-      if (logLevel >= LOG_LEVEL.DEBUG) {
+      await debug(async () => {
+        await print.clear();
         log(green.reverse` PASS `, description);
-      }
+      });
     } catch (error) {
       failureCount++;
       await print.clear();
@@ -140,12 +138,16 @@ export async function run() {
 
   const totalSummary = `${successCount + failureCount} total in ${elapsed}s`;
 
-  log();
-  log(`${successSummary}, ${failureSummary}, ${totalSummary}`);
-  if (logLevel < LOG_LEVEL.DEBUG) {
-    log('Rerun with --debug to see full results');
+  const logLevel = getLogLevel();
+
+  if (logLevel >= LOG_LEVEL.DEBUG || failureCount) {
+    log();
+    log(`${successSummary}, ${failureSummary}, ${totalSummary}`);
+    if (logLevel < LOG_LEVEL.DEBUG) {
+      log('Rerun with --debug to see full results');
+    }
+    log();
   }
-  log();
 
   if (failureCount) {
     throw new ErrorWithMetadata('Test suite failed');
