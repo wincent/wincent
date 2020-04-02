@@ -214,7 +214,6 @@ let s:wincent_override_filetypes=[
       \   'xml'
       \ ]
 
-
 function! wincent#autocmds#apply_overrides(file, type) abort
   let l:pattern=join(s:wincent_override_filetypes, '\|')
   if match(a:type, '\<\(' . l:pattern . '\)\>') != -1
@@ -237,9 +236,9 @@ function! wincent#autocmds#apply_overrides(file, type) abort
       endif
 
       if l:detected == 2
-        " Additional settings for main liferay-portal repo, but not for *.js or
-        " *.scss.
-        if match(a:type, '\<\(javascript\|scss\)\>') == -1
+        " Additional settings for main liferay-portal repo, but not for *.js,
+        " *.json, or *.scss.
+        if match(a:type, '\<\(javascript\|json\|scss\)\>') == -1
           setlocal noendofline
           setlocal nofixendofline
         endif
