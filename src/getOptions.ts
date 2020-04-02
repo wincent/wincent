@@ -1,5 +1,12 @@
-import {LOG_LEVEL, setLogLevel} from './console';
+import {promises as fs} from 'fs';
+import * as path from 'path';
+
+import {root} from './Fig';
+import {COLORS, LOG_LEVEL, log, setLogLevel} from './console';
+import dedent from './dedent';
+import ErrorWithMetadata from './ErrorWithMetadata';
 import escapeRegExpPattern from './escapeRegExpPattern';
+import readAspect from './readAspect';
 
 import type {LogLevel} from './console';
 
@@ -13,7 +20,11 @@ type Options = {
   testsOnly: boolean;
 };
 
-export default function getOptions(args: Array<string>): Options {
+const {bold} = COLORS;
+
+export default async function getOptions(
+  args: Array<string>
+): Promise<Options> {
   const options: Options = {
     logLevel: LOG_LEVEL.INFO,
     startAt: {
@@ -23,15 +34,16 @@ export default function getOptions(args: Array<string>): Options {
     testsOnly: false,
   };
 
-  args.forEach((arg) => {
-    if (arg === '--debug') {
+  for (const arg of args) {
+    if (arg === '--debug' || arg === '-d') {
       options.logLevel = LOG_LEVEL.DEBUG;
     } else if (arg === '--quiet' || arg === '-q') {
       options.logLevel = LOG_LEVEL.NOTICE;
-    } else if (arg === '--test') {
+    } else if (arg === '--test' || arg === '-t') {
       options.testsOnly = true;
     } else if (arg === '--help' || arg === '-h') {
-      // TODO: print and exit
+      await printUsage();
+      throw new ErrorWithMetadata('aborting');
     } else if (arg.startsWith('--start-at-task=')) {
       options.startAt.literal = (
         arg.match(/^--start-at-task=(.*)/)?.[1] ?? ''
@@ -44,10 +56,55 @@ export default function getOptions(args: Array<string>): Options {
         ].join('.*'),
         'i'
       );
+    } else if (arg.startsWith('-')) {
+      throw new ErrorWithMetadata(`unrecognized argument ${arg}`);
     } else {
-      // TODO: error for bad args
+      // TODO: error for bad aspects
     }
-  });
+  }
 
   return options;
+}
+
+async function printUsage() {
+  const directory = path.join(root, 'aspects');
+
+  const entries = await fs.readdir(directory, {withFileTypes: true});
+
+  const aspects = entries
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => entry.name);
+
+  // TODO: actually implement all the switches mentioned here
+  log(
+    dedent`
+
+      ./install [options] [aspects...]
+
+      ${bold`Options:`}
+
+        -c/--check # not yet implemented
+        -d/--debug
+        -f/--force # not yet implemented
+        -h/--help
+        -q/--quiet
+        -t/--test
+        -v/--verbose (repeat up to four times for more verbosity) # not yet implemented
+        --start-at-task='aspect | task' # TODO: maybe make -s short variant
+        --step # not yet implemented
+
+      ${bold`Aspects:`}
+    `
+  );
+
+  for (const aspect of aspects) {
+    const {description} = await readAspect(
+      path.join(directory, aspect, 'aspect.json')
+    );
+
+    log(`  ${aspect}`);
+    log(`    ${description}`);
+  }
+
+  log();
 }

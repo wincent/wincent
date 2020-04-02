@@ -21,7 +21,7 @@ async function main() {
   }
 
   // Skip first two args (node executable and main.js script).
-  const options = getOptions(process.argv.slice(2));
+  const options = await getOptions(process.argv.slice(2));
 
   setLogLevel(options.logLevel);
 
