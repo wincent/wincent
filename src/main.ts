@@ -4,7 +4,7 @@ import * as path from 'path';
 import ErrorWithMetadata from './ErrorWithMetadata';
 import Context from './Fig/Context';
 import {root} from './Fig';
-import {log, setLogLevel} from './console';
+import {debug, log, setLogLevel} from './console';
 import getOptions from './getOptions';
 import merge from './merge';
 import prompt from './prompt';
@@ -25,8 +25,10 @@ async function main() {
 
   setLogLevel(options.logLevel);
 
-  log.debug('process.argv:\n\n' + stringify(process.argv) + '\n');
-  log.debug('getOptions():\n\n' + stringify(options) + '\n');
+  debug(() => {
+    log.debug('process.argv:\n\n' + stringify(process.argv) + '\n');
+    log.debug('getOptions():\n\n' + stringify(options) + '\n');
+  });
 
   if (process.cwd() === root) {
     log.info(`Working from root: ${simplify(root)}`);

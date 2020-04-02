@@ -57,22 +57,20 @@ export function clear() {
   });
 }
 
-function debug(message: string) {
+/**
+ * Executes `callback()` only when debugging.
+ *
+ * Useful for occasions when you want to avoid the expense of evaluating the
+ * arguments to `log.debug()`.
+ */
+export async function debug(callback: () => unknown): Promise<void> {
   if (logLevel >= LOG_LEVEL.DEBUG) {
-    log(purple.bold`${PREFIX_MAP.debug}` + message);
+    await callback();
   }
 }
 
-function error(message: string) {
-  if (logLevel >= LOG_LEVEL.ERROR) {
-    log(red.bold`${PREFIX_MAP.error}` + message);
-  }
-}
-
-function info(message: string) {
-  if (logLevel >= LOG_LEVEL.INFO) {
-    log(bold`${PREFIX_MAP.info}` + message);
-  }
+export function getLogLevel(): LogLevel {
+  return logLevel;
 }
 
 export function log(...args: Array<any>) {
@@ -80,11 +78,35 @@ export function log(...args: Array<any>) {
   print('\n');
 }
 
-function notice(message: string) {
+log.debug = function debug(message: string) {
+  if (logLevel >= LOG_LEVEL.DEBUG) {
+    log(purple.bold`${PREFIX_MAP.debug}` + message);
+  }
+};
+
+log.error = function error(message: string) {
+  if (logLevel >= LOG_LEVEL.ERROR) {
+    log(red.bold`${PREFIX_MAP.error}` + message);
+  }
+};
+
+log.info = function info(message: string) {
+  if (logLevel >= LOG_LEVEL.INFO) {
+    log(bold`${PREFIX_MAP.info}` + message);
+  }
+};
+
+log.notice = function notice(message: string) {
   if (logLevel >= LOG_LEVEL.NOTICE) {
     log(green.bold`${PREFIX_MAP.notice}` + message);
   }
-}
+};
+
+log.warn = function warn(message: string) {
+  if (logLevel >= LOG_LEVEL.WARNING) {
+    log(yellow.bold`${PREFIX_MAP.warning}` + message);
+  }
+};
 
 export function print(...args: Array<any>) {
   process.stderr.write(
@@ -104,25 +126,10 @@ export function print(...args: Array<any>) {
   );
 }
 
-export function getLogLevel(): LogLevel {
-  return logLevel;
-}
-
 export function setLogLevel(level: LogLevel) {
   logLevel = level;
 }
 
-function warn(message: string) {
-  if (logLevel >= LOG_LEVEL.WARNING) {
-    log(yellow.bold`${PREFIX_MAP.warning}` + message);
-  }
-}
-
 log.clear = clear;
-log.debug = debug;
-log.error = error;
-log.info = info;
-log.notice = notice;
-log.warn = warn;
 
 print.clear = clear;
