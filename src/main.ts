@@ -153,10 +153,14 @@ async function main() {
   // Execute tasks.
   try {
     for (const aspect of aspects) {
-      const {description, variables: aspectVariables = {}} = await readAspect(
+      const {variables: aspectVariables = {}} = await readAspect(
         path.join(root, 'aspects', aspect, 'aspect.json')
       );
-      log.info(`${aspect}: ${description}`);
+
+      if (options.focused.size && !options.focused.has(aspect)) {
+        log.info(`Skipping aspect: ${aspect}`);
+        continue;
+      }
 
       const variables = merge(aspectVariables, baseVariables);
 

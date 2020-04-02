@@ -7,10 +7,13 @@ import dedent from './dedent';
 import ErrorWithMetadata from './ErrorWithMetadata';
 import escapeRegExpPattern from './escapeRegExpPattern';
 import readAspect from './readAspect';
+import {assertAspect} from './types/Project';
 
 import type {LogLevel} from './console';
+import type {Aspect} from './types/Project';
 
 type Options = {
+  focused: Set<Aspect>;
   logLevel: LogLevel;
   startAt: {
     found: boolean;
@@ -26,6 +29,7 @@ export default async function getOptions(
   args: Array<string>
 ): Promise<Options> {
   const options: Options = {
+    focused: new Set(),
     logLevel: LOG_LEVEL.INFO,
     startAt: {
       found: false,
@@ -75,9 +79,22 @@ export default async function getOptions(
         'i'
       );
     } else if (arg.startsWith('-')) {
-      throw new ErrorWithMetadata(`unrecognized argument ${arg}`);
+      throw new ErrorWithMetadata(
+        `unrecognized argument ${JSON.stringify(
+          arg
+        )} - pass "--help" to see allowed options`
+      );
     } else {
-      // TODO: error for bad aspects
+      try {
+        assertAspect(arg);
+        options.focused.add(arg);
+      } catch {
+        throw new ErrorWithMetadata(
+          `unrecognized aspect ${JSON.stringify(
+            arg
+          )} - pass "--help" to see full list`
+        );
+      }
     }
   }
 
