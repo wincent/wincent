@@ -41,7 +41,7 @@ export default async function template({
   });
 
   if (owner && owner !== Context.attributes.username) {
-    log.notice(`needs sudo: ${Context.attributes.username} -> ${owner}`);
+    log.debug(`Needs sudo: ${Context.attributes.username} -> ${owner}`);
     const passphrase = await Context.sudoPassphrase;
     const result = await run('ls', ['-l', '/var/audit'], {passphrase});
 
@@ -53,7 +53,7 @@ export default async function template({
     }
   } else {
     if (diff.contents) {
-      log.info('change!');
+      // log.info('change!');
       const temp = await tempfile(contents);
 
       // TODO: cp from temp to target

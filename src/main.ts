@@ -169,7 +169,7 @@ async function main() {
       for (const [callback, name] of Context.tasks.get(aspect)) {
         if (!options.startAt.found || name === options.startAt.literal) {
           options.startAt.found = false;
-          log.info(`task: ${name}`);
+          log.info(`Task: ${name}`);
 
           await Context.withContext({aspect, variables}, async () => {
             await callback();

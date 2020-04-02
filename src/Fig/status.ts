@@ -4,17 +4,17 @@ import {log} from '../console';
 // decide whether we need any of those.
 
 export function changed(message: string) {
-  log.notice(`changed: ${message}`);
+  log.notice(`Changed: ${message}`);
 }
 
 export function failed(message: string) {
-  log.error(`failed: ${message}`);
+  log.error(`Failed: ${message}`);
 }
 
 export function ok(message: string) {
-  log.info(`ok: ${message}`);
+  log.info(`Ok: ${message}`);
 }
 
 export function skipped(message: string) {
-  log.info(`skipped: ${message}`);
+  log.info(`Skipped: ${message}`);
 }

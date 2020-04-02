@@ -39,7 +39,7 @@ function directory(path: string) {
         log.error(`${path} already exists but is not a directory`);
       }
     } catch (error) {
-      log.error(`failed to stat: ${path}`);
+      log.error(`Failed to stat: ${path}`);
     }
   } else {
     Context.informChanged(`directory ${path}`);
