@@ -15,11 +15,11 @@ export {template};
 export {variable};
 
 export interface Fig {
-  command: typeof command;
-  file: typeof file;
-  resource: typeof resource;
-  root: typeof root;
-  task: typeof task;
-  template: typeof template;
-  variable: typeof variable;
+    command: typeof command;
+    file: typeof file;
+    resource: typeof resource;
+    root: typeof root;
+    task: typeof task;
+    template: typeof template;
+    variable: typeof variable;
 }

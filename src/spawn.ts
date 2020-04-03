@@ -8,41 +8,44 @@ import ErrorWithMetadata from './ErrorWithMetadata';
  * Doesn't return stderr or stdout; resolves on success and rejects on failure.
  */
 export default async function spawn(
-  command: string,
-  ...args: Array<string>
+    command: string,
+    ...args: Array<string>
 ): Promise<void> {
-  return new Promise((resolve, reject) => {
-    let stderr = '';
-    let stdout = '';
+    return new Promise((resolve, reject) => {
+        let stderr = '';
+        let stdout = '';
 
-    function fail(message: string) {
-      const description = [command, ...args].join(' ');
-      const metadata = {stderr, stdout};
+        function fail(message: string) {
+            const description = [command, ...args].join(' ');
+            const metadata = {stderr, stdout};
 
-      reject(
-        new ErrorWithMetadata(`command ${description} ${message}`, metadata)
-      );
-    }
+            reject(
+                new ErrorWithMetadata(
+                    `command ${description} ${message}`,
+                    metadata
+                )
+            );
+        }
 
-    const child = child_process.spawn(command, args, {
-      stdio: ['inherit', 'pipe', 'pipe'],
+        const child = child_process.spawn(command, args, {
+            stdio: ['inherit', 'pipe', 'pipe'],
+        });
+
+        child.stderr.on('data', (data) => (stderr += data.toString()));
+        child.stdout.on('data', (data) => (stdout += data.toString()));
+
+        child.on('error', (error) => {
+            fail(`encountered error: ${error}`);
+        });
+
+        child.on('exit', (code, signal) => {
+            if (code) {
+                fail(`exited with status ${code}`);
+            } else if (signal) {
+                fail(`exited due to signal ${signal}`);
+            } else {
+                resolve();
+            }
+        });
     });
-
-    child.stderr.on('data', (data) => (stderr += data.toString()));
-    child.stdout.on('data', (data) => (stdout += data.toString()));
-
-    child.on('error', (error) => {
-      fail(`encountered error: ${error}`);
-    });
-
-    child.on('exit', (code, signal) => {
-      if (code) {
-        fail(`exited with status ${code}`);
-      } else if (signal) {
-        fail(`exited due to signal ${signal}`);
-      } else {
-        resolve();
-      }
-    });
-  });
 }

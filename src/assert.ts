@@ -4,10 +4,10 @@
  * sense).
  */
 export default function assert(
-  condition: any,
-  message?: string
+    condition: any,
+    message?: string
 ): asserts condition {
-  if (!condition) {
-    throw new Error(`assert(): ${message || 'assertion failed'}`);
-  }
+    if (!condition) {
+        throw new Error(`assert(): ${message || 'assertion failed'}`);
+    }
 }

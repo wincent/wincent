@@ -13,13 +13,13 @@ const TMP_DIR = tmpdir();
  * leave them on the disk for debugging purposes.
  */
 export default async function tempfile(contents: string): Promise<string> {
-  const name = randomBytes(16).toString('hex');
+    const name = randomBytes(16).toString('hex');
 
-  const path = join(TMP_DIR, name);
+    const path = join(TMP_DIR, name);
 
-  await fs.writeFile(path, contents, 'utf8');
+    await fs.writeFile(path, contents, 'utf8');
 
-  log.debug(`Wrote ${contents.length} bytes to ${path}`);
+    log.debug(`Wrote ${contents.length} bytes to ${path}`);
 
-  return path;
+    return path;
 }

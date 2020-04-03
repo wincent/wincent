@@ -13,98 +13,100 @@ import type {LogLevel} from './console';
 import type {Aspect} from './types/Project';
 
 type Options = {
-  focused: Set<Aspect>;
-  logLevel: LogLevel;
-  startAt: {
-    found: boolean;
-    literal: string;
-    fuzzy?: RegExp;
-  };
-  testsOnly: boolean;
+    focused: Set<Aspect>;
+    logLevel: LogLevel;
+    startAt: {
+        found: boolean;
+        literal: string;
+        fuzzy?: RegExp;
+    };
+    testsOnly: boolean;
 };
 
 const {bold} = COLORS;
 
 export default async function getOptions(
-  args: Array<string>
+    args: Array<string>
 ): Promise<Options> {
-  const options: Options = {
-    focused: new Set(),
-    logLevel: LOG_LEVEL.INFO,
-    startAt: {
-      found: false,
-      literal: '',
-    },
-    testsOnly: false,
-  };
+    const options: Options = {
+        focused: new Set(),
+        logLevel: LOG_LEVEL.INFO,
+        startAt: {
+            found: false,
+            literal: '',
+        },
+        testsOnly: false,
+    };
 
-  const directory = path.join(root, 'aspects');
+    const directory = path.join(root, 'aspects');
 
-  const entries = await fs.readdir(directory, {withFileTypes: true});
+    const entries = await fs.readdir(directory, {withFileTypes: true});
 
-  const aspects: Array<[string, string]> = [];
+    const aspects: Array<[string, string]> = [];
 
-  for (const entry of entries) {
-    if (entry.isDirectory()) {
-      const name = entry.name;
+    for (const entry of entries) {
+        if (entry.isDirectory()) {
+            const name = entry.name;
 
-      const {description} = await readAspect(
-        path.join(directory, name, 'aspect.json')
-      );
+            const {description} = await readAspect(
+                path.join(directory, name, 'aspect.json')
+            );
 
-      aspects.push([name, description]);
+            aspects.push([name, description]);
+        }
     }
-  }
 
-  for (const arg of args) {
-    if (arg === '--debug' || arg === '-d') {
-      options.logLevel = LOG_LEVEL.DEBUG;
-    } else if (arg === '--quiet' || arg === '-q') {
-      options.logLevel = LOG_LEVEL.NOTICE;
-    } else if (arg === '--test' || arg === '-t') {
-      options.testsOnly = true;
-    } else if (arg === '--help' || arg === '-h') {
-      await printUsage(aspects);
-      throw new ErrorWithMetadata('aborting');
-    } else if (arg.startsWith('--start-at-task=')) {
-      options.startAt.literal = (
-        arg.match(/^--start-at-task=(.*)/)?.[1] ?? ''
-      ).trim();
-      options.startAt.fuzzy = new RegExp(
-        [
-          '',
-          ...options.startAt.literal.split(/\s+/).map(escapeRegExpPattern),
-          '',
-        ].join('.*'),
-        'i'
-      );
-    } else if (arg.startsWith('-')) {
-      throw new ErrorWithMetadata(
-        `unrecognized argument ${JSON.stringify(
-          arg
-        )} - pass "--help" to see allowed options`
-      );
-    } else {
-      try {
-        assertAspect(arg);
-        options.focused.add(arg);
-      } catch {
-        throw new ErrorWithMetadata(
-          `unrecognized aspect ${JSON.stringify(
-            arg
-          )} - pass "--help" to see full list`
-        );
-      }
+    for (const arg of args) {
+        if (arg === '--debug' || arg === '-d') {
+            options.logLevel = LOG_LEVEL.DEBUG;
+        } else if (arg === '--quiet' || arg === '-q') {
+            options.logLevel = LOG_LEVEL.NOTICE;
+        } else if (arg === '--test' || arg === '-t') {
+            options.testsOnly = true;
+        } else if (arg === '--help' || arg === '-h') {
+            await printUsage(aspects);
+            throw new ErrorWithMetadata('aborting');
+        } else if (arg.startsWith('--start-at-task=')) {
+            options.startAt.literal = (
+                arg.match(/^--start-at-task=(.*)/)?.[1] ?? ''
+            ).trim();
+            options.startAt.fuzzy = new RegExp(
+                [
+                    '',
+                    ...options.startAt.literal
+                        .split(/\s+/)
+                        .map(escapeRegExpPattern),
+                    '',
+                ].join('.*'),
+                'i'
+            );
+        } else if (arg.startsWith('-')) {
+            throw new ErrorWithMetadata(
+                `unrecognized argument ${JSON.stringify(
+                    arg
+                )} - pass "--help" to see allowed options`
+            );
+        } else {
+            try {
+                assertAspect(arg);
+                options.focused.add(arg);
+            } catch {
+                throw new ErrorWithMetadata(
+                    `unrecognized aspect ${JSON.stringify(
+                        arg
+                    )} - pass "--help" to see full list`
+                );
+            }
+        }
     }
-  }
 
-  return options;
+    return options;
 }
 
 async function printUsage(aspects: Array<[string, string]>) {
-  // TODO: actually implement all the switches mentioned here
-  log(
-    dedent`
+    // TODO: actually implement all the switches mentioned here
+    log(
+        dedent`
 
       ./install [options] [aspects...]
 
@@ -122,12 +124,12 @@ async function printUsage(aspects: Array<[string, string]>) {
 
       ${bold`Aspects:`}
     `
-  );
+    );
 
-  for (const [aspect, description] of aspects) {
-    log(`  ${aspect}`);
-    log(`    ${description}`);
-  }
+    for (const [aspect, description] of aspects) {
+        log(`  ${aspect}`);
+        log(`    ${description}`);
+    }
 
-  log();
+    log();
 }

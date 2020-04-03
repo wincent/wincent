@@ -1,9 +1,9 @@
 {
-  "compilerOptions": {
-    "module": "CommonJS",
-    "outDir": "./lib",
-    "strict": true,
-    "target": "ES2019"
-  },
-  "include": ["aspects/**/*.ts", "src/**/*.ts"]
+    "compilerOptions": {
+        "module": "CommonJS",
+        "outDir": "./lib",
+        "strict": true,
+        "target": "ES2019"
+    },
+    "include": ["aspects/**/*.ts", "src/**/*.ts"]
 }

@@ -38,14 +38,14 @@ import stat from '../stat';
  * required with respect to that property.
  */
 type Diff = {
-  contents?: string;
-  error?: Error;
-  force?: boolean;
-  group?: string;
-  mode?: Mode;
-  owner?: string;
-  readonly path: string;
-  state?: 'absent' | 'directory' | 'file' | 'link' | 'touch';
+    contents?: string;
+    error?: Error;
+    force?: boolean;
+    group?: string;
+    mode?: Mode;
+    owner?: string;
+    readonly path: string;
+    state?: 'absent' | 'directory' | 'file' | 'link' | 'touch';
 };
 
 type Compare = Omit<Diff, 'error'>;
@@ -58,116 +58,118 @@ const {stringify} = JSON;
  * made to the current file system to produce that desired end-state.
  */
 export default async function compare({
-  contents,
-  force,
-  group,
-  mode,
-  owner,
-  path,
-  state = 'file',
+    contents,
+    force,
+    group,
+    mode,
+    owner,
+    path,
+    state = 'file',
 }: Compare) {
-  const diff: Diff = {path};
+    const diff: Diff = {path};
 
-  const stats = await stat(path);
+    const stats = await stat(path);
 
-  // BUG: if you specify "owner": "root", we should be able to manage files that
-  // only root can stat, but this code stats as an unprivileged user
-  // (to fix this, port to use stat.ts instead
-  if (stats instanceof Error) {
-    // Can't stat; bail.
-    diff.error = stats;
-    return diff;
-  } else if (stats === null) {
-    // Object does not exist.
-    if (state === 'absent') {
-      // Want "absent", have "absent": no state change required.
-    } else {
-      // Distinguish between `path` itself not existing (in which case
-      // it can be created), and one of its parents not existing (in which case
-      // we have to bail).
-      const parent = dirname(path);
-      const stats = await stat(parent);
-      if (stats instanceof Error) {
-        // Unlikely (we were able to stat object but not its parent).
+    // BUG: if you specify "owner": "root", we should be able to manage files that
+    // only root can stat, but this code stats as an unprivileged user
+    // (to fix this, port to use stat.ts instead
+    if (stats instanceof Error) {
+        // Can't stat; bail.
         diff.error = stats;
         return diff;
-      } else if (stats === null) {
-        diff.error = new ErrorWithMetadata(
-          `Cannot stat ${stringify(path)} because parent ${stringify(
-            parent
-          )} does not exist`
-        );
-      } else {
-        // Parent exists.
-        diff.state = state;
-      }
-    }
-    // Nothing else we can check without the object existing.
-    return diff;
-  }
-
-  // Object exists.
-  if (state === 'file') {
-    if (stats.type === 'file') {
-      // Want "file", have "file": no state change required.
-    } else if (stats.type === 'link') {
-      // Going to have to overwrite symlink.
-      diff.force = true;
-      diff.state = 'file';
-    } else if (stats.type === 'directory') {
-      diff.error = new ErrorWithMetadata(
-        `Cannot replace directory ${stringify(path)} with file`
-      );
-    } else {
-      // We're not going to bother with "exotic" types such as sockets etc.
-      diff.error = new ErrorWithMetadata(
-        `Cannot replace object ${stringify(path)} of unknown type with file`
-      );
-    }
-
-    if (typeof contents === 'string') {
-      try {
-        const actual = await fs.readFile(path, 'utf8');
-        if (actual !== contents) {
-          diff.contents = contents;
+    } else if (stats === null) {
+        // Object does not exist.
+        if (state === 'absent') {
+            // Want "absent", have "absent": no state change required.
+        } else {
+            // Distinguish between `path` itself not existing (in which case
+            // it can be created), and one of its parents not existing (in which case
+            // we have to bail).
+            const parent = dirname(path);
+            const stats = await stat(parent);
+            if (stats instanceof Error) {
+                // Unlikely (we were able to stat object but not its parent).
+                diff.error = stats;
+                return diff;
+            } else if (stats === null) {
+                diff.error = new ErrorWithMetadata(
+                    `Cannot stat ${stringify(path)} because parent ${stringify(
+                        parent
+                    )} does not exist`
+                );
+            } else {
+                // Parent exists.
+                diff.state = state;
+            }
         }
-      } catch (error) {
-        // TODO: if this is a perms issue, that might be ok as long as user has
-        // specified "user"
-      }
+        // Nothing else we can check without the object existing.
+        return diff;
     }
-  } else if (state === 'directory') {
-    if (stats.type === 'directory') {
-      // Want "directory", have "directory": no state change required.
-    } else if (stats.type === 'file' || stats.type === 'link') {
-      if (force) {
-        // Will have to remove file/link before creating directory.
-        diff.force = true;
-        diff.state = state;
-      } else {
-        const entity = stats.type === 'file' ? 'file' : 'symbolic link';
 
-        diff.error = new ErrorWithMetadata(
-          `Cannot replace ${entity} ${stringify(
-            path
-          )} with directory without 'force'`
-        );
-      }
-    } else {
-      // We're not going to bother with "exotic" types such as sockets etc.
-      diff.error = new ErrorWithMetadata(
-        `Cannot replace object ${stringify(
-          path
-        )} of unknown type with directory`
-      );
+    // Object exists.
+    if (state === 'file') {
+        if (stats.type === 'file') {
+            // Want "file", have "file": no state change required.
+        } else if (stats.type === 'link') {
+            // Going to have to overwrite symlink.
+            diff.force = true;
+            diff.state = 'file';
+        } else if (stats.type === 'directory') {
+            diff.error = new ErrorWithMetadata(
+                `Cannot replace directory ${stringify(path)} with file`
+            );
+        } else {
+            // We're not going to bother with "exotic" types such as sockets etc.
+            diff.error = new ErrorWithMetadata(
+                `Cannot replace object ${stringify(
+                    path
+                )} of unknown type with file`
+            );
+        }
+
+        if (typeof contents === 'string') {
+            try {
+                const actual = await fs.readFile(path, 'utf8');
+                if (actual !== contents) {
+                    diff.contents = contents;
+                }
+            } catch (error) {
+                // TODO: if this is a perms issue, that might be ok as long as user has
+                // specified "user"
+            }
+        }
+    } else if (state === 'directory') {
+        if (stats.type === 'directory') {
+            // Want "directory", have "directory": no state change required.
+        } else if (stats.type === 'file' || stats.type === 'link') {
+            if (force) {
+                // Will have to remove file/link before creating directory.
+                diff.force = true;
+                diff.state = state;
+            } else {
+                const entity = stats.type === 'file' ? 'file' : 'symbolic link';
+
+                diff.error = new ErrorWithMetadata(
+                    `Cannot replace ${entity} ${stringify(
+                        path
+                    )} with directory without 'force'`
+                );
+            }
+        } else {
+            // We're not going to bother with "exotic" types such as sockets etc.
+            diff.error = new ErrorWithMetadata(
+                `Cannot replace object ${stringify(
+                    path
+                )} of unknown type with directory`
+            );
+        }
+    } else if (state === 'link') {
+        // TODO
+    } else if (state === 'absent') {
+        // TODO
+    } else if (state === 'touch') {
+        // TODO
     }
-  } else if (state === 'link') {
-    // TODO
-  } else if (state === 'absent') {
-    // TODO
-  } else if (state === 'touch') {
-    // TODO
-  }
 
-  return diff;
+    return diff;
 }

@@ -7,42 +7,42 @@ import Context from '../Context';
 // TODO decide whether we want a separate "directory" operation
 // TODO: implement auto-expand of ~
 export default async function file({
-  force,
-  mode,
-  path,
-  src,
-  state,
+    force,
+    mode,
+    path,
+    src,
+    state,
 }: {
-  path: string;
-  mode?: Mode;
-  src?: string;
-  state: 'directory' | 'file' | 'link' | 'touch';
-  force?: boolean;
+    path: string;
+    mode?: Mode;
+    src?: string;
+    state: 'directory' | 'file' | 'link' | 'touch';
+    force?: boolean;
 }): Promise<void> {
-  if (state === 'directory') {
-    directory(path);
-  }
+    if (state === 'directory') {
+        directory(path);
+    }
 }
 
 function directory(path: string) {
-  const target = expand(path);
+    const target = expand(path);
 
-  // TODO: find out if ansible replaces regular file with dir or just errors?
-  // TODO: actually throw for errors
-  if (fs.existsSync(target)) {
-    try {
-      const stat = fs.statSync(target);
+    // TODO: find out if ansible replaces regular file with dir or just errors?
+    // TODO: actually throw for errors
+    if (fs.existsSync(target)) {
+        try {
+            const stat = fs.statSync(target);
 
-      if (stat.isDirectory()) {
-        Context.informOk(`directory ${path}`);
-      } else {
-        log.error(`${path} already exists but is not a directory`);
-      }
-    } catch (error) {
-      log.error(`Failed to stat: ${path}`);
+            if (stat.isDirectory()) {
+                Context.informOk(`directory ${path}`);
+            } else {
+                log.error(`${path} already exists but is not a directory`);
+            }
+        } catch (error) {
+            log.error(`Failed to stat: ${path}`);
+        }
+    } else {
+        Context.informChanged(`directory ${path}`);
+        fs.mkdirSync(target, {recursive: true});
     }
-  } else {
-    Context.informChanged(`directory ${path}`);
-    fs.mkdirSync(target, {recursive: true});
-  }
 }

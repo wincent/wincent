@@ -15,378 +15,413 @@ const SCHEMAS = require('./SCHEMAS');
  * project like the json-schema-to-typescript NPM package.)
  */
 function main() {
-  for (const [typeName, typeSchema] of Object.entries(SCHEMAS)) {
-    // We only generate interfaces, which means we need objects.
-    assert(typeSchema.type === 'object');
+    for (const [typeName, typeSchema] of Object.entries(SCHEMAS)) {
+        // We only generate interfaces, which means we need objects.
+        assert(typeSchema.type === 'object');
 
-    const b = new Builder();
+        const b = new Builder();
 
-    const definitions = typeSchema.definitions || {};
+        const definitions = typeSchema.definitions || {};
 
-    const options = {
-      builder: b,
-      definitions,
-      required: new Set(typeSchema.required || []),
-    };
+        const options = {
+            builder: b,
+            definitions,
+            required: new Set(typeSchema.required || []),
+        };
 
-    b.docblock('vim: set nomodifiable :', '', '@generated').blank();
+        b.docblock('vim: set nomodifiable :', '', '@generated').blank();
 
-    // Don't know whether these will be needed yet, but add just in case.
-    b.line(`import assert from '../assert';`)
-      .line(`import {assertJSONValue} from './JSONValue';`)
-      .blank();
+        // Don't know whether these will be needed yet, but add just in case.
+        b.line(`import assert from '../assert';`)
+            .line(`import {assertJSONValue} from './JSONValue';`)
+            .blank();
 
-    // Create types.
-    Object.entries(definitions).forEach(([name, value]) => {
-      if (value.enum) {
-        b.line(`const ${name}Values = [`).indent();
+        // Create types.
+        Object.entries(definitions).forEach(([name, value]) => {
+            if (value.enum) {
+                b.line(`const ${name}Values = [`).indent();
 
-        value.enum.forEach((v) => {
-          b.line(`'${v}',`);
+                value.enum.forEach((v) => {
+                    b.line(`'${v}',`);
+                });
+
+                b.dedent().line('] as const;').blank();
+
+                b.line(
+                    `export type ${name} = typeof ${name}Values[number];`
+                ).blank();
+            }
         });
 
-        b.dedent().line('] as const;').blank();
+        // Create sets for runtime checks.
+        Object.entries(definitions).forEach(([name, value]) => {
+            if (value.enum) {
+                b.line(
+                    `const ${name.toUpperCase()} = new Set<${name}>(${name}Values);`
+                ).blank();
+            }
+        });
 
-        b.line(`export type ${name} = typeof ${name}Values[number];`).blank();
-      }
-    });
+        b.interface(typeName, () => {
+            if (typeSchema.properties) {
+                for (const [propertyName, propertySchema] of Object.entries(
+                    typeSchema.properties
+                )) {
+                    genProperty(propertyName, propertySchema, options);
+                }
+            }
 
-    // Create sets for runtime checks.
-    Object.entries(definitions).forEach(([name, value]) => {
-      if (value.enum) {
-        b.line(
-          `const ${name.toUpperCase()} = new Set<${name}>(${name}Values);`
-        ).blank();
-      }
-    });
+            if (typeSchema.patternProperties) {
+                for (const [pattern, patternSchema] of Object.entries(
+                    typeSchema.patternProperties
+                )) {
+                    genPatternProperty(pattern, patternSchema, options);
+                }
+            }
+        });
 
-    b.interface(typeName, () => {
-      if (typeSchema.properties) {
-        for (const [propertyName, propertySchema] of Object.entries(
-          typeSchema.properties
-        )) {
-          genProperty(propertyName, propertySchema, options);
-        }
-      }
+        b.blank();
 
-      if (typeSchema.patternProperties) {
-        for (const [pattern, patternSchema] of Object.entries(
-          typeSchema.patternProperties
-        )) {
-          genPatternProperty(pattern, patternSchema, options);
-        }
-      }
-    });
+        // Create runtime checks.
+        Object.entries(definitions).forEach(([name, value]) => {
+            if (value.enum) {
+                b.function(
+                    `assert${name}(value: any): asserts value is ${name}`,
+                    () => {
+                        b.assert(`${name.toUpperCase()}.has(value)`);
+                    }
+                ).blank();
+            }
+        });
 
-    b.blank();
+        genAssertFunction(typeName, typeSchema, options);
 
-    // Create runtime checks.
-    Object.entries(definitions).forEach(([name, value]) => {
-      if (value.enum) {
-        b.function(
-          `assert${name}(value: any): asserts value is ${name}`,
-          () => {
-            b.assert(`${name.toUpperCase()}.has(value)`);
-          }
-        ).blank();
-      }
-    });
-
-    genAssertFunction(typeName, typeSchema, options);
-
-    fs.writeFileSync(
-      path.join(__dirname, `../../src/types/${typeName}.ts`),
-      b.output
-    );
-  }
+        fs.writeFileSync(
+            path.join(__dirname, `../../src/types/${typeName}.ts`),
+            b.output
+        );
+    }
 }
 
 function extractTargetFromRef(node) {
-  const ref = node.$ref;
+    const ref = node.$ref;
 
-  if (ref) {
-    const [, target] = ref.match(/^#\/definitions\/(\w+)/) || [];
+    if (ref) {
+        const [, target] = ref.match(/^#\/definitions\/(\w+)/) || [];
 
-    return target;
-  }
+        return target;
+    }
 }
 
 function genAssertFunction(typeName, typeSchema, options) {
-  const {builder: b, definitions} = options;
+    const {builder: b, definitions} = options;
 
-  b.function(
-    `assert${typeName}(json: any): asserts json is ${typeName}`,
-    () => {
-      function genAssertProperties(obj, typeSchema) {
-        // Order matters here (TypeScript bug?):
-        // - `typeof x === 'object' && x`: narrows to "object"
-        // - `x && typeof x === 'object'`: narrows to "object | null"
-        b.assert(`typeof ${obj} === 'object' && ${obj}`);
+    b.function(
+        `assert${typeName}(json: any): asserts json is ${typeName}`,
+        () => {
+            function genAssertProperties(obj, typeSchema) {
+                // Order matters here (TypeScript bug?):
+                // - `typeof x === 'object' && x`: narrows to "object"
+                // - `x && typeof x === 'object'`: narrows to "object | null"
+                b.assert(`typeof ${obj} === 'object' && ${obj}`);
 
-        const {patternProperties, properties} = typeSchema;
+                const {patternProperties, properties} = typeSchema;
 
-        if (!patternProperties && !properties) {
-          return;
-        }
-
-        if (typeSchema.required && typeSchema.required.length) {
-          const required = typeSchema.required
-            .map((item) => `'${item}'`)
-            .sort()
-            .join(', ');
-
-          b.blank()
-            .printIndent()
-            .print(`const missingKeys = [${required}]`)
-            .call('filter', () => {
-              b.arrow(`key`, () => {
-                b.line(`return !${obj}.hasOwnProperty(key);`);
-              });
-            })
-            .blank()
-            .assert('!missingKeys.length');
-        }
-
-        if (!patternProperties && properties) {
-          const allowed = Object.keys(properties)
-            .map((item) => `'${item}'`)
-            .join(', ');
-
-          b.blank()
-            .line(`const allowedKeys = new Set([${allowed}]);`)
-            .blank()
-            .printIndent()
-            .print(`const excessKeys = Object.keys(${obj})`)
-            .call('filter', () => {
-              b.arrow('key', () => {
-                b.line(' return !allowedKeys.has(key);');
-              });
-            })
-            .blank()
-            .assert('!excessKeys.length');
-        }
-
-        Object.entries({...properties}).forEach(
-          ([propertyName, propertySchema]) => {
-            b.blank().if(`${obj}.hasOwnProperty('${propertyName}')`, () => {
-              b.line(
-                `const ${propertyName}: unknown = (${obj} as any).${propertyName};`
-              ).blank();
-
-              const target = extractTargetFromRef(propertySchema);
-
-              if (target) {
-                propertySchema = definitions[target];
-              }
-
-              if (propertySchema.type === 'object') {
-                genAssertProperties(propertyName, propertySchema);
-              } else if (propertySchema.type === 'array') {
-                b.assert(`Array.isArray(${propertyName})`).blank();
-
-                const target = extractTargetFromRef(propertySchema.items);
-
-                if (target) {
-                  const definition = definitions[target];
-
-                  assert(definition);
-
-                  if (definition.enum) {
-                    b.line(`${propertyName}.forEach(assert${target});`);
-                  }
-                } else {
-                  const itemType = propertySchema.items.type;
-
-                  if (
-                    itemType === 'number' ||
-                    itemType === 'string' // TODO: maybe others
-                  ) {
-                    b.assert(
-                      `${propertyName}.every((item: any) => typeof item === '${itemType}')`
-                    );
-                  }
+                if (!patternProperties && !properties) {
+                    return;
                 }
-              } else if (
-                propertySchema.type === 'number' ||
-                propertySchema.type === 'string'
-              ) {
-                b.assert(`typeof ${propertyName} === '${propertySchema.type}'`);
-              } else {
-                throw new Error('Not implemented');
-              }
-            });
-          }
-        );
 
-        assert(
-          !patternProperties || Object.keys(patternProperties).length <= 1
-        );
+                if (typeSchema.required && typeSchema.required.length) {
+                    const required = typeSchema.required
+                        .map((item) => `'${item}'`)
+                        .sort()
+                        .join(', ');
 
-        Object.values({...patternProperties}).forEach((propertySchema) => {
-          const target = extractTargetFromRef(propertySchema);
+                    b.blank()
+                        .printIndent()
+                        .print(`const missingKeys = [${required}]`)
+                        .call('filter', () => {
+                            b.arrow(`key`, () => {
+                                b.line(`return !${obj}.hasOwnProperty(key);`);
+                            });
+                        })
+                        .blank()
+                        .assert('!missingKeys.length');
+                }
 
-          if (target) {
-            propertySchema = definitions[target];
-          }
+                if (!patternProperties && properties) {
+                    const allowed = Object.keys(properties)
+                        .map((item) => `'${item}'`)
+                        .join(', ');
 
-          if (isJSONValue(propertySchema)) {
-            b.blank().line(`Object.values(${obj}).forEach(assertJSONValue)`);
-          } else if (propertySchema.anyOf) {
-            const conditions = propertySchema.anyOf.map(({type}) => {
-              if (
-                type === 'boolean' ||
-                type === 'number' ||
-                type === 'string'
-              ) {
-                return `typeof value === '${type}'`;
-              } else if (type === 'null') {
-                return `value === null`;
-              } else {
-                // TODO; support complex values too
-              }
-            });
+                    b.blank()
+                        .line(`const allowedKeys = new Set([${allowed}]);`)
+                        .blank()
+                        .printIndent()
+                        .print(`const excessKeys = Object.keys(${obj})`)
+                        .call('filter', () => {
+                            b.arrow('key', () => {
+                                b.line(' return !allowedKeys.has(key);');
+                            });
+                        })
+                        .blank()
+                        .assert('!excessKeys.length');
+                }
 
-            const [first, ...rest] = conditions;
+                Object.entries({...properties}).forEach(
+                    ([propertyName, propertySchema]) => {
+                        b.blank().if(
+                            `${obj}.hasOwnProperty('${propertyName}')`,
+                            () => {
+                                b.line(
+                                    `const ${propertyName}: unknown = (${obj} as any).${propertyName};`
+                                ).blank();
 
-            b.blank()
-              .line(`const isValid = (value: unknown) => ${first} ||`)
-              .indent();
+                                const target = extractTargetFromRef(
+                                    propertySchema
+                                );
 
-            rest.forEach((condition, i) => {
-              const suffix = i === rest.length - 1 ? ';' : ' ||';
-              b.line(`${condition}${suffix}`);
-            });
+                                if (target) {
+                                    propertySchema = definitions[target];
+                                }
 
-            b.dedent();
+                                if (propertySchema.type === 'object') {
+                                    genAssertProperties(
+                                        propertyName,
+                                        propertySchema
+                                    );
+                                } else if (propertySchema.type === 'array') {
+                                    b.assert(
+                                        `Array.isArray(${propertyName})`
+                                    ).blank();
 
-            b.blank().assert(`Object.values(${obj}).every(isValid)`);
-          } else if (
-            propertySchema.type === 'number' ||
-            propertySchema.type === 'string'
-          ) {
-            b.blank().assert(
-              `Object.values(${obj}).every((value) => typeof value === '${propertySchema.type}')`
-            );
-          } else if (propertySchema.type === 'object') {
-            b.blank()
-              .line(
-                `const valid = Object.values(${obj}).every((value: unknown) => {`
-              )
-              .indent();
+                                    const target = extractTargetFromRef(
+                                        propertySchema.items
+                                    );
 
-            genAssertProperties('value', propertySchema);
+                                    if (target) {
+                                        const definition = definitions[target];
 
-            b.line('return true;').dedent().line('});').blank().assert('valid');
-          } else if (propertySchema.type === 'array') {
-            // TODO: impl
-          }
-        });
-      }
+                                        assert(definition);
 
-      genAssertProperties('json', typeSchema);
-    }
-  );
+                                        if (definition.enum) {
+                                            b.line(
+                                                `${propertyName}.forEach(assert${target});`
+                                            );
+                                        }
+                                    } else {
+                                        const itemType =
+                                            propertySchema.items.type;
+
+                                        if (
+                                            itemType === 'number' ||
+                                            itemType === 'string' // TODO: maybe others
+                                        ) {
+                                            b.assert(
+                                                `${propertyName}.every((item: any) => typeof item === '${itemType}')`
+                                            );
+                                        }
+                                    }
+                                } else if (
+                                    propertySchema.type === 'number' ||
+                                    propertySchema.type === 'string'
+                                ) {
+                                    b.assert(
+                                        `typeof ${propertyName} === '${propertySchema.type}'`
+                                    );
+                                } else {
+                                    throw new Error('Not implemented');
+                                }
+                            }
+                        );
+                    }
+                );
+
+                assert(
+                    !patternProperties ||
+                        Object.keys(patternProperties).length <= 1
+                );
+
+                Object.values({...patternProperties}).forEach(
+                    (propertySchema) => {
+                        const target = extractTargetFromRef(propertySchema);
+
+                        if (target) {
+                            propertySchema = definitions[target];
+                        }
+
+                        if (isJSONValue(propertySchema)) {
+                            b.blank().line(
+                                `Object.values(${obj}).forEach(assertJSONValue)`
+                            );
+                        } else if (propertySchema.anyOf) {
+                            const conditions = propertySchema.anyOf.map(
+                                ({type}) => {
+                                    if (
+                                        type === 'boolean' ||
+                                        type === 'number' ||
+                                        type === 'string'
+                                    ) {
+                                        return `typeof value === '${type}'`;
+                                    } else if (type === 'null') {
+                                        return `value === null`;
+                                    } else {
+                                        // TODO; support complex values too
+                                    }
+                                }
+                            );
+
+                            const [first, ...rest] = conditions;
+
+                            b.blank()
+                                .line(
+                                    `const isValid = (value: unknown) => ${first} ||`
+                                )
+                                .indent();
+
+                            rest.forEach((condition, i) => {
+                                const suffix =
+                                    i === rest.length - 1 ? ';' : ' ||';
+                                b.line(`${condition}${suffix}`);
+                            });
+
+                            b.dedent();
+
+                            b.blank().assert(
+                                `Object.values(${obj}).every(isValid)`
+                            );
+                        } else if (
+                            propertySchema.type === 'number' ||
+                            propertySchema.type === 'string'
+                        ) {
+                            b.blank().assert(
+                                `Object.values(${obj}).every((value) => typeof value === '${propertySchema.type}')`
+                            );
+                        } else if (propertySchema.type === 'object') {
+                            b.blank()
+                                .line(
+                                    `const valid = Object.values(${obj}).every((value: unknown) => {`
+                                )
+                                .indent();
+
+                            genAssertProperties('value', propertySchema);
+
+                            b.line('return true;')
+                                .dedent()
+                                .line('});')
+                                .blank()
+                                .assert('valid');
+                        } else if (propertySchema.type === 'array') {
+                            // TODO: impl
+                        }
+                    }
+                );
+            }
+
+            genAssertProperties('json', typeSchema);
+        }
+    );
 }
 
 function genObjectValue(schema, options) {
-  const b = options.builder;
+    const b = options.builder;
 
-  return () => {
-    b.line('{').indent();
+    return () => {
+        b.line('{').indent();
 
-    const nextOptions = {
-      ...options,
-      required: new Set(schema.required || []),
-    };
+        const nextOptions = {
+            ...options,
+            required: new Set(schema.required || []),
+        };
 
-    if (schema.properties) {
-      Object.entries(schema.properties).forEach(
-        ([propertyName, propertySchema]) => {
-          genProperty(propertyName, propertySchema, nextOptions);
+        if (schema.properties) {
+            Object.entries(schema.properties).forEach(
+                ([propertyName, propertySchema]) => {
+                    genProperty(propertyName, propertySchema, nextOptions);
+                }
+            );
         }
-      );
-    }
 
-    if (schema.patternProperties) {
-      for (const [pattern, patternSchema] of Object.entries(
-        schema.patternProperties
-      )) {
-        genPatternProperty(pattern, patternSchema, nextOptions);
-      }
-    }
+        if (schema.patternProperties) {
+            for (const [pattern, patternSchema] of Object.entries(
+                schema.patternProperties
+            )) {
+                genPatternProperty(pattern, patternSchema, nextOptions);
+            }
+        }
 
-    b.dedent().line('}');
-  };
+        b.dedent().line('}');
+    };
 }
 
 function genProperty(propertyName, propertySchema, options) {
-  const {builder: b, definitions, required} = options;
+    const {builder: b, definitions, required} = options;
 
-  const optional = required.has(propertyName) ? '' : '?';
+    const optional = required.has(propertyName) ? '' : '?';
 
-  let value;
+    let value;
 
-  const target = extractTargetFromRef(propertySchema);
-
-  if (target) {
-    propertySchema = definitions[target];
-  }
-
-  if (propertySchema.type === 'array') {
-    const target = extractTargetFromRef(propertySchema.items);
+    const target = extractTargetFromRef(propertySchema);
 
     if (target) {
-      value = `Array<${target}>`;
-    } else {
-      value = `Array<${propertySchema.items.type}>`;
+        propertySchema = definitions[target];
     }
-  } else if (propertySchema.type === 'object') {
-    value = genObjectValue(propertySchema, options);
-  } else if (
-    propertySchema.type === 'number' ||
-    propertySchema.type === 'string'
-  ) {
-    value = propertySchema.type;
-  } else {
-    throw new Error(
-      `Property ${JSON.stringify(
-        propertyName
-      )} has invalid type ${JSON.stringify(propertySchema.type)}`
-    );
-  }
 
-  const key = `${propertyName}${optional}`;
+    if (propertySchema.type === 'array') {
+        const target = extractTargetFromRef(propertySchema.items);
 
-  b.property(key, value);
+        if (target) {
+            value = `Array<${target}>`;
+        } else {
+            value = `Array<${propertySchema.items.type}>`;
+        }
+    } else if (propertySchema.type === 'object') {
+        value = genObjectValue(propertySchema, options);
+    } else if (
+        propertySchema.type === 'number' ||
+        propertySchema.type === 'string'
+    ) {
+        value = propertySchema.type;
+    } else {
+        throw new Error(
+            `Property ${JSON.stringify(
+                propertyName
+            )} has invalid type ${JSON.stringify(propertySchema.type)}`
+        );
+    }
+
+    const key = `${propertyName}${optional}`;
+
+    b.property(key, value);
 }
 
 function genPatternProperty(pattern, schema, options) {
-  assert(pattern === '.*');
+    assert(pattern === '.*');
 
-  const {builder: b, definitions} = options;
+    const {builder: b, definitions} = options;
 
-  const target = extractTargetFromRef(schema);
+    const target = extractTargetFromRef(schema);
 
-  if (target) {
-    schema = definitions[target];
-  }
+    if (target) {
+        schema = definitions[target];
+    }
 
-  let value;
+    let value;
 
-  if (isJSONValue(schema)) {
-    value = 'JSONValue';
-  } else if (schema.anyOf) {
-    // TODO: handle non-simple types here.
-    value = schema.anyOf.map(({type}) => type).join(' | ');
-  } else if (schema.type === 'number' || schema.type === 'string') {
-    value = schema.type;
-  } else if (schema.type === 'object') {
-    value = genObjectValue(schema, options);
-  } else {
-    throw new Error('TODO: Implement');
-  }
+    if (isJSONValue(schema)) {
+        value = 'JSONValue';
+    } else if (schema.anyOf) {
+        // TODO: handle non-simple types here.
+        value = schema.anyOf.map(({type}) => type).join(' | ');
+    } else if (schema.type === 'number' || schema.type === 'string') {
+        value = schema.type;
+    } else if (schema.type === 'object') {
+        value = genObjectValue(schema, options);
+    } else {
+        throw new Error('TODO: Implement');
+    }
 
-  b.property('[key: string]', value);
+    b.property('[key: string]', value);
 }
 
 /**
@@ -395,28 +430,28 @@ function genPatternProperty(pattern, schema, options) {
  *    (any) array | boolean | null | number | (any) object | string
  */
 function isJSONValue(schema) {
-  const items = new Set([
-    'array',
-    'boolean',
-    'null',
-    'number',
-    'object',
-    'string',
-  ]);
+    const items = new Set([
+        'array',
+        'boolean',
+        'null',
+        'number',
+        'object',
+        'string',
+    ]);
 
-  const {anyOf} = schema;
+    const {anyOf} = schema;
 
-  if (anyOf && anyOf.length === items.size) {
-    anyOf.forEach((schema) => {
-      if (Object.keys(schema).length === 1) {
-        items.delete(schema.type);
-      }
-    });
+    if (anyOf && anyOf.length === items.size) {
+        anyOf.forEach((schema) => {
+            if (Object.keys(schema).length === 1) {
+                items.delete(schema.type);
+            }
+        });
 
-    return !items.size;
-  }
+        return !items.size;
+    }
 
-  return false;
+    return false;
 }
 
 main();

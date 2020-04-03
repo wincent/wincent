@@ -1,11 +1,11 @@
 export type Metadata = {[key: string]: JSONValue};
 
 export default class ErrorWithMetadata extends Error {
-  metadata?: Metadata;
+    metadata?: Metadata;
 
-  constructor(message: string, metadata?: Metadata) {
-    super(message);
+    constructor(message: string, metadata?: Metadata) {
+        super(message);
 
-    this.metadata = metadata;
-  }
+        this.metadata = metadata;
+    }
 }

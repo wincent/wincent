@@ -15,13 +15,13 @@ let logLevel: LogLevel = 6;
 const PREFIXES = ['debug', 'error', 'info', 'notice', 'warning'];
 
 const PREFIX_LENGTH = PREFIXES.reduce((acc, prefix) => {
-  return Math.max(`[${prefix}] `.length, acc);
+    return Math.max(`[${prefix}] `.length, acc);
 }, 0);
 
 const PREFIX_MAP = Object.fromEntries(
-  PREFIXES.map((prefix) => {
-    return [prefix, `[${prefix}] `.padEnd(PREFIX_LENGTH)];
-  })
+    PREFIXES.map((prefix) => {
+        return [prefix, `[${prefix}] `.padEnd(PREFIX_LENGTH)];
+    })
 );
 
 /**
@@ -39,22 +39,22 @@ const PREFIX_MAP = Object.fromEntries(
  * @see https://en.wikipedia.org/wiki/Syslog
  */
 export const LOG_LEVEL = {
-  EMERGENCY: 0,
-  ALERT: 1,
-  CRITICAL: 2,
-  ERROR: 3,
-  WARNING: 4,
-  NOTICE: 5,
-  INFO: 6,
-  DEBUG: 7,
+    EMERGENCY: 0,
+    ALERT: 1,
+    CRITICAL: 2,
+    ERROR: 3,
+    WARNING: 4,
+    NOTICE: 5,
+    INFO: 6,
+    DEBUG: 7,
 } as const;
 
 export function clear() {
-  return new Promise((resolve) => {
-    clearLine(process.stderr, 0, () => {
-      cursorTo(process.stderr, 0, undefined, resolve);
+    return new Promise((resolve) => {
+        clearLine(process.stderr, 0, () => {
+            cursorTo(process.stderr, 0, undefined, resolve);
+        });
     });
-  });
 }
 
 /**
@@ -64,70 +64,70 @@ export function clear() {
  * arguments to `log.debug()`.
  */
 export async function debug(callback: () => unknown): Promise<void> {
-  if (logLevel >= LOG_LEVEL.DEBUG) {
-    await callback();
-  }
+    if (logLevel >= LOG_LEVEL.DEBUG) {
+        await callback();
+    }
 }
 
 export function getLogLevel(): LogLevel {
-  return logLevel;
+    return logLevel;
 }
 
 export function log(...args: Array<any>) {
-  print(...args);
-  print('\n');
+    print(...args);
+    print('\n');
 }
 
 log.debug = function debug(message: string) {
-  if (logLevel >= LOG_LEVEL.DEBUG) {
-    log(purple.bold`${PREFIX_MAP.debug}` + message);
-  }
+    if (logLevel >= LOG_LEVEL.DEBUG) {
+        log(purple.bold`${PREFIX_MAP.debug}` + message);
+    }
 };
 
 log.error = function error(message: string) {
-  if (logLevel >= LOG_LEVEL.ERROR) {
-    log(red.bold`${PREFIX_MAP.error}` + message);
-  }
+    if (logLevel >= LOG_LEVEL.ERROR) {
+        log(red.bold`${PREFIX_MAP.error}` + message);
+    }
 };
 
 log.info = function info(message: string) {
-  if (logLevel >= LOG_LEVEL.INFO) {
-    log(bold`${PREFIX_MAP.info}` + message);
-  }
+    if (logLevel >= LOG_LEVEL.INFO) {
+        log(bold`${PREFIX_MAP.info}` + message);
+    }
 };
 
 log.notice = function notice(message: string) {
-  if (logLevel >= LOG_LEVEL.NOTICE) {
-    log(green.bold`${PREFIX_MAP.notice}` + message);
-  }
+    if (logLevel >= LOG_LEVEL.NOTICE) {
+        log(green.bold`${PREFIX_MAP.notice}` + message);
+    }
 };
 
 log.warn = function warn(message: string) {
-  if (logLevel >= LOG_LEVEL.WARNING) {
-    log(yellow.bold`${PREFIX_MAP.warning}` + message);
-  }
+    if (logLevel >= LOG_LEVEL.WARNING) {
+        log(yellow.bold`${PREFIX_MAP.warning}` + message);
+    }
 };
 
 export function print(...args: Array<any>) {
-  process.stderr.write(
-    args
-      .map((arg) => {
-        try {
-          if (typeof arg === 'object' && arg) {
-            return JSON.stringify(arg, null, 2);
-          } else {
-            return String(arg);
-          }
-        } catch {
-          return '???';
-        }
-      })
-      .join(' ')
-  );
+    process.stderr.write(
+        args
+            .map((arg) => {
+                try {
+                    if (typeof arg === 'object' && arg) {
+                        return JSON.stringify(arg, null, 2);
+                    } else {
+                        return String(arg);
+                    }
+                } catch {
+                    return '???';
+                }
+            })
+            .join(' ')
+    );
 }
 
 export function setLogLevel(level: LogLevel) {
-  logLevel = level;
+    logLevel = level;
 }
 
 log.clear = clear;

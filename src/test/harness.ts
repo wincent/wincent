@@ -12,144 +12,150 @@ const TESTS: Array<[string, () => void | Promise<void>]> = [];
 let context: Array<string> = [];
 
 export function describe(description: string, callback: () => void) {
-  context.push(description);
-  callback();
-  context.pop();
+    context.push(description);
+    callback();
+    context.pop();
 }
 
 export function expect(value: unknown) {
-  return {
-    toBe(expected: unknown) {
-      assert.strictEqual(
-        value,
-        expected,
-        `Expected ${stringify(value)} to be ${stringify(expected)}`
-      );
-    },
+    return {
+        toBe(expected: unknown) {
+            assert.strictEqual(
+                value,
+                expected,
+                `Expected ${stringify(value)} to be ${stringify(expected)}`
+            );
+        },
 
-    toEqual(expected: unknown) {
-      assert.deepStrictEqual(
-        value,
-        expected,
-        `Expected ${stringify(value)} to equal ${stringify(expected)}`
-      );
-    },
+        toEqual(expected: unknown) {
+            assert.deepStrictEqual(
+                value,
+                expected,
+                `Expected ${stringify(value)} to equal ${stringify(expected)}`
+            );
+        },
 
-    toMatch(expected: unknown) {
-      if (expected instanceof RegExp) {
-        assert(
-          expected.test(String(value)),
-          `Expected ${stringify(value)} to match ${stringify(expected)}`
-        );
-      } else {
-        throw new Error(`Expected RegExp but received ${typeof expected}`);
-      }
-    },
+        toMatch(expected: unknown) {
+            if (expected instanceof RegExp) {
+                assert(
+                    expected.test(String(value)),
+                    `Expected ${stringify(value)} to match ${stringify(
+                        expected
+                    )}`
+                );
+            } else {
+                throw new Error(
+                    `Expected RegExp but received ${typeof expected}`
+                );
+            }
+        },
 
-    toThrow(expected: string | typeof Error | RegExp) {
-      let caught;
+        toThrow(expected: string | typeof Error | RegExp) {
+            let caught;
 
-      try {
-        if (typeof value === 'function') {
-          value();
-        } else {
-          throw new Error(`Expected function but received ${typeof value}`);
-        }
-      } catch (error) {
-        caught = error;
-      }
+            try {
+                if (typeof value === 'function') {
+                    value();
+                } else {
+                    throw new Error(
+                        `Expected function but received ${typeof value}`
+                    );
+                }
+            } catch (error) {
+                caught = error;
+            }
 
-      if (!caught) {
-        assert.fail('Expected error but none was thrown');
-      } else {
-        const message = caught.toString();
+            if (!caught) {
+                assert.fail('Expected error but none was thrown');
+            } else {
+                const message = caught.toString();
 
-        if (typeof expected === 'string') {
-          assert.ok(
-            message.includes(expected),
-            `Expected message ${stringify(message)} to contain ${stringify(
-              expected
-            )}`
-          );
-        } else if (expected instanceof RegExp) {
-          assert.ok(
-            expected.test(message),
-            `Expected message ${stringify(message)} to match ${stringify(
-              expected
-            )}`
-          );
-        } else {
-          assert.ok(
-            caught instanceof expected,
-            `Expected error to be instance of ${expected}`
-          );
-        }
-      }
-    },
-  };
+                if (typeof expected === 'string') {
+                    assert.ok(
+                        message.includes(expected),
+                        `Expected message ${stringify(
+                            message
+                        )} to contain ${stringify(expected)}`
+                    );
+                } else if (expected instanceof RegExp) {
+                    assert.ok(
+                        expected.test(message),
+                        `Expected message ${stringify(
+                            message
+                        )} to match ${stringify(expected)}`
+                    );
+                } else {
+                    assert.ok(
+                        caught instanceof expected,
+                        `Expected error to be instance of ${expected}`
+                    );
+                }
+            }
+        },
+    };
 }
 
 export function test(description: string, callback: () => void) {
-  TESTS.push([[...context, description].join(` ${RAQUO} `), callback]);
+    TESTS.push([[...context, description].join(` ${RAQUO} `), callback]);
 }
 
 export async function run() {
-  const start = Date.now();
+    const start = Date.now();
 
-  let failureCount = 0;
-  let successCount = 0;
+    let failureCount = 0;
+    let successCount = 0;
 
-  debug(() => log());
+    debug(() => log());
 
-  for (const [description, callback] of TESTS) {
-    try {
-      // Need to stay within one line if `clear()` calls below are to work.
-      const trimmedDescription = description.slice(
-        0,
-        process.stderr.columns - ' TEST '.length - 1
-      );
+    for (const [description, callback] of TESTS) {
+        try {
+            // Need to stay within one line if `clear()` calls below are to work.
+            const trimmedDescription = description.slice(
+                0,
+                process.stderr.columns - ' TEST '.length - 1
+            );
 
-      debug(() => print(yellow.reverse` TEST `, trimmedDescription));
-      await callback();
-      successCount++;
-      await debug(async () => {
-        await print.clear();
-        log(green.reverse` PASS `, description);
-      });
-    } catch (error) {
-      failureCount++;
-      await print.clear();
-      log(red.reverse` FAIL `, description);
-      log(`\n${error.message}\n`);
-      log(error);
-      log();
+            debug(() => print(yellow.reverse` TEST `, trimmedDescription));
+            await callback();
+            successCount++;
+            await debug(async () => {
+                await print.clear();
+                log(green.reverse` PASS `, description);
+            });
+        } catch (error) {
+            failureCount++;
+            await print.clear();
+            log(red.reverse` FAIL `, description);
+            log(`\n${error.message}\n`);
+            log(error);
+            log();
+        }
     }
-  }
 
-  const elapsed = ((Date.now() - start) / 1000).toFixed(2);
+    const elapsed = ((Date.now() - start) / 1000).toFixed(2);
 
-  const successSummary = successCount
-    ? green.bold`${successCount} passed`
-    : '0 passed';
+    const successSummary = successCount
+        ? green.bold`${successCount} passed`
+        : '0 passed';
 
-  const failureSummary = failureCount
-    ? red.bold`${failureCount} failed`
-    : `0 failed`;
+    const failureSummary = failureCount
+        ? red.bold`${failureCount} failed`
+        : `0 failed`;
 
-  const totalSummary = `${successCount + failureCount} total in ${elapsed}s`;
+    const totalSummary = `${successCount + failureCount} total in ${elapsed}s`;
 
-  const logLevel = getLogLevel();
+    const logLevel = getLogLevel();
 
-  if (logLevel >= LOG_LEVEL.DEBUG || failureCount) {
-    log();
-    log(`${successSummary}, ${failureSummary}, ${totalSummary}`);
-    if (logLevel < LOG_LEVEL.DEBUG) {
-      log('Rerun with --debug to see full results');
+    if (logLevel >= LOG_LEVEL.DEBUG || failureCount) {
+        log();
+        log(`${successSummary}, ${failureSummary}, ${totalSummary}`);
+        if (logLevel < LOG_LEVEL.DEBUG) {
+            log('Rerun with --debug to see full results');
+        }
+        log();
     }
-    log();
-  }
 
-  if (failureCount) {
-    throw new ErrorWithMetadata('Test suite failed');
-  }
+    if (failureCount) {
+        throw new ErrorWithMetadata('Test suite failed');
+    }
 }

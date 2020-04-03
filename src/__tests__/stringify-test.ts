@@ -3,52 +3,52 @@ import dedent from '../dedent';
 import stringify from '../stringify';
 
 test('stringify() null', () => {
-  expect(stringify(null)).toBe('null');
+    expect(stringify(null)).toBe('null');
 });
 
 test('stringify() undefined', () => {
-  expect(stringify(undefined)).toBe('undefined');
+    expect(stringify(undefined)).toBe('undefined');
 });
 
 test('stringify() true', () => {
-  expect(stringify(true)).toBe('true');
+    expect(stringify(true)).toBe('true');
 });
 
 test('stringify() false', () => {
-  expect(stringify(false)).toBe('false');
+    expect(stringify(false)).toBe('false');
 });
 
 test('stringify() a number', () => {
-  expect(stringify(9000)).toBe('9000');
+    expect(stringify(9000)).toBe('9000');
 });
 
 test('stringify() a string', () => {
-  expect(stringify('thing')).toBe('"thing"');
+    expect(stringify('thing')).toBe('"thing"');
 });
 
 test('stringify() a Symbol', () => {
-  expect(stringify(Symbol.for('sample'))).toBe('Symbol(sample)');
+    expect(stringify(Symbol.for('sample'))).toBe('Symbol(sample)');
 });
 
 test('stringify() a RegExp', () => {
-  expect(stringify(/stuff \w+/i)).toBe('/stuff \\w+/i');
+    expect(stringify(/stuff \w+/i)).toBe('/stuff \\w+/i');
 });
 
 test('stringify() an array', () => {
-  expect(stringify([1, true, 'thing'])).toBe(
-    dedent`
+    expect(stringify([1, true, 'thing'])).toBe(
+        dedent`
       [
         1,
         true,
         "thing",
       ]
     `.trimEnd()
-  );
+    );
 });
 
 test('stringify() nested arrays', () => {
-  expect(stringify([1, true, 'thing', ['nested', null]])).toBe(
-    dedent`
+    expect(stringify([1, true, 'thing', ['nested', null]])).toBe(
+        dedent`
       [
         1,
         true,
@@ -59,16 +59,16 @@ test('stringify() nested arrays', () => {
         ],
       ]
     `.trimEnd()
-  );
+    );
 });
 
 test('stringify() an array with circular references', () => {
-  const array: Array<any> = [1, true, 'thing'];
+    const array: Array<any> = [1, true, 'thing'];
 
-  array.push(array);
+    array.push(array);
 
-  expect(stringify(array)).toBe(
-    dedent`
+    expect(stringify(array)).toBe(
+        dedent`
       [
         1,
         true,
@@ -76,23 +76,23 @@ test('stringify() an array with circular references', () => {
         «circular»,
       ]
     `.trimEnd()
-  );
+    );
 });
 
 test('stringify() an object', () => {
-  expect(stringify({a: 1, b: true})).toBe(
-    dedent`
+    expect(stringify({a: 1, b: true})).toBe(
+        dedent`
       {
         "a": 1,
         "b": true,
       }
     `.trimEnd()
-  );
+    );
 });
 
 test('stringify() a nested object', () => {
-  expect(stringify({a: 1, b: true, c: {d: null}})).toBe(
-    dedent`
+    expect(stringify({a: 1, b: true, c: {d: null}})).toBe(
+        dedent`
       {
         "a": 1,
         "b": true,
@@ -101,45 +101,45 @@ test('stringify() a nested object', () => {
         },
       }
     `.trimEnd()
-  );
+    );
 });
 
 test('stringify() an object with circular references', () => {
-  const object: {[key: string]: any} = {a: 1, b: true};
+    const object: {[key: string]: any} = {a: 1, b: true};
 
-  object.c = object;
+    object.c = object;
 
-  expect(stringify(object)).toBe(
-    dedent`
+    expect(stringify(object)).toBe(
+        dedent`
       {
         "a": 1,
         "b": true,
         "c": «circular»,
       }
     `.trimEnd()
-  );
+    );
 });
 
 test('stringify() a Date', () => {
-  expect(stringify(new Date())).toBe('[object Date]');
+    expect(stringify(new Date())).toBe('[object Date]');
 });
 
 test('stringify() a one-line Function', () => {
-  expect(stringify(() => 1)).toBe('() => 1');
+    expect(stringify(() => 1)).toBe('() => 1');
 });
 
 // @ts-ignore: suppress TS7006: Parameter 'a' implicitly has an 'any' type.
 function fn(a, b) {
-  if (a > 0) {
-    return a + b;
-  }
+    if (a > 0) {
+        return a + b;
+    }
 }
 
 test('stringify() a multi-line Function', () => {
-  // Obviously this test is pretty fragile; depends on TS continuing to
-  // use a 4-space indent in its build output.
-  expect(stringify({fn})).toBe(
-    dedent`
+    // Obviously this test is pretty fragile; depends on TS continuing to
+    // use a 4-space indent in its build output.
+    expect(stringify({fn})).toBe(
+        dedent`
       {
         "fn": function fn(a, b) {
             if (a > 0) {
@@ -148,5 +148,5 @@ test('stringify() a multi-line Function', () => {
         },
       }
     `.trimEnd()
-  );
+    );
 });

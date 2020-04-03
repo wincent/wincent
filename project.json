@@ -1,24 +1,24 @@
 {
-  "platforms": {
-    "darwin": {
-      "aspects": ["launchd", "terminfo"],
-      "variables": {}
+    "platforms": {
+        "darwin": {
+            "aspects": ["launchd", "terminfo"],
+            "variables": {}
+        },
+        "linux": {
+            "aspects": ["terminfo"],
+            "variables": {
+                "terminfo_path": "~/share/terminfo"
+            }
+        }
     },
-    "linux": {
-      "aspects": ["terminfo"],
-      "variables": {
-        "terminfo_path": "~/share/terminfo"
-      }
+    "profiles": {
+        "personal": {
+            "pattern": "/\\bretiro\\b/i",
+            "variables": {}
+        },
+        "work": {
+            "pattern": "/\\blfrw044\\b/i",
+            "variables": {}
+        }
     }
-  },
-  "profiles": {
-    "personal": {
-      "pattern": "/\\bretiro\\b/i",
-      "variables": {}
-    },
-    "work": {
-      "pattern": "/\\blfrw044\\b/i",
-      "variables": {}
-    }
-  }
 }

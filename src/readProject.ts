@@ -7,17 +7,17 @@ import {Project, assertProject} from './types/Project';
 const readFile = promisify(fs.readFile);
 
 export default async function readProject(path: string): Promise<Project> {
-  log.debug(`Reading project configuration: ${path}`);
+    log.debug(`Reading project configuration: ${path}`);
 
-  const json = await readFile(path, 'utf8');
+    const json = await readFile(path, 'utf8');
 
-  const project = JSON.parse(json);
+    const project = JSON.parse(json);
 
-  try {
-    assertProject(project);
-  } catch (error) {
-    throw new Error(`${error.message} in ${path}`);
-  }
+    try {
+        assertProject(project);
+    } catch (error) {
+        throw new Error(`${error.message} in ${path}`);
+    }
 
-  return project;
+    return project;
 }

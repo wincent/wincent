@@ -1,10 +1,10 @@
 {
-  "Profiles": [
-    {
-      "Name": "Wincent",
-      "Guid": "C9389479-10A0-4D67-BCDF-80BA2CA3A3D6",
-      "Dynamic Profile Parent Name": "Base",
-      "Normal Font": "SourceCodePro-Light 16"
-    }
-  ]
+    "Profiles": [
+        {
+            "Name": "Wincent",
+            "Guid": "C9389479-10A0-4D67-BCDF-80BA2CA3A3D6",
+            "Dynamic Profile Parent Name": "Base",
+            "Normal Font": "SourceCodePro-Light 16"
+        }
+    ]
 }

@@ -10,56 +10,56 @@ import Context from '../Context';
 import compare from '../compare';
 
 export default async function template({
-  force,
-  group,
-  mode,
-  owner,
-  path,
-  src,
-  variables = {},
-}: {
-  force?: boolean;
-  group?: string;
-  path: string;
-  mode?: Mode;
-  owner?: string;
-  src: string;
-  variables: Variables;
-}): Promise<void> {
-  const target = expand(path);
-
-  const contents = (await Context.compile(src)).fill({variables});
-
-  const diff = await compare({
-    contents,
     force,
     group,
     mode,
     owner,
-    path: target,
-    state: 'file',
-  });
+    path,
+    src,
+    variables = {},
+}: {
+    force?: boolean;
+    group?: string;
+    path: string;
+    mode?: Mode;
+    owner?: string;
+    src: string;
+    variables: Variables;
+}): Promise<void> {
+    const target = expand(path);
 
-  if (owner && owner !== Context.attributes.username) {
-    log.debug(`Needs sudo: ${Context.attributes.username} -> ${owner}`);
-    const passphrase = await Context.sudoPassphrase;
-    const result = await run('ls', ['-l', '/var/audit'], {passphrase});
+    const contents = (await Context.compile(src)).fill({variables});
 
-    if (result.status !== 0) {
-      throw new ErrorWithMetadata(`Failed command`, {
-        ...result,
-        error: result.error?.toString() ?? null,
-      });
-    }
-  } else {
-    if (diff.contents) {
-      // log.info('change!');
-      const temp = await tempfile(contents);
+    const diff = await compare({
+        contents,
+        force,
+        group,
+        mode,
+        owner,
+        path: target,
+        state: 'file',
+    });
 
-      // TODO: cp from temp to target
-      // TODO: deal with group/owner/mode etc
+    if (owner && owner !== Context.attributes.username) {
+        log.debug(`Needs sudo: ${Context.attributes.username} -> ${owner}`);
+        const passphrase = await Context.sudoPassphrase;
+        const result = await run('ls', ['-l', '/var/audit'], {passphrase});
+
+        if (result.status !== 0) {
+            throw new ErrorWithMetadata(`Failed command`, {
+                ...result,
+                error: result.error?.toString() ?? null,
+            });
+        }
     } else {
-      Context.informOk(`template ${path}`);
+        if (diff.contents) {
+            // log.info('change!');
+            const temp = await tempfile(contents);
+
+            // TODO: cp from temp to target
+            // TODO: deal with group/owner/mode etc
+        } else {
+            Context.informOk(`template ${path}`);
+        }
     }
-  }
 }

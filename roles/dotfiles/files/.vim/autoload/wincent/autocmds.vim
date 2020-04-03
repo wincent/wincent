@@ -215,6 +215,62 @@ let s:wincent_override_filetypes=[
       \ ]
 
 function! wincent#autocmds#apply_overrides(file, type) abort
+  let l:editorconfig=wincent#autocmds#editorconfig(a:file, a:type)
+
+  " TODO: Deal with more kinds of globs
+  " typical examples:
+  "     *           any file
+  "     *.js        any js file
+  "     lib/**.js   any js file under lib (at any level)
+  "     *.{js,ts}   any js or ts file
+  " meaning of each char:
+  "     *           match run of any char except /
+  "     **          match any run of chars
+  "     ?           any single char
+  "     [abc]       any single char of a, b, c
+  "     [!abc]      any single char not in set a, b, c
+  "     {a,b,c}     a or b or c (can be nested, gulp)
+  "     {-10..10}   numbers between -10 and 10
+  "     \\          escape
+
+  let l:overrides={}
+  let l:path=fnamemodify(a:file, ':p')
+  for l:config in l:editorconfig
+    " unsilent echomsg string(l:config)
+    let l:glob=l:config.name
+
+    " TODO: don't backslash-escape already-escaped things
+    let l:glob=substitute(l:glob, '\v\.', '\\.', 'g')
+    let l:glob=substitute(l:glob, '\v\*\*', '.+', 'g')
+    let l:glob=substitute(l:glob, '\v\*', '[^/]+', 'g')
+
+    " TODO: replace this hack with real thing:
+    let l:glob=substitute(l:glob, '\v\{', '(', 'g')
+    let l:glob=substitute(l:glob, '\v\}', ')', 'g')
+    let l:glob=substitute(l:glob, '\v,', '|', 'g')
+
+    if match(l:path, '\v' . l:glob . '$') != -1
+      " BUG: won't handle unsaved files; maybe that is ok
+      for l:pair in items(l:config.pairs)
+        let l:key=l:pair[0]
+        let l:value=l:pair[1]
+        if l:key == 'indent_style'
+          if l:value == 'space'
+            setlocal expandtab
+          else
+            setlocal noexpandtab
+          endif
+        elseif l:key == 'indent_size'
+          let &l:shiftwidth=l:value
+          let &l:tabstop=l:value
+        endif
+      endfor
+    endif
+  endfor
+
+  " TODO: rework this so that if when we check for liferay directories, if
+  " found, they return an "editorconfig object...
+
   let l:pattern=join(s:wincent_override_filetypes, '\|')
   if match(a:type, '\<\(' . l:pattern . '\)\>') != -1
     let l:detected=wincent#liferay#detect(a:file)
@@ -245,6 +301,103 @@ function! wincent#autocmds#apply_overrides(file, type) abort
       endif
     endif
   endif
+endfunction
+
+" For full list of possible keys, see:
+"
+"     https://editorconfig-specification.readthedocs.io/en/latest/
+"
+" We only support a restrictive subset for now.
+let s:editorconfig_keys={
+      \   'indent_style': ['tab', 'space'],
+      \   'indent_size': ['tab', '1', '2', '3', '4', '5', '6', '7', '8'],
+      \   'insert_final_newline': ['true', 'false'],
+      \   'tab_width': ['tab', '1', '2', '3', '4', '5', '6', '7', '8']
+      \ }
+
+" Traverse upwards looking for an .editorconfig.
+"
+" Implements a subset of the functionality described at: https://editorconfig.org/
+"
+" @param {file} path of current file(either absolute or relative to cwd)
+" @param {type} filetype
+"
+" If there is no filename yet, `file` will be the same as `type`.
+function! wincent#autocmds#editorconfig(file, type) abort
+  let l:path=fnamemodify(a:file, ':p')
+  while 1
+    let l:path=fnamemodify(l:path, ':h')
+    let l:candidate=l:path . '/.editorconfig'
+    if filereadable(l:candidate)
+      break
+    endif
+    if l:path == '' || l:path == '/'
+      return []
+    endif
+  endwhile
+
+  let l:config=[]
+  let l:section=v:null
+  let l:lines=readfile(l:candidate)
+  for l:line in l:lines
+    if match(l:line, '\v^\s*$') != -1
+      " Blank line, skip.
+    elseif match(l:line, '\v^\s*[#;]') != -1
+      " Comment, skip.
+    else
+      let l:header=matchlist(l:line, '\v^\s*\[([^\]]+)\]\s*$')
+      if !empty(l:header)
+        " Starting a section.
+        let l:section={'name': l:header[1], 'pairs': {}}
+        call add(l:config, l:section)
+      else
+        let l:pair=matchlist(l:line, '\v^\s*([^=]{-})\s*\=\s*(\S.{-})\s*$')
+        if !empty(l:pair)
+          " Adding key/value pair to current section.
+          let l:key=l:pair[1]
+          let l:value=l:pair[2]
+          if type(l:section) == type(v:null)
+            if l:key == 'root'
+              " 'root' in preamble.
+              "
+              " Possible values: 'true' or 'false'.
+              "
+              " TODO: actually keep walking upward to see if there are
+              " more files to be merged. (Low-pri: I don't expect to see
+              " .editorconfig files at multiple levels in practice very
+              " often; by far the most common pattern is a single file
+              " at the repo root with 'root = true'.)
+            else
+              " Ignore non-'root' key in preamble.
+            endif
+          else
+            if l:key == 'root'
+              " Ignore 'root' outside of preamble.
+            elseif has_key(s:editorconfig_keys, l:key)
+              " Non-'root' outside of preamble.
+              if l:value == 'unset'
+                " Remove the key, if present.
+                if has_key(l:section.pairs, l:key)
+                  call remove(l:section.pairs, l:key)
+                endif
+              elseif index(get(s:editorconfig_keys, l:key), l:value) != -1
+                " Legit value for this key.
+                let l:section.pairs[l:key]=l:value
+              else
+                " Invalid/unsupported value.
+              endif
+            else
+              " Unknown key.
+            endif
+          endif
+        else
+          " Unknown format, skip.
+        endif
+      endif
+    endif
+  endfor
+
+  return l:config
 endfunction
 
 function! wincent#autocmds#format(motion) abort

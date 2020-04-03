@@ -3,20 +3,20 @@ import Context from './Fig/Context';
 import run from './run';
 
 type Options = {
-  group?: string;
-  sudo?: boolean;
-  user?: string;
+    group?: string;
+    sudo?: boolean;
+    user?: string;
 };
 
 export default async function chown(
-  path: string,
-  options: Options = {}
+    path: string,
+    options: Options = {}
 ): Promise<Error | null> {
-  if (Context.attributes.platform === 'darwin') {
-    return null; // TODO finish
-  } else {
-    throw new Error('TODO: implement');
-  }
+    if (Context.attributes.platform === 'darwin') {
+        return null; // TODO finish
+    } else {
+        throw new Error('TODO: implement');
+    }
 }
 
 // TODO: decide whether to throw/catch or just return errors
