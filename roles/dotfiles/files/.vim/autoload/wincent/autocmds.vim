@@ -345,7 +345,10 @@ function! wincent#autocmds#editorconfig(file, type) abort
 
   let l:config=[]
   let l:section=v:null
-  let l:lines=readfile(l:candidate)
+
+  " Only read first 100 lines of .editorconfig, to prevent possible abuse.
+  let l:lines=readfile(l:candidate, '', 100)
+
   for l:line in l:lines
     if match(l:line, '\v^\s*$') != -1
       " Blank line, skip.
