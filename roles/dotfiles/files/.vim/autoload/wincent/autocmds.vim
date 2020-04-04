@@ -291,7 +291,6 @@ function! wincent#autocmds#apply_overrides(file, type) abort
       setlocal noexpandtab
       setlocal shiftwidth=4
       setlocal tabstop=4
-      setlocal noshiftround
 
       if match(&formatprg, '^par ') != -1
         " "T", turns tabs to spaces, and I can't seem to turn it off, but I can
