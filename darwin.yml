@@ -4,7 +4,6 @@
     - { role: iterm, tags: iterm }
     - { role: homebrew, tags: homebrew }
     - { role: dotfiles, tags: dotfiles }
-    - { role: launchd, tags: launchd }
     - { role: shell, tags: shell }
     - { role: vim, tags: vim }
     - { role: defaults, tags: defaults }
