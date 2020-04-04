@@ -26,9 +26,10 @@ export default async function run(
     return new Promise((resolve) => {
         const prompt = `sudo[${randomBytes(16).toString('hex')}]:`;
 
-        const final = options.passphrase !== undefined
-            ? ['sudo', '-S', '-k', '-p', prompt, '--', command, ...args]
-            : [command, ...args];
+        const final =
+            options.passphrase !== undefined
+                ? ['sudo', '-S', '-k', '-p', prompt, '--', command, ...args]
+                : [command, ...args];
 
         const result = {
             command: final.join(' '),

@@ -22,7 +22,9 @@ export default async function chown(
         // With or without `sudo` (in practice, if we are calling `chown()` at
         // all, it will probably be with `sudo`).
         //
-        const passphrase = options.sudo ? (await Context.sudoPassphrase) : undefined;
+        const passphrase = options.sudo
+            ? await Context.sudoPassphrase
+            : undefined;
 
         let ownerAndGroup = options.owner || '';
 
