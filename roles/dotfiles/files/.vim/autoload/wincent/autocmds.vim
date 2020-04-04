@@ -369,8 +369,8 @@ function! wincent#autocmds#editorconfig(file) abort
         let l:pair=matchlist(l:line, '\v^\s*([^=]{-})\s*\=\s*(\S.{-})\s*$')
         if !empty(l:pair)
           " Adding key/value pair to current section.
-          let l:key=l:pair[1]
-          let l:value=l:pair[2]
+          let l:key=tolower(l:pair[1])
+          let l:value=tolower(l:pair[2])
           if type(l:section) == type(v:null)
             if l:key == 'root'
               " 'root' in preamble.
