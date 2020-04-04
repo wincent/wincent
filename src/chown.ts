@@ -5,7 +5,7 @@ import run from './run';
 type Options = {
     group?: string;
     sudo?: boolean;
-    user?: string;
+    owner?: string;
 };
 
 export default async function chown(
@@ -13,40 +13,31 @@ export default async function chown(
     options: Options = {}
 ): Promise<Error | null> {
     if (Context.attributes.platform === 'darwin') {
-        return null; // TODO finish
+        // Run one of:
+        //
+        //      chown owner path
+        //      chown :group path
+        //      chown owner:group path
+        //
+        // With or without `sudo` (in practice, if we are calling `chown()` at
+        // all, it will probably be with `sudo`).
+        //
+        const passphrase = options.sudo ? (await Context.sudoPassphrase) : undefined;
+
+        let ownerAndGroup = options.owner || '';
+
+        if (options.group) {
+            ownerAndGroup += `:${options.group}`;
+        }
+
+        const result = await run('chown', [ownerAndGroup, path], {passphrase});
+
+        if (result.status === 0) {
+            return null;
+        } else {
+            return result.error || new ErrorWithMetadata('chown failed');
+        }
     } else {
         throw new Error('TODO: implement');
     }
 }
-
-// TODO: decide whether to throw/catch or just return errors
-
-/*
-
-let result;
-
-try {
-  result = await chown(path, options);
-
-  // code that needs result (either here...)
-} catch (error) {
-  return null; // or re-throw
-}
-
-// (or...) code that needs result
-
-// vs
-
-const result = await chown(path, options);
-
-if (result instanceof Error) {
-  return null; // or re-throw etc
-}
-
-// code that needs result...
-
-// less nesting, possibly clearer control flow, less fighting against block
-// scope etc.
-// catch still might be better though if you ever need to use finally etc.
-
-*/

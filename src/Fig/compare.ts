@@ -138,6 +138,14 @@ export default async function compare({
                 // specified "user"
             }
         }
+
+        if (group && stats.group !== group) {
+            diff.group = group;
+        }
+
+        if (owner && stats.owner !== owner) {
+            diff.owner = owner;
+        }
     } else if (state === 'directory') {
         if (stats.type === 'directory') {
             // Want "directory", have "directory": no state change required.

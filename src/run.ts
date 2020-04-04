@@ -23,10 +23,10 @@ export default async function run(
     args: Array<string>,
     options: Options = {}
 ): Promise<Result> {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         const prompt = `sudo[${randomBytes(16).toString('hex')}]:`;
 
-        const final = options.passphrase
+        const final = options.passphrase !== undefined
             ? ['sudo', '-S', '-k', '-p', prompt, '--', command, ...args]
             : [command, ...args];
 
@@ -62,7 +62,7 @@ export default async function run(
         });
 
         child.on('error', (error) =>
-            reject({
+            resolve({
                 ...result,
                 error,
             })
@@ -77,7 +77,7 @@ export default async function run(
             } else if (signal) {
                 resolve({
                     ...result,
-                    status,
+                    signal,
                 });
             }
         });

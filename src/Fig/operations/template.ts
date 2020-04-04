@@ -1,9 +1,9 @@
 import * as fs from 'fs';
 
 import ErrorWithMetadata from '../../ErrorWithMetadata';
+import chown from '../../chown';
 import {log} from '../../console';
 import expand from '../../expand';
-import run from '../../run';
 import tempfile from '../../tempfile';
 import {compile, fill} from '../../template';
 import Context from '../Context';
@@ -40,15 +40,17 @@ export default async function template({
         state: 'file',
     });
 
-    if (owner && owner !== Context.attributes.username) {
-        log.debug(`Needs sudo: ${Context.attributes.username} -> ${owner}`);
-        const passphrase = await Context.sudoPassphrase;
-        const result = await run('ls', ['-l', '/var/audit'], {passphrase});
+    if (diff.state === 'file') {
+        // TODO: file does not exist — have to create it
+    } else if (diff.owner || diff.group) {
+        const result = await chown(target, {group, owner, sudo: true});
 
-        if (result.status !== 0) {
+        if (result instanceof Error) {
             throw new ErrorWithMetadata(`Failed command`, {
-                ...result,
-                error: result.error?.toString() ?? null,
+                error: result.toString(),
+                group: group ?? null,
+                owner: owner ?? null,
+                target,
             });
         }
     } else {

@@ -7,7 +7,7 @@ type Stats = {
     mode: Mode;
     target?: string;
     type: 'directory' | 'file' | 'link' | 'socket' | 'special' | 'unknown';
-    user: string;
+    owner: string;
 };
 
 const TYPE_MAP = {
@@ -36,13 +36,13 @@ export default async function stat(
             newline: '%n',
             target: '%Y',
             type: '%HT',
-            user: '%Su',
+            owner: '%Su',
         };
 
         const formatString = [
             formats.mode,
             formats.type,
-            formats.user,
+            formats.owner,
             formats.group,
             formats.target,
         ].join(formats.newline);
@@ -60,7 +60,7 @@ export default async function stat(
             );
 
             if (status === 0) {
-                const [mode, type, user, group, target] = stdout.split('\n');
+                const [mode, type, owner, group, target] = stdout.split('\n');
 
                 const paddedMode = mode.padStart(4, '0');
 
@@ -71,7 +71,7 @@ export default async function stat(
                     mode: paddedMode,
                     target: target || undefined,
                     type: (TYPE_MAP as any)[type.toLowerCase()] || 'unknown',
-                    user,
+                    owner,
                 };
             }
 
@@ -88,7 +88,7 @@ export default async function stat(
         // a = mode
         // F = type
         // G = group name
-        // U = user name
+        // U = owner name
         // maybe %N (link target): prints 'src' -> 'target'
         // 644, 1777
         // regular file, directory, symbolic link, character special file
