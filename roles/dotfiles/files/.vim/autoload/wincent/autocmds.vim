@@ -194,9 +194,42 @@ function! wincent#autocmds#encrypt(file) abort
   endfor
 endfunction
 
+" TODO move all this into a separate file
+let g:WincentEditorConfigPathBlacklist=[]
+
+let g:WincentEditorConfigFileTypeBlacklist=[
+      \   'command-t',
+      \   'diff',
+      \   'fugitiveblame',
+      \   'gitcommit',
+      \   'hgcommit',
+      \   'nerdtree',
+      \   'qf',
+      \   'undotree'
+      \ ]
+
+function! s:editorconfig_blacklist(path, filetype)
+  for l:item in g:WincentEditorConfigPathBlacklist
+    if match(a:path, l:item) != -1
+      return 1
+    endif
+  endfor
+
+  for l:item in g:WincentEditorConfigFileTypeBlacklist
+    if match(a:filetype, l:item) != -1
+      return 1
+    endif
+  endfor
+
+  return 0
+endfunction
+
 function! wincent#autocmds#apply_overrides() abort
   let l:path=expand('%:p')
   if empty(l:path)
+    return
+  endif
+  if s:editorconfig_blacklist(l:path, &filetype)
     return
   endif
   let l:editorconfig=wincent#autocmds#editorconfig(l:path)
