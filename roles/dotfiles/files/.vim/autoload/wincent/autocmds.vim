@@ -288,6 +288,14 @@ function! wincent#autocmds#apply_overrides(file, type) abort
         elseif l:key == 'indent_size'
           let &l:shiftwidth=l:value
           let &l:tabstop=l:value
+        elseif l:key == 'insert_final_newline'
+          if l:value == 'true'
+            let &l:endofline=1
+            let &l:fixendofline=1
+          else
+            let &l:endofline=0
+            let &l:fixendofline=0
+          endif
         endif
       endfor
     endif
