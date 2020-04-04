@@ -300,39 +300,6 @@ function! wincent#autocmds#apply_overrides(file, type) abort
       endfor
     endif
   endfor
-
-  " TODO: rework this so that if when we check for liferay directories, if
-  " found, they return an "editorconfig object...
-
-  let l:pattern=join(s:wincent_override_filetypes, '\|')
-  if match(a:type, '\<\(' . l:pattern . '\)\>') != -1
-    let l:detected=wincent#liferay#detect(a:file)
-    if l:detected
-      setlocal noexpandtab
-      setlocal shiftwidth=4
-      setlocal tabstop=4
-
-      if match(&formatprg, '^par ') != -1
-        " "T", turns tabs to spaces, and I can't seem to turn it off, but I can
-        " at least make it use the right number of them...
-        let &l:formatprg=substitute(&formatprg, 'T\d*', 'T4', '')
-
-        " ... and then override the |gq| operator to do a |:retab!| after
-        " applying.
-        map <buffer> gq <Plug>(operator-format-and-retab)
-        call operator#user#define('format-and-retab', 'wincent#autocmds#format')
-      endif
-
-      if l:detected == 2
-        " Additional settings for main liferay-portal repo, but not for *.js,
-        " *.json, or *.scss.
-        if match(a:type, '\<\(javascript\|json\|scss\)\>') == -1
-          setlocal noendofline
-          setlocal nofixendofline
-        endif
-      endif
-    endif
-  endif
 endfunction
 
 " For full list of possible keys, see:
