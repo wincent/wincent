@@ -194,28 +194,12 @@ function! wincent#autocmds#encrypt(file) abort
   endfor
 endfunction
 
-" Filetypes that we might want to apply directory-specific overrides to.
-let s:wincent_override_filetypes=[
-      \   'bnd',
-      \   'conf',
-      \   'groovy',
-      \   'html',
-      \   'java',
-      \   'javascript',
-      \   'jproperties',
-      \   'json',
-      \   'jsp',
-      \   'ignore',
-      \   'npmbundler',
-      \   'scss',
-      \   'soy',
-      \   'tsx',
-      \   'typescript',
-      \   'xml'
-      \ ]
-
-function! wincent#autocmds#apply_overrides(file, type) abort
-  let l:editorconfig=wincent#autocmds#editorconfig(a:file)
+function! wincent#autocmds#apply_overrides() abort
+  let l:path=expand('%:p')
+  if empty(l:path)
+    return
+  endif
+  let l:editorconfig=wincent#autocmds#editorconfig(l:path)
 
   " TODO: Deal with more kinds of globs
   " typical examples:
@@ -233,10 +217,7 @@ function! wincent#autocmds#apply_overrides(file, type) abort
   "     {-10..10}   numbers between -10 and 10
   "     \\          escape
 
-  let l:overrides={}
-  let l:path=fnamemodify(a:file, ':p')
   for l:config in l:editorconfig
-    " unsilent echomsg string(l:config)
     let l:glob=l:config.name
 
     if len(l:glob) > 4096
