@@ -101,3 +101,14 @@
   loop:
     # mbsync will die on first sync without this:
     - ~/.mail
+
+- name: dotfiles | make ~/code
+  file: path=~/code state=directory
+  when: identity == "wincent"
+
+- name: dotfiles | link ~/code/.editorconfig
+  file: src={{ ansible_env.PWD }}/roles/dotfiles/files/code/.editorconfig
+        path=~/code/.editorconfig
+        state=link
+        force=yes
+  when: identity == "wincent"

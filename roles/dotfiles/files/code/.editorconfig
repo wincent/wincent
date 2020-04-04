@@ -1,0 +1,15 @@
+root = true
+
+[/Users/*/code/{portal,portal-ee,portal-master,commerce}/**]
+insert_final_newline = false
+indent_size = 4
+indent_style = tab
+
+[/Users/*/code/{portal,portal-ee,portal-master,commerce}/**.{js,json,scss}]
+insert_final_newline = true
+indent_size = 4
+indent_style = tab
+
+[/Users/*/code/{alloy-editor,liferay-*}/**.{js,json,scss,ts,tsx}]
+indent_size = 4
+indent_style = tab
