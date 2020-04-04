@@ -13,7 +13,7 @@
 
 - name: ssh | report on config file
   fail: msg='{{ ssh_config_path }} does not exist; run "{{ git_cipher_path }}"'
-  when: not config_stat.stat.exists and lookup("env", "USER") == "glh"
+  when: not config_stat.stat.exists and identity == "wincent"
 
 - name: ssh | install config file
   file: src={{ ssh_config_path }}
