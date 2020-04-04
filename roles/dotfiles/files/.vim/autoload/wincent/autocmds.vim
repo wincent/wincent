@@ -324,7 +324,7 @@ let s:editorconfig_keys={
       \   'indent_style': ['tab', 'space'],
       \   'indent_size': ['tab', '1', '2', '3', '4', '5', '6', '7', '8'],
       \   'insert_final_newline': ['true', 'false'],
-      \   'tab_width': ['tab', '1', '2', '3', '4', '5', '6', '7', '8']
+      \   'tab_width': ['1', '2', '3', '4', '5', '6', '7', '8']
       \ }
 
 " Traverse upwards looking for an .editorconfig.
