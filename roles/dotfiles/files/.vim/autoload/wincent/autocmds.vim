@@ -249,7 +249,14 @@ function! wincent#autocmds#apply_overrides(file, type) abort
     let l:glob=substitute(l:glob, '\v\}', ')', 'g')
     let l:glob=substitute(l:glob, '\v,', '|', 'g')
 
-    if match(l:path, '\v' . l:glob . '$') != -1
+    try
+      let l:match=match(l:path, '\v' . l:glob . '$')
+    catch
+      " Don't die due to an invalid pattern.
+      let l:match=-1
+    endtry
+
+    if l:match != -1
       " BUG: won't handle unsaved files; maybe that is ok
       for l:pair in items(l:config.pairs)
         let l:key=l:pair[0]
