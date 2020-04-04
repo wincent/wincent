@@ -215,7 +215,7 @@ let s:wincent_override_filetypes=[
       \ ]
 
 function! wincent#autocmds#apply_overrides(file, type) abort
-  let l:editorconfig=wincent#autocmds#editorconfig(a:file, a:type)
+  let l:editorconfig=wincent#autocmds#editorconfig(a:file)
 
   " TODO: Deal with more kinds of globs
   " typical examples:
@@ -333,10 +333,10 @@ let s:editorconfig_keys={
 " Implements a subset of the functionality described at: https://editorconfig.org/
 "
 " @param {file} path of current file(either absolute or relative to cwd)
-" @param {type} filetype
 "
-" If there is no filename yet, `file` will be the same as `type`.
-function! wincent#autocmds#editorconfig(file, type) abort
+" If there is no filename yet, `file` will be the same as its 'filetype', but
+" that serves adequately for the purposes of this function.
+function! wincent#autocmds#editorconfig(file) abort
   let l:path=fnamemodify(a:file, ':p')
   while 1
     let l:path=fnamemodify(l:path, ':h')
