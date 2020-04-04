@@ -239,6 +239,12 @@ function! wincent#autocmds#apply_overrides(file, type) abort
     " unsilent echomsg string(l:config)
     let l:glob=l:config.name
 
+    if len(l:glob) > 4096
+      " Ignore overlength sections, as per:
+      " https://editorconfig-specification.readthedocs.io/en/latest/#glob-expressions
+      continue
+    endif
+
     " TODO: don't backslash-escape already-escaped things
     let l:glob=substitute(l:glob, '\v\.', '\\.', 'g')
     let l:glob=substitute(l:glob, '\v\*\*', '.+', 'g')
