@@ -356,8 +356,11 @@ let s:editorconfig_keys={
 " If there is no filename yet, `file` will be the same as its 'filetype', but
 " that serves adequately for the purposes of this function.
 function! wincent#autocmds#editorconfig(file) abort
+  " Make absolute path.
   let l:path=fnamemodify(a:file, ':p')
+
   while 1
+    " Get dirname.
     let l:path=fnamemodify(l:path, ':h')
     let l:candidate=l:path . '/.editorconfig'
     if filereadable(l:candidate)
@@ -373,6 +376,8 @@ function! wincent#autocmds#editorconfig(file) abort
 
   " Only read first 100 lines of .editorconfig, to prevent possible abuse.
   let l:lines=readfile(l:candidate, '', 100)
+
+  let l:root=0
 
   for l:line in l:lines
     if match(l:line, '\v^\s*$') != -1
@@ -396,12 +401,9 @@ function! wincent#autocmds#editorconfig(file) abort
               " 'root' in preamble.
               "
               " Possible values: 'true' or 'false'.
-              "
-              " TODO: actually keep walking upward to see if there are
-              " more files to be merged. (Low-pri: I don't expect to see
-              " .editorconfig files at multiple levels in practice very
-              " often; by far the most common pattern is a single file
-              " at the repo root with 'root = true'.)
+              if l:value == 'true'
+                let l:root=1
+              endif
             else
               " Ignore non-'root' key in preamble.
             endif
@@ -432,7 +434,13 @@ function! wincent#autocmds#editorconfig(file) abort
     endif
   endfor
 
-  return l:config
+  if l:root == 0 && l:path != '' && l:path != '/'
+    " Walk up recursively looking for ancestor config(s).
+    let l:parent=fnamemodify(l:path, ':h')
+    return extend(wincent#autocmds#editorconfig(l:parent), l:config)
+  else
+    return l:config
+  end
 endfunction
 
 function! wincent#autocmds#format(motion) abort
