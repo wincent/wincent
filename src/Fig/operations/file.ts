@@ -2,8 +2,8 @@ import ErrorWithMetadata from '../../ErrorWithMetadata';
 import {log} from '../../console';
 import chown from '../../fs/chown';
 import mkdir from '../../fs/mkdir';
+import tempfile from '../../fs/tempfile';
 import expand from '../../path/expand';
-import tempfile from '../../tempfile';
 import Context from '../Context';
 import compare from '../compare';
 

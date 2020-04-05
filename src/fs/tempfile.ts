@@ -3,7 +3,7 @@ import {promises as fs} from 'fs';
 import {tmpdir} from 'os';
 import {join} from 'path';
 
-import {log} from './console';
+import {log} from '../console';
 
 const TMP_DIR = tmpdir();
 
