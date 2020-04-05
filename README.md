@@ -7,7 +7,7 @@
 -   Target platforms: macOS and Red Hat-like Linuxes (eg. CentOS).
 -   Set-up method: ~~Beautiful and intricate snowflake~~ incredibly over-engineered [Ansible](https://www.ansible.com/) orchestration.
 -   Visible in the screenshot:
-    -   [default-dark Base16](http://chriskempson.com/projects/base16/) color scheme.
+    -   [default-dark Base16](http://chriskempson.com/projects/base16/) color scheme (see [screenshots of other colorschemes](https://github.com/wincent/wincent/blob/media/colorschemes/README.md)).
     -   [Adobe Source Code Pro](https://github.com/adobe-fonts/source-code-pro) (Light) font.
     -   Vim, running inside tmux, inside iTerm2, on macOS "High Sierra".
 
