@@ -94,7 +94,7 @@ export default async function stat(
         // regular file, directory, symbolic link, character special file
     }
 
-    throw new ErrorWithMetadata(`Unable to stat ${path}`);
+    return new ErrorWithMetadata(`Unable to stat ${path}`);
 }
 
 const MODE_REGEXP = /^0[0-7]{3}$/;
