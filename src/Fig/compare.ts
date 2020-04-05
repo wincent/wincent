@@ -64,6 +64,16 @@ export default async function compare({
     path,
     state = 'file',
 }: Diff) {
+    // Sanity check.
+    if (
+        contents !== undefined &&
+        (state === 'absent' || state === 'directory' || state === 'touch')
+    ) {
+        throw new ErrorWithMetadata(
+            `A file-system object cannot have "contents" if its state is \`${state}\``
+        );
+    }
+
     const diff: Diff = {path};
 
     const stats = await stat(path);
