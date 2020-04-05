@@ -1,52 +1,122 @@
 import {promises as fs} from 'fs';
 
 import ErrorWithMetadata from '../../ErrorWithMetadata';
+import chown from '../../chown';
+import {log} from '../../console';
 import expand from '../../expand';
-import stat from '../../stat';
+import tempfile from '../../tempfile';
 import Context from '../Context';
+import compare from '../compare';
 
-// TODO decide whether we want a separate "directory" operation
 export default async function file({
+    contents,
     force,
+    group,
     mode,
+    owner,
     path,
     src,
     state,
 }: {
+    contents?: string;
+    force?: boolean;
+    group?: string;
     path: string;
     mode?: Mode;
+    owner?: string;
     src?: string;
     state: 'directory' | 'file' | 'link' | 'touch';
-    force?: boolean;
 }): Promise<void> {
+    if (state !== 'file' && (contents !== undefined || src !== undefined)) {
+        throw new ErrorWithMetadata(
+            `A file-system object cannot have "contents" or "src" unless its state is \`file\``
+        );
+    }
+
+    if (contents !== undefined && src !== undefined) {
+        throw new ErrorWithMetadata(
+            `Cannot populate a file-system object with both "contents" and from "src"`
+        );
+    }
+
+    const target = expand(path);
+
+    const diff = await compare({
+        contents,
+        force,
+        group,
+        mode,
+        owner,
+        path: target,
+        state,
+    });
+
+    if (diff.error) {
+        // TODO: maybe wrap this to make it more specific
+        throw diff.error;
+    }
+
     if (state === 'directory') {
-        await directory(path);
+        if (diff.state === 'directory') {
+            Context.informChanged(`directory ${path}`);
+
+            // TODO: if force in effect, that means we have to remove file/link
+            // first.
+            // TODO: do this with sudo if need be
+            await fs.mkdir(target, {recursive: true});
+        } else {
+            // Already a directory.
+            Context.informOk(`directory ${path}`);
+            // TODO still check ownership, perms etc
+        }
+    } else if (state === 'file') {
+        if (diff.state === 'file') {
+            // TODO: file does not exist — have to create it
+            // if contents, use that
+            // if src, copy that
+            // if neither, create empty
+        }
+
+        if (diff.owner || diff.group) {
+            const result = await chown(target, {group, owner, sudo: true});
+
+            if (result instanceof Error) {
+                throw new ErrorWithMetadata(`Failed command`, {
+                    error: result.toString(),
+                    group: group ?? null,
+                    owner: owner ?? null,
+                    target,
+                });
+            }
+        }
+
+        if (diff.contents) {
+            // log.info('change!');
+            if (src) {
+                // just copy from src
+            } else {
+                const temp = await tempfile(diff.contents);
+                log.debug(`Wrote to temporary file: ${temp}`);
+            }
+
+            // TODO: cp from temp to target
+            // TODO: deal with group/owner/mode etc
+        }
+
+        // BUG: we use "template" here; not distinguishing between
+        // "template" and "file"
+        Context.informOk(`template ${path}`);
+    } else if (state === 'link') {
+        // TODO
+    } else if (state === 'touch') {
+        // TODO
+    } else {
+        throw new Error('Unreachable');
     }
 
     // TODO: probably refactor this to use compare.ts
     if (0) {
         // In the meantime, silence unused parameter warnings.
         console.log(force, mode, src);
-    }
-}
-
-async function directory(path: string) {
-    const target = expand(path);
-
-    const stats = await stat(target);
-
-    if (stats instanceof Error) {
-        throw stats;
-    } else if (stats === null) {
-        Context.informChanged(`directory ${path}`);
-        await fs.mkdir(target, {recursive: true});
-    } else if (stats.type === 'directory') {
-        // TODO: check ownership, perms etc
-        Context.informOk(`directory ${path}`);
-    } else {
-        // TODO: find out if ansible replaces regular file with dir or just errors?
-        throw new ErrorWithMetadata(
-            `${path} already exists but is not a directory`
-        );
     }
 }

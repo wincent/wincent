@@ -39,6 +39,7 @@ export default function stringify(value: unknown) {
                 return array;
             }
         } else if (typeof value === 'object') {
+            // TODO: special-case Set, Map
             const toString = Object.prototype.toString.call(value);
             if (toString === '[object Object]') {
                 if (seen.has(value)) {

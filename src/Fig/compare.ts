@@ -30,9 +30,6 @@ import stat from '../stat';
  *    will need to be removed (for example, to replace a link with a
  *    directory), or force-written (for example, to replace a file with
  *    a link; ie. `ln -sf`) etc.
- * -  path: Read-only property, for book-keeping purposes. The only
- *    non-optional property.
- * -  state: A required property, but this one has a default ("file").
  *
  * In general, if a property is unset, that means no changes are
  * required with respect to that property.
@@ -44,9 +41,11 @@ type Diff = {
     group?: string;
     mode?: Mode;
     owner?: string;
-    readonly path: string;
+    path: string;
     state?: 'absent' | 'directory' | 'file' | 'link' | 'touch';
 };
+
+type Compare = Omit<Diff, 'error'>;
 
 const {stringify} = JSON;
 
@@ -63,14 +62,11 @@ export default async function compare({
     owner,
     path,
     state = 'file',
-}: Diff) {
+}: Compare): Promise<Diff> {
     // Sanity check.
-    if (
-        contents !== undefined &&
-        (state === 'absent' || state === 'directory' || state === 'touch')
-    ) {
+    if (contents !== undefined && state !== 'file') {
         throw new ErrorWithMetadata(
-            `A file-system object cannot have "contents" if its state is \`${state}\``
+            `A file-system object cannot have "contents" unless its state is \`file\``
         );
     }
 
@@ -141,6 +137,7 @@ export default async function compare({
             } catch (error) {
                 // TODO: if this is a perms issue, that might be ok as long as user has
                 // specified "user"
+                // TODO: don't use readFile, use sudo version if needed
             }
         }
 
