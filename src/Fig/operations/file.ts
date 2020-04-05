@@ -60,7 +60,7 @@ export default async function file({
             // TODO: if force in effect, that means we have to remove file/link
             // first.
             const sudo = !!(diff.owner || diff.group);
-            const result = mkdir(target, {mode, sudo});
+            const result = await mkdir(target, {mode, sudo});
 
             if (result instanceof Error) {
                 throw result;
