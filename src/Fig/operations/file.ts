@@ -1,11 +1,12 @@
-import * as fs from 'fs';
+import {promises as fs} from 'fs';
 
+import ErrorWithMetadata from '../../ErrorWithMetadata';
 import {log} from '../../console';
 import expand from '../../expand';
+import stat from '../../stat';
 import Context from '../Context';
 
 // TODO decide whether we want a separate "directory" operation
-// TODO: implement auto-expand of ~
 export default async function file({
     force,
     mode,
@@ -20,29 +21,27 @@ export default async function file({
     force?: boolean;
 }): Promise<void> {
     if (state === 'directory') {
-        directory(path);
+        await directory(path);
     }
 }
 
-function directory(path: string) {
+async function directory(path: string) {
     const target = expand(path);
 
-    // TODO: find out if ansible replaces regular file with dir or just errors?
-    // TODO: actually throw for errors
-    if (fs.existsSync(target)) {
-        try {
-            const stat = fs.statSync(target);
+    const stats = await stat(target);
 
-            if (stat.isDirectory()) {
-                Context.informOk(`directory ${path}`);
-            } else {
-                log.error(`${path} already exists but is not a directory`);
-            }
-        } catch (error) {
-            log.error(`Failed to stat: ${path}`);
-        }
-    } else {
+    if (stats instanceof Error) {
+        throw stats;
+    } else if (stats === null) {
         Context.informChanged(`directory ${path}`);
-        fs.mkdirSync(target, {recursive: true});
+        await fs.mkdir(target, {recursive: true});
+    } else if (stats.type === 'directory') {
+        // TODO: check ownership, perms etc
+        Context.informOk(`directory ${path}`);
+    } else {
+        // TODO: find out if ansible replaces regular file with dir or just errors?
+        throw new ErrorWithMetadata(
+            `${path} already exists but is not a directory`
+        )
     }
 }
