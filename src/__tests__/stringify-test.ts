@@ -37,28 +37,28 @@ test('stringify() a RegExp', () => {
 test('stringify() an array', () => {
     expect(stringify([1, true, 'thing'])).toBe(
         dedent`
-      [
-        1,
-        true,
-        "thing",
-      ]
-    `.trimEnd()
+            [
+              1,
+              true,
+              "thing",
+            ]
+        `.trimEnd()
     );
 });
 
 test('stringify() nested arrays', () => {
     expect(stringify([1, true, 'thing', ['nested', null]])).toBe(
         dedent`
-      [
-        1,
-        true,
-        "thing",
-        [
-          "nested",
-          null,
-        ],
-      ]
-    `.trimEnd()
+            [
+              1,
+              true,
+              "thing",
+              [
+                "nested",
+                null,
+              ],
+            ]
+        `.trimEnd()
     );
 });
 
@@ -69,38 +69,38 @@ test('stringify() an array with circular references', () => {
 
     expect(stringify(array)).toBe(
         dedent`
-      [
-        1,
-        true,
-        "thing",
-        «circular»,
-      ]
-    `.trimEnd()
+            [
+              1,
+              true,
+              "thing",
+              «circular»,
+            ]
+        `.trimEnd()
     );
 });
 
 test('stringify() an object', () => {
     expect(stringify({a: 1, b: true})).toBe(
         dedent`
-      {
-        "a": 1,
-        "b": true,
-      }
-    `.trimEnd()
+            {
+              "a": 1,
+              "b": true,
+            }
+        `.trimEnd()
     );
 });
 
 test('stringify() a nested object', () => {
     expect(stringify({a: 1, b: true, c: {d: null}})).toBe(
         dedent`
-      {
-        "a": 1,
-        "b": true,
-        "c": {
-          "d": null,
-        },
-      }
-    `.trimEnd()
+            {
+              "a": 1,
+              "b": true,
+              "c": {
+                "d": null,
+              },
+            }
+        `.trimEnd()
     );
 });
 
@@ -111,17 +111,29 @@ test('stringify() an object with circular references', () => {
 
     expect(stringify(object)).toBe(
         dedent`
-      {
-        "a": 1,
-        "b": true,
-        "c": «circular»,
-      }
-    `.trimEnd()
+            {
+              "a": 1,
+              "b": true,
+              "c": «circular»,
+            }
+        `.trimEnd()
     );
 });
 
 test('stringify() a Date', () => {
     expect(stringify(new Date())).toBe('[object Date]');
+});
+
+test('stringify() a Set', () => {
+    expect(stringify(new Set([1, true, 'thing']))).toBe(
+        dedent`
+            Set {
+              1,
+              true,
+              "thing",
+            }
+        `.trimEnd()
+    );
 });
 
 test('stringify() a one-line Function', () => {
@@ -140,13 +152,13 @@ test('stringify() a multi-line Function', () => {
     // use a 4-space indent in its build output.
     expect(stringify({fn})).toBe(
         dedent`
-      {
-        "fn": function fn(a, b) {
-            if (a > 0) {
-                return a + b;
+            {
+              "fn": function fn(a, b) {
+                  if (a > 0) {
+                      return a + b;
+                  }
+              },
             }
-        },
-      }
-    `.trimEnd()
+        `.trimEnd()
     );
 });

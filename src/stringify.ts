@@ -38,8 +38,24 @@ export default function stringify(value: unknown) {
                 array += `\n${indent}]`;
                 return array;
             }
+        } else if (value instanceof Set) {
+            if (seen.has(value)) {
+                return CIRCULAR;
+            } else {
+                seen.add(value);
+                indent += '  ';
+                let set = 'Set {\n';
+                set += [...value.values()]
+                    .map((v) => {
+                        return `${indent}${traverse(v)},`;
+                    })
+                    .join('\n');
+                indent = indent.slice(0, -2);
+                set += `\n${indent}}`;
+                return set;
+            }
         } else if (typeof value === 'object') {
-            // TODO: special-case Set, Map
+            // TODO: special-case Map too, if we need it
             const toString = Object.prototype.toString.call(value);
             if (toString === '[object Object]') {
                 if (seen.has(value)) {
