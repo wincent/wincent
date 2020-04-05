@@ -42,6 +42,6 @@ async function directory(path: string) {
         // TODO: find out if ansible replaces regular file with dir or just errors?
         throw new ErrorWithMetadata(
             `${path} already exists but is not a directory`
-        )
+        );
     }
 }
