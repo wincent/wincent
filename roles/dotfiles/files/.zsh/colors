@@ -106,6 +106,7 @@ color() {
     find "$BASE16_DIR" -name 'base16-*.sh' | \
       sed -E 's|.+/base16-||' | \
       sed -E 's/\.sh//' | \
+      sort | \
       column
       ;;
   -)
