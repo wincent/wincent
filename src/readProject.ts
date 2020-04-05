@@ -1,15 +1,12 @@
-import * as fs from 'fs';
-import {promisify} from 'util';
+import {promises as fs} from 'fs';
 
 import {log} from './console';
 import {Project, assertProject} from './types/Project';
 
-const readFile = promisify(fs.readFile);
-
 export default async function readProject(path: string): Promise<Project> {
     log.debug(`Reading project configuration: ${path}`);
 
-    const json = await readFile(path, 'utf8');
+    const json = await fs.readFile(path, 'utf8');
 
     const project = JSON.parse(json);
 

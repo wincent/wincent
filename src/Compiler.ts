@@ -1,11 +1,8 @@
-import {readFile as readFileAsync} from 'fs';
-import {promisify} from 'util';
+import {promises as fs} from 'fs';
 
 import {compile, fill} from './template';
 
 import type {Scope} from './template';
-
-const readFile = promisify(readFileAsync);
 
 /**
  * Template compiler that manages a cache of compiled templates.
@@ -21,7 +18,7 @@ export default class Compiler {
         const map = this.#compiled;
 
         if (!map.has(path)) {
-            const source = await readFile(path, 'utf8');
+            const source = await fs.readFile(path, 'utf8');
 
             const compiled = compile(source);
 

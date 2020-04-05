@@ -1,11 +1,8 @@
-import * as fs from 'fs';
+import {promises as fs} from 'fs';
 import * as path from 'path';
-import {promisify} from 'util';
 
 import {log} from '../console';
 import {run} from './harness';
-
-const readdir = promisify(fs.readdir);
 
 export default async function test() {
     for await (const file of walk(path.join(__dirname, '..'))) {
@@ -23,7 +20,7 @@ export default async function test() {
 
 // TODO: move into separate module
 async function* walk(directory: string): AsyncGenerator<string> {
-    const entries = await readdir(directory, {withFileTypes: true});
+    const entries = await fs.readdir(directory, {withFileTypes: true});
 
     for (const entry of entries) {
         if (entry.isDirectory()) {
