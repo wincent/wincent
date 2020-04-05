@@ -2,7 +2,7 @@ import {promises as fs} from 'fs';
 import * as path from 'path';
 
 import {root} from './Fig';
-import {COLORS, LOG_LEVEL, log, setLogLevel} from './console';
+import {COLORS, LOG_LEVEL, log} from './console';
 import dedent from './dedent';
 import ErrorWithMetadata from './ErrorWithMetadata';
 import escapeRegExpPattern from './escapeRegExpPattern';

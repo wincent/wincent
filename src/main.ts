@@ -52,11 +52,9 @@ async function main() {
     const profiles = project.profiles ?? {};
 
     const [profile] =
-        Object.entries(profiles).find(([, {pattern}]) => {
-            if (regExpFromString(pattern).test(hostname)) {
-                return true;
-            }
-        }) || [];
+        Object.entries(profiles).find(([, {pattern}]) =>
+            regExpFromString(pattern).test(hostname)
+        ) || [];
 
     log.info(`Profile: ${profile || 'n/a'}`);
 

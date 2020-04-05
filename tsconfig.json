@@ -1,6 +1,10 @@
 {
     "compilerOptions": {
         "module": "CommonJS",
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitReturns": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
         "outDir": "./lib",
         "strict": true,
         "target": "ES2019"

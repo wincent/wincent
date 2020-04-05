@@ -1,7 +1,6 @@
 import {promises as fs} from 'fs';
 
 import ErrorWithMetadata from '../../ErrorWithMetadata';
-import {log} from '../../console';
 import expand from '../../expand';
 import stat from '../../stat';
 import Context from '../Context';
@@ -22,6 +21,12 @@ export default async function file({
 }): Promise<void> {
     if (state === 'directory') {
         await directory(path);
+    }
+
+    // TODO: probably refactor this to use compare.ts
+    if (0) {
+        // In the meantime, silence unused parameter warnings.
+        console.log(force, mode, src);
     }
 }
 

@@ -184,5 +184,9 @@ export default async function compare({
         // TODO
     }
 
+    if (mode !== undefined && stats.mode !== mode) {
+        // TODO
+    }
+
     return diff;
 }

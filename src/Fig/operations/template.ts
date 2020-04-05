@@ -3,7 +3,6 @@ import chown from '../../chown';
 import {log} from '../../console';
 import expand from '../../expand';
 import tempfile from '../../tempfile';
-import {compile, fill} from '../../template';
 import Context from '../Context';
 import compare from '../compare';
 
@@ -55,6 +54,7 @@ export default async function template({
         if (diff.contents) {
             // log.info('change!');
             const temp = await tempfile(contents);
+            log.debug(`Wrote to temporary file: ${temp}`);
 
             // TODO: cp from temp to target
             // TODO: deal with group/owner/mode etc
