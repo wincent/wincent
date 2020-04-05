@@ -96,16 +96,17 @@ color() {
 
   case "$SCHEME" in
   help)
-    echo 'color [tomorrow-night|ocean|grayscale-light|...]'
-    echo
-    echo 'Available schemes:'
-    color ls
+    echo 'color                                   (show current scheme)'
+    echo 'color default-dark|grayscale-light|...  (switch to scheme)'
+    echo 'color help                              (show this help)'
+    echo 'color ls [pattern]                      (list available schemes)'
     return
     ;;
   ls)
     find "$BASE16_DIR" -name 'base16-*.sh' | \
       sed -E 's|.+/base16-||' | \
       sed -E 's/\.sh//' | \
+      grep "${2:-.}" | \
       sort | \
       column
       ;;
