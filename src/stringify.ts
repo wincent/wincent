@@ -27,32 +27,40 @@ export default function stringify(value: unknown) {
                 return CIRCULAR;
             } else {
                 seen.add(value);
-                indent += '  ';
-                let array = '[\n';
-                array += value
-                    .map((v) => {
-                        return `${indent}${traverse(v)},`;
-                    })
-                    .join('\n');
-                indent = indent.slice(0, -2);
-                array += `\n${indent}]`;
-                return array;
+                if (value.length) {
+                    indent += '  ';
+                    let array = '[\n';
+                    array += value
+                        .map((v) => {
+                            return `${indent}${traverse(v)},`;
+                        })
+                        .join('\n');
+                    indent = indent.slice(0, -2);
+                    array += `\n${indent}]`;
+                    return array;
+                } else {
+                    return '[]';
+                }
             }
         } else if (value instanceof Set) {
             if (seen.has(value)) {
                 return CIRCULAR;
             } else {
                 seen.add(value);
-                indent += '  ';
-                let set = 'Set {\n';
-                set += [...value.values()]
-                    .map((v) => {
-                        return `${indent}${traverse(v)},`;
-                    })
-                    .join('\n');
-                indent = indent.slice(0, -2);
-                set += `\n${indent}}`;
-                return set;
+                if (value.size) {
+                    indent += '  ';
+                    let set = 'Set {\n';
+                    set += [...value.values()]
+                        .map((v) => {
+                            return `${indent}${traverse(v)},`;
+                        })
+                        .join('\n');
+                    indent = indent.slice(0, -2);
+                    set += `\n${indent}}`;
+                    return set;
+                } else {
+                    return 'Set {}';
+                }
             }
         } else if (typeof value === 'object') {
             // TODO: special-case Map too, if we need it
@@ -62,18 +70,23 @@ export default function stringify(value: unknown) {
                     return CIRCULAR;
                 } else {
                     seen.add(value);
-                    indent += '  ';
-                    let object = '{\n';
-                    object += Object.entries(value!)
-                        .map(([key, value]) => {
-                            return `${indent}${stringify(key)}: ${traverse(
-                                value
-                            )},`;
-                        })
-                        .join('\n');
-                    indent = indent.slice(0, -2);
-                    object += `\n${indent}}`;
-                    return object;
+                    const entries = Object.entries(value!);
+                    if (entries.length) {
+                        indent += '  ';
+                        let object = '{\n';
+                        object += Object.entries(value!)
+                            .map(([key, value]) => {
+                                return `${indent}${stringify(key)}: ${traverse(
+                                    value
+                                )},`;
+                            })
+                            .join('\n');
+                        indent = indent.slice(0, -2);
+                        object += `\n${indent}}`;
+                        return object;
+                    } else {
+                        return '{}';
+                    }
                 }
             } else {
                 return toString;

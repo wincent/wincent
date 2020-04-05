@@ -46,6 +46,10 @@ test('stringify() an array', () => {
     );
 });
 
+test('stringify() an empty array', () => {
+    expect(stringify([])).toBe('[]');
+});
+
 test('stringify() nested arrays', () => {
     expect(stringify([1, true, 'thing', ['nested', null]])).toBe(
         dedent`
@@ -88,6 +92,10 @@ test('stringify() an object', () => {
             }
         `.trimEnd()
     );
+});
+
+test('stringify() an empty object', () => {
+    expect(stringify({})).toBe('{}');
 });
 
 test('stringify() a nested object', () => {
@@ -134,6 +142,10 @@ test('stringify() a Set', () => {
             }
         `.trimEnd()
     );
+});
+
+test('stringify() an empty Set', () => {
+    expect(stringify(new Set())).toBe('Set {}');
 });
 
 test('stringify() a one-line Function', () => {
