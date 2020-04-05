@@ -172,9 +172,7 @@ async function main() {
                     options.startAt.found = false;
                     log.info(`Task: ${name}`);
 
-                    await Context.withContext({aspect, variables}, async () => {
-                        await callback();
-                    });
+                    await Context.withContext({aspect, variables}, callback);
                 }
             }
         }
