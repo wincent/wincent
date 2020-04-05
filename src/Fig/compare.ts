@@ -48,8 +48,6 @@ type Diff = {
     state?: 'absent' | 'directory' | 'file' | 'link' | 'touch';
 };
 
-type Compare = Omit<Diff, 'error'>;
-
 const {stringify} = JSON;
 
 /**
@@ -65,7 +63,7 @@ export default async function compare({
     owner,
     path,
     state = 'file',
-}: Compare) {
+}: Diff) {
     const diff: Diff = {path};
 
     const stats = await stat(path);
