@@ -70,9 +70,6 @@ export default async function compare({
 
     const stats = await stat(path);
 
-    // BUG: if you specify "owner": "root", we should be able to manage files that
-    // only root can stat, but this code stats as an unprivileged user
-    // (to fix this, port to use stat.ts instead
     if (stats instanceof Error) {
         // Can't stat; bail.
         diff.error = stats;
