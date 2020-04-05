@@ -1,6 +1,6 @@
-import ErrorWithMetadata from './ErrorWithMetadata';
-import Context from './Fig/Context';
-import run from './run';
+import ErrorWithMetadata from '../ErrorWithMetadata';
+import Context from '../Fig/Context';
+import run from '../run';
 
 type Stats = {
     group: string;

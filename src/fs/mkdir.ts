@@ -1,8 +1,8 @@
-import ErrorWithMetadata from './ErrorWithMetadata';
-import Context from './Fig/Context';
-import {log} from './console';
-import run from './run';
-import stringify from './stringify';
+import ErrorWithMetadata from '../ErrorWithMetadata';
+import Context from '../Fig/Context';
+import {log} from '../console';
+import run from '../run';
+import stringify from '../stringify';
 
 type Options = {
     mode?: Mode;
