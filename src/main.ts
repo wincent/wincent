@@ -7,11 +7,11 @@ import {root} from './Fig';
 import {debug, log, setLogLevel} from './console';
 import getOptions from './getOptions';
 import merge from './merge';
+import simplify from './path/simplify';
 import prompt from './prompt';
 import readAspect from './readAspect';
 import readProject from './readProject';
 import regExpFromString from './regExpFromString';
-import simplify from './simplify';
 import stringify from './stringify';
 import test from './test';
 

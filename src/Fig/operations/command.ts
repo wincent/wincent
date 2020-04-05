@@ -1,6 +1,6 @@
 import ErrorWithMetadata from '../../ErrorWithMetadata';
+import expand from '../../path/expand';
 import spawn from '../../spawn';
-import expand from '../../expand';
 import Context from '../Context';
 
 /**
