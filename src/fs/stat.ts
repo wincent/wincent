@@ -10,14 +10,15 @@ type Stats = {
     owner: string;
 };
 
-const TYPE_MAP = {
-    'character device': 'special',
-    'character special file': 'special',
-    directory: 'directory',
-    'regular file': 'file',
-    socket: 'socket',
-    'symbolic link': 'link',
-} as const;
+const TYPE_MAP =
+    {
+        'character device': 'special',
+        'character special file': 'special',
+        directory: 'directory',
+        'regular file': 'file',
+        socket: 'socket',
+        'symbolic link': 'link',
+    } as const;
 
 /**
  * Wrapper for "stat" command.
