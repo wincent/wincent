@@ -133,7 +133,7 @@ async function main() {
                 choice > candidateTasks.length
             ) {
                 log.warn(
-                    `Invalid choice ${JSON.stringify(
+                    `Invalid choice ${stringify(
                         reply
                     )}; try again or press CTRL-C to abort.`
                 );
@@ -162,7 +162,7 @@ async function main() {
 
             const variables = merge(aspectVariables, baseVariables);
 
-            // log.debug(`variables:\n\n${JSON.stringify(variables, null, 2)}\n`);
+            // log.debug(`variables:\n\n${stringify(variables, null, 2)}\n`);
 
             for (const [callback, name] of Context.tasks.get(aspect)) {
                 if (
@@ -192,13 +192,7 @@ async function main() {
 main().catch((error) => {
     if (error instanceof ErrorWithMetadata) {
         if (error.metadata) {
-            log.error(
-                `${error.message}\n\n${JSON.stringify(
-                    error.metadata,
-                    null,
-                    2
-                )}\n`
-            );
+            log.error(`${error.message}\n\n${stringify(error.metadata)}\n`);
         } else {
             log.error(error.message);
         }

@@ -1,3 +1,5 @@
+import stringify from './stringify';
+
 /**
  * Loose definition of "valid" RegExp.
  */
@@ -8,7 +10,7 @@ export default function regExpFromString(pattern: string): RegExp {
 
     if (!match) {
         throw new Error(
-            `Invalid pattern ${JSON.stringify(
+            `Invalid pattern ${stringify(
                 pattern
             )} does not match ${VALID_REGEXP}`
         );

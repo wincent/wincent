@@ -49,7 +49,7 @@ export default function stringify(value: unknown) {
                     let object = '{\n';
                     object += Object.entries(value!)
                         .map(([key, value]) => {
-                            return `${indent}${JSON.stringify(key)}: ${traverse(
+                            return `${indent}${stringify(key)}: ${traverse(
                                 value
                             )},`;
                         })

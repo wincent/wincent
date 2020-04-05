@@ -1,5 +1,6 @@
 import {clearLine, cursorTo} from 'readline';
 
+import stringify from '../stringify';
 import COLORS from './colors';
 
 export {COLORS};
@@ -112,14 +113,10 @@ export function print(...args: Array<any>) {
     process.stderr.write(
         args
             .map((arg) => {
-                try {
-                    if (typeof arg === 'object' && arg) {
-                        return JSON.stringify(arg, null, 2);
-                    } else {
-                        return String(arg);
-                    }
-                } catch {
-                    return '???';
+                if (typeof arg === 'string') {
+                    return arg;
+                } else {
+                    return stringify(arg);
                 }
             })
             .join(' ')

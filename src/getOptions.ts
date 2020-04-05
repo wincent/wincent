@@ -7,6 +7,8 @@ import dedent from './dedent';
 import ErrorWithMetadata from './ErrorWithMetadata';
 import escapeRegExpPattern from './escapeRegExpPattern';
 import readAspect from './readAspect';
+import stringify from './stringify';
+
 import {assertAspect} from './types/Project';
 
 import type {LogLevel} from './console';
@@ -82,7 +84,7 @@ export default async function getOptions(
             );
         } else if (arg.startsWith('-')) {
             throw new ErrorWithMetadata(
-                `unrecognized argument ${JSON.stringify(
+                `unrecognized argument ${stringify(
                     arg
                 )} - pass "--help" to see allowed options`
             );
@@ -92,7 +94,7 @@ export default async function getOptions(
                 options.focused.add(arg);
             } catch {
                 throw new ErrorWithMetadata(
-                    `unrecognized aspect ${JSON.stringify(
+                    `unrecognized aspect ${stringify(
                         arg
                     )} - pass "--help" to see full list`
                 );

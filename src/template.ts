@@ -1,3 +1,5 @@
+import stringify from './stringify';
+
 export type Scope = {
     [property: string]: JSONValue;
 };
@@ -13,7 +15,7 @@ export function compile(source: string) {
 
     for (const token of tokenize(source)) {
         if (token.kind === 'TemplateText') {
-            output += `__buffer__ += ${JSON.stringify(token.text)};\n`;
+            output += `__buffer__ += ${stringify(token.text)};\n`;
         } else if (token.kind === 'HostText') {
             if (context === 'Expression') {
                 output += `__buffer__ += (${token.text.trim()});\n`;
@@ -41,6 +43,8 @@ export function compile(source: string) {
  */
 export function fill(compiled: string, scope: Scope = {}) {
     const context = Object.entries(scope).map(
+        // Not using `stringify()` here because that is only for human-readable
+        // use cases.
         ([key, value]) => `const ${key} = ${JSON.stringify(value)};\n`
     );
 

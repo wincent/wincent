@@ -1,5 +1,7 @@
 import * as os from 'os';
 
+import stringify from './stringify';
+
 /**
  * Immutable system attributes (read-only).
  */
@@ -26,9 +28,7 @@ export default class Attributes {
             } else if (uname === 'Linux') {
                 this.#platform = 'linux';
             } else {
-                throw new Error(
-                    `Unsupported platform ${JSON.stringify(uname)}`
-                );
+                throw new Error(`Unsupported platform ${stringify(uname)}`);
             }
         }
 
