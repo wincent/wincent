@@ -1,6 +1,7 @@
 # Colorschemes
 
 -   [3024](#3024)
+-   [apathy](#apathy)
 -   [ashes](#ashes)
 -   [atelier-cave-light](#atelier-cave-light)
 -   [atelier-cave](#atelier-cave)
