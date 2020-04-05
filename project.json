@@ -1,7 +1,7 @@
 {
     "platforms": {
         "darwin": {
-            "aspects": ["launchd", "terminfo"],
+            "aspects": ["meta", "launchd", "terminfo"],
             "variables": {}
         },
         "linux": {
