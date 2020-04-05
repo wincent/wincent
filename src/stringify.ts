@@ -22,6 +22,8 @@ export default function stringify(value: unknown) {
             return String(value);
         } else if (typeof value === 'string') {
             return JSON.stringify(value);
+        } else if (value instanceof Error) {
+            return JSON.stringify(value.toString());
         } else if (Array.isArray(value)) {
             if (seen.has(value)) {
                 return CIRCULAR;

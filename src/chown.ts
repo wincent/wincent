@@ -1,6 +1,8 @@
 import ErrorWithMetadata from './ErrorWithMetadata';
 import Context from './Fig/Context';
+import {log} from './console';
 import run from './run';
+import stringify from './stringify';
 
 type Options = {
     group?: string;
@@ -19,12 +21,10 @@ export default async function chown(
         //      chown :group path
         //      chown owner:group path
         //
-        // With or without `sudo` (in practice, if we are calling `chown()` at
-        // all, it will probably be with `sudo`).
+        // With or without `sudo` (although note that, in practice, if
+        // we are calling `chown()` at all, it will probably be with
+        // `sudo`).
         //
-        const passphrase = options.sudo
-            ? await Context.sudoPassphrase
-            : undefined;
 
         let ownerAndGroup = options.owner || '';
 
@@ -32,12 +32,23 @@ export default async function chown(
             ownerAndGroup += `:${options.group}`;
         }
 
-        const result = await run('chown', [ownerAndGroup, path], {passphrase});
+        const args = [ownerAndGroup, path];
+
+        const passphrase = options.sudo
+            ? await Context.sudoPassphrase
+            : undefined;
+
+        const result = await run('chown', args, {passphrase});
 
         if (result.status === 0) {
             return null;
         } else {
-            return result.error || new ErrorWithMetadata('chown failed');
+            log.debug(stringify(result));
+
+            return (
+                result.error ||
+                new ErrorWithMetadata(`\`chown ${args.join(' ')}\` failed`)
+            );
         }
     } else {
         throw new Error('TODO: implement');

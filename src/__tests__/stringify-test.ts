@@ -30,6 +30,12 @@ test('stringify() a Symbol', () => {
     expect(stringify(Symbol.for('sample'))).toBe('Symbol(sample)');
 });
 
+test('stringify() an Error', () => {
+    expect(stringify(new Error('Utter failure'))).toBe(
+        '"Error: Utter failure"'
+    );
+});
+
 test('stringify() a RegExp', () => {
     expect(stringify(/stuff \w+/i)).toBe('/stuff \\w+/i');
 });

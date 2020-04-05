@@ -1,9 +1,8 @@
-import {promises as fs} from 'fs';
-
 import ErrorWithMetadata from '../../ErrorWithMetadata';
 import chown from '../../chown';
 import {log} from '../../console';
 import expand from '../../expand';
+import mkdir from '../../mkdir';
 import tempfile from '../../tempfile';
 import Context from '../Context';
 import compare from '../compare';
@@ -58,12 +57,16 @@ export default async function file({
 
     if (state === 'directory') {
         if (diff.state === 'directory') {
-            Context.informChanged(`directory ${path}`);
-
             // TODO: if force in effect, that means we have to remove file/link
             // first.
-            // TODO: do this with sudo if need be
-            await fs.mkdir(target, {recursive: true});
+            const sudo = !!(diff.owner || diff.group);
+            const result = mkdir(target, {mode, sudo});
+
+            if (result instanceof Error) {
+                throw result;
+            }
+
+            Context.informChanged(`directory ${path}`);
         } else {
             // Already a directory.
             Context.informOk(`directory ${path}`);
@@ -81,12 +84,7 @@ export default async function file({
             const result = await chown(target, {group, owner, sudo: true});
 
             if (result instanceof Error) {
-                throw new ErrorWithMetadata(`Failed command`, {
-                    error: result.toString(),
-                    group: group ?? null,
-                    owner: owner ?? null,
-                    target,
-                });
+                throw result;
             }
         }
 
