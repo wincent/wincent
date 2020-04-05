@@ -1,5 +1,3 @@
-import * as fs from 'fs';
-
 import ErrorWithMetadata from '../../ErrorWithMetadata';
 import chown from '../../chown';
 import {log} from '../../console';
