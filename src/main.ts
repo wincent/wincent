@@ -15,6 +15,8 @@ import regExpFromString from './regExpFromString';
 import stringify from './stringify';
 import test from './test';
 
+import type {Aspect} from './types/Project';
+
 async function main() {
     if (Context.attributes.uid === 0) {
         throw new ErrorWithMetadata('Cannot run as root');
@@ -74,14 +76,7 @@ async function main() {
     const candidateTasks = [];
 
     for (const aspect of aspects) {
-        switch (aspect) {
-            case 'launchd':
-                require('../aspects/launchd');
-                break;
-            case 'terminfo':
-                require('../aspects/terminfo');
-                break;
-        }
+        await loadAspect(aspect);
 
         // Check for an exact match of the starting task if `--start-at-task=` was
         // supplied.
@@ -184,6 +179,23 @@ async function main() {
             .join(' ');
 
         log.info(`Summary: ${counts}`);
+    }
+}
+
+async function loadAspect(aspect: Aspect): Promise<void> {
+    switch (aspect) {
+        case 'launchd':
+            await import('../aspects/launchd');
+            break;
+        case 'meta':
+            await import('../aspects/meta');
+            break;
+        case 'terminfo':
+            await import('../aspects/terminfo');
+            break;
+        default:
+            const unreachable: never = aspect;
+            throw new Error(`Unreachable ${unreachable}`);
     }
 }
 
