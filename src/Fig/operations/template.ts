@@ -20,7 +20,7 @@ export default async function template({
 }): Promise<void> {
     const contents = (await Context.compile(src)).fill({variables});
 
-    return file({
+    return await file({
         contents,
         force,
         group,

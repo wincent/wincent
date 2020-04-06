@@ -101,13 +101,19 @@ export default async function file({
 
             log.debug(`Copying form ${from}`);
 
-            cp(from, target);
-            // TODO: deal with group/owner/mode etc
+            const result = await cp(from, target);
+
+            if (result instanceof Error) {
+                throw result;
+            }
+
+            Context.informChanged(`file ${path}`);
+            return;
         }
 
         // BUG: we use "template" here; not distinguishing between
         // "template" and "file"
-        Context.informOk(`template ${path}`);
+        Context.informOk(`file ${path}`);
     } else if (state === 'link') {
         // TODO
     } else if (state === 'touch') {
