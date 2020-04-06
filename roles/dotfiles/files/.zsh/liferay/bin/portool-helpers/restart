@@ -1,8 +1,10 @@
 #!/bin/sh
 
+source "${BASH_SOURCE%/*}/.common.sh"
+
 BUNDLES="$HOME/code/portal/bundles"
 
 set -e
 
-$BUNDLES/tomcat-9.0.33/bin/catalina.sh stop 30
-$BUNDLES/tomcat-9.0.33/bin/catalina.sh run
+$BUNDLES/$TOMCAT/bin/catalina.sh stop 30
+$BUNDLES/$TOMCAT/bin/catalina.sh run

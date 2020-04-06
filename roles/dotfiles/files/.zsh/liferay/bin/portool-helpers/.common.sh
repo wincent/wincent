@@ -1,5 +1,7 @@
 #!/bin/bash
 
+TOMCAT=tomcat-9.0.33
+
 # Based on: https://stackoverflow.com/a/8351489/2103996
 backoff() {
   local max_attempts=${ATTEMPTS-5}
