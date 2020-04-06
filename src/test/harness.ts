@@ -134,18 +134,6 @@ export async function run() {
 
             debug(() => print(yellow.reverse` TEST `, trimmedDescription));
 
-            // "as any" casts here because:
-            //
-            // - Writable:
-            //
-            //      write(chunk: any, cb?: (error: Error | null | undefined) => void): boolean;
-            //      write(chunk: any, encoding: string, cb?: (error: Error | null | undefined) => void): boolean;
-            //
-            // - vs process.stdout (Socket extends stream.Duplex):
-            //
-            //      write(buffer: Uint8Array | string, cb?: (err?: Error) => void): boolean;
-            //      write(str: Uint8Array | string, encoding?: string, cb?: (err?: Error) => void): boolean;
-            //
             process.stderr.write = stream.write.bind(stream) as any;
             process.stdout.write = stream.write.bind(stream) as any;
 
