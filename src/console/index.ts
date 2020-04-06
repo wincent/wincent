@@ -39,17 +39,16 @@ const PREFIX_MAP = Object.fromEntries(
  *
  * @see https://en.wikipedia.org/wiki/Syslog
  */
-export const LOG_LEVEL =
-    {
-        EMERGENCY: 0,
-        ALERT: 1,
-        CRITICAL: 2,
-        ERROR: 3,
-        WARNING: 4,
-        NOTICE: 5,
-        INFO: 6,
-        DEBUG: 7,
-    } as const;
+export const LOG_LEVEL = {
+    EMERGENCY: 0,
+    ALERT: 1,
+    CRITICAL: 2,
+    ERROR: 3,
+    WARNING: 4,
+    NOTICE: 5,
+    INFO: 6,
+    DEBUG: 7,
+} as const;
 
 export function clear() {
     return new Promise((resolve) => {
