@@ -97,8 +97,6 @@ export function expect(value: unknown) {
 }
 
 export function test(description: string, callback: () => void) {
-    // TODO: twiddle stdout/stderr during the callback
-    // (otherwise, anything printed during messes up our display)
     TESTS.push([[...context, description].join(` ${RAQUO} `), callback]);
 }
 
