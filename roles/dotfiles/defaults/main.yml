@@ -21,6 +21,7 @@ dotfile_files:
   - .npmrc
   - .pypirc
   - .rdebugrc
+  - .rgrc
   - .rspec
   - .screenrc
   - .tmux.conf
