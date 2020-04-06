@@ -119,10 +119,14 @@ export async function run() {
         let captured = '';
 
         const stream = new Writable({
-            write(chunk: any, _encoding: string, callback: (error?: Error | null) => void) {
+            write(
+                chunk: any,
+                _encoding: string,
+                callback: (error?: Error | null) => void
+            ) {
                 captured += chunk.toString();
                 callback();
-            }
+            },
         });
 
         try {
