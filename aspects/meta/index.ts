@@ -6,6 +6,7 @@ import {resource, task, template} from '../../src/Fig';
 import Context from '../../src/Fig/Context';
 import tempdir from '../../src/fs/tempdir';
 
+// TODO: decide whether these should be tests... maybe they should be?
 task('template a file', async () => {
     const path = join(await tempdir('meta'), 'sample.txt');
 

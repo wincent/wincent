@@ -41,6 +41,10 @@ export default async function file({
 
     const target = expand(path);
 
+    if (src) {
+        // TODO: read and feed that into contents
+    }
+
     const diff = await compare({
         contents,
         force,

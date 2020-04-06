@@ -10,7 +10,7 @@ import tempname from '../tempname';
  */
 export default async function tempfile(
     prefix: string,
-    contents: string
+    contents: string = ''
 ): Promise<string> {
     const path = tempname(prefix);
 
