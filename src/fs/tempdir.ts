@@ -8,15 +8,12 @@ import tempname from '../tempname';
  * We rely on the operating system to clean-up such files (eventually), but
  * leave them on the disk for debugging purposes.
  */
-export default async function tempfile(
-    prefix: string,
-    contents: string
-): Promise<string> {
+export default async function tempdir(prefix: string): Promise<string> {
     const path = tempname(prefix);
 
-    await fs.writeFile(path, contents, 'utf8');
+    await fs.mkdir(path);
 
-    log.debug(`Wrote ${contents.length} bytes to ${path}`);
+    log.debug(`Created directory at ${path}`);
 
     return path;
 }

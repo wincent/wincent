@@ -100,9 +100,26 @@ export default async function compare({
                 );
             } else {
                 // Parent exists.
+                if (contents !== undefined) {
+                    diff.contents = contents;
+                }
+
+                if (group !== undefined) {
+                    diff.group = group;
+                }
+
+                if (mode !== undefined) {
+                    diff.mode = mode;
+                }
+
+                if (mode !== undefined) {
+                    diff.owner = owner;
+                }
+
                 diff.state = state;
             }
         }
+
         // Nothing else we can check without the object existing.
         return diff;
     }

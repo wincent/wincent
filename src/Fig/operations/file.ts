@@ -1,6 +1,7 @@
 import ErrorWithMetadata from '../../ErrorWithMetadata';
 import {log} from '../../console';
 import chown from '../../fs/chown';
+import cp from '../../fs/cp';
 import mkdir from '../../fs/mkdir';
 import tempfile from '../../fs/tempfile';
 import expand from '../../path/expand';
@@ -90,14 +91,17 @@ export default async function file({
 
         if (diff.contents) {
             // log.info('change!');
+            let from;
+
             if (src) {
-                // just copy from src
+                from = src;
             } else {
-                const temp = await tempfile(diff.contents);
-                log.debug(`Wrote to temporary file: ${temp}`);
+                from = await tempfile('file', diff.contents);
             }
 
-            // TODO: cp from temp to target
+            log.debug(`Copying form ${from}`);
+
+            cp(from, target);
             // TODO: deal with group/owner/mode etc
         }
 
