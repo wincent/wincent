@@ -6,8 +6,6 @@ import {RAQUO} from '../Unicode';
 import {COLORS, LOG_LEVEL, debug, getLogLevel, log, print} from '../console';
 import stringify from '../stringify';
 
-import type {WritableOptions} from 'stream';
-
 const {green, red, yellow} = COLORS;
 
 const TESTS: Array<[string, () => void | Promise<void>]> = [];
@@ -118,7 +116,14 @@ export async function run() {
             stdout: process.stdout.write,
         };
 
-        const stream = new CapturingStream();
+        let captured = '';
+
+        const stream = new Writable({
+            write(chunk: any, _encoding: string, callback: (error?: Error | null) => void) {
+                captured += chunk.toString();
+                callback();
+            }
+        });
 
         try {
             // Need to stay within one line if `clear()` calls below are to work.
@@ -145,8 +150,10 @@ export async function run() {
             process.stdout.write = stream.write.bind(stream) as any;
 
             await callback();
+
             process.stderr.write = write.stderr;
             process.stdout.write = write.stdout;
+
             successCount++;
             await debug(async () => {
                 await print.clear();
@@ -155,6 +162,7 @@ export async function run() {
         } catch (error) {
             process.stderr.write = write.stderr;
             process.stdout.write = write.stdout;
+
             failureCount++;
             await print.clear();
             log(red.reverse` FAIL `, description);
@@ -162,8 +170,8 @@ export async function run() {
             log(error);
             log();
         } finally {
-            if (stream.storage) {
-                log(stream.storage);
+            if (captured) {
+                log(captured);
             }
         }
     }
@@ -193,23 +201,5 @@ export async function run() {
 
     if (failureCount) {
         throw new ErrorWithMetadata('Test suite failed');
-    }
-}
-
-class CapturingStream extends Writable {
-    storage: string;
-
-    constructor(options?: WritableOptions) {
-        super(options);
-        this.storage = '';
-    }
-
-    _write(
-        chunk: any,
-        _encoding: string,
-        callback: (error?: Error | null) => void
-    ) {
-        this.storage += chunk.toString();
-        callback(null);
     }
 }
