@@ -61,7 +61,7 @@ if [[ $NUKE_LEVEL > 1 ]]; then
 
   rm -rf "$BASE/bundles/osgi/state" \
          "$BASE/bundles/data" \
-         "$BASE/bundles/tomcat-9.0.33/work"
+         "$BASE/bundles/tomcat-*/work"
 fi
 
 if [[ $NUKE_LEVEL > 2 ]]; then
