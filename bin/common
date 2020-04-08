@@ -47,10 +47,17 @@ for VAR in "$@"
 do
   if [[ $VAR = "--debug" ]]; then
     LOG_LEVEL=$LOG_LEVEL_DEBUG
+    DEBUG=1
   elif [[ $VAR = "--quiet" || $VAR = "-q" ]]; then
     LOG_LEVEL=$LOG_LEVEL_ERROR
+    unset DEBUG
   fi
 done
+
+if [ -z "$DEBUG" ]; then
+  # Avoid: "ExperimentalWarning: The ESM module loader is experimental."
+  export NODE_OPTIONS=--no-warnings
+fi
 
 log_debug() {
   if [[ $LOG_LEVEL -ge $LOG_LEVEL_DEBUG ]]; then
