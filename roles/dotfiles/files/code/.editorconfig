@@ -10,6 +10,6 @@ insert_final_newline = true
 indent_size = 4
 indent_style = tab
 
-[/Users/*/code/{alloy-editor,liferay-*}/**.{js,json,scss,ts,tsx}]
+[/Users/*/code/{alloy-editor,*-liferay,liferay-*}/**.{js,json,scss,ts,tsx}]
 indent_size = 4
 indent_style = tab
