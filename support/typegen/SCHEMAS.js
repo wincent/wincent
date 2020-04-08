@@ -1,7 +1,9 @@
-const fs = require('fs');
-const path = require('path');
+import * as fs from 'fs';
+import * as path from 'path';
+import * as url from 'url';
 
 const aspects = (() => {
+    const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
     const directory = path.join(__dirname, '../../aspects');
 
     const entries = fs.readdirSync(directory, {withFileTypes: true});
@@ -36,7 +38,7 @@ const DEFINITIONS = {
     },
 };
 
-const SCHEMAS = {
+export default {
     Aspect: {
         definitions: DEFINITIONS,
         properties: {
@@ -107,5 +109,3 @@ const SCHEMAS = {
         type: 'object',
     },
 };
-
-module.exports = SCHEMAS;

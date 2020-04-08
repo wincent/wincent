@@ -1,14 +1,14 @@
 import * as assert from 'assert';
 
-import Attributes from '../Attributes';
-import ErrorWithMetadata from '../ErrorWithMetadata';
-import prompt from '../prompt';
-import * as status from './status';
-import Compiler from '../Compiler';
-import TaskRegistry from './TaskRegistry';
+import Attributes from '../Attributes.js';
+import ErrorWithMetadata from '../ErrorWithMetadata.js';
+import prompt from '../prompt.js';
+import * as status from './status.js';
+import Compiler from '../Compiler.js';
+import TaskRegistry from './TaskRegistry.js';
 
-import type {Metadata} from '../ErrorWithMetadata';
-import type {Aspect} from '../types/Project';
+import type {Metadata} from '../ErrorWithMetadata.js';
+import type {Aspect} from '../types/Project.js';
 
 type Counts = {
     changed: number;
@@ -121,7 +121,7 @@ class Context {
     }
 
     get currentAspect(): Aspect {
-        assert(this.#currentAspect);
+        assert.ok(this.#currentAspect);
 
         return this.#currentAspect!;
     }
@@ -131,7 +131,7 @@ class Context {
     }
 
     get currentVariables(): Variables {
-        assert(this.#currentVariables);
+        assert.ok(this.#currentVariables);
 
         return this.#currentVariables!;
     }

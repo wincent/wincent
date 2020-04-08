@@ -1,12 +1,12 @@
-import ErrorWithMetadata from '../../ErrorWithMetadata';
-import {log} from '../../console';
-import chown from '../../fs/chown';
-import cp from '../../fs/cp';
-import mkdir from '../../fs/mkdir';
-import tempfile from '../../fs/tempfile';
-import expand from '../../path/expand';
-import Context from '../Context';
-import compare from '../compare';
+import ErrorWithMetadata from '../../ErrorWithMetadata.js';
+import {log} from '../../console/index.js';
+import chown from '../../fs/chown.js';
+import cp from '../../fs/cp.js';
+import mkdir from '../../fs/mkdir.js';
+import tempfile from '../../fs/tempfile.js';
+import expand from '../../path/expand.js';
+import Context from '../Context.js';
+import compare from '../compare.js';
 
 export default async function file({
     contents,

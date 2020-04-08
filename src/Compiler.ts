@@ -1,8 +1,8 @@
 import {promises as fs} from 'fs';
 
-import {compile, fill} from './template';
+import {compile, fill} from './template.js';
 
-import type {Scope} from './template';
+import type {Scope} from './template.js';
 
 /**
  * Template compiler that manages a cache of compiled templates.

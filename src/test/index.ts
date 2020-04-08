@@ -1,14 +1,17 @@
 import {promises as fs} from 'fs';
 import * as path from 'path';
+import * as url from 'url';
 
-import {log} from '../console';
-import {run} from './harness';
+import {log} from '../console/index.js';
+import {run} from './harness.js';
 
 export default async function test() {
+    const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
+
     for await (const file of walk(path.join(__dirname, '..'))) {
         if (file.endsWith('-test.js')) {
             try {
-                require(file);
+                await import(file);
             } catch (error) {
                 log.error(error);
             }

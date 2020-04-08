@@ -6,8 +6,8 @@
 import {promises as fs} from 'fs';
 import {dirname} from 'path';
 
-import ErrorWithMetadata from '../ErrorWithMetadata';
-import stat from '../fs/stat';
+import ErrorWithMetadata from '../ErrorWithMetadata.js';
+import stat from '../fs/stat.js';
 
 // TODO: decide whether the Ansible definition of "force" (which we use below)
 // is the one that we want to actual stick with.

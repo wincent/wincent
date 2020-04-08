@@ -1,8 +1,8 @@
-import ErrorWithMetadata from '../ErrorWithMetadata';
-import Context from '../Fig/Context';
-import {log} from '../console';
-import run from '../run';
-import stringify from '../stringify';
+import ErrorWithMetadata from '../ErrorWithMetadata.js';
+import Context from '../Fig/Context.js';
+import {log} from '../console/index.js';
+import run from '../run.js';
+import stringify from '../stringify.js';
 
 type Options = {
     mode?: Mode;

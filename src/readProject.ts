@@ -1,7 +1,7 @@
 import {promises as fs} from 'fs';
 
-import {log} from './console';
-import {Project, assertProject} from './types/Project';
+import {log} from './console/index.js';
+import {Project, assertProject} from './types/Project.js';
 
 export default async function readProject(path: string): Promise<Project> {
     log.debug(`Reading project configuration: ${path}`);

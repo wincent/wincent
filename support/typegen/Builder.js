@@ -1,6 +1,6 @@
-const assert = require('assert');
+import * as assert from 'assert';
 
-class Builder {
+export default class Builder {
     constructor({tabWidth = 2} = {}) {
         this.indentLevel = 0;
         this.output = '';
@@ -50,7 +50,7 @@ class Builder {
     dedent() {
         this.indentLevel--;
 
-        assert(this.indentLevel >= 0, 'Indent level must be non-negative');
+        assert.ok(this.indentLevel >= 0, 'Indent level must be non-negative');
 
         return this;
     }
@@ -154,5 +154,3 @@ class Builder {
         return this;
     }
 }
-
-module.exports = Builder;

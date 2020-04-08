@@ -1,7 +1,7 @@
 import {promises as fs} from 'fs';
 
-import {log} from '../console';
-import tempname from '../tempname';
+import {log} from '../console/index.js';
+import tempname from '../tempname.js';
 
 /**
  * Writes the `contents` to a temporary file and returns the path to that file.

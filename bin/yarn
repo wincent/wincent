@@ -8,4 +8,4 @@ source "$REPO_ROOT/bin/common"
 
 YARN_EXE="$REPO_ROOT/vendor/yarn-v1.22.4/bin/yarn"
 
-n exec lts "$YARN_EXE" "$@"
+n exec latest "$YARN_EXE" "$@"

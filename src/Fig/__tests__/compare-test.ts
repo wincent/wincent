@@ -8,9 +8,9 @@
 
 import {join} from 'path';
 
-import {describe, expect, test} from '../../test/harness';
-import compare from '../compare';
-import root from '../root';
+import {describe, expect, test} from '../../test/harness.js';
+import compare from '../compare.js';
+import root from '../root.js';
 
 /**
  * Helper to get fixtures (in "src/") irrespective of where we run from.

@@ -2,9 +2,9 @@ import * as assert from 'assert';
 import {promises as fs} from 'fs';
 import {join} from 'path';
 
-import {resource, task, template} from '../../src/Fig';
-import Context from '../../src/Fig/Context';
-import tempdir from '../../src/fs/tempdir';
+import {resource, task, template} from '../../src/Fig/index.js';
+import Context from '../../src/Fig/Context.js';
+import tempdir from '../../src/fs/tempdir.js';
 
 // TODO: decide whether these should be tests... maybe they should be?
 task('template a file', async () => {

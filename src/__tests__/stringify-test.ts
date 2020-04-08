@@ -1,6 +1,6 @@
-import {expect, test} from '../test/harness';
-import dedent from '../dedent';
-import stringify from '../stringify';
+import {expect, test} from '../test/harness.js';
+import dedent from '../dedent.js';
+import stringify from '../stringify.js';
 
 test('stringify() null', () => {
     expect(stringify(null)).toBe('null');

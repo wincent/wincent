@@ -1,5 +1,5 @@
-import Context from '../Context';
-import file from './file';
+import Context from '../Context.js';
+import file from './file.js';
 
 export default async function template({
     force,

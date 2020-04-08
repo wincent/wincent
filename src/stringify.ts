@@ -1,4 +1,4 @@
-import {LAQUO, RAQUO} from './Unicode';
+import {LAQUO, RAQUO} from './Unicode.js';
 
 const CIRCULAR = `${LAQUO}circular${RAQUO}`;
 

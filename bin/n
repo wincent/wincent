@@ -17,11 +17,11 @@ if [[ ! -x $N_EXE ]]; then
   exit 1
 fi
 
-if ! "$N_EXE" which lts &> /dev/null; then
-  log_info "Installing Installing Node LTS version"
-  "$N_EXE" lts
+if ! "$N_EXE" which latest &> /dev/null; then
+  log_info "Installing Node latest version"
+  "$N_EXE" latest
 else
-  log_debug "Using Node LTS installation"
+  log_debug "Using Node latest installation"
 fi
 
 "$N_EXE" "$@"

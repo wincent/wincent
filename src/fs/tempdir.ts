@@ -1,7 +1,7 @@
 import {promises as fs} from 'fs';
 
-import {log} from '../console';
-import tempname from '../tempname';
+import {log} from '../console/index.js';
+import tempname from '../tempname.js';
 
 export default async function tempdir(prefix: string): Promise<string> {
     const path = tempname(prefix);

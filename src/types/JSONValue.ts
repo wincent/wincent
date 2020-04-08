@@ -32,5 +32,5 @@ export function assertJSONValue(value: unknown): asserts value is JSONValue {
     return false;
   }
 
-  assert(isJSON(value));
+  assert.ok(isJSON(value));
 }

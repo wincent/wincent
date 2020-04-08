@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
-        "module": "CommonJS",
+        "module": "esnext",
+        "moduleResolution": "node",
         "noFallthroughCasesInSwitch": true,
         "noImplicitReturns": true,
         "noUnusedLocals": true,

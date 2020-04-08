@@ -1,21 +1,21 @@
 import * as os from 'os';
 import * as path from 'path';
 
-import ErrorWithMetadata from './ErrorWithMetadata';
-import Context from './Fig/Context';
-import {root} from './Fig';
-import {debug, log, setLogLevel} from './console';
-import getOptions from './getOptions';
-import merge from './merge';
-import simplify from './path/simplify';
-import prompt from './prompt';
-import readAspect from './readAspect';
-import readProject from './readProject';
-import regExpFromString from './regExpFromString';
-import stringify from './stringify';
-import test from './test';
+import ErrorWithMetadata from './ErrorWithMetadata.js';
+import Context from './Fig/Context.js';
+import {root} from './Fig/index.js';
+import {debug, log, setLogLevel} from './console/index.js';
+import getOptions from './getOptions.js';
+import merge from './merge.js';
+import simplify from './path/simplify.js';
+import prompt from './prompt.js';
+import readAspect from './readAspect.js';
+import readProject from './readProject.js';
+import regExpFromString from './regExpFromString.js';
+import stringify from './stringify.js';
+import test from './test/index.js';
 
-import type {Aspect} from './types/Project';
+import type {Aspect} from './types/Project.js';
 
 async function main() {
     if (Context.attributes.uid === 0) {
@@ -185,13 +185,13 @@ async function main() {
 async function loadAspect(aspect: Aspect): Promise<void> {
     switch (aspect) {
         case 'launchd':
-            await import('../aspects/launchd');
+            await import('../aspects/launchd/index.js');
             break;
         case 'meta':
-            await import('../aspects/meta');
+            await import('../aspects/meta/index.js');
             break;
         case 'terminfo':
-            await import('../aspects/terminfo');
+            await import('../aspects/terminfo/index.js');
             break;
         default:
             const unreachable: never = aspect;

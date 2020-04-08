@@ -1,6 +1,6 @@
 import * as child_process from 'child_process';
 
-import ErrorWithMetadata from './ErrorWithMetadata';
+import ErrorWithMetadata from './ErrorWithMetadata.js';
 
 /**
  * Fire-and-forget child process execution.

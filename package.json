@@ -12,6 +12,7 @@
         "format:check": "npx prettier --check \"**/*.{js,json,ts}\" \"*.md\" roles/dotfiles/files/.zsh/liferay/bin/portool",
         "format": "npx prettier --write \"**/*.{js,json,ts}\" \"*.md\" roles/dotfiles/files/.zsh/liferay/bin/portool"
     },
+    "type": "module",
     "dependencies": {
         "typescript": "3.8.3"
     },

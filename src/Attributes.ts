@@ -1,6 +1,6 @@
 import * as os from 'os';
 
-import stringify from './stringify';
+import stringify from './stringify.js';
 
 /**
  * Immutable system attributes (read-only).

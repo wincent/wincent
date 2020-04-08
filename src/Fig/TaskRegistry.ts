@@ -1,4 +1,4 @@
-import type {Aspect} from '../types/Project';
+import type {Aspect} from '../types/Project.js';
 
 type Callback = () => Promise<void>;
 

@@ -1,18 +1,18 @@
 import {promises as fs} from 'fs';
 import * as path from 'path';
 
-import {root} from './Fig';
-import {COLORS, LOG_LEVEL, log} from './console';
-import dedent from './dedent';
-import ErrorWithMetadata from './ErrorWithMetadata';
-import escapeRegExpPattern from './escapeRegExpPattern';
-import readAspect from './readAspect';
-import stringify from './stringify';
+import {root} from './Fig/index.js';
+import {COLORS, LOG_LEVEL, log} from './console/index.js';
+import dedent from './dedent.js';
+import ErrorWithMetadata from './ErrorWithMetadata.js';
+import escapeRegExpPattern from './escapeRegExpPattern.js';
+import readAspect from './readAspect.js';
+import stringify from './stringify.js';
 
-import {assertAspect} from './types/Project';
+import {assertAspect} from './types/Project.js';
 
-import type {LogLevel} from './console';
-import type {Aspect} from './types/Project';
+import type {LogLevel} from './console/index.js';
+import type {Aspect} from './types/Project.js';
 
 type Options = {
     focused: Set<Aspect>;

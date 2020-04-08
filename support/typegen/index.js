@@ -1,10 +1,11 @@
-const assert = require('assert');
-const fs = require('fs');
-const path = require('path');
+import * as assert from 'assert';
+import * as fs from 'fs';
+import * as path from 'path';
+import * as url from 'url';
 
-const Builder = require('./Builder');
+import Builder from './Builder.js';
 
-const SCHEMAS = require('./SCHEMAS');
+import SCHEMAS from './SCHEMAS.js';
 
 /**
  * Generate types and runtime assertion functions for the types defined in
@@ -17,7 +18,7 @@ const SCHEMAS = require('./SCHEMAS');
 function main() {
     for (const [typeName, typeSchema] of Object.entries(SCHEMAS)) {
         // We only generate interfaces, which means we need objects.
-        assert(typeSchema.type === 'object');
+        assert.ok(typeSchema.type === 'object');
 
         const b = new Builder();
 
@@ -32,8 +33,8 @@ function main() {
         b.docblock('vim: set nomodifiable :', '', '@generated').blank();
 
         // Don't know whether these will be needed yet, but add just in case.
-        b.line(`import assert from '../assert';`)
-            .line(`import {assertJSONValue} from './JSONValue';`)
+        b.line(`import assert from '../assert.js';`)
+            .line(`import {assertJSONValue} from './JSONValue.js';`)
             .blank();
 
         // Create types.
@@ -95,6 +96,8 @@ function main() {
         });
 
         genAssertFunction(typeName, typeSchema, options);
+
+        const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
         fs.writeFileSync(
             path.join(__dirname, `../../src/types/${typeName}.ts`),
@@ -202,7 +205,7 @@ function genAssertFunction(typeName, typeSchema, options) {
                                     if (target) {
                                         const definition = definitions[target];
 
-                                        assert(definition);
+                                        assert.ok(definition);
 
                                         if (definition.enum) {
                                             b.line(
@@ -237,7 +240,7 @@ function genAssertFunction(typeName, typeSchema, options) {
                     }
                 );
 
-                assert(
+                assert.ok(
                     !patternProperties ||
                         Object.keys(patternProperties).length <= 1
                 );
@@ -396,7 +399,7 @@ function genProperty(propertyName, propertySchema, options) {
 }
 
 function genPatternProperty(pattern, schema, options) {
-    assert(pattern === '.*');
+    assert.ok(pattern === '.*');
 
     const {builder: b, definitions} = options;
 

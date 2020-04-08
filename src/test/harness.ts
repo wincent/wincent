@@ -1,10 +1,17 @@
 import * as assert from 'assert';
 import {Writable} from 'stream';
 
-import ErrorWithMetadata from '../ErrorWithMetadata';
-import {RAQUO} from '../Unicode';
-import {COLORS, LOG_LEVEL, debug, getLogLevel, log, print} from '../console';
-import stringify from '../stringify';
+import ErrorWithMetadata from '../ErrorWithMetadata.js';
+import {RAQUO} from '../Unicode.js';
+import {
+    COLORS,
+    LOG_LEVEL,
+    debug,
+    getLogLevel,
+    log,
+    print,
+} from '../console/index.js';
+import stringify from '../stringify.js';
 
 const {green, red, yellow} = COLORS;
 
@@ -38,7 +45,7 @@ export function expect(value: unknown) {
 
         toMatch(expected: unknown) {
             if (expected instanceof RegExp) {
-                assert(
+                assert.ok(
                     expected.test(String(value)),
                     `Expected ${stringify(value)} to match ${stringify(
                         expected

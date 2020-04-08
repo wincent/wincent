@@ -1,8 +1,8 @@
 import * as fs from 'fs';
 import {join} from 'path';
 
-import Context from './Context';
-import globToRegExp from './globToRegExp';
+import Context from './Context.js';
+import globToRegExp from './globToRegExp.js';
 
 // TODO: think about exporting these separately
 

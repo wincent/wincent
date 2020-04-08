@@ -1,4 +1,5 @@
-import escapeRegExpPattern from '../escapeRegExpPattern';
+import escapeRegExpPattern from '../escapeRegExpPattern.js';
+
 /**
  * Just supports simple globs ("*") for now.
  */

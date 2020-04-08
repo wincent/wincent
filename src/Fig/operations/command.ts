@@ -1,7 +1,7 @@
-import ErrorWithMetadata from '../../ErrorWithMetadata';
-import expand from '../../path/expand';
-import spawn from '../../spawn';
-import Context from '../Context';
+import ErrorWithMetadata from '../../ErrorWithMetadata.js';
+import expand from '../../path/expand.js';
+import spawn from '../../spawn.js';
+import Context from '../Context.js';
 
 /**
  * Implements basic shell expansion (of ~).

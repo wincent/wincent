@@ -1,12 +1,12 @@
 import {join} from 'path';
-import assert from '../../assert';
-import {expect, test} from '../../test/harness';
-import chmod from '../chmod';
-import rm from '../rm';
-import stat from '../stat';
-import tempdir from '../tempdir';
-import tempfile from '../tempfile';
-import touch from '../touch';
+import assert from '../../assert.js';
+import {expect, test} from '../../test/harness.js';
+import chmod from '../chmod.js';
+import rm from '../rm.js';
+import stat from '../stat.js';
+import tempdir from '../tempdir.js';
+import tempfile from '../tempfile.js';
+import touch from '../touch.js';
 
 test('rm() removes a file', async () => {
     const path = await tempfile('rm-test');

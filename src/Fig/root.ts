@@ -1,5 +1,8 @@
 import {dirname, join} from 'path';
 import {existsSync} from 'fs';
+import {fileURLToPath} from 'url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 /**
  * Determine repo root directory by walking up directory tree until we see the

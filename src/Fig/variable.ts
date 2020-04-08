@@ -1,5 +1,5 @@
-import assert from '../assert';
-import Context from './Context';
+import assert from '../assert.js';
+import Context from './Context.js';
 
 export default function variable(
     name: string,
