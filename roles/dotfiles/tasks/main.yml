@@ -107,8 +107,6 @@
   when: identity == "wincent"
 
 - name: dotfiles | link ~/code/.editorconfig
-  file: src={{ ansible_env.PWD }}/roles/dotfiles/files/code/.editorconfig
-        path=~/code/.editorconfig
-        state=link
-        force=yes
+  template: dest={{ ansible_env.HOME }}/code/.editorconfig
+            src=code/.editorconfig
   when: identity == "wincent"
