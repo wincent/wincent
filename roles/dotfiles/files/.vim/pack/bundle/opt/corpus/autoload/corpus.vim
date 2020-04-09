@@ -1,3 +1,5 @@
+finish
+
 function! corpus#choose(selection) abort
   if corpus#exists(a:selection)
     execute 'edit ' . fnameescape(a:selection)

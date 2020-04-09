@@ -180,6 +180,7 @@ if &loadplugins
     packadd! LanguageClient-neovim
     packadd! base16-vim
     packadd! command-t
+    packadd! corpus
     packadd! ferret
     packadd! indentLine
     packadd! loupe

@@ -1,3 +1,5 @@
+finish
+
 augroup Corpus
   autocmd!
   autocmd CmdlineChanged * call corpus#cmdline_changed(expand('<afile>'))
