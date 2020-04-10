@@ -15,6 +15,7 @@ let filetype_pl='prolog'
 let g:CorpusDirectories={
       \   '~/Documents/Corpus': {
       \     'autocommit': 1,
+      \     'autoreference': 1,
       \     'autotitle': 1,
       \     'base': '.',
       \     'location': '~/Documents/Corpus',
@@ -22,6 +23,7 @@ let g:CorpusDirectories={
       \   },
       \   '~/code/masochist/content/content/wiki': {
       \     'autocommit': 0,
+      \     'autoreference': 1,
       \     'autotitle': 1,
       \     'base': '/wiki',
       \     'location': '~/code/masochist/content/content/wiki',

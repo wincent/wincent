@@ -24,7 +24,7 @@ endfunction
 
 function! corpus#buf_write_pre() abort
   let l:file=corpus#normalize('<afile>')
-  call corpus#update_references()
+  call corpus#update_references(l:file)
   call corpus#update_metadata(l:file)
 endfunction
 
@@ -47,6 +47,19 @@ function! corpus#config_for_file(file) abort
     endif
   endfor
   return {}
+endfunction
+
+" Minimal subset of:
+"
+" https://spec.commonmark.org/0.29/#link-reference-definition
+function! corpus#extract_link_reference_definition(line) abort
+  let l:match=matchlist(a:line, '\v^ {0,3}\[(\s*\S.*)\]:\s*(.+)')
+  if len(l:match)
+    " TODO: validate innards
+    return [l:match[1], l:match[2]]
+  else
+    return []
+  endif
 endfunction
 
 " Adds 'corpus' to the 'filetype' if the current file is under a
@@ -86,7 +99,7 @@ function! corpus#get_metadata_raw() abort
       call add(l:metadata, (l:match[0]))
     endfor
   endif
-  return {}
+  return []
 endfunction
 
 " Returns metadata as a dictionary; eg:
@@ -150,13 +163,59 @@ function! corpus#set_metadata(metadata) abort
   endif
 endfunction
 
+function! corpus#test() abort
+  let v:errors=[]
+
+  " Find all the functions in corpus/test.vim and call them.
+  for l:candidate in split(&rtp, ',')
+    let l:source=join([l:candidate, 'autoload', 'corpus', 'test.vim'], '/')
+    if filereadable(l:source)
+      let l:lines=readfile(l:source)
+      for l:line in l:lines
+        let l:match=matchlist(l:line, '\v^function! (corpus#test#[a-z_]+)\(\)')
+        if len(l:match)
+          execute 'call ' . match[1] . '()'
+        endif
+      endfor
+      break
+    endif
+  endfor
+
+  if len(v:errors)
+    echoerr 'Errors: ' . len(v:errors) . '; please see v:errors'
+  endif
+endfunction
+
 function! corpus#title_for_file(file) abort
   return fnamemodify(a:file, ':t:r')
 endfunction
 
-function! corpus#update_references() abort
-  " TODO
-  unsilent echomsg 'update refs'
+function! corpus#update_references(file) abort
+  let l:config=corpus#config_for_file(a:file)
+  if !get(l:config, 'autoreference', 0)
+    return
+  endif
+
+  " Skip over metadata.
+  let l:raw=corpus#get_metadata_raw()
+  if len(l:raw)
+    let l:start=len(l:raw) + 2 + 1
+  else
+    let l:start=1
+  endif
+
+  " Look for link labels and link references.
+  let l:labels={}
+  for l:i in range(l:start, line('$'))
+    let l:line=getline(l:i)
+    let l:match=corpus#extract_link_reference_definition(l:line)
+    if len(l:match)
+      let l:labels[l:match[0]]=l:match[1]
+    endif
+  endfor
+  unsilent echomsg 'these are the labels'
+  unsilent echo l:labels
+  unsilent echomsg 'those were the labels'
 endfunction
 
 function! corpus#update_metadata(file) abort
