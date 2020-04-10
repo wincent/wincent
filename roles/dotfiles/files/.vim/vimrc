@@ -9,6 +9,25 @@ let maplocalleader="\\"
 let filetype_m='objc'
 let filetype_pl='prolog'
 
+" TODO: going to want some transform here: eg. Masochist wants a title like
+" 'Migrating from macOS to Linux' to map to file 'Migrating_from_macOS_to_Linux'
+" but Corpus wants 'Domain registrations' to map to 'Domain registrations.md'
+let g:CorpusDirectories={
+      \   '~/Documents/Corpus': {
+      \     'autocommit': 1,
+      \     'base': '.',
+      \     'location': '~/Documents/Corpus',
+      \     'transform': 'local'
+      \   },
+      \   '~/code/masochist/content/content/wiki': {
+      \     'autocommit': 0,
+      \     'base': '/wiki',
+      \     'location': '~/code/masochist/content/content/wiki',
+      \     'tags': 'wiki',
+      \     'transform': 'web'
+      \   }
+      \ }
+
 " Stark highlighting is enough to see the current match; don't need the
 " centering, which can be annoying.
 let g:LoupeCenterResults=0

@@ -1,13 +1,30 @@
+" When opening a new file in a Corpus-managed location, pre-populate it
+" with metadata of the form:
+"
+"   ---
+"   title: Title based on file name
+"   tags: wiki
+"   ---
+"
+" or:
+"
+"   ---
+"   title: Title based on file name
+"   ---
+"
 function! corpus#buf_new_file() abort
-  let l:file=expand('<afile>:p')
-  let l:directory=fnamemodify(l:file, ':h')
-  if l:directory == corpus#directory()
-    call append(0, [
-          \   '---',
+  let l:file=expand('<afile>')
+  let l:config=corpus#config_for_file(l:file)
+  if len(l:config)
+    let l:metadata = [
           \   'title: ' . corpus#title_for_file(l:file),
-          \   '---',
-          \   ''
-          \ ])
+          \ ]
+    if has_key(l:config, 'tags')
+      call add(l:metadata, 'tags: ' . l:config.tags)
+    endif
+    call insert(l:metadata, '---')
+    call extend(l:metadata, ['---', ''])
+    call append(0, l:metadata)
   endif
 endfunction
 
@@ -23,26 +40,36 @@ function! corpus#buf_write_pre() abort
 endfunction
 
 function! corpus#commit(file) abort
-  " TODO
+  " TODO implement
+  " TODO make this per-directory configurable (don't want it in masochist, for
+  " example)
   unsilent echomsg 'git commit ' . a:file
 endfunction
 
-function! corpus#directory() abort
-  let l:directory=fnamemodify(get(g:, 'CorpusDirectory', '~/Documents/Corpus'), ':p')
-  let l:len=len(l:directory)
-  if l:directory[l:len - 1] == '/'
-    return strpart(l:directory, 0, l:len - 1)
-  else
-    return l:directory
-  endif
+" Returns config from `g:CorpusDirectories` for `file`, or an empty dictionary
+" if `file` is not in one of the directories defined in `g:CorpusDirectories`.
+function! corpus#config_for_file(file) abort
+  let l:base=fnamemodify(a:file, ':p:h')
+  let l:config=get(g:, 'CorpusDirectories', {})
+  for l:directory in keys(l:config)
+    let l:candidate=fnamemodify(l:directory, ':p')
+    let l:len=len(l:candidate)
+    if l:candidate[l:len - 1] == '/'
+      let l:candidate=strpart(l:candidate, 0, l:len - 1)
+    endif
+    if l:candidate == l:base
+      return l:config[l:directory]
+    endif
+  endfor
+  return {}
 endfunction
 
-" Adds 'corpus' to the 'filetype' if the current file is under
-" `corpus#directory()`.
+" Adds 'corpus' to the 'filetype' if the current file is under a
+" directory configured via `g:CorpusDirectories`.
 function! corpus#ftdetect() abort
-  let l:file=expand('<afile>:p')
-  let l:directory=fnamemodify(l:file, ':h')
-  if l:directory == corpus#directory()
+  let l:file=expand('<afile>')
+  let l:config=corpus#config_for_file(l:file)
+  if len(l:config)
     set filetype+=.corpus
   endif
 endfunction
@@ -68,7 +95,22 @@ function! corpus#update_title(file) abort
   endif
 endfunction
 
+" =============================================================================
+" =============================================================================
+" =============================================================================
+
 finish
+
+function! corpus#directory() abort
+  " TODO: support multiple directories (eg. masochist wiki subdir, corpus)
+  let l:directory=fnamemodify(get(g:, 'CorpusDirectory', '~/Documents/Corpus'), ':p')
+  let l:len=len(l:directory)
+  if l:directory[l:len - 1] == '/'
+    return strpart(l:directory, 0, l:len - 1)
+  else
+    return l:directory
+  endif
+endfunction
 
 function! corpus#choose(selection) abort
   if corpus#exists(a:selection)
