@@ -1,3 +1,5 @@
+autocmd BufNewFile *.md call corpus#buf_new_file()
+
 finish
 
 augroup Corpus

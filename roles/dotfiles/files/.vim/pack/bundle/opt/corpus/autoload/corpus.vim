@@ -1,3 +1,73 @@
+function! corpus#buf_new_file() abort
+  let l:file=expand('<afile>:p')
+  let l:directory=fnamemodify(l:file, ':h')
+  if l:directory == corpus#directory()
+    call append(0, [
+          \   '---',
+          \   'title: ' . corpus#title_for_file(l:file),
+          \   '---',
+          \   ''
+          \ ])
+  endif
+endfunction
+
+function! corpus#buf_write_post() abort
+  let l:file=expand('<afile>')
+  call corpus#commit(l:file)
+endfunction
+
+function! corpus#buf_write_pre() abort
+  let l:file=expand('<afile>')
+  call corpus#update_references()
+  call corpus#update_title(l:file)
+endfunction
+
+function! corpus#commit(file) abort
+  " TODO
+  unsilent echomsg 'git commit ' . a:file
+endfunction
+
+function! corpus#directory() abort
+  let l:directory=fnamemodify(get(g:, 'CorpusDirectory', '~/Documents/Corpus'), ':p')
+  let l:len=len(l:directory)
+  if l:directory[l:len - 1] == '/'
+    return strpart(l:directory, 0, l:len - 1)
+  else
+    return l:directory
+  endif
+endfunction
+
+" Adds 'corpus' to the 'filetype' if the current file is under
+" `corpus#directory()`.
+function! corpus#ftdetect() abort
+  let l:file=expand('<afile>:p')
+  let l:directory=fnamemodify(l:file, ':h')
+  if l:directory == corpus#directory()
+    set filetype+=.corpus
+  endif
+endfunction
+
+function! corpus#title_for_file(file) abort
+  return fnamemodify(a:file, ':t:r')
+endfunction
+
+function! corpus#update_references() abort
+  " TODO
+  unsilent echomsg 'update refs'
+endfunction
+
+function! corpus#update_title(file) abort
+  " TODO
+  unsilent echomsg 'update title ' . a:file
+
+  " get metadata
+  " if title there, check it -- update if necessary
+  " if missing add it
+  " if no metadata, add it
+  if getline(1) == '---'
+  endif
+endfunction
+
 finish
 
 function! corpus#choose(selection) abort
@@ -77,10 +147,6 @@ function! corpus#complete(arg_lead, cmd_line, cursor_pos) abort
   let l:tail=strpart(a:cmd_line, a:cursor_pos)
   let l:matches=filter(copy(s:notes), {i, basename -> stridx(basename, l:head) == 0})
   return l:matches
-endfunction
-
-function! corpus#directory() abort
-  return expand(get(g:, 'CorpusDirectory', '~/Documents/Corpus'))
 endfunction
 
 function! corpus#exists(basename) abort
