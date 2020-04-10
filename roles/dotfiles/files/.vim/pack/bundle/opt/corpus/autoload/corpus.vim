@@ -20,7 +20,7 @@ function! corpus#buf_new_file() abort
           \   'title: ' . corpus#title_for_file(l:file),
           \ ]
     if has_key(l:config, 'tags')
-      call add(l:metadata, 'tags: ' . l:config.tags)
+      call add(l:metadata, 'tags: ' . join(l:config.tags))
     endif
     call insert(l:metadata, '---')
     call extend(l:metadata, ['---', ''])
@@ -36,7 +36,7 @@ endfunction
 function! corpus#buf_write_pre() abort
   let l:file=expand('<afile>')
   call corpus#update_references()
-  call corpus#update_title(l:file)
+  call corpus#update_metadata(l:file)
 endfunction
 
 function! corpus#commit(file) abort
@@ -147,13 +147,21 @@ function! corpus#update_references() abort
   unsilent echomsg 'update refs'
 endfunction
 
-function! corpus#update_title(file) abort
+function! corpus#update_metadata(file) abort
   let l:metadata=corpus#get_metadata()
-  let l:title=corpus#title_for_file(a:file)
 
-  " We call this unconditionally, even if `l:metadata.title` already
-  " matches `l:title`, in order to enforce consistent formatting.
+  let l:title=corpus#title_for_file(a:file)
   let l:metadata.title=l:title
+
+  let l:config=corpus#config_for_file(a:file)
+  if has_key(l:config, 'tags')
+    let l:tags=split(l:metadata.tags)
+    for l:tag in l:config.tags
+      if index(l:tags, l:tag) == -1
+        let l:metadata.tags=l:metadata.tags . ' ' . l:tag
+      endif
+    endfor
+  endif
   call corpus#set_metadata(l:metadata)
 endfunction
 

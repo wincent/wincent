@@ -23,7 +23,7 @@ let g:CorpusDirectories={
       \     'autocommit': 0,
       \     'base': '/wiki',
       \     'location': '~/code/masochist/content/content/wiki',
-      \     'tags': 'wiki',
+      \     'tags': ['wiki'],
       \     'transform': 'web'
       \   }
       \ }
