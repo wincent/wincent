@@ -13,20 +13,17 @@
 "   ---
 "
 function! corpus#buf_new_file() abort
-  let l:file=expand('<afile>')
-  let l:config=corpus#config_for_file(l:file)
-  if len(l:config)
-    call corpus#update_metadata(l:file)
-  endif
+  let l:file=corpus#normalize('<afile>')
+  call corpus#update_metadata(l:file)
 endfunction
 
 function! corpus#buf_write_post() abort
-  let l:file=expand('<afile>')
+  let l:file=corpus#normalize('<afile>')
   call corpus#commit(l:file)
 endfunction
 
 function! corpus#buf_write_pre() abort
-  let l:file=expand('<afile>')
+  let l:file=corpus#normalize('<afile>')
   call corpus#update_references()
   call corpus#update_metadata(l:file)
 endfunction
@@ -41,14 +38,10 @@ endfunction
 " Returns config from `g:CorpusDirectories` for `file`, or an empty dictionary
 " if `file` is not in one of the directories defined in `g:CorpusDirectories`.
 function! corpus#config_for_file(file) abort
-  let l:base=fnamemodify(a:file, ':p:h')
+  let l:base=fnamemodify(a:file, ':h')
   let l:config=get(g:, 'CorpusDirectories', {})
   for l:directory in keys(l:config)
-    let l:candidate=fnamemodify(l:directory, ':p')
-    let l:len=len(l:candidate)
-    if l:candidate[l:len - 1] == '/'
-      let l:candidate=strpart(l:candidate, 0, l:len - 1)
-    endif
+    let l:candidate=corpus#normalize(l:directory)
     if l:candidate == l:base
       return l:config[l:directory]
     endif
@@ -59,7 +52,7 @@ endfunction
 " Adds 'corpus' to the 'filetype' if the current file is under a
 " directory configured via `g:CorpusDirectories`.
 function! corpus#ftdetect() abort
-  let l:file=expand('<afile>')
+  let l:file=corpus#normalize('<afile>')
   let l:config=corpus#config_for_file(l:file)
   if len(l:config)
     set filetype+=.corpus
@@ -68,12 +61,20 @@ endfunction
 
 let s:metadata_key_value_pattern='\v^\s*(\w+)\s*:\s*(\S.{-})\s*$'
 
+" Returns raw metadata as a list of strings; eg:
+"
+"   ['tags: wiki', 'title: foo']
+"
+" If there is no valid metadata, an empty list is returned.
+"
+" If there are blank lines in the metadata, they are included in the list.
 function! corpus#get_metadata_raw() abort
   if match(getline(1), '\v^---\s*$') != -1
     let l:metadata=[]
     for l:i in range(2, line('$'))
       let l:line=getline(l:i)
       if match(l:line, '\v^\s*$') != -1
+        call add(l:metadata, '')
         continue
       elseif match(l:line, '\v^---\s*$') != -1
         return l:metadata
@@ -88,17 +89,36 @@ function! corpus#get_metadata_raw() abort
   return {}
 endfunction
 
+" Returns metadata as a dictionary; eg:
+"
+"   {'tags': 'wiki', 'title': 'foo'}
+"
+" If there is no valid metadata, an empty dictionary is returned.
 function! corpus#get_metadata() abort
   let l:raw=corpus#get_metadata_raw()
   if len(l:raw)
     let l:metadata={}
     for l:line in l:raw
       let l:match=matchlist(l:line, s:metadata_key_value_pattern)
-      let l:metadata[l:match[1]]=l:match[2]
+      if len(l:match)
+        let l:metadata[l:match[1]]=l:match[2]
+      endif
     endfor
     return l:metadata
   else
     return {}
+  endif
+endfunction
+
+" Turns `file` into a simplified absolute path with all symlinks resolved. If
+" `file` corresponds to a directory any trailing slash will be removed.
+function! corpus#normalize(file) abort
+  let l:file=fnamemodify(resolve(expand(a:file)), ':p')
+  let l:len=len(l:file)
+  if l:file[l:len - 1] == '/'
+    return strpart(l:file, 0, l:len - 1)
+  else
+    return l:file
   endif
 endfunction
 
@@ -140,12 +160,18 @@ function! corpus#update_references() abort
 endfunction
 
 function! corpus#update_metadata(file) abort
+  let l:config=corpus#config_for_file(a:file)
+  if !get(l:config, 'autotitle', 0) && !has_key(l:config, 'tags')
+    return
+  endif
+
   let l:metadata=corpus#get_metadata()
 
-  let l:title=corpus#title_for_file(a:file)
-  let l:metadata.title=l:title
+  if get(l:config, 'autotitle', 0)
+    let l:title=corpus#title_for_file(a:file)
+    let l:metadata.title=l:title
+  endif
 
-  let l:config=corpus#config_for_file(a:file)
   if has_key(l:config, 'tags')
     let l:tags=split(get(l:metadata, 'tags', ''))
     for l:tag in l:config.tags

@@ -15,12 +15,14 @@ let filetype_pl='prolog'
 let g:CorpusDirectories={
       \   '~/Documents/Corpus': {
       \     'autocommit': 1,
+      \     'autotitle': 1,
       \     'base': '.',
       \     'location': '~/Documents/Corpus',
       \     'transform': 'local'
       \   },
       \   '~/code/masochist/content/content/wiki': {
       \     'autocommit': 0,
+      \     'autotitle': 1,
       \     'base': '/wiki',
       \     'location': '~/code/masochist/content/content/wiki',
       \     'tags': ['wiki'],
