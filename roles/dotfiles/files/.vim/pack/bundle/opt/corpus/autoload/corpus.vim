@@ -74,6 +74,70 @@ function! corpus#ftdetect() abort
   endif
 endfunction
 
+let s:metadata_key_value_pattern='\v^\s*(\w+)\s*:\s*(\S.{-})\s*$'
+
+function! corpus#get_metadata_raw() abort
+  if match(getline(1), '\v^---\s*$') != -1
+    let l:metadata=[]
+    for l:i in range(2, line('$'))
+      let l:line=getline(l:i)
+      if match(l:line, '\v^\s*$') != -1
+        continue
+      elseif match(l:line, '\v^---\s*$') != -1
+        return l:metadata
+      endif
+      let l:match=matchlist(l:line, s:metadata_key_value_pattern)
+      if len(l:match) == 0
+        return []
+      endif
+      call add(l:metadata, (l:match[0]))
+    endfor
+  endif
+  return {}
+endfunction
+
+function! corpus#get_metadata() abort
+  let l:raw=corpus#get_metadata_raw()
+  if len(l:raw)
+    let l:metadata={}
+    for l:line in l:raw
+      let l:match=matchlist(l:line, s:metadata_key_value_pattern)
+      let l:metadata[l:match[1]]=l:match[2]
+    endfor
+    return l:metadata
+  else
+    return {}
+  endif
+endfunction
+
+function! corpus#set_metadata(metadata) abort
+  " Remove old metadata, if present.
+  let l:raw=corpus#get_metadata_raw()
+  if (len(l:raw))
+    " +2 lines for the '---' delimiters.
+    call deletebufline('.', 1, len(l:raw) + 2)
+  endif
+
+  " Format new metadata.
+  let l:lines=['---']
+  let l:keys=keys(a:metadata)
+  for l:key in l:keys
+    call add(l:lines, l:key . ': ' . a:metadata[l:key])
+  endfor
+  call add(l:lines, '---')
+
+  " Prepend new metadata.
+  call append(0, l:lines)
+
+  " Make sure there is at least one blank line after metadata.
+  " +2 lines for the '---' delimiters.
+  " +1 more to see next line.
+  let l:next=len(l:keys) + 2 + 1
+  if match(getline(l:next), '\v^\s*$') == -1
+    call append(l:next - 1, '')
+  endif
+endfunction
+
 function! corpus#title_for_file(file) abort
   return fnamemodify(a:file, ':t:r')
 endfunction
@@ -84,15 +148,13 @@ function! corpus#update_references() abort
 endfunction
 
 function! corpus#update_title(file) abort
-  " TODO
-  unsilent echomsg 'update title ' . a:file
+  let l:metadata=corpus#get_metadata()
+  let l:title=corpus#title_for_file(a:file)
 
-  " get metadata
-  " if title there, check it -- update if necessary
-  " if missing add it
-  " if no metadata, add it
-  if getline(1) == '---'
-  endif
+  " We call this unconditionally, even if `l:metadata.title` already
+  " matches `l:title`, in order to enforce consistent formatting.
+  let l:metadata.title=l:title
+  call corpus#set_metadata(l:metadata)
 endfunction
 
 " =============================================================================
