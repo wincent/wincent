@@ -16,15 +16,7 @@ function! corpus#buf_new_file() abort
   let l:file=expand('<afile>')
   let l:config=corpus#config_for_file(l:file)
   if len(l:config)
-    let l:metadata = [
-          \   'title: ' . corpus#title_for_file(l:file),
-          \ ]
-    if has_key(l:config, 'tags')
-      call add(l:metadata, 'tags: ' . join(l:config.tags))
-    endif
-    call insert(l:metadata, '---')
-    call extend(l:metadata, ['---', ''])
-    call append(0, l:metadata)
+    call corpus#update_metadata(l:file)
   endif
 endfunction
 
@@ -155,12 +147,13 @@ function! corpus#update_metadata(file) abort
 
   let l:config=corpus#config_for_file(a:file)
   if has_key(l:config, 'tags')
-    let l:tags=split(l:metadata.tags)
+    let l:tags=split(get(l:metadata, 'tags', ''))
     for l:tag in l:config.tags
       if index(l:tags, l:tag) == -1
-        let l:metadata.tags=l:metadata.tags . ' ' . l:tag
+        call add(l:tags, l:tag)
       endif
     endfor
+    let l:metadata.tags=join(l:tags)
   endif
   call corpus#set_metadata(l:metadata)
 endfunction
