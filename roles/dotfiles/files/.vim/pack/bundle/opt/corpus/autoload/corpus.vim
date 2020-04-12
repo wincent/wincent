@@ -518,6 +518,8 @@ endfunction
 " =============================================================================
 " =============================================================================
 
+finish
+
 function! corpus#directory() abort
   let l:directory=fnamemodify(get(g:, 'CorpusDirectory', '~/Documents/Corpus'), ':p')
   let l:len=len(l:directory)
@@ -540,6 +542,11 @@ function! corpus#choose(selection) abort
   pclose
 endfunction
 
+" qf navigation is too slow
+" and it is (probably) going to pollute qf stack anyway every time we search
+" and i notices that items I open with :Corpus aren't getting corpus filetype
+" applied.
+" in the end, might be fine with command-t and :Ack
 function! corpus#cmdline_changed(char) abort
   if a:char == ':'
     let l:line=getcmdline()
