@@ -208,7 +208,42 @@ function! corpus#get_metadata() abort
   endif
 endfunction
 
-function! corpus#goto() abort
+function! corpus#goto(mode) abort
+  if a:mode == 'v'
+    " Visual mode.
+    let l:start=getpos("'<")
+    let l:end=getpos("'>")
+    if l:start[1] != l:end[1]
+      " We don't support multiline selections.
+      return
+    endif
+
+    if l:end[2] == 2147483647
+      " This is a visual line selection.
+      return
+    endif
+
+    let l:line=getline(l:start[1])
+    let l:len=len(l:line)
+    let l:start=l:start[2] -1
+    let l:end=l:end[2] - 1
+    echomsg l:start . ',' . l:end
+
+    if l:end - l:start == 0
+      " Edge case: empty selection.
+      return
+    endif
+
+    let l:words=strpart(l:line, l:start, l:end - l:start + 1)
+    let l:prefix=strpart(l:line, 0, l:start)
+    let l:suffix=strpart(l:line, l:end + 1, l:len - l:end)
+    let l:linkified=l:prefix . '[' . l:words . ']' . l:suffix
+    call setline(line('.'), l:linkified)
+    call cursor(0, l:end + 3)
+    return
+  endif
+
+  " Normal mode.
   let l:pos=getpos('.')
   " Note that `l:col` is 1-based, so we tweak it to be 0-based.
   let l:col=l:pos[2] - 1
@@ -245,7 +280,7 @@ function! corpus#goto() abort
     endwhile
   endif
 
-  " Special case: do nothing if curson on empty link ([]).
+  " Special case: do nothing if cursor on empty link ([]).
   if l:end - l:start < 0
     return
   endif
@@ -288,7 +323,6 @@ function! corpus#goto() abort
     " No link target found. Assume current word should be made into a link.
     if l:line[l:col] == ' '
       " Edge case: if cursor is between two words, do nothing.
-      echomsg 'noop'
     else
       let l:start=match(strpart(l:line, 0, l:col), '\v\w*$')
       let l:end=match(l:line, '\v>', l:col)
@@ -299,10 +333,7 @@ function! corpus#goto() abort
       call setline(line('.'), l:linkified)
       call cursor(0, l:col + 2)
     endif
-    " TODO visual mode as a shortcut to override current word assumption.
   endif
-
-
 endfunction
 
 " Turns `file` into a simplified absolute path with all symlinks resolved. If
