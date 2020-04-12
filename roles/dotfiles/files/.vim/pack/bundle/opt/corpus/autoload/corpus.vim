@@ -518,10 +518,7 @@ endfunction
 " =============================================================================
 " =============================================================================
 
-finish
-
 function! corpus#directory() abort
-  " TODO: support multiple directories (eg. masochist wiki subdir, corpus)
   let l:directory=fnamemodify(get(g:, 'CorpusDirectory', '~/Documents/Corpus'), ':p')
   let l:len=len(l:directory)
   if l:directory[l:len - 1] == '/'
@@ -546,28 +543,27 @@ endfunction
 function! corpus#cmdline_changed(char) abort
   if a:char == ':'
     let l:line=getcmdline()
-    let l:match=matchlist(l:line, '\v^\s*Corpus\s+(.{-})\s*$')
+    let l:match=matchlist(l:line, '\v^\s*Corpus>\s*(.{-})\s*$')
     if len(l:match)
-      " call corpus#open_loclist()
       call corpus#open_qflist()
 
       let l:terms=l:match[1]
       if len(l:terms)
         " Weight title matches higher
         " TODO: weight left-most matches higher
-        let l:results=corpus#search_titles(l:terms)
-        call extend(l:results, corpus#search_content(l:terms))
+        let l:results=corpus#search_content(l:terms)
         if len(l:results)
           call corpus#preview(l:results[0])
 
-          " Update location list.
+          " Update results list.
           let l:list=map(l:results, {i, val -> {
                 \   'filename': val,
                 \   'lnum': 1
                 \ }})
-          " call setloclist(0, l:list, 'r', {'title': 'Corpus'})
           call setqflist([], 'r', {'items': l:list, 'title': 'Corpus'})
         endif
+      else
+        cclose
       endif
     endif
   endif
@@ -646,18 +642,6 @@ function! corpus#match(haystack, needles) abort
   return 1
 endfunction
 
-function! corpus#open_loclist() abort
-  let l:wininfo=getwininfo()
-  let l:loclists=filter(getwininfo(), 'v:val.loclist')
-  if !len(l:loclists)
-    try
-      lopen
-    catch /./
-      " Could happen if preview window has focus, for example.
-    endtry
-  endif
-endfunction
-
 function! corpus#open_qflist() abort
   let l:wininfo=getwininfo()
   let l:qflist=filter(getwininfo(), 'v:val.quickfix && !v:val.loclist')
@@ -717,17 +701,6 @@ function! corpus#search_content(terms) abort
   else
     return []
   endif
-endfunction
-
-function! corpus#search_titles(terms) abort
-  let l:smartcase=corpus#smartcase(a:terms)
-  let l:terms=split(a:terms)
-
-  if !l:smartcase
-    map(l:terms, {i, val -> tolower(val)})
-  endif
-
-  return filter(copy(s:notes), {i, val -> corpus#match(l:smartcase ? val : tolower(val), l:terms)})
 endfunction
 
 " Like 'smartcase', will be case-insensitive unless argument contains an

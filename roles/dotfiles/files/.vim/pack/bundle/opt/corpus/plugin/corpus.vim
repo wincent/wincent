@@ -4,8 +4,6 @@ autocmd BufNewFile *.md call corpus#buf_new_file()
 " =============================================================================
 " =============================================================================
 
-finish
-
 augroup Corpus
   autocmd!
   autocmd CmdlineChanged * call corpus#cmdline_changed(expand('<afile>'))
@@ -14,6 +12,9 @@ augroup END
 
 " This *might* work ok if in the notes directory...
 command! -complete=file -nargs=1 Corpus call corpus#choose(<q-args>)
+" TODO: if no args, just CC to first notes directory
 
-cnoremap <silent> <Up> <Cmd>cprevious<CR><Cmd>redraw<CR>
-cnoremap <silent> <Down> <Cmd>cnext<CR><Cmd>redraw<CR>
+cnoremap <silent> <C-j> <Cmd>cclose<CR><Cmd>cprevious<CR><Cmd>wincmd p<CR><Cmd>redraw<CR>
+cnoremap <silent> <C-k> <Cmd>cclose<CR><Cmd>cnext<CR><Cmd>wincmd p<CR><Cmd>redraw<CR>
+
+" TODO: enter "accepts" selection
