@@ -285,7 +285,7 @@ function! corpus#goto(mode) abort
     return
   endif
 
-  let l:config=corpus#config_for_file(expand('%'))
+  let l:config=corpus#config_for_file(expand('%:p'))
   let l:transform=get(l:config, 'transform', 'local')
   if l:start > 0 && l:end < l:len
     let l:name=strpart(l:line, l:start, l:end - l:start + 1)
