@@ -430,7 +430,7 @@ function! corpus#update_references(file) abort
   for l:i in range(l:start, line('$'))
     let l:line=getline(l:i)
 
-    if l:fence == v:null
+    if type(l:fence) == type(v:null)
       " Line starting with 3 (or more) backticks or 3 (or more) tildes.
       let l:match=matchlist(l:line, '\v^ {0,3}(`{3,}|~{3,})[^`]+$')
       if len(l:match)
@@ -518,7 +518,7 @@ endfunction
 " =============================================================================
 " =============================================================================
 
-finish
+" finish
 
 function! corpus#directory() abort
   let l:directory=fnamemodify(get(g:, 'CorpusDirectory', '~/Documents/Corpus'), ':p')
@@ -542,6 +542,10 @@ function! corpus#choose(selection) abort
   pclose
 endfunction
 
+let s:chooser_window=v:null
+let s:chooser_buffer=v:null
+let s:chooser_selected_index=v:null
+
 " qf navigation is too slow
 " and it is (probably) going to pollute qf stack anyway every time we search
 " and i notices that items I open with :Corpus aren't getting corpus filetype
@@ -551,8 +555,25 @@ function! corpus#cmdline_changed(char) abort
   if a:char == ':'
     let l:line=getcmdline()
     let l:match=matchlist(l:line, '\v^\s*Corpus>\s*(.{-})\s*$')
+
+    " TODO: add neovim guards
+    " Create unlisted scratch buffer.
+    if type(s:chooser_window) == type(v:null)
+      let s:chooser_buffer=nvim_create_buf(0, 1)
+      call nvim_buf_set_lines(s:chooser_buffer, 0, 0, 0, ['-- NO MATCHES --'])
+      let s:chooser_window=nvim_open_win(s:chooser_buffer, 0, {
+            \   'col': 0,
+            \   'row': 0,
+            \   'focusable': 0,
+            \   'relative': 'editor',
+            \   'style': 'minimal',
+            \   'width': 1000,
+            \   'height': 1
+            \ })
+    endif
+
     if len(l:match)
-      call corpus#open_qflist()
+      " call corpus#open_qflist()
 
       let l:terms=l:match[1]
       if len(l:terms)
@@ -561,13 +582,15 @@ function! corpus#cmdline_changed(char) abort
         let l:results=corpus#search(l:terms)
         if len(l:results)
           call corpus#preview(l:results[0])
+          let s:chooser_selected_index=0
 
           " Update results list.
-          let l:list=map(l:results, {i, val -> {
-                \   'filename': val,
-                \   'lnum': 1
-                \ }})
-          call setqflist([], 'r', {'items': l:list, 'title': 'Corpus'})
+          let l:list=map(l:results, {i, val -> (i == s:chooser_selected_index ? '> ' : '  ') . fnamemodify(val, ':r')})
+          call nvim_buf_set_lines(s:chooser_buffer, 0, -1, 0, l:list)
+
+          " TODO: actually measure height; 50% for list, 50% for preview
+          call nvim_win_set_height(s:chooser_window, min([10, len(l:list)]))
+          redraw
         endif
       else
         cclose
@@ -607,6 +630,7 @@ endfunction
 " - cursor_pos: 10
 "
 function! corpus#complete(arg_lead, cmd_line, cursor_pos) abort
+  " TODO: delete this whole function and everything related to it
   let l:head=a:arg_lead
   let l:tail=strpart(a:cmd_line, a:cursor_pos)
   let l:matches=filter(copy(s:notes), {i, basename -> stridx(basename, l:head) == 0})
@@ -666,20 +690,34 @@ function! corpus#preview(basename) abort
 endfunction
 
 function! corpus#preview_next() abort
-  " https://vi.stackexchange.com/a/17240/10084
-  let l:current=get(getqflist({'idx': 0}), 'idx', 0)
-  let l:next=getqflist()[l:current + 1]
-  if type(l:next) == v:t_dict
-    execute 'pedit ' . fnameescape(bufname(l:next.bufnr))
+  if type(s:chooser_selected_index) != type(v:null)
+    let l:lines=nvim_buf_get_lines(s:chooser_buffer, s:chooser_selected_index, s:chooser_selected_index + 2, 0)
+    if len(l:lines) == 2
+      let l:updated_lines=[
+            \   substitute(l:lines[0], '..', '  ', ''),
+            \   substitute(l:lines[1], '..', '> ', '')
+            \ ]
+      call nvim_buf_set_lines(s:chooser_buffer, s:chooser_selected_index, s:chooser_selected_index + 2, 0, l:updated_lines)
+      redraw
+      let s:chooser_selected_index=s:chooser_selected_index + 1
+      call nvim_win_set_cursor(s:chooser_window, [s:chooser_selected_index + 1, 0])
+    endif
   endif
 endfunction
 
 function! corpus#preview_previous() abort
-  " https://vi.stackexchange.com/a/17240/10084
-  let l:current=get(getqflist({'idx': 0}), 'idx', 0)
-  let l:previous=getqflist()[l:current - 1]
-  if type(l:previous) == v:t_dict
-    execute 'pedit ' . fnameescape(bufname(l:previous.bufnr))
+  if type(s:chooser_selected_index) != type(v:null)
+    let l:lines=nvim_buf_get_lines(s:chooser_buffer, s:chooser_selected_index - 1, s:chooser_selected_index + 1, 0)
+    if len(l:lines) == 2
+      let l:updated_lines=[
+            \   substitute(l:lines[0], '..', '> ', ''),
+            \   substitute(l:lines[1], '..', '  ', '')
+            \ ]
+      call nvim_buf_set_lines(s:chooser_buffer, s:chooser_selected_index - 1, s:chooser_selected_index + 1, 0, l:updated_lines)
+      redraw
+      let s:chooser_selected_index=s:chooser_selected_index - 1
+      call nvim_win_set_cursor(s:chooser_window, [s:chooser_selected_index + 1, 0])
+    endif
   endif
 endfunction
 

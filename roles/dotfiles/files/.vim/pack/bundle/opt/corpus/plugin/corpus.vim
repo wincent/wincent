@@ -1,12 +1,15 @@
-autocmd BufNewFile *.md call corpus#buf_new_file()
-
-" =============================================================================
-" =============================================================================
-" =============================================================================
-
-finish
-
 augroup Corpus
+  autocmd!
+  autocmd BufNewFile *.md call corpus#buf_new_file()
+augroup END
+
+" =============================================================================
+" =============================================================================
+" =============================================================================
+
+" finish
+
+augroup CorpusExperimental
   autocmd!
   autocmd CmdlineChanged * call corpus#cmdline_changed(expand('<afile>'))
   autocmd CmdlineEnter * call corpus#cmdline_enter(expand('<afile>'))
