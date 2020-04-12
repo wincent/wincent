@@ -41,12 +41,13 @@ function! corpus#commit(file, operation) abort
     return
   endif
   let l:file=fnamemodify(a:file, ':t:r')
+  let l:repo=expand(get(l:config, 'repo', l:config.location))
 
   " Note that this will fail silently if there are no changes to file (because
   " we aren't passing `--allow-empty`) and that's ok.
   call system(
         \   'git -C ' .
-        \   shellescape(l:config.location) .
+        \   shellescape(l:repo) .
         \   ' commit -m ' .
         \   shellescape('docs: ' . a:operation . ' ' . l:file . ' (Corpus autocommit)') .
         \   ' -- ' .
@@ -207,6 +208,103 @@ function! corpus#get_metadata() abort
   endif
 endfunction
 
+function! corpus#goto() abort
+  let l:pos=getpos('.')
+  " Note that `l:col` is 1-based, so we tweak it to be 0-based.
+  let l:col=l:pos[2] - 1
+  let l:line=getline(l:pos[1])
+  let l:len=len(l:line)
+
+  " Find preceding [.
+  if l:line[l:col] == '['
+    " Already on [.
+    let l:start=l:col + 1
+  else
+    let l:start=l:col - 1
+    while l:start >= 0
+      if l:line[l:start] == '['
+        let l:start=l:start + 1
+        break
+      endif
+      let l:start=l:start - 1
+    endwhile
+  endif
+
+  " Find following ].
+  if l:line[l:col] == ']'
+    " Already on ].
+    let l:end=l:col - 1
+  else
+    let l:end=l:col + 1
+    while l:end <= l:len
+      if l:line[l:end] == ']'
+        let l:end=l:end - 1
+        break
+      endif
+      let l:end=l:end + 1
+    endwhile
+  endif
+
+  " Special case: do nothing if curson on empty link ([]).
+  if l:end - l:start < 0
+    return
+  endif
+
+  let l:config=corpus#config_for_file(expand('%'))
+  let l:transform=get(l:config, 'transform', 'local')
+  if l:start > 0 && l:end < l:len
+    let l:name=strpart(l:line, l:start, l:end - l:start + 1)
+    if l:transform == 'web'
+      let l:name=substitute(l:name, '_', ' ', 'g')
+    endif
+    let l:target=l:config.location . '/' . l:name . '.md'
+
+    " Check for case differences of first letter, so that we can coerce if
+    " necessary.
+    let l:matches=glob(
+          \   l:config.location .
+          \   '/[' .
+          \   tolower(l:name[0]) .
+          \   toupper(l:name[0]) .
+          \   ']' .
+          \   strpart(l:name, 1, len(l:name) - 1) .
+          \   '.md'
+          \   ,
+          \   0,
+          \   1
+          \ )
+
+    if index(matches, l:target) != -1
+      " Perfect match, leave it as-is.
+    elseif len(matches) == 1
+      " Found near match, differing only by case: use that.
+      let l:target=matches[0]
+    else
+      " File doesn't exist yet: will let Vim create it as-is.
+    endif
+
+    execute ':edit ' . fnameescape(l:target)
+  else
+    " No link target found. Assume current word should be made into a link.
+    if l:line[l:col] == ' '
+      " Edge case: if cursor is between two words, do nothing.
+      echomsg 'noop'
+    else
+      let l:start=match(strpart(l:line, 0, l:col), '\v\w*$')
+      let l:end=match(l:line, '\v>', l:col)
+      let l:word=strpart(l:line, l:start, l:end - l:start)
+      let l:prefix=strpart(l:line, 0, l:start)
+      let l:suffix=strpart(l:line, l:end, l:len - l:end - 1)
+      let l:linkified=l:prefix . '[' . l:word . ']' . l:suffix
+      call setline(line('.'), l:linkified)
+      call cursor(0, l:col + 2)
+    endif
+    " TODO visual mode as a shortcut to override current word assumption.
+  endif
+
+
+endfunction
+
 " Turns `file` into a simplified absolute path with all symlinks resolved. If
 " `file` corresponds to a directory any trailing slash will be removed.
 function! corpus#normalize(file) abort
@@ -349,7 +447,7 @@ function! corpus#update_references(file) abort
       let l:base=get(l:config, 'base', '')
       let l:transform=get(l:config, 'transform', 'local')
       if l:transform == 'local'
-        let l:target='<' . l:base . l:reference . '>'
+        let l:target='<' . l:base . l:reference . '.md>'
       elseif l:transform == 'web'
         let l:target=substitute(l:base . l:reference, ' ', '_', 'g')
       else

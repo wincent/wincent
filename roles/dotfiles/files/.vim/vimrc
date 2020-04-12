@@ -9,9 +9,6 @@ let maplocalleader="\\"
 let filetype_m='objc'
 let filetype_pl='prolog'
 
-" TODO: going to want some transform here: eg. Masochist wants a title like
-" 'Migrating from macOS to Linux' to map to file 'Migrating_from_macOS_to_Linux'
-" but Corpus wants 'Domain registrations' to map to 'Domain registrations.md'
 let g:CorpusDirectories={
       \   '~/Documents/Corpus': {
       \     'autocommit': 1,
@@ -25,6 +22,7 @@ let g:CorpusDirectories={
       \     'autoreference': 1,
       \     'autotitle': 1,
       \     'base': '/wiki/',
+      \     'repo': '~/code/masochist/content',
       \     'tags': ['wiki'],
       \     'transform': 'web'
       \   }
