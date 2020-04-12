@@ -335,7 +335,7 @@ function! corpus#update_references(file) abort
   " If there are existing labels, we assume they are at the bottom.
   let l:has_labels=!!len(l:labels)
 
-  for l:reference in keys(l:references)
+  for l:reference in sort(keys(l:references))
     if !has_key(l:labels, l:reference)
       " Have to add l:reference
       if !l:has_labels
