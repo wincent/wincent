@@ -17,16 +17,14 @@ let g:CorpusDirectories={
       \     'autocommit': 1,
       \     'autoreference': 1,
       \     'autotitle': 1,
-      \     'base': '.',
-      \     'location': '~/Documents/Corpus',
+      \     'base': './',
       \     'transform': 'local'
       \   },
       \   '~/code/masochist/content/content/wiki': {
       \     'autocommit': 0,
       \     'autoreference': 1,
       \     'autotitle': 1,
-      \     'base': '/wiki',
-      \     'location': '~/code/masochist/content/content/wiki',
+      \     'base': '/wiki/',
       \     'tags': ['wiki'],
       \     'transform': 'web'
       \   }
