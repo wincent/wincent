@@ -347,7 +347,15 @@ function! corpus#update_references(file) abort
       endif
 
       let l:base=get(l:config, 'base', '')
-      call append(line('$'), '[' . l:reference . ']: <' . l:base . l:reference . '>')
+      let l:transform=get(l:config, 'transform', 'local')
+      if l:transform == 'local'
+        let l:target='<' . l:base . l:reference . '>'
+      elseif l:transform == 'web'
+        let l:target=substitute(l:base . l:reference, ' ', '_', 'g')
+      else
+        let l:target=l:base . l:reference
+      endif
+      call append(line('$'), '[' . l:reference . ']: ' . l:target)
     endif
   endfor
 endfunction
