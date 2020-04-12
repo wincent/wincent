@@ -353,7 +353,7 @@ function! corpus#set_metadata(metadata) abort
   let l:raw=corpus#get_metadata_raw()
   if (len(l:raw))
     " +2 lines for the '---' delimiters.
-    call deletebufline('.', 1, len(l:raw) + 2)
+    call deletebufline('', 1, len(l:raw) + 2)
   endif
 
   " Format new metadata.
