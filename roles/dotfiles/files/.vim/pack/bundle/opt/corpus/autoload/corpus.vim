@@ -1,3 +1,7 @@
+let s:chooser_window=v:null
+let s:chooser_buffer=v:null
+let s:chooser_selected_index=v:null
+
 " When opening a new file in a Corpus-managed location, pre-populate it
 " with metadata of the form:
 "
@@ -514,131 +518,128 @@ function! corpus#update_metadata(file) abort
   call corpus#set_metadata(l:metadata)
 endfunction
 
-" =============================================================================
-" =============================================================================
-" =============================================================================
+function! corpus#directories() abort
+  let l:directories=keys(get(g:, 'CorpusDirectories', {}))
+  if !len(l:directories)
+    echoerr 'No Corpus directories configured: please set g:CorpusDirectories'
+  endif
+  return map(l:directories, {i, val -> substitute(resolve(fnamemodify(val, ':p')), '/$', '', '')})
+endfunction
 
-" finish
+function! corpus#in_directory() abort
+  let l:directories=corpus#directories()
+  let l:cwd=getcwd()
+  for l:directory in l:directories
+    if l:directory == l:cwd
+      return 1
+    endif
+  endfor
+  return 0
+endfunction
 
+" If current working directory is a configured Corpus directory, returns it.
+" Otherwise, returns first found default.
 function! corpus#directory() abort
-  let l:directory=fnamemodify(get(g:, 'CorpusDirectory', '~/Documents/Corpus'), ':p')
-  let l:len=len(l:directory)
-  if l:directory[l:len - 1] == '/'
-    return strpart(l:directory, 0, l:len - 1)
+  if corpus#in_directory()
+    let l:cwd=getcwd()
+    return l:cwd
   else
-    return l:directory
+    let l:directories=corpus#directories()
+    let l:default=l:directories[0]
+    return l:default
+  endif
+endfunction
+
+function! corpus#complete(arglead, cmdline, cursor_pos) abort
+  if corpus#in_directory()
+    " TODO expand to current completion?
+  else
+    let l:directories=corpus#directories()
+    return l:directories
   endif
 endfunction
 
 function! corpus#choose(selection) abort
-  if corpus#exists(a:selection)
-    execute 'edit ' . fnameescape(a:selection)
+  if type(s:chooser_selected_index) != type(v:null)
+    let l:line=nvim_buf_get_lines(s:chooser_buffer, s:chooser_selected_index, s:chooser_selected_index + 1, v:false)[0]
+    let l:file=strpart(l:line, 2, len(l:line) - 2) . '.md'
+    execute 'edit ' . fnameescape(l:file)
   else
-    " TODO: if no "md" suffix, add it
+    if match(a:selection, '\v^\s*$') == -1
+      let l:directory=a:selection
+    else
+      let l:directory=corpus#directory()
+    endif
+    execute 'cd ' . fnameescape(l:directory)
+    echomsg 'Changed to: ' . l:directory
   endif
-
-  " TODO: decide whether we want to close preview once finished selecting
-  " a file (maybe?)
-  pclose
 endfunction
 
-let s:chooser_window=v:null
-let s:chooser_buffer=v:null
-let s:chooser_selected_index=v:null
+" TODO: listen to VimResized events to refresh dimensions
 
-" qf navigation is too slow
-" and it is (probably) going to pollute qf stack anyway every time we search
-" and i notices that items I open with :Corpus aren't getting corpus filetype
-" applied.
-" in the end, might be fine with command-t and :Ack
 function! corpus#cmdline_changed(char) abort
   if a:char == ':'
     let l:line=getcmdline()
     let l:match=matchlist(l:line, '\v^\s*Corpus>\s*(.{-})\s*$')
 
-    " TODO: add neovim guards
-    " Create unlisted scratch buffer.
-    if type(s:chooser_window) == type(v:null)
-      let s:chooser_buffer=nvim_create_buf(0, 1)
-      call nvim_buf_set_lines(s:chooser_buffer, 0, 0, 0, ['-- NO MATCHES --'])
-      let s:chooser_window=nvim_open_win(s:chooser_buffer, 0, {
-            \   'col': 0,
-            \   'row': 0,
-            \   'focusable': 0,
-            \   'relative': 'editor',
-            \   'style': 'minimal',
-            \   'width': 1000,
-            \   'height': 1
-            \ })
-    endif
-
     if len(l:match)
-      " call corpus#open_qflist()
+      if corpus#in_directory()
+        " TODO: add neovim guards
+        " Create unlisted scratch buffer.
+        if type(s:chooser_window) == type(v:null)
+          let s:chooser_buffer=nvim_create_buf(v:false, v:true)
+          call nvim_buf_set_lines(s:chooser_buffer, 0, 0, v:false, ['-- NO MATCHES --'])
+          let s:chooser_window=nvim_open_win(s:chooser_buffer, v:false, {
+                \   'col': 0,
+                \   'row': 0,
+                \   'focusable': 0,
+                \   'relative': 'editor',
+                \   'style': 'minimal',
+                \   'width': &columns / 2,
+                \   'height': &lines - 2
+                \ })
+          call nvim_win_set_option(s:chooser_window, 'wrap', v:false)
+        endif
 
-      let l:terms=l:match[1]
-      if len(l:terms)
-        " Weight title matches higher
-        " TODO: weight left-most matches higher
-        let l:results=corpus#search(l:terms)
+        let l:terms=l:match[1]
+        if len(l:terms)
+          let l:results=corpus#search(l:terms)
+        else
+          let l:results=corpus#list()
+        endif
+
+        " Update results list and preview.
         if len(l:results)
           call corpus#preview(l:results[0])
           let s:chooser_selected_index=0
-
-          " Update results list.
           let l:list=map(l:results, {i, val -> (i == s:chooser_selected_index ? '> ' : '  ') . fnamemodify(val, ':r')})
-          call nvim_buf_set_lines(s:chooser_buffer, 0, -1, 0, l:list)
-
-          " TODO: actually measure height; 50% for list, 50% for preview
-          call nvim_win_set_height(s:chooser_window, min([10, len(l:list)]))
-          redraw
+        else
+          let l:list=[]
+          let s:chooser_selected_index=v:null
         endif
+
+        call nvim_buf_set_lines(s:chooser_buffer, 0, -1, v:false, l:list)
+
+        " Reserve two lines for statusline and command line.
+        call nvim_win_set_height(s:chooser_window, &lines - 2)
+        redraw
       else
-        cclose
+        " Not in a directory.
       endif
     endif
   endif
 endfunction
 
-let s:notes=[]
-
 function! corpus#cmdline_enter(char) abort
-  if a:char == ':'
-    " TODO: only do this if we previously wrote a change to the directory
-    " TODO: only do it if we're actually running :Corpus and not something else
+  " For now, not doing anything here.
+endfunction
 
-    let l:directory=corpus#directory()
-    let l:glob=corpus#join(l:directory, '*.md')
-    let s:notes=glob(l:glob, 1, 1)
-
-    " Convert absolute paths to basenames.
-    call map(s:notes, {i, file -> fnamemodify(file, ':t')})
-
-    call sort(s:notes)
+function! corpus#cmdline_leave() abort
+  if type(s:chooser_window) != type(v:null)
+    call nvim_win_close(s:chooser_window, v:true)
+    let s:chooser_window=v:null
   endif
-endfunction
-
-" Custom completion function.
-"
-" If the command line currently contains:
-"
-"     :Corpus abcdef
-"
-" and the cursor is currently at "d", on hitting <Tab>, we'll be called with:
-"
-" - arg_lead: "abc"
-" - cmd_line: "Corpus abcdef"
-" - cursor_pos: 10
-"
-function! corpus#complete(arg_lead, cmd_line, cursor_pos) abort
-  " TODO: delete this whole function and everything related to it
-  let l:head=a:arg_lead
-  let l:tail=strpart(a:cmd_line, a:cursor_pos)
-  let l:matches=filter(copy(s:notes), {i, basename -> stridx(basename, l:head) == 0})
-  return l:matches
-endfunction
-
-function! corpus#exists(basename) abort
-  return filereadable(corpus#file(a:basename))
+  pclose
 endfunction
 
 " Get the full path to a file in the Corpus directory.
@@ -673,43 +674,39 @@ function! corpus#match(haystack, needles) abort
   return 1
 endfunction
 
-function! corpus#open_qflist() abort
-  " TODO: cache this so that we only have to filter once
-  let l:wininfo=getwininfo()
-  let l:qflist=filter(getwininfo(), 'v:val.quickfix && !v:val.loclist')
-  if !len(l:qflist)
-    call setqflist([], 'r', {'title': 'Corpus'})
-    copen
-  endif
-endfunction
-
 function! corpus#preview(basename) abort
   let l:file=corpus#file(a:basename)
-  execute 'pedit ' . fnameescape(l:file)
-  redraw
+  try
+    let l:previewheight=&previewheight
+    let &previewheight=&columns / 2 + &columns % 2
+    execute 'vertical pedit ' . l:file
+    redraw
+  finally
+    let &previewheight=l:previewheight
+  endtry
 endfunction
 
 function! corpus#preview_next() abort
   if type(s:chooser_selected_index) != type(v:null)
-    let l:lines=nvim_buf_get_lines(s:chooser_buffer, s:chooser_selected_index, s:chooser_selected_index + 2, 0)
+    let l:lines=nvim_buf_get_lines(s:chooser_buffer, s:chooser_selected_index, s:chooser_selected_index + 2, v:false)
     if len(l:lines) == 2
       let l:updated_lines=[
             \   substitute(l:lines[0], '..', '  ', ''),
             \   substitute(l:lines[1], '..', '> ', '')
             \ ]
       let l:file=strpart(l:lines[1], 2, len(l:lines[1]) - 2) . '.md'
-      call nvim_buf_set_lines(s:chooser_buffer, s:chooser_selected_index, s:chooser_selected_index + 2, 0, l:updated_lines)
+      call nvim_buf_set_lines(s:chooser_buffer, s:chooser_selected_index, s:chooser_selected_index + 2, v:false, l:updated_lines)
       redraw
       let s:chooser_selected_index=s:chooser_selected_index + 1
       call nvim_win_set_cursor(s:chooser_window, [s:chooser_selected_index + 1, 0])
-      execute 'pedit ' . fnameescape(l:file)
+      call corpus#preview(fnameescape(l:file))
     endif
   endif
 endfunction
 
 function! corpus#preview_previous() abort
   if type(s:chooser_selected_index) != type(v:null)
-    let l:lines=nvim_buf_get_lines(s:chooser_buffer, s:chooser_selected_index - 1, s:chooser_selected_index + 1, 0)
+    let l:lines=nvim_buf_get_lines(s:chooser_buffer, s:chooser_selected_index - 1, s:chooser_selected_index + 1, v:false)
     if len(l:lines) == 2
       let l:updated_lines=[
             \   substitute(l:lines[0], '..', '> ', ''),
@@ -717,11 +714,11 @@ function! corpus#preview_previous() abort
             \ ]
       " TODO: might want to debounce this
       let l:file=strpart(l:lines[0], 2, len(l:lines[0]) - 2) . '.md'
-      call nvim_buf_set_lines(s:chooser_buffer, s:chooser_selected_index - 1, s:chooser_selected_index + 1, 0, l:updated_lines)
+      call nvim_buf_set_lines(s:chooser_buffer, s:chooser_selected_index - 1, s:chooser_selected_index + 1, v:false, l:updated_lines)
       redraw
       let s:chooser_selected_index=s:chooser_selected_index - 1
       call nvim_win_set_cursor(s:chooser_window, [s:chooser_selected_index + 1, 0])
-      execute 'pedit ' . fnameescape(l:file)
+      call corpus#preview(fnameescape(l:file))
     endif
   endif
 endfunction
@@ -731,6 +728,27 @@ function! corpus#run(args) abort
   call map(l:args, {i, word -> shellescape(word)})
   let l:command=join(l:args, ' ')
   return systemlist(l:command)
+endfunction
+
+" List all documents in the corpus.
+function! corpus#list() abort
+  let l:command=[
+        \   'git',
+        \   '-C',
+        \   corpus#directory(),
+        \   'ls-files',
+        \   '--cached',
+        \   '--others',
+        \   '-z',
+        \   '--',
+        \   '*.md'
+        \ ]
+  let l:files=corpus#run(l:command)
+  if len(l:files) == 1
+    return split(l:files[0], '\n')
+  else
+    return []
+  endif
 endfunction
 
 function! corpus#search(terms) abort
@@ -744,8 +762,7 @@ function! corpus#search(terms) abort
         \   '-l',
         \   '-z',
         \   '--all-match',
-        \   '--full-name',
-        \   '--untracked',
+        \   '--untracked'
         \ ]
 
   if !corpus#smartcase(a:terms)

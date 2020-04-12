@@ -1,29 +1,19 @@
 augroup Corpus
   autocmd!
   autocmd BufNewFile *.md call corpus#buf_new_file()
-augroup END
-
-" =============================================================================
-" =============================================================================
-" =============================================================================
-
-" finish
-
-augroup CorpusExperimental
-  autocmd!
   autocmd CmdlineChanged * call corpus#cmdline_changed(expand('<afile>'))
   autocmd CmdlineEnter * call corpus#cmdline_enter(expand('<afile>'))
+  autocmd CmdlineLeave * call corpus#cmdline_leave()
 augroup END
 
-" This *might* work ok if in the notes directory...
-command! -complete=file -nargs=1 Corpus call corpus#choose(<q-args>)
-" TODO: if no args, just CC to first notes directory
+command! -complete=customlist,corpus#complete -nargs=* Corpus call corpus#choose(<q-args>)
 
-" Too slow... avoid cprevious etc and call p instead
-" cnoremap <silent> <C-j> <Cmd>cclose<CR><Cmd>cprevious<CR><Cmd>wincmd p<CR><Cmd>redraw<CR>
-" cnoremap <silent> <C-k> <Cmd>cclose<CR><Cmd>cnext<CR><Cmd>wincmd p<CR><Cmd>redraw<CR>
-
+" TODO: only set these up when running :Corpus
 cnoremap <silent> <C-j> <Cmd>call corpus#preview_next()<CR>
 cnoremap <silent> <C-k> <Cmd>call corpus#preview_previous()<CR>
 
-" TODO: enter "accepts" selection
+nnoremap <Plug>(Corpus) :Corpus<Space>
+
+if !hasmapto('<Plug>(Corpus)') && maparg('<Leader>c', 'n') ==# ''
+  nmap <unique> <Leader>c <Plug>(Corpus)
+endif

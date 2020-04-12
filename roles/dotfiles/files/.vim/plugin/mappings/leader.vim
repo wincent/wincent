@@ -31,9 +31,9 @@ nnoremap <Leader>x :xit<CR>
 "        oft-used <leader>a mapping, make this one a double key-stroke.
 nnoremap <silent> <Leader>zz :call wincent#mappings#leader#zap()<CR>
 
-" <LocalLeader>c -- Fix (most) syntax highlighting problems in current buffer
-" (mnemonic: coloring).
-nnoremap <silent> <LocalLeader>c :syntax sync fromstart<CR>
+" <LocalLeader>s -- Fix (most) syntax highlighting problems in current buffer
+" (mnemonic: syntax).
+nnoremap <silent> <LocalLeader>s :syntax sync fromstart<CR>
 
 " <LocalLeader>d... -- Diff mode bindings:
 " - <LocalLeader>dd: show diff view (mnemonic: [d]iff)

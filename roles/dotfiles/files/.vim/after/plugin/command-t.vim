@@ -31,7 +31,7 @@ let g:CommandTWindowFilter='!&buflisted && &buftype == "nofile" && !exists("w:ne
 " Mappings.
 "
 
-nmap <unique> <Leader>c <Plug>(CommandTCommand)
+nmap <unique> <LocalLeader>c <Plug>(CommandTCommand)
 nmap <unique> <Leader>h <Plug>(CommandTHelp)
 nmap <unique> <LocalLeader>h <Plug>(CommandTHistory)
 nmap <unique> <LocalLeader>l <Plug>(CommandTLine)
