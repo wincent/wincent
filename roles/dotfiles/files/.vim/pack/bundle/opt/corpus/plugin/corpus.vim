@@ -14,7 +14,11 @@ augroup END
 command! -complete=file -nargs=1 Corpus call corpus#choose(<q-args>)
 " TODO: if no args, just CC to first notes directory
 
-cnoremap <silent> <C-j> <Cmd>cclose<CR><Cmd>cprevious<CR><Cmd>wincmd p<CR><Cmd>redraw<CR>
-cnoremap <silent> <C-k> <Cmd>cclose<CR><Cmd>cnext<CR><Cmd>wincmd p<CR><Cmd>redraw<CR>
+" Too slow... avoid cprevious etc and call p instead
+" cnoremap <silent> <C-j> <Cmd>cclose<CR><Cmd>cprevious<CR><Cmd>wincmd p<CR><Cmd>redraw<CR>
+" cnoremap <silent> <C-k> <Cmd>cclose<CR><Cmd>cnext<CR><Cmd>wincmd p<CR><Cmd>redraw<CR>
+
+cnoremap <silent> <C-j> <Cmd>call corpus#preview_next()<CR>
+cnoremap <silent> <C-k> <Cmd>call corpus#preview_previous()<CR>
 
 " TODO: enter "accepts" selection

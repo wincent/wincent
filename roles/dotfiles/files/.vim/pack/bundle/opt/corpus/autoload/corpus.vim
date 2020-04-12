@@ -551,7 +551,7 @@ function! corpus#cmdline_changed(char) abort
       if len(l:terms)
         " Weight title matches higher
         " TODO: weight left-most matches higher
-        let l:results=corpus#search_content(l:terms)
+        let l:results=corpus#search(l:terms)
         if len(l:results)
           call corpus#preview(l:results[0])
 
@@ -643,6 +643,7 @@ function! corpus#match(haystack, needles) abort
 endfunction
 
 function! corpus#open_qflist() abort
+  " TODO: cache this so that we only have to filter once
   let l:wininfo=getwininfo()
   let l:qflist=filter(getwininfo(), 'v:val.quickfix && !v:val.loclist')
   if !len(l:qflist)
@@ -657,6 +658,24 @@ function! corpus#preview(basename) abort
   redraw
 endfunction
 
+function! corpus#preview_next() abort
+  " https://vi.stackexchange.com/a/17240/10084
+  let l:current=get(getqflist({'idx': 0}), 'idx', 0)
+  let l:next=getqflist()[l:current + 1]
+  if type(l:next) == v:t_dict
+    execute 'pedit ' . fnameescape(bufname(l:next.bufnr))
+  endif
+endfunction
+
+function! corpus#preview_previous() abort
+  " https://vi.stackexchange.com/a/17240/10084
+  let l:current=get(getqflist({'idx': 0}), 'idx', 0)
+  let l:previous=getqflist()[l:current - 1]
+  if type(l:previous) == v:t_dict
+    execute 'pedit ' . fnameescape(bufname(l:previous.bufnr))
+  endif
+endfunction
+
 function! corpus#run(args) abort
   let l:args=copy(a:args)
   call map(l:args, {i, word -> shellescape(word)})
@@ -664,13 +683,7 @@ function! corpus#run(args) abort
   return systemlist(l:command)
 endfunction
 
-" This isn't ideal, but we do content searches with Git and title searches
-" internally, which means that if you search for "foo bar" and we have a
-" document called "foo.md" with contents "bar", we won't find it.
-"
-" In order to provide unified search, we'd need to do all searching internally,
-" or all searching externally via a custom process.
-function! corpus#search_content(terms) abort
+function! corpus#search(terms) abort
   let l:command=[
         \   'git',
         \   '-C',
