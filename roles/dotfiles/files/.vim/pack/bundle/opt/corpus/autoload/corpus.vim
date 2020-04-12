@@ -697,10 +697,12 @@ function! corpus#preview_next() abort
             \   substitute(l:lines[0], '..', '  ', ''),
             \   substitute(l:lines[1], '..', '> ', '')
             \ ]
+      let l:file=strpart(l:lines[1], 2, len(l:lines[1]) - 2) . '.md'
       call nvim_buf_set_lines(s:chooser_buffer, s:chooser_selected_index, s:chooser_selected_index + 2, 0, l:updated_lines)
       redraw
       let s:chooser_selected_index=s:chooser_selected_index + 1
       call nvim_win_set_cursor(s:chooser_window, [s:chooser_selected_index + 1, 0])
+      execute 'pedit ' . fnameescape(l:file)
     endif
   endif
 endfunction
@@ -713,10 +715,13 @@ function! corpus#preview_previous() abort
             \   substitute(l:lines[0], '..', '> ', ''),
             \   substitute(l:lines[1], '..', '  ', '')
             \ ]
+      " TODO: might want to debounce this
+      let l:file=strpart(l:lines[0], 2, len(l:lines[0]) - 2) . '.md'
       call nvim_buf_set_lines(s:chooser_buffer, s:chooser_selected_index - 1, s:chooser_selected_index + 1, 0, l:updated_lines)
       redraw
       let s:chooser_selected_index=s:chooser_selected_index - 1
       call nvim_win_set_cursor(s:chooser_window, [s:chooser_selected_index + 1, 0])
+      execute 'pedit ' . fnameescape(l:file)
     endif
   endif
 endfunction
