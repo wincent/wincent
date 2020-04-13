@@ -459,7 +459,7 @@ function! corpus#update_references(file) abort
 
     let l:match=corpus#extract_link_reference_definition(l:line)
     if len(l:match)
-      let l:labels[l:match[0]]=l:match[1]
+      let l:labels[tolower(l:match[0])]=l:match[1]
       continue
     endif
 
@@ -472,8 +472,11 @@ function! corpus#update_references(file) abort
   let l:has_labels=!!len(l:labels)
 
   for l:reference in sort(keys(l:references))
-    if !has_key(l:labels, l:reference)
+    let l:key=tolower(l:reference)
+    if !has_key(l:labels, l:key)
       " Have to add l:reference
+      let l:labels[l:key]=l:reference
+
       if !l:has_labels
         " Add a blank separator line if there is not one there already.
         let l:has_labels=1
