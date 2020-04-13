@@ -796,9 +796,18 @@ function! corpus#search(terms) abort
   call extend(l:command, ['--', '*.md'])
   let l:files=corpus#run(l:command)
   if len(l:files) == 1
-    " We expect one lone line from `git grep`, and Vim will have turned
-    " NUL bytes inside that line into newlines, so we split again.
-    return split(l:files[0], '\n')
+    " We expect one long line from `git grep`, and Vim will have turned
+    " NUL bytes inside that line into newlines, so we split aga,in.
+    let l:files=split(l:files[0], '\n')
+
+    " BUG: -z here doesn't prevent stuff from getting escaped
+    " `git grep` will return results like:
+    "
+    "     "\"HTML is probably what you want\".md"
+    "     Akephalos.md
+    "     JavaScript loading.md
+    "
+    return map(l:files, {i, val -> match(val, '\v^".*"$') == -1 ? val : substitute(strpart(val, 1, len(val) - 2), '\v\\"', '"', 'g')})
   else
     return []
   endif
