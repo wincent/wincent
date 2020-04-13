@@ -4,7 +4,7 @@
 	abbrev = !sh -c 'git rev-parse --short ${1-`echo HEAD`}' -
 	ack = grep --break --heading
 	amend = commit --amend -v
-	both = diff HEAD
+	both = diff --ignore-submodules=dirty HEAD
 	br = branch
 	ci = commit -v
 	co = checkout
@@ -54,7 +54,7 @@
 	sl = log --graph --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%aN>%Creset' --all --simplify-by-decoration
 
 	st = status
-	staged = diff --cached
+	staged = diff --cached --ignore-submodules=dirty
 
 	# %C(auto) requires Git 1.8.3 or later
 	ten = log -10 --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%aN>%Creset'
