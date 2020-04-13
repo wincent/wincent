@@ -322,7 +322,7 @@ function! corpus#goto(mode) abort
       " File doesn't exist yet: will let Vim create it as-is.
     endif
 
-    execute ':edit ' . fnameescape(l:target)
+    execute 'edit ' . fnameescape(l:target)
   else
     " No link target found. Assume current word should be made into a link.
     if l:line[l:col] == ' '
@@ -563,7 +563,11 @@ function! corpus#choose(selection) abort
   if type(s:chooser_selected_index) != type(v:null)
     let l:line=nvim_buf_get_lines(s:chooser_buffer, s:chooser_selected_index, s:chooser_selected_index + 1, v:false)[0]
     let l:file=strpart(l:line, 2, len(l:line) - 2) . '.md'
+
     execute 'edit ' . fnameescape(l:file)
+
+    " Hack: first file doesn't have filetype set without this.
+    edit!
   else
     if match(a:selection, '\v^\s*$') == -1
       let l:directory=a:selection
