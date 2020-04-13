@@ -22,7 +22,6 @@ let g:CorpusDirectories={
       \     'autoreference': 1,
       \     'autotitle': 1,
       \     'base': '/wiki/',
-      \     'repo': '~/code/masochist/content',
       \     'tags': ['wiki'],
       \     'transform': 'web'
       \   }

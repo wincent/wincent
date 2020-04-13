@@ -48,13 +48,13 @@ function! corpus#commit(file, operation) abort
     return
   endif
   let l:file=fnamemodify(a:file, ':t:r')
-  let l:repo=expand(get(l:config, 'repo', l:config.location))
+  let l:location=expand(l:config.location)
 
   " Note that this will fail silently if there are no changes to file (because
   " we aren't passing `--allow-empty`) and that's ok.
   call system(
         \   'git -C ' .
-        \   shellescape(l:repo) .
+        \   shellescape(l:location) .
         \   ' commit -m ' .
         \   shellescape('docs: ' . a:operation . ' ' . l:file . ' (Corpus autocommit)') .
         \   ' -- ' .
