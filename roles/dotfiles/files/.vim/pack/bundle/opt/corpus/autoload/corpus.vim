@@ -656,28 +656,6 @@ function! corpus#join(...) abort
   return join(a:000, '/')
 endfunction
 
-" Returns 1 if all needles are present in haystack.
-function! corpus#match(haystack, needles) abort
-  let l:haystack_len=len(a:haystack)
-  for l:needle in a:needles
-    let l:index=stridx(a:haystack, l:needle)
-    if l:index==-1
-      " Needle wasn't found.
-      return 0
-    else
-      if l:index + len(l:needle) == l:haystack_len
-        " Needle was found, but only if we include the extension in the
-        " haystack, and we don't want to do that.
-        return 0
-      endif
-    endif
-  endfor
-
-  " No needles were missing: success.
-  " Note that this means that an empty search always matches.
-  return 1
-endfunction
-
 function! corpus#preview(basename) abort
   let l:file=corpus#file(a:basename)
   try
