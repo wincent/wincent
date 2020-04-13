@@ -5,4 +5,7 @@ augroup WincentDirvish
   " current one.)
   autocmd FileType dirvish
         \ silent! nnoremap <nowait><buffer><silent> o :<C-U>.call dirvish#open('edit', 0)<CR>
+
+  " Seeing as g:WincentColorColumnFileTypeBlacklist doesn't work for this:
+  autocmd FileType dirvish setlocal colorcolumn=
 augroup END
