@@ -614,7 +614,7 @@ function! corpus#cmdline_changed(char) abort
 
         " Update results list and preview.
         if len(l:results)
-          call corpus#preview(l:results[0])
+          call corpus#debounced_preview()
           let s:chooser_selected_index=0
           let l:list=map(l:results, {i, val -> (i == s:chooser_selected_index ? '> ' : '  ') . fnamemodify(val, ':r')})
         else
@@ -656,16 +656,34 @@ function! corpus#join(...) abort
   return join(a:000, '/')
 endfunction
 
-function! corpus#preview(basename) abort
-  let l:file=corpus#file(a:basename)
-  try
-    let l:previewheight=&previewheight
-    let &previewheight=&columns / 2 + &columns % 2
-    execute 'vertical pedit ' . l:file
-    redraw
-  finally
-    let &previewheight=l:previewheight
-  endtry
+let s:preview_timer=v:null
+
+function! corpus#debounced_preview() abort
+  if type(s:preview_timer) != type(v:null)
+    call timer_stop(s:preview_timer)
+  endif
+  let l:time=get(g:, 'CorpusDebounce', 250)
+  let s:preview_timer=timer_start(l:time, 'corpus#preview')
+endfunction
+
+" TODO Make this a private function; don't want anybody  else calling it
+function! corpus#preview(handle) abort
+  if s:preview_timer == a:handle
+    let s:preview_timer=v:null
+  endif
+
+  if type(s:chooser_selected_index) != type(v:null)
+    let l:line=nvim_buf_get_lines(s:chooser_buffer, s:chooser_selected_index, s:chooser_selected_index + 1, v:false)[0]
+    let l:file=strpart(l:line, 2, len(l:line) - 2) . '.md'
+    try
+      let l:previewheight=&previewheight
+      let &previewheight=&columns / 2 + &columns % 2
+      execute 'vertical pedit ' . fnameescape(l:file)
+      redraw
+    finally
+      let &previewheight=l:previewheight
+    endtry
+  endif
 endfunction
 
 function! corpus#preview_next() abort
@@ -678,10 +696,10 @@ function! corpus#preview_next() abort
             \ ]
       let l:file=strpart(l:lines[1], 2, len(l:lines[1]) - 2) . '.md'
       call nvim_buf_set_lines(s:chooser_buffer, s:chooser_selected_index, s:chooser_selected_index + 2, v:false, l:updated_lines)
-      redraw
       let s:chooser_selected_index=s:chooser_selected_index + 1
       call nvim_win_set_cursor(s:chooser_window, [s:chooser_selected_index + 1, 0])
-      call corpus#preview(fnameescape(l:file))
+      redraw
+      call corpus#debounced_preview()
     endif
   endif
 endfunction
@@ -697,10 +715,10 @@ function! corpus#preview_previous() abort
       " TODO: might want to debounce this
       let l:file=strpart(l:lines[0], 2, len(l:lines[0]) - 2) . '.md'
       call nvim_buf_set_lines(s:chooser_buffer, s:chooser_selected_index - 1, s:chooser_selected_index + 1, v:false, l:updated_lines)
-      redraw
       let s:chooser_selected_index=s:chooser_selected_index - 1
       call nvim_win_set_cursor(s:chooser_window, [s:chooser_selected_index + 1, 0])
-      call corpus#preview(fnameescape(l:file))
+      redraw
+      call corpus#debounced_preview()
     endif
   endif
 endfunction
