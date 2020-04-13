@@ -1,5 +1,5 @@
 let g:WincentColorColumnBufferNameBlacklist = ['__LanguageClient__']
-let g:WincentColorColumnFileTypeBlacklist = ['command-t', 'diff', 'fugitiveblame', 'undotree', 'nerdtree', 'qf']
+let g:WincentColorColumnFileTypeBlacklist = ['command-t', 'diff', 'dirvish', 'fugitiveblame', 'undotree', 'qf']
 let g:WincentCursorlineBlacklist = ['command-t']
 let g:WincentMkviewFiletypeBlacklist = ['diff', 'hgcommit', 'gitcommit']
 
@@ -133,8 +133,6 @@ function! s:get_custom_statusline(action) abort
     return 'Undotree\ preview' " Less ugly, and nothing really useful to show.
   elseif &ft ==# 'undotree'
     return 0 " Don't override; undotree does its own thing.
-  elseif &ft ==# 'nerdtree'
-    return 0 " Don't override; NERDTree does its own thing.
   elseif &ft ==# 'qf'
     if a:action ==# 'blur'
       return
@@ -200,10 +198,10 @@ let g:WincentEditorConfigPathBlacklist=[]
 let g:WincentEditorConfigFileTypeBlacklist=[
       \   'command-t',
       \   'diff',
+      \   'dirvish',
       \   'fugitiveblame',
       \   'gitcommit',
       \   'hgcommit',
-      \   'nerdtree',
       \   'qf',
       \   'undotree'
       \ ]

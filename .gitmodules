@@ -34,10 +34,6 @@
 [submodule "neco-ghc"]
 	path = roles/dotfiles/files/.vim/pack/bundle/opt/neco-ghc
 	url = https://github.com/eagletmt/neco-ghc.git
-[submodule "nerdtree"]
-	ignore = untracked
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
 [submodule "pinnacle"]
 	ignore = untracked
 	path = roles/dotfiles/files/.vim/pack/bundle/opt/pinnacle
@@ -196,3 +192,6 @@
 [submodule "zsh-history-substring-search"]
 	path = roles/dotfiles/files/.zsh/zsh-history-substring-search
 	url = https://github.com/zsh-users/zsh-history-substring-search
+[submodule "vim-dirvish"]
+	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-dirvish
+	url = https://github.com/justinmk/vim-dirvish.git
