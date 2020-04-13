@@ -612,9 +612,12 @@ function! corpus#cmdline_changed(char) abort
 
         " Update results list and preview.
         if len(l:results)
-          call corpus#debounced_preview()
           let s:chooser_selected_index=0
+
+          " +1 because cursor indexing is 1-based.
+          call nvim_win_set_cursor(s:chooser_window, [1, 0])
           let l:list=map(l:results, {i, val -> (i == s:chooser_selected_index ? '> ' : '  ') . fnamemodify(val, ':r')})
+          call corpus#debounced_preview()
         else
           let l:list=[]
           let s:chooser_selected_index=v:null
@@ -633,7 +636,7 @@ function! corpus#cmdline_changed(char) abort
 endfunction
 
 function! corpus#cmdline_enter(char) abort
-  " For now, not doing anything here.
+  let s:chooser_selected_index=v:null
 endfunction
 
 function! corpus#cmdline_leave() abort
@@ -694,6 +697,7 @@ function! corpus#preview(handle) abort
     let l:contents=readfile(l:file, '', &lines)
     call nvim_buf_set_lines(s:preview_buffer, 0, -1, v:false, l:contents)
   endif
+  redraw
 endfunction
 
 function! corpus#preview_next() abort
@@ -707,6 +711,8 @@ function! corpus#preview_next() abort
       let l:file=strpart(l:lines[1], 2, len(l:lines[1]) - 2) . '.md'
       call nvim_buf_set_lines(s:chooser_buffer, s:chooser_selected_index, s:chooser_selected_index + 2, v:false, l:updated_lines)
       let s:chooser_selected_index=s:chooser_selected_index + 1
+
+      " +1 because cursor indexing is 1-based.
       call nvim_win_set_cursor(s:chooser_window, [s:chooser_selected_index + 1, 0])
       redraw
       call corpus#debounced_preview()
@@ -726,6 +732,8 @@ function! corpus#preview_previous() abort
       let l:file=strpart(l:lines[0], 2, len(l:lines[0]) - 2) . '.md'
       call nvim_buf_set_lines(s:chooser_buffer, s:chooser_selected_index - 1, s:chooser_selected_index + 1, v:false, l:updated_lines)
       let s:chooser_selected_index=s:chooser_selected_index - 1
+
+      " +1 because cursor indexing is 1-based.
       call nvim_win_set_cursor(s:chooser_window, [s:chooser_selected_index + 1, 0])
       redraw
       call corpus#debounced_preview()
