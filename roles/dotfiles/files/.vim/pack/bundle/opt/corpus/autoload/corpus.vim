@@ -1,6 +1,9 @@
-let s:chooser_window=v:null
 let s:chooser_buffer=v:null
 let s:chooser_selected_index=v:null
+let s:chooser_window=v:null
+
+let s:preview_buffer=v:null
+let s:preview_window=v:null
 
 " When opening a new file in a Corpus-managed location, pre-populate it
 " with metadata of the form:
@@ -563,11 +566,7 @@ function! corpus#choose(selection) abort
   if type(s:chooser_selected_index) != type(v:null)
     let l:line=nvim_buf_get_lines(s:chooser_buffer, s:chooser_selected_index, s:chooser_selected_index + 1, v:false)[0]
     let l:file=strpart(l:line, 2, len(l:line) - 2) . '.md'
-
     execute 'edit ' . fnameescape(l:file)
-
-    " Hack: first file doesn't have filetype set without this.
-    edit!
   else
     if match(a:selection, '\v^\s*$') == -1
       let l:directory=a:selection
@@ -592,7 +591,6 @@ function! corpus#cmdline_changed(char) abort
         " Create unlisted scratch buffer.
         if type(s:chooser_window) == type(v:null)
           let s:chooser_buffer=nvim_create_buf(v:false, v:true)
-          call nvim_buf_set_lines(s:chooser_buffer, 0, 0, v:false, ['-- NO MATCHES --'])
           let s:chooser_window=nvim_open_win(s:chooser_buffer, v:false, {
                 \   'col': 0,
                 \   'row': 0,
@@ -643,7 +641,10 @@ function! corpus#cmdline_leave() abort
     call nvim_win_close(s:chooser_window, v:true)
     let s:chooser_window=v:null
   endif
-  pclose
+  if type(s:preview_window) != type(v:null)
+    call nvim_win_close(s:preview_window, v:true)
+    let s:preview_window=v:null
+  endif
 endfunction
 
 " Get the full path to a file in the Corpus directory.
@@ -675,14 +676,23 @@ function! corpus#preview(handle) abort
   if type(s:chooser_selected_index) != type(v:null)
     let l:line=nvim_buf_get_lines(s:chooser_buffer, s:chooser_selected_index, s:chooser_selected_index + 1, v:false)[0]
     let l:file=strpart(l:line, 2, len(l:line) - 2) . '.md'
-    try
-      let l:previewheight=&previewheight
-      let &previewheight=&columns / 2 + &columns % 2
-      execute 'vertical pedit ' . fnameescape(l:file)
-      redraw
-    finally
-      let &previewheight=l:previewheight
-    endtry
+
+    if type(s:preview_buffer) == type(v:null)
+      let s:preview_buffer=nvim_create_buf(v:false, v:true)
+    endif
+    if type(s:preview_window) == type(v:null)
+      let s:preview_window=nvim_open_win(s:preview_buffer, v:false, {
+            \   'col': &columns / 2,
+            \   'row': 0,
+            \   'focusable': 0,
+            \   'relative': 'editor',
+            \   'style': 'minimal',
+            \   'width': &columns /2,
+            \   'height': &lines - 2
+            \ })
+    endif
+    let l:contents=readfile(l:file, '', &lines)
+    call nvim_buf_set_lines(s:preview_buffer, 0, -1, v:false, l:contents)
   endif
 endfunction
 
