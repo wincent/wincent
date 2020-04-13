@@ -690,7 +690,7 @@ function! corpus#preview(handle) abort
             \   'focusable': 0,
             \   'relative': 'editor',
             \   'style': 'minimal',
-            \   'width': &columns /2,
+            \   'width': &columns / 2,
             \   'height': &lines - 2
             \ })
     endif
