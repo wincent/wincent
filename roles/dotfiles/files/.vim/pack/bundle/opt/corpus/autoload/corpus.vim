@@ -800,12 +800,14 @@ function! corpus#search(terms) abort
     " NUL bytes inside that line into newlines, so we split aga,in.
     let l:files=split(l:files[0], '\n')
 
-    " BUG: -z here doesn't prevent stuff from getting escaped
-    " `git grep` will return results like:
+    " BUG: -z here doesn't always prevent stuff from getting escaped; if in a
+    " subdirectory, `git grep` may return results like:
     "
     "     "\"HTML is probably what you want\".md"
     "     Akephalos.md
     "     JavaScript loading.md
+    "
+    " See: https://public-inbox.org/git/CAOyLvt9=wRfpvGGJqLMi7=wLWu881pOur8c9qNEg+Xqhf8W2ww@mail.gmail.com/
     "
     return map(l:files, {i, val -> match(val, '\v^".*"$') == -1 ? val : substitute(strpart(val, 1, len(val) - 2), '\v\\"', '"', 'g')})
   else
