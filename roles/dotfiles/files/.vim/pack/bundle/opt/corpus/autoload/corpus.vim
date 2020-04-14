@@ -264,7 +264,11 @@ function! corpus#goto(mode) abort
   else
     let l:start=l:col - 1
     while l:start >= 0
-      if l:line[l:start] == '['
+      if l:line[l:start] == ']'
+        " Hit a prior link: bail.
+        let l:start=-1
+        break
+      elseif l:line[l:start] == '['
         let l:start=l:start + 1
         break
       endif
@@ -279,7 +283,11 @@ function! corpus#goto(mode) abort
   else
     let l:end=l:col + 1
     while l:end <= l:len
-      if l:line[l:end] == ']'
+      if l:line[l:end] == '['
+        " Hit a following link: bail.
+        let l:end=l:len + 1
+        break
+      elseif l:line[l:end] == ']'
         let l:end=l:end - 1
         break
       endif
