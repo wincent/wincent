@@ -446,7 +446,7 @@ function! corpus#update_references(file) abort
 
     if type(l:fence) == type(v:null)
       " Line starting with 3 (or more) backticks or 3 (or more) tildes.
-      let l:match=matchlist(l:line, '\v^ {0,3}(`{3,}|~{3,})[^`]+$')
+      let l:match=matchlist(l:line, '\v^ {0,3}(`{3,}|~{3,})[^`]*$')
       if len(l:match)
         let l:fence='\v^ {0,3}' . l:match[1][0] . '{' . len(l:match[1]) . ',}\s*$'
         continue
