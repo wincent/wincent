@@ -7,4 +7,4 @@ let g:indentLine_char=s:broken_bar
 
 let g:indentLine_bufNameExclude=['NERD_tree.*']
 
-let g:indentLine_fileTypeExclude=['help', 'markdown', 'reason']
+let g:indentLine_fileTypeExclude=['corpus', 'help', 'markdown', 'markdown.corpus', 'reason']
