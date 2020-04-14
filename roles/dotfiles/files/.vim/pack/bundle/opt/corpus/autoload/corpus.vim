@@ -234,7 +234,6 @@ function! corpus#goto(mode) abort
     let l:len=len(l:line)
     let l:start=l:start[2] -1
     let l:end=l:end[2] - 1
-    echomsg l:start . ',' . l:end
 
     if l:end - l:start == 0
       " Edge case: empty selection.
