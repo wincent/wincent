@@ -136,7 +136,7 @@ function! corpus#extract_reference_links(line) abort
 
       " Again, negative lookbehind to find matching run of backticks not preceded
       " by a slash.
-      let l:end=match(a:line, '\v\\@<!`{' . len(l:backticks) . '}', l:index)
+      let l:end=match(a:line, '\v\\@<!`{' . len(l:backticks) . '}', l:index + 1)
 
       if l:end == -1
         " No end marker found; not a code span.
