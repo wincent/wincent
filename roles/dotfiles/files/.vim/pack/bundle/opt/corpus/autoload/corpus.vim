@@ -578,13 +578,21 @@ function! corpus#choose(selection) abort
     let l:file=strpart(l:line, 2, len(l:line) - 2) . '.md'
     execute 'edit ' . fnameescape(l:file)
   else
+    let l:file=''
     if match(a:selection, '\v^\s*$') == -1
       let l:directory=a:selection
+      if !isdirectory(l:directory)
+        let l:file=l:directory
+        let l:directory=corpus#directory()
+      endif
     else
       let l:directory=corpus#directory()
     endif
     execute 'cd ' . fnameescape(l:directory)
     echomsg 'Changed to: ' . l:directory
+    if !empty(l:file)
+      execute 'edit '. fnameescape(l:file . '.md')
+    endif
   endif
 endfunction
 
