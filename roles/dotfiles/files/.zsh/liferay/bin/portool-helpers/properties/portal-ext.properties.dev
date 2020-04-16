@@ -34,3 +34,6 @@ work.dir.override.enabled=true
 
 # Extras:
 module.framework.properties.initial.system.check.enabled=true
+
+# Examples things you might want to comment out:
+#editor.wysiwyg.portal-web.docroot.html.portlet.blogs.edit_entry.jsp=ckeditor

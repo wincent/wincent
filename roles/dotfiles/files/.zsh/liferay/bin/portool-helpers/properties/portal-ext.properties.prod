@@ -10,3 +10,6 @@ gzip.compression.level=1
 session.timeout=100000
 session.timeout.auto.extend=true
 tunnel.servlet.hosts.allowed=0:0:0:0:0:0:0:1
+
+# Examples things you might want to comment out:
+#editor.wysiwyg.portal-web.docroot.html.portlet.blogs.edit_entry.jsp=ckeditor
