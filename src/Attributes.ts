@@ -1,15 +1,38 @@
 import * as os from 'os';
 
+import id from './id.js';
 import stringify from './stringify.js';
 
 /**
  * Immutable system attributes (read-only).
  */
 export default class Attributes {
+    #gid?: number;
+    #groupNames?: Array<string>;
     #homedir?: string;
     #platform?: 'darwin' | 'linux';
     #uid?: number;
     #username?: string;
+
+    get gid(): number {
+        if (typeof this.#gid !== 'number') {
+            this.#gid = process.getgid();
+        }
+
+        return this.#gid;
+    }
+
+    get group(): string {
+        return this.groupNames[0];
+    }
+
+    get groupNames(): Array<string> {
+        if (!this.#groupNames) {
+            this.#groupNames = id();
+        }
+
+        return this.#groupNames;
+    }
 
     get homedir(): string {
         if (!this.#homedir) {

@@ -63,6 +63,16 @@ export default async function file({
 
     let changed: Array<string> = [];
 
+    // TODO: fix this check
+    // you need sudo to: change ownership
+    // OR change anything else owned by somebody else
+    // OR you need to create something (even owned by you) in a directory that
+    // you don't own
+    // (edge case: need to chmod on stuff you own if you don't have write
+    // perms, before you can change it -- you can chmod a mode 0000 file you
+    // own, but you can't write to it, for example)
+    // rather than compute this everywhere, I am thinking of doing it centrally
+    // in compare.ts...
     const sudo = !!(diff.owner || diff.group);
 
     if (state === 'directory') {
