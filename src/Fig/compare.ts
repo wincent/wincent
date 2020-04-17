@@ -10,7 +10,7 @@ import ErrorWithMetadata from '../ErrorWithMetadata.js';
 import stat from '../fs/stat.js';
 
 // TODO: decide whether the Ansible definition of "force" (which we use below)
-// is the one that we want to actual stick with.
+// is the one that we want to actually stick with.
 
 /**
  * Summary of differences between actual and desired state of a file-system
@@ -157,14 +157,6 @@ export default async function compare({
                 // TODO: don't use readFile, use sudo version if needed
             }
         }
-
-        if (group && stats.group !== group) {
-            diff.group = group;
-        }
-
-        if (owner && stats.owner !== owner) {
-            diff.owner = owner;
-        }
     } else if (state === 'directory') {
         if (stats.type === 'directory') {
             // Want "directory", have "directory": no state change required.
@@ -173,6 +165,8 @@ export default async function compare({
                 // Will have to remove file/link before creating directory.
                 diff.force = true;
                 diff.state = state;
+                // TODO: decide whether this should be recursive or fail for
+                // non-empty directories
             } else {
                 const entity = stats.type === 'file' ? 'file' : 'symbolic link';
 
@@ -191,11 +185,19 @@ export default async function compare({
             );
         }
     } else if (state === 'link') {
-        // TODO
+        throw new Error('"link" state not yet implemented');
     } else if (state === 'absent') {
-        // TODO
+        throw new Error('"absent" state not yet implemented');
     } else if (state === 'touch') {
-        // TODO
+        throw new Error('"touch" state not yet implemented');
+    }
+
+    if (group && stats.group !== group) {
+        diff.group = group;
+    }
+
+    if (owner && stats.owner !== owner) {
+        diff.owner = owner;
     }
 
     if (mode !== undefined && stats.mode !== mode) {
