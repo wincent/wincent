@@ -1,5 +1,6 @@
 import ErrorWithMetadata from '../../ErrorWithMetadata.js';
 import {log} from '../../console/index.js';
+import chmod from '../../fs/chmod.js';
 import chown from '../../fs/chown.js';
 import cp from '../../fs/cp.js';
 import mkdir from '../../fs/mkdir.js';
@@ -60,22 +61,21 @@ export default async function file({
         throw diff.error;
     }
 
+    let changed: Array<string> = [];
+
+    const sudo = !!(diff.owner || diff.group);
+
     if (state === 'directory') {
         if (diff.state === 'directory') {
             // TODO: if force in effect, that means we have to remove file/link
             // first.
-            const sudo = !!(diff.owner || diff.group);
             const result = await mkdir(target, {mode, sudo});
 
             if (result instanceof Error) {
                 throw result;
             }
 
-            Context.informChanged(`directory ${path}`);
-        } else {
-            // Already a directory.
-            Context.informOk(`directory ${path}`);
-            // TODO still check ownership, perms etc
+            changed.push('directory');
         }
     } else if (state === 'file') {
         if (diff.state === 'file') {
@@ -86,10 +86,18 @@ export default async function file({
         }
 
         if (diff.owner || diff.group) {
-            const result = await chown(target, {group, owner, sudo: true});
+            const result = await chown(target, {group, owner, sudo});
 
             if (result instanceof Error) {
                 throw result;
+            }
+
+            if (diff.owner) {
+                changed.push('owner');
+            }
+
+            if (diff.group) {
+                changed.push('group');
             }
         }
 
@@ -111,13 +119,8 @@ export default async function file({
                 throw result;
             }
 
-            Context.informChanged(`file ${path}`);
-            return;
+            changed.push('contents');
         }
-
-        // BUG: we use "template" here; not distinguishing between
-        // "template" and "file"
-        Context.informOk(`file ${path}`);
     } else if (state === 'link') {
         // TODO
     } else if (state === 'touch') {
@@ -126,9 +129,21 @@ export default async function file({
         throw new Error('Unreachable');
     }
 
-    // TODO: probably refactor this to use compare.ts
-    if (0) {
-        // In the meantime, silence unused parameter warnings.
-        console.log(force, mode, src);
+    if (diff.mode) {
+        const result = await chmod(diff.mode, target, {sudo});
+
+        if (result instanceof Error) {
+            throw result;
+        }
+
+        changed.push('mode');
+    }
+
+    // BUG: we use "file" here; not distinguishing between
+    // "template" and "file"
+    if (changed.length) {
+        Context.informChanged(`file[${changed.join('|')}] ${path}`);
+    } else {
+        Context.informOk(`file ${path}`);
     }
 }

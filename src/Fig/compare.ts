@@ -199,7 +199,7 @@ export default async function compare({
     }
 
     if (mode !== undefined && stats.mode !== mode) {
-        // TODO
+        diff.mode = mode;
     }
 
     return diff;

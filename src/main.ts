@@ -210,5 +210,7 @@ main().catch((error) => {
         log.error(error.toString());
     }
 
+    log.debug(String(error.stack));
+
     process.exit(1);
 });
