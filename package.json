@@ -6,7 +6,7 @@
     "private": true,
     "repository": "https://github.com/wincent/wincent.git",
     "author": "Greg Hurrell <greg@hurrell.net>",
-    "license": "Public Domain",
+    "license": "Unlicense",
     "scripts": {
         "ci": "yarn format:check",
         "format:check": "npx prettier --check \"**/*.{js,json,ts}\" \"*.md\" roles/dotfiles/files/.zsh/liferay/bin/portool",
