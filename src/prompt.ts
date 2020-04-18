@@ -1,6 +1,8 @@
 import * as readline from 'readline';
 import {Writable} from 'stream';
 
+import COLORS from './console/COLORS.js';
+
 type Options = {
     private?: boolean;
 };
@@ -30,7 +32,7 @@ export default async function prompt(
 
     try {
         const response = new Promise<string>((resolve) => {
-            rl.question(text, (response) => {
+            rl.question(COLORS.yellow`${text}`, (response) => {
                 process.stdout.write('\n');
                 resolve(response);
             });
