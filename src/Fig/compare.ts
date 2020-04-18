@@ -27,13 +27,6 @@ import stat from '../fs/stat.js';
  *    will need to be removed (for example, to replace a link with a
  *    directory), or force-written (for example, to replace a file with
  *    a link; ie. `ln -sf`) etc.
- * -  sudo: When `true`, indicates that we need elevated privileges to
- *    transition to the desired state. Examples:
- *    -  Change ownership, group, mode, or contents of an item that you
- *       don't currently own.
- *    -  Delete an item that you don't own.
- *    -  Create or "touch" an item in a directory that you don't own.
- *    -  "Touch" (create o
  *
  * In general, if a property is unset, that means no changes are
  * required with respect to that property.
@@ -47,7 +40,6 @@ type Diff = {
     owner?: string;
     path: string;
     state?: 'absent' | 'directory' | 'file' | 'link' | 'touch';
-    sudo?: boolean;
 };
 
 type Compare = Omit<Diff, 'error'>;
@@ -105,8 +97,6 @@ export default async function compare({
                 );
             } else {
                 // Parent exists.
-                diff.sudo = false;
-
                 if (contents !== undefined) {
                     diff.contents = contents;
                 }

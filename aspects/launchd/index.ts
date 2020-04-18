@@ -25,6 +25,7 @@ task('configure (global) LaunchDaemons', async () => {
             owner: 'root',
             path,
             src: resource.template('run.plist.erb'),
+            sudo: true,
             variables,
         });
     }

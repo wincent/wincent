@@ -8,6 +8,7 @@ export default async function template({
     owner,
     path,
     src,
+    sudo,
     variables = {},
 }: {
     force?: boolean;
@@ -16,6 +17,7 @@ export default async function template({
     mode?: Mode;
     owner?: string;
     src: string;
+    sudo?: boolean;
     variables: Variables;
 }): Promise<void> {
     const contents = (await Context.compile(src)).fill({variables});
@@ -28,5 +30,6 @@ export default async function template({
         owner,
         path,
         state: 'file',
+        sudo,
     });
 }
