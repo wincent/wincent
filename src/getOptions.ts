@@ -22,6 +22,7 @@ type Options = {
         literal: string;
         fuzzy?: RegExp;
     };
+    step: boolean;
     testsOnly: boolean;
 };
 
@@ -37,6 +38,7 @@ export default async function getOptions(
             found: false,
             literal: '',
         },
+        step: false,
         testsOnly: false,
     };
 
@@ -82,6 +84,8 @@ export default async function getOptions(
                 ].join('.*'),
                 'i'
             );
+        } else if (arg === '--step') {
+            options.step = true;
         } else if (arg.startsWith('-')) {
             throw new ErrorWithMetadata(
                 `unrecognized argument ${stringify(
@@ -110,22 +114,22 @@ async function printUsage(aspects: Array<[string, string]>) {
     log(
         dedent`
 
-      ./install [options] [aspects...]
+              ./install [options] [aspects...]
 
-      ${bold`Options:`}
+              ${bold`Options:`}
 
-        -c/--check # not yet implemented
-        -d/--debug
-        -f/--force # not yet implemented
-        -h/--help
-        -q/--quiet
-        -t/--test
-        -v/--verbose (repeat up to four times for more verbosity) # not yet implemented
-        --start-at-task='aspect | task' # TODO: maybe make -s short variant
-        --step # not yet implemented
+                -c/--check # not yet implemented
+                -d/--debug
+                -f/--force # not yet implemented
+                -h/--help
+                -q/--quiet
+                -t/--test
+                -v/--verbose (repeat up to four times for more verbosity) # not yet implemented
+                --start-at-task='aspect | task' # TODO: maybe make -s short variant
+                --step
 
-      ${bold`Aspects:`}
-    `
+              ${bold`Aspects:`}
+        `
     );
 
     for (const [aspect, description] of aspects) {

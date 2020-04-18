@@ -148,18 +148,20 @@ export default async function file({
             changed.push('contents');
         }
     } else if (state === 'link') {
-        assert(src);
+        if (diff.state === 'link') {
+            assert(src);
 
-        const result = await ln(src, target, {
-            force: diff.force,
-            sudo,
-        });
+            const result = await ln(src, target, {
+                force: diff.force,
+                sudo,
+            });
 
-        if (result instanceof Error) {
-            throw result;
+            if (result instanceof Error) {
+                throw result;
+            }
+
+            changed.push('link');
         }
-
-        changed.push('link');
     } else if (state === 'touch') {
         const result = await touch(target, {sudo});
 

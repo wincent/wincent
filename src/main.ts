@@ -5,6 +5,7 @@ import ErrorWithMetadata from './ErrorWithMetadata.js';
 import Context from './Fig/Context.js';
 import {root} from './Fig/index.js';
 import {debug, log, setLogLevel} from './console/index.js';
+import dedent from './dedent.js';
 import getOptions from './getOptions.js';
 import merge from './merge.js';
 import simplify from './path/simplify.js';
@@ -98,9 +99,11 @@ async function main() {
 
         log();
 
-        const reply = await prompt('Start running at this task? [y/n]: ');
+        const reply = (await prompt('Start running at this task? [y/n]: '))
+            .toLowerCase()
+            .trim();
 
-        if (/^\s*y(?:e(?:s)?)?\s*$/i.test(reply)) {
+        if ('yes'.startsWith(reply)) {
             options.startAt.found = true;
             options.startAt.literal = candidateTasks[0];
         } else {
@@ -149,29 +152,76 @@ async function main() {
 
     // Execute tasks.
     try {
-        for (const aspect of aspects) {
-            const {variables: aspectVariables = {}} = await readAspect(
-                path.join(root, 'aspects', aspect, 'aspect.json')
-            );
+        loopAspects: {
+            for (const aspect of aspects) {
+                const {variables: aspectVariables = {}} = await readAspect(
+                    path.join(root, 'aspects', aspect, 'aspect.json')
+                );
 
-            if (options.focused.size && !options.focused.has(aspect)) {
-                log.info(`Skipping aspect: ${aspect}`);
-                continue;
-            }
+                if (options.focused.size && !options.focused.has(aspect)) {
+                    log.info(`Skipping aspect: ${aspect}`);
+                    continue;
+                }
 
-            const variables = merge(aspectVariables, baseVariables);
+                const variables = merge(aspectVariables, baseVariables);
 
-            log.debug(`Variables:\n\n${stringify(variables)}\n`);
+                log.debug(`Variables:\n\n${stringify(variables)}\n`);
 
-            for (const [callback, name] of Context.tasks.get(aspect)) {
-                if (
-                    !options.startAt.found ||
-                    name === options.startAt.literal
-                ) {
-                    options.startAt.found = false;
-                    log.notice(`Task: ${name}`);
+                for (const [callback, name] of Context.tasks.get(aspect)) {
+                    if (
+                        !options.startAt.found ||
+                        name === options.startAt.literal
+                    ) {
+                        options.startAt.found = false;
+                        log.notice(`Task: ${name}`);
 
-                    await Context.withContext({aspect, variables}, callback);
+                        if (options.step) {
+                            for (;;) {
+                                const reply = (
+                                    await prompt(
+                                        `Run task ${name}? [y]es/[n]o/[q]uit]/[c]ontinue/[h]elp: `
+                                    )
+                                )
+                                    .toLowerCase()
+                                    .trim();
+
+                                if ('yes'.startsWith(reply)) {
+                                    await Context.withContext(
+                                        {aspect, variables},
+                                        callback
+                                    );
+                                    break;
+                                } else if ('no'.startsWith(reply)) {
+                                    break;
+                                } else if ('quit'.startsWith(reply)) {
+                                    break loopAspects;
+                                } else if ('continue'.startsWith(reply)) {
+                                    options.step = false;
+                                    await Context.withContext(
+                                        {aspect, variables},
+                                        callback
+                                    );
+                                    break;
+                                } else if ('help'.startsWith(reply)) {
+                                    log(
+                                        dedent`
+                                            [y]es:      run the task
+                                            [n]o:       skip the task
+                                            [q]uit:     stop running tasks
+                                            [c]ontinue: run all remaining tasks
+                                        `
+                                    );
+                                } else {
+                                    log.warn('Invalid choice; try again.');
+                                }
+                            }
+                        } else {
+                            await Context.withContext(
+                                {aspect, variables},
+                                callback
+                            );
+                        }
+                    }
                 }
             }
         }

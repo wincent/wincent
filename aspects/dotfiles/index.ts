@@ -19,3 +19,11 @@ task('make config directories', async () => {
         });
     }
 });
+
+task('link ~/.config/nvim to ~/.vim', async () => {
+    await file({
+        path: '~/.config/nvim',
+        src: '~/.vim',
+        state: 'link',
+    });
+});
