@@ -23,6 +23,14 @@ endfunction
 function! s:Bind()
   nnoremap <buffer> <silent> K :call LanguageClient#closeFloatingHover()<CR>
   nnoremap <buffer> <silent> <Esc> :call LanguageClient#closeFloatingHover()<CR>
+
+  " I hate that this is a permanent global mapping, but we cannot set
+  " it up temporarily and then unbind on BufLeave/WinLeave because
+  " those fire as soon as we open the floating window (focus returns to
+  " previous buffer). And BufUnload is not received reliably (we don't
+  " see it, for example on closing the floating window due to cursor
+  " movement).
+  nnoremap <silent> <Esc> :call LanguageClient#closeFloatingHover()<CR>
 endfunction
 
 augroup WincentLanguageClientAutocmds
