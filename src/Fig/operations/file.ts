@@ -4,11 +4,13 @@ import ErrorWithMetadata from '../../ErrorWithMetadata.js';
 import chmod from '../../fs/chmod.js';
 import chown from '../../fs/chown.js';
 import cp from '../../fs/cp.js';
+import ln from '../../fs/ln.js';
 import mkdir from '../../fs/mkdir.js';
 import tempfile from '../../fs/tempfile.js';
 import touch from '../../fs/touch.js';
-import expand from '../../path/expand.js';
+import absolute from '../../path/absolute.js';
 import Context from '../Context.js';
+import assert from '../../assert.js';
 import compare from '../compare.js';
 
 export default async function file({
@@ -32,9 +34,15 @@ export default async function file({
     state: 'directory' | 'file' | 'link' | 'touch';
     sudo?: boolean;
 }): Promise<void> {
-    if (state !== 'file' && (contents !== undefined || src !== undefined)) {
+    if (contents !== undefined && state !== 'file') {
         throw new ErrorWithMetadata(
-            `A file-system object cannot have "contents" or "src" unless its state is \`file\``
+            `A file-system object cannot have "contents" unless its state is \`file\``
+        );
+    }
+
+    if (src !== undefined && !(state === 'file' || state === 'link')) {
+        throw new ErrorWithMetadata(
+            `A file-system object cannot have "src" unless its state is \`file\` or \`link\``
         );
     }
 
@@ -44,12 +52,21 @@ export default async function file({
         );
     }
 
-    const target = expand(path);
+    if (state === 'link' && src === undefined) {
+        throw new ErrorWithMetadata(
+            `Cannot manage state \`link\` without "src"`
+        );
+    }
+
+    const target = absolute(path);
 
     if (src) {
-        // TODO: handle edge case that src is root-owned and not readable
-        // TODO: overwriting contents here is a smell?
-        contents = contents ?? (await fs.readFile(src, 'utf8'));
+        src = absolute(src);
+        if (state !== 'link') {
+            // TODO: handle edge case that src is root-owned and not readable
+            // TODO: overwriting contents here is a smell?
+            contents = contents ?? (await fs.readFile(src, 'utf8'));
+        }
     }
 
     const diff = await compare({
@@ -60,6 +77,7 @@ export default async function file({
         owner,
         path: target,
         state,
+        target: state === 'link' ? src : undefined,
     });
 
     if (diff.error) {
@@ -130,7 +148,18 @@ export default async function file({
             changed.push('contents');
         }
     } else if (state === 'link') {
-        // TODO
+        assert(src);
+
+        const result = await ln(src, target, {
+            force: diff.force,
+            sudo,
+        });
+
+        if (result instanceof Error) {
+            throw result;
+        }
+
+        changed.push('link');
     } else if (state === 'touch') {
         const result = await touch(target, {sudo});
 

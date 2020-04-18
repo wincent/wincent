@@ -7,6 +7,7 @@ import Context from '../../src/Fig/Context.js';
 import assert from '../../src/assert.js';
 import stat from '../../src/fs/stat.js';
 import tempdir from '../../src/fs/tempdir.js';
+import absolute from '../../src/path/absolute.js';
 
 task('copy a file', async () => {
     //
@@ -167,7 +168,36 @@ task('create a directory', async () => {
 });
 
 task('manage a symbolic link', async () => {
-    // TODO
+    //
+    // 1. Create a link.
+    //
+    let path = join(await tempdir('meta'), 'example.txt');
+
+    const src = resource.file('example.txt');
+
+    let {changed, failed, ok, skipped} = Context.counts;
+
+    await file({
+        path,
+        src,
+        state: 'link',
+    });
+
+    let contents = await fs.readFile(path, 'utf8');
+
+    expect.equal(contents, 'Some example content.\n');
+
+    let stats = await stat(path);
+
+    assert(stats && !(stats instanceof Error));
+
+    expect.equal(stats.type, 'link');
+    expect.equal(stats.target, absolute(src));
+
+    expect.equal(Context.counts.changed, changed + 1);
+    expect.equal(Context.counts.failed, failed);
+    expect.equal(Context.counts.ok, ok);
+    expect.equal(Context.counts.skipped, skipped);
 });
 
 task('template a file', async () => {

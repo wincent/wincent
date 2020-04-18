@@ -40,6 +40,7 @@ type Diff = {
     owner?: string;
     path: string;
     state?: 'absent' | 'directory' | 'file' | 'link' | 'touch';
+    target?: string;
 };
 
 type Compare = Omit<Diff, 'error'>;
@@ -59,6 +60,7 @@ export default async function compare({
     owner,
     path,
     state = 'file',
+    target,
 }: Compare): Promise<Diff> {
     // Sanity check.
     if (contents !== undefined && state !== 'file') {
@@ -111,6 +113,10 @@ export default async function compare({
 
                 if (mode !== undefined) {
                     diff.owner = owner;
+                }
+
+                if (state === 'link') {
+                    diff.target = target;
                 }
 
                 diff.state = state;
@@ -182,7 +188,34 @@ export default async function compare({
             );
         }
     } else if (state === 'link') {
-        throw new Error('"link" state not yet implemented');
+        if (stats.type === 'link') {
+            if (stats.target !== target) {
+                diff.target = target;
+            }
+        } else if (stats.type === 'directory') {
+            diff.error = new ErrorWithMetadata(
+                `Cannot replace directory ${stringify(path)} with link`
+            );
+        } else if (stats.type === 'file') {
+            if (force) {
+                // Will have to remove file before creating link.
+                diff.force = true;
+                diff.state = state;
+            } else {
+                diff.error = new ErrorWithMetadata(
+                    `Cannot replace file ${stringify(
+                        path
+                    )} with link without 'force'`
+                );
+            }
+        } else {
+            diff.error = new ErrorWithMetadata(
+                `Cannot replace entity of type ${stats.type} at ${stringify(
+                    path
+                )} with link`
+            );
+        }
+        // TODO check mode etc...
     } else if (state === 'absent') {
         throw new Error('"absent" state not yet implemented');
     } else if (state === 'touch') {

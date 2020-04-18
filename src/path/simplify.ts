@@ -1,5 +1,5 @@
 import {homedir} from 'os';
-import {join} from 'path';
+import {join, relative} from 'path';
 
 export default function simplify(path: string) {
     const home = homedir();
@@ -7,6 +7,6 @@ export default function simplify(path: string) {
     if (path.startsWith(home)) {
         return join('~', path.slice(home.length));
     } else {
-        return path;
+        return relative('', path);
     }
 }
