@@ -192,6 +192,7 @@ async function main() {
                                     );
                                     break;
                                 } else if ('no'.startsWith(reply)) {
+                                    Context.informSkipped(`task ${name}`);
                                     break;
                                 } else if ('quit'.startsWith(reply)) {
                                     break loopAspects;
