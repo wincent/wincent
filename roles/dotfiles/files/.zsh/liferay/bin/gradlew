@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Replacement for: https://www.npmjs.com/package/gradle-launcher
+#
+# Walks up from the current directory looking for a "gradlew" wrapper, and
+# executes it, if found.
+#
+# See: https://docs.gradle.org/current/userguide/gradle_wrapper.html
+
+DIR=${PWD%/}
+
+while [[ -n $DIR ]]; do
+  if [[ -e $DIR/gradlew ]]; then
+    exec "$DIR/gradlew" "$@"
+  else
+    DIR=${DIR%/*}
+  fi
+done
+
+echo "error: failed to find \`gradlew\` wrapper"
+
+exit 1
