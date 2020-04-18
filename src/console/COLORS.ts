@@ -172,11 +172,7 @@ function interpolate(strings: TemplateStringsArray, interpolations: unknown[]) {
 }
 
 const COLORS = {
-    bold(
-        this: unknown,
-        strings: any,
-        ...interpolations: unknown[]
-    ): string {
+    bold(this: unknown, strings: any, ...interpolations: unknown[]): string {
         const result = bold(strings, ...interpolations);
 
         if (typeof this === 'function') {
@@ -186,11 +182,7 @@ const COLORS = {
         }
     },
 
-    green(
-        this: unknown,
-        strings: any,
-        ...interpolations: unknown[]
-    ): string {
+    green(this: unknown, strings: any, ...interpolations: unknown[]): string {
         const result = green(strings, ...interpolations);
 
         if (typeof this === 'function') {
@@ -200,11 +192,7 @@ const COLORS = {
         }
     },
 
-    purple(
-        this: unknown,
-        strings: any,
-        ...interpolations: unknown[]
-    ): string {
+    purple(this: unknown, strings: any, ...interpolations: unknown[]): string {
         const result = purple(strings, ...interpolations);
 
         if (typeof this === 'function') {
@@ -214,11 +202,7 @@ const COLORS = {
         }
     },
 
-    red(
-        this: unknown,
-        strings: any,
-        ...interpolations: unknown[]
-    ): string {
+    red(this: unknown, strings: any, ...interpolations: unknown[]): string {
         const result = red(strings, ...interpolations);
 
         if (typeof this === 'function') {
@@ -228,11 +212,7 @@ const COLORS = {
         }
     },
 
-    reverse(
-        this: unknown,
-        strings: any,
-        ...interpolations: unknown[]
-    ): string {
+    reverse(this: unknown, strings: any, ...interpolations: unknown[]): string {
         const result = reverse(strings, ...interpolations);
 
         if (typeof this === 'function') {
@@ -242,11 +222,7 @@ const COLORS = {
         }
     },
 
-    yellow(
-        this: unknown,
-        strings: any,
-        ...interpolations: unknown[]
-    ): string {
+    yellow(this: unknown, strings: any, ...interpolations: unknown[]): string {
         const result = yellow(strings, ...interpolations);
 
         if (typeof this === 'function') {

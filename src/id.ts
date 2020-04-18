@@ -19,13 +19,13 @@ export default function id(): Array<string> {
     const group = run('-rgn');
 
     // Normally, `group` will be first item in `groups` anyway, but make sure:
-    return [group, ...groups.filter(g => g !== group)];
+    return [group, ...groups.filter((g) => g !== group)];
 }
 
 function run(...args: Array<string>): string {
-    const {error, signal, status, stderr, stdout} = spawnSync(
-        'id', args, {encoding :'utf8'}
-    );
+    const {error, signal, status, stderr, stdout} = spawnSync('id', args, {
+        encoding: 'utf8',
+    });
 
     if (status === 0) {
         return stdout.trim();
