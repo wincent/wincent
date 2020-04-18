@@ -96,7 +96,74 @@ task('copy a file', async () => {
 });
 
 task('create a directory', async () => {
-    // TODO: finish this
+    //
+    // 1. Create a directory for the first time.
+    //
+    const path = join(await tempdir('meta'), 'a-directory');
+
+    let {changed, failed, ok, skipped} = Context.counts;
+
+    await file({
+        path,
+        state: 'directory',
+    });
+
+    let stats = await stat(path);
+
+    assert(stats && !(stats instanceof Error));
+
+    expect.equal(stats.type, 'directory');
+    expect.equal(stats.mode, '0755');
+
+    expect.equal(Context.counts.changed, changed + 1);
+    expect.equal(Context.counts.failed, failed);
+    expect.equal(Context.counts.ok, ok);
+    expect.equal(Context.counts.skipped, skipped);
+
+    //
+    // 2. Changing mode of an existing directory.
+    //
+
+    ({changed, failed, ok, skipped} = Context.counts);
+
+    await file({
+        mode: '0700',
+        path,
+        state: 'directory',
+    });
+
+    stats = await stat(path);
+
+    assert(stats && !(stats instanceof Error));
+
+    expect.equal(stats.mode, '0700');
+
+    expect.equal(Context.counts.changed, changed + 1);
+    expect.equal(Context.counts.failed, failed);
+    expect.equal(Context.counts.ok, ok);
+    expect.equal(Context.counts.skipped, skipped);
+
+    //
+    // 3. A no-op.
+    //
+
+    ({changed, failed, ok, skipped} = Context.counts);
+
+    await file({
+        path,
+        state: 'directory',
+    });
+
+    stats = await stat(path);
+
+    assert(stats && !(stats instanceof Error));
+
+    expect.equal(stats.mode, '0700');
+
+    expect.equal(Context.counts.changed, changed);
+    expect.equal(Context.counts.failed, failed);
+    expect.equal(Context.counts.ok, ok + 1);
+    expect.equal(Context.counts.skipped, skipped);
 });
 
 task('template a file', async () => {
