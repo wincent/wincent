@@ -2,17 +2,101 @@ import * as expect from 'assert';
 import {promises as fs} from 'fs';
 import {join} from 'path';
 
-import {resource, task, template} from '../../src/Fig/index.js';
+import {file, resource, task, template} from '../../src/Fig/index.js';
 import Context from '../../src/Fig/Context.js';
 import assert from '../../src/assert.js';
 import stat from '../../src/fs/stat.js';
 import tempdir from '../../src/fs/tempdir.js';
 
-// TODO: decide whether these should be tests... maybe they should be?
-// thing is, to fully test, I need to do some operations as root, and i don't
-// want to have to enter a password during a test run (although given that tests
-// run as part of a normal run, and a normal run will often end up asking you
-// for your passphrase at some point, so maybe I shouldn't worry about it)
+task('copy a file', async () => {
+    //
+    // 1. Create a file for the first time.
+    //
+    let path = join(await tempdir('meta'), 'example.txt');
+
+    let {changed, failed, ok, skipped} = Context.counts;
+
+    // This time showing use of "src".
+    await file({
+        path,
+        src: resource.file('example.txt'),
+        state: 'file',
+    });
+
+    let contents = await fs.readFile(path, 'utf8');
+
+    expect.equal(contents, 'Some example content.\n');
+
+    expect.equal(Context.counts.changed, changed + 1);
+    expect.equal(Context.counts.failed, failed);
+    expect.equal(Context.counts.ok, ok);
+    expect.equal(Context.counts.skipped, skipped);
+
+    //
+    // 2. Overwrite an existing file.
+    //
+    ({changed, failed, ok, skipped} = Context.counts);
+
+    // This time showing use of "contents".
+    await file({
+        contents: 'New content!\n',
+        path,
+        state: 'file',
+    });
+
+    contents = await fs.readFile(path, 'utf8');
+
+    expect.equal(contents, 'New content!\n');
+
+    expect.equal(Context.counts.changed, changed + 1);
+    expect.equal(Context.counts.failed, failed);
+    expect.equal(Context.counts.ok, ok);
+    expect.equal(Context.counts.skipped, skipped);
+
+    //
+    // 3. When no changes needed.
+    //
+    ({changed, failed, ok, skipped} = Context.counts);
+
+    await file({
+        contents: 'New content!\n',
+        path,
+        state: 'file',
+    });
+
+    contents = await fs.readFile(path, 'utf8');
+
+    expect.equal(contents, 'New content!\n');
+
+    expect.equal(Context.counts.changed, changed);
+    expect.equal(Context.counts.failed, failed);
+    expect.equal(Context.counts.ok, ok + 1);
+    expect.equal(Context.counts.skipped, skipped);
+
+    //
+    // 4. Creating an empty file (no "src", no "content").
+    //
+    path = path.replace(/\.txt$/, '.txt.bak');
+
+    ({changed, failed, ok, skipped} = Context.counts);
+
+    await file({
+        path,
+        state: 'file',
+    });
+
+    contents = await fs.readFile(path, 'utf8');
+
+    expect.equal(contents, '');
+
+    expect.equal(Context.counts.changed, changed + 1);
+    expect.equal(Context.counts.failed, failed);
+    expect.equal(Context.counts.ok, ok);
+    expect.equal(Context.counts.skipped, skipped);
+});
+
+task('create a directory', async () => {});
+
 task('template a file', async () => {
     //
     // 1. Create file from template.
@@ -63,7 +147,7 @@ task('template a file', async () => {
     expect.equal(Context.counts.skipped, skipped);
 
     //
-    // 3. Show that change an existing file if required.
+    // 3. Show that we can change an existing file if required.
     //
     // 3a. Just a content change.
     //

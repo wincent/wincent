@@ -1,3 +1,5 @@
+import {promises as fs} from 'fs';
+
 import ErrorWithMetadata from '../../ErrorWithMetadata.js';
 import {log} from '../../console/index.js';
 import chmod from '../../fs/chmod.js';
@@ -45,7 +47,9 @@ export default async function file({
     const target = expand(path);
 
     if (src) {
-        // TODO: read and feed that into contents
+        // TODO: handle edge case that src is root-owned and not readable
+        // TODO: overwriting contents here is a smell?
+        contents = contents ?? (await fs.readFile(src, 'utf8'));
     }
 
     const diff = await compare({
@@ -79,10 +83,14 @@ export default async function file({
         }
     } else if (state === 'file') {
         if (diff.state === 'file') {
-            // TODO: file does not exist — have to create it
-            // if contents, use that
-            // if src, copy that
-            // if neither, create empty
+            // File does not exist — have to create it.
+            changed.push('create');
+
+            if (typeof contents !== 'string') {
+                // No contents, no src, so treat this just like "touch".
+                // TODO: another smell to fix; actually use "touch" instead.
+                diff.contents = '';
+            }
         }
 
         if (diff.owner || diff.group) {
@@ -101,8 +109,7 @@ export default async function file({
             }
         }
 
-        if (diff.contents) {
-            // log.info('change!');
+        if (diff.contents !== undefined) {
             let from;
 
             if (src) {
@@ -111,7 +118,7 @@ export default async function file({
                 from = await tempfile('file', diff.contents);
             }
 
-            log.debug(`Copying form ${from}`);
+            log.debug(`Copying from ${from}`);
 
             const result = await cp(from, target);
 
