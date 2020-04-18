@@ -1,11 +1,11 @@
 {
     "platforms": {
         "darwin": {
-            "aspects": ["meta", "launchd", "terminfo"],
+            "aspects": ["meta", "dotfiles", "launchd", "terminfo"],
             "variables": {}
         },
         "linux": {
-            "aspects": ["terminfo"],
+            "aspects": ["meta", "dotfiles", "terminfo"],
             "variables": {
                 "terminfo_path": "~/share/terminfo"
             }

@@ -139,6 +139,10 @@ async function main() {
                 options.startAt.literal = candidateTasks[choice - 1];
             }
         }
+    } else if (!options.startAt.found && options.startAt.literal) {
+        throw new ErrorWithMetadata(
+            `Failed to find task matching ${stringify(options.startAt.literal)}`
+        );
     }
 
     const baseVariables = merge(profileVariables, platformVariables);
@@ -184,6 +188,9 @@ async function main() {
 
 async function loadAspect(aspect: Aspect): Promise<void> {
     switch (aspect) {
+        case 'dotfiles':
+            await import('../aspects/dotfiles/index.js');
+            break;
         case 'launchd':
             await import('../aspects/launchd/index.js');
             break;
