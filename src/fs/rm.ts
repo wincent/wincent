@@ -21,6 +21,8 @@ export default async function rm(
         args.unshift('-r');
     }
 
+    log.debug(`Removing: ${args.join(' ')}`);
+
     const result = await run('rm', args, {passphrase});
 
     if (result.status === 0) {

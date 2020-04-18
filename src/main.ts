@@ -157,7 +157,7 @@ async function main() {
 
             const variables = merge(aspectVariables, baseVariables);
 
-            // log.debug(`variables:\n\n${stringify(variables, null, 2)}\n`);
+            log.debug(`Variables:\n\n${stringify(variables)}\n`);
 
             for (const [callback, name] of Context.tasks.get(aspect)) {
                 if (
@@ -165,7 +165,7 @@ async function main() {
                     name === options.startAt.literal
                 ) {
                     options.startAt.found = false;
-                    log.info(`Task: ${name}`);
+                    log.notice(`Task: ${name}`);
 
                     await Context.withContext({aspect, variables}, callback);
                 }

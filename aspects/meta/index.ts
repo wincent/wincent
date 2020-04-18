@@ -95,7 +95,9 @@ task('copy a file', async () => {
     expect.equal(Context.counts.skipped, skipped);
 });
 
-task('create a directory', async () => {});
+task('create a directory', async () => {
+    // TODO: finish this
+});
 
 task('template a file', async () => {
     //

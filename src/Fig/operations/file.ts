@@ -1,12 +1,12 @@
 import {promises as fs} from 'fs';
 
 import ErrorWithMetadata from '../../ErrorWithMetadata.js';
-import {log} from '../../console/index.js';
 import chmod from '../../fs/chmod.js';
 import chown from '../../fs/chown.js';
 import cp from '../../fs/cp.js';
 import mkdir from '../../fs/mkdir.js';
 import tempfile from '../../fs/tempfile.js';
+import touch from '../../fs/touch.js';
 import expand from '../../path/expand.js';
 import Context from '../Context.js';
 import compare from '../compare.js';
@@ -84,12 +84,15 @@ export default async function file({
     } else if (state === 'file') {
         if (diff.state === 'file') {
             // File does not exist — have to create it.
-            changed.push('create');
-
             if (typeof contents !== 'string') {
                 // No contents, no src, so treat this just like "touch".
-                // TODO: another smell to fix; actually use "touch" instead.
-                diff.contents = '';
+                const result = await touch(target, {sudo});
+
+                if (result instanceof Error) {
+                    throw result;
+                }
+
+                changed.push('create');
             }
         }
 
@@ -117,8 +120,6 @@ export default async function file({
             } else {
                 from = await tempfile('file', diff.contents);
             }
-
-            log.debug(`Copying from ${from}`);
 
             const result = await cp(from, target);
 

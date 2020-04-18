@@ -17,6 +17,8 @@ export default async function chmod(
 
     const args = [mode, path];
 
+    log.debug(`Setting mode: ${args.join(' ')}`);
+
     const result = await run('chmod', args, {passphrase});
 
     if (result.status === 0) {

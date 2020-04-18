@@ -21,6 +21,8 @@ export default async function mkdir(
 
     const passphrase = options.sudo ? await Context.sudoPassphrase : undefined;
 
+    log.debug(`Making directory: ${args.join(' ')}`);
+
     const result = await run('mkdir', args, {passphrase});
 
     if (result.status === 0) {

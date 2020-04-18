@@ -17,6 +17,8 @@ export default async function touch(
     // Note: on Linux, the `-f` flag will be ignored.
     const args = ['-f', path];
 
+    log.debug(`Touching: ${args.join(' ')}`);
+
     const result = await run('touch', args, {passphrase});
 
     if (result.status === 0) {
