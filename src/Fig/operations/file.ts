@@ -132,7 +132,13 @@ export default async function file({
     } else if (state === 'link') {
         // TODO
     } else if (state === 'touch') {
-        // TODO
+        const result = await touch(target, {sudo});
+
+        if (result instanceof Error) {
+            throw result;
+        }
+
+        changed.push('touch');
     } else {
         throw new Error('Unreachable');
     }

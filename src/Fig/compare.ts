@@ -186,7 +186,7 @@ export default async function compare({
     } else if (state === 'absent') {
         throw new Error('"absent" state not yet implemented');
     } else if (state === 'touch') {
-        throw new Error('"touch" state not yet implemented');
+        diff.state = 'touch';
     }
 
     if (group && stats.group !== group) {

@@ -166,6 +166,10 @@ task('create a directory', async () => {
     expect.equal(Context.counts.skipped, skipped);
 });
 
+task('manage a symbolic link', async () => {
+    // TODO
+});
+
 task('template a file', async () => {
     //
     // 1. Create file from template.
@@ -299,4 +303,53 @@ task('template a file', async () => {
     assert(stats && !(stats instanceof Error));
 
     expect.equal(stats.mode, '0644');
+});
+
+task('touch an item', async () => {
+    //
+    // 1. Create a file for the first time.
+    //
+    let path = join(await tempdir('meta'), 'example.txt');
+
+    let {changed, failed, ok, skipped} = Context.counts;
+
+    await file({
+        path,
+        state: 'touch',
+    });
+
+    let contents = await fs.readFile(path, 'utf8');
+
+    expect.equal(contents, '');
+
+    expect.equal(Context.counts.changed, changed + 1);
+    expect.equal(Context.counts.failed, failed);
+    expect.equal(Context.counts.ok, ok);
+    expect.equal(Context.counts.skipped, skipped);
+
+    //
+    // 2. Touch an existing entity.
+    //
+
+    const now = Date.now();
+    const recent = now - 3_600_000; // An hour ago.
+
+    await fs.utimes(path, recent, recent);
+
+    ({changed, failed, ok, skipped} = Context.counts);
+
+    await file({
+        path,
+        state: 'touch',
+    });
+
+    expect.equal(Context.counts.changed, changed + 1);
+    expect.equal(Context.counts.failed, failed);
+    expect.equal(Context.counts.ok, ok);
+    expect.equal(Context.counts.skipped, skipped);
+
+    const stats = await fs.stat(path);
+
+    // Assert that mtime is within 1 second, allowing some imprecision.
+    expect.ok(Math.abs(stats.mtimeMs - now) < 1_000);
 });
