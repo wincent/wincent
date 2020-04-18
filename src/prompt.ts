@@ -32,7 +32,7 @@ export default async function prompt(
 
     try {
         const response = new Promise<string>((resolve) => {
-            rl.question(COLORS.yellow`${text}`, (response) => {
+            rl.question(COLORS.yellow(text), (response) => {
                 process.stdout.write('\n');
                 resolve(response);
             });

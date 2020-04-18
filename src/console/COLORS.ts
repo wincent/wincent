@@ -174,7 +174,7 @@ function interpolate(strings: TemplateStringsArray, interpolations: unknown[]) {
 const COLORS = {
     bold(
         this: unknown,
-        strings: TemplateStringsArray,
+        strings: any,
         ...interpolations: unknown[]
     ): string {
         const result = bold(strings, ...interpolations);
@@ -188,7 +188,7 @@ const COLORS = {
 
     green(
         this: unknown,
-        strings: TemplateStringsArray,
+        strings: any,
         ...interpolations: unknown[]
     ): string {
         const result = green(strings, ...interpolations);
@@ -202,7 +202,7 @@ const COLORS = {
 
     purple(
         this: unknown,
-        strings: TemplateStringsArray,
+        strings: any,
         ...interpolations: unknown[]
     ): string {
         const result = purple(strings, ...interpolations);
@@ -216,7 +216,7 @@ const COLORS = {
 
     red(
         this: unknown,
-        strings: TemplateStringsArray,
+        strings: any,
         ...interpolations: unknown[]
     ): string {
         const result = red(strings, ...interpolations);
@@ -230,7 +230,7 @@ const COLORS = {
 
     reverse(
         this: unknown,
-        strings: TemplateStringsArray,
+        strings: any,
         ...interpolations: unknown[]
     ): string {
         const result = reverse(strings, ...interpolations);
@@ -244,7 +244,7 @@ const COLORS = {
 
     yellow(
         this: unknown,
-        strings: TemplateStringsArray,
+        strings: any,
         ...interpolations: unknown[]
     ): string {
         const result = yellow(strings, ...interpolations);
