@@ -2,7 +2,6 @@
 /media
 /node_modules
 /python
-/roles/dotfiles/files/.gh.json
 /roles/dotfiles/files/.hammerspoon/iterm.lua
 /roles/dotfiles/files/.imapfilter/private.lua
 /roles/dotfiles/files/.mutt/config/aliases.mutt

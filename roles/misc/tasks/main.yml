@@ -38,7 +38,21 @@
 - name: misc | install Work-related NPM modules
   npm: name={{ item }} global=yes
   loop:
-    - gh
-    - gh-jira
+    # TODO: replace this with a zsh function; something like this:
+    # #!/bin/bash
+    # __main() {
+    #   local dir=${PWD%/}
+    #   local cmd=$1
+    #   while [[ -n $dir ]]; do
+    #       [[ -e $dir/$1 ]] && {
+    #         shift 1
+    #         "$dir/$cmd" $@
+    #         return
+    #       }
+    #       dir=${dir%/*}
+    #     done
+    #     [[ -e /$1 ]] && echo /
+    #   }
+    # __main "gradlew" "$*"
     - 'gradle-launcher'
   when: "'work' in group_names"
