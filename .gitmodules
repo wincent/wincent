@@ -1,146 +1,146 @@
 [submodule "mutt-notmuch-py"]
-	path = roles/dotfiles/files/.mutt/vendor/mutt-notmuch-py
+	path = aspects/dotfiles/files/.mutt/vendor/mutt-notmuch-py
 	url = https://github.com/honza/mutt-notmuch-py.git
 [submodule "vim-pathogen"]
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-pathogen
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen.git
 [submodule "LanguageClient-neovim"]
 	ignore = dirty
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/LanguageClient-neovim
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/LanguageClient-neovim
 	url = https://github.com/autozimu/LanguageClient-neovim.git
 	branch = next
 [submodule "base16-vim"]
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/base16-vim
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/base16-vim
 	url = https://github.com/chriskempson/base16-vim.git
 [submodule "command-t"]
 	branch = next
 	ignore = dirty
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/command-t
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/command-t
 	url = https://github.com/wincent/command-t.git
 [submodule "ferret"]
 	ignore = untracked
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/ferret
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/ferret
 	url = https://github.com/wincent/ferret.git
 [submodule "goyo.vim"]
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/goyo
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/goyo
 	url = https://github.com/junegunn/goyo.vim.git
 [submodule "indentLine"]
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/indentLine
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/indentLine
 	url = https://github.com/Yggdroot/indentLine.git
 [submodule "loupe"]
 	ignore = dirty
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/loupe
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/loupe
 	url = https://github.com/wincent/loupe.git
 [submodule "neco-ghc"]
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/neco-ghc
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/neco-ghc
 	url = https://github.com/eagletmt/neco-ghc.git
 [submodule "pinnacle"]
 	ignore = untracked
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/pinnacle
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/pinnacle
 	url = https://github.com/wincent/pinnacle.git
 [submodule "replay"]
 	ignore = untracked
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/replay
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/replay
 	url = https://github.com/wincent/replay.git
 [submodule "scalpel"]
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/scalpel
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/scalpel
 	url = https://github.com/wincent/scalpel.git
 [submodule "tcomment_vim"]
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/tcomment_vim
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/tcomment_vim
 	url = https://github.com/tomtom/tcomment_vim.git
 [submodule "terminus"]
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/terminus
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/terminus
 	url = https://github.com/wincent/terminus.git
 [submodule "ultisnips"]
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/ultisnips
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
 [submodule "undotree"]
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/undotree
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/undotree
 	url = https://github.com/mbbill/undotree.git
 [submodule "vim-abolish"]
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-abolish
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/vim-abolish
 	url = https://github.com/tpope/vim-abolish.git
 [submodule "vim-ansible-yaml"]
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-ansible-yaml
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/vim-ansible-yaml
 	url = https://github.com/chase/vim-ansible-yaml.git
 [submodule "vim-clipper"]
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-clipper
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/vim-clipper
 	url = https://github.com/wincent/vim-clipper.git
 [submodule "vim-docvim"]
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-docvim
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/vim-docvim
 	url = https://github.com/wincent/vim-docvim.git
 [submodule "vim-easydir"]
 	ignore = untracked
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-easydir
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/vim-easydir
 	url = https://github.com/dockyard/vim-easydir.git
 [submodule "vim-eunuch"]
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-eunuch
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/vim-eunuch
 	url = https://github.com/tpope/vim-eunuch.git
 [submodule "vim-fugitive"]
 	ignore = untracked
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-fugitive
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
 [submodule "vim-git"]
 	ignore = untracked
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-git
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/vim-git
 	url = https://github.com/tpope/vim-git.git
 [submodule "vim-javascript"]
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-javascript
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
 [submodule "vim-json"]
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-json
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/vim-json
 	url = https://github.com/elzr/vim-json.git
 [submodule "vim-jsx"]
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-jsx
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/vim-jsx
 	url = https://github.com/mxw/vim-jsx.git
 [submodule "vim-lion"]
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-lion
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/vim-lion
 	url = https://github.com/tommcdo/vim-lion.git
 [submodule "vim-projectionist"]
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-projectionist
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/vim-projectionist
 	url = https://github.com/tpope/vim-projectionist.git
 [submodule "vim-reason-plus"]
 	ignore = dirty
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-reason-plus
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/vim-reason-plus
 	url = https://github.com/reasonml-editor/vim-reason-plus.git
 [submodule "vim-repeat"]
 	ignore = untracked
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-repeat
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
 [submodule "vim-signature"]
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-signature
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/vim-signature
 	url = https://github.com/kshenoy/vim-signature.git
 [submodule "vim-speeddating"]
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-speeddating
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/vim-speeddating
 	url = https://github.com/tpope/vim-speeddating.git
 [submodule "vim-surround"]
 	ignore = untracked
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-surround
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/vim-surround
 	url = https://github.com/tpope/vim-surround.git
 [submodule "vim-textobj-comment"]
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-textobj-comment
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/vim-textobj-comment
 	url = https://github.com/glts/vim-textobj-comment.git
 [submodule "vim-textobj-rubyblock"]
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-textobj-rubyblock
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/vim-textobj-rubyblock
 	url = https://github.com/nelstrom/vim-textobj-rubyblock.git
 [submodule "vim-textobj-user"]
 	ignore = untracked
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-textobj-user
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/vim-textobj-user
 	url = https://github.com/kana/vim-textobj-user.git
 [submodule "vim-zsh"]
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-zsh
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/vim-zsh
 	url = https://github.com/chrisbra/vim-zsh.git
 [submodule "deoplete"]
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/deoplete
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/deoplete
 	url = https://github.com/Shougo/deoplete.nvim.git
 [submodule "base16-shell"]
-	path = roles/dotfiles/files/.zsh/base16-shell
+	path = aspects/dotfiles/files/.zsh/base16-shell
 	url = https://github.com/chriskempson/base16-shell.git
 [submodule "zsh-autosuggestions"]
-	path = roles/dotfiles/files/.zsh/zsh-autosuggestions
+	path = aspects/dotfiles/files/.zsh/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
 [submodule "zsh-syntax-highlighting"]
-	path = roles/dotfiles/files/.zsh/zsh-syntax-highlighting
+	path = aspects/dotfiles/files/.zsh/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
 [submodule "ansible"]
 	path = vendor/ansible
@@ -155,43 +155,43 @@
 	path = vendor/virtualenv
 	url = https://github.com/pypa/virtualenv.git
 [submodule "typescript-vim"]
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/typescript-vim
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/typescript-vim
 	url = https://github.com/leafgarland/typescript-vim.git
 [submodule "vim-slime"]
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-slime
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/vim-slime
 	url = https://github.com/jpalardy/vim-slime.git
 [submodule "vim-operator-user"]
 	ignore = dirty
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-operator-user
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/vim-operator-user
 	url = https://github.com/kana/vim-operator-user.git
 [submodule "skim"]
-	path = roles/dotfiles/files/.zsh/skim
+	path = aspects/dotfiles/files/.zsh/skim
 	url = https://github.com/lotabout/skim.git
 [submodule "vim-soy"]
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-soy
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/vim-soy
 	url = https://github.com/duganchen/vim-soy.git
 [submodule "vcs-jump"]
 	ignore = untracked
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/vcs-jump
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/vcs-jump
 	url = https://github.com/wincent/vcs-jump.git
 [submodule "base16-kitty"]
 	path = roles/dotfiles/files/.config/kitty/base16-kitty
 	url = https://github.com/kdrag0n/base16-kitty.git
 [submodule "float-preview.nvim"]
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/float-preview.nvim
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/float-preview.nvim
 	url = https://github.com/ncm2/float-preview.nvim.git
 [submodule "vim-dispatch"]
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-dispatch
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/vim-dispatch
 	url = https://github.com/tpope/vim-dispatch.git
 [submodule "vim-markdown"]
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-markdown
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/vim-markdown
 	url = https://github.com/plasticboy/vim-markdown.git
 [submodule "n"]
 	path = vendor/n
 	url = https://github.com/tj/n.git
 [submodule "zsh-history-substring-search"]
-	path = roles/dotfiles/files/.zsh/zsh-history-substring-search
+	path = aspects/dotfiles/files/.zsh/zsh-history-substring-search
 	url = https://github.com/zsh-users/zsh-history-substring-search
 [submodule "vim-dirvish"]
-	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-dirvish
+	path = aspects/dotfiles/files/.vim/pack/bundle/opt/vim-dirvish
 	url = https://github.com/justinmk/vim-dirvish.git

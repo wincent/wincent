@@ -133,7 +133,7 @@ export default async function compare({
             // Want "file", have "file": no state change required.
         } else if (stats.type === 'link') {
             // Going to have to overwrite symlink.
-            diff.force = true;
+            diff.force = force;
             diff.state = 'file';
         } else if (stats.type === 'directory') {
             diff.error = new ErrorWithMetadata(
@@ -190,6 +190,8 @@ export default async function compare({
     } else if (state === 'link') {
         if (stats.type === 'link') {
             if (stats.target !== target) {
+                diff.force = force;
+                diff.state = state;
                 diff.target = target;
             }
         } else if (stats.type === 'directory') {
@@ -199,8 +201,9 @@ export default async function compare({
         } else if (stats.type === 'file') {
             if (force) {
                 // Will have to remove file before creating link.
-                diff.force = true;
+                diff.force = force;
                 diff.state = state;
+                diff.target = target;
             } else {
                 diff.error = new ErrorWithMetadata(
                     `Cannot replace file ${stringify(

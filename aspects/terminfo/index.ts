@@ -9,6 +9,10 @@ task('create target directory', async () => {
 
 task('update terminfo files', async () => {
     for (const terminfo of resource.files('*.terminfo')) {
-        await command('tic', '-o', variable.string('terminfo_path'), terminfo);
+        await command('tic', [
+            '-o',
+            variable.string('terminfo_path'),
+            terminfo,
+        ]);
     }
 });

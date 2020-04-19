@@ -1,35 +1,10 @@
 ---
 dotfile_files:
-  - .ackrc
-  - .agignore
   - .config/alacritty/alacritty.yml
   - .config/kitty
-  - .clipper.json
   - .config/ranger
-  - .gh.json
-  - .ghci
-  - .gitattributes
-  - .gitignore
-  - .gitk
-  - .gvimrc
-  - .hammerspoon
-  - .hgrc
-  - .imapfilter
-  - .inputrc
-  - .lbdbrc
-  - .mutt
   - .npmrc
   - .pypirc
-  - .rdebugrc
-  - .rgrc
-  - .rspec
-  - .screenrc
-  - .tmux.conf
-  - .urlview
-  - .vim
-  - .zsh
-  - .zshenv
-  - .zshrc
 
 dotfile_templates:
   - .config/karabiner/karabiner.json

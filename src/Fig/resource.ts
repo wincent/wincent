@@ -13,6 +13,8 @@ import globToRegExp from './globToRegExp.js';
 export function file(...path: Array<string>): string {
     return join('aspects', Context.currentAspect, 'files', ...path);
 }
+// TODO: consider returing Path instead
+// (basically string & {basename: string} etc convenience methods)
 
 /**
  * Very simple glob-based file search (doesn't supported nested directories).
@@ -24,7 +26,7 @@ export function files(glob: string): Array<string> {
 
     return fs
         .readdirSync(join('aspects', aspect, 'files'), {withFileTypes: true})
-        .filter((entry) => entry.isFile())
+        .filter((entry) => entry.isDirectory() || entry.isFile())
         .map(({name}) => name)
         .filter((name) => regExp.test(name))
         .map((name) => join('aspects', aspect, 'files', name));

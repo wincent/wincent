@@ -118,7 +118,7 @@ async function printUsage(aspects: Array<[string, string]>) {
 
               ${bold`Options:`}
 
-                -c/--check # not yet implemented
+                -c/--check # not yet implemented; TODO add --dry-run synonym?
                 -d/--debug
                 -f/--force # not yet implemented
                 -h/--help

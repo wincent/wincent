@@ -12,48 +12,6 @@
   when: not cipher_check.rc == 0
   changed_when: not cipher_check.rc == 0
 
-- name: dotfiles | make ~/.config directories
-  file: path={{ item }} state=directory
-  loop:
-    - ~/.config
-    - ~/.config/alacritty
-    - ~/.config/karabiner
-
-- name: dotfiles | symlink nvim to vim
-  file: path=~/.config/nvim src=~/.vim state=link force=yes
-
-- name: dotfiles | create backup directory
-  file: path=~/.backups state=directory
-
-- name: dotfiles | check for non-symlink originals
-  stat: path="~/{{ item }}"
-  register: original_check
-  loop: '{{dotfile_files + dotfile_templates}}'
-  changed_when: original_check.stat.exists and not original_check.stat.islnk
-
-- name: dotfiles | show original_check
-  debug:
-    var: original_check
-    verbosity: 2
-
-- name: dotfiles | backup originals
-  command:
-    mv ~/{{ item.0 }} ~/.backups/
-    creates=~/.backups/{{ item.0 }}
-    removes=~/{{ item.0 }}
-  loop:
-    '{{ (dotfile_files + dotfile_templates) | zip(original_check.results) | list }}'
-  when: item.1.stat.exists and not item.1.stat.islnk
-  loop_control:
-    label: '{{item.0}}'
-
-- name: dotfiles | create symlinks
-  file: src={{ ansible_env.PWD }}/roles/dotfiles/files/{{ item }}
-        path=~/{{ item }}
-        state=link
-        force=yes
-  loop: '{{dotfile_files}}'
-
 - name: dotfiles | test Karabiner generator
   command: '{{ ansible_env.PWD }}/roles/dotfiles/support/karabiner-test.js'
   when: use_karabiner
