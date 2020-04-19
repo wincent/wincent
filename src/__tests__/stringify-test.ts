@@ -26,6 +26,10 @@ test('stringify() a string', () => {
     expect(stringify('thing')).toBe('"thing"');
 });
 
+test('stringify() a String', () => {
+    expect(stringify(new String('thing'))).toBe('"thing"');
+});
+
 test('stringify() a Symbol', () => {
     expect(stringify(Symbol.for('sample'))).toBe('Symbol(sample)');
 });

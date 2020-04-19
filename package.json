@@ -9,8 +9,8 @@
     "license": "Unlicense",
     "scripts": {
         "ci": "yarn format:check",
-        "format:check": "npx prettier --check \"**/*.{js,json,ts}\" \"*.md\" roles/dotfiles/files/.zsh/liferay/bin/portool",
-        "format": "npx prettier --write \"**/*.{js,json,ts}\" \"*.md\" roles/dotfiles/files/.zsh/liferay/bin/portool"
+        "format:check": "npx prettier --check \"**/*.{js,json,ts}\" \"*.md\" aspects/dotfiles/files/.zsh/liferay/bin/portool",
+        "format": "npx prettier --write \"**/*.{js,json,ts}\" \"*.md\" aspects/dotfiles/files/.zsh/liferay/bin/portool"
     },
     "type": "module",
     "dependencies": {

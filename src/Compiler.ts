@@ -15,6 +15,8 @@ export default class Compiler {
     }
 
     async compile(path: string): Promise<{fill: (scope: Scope) => string}> {
+        path = path.toString(); // Convert Path string-like back to primitive.
+
         const map = this.#compiled;
 
         if (!map.has(path)) {

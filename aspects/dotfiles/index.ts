@@ -1,4 +1,4 @@
-import {basename, join} from 'path';
+import {join} from 'path';
 
 import expand from '../../src/path/expand.js';
 
@@ -45,9 +45,9 @@ task('copy to ~/backups', async () => {
     const files = resource.files('*');
 
     for (const file of files) {
-        const base = basename(file);
+        const base = file.basename;
         const source = expand(`~/${base}`);
-        const target = join(expand('~/.backups'), base);
+        const target = join(expand('~/.backups'), base.toString());
 
         const stats = await stat(source);
 
@@ -69,7 +69,7 @@ task('create symlinks', async () => {
     for (const src of files) {
         await file({
             force: true,
-            path: expand(`~/${basename(src)}`),
+            path: expand(`~/${src.basename}`),
             src,
             state: 'link',
         });

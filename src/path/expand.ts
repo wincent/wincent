@@ -5,6 +5,6 @@ export default function expand(path: string) {
     if (path.startsWith('~/')) {
         return join(homedir(), path.slice(2));
     } else {
-        return path;
+        return path.toString();
     }
 }

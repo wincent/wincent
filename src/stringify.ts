@@ -2,6 +2,10 @@ import {LAQUO, RAQUO} from './Unicode.js';
 
 const CIRCULAR = `${LAQUO}circular${RAQUO}`;
 
+// TODO: consider using this as a fallback for objects which define a custom
+// inspect method.
+// const inspect = Symbol.for('nodejs.util.inspect.custom');
+
 /**
  * Basically `JSON.stringify()` but does a better job of printing some value
  * types (eg. a `RegExp` is printed as "/pattern/" instead of "{}" etc).
@@ -20,7 +24,7 @@ export default function stringify(value: unknown) {
             value instanceof RegExp
         ) {
             return String(value);
-        } else if (typeof value === 'string') {
+        } else if (typeof value === 'string' || value instanceof String) {
             return JSON.stringify(value);
         } else if (value instanceof Error) {
             return JSON.stringify(value.toString());

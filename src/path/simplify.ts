@@ -7,6 +7,6 @@ export default function simplify(path: string) {
     if (path.startsWith(home)) {
         return join('~', path.slice(home.length));
     } else {
-        return relative('', path);
+        return relative('', path.toString());
     }
 }
