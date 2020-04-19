@@ -1,5 +1,5 @@
 import * as os from 'os';
-import * as path from 'path';
+import {join} from 'path';
 
 import ErrorWithMetadata from './ErrorWithMetadata.js';
 import Context from './Fig/Context.js';
@@ -8,7 +8,7 @@ import {debug, log, setLogLevel} from './console/index.js';
 import dedent from './dedent.js';
 import getOptions from './getOptions.js';
 import merge from './merge.js';
-import simplify from './path/simplify.js';
+import path from './path.js';
 import prompt from './prompt.js';
 import readAspect from './readAspect.js';
 import readProject from './readProject.js';
@@ -34,9 +34,9 @@ async function main() {
     });
 
     if (process.cwd() === root) {
-        log.info(`Working from root: ${simplify(root)}`);
+        log.info(`Working from root: ${path(root).simplify}`);
     } else {
-        log.notice(`Changing to root: ${simplify(root)}`);
+        log.notice(`Changing to root: ${path(root).simplify}`);
         process.chdir(root);
     }
 
@@ -48,7 +48,7 @@ async function main() {
         return;
     }
 
-    const project = await readProject(path.join(root, 'project.json'));
+    const project = await readProject(join(root, 'project.json'));
 
     const hostname = os.hostname();
 
@@ -155,7 +155,7 @@ async function main() {
         loopAspects: {
             for (const aspect of aspects) {
                 const {variables: aspectVariables = {}} = await readAspect(
-                    path.join(root, 'aspects', aspect, 'aspect.json')
+                    join(root, 'aspects', aspect, 'aspect.json')
                 );
 
                 if (options.focused.size && !options.focused.has(aspect)) {

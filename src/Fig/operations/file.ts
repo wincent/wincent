@@ -8,7 +8,7 @@ import ln from '../../fs/ln.js';
 import mkdir from '../../fs/mkdir.js';
 import tempfile from '../../fs/tempfile.js';
 import touch from '../../fs/touch.js';
-import absolute from '../../path/absolute.js';
+import {default as toPath} from '../../path.js';
 import Context from '../Context.js';
 import assert from '../../assert.js';
 import compare from '../compare.js';
@@ -58,14 +58,18 @@ export default async function file({
         );
     }
 
-    const target = absolute(path);
+    const target = toPath(path).resolve.toString();
 
     if (src) {
-        src = absolute(src);
+        src = toPath(src).resolve.toString();
         if (state !== 'link') {
             // TODO: handle edge case that src is root-owned and not readable
             // TODO: overwriting contents here is a smell?
             contents = contents ?? (await fs.readFile(src, 'utf8'));
+
+            // TODO: make fs wrapper(s) that can deal with Path
+            // string-likes so that I don't have to deal with these
+            // toString() calls
         }
     }
 

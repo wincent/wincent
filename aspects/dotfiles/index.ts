@@ -1,7 +1,3 @@
-import {join} from 'path';
-
-import expand from '../../src/path/expand.js';
-
 import {
     command,
     resource,
@@ -10,6 +6,7 @@ import {
     task,
 } from '../../src/Fig/index.js';
 import stat from '../../src/fs/stat.js';
+import path from '../../src/path.js';
 
 task('make config directories', async () => {
     const directories = [
@@ -18,9 +15,9 @@ task('make config directories', async () => {
         '~/.config/karabiner',
     ];
 
-    for (const path of directories) {
+    for (const directory of directories) {
         await file({
-            path,
+            path: directory,
             state: 'directory',
         });
     }
@@ -46,8 +43,8 @@ task('copy to ~/backups', async () => {
 
     for (const file of files) {
         const base = file.basename;
-        const source = expand(`~/${base}`);
-        const target = join(expand('~/.backups'), base.toString());
+        const source = path.home.join(base);
+        const target = path.home.join('.backups', base);
 
         const stats = await stat(source);
 
@@ -69,7 +66,7 @@ task('create symlinks', async () => {
     for (const src of files) {
         await file({
             force: true,
-            path: expand(`~/${src.basename}`),
+            path: path.home.join(src.basename),
             src,
             state: 'link',
         });

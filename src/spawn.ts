@@ -27,7 +27,8 @@ export default async function spawn(
             );
         }
 
-        const child = child_process.spawn(command, args, {
+        // `toString()` here in case we have a Path string-like.
+        const child = child_process.spawn(command.toString(), args, {
             stdio: ['inherit', 'pipe', 'pipe'],
         });
 

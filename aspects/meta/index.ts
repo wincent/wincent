@@ -7,7 +7,7 @@ import Context from '../../src/Fig/Context.js';
 import assert from '../../src/assert.js';
 import stat from '../../src/fs/stat.js';
 import tempdir from '../../src/fs/tempdir.js';
-import absolute from '../../src/path/absolute.js';
+import {default as toPath} from '../../src/path.js';
 
 task('copy a file', async () => {
     //
@@ -192,7 +192,7 @@ task('manage a symbolic link', async () => {
     assert(stats && !(stats instanceof Error));
 
     expect.equal(stats.type, 'link');
-    expect.equal(stats.target, absolute(src));
+    expect.equal(stats.target, toPath(src).resolve);
 
     expect.equal(Context.counts.changed, changed + 1);
     expect.equal(Context.counts.failed, failed);

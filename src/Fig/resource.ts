@@ -1,29 +1,20 @@
 import * as fs from 'fs';
-import {basename, dirname, join, normalize, resolve} from 'path';
+import {join} from 'path';
 
+import path from '../path.js';
 import Context from './Context.js';
 import globToRegExp from './globToRegExp.js';
 
-// TODO: think about exporting these separately
+import type {Path} from '../path.js';
 
-const inspect = Symbol.for('nodejs.util.inspect.custom');
-
-type Path = string & {
-    basename: Path;
-    dirname: Path;
-    join: Path;
-    resolve: Path;
-
-    // Makes sure value as printed by `console.log()` looks like a string.
-    [inspect]: () => string;
-};
+// TODO: think about exporting these separately (from separate files)
 
 /**
  * Given `name` returns an aspect-local path corresponding to the currently
  * active aspect (eg. `aspects/${aspect}/files/${name}`).
  */
-export function file(...path: Array<string>): Path {
-    return toPath(join('aspects', Context.currentAspect, 'files', ...path));
+export function file(...components: Array<string>): Path {
+    return path(join('aspects', Context.currentAspect, 'files', ...components));
 }
 
 /**
@@ -39,41 +30,11 @@ export function files(glob: string): Array<Path> {
         .filter((entry) => entry.isDirectory() || entry.isFile())
         .map(({name}) => name)
         .filter((name) => regExp.test(name))
-        .map((name) => toPath(join('aspects', aspect, 'files', name)));
+        .map((name) => path(join('aspects', aspect, 'files', name)));
 }
 
-export function template(...path: Array<string>): Path {
-    return toPath(join('aspects', Context.currentAspect, 'templates', ...path));
-}
-
-function toPath(string: string): Path {
-    return Object.defineProperties(new String(string), {
-        basename: {
-            get() {
-                return toPath(basename(string));
-            },
-        },
-
-        dirname: {
-            get() {
-                return toPath(dirname(string));
-            },
-        },
-
-        join: {
-            value: (...components: Array<string>) => {
-                return toPath(normalize(join(string, ...components)));
-            },
-        },
-
-        resolve: {
-            get() {
-                return toPath(resolve(string));
-            },
-        },
-
-        [inspect]: {
-            value: () => string,
-        },
-    });
+export function template(...components: Array<string>): Path {
+    return path(
+        join('aspects', Context.currentAspect, 'templates', ...components)
+    );
 }
