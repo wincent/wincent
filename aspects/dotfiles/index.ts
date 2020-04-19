@@ -3,6 +3,8 @@ import assert from '../../src/assert.js';
 import stat from '../../src/fs/stat.js';
 import path from '../../src/path.js';
 
+import type {Path} from '../../src/path.js';
+
 task('make directories', async () => {
     await file({path: '~/.backups', state: 'directory'});
     await file({path: '~/.config', state: 'directory'});
@@ -43,31 +45,35 @@ task('copy to ~/backups', async () => {
 });
 
 task('create symlinks', async () => {
-    const files = variable.array('files');
+    // TODO: could make a paths shortcut for this..
+    const files: Array<Path> = variable.array('files').map(f => {
+        assert(typeof f === 'string');
+
+        return path(f);
+    });
 
     for (const src of files) {
-        assert(typeof src === 'string');
-
         await file({
             force: true,
-            path: path.home.join(path(src).basename),
-            src: path.aspect.join('files', path(src).basename),
+            path: path.home.join(src.basename),
+            src: path.aspect.join('files', src.basename),
             state: 'link',
         });
     }
 });
 
 task('fill templates', async () => {
-    // TODO: map path already here (and above)
-    const templates = variable.array('templates');
+    const templates: Array<Path> = variable.array('templates').map(t => {
+        assert(typeof t === 'string');
+
+        return path(t);
+    });
 
     for (const src of templates) {
-        assert(typeof src === 'string');
-
         await template({
             mode: src.endsWith('.sh.erb') ? '0755' : '0644',
-            path: path.home.join(path(src).basename.strip('.erb')),
-            src: path.aspect.join('templates', path(src).basename),
+            path: path.home.join(src.basename.strip('.erb')),
+            src: path.aspect.join('templates', src.basename),
         });
     }
 });
