@@ -9,17 +9,8 @@ import stat from '../../src/fs/stat.js';
 import path from '../../src/path.js';
 
 task('make config directories', async () => {
-    const directories = [
-        '~/.config',
-        '~/.config/karabiner',
-    ];
-
-    for (const directory of directories) {
-        await file({
-            path: directory,
-            state: 'directory',
-        });
-    }
+    await file({path: '~/.config', state: 'directory'});
+    await file({path: '~/.config/karabiner', state: 'directory'});
 });
 
 task('link ~/.config/nvim to ~/.vim', async () => {
