@@ -111,7 +111,7 @@ function path(string: string): Path {
 Object.defineProperty(path, 'aspect', {
     get() {
         return path(root).join('aspects', Context.currentAspect);
-    }
+    },
 });
 
 export default Object.assign(path, {

@@ -3,8 +3,6 @@ import assert from '../../src/assert.js';
 import stat from '../../src/fs/stat.js';
 import path from '../../src/path.js';
 
-import type {Path} from '../../src/path.js';
-
 task('make directories', async () => {
     await file({path: '~/.backups', state: 'directory'});
     await file({path: '~/.config', state: 'directory'});
@@ -45,12 +43,7 @@ task('copy to ~/backups', async () => {
 });
 
 task('create symlinks', async () => {
-    // TODO: could make a paths shortcut for this..
-    const files: Array<Path> = variable.array('files').map(f => {
-        assert(typeof f === 'string');
-
-        return path(f);
-    });
+    const files = variable.paths('files');
 
     for (const src of files) {
         await file({
@@ -63,11 +56,7 @@ task('create symlinks', async () => {
 });
 
 task('fill templates', async () => {
-    const templates: Array<Path> = variable.array('templates').map(t => {
-        assert(typeof t === 'string');
-
-        return path(t);
-    });
+    const templates = variable.paths('templates');
 
     for (const src of templates) {
         await template({
