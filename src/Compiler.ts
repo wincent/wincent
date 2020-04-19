@@ -1,5 +1,4 @@
-import {promises as fs} from 'fs';
-
+import {promises as fs} from './fs.js';
 import {compile, fill} from './template.js';
 
 import type {Scope} from './template.js';
@@ -15,7 +14,8 @@ export default class Compiler {
     }
 
     async compile(path: string): Promise<{fill: (scope: Scope) => string}> {
-        path = path.toString(); // Convert Path string-like back to primitive.
+        // Convert potential Path string-like back to primitive.
+        path = path.toString();
 
         const map = this.#compiled;
 

@@ -1,11 +1,11 @@
-import {promises as fs} from 'fs';
 import * as path from 'path';
 
+import ErrorWithMetadata from './ErrorWithMetadata.js';
 import {root} from './Fig/index.js';
 import {COLORS, LOG_LEVEL, log} from './console/index.js';
 import dedent from './dedent.js';
-import ErrorWithMetadata from './ErrorWithMetadata.js';
 import escapeRegExpPattern from './escapeRegExpPattern.js';
+import {promises as fs} from './fs.js';
 import readAspect from './readAspect.js';
 import stringify from './stringify.js';
 

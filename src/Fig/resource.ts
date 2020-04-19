@@ -1,6 +1,6 @@
-import * as fs from 'fs';
 import {join} from 'path';
 
+import {readdirSync} from '../fs.js';
 import path from '../path.js';
 import Context from './Context.js';
 import globToRegExp from './globToRegExp.js';
@@ -25,8 +25,7 @@ export function files(glob: string): Array<Path> {
 
     const regExp = globToRegExp(glob);
 
-    return fs
-        .readdirSync(join('aspects', aspect, 'files'), {withFileTypes: true})
+    return readdirSync(join('aspects', aspect, 'files'), {withFileTypes: true})
         .filter((entry) => entry.isDirectory() || entry.isFile())
         .map(({name}) => name)
         .filter((name) => regExp.test(name))

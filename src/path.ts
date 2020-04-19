@@ -3,6 +3,9 @@ import {basename, dirname, join, normalize, relative, resolve} from 'path';
 
 const inspect = Symbol.for('nodejs.util.inspect.custom');
 
+// TODO: export path module wrappers as well, then I can just use it as a
+// drop-in replacement
+
 export type Path = string & {
     basename: Path;
     dirname: Path;

@@ -1,8 +1,8 @@
-import {promises as fs} from 'fs';
 import * as path from 'path';
 import * as url from 'url';
 
 import {log} from '../console/index.js';
+import {promises as fs} from '../fs.js';
 import {run} from './harness.js';
 
 export default async function test() {

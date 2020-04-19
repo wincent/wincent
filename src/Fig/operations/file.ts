@@ -1,6 +1,5 @@
-import {promises as fs} from 'fs';
-
 import ErrorWithMetadata from '../../ErrorWithMetadata.js';
+import {promises as fs} from '../../fs.js';
 import chmod from '../../fs/chmod.js';
 import chown from '../../fs/chown.js';
 import cp from '../../fs/cp.js';

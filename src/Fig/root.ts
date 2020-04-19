@@ -1,6 +1,7 @@
 import {dirname, join} from 'path';
-import {existsSync} from 'fs';
 import {fileURLToPath} from 'url';
+
+import {existsSync} from '../fs.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 

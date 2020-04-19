@@ -3,10 +3,10 @@
 // configuration-framework-specific entities. But in practice, the use of global
 // state and the amount of coupling we have between different modules means we
 // may as well consider them all to be equal citizens.
-import {promises as fs} from 'fs';
 import {dirname} from 'path';
 
 import ErrorWithMetadata from '../ErrorWithMetadata.js';
+import {promises as fs} from '../fs.js';
 import stat from '../fs/stat.js';
 
 /**

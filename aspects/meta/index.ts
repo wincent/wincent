@@ -1,10 +1,10 @@
 import * as expect from 'assert';
-import {promises as fs} from 'fs';
 import {join} from 'path';
 
 import {file, resource, task, template} from '../../src/Fig/index.js';
 import Context from '../../src/Fig/Context.js';
 import assert from '../../src/assert.js';
+import {promises as fs} from '../../src/fs.js';
 import stat from '../../src/fs/stat.js';
 import tempdir from '../../src/fs/tempdir.js';
 import {default as toPath} from '../../src/path.js';

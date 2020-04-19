@@ -1,6 +1,5 @@
-import {promises as fs} from 'fs';
-
 import {log} from './console/index.js';
+import {promises as fs} from './fs.js';
 import {Aspect, assertAspect} from './types/Aspect.js';
 
 export default async function readAspect(path: string): Promise<Aspect> {

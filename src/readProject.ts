@@ -1,6 +1,5 @@
-import {promises as fs} from 'fs';
-
 import {log} from './console/index.js';
+import {promises as fs} from './fs.js';
 import {Project, assertProject} from './types/Project.js';
 
 export default async function readProject(path: string): Promise<Project> {
