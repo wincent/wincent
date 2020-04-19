@@ -11,7 +11,6 @@ import path from '../../src/path.js';
 task('make config directories', async () => {
     const directories = [
         '~/.config',
-        '~/.config/alacritty',
         '~/.config/karabiner',
     ];
 

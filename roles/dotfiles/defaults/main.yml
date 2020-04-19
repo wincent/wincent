@@ -1,6 +1,6 @@
 ---
 dotfile_files:
-  - .config/alacritty/alacritty.yml
+  - .config/alacritty
   - .config/kitty
   - .config/ranger
   - .npmrc
