@@ -51,7 +51,7 @@ task('create symlinks', async () => {
         await file({
             force: true,
             path: path.home.join(path(src).basename),
-            src: path.aspect().join('files', path(src).basename),
+            src: path.aspect.join('files', path(src).basename),
             state: 'link',
         });
     }
@@ -67,7 +67,7 @@ task('fill templates', async () => {
         await template({
             mode: src.endsWith('.sh.erb') ? '0755' : '0644',
             path: path.home.join(path(src).basename.strip('.erb')),
-            src: path.aspect().join('templates', path(src).basename),
+            src: path.aspect.join('templates', path(src).basename),
         });
     }
 });

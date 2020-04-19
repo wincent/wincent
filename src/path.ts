@@ -26,6 +26,14 @@ export type Path = string & {
     [inspect]: () => string;
 };
 
+interface path {
+    (string: string): Path;
+
+    aspect: Path;
+    home: Path;
+    root: Path;
+}
+
 function path(string: string): Path {
     // Unwrap (possible) Path string-like back to primitive string.
     string = string.toString();
@@ -100,13 +108,14 @@ function path(string: string): Path {
     });
 }
 
-export default Object.assign(path, {
-    // TODO: make this a getter
-    aspect() {
+Object.defineProperty(path, 'aspect', {
+    get() {
         return path(root).join('aspects', Context.currentAspect);
-    },
+    }
+});
 
+export default Object.assign(path, {
     home: path('~'),
 
     root: path(root),
-});
+}) as path;
