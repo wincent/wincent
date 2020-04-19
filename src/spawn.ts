@@ -1,6 +1,5 @@
-import * as child_process from 'child_process';
-
 import ErrorWithMetadata from './ErrorWithMetadata.js';
+import * as child_process from './child_process.js';
 
 /**
  * Fire-and-forget child process execution.
@@ -27,8 +26,7 @@ export default async function spawn(
             );
         }
 
-        // `toString()` here in case we have a Path string-like.
-        const child = child_process.spawn(command.toString(), args, {
+        const child = child_process.spawn(command, args, {
             stdio: ['inherit', 'pipe', 'pipe'],
         });
 

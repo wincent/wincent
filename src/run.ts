@@ -1,5 +1,6 @@
-import * as child_process from 'child_process';
 import {randomBytes} from 'crypto';
+
+import {spawn} from './child_process.js';
 
 type Options = {
     passphrase?: string;
@@ -40,7 +41,7 @@ export default async function run(
             stdout: '',
         };
 
-        const child = child_process.spawn(final[0], final.slice(1));
+        const child = spawn(final[0], final.slice(1));
 
         // Sadly, we may see "Sorry, try again" if the wrong password is
         // supplied, because sudo may be configured to log it directly to

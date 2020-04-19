@@ -19,7 +19,7 @@ export type Path = string & {
 };
 
 export default function path(string: string): Path {
-    // Unwrap (possible) Path back to primitive string.
+    // Unwrap (possible) Path string-like back to primitive string.
     string = string.toString();
 
     return Object.defineProperties(new String(string), {
