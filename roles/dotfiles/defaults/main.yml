@@ -9,7 +9,6 @@ dotfile_files:
 dotfile_templates:
   - .config/karabiner/karabiner.json
   - .gemrc
-  - .gitconfig
   - .hammerspoon/iterm.lua
   - .imapfilter/config.lua
   - .mbsyncrc
@@ -18,6 +17,7 @@ dotfile_templates:
   - .mutt/hooks/presync.sh
   - .notmuch-config
 
+# DONE
 git_user_email: '{{"greg@hurrell.net" if identity == "wincent" else ""}}'
 git_user_name: '{{"Greg Hurrell" if identity == "wincent" else ""}}'
 github_username: '{{"wincent" if identity == "wincent" else ""}}'

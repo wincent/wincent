@@ -1,6 +1,7 @@
 import * as os from 'os';
 import {join} from 'path';
 
+import variables from '../variables.js';
 import ErrorWithMetadata from './ErrorWithMetadata.js';
 import Context from './Fig/Context.js';
 import {root} from './Fig/index.js';
@@ -155,7 +156,8 @@ async function main() {
     const baseVariables = merge(
         defaultVariables,
         profileVariables,
-        platformVariables
+        platformVariables,
+        variables
     );
 
     // Execute tasks.
@@ -171,7 +173,12 @@ async function main() {
                     continue;
                 }
 
-                const variables = merge(aspectVariables, baseVariables);
+                const mergedVariables = merge(baseVariables, aspectVariables);
+
+                const variables = merge(
+                    mergedVariables,
+                    Context.variables.get(aspect)(mergedVariables)
+                );
 
                 log.debug(`Variables:\n\n${stringify(variables)}\n`);
 

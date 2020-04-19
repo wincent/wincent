@@ -10,5 +10,5 @@
         "strict": true,
         "target": "ES2019"
     },
-    "include": ["aspects/**/*.ts", "src/**/*.ts"]
+    "include": ["aspects/**/*.ts", "src/**/*.ts", "variables.ts"]
 }

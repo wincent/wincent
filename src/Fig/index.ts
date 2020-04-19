@@ -5,6 +5,7 @@ import {default as root} from './root.js';
 import {default as task} from './task.js';
 import {default as template} from './operations/template.js';
 import {default as variable} from './variable.js';
+import {default as variables} from './variables.js';
 
 export {command};
 export {file};
@@ -13,6 +14,7 @@ export {root};
 export {task};
 export {template};
 export {variable};
+export {variables};
 
 export interface Fig {
     command: typeof command;
@@ -22,4 +24,5 @@ export interface Fig {
     task: typeof task;
     template: typeof template;
     variable: typeof variable;
+    variables: typeof variables;
 }

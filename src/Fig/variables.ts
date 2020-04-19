@@ -6,7 +6,12 @@ import getCaller from '../getCaller.js';
 import Context from './Context.js';
 import {default as root} from './root.js';
 
-export default function task(name: string, callback: () => Promise<void>) {
+/**
+ * Register a callback to dynamically contribute variables when an aspect is
+ * running (useful for values that cannot be determined statically ahead of time
+ * and stored in JSON).
+ */
+export default function variables(callback: (v: Variables) => Variables) {
     const caller = getCaller();
 
     const path = url.fileURLToPath(caller);
@@ -22,5 +27,8 @@ export default function task(name: string, callback: () => Promise<void>) {
 
     assertAspect(aspect);
 
-    Context.tasks.register(aspect, callback, `${aspect} | ${name}`);
+    Context.variables.register(aspect, callback);
 }
+
+// TODO: dedupe this, which is almost identical to task.ts
+// TODO: rename this folder from "Fig" to "dsl"

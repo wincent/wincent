@@ -185,13 +185,17 @@ export function* tokenize(input: string): Generator<Token> {
                         }
                     }
                 } else {
+                    // TODO: may want to tolerate this so that we can write
+                    // things like: <%= '<%' %>
+                    // would be useful in .gitconfig.erb
                     throw new Error(
-                        `Unexpected start delimiter "${text}" at index ${match.index}`
+                        `Unexpected start delimiter "${text}" at index ${match.index}:\n\n` +
+                            excerpt(input, match.index)
                     );
                 }
             } else {
                 if (text === '<%-') {
-                    // Eat whitspace between previous newline and delimiter.
+                    // Eat whitespace between previous newline and delimiter.
                     yield {
                         kind: 'TemplateText',
                         text: input
@@ -217,7 +221,8 @@ export function* tokenize(input: string): Generator<Token> {
                     };
                 } else if (text === '%>') {
                     throw new Error(
-                        `Unexpected end delimiter "%>" at index ${match.index}`
+                        `Unexpected end delimiter "%>" at index ${match.index}:\n\n` +
+                            excerpt(input, match.index)
                     );
                 }
             }
@@ -232,4 +237,11 @@ export function* tokenize(input: string): Generator<Token> {
             break;
         }
     }
+}
+
+/**
+ * Produce an except of `input` around position `index` for error-reporting.
+ */
+function excerpt(input: string, index: number): string {
+    return JSON.stringify(input.slice(Math.max(0, index - 10), index + 10));
 }

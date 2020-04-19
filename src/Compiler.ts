@@ -1,3 +1,4 @@
+// import {log} from './console/index.js';
 import {promises as fs} from './fs.js';
 import {compile, fill} from './template.js';
 
@@ -23,6 +24,9 @@ export default class Compiler {
             const source = await fs.readFile(path, 'utf8');
 
             const compiled = compile(source);
+
+            // BUG: too verbose?
+            // log.debug(`Compiled template source:\n\n${compiled}\n`);
 
             map.set(path, {
                 fill(scope) {

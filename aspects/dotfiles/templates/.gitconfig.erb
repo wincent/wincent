@@ -1,4 +1,4 @@
-# {{ ansible_managed }}
+# <%= variables.figManaged %>
 
 [alias]
 	abbrev = !sh -c 'git rev-parse --short ${1-`echo HEAD`}' -
@@ -24,10 +24,10 @@
 	get = "!f() { git fresh && git ff \"$@\"; }; f"
 
 	# equivalent to: graph --all
-	gr = log --graph --all --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%aN>%Creset'
+	gr = log --graph --all --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%= '<\%' %>aN>%Creset'
 
 	# requires Git 1.6.3 or later; %C(auto) requires Git 1.8.3 or later
-	graph = log --graph --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%aN>%Creset'
+	graph = log --graph --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%= '<\%' %>aN>%Creset'
 
 	# Show just the HEAD commit message (no indent) and nothing else
 	message = log -1 --pretty=format:%B
@@ -36,8 +36,8 @@
 	no-edit = commit --amend --no-edit
 
 	# %C(auto) requires Git 1.8.3 or later
-	one = log --pretty=format:'%C(auto)%h%Creset %s%C(auto)%d%Creset %C(magenta bold)(%cr)%Creset %C(cyan)<%aN>%Creset'
-	oneline = log --pretty=format:'%C(auto)%h%Creset %s%C(auto)%d%Creset %C(magenta bold)(%cr)%Creset %C(cyan)<%aN>%Creset'
+	one = log --pretty=format:'%C(auto)%h%Creset %s%C(auto)%d%Creset %C(magenta bold)(%cr)%Creset %C(cyan)<%= '<\%' %>aN>%Creset'
+	oneline = log --pretty=format:'%C(auto)%h%Creset %s%C(auto)%d%Creset %C(magenta bold)(%cr)%Creset %C(cyan)<%= '<\%' %>aN>%Creset'
 
 	# requires Git 1.5.4 or later
 	p = add -p
@@ -51,13 +51,13 @@
 
 	# "smartlog", although it's not that smart.
 	# Equivalent to `git graph --all --simplify-by-decoration.
-	sl = log --graph --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%aN>%Creset' --all --simplify-by-decoration
+	sl = log --graph --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%= '<\%' %>aN>%Creset' --all --simplify-by-decoration
 
 	st = status
 	staged = diff --cached --ignore-submodules=dirty
 
 	# %C(auto) requires Git 1.8.3 or later
-	ten = log -10 --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%aN>%Creset'
+	ten = log -10 --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%= '<\%' %>aN>%Creset'
 
 	# compensate for brain damage caused by using Mercurial
 	up = checkout
@@ -104,17 +104,16 @@
 
 [difftool]
 	prompt = false
-{% if github_username != '' %}
+<%- if (variables.gitHubUsername) { -%>
 
 [github]
-	username = {{ github_username }}
-{% endif %}
+	username = <%= variables.gitHubUsername %>
+<%- } -%>
 
 [grep]
 	lineNumber = true
 
-	# requires Git built with PCRE support; ie:
-	#   brew install git --with-pcre (on OS X)
+	# Requires PCRE support; ie: `brew install git --with-pcre` (on macOS).
 	patternType = perl
 
 [help]
@@ -152,9 +151,9 @@
 	smtpEncryption = tls
 	smtpServer = smtp.gmail.com
 	smtpServerPort = 587
-{% if git_user_email != '' %}
-	smtpUser = {{ git_user_email }}
-{% endif %}
+<%- if (variables.gitUserEmail) { -%>
+	smtpUser = <%= variables.gitUserEmail %>
+<%- } -%>
 
 [status]
 	submodulesummary = true
@@ -164,12 +163,12 @@
 	fetchJobs = 4
 
 [user]
-{% if git_user_email != '' %}
-	email = {{ git_user_email }}
-{% endif %}
-{% if git_user_name != '' %}
-	name = {{ git_user_name }}
-{% endif %}
+<%- if (variables.gitUserEmail) { -%>
+	email = <%= variables.gitUserEmail %>
+<%- } -%>
+<%- if (variables.gitUserName) { -%>
+	name = <%= variables.gitUserName %>
+<%- } -%>
 
 # ignored by Git older than 1.7.10
 [include]

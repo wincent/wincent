@@ -27,6 +27,6 @@
             ".zshenv",
             ".zshrc"
         ],
-        "templates": [".corpusrc.erb"]
+        "templates": [".corpusrc.erb", ".gitconfig.erb"]
     }
 }

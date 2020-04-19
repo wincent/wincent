@@ -1,7 +1,20 @@
-import {command, file, template, task, variable} from '../../src/Fig/index.js';
+import {
+    command,
+    file,
+    template,
+    task,
+    variable,
+    variables,
+} from '../../src/Fig/index.js';
 import assert from '../../src/assert.js';
 import stat from '../../src/fs/stat.js';
 import path from '../../src/path.js';
+
+variables(({identity}) => ({
+    gitUserEmail: identity === 'wincent' ? 'greg@hurrell.net' : '',
+    gitUserName: identity === 'wincent' ? 'Greg Hurrell' : '',
+    gitHubUsername: identity === 'wincent' ? 'wincent' : '',
+}));
 
 task('make directories', async () => {
     await file({path: '~/.backups', state: 'directory'});

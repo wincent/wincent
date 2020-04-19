@@ -6,6 +6,7 @@ import prompt from '../prompt.js';
 import * as status from './status.js';
 import Compiler from '../Compiler.js';
 import TaskRegistry from './TaskRegistry.js';
+import VariableRegistry from './VariableRegistry.js';
 
 import type {Metadata} from '../ErrorWithMetadata.js';
 import type {Aspect} from '../types/Project.js';
@@ -32,6 +33,11 @@ class Context {
     #sudoPassphrase?: Promise<string>;
     #tasks: TaskRegistry;
 
+    // TODO: rename stuff to avoid confusion about `variables`
+    // (VariableRegistry) vs `currentVariables` (merged variables set
+    // from main.ts).
+    #variables: VariableRegistry;
+
     constructor() {
         this.#attributes = new Attributes();
         this.#compiler = new Compiler();
@@ -44,6 +50,7 @@ class Context {
         };
 
         this.#tasks = new TaskRegistry();
+        this.#variables = new VariableRegistry();
     }
 
     compile(path: string) {
@@ -155,6 +162,10 @@ class Context {
     // meddled with
     get tasks(): TaskRegistry {
         return this.#tasks;
+    }
+
+    get variables(): VariableRegistry {
+        return this.#variables;
     }
 }
 
