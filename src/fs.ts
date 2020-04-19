@@ -33,8 +33,8 @@ const promises: {
     },
 
     // This functions has overloads, so we have to use `any` types.
-    readFile(path: any, options: any): any {
-        return fs.promises.readFile(path.toString(), options);
+    readFile(path: any, ...args: any): any {
+        return fs.promises.readFile(path.toString(), ...args);
     },
 
     stat(

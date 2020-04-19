@@ -10,22 +10,18 @@ import * as child_process from 'child_process';
 // TODO: see if I can do this with a few less "any"; necessary because there are
 // so many overloads of these functions.
 
-const spawn: typeof child_process.spawn = ((
-    command: any,
-    args: any,
-    options: any
-) => {
-    return child_process.spawn(command.toString(), args, options);
+let spawn: typeof child_process.spawn;
+
+spawn = ((command: any, ...args: any) => {
+    return child_process.spawn(command.toString(), ...args);
 }) as any;
 
 export {spawn};
 
-const spawnSync: typeof child_process.spawnSync = ((
-    command: any,
-    args: any,
-    options: any
-): any => {
-    return child_process.spawnSync(command.toString(), args, options);
-}) as any;
+let spawnSync: typeof child_process.spawnSync;
+
+spawnSync = (command: any, ...args: any): any => {
+    return child_process.spawnSync(command.toString(), ...args);
+};
 
 export {spawnSync};
