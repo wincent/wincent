@@ -1,6 +1,9 @@
 import {homedir} from 'os';
 import {basename, dirname, join, normalize, relative, resolve} from 'path';
 
+import Context from './Fig/Context.js';
+import root from './Fig/root.js';
+
 const inspect = Symbol.for('nodejs.util.inspect.custom');
 
 // TODO: export path module wrappers as well, then I can just use it as a
@@ -17,12 +20,13 @@ export type Path = string & {
     join: (...components: Array<string>) => Path;
     resolve: Path;
     simplify: Path;
+    strip: (extension?: string) => Path;
 
     // Makes sure value as printed by `console.log()` looks like a string.
     [inspect]: () => string;
 };
 
-export default function path(string: string): Path {
+function path(string: string): Path {
     // Unwrap (possible) Path string-like back to primitive string.
     string = string.toString();
 
@@ -81,10 +85,28 @@ export default function path(string: string): Path {
             },
         },
 
+        /**
+         * Strips off ".ext" identified by `extension`, if present.
+         */
+        strip: {
+            value: (extension?: string) => {
+                return path(join(dirname(string), basename(string, extension)));
+            },
+        },
+
         [inspect]: {
             value: () => string,
         },
     });
 }
 
-path.home = path('~');
+export default Object.assign(path, {
+    // TODO: make this a getter
+    aspect() {
+        return path(root).join('aspects', Context.currentAspect);
+    },
+
+    home: path('~'),
+
+    root: path(root),
+});

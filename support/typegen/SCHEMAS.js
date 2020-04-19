@@ -104,6 +104,7 @@ export default {
                     },
                 },
             },
+            variables: {$ref: '#/definitions/Variables'},
         },
         required: ['platforms'],
         type: 'object',

@@ -1,5 +1,7 @@
 import Context from '../Context.js';
+import {LAQUO, RAQUO} from '../../Unicode.js';
 import file from './file.js';
+import {default as toPath} from '../../path.js';
 
 export default async function template({
     force,
@@ -9,7 +11,7 @@ export default async function template({
     path,
     src,
     sudo,
-    variables = {},
+    variables = Context.currentVariables,
 }: {
     force?: boolean;
     group?: string;
@@ -18,9 +20,22 @@ export default async function template({
     owner?: string;
     src: string;
     sudo?: boolean;
-    variables: Variables;
+    variables?: Variables;
 }): Promise<void> {
-    const contents = (await Context.compile(src)).fill({variables});
+    const {figManaged} = variables;
+
+    const contents = (await Context.compile(src)).fill({
+        variables: {
+            ...variables,
+            figManaged:
+                typeof figManaged === 'string'
+                    ? figManaged.replace(
+                          `${LAQUO}file${RAQUO}`,
+                          toPath(src).resolve
+                      )
+                    : '',
+        },
+    });
 
     return await file({
         contents,

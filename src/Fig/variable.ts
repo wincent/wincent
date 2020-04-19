@@ -10,6 +10,17 @@ export default function variable(
     return variables.hasOwnProperty(name) ? variables[name] : fallback || null;
 }
 
+variable.array = (
+    name: string,
+    fallback?: Array<JSONValue>
+): Array<JSONValue> => {
+    const value = variable(name, fallback);
+
+    assert(Array.isArray(value), `Expected variable ${name} to be an array`);
+
+    return value;
+};
+
 variable.string = (name: string, fallback?: JSONValue): string => {
     const value = variable(name, fallback);
 

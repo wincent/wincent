@@ -7,18 +7,25 @@
         "linux": {
             "aspects": ["meta", "dotfiles", "terminfo"],
             "variables": {
-                "terminfo_path": "~/share/terminfo"
+                "terminfoPath": "~/share/terminfo"
             }
         }
     },
     "profiles": {
         "personal": {
             "pattern": "/\\bretiro\\b/i",
-            "variables": {}
+            "variables": {
+                "corpusNotes": "~/Sync/Personal/Corpus"
+            }
         },
         "work": {
             "pattern": "/\\blfrw044\\b/i",
             "variables": {}
         }
+    },
+    "variables": {
+        "corpusNotes": "~/Documents/Corpus",
+        "figManaged": "vim: set nomodifiable : DO NOT EDIT - edit template source instead («file») or use `:set modifiable` to force.",
+        "gitCipherPath": "vendor/git-cipher/bin/git-cipher"
     }
 }

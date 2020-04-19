@@ -1,6 +1,0 @@
-{
-    "variables": {
-        "corpus_notes": "~/Documents/Corpus",
-        "git_cipher_path": "vendor/git-cipher/bin/git-cipher"
-    }
-}

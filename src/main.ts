@@ -61,6 +61,8 @@ async function main() {
 
     log.info(`Profile: ${profile || 'n/a'}`);
 
+    log.debug(`Profiles:\n\n${stringify(profiles)}\n`);
+
     const profileVariables: {[key: string]: JSONValue} = profile
         ? profiles[profile]!.variables ?? {}
         : {};
@@ -148,7 +150,13 @@ async function main() {
         );
     }
 
-    const baseVariables = merge(profileVariables, platformVariables);
+    const defaultVariables = project.variables ?? {};
+
+    const baseVariables = merge(
+        defaultVariables,
+        profileVariables,
+        platformVariables
+    );
 
     // Execute tasks.
     try {

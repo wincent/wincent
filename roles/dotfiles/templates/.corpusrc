@@ -1,5 +1,0 @@
-{
-  // {{ ansible_managed }}
-  "notesDirectory": "{{ corpus_notes }}",
-  "noteFontFamily": "'Source Code Pro', Consolas, Monaco"
-}

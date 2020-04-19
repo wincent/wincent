@@ -1,3 +1,32 @@
 {
-    "description": "Creates symlinks in $HOME to the dotfiles in this repo"
+    "description": "Creates symlinks in $HOME to the dotfiles in this repo",
+    "variables": {
+        "files": [
+            ".ackrc",
+            ".agignore",
+            ".clipper.json",
+            ".ghci",
+            ".gitattributes",
+            ".gitignore",
+            ".gitk",
+            ".gvimrc",
+            ".hammerspoon",
+            ".hgrc",
+            ".imapfilter",
+            ".inputrc",
+            ".lbdbrc",
+            ".mutt",
+            ".rdebugrc",
+            ".rgrc",
+            ".rspec",
+            ".screenrc",
+            ".tmux.conf",
+            ".urlview",
+            ".vim",
+            ".zsh",
+            ".zshenv",
+            ".zshrc"
+        ],
+        "templates": [".corpusrc.erb"]
+    }
 }

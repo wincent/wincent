@@ -1,6 +1,4 @@
 ---
-corpus_notes: '{{ "~/Sync/Personal/Corpus" | expanduser }}'
-
 imap_nickname: Gmail
 imap_server: imap.gmail.com
 imap_user: greg@hurrell.net
