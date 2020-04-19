@@ -17,7 +17,7 @@ export function readdirSync(
     path: Parameters<typeof fs.readdirSync>[0],
     options: Parameters<typeof fs.readdirSync>[1]
 ): ReturnType<typeof fs.readdirSync> {
-    return fs.readdirSync(path, options);
+    return fs.readdirSync(path.toString(), options);
 }
 
 const promises: {
@@ -29,7 +29,7 @@ const promises: {
 } = {
     // This functions has overloads, so we have to use `any` types.
     readdir(directory: any, options: any): any {
-        return fs.promises.readdir(directory, options);
+        return fs.promises.readdir(directory.toString(), options);
     },
 
     // This functions has overloads, so we have to use `any` types.
@@ -56,7 +56,7 @@ const promises: {
         data: Parameters<typeof fs.promises.writeFile>[1],
         options: Parameters<typeof fs.promises.writeFile>[2]
     ): ReturnType<typeof fs.promises.writeFile> {
-        return fs.promises.writeFile(path, data, options);
+        return fs.promises.writeFile(path.toString(), data, options);
     },
 };
 
