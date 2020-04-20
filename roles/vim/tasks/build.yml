@@ -1,15 +1,4 @@
 ---
-- name: vim | configure Command-T
-  command:
-    ruby extconf.rb
-    creates={{ command_t_base }}/ruby/command-t/ext/command-t/Makefile
-    chdir={{ command_t_base }}/ruby/command-t/ext/command-t
-
-- name: vim | compile Command-T
-  command:
-    make
-    creates={{ command_t_base }}/ruby/command-t/ext/command-t/{{ command_t_bundle }}
-    chdir={{ command_t_base }}/ruby/command-t/ext/command-t
 
 - name: vim | check languageclient
   stat: path={{ language_client_base }}/bin/languageclient

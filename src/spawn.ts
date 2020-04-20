@@ -1,6 +1,8 @@
 import ErrorWithMetadata from './ErrorWithMetadata.js';
 import * as child_process from './child_process.js';
 
+import type {SpawnOptions} from 'child_process';
+
 /**
  * Fire-and-forget child process execution.
  *
@@ -8,7 +10,8 @@ import * as child_process from './child_process.js';
  */
 export default async function spawn(
     command: string,
-    ...args: Array<string>
+    args: Array<string>,
+    options: SpawnOptions = {}
 ): Promise<void> {
     return new Promise((resolve, reject) => {
         let stderr = '';
@@ -27,6 +30,7 @@ export default async function spawn(
         }
 
         const child = child_process.spawn(command, args, {
+            ...options,
             stdio: ['inherit', 'pipe', 'pipe'],
         });
 

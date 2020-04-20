@@ -1,3 +1,4 @@
+import {default as attributes} from './attributes.js';
 import {default as command} from './operations/command.js';
 import {default as file} from './operations/file.js';
 import * as resource from './resource.js';
@@ -8,6 +9,7 @@ import {default as template} from './operations/template.js';
 import {default as variable} from './variable.js';
 import {default as variables} from './variables.js';
 
+export {attributes};
 export {command};
 export {file};
 export {resource};
@@ -19,6 +21,7 @@ export {variable};
 export {variables};
 
 export interface Fig {
+    attributes: typeof attributes;
     command: typeof command;
     file: typeof file;
     resource: typeof resource;

@@ -15,7 +15,7 @@
 
 ### Dotfiles
 
-[A set of dotfiles](https://github.com/wincent/wincent/tree/master/roles/dotfiles/files) that I've been tweaking and twiddling since the early 2000s ([under version control](https://github.com/wincent/wincent/commit/61a7e2a830edb7) since 2009). Characteristics include:
+[A set of dotfiles](https://github.com/wincent/wincent/tree/master/aspects/dotfiles/files) that I've been tweaking and twiddling since the early 2000s ([under version control](https://github.com/wincent/wincent/commit/61a7e2a830edb7) since 2009). Characteristics include:
 
 -   Sane Vim pasting via bracketed paste mode.
 -   Write access to local clipboard from local and remote hosts, inside and outside of tmux (via [Clipper](https://github.com/wincent/clipper)).
@@ -23,12 +23,12 @@
 -   Focus/lost events for Vim inside tmux.
 -   Cursor shape toggles on entering Vim.
 -   Italics in the terminal.
--   Bundles a (not-excessive) number of [useful Vim plug-ins](https://github.com/wincent/wincent/tree/master/roles/dotfiles/files/.vim/pack).
+-   Bundles a (not-excessive) number of [useful Vim plug-ins](https://github.com/wincent/wincent/tree/master/aspects/vim/files/.vim/pack).
 -   Conservative Vim configuration (very few overrides of core functionality; most changes are unobtrusive enhancements; some additional functionality exposed via `<Leader>` and `<LocalLeader>` mappings.
 -   Relatively restrained Zsh config, Bash-like but with a few Zsh perks, such as right-side prompt, auto-cd hooks, command elapsed time printing and such.
 -   Unified color-handling (across iTerm2 and Vim) via [Base16 Shell](https://github.com/chriskempson/base16-shell).
 -   Encrypted versioning of files with sensitive content (via [git-cipher](https://github.com/wincent/git-cipher)).
--   Comprehensive [Hammerspoon](http://www.hammerspoon.org/) [config](https://github.com/wincent/wincent/tree/master/roles/dotfiles/files/.hammerspoon).
+-   Comprehensive [Hammerspoon](http://www.hammerspoon.org/) [config](https://github.com/wincent/wincent/tree/master/aspects/dotfiles/files/.hammerspoon).
 
 ### Homebrew
 
@@ -277,7 +277,7 @@ env http_proxy=http://fwdproxy:8080 https_proxy=http://fwdproxy:8080 ./install
 As a fallback strategy, in case the `install` script fails, you can symlink the dotfiles by hand with a command like the following:
 
 ```sh
-for DOTFILE in $(find roles/dotfiles/files -maxdepth 1 -name '.*' | tail -n +2); do
+for DOTFILE in $(find aspects/dotfiles/files -maxdepth 1 -name '.*' | tail -n +2); do
   ln -sf $PWD/$DOTFILE ~
 done
 ```

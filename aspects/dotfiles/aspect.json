@@ -9,7 +9,6 @@
             ".gitattributes",
             ".gitignore",
             ".gitk",
-            ".gvimrc",
             ".hammerspoon",
             ".hgrc",
             ".imapfilter",
@@ -22,7 +21,6 @@
             ".screenrc",
             ".tmux.conf",
             ".urlview",
-            ".vim",
             ".zsh",
             ".zshenv",
             ".zshrc"

@@ -13,33 +13,3 @@
 # TODO: should probably upgrade from time to time as well
 # pip3 install --upgrade pynvim
 # yarn global add neovim (upgrades)
-
-- name: vim | require .vim symlink to have been established
-  stat: path=~/.vim
-  register: dot_vim_stat
-  failed_when: not dot_vim_stat.stat.exists or not dot_vim_stat.stat.islnk
-
-- name: vim | show dot_vim_stat
-  debug:
-    var: dot_vim_stat
-    verbosity: 2
-
-- name: vim | create deoplete directories
-  file: path={{ item }} state=directory
-  loop:
-    - ~/.vim/rplugin
-    - ~/.vim/rplugin/python3
-    - ~/.vim/rplugin/python3/deoplete
-    - ~/.vim/rplugin/python3/deoplete/filter
-    - ~/.vim/rplugin/python3/deoplete/sources
-  when: dot_vim_stat.stat.exists and dot_vim_stat.stat.islnk
-
-- name: vim | copy deoplete extensions
-  file: force=yes
-        path=~/{{ item }}
-        src={{ ansible_env.PWD }}/aspects/vim/files/{{ item }}
-        state=link
-  loop:
-    - .vim/rplugin/python3/deoplete/filter/sorter_smart.py
-    - .vim/rplugin/python3/deoplete/sources/mail.py
-    - .vim/rplugin/python3/deoplete/sources/masochist.py

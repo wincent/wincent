@@ -1,5 +1,5 @@
 /lib
-/aspects/dotfiles/files/.vim
+/aspects/vim/files/.vim
 /roles/dotfiles/templates/.config/karabiner/karabiner.json
 /src/types
 /vendor

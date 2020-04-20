@@ -12,6 +12,7 @@ export default async function command(
     executable: string,
     args: Array<string>,
     options: {
+        chdir?: string;
         creates?: string;
     } = {}
 ): Promise<void> {
@@ -33,8 +34,10 @@ export default async function command(
     try {
         await spawn(
             path(executable).expand,
-            ...args.map((arg) => path(arg).expand)
+            args.map((arg) => path(arg).expand),
+            options.chdir ? {cwd: options.chdir} : {}
         );
+
         // TODO: decide whether to log full command here
         Context.informChanged(`command \`${description}\``);
     } catch (error) {

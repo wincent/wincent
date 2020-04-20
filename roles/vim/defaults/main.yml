@@ -1,8 +1,7 @@
 ---
-vim_bundle_base: '{{ ansible_env.PWD }}/aspects/dotfiles/files/.vim/pack'
-command_t_base: '{{ vim_bundle_base }}/bundle/opt/command-t'
+vim_bundle_base: '{{ ansible_env.PWD }}/aspects/vim/files/.vim/pack'
 language_client_base: '{{ vim_bundle_base }}/bundle/opt/LanguageClient-neovim'
-spellfile: '{{ ansible_env.PWD }}/aspects/dotfiles/files/.vim/spell/en.utf-8.add'
+spellfile: '{{ ansible_env.PWD }}/aspects/vim/files/.vim/spell/en.utf-8.add'
 update_vim_bundle: false
 install_deoplete_extensions: false
 install_masochist_vim_dependencies: false

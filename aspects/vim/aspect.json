@@ -1,3 +1,6 @@
 {
-    "description": "Updates and manages Vim plug-ins"
+    "description": "Configures Vim",
+    "variables": {
+        "files": [".gvimrc", ".vim"]
+    }
 }

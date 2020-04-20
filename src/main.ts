@@ -153,6 +153,7 @@ async function main() {
 
     const attributeVariables = {
         home: Context.attributes.home,
+        platform: Context.attributes.platform,
     };
 
     const defaultVariables = project.variables ?? {};

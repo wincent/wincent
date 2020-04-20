@@ -7,7 +7,6 @@ import {
     variable,
     variables,
 } from '../../src/Fig/index.js';
-import assert from '../../src/assert.js';
 import stat from '../../src/fs/stat.js';
 import path from '../../src/path.js';
 
@@ -29,21 +28,11 @@ task('make directories', async () => {
     }
 });
 
-task('link ~/.config/nvim to ~/.vim', async () => {
-    await file({
-        path: '~/.config/nvim',
-        src: '~/.vim',
-        state: 'link',
-    });
-});
-
 task('copy to ~/backups', async () => {
-    const files = [...variable.array('files'), ...variable.array('templates')];
+    const files = [...variable.paths('files'), ...variable.paths('templates')];
 
     for (const file of files) {
-        assert(typeof file === 'string');
-
-        const base = path(file).basename;
+        const base = file.basename;
         const source = path.home.join(base);
         const target = path.home.join('.backups', base);
 
