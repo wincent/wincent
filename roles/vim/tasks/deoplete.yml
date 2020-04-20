@@ -7,6 +7,13 @@
 - name: vim | install commandt.score via pip3
   pip: executable=pip3 name=commandt.score
 
+- name: vim | install msgpack via pip3
+  pip: executable=pip3 name=msgpack
+
+# TODO: should probably upgrade from time to time as well
+# pip3 install --upgrade pynvim
+# yarn global add neovim (upgrades)
+
 - name: vim | require .vim symlink to have been established
   stat: path=~/.vim
   register: dot_vim_stat
@@ -30,7 +37,7 @@
 - name: vim | copy deoplete extensions
   file: force=yes
         path=~/{{ item }}
-        src={{ ansible_env.PWD }}/roles/vim/files/{{ item }}
+        src={{ ansible_env.PWD }}/aspects/vim/files/{{ item }}
         state=link
   loop:
     - .vim/rplugin/python3/deoplete/filter/sorter_smart.py

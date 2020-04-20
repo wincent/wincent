@@ -17,7 +17,7 @@ export default async function ln(
 ): Promise<Error | null> {
     const passphrase = options.sudo ? await Context.sudoPassphrase : undefined;
 
-    const args = [options.force ? '-sf' : '-s', source, target];
+    const args = [options.force ? '-sfn' : '-sn', source, target];
 
     log.debug(`Linking: ${args.join(' ')}`);
 
