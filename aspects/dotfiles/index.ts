@@ -24,7 +24,7 @@ task('make directories', async () => {
     await file({path: '~/.zshenv.d', state: 'directory'});
 
     if (variable('identity') === 'wincent') {
-        await file({path: '~/.code', state: 'directory'});
+        await file({path: '~/code', state: 'directory'});
     }
 });
 
