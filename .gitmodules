@@ -1,14 +1,20 @@
-[submodule "mutt-notmuch-py"]
-	path = aspects/dotfiles/files/.mutt/vendor/mutt-notmuch-py
-	url = https://github.com/honza/mutt-notmuch-py.git
-[submodule "vim-pathogen"]
-	path = aspects/vim/files/.vim/pack/bundle/opt/vim-pathogen
-	url = https://github.com/tpope/vim-pathogen.git
 [submodule "LanguageClient-neovim"]
 	ignore = dirty
 	path = aspects/vim/files/.vim/pack/bundle/opt/LanguageClient-neovim
 	url = https://github.com/autozimu/LanguageClient-neovim.git
 	branch = next
+[submodule "ansible"]
+	path = vendor/ansible
+	url = https://github.com/ansible/ansible.git
+[submodule "base16-iterm2"]
+	path = vendor/base16-iterm2
+	url = https://github.com/chriskempson/base16-iterm2.git
+[submodule "base16-kitty"]
+	path = roles/dotfiles/files/.config/kitty/base16-kitty
+	url = https://github.com/kdrag0n/base16-kitty.git
+[submodule "base16-shell"]
+	path = aspects/dotfiles/files/.zsh/base16-shell
+	url = https://github.com/chriskempson/base16-shell.git
 [submodule "base16-vim"]
 	path = aspects/vim/files/.vim/pack/bundle/opt/base16-vim
 	url = https://github.com/chriskempson/base16-vim.git
@@ -17,10 +23,19 @@
 	ignore = dirty
 	path = aspects/vim/files/.vim/pack/bundle/opt/command-t
 	url = https://github.com/wincent/command-t.git
+[submodule "deoplete"]
+	path = aspects/vim/files/.vim/pack/bundle/opt/deoplete
+	url = https://github.com/Shougo/deoplete.nvim.git
 [submodule "ferret"]
 	ignore = untracked
 	path = aspects/vim/files/.vim/pack/bundle/opt/ferret
 	url = https://github.com/wincent/ferret.git
+[submodule "float-preview.nvim"]
+	path = aspects/vim/files/.vim/pack/bundle/opt/float-preview.nvim
+	url = https://github.com/ncm2/float-preview.nvim.git
+[submodule "git-cipher"]
+	path = vendor/git-cipher
+	url = https://github.com/wincent/git-cipher.git
 [submodule "goyo.vim"]
 	path = aspects/vim/files/.vim/pack/bundle/opt/goyo
 	url = https://github.com/junegunn/goyo.vim.git
@@ -31,6 +46,12 @@
 	ignore = dirty
 	path = aspects/vim/files/.vim/pack/bundle/opt/loupe
 	url = https://github.com/wincent/loupe.git
+[submodule "mutt-notmuch-py"]
+	path = aspects/dotfiles/files/.mutt/vendor/mutt-notmuch-py
+	url = https://github.com/honza/mutt-notmuch-py.git
+[submodule "n"]
+	path = vendor/n
+	url = https://github.com/tj/n.git
 [submodule "neco-ghc"]
 	path = aspects/vim/files/.vim/pack/bundle/opt/neco-ghc
 	url = https://github.com/eagletmt/neco-ghc.git
@@ -45,18 +66,28 @@
 [submodule "scalpel"]
 	path = aspects/vim/files/.vim/pack/bundle/opt/scalpel
 	url = https://github.com/wincent/scalpel.git
+[submodule "skim"]
+	path = aspects/dotfiles/files/.zsh/skim
+	url = https://github.com/lotabout/skim.git
 [submodule "tcomment_vim"]
 	path = aspects/vim/files/.vim/pack/bundle/opt/tcomment_vim
 	url = https://github.com/tomtom/tcomment_vim.git
 [submodule "terminus"]
 	path = aspects/vim/files/.vim/pack/bundle/opt/terminus
 	url = https://github.com/wincent/terminus.git
+[submodule "typescript-vim"]
+	path = aspects/vim/files/.vim/pack/bundle/opt/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim.git
 [submodule "ultisnips"]
 	path = aspects/vim/files/.vim/pack/bundle/opt/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
 [submodule "undotree"]
 	path = aspects/vim/files/.vim/pack/bundle/opt/undotree
 	url = https://github.com/mbbill/undotree.git
+[submodule "vcs-jump"]
+	ignore = untracked
+	path = aspects/vim/files/.vim/pack/bundle/opt/vcs-jump
+	url = https://github.com/wincent/vcs-jump.git
 [submodule "vim-abolish"]
 	path = aspects/vim/files/.vim/pack/bundle/opt/vim-abolish
 	url = https://github.com/tpope/vim-abolish.git
@@ -66,6 +97,12 @@
 [submodule "vim-clipper"]
 	path = aspects/vim/files/.vim/pack/bundle/opt/vim-clipper
 	url = https://github.com/wincent/vim-clipper.git
+[submodule "vim-dirvish"]
+	path = aspects/vim/files/.vim/pack/bundle/opt/vim-dirvish
+	url = https://github.com/justinmk/vim-dirvish.git
+[submodule "vim-dispatch"]
+	path = aspects/vim/files/.vim/pack/bundle/opt/vim-dispatch
+	url = https://github.com/tpope/vim-dispatch.git
 [submodule "vim-docvim"]
 	path = aspects/vim/files/.vim/pack/bundle/opt/vim-docvim
 	url = https://github.com/wincent/vim-docvim.git
@@ -96,6 +133,16 @@
 [submodule "vim-lion"]
 	path = aspects/vim/files/.vim/pack/bundle/opt/vim-lion
 	url = https://github.com/tommcdo/vim-lion.git
+[submodule "vim-markdown"]
+	path = aspects/vim/files/.vim/pack/bundle/opt/vim-markdown
+	url = https://github.com/plasticboy/vim-markdown.git
+[submodule "vim-operator-user"]
+	ignore = dirty
+	path = aspects/vim/files/.vim/pack/bundle/opt/vim-operator-user
+	url = https://github.com/kana/vim-operator-user.git
+[submodule "vim-pathogen"]
+	path = aspects/vim/files/.vim/pack/bundle/opt/vim-pathogen
+	url = https://github.com/tpope/vim-pathogen.git
 [submodule "vim-projectionist"]
 	path = aspects/vim/files/.vim/pack/bundle/opt/vim-projectionist
 	url = https://github.com/tpope/vim-projectionist.git
@@ -110,6 +157,12 @@
 [submodule "vim-signature"]
 	path = aspects/vim/files/.vim/pack/bundle/opt/vim-signature
 	url = https://github.com/kshenoy/vim-signature.git
+[submodule "vim-slime"]
+	path = aspects/vim/files/.vim/pack/bundle/opt/vim-slime
+	url = https://github.com/jpalardy/vim-slime.git
+[submodule "vim-soy"]
+	path = aspects/vim/files/.vim/pack/bundle/opt/vim-soy
+	url = https://github.com/duganchen/vim-soy.git
 [submodule "vim-speeddating"]
 	path = aspects/vim/files/.vim/pack/bundle/opt/vim-speeddating
 	url = https://github.com/tpope/vim-speeddating.git
@@ -130,68 +183,15 @@
 [submodule "vim-zsh"]
 	path = aspects/vim/files/.vim/pack/bundle/opt/vim-zsh
 	url = https://github.com/chrisbra/vim-zsh.git
-[submodule "deoplete"]
-	path = aspects/vim/files/.vim/pack/bundle/opt/deoplete
-	url = https://github.com/Shougo/deoplete.nvim.git
-[submodule "base16-shell"]
-	path = aspects/dotfiles/files/.zsh/base16-shell
-	url = https://github.com/chriskempson/base16-shell.git
-[submodule "zsh-autosuggestions"]
-	path = aspects/dotfiles/files/.zsh/zsh-autosuggestions
-	url = https://github.com/zsh-users/zsh-autosuggestions
-[submodule "zsh-syntax-highlighting"]
-	path = aspects/dotfiles/files/.zsh/zsh-syntax-highlighting
-	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
-[submodule "ansible"]
-	path = vendor/ansible
-	url = https://github.com/ansible/ansible.git
-[submodule "base16-iterm2"]
-	path = vendor/base16-iterm2
-	url = https://github.com/chriskempson/base16-iterm2.git
-[submodule "git-cipher"]
-	path = vendor/git-cipher
-	url = https://github.com/wincent/git-cipher.git
 [submodule "virtualenv"]
 	path = vendor/virtualenv
 	url = https://github.com/pypa/virtualenv.git
-[submodule "typescript-vim"]
-	path = aspects/vim/files/.vim/pack/bundle/opt/typescript-vim
-	url = https://github.com/leafgarland/typescript-vim.git
-[submodule "vim-slime"]
-	path = aspects/vim/files/.vim/pack/bundle/opt/vim-slime
-	url = https://github.com/jpalardy/vim-slime.git
-[submodule "vim-operator-user"]
-	ignore = dirty
-	path = aspects/vim/files/.vim/pack/bundle/opt/vim-operator-user
-	url = https://github.com/kana/vim-operator-user.git
-[submodule "skim"]
-	path = aspects/dotfiles/files/.zsh/skim
-	url = https://github.com/lotabout/skim.git
-[submodule "vim-soy"]
-	path = aspects/vim/files/.vim/pack/bundle/opt/vim-soy
-	url = https://github.com/duganchen/vim-soy.git
-[submodule "vcs-jump"]
-	ignore = untracked
-	path = aspects/vim/files/.vim/pack/bundle/opt/vcs-jump
-	url = https://github.com/wincent/vcs-jump.git
-[submodule "base16-kitty"]
-	path = roles/dotfiles/files/.config/kitty/base16-kitty
-	url = https://github.com/kdrag0n/base16-kitty.git
-[submodule "float-preview.nvim"]
-	path = aspects/vim/files/.vim/pack/bundle/opt/float-preview.nvim
-	url = https://github.com/ncm2/float-preview.nvim.git
-[submodule "vim-dispatch"]
-	path = aspects/vim/files/.vim/pack/bundle/opt/vim-dispatch
-	url = https://github.com/tpope/vim-dispatch.git
-[submodule "vim-markdown"]
-	path = aspects/vim/files/.vim/pack/bundle/opt/vim-markdown
-	url = https://github.com/plasticboy/vim-markdown.git
-[submodule "n"]
-	path = vendor/n
-	url = https://github.com/tj/n.git
+[submodule "zsh-autosuggestions"]
+	path = aspects/dotfiles/files/.zsh/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
 [submodule "zsh-history-substring-search"]
 	path = aspects/dotfiles/files/.zsh/zsh-history-substring-search
 	url = https://github.com/zsh-users/zsh-history-substring-search
-[submodule "vim-dirvish"]
-	path = aspects/vim/files/.vim/pack/bundle/opt/vim-dirvish
-	url = https://github.com/justinmk/vim-dirvish.git
+[submodule "zsh-syntax-highlighting"]
+	path = aspects/dotfiles/files/.zsh/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
