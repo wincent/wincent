@@ -3,14 +3,7 @@ import {Writable} from 'stream';
 
 import ErrorWithMetadata from '../ErrorWithMetadata.js';
 import {RAQUO} from '../Unicode.js';
-import {
-    COLORS,
-    LOG_LEVEL,
-    debug,
-    getLogLevel,
-    log,
-    print,
-} from '../console/index.js';
+import {COLORS, LOG_LEVEL, debug, getLogLevel, log, print} from '../console.js';
 import stringify from '../stringify.js';
 
 const {green, red, yellow} = COLORS;

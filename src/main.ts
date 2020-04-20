@@ -4,8 +4,8 @@ import {join} from 'path';
 import variables from '../variables.js';
 import ErrorWithMetadata from './ErrorWithMetadata.js';
 import Context from './Fig/Context.js';
-import {root} from './Fig/index.js';
-import {debug, log, setLogLevel} from './console/index.js';
+import {root} from './Fig.js';
+import {debug, log, setLogLevel} from './console.js';
 import dedent from './dedent.js';
 import getOptions from './getOptions.js';
 import merge from './merge.js';
@@ -15,7 +15,7 @@ import readAspect from './readAspect.js';
 import readProject from './readProject.js';
 import regExpFromString from './regExpFromString.js';
 import stringify from './stringify.js';
-import test from './test/index.js';
+import test from './test.js';
 
 import type {Aspect} from './types/Project.js';
 

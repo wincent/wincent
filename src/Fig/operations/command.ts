@@ -1,5 +1,5 @@
 import ErrorWithMetadata from '../../ErrorWithMetadata.js';
-import {debug, log} from '../../console/index.js';
+import {debug, log} from '../../console.js';
 import path from '../../path.js';
 import spawn from '../../spawn.js';
 import stringify from '../../stringify.js';

@@ -6,7 +6,7 @@ import {
     skip,
     task,
     variable,
-} from '../../src/Fig/index.js';
+} from '../../src/Fig.js';
 import stat from '../../src/fs/stat.js';
 import path from '../../src/path.js';
 

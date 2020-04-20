@@ -1,8 +1,8 @@
 import * as path from 'path';
 
 import ErrorWithMetadata from './ErrorWithMetadata.js';
-import {root} from './Fig/index.js';
-import {COLORS, LOG_LEVEL, log} from './console/index.js';
+import {root} from './Fig.js';
+import {COLORS, LOG_LEVEL, log} from './console.js';
 import dedent from './dedent.js';
 import escapeRegExpPattern from './escapeRegExpPattern.js';
 import {promises as fs} from './fs.js';
@@ -11,7 +11,7 @@ import stringify from './stringify.js';
 
 import {assertAspect} from './types/Project.js';
 
-import type {LogLevel} from './console/index.js';
+import type {LogLevel} from './console.js';
 import type {Aspect} from './types/Project.js';
 
 type Options = {

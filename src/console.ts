@@ -1,7 +1,7 @@
 import {clearLine, cursorTo} from 'readline';
 
-import stringify from '../stringify.js';
-import COLORS from './colors.js';
+import stringify from './stringify.js';
+import COLORS from './console/colors.js';
 
 export {COLORS};
 

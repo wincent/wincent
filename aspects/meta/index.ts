@@ -1,7 +1,7 @@
 import * as expect from 'assert';
 import {join} from 'path';
 
-import {file, resource, task, template} from '../../src/Fig/index.js';
+import {file, resource, task, template} from '../../src/Fig.js';
 import Context from '../../src/Fig/Context.js';
 import assert from '../../src/assert.js';
 import {promises as fs} from '../../src/fs.js';
