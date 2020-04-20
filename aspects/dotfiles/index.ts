@@ -1,6 +1,7 @@
 import {
     command,
     file,
+    resource,
     template,
     task,
     variable,
@@ -20,7 +21,12 @@ task('make directories', async () => {
     await file({path: '~/.backups', state: 'directory'});
     await file({path: '~/.config', state: 'directory'});
     await file({path: '~/.config/karabiner', state: 'directory'});
+    await file({path: '~/.mail', state: 'directory'});
     await file({path: '~/.zshenv.d', state: 'directory'});
+
+    if (variable('identity') === 'wincent') {
+        await file({path: '~/.code', state: 'directory'});
+    }
 });
 
 task('link ~/.config/nvim to ~/.vim', async () => {
@@ -76,6 +82,15 @@ task('fill templates', async () => {
             mode: src.endsWith('.sh.erb') ? '0755' : '0644',
             path: path.home.join(src.basename.strip('.erb')),
             src: path.aspect.join('templates', src.basename),
+        });
+    }
+});
+
+task('create ~/code/.editorconfig', async () => {
+    if (variable('identity') === 'wincent') {
+        await template({
+            path: path.home.join('code/.editorconfig'),
+            src: resource.template('code/.editorconfig'),
         });
     }
 });

@@ -111,6 +111,8 @@ class Context {
         try {
             this.#currentAspect = aspect;
             this.#currentVariables = variables;
+            // TODO: set current task as well? so that we can call skip()
+            // and have it adequately logged?
 
             await callback();
         } finally {

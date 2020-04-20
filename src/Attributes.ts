@@ -9,7 +9,7 @@ import stringify from './stringify.js';
 export default class Attributes {
     #gid?: number;
     #groupNames?: Array<string>;
-    #homedir?: string;
+    #home?: string;
     #platform?: 'darwin' | 'linux';
     #uid?: number;
     #username?: string;
@@ -34,12 +34,12 @@ export default class Attributes {
         return this.#groupNames;
     }
 
-    get homedir(): string {
-        if (!this.#homedir) {
-            this.#homedir = os.homedir();
+    get home(): string {
+        if (!this.#home) {
+            this.#home = os.homedir();
         }
 
-        return this.#homedir;
+        return this.#home;
     }
 
     get platform(): 'darwin' | 'linux' {

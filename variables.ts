@@ -7,6 +7,7 @@ import Context from './src/Fig/Context.js';
  *
  * Priority (from lowest to highest):
  *
+ * 0. Variables from `Context.attributes` (eg. home).
  * 1. Defaults from "variables" property in project.json.
  * 2. Profile-specific overrides from "variables" properties in "profiles" in
  *    project.json.

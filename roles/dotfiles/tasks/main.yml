@@ -42,25 +42,3 @@
             mode={{ '0755' if item.endswith('.sh') else '0644' }}
             src={{ item }}
   loop: '{{dotfile_templates}}'
-
-# Override insanely low open file limits on macOS.
-- name: dotfiles | copy maxfiles.zsh
-  copy: dest=~/.zshenv.d/maxfiles.zsh src=maxfiles.zsh
-  when: ansible_os_family == "Darwin"
-
-# Make some directories required by configuration in the dotfiles; these should
-# probably be separate roles.
-- name: dotfiles | create auxiliary directories
-  file: path={{ item }} state=directory
-  loop:
-    # mbsync will die on first sync without this:
-    - ~/.mail
-
-- name: dotfiles | make ~/code
-  file: path=~/code state=directory
-  when: identity == "wincent"
-
-- name: dotfiles | link ~/code/.editorconfig
-  template: dest={{ ansible_env.HOME }}/code/.editorconfig
-            src=code/.editorconfig
-  when: identity == "wincent"

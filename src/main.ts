@@ -151,9 +151,14 @@ async function main() {
         );
     }
 
+    const attributeVariables = {
+        home: Context.attributes.home,
+    };
+
     const defaultVariables = project.variables ?? {};
 
     const baseVariables = merge(
+        attributeVariables,
         defaultVariables,
         profileVariables,
         platformVariables,
@@ -266,6 +271,8 @@ async function loadAspect(aspect: Aspect): Promise<void> {
         case 'terminfo':
             await import('../aspects/terminfo/index.js');
             break;
+        case 'vim':
+            throw new Error('TODO: implement');
         default:
             const unreachable: never = aspect;
             throw new Error(`Unreachable ${unreachable}`);
