@@ -233,7 +233,7 @@ Notes:
 -   Relatively recent [Git](http://git-scm.com/).
 -   [Clipper](https://wincent.com/products/clipper) for transparent access to the local system clipboard.
 -   On macOS, [iTerm2](http://www.iterm2.com/). Additionally, only the latest version of macOS (although at the time of writing, I'm still on High Sierra) gets actively tested.
--   [Python](https://www.python.org/) to perform setup via the included `install` command.
+-   [Python](https://www.python.org/) to perform setup via the included `install-legacy` command.
 -   [Ruby](https://www.ruby-lang.org/).
 -   [Adobe Source Code Pro](https://github.com/adobe-fonts/source-code-pro) or any other fixed-width font that includes the [Powerline glyphs](http://powerline.readthedocs.io/en/master/installation.html#fonts-installation).
 
@@ -261,9 +261,9 @@ env http_proxy=http://fwdproxy:8080 https_proxy=http://fwdproxy:8080 git clone -
 ### Install
 
 ```sh
-./install          # Installs everything on the local machine.
-./install --help   # Info on installing specific roles, force-installing etc.
-./install dotfiles # Just install dotfiles.
+./install-legacy          # Installs everything on the local machine.
+./install-legacy --help   # Info on installing specific roles, force-installing etc.
+./install-legacy dotfiles # Just install dotfiles.
 ```
 
 This sets up a local Python environment using the bundled virtualenv, bootstraps Ansible, and then uses Ansible to copy the dotfiles and configure the machine.
@@ -271,10 +271,10 @@ This sets up a local Python environment using the bundled virtualenv, bootstraps
 Again, if you're behind a firewall, you may need to make use of a proxy during the initial run:
 
 ```sh
-env http_proxy=http://fwdproxy:8080 https_proxy=http://fwdproxy:8080 ./install
+env http_proxy=http://fwdproxy:8080 https_proxy=http://fwdproxy:8080 ./install-legacy
 ```
 
-As a fallback strategy, in case the `install` script fails, you can symlink the dotfiles by hand with a command like the following:
+As a fallback strategy, in case the `install-legacy` script fails, you can symlink the dotfiles by hand with a command like the following:
 
 ```sh
 for DOTFILE in $(find aspects/dotfiles/files -maxdepth 1 -name '.*' | tail -n +2); do
@@ -295,27 +295,27 @@ git config --file ~/.gitconfig.local user.email johndoe@example.com
 
 #### General Ansible troubleshooting
 
-Flags passed to `./install` are propagated to the underlying Ansible invocation, which means that you can do things like:
+Flags passed to `./install-legacy` are propagated to the underlying Ansible invocation, which means that you can do things like:
 
 ```sh
 # Run in "check" (dry-run) mode.
-./install --check
+./install-legacy --check
 
 # Show before-and-after delta of changes.
-./install --diff
+./install-legacy --diff
 
 # Both of the above together.
-./install --check --diff
+./install-legacy --check --diff
 
 # Show various levels of debug output.
-./install --verbose
-./install -vv
-./install -vvv
-./install -vvvv
+./install-legacy --verbose
+./install-legacy -vv
+./install-legacy -vvv
+./install-legacy -vvvv
 
 # Confirm each task before running it (--step), and begin
 # execution from a specific task (--start-at-task).
-./install --step --start-at-task='dotfiles | create backup directory'
+./install-legacy --step --start-at-task='dotfiles | create backup directory'
 ```
 
 You can also inspect variables by adding a task that uses the "debug" module in a role:
@@ -331,7 +331,7 @@ You can also inspect variables by adding a task that uses the "debug" module in 
       var: stat_result
 ```
 
-Note that for convenience, "debug" tasks have already been inserted for all variables that are `register`-ed in the existing roles, with verbosity thresholds of 2, meaning that they will be logged automatically when the install is run using `./install -vv` or more.
+Note that for convenience, "debug" tasks have already been inserted for all variables that are `register`-ed in the existing roles, with verbosity thresholds of 2, meaning that they will be logged automatically when the install is run using `./install-legacy -vv` or more.
 
 #### pycrypto install fails with "'gmp.h' file not found"
 
@@ -351,7 +351,7 @@ env "CFLAGS=-I/usr/local/include -L/usr/local/lib" pip install pycrypto
 And then installing again:
 
 ```sh
-./install --force
+./install-legacy --force
 ```
 
 #### Broken Unicode in Vim (Linux)

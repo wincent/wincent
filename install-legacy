@@ -1,0 +1,136 @@
+#!/bin/bash
+
+# 1. Sets up a local Python environment via virtualenv
+# 2. Installs Ansible prerequisites
+# 3. Hands off to Ansible to complete actual installation of dotfiles etc
+
+set -e
+
+ANSIBLE_ENV_SETUP=vendor/ansible/hacking/env-setup
+VIRTUALENV_SETUP=vendor/virtualenv/virtualenv.py
+VIRTUALENV_TARGET_DIR=python
+VIRTUALENV_ACTIVATE=$VIRTUALENV_TARGET_DIR/bin/activate
+
+usage() {
+  echo "./install [options] [roles...]"
+  echo "Supported options:"
+  echo "  -f/--force"
+  echo "  -h/--help"
+  echo "  -v/--verbose (repeat up to four times for more verbosity)"
+  echo "Other options (passed through to Ansible):"
+  echo "  --check"
+  echo "  --step"
+  echo "  --start-at-task='role | task'"
+  echo "Supported roles:"
+  for ROLE in $(ls roles); do
+    echo "  $ROLE"
+    echo "    $(cat roles/$ROLE/description)"
+  done
+}
+
+EXTRA_ARGS=()
+while [ $# -gt 0 ]; do
+  if [ "$1" = '--force' -o "$1" = '-f' ]; then
+    FORCE=1
+  elif [ "$1" = '--verbose' -o "$1" = '-v' ]; then
+    VERBOSE=$((VERBOSE + 1))
+  elif [ "$1" = '-vv' ]; then
+    VERBOSE=$((VERBOSE + 2))
+  elif [ "$1" = '-vvv' ]; then
+    VERBOSE=$((VERBOSE + 3))
+  elif [ "$1" = '-vvvv' ]; then
+    VERBOSE=$((VERBOSE + 4))
+  elif [ "$1" = '--help' -o "$1" = '-h' -o "$1" = 'help' ]; then
+    usage
+    exit
+  elif [ -n "$1" ]; then
+    if [ -d "roles/$1" ]; then
+      if [ -z "$ROLES" ]; then
+        ROLES="--tags $1"
+      else
+        ROLES="$ROLES,$1"
+      fi
+    elif [[ "$1" == --* ]]; then
+      EXTRA_ARGS+=("$1")
+    else
+      echo "Unrecognized argument(s): $*"
+      usage
+      exit 1
+    fi
+  fi
+  shift
+done
+
+if [[ $VERBOSE ]]; then
+  if [ $VERBOSE -ge 4 ]; then
+    echo 'Enabling extremely verbose output'
+    set -x
+  fi
+else
+  trap 'echo "Exiting: run with -v/--verbose for more info"' EXIT
+fi
+
+if [ ! -e $VIRTUALENV_SETUP ]; then
+  echo "Not found: $VIRTUALENV_SETUP"
+  echo "Did you forget to 'git submodule update --init --recursive'?"
+  exit 1
+fi
+
+if [ ! -e $ANSIBLE_ENV_SETUP ]; then
+  echo "Not found: $ANSIBLE_ENV_SETUP"
+  echo "Did you forget to 'git submodule update --init --recursive'?"
+  exit 1
+fi
+
+if [[ ! -e $VIRTUALENV_ACTIVATE || $FORCE ]]; then
+  if [[ $VERBOSE ]]; then
+    python $VIRTUALENV_SETUP $VIRTUALENV_TARGET_DIR
+  else
+    python $VIRTUALENV_SETUP $VIRTUALENV_TARGET_DIR &> /dev/null
+  fi
+elif [ -e $VIRTUALENV_ACTIVATE ]; then
+  echo "Skipping virtualenv install (already exists); use --force to override"
+fi
+
+source $VIRTUALENV_ACTIVATE
+
+# Troubleshooting during OS upgrades, or new machine installs: may need:
+#
+#   sudo -H pip install --upgrade cryptography
+#   pip install --upgrade pip
+#
+if [[ -z $(pip show paramiko cryptography PyYAML Jinja2 httplib2) || $FORCE ]]; then
+  set +e
+  if [[ $VERBOSE ]]; then
+    pip install paramiko cryptography PyYAML Jinja2 httplib2
+  else
+    pip install paramiko cryptography PyYAML Jinja2 httplib2 &> /dev/null
+  fi
+  if [ $? -ne 0 ]; then
+    echo "Failed: pip install"
+    echo "Did you forget to 'export https_proxy=fwdproxy:8080' or similar?"
+    exit 1
+  fi
+  set -e
+elif [[ ! $FORCE ]]; then
+  echo "Skipping pip installs (already exists); use --force to override"
+fi
+
+if [[ $VERBOSE ]]; then
+  source vendor/ansible/hacking/env-setup
+else
+  source vendor/ansible/hacking/env-setup &> /dev/null
+fi
+
+HOST_OS=$(uname)
+
+if [ "$HOST_OS" = 'Darwin' ]; then
+  ansible-playbook --ask-become-pass -i inventory ${VERBOSE+-$(printf 'v%.0s' $(seq $VERBOSE))} ${ROLES} "${EXTRA_ARGS[@]}" darwin.yml
+elif [ "$HOST_OS" = 'Linux' ]; then
+  ansible-playbook -i inventory ${VERBOSE+-$(printf 'v%.0s' $(seq $VERBOSE))} ${ROLES} "${EXTRA_ARGS[@]}" linux.yml
+else
+  echo "Unknown host OS: $HOST_OS"
+  exit 1
+fi
+
+trap - EXIT
