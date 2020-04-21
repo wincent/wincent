@@ -6,7 +6,7 @@ import {
     skip,
     task,
     variable,
-} from 'fig/Fig.js'; // TODO: obviously need to rename this
+} from 'fig/index.js';
 import stat from 'fig/fs/stat.js';
 import path from 'fig/path.js';
 

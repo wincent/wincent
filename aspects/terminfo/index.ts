@@ -1,4 +1,4 @@
-import {command, file, resource, task, variable} from 'fig/Fig.js';
+import {command, file, resource, task, variable} from 'fig/index.js';
 
 task('create target directory', async () => {
     await file({

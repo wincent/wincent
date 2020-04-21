@@ -4,7 +4,7 @@ import {join} from 'path';
 import variables from '../variables.js';
 import ErrorWithMetadata from './ErrorWithMetadata.js';
 import Context from './Fig/Context.js';
-import {root} from './Fig.js';
+import {root} from './index.js';
 import {debug, log, setLogLevel} from './console.js';
 import dedent from './dedent.js';
 import getOptions from './getOptions.js';

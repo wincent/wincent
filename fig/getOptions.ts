@@ -1,7 +1,7 @@
 import * as path from 'path';
 
 import ErrorWithMetadata from './ErrorWithMetadata.js';
-import {root} from './Fig.js';
+import {root} from './index.js';
 import {COLORS, LOG_LEVEL, log} from './console.js';
 import dedent from './dedent.js';
 import escapeRegExpPattern from './escapeRegExpPattern.js';
