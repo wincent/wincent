@@ -8,10 +8,6 @@ const inspect = Symbol.for('nodejs.util.inspect.custom');
 
 // TODO: export path module wrappers as well, then I can just use it as a
 // drop-in replacement
-// TODO: decide whether this whole thing is an utterly terrible idea or not
-// (can't do strict-equality comparisons with string-likes)
-//
-// Maybe a full-blown Path object (ie. not a string) would be better.
 
 export type Path = string & {
     basename: Path;

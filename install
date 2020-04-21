@@ -12,6 +12,9 @@ log_info "Installing TypeScript"
 
 yarn --frozen-lockfile --no-default-rc --no-progress --silent
 
+# TODO: may not need this with Yarn workspaces
+(cd node_modules && ln -s ../lib/src fig)
+
 log_info "Cleaning"
 
 git clean -fq -- lib

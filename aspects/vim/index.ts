@@ -6,9 +6,9 @@ import {
     skip,
     task,
     variable,
-} from '../../src/Fig.js';
-import stat from '../../src/fs/stat.js';
-import path from '../../src/path.js';
+} from 'fig/Fig.js'; // TODO: obviously need to rename this
+import stat from 'fig/fs/stat.js';
+import path from 'fig/path.js';
 
 task('make directories', async () => {
     // Some overlap with "dotfiles" aspect here.

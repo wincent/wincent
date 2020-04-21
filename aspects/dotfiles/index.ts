@@ -6,9 +6,9 @@ import {
     task,
     variable,
     variables,
-} from '../../src/Fig.js';
-import stat from '../../src/fs/stat.js';
-import path from '../../src/path.js';
+} from 'fig/Fig.js';
+import stat from 'fig/fs/stat.js';
+import path from 'fig/path.js';
 
 variables(({identity}) => ({
     gitUserEmail: identity === 'wincent' ? 'greg@hurrell.net' : '',
