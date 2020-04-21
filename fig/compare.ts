@@ -1,13 +1,8 @@
-// TODO: move a lot of the stuff that is currently under "Fig/" out of it
-// (original intent was to have a separation between generic stuff and
-// configuration-framework-specific entities. But in practice, the use of global
-// state and the amount of coupling we have between different modules means we
-// may as well consider them all to be equal citizens.
 import {dirname} from 'path';
 
-import ErrorWithMetadata from '../ErrorWithMetadata.js';
-import {promises as fs} from '../fs.js';
-import stat from '../fs/stat.js';
+import ErrorWithMetadata from './ErrorWithMetadata.js';
+import {promises as fs} from './fs.js';
+import stat from './fs/stat.js';
 
 /**
  * Summary of differences between actual and desired state of a file-system

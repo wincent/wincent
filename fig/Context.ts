@@ -3,10 +3,10 @@ import * as assert from 'assert';
 import Attributes from './Attributes.js';
 import ErrorWithMetadata from './ErrorWithMetadata.js';
 import Compiler from './Compiler.js';
-import TaskRegistry from './Fig/TaskRegistry.js';
-import VariableRegistry from './Fig/VariableRegistry.js';
-import * as status from './Fig/status.js';
+import TaskRegistry from './TaskRegistry.js';
+import VariableRegistry from './VariableRegistry.js';
 import prompt from './prompt.js';
+import * as status from './status.js';
 
 import type {Metadata} from './ErrorWithMetadata.js';
 import type {Options} from './getOptions.js';

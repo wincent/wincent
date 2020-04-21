@@ -1,6 +1,6 @@
 import Context from '../../Context.js';
 import ErrorWithMetadata from '../../ErrorWithMetadata.js';
-import compare from '../../Fig/compare.js';
+import compare from '../../compare.js';
 import assert from '../../assert.js';
 import {promises as fs} from '../../fs.js';
 import tempfile from '../../fs/tempfile.js';
