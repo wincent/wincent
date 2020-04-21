@@ -6,7 +6,7 @@ import {
     task,
     variable,
     variables,
-} from 'fig/index.js';
+} from 'fig';
 import stat from 'fig/fs/stat.js';
 import path from 'fig/path.js';
 

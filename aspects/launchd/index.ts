@@ -1,4 +1,4 @@
-import {resource, template, task} from 'fig/index.js';
+import {resource, template, task} from 'fig';
 
 task('configure (global) LaunchDaemons', async () => {
     const items = [

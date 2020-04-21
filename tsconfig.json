@@ -9,6 +9,7 @@
         "outDir": "./lib",
         "baseUrl": ".",
         "paths": {
+            "fig": ["fig/index.js"],
             "fig/*": ["fig/*"]
         },
         "strict": true,

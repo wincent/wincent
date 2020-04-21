@@ -12,8 +12,6 @@ log_info "Installing TypeScript"
 
 yarn --frozen-lockfile --no-default-rc --no-progress --silent
 
-ln -fns ../lib/fig node_modules/fig
-
 log_info "Cleaning"
 
 git clean -fdxq -- lib
@@ -26,6 +24,10 @@ node support/typegen
 log_info "Compiling TypeScript source to JavaScript"
 
 tsc
+
+# Hacks so that built JS can import from 'fig':
+ln -fns ../lib/fig node_modules/fig
+cp fig/package.json lib/fig/package.json
 
 log_info "Running main"
 

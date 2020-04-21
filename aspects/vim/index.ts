@@ -1,12 +1,4 @@
-import {
-    attributes,
-    command,
-    file,
-    resource,
-    skip,
-    task,
-    variable,
-} from 'fig/index.js';
+import {attributes, command, file, resource, skip, task, variable} from 'fig';
 import stat from 'fig/fs/stat.js';
 import path from 'fig/path.js';
 
