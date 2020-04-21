@@ -54,11 +54,6 @@ do
   fi
 done
 
-if [ -z "$DEBUG" ]; then
-  # Avoid: "ExperimentalWarning: The ESM module loader is experimental."
-  export NODE_OPTIONS=--no-warnings
-fi
-
 log_debug() {
   if [[ $LOG_LEVEL -ge $LOG_LEVEL_DEBUG ]]; then
     echo -e "${PURPLE}[debug]  ${RESET} $*" > /dev/stderr
