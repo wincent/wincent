@@ -1,5 +1,6 @@
 import Context from '../../Context.js';
 import ErrorWithMetadata from '../../ErrorWithMetadata.js';
+import compare from '../../Fig/compare.js';
 import assert from '../../assert.js';
 import {promises as fs} from '../../fs.js';
 import tempfile from '../../fs/tempfile.js';
@@ -10,7 +11,6 @@ import cp from '../../posix/cp.js';
 import ln from '../../posix/ln.js';
 import mkdir from '../../posix/mkdir.js';
 import touch from '../../posix/touch.js';
-import compare from '../compare.js';
 
 export default async function file({
     contents,

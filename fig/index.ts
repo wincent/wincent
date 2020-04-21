@@ -1,13 +1,13 @@
-import {default as attributes} from './Fig/attributes.js';
-import {default as command} from './Fig/operations/command.js';
-import {default as file} from './Fig/operations/file.js';
-import * as resource from './Fig/resource.js';
-import {default as root} from './Fig/root.js';
-import {default as skip} from './Fig/skip.js';
-import {default as task} from './Fig/task.js';
-import {default as template} from './Fig/operations/template.js';
-import {default as variable} from './Fig/variable.js';
-import {default as variables} from './Fig/variables.js';
+import {default as attributes} from './dsl/attributes.js';
+import {default as command} from './dsl/operations/command.js';
+import {default as file} from './dsl/operations/file.js';
+import {default as template} from './dsl/operations/template.js';
+import * as resource from './dsl/resource.js';
+import {default as root} from './dsl/root.js';
+import {default as skip} from './dsl/skip.js';
+import {default as task} from './dsl/task.js';
+import {default as variable} from './dsl/variable.js';
+import {default as variables} from './dsl/variables.js';
 
 export {attributes};
 export {command};

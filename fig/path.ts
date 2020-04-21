@@ -2,7 +2,7 @@ import {homedir} from 'os';
 import {basename, dirname, join, normalize, relative, resolve} from 'path';
 
 import Context from './Context.js';
-import root from './Fig/root.js';
+import root from './dsl/root.js';
 
 const inspect = Symbol.for('nodejs.util.inspect.custom');
 

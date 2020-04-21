@@ -8,9 +8,9 @@
 
 import {join} from 'path';
 
+import root from '../../dsl/root.js';
 import {describe, expect, test} from '../../test/harness.js';
 import compare from '../compare.js';
-import root from '../root.js';
 
 /**
  * Helper to get fixtures (in "fig/") irrespective of where we run from.

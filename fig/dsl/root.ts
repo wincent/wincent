@@ -9,7 +9,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
  * Determine repo root directory by walking up directory tree until we see the
  * "yarn.lock". We do this dynamically instead of using a hardcoded relative
  * path because the root is in a different position depending on whether you are
- * starting form the "fig/Fig/root.ts" (source) or from "lib/fig/Fig/root.js"
+ * starting form the "fig/dsl/root.ts" (source) or from "lib/fig/dsl/root.js"
  * (compiled).
  */
 const root = (function find(path): string {
