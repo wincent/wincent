@@ -3,9 +3,9 @@ import assert from '../../assert.js';
 import {expect, test} from '../../test/harness.js';
 import chmod from '../chmod.js';
 import rm from '../rm.js';
-import stat from '../stat.js';
-import tempdir from '../tempdir.js';
-import tempfile from '../tempfile.js';
+import stat from '../../fs/stat.js';
+import tempdir from '../../fs/tempdir.js';
+import tempfile from '../../fs/tempfile.js';
 import touch from '../touch.js';
 
 test('rm() removes a file', async () => {

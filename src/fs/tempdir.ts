@@ -1,5 +1,5 @@
-import mkdir from './mkdir.js';
-import tempname from '../tempname.js';
+import mkdir from '../posix/mkdir.js';
+import tempname from './tempname.js';
 
 export default async function tempdir(prefix: string): Promise<string> {
     const path = tempname(prefix);

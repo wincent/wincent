@@ -1,5 +1,5 @@
-import ErrorWithMetadata from './ErrorWithMetadata.js';
-import {spawnSync} from './child_process.js';
+import ErrorWithMetadata from '../ErrorWithMetadata.js';
+import {spawnSync} from '../child_process.js';
 
 /**
  * For the benefit of the `Attributes` class, we want a synchronous way

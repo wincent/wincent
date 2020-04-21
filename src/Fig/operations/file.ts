@@ -1,12 +1,12 @@
 import ErrorWithMetadata from '../../ErrorWithMetadata.js';
 import {promises as fs} from '../../fs.js';
-import chmod from '../../fs/chmod.js';
-import chown from '../../fs/chown.js';
-import cp from '../../fs/cp.js';
-import ln from '../../fs/ln.js';
-import mkdir from '../../fs/mkdir.js';
 import tempfile from '../../fs/tempfile.js';
-import touch from '../../fs/touch.js';
+import chmod from '../../posix/chmod.js';
+import chown from '../../posix/chown.js';
+import cp from '../../posix/cp.js';
+import ln from '../../posix/ln.js';
+import mkdir from '../../posix/mkdir.js';
+import touch from '../../posix/touch.js';
 import {default as toPath} from '../../path.js';
 import Context from '../Context.js';
 import assert from '../../assert.js';

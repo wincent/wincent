@@ -1,10 +1,10 @@
 import {join} from 'path';
 
 import assert from '../../assert.js';
+import stat from '../../fs/stat.js';
+import tempdir from '../../fs/tempdir.js';
 import {expect, test} from '../../test/harness.js';
 import ln from '../ln.js';
-import stat from '../stat.js';
-import tempdir from '../tempdir.js';
 import touch from '../touch.js';
 
 test('ln() links a file', async () => {

@@ -1,6 +1,6 @@
 import * as os from 'os';
 
-import id from './id.js';
+import id from './posix/id.js';
 import stringify from './stringify.js';
 
 /**
