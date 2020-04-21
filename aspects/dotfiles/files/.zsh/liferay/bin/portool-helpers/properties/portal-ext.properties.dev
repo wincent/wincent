@@ -18,7 +18,15 @@ minifier.enabled=false
 module.framework.properties.osgi.console=localhost:11311
 schema.module.build.auto.upgrade=true
 session.timeout.auto.extend=true
+
+#
+# Session timeout in minutes.
+# Note: will be overridden by whatever is in:
+# - $TOMCAT/conf/web.xml
+# - $TOMCAT/webapps/ROOT/WEB-INF/web.xml
+#
 session.timeout=100000
+
 theme.css.fast.load.check.request.parameter=true
 theme.css.fast.load=false
 theme.images.fast.load.check.request.parameter=true

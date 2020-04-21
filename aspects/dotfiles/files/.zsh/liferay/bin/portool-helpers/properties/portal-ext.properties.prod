@@ -7,7 +7,15 @@ jdbc.default.password=
 browser.launcher.url=
 com.liferay.portal.servlet.filters.gzip.GZipFilter=true
 gzip.compression.level=1
+
+#
+# Session timeout in minutes.
+# Note: will be overridden by whatever is in:
+# - $TOMCAT/conf/web.xml
+# - $TOMCAT/webapps/ROOT/WEB-INF/web.xml
+#
 session.timeout=100000
+
 session.timeout.auto.extend=true
 tunnel.servlet.hosts.allowed=0:0:0:0:0:0:0:1
 
