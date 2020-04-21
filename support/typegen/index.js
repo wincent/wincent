@@ -100,7 +100,7 @@ function main() {
         const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
         fs.writeFileSync(
-            path.join(__dirname, `../../src/types/${typeName}.ts`),
+            path.join(__dirname, `../../fig/types/${typeName}.ts`),
             b.output
         );
     }

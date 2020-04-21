@@ -9,10 +9,10 @@
         "outDir": "./lib",
         "baseUrl": ".",
         "paths": {
-            "fig/*": ["src/*"]
+            "fig/*": ["fig/*"]
         },
         "strict": true,
         "target": "ES2019"
     },
-    "include": ["aspects/**/*.ts", "src/**/*.ts", "variables.ts"]
+    "include": ["aspects/**/*.ts", "fig/**/*.ts", "variables.ts"]
 }

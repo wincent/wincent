@@ -13,12 +13,12 @@ log_info "Installing TypeScript"
 yarn --frozen-lockfile --no-default-rc --no-progress --silent
 
 # TODO: may not need this with Yarn workspaces
-(cd node_modules && ln -s ../lib/src fig)
+(cd node_modules && ln -fns ../lib/fig fig)
 
 log_info "Cleaning"
 
-git clean -fq -- lib
-git clean -fq -- src/types
+git clean -fdxq -- lib
+git clean -fdxq -- fig/types
 
 log_info "Generating TypeScript types"
 
@@ -30,4 +30,4 @@ tsc
 
 log_info "Running main"
 
-node lib/src/main.js "$@"
+node lib/fig/main.js "$@"

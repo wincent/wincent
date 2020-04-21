@@ -13,10 +13,10 @@ import compare from '../compare.js';
 import root from '../root.js';
 
 /**
- * Helper to get fixtures (in "src/") irrespective of where we run from.
+ * Helper to get fixtures (in "fig/") irrespective of where we run from.
  */
 function fixture(...components: Array<string>): string {
-    return join(root, 'src', 'Fig', '__tests__', '__fixtures__', ...components);
+    return join(root, 'fig', 'Fig', '__tests__', '__fixtures__', ...components);
 }
 
 describe('compare()', () => {

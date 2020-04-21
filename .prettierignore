@@ -2,5 +2,5 @@
 /aspects/vim/files/.vim
 /python
 /roles/dotfiles/templates/.config/karabiner/karabiner.json
-/src/types
+/fig/types
 /vendor
