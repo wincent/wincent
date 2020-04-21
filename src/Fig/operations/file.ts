@@ -89,12 +89,13 @@ export default async function file({
     }
 
     let changed: Array<string> = [];
+    let mutate = !Context.currentOptions?.check;
 
     if (state === 'directory') {
         if (diff.state === 'directory') {
             // TODO: if force in effect, that means we have to remove file/link
             // first.
-            const result = await mkdir(target, {mode, sudo});
+            const result = mutate && (await mkdir(target, {mode, sudo}));
 
             if (result instanceof Error) {
                 throw result;
@@ -107,7 +108,7 @@ export default async function file({
             // File does not exist — have to create it.
             if (typeof contents !== 'string') {
                 // No contents, no src, so treat this just like "touch".
-                const result = await touch(target, {sudo});
+                const result = mutate && (await touch(target, {sudo}));
 
                 if (result instanceof Error) {
                     throw result;
@@ -118,7 +119,8 @@ export default async function file({
         }
 
         if (diff.owner || diff.group) {
-            const result = await chown(target, {group, owner, sudo});
+            const result =
+                mutate && (await chown(target, {group, owner, sudo}));
 
             if (result instanceof Error) {
                 throw result;
@@ -142,7 +144,7 @@ export default async function file({
                 from = await tempfile('file', diff.contents);
             }
 
-            const result = await cp(from, target);
+            const result = mutate && (await cp(from, target));
 
             if (result instanceof Error) {
                 throw result;
@@ -154,10 +156,12 @@ export default async function file({
         if (diff.state === 'link') {
             assert(src);
 
-            const result = await ln(src, target, {
-                force: diff.force,
-                sudo,
-            });
+            const result =
+                mutate &&
+                (await ln(src, target, {
+                    force: diff.force,
+                    sudo,
+                }));
 
             if (result instanceof Error) {
                 throw result;
@@ -166,7 +170,7 @@ export default async function file({
             changed.push('link');
         }
     } else if (state === 'touch') {
-        const result = await touch(target, {sudo});
+        const result = mutate && (await touch(target, {sudo}));
 
         if (result instanceof Error) {
             throw result;
@@ -178,7 +182,7 @@ export default async function file({
     }
 
     if (diff.mode) {
-        const result = await chmod(diff.mode, target, {sudo});
+        const result = mutate && (await chmod(diff.mode, target, {sudo}));
 
         if (result instanceof Error) {
             throw result;
@@ -190,7 +194,11 @@ export default async function file({
     // BUG: we use "file" here; not distinguishing between
     // "template" and "file"
     if (changed.length) {
-        Context.informChanged(`file[${changed.join('|')}] ${path}`);
+        if (mutate) {
+            Context.informChanged(`file[${changed.join('|')}] ${path}`);
+        } else {
+            Context.informSkipped(`file[${changed.join('|')}] ${path}`);
+        }
     } else {
         Context.informOk(`file ${path}`);
     }

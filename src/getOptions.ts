@@ -14,7 +14,8 @@ import {assertAspect} from './types/Project.js';
 import type {LogLevel} from './console.js';
 import type {Aspect} from './types/Project.js';
 
-type Options = {
+export type Options = {
+    check: boolean;
     focused: Set<Aspect>;
     logLevel: LogLevel;
     startAt: {
@@ -32,6 +33,7 @@ export default async function getOptions(
     args: Array<string>
 ): Promise<Options> {
     const options: Options = {
+        check: false,
         focused: new Set(),
         logLevel: LOG_LEVEL.INFO,
         startAt: {
@@ -61,7 +63,11 @@ export default async function getOptions(
     }
 
     for (const arg of args) {
-        if (arg === '--debug' || arg === '-d') {
+        if (arg === '--check' || arg === '--dry-run') {
+            // Support --check for Ansible compatibility and --dry-run because
+            // of my Git muscle memory.
+            options.check = true;
+        } else if (arg === '--debug' || arg === '-d') {
             options.logLevel = LOG_LEVEL.DEBUG;
         } else if (arg === '--quiet' || arg === '-q') {
             options.logLevel = LOG_LEVEL.NOTICE;
@@ -118,15 +124,15 @@ async function printUsage(aspects: Array<[string, string]>) {
 
               ${bold`Options:`}
 
-                -c/--check # not yet implemented; TODO add --dry-run synonym?
                 -d/--debug
+                   --dry-run
                 -f/--force # not yet implemented
                 -h/--help
                 -q/--quiet
                 -t/--test
                 -v/--verbose (repeat up to four times for more verbosity) # not yet implemented
-                --start-at-task='aspect | task' # TODO: maybe make -s short variant
-                --step
+                   --start-at-task='aspect | task' # TODO: maybe make -s short variant
+                   --step
 
               ${bold`Aspects:`}
         `

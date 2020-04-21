@@ -37,13 +37,17 @@ export default async function command(
             `Run command \`${description}\` with options: ${stringify(options)}`
         );
 
-        await spawn(
-            path(executable).expand,
-            args.map((arg) => path(arg).expand),
-            options.chdir ? {cwd: options.chdir.toString()} : {}
-        );
+        if (Context.currentOptions?.check) {
+            Context.informSkipped(`command \`${description}\``);
+        } else {
+            await spawn(
+                path(executable).expand,
+                args.map((arg) => path(arg).expand),
+                options.chdir ? {cwd: options.chdir.toString()} : {}
+            );
 
-        Context.informChanged(`command \`${description}\``);
+            Context.informChanged(`command \`${description}\``);
+        }
     } catch (error) {
         if (error instanceof ErrorWithMetadata) {
             Context.informFailed(error);

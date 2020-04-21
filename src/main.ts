@@ -208,7 +208,7 @@ async function main() {
 
                                 if ('yes'.startsWith(reply)) {
                                     await Context.withContext(
-                                        {aspect, variables},
+                                        {aspect, options, variables},
                                         callback
                                     );
                                     break;
@@ -220,7 +220,7 @@ async function main() {
                                 } else if ('continue'.startsWith(reply)) {
                                     options.step = false;
                                     await Context.withContext(
-                                        {aspect, variables},
+                                        {aspect, options, variables},
                                         callback
                                     );
                                     break;
@@ -239,7 +239,7 @@ async function main() {
                             }
                         } else {
                             await Context.withContext(
-                                {aspect, variables},
+                                {aspect, options, variables},
                                 callback
                             );
                         }

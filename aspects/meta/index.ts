@@ -1,13 +1,63 @@
-import * as expect from 'assert';
+import {equal, ok} from 'assert';
 import {join} from 'path';
 
 import {file, resource, task, template} from '../../src/Fig.js';
 import Context from '../../src/Fig/Context.js';
 import assert from '../../src/assert.js';
-import {promises as fs} from '../../src/fs.js';
+import {promises} from '../../src/fs.js';
 import stat from '../../src/fs/stat.js';
 import tempdir from '../../src/fs/tempdir.js';
 import {default as toPath} from '../../src/path.js';
+
+function live() {
+    return !Context.currentOptions?.check;
+}
+
+const expect = {
+    equal(actual: any, expected: any, message?: string | Error | undefined) {
+        if (live()) {
+            equal(actual, expected, message);
+        }
+    },
+
+    ok(value: any, message?: string | Error | undefined) {
+        if (live()) {
+            ok(value, message);
+        }
+    },
+};
+
+const fs = {
+    async readFile(name: string, encoding: string) {
+        if (live()) {
+            return promises.readFile(name, encoding);
+        } else {
+            return '';
+        }
+    },
+
+    async stat(name: string) {
+        if (live()) {
+            return promises.stat(name);
+        } else {
+            return {
+                mtimeMs: 1000,
+            };
+        }
+    },
+
+    async utimes(path: string, atime: number, mtime: number) {
+        if (live()) {
+            await promises.utimes(path, atime, mtime);
+        }
+    },
+};
+
+const DEFAULT_STATS = {
+    mode: '0644',
+    target: undefined,
+    type: 'file',
+};
 
 task('copy a file', async () => {
     //
@@ -109,7 +159,7 @@ task('create a directory', async () => {
         state: 'directory',
     });
 
-    let stats = await stat(path);
+    let stats = live() ? await stat(path) : DEFAULT_STATS;
 
     assert(stats && !(stats instanceof Error));
 
@@ -133,7 +183,7 @@ task('create a directory', async () => {
         state: 'directory',
     });
 
-    stats = await stat(path);
+    stats = live() ? await stat(path) : DEFAULT_STATS;
 
     assert(stats && !(stats instanceof Error));
 
@@ -155,7 +205,7 @@ task('create a directory', async () => {
         state: 'directory',
     });
 
-    stats = await stat(path);
+    stats = live() ? await stat(path) : DEFAULT_STATS;
 
     assert(stats && !(stats instanceof Error));
 
@@ -187,7 +237,7 @@ task('manage a symbolic link', async () => {
 
     expect.equal(contents, 'Some example content.\n');
 
-    let stats = await stat(path);
+    let stats = live() ? await stat(path) : DEFAULT_STATS;
 
     assert(stats && !(stats instanceof Error));
 
@@ -298,7 +348,7 @@ task('template a file', async () => {
 
     expect.equal(contents, 'Hi Jim, Mary, Carol!\n');
 
-    let stats = await stat(path);
+    let stats = live() ? await stat(path) : DEFAULT_STATS;
 
     assert(stats && !(stats instanceof Error));
 
@@ -328,7 +378,7 @@ task('template a file', async () => {
 
     expect.equal(contents, 'Yo Derek!\n');
 
-    stats = await stat(path);
+    stats = live() ? await stat(path) : DEFAULT_STATS;
 
     assert(stats && !(stats instanceof Error));
 

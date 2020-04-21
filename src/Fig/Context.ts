@@ -9,6 +9,7 @@ import TaskRegistry from './TaskRegistry.js';
 import VariableRegistry from './VariableRegistry.js';
 
 import type {Metadata} from '../ErrorWithMetadata.js';
+import type {Options} from '../getOptions.js';
 import type {Aspect} from '../types/Project.js';
 
 type Counts = {
@@ -29,6 +30,7 @@ class Context {
     #compiler: Compiler;
     #counts: Counts;
     #currentAspect?: Aspect;
+    #currentOptions?: Options;
     #currentVariables?: Variables;
     #sudoPassphrase?: Promise<string>;
     #tasks: TaskRegistry;
@@ -102,21 +104,26 @@ class Context {
     }
 
     async withContext(
-        {aspect, variables}: {aspect: Aspect; variables: Variables},
+        {
+            aspect,
+            options,
+            variables,
+        }: {aspect: Aspect; options: Options; variables: Variables},
         callback: () => Promise<void>
     ) {
         let previousAspect = this.#currentAspect;
+        let previousOptions = this.#currentOptions;
         let previousVariables = this.#currentVariables;
 
         try {
             this.#currentAspect = aspect;
+            this.#currentOptions = options;
             this.#currentVariables = variables;
-            // TODO: set current task as well? so that we can call skip()
-            // and have it adequately logged?
 
             await callback();
         } finally {
             this.#currentAspect = previousAspect;
+            this.#currentOptions = previousOptions;
             this.#currentVariables = previousVariables;
         }
     }
@@ -147,6 +154,10 @@ class Context {
 
     set currentVariables(variables: Variables) {
         this.#currentVariables = variables;
+    }
+
+    get currentOptions() {
+        return this.#currentOptions;
     }
 
     get sudoPassphrase(): Promise<string> {
