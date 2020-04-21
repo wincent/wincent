@@ -1,5 +1,5 @@
+import Context from '../Context.js';
 import ErrorWithMetadata from '../ErrorWithMetadata.js';
-import Context from '../Fig/Context.js';
 import {log} from '../console.js';
 import run from '../run.js';
 import stringify from '../stringify.js';

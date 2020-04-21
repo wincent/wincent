@@ -1,4 +1,4 @@
-import Context from 'fig/Fig/Context.js';
+import Context from 'fig/Context.js';
 
 /**
  * @file

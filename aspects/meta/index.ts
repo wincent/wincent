@@ -2,7 +2,7 @@ import {equal, ok} from 'assert';
 import {join} from 'path';
 
 import {file, resource, task, template} from 'fig';
-import Context from 'fig/Fig/Context.js';
+import Context from 'fig/Context.js';
 import assert from 'fig/assert.js';
 import {promises} from 'fig/fs.js';
 import stat from 'fig/fs/stat.js';

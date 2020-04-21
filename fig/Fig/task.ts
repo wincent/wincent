@@ -1,9 +1,9 @@
 import {relative, sep} from 'path';
 import * as url from 'url';
 
-import {assertAspect} from '../types/Project.js';
+import Context from '../Context.js';
 import getCaller from '../getCaller.js';
-import Context from './Context.js';
+import {assertAspect} from '../types/Project.js';
 import {default as root} from './root.js';
 
 export default function task(name: string, callback: () => Promise<void>) {

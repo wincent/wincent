@@ -1,5 +1,5 @@
+import Context from '../Context.js';
 import ErrorWithMetadata from '../ErrorWithMetadata.js';
-import Context from '../Fig/Context.js';
 import run from '../run.js';
 
 type Stats = {

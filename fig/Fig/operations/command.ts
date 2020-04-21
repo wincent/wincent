@@ -1,10 +1,10 @@
+import Context from '../../Context.js';
 import ErrorWithMetadata from '../../ErrorWithMetadata.js';
 import {debug, log} from '../../console.js';
+import stat from '../../fs/stat.js';
 import path from '../../path.js';
 import spawn from '../../spawn.js';
 import stringify from '../../stringify.js';
-import stat from '../../fs/stat.js';
-import Context from '../Context.js';
 
 /**
  * Implements basic shell expansion (of ~).

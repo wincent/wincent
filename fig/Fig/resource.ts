@@ -1,8 +1,8 @@
 import {join} from 'path';
 
+import Context from '../Context.js';
 import {readdirSync} from '../fs.js';
 import path from '../path.js';
-import Context from './Context.js';
 import globToRegExp from './globToRegExp.js';
 
 import type {Path} from '../path.js';

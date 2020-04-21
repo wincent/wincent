@@ -1,6 +1,6 @@
+import Context from '../Context.js';
 import assert from '../assert.js';
 import path from '../path.js';
-import Context from './Context.js';
 
 import type {Path} from '../path.js';
 

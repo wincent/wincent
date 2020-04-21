@@ -1,7 +1,7 @@
 import {join} from 'path';
 
+import Context from '../../Context.js';
 import {describe, expect, test} from '../../test/harness.js';
-import Context from '../Context.js';
 import {file, files, template} from '../resource.js';
 
 function withMeta(callback: () => void) {

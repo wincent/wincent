@@ -1,15 +1,15 @@
+import Context from '../../Context.js';
 import ErrorWithMetadata from '../../ErrorWithMetadata.js';
+import assert from '../../assert.js';
 import {promises as fs} from '../../fs.js';
 import tempfile from '../../fs/tempfile.js';
+import {default as toPath} from '../../path.js';
 import chmod from '../../posix/chmod.js';
 import chown from '../../posix/chown.js';
 import cp from '../../posix/cp.js';
 import ln from '../../posix/ln.js';
 import mkdir from '../../posix/mkdir.js';
 import touch from '../../posix/touch.js';
-import {default as toPath} from '../../path.js';
-import Context from '../Context.js';
-import assert from '../../assert.js';
 import compare from '../compare.js';
 
 export default async function file({
