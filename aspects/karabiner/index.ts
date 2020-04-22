@@ -40,3 +40,13 @@ task('write karabiner.json', async () => {
         variables: {config},
     });
 });
+
+// This is a bit random having this in here, but it's a dependency of our
+// Hammerspoon set-up; should possibly move the related bit of that in here?
+task('write karabiner-sudoers', async () => {
+    await template({
+        path: '/private/etc/sudoers.d/karabiner-sudoers',
+        src: resource.template('karabiner-sudoers.erb'),
+        sudo: true,
+    });
+});

@@ -1,3 +1,0 @@
-# {{ ansible_managed }}
-
-{{ lookup('env', 'USER') }} ALL = NOPASSWD: /bin/launchctl load /Library/LaunchDaemons/org.pqrs.karabiner.karabiner_grabber.plist, /bin/launchctl load /Library/LaunchDaemons/org.pqrs.karabiner.karabiner_observer.plist, /bin/launchctl unload /Library/LaunchDaemons/org.pqrs.karabiner.karabiner_grabber.plist, /bin/launchctl unload /Library/LaunchDaemons/org.pqrs.karabiner.karabiner_observer.plist

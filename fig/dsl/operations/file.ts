@@ -144,7 +144,7 @@ export default async function file({
                 from = await tempfile('file', diff.contents);
             }
 
-            const result = mutate && (await cp(from, target));
+            const result = mutate && (await cp(from, target, {sudo}));
 
             if (result instanceof Error) {
                 throw result;

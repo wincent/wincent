@@ -18,7 +18,10 @@ task('link ~/.config/nvim to ~/.vim', async () => {
 
 task('copy to ~/backups', async () => {
     // Some overlap with "dotfiles" aspect here (may want to look at
-    // abstracting backups somehow).
+    // abstracting backups somehow.
+    // TODO: make a "backup" DSL that copies files to standard location
+    // could also be a switch to "file", "template" DSLs but I don't like that
+    // idea as much
     const files = variable.paths('files');
 
     for (const file of files) {

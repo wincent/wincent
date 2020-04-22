@@ -154,6 +154,7 @@ async function main() {
     const attributeVariables = {
         home: Context.attributes.home,
         platform: Context.attributes.platform,
+        username: Context.attributes.username,
     };
 
     const defaultVariables = project.variables ?? {};
