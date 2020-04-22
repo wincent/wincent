@@ -23,16 +23,16 @@ export type Path = string & {
 };
 
 interface path {
-    (string: string): Path;
+    (...components: Array<string>): Path;
 
     aspect: Path;
     home: Path;
     root: Path;
 }
 
-function path(string: string): Path {
-    // Unwrap (possible) Path string-like back to primitive string.
-    string = string.toString();
+function path(...components: Array<string>): Path {
+    // Unwrap (possible) Path string-like(s) back to primitive string.
+    const string = join(...components.map((component) => component.toString()));
 
     return Object.defineProperties(new String(string), {
         basename: {

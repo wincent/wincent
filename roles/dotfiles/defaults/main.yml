@@ -7,7 +7,6 @@ dotfile_files:
   - .pypirc
 
 dotfile_templates:
-  - .config/karabiner/karabiner.json
   - .gemrc
   - .hammerspoon/iterm.lua
   - .imapfilter/config.lua
@@ -33,5 +32,3 @@ smtp_from: user@example.com
 smtp_user: user@example.com
 smtp_keychain_account: user@example.com
 smtp_keychain_name: example.com
-
-use_karabiner: false

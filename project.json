@@ -1,7 +1,14 @@
 {
     "platforms": {
         "darwin": {
-            "aspects": ["meta", "dotfiles", "launchd", "terminfo", "vim"],
+            "aspects": [
+                "meta",
+                "dotfiles",
+                "karabiner",
+                "launchd",
+                "terminfo",
+                "vim"
+            ],
             "variables": {}
         },
         "linux": {

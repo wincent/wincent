@@ -3,8 +3,10 @@ import ErrorWithMetadata from '../../ErrorWithMetadata.js';
 import {debug, log} from '../../console.js';
 import stat from '../../fs/stat.js';
 import path from '../../path.js';
-import spawn from '../../spawn.js';
+import run from '../../run.js';
 import stringify from '../../stringify.js';
+
+import type {Result} from '../../run.js';
 
 /**
  * Implements basic shell expansion (of ~).
@@ -16,7 +18,7 @@ export default async function command(
         chdir?: string;
         creates?: string;
     } = {}
-): Promise<void> {
+): Promise<Result | null> {
     const description = [executable, ...args].join(' ');
 
     if (options.creates) {
@@ -28,7 +30,8 @@ export default async function command(
 
         if (stats !== null) {
             Context.informSkipped(`command \`${description}\``);
-            return;
+
+            return null;
         }
     }
 
@@ -39,14 +42,20 @@ export default async function command(
 
         if (Context.currentOptions?.check) {
             Context.informSkipped(`command \`${description}\``);
+
+            return null;
         } else {
-            await spawn(
+            const result = await run(
                 path(executable).expand,
                 args.map((arg) => path(arg).expand),
-                options.chdir ? {cwd: options.chdir.toString()} : {}
+                {
+                    chdir: options.chdir,
+                }
             );
 
             Context.informChanged(`command \`${description}\``);
+
+            return result;
         }
     } catch (error) {
         if (error instanceof ErrorWithMetadata) {
@@ -56,4 +65,6 @@ export default async function command(
             Context.informFailed(`command \`${description}\` failed`);
         }
     }
+
+    return null;
 }

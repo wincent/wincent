@@ -254,7 +254,7 @@ async function main() {
             })
             .join(' ');
 
-        log.info(`Summary: ${counts}`);
+        log.notice(`Summary: ${counts}`);
     }
 }
 
@@ -262,6 +262,9 @@ async function loadAspect(aspect: Aspect): Promise<void> {
     switch (aspect) {
         case 'dotfiles':
             await import('../aspects/dotfiles/index.js');
+            break;
+        case 'karabiner':
+            await import('../aspects/karabiner/index.js');
             break;
         case 'launchd':
             await import('../aspects/launchd/index.js');

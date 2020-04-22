@@ -3,10 +3,11 @@ import {randomBytes} from 'crypto';
 import {spawn} from './child_process.js';
 
 type Options = {
+    chdir?: string;
     passphrase?: string;
 };
 
-type Result = {
+export type Result = {
     command: string;
     error: Error | null;
     signal: string | null;
@@ -41,7 +42,11 @@ export default async function run(
             stdout: '',
         };
 
-        const child = spawn(final[0], final.slice(1));
+        const child = spawn(
+            final[0],
+            final.slice(1),
+            options.chdir ? {cwd: options.chdir.toString()} : {}
+        );
 
         // Sadly, we may see "Sorry, try again" if the wrong password is
         // supplied, because sudo may be configured to log it directly to

@@ -19,7 +19,6 @@ variables(({identity}) => ({
 task('make directories', async () => {
     await file({path: '~/.backups', state: 'directory'});
     await file({path: '~/.config', state: 'directory'});
-    await file({path: '~/.config/karabiner', state: 'directory'});
     await file({path: '~/.mail', state: 'directory'});
     await file({path: '~/.zshenv.d', state: 'directory'});
 

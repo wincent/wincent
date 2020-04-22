@@ -3,6 +3,8 @@ import * as child_process from './child_process.js';
 
 import type {SpawnOptions} from 'child_process';
 
+// TODO: delete this, probably; currently unused...
+
 /**
  * Fire-and-forget child process execution.
  *

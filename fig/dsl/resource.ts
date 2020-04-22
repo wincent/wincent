@@ -10,11 +10,13 @@ import type {Path} from '../path.js';
 // TODO: think about exporting these separately (from separate files)
 
 /**
- * Given `name` returns an aspect-local path corresponding to the currently
- * active aspect (eg. `aspects/${aspect}/files/${name}`).
+ * Given `components` returns an aspect-local path corresponding to the
+ * currently active aspect; eg:
+ *
+ *      aspects/${aspect}/files/${name[0]}/${name[1]}...
  */
 export function file(...components: Array<string>): Path {
-    return path(join('aspects', Context.currentAspect, 'files', ...components));
+    return resource('files', ...components);
 }
 
 /**
@@ -32,8 +34,14 @@ export function files(glob: string): Array<Path> {
         .map((name) => path(join('aspects', aspect, 'files', name)));
 }
 
+export function support(...components: Array<string>): Path {
+    return resource('support', ...components);
+}
+
 export function template(...components: Array<string>): Path {
-    return path(
-        join('aspects', Context.currentAspect, 'templates', ...components)
-    );
+    return resource('templates', ...components);
+}
+
+function resource(subdirectory: string, ...components: Array<string>): Path {
+    return path('aspects', Context.currentAspect, subdirectory, ...components);
 }

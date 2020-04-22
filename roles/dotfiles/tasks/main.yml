@@ -12,27 +12,11 @@
   when: not cipher_check.rc == 0
   changed_when: not cipher_check.rc == 0
 
-- name: dotfiles | test Karabiner generator
-  command: '{{ ansible_env.PWD }}/roles/dotfiles/support/karabiner-test.js'
-  when: use_karabiner
-
-- name: dotfiles | prepare Karabiner config
-  command: '{{ ansible_env.PWD }}/roles/dotfiles/support/karabiner.js'
-  register: karabiner_config
-  check_mode: no
-  when: use_karabiner
-
-- name: dotfiles | show karabiner_config
-  debug:
-    var: karabiner_config
-    verbosity: 2
-
 # This is a bit random having this in here, but it's a dependency of our
 # Hammerspoon set-up.
-- name: dotfiles | set up karabiner-sudoers
-  template: dest=/private/etc/sudoers.d/karabiner-sudoers src=karabiner-sudoers
-  become: !!bool yes
-  when: use_karabiner
+# - name: dotfiles | set up karabiner-sudoers
+#   template: dest=/private/etc/sudoers.d/karabiner-sudoers src=karabiner-sudoers
+#   become: !!bool yes
 
 # Note some nasty dependencies here between creating the symlinks (eg.
 # effectively creating ~/mutt/config/) and then templating into it (eg.

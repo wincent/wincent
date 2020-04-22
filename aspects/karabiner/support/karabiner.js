@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 function fromTo(from, to) {
     return [
         {
@@ -13,7 +11,7 @@ function fromTo(from, to) {
     ];
 }
 
-function bundleIdentifier(identifier) {
+export function bundleIdentifier(identifier) {
     return '^' + identifier.replace(/\./g, '\\.') + '$';
 }
 
@@ -176,14 +174,14 @@ const VANILLA_PROFILE = {
     },
 };
 
-function isObject(item) {
+export function isObject(item) {
     return (
         item !== null &&
         Object.prototype.toString.call(item) === '[object Object]'
     );
 }
 
-function deepCopy(item) {
+export function deepCopy(item) {
     if (Array.isArray(item)) {
         return item.map(deepCopy);
     } else if (isObject(item)) {
@@ -208,7 +206,7 @@ function deepCopy(item) {
  * - `.child`: selects a child property.
  * - `[start:end]`: selects an array slice; `end` is optional.
  */
-function visit(item, path, updater) {
+export function visit(item, path, updater) {
     const match = path.match(
         /^(?<root>\$)|\.(?<child>\w+)|\[(?<slice>.+?)\]|(?<done>$)/
     );
@@ -505,15 +503,6 @@ const CONFIG = {
     profiles: [DEFAULT_PROFILE, VANILLA_PROFILE],
 };
 
-if (require.main === module) {
-    // Script is being executed directly.
+if (process.argv.includes('--emit-karabiner-config')) {
     process.stdout.write(JSON.stringify(CONFIG, null, 2) + '\n');
-} else {
-    // File is being `require`-ed as a module.
-    module.exports = {
-        bundleIdentifier,
-        deepCopy,
-        isObject,
-        visit,
-    };
 }

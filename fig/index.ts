@@ -9,6 +9,10 @@ import {default as task} from './dsl/task.js';
 import {default as variable} from './dsl/variable.js';
 import {default as variables} from './dsl/variables.js';
 
+// TODO: maybe make a "register" function for arbitrary communication/sharing
+// across tasks/aspects
+// TODO: export "path" here for convenience? it is very DSL-ish
+
 export {attributes};
 export {command};
 export {file};

@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 /**
  * Tests for our karabiner.json generator script.
  *
@@ -7,12 +5,13 @@
  * like my code to have Zarro Boogs.
  */
 
-const assert = require('assert');
-const {bundleIdentifier, deepCopy, isObject, visit} = require('./karabiner');
+import {ok} from 'assert';
+
+import {bundleIdentifier, deepCopy, isObject, visit} from './karabiner.js';
 
 (function test_bundleIdentifier() {
     (function $() {
-        assert(
+        ok(
             bundleIdentifier('com.apple.TextEdit') ===
                 '^com\\.apple\\.TextEdit$',
             $
@@ -31,7 +30,7 @@ const {bundleIdentifier, deepCopy, isObject, visit} = require('./karabiner');
 
     // Copies look the same.
     (function $() {
-        assert(
+        ok(
             JSON.stringify(copy) ===
                 '{"object":{"isInner":true},"array":[1,2,[3,4]]}',
             $
@@ -40,64 +39,64 @@ const {bundleIdentifier, deepCopy, isObject, visit} = require('./karabiner');
 
     // Objects are cloned.
     (function $() {
-        assert(source !== copy, $);
+        ok(source !== copy, $);
     })();
 
     // Nested objects are cloned.
     (function $() {
-        assert(source.object !== copy.object, $);
+        ok(source.object !== copy.object, $);
     })();
 
     // Arrays are cloned.
     (function $() {
-        assert(source.array !== copy.array, $);
+        ok(source.array !== copy.array, $);
     })();
 
     // Nested arrays are cloned.
     (function $() {
-        assert(source.array[2] !== copy.array[2], $);
+        ok(source.array[2] !== copy.array[2], $);
     })();
 
     // Primitives are identical.
     (function $() {
-        assert(source.array[0] === copy.array[0], $);
+        ok(source.array[0] === copy.array[0], $);
     })();
 })();
 
 (function test_isObject() {
     // Arrays are not objects.
     (function $() {
-        assert(!isObject([1]), $);
+        ok(!isObject([1]), $);
     })();
 
     // Booleans are not objects.
     (function $() {
-        assert(!isObject(true), $);
+        ok(!isObject(true), $);
     })();
 
     // `null` is not an object.
     (function $() {
-        assert(!isObject(null), $);
+        ok(!isObject(null), $);
     })();
 
     // Numbers are not objects.
     (function $() {
-        assert(!isObject(1), $);
+        ok(!isObject(1), $);
     })();
 
     // Strings are not objects.
     (function $() {
-        assert(!isObject('this'), $);
+        ok(!isObject('this'), $);
     })();
 
     // `undefined` is not an object.
     (function $() {
-        assert(!isObject(undefined), $);
+        ok(!isObject(undefined), $);
     })();
 
     // Objects are objects.
     (function $() {
-        assert(isObject({}), $);
+        ok(isObject({}), $);
     })();
 })();
 
@@ -122,13 +121,13 @@ const {bundleIdentifier, deepCopy, isObject, visit} = require('./karabiner');
     // Replacing the entire document.
     (function $() {
         const updated = visit(subject(), '$', (root) => 'replacement');
-        assert(updated === 'replacement', $);
+        ok(updated === 'replacement', $);
     })();
 
     // Setting a property on an object.
     (function $() {
         const updated = visit(subject(), '$.foo', (value) => value + 5);
-        assert(
+        ok(
             string(updated) ===
                 squish(`{
           "foo": 6,
@@ -150,7 +149,7 @@ const {bundleIdentifier, deepCopy, isObject, visit} = require('./karabiner');
     (function $() {
         let counter = 10;
         const updated = visit(subject(), '$.bar[0:]', (_) => counter++);
-        assert(
+        ok(
             string(updated) ===
                 squish(`{
           "foo": 1,
@@ -169,7 +168,7 @@ const {bundleIdentifier, deepCopy, isObject, visit} = require('./karabiner');
             (value) => 'xxx'
         );
 
-        assert(
+        ok(
             updated !== original &&
                 updated.foo === original.foo &&
                 updated.bar !== original.bar &&
