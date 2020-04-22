@@ -53,6 +53,17 @@ export default async function command(
                 }
             );
 
+            // TODO: add a failed-when option
+            if (result.status !== 0) {
+                throw new ErrorWithMetadata(
+                    `command \`${description}\` failed`,
+                    {
+                        ...result,
+                        error: result.error?.toString() ?? null,
+                    }
+                );
+            }
+
             Context.informChanged(`command \`${description}\``);
 
             return result;
