@@ -9,9 +9,15 @@ import file from './file.js';
 
 export default async function fetch({
     dest,
+    group,
+    mode,
+    owner,
     url,
 }: {
     dest: string;
+    group?: string;
+    mode?: Mode;
+    owner?: string;
     url: string;
 }): Promise<void> {
     log.debug(`Download \`${url}\` to \`${dest}\``);
@@ -43,6 +49,9 @@ export default async function fetch({
 
                     await file({
                         contents,
+                        group,
+                        mode,
+                        owner,
                         path: dest,
                         state: 'file',
                     });
