@@ -1,5 +1,6 @@
 import {default as attributes} from './dsl/attributes.js';
 import {default as command} from './dsl/operations/command.js';
+import {default as fetch} from './dsl/operations/fetch.js';
 import {default as file} from './dsl/operations/file.js';
 import {default as template} from './dsl/operations/template.js';
 import * as resource from './dsl/resource.js';
@@ -15,6 +16,7 @@ import {default as variables} from './dsl/variables.js';
 
 export {attributes};
 export {command};
+export {fetch};
 export {file};
 export {resource};
 export {root};
@@ -24,9 +26,11 @@ export {template};
 export {variable};
 export {variables};
 
+// TODO: delete this interface; don't think i need it
 export interface Fig {
     attributes: typeof attributes;
     command: typeof command;
+    fetch: typeof fetch;
     file: typeof file;
     resource: typeof resource;
     root: typeof root;

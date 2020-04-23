@@ -10,5 +10,6 @@ export default async function tempdir(prefix: string): Promise<string> {
         throw result;
     }
 
+    // TODO consider returning a Path here
     return path;
 }

@@ -7,6 +7,13 @@
 
 import * as fs from 'fs';
 
+export function createWriteStream(
+    path: Parameters<typeof fs.createWriteStream>[0],
+    options: Parameters<typeof fs.createWriteStream>[1]
+): ReturnType<typeof fs.createWriteStream> {
+    return fs.createWriteStream(path.toString(), options);
+}
+
 export function existsSync(
     path: Parameters<typeof fs.existsSync>[0]
 ): ReturnType<typeof fs.existsSync> {

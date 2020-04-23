@@ -31,4 +31,3 @@ export default function variables(callback: (v: Variables) => Variables) {
 }
 
 // TODO: dedupe this, which is almost identical to task.ts
-// TODO: rename this folder from "Fig" to "dsl"

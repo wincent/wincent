@@ -4,6 +4,7 @@
             "aspects": [
                 "meta",
                 "dotfiles",
+                "homebrew",
                 "karabiner",
                 "launchd",
                 "terminfo",

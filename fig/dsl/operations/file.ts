@@ -192,7 +192,7 @@ export default async function file({
     }
 
     // BUG: we use "file" here; not distinguishing between
-    // "template" and "file"
+    // "template", "fetch" and "file"
     if (changed.length) {
         if (mutate) {
             Context.informChanged(`file[${changed.join('|')}] ${path}`);
