@@ -25,18 +25,3 @@ export {task};
 export {template};
 export {variable};
 export {variables};
-
-// TODO: delete this interface; don't think i need it
-export interface Fig {
-    attributes: typeof attributes;
-    command: typeof command;
-    fetch: typeof fetch;
-    file: typeof file;
-    resource: typeof resource;
-    root: typeof root;
-    skip: typeof skip;
-    task: typeof task;
-    template: typeof template;
-    variable: typeof variable;
-    variables: typeof variables;
-}
