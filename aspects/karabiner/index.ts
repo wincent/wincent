@@ -1,7 +1,5 @@
 import {command, file, resource, skip, template, task} from 'fig';
 
-import path from 'fig/path.js';
-
 // TODO: set up node before we run these
 
 task('test karabiner.json generator', async () => {
@@ -28,15 +26,13 @@ task('make directories', async () => {
 });
 
 task('write karabiner.json', async () => {
-    const src = path('.config/karabiner/karabiner.json.erb');
-
     if (!config) {
         return skip('no contents prepared for karabiner.json');
     }
 
     await template({
-        path: path.home.join(src.strip('.erb')),
-        src: resource.template(src),
+        path: '~/.config/karabiner/karabiner.json',
+        src: resource.template('.config/karabiner/karabiner.json.erb'),
         variables: {config},
     });
 });

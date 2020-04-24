@@ -1,6 +1,6 @@
-# Based on the output of `brew bundle dump` (which must be run outside of tmux).
+# <%= variables.figManaged %>
 #
-# {{ ansible_managed }}
+# Based on the output of `brew bundle dump` (which must be run outside of tmux).
 
 cask_args appdir: "/Applications"
 
@@ -182,14 +182,14 @@ brew "xvid"
 brew "xz"
 # brew "yarn"
 brew "zsh"
-{% if 'work' in group_names %}
+<%- if (variables.profile === 'work') { -%>
 
 # Work packages
 brew "docker"
 brew "mysql@5.7"
 brew "telnet"
 brew "watchman"
-{% endif %}
+<%- } -%>
 
 # General applications.
 cask "alfred"
@@ -215,8 +215,8 @@ cask "tcl"
 cask "transmission"
 cask "vlc"
 cask "xquartz"
-{% if 'work' in group_names %}
+<%- if (variables.profile === 'work') { -%>
 
 # Work casks
 cask "docker"
-{% endif %}
+<%- } -%>

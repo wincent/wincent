@@ -160,6 +160,7 @@ async function main() {
     const defaultVariables = project.variables ?? {};
 
     const baseVariables = merge(
+        {profile: profile || null},
         attributeVariables,
         defaultVariables,
         profileVariables,

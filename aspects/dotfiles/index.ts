@@ -77,7 +77,7 @@ task('fill templates', async () => {
 task('create ~/code/.editorconfig', async () => {
     if (variable('identity') === 'wincent') {
         await template({
-            path: path.home.join('code/.editorconfig'),
+            path: '~/code/.editorconfig',
             src: resource.template('code/.editorconfig'),
         });
     }

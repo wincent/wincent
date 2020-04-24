@@ -49,7 +49,9 @@ export default async function command(
                 path(executable).expand,
                 args.map((arg) => path(arg).expand),
                 {
-                    chdir: options.chdir,
+                    chdir: options.chdir
+                        ? path(options.chdir).expand
+                        : undefined,
                 }
             );
 
