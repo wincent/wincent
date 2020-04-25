@@ -9,12 +9,13 @@
                 "launchd",
                 "terminfo",
                 "vim",
-                "cron"
+                "cron",
+                "defaults"
             ],
             "variables": {}
         },
         "linux": {
-            "aspects": ["meta", "dotfiles", "terminfo"],
+            "aspects": ["meta", "dotfiles", "terminfo", "vim"],
             "variables": {
                 "terminfoPath": "~/share/terminfo"
             }

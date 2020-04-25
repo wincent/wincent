@@ -31,9 +31,6 @@
 #   https://github.com/mathiasbynens/dotfiles/blob/master/.macos
 #
 
-- name: defaults | Activity Monitor -> View -> Dock Icon -> Show CPU History
-  osx_defaults: domain=com.apple.ActivityMonitor key=IconType type=int value=6
-
 - name: defaults | Siri -> Enable Siri
   osx_defaults: domain=com.apple.assistant.support key="Assistant Enabled" type=bool value=false
 

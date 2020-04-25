@@ -1,0 +1,1 @@
+Sets up defaults (ie. preferences) on macOS.
