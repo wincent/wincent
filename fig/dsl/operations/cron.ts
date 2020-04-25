@@ -100,10 +100,10 @@ export function validate(
                 (last !== undefined && last > MAXIMUMS[field]) ||
                 (step !== undefined && (step === 0 || step > MAXIMUMS[field]))
             ) {
-                throw new Error(`value \`${value}\` is not valid`);
+                throw new Error(`value \`${value}\` is not a valid ${field}`);
             }
         } else {
-            throw new Error(`value \`${value}\` is not valid`);
+            throw new Error(`value \`${value}\` is not a valid ${field}`);
         }
     }
 }

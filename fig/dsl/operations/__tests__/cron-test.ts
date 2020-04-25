@@ -64,10 +64,12 @@ describe('validate()', () => {
         validate('weekday', 'sat');
         validate('weekday', 'sun');
 
-        expect(() => validate('day', 'mon')).toThrow(/is not valid/);
-        expect(() => validate('hour', 'mon')).toThrow(/is not valid/);
-        expect(() => validate('minute', 'mon')).toThrow(/is not valid/);
-        expect(() => validate('month', 'mon')).toThrow(/is not valid/);
+        expect(() => validate('day', 'mon')).toThrow(/is not a valid day/);
+        expect(() => validate('hour', 'mon')).toThrow(/is not a valid hour/);
+        expect(() => validate('minute', 'mon')).toThrow(
+            /is not a valid minute/
+        );
+        expect(() => validate('month', 'mon')).toThrow(/is not a valid month/);
     });
 
     test('weekday names are case-insensitive', () => {
@@ -89,10 +91,14 @@ describe('validate()', () => {
         validate('month', 'nov');
         validate('month', 'dec');
 
-        expect(() => validate('day', 'jan')).toThrow(/is not valid/);
-        expect(() => validate('hour', 'jan')).toThrow(/is not valid/);
-        expect(() => validate('minute', 'jan')).toThrow(/is not valid/);
-        expect(() => validate('weekday', 'jan')).toThrow(/is not valid/);
+        expect(() => validate('day', 'jan')).toThrow(/is not a valid day/);
+        expect(() => validate('hour', 'jan')).toThrow(/is not a valid hour/);
+        expect(() => validate('minute', 'jan')).toThrow(
+            /is not a valid minute/
+        );
+        expect(() => validate('weekday', 'jan')).toThrow(
+            /is not a valid weekday/
+        );
     });
 
     test('month names are case-insensitive', () => {
@@ -101,79 +107,113 @@ describe('validate()', () => {
     });
 
     test('names cannot be used in ranges or lists', () => {
-        expect(() => validate('weekday', '1-fri')).toThrow(/is not valid/);
-        expect(() => validate('weekday', '1,2,fri')).toThrow(/is not valid/);
-        expect(() => validate('month', 'jan-6')).toThrow(/is not valid/);
-        expect(() => validate('month', 'jan,4-5')).toThrow(/is not valid/);
+        expect(() => validate('weekday', '1-fri')).toThrow(
+            /is not a valid weekday/
+        );
+        expect(() => validate('weekday', '1,2,fri')).toThrow(
+            /is not a valid weekday/
+        );
+        expect(() => validate('month', 'jan-6')).toThrow(
+            /is not a valid month/
+        );
+        expect(() => validate('month', 'jan,4-5')).toThrow(
+            /is not a valid month/
+        );
     });
 
     test('out of range list items are invalid', () => {
-        expect(() => validate('day', '0,3')).toThrow(/is not valid/);
-        expect(() => validate('day', '3,32')).toThrow(/is not valid/);
+        expect(() => validate('day', '0,3')).toThrow(/is not a valid day/);
+        expect(() => validate('day', '3,32')).toThrow(/is not a valid day/);
 
-        expect(() => validate('hour', '3,24')).toThrow(/is not valid/);
+        expect(() => validate('hour', '3,24')).toThrow(/is not a valid hour/);
 
-        expect(() => validate('minute', '3,60')).toThrow(/is not valid/);
+        expect(() => validate('minute', '3,60')).toThrow(
+            /is not a valid minute/
+        );
 
-        expect(() => validate('month', '0,3')).toThrow(/is not valid/);
-        expect(() => validate('month', '3,13')).toThrow(/is not valid/);
+        expect(() => validate('month', '0,3')).toThrow(/is not a valid month/);
+        expect(() => validate('month', '3,13')).toThrow(/is not a valid month/);
 
-        expect(() => validate('weekday', '3,8')).toThrow(/is not valid/);
+        expect(() => validate('weekday', '3,8')).toThrow(
+            /is not a valid weekday/
+        );
     });
 
     test('out of range start indices are invalid', () => {
-        expect(() => validate('day', '0-3')).toThrow(/is not valid/);
+        expect(() => validate('day', '0-3')).toThrow(/is not a valid day/);
 
-        expect(() => validate('month', '0-3')).toThrow(/is not valid/);
+        expect(() => validate('month', '0-3')).toThrow(/is not a valid month/);
     });
 
     test('out of range end indices are invalid', () => {
-        expect(() => validate('day', '3-32')).toThrow(/is not valid/);
+        expect(() => validate('day', '3-32')).toThrow(/is not a valid day/);
 
-        expect(() => validate('hour', '3-24')).toThrow(/is not valid/);
+        expect(() => validate('hour', '3-24')).toThrow(/is not a valid hour/);
 
-        expect(() => validate('minute', '3-60')).toThrow(/is not valid/);
+        expect(() => validate('minute', '3-60')).toThrow(
+            /is not a valid minute/
+        );
 
-        expect(() => validate('month', '3-13')).toThrow(/is not valid/);
+        expect(() => validate('month', '3-13')).toThrow(/is not a valid month/);
 
-        expect(() => validate('weekday', '3-8')).toThrow(/is not valid/);
+        expect(() => validate('weekday', '3-8')).toThrow(
+            /is not a valid weekday/
+        );
     });
 
     test('bad weekday names are invalid', () => {
-        expect(() => validate('weekday', 'garbage')).toThrow(/is not valid/);
+        expect(() => validate('weekday', 'garbage')).toThrow(
+            /is not a valid weekday/
+        );
     });
 
     test('bad month names are invalid', () => {
-        expect(() => validate('month', 'garbage')).toThrow(/is not valid/);
+        expect(() => validate('month', 'garbage')).toThrow(
+            /is not a valid month/
+        );
     });
 
     test('"*/n" out of range is not valid', () => {
-        expect(() => validate('day', '*/0')).toThrow(/is not valid/);
-        expect(() => validate('hour', '*/0')).toThrow(/is not valid/);
-        expect(() => validate('minute', '*/0')).toThrow(/is not valid/);
-        expect(() => validate('month', '*/0')).toThrow(/is not valid/);
-        expect(() => validate('weekday', '*/0')).toThrow(/is not valid/);
+        expect(() => validate('day', '*/0')).toThrow(/is not a valid day/);
+        expect(() => validate('hour', '*/0')).toThrow(/is not a valid hour/);
+        expect(() => validate('minute', '*/0')).toThrow(
+            /is not a valid minute/
+        );
+        expect(() => validate('month', '*/0')).toThrow(/is not a valid month/);
+        expect(() => validate('weekday', '*/0')).toThrow(
+            /is not a valid weekday/
+        );
 
-        expect(() => validate('day', '*/32')).toThrow(/is not valid/);
-        expect(() => validate('hour', '*/24')).toThrow(/is not valid/);
-        expect(() => validate('minute', '*/60')).toThrow(/is not valid/);
-        expect(() => validate('month', '*/13')).toThrow(/is not valid/);
-        expect(() => validate('weekday', '*/8')).toThrow(/is not valid/);
+        expect(() => validate('day', '*/32')).toThrow(/is not a valid day/);
+        expect(() => validate('hour', '*/24')).toThrow(/is not a valid hour/);
+        expect(() => validate('minute', '*/60')).toThrow(
+            /is not a valid minute/
+        );
+        expect(() => validate('month', '*/13')).toThrow(/is not a valid month/);
+        expect(() => validate('weekday', '*/8')).toThrow(
+            /is not a valid weekday/
+        );
     });
 
     test('"" is not valid', () => {
-        expect(() => validate('day', '')).toThrow(/is not valid/);
-        expect(() => validate('hour', '')).toThrow(/is not valid/);
-        expect(() => validate('minute', '')).toThrow(/is not valid/);
-        expect(() => validate('month', '')).toThrow(/is not valid/);
-        expect(() => validate('weekday', '')).toThrow(/is not valid/);
+        expect(() => validate('day', '')).toThrow(/is not a valid day/);
+        expect(() => validate('hour', '')).toThrow(/is not a valid hour/);
+        expect(() => validate('minute', '')).toThrow(/is not a valid minute/);
+        expect(() => validate('month', '')).toThrow(/is not a valid month/);
+        expect(() => validate('weekday', '')).toThrow(/is not a valid weekday/);
     });
 
     test('"random" is not valid', () => {
-        expect(() => validate('day', 'random')).toThrow(/is not valid/);
-        expect(() => validate('hour', 'random')).toThrow(/is not valid/);
-        expect(() => validate('minute', 'random')).toThrow(/is not valid/);
-        expect(() => validate('month', 'random')).toThrow(/is not valid/);
-        expect(() => validate('weekday', 'random')).toThrow(/is not valid/);
+        expect(() => validate('day', 'random')).toThrow(/is not a valid day/);
+        expect(() => validate('hour', 'random')).toThrow(/is not a valid hour/);
+        expect(() => validate('minute', 'random')).toThrow(
+            /is not a valid minute/
+        );
+        expect(() => validate('month', 'random')).toThrow(
+            /is not a valid month/
+        );
+        expect(() => validate('weekday', 'random')).toThrow(
+            /is not a valid weekday/
+        );
     });
 });
