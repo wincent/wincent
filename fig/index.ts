@@ -3,6 +3,7 @@
 // TODO: export "path" here for convenience? it is very DSL-ish
 export {default as attributes} from './dsl/attributes.js';
 export {default as command} from './dsl/operations/command.js';
+export {default as cron} from './dsl/operations/cron.js';
 export {default as fetch} from './dsl/operations/fetch.js';
 export {default as file} from './dsl/operations/file.js';
 export {default as template} from './dsl/operations/template.js';
