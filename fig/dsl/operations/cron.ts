@@ -85,11 +85,11 @@ export default async function cron({
             }
         })
         .filter(Boolean)
-        .join('\n');
+        .join('\n').trim();
 
     // Normalize line-ending at EOF.
-    if (crontab.trim().length) {
-        crontab = crontab.trim() + '\n';
+    if (crontab.length) {
+        crontab = crontab + '\n';
     }
 
     if (crontab !== result.stdout) {
