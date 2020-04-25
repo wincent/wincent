@@ -85,7 +85,8 @@ export default async function cron({
             }
         })
         .filter(Boolean)
-        .join('\n').trim();
+        .join('\n')
+        .trim();
 
     // Normalize line-ending at EOF.
     if (crontab.length) {
