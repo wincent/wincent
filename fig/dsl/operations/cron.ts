@@ -1,3 +1,10 @@
+import Context from '../../Context.js';
+import ErrorWithMetadata from '../../ErrorWithMetadata.js';
+import {debug, log} from '../../console.js';
+import tempfile from '../../fs/tempfile.js';
+import run from '../../run.js';
+import stringify from '../../stringify.js';
+
 export default async function cron({
     day = '*',
     hour = '*',
@@ -5,6 +12,7 @@ export default async function cron({
     job,
     minute = '*',
     month = '*',
+    state = 'present',
     weekday = '*',
 }: {
     day?: string;
@@ -13,15 +21,150 @@ export default async function cron({
     job: string;
     minute?: string;
     month?: string;
+    state?: 'absent' | 'present';
     weekday?: string;
 }): Promise<void> {
+    if (!/^\S+$/.test(id)) {
+        throw new Error(
+            `cron job id ${stringify(id)} must not contain whitespace`
+        );
+    }
+
     validate('day', day);
     validate('hour', hour);
     validate('minute', minute);
     validate('month', month);
     validate('weekday', weekday);
 
-    console.log('TODO: actually implement', id, job);
+    const entry = [minute, hour, day, month, weekday, job].join(' ');
+
+    // TODO maybe allow management of other user crontabs with sudo.
+    log.debug(`Reading crontab`);
+
+    const result = await run('crontab', ['-l']);
+
+    if (result.status !== 0) {
+        throw new ErrorWithMetadata('Unable to read crontab', {
+            ...result,
+            error: result.error?.toString() ?? null,
+        });
+    }
+
+    let jobs = parseJobs(result.stdout);
+
+    // Remove, if duplicate or unwanted.
+    let seen = false;
+
+    jobs = jobs.filter(({id: jobId}) => {
+        if (id === jobId) {
+            if (seen || state === 'absent') {
+                return false;
+            } else {
+                seen = true;
+                return true;
+            }
+        }
+        return true;
+    });
+
+    // Add, if missing and required.
+    if (!seen && state === 'present') {
+        jobs.push({id, entry});
+    }
+
+    let crontab = jobs
+        .flatMap(({id: jobId, entry: entryBody}) => {
+            if (id === jobId) {
+                if (state === 'present') {
+                    return [`# fig-cron-job-id: ${id}`, entry];
+                } else {
+                    return undefined;
+                }
+            } else {
+                return entryBody;
+            }
+        })
+        .filter(Boolean)
+        .join('\n');
+
+    // Normalize line-ending at EOF.
+    if (crontab.trim().length) {
+        crontab = crontab.trim() + '\n';
+    }
+
+    if (crontab !== result.stdout) {
+        log.debug('New crontab contents');
+
+        debug(() => {
+            console.log(crontab);
+        });
+
+        if (Context.currentOptions?.check) {
+            Context.informSkipped(`cron ${id}`);
+        } else {
+            const src = await tempfile('cron', crontab);
+
+            const result = await run('crontab', [src]);
+
+            if (result.status !== 0) {
+                throw new ErrorWithMetadata('Unable to write crontab', {
+                    ...result,
+                    error: result.error?.toString() ?? null,
+                });
+            }
+
+            Context.informChanged(`cron ${id}`);
+        }
+    } else {
+        Context.informOk(`cron ${id}`);
+    }
+}
+
+type Job = {
+    id?: string;
+    entry: string;
+};
+
+function parseJobs(crontab: string): Array<Job> {
+    const lines = crontab.split(/\r?\n/g);
+
+    const jobs = [];
+
+    for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
+
+        const match = line.match(
+            /^\s*#\s*fig-cron-job-id\s*:\s*(?<id>\S+)\s*$/
+        );
+
+        if (match && match.groups && match.groups.id) {
+            const id = match.groups.id;
+            const nextLine = lines[i + 1] || '';
+
+            if (/^\s*#/.test(nextLine)) {
+                // Expected a job, but got a comment.
+                jobs.push({
+                    id,
+                    entry: '',
+                });
+            } else {
+                // Consume next line as job.
+                i++;
+                jobs.push({
+                    id,
+                    entry: nextLine,
+                });
+            }
+        } else {
+            // Note, a "job" without an id can even be a comment or blank line.
+            jobs.push({
+                id: undefined,
+                entry: line,
+            });
+        }
+    }
+
+    return jobs;
 }
 
 const MAXIMUMS = {

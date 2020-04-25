@@ -7,6 +7,8 @@ import {createWriteStream, promises} from '../../fs.js';
 import tempdir from '../../fs/tempdir.js';
 import file from './file.js';
 
+// TODO: make this work with --check/--dry-run flag
+
 export default async function fetch({
     dest,
     group,
