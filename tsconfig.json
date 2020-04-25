@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+        "incremental": true,
         "module": "esnext",
         "moduleResolution": "node",
         "noFallthroughCasesInSwitch": true,
