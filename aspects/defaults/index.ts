@@ -359,24 +359,26 @@ task(
 task(
     'System Preferences -> Accessibility -> Zoom -> Use scroll gesture with modifier keys to zoom (Control)',
     async () => {
-        /*
-  await defaults({domain: {{ item.domain }}  key: {{ item.key }}  type: {{ item.type }}  value: {{ item.value }}
-  loop:
-    - await defaults({domain: com.apple.universalaccess
-      key: closeViewScrollWheelToggle
-      type: bool
-      value: true
-    - await defaults({domain: com.apple.driver.AppleBluetoothMultitouch.trackpad
-      key: HIDScrollZoomModifierMask
-      type: int
-      value: 262144
-    - await defaults({domain: com.apple.AppleMultitouchTrackpad
-      key: HIDScrollZoomModifierMask
-      type: int
-      value: 262144
-  loop_control:
-    label: "{{item.domain}} {{item.key}}"
-    */
+        await defaults({
+            domain: 'com.apple.universalaccess',
+            key: 'closeViewScrollWheelToggle',
+            type: 'bool',
+            value: true,
+        });
+
+        await defaults({
+            domain: 'com.apple.driver.AppleBluetoothMultitouch.trackpad',
+            key: 'HIDScrollZoomModifierMask',
+            type: 'int',
+            value: 262144,
+        });
+
+        await defaults({
+            domain: 'com.apple.AppleMultitouchTrackpad',
+            key: 'HIDScrollZoomModifierMask',
+            type: 'int',
+            value: 262144,
+        });
     }
 );
 
@@ -405,6 +407,39 @@ task(
         });
     }
 );
+
+// Last tested: [10.10.2]
+task(
+    'System Preferences -> General -> Recent items (Applications)',
+    async () => {
+        await defaults({
+            domain: 'com.apple.recentitems',
+            key: 'RecentApplications',
+            type: 'dict-add',
+            value: {MaxAmount: 50},
+        });
+    }
+);
+
+// Last tested: [10.10.2]
+task('System Preferences -> General -> Recent items (Documents)', async () => {
+    await defaults({
+        domain: 'com.apple.recentitems',
+        key: 'RecentDocuments',
+        type: 'dict-add',
+        value: {MaxAmount: 50},
+    });
+});
+
+// Last tested: [10.10.2]
+task('System Preferences -> General -> Recent items (Servers)', async () => {
+    await defaults({
+        domain: 'com.apple.recentitems',
+        key: 'RecentServers',
+        type: 'dict-add',
+        value: {MaxAmount: 50},
+    });
+});
 
 // Last tested: [10.12.1]
 task(
