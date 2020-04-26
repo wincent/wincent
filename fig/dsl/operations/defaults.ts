@@ -167,7 +167,7 @@ export default async function defaults({
             let typeAndValue: Array<string> = [];
 
             if (type === 'bool') {
-                typeAndValue = ['-bool', Number(value).toString()];
+                typeAndValue = ['-bool', value!.toString().toUpperCase()];
             } else if (type === 'float') {
                 typeAndValue = ['-float', value!.toString()];
             } else if (type === 'int') {
