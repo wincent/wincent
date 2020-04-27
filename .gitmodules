@@ -3,9 +3,6 @@
 	path = aspects/vim/files/.vim/pack/bundle/opt/LanguageClient-neovim
 	url = https://github.com/autozimu/LanguageClient-neovim.git
 	branch = next
-[submodule "ansible"]
-	path = vendor/ansible
-	url = https://github.com/ansible/ansible.git
 [submodule "base16-iterm2"]
 	path = vendor/base16-iterm2
 	url = https://github.com/chriskempson/base16-iterm2.git
@@ -183,9 +180,6 @@
 [submodule "vim-zsh"]
 	path = aspects/vim/files/.vim/pack/bundle/opt/vim-zsh
 	url = https://github.com/chrisbra/vim-zsh.git
-[submodule "virtualenv"]
-	path = vendor/virtualenv
-	url = https://github.com/pypa/virtualenv.git
 [submodule "zsh-autosuggestions"]
 	path = aspects/dotfiles/files/.zsh/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
