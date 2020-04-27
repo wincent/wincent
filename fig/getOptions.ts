@@ -76,10 +76,14 @@ export default async function getOptions(
         } else if (arg === '--help' || arg === '-h') {
             await printUsage(aspects);
             throw new ErrorWithMetadata('aborting');
-        } else if (arg.startsWith('--start-at-task=')) {
+        } else if (
+            arg.startsWith('--start-at-task=') ||
+            arg.startsWith('--start=')
+        ) {
             options.startAt.literal = (
-                arg.match(/^--start-at-task=(.*)/)?.[1] ?? ''
+                arg.match(/^--start(?:-at-task)?=(.*)/)?.[1] ?? ''
             ).trim();
+
             options.startAt.fuzzy = new RegExp(
                 [
                     '',
