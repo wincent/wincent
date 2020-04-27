@@ -92,7 +92,7 @@
 
 [core]
 	excludesfile = ~/.gitignore
-	pager = sh -c "~/.zsh/bin/diff-highlight | less -iFMRSX" -
+	pager = ~/.zsh/bin/diff-highlight | less -iFMRSX --pattern='^(commit|diff|$)' +r
 	attributesfile = ~/.gitattributes
 
 # ignored by Git older than 1.8.2
