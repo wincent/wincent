@@ -19,7 +19,18 @@ variable.array = (
 ): Array<JSONValue> => {
     const value = variable(name, fallback);
 
-    assert(Array.isArray(value), `Expected variable ${name} to be an array`);
+    assert.JSONArray(value, `Expected variable ${name} to be an array`);
+
+    return value;
+};
+
+variable.object = (
+    name: string,
+    fallback?: {[key: string]: JSONValue}
+): {[key: string]: JSONValue} => {
+    const value = variable(name, fallback);
+
+    assert.JSONObject(value, `Expected variable ${name} to be an object`);
 
     return value;
 };

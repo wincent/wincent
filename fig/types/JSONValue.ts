@@ -5,32 +5,36 @@ import * as assert from 'assert';
  * enough.
  */
 export function assertJSONValue(value: unknown): asserts value is JSONValue {
-  const seen = new Set();
+  assert.ok(isJSONValue(value));
+}
 
-  function isJSON(value: unknown): boolean {
-    if (
-      typeof value === 'boolean' ||
-      typeof value === 'number' ||
-      typeof value === 'string' ||
-      value === null
-    ) {
-      return true;
-    } else if (Array.isArray(value) && !seen.has(value)) {
-      seen.add(value);
+export function isJSONValue(value: unknown): value is JSONValue {
+    const seen = new Set();
 
-      return value.every(isJSON);
-    } else if (
-      typeof value === 'object' &&
-      Object.prototype.toString.call(value) === '[object Object]' &&
-      !seen.has(value)
-    ) {
-      seen.add(value);
+    function check(value: unknown): value is JSONValue {
+        if (
+          typeof value === 'boolean' ||
+          typeof value === 'number' ||
+          typeof value === 'string' ||
+          value === null
+        ) {
+          return true;
+        } else if (Array.isArray(value) && !seen.has(value)) {
+          seen.add(value);
 
-      return Object.values(value!).every(isJSON);
+          return value.every(check);
+        } else if (
+          typeof value === 'object' &&
+          Object.prototype.toString.call(value) === '[object Object]' &&
+          !seen.has(value)
+        ) {
+          seen.add(value);
+
+          return Object.values(value!).every(check);
+        }
+
+        return false;
     }
 
-    return false;
-  }
-
-  assert.ok(isJSON(value));
+    return check(value);
 }

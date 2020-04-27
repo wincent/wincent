@@ -20,18 +20,22 @@ export function file(...components: Array<string>): Path {
 }
 
 /**
- * Very simple glob-based file search (doesn't supported nested directories).
+ * Very simple glob-based file search (only supports simple patterns like
+ * "*.foo" and "thing/*.bar").
  */
 export function files(glob: string): Array<Path> {
     const aspect = Context.currentAspect;
 
-    const regExp = globToRegExp(glob);
+    const base = path(glob).dirname.toString();
+    const regExp = globToRegExp(path(glob).basename);
 
-    return readdirSync(join('aspects', aspect, 'files'), {withFileTypes: true})
+    return readdirSync(join('aspects', aspect, 'files', base), {
+        withFileTypes: true,
+    })
         .filter((entry) => entry.isDirectory() || entry.isFile())
         .map(({name}) => name)
         .filter((name) => regExp.test(name))
-        .map((name) => path(join('aspects', aspect, 'files', name)));
+        .map((name) => path(join('aspects', aspect, 'files', base, name)));
 }
 
 export function support(...components: Array<string>): Path {

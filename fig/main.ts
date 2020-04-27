@@ -274,6 +274,9 @@ async function loadAspect(aspect: Aspect): Promise<void> {
         case 'homebrew':
             await import('../aspects/homebrew/index.js');
             break;
+        case 'iterm':
+            await import('../aspects/iterm/index.js');
+            break;
         case 'karabiner':
             await import('../aspects/karabiner/index.js');
             break;
