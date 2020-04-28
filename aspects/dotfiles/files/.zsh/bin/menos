@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+require 'pathname'
+
 BUF_SIZE = 128
 
 if $stdin.isatty
@@ -19,6 +21,15 @@ else
   if buffer.length.zero?
     # Not going to pass any `--pattern` arg to `less`.
     ARGV.delete_if { |arg| arg =~ /^--pattern/ || arg == '+r' }
+  else
+    # Nasty hack. Make sure last search pattern is the one we want.
+    histfile = Pathname.new(ENV.fetch('LESSHISTFILE', '~/.lesshst')).expand_path
+    if histfile.exist?
+      File.open(histfile, 'a') do |f|
+        f.puts '"^(commit|diff)'
+        f.puts '.search'
+      end
+    end
   end
 
   pipe_read, pipe_write = IO.pipe
