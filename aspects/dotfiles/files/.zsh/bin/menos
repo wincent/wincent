@@ -1,0 +1,47 @@
+#!/usr/bin/env ruby
+
+BUF_SIZE = 128
+
+if $stdin.isatty
+  # We're in an interactive shell; just wrap `less`, no questions asked.
+  exec 'less', *ARGV
+else
+  # We're being piped to.
+
+  buffer = ''
+
+  begin
+    buffer = $stdin.readpartial(BUF_SIZE)
+  rescue EOFError
+    # Couldn't even read one byte from stdin.
+  end
+
+  if buffer.length.zero?
+    # Not going to pass any `--pattern` arg to `less`.
+    ARGV.delete_if { |arg| arg =~ /^--pattern/ || arg == '+r' }
+  end
+
+  pipe_read, pipe_write = IO.pipe
+
+  child = fork do
+    # In child.
+    pipe_write.close
+
+    $stdin.reopen(pipe_read)
+
+    exec 'less', *ARGV
+  end
+
+  # In parent.
+  pipe_read.close
+
+  pipe_write.write buffer
+
+  while !$stdin.eof?
+    pipe_write.write $stdin.readpartial(BUF_SIZE)
+  end
+
+  pipe_write.close
+
+  Process.wait child
+end
