@@ -82,6 +82,10 @@ async function main() {
     for (const aspect of aspects) {
         await loadAspect(aspect);
 
+        if (options.focused.size && !options.focused.has(aspect)) {
+            continue;
+        }
+
         // Check for an exact match of the starting task if `--start-at-task=` was
         // supplied.
         for (const [, name] of Context.tasks.get(aspect)) {
