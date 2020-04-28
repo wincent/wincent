@@ -8,7 +8,7 @@
 	br = branch
 	ci = commit -v
 	co = checkout
-	count = !sh -c 'git log --oneline | wc -l'
+	count = !git --no-pager log --oneline | wc -l
 	cp = cherry-pick
 
 	# http://stackoverflow.com/questions/224687/git-find-duplicate-blobs-files-in-this-tree/8408640#8408640
@@ -24,20 +24,20 @@
 	get = "!f() { git fresh && git ff \"$@\"; }; f"
 
 	# equivalent to: graph --all
-	gr = log --graph --all --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%= '<\%' %>aN>%Creset'
+	gr = !git --paginate log --graph --all --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%= '<\%' %>aN>%Creset'
 
 	# requires Git 1.6.3 or later; %C(auto) requires Git 1.8.3 or later
-	graph = log --graph --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%= '<\%' %>aN>%Creset'
+	graph = !git --paginate log --graph --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%= '<\%' %>aN>%Creset'
 
 	# Show just the HEAD commit message (no indent) and nothing else
-	message = log -1 --pretty=format:%B
+	message = !git --paginate log -1 --pretty=format:%B
 	msg = message
 
 	no-edit = commit --amend --no-edit
 
 	# %C(auto) requires Git 1.8.3 or later
-	one = log --pretty=format:'%C(auto)%h%Creset %s%C(auto)%d%Creset %C(magenta bold)(%cr)%Creset %C(cyan)<%= '<\%' %>aN>%Creset'
-	oneline = log --pretty=format:'%C(auto)%h%Creset %s%C(auto)%d%Creset %C(magenta bold)(%cr)%Creset %C(cyan)<%= '<\%' %>aN>%Creset'
+	one = !git --paginate log --pretty=format:'%C(auto)%h%Creset %s%C(auto)%d%Creset %C(magenta bold)(%cr)%Creset %C(cyan)<%= '<\%' %>aN>%Creset'
+	oneline = !git --paginate log --pretty=format:'%C(auto)%h%Creset %s%C(auto)%d%Creset %C(magenta bold)(%cr)%Creset %C(cyan)<%= '<\%' %>aN>%Creset'
 
 	# requires Git 1.5.4 or later
 	p = add -p
@@ -51,13 +51,13 @@
 
 	# "smartlog", although it's not that smart.
 	# Equivalent to `git graph --all --simplify-by-decoration.
-	sl = log --graph --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%= '<\%' %>aN>%Creset' --all --simplify-by-decoration
+	sl = !git --paginate log --graph --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%= '<\%' %>aN>%Creset' --all --simplify-by-decoration
 
 	st = status
 	staged = diff --cached --ignore-submodules=dirty
 
 	# %C(auto) requires Git 1.8.3 or later
-	ten = log -10 --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%= '<\%' %>aN>%Creset'
+	ten = !git --paginate log -10 --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%= '<\%' %>aN>%Creset'
 
 	# compensate for brain damage caused by using Mercurial
 	up = checkout
@@ -66,7 +66,7 @@
 
 	# similar to whatchanged, but gives a dir-level overview (takes param to
 	# diff against; defaults to HEAD if not provided)
-	wd = diff --dirstat=cumulative,files,0
+	wd = !git --paginate diff --dirstat=cumulative,files,0
 
 [branch]
 	autosetupmerge = always
@@ -92,7 +92,6 @@
 
 [core]
 	excludesfile = ~/.gitignore
-	pager = ~/.zsh/bin/diff-highlight | less -iFMRSX --pattern='^(commit|diff)' +r
 	attributesfile = ~/.gitattributes
 
 # ignored by Git older than 1.8.2
@@ -130,8 +129,12 @@
 	log = 1000
 
 [pager]
+	diff = ~/.zsh/bin/diff-highlight | less -iFMRSX --pattern='^(commit|diff)' +r
+	log = ~/.zsh/bin/diff-highlight | less -iFMRSX --pattern='^(commit|diff)' +r
+	show = ~/.zsh/bin/diff-highlight | less -iFMRSX --pattern='^(commit|diff)' +r
 	show-branch = true
 	status = true
+	whatchanged = ~/.zsh/bin/diff-highlight | less -iFMRSX --pattern='^(commit|diff)' +r
 
 [protocol]
 	# Added in Git 2.18.0.

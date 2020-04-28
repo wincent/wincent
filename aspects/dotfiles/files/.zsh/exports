@@ -59,7 +59,7 @@ export LESSPROMPT='?f%f .?ltLine %lt:?pt%pt\%:?btByte %bt:-...'
 # R = ANSI color support
 # S = chop long lines (rather than wrap them onto next line)
 # X = suppress alternate screen
-export LESS=iFMRSX
+export LESS=-iFMRSX
 
 # Color man pages.
 export LESS_TERMCAP_mb=$'\E[01;31m'
