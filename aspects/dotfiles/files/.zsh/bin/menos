@@ -35,10 +35,14 @@ else
   # In parent.
   pipe_read.close
 
-  pipe_write.write buffer
+  begin
+    pipe_write.write buffer
 
-  while !$stdin.eof?
-    pipe_write.write $stdin.readpartial(BUF_SIZE)
+    while !$stdin.eof?
+      pipe_write.write $stdin.readpartial(BUF_SIZE)
+    end
+  rescue Errno::EPIPE
+    # User probably ran "q" command in `less`.
   end
 
   pipe_write.close
