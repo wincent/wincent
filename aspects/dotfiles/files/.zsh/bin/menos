@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 
-require 'io/wait'
 require 'pathname'
 
 if $stdin.isatty
@@ -8,15 +7,21 @@ if $stdin.isatty
   exec 'less', *ARGV
 end
 
-# Otherwise, we're being piped to.
+# Otherwise, we're being piped to. Try to read enough lines to fill screen.
+lines = [`tput lines`.chomp.to_i, 50].min
 
-$stdin.wait
+buffer = []
 
-if $stdin.nread.zero?
-  # Not going to pass any `--pattern` arg to `less`.
-  ARGV.delete_if { |arg| arg =~ /^--pattern/ || arg == '+r' }
+while buffer.length <= lines
+  line = $stdin.gets
 
-  exec 'less', *ARGV
+  if line.nil?
+    # Not enough lines to fill screen; don't pass `--pattern` or `+r`.
+    ARGV.delete_if { |arg| arg =~ /^--pattern/ || arg == '+r' }
+    break
+  else
+    buffer.push line
+  end
 end
 
 # Nasty hack. Make sure last search pattern is the one we want.
@@ -45,6 +50,8 @@ pipe_read.close
 BUF_SIZE = 128
 
 begin
+  buffer.each { |line| pipe_write.puts line }
+
   while !$stdin.eof?
     pipe_write.write $stdin.readpartial(BUF_SIZE)
   end
