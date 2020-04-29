@@ -52,21 +52,27 @@ BUF_SIZE = 128
 # Forward SIGINT to child because `less` handles CTRL-C specially
 # depending on whether -K is passed.
 Signal.trap('INT') do |signo|
+  # BUG: CTRL-C behaves strangely when we are invoked via Git, but only when
+  # `--pattern` is set (happens in `less` too).
   Process.kill('INT', child)
 end
 
 begin
   buffer.each { |line| pipe_write.puts line }
 
+  # BUG: if you push "/" `less` prints "Pattern not found", but only if
+  # "/" is first key press and tool was called with `--pattern` (happens
+  # with `less` too).
   while !$stdin.eof?
     pipe_write.write $stdin.readpartial(BUF_SIZE)
   end
+
+  pipe_write.close
 rescue Errno::EPIPE
   # User probably ran "q" command in `less`.
-rescue Interrupt
-  exit 130
 end
 
-pipe_write.close
-
+# BUG: If user quits with "q" we see zsh print: `zsh: interrupt  git log`
+# (happens with `less` too, and even without `diff-highlight` or custom
+# `pager.log` config).
 Process.wait child
