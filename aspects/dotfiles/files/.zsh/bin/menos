@@ -1,62 +1,57 @@
 #!/usr/bin/env ruby
 
+require 'io/wait'
 require 'pathname'
-
-BUF_SIZE = 128
 
 if $stdin.isatty
   # We're in an interactive shell; just wrap `less`, no questions asked.
   exec 'less', *ARGV
-else
-  # We're being piped to.
+end
 
-  buffer = ''
+# Otherwise, we're being piped to.
 
-  begin
-    buffer = $stdin.readpartial(BUF_SIZE)
-  rescue EOFError
-    # Couldn't even read one byte from stdin.
+$stdin.wait
+
+if $stdin.nread.zero?
+  # Not going to pass any `--pattern` arg to `less`.
+  ARGV.delete_if { |arg| arg =~ /^--pattern/ || arg == '+r' }
+
+  exec 'less', *ARGV
+end
+
+# Nasty hack. Make sure last search pattern is the one we want.
+histfile = Pathname.new(ENV.fetch('LESSHISTFILE', '~/.lesshst')).expand_path
+if histfile.exist?
+  File.open(histfile, 'a') do |f|
+    f.puts '"^(commit|diff)'
+    f.puts '.search'
   end
+end
 
-  if buffer.length.zero?
-    # Not going to pass any `--pattern` arg to `less`.
-    ARGV.delete_if { |arg| arg =~ /^--pattern/ || arg == '+r' }
-  else
-    # Nasty hack. Make sure last search pattern is the one we want.
-    histfile = Pathname.new(ENV.fetch('LESSHISTFILE', '~/.lesshst')).expand_path
-    if histfile.exist?
-      File.open(histfile, 'a') do |f|
-        f.puts '"^(commit|diff)'
-        f.puts '.search'
-      end
-    end
-  end
+pipe_read, pipe_write = IO.pipe
 
-  pipe_read, pipe_write = IO.pipe
-
-  child = fork do
-    # In child.
-    pipe_write.close
-
-    $stdin.reopen(pipe_read)
-
-    exec 'less', *ARGV
-  end
-
-  # In parent.
-  pipe_read.close
-
-  begin
-    pipe_write.write buffer
-
-    while !$stdin.eof?
-      pipe_write.write $stdin.readpartial(BUF_SIZE)
-    end
-  rescue Errno::EPIPE
-    # User probably ran "q" command in `less`.
-  end
-
+child = fork do
+  # In child.
   pipe_write.close
 
-  Process.wait child
+  $stdin.reopen(pipe_read)
+
+  exec 'less', *ARGV
 end
+
+# In parent.
+pipe_read.close
+
+BUF_SIZE = 128
+
+begin
+  while !$stdin.eof?
+    pipe_write.write $stdin.readpartial(BUF_SIZE)
+  end
+rescue Errno::EPIPE
+  # User probably ran "q" command in `less`.
+end
+
+pipe_write.close
+
+Process.wait child
