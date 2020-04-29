@@ -30,6 +30,7 @@ if histfile.exist?
   File.open(histfile, 'a') do |f|
     f.puts '.search'
     f.puts '"^(commit|diff)'
+    f.flush
   end
 end
 
