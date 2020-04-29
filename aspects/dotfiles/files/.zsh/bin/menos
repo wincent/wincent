@@ -28,8 +28,8 @@ end
 histfile = Pathname.new(ENV.fetch('LESSHISTFILE', '~/.lesshst')).expand_path
 if histfile.exist?
   File.open(histfile, 'a') do |f|
-    f.puts '"^(commit|diff)'
     f.puts '.search'
+    f.puts '"^(commit|diff)'
   end
 end
 
