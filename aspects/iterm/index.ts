@@ -1,7 +1,10 @@
-import {file, resource, task, variable} from 'fig';
+import {file, resource, skip, task, variable} from 'fig';
 import path from 'fig/path.js';
 import assert from 'fig/assert.js';
-// import stat from 'fig/fs/stat.js';
+import stat from 'fig/fs/stat.js';
+import stringify from 'fig/stringify.js';
+
+import type {Path} from 'fig/path.js';
 
 // iTerm will create some of these on first run, but we specify all here
 // for completeness.
@@ -50,20 +53,28 @@ task('set up switchable symbolic links', async () => {
 
     assert.JSONArray(retina);
 
+    const sources = path.home.join('Library/Application Support/iTerm2/Sources');
+    const profiles = path.home.join('Library/Application Support/iTerm2/DynamicProfiles');
+
     for (const config of retina) {
         assert.JSONObject(config);
-        /*
-        const {src, path} = config;
+        let {src, path: dest} = config;
+
+        src = sources.join(String(src));
+        dest = profiles.join(String(dest));
 
         // We only link these ones if they don't already exist;
         // once created, Hammerspoon manages the links.
-        const stats = await stat('...');
+        const stats = await stat((dest as Path).expand);
 
-        if (...) {
+        if (stats === null) {
             await file({
-
+                path: dest,
+                src,
+                state: 'link'
             });
+        } else {
+            skip(`path ${stringify(dest)} exists`)
         }
-*/
     }
 });
