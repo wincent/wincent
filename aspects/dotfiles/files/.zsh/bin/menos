@@ -57,6 +57,8 @@ begin
   end
 rescue Errno::EPIPE
   # User probably ran "q" command in `less`.
+rescue Interrupt
+  exit 130
 end
 
 pipe_write.close
