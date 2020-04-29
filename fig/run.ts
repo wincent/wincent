@@ -43,8 +43,8 @@ export default async function run(
         };
 
         const child = spawn(
-            final[0],
-            final.slice(1),
+            final[0].toString(),
+            final.slice(1).map(String),
             options.chdir ? {cwd: options.chdir.toString()} : {}
         );
 

@@ -1,9 +1,7 @@
 ---
 - hosts: localhost
   roles:
-    - { role: iterm, tags: iterm }
     - { role: dotfiles, tags: dotfiles }
-    - { role: shell, tags: shell }
     - { role: vim, tags: vim }
     - { role: ssh, tags: ssh }
     - { role: misc, tags: misc }

@@ -290,6 +290,9 @@ async function loadAspect(aspect: Aspect): Promise<void> {
         case 'meta':
             await import('../aspects/meta/index.js');
             break;
+        case 'shell':
+            await import('../aspects/shell/index.js');
+            break;
         case 'terminfo':
             await import('../aspects/terminfo/index.js');
             break;

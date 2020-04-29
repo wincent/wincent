@@ -7,6 +7,7 @@ export {default as cron} from './dsl/operations/cron.js';
 export {default as defaults} from './dsl/operations/defaults.js';
 export {default as fetch} from './dsl/operations/fetch.js';
 export {default as file} from './dsl/operations/file.js';
+export {default as line} from './dsl/operations/line.js';
 export {default as template} from './dsl/operations/template.js';
 export * as resource from './dsl/resource.js';
 export {default as root} from './dsl/root.js';

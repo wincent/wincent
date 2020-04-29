@@ -53,8 +53,12 @@ task('set up switchable symbolic links', async () => {
 
     assert.JSONArray(retina);
 
-    const sources = path.home.join('Library/Application Support/iTerm2/Sources');
-    const profiles = path.home.join('Library/Application Support/iTerm2/DynamicProfiles');
+    const sources = path.home.join(
+        'Library/Application Support/iTerm2/Sources'
+    );
+    const profiles = path.home.join(
+        'Library/Application Support/iTerm2/DynamicProfiles'
+    );
 
     for (const config of retina) {
         assert.JSONObject(config);
@@ -71,10 +75,10 @@ task('set up switchable symbolic links', async () => {
             await file({
                 path: dest,
                 src,
-                state: 'link'
+                state: 'link',
             });
         } else {
-            skip(`path ${stringify(dest)} exists`)
+            skip(`path ${stringify(dest)} exists`);
         }
     }
 });

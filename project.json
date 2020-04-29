@@ -8,6 +8,7 @@
                 "iterm",
                 "karabiner",
                 "launchd",
+                "shell",
                 "terminfo",
                 "vim",
                 "cron",
