@@ -49,6 +49,12 @@ pipe_read.close
 
 BUF_SIZE = 128
 
+# Forward SIGINT to child because `less` handles CTRL-C specially
+# depending on whether -K is passed.
+Signal.trap('INT') do |signo|
+  Process.kill('INT', child)
+end
+
 begin
   buffer.each { |line| pipe_write.puts line }
 
