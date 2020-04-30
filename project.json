@@ -12,6 +12,7 @@
                 "terminfo",
                 "vim",
                 "cron",
+                "automator",
                 "defaults"
             ],
             "variables": {}
