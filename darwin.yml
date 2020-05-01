@@ -6,7 +6,6 @@
     - { role: ssh, tags: ssh }
     - { role: misc, tags: misc }
   vars:
-    command_t_bundle: ext.bundle
     install_deoplete_extensions: true
     install_masochist_vim_dependencies: true
     update_vim_bundle: true

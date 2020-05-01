@@ -1,11 +1,6 @@
-*.pyc
 /aspects/dotfiles/files/.hammerspoon/iterm.lua
-/aspects/dotfiles/files/.imapfilter/private.lua
-/aspects/dotfiles/files/.mutt/config/aliases.mutt
-/aspects/dotfiles/files/.mutt/hooks/presync/work.sh
-/aspects/dotfiles/files/.mutt/offlineimap.pyc
-/aspects/dotfiles/files/.mutt/scripts/vendor
 /aspects/dotfiles/files/.zsh/exports.private
+/aspects/ssh/templates/.ssh/config.erb
 /aspects/vim/files/.vim/.base16
 /aspects/vim/files/.vim/.base16.previous
 /aspects/vim/files/.vim/after/plugin/command-t.private.vim
@@ -16,7 +11,5 @@
 /aspects/vim/files/.vim/ultisnips-private/markdown.snippets
 /media
 /node_modules
-/python
 /roles/dotfiles/files/.npmrc
 /roles/dotfiles/files/.pypirc
-/aspects/ssh/templates/.ssh/config.erb

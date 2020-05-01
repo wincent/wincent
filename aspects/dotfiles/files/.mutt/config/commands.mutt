@@ -1,8 +1,0 @@
-# Automatically feed HTML emails through elinks, but only if there is no
-# alternative.
-auto_view text/html
-alternative_order text/plain text/enriched text/html
-
-# For some reason, mutt considers this important enough to include in the
-# (abbreviated!) list of headers.
-ignore User-Agent

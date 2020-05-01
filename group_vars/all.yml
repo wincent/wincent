@@ -1,9 +1,6 @@
 ---
 http_proxy: ""
 
-# DONE
-identity: '{{ "wincent" if lookup("env", "USER") == "glh" or lookup("env", "USER") == "greghurrell" else "unknown" }}'
-
 iterm_dynamic_profiles:
   external:
     - dest: Mutt.json

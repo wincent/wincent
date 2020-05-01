@@ -43,9 +43,6 @@
 	ignore = dirty
 	path = aspects/vim/files/.vim/pack/bundle/opt/loupe
 	url = https://github.com/wincent/loupe.git
-[submodule "mutt-notmuch-py"]
-	path = aspects/dotfiles/files/.mutt/vendor/mutt-notmuch-py
-	url = https://github.com/honza/mutt-notmuch-py.git
 [submodule "n"]
 	path = vendor/n
 	url = https://github.com/tj/n.git
