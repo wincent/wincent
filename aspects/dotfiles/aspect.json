@@ -26,6 +26,10 @@
             ".zshenv",
             ".zshrc"
         ],
-        "templates": [".corpusrc.erb", ".gitconfig.erb"]
+        "templates": [
+            ".corpusrc.erb",
+            ".gitconfig.erb",
+            ".hammerspoon/iterm.lua.erb"
+        ]
     }
 }

@@ -1,0 +1,31 @@
+-- <%= variables.figManaged %>
+
+--
+-- Switches iTerm dynamic profile based on screen changes.
+--
+
+local events = require 'events'
+local log = require 'log'
+
+-- Forward function declarations.
+local switchProfiles = nil
+
+switchProfiles = (function(screenCount)
+  if screenCount == 1 or screenCount == 2 then
+    log.i('Configuring iTerm for Retina (internal) display')
+<%- for (const {path, src} of variables.iTermDynamicProfiles.retina) { -%>
+    hs.execute("ln -sf \"$HOME/Library/Application Support/iTerm2/Sources/<%= src %>\" \"$HOME/Library/Application Support/iTerm2/DynamicProfiles/<%= path %>\"")
+<%- } -%>
+  else
+    log.i('Configuring iTerm for 4K (external) display')
+<%- for (const {path, src} of variables.iTermDynamicProfiles.external) { -%>
+    hs.execute("ln -sf \"$HOME/Library/Application Support/iTerm2/Sources/<%= src %>\" \"$HOME/Library/Application Support/iTerm2/DynamicProfiles/<%= path %>\"")
+<%- } -%>
+  end
+end)
+
+return {
+  init = (function()
+    events.subscribe('layout', switchProfiles)
+  end),
+}

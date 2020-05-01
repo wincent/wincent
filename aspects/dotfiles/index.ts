@@ -1,6 +1,7 @@
 import {
     command,
     file,
+    options,
     resource,
     skip,
     template,
@@ -10,6 +11,7 @@ import {
 } from 'fig';
 import stat from 'fig/fs/stat.js';
 import path from 'fig/path.js';
+import mkdir from 'fig/posix/mkdir.js';
 
 variables(({identity}) => ({
     gitUserEmail: identity === 'wincent' ? 'greg@hurrell.net' : '',
@@ -28,13 +30,15 @@ task('make directories', async () => {
     }
 });
 
-task('copy to ~/backups', async () => {
+// TODO: again see if there is anything common to factor out here
+task('move originals to ~/backups', async () => {
     const files = [...variable.paths('files'), ...variable.paths('templates')];
 
     for (const file of files) {
-        const base = file.basename;
-        const source = path.home.join(base);
-        const target = path.home.join('.backups', base);
+        const stripped = file.strip('.erb');
+        const backups = path.home.join('.backups');
+        const source = path.home.join(stripped);
+        const target = path.home.join('.backups', stripped);
 
         const stats = await stat(source);
 
@@ -43,9 +47,22 @@ task('copy to ~/backups', async () => {
         } else if (!stats) {
             continue;
         } else if (stats.type === 'directory' || stats.type === 'file') {
-            await command('mv', ['-f', source, target], {
-                creates: target,
-            });
+            // Create parent directories if necessary.
+            if (!options.check) {
+                const result = await mkdir(backups.join(file.dirname).expand, {
+                    intermediate: true,
+                });
+
+                if (result instanceof Error) {
+                    throw result;
+                }
+
+                await command('mv', ['-f', source, target], {
+                    creates: target,
+                });
+            } else {
+                skip(`file ${stripped}`);
+            }
         }
     }
 });
@@ -69,8 +86,8 @@ task('fill templates', async () => {
     for (const src of templates) {
         await template({
             mode: src.endsWith('.sh.erb') ? '0755' : '0644',
-            path: path.home.join(src.basename.strip('.erb')),
-            src: path.aspect.join('templates', src.basename),
+            path: path.home.join(src.strip('.erb')),
+            src: path.aspect.join('templates', src),
         });
     }
 });

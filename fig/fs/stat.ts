@@ -1,5 +1,6 @@
 import Context from '../Context.js';
 import ErrorWithMetadata from '../ErrorWithMetadata.js';
+import {default as toPath} from '../path.js';
 import run from '../run.js';
 
 type Stats = {
@@ -53,9 +54,11 @@ export default async function stat(
                 ? {passphrase: await Context.sudoPassphrase}
                 : undefined;
 
+            const target = toPath(path).expand;
+
             const {status, stderr, stdout} = await run(
                 'stat',
-                ['-f', formatString, path],
+                ['-f', formatString, target],
                 options
             );
 

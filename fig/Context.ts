@@ -176,6 +176,8 @@ class Context {
     }
 
     get currentOptions() {
+        assert(this.#currentOptions);
+
         return this.#currentOptions;
     }
 

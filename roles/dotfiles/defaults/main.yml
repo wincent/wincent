@@ -5,6 +5,3 @@ dotfile_files:
   - .config/ranger
   - .npmrc
   - .pypirc
-
-dotfile_templates:
-  - .hammerspoon/iterm.lua

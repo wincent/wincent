@@ -11,12 +11,3 @@
     - "{{ cipher_check.stdout.split('\n') }}"
   when: not cipher_check.rc == 0
   changed_when: not cipher_check.rc == 0
-
-# Note some nasty dependencies here between creating the symlinks (eg.
-# effectively creating ~/mutt/config/) and then templating into it (eg.
-# ~/.mutt/config/settings.mutt).
-- name: dotfiles | create templates
-  template: dest={{ ansible_env.HOME }}/{{ item }}
-            mode={{ '0755' if item.endswith('.sh') else '0644' }}
-            src={{ item }}
-  loop: '{{dotfile_templates}}'

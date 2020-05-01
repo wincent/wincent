@@ -5,6 +5,7 @@ import run from '../run.js';
 import stringify from '../stringify.js';
 
 type Options = {
+    intermediate?: boolean;
     mode?: Mode;
     sudo?: boolean;
 };
@@ -14,6 +15,10 @@ export default async function mkdir(
     options: Options = {}
 ): Promise<Error | null> {
     const args = [path];
+
+    if (options.intermediate) {
+        args.unshift('-p');
+    }
 
     if (options.mode) {
         args.unshift('-m', options.mode);
