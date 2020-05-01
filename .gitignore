@@ -1,9 +1,6 @@
 /aspects/dotfiles/files/.hammerspoon/iterm.lua
 /aspects/dotfiles/files/.npmrc
 /aspects/dotfiles/files/.pypirc
-/aspects/dotfiles/files/.zsh/bin/karabiner-boot
-/aspects/dotfiles/files/.zsh/bin/karabiner-kill
-/aspects/dotfiles/files/.zsh/bin/karabiner-kill.applescript
 /aspects/dotfiles/files/.zsh/exports.private
 /aspects/ssh/templates/.ssh/config.erb
 /aspects/vim/files/.vim/.base16

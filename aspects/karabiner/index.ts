@@ -3,18 +3,25 @@ import path from 'fig/path.js';
 
 // TODO: set up node before we run these
 
+task('make directories', async () => {
+    await file({path: '~/.config', state: 'directory'});
+    await file({path: '~/.config/karabiner', state: 'directory'});
+    await file({path: '~/bin', state: 'directory'});
+});
+
 task('copy helper scripts', async () => {
     const scripts = [
-        '.zsh/bin/karabiner-boot',
-        '.zsh/bin/karabiner-kill',
-        '.zsh/bin/karabiner-kill.applescript',
+        'bin/karabiner-boot',
+        'bin/karabiner-kill',
+        'bin/karabiner-kill.applescript',
     ];
 
     for (const script of scripts) {
-        await template({
+        await file({
             mode: script.endsWith('.applescript') ? '0644' : '0755',
             path: path.home.join(script),
-            src: path.aspect.join('templates', script) + '.erb',
+            src: resource.file(script),
+            state: 'link',
         });
     }
 });
@@ -35,11 +42,6 @@ task('prepare karabiner.json', async () => {
     if (result) {
         config = result.stdout;
     }
-});
-
-task('make directories', async () => {
-    await file({path: '~/.config', state: 'directory'});
-    await file({path: '~/.config/karabiner', state: 'directory'});
 });
 
 task('write karabiner.json', async () => {

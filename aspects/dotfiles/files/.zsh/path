@@ -1,7 +1,7 @@
 SYSTEM_PATH=$PATH
 unset PATH
 
-# keep these on separate lines to make changing their order easier
+# Keep these on separate lines to make changing their order easier.
 PATH=$HOME/bin
 PATH=$PATH:$HOME/.zsh/bin
 PATH=$PATH:$HOME/.vim/pack/bundle/opt/vcs-jump/bin
