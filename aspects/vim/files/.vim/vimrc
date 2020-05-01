@@ -189,6 +189,7 @@ endif
 if &loadplugins
   if has('packages')
     packadd! LanguageClient-neovim
+    packadd! applescript.vim
     packadd! base16-vim
     packadd! command-t
     packadd! corpus

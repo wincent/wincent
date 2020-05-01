@@ -192,3 +192,6 @@
 [submodule "source-code-pro"]
 	path = vendor/fonts/source-code-pro
 	url = https://github.com/adobe-fonts/source-code-pro.git
+[submodule "applescript.vim"]
+	path = aspects/vim/files/.vim/pack/bundle/opt/applescript.vim
+	url = https://github.com/vim-scripts/applescript.vim.git
