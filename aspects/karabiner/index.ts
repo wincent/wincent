@@ -3,6 +3,22 @@ import path from 'fig/path.js';
 
 // TODO: set up node before we run these
 
+task('copy helper scripts', async () => {
+    const scripts = [
+        '.zsh/bin/karabiner-boot',
+        '.zsh/bin/karabiner-kill',
+        '.zsh/bin/karabiner-kill.applescript',
+    ];
+
+    for (const script of scripts) {
+        await template({
+            mode: script.endsWith('.applescript') ? '0644' : '0755',
+            path: path.home.join(script),
+            src: path.aspect.join('templates', script) + '.erb',
+        });
+    }
+});
+
 task('test karabiner.json generator', async () => {
     const test = resource.support('karabiner-test.js');
 
