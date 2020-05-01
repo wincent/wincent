@@ -1,2 +1,0 @@
----
-ssh_config_path: '{{ ansible_env.PWD }}/roles/ssh/files/ssh_config'

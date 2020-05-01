@@ -2,6 +2,7 @@
 // across tasks/aspects
 // TODO: export "path" here for convenience? it is very DSL-ish
 export {default as attributes} from './dsl/attributes.js';
+export {default as fail} from './dsl/fail.js';
 export {default as command} from './dsl/operations/command.js';
 export {default as cron} from './dsl/operations/cron.js';
 export {default as defaults} from './dsl/operations/defaults.js';

@@ -11,6 +11,7 @@
                 "karabiner",
                 "launchd",
                 "shell",
+                "ssh",
                 "terminfo",
                 "vim",
                 "cron",

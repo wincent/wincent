@@ -2,8 +2,13 @@
 - name: misc | ensure directories exist
   file: path={{ item }} state=directory
   loop:
+    # not using this any more
     - ~/Archives
+
+    # or this, really...
     - ~/Local
+
+    # This still.
     - ~/n
 
 - name: misc | touch ~/mbox

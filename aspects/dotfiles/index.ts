@@ -2,6 +2,7 @@ import {
     command,
     file,
     resource,
+    skip,
     template,
     task,
     variable,
@@ -80,5 +81,7 @@ task('create ~/code/.editorconfig', async () => {
             path: '~/code/.editorconfig',
             src: resource.template('code/.editorconfig'),
         });
+    } else {
+        skip();
     }
 });

@@ -1,4 +1,4 @@
-import {cron, file, resource, template, task, variable} from 'fig';
+import {cron, file, resource, skip, template, task, variable} from 'fig';
 
 task('create ~/Library/Cron', async () => {
     await file({
@@ -23,5 +23,7 @@ task('schedule check-git cron job', async () => {
             job: '$HOME/Library/Cron/check-git.sh',
             minute: '0',
         });
+    } else {
+        skip();
     }
 });

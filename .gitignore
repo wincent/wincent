@@ -19,4 +19,4 @@
 /python
 /roles/dotfiles/files/.npmrc
 /roles/dotfiles/files/.pypirc
-/roles/ssh/files/ssh_config
+/aspects/ssh/templates/.ssh/config.erb

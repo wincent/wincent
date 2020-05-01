@@ -125,9 +125,22 @@ export default async function compare({
     // Object exists.
     if (state === 'file') {
         if (stats.type === 'file') {
-            // Want "file", have "file": no state change required.
+            // Want "file", have "file", but still need to check contents.
+            if (typeof contents === 'string') {
+                try {
+                    const actual = await fs.readFile(path, 'utf8');
+                    if (actual !== contents) {
+                        diff.contents = contents;
+                    }
+                } catch (error) {
+                    // TODO: if this is a perms issue, that might be ok as long as user has
+                    // specified "user"
+                    // TODO: don't use readFile, use sudo version if needed
+                }
+            }
         } else if (stats.type === 'link') {
             // Going to have to overwrite symlink.
+            diff.contents = contents;
             diff.force = force;
             diff.state = 'file';
         } else if (stats.type === 'directory') {
@@ -141,19 +154,6 @@ export default async function compare({
                     path
                 )} of unknown type with file`
             );
-        }
-
-        if (typeof contents === 'string') {
-            try {
-                const actual = await fs.readFile(path, 'utf8');
-                if (actual !== contents) {
-                    diff.contents = contents;
-                }
-            } catch (error) {
-                // TODO: if this is a perms issue, that might be ok as long as user has
-                // specified "user"
-                // TODO: don't use readFile, use sudo version if needed
-            }
         }
     } else if (state === 'directory') {
         if (stats.type === 'directory') {

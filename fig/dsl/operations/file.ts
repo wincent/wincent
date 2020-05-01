@@ -3,6 +3,7 @@ import ErrorWithMetadata from '../../ErrorWithMetadata.js';
 import compare from '../../compare.js';
 import assert from '../../assert.js';
 import {promises as fs} from '../../fs.js';
+import stat from '../../fs/stat.js';
 import tempfile from '../../fs/tempfile.js';
 import {default as toPath} from '../../path.js';
 import chmod from '../../posix/chmod.js';
@@ -10,6 +11,7 @@ import chown from '../../posix/chown.js';
 import cp from '../../posix/cp.js';
 import ln from '../../posix/ln.js';
 import mkdir from '../../posix/mkdir.js';
+import rm from '../../posix/rm.js';
 import touch from '../../posix/touch.js';
 
 export default async function file({
@@ -106,6 +108,22 @@ export default async function file({
     } else if (state === 'file') {
         if (diff.state === 'file') {
             // File does not exist — have to create it.
+            //
+            // If it is a link, we'll remove the link first.
+            const stats = await stat(target);
+
+            if (
+                stats !== null &&
+                !(stats instanceof Error) &&
+                stats.type === 'link'
+            ) {
+                const result = mutate && (await rm(target));
+
+                if (result instanceof Error) {
+                    throw result;
+                }
+            }
+
             if (typeof contents !== 'string') {
                 // No contents, no src, so treat this just like "touch".
                 const result = mutate && (await touch(target, {sudo}));
