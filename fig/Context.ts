@@ -1,10 +1,9 @@
-import * as assert from 'assert';
-
 import Attributes from './Attributes.js';
 import ErrorWithMetadata from './ErrorWithMetadata.js';
 import Compiler from './Compiler.js';
 import TaskRegistry from './TaskRegistry.js';
 import VariableRegistry from './VariableRegistry.js';
+import assert from './assert.js';
 import prompt from './prompt.js';
 import * as status from './status.js';
 
@@ -31,6 +30,7 @@ class Context {
     #counts: Counts;
     #currentAspect?: Aspect;
     #currentOptions?: Options;
+    #currentTask?: string;
     #currentVariables?: Variables;
     #sudoPassphrase?: Promise<string>;
     #tasks: TaskRegistry;
@@ -107,23 +107,32 @@ class Context {
         {
             aspect,
             options,
+            task,
             variables,
-        }: {aspect: Aspect; options: Options; variables: Variables},
+        }: {
+            aspect: Aspect;
+            options: Options;
+            task: string;
+            variables: Variables;
+        },
         callback: () => Promise<void>
     ) {
         let previousAspect = this.#currentAspect;
         let previousOptions = this.#currentOptions;
+        let previousTask = this.#currentTask;
         let previousVariables = this.#currentVariables;
 
         try {
             this.#currentAspect = aspect;
             this.#currentOptions = options;
+            this.#currentTask = task;
             this.#currentVariables = variables;
 
             await callback();
         } finally {
             this.#currentAspect = previousAspect;
             this.#currentOptions = previousOptions;
+            this.#currentTask = previousTask;
             this.#currentVariables = previousVariables;
         }
     }
@@ -137,19 +146,29 @@ class Context {
     }
 
     get currentAspect(): Aspect {
-        assert.ok(this.#currentAspect);
+        assert(this.#currentAspect);
 
-        return this.#currentAspect!;
+        return this.#currentAspect;
     }
 
     set currentAspect(aspect: Aspect) {
         this.#currentAspect = aspect;
     }
 
-    get currentVariables(): Variables {
-        assert.ok(this.#currentVariables);
+    get currentTask(): string {
+        assert(this.#currentTask);
 
-        return this.#currentVariables!;
+        return this.#currentTask;
+    }
+
+    set currentTask(task: string) {
+        this.#currentTask = task;
+    }
+
+    get currentVariables(): Variables {
+        assert(this.#currentVariables);
+
+        return this.#currentVariables;
     }
 
     set currentVariables(variables: Variables) {

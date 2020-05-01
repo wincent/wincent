@@ -4,6 +4,7 @@
             "aspects": [
                 "meta",
                 "dotfiles",
+                "fonts",
                 "homebrew",
                 "iterm",
                 "karabiner",

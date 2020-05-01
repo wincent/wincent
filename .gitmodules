@@ -189,3 +189,6 @@
 [submodule "zsh-syntax-highlighting"]
 	path = aspects/dotfiles/files/.zsh/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "source-code-pro"]
+	path = vendor/fonts/source-code-pro
+	url = https://github.com/adobe-fonts/source-code-pro.git

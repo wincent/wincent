@@ -214,7 +214,12 @@ async function main() {
 
                                 if ('yes'.startsWith(reply)) {
                                     await Context.withContext(
-                                        {aspect, options, variables},
+                                        {
+                                            aspect,
+                                            options,
+                                            task: name,
+                                            variables,
+                                        },
                                         callback
                                     );
                                     break;
@@ -226,7 +231,12 @@ async function main() {
                                 } else if ('continue'.startsWith(reply)) {
                                     options.step = false;
                                     await Context.withContext(
-                                        {aspect, options, variables},
+                                        {
+                                            aspect,
+                                            options,
+                                            task: name,
+                                            variables,
+                                        },
                                         callback
                                     );
                                     break;
@@ -245,7 +255,7 @@ async function main() {
                             }
                         } else {
                             await Context.withContext(
-                                {aspect, options, variables},
+                                {aspect, options, task: name, variables},
                                 callback
                             );
                         }
@@ -277,6 +287,9 @@ async function loadAspect(aspect: Aspect): Promise<void> {
             break;
         case 'dotfiles':
             await import('../aspects/dotfiles/index.js');
+            break;
+        case 'fonts':
+            await import('../aspects/fonts/index.js');
             break;
         case 'homebrew':
             await import('../aspects/homebrew/index.js');
