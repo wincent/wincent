@@ -1,5 +1,14 @@
 # Changelog
 
+## 2020-05-01
+
+-   [Meta]: Dropped Ansible dependency.
+-   [Mutt]: Remove Mutt config because I haven't used it for over a year.
+
+## 2020-04-27
+
+-   [Git]: Preseed pager with search pattern so that "n" can be used to jump to next commit or diff file.
+
 ## 2019-10-13
 
 -   [Vim]: Switched from [tpope/vim-markdown](https://github.com/tpope/vim-markdown) to [plasticboy/vim-markdown](https://github.com/plasticboy/vim-markdown); note that because this is replacing one submodule with another of the same name you may need to remove the old submodule directory with `rm` as well as removing the corresponding config in your local `.git/config` in order for the next `git submodule update --init` to succeed.
@@ -297,3 +306,7 @@
 
 -   [Vim]: Use "Powerline" glyphs to make statusline a little prettier.
 -   Switch to Adobe Source Code Pro font.
+
+## Older changes
+
+-   Please see `git log --until=2016-04-10`, which should show around 1,500 commits dating as far back as May 2009.
