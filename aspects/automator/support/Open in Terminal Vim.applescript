@@ -1,15 +1,15 @@
 tell application "Automator"
-	set tmp to POSIX path of (path to temporary items)
-	
-	set flow to make new workflow with properties {name:tmp & "Open in Terminal Vim.app"}
-	
-	add Automator action "Run JavaScript" to flow
-	
-	set action to first Automator action of flow
-	
-	set s to first setting of action
-	
-	tell s to set value to Â
+    set tmp to POSIX path of (path to temporary items)
+
+    set flow to make new workflow with properties {name:tmp & "Open in Terminal Vim.app"}
+
+    add Automator action "Run JavaScript" to flow
+
+    set action to first Automator action of flow
+
+    set s to first setting of action
+
+    tell s to set value to Â
 		"function run(input, parameters) {
     var iTerm = Application('iTerm2');
 
@@ -54,12 +54,13 @@ function quotedForm(path) {
         .replace(/([^a-z0-9_\\-.,:\\/@\\n])/gi, '\\\\$1')
         .replace(/\\n/g, \"'\\n'\");
 }"
-	
-	set home to POSIX path of (path to home folder)
-	
-	save flow as "application" in (home & "bin/Open in Terminal Vim.app")
-	
-	-- TODO: set icon on app
-	
-	quit
+
+    set home to POSIX path of (path to home folder)
+
+    save flow as "application" in (home & "bin/Open in Terminal Vim.app")
+
+    -- TODO: set icon on app
+
+    -- TODO: maybe only quit if Automator wasn't running when we started
+    quit
 end tell
