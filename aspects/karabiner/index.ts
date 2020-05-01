@@ -1,4 +1,5 @@
 import {command, file, resource, skip, template, task} from 'fig';
+import path from 'fig/path.js';
 
 // TODO: set up node before we run these
 
@@ -44,5 +45,19 @@ task('write karabiner-sudoers', async () => {
         path: '/private/etc/sudoers.d/karabiner-sudoers',
         src: resource.template('karabiner-sudoers.erb'),
         sudo: true,
+    });
+});
+
+task('build `dry` executable', async () => {
+    await command('make', [], {
+        chdir: path.aspect.join('support/dry'),
+        creates: resource.support('dry/dry'),
+    });
+});
+
+task('install `dry` executable', async () => {
+    await command('make install', [], {
+        chdir: path.aspect.join('support/dry'),
+        creates: path.home.join('bin/dry'),
     });
 });
