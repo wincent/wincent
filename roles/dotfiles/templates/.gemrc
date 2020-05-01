@@ -1,16 +1,1 @@
-# {{ ansible_managed }}
-{% if http_proxy != '' %}
-dependency: --http-proxy {{ http_proxy }}
-fetch: --http-proxy {{ http_proxy }}
-install: --http-proxy {{ http_proxy }}
-list: --http-proxy {{ http_proxy }}
-outdated: --http-proxy {{ http_proxy }}
-owner: --http-proxy {{ http_proxy }}
-push: --http-proxy {{ http_proxy }}
-query: --http-proxy {{ http_proxy }}
-search: --http-proxy {{ http_proxy }}
-sources: --http-proxy {{ http_proxy }}
-specification: --http-proxy {{ http_proxy }}
-update: --http-proxy {{ http_proxy }}
-{% endif %}
 gem: --bindir /usr/local/bin

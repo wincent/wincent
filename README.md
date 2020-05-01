@@ -132,19 +132,6 @@ If there are background processes, a yellow asterisk is shown:
 git clone --recursive https://github.com/wincent/wincent.git
 ```
 
-Note that if you're behind a firewall you may need to set up a temporary `~/.gitconfig` with appropriate proxy configuration with a format such as:
-
-```
-[http]
-	proxy = fwdproxy:8080
-```
-
-Or alternatively:
-
-```sh
-env http_proxy=http://fwdproxy:8080 https_proxy=http://fwdproxy:8080 git clone --recursive https://github.com/wincent/wincent
-```
-
 ### Install
 
 ```sh
