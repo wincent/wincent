@@ -1,5 +1,5 @@
-import {skip, task} from 'fig';
+import {file, task} from 'fig';
 
-task('(no-op) backup scripts', async () => {
-    skip();
+task('create ~/Backups', async () => {
+    await file({path: '~/Backups', state: 'directory'});
 });

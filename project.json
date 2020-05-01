@@ -3,6 +3,7 @@
         "darwin": {
             "aspects": [
                 "meta",
+                "backup",
                 "dotfiles",
                 "fonts",
                 "homebrew",
