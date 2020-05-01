@@ -7,5 +7,4 @@ dotfile_files:
   - .pypirc
 
 dotfile_templates:
-  - .gemrc
   - .hammerspoon/iterm.lua

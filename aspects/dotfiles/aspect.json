@@ -5,6 +5,7 @@
             ".ackrc",
             ".agignore",
             ".clipper.json",
+            ".gemrc",
             ".ghci",
             ".gitattributes",
             ".gitignore",
