@@ -17,6 +17,7 @@ export default async function command(
     options: {
         chdir?: string;
         creates?: string;
+        failedWhen?: (result: Result | null) => boolean;
     } = {}
 ): Promise<Result | null> {
     const description = [executable, ...args].join(' ');
@@ -55,8 +56,11 @@ export default async function command(
                 }
             );
 
-            // TODO: add a failed-when option
-            if (result.status !== 0) {
+            if (
+                options.failedWhen
+                    ? options.failedWhen(result)
+                    : result.status !== 0
+            ) {
                 throw new ErrorWithMetadata(
                     `command \`${description}\` failed`,
                     {

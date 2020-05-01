@@ -1,5 +1,6 @@
 import {
     command,
+    fail,
     file,
     options,
     resource,
@@ -9,6 +10,7 @@ import {
     variable,
     variables,
 } from 'fig';
+import {log} from 'fig/console.js';
 import stat from 'fig/fs/stat.js';
 import path from 'fig/path.js';
 import mkdir from 'fig/posix/mkdir.js';
@@ -18,6 +20,28 @@ variables(({identity}) => ({
     gitUserName: identity === 'wincent' ? 'Greg Hurrell' : '',
     gitHubUsername: identity === 'wincent' ? 'wincent' : '',
 }));
+
+task('check for decrypted files', async () => {
+    if (variable('identity') === 'wincent') {
+        const result = await command(
+            'vendor/git-cipher/bin/git-cipher',
+            ['status'],
+            {
+                failedWhen: () => false,
+            }
+        );
+
+        if (result !== null) {
+            if (result.status !== 0) {
+                log.warn(`git-cipher status:\n\n${result.stdout}\n`);
+
+                fail(`decrypted file check failed`);
+            }
+        }
+    } else {
+        skip();
+    }
+});
 
 task('make directories', async () => {
     await file({path: '~/.backups', state: 'directory'});
