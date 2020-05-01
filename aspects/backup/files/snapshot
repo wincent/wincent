@@ -20,9 +20,9 @@ TO_COPY = [
   '.s3cfg',
   '.ssh/*',
   '.vim_org.yml',
-  'Documents/Corpus/*',
-  'Dropbox/**/*.p12',
   'Library/Keychains/*',
+  'Sync/**/*.p12',
+  'Sync/Personal/Corpus/*',
 ]
 
 TO_COPY.each do |src|
