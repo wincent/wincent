@@ -17,6 +17,7 @@ export default async function command(
     options: {
         chdir?: string;
         creates?: string;
+        env?: NodeJS.ProcessEnv;
         failedWhen?: (result: Result | null) => boolean;
     } = {}
 ): Promise<Result | null> {
@@ -53,6 +54,7 @@ export default async function command(
                     chdir: options.chdir
                         ? path(options.chdir).expand
                         : undefined,
+                    env: options.env,
                 }
             );
 

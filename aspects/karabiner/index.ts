@@ -1,8 +1,6 @@
 import {command, file, resource, skip, template, task} from 'fig';
 import path from 'fig/path.js';
 
-// TODO: set up node before we run these
-
 task('make directories', async () => {
     await file({path: '~/.config', state: 'directory'});
     await file({path: '~/.config/karabiner', state: 'directory'});
@@ -25,6 +23,9 @@ task('copy helper scripts', async () => {
         });
     }
 });
+
+// BUG: on first run, "node" won't be in path yet, so need to explicitly set
+// that up here...
 
 task('test karabiner.json generator', async () => {
     const test = resource.support('karabiner-test.js');

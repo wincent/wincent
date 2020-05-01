@@ -4,6 +4,7 @@ import {spawn} from './child_process.js';
 
 type Options = {
     chdir?: string;
+    env?: NodeJS.ProcessEnv;
     passphrase?: string;
 };
 
@@ -42,11 +43,10 @@ export default async function run(
             stdout: '',
         };
 
-        const child = spawn(
-            final[0].toString(),
-            final.slice(1).map(String),
-            options.chdir ? {cwd: options.chdir.toString()} : {}
-        );
+        const child = spawn(final[0].toString(), final.slice(1).map(String), {
+            cwd: options.chdir ? options.chdir.toString() : undefined,
+            env: options.env,
+        });
 
         // Sadly, we may see "Sorry, try again" if the wrong password is
         // supplied, because sudo may be configured to log it directly to

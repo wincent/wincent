@@ -49,7 +49,9 @@ function path(...components: Array<string>): Path {
 
         expand: {
             get() {
-                if (string.startsWith('~/')) {
+                if (string === '~') {
+                    return path(homedir());
+                } else if (string.startsWith('~/')) {
                     return path(join(homedir(), string.slice(2)));
                 } else {
                     return path(string);
@@ -111,7 +113,7 @@ Object.defineProperty(path, 'aspect', {
 });
 
 export default Object.assign(path, {
-    home: path('~'),
+    home: path('~').expand,
 
     root: path(root),
 }) as path;

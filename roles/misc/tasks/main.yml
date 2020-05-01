@@ -1,16 +1,4 @@
 ---
-- name: misc | ensure directories exist
-  file: path={{ item }} state=directory
-  loop:
-    # not using this any more
-    - ~/Archives
-
-    # or this, really...
-    - ~/Local
-
-    # This still.
-    - ~/n
-
 - name: misc | touch ~/mbox
   file: path=~/mbox state=touch
 
@@ -18,24 +6,6 @@
   command: chflags hidden {{ item }}
   loop:
     - ~/mbox
-    - ~/n
 
 - name: misc | install prefnerd
   gem: name=prefnerd user_install=yes
-
-# Note: Won't work without Node (which means homebrew role has to have run
-# first, but I don't want to declare an explicit, heavyweight dependency in this
-# role).
-- name: misc | install global NPM modules
-  npm: name={{ item }} global=yes
-  loop:
-    - bs-platform
-    - flow-bin
-    - flow-typed
-    - gatsby-cli
-    - javascript-typescript-langserver
-    - neovim
-    - ocaml-language-server
-    - reason-cli
-    - source-map-explorer
-    - typescript
