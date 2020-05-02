@@ -97,8 +97,8 @@ task('create symlinks', async () => {
     for (const src of files) {
         await file({
             force: true,
-            path: path.home.join(src.basename),
-            src: path.aspect.join('files', src.basename),
+            path: path.home.join(src),
+            src: path.aspect.join('files', src),
             state: 'link',
         });
     }

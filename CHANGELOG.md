@@ -1,8 +1,11 @@
 # Changelog
 
-## 2020-05-01
+## 2020-05-02
 
 -   [Meta]: Dropped Ansible dependency.
+
+## 2020-05-01
+
 -   [Mutt]: Remove Mutt config because I haven't used it for over a year.
 
 ## 2020-04-27

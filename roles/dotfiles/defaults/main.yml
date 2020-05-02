@@ -1,7 +1,0 @@
----
-dotfile_files:
-  - .config/alacritty
-  - .config/kitty
-  - .config/ranger
-  - .npmrc
-  - .pypirc

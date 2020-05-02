@@ -7,7 +7,7 @@
 	path = vendor/base16-iterm2
 	url = https://github.com/chriskempson/base16-iterm2.git
 [submodule "base16-kitty"]
-	path = roles/dotfiles/files/.config/kitty/base16-kitty
+	path = aspects/dotfiles/files/.config/kitty/base16-kitty
 	url = https://github.com/kdrag0n/base16-kitty.git
 [submodule "base16-shell"]
 	path = aspects/dotfiles/files/.zsh/base16-shell

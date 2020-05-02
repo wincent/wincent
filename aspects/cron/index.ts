@@ -1,4 +1,13 @@
-import {command, cron, file, resource, skip, template, task, variable} from 'fig';
+import {
+    command,
+    cron,
+    file,
+    resource,
+    skip,
+    template,
+    task,
+    variable,
+} from 'fig';
 
 task('create ~/Library/Cron', async () => {
     await file({
