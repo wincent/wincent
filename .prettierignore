@@ -1,3 +1,9 @@
+/aspects/dotfiles/files/.config/kitty/base16-kitty
+/aspects/dotfiles/files/.zsh/base16-shell
+/aspects/dotfiles/files/.zsh/skim
+/aspects/dotfiles/files/.zsh/zsh-autosuggestions
+/aspects/dotfiles/files/.zsh/zsh-history-substring-search
+/aspects/dotfiles/files/.zsh/zsh-syntax-highlighting
 /aspects/vim/files/.vim
 /fig/types
 /lib

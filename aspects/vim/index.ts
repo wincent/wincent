@@ -79,7 +79,9 @@ task('compile Command-T', async () => {
 });
 
 task('build LanguageClient-neovim', async () => {
-    const base = path.aspect.join('files/.vim/pack/bundle/opt/LanguageClient-neovim');
+    const base = path.aspect.join(
+        'files/.vim/pack/bundle/opt/LanguageClient-neovim'
+    );
 
     await command('./install.sh', [], {
         chdir: base,
@@ -90,9 +92,13 @@ task('build LanguageClient-neovim', async () => {
 task('create spell file', async () => {
     const spellfile = path.aspect.join('files/.vim/spell/en.utf-8.add');
 
-    await command('nvim', ['-u', 'NONE', '-N', '-c', `mkspell! ${spellfile} | quit`], {
-        creates: `${spellfile}.spl`
-    });
+    await command(
+        'nvim',
+        ['-u', 'NONE', '-N', '-c', `mkspell! ${spellfile} | quit`],
+        {
+            creates: `${spellfile}.spl`,
+        }
+    );
 });
 
 task('update bundle', async () => {

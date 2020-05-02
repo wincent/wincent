@@ -5,7 +5,7 @@
 ![](https://raw.githubusercontent.com/wincent/wincent/media/screenshot.png)
 
 -   Target platforms: macOS and Red Hat-like Linuxes (eg. CentOS).
--   Set-up method: ~~Beautiful and intricate snowflake~~ incredibly over-engineered [Ansible](https://www.ansible.com/) orchestration.
+-   Set-up method: ~~Beautiful and intricate snowflake~~ an incredibly over-engineered custom configuration framework called [Fig](./fig/README.md).
 -   Visible in the screenshot:
     -   [default-dark Base16](http://chriskempson.com/projects/base16/) color scheme (see [screenshots of other colorschemes](https://github.com/wincent/wincent/blob/media/colorschemes/README.md)).
     -   [Adobe Source Code Pro](https://github.com/adobe-fonts/source-code-pro) (Light) font.
@@ -32,7 +32,7 @@
 
 ### Homebrew
 
-On macOS, [the `homebrew` role](https://github.com/wincent/wincent/tree/master/roles/homebrew) installs [a bunch of useful software](https://github.com/wincent/wincent/blob/master/roles/homebrew/templates/Brewfile).
+On macOS, [the "homebrew" aspect](https://github.com/wincent/wincent/tree/master/aspects/homebrew) installs [a bunch of useful software](https://github.com/wincent/wincent/blob/master/aspects/homebrew/templates/Brewfile.erb).
 
 ### Keyboard customization
 
@@ -134,29 +134,40 @@ git clone --recursive https://github.com/wincent/wincent.git
 
 ### Install
 
+> ⚠️ **WARNING:** There are _lots_ of different things that can be installed or configured (see [the "aspects" directory](./aspects)). Unless you want your machine to be exactly like mine — which is unlikely — you probably don't want to install _everything_. Maybe you don't even want everything in the ["dotfiles"](./aspects/dotfiles) and ["vim"](./aspects/vim) aspects. Please inspect the contents of each aspect before proceeding to install it; you may even be better off just looking at the configuration files and stealing the bits that you find interesting or useful (everything is [in the public domain](./LICENSE.md), unless otherwise indicated).
+
+At the time of writing, these are the aspects, which you can expect to change over time:
+
+-   **automator**: Scripts for use with Automator
+-   **backup**: Backup scripts
+-   **cron**: Sets up cron files
+-   **defaults**: Sets up defaults (ie. preferences) on macOS
+-   **dotfiles**: Creates symlinks in \$HOME to the dotfiles in this repo
+-   **fonts**: Installs Source Code Pro font files
+-   **homebrew**: Installs and updates Homebrew
+-   **iterm**: Dynamic profiles for iTerm
+-   **karabiner**: Configures Karabiner-Elements
+-   **launchd**: Configures launchd
+-   **meta**: Tests the configuration framework
+-   **node**: Installs Node.js
+-   **ruby**: Installs Ruby gems
+-   **shell**: Sets the use shell to zsh
+-   **ssh**: Manages local SSH config
+-   **terminfo**: Sets up terminfo database entries for italics and 256-color support
+-   **vim**: Configures Vim
+
+#### Examples
+
 ```sh
-./install-legacy          # Installs everything on the local machine.
-./install-legacy --help   # Info on installing specific roles, force-installing etc.
-./install-legacy dotfiles # Just install dotfiles.
+./install dotfiles vim      # Just install "dotfiles" and "vim" stuff.
+./install dotfiles          # Just install "dotfiles".
+./install dotfiles --step   # Prompt for confimration at each step.
+./install dotfiles --check  # Do a dry-run, showing what would be changed.
+./install                   # Install everything.
+./install --help            # Info on installing specific rol
 ```
 
-This sets up a local Python environment using the bundled virtualenv, bootstraps Ansible, and then uses Ansible to copy the dotfiles and configure the machine.
-
-Again, if you're behind a firewall, you may need to make use of a proxy during the initial run:
-
-```sh
-env http_proxy=http://fwdproxy:8080 https_proxy=http://fwdproxy:8080 ./install-legacy
-```
-
-As a fallback strategy, in case the `install-legacy` script fails, you can symlink the dotfiles by hand with a command like the following:
-
-```sh
-for DOTFILE in $(find aspects/dotfiles/files -maxdepth 1 -name '.*' | tail -n +2); do
-  ln -sf $PWD/$DOTFILE ~
-done
-```
-
-**Note:** The `ln -sf` command will overwrite existing files, but will fail to overwrite existing directories.
+This sets up a local Node environment using [n](https://github.com/tj/n), and then uses [Fig](./fig/README.md) to copy the dotfiles and configure the machine.
 
 **Note:** Given that `~/.gitconfig` is included with these dotfiles, any local modifications or overrides that you apply should be added to `~/.gitconfig.local` instead; for example:
 
@@ -167,65 +178,21 @@ git config --file ~/.gitconfig.local user.email johndoe@example.com
 
 ### Troubleshooting
 
-#### General Ansible troubleshooting
+#### General troubleshooting
 
-Flags passed to `./install-legacy` are propagated to the underlying Ansible invocation, which means that you can do things like:
+There are a few useful `./install` options:
 
 ```sh
 # Run in "check" (dry-run) mode.
-./install-legacy --check
+./install --check
 
-# Show before-and-after delta of changes.
-./install-legacy --diff
-
-# Both of the above together.
-./install-legacy --check --diff
-
-# Show various levels of debug output.
-./install-legacy --verbose
-./install-legacy -vv
-./install-legacy -vvv
-./install-legacy -vvvv
+# Show debugging information during the run.
+./install --debug
 
 # Confirm each task before running it (--step), and begin
-# execution from a specific task (--start-at-task).
-./install-legacy --step --start-at-task='dotfiles | create backup directory'
-```
-
-You can also inspect variables by adding a task that uses the "debug" module in a role:
-
-```yaml
-- name: buggy task
-  stat: path="~/{{ item }}"
-  register: stat_result
-  with_items: '{{ dotfile_files + dotfile_templates }}'
-
-- name: debugging bad stat info
-  debug:
-      var: stat_result
-```
-
-Note that for convenience, "debug" tasks have already been inserted for all variables that are `register`-ed in the existing roles, with verbosity thresholds of 2, meaning that they will be logged automatically when the install is run using `./install-legacy -vv` or more.
-
-#### pycrypto install fails with "'gmp.h' file not found"
-
-If pycrypto causes the install to fail at:
-
-```sh
-src/_fastmath.c:36:11: fatal error: 'gmp.h' file not found
-```
-
-due to [a missing GMP dependency](http://stackoverflow.com/questions/15375171/pycrypto-install-fatal-error-gmp-h-file-not-found), try:
-
-```sh
-brew install gmp
-env "CFLAGS=-I/usr/local/include -L/usr/local/lib" pip install pycrypto
-```
-
-And then installing again:
-
-```sh
-./install-legacy --force
+# execution from a specific task (--start-at-task) in a
+# specific aspect ("dotfiles").
+./install --step --start='make directories' dotfiles
 ```
 
 #### Broken Unicode in Vim (Linux)
@@ -248,40 +215,6 @@ To persist this `LC_*` variable binding, edit your `locale` accordingly:
 LANG=en_US.UTF-8
 LC_ALL=en_US.UTF-8
 ```
-
-### How this repo works
-
-0. **2009**: Originally, the repo was just a [collection of files](https://github.com/wincent/wincent/tree/61a7e2a830edb757c59e542039131e671da8b154) with no installation script.
-1. **2011-2015**: I [created a `bootstrap.rb` script](https://github.com/wincent/wincent/commit/e29b2818c487529eb4e7662a23df56445b448fe3) ([final version here](https://github.com/wincent/wincent/blob/94fb4d50243b97cd0c92a5691ac430353a5299a0/bootstrap.rb)) for performing set-up.
-1. **2015**: I [briefly experimented](https://github.com/wincent/wincent/commit/4efdb1f97685bf735b068835adced059cd721096) with using a `Makefile` ([final version here](https://github.com/wincent/wincent/blob/01b37a546b92f60e659a8153067353d58805a009/Makefile)).
-1. **2015-2020**: I [switched to Ansible](https://github.com/wincent/wincent/commit/375f27a6ea6fdd78fcf6614d3af5335da7a9f5ef) (completing the transition in [cd98e9aaab](https://github.com/wincent/wincent/commit/cd98e9aaab82b1983aeab839d4f28260d6e19919)).
-1. **2020-present**: I started [feeling misgivings about the size of the dependency graph](https://github.com/wincent/wincent/issues/82) and in truth I was probably using less than 1% of Ansible's functionality, so moved to the current set-up, which is described below.
-
-The goal was to replace Ansible with some handmade scripts using the smallest dependency graph possible. I original [tried](https://github.com/wincent/wincent/commit/8809a1681cfd8fd02eb40113d2485d7cadc10e4c) out [Deno](https://deno.land/) because that would enable me to use TypeScript with no dependencies outside of Deno itself, however I [gave up on that](https://github.com/wincent/wincent/commit/a213ddf69d3213882808b5c5ff0e000bcd83fe98) when I saw that editor integration was still very nascent. So I went with the following:
-
--   [n](https://github.com/tj/n) ([as a submodule](https://github.com/wincent/wincent/tree/master/vendor)) and some [hand-rolled Bash scripts](https://github.com/wincent/wincent/tree/master/bin) to replace [virtualenv](https://virtualenv.pypa.io/) and friends ([Python](https://www.python.org/), [pip](https://pypi.org/project/pip/)).
--   [Yarn](https://github.com/yarnpkg/yarn/) ([vendored](https://github.com/wincent/wincent/commit/26adf86d4c742390537be4dc1572f93a97bc3e68)) to install [TypeScript](https://www.typescriptlang.org/).
-
-Beyond that, there are no dependencies outside of the [Node.js](https://nodejs.org/en/) standard library. I use [Prettier](https://prettier.io/) to format code, but I invoke it via `npx` which means the [yarn.lock](https://github.com/wincent/wincent/blob/master/yarn.lock) remains basically empty. Ansible itself is replaced by [a set of self-contained TypeScript scripts](https://github.com/wincent/wincent/tree/master/src). Instead of YAML configuration files containing "declarative" configuration peppered with Jinja template snippets containing Python and filters, we just use TypeScript for everything. Instead of [Jinja template files](https://jinja.palletsprojects.com/), we use ERB/JSP-like templates that use embedded JavaScript when necessary.
-
-Because I need a name to refer to this "set of scripts", it's called Fig (a play on "Config"). Overall structure remains similar to Ansible, but I made some changes to better reflect the use case here. While Ansible is made to orchestrate multiple (likely remote) hosts, Fig is for configuring one local machine at a time.
-
-| Ansible                                                                                                                         | Fig                                                                                                             |
-| ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| **Hosts:** Machines to be configured (possibly remote)                                                                          | n/a (always the current, local machine)                                                                         |
-| **Groups:** Collections of hosts, so you can conveniently target multiple hosts without having to address each one individually | **Profiles:** An abstract category indicating the kind of a host (eg. "work" or "personal")                     |
-| **Inventory:** A list of hosts (or groups of hosts) to be managed                                                               | n/a ("project.json" file contains map from hostname to profile to be applied)                                   |
-| **Roles:** Capabilities that a host can have (eg. webserver, file-server etc)                                                   | **Aspects:** Logical groups of functionality to be configured (eg. dotfiles, terminfo etc)                      |
-| **Tasks:** Operations to perform (eg. installing a package, writing a file                                                      | **Tasks:** Same as Ansible.                                                                                     |
-| **Plays:** A mapping between hosts (or groups) and the tasks to be performed on them                                            | n/a (it's just a file containing tasks)                                                                         |
-| **Playbooks:** Lists of plays                                                                                                   | n/a ("project.json" file contains a map from platform to the aspects that should be set up on a given platform) |
-| **Tags:** Keywords that can be applied to tasks and roles, useful for selecting them to be run                                  | n/a (not needed)                                                                                                |
-| **Facts:** (Inferred) attributes of hosts                                                                                       | **Attributes:** Same as Ansible, but with a better name                                                         |
-| **Vars:** (Declared) values that can be assigned to groups, hosts or roles                                                      | **Vars:** Same as Ansible, but belong to profiles and aspects                                                   |
-| **Modules:** Units of code that implement operations (ie. these are what tasks use to actually do the work)                     | **Operations:** Code for performing operations                                                                  |
-| **Templates:** Jinja templates with embedded Python and "filters"                                                               | **Templates:** ERB templates with embedded JavaScript                                                           |
-| **Files:** Raw files that can be copied using modules                                                                           | **Files:** Raw files that can be copied using operations                                                        |
-| **Syntax:** YAML with interpolated Jinja syntax containing Python and variables                                                 | **Syntax:** TypeScript and (plain) JSON                                                                         |
 
 ### License
 
