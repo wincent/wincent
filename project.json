@@ -11,6 +11,7 @@
                 "node",
                 "karabiner",
                 "launchd",
+                "ruby",
                 "shell",
                 "ssh",
                 "terminfo",

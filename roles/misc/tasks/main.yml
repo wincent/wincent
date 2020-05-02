@@ -6,6 +6,3 @@
   command: chflags hidden {{ item }}
   loop:
     - ~/mbox
-
-- name: misc | install prefnerd
-  gem: name=prefnerd user_install=yes

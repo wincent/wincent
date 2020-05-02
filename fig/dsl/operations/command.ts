@@ -19,6 +19,7 @@ export default async function command(
         creates?: string;
         env?: NodeJS.ProcessEnv;
         failedWhen?: (result: Result | null) => boolean;
+        sudo?: boolean;
     } = {}
 ): Promise<Result | null> {
     const description = [executable, ...args].join(' ');
@@ -55,6 +56,9 @@ export default async function command(
                         ? path(options.chdir).expand
                         : undefined,
                     env: options.env,
+                    passphrase: options.sudo
+                        ? await Context.sudoPassphrase
+                        : undefined,
                 }
             );
 
