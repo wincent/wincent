@@ -1,6 +1,8 @@
 import {command, file, resource, skip, template, task} from 'fig';
 import path from 'fig/path.js';
 
+const node = path.root.join('bin/node');
+
 task('make directories', async () => {
     await file({path: '~/.config', state: 'directory'});
     await file({path: '~/.config/karabiner', state: 'directory'});
@@ -24,13 +26,10 @@ task('copy helper scripts', async () => {
     }
 });
 
-// BUG: on first run, "node" won't be in path yet, so need to explicitly set
-// that up here...
-
 task('test karabiner.json generator', async () => {
     const test = resource.support('karabiner-test.js');
 
-    await command('node', [test]);
+    await command(node, [test]);
 });
 
 let config: string | undefined;
@@ -38,7 +37,7 @@ let config: string | undefined;
 task('prepare karabiner.json', async () => {
     const script = resource.support('karabiner.js');
 
-    const result = await command('node', [script, '--emit-karabiner-config']);
+    const result = await command(node, [script, '--emit-karabiner-config']);
 
     if (result) {
         config = result.stdout;
