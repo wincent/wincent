@@ -2,6 +2,7 @@ import Context from '../Context.js';
 import ErrorWithMetadata from '../ErrorWithMetadata.js';
 import {default as toPath} from '../path.js';
 import run from '../run.js';
+import assertMode from './assertMode.js';
 
 type Stats = {
     group: string;
@@ -135,12 +136,4 @@ export default async function stat(
     }
 
     return new ErrorWithMetadata(`Unable to stat ${path}`);
-}
-
-const MODE_REGEXP = /^0[0-7]{3}$/;
-
-function assertMode(mode: string): asserts mode is Mode {
-    if (!MODE_REGEXP.test(mode)) {
-        throw new Error(`Invalid mode ${mode}`);
-    }
 }

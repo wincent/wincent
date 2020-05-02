@@ -2,6 +2,7 @@ import * as os from 'os';
 
 import id from './posix/id.js';
 import stringify from './stringify.js';
+import assertMode from './fs/assertMode.js';
 
 /**
  * Immutable system attributes (read-only).
@@ -12,6 +13,7 @@ export default class Attributes {
     #home?: string;
     #platform?: 'darwin' | 'linux';
     #uid?: number;
+    #umask?: Mode;
     #username?: string;
 
     get gid(): number {
@@ -65,6 +67,25 @@ export default class Attributes {
         }
 
         return this.#uid;
+    }
+
+    get umask(): Mode {
+        if (!this.#umask) {
+            // Can't just read this, have to set it and restore it.
+            //
+            // https://nodejs.org/api/process.html#process_process_umask_mask
+            const umask = process.umask(0o022);
+
+            process.umask(umask);
+
+            const paddedUmask = umask.toString(8).padStart(4, '0');
+
+            assertMode(paddedUmask);
+
+            this.#umask = paddedUmask;
+        }
+
+        return this.#umask;
     }
 
     get username(): string {

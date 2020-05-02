@@ -33,9 +33,7 @@ export default async function chown(
 
     const args = [ownerAndGroup, path];
 
-    const passphrase = options.sudo
-        ? await Context.sudoPassphrase
-        : undefined;
+    const passphrase = options.sudo ? await Context.sudoPassphrase : undefined;
 
     log.debug(`Setting ownership: ${args.join(' ')}`);
 
