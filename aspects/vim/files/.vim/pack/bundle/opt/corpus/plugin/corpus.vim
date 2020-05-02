@@ -1,7 +1,12 @@
 augroup Corpus
   autocmd!
   autocmd BufNewFile *.md call corpus#buf_new_file()
-  autocmd CmdlineChanged * call corpus#cmdline_changed(expand('<afile>'))
+
+  " TODO: don't blow up on macOS /usr/bin/vim; will need deeper fix in long term
+  if exists('##CmdlineChanged')
+    autocmd CmdlineChanged * call corpus#cmdline_changed(expand('<afile>'))
+  endif
+
   autocmd CmdlineEnter * call corpus#cmdline_enter(expand('<afile>'))
   autocmd CmdlineLeave * call corpus#cmdline_leave()
 augroup END
