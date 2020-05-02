@@ -307,10 +307,6 @@ source $HOME/.zsh/vars
 # Third-party
 #
 
-CHRUBY=/usr/local/share/chruby
-test -e "$CHRUBY/chruby.sh" && source "$CHRUBY/chruby.sh"
-test -e "$CHRUBY/auto.sh" && source "$CHRUBY/auto.sh"
-
 # Skim
 
 # test -e "$HOME/.zsh/skim/shell/key-bindings.zsh" && source "$HOME/.zsh/skim/shell/key-bindings.zsh"
