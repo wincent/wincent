@@ -1,4 +1,4 @@
-import {cron, file, resource, skip, template, task, variable} from 'fig';
+import {command, cron, file, resource, skip, template, task, variable} from 'fig';
 
 task('create ~/Library/Cron', async () => {
     await file({
@@ -26,4 +26,13 @@ task('schedule check-git cron job', async () => {
     } else {
         skip();
     }
+});
+
+task('touch ~/mbox', async () => {
+    // Because cron jobs can produce mail.
+    await file({path: '~/mbox', state: 'touch'});
+});
+
+task('hide ~/mbox', async () => {
+    await command('chflags', ['hidden', '~/mbox']);
 });

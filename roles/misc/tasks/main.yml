@@ -1,8 +1,0 @@
----
-- name: misc | touch ~/mbox
-  file: path=~/mbox state=touch
-
-- name: misc | hide items
-  command: chflags hidden {{ item }}
-  loop:
-    - ~/mbox
