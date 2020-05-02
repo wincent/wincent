@@ -164,7 +164,12 @@ task('create a directory', async () => {
     assert(stats && !(stats instanceof Error));
 
     expect.equal(stats.type, 'directory');
-    expect.equal(stats.mode, '0755');
+
+    const mode = (0o777 - parseInt(Context.attributes.umask, 8))
+        .toString(8)
+        .padStart(4, '0');
+
+    expect.equal(stats.mode, mode);
 
     expect.equal(Context.counts.changed, changed + 1);
     expect.equal(Context.counts.failed, failed);
