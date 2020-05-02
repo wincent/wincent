@@ -78,6 +78,49 @@ task('compile Command-T', async () => {
     });
 });
 
+task('build LanguageClient-neovim', async () => {
+    const base = path.aspect.join('files/.vim/pack/bundle/opt/LanguageClient-neovim');
+
+    await command('./install.sh', [], {
+        chdir: base,
+        creates: base.join('bin/languageclient'),
+    });
+});
+
+task('create spell file', async () => {
+    const spellfile = path.aspect.join('files/.vim/spell/en.utf-8.add');
+
+    await command('nvim', ['-u', 'NONE', '-N', '-c', `mkspell! ${spellfile} | quit`], {
+        creates: `${spellfile}.spl`
+    });
+});
+
 task('update bundle', async () => {
     skip('not yet implemented');
+    // update-bundle
 });
+
+// added in 1a9f9b9fd and probably not used since...
+// pip2 install vim-vint
+
+// optional: just allows us to release updates to deoplete sorter
+// pip3 install twine
+
+// for custom deoplete sorters
+// pip3 install commandt.score
+
+// for deoplete
+// pip3 install msgpack
+
+// general python support for neovim
+// pip3 install --upgrade pynvim
+
+// legacy way (commented out) was:
+// pip2 install neovim
+// pip3 install neovim -- not sure if still needed
+
+// general ruby support for neovim
+// gem install neovim
+
+// For masochist autocompleter
+// pip3 install redis
