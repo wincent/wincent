@@ -15,6 +15,7 @@ const TYPE_MAP = {
     'character device': 'special',
     'character special file': 'special',
     directory: 'directory',
+    'regular empty file': 'file',
     'regular file': 'file',
     socket: 'socket',
     'symbolic link': 'link',
@@ -65,7 +66,7 @@ export default async function stat(
         const formats = {
             group: '%G',
             mode: '%a',
-            newline: '\\n',
+            newline: '\n',
             target: '%N',
             type: '%F',
             owner: '%U',
@@ -78,7 +79,7 @@ export default async function stat(
                 formats.owner,
                 formats.group,
                 formats.target,
-            ].join(formats.newline) + '\\n';
+            ].join(formats.newline) + '\n';
 
         args.push('-c', formatString, target);
     }
