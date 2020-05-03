@@ -3,6 +3,9 @@
 	path = aspects/vim/files/.vim/pack/bundle/opt/LanguageClient-neovim
 	url = https://github.com/autozimu/LanguageClient-neovim.git
 	branch = next
+[submodule "applescript.vim"]
+	path = aspects/vim/files/.vim/pack/bundle/opt/applescript.vim
+	url = https://github.com/vim-scripts/applescript.vim.git
 [submodule "base16-iterm2"]
 	path = vendor/base16-iterm2
 	url = https://github.com/chriskempson/base16-iterm2.git
@@ -63,6 +66,9 @@
 [submodule "skim"]
 	path = aspects/dotfiles/files/.zsh/skim
 	url = https://github.com/lotabout/skim.git
+[submodule "source-code-pro"]
+	path = vendor/fonts/source-code-pro
+	url = https://github.com/adobe-fonts/source-code-pro.git
 [submodule "tcomment_vim"]
 	path = aspects/vim/files/.vim/pack/bundle/opt/tcomment_vim
 	url = https://github.com/tomtom/tcomment_vim.git
@@ -186,9 +192,3 @@
 [submodule "zsh-syntax-highlighting"]
 	path = aspects/dotfiles/files/.zsh/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
-[submodule "source-code-pro"]
-	path = vendor/fonts/source-code-pro
-	url = https://github.com/adobe-fonts/source-code-pro.git
-[submodule "applescript.vim"]
-	path = aspects/vim/files/.vim/pack/bundle/opt/applescript.vim
-	url = https://github.com/vim-scripts/applescript.vim.git
