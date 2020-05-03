@@ -66,7 +66,7 @@ To understand this, you need only understand TypeScript (or really, just JavaScr
 
 ### On Ansible's appropriateness for the task
 
-All of the above is not to say that Ansible is a bad tool — I use it in other contexts quite productively, to manage remote hosts, for instance — but that it might not be the best fit for dotfile management and configuration of a single local machine.
+All of the above is not to say that Ansible is a bad tool — I use it in other contexts quite productively, to manage remote hosts, for instance — but that it might not be the best fit for dotfile management and configuration of a single local machine.
 
 ## Overall structure
 
