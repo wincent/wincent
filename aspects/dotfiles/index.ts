@@ -1,8 +1,8 @@
 import {
+    backup,
     command,
     fail,
     file,
-    options,
     resource,
     skip,
     template,
@@ -11,9 +11,7 @@ import {
     variables,
 } from 'fig';
 import {log} from 'fig/console.js';
-import stat from 'fig/fs/stat.js';
 import path from 'fig/path.js';
-import mkdir from 'fig/posix/mkdir.js';
 
 variables(({identity}) => ({
     gitUserEmail: identity === 'wincent' ? 'greg@hurrell.net' : '',
@@ -54,40 +52,13 @@ task('make directories', async () => {
     }
 });
 
-// TODO: again see if there is anything common to factor out here
-task('move originals to ~/backups', async () => {
+task('move originals to ~/.backups', async () => {
     const files = [...variable.paths('files'), ...variable.paths('templates')];
 
     for (const file of files) {
-        const stripped = file.strip('.erb');
-        const backups = path.home.join('.backups');
-        const source = path.home.join(stripped);
-        const target = path.home.join('.backups', stripped);
+        const src = file.strip('.erb');
 
-        const stats = await stat(source);
-
-        if (stats instanceof Error) {
-            throw stats;
-        } else if (!stats) {
-            continue;
-        } else if (stats.type === 'directory' || stats.type === 'file') {
-            // Create parent directories if necessary.
-            if (!options.check) {
-                const result = await mkdir(backups.join(file.dirname).expand, {
-                    intermediate: true,
-                });
-
-                if (result instanceof Error) {
-                    throw result;
-                }
-
-                await command('mv', ['-f', source, target], {
-                    creates: target,
-                });
-            } else {
-                skip(`file ${stripped}`);
-            }
-        }
+        await backup({src});
     }
 });
 

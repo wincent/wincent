@@ -1,5 +1,13 @@
-import {attributes, command, file, resource, skip, task, variable} from 'fig';
-import stat from 'fig/fs/stat.js';
+import {
+    attributes,
+    backup,
+    command,
+    file,
+    resource,
+    skip,
+    task,
+    variable,
+} from 'fig';
 import path from 'fig/path.js';
 
 task('make directories', async () => {
@@ -16,30 +24,11 @@ task('link ~/.config/nvim to ~/.vim', async () => {
     });
 });
 
-task('copy to ~/backups', async () => {
-    // Some overlap with "dotfiles" aspect here (may want to look at
-    // abstracting backups somehow.
-    // TODO: make a "backup" DSL that copies files to standard location
-    // could also be a switch to "file", "template" DSLs but I don't like that
-    // idea as much
+task('move originals to ~/.backups', async () => {
     const files = variable.paths('files');
 
-    for (const file of files) {
-        const base = file.basename;
-        const source = path.home.join(base);
-        const target = path.home.join('.backups', base);
-
-        const stats = await stat(source);
-
-        if (stats instanceof Error) {
-            throw stats;
-        } else if (!stats) {
-            continue;
-        } else if (stats.type === 'directory' || stats.type === 'file') {
-            await command('mv', ['-f', source, target], {
-                creates: target,
-            });
-        }
+    for (const src of files) {
+        await backup({src});
     }
 });
 
