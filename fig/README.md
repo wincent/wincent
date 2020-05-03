@@ -38,6 +38,10 @@ Note:
 
 Given all this convolution, Fig proposes that it is simpler to just embody this imperative, procedural work in an actual programming language. By using [TypeScript](https://www.typescriptlang.org/), we can obtain a comparable (or superior) level of static verification to what we would get with Ansible's YAML, as well as enjoying the benefits that come with using a "real" programming language in terms of tooling (eg. editor autocompletion, code formatting etc). By providing a [DSL](https://en.wikipedia.org/wiki/Domain-specific_language) (Domain-specific language) (eg. implemented in [Fig's DSL](https://github.com/wincent/wincent/tree/master/fig/dsl)), we can conserve and arguably improve on the ergonomic properties of writing Ansible's YAML.
 
+### On Ansible's appropriateness for the task
+
+All of the above is not to say that Ansible is a bad tool — I use it in other contexts quite productively, to manage remote hosts, for instance — but that it might not be the best fit for dotfile management and configuration of a single local machine.
+
 ## Overall structure
 
 -   Configuration is divided into ["aspects"](../aspects) that contain:
