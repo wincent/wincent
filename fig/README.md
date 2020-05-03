@@ -12,7 +12,7 @@ At the time of writing, a `git clone --recursive https://github.com/ansible/ansi
 
 ### On Ansible's "declarative" configuration
 
-Ansible configuration exists in YAML files which look static but are deceptively dynamic: values in these files get parsed as Jinja2 templates and may contain Jinja2 filters and Python snippets. This mish-mash of conceptual models leads to awkward syntax that requires careful quoting and a constant mental effort to separate each of the three layers (static YAML, Jinja2 interpolation/filtering, and Python evaluation).
+Ansible configuration exists in YAML files which look static but are deceptively dynamic: values in these files get parsed as static values, Python expressions, or Jinja2 templates that may themselves contain Jinja2 filters and Python snippets. This mish-mash of conceptual models leads to awkward syntax that requires careful quoting and a constant mental effort to separate each of the three layers (static YAML, Jinja2 interpolation/filtering, and Python evaluation).
 
 For example, consider [this configuration that moves items into a `~/.backups` directory](https://github.com/wincent/wincent/blob/f080ecb98d2f762c7314864c2247e75036ebc81a/roles/dotfiles/tasks/main.yml#L39-L48):
 
@@ -41,14 +41,21 @@ Given all this convolution, Fig proposes that it is simpler to just embody this 
 ## Overall structure
 
 -   Configuration is divided into ["aspects"](../aspects) that contain:
+    -   A TypeScript `index.ts` that defines tasks to be executed.
+    -   An `aspect.json` file contain metadata, such as a `description` and (optional) `variables`.
+    -   An (optional) `files` directory containing resources to be copied or otherwise manipulated.
+    -   An (optional) `templates` directory containing templates to be dynamically generated (and then copied, installed etc).
+    -   An (optional) `support` directory to contain any other useful resources (eg. helper scripts etc).
+-   The Fig source itself lives in [the `fig` directory](https://github.com/wincent/wincent/tree/master/fig).
+-   All interaction occurs via [the top-level `install` script](https://github.com/wincent/wincent/blob/master/install), which invokes Fig via a set of helper scripts [in the `bin` directory](https://github.com/wincent/wincent/tree/master/bin).
 
 ## Variables
 
 Because Fig tasks are defined using TypeScript, you can define and use variables just like you would in any TypeScript program. As built-in language features, these follow the lexical scoping rules that you would expect to apply to `const` and `let`.
 
-Additionally, there is a higher-level representation of variables that can be accessed by the DSL. This enables variables to be defined at various levels of abstraction (for example, as a project-wide default, or an aspect-specific one), with a well-defined precedence that ensures that the "most local" definition wins.
+Additionally, there is a higher-level representation of variables that can be accessed by the DSL. This enables variables to be defined at various levels of abstraction (for example, as a project-wide default, or an aspect-specific one), with a well-defined precedence that ensures that the "most local" definition wins. Variable access is always explict, either by a call to to [the `variable()` API](https://github.com/wincent/wincent/blob/827d5d75d5213414e54b858e89c6e624d22d1e21/fig/dsl/variable.ts) (eg. [example from the "dotfiles" aspect](https://github.com/wincent/wincent/blob/796ee1c02ad257fd565569ab6082b7685a52b83f/aspects/dotfiles/index.ts#L25)), or by accessing the `variables` object from inside templates (eg. [example from the "launchd" aspect](https://github.com/wincent/wincent/blob/796ee1c02ad257fd565569ab6082b7685a52b83f/aspects/launchd/templates/run.plist.erb#L6-L12)).
 
-These levels are, from lowest to highest precedence:
+The levels are, from lowest to highest precedence:
 
 | Kind             | Description                                                                                                                                                                                                                                                                                                                                                                                |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
