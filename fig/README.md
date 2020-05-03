@@ -78,6 +78,10 @@ Overall structure remains similar to Ansible, but I made some changes to better 
     -   An (optional) `files` directory containing resources to be copied or otherwise manipulated.
     -   An (optional) `templates` directory containing templates to be dynamically generated (and then copied, installed etc).
     -   An (optional) `support` directory to contain any other useful resources (eg. helper scripts etc).
+-   A [top-level `project.json`](https://github.com/wincent/wincent/blob/master/project.json) declares:
+    -   Supported platforms (eg. "darwin", "linux") plus their related aspects and variables.
+    -   Profiles (eg. "personal" and "work") along with their associated variables, and patterns for determining which profile should apply on a given machine.
+    -   Default variables that apply in the absence of more specific settings (see ["Variables"](#variables) for more details).
 -   The Fig source itself lives in [the `fig` directory](https://github.com/wincent/wincent/tree/master/fig).
 -   All interaction occurs via [the top-level `install` script](https://github.com/wincent/wincent/blob/master/install), which invokes Fig via a set of helper scripts [in the `bin` directory](https://github.com/wincent/wincent/tree/master/bin).
 
@@ -106,16 +110,16 @@ Again, things are broadly modeled on Ansible, but simplified to reflect that fac
 
 Fig implements a simplified, tiny subset [of Ansible's nearly 3,400 "modules"](https://docs.ansible.com/ansible/latest/modules/list_of_all_modules.html) (in Fig, called ["operations"](https://github.com/wincent/wincent/tree/master/fig/dsl/operations)) necessary for configuring a single system in a basic way. At the time of writing, that means:
 
-| Fig operation | Ansible module                                                                           |
-| ------------- | ---------------------------------------------------------------------------------------- |
-| backup        | n/a                                                                                      |
-| command       | [command](https://docs.ansible.com/ansible/latest/modules/command_module.html)           |
-| cron          | [cron](https://docs.ansible.com/ansible/latest/modules/cron_module.html)                 |
-| defaults      | [osx_defaults](https://docs.ansible.com/ansible/latest/modules/osx_defaults_module.html) |
-| fetch         | [get_url](https://docs.ansible.com/ansible/latest/modules/get_url_module.html)           |
-| file          | [file](https://docs.ansible.com/ansible/latest/modules/file_module.html)                 |
-| line          | [lineinfile](https://docs.ansible.com/ansible/latest/modules/lineinfile_module.html)     |
-| template      | [template](https://docs.ansible.com/ansible/latest/modules/template_module.html)         |
+| Fig operation                                                                             | Ansible module                                                                           |
+| ----------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| [backup](https://github.com/wincent/wincent/blob/master/fig/dsl/operations/backup.ts)     | n/a                                                                                      |
+| [command](https://github.com/wincent/wincent/blob/master/fig/dsl/operations/command.ts)   | [command](https://docs.ansible.com/ansible/latest/modules/command_module.html)           |
+| [cron]()https://github.com/wincent/wincent/blob/master/fig/dsl/operations/cron.ts         | [cron](https://docs.ansible.com/ansible/latest/modules/cron_module.html)                 |
+| [defaults](https://github.com/wincent/wincent/blob/master/fig/dsl/operations/defaults.ts) | [osx_defaults](https://docs.ansible.com/ansible/latest/modules/osx_defaults_module.html) |
+| [fetch](https://github.com/wincent/wincent/blob/master/fig/dsl/operations/fetch.ts)       | [get_url](https://docs.ansible.com/ansible/latest/modules/get_url_module.html)           |
+| [file](https://github.com/wincent/wincent/blob/master/fig/dsl/operations/file.ts)         | [file](https://docs.ansible.com/ansible/latest/modules/file_module.html)                 |
+| [line](https://github.com/wincent/wincent/blob/master/fig/dsl/operations/line.ts)         | [lineinfile](https://docs.ansible.com/ansible/latest/modules/lineinfile_module.html)     |
+| [template](https://github.com/wincent/wincent/blob/master/fig/dsl/operations/template.ts) | [template](https://docs.ansible.com/ansible/latest/modules/template_module.html)         |
 
 ## Variables
 
@@ -144,9 +148,9 @@ Most of these are static, arising from JSON files, but two of the later levels (
 1. **2011-2015**: I [created a `bootstrap.rb` script](https://github.com/wincent/wincent/commit/e29b2818c487529eb4e7662a23df56445b448fe3) ([final version here](https://github.com/wincent/wincent/blob/94fb4d50243b97cd0c92a5691ac430353a5299a0/bootstrap.rb)) for performing set-up.
 1. **2015**: I [briefly experimented](https://github.com/wincent/wincent/commit/4efdb1f97685bf735b068835adced059cd721096) with using a `Makefile` ([final version here](https://github.com/wincent/wincent/blob/01b37a546b92f60e659a8153067353d58805a009/Makefile)).
 1. **2015-2020**: I [switched to Ansible](https://github.com/wincent/wincent/commit/375f27a6ea6fdd78fcf6614d3af5335da7a9f5ef) (completing the transition in [cd98e9aaab](https://github.com/wincent/wincent/commit/cd98e9aaab82b1983aeab839d4f28260d6e19919)).
-1. **2020-present**: I started [feeling misgivings about the size of the dependency graph](https://github.com/wincent/wincent/issues/82) and in truth I was probably using less than 1% of Ansible's functionality, so moved to the current set-up, which is described below.
+1. **2020-present**: I started [feeling misgivings about the size of the dependency graph](https://github.com/wincent/wincent/issues/82) and in truth I was probably using less than 1% of Ansible's functionality, so moved to the current set-up, which is described in this file. A representative "final state" of the Ansible-powered implementation can be seen [here](https://github.com/wincent/wincent/tree/9a491bd2937fcd81f91115de8c61a75fe78e7c88).
 
-The goal was to replace Ansible with some handmade scripts using the smallest dependency graph possible. I original [tried](https://github.com/wincent/wincent/commit/8809a1681cfd8fd02eb40113d2485d7cadc10e4c) out [Deno](https://deno.land/) because that would enable me to use TypeScript with no dependencies outside of Deno itself, however I [gave up on that](https://github.com/wincent/wincent/commit/a213ddf69d3213882808b5c5ff0e000bcd83fe98) when I saw that editor integration was still very nascent. So I went with the following:
+The goal was to replace Ansible with some handmade scripts using the smallest dependency graph possible. I originally [tried](https://github.com/wincent/wincent/commit/8809a1681cfd8fd02eb40113d2485d7cadc10e4c) out [Deno](https://deno.land/) because that would enable me to use TypeScript with no dependencies outside of Deno itself, however I [gave up on that](https://github.com/wincent/wincent/commit/a213ddf69d3213882808b5c5ff0e000bcd83fe98) when I saw that editor integration was still very nascent. So I went with the following:
 
 -   [n](https://github.com/tj/n) ([as a submodule](https://github.com/wincent/wincent/tree/master/vendor)) and some [hand-rolled Bash scripts](https://github.com/wincent/wincent/tree/master/bin) to replace [virtualenv](https://virtualenv.pypa.io/) and friends ([Python](https://www.python.org/), [pip](https://pypi.org/project/pip/)).
 -   [Yarn](https://github.com/yarnpkg/yarn/) ([vendored](https://github.com/wincent/wincent/commit/26adf86d4c742390537be4dc1572f93a97bc3e68)) to install [TypeScript](https://www.typescriptlang.org/).
@@ -154,3 +158,5 @@ The goal was to replace Ansible with some handmade scripts using the smallest de
 Beyond that, there are no dependencies outside of the [Node.js](https://nodejs.org/en/) standard library. I use [Prettier](https://prettier.io/) to format code, but I invoke it via `npx` which means the [yarn.lock](https://github.com/wincent/wincent/blob/master/yarn.lock) remains basically empty. Ansible itself is replaced by [a set of self-contained TypeScript scripts](https://github.com/wincent/wincent/tree/master/fig). Instead of YAML configuration files containing "declarative" configuration peppered with Jinja template snippets containing Python and filters, we just use TypeScript for everything. Instead of [Jinja template files](https://jinja.palletsprojects.com/), we use ERB/JSP-like templates that use embedded JavaScript when necessary.
 
 Because I needed a name to refer to this "set of scripts", it's called Fig (a play on "Config").
+
+[The "support/" directory](https://github.com/wincent/wincent/tree/master/support/typegen) contains some plain JavaScript helpers that generate TypeScript type definitions and "assert" functions based on some small [JSONSchema](https://json-schema.org/) schemas, to facilitate working with JSON files (such as the "project.json" and various "aspect.json" files) in a type-safe manner.
