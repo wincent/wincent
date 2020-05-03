@@ -36,7 +36,31 @@ Note:
 -   Implicit/magical variable naming conventions (eg. use of `loop` implies the existence of an `item` variable).
 -   No obvious scoping rules eg. variables like `dotfile_files` and `dotfile_templates` are magically available with no obvious source (they are defined [in another file](https://github.com/wincent/wincent/blob/f080ecb98d2f762c7314864c2247e75036ebc81a/roles/dotfiles/defaults/main.yml#L2-L45)); others like `original_check` are also magically available, but [defined in a prior task](https://github.com/wincent/wincent/blob/f080ecb98d2f762c7314864c2247e75036ebc81a/roles/dotfiles/tasks/main.yml#L30)).
 
-Given all this convolution, Fig proposes that it is simpler to just embody this imperative, procedural work in an actual programming language. By using [TypeScript](https://www.typescriptlang.org/), we can obtain a comparable (or superior) level of static verification to what we would get with Ansible's YAML, as well as enjoying the benefits that come with using a "real" programming language in terms of tooling (eg. editor autocompletion, code formatting etc). By providing a [DSL](https://en.wikipedia.org/wiki/Domain-specific_language) (Domain-specific language) (eg. implemented in [Fig's DSL](https://github.com/wincent/wincent/tree/master/fig/dsl)), we can conserve and arguably improve on the ergonomic properties of writing Ansible's YAML.
+Given all this convolution, Fig proposes that it is simpler to just embody this imperative, procedural work in an actual programming language. By using [TypeScript](https://www.typescriptlang.org/), we can obtain a comparable (or superior) level of static verification to what we would get with Ansible's YAML, as well as enjoying the benefits that come with using a "real" programming language in terms of tooling (eg. editor autocompletion, code formatting etc). By providing a [DSL](https://en.wikipedia.org/wiki/Domain-specific_language) (Domain-specific language) (eg. implemented in [Fig's DSL](https://github.com/wincent/wincent/tree/master/fig/dsl)), we can conserve and arguably improve on the ergonomic properties of writing Ansible's YAML. For example, the common task of moving items into a backup directory before installing their replacements can be extracted into [an "operation"](https://github.com/wincent/wincent/blob/0e53ae37fa3306e8d8ff2b211854dfcce17fffba/fig/dsl/operations/backup.ts), and [the call-site becomes](https://github.com/wincent/wincent/blob/0e53ae37fa3306e8d8ff2b211854dfcce17fffba/aspects/dotfiles/index.ts#L55-L63):
+
+```typescript
+task('move originals to ~/.backups', async () => {
+    const files = [...variable.paths('files'), ...variable.paths('templates')];
+
+    for (const file of files) {
+        const src = file.strip('.erb');
+
+        await backup({src});
+    }
+});
+```
+
+An even [simpler example](https://github.com/wincent/wincent/blob/0e53ae37fa3306e8d8ff2b211854dfcce17fffba/aspects/vim/index.ts#L27-L33) can be found in [the "vim" aspect](https://github.com/wincent/wincent/tree/master/aspects/vim) (simpler, because it doesn't deal with any templates that have an ".erb" extension):
+
+```typescript
+task('move originals to ~/.backups', async () => {
+    const files = variable.paths('files');
+
+    for (const src of files) {
+        await backup({src});
+    }
+});
+```
 
 ### On Ansible's appropriateness for the task
 
