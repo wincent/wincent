@@ -70,6 +70,8 @@ All of the above is not to say that Ansible is a bad tool — I use it in other 
 
 ## Overall structure
 
+Overall structure remains similar to Ansible, but I made some changes to better reflect the use case here;
+
 -   Configuration is divided into ["aspects"](../aspects) that contain:
     -   A TypeScript `index.ts` that defines tasks to be executed.
     -   An `aspect.json` file contain metadata, such as a `description` and (optional) `variables`.
@@ -78,6 +80,42 @@ All of the above is not to say that Ansible is a bad tool — I use it in other 
     -   An (optional) `support` directory to contain any other useful resources (eg. helper scripts etc).
 -   The Fig source itself lives in [the `fig` directory](https://github.com/wincent/wincent/tree/master/fig).
 -   All interaction occurs via [the top-level `install` script](https://github.com/wincent/wincent/blob/master/install), which invokes Fig via a set of helper scripts [in the `bin` directory](https://github.com/wincent/wincent/tree/master/bin).
+
+## Concepts
+
+Again, things are broadly modeled on Ansible, but simplified to reflect that fact that while Ansible is made to orchestrate multiple (likely remote) hosts, Fig is for configuring one local machine at a time:
+
+| Ansible                                                                                                                         | Fig                                                                                                             |
+| ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| **Hosts:** Machines to be configured (possibly remote)                                                                          | n/a (always the current, local machine)                                                                         |
+| **Groups:** Collections of hosts, so you can conveniently target multiple hosts without having to address each one individually | **Profiles:** An abstract category indicating the kind of a host (eg. "work" or "personal")                     |
+| **Inventory:** A list of hosts (or groups of hosts) to be managed                                                               | n/a ("project.json" file contains map from hostname to profile to be applied)                                   |
+| **Roles:** Capabilities that a host can have (eg. webserver, file-server etc)                                                   | **Aspects:** Logical groups of functionality to be configured (eg. dotfiles, terminfo etc)                      |
+| **Tasks:** Operations to perform (eg. installing a package, writing a file                                                      | **Tasks:** Same as Ansible.                                                                                     |
+| **Plays:** A mapping between hosts (or groups) and the tasks to be performed on them                                            | n/a (it's just a file containing tasks)                                                                         |
+| **Playbooks:** Lists of plays                                                                                                   | n/a ("project.json" file contains a map from platform to the aspects that should be set up on a given platform) |
+| **Tags:** Keywords that can be applied to tasks and roles, useful for selecting them to be run                                  | n/a (not needed)                                                                                                |
+| **Facts:** (Inferred) attributes of hosts                                                                                       | **Attributes:** Same as Ansible, but with a better name                                                         |
+| **Vars:** (Declared) values that can be assigned to groups, hosts or roles                                                      | **Variables:** Same as Ansible, but belong to profiles and aspects                                              |
+| **Modules:** Units of code that implement operations (ie. these are what tasks use to actually do the work)                     | **Operations:** Code for performing operations                                                                  |
+| **Templates:** Jinja templates with embedded Python and "filters"                                                               | **Templates:** ERB templates with embedded JavaScript                                                           |
+| **Files:** Raw files that can be copied using modules                                                                           | **Files:** Raw files that can be copied using operations                                                        |
+| **Syntax:** YAML with interpolated Jinja syntax containing Python and variables                                                 | **Syntax:** TypeScript and (plain) JSON                                                                         |
+
+## Operations
+
+Fig implements a simplified, tiny subset [of Ansible's nearly 3,400 "modules"](https://docs.ansible.com/ansible/latest/modules/list_of_all_modules.html) (in Fig, called ["operations"](https://github.com/wincent/wincent/tree/master/fig/dsl/operations)) necessary for configuring a single system in a basic way. At the time of writing, that means:
+
+| Fig operation | Ansible module                                                                           |
+| ------------- | ---------------------------------------------------------------------------------------- |
+| backup        | n/a                                                                                      |
+| command       | [command](https://docs.ansible.com/ansible/latest/modules/command_module.html)           |
+| cron          | [cron](https://docs.ansible.com/ansible/latest/modules/cron_module.html)                 |
+| defaults      | [osx_defaults](https://docs.ansible.com/ansible/latest/modules/osx_defaults_module.html) |
+| fetch         | [get_url](https://docs.ansible.com/ansible/latest/modules/get_url_module.html)           |
+| file          | [file](https://docs.ansible.com/ansible/latest/modules/file_module.html)                 |
+| line          | [lineinfile](https://docs.ansible.com/ansible/latest/modules/lineinfile_module.html)     |
+| template      | [template](https://docs.ansible.com/ansible/latest/modules/template_module.html)         |
 
 ## Variables
 
@@ -100,7 +138,7 @@ The levels are, from lowest to highest precedence:
 
 Most of these are static, arising from JSON files, but two of the later levels ("Dynamic" and "Aspect (derived)") proved the means to dynamically set or derive the value of a variable at runtime.
 
-### How this repo works
+## History
 
 0. **2009**: Originally, the repo was just a [collection of files](https://github.com/wincent/wincent/tree/61a7e2a830edb757c59e542039131e671da8b154) with no installation script.
 1. **2011-2015**: I [created a `bootstrap.rb` script](https://github.com/wincent/wincent/commit/e29b2818c487529eb4e7662a23df56445b448fe3) ([final version here](https://github.com/wincent/wincent/blob/94fb4d50243b97cd0c92a5691ac430353a5299a0/bootstrap.rb)) for performing set-up.
@@ -115,21 +153,4 @@ The goal was to replace Ansible with some handmade scripts using the smallest de
 
 Beyond that, there are no dependencies outside of the [Node.js](https://nodejs.org/en/) standard library. I use [Prettier](https://prettier.io/) to format code, but I invoke it via `npx` which means the [yarn.lock](https://github.com/wincent/wincent/blob/master/yarn.lock) remains basically empty. Ansible itself is replaced by [a set of self-contained TypeScript scripts](https://github.com/wincent/wincent/tree/master/fig). Instead of YAML configuration files containing "declarative" configuration peppered with Jinja template snippets containing Python and filters, we just use TypeScript for everything. Instead of [Jinja template files](https://jinja.palletsprojects.com/), we use ERB/JSP-like templates that use embedded JavaScript when necessary.
 
-Because I need a name to refer to this "set of scripts", it's called Fig (a play on "Config"). Overall structure remains similar to Ansible, but I made some changes to better reflect the use case here. While Ansible is made to orchestrate multiple (likely remote) hosts, Fig is for configuring one local machine at a time.
-
-| Ansible                                                                                                                         | Fig                                                                                                             |
-| ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| **Hosts:** Machines to be configured (possibly remote)                                                                          | n/a (always the current, local machine)                                                                         |
-| **Groups:** Collections of hosts, so you can conveniently target multiple hosts without having to address each one individually | **Profiles:** An abstract category indicating the kind of a host (eg. "work" or "personal")                     |
-| **Inventory:** A list of hosts (or groups of hosts) to be managed                                                               | n/a ("project.json" file contains map from hostname to profile to be applied)                                   |
-| **Roles:** Capabilities that a host can have (eg. webserver, file-server etc)                                                   | **Aspects:** Logical groups of functionality to be configured (eg. dotfiles, terminfo etc)                      |
-| **Tasks:** Operations to perform (eg. installing a package, writing a file                                                      | **Tasks:** Same as Ansible.                                                                                     |
-| **Plays:** A mapping between hosts (or groups) and the tasks to be performed on them                                            | n/a (it's just a file containing tasks)                                                                         |
-| **Playbooks:** Lists of plays                                                                                                   | n/a ("project.json" file contains a map from platform to the aspects that should be set up on a given platform) |
-| **Tags:** Keywords that can be applied to tasks and roles, useful for selecting them to be run                                  | n/a (not needed)                                                                                                |
-| **Facts:** (Inferred) attributes of hosts                                                                                       | **Attributes:** Same as Ansible, but with a better name                                                         |
-| **Vars:** (Declared) values that can be assigned to groups, hosts or roles                                                      | **Vars:** Same as Ansible, but belong to profiles and aspects                                                   |
-| **Modules:** Units of code that implement operations (ie. these are what tasks use to actually do the work)                     | **Operations:** Code for performing operations                                                                  |
-| **Templates:** Jinja templates with embedded Python and "filters"                                                               | **Templates:** ERB templates with embedded JavaScript                                                           |
-| **Files:** Raw files that can be copied using modules                                                                           | **Files:** Raw files that can be copied using operations                                                        |
-| **Syntax:** YAML with interpolated Jinja syntax containing Python and variables                                                 | **Syntax:** TypeScript and (plain) JSON                                                                         |
+Because I needed a name to refer to this "set of scripts", it's called Fig (a play on "Config").
