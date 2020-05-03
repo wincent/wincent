@@ -114,7 +114,7 @@ Fig implements a simplified, tiny subset [of Ansible's nearly 3,400 "modules"](h
 | ----------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
 | [backup](https://github.com/wincent/wincent/blob/master/fig/dsl/operations/backup.ts)     | n/a                                                                                      |
 | [command](https://github.com/wincent/wincent/blob/master/fig/dsl/operations/command.ts)   | [command](https://docs.ansible.com/ansible/latest/modules/command_module.html)           |
-| [cron]()https://github.com/wincent/wincent/blob/master/fig/dsl/operations/cron.ts         | [cron](https://docs.ansible.com/ansible/latest/modules/cron_module.html)                 |
+| [cron](https://github.com/wincent/wincent/blob/master/fig/dsl/operations/cron.ts)         | [cron](https://docs.ansible.com/ansible/latest/modules/cron_module.html)                 |
 | [defaults](https://github.com/wincent/wincent/blob/master/fig/dsl/operations/defaults.ts) | [osx_defaults](https://docs.ansible.com/ansible/latest/modules/osx_defaults_module.html) |
 | [fetch](https://github.com/wincent/wincent/blob/master/fig/dsl/operations/fetch.ts)       | [get_url](https://docs.ansible.com/ansible/latest/modules/get_url_module.html)           |
 | [file](https://github.com/wincent/wincent/blob/master/fig/dsl/operations/file.ts)         | [file](https://docs.ansible.com/ansible/latest/modules/file_module.html)                 |
