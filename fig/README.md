@@ -8,6 +8,8 @@ Fig was born out of frustration with heavyweight frameworks like [Ansible](https
 
 At the time of writing, a `git clone --recursive https://github.com/ansible/ansible.git` creates a 224 megabyte directory containing 4,697 files. This is in addition to the Python language runtime itself and the additional modules and [supporting infrastructure](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) that may be involved, such as [pip](pip) and [virtualenv](https://virtualenv.pypa.io/).
 
+In comparison, Fig's source is roughly 468 KB on disk, and consists of about 6,600 lines of code across 89 files.
+
 [pip]: https://en.wikipedia.org/wiki/Pip_(package_manager)
 
 ### On Ansible's "declarative" configuration
