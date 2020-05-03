@@ -1,5 +1,68 @@
 # Fig: A configuration "framework"
 
+## Philosophy
+
+Fig was born out of frustration with heavyweight frameworks like [Ansible](https://github.com/ansible/ansible) that involve a huge dependency footprint and present a mere illusion of "declarative" configuration around something that is an inherently imperative/procedural process.
+
+### On Ansible's size
+
+At the time of writing, a `git clone --recursive https://github.com/ansible/ansible.git` creates a 224 megabyte directory containing 4,697 files. This is in addition to the Python language runtime itself and the additional modules and [supporting infrastructure](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) that may be involved, such as [pip](pip) and [virtualenv](https://virtualenv.pypa.io/).
+
+[pip]: https://en.wikipedia.org/wiki/Pip_(package_manager)
+
+### On Ansible's "declarative" configuration
+
+Ansible configuration exists in YAML files which look static but are deceptively dynamic: values in these files get parsed as Jinja2 templates and may contain Jinja2 filters and Python snippets. This mish-mash of conceptual models leads to awkward syntax that requires careful quoting and a constant mental effort to separate each of the three layers (static YAML, Jinja2 interpolation/filtering, and Python evaluation).
+
+For example, consider [this configuration that moves items into a `~/.backups` directory](https://github.com/wincent/wincent/blob/f080ecb98d2f762c7314864c2247e75036ebc81a/roles/dotfiles/tasks/main.yml#L39-L48):
+
+```yaml
+- name: dotfiles | backup originals
+  command: mv ~/{{ item.0 }} ~/.backups/
+      creates=~/.backups/{{ item.0 }}
+      removes=~/{{ item.0 }}
+  loop: '{{ (dotfile_files + dotfile_templates) | zip(original_check.results) | list }}'
+  when: item.1.stat.exists and not item.1.stat.islnk
+  loop_control:
+      label: '{{item.0}}'
+```
+
+Note:
+
+-   The context-dependent need to quote Jinja2 syntax interpolation (`{{ ... }}`) in some places but not others, due to conflict with YAML syntax rules.
+-   Undifferentiated mixing of Python evaluation (eg. list concatenation with `+`) and Jinja2 filtering/transformtion (eg. `| zip` and `| list`) in a single value.
+-   Awkward encoding of imperative programming patterns using YAML keys (eg. `loop` and `loop_control` to describe a loop; `when` to describe a conditional).
+-   Context-specific embedding of Python expressions (eg. raw Python code being passed as a string in the `when` property, but elsewhere being interpolated in Jinja2 interpolation).
+-   Implicit/magical variable naming conventions (eg. use of `loop` implies the existence of an `item` variable).
+-   No obvious scoping rules eg. variables like `dotfile_files` and `dotfile_templates` are magically available with no obvious source (they are defined [in another file](https://github.com/wincent/wincent/blob/f080ecb98d2f762c7314864c2247e75036ebc81a/roles/dotfiles/defaults/main.yml#L2-L45)); others like `original_check` are also magically available, but [defined in a prior task](https://github.com/wincent/wincent/blob/f080ecb98d2f762c7314864c2247e75036ebc81a/roles/dotfiles/tasks/main.yml#L30)).
+
+Given all this convolution, Fig proposes that it is simpler to just embody this imperative, procedural work in an actual programming language. By using [TypeScript](https://www.typescriptlang.org/), we can obtain a comparable (or superior) level of static verification to what we would get with Ansible's YAML, as well as enjoying the benefits that come with using a "real" programming language in terms of tooling (eg. editor autocompletion, code formatting etc). By providing a [DSL](https://en.wikipedia.org/wiki/Domain-specific_language) (Domain-specific language) (eg. implemented in [Fig's DSL](https://github.com/wincent/wincent/tree/master/fig/dsl)), we can conserve and arguably improve on the ergonomic properties of writing Ansible's YAML.
+
+## Overall structure
+
+-   Configuration is divided into ["aspects"](../aspects) that contain:
+
+## Variables
+
+Because Fig tasks are defined using TypeScript, you can define and use variables just like you would in any TypeScript program. As built-in language features, these follow the lexical scoping rules that you would expect to apply to `const` and `let`.
+
+Additionally, there is a higher-level representation of variables that can be accessed by the DSL. This enables variables to be defined at various levels of abstraction (for example, as a project-wide default, or an aspect-specific one), with a well-defined precedence that ensures that the "most local" definition wins.
+
+These levels are, from lowest to highest precedence:
+
+| Kind             | Description                                                                                                                                                                                                                                                                                                                                                                                |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Base             | Currently just one of these, `profile`, which is set to either `'personal'`, `'work'` or `null`                                                                                                                                                                                                                                                                                            |
+| Attributes       | Derived from system using [the `Attributes` class](https://github.com/wincent/wincent/blob/796ee1c02ad257fd565569ab6082b7685a52b83f/fig/Attributes.ts) (eg. `home`, `platform`, `username`)                                                                                                                                                                                                |
+| Defaults         | Defined in the [top-level project.json](https://github.com/wincent/wincent/blob/796ee1c02ad257fd565569ab6082b7685a52b83f/project.json) [here](https://github.com/wincent/wincent/blob/796ee1c02ad257fd565569ab6082b7685a52b83f/project.json#L44-L78)                                                                                                                                       |
+| Profile          | Defined in the [top-level project.json](https://github.com/wincent/wincent/blob/796ee1c02ad257fd565569ab6082b7685a52b83f/project.json) for each profile (eg. [personal](https://github.com/wincent/wincent/blob/796ee1c02ad257fd565569ab6082b7685a52b83f/project.json#L35-L37), [work](https://github.com/wincent/wincent/blob/796ee1c02ad257fd565569ab6082b7685a52b83f/project.json#L41)) |
+| Platform         | Defined in the [top-level project.json](https://github.com/wincent/wincent/blob/796ee1c02ad257fd565569ab6082b7685a52b83f/project.json) for each platform (eg. [darwin](https://github.com/wincent/wincent/blob/796ee1c02ad257fd565569ab6082b7685a52b83f/project.json#L23), [linux](https://github.com/wincent/wincent/blob/796ee1c02ad257fd565569ab6082b7685a52b83f/project.json#L27-L29)) |
+| Dynamic          | Calculated [in `variables.ts` at the top-level](https://github.com/wincent/wincent/blob/796ee1c02ad257fd565569ab6082b7685a52b83f/variables.ts) (eg. `identity`)                                                                                                                                                                                                                            |
+| Aspect (static)  | Defined in `aspects/*/aspect.json` files (eg. [`aspects/dotfiles/aspect.json`](https://github.com/wincent/wincent/blob/796ee1c02ad257fd565569ab6082b7685a52b83f/aspects/dotfiles/aspect.json#L3-L37))                                                                                                                                                                                      |
+| Aspect (derived) | Derived using [the `variables()` API](https://github.com/wincent/wincent/blob/796ee1c02ad257fd565569ab6082b7685a52b83f/fig/dsl/variables.ts) (eg. [dotfiles `variables()` example](https://github.com/wincent/wincent/blob/796ee1c02ad257fd565569ab6082b7685a52b83f/aspects/dotfiles/index.ts#L18-L22))                                                                                    |
+
+Most of these are static, arising from JSON files, but two of the later levels ("Dynamic" and "Aspect (derived)") proved the means to dynamically set or derive the value of a variable at runtime.
+
 ### How this repo works
 
 0. **2009**: Originally, the repo was just a [collection of files](https://github.com/wincent/wincent/tree/61a7e2a830edb757c59e542039131e671da8b154) with no installation script.
