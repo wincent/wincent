@@ -1,6 +1,41 @@
-# To make builds work better:
-export ANT_OPTS="-Xmx8192m -XX:MaxPermSize=2048m"
-export GRADLE_OPTS="$ANT_OPTS"
+# Base settings (from ~/.zsh/exports):
+#
+#   export ANT_OPTS="-Xmx4096m -Xms4096m -XX:MaxPermSize=1024m -XX:-UseGCOverheadLimit -Dorg.gradle.workers.max=4"
+#   export GRADLE_OPTS="-Dorg.gradle.workers.max=4"
+#   export JAVA_OPTS="-Xmx4096m -Xms1024m -XX:MaxPermSize=512m"
+#
+# Apply overrides to make builds work better.
+#
+# On the role of `GRADLE_OPTS`:
+#
+# > Specifies JVM arguments to use when starting the Gradle client
+# > VM. The client VM only handles command line input/output, so it is rare
+# > that one would need to change its VM options. The actual build is run by
+# > the Gradle daemon, which is not affected by this environment variable.
+# >
+# > There is one case where the client VM can also serve as the build
+# > VM: If you deactivate the Gradle Daemon and the client VM has the same
+# > settings as required for the build VM, the client VM will run the build
+# > directly. Otherwise the client VM will fork a new VM to run the actual
+# > build in order to honor the different settings.
+#
+# @see https://docs.gradle.org/current/userguide/build_environment.html
+# @see https://docs.gradle.org/current/userguide/build_environment.html#sec:configuring_jvm_memory
+#
+# In short, `GRADLE_OPTS` shouldn't affect `ant all` performance, but
+# there's a chance it could still be relevant when running Gradle
+# directly, so I'm overwriting and `JAVA_OPTS` as well.
+#
+# Gotcha in all this: the default `org.gradle.jvmargs` value set in:
+#
+# https://github.com/liferay/liferay-portal/blob/master/build.properties
+#
+# Can get cached into `gradle/gradle.properties`, and if that happens, variables
+# set in the environment won't have any effect.
+#
+export ANT_OPTS="-Xmx8192m -Xms4096m -XX:MaxPermSize=2048m -XX:-UseGCOverheadLimit -Dorg.gradle.jvmargs='-Xmx4096m -Xms2048m' -Dorg.gradle.workers.max=4"
+export GRADLE_OPTS="-Xmx4096m -Xms2048m -XX:MaxPermSize=2048m -XX:-UseGCOverheadLimit -Dorg.gradle.jvmargs='-Xmx4096m -Xms2048m' -Dorg.gradle.workers.max=4"
+export JAVA_OPTS="-Xmx8192m -Xms4096m -XX:MaxPermSize=2048m -XX:-UseGCOverheadLimit -Dorg.gradle.jvmargs='-Xmx4096m -Xms2048m' -Dorg.gradle.workers.max=4"
 
 # Recommend settings from https://github.com/julien/notes/blob/master/portal.md
 #
