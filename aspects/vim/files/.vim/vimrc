@@ -102,7 +102,11 @@ if &loadplugins
     packadd! indentLine
     packadd! loupe
     packadd! neco-ghc
-    packadd! nvim-lsp
+
+    if has('nvim')
+      packadd! nvim-lsp
+    endif
+
     packadd! pinnacle
     packadd! replay
     packadd! scalpel

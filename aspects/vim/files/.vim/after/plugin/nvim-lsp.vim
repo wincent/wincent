@@ -1,4 +1,8 @@
-:lua << END
+if !has('nvim')
+  finish
+endif
+
+lua << END
   require'nvim_lsp'.ocamlls.setup{}
   require'nvim_lsp'.tsserver.setup{}
   require'nvim_lsp'.vimls.setup{}
