@@ -25,10 +25,6 @@ endfunction
 
 function! s:SetJSX()
   noautocmd set filetype+=.jsx
-
-  if exists(':LanguageClientStart') == 2
-    LanguageClientStart
-  endif
 endfunction
 
 autocmd BufNewFile,BufRead *.js.jsx,*.jsx call s:SetJSX()

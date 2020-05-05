@@ -1,8 +1,3 @@
-[submodule "LanguageClient-neovim"]
-	ignore = dirty
-	path = aspects/vim/files/.vim/pack/bundle/opt/LanguageClient-neovim
-	url = https://github.com/autozimu/LanguageClient-neovim.git
-	branch = next
 [submodule "applescript.vim"]
 	path = aspects/vim/files/.vim/pack/bundle/opt/applescript.vim
 	url = https://github.com/vim-scripts/applescript.vim.git
@@ -192,3 +187,9 @@
 [submodule "zsh-syntax-highlighting"]
 	path = aspects/dotfiles/files/.zsh/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "deoplete-lsp"]
+	path = aspects/vim/files/.vim/pack/bundle/opt/deoplete-lsp
+	url = https://github.com/Shougo/deoplete-lsp.git
+[submodule "nvim-lsp"]
+	path = aspects/vim/files/.vim/pack/bundle/opt/nvim-lsp
+	url = https://github.com/neovim/nvim-lsp.git

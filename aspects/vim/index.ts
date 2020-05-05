@@ -67,17 +67,6 @@ task('compile Command-T', async () => {
     });
 });
 
-task('build LanguageClient-neovim', async () => {
-    const base = path.aspect.join(
-        'files/.vim/pack/bundle/opt/LanguageClient-neovim'
-    );
-
-    await command('./install.sh', [], {
-        chdir: base,
-        creates: base.join('bin/languageclient'),
-    });
-});
-
 task('create spell file', async () => {
     const spellfile = path.aspect.join('files/.vim/spell/en.utf-8.add');
 

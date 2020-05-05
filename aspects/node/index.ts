@@ -45,6 +45,7 @@ task('install global packages', async () => {
         'reason-cli',
         'source-map-explorer',
         'typescript',
+        'vim-language-server',
         'yarn@1.22.4',
     ];
 
