@@ -30,9 +30,13 @@ nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
 augroup WincentLanguageClientAutocmds
   autocmd!
 
-  if has('nvim') && exists('*nvim_open_win')
+  if exists('*nvim_open_win')
     " TODO: figure out how to detect lsp floating window...
     " Can use floating window.
     autocmd BufEnter __LanguageClient__ call s:Bind()
+  endif
+
+  if exists('+signcolumn')
+    autocmd FileType javascript,typescript,vim setlocal signcolumn=yes
   endif
 augroup END
