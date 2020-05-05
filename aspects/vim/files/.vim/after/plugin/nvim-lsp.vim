@@ -6,6 +6,8 @@ lua << END
   require'nvim_lsp'.ocamlls.setup{}
   require'nvim_lsp'.tsserver.setup{}
   require'nvim_lsp'.vimls.setup{}
+
+  require'nvim_lsp'.flow.setup{}
 END
 
 highlight link LspDiagnosticsError User8
