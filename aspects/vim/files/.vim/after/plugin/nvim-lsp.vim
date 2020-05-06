@@ -8,6 +8,16 @@ lua << END
   require'nvim_lsp'.vimls.setup{}
 END
 
+function! s:ConfigureBuffer()
+    nnoremap <buffer> <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
+    nnoremap <buffer> <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+    nnoremap <buffer> <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+
+    if exists('+signcolumn')
+      setlocal signcolumn=yes
+    endif
+endfunction
+
 function! s:SetUpLspHighlights()
   if !wincent#pinnacle#active()
     return
@@ -33,22 +43,18 @@ sign define LspDiagnosticsWarningSign text=⚠
 sign define LspDiagnosticsInformationSign text=ℹ
 sign define LspDiagnosticsHintSign text=➤
 
-nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
-nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+if has('autocmd')
+  augroup WincentLanguageClientAutocmds
+    autocmd!
 
-augroup WincentLanguageClientAutocmds
-  autocmd!
+    if exists('*nvim_open_win')
+      " TODO: figure out how to detect lsp floating window...
+      " Can use floating window.
+      autocmd BufEnter __LanguageClient__ call s:Bind()
+    endif
 
-  if exists('*nvim_open_win')
-    " TODO: figure out how to detect lsp floating window...
-    " Can use floating window.
-    autocmd BufEnter __LanguageClient__ call s:Bind()
-  endif
+    autocmd FileType javascript,typescript,vim  call s:ConfigureBuffer()
 
-  if exists('+signcolumn')
-    autocmd FileType javascript,typescript,vim setlocal signcolumn=yes
-  endif
-
-  autocmd ColorScheme * call s:SetUpLspHighlights()
-augroup END
+    autocmd ColorScheme * call s:SetUpLspHighlights()
+  augroup END
+endif
