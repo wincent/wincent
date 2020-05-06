@@ -12,10 +12,17 @@ highlight link LspDiagnosticsError User8
 
 " BUG: this doesn't work if we do it eagerly here; works if you do defer it
 call wincent#defer#defer(
-      \ "execute 'highlight LspDiagnosticsErrorSign ' . pinnacle#highlight({" .
-      \   "'bg': pinnacle#extract_bg('ColorColumn')," .
-      \   "'fg': pinnacle#extract_fg('ErrorMsg')" .
-      \ "})"
+      \   "execute 'highlight LspDiagnosticsHintSign ' . pinnacle#highlight({" .
+      \   "  'bg': pinnacle#extract_bg('ColorColumn'), " .
+      \   "  'fg': pinnacle#extract_fg('Type')" .
+      \   "})"
+      \ )
+
+call wincent#defer#defer(
+      \   "execute 'highlight LspDiagnosticsErrorSign ' . pinnacle#highlight({" .
+      \   "  'bg': pinnacle#extract_bg('ColorColumn')," .
+      \   "  'fg': pinnacle#extract_fg('ErrorMsg')" .
+      \   "})"
       \ )
 
 sign define LspDiagnosticsErrorSign text=✖
