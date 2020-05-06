@@ -13,12 +13,9 @@ function! s:SetUpLspHighlights()
     return
   endif
 
-  execute 'highlight LspDiagnosticsError ' . pinnacle#italicize('ModeMsg')
-  execute 'highlight LspDiagnosticsError ' . pinnacle#underline('LspDiagnosticsError')
+  execute 'highlight LspDiagnosticsError ' . pinnacle#decorate('italic,underline', 'ModeMsg')
 
-  execute 'highlight LspDiagnosticsHint ' . pinnacle#italicize('Type')
-  execute 'highlight LspDiagnosticsHint ' . pinnacle#embolden('LspDiagnosticsHint')
-  execute 'highlight LspDiagnosticsHint ' . pinnacle#underline('LspDiagnosticsHint')
+  execute 'highlight LspDiagnosticsHint ' . pinnacle#decorate('bold,italic,underline', 'Type')
 
   execute 'highlight LspDiagnosticsHintSign ' . pinnacle#highlight({
         \   'bg': pinnacle#extract_bg('ColorColumn'),
