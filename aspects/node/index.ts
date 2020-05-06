@@ -39,7 +39,7 @@ task('install global packages', async () => {
         'flow-bin',
         'flow-typed',
         'gatsby-cli',
-        'javascript-typescript-langserver',
+        'typescript-language-server',
         'neovim',
         'ocaml-language-server',
         'reason-cli',
