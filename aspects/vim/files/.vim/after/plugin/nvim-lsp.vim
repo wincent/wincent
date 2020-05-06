@@ -8,22 +8,28 @@ lua << END
   require'nvim_lsp'.vimls.setup{}
 END
 
-highlight link LspDiagnosticsError User8
+function! s:SetUpLspHighlights()
+  if !wincent#pinnacle#active()
+    return
+  endif
 
-" BUG: this doesn't work if we do it eagerly here; works if you do defer it
-call wincent#defer#defer(
-      \   "execute 'highlight LspDiagnosticsHintSign ' . pinnacle#highlight({" .
-      \   "  'bg': pinnacle#extract_bg('ColorColumn'), " .
-      \   "  'fg': pinnacle#extract_fg('Type')" .
-      \   "})"
-      \ )
+  execute 'highlight LspDiagnosticsError ' . pinnacle#italicize('ModeMsg')
+  execute 'highlight LspDiagnosticsError ' . pinnacle#underline('LspDiagnosticsError')
 
-call wincent#defer#defer(
-      \   "execute 'highlight LspDiagnosticsErrorSign ' . pinnacle#highlight({" .
-      \   "  'bg': pinnacle#extract_bg('ColorColumn')," .
-      \   "  'fg': pinnacle#extract_fg('ErrorMsg')" .
-      \   "})"
-      \ )
+  execute 'highlight LspDiagnosticsHint ' . pinnacle#italicize('Type')
+  execute 'highlight LspDiagnosticsHint ' . pinnacle#embolden('LspDiagnosticsHint')
+  execute 'highlight LspDiagnosticsHint ' . pinnacle#underline('LspDiagnosticsHint')
+
+  execute 'highlight LspDiagnosticsHintSign ' . pinnacle#highlight({
+        \   'bg': pinnacle#extract_bg('ColorColumn'),
+        \   'fg': pinnacle#extract_fg('Type')
+        \ })
+
+  execute 'highlight LspDiagnosticsErrorSign ' . pinnacle#highlight({
+        \   'bg': pinnacle#extract_bg('ColorColumn'),
+        \   'fg': pinnacle#extract_fg('ErrorMsg')
+        \ })
+endfunction
 
 sign define LspDiagnosticsErrorSign text=✖
 sign define LspDiagnosticsWarningSign text=⚠
@@ -46,4 +52,6 @@ augroup WincentLanguageClientAutocmds
   if exists('+signcolumn')
     autocmd FileType javascript,typescript,vim setlocal signcolumn=yes
   endif
+
+  autocmd ColorScheme * call s:SetUpLspHighlights()
 augroup END
