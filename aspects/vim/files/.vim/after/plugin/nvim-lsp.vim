@@ -8,6 +8,17 @@ lua << END
   require'nvim_lsp'.vimls.setup{}
 END
 
+function! s:Bind()
+  try
+    if nvim_win_get_var(0, 'textDocument/hover')
+      nnoremap <buffer> <silent> K :call nvim_win_close(0, v:true)<CR>
+      nnoremap <buffer> <silent> <Esc> :call nvim_win_close(0, v:true)<CR>
+    endif
+  catch /./
+    " Not a hover window.
+  endtry
+endfunction
+
 function! s:ConfigureBuffer()
     nnoremap <buffer> <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
     nnoremap <buffer> <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
@@ -47,11 +58,7 @@ if has('autocmd')
   augroup WincentLanguageClientAutocmds
     autocmd!
 
-    if exists('*nvim_open_win')
-      " TODO: figure out how to detect lsp floating window...
-      " Can use floating window.
-      autocmd BufEnter __LanguageClient__ call s:Bind()
-    endif
+    autocmd WinEnter * call s:Bind()
 
     autocmd FileType javascript,typescript,vim  call s:ConfigureBuffer()
 
