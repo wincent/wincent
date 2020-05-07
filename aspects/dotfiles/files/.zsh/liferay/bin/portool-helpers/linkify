@@ -8,7 +8,8 @@ if [ -t 0 ]; then
   echo 'Example:'
   echo
   echo "  git grep -i '"'\\b(keyup|keydown|keypress)\\b'"' -- '*.js' '*.jsp' '*.jspf' | "'\\'
-  echo "      egrep '^modules/"'\(apps|dxp\)/'"' | "'\\'
+  echo "      egrep '^modules/"'(apps|dxp)/'"' | "'\\'
+  echo '      portool linkify | \\'
   echo '      clip'
 else
   ABBREV=$(git rev-parse --short HEAD)
