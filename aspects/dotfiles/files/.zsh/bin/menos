@@ -15,17 +15,15 @@ buffer = []
 while buffer.length <= lines
   line = $stdin.gets
 
-  if line.nil?
-    # Not enough lines to fill screen; don't pass `--pattern` or `+r`.
-    ARGV.delete_if { |arg| arg =~ /^--pattern/ || arg == '+r' }
-    break
-  else
-    buffer.push line
-  end
+  buffer.push line unless line.nil?
 end
 
 # Nasty hack. Make sure last search pattern is the one we want.
+#
+# We don't use "--pattern" for this because it has some even-nastier
+# side-effects.
 histfile = Pathname.new(ENV.fetch('LESSHISTFILE', '~/.lesshst')).expand_path
+
 if histfile.exist?
   File.open(histfile, 'a') do |f|
     f.puts '.search'
