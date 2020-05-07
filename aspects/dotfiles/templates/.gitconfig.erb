@@ -91,8 +91,14 @@
 	untracked = blue
 
 [core]
-	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
+	excludesfile = ~/.gitignore
+
+	# S = chop long lines (rather than wrap them onto next line)
+	#
+	# This in addition to the "iFMRX" that we get via LESS environment variable.
+	# (In the absence LESS, Git would use "FRX".)
+	pager = less -S
 
 # ignored by Git older than 1.8.2
 [diff]

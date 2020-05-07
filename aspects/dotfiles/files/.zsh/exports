@@ -57,9 +57,8 @@ export LESSPROMPT='?f%f .?ltLine %lt:?pt%pt\%:?btByte %bt:-...'
 # F = exit immediately if output fits on one screen
 # M = verbose prompt
 # R = ANSI color support
-# S = chop long lines (rather than wrap them onto next line)
 # X = suppress alternate screen
-export LESS=-iFMRSX
+export LESS=-iFMRX
 
 # Color man pages.
 export LESS_TERMCAP_mb=$'\E[01;31m'
