@@ -15,7 +15,11 @@ buffer = []
 while buffer.length <= lines
   line = $stdin.gets
 
-  buffer.push line unless line.nil?
+  if line.nil?
+    break
+  else
+    buffer.push line
+  end
 end
 
 pattern = nil
