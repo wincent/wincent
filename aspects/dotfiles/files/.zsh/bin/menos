@@ -18,17 +18,29 @@ while buffer.length <= lines
   buffer.push line unless line.nil?
 end
 
-# Nasty hack. Make sure last search pattern is the one we want.
-#
-# We don't use "--pattern" for this because it has some even-nastier
-# side-effects.
-histfile = Pathname.new(ENV.fetch('LESSHISTFILE', '~/.lesshst')).expand_path
+pattern = nil
 
-if histfile.exist?
-  File.open(histfile, 'a') do |f|
-    f.puts '.search'
-    f.puts '"^(commit|diff)'
-    f.flush
+ARGV.delete_if do |arg|
+  if arg =~ /^(?:-p|--pattern=)(.+)/
+    pattern = $~[1]
+  else
+    false
+  end
+end
+
+if !pattern.nil?
+  # Nasty hack. Make sure last search pattern is the one we want.
+  #
+  # We don't use "--pattern" for this because it has some even-nastier
+  # side-effects.
+  histfile = Pathname.new(ENV.fetch('LESSHISTFILE', '~/.lesshst')).expand_path
+
+  if histfile.exist?
+    File.open(histfile, 'a') do |f|
+      f.puts '.search'
+      f.puts %{"#{pattern}}
+      f.flush
+    end
   end
 end
 
