@@ -180,7 +180,17 @@ when 'send'
   target = arg('user')
   branch = arg('branch', 'master')
   repo = project.sub(%r{^[^/]+/}, '')
-  url = "https://github.com/#{target}/#{repo}/compare/#{branch}...#{username}:#{current_branch}"
+  upstream = current_branch
+  if upstream == 'HEAD'
+    capture("git branch --points-at HEAD --format='%(refname)'").lines.find do |line|
+      if line.chomp =~ %r{\Arefs/heads/(.+)\z}
+        upstream = $~[1]
+        true
+      end
+    end
+  end
+  die 'cannot infer current branch name' if upstream == 'HEAD'
+  url = "https://github.com/#{target}/#{repo}/compare/#{branch}...#{username}:#{upstream}"
   run "open #{Shellwords.shellescape(url)}"
 
 when 'update'
@@ -234,19 +244,23 @@ when 'ls'
 when 'merge'
   pull = ARGV.shift
   current = current_pr
+  upstream = current_branch
   # If no explicit PR specified, assume we want to merge current PR to master.
   if pull.nil?
     if current.nil?
       die "no explicit PR number provided, and can't infer from current branch"
     end
+    if upstream == 'HEAD'
+      die 'cannot infer current branch name'
+    end
     pull = current
-    target = capture("git config branch.#{current_branch}.merge")
+    target = capture("git config branch.#{upstream}.merge")
     target = capture("git rev-parse --abbrev-ref #{target}")
     run "git checkout #{target}"
   else
     # Explicit PR provided
-    if current_branch == "pull/#{pull}"
-      die "can't merge `#{current_branch}` into `#{current_branch}`"
+    if upstream == "pull/#{pull}"
+      die "can't merge `#{upstream}` into `#{upstream}`"
     end
   end
   message = Shellwords.shellescape(
