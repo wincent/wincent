@@ -160,7 +160,15 @@ when 'get'
   number = arg('pr')
   branch = fetch(number)
   upstream = current_branch
-  # Avoid "fatal: Cannot setup tracking information; starting point 'HEAD' is not a branch."
+  if upstream == 'HEAD'
+    # Avoid "fatal: Cannot setup tracking information; starting point 'HEAD' is not a branch."
+    capture("git branch --contains HEAD --format='%(refname)'").lines.find do |line|
+      if line.chomp =~ %r{\Arefs/heads/(.+)\z}
+        upstream = $~[1]
+        true
+      end
+    end
+  end
   run "git branch --set-upstream-to=#{upstream} #{branch}" if upstream != 'HEAD'
   run "git checkout #{branch}"
 
