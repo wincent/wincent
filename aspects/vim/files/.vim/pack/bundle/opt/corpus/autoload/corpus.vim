@@ -598,6 +598,28 @@ endfunction
 
 " TODO: listen to VimResized events to refresh dimensions
 
+let s:mappings={
+      \   '<C-j>': '<Cmd>call corpus#preview_next()<CR>',
+      \   '<C-k>': '<Cmd>call corpus#preview_previous()<CR>',
+      \   '<Down>': '<Cmd>call corpus#preview_next()<CR>',
+      \   '<Up>': '<Cmd>call corpus#preview_previous()<CR>'
+      \ }
+
+" TODO: detect pre-existing mappings, save them, and restore them if needed
+function! corpus#set_up_mappings() abort
+  for l:key in keys(s:mappings)
+    execute 'cnoremap <silent> ' . l:key . ' ' . s:mappings[l:key]
+  endfor
+endfunction
+
+function! corpus#tear_down_mappings() abort
+  for l:key in keys(s:mappings)
+    if maparg(l:key, 'c') == s:mappings[l:key]
+      execute 'silent! cunmap ' . l:key
+    endif
+  endfor
+endfunction
+
 function! corpus#cmdline_changed(char) abort
   if a:char == ':'
     let l:line=getcmdline()
@@ -605,6 +627,7 @@ function! corpus#cmdline_changed(char) abort
 
     if len(l:match)
       if corpus#in_directory()
+        call corpus#set_up_mappings()
         " TODO: add neovim guards
         " Create unlisted scratch buffer.
         if type(s:chooser_window) == type(v:null)
@@ -648,7 +671,10 @@ function! corpus#cmdline_changed(char) abort
         redraw
       else
         " Not in a directory.
+        call corpus#tear_down_mappings()
       endif
+    else
+      call corpus#tear_down_mappings()
     endif
   endif
 endfunction
@@ -666,6 +692,7 @@ function! corpus#cmdline_leave() abort
     call nvim_win_close(s:preview_window, v:true)
     let s:preview_window=v:null
   endif
+  call corpus#tear_down_mappings()
 endfunction
 
 " Get the full path to a file in the Corpus directory.
