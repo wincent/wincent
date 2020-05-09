@@ -161,7 +161,7 @@ At the time of writing, these are the aspects, which you can expect to change ov
 ```sh
 ./install dotfiles vim      # Just install "dotfiles" and "vim" stuff.
 ./install dotfiles          # Just install "dotfiles".
-./install dotfiles --step   # Prompt for confimration at each step.
+./install dotfiles --step   # Prompt for confirmation at each step.
 ./install dotfiles --check  # Do a dry-run, showing what would be changed.
 ./install                   # Install everything.
 ./install --help            # Info on installing specific rol
