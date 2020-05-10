@@ -24,17 +24,3 @@ git submodule foreach '
     git submodule update --init --recursive || :
   fi
 '
-
-# Update help tags.
-(
-  cd ~/.vim/pack
-
-  PACKS=""
-  for PACK in $(find . -type d -maxdepth 3 -path '*/opt/*' | cut -f 4 -d /); do
-    PACKS="${PACKS}packadd! $PACK | "
-  done
-
-  COMMANDS="packloadall | call pathogen#helptags() | quit"
-  echo "Running: vim -u NONE -N -c \"${PACKS}${COMMANDS}\""
-  vim -u NONE -N -c "${PACKS}${COMMANDS}"
-)
