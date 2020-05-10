@@ -24,8 +24,8 @@ let g:CommandTWildIgnore.=',*.class'
 let g:CommandTWildIgnore.=',*/classes/*'
 let g:CommandTWildIgnore.=',*/build/*'
 
-" Allow Command-T to open selections in netrw windows.
-let g:CommandTWindowFilter='!&buflisted && &buftype == "nofile" && !exists("w:netrw_liststyle")'
+" Allow Command-T to open selections in dirvish windows.
+let g:CommandTWindowFilter='!&buflisted && &buftype == "nofile" && &filetype !=# "dirvish"'
 
 "
 " Mappings.
