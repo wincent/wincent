@@ -82,7 +82,10 @@ task('create spell file', async () => {
 task('update bundle', async () => {
     skip('not yet implemented');
     // update-bundle
-    // update-help-tags
+});
+
+task('update help tags', async () => {
+    await command(resource.support('update-help-tags'), []);
 });
 
 // added in 1a9f9b9fd and probably not used since...
