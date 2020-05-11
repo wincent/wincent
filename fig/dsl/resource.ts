@@ -5,6 +5,8 @@ import {readdirSync} from '../fs.js';
 import globToRegExp from '../globToRegExp.js';
 import path from '../path.js';
 
+import type {Dirent} from 'fs';
+
 import type {Path} from '../path.js';
 
 // TODO: think about exporting these separately (from separate files)
@@ -24,18 +26,27 @@ export function file(...components: Array<string>): Path {
  * "*.foo" and "thing/*.bar").
  */
 export function files(glob: string): Array<Path> {
+    function traverse(current: string, components: Array<RegExp>): Array<Path> {
+        return readdirSync(current, {withFileTypes: true})
+            .filter((entry) => entry.isDirectory() || entry.isFile())
+            .filter(({name}) => components[0].test(name))
+            .flatMap((entry: Dirent) => {
+                const next = path(current).join(entry.name);
+
+                if (entry.isDirectory() && components.length > 1) {
+                    return traverse(next, components.slice(1));
+                } else {
+                    return next;
+                }
+            });
+    }
+
     const aspect = Context.currentAspect;
 
-    const base = path(glob).dirname.toString();
-    const regExp = globToRegExp(path(glob).basename);
-
-    return readdirSync(join('aspects', aspect, 'files', base), {
-        withFileTypes: true,
-    })
-        .filter((entry) => entry.isDirectory() || entry.isFile())
-        .map(({name}) => name)
-        .filter((name) => regExp.test(name))
-        .map((name) => path(join('aspects', aspect, 'files', base, name)));
+    return traverse(
+        join('aspects', aspect, 'files'),
+        path(glob).components.map((component) => globToRegExp(component))
+    );
 }
 
 export function support(...components: Array<string>): Path {

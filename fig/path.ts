@@ -1,5 +1,5 @@
 import {homedir} from 'os';
-import {basename, dirname, join, normalize, relative, resolve} from 'path';
+import {basename, dirname, join, normalize, relative, resolve, sep} from 'path';
 
 import Context from './Context.js';
 import root from './dsl/root.js';
@@ -11,9 +11,11 @@ const inspect = Symbol.for('nodejs.util.inspect.custom');
 
 export type Path = string & {
     basename: Path;
+    components: Array<Path>;
     dirname: Path;
     expand: Path;
     join: (...components: Array<string>) => Path;
+    last: (count: number) => Array<Path>;
     resolve: Path;
     simplify: Path;
     strip: (extension?: string) => Path;
@@ -38,6 +40,12 @@ function path(...components: Array<string>): Path {
         basename: {
             get() {
                 return path(basename(string));
+            },
+        },
+
+        components: {
+            get() {
+                return string.split(sep).map((component) => path(component));
             },
         },
 
@@ -66,6 +74,15 @@ function path(...components: Array<string>): Path {
                         join(string, ...components.map((c) => c.toString()))
                     )
                 );
+            },
+        },
+
+        last: {
+            value: (count: number) => {
+                return string
+                    .split(sep)
+                    .slice(-count)
+                    .map((component) => path(component));
             },
         },
 
