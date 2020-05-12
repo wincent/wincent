@@ -59,8 +59,10 @@ export default async function line({
             const current = scanner.scan(/[^\r\n]*/);
 
             if (
-                regexp && typeof current === 'string' && regexp.test(current) ||
-                !regexp && current === line
+                (regexp &&
+                    typeof current === 'string' &&
+                    regexp.test(current)) ||
+                (!regexp && current === line)
             ) {
                 found = true;
 

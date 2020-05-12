@@ -15,9 +15,7 @@ task('make ~/Sites/UserScripts/*', async () => {
 task('fill templates', async () => {
     for (const src of resource.templates('UserScripts/*/*.js')) {
         await template({
-            path: path('~/Sites/UserScripts').join(
-                ...src.last(2)
-            ),
+            path: path('~/Sites/UserScripts').join(...src.last(2)),
             src,
         });
     }
@@ -27,7 +25,9 @@ task('configure Apache', async () => {
     await template({
         group: 'wheel',
         owner: 'root',
-        path: path('/private/etc/apache2/users').join(`${attributes.username}.conf`),
+        path: path('/private/etc/apache2/users').join(
+            `${attributes.username}.conf`
+        ),
         src: resource.template('apache2/users/user.conf.erb'),
         sudo: true,
     });
@@ -43,19 +43,23 @@ task('configure Apache', async () => {
         path: '/private/etc/apache2/httpd.conf',
         regexp: /^\s*#?\s*LoadModule\s+userdir_module\s+libexec\/apache2\/mod_userdir\.so\b/,
         sudo: true,
-        line: 'LoadModule userdir_module libexec/apache2/mod_userdir.so'
+        line: 'LoadModule userdir_module libexec/apache2/mod_userdir.so',
     });
 
     await line({
         path: '/private/etc/apache2/httpd.conf',
         regexp: /^\s*#?\s*Include\s+\/private\/etc\/apache2\/extra\/httpd-userdir\.conf\b/,
         sudo: true,
-        line: 'Include /private/etc/apache2/extra/httpd-userdir.conf'
+        line: 'Include /private/etc/apache2/extra/httpd-userdir.conf',
     });
 });
 
 task('start Apache', async () => {
-    await command('launchctl',  ['load', '-w', '/System/Library/LaunchDaemons/org.apache.httpd.plist'], {sudo: true});
+    await command(
+        'launchctl',
+        ['load', '-w', '/System/Library/LaunchDaemons/org.apache.httpd.plist'],
+        {sudo: true}
+    );
 });
 
 // TODO: only do this if we changed something
