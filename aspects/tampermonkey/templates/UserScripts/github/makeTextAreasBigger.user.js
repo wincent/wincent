@@ -6,8 +6,8 @@
 // @author       Greg Hurrell <greg@hurrell.net>
 // @match        https://github.com/*
 // @grant        none
-// @downloadURL  https://raw.githubusercontent.com/wincent/wincent/master/aspects/tampermonkey/files/github/makeTextAreasBigger.user.js
-// @updateURL    https://raw.githubusercontent.com/wincent/wincent/master/aspects/tampermonkey/files/github/makeTextAreasBigger.user.js
+// @downloadURL  http://localhost/~<%= variables.username %>/github/makeTextAreasBigger.user.js
+// @updateURL    http://localhost/~<%= variables.username %>/github/makeTextAreasBigger.user.js
 // ==/UserScript==
 
 (function () {
@@ -24,3 +24,5 @@
 
     document.head.appendChild(style);
 })();
+
+// <%= variables.figManaged %>

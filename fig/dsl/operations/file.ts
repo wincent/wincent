@@ -136,23 +136,6 @@ export default async function file({
             }
         }
 
-        if (diff.owner || diff.group) {
-            const result =
-                mutate && (await chown(target, {group, owner, sudo}));
-
-            if (result instanceof Error) {
-                throw result;
-            }
-
-            if (diff.owner) {
-                changed.push('owner');
-            }
-
-            if (diff.group) {
-                changed.push('group');
-            }
-        }
-
         if (diff.contents !== undefined) {
             let from;
 
@@ -169,6 +152,23 @@ export default async function file({
             }
 
             changed.push('contents');
+        }
+
+        if (diff.owner || diff.group) {
+            const result =
+                mutate && (await chown(target, {group, owner, sudo}));
+
+            if (result instanceof Error) {
+                throw result;
+            }
+
+            if (diff.owner) {
+                changed.push('owner');
+            }
+
+            if (diff.group) {
+                changed.push('group');
+            }
         }
     } else if (state === 'link') {
         if (diff.state === 'link') {

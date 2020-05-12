@@ -15,6 +15,7 @@ export default async function line({
     line,
     mode,
     owner,
+    regexp,
     state = 'present',
     sudo,
 }: {
@@ -23,6 +24,7 @@ export default async function line({
     line: string;
     mode?: Mode;
     owner?: string;
+    regexp?: RegExp;
     state?: 'absent' | 'present';
     sudo?: boolean;
 }): Promise<void> {
@@ -56,11 +58,14 @@ export default async function line({
         while (!scanner.atEnd()) {
             const current = scanner.scan(/[^\r\n]*/);
 
-            if (current === line) {
+            if (
+                regexp && typeof current === 'string' && regexp.test(current) ||
+                !regexp && current === line
+            ) {
                 found = true;
 
                 if (state === 'present') {
-                    contents += current;
+                    contents += line;
                 } else {
                     // Slurp unwanted line, plus the following newline.
                     scanner.scan(/\r?\n/);

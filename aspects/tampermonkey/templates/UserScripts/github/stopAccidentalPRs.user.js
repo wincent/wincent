@@ -6,8 +6,8 @@
 // @author       Greg Hurrell <greg@hurrell.net>
 // @match        https://github.com/liferay/liferay-portal/compare/*
 // @grant        none
-// @downloadURL  https://raw.githubusercontent.com/wincent/wincent/master/aspects/tampermonkey/files/github/stopAccidentalPRs.user.js
-// @updateURL    https://raw.githubusercontent.com/wincent/wincent/master/aspects/tampermonkey/files/github/stopAccidentalPRs.user.js
+// @downloadURL  http://localhost/~<%= variables.username %>/github/stopAccidentalPRs.user.js
+// @updateURL    http://localhost/~<%= variables.username %>/github/stopAccidentalPRs.user.js
 // ==/UserScript==
 
 (function () {
@@ -28,3 +28,5 @@
         subtree: true,
     });
 })();
+
+// <%= variables.figManaged %>

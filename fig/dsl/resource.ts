@@ -21,11 +21,31 @@ export function file(...components: Array<string>): Path {
     return resource('files', ...components);
 }
 
+export function files(glob: string): Array<Path> {
+    return resources('files', glob);
+}
+
+export function support(...components: Array<string>): Path {
+    return resource('support', ...components);
+}
+
+export function template(...components: Array<string>): Path {
+    return resource('templates', ...components);
+}
+
+export function templates(glob: string): Array<Path> {
+    return resources('templates', glob);
+}
+
+function resource(subdirectory: string, ...components: Array<string>): Path {
+    return path('aspects', Context.currentAspect, subdirectory, ...components);
+}
+
 /**
  * Very simple glob-based file search (only supports simple patterns like
  * "*.foo" and "thing/*.bar").
  */
-export function files(glob: string): Array<Path> {
+function resources(subdirectory: string, glob: string): Array<Path> {
     function traverse(current: string, components: Array<RegExp>): Array<Path> {
         return readdirSync(current, {withFileTypes: true})
             .filter((entry) => entry.isDirectory() || entry.isFile())
@@ -41,22 +61,8 @@ export function files(glob: string): Array<Path> {
             });
     }
 
-    const aspect = Context.currentAspect;
-
     return traverse(
-        join('aspects', aspect, 'files'),
+        join('aspects', Context.currentAspect, subdirectory),
         path(glob).components.map((component) => globToRegExp(component))
     );
-}
-
-export function support(...components: Array<string>): Path {
-    return resource('support', ...components);
-}
-
-export function template(...components: Array<string>): Path {
-    return resource('templates', ...components);
-}
-
-function resource(subdirectory: string, ...components: Array<string>): Path {
-    return path('aspects', Context.currentAspect, subdirectory, ...components);
 }
