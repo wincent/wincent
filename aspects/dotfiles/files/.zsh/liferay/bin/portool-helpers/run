@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 source "${BASH_SOURCE%/*}/.common.sh"
 
@@ -6,13 +6,30 @@ BUNDLES="$HOME/code/portal/bundles"
 PROPERTIES="$BUNDLES/portal-ext.properties"
 
 case "$1" in
-  prod|produ|produc|product|producti|productio|production)
-    echo "🏎  Launching tomcat with prod settings"
-    ln -sf "$BUNDLES/portal-ext.properties.prod" "$PROPERTIES"
+  b|bu|bun|bund|bundl|bundle)
+    if [[ $PWD = $HOME/code/* || $PWD != */bundles ]]; then
+      echo "🛑 Refusing to run: we don't seem to be in a bundles/ directory downloaded with ci:bundle"
+      exit 1
+    fi
+
+    DB=lportal_bundle
+
+    echo "☠️  Deleting db ($DB)..."
+    echo "set foreign_key_checks=1;" | (echo "select concat('drop table if exists ', table_name, ';') from information_schema.tables where table_schema='$DB';" | mysql -u root -B | tail -n +2 && cat;) | (echo "set foreign_key_checks=0;" && cat;) | mysql -u root "$DB"
+
+    echo "🔎 Launching tomcat with bundle settings"
+    BUNDLES=$PWD
+    SOURCE=${BASH_SOURCE%/*}/properties/portal-ext.properties.bundle
+    PROPERTIES=$BUNDLES/portal-ext.properties
+    ln -sf "$SOURCE" "$PROPERTIES"
           ;;
   dev|deve|devel|develo|develop|developm|developme|developmen|development)
     echo "🐢 Launching tomcat with dev settings"
     ln -sf "$BUNDLES/portal-ext.properties.dev" "$PROPERTIES"
+          ;;
+  prod|produ|produc|product|producti|productio|production)
+    echo "🏎  Launching tomcat with prod settings"
+    ln -sf "$BUNDLES/portal-ext.properties.prod" "$PROPERTIES"
           ;;
   *)
     if [ -L "$PROPERTIES" ]; then
