@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         Stop accidental liferay/liferay-portal PRs
 // @namespace    https://wincent.com/
-// @version      0.2
-// @description  try to take over the world!
-// @author       You
+// @version      0.3
+// @description  Stop accidental liferay/liferay-portal PRs
+// @author       Greg Hurrell <greg@hurrell.net>
 // @match        https://github.com/liferay/liferay-portal/compare/*
 // @grant        none
 // ==/UserScript==

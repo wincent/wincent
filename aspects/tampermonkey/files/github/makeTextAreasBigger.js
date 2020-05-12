@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         Make GitHub PR textareas bigger
 // @namespace    https://wincent.com/
-// @version      0.1
-// @description  try to take over the world!
-// @author       You
+// @version      0.2
+// @description  Make GitHub PR textareas bigger
+// @author       Greg Hurrell <greg@hurrell.net>
 // @match        https://github.com/*
 // @grant        none
 // ==/UserScript==
