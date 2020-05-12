@@ -1,11 +1,12 @@
 // ==UserScript==
 // @name         Stop accidental liferay/liferay-portal PRs
 // @namespace    https://wincent.com/
-// @version      0.3
+// @version      0.4
 // @description  Stop accidental liferay/liferay-portal PRs
 // @author       Greg Hurrell <greg@hurrell.net>
 // @match        https://github.com/liferay/liferay-portal/compare/*
 // @grant        none
+// @updateURL    https://raw.githubusercontent.com/wincent/wincent/master/aspects/tampermonkey/files/github/stopAccidentalPRs.js
 // ==/UserScript==
 
 (function () {

@@ -1,11 +1,12 @@
 // ==UserScript==
 // @name         Bypass Twitter click tracking
 // @namespace    https://wincent.com/
-// @version      0.2
+// @version      0.3
 // @description  Bypass Twitter click tracking
 // @author       Greg Hurrell <greg@hurrell.net>
 // @match        https://twitter.com/*
 // @grant        none
+// @updateURL    https://raw.githubusercontent.com/wincent/wincent/master/aspects/tampermonkey/files/twitter/bypassClickTracking.js
 // ==/UserScript==
 
 (function () {
