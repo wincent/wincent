@@ -14,7 +14,7 @@
     },
     "type": "module",
     "dependencies": {
-        "typescript": "3.8.3"
+        "typescript": "3.9.2"
     },
     "devDependencies": {
         "@types/node": "*"
