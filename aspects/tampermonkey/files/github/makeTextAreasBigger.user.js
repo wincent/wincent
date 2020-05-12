@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name         Make GitHub PR textareas bigger
 // @namespace    https://wincent.com/
-// @version      0.4
+// @version      0.5
 // @description  Make GitHub PR textareas bigger
 // @author       Greg Hurrell <greg@hurrell.net>
 // @match        https://github.com/*
 // @grant        none
-// @downloadURL  https://raw.githubusercontent.com/wincent/wincent/master/aspects/tampermonkey/files/github/makeTextAreasBigger.js
-// @updateURL    https://raw.githubusercontent.com/wincent/wincent/master/aspects/tampermonkey/files/github/makeTextAreasBigger.js
+// @downloadURL  https://raw.githubusercontent.com/wincent/wincent/master/aspects/tampermonkey/files/github/makeTextAreasBigger.user.js
+// @updateURL    https://raw.githubusercontent.com/wincent/wincent/master/aspects/tampermonkey/files/github/makeTextAreasBigger.user.js
 // ==/UserScript==
 
 (function () {
