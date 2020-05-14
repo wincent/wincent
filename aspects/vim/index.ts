@@ -3,12 +3,12 @@ import {
     backup,
     command,
     file,
+    path,
     resource,
     skip,
     task,
     variable,
 } from 'fig';
-import path from 'fig/path.js';
 
 task('make directories', async () => {
     // Some overlap with "dotfiles" aspect here.

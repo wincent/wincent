@@ -1,5 +1,4 @@
-import {command, file, skip, task} from 'fig';
-import path from 'fig/path.js';
+import {command, file, path, skip, task} from 'fig';
 
 const NODE_VERSION = '10.16.0';
 

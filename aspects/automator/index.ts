@@ -1,5 +1,4 @@
-import {command, resource, task} from 'fig';
-import path from 'fig/path.js';
+import {command, path, resource, task} from 'fig';
 
 task('create "Open in Terminal Vim.app"', async () => {
     const script = resource.support('Open in Terminal Vim.applescript');

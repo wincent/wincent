@@ -1,10 +1,9 @@
-import {file, resource, skip, task, variable} from 'fig';
-import path from 'fig/path.js';
+import {file, path, resource, skip, task, variable} from 'fig';
 import assert from 'fig/assert.js';
 import stat from 'fig/fs/stat.js';
 import stringify from 'fig/stringify.js';
 
-import type {Path} from 'fig/path.js';
+import type {Path} from 'fig';
 
 // iTerm will create some of these on first run, but we specify all here
 // for completeness.

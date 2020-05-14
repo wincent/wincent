@@ -1,6 +1,10 @@
 // TODO: maybe make a "register" function for arbitrary communication/sharing
 // across tasks/aspects
-// TODO: export "path" here for convenience? it is very DSL-ish
+
+//
+// Main DSL
+//
+
 export {default as attributes} from './dsl/attributes.js';
 export {default as backup} from './dsl/operations/backup.js';
 export {default as fail} from './dsl/fail.js';
@@ -18,3 +22,13 @@ export {default as skip} from './dsl/skip.js';
 export {default as task} from './dsl/task.js';
 export {default as variable} from './dsl/variable.js';
 export {default as variables} from './dsl/variables.js';
+
+//
+// Other useful functions for use in aspects.
+//
+
+export type {Path} from './path.js';
+
+export {log} from './console.js';
+export {default as path} from './path.js';
+export {default as prompt} from './prompt.js';

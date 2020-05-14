@@ -1,5 +1,13 @@
-import {attributes, command, file, line, resource, task, template} from 'fig';
-import path from 'fig/path.js';
+import {
+    attributes,
+    command,
+    file,
+    line,
+    path,
+    resource,
+    task,
+    template,
+} from 'fig';
 
 task('make ~/Sites/UserScripts/*', async () => {
     const base = path('~/Sites/UserScripts');

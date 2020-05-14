@@ -1,13 +1,12 @@
 import {equal, ok} from 'assert';
 import {join} from 'path';
 
-import {file, resource, task, template} from 'fig';
+import {file, path as toPath, resource, task, template} from 'fig';
 import Context from 'fig/Context.js';
 import assert from 'fig/assert.js';
 import {promises} from 'fig/fs.js';
 import stat from 'fig/fs/stat.js';
 import tempdir from 'fig/fs/tempdir.js';
-import {default as toPath} from 'fig/path.js';
 
 function live() {
     return !Context.currentOptions?.check;

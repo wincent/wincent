@@ -3,6 +3,8 @@ import {
     command,
     fail,
     file,
+    log,
+    path,
     resource,
     skip,
     template,
@@ -10,8 +12,6 @@ import {
     variable,
     variables,
 } from 'fig';
-import {log} from 'fig/console.js';
-import path from 'fig/path.js';
 
 variables(({identity}) => ({
     gitUserEmail: identity === 'wincent' ? 'greg@hurrell.net' : '',
