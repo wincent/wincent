@@ -7,10 +7,7 @@ type Options = {
     private?: boolean;
 };
 
-export default async function prompt(
-    text: string,
-    options: Options = {}
-): Promise<string> {
+async function prompt(text: string, options: Options = {}): Promise<string> {
     let muted = false;
 
     // https://stackoverflow.com/a/33500118/2103996
@@ -45,3 +42,11 @@ export default async function prompt(
         rl.close();
     }
 }
+
+prompt.confirm = async (text: string): Promise<boolean> => {
+    const reply = (await prompt(`${text}? [y/n]: `)).toLowerCase().trim();
+
+    return 'yes'.startsWith(reply);
+};
+
+export default prompt;

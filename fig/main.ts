@@ -106,11 +106,7 @@ async function main() {
 
         log();
 
-        const reply = (await prompt('Start running at this task? [y/n]: '))
-            .toLowerCase()
-            .trim();
-
-        if ('yes'.startsWith(reply)) {
+        if (await prompt.confirm('Start running at this task')) {
             options.startAt.found = true;
             options.startAt.literal = candidateTasks[0];
         } else {

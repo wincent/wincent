@@ -5,6 +5,7 @@ import {
     file,
     log,
     path,
+    prompt,
     resource,
     skip,
     template,
@@ -33,7 +34,9 @@ task('check for decrypted files', async () => {
             if (result.status !== 0) {
                 log.warn(`git-cipher status:\n\n${result.stdout}\n`);
 
-                fail(`decrypted file check failed`);
+                if (!(await prompt.confirm('Continue anyway'))) {
+                    fail(`decrypted file check failed`);
+                }
             }
         }
     } else {
