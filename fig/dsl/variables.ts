@@ -1,10 +1,6 @@
-import {relative, sep} from 'path';
-import * as url from 'url';
-
 import Context from '../Context.js';
 import getCaller from '../getCaller.js';
-import {assertAspect} from '../types/Project.js';
-import {default as root} from './root.js';
+import getAspectFromCaller from '../getAspectFromCaller.js';
 
 /**
  * Register a callback to dynamically contribute variables when an aspect is
@@ -12,22 +8,10 @@ import {default as root} from './root.js';
  * and stored in JSON).
  */
 export default function variables(callback: (v: Variables) => Variables) {
+    // BUG: "Cannot find name 'Variables'" from here in Vim LSP
     const caller = getCaller();
 
-    const path = url.fileURLToPath(caller);
-
-    const ancestors = relative(root, path).split(sep);
-
-    const aspect =
-        ancestors[0] === 'lib' && ancestors[1] === 'aspects' && ancestors[2];
-
-    if (!aspect) {
-        throw new Error(`Unable to determine aspect for ${caller}`);
-    }
-
-    assertAspect(aspect);
+    const aspect = getAspectFromCaller(caller);
 
     Context.variables.register(aspect, callback);
 }
-
-// TODO: dedupe this, which is almost identical to task.ts
