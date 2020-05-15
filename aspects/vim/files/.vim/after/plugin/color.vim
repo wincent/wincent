@@ -49,6 +49,9 @@ function s:CheckColorScheme()
   if wincent#pinnacle#active()
     highlight clear CursorLineNr
     execute 'highlight CursorLineNr ' . pinnacle#extract_highlight('DiffText')
+
+    highlight clear Pmenu
+    highlight link Pmenu Visual
   endif
 
   highlight clear DiffDelete
