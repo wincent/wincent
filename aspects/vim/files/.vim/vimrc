@@ -36,6 +36,11 @@ let g:LoupeCenterResults=0
 map <Nop><F1> <Plug>(LoupeN)
 nmap <Nop><F2> <Plug>(Loupen)
 
+" Stop Ferret from binding <Leader>l, which we want to keep for interactions
+" with the language server client (the rare-ish times I want :Lack, I can just
+" type it out).
+map <Nop><F3> <Plug>(FerretLack)
+
 " Prevent tcomment from making a zillion mappings (we just want the operator).
 let g:tcomment_mapleader1=''
 let g:tcomment_mapleader2=''

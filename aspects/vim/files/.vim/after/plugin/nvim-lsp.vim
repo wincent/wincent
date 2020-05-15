@@ -20,9 +20,10 @@ function! s:Bind()
 endfunction
 
 function! s:ConfigureBuffer()
-    nnoremap <buffer> <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
+    nnoremap <buffer> <silent> <Leader>ld <cmd>lua vim.lsp.util.show_line_diagnostics()<CR>
     nnoremap <buffer> <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
-    nnoremap <buffer> <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+    nnoremap <buffer> <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
+    nnoremap <buffer> <silent> gd <cmd>lua vim.lsp.buf.declaration()<CR>
 
     if exists('+signcolumn')
       setlocal signcolumn=yes
