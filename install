@@ -27,7 +27,16 @@ tsc
 
 # Hacks so that built JS can import from 'fig':
 ln -fns ../lib/fig node_modules/fig
-cp fig/package.json lib/fig/package.json
+cat > lib/fig/package.json <<HERE
+{
+    "name": "fig",
+    "description": "An absurd configuration framework",
+    "version": "0.0.1",
+    "main": "index.js",
+    "private": true,
+    "type": "module"
+}
+HERE
 
 log_info "Running main"
 

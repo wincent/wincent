@@ -8,7 +8,6 @@ import getAspectFromCaller from '../getAspectFromCaller.js';
  * and stored in JSON).
  */
 export default function variables(callback: (v: Variables) => Variables) {
-    // BUG: "Cannot find name 'Variables'" from here in Vim LSP
     const caller = getCaller();
 
     const aspect = getAspectFromCaller(caller);
