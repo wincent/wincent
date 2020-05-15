@@ -3,6 +3,7 @@ import {join} from 'path';
 
 import {
     command,
+    fail,
     file,
     handler,
     path as toPath,
@@ -459,14 +460,10 @@ task('notify a handler', async () => {
     });
 });
 
-let called = false;
-
 handler('should not to be called', async () => {
-    called = true;
+    fail('handler fired');
 });
 
 handler('handle command', async () => {
     await command('true', []);
-
-    expect.ok(!called);
 });
