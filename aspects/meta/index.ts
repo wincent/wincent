@@ -1,7 +1,15 @@
 import {equal, ok} from 'assert';
 import {join} from 'path';
 
-import {file, path as toPath, resource, task, template} from 'fig';
+import {
+    command,
+    file,
+    handler,
+    path as toPath,
+    resource,
+    task,
+    template,
+} from 'fig';
 import Context from 'fig/Context.js';
 import assert from 'fig/assert.js';
 import {promises} from 'fig/fs.js';
@@ -436,4 +444,29 @@ task('touch an item', async () => {
 
     // Assert that mtime is within 1 second, allowing some imprecision.
     expect.ok(Math.abs(stats.mtimeMs - now) < 1_000);
+});
+
+task("don't notify a handler", async () => {
+    await command('mkdir', ['/etc'], {
+        creates: '/etc',
+        notify: 'should not to be called',
+    });
+});
+
+task('notify a handler', async () => {
+    await command('true', [], {
+        notify: 'handle command',
+    });
+});
+
+let called = false;
+
+handler('should not to be called', async () => {
+    called = true;
+});
+
+handler('handle command', async () => {
+    await command('true', []);
+
+    expect.ok(!called);
 });
