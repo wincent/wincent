@@ -14,7 +14,10 @@ function! wincent#autocmds#should_colorcolumn() abort
   if index(g:WincentColorColumnBufferNameBlacklist, bufname(bufnr('%'))) != -1
     return 0
   endif
-  return index(g:WincentColorColumnFileTypeBlacklist, &filetype) == -1
+  if index(g:WincentColorColumnFileTypeBlacklist, &filetype) != -1
+    return 0
+  endif
+  return &buflisted
 endfunction
 
 function! wincent#autocmds#should_cursorline() abort
