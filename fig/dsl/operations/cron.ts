@@ -12,6 +12,7 @@ export default async function cron({
     job,
     minute = '*',
     month = '*',
+    notify,
     state = 'present',
     weekday = '*',
 }: {
@@ -21,6 +22,7 @@ export default async function cron({
     job: string;
     minute?: string;
     month?: string;
+    notify?: string;
     state?: 'absent' | 'present';
     weekday?: string;
 }): Promise<void> {
@@ -114,7 +116,7 @@ export default async function cron({
                 });
             }
 
-            Context.informChanged(`cron ${id}`);
+            Context.informChanged(`cron ${id}`, notify);
         }
     } else {
         Context.informOk(`cron ${id}`);

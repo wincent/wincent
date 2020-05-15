@@ -19,6 +19,7 @@ export default async function command(
         creates?: string;
         env?: NodeJS.ProcessEnv;
         failedWhen?: (result: Result | null) => boolean;
+        notify?: string;
         sudo?: boolean;
     } = {}
 ): Promise<Result | null> {
@@ -76,7 +77,7 @@ export default async function command(
                 );
             }
 
-            Context.informChanged(`command \`${description}\``);
+            Context.informChanged(`command \`${description}\``, options.notify);
 
             return result;
         }

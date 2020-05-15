@@ -19,6 +19,7 @@ export default async function file({
     force,
     group,
     mode,
+    notify,
     owner,
     path,
     src,
@@ -30,6 +31,7 @@ export default async function file({
     group?: string;
     path: string;
     mode?: Mode;
+    notify?: string;
     owner?: string;
     src?: string;
     state: 'directory' | 'file' | 'link' | 'touch';
@@ -213,7 +215,7 @@ export default async function file({
     // "template", "fetch" and "file"
     if (changed.length) {
         if (mutate) {
-            Context.informChanged(`file[${changed.join('|')}] ${path}`);
+            Context.informChanged(`file[${changed.join('|')}] ${path}`, notify);
         } else {
             Context.informSkipped(`file[${changed.join('|')}] ${path}`);
         }

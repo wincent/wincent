@@ -7,6 +7,7 @@ export default async function template({
     force,
     group,
     mode,
+    notify,
     owner,
     path,
     src,
@@ -17,6 +18,7 @@ export default async function template({
     group?: string;
     path: string;
     mode?: Mode;
+    notify?: string;
     owner?: string;
     src: string;
     sudo?: boolean;
@@ -42,6 +44,7 @@ export default async function template({
         force,
         group,
         mode,
+        notify,
         owner,
         path,
         state: 'file',

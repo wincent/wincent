@@ -22,6 +22,7 @@ export default async function defaults({
     domain = 'NSGlobalDomain',
     host,
     key,
+    notify,
     state = 'present',
     type = 'string', // TODO: actually support all types
     value,
@@ -29,6 +30,7 @@ export default async function defaults({
     domain?: string;
     host?: string;
     key: string;
+    notify?: string;
     state?: 'absent' | 'present';
     type?: Exclude<Type, 'array' | 'date' | 'dict' | 'unknown'>;
     value?:
@@ -196,7 +198,7 @@ export default async function defaults({
                 });
             }
 
-            Context.informChanged(`removed ${description}`);
+            Context.informChanged(`removed ${description}`, notify);
         }
     } else {
         if (equal(currentValue, currentType, value!, type)) {
@@ -251,7 +253,10 @@ export default async function defaults({
                 });
             }
 
-            Context.informChanged(`set ${description} ${stringify(value)}`);
+            Context.informChanged(
+                `set ${description} ${stringify(value)}`,
+                notify
+            );
         }
     }
 }

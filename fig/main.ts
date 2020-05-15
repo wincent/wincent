@@ -241,7 +241,7 @@ async function main() {
                                         dedent`
                                             [y]es:      run the task
                                             [n]o:       skip the task
-                                            [q]uit:     stop running tasks
+                                            [q]uit:     stop running
                                             [c]ontinue: run all remaining tasks
                                         `
                                     );
@@ -254,6 +254,78 @@ async function main() {
                                 {aspect, options, task: name, variables},
                                 callback
                             );
+                        }
+                    }
+                }
+
+                const {callbacks, notifications} = Context.handlers.get(aspect);
+
+                for (const [callback, name] of callbacks) {
+                    if (!options.startAt.found) {
+                        log.notice(`Handler: ${name}`);
+
+                        if (notifications.has(name)) {
+                            if (options.step) {
+                                // TODO: DRY up -- almost same as task handling
+                                // above
+                                for (;;) {
+                                    const reply = (
+                                        await prompt(
+                                            `Run handler ${name}? [y]es/[n]o/[q]uit]/[c]ontinue/[h]elp: `
+                                        )
+                                    )
+                                        .toLowerCase()
+                                        .trim();
+
+                                    if ('yes'.startsWith(reply)) {
+                                        await Context.withContext(
+                                            {
+                                                aspect,
+                                                options,
+                                                task: name,
+                                                variables,
+                                            },
+                                            callback
+                                        );
+                                        break;
+                                    } else if ('no'.startsWith(reply)) {
+                                        Context.informSkipped(`task ${name}`);
+                                        break;
+                                    } else if ('quit'.startsWith(reply)) {
+                                        break loopAspects;
+                                    } else if ('continue'.startsWith(reply)) {
+                                        options.step = false;
+                                        await Context.withContext(
+                                            {
+                                                aspect,
+                                                options,
+                                                task: name,
+                                                variables,
+                                            },
+                                            callback
+                                        );
+                                        break;
+                                    } else if ('help'.startsWith(reply)) {
+                                        log(
+                                            dedent`
+                                                [y]es:      run the handler
+                                                [n]o:       skip the handler
+                                                [q]uit:     stop running
+                                                [c]ontinue: run all remaining handlers and tasks
+                                            `
+                                        );
+                                    } else {
+                                        log.warn('Invalid choice; try again.');
+                                    }
+                                }
+                            } else {
+                                await Context.withContext(
+                                    {aspect, options, task: name, variables},
+                                    callback
+                                );
+                            }
+                        } else {
+                            Context.informSkipped(`handler ${name}`);
                         }
                     }
                 }

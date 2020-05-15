@@ -2,6 +2,7 @@ import {
     attributes,
     command,
     file,
+    handler,
     line,
     path,
     resource,
@@ -33,6 +34,7 @@ task('configure Apache', async () => {
     await template({
         group: 'wheel',
         owner: 'root',
+        notify: 'restart Apache',
         path: path('/private/etc/apache2/users').join(
             `${attributes.username}.conf`
         ),
@@ -41,6 +43,7 @@ task('configure Apache', async () => {
     });
 
     await line({
+        notify: 'restart Apache',
         path: '/etc/apache2/extra/httpd-userdir.conf',
         regexp: /^\s*#?\s*Include\s+\/private\/etc\/apache2\/users\/\*\.conf\b/,
         sudo: true,
@@ -48,6 +51,7 @@ task('configure Apache', async () => {
     });
 
     await line({
+        notify: 'restart Apache',
         path: '/private/etc/apache2/httpd.conf',
         regexp: /^\s*#?\s*LoadModule\s+userdir_module\s+libexec\/apache2\/mod_userdir\.so\b/,
         sudo: true,
@@ -55,6 +59,7 @@ task('configure Apache', async () => {
     });
 
     await line({
+        notify: 'restart Apache',
         path: '/private/etc/apache2/httpd.conf',
         regexp: /^\s*#?\s*Include\s+\/private\/etc\/apache2\/extra\/httpd-userdir\.conf\b/,
         sudo: true,
@@ -62,15 +67,12 @@ task('configure Apache', async () => {
     });
 });
 
-task('start Apache', async () => {
+handler('restart Apache', async () => {
     await command(
         'launchctl',
         ['load', '-w', '/System/Library/LaunchDaemons/org.apache.httpd.plist'],
         {sudo: true}
     );
-});
 
-// TODO: only do this if we changed something
-task('reload Apache', async () => {
     await command('apachectl', ['restart'], {sudo: true});
 });

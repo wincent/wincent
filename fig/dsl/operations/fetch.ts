@@ -11,12 +11,14 @@ export default async function fetch({
     dest,
     group,
     mode,
+    notify,
     owner,
     url,
 }: {
     dest: string;
     group?: string;
     mode?: Mode;
+    notify?: string;
     owner?: string;
     url: string;
 }): Promise<void> {
@@ -51,6 +53,7 @@ export default async function fetch({
                         contents,
                         group,
                         mode,
+                        notify,
                         owner,
                         path: dest,
                         state: 'file',

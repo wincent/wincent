@@ -14,6 +14,7 @@ export default async function line({
     group,
     line,
     mode,
+    notify,
     owner,
     regexp,
     state = 'present',
@@ -23,6 +24,7 @@ export default async function line({
     group?: string;
     line: string;
     mode?: Mode;
+    notify?: string;
     owner?: string;
     regexp?: RegExp;
     state?: 'absent' | 'present';
@@ -89,6 +91,7 @@ export default async function line({
         contents,
         group,
         mode,
+        notify,
         owner,
         path: target,
         state: 'file',

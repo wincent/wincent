@@ -1,6 +1,7 @@
 import Attributes from './Attributes.js';
 import ErrorWithMetadata from './ErrorWithMetadata.js';
 import Compiler from './Compiler.js';
+import HandlerRegistry from './HandlerRegistry.js';
 import TaskRegistry from './TaskRegistry.js';
 import VariableRegistry from './VariableRegistry.js';
 import assert from './assert.js';
@@ -32,6 +33,7 @@ class Context {
     #currentOptions?: Options;
     #currentTask?: string;
     #currentVariables?: Variables;
+    #handlers: HandlerRegistry;
     #sudoPassphrase?: Promise<string>;
     #tasks: TaskRegistry;
 
@@ -51,6 +53,7 @@ class Context {
             skipped: 0,
         };
 
+        this.#handlers = new HandlerRegistry();
         this.#tasks = new TaskRegistry();
         this.#variables = new VariableRegistry();
     }
@@ -59,8 +62,17 @@ class Context {
         return this.#compiler.compile(path);
     }
 
-    informChanged(message: string) {
+    informChanged(message: string, notify?: string) {
         this.#counts.changed++;
+
+        if (notify !== undefined) {
+            assert(this.#currentAspect);
+
+            this.#handlers.notify(
+                this.#currentAspect,
+                `${this.#currentAspect} | ${notify}`
+            );
+        }
 
         status.changed(message);
     }
@@ -179,6 +191,10 @@ class Context {
         assert(this.#currentOptions);
 
         return this.#currentOptions;
+    }
+
+    get handlers(): HandlerRegistry {
+        return this.#handlers;
     }
 
     get sudoPassphrase(): Promise<string> {
