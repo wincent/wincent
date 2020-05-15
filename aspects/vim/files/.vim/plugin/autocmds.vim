@@ -110,6 +110,14 @@ if has('autocmd')
       autocmd QuitPre <buffer> let b:quitting=1
       cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
     endif
+
+    if exists('$TMUX')
+      autocmd VimLeavePre * call s:EnsureTmux()
+    endif
+  endfunction
+
+  function! s:EnsureTmux()
+    silent !tmux set status on
   endfunction
 
   function! s:goyo_leave()
