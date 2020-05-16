@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Stop accidental liferay/liferay-portal PRs
 // @namespace    https://wincent.com/
-// @version      0.6
+// @version      0.7
 // @description  Stop accidental liferay/liferay-portal PRs
 // @author       Greg Hurrell <greg@hurrell.net>
 // @match        https://github.com/liferay/liferay-portal/compare/*
@@ -13,7 +13,7 @@
 (function () {
     'use strict';
 
-    const observer = new MutationObserver((mutationList) => {
+    const observer = new MutationObserver((_mutationList) => {
         const button = document.querySelector('.js-pull-request-button');
         if (button && !button.disabled) {
             button.title =
