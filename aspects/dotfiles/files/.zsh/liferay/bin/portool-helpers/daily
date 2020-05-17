@@ -44,15 +44,7 @@ for TARGET in "${TARGETS[@]}"; do
           +7.2.x:7.2.x \
           +7.2.x-private:7.2.x-private && \
         git merge --ff-only upstream/master-private &&
-        git push origin -f : &&
-        # TODO: re-enable DXP builds after migration is over.
-        true
-        # git clean -fdx -e ant-portal-ee.out &&
-        # ant -f build-working-dir.xml &&
-        # ant setup-profile-dxp &&
-        # ant all &&
-        # git tag "daily/portal-ee/good/$(date +%Y-%m-%d)" &&
-        # git tag -f "daily/portal-ee/good/latest"
+        git push origin -f :
       ) || echo "ee build failed: please see $LOG_DESC for details"
       ;;
     master)
