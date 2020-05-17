@@ -2,16 +2,7 @@ if exists(':CompilerSet') != 2
   command -nargs=* CompilerSet setlocal <args>
 endif
 
-" In case tsconfig.json has `"incremental": true`, we can't use
-" `--noEmit`; have to direct output to scratch `--outDir` instead.
-let s:temp=system('mktemp -d')
-if exists('*trim')
-  let s:trimmed=trim(s:temp)
-else
-  let s:trimmed=substitute(s:temp, '^\_s\+\|\_s\+$', '', 'g')
-endif
-let s:escaped=shellescape(s:trimmed)
-let s:lint='yarn\ run\ tsc\ --outDir\ ' . s:escaped
+let s:lint='yarn\ run\ tsc\ --noEmit\ --incremental\ false'
 
 execute 'CompilerSet makeprg=' . s:lint
 
