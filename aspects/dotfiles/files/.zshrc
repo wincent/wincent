@@ -231,7 +231,6 @@ select-word-style bash # only alphanumeric chars are considered WORDCHARS
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=59'
 
-
 # NOTE: must come after select-word-style.
 source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
@@ -244,7 +243,6 @@ source /usr/local/share/zsh-history-substring-search/zsh-history-substring-searc
 #
 # https://superuser.com/a/1494647/322531
 HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
-
 
 # Uncomment this to get syntax highlighting:
 # NOTE: must come after select-word-style.
