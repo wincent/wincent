@@ -32,26 +32,31 @@ if [[ $NUKE_LEVEL == 0 ]]; then
 fi
 
 if [[ $PWD = $HOME/code/portal-master* ]]; then
+  DB=lportal2_master
   BASE=$HOME/code/portal-master
   FULL=$BASE/liferay-portal
 elif [[ $PWD = $HOME/code/portal-ee* ]]; then
+  DB=
   BASE=$HOME/code/portal-ee
   FULL=$BASE/liferay-portal-ee
+elif [[ $PWD = $HOME/code/commerce* ]]; then
+  DB=lportal_commerce
+  BASE=$HOME/code/commerce
+  FULL=$BASE/liferay-portal-ee
 else
+  DB=lportal_master
   BASE=$HOME/code/portal
   FULL=$BASE/liferay-portal
 fi
 
 if [[ $NUKE_LEVEL > 0 ]]; then
-  # Target "lportal_master" (corresponds to main
-  # portal/liferay-portal checkout) by default, except when in
-  # the portal-master/liferay-portal checkout (in which case use
-  # "lportal2_master").
-  [[ $BASE = $HOME/code/portal-master ]] && DB=lportal2_master || DB=lportal_master
+  if [ -z "$DB" ]; then
+    echo "⏩ Skipping db deletion..."
+  else
+    echo "☠️  Deleting db ($DB)..."
 
-  echo "☠️  Deleting db ($DB)..."
-
-  echo "set foreign_key_checks=1;" | (echo "select concat('drop table if exists ', table_name, ';') from information_schema.tables where table_schema='$DB';" | mysql -u root -B | tail -n +2 && cat;) | (echo "set foreign_key_checks=0;" && cat;) | mysql -u root "$DB"
+    echo "set foreign_key_checks=1;" | (echo "select concat('drop table if exists ', table_name, ';') from information_schema.tables where table_schema='$DB';" | mysql -u root -B | tail -n +2 && cat;) | (echo "set foreign_key_checks=0;" && cat;) | mysql -u root "$DB"
+  fi
 fi
 
 TARGET="~${BASE#$HOME}"
