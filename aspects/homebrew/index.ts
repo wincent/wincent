@@ -26,7 +26,7 @@ task('tap "homebrew/bundle"', async () => {
         return skip('already tapped');
     }
 
-    await command('brew', ['tap=homebrew/bundle']);
+    await command('brew', ['tap', 'homebrew/bundle']);
 });
 
 task('prepare Brewfile', async () => {
