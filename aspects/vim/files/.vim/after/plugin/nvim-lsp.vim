@@ -20,6 +20,16 @@ function! s:Bind()
     if nvim_win_get_var(0, 'textDocument/hover')
       nnoremap <buffer> <silent> K :call nvim_win_close(0, v:true)<CR>
       nnoremap <buffer> <silent> <Esc> :call nvim_win_close(0, v:true)<CR>
+
+      setlocal nocursorline
+
+      " I believe this is supposed to happen automatically because I can see
+      " this in lsp/util.lua:
+      "
+      "     api.nvim_buf_set_option(floating_bufnr, 'modifiable', false)
+      "
+      " but it doesn't seem to be working.
+      setlocal nomodifiable
     endif
   catch /./
     " Not a hover window.
