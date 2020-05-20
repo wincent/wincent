@@ -13,7 +13,29 @@ lua << END
     -- }
   }
   require'nvim_lsp'.vimls.setup{}
+
+  -- Override hover winhighlight.
+  -- local method = 'textDocument/hover'
+  -- local hover = vim.lsp.callbacks[method]
+  -- vim.lsp.callbacks[method] = function (_, method, result)
+  --    local bufnr, winnr = hover(_, method, result)
+  --    vim.api.nvim_win_set_option(winnr, 'winhighlight', 'Normal:Visual,NormalNC:Visual')
+  --    return bufnr, winnr
+  -- end
 END
+
+function! s:Setup()
+    for l:window in nvim_tabpage_list_wins(0)
+      try
+        if nvim_win_get_var(l:window, 'textDocument/hover')
+          " Doesn't get in here (at time WinNew runs, var hasn't been set yet).
+          call nvim_win_set_option(l:window, 'winhighlight', 'Normal:Visual,NormalNC:Visual')
+        endif
+      catch /./
+        " Not a hover window.
+      endtry
+    endfor
+endfunction
 
 function! s:Bind()
   try
@@ -77,6 +99,7 @@ if has('autocmd')
     autocmd!
 
     autocmd WinEnter * call s:Bind()
+    " autocmd WinNew * call s:Setup()
 
     autocmd FileType javascript,typescript,vim  call s:ConfigureBuffer()
 
