@@ -20,7 +20,10 @@ task('make ~/Sites/UserScripts/*', async () => {
         await file({path: base, state: 'directory'});
 
         for (const directory of resource.templates('UserScripts/*')) {
-            await file({path: base.join(directory.basename), state: 'directory'});
+            await file({
+                path: base.join(directory.basename),
+                state: 'directory',
+            });
         }
     } else {
         skip();
