@@ -19,6 +19,7 @@
                 "vim",
                 "cron",
                 "automator",
+                "automount",
                 "defaults"
             ],
             "variables": {}
