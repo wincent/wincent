@@ -1,5 +1,9 @@
-import {file, task} from 'fig';
+import {file, skip, task, variable} from 'fig';
 
 task('create ~/Backups', async () => {
-    await file({path: '~/Backups', state: 'directory'});
+    if (variable('identity') === 'wincent') {
+        await file({path: '~/Backups', state: 'directory'});
+    } else {
+        skip();
+    }
 });
