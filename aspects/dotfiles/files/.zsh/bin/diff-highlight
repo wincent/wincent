@@ -143,17 +143,7 @@ sub handle_line {
 		$in_hunk = /^$COLOR*[\@ ]/;
 	}
 
-	# Most of the time there is enough output to keep things streaming,
-	# but for something like "git log -Sfoo", you can get one early
-	# commit and then many seconds of nothing. We want to show
-	# that one commit as soon as possible.
-	#
-	# Since we can receive arbitrary input, there's no optimal
-	# place to flush. Flushing on a blank line is a heuristic that
-	# happens to match git-log output.
-	if (!length) {
-		$flush_cb->();
-	}
+	$flush_cb->();
 }
 
 sub flush {
