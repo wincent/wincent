@@ -36,7 +36,7 @@ const expect = {
 };
 
 const fs = {
-    async readFile(name: string, encoding: string) {
+    async readFile(name: string, encoding: BufferEncoding) {
         if (live()) {
             return promises.readFile(name, encoding);
         } else {
