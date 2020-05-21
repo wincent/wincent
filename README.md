@@ -139,6 +139,7 @@ git clone --recursive https://github.com/wincent/wincent.git
 At the time of writing, these are the aspects, which you can expect to change over time:
 
 -   **automator**: Scripts for use with Automator
+-   **automount**: Sets up macOS's automount facility
 -   **backup**: Backup scripts
 -   **cron**: Sets up cron files
 -   **defaults**: Sets up defaults (ie. preferences) on macOS
@@ -153,6 +154,7 @@ At the time of writing, these are the aspects, which you can expect to change ov
 -   **ruby**: Installs Ruby gems
 -   **shell**: Sets the use shell to zsh
 -   **ssh**: Manages local SSH config
+-   **tampermonkey**: Sets up UserScripts
 -   **terminfo**: Sets up terminfo database entries for italics and 256-color support
 -   **vim**: Configures Vim
 
