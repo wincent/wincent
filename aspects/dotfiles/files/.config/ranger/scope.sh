@@ -318,6 +318,9 @@ handle_mime() {
             exiftool "${FILE_PATH}" && exit 5
             exit 1;;
 
+        image/gif)
+          exit 1;;
+
         ## Image
         image/*)
             ## Preview as text conversion
