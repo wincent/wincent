@@ -73,6 +73,7 @@ if has('autocmd')
   " Goyo
   "
 
+  let s:matchadd=v:null
   let s:settings={}
 
   function! s:goyo_enter()
@@ -101,6 +102,9 @@ if has('autocmd')
     if exists('$TMUX')
       silent !tmux set status off
     endif
+
+    let l:nbsp=' '
+    let s:matchadd=matchadd('Error', l:nbsp)
 
     let b:quitting=0
     let b:quitting_bang=0
@@ -134,6 +138,15 @@ if has('autocmd')
 
     if exists('$TMUX')
       silent !tmux set status on
+    endif
+
+    if type(s:matchadd) != type(v:null)
+      try
+        call matchdelete(s:matchadd)
+      catch /./
+        " Swallow.
+      endtry
+      let s:matchadd=v:null
     endif
 
     call s:WincentAutocmds()
