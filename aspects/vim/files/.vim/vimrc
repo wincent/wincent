@@ -104,7 +104,6 @@ if &loadplugins
     packadd! corpus
     packadd! deoplete-lsp
     packadd! ferret
-    packadd! indentLine
     packadd! loupe
     packadd! neco-ghc
 

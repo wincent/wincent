@@ -33,9 +33,6 @@
 [submodule "goyo.vim"]
 	path = aspects/vim/files/.vim/pack/bundle/opt/goyo
 	url = https://github.com/junegunn/goyo.vim.git
-[submodule "indentLine"]
-	path = aspects/vim/files/.vim/pack/bundle/opt/indentLine
-	url = https://github.com/Yggdroot/indentLine.git
 [submodule "loupe"]
 	ignore = dirty
 	path = aspects/vim/files/.vim/pack/bundle/opt/loupe

@@ -10,7 +10,6 @@ endfunction
 " Switch to plaintext mode with: call wincent#functions#plaintext()
 function! wincent#functions#plaintext() abort
   if has('conceal')
-    let b:indentLine_ConcealOptionSet=1 " Don't let indentLine overwrite us.
     setlocal concealcursor=nc
   endif
   setlocal nolist
