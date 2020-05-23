@@ -55,6 +55,10 @@ if has('autocmd')
       autocmd BufWritePost * call wincent#autocmds#encrypt(expand('<afile>:p'))
 
       autocmd BufFilePost,BufNewFile,BufReadPost * call wincent#autocmds#apply_overrides()
+
+      if exists('##TextYankPost')
+        autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank('Substitute', 200)
+      endif
     augroup END
   endfunction
 
