@@ -98,8 +98,6 @@ if has('autocmd')
     set nocursorline
     set noshowmode
 
-    highlight! NonText ctermbg=bg ctermfg=bg guibg=bg guifg=bg
-
     if exists('$TMUX')
       silent !tmux set status off
     endif
@@ -133,9 +131,6 @@ if has('autocmd')
     for [k, v] in items(s:settings)
       execute 'let &' . k . '=' . string(v)
     endfor
-
-    highlight clear NonText
-    highlight link NonText Conceal
 
     if exists('$TMUX')
       silent !tmux set status on
