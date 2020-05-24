@@ -41,6 +41,19 @@ function s:CheckColorScheme()
   " Hide (or at least make less obvious) the EndOfBuffer region
   highlight! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
 
+  " Grey, just like we used to get with https://github.com/Yggdroot/indentLine
+  if &background ==# 'light'
+    let s:conceal_term_fg=249
+    let s:conceal_gui_fg='Grey70'
+  else
+    let s:conceal_term_fg=239
+    let s:conceal_gui_fg='Grey30'
+  endif
+  highlight clear Conceal
+  execute 'highlight Conceal ' .
+        \ 'ctermfg=' . s:conceal_term_fg
+        \ 'guifg=' . s:conceal_gui_fg
+
   " Sync with corresponding non-nvim 'highlight' settings in
   " ~/.vim/plugin/settings.vim:
   highlight clear NonText
