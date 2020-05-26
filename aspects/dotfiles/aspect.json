@@ -7,6 +7,7 @@
             ".clipper.json",
             ".config/alacritty",
             ".config/kitty",
+            ".config/lf",
             ".config/ranger",
             ".gemrc",
             ".ghci",
