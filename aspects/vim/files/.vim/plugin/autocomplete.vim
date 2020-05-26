@@ -15,10 +15,9 @@ if has('autocmd')
 endif
 
 " Additional UltiSnips config.
-let g:UltiSnipsSnippetsDir = $HOME . '/.vim/ultisnips'
 let g:UltiSnipsSnippetDirectories = [
-      \ $HOME . '/.vim/ultisnips',
-      \ $HOME . '/.vim/ultisnips-private'
+      \   'ultisnips',
+      \   'ultisnips-private'
       \ ]
 
 if has('nvim')
