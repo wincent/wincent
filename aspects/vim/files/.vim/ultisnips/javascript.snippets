@@ -125,12 +125,10 @@ snippet log "console.log"
 console.log(${1});
 endsnippet
 
-snippet time "console.time"
-console.time('${1}');
-endsnippet
-
-snippet end "console.timeEnd"
-console.timeEnd('${1}');
+snippet time "console.time" b
+console.time('${1:label}');
+${VISUAL}$0
+console.timeEnd('$1');
 endsnippet
 
 snippet warn "console.warn"
