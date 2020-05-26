@@ -5,8 +5,8 @@
 let g:CommandTCancelMap=['<ESC>', '<C-c>']
 
 if &term =~# 'screen' || &term =~# 'tmux' || &term =~# 'xterm'
-  let g:CommandTSelectNextMap = ['<C-n>', '<C-j>', '<Down>', '<ESC>OB']
-  let g:CommandTSelectPrevMap = ['<C-p>', '<C-k>', '<Up>', '<ESC>OA']
+  let g:CommandTSelectNextMap = ['<C-j>', '<Down>', '<ESC>OB']
+  let g:CommandTSelectPrevMap = ['<C-k>', '<Up>', '<ESC>OA']
 endif
 
 let g:CommandTEncoding='UTF-8'
