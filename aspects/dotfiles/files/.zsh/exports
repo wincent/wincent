@@ -105,11 +105,11 @@ function () {
   #    --------------------- directory: blue, default
   #
 
-  local DIRECTORY="${BLUE}${DEFAULT}"
+  local DIRECTORY="${BOLD_LIGHT_GRAY}${DEFAULT}"
   local SYMBOLIC_LINK="${MAGENTA}${DEFAULT}"
   local SOCKET="${GREEN}${DEFAULT}"
   local PIPE="${BROWN}${DEFAULT}"
-  local EXECUTABLE="${RED}${DEFAULT}"
+  local EXECUTABLE="${BOLD_RED}${DEFAULT}"
   local BLOCK_SPECIAL="${BLUE}${CYAN}"
   local CHARACTER_SPECIAL="${BLUE}${BROWN}"
   local EXECUTABLE_SETGUID="${BLACK}${RED}"
