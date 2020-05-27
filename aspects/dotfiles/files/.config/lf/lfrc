@@ -1,2 +1,54 @@
+#
+# Settings
+#
+
+set color256
+
+# Would be nice to have equivalent of ranger's "set draw_borders separators"
+# (drawbox is too much).
+# set drawbox
+
+set incsearch
+
+set nodirfirst
+
+set previewer ~/.config/lf/pv.sh
+
 # Two columns.
 set ratios 3:4
+
+#
+# Mappings
+#
+
+# Muscle memory (from vim-vinegar): - = updir
+map - updir
+
+# Muscle memory (from mutt): u = [u]pdir
+map u updir
+
+map <enter> open
+
+# Muscle memory (from vim): move [i]nto of jump list.
+#
+# Terminal normally can't distinguish <C-I> from <Tab>; here, user
+# presses <C-I>, Karabiner sends <F6>.
+#
+# Not supported yet, but hoping it will be...
+#map <f-6> history-in
+#
+# Muscle memory (from vim): move [o]ut of jump list.
+#
+# Requires `stty discard undef` otherwise lf won't see C-O
+#map <c-o> history-out
+
+#
+# Commands
+#
+
+cmd open ${{
+  case $(file --mime-type $f -b) in
+    text/*) $EDITOR $fx;;
+    *) for f in $fx; do open $f & done;;
+  esac
+}}
