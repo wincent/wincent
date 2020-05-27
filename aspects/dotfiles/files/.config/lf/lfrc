@@ -47,7 +47,7 @@ map <enter> open
 #
 
 cmd open ${{
-  case $(file --mime-type $f -b) in
+  case $(file --brief --mime-type $f) in
     text/*) $EDITOR $fx;;
     *) for f in $fx; do open $f & done;;
   esac
