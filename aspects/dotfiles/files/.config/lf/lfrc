@@ -27,7 +27,7 @@ map - updir
 # TODO: consider making this a template so that we can make it platform-specific
 # and override easily
 map gc cd ~/code
-map gf $$OPENER $(dirname $f)
+map gf $test -d $f && $OPENER $f || $OPENER $(dirname $f)
 map gd cd ~/Downloads
 map gp cd ~/Pictures
 
