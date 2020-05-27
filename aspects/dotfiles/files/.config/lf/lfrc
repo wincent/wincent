@@ -30,6 +30,7 @@ map gc cd ~/code
 map gf $test -d $f && $OPENER $f || $OPENER $(dirname $f)
 map gd cd ~/Downloads
 map gp cd ~/Pictures
+map gr cd /
 
 # Muscle memory (from mutt): u = [u]pdir
 map u updir
