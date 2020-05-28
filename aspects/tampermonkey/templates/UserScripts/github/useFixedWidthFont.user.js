@@ -1,0 +1,27 @@
+// ==UserScript==
+// @name         Use a fixed-width font in GitHub textareas
+// @namespace    https://wincent.com/
+// @version      0.1
+// @description  Use a fixed-width font in GitHub textareas
+// @author       Greg Hurrell <greg@hurrell.net>
+// @match        https://github.com/*
+// @grant        none
+// @downloadURL  http://localhost/~<%= variables.username %>/github/useFixedWidthFont.user.js
+// @updateURL    http://localhost/~<%= variables.username %>/github/useFixedWidthFont.user.js
+// ==/UserScript==
+
+(function () {
+    'use strict';
+
+    const style = document.createElement('style');
+
+    style.innerHTML = `
+        .previewable-comment-form textarea {
+            font-family: 'Source Code Pro', monospace;
+        }
+    `;
+
+    document.head.appendChild(style);
+})();
+
+// <%= variables.figManaged %>
