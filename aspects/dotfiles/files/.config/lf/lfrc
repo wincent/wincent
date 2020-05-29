@@ -44,13 +44,17 @@ map <enter> open
 # Terminal normally can't distinguish <C-I> from <Tab>; here, user
 # presses <C-I>, Karabiner sends <F6>.
 #
-# Not supported yet, but hoping it will be...
-#map <f-6> history-in
+# Note that this is not a full stack, just the last-visited directory.
+# See: https://github.com/gokcehan/lf/issues/212
+map <f-6> :push ''
 #
 # Muscle memory (from vim): move [o]ut of jump list.
 #
 # Requires `stty discard undef` otherwise lf won't see C-O
-#map <c-o> history-out
+#
+# Note that this is not a full stack, just the last-visited directory.
+# See: https://github.com/gokcehan/lf/issues/212
+map <c-o> :push ''
 
 #
 # Commands
