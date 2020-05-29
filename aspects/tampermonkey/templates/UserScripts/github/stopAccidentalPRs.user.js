@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Stop accidental liferay/liferay-portal PRs
 // @namespace    https://wincent.com/
-// @version      0.8
+// @version      0.9
 // @description  Stop accidental liferay/liferay-portal PRs
 // @author       Greg Hurrell <greg@hurrell.net>
 // @match        https://github.com/liferay/liferay-portal/compare/*
