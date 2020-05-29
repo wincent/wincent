@@ -136,9 +136,9 @@
                     "Text": "[1;2A",
                     "Action": 10
                 },
-                "0xd-0x80000" : {
-                  "Action" : 11,
-                  "Text" : "0x1b 0x0a"
+                "0xd-0x80000": {
+                    "Action": 11,
+                    "Text": "0x1b 0x0a"
                 },
                 "0xf701-0x280000": {
                     "Text": "0x1b 0x1b 0x5b 0x42",
