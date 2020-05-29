@@ -31,6 +31,7 @@ map gf $test -d $f && $OPENER $f || $OPENER -R $f
 map gd cd ~/Downloads
 map gp cd ~/Pictures
 map gr cd /
+map gt broot
 
 # Muscle memory (from mutt): u = [u]pdir
 map u updir
@@ -53,6 +54,30 @@ map <enter> open
 #
 # Commands
 #
+
+# Based on `broot --print-shell-function bash`
+cmd broot ${{
+  outcmd=$(mktemp)
+  (
+    set +e
+    # TODO: set up custom --conf here instead of relying on implicit
+    # ~/Library/Preferences/org.dystroy.broot/conf.toml
+    # (or template/control that)
+    broot -f -h --outcmd "$outcmd"
+    code=$?
+    if [ "$code" != 0 ]; then
+      rm -f "$outcmd"
+      exit "$code"
+    fi
+  )
+  code=$?
+  if [ "$code" != 0 ]; then
+    return "$code"
+  fi
+  result=$(cat "$outcmd" | sed 's/^cd //')
+  rm -f "$outcmd"
+  lf -remote "send $id cd \"$result\""
+}}
 
 cmd open ${{
   case $(file --brief --mime-type $f) in
