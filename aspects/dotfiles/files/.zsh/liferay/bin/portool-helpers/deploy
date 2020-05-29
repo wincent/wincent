@@ -2,7 +2,7 @@
 
 # Helper to deploy a named module without having to navigate to it.
 
-ROOT=~/code/portal/liferay-portal
+source "${BASH_SOURCE%/*}/.common.sh"
 
 function deploy() {
   DIR=$1
@@ -32,7 +32,7 @@ if [ $# -eq 0 ]; then
   while true; do
     if [ -f "$DIR/build.gradle" ]; then
       MODULE=$(basename "$DIR")
-      LOCATION=$(realpath $DIR --relative-to="$ROOT")
+      LOCATION=$(realpath $DIR --relative-to="$PORTAL_ROOT")
       echo "✅ Found $MODULE at $LOCATION"
       deploy "$DIR"
       break
@@ -46,7 +46,7 @@ if [ $# -eq 0 ]; then
   done
 else
   # Try to find and build named modules.
-  cd "$ROOT"
+  cd "$PORTAL_ROOT"
 
   while (( "$#" )); do
     echo "⏱  Remaining modules to deploy: $#"

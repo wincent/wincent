@@ -2,6 +2,24 @@
 
 TOMCAT=tomcat-9.0.33
 
+if [[ $PWD = $HOME/code/portal-master* ]]; then
+  PORTAL_DB=lportal2_master
+  PORTAL_CONTEXT=$HOME/code/portal-master
+  PORTAL_ROOT=$PORTAL_CONTEXT/liferay-portal
+elif [[ $PWD = $HOME/code/portal-ee* ]]; then
+  PORTAL_DB=
+  PORTAL_CONTEXT=$HOME/code/portal-ee
+  PORTAL_ROOT=$PORTAL_CONTEXT/liferay-portal-ee
+elif [[ $PWD = $HOME/code/commerce* ]]; then
+  PORTAL_DB=lportal_commerce
+  PORTAL_CONTEXT=$HOME/code/commerce
+  PORTAL_ROOT=$PORTAL_CONTEXT/liferay-portal-ee
+else
+  PORTAL_DB=lportal_master
+  PORTAL_CONTEXT=$HOME/code/portal
+  PORTAL_ROOT=$PORTAL_CONTEXT/liferay-portal
+fi
+
 # Based on: https://stackoverflow.com/a/8351489/2103996
 backoff() {
   local max_attempts=${ATTEMPTS-5}

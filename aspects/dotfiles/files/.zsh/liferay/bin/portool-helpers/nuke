@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source "${BASH_SOURCE%/*}/.common.sh"
+
 NUKE_LEVEL=0
 
 while (( "$#" )); do
@@ -31,56 +33,38 @@ if [[ $NUKE_LEVEL == 0 ]]; then
   echo
 fi
 
-if [[ $PWD = $HOME/code/portal-master* ]]; then
-  DB=lportal2_master
-  BASE=$HOME/code/portal-master
-  FULL=$BASE/liferay-portal
-elif [[ $PWD = $HOME/code/portal-ee* ]]; then
-  DB=
-  BASE=$HOME/code/portal-ee
-  FULL=$BASE/liferay-portal-ee
-elif [[ $PWD = $HOME/code/commerce* ]]; then
-  DB=lportal_commerce
-  BASE=$HOME/code/commerce
-  FULL=$BASE/liferay-portal-ee
-else
-  DB=lportal_master
-  BASE=$HOME/code/portal
-  FULL=$BASE/liferay-portal
-fi
-
 if [[ $NUKE_LEVEL > 0 ]]; then
-  if [ -z "$DB" ]; then
+  if [ -z "$PORTAL_DB" ]; then
     echo "⏩ Skipping db deletion..."
   else
-    echo "☠️  Deleting db ($DB)..."
+    echo "☠️  Deleting db ($PORTAL_DB)..."
 
-    echo "set foreign_key_checks=1;" | (echo "select concat('drop table if exists ', table_name, ';') from information_schema.tables where table_schema='$DB';" | mysql -u root -B | tail -n +2 && cat;) | (echo "set foreign_key_checks=0;" && cat;) | mysql -u root "$DB"
+    echo "set foreign_key_checks=1;" | (echo "select concat('drop table if exists ', table_name, ';') from information_schema.tables where table_schema='$PORTAL_DB';" | mysql -u root -B | tail -n +2 && cat;) | (echo "set foreign_key_checks=0;" && cat;) | mysql -u root "$PORTAL_DB"
   fi
 fi
 
-TARGET="~${BASE#$HOME}"
+TARGET="~${PORTAL_CONTEXT#$HOME}"
 
 if [[ $NUKE_LEVEL > 1 ]]; then
   echo "💥 Cleaning up temporary files in $TARGET..."
 
-  rm -rf "$BASE/bundles/osgi/state" \
-         "$BASE/bundles/data" \
-         "$BASE/bundles/tomcat-*/work"
+  rm -rf "$PORTAL_CONTEXT/bundles/osgi/state" \
+         "$PORTAL_CONTEXT/bundles/data" \
+         "$PORTAL_CONTEXT/bundles/tomcat-*/work"
 fi
 
 if [[ $NUKE_LEVEL > 2 ]]; then
   echo "☢️  \"git clean\"-ing $TARGET..."
 
-  (cd "$FULL" && git clean -fdx -e 'build.*.properties' -e 'app.server.*.properties')
+  (cd "$PORTAL_ROOT" && git clean -fdx -e 'build.*.properties' -e 'app.server.*.properties')
 fi
 
 if [[ $NUKE_LEVEL > 3 ]]; then
   echo "☢️  \"git clean\"-ing $TARGET..."
 
-  (cd "$FULL" && git clean -fdx)
+  (cd "$PORTAL_ROOT" && git clean -fdx)
 
-  if [ $BASE = $HOME/code/portal ]; then
+  if [ $PORTAL_CONTEXT = $HOME/code/portal ]; then
     echo
     read -p "Do you want to run \`portool setup\` to restore properties files? " -n 1 -r
     echo
