@@ -75,22 +75,22 @@ invocation = "view"
 execution = "$PAGER {file}"
 
 # A popular set of shorctuts for going up and down:
-#
-# [[verbs]]
-# key = "ctrl-j"
-# execution = ":line_down"
-#
-# [[verbs]]
-# key = "ctrl-k"
-# execution = ":line_up"
-#
-# [[verbs]]
-# key = "ctrl-d"
-# execution = ":page_down"
-#
-# [[verbs]]
-# key = "ctrl-u"
-# execution = ":page_up"
+
+[[verbs]]
+key = "ctrl-j"
+execution = ":line_down"
+
+[[verbs]]
+key = "ctrl-k"
+execution = ":line_up"
+
+[[verbs]]
+key = "ctrl-d"
+execution = ":page_down"
+
+[[verbs]]
+key = "ctrl-u"
+execution = ":page_up"
 
 # If you develop using git, you might like to often switch
 # to the "git status" filter:

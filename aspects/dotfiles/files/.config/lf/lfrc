@@ -60,10 +60,8 @@ cmd broot ${{
   outcmd=$(mktemp)
   (
     set +e
-    # TODO: set up custom --conf here instead of relying on implicit
-    # ~/Library/Preferences/org.dystroy.broot/conf.toml
-    # (or template/control that)
-    broot -f -h --outcmd "$outcmd"
+    # TODO: consider templating this for more control
+    broot -f -h --conf ~/.config/lf/broot.toml --outcmd "$outcmd"
     code=$?
     if [ "$code" != 0 ]; then
       rm -f "$outcmd"
