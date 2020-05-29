@@ -31,7 +31,8 @@ map gf $test -d $f && $OPENER $f || $OPENER -R $f
 map gd cd ~/Downloads
 map gp cd ~/Pictures
 map gr cd /
-map gt broot
+map gT broot
+map gt skim
 
 # Muscle memory (from mutt): u = [u]pdir
 map u updir
@@ -82,4 +83,9 @@ cmd open ${{
     text/*) $EDITOR $fx;;
     *) for f in $fx; do open $f & done;;
   esac
+}}
+
+cmd skim ${{
+  DIR=$(bfs -type d 2> /dev/null | sk --no-multi)
+  lf -remote "send $id cd \"$DIR\""
 }}
