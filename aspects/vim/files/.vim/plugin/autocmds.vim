@@ -59,7 +59,7 @@ if has('autocmd')
       autocmd BufFilePost,BufNewFile,BufReadPost * call wincent#autocmds#apply_overrides()
 
       if exists('##TextYankPost')
-        autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank('Substitute', 200)
+        autocmd TextYankPost * silent! lua return (not vim.v.event.visual) and require'vim.highlight'.on_yank('Substitute', 200)
       endif
     augroup END
   endfunction
