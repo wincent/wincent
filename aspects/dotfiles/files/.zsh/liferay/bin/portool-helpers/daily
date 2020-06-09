@@ -81,7 +81,7 @@ for TARGET in "${TARGETS[@]}"; do
         git remote update --prune &&
         git checkout master &&
         git pull --ff-only upstream master &&
-        git push origin +brianchandotcom/master:master &&
+        git push origin +brianchandotcom/master:master +brianchandotcom/master:temp &&
         ant setup-profile-dxp &&
         ant all &&
         git tag "daily/portal/good/$(date +%Y-%m-%d)" &&
