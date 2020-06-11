@@ -50,6 +50,14 @@ function! corpus#commit(file, operation) abort
   let l:file=fnamemodify(a:file, ':t:r')
   let l:location=expand(l:config.location)
 
+  " Just in case this is a new file (otherwise `git commit` will fail).
+  call system(
+        \   'git -C ' .
+        \   shellescape(l:location) .
+        \   ' add -- ' .
+        \   shellescape(a:file)
+        \ )
+
   " Note that this will fail silently if there are no changes to file (because
   " we aren't passing `--allow-empty`) and that's ok.
   call system(
