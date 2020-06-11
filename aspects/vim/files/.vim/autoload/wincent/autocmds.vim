@@ -340,9 +340,17 @@ function! wincent#autocmds#editorconfig(file) abort
   " Make absolute path.
   let l:path=fnamemodify(a:file, ':p')
 
+  " Beware of crafty "file" names like, "fugitive:///Users/glh/example.txt"
+  if l:path[0] != '/'
+    return []
+  endif
+
   while 1
     " Get dirname.
     let l:path=fnamemodify(l:path, ':h')
+    if l:path == '/'
+      let l:path=''
+    endif
     let l:candidate=l:path . '/.editorconfig'
     if filereadable(l:candidate)
       break
