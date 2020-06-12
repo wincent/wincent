@@ -22,7 +22,6 @@
     `;
 
     document.head.appendChild(style);
-
 })();
 
 // <%= variables.figManaged %>
