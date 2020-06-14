@@ -15,6 +15,65 @@ export function bundleIdentifier(identifier) {
     return '^' + identifier.replace(/\./g, '\\.') + '$';
 }
 
+/**
+ * For a given Colemak key (ie. the key I "think" I'm pressing), return
+ * the corresponding Qwerty key on the physical keyboard (ie. the key
+ * Karabiner-Elements needs to manipulate).
+ */
+function colemak(key) {
+    return (
+        {
+            d: 'g',
+            e: 'k',
+            f: 'e',
+            g: 't',
+            i: 'l',
+            j: 'y',
+            k: 'n',
+            l: 'u',
+            n: 'j',
+            o: 'semicolon',
+            p: 'r',
+            r: 's',
+            s: 'd',
+            semicolon: 'p',
+            t: 'f',
+            u: 'i',
+            y: 'o',
+        }[key] || key
+    );
+}
+
+function launch(from, ...args) {
+    return [
+        {
+            from: {
+                simultaneous: [
+                    {
+                        key_code: colemak('o'), // mnemonic: "[o]pen")
+                    },
+                    {
+                        key_code: from,
+                    },
+                ],
+                simultaneous_options: {
+                    key_down_order: 'strict',
+                    key_up_order: 'strict_inverse',
+                },
+            },
+            parameters: {
+                'basic.simultaneous_threshold_milliseconds': 500 /* Default: 1000 */,
+            },
+            to: [
+                {
+                    shell_command: ['open', ...args].join(' '),
+                },
+            ],
+            type: 'basic',
+        },
+    ];
+}
+
 function spaceFN(from, to) {
     return [
         {
@@ -288,6 +347,52 @@ const DEFAULT_PROFILE = applyExemptions({
             'basic.to_if_alone_timeout_milliseconds': 500 /* Default: 1000 */,
         },
         rules: [
+            {
+                description: 'Launcher',
+                manipulators: [
+                    ...launch(
+                        colemak('b' /* [b]rowser */),
+                        '-b',
+                        'com.google.Chrome'
+                    ),
+                    ...launch(
+                        colemak('c' /* [c]alendar */),
+                        '-b',
+                        'com.flexibits.fantastical2.mac'
+                    ),
+                    ...launch(
+                        colemak('d' /* [d]ownloads */),
+                        '-b',
+                        'com.apple.Finder',
+                        '~/Downloads'
+                    ),
+                    ...launch(
+                        colemak('f' /* [F]inder */),
+                        '-b',
+                        'com.apple.Finder'
+                    ),
+                    ...launch(
+                        colemak('l' /* Todo-[l]ist */),
+                        '-b',
+                        'com.culturedcode.ThingsMac'
+                    ),
+                    ...launch(
+                        colemak('p' /* [p]asswords */),
+                        '-b',
+                        'com.agilebits.onepassword7'
+                    ),
+                    ...launch(
+                        colemak('s' /* [S]lack */),
+                        '-b',
+                        'com.tinyspeck.slackmacgap'
+                    ),
+                    ...launch(
+                        colemak('t' /* [t]erminal */),
+                        '-b',
+                        'com.googlecode.iterm2'
+                    ),
+                ],
+            },
             {
                 description: 'SpaceFN layer',
                 manipulators: [
