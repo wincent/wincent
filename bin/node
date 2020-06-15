@@ -6,4 +6,4 @@ REPO_ROOT="${BASH_SOURCE%/*}/.."
 
 source "$REPO_ROOT/bin/common"
 
-n run latest "$@"
+n run "$NODE_VERSION" "$@"

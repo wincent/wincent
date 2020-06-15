@@ -18,6 +18,8 @@ REPO_ROOT=$(cd "${BASH_SOURCE%/*}/.." && pwd)
 
 BIN_DIR="$REPO_ROOT/bin"
 
+NODE_VERSION=14.4.0
+
 export PATH="$BIN_DIR":$PATH
 
 # https://stackoverflow.com/a/5947802/2103996
