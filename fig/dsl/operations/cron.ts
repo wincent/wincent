@@ -76,11 +76,11 @@ export default async function cron({
 
     let crontab = jobs
         .flatMap(({id: jobId, entry: entryBody}) => {
-            if (id === jobId) {
-                if (state === 'present') {
-                    return [`# fig-cron-job-id: ${id}`, entry];
+            if (jobId) {
+                if (jobId === id) {
+                    return [`# fig-cron-job-id: ${jobId}`, entry];
                 } else {
-                    return undefined;
+                    return [`# fig-cron-job-id: ${jobId}`, entryBody];
                 }
             } else {
                 return entryBody;
