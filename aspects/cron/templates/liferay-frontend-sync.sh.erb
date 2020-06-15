@@ -23,7 +23,7 @@ if [ -e "$LOCK_FILE" ]; then
   exit
 fi
 
-trap "rm -f \"$LOCK_FILE\"; exit" EXIT SIGINT SIGTERM
+trap "rm -f \"$LOCK_FILE\"; log 'exiting due to trap'; exit" EXIT SIGINT SIGTERM
 
 touch "$LOCK_FILE"
 
@@ -61,3 +61,6 @@ else
   $GIT -C "$LOCAL_REPO" push origin +upstream/master:master
   log "updated remote $($GIT rev-parse --short upstream/master)"
 fi
+
+rm -f "$LOCK_FILE"
+trap - EXIT SIGINT SIGTERM
