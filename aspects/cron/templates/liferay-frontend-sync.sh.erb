@@ -49,7 +49,7 @@ fi
 
 if [ ! -d "$LOCAL_REPO" ]; then
   $GIT clone "$REMOTE_REPO" "$LOCAL_REPO"
-  $GIT -C "$LOCAL_REPO" remote add upstream "$REMOTE_REPO"
+  $GIT -C "$LOCAL_REPO" remote add upstream "$UPSTREAM_REPO"
   log "cloned $REMOTE_REPO to $LOCAL_REPO"
 fi
 
