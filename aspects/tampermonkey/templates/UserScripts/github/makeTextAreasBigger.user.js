@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Make GitHub PR textareas bigger
 // @namespace    https://wincent.com/
-// @version      0.6
+// @version      0.7
 // @description  Make GitHub PR textareas bigger
 // @author       Greg Hurrell <greg@hurrell.net>
 // @match        https://github.com/*
@@ -18,7 +18,7 @@
     style.innerHTML = `
         .previewable-comment-form textarea {
             min-height: 300px; /* normally 100px, which is ridiculous */
-            max-height: 600px; /* normally 500px */
+            max-height: none; /* normally 500px */
         }
     `;
 
