@@ -50,7 +50,7 @@ function launch(from, ...args) {
             from: {
                 simultaneous: [
                     {
-                        key_code: colemak('o'), // mnemonic: "[o]pen")
+                        key_code: colemak('n'), // mnemonic: "[n]ow", "[n]ew")
                     },
                     {
                         key_code: from,
@@ -351,30 +351,20 @@ const DEFAULT_PROFILE = applyExemptions({
                 description: 'Launcher',
                 manipulators: [
                     ...launch(
-                        colemak('b' /* [b]rowser */),
+                        colemak('c' /* [C]hrome */),
                         '-b',
                         'com.google.Chrome'
                     ),
                     ...launch(
-                        colemak('c' /* [c]alendar */),
+                        colemak('d' /* To[d]o */),
                         '-b',
-                        'com.flexibits.fantastical2.mac'
-                    ),
-                    ...launch(
-                        colemak('d' /* [d]ownloads */),
-                        '-b',
-                        'com.apple.Finder',
-                        '~/Downloads'
+                        'com.culturedcode.ThingsMac'
                     ),
                     ...launch(
                         colemak('f' /* [F]inder */),
                         '-b',
-                        'com.apple.Finder'
-                    ),
-                    ...launch(
-                        colemak('l' /* Todo-[l]ist */),
-                        '-b',
-                        'com.culturedcode.ThingsMac'
+                        'com.apple.Finder',
+                        '~/Downloads'
                     ),
                     ...launch(
                         colemak('p' /* [p]asswords */),
@@ -390,6 +380,11 @@ const DEFAULT_PROFILE = applyExemptions({
                         colemak('t' /* [t]erminal */),
                         '-b',
                         'com.googlecode.iterm2'
+                    ),
+                    ...launch(
+                        colemak('w' /* [w]eek */),
+                        '-b',
+                        'com.flexibits.fantastical2.mac'
                     ),
                 ],
             },
