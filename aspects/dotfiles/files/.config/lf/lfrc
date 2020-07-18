@@ -44,21 +44,76 @@ map <enter> open
 # Terminal normally can't distinguish <C-I> from <Tab>; here, user
 # presses <C-I>, Karabiner sends <F6>.
 #
-# Note that this is not a full stack, just the last-visited directory.
 # See: https://github.com/gokcehan/lf/issues/212
-map <f-6> :push ''
+map <f-6> jump-in
 #
 # Muscle memory (from vim): move [o]ut of jump list.
 #
 # Requires `stty discard undef` otherwise lf won't see C-O
 #
-# Note that this is not a full stack, just the last-visited directory.
 # See: https://github.com/gokcehan/lf/issues/212
-map <c-o> :push ''
+map <c-o> jump-out
 
 #
 # Commands
 #
+
+${{
+  JUMP_LIST=~/.config/lf/jump-list.$id
+  JUMP_INDEX=~/.config/lf/jump-index.$id
+  JUMPING=~/.config/lf/jumping.$id
+  $pwd >> $JUMP_LIST
+  uniq $JUMP_LIST $JUMP_LIST.uniq
+  mv $JUMP_LIST.uniq $JUMP_LIST
+  cat $JUMP_LIST | wc -l | sed -e 's/ //g' > $JUMP_INDEX
+  rm -f $JUMPING
+}}
+
+cmd jump-in ${{
+  JUMP_LIST=~/.config/lf/jump-list.$id
+  JUMP_INDEX=~/.config/lf/jump-index.$id
+  INDEX=$(expr `cat $JUMP_INDEX` + 1)
+  MAX=$(cat $JUMP_LIST | wc -l)
+  if [ $INDEX -le $MAX ]; then
+    echo $INDEX > $JUMP_INDEX
+    touch ~/.config/lf/jumping.$id
+
+    # https://stackoverflow.com/a/6022431/2103996
+    TARGET=$(sed "${INDEX}q;d" $JUMP_LIST)
+    lf -remote "send $id cd \"$TARGET\""
+  fi
+}}
+
+cmd jump-out ${{
+  JUMP_LIST=~/.config/lf/jump-list.$id
+  JUMP_INDEX=~/.config/lf/jump-index.$id
+  INDEX=$(expr `cat $JUMP_INDEX` - 1)
+  if [ $INDEX -gt 0 ]; then
+    echo $INDEX > $JUMP_INDEX
+    touch ~/.config/lf/jumping.$id
+
+    # https://stackoverflow.com/a/6022431/2103996
+    TARGET=$(sed "${INDEX}q;d" $JUMP_LIST)
+    lf -remote "send $id cd \"$TARGET\""
+  fi
+}}
+
+cmd on-cd &{{
+  JUMP_LIST=~/.config/lf/jump-list.$id
+  JUMP_INDEX=~/.config/lf/jump-index.$id
+  JUMPING=~/.config/lf/jumping.$id
+  if [ -e $JUMPING ]; then
+    # If jumping, just move.
+    rm $JUMPING
+  else
+    # Otherwise, truncate jump list at current index and record new directory.
+    head -n $(cat $JUMP_INDEX) $JUMP_LIST > $JUMP_LIST.new
+    pwd >> $JUMP_LIST.new
+    mv $JUMP_LIST.new $JUMP_LIST
+    INDEX=$(expr `cat $JUMP_LIST | wc -l`)
+    echo $INDEX > $JUMP_INDEX
+  fi
+}}
 
 # Based on `broot --print-shell-function bash`
 cmd broot ${{
