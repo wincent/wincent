@@ -189,3 +189,6 @@
 [submodule "nvim-lsp"]
 	path = aspects/vim/files/.vim/pack/bundle/opt/nvim-lsp
 	url = https://github.com/neovim/nvim-lsp.git
+[submodule "corpus"]
+	path = aspects/vim/files/.vim/pack/bundle/opt/corpus
+	url = https://github.com/wincent/corpus.git
