@@ -58,7 +58,8 @@ export LESSPROMPT='?f%f .?ltLine %lt:?pt%pt\%:?btByte %bt:-...'
 # M = verbose prompt
 # R = ANSI color support
 # X = suppress alternate screen
-export LESS=-iFMRX
+# -#.25 = scroll horizontally by quarter of screen width (default is half)
+export LESS="-iFMRX -#.25"
 
 # Color man pages.
 export LESS_TERMCAP_mb=$'\E[01;31m'
