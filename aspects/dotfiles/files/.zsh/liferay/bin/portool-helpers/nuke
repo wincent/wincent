@@ -33,6 +33,8 @@ if [[ $NUKE_LEVEL == 0 ]]; then
   echo
 fi
 
+# TODO: update this so it works in liferay-portal-ee/7.2.x (etc) worktrees
+
 if [[ $NUKE_LEVEL > 0 ]]; then
   if [ -z "$PORTAL_DB" ]; then
     echo "⏩ Skipping db deletion..."
