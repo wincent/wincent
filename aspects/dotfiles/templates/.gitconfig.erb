@@ -64,9 +64,9 @@
 
 	wc = whatchanged
 
-	# similar to whatchanged, but gives a dir-level overview (takes param to
-	# diff against; defaults to HEAD if not provided)
-	wd = !git --paginate diff --dirstat=cumulative,files,0
+	# similar to whatchanged, but gives a dir-level overview:
+	# usage: git wd [diff-against=HEAD] [max-depth=4]
+	wd = "!f() { git --paginate diff --dirstat=cumulative,files,0 ${1:-HEAD} | awk '{print $2}' | cut -d / -f1-${2:-4} | sort | uniq; }; f"
 
 [branch]
 	autosetupmerge = always
