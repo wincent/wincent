@@ -418,10 +418,6 @@ const DEFAULT_PROFILE = applyExemptions({
                                     key_code: 'return_or_enter',
                                 },
                             ],
-                            simultaneous_options: {
-                                key_down_order: 'insensitive',
-                                key_up_order: 'insensitive',
-                            },
                         },
                         to: [
                             {
@@ -573,10 +569,6 @@ const DEFAULT_PROFILE = applyExemptions({
                                     key_code: 'right_shift',
                                 },
                             ],
-                            simultaneous_options: {
-                                key_down_order: 'insensitive',
-                                key_up_order: 'insensitive',
-                            },
                         },
                         to: [
                             {
