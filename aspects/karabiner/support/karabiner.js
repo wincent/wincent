@@ -45,36 +45,33 @@ function colemak(key) {
 }
 
 function launch(from, ...args) {
-    return (
-        [
-            {
-                from: {
-                    simultaneous: [
-                        {
-                            key_code: colemak('n'), // mnemonic: "[n]ow", "[n]ew")
-                        },
-                        {
-                            key_code: from,
-                        },
-                    ],
-                    simultaneous_options: {
-                        key_down_order: 'strict',
-                        key_up_order: 'strict_inverse',
-                    },
-                },
-                parameters: {
-                    'basic.simultaneous_threshold_milliseconds': 500 /* Default: 1000 */,
-                },
-                to: [
+    return [
+        {
+            from: {
+                simultaneous: [
                     {
-                        shell_command: ['open', ...args].join(' '),
+                        key_code: colemak('n'), // mnemonic: "[n]ow", "[n]ew")
+                    },
+                    {
+                        key_code: from,
                     },
                 ],
-                type: 'basic',
+                simultaneous_options: {
+                    key_down_order: 'strict',
+                    key_up_order: 'strict_inverse',
+                },
             },
-        ],
-        [] /* <-- NOTE: disable for now */
-    );
+            parameters: {
+                'basic.simultaneous_threshold_milliseconds': 500 /* Default: 1000 */,
+            },
+            to: [
+                {
+                    shell_command: ['open', ...args].join(' '),
+                },
+            ],
+            type: 'basic',
+        },
+    ];
 }
 
 function spaceFN(from, to) {
@@ -350,47 +347,47 @@ const DEFAULT_PROFILE = applyExemptions({
             'basic.to_if_alone_timeout_milliseconds': 500 /* Default: 1000 */,
         },
         rules: [
-            {
-                description: 'Launcher',
-                manipulators: [
-                    ...launch(
-                        colemak('c' /* [C]hrome */),
-                        '-b',
-                        'com.google.Chrome'
-                    ),
-                    ...launch(
-                        colemak('d' /* To[d]o */),
-                        '-b',
-                        'com.culturedcode.ThingsMac'
-                    ),
-                    ...launch(
-                        colemak('f' /* [F]inder */),
-                        '-b',
-                        'com.apple.Finder',
-                        '~/Downloads'
-                    ),
-                    ...launch(
-                        colemak('p' /* [p]asswords */),
-                        '-b',
-                        'com.agilebits.onepassword7'
-                    ),
-                    ...launch(
-                        colemak('s' /* [S]lack */),
-                        '-b',
-                        'com.tinyspeck.slackmacgap'
-                    ),
-                    ...launch(
-                        colemak('t' /* [t]erminal */),
-                        '-b',
-                        'com.googlecode.iterm2'
-                    ),
-                    ...launch(
-                        colemak('w' /* [w]eek */),
-                        '-b',
-                        'com.flexibits.fantastical2.mac'
-                    ),
-                ],
-            },
+            // {
+            //     description: 'Launcher',
+            //     manipulators: [
+            //         ...launch(
+            //             colemak('c' /* [C]hrome */),
+            //             '-b',
+            //             'com.google.Chrome'
+            //         ),
+            //         ...launch(
+            //             colemak('d' /* To[d]o */),
+            //             '-b',
+            //             'com.culturedcode.ThingsMac'
+            //         ),
+            //         ...launch(
+            //             colemak('f' /* [F]inder */),
+            //             '-b',
+            //             'com.apple.Finder',
+            //             '~/Downloads'
+            //         ),
+            //         ...launch(
+            //             colemak('p' /* [p]asswords */),
+            //             '-b',
+            //             'com.agilebits.onepassword7'
+            //         ),
+            //         ...launch(
+            //             colemak('s' /* [S]lack */),
+            //             '-b',
+            //             'com.tinyspeck.slackmacgap'
+            //         ),
+            //         ...launch(
+            //             colemak('t' /* [t]erminal */),
+            //             '-b',
+            //             'com.googlecode.iterm2'
+            //         ),
+            //         ...launch(
+            //             colemak('w' /* [w]eek */),
+            //             '-b',
+            //             'com.flexibits.fantastical2.mac'
+            //         ),
+            //     ],
+            // },
             {
                 description: 'SpaceFN layer',
                 manipulators: [
