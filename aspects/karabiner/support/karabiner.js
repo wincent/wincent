@@ -71,7 +71,7 @@ function launch(from, ...args) {
             ],
             type: 'basic',
         },
-    ];
+    ], [] /* <-- NOTE: disable for now */;
 }
 
 function spaceFN(from, to) {
