@@ -45,33 +45,36 @@ function colemak(key) {
 }
 
 function launch(from, ...args) {
-    return [
-        {
-            from: {
-                simultaneous: [
-                    {
-                        key_code: colemak('n'), // mnemonic: "[n]ow", "[n]ew")
+    return (
+        [
+            {
+                from: {
+                    simultaneous: [
+                        {
+                            key_code: colemak('n'), // mnemonic: "[n]ow", "[n]ew")
+                        },
+                        {
+                            key_code: from,
+                        },
+                    ],
+                    simultaneous_options: {
+                        key_down_order: 'strict',
+                        key_up_order: 'strict_inverse',
                     },
+                },
+                parameters: {
+                    'basic.simultaneous_threshold_milliseconds': 500 /* Default: 1000 */,
+                },
+                to: [
                     {
-                        key_code: from,
+                        shell_command: ['open', ...args].join(' '),
                     },
                 ],
-                simultaneous_options: {
-                    key_down_order: 'strict',
-                    key_up_order: 'strict_inverse',
-                },
+                type: 'basic',
             },
-            parameters: {
-                'basic.simultaneous_threshold_milliseconds': 500 /* Default: 1000 */,
-            },
-            to: [
-                {
-                    shell_command: ['open', ...args].join(' '),
-                },
-            ],
-            type: 'basic',
-        },
-    ], [] /* <-- NOTE: disable for now */;
+        ],
+        [] /* <-- NOTE: disable for now */
+    );
 }
 
 function spaceFN(from, to) {
