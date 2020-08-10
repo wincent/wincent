@@ -579,6 +579,32 @@ const DEFAULT_PROFILE = applyExemptions({
                     },
                 ],
             },
+            {
+                description: 'Equals plus delete together to forward delete',
+                manipulators: [
+                    {
+                        from: {
+                            modifiers: {
+                                optional: ['any'],
+                            },
+                            simultaneous: [
+                                {
+                                    key_code: 'equal_sign',
+                                },
+                                {
+                                    key_code: 'delete_or_backspace',
+                                },
+                            ],
+                        },
+                        to: [
+                            {
+                                key_code: 'delete_forward',
+                            },
+                        ],
+                        type: 'basic',
+                    },
+                ],
+            },
         ],
     },
     devices: [REALFORCE, APPLE_INTERNAL_US, APPLE_INTERNAL_ES],
