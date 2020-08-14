@@ -310,7 +310,11 @@ export function visit(item, path, updater) {
     }
 }
 
-const EXEMPTIONS = ['com.factorio', 'com.feralinteractive.dirtrally'];
+const EXEMPTIONS = [
+    'com.factorio',
+    'com.feralinteractive.dirtrally',
+    'org.ioquake.ioquake3',
+];
 
 function applyExemptions(profile) {
     const exemptions = {
