@@ -16,7 +16,7 @@ if [ "$HOSTNAME:u" = 'LFRW044' -o "$HOSTNAME:l" = 'retiro' ]; then
     local PORTAL=~/code/portal/liferay-portal
     local DEPLOY=~/code/portal/bundles/deploy
     local MODULES=~/code/portal/liferay-portal/modules
-    local TOMCAT=~/code/portal/bundles/tomcat-9.0.33
+    local TOMCAT=~/code/portal/bundles/tomcat-9.0.37
 
     test -d "$ALLOY_EDITOR" && hash -d alloy="$ALLOY_EDITOR"
     test -d "$CKEDITOR" && hash -d ckeditor="$CKEDITOR"
