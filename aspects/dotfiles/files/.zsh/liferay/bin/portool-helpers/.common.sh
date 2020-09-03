@@ -20,6 +20,8 @@ else
   PORTAL_ROOT=$PORTAL_CONTEXT/liferay-portal
 fi
 
+PORTAL_BUNDLES=$PORTAL_CONTEXT/bundles
+
 # Based on: https://stackoverflow.com/a/8351489/2103996
 backoff() {
   local max_attempts=${ATTEMPTS-5}

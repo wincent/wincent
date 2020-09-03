@@ -2,8 +2,7 @@
 
 source "${BASH_SOURCE%/*}/.common.sh"
 
-BUNDLES="$HOME/code/portal/bundles"
-PROPERTIES="$BUNDLES/portal-ext.properties"
+PROPERTIES=$PORTAL_BUNDLES/portal-ext.properties
 
 case "$1" in
   b|bu|bun|bund|bundl|bundle)
@@ -19,17 +18,16 @@ case "$1" in
 
     echo "🔎 Launching tomcat with bundle settings"
     BUNDLES=$PWD
-    SOURCE=$BUNDLES/portal-ext.properties.bundle
-    PROPERTIES=$BUNDLES/portal-ext.properties
+    SOURCE=~/code/portal/bundles/portal-ext.properties.bundle
     ln -sf "$SOURCE" "$PROPERTIES"
           ;;
   dev|deve|devel|develo|develop|developm|developme|developmen|development)
     echo "🐢 Launching tomcat with dev settings"
-    ln -sf "$BUNDLES/portal-ext.properties.dev" "$PROPERTIES"
+    ln -sf "$PORTAL_BUNDLES/portal-ext.properties.dev" "$PROPERTIES"
           ;;
   prod|produ|produc|product|producti|productio|production)
     echo "🏎  Launching tomcat with prod settings"
-    ln -sf "$BUNDLES/portal-ext.properties.prod" "$PROPERTIES"
+    ln -sf "$PORTAL_BUNDLES/portal-ext.properties.prod" "$PROPERTIES"
           ;;
   *)
     if [ -L "$PROPERTIES" ]; then
@@ -39,4 +37,4 @@ case "$1" in
     ;;
 esac
 
-$BUNDLES/$TOMCAT/bin/catalina.sh run
+$PORTAL_BUNDLES/$TOMCAT/bin/catalina.sh run
