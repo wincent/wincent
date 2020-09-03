@@ -4,12 +4,13 @@
 
 set -e
 
-PROPERTIES="${BASH_SOURCE%/*}/properties"
-BUNDLES="$HOME/code/portal/bundles"
+TEMPLATES="${BASH_SOURCE%/*}/properties"
 PORTAL="$HOME/code/portal/liferay-portal"
+PORTAL_BUNDLES="$HOME/code/portal/bundles"
 MASTER="$HOME/code/portal-master/liferay-portal"
+MASTER_BUNDLES="$HOME/code/portal-master/bundles"
 
-mkdir -p "$BUNDLES" "$PORTAL"
+mkdir -p "$MASTER" "$MASTER_BUNDLES" "$PORTAL" "$PORTAL_BUNDLES"
 
 template() {
   SOURCE=$1; shift
@@ -26,22 +27,59 @@ template() {
   cat <(echo "# vim: set nomodifiable : edit $SOURCE instead then run \`portool setup\`, or use \`:set modifiable\` to force."; echo) <(sed -e "$FILTER" "$SOURCE") > "$DEST"
 }
 
+#
+# ~/code/portal/liferay-portal
+#
+
 VARS=(
   __DB__ lportal_master
   __GOGOSHELL_PORT__ 11311
 )
 
 template \
-  "$PROPERTIES/portal-ext.properties.dev" \
-  "$BUNDLES/portal-ext.properties.dev" \
+  "$TEMPLATES/portal-ext.properties.dev" \
+  "$PORTAL_BUNDLES/portal-ext.properties.dev" \
   "${VARS[@]}"
 
 template \
-  "$PROPERTIES/portal-ext.properties.prod" \
-  "$BUNDLES/portal-ext.properties.prod" \
+  "$TEMPLATES/portal-ext.properties.prod" \
+  "$PORTAL_BUNDLES/portal-ext.properties.prod" \
   "${VARS[@]}"
 
-ln -sf "$BUNDLES/portal-ext.properties.dev" "$BUNDLES/portal-ext.properties"
+ln -sf "$PORTAL_BUNDLES/portal-ext.properties.dev" "$PORTAL_BUNDLES/portal-ext.properties"
+
+template "$TEMPLATES/app.server.properties" "$PORTAL/app.server.$USER.properties"
+
+template "$TEMPLATES/build.properties" "$PORTAL/build.$USER.properties"
+
+#
+# ~/code/portal-master/liferay-portal
+#
+
+VARS=(
+  __DB__ lportal2_master
+  __GOGOSHELL_PORT__ 11312
+)
+
+template \
+  "$TEMPLATES/portal-ext.properties.dev" \
+  "$MASTER_BUNDLES/portal-ext.properties.dev" \
+  "${VARS[@]}"
+
+template \
+  "$TEMPLATES/portal-ext.properties.prod" \
+  "$MASTER_BUNDLES/portal-ext.properties.prod" \
+  "${VARS[@]}"
+
+ln -sf "$MASTER_BUNDLES/portal-ext.properties.dev" "$MASTER_BUNDLES/portal-ext.properties"
+
+template "$TEMPLATES/app.server.properties" "$MASTER/app.server.$USER.properties"
+
+template "$TEMPLATES/build.properties" "$MASTER/build.$USER.properties"
+
+#
+# ci:test:bundle artifacts
+#
 
 VARS=(
   __DB__ lportal_bundle
@@ -49,13 +87,6 @@ VARS=(
 )
 
 template \
-  "$PROPERTIES/portal-ext.properties.prod" \
-  "$BUNDLES/portal-ext.properties.bundle" \
+  "$TEMPLATES/portal-ext.properties.prod" \
+  "$PORTAL_BUNDLES/portal-ext.properties.bundle" \
   "${VARS[@]}"
-
-template "$PROPERTIES/app.server.properties" "$PORTAL/app.server.$USER.properties"
-template "$PROPERTIES/app.server.properties" "$MASTER/app.server.$USER.properties"
-
-template "$PROPERTIES/build.properties" "$PORTAL/build.$USER.properties"
-template "$PROPERTIES/build.properties" "$MASTER/build.$USER.properties"
-
