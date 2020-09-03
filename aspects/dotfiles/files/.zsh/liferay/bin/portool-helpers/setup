@@ -11,20 +11,51 @@ MASTER="$HOME/code/portal-master/liferay-portal"
 
 mkdir -p "$BUNDLES" "$PORTAL"
 
-copy() {
-  SOURCE=$1
-  DEST=$2
+template() {
+  SOURCE=$1; shift
+  DEST=$1; shift
 
-  cat <(echo "# vim: set nomodifiable : edit $SOURCE instead then run \`portool setup\`, or use \`:set modifiable\` to force."; echo) "$SOURCE" > "$DEST"
+  FILTER=''
+
+  while(($#)) ; do
+    PATTERN=$1; shift
+    REPLACEMENT=$1; shift
+    FILTER+="s/$PATTERN/$REPLACEMENT/;"
+  done
+
+  cat <(echo "# vim: set nomodifiable : edit $SOURCE instead then run \`portool setup\`, or use \`:set modifiable\` to force."; echo) <(sed -e "$FILTER" "$SOURCE") > "$DEST"
 }
 
-copy "$PROPERTIES/portal-ext.properties.dev" "$BUNDLES/portal-ext.properties.dev"
-copy "$PROPERTIES/portal-ext.properties.prod" "$BUNDLES/portal-ext.properties.prod"
+VARS=(
+  __DB__ lportal_master
+  __GOGOSHELL_PORT__ 11311
+)
+
+template \
+  "$PROPERTIES/portal-ext.properties.dev" \
+  "$BUNDLES/portal-ext.properties.dev" \
+  "${VARS[@]}"
+
+template \
+  "$PROPERTIES/portal-ext.properties.prod" \
+  "$BUNDLES/portal-ext.properties.prod" \
+  "${VARS[@]}"
 
 ln -sf "$BUNDLES/portal-ext.properties.dev" "$BUNDLES/portal-ext.properties"
 
-copy "$PROPERTIES/app.server.properties" "$PORTAL/app.server.$USER.properties"
-copy "$PROPERTIES/app.server.properties" "$MASTER/app.server.$USER.properties"
+VARS=(
+  __DB__ lportal_bundle
+  __GOGOSHELL_PORT__ 11311
+)
 
-copy "$PROPERTIES/build.properties" "$PORTAL/build.$USER.properties"
-copy "$PROPERTIES/build.properties" "$MASTER/build.$USER.properties"
+template \
+  "$PROPERTIES/portal-ext.properties.prod" \
+  "$BUNDLES/portal-ext.properties.bundle" \
+  "${VARS[@]}"
+
+template "$PROPERTIES/app.server.properties" "$PORTAL/app.server.$USER.properties"
+template "$PROPERTIES/app.server.properties" "$MASTER/app.server.$USER.properties"
+
+template "$PROPERTIES/build.properties" "$PORTAL/build.$USER.properties"
+template "$PROPERTIES/build.properties" "$MASTER/build.$USER.properties"
+

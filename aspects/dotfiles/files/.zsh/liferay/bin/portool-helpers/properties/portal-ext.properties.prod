@@ -1,5 +1,5 @@
 jdbc.default.driverClassName=com.mysql.cj.jdbc.Driver
-jdbc.default.url=jdbc:mysql://localhost/lportal_master?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+jdbc.default.url=jdbc:mysql://localhost/__DB__?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
 jdbc.default.username=root
 jdbc.default.password=
 

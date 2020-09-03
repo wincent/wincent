@@ -19,7 +19,7 @@ case "$1" in
 
     echo "🔎 Launching tomcat with bundle settings"
     BUNDLES=$PWD
-    SOURCE=${BASH_SOURCE%/*}/properties/portal-ext.properties.bundle
+    SOURCE=$BUNDLES/portal-ext.properties.bundle
     PROPERTIES=$BUNDLES/portal-ext.properties
     ln -sf "$SOURCE" "$PROPERTIES"
           ;;
