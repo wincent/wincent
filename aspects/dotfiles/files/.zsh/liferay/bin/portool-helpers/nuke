@@ -52,6 +52,7 @@ if [[ $NUKE_LEVEL > 1 ]]; then
 
   rm -rf "$PORTAL_CONTEXT/bundles/osgi/state" \
          "$PORTAL_CONTEXT/bundles/data" \
+         "$PORTAL_CONTEXT/bundles/elasticsearch7" \
          "$PORTAL_CONTEXT/bundles/tomcat-*/work"
 fi
 
