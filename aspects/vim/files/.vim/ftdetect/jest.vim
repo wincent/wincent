@@ -11,7 +11,7 @@ function! s:Test()
 
   let l:file=expand('<afile>')
 
-  if match(l:file, '\v(_spec|Spec|-test|\.test)\.(js|jsx|ts|tsx)$') != -1 ||
+  if match(l:file, '\v(_spec|spec|Spec|-test|\.test)\.(js|jsx|ts|tsx)$') != -1 ||
         \ match(l:file, '\v/__tests__|tests?/.+\.(js|jsx|ts|tsx)$') != -1
     noautocmd set filetype+=.jest
   endif
