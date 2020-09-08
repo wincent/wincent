@@ -9,6 +9,28 @@ let maplocalleader="\\"
 let filetype_m='objc'
 let filetype_pl='prolog'
 
+if has('nvim')
+  lua << HERE
+    CorpusDirectories = {
+      ['~/Documents/Corpus'] = {
+        autocommit = true,
+        autoreference = 1,
+        autotitle = 1,
+        base = './',
+        transform = 'local',
+      },
+      ['~/code/masochist/content/content/wiki'] = {
+        autocommit = false,
+        autoreference = 1,
+        autotitle = 1,
+        base = '/wiki/',
+        tags = {'wiki'},
+        transform = 'web',
+      },
+    }
+HERE
+endif
+
 let g:CorpusDirectories={
       \   '~/Documents/Corpus': {
       \     'autocommit': 1,
