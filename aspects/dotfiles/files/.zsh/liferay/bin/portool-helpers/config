@@ -33,7 +33,12 @@ RESET='\033[0m'
 
 case $ACTION in
   add|ad|a)
-    ADD=$(ls $CONFIGS | sk -q "$*")
+    if [ $# -eq 1 -a -f "$CONFIGS"/"$1" ]; then
+      # Exact match: no need to show menu.
+      ADD="$1"
+    else
+      ADD=$(ls $CONFIGS | sk -q "$*")
+    fi
     echo -e "${PURPLE}[ADD]: $ADD${RESET}"
     cp "$CONFIGS/$ADD" $DIR/
     ;;
@@ -56,7 +61,12 @@ case $ACTION in
     ls "$DIR" | sed 's/^/    /' | cut -c 1-$COLS | sort
     ;;
   remove|remov|remo|rem|re|r|rm)
-    RM=$(ls $DIR | sk -q "$*")
+    if [ $# -eq 1 -a -f "$CONFIGS"/"$1" ]; then
+      # Exact match: no need to show menu.
+      RM="$1"
+    else
+      RM=$(ls $DIR | sk -q "$*")
+    fi
     echo -e "${RED}[REM]: ${RM}${RESET}"
     rm "$DIR/$RM"
     ;;
