@@ -4,8 +4,10 @@
 
 set -e
 
+source "${BASH_SOURCE%/*}/.common.sh"
+
 CONFIGS="${BASH_SOURCE%/*}/configs"
-DIR="$HOME/code/portal/bundles/osgi/configs"
+DIR="$PORTAL_CONTEXT/bundles/osgi/configs"
 
 usage() {
   echo "Usage:"
