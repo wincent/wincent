@@ -49,11 +49,11 @@ case $ACTION in
     COLS=$(tput cols)
     echo -e "${GREEN}Available configs:${RESET}"
     echo
-    ls "$CONFIGS" | sed 's/^/    /' | cut -c 1-$COLS
+    ls "$CONFIGS" | sed 's/^/    /' | cut -c 1-$COLS | sort
     echo
     echo -e "${GREEN}Installed configs:${RESET}"
     echo
-    ls "$DIR" | sed 's/^/    /' | cut -c 1-$COLS
+    ls "$DIR" | sed 's/^/    /' | cut -c 1-$COLS | sort
     ;;
   remove|remov|remo|rem|re|r|rm)
     RM=$(ls $DIR | sk -q "$*")
