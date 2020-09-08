@@ -10,8 +10,6 @@ PORTAL_BUNDLES="$HOME/code/portal/bundles"
 MASTER="$HOME/code/portal-master/liferay-portal"
 MASTER_BUNDLES="$HOME/code/portal-master/bundles"
 
-mkdir -p "$MASTER" "$MASTER_BUNDLES" "$PORTAL" "$PORTAL_BUNDLES"
-
 template() {
   SOURCE=$1; shift
   DEST=$1; shift
@@ -26,6 +24,15 @@ template() {
 
   cat <(echo "# vim: set nomodifiable : edit $SOURCE instead then run \`portool setup\`, or use \`:set modifiable\` to force."; echo) <(sed -e "$FILTER" "$SOURCE") > "$DEST"
 }
+
+#
+# Universal set-up
+#
+
+mkdir -p "$MASTER" "$MASTER_BUNDLES" "$PORTAL" "$PORTAL_BUNDLES"
+
+portool config add \
+  com.liferay.portal.search.elasticsearch7.configuration.ElasticsearchConfiguration.config
 
 #
 # ~/code/portal/liferay-portal
