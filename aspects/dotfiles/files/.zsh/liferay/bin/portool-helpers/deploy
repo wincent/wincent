@@ -1,8 +1,23 @@
-#!/bin/sh
+#!/bin/bash
 
 # Helper to deploy a named module without having to navigate to it.
 
 source "${BASH_SOURCE%/*}/.common.sh"
+
+DEPLOYED=0
+FAILED=0
+
+trap 'report' EXIT
+
+function report() {
+  echo
+  if [ $DEPLOYED -gt 0 ]; then
+    echo "✅ Modules succeeded: $DEPLOYED"
+  fi
+  if [ $FAILED -gt 0 ]; then
+    echo "💥 Modules failed: $FAILED"
+  fi
+}
 
 function deploy() {
   DIR=$1
@@ -21,7 +36,11 @@ function deploy() {
   fi
 
   echo "$COMMAND"
-  eval "(cd \"\$DIR\" && $COMMAND)"
+  if eval "(cd \"\$DIR\" && $COMMAND)"; then
+    ((DEPLOYED++))
+  else
+    ((FAILED++))
+  fi
 }
 
 if [ $# -eq 0 ]; then
