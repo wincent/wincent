@@ -22,6 +22,7 @@ alias h=history
 alias j=jump
 alias l='ls -F'
 alias ll='ls -laF'
+alias nlua='rlwrap ~/code/neovim/.deps/usr/bin/luajit'
 alias o='git oneline'
 alias p='git patch'
 alias prettyjson='python -m json.tool'
