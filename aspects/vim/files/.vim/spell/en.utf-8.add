@@ -37,6 +37,7 @@ Keychain
 LastPass
 Liferay
 Lua
+LuaJIT
 MVC
 MacVim
 MailMate
@@ -44,6 +45,7 @@ MongoDB
 Monoid
 Monoids
 MySQL
+Neovim
 OCaml
 PHP
 PRs
@@ -51,6 +53,7 @@ Perf
 Phabricator
 PowerPC
 README
+REPL
 RESTful
 RVM
 Realforce
