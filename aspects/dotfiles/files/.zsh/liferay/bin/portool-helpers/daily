@@ -61,11 +61,9 @@ for TARGET in "${TARGETS[@]}"; do
         git remote update --prune &&
         git checkout master &&
         git pull --ff-only upstream master &&
-        ant setup-profile-dxp &&
-        ant all &&
+        portool build &&
         git tag "daily/portal-master/good/$(date +%Y-%m-%d)" &&
-        git tag -f "daily/portal-master/good/latest" &&
-        portool setup
+        git tag -f "daily/portal-master/good/latest"
       ) || echo "master build failed: please see $LOG_DESC for details"
       ;;
     portal)
@@ -83,11 +81,9 @@ for TARGET in "${TARGETS[@]}"; do
         git checkout master &&
         git pull --ff-only upstream master &&
         git push origin +brianchandotcom/master:master +brianchandotcom/master:temp &&
-        ant setup-profile-dxp &&
-        ant all &&
+        portool build &&
         git tag "daily/portal/good/$(date +%Y-%m-%d)" &&
-        git tag -f "daily/portal/good/latest" &&
-        portool setup
+        git tag -f "daily/portal/good/latest"
       ) || echo "portal build failed: please see $LOG_DESC for details"
       ;;
     *)

@@ -10,7 +10,12 @@ elif [[ $PWD = $HOME/code/portal-ee* ]]; then
   PORTAL_DB=
   PORTAL_CONTEXT=$HOME/code/portal-ee
   PORTAL_ROOT=$PORTAL_CONTEXT/liferay-portal-ee
+elif [[ $PWD = $HOME/code/portal* ]]; then
+  PORTAL_DB=lportal_master
+  PORTAL_CONTEXT=$HOME/code/portal
+  PORTAL_ROOT=$PORTAL_CONTEXT/liferay-portal
 else
+  PORTAL_FALLBACK=1
   PORTAL_DB=lportal_master
   PORTAL_CONTEXT=$HOME/code/portal
   PORTAL_ROOT=$PORTAL_CONTEXT/liferay-portal

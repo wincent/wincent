@@ -3,6 +3,7 @@
 echo "Usage: portool <subcommand> [...arguments]"
 echo
 echo "Subcommands:"
+echo "  build                             🏭 run a normal build"
 echo "  config [add|ls|rm]                ⚙️  manage configuration files"
 echo "  daily [ee|master|portal]          ☀️  run daily builds"
 echo "  deploy                            🚀 deploy a module"
