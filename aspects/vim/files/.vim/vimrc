@@ -45,38 +45,6 @@ if has('nvim')
 .
 endif
 
-let g:CorpusDirectories={
-      \   '~/Documents/Corpus': {
-      \     'autocommit': 1,
-      \     'autoreference': 1,
-      \     'autotitle': 1,
-      \     'base': './',
-      \     'transform': 'local'
-      \   },
-      \   '~/code/masochist/content/content/wiki': {
-      \     'autocommit': 0,
-      \     'autoreference': 1,
-      \     'autotitle': 1,
-      \     'base': '/wiki/',
-      \     'tags': ['wiki'],
-      \     'transform': 'web'
-      \   },
-      \   '/tmp/corpus-test': {
-      \     'autocommit': 1,
-      \     'autoreference': 1,
-      \     'autotitle': 1,
-      \     'base': './',
-      \     'transform': 'local'
-      \   },
-      \   '~/tmp/corpus-test': {
-      \     'autocommit': 1,
-      \     'autoreference': 1,
-      \     'autotitle': 1,
-      \     'base': './',
-      \     'transform': 'local'
-      \   }
-      \ }
-
 " Stark highlighting is enough to see the current match; don't need the
 " centering, which can be annoying.
 let g:LoupeCenterResults=0
