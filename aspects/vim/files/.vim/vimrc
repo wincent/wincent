@@ -10,7 +10,7 @@ let filetype_m='objc'
 let filetype_pl='prolog'
 
 if has('nvim')
-  lua << HERE
+  lua <<
     CorpusDirectories = {
       ['~/Documents/Corpus'] = {
         autocommit = true,
@@ -42,7 +42,7 @@ if has('nvim')
         transform = 'local',
       },
     }
-HERE
+.
 endif
 
 let g:CorpusDirectories={
