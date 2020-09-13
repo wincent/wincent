@@ -3,7 +3,56 @@ if !has('nvim')
 endif
 
 lua << END
+  -- If you're feeling brave after reading:
+  --
+  --    https://github.com/neovim/nvim-lspconfig/issues/319
+  --
+  -- Install:
+  --
+  --    :LspInstall sumneko_lua
+  --
+  -- After marvelling at the horror that is the installation script:
+  --
+  --     https://github.com/neovim/nvim-lspconfig/blob/master/lua/nvim_lsp/sumneko_lua.lua
+  --
+  -- To see path:
+  --
+  --    :LspInstallInfo sumneko_lua
+  --
+  -- See: https://github.com/neovim/nvim-lspconfig#sumneko_lua
+  --
+  -- Failing that; you can install by hand:
+  --
+  --    https://github.com/sumneko/lua-language-server/wiki/Build-and-Run-(Standalone)
+  --
+
+  local cmd = vim.fn.expand(
+      '~/code/lua-language-server/bin/macOS/lua-language-server'
+  )
+
+  local main = vim.fn.expand('~/code/lua-language-server/main.lua')
+
+  if vim.fn.executable(cmd) then
+    require'nvim_lsp'.sumneko_lua.setup{
+      cmd = {cmd, '-E', main},
+      settings = {
+        Lua = {
+          diagnostics = {
+            enable = true,
+            globals = {'vim'},
+          },
+          filetypes = {'lua'},
+          runtime = {
+            path = vim.split(package.path, ';'),
+            version = 'LuaJIT',
+          },
+        }
+      },
+    }
+  end
+
   require'nvim_lsp'.ocamlls.setup{}
+
   require'nvim_lsp'.tsserver.setup{
     -- cmd = {
     --   "typescript-language-server",
@@ -12,6 +61,7 @@ lua << END
     --   "tslog"
     -- }
   }
+
   require'nvim_lsp'.vimls.setup{}
 
   -- Override hover winhighlight.
@@ -96,7 +146,7 @@ if has('autocmd')
 
     autocmd WinEnter * call s:Bind()
 
-    autocmd FileType javascript,typescript,vim  call s:ConfigureBuffer()
+    autocmd FileType javascript,lua,typescript,vim  call s:ConfigureBuffer()
 
     autocmd ColorScheme * call s:SetUpLspHighlights()
   augroup END
