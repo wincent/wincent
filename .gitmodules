@@ -186,9 +186,9 @@
 [submodule "deoplete-lsp"]
 	path = aspects/vim/files/.vim/pack/bundle/opt/deoplete-lsp
 	url = https://github.com/Shougo/deoplete-lsp.git
-[submodule "nvim-lsp"]
-	path = aspects/vim/files/.vim/pack/bundle/opt/nvim-lsp
-	url = https://github.com/neovim/nvim-lsp.git
 [submodule "corpus"]
 	path = aspects/vim/files/.vim/pack/bundle/opt/corpus
 	url = https://github.com/wincent/corpus.git
+[submodule "nvim-lspconfig"]
+	path = aspects/vim/files/.vim/pack/bundle/opt/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig.git

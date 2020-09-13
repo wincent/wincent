@@ -127,7 +127,7 @@ if &loadplugins
     packadd! neco-ghc
 
     if has('nvim')
-      packadd! nvim-lsp
+      packadd! nvim-lspconfig
     endif
 
     packadd! pinnacle
