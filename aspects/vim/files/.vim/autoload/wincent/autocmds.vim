@@ -1,6 +1,3 @@
-let g:WincentColorColumnBufferNameBlacklist = []
-let g:WincentColorColumnFileTypeBlacklist = ['command-t', 'diff', 'dirvish', 'fugitiveblame', 'undotree', 'qf']
-let g:WincentCursorlineBlacklist = ['command-t']
 let g:WincentMkviewFiletypeBlacklist = ['diff', 'hgcommit', 'gitcommit']
 
 function! wincent#autocmds#attempt_select_last_file() abort
@@ -8,20 +5,6 @@ function! wincent#autocmds#attempt_select_last_file() abort
   if l:previous !=# ''
     call search('\v<' . l:previous . '>')
   endif
-endfunction
-
-function! wincent#autocmds#should_colorcolumn() abort
-  if index(g:WincentColorColumnBufferNameBlacklist, bufname(bufnr('%'))) != -1
-    return 0
-  endif
-  if index(g:WincentColorColumnFileTypeBlacklist, &filetype) != -1
-    return 0
-  endif
-  return &buflisted
-endfunction
-
-function! wincent#autocmds#should_cursorline() abort
-  return index(g:WincentCursorlineBlacklist, &filetype) == -1
 endfunction
 
 " Loosely based on: http://vim.wikia.com/wiki/Make_views_automatic
@@ -47,48 +30,6 @@ function! wincent#autocmds#mkview() abort
   catch /\<E190\>/
     " Could be name or path length exceeding NAME_MAX or PATH_MAX.
   endtry
-endfunction
-
-function! s:get_spell_settings() abort
-  return {
-        \   'spell': &l:spell,
-        \   'spellcapcheck': &l:spellcapcheck,
-        \   'spellfile': &l:spellfile,
-        \   'spelllang': &l:spelllang
-        \ }
-endfunction
-
-function! s:set_spell_settings(settings) abort
-  let &l:spell=a:settings.spell
-  let &l:spellcapcheck=a:settings.spellcapcheck
-  let &l:spellfile=a:settings.spellfile
-  let &l:spelllang=a:settings.spelllang
-endfunction
-
-function! wincent#autocmds#blur_window() abort
-  if wincent#autocmds#should_colorcolumn()
-    let l:settings=s:get_spell_settings()
-    ownsyntax off
-    set nolist
-    if has('conceal')
-      set conceallevel=0
-    endif
-    call s:set_spell_settings(l:settings)
-  endif
-endfunction
-
-function! wincent#autocmds#focus_window() abort
-  if wincent#autocmds#should_colorcolumn()
-    if !empty(&ft)
-      let l:settings=s:get_spell_settings()
-      ownsyntax on
-      set list
-      if has('conceal')
-        set conceallevel=1
-      endif
-      call s:set_spell_settings(l:settings)
-    endif
-  endif
 endfunction
 
 function! wincent#autocmds#blur_statusline() abort
