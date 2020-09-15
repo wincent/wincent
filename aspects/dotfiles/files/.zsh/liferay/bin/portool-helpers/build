@@ -9,7 +9,8 @@ fi
 
 # First setup is to ensure `build.$USER.properties` is in place.
 # Second one is to set-up "osgi/configs" again, in case `ant` cleared them.
-portool setup &&
+cd "$PORTAL_ROOT" &&
+  portool setup &&
   ant setup-profile-dxp &&
   ant all &&
   portool setup
