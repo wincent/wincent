@@ -38,18 +38,51 @@ local winhighlight_blurred = table.concat({
   'SignColumn:ColorColumn'
 }, ',')
 
-local with_spell_settings = function(callback)
-  local spell = vim.api.nvim_win_get_option(0, 'spell')
-  local spellcapcheck = vim.api.nvim_buf_get_option(0, 'spellcapcheck')
-  local spellfile = vim.api.nvim_buf_get_option(0, 'spellfile')
-  local spelllang = vim.api.nvim_buf_get_option(0, 'spelllang')
+-- "Safe" version of `nvim_win_get_var()` that returns `nil` if the
+-- variable is not set.
+local win_get_var = function(handle, name)
+  local result
+  pcall(function ()
+    result = vim.api.nvim_win_get_var(handle, name)
+  end)
+  return result
+end
 
-  callback()
+-- As described in a7e4d8b8383a375d124, `ownsyntax` resets spelling
+-- settings, so we capture and restore them. Note that there is some trickiness
+-- here because multiple autocmds can trigger "focus" or "blur" operations; this
+-- means that we can't just naively save and restore: we have to use a flag to
+-- make sure that we only capture the initial state.
+local ownsyntax = function(active)
+  if active and win_get_var(0, 'ownsyntax') == false then
+    -- We are focussing; restore previous settings.
+    vim.cmd('ownsyntax on')
 
-  vim.api.nvim_win_set_option(0, 'spell', spell)
-  vim.api.nvim_buf_set_option(0, 'spellcapcheck', spellcapcheck)
-  vim.api.nvim_buf_set_option(0, 'spellfile', spellfile)
-  vim.api.nvim_buf_set_option(0, 'spelllang', spelllang)
+    vim.api.nvim_win_set_option(0, 'spell', win_get_var(0, 'spell') or false)
+    vim.api.nvim_buf_set_option(0, 'spellcapcheck', win_get_var(0, 'spellcapcheck') or '')
+    vim.api.nvim_buf_set_option(0, 'spellfile', win_get_var(0, 'spellfile') or '')
+    vim.api.nvim_buf_set_option(0, 'spelllang', win_get_var(0, 'spelllang') or 'en')
+
+    -- Set flag to show that we have restored the captured options.
+    vim.api.nvim_win_set_var(0, 'ownsyntax', true)
+  elseif not active and win_get_var(0, 'ownsyntax') ~= false then
+
+    -- We are blurring; save settings for later restoration.
+    vim.api.nvim_win_set_var(0, 'spell', vim.api.nvim_win_get_option(0, 'spell'))
+    vim.api.nvim_win_set_var(0, 'spellcapcheck', vim.api.nvim_buf_get_option(0, 'spellcapcheck'))
+    vim.api.nvim_win_set_var(0, 'spellfile', vim.api.nvim_buf_get_option(0, 'spellfile'))
+    vim.api.nvim_win_set_var(0, 'spelllang', vim.api.nvim_buf_get_option(0, 'spelllang'))
+
+    vim.cmd('ownsyntax off')
+
+    -- Suppress spelling in blurred buffer.
+    vim.api.nvim_win_set_option(0, 'spell', false)
+
+    -- Set flag to show that we have captured options.
+    vim.api.nvim_win_set_var(0, 'ownsyntax', false)
+  end
+
+  return spell
 end
 
 local when_supports_blur_and_focus = function(callback)
@@ -65,11 +98,9 @@ local focus_window = function()
   when_supports_blur_and_focus(function()
     vim.api.nvim_win_set_option(0, 'colorcolumn', focused_colorcolumn)
     if filetype ~= '' then
-      with_spell_settings(function ()
-        vim.cmd('ownsyntax on')
-        vim.api.nvim_win_set_option(0, 'list', true)
-        vim.api.nvim_win_set_option(0, 'conceallevel', 1)
-      end)
+      ownsyntax(true)
+      vim.api.nvim_win_set_option(0, 'list', true)
+      vim.api.nvim_win_set_option(0, 'conceallevel', 1)
     end
   end)
 end
@@ -77,11 +108,9 @@ end
 local blur_window = function()
   vim.api.nvim_win_set_option(0, 'winhighlight', winhighlight_blurred)
   when_supports_blur_and_focus(function()
-    with_spell_settings(function()
-      vim.cmd('ownsyntax off')
-      vim.api.nvim_win_set_option(0, 'list', false)
-      vim.api.nvim_win_set_option(0, 'conceallevel', 0)
-    end)
+    ownsyntax(false)
+    vim.api.nvim_win_set_option(0, 'list', false)
+    vim.api.nvim_win_set_option(0, 'conceallevel', 0)
   end)
 end
 
