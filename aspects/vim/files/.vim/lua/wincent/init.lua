@@ -92,20 +92,20 @@ local when_supports_blur_and_focus = function(callback)
   local filetype = vim.api.nvim_buf_get_option(0, 'filetype')
   local listed = vim.api.nvim_buf_get_option(0, 'buflisted')
   if wincent.colorcolumn_filetype_blacklist[filetype] ~= true and listed then
-    callback()
+    callback(filetype)
   end
 end
 
 local focus_window = function()
   if win_get_var(0, focused_flag) ~= true then
     vim.api.nvim_win_set_option(0, 'winhighlight', '')
-    when_supports_blur_and_focus(function()
+    when_supports_blur_and_focus(function(filetype)
       vim.api.nvim_win_set_option(0, 'colorcolumn', focused_colorcolumn)
       if filetype ~= '' then
         ownsyntax(true)
-        vim.api.nvim_win_set_option(0, 'list', true)
-        vim.api.nvim_win_set_option(0, 'conceallevel', 1)
       end
+      vim.api.nvim_win_set_option(0, 'list', true)
+      vim.api.nvim_win_set_option(0, 'conceallevel', 1)
     end)
     vim.api.nvim_win_set_var(0, focused_flag, true)
   end
@@ -114,7 +114,7 @@ end
 local blur_window = function()
   if win_get_var(0, focused_flag) ~= false then
     vim.api.nvim_win_set_option(0, 'winhighlight', winhighlight_blurred)
-    when_supports_blur_and_focus(function()
+    when_supports_blur_and_focus(function(filetype)
       ownsyntax(false)
       vim.api.nvim_win_set_option(0, 'list', false)
       vim.api.nvim_win_set_option(0, 'conceallevel', 0)
