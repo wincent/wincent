@@ -1,5 +1,8 @@
 local wincent = {}
 
+local focused_flag = 'wincent_focused'
+local ownsyntax_flag = 'wincent_ownsyntax'
+
 -- +0,+1,+2, ... +254
 local focused_colorcolumn = '+' .. table.concat({
   '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12',
@@ -54,7 +57,7 @@ end
 -- means that we can't just naively save and restore: we have to use a flag to
 -- make sure that we only capture the initial state.
 local ownsyntax = function(active)
-  if active and win_get_var(0, 'ownsyntax') == false then
+  if active and win_get_var(0, ownsyntax_flag) == false then
     -- We are focussing; restore previous settings.
     vim.cmd('ownsyntax on')
 
@@ -64,8 +67,8 @@ local ownsyntax = function(active)
     vim.api.nvim_buf_set_option(0, 'spelllang', win_get_var(0, 'spelllang') or 'en')
 
     -- Set flag to show that we have restored the captured options.
-    vim.api.nvim_win_set_var(0, 'ownsyntax', true)
-  elseif not active and win_get_var(0, 'ownsyntax') ~= false then
+    vim.api.nvim_win_set_var(0, ownsyntax_flag, true)
+  elseif not active and win_get_var(0, ownsyntax_flag) ~= false then
 
     -- We are blurring; save settings for later restoration.
     vim.api.nvim_win_set_var(0, 'spell', vim.api.nvim_win_get_option(0, 'spell'))
@@ -79,7 +82,7 @@ local ownsyntax = function(active)
     vim.api.nvim_win_set_option(0, 'spell', false)
 
     -- Set flag to show that we have captured options.
-    vim.api.nvim_win_set_var(0, 'ownsyntax', false)
+    vim.api.nvim_win_set_var(0, ownsyntax_flag, false)
   end
 
   return spell
@@ -94,24 +97,30 @@ local when_supports_blur_and_focus = function(callback)
 end
 
 local focus_window = function()
-  vim.api.nvim_win_set_option(0, 'winhighlight', '')
-  when_supports_blur_and_focus(function()
-    vim.api.nvim_win_set_option(0, 'colorcolumn', focused_colorcolumn)
-    if filetype ~= '' then
-      ownsyntax(true)
-      vim.api.nvim_win_set_option(0, 'list', true)
-      vim.api.nvim_win_set_option(0, 'conceallevel', 1)
-    end
-  end)
+  if win_get_var(0, focused_flag) ~= true then
+    vim.api.nvim_win_set_option(0, 'winhighlight', '')
+    when_supports_blur_and_focus(function()
+      vim.api.nvim_win_set_option(0, 'colorcolumn', focused_colorcolumn)
+      if filetype ~= '' then
+        ownsyntax(true)
+        vim.api.nvim_win_set_option(0, 'list', true)
+        vim.api.nvim_win_set_option(0, 'conceallevel', 1)
+      end
+    end)
+    vim.api.nvim_win_set_var(0, focused_flag, true)
+  end
 end
 
 local blur_window = function()
-  vim.api.nvim_win_set_option(0, 'winhighlight', winhighlight_blurred)
-  when_supports_blur_and_focus(function()
-    ownsyntax(false)
-    vim.api.nvim_win_set_option(0, 'list', false)
-    vim.api.nvim_win_set_option(0, 'conceallevel', 0)
-  end)
+  if win_get_var(0, focused_flag) ~= false then
+    vim.api.nvim_win_set_option(0, 'winhighlight', winhighlight_blurred)
+    when_supports_blur_and_focus(function()
+      ownsyntax(false)
+      vim.api.nvim_win_set_option(0, 'list', false)
+      vim.api.nvim_win_set_option(0, 'conceallevel', 0)
+    end)
+    vim.api.nvim_win_set_var(0, focused_flag, false)
+  end
 end
 
 local set_cursorline = function(active)
