@@ -32,7 +32,7 @@ lua << END
 
   local main = vim.fn.expand('~/code/lua-language-server/main.lua')
 
-  if vim.fn.executable(cmd) then
+  if vim.fn.executable(cmd) == 1 then
     require'nvim_lsp'.sumneko_lua.setup{
       cmd = {cmd, '-E', main},
       settings = {
