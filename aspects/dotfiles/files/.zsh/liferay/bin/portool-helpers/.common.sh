@@ -1,5 +1,7 @@
 #!/bin/bash
 
+PORTOOL_BASE="${BASH_SOURCE%/*}"
+
 TOMCAT=tomcat-9.0.37
 
 if [[ $PWD = $HOME/code/portal-master* ]]; then
