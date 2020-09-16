@@ -1,4 +1,4 @@
-local wincent = {}
+local autocmds = {}
 
 local focused_flag = 'wincent_focused'
 local ownsyntax_flag = 'wincent_ownsyntax'
@@ -91,7 +91,7 @@ end
 local when_supports_blur_and_focus = function(callback)
   local filetype = vim.api.nvim_buf_get_option(0, 'filetype')
   local listed = vim.api.nvim_buf_get_option(0, 'buflisted')
-  if wincent.colorcolumn_filetype_blacklist[filetype] ~= true and listed then
+  if autocmds.colorcolumn_filetype_blacklist[filetype] ~= true and listed then
     callback(filetype)
   end
 end
@@ -125,48 +125,47 @@ end
 
 local set_cursorline = function(active)
   local filetype = vim.api.nvim_buf_get_option(0, 'filetype')
-  if wincent.cursorline_blacklist[filetype] ~= true then
+  if autocmds.cursorline_blacklist[filetype] ~= true then
     vim.api.nvim_win_set_option(0, 'cursorline', active)
   end
 end
 
--- TODO: maybe move this into an autocmds.lua file, or possibly even more granular than that
-wincent.buf_enter = function()
+autocmds.buf_enter = function()
   focus_window()
 end
 
-wincent.focus_gained = function()
+autocmds.focus_gained = function()
   focus_window()
 end
 
-wincent.focus_lost = function()
+autocmds.focus_lost = function()
   blur_window()
 end
 
-wincent.insert_enter = function()
+autocmds.insert_enter = function()
   set_cursorline(false)
 end
 
-wincent.insert_leave = function()
+autocmds.insert_leave = function()
   set_cursorline(true)
 end
 
-wincent.vim_enter = function()
-  set_cursorline(true)
-  focus_window()
-end
-
-wincent.win_enter = function()
+autocmds.vim_enter = function()
   set_cursorline(true)
   focus_window()
 end
 
-wincent.win_leave = function()
+autocmds.win_enter = function()
+  set_cursorline(true)
+  focus_window()
+end
+
+autocmds.win_leave = function()
   set_cursorline(false)
   blur_window()
 end
 
-wincent.colorcolumn_filetype_blacklist = {
+autocmds.colorcolumn_filetype_blacklist = {
   ['command-t'] = true,
   ['diff'] = true,
   ['dirvish'] = true,
@@ -175,8 +174,8 @@ wincent.colorcolumn_filetype_blacklist = {
   ['qf'] = true,
 }
 
-wincent.cursorline_blacklist = {
+autocmds.cursorline_blacklist = {
   ['command-t'] = true,
 }
 
-return wincent
+return autocmds

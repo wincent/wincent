@@ -18,22 +18,22 @@ if has('autocmd')
             \ has('statusline') &&
             \ has('nvim')
         autocmd BufEnter * call wincent#autocmds#focus_statusline()
-        autocmd BufEnter * lua require'wincent'.buf_enter()
+        autocmd BufEnter * lua require'wincent.autocmds'.buf_enter()
         autocmd BufLeave ?* if wincent#autocmds#should_mkview() | call wincent#autocmds#mkview() | endif
         autocmd BufWinEnter ?* if wincent#autocmds#should_mkview() | silent! loadview | execute 'silent! ' . line('.') . 'foldopen!' | endif
         autocmd BufWritePost ?* if wincent#autocmds#should_mkview() | call wincent#autocmds#mkview() | endif
         autocmd FocusGained * call wincent#autocmds#focus_statusline()
-        autocmd FocusGained * lua require'wincent'.focus_gained()
+        autocmd FocusGained * lua require'wincent.autocmds'.focus_gained()
         autocmd FocusLost * call wincent#autocmds#blur_statusline()
-        autocmd FocusLost * lua require'wincent'.focus_lost()
-        autocmd InsertEnter * lua require'wincent'.insert_enter()
-        autocmd InsertLeave * lua require'wincent'.insert_leave()
+        autocmd FocusLost * lua require'wincent.autocmds'.focus_lost()
+        autocmd InsertEnter * lua require'wincent.autocmds'.insert_enter()
+        autocmd InsertLeave * lua require'wincent.autocmds'.insert_leave()
         autocmd VimEnter * call wincent#autocmds#focus_statusline()
-        autocmd VimEnter * lua require'wincent'.vim_enter()
+        autocmd VimEnter * lua require'wincent.autocmds'.vim_enter()
         autocmd WinEnter * call wincent#autocmds#focus_statusline()
-        autocmd WinEnter * lua require'wincent'.win_enter()
+        autocmd WinEnter * lua require'wincent.autocmds'.win_enter()
         autocmd WinLeave * call wincent#autocmds#blur_statusline()
-        autocmd WinLeave * lua require'wincent'.win_leave()
+        autocmd WinLeave * lua require'wincent.autocmds'.win_leave()
         autocmd WinLeave ?* if wincent#autocmds#should_mkview() | call wincent#autocmds#mkview() | endif
       endif
 
