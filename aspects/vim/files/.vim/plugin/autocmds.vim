@@ -19,9 +19,9 @@ if has('autocmd')
             \ has('nvim')
         autocmd BufEnter * call wincent#autocmds#focus_statusline()
         autocmd BufEnter * lua require'wincent.autocmds'.buf_enter()
-        autocmd BufLeave ?* if wincent#autocmds#should_mkview() | call wincent#autocmds#mkview() | endif
-        autocmd BufWinEnter ?* if wincent#autocmds#should_mkview() | silent! loadview | execute 'silent! ' . line('.') . 'foldopen!' | endif
-        autocmd BufWritePost ?* if wincent#autocmds#should_mkview() | call wincent#autocmds#mkview() | endif
+        autocmd BufLeave ?* lua require'wincent.autocmds'.mkview()
+        autocmd BufWinEnter ?* lua require'wincent.autocmds'.loadview()
+        autocmd BufWritePost ?* lua require'wincent.autocmds'.mkview()
         autocmd FocusGained * call wincent#autocmds#focus_statusline()
         autocmd FocusGained * lua require'wincent.autocmds'.focus_gained()
         autocmd FocusLost * call wincent#autocmds#blur_statusline()
@@ -34,7 +34,6 @@ if has('autocmd')
         autocmd WinEnter * lua require'wincent.autocmds'.win_enter()
         autocmd WinLeave * call wincent#autocmds#blur_statusline()
         autocmd WinLeave * lua require'wincent.autocmds'.win_leave()
-        autocmd WinLeave ?* if wincent#autocmds#should_mkview() | call wincent#autocmds#mkview() | endif
       endif
 
       autocmd BufWritePost */spell/*.add silent! :mkspell! %

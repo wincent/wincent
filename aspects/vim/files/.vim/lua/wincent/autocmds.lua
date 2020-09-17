@@ -88,6 +88,12 @@ local ownsyntax = function(active)
   return spell
 end
 
+local should_mkview = function()
+  return vim.api.nvim_buf_get_option(0, 'buftype') == '' and
+    autocmds.mkview_filetype_blacklist ~= true and
+    vim.fn.exists('$SUDO_USER') == 0 -- Don't create root-owned files.
+end
+
 local when_supports_blur_and_focus = function(callback)
   local filetype = vim.api.nvim_buf_get_option(0, 'filetype')
   local listed = vim.api.nvim_buf_get_option(0, 'buflisted')
@@ -150,6 +156,35 @@ autocmds.insert_leave = function()
   set_cursorline(true)
 end
 
+-- http://vim.wikia.com/wiki/Make_views_automatic
+autocmds.mkview = function()
+  if should_mkview() then
+    local success, err = pcall(function()
+      if vim.fn.exists('*haslocaldir') and vim.fn.haslocaldir() then
+        -- We never want to save an :lcd command, so hack around it...
+        vim.cmd('cd -')
+        vim.cmd('mkview')
+        vim.cmd('lcd -')
+      else
+        vim.cmd('mkview')
+      end
+    end)
+    if not success then
+      if err:find('%f[%w]E186%f[%W]') == nil and -- No previous directory: probably a `git` operation.
+        err:find('%f[%w]E190%f[%W]') == nil then -- Could be name or path length exceeding NAME_MAX or PATH_MAX.
+        error(err)
+      end
+    end
+  end
+end
+
+autocmds.loadview = function()
+  if should_mkview() then
+    vim.cmd('silent! loadview')
+    vim.cmd('silent! ' .. vim.fn.line('.') .. 'foldopen!')
+  end
+end
+
 autocmds.vim_enter = function()
   set_cursorline(true)
   focus_window()
@@ -163,6 +198,7 @@ end
 autocmds.win_leave = function()
   set_cursorline(false)
   blur_window()
+  autocmds.mkview()
 end
 
 autocmds.colorcolumn_filetype_blacklist = {
@@ -176,6 +212,12 @@ autocmds.colorcolumn_filetype_blacklist = {
 
 autocmds.cursorline_blacklist = {
   ['command-t'] = true,
+}
+
+autocmds.mkview_filetype_blacklist = {
+  ['diff'] = true,
+  ['gitcommit'] = true,
+  ['hgcommit'] = true,
 }
 
 return autocmds
