@@ -17,9 +17,9 @@ case "$1" in
     echo "set foreign_key_checks=1;" | (echo "select concat('drop table if exists ', table_name, ';') from information_schema.tables where table_schema='$DB';" | mysql -u root -B | tail -n +2 && cat;) | (echo "set foreign_key_checks=0;" && cat;) | mysql -u root "$DB"
 
     echo "🔎 Launching tomcat with bundle settings"
-    BUNDLES=$PWD
+    PORTAL_BUNDLES=$PWD
     SOURCE=~/code/portal/bundles/portal-ext.properties.bundle
-    ln -sf "$SOURCE" "$PROPERTIES"
+    ln -sf "$SOURCE" portal-ext.properties
           ;;
   dev|deve|devel|develo|develop|developm|developme|developmen|development)
     echo "🐢 Launching tomcat with dev settings"

@@ -90,7 +90,7 @@ template "$TEMPLATES/build.properties" "$MASTER/build.$USER.properties"
 
 VARS=(
   __DB__ lportal_bundle
-  __GOGOSHELL_PORT__ 11311
+  __GOGOSHELL_PORT__ 11313
 )
 
 template \
