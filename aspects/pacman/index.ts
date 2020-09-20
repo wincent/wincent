@@ -11,9 +11,11 @@ function task(name: string, callback: () => Promise<void>) {
 }
 
 task('refresh package databases', async () => {
-    await command('pacman', ['-Syy']);
+    await command('pacman', ['-Syy'], {sudo: true});
 });
 
 task('install packages', async () => {
-    await command('pacman', ['-S', ...variable.strings('packages')]);
+    await command('pacman', ['-S', ...variable.strings('packages')], {
+        sudo: true,
+    });
 });
