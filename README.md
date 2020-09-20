@@ -150,10 +150,10 @@ sudo pacman -S git ruby tmux vim
 git clone --recursive https://github.com/wincent/wincent.git
 ```
 
-- `git`: In order to clone the repo.
-- `ruby`: So that git-cipher can run (also used to build Command-T).
-- `tmux`: Just for comfort (eg. so you can see scrollback).
-- `vim`: Because the Vim aspect needs Vim (it runs `vim` to do a `:helptags` update).
+-   `git`: In order to clone the repo.
+-   `ruby`: So that git-cipher can run (also used to build Command-T).
+-   `tmux`: Just for comfort (eg. so you can see scrollback).
+-   `vim`: Because the Vim aspect needs Vim (it runs `vim` to do a `:helptags` update).
 
 ### Install
 
