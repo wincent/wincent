@@ -10,7 +10,7 @@
             "screenkey",
             "tree",
             "xorg",
-            "xorg-init",
+            "xorg-xinit",
             "zsh"
         ]
     }
