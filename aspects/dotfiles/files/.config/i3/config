@@ -40,7 +40,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -179,3 +179,7 @@ bindsym $mod+p mode "resize"
 bar {
         status_command i3status
 }
+
+focus_follows_mouse no
+gaps inner 20
+smart_gaps on
