@@ -63,3 +63,18 @@ variable.string = (name: string, fallback?: string): string => {
 
     return value;
 };
+
+function strings(array: Array<unknown>): array is Array<string> {
+    return array.every((v) => typeof v === 'string');
+}
+
+variable.strings = (name: string, fallback?: Array<string>): Array<string> => {
+    const value = variable.array(name, fallback);
+
+    assert(
+        strings(value),
+        `Expected variable ${name} to be an array of strings but it contained a non-string`
+    );
+
+    return value;
+};

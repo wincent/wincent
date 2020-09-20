@@ -1,0 +1,15 @@
+{
+    "description": "Installs and updates packages via the pacman package manager",
+    "variables": {
+        "packages": [
+            "adobe-source-code-pro-fonts",
+            "feh",
+            "i3",
+            "kitty",
+            "picom",
+            "screenkey",
+            "tree",
+            "zsh"
+        ]
+    }
+}

@@ -1,5 +1,6 @@
 import * as os from 'os';
 
+import {existsSync} from './fs.js';
 import id from './posix/id.js';
 import stringify from './stringify.js';
 import assertMode from './fs/assertMode.js';
@@ -8,6 +9,7 @@ import assertMode from './fs/assertMode.js';
  * Immutable system attributes (read-only).
  */
 export default class Attributes {
+    #distribution?: string;
     #gid?: number;
     #groupNames?: Array<string>;
     #home?: string;
@@ -15,6 +17,18 @@ export default class Attributes {
     #uid?: number;
     #umask?: Mode;
     #username?: string;
+
+    get distribution(): string {
+        if (this.#distribution === undefined) {
+            if (existsSync('/etc/arch-release')) {
+                this.#distribution = 'arch';
+            } else {
+                this.#distribution = '';
+            }
+        }
+
+        return this.#distribution;
+    }
 
     get gid(): number {
         if (typeof this.#gid !== 'number') {
