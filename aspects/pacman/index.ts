@@ -15,7 +15,11 @@ task('refresh package databases', async () => {
 });
 
 task('install packages', async () => {
-    await command('pacman', ['-S', ...variable.strings('packages')], {
-        sudo: true,
-    });
+    await command(
+        'pacman',
+        ['-S', '--noconfirm', ...variable.strings('packages')],
+        {
+            sudo: true,
+        }
+    );
 });
