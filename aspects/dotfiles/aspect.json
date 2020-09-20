@@ -6,6 +6,7 @@
             ".agignore",
             ".clipper.json",
             ".config/alacritty",
+            ".config/big-sur.jpg",
             ".config/kitty",
             ".config/lf",
             ".config/ranger",
@@ -26,12 +27,14 @@
             ".screenrc",
             ".tmux.conf",
             ".urlview",
+            ".xinitrc",
             ".zsh",
             ".zshenv",
             ".zshrc"
         ],
         "templates": [
             ".corpusrc.erb",
+            ".fehbg",
             ".gitconfig.erb",
             ".hammerspoon/iterm.lua.erb"
         ]

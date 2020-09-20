@@ -136,9 +136,24 @@ If there are background processes, a yellow asterisk is shown:
 
 ### Clone
 
+#### macOS
+
 ```sh
 git clone --recursive https://github.com/wincent/wincent.git
 ```
+
+#### Arch Linux
+
+```sh
+sudo pacman -Syy
+sudo pacman -S git ruby tmux vim
+git clone --recursive https://github.com/wincent/wincent.git
+```
+
+- `git`: In order to clone the repo.
+- `ruby`: So that git-cipher can run (also used to build Command-T).
+- `tmux`: Just for comfort (eg. so you can see scrollback).
+- `vim`: Because the Vim aspect needs Vim (it runs `vim` to do a `:helptags` update).
 
 ### Install
 

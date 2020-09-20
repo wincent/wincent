@@ -9,6 +9,8 @@
             "picom",
             "screenkey",
             "tree",
+            "xorg",
+            "xorg-init",
             "zsh"
         ]
     }
