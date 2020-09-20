@@ -25,7 +25,14 @@
             "variables": {}
         },
         "linux": {
-            "aspects": ["meta", "dotfiles", "pacman", "terminfo", "vim"],
+            "aspects": [
+                "meta",
+                "dotfiles",
+                "pacman",
+                "shell",
+                "terminfo",
+                "vim"
+            ],
             "variables": {
                 "terminfoPath": "~/share/terminfo"
             }
