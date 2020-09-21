@@ -18,6 +18,11 @@ case "$1" in
 
     echo "🔎 Launching tomcat with bundle settings"
     PORTAL_BUNDLES=$PWD
+    TOMCAT=$(find tomcat-* -name catalina.sh | head -1 | sed -e "s#/.*##")
+    if [ -z "$TOMCAT" ]; then
+      echo "error: failed to find catalina.sh"
+      exit 1
+    fi
     SOURCE=~/code/portal/bundles/portal-ext.properties.bundle
     ln -sf "$SOURCE" portal-ext.properties
           ;;
