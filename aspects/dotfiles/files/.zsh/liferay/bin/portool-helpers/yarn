@@ -5,5 +5,19 @@
 source "${BASH_SOURCE%/*}/.common.sh"
 
 NODE_BINDIR=$(node_path)
+YARN_DIR=$(realpath "$NODE_BINDIR/../lib/node_modules/yarn")
 
-env PATH="$NODE_BINDIR:$PATH" yarn "$@"
+if [ -d "$YARN_DIR" ]; then
+  YARN_EXE=$(find "$YARN_DIR" -name 'yarn-*.js' | head -1)
+  if [ -f "$YARN_EXE" ]; then
+    echo "info: using $YARN_EXE" >&2
+  else
+    YARN_EXE=$(command -v yarn)
+    echo "warning: could not find yarn executable; falling back to global $YARN_EXE" >&2
+  fi
+else
+  YARN_EXE=$(command -v yarn)
+  echo "warning: could not find yarn executable; falling back to global $YARN_EXE" >&2
+fi
+
+env PATH="$NODE_BINDIR:$PATH" node "$YARN_EXE" "$@"
