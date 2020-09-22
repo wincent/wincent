@@ -232,7 +232,7 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=59'
 
 # NOTE: must come after select-word-style.
-source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+source ~/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # Note that this will only ensure unique history if we supply a prefix
 # before hitting "up" (ie. we perform a "search"). HIST_FIND_NO_DUPS
