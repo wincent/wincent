@@ -52,32 +52,33 @@ bindsym $mod+s exec dmenu_run
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
-# change focus
-bindsym $mod+n focus left
-bindsym $mod+e focus down
-bindsym $mod+i focus up
-bindsym $mod+o focus right
+# Change focus using Vim-style directional keys (h, j, k, l)...
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
-# alternatively, you can use the cursor keys:
+# ...or cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# move focused window
-bindsym $mod+Shift+n move left
-bindsym $mod+Shift+e move down
-bindsym $mod+Shift+i move up
-bindsym $mod+Shift+o move right
+# Move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+# bindsym $mod+Shift+Left move left
+# bindsym $mod+Shift+Down move down
+# bindsym $mod+Shift+Up move up
+# bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+# TODO: find an alternative for this...
+# bindsym $mod+h split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -86,7 +87,7 @@ bindsym $mod+v split v
 bindsym $mod+t fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+r layout stacking
+# bindsym $mod+r layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+f layout toggle split
 
@@ -154,10 +155,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym n resize shrink width 10 px or 10 ppt
-        bindsym e resize grow height 10 px or 10 ppt
-        bindsym i resize shrink height 10 px or 10 ppt
-        bindsym o resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -168,10 +169,10 @@ mode "resize" {
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
         bindsym Escape mode "default"
-        bindsym $mod+p mode "default"
+        bindsym $mod+r mode "default"
 }
 
-bindsym $mod+p mode "resize"
+bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
