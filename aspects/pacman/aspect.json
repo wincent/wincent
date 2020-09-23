@@ -3,12 +3,19 @@
     "variables": {
         "packages": [
             "adobe-source-code-pro-fonts",
+            "cmake",
             "feh",
             "i3",
             "kitty",
+            "netcat",
+            "openssh",
             "picom",
             "screenkey",
             "tree",
+            "unzip",
+            "virtualbox-guest-utils",
+            "xclip",
+            "xf86-video-vmware",
             "xorg",
             "xorg-xinit",
             "zsh"
