@@ -15,13 +15,13 @@ hc keyunbind --all
 
 # keybindings
 # if you have a super key you will be much happier with Mod set to Mod4
-Mod=Mod1    # Use alt as the main modifier
-#Mod=Mod4   # Use the super key as the main modifier
+#Mod=Mod1    # Use alt as the main modifier
+Mod=Mod4   # Use the super key as the main modifier
 
 hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
-hc keybind $Mod-Return spawn "${TERMINAL:-xterm}" # use your $TERMINAL with xterm as fallback
+hc keybind $Mod-Return spawn kitty
 
 # basic movement in tiling and floating mode
 # focusing clients
