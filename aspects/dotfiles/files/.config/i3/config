@@ -164,10 +164,10 @@ mode "resize" {
         bindsym Up resize grow up 10 px or 10 ppt
 
         # When holding shift, it's like pulling the opposite split/gap.
-        bindsym Shift+Left resize shrink left 10 px or 10 ppt
-        bindsym Shift+Down resize shrink down 10 px or 10 ppt
-        bindsym Shift+Right resize shrink right 10 px or 10 ppt
-        bindsym Shift+Up resize shrink up 10 px or 10 ppt
+        bindsym Shift+Left resize shrink right 10 px or 10 ppt
+        bindsym Shift+Down resize shrink up 10 px or 10 ppt
+        bindsym Shift+Right resize shrink left 10 px or 10 ppt
+        bindsym Shift+Up resize shrink down 10 px or 10 ppt
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
