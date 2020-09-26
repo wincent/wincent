@@ -4,6 +4,7 @@
         "packages": [
             "adobe-source-code-pro-fonts",
             "cmake",
+            "dmenu",
             "feh",
             "git",
             "herbstluftwm",

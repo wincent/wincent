@@ -58,23 +58,11 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-# ...or cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
 # Move focused window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
-
-# alternatively, you can use the cursor keys:
-# bindsym $mod+Shift+Left move left
-# bindsym $mod+Shift+Down move down
-# bindsym $mod+Shift+Up move up
-# bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 # TODO: find an alternative for this...
@@ -145,41 +133,41 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+p restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+f exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+f exec "test $(echo -e 'No\nYes' | dmenu -i -p 'Exit i3?') = 'Yes' && i3-msg exit"
 
-# resize window (you can also use the mouse for that)
-mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+#
+# Resizing
+#
+# Arrow keys attempt to grow in a specific direction, and if that doesn't work,
+# "pull" the other edge of the window in the same direction.
+#
+# When you have two windows (a common case), this means the behavior
+# feels very much like tmux's resize behavior.
 
-        # bindsym h resize shrink width 10 px or 10 ppt
-        # bindsym j resize grow height 10 px or 10 ppt
-        # bindsym k resize shrink height 10 px or 10 ppt
-        # bindsym l resize grow width 10 px or 10 ppt
+bindsym $mod+Left exec "i3-msg resize grow left 10 px or 10 ppt || i3-msg resize shrink right 10 px or 10 ppt"
+bindsym $mod+Up exec "i3-msg resize grow down 10 px or 10 ppt || i3-msg resize shrink up 10 px or 10 ppt"
+bindsym $mod+Right exec "i3-msg resize grow right 10 px or 10 ppt || i3-msg resize shrink left 10 px or 10 ppt"
+bindsym $mod+Up exec "i3-msg resize grow up 10 px or 10 ppt || i3-msg resize shrink down 10 px or 10 ppt"
 
-        # Arrow keys to grow in a specific direction, if possible
-        # (effectively like pushing a split/gap).
-        bindsym Left resize grow left 10 px or 10 ppt
-        bindsym Down resize grow down 10 px or 10 ppt
-        bindsym Right resize grow right 10 px or 10 ppt
-        bindsym Up resize grow up 10 px or 10 ppt
-
-        # When holding shift, it's like pulling the opposite split/gap.
-        bindsym Shift+Left resize shrink right 10 px or 10 ppt
-        bindsym Shift+Down resize shrink up 10 px or 10 ppt
-        bindsym Shift+Right resize shrink left 10 px or 10 ppt
-        bindsym Shift+Up resize shrink down 10 px or 10 ppt
-
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
-}
-
-bindsym $mod+r mode "resize"
+# The "Shift" variants allow you to "pull" directly. This is useful if you have,
+# say, three windows and the middle one has focus: in this scenario, the
+# movement keys above will try to grow first (ie. "Left" tries to grow to the
+# left), but if you instead want to shrink, you would push the shifted version
+# (which would shrink by pulling the right edge leftwards).
+bindsym $mod+Shift+Left resize shrink right 10 px or 10 ppt
+bindsym $mod+Shift+Down resize shrink up 10 px or 10 ppt
+bindsym $mod+Shift+Right resize shrink left 10 px or 10 ppt
+bindsym $mod+Shift+Up resize shrink down 10 px or 10 ppt
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+        colors {
+                background #00000080
+        }
+        i3bar_command i3bar --transparency
+        mode hide # show when holding down $mod only
+        position top
         status_command i3status
 }
 
@@ -187,3 +175,11 @@ default_border pixel 0
 focus_follows_mouse no
 gaps inner 10
 smart_gaps on
+
+# Again, not sure if I want this...
+assign [class="^Google-chrome$"] number $ws2
+
+exec kitty
+
+# maybe won't keep this... just to show that i can do it.
+exec --no-startup-id i3-msg 'workspace number $ws2; exec google-chrome-stable; workspace number $ws1'
