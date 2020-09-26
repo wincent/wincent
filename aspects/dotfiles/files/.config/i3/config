@@ -183,6 +183,7 @@ bar {
         status_command i3status
 }
 
+default_border pixel 0
 focus_follows_mouse no
 gaps inner 20
 smart_gaps on
