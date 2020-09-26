@@ -220,27 +220,6 @@ There are a few useful `./install` options:
 ./install --step --start='make directories' dotfiles
 ```
 
-#### Broken Unicode in Vim (Linux)
-
-If Unicode symbols appear missing or corrupted in Vim, first ensure that your terminal emulator supports UTF-8. Then, check to see if you've properly configured your system-wide UTF-8 support.
-
-Issue this test command:
-
-```bash
-export LC_ALL=en_US.UTF-8
-```
-
-Then run `vim`. Unicode in the statusline should be working.
-
-To persist this `LC_*` variable binding, edit your `locale` accordingly:
-
-```bash
-/etc/locale.conf
-
-LANG=en_US.UTF-8
-LC_ALL=en_US.UTF-8
-```
-
 ### License
 
 Unless otherwise noted, the contents of this repo are in the public domain. See the [LICENSE](LICENSE.md) for details.

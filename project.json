@@ -28,6 +28,7 @@
             "aspects": [
                 "meta",
                 "dotfiles",
+                "locale",
                 "pacman",
                 "shell",
                 "terminfo",

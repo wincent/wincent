@@ -26,7 +26,7 @@ export default async function line({
     mode?: Mode;
     notify?: string;
     owner?: string;
-    regexp?: RegExp;
+    regexp?: RegExp | string;
     state?: 'absent' | 'present';
     sudo?: boolean;
 }): Promise<void> {
@@ -63,7 +63,9 @@ export default async function line({
             if (
                 (regexp &&
                     typeof current === 'string' &&
-                    regexp.test(current)) ||
+                    (typeof regexp === 'string'
+                        ? current.includes(regexp)
+                        : regexp.test(current))) ||
                 (!regexp && current === line)
             ) {
                 found = true;
