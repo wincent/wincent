@@ -185,5 +185,5 @@ bar {
 
 default_border pixel 0
 focus_follows_mouse no
-gaps inner 20
+gaps inner 10
 smart_gaps on
