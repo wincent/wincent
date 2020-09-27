@@ -14,7 +14,7 @@ task('add /usr/local/bin/zsh to /etc/shells', async () => {
     }
 });
 
-task('set user shell to /bin/zsh', async () => {
+task('set user shell to zsh', async () => {
     if (variable('identity') === 'wincent') {
         if (attributes.distribution === 'arch') {
             await command('chsh', ['-s', '/bin/zsh', attributes.username], {
