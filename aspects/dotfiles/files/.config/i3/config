@@ -169,7 +169,7 @@ bar {
         i3bar_command i3bar --transparency
         mode hide # show when holding down $mod only
         position top
-        status_command i3status
+        status_command i3blocks -c ~/.config/i3/i3blocks.conf
 }
 
 default_border pixel 0
