@@ -172,10 +172,21 @@ bar {
         status_command i3blocks
 }
 
+# https://github.com/Airblader/i3#gaps
+#for_window [class=".*"] border pixel 0
+
 default_border pixel 0
 focus_follows_mouse no
+
+# Gaps between containers
 gaps inner 10
-smart_gaps on
+
+# Gaps between containers and screen edge
+gaps outer 0
+
+# Only show outer gaps when only one container on screen
+# (outer gap will be inner + outer, ie. 10)
+smart_gaps inverse_outer
 
 # Again, not sure if I want this...
 assign [class="^Google-chrome$"] number $ws2
