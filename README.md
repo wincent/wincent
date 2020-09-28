@@ -172,8 +172,10 @@ At the time of writing, these are the aspects, which you can expect to change ov
 -   **iterm**: Dynamic profiles for iTerm
 -   **karabiner**: Configures Karabiner-Elements
 -   **launchd**: Configures launchd
+-   **locale**: Sets up /etc/locale.conf
 -   **meta**: Tests the configuration framework
 -   **node**: Installs Node.js
+-   **pacman**: Installs packages via the Pacman package manager
 -   **ruby**: Installs Ruby gems
 -   **shell**: Sets the use shell to zsh
 -   **ssh**: Manages local SSH config
