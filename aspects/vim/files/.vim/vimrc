@@ -9,40 +9,44 @@ let maplocalleader="\\"
 let filetype_m='objc'
 let filetype_pl='prolog'
 
-if has('nvim')
-  lua <<
-    CorpusDirectories = {
-      ['~/Documents/Corpus'] = {
-        autocommit = true,
-        autoreference = 1,
-        autotitle = 1,
-        base = './',
-        transform = 'local',
-      },
-      ['~/code/masochist/content/content/wiki'] = {
-        autocommit = false,
-        autoreference = 1,
-        autotitle = 1,
-        base = '/wiki/',
-        tags = {'wiki'},
-        transform = 'web',
-      },
-      ['/tmp/corpus-test'] = {
-        autocommit = true,
-        autoreference = 1,
-        autotitle = 1,
-        base = './',
-        transform = 'local',
-      },
-      ['~/tmp/corpus-test'] = {
-        autocommit = true,
-        autoreference = 1,
-        autotitle = 1,
-        base = './',
-        transform = 'local',
-      },
-    }
+if !has('nvim')
+  " As per `:h script-here`, need to bury this inside a function.
+  function! s:Lua()
+    lua <<
+      CorpusDirectories = {
+        ['~/Documents/Corpus'] = {
+          autocommit = true,
+          autoreference = 1,
+          autotitle = 1,
+          base = './',
+          transform = 'local',
+        },
+        ['~/code/masochist/content/content/wiki'] = {
+          autocommit = false,
+          autoreference = 1,
+          autotitle = 1,
+          base = '/wiki/',
+          tags = {'wiki'},
+          transform = 'web',
+        },
+        ['/tmp/corpus-test'] = {
+          autocommit = true,
+          autoreference = 1,
+          autotitle = 1,
+          base = './',
+          transform = 'local',
+        },
+        ['~/tmp/corpus-test'] = {
+          autocommit = true,
+          autoreference = 1,
+          autotitle = 1,
+          base = './',
+          transform = 'local',
+        },
+      }
 .
+  endfunction
+  call s:Lua()
 endif
 
 " Stark highlighting is enough to see the current match; don't need the
