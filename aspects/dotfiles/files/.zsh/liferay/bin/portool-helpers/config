@@ -9,6 +9,8 @@ source "${BASH_SOURCE%/*}/.common.sh"
 CONFIGS="${BASH_SOURCE%/*}/configs"
 DIR="$PORTAL_CONTEXT/bundles/osgi/configs"
 
+mkdir -p "$DIR"
+
 usage() {
   echo "Usage:"
   echo "  portool config add [pattern]"
