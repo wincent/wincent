@@ -9,7 +9,7 @@ let maplocalleader="\\"
 let filetype_m='objc'
 let filetype_pl='prolog'
 
-if !has('nvim')
+if has('nvim')
   " As per `:h script-here`, need to bury this inside a function.
   function! s:Lua()
     lua <<
