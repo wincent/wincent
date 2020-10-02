@@ -7,7 +7,12 @@ insert_final_newline = false
 indent_size = 4
 indent_style = tab
 
-[<%= variables.home %>/code/{portal,portal-ee,portal-master}/**.{js,json,scss}]
+[<%= variables.home %>/code/{portal,portal-ee,portal-master}/**.{js,scss}]
+insert_final_newline = true
+indent_size = 4
+indent_style = tab
+
+[<%= variables.home %>/code/{portal,portal-ee,portal-master}/**/package.json]
 insert_final_newline = true
 indent_size = 4
 indent_style = tab
