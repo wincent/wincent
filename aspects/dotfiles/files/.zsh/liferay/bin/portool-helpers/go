@@ -32,6 +32,14 @@ if ! tmux has-session -t=$SESSION 2> /dev/null; then
   # 6. portal-ee
   tmux new-window -t $SESSION -n ee -c ~/code/portal-ee/liferay-portal-ee
   tmux send-keys -t $SESSION:ee "git status" Enter
+
+  # 7. bundle
+  if [ -d ~/Downloads/bundles ]; then
+    tmux new-window -t $SESSION -n bundle -c ~/Downloads/bundles
+    tmux send-keys -t $SESSION:bundle "portool run bundle"
+  else
+    tmux new-window -t $SESSION -n bundle -c ~/Downloads
+  fi
 fi
 
 if [ -n "$TMUX" ]; then
