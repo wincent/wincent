@@ -115,11 +115,10 @@ def usage
     Usage:
       git hub fetch <pr>                [fetch a PR]
       git hub get <pr>                  [fetch and checkout a PR]
-      git hub go                        [open project in browser]
       git hub link [pr]                 [show web URL for PR]
       git hub ls                        [list open PRs]
       git hub merge [pr]                [merge a PR]
-      git hub open [pr]                 [open web URL for PR]
+      git hub open [pr|file]            [open web URL for PR or file]
       git hub send <user> [branch]      [send a PR to a user + branch]
       git hub show [pr]                 [show a PR on standard out]
       git hub update                    [pull in new commits from current PR]
@@ -171,10 +170,6 @@ when 'get'
   end
   run "git branch --set-upstream-to=#{upstream} #{branch}" if upstream != 'HEAD'
   run "git checkout #{branch}"
-
-when 'go'
-  url = "https://github.com/#{project}/"
-  run "open #{Shellwords.shellescape(url)}"
 
 when 'send'
   target = arg('user')
@@ -228,8 +223,21 @@ when 'link'
   end
 
 when 'open'
-  pull = ARGV.shift
-  run "open #{link(pull)}"
+  if ARGV.length.zero?
+    url = "https://github.com/#{project}/"
+    run "open #{Shellwords.shellescape(url)}"
+  else
+    target = ARGV.shift
+    if target.match(/^\d+$/)
+      run "open #{link(target)}"
+    else
+      prefix = capture('git rev-parse --show-prefix')
+      url = "https://github.com/#{project}/tree/master/#{prefix}"
+      url += target
+      run "open #{Shellwords.shellescape(url)}"
+    end
+  end
+
 
 when 'ls'
   url = Shellwords.shellescape("https://api.github.com/repos/#{project}/pulls")
