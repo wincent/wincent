@@ -63,10 +63,10 @@ local ownsyntax = function(active)
   elseif not active and util.win_get_var(0, ownsyntax_flag) ~= false then
 
     -- We are blurring; save settings for later restoration.
-    vim.api.nvim_win_set_var(0, 'spell', vim.api.nvim_win_get_option(0, 'spell'))
-    vim.api.nvim_win_set_var(0, 'spellcapcheck', vim.api.nvim_buf_get_option(0, 'spellcapcheck'))
-    vim.api.nvim_win_set_var(0, 'spellfile', vim.api.nvim_buf_get_option(0, 'spellfile'))
-    vim.api.nvim_win_set_var(0, 'spelllang', vim.api.nvim_buf_get_option(0, 'spelllang'))
+    vim.api.nvim_win_set_var(0, 'spell', vim.wo.spell)
+    vim.api.nvim_win_set_var(0, 'spellcapcheck', vim.bo.spellcapcheck)
+    vim.api.nvim_win_set_var(0, 'spellfile', vim.bo.spellfile)
+    vim.api.nvim_win_set_var(0, 'spelllang', vim.bo.spelllang)
 
     vim.cmd('ownsyntax off')
 
@@ -81,14 +81,14 @@ local ownsyntax = function(active)
 end
 
 local should_mkview = function()
-  return vim.api.nvim_buf_get_option(0, 'buftype') == '' and
+  return vim.bo.buftype == '' and
     autocmds.mkview_filetype_blacklist ~= true and
     vim.fn.exists('$SUDO_USER') == 0 -- Don't create root-owned files.
 end
 
 local when_supports_blur_and_focus = function(callback)
-  local filetype = vim.api.nvim_buf_get_option(0, 'filetype')
-  local listed = vim.api.nvim_buf_get_option(0, 'buflisted')
+  local filetype = vim.bo.filetype
+  local listed = vim.bo.buflisted
   if autocmds.colorcolumn_filetype_blacklist[filetype] ~= true and listed then
     callback(filetype)
   end
@@ -124,7 +124,7 @@ local blur_window = function()
 end
 
 local set_cursorline = function(active)
-  local filetype = vim.api.nvim_buf_get_option(0, 'filetype')
+  local filetype = vim.bo.filetype
   if autocmds.cursorline_blacklist[filetype] ~= true then
     vim.api.nvim_win_set_option(0, 'cursorline', active)
   end
