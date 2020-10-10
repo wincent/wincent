@@ -4,7 +4,7 @@ scriptencoding uft-8
 " with line continuation markers without Vim freaking out).
 let g:WincentQuickfixStatusline =
       \ '%7*'
-      \ . '%{wincent#statusline#lhs()}'
+      \ . '%{luaeval(\"' . "require'wincent.statusline'.lhs()" . '\")}'
       \ . '%*'
       \ . '%4*'
       \ . ''

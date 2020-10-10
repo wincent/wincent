@@ -1,31 +1,5 @@
 scriptencoding utf-8
 
-function! wincent#statusline#gutterpadding() abort
-  let l:signcolumn=0
-  if exists('+signcolumn')
-    if &signcolumn == 'yes'
-      let l:signcolumn=2
-    elseif &signcolumn == 'auto'
-      if exists('*execute')
-        let l:signs=execute('sign place buffer=' .bufnr('$'))
-      else
-        let l:signs=''
-        silent! redir => l:signs
-        silent execute 'sign place buffer=' . bufnr('$')
-        redir END
-      end
-      if match(l:signs, 'line=') != -1
-        let l:signcolumn=2
-      endif
-    endif
-  endif
-
-  let l:minwidth=2
-  let l:gutterWidth=max([strlen(line('$')) + 1, &numberwidth, l:minwidth]) + l:signcolumn
-  let l:padding=repeat(' ', l:gutterWidth - 1)
-  return l:padding
-endfunction
-
 function! wincent#statusline#fileprefix() abort
   let l:basename=expand('%:h')
   if l:basename ==# '' || l:basename ==# '.'
@@ -53,13 +27,6 @@ function! wincent#statusline#fenc() abort
   else
     return ''
   endif
-endfunction
-
-function! wincent#statusline#lhs() abort
-  let l:line=wincent#statusline#gutterpadding()
-  " HEAVY BALLOT X - Unicode: U+2718, UTF-8: E2 9C 98
-  let l:line.=&modified ? '✘ ' : '  '
-  return l:line
 endfunction
 
 function! wincent#statusline#rhs() abort

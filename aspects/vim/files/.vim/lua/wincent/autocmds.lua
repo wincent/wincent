@@ -1,5 +1,7 @@
 local autocmds = {}
 
+local util = require'wincent.util'
+
 local focused_flag = 'wincent_focused'
 local ownsyntax_flag = 'wincent_ownsyntax'
 
@@ -41,34 +43,24 @@ local winhighlight_blurred = table.concat({
   'SignColumn:ColorColumn'
 }, ',')
 
--- "Safe" version of `nvim_win_get_var()` that returns `nil` if the
--- variable is not set.
-local win_get_var = function(handle, name)
-  local result
-  pcall(function ()
-    result = vim.api.nvim_win_get_var(handle, name)
-  end)
-  return result
-end
-
 -- As described in a7e4d8b8383a375d124, `ownsyntax` resets spelling
 -- settings, so we capture and restore them. Note that there is some trickiness
 -- here because multiple autocmds can trigger "focus" or "blur" operations; this
 -- means that we can't just naively save and restore: we have to use a flag to
 -- make sure that we only capture the initial state.
 local ownsyntax = function(active)
-  if active and win_get_var(0, ownsyntax_flag) == false then
+  if active and util.win_get_var(0, ownsyntax_flag) == false then
     -- We are focussing; restore previous settings.
     vim.cmd('ownsyntax on')
 
-    vim.api.nvim_win_set_option(0, 'spell', win_get_var(0, 'spell') or false)
-    vim.api.nvim_buf_set_option(0, 'spellcapcheck', win_get_var(0, 'spellcapcheck') or '')
-    vim.api.nvim_buf_set_option(0, 'spellfile', win_get_var(0, 'spellfile') or '')
-    vim.api.nvim_buf_set_option(0, 'spelllang', win_get_var(0, 'spelllang') or 'en')
+    vim.api.nvim_win_set_option(0, 'spell', util.win_get_var(0, 'spell') or false)
+    vim.api.nvim_buf_set_option(0, 'spellcapcheck', util.win_get_var(0, 'spellcapcheck') or '')
+    vim.api.nvim_buf_set_option(0, 'spellfile', util.win_get_var(0, 'spellfile') or '')
+    vim.api.nvim_buf_set_option(0, 'spelllang', util.win_get_var(0, 'spelllang') or 'en')
 
     -- Set flag to show that we have restored the captured options.
     vim.api.nvim_win_set_var(0, ownsyntax_flag, true)
-  elseif not active and win_get_var(0, ownsyntax_flag) ~= false then
+  elseif not active and util.win_get_var(0, ownsyntax_flag) ~= false then
 
     -- We are blurring; save settings for later restoration.
     vim.api.nvim_win_set_var(0, 'spell', vim.api.nvim_win_get_option(0, 'spell'))
@@ -103,7 +95,7 @@ local when_supports_blur_and_focus = function(callback)
 end
 
 local focus_window = function()
-  if win_get_var(0, focused_flag) ~= true then
+  if util.win_get_var(0, focused_flag) ~= true then
     vim.api.nvim_win_set_option(0, 'winhighlight', '')
     when_supports_blur_and_focus(function(filetype)
       vim.api.nvim_win_set_option(0, 'colorcolumn', focused_colorcolumn)
@@ -114,11 +106,12 @@ local focus_window = function()
       vim.api.nvim_win_set_option(0, 'conceallevel', 1)
     end)
     vim.api.nvim_win_set_var(0, focused_flag, true)
+    require'wincent.statusline'.focus_statusline()
   end
 end
 
 local blur_window = function()
-  if win_get_var(0, focused_flag) ~= false then
+  if util.win_get_var(0, focused_flag) ~= false then
     vim.api.nvim_win_set_option(0, 'winhighlight', winhighlight_blurred)
     when_supports_blur_and_focus(function(filetype)
       ownsyntax(false)
@@ -126,6 +119,7 @@ local blur_window = function()
       vim.api.nvim_win_set_option(0, 'conceallevel', 0)
     end)
     vim.api.nvim_win_set_var(0, focused_flag, false)
+    require'wincent.statusline'.blur_statusline()
   end
 end
 
