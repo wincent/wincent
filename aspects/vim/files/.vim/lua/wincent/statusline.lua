@@ -80,11 +80,11 @@ statusline.gutterpadding = function()
   local minwidth = 2
   local numberwidth = vim.wo.numberwidth
   local row = vim.api.nvim_buf_line_count(0)
-  local gutterwidth = math.max(unpack({
-      (tostring(row):len() + 1),
-      minwidth,
-      numberwidth,
-  })) + signcolumn
+  local gutterwidth = math.max(
+    (tostring(row):len() + 1),
+    minwidth,
+    numberwidth
+  ) + signcolumn
   local padding = (' '):rep(gutterwidth - 1)
   return padding
 end
