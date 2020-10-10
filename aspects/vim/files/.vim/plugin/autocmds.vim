@@ -26,11 +26,8 @@ if has('autocmd')
         autocmd FocusLost * lua require'wincent.autocmds'.focus_lost()
         autocmd InsertEnter * lua require'wincent.autocmds'.insert_enter()
         autocmd InsertLeave * lua require'wincent.autocmds'.insert_leave()
-        autocmd VimEnter * lua require'wincent.statusline'.focus_statusline()
         autocmd VimEnter * lua require'wincent.autocmds'.vim_enter()
-        autocmd WinEnter * lua require'wincent.statusline'.focus_statusline()
         autocmd WinEnter * lua require'wincent.autocmds'.win_enter()
-        autocmd WinLeave * lua require'wincent.statusline'.blur_statusline()
         autocmd WinLeave * lua require'wincent.autocmds'.win_leave()
       endif
 
