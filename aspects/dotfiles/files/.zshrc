@@ -164,6 +164,9 @@ function () {
   if [ -n "$TMUXING" -a -n "$TMUX" ]; then
     # In a a tmux session created in a non-root or root shell.
     local LVL=$(($SHLVL - 1))
+  elif [ -n "$XAUTHORITY" ]; then
+    # Probably in X on Linux.
+    local LVL=$(($SHLVL - 2))
   else
     # Either in a root shell created inside a non-root tmux session,
     # or not in a tmux session.
