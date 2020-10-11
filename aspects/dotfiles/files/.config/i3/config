@@ -195,3 +195,6 @@ exec kitty
 
 # maybe won't keep this... just to show that i can do it.
 exec --no-startup-id i3-msg 'workspace number $ws2; exec google-chrome-stable; workspace number $ws1'
+
+# Stop Chrome file dialogs from being bigger then the entire screen...
+floating_maximum_size 600 x 600
