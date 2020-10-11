@@ -20,14 +20,14 @@ if has('nvim') && has('statusline')
   " TODO: move all this into Lua so that we don't have to worry about the
   " one-line thing...
   " Needs to be all on one line:
-  "   %(                                                        Start item group.
-  "   [                                                         Left bracket (literal).
-  "   %R                                                        Read-only flag: ,RO or nothing.
-  "   %{luaeval(\"require'wincent.statusline'.filetype()\")}    Filetype (not using %Y because I don't want caps).
-  "   %{wincent#statusline#fenc()}                              File-encoding if not UTF-8.
-  "   ]                                                         Right bracket (literal).
-  "   %)                                                        End item group.
-  set statusline+=%([%R%{luaeval(\"require'wincent.statusline'.filetype()\")}%{wincent#statusline#fenc()}]%)
+  "   %(                                                          Start item group.
+  "   [                                                           Left bracket (literal).
+  "   %R                                                          Read-only flag: ,RO or nothing.
+  "   %{luaeval(\"require'wincent.statusline'.filetype()\")}      Filetype (not using %Y because I don't want caps).
+  "   %{luaeval(\"require'wincent.statusline'.fileencoding()\")}  File-encoding if not UTF-8.
+  "   ]                                                           Right bracket (literal).
+  "   %)                                                          End item group.
+  set statusline+=%([%R%{luaeval(\"require'wincent.statusline'.filetype()\")}%{luaeval(\"require'wincent.statusline'.fileencoding()\")}]%)
 
   set statusline+=%*   " Reset highlight group.
   set statusline+=%=   " Split point for left and right groups.

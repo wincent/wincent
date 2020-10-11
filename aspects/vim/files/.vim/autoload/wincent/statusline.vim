@@ -1,13 +1,5 @@
 scriptencoding utf-8
 
-function! wincent#statusline#fenc() abort
-  if strlen(&fenc) && &fenc !=# 'utf-8'
-    return ',' . &fenc
-  else
-    return ''
-  endif
-endfunction
-
 function! wincent#statusline#rhs() abort
   let l:rhs=' '
   if winwidth(0) > 80

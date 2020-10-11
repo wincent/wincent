@@ -60,6 +60,16 @@ statusline.blur_statusline = function()
   update_statusline(blurred, 'blur')
 end
 
+-- Returns the 'fileencoding', if it's not UTF-8.
+statusline.fileencoding = function()
+  local fileencoding = vim.bo.fileencoding
+  if #fileencoding > 0 and fileencoding ~= 'utf-8' then
+    return ',' .. fileencoding
+  else
+    return ''
+  end
+end
+
 -- Returns relative path to current file's directory.
 statusline.fileprefix = function()
   local basename = vim.fn.expand('%:h')
