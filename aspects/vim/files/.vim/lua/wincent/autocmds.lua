@@ -1,6 +1,6 @@
-local autocmds = {}
-
 local util = require'wincent.util'
+
+local autocmds = {}
 
 local focused_flag = 'wincent_focused'
 local ownsyntax_flag = 'wincent_ownsyntax'

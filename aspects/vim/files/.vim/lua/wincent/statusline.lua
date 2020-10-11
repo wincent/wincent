@@ -1,6 +1,13 @@
+local pinnacle = require'wincent.pinnacle'
 local util = require'wincent.util'
 
 local statusline = {}
+
+local async = false
+local async_lhs_color = 'Constant'
+local default_lhs_color = 'Identifier'
+local modified_lhs_color = 'ModeMsg'
+local status_highlight = default_lhs_color
 
 local update_statusline = function(default, action)
   local result
@@ -47,6 +54,16 @@ local update_statusline = function(default, action)
   end
 end
 
+statusline.async_start = function()
+  async = true
+  statusline.check_modified()
+end
+
+statusline.async_finish = function()
+  async = false
+  statusline.check_modified()
+end
+
 statusline.blur_statusline = function()
   -- Default blurred statusline (buffer number: filename).
   local blurred='%{luaeval("' .. "require'wincent.statusline'.gutterpadding()" .. '")}'
@@ -58,6 +75,22 @@ statusline.blur_statusline = function()
   blurred = blurred .. '%f' -- filename
   blurred = blurred .. '%=' -- split left/right halves (makes background cover whole)
   update_statusline(blurred, 'blur')
+end
+
+statusline.check_modified = function()
+  local modified = vim.bo.modified
+  if modified and status_highlight ~= modified_lhs_color then
+    status_highlight = modified_lhs_color
+    statusline.update_highlight()
+  elseif not modified then
+    if async and status_highlight ~= async_lhs_color then
+      status_highlight = async_lhs_color
+      statusline.update_highlight()
+    elseif not async and status_highlight ~= default_lhs_color then
+      status_highlight = default_lhs_color
+      statusline.update_highlight()
+    end
+  end
 end
 
 -- Returns the 'fileencoding', if it's not UTF-8.
@@ -203,6 +236,51 @@ statusline.set = function()
     .. '%{luaeval("require\'wincent.statusline\'.rhs()")}'            -- Line/column info.
     .. '%*'                                                           -- Reset highlight group.
   )
+end
+
+statusline.update_highlight = function()
+  -- Update StatusLine to use italics (used for filetype).
+  local highlight = pinnacle.italicize('StatusLine')
+  vim.cmd('highlight User1 ' .. highlight)
+
+  -- Update MatchParen to use italics (used for blurred statuslines).
+  highlight = pinnacle.italicize('MatchParen')
+  vim.cmd('highlight User2 ' .. highlight)
+
+  -- StatusLine + bold (used for file names).
+  highlight = pinnacle.embolden('StatusLine')
+  vim.cmd('highlight User3 ' .. highlight)
+
+  -- Inverted Error styling, for left-hand side "Powerline" triangle.
+  local fg = pinnacle.extract_fg(status_highlight)
+  local bg = pinnacle.extract_bg('StatusLine')
+  vim.cmd('highlight User4 ' .. pinnacle.highlight({bg = bg, fg = fg}))
+
+  -- And opposite for the buffer number area.
+  vim.cmd('highlight User7 ' .. pinnacle.highlight({
+    bg = fg,
+    fg = pinnacle.extract_fg('Normal'),
+    term = 'bold'
+  }))
+
+  -- Right-hand side section.
+  bg = pinnacle.extract_fg('Cursor')
+  fg = pinnacle.extract_fg('User3')
+  vim.cmd('highlight User5 ' .. pinnacle.highlight({
+    bg = fg,
+    fg = bg,
+    term = 'bold'
+  }))
+
+  -- Right-hand side section + italic (used for %).
+  vim.cmd('highlight User6 ' .. pinnacle.highlight({
+    bg = fg,
+    fg = bg,
+    term = 'bold,italic'
+  }))
+
+  vim.cmd('highlight clear StatusLineNC')
+  vim.cmd('highlight! link StatusLineNC User1')
 end
 
 return statusline

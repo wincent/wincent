@@ -5,13 +5,9 @@ if has('nvim')
 
   augroup WincentStatusline
     autocmd!
-    autocmd ColorScheme * call wincent#statusline#update_highlight()
-    autocmd User FerretAsyncStart call wincent#statusline#async_start()
-    autocmd User FerretAsyncFinish call wincent#statusline#async_finish()
-    if exists('##TextChangedI')
-      autocmd BufWinEnter,BufWritePost,FileWritePost,TextChanged,TextChangedI,WinEnter * call wincent#statusline#check_modified()
-    else
-      autocmd BufWinEnter,BufWritePost,FileWritePost,WinEnter * call wincent#statusline#check_modified()
-    endif
+    autocmd ColorScheme * lua require'wincent.statusline'.update_highlight()
+    autocmd User FerretAsyncStart lua require'wincent.statusline'.async_start()
+    autocmd User FerretAsyncFinish lua require'wincent.statusline'.async_finish()
+    autocmd BufWinEnter,BufWritePost,FileWritePost,TextChanged,TextChangedI,WinEnter * lua require'wincent.statusline'.check_modified()
   augroup END
 endif
