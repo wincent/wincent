@@ -1,13 +1,5 @@
 scriptencoding utf-8
 
-function! wincent#statusline#ft() abort
-  if strlen(&ft)
-    return ',' . &ft
-  else
-    return ''
-  endif
-endfunction
-
 function! wincent#statusline#fenc() abort
   if strlen(&fenc) && &fenc !=# 'utf-8'
     return ',' . &fenc

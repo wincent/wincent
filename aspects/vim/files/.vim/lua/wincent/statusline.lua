@@ -70,6 +70,17 @@ statusline.fileprefix = function()
   end
 end
 
+-- Returns the 'filetype' (not using the %Y format because I don't want caps).
+statusline.filetype = function()
+  local filetype = vim.bo.filetype
+  -- TODO: get rid of len() calls on strings; replace with #
+  if #filetype > 0 then
+    return ',' .. filetype
+  else
+    return ''
+  end
+end
+
 statusline.focus_statusline = function()
   -- `setlocal statusline=` will revert to global 'statusline' setting.
   update_statusline('', 'focus')
