@@ -155,6 +155,14 @@ git clone --recursive https://github.com/wincent/wincent.git
 -   `tmux`: Just for comfort (eg. so you can see scrollback).
 -   `vim`: Because the Vim aspect needs Vim (it runs `vim` to do a `:helptags` update).
 
+##### Arch Linux on VirtualBox
+
+If you're running Arch Linux in a VirtualBox environment in a VM named "Arch", you could increase the resolution and size of the display with a command like:
+
+```sh
+VBoxManage setextradata "Arch" "VBoxInternal2/EfiGraphicsResolution" "2560x1440"
+```
+
 ### Install
 
 > ⚠️ **WARNING:** There are _lots_ of different things that can be installed or configured (see [the "aspects" directory](./aspects)). Unless you want your machine to be exactly like mine — which is unlikely — you probably don't want to install _everything_. Maybe you don't even want everything in the ["dotfiles"](./aspects/dotfiles) and ["vim"](./aspects/vim) aspects. Please inspect the contents of each aspect before proceeding to install it; you may even be better off just looking at the configuration files and stealing the bits that you find interesting or useful (everything is [in the public domain](./LICENSE.md), unless otherwise indicated).
