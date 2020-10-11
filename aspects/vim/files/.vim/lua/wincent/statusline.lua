@@ -116,7 +116,6 @@ end
 -- Returns the 'filetype' (not using the %Y format because I don't want caps).
 statusline.filetype = function()
   local filetype = vim.bo.filetype
-  -- TODO: get rid of len() calls on strings; replace with #
   if #filetype > 0 then
     return ',' .. filetype
   else
@@ -145,7 +144,7 @@ statusline.gutterpadding = function()
   local numberwidth = vim.wo.numberwidth
   local row = vim.api.nvim_buf_line_count(0)
   local gutterwidth = math.max(
-    (tostring(row):len() + 1),
+    (#tostring(row) + 1),
     minwidth,
     numberwidth
   ) + signcolumn
