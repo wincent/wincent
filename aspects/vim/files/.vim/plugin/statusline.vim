@@ -35,7 +35,7 @@ if has('nvim') && has('statusline')
   set statusline+=\               " Space.
   set statusline+=               " Powerline arrow.
   set statusline+=%5*             " Switch to User5 highlight group.
-  set statusline+=%{wincent#statusline#rhs()}
+  set statusline+=%{luaeval(\"require'wincent.statusline'.rhs()\")}
   set statusline+=%*              " Reset highlight group.
 
   if has('autocmd')

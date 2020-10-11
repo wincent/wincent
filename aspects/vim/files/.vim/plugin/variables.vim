@@ -22,7 +22,7 @@ if has('nvim')
         \ . '\ '
         \ . ''
         \ . '%5*'
-        \ . '%{wincent#statusline#rhs()}'
+        \ . '%{luaeval(\"' . "require'wincent.statusline'.rhs()" . '\")}'
         \ . '%*'
 else
   let g:WincentQuickfixStatusline=''
