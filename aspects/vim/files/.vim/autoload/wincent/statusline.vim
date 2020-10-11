@@ -1,18 +1,5 @@
 scriptencoding utf-8
 
-function! wincent#statusline#fileprefix() abort
-  let l:basename=expand('%:h')
-  if l:basename ==# '' || l:basename ==# '.'
-    return ''
-  elseif has('modify_fname')
-    " Make sure we show $HOME as ~.
-    return substitute(fnamemodify(l:basename, ':~:.'), '/$', '', '') . '/'
-  else
-    " Make sure we show $HOME as ~.
-    return substitute(l:basename . '/', '\C^' . $HOME, '~', '')
-  endif
-endfunction
-
 function! wincent#statusline#ft() abort
   if strlen(&ft)
     return ',' . &ft

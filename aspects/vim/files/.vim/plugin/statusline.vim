@@ -10,7 +10,7 @@ if has('nvim') && has('statusline')
   set statusline+=%*                                 " Reset highlight group.
   set statusline+=\                                  " Space.
   set statusline+=%<                                 " Truncation point, if not enough width available.
-  set statusline+=%{wincent#statusline#fileprefix()} " Relative path to file's directory.
+  set statusline+=%{luaeval(\"require'wincent.statusline'.fileprefix()\")} " Relative path to file's directory.
   set statusline+=%3*                                " Switch to User3 highlight group (bold).
   set statusline+=%t                                 " Filename.
   set statusline+=%*                                 " Reset highlight group.

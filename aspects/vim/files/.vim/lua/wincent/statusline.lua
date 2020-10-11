@@ -60,6 +60,16 @@ statusline.blur_statusline = function()
   update_statusline(blurred, 'blur')
 end
 
+-- Returns relative path to current file's directory.
+statusline.fileprefix = function()
+  local basename = vim.fn.expand('%:h')
+  if basename == '' or basename == '.' then
+    return ''
+  else
+    return vim.fn.fnamemodify(basename, ':~:.'):gsub('/$', '') .. '/'
+  end
+end
+
 statusline.focus_statusline = function()
   -- `setlocal statusline=` will revert to global 'statusline' setting.
   update_statusline('', 'focus')
