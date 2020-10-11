@@ -15,6 +15,7 @@ task('refresh package databases', async () => {
 });
 
 task('install packages', async () => {
+    // TODO: make this check rather than running unconditionally?
     await command(
         'pacman',
         ['-S', '--noconfirm', ...variable.strings('packages')],
@@ -27,3 +28,5 @@ task('install packages', async () => {
 task('run updatedb', async () => {
     await command('updatedb', [], {sudo: true});
 });
+
+// TODO git clone aur packages
