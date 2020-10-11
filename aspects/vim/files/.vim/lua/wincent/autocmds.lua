@@ -82,7 +82,7 @@ end
 
 local should_mkview = function()
   return vim.bo.buftype == '' and
-    autocmds.mkview_filetype_blacklist ~= true and
+    autocmds.mkview_filetype_blacklist[vim.bo.filetype] == nil and
     vim.fn.exists('$SUDO_USER') == 0 -- Don't create root-owned files.
 end
 
