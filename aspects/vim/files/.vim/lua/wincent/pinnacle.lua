@@ -42,8 +42,8 @@ pinnacle.decorate = function(style, group)
       -- No setting: add one with just style in it.
       original = original .. ' ' .. lhs .. '=' .. style
     else
-      for style in string.gmatch(style, '[^,]+') do
-        local trimmed = vim.trim(style)
+      for s in vim.gsplit(style, ',') do
+        local trimmed = vim.trim(s)
         if not setting:match('%f[%a]' .. trimmed .. '%f[%A]') then
           setting = setting .. ',' .. trimmed
         end
