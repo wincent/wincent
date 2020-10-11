@@ -168,4 +168,41 @@ statusline.rhs = function()
   return rhs
 end
 
+statusline.set = function()
+  -- For comparison, the default statusline is:
+  --
+  --    %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+  --
+  vim.api.nvim_set_option('statusline', ''
+    .. '%7*'                                                          -- Switch to User7 highlight group
+    .. '%{luaeval("require\'wincent.statusline\'.lhs()")}'            -- Red/green/orange modified/activity status.
+    .. '%*'                                                           -- Reset highlight group.
+    .. '%4*'                                                          -- Switch to User4 highlight group (Powerline arrow).
+    .. ''                                                            -- Powerline arrow.
+    .. '%*'                                                           -- Reset highlight group.
+    .. ' '                                                            -- Space.
+    .. '%<'                                                           -- Truncation point, if not enough width available.
+    .. '%{luaeval("require\'wincent.statusline\'.fileprefix()")}'     -- Relative path to file's directory.
+    .. '%3*'                                                          -- Switch to User3 highlight group (bold).
+    .. '%t'                                                           -- Filename.
+    .. '%*'                                                           -- Reset highlight group.
+    .. ' '                                                            -- Space.
+    .. '%1*'                                                          -- Switch to User1 highlight group (italics).
+    .. '%('                                                           -- Start item group.
+    .. '['                                                            -- Left bracket (literal).
+    .. '%R'                                                           -- Read-only flag: ,RO or nothing.
+    .. '%{luaeval("require\'wincent.statusline\'.filetype()")}'       -- Filetype (not using %Y because I don't want caps).
+    .. '%{luaeval("require\'wincent.statusline\'.fileencoding()")}'   -- File-encoding if not UTF-8.
+    .. ']'                                                            -- Right bracket (literal).
+    .. '%)'                                                           -- End item group.
+    .. '%*'                                                           -- Reset highlight group.
+    .. '%='                                                           -- Split point for left and right groups.
+    .. ' '                                                            -- Space.
+    .. ''                                                            -- Powerline arrow.
+    .. '%5*'                                                          -- Switch to User5 highlight group.
+    .. '%{luaeval("require\'wincent.statusline\'.rhs()")}'            -- Line/column info.
+    .. '%*'                                                           -- Reset highlight group.
+  )
+end
+
 return statusline
