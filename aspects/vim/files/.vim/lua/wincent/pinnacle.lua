@@ -33,8 +33,8 @@ pinnacle.decorate = function(style, group)
 
   for _, lhs in ipairs({'gui', 'term', 'cterm'}) do
     local before, setting, after = original:match(''
-      .. '^(.*) '
-      .. '%f[%S](' .. lhs .. '=%S+)'
+      .. '^(.*)'
+      .. '%f[%a](' .. lhs .. '=%S+)'
       .. '(.*)$'
     )
 
