@@ -9,7 +9,7 @@
 -   Visible in the screenshot:
     -   [default-dark Base16](http://chriskempson.com/projects/base16/) color scheme (see [screenshots of other colorschemes](https://github.com/wincent/wincent/blob/media/colorschemes/README.md)).
     -   [Adobe Source Code Pro](https://github.com/adobe-fonts/source-code-pro) (Light) font.
-    -   Vim, running inside tmux, inside iTerm2, on macOS "High Sierra".
+    -   [Neovim](https://neovim.io), running inside [tmux](https://github.com/tmux/tmux), inside [iTerm2](http://www.iterm2.com/), on macOS "High Sierra".
 
 ## Features
 
@@ -115,7 +115,7 @@ If there are background processes, a yellow asterisk is shown:
 
 ## Dependencies
 
--   [tmux](http://tmux.sourceforge.net/) 2.3 or later.
+-   [tmux](https://github.com/tmux/tmux) 3.2 or later.
 -   [Neovim](https://neovim.io) or [Vim](http://www.vim.org/) 8.0 or later with Ruby and Python support (although there's a reasonable amount of feature detection in order to degrade gracefully).
 -   Relatively recent [Zsh](http://www.zsh.org/).
 -   Relatively recent [Git](http://git-scm.com/).
