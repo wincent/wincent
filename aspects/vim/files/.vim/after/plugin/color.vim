@@ -1,11 +1,11 @@
-function s:RemoveBg(group)
-  if !wincent#pinnacle#active()
-    return
-  endif
+if !has('nvim')
+  finish
+endif
 
-  let l:highlight=filter(pinnacle#dump(a:group), 'v:key != "bg"')
+function s:RemoveBg(group)
+  let l:highlight=filter(luaeval("require'wincent.pinnacle'.dump(_A)", a:group), 'v:key != "bg"')
   execute 'highlight! clear ' . a:group
-  execute 'highlight! ' . a:group . ' ' . pinnacle#highlight(l:highlight)
+  execute 'highlight! ' . a:group . ' ' . luaeval("require'wincent.pinnacle'.highlight(_A)", l:highlight)
 endfunction
 
 function s:CheckColorScheme()
@@ -34,9 +34,7 @@ function s:CheckColorScheme()
     colorscheme base16-default-dark
   endif
 
-  if wincent#pinnacle#active()
-    execute 'highlight Comment ' . pinnacle#italicize('Comment')
-  endif
+  execute 'highlight Comment ' . luaeval("require'wincent.pinnacle'.italicize('Comment')")
 
   " Hide (or at least make less obvious) the EndOfBuffer region
   highlight! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
@@ -59,13 +57,11 @@ function s:CheckColorScheme()
   highlight clear NonText
   highlight link NonText Conceal
 
-  if wincent#pinnacle#active()
-    highlight clear CursorLineNr
-    execute 'highlight CursorLineNr ' . pinnacle#extract_highlight('DiffText')
+  highlight clear CursorLineNr
+  execute 'highlight CursorLineNr ' . luaeval("require'wincent.pinnacle'.extract_highlight('DiffText')")
 
-    highlight clear Pmenu
-    highlight link Pmenu Visual
-  endif
+  highlight clear Pmenu
+  highlight link Pmenu Visual
 
   highlight clear DiffDelete
   highlight link DiffDelete Conceal
@@ -86,10 +82,8 @@ function s:CheckColorScheme()
   highlight clear DiffChange
   highlight clear DiffText
 
-  if wincent#pinnacle#active()
-    let l:highlight=pinnacle#italicize('ModeMsg')
-    execute 'highlight User8 ' . l:highlight
-  endif
+  let l:highlight=luaeval("require'wincent.pinnacle'.italicize('ModeMsg')")
+  execute 'highlight User8 ' . l:highlight
 
   " Allow for overrides:
   " - `statusline.vim` will re-set User1, User2 etc.

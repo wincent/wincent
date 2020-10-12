@@ -116,22 +116,18 @@ function! s:ConfigureBuffer()
 endfunction
 
 function! s:SetUpLspHighlights()
-  if !wincent#pinnacle#active()
-    return
-  endif
+  execute 'highlight LspDiagnosticsError ' . luaeval("require'wincent.pinnacle'.decorate('italic,underline', 'ModeMsg')")
 
-  execute 'highlight LspDiagnosticsError ' . pinnacle#decorate('italic,underline', 'ModeMsg')
+  execute 'highlight LspDiagnosticsHint ' . luaeval("require'wincent.pinnacle'.decorate('bold,italic,underline', 'Type')")
 
-  execute 'highlight LspDiagnosticsHint ' . pinnacle#decorate('bold,italic,underline', 'Type')
-
-  execute 'highlight LspDiagnosticsHintSign ' . pinnacle#highlight({
-        \   'bg': pinnacle#extract_bg('ColorColumn'),
-        \   'fg': pinnacle#extract_fg('Type')
+  execute 'highlight LspDiagnosticsHintSign ' . luaeval("require'wincent.pinnacle'.highlight(_A)", {
+        \   'bg': luaeval("require'wincent.pinnacle'.extract_bg('ColorColumn')"),
+        \   'fg': luaeval("require'wincent.pinnacle'.extract_fg('Type')"),
         \ })
 
-  execute 'highlight LspDiagnosticsErrorSign ' . pinnacle#highlight({
-        \   'bg': pinnacle#extract_bg('ColorColumn'),
-        \   'fg': pinnacle#extract_fg('ErrorMsg')
+  execute 'highlight LspDiagnosticsErrorSign ' . luaeval("require'wincent.pinnacle'.highlight(_A)", {
+        \   'bg': luaeval("require'wincent.pinnacle'.extract_bg('ColorColumn')"),
+        \   'fg': luaeval("require'wincent.pinnacle'.extract_fg('ErrorMsg')")
         \ })
 endfunction
 

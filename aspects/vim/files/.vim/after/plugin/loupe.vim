@@ -1,17 +1,15 @@
-function! s:SetUpLoupeHighlight()
-  if !wincent#pinnacle#active()
-    return
-  endif
+if !has('nvim')
+  finish
+end
 
-  execute 'highlight! QuickFixLine ' . pinnacle#extract_highlight('PmenuSel')
+function! s:SetUpLoupeHighlight()
+  execute 'highlight! QuickFixLine ' . luaeval("require'wincent.pinnacle'.extract_highlight('PmenuSel')")
 
   highlight! clear Search
-  execute 'highlight! Search ' . pinnacle#embolden('Underlined')
+  execute 'highlight! Search ' . luaeval("require'wincent.pinnacle'.embolden('Underlined')")
 endfunction
 
-if has('autocmd')
-  augroup WincentLoupe
-    autocmd!
-    autocmd ColorScheme * call s:SetUpLoupeHighlight()
-  augroup END
-endif
+augroup WincentLoupe
+  autocmd!
+  autocmd ColorScheme * call s:SetUpLoupeHighlight()
+augroup END

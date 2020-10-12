@@ -55,6 +55,32 @@ pinnacle.decorate = function(style, group)
   end
 end
 
+-- Returns a dictionary representation of the specified highlight group.
+pinnacle.dump = function(group)
+  local result = {}
+
+  for _, component in ipairs({'bg', 'fg'}) do
+    local value = pinnacle.extract_component(group, component)
+    if value ~= '' then
+      result[component] = value
+    end
+  end
+
+  local active = {}
+
+  for _, component in ipairs({'bold', 'inverse', 'italic', 'reverse', 'standout', 'undercurl', 'underline'}) do
+    if pinnacle.extract_component(group, component) == '1' then
+      table.insert(active, component)
+    end
+  end
+
+  if #active > 0 then
+    result[prefix] = table.concat(active, ',')
+  end
+
+  return result
+end
+
 -- Returns an bold copy of `group` suitable for passing to `:highlight`.
 pinnacle.embolden = function(group)
   return pinnacle.decorate('bold', group)
@@ -78,7 +104,6 @@ end
 pinnacle.extract_fg = function(group)
   return pinnacle.extract_component(group, 'fg')
 end
-
 
 -- Extracts a highlight string from a group, recursively traversing
 -- linked groups, and returns a string suitable for passing to
