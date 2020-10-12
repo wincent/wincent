@@ -12,6 +12,5 @@ sign define LspDiagnosticsHintSign text=➤
 augroup WincentLanguageClientAutocmds
   autocmd!
   autocmd ColorScheme * lua require'wincent.lsp'.set_up_highlights()
-  autocmd FileType javascript,lua,typescript,vim  lua require'wincent.lsp'.configure_buffer()
   autocmd WinEnter * lua require'wincent.lsp'.bind()
 augroup END

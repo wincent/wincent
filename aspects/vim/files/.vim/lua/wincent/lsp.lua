@@ -4,6 +4,21 @@ local nnoremap = function (lhs, rhs)
   vim.api.nvim_buf_set_keymap(0, 'n', lhs, rhs, {noremap = true, silent = true})
 end
 
+local on_attach = function ()
+  local mappings = {
+    ['<Leader>ld'] = '<cmd>lua vim.lsp.util.show_line_diagnostics()<CR>',
+    ['<c-]>'] = '<cmd>lua vim.lsp.buf.definition()<CR>',
+    ['K'] = '<cmd>lua vim.lsp.buf.hover()<CR>',
+    ['gd'] = '<cmd>lua vim.lsp.buf.declaration()<CR>',
+  }
+
+  for lhs, rhs in pairs(mappings) do
+    nnoremap(lhs, rhs)
+  end
+
+  vim.api.nvim_win_set_option(0, 'signcolumn', 'yes')
+end
+
 lsp.bind = function ()
   pcall(function ()
     if vim.api.nvim_win_get_var(0, 'textDocument/hover') then
@@ -21,21 +36,6 @@ lsp.bind = function ()
       vim.api.nvim_buf_set_option(0, 'modifiable', false)
     end
   end)
-end
-
-lsp.configure_buffer = function ()
-  local mappings = {
-    ['<Leader>ld'] = '<cmd>lua vim.lsp.util.show_line_diagnostics()<CR>',
-    ['<c-]>'] = '<cmd>lua vim.lsp.buf.definition()<CR>',
-    ['K'] = '<cmd>lua vim.lsp.buf.hover()<CR>',
-    ['gd'] = '<cmd>lua vim.lsp.buf.declaration()<CR>',
-  }
-
-  for lhs, rhs in pairs(mappings) do
-    nnoremap(lhs, rhs)
-  end
-
-  vim.api.nvim_win_set_option(0, 'signcolumn', 'yes')
 end
 
 lsp.init = function ()
@@ -71,6 +71,7 @@ lsp.init = function ()
   if vim.fn.executable(cmd) == 1 then
     require'nvim_lsp'.sumneko_lua.setup{
       cmd = {cmd, '-E', main},
+      on_attach = on_attach,
       settings = {
         Lua = {
           diagnostics = {
@@ -87,7 +88,9 @@ lsp.init = function ()
     }
   end
 
-  require'nvim_lsp'.ocamlls.setup{}
+  require'nvim_lsp'.ocamlls.setup{
+    on_attach = on_attach,
+  }
 
   require'nvim_lsp'.tsserver.setup{
     -- cmd = {
@@ -95,10 +98,13 @@ lsp.init = function ()
     --   "--stdio",
     --   "--tsserver-log-file",
     --   "tslog"
-    -- }
+    -- },
+    on_attach = on_attach,
   }
 
-  require'nvim_lsp'.vimls.setup{}
+  require'nvim_lsp'.vimls.setup{
+    on_attach = on_attach,
+  }
 
   -- Override hover winhighlight.
   local method = 'textDocument/hover'
