@@ -5,11 +5,13 @@ AgileBits
 Ansible
 BFS
 BeOS
+CLI
 CentOS
 Clojure
 CoffeeScript
 Colemak
 DFS
+DXP
 Dropbox
 EC2
 ES6
@@ -138,6 +140,7 @@ jQuery
 keychain
 keychains
 linter
+linting
 loadview
 macOS
 memcached
@@ -156,6 +159,7 @@ modeline
 monit
 monoid
 monoids
+monorepo
 nginx
 npm
 nvALT
