@@ -26,6 +26,27 @@ function files() {
   find "$@" | xargs -o $EDITOR
 }
 
+#
+# Replaces the old `groot` alias with something that behaves like a real
+# subcommand.
+#
+#     git root # changes to repo root
+#     git root COMMAND # runs arbitrary command from repo root (eg. git root ls)
+#
+function git() {
+  if [ "$1" = root ]; then
+    shift
+    local ROOT="$(command git rev-parse --show-toplevel 2> /dev/null || echo -n .)"
+    if [ $# -eq 0 ]; then
+      cd "$ROOT"
+    else
+      (cd "$ROOT" && eval "$@")
+    fi
+  else
+    command git "$@"
+  fi
+}
+
 # Print headers, following redirects.
 # Based on: https://stackoverflow.com/a/10060342/2103996
 function headers() {

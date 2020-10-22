@@ -17,7 +17,6 @@ alias d='hash -d'
 alias e=exit
 alias f='find . -name'
 alias g=git
-alias groot='cd $(git rev-parse --show-toplevel 2> /dev/null || echo -n ".")'
 alias h=history
 alias j=jump
 alias l='ls -F'

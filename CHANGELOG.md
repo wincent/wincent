@@ -1,5 +1,9 @@
 # Changelog
 
+## 2020-10-22
+
+-   [Zsh]: Dropped `groot` alias in favor of `git root` function.
+
 ## 2020-10-10
 
 -   [Vim]: Started ported many configuration files to Lua, optimizing for Neovim, while letting Vim degrade gracefully.
