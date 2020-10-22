@@ -105,11 +105,11 @@ end
 
 -- Returns relative path to current file's directory.
 statusline.fileprefix = function()
-  local basename = vim.fn.expand('%:h')
+  local basename = vim.fn.fnamemodify(vim.fn.expand('%:h'), ':p:~:.')
   if basename == '' or basename == '.' then
     return ''
   else
-    return vim.fn.fnamemodify(basename, ':p:~:.'):gsub('/$', '') .. '/'
+    return basename:gsub('/$', '') .. '/'
   end
 end
 
