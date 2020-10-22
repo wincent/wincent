@@ -109,7 +109,7 @@ statusline.fileprefix = function()
   if basename == '' or basename == '.' then
     return ''
   else
-    return vim.fn.fnamemodify(basename, ':~:.'):gsub('/$', '') .. '/'
+    return vim.fn.fnamemodify(basename, ':p:~:.'):gsub('/$', '') .. '/'
   end
 end
 
