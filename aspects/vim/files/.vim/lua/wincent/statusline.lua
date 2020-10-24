@@ -14,13 +14,15 @@ local update_statusline = function(default, action)
   local filetype = vim.bo.filetype
 
   if filetype == 'command-t' then
-    -- Will use Command-T-provided buffer name, but need to escape spaces.
-    result = '\\ \\ ' .. vim.api.nvim_buf_get_name(0):gsub(' ', '\\ ')
-  elseif filetype == 'diff' and
-    util.tabpage_get_var(0, 'diffpanel') ~= nil and
-    util.tabpage_get_var(0, 'diffpanel') == vim.api.nvim_buf_get_name(0):gsub(' ', '\\ ') then
-    -- Less ugly, and nothing really useful to show.
-    result = 'Undotree\\ preview'
+    -- Use Command-T-provided buffer name.
+    result = '  ' .. vim.api.nvim_buf_get_name(0)
+  elseif filetype == 'diff' then
+    if util.buf_get_var(0, 'isUndotreeBuffer') == 1 then
+      -- Less ugly than, say, "diffpanel_3".
+      result = 'Undotree preview'
+    else
+      result = 1
+    end
   elseif filetype == 'undotree' then
     -- Don't override; undotree does its own thing.
     result =  0

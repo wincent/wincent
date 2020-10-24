@@ -1,5 +1,15 @@
 local util = {}
 
+-- "Safe" version of `nvim_buf_get_var()` that returns `nil` if the
+-- variable is not set.
+util.buf_get_var = function(handle, name)
+  local result
+  pcall(function ()
+    result = vim.api.nvim_buf_get_var(handle, name)
+  end)
+  return result
+end
+
 -- "Safe" version of `nvim_get_var()` that returns `nil` if the
 -- variable is not set.
 util.get_var = function(handle, name)
