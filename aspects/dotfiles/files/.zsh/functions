@@ -92,13 +92,8 @@ function scratch() {
 function ssh() {
   emulate -L zsh
 
-  if [[ -z "$@" ]]; then
-    # common case: getting to my workstation
-    command ssh dev
-  else
-    local LOCAL_TERM=$(echo -n "$TERM" | sed -e s/tmux/screen/)
-    env TERM=$LOCAL_TERM command ssh "$@"
-  fi
+  local LOCAL_TERM=$(echo -n "$TERM" | sed -e s/tmux/screen/)
+  env TERM=$LOCAL_TERM command ssh "$@"
 }
 
 # Print information about a remote SSL certificate.
