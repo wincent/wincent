@@ -29,6 +29,8 @@
 	# requires Git 1.6.3 or later; %C(auto) requires Git 1.8.3 or later
 	graph = !git --paginate log --graph --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%= '<\%' %>aN>%Creset'
 
+	jump = "!f() { vcs-jump \"$@\"; }; f"
+
 	# Show just the HEAD commit message (no indent) and nothing else
 	message = !git --paginate log -1 --pretty=format:%B
 	msg = message
