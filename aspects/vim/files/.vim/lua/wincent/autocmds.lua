@@ -3,6 +3,7 @@ local util = require'wincent.util'
 local autocmds = {}
 
 local focused_flag = 'wincent_focused'
+local ownsyntax_flag = 'wincent_ownsyntax'
 
 -- +0,+1,+2, ... +254
 local focused_colorcolumn = '+' .. table.concat({
@@ -48,7 +49,9 @@ local winhighlight_blurred = table.concat({
 -- means that we can't just naively save and restore: we have to use a flag to
 -- make sure that we only capture the initial state.
 local ownsyntax = function(active)
-  if active and util.win_get_var(0, 'current_syntax') == nil then
+  local flag = util.win_get_var(0, ownsyntax_flag)
+
+  if active and flag == false then
     -- We are focussing; restore previous settings.
     vim.cmd('ownsyntax on')
 
@@ -56,8 +59,10 @@ local ownsyntax = function(active)
     vim.api.nvim_buf_set_option(0, 'spellcapcheck', util.win_get_var(0, 'spellcapcheck') or '')
     vim.api.nvim_buf_set_option(0, 'spellfile', util.win_get_var(0, 'spellfile') or '')
     vim.api.nvim_buf_set_option(0, 'spelllang', util.win_get_var(0, 'spelllang') or 'en')
-  elseif not active and util.win_get_var(0, 'current_syntax') ~= nil then
 
+    -- Set flag to show that we have restored the captured options.
+    vim.api.nvim_win_set_var(0, ownsyntax_flag, true)
+  elseif not active and vim.bo.filetype ~= '' and flag ~= false then
     -- We are blurring; save settings for later restoration.
     vim.api.nvim_win_set_var(0, 'spell', vim.wo.spell)
     vim.api.nvim_win_set_var(0, 'spellcapcheck', vim.bo.spellcapcheck)
@@ -68,6 +73,9 @@ local ownsyntax = function(active)
 
     -- Suppress spelling in blurred buffer.
     vim.api.nvim_win_set_option(0, 'spell', false)
+
+    -- Set flag to show that we have captured options.
+    vim.api.nvim_win_set_var(0, ownsyntax_flag, false)
   end
 
   return spell
