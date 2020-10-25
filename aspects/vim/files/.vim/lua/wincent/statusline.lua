@@ -15,7 +15,13 @@ local update_statusline = function(default, action)
 
   if filetype == 'command-t' then
     -- Use Command-T-provided buffer name.
-    result = '  ' .. vim.api.nvim_buf_get_name(0)
+    --
+    -- Note that we have to use `vim.fn.bufname()` here to
+    -- produce the desired result (eg. "Command-T [Files]").
+    -- `vim.api.nvim_buf_get_name(0)` isn't suitable because it prepends
+    -- the current working directory (eg. "/Some/path/to/Command-T
+    -- [Files]").
+    result = '  ' .. vim.fn.bufname()
   elseif filetype == 'diff' then
     if util.buf_get_var(0, 'isUndotreeBuffer') == 1 then
       -- Less ugly than, say, "diffpanel_3".
