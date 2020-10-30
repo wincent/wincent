@@ -77,8 +77,6 @@ local ownsyntax = function(active)
     -- Set flag to show that we have captured options.
     vim.api.nvim_win_set_var(0, ownsyntax_flag, false)
   end
-
-  return spell
 end
 
 local should_mkview = function()
