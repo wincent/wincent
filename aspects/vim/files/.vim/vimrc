@@ -126,6 +126,7 @@ if &loadplugins
     packadd! command-t
     packadd! corpus
     packadd! deoplete-lsp
+    " packadd! fern.vim
     packadd! ferret
     packadd! loupe
     packadd! neco-ghc
