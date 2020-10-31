@@ -122,35 +122,8 @@ local blur_window = function()
   end
 end
 
-local set_cursorline = function(active)
-  local filetype = vim.bo.filetype
-  if autocmds.cursorline_blacklist[filetype] ~= true then
-    vim.api.nvim_win_set_option(0, 'cursorline', active)
-  end
-end
-
-autocmds.buf_enter = function()
-  focus_window()
-end
-
-autocmds.focus_gained = function()
-  focus_window()
-end
-
-autocmds.focus_lost = function()
-  blur_window()
-end
-
-autocmds.insert_enter = function()
-  set_cursorline(false)
-end
-
-autocmds.insert_leave = function()
-  set_cursorline(true)
-end
-
 -- http://vim.wikia.com/wiki/Make_views_automatic
-autocmds.mkview = function()
+local mkview = function()
   if should_mkview() then
     local success, err = pcall(function()
       if vim.fn.exists('*haslocaldir') and vim.fn.haslocaldir() then
@@ -172,11 +145,46 @@ autocmds.mkview = function()
   end
 end
 
-autocmds.loadview = function()
+local set_cursorline = function(active)
+  local filetype = vim.bo.filetype
+  if autocmds.cursorline_blacklist[filetype] ~= true then
+    vim.api.nvim_win_set_option(0, 'cursorline', active)
+  end
+end
+
+autocmds.buf_enter = function()
+  focus_window()
+end
+
+autocmds.buf_leave = function()
+  mkview()
+end
+
+autocmds.buf_win_enter = function()
   if should_mkview() then
     vim.cmd('silent! loadview')
     vim.cmd('silent! ' .. vim.fn.line('.') .. 'foldopen!')
   end
+end
+
+autocmds.buf_write_post = function()
+  mkview()
+end
+
+autocmds.focus_gained = function()
+  focus_window()
+end
+
+autocmds.focus_lost = function()
+  blur_window()
+end
+
+autocmds.insert_enter = function()
+  set_cursorline(false)
+end
+
+autocmds.insert_leave = function()
+  set_cursorline(true)
 end
 
 autocmds.vim_enter = function()
@@ -192,7 +200,7 @@ end
 autocmds.win_leave = function()
   set_cursorline(false)
   blur_window()
-  autocmds.mkview()
+  mkview()
 end
 
 autocmds.colorcolumn_filetype_blacklist = {
