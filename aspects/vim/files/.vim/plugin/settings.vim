@@ -221,7 +221,7 @@ set visualbell t_vb=                  " stop annoying beeping for non-error erro
 set whichwrap=b,h,l,s,<,>,[,],~       " allow <BS>/h/l/<Left>/<Right>/<Space>, ~ to cross line boundaries
 set wildcharm=<C-z>                   " substitute for 'wildchar' (<Tab>) in macros
 if has('wildignore')
-  set wildignore+=*.o,*.rej           " patterns to ignore during file-navigation
+  set wildignore+=*.o,*.rej,*.so      " patterns to ignore during file-navigation
 endif
 if has('wildmenu')
   set wildmenu                        " show options as list when switching buffers etc
