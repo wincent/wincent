@@ -39,6 +39,11 @@ lsp.bind = function ()
 end
 
 lsp.init = function ()
+  require'nvim_lsp'.clangd.setup{
+    cmd = {'/usr/local/opt/llvm/bin/clangd', '--background-index'},
+    on_attach = on_attach,
+  }
+
   -- If you're feeling brave after reading:
   --
   --    https://github.com/neovim/nvim-lspconfig/issues/319
