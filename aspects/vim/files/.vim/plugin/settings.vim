@@ -140,6 +140,8 @@ if has('vertsplit')
   set splitright                      " open vertical splits to the right of the current window
 endif
 
+set suffixes-=.h                      " don't sort header files at lower priority
+
 if exists('&swapsync')
   set swapsync=                       " let OS sync swapfiles lazily
 endif
