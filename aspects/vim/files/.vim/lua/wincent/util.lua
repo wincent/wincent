@@ -12,10 +12,10 @@ end
 
 -- "Safe" version of `nvim_get_var()` that returns `nil` if the
 -- variable is not set.
-util.get_var = function(handle, name)
+util.get_var = function(name)
   local result
   pcall(function ()
-    result = vim.api.nvim_get_var(handle, name)
+    result = vim.api.nvim_get_var(name)
   end)
   return result
 end
