@@ -28,6 +28,7 @@ alias prettyjson='python -m json.tool'
 alias oo='git oneline -10'
 alias s=ssh
 alias serve='python -m SimpleHTTPServer' # optional arg: port (defaults to 8000)
+alias sudo='sudo '
 alias t=tmux
 alias v=vim
 
