@@ -5,7 +5,7 @@ if has('nvim')
   " with line continuation markers without Vim freaking out).
   let g:WincentQuickfixStatusline=
         \ '%7*'
-        \ . '%{luaeval(\"' . "require'wincent.statusline'.lhs()" . '\")}'
+        \ . '%{luaeval("' . "require'wincent.statusline'.lhs()" . '")}'
         \ . '%*'
         \ . '%4*'
         \ . ''
@@ -14,7 +14,7 @@ if has('nvim')
         \ . '%3*'
         \ . '%q'
         \ . '\ '
-        \ . '%{get(w:,\"quickfix_title\",\"\")}'
+        \ . '%{get(w:,"quickfix_title","")}'
         \ . '%*'
         \ . '%<'
         \ . '\ '
@@ -22,7 +22,7 @@ if has('nvim')
         \ . '\ '
         \ . ''
         \ . '%5*'
-        \ . '%{luaeval(\"' . "require'wincent.statusline'.rhs()" . '\")}'
+        \ . '%{luaeval("' . "require'wincent.statusline'.rhs()" . '")}'
         \ . '%*'
 else
   let g:WincentQuickfixStatusline=''
