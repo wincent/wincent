@@ -2,6 +2,7 @@
     "description": "Creates symlinks in $HOME to the dotfiles in this repo",
     "variables": {
         "files": [
+            ".Xresources",
             ".ackrc",
             ".agignore",
             ".clipper.json",
