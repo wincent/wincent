@@ -3,6 +3,7 @@
     "variables": {
         "packages": [
             "adobe-source-code-pro-fonts",
+            "caja",
             "cmake",
             "dmenu",
             "feh",
