@@ -7,6 +7,7 @@
             ".clipper.json",
             ".config/alacritty",
             ".config/big-sur.jpg",
+            ".config/chromium-flags.conf",
             ".config/herbstluftwm",
             ".config/i3",
             ".config/i3blocks",
