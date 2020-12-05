@@ -26,6 +26,7 @@
             "virtualbox-guest-utils",
             "xclip",
             "xf86-video-vmware",
+            "xdo",
             "xorg",
             "xorg-xinit",
             "zsh"

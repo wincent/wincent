@@ -258,6 +258,14 @@ function subtree() {
   tree -a --prune -P "$@"
 }
 
+function swallow() {
+  local ARGS=$*
+  local ID=$(xdo id)
+  xdo hide
+  eval "$*" &> /dev/null
+  xdo show "$ID"
+}
+
 # "[t]ime[w]arp" by setting GIT_AUTHOR_DATE and GIT_COMMITTER_DATE.
 function tw() {
   emulate -L zsh
