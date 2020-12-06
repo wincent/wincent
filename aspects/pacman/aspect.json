@@ -3,6 +3,8 @@
     "variables": {
         "packages": [
             "adobe-source-code-pro-fonts",
+            "bluez",
+            "bluez-utils",
             "caja",
             "chromium",
             "cmake",
@@ -18,6 +20,7 @@
             "netcat",
             "openssh",
             "picom",
+            "pulseaudio-bluetooth",
             "python-neovim",
             "ripgrep",
             "ruby",
