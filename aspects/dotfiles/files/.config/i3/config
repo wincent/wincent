@@ -6,9 +6,11 @@
 
 # i3 config file (v4)
 #
-# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+# Please see https://i3wm.org/docs/userguidehttps://i3wm.org/docs/userguide.html.html for a complete reference!
 
-set $mod Mod4
+# As explained in ~/.config/sxhkd/sxhkdrc, Mod1 here (technically "Alt") is
+# "Super". Mod4 (technically "Super") would be "Alt".
+set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -43,7 +45,7 @@ floating_modifier $mod
 bindsym $mod+Return exec kitty
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+s exec "dmenu_run -l 10"
@@ -83,7 +85,7 @@ bindsym $mod+f layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+#bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -199,4 +201,4 @@ exec kitty
 exec --no-startup-id i3-msg 'workspace number $ws2; exec google-chrome-stable; workspace number $ws1'
 
 # Stop Chrome file dialogs from being bigger then the entire screen...
-floating_maximum_size 600 x 600
+floating_maximum_size 1920 x 1080
