@@ -4,6 +4,7 @@
         "packages": [
             "adobe-source-code-pro-fonts",
             "caja",
+            "chromium",
             "cmake",
             "dmenu",
             "feh",
