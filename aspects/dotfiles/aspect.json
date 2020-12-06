@@ -17,7 +17,6 @@
             ".config/lf",
             ".config/ranger",
             ".config/sxhkd",
-            ".gemrc",
             ".ghci",
             ".gitattributes",
             ".gitignore",

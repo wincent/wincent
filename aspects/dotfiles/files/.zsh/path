@@ -21,4 +21,9 @@ PATH=$PATH:$SYSTEM_PATH
 PATH=$PATH:$EC2_HOME/bin
 PATH=$PATH:$HOME/.local/bin
 PATH=$PATH:$HOME/.cabal/bin
+
+if command -v gem &> /dev/null; then
+  PATH=$PATH:$(gem env gempath)
+fi
+
 export PATH
