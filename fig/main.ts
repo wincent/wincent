@@ -398,6 +398,9 @@ async function loadAspect(aspect: Aspect): Promise<void> {
         case 'ssh':
             await import('../aspects/ssh/index.js');
             break;
+        case 'systemd':
+            await import('../aspects/systemd/index.js');
+            break;
         case 'tampermonkey':
             await import('../aspects/tampermonkey/index.js');
             break;
