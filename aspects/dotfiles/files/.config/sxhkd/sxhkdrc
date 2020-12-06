@@ -1,0 +1,12 @@
+# Note that my external keyboard has a dip switch in it so that it works
+# properly with the Mac:
+#
+# - On a Mac keyboard modifiers on left are: Control / Alt / Command (Super)
+# - On a Windows keyboard modifiers are: Control / Windows (Super) / Alt
+# - When plugged into my Mac, the middle modifier behaves as Alt.
+# - When plugged into Linux, the middle modifier feels to me like "Alt"
+#   (due to muscle memory), but it looks to the system like "Super".
+#
+# In other words, "Alt" here means "Command (Super)", not actual "Alt".
+alt + space
+  dmenu_run -l 10

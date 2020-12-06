@@ -191,6 +191,8 @@ smart_gaps inverse_outer
 # Again, not sure if I want this...
 assign [class="^Google-chrome$"] number $ws2
 
+exec sxhkd
+
 exec kitty
 
 # maybe won't keep this... just to show that i can do it.
