@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Chosen by elves in Math.random().
+ID=42427728
+
+if [ -n "$BLOCK_BUTTON" ]; then
+  dunstify --replace=$ID "$(date '+%B %Y, %d')" \
+    "
+<b>Madrid, Spain</b>
+$(date '+%r %z')
+
+<b>San Francisco, United States</b>
+$(env TZ=':/usr/share/zoneinfo/US/Pacific' date '+%r %z')
+
+<b>New York City, United States</b>
+$(env TZ=':/usr/share/zoneinfo/US/Eastern' date '+%r %z')
+
+<b>Sao Paolo, Brazil</b>
+$(env TZ=':/usr/share/zoneinfo/America/Sao_Paulo' date '+%r %z')
+
+<b>Adelaide, Australia</b>
+$(env TZ=':/usr/share/zoneinfo/Australia/Adelaide' date '+%r %z')"
+fi
+
+# icon = fa-clock-o \uf017
+echo "  $(date '+%a %r') "

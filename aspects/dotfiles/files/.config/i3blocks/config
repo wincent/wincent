@@ -7,6 +7,7 @@
 
 
 # Global properties
+command=~/.config/i3blocks/blocks/$BLOCK_NAME
 separator=true
 separator_block_width=50
 
@@ -23,6 +24,4 @@ command=echo "  $(hostname -i)"
 interval=once
 
 [time]
-# icon = fa-clock-o \uf017
-command=echo "  $(date '+%Y-%m-%d %H:%M:%S') "
 interval=1
