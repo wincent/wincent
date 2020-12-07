@@ -1,4 +1,11 @@
-import {attributes, command, line, skip, task as defineTask, variable} from 'fig';
+import {
+    attributes,
+    command,
+    line,
+    skip,
+    task as defineTask,
+    variable,
+} from 'fig';
 
 function task(name: string, callback: () => Promise<void>) {
     defineTask(name, async () => {
@@ -35,13 +42,13 @@ task('configure faillock.conf', async () => {
         path: '/etc/security/faillock.conf',
         regexp: /^\s*#?\s*deny\s*=/,
         sudo: true,
-        line: 'deny = 10'
+        line: 'deny = 10',
     });
 
     await line({
         path: '/etc/security/faillock.conf',
         regexp: /^\s*#?\s*unlock_time\s*=/,
         sudo: true,
-        line: 'unlock_time = 60'
+        line: 'unlock_time = 60',
     });
 });
