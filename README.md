@@ -161,6 +161,7 @@ git clone --recursive https://github.com/wincent/wincent.git
 
 At the time of writing, these are the aspects, which you can expect to change over time:
 
+-   **aur**: Installs packages from the Arch User Repository.
 -   **automator**: Scripts for use with Automator
 -   **automount**: Sets up macOS's automount facility
 -   **backup**: Backup scripts

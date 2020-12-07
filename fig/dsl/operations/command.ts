@@ -20,6 +20,7 @@ export default async function command(
         env?: NodeJS.ProcessEnv;
         failedWhen?: (result: Result | null) => boolean;
         notify?: string;
+        raw?: boolean;
         sudo?: boolean;
     } = {}
 ): Promise<Result | null> {
@@ -51,7 +52,7 @@ export default async function command(
         } else {
             const result = await run(
                 path(executable).expand,
-                args.map((arg) => path(arg).expand),
+                args.map((arg) => (options.raw ? arg : path(arg).expand)),
                 {
                     chdir: options.chdir
                         ? path(options.chdir).expand

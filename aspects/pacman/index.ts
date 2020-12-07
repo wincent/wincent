@@ -28,5 +28,3 @@ task('install packages', async () => {
 task('run updatedb', async () => {
     await command('updatedb', [], {sudo: true});
 });
-
-// TODO git clone aur packages

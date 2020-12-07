@@ -122,7 +122,7 @@ echo "session optional pam_fscrypt.so drop_caches lock_policies" >> /etc/pam.d/s
 echo "password optional pam_fscrypt.so" >> /etc/pam.d/passwd
 
 log "Installing other dependencies"
-pacman -S --noconfirm git neovim ruby tmux vi vim xorg-server
+pacman -S --noconfirm git ruby tmux vi vim xorg-server
 
 pacman -S --noconfirm inetutils # for hostname
 pacman -S --noconfirm apcupsd # for auto-shutdown when UPS battery runs low

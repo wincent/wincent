@@ -30,6 +30,7 @@
                 "dotfiles",
                 "locale",
                 "pacman",
+                "aur",
                 "shell",
                 "systemd",
                 "terminfo",

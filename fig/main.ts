@@ -344,6 +344,9 @@ async function main() {
 
 async function loadAspect(aspect: Aspect): Promise<void> {
     switch (aspect) {
+        case 'aur':
+            await import('../aspects/aur/index.js');
+            break;
         case 'automator':
             await import('../aspects/automator/index.js');
             break;
