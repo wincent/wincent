@@ -1,4 +1,4 @@
-import {attributes, command, skip, task as defineTask, variable} from 'fig';
+import {attributes, command, line, skip, task as defineTask, variable} from 'fig';
 
 function task(name: string, callback: () => Promise<void>) {
     defineTask(name, async () => {
@@ -27,4 +27,21 @@ task('install packages', async () => {
 
 task('run updatedb', async () => {
     await command('updatedb', [], {sudo: true});
+});
+
+// Tweaks: should be moved into separate aspects.
+task('configure faillock.conf', async () => {
+    await line({
+        path: '/etc/security/faillock.conf',
+        regexp: /^\s*#?\s*deny\s*=/,
+        sudo: true,
+        line: 'deny = 10'
+    });
+
+    await line({
+        path: '/etc/security/faillock.conf',
+        regexp: /^\s*#?\s*unlock_time\s*=/,
+        sudo: true,
+        line: 'unlock_time = 60'
+    });
 });

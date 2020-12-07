@@ -39,6 +39,7 @@
             "xdo",
             "xorg",
             "xorg-xinit",
+            "xsecurelock",
             "zsh"
         ]
     }
