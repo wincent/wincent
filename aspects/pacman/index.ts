@@ -1,7 +1,10 @@
 import {
     attributes,
     command,
+    file,
+    handler,
     line,
+    path,
     skip,
     task as defineTask,
     variable,
@@ -50,5 +53,21 @@ task('configure faillock.conf', async () => {
         regexp: /^\s*#?\s*unlock_time\s*=/,
         sudo: true,
         line: 'unlock_time = 60',
+    });
+});
+
+task('create suspend hook', async () => {
+    await file({
+        notify: 'enable suspend hook',
+        path: '/etc/systemd/system/suspend@.service',
+        src: path.aspect.join('files', 'suspend@.service'),
+        state: 'file',
+        sudo: true,
+    });
+});
+
+handler('enable suspend hook', async () => {
+    await command('systemctl', ['enable', `suspend@${attributes.username}`], {
+        sudo: true,
     });
 });

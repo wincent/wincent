@@ -1,0 +1,11 @@
+[Unit]
+Description=User resume actions
+After=suspend.target
+
+[Service]
+User=%I
+Type=simple
+ExecStart=/home/glh/.zsh/bin/asdf
+
+[Install]
+WantedBy=suspend.target

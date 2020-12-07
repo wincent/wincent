@@ -1,0 +1,14 @@
+[Unit]
+Description=User suspend actions
+Before=sleep.target
+
+[Service]
+User=%I
+Type=forking
+Environment=DISPLAY=:0
+ExecStartPre=/bin/true
+ExecStart=/usr/bin/xautolock -locknow
+ExecStartPost=/usr/bin/sleep 1
+
+[Install]
+WantedBy=sleep.target
