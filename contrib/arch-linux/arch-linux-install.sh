@@ -5,7 +5,7 @@
 # iwctl station wlan0 scan
 # iwctl station wlan0 get-networks
 # iwctl station wlan0 connect $SSID
-# curl -O https://wincent.com/link/arch-linux-install.sh
+# curl -LO https://wincent.com/link/arch-linux-install.sh
 # bash arch-linux-install.sh
 
 set -e
