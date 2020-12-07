@@ -7,5 +7,5 @@ setxkbmap -layout us -variant colemak -option caps:ctrl_modifier -option termina
 xmodmap ~/.Xmodmap
 xcape -e Caps_Lock=BackSpace
 dunst &
-xautolock -locker xsecurelock -time 1 -corners '0-0+' -cornerredelay 3600 -cornerdelay 1 &
+xautolock -locker xsecurelock -time 10 -corners '0-0+' -cornerredelay 3600 -cornerdelay 1 &
 exec i3
