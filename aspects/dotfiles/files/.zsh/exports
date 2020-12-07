@@ -157,3 +157,4 @@ test -d $HOME/n && export N_PREFIX="$HOME/n"
 
 export XSECURELOCK_SHOW_DATETIME=1
 export XSECURELOCK_PASSWORD_PROMPT=asterisks
+export XSECURELOCK_KEY_Insert_COMMAND="$HOME/.zsh/bin/asdf"

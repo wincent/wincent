@@ -7,13 +7,6 @@ function ag() {
   command ag --pager="less -iFMRSX" --color-path=34\;3 --color-line-number=35 --color-match=35\;1\;4 "$@"
 }
 
-function asdf() {
-  setxkbmap -option ''
-  setxkbmap -layout us -variant colemak -option caps:ctrl_modifier -option terminate:ctrl_alt_bksp
-  xmodmap ~/.Xmodmap
-  xcape -e Caps_Lock=BackSpace
-}
-
 # fd - "find directory"
 # Inspired by: https://github.com/junegunn/fzf/wiki/examples#changing-directory
 function fd() {
