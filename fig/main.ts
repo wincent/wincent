@@ -173,7 +173,7 @@ async function main() {
         loopAspects: {
             for (const aspect of aspects) {
                 const {variables: aspectVariables = {}} = await readAspect(
-                    join(root, 'aspects', aspect, 'aspect.json')
+                    join(root, 'aspects', aspect)
                 );
 
                 if (options.focused.size && !options.focused.has(aspect)) {

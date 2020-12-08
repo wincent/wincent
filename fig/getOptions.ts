@@ -54,9 +54,7 @@ export default async function getOptions(
         if (entry.isDirectory()) {
             const name = entry.name;
 
-            const {description} = await readAspect(
-                path.join(directory, name, 'aspect.json')
-            );
+            const {description} = await readAspect(path.join(directory, name));
 
             aspects.push([name, description]);
         }

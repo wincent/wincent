@@ -76,7 +76,7 @@ Overall structure remains similar to Ansible, but I made some changes to better 
 
 -   Configuration is divided into ["aspects"](../aspects) that contain:
     -   A TypeScript `index.ts` that defines tasks to be executed.
-    -   An `aspect.json` file that contains metadata, such as a `description` and (optional) `variables`.
+    -   An `aspect.json` or `aspect.ts` file that contains metadata, such as a `description` and (optional) `variables`.
     -   An (optional) `files` directory containing resources to be copied or otherwise manipulated.
     -   An (optional) `templates` directory containing templates to be dynamically generated (and then copied, installed etc).
     -   An (optional) `support` directory to contain any other useful resources (eg. helper scripts etc).
@@ -140,7 +140,7 @@ The levels are, from lowest to highest precedence:
 | Profile          | Defined in the [top-level project.json](https://github.com/wincent/wincent/blob/master/project.json) for each profile (eg. [personal](https://github.com/wincent/wincent/blob/796ee1c02ad257fd565569ab6082b7685a52b83f/project.json#L35-L37), [work](https://github.com/wincent/wincent/blob/796ee1c02ad257fd565569ab6082b7685a52b83f/project.json#L41)) |
 | Platform         | Defined in the [top-level project.json](https://github.com/wincent/wincent/blob/master/project.json) for each platform (eg. [darwin](https://github.com/wincent/wincent/blob/796ee1c02ad257fd565569ab6082b7685a52b83f/project.json#L23), [linux](https://github.com/wincent/wincent/blob/796ee1c02ad257fd565569ab6082b7685a52b83f/project.json#L27-L29)) |
 | Dynamic          | Calculated [in `variables.ts` at the top-level](https://github.com/wincent/wincent/blob/master/variables.ts) (eg. `identity`)                                                                                                                                                                                                                            |
-| Aspect (static)  | Defined in `aspects/*/aspect.json` files (eg. [`aspects/dotfiles/aspect.json`](https://github.com/wincent/wincent/blob/796ee1c02ad257fd565569ab6082b7685a52b83f/aspects/dotfiles/aspect.json#L3-L37))                                                                                                                                                    |
+| Aspect (static)  | Defined in `aspects/*/aspect.json` or `aspects/*/aspect.ts` files (eg. [`aspects/dotfiles/aspect.json`](https://github.com/wincent/wincent/blob/796ee1c02ad257fd565569ab6082b7685a52b83f/aspects/dotfiles/aspect.json#L3-L37))                                                                                                                           |
 | Aspect (derived) | Derived using [the `variables()` API](https://github.com/wincent/wincent/blob/796ee1c02ad257fd565569ab6082b7685a52b83f/fig/dsl/variables.ts) (eg. [dotfiles `variables()` example](https://github.com/wincent/wincent/blob/796ee1c02ad257fd565569ab6082b7685a52b83f/aspects/dotfiles/index.ts#L18-L22))                                                  |
 
 Most of these are static, arising from JSON files, but two of the later levels ("Dynamic" and "Aspect (derived)") provide the means to dynamically set or derive the value of a variable at runtime.
