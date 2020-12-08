@@ -1,6 +1,6 @@
 {
     "description": "Installs and updates packages from the Arch User Repository",
     "variables": {
-        "packages": ["clipper-git", "neovim-nightly"]
+        "packages": ["clipper-git", "lf", "neovim-nightly"]
     }
 }
