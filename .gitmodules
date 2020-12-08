@@ -187,6 +187,7 @@
 	path = aspects/vim/files/.vim/pack/bundle/opt/deoplete-lsp
 	url = https://github.com/Shougo/deoplete-lsp.git
 [submodule "corpus"]
+	ignore = untracked
 	path = aspects/vim/files/.vim/pack/bundle/opt/corpus
 	url = https://github.com/wincent/corpus.git
 [submodule "nvim-lspconfig"]
