@@ -95,6 +95,14 @@ def link(pull)
   base + (current.nil? ? 'pulls' : "pull/#{Integer(current)}")
 end
 
+def open(target)
+  if RUBY_PLATFORM =~ /linux/i
+    run "xdg-open #{target}"
+  else
+    run "open #{target}"
+  end
+end
+
 # Run `command` using `system()`, aborting the script if it returns a non-zero
 # exit code.
 def run(command)
@@ -186,7 +194,7 @@ when 'send'
   end
   die 'cannot infer current branch name' if upstream == 'HEAD'
   url = "https://github.com/#{target}/#{repo}/compare/#{branch}...#{username}:#{upstream}"
-  run "open #{Shellwords.shellescape(url)}"
+  open Shellwords.shellescape(url)
 
 when 'update'
   number = current_pr
@@ -225,16 +233,16 @@ when 'link'
 when 'open'
   if ARGV.length.zero?
     url = "https://github.com/#{project}/"
-    run "open #{Shellwords.shellescape(url)}"
+    open Shellwords.shellescape(url)
   else
     target = ARGV.shift
     if target.match(/^\d+$/)
-      run "open #{link(target)}"
+      open link(target)
     else
       prefix = capture('git rev-parse --show-prefix')
       url = "https://github.com/#{project}/tree/master/#{prefix}"
       url += target
-      run "open #{Shellwords.shellescape(url)}"
+      open Shellwords.shellescape(url)
     end
   end
 
