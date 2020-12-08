@@ -1,31 +1,39 @@
-SYSTEM_PATH=$PATH
-unset PATH
+# Append $1 to $PATH, unless already present.
+function __append() {
+  case ":$PATH:" in
+    *:"$1":*)
+      ;;
+    *)
+      PATH="${PATH:+$PATH:}$1"
+  esac
+}
 
-# Keep these on separate lines to make changing their order easier.
-PATH=$HOME/bin
-PATH=$PATH:$HOME/.zsh/bin
-PATH=$PATH:$HOME/.vim/pack/bundle/opt/vcs-jump/bin
+# Prepend $1 to $PATH, unless already present.
+function __prepend() {
+  case ":$PATH:" in
+    *:"$1":*)
+      ;;
+    *)
+      PATH="$1${PATH:+:$PATH}"
+  esac
+}
 
-test -n "$N_PREFIX" && PATH=$PATH:$N_PREFIX/bin
-
-test -d /usr/local/opt/llvm/bin && PATH=$PATH:/usr/local/opt/llvm/bin
-
-PATH=$PATH:$HOME/.cargo/bin
-
-if [ -d /usr/local/opt/mysql@5.7 ]; then
-  PATH=$PATH:/usr/local/opt/mysql@5.7/bin
-fi
-
-PATH=$PATH:/usr/local/bin
-PATH=$PATH:/usr/local/sbin
-PATH=$PATH:/usr/local/opt/srm/bin
-PATH=$PATH:$SYSTEM_PATH
-PATH=$PATH:$EC2_HOME/bin
-PATH=$PATH:$HOME/.local/bin
-PATH=$PATH:$HOME/.cabal/bin
-
-if command -v gem &> /dev/null; then
-  PATH=$PATH:$(gem env gempath)
-fi
+test -d /usr/local/opt/mysql@5.7 && __prepend /usr/local/opt/mysql@5.7/bin
+test -d /usr/local/opt/llvm/bin && __prepend /usr/local/opt/llvm/bin
+test -n "$N_PREFIX" && __prepend $N_PREFIX/bin
+__prepend /usr/local/opt/srm/bin
+__prepend $HOME/.cargo/bin
+__prepend $HOME/.vim/pack/bundle/opt/vcs-jump/bin
+__prepend /usr/local/bin
+__prepend /usr/local/sbin
+__prepend $HOME/.zsh/bin
+__prepend $HOME/bin
+__append $EC2_HOME/bin
+__append $HOME/.local/bin
+__append $HOME/.cabal/bin
+command -v gem &> /dev/null && __append $(gem env gempath)
 
 export PATH
+
+unfunction __append
+unfunction __prepend
