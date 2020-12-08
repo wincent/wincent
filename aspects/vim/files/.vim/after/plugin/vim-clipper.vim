@@ -5,8 +5,8 @@ endif
 let g:ClipperAddress='~/.clipper.sock'
 let g:ClipperPort=0
 
-if filereadable('/etc/arch-release')
-  if executable('socat')
-    call clipper#set_invocation('socat - UNIX-CLIENT:' . expand(g:ClipperAddress))
-  endif
+if filereadable('/etc/arch-release') && executable('socat')
+  call clipper#set_invocation('socat - UNIX-CLIENT:' . expand(g:ClipperAddress))
+else
+  call clipper#set_invocation('')
 endif
