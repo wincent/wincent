@@ -12,7 +12,13 @@ alias a=ag
 alias b=bundle
 alias be='bundle exec'
 alias cd..='cd ..'
-alias clip='nc -U ~/.clipper.sock'
+
+if [ -e /etc/arch-release ]; then
+  alias clip="socat - UNIX-CLIENT:$HOME/.clipper.sock"
+else
+  alias clip='nc -U ~/.clipper.sock'
+fi
+
 alias d='hash -d'
 alias e=exit
 alias f='find . -name'
