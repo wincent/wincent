@@ -40,7 +40,7 @@ end
 
 lsp.init = function ()
   require'nvim_lsp'.clangd.setup{
-    cmd = {'/usr/local/opt/llvm/bin/clangd', '--background-index'},
+    cmd = {'clangd', '--background-index'},
     on_attach = on_attach,
   }
 

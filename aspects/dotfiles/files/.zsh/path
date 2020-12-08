@@ -8,6 +8,8 @@ PATH=$PATH:$HOME/.vim/pack/bundle/opt/vcs-jump/bin
 
 test -n "$N_PREFIX" && PATH=$PATH:$N_PREFIX/bin
 
+test -d /usr/local/opt/llvm/bin && PATH=$PATH:/usr/local/opt/llvm/bin
+
 PATH=$PATH:$HOME/.cargo/bin
 
 if [ -d /usr/local/opt/mysql@5.7 ]; then

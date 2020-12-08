@@ -7,6 +7,7 @@
             "bluez-utils",
             "caja",
             "chromium",
+            "clang",
             "cmake",
             "dmenu",
             "dunst",
