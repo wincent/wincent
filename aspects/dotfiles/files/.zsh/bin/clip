@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ -e /etc/arch-release ]; then
+  socat - UNIX-CLIENT:$HOME/.clipper.sock
+else
+  nc -U "~/.clipper.sock"
+fi
