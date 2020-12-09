@@ -88,6 +88,10 @@ task('update help tags', async () => {
     await command(resource.support('update-help-tags'), []);
 });
 
+task('install neovim gem', async () => {
+    await command('gem', ['install', 'neovim']);
+});
+
 // added in 1a9f9b9fd and probably not used since...
 // pip2 install vim-vint
 
@@ -106,9 +110,6 @@ task('update help tags', async () => {
 // legacy way (commented out) was:
 // pip2 install neovim
 // pip3 install neovim -- not sure if still needed
-
-// general ruby support for neovim
-// gem install neovim
 
 // For masochist autocompleter
 // pip3 install redis

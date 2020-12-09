@@ -15,6 +15,11 @@ append_path $EC2_HOME/bin
 append_path $HOME/.local/bin
 append_path $HOME/.cabal/bin
 
-command -v gem &> /dev/null && append_path $(gem env gempath)
+# https://unix.stackexchange.com/a/614304
+if command -v gem &> /dev/null; then
+  for GEM_PATH ("${(s[:])$(gem env gempath)}"); do
+    test -d "$GEM_PATH/bin" && append_path "$GEM_PATH/bin"
+  done
+fi
 
 export PATH
