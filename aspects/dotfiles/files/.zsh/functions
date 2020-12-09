@@ -8,14 +8,13 @@ function ag() {
 }
 
 # Append $1 to $PATH, unless already present.
+# If present, moves it to the end.
 # See also: prepend_path().
 function append_path() {
-  case ":$PATH:" in
-    *:"$1":*)
-      ;;
-    *)
-      PATH="${PATH:+$PATH:}$1"
-  esac
+  PATH=${PATH//":$1:"/:} # Delete (potentially multiple) from middle.
+  PATH=${PATH/#"$1:"/} # Delete from start.
+  PATH=${PATH/%":$1"/} # Delete from end.
+  PATH="${PATH:+$PATH:}$1" # Actually append (or if PATH is empty, just set).
 }
 
 # fd - "find directory"
@@ -115,14 +114,13 @@ function mvim() {
 }
 
 # Prepend $1 to $PATH, unless already present.
+# If present, moves it to the start.
 # See also: append_path().
 function prepend_path() {
-  case ":$PATH:" in
-    *:"$1":*)
-      ;;
-    *)
-      PATH="$1${PATH:+:$PATH}"
-  esac
+  PATH=${PATH//":$1:"/:} # Delete (potentially multiple) from middle.
+  PATH=${PATH/#"$1:"/} # Delete from start.
+  PATH=${PATH/%":$1"/} # Delete from end.
+  PATH="$1${PATH:+:$PATH}$1" # Actually prepend (or if PATH is empty, just set).
 }
 
 function scratch() {
