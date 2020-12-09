@@ -1,7 +1,7 @@
-PATH=$PATH:$HOME/.zsh/liferay/bin
+append_path $HOME/.zsh/liferay/bin
 
 if [ -d ~/Library/PackageManager/bin ]; then
-  PATH=$PATH:~/Library/PackageManager/bin
+  append_path $HOME/Library/PackageManager/bin
 fi
 
 export PATH

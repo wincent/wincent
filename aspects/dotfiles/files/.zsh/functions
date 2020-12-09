@@ -7,6 +7,17 @@ function ag() {
   command ag --pager="less -iFMRSX" --color-path=34\;3 --color-line-number=35 --color-match=35\;1\;4 "$@"
 }
 
+# Append $1 to $PATH, unless already present.
+# See also: prepend_path().
+function append_path() {
+  case ":$PATH:" in
+    *:"$1":*)
+      ;;
+    *)
+      PATH="${PATH:+$PATH:}$1"
+  esac
+}
+
 # fd - "find directory"
 # Inspired by: https://github.com/junegunn/fzf/wiki/examples#changing-directory
 function fd() {
@@ -101,6 +112,17 @@ function mvim() {
   else
     command mvim
   fi
+}
+
+# Prepend $1 to $PATH, unless already present.
+# See also: append_path().
+function prepend_path() {
+  case ":$PATH:" in
+    *:"$1":*)
+      ;;
+    *)
+      PATH="$1${PATH:+:$PATH}"
+  esac
 }
 
 function scratch() {
