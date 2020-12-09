@@ -17,6 +17,7 @@
             ".config/i3blocks",
             ".config/kitty",
             ".config/lf",
+            ".config/picom.conf",
             ".config/ranger",
             ".config/sxhkd",
             ".ghci",
