@@ -3,5 +3,5 @@
 if [ -e /etc/arch-release ]; then
   socat - UNIX-CLIENT:$HOME/.clipper.sock
 else
-  nc -U "~/.clipper.sock"
+  nc -U ~/.clipper.sock
 fi
