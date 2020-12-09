@@ -1,16 +1,20 @@
-test -d /usr/local/opt/mysql@5.7 && prepend_path /usr/local/opt/mysql@5.7/bin
-test -d /usr/local/opt/llvm/bin && prepend_path /usr/local/opt/llvm/bin
-test -n "$N_PREFIX" && prepend_path $N_PREFIX/bin
+prepend_path /usr/local/bin
+prepend_path /usr/local/sbin
 prepend_path /usr/local/opt/srm/bin
 prepend_path $HOME/.cargo/bin
 prepend_path $HOME/.vim/pack/bundle/opt/vcs-jump/bin
-prepend_path /usr/local/bin
-prepend_path /usr/local/sbin
+
+test -d /usr/local/opt/mysql@5.7 && prepend_path /usr/local/opt/mysql@5.7/bin
+test -d /usr/local/opt/llvm/bin && prepend_path /usr/local/opt/llvm/bin
+test -n "$N_PREFIX" && prepend_path $N_PREFIX/bin
+
 prepend_path $HOME/.zsh/bin
 prepend_path $HOME/bin
+
 append_path $EC2_HOME/bin
 append_path $HOME/.local/bin
 append_path $HOME/.cabal/bin
+
 command -v gem &> /dev/null && append_path $(gem env gempath)
 
 export PATH
