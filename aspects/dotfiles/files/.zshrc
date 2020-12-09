@@ -172,11 +172,8 @@ function () {
     # or not in a tmux session.
     local LVL=$SHLVL
   fi
-  if [[ $EUID -eq 0 ]]; then
-    local SUFFIX='%F{yellow}%n%f'$(printf '%%F{yellow}\u276f%.0s%%f' {1..$LVL})
-  else
-    local SUFFIX=$(printf '%%F{red}\u276f%.0s%%f' {1..$LVL})
-  fi
+  local SUFFIX='%(!.%F{yellow}%n%f.)%(!.%F{yellow}.%F{red})'$(printf '\u276f%.0s' {1..$LVL})'%f'
+
   export PS1="%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%B%1~%b%F{yellow}%B%(1j.*.)%(?..!)%b%f %B${SUFFIX}%b "
   if [[ -n "$TMUXING" ]]; then
     # Outside tmux, ZLE_RPROMPT_INDENT ends up eating the space after PS1, and
