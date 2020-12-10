@@ -1,12 +1,10 @@
 # Note that my external keyboard has a dip switch in it so that it works
 # properly with the Mac:
 #
-# - On a Mac keyboard modifiers on left are: Control / Alt / Command (Super)
+# - On a Mac keyboard modifiers on left are: Control / Option (Super) / Command
 # - On a Windows keyboard modifiers are: Control / Windows (Super) / Alt
-# - When plugged into my Mac, the middle modifier behaves as Alt.
-# - When plugged into Linux, the middle modifier feels to me like "Alt"
-#   (due to muscle memory), but it looks to the system like "Super".
+# - On Linux the modifiers are: Control / Super / Alt
 #
-# In other words, "Alt" here means "Command (Super)", not actual "Alt".
+# In other words, "Alt" here means "Command (Super)", not actual "Option
 alt + space
-  dmenu_run -l 10 -fn "Source Code Pro Regular:pixelsize=34"
+  dmenu_run -l 10
