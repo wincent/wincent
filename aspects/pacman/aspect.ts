@@ -22,6 +22,7 @@ export default {
             'kitty', // Terminal emulator.
             'mlocate', // Find files by name with `locate`.
             'netcat', // For piping over network connectison (see also `socat` below).
+            'nodejs', // JavaScript engine.
             'openssh', // SSH tools.
             'otf-font-awesome', // Icon font (eg. for status bar).
             'picom', // X compositor (eg. window transparency etc).
@@ -45,6 +46,7 @@ export default {
             'xorg', // Window system.
             'xorg-xinit', // X initializer.
             'xsecurelock', // Secure screen lock from Google.
+            'yarn', // JavaScript package manager.
             'zsh', // Shell.
         ],
     },

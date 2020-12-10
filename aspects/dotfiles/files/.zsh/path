@@ -22,4 +22,8 @@ if command -v gem &> /dev/null; then
   done
 fi
 
+if command -v yarn &> /dev/null; then
+  append_path "$(yarn global bin)"
+fi
+
 export PATH
