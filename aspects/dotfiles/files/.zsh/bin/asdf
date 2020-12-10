@@ -1,6 +1,6 @@
 #!/bin/bash
 
 setxkbmap -option ''
-setxkbmap -layout us -variant colemak -option caps:ctrl_modifier -option terminate:ctrl_alt_bksp
+setxkbmap -layout us -variant colemak -option caps:ctrl_modifier -option shift:both_capslock -option terminate:ctrl_alt_bksp
 xmodmap ~/.Xmodmap
 xcape -e Caps_Lock=BackSpace

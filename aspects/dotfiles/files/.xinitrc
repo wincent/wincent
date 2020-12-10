@@ -3,7 +3,7 @@ xrandr --dpi 165
 sh ~/.fehbg &
 picom -b --experimental-backends --backend glx
 setxkbmap -option ''
-setxkbmap -layout us -variant colemak -option caps:ctrl_modifier -option terminate:ctrl_alt_bksp
+setxkbmap -layout us -variant colemak -option caps:ctrl_modifier -option -option shift:both_capslock terminate:ctrl_alt_bksp
 xmodmap ~/.Xmodmap
 xcape -e Caps_Lock=BackSpace
 dunst &
