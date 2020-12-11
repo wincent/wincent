@@ -31,6 +31,7 @@ export default {
             'ripgrep', // Grep replacement.
             'ruby', // Scripting language.
             'screenkey', // Shows keyboard interactions for screencasting.
+            'scrot', // Screenshot tool.
             'skim', // Fuzzy finder.
             'socat', // Netcat replacement with UNIX domain socket (etc) support.
             'stack', // Haskell environment.
