@@ -33,6 +33,7 @@
                 "aur",
                 "shell",
                 "systemd",
+                "interception",
                 "terminfo",
                 "vim"
             ],

@@ -93,7 +93,7 @@ task('install neovim gem', async () => {
 });
 
 task('install typescript-language-server', async () => {
-  await command('yarn', ['global', 'add', 'typescript-language-server']);
+    await command('yarn', ['global', 'add', 'typescript-language-server']);
 });
 
 // added in 1a9f9b9fd and probably not used since...

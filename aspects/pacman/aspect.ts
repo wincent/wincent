@@ -40,7 +40,6 @@ export default {
             'vi', // Original vi text editor.
             'vim', // Vim (vi improved) text editor.
             'xautolock', // Screen locker with hot-corner support.
-            'xcape', // Allows keys to have distinct tap-vs-chord behavior in X.
             'xclip', // CLI access to X clipboard.
             'xdo', // Window utility for X, used to implement "swallow" functionality.
             'xorg', // Window system.

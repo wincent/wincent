@@ -171,6 +171,7 @@ At the time of writing, these are the aspects, which you can expect to change ov
 -   **fonts**: Installs Source Code Pro font files
 -   **homebrew**: Installs and updates Homebrew
 -   **iterm**: Dynamic profiles for iTerm
+-   **interception**: Sets up Interceptions Tools (keyboard customization).
 -   **karabiner**: Configures Karabiner-Elements
 -   **launchd**: Configures launchd
 -   **locale**: Sets up /etc/locale.conf
