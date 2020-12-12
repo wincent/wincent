@@ -39,7 +39,7 @@ case "$(uname)" in
     fi
     ;;
   Linux*)
-    export JAVA_HOME=/usr/lib/jvm/jre-1.6.0-openjdk.x86_64
+    export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
     ;;
 esac
 

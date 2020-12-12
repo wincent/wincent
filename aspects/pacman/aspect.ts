@@ -3,6 +3,7 @@ export default {
     variables: {
         packages: [
             'adobe-source-code-pro-fonts', // Monospace programming font.
+            'ant', // Java build tool.
             'bluez', // Bluetooth stack.
             'bluez-utils', // Provides `bluetoothctl` CLI tool for pairing etc (see: https://wiki.archlinux.org/index.php/Bluetooth).
             'caja', // File manager from MATE desktop.
@@ -19,6 +20,7 @@ export default {
             'herbstluftwm', // (Non-default) window manager; will probably remove.
             'i3', // Window manager.
             'i3blocks', // Status bar.
+            'jdk8-openjdk', // Java.
             'jq', // JSON parser.
             'kitty', // Terminal emulator.
             'mlocate', // Find files by name with `locate`.
