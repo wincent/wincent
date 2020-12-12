@@ -6,6 +6,7 @@ export default {
             'bluez', // Bluetooth stack.
             'bluez-utils', // Provides `bluetoothctl` CLI tool for pairing etc (see: https://wiki.archlinux.org/index.php/Bluetooth).
             'caja', // File manager from MATE desktop.
+            'chafa', // Low-res character-based image previewer.
             'chromium', // Web browser.
             'clang', // Compiler toolchain (eg. used for Neovim LSP).
             'cmake', // Build tool (eg. used to build Neovim).
@@ -36,6 +37,7 @@ export default {
             'socat', // Netcat replacement with UNIX domain socket (etc) support.
             'stack', // Haskell environment.
             'sxhkd', // Hotkey daemon for X (eg. open Dmenu with Super+Space).
+            'sxiv', // Simple X image viewer.
             'tree', // CLI file hierarchy viewer.
             'unzip', // For extracting and viewing .zip archive contents.
             'vi', // Original vi text editor.

@@ -139,6 +139,7 @@ cmd broot ${{
 
 cmd open ${{
   case $(file --brief --mime-type $f) in
+    image/*) sxiv $fx;;
     text/*) $EDITOR $fx;;
     *) for f in $fx; do open $f & done;;
   esac
