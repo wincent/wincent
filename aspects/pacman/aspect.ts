@@ -18,8 +18,11 @@ export default {
             'gnome-icon-theme', // eg. for clock icon in dunst notifications.
             'happy', // Haskell golden testing library (needed for docvim).
             'herbstluftwm', // (Non-default) window manager; will probably remove.
+            'htop', // Fancier process monitor.
             'i3', // Window manager.
             'i3blocks', // Status bar.
+            'iftop', // Network monitor.
+            'iotop', // I/O monitor.
             'jdk8-openjdk', // Java.
             'jq', // JSON parser.
             'kitty', // Terminal emulator.
