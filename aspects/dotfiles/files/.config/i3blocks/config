@@ -23,5 +23,9 @@ color=#aaaaaa
 command=echo "  $(hostname -i)"
 interval=once
 
+[traffic]
+interval=5
+markup=pango
+
 [time]
 interval=1

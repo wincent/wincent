@@ -1,0 +1,56 @@
+#!/bin/bash
+
+function rate {
+  BYTES=$1
+  if [ $BYTES -gt 1048576 ]; then
+    FRACTION=$(($BYTES & 1048575))
+    printf '%s.%sM' "$(($BYTES >> 20))" "${FRACTION:0:2}"
+  elif [ $BYTES -gt 1024 ]; then
+    FRACTION=$(($BYTES & 1023))
+    printf '%s.%sK' "$(($BYTES >> 10))" "${FRACTION:0:2}"
+  else
+    printf '%sB' "$BYTES"
+  fi
+}
+
+INTERFACE=wlp4s0
+STATE=/dev/shm/${USER}-${INTERFACE}-traffic
+TIMESTAMP=$(date +%s)
+
+read RX < /sys/class/net/${INTERFACE}/statistics/rx_bytes
+read TX < /sys/class/net/${INTERFACE}/statistics/tx_bytes
+
+CURRENT="${TIMESTAMP} ${TX} ${RX}"
+
+if [ ! -e "$STATE" ]; then
+  echo "$CURRENT" > "$STATE"
+fi
+
+read PREV < "$STATE"
+echo "$CURRENT" > "$STATE"
+
+PREV=($PREV)
+
+TIMESTAMP_DELTA=$(($TIMESTAMP - ${PREV[0]}))
+TX_DELTA=$(($TX - ${PREV[1]}))
+RX_DELTA=$(($RX - ${PREV[2]}))
+
+if [ "$TIMESTAMP_DELTA" -gt 0 ]; then
+  TX_RATE=$(($TX_DELTA / $TIMESTAMP_DELTA))
+  RX_RATE=$(($RX_DELTA / $TIMESTAMP_DELTA))
+else
+  TX_RATE=0
+  RX_RATE=0
+fi
+
+# icon = fa-arrow-circle-up \uf0aa
+printf '<span color="#ad0202"> '
+rate "$TX_RATE"
+printf '</span>'
+
+# icon = fa-arrow-circle-down \uf0ab
+printf '  <span color="#00990a"> '
+rate "$RX_RATE"
+printf '</span>'
+
+printf '\n'
