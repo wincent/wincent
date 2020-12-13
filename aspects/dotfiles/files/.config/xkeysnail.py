@@ -26,6 +26,15 @@ from xkeysnail.transform import *
 #       https://github.com/mooz/xkeysnail/blob/master/xkeysnail/key.py
 
 define_keymap(re.compile("chromium", re.IGNORECASE), {
-    K("M-LEFT_BRACE"): K("C-Shift-TAB"),
-    K("M-RIGHT_BRACE"): K("C-TAB")
+    K("M-F"): K("C-F"), # Doesn't work.
+    K("M-G"): K("C-G"),
+    K("M-L"): K("C-L"), # Doesn't work.
+    K("M-Shift-LEFT_BRACE"): K("C-Shift-TAB"),
+    K("M-N"): K("C-N"), # Doesn't work.
+    K("M-Shift-RIGHT_BRACE"): K("C-TAB"),
+    K("M-Shift-G"): K("C-Shift-G"),
+    K("M-Shift-N"): K("C-Shift-N"), # Doesn't work.
+    K("M-Shift-T"): K("C-Shift-T"), # Doesn't work.
+    K("M-T"): K("C-T"),
+    K("M-W"): K("C-W"),
 }, "Chromium")
