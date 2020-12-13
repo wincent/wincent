@@ -1,35 +1,13 @@
-# It will not be overwritten, so edit it as you like.
-#
-# Should you change your keyboard layout some time, delete
-# this file and re-run i3-config-wizard(1).
-#
+# See: https://i3wm.org/docs/userguidehttps://i3wm.org/docs/userguide.html.html
 
-# i3 config file (v4)
-#
-# Please see https://i3wm.org/docs/userguidehttps://i3wm.org/docs/userguide.html.html for a complete reference!
-
-# As explained in ~/.config/sxhkd/sxhkdrc, Mod1 here (technically "Alt") is
-# "Super". Mod4 (technically "Super") would be "Alt".
+# See `xmodmap -pm`:
+# - Mod1 is "Alt" ("Command").
+# - Mod3 would be "Super" ("Option").
 set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:Source Code Pro Regular 10:Font Awesome 5 Free
-
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
-
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
-
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-#exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-#exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -41,45 +19,37 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
+# Start a terminal.
 bindsym $mod+Return exec kitty
 
-# kill focused window
+# Kill focused window.
 bindsym $mod+q kill
 
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-
-# Change focus using Vim-style directional keys (h, j, k, l)...
+# Change focus using Vim-style directional keys (h, j, k, l).
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-# Move focused window
+# Move focused window.
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-# split in horizontal orientation
-# TODO: find an alternative for this...
-# bindsym $mod+h split h
+# Do next split vertically (ie. below).
+bindsym $mod+b split vertical
 
-# split in vertical orientation
-bindsym $mod+v split v
+# Do next split horizontally (ie. to right).
+bindsym $mod+r split horizontal
 
-# enter fullscreen mode for the focused container
+# Fullscreen the focused container.
 bindsym $mod+t fullscreen toggle
 
-# change container layout (stacked, tabbed, toggle split)
-# bindsym $mod+r layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+f layout toggle split
+# Cycle through container layouts (mnemonic: la[y]out).
+bindsym $mod+y layout toggle splitv splith tabbed stacking
 
-# toggle tiling / floating
+# Toggle tiling <-> floating.
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
@@ -91,12 +61,8 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-#bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
-
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
 
 # icon fa-keyboard-o \uf11c
 set $ws1 "1:  terminal"
@@ -114,7 +80,7 @@ set $ws9 "9"
 set $ws10 "10"
 # TODO: consider using icons here
 
-# switch to workspace
+# Switch to workspace.
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
 bindsym $mod+3 workspace number $ws3
@@ -126,7 +92,7 @@ bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
-# move focused container to workspace
+# Move focused container to workspace.
 bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
 bindsym $mod+Shift+3 move container to workspace number $ws3
@@ -138,11 +104,13 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
-# reload the configuration file
+# Reload the configuration file.
 bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+
+# Restart i3 inplace (preserves your layout/session, can be used to upgrade i3).
 bindsym $mod+Shift+p restart
-# exit i3 (logs you out of your X session)
+
+# Exit i3 (ends X session).
 bindsym $mod+Shift+q exec "test $(echo -e 'No\nYes' | dmenu -fn Source\ Code\ Pro\ Regular:pixelsize=34 -i -p 'Exit i3?') = 'Yes' && i3-msg exit"
 
 #
@@ -157,7 +125,7 @@ bindsym $mod+Shift+q exec "test $(echo -e 'No\nYes' | dmenu -fn Source\ Code\ Pr
 bindsym $mod+Left exec --no-startup-id "i3-msg 'resize grow left 10 px or 10 ppt' || i3-msg 'resize shrink right 10 px or 10 ppt'"
 bindsym $mod+Down exec --no-startup-id "i3-msg 'resize grow down 10 px or 10 ppt' || i3-msg 'resize shrink up 10 px or 10 ppt'"
 bindsym $mod+Right exec --no-startup-id "i3-msg 'resize grow right 10 px or 10 ppt' || i3-msg 'resize shrink left 10 px or 10 ppt'"
-bindsym $mod+Up exec --no-startup-id "i3-msg 'resize grow up 10 px or 10 ppt' || i3-msg 'resize shrink down 10 px or 10 ppt'"
+bindsym $mod+Up exec --no-startup-id "i3-msg 'resize grow up 10 px or 10 ppt' || i3-msg 'resize shrink down 10 px or 10 ppt'
 
 # The "Shift" variants allow you to "pull" directly. This is useful if you have,
 # say, three windows and the middle one has focus: in this scenario, the
@@ -184,7 +152,7 @@ bar {
 }
 
 # https://github.com/Airblader/i3#gaps
-#for_window [class=".*"] border pixel 0
+# for_window [class=".*"] border pixel 0
 
 default_border pixel 0
 focus_follows_mouse no
@@ -199,15 +167,14 @@ gaps outer 0
 # (outer gap will be inner + outer, ie. 10)
 smart_gaps inverse_outer
 
-# Again, not sure if I want this...
-assign [class="^Google-chrome$"] number $ws2
-
 exec sxhkd
 
 exec kitty
 
 # maybe won't keep this... just to show that i can do it.
-exec --no-startup-id i3-msg 'workspace number $ws2; exec google-chrome-stable; workspace number $ws1'
+# exec --no-startup-id i3-msg 'workspace number $ws2; exec chromium; workspace number $ws1'
+# Again, not sure if I want this...
+# assign [class="^chromium$"] number $ws2
 
 # Stop Chrome file dialogs from being bigger then the entire screen...
 floating_maximum_size 1920 x 1080
