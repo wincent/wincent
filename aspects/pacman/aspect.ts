@@ -26,9 +26,11 @@ export default {
             'jdk8-openjdk', // Java.
             'jq', // JSON parser.
             'kitty', // Terminal emulator.
+            'mariadb', // Drop-in replacemend for (and default Arch) MySQL package.
             'mlocate', // Find files by name with `locate`.
             'netcat', // For piping over network connectison (see also `socat` below).
             'nodejs', // JavaScript engine.
+            'npm', // Node package manager.
             'openssh', // SSH tools.
             'otf-font-awesome', // Icon font (eg. for status bar).
             'picom', // X compositor (eg. window transparency etc).

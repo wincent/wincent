@@ -56,6 +56,13 @@ task('configure faillock.conf', async () => {
     });
 });
 
+// TODO: `npm install -g n`
+// TODO: set N_PREFIX=~
+// TODO: run `n 10.15.1`
+// TODO: sudo mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+// (note, root user doesn't have password but expects you to be logged in as
+// root user in shell to use it)
+
 task('create suspend hook', async () => {
     await file({
         notify: 'enable suspend hook',
