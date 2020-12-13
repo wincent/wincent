@@ -19,6 +19,7 @@
             ".config/picom.conf",
             ".config/ranger",
             ".config/sxhkd",
+            ".config/xkeysnail.py",
             ".ghci",
             ".gitattributes",
             ".gitignore",

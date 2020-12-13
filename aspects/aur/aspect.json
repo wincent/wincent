@@ -5,7 +5,8 @@
             "clipper-git",
             "interception-dual-function-keys",
             "lf",
-            "neovim-nightly"
+            "neovim-nightly",
+            "xkeysnail"
         ]
     }
 }
