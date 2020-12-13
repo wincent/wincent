@@ -96,6 +96,16 @@ task('install typescript-language-server', async () => {
     await command('yarn', ['global', 'add', 'typescript-language-server']);
 });
 
+task('install deoplete helpers via pip', async () => {
+    if (attributes.distribution === 'arch') {
+        await command('pip', ['install', 'commandt.score', 'redis']);
+    } else {
+        // On macOS it's probabaly `pip3`, but I haven't tested it yet so making
+        // it a no-op.
+        skip();
+    }
+});
+
 // added in 1a9f9b9fd and probably not used since...
 // pip2 install vim-vint
 
