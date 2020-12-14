@@ -45,7 +45,8 @@
             ".corpusrc.erb",
             ".fehbg",
             ".gitconfig.erb",
-            ".hammerspoon/iterm.lua.erb"
+            ".hammerspoon/iterm.lua.erb",
+            ".zsh/liferay/exports.erb"
         ]
     }
 }

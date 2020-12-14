@@ -3,6 +3,7 @@
 /aspects/dotfiles/files/.pypirc
 /aspects/dotfiles/files/.zsh/exports.private
 /aspects/dotfiles/files/.zsh/liferay/bin/portool-helpers/licenses/activation-key-liferaycommerce-entrprise-internal.xml
+/aspects/dotfiles/files/.zsh/liferay/exports
 /aspects/ssh/templates/.ssh/config.erb
 /aspects/vim/files/.vim/.base16
 /aspects/vim/files/.vim/.base16.previous

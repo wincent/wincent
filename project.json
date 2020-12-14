@@ -38,6 +38,16 @@
                 "vim"
             ],
             "variables": {
+                "antMaxPermSize": "4096m",
+                "antXms": "4096m",
+                "antXmx": "16384m",
+                "gradleMaxPermSize": "2048m",
+                "gradleWorkersMax": "8",
+                "gradleXms": "2048m",
+                "gradleXmx": "8192m",
+                "javaMaxPermSize": "2048m",
+                "javaXms": "4096m",
+                "javaXmx": "16384m",
                 "terminfoPath": "~/share/terminfo"
             }
         }
@@ -55,9 +65,16 @@
         }
     },
     "variables": {
+        "antMaxPermSize": "2048m",
+        "antXms": "4096m",
+        "antXmx": "8192m",
         "corpusNotes": "~/Documents/Corpus",
         "figManaged": "vim: set nomodifiable : DO NOT EDIT - edit template source instead («file») or use `:set modifiable` to force.",
         "gitCipherPath": "vendor/git-cipher/bin/git-cipher",
+        "gradleMaxPermSize": "2048m",
+        "gradleWorkersMax": "4",
+        "gradleXms": "2048m",
+        "gradleXmx": "4096m",
         "iTermDynamicProfiles": {
             "external": [
                 {
@@ -87,6 +104,10 @@
                     "src": "10-Retina.json"
                 }
             ]
-        }
+        },
+        "javaMaxPermSize": "2048m",
+        "javaXms": "4096m",
+        "javaXmx": "8192m",
+        "terminfoPath": "~/.terminfo"
     }
 }

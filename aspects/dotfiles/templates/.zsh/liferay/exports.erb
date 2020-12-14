@@ -1,3 +1,4 @@
+# <%= variables.figManaged %>
 # Base settings (from ~/.zsh/exports):
 #
 #   export ANT_OPTS="-Xmx4096m -Xms4096m -XX:MaxPermSize=1024m -XX:-UseGCOverheadLimit -Dorg.gradle.workers.max=4"
@@ -33,9 +34,9 @@
 # Can get cached into `gradle/gradle.properties`, and if that happens, variables
 # set in the environment won't have any effect.
 #
-export ANT_OPTS="-Xmx8192m -Xms4096m -XX:MaxPermSize=2048m -XX:-UseGCOverheadLimit -Dorg.gradle.jvmargs='-Xmx4096m -Xms2048m' -Dorg.gradle.workers.max=4"
-export GRADLE_OPTS="-Xmx4096m -Xms2048m -XX:MaxPermSize=2048m -XX:-UseGCOverheadLimit -Dorg.gradle.jvmargs='-Xmx4096m -Xms2048m' -Dorg.gradle.workers.max=4"
-export JAVA_OPTS="-Xmx8192m -Xms4096m -XX:MaxPermSize=2048m -XX:-UseGCOverheadLimit -Dorg.gradle.jvmargs='-Xmx4096m -Xms2048m' -Dorg.gradle.workers.max=4"
+export ANT_OPTS="-Xmx<%= variables.antXmx %> -Xms<%= variables.antXms %> -XX:MaxPermSize=<%= variables.antMaxPermSize %> -XX:-UseGCOverheadLimit -Dorg.gradle.jvmargs='-Xmx<%= variables.gradleXmx %> -Xms<%= variables.gradleXms %>' -Dorg.gradle.workers.max=<%= variables.gradleWorkersMax %>"
+export GRADLE_OPTS="-Xmx<%= variables.gradleXmx %> -Xms<%= variables.gradleXms %> -XX:MaxPermSize=<%= variables.gradleMaxPermSize %> -XX:-UseGCOverheadLimit -Dorg.gradle.jvmargs='-Xmx<%= variables.gradleXmx %> -Xms<%= variables.gradleXms %>' -Dorg.gradle.workers.max=<%= variables.gradleWorkersMax %>"
+export JAVA_OPTS="-Xmx<%= variables.javaXmx %> -Xms<%= variables.javaXms %> -XX:MaxPermSize=<%= variables.javaMaxPermSize %> -XX:-UseGCOverheadLimit -Dorg.gradle.jvmargs='-Xmx<%= variables.gradleXmx %> -Xms<%= variables.gradleXms %>' -Dorg.gradle.workers.max=<%= variables.gradleWorkersMax %>"
 
 # Recommend settings from https://github.com/julien/notes/blob/master/portal.md
 #
