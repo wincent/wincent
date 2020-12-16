@@ -47,8 +47,7 @@
                 "gradleXmx": "8192m",
                 "javaMaxPermSize": "2048m",
                 "javaXms": "4096m",
-                "javaXmx": "16384m",
-                "terminfoPath": "~/share/terminfo"
+                "javaXmx": "16384m"
             }
         }
     },
@@ -107,7 +106,6 @@
         },
         "javaMaxPermSize": "2048m",
         "javaXms": "4096m",
-        "javaXmx": "8192m",
-        "terminfoPath": "~/.terminfo"
+        "javaXmx": "8192m"
     }
 }
