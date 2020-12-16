@@ -1,4 +1,12 @@
-import {attributes, command, skip, task as defineTask, variable} from 'fig';
+import {
+    attributes,
+    command,
+    file,
+    handler,
+    skip,
+    task as defineTask,
+    variable,
+} from 'fig';
 
 // TODO: DRY this up; it is in three files now
 function task(name: string, callback: () => Promise<void>) {
@@ -33,5 +41,37 @@ task('install packages', async () => {
         '-S',
         '--noconfirm',
         ...variable.strings('packages'),
+    ]);
+});
+
+task('create ~/.config/systemd/user', async () => {
+    for (const directory of [
+        '~/.config',
+        '~/.config/systemd',
+        '~/.config/systemd/user',
+    ]) {
+        await file({
+            path: directory,
+            state: 'directory',
+        });
+    }
+});
+
+task('install ~/.config/systemd/user/clipper.service', async () => {
+    await file({
+        notify: 'enable clipper.service',
+        path: '~/.config/systemd/user/clipper.service',
+        src: '/usr/share/clipper/clipper.service',
+        state: 'file',
+    });
+});
+
+handler('enable clipper.service', async () => {
+    await command('systemctl', ['--user', 'daemon-reload']);
+    await command('systemctl', [
+        '--user',
+        'enable',
+        'clipper.service',
+        '--now',
     ]);
 });
