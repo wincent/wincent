@@ -19,7 +19,7 @@ task('set up hostname', async () => {
         variable('identity') === 'wincent' &&
         result!.stdout.trim() !== hostname
     ) {
-        await command('hostnamectl', ['set-hostname', hostname]);
+        await command('hostnamectl', ['set-hostname', hostname], {sudo: true});
     } else {
         skip();
     }
