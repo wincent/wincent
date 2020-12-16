@@ -15,6 +15,7 @@ export default {
             'dunst', // Notification daemon (eg. for clock dropdown in status bar).
             'feh', // Sets desktop background.
             'git', // Version control system.
+            'gnome-control-center', // For controlling audio (etc).
             'gnome-icon-theme', // eg. for clock icon in dunst notifications.
             'happy', // Haskell golden testing library (needed for docvim).
             'herbstluftwm', // (Non-default) window manager; will probably remove.
