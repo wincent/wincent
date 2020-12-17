@@ -45,6 +45,7 @@ export default {
             'skim', // Fuzzy finder.
             'socat', // Netcat replacement with UNIX domain socket (etc) support.
             'stack', // Haskell environment.
+            'stress', // CPU (etc) stress tester.
             'sxhkd', // Hotkey daemon for X (eg. open Dmenu with Super+Space).
             'sxiv', // Simple X image viewer.
             'tree', // CLI file hierarchy viewer.
