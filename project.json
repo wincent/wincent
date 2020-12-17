@@ -42,7 +42,7 @@
                 "antXms": "4096m",
                 "antXmx": "16384m",
                 "gradleMaxPermSize": "2048m",
-                "gradleWorkersMax": "8",
+                "gradleWorkersMax": "32",
                 "gradleXms": "2048m",
                 "gradleXmx": "8192m",
                 "javaMaxPermSize": "2048m",
