@@ -20,6 +20,27 @@ function task(name: string, callback: () => Promise<void>) {
     });
 }
 
+task('enable multilib repository', async () => {
+    // TODO: make a proper ini module for managing this;
+    // will need it because desired `Include` line here must appear in a
+    // specific section.
+    /*
+    await line({
+        path: '/etc/pacman.conf',
+        regexp: /^\s*#?\s*\[multilib\]\s*$/,
+        sudo: true,
+        line: '[multilib]',
+    });
+
+    await line({
+        path: '/etc/pacman.conf',
+        regexp: /^\s*#?\s*Include\s*=\s*\/etc\/pacman\.d\/mirrolist\s*$/,
+        sudo: true,
+        line: 'Include = /etc/pacman.d/mirrorlist',
+    });
+    */
+});
+
 task('refresh package databases', async () => {
     await command('pacman', ['-Syy'], {sudo: true});
 });
