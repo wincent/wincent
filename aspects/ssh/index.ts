@@ -15,6 +15,10 @@ task('install ~/.ssh/config', async () => {
 
         const stats = await stat(src);
 
+        // TODO: make this warn instead of fail
+        // (on first run on a new machine, we might not have decrypted yet...
+        // because we won't have the GPG key on the machine yet...
+        // although maybe I should just do that...)
         if (stats === null) {
             fail(
                 `"${src}" does not exist; run "vendor/git-cipher/bin/git-cipher"`

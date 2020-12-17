@@ -67,6 +67,17 @@ task('compile Command-T', async () => {
     });
 });
 
+// TODO: note that this doesn't work... when i enter vim it is asking me to dl
+// something anyway... the ES ones....
+// ie. i have
+//      en.utf-8.add
+//      en.utf-8.add.spl
+//  and it dls
+//      es.utf-8.spl
+//      es.utf-8.sug
+// No spell file for "es" in utf-8
+// Download it?
+// (Y)es, [N]o:
 task('create spell file', async () => {
     const spellfile = path.aspect.join('files/.vim/spell/en.utf-8.add');
 
@@ -83,6 +94,7 @@ task('update bundle', async () => {
     skip('not yet implemented');
     // update-bundle
 });
+// TODO: also UpdateRemotePlugins (after setting up deoplete)
 
 task('update help tags', async () => {
     await command(resource.support('update-help-tags'), []);

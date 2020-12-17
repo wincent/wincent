@@ -56,12 +56,19 @@ task('configure faillock.conf', async () => {
     });
 });
 
-// TODO: `npm install -g n`
-// TODO: set N_PREFIX=~
+// TODO: `sudo npm install -g n`
+// TODO: `export N_PREFIX=~`
 // TODO: run `n 10.15.1`
-// TODO: sudo mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
-// (note, root user doesn't have password but expects you to be logged in as
-// root user in shell to use it)
+// TODO: sudo mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql --auth-root-authentication-method=normal
+// systemctl enable mariadb
+// systemctl start mariadb
+// mkdir -p code/portal
+// cd !$
+// git clone https://github.com/liferay/liferay-portal.git
+// git clone https://github.com/liferay/liferay-binaries-cache-2020.git
+// cd liferay-portal
+// portool setup
+// portool build
 
 task('create suspend hook', async () => {
     await file({
@@ -78,3 +85,9 @@ handler('enable suspend hook', async () => {
         sudo: true,
     });
 });
+
+// TODO: set up sensors or something... i'm not getting cpu sensors
+// `sudo sensors-detect --auto` hard froze my machine
+// `sudo sensors-detect` saying YES to everything but the last question is fine
+
+// TODO: figure out why font seems wrong in i3 status bar as well
