@@ -3,10 +3,12 @@ import {
     command,
     file,
     handler,
+    resource,
     skip,
     task as defineTask,
     variable,
 } from 'fig';
+import {join} from 'path';
 
 // TODO: DRY this up; it is in three files now
 function task(name: string, callback: () => Promise<void>) {
@@ -64,6 +66,21 @@ task('install ~/.config/systemd/user/clipper.service', async () => {
         src: '/usr/share/clipper/clipper.service',
         state: 'file',
     });
+});
+
+task('set up sensors', async () => {
+    for (const conf of [
+        'etc/modprobe.d/it87.conf',
+        'etc/modules-load.d/it87.conf',
+        'etc/sensors.d/gigabyte-x570.conf',
+    ]) {
+        await file({
+            path: join('/', conf),
+            src: resource.file(conf),
+            state: 'file',
+            sudo: true,
+        });
+    }
 });
 
 handler('enable clipper.service', async () => {
