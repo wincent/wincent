@@ -36,35 +36,22 @@ from xkeysnail.transform import *
 #       https://github.com/mooz/xkeysnail/blob/master/xkeysnail/key.py
 
 define_keymap(None, {
-    K("M-A"): K("C-A"), # Select all.
-    K("M-C"): K("C-C"), # Copy.
     K("M-Left"): K("Home"), # Start of line. TODO: make this work in kitty although I probably won't use it.
     K("M-Right"): K("End"), # End of line. TODO: make this work in kitty although I probably won't use it.
     K("M-Shift-V"): K("C-Shift-V"), # Paste and match style.
     K("M-Shift-Z"): K("C-Shift-Z"), # Redo.
-    K("M-X"): K("C-X"), # Cut.
-    K("M-Z"): K("C-Z"), # Undo.
     K("Super-Left"): K("C-Left"), # Previous word. TODO: make this work in kitty.
     K("Super-Right"): K("C-Right"), # Next word. TODO: make this work in kitty.
 });
 
 define_keymap(re.compile("chromium", re.IGNORECASE), {
-    K("M-EQUAL"): K("C-EQUAL"), # Zoom in.
-    K("M-F"): K("C-F"), # Search (doesn't work; opens menu). TODO: do this unconditionally with Interception Tools?
-    K("M-G"): K("C-G"), # Search again.
-    K("M-L"): K("C-L"), # Focus location bar (doesn't work); https://www.chromium.org/user-experience/keyboard-access
     K("M-LEFT_BRACE"): K("Alt-Left"), # Previous page.
-    K("M-MINUS"): K("C-MINUS"), # Zoom out.
     K("M-Shift-LEFT_BRACE"): K("C-Shift-TAB"), # Previous tab.
-    K("M-N"): K("C-N"), # New window (doesn't work; actually, does work, sometimes...).
     K("M-RIGHT_BRACE"): K("Alt-Right"), # Next page.
-    K("M-R"): K("C-R"), # Reload (doesn't work).
     K("M-Shift-RIGHT_BRACE"): K("C-TAB"), # Next tab.
     K("M-Shift-G"): K("C-Shift-G"), # Previous search.
     K("M-Shift-N"): K("C-Shift-N"), # New incognito window (doesn't work).
     K("M-Shift-T"): K("C-Shift-T"), # Re-open closed tab (doesn't work).
-    K("M-T"): K("C-T"), # New tab.
-    K("M-W"): K("C-W"), # Close tab.
     K("Super-Alt-I"): K("C-Shift-I"), # Toggle Developer Tools (doesn't work).
     K("Super-Alt-J"): K("C-Shift-J"), # Toggle JavaScript console (doesn't work).
 }, "Chromium")

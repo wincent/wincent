@@ -3,11 +3,27 @@
 #include <linux/input.h>
 #include <unistd.h>
 
+// Event `value`; see: https://www.kernel.org/doc/html/latest/input/event-codes.html
+
 #define DOWN 1
 #define UP 0
 #define REPEAT 2
 
+// When pushing keys in the Colemak layout, these are the hardware keys seen by
+// the kernel.
+
+#define COLEMAK_A KEY_A
+#define COLEMAK_C KEY_C
+#define COLEMAK_EQUAL KEY_EQUAL
+#define COLEMAK_F KEY_E
+#define COLEMAK_G KEY_T
 #define COLEMAK_L KEY_U
+#define COLEMAK_MINUS KEY_MINUS
+#define COLEMAK_N KEY_J
+#define COLEMAK_R KEY_S
+#define COLEMAK_T KEY_F
+#define COLEMAK_W KEY_W
+#define COLEMAK_Z KEY_Z
 
 const struct input_event
     // TODO: deal with right alt as well
@@ -63,7 +79,20 @@ int main(void) {
                         continue;
                     } else if (eq(&event, &alt_up)) {
                         state = INIT;
-                    } else if (event.code == COLEMAK_L) {
+                    } else if (
+                        event.code == COLEMAK_A ||
+                        event.code == COLEMAK_C ||
+                        event.code == COLEMAK_EQUAL ||
+                        event.code == COLEMAK_F ||
+                        event.code == COLEMAK_G ||
+                        event.code == COLEMAK_L ||
+                        event.code == COLEMAK_MINUS ||
+                        event.code == COLEMAK_N ||
+                        event.code == COLEMAK_R ||
+                        event.code == COLEMAK_T ||
+                        event.code == COLEMAK_W ||
+                        event.code == COLEMAK_Z
+                    ) {
                         write_event(&ctrl_down);
                         write_syn();
                         state = ALT_IS_CTRL;
@@ -79,7 +108,20 @@ int main(void) {
                         continue;
                     } else if (eq(&event, &alt_up)) {
                         state = INIT;
-                    } else if (event.code == COLEMAK_L) {
+                    } else if (
+                        event.code == COLEMAK_A ||
+                        event.code == COLEMAK_C ||
+                        event.code == COLEMAK_EQUAL ||
+                        event.code == COLEMAK_F ||
+                        event.code == COLEMAK_G ||
+                        event.code == COLEMAK_L ||
+                        event.code == COLEMAK_MINUS ||
+                        event.code == COLEMAK_N ||
+                        event.code == COLEMAK_R ||
+                        event.code == COLEMAK_T ||
+                        event.code == COLEMAK_W ||
+                        event.code == COLEMAK_Z
+                    ) {
                         write_event(&alt_up);
                         write_syn();
                         write_event(&ctrl_down);
@@ -96,7 +138,20 @@ int main(void) {
                         write_syn();
                         state = INIT;
                         continue;
-                    } else if (event.code == COLEMAK_L) {
+                    } else if (
+                        event.code == COLEMAK_A ||
+                        event.code == COLEMAK_C ||
+                        event.code == COLEMAK_EQUAL ||
+                        event.code == COLEMAK_F ||
+                        event.code == COLEMAK_G ||
+                        event.code == COLEMAK_L ||
+                        event.code == COLEMAK_MINUS ||
+                        event.code == COLEMAK_N ||
+                        event.code == COLEMAK_R ||
+                        event.code == COLEMAK_T ||
+                        event.code == COLEMAK_W ||
+                        event.code == COLEMAK_Z
+                    ) {
                         break;
                     } else {
                         write_event(&ctrl_up);
