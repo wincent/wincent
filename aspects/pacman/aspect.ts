@@ -35,6 +35,7 @@ export default {
             'npm', // Node package manager.
             'openssh', // SSH tools.
             'otf-font-awesome', // Icon font (eg. for status bar).
+            'pcmanfm', // File manager from LXDE desktop (lightweight).
             'picom', // X compositor (eg. window transparency etc).
             'pulseaudio-bluetooth',
             'python-neovim', // Support for running Python plugins in Neovim.
