@@ -1,9 +1,11 @@
 # See: https://i3wm.org/docs/userguidehttps://i3wm.org/docs/userguide.html.html
 
 # See `xmodmap -pm`:
-# - Mod1 is "Alt" ("Command").
-# - Mod3 would be "Super" ("Option").
-set $mod Mod1
+# - Mod1 (default) is "Alt" ("Command").
+# - Mod4 is "Super" ("Option").
+set $alt Mod1
+set $super Mod4
+set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -11,46 +13,46 @@ font pango:Source Code Pro Regular 10:Font Awesome 5 Free
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym $mod+F12 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym $mod+F11 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym $mod+F10 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym $alt+F12 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym $alt+F11 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym $alt+F10 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # Start a terminal.
-bindsym $mod+Return exec kitty
+bindsym $alt+Return exec kitty
 
 # Kill focused window.
-bindsym $mod+q kill
+bindsym $alt+q kill
 
 # Change focus using Vim-style directional keys (h, j, k, l).
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+bindsym $super+h focus left
+bindsym $super+j focus down
+bindsym $super+k focus up
+bindsym $super+l focus right
 
 # Move focused window.
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
+bindsym $super+Shift+h move left
+bindsym $super+Shift+j move down
+bindsym $super+Shift+k move up
+bindsym $super+Shift+l move right
 
 # Do next split vertically (ie. below).
-bindsym $mod+b split vertical
+bindsym $super+b split vertical
 
 # Do next split horizontally (ie. to right).
-bindsym $mod+r split horizontal
+bindsym $super+r split horizontal
 
 # Fullscreen the focused container.
-bindsym $mod+t fullscreen toggle
+bindsym $super+t fullscreen toggle
 
 # Cycle through container layouts (mnemonic: la[y]out).
-bindsym $mod+y layout toggle splitv splith tabbed stacking
+bindsym $super+y layout toggle splitv splith tabbed stacking
 
 # Toggle tiling <-> floating.
-bindsym $mod+Shift+space floating toggle
+bindsym $alt+Shift+space floating toggle
 
 # change focus between tiling / floating windows
 #bindsym $mod+space focus mode_toggle
@@ -61,8 +63,8 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-bindsym $mod+Tab workspace next
-bindsym $mod+Shift+Tab workspace prev
+bindsym $alt+Tab workspace next
+bindsym $alt+Shift+Tab workspace prev
 
 # icon fa-keyboard-o \uf11c
 set $ws1 "1:  terminal"
@@ -81,37 +83,37 @@ set $ws10 "10"
 # TODO: consider using icons here
 
 # Switch to workspace.
-bindsym $mod+1 workspace number $ws1
-bindsym $mod+2 workspace number $ws2
-bindsym $mod+3 workspace number $ws3
-bindsym $mod+4 workspace number $ws4
-bindsym $mod+5 workspace number $ws5
-bindsym $mod+6 workspace number $ws6
-bindsym $mod+7 workspace number $ws7
-bindsym $mod+8 workspace number $ws8
-bindsym $mod+9 workspace number $ws9
-bindsym $mod+0 workspace number $ws10
+bindsym $alt+1 workspace number $ws1
+bindsym $alt+2 workspace number $ws2
+bindsym $alt+3 workspace number $ws3
+bindsym $alt+4 workspace number $ws4
+bindsym $alt+5 workspace number $ws5
+bindsym $alt+6 workspace number $ws6
+bindsym $alt+7 workspace number $ws7
+bindsym $alt+8 workspace number $ws8
+bindsym $alt+9 workspace number $ws9
+bindsym $alt+0 workspace number $ws10
 
 # Move focused container to workspace.
-bindsym $mod+Shift+1 move container to workspace number $ws1
-bindsym $mod+Shift+2 move container to workspace number $ws2
-bindsym $mod+Shift+3 move container to workspace number $ws3
-bindsym $mod+Shift+4 move container to workspace number $ws4
-bindsym $mod+Shift+5 move container to workspace number $ws5
-bindsym $mod+Shift+6 move container to workspace number $ws6
-bindsym $mod+Shift+7 move container to workspace number $ws7
-bindsym $mod+Shift+8 move container to workspace number $ws8
-bindsym $mod+Shift+9 move container to workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10
+bindsym $alt+Shift+1 move container to workspace number $ws1
+bindsym $alt+Shift+2 move container to workspace number $ws2
+bindsym $alt+Shift+3 move container to workspace number $ws3
+bindsym $alt+Shift+4 move container to workspace number $ws4
+bindsym $alt+Shift+5 move container to workspace number $ws5
+bindsym $alt+Shift+6 move container to workspace number $ws6
+bindsym $alt+Shift+7 move container to workspace number $ws7
+bindsym $alt+Shift+8 move container to workspace number $ws8
+bindsym $alt+Shift+9 move container to workspace number $ws9
+bindsym $alt+Shift+0 move container to workspace number $ws10
 
 # Reload the configuration file.
-bindsym $mod+Shift+c reload
+bindsym $alt+Shift+c reload
 
 # Restart i3 inplace (preserves your layout/session, can be used to upgrade i3).
-bindsym $mod+Shift+p restart
+bindsym $alt+Shift+p restart
 
 # Exit i3 (ends X session).
-bindsym $mod+Shift+q exec "test $(echo -e 'No\nYes' | dmenu -fn Source\ Code\ Pro\ Regular:pixelsize=34 -i -p 'Exit i3?') = 'Yes' && i3-msg exit"
+bindsym $alt+Shift+q exec "test $(echo -e 'No\nYes' | dmenu -fn Source\ Code\ Pro\ Regular:pixelsize=34 -i -p 'Exit i3?') = 'Yes' && i3-msg exit"
 
 #
 # Resizing
@@ -122,20 +124,20 @@ bindsym $mod+Shift+q exec "test $(echo -e 'No\nYes' | dmenu -fn Source\ Code\ Pr
 # When you have two windows (a common case), this means the behavior
 # feels very much like tmux's resize behavior.
 
-bindsym $mod+Left exec --no-startup-id "i3-msg 'resize grow left 10 px or 10 ppt' || i3-msg 'resize shrink right 10 px or 10 ppt'"
-bindsym $mod+Down exec --no-startup-id "i3-msg 'resize grow down 10 px or 10 ppt' || i3-msg 'resize shrink up 10 px or 10 ppt'"
-bindsym $mod+Right exec --no-startup-id "i3-msg 'resize grow right 10 px or 10 ppt' || i3-msg 'resize shrink left 10 px or 10 ppt'"
-bindsym $mod+Up exec --no-startup-id "i3-msg 'resize grow up 10 px or 10 ppt' || i3-msg 'resize shrink down 10 px or 10 ppt'
+bindsym $super+Left exec --no-startup-id "i3-msg 'resize grow left 10 px or 10 ppt' || i3-msg 'resize shrink right 10 px or 10 ppt'"
+bindsym $super+Down exec --no-startup-id "i3-msg 'resize grow down 10 px or 10 ppt' || i3-msg 'resize shrink up 10 px or 10 ppt'"
+bindsym $super+Right exec --no-startup-id "i3-msg 'resize grow right 10 px or 10 ppt' || i3-msg 'resize shrink left 10 px or 10 ppt'"
+bindsym $super+Up exec --no-startup-id "i3-msg 'resize grow up 10 px or 10 ppt' || i3-msg 'resize shrink down 10 px or 10 ppt'
 
 # The "Shift" variants allow you to "pull" directly. This is useful if you have,
 # say, three windows and the middle one has focus: in this scenario, the
 # movement keys above will try to grow first (ie. "Left" tries to grow to the
 # left), but if you instead want to shrink, you would push the shifted version
 # (which would shrink by pulling the right edge leftwards).
-bindsym $mod+Shift+Left resize shrink right 10 px or 10 ppt
-bindsym $mod+Shift+Down resize shrink up 10 px or 10 ppt
-bindsym $mod+Shift+Right resize shrink left 10 px or 10 ppt
-bindsym $mod+Shift+Up resize shrink down 10 px or 10 ppt
+bindsym $super+Shift+Left resize shrink right 10 px or 10 ppt
+bindsym $super+Shift+Down resize shrink up 10 px or 10 ppt
+bindsym $super+Shift+Right resize shrink left 10 px or 10 ppt
+bindsym $super+Shift+Up resize shrink down 10 px or 10 ppt
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
