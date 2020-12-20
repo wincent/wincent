@@ -18,6 +18,23 @@ function task(name: string, callback: () => Promise<void>) {
     });
 }
 
+task('build mac2linux', async () => {
+    const chdir = resource.support();
+
+    await command('cmake', ['--build', '.'], {chdir});
+    await command('make', [], {chdir});
+});
+
+task('install mac2linux', async () => {
+    const chdir = resource.support();
+
+    await command('cmake', ['--install', '.', '--prefix', '/usr'], {
+        chdir,
+        notify: 'enable udevmon',
+        sudo: true,
+    });
+});
+
 task('create /etc/dual-function-keys.yaml', async () => {
     await template({
         notify: 'enable udevmon',
