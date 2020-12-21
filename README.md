@@ -36,13 +36,16 @@ On macOS, [the "homebrew" aspect](https://github.com/wincent/wincent/tree/master
 
 ### Keyboard customization
 
-On macOS, [Karabiner-Elements](https://github.com/tekezo/Karabiner-Elements/) is used for the following:
+On macOS, we use [Karabiner-Elements](https://github.com/tekezo/Karabiner-Elements/), and on Linux, we use [Interception Tools](https://gitlab.com/interception/linux/tools) and a few other pieces to make the following changes:
 
 -   Make Caps Lock serve as Backspace (when tapped) and Left Control (when chorded with another key). When held down alone, Caps Lock fires repeated Backspace events.
 -   Make Return serve as Return (when tapped) and Right Control (when chorded with another key). When held down alone, Return fires repeated Return events.
 -   Maps Control-I to F6 (only in MacVim and the terminal) so that it can be mapped independently from Tab in Vim.
 -   Toggle Caps Lock on by tapping both Shift keys simultaneously.
 -   Makes the function keys on my external Realforce keyboard behave like the "media" keys on Apple's keyboards.
+
+And these only on macOS:
+
 -   Swap Option and Command keys on my external Realforce keyboard.
 -   Make the "application" key (extra modifier key on right-hand side) behave as "fn" on Realforce keyboard.
 -   Make "pause" (at far-right of function key row) behave as "power" (effectively, sleep) on Realforce keyboard.
@@ -161,30 +164,33 @@ git clone --recursive https://github.com/wincent/wincent.git
 
 At the time of writing, these are the aspects, which you can expect to change over time:
 
--   **aur**: Installs packages from the Arch User Repository.
--   **automator**: Scripts for use with Automator
--   **automount**: Sets up macOS's automount facility
--   **backup**: Backup scripts
--   **cron**: Sets up cron files
--   **defaults**: Sets up defaults (ie. preferences) on macOS
--   **dotfiles**: Creates symlinks in \$HOME to the dotfiles in this repo
--   **fonts**: Installs Source Code Pro font files
--   **homebrew**: Installs and updates Homebrew
--   **iterm**: Dynamic profiles for iTerm
--   **interception**: Sets up Interceptions Tools (keyboard customization).
--   **karabiner**: Configures Karabiner-Elements
--   **launchd**: Configures launchd
--   **locale**: Sets up /etc/locale.conf
--   **meta**: Tests the configuration framework
--   **node**: Installs Node.js
--   **pacman**: Installs packages via the Pacman package manager
--   **ruby**: Installs Ruby gems
--   **shell**: Sets the use shell to zsh
--   **ssh**: Manages local SSH config
--   **systemd**: Set up services that run from systemd
--   **tampermonkey**: Sets up UserScripts
--   **terminfo**: Sets up terminfo database entries for italics and 256-color support
--   **vim**: Configures Vim
+-   On macOS only:
+    -   **automator**: Scripts for use with Automator
+    -   **automount**: Sets up macOS's automount facility
+    -   **backup**: Backup scripts
+    -   **cron**: Sets up cron files
+    -   **defaults**: Sets up defaults (ie. preferences) on macOS
+    -   **fonts**: Installs Source Code Pro font files
+    -   **homebrew**: Installs and updates Homebrew
+    -   **iterm**: Dynamic profiles for iTerm
+    -   **karabiner**: Configures Karabiner-Elements (keyboard customization).
+    -   **launchd**: Configures launchd
+    -   **node**: Installs Node.js
+    -   **ruby**: Installs Ruby gems
+    -   **ssh**: Manages local SSH config
+    -   **tampermonkey**: Sets up UserScripts
+-   On Linux only:
+    -   **aur**: Installs packages from the Arch User Repository.
+    -   **interception**: Sets up Interceptions Tools (keyboard customization).
+    -   **locale**: Sets up /etc/locale.conf
+    -   **pacman**: Installs packages via the Pacman package manager
+    -   **systemd**: Set up services that run from systemd
+-   On both macOS and Linux:
+    -   **dotfiles**: Creates symlinks in \$HOME to the dotfiles in this repo
+    -   **meta**: Tests the configuration framework
+    -   **shell**: Sets the use shell to zsh
+    -   **terminfo**: Sets up terminfo database entries for italics and 256-color support
+    -   **vim**: Configures Vim
 
 #### Examples
 
