@@ -94,22 +94,46 @@ color() {
     fi
   fi
 
+  while [ "$#" -gt 0 ]; do
+    case "$2" in
+      "-q"|"--quiet")
+        local quiet=1
+        shift
+        ;;
+      *)
+        break
+        ;;
+    esac
+  done
+  local ALL_SCHEMES=($(find "$BASE16_DIR" -name 'base16-*.sh' | \
+        sed -E 's|.+/base16-||' | \
+        sed -E 's/\.sh//' | \
+        grep "${2:-.}" | \
+        sort
+        ))
+
   case "$SCHEME" in
   help)
     echo 'color                                   (show current scheme)'
     echo 'color default-dark|grayscale-light|...  (switch to scheme)'
     echo 'color help                              (show this help)'
     echo 'color ls [pattern]                      (list available schemes)'
+    echo
+    echo 'Chose Random Scheme:'
+    echo 'color rand [-q/--quiet] [pattern]       (chose a random scheme)'
     return
     ;;
   ls)
-    find "$BASE16_DIR" -name 'base16-*.sh' | \
-      sed -E 's|.+/base16-||' | \
-      sed -E 's/\.sh//' | \
-      grep "${2:-.}" | \
-      sort | \
+    printf '%s\n' "${ALL_SCHEMES[@]}" | \
       column
       ;;
+  rand)
+    local random_color=${ALL_SCHEMES[$(( $RANDOM % ${#ALL_SCHEMES[@]} + 1 ))]}
+    if [[ -z "$quiet" ]]; then
+      echo "$random_color"
+    fi
+    __color "$random_color"
+    ;;
   -)
     if [[ -s "$BASE16_CONFIG_PREVIOUS" ]]; then
       local PREVIOUS_SCHEME=$(head -1 "$BASE16_CONFIG_PREVIOUS")
