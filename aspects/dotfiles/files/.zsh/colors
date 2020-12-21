@@ -94,17 +94,9 @@ color() {
     fi
   fi
 
-  while [ "$#" -gt 0 ]; do
-    case "$2" in
-      "-q"|"--quiet")
-        local quiet=1
-        shift
-        ;;
-      *)
-        break
-        ;;
-    esac
-  done
+  if [ "$2" = "-q" -o "$2" = "--quiet" ]; then
+    local quiet=1
+  fi
   local ALL_SCHEMES=($(find "$BASE16_DIR" -name 'base16-*.sh' | \
         sed -E 's|.+/base16-||' | \
         sed -E 's/\.sh//' | \
