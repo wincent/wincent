@@ -78,7 +78,6 @@ int main(void) {
     enum {
         ALT_IS_ALT,
         ALT_IS_CTRL,
-        ALT_IS_PENDING,
         INIT,
     } state = INIT;
 
@@ -90,12 +89,11 @@ int main(void) {
             switch (state) {
                 case INIT:
                     if (eq(&event, &l_alt_down) || eq(&event, &l_alt_repeat)) {
-                        state = ALT_IS_PENDING;
+                        state = ALT_IS_ALT;
                     }
                     break;
 
                 case ALT_IS_ALT:
-                case ALT_IS_PENDING:
                     if (eq(&event, &l_alt_down) || eq(&event, &l_alt_repeat)) {
                         ;
                     } else if (eq(&event, &l_alt_up)) {
@@ -152,7 +150,7 @@ int main(void) {
                         write_syn();
                         write_event(&l_alt_down);
                         write_syn();
-                        state = ALT_IS_PENDING;
+                        state = ALT_IS_ALT;
                     }
                     break;
             }
