@@ -27,12 +27,33 @@
 
 const struct input_event
     // TODO: deal with right alt as well
-    alt_down = {.type = EV_KEY, .code = KEY_LEFTALT, .value = DOWN},
-    alt_up = {.type = EV_KEY, .code = KEY_LEFTALT, .value = UP},
-    alt_repeat = {.type = EV_KEY, .code = KEY_LEFTALT, .value = REPEAT},
-    ctrl_down = {.type = EV_KEY, .code = KEY_LEFTCTRL, .value = DOWN},
-    ctrl_up = {.type = EV_KEY, .code = KEY_LEFTCTRL, .value = UP},
-    ctrl_repeat = {.type = EV_KEY, .code = KEY_LEFTCTRL, .value = REPEAT},
+    // TODO: support for super and shift etc, combinations etc...
+    l_alt_down = {.type = EV_KEY, .code = KEY_LEFTALT, .value = DOWN},
+    l_alt_up = {.type = EV_KEY, .code = KEY_LEFTALT, .value = UP},
+    l_alt_repeat = {.type = EV_KEY, .code = KEY_LEFTALT, .value = REPEAT},
+    l_ctrl_down = {.type = EV_KEY, .code = KEY_LEFTCTRL, .value = DOWN},
+    l_ctrl_up = {.type = EV_KEY, .code = KEY_LEFTCTRL, .value = UP},
+    l_ctrl_repeat = {.type = EV_KEY, .code = KEY_LEFTCTRL, .value = REPEAT},
+    l_meta_down = {.type = EV_KEY, .code = KEY_LEFTMETA, .value = DOWN},
+    l_meta_up = {.type = EV_KEY, .code = KEY_LEFTMETA, .value = UP},
+    l_meta_repeat = {.type = EV_KEY, .code = KEY_LEFTMETA, .value = REPEAT},
+    l_shift_down = {.type = EV_KEY, .code = KEY_LEFTSHIFT, .value = DOWN},
+    l_shift_up = {.type = EV_KEY, .code = KEY_LEFTSHIFT, .value = UP},
+    l_shift_repeat = {.type = EV_KEY, .code = KEY_LEFTSHIFT, .value = REPEAT},
+
+    r_alt_down = {.type = EV_KEY, .code = KEY_RIGHTALT, .value = DOWN},
+    r_alt_up = {.type = EV_KEY, .code = KEY_RIGHTALT, .value = UP},
+    r_alt_repeat = {.type = EV_KEY, .code = KEY_RIGHTALT, .value = REPEAT},
+    r_ctrl_down = {.type = EV_KEY, .code = KEY_RIGHTCTRL, .value = DOWN},
+    r_ctrl_up = {.type = EV_KEY, .code = KEY_RIGHTCTRL, .value = UP},
+    r_ctrl_repeat = {.type = EV_KEY, .code = KEY_RIGHTCTRL, .value = REPEAT},
+    r_meta_down = {.type = EV_KEY, .code = KEY_RIGHTMETA, .value = DOWN},
+    r_meta_up = {.type = EV_KEY, .code = KEY_RIGHTMETA, .value = UP},
+    r_meta_repeat = {.type = EV_KEY, .code = KEY_RIGHTMETA, .value = REPEAT},
+    r_shift_down = {.type = EV_KEY, .code = KEY_RIGHTSHIFT, .value = DOWN},
+    r_shift_up = {.type = EV_KEY, .code = KEY_RIGHTSHIFT, .value = UP},
+    r_shift_repeat = {.type = EV_KEY, .code = KEY_RIGHTSHIFT, .value = REPEAT},
+
     syn = {.type = EV_SYN, .code = SYN_REPORT, .value = 0}
     ;
 
@@ -68,45 +89,16 @@ int main(void) {
         if (event.type == EV_KEY) {
             switch (state) {
                 case INIT:
-                    if (eq(&event, &alt_down) || eq(&event, &alt_repeat)) {
+                    if (eq(&event, &l_alt_down) || eq(&event, &l_alt_repeat)) {
                         state = ALT_IS_PENDING;
-                        continue;
-                    }
-                    break;
-
-                case ALT_IS_PENDING:
-                    if (eq(&event, &alt_down) || eq(&event, &alt_repeat)) {
-                        continue;
-                    } else if (eq(&event, &alt_up)) {
-                        state = INIT;
-                    } else if (
-                        event.code == COLEMAK_A ||
-                        event.code == COLEMAK_C ||
-                        event.code == COLEMAK_EQUAL ||
-                        event.code == COLEMAK_F ||
-                        event.code == COLEMAK_G ||
-                        event.code == COLEMAK_L ||
-                        event.code == COLEMAK_MINUS ||
-                        event.code == COLEMAK_N ||
-                        event.code == COLEMAK_R ||
-                        event.code == COLEMAK_T ||
-                        event.code == COLEMAK_W ||
-                        event.code == COLEMAK_Z
-                    ) {
-                        write_event(&ctrl_down);
-                        write_syn();
-                        state = ALT_IS_CTRL;
-                    } else {
-                        write_event(&alt_down);
-                        write_syn();
-                        state = ALT_IS_ALT;
                     }
                     break;
 
                 case ALT_IS_ALT:
-                    if (eq(&event, &alt_down) || eq(&event, &alt_repeat)) {
-                        continue;
-                    } else if (eq(&event, &alt_up)) {
+                case ALT_IS_PENDING:
+                    if (eq(&event, &l_alt_down) || eq(&event, &l_alt_repeat)) {
+                        ;
+                    } else if (eq(&event, &l_alt_up)) {
                         state = INIT;
                     } else if (
                         event.code == COLEMAK_A ||
@@ -122,19 +114,21 @@ int main(void) {
                         event.code == COLEMAK_W ||
                         event.code == COLEMAK_Z
                     ) {
-                        write_event(&alt_up);
+                        write_event(&l_alt_up);
                         write_syn();
-                        write_event(&ctrl_down);
+                        write_event(&l_ctrl_down);
                         write_syn();
                         state = ALT_IS_CTRL;
+                    } else {
+                        state = ALT_IS_ALT;
                     }
                     break;
 
                 case ALT_IS_CTRL:
-                    if (eq(&event, &alt_down) || eq(&event, &alt_repeat)) {
+                    if (eq(&event, &l_alt_down) || eq(&event, &l_alt_repeat)) {
                         continue;
-                    } else if (eq(&event, &alt_up)) {
-                        write_event(&ctrl_up);
+                    } else if (eq(&event, &l_alt_up)) {
+                        write_event(&l_ctrl_up);
                         write_syn();
                         state = INIT;
                         continue;
@@ -154,9 +148,9 @@ int main(void) {
                     ) {
                         break;
                     } else {
-                        write_event(&ctrl_up);
+                        write_event(&l_ctrl_up);
                         write_syn();
-                        write_event(&alt_down);
+                        write_event(&l_alt_down);
                         write_syn();
                         state = ALT_IS_PENDING;
                     }
