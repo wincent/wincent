@@ -36,8 +36,6 @@ from xkeysnail.transform import *
 #       https://github.com/mooz/xkeysnail/blob/master/xkeysnail/key.py
 
 define_keymap(None, {
-    K("M-Left"): K("Home"), # Start of line. TODO: make this work in kitty although I probably won't use it.
-    K("M-Right"): K("End"), # End of line. TODO: make this work in kitty although I probably won't use it.
     K("M-Shift-V"): K("C-Shift-V"), # Paste and match style.
     K("M-Shift-Z"): K("C-Shift-Z"), # Redo.
     K("Super-Left"): K("C-Left"), # Previous word. TODO: make this work in kitty.

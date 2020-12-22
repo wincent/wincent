@@ -59,33 +59,41 @@ struct {
 } virt_modifier_state;
 
 const struct input_event
-    // TODO: deal with right alt as well
     // TODO: support for super and shift etc, combinations etc...
+    // TODO: make Home/End work in Kitty although I probably won't use them.
+    end_down = {.type = EV_KEY, .code = KEY_END, .value = EV_DOWN},
+    end_repeat = {.type = EV_KEY, .code = KEY_END, .value = EV_REPEAT},
+    end_up = {.type = EV_KEY, .code = KEY_END, .value = EV_UP},
+
+    home_down = {.type = EV_KEY, .code = KEY_HOME, .value = EV_DOWN},
+    home_repeat = {.type = EV_KEY, .code = KEY_HOME, .value = EV_REPEAT},
+    home_up = {.type = EV_KEY, .code = KEY_HOME, .value = EV_UP},
+
     l_alt_down = {.type = EV_KEY, .code = KEY_LEFTALT, .value = EV_DOWN},
-    l_alt_up = {.type = EV_KEY, .code = KEY_LEFTALT, .value = EV_UP},
     l_alt_repeat = {.type = EV_KEY, .code = KEY_LEFTALT, .value = EV_REPEAT},
+    l_alt_up = {.type = EV_KEY, .code = KEY_LEFTALT, .value = EV_UP},
     l_ctrl_down = {.type = EV_KEY, .code = KEY_LEFTCTRL, .value = EV_DOWN},
-    l_ctrl_up = {.type = EV_KEY, .code = KEY_LEFTCTRL, .value = EV_UP},
     l_ctrl_repeat = {.type = EV_KEY, .code = KEY_LEFTCTRL, .value = EV_REPEAT},
+    l_ctrl_up = {.type = EV_KEY, .code = KEY_LEFTCTRL, .value = EV_UP},
     l_meta_down = {.type = EV_KEY, .code = KEY_LEFTMETA, .value = EV_DOWN},
-    l_meta_up = {.type = EV_KEY, .code = KEY_LEFTMETA, .value = EV_UP},
     l_meta_repeat = {.type = EV_KEY, .code = KEY_LEFTMETA, .value = EV_REPEAT},
+    l_meta_up = {.type = EV_KEY, .code = KEY_LEFTMETA, .value = EV_UP},
     l_shift_down = {.type = EV_KEY, .code = KEY_LEFTSHIFT, .value = EV_DOWN},
-    l_shift_up = {.type = EV_KEY, .code = KEY_LEFTSHIFT, .value = EV_UP},
     l_shift_repeat = {.type = EV_KEY, .code = KEY_LEFTSHIFT, .value = EV_REPEAT},
+    l_shift_up = {.type = EV_KEY, .code = KEY_LEFTSHIFT, .value = EV_UP},
 
     r_alt_down = {.type = EV_KEY, .code = KEY_RIGHTALT, .value = EV_DOWN},
-    r_alt_up = {.type = EV_KEY, .code = KEY_RIGHTALT, .value = EV_UP},
     r_alt_repeat = {.type = EV_KEY, .code = KEY_RIGHTALT, .value = EV_REPEAT},
+    r_alt_up = {.type = EV_KEY, .code = KEY_RIGHTALT, .value = EV_UP},
     r_ctrl_down = {.type = EV_KEY, .code = KEY_RIGHTCTRL, .value = EV_DOWN},
-    r_ctrl_up = {.type = EV_KEY, .code = KEY_RIGHTCTRL, .value = EV_UP},
     r_ctrl_repeat = {.type = EV_KEY, .code = KEY_RIGHTCTRL, .value = EV_REPEAT},
+    r_ctrl_up = {.type = EV_KEY, .code = KEY_RIGHTCTRL, .value = EV_UP},
     r_meta_down = {.type = EV_KEY, .code = KEY_RIGHTMETA, .value = EV_DOWN},
-    r_meta_up = {.type = EV_KEY, .code = KEY_RIGHTMETA, .value = EV_UP},
     r_meta_repeat = {.type = EV_KEY, .code = KEY_RIGHTMETA, .value = EV_REPEAT},
+    r_meta_up = {.type = EV_KEY, .code = KEY_RIGHTMETA, .value = EV_UP},
     r_shift_down = {.type = EV_KEY, .code = KEY_RIGHTSHIFT, .value = EV_DOWN},
-    r_shift_up = {.type = EV_KEY, .code = KEY_RIGHTSHIFT, .value = EV_UP},
     r_shift_repeat = {.type = EV_KEY, .code = KEY_RIGHTSHIFT, .value = EV_REPEAT},
+    r_shift_up = {.type = EV_KEY, .code = KEY_RIGHTSHIFT, .value = EV_UP},
 
     syn = {.type = EV_SYN, .code = SYN_REPORT, .value = 0};
 
@@ -204,6 +212,28 @@ int main(void) {
                         alt_release();
                         ctrl_press();
                         state = ALT_IS_CTRL;
+                    } else if (event.code == KEY_LEFT) {
+                        alt_release();
+                        if (event.value == EV_DOWN) {
+                            write_event(&home_down);
+                        } else if (event.value == EV_REPEAT) {
+                            write_event(&home_repeat);
+                        } else {
+                            write_event(&home_up);
+                        }
+                        alt_press(); // TODO: preserve side
+                        continue;
+                    } else if (event.code == KEY_RIGHT) {
+                        alt_release();
+                        if (event.value == EV_DOWN) {
+                            write_event(&end_down);
+                        } else if (event.value == EV_REPEAT) {
+                            write_event(&end_repeat);
+                        } else {
+                            write_event(&end_up);
+                        }
+                        alt_press(); // TODO: preserve side
+                        continue;
                     }
                     break;
 
