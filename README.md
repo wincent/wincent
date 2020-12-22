@@ -244,6 +244,7 @@ The repo is written and maintained by Greg Hurrell &lt;[greg@hurrell.net](mailto
 -   Jonathan Wilkins
 -   Mark Stenglein
 -   Matthew Byrne
+-   Michael Lohmann
 -   Stone C. Lasley
 -   Victor Igor
 -   Zac Collier

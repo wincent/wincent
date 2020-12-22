@@ -1,5 +1,9 @@
 # Changelog
 
+## 2020-12-21
+
+-   [Zsh]: Added `rand` subcommand to `color` function (pull request [#95](https://github.com/wincent/wincent/pull/95) from Michael Lohmann).
+
 ## 2020-10-22
 
 -   [Zsh]: Dropped `groot` alias in favor of `git root` function.
