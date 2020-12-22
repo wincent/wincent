@@ -213,14 +213,14 @@ int main(void) {
                         event.code == COLEMAK_C ||
                         event.code == COLEMAK_EQUAL ||
                         event.code == COLEMAK_F ||
-                        event.code == COLEMAK_G ||
+                        event.code == COLEMAK_G || // + shift = Previous search.
                         event.code == COLEMAK_L ||
                         event.code == COLEMAK_MINUS ||
-                        event.code == COLEMAK_N ||
+                        event.code == COLEMAK_N || // + shift = Incognito window.
                         event.code == COLEMAK_R ||
-                        event.code == COLEMAK_T ||
+                        event.code == COLEMAK_T || // + shift = Re-open closed tab.
                         event.code == COLEMAK_W ||
-                        event.code == COLEMAK_Z
+                        event.code == COLEMAK_Z // + shift = Redo.
                     ) {
                         alt_release();
                         ctrl_press();

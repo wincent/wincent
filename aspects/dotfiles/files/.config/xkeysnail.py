@@ -37,7 +37,6 @@ from xkeysnail.transform import *
 
 define_keymap(None, {
     K("M-Shift-V"): K("C-Shift-V"), # Paste and match style.
-    K("M-Shift-Z"): K("C-Shift-Z"), # Redo.
     K("Super-Left"): K("C-Left"), # Previous word. TODO: make this work in kitty.
     K("Super-Right"): K("C-Right"), # Next word. TODO: make this work in kitty.
 });
@@ -45,9 +44,6 @@ define_keymap(None, {
 define_keymap(re.compile("chromium", re.IGNORECASE), {
     K("M-Shift-LEFT_BRACE"): K("C-Shift-TAB"), # Previous tab.
     K("M-Shift-RIGHT_BRACE"): K("C-TAB"), # Next tab.
-    K("M-Shift-G"): K("C-Shift-G"), # Previous search.
-    K("M-Shift-N"): K("C-Shift-N"), # New incognito window (doesn't work).
-    K("M-Shift-T"): K("C-Shift-T"), # Re-open closed tab (doesn't work).
     K("Super-Alt-I"): K("C-Shift-I"), # Toggle Developer Tools (doesn't work).
     K("Super-Alt-J"): K("C-Shift-J"), # Toggle JavaScript console (doesn't work).
 }, "Chromium")
