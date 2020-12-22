@@ -96,6 +96,7 @@ color() {
 
   if [ "$2" = "-q" -o "$2" = "--quiet" ]; then
     local quiet=1
+    shift
   fi
   local ALL_SCHEMES=($(find "$BASE16_DIR" -name 'base16-*.sh' | \
         sed -E 's|.+/base16-||' | \
