@@ -142,6 +142,18 @@ void ctrl_release() {
     write_syn();
 }
 
+void meta_press() {
+    write_event(&l_meta_down);
+    virt_modifier_state.l_meta = DOWN;
+    write_syn();
+}
+
+void meta_release() {
+    write_event(&l_meta_up);
+    virt_modifier_state.l_meta = UP;
+    write_syn();
+}
+
 int main(void) {
     struct input_event event;
 
