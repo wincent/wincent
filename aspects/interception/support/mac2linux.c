@@ -61,14 +61,6 @@ struct {
 const struct input_event
     // TODO: support for super and shift etc, combinations etc...
     // TODO: make Home/End work in Kitty although I probably won't use them.
-    end_down = {.type = EV_KEY, .code = KEY_END, .value = EV_DOWN},
-    end_repeat = {.type = EV_KEY, .code = KEY_END, .value = EV_REPEAT},
-    end_up = {.type = EV_KEY, .code = KEY_END, .value = EV_UP},
-
-    home_down = {.type = EV_KEY, .code = KEY_HOME, .value = EV_DOWN},
-    home_repeat = {.type = EV_KEY, .code = KEY_HOME, .value = EV_REPEAT},
-    home_up = {.type = EV_KEY, .code = KEY_HOME, .value = EV_UP},
-
     l_alt_down = {.type = EV_KEY, .code = KEY_LEFTALT, .value = EV_DOWN},
     l_alt_repeat = {.type = EV_KEY, .code = KEY_LEFTALT, .value = EV_REPEAT},
     l_alt_up = {.type = EV_KEY, .code = KEY_LEFTALT, .value = EV_UP},
@@ -105,6 +97,15 @@ void write_event(const struct input_event *event) {
     if (fwrite(event, sizeof(struct input_event), 1, stdout) != 1) {
         exit(EXIT_FAILURE);
     }
+}
+
+void write_key(__u16 code, __s32 value) {
+    const struct input_event event = {
+        .type = EV_KEY,
+        .code = code,
+        .value = value
+    };
+    write_event(&event);
 }
 
 void write_syn() {
@@ -214,24 +215,12 @@ int main(void) {
                         state = ALT_IS_CTRL;
                     } else if (event.code == KEY_LEFT) {
                         alt_release();
-                        if (event.value == EV_DOWN) {
-                            write_event(&home_down);
-                        } else if (event.value == EV_REPEAT) {
-                            write_event(&home_repeat);
-                        } else {
-                            write_event(&home_up);
-                        }
+                        write_key(KEY_HOME, event.value);
                         alt_press(); // TODO: preserve side
                         continue;
                     } else if (event.code == KEY_RIGHT) {
                         alt_release();
-                        if (event.value == EV_DOWN) {
-                            write_event(&end_down);
-                        } else if (event.value == EV_REPEAT) {
-                            write_event(&end_repeat);
-                        } else {
-                            write_event(&end_up);
-                        }
+                        write_key(KEY_END, event.value);
                         alt_press(); // TODO: preserve side
                         continue;
                     }
