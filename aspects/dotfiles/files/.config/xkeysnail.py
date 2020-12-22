@@ -43,9 +43,7 @@ define_keymap(None, {
 });
 
 define_keymap(re.compile("chromium", re.IGNORECASE), {
-    K("M-LEFT_BRACE"): K("Alt-Left"), # Previous page.
     K("M-Shift-LEFT_BRACE"): K("C-Shift-TAB"), # Previous tab.
-    K("M-RIGHT_BRACE"): K("Alt-Right"), # Next page.
     K("M-Shift-RIGHT_BRACE"): K("C-TAB"), # Next tab.
     K("M-Shift-G"): K("C-Shift-G"), # Previous search.
     K("M-Shift-N"): K("C-Shift-N"), # New incognito window (doesn't work).

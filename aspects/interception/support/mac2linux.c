@@ -218,10 +218,20 @@ int main(void) {
                         write_key(KEY_HOME, event.value);
                         alt_press(); // TODO: preserve side
                         continue;
+                    } else if (event.code == KEY_LEFTBRACE) {
+                        // TODO: once i have per-application overrides, make
+                        // this one Chromium-only
+                        // TODO: add checks to make sure no other modifiers are down
+                        write_key(KEY_LEFT, event.value);
+                        continue;
                     } else if (event.code == KEY_RIGHT) {
                         alt_release();
                         write_key(KEY_END, event.value);
                         alt_press(); // TODO: preserve side
+                        continue;
+                    } else if (event.code == KEY_RIGHTBRACE) {
+                        // TODO: make Chromium-only
+                        write_key(KEY_RIGHT, event.value);
                         continue;
                     }
                     break;
