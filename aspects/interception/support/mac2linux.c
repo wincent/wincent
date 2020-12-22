@@ -5,9 +5,9 @@
 
 // Event `value`; see: https://www.kernel.org/doc/html/latest/input/event-codes.html
 
-#define DOWN 1
-#define UP 0
-#define REPEAT 2
+#define EV_DOWN 1
+#define EV_UP 0
+#define EV_REPEAT 2
 
 // When pushing keys in the Colemak layout, these are the hardware keys seen by
 // the kernel.
@@ -25,37 +25,69 @@
 #define COLEMAK_W KEY_W
 #define COLEMAK_Z KEY_Z
 
+typedef enum {
+    UP = 0,
+    DOWN = 1,
+} key_state;
+
+/**
+ * Represents hardware state of modifier keys in upstream physical device.
+ */
+struct {
+    key_state l_alt : 1;
+    key_state l_ctrl : 1;
+    key_state l_meta : 1;
+    key_state l_shift : 1;
+    key_state r_alt : 1;
+    key_state r_ctrl : 1;
+    key_state r_meta : 1;
+    key_state r_shift : 1;
+} hw_modifier_state;
+
+/**
+ * Represents state of modifier keys in downstream virtual device.
+ */
+struct {
+    key_state l_alt : 1;
+    key_state l_ctrl : 1;
+    key_state l_meta : 1;
+    key_state l_shift : 1;
+    key_state r_alt : 1;
+    key_state r_ctrl : 1;
+    key_state r_meta : 1;
+    key_state r_shift : 1;
+} virt_modifier_state;
+
 const struct input_event
     // TODO: deal with right alt as well
     // TODO: support for super and shift etc, combinations etc...
-    l_alt_down = {.type = EV_KEY, .code = KEY_LEFTALT, .value = DOWN},
-    l_alt_up = {.type = EV_KEY, .code = KEY_LEFTALT, .value = UP},
-    l_alt_repeat = {.type = EV_KEY, .code = KEY_LEFTALT, .value = REPEAT},
-    l_ctrl_down = {.type = EV_KEY, .code = KEY_LEFTCTRL, .value = DOWN},
-    l_ctrl_up = {.type = EV_KEY, .code = KEY_LEFTCTRL, .value = UP},
-    l_ctrl_repeat = {.type = EV_KEY, .code = KEY_LEFTCTRL, .value = REPEAT},
-    l_meta_down = {.type = EV_KEY, .code = KEY_LEFTMETA, .value = DOWN},
-    l_meta_up = {.type = EV_KEY, .code = KEY_LEFTMETA, .value = UP},
-    l_meta_repeat = {.type = EV_KEY, .code = KEY_LEFTMETA, .value = REPEAT},
-    l_shift_down = {.type = EV_KEY, .code = KEY_LEFTSHIFT, .value = DOWN},
-    l_shift_up = {.type = EV_KEY, .code = KEY_LEFTSHIFT, .value = UP},
-    l_shift_repeat = {.type = EV_KEY, .code = KEY_LEFTSHIFT, .value = REPEAT},
+    l_alt_down = {.type = EV_KEY, .code = KEY_LEFTALT, .value = EV_DOWN},
+    l_alt_up = {.type = EV_KEY, .code = KEY_LEFTALT, .value = EV_UP},
+    l_alt_repeat = {.type = EV_KEY, .code = KEY_LEFTALT, .value = EV_REPEAT},
+    l_ctrl_down = {.type = EV_KEY, .code = KEY_LEFTCTRL, .value = EV_DOWN},
+    l_ctrl_up = {.type = EV_KEY, .code = KEY_LEFTCTRL, .value = EV_UP},
+    l_ctrl_repeat = {.type = EV_KEY, .code = KEY_LEFTCTRL, .value = EV_REPEAT},
+    l_meta_down = {.type = EV_KEY, .code = KEY_LEFTMETA, .value = EV_DOWN},
+    l_meta_up = {.type = EV_KEY, .code = KEY_LEFTMETA, .value = EV_UP},
+    l_meta_repeat = {.type = EV_KEY, .code = KEY_LEFTMETA, .value = EV_REPEAT},
+    l_shift_down = {.type = EV_KEY, .code = KEY_LEFTSHIFT, .value = EV_DOWN},
+    l_shift_up = {.type = EV_KEY, .code = KEY_LEFTSHIFT, .value = EV_UP},
+    l_shift_repeat = {.type = EV_KEY, .code = KEY_LEFTSHIFT, .value = EV_REPEAT},
 
-    r_alt_down = {.type = EV_KEY, .code = KEY_RIGHTALT, .value = DOWN},
-    r_alt_up = {.type = EV_KEY, .code = KEY_RIGHTALT, .value = UP},
-    r_alt_repeat = {.type = EV_KEY, .code = KEY_RIGHTALT, .value = REPEAT},
-    r_ctrl_down = {.type = EV_KEY, .code = KEY_RIGHTCTRL, .value = DOWN},
-    r_ctrl_up = {.type = EV_KEY, .code = KEY_RIGHTCTRL, .value = UP},
-    r_ctrl_repeat = {.type = EV_KEY, .code = KEY_RIGHTCTRL, .value = REPEAT},
-    r_meta_down = {.type = EV_KEY, .code = KEY_RIGHTMETA, .value = DOWN},
-    r_meta_up = {.type = EV_KEY, .code = KEY_RIGHTMETA, .value = UP},
-    r_meta_repeat = {.type = EV_KEY, .code = KEY_RIGHTMETA, .value = REPEAT},
-    r_shift_down = {.type = EV_KEY, .code = KEY_RIGHTSHIFT, .value = DOWN},
-    r_shift_up = {.type = EV_KEY, .code = KEY_RIGHTSHIFT, .value = UP},
-    r_shift_repeat = {.type = EV_KEY, .code = KEY_RIGHTSHIFT, .value = REPEAT},
+    r_alt_down = {.type = EV_KEY, .code = KEY_RIGHTALT, .value = EV_DOWN},
+    r_alt_up = {.type = EV_KEY, .code = KEY_RIGHTALT, .value = EV_UP},
+    r_alt_repeat = {.type = EV_KEY, .code = KEY_RIGHTALT, .value = EV_REPEAT},
+    r_ctrl_down = {.type = EV_KEY, .code = KEY_RIGHTCTRL, .value = EV_DOWN},
+    r_ctrl_up = {.type = EV_KEY, .code = KEY_RIGHTCTRL, .value = EV_UP},
+    r_ctrl_repeat = {.type = EV_KEY, .code = KEY_RIGHTCTRL, .value = EV_REPEAT},
+    r_meta_down = {.type = EV_KEY, .code = KEY_RIGHTMETA, .value = EV_DOWN},
+    r_meta_up = {.type = EV_KEY, .code = KEY_RIGHTMETA, .value = EV_UP},
+    r_meta_repeat = {.type = EV_KEY, .code = KEY_RIGHTMETA, .value = EV_REPEAT},
+    r_shift_down = {.type = EV_KEY, .code = KEY_RIGHTSHIFT, .value = EV_DOWN},
+    r_shift_up = {.type = EV_KEY, .code = KEY_RIGHTSHIFT, .value = EV_UP},
+    r_shift_repeat = {.type = EV_KEY, .code = KEY_RIGHTSHIFT, .value = EV_REPEAT},
 
-    syn = {.type = EV_SYN, .code = SYN_REPORT, .value = 0}
-    ;
+    syn = {.type = EV_SYN, .code = SYN_REPORT, .value = 0};
 
 int eq(const struct input_event *a, const struct input_event *b) {
     return a->type == b->type && a->code == b->code && a->value == b->value;
@@ -86,17 +118,45 @@ int main(void) {
 
     while (fread(&event, sizeof(event), 1, stdin) == 1) {
         if (event.type == EV_KEY) {
+            if (event.code == KEY_LEFTALT) {
+                hw_modifier_state.l_alt = event.type == EV_UP ? UP : DOWN;
+            } else if (event.code == KEY_LEFTCTRL) {
+                hw_modifier_state.l_ctrl = event.type == EV_UP ? UP : DOWN;
+            } else if (event.code == KEY_LEFTMETA) {
+                hw_modifier_state.l_meta = event.type == EV_UP ? UP : DOWN;
+            } else if (event.code == KEY_LEFTSHIFT) {
+                hw_modifier_state.l_shift = event.type == EV_UP ? UP : DOWN;
+            } else if (event.code == KEY_RIGHTALT) {
+                hw_modifier_state.r_alt = event.type == EV_UP ? UP : DOWN;
+            } else if (event.code == KEY_RIGHTCTRL) {
+                hw_modifier_state.r_ctrl = event.type == EV_UP ? UP : DOWN;
+            } else if (event.code == KEY_RIGHTMETA) {
+                hw_modifier_state.r_meta = event.type == EV_UP ? UP : DOWN;
+            } else if (event.code == KEY_RIGHTSHIFT) {
+                hw_modifier_state.r_shift = event.type == EV_UP ? UP : DOWN;
+            }
+
             switch (state) {
                 case INIT:
-                    if (eq(&event, &l_alt_down) || eq(&event, &l_alt_repeat)) {
+                    if (
+                        eq(&event, &l_alt_down) ||
+                        eq(&event, &l_alt_repeat) ||
+                        eq(&event, &r_alt_down) ||
+                        eq(&event, &r_alt_repeat)
+                    ) {
                         state = ALT_IS_ALT;
                     }
                     break;
 
                 case ALT_IS_ALT:
-                    if (eq(&event, &l_alt_down) || eq(&event, &l_alt_repeat)) {
+                    if (
+                        eq(&event, &l_alt_down) ||
+                        eq(&event, &l_alt_repeat) ||
+                        eq(&event, &r_alt_down) ||
+                        eq(&event, &r_alt_repeat)
+                    ) {
                         ;
-                    } else if (eq(&event, &l_alt_up)) {
+                    } else if (eq(&event, &l_alt_up) || eq(&event, &r_alt_up)) {
                         state = INIT;
                     } else if (
                         event.code == COLEMAK_A ||
@@ -112,21 +172,31 @@ int main(void) {
                         event.code == COLEMAK_W ||
                         event.code == COLEMAK_Z
                     ) {
-                        write_event(&l_alt_up);
+                        if (virt_modifier_state.l_alt == DOWN) {
+                            write_event(&l_alt_up);
+                        }
+                        if (virt_modifier_state.r_alt == DOWN) {
+                            write_event(&r_alt_up);
+                        }
                         write_syn();
-                        write_event(&l_ctrl_down);
-                        write_syn();
+                        write_event(&l_ctrl_down);          // TODO extract
+                        virt_modifier_state.l_ctrl = DOWN;  // TODO into
+                        write_syn();                        // TODO function?
                         state = ALT_IS_CTRL;
-                    } else {
-                        state = ALT_IS_ALT;
                     }
                     break;
 
                 case ALT_IS_CTRL:
-                    if (eq(&event, &l_alt_down) || eq(&event, &l_alt_repeat)) {
+                    if (
+                        eq(&event, &l_alt_down) ||
+                        eq(&event, &l_alt_repeat) ||
+                        eq(&event, &r_alt_down) ||
+                        eq(&event, &r_alt_repeat)
+                    ) {
                         continue;
-                    } else if (eq(&event, &l_alt_up)) {
+                    } else if (eq(&event, &l_alt_up) || eq(&event, &r_alt_up)) {
                         write_event(&l_ctrl_up);
+                        virt_modifier_state.l_ctrl = UP;
                         write_syn();
                         state = INIT;
                         continue;
@@ -147,12 +217,32 @@ int main(void) {
                         break;
                     } else {
                         write_event(&l_ctrl_up);
+                        virt_modifier_state.l_ctrl = UP;
                         write_syn();
                         write_event(&l_alt_down);
+                        virt_modifier_state.l_alt = DOWN;
                         write_syn();
                         state = ALT_IS_ALT;
                     }
                     break;
+            }
+
+            if (event.code == KEY_LEFTALT) {
+                virt_modifier_state.l_alt = event.type == EV_UP ? UP : DOWN;
+            } else if (event.code == KEY_LEFTCTRL) {
+                virt_modifier_state.l_ctrl = event.type == EV_UP ? UP : DOWN;
+            } else if (event.code == KEY_LEFTMETA) {
+                virt_modifier_state.l_meta = event.type == EV_UP ? UP : DOWN;
+            } else if (event.code == KEY_LEFTSHIFT) {
+                virt_modifier_state.l_shift = event.type == EV_UP ? UP : DOWN;
+            } else if (event.code == KEY_RIGHTALT) {
+                virt_modifier_state.r_alt = event.type == EV_UP ? UP : DOWN;
+            } else if (event.code == KEY_RIGHTCTRL) {
+                virt_modifier_state.r_ctrl = event.type == EV_UP ? UP : DOWN;
+            } else if (event.code == KEY_RIGHTMETA) {
+                virt_modifier_state.r_meta = event.type == EV_UP ? UP : DOWN;
+            } else if (event.code == KEY_RIGHTSHIFT) {
+                virt_modifier_state.r_shift = event.type == EV_UP ? UP : DOWN;
             }
         }
 
