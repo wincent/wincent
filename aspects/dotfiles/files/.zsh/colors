@@ -111,9 +111,7 @@ color() {
     echo 'color default-dark|grayscale-light|...  (switch to scheme)'
     echo 'color help                              (show this help)'
     echo 'color ls [pattern]                      (list available schemes)'
-    echo
-    echo 'Chose Random Scheme:'
-    echo 'color rand [-q/--quiet] [pattern]       (chose a random scheme)'
+    echo 'color rand [-q/--quiet] [pattern]       (choose a random scheme)'
     return
     ;;
   ls)
