@@ -104,6 +104,35 @@ void write_syn() {
     usleep(20000);
 }
 
+void alt_press() {
+    // TODO consider making this side-specific
+    write_event(&l_alt_down);
+    virt_modifier_state.l_alt = DOWN;
+    write_syn();
+}
+
+void alt_release() {
+    if (virt_modifier_state.l_alt == DOWN) {
+        write_event(&l_alt_up);
+    }
+    if (virt_modifier_state.r_alt == DOWN) {
+        write_event(&r_alt_up);
+    }
+    write_syn();
+}
+
+void ctrl_press() {
+    write_event(&l_ctrl_down);
+    virt_modifier_state.l_ctrl = DOWN;
+    write_syn();
+}
+
+void ctrl_release() {
+    write_event(&l_ctrl_up);
+    virt_modifier_state.l_ctrl = UP;
+    write_syn();
+}
+
 int main(void) {
     struct input_event event;
 
@@ -172,16 +201,8 @@ int main(void) {
                         event.code == COLEMAK_W ||
                         event.code == COLEMAK_Z
                     ) {
-                        if (virt_modifier_state.l_alt == DOWN) {
-                            write_event(&l_alt_up);
-                        }
-                        if (virt_modifier_state.r_alt == DOWN) {
-                            write_event(&r_alt_up);
-                        }
-                        write_syn();
-                        write_event(&l_ctrl_down);          // TODO extract
-                        virt_modifier_state.l_ctrl = DOWN;  // TODO into
-                        write_syn();                        // TODO function?
+                        alt_release();
+                        ctrl_press();
                         state = ALT_IS_CTRL;
                     }
                     break;
@@ -195,9 +216,7 @@ int main(void) {
                     ) {
                         continue;
                     } else if (eq(&event, &l_alt_up) || eq(&event, &r_alt_up)) {
-                        write_event(&l_ctrl_up);
-                        virt_modifier_state.l_ctrl = UP;
-                        write_syn();
+                        ctrl_release();
                         state = INIT;
                         continue;
                     } else if (
@@ -216,12 +235,8 @@ int main(void) {
                     ) {
                         break;
                     } else {
-                        write_event(&l_ctrl_up);
-                        virt_modifier_state.l_ctrl = UP;
-                        write_syn();
-                        write_event(&l_alt_down);
-                        virt_modifier_state.l_alt = DOWN;
-                        write_syn();
+                        ctrl_release();
+                        alt_press();
                         state = ALT_IS_ALT;
                     }
                     break;
