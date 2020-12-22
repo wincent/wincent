@@ -95,7 +95,7 @@ color() {
   fi
 
   if [ "$2" = "-q" -o "$2" = "--quiet" ]; then
-    local quiet=1
+    local QUIET=1
     shift
   fi
   local ALL_SCHEMES=($(find "$BASE16_DIR" -name 'base16-*.sh' | \
@@ -119,11 +119,11 @@ color() {
       column
       ;;
   rand)
-    local random_color=${ALL_SCHEMES[$(( $RANDOM % ${#ALL_SCHEMES[@]} + 1 ))]}
-    if [[ -z "$quiet" ]]; then
-      echo "$random_color"
+    local RANDOM_COLOR=${ALL_SCHEMES[$(($RANDOM % ${#ALL_SCHEMES[@]} + 1))]}
+    if [[ -z "$QUIET" ]]; then
+      echo "$RANDOM_COLOR"
     fi
-    __color "$random_color"
+    __color "$RANDOM_COLOR"
     ;;
   -)
     if [[ -s "$BASE16_CONFIG_PREVIOUS" ]]; then
