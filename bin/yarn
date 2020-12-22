@@ -6,6 +6,6 @@ REPO_ROOT="${BASH_SOURCE%/*}/.."
 
 source "$REPO_ROOT/bin/common"
 
-YARN_EXE="$REPO_ROOT/vendor/yarn-v1.22.4/bin/yarn"
+YARN_EXE="$REPO_ROOT/vendor/yarn/bin/yarn"
 
 n exec "$NODE_VERSION" "$YARN_EXE" "$@"
