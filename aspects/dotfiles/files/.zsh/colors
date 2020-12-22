@@ -43,7 +43,7 @@ luma() {
 color() {
   emulate -L zsh
 
-  local SCHEME="$1"
+  local SCHEME
   local BASE16_DIR=~/.zsh/base16-shell/scripts
   local BASE16_CONFIG_PREVIOUS="${__WINCENT[BASE16_CONFIG]}.previous"
   local STATUS=0
@@ -83,16 +83,27 @@ color() {
     fi
   }
 
+  zparseopts -D -E -- q=QUIET -quiet=QUIET
+
   if [ $# -eq 0 ]; then
     if [ -s "$__WINCENT[BASE16_CONFIG]" ]; then
       cat "$__WINCENT[BASE16_CONFIG]"
-      local SCHEME=$(head -1 "$__WINCENT[BASE16_CONFIG]")
+      SCHEME=$(head -1 "$__WINCENT[BASE16_CONFIG]")
       __color "$SCHEME"
       return
     else
       SCHEME=help
     fi
+  else
+    SCHEME=$1
   fi
+
+  local ALL_SCHEMES=($(find "$BASE16_DIR" -name 'base16-*.sh' | \
+        sed -E 's|.+/base16-||' | \
+        sed -E 's/\.sh//' | \
+        grep "${2:-.}" | \
+        sort
+        ))
 
   case "$SCHEME" in
   help)
@@ -100,16 +111,20 @@ color() {
     echo 'color default-dark|grayscale-light|...  (switch to scheme)'
     echo 'color help                              (show this help)'
     echo 'color ls [pattern]                      (list available schemes)'
+    echo 'color rand [-q/--quiet] [pattern]       (choose a random scheme)'
     return
     ;;
   ls)
-    find "$BASE16_DIR" -name 'base16-*.sh' | \
-      sed -E 's|.+/base16-||' | \
-      sed -E 's/\.sh//' | \
-      grep "${2:-.}" | \
-      sort | \
+    printf '%s\n' "${ALL_SCHEMES[@]}" | \
       column
       ;;
+  rand)
+    local RANDOM_COLOR=${ALL_SCHEMES[$(($RANDOM % ${#ALL_SCHEMES[@]} + 1))]}
+    if [[ ${#QUIET} -eq 0 ]]; then
+      echo "$RANDOM_COLOR"
+    fi
+    __color "$RANDOM_COLOR"
+    ;;
   -)
     if [[ -s "$BASE16_CONFIG_PREVIOUS" ]]; then
       local PREVIOUS_SCHEME=$(head -1 "$BASE16_CONFIG_PREVIOUS")
