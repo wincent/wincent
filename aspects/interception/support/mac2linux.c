@@ -117,13 +117,6 @@ const mapping mappings[] = {
         .to = {.code = COLEMAK_G, .modifiers = {.ctrl = LEFT, .shift = LEFT}},
     },
     {
-        // TODO: this one would be kitty-specific
-        // TODO: unless I hit real control key, mapping doesn't activate
-        // (too low in stack if we hit capslock, need to add that as a modifier too)
-        .from = {.code = COLEMAK_I, .modifiers = {.ctrl = EITHER}},
-        .to = {.code = KEY_F6, .modifiers = {}},
-    },
-    {
         .from = {.code = COLEMAK_L, .modifiers = {.alt = EITHER}},
         .to = {.code = COLEMAK_L, .modifiers = {.ctrl = LEFT}},
     },
