@@ -113,7 +113,7 @@ bindsym $alt+Shift+c reload
 bindsym $alt+Shift+p restart
 
 # Exit i3 (ends X session).
-bindsym $alt+Shift+q exec "test $(echo -e 'No\nYes' | dmenu -fn Source\ Code\ Pro\ Regular:pixelsize=34 -i -p 'Exit i3?') = 'Yes' && i3-msg exit"
+bindsym $alt+Shift+q exec --no-startup-id "test $(echo -e 'No\nYes' | dmenu -fn Source\ Code\ Pro\ Regular:pixelsize=34 -i -p 'Exit i3?') = 'Yes' && i3-msg exit"
 
 #
 # Resizing
@@ -171,7 +171,7 @@ smart_gaps inverse_outer
 
 bindsym --release $alt+V exec --no-startup-id ~/.config/i3/mac-paste.sh
 
-exec sxhkd
+exec --no-startup-id sxhkd
 
 exec kitty
 
