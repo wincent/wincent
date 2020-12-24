@@ -12,4 +12,3 @@ if [ -n "${ACTIVE_WINDOW}" ]; then
     xdotool key --delay 12 ctrl+v
   fi
 fi
-
