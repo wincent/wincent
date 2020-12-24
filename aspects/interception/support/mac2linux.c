@@ -24,6 +24,7 @@
 #define COLEMAK_R KEY_S
 #define COLEMAK_T KEY_F
 #define COLEMAK_W KEY_W
+#define COLEMAK_X KEY_X
 #define COLEMAK_Z KEY_Z
 
 typedef enum {
@@ -143,6 +144,10 @@ const mapping mappings[] = {
     {
         .from = {.code = COLEMAK_W, .modifiers = {.alt = EITHER}},
         .to = {.code = COLEMAK_W, .modifiers = {.ctrl = LEFT}},
+    },
+    {
+        .from = {.code = COLEMAK_X, .modifiers = {.alt = EITHER}},
+        .to = {.code = COLEMAK_X, .modifiers = {.ctrl = LEFT}},
     },
     {
         .from = {.code = COLEMAK_Z, .modifiers = {.alt = EITHER}},
