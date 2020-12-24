@@ -164,6 +164,10 @@ const mapping mappings[] = {
         .to = {.code = KEY_HOME, .modifiers = {}},
     },
     {
+        .from = {.code = KEY_LEFT, .modifiers = {.meta = EITHER}},
+        .to = {.code = KEY_LEFT, .modifiers = {.ctrl = LEFT}},
+    },
+    {
         // TODO: this one would be Chromium-specific
         .from = {.code = KEY_LEFTBRACE, .modifiers = {.alt = EITHER}},
         .to = {.code = KEY_LEFT, .modifiers = {.alt = LEFT}},
@@ -176,6 +180,10 @@ const mapping mappings[] = {
     {
         .from = {.code = KEY_RIGHT, .modifiers = {.alt = EITHER}},
         .to = {.code = KEY_END, .modifiers = {}},
+    },
+    {
+        .from = {.code = KEY_RIGHT, .modifiers = {.meta = EITHER}},
+        .to = {.code = KEY_RIGHT, .modifiers = {.ctrl = LEFT}},
     },
     {
         // TODO: this one would be Chromium-specific
