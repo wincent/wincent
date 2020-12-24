@@ -59,6 +59,7 @@ export default {
             'xautolock', // Screen locker with hot-corner support.
             'xclip', // CLI access to X clipboard.
             'xdo', // Window utility for X, used to implement "swallow" functionality.
+            'xdotool', // Another X utility, used to send per-application key strokes.
             'xorg', // Window system.
             'xorg-xinit', // X initializer.
             'xsecurelock', // Secure screen lock from Google.

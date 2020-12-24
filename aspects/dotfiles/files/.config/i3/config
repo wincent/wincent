@@ -169,6 +169,8 @@ gaps outer 0
 # (outer gap will be inner + outer, ie. 10)
 smart_gaps inverse_outer
 
+bindsym --release $alt+V exec --no-startup-id ~/.config/i3/mac-paste.sh
+
 exec sxhkd
 
 exec kitty
