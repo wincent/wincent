@@ -18,6 +18,7 @@
 #define COLEMAK_C KEY_C
 #define COLEMAK_F KEY_E
 #define COLEMAK_G KEY_T
+#define COLEMAK_I KEY_L
 #define COLEMAK_L KEY_U
 #define COLEMAK_N KEY_J
 #define COLEMAK_R KEY_S
@@ -114,6 +115,13 @@ const mapping mappings[] = {
     {
         .from = {.code = COLEMAK_G, .modifiers = {.alt = EITHER, .shift = EITHER}},
         .to = {.code = COLEMAK_G, .modifiers = {.ctrl = LEFT, .shift = LEFT}},
+    },
+    {
+        // TODO: this one would be kitty-specific
+        // TODO: unless I hit real control key, mapping doesn't activate
+        // (too low in stack if we hit capslock, need to add that as a modifier too)
+        .from = {.code = COLEMAK_I, .modifiers = {.ctrl = EITHER}},
+        .to = {.code = KEY_F6, .modifiers = {}},
     },
     {
         .from = {.code = COLEMAK_L, .modifiers = {.alt = EITHER}},
