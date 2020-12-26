@@ -33,6 +33,7 @@ export default {
             'netcat', // For piping over network connectison (see also `socat` below).
             'nodejs', // JavaScript engine.
             'npm', // Node package manager.
+            'obs-studio', // Open Broadcaster Software (OBS) for streaming/screen-casting.
             'openssh', // SSH tools.
             'otf-font-awesome', // Icon font (eg. for status bar).
             'pcmanfm', // File manager from LXDE desktop (lightweight).

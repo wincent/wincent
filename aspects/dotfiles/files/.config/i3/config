@@ -72,15 +72,16 @@ set $ws1 "1:  terminal"
 set $ws2 "2:  browser"
 # icon fa-slack \uf198
 set $ws3 "3:  slack"
-#icon fa-folder-open \uf07c
+# icon fa-folder-open \uf07c
 set $ws4 "4:  filemanager"
-set $ws5 "5"
+# icon fa-video-camera \uf03d
+set $ws5 "5:  obs"
+
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
-# TODO: consider using icons here
 
 # Switch to workspace.
 bindsym $alt+1 workspace number $ws1
@@ -179,6 +180,8 @@ exec kitty
 # exec --no-startup-id i3-msg 'workspace number $ws2; exec chromium; workspace number $ws1'
 # Again, not sure if I want this...
 # assign [class="^chromium$"] number $ws2
+
+assign [class="^obs$"] number $ws5
 
 # Stop Chrome file dialogs from being bigger then the entire screen...
 floating_maximum_size 1920 x 1080
