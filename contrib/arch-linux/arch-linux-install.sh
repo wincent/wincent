@@ -32,6 +32,9 @@ ping -c 3 google.com
 log "Setting up NTP"
 timedatectl set-ntp true
 
+log "Updating mirror list"
+reflector -c Spain,France,Germany -a 6 --sort rate --save /etc/pacman.d/mirrorlist
+
 log "Refreshing packages"
 pacman -Syy
 
@@ -41,21 +44,20 @@ label: gpt
 device: /dev/nvme0n1
 
 /dev/nvme0n1p1: size=500MiB, type=uefi
-/dev/nvme0n1p2: size=50GiB, type=linux
-/dev/nvme0n1p3: type=linux
+/dev/nvme0n1p2: type=linux
 HERE
 
-log "Formatting partitions"
+log "Formatting /boot/EFI"
 mkfs.fat -F32 /dev/nvme0n1p1 # /boot/EFI
-mkfs.ext4 /dev/nvme0n1p2 # /
-mkfs.ext4 -O encrypt -b 4096 /dev/nvme0n1p3 # /home
 
 log "Mounting /dev/nvme0n1p2 at /"
-mount /dev/nvme0n1p2 /mnt
+echo -n "${__PASSPHRASE__}" | cryptsetup luksFormat /dev/nvme0n1p2 -
+echo -n "${__PASSPHRASE__}" | cryptsetup open /dev/nvme0n1p2 cryptroot --key-file -
+mkfs.ext4 /dev/mapper/cryptroot
+mount /dev/mapper/cryptroot /mnt
 
-log "Mounting /dev/nvme0n1p3 at /home"
-mkdir /mnt/home
-mount /dev/nvme0n1p3 /mnt/home
+mkdir -p /mnt/boot/EFI
+mount /dev/nvme0n1p1 /boot/EFI
 
 log "Creating /etc/fstab"
 mkdir /mnt/etc
@@ -77,13 +79,14 @@ log "Setting up database for 'pacman -F filename' searching"
 pacman -Fy
 
 log "Installing kernel and other packages"
-pacman -S --noconfirm linux linux-lts linux-headers linux-lts-headers
+pacman -S --noconfirm linux linux-lts linux-headers linux-lts-headers linux-firmware amd-ucode
 
 log "Installing other packages you want"
 pacman -S --noconfirm man-db
 
 log "Preparing ramdisks for kernel boot"
-# Note: this might be redundant; pacman already did it?
+sed -i 's/^HOOKS=(base udev autodetect modconf block filesystems keyboard fsck)/HOOKS=(base udev autodetect keyboard keymap modconf block encrypt filesystems fsck)/' /etc/mkinitcpio.conf
+
 mkinitcpio -p linux
 mkinitcpio -p linux-lts
 
@@ -101,25 +104,19 @@ echo '%wheel ALL=(ALL) ALL' > /etc/sudoers.d/wheel
 
 log "Setting up boot"
 pacman -S --noconfirm grub efibootmgr dosfstools os-prober mtools
-mkdir -p /boot/EFI
-mount /dev/nvme0n1p1 /boot/EFI
 grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
 cp /usr/share/locale/en\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo
 grub-mkconfig -o /boot/grub/grub.cfg
+
+UUID=\$(lsblk /dev/nvme0n1p2 -o UUID -d -n)
+
+sed -i "s/^GRUB_CMDLINE_LINUX=\"\"/GRUB_CMDLINE_LINUX=\"cryptdevice=UUID=${UUID}:cryptroot root=/dev/mapper/cryptroot\"/" \/etc\/default\/grub
 
 log "Setting up swap"
 fallocate -l 2G /swapfile
 chmod 600 /swapfile
 mkswap /swapfile
 echo -e '\n/swapfile none swap sw 0 0' >> /etc/fstab
-
-log "Setting up encryption for /home"
-pacman -S --noconfirm fscrypt
-fscrypt setup
-fscrypt setup /home
-echo "auth optional pam_fscrypt.so" >> /etc/pam.d/system-login
-echo "session optional pam_fscrypt.so drop_caches lock_policies" >> /etc/pam.d/system-login
-echo "password optional pam_fscrypt.so" >> /etc/pam.d/passwd
 
 log "Installing other dependencies"
 pacman -S --noconfirm git ruby tmux vi vim xorg-server
@@ -161,29 +158,6 @@ hwclock --systohc
 log "Cloning dotfiles"
 sudo -u glh mkdir -p /home/glh/code
 sudo -u glh git clone --recursive https://github.com/wincent/wincent.git /home/glh/code/wincent
-
-log "Setting up /etc/motd"
-echo "Suggested actions:" >> /etc/motd
-echo "  sudo -s" >> /etc/motd
-echo "  mkdir /home/glh_" >> /etc/motd
-echo "  chown glh:users /home/glh_" >> /etc/motd
-echo "  fscrypt encrypt /home/glh_ --user=glh" >> /etc/motd
-echo "  exit" >> /etc/motd
-echo "  cp -a -T /home/glh /home/glh_" >> /etc/motd
-echo "  sudo reboot" >> /etc/motd
-echo "" >> /etc/motd
-echo "After rebooting:" >> /etc/motd
-echo "" >> /etc/motd
-echo "  fscrypt status /home/glh_" >> /etc/motd
-echo "  sudo mv /home/glh /home/glh_plaintext" >> /etc/motd
-echo "  sudo mv /home/glh_ /home/glh" >> /etc/motd
-echo "  sudo reboot" >> /etc/motd
-echo "" >> /etc/motd
-echo "And finally:" >> /etc/motd
-echo "" >> /etc/motd
-echo "  find /home/glh_plaintext -type f -print0 | xargs -0 shred -n1 --remove=unlink" >> /etc/motd
-echo "  sudo rm -rf /home/glh_plaintext" >> /etc/motd
-echo "  echo -n | sudo tee /etc/motd" >> /etc/motd
 
 exit
 HERE
