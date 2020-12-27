@@ -66,6 +66,8 @@ genfstab -U -p /mnt >> /mnt/etc/fstab
 log "Installing base packages"
 pacstrap /mnt base base-devel
 
+cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/
+
 cat << HERE > /mnt/arch-install-chroot.sh
 set -e
 
