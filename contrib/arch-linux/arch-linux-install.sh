@@ -57,7 +57,7 @@ mkfs.ext4 /dev/mapper/cryptroot
 mount /dev/mapper/cryptroot /mnt
 
 mkdir -p /mnt/boot/EFI
-mount /dev/nvme0n1p1 /boot/EFI
+mount /dev/nvme0n1p1 /mnt/boot/EFI
 
 log "Creating /etc/fstab"
 mkdir /mnt/etc
