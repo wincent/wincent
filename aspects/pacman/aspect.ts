@@ -18,7 +18,6 @@ export default {
             'gnome-control-center', // For controlling audio (etc).
             'gnome-icon-theme', // eg. for clock icon in dunst notifications.
             'happy', // Haskell golden testing library (needed for docvim).
-            'herbstluftwm', // (Non-default) window manager; will probably remove.
             'htop', // Fancier process monitor.
             'hwinfo', // For querying hardware info.
             'i3', // Window manager.
