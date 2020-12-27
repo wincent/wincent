@@ -82,10 +82,13 @@ log "Installing kernel and other packages"
 pacman -S --noconfirm linux linux-lts linux-headers linux-lts-headers linux-firmware amd-ucode
 
 log "Installing other packages you want"
-pacman -S --noconfirm man-db
+pacman -S --noconfirm man-db terminus-font # for 4K display, instead of `setfont -d`
 
 log "Preparing ramdisks for kernel boot"
 sed -i 's/^HOOKS=(base udev autodetect modconf block filesystems keyboard fsck)/HOOKS=(base udev autodetect keyboard keymap modconf block encrypt filesystems fsck)/' /etc/mkinitcpio.conf
+
+echo FONT=ter-132n >> /etc/vconsole.conf
+echo KEYMAP=colemak >> /etc/vconsole.conf
 
 mkinitcpio -p linux
 mkinitcpio -p linux-lts
@@ -148,11 +151,6 @@ echo "ESSID=\$NETCTL_SSID" >> "\$NETCTL_CONFIG"
 echo "IP=dhcp" >> "\$NETCTL_CONFIG"
 echo "Key=\\\\\"\$NETCTL_KEY" >> "\$NETCTL_CONFIG"
 netctl enable "\$NETCTL_PROFILE"
-
-log "Applying other settings"
-pacman -S --noconfirm terminus-font # for 4K display, instead of `setfont -d`
-echo FONT=ter-132n >> /etc/vconsole.conf
-echo KEYMAP=colemak >> /etc/vconsole.conf
 
 ln -sf /usr/share/zoneinfo/Europe/Madrid /etc/localtime
 hwclock --systohc
