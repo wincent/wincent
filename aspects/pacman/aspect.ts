@@ -24,6 +24,7 @@ export default {
             'i3', // Window manager.
             'i3blocks', // Status bar.
             'iftop', // Network monitor.
+            'interception-dual-function-keys', // Substitute for some key (ha!) Karabiner-Elements functionality.
             'iotop', // I/O monitor.
             'jdk8-openjdk', // Java.
             'jq', // JSON parser.
