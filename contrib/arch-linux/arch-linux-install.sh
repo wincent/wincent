@@ -47,8 +47,8 @@ device: /dev/nvme0n1
 /dev/nvme0n1p2: type=linux
 HERE
 
-log "Formatting /boot/EFI"
-mkfs.fat -F32 /dev/nvme0n1p1 # /boot/EFI
+log "Formatting /boot"
+mkfs.fat -F32 /dev/nvme0n1p1
 
 log "Mounting /dev/nvme0n1p2 at /"
 echo -n "${__PASSPHRASE__}" | cryptsetup luksFormat /dev/nvme0n1p2 -
@@ -56,8 +56,8 @@ echo -n "${__PASSPHRASE__}" | cryptsetup open /dev/nvme0n1p2 cryptroot --key-fil
 mkfs.ext4 /dev/mapper/cryptroot
 mount /dev/mapper/cryptroot /mnt
 
-mkdir -p /mnt/boot/EFI
-mount /dev/nvme0n1p1 /mnt/boot/EFI
+mkdir -p /mnt/boot
+mount /dev/nvme0n1p1 /mnt/boot
 
 log "Creating /etc/fstab"
 mkdir /mnt/etc
@@ -104,7 +104,7 @@ echo '%wheel ALL=(ALL) ALL' > /etc/sudoers.d/wheel
 
 log "Setting up boot"
 pacman -S --noconfirm grub efibootmgr dosfstools os-prober mtools
-grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB --recheck
 cp /usr/share/locale/en\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo
 grub-mkconfig -o /boot/grub/grub.cfg
 
