@@ -1,5 +1,5 @@
 # <%= variables.figManaged %>
 
-- JOB: "intercept -g $DEVNODE | mac2linux | dual-function-keys -c /etc/dual-function-keys.yaml | uinput -d $DEVNODE"
+- JOB: "intercept -g $DEVNODE | mac2linux | dual-function-keys -c /etc/interception/dual-function-keys.yaml | uinput -d $DEVNODE"
   DEVICE:
     NAME: "<%= variables.deviceName %>"

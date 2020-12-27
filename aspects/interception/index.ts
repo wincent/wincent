@@ -1,6 +1,7 @@
 import {
     attributes,
     command,
+    file,
     handler,
     resource,
     skip,
@@ -21,6 +22,7 @@ function task(name: string, callback: () => Promise<void>) {
 task('build mac2linux', async () => {
     const chdir = resource.support();
 
+    await command('cmake', ['--configure', '.'], {chdir});
     await command('cmake', ['--build', '.'], {chdir});
     await command('make', [], {chdir});
 });
@@ -35,19 +37,27 @@ task('install mac2linux', async () => {
     });
 });
 
-task('create /etc/dual-function-keys.yaml', async () => {
+task('create /etc/interception', async () => {
+    await file({
+        path: '/etc/interception',
+        state: 'directory',
+        sudo: true,
+    });
+});
+
+task('create /etc/interception/dual-function-keys.yaml', async () => {
     await template({
         notify: 'enable udevmon',
-        path: '/etc/dual-function-keys.yaml',
+        path: '/etc/interception/dual-function-keys.yaml',
         src: resource.template('dual-function-keys.yaml.erb'),
         sudo: true,
     });
 });
 
-task('create /etc/udevmon.yaml', async () => {
+task('create /etc/interception/udevmon.yaml', async () => {
     await template({
         notify: 'enable udevmon',
-        path: '/etc/udevmon.yaml',
+        path: '/etc/interception/udevmon.yaml',
         src: resource.template('udevmon.yaml.erb'),
         sudo: true,
     });
