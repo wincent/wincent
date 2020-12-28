@@ -68,15 +68,17 @@ bindsym $alt+Shift+Tab workspace prev
 
 # icon fa-keyboard-o \uf11c
 set $ws1 "1:  terminal"
+
 # icon fa-chrome \uf268
 set $ws2 "2:  browser"
+
 # icon fa-slack \uf198
 set $ws3 "3:  slack"
+
 # icon fa-folder-open \uf07c
 set $ws4 "4:  filemanager"
-# icon fa-video-camera \uf03d
-set $ws5 "5:  obs"
 
+set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
@@ -180,8 +182,6 @@ exec kitty
 # exec --no-startup-id i3-msg 'workspace number $ws2; exec chromium; workspace number $ws1'
 # Again, not sure if I want this...
 # assign [class="^chromium$"] number $ws2
-
-assign [class="^obs$"] number $ws5
 
 # Stop Chrome file dialogs from being bigger then the entire screen...
 floating_maximum_size 1920 x 1080
