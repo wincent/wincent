@@ -33,7 +33,6 @@ export default {
             'netcat', // For piping over network connectison (see also `socat` below).
             'nodejs', // JavaScript engine.
             'npm', // Node package manager.
-            'obs-studio', // Open Broadcaster Software (OBS) for streaming/screen-casting.
             'openssh', // SSH tools.
             'otf-font-awesome', // Icon font (eg. for status bar).
             'pcmanfm', // File manager from LXDE desktop (lightweight).
@@ -46,6 +45,7 @@ export default {
             'screenkey', // Shows keyboard interactions for screencasting.
             'scrot', // Screenshot tool.
             'skim', // Fuzzy finder.
+            'slop', // For selecting screen regions (eg. with screenkey).
             'socat', // Netcat replacement with UNIX domain socket (etc) support.
             'stack', // Haskell environment.
             'stress', // CPU (etc) stress tester.
@@ -55,6 +55,7 @@ export default {
             'unzip', // For extracting and viewing .zip archive contents.
             'vi', // Original vi text editor.
             'vim', // Vim (vi improved) text editor.
+            'vlc', // Media player.
             'watchman', // Fast filesystem index (speeds up Command-T).
             'wget', // `curl` alternative.
             'xautolock', // Screen locker with hot-corner support.
