@@ -48,6 +48,7 @@ for s:extension in ['.js', '.jsx', '.ts', '.tsx']
         \ ['*' . s:extension, {
         \   'alternate': [
         \     '{dirname}/{basename}.test' . s:extension,
+        \     '{dirname}/__tests__/{basename}.test' . s:extension,
         \     '{dirname}/__tests__/{basename}-test' . s:extension,
         \     '{dirname}/__tests__/{basename}-mocha' . s:extension
         \   ],
@@ -56,6 +57,10 @@ for s:extension in ['.js', '.jsx', '.ts', '.tsx']
         \ ['*.test' . s:extension, {
         \   'alternate': '{basename}' . s:extension,
         \   'type': 'test',
+        \ }],
+        \ ['**/__tests__/*.test' . s:extension, {
+        \   'alternate': '{dirname}/{basename}' . s:extension,
+        \   'type': 'test'
         \ }],
         \ ['**/__tests__/*-test' . s:extension, {
         \   'alternate': '{dirname}/{basename}' . s:extension,
