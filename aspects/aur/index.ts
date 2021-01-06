@@ -35,7 +35,6 @@ task('install yay', async () => {
     await command('makepkg', ['-si', '--noconfirm'], {
         chdir: 'vendor/yay',
         creates: '/usr/bin/yay',
-        sudo: true,
     });
 });
 
