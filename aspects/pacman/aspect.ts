@@ -56,7 +56,6 @@ export default {
             'vi', // Original vi text editor.
             'vim', // Vim (vi improved) text editor.
             'vlc', // Media player.
-            'watchman', // Fast filesystem index (speeds up Command-T).
             'wget', // `curl` alternative.
             'xautolock', // Screen locker with hot-corner support.
             'xclip', // CLI access to X clipboard.

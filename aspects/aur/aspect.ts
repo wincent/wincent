@@ -9,6 +9,7 @@ export default {
             'neovim-git', // Neovim with latest LSP goodness.
             'obs-studio-git', // Open Broadcaster Software (OBS) for streaming/screen-casting.
             'ttf-symbola', // Font with lots of Unicode glyphs (eg. u276f, for prompt).
+            'watchman', // Fast filesystem index (speeds up Command-T).
         ],
     },
 };
