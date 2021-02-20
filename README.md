@@ -148,7 +148,7 @@ git clone --recursive https://github.com/wincent/wincent.git
 #### Arch Linux
 
 ```sh
-sudo pacman -Syy
+sudo pacman -Syu
 sudo pacman -S git ruby tmux vim
 git clone --recursive https://github.com/wincent/wincent.git
 ```
