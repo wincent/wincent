@@ -8,7 +8,6 @@ export default {
             'bluez-utils', // Provides `bluetoothctl` CLI tool for pairing etc (see: https://wiki.archlinux.org/index.php/Bluetooth).
             'caja', // File manager from MATE desktop.
             'chafa', // Low-res character-based image previewer.
-            'chromium', // Web browser.
             'clang', // Compiler toolchain (eg. used for Neovim LSP).
             'cmake', // Build tool (eg. used to build Neovim).
             'dmenu', // Item selection UI.

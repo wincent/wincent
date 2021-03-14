@@ -8,6 +8,7 @@
             ".clipper.json",
             ".config/alacritty",
             ".config/big-sur.jpg",
+            ".config/chrome-flags.conf",
             ".config/chromium-flags.conf",
             ".config/clipper",
             ".config/dunst",
