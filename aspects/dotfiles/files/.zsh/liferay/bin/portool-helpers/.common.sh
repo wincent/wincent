@@ -2,7 +2,7 @@
 
 PORTOOL_BASE="${BASH_SOURCE%/*}"
 
-TOMCAT=tomcat-9.0.40
+TOMCAT=tomcat-9.0.43
 
 if [[ $PWD = $HOME/code/portal-master* ]]; then
   PORTAL_DB=lportal2_master
