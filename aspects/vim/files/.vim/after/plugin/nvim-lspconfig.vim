@@ -4,10 +4,10 @@ endif
 
 lua require'wincent.lsp'.init()
 
-sign define LspDiagnosticsErrorSign text=✖
-sign define LspDiagnosticsWarningSign text=⚠
-sign define LspDiagnosticsInformationSign text=ℹ
-sign define LspDiagnosticsHintSign text=➤
+sign define LspDiagnosticsSignError text=✖
+sign define LspDiagnosticsSignWarning text=⚠
+sign define LspDiagnosticsSignInformation text=ℹ
+sign define LspDiagnosticsSignHint text=➤
 
 augroup WincentLanguageClientAutocmds
   autocmd!
