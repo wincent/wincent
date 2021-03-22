@@ -113,8 +113,8 @@ lsp.init = function ()
 
   -- Override hover winhighlight.
   local method = 'textDocument/hover'
-  local hover = vim.lsp.callbacks[method]
-  vim.lsp.callbacks[method] = function (_, method, result)
+  local hover = vim.lsp.handlers[method]
+  vim.lsp.handlers[method] = function (_, method, result)
      hover(_, method, result)
 
      for _, winnr in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
@@ -133,16 +133,16 @@ end
 lsp.set_up_highlights = function ()
   local pinnacle = require'wincent.pinnacle'
 
-  vim.cmd('highlight LspDiagnosticsError ' .. pinnacle.decorate('italic,underline', 'ModeMsg'))
+  vim.cmd('highlight LspDiagnosticsDefaultError ' .. pinnacle.decorate('italic,underline', 'ModeMsg'))
 
-  vim.cmd('highlight LspDiagnosticsHint ' .. pinnacle.decorate('bold,italic,underline', 'Type'))
+  vim.cmd('highlight LspDiagnosticsDefaultHint ' .. pinnacle.decorate('bold,italic,underline', 'Type'))
 
-  vim.cmd('highlight LspDiagnosticsHintSign ' .. pinnacle.highlight({
+  vim.cmd('highlight LspDiagnosticsSignHint ' .. pinnacle.highlight({
     bg = pinnacle.extract_bg('ColorColumn'),
     fg = pinnacle.extract_fg('Type'),
   }))
 
-  vim.cmd('highlight LspDiagnosticsErrorSign ' .. pinnacle.highlight({
+  vim.cmd('highlight LspDiagnosticsSignError ' .. pinnacle.highlight({
     bg = pinnacle.extract_bg('ColorColumn'),
     fg = pinnacle.extract_fg('ErrorMsg'),
   }))

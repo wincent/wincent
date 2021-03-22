@@ -242,6 +242,7 @@ The repo is written and maintained by Greg Hurrell &lt;[greg@hurrell.net](mailto
 -   Anton Kastritskiy
 -   Joe Lencioni
 -   Jonathan Wilkins
+-   Keng Kiat Lim
 -   Mark Stenglein
 -   Matthew Byrne
 -   Michael Lohmann
