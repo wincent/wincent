@@ -1,6 +1,6 @@
 import {command, fail, file, task} from 'fig';
 
-task('enable avahi-daemon', async () => {
+task('activate avahi-daemon', async () => {
     // TODO: refactor this because I have almost identical code in sshd aspect
     const result = await command('systemctl', ['is-active', 'avahi-daemon'], {
         failedWhen: () => false,
@@ -9,6 +9,23 @@ task('enable avahi-daemon', async () => {
     if (result && typeof result.status === 'number') {
         if (result.status !== 0) {
             await command('systemctl', ['start', 'avahi-daemon.service'], {
+                sudo: true,
+            });
+        }
+    } else {
+        fail('could not determine avahi-daemon status');
+    }
+});
+
+task('enable avahi-daemon', async () => {
+    // TODO: refactor this because I have almost identical code in sshd aspect
+    const result = await command('systemctl', ['is-enabled', 'avahi-daemon'], {
+        failedWhen: () => false,
+    });
+
+    if (result && typeof result.status === 'number') {
+        if (result.status !== 0) {
+            await command('systemctl', ['enable', 'avahi-daemon.service'], {
                 sudo: true,
             });
         }
