@@ -31,7 +31,9 @@ task('enable sshd', async () => {
 
     if (result && typeof result.status === 'number') {
         if (result.status !== 0) {
-            await command('systemctl', ['enable', 'sshd.service'], {sudo: true});
+            await command('systemctl', ['enable', 'sshd.service'], {
+                sudo: true,
+            });
         }
     } else {
         fail('could not determine sshd status');
