@@ -32,6 +32,7 @@
                 "pacman",
                 "aur",
                 "shell",
+                "sshd",
                 "systemd",
                 "interception",
                 "terminfo",

@@ -404,6 +404,9 @@ async function loadAspect(aspect: Aspect): Promise<void> {
         case 'ssh':
             await import('../aspects/ssh/index.js');
             break;
+        case 'sshd':
+            await import('../aspects/sshd/index.js');
+            break;
         case 'systemd':
             await import('../aspects/systemd/index.js');
             break;
