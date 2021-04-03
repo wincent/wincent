@@ -8,7 +8,9 @@ task('enable avahi-daemon', async () => {
 
     if (result && typeof result.status === 'number') {
         if (result.status !== 0) {
-            await command('systemctl', ['start', 'avahi-daemon.service'], {sudo: true});
+            await command('systemctl', ['start', 'avahi-daemon.service'], {
+                sudo: true,
+            });
         }
     } else {
         fail('could not determine avahi-daemon status');
