@@ -4,6 +4,7 @@ export default {
         packages: [
             'adobe-source-code-pro-fonts', // Monospace programming font.
             'ant', // Java build tool.
+            'avahi', // zeroconf ("Bonjour") networking.
             'bluez', // Bluetooth stack.
             'bluez-utils', // Provides `bluetoothctl` CLI tool for pairing etc (see: https://wiki.archlinux.org/index.php/Bluetooth).
             'caja', // File manager from MATE desktop.

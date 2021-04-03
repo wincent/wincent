@@ -353,6 +353,9 @@ async function loadAspect(aspect: Aspect): Promise<void> {
         case 'automount':
             await import('../aspects/automount/index.js');
             break;
+        case 'avahi':
+            await import('../aspects/avahi/index.js');
+            break;
         case 'backup':
             await import('../aspects/backup/index.js');
             break;
