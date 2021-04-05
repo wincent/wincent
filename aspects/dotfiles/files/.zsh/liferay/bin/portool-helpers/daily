@@ -42,7 +42,11 @@ for TARGET in "${TARGETS[@]}"; do
           +7.1.x:7.1.x \
           +7.1.x-private:7.1.x-private \
           +7.2.x:7.2.x \
-          +7.2.x-private:7.2.x-private && \
+          +7.2.x-private:7.2.x-private \
+          +7.3.x:7.3.x \
+          +7.3.x-private:7.3.x-private \
+          +7.4.x:7.4.x \
+          +7.4.x-private:7.4.x-private && \
         git merge --ff-only upstream/master-private &&
         git push origin -f :
       ) || echo "ee build failed: please see $LOG_DESC for details"
