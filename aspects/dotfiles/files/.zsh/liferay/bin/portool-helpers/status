@@ -22,7 +22,7 @@ do
   echo
 
   echo -n "  ${fg_bold[cyan]}HEAD${reset_color}: "
-  git -C $REPO describe --tags
+  git -C $REPO describe --tags --always
   echo
 
   if [ $VERBOSE -eq 1 ]; then
