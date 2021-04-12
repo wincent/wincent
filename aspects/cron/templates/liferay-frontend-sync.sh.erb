@@ -27,18 +27,11 @@ trap "rm -f \"$LOCK_FILE\"; log 'exiting due to trap'; exit" EXIT SIGINT SIGTERM
 
 touch "$LOCK_FILE"
 
+export GIT_SSH_COMMAND="ssh -i ~/.ssh/id_ed25519_frontend -F /dev/null"
+
 # For debuggability: redirect stdout and stderr to file just for current run.
 exec > "$DEBUG_FILE"
 exec 2>&1
-
-if [ -e "$HOME/.ssh/ssh_auth_sock" ]; then
-  export SSH_AUTH_SOCK="$HOME/.ssh/ssh_auth_sock"
-fi
-
-if ! ssh-add -l; then
-  log 'no identities in ssh-agent, exiting'
-  exit
-fi
 
 BASE="$(dirname $LOCAL_REPO)"
 
