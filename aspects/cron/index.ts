@@ -44,18 +44,6 @@ task('schedule check-git cron job', async () => {
     }
 });
 
-task('schedule liferay-frontend-sync cron job', async () => {
-    if (variable('identity') === 'wincent') {
-        await cron({
-            id: 'liferay-frontend-sync',
-            job: '$HOME/Library/Cron/liferay-frontend-sync.sh',
-            minute: '*',
-        });
-    } else {
-        skip();
-    }
-});
-
 task('touch ~/mbox', async () => {
     if (variable('identity') === 'wincent') {
         // Because cron jobs can produce mail.
