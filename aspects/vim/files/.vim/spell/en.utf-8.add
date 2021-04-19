@@ -5,6 +5,7 @@ AgileBits
 Ansible
 BFS
 BeOS
+CDN
 CLI
 CentOS
 Clojure
@@ -35,10 +36,14 @@ Hurrell
 IDE
 JS
 JSON
+JSP
+JSPs
 Karabiner
 Keychain
+LSP
 LastPass
 Liferay
+Liferay's
 Lua
 LuaJIT
 MVC
@@ -59,6 +64,7 @@ README
 REPL
 RESTful
 RVM
+React's
 Realforce
 Recurse
 Redis
@@ -93,8 +99,10 @@ blog
 cheatsheet
 checkboxes
 chruby
+codebase
 codepath
 colocated
+colocating
 colocation
 committer
 composability
@@ -120,6 +128,7 @@ folksonomy
 foo
 foobar
 gitignore
+globbing
 gzip
 hacky
 heterogenous
@@ -160,6 +169,7 @@ monit
 monoid
 monoids
 monorepo
+namespace
 nginx
 npm
 nvALT
@@ -207,6 +217,7 @@ terminfo
 timestamp
 tmux
 toolchain
+toolset
 transpile
 transpiled
 typeahead
