@@ -25,6 +25,7 @@ export default {
             'iftop', // Network monitor.
             'interception-dual-function-keys', // Substitute for some key (ha!) Karabiner-Elements functionality.
             'iotop', // I/O monitor.
+            'irssi', // IRC client.
             'jdk8-openjdk', // Java.
             'jq', // JSON parser.
             'kitty', // Terminal emulator.
