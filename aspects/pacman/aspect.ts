@@ -12,6 +12,7 @@ export default {
             'clang', // Compiler toolchain (eg. used for Neovim LSP).
             'cmake', // Build tool (eg. used to build Neovim).
             'dmenu', // Item selection UI.
+            'dnsutils', // For `host`, `nslookup` and friends.
             'dunst', // Notification daemon (eg. for clock dropdown in status bar).
             'feh', // Sets desktop background.
             'git', // Version control system.
