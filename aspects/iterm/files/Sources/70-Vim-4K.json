@@ -1,10 +1,10 @@
 {
-    "Profiles": [
-        {
-            "Name": "Vim",
-            "Guid": "1770FCDD-BCA2-403B-BABF-A6B2D994D725",
-            "Dynamic Profile Parent Name": "Vim (Base)",
-            "Normal Font": "SourceCodePro-Regular 16"
-        }
-    ]
+  "Profiles": [
+    {
+      "Name": "Vim",
+      "Guid": "1770FCDD-BCA2-403B-BABF-A6B2D994D725",
+      "Dynamic Profile Parent Name": "Vim (Base)",
+      "Normal Font": "SourceCodePro-Regular 16"
+    }
+  ]
 }

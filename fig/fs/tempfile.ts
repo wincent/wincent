@@ -8,14 +8,14 @@ import tempname from './tempname.js';
  * leave them on the disk for debugging purposes.
  */
 export default async function tempfile(
-    prefix: string,
-    contents: string = ''
+  prefix: string,
+  contents: string = ''
 ): Promise<string> {
-    const path = tempname(prefix);
+  const path = tempname(prefix);
 
-    await fs.writeFile(path, contents, 'utf8');
+  await fs.writeFile(path, contents, 'utf8');
 
-    log.debug(`Wrote ${contents.length} bytes to ${path}`);
+  log.debug(`Wrote ${contents.length} bytes to ${path}`);
 
-    return path;
+  return path;
 }

@@ -5,30 +5,30 @@ import run from '../run.js';
 import stringify from '../stringify.js';
 
 type Options = {
-    sudo?: boolean;
+  sudo?: boolean;
 };
 
 export default async function chmod(
-    mode: Mode,
-    path: string,
-    options: Options = {}
+  mode: Mode,
+  path: string,
+  options: Options = {}
 ): Promise<Error | null> {
-    const passphrase = options.sudo ? await Context.sudoPassphrase : undefined;
+  const passphrase = options.sudo ? await Context.sudoPassphrase : undefined;
 
-    const args = [mode, path];
+  const args = [mode, path];
 
-    log.debug(`Setting mode: ${args.join(' ')}`);
+  log.debug(`Setting mode: ${args.join(' ')}`);
 
-    const result = await run('chmod', args, {passphrase});
+  const result = await run('chmod', args, {passphrase});
 
-    if (result.status === 0) {
-        return null;
-    } else {
-        log.debug(stringify(result));
+  if (result.status === 0) {
+    return null;
+  } else {
+    log.debug(stringify(result));
 
-        return (
-            result.error ||
-            new ErrorWithMetadata(`\`chmod ${args.join(' ')}\` failed`)
-        );
-    }
+    return (
+      result.error ||
+      new ErrorWithMetadata(`\`chmod ${args.join(' ')}\` failed`)
+    );
+  }
 }

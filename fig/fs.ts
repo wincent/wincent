@@ -8,63 +8,63 @@
 import * as fs from 'fs';
 
 export function createWriteStream(
-    path: Parameters<typeof fs.createWriteStream>[0],
-    options: Parameters<typeof fs.createWriteStream>[1]
+  path: Parameters<typeof fs.createWriteStream>[0],
+  options: Parameters<typeof fs.createWriteStream>[1]
 ): ReturnType<typeof fs.createWriteStream> {
-    return fs.createWriteStream(path.toString(), options);
+  return fs.createWriteStream(path.toString(), options);
 }
 
 export function existsSync(
-    path: Parameters<typeof fs.existsSync>[0]
+  path: Parameters<typeof fs.existsSync>[0]
 ): ReturnType<typeof fs.existsSync> {
-    return fs.existsSync(path.toString());
+  return fs.existsSync(path.toString());
 }
 
 export function readdirSync(
-    path: Parameters<typeof fs.readdirSync>[0],
-    options: Parameters<typeof fs.readdirSync>[1]
+  path: Parameters<typeof fs.readdirSync>[0],
+  options: Parameters<typeof fs.readdirSync>[1]
 ): ReturnType<typeof fs.readdirSync> {
-    return fs.readdirSync(path.toString(), options);
+  return fs.readdirSync(path.toString(), options);
 }
 
 const promises: {
-    readdir: typeof fs.promises.readdir;
-    readFile: typeof fs.promises.readFile;
-    stat: typeof fs.promises.stat;
-    utimes: typeof fs.promises.utimes;
-    writeFile: typeof fs.promises.writeFile;
+  readdir: typeof fs.promises.readdir;
+  readFile: typeof fs.promises.readFile;
+  stat: typeof fs.promises.stat;
+  utimes: typeof fs.promises.utimes;
+  writeFile: typeof fs.promises.writeFile;
 } = {
-    // This functions has overloads, so we have to use `any` types.
-    readdir(directory: any, options: any): any {
-        return fs.promises.readdir(directory.toString(), options);
-    },
+  // This functions has overloads, so we have to use `any` types.
+  readdir(directory: any, options: any): any {
+    return fs.promises.readdir(directory.toString(), options);
+  },
 
-    // This functions has overloads, so we have to use `any` types.
-    readFile(path: any, ...args: any): any {
-        return fs.promises.readFile(path.toString(), ...args);
-    },
+  // This functions has overloads, so we have to use `any` types.
+  readFile(path: any, ...args: any): any {
+    return fs.promises.readFile(path.toString(), ...args);
+  },
 
-    stat(
-        path: Parameters<typeof fs.promises.stat>[0]
-    ): ReturnType<typeof fs.promises.stat> {
-        return fs.promises.stat(path.toString());
-    },
+  stat(
+    path: Parameters<typeof fs.promises.stat>[0]
+  ): ReturnType<typeof fs.promises.stat> {
+    return fs.promises.stat(path.toString());
+  },
 
-    utimes(
-        path: Parameters<typeof fs.promises.utimes>[0],
-        atime: Parameters<typeof fs.promises.utimes>[1],
-        mtime: Parameters<typeof fs.promises.utimes>[2]
-    ): ReturnType<typeof fs.promises.utimes> {
-        return fs.promises.utimes(path.toString(), atime, mtime);
-    },
+  utimes(
+    path: Parameters<typeof fs.promises.utimes>[0],
+    atime: Parameters<typeof fs.promises.utimes>[1],
+    mtime: Parameters<typeof fs.promises.utimes>[2]
+  ): ReturnType<typeof fs.promises.utimes> {
+    return fs.promises.utimes(path.toString(), atime, mtime);
+  },
 
-    writeFile(
-        path: Parameters<typeof fs.promises.writeFile>[0],
-        data: Parameters<typeof fs.promises.writeFile>[1],
-        options: Parameters<typeof fs.promises.writeFile>[2]
-    ): ReturnType<typeof fs.promises.writeFile> {
-        return fs.promises.writeFile(path.toString(), data, options);
-    },
+  writeFile(
+    path: Parameters<typeof fs.promises.writeFile>[0],
+    data: Parameters<typeof fs.promises.writeFile>[1],
+    options: Parameters<typeof fs.promises.writeFile>[2]
+  ): ReturnType<typeof fs.promises.writeFile> {
+    return fs.promises.writeFile(path.toString(), data, options);
+  },
 };
 
 export {promises};

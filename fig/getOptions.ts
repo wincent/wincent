@@ -15,112 +15,110 @@ import type {LogLevel} from './console.js';
 import type {Aspect} from './types/Project.js';
 
 export type Options = {
-    check: boolean;
-    focused: Set<Aspect>;
-    logLevel: LogLevel;
-    startAt: {
-        found: boolean;
-        literal: string;
-        fuzzy?: RegExp;
-    };
-    step: boolean;
-    testsOnly: boolean;
+  check: boolean;
+  focused: Set<Aspect>;
+  logLevel: LogLevel;
+  startAt: {
+    found: boolean;
+    literal: string;
+    fuzzy?: RegExp;
+  };
+  step: boolean;
+  testsOnly: boolean;
 };
 
 const {bold} = COLORS;
 
 export default async function getOptions(
-    args: Array<string>
+  args: Array<string>
 ): Promise<Options> {
-    const options: Options = {
-        check: false,
-        focused: new Set(),
-        logLevel: LOG_LEVEL.INFO,
-        startAt: {
-            found: false,
-            literal: '',
-        },
-        step: false,
-        testsOnly: false,
-    };
+  const options: Options = {
+    check: false,
+    focused: new Set(),
+    logLevel: LOG_LEVEL.INFO,
+    startAt: {
+      found: false,
+      literal: '',
+    },
+    step: false,
+    testsOnly: false,
+  };
 
-    const directory = path.join(root, 'aspects');
+  const directory = path.join(root, 'aspects');
 
-    const entries = await fs.readdir(directory, {withFileTypes: true});
+  const entries = await fs.readdir(directory, {withFileTypes: true});
 
-    const aspects: Array<[string, string]> = [];
+  const aspects: Array<[string, string]> = [];
 
-    for (const entry of entries) {
-        if (entry.isDirectory()) {
-            const name = entry.name;
+  for (const entry of entries) {
+    if (entry.isDirectory()) {
+      const name = entry.name;
 
-            const {description} = await readAspect(path.join(directory, name));
+      const {description} = await readAspect(path.join(directory, name));
 
-            aspects.push([name, description]);
-        }
+      aspects.push([name, description]);
     }
+  }
 
-    for (const arg of args) {
-        if (arg === '--check' || arg === '--dry-run') {
-            // Support --check for Ansible compatibility and --dry-run because
-            // of my Git muscle memory.
-            options.check = true;
-        } else if (arg === '--debug' || arg === '-d') {
-            options.logLevel = LOG_LEVEL.DEBUG;
-        } else if (arg === '--quiet' || arg === '-q') {
-            options.logLevel = LOG_LEVEL.NOTICE;
-        } else if (arg === '--test' || arg === '-t') {
-            options.testsOnly = true;
-        } else if (arg === '--help' || arg === '-h') {
-            await printUsage(aspects);
-            throw new ErrorWithMetadata('aborting');
-        } else if (
-            arg.startsWith('--start-at-task=') ||
-            arg.startsWith('--start=')
-        ) {
-            options.startAt.literal = (
-                arg.match(/^--start(?:-at-task)?=(.*)/)?.[1] ?? ''
-            ).trim();
+  for (const arg of args) {
+    if (arg === '--check' || arg === '--dry-run') {
+      // Support --check for Ansible compatibility and --dry-run because
+      // of my Git muscle memory.
+      options.check = true;
+    } else if (arg === '--debug' || arg === '-d') {
+      options.logLevel = LOG_LEVEL.DEBUG;
+    } else if (arg === '--quiet' || arg === '-q') {
+      options.logLevel = LOG_LEVEL.NOTICE;
+    } else if (arg === '--test' || arg === '-t') {
+      options.testsOnly = true;
+    } else if (arg === '--help' || arg === '-h') {
+      await printUsage(aspects);
+      throw new ErrorWithMetadata('aborting');
+    } else if (
+      arg.startsWith('--start-at-task=') ||
+      arg.startsWith('--start=')
+    ) {
+      options.startAt.literal = (
+        arg.match(/^--start(?:-at-task)?=(.*)/)?.[1] ?? ''
+      ).trim();
 
-            options.startAt.fuzzy = new RegExp(
-                [
-                    '',
-                    ...options.startAt.literal
-                        .split(/\s+/)
-                        .map(escapeRegExpPattern),
-                    '',
-                ].join('.*'),
-                'i'
-            );
-        } else if (arg === '--step') {
-            options.step = true;
-        } else if (arg.startsWith('-')) {
-            throw new ErrorWithMetadata(
-                `unrecognized argument ${stringify(
-                    arg
-                )} - pass "--help" to see allowed options`
-            );
-        } else {
-            try {
-                assertAspect(arg);
-                options.focused.add(arg);
-            } catch {
-                throw new ErrorWithMetadata(
-                    `unrecognized aspect ${stringify(
-                        arg
-                    )} - pass "--help" to see full list`
-                );
-            }
-        }
+      options.startAt.fuzzy = new RegExp(
+        [
+          '',
+          ...options.startAt.literal.split(/\s+/).map(escapeRegExpPattern),
+          '',
+        ].join('.*'),
+        'i'
+      );
+    } else if (arg === '--step') {
+      options.step = true;
+    } else if (arg.startsWith('-')) {
+      throw new ErrorWithMetadata(
+        `unrecognized argument ${stringify(
+          arg
+        )} - pass "--help" to see allowed options`
+      );
+    } else {
+      try {
+        assertAspect(arg);
+        options.focused.add(arg);
+      } catch {
+        throw new ErrorWithMetadata(
+          `unrecognized aspect ${stringify(
+            arg
+          )} - pass "--help" to see full list`
+        );
+      }
     }
+  }
 
-    return options;
+  return options;
 }
 
 async function printUsage(aspects: Array<[string, string]>) {
-    // TODO: actually implement all the switches mentioned here
-    log(
-        dedent`
+  // TODO: actually implement all the switches mentioned here
+  log(
+    dedent`
 
               ./install [options] [aspects...]
 
@@ -138,12 +136,12 @@ async function printUsage(aspects: Array<[string, string]>) {
 
               ${bold`Aspects:`}
         `
-    );
+  );
 
-    for (const [aspect, description] of aspects) {
-        log(`  ${aspect}`);
-        log(`    ${description}`);
-    }
+  for (const [aspect, description] of aspects) {
+    log(`  ${aspect}`);
+    log(`    ${description}`);
+  }
 
-    log();
+  log();
 }

@@ -1,22 +1,22 @@
 {
-    "name": "wincent",
-    "description": "\"dotfiles\" and system configuration",
-    "version": "0.0.1",
-    "main": "/dev/null",
-    "private": true,
-    "repository": "https://github.com/wincent/wincent.git",
-    "author": "Greg Hurrell <greg@hurrell.net>",
-    "license": "Unlicense",
-    "scripts": {
-        "ci": "yarn format:check",
-        "format:check": "npx prettier --check \"**/*.{js,json,md,ts}\" \"*.{md,ts}\"",
-        "format": "npx prettier --write \"**/*.{js,json,md,ts}\" \"*.{md,ts}\""
-    },
-    "type": "module",
-    "dependencies": {
-        "typescript": "*"
-    },
-    "devDependencies": {
-        "@types/node": "*"
-    }
+  "name": "wincent",
+  "description": "\"dotfiles\" and system configuration",
+  "version": "0.0.1",
+  "main": "/dev/null",
+  "private": true,
+  "repository": "https://github.com/wincent/wincent.git",
+  "author": "Greg Hurrell <greg@hurrell.net>",
+  "license": "Unlicense",
+  "scripts": {
+    "ci": "yarn format:check",
+    "format:check": "npx prettier --check \"**/*.{js,json,md,ts}\" \"*.{md,ts}\"",
+    "format": "npx prettier --write \"**/*.{js,json,md,ts}\" \"*.{md,ts}\""
+  },
+  "type": "module",
+  "dependencies": {
+    "typescript": "*"
+  },
+  "devDependencies": {
+    "@types/node": "*"
+  }
 }

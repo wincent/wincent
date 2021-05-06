@@ -1,44 +1,44 @@
 function run(input, _parameters) {
-    var iTerm = Application('iTerm2');
+  var iTerm = Application('iTerm2');
 
-    iTerm.activate();
+  iTerm.activate();
 
-    var windows = iTerm.windows();
+  var windows = iTerm.windows();
 
-    var window;
+  var window;
 
-    var tab;
+  var tab;
 
-    if (windows.length) {
-        window = iTerm.currentWindow();
+  if (windows.length) {
+    window = iTerm.currentWindow();
 
-        tab = window.createTabWithDefaultProfile();
-    } else {
-        window = iTerm.createWindowWithDefaultProfile();
+    tab = window.createTabWithDefaultProfile();
+  } else {
+    window = iTerm.createWindowWithDefaultProfile();
 
-        tab = window.currentTab();
-    }
+    tab = window.currentTab();
+  }
 
-    var session = tab.currentSession();
+  var session = tab.currentSession();
 
-    var files = [];
+  var files = [];
 
-    for (var i = 0; i < input.length; i++) {
-        files.push(quotedForm(input[i]));
-    }
+  for (var i = 0; i < input.length; i++) {
+    files.push(quotedForm(input[i]));
+  }
 
-    session.write({text: 'vim ' + files.join(' ')});
+  session.write({text: 'vim ' + files.join(' ')});
 }
 
 // Based on: https://ruby-doc.org/stdlib-2.3.0/libdoc/shellwords/rdoc/Shellwords.html#method-c-shellescape
 function quotedForm(path) {
-    var string = path.toString();
+  var string = path.toString();
 
-    if (string === '' || string === null) {
-        return "''";
-    }
+  if (string === '' || string === null) {
+    return "''";
+  }
 
-    return string
-        .replace(/([^a-z0-9_\-.,:\/@\n])/gi, '\\$1')
-        .replace(/\n/g, "'\n'");
+  return string
+    .replace(/([^a-z0-9_\-.,:\/@\n])/gi, '\\$1')
+    .replace(/\n/g, "'\n'");
 }

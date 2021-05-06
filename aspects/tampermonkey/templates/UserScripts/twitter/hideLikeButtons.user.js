@@ -11,17 +11,17 @@
 // ==/UserScript==
 
 (function () {
-    'use strict';
+  'use strict';
 
-    const style = document.createElement('style');
+  const style = document.createElement('style');
 
-    style.innerHTML = `
+  style.innerHTML = `
         [aria-label~=Like][role=button] {
             visibility: hidden;
         }
     `;
 
-    document.head.appendChild(style);
+  document.head.appendChild(style);
 })();
 
 // <%= variables.figManaged %>

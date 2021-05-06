@@ -11,18 +11,18 @@
 // ==/UserScript==
 
 (function () {
-    'use strict';
+  'use strict';
 
-    const style = document.createElement('style');
+  const style = document.createElement('style');
 
-    style.innerHTML = `
+  style.innerHTML = `
         .previewable-comment-form textarea {
             min-height: 300px; /* normally 100px, which is ridiculous */
             max-height: none; /* normally 500px */
         }
     `;
 
-    document.head.appendChild(style);
+  document.head.appendChild(style);
 })();
 
 // <%= variables.figManaged %>

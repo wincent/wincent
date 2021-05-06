@@ -13,7 +13,7 @@ import * as child_process from 'child_process';
 let spawn: typeof child_process.spawn;
 
 spawn = ((command: any, ...args: any) => {
-    return child_process.spawn(command.toString(), ...args);
+  return child_process.spawn(command.toString(), ...args);
 }) as any;
 
 export {spawn};
@@ -21,7 +21,7 @@ export {spawn};
 let spawnSync: typeof child_process.spawnSync;
 
 spawnSync = (command: any, ...args: any): any => {
-    return child_process.spawnSync(command.toString(), ...args);
+  return child_process.spawnSync(command.toString(), ...args);
 };
 
 export {spawnSync};

@@ -1,7 +1,7 @@
 import stringify from './stringify.js';
 
 export type Scope = {
-    [property: string]: JSONValue;
+  [property: string]: JSONValue;
 };
 
 /**
@@ -9,31 +9,31 @@ export type Scope = {
  * be evaluated to produce the template output).
  */
 export function compile(source: string) {
-    let output = 'let __buffer__ = "";\n';
+  let output = 'let __buffer__ = "";\n';
 
-    let context = 'TemplateText';
+  let context = 'TemplateText';
 
-    for (const token of tokenize(source)) {
-        if (token.kind === 'TemplateText') {
-            output += `__buffer__ += ${stringify(token.text)};\n`;
-        } else if (token.kind === 'HostText') {
-            if (context === 'Expression') {
-                output += `__buffer__ += (${token.text.trim()});\n`;
-            } else if (context === 'Statement') {
-                output += `${token.text.trim()}\n`;
-            }
-        } else if (token.kind === 'StartExpression') {
-            context = 'Expression';
-        } else if (token.kind === 'StartStatement') {
-            context = 'Statement';
-        } else if (token.kind === 'EndDelimiter') {
-            context = 'TemplateText';
-        }
+  for (const token of tokenize(source)) {
+    if (token.kind === 'TemplateText') {
+      output += `__buffer__ += ${stringify(token.text)};\n`;
+    } else if (token.kind === 'HostText') {
+      if (context === 'Expression') {
+        output += `__buffer__ += (${token.text.trim()});\n`;
+      } else if (context === 'Statement') {
+        output += `${token.text.trim()}\n`;
+      }
+    } else if (token.kind === 'StartExpression') {
+      context = 'Expression';
+    } else if (token.kind === 'StartStatement') {
+      context = 'Statement';
+    } else if (token.kind === 'EndDelimiter') {
+      context = 'TemplateText';
     }
+  }
 
-    output += 'return __buffer__;\n';
+  output += 'return __buffer__;\n';
 
-    return output;
+  return output;
 }
 
 /**
@@ -42,44 +42,44 @@ export function compile(source: string) {
  * producing the final string result.
  */
 export function fill(compiled: string, scope: Scope = {}) {
-    const context = Object.entries(scope).map(
-        // Not using `stringify()` here because that is only for human-readable
-        // use cases.
-        ([key, value]) => `const ${key} = ${JSON.stringify(value)};\n`
-    );
+  const context = Object.entries(scope).map(
+    // Not using `stringify()` here because that is only for human-readable
+    // use cases.
+    ([key, value]) => `const ${key} = ${JSON.stringify(value)};\n`
+  );
 
-    const sandbox = new Function(context + compiled);
+  const sandbox = new Function(context + compiled);
 
-    return sandbox();
+  return sandbox();
 }
 
 type Token =
-    | EndDelimiter
-    | HostText
-    | StartExpression
-    | StartStatement
-    | TemplateText;
+  | EndDelimiter
+  | HostText
+  | StartExpression
+  | StartStatement
+  | TemplateText;
 
 type EndDelimiter = {
-    kind: 'EndDelimiter';
+  kind: 'EndDelimiter';
 };
 
 type HostText = {
-    kind: 'HostText';
-    text: string;
+  kind: 'HostText';
+  text: string;
 };
 
 type StartExpression = {
-    kind: 'StartExpression';
+  kind: 'StartExpression';
 };
 
 type StartStatement = {
-    kind: 'StartStatement';
+  kind: 'StartStatement';
 };
 
 type TemplateText = {
-    kind: 'TemplateText';
-    text: string;
+  kind: 'TemplateText';
+  text: string;
 };
 
 /**
@@ -151,97 +151,95 @@ type TemplateText = {
  *
  */
 export function* tokenize(input: string): Generator<Token> {
-    const delimiter = /(<%=|<%-|<%|-%>|%>)/g;
+  const delimiter = /(<%=|<%-|<%|-%>|%>)/g;
 
-    let i = 0;
+  let i = 0;
 
-    let inHost = false;
+  let inHost = false;
 
-    while (i < input.length) {
-        const match = delimiter.exec(input);
+  while (i < input.length) {
+    const match = delimiter.exec(input);
 
-        if (match) {
-            const text = match[0];
+    if (match) {
+      const text = match[0];
 
-            if (inHost) {
-                if (text.endsWith('%>')) {
-                    yield {
-                        kind: 'HostText',
-                        text: input.slice(i, match.index),
-                    };
+      if (inHost) {
+        if (text.endsWith('%>')) {
+          yield {
+            kind: 'HostText',
+            text: input.slice(i, match.index),
+          };
 
-                    yield {
-                        kind: 'EndDelimiter',
-                    };
+          yield {
+            kind: 'EndDelimiter',
+          };
 
-                    inHost = false;
+          inHost = false;
 
-                    if (text === '-%>') {
-                        // Remove next character if it is a newline.
-                        if (input[delimiter.lastIndex] === '\n') {
-                            delimiter.lastIndex++;
-                            i = match.index! + text.length + 1;
-                            continue;
-                        }
-                    }
-                } else {
-                    // TODO: may want to tolerate this so that we can write
-                    // things like: <%= '<%' %>
-                    // would be useful in .gitconfig.erb
-                    throw new Error(
-                        `Unexpected start delimiter "${text}" at index ${match.index}:\n\n` +
-                            excerpt(input, match.index)
-                    );
-                }
-            } else {
-                if (text === '<%-') {
-                    // Eat whitespace between previous newline and delimiter.
-                    yield {
-                        kind: 'TemplateText',
-                        text: input
-                            .slice(i, match.index)
-                            .replace(/(^|\n)[ \t]+$/, '$1'),
-                    };
-                } else {
-                    yield {
-                        kind: 'TemplateText',
-                        text: input.slice(i, match.index),
-                    };
-                }
-
-                inHost = true;
-
-                if (text === '<%=') {
-                    yield {
-                        kind: 'StartExpression',
-                    };
-                } else if (text.startsWith('<%')) {
-                    yield {
-                        kind: 'StartStatement',
-                    };
-                } else if (text === '%>') {
-                    throw new Error(
-                        `Unexpected end delimiter "%>" at index ${match.index}:\n\n` +
-                            excerpt(input, match.index)
-                    );
-                }
+          if (text === '-%>') {
+            // Remove next character if it is a newline.
+            if (input[delimiter.lastIndex] === '\n') {
+              delimiter.lastIndex++;
+              i = match.index! + text.length + 1;
+              continue;
             }
-
-            i = match.index! + text.length;
+          }
         } else {
-            yield {
-                kind: 'TemplateText',
-                text: input.slice(i),
-            };
-
-            break;
+          // TODO: may want to tolerate this so that we can write
+          // things like: <%= '<%' %>
+          // would be useful in .gitconfig.erb
+          throw new Error(
+            `Unexpected start delimiter "${text}" at index ${match.index}:\n\n` +
+              excerpt(input, match.index)
+          );
         }
+      } else {
+        if (text === '<%-') {
+          // Eat whitespace between previous newline and delimiter.
+          yield {
+            kind: 'TemplateText',
+            text: input.slice(i, match.index).replace(/(^|\n)[ \t]+$/, '$1'),
+          };
+        } else {
+          yield {
+            kind: 'TemplateText',
+            text: input.slice(i, match.index),
+          };
+        }
+
+        inHost = true;
+
+        if (text === '<%=') {
+          yield {
+            kind: 'StartExpression',
+          };
+        } else if (text.startsWith('<%')) {
+          yield {
+            kind: 'StartStatement',
+          };
+        } else if (text === '%>') {
+          throw new Error(
+            `Unexpected end delimiter "%>" at index ${match.index}:\n\n` +
+              excerpt(input, match.index)
+          );
+        }
+      }
+
+      i = match.index! + text.length;
+    } else {
+      yield {
+        kind: 'TemplateText',
+        text: input.slice(i),
+      };
+
+      break;
     }
+  }
 }
 
 /**
  * Produce an except of `input` around position `index` for error-reporting.
  */
 function excerpt(input: string, index: number): string {
-    return JSON.stringify(input.slice(Math.max(0, index - 10), index + 10));
+  return JSON.stringify(input.slice(Math.max(0, index - 10), index + 10));
 }

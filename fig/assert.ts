@@ -6,36 +6,36 @@ import {isJSONValue} from './types/JSONValue.js';
  * sense).
  */
 export default function assert(
-    condition: any,
-    message?: string
+  condition: any,
+  message?: string
 ): asserts condition {
-    if (!condition) {
-        throw new Error(`assert(): ${message || 'assertion failed'}`);
-    }
+  if (!condition) {
+    throw new Error(`assert(): ${message || 'assertion failed'}`);
+  }
 }
 
 assert.JSONArray = function (
-    value: any,
-    message?: string
+  value: any,
+  message?: string
 ): asserts value is Array<JSONValue> {
-    assert(
-        Array.isArray(value) && value.every(isJSONValue),
-        message || 'Expected value to be a JSON array'
-    );
+  assert(
+    Array.isArray(value) && value.every(isJSONValue),
+    message || 'Expected value to be a JSON array'
+  );
 };
 
 /**
  * Convenience helper for working with JSON objects.
  */
 assert.JSONObject = function (
-    value: any,
-    message?: string
+  value: any,
+  message?: string
 ): asserts value is {[key: string]: JSONValue} {
-    assert(
-        value &&
-            !Array.isArray(value) &&
-            typeof value === 'object' &&
-            Object.values(value).every(isJSONValue),
-        message || 'Expected value to be a JSON object'
-    );
+  assert(
+    value &&
+      !Array.isArray(value) &&
+      typeof value === 'object' &&
+      Object.values(value).every(isJSONValue),
+    message || 'Expected value to be a JSON object'
+  );
 };

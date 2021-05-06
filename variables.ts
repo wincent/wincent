@@ -6,16 +6,16 @@ import Context from 'fig/Context.js';
  * Dynamic variables.
  */
 const variables = {
-    get identity() {
-        if (
-            Context.attributes.username === 'glh' ||
-            Context.attributes.username === 'greghurrell'
-        ) {
-            return 'wincent';
-        } else {
-            return 'unknown';
-        }
-    },
+  get identity() {
+    if (
+      Context.attributes.username === 'glh' ||
+      Context.attributes.username === 'greghurrell'
+    ) {
+      return 'wincent';
+    } else {
+      return 'unknown';
+    }
+  },
 };
 
 export default variables;

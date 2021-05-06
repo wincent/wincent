@@ -1,20 +1,20 @@
 {
-    "compilerOptions": {
-        "incremental": true,
-        "module": "esnext",
-        "moduleResolution": "node",
-        "noFallthroughCasesInSwitch": true,
-        "noImplicitReturns": true,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
-        "outDir": "./lib",
-        "baseUrl": ".",
-        "paths": {
-            "fig": ["fig/index.js"],
-            "fig/*": ["fig/*"]
-        },
-        "strict": true,
-        "target": "ES2019"
+  "compilerOptions": {
+    "incremental": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "outDir": "./lib",
+    "baseUrl": ".",
+    "paths": {
+      "fig": ["fig/index.js"],
+      "fig/*": ["fig/*"]
     },
-    "include": ["aspects/**/*.ts", "fig/**/*.ts", "variables.ts"]
+    "strict": true,
+    "target": "ES2019"
+  },
+  "include": ["aspects/**/*.ts", "fig/**/*.ts", "variables.ts"]
 }

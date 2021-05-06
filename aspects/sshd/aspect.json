@@ -1,3 +1,3 @@
 {
-    "description": "Manages /etc/ssh/sshd_config"
+  "description": "Manages /etc/ssh/sshd_config"
 }

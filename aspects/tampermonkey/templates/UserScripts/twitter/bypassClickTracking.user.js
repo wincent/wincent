@@ -11,26 +11,26 @@
 // ==/UserScript==
 
 (function () {
-    'use strict';
+  'use strict';
 
-    document.addEventListener(
-        'click',
-        (event) => {
-            const {target} = event;
+  document.addEventListener(
+    'click',
+    (event) => {
+      const {target} = event;
 
-            if (
-                target.tagName === 'A' &&
-                target.href &&
-                target.href.match(/^https:\/\/t.co\//) &&
-                target.title.match(/^https?:\/\/\w/)
-            ) {
-                window.open(target.title, event.metaKey ? '_blank' : '_self');
-                event.preventDefault();
-                event.stopPropagation();
-            }
-        },
-        true
-    );
+      if (
+        target.tagName === 'A' &&
+        target.href &&
+        target.href.match(/^https:\/\/t.co\//) &&
+        target.title.match(/^https?:\/\/\w/)
+      ) {
+        window.open(target.title, event.metaKey ? '_blank' : '_self');
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    },
+    true
+  );
 })();
 
 // <%= variables.figManaged %>

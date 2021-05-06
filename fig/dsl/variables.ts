@@ -8,9 +8,9 @@ import getAspectFromCaller from '../getAspectFromCaller.js';
  * and stored in JSON).
  */
 export default function variables(callback: (v: Variables) => Variables) {
-    const caller = getCaller();
+  const caller = getCaller();
 
-    const aspect = getAspectFromCaller(caller);
+  const aspect = getAspectFromCaller(caller);
 
-    Context.variables.register(aspect, callback);
+  Context.variables.register(aspect, callback);
 }

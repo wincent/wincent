@@ -21,34 +21,34 @@ For example, consider [this configuration that moves items into a `~/.backups` d
 ```yaml
 - name: dotfiles | backup originals
   command: mv ~/{{ item.0 }} ~/.backups/
-      creates=~/.backups/{{ item.0 }}
-      removes=~/{{ item.0 }}
+    creates=~/.backups/{{ item.0 }}
+    removes=~/{{ item.0 }}
   loop: '{{ (dotfile_files + dotfile_templates) | zip(original_check.results) | list }}'
   when: item.1.stat.exists and not item.1.stat.islnk
   loop_control:
-      label: '{{item.0}}'
+    label: '{{item.0}}'
 ```
 
 Note:
 
--   The context-dependent need to quote Jinja2 syntax interpolation (`{{ ... }}`) in some places but not others, due to conflict with YAML syntax rules.
--   Undifferentiated mixing of Python evaluation (eg. list concatenation with `+`) and Jinja2 filtering/transformtion (eg. `| zip` and `| list`) in a single value.
--   Awkward encoding of imperative programming patterns using YAML keys (eg. `loop` and `loop_control` to describe a loop; `when` to describe a conditional).
--   Context-specific embedding of Python expressions (eg. raw Python code being passed as a string in the `when` property, but elsewhere being interpolated in Jinja2 interpolation).
--   Implicit/magical variable naming conventions (eg. use of `loop` implies the existence of an `item` variable).
--   No obvious scoping rules eg. variables like `dotfile_files` and `dotfile_templates` are magically available with no obvious source (they are defined [in another file](https://github.com/wincent/wincent/blob/f080ecb98d2f762c7314864c2247e75036ebc81a/roles/dotfiles/defaults/main.yml#L2-L45)); others like `original_check` are also magically available, but [defined in a prior task](https://github.com/wincent/wincent/blob/f080ecb98d2f762c7314864c2247e75036ebc81a/roles/dotfiles/tasks/main.yml#L30)).
+- The context-dependent need to quote Jinja2 syntax interpolation (`{{ ... }}`) in some places but not others, due to conflict with YAML syntax rules.
+- Undifferentiated mixing of Python evaluation (eg. list concatenation with `+`) and Jinja2 filtering/transformtion (eg. `| zip` and `| list`) in a single value.
+- Awkward encoding of imperative programming patterns using YAML keys (eg. `loop` and `loop_control` to describe a loop; `when` to describe a conditional).
+- Context-specific embedding of Python expressions (eg. raw Python code being passed as a string in the `when` property, but elsewhere being interpolated in Jinja2 interpolation).
+- Implicit/magical variable naming conventions (eg. use of `loop` implies the existence of an `item` variable).
+- No obvious scoping rules eg. variables like `dotfile_files` and `dotfile_templates` are magically available with no obvious source (they are defined [in another file](https://github.com/wincent/wincent/blob/f080ecb98d2f762c7314864c2247e75036ebc81a/roles/dotfiles/defaults/main.yml#L2-L45)); others like `original_check` are also magically available, but [defined in a prior task](https://github.com/wincent/wincent/blob/f080ecb98d2f762c7314864c2247e75036ebc81a/roles/dotfiles/tasks/main.yml#L30)).
 
 Given all this convolution, Fig proposes that it is simpler to just embody this imperative, procedural work in an actual programming language. By using [TypeScript](https://www.typescriptlang.org/), we can obtain a comparable (or superior) level of static verification to what we would get with Ansible's YAML, as well as enjoying the benefits that come with using a "real" programming language in terms of tooling (eg. editor autocompletion, code formatting etc). By providing a [DSL](https://en.wikipedia.org/wiki/Domain-specific_language) (Domain-specific language) (eg. implemented in [Fig's DSL](https://github.com/wincent/wincent/tree/master/fig/dsl)), we can conserve and arguably improve on the ergonomic properties of writing Ansible's YAML. For example, the common task of moving items into a backup directory before installing their replacements can be extracted into [an "operation"](https://github.com/wincent/wincent/blob/0e53ae37fa3306e8d8ff2b211854dfcce17fffba/fig/dsl/operations/backup.ts), and [the call-site becomes](https://github.com/wincent/wincent/blob/0e53ae37fa3306e8d8ff2b211854dfcce17fffba/aspects/dotfiles/index.ts#L55-L63):
 
 ```typescript
 task('move originals to ~/.backups', async () => {
-    const files = [...variable.paths('files'), ...variable.paths('templates')];
+  const files = [...variable.paths('files'), ...variable.paths('templates')];
 
-    for (const file of files) {
-        const src = file.strip('.erb');
+  for (const file of files) {
+    const src = file.strip('.erb');
 
-        await backup({src});
-    }
+    await backup({src});
+  }
 });
 ```
 
@@ -56,11 +56,11 @@ An even [simpler example](https://github.com/wincent/wincent/blob/0e53ae37fa3306
 
 ```typescript
 task('move originals to ~/.backups', async () => {
-    const files = variable.paths('files');
+  const files = variable.paths('files');
 
-    for (const src of files) {
-        await backup({src});
-    }
+  for (const src of files) {
+    await backup({src});
+  }
 });
 ```
 
@@ -74,18 +74,18 @@ All of the above is not to say that Ansible is a bad tool — I use it in other 
 
 Overall structure remains similar to Ansible, but I made some changes to better reflect the use case here;
 
--   Configuration is divided into ["aspects"](../aspects) that contain:
-    -   A TypeScript `index.ts` that defines tasks to be executed.
-    -   An `aspect.json` or `aspect.ts` file that contains metadata, such as a `description` and (optional) `variables`.
-    -   An (optional) `files` directory containing resources to be copied or otherwise manipulated.
-    -   An (optional) `templates` directory containing templates to be dynamically generated (and then copied, installed etc).
-    -   An (optional) `support` directory to contain any other useful resources (eg. helper scripts etc).
--   A [top-level `project.json`](https://github.com/wincent/wincent/blob/master/project.json) declares:
-    -   Supported platforms (eg. "darwin", "linux") plus their related aspects and variables.
-    -   Profiles (eg. "personal" and "work") along with their associated variables, and patterns for determining which profile should apply on a given machine.
-    -   Default variables that apply in the absence of more specific settings (see ["Variables"](#variables) for more details).
--   The Fig source itself lives in [the `fig` directory](https://github.com/wincent/wincent/tree/master/fig).
--   All interaction occurs via [the top-level `install` script](https://github.com/wincent/wincent/blob/master/install), which invokes Fig via a set of helper scripts [in the `bin` directory](https://github.com/wincent/wincent/tree/master/bin).
+- Configuration is divided into ["aspects"](../aspects) that contain:
+  - A TypeScript `index.ts` that defines tasks to be executed.
+  - An `aspect.json` or `aspect.ts` file that contains metadata, such as a `description` and (optional) `variables`.
+  - An (optional) `files` directory containing resources to be copied or otherwise manipulated.
+  - An (optional) `templates` directory containing templates to be dynamically generated (and then copied, installed etc).
+  - An (optional) `support` directory to contain any other useful resources (eg. helper scripts etc).
+- A [top-level `project.json`](https://github.com/wincent/wincent/blob/master/project.json) declares:
+  - Supported platforms (eg. "darwin", "linux") plus their related aspects and variables.
+  - Profiles (eg. "personal" and "work") along with their associated variables, and patterns for determining which profile should apply on a given machine.
+  - Default variables that apply in the absence of more specific settings (see ["Variables"](#variables) for more details).
+- The Fig source itself lives in [the `fig` directory](https://github.com/wincent/wincent/tree/master/fig).
+- All interaction occurs via [the top-level `install` script](https://github.com/wincent/wincent/blob/master/install), which invokes Fig via a set of helper scripts [in the `bin` directory](https://github.com/wincent/wincent/tree/master/bin).
 
 ## Concepts
 
@@ -155,8 +155,8 @@ Most of these are static, arising from JSON files, but two of the later levels (
 
 The goal was to replace Ansible with some handmade scripts using the smallest dependency graph possible. I originally [tried](https://github.com/wincent/wincent/commit/8809a1681cfd8fd02eb40113d2485d7cadc10e4c) out [Deno](https://deno.land/) because that would enable me to use TypeScript with no dependencies outside of Deno itself, however I [gave up on that](https://github.com/wincent/wincent/commit/a213ddf69d3213882808b5c5ff0e000bcd83fe98) when I saw that editor integration was still very nascent. So I went with the following:
 
--   [n](https://github.com/tj/n) ([as a submodule](https://github.com/wincent/wincent/tree/master/vendor)) and some [hand-rolled Bash scripts](https://github.com/wincent/wincent/tree/master/bin) to replace [virtualenv](https://virtualenv.pypa.io/) and friends ([Python](https://www.python.org/), [pip](https://pypi.org/project/pip/)).
--   [Yarn](https://github.com/yarnpkg/yarn/) ([vendored](https://github.com/wincent/wincent/commit/26adf86d4c742390537be4dc1572f93a97bc3e68)) to install [TypeScript](https://www.typescriptlang.org/).
+- [n](https://github.com/tj/n) ([as a submodule](https://github.com/wincent/wincent/tree/master/vendor)) and some [hand-rolled Bash scripts](https://github.com/wincent/wincent/tree/master/bin) to replace [virtualenv](https://virtualenv.pypa.io/) and friends ([Python](https://www.python.org/), [pip](https://pypi.org/project/pip/)).
+- [Yarn](https://github.com/yarnpkg/yarn/) ([vendored](https://github.com/wincent/wincent/commit/26adf86d4c742390537be4dc1572f93a97bc3e68)) to install [TypeScript](https://www.typescriptlang.org/).
 
 Beyond that, there are no dependencies outside of the [Node.js](https://nodejs.org/en/) standard library. I use [Prettier](https://prettier.io/) to format code, but I invoke it via `npx` which means the [yarn.lock](https://github.com/wincent/wincent/blob/master/yarn.lock) remains basically empty. Ansible itself is replaced by [a set of self-contained TypeScript scripts](https://github.com/wincent/wincent/tree/master/fig). Instead of YAML configuration files containing "declarative" configuration peppered with Jinja template snippets containing Python and filters, we just use TypeScript for everything. Instead of [Jinja template files](https://jinja.palletsprojects.com/), we use ERB/JSP-like templates that use embedded JavaScript when necessary.
 

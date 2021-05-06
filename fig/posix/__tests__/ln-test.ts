@@ -8,67 +8,67 @@ import ln from '../ln.js';
 import touch from '../touch.js';
 
 test('ln() links a file', async () => {
-    const base = await tempdir('ln-test');
+  const base = await tempdir('ln-test');
 
-    const source = join(base, 'source.txt');
+  const source = join(base, 'source.txt');
 
-    const target = join(base, 'link.txt');
+  const target = join(base, 'link.txt');
 
-    await touch(source);
+  await touch(source);
 
-    const result = await ln(source, target);
+  const result = await ln(source, target);
 
-    expect(result).toBe(null);
+  expect(result).toBe(null);
 
-    const stats = await stat(target);
-    assert(!(stats instanceof Error));
+  const stats = await stat(target);
+  assert(!(stats instanceof Error));
 
-    assert(stats !== null);
+  assert(stats !== null);
 
-    expect(stats.type).toBe('link');
-    expect(stats.target).toBe(source);
+  expect(stats.type).toBe('link');
+  expect(stats.target).toBe(source);
 });
 
 test('ln() with `{force: true}` overwrites if necessary', async () => {
-    const base = await tempdir('ln-test');
+  const base = await tempdir('ln-test');
 
-    const source = join(base, 'source.txt');
+  const source = join(base, 'source.txt');
 
-    const target = join(base, 'link.txt');
+  const target = join(base, 'link.txt');
 
-    await touch(source);
-    await touch(target);
+  await touch(source);
+  await touch(target);
 
-    const result = await ln(source, target, {force: true});
+  const result = await ln(source, target, {force: true});
 
-    expect(result).toBe(null);
+  expect(result).toBe(null);
 
-    const stats = await stat(target);
-    assert(!(stats instanceof Error));
+  const stats = await stat(target);
+  assert(!(stats instanceof Error));
 
-    assert(stats !== null);
+  assert(stats !== null);
 
-    expect(stats.type).toBe('link');
-    expect(stats.target).toBe(source);
+  expect(stats.type).toBe('link');
+  expect(stats.target).toBe(source);
 });
 
 test('ln() can create links to non-existent files', async () => {
-    // Just link `ln` can...
-    const base = await tempdir('ln-test');
+  // Just link `ln` can...
+  const base = await tempdir('ln-test');
 
-    const source = join(base, 'source.txt');
+  const source = join(base, 'source.txt');
 
-    const target = join(base, 'link.txt');
+  const target = join(base, 'link.txt');
 
-    const result = await ln(source, target);
+  const result = await ln(source, target);
 
-    expect(result).toBe(null);
+  expect(result).toBe(null);
 
-    const stats = await stat(target);
-    assert(!(stats instanceof Error));
+  const stats = await stat(target);
+  assert(!(stats instanceof Error));
 
-    assert(stats !== null);
+  assert(stats !== null);
 
-    expect(stats.type).toBe('link');
-    expect(stats.target).toBe(source);
+  expect(stats.type).toBe('link');
+  expect(stats.target).toBe(source);
 });

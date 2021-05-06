@@ -11,18 +11,18 @@
 // ==/UserScript==
 
 (function () {
-    'use strict';
+  'use strict';
 
-    const style = document.createElement('style');
+  const style = document.createElement('style');
 
-    style.innerHTML = `
+  style.innerHTML = `
         .previewable-comment-form textarea {
             font-family: 'Source Code Pro', monospace;
             font-size: 12px;
         }
     `;
 
-    document.head.appendChild(style);
+  document.head.appendChild(style);
 })();
 
 // <%= variables.figManaged %>

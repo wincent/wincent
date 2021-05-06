@@ -14,28 +14,28 @@ import {spawnSync} from '../child_process.js';
  * first.
  */
 export default function id(): Array<string> {
-    const groups = run('-Gn').split(/\s+/);
+  const groups = run('-Gn').split(/\s+/);
 
-    const group = run('-rgn');
+  const group = run('-rgn');
 
-    // Normally, `group` will be first item in `groups` anyway, but make sure:
-    return [group, ...groups.filter((g) => g !== group)];
+  // Normally, `group` will be first item in `groups` anyway, but make sure:
+  return [group, ...groups.filter((g) => g !== group)];
 }
 
 function run(...args: Array<string>): string {
-    const {error, signal, status, stderr, stdout} = spawnSync('id', args, {
-        encoding: 'utf8',
-    });
+  const {error, signal, status, stderr, stdout} = spawnSync('id', args, {
+    encoding: 'utf8',
+  });
 
-    if (status === 0) {
-        return stdout.trim();
-    }
+  if (status === 0) {
+    return stdout.trim();
+  }
 
-    throw new ErrorWithMetadata(`Failed to run \`id ${args.join(' ')}\``, {
-        error: error?.toString() ?? null,
-        signal,
-        status,
-        stderr,
-        stdout,
-    });
+  throw new ErrorWithMetadata(`Failed to run \`id ${args.join(' ')}\``, {
+    error: error?.toString() ?? null,
+    signal,
+    status,
+    stderr,
+    stdout,
+  });
 }

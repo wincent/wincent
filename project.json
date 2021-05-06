@@ -1,114 +1,114 @@
 {
-    "platforms": {
-        "darwin": {
-            "aspects": [
-                "meta",
-                "backup",
-                "dotfiles",
-                "fonts",
-                "homebrew",
-                "iterm",
-                "node",
-                "karabiner",
-                "launchd",
-                "ruby",
-                "shell",
-                "ssh",
-                "tampermonkey",
-                "terminfo",
-                "vim",
-                "cron",
-                "automator",
-                "automount",
-                "defaults"
-            ],
-            "variables": {}
-        },
-        "linux": {
-            "aspects": [
-                "meta",
-                "dotfiles",
-                "locale",
-                "pacman",
-                "aur",
-                "avahi",
-                "shell",
-                "sshd",
-                "systemd",
-                "interception",
-                "terminfo",
-                "node",
-                "vim"
-            ],
-            "variables": {
-                "antMaxPermSize": "4096m",
-                "antXms": "4096m",
-                "antXmx": "16384m",
-                "gradleMaxPermSize": "2048m",
-                "gradleWorkersMax": "32",
-                "gradleXms": "2048m",
-                "gradleXmx": "8192m",
-                "javaMaxPermSize": "2048m",
-                "javaXms": "4096m",
-                "javaXmx": "16384m"
-            }
-        }
+  "platforms": {
+    "darwin": {
+      "aspects": [
+        "meta",
+        "backup",
+        "dotfiles",
+        "fonts",
+        "homebrew",
+        "iterm",
+        "node",
+        "karabiner",
+        "launchd",
+        "ruby",
+        "shell",
+        "ssh",
+        "tampermonkey",
+        "terminfo",
+        "vim",
+        "cron",
+        "automator",
+        "automount",
+        "defaults"
+      ],
+      "variables": {}
     },
-    "profiles": {
-        "personal": {
-            "pattern": "/\\bretiro\\b/i",
-            "variables": {
-                "corpusNotes": "~/Sync/Personal/Corpus"
-            }
-        },
-        "work": {
-            "pattern": "/\\blfrw044\\b/i",
-            "variables": {}
-        }
-    },
-    "variables": {
-        "antMaxPermSize": "2048m",
+    "linux": {
+      "aspects": [
+        "meta",
+        "dotfiles",
+        "locale",
+        "pacman",
+        "aur",
+        "avahi",
+        "shell",
+        "sshd",
+        "systemd",
+        "interception",
+        "terminfo",
+        "node",
+        "vim"
+      ],
+      "variables": {
+        "antMaxPermSize": "4096m",
         "antXms": "4096m",
-        "antXmx": "8192m",
-        "corpusNotes": "~/Documents/Corpus",
-        "figManaged": "vim: set nomodifiable : DO NOT EDIT - edit template source instead («file») or use `:set modifiable` to force.",
-        "gitCipherPath": "vendor/git-cipher/bin/git-cipher",
+        "antXmx": "16384m",
         "gradleMaxPermSize": "2048m",
-        "gradleWorkersMax": "4",
+        "gradleWorkersMax": "32",
         "gradleXms": "2048m",
-        "gradleXmx": "4096m",
-        "iTermDynamicProfiles": {
-            "external": [
-                {
-                    "path": "Mutt.json",
-                    "src": "40-Mutt-4K.json"
-                },
-                {
-                    "path": "Vim.json",
-                    "src": "70-Vim-4K.json"
-                },
-                {
-                    "path": "Wincent.json",
-                    "src": "10-4K.json"
-                }
-            ],
-            "retina": [
-                {
-                    "path": "Mutt.json",
-                    "src": "40-Mutt-Retina.json"
-                },
-                {
-                    "path": "Vim.json",
-                    "src": "70-Vim-Retina.json"
-                },
-                {
-                    "path": "Wincent.json",
-                    "src": "10-Retina.json"
-                }
-            ]
-        },
+        "gradleXmx": "8192m",
         "javaMaxPermSize": "2048m",
         "javaXms": "4096m",
-        "javaXmx": "8192m"
+        "javaXmx": "16384m"
+      }
     }
+  },
+  "profiles": {
+    "personal": {
+      "pattern": "/\\bretiro\\b/i",
+      "variables": {
+        "corpusNotes": "~/Sync/Personal/Corpus"
+      }
+    },
+    "work": {
+      "pattern": "/\\blfrw044\\b/i",
+      "variables": {}
+    }
+  },
+  "variables": {
+    "antMaxPermSize": "2048m",
+    "antXms": "4096m",
+    "antXmx": "8192m",
+    "corpusNotes": "~/Documents/Corpus",
+    "figManaged": "vim: set nomodifiable : DO NOT EDIT - edit template source instead («file») or use `:set modifiable` to force.",
+    "gitCipherPath": "vendor/git-cipher/bin/git-cipher",
+    "gradleMaxPermSize": "2048m",
+    "gradleWorkersMax": "4",
+    "gradleXms": "2048m",
+    "gradleXmx": "4096m",
+    "iTermDynamicProfiles": {
+      "external": [
+        {
+          "path": "Mutt.json",
+          "src": "40-Mutt-4K.json"
+        },
+        {
+          "path": "Vim.json",
+          "src": "70-Vim-4K.json"
+        },
+        {
+          "path": "Wincent.json",
+          "src": "10-4K.json"
+        }
+      ],
+      "retina": [
+        {
+          "path": "Mutt.json",
+          "src": "40-Mutt-Retina.json"
+        },
+        {
+          "path": "Vim.json",
+          "src": "70-Vim-Retina.json"
+        },
+        {
+          "path": "Wincent.json",
+          "src": "10-Retina.json"
+        }
+      ]
+    },
+    "javaMaxPermSize": "2048m",
+    "javaXms": "4096m",
+    "javaXmx": "8192m"
+  }
 }
