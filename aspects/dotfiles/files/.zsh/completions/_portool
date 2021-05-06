@@ -1,3 +1,0 @@
-#compdef portool
-
-_values 'subcommands' $(ls ~/.zsh/liferay/bin/portool-helpers)

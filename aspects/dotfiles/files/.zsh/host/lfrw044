@@ -1,5 +1,0 @@
-# Host-specific config.
-
-source $HOME/.zsh/liferay/aliases
-source $HOME/.zsh/liferay/exports
-source $HOME/.zsh/liferay/path

@@ -4,7 +4,3 @@ root = true
 [*.{js,json,md,ts}]
 indent_style = space
 indent_size = 4
-
-[portool]
-indent_style = space
-indent_size = 4

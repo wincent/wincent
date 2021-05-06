@@ -1,4 +1,0 @@
-#!/bin/bash
-
-source "${BASH_SOURCE%/*}/.common.sh"
-signal_proc CONT 'portool daily'

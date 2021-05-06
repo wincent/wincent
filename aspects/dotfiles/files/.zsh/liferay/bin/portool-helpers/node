@@ -1,9 +1,0 @@
-#!/bin/bash
-
-# Run the liferay-portal version of node.
-
-source "${BASH_SOURCE%/*}/.common.sh"
-
-NODE_BINDIR=$(node_path)
-
-env PATH="$NODE_BINDIR:$PATH" node "$@"

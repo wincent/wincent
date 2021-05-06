@@ -1,7 +1,0 @@
-append_path $HOME/.zsh/liferay/bin
-
-if [ -d ~/Library/PackageManager/bin ]; then
-  append_path $HOME/Library/PackageManager/bin
-fi
-
-export PATH

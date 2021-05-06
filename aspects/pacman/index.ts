@@ -79,17 +79,7 @@ task('configure faillock.conf', async () => {
 
 // TODO: `sudo npm install -g n`
 // TODO: `export N_PREFIX=~`
-// TODO: run `n 10.15.1`
-// TODO: sudo mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql --auth-root-authentication-method=normal
-// systemctl enable mariadb
-// systemctl start mariadb
-// mkdir -p code/portal
-// cd !$
-// git clone https://github.com/liferay/liferay-portal.git
-// git clone https://github.com/liferay/liferay-binaries-cache-2020.git
-// cd liferay-portal
-// portool setup
-// portool build
+// TODO: run `n ??.??.??`
 
 task('create suspend hook', async () => {
     await file({

@@ -1,22 +1,3 @@
 # <%= variables.figManaged %>
 
 root = true
-
-[<%= variables.home %>/code/{portal,portal-ee,portal-master}/**]
-insert_final_newline = false
-indent_size = 4
-indent_style = tab
-
-[<%= variables.home %>/code/{portal,portal-ee,portal-master}/**.{js,scss,ts,tsx}]
-insert_final_newline = true
-indent_size = 4
-indent_style = tab
-
-[<%= variables.home %>/code/{portal,portal-ee,portal-master}/**/package.json]
-insert_final_newline = true
-indent_size = 4
-indent_style = tab
-
-[<%= variables.home %>/code/{alloy-editor,*-liferay,liferay-*}/**.{js,json,scss,ts,tsx}]
-indent_size = 4
-indent_style = tab

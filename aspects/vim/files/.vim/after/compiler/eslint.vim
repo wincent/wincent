@@ -12,10 +12,7 @@ if len(s:package_path) > 1
     if (type(s:package_data) == v:t_dict)
       if has_key(s:package_data, 'scripts')
         let s:scripts=s:package_data['scripts']
-        if has_key(s:scripts, 'checkFormat') &&
-              \ stridx(s:scripts['checkFormat'], 'liferay-npm-scripts') == 0
-          let s:lint='yarn\ run\ liferay-npm-scripts\ lint\ --format\ stylish'
-        elseif has_key(s:scripts, 'lint')
+        if has_key(s:scripts, 'lint')
           let s:lint='yarn\ lint\ --format\ stylish'
         endif
       endif
