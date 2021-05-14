@@ -38,9 +38,10 @@ export default class HandlerRegistry {
     this.#callbacks.get(aspect)!.push([callback, name]);
   }
 
-  get(
-    aspect: Aspect
-  ): {callbacks: Array<[Callback, string]>; notifications: Set<string>} {
+  get(aspect: Aspect): {
+    callbacks: Array<[Callback, string]>;
+    notifications: Set<string>;
+  } {
     return {
       callbacks: this.#callbacks.get(aspect) || [],
       notifications: this.#notifications.get(aspect) || new Set(),

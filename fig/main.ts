@@ -72,9 +72,8 @@ async function main() {
 
   log.info(`Platform: ${platform}`);
 
-  const {aspects, variables: platformVariables = {}} = project.platforms[
-    platform
-  ];
+  const {aspects, variables: platformVariables = {}} =
+    project.platforms[platform];
 
   // Register tasks.
   const candidateTasks = [];

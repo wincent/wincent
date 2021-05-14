@@ -67,7 +67,8 @@ task('configure Apache', async () => {
     await line({
       notify: 'restart Apache',
       path: '/private/etc/apache2/httpd.conf',
-      regexp: /^\s*#?\s*LoadModule\s+userdir_module\s+libexec\/apache2\/mod_userdir\.so\b/,
+      regexp:
+        /^\s*#?\s*LoadModule\s+userdir_module\s+libexec\/apache2\/mod_userdir\.so\b/,
       sudo: true,
       line: 'LoadModule userdir_module libexec/apache2/mod_userdir.so',
     });
@@ -75,7 +76,8 @@ task('configure Apache', async () => {
     await line({
       notify: 'restart Apache',
       path: '/private/etc/apache2/httpd.conf',
-      regexp: /^\s*#?\s*Include\s+\/private\/etc\/apache2\/extra\/httpd-userdir\.conf\b/,
+      regexp:
+        /^\s*#?\s*Include\s+\/private\/etc\/apache2\/extra\/httpd-userdir\.conf\b/,
       sudo: true,
       line: 'Include /private/etc/apache2/extra/httpd-userdir.conf',
     });
