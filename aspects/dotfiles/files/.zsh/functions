@@ -120,7 +120,7 @@ function prepend_path() {
   PATH=${PATH//":$1:"/:} # Delete (potentially multiple) from middle.
   PATH=${PATH/#"$1:"/} # Delete from start.
   PATH=${PATH/%":$1"/} # Delete from end.
-  PATH="$1${PATH:+:$PATH}$1" # Actually prepend (or if PATH is empty, just set).
+  PATH="$1${PATH:+:$PATH}" # Actually prepend (or if PATH is empty, just set).
 }
 
 function scratch() {
