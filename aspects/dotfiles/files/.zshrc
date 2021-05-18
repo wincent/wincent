@@ -287,6 +287,10 @@ function fg-bg() {
 zle -N fg-bg
 bindkey '^Z' fg-bg
 
+# Mac-like wordwise movement (Opt/Super plus left/right) on Kitty/Arch.
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+
 #
 # Other
 #
