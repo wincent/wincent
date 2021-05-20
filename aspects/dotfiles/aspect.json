@@ -28,6 +28,8 @@
       ".hammerspoon",
       ".hgrc",
       ".inputrc",
+      ".irssi/default.theme",
+      ".irssi/config",
       ".lbdbrc",
       ".npmrc",
       ".pypirc",
