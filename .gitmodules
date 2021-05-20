@@ -196,3 +196,6 @@
 [submodule "fern.vim"]
 	path = aspects/vim/files/.vim/pack/bundle/opt/fern.vim
 	url = https://github.com/lambdalisue/fern.vim.git
+[submodule "vim-ledger"]
+	path = aspects/vim/files/.vim/pack/bundle/opt/vim-ledger
+	url = https://github.com/ledger/vim-ledger.git

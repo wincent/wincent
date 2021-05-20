@@ -155,6 +155,7 @@ if &loadplugins
     packadd! vim-javascript
     packadd! vim-json
     packadd! vim-jsx
+    packadd! vim-ledger
     packadd! vim-lion
     packadd! vim-markdown
     packadd! vim-operator-user
