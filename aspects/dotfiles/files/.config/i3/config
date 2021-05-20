@@ -146,7 +146,7 @@ bindsym Control+$super+Shift+Up resize shrink down 10 px or 10 ppt
 # finds out, if available)
 bar {
         colors {
-                background #00000080
+                background #000000a0
         }
         font pango:Source Code Pro Regular 10:Font Awesome 5 Free
         i3bar_command i3bar --transparency
