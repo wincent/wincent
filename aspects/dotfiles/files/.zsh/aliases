@@ -36,6 +36,8 @@ if command -v nvim &> /dev/null; then
   alias vim=nvim # Use `\vim` or `command vim` to get the real vim.
 fi
 
+alias word='shuf -n1 /usr/share/dict/words'
+
 #
 # Suffix aliases
 # (eg. "foo.md" to open Markdown files in "Marked 2.app")
