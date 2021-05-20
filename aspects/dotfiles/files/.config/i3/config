@@ -150,7 +150,8 @@ bar {
         }
         font pango:Source Code Pro Regular 10:Font Awesome 5 Free
         i3bar_command i3bar --transparency
-        # mode hide # show when holding down $mod only
+        mode hide # show when holding down $alt only
+        modifier $alt
         position top
         separator_symbol ":"
         status_command i3blocks
@@ -159,18 +160,27 @@ bar {
 # https://github.com/Airblader/i3#gaps
 # for_window [class=".*"] border pixel 0
 
-default_border pixel 0
+default_border pixel 1
 focus_follows_mouse no
 
-# Gaps between containers
-gaps inner 10
+# Gaps between containers and their neighbors (other containers, or the screen
+# edge).
+gaps inner 0
 
-# Gaps between containers and screen edge
+# Additional gaps between containers and screen edge.
 gaps outer 0
 
-# Only show outer gaps when only one container on screen
-# (outer gap will be inner + outer, ie. 10)
+# Only show outer gaps when only one container on screen.
+# (outer gap will be inner + outer)
 smart_gaps inverse_outer
+
+# Only show borders when there is more than one window on a screen (this is an
+# i3-gaps setting).
+smart_borders on
+
+# Redundant due to the above, but this will hide borders if there is only one
+# window on the screen (this is a base i3 setting).
+hide_edge_borders smart
 
 bindsym --release $alt+V exec --no-startup-id ~/.config/i3/mac-paste.sh
 
