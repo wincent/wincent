@@ -6,7 +6,7 @@ set -e
 cd ~/.vim/pack
 
 PACKS=""
-for PACK in $(find . -type d -maxdepth 3 -path '*/opt/*' | cut -f 4 -d /); do
+for PACK in $(find . -maxdepth 3 -type d -path '*/opt/*' | cut -f 4 -d /); do
   PACKS="${PACKS}packadd! $PACK | "
 done
 
