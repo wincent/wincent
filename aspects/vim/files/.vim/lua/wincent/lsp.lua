@@ -39,7 +39,7 @@ lsp.bind = function ()
 end
 
 lsp.init = function ()
-  require'nvim_lsp'.clangd.setup{
+  require'lspconfig'.clangd.setup{
     cmd = {'clangd', '--background-index'},
     on_attach = on_attach,
   }
@@ -54,7 +54,7 @@ lsp.init = function ()
   --
   -- After marvelling at the horror that is the installation script:
   --
-  --     https://github.com/neovim/nvim-lspconfig/blob/master/lua/nvim_lsp/sumneko_lua.lua
+  --     https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/sumneko_lua.lua
   --
   -- To see path:
   --
@@ -74,7 +74,7 @@ lsp.init = function ()
   local main = vim.fn.expand('~/code/lua-language-server/main.lua')
 
   if vim.fn.executable(cmd) == 1 then
-    require'nvim_lsp'.sumneko_lua.setup{
+    require'lspconfig'.sumneko_lua.setup{
       cmd = {cmd, '-E', main},
       on_attach = on_attach,
       settings = {
@@ -93,11 +93,11 @@ lsp.init = function ()
     }
   end
 
-  require'nvim_lsp'.ocamlls.setup{
+  require'lspconfig'.ocamlls.setup{
     on_attach = on_attach,
   }
 
-  require'nvim_lsp'.tsserver.setup{
+  require'lspconfig'.tsserver.setup{
     -- cmd = {
     --   "typescript-language-server",
     --   "--stdio",
@@ -107,7 +107,7 @@ lsp.init = function ()
     on_attach = on_attach,
   }
 
-  require'nvim_lsp'.vimls.setup{
+  require'lspconfig'.vimls.setup{
     on_attach = on_attach,
   }
 
