@@ -65,6 +65,7 @@ map <Nop><F3> <Plug>(FerretLack)
 
 " completion-nvim.
 let g:completion_enable_snippet='UltiSnips'
+let g:completion_matching_strategy_list=['exact', 'substring', 'fuzzy']
 let g:completion_trigger_on_delete=1
 
 " Prevent tcomment from making a zillion mappings (we just want the operator).
