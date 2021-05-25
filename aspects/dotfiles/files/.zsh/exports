@@ -14,27 +14,15 @@ else
   export EDITOR=vim
 fi
 
-if [ -d /usr/local/opt/mysql@5.7 ]; then
-  # Uncomment if you need to build anything that links against this version:
-  # export LDFLAGS="-L/usr/local/opt/mysql@5.7/lib"
-  # export CPPFLAGS="-I/usr/local/opt/mysql@5.7/include"
-  # export PKG_CONFIG_PATH="/usr/local/opt/mysql@5.7/lib/pkgconfig"
-fi
-
 case "$(uname)" in
   Darwin*)
     if [ -x /usr/libexec/java_home ]; then
       if /usr/libexec/java_home &> /dev/null ; then
-        export ANT_OPTS="-Xmx4096m -Xms4096m -XX:MaxPermSize=1024m -XX:-UseGCOverheadLimit -Dorg.gradle.workers.max=4"
-        export GRADLE_OPTS="-Dorg.gradle.workers.max=4"
-
         if /usr/libexec/java_home -v1.8.0 &> /dev/null; then
           export JAVA_HOME=$(/usr/libexec/java_home -v1.8.0)
         else
           export JAVA_HOME=$(/usr/libexec/java_home)
         fi
-
-        export JAVA_OPTS="-Xmx4096m -Xms1024m -XX:MaxPermSize=512m"
       fi
     fi
     ;;

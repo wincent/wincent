@@ -168,20 +168,6 @@ const APPLE_INTERNAL_US = {
   },
 };
 
-const APPLE_INTERNAL_ES = {
-  ...DEVICE_DEFAULTS,
-  identifiers: {
-    ...IDENTIFIER_DEFAULTS,
-    product_id: 636,
-    vendor_id: 1452,
-  },
-  simple_modifications: [
-    ...fromTo('non_us_backslash', 'grave_accent_and_tilde'),
-    ...fromTo('grave_accent_and_tilde', 'left_shift'),
-    ...fromTo('backslash', 'return_or_enter'),
-  ],
-};
-
 const REALFORCE = {
   ...DEVICE_DEFAULTS,
   identifiers: {
@@ -401,38 +387,6 @@ const DEFAULT_PROFILE = applyExemptions({
         ],
       },
       {
-        description: 'Tab + Return to Backslash',
-        manipulators: [
-          {
-            from: {
-              modifiers: {
-                optional: ['any'],
-              },
-              simultaneous: [
-                {
-                  key_code: 'tab',
-                },
-                {
-                  key_code: 'return_or_enter',
-                },
-              ],
-            },
-            to: [
-              {
-                key_code: 'backslash',
-              },
-            ],
-            conditions: [
-              {
-                type: 'device_if',
-                identifiers: [APPLE_INTERNAL_ES.identifiers],
-              },
-            ],
-            type: 'basic',
-          },
-        ],
-      },
-      {
         description:
           'Disable Karabiner-Elements with Fn+Control+Option+Command+Z',
         manipulators: [
@@ -604,7 +558,7 @@ const DEFAULT_PROFILE = applyExemptions({
       },
     ],
   },
-  devices: [REALFORCE, APPLE_INTERNAL_US, APPLE_INTERNAL_ES],
+  devices: [REALFORCE, APPLE_INTERNAL_US],
   name: 'Default',
   selected: true,
 });

@@ -3,7 +3,6 @@ export default {
   variables: {
     packages: [
       'adobe-source-code-pro-fonts', // Monospace programming font.
-      'ant', // Java build tool.
       'avahi', // zeroconf ("Bonjour") networking.
       'bluez', // Bluetooth stack.
       'bluez-utils', // Provides `bluetoothctl` CLI tool for pairing etc (see: https://wiki.archlinux.org/index.php/Bluetooth).
@@ -27,10 +26,9 @@ export default {
       'interception-dual-function-keys', // Substitute for some key (ha!) Karabiner-Elements functionality.
       'iotop', // I/O monitor.
       'irssi', // IRC client.
-      'jdk8-openjdk', // Java.
       'jq', // JSON parser.
       'kitty', // Terminal emulator.
-      'mariadb', // Drop-in replacemend for (and default Arch) MySQL package.
+      'mariadb', // Drop-in replacement for (and default Arch) MySQL package.
       'mlocate', // Find files by name with `locate`.
       'netcat', // For piping over network connectison (see also `socat` below).
       'nodejs', // JavaScript engine.

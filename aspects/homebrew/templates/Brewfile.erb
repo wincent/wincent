@@ -13,7 +13,6 @@ tap "tavianator/tap"
 
 # General packages.
 brew "ack"
-brew "ant"
 brew "aspcud"
 brew "autoconf"
 brew "automake"
@@ -171,6 +170,7 @@ brew "utf8proc"
 brew "v8"
 brew "vim"
 brew "watch"
+brew "watchman"
 brew "webp"
 brew "wget"
 brew "x264"
@@ -181,10 +181,6 @@ brew "zsh"
 <%- if (variables.profile === 'work') { -%>
 
 # Work packages
-brew "docker"
-brew "mysql@5.7"
-brew "telnet"
-brew "watchman"
 <%- } -%>
 
 # General applications.
@@ -214,5 +210,4 @@ cask "xquartz"
 <%- if (variables.profile === 'work') { -%>
 
 # Work casks
-cask "docker"
 <%- } -%>
