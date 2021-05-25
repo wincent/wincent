@@ -108,16 +108,12 @@ echo "glh:\$__PASSPHRASE__" | chpasswd
 echo '%wheel ALL=(ALL) ALL' > /etc/sudoers.d/wheel
 
 log "Setting up boot"
-pacman -S --noconfirm grub efibootmgr dosfstools os-prober mtools
-grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB --recheck
-cp /usr/share/locale/en\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo
-grub-mkconfig -o /boot/grub/grub.cfg
+pacman -S --noconfirm efibootmgr dosfstools os-prober mtools
 
-UUID=\$(lsblk /dev/nvme0n1p2 -o UUID -d -n)
+PARTUUID=\$(lsblk /dev/nvme0n1p2 -o PARTUUID -d -n)
 
-sed -i "s/^GRUB_CMDLINE_LINUX=\"\"/GRUB_CMDLINE_LINUX=\"cryptdevice=UUID=\${UUID}:cryptroot root=\/dev\/mapper\/cryptroot\"/" /etc/default/grub
-
-grub-mkconfig -o /boot/grub/grub.cfg
+efibootmgr --disk /dev/nvme0n1 --part 1 --create --label "Arch Linux LTS" --loader /vmlinuz-linux-lts --unicode "cryptdevice=PARTUUID=\${PARTUUID}:root root=/dev/mapper/root rw initrd=\initramfs-linux-lts.img" --verbose
+efibootmgr --disk /dev/nvme0n1 --part 1 --create --label "Arch Linux" --loader /vmlinuz-linux --unicode "cryptdevice=PARTUUID=\${PARTUUID}:root root=/dev/mapper/root rw initrd=\initramfs-linux.img" --verbose
 
 log "Setting up swap"
 fallocate -l 2G /swapfile
