@@ -63,6 +63,11 @@ function s:CheckColorScheme()
   highlight clear Pmenu
   highlight link Pmenu Visual
 
+  if exists('+pumblend')
+    " See :help 'pb'.
+    highlight PmenuSel blend=0
+  endif
+
   highlight clear DiffDelete
   highlight link DiffDelete Conceal
   highlight clear VertSplit

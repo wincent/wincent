@@ -97,6 +97,10 @@ set modelines=5                       " scan this many lines looking for modelin
 set nojoinspaces                      " don't autoinsert two spaces after '.', '?', '!' for join command
 set number                            " show line numbers in gutter
 
+if exists('+pumblend')
+  set pumblend=10                     " pseudo-transparency for popup-menu
+endif
+
 if exists('+relativenumber')
   set relativenumber                  " show relative numbers in gutter
 endif
@@ -232,3 +236,7 @@ if has('wildmenu')
   set wildmenu                        " show options as list when switching buffers etc
 endif
 set wildmode=longest:full,full        " shell-like autocomplete to unambiguous portion
+
+if exists('+winblend')
+  set winblend=10                     " psuedo-transparency for floating windows
+endif
