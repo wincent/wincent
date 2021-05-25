@@ -136,7 +136,8 @@ local mkview = function()
       end
     end)
     if not success then
-      if err:find('%f[%w]E186%f[%W]') == nil and -- No previous directory: probably a `git` operation.
+      if err:find('%f[%w]E32%f[%W]') == nil and -- No file name; could be no buffer (eg. :checkhealth)
+        err:find('%f[%w]E186%f[%W]') == nil and -- No previous directory: probably a `git` operation.
         err:find('%f[%w]E190%f[%W]') == nil and -- Could be name or path length exceeding NAME_MAX or PATH_MAX.
         err:find('%f[%w]E5108%f[%W]') == nil then
         error(err)
