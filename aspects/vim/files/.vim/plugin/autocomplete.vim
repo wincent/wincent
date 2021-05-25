@@ -21,13 +21,10 @@ let g:UltiSnipsSnippetDirectories = [
       \ ]
 
 if has('nvim')
-  " Don't forget to run :UpdateRemotePlugins to populate
-  " `~/.local/share/nvim/rplugin.vim`.
-  packadd deoplete
-  call wincent#defer#defer('call wincent#autocomplete#deoplete_init()')
-
   inoremap <expr><C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
   inoremap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
   inoremap <expr><C-k> pumvisible() ? "\<C-p>" : "\<C-j>"
   inoremap <expr><Up> pumvisible() ? "\<C-p>" : "\<Up>"
+  inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+  inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 endif

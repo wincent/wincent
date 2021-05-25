@@ -142,25 +142,3 @@ function! wincent#autocomplete#smart_bs() abort
             \ "\<C-\>\<C-o>:set noexpandtab\<CR>\<BS>"
   endif
 endfunction
-
-let s:deoplete_init_done=0
-function! wincent#autocomplete#deoplete_init() abort
-  if s:deoplete_init_done || !has('nvim')
-    return
-  endif
-  let s:deoplete_init_done=1
-  call deoplete#enable()
-  call deoplete#custom#source(
-        \   'masochist',
-        \   'content',
-        \   expand('~/code/masochist-pages')
-        \ )
-  call deoplete#custom#source(
-        \   'masochist',
-        \   'config',
-        \   expand('~/code/masochist/src/server/constants.js')
-        \ )
-  call deoplete#custom#source('file', 'rank', 2000)
-  call deoplete#custom#source('ultisnips', 'rank', 1000)
-  call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])
-endfunction

@@ -63,6 +63,10 @@ nmap <Nop><F2> <Plug>(Loupen)
 " type it out).
 map <Nop><F3> <Plug>(FerretLack)
 
+" completion-nvim.
+let g:completion_enable_snippet='UltiSnips'
+let g:completion_trigger_on_delete=1
+
 " Prevent tcomment from making a zillion mappings (we just want the operator).
 let g:tcomment_mapleader1=''
 let g:tcomment_mapleader2=''
@@ -124,8 +128,8 @@ if &loadplugins
     packadd! applescript.vim
     packadd! base16-vim
     packadd! command-t
+    packadd! completion-nvim
     packadd! corpus
-    packadd! deoplete-lsp
     " packadd! fern.vim
     packadd! ferret
     packadd! loupe

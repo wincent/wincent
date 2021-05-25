@@ -154,6 +154,8 @@ local set_cursorline = function(active)
 end
 
 autocmds.buf_enter = function()
+  require'completion'.on_attach()
+
   focus_window()
 end
 

@@ -17,9 +17,6 @@
 	ignore = dirty
 	path = aspects/vim/files/.vim/pack/bundle/opt/command-t
 	url = https://github.com/wincent/command-t.git
-[submodule "deoplete"]
-	path = aspects/vim/files/.vim/pack/bundle/opt/deoplete
-	url = https://github.com/Shougo/deoplete.nvim.git
 [submodule "ferret"]
 	ignore = untracked
 	path = aspects/vim/files/.vim/pack/bundle/opt/ferret
@@ -184,9 +181,6 @@
 [submodule "zsh-syntax-highlighting"]
 	path = aspects/dotfiles/files/.zsh/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
-[submodule "deoplete-lsp"]
-	path = aspects/vim/files/.vim/pack/bundle/opt/deoplete-lsp
-	url = https://github.com/Shougo/deoplete-lsp.git
 [submodule "corpus"]
 	ignore = untracked
 	path = aspects/vim/files/.vim/pack/bundle/opt/corpus
@@ -201,3 +195,6 @@
 [submodule "vim-ledger"]
 	path = aspects/vim/files/.vim/pack/bundle/opt/vim-ledger
 	url = https://github.com/ledger/vim-ledger.git
+[submodule "completion-nvim"]
+	path = aspects/vim/files/.vim/pack/bundle/opt/completion-nvim
+	url = https://github.com/nvim-lua/completion-nvim.git

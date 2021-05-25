@@ -38,7 +38,6 @@ export default {
       'picom', // X compositor (eg. window transparency etc).
       'pulseaudio-bluetooth', // Bluetooth headset support for PulseAudio.
       'python-neovim', // Support for running Python plugins in Neovim.
-      'python-pip', // So we can install commandt.score and redis (for deoplete plugins).
       'ripgrep', // Grep replacement.
       'ruby', // Scripting language.
       'screenkey', // Shows keyboard interactions for screencasting.

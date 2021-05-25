@@ -94,7 +94,6 @@ task('update bundle', async () => {
   skip('not yet implemented');
   // update-bundle
 });
-// TODO: also UpdateRemotePlugins (after setting up deoplete)
 
 task('update help tags', async () => {
   await command(resource.support('update-help-tags'), []);
@@ -108,27 +107,8 @@ task('install typescript-language-server', async () => {
   await command('yarn', ['global', 'add', 'typescript-language-server']);
 });
 
-task('install deoplete helpers via pip', async () => {
-  if (attributes.distribution === 'arch') {
-    await command('pip', ['install', 'commandt.score', 'redis']);
-  } else {
-    // On macOS it's probabaly `pip3`, but I haven't tested it yet so making
-    // it a no-op.
-    skip();
-  }
-});
-
 // added in 1a9f9b9fd and probably not used since...
 // pip2 install vim-vint
-
-// optional: just allows us to release updates to deoplete sorter
-// pip3 install twine
-
-// for custom deoplete sorters
-// pip3 install commandt.score
-
-// for deoplete
-// pip3 install msgpack
 
 // general python support for neovim
 // pip3 install --upgrade pynvim
