@@ -152,7 +152,7 @@ bar {
         i3bar_command i3bar --transparency
         mode hide # show when holding down $alt only
         modifier $alt
-        position top
+        position bottom
         separator_symbol ":"
         status_command i3blocks
 }
