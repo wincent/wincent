@@ -146,6 +146,16 @@ lsp.set_up_highlights = function ()
     bg = pinnacle.extract_bg('ColorColumn'),
     fg = pinnacle.extract_fg('ErrorMsg'),
   }))
+
+  vim.cmd('highlight LspDiagnosticsSignInformation ' .. pinnacle.highlight({
+    bg = pinnacle.extract_bg('ColorColumn'),
+    fg = pinnacle.extract_fg('LspDiagnosticsDefaultHint'),
+  }))
+
+  vim.cmd('highlight LspDiagnosticsSignWarning ' .. pinnacle.highlight({
+    bg = pinnacle.extract_bg('ColorColumn'),
+    fg = pinnacle.extract_fg('LspDiagnosticsDefaultHint'),
+  }))
 end
 
 return lsp
