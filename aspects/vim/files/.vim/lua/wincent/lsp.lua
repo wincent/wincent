@@ -6,7 +6,7 @@ end
 
 local on_attach = function ()
   local mappings = {
-    ['<Leader>ld'] = '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>',
+    ['<Leader>ld'] = "<cmd>lua require'lspsaga.diagnostic'.show_line_diagnostics()<CR>",
     ['<c-]>'] = '<cmd>lua vim.lsp.buf.definition()<CR>',
     ['K'] = "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>",
     ['gd'] = '<cmd>lua vim.lsp.buf.declaration()<CR>',
