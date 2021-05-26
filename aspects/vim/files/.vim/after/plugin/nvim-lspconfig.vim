@@ -12,5 +12,4 @@ sign define LspDiagnosticsSignHint text=➤
 augroup WincentLanguageClientAutocmds
   autocmd!
   autocmd ColorScheme * lua require'wincent.lsp'.set_up_highlights()
-  autocmd WinEnter * lua require'wincent.lsp'.bind()
 augroup END

@@ -198,3 +198,6 @@
 [submodule "nvim-compe"]
 	path = aspects/vim/files/.vim/pack/bundle/opt/nvim-compe
 	url = https://github.com/hrsh7th/nvim-compe.git
+[submodule "lspsaga.nvim"]
+	path = aspects/vim/files/.vim/pack/bundle/opt/lspsaga.nvim
+	url = https://github.com/glepnir/lspsaga.nvim.git

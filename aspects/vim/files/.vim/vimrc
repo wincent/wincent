@@ -152,6 +152,11 @@ if &loadplugins
     " packadd! fern.vim
     packadd! ferret
     packadd! loupe
+
+    if has('nvim')
+      packadd! lspsaga.nvim
+    endif
+
     packadd! neco-ghc
 
     if has('nvim')
