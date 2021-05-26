@@ -24,9 +24,8 @@ if exists('+colorcolumn')
   let &l:colorcolumn='+' . join(range(0, 254), ',+')
 endif
 
-" Recommended settings for completion-nvim:
+" Recommended settings for nvim-compe:
 set completeopt=menuone               " show menu even if there is only one candidate
-set completeopt+=noinsert             " don't automatically insert candidate
 set completeopt+=noselect             " don't automatically select canditate
 
 set cursorline                        " highlight current line

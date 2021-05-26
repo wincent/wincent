@@ -195,6 +195,6 @@
 [submodule "vim-ledger"]
 	path = aspects/vim/files/.vim/pack/bundle/opt/vim-ledger
 	url = https://github.com/ledger/vim-ledger.git
-[submodule "completion-nvim"]
-	path = aspects/vim/files/.vim/pack/bundle/opt/completion-nvim
-	url = https://github.com/nvim-lua/completion-nvim.git
+[submodule "nvim-compe"]
+	path = aspects/vim/files/.vim/pack/bundle/opt/nvim-compe
+	url = https://github.com/hrsh7th/nvim-compe.git
