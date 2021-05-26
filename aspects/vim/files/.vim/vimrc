@@ -64,6 +64,7 @@ nmap <Nop><F2> <Plug>(Loupen)
 map <Nop><F3> <Plug>(FerretLack)
 
 " completion-nvim.
+let g:completion_auto_change_source=1
 let g:completion_chain_complete_list = {
       \       'default' : {
       \           'default': [
