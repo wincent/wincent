@@ -140,7 +140,11 @@ if &loadplugins
     packadd! applescript.vim
     packadd! base16-vim
     packadd! command-t
-    packadd! completion-nvim
+
+    if has('nvim')
+      packadd! completion-nvim
+    endif
+
     packadd! corpus
     " packadd! fern.vim
     packadd! ferret
