@@ -48,15 +48,34 @@ lsp.init = function ()
   --    https://github.com/sumneko/lua-language-server/wiki/Build-and-Run-(Standalone)
   --
 
-  local cmd = vim.fn.expand(
-      '~/code/lua-language-server/bin/macOS/lua-language-server'
-  )
+  local cmd = nil
 
-  local main = vim.fn.expand('~/code/lua-language-server/main.lua')
+  if vim.fn.has('mac') == 1 then
+    cmd = vim.fn.expand('~/code/lua-language-server/bin/macOS/lua-language-server')
+    if vim.fn.executable(cmd) == 1 then
+      cmd = {cmd, '-E', vim.fn.expand('~/code/lua-language-server/main.lua')}
+    else
+      cmd = nil
+    end
+  elseif vim.fn.has('unix') == 1 then
+    cmd = '/usr/bin/lua-language-server'
+    if vim.fn.executable(cmd) == 1 then
+      cmd = {cmd}
+    else
+      cmd = nil
+    end
+  else
+    cmd = 'lua-language-server'
+    if vim.fn.executable(cmd) == 1 then
+      cmd = {cmd}
+    else
+      cmd = nil
+    end
+  end
 
-  if vim.fn.executable(cmd) == 1 then
+  if cmd ~= nil then
     require'lspconfig'.sumneko_lua.setup{
-      cmd = {cmd, '-E', main},
+      cmd = cmd,
       on_attach = on_attach,
       settings = {
         Lua = {
