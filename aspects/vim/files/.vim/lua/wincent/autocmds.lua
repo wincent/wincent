@@ -40,6 +40,7 @@ local winhighlight_blurred = table.concat({
   'IncSearch:ColorColumn',
   'Normal:ColorColumn',
   'NormalNC:ColorColumn',
+  'Search:ColorColumn',
   'SignColumn:ColorColumn'
 }, ',')
 
