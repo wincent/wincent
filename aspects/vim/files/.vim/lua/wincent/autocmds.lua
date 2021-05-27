@@ -96,8 +96,8 @@ end
 
 local focus_window = function()
   if util.win_get_var(0, focused_flag) ~= true then
-    vim.api.nvim_win_set_option(0, 'winhighlight', '')
     when_supports_blur_and_focus(function(filetype)
+      vim.api.nvim_win_set_option(0, 'winhighlight', '')
       vim.api.nvim_win_set_option(0, 'colorcolumn', focused_colorcolumn)
       if filetype ~= '' then
         ownsyntax(true)
@@ -112,8 +112,8 @@ end
 
 local blur_window = function()
   if util.win_get_var(0, focused_flag) ~= false then
-    vim.api.nvim_win_set_option(0, 'winhighlight', winhighlight_blurred)
     when_supports_blur_and_focus(function(filetype)
+      vim.api.nvim_win_set_option(0, 'winhighlight', winhighlight_blurred)
       ownsyntax(false)
       vim.api.nvim_win_set_option(0, 'list', false)
       vim.api.nvim_win_set_option(0, 'conceallevel', 0)
@@ -212,6 +212,7 @@ autocmds.colorcolumn_filetype_blacklist = {
   ['fugitiveblame']= true,
   ['undotree'] = true,
   ['qf'] = true,
+  ['sagahover'] = true,
 }
 
 autocmds.cursorline_blacklist = {
