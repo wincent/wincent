@@ -3,6 +3,7 @@ export default {
   variables: {
     packages: [
       'adobe-source-code-pro-fonts', // Monospace programming font.
+      'audacious', // Media player for playing music in streams.
       'avahi', // zeroconf ("Bonjour") networking.
       'bluez', // Bluetooth stack.
       'bluez-utils', // Provides `bluetoothctl` CLI tool for pairing etc (see: https://wiki.archlinux.org/index.php/Bluetooth).
