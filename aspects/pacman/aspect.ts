@@ -36,7 +36,9 @@ export default {
       'pavucontrol', // Simple PulseAudio configuration UI.
       'pcmanfm', // File manager from LXDE desktop (lightweight).
       'picom', // X compositor (eg. window transparency etc).
-      'pulseaudio-bluetooth', // Bluetooth headset support for PulseAudio.
+      'pipewire', // Audio/video layer.
+      'pipewire-docs', // Docs for PipeWire.
+      'pipewire-pulseaudio', // Compatibility layer for PulseAudio + Bluetooth.
       'python-neovim', // Support for running Python plugins in Neovim.
       'ripgrep', // Grep replacement.
       'ruby', // Scripting language.
