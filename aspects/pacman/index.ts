@@ -24,6 +24,11 @@ task('enable multilib repository', async () => {
   // TODO: make a proper ini module for managing this;
   // will need it because desired `Include` line here must appear in a
   // specific section.
+  //
+  // Note that we don't want to enable multilib-testing (and if we did, we'd
+  // have to enable testing and community-testing as well, as per the wiki)
+  //
+  // https://wiki.archlinux.org/title/official_repositories#Testing_repositories
   /*
     await line({
         path: '/etc/pacman.conf',
