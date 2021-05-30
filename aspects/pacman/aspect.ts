@@ -37,6 +37,7 @@ export default {
       'otf-font-awesome', // Icon font (eg. for status bar).
       'pavucontrol', // Simple PulseAudio configuration UI.
       'pcmanfm', // File manager from LXDE desktop (lightweight).
+      'perl-anyevent-i3', // Dependency of `i3-save-tree` command.
       'picom', // X compositor (eg. window transparency etc).
       'pipewire', // Audio/video layer.
       'pipewire-docs', // Docs for PipeWire.
