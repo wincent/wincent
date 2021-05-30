@@ -7,4 +7,4 @@
 #
 # In other words, "Alt" here means "Command (Super)", not actual "Option
 alt + space
-  dmenu_run -l 10
+  dmenu_run -l 10 -fn SourceCodePro:pixelsize=34
