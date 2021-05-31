@@ -43,5 +43,9 @@ picom -b --experimental-backends --backend glx
 setxkbmap -option ''
 setxkbmap -layout us -variant colemak -option shift:both_capslock -option terminate:ctrl_alt_bksp
 dunst &
+
+XSECURELOCK_FONT=SourceCodePro
+export XSECURELOCK_FONT
+
 xautolock -locker xsecurelock -time 10 -corners '0-0+' -cornerredelay 3600 -cornerdelay 1 &
 exec i3
