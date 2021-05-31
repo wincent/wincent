@@ -1,4 +1,31 @@
 #!/bin/bash
 
+# Any time you unplug keyboard and back in (or suspend/resume and USB hub power
+# goes off), we lose our keyboard setings:
+#
+# - https://unix.stackexchange.com/a/621350
+#
+# Need a udev rule in (eg.) /etc/udev/rules.d/50-realforce-layout.rules:
+#
+#     SUBSYSTEM=="usb", ACTION=="add", ATTRS{idProduct}=="0111", ATTRS{idVendor}=="0853" RUN+="/usr/bin/su glh -c /home/glh/.zsh/bin/asdf-wrapper"
+#
+# Then:
+#
+#     sudo udevadm control --reload
+#
+# See also:
+#
+# - https://superuser.com/questions/249064/udev-rule-to-auto-load-keyboard-layout-when-usb-keyboard-plugged-in
+# - https://askubuntu.com/questions/337411/how-to-permanently-assign-a-different-keyboard-layout-to-a-usb-keyboard
+# - http://www.reactivated.net/writing_udev_rules.html
+
+if [ $# -eq 1 ]; then
+  sleep $1
+fi
+
+export HOME=/home/glh
+export XAUTHORITY=/home/glh/.Xauthority
+export DISPLAY=:0
+
 setxkbmap -option ''
 setxkbmap -layout us -variant colemak -option shift:both_capslock -option terminate:ctrl_alt_bksp
