@@ -47,5 +47,14 @@ dunst &
 XSECURELOCK_FONT=SourceCodePro
 export XSECURELOCK_FONT
 
+XSECURELOCK_SHOW_DATETIME=1
+export XSECURELOCK_SHOW_DATETIME
+
+XSECURELOCK_PASSWORD_PROMPT=asterisks
+export XSECURELOCK_PASSWORD_PROMPT
+
+XSECURELOCK_KEY_Insert_COMMAND="$HOME/.zsh/bin/asdf"
+export XSECURELOCK_KEY_Insert_COMMAND
+
 xautolock -locker xsecurelock -time 10 -corners '0-0+' -cornerredelay 3600 -cornerdelay 1 &
 exec i3
