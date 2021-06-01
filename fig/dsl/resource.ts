@@ -1,7 +1,7 @@
 import {join} from 'path';
 
 import Context from '../Context.js';
-import {readdirSync} from '../fs.js';
+import {readdirSync, statSync} from '../fs.js';
 import globToRegExp from '../globToRegExp.js';
 import path from '../path.js';
 
@@ -48,12 +48,25 @@ function resource(subdirectory: string, ...components: Array<string>): Path {
 function resources(subdirectory: string, glob: string): Array<Path> {
   function traverse(current: string, components: Array<RegExp>): Array<Path> {
     return readdirSync(current, {withFileTypes: true})
-      .filter((entry) => entry.isDirectory() || entry.isFile())
+      .filter(
+        (entry) =>
+          entry.isDirectory() || entry.isFile() || entry.isSymbolicLink()
+      )
       .filter(({name}) => components[0].test(name))
       .flatMap((entry: Dirent) => {
         const next = path(current).join(entry.name);
 
-        if (entry.isDirectory() && components.length > 1) {
+        if (entry.isSymbolicLink()) {
+          const stat = statSync(next);
+
+          if (stat.isDirectory()) {
+            return traverse(next, components.slice(1));
+          } else if (stat.isFile()) {
+            return next;
+          } else {
+            return [];
+          }
+        } else if (entry.isDirectory() && components.length > 1) {
           return traverse(next, components.slice(1));
         } else {
           return next;

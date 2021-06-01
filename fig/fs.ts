@@ -27,6 +27,12 @@ export function readdirSync(
   return fs.readdirSync(path.toString(), options);
 }
 
+export function statSync(
+  path: Parameters<typeof fs.statSync>[0]
+): ReturnType<typeof fs.statSync> {
+  return fs.statSync(path.toString());
+}
+
 const promises: {
   readdir: typeof fs.promises.readdir;
   readFile: typeof fs.promises.readFile;
