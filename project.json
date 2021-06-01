@@ -49,6 +49,10 @@
       "variables": {
         "corpusNotes": "~/Sync/Personal/Corpus"
       }
+    },
+    "work": {
+      "pattern": "/\\bgregorys-mbp\\b/i",
+      "variables": {}
     }
   },
   "variables": {
