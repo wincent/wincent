@@ -83,8 +83,9 @@ task('fill templates', async () => {
   const templates = variable.paths('templates');
 
   for (const src of templates) {
+    const executable = src.endsWith('.sh.erb') || src.includes('/bin/');
     await template({
-      mode: src.endsWith('.sh.erb') ? '0755' : '0644',
+      mode: executable ? '0755' : '0644',
       path: path.home.join(src.strip('.erb')),
       src: path.aspect.join('templates', src),
     });

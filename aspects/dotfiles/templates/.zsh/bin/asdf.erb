@@ -1,4 +1,5 @@
 #!/bin/bash
+# <%= variables.figManaged %>
 
 # Any time you unplug keyboard and back in (or suspend/resume and USB hub power
 # goes off), we lose our keyboard setings:
@@ -7,7 +8,7 @@
 #
 # Need a udev rule in (eg.) /etc/udev/rules.d/50-realforce-layout.rules:
 #
-#     SUBSYSTEM=="usb", ACTION=="add", ATTRS{idProduct}=="0111", ATTRS{idVendor}=="0853" RUN+="/usr/bin/su glh -c /home/glh/.zsh/bin/asdf-wrapper"
+#     SUBSYSTEM=="usb", ACTION=="add", ATTRS{idProduct}=="0111", ATTRS{idVendor}=="0853" RUN+="/usr/bin/su <%= variables.username %> -c <%= variables.home %>/.zsh/bin/asdf-wrapper"
 #
 # Then:
 #
@@ -23,8 +24,8 @@ if [ $# -eq 1 ]; then
   sleep $1
 fi
 
-export HOME=/home/glh
-export XAUTHORITY=/home/glh/.Xauthority
+export HOME=<%= variables.home %>
+export XAUTHORITY=<%= variables.home %>/.Xauthority
 export DISPLAY=:0
 
 setxkbmap -option ''

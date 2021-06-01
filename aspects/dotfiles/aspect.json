@@ -48,7 +48,9 @@
       ".corpusrc.erb",
       ".fehbg",
       ".gitconfig.erb",
-      ".hammerspoon/iterm.lua.erb"
+      ".hammerspoon/iterm.lua.erb",
+      ".zsh/bin/asdf.erb",
+      ".zsh/bin/asdf-wrapper.erb"
     ]
   }
 }

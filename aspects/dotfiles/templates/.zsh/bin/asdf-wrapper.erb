@@ -1,5 +1,6 @@
 #!/bin/sh
+# <%= variables.figManaged %>
 
 # Wrapper needed in order to call `asdf` from a udev rule as noted here:
 # https://askubuntu.com/a/719415
-/home/glh/.zsh/bin/asdf 1 &
+<%= variables.home %>/.zsh/bin/asdf 1 &
