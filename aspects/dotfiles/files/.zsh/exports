@@ -137,6 +137,15 @@ export GPG_TTY=$(tty)
 
 export GOPATH=~/code/go
 
+# See: https://docs.brew.sh/Analytics
+export HOMEBREW_NO_ANALYTICS=1
+
+if [ -d /opt/homebrew ]; then
+  export HOMEBREW_PREFIX="/opt/homebrew"
+  export HOMEBREW_CELLAR="/opt/homebrew/Cellar"
+  export HOMEBREW_REPOSITORY="/opt/homebrew"
+fi
+
 export RIPGREP_CONFIG_PATH=$HOME/.rgrc
 
 test -e $HOME/.zsh/exports.private && source $HOME/.zsh/exports.private

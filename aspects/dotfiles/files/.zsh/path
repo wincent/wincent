@@ -19,6 +19,14 @@ prepend_path /usr/local/opt/srm/bin
 prepend_path $HOME/.cargo/bin
 prepend_path $HOME/.vim/pack/bundle/opt/vcs-jump/bin
 
+# On ARM Macs, Homebrew will use this instead of /usr/local.
+prepend_path /opt/homebrew/sbin
+prepend_path /opt/homebrew/bin
+
+# TODO: make this prepend idempotently to MANPATH/INFOPATH just like we do for PATH
+export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:"
+export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}"
+
 test -d /usr/local/opt/mysql@5.7 && prepend_path /usr/local/opt/mysql@5.7/bin
 test -d /usr/local/opt/llvm/bin && prepend_path /usr/local/opt/llvm/bin
 test -n "$N_PREFIX" && prepend_path $N_PREFIX/bin
