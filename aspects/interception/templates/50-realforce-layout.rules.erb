@@ -1,0 +1,3 @@
+# <%= variables.figManaged %>
+
+SUBSYSTEM=="usb", ACTION=="add", ATTRS{idProduct}=="0111", ATTRS{idVendor}=="0853" RUN+="/usr/bin/su <%= variables.username %> -c <%= variables.home %>/.zsh/bin/asdf-wrapper"

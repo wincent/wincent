@@ -16,5 +16,6 @@
     "strict": true,
     "target": "ES2019"
   },
+  "exclude": ["aspects/interception/support/CMakeFiles/**", "node_modules"],
   "include": ["aspects/**/*.ts", "fig/**/*.ts", "variables.ts"]
 }
