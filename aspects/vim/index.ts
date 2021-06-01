@@ -100,7 +100,9 @@ task('update help tags', async () => {
 });
 
 task('install neovim gem', async () => {
-  await command('gem', ['install', 'neovim']);
+  await command('gem', ['install', 'neovim'], {
+    sudo: true,
+  });
 });
 
 task('install typescript-language-server', async () => {
