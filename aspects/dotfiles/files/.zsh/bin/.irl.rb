@@ -11,5 +11,5 @@ day = (ARGV[2] || 31).to_i
 diff = Date.today - Date.new(year, month, day)
 puts "Days to date: #{diff.to_i}"
 print 'How many failures so far? '
-failures = gets.to_i
+failures = STDIN.gets.to_i
 puts 'Mean time between failures: %.2f' % (diff / failures)
