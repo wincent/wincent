@@ -22,7 +22,6 @@ function task(name: string, callback: () => Promise<void>) {
 task('build mac2linux', async () => {
   const chdir = resource.support();
 
-  await command('cmake', ['--configure', '.'], {chdir});
   await command('cmake', ['--build', '.'], {chdir});
   await command('make', [], {chdir});
 });
