@@ -7,7 +7,10 @@ import Context from 'fig/Context.js';
  */
 const variables = {
   get identity() {
-    if (Context.attributes.username === 'glh') {
+    if (
+      Context.attributes.username === 'glh' ||
+      Context.attributes.username === 'wincent'
+    ) {
       return 'wincent';
     } else {
       return 'unknown';
