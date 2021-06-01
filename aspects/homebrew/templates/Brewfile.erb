@@ -62,7 +62,6 @@ brew "grep"
 brew "gringo"
 brew "harfbuzz"
 brew "highlight"
-brew "hledger"
 brew "htop"
 brew "httping"
 brew "httrack"
@@ -178,36 +177,46 @@ brew "xapian"
 brew "xvid"
 brew "xz"
 brew "zsh"
-<%- if (variables.profile === 'work') { -%>
+<%- if (variables.profile === 'personal') { -%>
 
-# Work packages
+# Personal-only packages.
+brew "hledger"
 <%- } -%>
 
-# General applications.
+<%- if (variables.profile === 'work') { -%>
+
+# Work-only packages.
+<%- } -%>
+
+# General casks.
 cask "alfred"
-cask "arq"
 cask "bartender"
-cask "1password-beta"
+cask "1password"
 cask "firefox-developer-edition"
 cask "google-chrome-canary"
 cask "firefox"
 cask "google-chrome"
 cask "hammerspoon"
 cask "isolator"
-#cask "istat-menus"
+cask "istat-menus"
 cask "iterm2"
 cask "karabiner-elements"
-cask "keycastr"
 cask "omnidisksweeper"
 cask "skype"
 cask "spotify"
-cask "steam"
-cask "superduper"
 cask "tcl"
-cask "transmission"
 cask "vlc"
 cask "xquartz"
+<%- if (variables.profile === 'personal') { -%>
+
+# Personal-only casks.
+cask "arq"
+cask "keycastr"
+cask "steam"
+cask "superduper"
+cask "transmission"
+<%- } -%>
 <%- if (variables.profile === 'work') { -%>
 
-# Work casks
+# Work-only casks.
 <%- } -%>
