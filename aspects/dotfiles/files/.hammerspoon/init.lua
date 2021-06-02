@@ -140,14 +140,19 @@ canManageWindow = (function(window)
     bundleID == 'com.googlecode.iterm2'
 end)
 
-local macBookAir13 = '1440x900'
-local macBookPro15_2015 = '1440x900'
-local macBookPro15_2019 = '1680x1050'
+local benQPD2700U = '1920x1080'
+local macBookPro13 = '1440x900'
+local macBookPro15 = '1440x900'
+
 local samsung_S24C450 = '1920x1200'
 
+externalDisplay = (function()
+  return hs.screen.find(benQPD2700U)
+end)
+
 internalDisplay = (function()
-  return hs.screen.find(macBookPro15_2015) or
-    hs.screen.find(macBookPro15_2019)
+  return hs.screen.find(macBookPro13) or
+    hs.screen.find(macBookPro15)
 end)
 
 activateLayout = (function(forceScreenCount)
