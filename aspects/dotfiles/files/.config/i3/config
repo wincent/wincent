@@ -84,8 +84,12 @@ set $ws5 "5:  obs"
 # icon fa-folder-open \uf07c
 set $ws6 "6:  filemanager"
 
-set $ws7 "7"
-set $ws8 "8"
+# icon fa-video \uf03d
+set $ws7 "7:  vlc"
+
+# icon fa-user-secret \uf1b
+set $ws8 "8:  private"
+
 set $ws9 "9"
 set $ws10 "10"
 
@@ -199,6 +203,7 @@ exec kitty
 assign [class="^Audacious$"] number $ws4
 assign [class="^Pavucontrol$"] number $ws4
 assign [class="^obs$"] number $ws5
+assign [class="^vlc$"] number $ws7
 
 # Stop Chrome file dialogs from being bigger then the entire screen...
 floating_maximum_size 1920 x 1080
