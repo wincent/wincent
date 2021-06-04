@@ -1,4 +1,14 @@
-import {command, fetch, resource, skip, task, template} from 'fig';
+import {
+  command,
+  fail,
+  fetch,
+  log,
+  prompt,
+  resource,
+  skip,
+  task,
+  template,
+} from 'fig';
 
 task('download installation script', async () => {
   await fetch({
@@ -9,9 +19,36 @@ task('download installation script', async () => {
 });
 
 task('install Homebrew', async () => {
-  await command('vendor/homebrew/install.sh', [], {
-    creates: '/usr/local/bin/brew',
-  });
+  log.notice(
+    'Homebrew requires manual installation.\n' +
+      '\n' +
+      'Specifically, it uses an interactive sudo prompt part way through,\n' +
+      'and some parts of the script must run without privileges and others\n' +
+      'with privileges. As such, we can\'t just run it in "non-interactive"\n' +
+      'mode as root.\n' +
+      '\n' +
+      'Please run:\n' +
+      '\n' +
+      '    vendor/homebrew/install.sh\n' +
+      '\n'
+  );
+  const answer = await prompt.confirm('Confirm that Homebrew is installed');
+
+  if (!answer) {
+    fail('User aborted');
+  }
+
+  // Hopefully, will be able to go back to doing this in the future:
+  //
+  //    await command('vendor/homebrew/install.sh', [], {
+  //      creates: '/usr/local/bin/brew',
+  //    });
+  //
+  // or on Apple Silicon:
+  //
+  //    await command('vendor/homebrew/install.sh', [], {
+  //      creates: '/opt/homebrew/bin/brew',
+  //    });
 });
 
 task('update Homebrew', async () => {
