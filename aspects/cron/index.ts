@@ -10,6 +10,11 @@ import {
   variable,
 } from 'fig';
 
+// For now, we only have one cron job, and we only want to run it on my personal
+// machine.
+const scheduleCron = () =>
+  variable('identity') === 'wincent' && variable('profile') === 'personal';
+
 task('create ~/Library/Cron', async () => {
   await file({
     path: '~/Library/Cron',
@@ -18,7 +23,7 @@ task('create ~/Library/Cron', async () => {
 });
 
 task('fill templates', async () => {
-  if (variable('identity') === 'wincent') {
+  if (scheduleCron()) {
     for (const src of resource.templates('*.erb')) {
       await template({
         mode: '0755',
@@ -32,7 +37,7 @@ task('fill templates', async () => {
 });
 
 task('schedule check-git cron job', async () => {
-  if (variable('identity') === 'wincent') {
+  if (scheduleCron()) {
     await cron({
       id: 'check-git',
       hour: '8,12,16,20',
