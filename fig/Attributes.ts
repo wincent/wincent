@@ -21,20 +21,60 @@ export default class Attributes {
   #username?: string;
 
   /**
-   * Returns the machine hardware name as provided by `uname -m`.
+   * Returns the value returned by `uname -m`.
    *
-   * Possible values are expected to be things like "arm64", "x86_64" etc.
+   * Likely values include "arm64", "x86_64" etc.
    */
   get arch(): string {
     if (this.#arch === undefined) {
-      this.#arch = '';
+      if (this.platform === 'darwin') {
+        // Buckle in.
+        //
+        // Although os.arch() supposedly _can_ return `arm64` (possible values
+        // listed in the docs[0] are arm, arm64, ia32, mips, mipsel, ppc, ppc64,
+        // s390, s390x, x32, and x64), it may not.
+        //
+        // As noted here[1], `arch` (and `uname -m`, etc) inherit architectural
+        // preference from the parent. So, if Node was not compiled for Apple
+        // Silicon, you'll get "i386" if you run `arch` from inside Node.
+        // Similarly, you"ll get "x86_64' if you run `uname -m` from inside.
+        // In both cases, you get "arm64" outside.
+        //
+        // Now, /bin/zsh ships as a universal binary with "x86_64" and "arm64e"
+        // variants. If you install a Homebrew Zsh into /opt/homebrew/bin/zsh
+        // you'll see (via `file`) that it is purely "arm64".
+        //
+        // The "solution" we take to detect what kind of machine we're really
+        // running on is to run `arch -arm64 uname -m`. This will error on
+        // non-Arm machines, so we fall back to whatever `uname -m` tells us.
+        //
+        // If nothing works, we report that `arch` is an empty string.
+        //
+        // [0]: https://nodejs.org/api/os.html#os_os_arch
+        // [1]: https://news.ycombinator.com/item?id=25134535
+        const {error, signal, status, stdout} = spawnSync('arch', [
+          '-arm64',
+          'uname',
+          '-m',
+        ]);
+
+        if (!error && !signal && !status && stdout) {
+          const normalized = stdout.toString().trim();
+
+          if (normalized) {
+            this.#arch = normalized;
+
+            return this.#arch;
+          }
+        }
+      }
 
       const {error, signal, status, stdout} = spawnSync('uname', ['-m']);
 
       if (!error && !signal && !status && stdout) {
-        const trimmed = stdout.toString().trim();
-
-        this.#arch = trimmed;
+        this.#arch = stdout.toString().trim();
+      } else {
+        this.#arch = '';
       }
     }
 

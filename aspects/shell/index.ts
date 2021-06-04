@@ -1,7 +1,6 @@
 import {attributes, command, line, skip, task, variable} from 'fig';
 
 const homebrewPath = () => {
-  console.log('arch', attributes.arch);
   if (attributes.arch === 'arm64') {
     return '/opt/homebrew/bin/zsh';
   } else {
