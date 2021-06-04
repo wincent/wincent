@@ -292,8 +292,25 @@ bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
 #
+# For Amazon Web Services EC2 API
+# (used in `$HOME/.zsh/path`, so must come before)
+#
+
+export EC2_HOME=~/bin/ec2-api-tools
+export EC2_PRIVATE_KEY=~/.ssh/ec2wincent_cert_pk.pem
+export EC2_CERT=~/.ssh/ec2wincent_cert.pem
+
+#
+# Other prerequisites before we set up `$PATH`.
+#
+
+test -d $HOME/n && export N_PREFIX="$HOME/n"
+
+#
 # Other
 #
+
+source $HOME/.zsh/path # Must come first! (Others depend on it.)
 
 source $HOME/.zsh/aliases
 source $HOME/.zsh/common
@@ -301,7 +318,6 @@ source $HOME/.zsh/colors
 source $HOME/.zsh/exports
 source $HOME/.zsh/functions
 source $HOME/.zsh/hash
-source $HOME/.zsh/path
 source $HOME/.zsh/vars
 
 #
