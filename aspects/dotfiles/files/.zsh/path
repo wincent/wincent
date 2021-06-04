@@ -1,58 +1,97 @@
-# Append $1 to $PATH, unless already present.
+# Append to $PATH-like, unless already present.
 # If present, moves it to the end.
-# See also: prepend_path().
-function append_path() {
-  PATH=${PATH//":$1:"/:} # Delete (potentially multiple) from middle.
-  PATH=${PATH/#"$1:"/} # Delete from start.
-  PATH=${PATH/%":$1"/} # Delete from end.
-  PATH="${PATH:+$PATH:}$1" # Actually append (or if PATH is empty, just set).
+# See also: prepend_to().
+function append_to() {
+  local TARGET=$1
+  local LOCATION=$2
+  case "$TARGET" in
+    INFOPATH)
+      INFOPATH=${INFOPATH//":$LOCATION:"/:} # Delete (potentially multiple) from middle.
+      INFOPATH=${INFOPATH/#"$LOCATION:"/} # Delete from start.
+      INFOPATH=${INFOPATH/%":$LOCATION"/} # Delete from end.
+      INFOPATH="${INFOPATH:+$INFOPATH:}$LOCATION" # Actually append (or if INFOPATH is empty, just set).
+      ;;
+    MANPATH)
+      MANPATH=${MANPATH//":$LOCATION:"/:} # Delete (potentially multiple) from middle.
+      MANPATH=${MANPATH/#"$LOCATION:"/} # Delete from start.
+      MANPATH=${MANPATH/%":$LOCATION"/} # Delete from end.
+      MANPATH="${MANPATH:+$MANPATH:}$LOCATION" # Actually append (or if MANPATH is empty, just set).
+      ;;
+    PATH)
+      PATH=${PATH//":$LOCATION:"/:} # Delete (potentially multiple) from middle.
+      PATH=${PATH/#"$LOCATION:"/} # Delete from start.
+      PATH=${PATH/%":$LOCATION"/} # Delete from end.
+      PATH="${PATH:+$PATH:}$LOCATION" # Actually append (or if PATH is empty, just set).
+      ;;
+  esac
 }
 
-# Prepend $1 to $PATH, unless already present.
+# Prepend to $PATH-like, unless already present.
 # If present, moves it to the start.
-# See also: append_path().
-function prepend_path() {
-  PATH=${PATH//":$1:"/:} # Delete (potentially multiple) from middle.
-  PATH=${PATH/#"$1:"/} # Delete from start.
-  PATH=${PATH/%":$1"/} # Delete from end.
-  PATH="$1${PATH:+:$PATH}" # Actually prepend (or if PATH is empty, just set).
+# See also: append_to().
+function prepend_to() {
+  local TARGET=$1
+  local LOCATION=$2
+  case "$TARGET" in
+    INFOPATH)
+      INFOPATH=${INFOPATH//":$LOCATION:"/:} # Delete (potentially multiple) from middle.
+      INFOPATH=${INFOPATH/#"$LOCATION:"/} # Delete from start.
+      INFOPATH=${INFOPATH/%":$LOCATION"/} # Delete from end.
+      INFOPATH="$LOCATION${INFOPATH:+:$INFOPATH}" # Actually prepend (or if INFOPATH is empty, just set).
+      ;;
+    MANPATH)
+      MANPATH=${MANPATH//":$LOCATION:"/:} # Delete (potentially multiple) from middle.
+      MANPATH=${MANPATH/#"$LOCATION:"/} # Delete from start.
+      MANPATH=${MANPATH/%":$LOCATION"/} # Delete from end.
+      MANPATH="$LOCATION${MANPATH:+:$MANPATH}" # Actually prepend (or if MANPATH is empty, just set).
+      ;;
+    PATH)
+      PATH=${PATH//":$LOCATION:"/:} # Delete (potentially multiple) from middle.
+      PATH=${PATH/#"$LOCATION:"/} # Delete from start.
+      PATH=${PATH/%":$LOCATION"/} # Delete from end.
+      PATH="$LOCATION${PATH:+:$PATH}" # Actually prepend (or if PATH is empty, just set).
+      ;;
+  esac
 }
 
-append_path $EC2_HOME/bin
-append_path $HOME/.local/bin
-append_path $HOME/.cabal/bin
+append_to PATH $EC2_HOME/bin
+append_to PATH $HOME/.local/bin
+append_to PATH $HOME/.cabal/bin
 
-# https://unix.stackexchange.com/a/614304
 if command -v gem &> /dev/null; then
+  # Split string at ":".
+  # Via: https://unix.stackexchange.com/a/614304
   for GEM_PATH ("${(s[:])$(gem env gempath)}"); do
-    test -d "$GEM_PATH/bin" && append_path "$GEM_PATH/bin"
+    test -d "$GEM_PATH/bin" && append_to PATH "$GEM_PATH/bin"
   done
 fi
 
 if command -v yarn &> /dev/null; then
-  append_path "$(yarn global bin)"
+  append_to PATH "$(yarn global bin)"
 fi
 
-prepend_path /usr/local/bin
-prepend_path /usr/local/sbin
-prepend_path /usr/local/opt/srm/bin
-prepend_path $HOME/.cargo/bin
-prepend_path $HOME/.vim/pack/bundle/opt/vcs-jump/bin
+prepend_to PATH /usr/local/bin
+prepend_to PATH /usr/local/sbin
+prepend_to PATH /usr/local/opt/srm/bin
+prepend_to PATH $HOME/.cargo/bin
+prepend_to PATH $HOME/.vim/pack/bundle/opt/vcs-jump/bin
 
 # On ARM Macs, Homebrew will use this instead of /usr/local.
-prepend_path /opt/homebrew/sbin
-prepend_path /opt/homebrew/bin
+test -d /opt/homebrew/sbin && prepend_to PATH /opt/homebrew/sbin
+test -d /opt/homebrew/bin && prepend_to PATH /opt/homebrew/bin
 
-# TODO: make this prepend idempotently to MANPATH/INFOPATH just like we do for PATH
-export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:"
-export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}"
+test -d /opt/homebrew/share/man && prepend_to MANPATH /opt/homebrew/share/man
+test -d /opt/homebrew/share/info && prepend_to INFOPATH /opt/homebrew/share/info
 
-test -d /usr/local/opt/mysql@5.7 && prepend_path /usr/local/opt/mysql@5.7/bin
-test -d /usr/local/opt/llvm/bin && prepend_path /usr/local/opt/llvm/bin
-test -n "$N_PREFIX" && prepend_path $N_PREFIX/bin
+test -d /usr/local/opt/mysql@5.7 && prepend_to PATH /usr/local/opt/mysql@5.7/bin
+test -d /usr/local/opt/llvm/bin && prepend_to PATH /usr/local/opt/llvm/bin
+test -n "$N_PREFIX" && prepend_to PATH $N_PREFIX/bin
 
-prepend_path $HOME/.zsh/bin
-prepend_path $HOME/bin
+prepend_to PATH $HOME/.zsh/bin
+prepend_to PATH $HOME/bin
 
 # If you ever want to see this in easy-to-read form: `echo $PATH | tr : '\n'`
 export PATH
+
+unfunction append_to
+unfunction prepend_to
