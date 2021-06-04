@@ -21,61 +21,21 @@ export default class Attributes {
   #username?: string;
 
   /**
-   * Returns a normalized version of the value returned by the `arch`
-   * executable (on macOS). Possible values:
+   * Returns the machine hardware name as provided by `uname -m`.
    *
-   *    Raw value:  arm64 arm64e i386 x86_64 x86_64h
-   *    Normalized: arm64 arm64  ia32 x64    x64
-   *
-   * If using `arch` is not possible, falls back to the value of
-   * NodeJS's `os.arch()`. Possible values (not normalized):
-   *
-   *    arm, arm64, ia32, mips, mipsel, ppc, ppc64, s390, s390x, x32, x64
+   * Possible values are expected to be things like "arm64", "x86_64" etc.
    */
   get arch(): string {
     if (this.#arch === undefined) {
-      if (this.platform === 'darwin') {
-        // Although os.arch() supposedly can return `arm64`, it may not
-        // (for example, if Node was not compiled for Arm). So, prefer
-        // the value returned by the `arch` executable, if we can.
-        //
-        // See: https://nodejs.org/api/os.html#os_os_arch
-        const {error, signal, status, stdout} = spawnSync('arch');
+      this.#arch = '';
 
-        if (!error && !signal && !status && stdout) {
-          // BUG: Doesn't actually work, because `arch` inherits architectural
-          // preference from its parent.
-          //
-          // See: https://news.ycombinator.com/item?id=25134535
-          //
-          // For example, on this machine:
-          //
-          //    $ file /opt/homebrew/bin/nvim
-          //    /opt/homebrew/bin/nvim: Mach-O 64-bit executable arm64
-          //    $ file /Users/wincent/n/bin/node
-          //    /Users/wincent/n/bin/node: Mach-O 64-bit executable x86_64
-          //
-          // Running `arch` in the shell prints "arm64".
-          // Spawning it here yields "i386".
-          const normalized: string | undefined = (
-            {
-              arm64: 'arm64',
-              arm64e: 'arm64',
-              i386: 'ia32',
-              x86_64: 'x64',
-              x86_64h: 'x64',
-            } as {[raw: string]: string}
-          )[stdout.toString().trim()];
+      const {error, signal, status, stdout} = spawnSync('uname', ['-m']);
 
-          if (normalized) {
-            this.#arch = normalized;
+      if (!error && !signal && !status && stdout) {
+        const trimmed = stdout.toString().trim();
 
-            return this.#arch;
-          }
-        }
+        this.#arch = trimmed;
       }
-
-      this.#arch = os.arch();
     }
 
     return this.#arch;
