@@ -54,7 +54,6 @@ function prepend_to() {
   esac
 }
 
-append_to PATH $EC2_HOME/bin
 append_to PATH $HOME/.local/bin
 append_to PATH $HOME/.cabal/bin
 
