@@ -331,41 +331,9 @@ task(
   }
 );
 
-// Last tested: 10.10
-task(
-  'System Preferences -> Accessibility -> Display -> Reduce transparency',
-  async () => {
-    await defaults({
-      domain: 'com.apple.universalaccess',
-      key: 'reduceTransparency',
-      type: 'bool',
-      value: false,
-    });
-  }
-);
-
-task(
-  'System Preferences -> Accessibility -> Zoom -> Smooth images',
-  async () => {
-    await defaults({
-      domain: 'com.apple.universalaccess',
-      key: 'closeViewSmoothImages',
-      type: 'bool',
-      value: false,
-    });
-  }
-);
-
 task(
   'System Preferences -> Accessibility -> Zoom -> Use scroll gesture with modifier keys to zoom (Control)',
   async () => {
-    await defaults({
-      domain: 'com.apple.universalaccess',
-      key: 'closeViewScrollWheelToggle',
-      type: 'bool',
-      value: true,
-    });
-
     await defaults({
       domain: 'com.apple.driver.AppleBluetoothMultitouch.trackpad',
       key: 'HIDScrollZoomModifierMask',
