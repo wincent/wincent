@@ -7,7 +7,7 @@ if exists('$SUDO_USER')
   set nobackup                        " don't create root-owned files
   set nowritebackup                   " don't create root-owned files
 else
-  set backupdir=~/.vim/tmp/backup     " keep backup files out of the way
+  set backupdir=~/.vim/tmp/backup//   " keep backup files out of the way
   set backupdir+=.
 endif
 
@@ -171,7 +171,7 @@ if has('persistent_undo')
   if exists('$SUDO_USER')
     set noundofile                    " don't create root-owned files
   else
-    set undodir=~/.vim/tmp/undo       " keep undo files out of the way
+    set undodir=~/.vim/tmp/undo//     " keep undo files out of the way
     set undodir+=.
     set undofile                      " actually use undo files
   endif
@@ -190,6 +190,7 @@ if exists('s:viminfo')
   if exists('$SUDO_USER')
     " Don't create root-owned files.
     execute 'set ' . s:viminfo . '='
+    execute 'set ' . s:viminfo . 'file=NONE'
   else
     " Defaults:
     "   Neovim: !,'100,<50,s10,h
