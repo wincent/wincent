@@ -50,20 +50,19 @@ function! wincent#functions#plaintext() abort
   endif
 endfunction
 
+let g:html_font=['Source Code Pro', 'Consolas', 'Monaco']
+
 " Open a syntax-colored version of the current file
 " suitable for copy-pasting into a presentation.
 function! wincent#functions#keynote() abort
-  if has('gui')
-    setlocal nonumber
-    setlocal norelativenumber
-    TOhtml
-    let l:tempfile=system('mktemp')
-    execute 'saveas! ' . l:tempfile
-    execute '!open -b com.google.Chrome ' . l:tempfile
-    quit
-  else
-    echoerr 'wincent#functions#keynote() should be run from within a GUI instance of Vim'
-  endif
+  setlocal nonumber
+  setlocal norelativenumber
+  TOhtml
+  let l:tempfile=trim(system('mktemp')) . '.html'
+  echomsg l:tempfile
+  execute 'saveas! ' . l:tempfile
+  execute '!open -b com.google.Chrome ' . l:tempfile
+  quit
 endfunction
 
 function! wincent#functions#substitute(pattern, replacement, flags) abort
