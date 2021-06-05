@@ -32,11 +32,6 @@ function! wincent#commands#typecheck() abort
   Make
 endfunction
 
-function! wincent#commands#mvim() abort
-  let l:filename=expand('%')
-  call s:Open('MacVim.app', l:filename)
-endfunction
-
 function! wincent#commands#vim() abort
   let l:filename=expand('%:p')
   if empty(l:filename)

@@ -8,8 +8,6 @@ command! Lint call wincent#commands#lint()
 
 command! Typecheck call wincent#commands#typecheck()
 
-command! Mvim call wincent#commands#mvim()
-
 command! Vim call wincent#commands#vim()
 
 command! -nargs=* -complete=file Preview call wincent#commands#preview(<f-args>)

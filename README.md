@@ -40,7 +40,7 @@ On macOS, we use [Karabiner-Elements](https://github.com/tekezo/Karabiner-Elemen
 
 - Make Caps Lock serve as Backspace (when tapped) and Left Control (when chorded with another key). When held down alone, Caps Lock fires repeated Backspace events.
 - Make Return serve as Return (when tapped) and Right Control (when chorded with another key). When held down alone, Return fires repeated Return events.
-- Maps Control-I to F6 (only in MacVim and the terminal) so that it can be mapped independently from Tab in Vim.
+- Maps Control-I to F6 (only in the terminal) so that it can be mapped independently from Tab in Vim.
 - Toggle Caps Lock on by tapping both Shift keys simultaneously.
 - Makes the function keys on my external Realforce keyboard behave like the "media" keys on Apple's keyboards.
 

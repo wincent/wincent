@@ -92,17 +92,6 @@ function history() {
   fc -l 1
 }
 
-function mvim() {
-  emulate -L zsh
-
-  # Makes user-installed fonts visible to MacVim.
-  if which reattach-to-user-namespace &> /dev/null ; then
-    reattach-to-user-namespace mvim
-  else
-    command mvim
-  fi
-}
-
 function scratch() {
   local SCRATCH=$(mktemp -d)
   echo 'Spawing subshell in scratch directory:'

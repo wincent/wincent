@@ -482,7 +482,6 @@ const DEFAULT_PROFILE = applyExemptions({
                 bundle_identifiers: [
                   bundleIdentifier('com.apple.Terminal'),
                   bundleIdentifier('com.googlecode.iterm2'),
-                  bundleIdentifier('org.vim.MacVim.plist'),
                 ],
                 type: 'frontmost_application_if',
               },
