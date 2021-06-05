@@ -3,7 +3,7 @@
 set -e
 
 # Update help tags.
-cd ~/.vim/pack
+cd ~/.config/nvim/pack
 
 PACKS=""
 for PACK in $(find . -maxdepth 3 -type d -path '*/opt/*' | cut -f 4 -d /); do
@@ -11,5 +11,5 @@ for PACK in $(find . -maxdepth 3 -type d -path '*/opt/*' | cut -f 4 -d /); do
 done
 
 COMMANDS="packloadall | call pathogen#helptags() | quit"
-echo "Running: vim -u NONE -N -c \"${PACKS}${COMMANDS}\""
-vim -u NONE -N -c "${PACKS}${COMMANDS}"
+echo "Running: nvim -u NONE -N -c \"${PACKS}${COMMANDS}\""
+nvim -u NONE -N -c "${PACKS}${COMMANDS}"

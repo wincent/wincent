@@ -1,5 +1,9 @@
 # Changelog
 
+## 2021-06-06
+
+- [Vim]: Instead of `~/.config/nvim` being a symbolic link to `~/.vim`, items inside `~/.vim` now symlink to items inside `~/.config/nvim`.
+
 ## 2020-12-21
 
 - [Zsh]: Added `rand` subcommand to `color` function (pull request [#95](https://github.com/wincent/wincent/pull/95) from Michael Lohmann).

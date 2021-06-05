@@ -59,7 +59,7 @@ endfunction
 
 function! s:infect(plugin) abort
   if !exists('g:loaded_pathogen')
-    source $HOME/.vim/pack/bundle/opt/vim-pathogen/autoload/pathogen.vim
+    source $HOME/.config/nvim/pack/bundle/opt/vim-pathogen/autoload/pathogen.vim
   endif
   call pathogen#infect('pack/bundle/opt/{}')
   execute 'runtime! plugin/' . a:plugin

@@ -1,4 +1,2 @@
-.assume-iterm
-.netrwhist
-/rplugin
+/.netrwhist
 /vimrc.local

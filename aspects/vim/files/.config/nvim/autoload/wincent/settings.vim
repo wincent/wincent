@@ -6,11 +6,11 @@ let s:small_l='ℓ'
 
 " Override default `foldtext()`, which produces something like:
 "
-"   +---  2 lines: source $HOME/.vim/pack/bundle/opt/vim-pathogen/autoload/pathogen.vim--------------------------------
+"   +---  2 lines: source $HOME/.config/nvim/pack/bundle/opt/vim-pathogen/autoload/pathogen.vim--------------------------------
 "
 " Instead returning:
 "
-"   »··[2ℓ]··: source $HOME/.vim/pack/bundle/opt/vim-pathogen/autoload/pathogen.vim···································
+"   »··[2ℓ]··: source $HOME/.config/nvim/pack/bundle/opt/vim-pathogen/autoload/pathogen.vim···································
 "
 function! wincent#settings#foldtext() abort
   let l:lines='[' . (v:foldend - v:foldstart + 1) . s:small_l . ']'

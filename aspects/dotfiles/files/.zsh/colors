@@ -2,7 +2,7 @@
 # Colors
 #
 
-__WINCENT[BASE16_CONFIG]=~/.vim/.base16
+__WINCENT[BASE16_CONFIG]=~/.zsh/.base16
 
 # Takes a hex color in the form of "RRGGBB" and outputs its luma (0-255, where
 # 0 is black and 255 is white).

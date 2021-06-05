@@ -3,7 +3,7 @@ function! wincent#debug#log(string) abort
 endfunction
 
 function! wincent#debug#compiler() abort
-  " TODO: add check to confirm we're in .vim/after/compiler/*.vim or similar
+  " TODO: add check to confirm we're in .config/nvim/after/compiler/*.vim or similar
   source %
   call setqflist([])
   /\v^finish>/+1,$ :cgetbuffer

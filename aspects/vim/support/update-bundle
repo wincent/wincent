@@ -3,10 +3,10 @@
 set -e
 
 # Conditionals here are to ensure we only do any work in submodules under
-# aspects/vim/files/.vim/pack:
+# aspects/vim/files/.config/.nvim/pack:
 
 git submodule foreach '
-  if [ "${path##aspects/vim/files/.vim/pack/}" != "$path" ]; then
+  if [ "${path##aspects/vim/files/.config/nvim/pack/}" != "$path" ]; then
     NAME=$(basename $path)
     BRANCH=$(git config -f $toplevel/.gitmodules submodule."$NAME".branch || echo master)
     git checkout $BRANCH
@@ -14,13 +14,13 @@ git submodule foreach '
 '
 
 git submodule foreach '
-  if [ "${path##aspects/vim/files/.vim/pack/}" != "$path" ]; then
+  if [ "${path##aspects/vim/files/.config/nvim/pack/}" != "$path" ]; then
     git pull --recurse-submodules || :
   fi
 '
 
 git submodule foreach '
-  if [ "${path##aspects/vim/files/.vim/pack/}" != "$path" ]; then
+  if [ "${path##aspects/vim/files/.config/nvim/pack/}" != "$path" ]; then
     git submodule update --init --recursive || :
   fi
 '

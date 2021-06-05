@@ -16,14 +16,6 @@ task('make directories', async () => {
   await file({path: '~/.config', state: 'directory'});
 });
 
-task('link ~/.config/nvim to ~/.vim', async () => {
-  await file({
-    path: '~/.config/nvim',
-    src: '~/.vim',
-    state: 'link',
-  });
-});
-
 task('move originals to ~/.backups', async () => {
   const files = variable.paths('files');
 
@@ -39,17 +31,17 @@ task('create symlinks', async () => {
   for (const src of files) {
     await file({
       force: true,
-      path: path.home.join(src.basename),
-      src: path.aspect.join('files', src.basename),
+      path: path.home.join(src),
+      src: path.aspect.join('files', src),
       state: 'link',
     });
   }
 });
 
-const COMMAND_T_BASE = 'pack/bundle/opt/command-t/ruby/command-t/ext/command-t';
+const COMMAND_T_BASE = 'nvim/pack/bundle/opt/command-t/ruby/command-t/ext/command-t';
 
 task('configure Command-T', async () => {
-  const base = resource.file('.vim').join(COMMAND_T_BASE);
+  const base = resource.file('.config').join(COMMAND_T_BASE);
 
   await command('ruby', ['extconf.rb'], {
     chdir: base,
@@ -59,7 +51,7 @@ task('configure Command-T', async () => {
 
 task('compile Command-T', async () => {
   const bundle = attributes.platform === 'darwin' ? 'ext.bundle' : 'ext.so';
-  const base = resource.file('.vim').join(COMMAND_T_BASE);
+  const base = resource.file('.config').join(COMMAND_T_BASE);
 
   await command('make', [], {
     chdir: base,
@@ -79,7 +71,7 @@ task('compile Command-T', async () => {
 // Download it?
 // (Y)es, [N]o:
 task('create spell file', async () => {
-  const spellfile = path.aspect.join('files/.vim/spell/en.utf-8.add');
+  const spellfile = path.aspect.join('files/.config/nvim/spell/en.utf-8.add');
 
   await command(
     'nvim',
