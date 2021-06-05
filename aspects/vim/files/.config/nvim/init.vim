@@ -29,20 +29,6 @@ if has('nvim')
           tags = {'wiki'},
           transform = 'web',
         },
-        ['/tmp/corpus-test'] = {
-          autocommit = true,
-          autoreference = 1,
-          autotitle = 1,
-          base = './',
-          transform = 'local',
-        },
-        ['~/tmp/corpus-test'] = {
-          autocommit = true,
-          autoreference = 1,
-          autotitle = 1,
-          base = './',
-          transform = 'local',
-        },
       }
 .
   endfunction
