@@ -38,7 +38,8 @@ task('create symlinks', async () => {
   }
 });
 
-const COMMAND_T_BASE = 'nvim/pack/bundle/opt/command-t/ruby/command-t/ext/command-t';
+const COMMAND_T_BASE =
+  'nvim/pack/bundle/opt/command-t/ruby/command-t/ext/command-t';
 
 task('configure Command-T', async () => {
   const base = resource.file('.config').join(COMMAND_T_BASE);
