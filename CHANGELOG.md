@@ -3,6 +3,7 @@
 ## 2021-06-06
 
 - [Vim]: Instead of `~/.config/nvim` being a symbolic link to `~/.vim`, items inside `~/.vim` now symlink to items inside `~/.config/nvim`.
+- [Meta]: Switched default branch from `master` to `main` (although the `master` branch will be kept in sync to avoid breaking existing clones; see [#100](https://github.com/wincent/wincent/issues/100)).
 
 ## 2020-12-21
 

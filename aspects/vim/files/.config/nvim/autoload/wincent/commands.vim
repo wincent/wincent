@@ -86,6 +86,7 @@ function! s:open_on_github(file, range) abort
   if l:address != -1
     let l:root=fnamemodify(l:git_dir, ':h')
     let l:relative_path=strcharpart(a:file, strchars(l:root))
+    " TODO: detect non-"master" default branch
     let l:url=shellescape('https://github.com/' . l:address . '/tree/master' . l:relative_path . a:range)
     call system('open ' . l:url)
   endif

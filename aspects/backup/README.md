@@ -4,7 +4,7 @@ The files in this aspect are scripts that I use for disaster recovery purposes. 
 
 ## `snapshot`
 
-This one runs from a "master" encrypted volume which I keep as a disk image on my startup disk (but it could be stored on a USB stick; I just keep it on the startup disk so that it is easy to locate the "master" one). It creates a snapshot of critical files in timestamped directories adjacent to the script.
+This one runs from a "primary" encrypted volume which I keep as a disk image on my startup disk (but it could be stored on a USB stick; I just keep it on the startup disk so that it is easy to locate the "primary" one). It creates a snapshot of critical files in timestamped directories adjacent to the script.
 
 ## `sync`
 

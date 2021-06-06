@@ -240,6 +240,7 @@ when 'open'
       open link(target)
     else
       prefix = capture('git rev-parse --show-prefix')
+      # TODO: teach this and other places in here to figure out if default branch is different (ie. not "master")
       url = "https://github.com/#{project}/tree/master/#{prefix}"
       url += target
       open Shellwords.shellescape(url)

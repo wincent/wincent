@@ -1,0 +1,56 @@
+#!/bin/sh
+
+# Based on:
+#
+#     https://github.com/git/git/blob/c09b6306c6ca275ed9d0348a8c8014b2ff723cfb/templates/hooks--pre-push.sample
+#
+# For:
+#
+#     https://github.com/wincent/wincent/issues/100
+#
+# (ie. automatically updates `master` whenever `main` is pushed)
+#
+# To use, install to `.git/hooks/pre-push` and `chmod +x` accordingly.
+
+REMOTE="$1"
+URL="$2"
+
+ZERO=$(git hash-object --stdin </dev/null | tr '[0-9a-f]' '0')
+
+while read LOCAL_REF LOCAL_OID REMOTE_REF REMOTE_OID; do
+  if [ "$REMOTE_REF" = "refs/heads/main" ]; then
+    if [ "$LOCAL_OID" = "$ZERO" ]; then
+      # Branch deletion: ignore.
+      :
+    else
+      # Use color in interactive terminals.
+      if [ -t 1 ]; then
+        BOLD="$(tput bold)"
+        RESET="$(tput sgr0)"
+      else
+        BOLD=
+        RESET=
+      fi
+
+      # Respect --dry-run/-n.
+      DRY_RUN=0
+      for WORD in $(ps -p $PPID -ww -o command=); do
+        if [ "$WORD" = "-n" -o "$WORD" = "--dry-run" ]; then
+          DRY_RUN=1
+        fi
+      done
+
+      if [ $DRY_RUN -eq 1 ]; then
+        echo >&2 "${BOLD}[dry-run][pre-push (main -> master)]: git push --no-verify ${REMOTE} +${LOCAL_OID}:master${RESET}"
+        echo >&2 "${BOLD}[dry-run][pre-push (main -> master)]: git branch -f master ${LOCAL_OID}${RESET}"
+      else
+        echo >&2 "${BOLD}[pre-push (main -> master)]: git push --no-verify ${REMOTE} +${LOCAL_OID}:master${RESET}"
+        git push --no-verify "${REMOTE}" "+${LOCAL_OID}:refs/heads/master"
+        echo >&2 "${BOLD}[pre-push (main -> master)]: git branch -f master ${LOCAL_OID}${RESET}"
+        git branch -f master "${LOCAL_OID}"
+      fi
+    fi
+  fi
+done
+
+exit 0

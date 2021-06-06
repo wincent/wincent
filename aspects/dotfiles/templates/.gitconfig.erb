@@ -20,7 +20,7 @@
 	full = show --format=fuller
 
 	# Shortcut for updating all remotes and fast-forwarding to a specific one:
-	# eg. `git get upstream/master`
+	# eg. `git get upstream/main`
 	get = "!f() { git fresh && git ff \"$@\"; }; f"
 
 	# equivalent to: graph --all
@@ -73,6 +73,9 @@
 [branch]
 	autosetupmerge = always
 	autosetuprebase = local
+
+[branch "main"]
+	rebase = true
 
 [branch "master"]
 	rebase = true
