@@ -44,5 +44,4 @@ unreachable = all() - ::bookmark()
 base = ancestor(master, .)
 
 [ui]
-merge = internal:merge3
-username = Greg Hurrell <glh@fb.com>
+username = Greg Hurrell <greg@hurrell.net>
