@@ -139,6 +139,8 @@ If there are background processes, a yellow asterisk is shown:
 
 ### Clone
 
+Development occurs on the `main` branch, but to avoid inconvenience for people who previously cloned the repo when the `master` branch was the main line, the legacy branch _is_ kept up-to-date via [a pre-push hook](./support/hooks/pre-push) (which updates the local branch) and [a post-receive hook](./support/hooks/post-receive) (which updates the remote).
+
 #### macOS
 
 ```sh

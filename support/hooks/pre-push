@@ -17,6 +17,10 @@ URL="$2"
 
 ZERO=$(git hash-object --stdin </dev/null | tr '[0-9a-f]' '0')
 
+# By default, don't update the remote repo, only the local ref.
+# Set to `1` to update the remote as well.
+SYNC_REMOTE=0
+
 while read LOCAL_REF LOCAL_OID REMOTE_REF REMOTE_OID; do
   if [ "$REMOTE_REF" = "refs/heads/main" ]; then
     if [ "$LOCAL_OID" = "$ZERO" ]; then
@@ -41,11 +45,15 @@ while read LOCAL_REF LOCAL_OID REMOTE_REF REMOTE_OID; do
       done
 
       if [ $DRY_RUN -eq 1 ]; then
-        echo >&2 "${BOLD}[dry-run][pre-push (main -> master)]: git push --no-verify ${REMOTE} +${LOCAL_OID}:master${RESET}"
+        if [ $SYNC_REMOTE -eq 1 ]; then
+          echo >&2 "${BOLD}[dry-run][pre-push (main -> master)]: git push --no-verify ${REMOTE} +${LOCAL_OID}:master${RESET}"
+        fi
         echo >&2 "${BOLD}[dry-run][pre-push (main -> master)]: git branch -f master ${LOCAL_OID}${RESET}"
       else
-        echo >&2 "${BOLD}[pre-push (main -> master)]: git push --no-verify ${REMOTE} +${LOCAL_OID}:master${RESET}"
-        git push --no-verify "${REMOTE}" "+${LOCAL_OID}:refs/heads/master"
+        if [ $SYNC_REMOTE -eq 1 ]; then
+          echo >&2 "${BOLD}[pre-push (main -> master)]: git push --no-verify ${REMOTE} +${LOCAL_OID}:master${RESET}"
+          git push --no-verify "${REMOTE}" "+${LOCAL_OID}:refs/heads/master"
+        fi
         echo >&2 "${BOLD}[pre-push (main -> master)]: git branch -f master ${LOCAL_OID}${RESET}"
         git branch -f master "${LOCAL_OID}"
       fi
