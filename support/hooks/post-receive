@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Alternative to the pre-push hook, this one can be used to automatically update
+# `master` whenever `main` changes.
+#
+# See: https://github.com/wincent/wincent/issues/100
+
+ZERO=$(git hash-object --stdin </dev/null | tr '[0-9a-f]' '0')
+
+while read OLD_REV NEW_REV REF_NAME; do
+  if [ "$NEW_REV" = "$ZERO" ]; then
+    # Branch was deleted. We dare not tread here.
+    :
+  elif [ "$REF_NAME" = "refs/heads/main" ]; then
+    git branch -f master "$NEW_REV"
+  fi
+done
