@@ -12,6 +12,9 @@ function task(name: string, callback: () => Promise<void>) {
 }
 
 task('set up hostname', async () => {
+  // Note that "hostname" is the variable configured in the aspect.json, which
+  // overwrites the "hostname" that comes in from the Attributes class (via
+  // Node's `os.hostname()`).
   const hostname = variable.string('hostname');
   const result = await command('hostname', []);
 

@@ -1,4 +1,3 @@
-import * as os from 'os';
 import {join} from 'path';
 
 import variables from '../variables.js';
@@ -51,7 +50,7 @@ async function main() {
 
   const project = await readProject(join(root, 'project.json'));
 
-  const hostname = os.hostname();
+  const hostname = Context.attributes.hostname;
 
   const profiles = project.profiles ?? {};
 
@@ -152,6 +151,7 @@ async function main() {
 
   const attributeVariables = {
     home: Context.attributes.home,
+    hostname: Context.attributes.hostname,
     platform: Context.attributes.platform,
     username: Context.attributes.username,
   };

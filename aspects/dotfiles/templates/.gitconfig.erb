@@ -165,14 +165,6 @@
 [rerere]
 	enabled = true
 
-[sendemail]
-	smtpEncryption = tls
-	smtpServer = smtp.gmail.com
-	smtpServerPort = 587
-<%- if (variables.gitUserEmail) { -%>
-	smtpUser = <%= variables.gitUserEmail %>
-<%- } -%>
-
 [status]
 	submodulesummary = true
 
@@ -188,6 +180,7 @@
 	name = <%= variables.gitUserName %>
 <%- } -%>
 
-# ignored by Git older than 1.7.10
+# Ignored by Git older than 1.7.10.
 [include]
 	path = .gitconfig.local
+	path = <%= variables.gitHostSpecificInclude %>

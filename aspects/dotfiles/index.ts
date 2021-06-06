@@ -14,11 +14,15 @@ import {
   variables,
 } from 'fig';
 
-variables(({identity}) => ({
-  gitUserEmail: identity === 'wincent' ? 'greg@hurrell.net' : '',
-  gitUserName: identity === 'wincent' ? 'Greg Hurrell' : '',
-  gitHubUsername: identity === 'wincent' ? 'wincent' : '',
-}));
+variables(({hostname, identity}) => {
+  const shortname = String(hostname).toLowerCase().split(/\./)[0];
+  return {
+    gitHostSpecificInclude: `.gitconfig.d/${shortname}`,
+    gitUserEmail: identity === 'wincent' ? 'greg@hurrell.net' : '',
+    gitUserName: identity === 'wincent' ? 'Greg Hurrell' : '',
+    gitHubUsername: identity === 'wincent' ? 'wincent' : '',
+  }
+});
 
 task('check for decrypted files', async () => {
   if (variable('identity') === 'wincent') {

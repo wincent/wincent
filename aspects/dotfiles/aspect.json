@@ -23,6 +23,7 @@
       ".config/xkeysnail.py",
       ".ghci",
       ".gitattributes",
+      ".gitconfig.d",
       ".gitignore",
       ".gitk",
       ".hammerspoon",

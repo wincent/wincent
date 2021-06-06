@@ -15,6 +15,7 @@ export default class Attributes {
   #gid?: number;
   #groupNames?: Array<string>;
   #home?: string;
+  #hostname?: string;
   #platform?: 'darwin' | 'linux';
   #uid?: number;
   #umask?: Mode;
@@ -119,6 +120,14 @@ export default class Attributes {
     }
 
     return this.#home;
+  }
+
+  get hostname(): string {
+    if (this.#hostname === undefined) {
+      this.#hostname = os.hostname();
+    }
+
+    return this.#hostname;
   }
 
   get platform(): 'darwin' | 'linux' {
