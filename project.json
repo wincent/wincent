@@ -45,13 +45,13 @@
   },
   "profiles": {
     "personal": {
-      "pattern": "/\\bretiro\\b/i",
+      "pattern": "/^(?:retiro|huertas)(?:\\b|$)/i",
       "variables": {
         "corpusNotes": "~/Sync/Personal/Corpus"
       }
     },
     "work": {
-      "pattern": "/\\bgregorys-mbp\\b/i",
+      "pattern": "/^gregorys-mbp(?:\\b|$)/i",
       "variables": {}
     }
   },
