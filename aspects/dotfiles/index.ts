@@ -21,7 +21,7 @@ variables(({hostname, identity}) => {
     gitUserEmail: identity === 'wincent' ? 'greg@hurrell.net' : '',
     gitUserName: identity === 'wincent' ? 'Greg Hurrell' : '',
     gitHubUsername: identity === 'wincent' ? 'wincent' : '',
-  }
+  };
 });
 
 task('check for decrypted files', async () => {

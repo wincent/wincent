@@ -5,7 +5,15 @@
 /aspects/dotfiles/files/.zsh/zsh-history-substring-search
 /aspects/dotfiles/files/.zsh/zsh-syntax-highlighting
 /aspects/vim/files/.config/nvim/pack
+/aspects/vim/files/.config/nvim/backup
+/aspects/vim/files/.config/nvim/swap
+/aspects/vim/files/.config/nvim/undo
+/aspects/vim/files/.config/nvim/view
 /aspects/vim/files/.vim/pack
+/aspects/vim/files/.vim/backup
+/aspects/vim/files/.vim/swap
+/aspects/vim/files/.vim/undo
+/aspects/vim/files/.vim/view
 /fig/types
 /lib
 /python
