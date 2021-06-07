@@ -1,4 +1,4 @@
-import {fail, file, resource, skip, task, template, variable} from 'fig';
+import {fail, file, path, resource, skip, task, template, variable} from 'fig';
 import stat from 'fig/fs/stat.js';
 
 task('create ~/.ssh/* directories', async () => {
@@ -47,5 +47,24 @@ task('install ~/.ssh/config', async () => {
     }
   } else {
     skip();
+  }
+});
+
+task('install host-specific to ~/.ssh/config/config.d/*', async () => {
+  for (const directory of ['pre', 'post']) {
+    const hostHandle = variable.string('hostHandle');
+    const src = resource.file('.ssh/config.d').join(directory, hostHandle);
+    const stats = await stat(src);
+
+    if (stats && !(stats instanceof Error)) {
+      await file({
+        force: true,
+        path: path.home.join('.ssh/config.d', directory, hostHandle),
+        src,
+        state: 'link',
+      });
+    } else {
+      skip();
+    }
   }
 });
