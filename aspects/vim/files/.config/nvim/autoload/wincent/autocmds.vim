@@ -31,6 +31,13 @@ function! wincent#autocmds#encrypt(file) abort
       if filewritable(l:encrypted) == 1
         let l:executable=l:directory . '/' . s:encrypted[l:directory]
         if executable(l:executable)
+          " If encryption ever stops working here, can debug by
+          " swapping in `echomsg` for `call`. An example cause
+          " would be forgetting to trust the public keys (eg.
+          " `gpg --edit-key greg@hurrell.net` + `trust`) and seeing
+          " an error like:
+          "
+          " > There is no assurance this key belongs to the named user... etc
           call system(
                 \   fnamemodify(l:executable, ':S') .
                 \   ' encrypt ' .
