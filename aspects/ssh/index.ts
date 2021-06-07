@@ -20,7 +20,7 @@ task('install ~/.ssh/config', async () => {
     // because we won't have the GPG key on the machine yet...
     // although maybe I should just do that...)
     if (stats === null) {
-      fail(`"${src}" does not exist; run "vendor/git-cipher/bin/git-cipher"`);
+      fail(`"${src}" does not exist; run "bin/git-cipher"`);
     } else if (stats instanceof Error) {
       throw stats;
     } else {
