@@ -64,7 +64,7 @@ task('install host-specific to ~/.ssh/config/config.d/*', async () => {
         state: 'link',
       });
     } else {
-      skip();
+      skip(`no per-host ${directory} config for ${hostHandle}`);
     }
   }
 });
