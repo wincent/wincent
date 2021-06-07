@@ -26,6 +26,7 @@
       ".gitconfig.d",
       ".gitignore",
       ".gitk",
+      ".gnupg/gpg-agent.conf",
       ".hammerspoon",
       ".hgrc",
       ".inputrc",
