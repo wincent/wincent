@@ -6,6 +6,7 @@
 /aspects/dotfiles/files/.zsh/.base16
 /aspects/dotfiles/files/.zsh/.base16.previous
 /aspects/dotfiles/files/.zsh/exports.private
+/aspects/ssh/files/.ssh/config.d/pre/gregorys-mbp
 /aspects/ssh/templates/.ssh/config.erb
 /aspects/vim/files/.config/nvim/after/plugin/command-t.private.vim
 /aspects/vim/files/.config/nvim/plugin/private.vim

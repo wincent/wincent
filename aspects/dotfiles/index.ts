@@ -14,10 +14,9 @@ import {
   variables,
 } from 'fig';
 
-variables(({hostname, identity}) => {
-  const shortname = String(hostname).toLowerCase().split(/\./)[0];
+variables(({hostHandle, identity}) => {
   return {
-    gitHostSpecificInclude: `.gitconfig.d/${shortname}`,
+    gitHostSpecificInclude: `.gitconfig.d/${hostHandle}`,
     gitUserEmail: identity === 'wincent' ? 'greg@hurrell.net' : '',
     gitUserName: identity === 'wincent' ? 'Greg Hurrell' : '',
     gitHubUsername: identity === 'wincent' ? 'wincent' : '',
