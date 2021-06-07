@@ -14,6 +14,7 @@
 	path = aspects/vim/files/.config/nvim/pack/bundle/opt/base16-vim
 	url = https://github.com/chriskempson/base16-vim.git
 [submodule "command-t"]
+	branch = main
 	ignore = dirty
 	path = aspects/vim/files/.config/nvim/pack/bundle/opt/command-t
 	url = https://github.com/wincent/command-t.git
