@@ -221,6 +221,7 @@ As much as I would love this thing to be entirely automated, there are some manu
 ##### macOS
 
 - **In iTerm, mark the "Wincent" dynamic profile as the default:** _Preferences_ → _Profiles_ → _Other actions..._ → _Set as Default_
+- **Set up full-disk access for iTerm:** [As described here](https://gitlab.com/gnachman/iterm2/-/wikis/Fulldiskaccess), _System Preferences_ → _Security &amp; Privacy_ → _Privacy_ → _Full Disk Access_ (and make sure that iTerm.app is in the list with the checkbox checked).
 
 ### Troubleshooting
 
