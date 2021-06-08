@@ -10,6 +10,7 @@
 	co = checkout
 	count = !git --no-pager log --oneline | wc -l
 	cp = cherry-pick
+	delta = "!f() { git diff \"$@\" | delta; }; f"
 
 	# http://stackoverflow.com/questions/224687/git-find-duplicate-blobs-files-in-this-tree/8408640#8408640
 	dupes = !"git ls-tree -r HEAD | cut -c 13- | sort | uniq -D -w 40"
@@ -104,6 +105,10 @@
 	# This in addition to the "iFMRX" that we get via LESS environment variable.
 	# (In the absence LESS, Git would use "FRX".)
 	pager = less -S
+
+[delta]
+	max-line-length = 0
+	line-numbers = true
 
 # ignored by Git older than 1.8.2
 [diff]
