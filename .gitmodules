@@ -26,6 +26,7 @@
 	path = aspects/vim/files/.config/nvim/pack/bundle/opt/float-preview.nvim
 	url = https://github.com/ncm2/float-preview.nvim.git
 [submodule "git-cipher"]
+	branch = main
 	path = vendor/git-cipher
 	url = https://github.com/wincent/git-cipher.git
 [submodule "goyo.vim"]
