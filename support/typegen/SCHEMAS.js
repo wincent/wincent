@@ -14,10 +14,26 @@ const aspects = (() => {
 })();
 
 /**
+ * Note that some combinations of platform and distribution are nonsensical (eg.
+ * "darwin.debian"), but rather than maintaining a hard-coded list of valid
+ * combinations, we prefer to just generate them all and assume the user isn't
+ * going to bother targeting the invalid ones.
+ */
+const PLATFORMS = ['darwin', 'linux'];
+const DISTRIBUTIONS = ['arch', 'debian'];
+
+/**
  * Subset of JSON Schema.
  *
  * @see https://json-schema.org/
  */
+
+const REF = {
+  Aspect: {$ref: '#/definitions/Aspect'},
+  JSONValue: {$ref: '#/definitions/JSONValue'},
+  Platform: {$ref: '#/definitions/Platform'},
+  Variables: {$ref: '#/definitions/Variables'},
+};
 
 const DEFINITIONS = {
   JSONValue: {
@@ -33,7 +49,7 @@ const DEFINITIONS = {
   Variables: {
     type: 'object',
     patternProperties: {
-      '.*': {$ref: '#/definitions/JSONValue'},
+      '.*': REF.JSONValue,
     },
   },
 };
@@ -45,7 +61,7 @@ export default {
       description: {
         type: 'string',
       },
-      variables: {$ref: '#/definitions/Variables'},
+      variables: REF.Variables,
     },
     required: ['description'],
     type: 'object',
@@ -64,9 +80,9 @@ export default {
         properties: {
           aspects: {
             type: 'array',
-            items: {$ref: '#/definitions/Aspect'},
+            items: REF.Aspect,
           },
-          variables: {$ref: '#/definitions/Variables'},
+          variables: REF.Variables,
         },
         required: ['aspects'],
       },
@@ -74,11 +90,16 @@ export default {
     properties: {
       platforms: {
         type: 'object',
-        properties: {
-          darwin: {$ref: '#/definitions/Platform'},
-          linux: {$ref: '#/definitions/Platform'},
-          'linux.debian': {$ref: '#/definitions/Platform'},
-        },
+        properties: Object.fromEntries(
+          PLATFORMS.flatMap((platform) => {
+            return [
+              [platform, REF.Platform],
+              ...DISTRIBUTIONS.map((distribution) => {
+                return [`${platform}.${distribution}`, REF.Platform];
+              }),
+            ];
+          })
+        ),
       },
       profiles: {
         type: 'object',
@@ -89,13 +110,13 @@ export default {
               pattern: {
                 type: 'string',
               },
-              variables: {$ref: '#/definitions/Variables'},
+              variables: REF.Variables,
             },
             required: ['pattern'],
           },
         },
       },
-      variables: {$ref: '#/definitions/Variables'},
+      variables: REF.Variables,
     },
     required: ['platforms'],
     type: 'object',

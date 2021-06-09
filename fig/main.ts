@@ -73,10 +73,9 @@ async function main() {
 
   log.info(`Platform: ${platform}`);
 
-  const platformVariant =
-    platform === 'linux' && distribution === 'debian'
-      ? 'linux.debian'
-      : platform;
+  const platformVariant:
+    | `${typeof platform}.${Exclude<typeof distribution, ''>}`
+    | typeof platform = distribution ? `${platform}.${distribution}` : platform;
 
   const {aspects, variables: platformVariables = {}} = project.platforms[
     platformVariant

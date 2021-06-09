@@ -11,7 +11,7 @@ import {spawnSync} from './child_process.js';
  */
 export default class Attributes {
   #arch?: string;
-  #distribution?: string;
+  #distribution?: 'arch' | 'debian' | '';
   #gid?: number;
   #groupNames?: Array<string>;
   #home?: string;
@@ -82,7 +82,7 @@ export default class Attributes {
     return this.#arch;
   }
 
-  get distribution(): string {
+  get distribution(): 'arch' | 'debian' | '' {
     if (this.#distribution === undefined) {
       if (existsSync('/etc/arch-release')) {
         this.#distribution = 'arch';
