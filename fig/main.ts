@@ -20,7 +20,9 @@ import type {Aspect} from './types/Project.js';
 
 async function main() {
   if (Context.attributes.uid === 0) {
-    throw new ErrorWithMetadata('Cannot run as root');
+    if (!process.env.YOLO) {
+      throw new ErrorWithMetadata('Refusing to run as root unless YOLO is set');
+    }
   }
 
   // Skip first two args (node executable and main.js script).
@@ -67,12 +69,19 @@ async function main() {
     ? profiles[profile]!.variables ?? {}
     : {};
 
-  const platform = Context.attributes.platform;
+  const {distribution, platform} = Context.attributes;
 
   log.info(`Platform: ${platform}`);
 
-  const {aspects, variables: platformVariables = {}} =
-    project.platforms[platform];
+  const platformVariant =
+    platform === 'linux' && distribution === 'debian'
+      ? 'linux.debian'
+      : platform;
+
+  const {aspects, variables: platformVariables = {}} = project.platforms[
+    platformVariant
+  ] ||
+    project.platforms[platform] || {aspects: []};
 
   // Register tasks.
   const candidateTasks = [];
@@ -340,6 +349,9 @@ async function main() {
 
 async function loadAspect(aspect: Aspect): Promise<void> {
   switch (aspect) {
+    case 'apt':
+      await import('../aspects/apt/index.js');
+      break;
     case 'aur':
       await import('../aspects/aur/index.js');
       break;

@@ -171,9 +171,10 @@ function genAssertFunction(typeName, typeSchema, options) {
 
         Object.entries({...properties}).forEach(
           ([propertyName, propertySchema]) => {
+            const property = propertyName.replace(/\./g, '_DOT_');
             b.blank().if(`${obj}.hasOwnProperty('${propertyName}')`, () => {
               b.line(
-                `const ${propertyName}: unknown = (${obj} as any).${propertyName};`
+                `const ${property}: unknown = (${obj} as any)['${propertyName}'];`
               ).blank();
 
               const target = extractTargetFromRef(propertySchema);
@@ -183,9 +184,9 @@ function genAssertFunction(typeName, typeSchema, options) {
               }
 
               if (propertySchema.type === 'object') {
-                genAssertProperties(propertyName, propertySchema);
+                genAssertProperties(property, propertySchema);
               } else if (propertySchema.type === 'array') {
-                b.assert(`Array.isArray(${propertyName})`).blank();
+                b.assert(`Array.isArray(${property})`).blank();
 
                 const target = extractTargetFromRef(propertySchema.items);
 
@@ -195,7 +196,7 @@ function genAssertFunction(typeName, typeSchema, options) {
                   assert.ok(definition);
 
                   if (definition.enum) {
-                    b.line(`${propertyName}.forEach(assert${target});`);
+                    b.line(`${property}.forEach(assert${target});`);
                   }
                 } else {
                   const itemType = propertySchema.items.type;
@@ -205,7 +206,7 @@ function genAssertFunction(typeName, typeSchema, options) {
                     itemType === 'string' // TODO: maybe others
                   ) {
                     b.assert(
-                      `${propertyName}.every((item: any) => typeof item === '${itemType}')`
+                      `${property}.every((item: any) => typeof item === '${itemType}')`
                     );
                   }
                 }
@@ -213,7 +214,7 @@ function genAssertFunction(typeName, typeSchema, options) {
                 propertySchema.type === 'number' ||
                 propertySchema.type === 'string'
               ) {
-                b.assert(`typeof ${propertyName} === '${propertySchema.type}'`);
+                b.assert(`typeof ${property} === '${propertySchema.type}'`);
               } else {
                 throw new Error('Not implemented');
               }
@@ -358,7 +359,7 @@ function genProperty(propertyName, propertySchema, options) {
     );
   }
 
-  const key = `${propertyName}${optional}`;
+  const key = `'${propertyName}'${optional}`;
 
   b.property(key, value);
 }

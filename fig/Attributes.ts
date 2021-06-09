@@ -86,6 +86,8 @@ export default class Attributes {
     if (this.#distribution === undefined) {
       if (existsSync('/etc/arch-release')) {
         this.#distribution = 'arch';
+      } else if (existsSync('/etc/debian_version')) {
+        this.#distribution = 'debian';
       } else {
         this.#distribution = '';
       }

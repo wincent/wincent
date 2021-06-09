@@ -41,9 +41,16 @@
         "vim"
       ],
       "variables": {}
+    },
+    "linux.debian": {
+      "aspects": ["meta", "apt"],
+      "variables": {}
     }
   },
   "profiles": {
+    "codespaces": {
+      "pattern": "/codespaces/i"
+    },
     "personal": {
       "pattern": "/^(?:retiro|huertas)(?:\\b|$)/i",
       "variables": {

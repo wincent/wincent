@@ -59,35 +59,26 @@ export default {
         type: 'string',
         enum: aspects,
       },
+      Platform: {
+        type: 'object',
+        properties: {
+          aspects: {
+            type: 'array',
+            items: {$ref: '#/definitions/Aspect'},
+          },
+          variables: {$ref: '#/definitions/Variables'},
+        },
+        required: ['aspects'],
+      },
     },
     properties: {
       platforms: {
         type: 'object',
         properties: {
-          darwin: {
-            type: 'object',
-            properties: {
-              aspects: {
-                type: 'array',
-                items: {$ref: '#/definitions/Aspect'},
-              },
-              variables: {$ref: '#/definitions/Variables'},
-            },
-            required: ['aspects'],
-          },
-          linux: {
-            type: 'object',
-            properties: {
-              aspects: {
-                type: 'array',
-                items: {$ref: '#/definitions/Aspect'},
-              },
-              variables: {$ref: '#/definitions/Variables'},
-            },
-            required: ['aspects'],
-          },
+          darwin: {$ref: '#/definitions/Platform'},
+          linux: {$ref: '#/definitions/Platform'},
+          'linux.debian': {$ref: '#/definitions/Platform'},
         },
-        required: ['darwin', 'linux'],
       },
       profiles: {
         type: 'object',
