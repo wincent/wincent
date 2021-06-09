@@ -12,7 +12,7 @@ function task(name: string, callback: () => Promise<void>) {
 
 task('install packages', async () => {
   for (const pkg of variable.strings('packages')) {
-    const result = await command('dkpg-query', [
+    const result = await command('dpkg-query', [
       '--show',
       '--showformat=${db:Status-Status}\n',
       pkg,
