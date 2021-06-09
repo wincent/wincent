@@ -27,19 +27,11 @@ export function readdirSync(
   return fs.readdirSync(path.toString(), options);
 }
 
-export function statSync(
-  path: Parameters<typeof fs.statSync>[0]
-): ReturnType<typeof fs.statSync> {
+export function statSync(path: Parameters<typeof fs.statSync>[0]): fs.Stats {
   return fs.statSync(path.toString());
 }
 
-const promises: {
-  readdir: typeof fs.promises.readdir;
-  readFile: typeof fs.promises.readFile;
-  stat: typeof fs.promises.stat;
-  utimes: typeof fs.promises.utimes;
-  writeFile: typeof fs.promises.writeFile;
-} = {
+const promises = {
   // This functions has overloads, so we have to use `any` types.
   readdir(directory: any, options: any): any {
     return fs.promises.readdir(directory.toString(), options);
@@ -50,9 +42,7 @@ const promises: {
     return fs.promises.readFile(path.toString(), ...args);
   },
 
-  stat(
-    path: Parameters<typeof fs.promises.stat>[0]
-  ): ReturnType<typeof fs.promises.stat> {
+  stat(path: Parameters<typeof fs.promises.stat>[0]): Promise<fs.Stats> {
     return fs.promises.stat(path.toString());
   },
 

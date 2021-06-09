@@ -118,7 +118,7 @@ function path(...components: Array<string>): Path {
     [inspect]: {
       value: () => string,
     },
-  });
+  }) as Path;
 }
 
 Object.defineProperty(path, 'aspect', {

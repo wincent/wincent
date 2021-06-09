@@ -6,11 +6,12 @@ import {describe, expect, test} from '../test/harness.js';
 
 function withMeta(callback: () => void) {
   return () => {
+    const aspect = Context.currentAspect;
     try {
       Context.currentAspect = 'meta';
       callback();
     } finally {
-      delete Context.currentAspect;
+      Context.currentAspect = aspect;
     }
   };
 }

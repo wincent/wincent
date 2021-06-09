@@ -51,7 +51,7 @@ export const LOG_LEVEL = {
 } as const;
 
 export function clear() {
-  return new Promise((resolve) => {
+  return new Promise<void>((resolve) => {
     clearLine(process.stderr, 0, () => {
       cursorTo(process.stderr, 0, undefined, resolve);
     });
