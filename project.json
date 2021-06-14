@@ -43,7 +43,7 @@
       "variables": {}
     },
     "linux.debian": {
-      "aspects": ["meta", "apt", "dotfiles", "shell"],
+      "aspects": ["meta", "apt", "dotfiles", "shell", "vim"],
       "variables": {}
     }
   },
