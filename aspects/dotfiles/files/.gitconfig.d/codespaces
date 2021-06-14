@@ -1,0 +1,6 @@
+[credential]
+	helper = cache
+[url "https://github.com/"]
+	insteadOf = git@github.com:
+[user]
+	email = wincent@github.com
