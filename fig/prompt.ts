@@ -2,12 +2,17 @@ import * as readline from 'readline';
 import {Writable} from 'stream';
 
 import COLORS from './console/COLORS.js';
+import {log} from './console.js';
 
 type Options = {
   private?: boolean;
 };
 
 async function prompt(text: string, options: Options = {}): Promise<string> {
+  if (process.env.NON_INTERACTIVE) {
+    throw new Error('prompt(): called, but NON_INTERACTIVE is set');
+  }
+
   let muted = false;
 
   // https://stackoverflow.com/a/33500118/2103996
@@ -44,6 +49,11 @@ async function prompt(text: string, options: Options = {}): Promise<string> {
 }
 
 prompt.confirm = async (text: string): Promise<boolean> => {
+  if (process.env.NON_INTERACTIVE) {
+    log.info(`${text}? [y/n]: (assuming "y" because NON_INTERACTIVE is set)`);
+    return true;
+  }
+
   const reply = (await prompt(`${text}? [y/n]: `)).toLowerCase().trim();
 
   return 'yes'.startsWith(reply);
