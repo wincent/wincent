@@ -38,6 +38,40 @@ task('create symlinks', async () => {
   }
 });
 
+task('fetch neovim.git', async () => {
+  if (attributes.distribution === 'debian') {
+    await command('git', ['clone', 'https://github.com/neovim/neovim.git/'], {
+      chdir: 'vendor',
+      creates: 'vendor/neovim',
+      raw: true,
+    });
+  } else {
+    skip('not on Debian');
+  }
+});
+
+task('build Neovim', async () => {
+  if (attributes.distribution === 'debian') {
+    await command('make', [], {
+      chdir: 'vendor/neovim',
+      creates: 'vendor/neovim/build/bin/nvim',
+    });
+  } else {
+    skip('not on Debian');
+  }
+});
+
+task('install Neovim', async () => {
+  if (attributes.distribution === 'debian') {
+    await command('make', ['install'], {
+      chdir: 'vendor/neovim',
+      creates: '/usr/local/bin/nvim',
+    });
+  } else {
+    skip('not on Debian');
+  }
+});
+
 const COMMAND_T_BASE =
   'nvim/pack/bundle/opt/command-t/ruby/command-t/ext/command-t';
 

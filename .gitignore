@@ -16,4 +16,5 @@
 /aspects/vim/files/.vim/viminfo
 /media
 /node_modules
+/vendor/neovim
 /vendor/yay

@@ -23,7 +23,7 @@ function task(name: string, callback: () => Promise<void>) {
 
 task('fetch yay', async () => {
   // TODO: make a `git` operation? (if I need to do this in more than one
-  // place)
+  // place; second place has arrived now, in the vim aspect.)
   await command('git', ['clone', 'https://aur.archlinux.org/yay.git/'], {
     chdir: 'vendor',
     creates: 'vendor/yay',
