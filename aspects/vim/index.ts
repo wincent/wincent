@@ -128,7 +128,7 @@ task('update help tags', async () => {
 
 task('install neovim gem', async () => {
   await command('gem', ['install', 'neovim'], {
-    sudo: true,
+    sudo: attributes.distribution !== 'debian',
   });
 });
 
