@@ -14,6 +14,7 @@ export default {
       'pkg-config', // To build Neovim from source.
       'ripgrep', // Fast file finder.
       'ruby-dev', // To build Command-T.
+      'tree', // Outputs tree view of filesystem.
       'unzip', // To build Neovim from source.
     ],
   },
