@@ -65,6 +65,14 @@ test('compile() compiles a template containing statements', () => {
   `);
 });
 
+test('compile() compiles a template containing a comment', () => {
+  expect(compile('his name was <%# to be decided %>')).toBe(dedent`
+    let __buffer__ = "";
+    __buffer__ += "his name was ";
+    return __buffer__;
+  `);
+});
+
 test('fill() fills an empty template', () => {
   expect(fill(compile(''))).toBe('');
 });
@@ -199,6 +207,16 @@ test('tokenize() handles a template containing a statement', () => {
   ]);
 });
 
+test('tokenize() handles a template containing a comment', () => {
+  expect([...tokenize('this <%# stuff %> here')]).toEqual([
+    {kind: 'TemplateText', text: 'this '},
+    {kind: 'StartComment'},
+    {kind: 'CommentText', text: ' stuff '},
+    {kind: 'EndDelimiter'},
+    {kind: 'TemplateText', text: ' here'},
+  ]);
+});
+
 test('tokenize() eats a newline after a "-%>" delimiter', () => {
   expect([...tokenize('before\n<% something -%>\nafter')]).toEqual([
     {kind: 'TemplateText', text: 'before\n'},
@@ -212,6 +230,14 @@ test('tokenize() eats a newline after a "-%>" delimiter', () => {
     {kind: 'TemplateText', text: 'before\n'},
     {kind: 'StartExpression'},
     {kind: 'HostText', text: ' something '},
+    {kind: 'EndDelimiter'},
+    {kind: 'TemplateText', text: 'after'},
+  ]);
+
+  expect([...tokenize('before\n<%# something -%>\nafter')]).toEqual([
+    {kind: 'TemplateText', text: 'before\n'},
+    {kind: 'StartComment'},
+    {kind: 'CommentText', text: ' something '},
     {kind: 'EndDelimiter'},
     {kind: 'TemplateText', text: 'after'},
   ]);
@@ -243,6 +269,10 @@ test('tokenize() complains about unexpected start delimiters', () => {
   );
 
   expect(() => [...tokenize('outer <%= inner <%')]).toThrow(
+    'Unexpected start delimiter "<%" at index 16'
+  );
+
+  expect(() => [...tokenize('outer <%# inner <%')]).toThrow(
     'Unexpected start delimiter "<%" at index 16'
   );
 });

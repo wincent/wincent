@@ -54,11 +54,18 @@ export function fill(compiled: string, scope: Scope = {}) {
 }
 
 type Token =
+  | CommentText
   | EndDelimiter
   | HostText
+  | StartComment
   | StartExpression
   | StartStatement
   | TemplateText;
+
+type CommentText = {
+  kind: 'CommentText';
+  text: string;
+};
 
 type EndDelimiter = {
   kind: 'EndDelimiter';
@@ -67,6 +74,10 @@ type EndDelimiter = {
 type HostText = {
   kind: 'HostText';
   text: string;
+};
+
+type StartComment = {
+  kind: 'StartComment';
 };
 
 type StartExpression = {
@@ -90,15 +101,12 @@ type TemplateText = {
  *
  * Delimiters are:
  *
+ *  - "<%#": starts a comment.
  *  - "<%=": starts an expression.
  *  - "<%": starts a statement.
  *  - "<%-": starts a statement, slurping preceding whitespace.
  *  - "%>": ends a statement or expression.
  *  - "-%>": ends a statement or expression, slurping following whitespace.
- *
- * Not supported:
- *
- *  - "<%#": comments.
  *
  * For the specific nuances of "<%-" and "-%>" see:
  *
@@ -151,11 +159,11 @@ type TemplateText = {
  *
  */
 export function* tokenize(input: string): Generator<Token> {
-  const delimiter = /(<%=|<%-|<%|-%>|%>)/g;
+  const delimiter = /(<%#|<%=|<%-|<%|-%>|%>)/g;
 
   let i = 0;
 
-  let inHost = false;
+  let context: 'COMMENT' | 'HOST' | 'TEXT' = 'TEXT';
 
   while (i < input.length) {
     const match = delimiter.exec(input);
@@ -163,10 +171,10 @@ export function* tokenize(input: string): Generator<Token> {
     if (match) {
       const text = match[0];
 
-      if (inHost) {
+      if (context !== 'TEXT') {
         if (text.endsWith('%>')) {
           yield {
-            kind: 'HostText',
+            kind: context === 'COMMENT' ? 'CommentText' : 'HostText',
             text: input.slice(i, match.index),
           };
 
@@ -174,7 +182,7 @@ export function* tokenize(input: string): Generator<Token> {
             kind: 'EndDelimiter',
           };
 
-          inHost = false;
+          context = 'TEXT';
 
           if (text === '-%>') {
             // Remove next character if it is a newline.
@@ -207,13 +215,18 @@ export function* tokenize(input: string): Generator<Token> {
           };
         }
 
-        inHost = true;
-
-        if (text === '<%=') {
+        if (text === '<%#') {
+          context = 'COMMENT';
+          yield {
+            kind: 'StartComment',
+          };
+        } else if (text === '<%=') {
+          context = 'HOST';
           yield {
             kind: 'StartExpression',
           };
         } else if (text.startsWith('<%')) {
+          context = 'HOST';
           yield {
             kind: 'StartStatement',
           };
