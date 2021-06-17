@@ -1,3 +1,4 @@
+<%- /* vim: set filetype=gitconfig : */ -%>
 # <%= variables.figManaged %>
 
 [alias]
@@ -73,7 +74,7 @@
 
 <%- if (variables.identity === 'wincent') { -%>
 	# Ridiculous destructive resetting of local branches to match remote.
-	zap = "!f() { git for-each-ref refs/heads/wincent/ | while read HASH TYPE REF; do BRANCH=${REF#refs/heads/}; git branch -f $BRANCH origin/$BRANCH; done; }; f"
+	zap = "!f() { git for-each-ref refs/remotes/origin/wincent/ | while read HASH TYPE REF; do BRANCH=${REF#refs/remotes/origin/}; echo Updating $BRANCH to $HASH; git branch -f $BRANCH origin/$BRANCH; done; }; f"
 
 <%- } -%>
 [branch]
