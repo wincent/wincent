@@ -1,4 +1,5 @@
 import {
+  attributes,
   backup,
   command,
   fail,
@@ -105,4 +106,21 @@ task('create ~/code/.editorconfig', async () => {
   } else {
     skip();
   }
+});
+
+task('install glow.yml', async () => {
+  if (attributes.platform === 'darwin') {
+    await file({
+      path: '~/Library/Preferences/glow',
+      state: 'directory',
+    });
+
+    await file({
+      force: true,
+      path: '~/Library/Preferences/glow/glow.yml',
+      src: path.aspect.join('files/Library/Preferences/glow/glow.yml'),
+      state: 'link',
+    });
+  }
+  // TODO handle other platforms
 });
