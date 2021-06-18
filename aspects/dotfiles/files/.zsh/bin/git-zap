@@ -1,0 +1,49 @@
+#!/bin/bash
+
+BOLD=$(tput bold)
+GREEN=$(tput setaf 2)
+RESET=$(tput sgr0)
+YELLOW=$(tput setaf 3)
+
+bold() {
+  echo -n "${BOLD}$1${RESET}"
+}
+
+green() {
+  echo -n "${GREEN}${BOLD}$1${RESET}"
+}
+
+yellow() {
+  echo -n "${YELLOW}${BOLD}$1${RESET}"
+}
+
+DRY_RUN=
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --dry-run|-n)
+      DRY_RUN=1
+      ;;
+  esac
+  shift
+done
+
+if [ -n "$DRY_RUN" ]; then
+  echo "Dry run mode: no actual changes will be made..."
+fi
+
+git for-each-ref refs/remotes/origin/wincent/ | while read REMOTE_HASH TYPE REMOTE_REF; do
+  BRANCH=${REMOTE_REF#refs/remotes/origin/}
+  LOCAL_REF="refs/heads/${BRANCH}"
+  LOCAL_HASH=$(git rev-parse "${LOCAL_REF}" 2> /dev/null)
+  ABBREV=$(git rev-parse --short "$REMOTE_HASH")
+
+  if [ "$LOCAL_HASH" = "$LOCAL_REF" ]; then
+    echo "$(green '[CREATED]'): $BRANCH -> $ABBREV"
+    test -z "$DRY_RUN" && git branch -f $BRANCH origin/$BRANCH > /dev/null
+  elif [ "$LOCAL_HASH" != "$REMOTE_HASH" ]; then
+    echo "$(yellow '[UPDATED]'): $BRANCH -> $ABBREV"
+    test -z "$DRY_RUN" && git branch -f $BRANCH origin/$BRANCH > /dev/null
+  else
+    echo "$(bold  '[  OK   ]'): $BRANCH"
+  fi
+done
