@@ -9,9 +9,14 @@ set completion-ignore-case
 set show-all-if-ambiguous
 set visible-stats
 
+$if Ruby
+# For some reason, Rails console doesn't like `history-search-backward`/
+# `history-search-forward`, so don't use it.
+$else
 # Using the Up/Down arrow keys.
 "\e[A": history-search-backward
 "\e[B": history-search-forward
+$endif
 
 # Enable 8-bit input (do not strip 8th bit from input).
 set meta-flag
