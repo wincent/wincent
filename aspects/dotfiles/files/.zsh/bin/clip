@@ -2,6 +2,8 @@
 
 if [ -e /etc/arch-release ]; then
   socat - UNIX-CLIENT:$HOME/.clipper.sock
+elif [ -e /etc/debian_version ]; then
+  socat - UNIX-CLIENT:$HOME/.clipper.sock
 else
   nc -U ~/.clipper.sock
 fi
