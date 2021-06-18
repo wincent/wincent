@@ -1,0 +1,59 @@
+#!/bin/bash
+
+# Move personal branches that are no longer on origin into "attic/" namespace.
+# For repos that are deletion-happy.
+
+# TODO: write this
+# might also see if I can use it on codespaces (i probably can)
+
+# TODO: move this into common helper
+BOLD=$(tput bold)
+GREEN=$(tput setaf 2)
+RED=$(tput setaf 1)
+RESET=$(tput sgr0)
+YELLOW=$(tput setaf 3)
+
+bold() {
+  echo -n "${BOLD}$1${RESET}"
+}
+
+green() {
+  echo -n "${GREEN}${BOLD}$1${RESET}"
+}
+
+red() {
+  echo -n "${RED}${BOLD}$1${RESET}"
+}
+
+yellow() {
+  echo -n "${YELLOW}${BOLD}$1${RESET}"
+}
+
+DRY_RUN=
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --dry-run|-n)
+      DRY_RUN=1
+      ;;
+  esac
+  shift
+done
+
+if [ -n "$DRY_RUN" ]; then
+  echo "Dry run mode: no actual changes will be made..."
+fi
+
+git for-each-ref refs/heads/wincent/ | while read LOCAL_HASH TYPE LOCAL_REF; do
+  BRANCH=${LOCAL_REF#refs/heads/}
+  REMOTE_REF="refs/remotes/origin/${BRANCH}"
+  REMOTE_HASH=$(git rev-parse "${REMOTE_REF}" 2> /dev/null)
+
+  if [ "$REMOTE_HASH" = "$REMOTE_REF" ]; then
+    echo "$(yellow '[ARCHIVED]'): $BRANCH -> attic/"
+    test -z "$DRY_RUN" && git branch -m $BRANCH attic/$BRANCH > /dev/null
+  elif [ "$LOCAL_HASH" != "$REMOTE_HASH" ]; then
+    echo "$(red '[MODIFIED]'): $BRANCH -> $ABBREV"
+  else
+    echo "$(bold '[   OK   ]'): $BRANCH"
+  fi
+done
