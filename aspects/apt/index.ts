@@ -1,4 +1,11 @@
-import {attributes, command, skip, task as defineTask, variable} from 'fig';
+import {
+  attributes,
+  command,
+  fail,
+  skip,
+  task as defineTask,
+  variable,
+} from 'fig';
 
 function task(name: string, callback: () => Promise<void>) {
   defineTask(name, async () => {
@@ -16,12 +23,14 @@ task('install packages', async () => {
       '--show',
       '--showformat=${db:Status-Status}\\n',
       pkg,
-    ], {failedWhen: () => false});
+    ]);
 
-    if (result?.stdout.includes('installed')) {
+    if (result?.stdout.includes('not-installed')) {
+      await command('apt-get', ['install', '-y', pkg]);
+    } else if (result?.stdout.includes('installed')) {
       skip(`${pkg} is already installed`);
     } else {
-      await command('apt-get', ['install', '-y', pkg]);
+      fail(`cannot determine installation status for ${pkg}`);
     }
   }
 });
