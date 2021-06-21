@@ -14,14 +14,14 @@ task('install packages', async () => {
   for (const pkg of variable.strings('packages')) {
     const result = await command('dpkg-query', [
       '--show',
-      '--showformat=${db:Status-Status}\n',
+      '--showformat=${db:Status-Status}\\n',
       pkg,
-    ]);
+    ], {failedWhen: () => false});
 
     if (result?.stdout.includes('installed')) {
       skip(`${pkg} is already installed`);
     } else {
-      await command('apt-get', ['-y', pkg]);
+      await command('apt-get', ['install', '-y', pkg]);
     }
   }
 });
