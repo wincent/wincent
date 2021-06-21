@@ -54,7 +54,7 @@ task('make directories', async () => {
   await file({mode: '0700', path: '~/.gnupg', state: 'directory'});
   await file({path: '~/.irssi', state: 'directory'});
   await file({path: '~/.mail', state: 'directory'});
-  await file({path: '~/.zshenv.d', state: 'directory'});
+  await file({force: true, path: '~/.zshenv.d', state: 'directory'});
 
   if (variable('identity') === 'wincent') {
     await file({path: '~/code', state: 'directory'});
