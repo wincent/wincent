@@ -40,9 +40,9 @@ alias word='shuf -n1 /usr/share/dict/words'
 
 #
 # Suffix aliases
-# (eg. "foo.md" to open Markdown files in "Marked 2.app")
+# (eg. "foo.md" to open Markdown files in glow)
 #
-alias -s md='open -a "Marked 2.app"'
+alias -s md=glow
 
 #
 # Global aliases
