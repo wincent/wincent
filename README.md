@@ -183,6 +183,7 @@ At the time of writing, these are the aspects, which you can expect to change ov
   - **tampermonkey**: Sets up UserScripts
 - On Linux only:
   - **aur**: Installs packages from the Arch User Repository.
+  - **codespaces**: Custom tweaks for GitHub Codespaces environments.
   - **interception**: Sets up Interceptions Tools (keyboard customization).
   - **locale**: Sets up /etc/locale.conf
   - **pacman**: Installs packages via the Pacman package manager
