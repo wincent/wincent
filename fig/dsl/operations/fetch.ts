@@ -7,6 +7,11 @@ import {createWriteStream, promises} from '../../fs.js';
 import tempdir from '../../fs/tempdir.js';
 import file from './file.js';
 
+/**
+ * BUG: assumes UTF-8 encoded text (because it calls `file`, which calls
+ * `compare` etc).
+ * TODO: make this thing work with binary data.
+ */
 export default async function fetch({
   dest,
   group,

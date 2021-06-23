@@ -2,7 +2,6 @@ import {
   attributes,
   backup,
   command,
-  fetch,
   file,
   path,
   resource,
@@ -100,9 +99,11 @@ task('download spell files', async () => {
     'https://ftp.nluug.nl/pub/vim/runtime/spell/es.utf-8.spl',
     'https://ftp.nluug.nl/pub/vim/runtime/spell/es.utf-8.sug',
   ]) {
-    await fetch({
-      dest: path('~/.config/nvim/spell').join(path(url).basename),
-      url,
+    const destination = path('~/.config/nvim/spell').join(path(url).basename).expand.toString();
+
+    await command('curl', [url, '-o', destination], {
+      creates: destination,
+      raw: true // Don't path-ify URLs.
     });
   }
 });
