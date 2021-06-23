@@ -2,6 +2,7 @@ import {
   attributes,
   backup,
   command,
+  fetch,
   file,
   path,
   resource,
@@ -94,17 +95,18 @@ task('compile Command-T', async () => {
   });
 });
 
-// TODO: note that this doesn't work... when i enter vim it is asking me to dl
-// something anyway... the ES ones....
-// ie. i have
-//      en.utf-8.add
-//      en.utf-8.add.spl
-//  and it dls
-//      es.utf-8.spl
-//      es.utf-8.sug
-// No spell file for "es" in utf-8
-// Download it?
-// (Y)es, [N]o:
+task('download spell files', async () => {
+  for (const url of [
+    'https://ftp.nluug.nl/pub/vim/runtime/spell/es.utf-8.spl',
+    'https://ftp.nluug.nl/pub/vim/runtime/spell/es.utf-8.sug',
+  ]) {
+    await fetch({
+      dest: path('~/.config/nvim/spell').join(path(url).basename),
+      url,
+    });
+  }
+});
+
 task('create spell file', async () => {
   const spellfile = path.aspect.join('files/.config/nvim/spell/en.utf-8.add');
 
