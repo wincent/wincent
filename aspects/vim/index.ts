@@ -135,12 +135,9 @@ task('install neovim gem', async () => {
 // added in 1a9f9b9fd and probably not used since...
 // pip2 install vim-vint
 
-// general python support for neovim
-// pip3 install --upgrade pynvim
-
-// legacy way (commented out) was:
-// pip2 install neovim
-// pip3 install neovim -- not sure if still needed
+task('install pynvim', async () => {
+  await command('pip3', ['install', '--upgrade', 'pynvim']);
+});
 
 // For masochist autocompleter
 // pip3 install redis
