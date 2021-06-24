@@ -1,5 +1,9 @@
 # Changelog
 
+## 2018-12-18
+
+- Switched default color scheme to "bright".
+
 ## 2021-06-06
 
 - [Vim]: Instead of `~/.config/nvim` being a symbolic link to `~/.vim`, items inside `~/.vim` now symlink to items inside `~/.config/nvim`.

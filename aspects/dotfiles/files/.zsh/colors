@@ -107,11 +107,11 @@ color() {
 
   case "$SCHEME" in
   help)
-    echo 'color                                   (show current scheme)'
-    echo 'color default-dark|grayscale-light|...  (switch to scheme)'
-    echo 'color help                              (show this help)'
-    echo 'color ls [pattern]                      (list available schemes)'
-    echo 'color rand [-q/--quiet] [pattern]       (choose a random scheme)'
+    echo 'color                                          (show current scheme)'
+    echo 'color bright|default-dark|grayscale-light|...  (switch to scheme)'
+    echo 'color help                                     (show this help)'
+    echo 'color ls [pattern]                             (list available schemes)'
+    echo 'color rand [-q/--quiet] [pattern]              (choose a random scheme)'
     return
     ;;
   ls)
@@ -155,6 +155,6 @@ function () {
     color "$SCHEME"
   else
     # Default.
-    color default-dark
+    color bright
   fi
 }
