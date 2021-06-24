@@ -258,8 +258,15 @@ if tput cbt &> /dev/null; then
   bindkey "$(tput cbt)" reverse-menu-complete # make Shift-tab go to previous completion
 fi
 
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
+if [[ $(uname -a) =~ "Ubuntu" ]]; then
+  echo this one
+  bindkey "$key[Up]" history-substring-search-up
+  bindkey "$key[Down]" history-substring-search-down
+else
+  echo that one
+  bindkey '^[[A' history-substring-search-up
+  bindkey '^[[B' history-substring-search-down
+fi
 bindkey '^P' history-substring-search-up
 bindkey '^N' history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
