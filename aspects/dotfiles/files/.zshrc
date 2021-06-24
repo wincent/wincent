@@ -259,11 +259,9 @@ if tput cbt &> /dev/null; then
 fi
 
 if [[ $(uname -a) =~ "Ubuntu" ]]; then
-  echo this one
   bindkey "$key[Up]" history-substring-search-up
   bindkey "$key[Down]" history-substring-search-down
 else
-  echo that one
   bindkey '^[[A' history-substring-search-up
   bindkey '^[[B' history-substring-search-down
 fi
