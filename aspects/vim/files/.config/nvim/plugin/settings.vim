@@ -2,6 +2,7 @@ scriptencoding utf-8
 
 set autoindent                          " maintain indent of current line
 set backspace=indent,start,eol          " allow unrestricted backspacing in insert mode
+set backupcopy=yes                      " overwrite files to update, instead of renaming + rewriting
 
 if exists('$SUDO_USER')
   set nobackup                          " don't create root-owned files
