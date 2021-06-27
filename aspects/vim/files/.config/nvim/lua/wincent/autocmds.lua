@@ -89,7 +89,8 @@ end
 local when_supports_blur_and_focus = function(callback)
   local filetype = vim.bo.filetype
   local listed = vim.bo.buflisted
-  if autocmds.colorcolumn_filetype_blacklist[filetype] ~= true and listed then
+  if (autocmds.unlisted_pseudo_buffer_filetype_whitelist[filetype] == true) or
+    (autocmds.colorcolumn_filetype_blacklist[filetype] ~= true and listed) then
     callback(filetype)
   end
 end
@@ -99,11 +100,11 @@ local focus_window = function()
     when_supports_blur_and_focus(function(filetype)
       vim.api.nvim_win_set_option(0, 'winhighlight', '')
       vim.api.nvim_win_set_option(0, 'colorcolumn', focused_colorcolumn)
-      if filetype ~= '' then
+      if filetype ~= '' and autocmds.unlisted_pseudo_buffer_filetype_whitelist[filetype] ~= true then
         ownsyntax(true)
+        vim.api.nvim_win_set_option(0, 'list', true)
+        vim.api.nvim_win_set_option(0, 'conceallevel', 1)
       end
-      vim.api.nvim_win_set_option(0, 'list', true)
-      vim.api.nvim_win_set_option(0, 'conceallevel', 1)
     end)
     vim.api.nvim_win_set_var(0, focused_flag, true)
     require'wincent.statusline'.focus_statusline()
@@ -114,9 +115,11 @@ local blur_window = function()
   if util.win_get_var(0, focused_flag) ~= false then
     when_supports_blur_and_focus(function(filetype)
       vim.api.nvim_win_set_option(0, 'winhighlight', winhighlight_blurred)
-      ownsyntax(false)
-      vim.api.nvim_win_set_option(0, 'list', false)
-      vim.api.nvim_win_set_option(0, 'conceallevel', 0)
+      if autocmds.unlisted_pseudo_buffer_filetype_whitelist[filetype] ~= true then
+        ownsyntax(false)
+        vim.api.nvim_win_set_option(0, 'list', false)
+        vim.api.nvim_win_set_option(0, 'conceallevel', 0)
+      end
     end)
     vim.api.nvim_win_set_var(0, focused_flag, false)
     require'wincent.statusline'.blur_statusline()
@@ -205,10 +208,17 @@ autocmds.win_leave = function()
   mkview()
 end
 
+-- Normally we don't want to treat unlisted buffers like "real" buffers, but in
+-- some cases we kind of do. For these, we will apply 'colorcolumn' focus/blur
+-- styling, but we won't touch 'conceallevel' and 'list'.
+autocmds.unlisted_pseudo_buffer_filetype_whitelist = {
+  ['dirvish'] = true,
+  ['help'] = true,
+}
+
 autocmds.colorcolumn_filetype_blacklist = {
   ['command-t'] = true,
   ['diff'] = true,
-  ['dirvish'] = true,
   ['fugitiveblame']= true,
   ['undotree'] = true,
   ['qf'] = true,

@@ -10,14 +10,7 @@ if has('autocmd')
       " Disable paste mode on leaving insert mode.
       autocmd InsertLeave * set nopaste
 
-      if exists('+colorcolumn') &&
-            \ exists('+winhighlight') &&
-            \ has('conceal') &&
-            \ has('folding') &&
-            \ has('mksession') &&
-            \ has('statusline') &&
-            \ has('nvim')
-
+      if has('nvim')
         autocmd BufEnter * lua require'wincent.autocmds'.buf_enter()
         autocmd BufLeave ?* lua require'wincent.autocmds'.buf_leave()
         autocmd BufWinEnter ?* lua require'wincent.autocmds'.buf_win_enter()
