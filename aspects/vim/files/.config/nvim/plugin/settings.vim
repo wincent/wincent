@@ -4,10 +4,11 @@ set autoindent                          " maintain indent of current line
 set backspace=indent,start,eol          " allow unrestricted backspacing in insert mode
 set backupcopy=yes                      " overwrite files to update, instead of renaming + rewriting
 
-if exists('$SUDO_USER')
-  set nobackup                          " don't create root-owned files
-  set nowritebackup                     " don't create root-owned files
-elseif has('nvim')
+set nobackup                            " don't make backups before writing
+set nowritebackup                       " don't keep backups after writing
+
+" But in case backups ever get turned on...
+if has('nvim')
   set backupdir=~/.config/nvim/backup// " keep backup files out of the way
   set backupdir+=.
 else
@@ -35,9 +36,10 @@ set completeopt+=noselect               " don't automatically select canditate
 set cursorline                          " highlight current line
 set diffopt+=foldcolumn:0               " don't show fold column in diff view
 
-if exists('$SUDO_USER')
-  set noswapfile                        " don't create root-owned files
-elseif has('nvim')
+set noswapfile                          " don't create swap files
+
+" But in case swapfiles ever get turned on...
+if has('nvim')
   set directory=~/.config/nvim/swap//   " keep swap files out of the way
   set directory+=.
 else
