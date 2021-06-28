@@ -1,5 +1,42 @@
-function! wincent#debug#log(string) abort
-  call writefile([a:string], '/tmp/wincent-vim-debug.txt', 'aS')
+" In theory you can do this with 'verbose' (>= 9) and 'verbosefile', but this
+" one is a bit more specialized.
+function! wincent#debug#autocmds(log) abort
+  let l:log=fnamemodify(a:log, ':p')
+  echomsg 'Logging to: ' . l:log
+
+  for l:name in [
+        \   'BufEnter',
+        \   'BufFilePost',
+        \   'BufLeave',
+        \   'BufNewFile',
+        \   'BufReadPost',
+        \   'BufWinEnter',
+        \   'BufWritePost',
+        \   'CursorHold',
+        \   'CursorHoldI',
+        \   'CursorMoved',
+        \   'CursorMovedI',
+        \   'FocusGained',
+        \   'FocusLost',
+        \   'InsertEnter',
+        \   'InsertLeave',
+        \   'QuitPre',
+        \   'TextYankPost',
+        \   'VimEnter',
+        \   'VimLeavePre',
+        \   'VimResized',
+        \   'WinEnter',
+        \   'WinLeave'
+        \ ]
+
+    execute 'autocmd ' .
+          \ l:name .
+          \ ' * call writefile([strftime("%Y-%m-%d %T") . " ' .
+          \ l:name .
+          \ ' " . fnamemodify(bufname(), ":t") . " (b:" . bufnr() . ", w:" . winnr() . ")"], "' .
+          \ escape(l:log, '"\') .
+          \ '", "a")'
+  endfor
 endfunction
 
 function! wincent#debug#compiler() abort
@@ -8,4 +45,8 @@ function! wincent#debug#compiler() abort
   call setqflist([])
   /\v^finish>/+1,$ :cgetbuffer
   copen
+endfunction
+
+function! wincent#debug#log(string) abort
+  call writefile([a:string], '/tmp/wincent-vim-debug.txt', 'aS')
 endfunction
