@@ -2,7 +2,7 @@
 # <%= variables.figManaged %>
 
 [alias]
-	abbrev = !sh -c 'git rev-parse --short ${1-`echo HEAD`}' -
+	abbrev = !bash -c 'git rev-parse --short ${1-`echo HEAD`}' -
 	ack = grep --break --heading
 	amend = commit --amend -v
 	both = diff --ignore-submodules=dirty HEAD
@@ -17,7 +17,7 @@
 	dupes = !"git ls-tree -r HEAD | cut -c 13- | sort | uniq -D -w 40"
 
 	ff = merge --ff-only
-	fixup = !sh -c 'git commit --fixup=$1 ${@:2}' -
+	fixup = !bash -c 'git commit --fixup=$1 ${@:2}' -
 	fresh = remote update --prune
 	full = show --format=fuller
 
@@ -51,7 +51,7 @@
 	reword = commit --amend --only -v --
 
 	# requires Git 1.6.2 or later
-	rollback = !sh -c 'git reset --merge HEAD~${1-1}' -
+	rollback = !bash -c 'git reset --merge HEAD~${1-1}' -
 
 	# "smartlog", although it's not that smart.
 	# Equivalent to `git graph --all --simplify-by-decoration.
