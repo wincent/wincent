@@ -115,9 +115,16 @@ if filereadable(s:hostfile)
   execute 'source ' . s:hostfile
 endif
 
-let s:vimrc_local=$HOME . '/.vim/vimrc.local'
-if filereadable(s:vimrc_local)
-  execute 'source ' . s:vimrc_local
+if has('nvim')
+  let s:nvim_config_local=$HOME . '/.config/nvim/init-local.vim'
+  if filereadable(s:nvim_config_local)
+    execute 'source ' . nvim_config_local
+  endif
+else
+  let s:vimrc_local=$HOME . '/.vim/vimrc.local'
+  if filereadable(s:vimrc_local)
+    execute 'source ' . s:vimrc_local
+  endif
 endif
 
 if &loadplugins
