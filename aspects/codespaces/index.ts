@@ -1,4 +1,4 @@
-import {command, line, skip, task} from 'fig';
+import {command, file, line, path, skip, task} from 'fig';
 import Context from 'fig/Context.js';
 
 task('set "StreamLocalBindUnlink yes" in /etc/ssh/sshd_config', async () => {
@@ -18,5 +18,16 @@ task('set "StreamLocalBindUnlink yes" in /etc/ssh/sshd_config', async () => {
     await command('pkill', ['-HUP', '-xf', '/usr/sbin/sshd']);
   } else {
     skip('no need to send SIGHUP to sshd (no changes made)');
+  }
+});
+
+task('symlink files', async () => {
+  for (const src of ['.config/nvim/init-local.vim']) {
+    await file({
+      force: true,
+      path: path.home.join(src),
+      src: path.aspect.join('files', src),
+      state: 'link',
+    });
   }
 });
