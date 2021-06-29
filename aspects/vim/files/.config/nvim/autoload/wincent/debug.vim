@@ -54,7 +54,8 @@ function! wincent#debug#autocmds(log) abort
 endfunction
 
 function! s:LogAutocommand(name)
-  let l:timestamp=strftime('%Y-%m-%d %T')
+  let l:timestamp=strftime('%T')
+  let l:amatch=fnamemodify(expand('<amatch>'), ':t')
   let l:abuf=expand('<abuf>')
   let l:afile=fnamemodify(expand('<afile>'), ':t')
   if l:afile == ''
@@ -70,9 +71,11 @@ function! s:LogAutocommand(name)
   call writefile([
         \   l:timestamp . ' ' .
         \   a:name . ' ' .
+        \   '<amatch>=' . l:amatch . ' ' .
         \   l:bufname_description .
         \   ' (b:' . l:bufnr_description .
-        \   ', w:' . winnr() . ')'
+        \   ', w:' . winnr() . ', ft=' .
+        \   &filetype . ')'
         \ ], s:log, 'a')
 endfunction
 
