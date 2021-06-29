@@ -2,7 +2,6 @@ local util = require'wincent.util'
 
 local autocmds = {}
 
-local focused_flag = 'wincent_focused'
 local ownsyntax_flag = 'wincent_ownsyntax'
 
 -- +0,+1,+2, ... +254
@@ -86,44 +85,50 @@ local should_mkview = function()
     vim.fn.exists('$SUDO_USER') == 0 -- Don't create root-owned files.
 end
 
-local when_supports_blur_and_focus = function(callback)
-  local filetype = vim.bo.filetype
-  local listed = vim.bo.buflisted
-  if (autocmds.unlisted_pseudo_buffer_filetype_whitelist[filetype] == true) or
-    (autocmds.colorcolumn_filetype_blacklist[filetype] ~= true and listed) then
-    callback(filetype)
-  end
-end
-
 local focus_window = function()
-  if util.win_get_var(0, focused_flag) ~= true then
-    when_supports_blur_and_focus(function(filetype)
-      vim.api.nvim_win_set_option(0, 'winhighlight', '')
-      vim.api.nvim_win_set_option(0, 'colorcolumn', focused_colorcolumn)
-      if filetype ~= '' and autocmds.unlisted_pseudo_buffer_filetype_whitelist[filetype] ~= true then
-        ownsyntax(true)
-        vim.api.nvim_win_set_option(0, 'list', true)
-        vim.api.nvim_win_set_option(0, 'conceallevel', 1)
-      end
-    end)
-    vim.api.nvim_win_set_var(0, focused_flag, true)
-    require'wincent.statusline'.focus_statusline()
+  local filetype = vim.bo.filetype
+  if filetype ~= '' and autocmds.winhighlight_filetype_blacklist[filetype] ~= true then
+    vim.api.nvim_win_set_option(0, 'winhighlight', '')
   end
+  if filetype ~= '' and autocmds.colorcolumn_filetype_blacklist[filetype] ~= true then
+    vim.api.nvim_win_set_option(0, 'colorcolumn', focused_colorcolumn)
+  end
+  if filetype ~= '' and autocmds.ownsyntax_filetypes[filetype] ~= true then
+    ownsyntax(true)
+  end
+  if filetype == '' then
+    vim.api.nvim_win_set_option(0, 'list', true)
+  else
+    local list = autocmds.list_filetypes[filetype]
+    vim.api.nvim_win_set_option(0, 'list', list == nil and true or list)
+  end
+  local conceallevel = autocmds.conceallevel_filetypes[filetype] or 2
+  vim.api.nvim_win_set_option(0, 'conceallevel', conceallevel)
+  require'wincent.statusline'.focus_statusline()
 end
 
 local blur_window = function()
-  if util.win_get_var(0, focused_flag) ~= false then
-    when_supports_blur_and_focus(function(filetype)
-      vim.api.nvim_win_set_option(0, 'winhighlight', winhighlight_blurred)
-      if autocmds.unlisted_pseudo_buffer_filetype_whitelist[filetype] ~= true then
-        ownsyntax(false)
-        vim.api.nvim_win_set_option(0, 'list', false)
-        vim.api.nvim_win_set_option(0, 'conceallevel', 0)
-      end
-    end)
-    vim.api.nvim_win_set_var(0, focused_flag, false)
-    require'wincent.statusline'.blur_statusline()
+  local filetype = vim.bo.filetype
+  if filetype == '' or autocmds.winhighlight_filetype_blacklist[filetype] ~= true then
+    vim.api.nvim_win_set_option(0, 'winhighlight', winhighlight_blurred)
   end
+  if filetype == '' or autocmds.ownsyntax_filetypes[filetype] ~= true then
+    ownsyntax(false)
+  end
+  if filetype == '' then
+    vim.api.nvim_win_set_option(0, 'list', false)
+  else
+    local list = autocmds.list_filetypes[filetype]
+    if list == nil then
+      vim.api.nvim_win_set_option(0, 'list', false)
+    else
+      vim.api.nvim_win_set_option(0, 'list', list)
+    end
+  end
+  if filetype == '' or autocmds.conceallevel_filetypes[filetype] == nil then
+    vim.api.nvim_win_set_option(0, 'conceallevel', 0)
+  end
+  require'wincent.statusline'.blur_statusline()
 end
 
 -- http://vim.wikia.com/wiki/Make_views_automatic
@@ -208,14 +213,8 @@ autocmds.win_leave = function()
   mkview()
 end
 
--- Normally we don't want to treat unlisted buffers like "real" buffers, but in
--- some cases we kind of do. For these, we will apply 'colorcolumn' focus/blur
--- styling, but we won't touch 'conceallevel' and 'list'.
-autocmds.unlisted_pseudo_buffer_filetype_whitelist = {
-  ['dirvish'] = true,
-  ['help'] = true,
-}
-
+-- Don't use colorcolumn when these filetypes get focus (we want them to appear
+-- full-width irrespective of 'textwidth').
 autocmds.colorcolumn_filetype_blacklist = {
   ['command-t'] = true,
   ['diff'] = true,
@@ -225,14 +224,42 @@ autocmds.colorcolumn_filetype_blacklist = {
   ['sagahover'] = true,
 }
 
+-- Don't mess with 'conceallevel' for these.
+autocmds.conceallevel_filetypes = {
+  ['dirvish'] = 2,
+  ['help'] = 2,
+}
+
 autocmds.cursorline_blacklist = {
   ['command-t'] = true,
+}
+
+-- Don't use 'winhighlight' to make these filetypes seem blurred.
+autocmds.winhighlight_filetype_blacklist = {
+  ['diff'] = true,
+  ['fugitiveblame']= true,
+  ['undotree'] = true,
+  ['qf'] = true,
+  ['sagahover'] = true,
+}
+
+-- Force 'list' (when `true`) or 'nolist' (when `false`) for these.
+autocmds.list_filetypes = {
+  ['command-t'] = false,
+  ['help'] = false,
 }
 
 autocmds.mkview_filetype_blacklist = {
   ['diff'] = true,
   ['gitcommit'] = true,
   ['hgcommit'] = true,
+}
+
+-- Don't do "ownsyntax off" for these.
+autocmds.ownsyntax_filetypes = {
+  ['dirvish'] = true,
+  ['help'] = true,
+  ['qf'] = true,
 }
 
 return autocmds
