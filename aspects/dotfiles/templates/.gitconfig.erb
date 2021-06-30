@@ -72,6 +72,10 @@
 	# usage: git wd [diff-against=HEAD] [max-depth=4]
 	wd = "!f() { git --paginate diff --dirstat=cumulative,files,0 ${1:-HEAD} | awk '{print $2}' | cut -d / -f1-${2:-4} | sort | uniq; }; f"
 
+	# same as wd ("what directories?") but for files ("what files?")
+	# usage: git wd [diff-against=HEAD]
+	wf = "!f() { git --paginate diff --stat=10000 ${1:-HEAD} | awk '{print $1}' | sed '$d' | sort; }; f"
+
 [branch]
 	autosetupmerge = always
 	autosetuprebase = local
