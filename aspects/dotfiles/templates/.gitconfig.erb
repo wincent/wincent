@@ -76,12 +76,6 @@
 	autosetupmerge = always
 	autosetuprebase = local
 
-[branch "main"]
-	rebase = true
-
-[branch "master"]
-	rebase = true
-
 [color]
 	ui = auto
 
@@ -160,6 +154,9 @@
 [protocol]
 	# Added in Git 2.18.0.
 	version = 2
+
+[pull]
+	ff = only
 
 [push]
 	# Added in Git 1.7.11, default in 2.0, but still required (to avoid warning).
