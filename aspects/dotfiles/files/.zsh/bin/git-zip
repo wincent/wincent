@@ -29,6 +29,7 @@ git for-each-ref refs/heads/wincent/ | while read LOCAL_HASH TYPE LOCAL_REF; do
     echo "$(yellow '[ARCHIVED]'): $BRANCH -> attic/"
     test -z "$DRY_RUN" && git branch -m $BRANCH attic/$BRANCH > /dev/null
   elif [ "$LOCAL_HASH" != "$REMOTE_HASH" ]; then
+    ABBREV=$(git rev-parse --short "$REMOTE_HASH")
     echo "$(red '[MODIFIED]'): $BRANCH -> $ABBREV"
   else
     echo "$(bold '[   OK   ]'): $BRANCH"
