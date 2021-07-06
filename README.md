@@ -7,9 +7,9 @@
 - Target platforms: macOS and Linux (see [Platform status](#platform-status) below).
 - Set-up method: ~~Beautiful and intricate snowflake~~ an incredibly over-engineered custom configuration framework called [Fig](./fig/README.md).
 - Visible in the screenshot:
-  - [default-dark Base16](http://chriskempson.com/projects/base16/) color scheme (see [screenshots of other colorschemes](https://github.com/wincent/wincent/blob/media/colorschemes/README.md)).
+  - [The "bright" Base16](http://chriskempson.com/projects/base16/) color scheme (see [screenshots of other colorschemes](https://github.com/wincent/wincent/blob/media/colorschemes/README.md)).
   - [Adobe Source Code Pro](https://github.com/adobe-fonts/source-code-pro) (Light) font.
-  - [Neovim](https://neovim.io), running inside [tmux](https://github.com/tmux/tmux), inside [iTerm2](http://www.iterm2.com/), on macOS "High Sierra".
+  - [Neovim](https://neovim.io), running inside [tmux](https://github.com/tmux/tmux), inside [iTerm2](http://www.iterm2.com/), on macOS "Big Sur".
 
 ## Features
 
@@ -131,7 +131,7 @@ If there are background processes, a yellow asterisk is shown:
 
 | Platform                               | Status                                                                                                                                                                     |
 | -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| macOS                                  | :1st_place_medal: Currently the most tested platform, as well as the one with most aspects (because macOS 10.13 "High Sierra" is my daily driver both at home and at work) |
+| macOS                                  | :1st_place_medal: Currently the most tested platform, as well as the one with most aspects (because macOS 11 "Big Sur" is my daily driver both at home and at work)        |
 | Arch Linux                             | :2nd_place_medal: Less tested, fewer aspects involved, but likely to evolve in the future as I experiment with moving, at least partially, to Arch Linux                   |
 | Red Hat Linux and related (eg. CentOS) | :3rd_place_medal: Less tested, fewer aspects involved, but in the past this was the distro I used full-time at work                                                        |
 
