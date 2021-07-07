@@ -73,6 +73,8 @@ if has('autocmd')
     set showbreak=
     set statusline=\ 
     set nocursorline
+    set nonumber
+    set norelativenumber
     set noshowmode
 
     if exists('$TMUX')

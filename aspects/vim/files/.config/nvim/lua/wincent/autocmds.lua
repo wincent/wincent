@@ -1,8 +1,10 @@
 local util = require'wincent.util'
+local leader = require'wincent.mappings.leader'
 
 local autocmds = {}
 
 local ownsyntax_flag = 'wincent_ownsyntax'
+local number_flag = leader.number_flag
 
 -- +0,+1,+2, ... +254
 local focused_colorcolumn = '+' .. table.concat({
@@ -87,6 +89,13 @@ end
 
 local focus_window = function()
   local filetype = vim.bo.filetype
+
+  -- Turn on relative numbers, unless user has explicitly changed numbering.
+  if filetype ~= '' and autocmds.number_blacklist[filetype] ~= true and util.win_get_var(0, number_flag) == nil then
+    vim.api.nvim_win_set_option(0, 'number', true)
+    vim.api.nvim_win_set_option(0, 'relativenumber', true)
+  end
+
   if filetype ~= '' and autocmds.winhighlight_filetype_blacklist[filetype] ~= true then
     vim.api.nvim_win_set_option(0, 'winhighlight', '')
   end
@@ -109,6 +118,14 @@ end
 
 local blur_window = function()
   local filetype = vim.bo.filetype
+
+  -- Turn off relative numbers (and turn on non-relative numbers), unless user
+  -- has explicitly changed the numbering.
+  if filetype ~= '' and autocmds.number_blacklist[filetype] ~= true and util.win_get_var(0, number_flag) == nil then
+    vim.api.nvim_win_set_option(0, 'number', true)
+    vim.api.nvim_win_set_option(0, 'relativenumber', false)
+  end
+
   if filetype == '' or autocmds.winhighlight_filetype_blacklist[filetype] ~= true then
     vim.api.nvim_win_set_option(0, 'winhighlight', winhighlight_blurred)
   end
@@ -253,6 +270,17 @@ autocmds.mkview_filetype_blacklist = {
   ['diff'] = true,
   ['gitcommit'] = true,
   ['hgcommit'] = true,
+}
+
+-- Don't mess with numbers in these filetypes.
+autocmds.number_blacklist = {
+  ['command-t'] = true,
+  ['diff'] = true,
+  ['fugitiveblame']= true,
+  ['help'] = true,
+  ['qf'] = true,
+  ['sagahover'] = true,
+  ['undotree'] = true,
 }
 
 -- Don't do "ownsyntax off" for these.
