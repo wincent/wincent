@@ -78,7 +78,7 @@ local hostfile =
       '/.config/nvim/host/' ..
       vim.fn.substitute(vim.fn.hostname(), '\\..*', '', '') ..
       '.vim'
-if vim.fn.filereadable(hostfile) then
+if vim.fn.filereadable(hostfile) == 1 then
   vim.cmd('source ' .. hostfile)
 end
 
