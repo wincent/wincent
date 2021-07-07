@@ -9,6 +9,7 @@ git submodule foreach '
   if [ "${path##aspects/vim/files/.config/nvim/pack/}" != "$path" ]; then
     NAME=$(basename $path)
     BRANCH=$(git config -f $toplevel/.gitmodules submodule."$NAME".branch || echo master)
+    git remote update --prune
     git checkout $BRANCH
   fi
 '
