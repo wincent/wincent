@@ -8,13 +8,8 @@ set nobackup                            " don't make backups before writing
 set nowritebackup                       " don't keep backups after writing
 
 " But in case backups ever get turned on...
-if has('nvim')
-  set backupdir=~/.config/nvim/backup// " keep backup files out of the way
-  set backupdir+=.
-else
-  set backupdir=~/.vim/backup//         " keep backup files out of the way
-  set backupdir+=.
-endif
+set backupdir=~/.vim/backup//           " keep backup files out of the way
+set backupdir+=.
 
 if has('wildignore')
   set backupskip+=*.re,*.rei            " prevent bsb's watch mode from getting confused
@@ -39,13 +34,8 @@ set diffopt+=foldcolumn:0               " don't show fold column in diff view
 set noswapfile                          " don't create swap files
 
 " But in case swapfiles ever get turned on...
-if has('nvim')
-  set directory=~/.config/nvim/swap//   " keep swap files out of the way
-  set directory+=.
-else
-  set directory=~/.vim/swap//           " keep swap files out of the way
-  set directory+=.
-endif
+set directory=~/.vim/swap//             " keep swap files out of the way
+set directory+=.
 
 set noemoji                             " don't assume all emoji are double width
 set expandtab                           " always use spaces instead of tabs
@@ -55,10 +45,6 @@ if has('folding')
     set fillchars=diff:∙                " BULLET OPERATOR (U+2219, UTF-8: E2 88 99)
     set fillchars+=fold:·               " MIDDLE DOT (U+00B7, UTF-8: C2 B7)
     set fillchars+=vert:┃               " BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
-  endif
-
-  if has('nvim-0.3.1')
-    set fillchars+=eob:\                " suppress ~ at EndOfBuffer
   endif
 
   set foldmethod=indent                 " not as cool as syntax, but faster
@@ -75,13 +61,11 @@ set guifont=Source\ Code\ Pro\ Light:h13
 set guioptions-=T                       " don't show toolbar
 set hidden                              " allows you to hide buffers with unsaved changes without being prompted
 
-if !has('nvim')
-  " Sync with corresponding nvim :highlight commands in ~/.config/nvim/plugin/autocmds.vim:
-  set highlight+=@:Conceal              " ~/@ at end of window, 'showbreak'
-  set highlight+=D:Conceal              " override DiffDelete
-  set highlight+=N:FoldColumn           " make current line number stand out a little
-  set highlight+=c:LineNr               " blend vertical separators with line numbers
-endif
+" Sync with corresponding nvim :highlight commands in ~/.config/nvim/plugin/autocmds.vim:
+set highlight+=@:Conceal                " ~/@ at end of window, 'showbreak'
+set highlight+=D:Conceal                " override DiffDelete
+set highlight+=N:FoldColumn             " make current line number stand out a little
+set highlight+=c:LineNr                 " blend vertical separators with line numbers
 
 if exists('&inccommand')
   set inccommand=split                  " live preview of :s results
@@ -179,10 +163,6 @@ set textwidth=80                        " automatically hard wrap at 80 columns
 if has('persistent_undo')
   if exists('$SUDO_USER')
     set noundofile                      " don't create root-owned files
-  elseif has('nvim')
-    set undodir=~/.config/nvim/undo//   " keep undo files out of the way
-    set undodir+=.
-    set undofile                        " actually use undo files
   else
     set undodir=~/.vim/undo//           " keep undo files out of the way
     set undodir+=.
@@ -206,7 +186,6 @@ if exists('s:viminfo')
     execute 'set ' . s:viminfo . 'file=NONE'
   else
     " Defaults:
-    "   Neovim: !,'100,<50,s10,h
     "   Vim:    '100,<50,s10,h
     "
     " - ! save/restore global variables (only all-uppercase variables)
@@ -219,24 +198,14 @@ if exists('s:viminfo')
     " - '0 store marks for 0 files
     " - <0 don't save registers
     " - f0 don't store file marks
-    " - n: store in ~/.config/nvim/ or ~/.vim/
+    " - n: store or ~/.vim/
     "
-    if has('nvim')
-      execute 'set ' . s:viminfo . "='0,<0,f0,n~/.config/nvim/" . s:viminfo
-      if !empty(glob('~/.config/nvim/' . s:viminfo))
-        if !filereadable(expand('~/.config/nvim/' . s:viminfo))
-          echoerr 'warning: ~/.config/nvim/' . s:viminfo . ' exists but is not readable'
-        endif
-      endif
-    else
-      execute 'set ' . s:viminfo . "='0,<0,f0,n~/.vim/" . s:viminfo
-      if !empty(glob('~/.vim/' . s:viminfo))
-        if !filereadable(expand('~/.vim/' . s:viminfo))
-          echoerr 'warning: ~/.vim/' . s:viminfo . ' exists but is not readable'
-        endif
+    execute 'set ' . s:viminfo . "='0,<0,f0,n~/.vim/" . s:viminfo
+    if !empty(glob('~/.vim/' . s:viminfo))
+      if !filereadable(expand('~/.vim/' . s:viminfo))
+        echoerr 'warning: ~/.vim/' . s:viminfo . ' exists but is not readable'
       endif
     endif
-
   endif
 endif
 
