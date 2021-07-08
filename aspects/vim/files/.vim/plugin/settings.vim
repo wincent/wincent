@@ -29,7 +29,6 @@ set completeopt=menuone                 " show menu even if there is only one ca
 set completeopt+=noselect               " don't automatically select canditate
 
 set cursorline                          " highlight current line
-set diffopt+=foldcolumn:0               " don't show fold column in diff view
 
 set noswapfile                          " don't create swap files
 
