@@ -1,1 +1,5 @@
-../../.config/nvim/plugin/matchit.vim
+if has('packages')
+  packadd! matchit
+else
+  source $VIMRUNTIME/macros/matchit.vim
+endif
