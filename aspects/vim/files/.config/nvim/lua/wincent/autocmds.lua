@@ -51,33 +51,33 @@ local winhighlight_blurred = table.concat({
 -- means that we can't just naively save and restore: we have to use a flag to
 -- make sure that we only capture the initial state.
 local ownsyntax = function(active)
-  local flag = util.win_get_var(0, ownsyntax_flag)
+  local flag = vim.w[ownsyntax_flag]
 
   if active and flag == false then
     -- We are focussing; restore previous settings.
     vim.cmd('ownsyntax on')
 
-    vim.api.nvim_win_set_option(0, 'spell', util.win_get_var(0, 'spell') or false)
-    vim.api.nvim_buf_set_option(0, 'spellcapcheck', util.win_get_var(0, 'spellcapcheck') or '')
-    vim.api.nvim_buf_set_option(0, 'spellfile', util.win_get_var(0, 'spellfile') or '')
-    vim.api.nvim_buf_set_option(0, 'spelllang', util.win_get_var(0, 'spelllang') or 'en')
+    vim.wo.spell = vim.w.spell or false
+    vim.bo.spellcapcheck = vim.w.spellcapcheck or ''
+    vim.bo.spellfile = vim.w.spellfile or ''
+    vim.bo.spelllang = vim.w.spelllang or 'en'
 
     -- Set flag to show that we have restored the captured options.
-    vim.api.nvim_win_set_var(0, ownsyntax_flag, true)
+    vim.w[ownsyntax_flag] = true
   elseif not active and vim.bo.filetype ~= '' and flag ~= false then
     -- We are blurring; save settings for later restoration.
-    vim.api.nvim_win_set_var(0, 'spell', vim.wo.spell)
-    vim.api.nvim_win_set_var(0, 'spellcapcheck', vim.bo.spellcapcheck)
-    vim.api.nvim_win_set_var(0, 'spellfile', vim.bo.spellfile)
-    vim.api.nvim_win_set_var(0, 'spelllang', vim.bo.spelllang)
+    vim.w.spell = vim.wo.spell
+    vim.w.spellcapcheck = vim.bo.spellcapcheck
+    vim.w.spellfile = vim.bo.spellfile
+    vim.w.spelllang = vim.bo.spelllang
 
     vim.cmd('ownsyntax off')
 
     -- Suppress spelling in blurred buffer.
-    vim.api.nvim_win_set_option(0, 'spell', false)
+    vim.wo.spell = false
 
     -- Set flag to show that we have captured options.
-    vim.api.nvim_win_set_var(0, ownsyntax_flag, false)
+    vim.w[ownsyntax_flag] = false
   end
 end
 
@@ -91,28 +91,28 @@ local focus_window = function()
   local filetype = vim.bo.filetype
 
   -- Turn on relative numbers, unless user has explicitly changed numbering.
-  if filetype ~= '' and autocmds.number_blacklist[filetype] ~= true and util.win_get_var(0, number_flag) == nil then
-    vim.api.nvim_win_set_option(0, 'number', true)
-    vim.api.nvim_win_set_option(0, 'relativenumber', true)
+  if filetype ~= '' and autocmds.number_blacklist[filetype] ~= true and vim.w[number_flag] == nil then
+    vim.wo.number = true
+    vim.wo.relativenumber = true
   end
 
   if filetype ~= '' and autocmds.winhighlight_filetype_blacklist[filetype] ~= true then
-    vim.api.nvim_win_set_option(0, 'winhighlight', '')
+    vim.wo.winhighlight = ''
   end
   if filetype ~= '' and autocmds.colorcolumn_filetype_blacklist[filetype] ~= true then
-    vim.api.nvim_win_set_option(0, 'colorcolumn', focused_colorcolumn)
+    vim.wo.colorcolumn = focused_colorcolumn
   end
   if filetype ~= '' and autocmds.ownsyntax_filetypes[filetype] ~= true then
     ownsyntax(true)
   end
   if filetype == '' then
-    vim.api.nvim_win_set_option(0, 'list', true)
+    vim.wo.list = true
   else
     local list = autocmds.list_filetypes[filetype]
-    vim.api.nvim_win_set_option(0, 'list', list == nil and true or list)
+    vim.wo.list = list == nil and true or list
   end
   local conceallevel = autocmds.conceallevel_filetypes[filetype] or 2
-  vim.api.nvim_win_set_option(0, 'conceallevel', conceallevel)
+  vim.wo.conceallevel = conceallevel
   require'wincent.statusline'.focus_statusline()
 end
 
@@ -121,29 +121,29 @@ local blur_window = function()
 
   -- Turn off relative numbers (and turn on non-relative numbers), unless user
   -- has explicitly changed the numbering.
-  if filetype ~= '' and autocmds.number_blacklist[filetype] ~= true and util.win_get_var(0, number_flag) == nil then
-    vim.api.nvim_win_set_option(0, 'number', true)
-    vim.api.nvim_win_set_option(0, 'relativenumber', false)
+  if filetype ~= '' and autocmds.number_blacklist[filetype] ~= true and vim.w[number_flag] == nil then
+    vim.wo.number = true
+    vim.wo.relativenumber = false
   end
 
   if filetype == '' or autocmds.winhighlight_filetype_blacklist[filetype] ~= true then
-    vim.api.nvim_win_set_option(0, 'winhighlight', winhighlight_blurred)
+    vim.wo.winhighlight = winhighlight_blurred
   end
   if filetype == '' or autocmds.ownsyntax_filetypes[filetype] ~= true then
     ownsyntax(false)
   end
   if filetype == '' then
-    vim.api.nvim_win_set_option(0, 'list', false)
+    vim.wo.list = false
   else
     local list = autocmds.list_filetypes[filetype]
     if list == nil then
-      vim.api.nvim_win_set_option(0, 'list', false)
+      vim.wo.list = false
     else
-      vim.api.nvim_win_set_option(0, 'list', list)
+      vim.wo.list = list
     end
   end
   if filetype == '' or autocmds.conceallevel_filetypes[filetype] == nil then
-    vim.api.nvim_win_set_option(0, 'conceallevel', 0)
+    vim.wo.conceallevel = 0
   end
   require'wincent.statusline'.blur_statusline()
 end
@@ -175,7 +175,7 @@ end
 local set_cursorline = function(active)
   local filetype = vim.bo.filetype
   if autocmds.cursorline_blacklist[filetype] ~= true then
-    vim.api.nvim_win_set_option(0, 'cursorline', active)
+    vim.wo.cursorline = active
   end
 end
 

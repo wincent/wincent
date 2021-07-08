@@ -1,5 +1,4 @@
 local pinnacle = require'wincent.pinnacle'
-local util = require'wincent.util'
 
 local statusline = {}
 
@@ -23,7 +22,7 @@ local update_statusline = function(default, action)
     -- [Files]").
     result = '  ' .. vim.fn.bufname()
   elseif filetype == 'diff' then
-    if util.buf_get_var(0, 'isUndotreeBuffer') == 1 then
+    if vim.b.isUndotreeBuffer == 1 then
       -- Less ugly than, say, "diffpanel_3".
       result = 'Undotree preview'
     else
@@ -46,7 +45,7 @@ local update_statusline = function(default, action)
             .. '%{get(w:,"quickfix_title","")}'
             .. '%='
     else
-      result = util.get_var('WincentQuickfixStatusline') or ''
+      result = vim.g.WincentQuickfixStatusline or ''
     end
   else
     result = 1
@@ -55,10 +54,10 @@ local update_statusline = function(default, action)
   if result == 0 then
     -- Do nothing.
   elseif result == 1 then
-    vim.api.nvim_win_set_option(0, 'statusline', default)
+    vim.wo.statusline = default
   else
     -- Apply custom statusline.
-    vim.api.nvim_win_set_option(0, 'statusline', result)
+    vim.wo.statusline = result
   end
 end
 

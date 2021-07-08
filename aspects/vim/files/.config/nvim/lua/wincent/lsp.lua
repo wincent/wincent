@@ -16,7 +16,7 @@ local on_attach = function ()
     nnoremap(lhs, rhs)
   end
 
-  vim.api.nvim_win_set_option(0, 'signcolumn', 'yes')
+  vim.wo.signcolumn = 'yes'
 end
 
 lsp.init = function ()

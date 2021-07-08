@@ -20,12 +20,12 @@ local cycle_numbering = function()
     relativenumber, number = false, true
   end
 
-  vim.api.nvim_win_set_option(0, 'relativenumber', relativenumber)
-  vim.api.nvim_win_set_option(0, 'number', number)
+  vim.wo.relativenumber = relativenumber
+  vim.wo.number = number
 
   -- Leave a mark so that other functions can check to see if the user has
   -- overridden the settings for this window.
-  vim.api.nvim_win_set_var(0, number_flag, true)
+  vim.w[number_flag] = true
 end
 
 leader.cycle_numbering = cycle_numbering
