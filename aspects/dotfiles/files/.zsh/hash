@@ -5,3 +5,5 @@
 # test -d $SOME_DIR && hash -d $SHORTCUT=$SOME_DIR
 
 HOSTNAME=$(hostname -s)
+
+test -e $HOME/.zsh/hash.private && source $HOME/.zsh/hash.private
