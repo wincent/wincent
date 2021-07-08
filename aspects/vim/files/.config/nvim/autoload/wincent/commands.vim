@@ -1,46 +1,10 @@
-function! wincent#commands#find(args) abort
-    set errorformat+=%f
-
-    " TODO: make this async
-    cexpr system('find ' . a:args)
-endfunction
-
-function! s:Open(app, file)
+function! s:open(app, file)
   if !executable('open')
     echoerr 'No "open" executable'
     return
   endif
 
   silent execute '!open -a ' . shellescape(a:app) . ' ' . shellescape(a:file)
-endfunction
-
-function! wincent#commands#lint() abort
-  " TODO: make this smart about which compiler plug-in to used based on location
-
-  " Make subsequent `:make` work (eg. invoked by Dispatch's `m<CR>` mapping).
-  compiler eslint
-
-  " Do an immediate Make.
-  Make
-endfunction
-
-function! wincent#commands#typecheck() abort
-  " Make subsequent `:make` work (eg. invoked by Dispatch's `m<CR>` mapping).
-  compiler tsc
-
-  " Do an immediate Make.
-  Make
-endfunction
-
-function! wincent#commands#vim() abort
-  let l:filename=expand('%:p')
-  if empty(l:filename)
-    echoerr 'No current file'
-    return
-  endif
-
-  let l:url=shellescape(l:filename)
-  call system('open vim://' . l:url)
 endfunction
 
 " Map of .git directories to GitHub user-or-org/project identifiers.
@@ -96,11 +60,51 @@ function! s:open_on_github(file, range) abort
   endif
 endfunction
 
-function! s:preview(file) abort
+function! s:marked(file) abort
   " TODO: remove this hack once new version of Marked 2 is out:
   " http://support.markedapp.com/discussions/questions/8670
   silent! execute '!xattr -d com.apple.quarantine ' . shellescape(a:file)
-  call s:Open('Marked 2.app', a:file)
+  call s:open('Marked 2.app', a:file)
+endfunction
+
+function! wincent#commands#find(args) abort
+    set errorformat+=%f
+
+    " TODO: make this async
+    cexpr system('find ' . a:args)
+endfunction
+
+function! wincent#commands#glow(...) abort
+  if !executable('glow')
+    echoerr 'No glow executable found'
+    return
+  end
+  if a:0 == 0
+    let l:file=expand('%')
+  else
+    let l:file=a:000[0]
+  endif
+  execute 'Spawn glow --local --pager ' . l:file
+endfunction
+
+function! wincent#commands#lint() abort
+  " TODO: make this smart about which compiler plug-in to used based on location
+
+  " Make subsequent `:make` work (eg. invoked by Dispatch's `m<CR>` mapping).
+  compiler eslint
+
+  " Do an immediate Make.
+  Make
+endfunction
+
+function! wincent#commands#marked(...) abort
+  if a:0 == 0
+    call s:marked(expand('%'))
+  else
+    for l:file in a:000
+      call s:marked(l:file)
+    endfor
+  endif
 endfunction
 
 function! wincent#commands#open_on_github(...) abort range
@@ -134,11 +138,30 @@ function! wincent#commands#open_on_github(...) abort range
 endfunction
 
 function! wincent#commands#preview(...) abort
-  if a:0 == 0
-    call s:preview(expand('%'))
+  if executable('open')
+    call call('wincent#commands#marked', a:000)
+  elseif executable('glow')
+    call call('wincent#commands#glow', a:000)
   else
-    for l:file in a:000
-      call s:preview(l:file)
-    endfor
+    echoerr 'No "open" or "glow" executable found'
   endif
+endfunction
+
+function! wincent#commands#typecheck() abort
+  " Make subsequent `:make` work (eg. invoked by Dispatch's `m<CR>` mapping).
+  compiler tsc
+
+  " Do an immediate Make.
+  Make
+endfunction
+
+function! wincent#commands#vim() abort
+  let l:filename=expand('%:p')
+  if empty(l:filename)
+    echoerr 'No current file'
+    return
+  endif
+
+  let l:url=shellescape(l:filename)
+  call system('open vim://' . l:url)
 endfunction

@@ -10,4 +10,7 @@ command! Typecheck call wincent#commands#typecheck()
 
 command! Vim call wincent#commands#vim()
 
+" Markdown previews.
+command! -nargs=? -complete=file Glow call wincent#commands#glow(<f-args>)
+command! -nargs=* -complete=file Marked call wincent#commands#marked(<f-args>)
 command! -nargs=* -complete=file Preview call wincent#commands#preview(<f-args>)
