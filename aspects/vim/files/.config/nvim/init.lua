@@ -170,13 +170,13 @@ vim.g.LoupeCenterResults = 0
 
 -- And it turns out that if we're going to turn off the centering, we don't even
 -- need the mappings; see: https://github.com/wincent/loupe/pull/15
-vim.cmd('nmap <Nop><F1> <Plug>(LoupeN)')
-vim.cmd('nmap <Nop><F2> <Plug>(Loupen)')
+vim.api.nvim_set_keymap('n', '<Nop><F1>', '<Plug>(LoupeN)', {})
+vim.api.nvim_set_keymap('n', '<Nop><F2>', '<Plug>(Loupen)', {})
 
 -- Stop Ferret from binding <Leader>l, which we want to keep for interactions
 -- with the language server client (the rare-ish times I want :Lack, I can just
 -- type it out).
-vim.cmd('map <Nop><F3> <Plug>(FerretLack)')
+vim.api.nvim_set_keymap('', '<Nop><F3>', '<Plug>(FerretLack)', {})
 
 -- Prevent tcomment from making a zillion mappings (we just want the operator).
 vim.g.tcomment_mapleader1 = ''
@@ -201,13 +201,13 @@ if vim.fn.filereadable('/usr/local/bin/python3') == 1 then
   vim.g.python3_host_prog = '/usr/local/bin/python3'
 end
 
--- Normally <leader>s (mnemonic: "[s]earch");
--- use <leader>f instead (mnemonic: "[f]ind")
-vim.cmd('nmap <leader>f <Plug>(FerretAckWord)')
+-- Normally <Leader>s (mnemonic: "[s]earch");
+-- use <Leader>f instead (mnemonic: "[f]ind")
+vim.api.nvim_set_keymap('n', '<Leader>f', '<Plug>(FerretAckWord)', {})
 
--- Normally <leader>r (mnemonic: "[r]eplace");
--- use <leader>s (mnemonic: "[s]ubstitute") instead.
-vim.cmd('nmap <leader>s <Plug>(FerretAcks)')
+-- Normally <Leader>r (mnemonic: "[r]eplace");
+-- use <Leader>s (mnemonic: "[s]ubstitute") instead.
+vim.api.nvim_set_keymap('n', '<Leader>s', '<Plug>(FerretAcks)', {})
 
 -- Allow for per-machine overrides in ~/.config/nvim/host/$HOSTNAME.vim.
 local hostfile =
