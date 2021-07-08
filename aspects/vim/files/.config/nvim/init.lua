@@ -75,11 +75,6 @@ else
   -- - n: store in ~/.config/nvim/
   --
   vim.opt.shada = "'0,<0,f0,n~/.config/nvim/shada"
-  if vim.fn.empty(vim.fn.glob('~/.config/nvim/shada')) == 0 then
-    if vim.fn.filereadable(vim.fn.expand('~/.config/nvim/shada')) == 0 then
-      vim.cmd('echoerr "warning: ~/.config/nvim/shada exists but is not readable"')
-    end
-  end
 end
 
 vim.opt.shell         = 'sh'                    -- shell to use for `!`, `:!`, `system()` etc.
