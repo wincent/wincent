@@ -23,10 +23,12 @@ vim.opt.directory      = config .. '/nvim/swap//'          -- keep swap files ou
 vim.opt.directory      = vim.opt.directory + '.'           -- fallback
 vim.opt.emoji          = false                             -- don't assume all emoji are double width
 vim.opt.expandtab      = true                              -- always use spaces instead of tabs
-vim.opt.fillchars      = 'diff:∙'                          -- BULLET OPERATOR (U+2219, UTF-8: E2 88 99)
-vim.opt.fillchars      = vim.opt.fillchars + 'eob: '       -- NO-BREAK SPACE (U+00A0, UTF-8: C2 A0) to suppress ~ at EndOfBuffer
-vim.opt.fillchars      = vim.opt.fillchars + 'fold:·'      -- MIDDLE DOT (U+00B7, UTF-8: C2 B7)
-vim.opt.fillchars      = vim.opt.fillchars + 'vert:┃'      -- BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
+vim.opt.fillchars      = {
+  diff                 = '∙',                              -- BULLET OPERATOR (U+2219, UTF-8: E2 88 99)
+  eob                  = ' ',                              -- NO-BREAK SPACE (U+00A0, UTF-8: C2 A0) to suppress ~ at EndOfBuffer
+  fold                 = '·',                              -- MIDDLE DOT (U+00B7, UTF-8: C2 B7)
+  vert                 = '┃',                              -- BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
+}
 vim.opt.foldlevelstart = 99                                -- start unfolded
 vim.opt.foldmethod     = 'indent'                          -- not as cool as syntax, but faster
 vim.opt.foldtext       = 'wincent#settings#foldtext()'
@@ -40,11 +42,13 @@ vim.opt.laststatus     = 2                                 -- always show status
 vim.opt.lazyredraw     = true                              -- don't bother updating screen during macro playback
 vim.opt.linebreak      = true                              -- wrap long lines at characters in 'breakat'
 vim.opt.list           = true                              -- show whitespace
-vim.opt.listchars      = 'nbsp:⦸'                          -- CIRCLED REVERSE SOLIDUS (U+29B8, UTF-8: E2 A6 B8)
-vim.opt.listchars      = vim.opt.listchars + 'extends:»'   -- RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB, UTF-8: C2 BB)
-vim.opt.listchars      = vim.opt.listchars + 'precedes:«'  -- LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB, UTF-8: C2 AB)
-vim.opt.listchars      = vim.opt.listchars + 'tab:▷┅'      -- WHITE RIGHT-POINTING TRIANGLE (U+25B7, UTF-8: E2 96 B7) + BOX DRAWINGS HEAVY TRIPLE DASH HORIZONTAL (U+2505, UTF-8: E2 94 85)
-vim.opt.listchars      = vim.opt.listchars + 'trail:•'     -- BULLET (U+2022, UTF-8: E2 80 A2)
+vim.opt.listchars      = {
+  nbsp                 = '⦸',                              -- CIRCLED REVERSE SOLIDUS (U+29B8, UTF-8: E2 A6 B8)
+  extends              = '»',                              -- RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB, UTF-8: C2 BB)
+  precedes             = '«',                              -- LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB, UTF-8: C2 AB)
+  tab                  = '▷┅',                             -- WHITE RIGHT-POINTING TRIANGLE (U+25B7, UTF-8: E2 96 B7) + BOX DRAWINGS HEAVY TRIPLE DASH HORIZONTAL (U+2505, UTF-8: E2 94 85)
+  trail                = '•',                              -- BULLET (U+2022, UTF-8: E2 80 A2)
+}
 
 if vi then
   vim.opt.loadplugins = false
