@@ -1,0 +1,1 @@
+call wincent#functions#plaintext()

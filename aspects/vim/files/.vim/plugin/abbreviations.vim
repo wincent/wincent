@@ -1,1 +1,1 @@
-../../.config/nvim/plugin/abbreviations.vim
+cabbrev sord sort

@@ -1,1 +1,3 @@
-../../.config/nvim/plugin/tabline.vim
+if has('windows')
+  set tabline=%!wincent#tabline#line()
+endif
