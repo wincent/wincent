@@ -215,3 +215,6 @@
 	branch = main
 	path = aspects/vim/files/.config/nvim/pack/bundle/opt/lspsaga.nvim
 	url = https://github.com/glepnir/lspsaga.nvim.git
+[submodule "LuaSnip"]
+	path = aspects/vim/files/.config/nvim/pack/bundle/opt/LuaSnip
+	url = https://github.com/L3MON4D3/LuaSnip.git

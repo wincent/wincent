@@ -4,7 +4,7 @@ local ok = pcall(function ()
     autocomplete = true;
     debug = false;
     min_length = 1;
-    preselect = 'enable';
+    preselect = 'always';
     throttle_time = 80;
     source_timeout = 200;
     incomplete_delay = 400;
@@ -24,11 +24,12 @@ local ok = pcall(function ()
       buffer = true;
       calc = true;
       emoji = true;
+      luasnip = true;
       nvim_lsp = true;
       nvim_lua = true;
       path = true;
-      ultisnips = true;
-      vsnip = true;
+      ultisnips = false;
+      vsnip = false;
     };
   }
 end)

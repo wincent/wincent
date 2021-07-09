@@ -233,6 +233,7 @@ end
 -------------------------------------------------------------------------------
 
 if vim.o.loadplugins then
+  vim.cmd('packadd! LuaSnip')
   vim.cmd('packadd! applescript.vim')
   vim.cmd('packadd! base16-vim')
   vim.cmd('packadd! command-t')
@@ -250,7 +251,6 @@ if vim.o.loadplugins then
   vim.cmd('packadd! tcomment_vim')
   vim.cmd('packadd! terminus')
   vim.cmd('packadd! typescript-vim')
-  vim.cmd('packadd! ultisnips')
   vim.cmd('packadd! vcs-jump')
   vim.cmd('packadd! vim-ansible-yaml')
   vim.cmd('packadd! vim-clipper')
