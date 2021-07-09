@@ -4,15 +4,13 @@ let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
 " Prevent UltiSnips from removing our carefully-crafted mappings.
 let g:UltiSnipsMappingsToIgnore = ['autocomplete']
 
-if has('autocmd')
-  augroup WincentAutocomplete
-    autocmd!
-    autocmd! User UltiSnipsEnterFirstSnippet
-    autocmd User UltiSnipsEnterFirstSnippet call wincent#autocomplete#setup_mappings()
-    autocmd! User UltiSnipsExitLastSnippet
-    autocmd User UltiSnipsExitLastSnippet call wincent#autocomplete#teardown_mappings()
-  augroup END
-endif
+augroup WincentAutocomplete
+  autocmd!
+  autocmd! User UltiSnipsEnterFirstSnippet
+  autocmd User UltiSnipsEnterFirstSnippet call wincent#autocomplete#setup_mappings()
+  autocmd! User UltiSnipsExitLastSnippet
+  autocmd User UltiSnipsExitLastSnippet call wincent#autocomplete#teardown_mappings()
+augroup END
 
 " Additional UltiSnips config.
 let g:UltiSnipsSnippetDirectories = [
@@ -20,11 +18,9 @@ let g:UltiSnipsSnippetDirectories = [
       \   'ultisnips-private'
       \ ]
 
-if has('nvim')
-  inoremap <expr><C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
-  inoremap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
-  inoremap <expr><C-k> pumvisible() ? "\<C-p>" : "\<C-j>"
-  inoremap <expr><Up> pumvisible() ? "\<C-p>" : "\<Up>"
-  inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-  inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-endif
+inoremap <expr><C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
+inoremap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
+inoremap <expr><C-k> pumvisible() ? "\<C-p>" : "\<C-j>"
+inoremap <expr><Up> pumvisible() ? "\<C-p>" : "\<Up>"
+inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"

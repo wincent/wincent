@@ -152,7 +152,7 @@ end
 local mkview = function()
   if should_mkview() then
     local success, err = pcall(function()
-      if vim.fn.exists('*haslocaldir') == 1 and vim.fn.haslocaldir() == 1 then
+      if vim.fn.haslocaldir() == 1 then
         -- We never want to save an :lcd command, so hack around it...
         vim.cmd('cd -')
         vim.cmd('mkview')

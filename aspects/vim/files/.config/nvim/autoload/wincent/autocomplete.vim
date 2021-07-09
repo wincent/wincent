@@ -68,27 +68,13 @@ function! wincent#autocomplete#expand_or_jump(direction) abort
   return ''
 endfunction
 
-if exists('*shiftwidth')
-  function! s:ShiftWidth()
-    if &softtabstop <= 0
-      return shiftwidth()
-    else
-      return &softtabstop
-    endif
-  endfunction
-else
-  function! s:ShiftWidth()
-    if &softtabstop <= 0
-      if &shiftwidth == 0
-        return &tabstop
-      else
-        return &shiftwidth
-      endif
-    else
-      return &softtabstop
-    endif
-  endfunction
-endif
+function! s:ShiftWidth()
+  if &softtabstop <= 0
+    return shiftwidth()
+  else
+    return &softtabstop
+  endif
+endfunction
 
 " Use <Tab> for leading indent (when 'noexpandtab'), spaces for everything else
 " (even when 'noexpandtab').

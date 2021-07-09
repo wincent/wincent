@@ -1,17 +1,13 @@
 " Turn on spell-checking.
 function! wincent#functions#spell() abort
-  if has('syntax')
-    setlocal spell
-    setlocal spellfile=~/.config/nvim/spell/en.utf-8.add
-    setlocal spelllang=en,es
-  endif
+  setlocal spell
+  setlocal spellfile=~/.config/nvim/spell/en.utf-8.add
+  setlocal spelllang=en,es
 endfunction
 
 " Switch to plaintext mode with: call wincent#functions#plaintext()
 function! wincent#functions#plaintext() abort
-  if has('conceal')
-    setlocal concealcursor=nc
-  endif
+  setlocal concealcursor=nc
   setlocal nolist
   setlocal textwidth=0
   setlocal wrap
@@ -42,12 +38,10 @@ function! wincent#functions#plaintext() abort
   " Ideally would keep 'list' set, and restrict 'listchars' to just show
   " whitespace errors, but 'listchars' is global and I don't want to go through
   " the hassle of saving and restoring.
-  if has('autocmd')
-    autocmd BufWinEnter <buffer> match Error /\s\+$/
-    autocmd InsertEnter <buffer> match Error /\s\+\%#\@<!$/
-    autocmd InsertLeave <buffer> match Error /\s\+$/
-    autocmd BufWinLeave <buffer> call clearmatches()
-  endif
+  autocmd BufWinEnter <buffer> match Error /\s\+$/
+  autocmd InsertEnter <buffer> match Error /\s\+\%#\@<!$/
+  autocmd InsertLeave <buffer> match Error /\s\+$/
+  autocmd BufWinLeave <buffer> call clearmatches()
 endfunction
 
 let g:html_font=['Source Code Pro', 'Consolas', 'Monaco']

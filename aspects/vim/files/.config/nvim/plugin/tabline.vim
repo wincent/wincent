@@ -1,3 +1,1 @@
-if has('windows')
-  set tabline=%!wincent#tabline#line()
-endif
+set tabline=%!wincent#tabline#line()

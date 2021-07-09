@@ -1,7 +1,3 @@
-if !has('nvim')
-  finish
-end
-
 function! s:SetUpLoupeHighlight()
   execute 'highlight! QuickFixLine ' . luaeval("require'wincent.pinnacle'.extract_highlight('PmenuSel')")
 

@@ -1,5 +1,3 @@
-if has('folding')
-  setlocal nofoldenable
-endif
+setlocal nofoldenable
 
 call wincent#functions#spell()

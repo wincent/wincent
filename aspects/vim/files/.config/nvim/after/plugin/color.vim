@@ -1,7 +1,3 @@
-if !has('nvim')
-  finish
-endif
-
 function s:RemoveBg(group)
   let l:highlight=filter(luaeval("require'wincent.pinnacle'.dump(_A)", a:group), 'v:key != "bg"')
   execute 'highlight! clear ' . a:group
@@ -9,10 +5,6 @@ function s:RemoveBg(group)
 endfunction
 
 function s:CheckColorScheme()
-  if !has('termguicolors')
-    let g:base16colorspace=256
-  endif
-
   let s:config_file = expand('~/.zsh/.base16')
 
   if filereadable(s:config_file)
@@ -54,8 +46,6 @@ function s:CheckColorScheme()
         \ 'ctermfg=' . s:conceal_term_fg
         \ 'guifg=' . s:conceal_gui_fg
 
-  " Sync with corresponding non-nvim 'highlight' settings in
-  " ~/.vim/plugin/settings.vim:
   highlight clear NonText
   highlight link NonText Conceal
 
@@ -65,10 +55,8 @@ function s:CheckColorScheme()
   highlight clear Pmenu
   highlight link Pmenu Visual
 
-  if exists('+pumblend')
-    " See :help 'pb'.
-    highlight PmenuSel blend=0
-  endif
+  " See :help 'pb'.
+  highlight PmenuSel blend=0
 
   highlight clear DiffDelete
   highlight link DiffDelete Conceal
@@ -99,12 +87,10 @@ function s:CheckColorScheme()
 endfunction
 
 if v:progname !=# 'vi'
-  if has('autocmd')
-    augroup WincentAutocolor
-      autocmd!
-      autocmd FocusGained * call s:CheckColorScheme()
-    augroup END
-  endif
+  augroup WincentAutocolor
+    autocmd!
+    autocmd FocusGained * call s:CheckColorScheme()
+  augroup END
 
   call s:CheckColorScheme()
 endif

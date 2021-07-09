@@ -289,9 +289,7 @@ function! wincent#autocmds#editorconfig(file) abort
 endfunction
 
 function! wincent#autocmds#format(motion) abort
-  if has('ex_extra')
-    let l:v=operator#user#visual_command_from_wise_name(a:motion)
-    silent execute 'normal!' '`[' . l:v . '`]gq'
-    '[,']retab!
-  endif
+  let l:v=operator#user#visual_command_from_wise_name(a:motion)
+  silent execute 'normal!' '`[' . l:v . '`]gq'
+  '[,']retab!
 endfunction

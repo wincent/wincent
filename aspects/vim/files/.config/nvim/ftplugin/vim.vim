@@ -1,3 +1,1 @@
-if has('conceal')
-  setlocal concealcursor=nc
-endif
+setlocal concealcursor=nc

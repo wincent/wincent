@@ -1,7 +1,3 @@
-if !has('nvim')
-  finish
-endif
-
 lua require'wincent.lsp'.init()
 
 sign define LspDiagnosticsSignError text=✖

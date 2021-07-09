@@ -1,3 +1,1 @@
-  if has('statusline')
-    execute 'setlocal statusline=\ \ ' . substitute(bufname('%'), ' ', '\\ ', 'g')
-  endif
+  execute 'setlocal statusline=\ \ ' . substitute(bufname('%'), ' ', '\\ ', 'g')
