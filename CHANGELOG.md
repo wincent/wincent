@@ -1,6 +1,14 @@
 # Changelog
 
-## 2018-12-18
+## 2021-07-08
+
+- [Vim] Added `:Glow` command to show a Markdown preview in Glow.
+
+## 2021-07-07
+
+- [Vim] Ported Neovim's `init.vim` to `init.lua`.
+
+## 2021-06-24
 
 - Switched default color scheme to "bright".
 
