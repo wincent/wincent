@@ -79,12 +79,19 @@ function! wincent#commands#glow(...) abort
     echoerr 'No glow executable found'
     return
   end
-  if a:0 == 0
+  if a:0 == 0 || empty(a:000[0])
     let l:file=expand('%')
   else
     let l:file=a:000[0]
   endif
-  execute 'Spawn glow --local --pager ' . l:file
+  if !empty(l:file)
+    let l:file=shellescape(l:file)
+  endif
+
+  " Make sure LESS doesn't include the problematic `F` option, which
+  " causes the pager to exit immediately if output fits on less than one
+  " screen.
+  execute 'Spawn env LESS="-iMRX" glow --local --pager ' . l:file
 endfunction
 
 function! wincent#commands#lint() abort
