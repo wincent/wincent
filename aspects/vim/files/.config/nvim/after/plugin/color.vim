@@ -92,5 +92,9 @@ if v:progname !=# 'vi'
     autocmd FocusGained * call s:CheckColorScheme()
   augroup END
 
-  call s:CheckColorScheme()
+  if !exists('$TMUX')
+    " In tmux we're going to get a `FocusGained` event on launch, but not when
+    " outside of it.
+    call s:CheckColorScheme()
+  endif
 endif
