@@ -5,28 +5,11 @@ if has('autocmd')
     augroup WincentAutocmds
       autocmd!
 
-      autocmd VimResized * execute "normal! \<c-w>="
-
-      " Disable paste mode on leaving insert mode.
-      autocmd InsertLeave * set nopaste
-
-      if has('nvim')
-        autocmd BufEnter * lua require'wincent.autocmds'.buf_enter()
-        autocmd BufLeave ?* lua require'wincent.autocmds'.buf_leave()
-        autocmd BufWinEnter ?* lua require'wincent.autocmds'.buf_win_enter()
-        autocmd BufWritePost ?* lua require'wincent.autocmds'.buf_write_post()
-        autocmd FocusGained * lua require'wincent.autocmds'.focus_gained()
-        autocmd FocusLost * lua require'wincent.autocmds'.focus_lost()
-        autocmd InsertEnter * lua require'wincent.autocmds'.insert_enter()
-        autocmd InsertLeave * lua require'wincent.autocmds'.insert_leave()
-        autocmd VimEnter * lua require'wincent.autocmds'.vim_enter()
-        autocmd WinEnter * lua require'wincent.autocmds'.win_enter()
-        autocmd WinLeave * lua require'wincent.autocmds'.win_leave()
-      endif
-
-      autocmd BufWritePost */spell/*.add silent! :mkspell! %
-      autocmd BufWritePost * call wincent#autocmds#encrypt(expand('<afile>:p'))
       autocmd BufFilePost,BufNewFile,BufReadPost * call wincent#autocmds#apply_overrides()
+      autocmd BufWritePost * call wincent#autocmds#encrypt(expand('<afile>:p'))
+      autocmd BufWritePost */spell/*.add silent! :mkspell! %
+      autocmd InsertLeave * set nopaste
+      autocmd VimResized * execute "normal! \<c-w>="
 
       if exists('##TextYankPost')
         autocmd TextYankPost * silent! lua vim.highlight.on_yank {higroup='Substitute', on_visual=false, timeout=200}

@@ -107,7 +107,7 @@ if &loadplugins
     packadd! vim-textobj-user
     packadd! vim-zsh
   else
-    source $HOME/.config/nvim/pack/bundle/opt/vim-pathogen/autoload/pathogen.vim
+    source $HOME/.vim/pack/bundle/opt/vim-pathogen/autoload/pathogen.vim
     call pathogen#infect('pack/bundle/opt/{}')
   endif
 endif
@@ -121,7 +121,7 @@ filetype indent plugin on
 syntax on
 
 " After this file is sourced, plugin code will be evaluated.
-" See ~/.config/nvim/after for files evaluated after that.
+" See ~/.vim/after for files evaluated after that.
 " See `:scriptnames` for a list of all scripts, in evaluation order.
 " Launch Vim with `vim --startuptime vim.log` for profiling info.
 "

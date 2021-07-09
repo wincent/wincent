@@ -13,10 +13,5 @@ cnoremap <expr> <S-Tab> getcmdtype() == '/' \|\| getcmdtype() == '?' ? '<CR>?<C-
 
 " These rely on Option-Left and Option-Right being set to send these escape
 " sequences in the iTerm2 preferences. See `:help tcsh-style`.
-if has('nvim')
-  cnoremap <A-b> <S-Left>
-  cnoremap <A-f> <S-Right>
-else
-  cnoremap <Esc>b <S-Left>
-  cnoremap <Esc>f <S-Right>
-endif
+cnoremap <Esc>b <S-Left>
+cnoremap <Esc>f <S-Right>
