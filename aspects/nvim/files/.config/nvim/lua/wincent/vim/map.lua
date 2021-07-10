@@ -8,6 +8,7 @@ local callback_index = 0
 -- arise.
 
 local map = function (mode, lhs, rhs, opts)
+  opts = opts or {}
   local rhs_type = type(rhs)
   if rhs_type == 'function' then
     local key = '_' .. callback_index
@@ -17,7 +18,13 @@ local map = function (mode, lhs, rhs, opts)
   elseif rhs_type ~= 'string' then
     error('map(): unsupported rhs type: ' .. rhs_type)
   end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
+  local buffer = opts.buffer
+  opts.buffer = nil
+  if buffer == true then
+    vim.api.nvim_buf_set_keymap(0, mode, lhs, rhs, opts)
+  else
+    vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
+  end
 end
 
 return map
