@@ -16,7 +16,7 @@
         "ssh",
         "tampermonkey",
         "terminfo",
-        "vim",
+        "nvim",
         "cron",
         "automator",
         "automount",
@@ -38,12 +38,12 @@
         "interception",
         "terminfo",
         "node",
-        "vim"
+        "nvim"
       ],
       "variables": {}
     },
     "linux.debian": {
-      "aspects": ["meta", "apt", "dotfiles", "shell", "vim", "codespaces"],
+      "aspects": ["meta", "apt", "dotfiles", "shell", "nvim", "codespaces"],
       "variables": {}
     }
   },

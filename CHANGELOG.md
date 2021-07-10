@@ -1,5 +1,9 @@
 # Changelog
 
+## 2021-07-10
+
+- [Nvim] Renamed "vim" aspect to "nvim"; after fetching, the next `./install nvim` updates the symlink from `~/.config/nvim` to point at the new location.
+
 ## 2021-07-08
 
 - [Vim] Added `:Glow` command to show a Markdown preview in Glow.
