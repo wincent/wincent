@@ -216,5 +216,6 @@
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/lspsaga.nvim
 	url = https://github.com/glepnir/lspsaga.nvim.git
 [submodule "LuaSnip"]
+	ignore = untracked
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/LuaSnip
 	url = https://github.com/L3MON4D3/LuaSnip.git
