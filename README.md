@@ -119,7 +119,7 @@ If there are background processes, a yellow asterisk is shown:
 ## Dependencies
 
 - [tmux](https://github.com/tmux/tmux) 3.2 or later.
-- [Neovim](https://neovim.io) or [Vim](http://www.vim.org/) 8.0 or later with Ruby and Python support (although there's a reasonable amount of feature detection in order to degrade gracefully).
+- [Neovim](https://neovim.io) v0.5.0 or later.
 - Relatively recent [Zsh](http://www.zsh.org/).
 - Relatively recent [Git](http://git-scm.com/).
 - [Clipper](https://wincent.com/products/clipper) for transparent access to the local system clipboard.
@@ -158,11 +158,11 @@ git clone --recursive https://github.com/wincent/wincent.git
 - `git`: In order to clone the repo.
 - `ruby`: So that git-cipher can run (also used to build Command-T).
 - `tmux`: Just for comfort (eg. so you can see scrollback).
-- `vim`: Because the Vim aspect needs Vim (it runs `vim` to do a `:helptags` update).
+- `vim`: Because the `nvim` aspect needs Vim (it runs `vim` to do a `:helptags` update).
 
 ### Install
 
-> ⚠️ **WARNING:** There are _lots_ of different things that can be installed or configured (see [the "aspects" directory](./aspects)). Unless you want your machine to be exactly like mine — which is unlikely — you probably don't want to install _everything_. Maybe you don't even want everything in the ["dotfiles"](./aspects/dotfiles) and ["vim"](./aspects/vim) aspects. Please inspect the contents of each aspect before proceeding to install it; you may even be better off just looking at the configuration files and stealing the bits that you find interesting or useful (everything is [in the public domain](./LICENSE.md), unless otherwise indicated).
+> ⚠️ **WARNING:** There are _lots_ of different things that can be installed or configured (see [the "aspects" directory](./aspects)). Unless you want your machine to be exactly like mine — which is unlikely — you probably don't want to install _everything_. Maybe you don't even want everything in the ["dotfiles"](./aspects/dotfiles) and ["nvim"](./aspects/nvim) aspects. Please inspect the contents of each aspect before proceeding to install it; you may even be better off just looking at the configuration files and stealing the bits that you find interesting or useful (everything is [in the public domain](./LICENSE.md), unless otherwise indicated).
 
 At the time of writing, these are the aspects, which you can expect to change over time:
 
@@ -193,12 +193,12 @@ At the time of writing, these are the aspects, which you can expect to change ov
   - **meta**: Tests the configuration framework
   - **shell**: Sets the use shell to zsh
   - **terminfo**: Sets up terminfo database entries for italics and 256-color support
-  - **vim**: Configures Vim
+  - **nvim**: Configures Neovim and Vim
 
 #### Examples
 
 ```sh
-./install dotfiles vim      # Just install "dotfiles" and "vim" stuff.
+./install dotfiles nvim     # Just install "dotfiles" and "nvim" stuff.
 ./install dotfiles          # Just install "dotfiles".
 ./install dotfiles --step   # Prompt for confirmation at each step.
 ./install dotfiles --check  # Do a dry-run, showing what would be changed.
