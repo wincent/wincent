@@ -14,18 +14,26 @@ local ok = pcall(function ()
         {trig = 'lorem', dscr = 'Lorem ipsum'},
         t('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.')
       ),
-      s(
-        {trig = 'lorax', dscr = 'Lorax ipsum'},
-        t('HI, MY NAME IS DANNY DEVITO, STAR OF THE LORAX')
-      ),
     },
     javascript = {
+      -- TODO: make these smart about whether to use trailing semi or
+      -- not, based on directory (or maybe .editorconfig)
       s(
-        -- TODO: make this smart about whether to use trailing semi or not, based
-        -- on directory (or maybe .editorconfig)
         {trig = 'log', dscr = 'console.log'},
-        {t('console.log('), i(1, 'value'), t(');'), i(0)}
-      )
+        {t('console.log('), i(1, 'value'), t(');')}
+      ),
+      s(
+        -- TODO: decide whether i want regex match or req etc
+        {trig = 'require', dscr = 'require statement', --[[regTrig = true--]]},
+        {t('const '),
+        i(1, 'ModuleName'),
+        t(" = require('"),
+        d(2, function (nodes)
+          return sn(1, {i(1, nodes[1][1])})
+        end, {1}),
+        t("');"),
+      }
+      ),
     },
   }
 end)

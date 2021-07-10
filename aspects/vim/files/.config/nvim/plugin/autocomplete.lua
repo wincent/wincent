@@ -230,12 +230,12 @@ inoremap('<C-j>', 'pumvisible() ? "\\<C-n>" : "\\<C-j>"', {expr = true})
 inoremap('<C-k>', 'pumvisible() ? "\\<C-p>" : "\\<C-k>"', {expr = true})
 inoremap('<CR>', cr, {expr = true, silent = true})
 inoremap('<Down>', 'pumvisible() ? "\\<C-n>" : "\\<Down>"', {expr = true})
-inoremap('<S-Tab>', shift_tab, {expr = true, silent = true})
+imap('<S-Tab>', shift_tab, {expr = true, silent = true})
 inoremap('<Up>', 'pumvisible() ? "\\<C-p>" : "\\<Up>"', {expr = true})
 
 -- TODO: decide whether we should be duplicating most of our i-mappings as
 -- s-mappings too.
 smap('<C-e>', c_e, {expr = true, silent = true})
 smap('<CR>', cr, {expr = true, silent = true})
-snoremap('<S-Tab>', shift_tab, {expr = true, silent = true})
-snoremap('<Tab>', tab, {expr = true, silent = true})
+smap('<S-Tab>', shift_tab, {expr = true, silent = true})
+smap('<Tab>', tab, {expr = true, silent = true})
