@@ -1,11 +1,8 @@
+local wincent = require'wincent'
+
 -- "Supertab" like functionality (where tab auto-completes or jumps between
 -- insertion nodes in snippets) is based on:
 -- https://github.com/L3MON4D3/Luasnip/issues/1
-
--- TODO: move this global declaration somewhere else.
-Wincent = {
-  map_callbacks = {}
-}
 
 local callback_index = 0
 
@@ -15,8 +12,8 @@ local map = function (mode, lhs, rhs, opts)
   if rhs_type == 'function' then
     local key = '_' .. callback_index
     callback_index = callback_index + 1
-    Wincent.map_callbacks[key] = rhs
-    rhs = 'v:lua.Wincent.map_callbacks.' .. key .. '()'
+    wincent.g.map_callbacks[key] = rhs
+    rhs = 'v:lua.wincent.g.map_callbacks.' .. key .. '()'
   elseif rhs_type ~= 'string' then
     error('map(): unsupported rhs type: ' .. rhs_type)
   end
@@ -215,36 +212,34 @@ local tab = function()
   end
 end
 
--- TODO: refactor to move the generic bits of `Wincent.autocommands` somewhere else
-Wincent.autocommands = {
-  handle_complete_changed = function ()
-    if pending_completion then
-      local info = vim.fn.complete_info()
-      if info.pum_visible == 0 then
-        smart_tab({feedkeys = true})
-      end
-      pending_completion = false
+-- TODO: refactor to make this functional style
+wincent.g.autocommand_callbacks.handle_complete_changed = function ()
+  if pending_completion then
+    local info = vim.fn.complete_info()
+    if info.pum_visible == 0 then
+      smart_tab({feedkeys = true})
     end
-  end,
+    pending_completion = false
+  end
+end
 
-  handle_complete_done_pre = function ()
-    if pending_completion then
-      local info = vim.fn.complete_info()
-      if info.pum_visible == 0 then
-        smart_tab({feedkeys = true})
-      end
-      pending_completion = false
+wincent.g.autocommand_callbacks.handle_complete_done_pre = function ()
+  if pending_completion then
+    local info = vim.fn.complete_info()
+    if info.pum_visible == 0 then
+      smart_tab({feedkeys = true})
     end
-  end,
-}
+    pending_completion = false
+  end
+end
 
 -- TODO: in the end I didn't need this trick, but may still want to move this
 -- somewhere generic.
 -- local is_idle = function return vim.fn.getchar(1) ~= 0 end
 vim.cmd('augroup WincentAutocomplete')
 vim.cmd('autocmd!')
-vim.cmd('autocmd CompleteChanged * lua Wincent.autocommands.handle_complete_changed()')
-vim.cmd('autocmd CompleteDonePre * lua Wincent.autocommands.handle_complete_done_pre()')
+vim.cmd('autocmd CompleteChanged * lua wincent.g.autocommand_callbacks.handle_complete_changed()')
+vim.cmd('autocmd CompleteDonePre * lua wincent.g.autocommand_callbacks.handle_complete_done_pre()')
 vim.cmd('augroup END')
 
 -- TODO: re-assess these to see which should be noremap
