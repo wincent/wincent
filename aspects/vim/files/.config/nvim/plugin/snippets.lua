@@ -1,14 +1,14 @@
-local ok = pcall(function ()
-  local ls = require'luasnip'
-  local s = ls.s
-  local sn = ls.sn
-  local t = ls.t
-  local i = ls.i
-  local f = ls.f
-  local c = ls.c
-  local d = ls.d
+local has_luasnip, luasnip = pcall(require, 'luasnip')
+if has_luasnip then
+  local s = luasnip.s
+  local sn = luasnip.sn
+  local t = luasnip.t
+  local i = luasnip.i
+  local f = luasnip.f
+  local c = luasnip.c
+  local d = luasnip.d
 
-  ls.snippets = {
+  luasnip.snippets = {
     all = {
       s(
         {trig = 'lorem', dscr = 'Lorem ipsum'},
@@ -23,8 +23,7 @@ local ok = pcall(function ()
         {t('console.log('), i(1, 'value'), t(');')}
       ),
       s(
-        -- TODO: decide whether i want regex match or req etc
-        {trig = 'require', dscr = 'require statement', --[[regTrig = true--]]},
+        {trig = 'require', dscr = 'require statement'},
         {t('const '),
         i(1, 'ModuleName'),
         t(" = require('"),
@@ -36,8 +35,4 @@ local ok = pcall(function ()
       ),
     },
   }
-end)
-
-if not ok then
-  print('luasnip setup failed')
 end

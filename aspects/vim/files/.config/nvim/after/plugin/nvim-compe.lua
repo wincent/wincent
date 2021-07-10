@@ -1,5 +1,6 @@
-local ok = pcall(function ()
-  require'compe'.setup {
+local has_compe, compe = pcall(require, 'compe')
+if has_compe then
+  compe.setup {
     enabled = true;
     autocomplete = true;
     debug = false;
@@ -32,8 +33,4 @@ local ok = pcall(function ()
       vsnip = false;
     };
   }
-end)
-
-if not ok then
-  print('nvim-compe setup() failed')
 end
