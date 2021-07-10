@@ -1,5 +1,7 @@
 local wincent = require'wincent'
 
+local augroup = wincent.vim.augroup
+local autocmd = wincent.vim.autocmd
 local imap = wincent.vim.imap
 local inoremap = wincent.vim.inoremap
 local smap = wincent.vim.smap
@@ -191,8 +193,7 @@ local tab = function()
   end
 end
 
--- TODO: refactor to make this functional style
-wincent.g.autocommand_callbacks.handle_complete_changed = function ()
+local handle_complete_changed = function ()
   if pending_completion then
     local info = vim.fn.complete_info()
     if info.pum_visible == 0 then
@@ -202,7 +203,7 @@ wincent.g.autocommand_callbacks.handle_complete_changed = function ()
   end
 end
 
-wincent.g.autocommand_callbacks.handle_complete_done_pre = function ()
+local handle_complete_done_pre = function ()
   if pending_completion then
     local info = vim.fn.complete_info()
     if info.pum_visible == 0 then
@@ -215,13 +216,13 @@ end
 -- TODO: in the end I didn't need this trick, but may still want to move this
 -- somewhere generic.
 -- local is_idle = function return vim.fn.getchar(1) ~= 0 end
-vim.cmd('augroup WincentAutocomplete')
-vim.cmd('autocmd!')
-vim.cmd('autocmd CompleteChanged * lua wincent.g.autocommand_callbacks.handle_complete_changed()')
-vim.cmd('autocmd CompleteDonePre * lua wincent.g.autocommand_callbacks.handle_complete_done_pre()')
-vim.cmd('augroup END')
 
--- TODO: re-assess these to see which should be noremap
+augroup('WincentAutocomplete', function ()
+  autocmd('CompleteChanged', '*', handle_complete_changed)
+  autocmd('CompleteDonePre', '*', handle_complete_done_pre)
+end)
+
+-- TODO: re-assess these to see which should be noremap (probably none of them)
 imap('<C-e>', c_e, {expr = true, silent = true})
 imap('<C-y>', c_y, {expr = true, silent = true})
 imap('<Tab>', tab, {expr = true, silent = true})

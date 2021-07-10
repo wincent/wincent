@@ -11,10 +11,7 @@
 -- access via `v:lua`.
 --
 wincent = {
-  g = {
-    autocommand_callbacks = {},
-    map_callbacks = {},
-  }
+  g = {},
 }
 
 return wincent.g
