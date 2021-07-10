@@ -2,6 +2,42 @@
 -- insertion nodes in snippets) is based on:
 -- https://github.com/L3MON4D3/Luasnip/issues/1
 
+-- TODO: move this global declaration somewhere else.
+Wincent = {
+  map_callbacks = {}
+}
+
+local callback_index = 0
+
+-- TODO: For completeness, should have unmap() too.
+local map = function (mode, lhs, rhs, opts)
+  local rhs_type = type(rhs)
+  if rhs_type == 'function' then
+    local key = '_' .. callback_index
+    callback_index = callback_index + 1
+    Wincent.map_callbacks[key] = rhs
+    rhs = 'v:lua.Wincent.map_callbacks.' .. key .. '()'
+  elseif rhs_type ~= 'string' then
+    error('map(): unsupported rhs type: ' .. rhs_type)
+  end
+  vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
+end
+
+-- Shallow table merge, merges `source` into `dest`, mutating it.
+--
+-- Returns the modified `dest` table.
+local merge = function (dest, source)
+  for k, v in pairs(source) do
+    dest[k] = v
+  end
+  return dest
+end
+
+local imap = function (lhs, rhs, opts) map('i', lhs, rhs, opts) end
+local inoremap = function (lhs, rhs, opts) map('i', lhs, rhs, merge(opts, {noremap = true})) end
+local smap = function (lhs, rhs, opts) map('s', lhs, rhs, opts) end
+local snoremap = function (lhs, rhs, opts) map('s', lhs, rhs, merge(opts, {noremap = true})) end
+
 -- Convenience wrapper around `nvim_replace_termcodes()`.
 --
 -- Converts a string representation of a mapping's RHS (eg. "<Tab>") into an
@@ -114,16 +150,21 @@ end
 --    - Inserts spaces everywhere else (for alignment).
 --
 -- For other buffers (ie. where 'expandtab' applies), we use spaces everywhere.
-local smart_tab = function()
+--
+-- If `feedkeys` is true, then the resulting key presses will be sent via
+-- `nvim_feedkeys()`, otherwise they will just be returned as a string.
+local smart_tab = function(opts)
+  local feedkeys = (opts or {}).feedkeys
+  local keys = nil
   if vim.o.expandtab then
-    return rhs('<Tab>') -- Neovim will insert spaces.
+    keys = '<Tab>' -- Neovim will insert spaces.
   else
     local col = vim.fn.col('.')
     local line = vim.api.nvim_get_current_line()
     local prefix = line:sub(1, col)
     local in_leading_indent = prefix:find('^%s*$')
     if in_leading_indent then
-      return rhs('<Tab>') -- Neovim will insert a hard tab.
+      keys = '<Tab>' -- Neovim will insert a hard tab.
     else
       -- virtcol() returns last column occupied, so if cursor is on a
       -- tab it will report `actual column + tabstop` instead of `actual
@@ -135,9 +176,25 @@ local smart_tab = function()
       local current_column = vim.fn.virtcol({vim.fn.line('.'), previous_column}) + 1
       local remainder = (current_column - 1) % sw
       local move = remainder == 0 and sw or sw - remainder
-      return (' '):rep(move)
+      keys = (' '):rep(move)
     end
   end
+  if feedkeys then
+    vim.api.nvim_feedkeys(rhs(keys), 'nt', true)
+  else
+    return rhs(keys)
+  end
+end
+
+local pending_completion = false
+
+local complete = function()
+  -- We want to send smart_tab() here if there is no completion available,
+  -- but `compe#complete()` is async, so we don't know yet. Instead, we
+  -- set a flag that we'll be checking from our `CompleteChanged` and
+  -- `CompleteDonePre` autocommands later on.
+  pending_completion = true
+  vim.fn['compe#complete']()
 end
 
 local tab = function()
@@ -153,47 +210,42 @@ local tab = function()
   elseif in_whitespace() then
     return smart_tab()
   else
-    -- Would like to send smart_tab() here if there is no completion available,
-    -- but `compe#complete()` is async, so we can't wait for it...
-    return vim.fn['compe#complete']()
+    complete()
+    return rhs('<Ignore>')
   end
 end
 
+-- TODO: refactor to move the generic bits of `Wincent.autocommands` somewhere else
+Wincent.autocommands = {
+  handle_complete_changed = function ()
+    if pending_completion then
+      local info = vim.fn.complete_info()
+      if info.pum_visible == 0 then
+        smart_tab({feedkeys = true})
+      end
+      pending_completion = false
+    end
+  end,
 
-Wincent = {
-  map_callbacks = {}
+  handle_complete_done_pre = function ()
+    if pending_completion then
+      local info = vim.fn.complete_info()
+      if info.pum_visible == 0 then
+        smart_tab({feedkeys = true})
+      end
+      pending_completion = false
+    end
+  end,
 }
 
-local callback_index = 0
-
--- TODO: For completeness, should have unmap() too.
-local map = function (mode, lhs, rhs, opts)
-  local rhs_type = type(rhs)
-  if rhs_type == 'function' then
-    local key = '_' .. callback_index
-    callback_index = callback_index + 1
-    Wincent.map_callbacks[key] = rhs
-    rhs = 'v:lua.Wincent.map_callbacks.' .. key .. '()'
-  elseif rhs_type ~= 'string' then
-    error('map(): unsupported rhs type: ' .. rhs_type)
-  end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
-end
-
--- Shallow table merge, merges `source` into `dest`, mutating it.
---
--- Returns the modified `dest` table.
-local merge = function (dest, source)
-  for k, v in pairs(source) do
-    dest[k] = v
-  end
-  return dest
-end
-
-local imap = function (lhs, rhs, opts) map('i', lhs, rhs, opts) end
-local inoremap = function (lhs, rhs, opts) map('i', lhs, rhs, merge(opts, {noremap = true})) end
-local smap = function (lhs, rhs, opts) map('s', lhs, rhs, opts) end
-local snoremap = function (lhs, rhs, opts) map('s', lhs, rhs, merge(opts, {noremap = true})) end
+-- TODO: in the end I didn't need this trick, but may still want to move this
+-- somewhere generic.
+-- local is_idle = function return vim.fn.getchar(1) ~= 0 end
+vim.cmd('augroup WincentAutocomplete')
+vim.cmd('autocmd!')
+vim.cmd('autocmd CompleteChanged * lua Wincent.autocommands.handle_complete_changed()')
+vim.cmd('autocmd CompleteDonePre * lua Wincent.autocommands.handle_complete_done_pre()')
+vim.cmd('augroup END')
 
 -- TODO: re-assess these to see which should be noremap
 imap('<C-e>', c_e, {expr = true, silent = true})
@@ -207,6 +259,8 @@ inoremap('<Down>', 'pumvisible() ? "\\<C-n>" : "\\<Down>"', {expr = true})
 inoremap('<S-Tab>', shift_tab, {expr = true, silent = true})
 inoremap('<Up>', 'pumvisible() ? "\\<C-p>" : "\\<Up>"', {expr = true})
 
+-- TODO: decide whether we should be duplicating most of our i-mappings as
+-- s-mappings too.
 smap('<C-e>', c_e, {expr = true, silent = true})
 smap('<CR>', cr, {expr = true, silent = true})
 snoremap('<S-Tab>', shift_tab, {expr = true, silent = true})
