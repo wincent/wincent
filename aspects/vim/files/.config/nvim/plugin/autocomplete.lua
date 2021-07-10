@@ -1,39 +1,13 @@
 local wincent = require'wincent'
 
+local imap = wincent.vim.imap
+local inoremap = wincent.vim.inoremap
+local smap = wincent.vim.smap
+local snoremap = wincent.vim.snoremap
+
 -- "Supertab" like functionality (where tab auto-completes or jumps between
 -- insertion nodes in snippets) is based on:
 -- https://github.com/L3MON4D3/Luasnip/issues/1
-
-local callback_index = 0
-
--- TODO: For completeness, should have unmap() too.
-local map = function (mode, lhs, rhs, opts)
-  local rhs_type = type(rhs)
-  if rhs_type == 'function' then
-    local key = '_' .. callback_index
-    callback_index = callback_index + 1
-    wincent.g.map_callbacks[key] = rhs
-    rhs = 'v:lua.wincent.g.map_callbacks.' .. key .. '()'
-  elseif rhs_type ~= 'string' then
-    error('map(): unsupported rhs type: ' .. rhs_type)
-  end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
-end
-
--- Shallow table merge, merges `source` into `dest`, mutating it.
---
--- Returns the modified `dest` table.
-local merge = function (dest, source)
-  for k, v in pairs(source) do
-    dest[k] = v
-  end
-  return dest
-end
-
-local imap = function (lhs, rhs, opts) map('i', lhs, rhs, opts) end
-local inoremap = function (lhs, rhs, opts) map('i', lhs, rhs, merge(opts, {noremap = true})) end
-local smap = function (lhs, rhs, opts) map('s', lhs, rhs, opts) end
-local snoremap = function (lhs, rhs, opts) map('s', lhs, rhs, merge(opts, {noremap = true})) end
 
 -- Convenience wrapper around `nvim_replace_termcodes()`.
 --

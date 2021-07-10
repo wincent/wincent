@@ -1,5 +1,6 @@
 local lsp = {}
 
+-- TODO: replace with other map functions
 local nnoremap = function (lhs, rhs)
   vim.api.nvim_buf_set_keymap(0, 'n', lhs, rhs, {noremap = true, silent = true})
 end
