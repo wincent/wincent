@@ -290,6 +290,16 @@ end
 vim.cmd('filetype indent plugin on')
 vim.cmd('syntax on')
 
+local has_luasnip, luasnip = pcall(require, 'luasnip')
+if has_luasnip then
+  -- LuaSnip sets up its autocmds in "plugin/luasnip.vim", too early
+  -- for us to influence them from "plugins/snippets.lua" (Lua files load
+  -- last), so we have to do this even earlier, here.
+  luasnip.config.set_config({
+    updateevents = "TextChanged,TextChangedI", -- default is InsertLeave
+  })
+end
+
 -------------------------------------------------------------------------------
 -- Footer {{{1 ----------------------------------------------------------------
 -------------------------------------------------------------------------------
