@@ -1,20 +1,19 @@
-local lsp = {}
+local wincent = require'wincent'
 
--- TODO: replace with other map functions
-local nnoremap = function (lhs, rhs)
-  vim.api.nvim_buf_set_keymap(0, 'n', lhs, rhs, {noremap = true, silent = true})
-end
+local nnoremap = wincent.vim.nnoremap
+
+local lsp = {}
 
 local on_attach = function ()
   local mappings = {
     ['<Leader>ld'] = "<cmd>lua require'lspsaga.diagnostic'.show_line_diagnostics()<CR>",
     ['<c-]>'] = '<cmd>lua vim.lsp.buf.definition()<CR>',
-    ['K'] = "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>",
+    ['K'] = "<cmd>lua require'lspsaga.hover'.render_hover_doc()<CR>",
     ['gd'] = '<cmd>lua vim.lsp.buf.declaration()<CR>',
   }
 
   for lhs, rhs in pairs(mappings) do
-    nnoremap(lhs, rhs)
+    nnoremap(lhs, rhs, {silent = true})
   end
 
   vim.wo.signcolumn = 'yes'
