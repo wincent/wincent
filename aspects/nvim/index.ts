@@ -141,7 +141,11 @@ task('install neovim gem', async () => {
 // pip2 install vim-vint
 
 task('install pynvim', async () => {
-  await command('pip3', ['install', '--upgrade', 'pynvim']);
+  if (attributes.distribution === 'arch') {
+    await command('pip', ['install', '--upgrade', 'pynvim']);
+  } else {
+    await command('pip3', ['install', '--upgrade', 'pynvim']);
+  }
 });
 
 // For masochist autocompleter

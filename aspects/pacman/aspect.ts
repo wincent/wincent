@@ -44,6 +44,7 @@ export default {
       'pipewire-docs', // Docs for PipeWire.
       'pipewire-pulseaudio', // Compatibility layer for PulseAudio + Bluetooth.
       'python-neovim', // Support for running Python plugins in Neovim.
+      'python-pip', // So we can update pynvim.
       'ripgrep', // Grep replacement.
       'ruby', // Scripting language.
       'screenkey', // Shows keyboard interactions for screencasting.
