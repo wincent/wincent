@@ -17,10 +17,9 @@ local rhs = function(rhs_str)
   return vim.api.nvim_replace_termcodes(rhs_str, true, true, true)
 end
 
--- Degrade gracefully if `:packadd` of LuaSnip is ever commented out.
-local _, luasnip = pcall(function()
-  return require'luasnip'
-end)
+-- Degrade gracefully if `:packadd` of LuaSnip/nvim-compe are ever commented out.
+local has_compe, compe = pcall(require, 'compe')
+local has_luasnip, luasnip = pcall(require, 'luasnip')
 
 -- Returns true if the cursor is in leftmost column or at a whitespace
 -- character.
@@ -31,8 +30,12 @@ end
 
 local c_e = function()
   if vim.fn.pumvisible() == 1 then
-    return vim.fn['compe#close']()
-  elseif luasnip and luasnip.choice_active() then
+    if has_compe then
+      return vim.fn['compe#close']()
+    else
+      return rhs('<C-e>')
+    end
+  elseif has_luasnip and luasnip.choice_active() then
     return rhs('<Plug>luasnip-next-choice')
   else
     return rhs('<C-e>')
@@ -40,7 +43,7 @@ local c_e = function()
 end
 
 local c_y = function()
-  if vim.fn.pumvisible() == 1 then
+  if vim.fn.pumvisible() == 1 and has_compe then
     return vim.fn['compe#confirm']()
   else
     return rhs('<C-y>')
@@ -48,7 +51,7 @@ local c_y = function()
 end
 
 local cr = function()
-  if vim.fn.pumvisible() == 1 then
+  if vim.fn.pumvisible() == 1 and has_compe then
     return vim.fn['compe#confirm']()
   else
     return rhs('<CR>')
@@ -58,7 +61,7 @@ end
 local shift_tab = function()
   if vim.fn.pumvisible() == 1 then
     return rhs('<C-p>')
-  elseif luasnip and luasnip.jumpable(-1) then
+  elseif has_luasnip and luasnip.jumpable(-1) then
     return rhs('<Plug>luasnip-jump-prev')
   else
     return rhs('<S-Tab>')
@@ -165,18 +168,20 @@ local complete = function()
   -- set a flag that we'll be checking from our `CompleteChanged` and
   -- `CompleteDonePre` autocommands later on.
   pending_completion = true
-  vim.fn['compe#complete']()
+  if has_compe then
+    vim.fn['compe#complete']()
+  end
 end
 
 local tab = function()
   if vim.fn.pumvisible() == 1 then
-    if vim.fn.pum_getpos().size == 1 then
+    if vim.fn.pum_getpos().size == 1 and has_compe then
       -- There is only one completion and it is selected. Complete it.
       return vim.fn['compe#confirm']()
     else
       return rhs('<C-n>')
     end
-  elseif luasnip and luasnip.expand_or_jumpable() then
+  elseif has_luasnip and luasnip.expand_or_jumpable() then
     return rhs('<Plug>luasnip-expand-or-jump')
   elseif in_whitespace() then
     return smart_tab()
