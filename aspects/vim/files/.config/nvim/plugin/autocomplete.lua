@@ -166,6 +166,7 @@ Wincent = {
 
 local callback_index = 0
 
+-- TODO: For completeness, should have unmap() too.
 local map = function (mode, lhs, rhs, opts)
   local rhs_type = type(rhs)
   if rhs_type == 'function' then
@@ -179,18 +180,34 @@ local map = function (mode, lhs, rhs, opts)
   vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
 end
 
-map('i', '<BS>', smart_bs, {expr = true, noremap = true})
-map('i', '<C-e>', c_e, {expr = true, silent = true})
-map('i', '<C-j>', 'pumvisible() ? "\\<C-n>" : "\\<C-j>"', {expr = true, noremap = true})
-map('i', '<C-k>', 'pumvisible() ? "\\<C-p>" : "\\<C-k>"', {expr = true, noremap = true})
-map('i', '<C-y>', c_y, {expr = true, silent = true})
-map('i', '<CR>', cr, {expr = true, noremap = true, silent = true})
-map('i', '<Down>', 'pumvisible() ? "\\<C-n>" : "\\<Down>"', {expr = true, noremap = true})
-map('i', '<S-Tab>', shift_tab, {expr = true, noremap = true, silent = true})
-map('i', '<Tab>', tab, {expr = true, silent = true})
-map('i', '<Up>', 'pumvisible() ? "\\<C-p>" : "\\<Up>"', {expr = true, noremap = true})
+-- Shallow table merge, merges `source` into `dest`, mutating it.
+--
+-- Returns the modified `dest` table.
+local merge = function (dest, source)
+  for k, v in pairs(source) do
+    dest[k] = v
+  end
+  return dest
+end
 
-map('s', '<C-e>', c_e, {expr = true, silent = true})
-map('s', '<S-Tab>', shift_tab, {expr = true, noremap = true, silent = true})
-map('s', '<Tab>', tab, {expr = true, noremap = true, silent = true})
-map('s', '<CR>', cr, {expr = true, silent = true})
+local imap = function (lhs, rhs, opts) map('i', lhs, rhs, opts) end
+local inoremap = function (lhs, rhs, opts) map('i', lhs, rhs, merge(opts, {noremap = true})) end
+local smap = function (lhs, rhs, opts) map('s', lhs, rhs, opts) end
+local snoremap = function (lhs, rhs, opts) map('s', lhs, rhs, merge(opts, {noremap = true})) end
+
+-- TODO: re-assess these to see which should be noremap
+imap('<C-e>', c_e, {expr = true, silent = true})
+imap('<C-y>', c_y, {expr = true, silent = true})
+imap('<Tab>', tab, {expr = true, silent = true})
+inoremap('<BS>', smart_bs, {expr = true})
+inoremap('<C-j>', 'pumvisible() ? "\\<C-n>" : "\\<C-j>"', {expr = true})
+inoremap('<C-k>', 'pumvisible() ? "\\<C-p>" : "\\<C-k>"', {expr = true})
+inoremap('<CR>', cr, {expr = true, silent = true})
+inoremap('<Down>', 'pumvisible() ? "\\<C-n>" : "\\<Down>"', {expr = true})
+inoremap('<S-Tab>', shift_tab, {expr = true, silent = true})
+inoremap('<Up>', 'pumvisible() ? "\\<C-p>" : "\\<Up>"', {expr = true})
+
+smap('<C-e>', c_e, {expr = true, silent = true})
+smap('<CR>', cr, {expr = true, silent = true})
+snoremap('<S-Tab>', shift_tab, {expr = true, silent = true})
+snoremap('<Tab>', tab, {expr = true, silent = true})
