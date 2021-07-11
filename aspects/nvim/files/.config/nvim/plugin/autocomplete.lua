@@ -20,7 +20,7 @@ local rhs = function(rhs_str)
 end
 
 -- Degrade gracefully if `:packadd` of LuaSnip/nvim-compe are ever commented out.
-local has_compe, compe = pcall(require, 'compe')
+local has_compe = pcall(require, 'compe')
 local has_luasnip, luasnip = pcall(require, 'luasnip')
 
 -- Returns true if the cursor is in leftmost column or at a whitespace
