@@ -1,11 +1,7 @@
--- Shallow table merge, merges `source` into `dest`, mutating it.
---
--- Returns the modified `dest` table.
+-- Shallow table merge, merges `source` into `dest`, returning a copy (the
+-- original tables are not modified).
 local shallow_merge = function (dest, source)
-  for k, v in pairs(source) do
-    dest[k] = v
-  end
-  return dest
+  return vim.tbl_extend('force', dest, source)
 end
 
 return shallow_merge
