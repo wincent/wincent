@@ -5,16 +5,10 @@ local nnoremap = wincent.vim.nnoremap
 local lsp = {}
 
 local on_attach = function ()
-  local mappings = {
-    ['<Leader>ld'] = "<cmd>lua require'lspsaga.diagnostic'.show_line_diagnostics()<CR>",
-    ['<c-]>'] = '<cmd>lua vim.lsp.buf.definition()<CR>',
-    ['K'] = "<cmd>lua require'lspsaga.hover'.render_hover_doc()<CR>",
-    ['gd'] = '<cmd>lua vim.lsp.buf.declaration()<CR>',
-  }
-
-  for lhs, rhs in pairs(mappings) do
-    nnoremap(lhs, rhs, {silent = true})
-  end
+  nnoremap('<Leader>ld', "<cmd>lua require'lspsaga.diagnostic'.show_line_diagnostics()<CR>", {silent = true})
+  nnoremap('<c-]>', '<cmd>lua vim.lsp.buf.definition()<CR>', {silent = true})
+  nnoremap('K', "<cmd>lua require'lspsaga.hover'.render_hover_doc()<CR>", {silent = true})
+  nnoremap('gd', '<cmd>lua vim.lsp.buf.declaration()<CR>', {silent = true})
 
   vim.wo.signcolumn = 'yes'
 end
