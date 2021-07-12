@@ -1,9 +1,6 @@
 {
   "description": "Custom tweaks for GitHub Codespaces",
   "variables": {
-    "files": [
-      ".config/nvim/init-local.vim",
-      ".zshrc.local"
-    ]
+    "files": [".config/nvim/init-local.vim", ".zshrc.local"]
   }
 }
