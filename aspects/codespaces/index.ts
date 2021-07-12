@@ -1,4 +1,4 @@
-import {command, file, line, path, skip, task} from 'fig';
+import {command, file, line, path, skip, task, variable} from 'fig';
 import Context from 'fig/Context.js';
 
 task('set "StreamLocalBindUnlink yes" in /etc/ssh/sshd_config', async () => {
@@ -22,7 +22,9 @@ task('set "StreamLocalBindUnlink yes" in /etc/ssh/sshd_config', async () => {
 });
 
 task('symlink files', async () => {
-  for (const src of ['.config/nvim/init-local.vim']) {
+  const files = variable.paths('files');
+
+  for (const src of files) {
     await file({
       force: true,
       path: path.home.join(src),

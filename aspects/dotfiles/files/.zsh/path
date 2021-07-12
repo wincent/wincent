@@ -91,6 +91,3 @@ prepend_to PATH $HOME/bin
 
 # If you ever want to see this in easy-to-read form: `echo $PATH | tr : '\n'`
 export PATH
-
-unfunction append_to
-unfunction prepend_to
