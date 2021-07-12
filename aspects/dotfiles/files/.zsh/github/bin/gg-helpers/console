@@ -1,0 +1,10 @@
+#!/bin/zsh
+
+source $HOME/.zsh/functions
+
+if git root test -x bin/rails 2> /dev/null; then
+  git root bin/rails console "$@"
+else
+  echo "error: couldn't find bin/rails"
+  exit 1
+fi

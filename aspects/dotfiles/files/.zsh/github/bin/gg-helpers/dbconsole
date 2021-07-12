@@ -1,0 +1,10 @@
+#!/bin/zsh
+
+source $HOME/.zsh/functions
+
+if git root test -x bin/dbconsole 2> /dev/null; then
+  git root bin/dbconsole "$@"
+else
+  echo "error: couldn't find bin/dbconsole"
+  exit 1
+fi

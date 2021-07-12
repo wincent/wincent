@@ -1,0 +1,10 @@
+#!/bin/zsh
+
+source $HOME/.zsh/functions
+
+if git root test -x script/server 2> /dev/null; then
+  git root script/server "$@"
+else
+  echo "error: couldn't find script/server"
+  exit 1
+fi
