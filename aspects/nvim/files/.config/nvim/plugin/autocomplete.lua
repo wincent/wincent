@@ -54,7 +54,7 @@ end
 
 local cr = function()
   if vim.fn.pumvisible() == 1 and has_compe then
-    return vim.fn['compe#confirm']()
+    return vim.fn['compe#close']()
   else
     return rhs('<CR>')
   end
