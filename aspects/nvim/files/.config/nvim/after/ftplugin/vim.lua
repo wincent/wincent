@@ -1,1 +1,3 @@
-vim.opt_local.iskeyword = vim.opt_local.iskeyword - '#'
+local wincent = require'wincent'
+
+wincent.vim.setlocal('iskeyword', '-=', '#')

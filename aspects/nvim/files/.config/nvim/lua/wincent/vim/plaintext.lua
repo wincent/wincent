@@ -3,14 +3,15 @@ local wincent = require'wincent'
 local autocmd = wincent.vim.autocmd
 local inoremap = wincent.vim.inoremap
 local nnoremap = wincent.vim.nnoremap
+local setlocal = wincent.vim.setlocal
 
 -- Switch to plaintext mode with: call wincent#functions#plaintext()
 local plaintext = function()
-  vim.opt_local.concealcursor = 'nc'
-  vim.opt_local.list = false
-  vim.opt_local.textwidth = 0
-  vim.opt_local.wrap = true
-  vim.opt_local.wrapmargin = 0
+  setlocal('concealcursor', 'nc')
+  setlocal('list', false)
+  setlocal('textwidth', 0)
+  setlocal('wrap')
+  setlocal('wrapmargin', 0)
 
   wincent.vim.spell()
 

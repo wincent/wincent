@@ -1,1 +1,3 @@
-vim.opt_local.foldenable = false
+local wincent = require'wincent'
+
+wincent.vim.setlocal('foldenable', false)

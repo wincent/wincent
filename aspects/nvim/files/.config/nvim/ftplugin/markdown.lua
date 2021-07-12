@@ -2,4 +2,4 @@ local wincent = require'wincent'
 
 wincent.vim.plaintext()
 
-vim.opt_local.synmaxcol = 0
+wincent.vim.setlocal('synmaxcol', 0)

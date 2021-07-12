@@ -3,9 +3,10 @@
 local wincent = require'wincent'
 
 local nnoremap = wincent.vim.nnoremap
+local setlocal = wincent.vim.setlocal
 
-vim.opt_local.list = false
-vim.opt_local.synmaxcol = 0
+setlocal('list', false)
+setlocal('synmaxcol', 0)
 
 nnoremap('j', 'gj', {buffer = true})
 nnoremap('k', 'gk', {buffer = true})
