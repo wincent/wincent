@@ -1,1 +1,4 @@
 source $HOME/.zsh/github/path
+
+test -d /workspaces/.codespaces/.persistedshare/dotfiles && hash -d dotfiles=/workspaces/.codespaces/.persistedshare/dotfiles
+test -d /workspaces/github && hash -d github=/workspaces/github
