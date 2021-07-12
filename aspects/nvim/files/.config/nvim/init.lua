@@ -1,3 +1,5 @@
+local wincent = require'wincent'
+
 -------------------------------------------------------------------------------
 -- Options {{{1 ---------------------------------------------------------------
 -------------------------------------------------------------------------------
@@ -137,10 +139,11 @@ vim.opt.wildmode    = 'longest:full,full'                   -- shell-like autoco
 vim.opt.winblend    = 10                                    -- psuedo-transparency for floating windows
 vim.opt.writebackup = false                                 -- don't keep backups after writing
 
--- Not using `wincent.vim.setlocal` here because I don't want to require
--- it so early, and `opt_local` behaves correctly for window-local
--- settings anyway.
-vim.opt_local.colorcolumn = '+' .. vim.fn.join(vim.fn.range(0, 254), ',+') -- Highlight up to 255 columns (this is the current Vim max) beyond 'textwidth'
+-- Highlight up to 255 columns (this is the current Vim max) beyond 'textwidth'
+wincent.vim.setlocal(
+  'colorcolumn',
+  '+' .. wincent.util.join(wincent.util.range(0, 254), ',+')
+)
 
 -------------------------------------------------------------------------------
 -- Globals {{{1 ---------------------------------------------------------------
