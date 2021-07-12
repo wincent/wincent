@@ -63,7 +63,7 @@ task('fetch neovim.git', async () => {
 
 task('build Neovim', async () => {
   if (attributes.distribution === 'debian') {
-    await command('make', ['CMAKE_BUILD_TYPE=RelWithDebInfo'], {
+    await command('make', ['CMAKE_BUILD_TYPE=Release'], {
       chdir: 'vendor/neovim',
       creates: 'vendor/neovim/build/bin/nvim',
     });
