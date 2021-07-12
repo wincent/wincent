@@ -40,11 +40,22 @@ task('create symlinks', async () => {
 
 task('fetch neovim.git', async () => {
   if (attributes.distribution === 'debian') {
-    await command('git', ['clone', 'https://github.com/neovim/neovim.git/'], {
-      chdir: 'vendor',
-      creates: 'vendor/neovim',
-      raw: true,
-    });
+    await command(
+      'git',
+      [
+        'clone',
+        '--branch',
+        'v0.5.0',
+        '--depth',
+        '1',
+        'https://github.com/neovim/neovim.git',
+      ],
+      {
+        chdir: 'vendor',
+        creates: 'vendor/neovim',
+        raw: true,
+      }
+    );
   } else {
     skip('not on Debian');
   }
