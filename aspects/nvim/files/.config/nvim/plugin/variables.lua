@@ -1,26 +1,7 @@
-vim.g.WincentQuickfixStatusline =
-      '%7*' ..
-      [[%{luaeval("require'wincent.statusline'.lhs()")}]] ..
-      '%*' ..
-      '%4*' ..
-      '' ..
-      ' ' ..
-      '%*' ..
-      '%3*' ..
-      '%q' ..
-      ' ' ..
-      '%{get(w:,"quickfix_title","")}' ..
-      '%*' ..
-      '%<' ..
-      ' ' ..
-      '%=' ..
-      ' ' ..
-      '' ..
-      '%5*' ..
-      [[%{luaeval("require'wincent.statusline'.rhs()")}]] ..
-      '%*'
+local wincent = require'wincent'
 
-vim.defer_fn(function()
-  local wincent = require'wincent'
-  wincent.variables()
-end, 0)
+-- Quick/essential variables which must be loaded immediately.
+wincent.variables.eager()
+
+-- Slow/nice-to-have variables which can be loaded when idle.
+vim.defer_fn(wincent.variables.idle, 0)

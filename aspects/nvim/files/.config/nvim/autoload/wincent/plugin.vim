@@ -36,7 +36,7 @@ function! s:load(id) abort
       execute l:item
     endfor
   endif
-  call wincent#plugin#packadd(l:pack, l:plugin)
+  execute 'packadd ' . l:pack
   if has_key(l:config, 'nnoremap')
     for l:mapping in items(l:config.nnoremap)
       execute 'nnoremap ' . l:mapping[0] . ' ' . l:mapping[1]
@@ -47,8 +47,4 @@ function! s:load(id) abort
       execute l:item
     endfor
   endif
-endfunction
-
-function! wincent#plugin#packadd(pack, plugin) abort
-  execute 'packadd ' . a:pack
 endfunction
