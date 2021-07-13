@@ -132,8 +132,9 @@ If there are background processes, a yellow asterisk is shown:
 | Platform                               | Status                                                                                                                                                              |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | macOS                                  | :1st_place_medal: Currently the most tested platform, as well as the one with most aspects (because macOS 11 "Big Sur" is my daily driver both at home and at work) |
-| Arch Linux                             | :2nd_place_medal: Less tested, fewer aspects involved, but likely to evolve in the future as I experiment with moving, at least partially, to Arch Linux            |
-| Red Hat Linux and related (eg. CentOS) | :3rd_place_medal: Less tested, fewer aspects involved, but in the past this was the distro I used full-time at work                                                 |
+| Debian(-ish) Linux                     | :2nd_place_medal: I use this heavily at work, but in the somewhat odd Codespaces VM environment, so there are some weird assumptions at play                        |
+| Arch Linux                             | :3rd_place_medal: Less tested, fewer aspects involved, but likely to evolve in the future as I'm using Arch Linux on my "leisure" desktop machine                   |
+| Red Hat Linux and related (eg. CentOS) | :skull: Abandoned, but in the past (2011-2018) this was the distro I used full-time at work                                                                         |
 
 ## Installation
 
