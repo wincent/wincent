@@ -1,4 +1,4 @@
-local wincent = require'wincent'
+require'wincent'
 
 -------------------------------------------------------------------------------
 -- Options {{{1 ---------------------------------------------------------------
@@ -33,7 +33,7 @@ vim.opt.fillchars      = {
 }
 vim.opt.foldlevelstart = 99                                -- start unfolded
 vim.opt.foldmethod     = 'indent'                          -- not as cool as syntax, but faster
-vim.opt.foldtext       = 'wincent#settings#foldtext()'
+vim.opt.foldtext       = 'v:lua.wincent.foldtext()'
 vim.opt.formatoptions  = vim.opt.formatoptions + 'j'       -- remove comment leader when joining comment lines
 vim.opt.formatoptions  = vim.opt.formatoptions + 'n'       -- smart auto-indenting inside numbered lists
 vim.opt.guifont        = 'Source Code Pro Light:h13'
