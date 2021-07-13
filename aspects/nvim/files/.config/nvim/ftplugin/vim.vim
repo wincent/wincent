@@ -1,1 +1,0 @@
-setlocal concealcursor=nc
