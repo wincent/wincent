@@ -162,9 +162,9 @@ git clone --recursive https://github.com/wincent/wincent.git
 
 ### Install
 
-> ⚠️ **WARNING:** There are _lots_ of different things that can be installed or configured (see [the "aspects" directory](./aspects)). Unless you want your machine to be exactly like mine — which is unlikely — you probably don't want to install _everything_. Maybe you don't even want everything in the ["dotfiles"](./aspects/dotfiles) and ["nvim"](./aspects/nvim) aspects. Please inspect the contents of each aspect before proceeding to install it; you may even be better off just looking at the configuration files and stealing the bits that you find interesting or useful (everything is [in the public domain](./LICENSE.md), unless otherwise indicated).
+> ⚠️ **WARNING:** There are _lots_ of different things that can be installed or configured (see [the `aspects/` directory](./aspects)). Unless you want your machine to be exactly like mine — which is unlikely — you probably don't want to install _everything_. Maybe you don't even want everything in the ["dotfiles"](./aspects/dotfiles) and ["nvim"](./aspects/nvim) aspects. Please inspect the contents of each aspect before proceeding to install it; you may even be better off just looking at the configuration files and stealing the bits that you find interesting or useful (everything is [in the public domain](./LICENSE.md), unless otherwise indicated).
 
-At the time of writing, these are the aspects, which you can expect to change over time:
+At the time of writing, these are the aspects, which you can expect to change over time (see [the `aspects/` directory](./aspects) for an up-to-date listing):
 
 - On macOS only:
   - **automator**: Scripts for use with Automator
@@ -182,11 +182,14 @@ At the time of writing, these are the aspects, which you can expect to change ov
   - **ssh**: Manages local SSH config
   - **tampermonkey**: Sets up UserScripts
 - On Linux only:
+  - **apt**: Installs packages using `apt-get`.
   - **aur**: Installs packages from the Arch User Repository.
+  - **avahi**: Manages the Avahi zeroconf ("Bonjour") networking daemon.
   - **codespaces**: Custom tweaks for GitHub Codespaces environments.
   - **interception**: Sets up Interceptions Tools (keyboard customization).
   - **locale**: Sets up /etc/locale.conf
   - **pacman**: Installs packages via the Pacman package manager
+  - **sshd**: Manages sshd.
   - **systemd**: Set up services that run from systemd
 - On both macOS and Linux:
   - **dotfiles**: Creates symlinks in \$HOME to the dotfiles in this repo
