@@ -3,23 +3,23 @@ scriptencoding utf-8
 function! s:WincentAutocmds()
   augroup WincentAutocmds
     autocmd!
-    autocmd BufEnter * lua require'wincent.autocmds'.buf_enter()
+    autocmd BufEnter * lua wincent.autocmds.buf_enter()
     autocmd BufFilePost,BufNewFile,BufReadPost * call wincent#autocmds#apply_overrides()
-    autocmd BufLeave ?* lua require'wincent.autocmds'.buf_leave()
-    autocmd BufWinEnter ?* lua require'wincent.autocmds'.buf_win_enter()
+    autocmd BufLeave ?* lua wincent.autocmds.buf_leave()
+    autocmd BufWinEnter ?* lua wincent.autocmds.buf_win_enter()
     autocmd BufWritePost * call wincent#autocmds#encrypt(expand('<afile>:p'))
     autocmd BufWritePost */spell/*.add silent! :mkspell! %
-    autocmd BufWritePost ?* lua require'wincent.autocmds'.buf_write_post()
-    autocmd FocusGained * lua require'wincent.autocmds'.focus_gained()
-    autocmd FocusLost * lua require'wincent.autocmds'.focus_lost()
-    autocmd InsertEnter * lua require'wincent.autocmds'.insert_enter()
-    autocmd InsertLeave * lua require'wincent.autocmds'.insert_leave()
+    autocmd BufWritePost ?* lua wincent.autocmds.buf_write_post()
+    autocmd FocusGained * lua wincent.autocmds.focus_gained()
+    autocmd FocusLost * lua wincent.autocmds.focus_lost()
+    autocmd InsertEnter * lua wincent.autocmds.insert_enter()
+    autocmd InsertLeave * lua wincent.autocmds.insert_leave()
     autocmd InsertLeave * set nopaste
     autocmd TextYankPost * silent! lua vim.highlight.on_yank {higroup='Substitute', on_visual=false, timeout=200}
-    autocmd VimEnter * lua require'wincent.autocmds'.vim_enter()
+    autocmd VimEnter * lua wincent.autocmds.vim_enter()
     autocmd VimResized * execute "normal! \<c-w>="
-    autocmd WinEnter * lua require'wincent.autocmds'.win_enter()
-    autocmd WinLeave * lua require'wincent.autocmds'.win_leave()
+    autocmd WinEnter * lua wincent.autocmds.win_enter()
+    autocmd WinLeave * lua wincent.autocmds.win_leave()
   augroup END
 endfunction
 

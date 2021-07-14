@@ -1,3 +1,1 @@
-local autoload = require'wincent.autoload'
-
-return autoload('wincent.vim')
+return wincent.autoload('wincent.vim')

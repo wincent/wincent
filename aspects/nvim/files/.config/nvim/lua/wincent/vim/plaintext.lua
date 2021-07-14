@@ -1,5 +1,3 @@
-local wincent = require'wincent'
-
 local autocmd = wincent.vim.autocmd
 local inoremap = wincent.vim.inoremap
 local nnoremap = wincent.vim.nnoremap

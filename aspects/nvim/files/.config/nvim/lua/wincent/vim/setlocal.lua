@@ -1,5 +1,3 @@
-local wincent = require'wincent'
-
 -- This is a (probably) temporary workaround until:
 --
 --    https://github.com/neovim/neovim/issues/14670

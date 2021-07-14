@@ -1,8 +1,6 @@
 -- Note: This config is shared by both filetype=arc + filetype=hgcommit (via a
 -- symlink).
 
-local wincent = require'wincent'
-
 wincent.vim.plaintext()
 
 -- Can't just use 'colorcolumn' here because it's really only the first

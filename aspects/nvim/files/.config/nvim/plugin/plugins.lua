@@ -1,7 +1,4 @@
-vim.defer_fn(function()
-  local wincent = require'wincent'
-  wincent.plugins.abolish()
-end, 0)
+vim.defer_fn(wincent.plugins.abolish, 0)
 
 vim.fn['wincent#plugin#lazy']({
   pack = 'undotree',

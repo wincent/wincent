@@ -1,7 +1,5 @@
 -- See also: after/ftplugin/mail.lua.
 
-local wincent = require'wincent'
-
 local nnoremap = wincent.vim.nnoremap
 local setlocal = wincent.vim.setlocal
 

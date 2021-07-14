@@ -1,5 +1,3 @@
-local wincent = require'wincent'
-
 -- Quick/essential variables which must be loaded immediately.
 wincent.variables.eager()
 

@@ -1,5 +1,3 @@
-local wincent = require'wincent'
-
 local nnoremap = wincent.vim.nnoremap
 
 local lsp = {}

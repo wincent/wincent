@@ -1,5 +1,3 @@
-local wincent = require'wincent'
-
 wincent.g.autocommand_callbacks = {}
 
 local callback_index = 0

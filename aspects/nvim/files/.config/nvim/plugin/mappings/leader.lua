@@ -1,5 +1,3 @@
-local wincent = require'wincent'
-
 local nnoremap = wincent.vim.nnoremap
 
 -- Grow/shrink window horizontally (ie. make wider or narrower).

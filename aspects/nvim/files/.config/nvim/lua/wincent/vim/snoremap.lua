@@ -1,5 +1,3 @@
-local wincent = require'wincent'
-
 local map = wincent.vim.map
 local shallow_merge = wincent.util.shallow_merge
 

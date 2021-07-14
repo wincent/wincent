@@ -17,6 +17,11 @@
 --    local wincent = require'wincent'
 --    wincent.foo.bar.baz()
 --
+--    -- Note that because `require'wincent'` appears at the top of the top-level
+--    -- init.lua, the previous example can be written as:
+--
+--    wincent.foo.bar.baz()
+--
 local autoload = function(base)
   local storage = {}
   local mt = {

@@ -1,7 +1,7 @@
 local eager = function()
   vim.g.WincentQuickfixStatusline =
         '%7*' ..
-        [[%{luaeval("require'wincent.statusline'.lhs()")}]] ..
+        '%{v:lua.wincent.statusline.lhs()}' ..
         '%*' ..
         '%4*' ..
         '' ..
@@ -18,7 +18,7 @@ local eager = function()
         ' ' ..
         '' ..
         '%5*' ..
-        [[%{luaeval("require'wincent.statusline'.rhs()")}]] ..
+        '%{v:lua.wincent.statusline.rhs()}' ..
         '%*'
 end
 

@@ -1,5 +1,3 @@
-local wincent = require'wincent'
-
 local augroup = wincent.vim.augroup
 local autocmd = wincent.vim.autocmd
 local imap = wincent.vim.imap

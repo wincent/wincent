@@ -34,7 +34,7 @@ local update_statusline = function(default, action)
   elseif filetype == 'qf' then
     if action == 'blur' then
       result =
-            '%{luaeval("' .. "require'wincent.statusline'.gutterpadding()" .. '")}'
+            '%{v:lua.wincent.statusline.gutterpadding()}'
             .. ' '
             .. ' '
             .. ' '
@@ -73,7 +73,7 @@ end
 
 statusline.blur_statusline = function()
   -- Default blurred statusline (buffer number: filename).
-  local blurred='%{luaeval("' .. "require'wincent.statusline'.gutterpadding()" .. '")}'
+  local blurred='%{v:lua.wincent.statusline.gutterpadding()}'
   blurred = blurred .. ' ' -- space
   blurred = blurred .. ' ' -- space
   blurred = blurred .. ' ' -- space
@@ -212,36 +212,35 @@ statusline.set = function()
   --
   --    %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
   --
-  vim.api.nvim_set_option('statusline', ''
-    .. '%7*'                                                          -- Switch to User7 highlight group
-    .. '%{luaeval("require\'wincent.statusline\'.lhs()")}'            -- Red/green/orange modified/activity status.
-    .. '%*'                                                           -- Reset highlight group.
-    .. '%4*'                                                          -- Switch to User4 highlight group (Powerline arrow).
-    .. ''                                                            -- Powerline arrow.
-    .. '%*'                                                           -- Reset highlight group.
-    .. ' '                                                            -- Space.
-    .. '%<'                                                           -- Truncation point, if not enough width available.
-    .. '%{luaeval("require\'wincent.statusline\'.fileprefix()")}'     -- Relative path to file's directory.
-    .. '%3*'                                                          -- Switch to User3 highlight group (bold).
-    .. '%t'                                                           -- Filename.
-    .. '%*'                                                           -- Reset highlight group.
-    .. ' '                                                            -- Space.
-    .. '%1*'                                                          -- Switch to User1 highlight group (italics).
-    .. '%('                                                           -- Start item group.
-    .. '['                                                            -- Left bracket (literal).
-    .. '%R'                                                           -- Read-only flag: ,RO or nothing.
-    .. '%{luaeval("require\'wincent.statusline\'.filetype()")}'       -- Filetype (not using %Y because I don't want caps).
-    .. '%{luaeval("require\'wincent.statusline\'.fileencoding()")}'   -- File-encoding if not UTF-8.
-    .. ']'                                                            -- Right bracket (literal).
-    .. '%)'                                                           -- End item group.
-    .. '%*'                                                           -- Reset highlight group.
-    .. '%='                                                           -- Split point for left and right groups.
-    .. ' '                                                            -- Space.
-    .. ''                                                            -- Powerline arrow.
-    .. '%5*'                                                          -- Switch to User5 highlight group.
-    .. '%{luaeval("require\'wincent.statusline\'.rhs()")}'            -- Line/column info.
-    .. '%*'                                                           -- Reset highlight group.
-  )
+  vim.opt.statusline = ''
+    .. '%7*'                                        -- Switch to User7 highlight group
+    .. '%{v:lua.wincent.statusline.lhs()}'          -- Red/green/orange modified/activity status.
+    .. '%*'                                         -- Reset highlight group.
+    .. '%4*'                                        -- Switch to User4 highlight group (Powerline arrow).
+    .. ''                                          -- Powerline arrow.
+    .. '%*'                                         -- Reset highlight group.
+    .. ' '                                          -- Space.
+    .. '%<'                                         -- Truncation point, if not enough width available.
+    .. '%{v:lua.wincent.statusline.fileprefix()}'   -- Relative path to file's directory.
+    .. '%3*'                                        -- Switch to User3 highlight group (bold).
+    .. '%t'                                         -- Filename.
+    .. '%*'                                         -- Reset highlight group.
+    .. ' '                                          -- Space.
+    .. '%1*'                                        -- Switch to User1 highlight group (italics).
+    .. '%('                                         -- Start item group.
+    .. '['                                          -- Left bracket (literal).
+    .. '%R'                                         -- Read-only flag: ,RO or nothing.
+    .. '%{v:lua.wincent.statusline.filetype()}'     -- Filetype (not using %Y because I don't want caps).
+    .. '%{v:lua.wincent.statusline.fileencoding()}' -- File-encoding if not UTF-8.
+    .. ']'                                          -- Right bracket (literal).
+    .. '%)'                                         -- End item group.
+    .. '%*'                                         -- Reset highlight group.
+    .. '%='                                         -- Split point for left and right groups.
+    .. ' '                                          -- Space.
+    .. ''                                          -- Powerline arrow.
+    .. '%5*'                                        -- Switch to User5 highlight group.
+    .. '%{v:lua.wincent.statusline.rhs()}'          -- Line/column info.
+    .. '%*'                                         -- Reset highlight group.
 end
 
 statusline.update_highlight = function()

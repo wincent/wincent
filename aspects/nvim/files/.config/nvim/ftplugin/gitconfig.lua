@@ -1,5 +1,1 @@
-local wincent = require'wincent'
-
-local setlocal = wincent.vim.setlocal
-
-setlocal('expandtab', false)
+wincent.vim.setlocal('expandtab', false)

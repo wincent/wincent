@@ -1,3 +1,1 @@
-local autoload = require'wincent.autoload'
-
-return autoload('wincent.variables')
+return wincent.autoload('wincent.variables')

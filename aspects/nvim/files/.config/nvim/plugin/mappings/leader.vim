@@ -20,7 +20,7 @@ nnoremap <Leader>q :quit<CR>
 
 " <Leader>r -- Cycle through relativenumber + number, number (only), and no
 " numbering (mnemonic: relative).
-nnoremap <silent> <Leader>r :lua require'wincent.mappings.leader'.cycle_numbering()<CR>
+nnoremap <silent> <Leader>r :lua wincent.mappings.leader.cycle_numbering()<CR>
 
 nnoremap <Leader>w :write<CR>
 nnoremap <Leader>x :xit<CR>
