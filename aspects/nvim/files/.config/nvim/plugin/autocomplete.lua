@@ -52,7 +52,15 @@ end
 
 local cr = function()
   if vim.fn.pumvisible() == 1 and has_compe then
-    return vim.fn['compe#close']()
+    if vim.fn.complete_info().selected > 0 then
+      -- This is the "second state" mentioned in `:help popupmenu-completion`,
+      -- so we should insert the currently selected match. Ideally, we'd also
+      -- catch tabbing through the popupmenu items and returning back to
+      -- position 0, but we haven't implemented that yet.
+      return rhs('<C-y>')
+    else
+      return vim.fn['compe#close']()
+    end
   else
     return rhs('<CR>')
   end
@@ -193,8 +201,7 @@ end
 
 local handle_complete_changed = function ()
   if pending_completion then
-    local info = vim.fn.complete_info()
-    if info.pum_visible == 0 then
+    if vim.fn.pumvisible() == 0 then
       smart_tab({feedkeys = true})
     end
     pending_completion = false
@@ -203,8 +210,7 @@ end
 
 local handle_complete_done_pre = function ()
   if pending_completion then
-    local info = vim.fn.complete_info()
-    if info.pum_visible == 0 then
+    if vim.fn.pumvisible() == 0 then
       smart_tab({feedkeys = true})
     end
     pending_completion = false
