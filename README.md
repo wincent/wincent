@@ -278,4 +278,4 @@ This list produced with:
 
 ## Footnotes
 
-<a name="footnote1">1</a>: The evenings were spent with [vi](https://en.wikipedia.org/wiki/Vi) derivatives, not with Bill Joy.
+<a name="footnote1">**1:**</a> The evenings were spent with [vi](https://en.wikipedia.org/wiki/Vi) derivatives, not with Bill Joy.
