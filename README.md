@@ -2,6 +2,12 @@
 
 ![](https://github.com/wincent/wincent/workflows/ci/badge.svg)
 
+> These dotfiles are affectionately dedicated to the vi editor originally created by Bill Joy, with whom I have spent many pleasant evenings
+
+— Greg Hurrell, [paraphrasing Donald Knuth](https://en.wikipedia.org/wiki/The_Art_of_Computer_Programming)
+
+## Overview
+
 ![](https://raw.githubusercontent.com/wincent/wincent/media/screenshot.png)
 
 - Target platforms: macOS and Linux (see [Platform status](#platform-status) below).
