@@ -2,8 +2,9 @@ wincent.g.map_callbacks = {}
 
 local callback_index = 0
 
--- TODO: For completeness, should have unmap() too, and other variants as they
--- arise.
+-- TODO: For completeness, should have unmap() too, and other variants
+-- as they arise (nunmap() etc); but for now just going with a "dispose"
+-- function as return value.
 
 local map = function (mode, lhs, rhs, opts)
   opts = opts or {}
@@ -23,6 +24,17 @@ local map = function (mode, lhs, rhs, opts)
   else
     vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
   end
+
+  return {
+    dispose = function()
+      if buffer == true then
+        vim.api.nvim_buf_del_keymap(0, mode, lhs)
+      else
+        vim.api.nvim_del_keymap(mode, lhs)
+      end
+      wincent.g.map_callbacks[key] = nil
+    end,
+  }
 end
 
 return map
