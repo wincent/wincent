@@ -1,4 +1,10 @@
 source $HOME/.zsh/github/path
 
-test -d /workspaces/.codespaces/.persistedshare/dotfiles && hash -d dotfiles=/workspaces/.codespaces/.persistedshare/dotfiles
-test -d /workspaces/github && hash -d github=/workspaces/github
+if [ -d /workspaces/.codespaces/.persistedshare/dotfiles ]; then
+  hash -d dotfiles=/workspaces/.codespaces/.persistedshare/dotfiles
+fi
+
+if [ -d /workspaces/github ]; then
+  hash -d github=/workspaces/github
+  export GH_LOG_PATH=~github/log/github-logger.log
+fi
