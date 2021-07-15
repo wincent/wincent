@@ -36,7 +36,6 @@ nmap <unique> <LocalLeader>c <Plug>(CommandTCommand)
 nmap <unique> <Leader>h <Plug>(CommandTHelp)
 nmap <unique> <LocalLeader>h <Plug>(CommandTHistory)
 nmap <unique> <LocalLeader>l <Plug>(CommandTLine)
-nmap <unique> <LocalLeader>t <Plug>(CommandTTag)
 
 " Convenience for starting Command-T at launch without causing freak-out inside
 " tmux.

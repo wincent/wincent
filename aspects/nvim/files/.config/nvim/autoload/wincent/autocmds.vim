@@ -54,6 +54,7 @@ endfunction
 let g:WincentEditorConfigPathBlacklist=[]
 
 let g:WincentEditorConfigFileTypeBlacklist=[
+      \   'NvimTree',
       \   'command-t',
       \   'diff',
       \   'dirvish',

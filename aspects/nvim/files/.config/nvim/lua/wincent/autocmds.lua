@@ -284,6 +284,7 @@ autocmds.number_blacklist = {
 
 -- Don't do "ownsyntax off" for these.
 autocmds.ownsyntax_filetypes = {
+  ['NvimTree'] = true,
   ['dirvish'] = true,
   ['help'] = true,
   ['qf'] = true,
