@@ -230,11 +230,7 @@ local overrides = {
 }
 for _, override in ipairs(overrides) do
   if vim.fn.filereadable(override) == 1 then
-    if (vim.endswith(override, '.vim')) then
-      vim.cmd('source ' .. override)
-    else
-      vim.cmd('luafile ' .. override)
-    end
+    vim.cmd('source ' .. override)
   end
 end
 
