@@ -220,19 +220,22 @@ vim.api.nvim_set_keymap('n', '<Leader>f', '<Plug>(FerretAckWord)', {})
 -- use <Leader>s (mnemonic: "[s]ubstitute") instead.
 vim.api.nvim_set_keymap('n', '<Leader>s', '<Plug>(FerretAcks)', {})
 
--- Allow for per-machine overrides in ~/.config/nvim/host/$HOSTNAME.vim.
-local hostfile =
-      home ..
-      '/.config/nvim/host/' ..
-      vim.fn.substitute(vim.fn.hostname(), '\\..*', '', '') ..
-      '.vim'
-if vim.fn.filereadable(hostfile) == 1 then
-  vim.cmd('source ' .. hostfile)
-end
-
-local nvim_config_local = home .. '/.config/nvim/init-local.vim'
-if vim.fn.filereadable(nvim_config_local) == 1 then
-  vim.cmd('source ' .. nvim_config_local)
+-- Allow for per-machine overrides.
+local hostname = vim.fn.substitute(vim.fn.hostname(), '\\..*', '', '')
+local overrides = {
+    config .. '/host/' .. hostname .. '.vim',
+    config .. '/host/' .. hostname .. '.lua',
+    config .. '/init-local.vim',
+    config .. '/init-local.lua',
+}
+for _, override in ipairs(overrides) do
+  if vim.fn.filereadable(override) == 1 then
+    if (vim.endswith(override, '.vim')) then
+      vim.cmd('source ' .. override)
+    else
+      vim.cmd('luafile ' .. override)
+    end
+  end
 end
 
 -------------------------------------------------------------------------------
