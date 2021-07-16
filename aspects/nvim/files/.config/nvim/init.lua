@@ -156,7 +156,8 @@ vim.g.maplocalleader = '\\'
 vim.g.filetype_m = 'objc'
 vim.g.filetype_pl = 'prolog'
 
-CorpusDirectories = {
+vim.g.CorpusBangCreation = 1
+vim.g.CorpusDirectories = {
   ['~/Documents/Corpus'] = {
     autocommit = true,
     autoreference = 1,
