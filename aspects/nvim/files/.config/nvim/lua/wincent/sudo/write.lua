@@ -1,4 +1,4 @@
-local cache_time = 5 -- * 60 * 1000 -- 5 minutes
+local cache_time = 5 * 60 * 1000 -- 5 minutes
 local password = nil
 local timer = nil
 
