@@ -37,6 +37,14 @@ local write = function(bang)
     vim.cmd('silent write !env SUDO_ASKPASS=' .. vim.fn.shellescape(askpass) .. '  sudo -A tee % > /dev/null')
   end)
 
+  if vim.v.shell_error ~= 0 then
+    -- Common cause of this is wrong password, so invalidate the cache.
+    password = nil
+    if timer ~= nil then
+      timer:stop()
+    end
+  end
+
   expect(0, function() return vim.fn.delete(askpass) end, 'delete')
 end
 
