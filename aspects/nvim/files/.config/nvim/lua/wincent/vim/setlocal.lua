@@ -12,6 +12,7 @@ local options = {
   concealcursor = {scope = 'window', type = 'string'},
   expandtab = {scope = 'buffer', type = 'boolean'},
   foldenable = {scope = 'window', type = 'boolean'},
+  formatprg = {scope = 'buffer', type = 'string'},
   iskeyword = {scope = 'buffer', type = 'list'},
   list = {scope = 'window', type = 'boolean'},
   omnifunc = {scope = 'buffer', type = 'string'},
