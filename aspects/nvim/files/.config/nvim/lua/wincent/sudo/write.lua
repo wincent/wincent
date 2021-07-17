@@ -31,7 +31,7 @@ local write = function(bang)
 
   expect(0, function() return vim.fn.writefile({''}, askpass, 's') end, 'writefile (touch)')
   reject(0, function() return vim.fn.setfperm(askpass, 'rwx------') end, 'setfperm')
-  expect(0, function() return vim.fn.writefile({'#!/bin/bash', '/bin/echo -n ' .. vim.fn.shellescape(password)}, askpass, 's') end, 'writefile (fill)')
+  expect(0, function() return vim.fn.writefile({'#!/bin/bash', 'builtin echo -n ' .. vim.fn.shellescape(password)}, askpass, 's') end, 'writefile (fill)')
 
   pcall(function()
     vim.cmd('silent write !env SUDO_ASKPASS=' .. vim.fn.shellescape(askpass) .. '  sudo -A tee % > /dev/null')
