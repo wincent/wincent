@@ -2,20 +2,13 @@ local augroup = wincent.vim.augroup
 local autocmd = wincent.vim.autocmd
 local imap = wincent.vim.imap
 local inoremap = wincent.vim.inoremap
+local rhs = wincent.vim.rhs
 local smap = wincent.vim.smap
 local snoremap = wincent.vim.snoremap
 
 -- "Supertab" like functionality (where tab auto-completes or jumps between
 -- insertion nodes in snippets) is based on:
 -- https://github.com/L3MON4D3/Luasnip/issues/1
-
--- Convenience wrapper around `nvim_replace_termcodes()`.
---
--- Converts a string representation of a mapping's RHS (eg. "<Tab>") into an
--- internal representation (eg. "\t").
-local rhs = function(rhs_str)
-  return vim.api.nvim_replace_termcodes(rhs_str, true, true, true)
-end
 
 -- Degrade gracefully if `:packadd` of LuaSnip/nvim-compe are ever commented out.
 local has_compe = pcall(require, 'compe')
