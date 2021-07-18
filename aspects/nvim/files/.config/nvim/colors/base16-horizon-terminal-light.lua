@@ -48,23 +48,29 @@ local highlight = function(group, guifg, guibg, ctermfg, ctermbg, attr, guisp)
   attr = attr or ""
   guisp = guisp or ""
 
+  local command = ""
+
   if guifg ~= "" then
-    vim.cmd("highlight " .. group .. " guifg=#" .. guifg)
+    command = command .. " guifg=#" .. guifg
   end
   if guibg ~= "" then
-    vim.cmd("highlight " .. group .. " guibg=#" .. guibg)
+    command = command .. " guibg=#" .. guibg
   end
   if ctermfg ~= "" then
-    vim.cmd("highlight " .. group .. " ctermfg=" .. ctermfg)
+    command = command .. " ctermfg=" .. ctermfg
   end
   if ctermbg ~= "" then
-    vim.cmd("highlight " .. group .. " ctermbg=" .. ctermbg)
+    command = command .. " ctermbg=" .. ctermbg
   end
   if attr ~= "" then
-    vim.cmd("highlight " .. group .. " gui=" .. attr .. " cterm=" .. attr)
+    command = command .. " gui=" .. attr .. " cterm=" .. attr
   end
   if guisp ~= "" then
-    vim.cmd("highlight " .. group .. " guisp=#" .. guisp)
+    command = command .. " guisp=#" .. guisp
+  end
+
+  if command ~= "" then
+    vim.cmd("highlight " .. group .. command)
   end
 end
 
