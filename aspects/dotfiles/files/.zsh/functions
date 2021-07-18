@@ -166,10 +166,12 @@ function tmux() {
 
 # Bounce the Dock icon, if iTerm does not have focus.
 function bounce() {
-  if [ -n "$TMUX" ]; then
-    print -Pn "\ePtmux;\e\e]1337;RequestAttention=1\a\e\\"
-  else
-    print -Pn "\e]1337;RequestAttention=1\a"
+  if [ -n "$ITERM_SESSION_ID" ]; then
+    if [ -n "$TMUX" ]; then
+      print -Pn "\ePtmux;\e\e]1337;RequestAttention=1\a\e\\"
+    else
+      print -Pn "\e]1337;RequestAttention=1\a"
+    fi
   fi
 }
 
