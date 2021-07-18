@@ -480,6 +480,8 @@ const DEFAULT_PROFILE = applyExemptions({
             conditions: [
               {
                 bundle_identifiers: [
+                  // Note: See ~/.config/kitty/kitty.conf for why this isn't
+                  // needed in Kitty.
                   bundleIdentifier('com.apple.Terminal'),
                   bundleIdentifier('com.googlecode.iterm2'),
                 ],

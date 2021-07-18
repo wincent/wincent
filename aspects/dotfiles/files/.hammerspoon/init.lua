@@ -94,6 +94,15 @@ local layoutConfig = {
   ['com.tinyspeck.slackmacgap'] = (function(window)
     hs.grid.set(window, grid.fullScreen, internalDisplay())
   end),
+
+  ['net.kovidgoyal.kitty'] = (function(window, forceScreenCount)
+    local count = forceScreenCount or screenCount
+    if count == 1 then
+      hs.grid.set(window, grid.fullScreen)
+    else
+      hs.grid.set(window, grid.fullScreen, hs.screen.primaryScreen())
+    end
+  end),
 }
 
 --
