@@ -1,12 +1,6 @@
 [submodule "applescript.vim"]
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/applescript.vim
 	url = https://github.com/vim-scripts/applescript.vim.git
-[submodule "base16-iterm2"]
-	path = vendor/base16-iterm2
-	url = https://github.com/chriskempson/base16-iterm2.git
-[submodule "base16-kitty"]
-	path = aspects/dotfiles/files/.config/kitty/base16-kitty
-	url = https://github.com/kdrag0n/base16-kitty.git
 [submodule "command-t"]
 	branch = main
 	ignore = dirty
