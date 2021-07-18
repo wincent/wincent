@@ -2,24 +2,24 @@
 -- based on
 -- base16-vim (https://github.com/chriskempson/base16-vim)
 -- by Chris Kempson (http://chriskempson.com)
--- {{scheme-name}} scheme by {{scheme-author}}
+-- Sakura scheme by Misterio77 (http://github.com/Misterio77)
 
-local gui00 = "{{base00-hex}}"
-local gui01 = "{{base01-hex}}"
-local gui02 = "{{base02-hex}}"
-local gui03 = "{{base03-hex}}"
-local gui04 = "{{base04-hex}}"
-local gui05 = "{{base05-hex}}"
-local gui06 = "{{base06-hex}}"
-local gui07 = "{{base07-hex}}"
-local gui08 = "{{base08-hex}}"
-local gui09 = "{{base09-hex}}"
-local gui0A = "{{base0A-hex}}"
-local gui0B = "{{base0B-hex}}"
-local gui0C = "{{base0C-hex}}"
-local gui0D = "{{base0D-hex}}"
-local gui0E = "{{base0E-hex}}"
-local gui0F = "{{base0F-hex}}"
+local gui00 = "feedf3"
+local gui01 = "f8e2e7"
+local gui02 = "e0ccd1"
+local gui03 = "755f64"
+local gui04 = "665055"
+local gui05 = "564448"
+local gui06 = "42383a"
+local gui07 = "33292b"
+local gui08 = "df2d52"
+local gui09 = "f6661e"
+local gui0A = "c29461"
+local gui0B = "2e916d"
+local gui0C = "1d8991"
+local gui0D = "006e93"
+local gui0E = "5e2180"
+local gui0F = "ba0d35"
 
 local cterm00 = "00"
 local cterm03 = "08"
@@ -42,7 +42,7 @@ vim.cmd [[
   highlight clear
   syntax reset
 ]]
-vim.g.colors_name = "base16-{{scheme-slug}}"
+vim.g.colors_name = "base16-sakura"
 
 local highlight = function(group, guifg, guibg, ctermfg, ctermbg, attr, guisp)
   attr = attr or ""

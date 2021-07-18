@@ -2,24 +2,24 @@
 -- based on
 -- base16-vim (https://github.com/chriskempson/base16-vim)
 -- by Chris Kempson (http://chriskempson.com)
--- {{scheme-name}} scheme by {{scheme-author}}
+-- Tango scheme by @Schnouki, based on the Tango Desktop Project
 
-local gui00 = "{{base00-hex}}"
-local gui01 = "{{base01-hex}}"
-local gui02 = "{{base02-hex}}"
-local gui03 = "{{base03-hex}}"
-local gui04 = "{{base04-hex}}"
-local gui05 = "{{base05-hex}}"
-local gui06 = "{{base06-hex}}"
-local gui07 = "{{base07-hex}}"
-local gui08 = "{{base08-hex}}"
-local gui09 = "{{base09-hex}}"
-local gui0A = "{{base0A-hex}}"
-local gui0B = "{{base0B-hex}}"
-local gui0C = "{{base0C-hex}}"
-local gui0D = "{{base0D-hex}}"
-local gui0E = "{{base0E-hex}}"
-local gui0F = "{{base0F-hex}}"
+local gui00 = "2e3436"
+local gui01 = "8ae234"
+local gui02 = "fce94f"
+local gui03 = "555753"
+local gui04 = "729fcf"
+local gui05 = "d3d7cf"
+local gui06 = "ad7fa8"
+local gui07 = "eeeeec"
+local gui08 = "cc0000"
+local gui09 = "ef2929"
+local gui0A = "c4a000"
+local gui0B = "4e9a06"
+local gui0C = "06989a"
+local gui0D = "3465a4"
+local gui0E = "75507b"
+local gui0F = "34e2e2"
 
 local cterm00 = "00"
 local cterm03 = "08"
@@ -42,7 +42,7 @@ vim.cmd [[
   highlight clear
   syntax reset
 ]]
-vim.g.colors_name = "base16-{{scheme-slug}}"
+vim.g.colors_name = "base16-tango"
 
 local highlight = function(group, guifg, guibg, ctermfg, ctermbg, attr, guisp)
   attr = attr or ""

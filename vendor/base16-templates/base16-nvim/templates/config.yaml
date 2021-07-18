@@ -1,4 +1,3 @@
 default:
-  # TODO: port this to lua.
-  extension: .vim
+  extension: .lua
   output: colors

@@ -2,24 +2,24 @@
 -- based on
 -- base16-vim (https://github.com/chriskempson/base16-vim)
 -- by Chris Kempson (http://chriskempson.com)
--- {{scheme-name}} scheme by {{scheme-author}}
+-- Windows 10 Light scheme by Fergus Collins (https://github.com/C-Fergus)
 
-local gui00 = "{{base00-hex}}"
-local gui01 = "{{base01-hex}}"
-local gui02 = "{{base02-hex}}"
-local gui03 = "{{base03-hex}}"
-local gui04 = "{{base04-hex}}"
-local gui05 = "{{base05-hex}}"
-local gui06 = "{{base06-hex}}"
-local gui07 = "{{base07-hex}}"
-local gui08 = "{{base08-hex}}"
-local gui09 = "{{base09-hex}}"
-local gui0A = "{{base0A-hex}}"
-local gui0B = "{{base0B-hex}}"
-local gui0C = "{{base0C-hex}}"
-local gui0D = "{{base0D-hex}}"
-local gui0E = "{{base0E-hex}}"
-local gui0F = "{{base0F-hex}}"
+local gui00 = "f2f2f2"
+local gui01 = "e5e5e5"
+local gui02 = "d9d9d9"
+local gui03 = "cccccc"
+local gui04 = "ababab"
+local gui05 = "767676"
+local gui06 = "414141"
+local gui07 = "0c0c0c"
+local gui08 = "c50f1f"
+local gui09 = "f9f1a5"
+local gui0A = "c19c00"
+local gui0B = "13a10e"
+local gui0C = "3a96dd"
+local gui0D = "0037da"
+local gui0E = "881798"
+local gui0F = "16c60c"
 
 local cterm00 = "00"
 local cterm03 = "08"
@@ -42,7 +42,7 @@ vim.cmd [[
   highlight clear
   syntax reset
 ]]
-vim.g.colors_name = "base16-{{scheme-slug}}"
+vim.g.colors_name = "base16-windows-10-light"
 
 local highlight = function(group, guifg, guibg, ctermfg, ctermbg, attr, guisp)
   attr = attr or ""

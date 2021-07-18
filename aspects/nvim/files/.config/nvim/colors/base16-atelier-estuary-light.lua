@@ -2,24 +2,24 @@
 -- based on
 -- base16-vim (https://github.com/chriskempson/base16-vim)
 -- by Chris Kempson (http://chriskempson.com)
--- {{scheme-name}} scheme by {{scheme-author}}
+-- Atelier Estuary Light scheme by Bram de Haan (http://atelierbramdehaan.nl)
 
-local gui00 = "{{base00-hex}}"
-local gui01 = "{{base01-hex}}"
-local gui02 = "{{base02-hex}}"
-local gui03 = "{{base03-hex}}"
-local gui04 = "{{base04-hex}}"
-local gui05 = "{{base05-hex}}"
-local gui06 = "{{base06-hex}}"
-local gui07 = "{{base07-hex}}"
-local gui08 = "{{base08-hex}}"
-local gui09 = "{{base09-hex}}"
-local gui0A = "{{base0A-hex}}"
-local gui0B = "{{base0B-hex}}"
-local gui0C = "{{base0C-hex}}"
-local gui0D = "{{base0D-hex}}"
-local gui0E = "{{base0E-hex}}"
-local gui0F = "{{base0F-hex}}"
+local gui00 = "f4f3ec"
+local gui01 = "e7e6df"
+local gui02 = "929181"
+local gui03 = "878573"
+local gui04 = "6c6b5a"
+local gui05 = "5f5e4e"
+local gui06 = "302f27"
+local gui07 = "22221b"
+local gui08 = "ba6236"
+local gui09 = "ae7313"
+local gui0A = "a5980d"
+local gui0B = "7d9726"
+local gui0C = "5b9d48"
+local gui0D = "36a166"
+local gui0E = "5f9182"
+local gui0F = "9d6c7c"
 
 local cterm00 = "00"
 local cterm03 = "08"
@@ -42,7 +42,7 @@ vim.cmd [[
   highlight clear
   syntax reset
 ]]
-vim.g.colors_name = "base16-{{scheme-slug}}"
+vim.g.colors_name = "base16-atelier-estuary-light"
 
 local highlight = function(group, guifg, guibg, ctermfg, ctermbg, attr, guisp)
   attr = attr or ""

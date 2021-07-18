@@ -2,24 +2,24 @@
 -- based on
 -- base16-vim (https://github.com/chriskempson/base16-vim)
 -- by Chris Kempson (http://chriskempson.com)
--- {{scheme-name}} scheme by {{scheme-author}}
+-- Brogrammer scheme by Vik Ramanujam (http://github.com/piggyslasher)
 
-local gui00 = "{{base00-hex}}"
-local gui01 = "{{base01-hex}}"
-local gui02 = "{{base02-hex}}"
-local gui03 = "{{base03-hex}}"
-local gui04 = "{{base04-hex}}"
-local gui05 = "{{base05-hex}}"
-local gui06 = "{{base06-hex}}"
-local gui07 = "{{base07-hex}}"
-local gui08 = "{{base08-hex}}"
-local gui09 = "{{base09-hex}}"
-local gui0A = "{{base0A-hex}}"
-local gui0B = "{{base0B-hex}}"
-local gui0C = "{{base0C-hex}}"
-local gui0D = "{{base0D-hex}}"
-local gui0E = "{{base0E-hex}}"
-local gui0F = "{{base0F-hex}}"
+local gui00 = "1f1f1f"
+local gui01 = "f81118"
+local gui02 = "2dc55e"
+local gui03 = "ecba0f"
+local gui04 = "2a84d2"
+local gui05 = "4e5ab7"
+local gui06 = "1081d6"
+local gui07 = "d6dbe5"
+local gui08 = "d6dbe5"
+local gui09 = "de352e"
+local gui0A = "1dd361"
+local gui0B = "f3bd09"
+local gui0C = "1081d6"
+local gui0D = "5350b9"
+local gui0E = "0f7ddb"
+local gui0F = "ffffff"
 
 local cterm00 = "00"
 local cterm03 = "08"
@@ -42,7 +42,7 @@ vim.cmd [[
   highlight clear
   syntax reset
 ]]
-vim.g.colors_name = "base16-{{scheme-slug}}"
+vim.g.colors_name = "base16-brogrammer"
 
 local highlight = function(group, guifg, guibg, ctermfg, ctermbg, attr, guisp)
   attr = attr or ""
