@@ -1,5 +1,7 @@
 # Colorschemes
 
+Snapshots of colorschemes as they existed in [d50f3eb91e9fe](https://github.com/wincent/wincent/commit/d50f3eb91e9fe505a5c2d176f30dac8fe76c3cef) (April 2020). Since then, additional schemes have been added; see [`aspects/nvim/files/.config/nvim/colors`](https://github.com/wincent/wincent/tree/main/aspects/nvim/files/.config/nvim/colors) for an up-to-date list.
+
 -   [3024](#3024)
 -   [apathy](#apathy)
 -   [ashes](#ashes)
