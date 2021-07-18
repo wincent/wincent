@@ -97,8 +97,9 @@ banner "Updating templates"
   template_config = YAML.load(template_dir.join("templates/config.yaml").read)
 
   # Could iterate over keys, but just assuming "default" for now.
-  # TODO: add validation here; we're assuming all keys present
-  # (and they are now, but not necessarily if we keep `git-pull`-ing.
+  raise 'Missing "default" key' unless template_config.has_key?("default")
+  raise 'Missing "extension" key' unless template_config["default"].has_key?("extension")
+
   extension = template_config["default"]["extension"]
   template = template_dir.join("templates/default.mustache").read
   scheme_definitions.each do |slug, definition|
