@@ -125,8 +125,8 @@ else
   vim.opt.undofile = true                  -- actually use undo files
 end
 
-vim.opt.updatecount = 80                                    -- update swapfiles every 80 typed chars
 vim.opt.updatetime  = 2000                                  -- CursorHold interval
+vim.opt.updatecount = 0                                     -- update swapfiles every 80 typed chars
 vim.opt.viewdir     = config .. '/view'                     -- where to store files for :mkview
 vim.opt.viewoptions = 'cursor,folds'                        -- save/restore just these (with `:{mk,load}view`)
 vim.opt.virtualedit = 'block'                               -- allow cursor to move where there is no text in visual block mode
