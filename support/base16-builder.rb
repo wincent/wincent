@@ -61,8 +61,11 @@ banner "Updating template definitions"
 
 templates = vendor.join("base16-templates")
 
+raise "Target already exists" if templates_list.has_key?("nvim")
+templates_list["nvim"] = "https://github.com/wincent/base16-nvim"
+
 # Here we only care about a subset of templates.
-["shell", "vim"].each do |target|
+["nvim", "shell", "vim"].each do |target|
   if templates_list.has_key?(target)
     url = templates_list[target]
     template_author_and_repo = url.
@@ -83,7 +86,7 @@ end
 
 banner "Updating templates"
 
-# One custom (local) template + two third-party ones.
+# One custom template (nvim) + two third-party ones.
 {
   "nvim" => root.join("aspects/nvim/files/.config/nvim/colors"),
   "shell" => root.join("aspects/dotfiles/files/.zsh/colors"),
