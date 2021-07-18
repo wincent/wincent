@@ -241,7 +241,6 @@ end
 if vim.o.loadplugins then
   vim.cmd('packadd! LuaSnip')
   vim.cmd('packadd! applescript.vim')
-  vim.cmd('packadd! base16-vim')
   vim.cmd('packadd! command-t')
   vim.cmd('packadd! corpus')
   vim.cmd('packadd! ferret')

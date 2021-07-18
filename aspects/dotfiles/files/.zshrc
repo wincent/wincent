@@ -311,7 +311,7 @@ source $HOME/.zsh/path # Must come first! (Others depend on it.)
 
 source $HOME/.zsh/aliases
 source $HOME/.zsh/common
-source $HOME/.zsh/colors
+source $HOME/.zsh/color
 source $HOME/.zsh/exports
 source $HOME/.zsh/functions
 source $HOME/.zsh/hash

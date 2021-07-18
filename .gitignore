@@ -18,5 +18,8 @@
 /aspects/ssh/templates/.ssh/config.erb
 /media
 /node_modules
+/vendor/base16-schemes
+/vendor/base16-templates/base16-shell
+/vendor/base16-templates/base16-vim
 /vendor/neovim
 /vendor/yay

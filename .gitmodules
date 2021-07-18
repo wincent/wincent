@@ -7,12 +7,6 @@
 [submodule "base16-kitty"]
 	path = aspects/dotfiles/files/.config/kitty/base16-kitty
 	url = https://github.com/kdrag0n/base16-kitty.git
-[submodule "base16-shell"]
-	path = aspects/dotfiles/files/.zsh/base16-shell
-	url = https://github.com/chriskempson/base16-shell.git
-[submodule "base16-vim"]
-	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/base16-vim
-	url = https://github.com/chriskempson/base16-vim.git
 [submodule "command-t"]
 	branch = main
 	ignore = dirty
@@ -219,3 +213,9 @@
 [submodule "nvim-tree.lua"]
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-tree.lua
 	url = https://github.com/kyazdani42/nvim-tree.lua.git
+[submodule "base16-templates-source"]
+	path = vendor/base16-templates-source
+	url = https://github.com/chriskempson/base16-templates-source.git
+[submodule "base16-schemes-source"]
+	path = vendor/base16-schemes-source
+	url = https://github.com/chriskempson/base16-schemes-source.git

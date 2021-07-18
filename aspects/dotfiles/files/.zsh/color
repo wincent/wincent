@@ -44,7 +44,7 @@ color() {
   emulate -L zsh
 
   local SCHEME
-  local BASE16_DIR=~/.zsh/base16-shell/scripts
+  local BASE16_DIR=~/.zsh/colors
   local BASE16_CONFIG_PREVIOUS="${__WINCENT[BASE16_CONFIG]}.previous"
   local STATUS=0
 
