@@ -1,4 +1,5 @@
--- base16-nvim (https://github.com/wincent/wincent/tree/main/vendor/base16-templates/base16-nvim/templates)
+-- base16-nvim (https://github.com/wincent/base16-nvim)
+-- by Greg Hurrell (https://github.com/wincent)
 -- based on
 -- base16-vim (https://github.com/chriskempson/base16-vim)
 -- by Chris Kempson (http://chriskempson.com)
