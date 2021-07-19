@@ -31,6 +31,7 @@ function files() {
 #     - `git` with no arguments = `git status`; run `git help` to show what
 #       vanilla `git` without arguments would normally show.
 #     - `git root` = `cd` to repo root.
+#     - `ROOT=$(git root)` = no args and stdout is not a tty; prints the root.
 #     - `git root ARG...` = evals `ARG...` from the root (eg. `git root ls`).
 #     - `git ARG...` = behaves just like normal `git` command.
 #
@@ -58,10 +59,14 @@ function git() {
       fi
     fi
     if [ -z "$ROOT" ]; then
-      ROOT=.
+      ROOT="$PWD"
     fi
     if [ $# -eq 0 ]; then
-      cd "$ROOT"
+      if [ -t 1 ]; then
+        cd "$ROOT"
+      else
+        echo "$ROOT"
+      fi
     else
       (cd "$ROOT" && eval "$@")
     fi
