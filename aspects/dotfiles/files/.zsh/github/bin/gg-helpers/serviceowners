@@ -3,8 +3,8 @@
 source $HOME/.zsh/functions
 
 if git root test -x script/generate_service_files.rb 2> /dev/null; then
-  git root script/generate_service_files "$@"
+  git root script/generate-service-files.rb "$@"
 else
-  echo "error: couldn't find script/generate_service_files"
+  echo "error: couldn't find script/generate-service-files.rb"
   exit 1
 fi
