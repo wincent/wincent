@@ -293,9 +293,11 @@ function fg-bg() {
 zle -N fg-bg
 bindkey '^Z' fg-bg
 
-# Mac-like wordwise movement (Opt/Super plus left/right) on Kitty/Arch.
-bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word
+# Mac-like wordwise movement (Opt/Super plus left/right) in Kitty.
+bindkey "^[[1;3C" forward-word # For macOS.
+bindkey "^[[1;3D" backward-word # For macOS.
+bindkey "^[[1;5C" forward-word # For Arch.
+bindkey "^[[1;5D" backward-word # For Arch.
 
 #
 # Other prerequisites before we set up `$PATH`.
