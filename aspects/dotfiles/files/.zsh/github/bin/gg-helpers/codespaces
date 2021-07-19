@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [[ $TERM == *kitty* ]]; then
+  # Copy ~/.terminfo/x/xterm-kitty when connecting.
+  # See: https://sw.kovidgoyal.net/kitty/faq/
+  kitty +kitten ssh github-codespaces
+else
+  ssh github-codespaces
+fi

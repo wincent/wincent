@@ -3,6 +3,7 @@
 echo "Usage: gg <subcommand> [...arguments]"
 echo
 echo "Subcommands:"
+echo "  codespaces          ⌨️ ssh to Codespaces"
 echo "  console             🚈 start Rails console"
 echo "  dbconsole           📀 start database console"
 echo "  help                🤷 show this help"
