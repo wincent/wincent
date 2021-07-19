@@ -8,10 +8,10 @@
 --
 --    :W!       as above, but always prompts for a password
 --
--- Note that we can't do the naive that worked in Vim:
+-- Note that we can't do the naive thing that worked in Vim:
 --
 --     vim.cmd('command! W w !sudo tee % > /dev/null')
 --
 -- Due to: https://github.com/neovim/neovim/issues/1716
 
-vim.cmd('command! -bang W call v:lua.wincent.sudo.write("<bang>")')
+wincent.vim.command('W', 'call v:lua.wincent.sudo.write("<bang>")', {bang = true})

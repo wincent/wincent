@@ -74,15 +74,15 @@ function! wincent#commands#find(args) abort
     cexpr system('find ' . a:args)
 endfunction
 
-function! wincent#commands#glow(...) abort
+function! wincent#commands#glow(file) abort
   if !executable('glow')
     echoerr 'No glow executable found'
     return
   end
-  if a:0 == 0 || empty(a:000[0])
+  if empty(a:file)
     let l:file=expand('%')
   else
-    let l:file=a:000[0]
+    let l:file=a:file
   endif
   if !empty(l:file)
     let l:file=shellescape(l:file)
@@ -104,13 +104,11 @@ function! wincent#commands#lint() abort
   Make
 endfunction
 
-function! wincent#commands#marked(...) abort
-  if a:0 == 0
+function! wincent#commands#marked(file) abort
+  if empty(a:file)
     call s:marked(expand('%'))
   else
-    for l:file in a:000
-      call s:marked(l:file)
-    endfor
+    call s:marked(a:file)
   endif
 endfunction
 
@@ -144,11 +142,11 @@ function! wincent#commands#open_on_github(...) abort range
   endif
 endfunction
 
-function! wincent#commands#preview(...) abort
+function! wincent#commands#preview(file) abort
   if executable('open')
-    call call('wincent#commands#marked', a:000)
+    call wincent#commands#marked(a:file)
   elseif executable('glow')
-    call call('wincent#commands#glow', a:000)
+    call wincent#commands#glow(a:file)
   else
     echoerr 'No "open" or "glow" executable found'
   endif
@@ -170,5 +168,11 @@ function! wincent#commands#vim() abort
   endif
 
   let l:url=shellescape(l:filename)
-  call system('open vim://' . l:url)
+
+  " Break up the string literal here to stop Vim from thinking it's a modeline
+  " and freaking out with:
+  "
+  "   E518: Unknown option: //'
+  "
+  call system('open vim' . '://' . l:url)
 endfunction

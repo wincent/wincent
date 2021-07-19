@@ -1,3 +1,5 @@
+local command = wincent.vim.command
+
 -- Visual mode mappings.
 
 local xnoremap = wincent.vim.xnoremap
@@ -9,8 +11,8 @@ xnoremap('<C-k>', '<C-w>k')
 xnoremap('<C-l>', '<C-w>l')
 
 -- Move VISUAL LINE selection within buffer.
-vim.cmd('command! -range MoveDown call v:lua.wincent.mappings.visual.move_down(<line2>)')
-vim.cmd('command! -range MoveUp call v:lua.wincent.mappings.visual.move_up(<line1>)')
+command('MoveDown', 'call v:lua.wincent.mappings.visual.move_down(<line2>)', {range = true})
+command('MoveUp', 'call v:lua.wincent.mappings.visual.move_up(<line1>)', {range = true})
 
 xnoremap('K', ':MoveUp<CR>', {silent = true})
 xnoremap('J', ':MoveDown<CR>', {silent = true})
