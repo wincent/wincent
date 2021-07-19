@@ -68,6 +68,8 @@ color() {
       echo "$BACKGROUND" >> "$__WINCENT[BASE16_CONFIG]"
       sh "$FILE"
 
+      (cd ~/.config/kitty && ln -sf colors/base16-$SCHEME-256.conf colors.conf)
+
       if [ -n "$TMUX" ]; then
         local CC=$(grep color18= "$FILE" | cut -d \" -f2 | sed -e 's#/##g')
         if [ -n "$BG" -a -n "$CC" ]; then
