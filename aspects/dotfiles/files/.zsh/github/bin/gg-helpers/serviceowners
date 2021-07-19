@@ -2,9 +2,11 @@
 
 source $HOME/.zsh/functions
 
-if git root test -x script/generate_service_files.rb 2> /dev/null; then
-  git root script/generate-service-files.rb "$@"
+SCRIPT=script/generate-service-files.rb
+
+if git root test -x $SCRIPT 2> /dev/null; then
+  git root $SCRIPT "$@"
 else
-  echo "error: couldn't find script/generate-service-files.rb"
+  echo "error: couldn't find $SCRIPT"
   exit 1
 fi
