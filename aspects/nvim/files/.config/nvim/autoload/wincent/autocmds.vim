@@ -5,17 +5,6 @@ function! wincent#autocmds#attempt_select_last_file() abort
   endif
 endfunction
 
-function! wincent#autocmds#idleboot() abort
-  " Make sure we automatically call wincent#autocmds#idleboot() only once.
-  augroup WincentIdleboot
-    autocmd!
-  augroup END
-
-  " Make sure we run deferred tasks exactly once.
-  doautocmd User WincentDefer
-  autocmd! User WincentDefer
-endfunction
-
 " Directories where we want to perform auto-encryption on save.
 let s:encrypted={}
 let s:encrypted[expand('~/code/ansible-configs')]='vendor/git-cipher/bin/git-cipher'
