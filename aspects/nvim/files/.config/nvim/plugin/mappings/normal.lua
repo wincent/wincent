@@ -1,4 +1,6 @@
+--
 -- Normal mode mappings.
+--
 
 local nnoremap = wincent.vim.nnoremap
 local noremap = wincent.vim.noremap

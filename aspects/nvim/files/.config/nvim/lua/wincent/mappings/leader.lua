@@ -28,7 +28,28 @@ local cycle_numbering = function()
   vim.w[number_flag] = true
 end
 
+-- Based on: http://vim.wikia.com/wiki/Identify_the_syntax_highlighting_group_used_at_the_cursor
+local get_highlight_group = function()
+  local pos = vim.api.nvim_win_get_cursor(0)
+  local line = pos[1]
+  local col = pos[2]
+  local synID = vim.fn.synID
+  local synIDattr = vim.fn.synIDattr
+  local synIDtrans = vim.fn.synIDtrans
+  return (
+    'hi<' ..
+    synIDattr(synID(line, col, true), 'name') ..
+    '> trans<' ..
+    synIDattr(synID(line, col, false), 'name') ..
+    '> lo<' ..
+    synIDattr(synIDtrans(synID(line, col, true)), 'name') ..
+    '>'
+  )
+end
+
+-- TODO: split into files
 leader.cycle_numbering = cycle_numbering
+leader.get_highlight_group = get_highlight_group
 leader.number_flag = number_flag
 
 return leader

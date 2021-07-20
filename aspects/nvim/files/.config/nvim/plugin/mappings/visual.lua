@@ -1,7 +1,8 @@
-local command = wincent.vim.command
-
+--
 -- Visual mode mappings.
+--
 
+local command = wincent.vim.command
 local xnoremap = wincent.vim.xnoremap
 
 -- Move between windows.
