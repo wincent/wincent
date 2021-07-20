@@ -249,7 +249,6 @@ if vim.o.loadplugins then
   vim.cmd('packadd! neco-ghc')
   vim.cmd('packadd! nvim-compe')
   vim.cmd('packadd! nvim-lspconfig')
-  vim.cmd('packadd! nvim-tree.lua')
   vim.cmd('packadd! pinnacle')
   vim.cmd('packadd! replay')
   vim.cmd('packadd! scalpel')
@@ -285,6 +284,12 @@ if vim.o.loadplugins then
   vim.cmd('packadd! vim-textobj-rubyblock')
   vim.cmd('packadd! vim-textobj-user')
   vim.cmd('packadd! vim-zsh')
+
+  -- Not shown above, these lazily loaded (for speed):
+  --
+  -- - goyo
+  -- - nvim-tree.lua
+  -- - undotree
 end
 
 -- Automatic, language-dependent indentation, syntax coloring and other

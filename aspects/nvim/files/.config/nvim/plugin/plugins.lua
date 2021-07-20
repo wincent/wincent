@@ -1,11 +1,20 @@
 vim.defer_fn(wincent.plugins.abolish, 0)
 
 wincent.lazy({
-  pack = 'undotree',
-  plugin = 'undotree.vim',
-  nnoremap = {
-    ['<Leader>u'] = {':UndotreeToggle<CR>', {silent = true}},
+  commands = {
+    'NvimTreeFindFile',
+    'NvimTreeToggle',
+    'NvimTreeOpen',
   },
+  nnoremap = {
+    ['<LocalLeader>f'] = {':NvimTreeFindFile<CR>', {silent = true}},
+    ['<LocalLeader>t'] = {':NvimTreeToggle<CR>', {silent = true}},
+  },
+  pack = 'nvim-tree.lua',
+  plugin = 'tree.vim',
+})
+
+wincent.lazy({
   beforeload = {
     function()
       vim.g.undotree_HighlightChangedText = 0
@@ -26,5 +35,10 @@ wincent.lazy({
         endfunction
       ]])
     end,
-  }
+  },
+  nnoremap = {
+    ['<Leader>u'] = {':UndotreeToggle<CR>', {silent = true}},
+  },
+  pack = 'undotree',
+  plugin = 'undotree.vim',
 })
