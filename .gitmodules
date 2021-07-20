@@ -213,3 +213,6 @@
 [submodule "base16-schemes-source"]
 	path = vendor/base16-schemes-source
 	url = https://github.com/chriskempson/base16-schemes-source.git
+[submodule "rust.vim"]
+	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/rust.vim
+	url = https://github.com/rust-lang/rust.vim.git
