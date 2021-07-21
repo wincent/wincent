@@ -251,6 +251,7 @@ if vim.o.loadplugins then
   wincent.plugin.load('nvim-lspconfig')
   wincent.plugin.load('pinnacle')
   wincent.plugin.load('replay')
+  wincent.plugin.load('rust.vim')
   wincent.plugin.load('scalpel')
   wincent.plugin.load('tcomment_vim')
   wincent.plugin.load('terminus')
