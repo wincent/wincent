@@ -330,17 +330,11 @@ if vim.o.loadplugins then
       vim.g.undotree_DiffCommand = 'diff -u'
 
       -- Mappings to emulate Gundo behavior.
-      vim.cmd([[
+      vim.cmd [[
         function! g:Undotree_CustomMap() abort
-          " Normally j, k just move and J, K actually revert;
-          " let's make j, k revert too.
-          nmap <buffer> j <Plug>UndotreePreviousState
-          nmap <buffer> k <Plug>UndotreeNextState
-
-          " Equivalent to `g:gundo_close_on_revert=1`:
-          nmap <buffer> <Return> <Plug>UndotreeClose
+          lua wincent.plugins.undotree.custom_map()
         endfunction
-      ]])
+      ]]
     end,
     nnoremap = {
       ['<Leader>u'] = {':UndotreeToggle<CR>', {silent = true}},
