@@ -34,5 +34,20 @@ if has_luasnip then
       }
       ),
     },
+    markdown = {
+      s(
+        {trig = 'frontmatter', dscr = 'Document frontmatter'},
+        {t({'---', 'tags: '}), i(1, 'value'), t({'', '---', ''})}
+      ),
+      s(
+        -- TODO: can probably make this one much smarter; right now it's basically just syntax reminder
+        {trig = 'table', dscr = 'Table template'},
+        {t('| '), i(1, 'First Header'), t({'  | Second Header |',
+          '| ------------- | ------------- |',
+          '| Content Cell  | Content Cell  |',
+          '| Content Cell  | Content Cell  |',
+        })}
+      )
+    },
   }
 end
