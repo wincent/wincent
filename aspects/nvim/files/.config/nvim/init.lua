@@ -285,11 +285,14 @@ if vim.o.loadplugins then
   vim.cmd('packadd! vim-textobj-user')
   vim.cmd('packadd! vim-zsh')
 
-  -- Not shown above, these lazily loaded (for speed):
-  --
-  -- - goyo
-  -- - nvim-tree.lua
-  -- - undotree
+  -- These get lazily loaded (for speed) via user mappings, commands etc,
+  -- but we still want to `packadd!` them _after_ the standard |load-plugins|
+  -- process has completed, so that we can find their help, for example.
+  wincent.vim.autocmd('VimEnter', '*', function()
+    vim.cmd('packadd! goyo')
+    vim.cmd('packadd! nvim-tree.lua')
+    vim.cmd('packadd! undotree')
+  end, {once = true})
 end
 
 -- Automatic, language-dependent indentation, syntax coloring and other

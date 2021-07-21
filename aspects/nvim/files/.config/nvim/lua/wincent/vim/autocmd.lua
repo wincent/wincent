@@ -13,7 +13,20 @@ local autocmd = function (name, pattern, cmd, opts)
     error('autocmd(): unsupported cmd type: ' .. cmd_type)
   end
   local bang = opts.bang and '!' or ''
-  vim.cmd('autocmd' .. bang .. ' ' .. name .. ' ' .. pattern .. ' ' .. cmd)
+  local once = opts.once and '++once' or ''
+  vim.cmd(
+    table.concat(
+      vim.tbl_filter(
+        function (item) return item ~= '' end, {
+          'autocmd' .. bang,
+          name,
+          pattern,
+          once,
+          cmd,
+        }
+      ), ' '
+    )
+  )
 end
 
 return autocmd
