@@ -239,60 +239,113 @@ end
 -------------------------------------------------------------------------------
 
 if vim.o.loadplugins then
-  vim.cmd('packadd! LuaSnip')
-  vim.cmd('packadd! applescript.vim')
-  vim.cmd('packadd! command-t')
-  vim.cmd('packadd! corpus')
-  vim.cmd('packadd! ferret')
-  vim.cmd('packadd! loupe')
-  vim.cmd('packadd! lspsaga.nvim')
-  vim.cmd('packadd! neco-ghc')
-  vim.cmd('packadd! nvim-compe')
-  vim.cmd('packadd! nvim-lspconfig')
-  vim.cmd('packadd! pinnacle')
-  vim.cmd('packadd! replay')
-  vim.cmd('packadd! scalpel')
-  vim.cmd('packadd! tcomment_vim')
-  vim.cmd('packadd! terminus')
-  vim.cmd('packadd! typescript-vim')
-  vim.cmd('packadd! vcs-jump')
-  vim.cmd('packadd! vim-ansible-yaml')
-  vim.cmd('packadd! vim-clipper')
-  vim.cmd('packadd! vim-dirvish')
-  vim.cmd('packadd! vim-dispatch')
-  vim.cmd('packadd! vim-docvim')
-  vim.cmd('packadd! vim-easydir')
-  vim.cmd('packadd! vim-eunuch')
-  vim.cmd('packadd! vim-fugitive')
-  vim.cmd('packadd! vim-git')
-  vim.cmd('packadd! vim-javascript')
-  vim.cmd('packadd! vim-json')
-  vim.cmd('packadd! vim-jsx')
-  vim.cmd('packadd! vim-ledger')
-  vim.cmd('packadd! vim-lion')
-  vim.cmd('packadd! vim-markdown')
-  vim.cmd('packadd! vim-operator-user')
-  vim.cmd('packadd! vim-projectionist')
-  vim.cmd('packadd! vim-reason-plus')
-  vim.cmd('packadd! vim-repeat')
-  vim.cmd('packadd! vim-signature')
-  vim.cmd('packadd! vim-slime')
-  vim.cmd('packadd! vim-soy')
-  vim.cmd('packadd! vim-speeddating')
-  vim.cmd('packadd! vim-surround')
-  vim.cmd('packadd! vim-textobj-comment')
-  vim.cmd('packadd! vim-textobj-rubyblock')
-  vim.cmd('packadd! vim-textobj-user')
-  vim.cmd('packadd! vim-zsh')
+  wincent.plugin.load('LuaSnip')
+  wincent.plugin.load('applescript.vim')
+  wincent.plugin.load('command-t')
+  wincent.plugin.load('corpus')
+  wincent.plugin.load('ferret')
+  wincent.plugin.load('loupe')
+  wincent.plugin.load('lspsaga.nvim')
+  wincent.plugin.load('neco-ghc')
+  wincent.plugin.load('nvim-compe')
+  wincent.plugin.load('nvim-lspconfig')
+  wincent.plugin.load('pinnacle')
+  wincent.plugin.load('replay')
+  wincent.plugin.load('scalpel')
+  wincent.plugin.load('tcomment_vim')
+  wincent.plugin.load('terminus')
+  wincent.plugin.load('typescript-vim')
+  wincent.plugin.load('vcs-jump')
+  wincent.plugin.load('vim-ansible-yaml')
+  wincent.plugin.load('vim-clipper')
+  wincent.plugin.load('vim-dirvish')
+  wincent.plugin.load('vim-dispatch')
+  wincent.plugin.load('vim-docvim')
+  wincent.plugin.load('vim-easydir')
+  wincent.plugin.load('vim-eunuch')
+  wincent.plugin.load('vim-fugitive')
+  wincent.plugin.load('vim-git')
+  wincent.plugin.load('vim-javascript')
+  wincent.plugin.load('vim-json')
+  wincent.plugin.load('vim-jsx')
+  wincent.plugin.load('vim-ledger')
+  wincent.plugin.load('vim-lion')
+  wincent.plugin.load('vim-markdown')
+  wincent.plugin.load('vim-operator-user')
+  wincent.plugin.load('vim-projectionist')
+  wincent.plugin.load('vim-reason-plus')
+  wincent.plugin.load('vim-repeat')
+  wincent.plugin.load('vim-signature')
+  wincent.plugin.load('vim-slime')
+  wincent.plugin.load('vim-soy')
+  wincent.plugin.load('vim-speeddating')
+  wincent.plugin.load('vim-surround')
+  wincent.plugin.load('vim-textobj-comment')
+  wincent.plugin.load('vim-textobj-rubyblock')
+  wincent.plugin.load('vim-textobj-user')
+  wincent.plugin.load('vim-zsh')
 
-  -- These get lazily loaded (for speed) via user mappings, commands etc,
-  -- but we still want to `packadd!` them _after_ the standard |load-plugins|
-  -- process has completed, so that we can find their help, for example.
-  wincent.vim.autocmd('VimEnter', '*', function()
-    vim.cmd('packadd! goyo')
-    vim.cmd('packadd! nvim-tree.lua')
-    vim.cmd('packadd! undotree')
-  end, {once = true})
+  -- Lazy because vim-abolish doesn't use autoloading internally.
+  wincent.plugin.lazy('vim-abolish', {
+    afterload = function ()
+      vim.cmd('Abolish aboud about')
+      vim.cmd('Abolish ahve have')
+      vim.cmd('Abolish funciton{,ed,s} function{}')
+      vim.cmd('Abolish paramater parameter')
+      vim.cmd('Abolish provied{,d,s} provide{}')
+      vim.cmd('Abolish strinfigy stringify')
+      vim.cmd('Abolish submodlue{,s} submodule{}')
+      vim.cmd('Abolish {hte,teh} the')
+      vim.cmd('Abolish updaet{,ed,es} update{}')
+      vim.cmd('Abolish varient{,s} variant{}')
+    end,
+  })
+
+  -- Lazy because I rarely use it.
+  wincent.plugin.lazy('goyo', {
+    commands = {
+      Goyo = '-nargs=? -bar -bang'
+    },
+  })
+
+  -- Lazy because it adds a slow BufEnter autocmd.
+  wincent.plugin.lazy('nvim-tree.lua', {
+    commands = {
+      'NvimTreeFindFile',
+      'NvimTreeToggle',
+      'NvimTreeOpen',
+    },
+    nnoremap = {
+      ['<LocalLeader>f'] = {':NvimTreeFindFile<CR>', {silent = true}},
+      ['<LocalLeader>t'] = {':NvimTreeToggle<CR>', {silent = true}},
+    },
+  })
+
+  -- Lazy because you don't need it until you need it.
+  wincent.plugin.lazy('undotree', {
+    beforeload = function()
+      vim.g.undotree_HighlightChangedText = 0
+      vim.g.undotree_SetFocusWhenToggle = 1
+      vim.g.undotree_WindowLayout = 2
+      vim.g.undotree_DiffCommand = 'diff -u'
+
+      -- Mappings to emulate Gundo behavior.
+      vim.cmd([[
+        function! g:Undotree_CustomMap() abort
+          " Normally j, k just move and J, K actually revert;
+          " let's make j, k revert too.
+          nmap <buffer> j <Plug>UndotreePreviousState
+          nmap <buffer> k <Plug>UndotreeNextState
+
+          " Equivalent to `g:gundo_close_on_revert=1`:
+          nmap <buffer> <Return> <Plug>UndotreeClose
+        endfunction
+      ]])
+    end,
+    nnoremap = {
+      ['<Leader>u'] = {':UndotreeToggle<CR>', {silent = true}},
+    },
+  })
 end
 
 -- Automatic, language-dependent indentation, syntax coloring and other

@@ -2,8 +2,8 @@ wincent.g.lazy = {}
 
 local lazy_index = 0
 
-local lazy = function(config)
-  config = vim.deepcopy(config)
+local lazy = function(pack, config)
+  config = vim.deepcopy(config or {})
 
   -- As a convenience, accept: {'CommandA', 'CommandB'}
   -- and transform it into: {CommandA = true, CommandB = true}
@@ -22,9 +22,7 @@ local lazy = function(config)
 
   config.load = function()
     if config.beforeload ~= nil then
-      for _, callback in ipairs(config.beforeload) do
-        callback()
-      end
+      config.beforeload()
     end
 
     if config.commands ~= nil then
@@ -33,7 +31,7 @@ local lazy = function(config)
       end
     end
 
-    vim.cmd('packadd ' .. config.pack)
+    vim.cmd('packadd ' .. pack)
 
     if config.nnoremap ~= nil then
       for lhs, rhs_and_opts in pairs(config.nnoremap) do
@@ -44,9 +42,7 @@ local lazy = function(config)
     end
 
     if config.afterload ~= nil then
-      for _, callback in ipairs(config.afterload) do
-        callback()
-      end
+      config.afterload()
     end
 
     wincent.g.lazy[key] = nil
@@ -77,6 +73,22 @@ local lazy = function(config)
         rhs,
         opts
       )
+    end
+  end
+
+  if config.commands == nil and config.nnoremap == nil then
+    -- No triggers defined, so just load this thing after startup.
+    vim.defer_fn(config.load, 0)
+  else
+    -- `packadd!` adds directories to 'runtimepath', so things like `:help`
+    -- will work, but Vim won't load the plugin files as long as we do this
+    -- _after_ startup.
+    if vim.v.vim_did_enter == 1 then
+      vim.cmd('packadd! ' .. pack)
+    else
+      wincent.vim.autocmd('VimEnter', '*', function()
+        vim.cmd('packadd! ' .. pack)
+      end, {once = true})
     end
   end
 end
