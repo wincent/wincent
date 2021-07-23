@@ -47,6 +47,7 @@ export default {
       'python-pip', // So we can update pynvim.
       'ripgrep', // Grep replacement.
       'ruby', // Scripting language.
+      'rust-analyzer', // LSP services for Rust language.
       'screenkey', // Shows keyboard interactions for screencasting.
       'scrot', // Screenshot tool.
       'skim', // Fuzzy finder.
