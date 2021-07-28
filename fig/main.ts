@@ -19,6 +19,8 @@ import test from './test.js';
 import type {Aspect} from './types/Project.js';
 
 async function main() {
+  const start = Date.now();
+
   if (Context.attributes.uid === 0) {
     if (!process.env.YOLO) {
       throw new ErrorWithMetadata('Refusing to run as root unless YOLO is set');
@@ -341,9 +343,31 @@ async function main() {
         return `${name}=${count}`;
       })
       .join(' ');
+    const elapsed = msToHumanReadable(Date.now() - start);
 
-    log.notice(`Summary: ${counts}`);
+    log.notice(`Summary: ${counts} elapsed=${elapsed}`);
   }
+}
+
+/**
+ * Turns `ms` into a human readble string like "1m2s" or "33.2s".
+ *
+ * Doesn't deal with timescales beyond "minutes" because we don't expect to see
+ * those. If we did, it would just return (something like) "125m20s".
+ */
+function msToHumanReadable(ms: number): string {
+  let seconds = ms / 1000;
+  const minutes = Math.floor(seconds / 60);
+  if (minutes) {
+    seconds = Math.floor(seconds - minutes * 60);
+  }
+
+  let result = minutes ? `${minutes}m` : '';
+  result += seconds
+    ? seconds.toFixed(2).toString().replace(/0+$/, '').replace(/\.$/, '') + 's'
+    : '';
+
+  return result;
 }
 
 async function loadAspect(aspect: Aspect): Promise<void> {
