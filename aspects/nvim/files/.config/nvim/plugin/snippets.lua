@@ -33,6 +33,17 @@ if has_luasnip then
         t("');"),
       }
       ),
+      -- TODO: In the future, when LuaSnip properly supports `VISUAL` without
+      -- hacks (see: https://github.com/L3MON4D3/LuaSnip/issues/89#issuecomment-887458603),
+      -- bring this up to parity with what I had in UltiSnips.
+      s(
+        {trig = '**', dscr = 'docblock'},
+        {
+          t({'/**', ' * '}),
+          i(1, 'docblock'),
+          t({'', ' */'}),
+        }
+      ),
     },
     markdown = {
       s(
