@@ -90,7 +90,7 @@ task('create suspend hook', async () => {
   await file({
     notify: 'enable suspend hook',
     path: '/etc/systemd/system/suspend@.service',
-    src: path.aspect.join('files', 'suspend@.service'),
+    src: path.aspect.join('files', 'etc/systemd/system/suspend@.service'),
     state: 'file',
     sudo: true,
   });
