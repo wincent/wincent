@@ -20,30 +20,13 @@ function task(name: string, callback: () => Promise<void>) {
   });
 }
 
-task('enable multilib repository', async () => {
-  // TODO: make a proper ini module for managing this;
-  // will need it because desired `Include` line here must appear in a
-  // specific section.
-  //
-  // Note that we don't want to enable multilib-testing (and if we did, we'd
-  // have to enable testing and community-testing as well, as per the wiki)
-  //
-  // https://wiki.archlinux.org/title/official_repositories#Testing_repositories
-  /*
-    await line({
-        path: '/etc/pacman.conf',
-        regexp: /^\s*#?\s*\[multilib\]\s*$/,
-        sudo: true,
-        line: '[multilib]',
-    });
-
-    await line({
-        path: '/etc/pacman.conf',
-        regexp: /^\s*#?\s*Include\s*=\s*\/etc\/pacman\.d\/mirrolist\s*$/,
-        sudo: true,
-        line: 'Include = /etc/pacman.d/mirrorlist',
-    });
-    */
+task('copy /etc/pacman.conf', async () => {
+  await file({
+    path: '/etc/pacman.conf',
+    src: path.aspect.join('files', 'etc/pacman.conf'),
+    state: 'file',
+    sudo: true,
+  });
 });
 
 task('refresh package databases', async () => {
