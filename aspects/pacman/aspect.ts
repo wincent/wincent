@@ -54,6 +54,7 @@ export default {
       'slop', // For selecting screen regions (eg. with screenkey).
       'socat', // Netcat replacement with UNIX domain socket (etc) support.
       'stack', // Haskell environment.
+      'steam', // Ya know, for important stuff, like Factorio.
       'strace', // For observing process activity.
       'stress', // CPU (etc) stress tester.
       'sxhkd', // Hotkey daemon for X (eg. open Dmenu with Super+Space).
