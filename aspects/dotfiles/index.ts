@@ -108,6 +108,7 @@ task('create ~/code/.editorconfig', async () => {
 });
 
 task('install glow.yml', async () => {
+  // On other platforms, Glow will read from ~/.config/glow/glow.yml.
   if (attributes.platform === 'darwin') {
     await file({
       path: '~/Library/Preferences/glow',
@@ -121,5 +122,4 @@ task('install glow.yml', async () => {
       state: 'link',
     });
   }
-  // TODO handle other platforms
 });

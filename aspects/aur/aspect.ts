@@ -4,6 +4,7 @@ export default {
     packages: [
       'bfs', // Breadth-first `find` replacement.
       'clipper-git', // Clipboard daemon.
+      'glow', // Markdown previewer.
       'google-chrome', // Web browser.
       'it87-dkms-git', // Allows `sensors` to pick up on it8688 chipset.
       'lf', // Command-line file explorer.

@@ -12,6 +12,7 @@
       ".config/chromium-flags.conf",
       ".config/clipper",
       ".config/dunst",
+      ".config/glow",
       ".config/herbstluftwm",
       ".config/i3",
       ".config/i3blocks",
