@@ -328,18 +328,6 @@ hs.hotkey.bind({'ctrl', 'alt', 'cmd'}, 'f4', (function()
   reloader.reload()
 end))
 
-hs.hotkey.bind('alt', 'v', function()
-  hs.applescript [[
-    tell application "System Events" to tell process "Finder"
-      set frontmost to true
-      tell menu bar item "Edit" of menu bar 1
-        click
-        click menu item "Show Clipboard" of menu 1
-      end tell
-    end tell
-  ]]
-end)
-
 iterm.init()
 reloader.init()
 initEventHandling()
