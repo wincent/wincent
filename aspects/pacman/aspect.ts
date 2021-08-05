@@ -30,12 +30,14 @@ export default {
       'man-pages', // Linux man pages (eg. `man 3 strlen` etc).
       'mariadb', // Drop-in replacement for (and default Arch) MySQL package.
       'mlocate', // Find files by name with `locate`.
+      'namcap', // For testing AUR package PKGBUILD files.
       'neovim', // $EDITOR.
       'netcat', // For piping over network connectison (see also `socat` below).
       'nodejs', // JavaScript engine.
       'npm', // Node package manager.
       'openssh', // SSH tools.
       'otf-font-awesome', // Icon font (eg. for status bar).
+      'pacman-contrib', // For `updpkgsums` (updating checksums in AUR package PKGBUILD files).
       'pavucontrol', // Simple PulseAudio configuration UI.
       'pcmanfm', // File manager from LXDE desktop (lightweight).
       'perl-anyevent-i3', // Dependency of `i3-save-tree` command.
