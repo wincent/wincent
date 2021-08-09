@@ -476,6 +476,8 @@ zstyle ':chpwd:*' recent-dirs-default true
 LOCAL_RC=$HOME/.zshrc.local
 test -f $LOCAL_RC && source $LOCAL_RC
 
+# If your hostname ever gets unset on macOS, reset with:
+#   sudo scutil --set HostName $desired-host-name
 HOST_RC=$HOME/.zsh/host/$(hostname -s | tr '[:upper:]' '[:lower:]')
 test -f $HOST_RC && source $HOST_RC
 
