@@ -32,6 +32,6 @@ git for-each-ref refs/heads/wincent/ | while read LOCAL_HASH TYPE LOCAL_REF; do
     ABBREV=$(git rev-parse --short "$REMOTE_HASH")
     echo "$(red '[UPDATED]'): $BRANCH -> $ABBREV"
   else
-    echo "$(bold '[   👍   ]'): $BRANCH"
+    echo "$(bold '[  OK   ]'): $BRANCH"
   fi
 done

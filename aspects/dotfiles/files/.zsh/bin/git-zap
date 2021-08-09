@@ -31,6 +31,6 @@ git for-each-ref refs/remotes/origin/wincent/ | while read REMOTE_HASH TYPE REMO
     echo "$(yellow '[UPDATED]'): $BRANCH -> $ABBREV"
     test -z "$DRY_RUN" && git branch -f $BRANCH origin/$BRANCH > /dev/null
   else
-    echo "$(bold  '[   👍   ]'): $BRANCH"
+    echo "$(bold  '[  OK   ]'): $BRANCH"
   fi
 done
