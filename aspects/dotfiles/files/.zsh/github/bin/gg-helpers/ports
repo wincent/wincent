@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ $# -eq 1 ]; then
+  gh cs ports forward "$1" 80 80
+else
+  echo "usage: gg ports CODESPACE"
+  echo
+  gh cs list
+fi
