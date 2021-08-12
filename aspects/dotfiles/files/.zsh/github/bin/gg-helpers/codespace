@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [[ $1 == --ssh ]]; then
+  # Go in directly with `ssh`.
+  if [[ $TERM == *kitty* ]]; then
+    # Copy ~/.terminfo/x/xterm-kitty when connecting.
+    # See: https://sw.kovidgoyal.net/kitty/faq/
+    kitty +kitten ssh github-codespaces
+  else
+    ssh github-codespaces
+  fi
+else
+  if [[ $TERM == *kitty* ]]; then
+    echo "Can't connect from kitty via \`gh cs\`; use --ssh to bypass \`gh\` and use \`ssh\` directly"
+    exit 1
+  else
+    gh cs ssh --profile github-codespaces
+  fi
+fi
