@@ -1,9 +1,19 @@
 #!/bin/bash
 
-if [ -e /etc/arch-release ]; then
-  socat - UNIX-CLIENT:$HOME/.clipper.sock
-elif [ -e /etc/debian_version ]; then
-  socat - UNIX-CLIENT:$HOME/.clipper.sock
+if [[ -n "$ITERM_SESSION_ID" || -n "$KITTY_WINDOW_ID" ]]; then
+  # iTerm2 and Kitty both support OSC 52, so no need to use Clipper.
+  if [ -n "$TMUX" ]; then
+    printf "\ePtmux;\e\e]52;c;%s\a\e\\" "$(cat - | openssl base64 -A)"
+  else
+    printf "\e]52;c;%s\a" "$(cat - | openssl base64 -A)"
+  fi
 else
-  nc -U ~/.clipper.sock
+  # Fall back to Clipper.
+  if [ -e /etc/arch-release ]; then
+    socat - UNIX-CLIENT:$HOME/.clipper.sock
+  elif [ -e /etc/debian_version ]; then
+    socat - UNIX-CLIENT:$HOME/.clipper.sock
+  else
+    nc -U ~/.clipper.sock
+  fi
 fi
