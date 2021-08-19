@@ -10,9 +10,8 @@ task('make directories', async () => {
 
 task('copy helper scripts', async () => {
   const scripts = [
-    'bin/karabiner-boot',
-    'bin/karabiner-kill',
-    'bin/karabiner-kill.applescript',
+    'bin/karabiner-boot.command',
+    'bin/karabiner-kill.command',
   ];
 
   for (const script of scripts) {

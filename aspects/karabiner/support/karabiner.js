@@ -405,7 +405,7 @@ const DEFAULT_PROFILE = applyExemptions({
             },
             to: [
               {
-                shell_command: 'osascript ~/bin/karabiner-kill.applescript',
+                shell_command: 'open ~/bin/karabiner-kill.command',
               },
             ],
           },
