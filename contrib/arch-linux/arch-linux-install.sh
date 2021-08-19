@@ -115,6 +115,9 @@ PARTUUID=\$(lsblk /dev/nvme0n1p2 -o PARTUUID -d -n)
 efibootmgr --disk /dev/nvme0n1 --part 1 --create --label "Arch Linux LTS" --loader /vmlinuz-linux-lts --unicode "cryptdevice=PARTUUID=\${PARTUUID}:root root=/dev/mapper/root rw initrd=\initramfs-linux-lts.img" --verbose
 efibootmgr --disk /dev/nvme0n1 --part 1 --create --label "Arch Linux" --loader /vmlinuz-linux --unicode "cryptdevice=PARTUUID=\${PARTUUID}:root root=/dev/mapper/root rw initrd=\initramfs-linux.img" --verbose
 
+echo \\\\vmlinuz-linux-lts cryptdevice=PARTUUID=\${PARTUUID}:root root=/dev/mapper/root rw initrd=\\\\initramfs-linux-lts.img > /boot/b.nsh
+echo \\\\vmlinuz-linux cryptdevice=PARTUUID=\${PARTUUID}:root root=/dev/mapper/root rw initrd=\\\\initramfs-linux.img > /boot/a.nsh
+
 log "Setting up swap"
 fallocate -l 2G /swapfile
 chmod 600 /swapfile
