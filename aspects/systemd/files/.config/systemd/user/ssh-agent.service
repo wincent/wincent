@@ -1,0 +1,14 @@
+# Based on: https://wiki.archlinux.org/title/SSH_keys#Start_ssh-agent_with_systemd_user
+[Unit]
+Description=SSH key agent
+
+[Service]
+Type=simple
+# %t = $XDG_RUNTIME_DIR; something like /run/user/1000
+Environment=SSH_AUTH_SOCK=%t/ssh-agent.socket
+# DISPLAY required for ssh-askpass to work
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/ssh-agent -D -a $SSH_AUTH_SOCK
+
+[Install]
+WantedBy=default.target

@@ -1,4 +1,13 @@
-import {attributes, command, skip, task as defineTask, variable} from 'fig';
+import {
+  attributes,
+  command,
+  file,
+  handler,
+  path,
+  skip,
+  task as defineTask,
+  variable,
+} from 'fig';
 
 // TODO: need to come up with a better pattern for arch-specific stuff
 function task(name: string, callback: () => Promise<void>) {
@@ -26,4 +35,32 @@ task('set up hostname', async () => {
   } else {
     skip();
   }
+});
+
+task('create ~/.config/systemd/user', async () => {
+  // TODO: I am doing something similar with a `for` loop in the "aur" aspect;
+  // maybe I should add `recurse: true` support to the `file` DSL.
+  await file({path: '~/.config', state: 'directory'});
+  await file({path: '~/.config/systemd', state: 'directory'});
+  await file({path: '~/.config/systemd/user', state: 'directory'});
+});
+
+task('set up ~/.config/systemd/user/ssh-agent.service', async () => {
+  const unit = '.config/systemd/user/ssh-agent.service';
+  await file({
+    notify: 'enable ssh-agent.service',
+    path: path.home.join(unit),
+    src: path.aspect.join('files', unit),
+    state: 'link',
+  });
+});
+
+handler('enable ssh-agent.service', async () => {
+  await command('systemctl', ['--user', 'daemon-reload']);
+  await command('systemctl', [
+    '--user',
+    'enable',
+    'ssh-agent.service',
+    '--now',
+  ]);
 });

@@ -36,7 +36,6 @@ fi
 # Overrides:
 #
 
-eval $(ssh-agent)
 xrandr --dpi 165
 sh ~/.fehbg &
 picom -b --experimental-backends --backend glx
