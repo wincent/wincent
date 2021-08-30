@@ -15,7 +15,7 @@ task('set "StreamLocalBindUnlink yes" in /etc/ssh/sshd_config', async () => {
   });
 
   if (Context.counts.changed > changedCount) {
-    await command('pkill', ['-HUP', '-xf', '/usr/sbin/sshd']);
+    await command('pkill', ['-HUP', '-f', '/usr/sbin/sshd']);
   } else {
     skip('no need to send SIGHUP to sshd (no changes made)');
   }
