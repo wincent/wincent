@@ -8,6 +8,8 @@ if has_luasnip then
   local c = luasnip.c
   local d = luasnip.d
 
+  luasnip.config.setup({store_selection_keys="<Tab>"})
+
   luasnip.snippets = {
     all = {
       s(
@@ -33,14 +35,25 @@ if has_luasnip then
         t("');"),
       }
       ),
-      -- TODO: In the future, when LuaSnip properly supports `VISUAL` without
-      -- hacks (see: https://github.com/L3MON4D3/LuaSnip/issues/89#issuecomment-887458603),
-      -- bring this up to parity with what I had in UltiSnips.
       s(
         {trig = '**', dscr = 'docblock'},
         {
-          t({'/**', ' * '}),
-          i(1, 'docblock'),
+          t({'/**', ''}),
+          f(function (args)
+            local lines = vim.tbl_map(
+              function(line)
+                print(vim.inspect(line))
+                return ' * ' .. vim.trim(line)
+              end,
+              args[1].env.TM_SELECTED_TEXT
+            )
+            if #lines == 0 then
+              return ' * '
+            else
+              return lines
+            end
+          end, {}),
+          i(1),
           t({'', ' */'}),
         }
       ),
@@ -60,8 +73,7 @@ if has_luasnip then
         })}
       )
     },
-    ruby = {
-      -- TODO: make these apply to test files only
+    spec = {
       s(
         {trig = 'con', dscr = 'Test context block'},
         {t('context "'), i(1, 'description'), t({'" do', '  '}), i(2, '# body'), t({'', 'end'})}
