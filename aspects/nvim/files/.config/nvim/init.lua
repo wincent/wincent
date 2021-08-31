@@ -278,7 +278,6 @@ if vim.o.loadplugins then
   wincent.plugin.load('vim-repeat')
   wincent.plugin.load('vim-signature')
   wincent.plugin.load('vim-slime')
-  wincent.plugin.load('vim-soy')
   wincent.plugin.load('vim-speeddating')
   wincent.plugin.load('vim-surround')
   wincent.plugin.load('vim-textobj-comment')

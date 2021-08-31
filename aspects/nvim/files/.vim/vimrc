@@ -97,7 +97,6 @@ if &loadplugins
     packadd! vim-repeat
     packadd! vim-signature
     packadd! vim-slime
-    packadd! vim-soy
     packadd! vim-speeddating
     packadd! vim-surround
     packadd! vim-textobj-comment

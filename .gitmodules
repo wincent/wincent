@@ -148,9 +148,6 @@
 	branch = main
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-slime
 	url = https://github.com/jpalardy/vim-slime.git
-[submodule "vim-soy"]
-	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-soy
-	url = https://github.com/duganchen/vim-soy.git
 [submodule "vim-speeddating"]
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-speeddating
 	url = https://github.com/tpope/vim-speeddating.git
