@@ -11,6 +11,7 @@ export default {
       'libtool-bin', // To build Neovim from source.
       'neovim', // Editor.
       'netcat', // Needed by Clipper (if you use a TCP port).
+      'par', // For wrapping text in Vim.
       'socat', // Actually (if you use a UNIX socket).
       'ninja-build', // To build Neovim from source.
       'pkg-config', // To build Neovim from source.
