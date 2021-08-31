@@ -35,6 +35,23 @@ local heuristics = {
       ['type'] = 'test',
     }
   },
+
+  -- Rails/Rack-ish applications.
+  ['config.ru'] = {
+    ['app/*.rb'] = {
+      ['alternate'] = 'test/{}_test.rb'
+    },
+    ['lib/*.rb'] = {
+      ['alternate'] = 'test/{}_test.rb'
+    },
+    ['test/*_test.rb'] = {
+      ['alternate'] = {
+        'app/{}.rb',
+        'lib/{}.rb',
+      }
+    },
+  },
+
   ['package.json'] = {},
   ['tsconfig.json'] = {},
 }
