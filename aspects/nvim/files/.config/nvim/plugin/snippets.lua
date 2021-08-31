@@ -60,5 +60,16 @@ if has_luasnip then
         })}
       )
     },
+    ruby = {
+      -- TODO: make these apply to test files only
+      s(
+        {trig = 'con', dscr = 'Test context block'},
+        {t('context "'), i(1, 'description'), t({'" do', '  '}), i(2, '# body'), t({'', 'end'})}
+      ),
+      s(
+        {trig = 'test', dscr = 'Test block'},
+        {t('test "'), i(1, 'description'), t({'" do', '  '}), i(2, '# body'), t({'', 'end'})}
+      ),
+    },
   }
 end
