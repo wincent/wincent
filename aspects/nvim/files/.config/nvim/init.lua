@@ -274,6 +274,7 @@ if vim.o.loadplugins then
   wincent.plugin.load('vim-markdown')
   wincent.plugin.load('vim-operator-user')
   wincent.plugin.load('vim-projectionist')
+  wincent.plugin.load('vim-rails')
   wincent.plugin.load('vim-reason-plus')
   wincent.plugin.load('vim-repeat')
   wincent.plugin.load('vim-signature')

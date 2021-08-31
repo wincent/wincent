@@ -213,3 +213,6 @@
 [submodule "rust.vim"]
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/rust.vim
 	url = https://github.com/rust-lang/rust.vim.git
+[submodule "vim-rails"]
+	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-rails
+	url = https://github.com/tpope/vim-rails.git
