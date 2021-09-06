@@ -63,7 +63,10 @@ export function expect(value: unknown) {
       if (!caught) {
         assert.fail('Expected error but none was thrown');
       } else {
-        const message = caught.toString();
+        const message =
+          caught instanceof Error
+            ? caught.toString()
+            : Object.prototype.toString.call(caught);
 
         if (typeof expected === 'string') {
           assert.ok(
@@ -150,7 +153,11 @@ export async function run() {
       failureCount++;
       await print.clear();
       log(red.reverse` FAIL `, description);
-      log(`\n${error.message}\n`);
+      if (error instanceof Error) {
+        log(`\n${error.message}\n`);
+      } else {
+        log(`\n${Object.prototype.toString.call(error)}\n`);
+      }
       log(error);
       log();
     } finally {

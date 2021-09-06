@@ -29,7 +29,13 @@ export default async function readAspect(directory: string): Promise<Aspect> {
   try {
     assertAspect(aspect);
   } catch (error) {
-    throw new Error(`${error.message} in ${directory}`);
+    if (error instanceof Error) {
+      throw new Error(`${error.message} in ${directory}`);
+    } else {
+      throw new Error(
+        `unknown error ${Object.prototype.toString.call(error)} in ${directory}`
+      );
+    }
   }
 
   return aspect;

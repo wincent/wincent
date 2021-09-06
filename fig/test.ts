@@ -13,7 +13,11 @@ export default async function test() {
       try {
         await import(file);
       } catch (error) {
-        log.error(error);
+        if (error instanceof Error) {
+          log.error(error.toString());
+        } else {
+          log.error(Object.prototype.toString.call(error));
+        }
       }
     }
   }

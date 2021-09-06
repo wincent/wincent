@@ -12,7 +12,13 @@ export default async function readProject(path: string): Promise<Project> {
   try {
     assertProject(project);
   } catch (error) {
-    throw new Error(`${error.message} in ${path}`);
+    if (error instanceof Error) {
+      throw new Error(`${error.message} in ${path}`);
+    } else {
+      throw new Error(
+        `unknown error ${Object.prototype.toString.call(error)} in ${path}`
+      );
+    }
   }
 
   return project;
