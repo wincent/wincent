@@ -5,4 +5,10 @@
 
 DIRECTORY=$(cd $(dirname "$BASH_SOURCE"); pwd)
 
-exec node "$DIRECTORY/.gg.js" "$@"
+# Fancy hack: automatically run "test" subcommand if first arg starts with
+# test/:
+if [[ "$1" == test/* ]]; then
+  exec node "$DIRECTORY/.gg.js" test "$@"
+else
+  exec node "$DIRECTORY/.gg.js" "$@"
+fi
