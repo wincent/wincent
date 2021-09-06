@@ -68,8 +68,10 @@ function resources(subdirectory: string, glob: string): Array<Path> {
           }
         } else if (entry.isDirectory() && components.length > 1) {
           return traverse(next, components.slice(1));
-        } else {
+        } else if (components.length === 1) {
           return next;
+        } else {
+          return [];
         }
       });
   }
