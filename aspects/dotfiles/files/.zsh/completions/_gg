@@ -1,3 +1,37 @@
 #compdef gg
 
-_values 'subcommands' $(ls ~/.zsh/github/bin/gg-helpers)
+typeset -A opt_args
+
+_arguments -C \
+  '1:cmd:->cmds' \
+  '*:: :->args' \
+  && ret=0
+
+case "$state" in
+  (cmds)
+    local commands; commands=(
+      "codespace:SSH to a codespace"
+      "codespaces:SSH to a codespace"
+      "console:Open a Rails console"
+      "cs:SSH to a codespace"
+      "db:Open a MySQL console"
+      "dbconsole:Open a MySQL console"
+      "help:Show help"
+      "ports:Forward ports from a codespace"
+      "serve:Run the server"
+      "server:Run the server"
+      "serviceowners:Regenerate serviceowners files"
+      "test:Run tests"
+    )
+    _describe -t commands 'command' commands && ret=0
+    ;;
+  (args)
+    case $line[1] in
+      (test)
+        _files && ret=0
+        ;;
+    esac
+    ;;
+esac
+
+return 1
