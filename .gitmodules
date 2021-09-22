@@ -96,7 +96,7 @@
 [submodule "vim-easydir"]
 	ignore = untracked
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-easydir
-	url = https://github.com/dockyard/vim-easydir.git
+	url = https://github.com/duggiefresh/vim-easydir.git
 [submodule "vim-eunuch"]
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-eunuch
 	url = https://github.com/tpope/vim-eunuch.git
