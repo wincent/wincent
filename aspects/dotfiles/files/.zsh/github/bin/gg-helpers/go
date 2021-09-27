@@ -1,0 +1,57 @@
+#!/bin/sh
+
+set -e
+
+SESSION=github
+BASE=/workspaces/github
+UNAME="$(uname)"
+
+if [ ! -d "$BASE" ]; then
+  BASE="$HOME/code/github"
+fi
+
+if [ ! -d "$BASE" ]; then
+  echo "error: Cannot find BASE directory"
+  exit 1
+fi
+
+if tmux has-session -t $SESSION 2> /dev/null; then
+  TARGET="$SESSION"
+else
+  TARGET="$SESSION:vim.right"
+
+  cd "$BASE"
+
+  # 1. Main editor window: Vim on the left, shell on the right.
+  tmux new-session -d -s $SESSION -n vim -x $(tput cols) -y $(tput lines)
+  tmux split-window -t $SESSION:vim -h
+  tmux send-keys -t $SESSION:vim.left "vim -c CommandTBoot" Enter
+
+  # 2. General shell use: two panes separated by a vertical split.
+  tmux new-window -t $SESSION -n zsh
+  tmux split-window -t $SESSION:zsh -h
+
+  if [ "$UNAME" != "Darwin" ]; then
+    # 3. (Linux-only) Console: Rails at the top, database at the bottom.
+    tmux new-window -t $SESSION -n console
+    tmux send-keys -t $SESSION:console "gg console"
+    tmux split-window -t $SESSION:console -v
+    tmux send-keys -t $SESSION:console.bottom "gg db"
+
+    # 4. (Linux-only) Server.
+    tmux new-window -t $SESSION -n server
+    tmux send-keys -t $SESSION:server "gg serve"
+  fi
+
+  # 5. (Darwin only) Port forwarding.
+  if [ "$UNAME" = "Darwin" ]; then
+    tmux new-window -t $SESSION -n ports
+    tmux send-keys -t $SESSION:ports "gg ports"
+  fi
+fi
+
+if [ -n "$TMUX" ]; then
+  tmux switch-client -t "$TARGET"
+else
+  tmux attach -t "$TARGET"
+fi
