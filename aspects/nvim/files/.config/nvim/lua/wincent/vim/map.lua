@@ -10,7 +10,11 @@ local map = function (mode, lhs, rhs, opts)
   if rhs_type == 'function' then
     local key = wincent.util.get_key_for_fn(rhs, wincent.g.map_callbacks)
     wincent.g.map_callbacks[key] = rhs
-    rhs = 'v:lua.wincent.g.map_callbacks.' .. key .. '()'
+    if opts.expr then
+      rhs = 'v:lua.wincent.g.map_callbacks.' .. key .. '()'
+    else
+      rhs = ':lua wincent.g.map_callbacks.' .. key .. '()<CR>'
+    end
   elseif rhs_type ~= 'string' then
     error('map(): unsupported rhs type: ' .. rhs_type)
   end
