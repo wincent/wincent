@@ -2,7 +2,7 @@
 
 ![](https://github.com/wincent/wincent/workflows/ci/badge.svg)
 
-> These dotfiles are affectionately dedicated to the vi editor originally created by Bill Joy, with whom I have spent many pleasant evenings<sup>[1](#footnote1)</sup>
+> These dotfiles are affectionately dedicated to the vi editor originally created by Bill Joy, with whom I have spent many pleasant evenings[^1]
 
 — Greg Hurrell, [paraphrasing Donald Knuth](https://en.wikipedia.org/wiki/The_Art_of_Computer_Programming)
 
@@ -276,6 +276,4 @@ This list produced with:
 
     :read !git shortlog -s HEAD | grep -v 'Greg Hurrell' | cut -f 2-3 | sed -e 's/^/- /'
 
-## Footnotes
-
-<a name="footnote1">**1:**</a> The evenings were spent with [vi](https://en.wikipedia.org/wiki/Vi) derivatives, not with Bill Joy.
+[^1]: The evenings were spent with [vi](https://en.wikipedia.org/wiki/Vi) derivatives, not with Bill Joy.
