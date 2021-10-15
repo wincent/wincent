@@ -9,6 +9,9 @@ if [[ $1 == --ssh ]]; then
   else
     ssh github-codespaces
   fi
+elif [[ $# -gt 0 ]]; then
+  # Forward arguments, so callers can do eg. `gg cs list` etc.
+  gh cs "$@"
 else
   if [[ $TERM == *kitty* ]]; then
     echo "Can't connect from kitty via \`gh cs\`; use --ssh to bypass \`gh\` and use \`ssh\` directly"
