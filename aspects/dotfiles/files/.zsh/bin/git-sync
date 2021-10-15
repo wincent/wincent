@@ -11,10 +11,6 @@
 # periodically pushing it the remote origin, but keep a local copy of a repo too
 # with a copy of all the branches.
 
-# We're using zsh because Apple ships an ancient v3 Bash without associative
-# array support.
-declare -A REFS
-
 # Zsh black magic that does equivalent of $BASH_SOURCE, via:
 # https://stackoverflow.com/a/28336473/2103996
 BASH_SOURCE=${(%):-%x}
