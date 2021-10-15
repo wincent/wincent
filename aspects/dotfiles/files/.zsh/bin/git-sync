@@ -1,0 +1,77 @@
+#!/usr/bin/env zsh
+
+# "Synchronizes" a local clone to match the state of a remote:
+#
+# - Iterates over remote branches of the form "$USER/*", updating local
+#   branches to match (and creating them if necessary).
+# - Iterates over local branches of the form "$USER/*" and moves any that no
+#   longer exist on the remote into the "attic/$USER/" namespace.
+#
+# The primary use case is to do all your "real work" off in Codespaces,
+# periodically pushing it the remote origin, but keep a local copy of a repo too
+# with a copy of all the branches.
+
+# We're using zsh because Apple ships an ancient v3 Bash without associative
+# array support.
+declare -A REFS
+
+# Zsh black magic that does equivalent of $BASH_SOURCE, via:
+# https://stackoverflow.com/a/28336473/2103996
+BASH_SOURCE=${(%):-%x}
+
+CONTEXT=$(cd $(dirname "$BASH_SOURCE"); pwd)
+
+source "${CONTEXT}/.common.zsh"
+
+DRY_RUN=
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --dry-run|--dry|-n)
+      DRY_RUN=1
+      ;;
+  esac
+  shift
+done
+
+if [ -n "$DRY_RUN" ]; then
+  echo "Dry run mode: no actual changes will be made..."
+fi
+
+git fresh
+
+git for-each-ref "refs/remotes/origin/$USER/" |
+  while read REMOTE_HASH TYPE REMOTE_REF
+do
+  BRANCH=${REMOTE_REF#refs/remotes/origin/}
+  LOCAL_REF="refs/heads/${BRANCH}"
+  LOCAL_HASH=$(git rev-parse "${LOCAL_REF}" 2> /dev/null)
+  ABBREV=$(git rev-parse --short "$REMOTE_HASH")
+
+  if [ "$LOCAL_HASH" = "$LOCAL_REF" ]; then
+    # We'll get in here given a branch name like "foo" only if the branch
+    # doesn't exist (Git will return "refs/heads/foo" instead of a SHA).
+    echo "$(green '[CREATED]'): $BRANCH -> $ABBREV"
+    test -z "$DRY_RUN" && git branch -f $BRANCH origin/$BRANCH > /dev/null
+  elif [ "$LOCAL_HASH" != "$REMOTE_HASH" ]; then
+    echo "$(yellow '[UPDATED]'): $BRANCH -> $ABBREV"
+    test -z "$DRY_RUN" && git branch -f $BRANCH origin/$BRANCH > /dev/null
+  else
+    echo "$(bold  '[  OK   ]'): $BRANCH"
+  fi
+done
+
+git for-each-ref "refs/heads/$USER/" |
+  while read LOCAL_HASH TYPE LOCAL_REF
+do
+  BRANCH=${LOCAL_REF#refs/heads/}
+  REMOTE_REF="refs/remotes/origin/${BRANCH}"
+  REMOTE_HASH=$(git rev-parse "${REMOTE_REF}" 2> /dev/null)
+
+  if [ "$REMOTE_HASH" = "$REMOTE_REF" ]; then
+    # Branch exists locally, but no longer on the remote.
+    echo "$(yellow '[STASHED]'): $BRANCH -> attic/"
+    test -z "$DRY_RUN" && git branch -m $BRANCH attic/$BRANCH > /dev/null
+  fi
+done
+
+# vim: set filetype=zsh

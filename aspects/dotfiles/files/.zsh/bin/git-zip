@@ -1,37 +1,9 @@
 #!/bin/bash
 
-# Move personal branches that are no longer on origin into "attic/" namespace.
-
 CONTEXT=$(cd $(dirname "$BASH_SOURCE"); pwd)
 
 source "${CONTEXT}/.common.bash"
 
-DRY_RUN=
-while [ $# -gt 0 ]; do
-  case "$1" in
-    --dry-run|-n)
-      DRY_RUN=1
-      ;;
-  esac
-  shift
-done
+echo "$(red '"git zip" is deprecated in favor of "git sync"')"
 
-if [ -n "$DRY_RUN" ]; then
-  echo "Dry run mode: no actual changes will be made..."
-fi
-
-git for-each-ref refs/heads/wincent/ | while read LOCAL_HASH TYPE LOCAL_REF; do
-  BRANCH=${LOCAL_REF#refs/heads/}
-  REMOTE_REF="refs/remotes/origin/${BRANCH}"
-  REMOTE_HASH=$(git rev-parse "${REMOTE_REF}" 2> /dev/null)
-
-  if [ "$REMOTE_HASH" = "$REMOTE_REF" ]; then
-    echo "$(yellow '[STASHED]'): $BRANCH -> attic/"
-    test -z "$DRY_RUN" && git branch -m $BRANCH attic/$BRANCH > /dev/null
-  elif [ "$LOCAL_HASH" != "$REMOTE_HASH" ]; then
-    ABBREV=$(git rev-parse --short "$REMOTE_HASH")
-    echo "$(red '[UPDATED]'): $BRANCH -> $ABBREV"
-  else
-    echo "$(bold '[  OK   ]'): $BRANCH"
-  fi
-done
+exec git sync "$@"
