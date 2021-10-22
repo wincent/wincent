@@ -9,6 +9,8 @@ if [[ $1 == --ssh ]]; then
   else
     ssh github-codespaces
   fi
+elif [[ $# -eq 1 && "$1" = tail ]]; then
+  gh cs ssh -- tail -f /root/codespaces-post-start.log
 elif [[ $# -gt 0 ]]; then
   # Forward arguments, so callers can do eg. `gg cs list` etc.
   gh cs "$@"
