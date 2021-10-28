@@ -8,6 +8,8 @@
 -- and at other times as window-local.
 
 local options = {
+  breakindent = {scope = 'window', type = 'boolean'},
+  breakindentopt = {scope = 'window', type = 'string'},
   colorcolumn = {scope = 'window', type = 'string'},
   concealcursor = {scope = 'window', type = 'string'},
   expandtab = {scope = 'buffer', type = 'boolean'},
