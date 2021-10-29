@@ -12,18 +12,19 @@
 # Documentation:
 # @raycast.description Find or jump to a specified GitHub user
 
-HANDLE=$1
+# Get path to current script's directory:
+# https://unix.stackexchange.com/a/115431/140622
+BASE_DIRECTORY=${0:a:h}
+source "$BASE_DIRECTORY/.common.zsh"
 
-# Trim leading and trailing whitespace:
-# https://stackoverflow.com/a/68288735/2103996
-TRIMMED=${(MS)HANDLE##[[:graph:]]*[[:graph:]]}
+HANDLE=$(trim "$1")
 
-if [ -z "$TRIMMED" ]; then
+if [ -z "$HANDLE" ]; then
   open "https://github.com/$USER"
-elif [[ $TRIMMED == *\? ]]; then
-  # Trim trailing "?" suffix: https://unix.stackexchange.com/a/259042/140622
-  TRIMMED=${TRIMMED[1,-2]}
-  open "https://github.com/search?q=${TRIMMED}&type=users"
+elif [[ $HANDLE == *\? ]]; then
+  # Trim trailing "?" suffix.
+  HANDLE=$(chop "$HANDLE")
+  open "https://github.com/search?q=${HANDLE}&type=users"
 else
-  open "https://github.com/${TRIMMED}"
+  open "https://github.com/${HANDLE}"
 fi

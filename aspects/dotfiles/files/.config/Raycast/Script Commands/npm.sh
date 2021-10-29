@@ -12,18 +12,19 @@
 # Documentation:
 # @raycast.description Find or jump to a specified npm package
 
-PACKAGE=$1
+# Get path to current script's directory:
+# https://unix.stackexchange.com/a/115431/140622
+BASE_DIRECTORY=${0:a:h}
+source "$BASE_DIRECTORY/.common.zsh"
 
-# Trim leading and trailing whitespace:
-# https://stackoverflow.com/a/68288735/2103996
-TRIMMED=${(MS)PACKAGE##[[:graph:]]*[[:graph:]]}
+PACKAGE=$(trim "$1")
 
-if [ -z "$TRIMMED" ]; then
+if [ -z "$PACKAGE" ]; then
   open https://www.npmjs.com/
-elif [[ $TRIMMED == *\? ]]; then
-  # Trim trailing "?" suffix: https://unix.stackexchange.com/a/259042/140622
-  TRIMMED=${TRIMMED[1,-2]}
-  open "https://www.npmjs.com/search?q=${TRIMMED}"
+elif [[ $PACKAGE == *\? ]]; then
+  # Trim trailing "?" suffix.
+  PACKAGE=$(chop "$PACKAGE")
+  open "https://www.npmjs.com/search?q=${PACKAGE}"
 else
-  open "https://www.npmjs.com/package/${TRIMMED}"
+  open "https://www.npmjs.com/package/${PACKAGE}"
 fi
