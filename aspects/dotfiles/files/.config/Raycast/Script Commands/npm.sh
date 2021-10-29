@@ -24,7 +24,9 @@ if [ -z "$PACKAGE" ]; then
 elif [[ $PACKAGE == *\? ]]; then
   # Trim trailing "?" suffix.
   PACKAGE=$(chop "$PACKAGE")
+  PACKAGE=$(percent_encode "$PACKAGE")
   open "https://www.npmjs.com/search?q=${PACKAGE}"
 else
+  PACKAGE=$(percent_encode "$PACKAGE")
   open "https://www.npmjs.com/package/${PACKAGE}"
 fi

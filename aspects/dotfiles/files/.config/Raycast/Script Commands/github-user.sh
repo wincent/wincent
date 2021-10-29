@@ -18,6 +18,7 @@ BASE_DIRECTORY=${0:a:h}
 source "$BASE_DIRECTORY/.common.zsh"
 
 HANDLE=$(trim "$1")
+HANDLE=$(space_to_plus "$HANDLE")
 
 if [ -z "$HANDLE" ]; then
   open "https://github.com/$USER"
