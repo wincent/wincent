@@ -26,13 +26,8 @@ elif [[ $REPO != */* ]]; then
   open "https://github.com/github/${REPO}/pulls"
 else
   OWNER=$(dirname "$REPO")
-  if [ "$OWNER" != . ]; then
-    OWNER=$(percent_encode "$OWNER")
-    REPO=$(basename "$REPO")
-    REPO=$(percent_encode "$REPO")
-    open "https://github.com/${OWNER}/${REPO}/pulls"
-  else
-    REPO=$(percent_encode "$REPO")
-    open "https://github.com/${REPO}/pulls"
-  fi
+  OWNER=$(percent_encode "$OWNER")
+  REPO=$(basename "$REPO")
+  REPO=$(percent_encode "$REPO")
+  open "https://github.com/${OWNER}/${REPO}/pulls"
 fi
