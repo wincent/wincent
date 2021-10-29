@@ -24,12 +24,9 @@ if exists('+colorcolumn')
   let &l:colorcolumn='+' . join(range(0, 254), ',+')
 endif
 
-" Recommended settings for nvim-compe:
 set completeopt=menuone                 " show menu even if there is only one candidate
 set completeopt+=noselect               " don't automatically select canditate
-
 set cursorline                          " highlight current line
-
 set noswapfile                          " don't create swap files
 
 " But in case swapfiles ever get turned on...

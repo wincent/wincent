@@ -189,10 +189,6 @@
 [submodule "vim-ledger"]
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-ledger
 	url = https://github.com/ledger/vim-ledger.git
-[submodule "nvim-compe"]
-	ignore = untracked
-	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-compe
-	url = https://github.com/hrsh7th/nvim-compe.git
 [submodule "lspsaga.nvim"]
 	branch = main
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/lspsaga.nvim
@@ -216,3 +212,30 @@
 [submodule "vim-rails"]
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-rails
 	url = https://github.com/tpope/vim-rails.git
+[submodule "nvim-cmp"]
+	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-cmp
+	url = https://github.com/hrsh7th/nvim-cmp.git
+[submodule "cmp_luasnip"]
+	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp_luasnip
+	url = https://github.com/saadparwaiz1/cmp_luasnip.git
+[submodule "cmp-nvim-lsp"]
+	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-nvim-lsp
+	url = https://github.com/hrsh7th/cmp-nvim-lsp.git
+[submodule "cmp-nvim-lua"]
+	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-nvim-lua
+	url = https://github.com/hrsh7th/cmp-nvim-lua.git
+[submodule "cmp-cmdline"]
+	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-cmdline
+	url = https://github.com/hrsh7th/cmp-cmdline.git
+[submodule "cmp-calc"]
+	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-calc
+	url = https://github.com/hrsh7th/cmp-calc.git
+[submodule "cmp-path"]
+	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-path
+	url = https://github.com/hrsh7th/cmp-path.git
+[submodule "cmp-buffer"]
+	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-buffer
+	url = https://github.com/hrsh7th/cmp-buffer.git
+[submodule "cmp-emoji"]
+	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-emoji
+	url = https://github.com/hrsh7th/cmp-emoji.git

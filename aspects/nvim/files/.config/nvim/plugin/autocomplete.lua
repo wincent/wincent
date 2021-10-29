@@ -10,8 +10,8 @@ local snoremap = wincent.vim.snoremap
 -- insertion nodes in snippets) is based on:
 -- https://github.com/L3MON4D3/Luasnip/issues/1
 
--- Degrade gracefully if `:packadd` of LuaSnip/nvim-compe are ever commented out.
-local has_compe = pcall(require, 'compe')
+-- Degrade gracefully if `:packadd` of LuaSnip/nvim-cmp are ever commented out.
+local has_cmp, cmp = pcall(require, 'cmp')
 local has_luasnip, luasnip = pcall(require, 'luasnip')
 
 -- Returns true if the cursor is in leftmost column or at a whitespace
@@ -21,10 +21,18 @@ local in_whitespace = function()
   return col == 0 or vim.api.nvim_get_current_line():sub(col, col):match('%s')
 end
 
+local pum_visible = function()
+  if has_cmp then
+    return cmp.visible()
+  else
+    return vim.fn.pumvisible() == 1
+  end
+end
+
 local c_e = function()
-  if vim.fn.pumvisible() == 1 then
-    if has_compe then
-      return vim.fn['compe#close']()
+  if pum_visible() then
+    if has_cmp then
+      return cmp.close()
     else
       return rhs('<C-e>')
     end
@@ -36,15 +44,15 @@ local c_e = function()
 end
 
 local c_y = function()
-  if vim.fn.pumvisible() == 1 and has_compe then
-    return vim.fn['compe#confirm']()
+  if pum_visible() then
+    return cmp.confirm()
   else
     return rhs('<C-y>')
   end
 end
 
 local cr = function()
-  if vim.fn.pumvisible() == 1 and has_compe then
+  if pum_visible() then
     if vim.fn.complete_info().selected > 0 then
       -- This is the "second state" mentioned in `:help popupmenu-completion`,
       -- so we should insert the currently selected match. Ideally, we'd also
@@ -52,7 +60,7 @@ local cr = function()
       -- position 0, but we haven't implemented that yet.
       return rhs('<C-y>')
     else
-      return vim.fn['compe#close']()
+      return cmp.close()
     end
   else
     return rhs('<CR>')
@@ -60,7 +68,7 @@ local cr = function()
 end
 
 local shift_tab = function()
-  if vim.fn.pumvisible() == 1 then
+  if pum_visible() then
     return rhs('<C-p>')
   elseif has_luasnip and luasnip.jumpable(-1) then
     return rhs('<Plug>luasnip-jump-prev')
@@ -165,20 +173,20 @@ local pending_completion = false
 
 local complete = function()
   -- We want to send smart_tab() here if there is no completion available,
-  -- but `compe#complete()` is async, so we don't know yet. Instead, we
+  -- but `cmp.complete()` is async, so we don't know yet. Instead, we
   -- set a flag that we'll be checking from our `CompleteChanged` and
   -- `CompleteDonePre` autocommands later on.
   pending_completion = true
-  if has_compe then
-    vim.fn['compe#complete']()
+  if has_cmp then
+    cmp.complete()
   end
 end
 
 local tab = function()
-  if vim.fn.pumvisible() == 1 then
-    if vim.fn.pum_getpos().size == 1 and has_compe then
+  if pum_visible() then
+    if vim.fn.pum_getpos().size == 1 and has_cmp then
       -- There is only one completion and it is selected. Complete it.
-      return vim.fn['compe#confirm']()
+      return cmp.confirm()
     else
       return rhs('<C-n>')
     end
@@ -194,7 +202,7 @@ end
 
 local handle_complete_changed = function ()
   if pending_completion then
-    if vim.fn.pumvisible() == 0 then
+    if not pum_visible() then
       smart_tab({feedkeys = true})
     end
     pending_completion = false
@@ -203,7 +211,7 @@ end
 
 local handle_complete_done_pre = function ()
   if pending_completion then
-    if vim.fn.pumvisible() == 0 then
+    if not pum_visible() then
       smart_tab({feedkeys = true})
     end
     pending_completion = false

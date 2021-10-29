@@ -12,7 +12,14 @@ local on_attach = function ()
 end
 
 lsp.init = function ()
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  local has_cmp_nvim_lsp, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
+  if has_cmp_nvim_lsp then
+    capabilities = require'cmp_nvim_lsp'.update_capabilities(capabilities)
+  end
+
   require'lspconfig'.clangd.setup{
+    capabilities = capabilities,
     cmd = {'clangd', '--background-index'},
     on_attach = on_attach,
   }
@@ -67,6 +74,7 @@ lsp.init = function ()
 
   if cmd ~= nil then
     require'lspconfig'.sumneko_lua.setup{
+      capabilities = capabilities,
       cmd = cmd,
       on_attach = on_attach,
       settings = {
@@ -86,14 +94,17 @@ lsp.init = function ()
   end
 
   require'lspconfig'.ocamlls.setup{
+    capabilities = capabilities,
     on_attach = on_attach,
   }
 
   require'lspconfig'.rust_analyzer.setup{
+    capabilities = capabilities,
     on_attach = on_attach,
   }
 
   require'lspconfig'.tsserver.setup{
+    capabilities = capabilities,
     -- cmd = {
     --   "typescript-language-server",
     --   "--stdio",
@@ -104,6 +115,7 @@ lsp.init = function ()
   }
 
   require'lspconfig'.vimls.setup{
+    capabilities = capabilities,
     on_attach = on_attach,
   }
 end

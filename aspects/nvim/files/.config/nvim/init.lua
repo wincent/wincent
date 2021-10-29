@@ -17,8 +17,9 @@ vim.opt.backupdir      = config .. '/backup//'             -- keep backup files 
 vim.opt.backupdir      = vim.opt.backupdir + '.'           -- fallback
 vim.opt.backupskip     = vim.opt.backupskip + '*.re,*.rei' -- prevent bsb's watch mode from getting confused (if 'backup' is ever set)
 vim.opt.belloff        = 'all'                             -- never ring the bell for any reason
-vim.opt.completeopt    = 'menuone'                         -- show menu even if there is only one candidate (for nvim-compe)
-vim.opt.completeopt    = vim.opt.completeopt + 'noselect'  -- don't automatically select canditate (for nvim-compe)
+vim.opt.completeopt    = 'menu'                            -- show completion menu (for nvim-cmp)
+vim.opt.completeopt    = vim.opt.completeopt + 'menuone'   -- show menu even if there is only one candidate (for nvim-cmp)
+vim.opt.completeopt    = vim.opt.completeopt + 'noselect'  -- don't automatically select canditate (for nvim-cmp)
 vim.opt.cursorline     = true                              -- highlight current line
 vim.opt.diffopt        = vim.opt.diffopt + 'foldcolumn:0'  -- don't show fold column in diff view
 vim.opt.directory      = config .. '/nvim/swap//'          -- keep swap files out of the way
@@ -241,13 +242,21 @@ end
 if vim.o.loadplugins then
   wincent.plugin.load('LuaSnip')
   wincent.plugin.load('applescript.vim')
+  wincent.plugin.load('cmp-buffer')
+  wincent.plugin.load('cmp-calc')
+  wincent.plugin.load('cmp-cmdline')
+  wincent.plugin.load('cmp-emoji')
+  wincent.plugin.load('cmp-nvim-lsp')
+  wincent.plugin.load('cmp-nvim-lua')
+  wincent.plugin.load('cmp-path')
+  wincent.plugin.load('cmp_luasnip')
   wincent.plugin.load('command-t')
   wincent.plugin.load('corpus')
   wincent.plugin.load('ferret')
   wincent.plugin.load('loupe')
   wincent.plugin.load('lspsaga.nvim')
   wincent.plugin.load('neco-ghc')
-  wincent.plugin.load('nvim-compe')
+  wincent.plugin.load('nvim-cmp')
   wincent.plugin.load('nvim-lspconfig')
   wincent.plugin.load('pinnacle')
   wincent.plugin.load('replay')
