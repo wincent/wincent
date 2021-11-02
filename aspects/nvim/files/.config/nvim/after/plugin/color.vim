@@ -30,8 +30,6 @@ function s:CheckColorScheme()
 
   execute 'highlight Comment ' . luaeval("require'wincent.pinnacle'.italicize('Comment')")
 
-  highlight link CompeDocumentation TabLine
-
   " Hide (or at least make less obvious) the EndOfBuffer region
   highlight! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
 
