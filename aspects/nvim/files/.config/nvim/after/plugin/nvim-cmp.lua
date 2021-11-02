@@ -160,6 +160,14 @@ if has_cmp then
       end, { 'i', 's' }),
     },
 
+    completion = {
+      completeopt = 'menu,menuone,noinsert',
+    },
+
+    documentation = {
+      border = 'single',
+    },
+
     snippet = {
       expand = function(args)
         if has_luasnip then
