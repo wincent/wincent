@@ -1,0 +1,3 @@
+#!/bin/zsh
+
+gg cs ssh -- tail -f /root/codespaces-post-start.log
