@@ -7,8 +7,9 @@ wincent.g.map_callbacks = {}
 local map = function (mode, lhs, rhs, opts)
   opts = opts or {}
   local rhs_type = type(rhs)
+  local key
   if rhs_type == 'function' then
-    local key = wincent.util.get_key_for_fn(rhs, wincent.g.map_callbacks)
+    key = wincent.util.get_key_for_fn(rhs, wincent.g.map_callbacks)
     wincent.g.map_callbacks[key] = rhs
     if opts.expr then
       rhs = 'v:lua.wincent.g.map_callbacks.' .. key .. '()'
@@ -33,7 +34,9 @@ local map = function (mode, lhs, rhs, opts)
       else
         vim.api.nvim_del_keymap(mode, lhs)
       end
-      wincent.g.map_callbacks[key] = nil
+      if key ~= nil then
+        wincent.g.map_callbacks[key] = nil
+      end
     end,
   }
 end
