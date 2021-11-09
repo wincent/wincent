@@ -3,7 +3,7 @@ local shallow_merge = wincent.util.shallow_merge
 
 local xnoremap = function (lhs, rhs, opts)
   opts = opts or {}
-  map('x', lhs, rhs, shallow_merge(opts, {noremap = true}))
+  return map('x', lhs, rhs, shallow_merge(opts, {noremap = true}))
 end
 
 return xnoremap
