@@ -57,9 +57,6 @@
 	branch = main
 	path = vendor/git-cipher
 	url = https://github.com/wincent/git-cipher.git
-[submodule "goyo.vim"]
-	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/goyo
-	url = https://github.com/junegunn/goyo.vim.git
 [submodule "loupe"]
 	branch = main
 	ignore = dirty
@@ -239,3 +236,6 @@
 [submodule "zsh-syntax-highlighting"]
 	path = aspects/dotfiles/files/.zsh/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "zen-mode.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/zen-mode.nvim
+	url = https://github.com/folke/zen-mode.nvim.git

@@ -312,9 +312,82 @@ if vim.o.loadplugins then
   })
 
   -- Lazy because I rarely use it.
-  wincent.plugin.lazy('goyo', {
+  wincent.plugin.lazy('zen-mode.nvim', {
+    afterload = function ()
+      local matchadd = nil
+
+      -- Blow away all autocmds, making this somewhat of a one-way ticket
+      -- until I refactor.
+      vim.cmd [[
+        augroup WincentAutocmds
+          autocmd!
+        augroup END
+        augroup! WincentAutocmds
+
+        augroup WincentAutocolor
+          autocmd!
+        augroup END
+        augroup! WincentAutocolor
+      ]]
+
+      require('zen-mode').setup {
+        on_close = function ()
+          local is_last_buffer = #vim.fn.filter(
+            vim.fn.range(1, vim.fn.bufnr('$')),
+            'buflisted(v:val)'
+          ) == 1
+
+          if vim.api.nvim_buf_get_var(0, 'quitting') == 1 and is_last_buffer then
+            if vim.api.nvim_buf_get_var(0, 'quitting_bang') == 1 then
+              vim.cmd 'qa!'
+            else
+              vim.cmd 'qa'
+            end
+          else
+            if matchadd ~= nil then
+              vim.cmd [[
+                try
+                  call matchdelete(matchadd)
+                catch /./
+                  " Swallow.
+                endtry
+              ]]
+              matchadd = nil
+            end
+          end
+        end,
+
+        on_open = function ()
+          local nbsp=' '
+          matchadd = vim.fn.matchadd('Error', nbsp)
+          vim.api.nvim_buf_set_var(0, 'quitting', 0)
+          vim.api.nvim_buf_set_var(0, 'quitting_bang', 0)
+          wincent.vim.autocmd('QuitPre', '<buffer>', 'let b:quitting = 1')
+          vim.cmd 'cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!'
+        end,
+
+        plugins = {
+          options = {
+            showbreak = '',
+            showmode = false,
+          },
+          tmux = {
+            enabled = false,
+          },
+        },
+        window = {
+          height = .9, -- Could also make this a function...
+          options = {
+            cursorline = false,
+            number = false,
+            relativenumber = false,
+          },
+          width = 80,
+        },
+      }
+    end,
     commands = {
-      Goyo = '-nargs=? -bar -bang'
+      'ZenMode',
     },
   })
 
