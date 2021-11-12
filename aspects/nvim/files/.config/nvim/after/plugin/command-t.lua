@@ -1,5 +1,3 @@
-local augroup = wincent.vim.augroup
-local autocmd = wincent.vim.autocmd
 local command = wincent.vim.command
 local nmap = wincent.vim.nmap
 
