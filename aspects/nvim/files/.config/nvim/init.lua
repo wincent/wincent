@@ -372,7 +372,7 @@ if vim.o.loadplugins then
             showmode = false,
           },
           tmux = {
-            enabled = false,
+            enabled = true,
           },
         },
         window = {
