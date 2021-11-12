@@ -1,5 +1,9 @@
 # Changelog
 
+## 2021-11-11
+
+- [Nvim] Switched to [zen-mode.nvim](https://github.com/folke/zen-mode.nvim) (from [goyo.vim](https://github.com/junegunn/goyo.vim)).
+
 ## 2021-07-10
 
 - [Nvim] Renamed "vim" aspect to "nvim"; after fetching, the next `./install nvim` updates the symlink from `~/.config/nvim` to point at the new location.
