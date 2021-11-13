@@ -316,18 +316,11 @@ if vim.o.loadplugins then
     afterload = function ()
       local matchadd = nil
 
-      -- Blow away all autocmds, making this somewhat of a one-way ticket
-      -- until I refactor.
       vim.cmd [[
         augroup WincentAutocmds
           autocmd!
         augroup END
         augroup! WincentAutocmds
-
-        augroup WincentAutocolor
-          autocmd!
-        augroup END
-        augroup! WincentAutocolor
       ]]
 
       require('zen-mode').setup {
@@ -353,6 +346,11 @@ if vim.o.loadplugins then
                 endtry
               ]]
               matchadd = nil
+            end
+
+            local augroup = wincent.g.augroup_callbacks['WincentAutocmds']
+            if augroup ~= nil then
+              wincent.vim.augroup('WincentAutocmds', augroup)
             end
           end
         end,
