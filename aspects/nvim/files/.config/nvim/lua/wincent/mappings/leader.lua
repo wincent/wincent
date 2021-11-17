@@ -47,9 +47,44 @@ local get_highlight_group = function()
   )
 end
 
+local jump = function(mapping)
+  local key =  vim.api.nvim_replace_termcodes(mapping, true, false, true)
+  local previous_file = vim.api.nvim_buf_get_name(0)
+  local previous_row, previous_column = unpack(vim.api.nvim_win_get_cursor(0))
+  local limit = 100
+  while limit > 0 do
+    vim.api.nvim_feedkeys(key, 'n', true)
+    local next_file = vim.api.nvim_buf_get_name(0)
+    local next_row, next_column = unpack(vim.api.nvim_win_get_cursor(0))
+    if next_file ~= previous_file then
+      -- We successfully moved to the next file; we're done.
+      return
+    elseif next_row == previous_row and next_column == previous_column then
+      -- We're at the end of the jumplist; we're done.
+      print('No more jumps!')
+      return
+    end
+    previous_file = next_file
+    previous_row = next_row
+    previous_column = next_column
+    limit = limit - 1
+  end
+  print('Jump limit exceeded! (Aborting)')
+end
+
+local jump_in_file = function ()
+  jump('<F6>')
+end
+
+local jump_out_file = function ()
+  jump('<C-o>')
+end
+
 -- TODO: split into files
 leader.cycle_numbering = cycle_numbering
 leader.get_highlight_group = get_highlight_group
+leader.jump_in_file = jump_in_file
+leader.jump_out_file = jump_out_file
 leader.number_flag = number_flag
 
 return leader

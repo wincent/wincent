@@ -44,6 +44,10 @@ nnoremap('<Leader>m', ':call wincent#mappings#leader#matchparen()<CR>', {silent 
 -- Micro-optimizating the slightly-hard-to-type-on-Colemak-but-very-useful `gv`.
 nnoremap('<Leader>v', 'gv')
 
+-- File-wise movement in/out of jump list.
+nnoremap('<Leader>,', ':lua wincent.mappings.leader.jump_out_file()<CR>', {silent = true})
+nnoremap('<Leader>.', ':lua wincent.mappings.leader.jump_in_file()<CR>', {silent = true})
+
 -- Grow/shrink window horizontally (ie. make wider or narrower).
 nnoremap('<Leader>=', ':vertical resize +5<CR>', {silent = true})
 nnoremap('<Leader>-', ':vertical resize -5<CR>', {silent = true})
