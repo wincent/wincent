@@ -52,28 +52,45 @@ local jump = function(mapping)
   local previous_file = vim.api.nvim_buf_get_name(0)
   local previous_row, previous_column = unpack(vim.api.nvim_win_get_cursor(0))
   local limit = 100
-  while limit > 0 do
+
+  local step
+
+  step = function ()
     vim.api.nvim_feedkeys(key, 'n', true)
-    local next_file = vim.api.nvim_buf_get_name(0)
-    local next_row, next_column = unpack(vim.api.nvim_win_get_cursor(0))
-    if next_file ~= previous_file then
-      -- We successfully moved to the next file; we're done.
-      return
-    elseif next_row == previous_row and next_column == previous_column then
-      -- We're at the end of the jumplist; we're done.
-      print('No more jumps!')
-      return
-    end
-    previous_file = next_file
-    previous_row = next_row
-    previous_column = next_column
-    limit = limit - 1
+
+    -- Need small delay for feedkeys side-effects to finalize.
+    vim.defer_fn(function()
+      local next_file = vim.api.nvim_buf_get_name(0)
+      local next_row, next_column = unpack(vim.api.nvim_win_get_cursor(0))
+      if next_file ~= previous_file then
+        -- We successfully moved to the next file; we're done.
+        return
+      elseif next_row == previous_row and next_column == previous_column then
+        -- BUG: if the mark points at an invalid line number (can easily happen
+        -- in .git/COMMIT_EDITMSG, for example) we may bail here because line
+        -- number won't change — to be really robust we'd need to parse :jumps
+        -- output
+        print('No more jumps!')
+        return
+      elseif limit < 0 then
+        print('Jump limit exceeded! (Aborting)')
+        return
+      end
+      previous_file = next_file
+      previous_row = next_row
+      previous_column = next_column
+      limit = limit - 1
+
+      -- Recurse.
+      step()
+    end, 0)
   end
-  print('Jump limit exceeded! (Aborting)')
+
+  step()
 end
 
 local jump_in_file = function ()
-  jump('<F6>')
+  jump('<C-i>')
 end
 
 local jump_out_file = function ()
