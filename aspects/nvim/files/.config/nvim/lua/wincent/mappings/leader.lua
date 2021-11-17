@@ -47,54 +47,37 @@ local get_highlight_group = function()
   )
 end
 
-local jump = function(mapping)
-  local key =  vim.api.nvim_replace_termcodes(mapping, true, false, true)
-  local previous_file = vim.api.nvim_buf_get_name(0)
-  local previous_row, previous_column = unpack(vim.api.nvim_win_get_cursor(0))
-  local limit = 100
-
-  local step
-
-  step = function ()
-    vim.api.nvim_feedkeys(key, 'n', true)
-
-    -- Need small delay for feedkeys side-effects to finalize.
-    vim.defer_fn(function()
-      local next_file = vim.api.nvim_buf_get_name(0)
-      local next_row, next_column = unpack(vim.api.nvim_win_get_cursor(0))
-      if next_file ~= previous_file then
-        -- We successfully moved to the next file; we're done.
-        return
-      elseif next_row == previous_row and next_column == previous_column then
-        -- BUG: if the mark points at an invalid line number (can easily happen
-        -- in .git/COMMIT_EDITMSG, for example) we may bail here because line
-        -- number won't change — to be really robust we'd need to parse :jumps
-        -- output
-        print('No more jumps!')
-        return
-      elseif limit < 0 then
-        print('Jump limit exceeded! (Aborting)')
-        return
-      end
-      previous_file = next_file
-      previous_row = next_row
-      previous_column = next_column
-      limit = limit - 1
-
-      -- Recurse.
-      step()
-    end, 0)
+local jump = function(mapping, delta)
+  -- Calculate the number of steps to move up or down through the jump list in
+  -- order to get to a new bufnr (we use bufnr because not all entries will have a
+  -- filename).
+  local count = 0
+  local jumplist, idx = unpack(vim.fn.getjumplist())
+  local previous_entry = jumplist[idx]
+  local next_idx = idx + delta
+  while next_idx > 0 and next_idx < #jumplist do
+    count = count + 1
+    local next_entry = jumplist[next_idx]
+    if next_entry.bufnr ~= previous_entry.bufnr then
+      -- We found the next file; we're done.
+      local key =  vim.api.nvim_replace_termcodes(mapping, true, false, true)
+      vim.api.nvim_feedkeys(count .. key, 'n', true)
+      vim.cmd('echo') -- Clear any previous "No more jumps!" message.
+      return
+    else
+      previous_entry = next_entry
+      next_idx = next_idx + delta
+    end
   end
-
-  step()
+  vim.api.nvim_err_writeln('No more jumps!')
 end
 
 local jump_in_file = function ()
-  jump('<C-i>')
+  jump('<C-i>', 1)
 end
 
 local jump_out_file = function ()
-  jump('<C-o>')
+  jump('<C-o>', -1)
 end
 
 -- TODO: split into files
