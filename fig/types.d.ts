@@ -801,8 +801,4 @@ type Variables = {
   [key: string]: JSONValue;
 };
 
-type OperationResult =
-  | 'changed'
-  | 'failed'
-  | 'ok'
-  | 'skipped';
+type OperationResult = 'changed' | 'failed' | 'ok' | 'skipped';

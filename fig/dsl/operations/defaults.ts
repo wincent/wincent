@@ -244,7 +244,10 @@ export default async function defaults({
         });
       }
 
-      return Context.informChanged(`set ${description} ${stringify(value)}`, notify);
+      return Context.informChanged(
+        `set ${description} ${stringify(value)}`,
+        notify
+      );
     }
   }
 }

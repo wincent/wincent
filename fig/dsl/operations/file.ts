@@ -217,7 +217,10 @@ export default async function file({
   // "template", "fetch" and "file"
   if (changed.length) {
     if (mutate) {
-      return Context.informChanged(`file[${changed.join('|')}] ${path}`, notify);
+      return Context.informChanged(
+        `file[${changed.join('|')}] ${path}`,
+        notify
+      );
     } else {
       return Context.informSkipped(`file[${changed.join('|')}] ${path}`);
     }
