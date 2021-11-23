@@ -23,7 +23,7 @@ export default async function template({
   src: string;
   sudo?: boolean;
   variables?: Variables;
-}): Promise<void> {
+}): Promise<OperationResult> {
   const {figManaged} = variables;
 
   const contents = (await Context.compile(src)).fill({

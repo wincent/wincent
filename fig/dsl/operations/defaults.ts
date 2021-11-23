@@ -39,7 +39,7 @@ export default async function defaults({
     | string
     | Array<boolean | number | string>
     | {[key: string]: boolean | number | string};
-}): Promise<void> {
+}): Promise<OperationResult> {
   if (state === 'present') {
     if (value === undefined) {
       throw new Error('Must provide a value if `state` is "present"');
@@ -180,9 +180,9 @@ export default async function defaults({
 
   if (state === 'absent') {
     if (currentType === undefined) {
-      Context.informOk(`absent ${description}`);
+      return Context.informOk(`absent ${description}`);
     } else if (Context.currentOptions?.check) {
-      Context.informSkipped(`absent ${description}`);
+      return Context.informSkipped(`absent ${description}`);
     } else {
       result = await run('defaults', [...args, 'delete', domain, key]);
 
@@ -193,13 +193,13 @@ export default async function defaults({
         });
       }
 
-      Context.informChanged(`removed ${description}`, notify);
+      return Context.informChanged(`removed ${description}`, notify);
     }
   } else {
     if (equal(currentValue, currentType, value!, type)) {
-      Context.informOk(`present ${description}`);
+      return Context.informOk(`present ${description}`);
     } else if (Context.currentOptions?.check) {
-      Context.informSkipped(`present ${description}`);
+      return Context.informSkipped(`present ${description}`);
     } else {
       let typeAndValue: Array<string> = [];
 
@@ -244,7 +244,7 @@ export default async function defaults({
         });
       }
 
-      Context.informChanged(`set ${description} ${stringify(value)}`, notify);
+      return Context.informChanged(`set ${description} ${stringify(value)}`, notify);
     }
   }
 }

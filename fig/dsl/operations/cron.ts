@@ -25,7 +25,7 @@ export default async function cron({
   notify?: string;
   state?: 'absent' | 'present';
   weekday?: string;
-}): Promise<void> {
+}): Promise<OperationResult> {
   if (!/^\S+$/.test(id)) {
     throw new Error(`cron job id ${stringify(id)} must not contain whitespace`);
   }
@@ -101,7 +101,7 @@ export default async function cron({
     });
 
     if (Context.currentOptions?.check) {
-      Context.informSkipped(`cron ${id}`);
+      return Context.informSkipped(`cron ${id}`);
     } else {
       const src = await tempfile('cron', crontab);
 
@@ -114,10 +114,10 @@ export default async function cron({
         });
       }
 
-      Context.informChanged(`cron ${id}`, notify);
+      return Context.informChanged(`cron ${id}`, notify);
     }
   } else {
-    Context.informOk(`cron ${id}`);
+    return Context.informOk(`cron ${id}`);
   }
 }
 

@@ -38,7 +38,7 @@ export default async function file({
   src?: string;
   state: 'directory' | 'file' | 'link' | 'touch';
   sudo?: boolean;
-}): Promise<void> {
+}): Promise<OperationResult> {
   if (contents !== undefined && state !== 'file') {
     throw new ErrorWithMetadata(
       `A file-system object cannot have "contents" unless its state is \`file\``
@@ -217,11 +217,11 @@ export default async function file({
   // "template", "fetch" and "file"
   if (changed.length) {
     if (mutate) {
-      Context.informChanged(`file[${changed.join('|')}] ${path}`, notify);
+      return Context.informChanged(`file[${changed.join('|')}] ${path}`, notify);
     } else {
-      Context.informSkipped(`file[${changed.join('|')}] ${path}`);
+      return Context.informSkipped(`file[${changed.join('|')}] ${path}`);
     }
   } else {
-    Context.informOk(`file ${path}`);
+    return Context.informOk(`file ${path}`);
   }
 }

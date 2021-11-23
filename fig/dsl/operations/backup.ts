@@ -12,9 +12,9 @@ export default async function backup({
   src: string;
   path?: string;
   relative?: string;
-}): Promise<void> {
+}): Promise<OperationResult> {
   if (Context.currentOptions.check) {
-    Context.informSkipped(`file ${src}`);
+    return Context.informSkipped(`file ${src}`);
   } else {
     const source = path(relative).join(src).expand;
     const target = path(dest).join(src).expand;
@@ -25,7 +25,7 @@ export default async function backup({
       throw stats;
     } else if (!stats) {
       // Doesn't exist; nothing to backup.
-      return;
+      return 'ok';
     } else if (stats.type === 'directory' || stats.type === 'file') {
       // Create parent directories if necessary.
       const result = await mkdir(target.dirname, {
@@ -39,6 +39,10 @@ export default async function backup({
       await command('mv', ['-f', source, target], {
         creates: target,
       });
+
+      return 'changed';
+    } else {
+      return 'skipped';
     }
   }
 }

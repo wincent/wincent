@@ -23,7 +23,7 @@ export default async function fetch({
   notify?: string;
   owner?: string;
   url: string;
-}): Promise<void> {
+}): Promise<OperationResult> {
   log.debug(`Download \`${url}\` to \`${dest}\``);
 
   let get: typeof https.get | typeof http.get;
@@ -54,7 +54,7 @@ export default async function fetch({
             encoding === undefined ? 'utf8' : null
           );
 
-          await file({
+          const result = await file({
             contents,
             encoding,
             group,
@@ -65,7 +65,7 @@ export default async function fetch({
             state: 'file',
           });
 
-          resolve();
+          resolve(result);
         } catch (error) {
           reject(error);
         }

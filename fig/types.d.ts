@@ -800,3 +800,9 @@ type Mode =
 type Variables = {
   [key: string]: JSONValue;
 };
+
+type OperationResult =
+  | 'changed'
+  | 'failed'
+  | 'ok'
+  | 'skipped';

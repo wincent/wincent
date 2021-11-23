@@ -62,7 +62,7 @@ class Context {
     return this.#compiler.compile(path);
   }
 
-  informChanged(message: string, notify?: string) {
+  informChanged(message: string, notify?: string): OperationResult {
     this.#counts.changed++;
 
     if (notify !== undefined) {
@@ -75,6 +75,8 @@ class Context {
     }
 
     status.changed(message);
+
+    return 'changed';
   }
 
   /**
@@ -103,16 +105,20 @@ class Context {
     throw error;
   }
 
-  informOk(message: string) {
+  informOk(message: string): OperationResult {
     this.#counts.ok++;
 
     status.ok(message);
+
+    return 'ok';
   }
 
-  informSkipped(message: string) {
+  informSkipped(message: string): OperationResult {
     this.#counts.skipped++;
 
     status.skipped(message);
+
+    return 'skipped';
   }
 
   async withContext(

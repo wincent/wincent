@@ -29,7 +29,7 @@ export default async function line({
   regexp?: RegExp | string;
   state?: 'absent' | 'present';
   sudo?: boolean;
-}): Promise<void> {
+}): Promise<OperationResult> {
   log.debug(`Line \`${line}\` in \`${path}\``);
 
   const normalized = `${line.trimEnd()}\n`;
@@ -89,7 +89,7 @@ export default async function line({
     }
   }
 
-  await file({
+  return await file({
     contents,
     group,
     mode,
