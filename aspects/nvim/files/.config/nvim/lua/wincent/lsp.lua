@@ -103,6 +103,17 @@ lsp.init = function ()
     on_attach = on_attach,
   }
 
+  require'lspconfig'.solargraph.setup{
+    capabilities = capabilities,
+    on_attach = on_attach,
+  }
+  --[[
+  require'lspconfig'.sorbet.setup{
+    capabilities = capabilities,
+    on_attach = on_attach,
+  }
+  --]]
+
   require'lspconfig'.tsserver.setup{
     capabilities = capabilities,
     -- cmd = {

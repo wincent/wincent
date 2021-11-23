@@ -142,8 +142,16 @@ task('update help tags', async () => {
   await command(resource.support('update-help-tags'), []);
 });
 
-task('install neovim gem', async () => {
-  await command('gem', ['install', 'neovim'], {
+task('install gems', async () => {
+  const gems = ['neovim'];
+
+  // TODO: maybe expose profile more directly in the DSL
+  const profile = variable('profile');
+  if (profile === 'codespaces' || profile === 'work') {
+    gems.push('sorbet', 'solargraph');
+  }
+
+  await command('gem', ['install', ...gems], {
     sudo: attributes.distribution !== 'debian',
   });
 });
