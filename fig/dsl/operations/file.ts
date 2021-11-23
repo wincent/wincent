@@ -16,6 +16,7 @@ import touch from '../../posix/touch.js';
 
 export default async function file({
   contents,
+  encoding,
   force,
   group,
   mode,
@@ -27,6 +28,7 @@ export default async function file({
   sudo,
 }: {
   contents?: string;
+  encoding?: BufferEncoding | null;
   force?: boolean;
   group?: string;
   path: string;
@@ -66,7 +68,9 @@ export default async function file({
     if (state !== 'link') {
       // TODO: handle edge case that src is root-owned and not readable
       // TODO: overwriting contents here is a smell?
-      contents = contents ?? (await fs.readFile(src, 'utf8'));
+      contents =
+        contents ??
+        (await fs.readFile(src, encoding === undefined ? 'utf8' : encoding));
 
       // TODO: make fs wrapper(s) that can deal with Path
       // string-likes so that I don't have to deal with these
@@ -76,6 +80,7 @@ export default async function file({
 
   const diff = await compare({
     contents,
+    encoding,
     force,
     group,
     mode,
@@ -142,7 +147,7 @@ export default async function file({
       if (src) {
         from = src;
       } else {
-        from = await tempfile('file', diff.contents);
+        from = await tempfile('file', diff.contents, encoding);
       }
 
       const result = mutate && (await cp(from, target, {sudo}));

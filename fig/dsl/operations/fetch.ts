@@ -7,13 +7,9 @@ import {createWriteStream, promises} from '../../fs.js';
 import tempdir from '../../fs/tempdir.js';
 import file from './file.js';
 
-/**
- * BUG: assumes UTF-8 encoded text (because it calls `file`, which calls
- * `compare` etc).
- * TODO: make this thing work with binary data.
- */
 export default async function fetch({
   dest,
+  encoding,
   group,
   mode,
   notify,
@@ -21,6 +17,7 @@ export default async function fetch({
   url,
 }: {
   dest: string;
+  encoding?: BufferEncoding | null;
   group?: string;
   mode?: Mode;
   notify?: string;
@@ -52,10 +49,14 @@ export default async function fetch({
         stream.close();
 
         try {
-          const contents = await promises.readFile(download, 'utf8');
+          const contents = await promises.readFile(
+            download,
+            encoding === undefined ? 'utf8' : null
+          );
 
           await file({
             contents,
+            encoding,
             group,
             mode,
             notify,

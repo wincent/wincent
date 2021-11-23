@@ -9,11 +9,12 @@ import tempname from './tempname.js';
  */
 export default async function tempfile(
   prefix: string,
-  contents: string = ''
+  contents: string = '',
+  encoding: BufferEncoding | null = 'utf8'
 ): Promise<string> {
   const path = tempname(prefix);
 
-  await fs.writeFile(path, contents, 'utf8');
+  await fs.writeFile(path, contents, {encoding});
 
   log.debug(`Wrote ${contents.length} bytes to ${path}`);
 

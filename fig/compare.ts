@@ -38,7 +38,9 @@ type Diff = {
   target?: string;
 };
 
-type Compare = Omit<Diff, 'error'>;
+type Compare = Omit<Diff, 'error'> & {
+  encoding?: BufferEncoding | null;
+};
 
 const {stringify} = JSON;
 
@@ -49,6 +51,7 @@ const {stringify} = JSON;
  */
 export default async function compare({
   contents,
+  encoding,
   force,
   group,
   mode,
@@ -128,7 +131,10 @@ export default async function compare({
       // Want "file", have "file", but still need to check contents.
       if (typeof contents === 'string') {
         try {
-          const actual = await fs.readFile(path, 'utf8');
+          const actual = await fs.readFile(
+            path,
+            encoding === undefined ? 'utf8' : encoding
+          );
           if (actual !== contents) {
             diff.contents = contents;
           }
