@@ -46,7 +46,7 @@ task('fetch neovim.git', async () => {
       [
         'clone',
         '--branch',
-        'v0.5.0',
+        'v0.6.0',
         '--depth',
         '1',
         'https://github.com/neovim/neovim.git',
