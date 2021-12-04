@@ -138,6 +138,7 @@ export HOMEBREW_NO_ANALYTICS=1
 if [ -d /opt/homebrew ]; then
   export HOMEBREW_PREFIX="/opt/homebrew"
   export HOMEBREW_CELLAR="/opt/homebrew/Cellar"
+  export HOMEBREW_NO_AUTO_UPDATE=1
   export HOMEBREW_REPOSITORY="/opt/homebrew"
 fi
 
