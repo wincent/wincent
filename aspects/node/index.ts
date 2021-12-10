@@ -47,7 +47,7 @@ task('install global packages', async () => {
     'source-map-explorer',
     'typescript',
     'vim-language-server',
-    'yarn@1.22.4',
+    'yarn@1.22.15',
   ];
 
   for (const name of packages) {
