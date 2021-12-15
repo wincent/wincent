@@ -254,7 +254,6 @@ if vim.o.loadplugins then
   wincent.plugin.load('corpus')
   wincent.plugin.load('ferret')
   wincent.plugin.load('loupe')
-  wincent.plugin.load('lspsaga.nvim')
   wincent.plugin.load('neco-ghc')
   wincent.plugin.load('nvim-cmp')
   wincent.plugin.load('nvim-lspconfig')

@@ -62,10 +62,6 @@
 	ignore = dirty
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/loupe
 	url = https://github.com/wincent/loupe.git
-[submodule "lspsaga.nvim"]
-	branch = main
-	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/lspsaga.nvim
-	url = https://github.com/glepnir/lspsaga.nvim.git
 [submodule "n"]
 	path = vendor/n
 	url = https://github.com/tj/n.git

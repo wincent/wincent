@@ -3,9 +3,9 @@ local nnoremap = wincent.vim.nnoremap
 local lsp = {}
 
 local on_attach = function ()
-  nnoremap('<Leader>ld', "<cmd>lua require'lspsaga.diagnostic'.show_line_diagnostics()<CR>", {buffer = true, silent = true})
+  nnoremap('<Leader>ld', "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", {buffer = true, silent = true})
   nnoremap('<c-]>', '<cmd>lua vim.lsp.buf.definition()<CR>', {buffer = true, silent = true})
-  nnoremap('K', "<cmd>lua require'lspsaga.hover'.render_hover_doc()<CR>", {buffer = true, silent = true})
+  nnoremap('K', "<cmd>lua vim.lsp.buf.hover()<CR>", {buffer = true, silent = true})
   nnoremap('gd', '<cmd>lua vim.lsp.buf.declaration()<CR>', {buffer = true, silent = true})
 
   vim.wo.signcolumn = 'yes'
@@ -13,6 +13,23 @@ end
 
 lsp.init = function ()
   local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+  -- UI tweaks from https://github.com/neovim/nvim-lspconfig/wiki/UI-customization
+  local border = {
+      {"🭽", "FloatBorder"},
+      {"▔", "FloatBorder"},
+      {"🭾", "FloatBorder"},
+      {"▕", "FloatBorder"},
+      {"🭿", "FloatBorder"},
+      {"▁", "FloatBorder"},
+      {"🭼", "FloatBorder"},
+      {"▏", "FloatBorder"},
+  }
+  local handlers =  {
+    ["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = border}),
+    ["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, {border = border }),
+  }
+
   local has_cmp_nvim_lsp, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
   if has_cmp_nvim_lsp then
     capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
@@ -21,6 +38,7 @@ lsp.init = function ()
   require'lspconfig'.clangd.setup{
     capabilities = capabilities,
     cmd = {'clangd', '--background-index'},
+    handlers = handlers,
     on_attach = on_attach,
   }
 
@@ -76,6 +94,7 @@ lsp.init = function ()
     require'lspconfig'.sumneko_lua.setup{
       capabilities = capabilities,
       cmd = cmd,
+      handlers = handlers,
       on_attach = on_attach,
       settings = {
         Lua = {
@@ -95,21 +114,25 @@ lsp.init = function ()
 
   require'lspconfig'.ocamlls.setup{
     capabilities = capabilities,
+    handlers = handlers,
     on_attach = on_attach,
   }
 
   require'lspconfig'.rust_analyzer.setup{
     capabilities = capabilities,
+    handlers = handlers,
     on_attach = on_attach,
   }
 
   require'lspconfig'.solargraph.setup{
     capabilities = capabilities,
+    handlers = handlers,
     on_attach = on_attach,
   }
   --[[
   require'lspconfig'.sorbet.setup{
     capabilities = capabilities,
+    handlers = handlers,
     on_attach = on_attach,
   }
   --]]
@@ -122,11 +145,13 @@ lsp.init = function ()
     --   "--tsserver-log-file",
     --   "tslog"
     -- },
+    handlers = handlers,
     on_attach = on_attach,
   }
 
   require'lspconfig'.vimls.setup{
     capabilities = capabilities,
+    handlers = handlers,
     on_attach = on_attach,
   }
 end
