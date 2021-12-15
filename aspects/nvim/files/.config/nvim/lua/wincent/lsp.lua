@@ -42,33 +42,10 @@ lsp.init = function ()
     on_attach = on_attach,
   }
 
-  -- If you're feeling brave after reading:
-  --
-  --    https://github.com/neovim/nvim-lspconfig/issues/319
-  --
-  -- Install:
-  --
-  --    :LspInstall sumneko_lua
-  --
-  -- After marvelling at the horror that is the installation script:
-  --
-  --     https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/sumneko_lua.lua
-  --
-  -- To see path:
-  --
-  --    :LspInstallInfo sumneko_lua
-  --
-  -- See: https://github.com/neovim/nvim-lspconfig#sumneko_lua
-  --
-  -- Failing that; you can install by hand:
-  --
-  --    https://github.com/sumneko/lua-language-server/wiki/Build-and-Run-(Standalone)
-  --
-
   local cmd = nil
 
   if vim.fn.has('mac') == 1 then
-    cmd = vim.fn.expand('~/code/lua-language-server/bin/macOS/lua-language-server')
+    cmd = vim.fn.expand('~/code/lua-language-server/bin/lua-language-server')
     if vim.fn.executable(cmd) == 1 then
       cmd = {cmd, '-E', vim.fn.expand('~/code/lua-language-server/main.lua')}
     else
@@ -91,6 +68,7 @@ lsp.init = function ()
   end
 
   if cmd ~= nil then
+    -- Prerequisite: https://github.com/sumneko/lua-language-server/wiki/Build-and-Run
     require'lspconfig'.sumneko_lua.setup{
       capabilities = capabilities,
       cmd = cmd,
