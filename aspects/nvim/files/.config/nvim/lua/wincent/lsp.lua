@@ -16,14 +16,14 @@ lsp.init = function ()
 
   -- UI tweaks from https://github.com/neovim/nvim-lspconfig/wiki/UI-customization
   local border = {
-      {"🭽", "FloatBorder"},
-      {"▔", "FloatBorder"},
-      {"🭾", "FloatBorder"},
-      {"▕", "FloatBorder"},
-      {"🭿", "FloatBorder"},
-      {"▁", "FloatBorder"},
-      {"🭼", "FloatBorder"},
-      {"▏", "FloatBorder"},
+      {"╭", "FloatBorder"},
+      {"─", "FloatBorder"},
+      {"╮", "FloatBorder"},
+      {"│", "FloatBorder"},
+      {"╯", "FloatBorder"},
+      {"─", "FloatBorder"},
+      {"╰", "FloatBorder"},
+      {"│", "FloatBorder"}
   }
   local handlers =  {
     ["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = border}),
