@@ -69,6 +69,16 @@ if has_luasnip then
       )
     },
     javascript = js_ts,
+    jest = {
+      s(
+        {trig = 'desc', dscr = 'describe()'},
+        {t("describe('"), i(1, 'description'), t({"', () => {'", '  '}), i(2, '// Body.'), t({'', '});'})}
+      ),
+      s(
+        {trig = 'it', dscr = 'it()'},
+        {t("it('"), i(1, 'description'), t({"', => {", '  '}), i(2, '// Body.'), t({'', '});'})}
+      ),
+    },
     markdown = {
       s(
         {trig = 'frontmatter', dscr = 'Document frontmatter'},
