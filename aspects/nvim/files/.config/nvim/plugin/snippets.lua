@@ -76,7 +76,7 @@ if has_luasnip then
       ),
       s(
         {trig = 'it', dscr = 'it()'},
-        {t("it('"), i(1, 'description'), t({"', => {", '  '}), i(2, '// Body.'), t({'', '});'})}
+        {t("it('"), i(1, 'description'), t({"', () => {", '  '}), i(2, '// Body.'), t({'', '});'})}
       ),
     },
     markdown = {
