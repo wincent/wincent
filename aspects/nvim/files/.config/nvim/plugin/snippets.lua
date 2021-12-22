@@ -15,6 +15,17 @@ if has_luasnip then
     -- TODO: make these smart about whether to use trailing semi or
     -- not, based on directory (or maybe .editorconfig)
     s(
+      {trig = 'import', dscr = 'import statement'},
+      {t('import '),
+      i(1, 'ModuleName'),
+      t(" from '"),
+      d(2, function (nodes)
+        return sn(1, {i(1, nodes[1][1])})
+      end, {1}),
+      t("';"),
+    }
+    ),
+    s(
       {trig = 'log', dscr = 'console.log'},
       {t('console.log('), i(1, 'value'), t(');')}
     ),
