@@ -244,7 +244,6 @@ if vim.o.loadplugins then
   wincent.plugin.load('applescript.vim')
   wincent.plugin.load('cmp-buffer')
   wincent.plugin.load('cmp-calc')
-  wincent.plugin.load('cmp-cmdline')
   wincent.plugin.load('cmp-emoji')
   wincent.plugin.load('cmp-nvim-lsp')
   wincent.plugin.load('cmp-nvim-lua')

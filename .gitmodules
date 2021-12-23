@@ -17,9 +17,6 @@
 [submodule "cmp-calc"]
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-calc
 	url = https://github.com/hrsh7th/cmp-calc.git
-[submodule "cmp-cmdline"]
-	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-cmdline
-	url = https://github.com/hrsh7th/cmp-cmdline.git
 [submodule "cmp-emoji"]
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-emoji
 	url = https://github.com/hrsh7th/cmp-emoji.git
