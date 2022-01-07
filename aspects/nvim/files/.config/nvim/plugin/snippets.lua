@@ -19,10 +19,12 @@ if has_luasnip then
       {t('import '),
       i(1, 'ModuleName'),
       t(" from '"),
-      d(2, function (nodes)
+      i(2),
+      d(3, function (nodes)
         return sn(1, {i(1, nodes[1][1])})
       end, {1}),
       t("';"),
+      i(0)
     }
     ),
     s(
@@ -34,10 +36,12 @@ if has_luasnip then
       {t('const '),
       i(1, 'ModuleName'),
       t(" = require('"),
-      d(2, function (nodes)
+      i(2),
+      d(3, function (nodes)
         return sn(1, {i(1, nodes[1][1])})
       end, {1}),
       t("');"),
+      i(0)
     }
     ),
     s(
@@ -82,7 +86,7 @@ if has_luasnip then
     javascript = js_ts,
     jest = {
       s(
-        {trig = 'desc', dscr = 'describe()'},
+        {trig = 'describe', dscr = 'describe()'},
         {t("describe('"), i(1, 'description'), t({"', () => {", '  '}), i(2, '// Body.'), t({'', '});'})}
       ),
       s(
@@ -98,7 +102,7 @@ if has_luasnip then
     },
     spec = {
       s(
-        {trig = 'con', dscr = 'Test context block'},
+        {trig = 'context', dscr = 'Test context block'},
         {t('context "'), i(1, 'description'), t({'" do', '  '}), i(2, '# body'), t({'', 'end'})}
       ),
       s(
