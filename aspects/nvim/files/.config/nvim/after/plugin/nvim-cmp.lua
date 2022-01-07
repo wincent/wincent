@@ -192,12 +192,12 @@ if has_cmp then
     },
 
     sources = cmp.config.sources({
-      { name = 'buffer' },
-      { name = 'calc' },
-      { name = 'emoji' },
       { name = 'luasnip' },
       { name = 'nvim_lsp' },
       { name = 'nvim_lua' },
+      { name = 'buffer' },
+      { name = 'calc' },
+      { name = 'emoji' },
       { name = 'path' },
     })
   }
