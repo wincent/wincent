@@ -17,6 +17,7 @@
 	dupes = !"git ls-tree -r HEAD | cut -c 13- | sort | uniq -D -w 40"
 
 	ff = merge --ff-only
+	find = "!f() { git ls-files | grep \"$@\"; }; f"
 	fixup = !bash -c 'git commit --fixup=$1 ${@:2}' -
 	fresh = remote update --prune
 	full = show --format=fuller
