@@ -28,3 +28,35 @@ task('symlink files', async () => {
     });
   }
 });
+
+task('fetch lotabout/skim.git', async () => {
+  await command(
+    'git',
+    [
+      'clone',
+      '--branch',
+      'v0.9.4', // Not a branch, but a tag (still works).
+      '--depth',
+      '1',
+      'https://github.com/lotabout/skim.git',
+    ],
+    {
+      chdir: 'vendor',
+      creates: 'vendor/skim',
+      raw: true,
+    }
+  );
+});
+
+task('build skim', async () => {
+  await command('cargo', ['install', '--path', '.'], {
+    chdir: 'vendor/skim',
+    creates: 'vendor/skim/target/release/sk',
+  });
+});
+
+task('install skim', async () => {
+  await command('cp', ['vendor/skim/target/release/sk', '/usr/local/bin/'], {
+    creates: '/usr/local/bin/sk',
+  });
+});
