@@ -4,6 +4,7 @@ export default {
     packages: [
       'autoconf', // To build Neovim from source.
       'automake', // To build Neovim from source.
+      'bfs', // Used in `j` alias.
       'cargo', // To build skim from source.
       'cmake', // To build Neovim from source.
       'g++', // To build Neovim from source.
