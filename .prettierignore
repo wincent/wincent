@@ -2,6 +2,7 @@
 /aspects/dotfiles/files/.zsh/zsh-autosuggestions
 /aspects/dotfiles/files/.zsh/zsh-history-substring-search
 /aspects/dotfiles/files/.zsh/zsh-syntax-highlighting
+/aspects/interception/support/CMakeFiles
 /aspects/nvim/files/.config/nvim/pack
 /aspects/nvim/files/.config/nvim/backup
 /aspects/nvim/files/.config/nvim/swap
