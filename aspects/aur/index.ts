@@ -79,6 +79,24 @@ task('set up sensors', async () => {
   }
 });
 
+task('set Microsoft Edge as default browser', async () => {
+  const result = await command('xdg-settings', [
+    'check',
+    'default-web-browser',
+    'microsoft-edge.desktop',
+  ]);
+
+  if (result?.status === 0 && result.stdout.includes('yes')) {
+    skip('already default');
+  } else {
+    await command('xdg-settings', [
+      'set',
+      'default-web-browser',
+      'microsoft-edge.desktop',
+    ]);
+  }
+});
+
 handler('enable clipper.service', async () => {
   await command('systemctl', ['--user', 'daemon-reload']);
   await command('systemctl', ['--user', 'enable', 'clipper.service', '--now']);
