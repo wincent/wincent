@@ -16,6 +16,7 @@ export default {
       'feh', // Sets desktop background.
       'git', // Version control system.
       'gnome-icon-theme', // eg. for clock icon in dunst notifications.
+      'graphviz', // Generating images of graphs from DOT language descriptions.
       'happy', // Haskell golden testing library (needed for docvim).
       'htop', // Fancier process monitor.
       'hwinfo', // For querying hardware info.
