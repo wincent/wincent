@@ -1,6 +1,6 @@
 import {attributes, command, file, path, skip, task} from 'fig';
 
-const NODE_VERSION = '16.13.0';
+const NODE_VERSION = '16.13.2';
 
 const n = path.root.join('vendor/n/bin/n');
 const bin = path.home.join(`n/bin`);
