@@ -51,7 +51,7 @@ task('install global packages', async () => {
   ];
 
   for (const name of packages) {
-    const result = await command(npm, ['ls', '-g', '--parseable', name], {
+    const result = await command(npm, ['ls', '-g', '--json', name], {
       env,
       failedWhen: () => false,
     });
