@@ -3,7 +3,7 @@ local nnoremap = wincent.vim.nnoremap
 local lsp = {}
 
 local on_attach = function ()
-  nnoremap('<Leader>ld', "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", {buffer = true, silent = true})
+  nnoremap('<Leader>ld', "<cmd>lua vim.diagnostic.open_float()<CR>", {buffer = true, silent = true})
   nnoremap('<c-]>', '<cmd>lua vim.lsp.buf.definition()<CR>', {buffer = true, silent = true})
   nnoremap('K', "<cmd>lua vim.lsp.buf.hover()<CR>", {buffer = true, silent = true})
   nnoremap('gd', '<cmd>lua vim.lsp.buf.declaration()<CR>', {buffer = true, silent = true})
