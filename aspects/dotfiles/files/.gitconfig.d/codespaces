@@ -1,5 +1,7 @@
 [credential]
 	helper = cache
+[merge]
+	conflictStyle = diff3
 [url "https://github.com/"]
 	insteadOf = git@github.com:
 [user]
