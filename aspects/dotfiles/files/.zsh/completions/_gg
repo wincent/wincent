@@ -17,6 +17,7 @@ case "$state" in
       "db:Open a MySQL console"
       "dbconsole:Open a MySQL console"
       "help:Show help"
+      "owners:Regenerate serviceowners files"
       "ports:Forward ports from a codespace"
       "serve:Run the server"
       "server:Run the server"
