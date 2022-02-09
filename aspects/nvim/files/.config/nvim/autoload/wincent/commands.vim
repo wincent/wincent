@@ -65,7 +65,7 @@ function! s:open_on_github(file, range) abort
     endif
     let l:url='https://github.com/' . l:address . '/tree/' . l:branch . l:relative_path . a:range
     if fnamemodify(resolve(exepath('open')), ':t') == 'open'
-      call system('open ' . shellescape(l:url))
+      call system('open ' . shellescape(substitute(l:url, ' ', '%20', 'g')))
     else
       echomsg l:url
     endif
