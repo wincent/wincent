@@ -18,6 +18,7 @@ function! s:open_on_github(file, range) abort
   endif
 
   let l:key=l:git_dir
+  let l:selected_remote='origin'
   if !has_key(s:directories, l:key)
     let s:directories[l:key]=-1
 
@@ -36,6 +37,7 @@ function! s:open_on_github(file, range) abort
               \       '\s\+\(git@github\.com:\|https://github\.com/\)\(\S\{-}\)\(\.git\)\?\s'
               \ )
         if len(l:match)
+          let l:selected_remote=l:remote
           let s:directories[l:key]=l:match[3]
           break
         endif
@@ -50,8 +52,18 @@ function! s:open_on_github(file, range) abort
   if l:address != -1
     let l:root=fnamemodify(l:git_dir, ':h')
     let l:relative_path=strcharpart(a:file, strchars(l:root))
-    " TODO: detect non-"master" default branch
-    let l:url='https://github.com/' . l:address . '/tree/master' . l:relative_path . a:range
+    let l:branch=trim(system('git rev-parse --abbrev-ref HEAD'))
+    if l:branch == 'HEAD'
+      " Detached HEAD, so try to figure out default branch based on remote.
+      let l:branch=trim(system('git rev-parse --abbrev-ref ' . l:selected_remote . '/HEAD'))
+      if v:shell_error == 0
+        let l:branch=strcharpart(l:branch, len(l:selected_remote) + 1)
+      else
+        " Give up, basically...
+        let l:branch='main'
+      endif
+    endif
+    let l:url='https://github.com/' . l:address . '/tree/' . l:branch . l:relative_path . a:range
     if fnamemodify(resolve(exepath('open')), ':t') == 'open'
       call system('open ' . shellescape(l:url))
     else
@@ -118,7 +130,7 @@ function! wincent#commands#open_on_github(...) abort range
     let l:files=[expand('%')]
 
     " Note: line numbers may not be accurate because we always open the HEAD of
-    " the master branch.
+    " the current branch.
     if visualmode() != ''
       if a:firstline == a:lastline
         let l:range='#L' . a:firstline
