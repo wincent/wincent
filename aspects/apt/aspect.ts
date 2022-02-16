@@ -9,6 +9,7 @@ export default {
       'cmake', // To build Neovim from source.
       'g++', // To build Neovim from source.
       'gettext', // To build Neovim from source.
+      'iotop', // For monitoring I/O activity.
       'libtool', // To build Neovim from source.
       'libtool-bin', // To build Neovim from source.
       'neovim', // Editor.
