@@ -103,8 +103,8 @@ locale-gen
 
 log "Setting up users"
 echo "root:\$__PASSPHRASE__" | chpasswd
-useradd -m -g users -G wheel glh
-echo "glh:\$__PASSPHRASE__" | chpasswd
+useradd -m -g users -G wheel wincent
+echo "wincent:\$__PASSPHRASE__" | chpasswd
 echo '%wheel ALL=(ALL) ALL' > /etc/sudoers.d/wheel
 
 log "Setting up boot"
@@ -159,8 +159,8 @@ ln -sf /usr/share/zoneinfo/Europe/Madrid /etc/localtime
 hwclock --systohc
 
 log "Cloning dotfiles"
-sudo -u glh mkdir -p /home/glh/code
-sudo -u glh git clone --recursive https://github.com/wincent/wincent.git /home/glh/code/wincent
+sudo -u wincent mkdir -p /home/wincent/code
+sudo -u wincent git clone --recursive https://github.com/wincent/wincent.git /home/wincent/code/wincent
 
 exit
 HERE

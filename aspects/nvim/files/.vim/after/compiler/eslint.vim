@@ -35,10 +35,10 @@ finish " Sample output follows:
 yarn run v1.17.3
 $ node scripts/lint.js --format stylish
 
-/Users/glh/code/eslint-config-liferay/index.js
+/Users/wincent/code/eslint-config-liferay/index.js
   10:1  error  imports must be grouped (expected blank line before: "./utils/local")  liferay/group-imports
 
-/Users/glh/code/eslint-config-liferay/plugins/eslint-plugin-liferay/tests/lib/rules/group-imports.js
+/Users/wincent/code/eslint-config-liferay/plugins/eslint-plugin-liferay/tests/lib/rules/group-imports.js
   6:1  error  Missing notice header                                                                             notice/notice
   6:1  error  imports must be grouped (expected blank line before: "../../../lib/rules/group-imports")          liferay/group-imports
   6:1  error  imports must be sorted by module name (expected: "eslint" << "../../../lib/rules/group-imports")  liferay/sort-imports

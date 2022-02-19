@@ -253,7 +253,7 @@ task('Finder Preferences -> New Finder windows show', async () => {
   await defaults({
     domain: 'com.apple.finder',
     key: 'NewWindowTargetPath',
-    value: 'file:///Users/glh/',
+    value: 'file:///Users/wincent/',
   });
 });
 
