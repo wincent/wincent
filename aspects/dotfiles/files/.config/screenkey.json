@@ -1,0 +1,32 @@
+{
+    "no_systray": false,
+    "timeout": 2.5,
+    "recent_thr": 0.1,
+    "compr_cnt": 3,
+    "ignore": [],
+    "position": "fixed",
+    "persist": true,
+    "window": null,
+    "font_desc": "Sans Bold",
+    "font_size": "medium",
+    "font_color": "white",
+    "bg_color": "black",
+    "opacity": 0.8,
+    "key_mode": "composed",
+    "bak_mode": "baked",
+    "mods_mode": "normal",
+    "mods_only": false,
+    "multiline": false,
+    "vis_shift": false,
+    "vis_space": true,
+    "geometry": [
+        0,
+        2039,
+        3840,
+        121
+    ],
+    "screen": 0,
+    "start_disabled": false,
+    "mouse": false,
+    "button_hide_duration": 1
+}

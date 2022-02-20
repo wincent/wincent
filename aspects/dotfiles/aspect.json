@@ -21,6 +21,7 @@
       ".config/lf",
       ".config/picom.conf",
       ".config/ranger",
+      ".config/screenkey.json",
       ".config/sxhkd",
       ".config/xkeysnail.py",
       ".ghci",
