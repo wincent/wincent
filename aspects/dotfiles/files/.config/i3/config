@@ -178,8 +178,8 @@ gaps inner 0
 gaps outer 0
 
 # Only show outer gaps when only one container on screen.
-# (outer gap will be inner + outer)
-smart_gaps inverse_outer
+# (outer gap will be inner + outer; this is an i3-gaps setting).
+#smart_gaps inverse_outer # disabled because it messes with screencast tweaks
 
 # Only show borders when there is more than one window on a screen (this is an
 # i3-gaps setting).
