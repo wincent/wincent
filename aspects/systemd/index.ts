@@ -48,6 +48,7 @@ task('create ~/.config/systemd/user', async () => {
 task('set up ~/.config/systemd/user/ssh-agent.service', async () => {
   const unit = '.config/systemd/user/ssh-agent.service';
   await file({
+    force: true,
     notify: 'enable ssh-agent.service',
     path: path.home.join(unit),
     src: path.aspect.join('files', unit),
