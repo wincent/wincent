@@ -13,6 +13,7 @@ task('copy helper scripts', async () => {
 
   for (const script of scripts) {
     await file({
+      force: true,
       mode: script.endsWith('.applescript') ? '0644' : '0755',
       path: path.home.join(script),
       src: resource.file(script),
