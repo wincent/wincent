@@ -31,6 +31,7 @@ export default {
       'man-pages', // Linux man pages (eg. `man 3 strlen` etc).
       'mariadb', // Drop-in replacement for (and default Arch) MySQL package.
       'mlocate', // Find files by name with `locate`.
+      'mtr', // `traceroute` + `ping` rolled into a single tool.
       'namcap', // For testing AUR package PKGBUILD files.
       'neovim', // $EDITOR.
       'netcat', // For piping over network connectison (see also `socat` below).
