@@ -1,1 +1,10 @@
-wincent.vim.autocmd('BufNewFile,BufRead', '.pryrc,Guardfile', 'set filetype=ruby')
+local patterns = table.concat(
+  {
+    '.pryrc',
+    'Guardfile',
+    'pryrc',
+  },
+  ','
+)
+
+wincent.vim.autocmd('BufNewFile,BufRead', patterns, 'set filetype=ruby')

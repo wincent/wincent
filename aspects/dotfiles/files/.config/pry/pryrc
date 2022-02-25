@@ -1,0 +1,12 @@
+Pry::Commands.create_command 'html5tidy' do
+  description 'Print indented, colorized HTML: html5tidy [HTML]'
+
+  command_options requires_gem: ['nokogiri']
+
+  def process
+    html = args.empty? ? target_self : target.eval(args.first)
+    html = Nokogiri::XML(html, &:noblanks)
+    html = CodeRay.scan(html, :html).term if Pry.config.color
+    output.puts html
+  end
+end

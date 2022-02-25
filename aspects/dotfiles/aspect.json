@@ -20,6 +20,7 @@
       ".config/kitty",
       ".config/lf",
       ".config/picom.conf",
+      ".config/pry",
       ".config/ranger",
       ".config/screenkey.json",
       ".config/sxhkd",
