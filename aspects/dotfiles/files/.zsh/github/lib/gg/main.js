@@ -61,7 +61,7 @@ function error(...messages) {
 
 async function getHelper(command) {
   if (command.match(/^\w+$/)) {
-    const dir = path.join(__dirname, `${TOOL_NAME}-helpers`);
+    const dir = path.join(__dirname, 'helpers');
     const helper = path.join(dir, command);
 
     try {
