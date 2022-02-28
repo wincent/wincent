@@ -5,9 +5,10 @@
 
 DIRECTORY=$(cd $(dirname "$BASH_SOURCE"); pwd)
 
-# Fancy hack: automatically run "test" subcommand if first arg starts with
-# test/:
+# The h4xx: run "test" subcommand if first arg looks like a test path:
 if [[ "$1" == test/* ]]; then
+  exec node "$DIRECTORY/.gg.js" test "$@"
+elif [[ "$1" == */test/* ]]; then
   exec node "$DIRECTORY/.gg.js" test "$@"
 else
   exec node "$DIRECTORY/.gg.js" "$@"
