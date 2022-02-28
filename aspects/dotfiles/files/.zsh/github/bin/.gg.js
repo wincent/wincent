@@ -4,21 +4,30 @@ const path = require('path');
 const {createInterface} = require('readline');
 
 const TOOL_NAME = 'gg';
+const HELP = `run \`${TOOL_NAME} help\` to see available commands`;
 
-function log(...messages) {
-  console.log(...messages);
-}
+// The lowest signal number (via `man 3 signal`).
+const SIGHUP = 1;
 
-function error(...messages) {
-  log('error: ', ...messages);
-}
+// The highest signal number (via `man 3 signal`).
+const SIGUSR2 = 31;
 
-function die(...messages) {
-  if (messages.length) {
-    log(...messages);
+async function main(_node, _script, command, ...args) {
+  if (!command) {
+    die(`must supply command: ${HELP}`);
   }
-  process.exit(1);
+  const helper = await getHelper(command);
+  if (!helper) {
+    die(`no such command: ${command} - ${HELP}`);
+  }
+
+  await run(helper, ...args);
 }
+
+main(...process.argv).catch((err) => {
+  error(err);
+  process.exit(1);
+});
 
 async function confirm(prompt) {
   const readline = createInterface({
@@ -39,48 +48,15 @@ async function confirm(prompt) {
     });
 }
 
-// The lowest signal number (via `man 3 signal`).
-const SIGHUP = 1;
+function die(...messages) {
+  if (messages.length) {
+    log(...messages);
+  }
+  process.exit(1);
+}
 
-// The highest signal number (via `man 3 signal`).
-const SIGUSR2 = 31;
-
-function run(command, ...args) {
-  return new Promise((resolve, reject) => {
-    let resolved = false;
-    const child = child_process.spawn(command, args, {stdio: 'inherit'});
-
-    process.on('SIGINT', () => {
-      child.kill('SIGINT');
-    });
-
-    child.on('error', (err) => {
-      if (!resolved) {
-        resolved = true;
-        reject(err);
-      }
-    });
-
-    child.on('exit', (code) => {
-      if (!resolved) {
-        resolved = true;
-        if (code) {
-          let err;
-          const description = `\`${[command, ...args].join(' ')}\``;
-          if (code >= 128 + SIGHUP && code <= 128 + SIGUSR2) {
-            err = new Error(
-              `${description} exited due to signal ${code - 128}`
-            );
-          } else {
-            err = new Error(`${description} exited with status ${code}`);
-          }
-          reject(err);
-        } else {
-          resolve();
-        }
-      }
-    });
-  });
+function error(...messages) {
+  log('error: ', ...messages);
 }
 
 async function getHelper(command) {
@@ -160,6 +136,48 @@ async function getHelper(command) {
       }
     }
   }
+}
+
+function log(...messages) {
+  console.log(...messages);
+}
+
+function run(command, ...args) {
+  return new Promise((resolve, reject) => {
+    let resolved = false;
+    const child = child_process.spawn(command, args, {stdio: 'inherit'});
+
+    process.on('SIGINT', () => {
+      child.kill('SIGINT');
+    });
+
+    child.on('error', (err) => {
+      if (!resolved) {
+        resolved = true;
+        reject(err);
+      }
+    });
+
+    child.on('exit', (code) => {
+      if (!resolved) {
+        resolved = true;
+        if (code) {
+          let err;
+          const description = `\`${[command, ...args].join(' ')}\``;
+          if (code >= 128 + SIGHUP && code <= 128 + SIGUSR2) {
+            err = new Error(
+              `${description} exited due to signal ${code - 128}`
+            );
+          } else {
+            err = new Error(`${description} exited with status ${code}`);
+          }
+          reject(err);
+        } else {
+          resolve();
+        }
+      }
+    });
+  });
 }
 
 /**
@@ -276,24 +294,5 @@ function jaroWinkler(a, b) {
 
   return sim;
 }
-
-const HELP = `run \`${TOOL_NAME} help\` to see available commands`;
-
-async function main(_node, _script, command, ...args) {
-  if (!command) {
-    die(`must supply command: ${HELP}`);
-  }
-  const helper = await getHelper(command);
-  if (!helper) {
-    die(`no such command: ${command} - ${HELP}`);
-  }
-
-  await run(helper, ...args);
-}
-
-main(...process.argv).catch((err) => {
-  error(err);
-  process.exit(1);
-});
 
 // vim: ft=javascript
