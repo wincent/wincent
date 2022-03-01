@@ -4,7 +4,6 @@
 # TypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension "" for gg
 
 LIB=$(cd $(dirname "$BASH_SOURCE")/..; echo "$(pwd)/lib")
-echo $LIB
 
 # The h4xx: run "test" subcommand if first arg looks like a test path:
 if [[ "$1" == test/* ]]; then
