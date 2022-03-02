@@ -20,7 +20,7 @@ export default async function fetch({
   encoding?: BufferEncoding | null;
   group?: string;
   mode?: Mode;
-  notify?: string;
+  notify?: Array<string> | string;
   owner?: string;
   url: string;
 }): Promise<OperationResult> {

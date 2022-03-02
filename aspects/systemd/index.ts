@@ -45,19 +45,42 @@ task('create ~/.config/systemd/user', async () => {
   await file({path: '~/.config/systemd/user', state: 'directory'});
 });
 
-task('set up ~/.config/systemd/user/ssh-agent.service', async () => {
-  const unit = '.config/systemd/user/ssh-agent.service';
+task('set up ~/.config/systemd/user/pulseaudio-null-sink.service', async () => {
+  const unit = '.config/systemd/user/pulseaudio-null-sink.service';
   await file({
     force: true,
-    notify: 'enable ssh-agent.service',
+    notify: ['systemd daemon-reload', 'enable pulseaudio-null-sink.service'],
     path: path.home.join(unit),
     src: path.aspect.join('files', unit),
     state: 'link',
   });
 });
 
-handler('enable ssh-agent.service', async () => {
+task('set up ~/.config/systemd/user/ssh-agent.service', async () => {
+  const unit = '.config/systemd/user/ssh-agent.service';
+  await file({
+    force: true,
+    notify: ['systemd daemon-reload', 'enable ssh-agent.service'],
+    path: path.home.join(unit),
+    src: path.aspect.join('files', unit),
+    state: 'link',
+  });
+});
+
+handler('systemd daemon-reload', async () => {
   await command('systemctl', ['--user', 'daemon-reload']);
+});
+
+handler('enable pulseaudio-null-sink.service', async () => {
+  await command('systemctl', [
+    '--user',
+    'enable',
+    'pulseaudio-null-sink.service',
+    '--now',
+  ]);
+});
+
+handler('enable ssh-agent.service', async () => {
   await command('systemctl', [
     '--user',
     'enable',

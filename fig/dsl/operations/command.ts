@@ -19,7 +19,7 @@ export default async function command(
     creates?: string;
     env?: NodeJS.ProcessEnv;
     failedWhen?: (result: Result | null) => boolean;
-    notify?: string;
+    notify?: Array<string> | string;
     raw?: boolean;
     sudo?: boolean;
   } = {}

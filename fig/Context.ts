@@ -62,16 +62,18 @@ class Context {
     return this.#compiler.compile(path);
   }
 
-  informChanged(message: string, notify?: string): OperationResult {
+  informChanged(message: string, notify?: Array<string> | string): OperationResult {
     this.#counts.changed++;
 
     if (notify !== undefined) {
       assert(this.#currentAspect);
 
-      this.#handlers.notify(
-        this.#currentAspect,
-        `${this.#currentAspect} | ${notify}`
-      );
+      for (const target of Array.isArray(notify) ? notify : [notify]) {
+        this.#handlers.notify(
+          this.#currentAspect,
+          `${this.#currentAspect} | ${target}`
+        );
+      }
     }
 
     status.changed(message);

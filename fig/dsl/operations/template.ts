@@ -18,7 +18,7 @@ export default async function template({
   group?: string;
   path: string;
   mode?: Mode;
-  notify?: string;
+  notify?: Array<string> | string;
   owner?: string;
   src: string;
   sudo?: boolean;

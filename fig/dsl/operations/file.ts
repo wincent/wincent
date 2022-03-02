@@ -33,7 +33,7 @@ export default async function file({
   group?: string;
   path: string;
   mode?: Mode;
-  notify?: string;
+  notify?: Array<string> | string;
   owner?: string;
   src?: string;
   state: 'directory' | 'file' | 'link' | 'touch';

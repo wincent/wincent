@@ -1,0 +1,13 @@
+# Based on config in: https://wiki.archlinux.org/title/PipeWire
+[Unit]
+Description=Load default Pulseaudio null sink
+After=pipewire-pulse.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/pactl load-module module-null-sink object.linger=1 media.class=Audio/Sink sink_name=Music
+ExecStop=/usr/bin/pactl unload-module module-null-sink
+RemainAfterExit=yes
+
+[Install]
+WantedBy=default.target

@@ -454,10 +454,34 @@ task('notify a handler', async () => {
   });
 });
 
+task('notify multiple handlers...', async () => {
+  await command('true', [], {
+    notify: ['handle common', 'handle first'],
+  });
+});
+
+task('...across multiple tasks', async () => {
+  await command('true', [], {
+    notify: ['handle common', 'handle second'],
+  });
+});
+
 handler('should not to be called', async () => {
   fail('handler fired');
 });
 
 handler('handle command', async () => {
+  await command('true', []);
+});
+
+handler('handle first', async () => {
+  await command('true', []);
+});
+
+handler('handle second', async () => {
+  await command('true', []);
+});
+
+handler('handle common', async () => {
   await command('true', []);
 });

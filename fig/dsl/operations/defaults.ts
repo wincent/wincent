@@ -30,7 +30,7 @@ export default async function defaults({
   domain?: string;
   host?: string;
   key: string;
-  notify?: string;
+  notify?: Array<string> | string;
   state?: 'absent' | 'present';
   type?: Exclude<Type, 'array' | 'date' | 'dict' | 'unknown'>;
   value?:

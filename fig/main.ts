@@ -264,73 +264,84 @@ async function main() {
           }
         }
 
-        const {callbacks, notifications} = Context.handlers.get(aspect);
+        if (!options.startAt.found) {
+          const {callbacks, notifications} = Context.handlers.get(aspect);
 
-        for (const [callback, name] of callbacks) {
-          if (!options.startAt.found) {
+          for (const name of notifications) {
             log.notice(`Handler: ${name}`);
 
-            if (notifications.has(name)) {
-              if (options.step) {
-                // TODO: DRY up -- almost same as task handling
-                // above
-                for (;;) {
-                  const reply = (
-                    await prompt(
-                      `Run handler ${name}? [y]es/[n]o/[q]uit]/[c]ontinue/[h]elp: `
-                    )
-                  )
-                    .toLowerCase()
-                    .trim();
+            const callback = callbacks.get(name);
 
-                  if ('yes'.startsWith(reply)) {
-                    await Context.withContext(
-                      {
-                        aspect,
-                        options,
-                        task: name,
-                        variables,
-                      },
-                      callback
-                    );
-                    break;
-                  } else if ('no'.startsWith(reply)) {
-                    Context.informSkipped(`task ${name}`);
-                    break;
-                  } else if ('quit'.startsWith(reply)) {
-                    break loopAspects;
-                  } else if ('continue'.startsWith(reply)) {
-                    options.step = false;
-                    await Context.withContext(
-                      {
-                        aspect,
-                        options,
-                        task: name,
-                        variables,
-                      },
-                      callback
-                    );
-                    break;
-                  } else if ('help'.startsWith(reply)) {
-                    log(
-                      dedent`
-                                                [y]es:      run the handler
-                                                [n]o:       skip the handler
-                                                [q]uit:     stop running
-                                                [c]ontinue: run all remaining handlers and tasks
-                                            `
-                    );
-                  } else {
-                    log.warn('Invalid choice; try again.');
-                  }
+            if (!callback) {
+              throw new ErrorWithMetadata(
+                `Failed to find handler with named ${stringify(name)}`
+              );
+            }
+
+            if (options.step) {
+              // TODO: DRY up -- almost same as task handling
+              // above
+              for (;;) {
+                const reply = (
+                  await prompt(
+                    `Run handler ${name}? [y]es/[n]o/[q]uit]/[c]ontinue/[h]elp: `
+                  )
+                )
+                  .toLowerCase()
+                  .trim();
+
+                if ('yes'.startsWith(reply)) {
+                  await Context.withContext(
+                    {
+                      aspect,
+                      options,
+                      task: name,
+                      variables,
+                    },
+                    callback
+                  );
+                  break;
+                } else if ('no'.startsWith(reply)) {
+                  Context.informSkipped(`handler ${name}`);
+                  break;
+                } else if ('quit'.startsWith(reply)) {
+                  break loopAspects;
+                } else if ('continue'.startsWith(reply)) {
+                  options.step = false;
+                  await Context.withContext(
+                    {
+                      aspect,
+                      options,
+                      task: name,
+                      variables,
+                    },
+                    callback
+                  );
+                  break;
+                } else if ('help'.startsWith(reply)) {
+                  log(
+                    dedent`
+                                              [y]es:      run the handler
+                                              [n]o:       skip the handler
+                                              [q]uit:     stop running
+                                              [c]ontinue: run all remaining handlers and tasks
+                                          `
+                  );
+                } else {
+                  log.warn('Invalid choice; try again.');
                 }
-              } else {
-                await Context.withContext(
-                  {aspect, options, task: name, variables},
-                  callback
-                );
               }
             } else {
+              await Context.withContext(
+                {aspect, options, task: name, variables},
+                callback
+              );
+            }
+          }
+
+          for (const name of callbacks.keys()) {
+            if (!notifications.has(name)) {
+              log.notice(`Handler: ${name}`);
               Context.informSkipped(`handler ${name}`);
             }
           }

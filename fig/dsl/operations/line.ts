@@ -24,7 +24,7 @@ export default async function line({
   group?: string;
   line: string;
   mode?: Mode;
-  notify?: string;
+  notify?: Array<string> | string;
   owner?: string;
   regexp?: RegExp | string;
   state?: 'absent' | 'present';
