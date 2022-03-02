@@ -62,7 +62,10 @@ class Context {
     return this.#compiler.compile(path);
   }
 
-  informChanged(message: string, notify?: Array<string> | string): OperationResult {
+  informChanged(
+    message: string,
+    notify?: Array<string> | string
+  ): OperationResult {
     this.#counts.changed++;
 
     if (notify !== undefined) {
