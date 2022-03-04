@@ -232,3 +232,6 @@
 [submodule "zen-mode.nvim"]
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/zen-mode.nvim
 	url = https://github.com/folke/zen-mode.nvim.git
+[submodule "indent-blankline.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/indent-blankline.nvim
+	url = https://github.com/lukas-reineke/indent-blankline.nvim.git

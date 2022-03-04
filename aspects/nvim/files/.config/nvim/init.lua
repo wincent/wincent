@@ -252,6 +252,7 @@ if vim.o.loadplugins then
   wincent.plugin.load('command-t')
   wincent.plugin.load('corpus')
   wincent.plugin.load('ferret')
+  wincent.plugin.load('indent-blankline.nvim')
   wincent.plugin.load('loupe')
   wincent.plugin.load('neco-ghc')
   wincent.plugin.load('nvim-cmp')

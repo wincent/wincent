@@ -39,8 +39,10 @@ local check = function ()
   vim.cmd('highlight clear Conceal')
   if vim.o.background == 'light' then
     vim.cmd('highlight Conceal ctermfg=249 guifg=Grey70')
+    vim.cmd('highlight IndentBlanklineChar guifg=Grey90 gui=nocombine')
   else
     vim.cmd('highlight Conceal ctermfg=239 guifg=Grey30')
+    vim.cmd('highlight IndentBlanklineChar guifg=Grey10 gui=nocombine')
   end
 
   vim.cmd [[
