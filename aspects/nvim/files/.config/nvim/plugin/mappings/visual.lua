@@ -2,6 +2,7 @@
 -- Visual mode mappings.
 --
 
+local indent_wrap_mapping = wincent.plugins.indent_blankline.wrap_mapping
 local command = wincent.vim.command
 local xnoremap = wincent.vim.xnoremap
 
@@ -17,3 +18,7 @@ command('MoveUp', 'call v:lua.wincent.mappings.visual.move_up(<line1>)', {range 
 
 xnoremap('K', ':MoveUp<CR>', {silent = true})
 xnoremap('J', ':MoveDown<CR>', {silent = true})
+
+-- For compatibility with indent-blankline.nvim:
+xnoremap('<', indent_wrap_mapping('<'), {silent = true})
+xnoremap('>', indent_wrap_mapping('>'), {silent = true})

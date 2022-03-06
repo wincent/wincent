@@ -2,37 +2,29 @@
 -- Normal mode mappings.
 --
 
+local indent_wrap_mapping = wincent.plugins.indent_blankline.wrap_mapping
 local nnoremap = wincent.vim.nnoremap
 local noremap = wincent.vim.noremap
 
--- Wrap all mappings related to folding so that indent-blankline.nvim can
--- update when folds are changed. See:
--- https://github.com/lukas-reineke/indent-blankline.nvim/issues/118
-local fold = function(mapping)
-  if vim.g.loaded_indent_blankline == 1 then
-    return mapping .. ':IndentBlanklineRefresh<CR>'
-  else
-    return mapping
-  end
-end
-
 -- Toggle fold at current position.
-nnoremap('<Tab>', fold('za'), {silent = true})
+nnoremap('<Tab>', indent_wrap_mapping('za'), {silent = true})
 
--- Other fold-related remaps for compatibility with indent-blankline.nvim:
-nnoremap('zA', fold('zA'), {silent = true})
-nnoremap('zC', fold('zC'), {silent = true})
-nnoremap('zM', fold('zM'), {silent = true})
-nnoremap('zO', fold('zO'), {silent = true})
-nnoremap('zR', fold('zR'), {silent = true})
-nnoremap('zX', fold('zX'), {silent = true})
-nnoremap('za', fold('za'), {silent = true})
-nnoremap('zc', fold('zc'), {silent = true})
-nnoremap('zm', fold('zm'), {silent = true})
-nnoremap('zo', fold('zo'), {silent = true})
-nnoremap('zr', fold('zr'), {silent = true})
-nnoremap('zv', fold('zv'), {silent = true})
-nnoremap('zx', fold('zx'), {silent = true})
+-- Other indent-related remaps for compatibility with indent-blankline.nvim:
+nnoremap('zA', indent_wrap_mapping('zA'), {silent = true})
+nnoremap('zC', indent_wrap_mapping('zC'), {silent = true})
+nnoremap('zM', indent_wrap_mapping('zM'), {silent = true})
+nnoremap('zO', indent_wrap_mapping('zO'), {silent = true})
+nnoremap('zR', indent_wrap_mapping('zR'), {silent = true})
+nnoremap('zX', indent_wrap_mapping('zX'), {silent = true})
+nnoremap('za', indent_wrap_mapping('za'), {silent = true})
+nnoremap('zc', indent_wrap_mapping('zc'), {silent = true})
+nnoremap('zm', indent_wrap_mapping('zm'), {silent = true})
+nnoremap('zo', indent_wrap_mapping('zo'), {silent = true})
+nnoremap('zr', indent_wrap_mapping('zr'), {silent = true})
+nnoremap('zv', indent_wrap_mapping('zv'), {silent = true})
+nnoremap('zx', indent_wrap_mapping('zx'), {silent = true})
+nnoremap('<<', indent_wrap_mapping('<<'), {silent = true})
+nnoremap('>>', indent_wrap_mapping('>>'), {silent = true})
 
 -- Relying on Karabiner-Elements (macOS) or Interception Tools (Linux) to avoid
 -- collision between <Tab> and <C-i> (have it send F6 instead for <C-i>).
