@@ -180,15 +180,20 @@ vim.g.CorpusDirectories = {
 -- centering, which can be annoying.
 vim.g.LoupeCenterResults = 0
 
+-- Using <F13> instead of actual <Nop> to avoid messing with "<" mappings.
+-- (<Nop> works fine in RHS of mappings, but on LHS, Vim treats it like "<" +
+-- "n" + "o" + "p" + ">".)
+local nop = '<F13>'
+
 -- And it turns out that if we're going to turn off the centering, we don't even
 -- need the mappings; see: https://github.com/wincent/loupe/pull/15
-vim.api.nvim_set_keymap('n', '<Nop><F1>', '<Plug>(LoupeN)', {})
-vim.api.nvim_set_keymap('n', '<Nop><F2>', '<Plug>(Loupen)', {})
+vim.api.nvim_set_keymap('n', nop .. '<F1>', '<Plug>(LoupeN)', {})
+vim.api.nvim_set_keymap('n', nop .. '<F2>', '<Plug>(Loupen)', {})
 
 -- Stop Ferret from binding <Leader>l, which we want to keep for interactions
 -- with the language server client (the rare-ish times I want :Lack, I can just
 -- type it out).
-vim.api.nvim_set_keymap('', '<Nop><F3>', '<Plug>(FerretLack)', {})
+vim.api.nvim_set_keymap('', nop .. '<F3>', '<Plug>(FerretLack)', {})
 
 -- Prevent tcomment from making a zillion mappings (we just want the operator).
 vim.g.tcomment_mapleader1 = ''

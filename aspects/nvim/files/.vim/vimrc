@@ -15,13 +15,14 @@ let g:LoupeCenterResults=0
 
 " And it turns out that if we're going to turn off the centering, we don't even
 " need the mappings; see: https://github.com/wincent/loupe/pull/15
-nmap <Nop><F1> <Plug>(LoupeN)
-nmap <Nop><F2> <Plug>(Loupen)
+" Using <F13> instead of <Nop> to avoid messing with "<" mappings.
+nmap <F13><F1> <Plug>(LoupeN)
+nmap <F13><F2> <Plug>(Loupen)
 
 " Stop Ferret from binding <Leader>l, which we want to keep for interactions
 " with the language server client (the rare-ish times I want :Lack, I can just
 " type it out).
-map <Nop><F3> <Plug>(FerretLack)
+map <F13><F3> <Plug>(FerretLack)
 
 " Prevent tcomment from making a zillion mappings (we just want the operator).
 let g:tcomment_mapleader1=''
