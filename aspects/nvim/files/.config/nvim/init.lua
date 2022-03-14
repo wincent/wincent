@@ -199,10 +199,9 @@ vim.api.nvim_set_keymap('', nop .. '<F3>', '<Plug>(FerretLack)', {})
 vim.g.tcomment_mapleader1 = ''
 vim.g.tcomment_mapleader2 = ''
 vim.g.tcomment_mapleader_comment_anyway = ''
-vim.g.tcomment_textobject_inlinecomment = ''
 
 -- The default (g<) is a bit awkward to type.
-vim.g.tcomment_mapleader_uncomment_anyway = 'gu'
+vim.g.tcomment_mapleader_uncomment_anyway = 'gC'
 
 -- Turn off most of the features of this plug-in; I really just want the folding.
 vim.g.vim_markdown_override_foldtext = 0
