@@ -68,7 +68,13 @@ color() {
       echo "$BACKGROUND" >> "$__WINCENT[BASE16_CONFIG]"
       sh "$FILE"
 
-      (cd ~/.config/kitty && ln -sf colors/base16-$SCHEME-256.conf colors.conf)
+      # When running a `.tmux` script we may have a race where multiple `ln -sf`
+      # are running at the same time (because the script may open multiple
+      # splits), producing "ln: colors.conf: File exists"; so, swallow stderr.
+      (
+        cd ~/.config/kitty &&
+        ln -sf colors/base16-$SCHEME-256.conf colors.conf 2> /dev/null
+      )
 
       if [ -n "$TMUX" ]; then
         local CC=$(grep color18= "$FILE" | cut -d \" -f2 | sed -e 's#/##g')
