@@ -18,7 +18,6 @@ Dropbox
 EC2
 ES6
 ESPP
-Ephemerality
 FB
 Facebook
 Facebook's
@@ -54,14 +53,11 @@ MVC
 MacVim
 MailMate
 MongoDB
-Monoid
-Monoids
 MySQL
 Neovim
 OCaml
 PHP
 PRs
-Perf
 Phabricator
 PowerPC
 README
@@ -70,7 +66,6 @@ RESTful
 RVM
 React's
 Realforce
-Recurse
 Redis
 Redux
 SDK
@@ -125,6 +120,7 @@ dotfile
 dotfiles
 eg
 endorphin
+ephemerality
 etc
 fallback
 filesystem
@@ -205,7 +201,6 @@ refactor
 reflows
 repo
 repos
-reservior
 screencasts
 screenful
 screensaver
