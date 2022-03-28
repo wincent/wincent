@@ -41,37 +41,61 @@ export default async function fetch({
 
   const stream = createWriteStream(download, 'utf8');
 
-  return new Promise((resolve, reject) => {
-    get(url, (response) => {
-      response.pipe(stream);
+  const requestedURLs: Array<string> = [];
 
-      stream.on('finish', async () => {
-        stream.close();
+  function go(url: string): Promise<OperationResult> {
+    requestedURLs.push(url);
+    return new Promise((resolve, reject) => {
+      get(url, (response) => {
+        if (response.statusCode === 301 || response.statusCode === 302) {
+          if (requestedURLs.length > 10) {
+            reject(
+              new Error(
+                `fetch(): Too many redirects: ${requestedURLs.join(' → ')}`
+              )
+            );
+          } else {
+            const location = response.headers.location;
+            if (location) {
+              go(location).then(resolve, reject);
+            } else {
+              reject(new Error('fetch(): Cannot redirect without Location'));
+            }
+          }
+        } else {
+          response.pipe(stream);
 
-        try {
-          const contents = await promises.readFile(
-            download,
-            encoding === undefined ? 'utf8' : null
-          );
+          stream.on('finish', async () => {
+            stream.close();
 
-          const result = await file({
-            contents,
-            encoding,
-            group,
-            mode,
-            notify,
-            owner,
-            path: dest,
-            state: 'file',
+            try {
+              const contents = await promises.readFile(
+                download,
+                encoding === undefined ? 'utf8' : null
+              );
+
+              const result = await file({
+                contents,
+                encoding,
+                group,
+                mode,
+                notify,
+                owner,
+                path: dest,
+                state: 'file',
+              });
+
+              resolve(result);
+            } catch (error) {
+              reject(error);
+            }
           });
-
-          resolve(result);
-        } catch (error) {
-          reject(error);
         }
+      }).on('error', (error) => {
+        reject(error);
       });
-    }).on('error', (error) => {
-      reject(error);
     });
-  });
+  }
+
+  return go(url);
 }

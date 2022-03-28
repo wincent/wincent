@@ -74,6 +74,7 @@ prepend_to PATH /usr/local/sbin
 prepend_to PATH /usr/local/opt/srm/bin
 prepend_to PATH $HOME/.cargo/bin
 prepend_to PATH $HOME/.config/nvim/pack/bundle/opt/vcs-jump/bin
+test -d /opt/nvim/squashfs-root/usr/bin && prepend_to PATH /opt/nvim/squashfs-root/usr/bin
 
 # On ARM Macs, Homebrew will use this instead of /usr/local.
 test -d /opt/homebrew/sbin && prepend_to PATH /opt/homebrew/sbin

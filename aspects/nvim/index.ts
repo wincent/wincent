@@ -11,6 +11,20 @@ import {
   variable,
 } from 'fig';
 
+type Callback = Parameters<typeof task>[1];
+
+const debian = {
+  task(description: string, callback: Callback) {
+    task(description, async () => {
+      if (attributes.distribution === 'debian') {
+        await callback();
+      } else {
+        skip('not on Debian');
+      }
+    });
+  },
+};
+
 task('make directories', async () => {
   // Some overlap with "dotfiles" aspect here.
   await file({path: '~/.backups', state: 'directory'});
@@ -39,49 +53,28 @@ task('create symlinks', async () => {
   }
 });
 
-task('fetch neovim.git', async () => {
-  if (attributes.distribution === 'debian') {
-    await command(
-      'git',
-      [
-        'clone',
-        '--branch',
-        'v0.6.1',
-        '--depth',
-        '1',
-        'https://github.com/neovim/neovim.git',
-      ],
-      {
-        chdir: 'vendor',
-        creates: 'vendor/neovim',
-        raw: true,
-      }
-    );
-  } else {
-    skip('not on Debian');
-  }
+debian.task('make /opt/nvim', async () => {
+  await file({path: '/opt', state: 'directory'});
+  await file({path: '/opt/nvim', state: 'directory'});
 });
 
-task('build Neovim', async () => {
-  if (attributes.distribution === 'debian') {
-    await command('make', ['CMAKE_BUILD_TYPE=Release'], {
-      chdir: 'vendor/neovim',
-      creates: 'vendor/neovim/build/bin/nvim',
-    });
-  } else {
-    skip('not on Debian');
-  }
+debian.task('download Neovim appimage', async () => {
+  await fetch({
+    dest: '/opt/nvim/nvim.appimage',
+    encoding: null,
+    url: 'https://github.com/neovim/neovim/releases/download/v0.6.1/nvim.appimage',
+  });
 });
 
-task('install Neovim', async () => {
-  if (attributes.distribution === 'debian') {
-    await command('make', ['install'], {
-      chdir: 'vendor/neovim',
-      creates: '/usr/local/bin/nvim',
-    });
-  } else {
-    skip('not on Debian');
-  }
+debian.task('make Neovim appimage executable', async () => {
+  await file({path: '/opt/nvim/nvim.appimage', mode: '0755', state: 'file'});
+});
+
+debian.task('extract Neovim appimage files', async () => {
+  await command('/opt/nvim/nvim.appimage', ['--appimage-extract'], {
+    chdir: '/opt/nvim',
+    creates: '/opt/nvim/squashfs-root',
+  });
 });
 
 const COMMAND_T_BASE =
