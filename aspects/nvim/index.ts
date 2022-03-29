@@ -4,6 +4,7 @@ import {
   command,
   fetch,
   file,
+  helpers,
   path,
   resource,
   skip,
@@ -11,19 +12,7 @@ import {
   variable,
 } from 'fig';
 
-type Callback = Parameters<typeof task>[1];
-
-const debian = {
-  task(description: string, callback: Callback) {
-    task(description, async () => {
-      if (attributes.distribution === 'debian') {
-        await callback();
-      } else {
-        skip('not on Debian');
-      }
-    });
-  },
-};
+const {debian} = helpers;
 
 task('make directories', async () => {
   // Some overlap with "dotfiles" aspect here.

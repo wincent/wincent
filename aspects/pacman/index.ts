@@ -3,24 +3,15 @@ import {
   command,
   file,
   handler,
+  helpers,
   line,
   path,
-  skip,
-  task as defineTask,
   variable,
 } from 'fig';
 
-function task(name: string, callback: () => Promise<void>) {
-  defineTask(name, async () => {
-    if (attributes.distribution === 'arch') {
-      await callback();
-    } else {
-      skip('not on Arch Linux');
-    }
-  });
-}
+const {arch} = helpers;
 
-task('copy /etc/pacman.conf', async () => {
+arch.task('copy /etc/pacman.conf', async () => {
   await file({
     path: '/etc/pacman.conf',
     src: path.aspect.join('files', 'etc/pacman.conf'),
@@ -29,11 +20,11 @@ task('copy /etc/pacman.conf', async () => {
   });
 });
 
-task('refresh package databases', async () => {
+arch.task('refresh package databases', async () => {
   await command('pacman', ['-Syy'], {sudo: true});
 });
 
-task('install packages', async () => {
+arch.task('install packages', async () => {
   // TODO: make this check rather than running unconditionally?
   await command(
     'pacman',
@@ -44,12 +35,12 @@ task('install packages', async () => {
   );
 });
 
-task('run updatedb', async () => {
+arch.task('run updatedb', async () => {
   await command('updatedb', [], {sudo: true});
 });
 
 // Tweaks: should be moved into separate aspects.
-task('configure faillock.conf', async () => {
+arch.task('configure faillock.conf', async () => {
   await line({
     path: '/etc/security/faillock.conf',
     regexp: /^\s*#?\s*deny\s*=/,
@@ -69,7 +60,7 @@ task('configure faillock.conf', async () => {
 // TODO: `export N_PREFIX=~`
 // TODO: run `n ??.??.??`
 
-task('create suspend hook', async () => {
+arch.task('create suspend hook', async () => {
   await file({
     notify: 'enable suspend hook',
     path: '/etc/systemd/system/suspend@.service',

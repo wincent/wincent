@@ -1,4 +1,6 @@
-import {attributes, command, file, path, skip, task} from 'fig';
+import {command, file, helpers, path, skip, task} from 'fig';
+
+const {darwin} = helpers;
 
 const NODE_VERSION = '16.13.2';
 
@@ -10,10 +12,8 @@ task('make ~/n', async () => {
   await file({path: '~/n', state: 'directory'});
 });
 
-task('hide ~/n', async () => {
-  if (attributes.platform === 'darwin') {
-    await command('chflags', ['hidden', '~/n']);
-  }
+darwin.task('hide ~/n', async () => {
+  await command('chflags', ['hidden', '~/n']);
 });
 
 task(`install Node.js v${NODE_VERSION}`, async () => {

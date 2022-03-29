@@ -1,9 +1,9 @@
 import {
-  attributes,
   backup,
   command,
   fail,
   file,
+  helpers,
   log,
   path,
   prompt,
@@ -14,6 +14,8 @@ import {
   variable,
   variables,
 } from 'fig';
+
+const {darwin} = helpers;
 
 variables(({hostHandle, identity}) => {
   return {
@@ -107,19 +109,17 @@ task('create ~/code/.editorconfig', async () => {
   }
 });
 
-task('install glow.yml', async () => {
+darwin.task('install glow.yml', async () => {
   // On other platforms, Glow will read from ~/.config/glow/glow.yml.
-  if (attributes.platform === 'darwin') {
-    await file({
-      path: '~/Library/Preferences/glow',
-      state: 'directory',
-    });
+  await file({
+    path: '~/Library/Preferences/glow',
+    state: 'directory',
+  });
 
-    await file({
-      force: true,
-      path: '~/Library/Preferences/glow/glow.yml',
-      src: path.aspect.join('files/Library/Preferences/glow/glow.yml'),
-      state: 'link',
-    });
-  }
+  await file({
+    force: true,
+    path: '~/Library/Preferences/glow/glow.yml',
+    src: path.aspect.join('files/Library/Preferences/glow/glow.yml'),
+    state: 'link',
+  });
 });

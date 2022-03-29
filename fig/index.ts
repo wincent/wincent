@@ -33,3 +33,7 @@ export type {Path} from './path.js';
 export {log} from './console.js';
 export {default as path} from './path.js';
 export {default as prompt} from './prompt.js';
+
+// Re-export project-local helpers.
+
+export * as helpers from '../helpers.js';

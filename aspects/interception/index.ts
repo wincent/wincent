@@ -1,32 +1,15 @@
-import {
-  attributes,
-  command,
-  file,
-  handler,
-  resource,
-  skip,
-  task as defineTask,
-  template,
-} from 'fig';
+import {command, file, handler, helpers, resource, template} from 'fig';
 
-function task(name: string, callback: () => Promise<void>) {
-  defineTask(name, async () => {
-    if (attributes.distribution === 'arch') {
-      await callback();
-    } else {
-      skip('not on Arch Linux');
-    }
-  });
-}
+const {arch} = helpers;
 
-task('build mac2linux', async () => {
+arch.task('build mac2linux', async () => {
   const chdir = resource.support();
 
   await command('cmake', ['--build', '.'], {chdir});
   await command('make', [], {chdir});
 });
 
-task('install mac2linux', async () => {
+arch.task('install mac2linux', async () => {
   const chdir = resource.support();
 
   await command('cmake', ['--install', '.', '--prefix', '/usr'], {
@@ -36,7 +19,7 @@ task('install mac2linux', async () => {
   });
 });
 
-task('create /etc/interception', async () => {
+arch.task('create /etc/interception', async () => {
   await file({
     path: '/etc/interception',
     state: 'directory',
@@ -44,7 +27,7 @@ task('create /etc/interception', async () => {
   });
 });
 
-task('create /etc/interception/dual-function-keys.yaml', async () => {
+arch.task('create /etc/interception/dual-function-keys.yaml', async () => {
   await template({
     notify: 'enable udevmon',
     path: '/etc/interception/dual-function-keys.yaml',
@@ -53,7 +36,7 @@ task('create /etc/interception/dual-function-keys.yaml', async () => {
   });
 });
 
-task('create /etc/interception/udevmon.yaml', async () => {
+arch.task('create /etc/interception/udevmon.yaml', async () => {
   await template({
     notify: 'enable udevmon',
     path: '/etc/interception/udevmon.yaml',
@@ -66,7 +49,7 @@ task('create /etc/interception/udevmon.yaml', async () => {
 // Interception Tools, but it _is_ related to the keyboard and udev, so we
 // put it here. Depends on scripts installed by the dotfiles aspect, so the
 // separation of concerns is unclear.
-task('create /etc/udev/rules.d/50-realforce-layout.rules', async () => {
+arch.task('create /etc/udev/rules.d/50-realforce-layout.rules', async () => {
   await template({
     notify: 'reload udevadm',
     path: '/etc/udev/rules.d/50-realforce-layout.rules',

@@ -1,26 +1,8 @@
-import {
-  attributes,
-  command,
-  file,
-  handler,
-  path,
-  skip,
-  task as defineTask,
-  variable,
-} from 'fig';
+import {command, file, handler, helpers, path, skip, variable} from 'fig';
 
-// TODO: need to come up with a better pattern for arch-specific stuff
-function task(name: string, callback: () => Promise<void>) {
-  defineTask(name, async () => {
-    if (attributes.distribution === 'arch') {
-      await callback();
-    } else {
-      skip('not on Arch Linux');
-    }
-  });
-}
+const {arch} = helpers;
 
-task('set up hostname', async () => {
+arch.task('set up hostname', async () => {
   // Note that "hostname" is the variable configured in the aspect.json, which
   // overwrites the "hostname" that comes in from the Attributes class (via
   // Node's `os.hostname()`).
@@ -37,7 +19,7 @@ task('set up hostname', async () => {
   }
 });
 
-task('create ~/.config/systemd/user', async () => {
+arch.task('create ~/.config/systemd/user', async () => {
   // TODO: I am doing something similar with a `for` loop in the "aur" aspect;
   // maybe I should add `recurse: true` support to the `file` DSL.
   await file({path: '~/.config', state: 'directory'});
@@ -45,18 +27,21 @@ task('create ~/.config/systemd/user', async () => {
   await file({path: '~/.config/systemd/user', state: 'directory'});
 });
 
-task('set up ~/.config/systemd/user/pulseaudio-null-sink.service', async () => {
-  const unit = '.config/systemd/user/pulseaudio-null-sink.service';
-  await file({
-    force: true,
-    notify: ['systemd daemon-reload', 'enable pulseaudio-null-sink.service'],
-    path: path.home.join(unit),
-    src: path.aspect.join('files', unit),
-    state: 'link',
-  });
-});
+arch.task(
+  'set up ~/.config/systemd/user/pulseaudio-null-sink.service',
+  async () => {
+    const unit = '.config/systemd/user/pulseaudio-null-sink.service';
+    await file({
+      force: true,
+      notify: ['systemd daemon-reload', 'enable pulseaudio-null-sink.service'],
+      path: path.home.join(unit),
+      src: path.aspect.join('files', unit),
+      state: 'link',
+    });
+  }
+);
 
-task('set up ~/.config/systemd/user/ssh-agent.service', async () => {
+arch.task('set up ~/.config/systemd/user/ssh-agent.service', async () => {
   const unit = '.config/systemd/user/ssh-agent.service';
   await file({
     force: true,
