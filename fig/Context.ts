@@ -213,14 +213,15 @@ class Context {
     if (!this.#sudoPassphrase) {
       const askPass = process.env['SUDO_ASKPASS'];
       if (askPass) {
-        this.#sudoPassphrase = run(askPass, [])
-          .then((result) => {
-            if (result.status === 0) {
-              return result.stdout;
-            } else {
-              throw new Error(`sudoPassphrase(): failed with status ${result.status}, error: ${result.error}`);
-            }
-        })
+        this.#sudoPassphrase = run(askPass, []).then((result) => {
+          if (result.status === 0) {
+            return result.stdout;
+          } else {
+            throw new Error(
+              `sudoPassphrase(): failed with status ${result.status}, error: ${result.error}`
+            );
+          }
+        });
       } else {
         this.#sudoPassphrase = prompt(`Password [will not be echoed]: `, {
           private: true,
