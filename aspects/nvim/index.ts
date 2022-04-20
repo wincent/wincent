@@ -43,8 +43,8 @@ task('create symlinks', async () => {
 });
 
 debian.task('make /opt/nvim', async () => {
-  await file({path: '/opt', state: 'directory'});
-  await file({path: '/opt/nvim', state: 'directory'});
+  await file({path: '/opt', state: 'directory', sudo: true});
+  await file({path: '/opt/nvim', state: 'directory', sudo: true});
 });
 
 debian.task('download Neovim appimage', async () => {
@@ -52,17 +52,19 @@ debian.task('download Neovim appimage', async () => {
     dest: '/opt/nvim/nvim.appimage',
     encoding: null,
     url: 'https://github.com/neovim/neovim/releases/download/v0.6.1/nvim.appimage',
+    sudo: true,
   });
 });
 
 debian.task('make Neovim appimage executable', async () => {
-  await file({path: '/opt/nvim/nvim.appimage', mode: '0755', state: 'file'});
+  await file({path: '/opt/nvim/nvim.appimage', mode: '0755', state: 'file', sudo: true});
 });
 
 debian.task('extract Neovim appimage files', async () => {
   await command('/opt/nvim/nvim.appimage', ['--appimage-extract'], {
     chdir: '/opt/nvim',
     creates: '/opt/nvim/squashfs-root',
+    sudo: true,
   });
 });
 
@@ -134,7 +136,7 @@ task('install gems', async () => {
   }
 
   await command('gem', ['install', ...gems], {
-    sudo: attributes.distribution !== 'debian',
+    sudo: true,
   });
 });
 

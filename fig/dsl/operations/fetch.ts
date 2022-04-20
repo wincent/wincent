@@ -15,6 +15,7 @@ export default async function fetch({
   notify,
   owner,
   url,
+  sudo,
 }: {
   dest: string;
   encoding?: BufferEncoding | null;
@@ -22,6 +23,7 @@ export default async function fetch({
   mode?: Mode;
   notify?: Array<string> | string;
   owner?: string;
+  sudo?: boolean,
   url: string;
 }): Promise<OperationResult> {
   log.debug(`Download \`${url}\` to \`${dest}\``);
@@ -83,6 +85,7 @@ export default async function fetch({
                 owner,
                 path: dest,
                 state: 'file',
+                sudo,
               });
 
               resolve(result);

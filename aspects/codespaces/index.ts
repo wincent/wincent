@@ -7,10 +7,11 @@ task('set "StreamLocalBindUnlink yes" in /etc/ssh/sshd_config', async () => {
     owner: 'root',
     path: '/etc/ssh/sshd_config',
     regexp: /^(?:\s*#\s*)?StreamLocalBindUnlink\b/,
+    sudo: true,
   });
 
   if (result === 'changed') {
-    await command('pkill', ['-HUP', '-F', '/var/run/sshd.pid']);
+    await command('pkill', ['-HUP', '-F', '/var/run/sshd.pid'], {sudo: true});
   } else {
     skip('no need to send SIGHUP to sshd (no changes made)');
   }
@@ -58,5 +59,6 @@ task('build skim', async () => {
 task('install skim', async () => {
   await command('cp', ['vendor/skim/target/release/sk', '/usr/local/bin/'], {
     creates: '/usr/local/bin/sk',
+    sudo: true,
   });
 });
