@@ -170,5 +170,11 @@ function! wincent#commands#vim() abort
   endif
 
   let l:url=shellescape(l:filename)
-  call system('open vim://' . l:url)
+  " Break up the 'vim' + ':' in the following to prevent Vim from interpreting
+  " it as a modeline and saying:
+  "
+  "   Error detected while processing modelines:
+  "   E518: Unknown option: //'
+  "
+  call system('open vim' . '://' . l:url)
 endfunction
