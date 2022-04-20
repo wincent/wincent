@@ -6,6 +6,7 @@ import TaskRegistry from './TaskRegistry.js';
 import VariableRegistry from './VariableRegistry.js';
 import assert from './assert.js';
 import prompt from './prompt.js';
+import run from './run.js';
 import * as status from './status.js';
 
 import type {Metadata} from './ErrorWithMetadata.js';
@@ -210,9 +211,21 @@ class Context {
 
   get sudoPassphrase(): Promise<string> {
     if (!this.#sudoPassphrase) {
-      this.#sudoPassphrase = prompt(`Password [will not be echoed]: `, {
-        private: true,
-      });
+      const askPass = process.env['SUDO_ASKPASS'];
+      if (askPass) {
+        this.#sudoPassphrase = run(askPass, [])
+          .then((result) => {
+            if (result.status === 0) {
+              return result.stdout;
+            } else {
+              throw new Error(`sudoPassphrase(): failed with status ${result.status}, error: ${result.error}`);
+            }
+        })
+      } else {
+        this.#sudoPassphrase = prompt(`Password [will not be echoed]: `, {
+          private: true,
+        });
+      }
     }
 
     return this.#sudoPassphrase;
