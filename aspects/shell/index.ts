@@ -9,11 +9,7 @@ const homebrewPath = () => {
 };
 
 task('add zsh to /etc/shells', async () => {
-  if (attributes.distribution === 'arch') {
-    skip('no need to touch /etc/shells on Arch');
-  } else if (attributes.distribution === 'debian') {
-    skip('no need to touch /etc/shells on Debian');
-  } else {
+  if (attributes.platform === 'darwin') {
     await line({
       group: 'wheel',
       line: homebrewPath(),
@@ -21,19 +17,19 @@ task('add zsh to /etc/shells', async () => {
       path: '/etc/shells',
       sudo: true,
     });
+  } else {
+    skip('no need to touch /etc/shells unless on Darwin');
   }
 });
 
 task('set user shell to zsh', async () => {
   if (variable('identity') === 'wincent') {
-    if (attributes.distribution === 'arch') {
-      await command('chsh', ['-s', '/bin/zsh', attributes.username], {
+    if (attributes.platform === 'darwin') {
+      await command('chsh', ['-s', homebrewPath(), attributes.username], {
         sudo: true,
       });
-    } else if (attributes.distribution === 'debian') {
-      await command('chsh', ['-s', '/bin/zsh', attributes.username]);
     } else {
-      await command('chsh', ['-s', homebrewPath(), attributes.username], {
+      await command('chsh', ['-s', '/bin/zsh', attributes.username], {
         sudo: true,
       });
     }
