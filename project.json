@@ -29,7 +29,6 @@
         "meta",
         "dotfiles",
         "locale",
-        "node",
         "pacman",
         "aur",
         "avahi",
