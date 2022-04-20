@@ -57,7 +57,12 @@ debian.task('download Neovim appimage', async () => {
 });
 
 debian.task('make Neovim appimage executable', async () => {
-  await file({path: '/opt/nvim/nvim.appimage', mode: '0755', state: 'file', sudo: true});
+  await file({
+    path: '/opt/nvim/nvim.appimage',
+    mode: '0755',
+    state: 'file',
+    sudo: true,
+  });
 });
 
 debian.task('extract Neovim appimage files', async () => {

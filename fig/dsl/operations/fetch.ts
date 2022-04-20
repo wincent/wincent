@@ -23,7 +23,7 @@ export default async function fetch({
   mode?: Mode;
   notify?: Array<string> | string;
   owner?: string;
-  sudo?: boolean,
+  sudo?: boolean;
   url: string;
 }): Promise<OperationResult> {
   log.debug(`Download \`${url}\` to \`${dest}\``);
