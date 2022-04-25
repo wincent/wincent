@@ -157,10 +157,8 @@ if has_cmp then
 
       ['<Tab>'] = cmp.mapping(function(_fallback)
         if cmp.visible() then
-          -- Hack alert (abusing private API): if there is only one completion
-          -- candidate, use it.
-          print(#cmp.core.view:_get_entries_view().entries)
-          if #cmp.core.view:_get_entries_view().entries == 1 then
+          -- If there is only one completion candidate, use it.
+          if #cmp.get_entries() == 1 then
             cmp.confirm({ select = true })
           else
             cmp.select_next_item()
