@@ -196,7 +196,7 @@ if has_cmp then
     }),
 
     window = {
-      documentation = 'native',
+      documentation = cmp.config.window.bordered(),
     },
   }
 end
