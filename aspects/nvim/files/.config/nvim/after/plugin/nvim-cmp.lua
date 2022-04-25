@@ -179,10 +179,6 @@ if has_cmp then
       completeopt = 'menu,menuone,noinsert',
     },
 
-    documentation = {
-      border = 'single',
-    },
-
     snippet = {
       expand = function(args)
         if has_luasnip then
@@ -199,6 +195,10 @@ if has_cmp then
       { name = 'calc' },
       { name = 'emoji' },
       { name = 'path' },
-    })
+    }),
+
+    window = {
+      documentation = 'native',
+    },
   }
 end
