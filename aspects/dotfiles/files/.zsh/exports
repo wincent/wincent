@@ -14,11 +14,8 @@ else
   export EDITOR=vim
 fi
 
-export GIT_CEILING_DIRECTORIES=/home
-
 case "$(uname)" in
   Darwin*)
-    export GIT_CEILING_DIRECTORIES=/Users
     if [ -x /usr/libexec/java_home ]; then
       if /usr/libexec/java_home &> /dev/null ; then
         if /usr/libexec/java_home -v1.8.0 &> /dev/null; then
