@@ -75,7 +75,6 @@ if &loadplugins
     packadd! tcomment_vim
     packadd! terminus
     packadd! typescript-vim
-    packadd! ultisnips
     packadd! vcs-jump
     packadd! vim-ansible-yaml
     packadd! vim-clipper

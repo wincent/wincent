@@ -47,9 +47,6 @@
 	ignore = untracked
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/ferret
 	url = https://github.com/wincent/ferret.git
-[submodule "float-preview.nvim"]
-	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/float-preview.nvim
-	url = https://github.com/ncm2/float-preview.nvim.git
 [submodule "git-cipher"]
 	branch = main
 	path = vendor/git-cipher
@@ -108,9 +105,6 @@
 [submodule "typescript-vim"]
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/typescript-vim
 	url = https://github.com/leafgarland/typescript-vim.git
-[submodule "ultisnips"]
-	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/ultisnips
-	url = https://github.com/SirVer/ultisnips.git
 [submodule "undotree"]
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/undotree
 	url = https://github.com/mbbill/undotree.git
