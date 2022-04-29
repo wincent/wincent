@@ -117,12 +117,6 @@ lsp.init = function ()
 
   require'lspconfig'.tsserver.setup{
     capabilities = capabilities,
-    -- cmd = {
-    --   "typescript-language-server",
-    --   "--stdio",
-    --   "--tsserver-log-file",
-    --   "tslog"
-    -- },
     handlers = handlers,
     on_attach = on_attach,
   }
