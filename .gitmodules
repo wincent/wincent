@@ -229,3 +229,6 @@
 [submodule "indent-blankline.nvim"]
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/indent-blankline.nvim
 	url = https://github.com/lukas-reineke/indent-blankline.nvim.git
+[submodule "base16-nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/base16-nvim
+	url = https://github.com/wincent/base16-nvim.git
