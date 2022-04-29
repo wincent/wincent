@@ -399,9 +399,9 @@ if vim.o.loadplugins then
       'NvimTreeToggle',
       'NvimTreeOpen',
     },
-    nnoremap = {
-      ['<LocalLeader>f'] = {':NvimTreeFindFile<CR>', {silent = true}},
-      ['<LocalLeader>t'] = {':NvimTreeToggle<CR>', {silent = true}},
+    keymap = {
+      {'n', '<LocalLeader>f', ':NvimTreeFindFile<CR>', {silent = true}},
+      {'n', '<LocalLeader>t', ':NvimTreeToggle<CR>', {silent = true}},
     },
   })
 
@@ -420,8 +420,8 @@ if vim.o.loadplugins then
         endfunction
       ]]
     end,
-    nnoremap = {
-      ['<Leader>u'] = {':UndotreeToggle<CR>', {silent = true}},
+    keymap = {
+      {'n', '<Leader>u', ':UndotreeToggle<CR>', {silent = true}},
     },
   })
 end

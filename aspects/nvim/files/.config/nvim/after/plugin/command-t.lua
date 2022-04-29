@@ -1,5 +1,4 @@
 local command = wincent.vim.command
-local nmap = wincent.vim.nmap
 
 --
 -- Settings.
@@ -37,10 +36,10 @@ vim.g.CommandTWindowFilter = '!&buflisted && &buftype == "nofile" && &filetype !
 -- Mappings.
 --
 
-nmap('<LocalLeader>c', '<Plug>(CommandTCommand)', {unique = true})
-nmap('<Leader>h', '<Plug>(CommandTHelp)', {unique = true})
-nmap('<LocalLeader>h', '<Plug>(CommandTHistory)', {unique = true})
-nmap('<LocalLeader>l', '<Plug>(CommandTLine)', {unique = true})
+vim.keymap.set('n', '<LocalLeader>c', '<Plug>(CommandTCommand)', {unique = true})
+vim.keymap.set('n', '<Leader>h', '<Plug>(CommandTHelp)', {unique = true})
+vim.keymap.set('n', '<LocalLeader>h', '<Plug>(CommandTHistory)', {unique = true})
+vim.keymap.set('n', '<LocalLeader>l', '<Plug>(CommandTLine)', {unique = true})
 
 -- Convenience for starting Command-T at launch without causing freak-out inside
 -- tmux.

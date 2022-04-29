@@ -33,11 +33,13 @@ local lazy = function(pack, config)
 
     vim.cmd('packadd ' .. pack)
 
-    if config.nnoremap ~= nil then
-      for lhs, rhs_and_opts in pairs(config.nnoremap) do
-        local rhs = rhs_and_opts[1]
-        local opts = rhs_and_opts[2] or {}
-        wincent.vim.nnoremap(lhs, rhs, opts)
+    if config.keymap ~= nil then
+      for _, item in ipairs(config.keymap) do
+        local modes = item[1]
+        local lhs = item[2]
+        local rhs = item[3]
+        local opts = item[4] or {}
+        vim.keymap.set(modes, lhs, rhs, opts)
       end
     end
 
@@ -63,20 +65,17 @@ local lazy = function(pack, config)
     end
   end
 
-  if config.nnoremap ~= nil then
-    for lhs, rhs_and_opts in pairs(config.nnoremap) do
-      local rhs = rhs_and_opts[1]
-      local opts = rhs_and_opts[2] or {}
-      wincent.vim.nnoremap(
-        lhs,
-        ':call v:lua.wincent.g.lazy.' .. key .. '.load()<CR>' ..
-        rhs,
-        opts
-      )
+  if config.keymap ~= nil then
+    for _, item in ipairs(config.keymap) do
+      local modes = item[1]
+      local lhs = item[2]
+      local rhs = ':call v:lua.wincent.g.lazy.' .. key .. '.load()<CR>' .. item[3]
+      local opts = item[4] or {}
+      vim.keymap.set(modes, lhs, rhs, opts)
     end
   end
 
-  if config.commands == nil and config.nnoremap == nil then
+  if config.commands == nil and config.keymap == nil then
     -- No triggers defined, so just load this thing after startup.
     vim.defer_fn(config.load, 0)
   else

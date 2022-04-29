@@ -1,12 +1,10 @@
-local nnoremap = wincent.vim.nnoremap
-
 local lsp = {}
 
 local on_attach = function ()
-  nnoremap('<Leader>ld', "<cmd>lua vim.diagnostic.open_float()<CR>", {buffer = true, silent = true})
-  nnoremap('<c-]>', '<cmd>lua vim.lsp.buf.definition()<CR>', {buffer = true, silent = true})
-  nnoremap('K', "<cmd>lua vim.lsp.buf.hover()<CR>", {buffer = true, silent = true})
-  nnoremap('gd', '<cmd>lua vim.lsp.buf.declaration()<CR>', {buffer = true, silent = true})
+  vim.keymap.set('n', '<Leader>ld', "<cmd>lua vim.diagnostic.open_float()<CR>", {buffer = true, silent = true})
+  vim.keymap.set('n', '<c-]>', '<cmd>lua vim.lsp.buf.definition()<CR>', {buffer = true, silent = true})
+  vim.keymap.set('n', 'K', "<cmd>lua vim.lsp.buf.hover()<CR>", {buffer = true, silent = true})
+  vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.declaration()<CR>', {buffer = true, silent = true})
 
   vim.wo.signcolumn = 'yes'
 end
