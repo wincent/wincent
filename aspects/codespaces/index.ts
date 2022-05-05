@@ -1,4 +1,5 @@
 import {command, file, line, path, skip, task, variable} from 'fig';
+import stat from 'fig/fs/stat.js';
 
 task('set "StreamLocalBindUnlink yes" in /etc/ssh/sshd_config', async () => {
   const result = await line({
@@ -61,4 +62,16 @@ task('install skim', async () => {
     creates: '/usr/local/bin/sk',
     sudo: true,
   });
+});
+
+task('run ripper-tags', async () => {
+  const stats = await stat('/workspaces/github');
+  if (stats === null) {
+    skip('no repo exists');
+  } else {
+    await command('ripper-tags', ['-R', '--exclude=vendor'], {
+      creates: '/workspaces/github/tags',
+      chdir: '/workspaces/github',
+    });
+  }
 });

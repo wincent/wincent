@@ -47,6 +47,7 @@
         "meta",
         "apt",
         "dotfiles",
+        "ruby",
         "shell",
         "node",
         "nvim",
