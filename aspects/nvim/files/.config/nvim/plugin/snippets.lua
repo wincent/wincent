@@ -8,8 +8,23 @@ if has_luasnip then
   local c = luasnip.choice_node
   local d = luasnip.dynamic_node
   local r = luasnip.restore_node
+  local types = require('luasnip.util.types')
 
-  luasnip.config.setup({store_selection_keys="<Tab>"})
+  luasnip.config.setup({
+    ext_opts = {
+      [types.choiceNode] = {
+        active = {
+          virt_text = {{"← Choice", "Todo"}},
+        },
+      },
+      -- [types.insertNode] = {
+      --   active = {
+      --     virt_text = {{"← ...", "Todo"}},
+      --   },
+      -- },
+    },
+    store_selection_keys="<Tab>",
+  })
 
   -- Snippets common to JS and TS.
   local js_ts = {
@@ -17,13 +32,15 @@ if has_luasnip then
     -- not, based on directory (or maybe .editorconfig)
     s(
       {trig = 'import', dscr = 'import statement'},
-      {t('import '),
-      i(1, 'ModuleName'),
+      {t('import'),
+      c(1, {t(' '), t(' type ')}),
+      i(2, 'ModuleName'),
       t(" from '"),
-      i(2),
-      d(3, function (nodes)
-        return sn(1, {i(1, nodes[1][1])})
-      end, {1}),
+      i(3),
+      d(4, function (nodes)
+        local text = nodes[1][1]
+        return sn(1, {i(1, text)})
+      end, {2}),
       t("';"),
       i(0)
     }

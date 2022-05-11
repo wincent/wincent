@@ -124,6 +124,11 @@ if has_cmp then
         vim.api.nvim_feedkeys(keys, 'nt', true)
       end, { 'i', 's' }),
 
+      -- Choose a choice using vim.ui.select (ugh);
+      -- prettier would be a pop-up, but it will require a bit of config:
+      -- https://github.com/L3MON4D3/LuaSnip/wiki/Misc#choicenode-popup
+      ['<C-u>'] = require('luasnip.extras.select_choice'),
+
       ['<C-e>'] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.close()
