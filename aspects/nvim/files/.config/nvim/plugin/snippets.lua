@@ -1,12 +1,13 @@
 local has_luasnip, luasnip = pcall(require, 'luasnip')
 if has_luasnip then
-  local s = luasnip.s
-  local sn = luasnip.sn
-  local t = luasnip.t
-  local i = luasnip.i
-  local f = luasnip.f
-  local c = luasnip.c
-  local d = luasnip.d
+  local s = luasnip.snippet
+  local sn = luasnip.snippet_node
+  local t = luasnip.text_node
+  local i = luasnip.insert_node
+  local f = luasnip.function_node
+  local c = luasnip.choice_node
+  local d = luasnip.dynamic_node
+  local r = luasnip.restore_node
 
   luasnip.config.setup({store_selection_keys="<Tab>"})
 
