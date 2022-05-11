@@ -127,7 +127,7 @@ if has_cmp then
       ['<C-e>'] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.close()
-        elseif has_luasnip and lusnip.choice_active() then
+        elseif has_luasnip and luasnip.choice_active() then
           luasnip.jump(1)
         else
           fallback()
