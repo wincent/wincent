@@ -32,15 +32,14 @@ if has_luasnip then
     -- not, based on directory (or maybe .editorconfig)
     s(
       {trig = 'import', dscr = 'import statement'},
-      {t('import'),
-      c(1, {t(' '), t(' type ')}),
-      i(2, 'ModuleName'),
+      {t('import '),
+      i(1, 'ModuleName'),
       t(" from '"),
-      i(3),
-      d(4, function (nodes)
+      i(2),
+      d(3, function (nodes)
         local text = nodes[1][1]
         return sn(1, {i(1, text)})
-      end, {2}),
+      end, {1}),
       t("';"),
       i(0)
     }
