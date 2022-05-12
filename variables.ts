@@ -17,7 +17,7 @@ const variables = {
 
     // Kludgy special-case for Codespaces so that we can cheatingly use per-host
     // config files without knowing the exact host name ahead of time.
-    if (/^codespaces_[a-f0-9]+$/.test(handle)) {
+    if (/^codespaces[_-][a-f0-9]+$/.test(handle)) {
       return 'codespaces';
     }
 
