@@ -9,6 +9,7 @@ if has_luasnip then
   local d = luasnip.dynamic_node
   local r = luasnip.restore_node
   local types = require('luasnip.util.types')
+  local fmt = require('luasnip.extras.fmt').fmt
 
   luasnip.config.setup({
     ext_opts = {
@@ -32,34 +33,29 @@ if has_luasnip then
     -- not, based on directory (or maybe .editorconfig)
     s(
       {trig = 'import', dscr = 'import statement'},
-      {t('import '),
-      i(1, 'ModuleName'),
-      t(" from '"),
-      i(2),
-      d(3, function (nodes)
-        local text = nodes[1][1]
-        return sn(1, {i(1, text)})
-      end, {1}),
-      t("';"),
-      i(0)
-    }
+      fmt("import {} from '{}{}';", {
+        i(1, 'ModuleName'),
+        i(2),
+        d(3, function (nodes)
+          local text = nodes[1][1]
+          return sn(1, {i(1, text)})
+        end, {1}),
+      })
     ),
     s(
       {trig = 'log', dscr = 'console.log'},
-      {t('console.log('), i(1, 'value'), t(');')}
+      fmt('console.log({});', {i(1, 'value')})
     ),
     s(
       {trig = 'require', dscr = 'require statement'},
-      {t('const '),
-      i(1, 'ModuleName'),
-      t(" = require('"),
-      i(2),
-      d(3, function (nodes)
-        return sn(1, {i(1, nodes[1][1])})
-      end, {1}),
-      t("');"),
-      i(0)
-    }
+      fmt("const {} = require('{}{}');", {
+        i(1, 'ModuleName'),
+        i(2),
+        d(3, function (nodes)
+          local text = nodes[1][1]
+          return sn(1, {i(1, text)})
+        end, {1}),
+      })
     ),
     s(
       {trig = '**', dscr = 'docblock'},
@@ -93,38 +89,81 @@ if has_luasnip then
       s(
         -- TODO: can probably make this one much smarter; right now it's basically just syntax reminder
         {trig = 'table', dscr = 'Table template'},
-        {t('| '), i(1, 'First Header'), t({'  | Second Header |',
-          '| ------------- | ------------- |',
-          '| Content Cell  | Content Cell  |',
-          '| Content Cell  | Content Cell  |',
-        })}
+        fmt([[
+          | {}  | Second Header |
+          | ------------- | ------------- |
+          | Content Cell  | Content Cell  |
+          | Content Cell  | Content Cell  |
+        ]], {
+          i(1, 'First Header'),
+        })
       )
     },
     javascript = js_ts,
     jest = {
       s(
         {trig = 'describe', dscr = 'describe()'},
-        {t("describe('"), i(1, 'description'), t({"', () => {", '  '}), i(2, '// Body.'), t({'', '});'})}
+        fmt([[
+          describe('{}', () => {{
+            {}{}
+          }});
+        ]], {
+          i(1, 'description'),
+          i(2, '// Body.'),
+          i(0),
+        })
       ),
       s(
         {trig = 'it', dscr = 'it()'},
-        {t("it('"), i(1, 'description'), t({"', () => {", '  '}), i(2, '// Body.'), t({'', '});'})}
+        fmt([[
+          it('{}', () => {{
+            {}{}
+          }});
+        ]], {
+          i(1, 'description'),
+          i(2, '// Body.'),
+          i(0),
+        })
       ),
     },
     markdown = {
       s(
         {trig = 'frontmatter', dscr = 'Document frontmatter'},
-        {t({'---', 'tags: '}), i(1, 'value'), t({'', '---', ''})}
+        fmt([[
+          ---
+          tags: {}
+          ---
+
+        ]],
+        {
+          i(1, 'value')
+        })
       ),
     },
     spec = {
       s(
         {trig = 'context', dscr = 'Test context block'},
-        {t('context "'), i(1, 'description'), t({'" do', '  '}), i(2, '# body'), t({'', 'end'})}
+        fmt([[
+          context "{}" do
+            {}{}
+          end
+        ]], {
+          i(1, 'description'),
+          i(2, '# body'),
+          i(0),
+        })
       ),
       s(
         {trig = 'test', dscr = 'Test block'},
-        {t('test "'), i(1, 'description'), t({'" do', '  '}), i(2, '# body'), t({'', 'end'})}
+        fmt([[
+          test "{}" do
+            {}{}
+          end
+        ]], {
+          i(1, 'description'),
+          i(2, '# body'),
+          i(0),
+        })
       ),
     },
     typescript = js_ts,
