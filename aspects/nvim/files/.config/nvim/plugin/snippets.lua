@@ -25,6 +25,7 @@ if has_luasnip then
       -- },
     },
     store_selection_keys="<Tab>",
+    update_events="InsertLeave,TextChangedI",
   })
 
   -- Snippets common to JS and TS.
