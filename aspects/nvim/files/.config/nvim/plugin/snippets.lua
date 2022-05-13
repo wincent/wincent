@@ -35,11 +35,18 @@ if has_luasnip then
     s(
       {trig = 'import', dscr = 'import statement'},
       fmt("import {} from '{}{}';", {
-        i(1, 'ModuleName'),
+        i(1, 'name'),
         i(2),
         d(3, function (nodes)
           local text = nodes[1][1]
-          return sn(1, {i(1, text)})
+          local _, _, typish, target = text:find("^%s*(%a*)%s*{?%s*(%a+).*}?%s*$")
+          if typish == 'type' and target then
+            return sn(1, {i(1, target)})
+          elseif typish and target then
+            return sn(1, {i(1, typish .. target)})
+          else
+            return sn(1, {i(1, 'specifier')})
+          end
         end, {1}),
       })
     ),
@@ -50,7 +57,7 @@ if has_luasnip then
     s(
       {trig = 'require', dscr = 'require statement'},
       fmt("const {} = require('{}{}');", {
-        i(1, 'ModuleName'),
+        i(1, 'name'),
         i(2),
         d(3, function (nodes)
           local text = nodes[1][1]
