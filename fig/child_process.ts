@@ -12,9 +12,9 @@ import * as child_process from 'child_process';
 
 let spawn: typeof child_process.spawn;
 
-spawn = ((command: any, ...args: any): any => {
+spawn = (command: any, ...args: any): any => {
   return child_process.spawn(command.toString(), ...args);
-});
+};
 
 export {spawn};
 
