@@ -107,6 +107,16 @@ if has_luasnip then
         })
       )
     },
+    gitcommit = {
+      s(
+        {trig = 'cob', dscr = 'Co-Authored-By:'},
+        fmt('Co-Authored-By: {} <{}@{}>', {
+          i(1, 'Name'),
+          i(2, 'user'),
+          i(3, 'github.com'),
+        })
+      ),
+    },
     javascript = js_ts,
     jest = {
       s(
