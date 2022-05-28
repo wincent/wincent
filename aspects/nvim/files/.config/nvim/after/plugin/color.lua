@@ -30,6 +30,8 @@ local check = function ()
     vim.cmd('colorscheme base16-bright')
   end
 
+  local dark = vim.o.background == 'dark'
+
   vim.cmd('highlight Comment ' .. pinnacle.italicize('Comment'))
 
   -- Hide (or at least make less obvious) the EndOfBuffer region
@@ -37,12 +39,12 @@ local check = function ()
 
   -- Grey, just like we used to get with https://github.com/Yggdroot/indentLine
   vim.cmd('highlight clear Conceal')
-  if vim.o.background == 'light' then
-    vim.cmd('highlight Conceal ctermfg=249 guifg=Grey70')
-    vim.cmd('highlight IndentBlanklineChar guifg=Grey90 gui=nocombine')
-  else
+  if dark then
     vim.cmd('highlight Conceal ctermfg=239 guifg=Grey30')
     vim.cmd('highlight IndentBlanklineChar guifg=Grey10 gui=nocombine')
+  else
+    vim.cmd('highlight Conceal ctermfg=249 guifg=Grey70')
+    vim.cmd('highlight IndentBlanklineChar guifg=Grey90 gui=nocombine')
   end
 
   vim.cmd [[
@@ -84,6 +86,16 @@ local check = function ()
   ]]
 
   vim.cmd('highlight User8 ' .. pinnacle.italicize('ModeMsg'))
+
+  -- Make floating windows look nicer, as seen in wiki:
+  -- https://github.com/neovim/nvim-lspconfig/wiki/UI-customization
+  local factor = dark and 0.15 or -0.15
+  local normal = pinnacle.adjust_lightness('Normal', factor)
+  vim.cmd('highlight! clear NormalFloat')
+  vim.cmd('highlight! NormalFloat ' .. pinnacle.highlight(normal))
+  normal['fg'] = dark and '#ffffff' or '#000000'
+  vim.cmd('highlight! clear FloatBorder')
+  vim.cmd('highlight! FloatBorder ' .. pinnacle.highlight(normal))
 
   -- Allow for overrides:
   -- - `lua/wincent/statusline.lua` will re-set User1, User2 etc.
