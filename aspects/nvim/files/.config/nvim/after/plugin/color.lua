@@ -95,7 +95,7 @@ local check = function ()
   vim.cmd('highlight! NormalFloat ' .. pinnacle.highlight(normal))
   normal['fg'] = dark and '#ffffff' or '#000000'
   vim.cmd('highlight! clear FloatBorder')
-  vim.cmd('highlight! FloatBorder ' .. pinnacle.highlight(normal))
+  vim.cmd('highlight! FloatBorder ' .. pinnacle.highlight(normal) .. ' blend=' .. vim.o.winblend)
 
   -- Allow for overrides:
   -- - `lua/wincent/statusline.lua` will re-set User1, User2 etc.
