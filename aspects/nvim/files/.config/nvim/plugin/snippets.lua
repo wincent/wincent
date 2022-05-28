@@ -28,6 +28,17 @@ if has_luasnip then
     update_events="InsertLeave,TextChangedI",
   })
 
+  -- If ~/.github-handles.json exists, use it.
+  local cob = (vim.fn.filereadable(vim.fn.expand('~/.github-handles.json')) == 1) and
+    fmt('Co-Authored-By: {}', {
+      i(1, '@handle'),
+    }) or
+    fmt('Co-Authored-By: {} <{}@{}>', {
+      i(1, 'Name'),
+      i(2, 'user'),
+      i(3, 'github.com'),
+    })
+
   -- Snippets common to JS and TS.
   local js_ts = {
     -- TODO: make these smart about whether to use trailing semi or
@@ -110,11 +121,7 @@ if has_luasnip then
     gitcommit = {
       s(
         {trig = 'cob', dscr = 'Co-Authored-By:'},
-        fmt('Co-Authored-By: {} <{}@{}>', {
-          i(1, 'Name'),
-          i(2, 'user'),
-          i(3, 'github.com'),
-        })
+        cob
       ),
     },
     javascript = js_ts,
