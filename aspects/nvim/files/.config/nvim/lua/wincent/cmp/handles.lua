@@ -40,6 +40,7 @@ handles.setup = function()
       local items = {}
       for handle, address in pairs(addresses) do
         table.insert(items, {
+            filterText = handle .. ' ' .. address,
             label = address,
             textEdit = {
               newText = address,
