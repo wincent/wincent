@@ -11,16 +11,15 @@ handles.setup = function()
   registered = true
 
   local has_cmp, cmp = pcall(require, 'cmp')
-
   if not has_cmp then
     return
   end
 
-  local config = vim.fn.expand('~/.github-handles.json')
-  if vim.fn.filereadable(config) == 0 then
+  local json_path = vim.fn.expand('~/.github-handles.json')
+  if vim.fn.filereadable(json_path) == 0 then
     return
   end
-  local addresses = vim.fn.json_decode(vim.fn.readfile(config))
+  local handles_with_names_and_emails = vim.fn.json_decode(vim.fn.readfile(json_path))
 
   local source = {}
 
@@ -43,12 +42,12 @@ handles.setup = function()
 
     if vim.startswith(input, '@') and (prefix == '@' or vim.endswith(prefix, ' @')) then
       local items = {}
-      for handle, address in pairs(addresses) do
+      for handle, name_and_email in pairs(handles_with_names_and_emails) do
         table.insert(items, {
-            filterText = handle .. ' ' .. address,
-            label = address,
+            filterText = handle .. ' ' .. name_and_email,
+            label = name_and_email,
             textEdit = {
-              newText = address,
+              newText = name_and_email,
               range = {
                 start = {
                   line = request.context.cursor.row - 1,
