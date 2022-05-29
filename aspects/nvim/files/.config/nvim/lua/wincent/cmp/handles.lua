@@ -32,6 +32,11 @@ handles.setup = function()
     return { '@' }
   end
 
+  source.get_keyword_pattern = function()
+    -- Add dot to existing keyword characters (\k).
+    return [[\%(\k\|\.\)\+]]
+  end
+
   source.complete = function(self, request, callback)
     local input = string.sub(request.context.cursor_before_line, request.offset - 1)
     local prefix = string.sub(request.context.cursor_before_line, 1, request.offset - 1)
