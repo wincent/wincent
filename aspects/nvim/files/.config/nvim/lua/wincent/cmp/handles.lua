@@ -15,11 +15,16 @@ handles.setup = function()
     return
   end
 
-  local json_path = vim.fn.expand('~/.github-handles.json')
-  if vim.fn.filereadable(json_path) == 0 then
+  local success, handles_with_names_and_emails = pcall(function()
+    local json_path = vim.fn.expand('~/.github-handles.json')
+    if vim.fn.filereadable(json_path) == 0 then
+      error(json_path .. ' not readable')
+    end
+    return vim.fn.json_decode(vim.fn.readfile(json_path))
+  end)
+  if not success then
     return
   end
-  local handles_with_names_and_emails = vim.fn.json_decode(vim.fn.readfile(json_path))
 
   local source = {}
 
