@@ -14,6 +14,7 @@ import {
   variable,
   variables,
 } from 'fig';
+import stat from 'fig/fs/stat.js';
 
 const {darwin} = helpers;
 
@@ -74,8 +75,19 @@ task('move originals to ~/.backups', async () => {
 
 task('create symlinks', async () => {
   const files = variable.paths('files');
+  const hostHandle = variable.string('hostHandle');
 
   for (const src of files) {
+    // Skip over encrypted files on codespaces (as we'll never have decryption
+    // keys in that environment).
+    if (hostHandle === 'codespaces') {
+      const result = await stat(path.aspect.join('files', `.${src}.encrypted`));
+      const encrypted = result !== null && !(result instanceof Error);
+      if (encrypted) {
+        continue;
+      }
+    }
+
     await file({
       force: true,
       path: path.home.join(src),
