@@ -28,6 +28,7 @@
       ".ghci",
       ".gitattributes",
       ".gitconfig.d",
+      ".github-handles.json",
       ".gitignore",
       ".gitk",
       ".gnupg/gpg-agent.conf",
