@@ -29,7 +29,7 @@ if has_luasnip then
   })
 
   -- If ~/.github-handles.json exists, use it.
-  local cob = (vim.fn.filereadable(vim.fn.expand('~/.github-handles.json')) == 1) and
+  local cab = (vim.fn.filereadable(vim.fn.expand('~/.github-handles.json')) == 1) and
     fmt('Co-Authored-By: {}', {
       i(1, '@handle'),
     }) or
@@ -120,8 +120,8 @@ if has_luasnip then
     },
     gitcommit = {
       s(
-        {trig = 'cob', dscr = 'Co-Authored-By:'},
-        cob
+        {trig = 'cab', dscr = 'Co-Authored-By:'},
+        cab
       ),
     },
     javascript = js_ts,
