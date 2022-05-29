@@ -10,13 +10,17 @@ handles.setup = function()
   end
   registered = true
 
+  local has_cmp, cmp = pcall(require, 'cmp')
+
+  if not has_cmp then
+    return
+  end
+
   local config = vim.fn.expand('~/.github-handles.json')
   if vim.fn.filereadable(config) == 0 then
     return
   end
   local addresses = vim.fn.json_decode(vim.fn.readfile(config))
-
-  local cmp = require('cmp')
 
   local source = {}
 
@@ -63,6 +67,19 @@ handles.setup = function()
   end
 
   cmp.register_source('handles', source.new())
+
+  cmp.setup.filetype('gitcommit', {
+    sources = cmp.config.sources({
+      { name = 'luasnip' },
+      { name = 'buffer' },
+      { name = 'calc' },
+      { name = 'emoji' },
+      { name = 'path' },
+
+      -- My custom sources.
+      { name = 'handles' }, -- GitHub handles; eg. @wincent → Greg Hurrell <wincent@github.com>
+    }),
+  })
 end
 
 return handles

@@ -4,8 +4,6 @@ if has_cmp then
   local rhs = wincent.vim.rhs
   local has_luasnip, luasnip = pcall(require, 'luasnip')
 
-  wincent.cmp.handles.setup()
-
   -- Returns the current column number.
   local column = function()
     local _line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -206,17 +204,4 @@ if has_cmp then
       documentation = cmp.config.window.bordered(),
     },
   }
-
-  cmp.setup.filetype('gitcommit', {
-    sources = cmp.config.sources({
-      { name = 'luasnip' },
-      { name = 'buffer' },
-      { name = 'calc' },
-      { name = 'emoji' },
-      { name = 'path' },
-
-      -- My custom sources.
-      { name = 'handles' }, -- GitHub handles; eg. @wincent → Greg Hurrell <wincent@github.com>
-    }),
-  })
 end
