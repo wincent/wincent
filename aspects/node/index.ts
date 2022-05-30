@@ -36,14 +36,8 @@ task('install global packages', async () => {
   };
 
   const packages = [
-    'bs-platform',
-    'flow-bin',
-    'flow-typed',
-    'gatsby-cli',
     'typescript-language-server',
     'neovim',
-    'ocaml-language-server',
-    'reason-cli',
     'source-map-explorer',
     'typescript',
     'vim-language-server',
