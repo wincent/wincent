@@ -44,10 +44,12 @@ export default async function cron({
   const result = await run('crontab', ['-l']);
 
   if (result.status !== 0) {
-    throw new ErrorWithMetadata('Unable to read crontab', {
-      ...result,
-      error: result.error?.toString() ?? null,
-    });
+    if (!result.stderr.includes('no crontab')) {
+      throw new ErrorWithMetadata('Unable to read crontab', {
+        ...result,
+        error: result.error?.toString() ?? null,
+      });
+    }
   }
 
   let jobs = parseJobs(result.stdout);
