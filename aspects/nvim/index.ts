@@ -12,7 +12,7 @@ import {
   variable,
 } from 'fig';
 
-const {debian} = helpers;
+const {is, when} = helpers;
 
 task('make directories', async () => {
   // Some overlap with "dotfiles" aspect here.
@@ -42,12 +42,12 @@ task('create symlinks', async () => {
   }
 });
 
-debian.task('make /opt/nvim', async () => {
+task('make /opt/nvim', when('debian'), async () => {
   await file({path: '/opt', state: 'directory', sudo: true});
   await file({path: '/opt/nvim', state: 'directory', sudo: true});
 });
 
-debian.task('download Neovim appimage', async () => {
+task('download Neovim appimage', when('debian'), async () => {
   await fetch({
     dest: '/opt/nvim/nvim.appimage',
     encoding: null,
@@ -56,7 +56,7 @@ debian.task('download Neovim appimage', async () => {
   });
 });
 
-debian.task('make Neovim appimage executable', async () => {
+task('make Neovim appimage executable', when('debian'), async () => {
   await file({
     path: '/opt/nvim/nvim.appimage',
     mode: '0755',
@@ -65,7 +65,7 @@ debian.task('make Neovim appimage executable', async () => {
   });
 });
 
-debian.task('extract Neovim appimage files', async () => {
+task('extract Neovim appimage files', when('debian'), async () => {
   await command('/opt/nvim/nvim.appimage', ['--appimage-extract'], {
     chdir: '/opt/nvim',
     creates: '/opt/nvim/squashfs-root',
@@ -149,7 +149,7 @@ task('install gems', async () => {
 // pip2 install vim-vint
 
 task('install pynvim', async () => {
-  if (attributes.distribution === 'arch') {
+  if (is('arch')) {
     await command('pip', ['install', '--upgrade', 'pynvim']);
   } else {
     await command('pip3', ['install', '--upgrade', 'pynvim']);

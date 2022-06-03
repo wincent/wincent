@@ -1,8 +1,8 @@
-import {command, handler, helpers, line} from 'fig';
+import {command, handler, helpers, line, task} from 'fig';
 
-const {wincent} = helpers;
+const {when} = helpers;
 
-wincent.task('configure /etc/auto_master', async () => {
+task('configure /etc/auto_master', when('wincent'), async () => {
   await line({
     notify: 'flush cache',
     path: '/etc/auto_master',

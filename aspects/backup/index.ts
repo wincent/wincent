@@ -1,7 +1,7 @@
-import {file, helpers} from 'fig';
+import {file, helpers, task} from 'fig';
 
-const {wincent} = helpers;
+const {when} = helpers;
 
-wincent.task('create ~/Backups', async () => {
+task('create ~/Backups', when('wincent'), async () => {
   await file({path: '~/Backups', state: 'directory'});
 });

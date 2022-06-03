@@ -1,8 +1,8 @@
-import {command, fail, helpers, skip, variable} from 'fig';
+import {command, fail, helpers, skip, task, variable} from 'fig';
 
-const {debian} = helpers;
+const {when} = helpers;
 
-debian.task('install packages', async () => {
+task('install packages', when('debian'), async () => {
   for (const pkg of variable.strings('packages')) {
     const result = await command(
       'dpkg-query',

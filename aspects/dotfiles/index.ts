@@ -15,7 +15,7 @@ import {
 } from 'fig';
 import stat from 'fig/fs/stat.js';
 
-const {darwin, wincent} = helpers;
+const {is, when} = helpers;
 
 variables(({hostHandle, identity}) => {
   return {
@@ -26,7 +26,7 @@ variables(({hostHandle, identity}) => {
   };
 });
 
-wincent.task('check for decrypted files', async () => {
+task('check for decrypted files', when('wincent'), async () => {
   const result = await command('vendor/git-cipher/bin/git-cipher', ['status'], {
     failedWhen: () => false,
   });
@@ -50,7 +50,7 @@ task('make directories', async () => {
   await file({path: '~/.irssi', state: 'directory'});
   await file({path: '~/.mail', state: 'directory'});
 
-  if (variable('identity') === 'wincent') {
+  if (is('wincent')) {
     await file({path: '~/code', state: 'directory'});
   }
 });
@@ -67,12 +67,11 @@ task('move originals to ~/.backups', async () => {
 
 task('create symlinks', async () => {
   const files = variable.paths('files');
-  const hostHandle = variable.string('hostHandle');
 
   for (const src of files) {
     // Skip over encrypted files on codespaces (as we'll never have decryption
     // keys in that environment).
-    if (hostHandle === 'codespaces') {
+    if (is('codespaces')) {
       const result = await stat(path.aspect.join('files', `.${src}.encrypted`));
       const encrypted = result !== null && !(result instanceof Error);
       if (encrypted) {
@@ -102,14 +101,14 @@ task('fill templates', async () => {
   }
 });
 
-wincent.task('create ~/code/.editorconfig', async () => {
+task('create ~/code/.editorconfig', when('wincent'), async () => {
   await template({
     path: '~/code/.editorconfig',
     src: resource.template('code/.editorconfig'),
   });
 });
 
-darwin.task('install glow.yml', async () => {
+task('install glow.yml', when('darwin'), async () => {
   // On other platforms, Glow will read from ~/.config/glow/glow.yml.
   await file({
     path: '~/Library/Preferences/glow',

@@ -7,12 +7,13 @@ import {
   line,
   path,
   resource,
+  task,
   template,
 } from 'fig';
 
-const {wincent} = helpers;
+const {when} = helpers;
 
-wincent.task('make ~/Sites/UserScripts/*', async () => {
+task('make ~/Sites/UserScripts/*', when('wincent'), async () => {
   const base = path('~/Sites/UserScripts');
 
   await file({path: '~/Sites', state: 'directory'});
@@ -26,7 +27,7 @@ wincent.task('make ~/Sites/UserScripts/*', async () => {
   }
 });
 
-wincent.task('fill templates', async () => {
+task('fill templates', when('wincent'), async () => {
   for (const src of resource.templates('UserScripts/*/*.js')) {
     await template({
       path: path('~/Sites/UserScripts').join(...src.last(2)),
@@ -35,7 +36,7 @@ wincent.task('fill templates', async () => {
   }
 });
 
-wincent.task('configure Apache', async () => {
+task('configure Apache', when('wincent'), async () => {
   await template({
     group: 'wheel',
     owner: 'root',

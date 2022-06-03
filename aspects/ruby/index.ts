@@ -1,9 +1,11 @@
-import {attributes, command, task} from 'fig';
+import {command, helpers, task} from 'fig';
+
+const {is} = helpers;
 
 task('install gems', async () => {
   const gems = ['ripper-tags'];
 
-  if (attributes.platform === 'darwin') {
+  if (is('darwin')) {
     gems.push('prefnerd');
   }
 

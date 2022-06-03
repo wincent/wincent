@@ -6,12 +6,13 @@ import {
   helpers,
   line,
   path,
+  task,
   variable,
 } from 'fig';
 
-const {arch} = helpers;
+const {when} = helpers;
 
-arch.task('copy /etc/pacman.conf', async () => {
+task('copy /etc/pacman.conf', when('arch'), async () => {
   await file({
     path: '/etc/pacman.conf',
     src: path.aspect.join('files', 'etc/pacman.conf'),
@@ -20,11 +21,11 @@ arch.task('copy /etc/pacman.conf', async () => {
   });
 });
 
-arch.task('refresh package databases', async () => {
+task('refresh package databases', when('arch'), async () => {
   await command('pacman', ['-Syy'], {sudo: true});
 });
 
-arch.task('install packages', async () => {
+task('install packages', when('arch'), async () => {
   // TODO: make this check rather than running unconditionally?
   await command(
     'pacman',
@@ -35,12 +36,12 @@ arch.task('install packages', async () => {
   );
 });
 
-arch.task('run updatedb', async () => {
+task('run updatedb', when('arch'), async () => {
   await command('updatedb', [], {sudo: true});
 });
 
 // Tweaks: should be moved into separate aspects.
-arch.task('configure faillock.conf', async () => {
+task('configure faillock.conf', when('arch'), async () => {
   await line({
     path: '/etc/security/faillock.conf',
     regexp: /^\s*#?\s*deny\s*=/,
@@ -60,7 +61,7 @@ arch.task('configure faillock.conf', async () => {
 // TODO: `export N_PREFIX=~`
 // TODO: run `n ??.??.??`
 
-arch.task('create suspend hook', async () => {
+task('create suspend hook', when('arch'), async () => {
   await file({
     notify: 'enable suspend hook',
     path: '/etc/systemd/system/suspend@.service',

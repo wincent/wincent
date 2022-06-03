@@ -1,9 +1,18 @@
-import {command, file, handler, helpers, resource, skip, variable} from 'fig';
+import {
+  command,
+  file,
+  handler,
+  helpers,
+  resource,
+  skip,
+  task,
+  variable,
+} from 'fig';
 import {join} from 'path';
 
-const {arch} = helpers;
+const {when} = helpers;
 
-arch.task('fetch yay', async () => {
+task('fetch yay', when('arch'), async () => {
   // TODO: make a `git` operation? (if I need to do this in more than one
   // place; second place has arrived now, in the vim aspect.)
   await command('git', ['clone', 'https://aur.archlinux.org/yay.git/'], {
@@ -13,18 +22,18 @@ arch.task('fetch yay', async () => {
   });
 });
 
-arch.task('install yay', async () => {
+task('install yay', when('arch'), async () => {
   await command('makepkg', ['-si', '--noconfirm'], {
     chdir: 'vendor/yay',
     creates: '/usr/bin/yay',
   });
 });
 
-arch.task('install packages', async () => {
+task('install packages', when('arch'), async () => {
   await command('yay', ['-S', '--noconfirm', ...variable.strings('packages')]);
 });
 
-arch.task('create ~/.config/systemd/user', async () => {
+task('create ~/.config/systemd/user', when('arch'), async () => {
   for (const directory of [
     '~/.config',
     '~/.config/systemd',
@@ -37,16 +46,20 @@ arch.task('create ~/.config/systemd/user', async () => {
   }
 });
 
-arch.task('install ~/.config/systemd/user/clipper.service', async () => {
-  await file({
-    notify: 'enable clipper.service',
-    path: '~/.config/systemd/user/clipper.service',
-    src: '/usr/share/clipper/clipper.service',
-    state: 'file',
-  });
-});
+task(
+  'install ~/.config/systemd/user/clipper.service',
+  when('arch'),
+  async () => {
+    await file({
+      notify: 'enable clipper.service',
+      path: '~/.config/systemd/user/clipper.service',
+      src: '/usr/share/clipper/clipper.service',
+      state: 'file',
+    });
+  }
+);
 
-arch.task('set up sensors', async () => {
+task('set up sensors', when('arch'), async () => {
   for (const conf of [
     'etc/modprobe.d/it87.conf',
     'etc/modules-load.d/it87.conf',
@@ -61,7 +74,7 @@ arch.task('set up sensors', async () => {
   }
 });
 
-arch.task('set Microsoft Edge as default browser', async () => {
+task('set Microsoft Edge as default browser', when('arch'), async () => {
   const result = await command('xdg-settings', [
     'check',
     'default-web-browser',

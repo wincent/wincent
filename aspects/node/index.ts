@@ -1,6 +1,6 @@
 import {command, file, helpers, path, skip, task} from 'fig';
 
-const {darwin} = helpers;
+const {when} = helpers;
 
 const NODE_VERSION = '18.0.0';
 
@@ -12,7 +12,7 @@ task('make ~/n', async () => {
   await file({path: '~/n', state: 'directory'});
 });
 
-darwin.task('hide ~/n', async () => {
+task('hide ~/n', when('darwin'), async () => {
   await command('chflags', ['hidden', '~/n']);
 });
 

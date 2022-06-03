@@ -11,7 +11,7 @@ import {
 } from 'fig';
 import stat from 'fig/fs/stat.js';
 
-const {wincent} = helpers;
+const {when} = helpers;
 
 task('create ~/.ssh/* directories', async () => {
   for (const directory of [
@@ -36,7 +36,7 @@ task('create ~/.ssh', async () => {
   });
 });
 
-wincent.task('install ~/.ssh/config', async () => {
+task('install ~/.ssh/config', when('wincent'), async () => {
   const src = resource.template('.ssh/config.erb');
 
   const stats = await stat(src);
