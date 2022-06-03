@@ -8,7 +8,6 @@ import {
   path,
   prompt,
   resource,
-  skip,
   template,
   task,
   variable,
@@ -16,7 +15,7 @@ import {
 } from 'fig';
 import stat from 'fig/fs/stat.js';
 
-const {darwin} = helpers;
+const {darwin, wincent} = helpers;
 
 variables(({hostHandle, identity}) => {
   return {
@@ -27,27 +26,19 @@ variables(({hostHandle, identity}) => {
   };
 });
 
-task('check for decrypted files', async () => {
-  if (variable('identity') === 'wincent') {
-    const result = await command(
-      'vendor/git-cipher/bin/git-cipher',
-      ['status'],
-      {
-        failedWhen: () => false,
-      }
-    );
+wincent.task('check for decrypted files', async () => {
+  const result = await command('vendor/git-cipher/bin/git-cipher', ['status'], {
+    failedWhen: () => false,
+  });
 
-    if (result !== null) {
-      if (result.status !== 0) {
-        log.warn(`git-cipher status:\n\n${result.stdout}\n`);
+  if (result !== null) {
+    if (result.status !== 0) {
+      log.warn(`git-cipher status:\n\n${result.stdout}\n`);
 
-        if (!(await prompt.confirm('Continue anyway'))) {
-          fail(`decrypted file check failed`);
-        }
+      if (!(await prompt.confirm('Continue anyway'))) {
+        fail(`decrypted file check failed`);
       }
     }
-  } else {
-    skip();
   }
 });
 
@@ -111,15 +102,11 @@ task('fill templates', async () => {
   }
 });
 
-task('create ~/code/.editorconfig', async () => {
-  if (variable('identity') === 'wincent') {
-    await template({
-      path: '~/code/.editorconfig',
-      src: resource.template('code/.editorconfig'),
-    });
-  } else {
-    skip();
-  }
+wincent.task('create ~/code/.editorconfig', async () => {
+  await template({
+    path: '~/code/.editorconfig',
+    src: resource.template('code/.editorconfig'),
+  });
 });
 
 darwin.task('install glow.yml', async () => {

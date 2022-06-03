@@ -1,4 +1,4 @@
-import {attributes, skip, task} from 'fig';
+import {attributes, skip, task, variable} from 'fig';
 import getCaller from 'fig/getCaller.js';
 
 type Callback = Parameters<typeof task>[1];
@@ -9,6 +9,9 @@ type Callback = Parameters<typeof task>[1];
  * Project-local helpers.
  */
 
+/**
+ * Install only on Arch.
+ */
 export const arch = {
   task(description: string, callback: Callback) {
     task(
@@ -25,6 +28,9 @@ export const arch = {
   },
 };
 
+/**
+ * Install only on Darwin.
+ */
 export const darwin = {
   task(description: string, callback: Callback) {
     task(
@@ -41,6 +47,9 @@ export const darwin = {
   },
 };
 
+/**
+ * Install only on Debian.
+ */
 export const debian = {
   task(description: string, callback: Callback) {
     task(
@@ -50,6 +59,25 @@ export const debian = {
           await callback();
         } else {
           skip('not on Debian');
+        }
+      },
+      getCaller()
+    );
+  },
+};
+
+/**
+ * Install only if the current user is named "wincent".
+ */
+export const wincent = {
+  task(description: string, callback: Callback) {
+    task(
+      description,
+      async () => {
+        if (variable('identity') === 'wincent') {
+          await callback();
+        } else {
+          skip('identity not "wincent"');
         }
       },
       getCaller()

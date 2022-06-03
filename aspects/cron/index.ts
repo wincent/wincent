@@ -2,6 +2,7 @@ import {
   command,
   cron,
   file,
+  helpers,
   path,
   resource,
   skip,
@@ -9,6 +10,8 @@ import {
   task,
   variable,
 } from 'fig';
+
+const {wincent} = helpers;
 
 // For now, we only have one cron job, and we only want to run it on my personal
 // machine.
@@ -49,19 +52,11 @@ task('schedule check-git cron job', async () => {
   }
 });
 
-task('touch ~/mbox', async () => {
-  if (variable('identity') === 'wincent') {
-    // Because cron jobs can produce mail.
-    await file({path: '~/mbox', state: 'touch'});
-  } else {
-    skip();
-  }
+wincent.task('touch ~/mbox', async () => {
+  // Because cron jobs can produce mail.
+  await file({path: '~/mbox', state: 'touch'});
 });
 
-task('hide ~/mbox', async () => {
-  if (variable('identity') === 'wincent') {
-    await command('chflags', ['hidden', '~/mbox']);
-  } else {
-    skip();
-  }
+wincent.task('hide ~/mbox', async () => {
+  await command('chflags', ['hidden', '~/mbox']);
 });

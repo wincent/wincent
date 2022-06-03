@@ -1,9 +1,7 @@
-import {file, skip, task, variable} from 'fig';
+import {file, helpers} from 'fig';
 
-task('create ~/Backups', async () => {
-  if (variable('identity') === 'wincent') {
-    await file({path: '~/Backups', state: 'directory'});
-  } else {
-    skip();
-  }
+const {wincent} = helpers;
+
+wincent.task('create ~/Backups', async () => {
+  await file({path: '~/Backups', state: 'directory'});
 });
