@@ -3,6 +3,8 @@ export default {
   variables: {
     packages: [
       'bfs', // Breadth-first `find` replacement.
+      'bitcoin-core', // Headless Bitcoin node, use "bitcoin-qt" instead for GUI.
+      'btc-rpc-explorer', // Explore Bitcoin blockchain + node state at http://localhost:3002.
       'clipper-git', // Clipboard daemon.
       'glow', // Markdown previewer.
       'google-chrome', // Web browser.
