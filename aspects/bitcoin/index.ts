@@ -1,12 +1,4 @@
-import {
-  backup,
-  command,
-  file,
-  helpers,
-  path,
-  skip,
-  variable,
-} from 'fig';
+import {backup, command, file, helpers, path, skip, variable} from 'fig';
 
 const {arch} = helpers;
 
@@ -52,7 +44,11 @@ arch.task('create symlinks', async () => {
 arch.task('install packages', async () => {
   if (variable('identity') === 'wincent') {
     // TODO: consider running `yay -Qi $package` to see whether already installed
-    await command('yay', ['-S', '--noconfirm', ...variable.strings('packages')]);
+    await command('yay', [
+      '-S',
+      '--noconfirm',
+      ...variable.strings('packages'),
+    ]);
   } else {
     skip('identity not "wincent"');
   }
