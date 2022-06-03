@@ -5,6 +5,7 @@ export default {
       'bfs', // Breadth-first `find` replacement.
       'clipper-git', // Clipboard daemon.
       'glow', // Markdown previewer.
+      'gnome-icon-theme', // eg. for clock icon in dunst notifications.
       'google-chrome', // Web browser.
       'it87-dkms-git', // Allows `sensors` to pick up on it8688 chipset.
       'lf', // Command-line file explorer.
