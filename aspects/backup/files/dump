@@ -1,0 +1,95 @@
+#!/bin/bash
+
+# Currently using v2 of the `op` tool (`1password-cli` from Homebrew).
+#
+# https://developer.1password.com/docs/cli/get-started
+#
+# Full reference: https://developer.1password.com/docs/cli/reference
+#
+# gpg --receive-keys 3FEF9748469ADBE15DA7CA80AC2D62742012EA22
+# gpg --verify op.sig op
+#
+# First sign-in:
+#
+# op account add \
+#   --address vault.1password.com \
+#   --email $USER@example.net \
+#   --secret-key $SECRET_KEY
+#
+# Subsequent sign-ins:
+#
+# op signin --account vault
+#
+# Exporting to shell:
+#
+# eval $(op signin --account vault)
+#
+
+# set -e
+
+# This one doesn't seem to work reliably, so I am using --include-archive in the
+# commands where it applies as well... 😢
+export OP_INCLUDE_ARCHIVE=1
+
+# This one works fine...
+export OP_FORMAT=json
+
+JOBS=4
+
+# https://stackoverflow.com/a/246128/2103996
+SOURCE="${BASH_SOURCE[0]:-$0}" # /Volumes/Recovery/dump
+while [ -L "$SOURCE" ]; do
+  DIR="$(cd -P "$(dirname -- "$SOURCE")" &> /dev/null && pwd 2> /dev/null)"
+  SOURCE="$(readlink -- "$SOURCE")"
+  [[ $SOURCE != /* ]] && SOURCE="${DIR}/${SOURCE}"
+done
+BASE="$(cd -P "$(dirname -- "$SOURCE")" &> /dev/null && pwd 2> /dev/null)"
+
+cd "$BASE" || exit 1
+echo 'Running from:'
+pwd
+
+echo 'Using 1Password command-line tool:'
+which op
+
+echo 'Using jq JSON tool:'
+which jq
+
+echo 'Using parallel:'
+which parallel
+
+FOLDER=$(date '+%Y-%m-%d')
+mkdir -p "$FOLDER"
+cd "$FOLDER" || exit 1
+echo 'Dumping to:'
+pwd
+
+eval $(op signin --account vault)
+
+echo '-> vaults.json'
+op vault list --cache | jq . > vaults.json
+
+while read -r VAULT <&3
+do
+  echo "-> vaults/$VAULT/items/"
+  echo "-> vaults/$VAULT/documents/"
+  mkdir -p vaults/"$VAULT"/{items,documents}
+
+  echo "-> vaults/$VAULT/vault.json"
+  op vault get --cache "$VAULT" | jq . > vaults/"$VAULT"/vault.json
+
+  echo "-> vaults/$VAULT/items.json"
+  op item list --include-archive --cache --vault="$VAULT" | jq . > vaults/"$VAULT"/items.json
+
+  echo "-> vaults/$VAULT/documents.json"
+  op document list --include-archive --cache --vault="$VAULT" | jq . > vaults/"$VAULT"/documents.json
+
+  jq -r '.[].id' vaults/"$VAULT"/items.json | \
+    parallel --verbose --joblog vaults/"$VAULT"/items.log --retries 5 --eta -j $JOBS \
+    "op item get --debug --include-archive --cache '{}' | jq . > 'vaults/$VAULT/items/{}.json'"
+
+  # Many of these fail with 404 errors.
+  jq -r '.[].id' vaults/"$VAULT"/documents.json | \
+    parallel --verbose --joblog vaults/"$VAULT"/documents.log --retries 5 --eta -j $JOBS \
+    "op document get --debug --include-archive --cache '{}' --output 'vaults/$VAULT/documents/{}.bin'"
+done 3< <(jq -r '.[].id' vaults.json)
