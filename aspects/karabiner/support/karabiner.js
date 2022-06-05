@@ -292,6 +292,7 @@ export function visit(item, path, updater) {
 }
 
 const EXEMPTIONS = [
+  'com.blizzard.worldofwarcraft',
   'com.factorio',
   'com.feralinteractive.dirtrally',
   'org.ioquake.ioquake3',
