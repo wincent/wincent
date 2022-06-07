@@ -88,7 +88,12 @@ do
     parallel --verbose --joblog vaults/"$VAULT"/items.log --retries 5 --eta -j $JOBS \
     "op item get --debug --include-archive --cache '{}' | jq . > 'vaults/$VAULT/items/{}.json'"
 
-  # Many of these fail with 404 errors.
+  # Many documents fail with 404 errors, so, here is a one-time workaround to
+  # make them accessible:
+  # jq -r '.[].id' vaults/"$VAULT"/documents.json | \
+  #   parallel --verbose --joblog vaults/"$VAULT"/documents-fix.log --retries 5 --eta -j $JOBS \
+  #   "op item edit '{}'"
+
   jq -r '.[].id' vaults/"$VAULT"/documents.json | \
     parallel --verbose --joblog vaults/"$VAULT"/documents.log --retries 5 --eta -j $JOBS \
     "op document get --debug --include-archive --cache '{}' --output 'vaults/$VAULT/documents/{}.bin'"
