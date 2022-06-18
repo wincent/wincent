@@ -17,8 +17,9 @@ import stat from 'fig/fs/stat.js';
 
 const {is, when} = helpers;
 
-variables(({hostHandle, identity}) => {
+variables(({hostHandle, identity, profile}) => {
   return {
+    gitGpgSign: identity === 'wincent' && profile === 'personal',
     gitHostSpecificInclude: `.gitconfig.d/${hostHandle}`,
     gitUserEmail: identity === 'wincent' ? 'greg@hurrell.net' : '',
     gitUserName: identity === 'wincent' ? 'Greg Hurrell' : '',

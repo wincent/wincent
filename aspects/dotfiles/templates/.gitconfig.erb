@@ -95,6 +95,11 @@
 
 [color "status"]
 	untracked = blue
+<%- if (variables.gitGpgSign) { -%>
+
+[commit]
+	gpgSign = true
+<%- } -%>
 
 [core]
 	attributesfile = ~/.gitattributes
