@@ -19,7 +19,7 @@ const {is, when} = helpers;
 
 variables(({hostHandle, identity, profile}) => {
   return {
-    gitGpgSign: identity === 'wincent' && profile === 'personal',
+    gitGpgSign: identity === 'wincent' && profile !== 'codespaces',
     gitHostSpecificInclude: `.gitconfig.d/${hostHandle}`,
     gitUserEmail: identity === 'wincent' ? 'greg@hurrell.net' : '',
     gitUserName: identity === 'wincent' ? 'Greg Hurrell' : '',
