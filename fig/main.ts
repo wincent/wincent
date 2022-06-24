@@ -18,6 +18,8 @@ import test from './test.js';
 
 import type {Aspect} from './types/Project.js';
 
+class AbortError extends Error {}
+
 async function main() {
   const start = Date.now();
 
@@ -179,15 +181,27 @@ async function main() {
 
   // Execute tasks.
   try {
-    loopAspects: {
-      for (const aspect of aspects.flat()) {
+    // Execute within each batch in parallel, unless stepping.
+    const batches = aspects.flatMap((groupOrAspect) => {
+      if (Array.isArray(groupOrAspect)) {
+        if (options.step || !options.parallel) {
+          return groupOrAspect.map((aspect) => [aspect]);
+        } else {
+          return [groupOrAspect];
+        }
+      } else {
+        return [[groupOrAspect]];
+      }
+    });
+    for (const batch of batches) {
+      const promises = batch.map(async (aspect) => {
         const {variables: aspectVariables = {}} = await readAspect(
           join(root, 'aspects', aspect)
         );
 
         if (options.focused.size && !options.focused.has(aspect)) {
           log.info(`Skipping aspect: ${aspect}`);
-          continue;
+          return;
         }
 
         const mergedVariables = merge(baseVariables, aspectVariables);
@@ -229,7 +243,7 @@ async function main() {
                   Context.informSkipped(`task ${name}`);
                   break;
                 } else if ('quit'.startsWith(reply)) {
-                  break loopAspects;
+                  throw new AbortError();
                 } else if ('continue'.startsWith(reply)) {
                   options.step = false;
                   await Context.withContext(
@@ -305,7 +319,7 @@ async function main() {
                   Context.informSkipped(`handler ${name}`);
                   break;
                 } else if ('quit'.startsWith(reply)) {
-                  break loopAspects;
+                  throw new AbortError();
                 } else if ('continue'.startsWith(reply)) {
                   options.step = false;
                   await Context.withContext(
@@ -346,7 +360,13 @@ async function main() {
             }
           }
         }
-      }
+      });
+
+      await Promise.all(promises);
+    }
+  } catch (error) {
+    if (!(error instanceof AbortError)) {
+      throw error;
     }
   } finally {
     const counts = Object.entries(Context.counts)

@@ -18,6 +18,7 @@ export type Options = {
   check: boolean;
   focused: Set<Aspect>;
   logLevel: LogLevel;
+  parallel: boolean;
   startAt: {
     found: boolean;
     literal: string;
@@ -36,6 +37,7 @@ export default async function getOptions(
     check: false,
     focused: new Set(),
     logLevel: LOG_LEVEL.INFO,
+    parallel: false,
     startAt: {
       found: false,
       literal: '',
@@ -74,6 +76,8 @@ export default async function getOptions(
     } else if (arg === '--help' || arg === '-h') {
       await printUsage(aspects);
       throw new ErrorWithMetadata('aborting');
+    } else if (arg === '--parallel') {
+      options.parallel = true;
     } else if (
       arg.startsWith('--start-at-task=') ||
       arg.startsWith('--start=')
@@ -126,11 +130,12 @@ async function printUsage(aspects: Array<[string, string]>) {
 
                 -d/--debug
                    --dry-run
-                -f/--force # not yet implemented
+                -f/--force    (not yet implemented)
                 -h/--help
+                   --parallel (experimental)
                 -q/--quiet
                 -t/--test
-                -v/--verbose (repeat up to four times for more verbosity) # not yet implemented
+                -v/--verbose  (repeat up to four times for more verbosity) # not yet implemented
                    --start-at-task='aspect | task' # TODO: maybe make -s short variant
                    --step
 
