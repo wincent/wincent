@@ -245,11 +245,11 @@ async function main() {
                 } else if ('help'.startsWith(reply)) {
                   log(
                     dedent`
-                                            [y]es:      run the task
-                                            [n]o:       skip the task
-                                            [q]uit:     stop running
-                                            [c]ontinue: run all remaining tasks
-                                        `
+                      [y]es:      run the task
+                      [n]o:       skip the task
+                      [q]uit:     stop running
+                      [c]ontinue: run all remaining tasks
+                    `
                   );
                 } else {
                   log.warn('Invalid choice; try again.');
@@ -321,11 +321,11 @@ async function main() {
                 } else if ('help'.startsWith(reply)) {
                   log(
                     dedent`
-                                              [y]es:      run the handler
-                                              [n]o:       skip the handler
-                                              [q]uit:     stop running
-                                              [c]ontinue: run all remaining handlers and tasks
-                                          `
+                      [y]es:      run the handler
+                      [n]o:       skip the handler
+                      [q]uit:     stop running
+                      [c]ontinue: run all remaining handlers and tasks
+                    `
                   );
                 } else {
                   log.warn('Invalid choice; try again.');
