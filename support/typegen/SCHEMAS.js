@@ -80,7 +80,15 @@ export default {
         properties: {
           aspects: {
             type: 'array',
-            items: REF.Aspect,
+            items: {
+              anyOf: [
+                REF.Aspect,
+                {
+                  type: 'array',
+                  items: REF.Aspect,
+                },
+              ],
+            },
           },
           variables: REF.Variables,
         },

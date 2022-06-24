@@ -55,6 +55,12 @@ export default class Builder {
     return this;
   }
 
+  forOf(binding, collection, callback) {
+    return this.line(`for (const ${binding} of ${collection}) {`)
+      .block(callback)
+      .line('}');
+  }
+
   ['function'](open, ...rest) {
     let callback;
     let options = {export: true};
@@ -79,9 +85,18 @@ export default class Builder {
     return ' '.repeat(this.indentLevel * this.tabWidth);
   }
 
-  // TODO: handle else if/else with ...rest
+  // `rest`, if supplied, is an `else` callback.
+  // TODO: make it handle `else if` too
   ['if'](condition, callback, ...rest) {
-    return this.line(`if (${condition}) {`).block(callback).line('}');
+    if (rest.length) {
+      return this.line(`if (${condition}) {`)
+        .block(callback)
+        .line('} else {')
+        .block(rest[0])
+        .line('}');
+    } else {
+      return this.line(`if (${condition}) {`).block(callback).line('}');
+    }
   }
 
   indent() {

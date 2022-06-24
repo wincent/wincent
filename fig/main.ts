@@ -87,7 +87,7 @@ async function main() {
   // Register tasks.
   const candidateTasks = [];
 
-  for (const aspect of aspects) {
+  for (const aspect of aspects.flat()) {
     await loadAspect(aspect);
 
     if (options.focused.size && !options.focused.has(aspect)) {
@@ -180,7 +180,7 @@ async function main() {
   // Execute tasks.
   try {
     loopAspects: {
-      for (const aspect of aspects) {
+      for (const aspect of aspects.flat()) {
         const {variables: aspectVariables = {}} = await readAspect(
           join(root, 'aspects', aspect)
         );

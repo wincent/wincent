@@ -32,7 +32,6 @@ function main() {
 
     b.docblock('vim: set nomodifiable :', '', '@generated').blank();
 
-    // Don't know whether these will be needed yet, but add just in case.
     b.line(`import assert from '../assert.js';`)
       .line(`import {assertJSONValue} from './JSONValue.js';`)
       .blank();
@@ -188,28 +187,27 @@ function genAssertFunction(typeName, typeSchema, options) {
               } else if (propertySchema.type === 'array') {
                 b.assert(`Array.isArray(${property})`).blank();
 
-                const target = extractTargetFromRef(propertySchema.items);
-
-                if (target) {
-                  const definition = definitions[target];
-
-                  assert.ok(definition);
-
-                  if (definition.enum) {
-                    b.line(`${property}.forEach(assert${target});`);
-                  }
-                } else {
-                  const itemType = propertySchema.items.type;
-
-                  if (
-                    itemType === 'number' ||
-                    itemType === 'string' // TODO: maybe others
-                  ) {
-                    b.assert(
-                      `${property}.every((item: any) => typeof item === '${itemType}')`
+                b.forOf('item', property, () => {
+                  // TODO: make this actually general; for now it's hard-coded
+                  // to handle:
+                  //
+                  //    anyOf: [REF.Aspect, {type: 'array', items: REF.Aspect}]
+                  //
+                  const target = extractTargetFromRef(
+                    propertySchema.items.anyOf[0]
+                  );
+                  if (target && definitions[target]?.enum) {
+                    b.if(
+                      'Array.isArray(item)',
+                      () => {
+                        b.line(`item.forEach(assert${target});`);
+                      },
+                      () => {
+                        b.line(`assert${target}(item);`);
+                      }
                     );
                   }
-                }
+                });
               } else if (
                 propertySchema.type === 'number' ||
                 propertySchema.type === 'string'
@@ -246,7 +244,8 @@ function genAssertFunction(typeName, typeSchema, options) {
               } else if (type === 'null') {
                 return `value === null`;
               } else {
-                // TODO; support complex values too
+                // TODO: support complex values too
+                // TODO: see if we can re-use a single `anyOf` generator
               }
             });
 
@@ -341,6 +340,17 @@ function genProperty(propertyName, propertySchema, options) {
 
     if (target) {
       value = `Array<${target}>`;
+    } else if (propertySchema.items.anyOf) {
+      value = `Array<${propertySchema.items.anyOf
+        .map((member) => {
+          const target = extractTargetFromRef(member);
+          if (target) {
+            return target;
+          } else {
+            return `Array<${extractTargetFromRef(member.items)}>`;
+          }
+        })
+        .join(' | ')}>`;
     } else {
       value = `Array<${propertySchema.items.type}>`;
     }
