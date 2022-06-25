@@ -1,9 +1,7 @@
 /**
  * @see https://v8.dev/docs/stack-trace-api
  */
-export default function getCaller(): string {
-  let name;
-
+export default function getCallers(): Array<string> {
   const prepareStackTrace = Error.prepareStackTrace;
 
   try {
@@ -16,12 +14,17 @@ export default function getCaller(): string {
 
     const stack: Array<NodeJS.CallSite> = new Error().stack as any;
 
-    // Skip two stack frames (this function, and caller of this
-    // function), to get caller of our caller.
-    name = stack.length > 2 ? stack[2].getFileName() : '';
+    // Skip two stack frames (this function, and caller of this function), to
+    // get callers of our caller.
+    return stack
+      .slice(2)
+      .map((frame) => frame.getFileName())
+      .filter(nonNull);
   } finally {
     Error.prepareStackTrace = prepareStackTrace;
   }
+}
 
-  return name || '[unknown]';
+function nonNull(element: string | null): element is string {
+  return element !== null;
 }

@@ -179,7 +179,7 @@ class Context {
 
   get currentVariables(): Variables {
     // In-progress refactoring: look up using #currentAspect.
-    // Next step: look up using more flexible `getCaller()`/`getAspectFromCaller()`
+    // Next step: look up using more flexible `getCallers()`/`getAspectFromCallers()`
     assert(this.#currentAspect);
     const variables = this.#variables.getStaticVariables(this.#currentAspect);
     assert(variables);

@@ -1,6 +1,6 @@
 import Context from '../Context.js';
-import getCaller from '../getCaller.js';
-import getAspectFromCaller from '../getAspectFromCaller.js';
+import getCallers from '../getCallers.js';
+import getAspectFromCallers from '../getAspectFromCallers.js';
 
 /**
  * Register a callback to dynamically contribute variables when an aspect is
@@ -8,9 +8,7 @@ import getAspectFromCaller from '../getAspectFromCaller.js';
  * and stored in JSON).
  */
 export default function variables(callback: (v: Variables) => Variables) {
-  const caller = getCaller();
-
-  const aspect = getAspectFromCaller(caller);
+  const aspect = getAspectFromCallers(getCallers());
 
   Context.variables.registerDynamicCallback(aspect, callback);
 }

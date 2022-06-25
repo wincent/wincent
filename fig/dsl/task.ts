@@ -1,6 +1,6 @@
 import Context from '../Context.js';
-import getCaller from '../getCaller.js';
-import getAspectFromCaller from '../getAspectFromCaller.js';
+import getCallers from '../getCallers.js';
+import getAspectFromCallers from '../getAspectFromCallers.js';
 import skip from './skip.js';
 
 type Callback = () => Promise<void>;
@@ -28,7 +28,7 @@ export default function task(
   callbackOrPredicate: Callback | Predicate,
   callback?: Callback
 ) {
-  const aspect = getAspectFromCaller(getCaller());
+  const aspect = getAspectFromCallers(getCallers());
 
   Context.tasks.register(
     aspect,

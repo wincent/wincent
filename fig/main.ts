@@ -271,10 +271,7 @@ async function main() {
                 }
               }
             } else {
-              await Context.execute(
-                {aspect, task: name, variables},
-                callback
-              );
+              await Context.execute({aspect, task: name, variables}, callback);
             }
           }
         }
@@ -345,10 +342,7 @@ async function main() {
                 }
               }
             } else {
-              await Context.execute(
-                {aspect, task: name, variables},
-                callback
-              );
+              await Context.execute({aspect, task: name, variables}, callback);
             }
           }
 
