@@ -34,7 +34,7 @@ export default async function run(
         ? ['sudo', '-S', '-k', '-p', prompt, '--', command, ...args]
         : [command, ...args];
 
-    const result = {
+    const result: Result = {
       command: final.join(' '),
       error: null,
       signal: null,
@@ -64,28 +64,45 @@ export default async function run(
       }
     });
 
+    // "The 'close' event is emitted after a process has ended and the stdio
+    // streams of a child process have been closed. This is distinct from
+    // the 'exit' event, since multiple processes might share the same stdio
+    // streams. The 'close' event will always emit after 'exit' was already
+    // emitted, or 'error' if the child failed to spawn."
+    //
+    // See: https://nodejs.org/api/child_process.html#event-close
+    child.stdout.on('close', () => {
+      resolve(result);
+    });
+
     child.stdout.on('data', (data) => {
       result.stdout += data.toString();
     });
 
-    child.on('error', (error) =>
-      resolve({
-        ...result,
-        error,
-      })
-    );
+    // "The 'exit' event may or may not fire after an error has occurred. When
+    // listening to both the 'exit' and 'error' events, guard against
+    // accidentally invoking handler functions multiple times."
+    //
+    // See: https://nodejs.org/api/child_process.html#event-close
+    child.on('error', (error) => {
+      result.error = error;
+    });
 
+    // "The 'exit' event is emitted after the child process ends. If the process
+    // exited, code is the final exit code of the process, otherwise null. If
+    // the process terminated due to receipt of a signal, signal is the string
+    // name of the signal, otherwise null. One of the two will always be
+    // non-null.
+    //
+    // When the 'exit' event is triggered, child process stdio streams might
+    // still be open."
+    //
+    // See: https://nodejs.org/api/child_process.html#event-exit
     child.on('exit', (status, signal) => {
       if (typeof status === 'number') {
-        resolve({
-          ...result,
-          status,
-        });
+        result.status = status;
       } else if (signal) {
-        resolve({
-          ...result,
-          signal,
-        });
+        result.signal = signal;
       }
     });
   });

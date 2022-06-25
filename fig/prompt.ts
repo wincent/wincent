@@ -8,6 +8,8 @@ type Options = {
   private?: boolean;
 };
 
+// TODO: consider making a mutex that will ensure only one thing actually
+// prompts at a time (or that nothing else prints while prompting)
 async function prompt(text: string, options: Options = {}): Promise<string> {
   if (process.env.NON_INTERACTIVE) {
     throw new Error('prompt(): called, but NON_INTERACTIVE is set');

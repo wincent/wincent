@@ -199,6 +199,7 @@ async function main() {
         return [[groupOrAspect]];
       }
     });
+
     for (const batch of batches) {
       const promises = batch.map(async (aspect) => {
         const {variables: aspectVariables = {}} = await readAspect(
