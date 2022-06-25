@@ -34,7 +34,7 @@ class Context {
   #compiler: Compiler;
   #counts: Counts;
   #currentAspect?: Aspect;
-  #currentTask?: string;
+  #currentTask: Map<Aspect, string>;
   #handlers: HandlerRegistry;
   #options?: Options;
   #sudoPassphrase?: Promise<string>;
@@ -52,6 +52,7 @@ class Context {
       skipped: 0,
     };
 
+    this.#currentTask = new Map();
     this.#handlers = new HandlerRegistry();
     this.#tasks = new TaskRegistry();
     this.#variables = new VariableRegistry();
@@ -136,16 +137,8 @@ class Context {
     callback: () => Promise<void>
   ) {
     this.#variables.registerStaticVariables(aspect, variables);
-
-    let previousTask = this.#currentTask;
-
-    try {
-      this.#currentTask = task;
-
-      await callback();
-    } finally {
-      this.#currentTask = previousTask;
-    }
+    this.#currentTask.set(aspect, task);
+    await callback();
   }
 
   get attributes(): Attributes {
@@ -171,12 +164,9 @@ class Context {
   }
 
   get currentTask(): string {
-    assert(this.#currentTask);
-    return this.#currentTask;
-  }
-
-  set currentTask(task: string) {
-    this.#currentTask = task;
+    const task = this.#currentTask.get(this.currentAspect);
+    assert(task);
+    return task;
   }
 
   get currentVariables(): Variables {
