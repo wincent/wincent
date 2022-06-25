@@ -181,10 +181,12 @@ async function main() {
 
   // Execute tasks.
   try {
+    let stepping = options.step;
+
     // Execute within each batch in parallel, unless stepping.
     const batches = aspects.flatMap((groupOrAspect) => {
       if (Array.isArray(groupOrAspect)) {
-        if (options.step || !options.parallel) {
+        if (stepping || !options.parallel) {
           return groupOrAspect.map((aspect) => [aspect]);
         } else {
           return [groupOrAspect];
@@ -218,7 +220,7 @@ async function main() {
             options.startAt.found = false;
             log.notice(`Task: ${name}`);
 
-            if (options.step) {
+            if (stepping) {
               for (;;) {
                 const reply = (
                   await prompt(
@@ -245,7 +247,7 @@ async function main() {
                 } else if ('quit'.startsWith(reply)) {
                   throw new AbortError();
                 } else if ('continue'.startsWith(reply)) {
-                  options.step = false;
+                  stepping = false;
                   await Context.withContext(
                     {
                       aspect,
@@ -292,7 +294,7 @@ async function main() {
               );
             }
 
-            if (options.step) {
+            if (stepping) {
               // TODO: DRY up -- almost same as task handling
               // above
               for (;;) {
@@ -321,7 +323,7 @@ async function main() {
                 } else if ('quit'.startsWith(reply)) {
                   throw new AbortError();
                 } else if ('continue'.startsWith(reply)) {
-                  options.step = false;
+                  stepping = false;
                   await Context.withContext(
                     {
                       aspect,
