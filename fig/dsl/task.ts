@@ -1,6 +1,7 @@
 import Context from '../Context.js';
 import getCallers from '../getCallers.js';
 import getAspectFromCallers from '../getAspectFromCallers.js';
+import {assertAspect} from '../types/Project.js';
 import skip from './skip.js';
 
 type Callback = () => Promise<void>;
@@ -29,6 +30,7 @@ export default function task(
   callback?: Callback
 ) {
   const aspect = getAspectFromCallers(getCallers());
+  assertAspect(aspect);
 
   Context.tasks.register(
     aspect,

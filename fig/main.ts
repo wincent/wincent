@@ -180,6 +180,9 @@ async function main() {
     variables
   );
 
+  // TODO: maybe this should be called registerBaseVariables
+  Context.variables.registerGlobalVariables(baseVariables);
+
   // Execute tasks.
   try {
     let stepping = options.step;

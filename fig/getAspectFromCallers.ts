@@ -6,7 +6,9 @@ import {default as root} from './dsl/root.js';
 
 import type {Aspect} from './types/Project.js';
 
-export default function getAspectFromCallers(callers: Array<string>): Aspect {
+export default function getAspectFromCallers(
+  callers: Array<string>
+): Aspect | null {
   for (const caller of callers) {
     const path = url.fileURLToPath(caller);
     const ancestors = relative(root, path).split(sep);
@@ -18,7 +20,5 @@ export default function getAspectFromCallers(callers: Array<string>): Aspect {
       return aspect;
     }
   }
-  throw new Error(
-    `Unable to determine aspect for callers ${callers.join(', ')}`
-  );
+  return null;
 }

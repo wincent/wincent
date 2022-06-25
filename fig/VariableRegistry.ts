@@ -11,6 +11,7 @@ type Callback = (variables: Variables) => Variables;
  */
 export default class VariableRegistry {
   #callbacks: Map<Aspect, Callback>;
+  #globals?: Variables;
   #variables: Map<Aspect, Variables>;
 
   constructor() {
@@ -20,6 +21,14 @@ export default class VariableRegistry {
 
   getDynamicCallback(aspect: Aspect): Callback {
     return this.#callbacks.get(aspect) || (() => ({}));
+  }
+
+  /**
+   * Returns variables that are not specific to individual aspects.
+   */
+  getGlobalVariables(): Variables {
+    assert(this.#globals);
+    return this.#globals;
   }
 
   getStaticVariables(aspect: Aspect): Variables {
@@ -38,6 +47,12 @@ export default class VariableRegistry {
     }
 
     this.#callbacks.set(aspect, callback);
+  }
+
+  registerGlobalVariables(variables: Variables) {
+    // No throw here because this may be called once per task execution.
+    // TODO: decide whether this comment is right
+    this.#globals = variables;
   }
 
   registerStaticVariables(aspect: Aspect, variables: Variables) {

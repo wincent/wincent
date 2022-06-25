@@ -180,10 +180,19 @@ class Context {
   }
 
   get currentVariables(): Variables {
-    assert(this.#currentAspect === getAspectFromCallers(getCallers()));
-    const variables = this.#variables.getStaticVariables(this.#currentAspect);
-    assert(variables);
-    return variables;
+    const aspect = getAspectFromCallers(getCallers());
+    if (aspect) {
+      // TODO: remove this; I'm including it now just to show that I verified
+      // this.
+      assert(aspect === this.#currentAspect);
+
+      const variables = this.#variables.getStaticVariables(aspect);
+      assert(variables);
+      return variables;
+    } else {
+      // If no aspect, we are somewhere global, like in "helpers.ts".
+      return this.#variables.getGlobalVariables();
+    }
   }
 
   get handlers(): HandlerRegistry {
