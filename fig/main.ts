@@ -232,7 +232,7 @@ async function main() {
                   .trim();
 
                 if ('yes'.startsWith(reply)) {
-                  await Context.withContext(
+                  await Context.execute(
                     {
                       aspect,
                       task: name,
@@ -248,7 +248,7 @@ async function main() {
                   throw new AbortError();
                 } else if ('continue'.startsWith(reply)) {
                   stepping = false;
-                  await Context.withContext(
+                  await Context.execute(
                     {
                       aspect,
                       task: name,
@@ -271,7 +271,7 @@ async function main() {
                 }
               }
             } else {
-              await Context.withContext(
+              await Context.execute(
                 {aspect, task: name, variables},
                 callback
               );
@@ -306,7 +306,7 @@ async function main() {
                   .trim();
 
                 if ('yes'.startsWith(reply)) {
-                  await Context.withContext(
+                  await Context.execute(
                     {
                       aspect,
                       task: name,
@@ -322,7 +322,7 @@ async function main() {
                   throw new AbortError();
                 } else if ('continue'.startsWith(reply)) {
                   stepping = false;
-                  await Context.withContext(
+                  await Context.execute(
                     {
                       aspect,
                       task: name,
@@ -345,7 +345,7 @@ async function main() {
                 }
               }
             } else {
-              await Context.withContext(
+              await Context.execute(
                 {aspect, task: name, variables},
                 callback
               );

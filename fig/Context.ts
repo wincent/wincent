@@ -127,7 +127,7 @@ class Context {
     return 'skipped';
   }
 
-  async withContext(
+  async execute(
     {
       aspect,
       task,
