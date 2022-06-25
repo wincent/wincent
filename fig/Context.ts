@@ -5,6 +5,8 @@ import HandlerRegistry from './HandlerRegistry.js';
 import TaskRegistry from './TaskRegistry.js';
 import VariableRegistry from './VariableRegistry.js';
 import assert from './assert.js';
+import getAspectFromCallers from './getAspectFromCallers.js';
+import getCallers from './getCallers.js';
 import prompt from './prompt.js';
 import run from './run.js';
 import * as status from './status.js';
@@ -178,9 +180,7 @@ class Context {
   }
 
   get currentVariables(): Variables {
-    // In-progress refactoring: look up using #currentAspect.
-    // Next step: look up using more flexible `getCallers()`/`getAspectFromCallers()`
-    assert(this.#currentAspect);
+    assert(this.#currentAspect === getAspectFromCallers(getCallers()));
     const variables = this.#variables.getStaticVariables(this.#currentAspect);
     assert(variables);
     return variables;
