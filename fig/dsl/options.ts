@@ -5,22 +5,26 @@ import type {Aspect} from '../types/Project.js';
 
 export default {
   get check(): boolean {
-    return Context.currentOptions.check;
+    return Context.options.check;
   },
 
   get focused(): Set<Aspect> {
-    return Context.currentOptions.focused;
+    return Context.options.focused;
   },
 
   get logLevel(): LogLevel {
-    return Context.currentOptions.logLevel;
+    return Context.options.logLevel;
+  },
+
+  get parallel(): boolean {
+    return Context.options.parallel;
   },
 
   get step(): boolean {
-    return Context.currentOptions.step;
+    return Context.options.step;
   },
 
   get testsOnly(): boolean {
-    return Context.currentOptions.testsOnly;
+    return Context.options.testsOnly;
   },
 };

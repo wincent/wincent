@@ -102,7 +102,7 @@ export default async function cron({
       console.log(crontab);
     });
 
-    if (Context.currentOptions?.check) {
+    if (Context.options.check) {
       return Context.informSkipped(`cron ${id}`);
     } else {
       const src = await tempfile('cron', crontab);

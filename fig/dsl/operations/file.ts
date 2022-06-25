@@ -96,7 +96,7 @@ export default async function file({
   }
 
   let changed: Array<string> = [];
-  let mutate = !Context.currentOptions?.check;
+  let mutate = !Context.options.check;
 
   if (state === 'directory') {
     if (diff.state === 'directory') {

@@ -181,7 +181,7 @@ export default async function defaults({
   if (state === 'absent') {
     if (currentType === undefined) {
       return Context.informOk(`absent ${description}`);
-    } else if (Context.currentOptions?.check) {
+    } else if (Context.options.check) {
       return Context.informSkipped(`absent ${description}`);
     } else {
       result = await run('defaults', [...args, 'delete', domain, key]);
@@ -198,7 +198,7 @@ export default async function defaults({
   } else {
     if (equal(currentValue, currentType, value!, type)) {
       return Context.informOk(`present ${description}`);
-    } else if (Context.currentOptions?.check) {
+    } else if (Context.options.check) {
       return Context.informSkipped(`present ${description}`);
     } else {
       let typeAndValue: Array<string> = [];

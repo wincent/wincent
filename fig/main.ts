@@ -31,6 +31,7 @@ async function main() {
 
   // Skip first two args (node executable and main.js script).
   const options = await getOptions(process.argv.slice(2));
+  Context.options = options;
 
   setLogLevel(options.logLevel);
 
@@ -234,7 +235,6 @@ async function main() {
                   await Context.withContext(
                     {
                       aspect,
-                      options,
                       task: name,
                       variables,
                     },
@@ -251,7 +251,6 @@ async function main() {
                   await Context.withContext(
                     {
                       aspect,
-                      options,
                       task: name,
                       variables,
                     },
@@ -273,7 +272,7 @@ async function main() {
               }
             } else {
               await Context.withContext(
-                {aspect, options, task: name, variables},
+                {aspect, task: name, variables},
                 callback
               );
             }
@@ -310,7 +309,6 @@ async function main() {
                   await Context.withContext(
                     {
                       aspect,
-                      options,
                       task: name,
                       variables,
                     },
@@ -327,7 +325,6 @@ async function main() {
                   await Context.withContext(
                     {
                       aspect,
-                      options,
                       task: name,
                       variables,
                     },
@@ -349,7 +346,7 @@ async function main() {
               }
             } else {
               await Context.withContext(
-                {aspect, options, task: name, variables},
+                {aspect, task: name, variables},
                 callback
               );
             }

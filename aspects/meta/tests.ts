@@ -18,7 +18,7 @@ import stat from 'fig/fs/stat.js';
 import tempdir from 'fig/fs/tempdir.js';
 
 function live() {
-  return !Context.currentOptions?.check;
+  return !Context.options.check;
 }
 
 const expect = {

@@ -31,10 +31,10 @@ class Context {
   #compiler: Compiler;
   #counts: Counts;
   #currentAspect?: Aspect;
-  #currentOptions?: Options;
   #currentTask?: string;
   #currentVariables?: Variables;
   #handlers: HandlerRegistry;
+  #options?: Options;
   #sudoPassphrase?: Promise<string>;
   #tasks: TaskRegistry;
 
@@ -130,32 +130,27 @@ class Context {
   async withContext(
     {
       aspect,
-      options,
       task,
       variables,
     }: {
       aspect: Aspect;
-      options: Options;
       task: string;
       variables: Variables;
     },
     callback: () => Promise<void>
   ) {
     let previousAspect = this.#currentAspect;
-    let previousOptions = this.#currentOptions;
     let previousTask = this.#currentTask;
     let previousVariables = this.#currentVariables;
 
     try {
       this.#currentAspect = aspect;
-      this.#currentOptions = options;
       this.#currentTask = task;
       this.#currentVariables = variables;
 
       await callback();
     } finally {
       this.#currentAspect = previousAspect;
-      this.#currentOptions = previousOptions;
       this.#currentTask = previousTask;
       this.#currentVariables = previousVariables;
     }
@@ -181,7 +176,6 @@ class Context {
 
   get currentTask(): string {
     assert(this.#currentTask);
-
     return this.#currentTask;
   }
 
@@ -191,7 +185,6 @@ class Context {
 
   get currentVariables(): Variables {
     assert(this.#currentVariables);
-
     return this.#currentVariables;
   }
 
@@ -199,14 +192,17 @@ class Context {
     this.#currentVariables = variables;
   }
 
-  get currentOptions() {
-    assert(this.#currentOptions);
-
-    return this.#currentOptions;
-  }
-
   get handlers(): HandlerRegistry {
     return this.#handlers;
+  }
+
+  get options() {
+    assert(this.#options);
+    return this.#options;
+  }
+
+  set options(options: Options) {
+    this.#options = options;
   }
 
   get sudoPassphrase(): Promise<string> {

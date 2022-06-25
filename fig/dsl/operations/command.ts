@@ -45,7 +45,7 @@ export default async function command(
       `Run command \`${description}\` with options: ${stringify(options)}`
     );
 
-    if (Context.currentOptions?.check) {
+    if (Context.options.check) {
       Context.informSkipped(`command \`${description}\``);
 
       return null;

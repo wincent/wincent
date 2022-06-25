@@ -13,7 +13,7 @@ export default async function backup({
   path?: string;
   relative?: string;
 }): Promise<OperationResult> {
-  if (Context.currentOptions.check) {
+  if (Context.options.check) {
     return Context.informSkipped(`file ${src}`);
   } else {
     const source = path(relative).join(src).expand;
