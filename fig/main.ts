@@ -211,7 +211,7 @@ async function main() {
 
         const variables = merge(
           mergedVariables,
-          Context.variables.get(aspect)(mergedVariables)
+          Context.variables.getDynamicCallback(aspect)(mergedVariables)
         );
 
         log.debug(`Variables:\n\n${stringify(variables)}\n`);

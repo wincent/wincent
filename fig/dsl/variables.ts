@@ -12,5 +12,5 @@ export default function variables(callback: (v: Variables) => Variables) {
 
   const aspect = getAspectFromCaller(caller);
 
-  Context.variables.register(aspect, callback);
+  Context.variables.registerDynamicCallback(aspect, callback);
 }

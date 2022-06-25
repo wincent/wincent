@@ -32,15 +32,10 @@ class Context {
   #counts: Counts;
   #currentAspect?: Aspect;
   #currentTask?: string;
-  #currentVariables?: Variables;
   #handlers: HandlerRegistry;
   #options?: Options;
   #sudoPassphrase?: Promise<string>;
   #tasks: TaskRegistry;
-
-  // TODO: rename stuff to avoid confusion about `variables`
-  // (VariableRegistry) vs `currentVariables` (merged variables set
-  // from main.ts).
   #variables: VariableRegistry;
 
   constructor() {
@@ -139,20 +134,19 @@ class Context {
     },
     callback: () => Promise<void>
   ) {
+    this.#variables.registerStaticVariables(aspect, variables);
+
     let previousAspect = this.#currentAspect;
     let previousTask = this.#currentTask;
-    let previousVariables = this.#currentVariables;
 
     try {
       this.#currentAspect = aspect;
       this.#currentTask = task;
-      this.#currentVariables = variables;
 
       await callback();
     } finally {
       this.#currentAspect = previousAspect;
       this.#currentTask = previousTask;
-      this.#currentVariables = previousVariables;
     }
   }
 
@@ -184,12 +178,12 @@ class Context {
   }
 
   get currentVariables(): Variables {
-    assert(this.#currentVariables);
-    return this.#currentVariables;
-  }
-
-  set currentVariables(variables: Variables) {
-    this.#currentVariables = variables;
+    // In-progress refactoring: look up using #currentAspect.
+    // Next step: look up using more flexible `getCaller()`/`getAspectFromCaller()`
+    assert(this.#currentAspect);
+    const variables = this.#variables.getStaticVariables(this.#currentAspect);
+    assert(variables);
+    return variables;
   }
 
   get handlers(): HandlerRegistry {
