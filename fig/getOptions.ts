@@ -124,23 +124,23 @@ async function printUsage(aspects: Array<[string, string]>) {
   log(
     dedent`
 
-              ./install [options] [aspects...]
+      ./install [options] [aspects...]
 
-              ${bold`Options:`}
+      ${bold`Options:`}
 
-                -d/--debug
-                   --dry-run
-                -f/--force    (not yet implemented)
-                -h/--help
-                   --parallel (experimental)
-                -q/--quiet
-                -t/--test
-                -v/--verbose  (repeat up to four times for more verbosity) # not yet implemented
-                   --start-at-task='aspect | task' # TODO: maybe make -s short variant
-                   --step
+        -d/--debug
+           --dry-run
+        -f/--force    (not yet implemented)
+        -h/--help
+           --parallel (experimental)
+        -q/--quiet
+        -t/--test
+        -v/--verbose  (repeat up to four times for more verbosity) # not yet implemented
+           --start-at-task='aspect | task' # TODO: maybe make -s short variant
+           --step
 
-              ${bold`Aspects:`}
-        `
+      ${bold`Aspects:`}
+    `
   );
 
   for (const [aspect, description] of aspects) {
