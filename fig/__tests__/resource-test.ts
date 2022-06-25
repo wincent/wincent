@@ -6,8 +6,12 @@ import {describe, expect, test} from '../test/harness.js';
 
 function withMeta(callback: () => void) {
   return () => {
-    Context.currentAspect = 'meta';
-    callback();
+    try {
+      Context.currentAspect = 'meta';
+      callback();
+    } finally {
+      Context.currentAspect = undefined;
+    }
   };
 }
 
@@ -23,49 +27,69 @@ describe('file()', () => {
     })
   );
 
-  test('returns a string-like object', () => {
-    const example: any = file('example.txt');
+  test(
+    'returns a string-like object',
+    withMeta(() => {
+      const example: any = file('example.txt');
 
-    expect(example instanceof String).toBe(true);
-    expect(Object.prototype.toString.call(example)).toBe('[object String]');
-    expect(example[inspect]()).toBe('aspects/meta/files/example.txt');
-  });
+      expect(example instanceof String).toBe(true);
+      expect(Object.prototype.toString.call(example)).toBe('[object String]');
+      expect(example[inspect]()).toBe('aspects/meta/files/example.txt');
+    })
+  );
 
-  test('returns a value with a basename property', () => {
-    const example: any = file('example.txt');
+  test(
+    'returns a value with a basename property',
+    withMeta(() => {
+      const example: any = file('example.txt');
 
-    expect(example.basename.toString()).toBe('example.txt');
-  });
+      expect(example.basename.toString()).toBe('example.txt');
+    })
+  );
 
-  test('returns a value with a dirname property', () => {
-    const example: any = file('example.txt');
+  test(
+    'returns a value with a dirname property',
+    withMeta(() => {
+      const example: any = file('example.txt');
 
-    expect(example.dirname.toString()).toBe('aspects/meta/files');
-  });
+      expect(example.dirname.toString()).toBe('aspects/meta/files');
+    })
+  );
 
-  test('returns a value with a resolve property', () => {
-    const example: any = file('example.txt');
+  test(
+    'returns a value with a resolve property',
+    withMeta(() => {
+      const example: any = file('example.txt');
 
-    expect(example.resolve.toString()).toBe(
-      join(process.cwd(), 'aspects/meta/files/example.txt')
-    );
-  });
+      expect(example.resolve.toString()).toBe(
+        join(process.cwd(), 'aspects/meta/files/example.txt')
+      );
+    })
+  );
 
-  test('returns a value with a join property', () => {
-    const example: any = file('example.txt');
+  test(
+    'returns a value with a join property',
+    withMeta(() => {
+      const example: any = file('example.txt');
 
-    // Note that normalization (simplification of ".." components) is
-    // automatic.
-    expect(example.join('..', 'foo').toString()).toBe('aspects/meta/files/foo');
-  });
+      // Note that normalization (simplification of ".." components) is
+      // automatic.
+      expect(example.join('..', 'foo').toString()).toBe(
+        'aspects/meta/files/foo'
+      );
+    })
+  );
 
-  test('returns a value with chainable helper properties', () => {
-    const example: any = file('example.txt');
+  test(
+    'returns a value with chainable helper properties',
+    withMeta(() => {
+      const example: any = file('example.txt');
 
-    expect(example.resolve.dirname.join('other.txt').toString()).toBe(
-      join(process.cwd(), 'aspects/meta/files/other.txt')
-    );
-  });
+      expect(example.resolve.dirname.join('other.txt').toString()).toBe(
+        join(process.cwd(), 'aspects/meta/files/other.txt')
+      );
+    })
+  );
 });
 
 describe('files()', () => {

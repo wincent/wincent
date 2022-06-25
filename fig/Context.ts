@@ -10,6 +10,7 @@ import getCallers from './getCallers.js';
 import prompt from './prompt.js';
 import run from './run.js';
 import * as status from './status.js';
+import {assertAspect} from './types/Project.js';
 
 import type {Metadata} from './ErrorWithMetadata.js';
 import type {Options} from './getOptions.js';
@@ -67,13 +68,11 @@ class Context {
     this.#counts.changed++;
 
     if (notify !== undefined) {
-      assert(this.#currentAspect);
+      const aspect = this.currentAspect;
+      assertAspect(aspect);
 
       for (const target of Array.isArray(notify) ? notify : [notify]) {
-        this.#handlers.notify(
-          this.#currentAspect,
-          `${this.#currentAspect} | ${target}`
-        );
+        this.#handlers.notify(aspect, `${aspect} | ${target}`);
       }
     }
 
@@ -138,16 +137,13 @@ class Context {
   ) {
     this.#variables.registerStaticVariables(aspect, variables);
 
-    let previousAspect = this.#currentAspect;
     let previousTask = this.#currentTask;
 
     try {
-      this.#currentAspect = aspect;
       this.#currentTask = task;
 
       await callback();
     } finally {
-      this.#currentAspect = previousAspect;
       this.#currentTask = previousTask;
     }
   }
@@ -161,12 +157,16 @@ class Context {
   }
 
   get currentAspect(): Aspect {
-    assert(this.#currentAspect);
-
-    return this.#currentAspect;
+    // Try `#currentAspect` first (used in tests), then try inference.
+    const aspect = this.#currentAspect || getAspectFromCallers(getCallers());
+    assertAspect(aspect);
+    return aspect;
   }
 
-  set currentAspect(aspect: Aspect) {
+  /**
+   * For use in tests only; see fig/__tests__/resource-test.ts
+   */
+  set currentAspect(aspect: Aspect | undefined) {
     this.#currentAspect = aspect;
   }
 
@@ -182,10 +182,6 @@ class Context {
   get currentVariables(): Variables {
     const aspect = getAspectFromCallers(getCallers());
     if (aspect) {
-      // TODO: remove this; I'm including it now just to show that I verified
-      // this.
-      assert(aspect === this.#currentAspect);
-
       const variables = this.#variables.getStaticVariables(aspect);
       assert(variables);
       return variables;

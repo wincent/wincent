@@ -10,14 +10,16 @@ export default function getAspectFromCallers(
   callers: Array<string>
 ): Aspect | null {
   for (const caller of callers) {
-    const path = url.fileURLToPath(caller);
-    const ancestors = relative(root, path).split(sep);
-    const aspect =
-      ancestors[0] === 'lib' && ancestors[1] === 'aspects' && ancestors[2];
+    if (caller.startsWith('file://')) {
+      const path = url.fileURLToPath(caller);
+      const ancestors = relative(root, path).split(sep);
+      const aspect =
+        ancestors[0] === 'lib' && ancestors[1] === 'aspects' && ancestors[2];
 
-    if (aspect) {
-      assertAspect(aspect);
-      return aspect;
+      if (aspect) {
+        assertAspect(aspect);
+        return aspect;
+      }
     }
   }
   return null;

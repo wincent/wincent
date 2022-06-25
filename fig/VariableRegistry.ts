@@ -42,7 +42,7 @@ export default class VariableRegistry {
       // We throw here because `variables()` is supposed to be called at most
       // once per aspect.
       throw new Error(
-        `Variables have already been registered for aspect ${aspect}`
+        `Dynamic variables have already been registered for aspect ${aspect}`
       );
     }
 
@@ -50,8 +50,9 @@ export default class VariableRegistry {
   }
 
   registerGlobalVariables(variables: Variables) {
-    // No throw here because this may be called once per task execution.
-    // TODO: decide whether this comment is right
+    if (this.#globals) {
+      throw new Error('Global variables have already been registered');
+    }
     this.#globals = variables;
   }
 

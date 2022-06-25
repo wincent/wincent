@@ -8,7 +8,6 @@ import escapeRegExpPattern from './escapeRegExpPattern.js';
 import {promises as fs} from './fs.js';
 import readAspect from './readAspect.js';
 import stringify from './stringify.js';
-
 import {assertAspect} from './types/Project.js';
 
 import type {LogLevel} from './console.js';
