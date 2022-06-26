@@ -34,19 +34,19 @@ export default async function command(
     }
 
     if (stats !== null) {
-      Context.informSkipped(`command \`${description}\``);
+      await Context.informSkipped(`command \`${description}\``);
 
       return null;
     }
   }
 
   try {
-    log.debug(
+    await log.debug(
       `Run command \`${description}\` with options: ${stringify(options)}`
     );
 
     if (Context.options.check) {
-      Context.informSkipped(`command \`${description}\``);
+      await Context.informSkipped(`command \`${description}\``);
 
       return null;
     } else {
@@ -69,7 +69,7 @@ export default async function command(
         });
       }
 
-      Context.informChanged(`command \`${description}\``, options.notify);
+      await Context.informChanged(`command \`${description}\``, options.notify);
 
       return result;
     }
@@ -77,7 +77,7 @@ export default async function command(
     if (error instanceof ErrorWithMetadata) {
       Context.informFailed(error);
     } else {
-      log.debug(String(error));
+      await log.debug(String(error));
       Context.informFailed(`command \`${description}\` failed`);
     }
   }

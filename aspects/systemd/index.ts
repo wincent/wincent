@@ -15,7 +15,7 @@ task('set up hostname', when('arch'), async () => {
   ) {
     await command('hostnamectl', ['set-hostname', hostname], {sudo: true});
   } else {
-    skip();
+    await skip();
   }
 });
 

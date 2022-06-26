@@ -30,7 +30,7 @@ export default async function line({
   state?: 'absent' | 'present';
   sudo?: boolean;
 }): Promise<OperationResult> {
-  log.debug(`Line \`${line}\` in \`${path}\``);
+  await log.debug(`Line \`${line}\` in \`${path}\``);
 
   const normalized = `${line.trimEnd()}\n`;
 

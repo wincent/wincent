@@ -2,15 +2,11 @@ export default {
   platforms: {
     darwin: {
       aspects: [
-        // TODO: parallelize some more of these once I have a prompt mutex
         'meta',
         ['backup', 'dotfiles', 'fonts'],
         'homebrew',
         ['iterm', 'node'],
-        'karabiner',
-        'launchd',
-        'ruby',
-        'shell',
+        ['karabiner', 'launchd', 'ruby', 'shell'],
         'ssh',
         'tampermonkey',
         'terminfo',

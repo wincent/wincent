@@ -217,14 +217,14 @@ export default async function file({
   // "template", "fetch" and "file"
   if (changed.length) {
     if (mutate) {
-      return Context.informChanged(
+      return await Context.informChanged(
         `file[${changed.join('|')}] ${path}`,
         notify
       );
     } else {
-      return Context.informSkipped(`file[${changed.join('|')}] ${path}`);
+      return await Context.informSkipped(`file[${changed.join('|')}] ${path}`);
     }
   } else {
-    return Context.informOk(`file ${path}`);
+    return await Context.informOk(`file ${path}`);
   }
 }

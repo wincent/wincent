@@ -73,7 +73,7 @@ task('set up switchable symbolic links', async () => {
         state: 'link',
       });
     } else {
-      skip(`path ${stringify(dest)} exists`);
+      await skip(`path ${stringify(dest)} exists`);
     }
   }
 });

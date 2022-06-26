@@ -6,7 +6,7 @@ import {root} from './index.js';
 import {Project, assertProject} from './types/Project.js';
 
 export default async function readProject(directory: string): Promise<Project> {
-  log.debug(`Reading project configuration: ${directory}`);
+  await log.debug(`Reading project configuration: ${directory}`);
 
   let project;
 

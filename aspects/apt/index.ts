@@ -13,7 +13,7 @@ task('install packages', when('debian'), async () => {
     if (result?.status !== 0 || result?.stdout.includes('not-installed')) {
       await command('apt-get', ['install', '-y', pkg], {sudo: true});
     } else if (result?.status === 0 && result?.stdout.includes('installed')) {
-      skip(`${pkg} is already installed`);
+      await skip(`${pkg} is already installed`);
     } else {
       fail(`cannot determine installation status for ${pkg}`);
     }

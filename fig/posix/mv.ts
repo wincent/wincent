@@ -15,7 +15,7 @@ export default async function mv(
 ): Promise<Error | null> {
   const passphrase = options.sudo ? await Context.sudoPassphrase : undefined;
 
-  log.debug(`Moving: ${source} ${target}`);
+  await log.debug(`Moving: ${source} ${target}`);
 
   // TODO: consider passing -f here
   const result = await run('mv', [source, target], {passphrase});
@@ -23,7 +23,7 @@ export default async function mv(
   if (result.status === 0) {
     return null;
   } else {
-    log.debug(stringify(result));
+    await log.debug(stringify(result));
 
     return (
       result.error || new ErrorWithMetadata(`\`mv ${source} ${target}\` failed`)

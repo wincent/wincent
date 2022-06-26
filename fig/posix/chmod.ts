@@ -17,14 +17,14 @@ export default async function chmod(
 
   const args = [mode, path];
 
-  log.debug(`Setting mode: ${args.join(' ')}`);
+  await log.debug(`Setting mode: ${args.join(' ')}`);
 
   const result = await run('chmod', args, {passphrase});
 
   if (result.status === 0) {
     return null;
   } else {
-    log.debug(stringify(result));
+    await log.debug(stringify(result));
 
     return (
       result.error ||

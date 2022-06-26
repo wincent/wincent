@@ -62,10 +62,10 @@ class Context {
     return this.#compiler.compile(path);
   }
 
-  informChanged(
+  async informChanged(
     message: string,
     notify?: Array<string> | string
-  ): OperationResult {
+  ): Promise<OperationResult> {
     this.#counts.changed++;
 
     if (notify !== undefined) {
@@ -77,7 +77,7 @@ class Context {
       }
     }
 
-    status.changed(message);
+    await status.changed(message);
 
     return 'changed';
   }
@@ -92,7 +92,7 @@ class Context {
    */
   informFailed(message: string, metadata?: Metadata): never;
 
-  informFailed(...args: Array<any>): never {
+  async informFailed(...args: Array<any>): Promise<never> {
     let error: ErrorWithMetadata;
 
     if (typeof args[0] === 'string') {
@@ -103,23 +103,23 @@ class Context {
 
     this.#counts.failed++;
 
-    status.failed(error.message);
+    await status.failed(error.message);
 
     throw error;
   }
 
-  informOk(message: string): OperationResult {
+  async informOk(message: string): Promise<OperationResult> {
     this.#counts.ok++;
 
-    status.ok(message);
+    await status.ok(message);
 
     return 'ok';
   }
 
-  informSkipped(message: string): OperationResult {
+  async informSkipped(message: string): Promise<OperationResult> {
     this.#counts.skipped++;
 
-    status.skipped(message);
+    await status.skipped(message);
 
     return 'skipped';
   }

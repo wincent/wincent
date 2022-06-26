@@ -26,7 +26,7 @@ export default class Compiler {
       const compiled = compile(source);
 
       // BUG: too verbose?
-      // log.debug(`Compiled template source:\n\n${compiled}\n`);
+      // await log.debug(`Compiled template source:\n\n${compiled}\n`);
 
       map.set(path, {
         fill(scope) {

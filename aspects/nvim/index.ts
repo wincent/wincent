@@ -123,7 +123,7 @@ task('create spell file', async () => {
 });
 
 task('update bundle', async () => {
-  skip('not yet implemented');
+  await skip('not yet implemented');
   // update-bundle
 });
 

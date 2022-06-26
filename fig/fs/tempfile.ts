@@ -16,7 +16,7 @@ export default async function tempfile(
 
   await fs.writeFile(path, contents, {encoding});
 
-  log.debug(`Wrote ${contents.length} bytes to ${path}`);
+  await log.debug(`Wrote ${contents.length} bytes to ${path}`);
 
   return path;
 }

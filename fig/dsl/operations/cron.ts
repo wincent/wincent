@@ -39,7 +39,7 @@ export default async function cron({
   const entry = [minute, hour, day, month, weekday, job].join(' ');
 
   // TODO maybe allow management of other user crontabs with sudo.
-  log.debug(`Reading crontab`);
+  await log.debug(`Reading crontab`);
 
   const result = await run('crontab', ['-l']);
 
@@ -96,12 +96,16 @@ export default async function cron({
   }
 
   if (crontab !== result.stdout) {
-    log.debug('---- Begin new crontab contents ----');
-    log.debug(crontab);
-    log.debug('----  End new crontab contents  ----');
+    await log.debug(
+      [
+        '---- Begin new crontab contents ----',
+        crontab,
+        '----  End new crontab contents  ----',
+      ].join('\n')
+    );
 
     if (Context.options.check) {
-      return Context.informSkipped(`cron ${id}`);
+      return await Context.informSkipped(`cron ${id}`);
     } else {
       const src = await tempfile('cron', crontab);
 
@@ -114,10 +118,10 @@ export default async function cron({
         });
       }
 
-      return Context.informChanged(`cron ${id}`, notify);
+      return await Context.informChanged(`cron ${id}`, notify);
     }
   } else {
-    return Context.informOk(`cron ${id}`);
+    return await Context.informOk(`cron ${id}`);
   }
 }
 

@@ -103,7 +103,7 @@ export async function run() {
   let failureCount = 0;
   let successCount = 0;
 
-  debug(() => log());
+  await debug(async () => await log());
 
   for (const [description, callback] of TESTS) {
     const write = {
@@ -144,7 +144,7 @@ export async function run() {
       successCount++;
       await debug(async () => {
         await print.clear();
-        log(green.reverse` PASS `, description);
+        await log(green.reverse` PASS `, description);
       });
     } catch (error) {
       process.stderr.write = write.stderr;
@@ -152,17 +152,17 @@ export async function run() {
 
       failureCount++;
       await print.clear();
-      log(red.reverse` FAIL `, description);
+      await log(red.reverse` FAIL `, description);
       if (error instanceof Error) {
-        log(`\n${error.message}\n`);
+        await log(`\n${error.message}\n`);
       } else {
-        log(`\n${Object.prototype.toString.call(error)}\n`);
+        await log(`\n${Object.prototype.toString.call(error)}\n`);
       }
-      log(error);
-      log();
+      await log(error);
+      await log();
     } finally {
       if (captured) {
-        log(captured);
+        await log(captured);
       }
     }
   }
@@ -182,12 +182,12 @@ export async function run() {
   const logLevel = getLogLevel();
 
   if (logLevel >= LOG_LEVEL.DEBUG || failureCount) {
-    log();
-    log(`${successSummary}, ${failureSummary}, ${totalSummary}`);
+    await log();
+    await log(`${successSummary}, ${failureSummary}, ${totalSummary}`);
     if (logLevel < LOG_LEVEL.DEBUG) {
-      log('Rerun with --debug to see full results');
+      await log('Rerun with --debug to see full results');
     }
-    log();
+    await log();
   }
 
   if (failureCount) {

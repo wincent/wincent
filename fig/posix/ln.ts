@@ -19,14 +19,14 @@ export default async function ln(
 
   const args = [options.force ? '-sfn' : '-sn', source, target];
 
-  log.debug(`Linking: ${args.join(' ')}`);
+  await log.debug(`Linking: ${args.join(' ')}`);
 
   const result = await run('ln', args, {passphrase});
 
   if (result.status === 0) {
     return null;
   } else {
-    log.debug(stringify(result));
+    await log.debug(stringify(result));
 
     return (
       result.error || new ErrorWithMetadata(`\`ln ${args.join(' ')}\` failed`)

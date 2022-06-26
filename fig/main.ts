@@ -35,19 +35,19 @@ async function main() {
 
   setLogLevel(options.logLevel);
 
-  debug(() => {
-    log.debug('process.argv:\n\n' + stringify(process.argv) + '\n');
-    log.debug('getOptions():\n\n' + stringify(options) + '\n');
+  await debug(async () => {
+    await log.debug('process.argv:\n\n' + stringify(process.argv) + '\n');
+    await log.debug('getOptions():\n\n' + stringify(options) + '\n');
   });
 
   if (process.cwd() === root) {
-    log.info(`Working from root: ${path(root).simplify}`);
+    await log.info(`Working from root: ${path(root).simplify}`);
   } else {
-    log.notice(`Changing to root: ${path(root).simplify}`);
+    await log.notice(`Changing to root: ${path(root).simplify}`);
     process.chdir(root);
   }
 
-  log.info('Running tests');
+  await log.info('Running tests');
 
   await test();
 
@@ -66,9 +66,9 @@ async function main() {
       regExpFromString(pattern).test(hostname)
     ) || [];
 
-  log.info(`Profile: ${profile || 'n/a'}`);
+  await log.info(`Profile: ${profile || 'n/a'}`);
 
-  log.debug(`Profiles:\n\n${stringify(profiles)}\n`);
+  await log.debug(`Profiles:\n\n${stringify(profiles)}\n`);
 
   const profileVariables: {[key: string]: JSONValue} = profile
     ? profiles[profile]!.variables ?? {}
@@ -76,7 +76,7 @@ async function main() {
 
   const {distribution, platform} = Context.attributes;
 
-  log.info(`Platform: ${platform}`);
+  await log.info(`Platform: ${platform}`);
 
   const platformVariant:
     | `${typeof platform}.${Exclude<typeof distribution, ''>}`
@@ -113,9 +113,9 @@ async function main() {
   }
 
   if (!options.startAt.found && candidateTasks.length === 1) {
-    log.notice(`Matching task found: ${candidateTasks[0]}`);
+    await log.notice(`Matching task found: ${candidateTasks[0]}`);
 
-    log();
+    await log();
 
     if (await prompt.confirm('Start running at this task')) {
       options.startAt.found = true;
@@ -124,16 +124,18 @@ async function main() {
       throw new ErrorWithMetadata('User aborted');
     }
   } else if (!options.startAt.found && candidateTasks.length > 1) {
-    log.notice(`${candidateTasks.length} tasks found:\n`);
+    await log.notice(`${candidateTasks.length} tasks found:\n`);
 
     const width = candidateTasks.length.toString().length;
 
     while (!options.startAt.found) {
-      candidateTasks.forEach((name, i) => {
-        log(`${(i + 1).toString().padStart(width)}: ${name}`);
-      });
+      let i = 0;
+      for (const name of candidateTasks) {
+        await log(`${(i + 1).toString().padStart(width)}: ${name}`);
+        i++;
+      }
 
-      log();
+      await log();
 
       const reply = await prompt('Start at task number: ');
 
@@ -144,13 +146,13 @@ async function main() {
         choice < 1 ||
         choice > candidateTasks.length
       ) {
-        log.warn(
+        await log.warn(
           `Invalid choice ${stringify(
             reply
           )}; try again or press CTRL-C to abort.`
         );
 
-        log();
+        await log();
       } else {
         options.startAt.found = true;
         options.startAt.literal = candidateTasks[choice - 1];
@@ -207,7 +209,7 @@ async function main() {
         );
 
         if (options.focused.size && !options.focused.has(aspect)) {
-          log.info(`Skipping aspect: ${aspect}`);
+          await log.info(`Skipping aspect: ${aspect}`);
           return;
         }
 
@@ -218,12 +220,12 @@ async function main() {
           Context.variables.getVariablesCallback(aspect)(mergedVariables)
         );
 
-        log.debug(`Variables:\n\n${stringify(variables)}\n`);
+        await log.debug(`Variables:\n\n${stringify(variables)}\n`);
 
         for (const [callback, name] of Context.tasks.get(aspect)) {
           if (!options.startAt.found || name === options.startAt.literal) {
             options.startAt.found = false;
-            log.notice(`Task: ${name}`);
+            await log.notice(`Task: ${name}`);
 
             if (stepping) {
               for (;;) {
@@ -246,7 +248,7 @@ async function main() {
                   );
                   break;
                 } else if ('no'.startsWith(reply)) {
-                  Context.informSkipped(`task ${name}`);
+                  await Context.informSkipped(`task ${name}`);
                   break;
                 } else if ('quit'.startsWith(reply)) {
                   throw new AbortError();
@@ -262,7 +264,7 @@ async function main() {
                   );
                   break;
                 } else if ('help'.startsWith(reply)) {
-                  log(
+                  await log(
                     dedent`
                       [y]es:      run the task
                       [n]o:       skip the task
@@ -271,7 +273,7 @@ async function main() {
                     `
                   );
                 } else {
-                  log.warn('Invalid choice; try again.');
+                  await log.warn('Invalid choice; try again.');
                 }
               }
             } else {
@@ -284,7 +286,7 @@ async function main() {
           const {callbacks, notifications} = Context.handlers.get(aspect);
 
           for (const name of notifications) {
-            log.notice(`Handler: ${name}`);
+            await log.notice(`Handler: ${name}`);
 
             const callback = callbacks.get(name);
 
@@ -317,7 +319,7 @@ async function main() {
                   );
                   break;
                 } else if ('no'.startsWith(reply)) {
-                  Context.informSkipped(`handler ${name}`);
+                  await Context.informSkipped(`handler ${name}`);
                   break;
                 } else if ('quit'.startsWith(reply)) {
                   throw new AbortError();
@@ -333,7 +335,7 @@ async function main() {
                   );
                   break;
                 } else if ('help'.startsWith(reply)) {
-                  log(
+                  await log(
                     dedent`
                       [y]es:      run the handler
                       [n]o:       skip the handler
@@ -342,7 +344,7 @@ async function main() {
                     `
                   );
                 } else {
-                  log.warn('Invalid choice; try again.');
+                  await log.warn('Invalid choice; try again.');
                 }
               }
             } else {
@@ -352,8 +354,8 @@ async function main() {
 
           for (const name of callbacks.keys()) {
             if (!notifications.has(name)) {
-              log.notice(`Handler: ${name}`);
-              Context.informSkipped(`handler ${name}`);
+              await log.notice(`Handler: ${name}`);
+              await Context.informSkipped(`handler ${name}`);
             }
           }
         }
@@ -373,7 +375,7 @@ async function main() {
       .join(' ');
     const elapsed = msToHumanReadable(Date.now() - start);
 
-    log.notice(`Summary: ${counts} elapsed=${elapsed}`);
+    await log.notice(`Summary: ${counts} elapsed=${elapsed}`);
   }
 }
 
@@ -493,18 +495,18 @@ async function loadAspect(aspect: Aspect): Promise<void> {
   }
 }
 
-main().catch((error) => {
+main().catch(async (error) => {
   if (error instanceof ErrorWithMetadata) {
     if (error.metadata) {
-      log.error(`${error.message}\n\n${stringify(error.metadata)}\n`);
+      await log.error(`${error.message}\n\n${stringify(error.metadata)}\n`);
     } else {
-      log.error(error.message);
+      await log.error(error.message);
     }
   } else {
-    log.error(error.toString());
+    await log.error(error.toString());
   }
 
-  log.debug(String(error.stack));
+  await log.debug(String(error.stack));
 
   process.exit(1);
 });

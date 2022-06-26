@@ -15,7 +15,7 @@ export default async function cp(
 ): Promise<Error | null> {
   const passphrase = options.sudo ? await Context.sudoPassphrase : undefined;
 
-  log.debug(`Copying: ${source} ${target}`);
+  await log.debug(`Copying: ${source} ${target}`);
 
   // TODO: consider passing -f here
   const result = await run('cp', [source, target], {passphrase});
@@ -23,7 +23,7 @@ export default async function cp(
   if (result.status === 0) {
     return null;
   } else {
-    log.debug(stringify(result));
+    await log.debug(stringify(result));
 
     return (
       result.error || new ErrorWithMetadata(`\`cp ${source} ${target}\` failed`)

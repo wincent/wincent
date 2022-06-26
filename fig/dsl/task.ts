@@ -41,7 +41,7 @@ export default function task(
         if (result === true) {
           await callback();
         } else if (result) {
-          skip(result);
+          await skip(result);
         } else {
           throw new Error(
             'task(): expected predicate to return `true` or a string'

@@ -59,7 +59,7 @@ task('tap "homebrew/bundle"', async () => {
   const result = await command('brew', ['tap']);
 
   if (/^homebrew\/bundle$/m.test(result!.stdout)) {
-    return skip('already tapped');
+    return await skip('already tapped');
   }
 
   await command('brew', ['tap', 'homebrew/bundle']);

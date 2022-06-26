@@ -21,14 +21,14 @@ export default async function rm(
     args.unshift('-r');
   }
 
-  log.debug(`Removing: ${args.join(' ')}`);
+  await log.debug(`Removing: ${args.join(' ')}`);
 
   const result = await run('rm', args, {passphrase});
 
   if (result.status === 0) {
     return null;
   } else {
-    log.debug(stringify(result));
+    await log.debug(stringify(result));
 
     return (
       result.error || new ErrorWithMetadata(`\`rm ${args.join(' ')}\` failed`)

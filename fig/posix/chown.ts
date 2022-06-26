@@ -35,14 +35,14 @@ export default async function chown(
 
   const passphrase = options.sudo ? await Context.sudoPassphrase : undefined;
 
-  log.debug(`Setting ownership: ${args.join(' ')}`);
+  await log.debug(`Setting ownership: ${args.join(' ')}`);
 
   const result = await run('chown', args, {passphrase});
 
   if (result.status === 0) {
     return null;
   } else {
-    log.debug(stringify(result));
+    await log.debug(stringify(result));
 
     return (
       result.error ||

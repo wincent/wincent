@@ -26,7 +26,7 @@ export default async function fetch({
   sudo?: boolean;
   url: string;
 }): Promise<OperationResult> {
-  log.debug(`Download \`${url}\` to \`${dest}\``);
+  await log.debug(`Download \`${url}\` to \`${dest}\``);
 
   let get: typeof https.get | typeof http.get;
 

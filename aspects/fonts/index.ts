@@ -15,9 +15,9 @@ task('install Source Code Pro', async () => {
   const stats = await stat(contents);
 
   if (stats === null) {
-    log.warn(`Submodule contents missing at "${contents}"`);
+    await log.warn(`Submodule contents missing at "${contents}"`);
 
-    return skip();
+    return await skip();
   } else if (stats instanceof Error) {
     throw stats;
   }

@@ -6,7 +6,7 @@ import {root} from './index.js';
 import {Aspect, assertAspect} from './types/Aspect.js';
 
 export default async function readAspect(directory: string): Promise<Aspect> {
-  log.debug(`Reading aspect configuration: ${directory}`);
+  await log.debug(`Reading aspect configuration: ${directory}`);
 
   let aspect;
 

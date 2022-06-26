@@ -82,7 +82,7 @@ task('set Microsoft Edge as default browser', when('arch'), async () => {
   ]);
 
   if (result?.status === 0 && result.stdout.includes('yes')) {
-    skip('already default');
+    await skip('already default');
   } else {
     await command('xdg-settings', [
       'set',

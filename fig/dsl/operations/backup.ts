@@ -14,7 +14,7 @@ export default async function backup({
   relative?: string;
 }): Promise<OperationResult> {
   if (Context.options.check) {
-    return Context.informSkipped(`file ${src}`);
+    return await Context.informSkipped(`file ${src}`);
   } else {
     const source = path(relative).join(src).expand;
     const target = path(dest).join(src).expand;

@@ -51,7 +51,7 @@ task('install global packages', async () => {
     });
 
     if (result && result.status === 0) {
-      skip(`package ${name} (already installed)`);
+      await skip(`package ${name} (already installed)`);
     } else {
       await command(npm, ['install', '-g', name], {env});
     }

@@ -42,7 +42,7 @@ task('prepare karabiner.json', async () => {
 
 task('write karabiner.json', async () => {
   if (!config) {
-    return skip('no contents prepared for karabiner.json');
+    return await skip('no contents prepared for karabiner.json');
   }
 
   await template({

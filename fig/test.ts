@@ -14,9 +14,9 @@ export default async function test() {
         await import(file);
       } catch (error) {
         if (error instanceof Error) {
-          log.error(error.toString());
+          await log.error(error.toString());
         } else {
-          log.error(Object.prototype.toString.call(error));
+          await log.error(Object.prototype.toString.call(error));
         }
       }
     }

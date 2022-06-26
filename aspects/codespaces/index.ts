@@ -14,7 +14,7 @@ task('set "StreamLocalBindUnlink yes" in /etc/ssh/sshd_config', async () => {
   if (result === 'changed') {
     await command('pkill', ['-HUP', '-F', '/var/run/sshd.pid'], {sudo: true});
   } else {
-    skip('no need to send SIGHUP to sshd (no changes made)');
+    await skip('no need to send SIGHUP to sshd (no changes made)');
   }
 });
 
@@ -67,7 +67,7 @@ task('install skim', async () => {
 task('run ripper-tags', async () => {
   const stats = await stat('/workspaces/github');
   if (stats === null) {
-    skip('no repo exists');
+    await skip('no repo exists');
   } else {
     await command('ripper-tags', ['-R', '--exclude=vendor'], {
       creates: '/workspaces/github/tags',

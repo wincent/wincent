@@ -1,5 +1,6 @@
 import {clearLine, cursorTo} from 'readline';
 
+import lock from './lock.js';
 import stringify from './stringify.js';
 import COLORS from './console/COLORS.js';
 
@@ -51,9 +52,11 @@ export const LOG_LEVEL = {
 } as const;
 
 export function clear() {
-  return new Promise<void>((resolve) => {
-    clearLine(process.stderr, 0, () => {
-      cursorTo(process.stderr, 0, undefined, resolve);
+  return lock('console', async () => {
+    return new Promise<void>((resolve) => {
+      clearLine(process.stderr, 0, () => {
+        cursorTo(process.stderr, 0, undefined, resolve);
+      });
     });
   });
 }
@@ -74,53 +77,54 @@ export function getLogLevel(): LogLevel {
   return logLevel;
 }
 
-export function log(...args: Array<any>) {
-  print(...args);
-  print('\n');
+export async function log(...args: Array<any>) {
+  await print(...args, '\n');
 }
 
-log.debug = function debug(message: string) {
+log.debug = async function debug(message: string) {
   if (logLevel >= LOG_LEVEL.DEBUG) {
-    log(purple.bold`${PREFIX_MAP.debug}` + message);
+    await log(purple.bold`${PREFIX_MAP.debug}` + message);
   }
 };
 
-log.error = function error(message: string) {
+log.error = async function error(message: string) {
   if (logLevel >= LOG_LEVEL.ERROR) {
-    log(red.bold`${PREFIX_MAP.error}` + message);
+    await log(red.bold`${PREFIX_MAP.error}` + message);
   }
 };
 
-log.info = function info(message: string) {
+log.info = async function info(message: string) {
   if (logLevel >= LOG_LEVEL.INFO) {
-    log(bold`${PREFIX_MAP.info}` + message);
+    await log(bold`${PREFIX_MAP.info}` + message);
   }
 };
 
-log.notice = function notice(message: string) {
+log.notice = async function notice(message: string) {
   if (logLevel >= LOG_LEVEL.NOTICE) {
-    log(green.bold`${PREFIX_MAP.notice}` + message);
+    await log(green.bold`${PREFIX_MAP.notice}` + message);
   }
 };
 
-log.warn = function warn(message: string) {
+log.warn = async function warn(message: string) {
   if (logLevel >= LOG_LEVEL.WARNING) {
-    log(yellow.bold`${PREFIX_MAP.warning}` + message);
+    await log(yellow.bold`${PREFIX_MAP.warning}` + message);
   }
 };
 
-export function print(...args: Array<any>) {
-  process.stderr.write(
-    args
-      .map((arg) => {
-        if (typeof arg === 'string') {
-          return arg;
-        } else {
-          return stringify(arg);
-        }
-      })
-      .join(' ')
-  );
+export async function print(...args: Array<any>) {
+  await lock('console', async () => {
+    process.stderr.write(
+      args
+        .map((arg) => {
+          if (typeof arg === 'string') {
+            return arg;
+          } else {
+            return stringify(arg);
+          }
+        })
+        .join(' ')
+    );
+  });
 }
 
 export function nextLogLevel(level: LogLevel): LogLevel {

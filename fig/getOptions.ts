@@ -131,7 +131,7 @@ export default async function getOptions(
 
 async function printUsage(aspects: Array<[string, string]>) {
   // TODO: actually implement all the switches mentioned here
-  log(
+  await log(
     dedent`
 
       ./install [options] [aspects...]
@@ -154,9 +154,9 @@ async function printUsage(aspects: Array<[string, string]>) {
   );
 
   for (const [aspect, description] of aspects) {
-    log(`  ${aspect}`);
-    log(`    ${description}`);
+    await log(`  ${aspect}`);
+    await log(`    ${description}`);
   }
 
-  log();
+  await log();
 }

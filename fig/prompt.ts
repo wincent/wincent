@@ -1,8 +1,10 @@
 import * as readline from 'readline';
 import {Writable} from 'stream';
 
+import assert from './assert.js';
 import COLORS from './console/COLORS.js';
 import {log} from './console.js';
+import lock from './lock.js';
 
 type Options = {
   private?: boolean;
@@ -35,16 +37,23 @@ async function prompt(text: string, options: Options = {}): Promise<string> {
   });
 
   try {
-    const response = new Promise<string>((resolve) => {
-      rl.question(COLORS.yellow(text), (response) => {
-        process.stdout.write('\n');
-        resolve(response);
+    let result;
+
+    await lock('console', async () => {
+      const response = new Promise<string>((resolve) => {
+        rl.question(COLORS.yellow(text), (response) => {
+          process.stdout.write('\n');
+          resolve(response);
+        });
       });
+
+      muted = !!options.private;
+
+      result = await response;
     });
 
-    muted = !!options.private;
-
-    return await response;
+    assert(typeof result === 'string');
+    return result;
   } finally {
     rl.close();
   }
@@ -52,7 +61,9 @@ async function prompt(text: string, options: Options = {}): Promise<string> {
 
 prompt.confirm = async (text: string): Promise<boolean> => {
   if (process.env.NON_INTERACTIVE) {
-    log.info(`${text}? [y/n]: (assuming "y" because NON_INTERACTIVE is set)`);
+    await log.info(
+      `${text}? [y/n]: (assuming "y" because NON_INTERACTIVE is set)`
+    );
     return true;
   }
 

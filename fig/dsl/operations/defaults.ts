@@ -172,7 +172,7 @@ export default async function defaults({
     }
   }
 
-  log.debug(
+  await log.debug(
     `${description} current type = ${
       currentType ?? 'unset'
     }, current value = ${stringify(currentValue)}`
@@ -180,9 +180,9 @@ export default async function defaults({
 
   if (state === 'absent') {
     if (currentType === undefined) {
-      return Context.informOk(`absent ${description}`);
+      return await Context.informOk(`absent ${description}`);
     } else if (Context.options.check) {
-      return Context.informSkipped(`absent ${description}`);
+      return await Context.informSkipped(`absent ${description}`);
     } else {
       result = await run('defaults', [...args, 'delete', domain, key]);
 
@@ -193,13 +193,13 @@ export default async function defaults({
         });
       }
 
-      return Context.informChanged(`removed ${description}`, notify);
+      return await Context.informChanged(`removed ${description}`, notify);
     }
   } else {
     if (equal(currentValue, currentType, value!, type)) {
-      return Context.informOk(`present ${description}`);
+      return await Context.informOk(`present ${description}`);
     } else if (Context.options.check) {
-      return Context.informSkipped(`present ${description}`);
+      return await Context.informSkipped(`present ${description}`);
     } else {
       let typeAndValue: Array<string> = [];
 
@@ -244,7 +244,7 @@ export default async function defaults({
         });
       }
 
-      return Context.informChanged(
+      return await Context.informChanged(
         `set ${description} ${stringify(value)}`,
         notify
       );
