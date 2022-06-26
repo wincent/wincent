@@ -10,6 +10,6 @@ This one runs from a "primary" encrypted volume which I keep as a disk image on 
 
 This one also runs from the "master" volume; it's job is to create exact copies of the volume via `rsync` on a number of encrypted USB sticks. In this way if my main machine died, I could use one of the USB sticks to bootstrap a new machine, including creating a new "master" volume if need be.
 
-## `dump-1password`
+## `dump`
 
 Creates a JSON dump of everything in my 1Password vaults, and also downloads any documents in the vault. Like the others, this one is intended to be run from an encrypted recovery volume.
