@@ -98,9 +98,7 @@ export default async function cron({
   if (crontab !== result.stdout) {
     log.debug('New crontab contents');
 
-    debug(() => {
-      console.log(crontab);
-    });
+    debug(() => console.log(crontab));
 
     if (Context.options.check) {
       return Context.informSkipped(`cron ${id}`);

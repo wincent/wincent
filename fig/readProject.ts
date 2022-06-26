@@ -18,11 +18,9 @@ export default async function readProject(directory: string): Promise<Project> {
       relative(root, join(directory, 'project.js'))
     );
 
-    console.log(`trying ${mod}`);
     project = (await import(mod)).default;
   } catch {
     // Fallback to "project.json" in top-level directory.
-    console.log(`trying ${join(directory, 'project.json')}`);
     const json = await fs.readFile(join(directory, 'project.json'), 'utf8');
 
     project = JSON.parse(json);
