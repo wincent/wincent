@@ -72,7 +72,7 @@ All of the above is not to say that Ansible is a bad tool — I use it in other 
 
 ## Overall structure
 
-Overall structure remains similar to Ansible, but I made some changes to better reflect the use case here;
+Overall structure remains similar to Ansible, but I made some changes to better reflect the use case here:
 
 - Configuration is divided into ["aspects"](../aspects) that contain:
   - A TypeScript `index.ts` that defines tasks to be executed.
@@ -97,7 +97,7 @@ Again, things are broadly modeled on Ansible, but simplified to reflect that fac
 | **Groups:** Collections of hosts, so you can conveniently target multiple hosts without having to address each one individually  | **Profiles:** An abstract category indicating the kind of a host (eg. "work" or "personal")                     |
 | **Inventory:** A list of hosts (or groups of hosts) to be managed                                                                | n/a ("project.json" file contains map from hostname to profile to be applied)                                   |
 | **Roles:** Capabilities that a host can have (eg. webserver, file-server etc)                                                    | **Aspects:** Logical groups of functionality to be configured (eg. dotfiles, terminfo etc)                      |
-| **Tasks:** Operations to perform (eg. installing a package, writing a file                                                       | **Tasks:** Same as Ansible.                                                                                     |
+| **Tasks:** Operations to perform (eg. installing a package, writing a file)                                                      | **Tasks:** Same as Ansible.                                                                                     |
 | **Handlers:** Side effects that run (eg. restarting a service) if a task made a change to the system (eg. writing a config file) | **Handlers:** Same as Ansible.                                                                                  |
 | **Plays:** A mapping between hosts (or groups) and the tasks to be performed on them                                             | n/a (it's just a file containing tasks)                                                                         |
 | **Playbooks:** Lists of plays                                                                                                    | n/a ("project.json" file contains a map from platform to the aspects that should be set up on a given platform) |
