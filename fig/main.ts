@@ -55,7 +55,7 @@ async function main() {
     return;
   }
 
-  const project = await readProject(join(root, 'project.json'));
+  const project = await readProject(root);
 
   const hostname = Context.attributes.hostname;
 
