@@ -136,7 +136,7 @@ class Context {
     },
     callback: () => Promise<void>
   ) {
-    this.#variables.registerStaticVariables(aspect, variables);
+    this.#variables.registerFinalVariables(aspect, variables);
     this.#currentTask.set(aspect, task);
     await callback();
   }
@@ -172,7 +172,7 @@ class Context {
   get currentVariables(): Variables {
     const aspect = getAspectFromCallers(getCallers());
     if (aspect) {
-      const variables = this.#variables.getStaticVariables(aspect);
+      const variables = this.#variables.getFinalVariables(aspect);
       assert(variables);
       return variables;
     } else {

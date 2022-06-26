@@ -11,5 +11,5 @@ import {assertAspect} from '../types/Project.js';
 export default function variables(callback: (v: Variables) => Variables) {
   const aspect = getAspectFromCallers(getCallers());
   assertAspect(aspect);
-  Context.variables.registerDynamicCallback(aspect, callback);
+  Context.variables.registerVariablesCallback(aspect, callback);
 }
