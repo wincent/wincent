@@ -3,20 +3,16 @@
     "darwin": {
       "aspects": [
         "meta",
-        "backup",
-        "dotfiles",
-        "fonts",
+        ["backup", "dotfiles", "fonts"],
         "homebrew",
-        "iterm",
-        ["node", "karabiner", "launchd"],
+        ["iterm", "node", "karabiner", "launchd"],
         "ruby",
         "shell",
         "ssh",
         "tampermonkey",
         "terminfo",
         "nvim",
-        "cron",
-        "automator",
+        ["cron", "automator"],
         "automount",
         "defaults"
       ],
