@@ -1,9 +1,9 @@
 import * as os from 'os';
 
+import assert from './assert.js';
 import {existsSync} from './fs.js';
 import id from './posix/id.js';
 import stringify from './stringify.js';
-import assertMode from './fs/assertMode.js';
 import {spawnSync} from './child_process.js';
 
 /**
@@ -167,7 +167,7 @@ export default class Attributes {
 
       const paddedUmask = umask.toString(8).padStart(4, '0');
 
-      assertMode(paddedUmask);
+      assert.mode(paddedUmask);
 
       this.#umask = paddedUmask;
     }

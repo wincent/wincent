@@ -1,8 +1,8 @@
 import Context from '../Context.js';
 import ErrorWithMetadata from '../ErrorWithMetadata.js';
+import assert from '../assert.js';
 import {default as toPath} from '../path.js';
 import run from '../run.js';
-import assertMode from './assertMode.js';
 
 type Stats = {
   group: string;
@@ -98,7 +98,7 @@ export default async function stat(
 
       const paddedMode = mode.padStart(4, '0');
 
-      assertMode(paddedMode);
+      assert.mode(paddedMode);
 
       let parsedTarget: string | undefined = undefined;
 
