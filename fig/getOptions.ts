@@ -2,7 +2,7 @@ import * as path from 'path';
 
 import ErrorWithMetadata from './ErrorWithMetadata.js';
 import {root} from './index.js';
-import {COLORS, LOG_LEVEL, log} from './console.js';
+import {COLORS, LOG_LEVEL, log, nextLogLevel} from './console.js';
 import dedent from './dedent.js';
 import escapeRegExpPattern from './escapeRegExpPattern.js';
 import {promises as fs} from './fs.js';
@@ -95,6 +95,12 @@ export default async function getOptions(
       );
     } else if (arg === '--step') {
       options.step = true;
+    } else if (arg === '--verbose' || arg === '-v') {
+      options.logLevel = nextLogLevel(options.logLevel);
+    } else if (arg.match(/^-v+$/)) {
+      for (let i = 1; i < arg.length; i++) {
+        options.logLevel = nextLogLevel(options.logLevel);
+      }
     } else if (arg.startsWith('-')) {
       throw new ErrorWithMetadata(
         `unrecognized argument ${stringify(
@@ -134,7 +140,7 @@ async function printUsage(aspects: Array<[string, string]>) {
            --parallel (experimental)
         -q/--quiet
         -t/--test
-        -v/--verbose  (repeat up to four times for more verbosity) # not yet implemented
+        -v/--verbose  (repeat up to four times for more verbosity)
            --start-at-task='aspect | task' # TODO: maybe make -s short variant
            --step
 

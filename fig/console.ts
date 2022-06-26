@@ -123,6 +123,24 @@ export function print(...args: Array<any>) {
   );
 }
 
+export function nextLogLevel(level: LogLevel): LogLevel {
+  const nextLevel = level + 1;
+  if (isLogLevel(nextLevel)) {
+    return nextLevel;
+  } else {
+    return LOG_LEVEL.DEBUG;
+  }
+}
+
+function isLogLevel(level: number): level is LogLevel {
+  const values = Object.values(LOG_LEVEL);
+  return (
+    level >= Math.min(...values) &&
+    level <= Math.max(...values) &&
+    Math.round(level) === level
+  );
+}
+
 export function setLogLevel(level: LogLevel) {
   logLevel = level;
 }
