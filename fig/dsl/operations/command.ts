@@ -1,6 +1,6 @@
 import Context from '../../Context.js';
 import ErrorWithMetadata from '../../ErrorWithMetadata.js';
-import {debug, log} from '../../console.js';
+import {log} from '../../console.js';
 import stat from '../../fs/stat.js';
 import path from '../../path.js';
 import run from '../../run.js';
@@ -77,7 +77,7 @@ export default async function command(
     if (error instanceof ErrorWithMetadata) {
       Context.informFailed(error);
     } else {
-      debug(() => console.log(error));
+      log.debug(String(error));
       Context.informFailed(`command \`${description}\` failed`);
     }
   }

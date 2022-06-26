@@ -1,6 +1,6 @@
 import Context from '../../Context.js';
 import ErrorWithMetadata from '../../ErrorWithMetadata.js';
-import {debug, log} from '../../console.js';
+import {log} from '../../console.js';
 import tempfile from '../../fs/tempfile.js';
 import run from '../../run.js';
 import stringify from '../../stringify.js';
@@ -96,9 +96,9 @@ export default async function cron({
   }
 
   if (crontab !== result.stdout) {
-    log.debug('New crontab contents');
-
-    debug(() => console.log(crontab));
+    log.debug('---- Begin new crontab contents ----');
+    log.debug(crontab);
+    log.debug('----  End new crontab contents  ----');
 
     if (Context.options.check) {
       return Context.informSkipped(`cron ${id}`);
