@@ -6,7 +6,7 @@ import {isJSONValue} from './types/JSONValue.js';
  * sense).
  */
 export default function assert(
-  condition: any,
+  condition: unknown,
   message?: string
 ): asserts condition {
   if (!condition) {
@@ -15,7 +15,7 @@ export default function assert(
 }
 
 assert.JSONArray = function (
-  value: any,
+  value: unknown,
   message?: string
 ): asserts value is Array<JSONValue> {
   assert(
@@ -28,7 +28,7 @@ assert.JSONArray = function (
  * Convenience helper for working with JSON objects.
  */
 assert.JSONObject = function (
-  value: any,
+  value: unknown,
   message?: string
 ): asserts value is {[key: string]: JSONValue} {
   assert(
