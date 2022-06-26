@@ -71,7 +71,7 @@ export default async function run(
     // emitted, or 'error' if the child failed to spawn."
     //
     // See: https://nodejs.org/api/child_process.html#event-close
-    child.stdout.on('close', () => {
+    child.on('close', () => {
       resolve(result);
     });
 
