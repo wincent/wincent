@@ -61,7 +61,16 @@ export default async function getOptions(
     }
   }
 
-  for (const arg of args) {
+  // Explode "-qt" (etc) to "-q", "-t".
+  const explodedArgs = args.flatMap((arg) => {
+    if (arg.match(/^-[dhqtv]{2,}$/)) {
+      return Array.from(arg.slice(1)).map((letter) => `-${letter}`);
+    } else {
+      return arg;
+    }
+  });
+
+  for (const arg of explodedArgs) {
     if (arg === '--check' || arg === '--dry-run') {
       // Support --check for Ansible compatibility and --dry-run because
       // of my Git muscle memory.
@@ -97,10 +106,6 @@ export default async function getOptions(
       options.step = true;
     } else if (arg === '--verbose' || arg === '-v') {
       options.logLevel = nextLogLevel(options.logLevel);
-    } else if (arg.match(/^-v+$/)) {
-      for (let i = 1; i < arg.length; i++) {
-        options.logLevel = nextLogLevel(options.logLevel);
-      }
     } else if (arg.startsWith('-')) {
       throw new ErrorWithMetadata(
         `unrecognized argument ${stringify(
