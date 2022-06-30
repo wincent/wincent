@@ -8,7 +8,7 @@ import {
   task,
   variable,
 } from 'fig';
-import {join} from 'path';
+import {join} from 'node:path';
 
 const {when} = helpers;
 

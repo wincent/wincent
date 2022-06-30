@@ -5,7 +5,7 @@
  * objects to strings before calling the underlying method.
  */
 
-import * as fs from 'fs';
+import * as fs from 'node:fs';
 
 export function createWriteStream(
   path: Parameters<typeof fs.createWriteStream>[0],

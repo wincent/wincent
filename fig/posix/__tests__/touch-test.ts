@@ -1,4 +1,4 @@
-import {join} from 'path';
+import {join} from 'node:path';
 
 import assert from '../../assert.js';
 import stat from '../../fs/stat.js';

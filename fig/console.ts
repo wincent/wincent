@@ -1,4 +1,4 @@
-import {clearLine, cursorTo} from 'readline';
+import {clearLine, cursorTo} from 'node:readline';
 
 import lock from './lock.js';
 import stringify from './stringify.js';

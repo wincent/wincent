@@ -5,7 +5,7 @@
  * string-like objects to strings before calling the underlying method.
  */
 
-import * as child_process from 'child_process';
+import * as child_process from 'node:child_process';
 
 // TODO: see if I can do this with a few less "any"; necessary because there are
 // so many overloads of these functions.

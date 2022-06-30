@@ -1,5 +1,5 @@
-import {relative, sep} from 'path';
-import * as url from 'url';
+import {relative, sep} from 'node:path';
+import * as url from 'node:url';
 
 import {assertAspect} from './types/Project.js';
 import {default as root} from './dsl/root.js';

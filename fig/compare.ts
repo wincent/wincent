@@ -1,4 +1,4 @@
-import {dirname} from 'path';
+import {dirname} from 'node:path';
 
 import ErrorWithMetadata from './ErrorWithMetadata.js';
 import {promises as fs} from './fs.js';

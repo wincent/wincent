@@ -1,6 +1,6 @@
-import * as http from 'http';
-import * as https from 'https';
-import {join} from 'path';
+import * as http from 'node:http';
+import * as https from 'node:https';
+import {join} from 'node:path';
 
 import {log} from '../../console.js';
 import {createWriteStream, promises} from '../../fs.js';

@@ -1,4 +1,4 @@
-import * as assert from 'assert';
+import * as assert from 'node:assert';
 
 /**
  * Quick and dirty JSON check. Doesn't cover all edge cases, but it covers

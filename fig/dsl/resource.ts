@@ -1,11 +1,11 @@
-import {join} from 'path';
+import {join} from 'node:path';
 
 import Context from '../Context.js';
 import {readdirSync, statSync} from '../fs.js';
 import globToRegExp from '../globToRegExp.js';
 import path from '../path.js';
 
-import type {Dirent} from 'fs';
+import type {Dirent} from 'node:fs';
 
 import type {Path} from '../path.js';
 

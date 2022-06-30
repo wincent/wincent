@@ -1,7 +1,7 @@
-import * as assert from 'assert';
-import * as fs from 'fs';
-import * as path from 'path';
-import * as url from 'url';
+import * as assert from 'node:assert';
+import * as fs from 'node:fs';
+import * as path from 'node:path';
+import * as url from 'node:url';
 
 import Builder from './Builder.js';
 

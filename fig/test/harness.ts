@@ -1,5 +1,5 @@
-import * as assert from 'assert';
-import {Writable} from 'stream';
+import * as assert from 'node:assert';
+import {Writable} from 'node:stream';
 
 import ErrorWithMetadata from '../ErrorWithMetadata.js';
 import {RAQUO} from '../Unicode.js';

@@ -1,5 +1,5 @@
-import {equal, ok} from 'assert';
-import {join} from 'path';
+import {equal, ok} from 'node:assert';
+import {join} from 'node:path';
 
 import {
   command,

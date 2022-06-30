@@ -5,7 +5,7 @@
  * like my code to have Zarro Boogs.
  */
 
-import {ok} from 'assert';
+import {ok} from 'node:assert';
 
 import {bundleIdentifier, deepCopy, isObject, visit} from './karabiner.js';
 

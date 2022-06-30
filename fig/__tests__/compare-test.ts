@@ -6,7 +6,7 @@
  * we don't want to have to do in the test suite.
  */
 
-import {join} from 'path';
+import {join} from 'node:path';
 
 import compare from '../compare.js';
 import root from '../dsl/root.js';

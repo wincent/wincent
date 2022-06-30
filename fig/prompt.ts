@@ -1,5 +1,5 @@
-import * as readline from 'readline';
-import {Writable} from 'stream';
+import * as readline from 'node:readline';
+import {Writable} from 'node:stream';
 
 import assert from './assert.js';
 import COLORS from './console/COLORS.js';

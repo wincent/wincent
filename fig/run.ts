@@ -1,4 +1,4 @@
-import {randomBytes} from 'crypto';
+import {randomBytes} from 'node:crypto';
 
 import {spawn} from './child_process.js';
 

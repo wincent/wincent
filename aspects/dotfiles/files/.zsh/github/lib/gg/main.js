@@ -1,7 +1,7 @@
-const child_process = require('child_process');
-const fs = require('fs');
-const path = require('path');
-const {createInterface} = require('readline');
+const child_process = require('node:child_process');
+const fs = require('node:fs');
+const path = require('node:path');
+const {createInterface} = require('node:readline');
 
 const TOOL_NAME = 'gg';
 const HELP = `run \`${TOOL_NAME} help\` to see available commands`;

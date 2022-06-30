@@ -1,5 +1,13 @@
-import {homedir} from 'os';
-import {basename, dirname, join, normalize, relative, resolve, sep} from 'path';
+import {homedir} from 'node:os';
+import {
+  basename,
+  dirname,
+  join,
+  normalize,
+  relative,
+  resolve,
+  sep,
+} from 'node:path';
 
 import Context from './Context.js';
 import root from './dsl/root.js';

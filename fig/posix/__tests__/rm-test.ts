@@ -1,4 +1,5 @@
-import {join} from 'path';
+import {join} from 'node:path';
+
 import assert from '../../assert.js';
 import {expect, test} from '../../test/harness.js';
 import chmod from '../chmod.js';

@@ -1,4 +1,4 @@
-import * as assert from 'assert';
+import * as assert from 'node:assert';
 
 export default class Builder {
   constructor({tabWidth = 2} = {}) {

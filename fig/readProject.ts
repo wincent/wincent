@@ -1,4 +1,4 @@
-import {join, relative, resolve} from 'path';
+import {join, relative, resolve} from 'node:path';
 
 import {log} from './console.js';
 import {promises as fs} from './fs.js';

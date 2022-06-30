@@ -1,6 +1,6 @@
-import {randomBytes} from 'crypto';
-import {tmpdir} from 'os';
-import {join} from 'path';
+import {randomBytes} from 'node:crypto';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
 
 const COUNTERS: {[prefix: string]: number} = {};
 

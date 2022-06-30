@@ -1,4 +1,4 @@
-import * as path from 'path';
+import * as path from 'node:path';
 
 import ErrorWithMetadata from './ErrorWithMetadata.js';
 import {root} from './index.js';
