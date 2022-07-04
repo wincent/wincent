@@ -39,6 +39,28 @@ if has_luasnip then
       i(3, 'github.com'),
     })
 
+  local docblock = s(
+    {trig = '**', dscr = 'docblock'},
+    {
+      t({'/**', ''}),
+      f(function (args, snip)
+        local lines = vim.tbl_map(
+          function(line)
+            return ' * ' .. vim.trim(line)
+          end,
+          snip.env.SELECT_RAW
+        )
+        if #lines == 0 then
+          return ' * '
+        else
+          return lines
+        end
+      end, {}),
+      i(1),
+      t({'', ' */'}),
+    }
+  )
+
   -- Snippets common to JS and TS.
   local js_ts = {
     -- TODO: make these smart about whether to use trailing semi or
@@ -76,27 +98,7 @@ if has_luasnip then
         end, {1}),
       })
     ),
-    s(
-      {trig = '**', dscr = 'docblock'},
-      {
-        t({'/**', ''}),
-        f(function (args, snip)
-          local lines = vim.tbl_map(
-            function(line)
-              return ' * ' .. vim.trim(line)
-            end,
-            snip.env.SELECT_RAW
-          )
-          if #lines == 0 then
-            return ' * '
-          else
-            return lines
-          end
-        end, {}),
-        i(1),
-        t({'', ' */'}),
-      }
-    ),
+    docblock,
   }
 
   luasnip.snippets = {
@@ -117,6 +119,12 @@ if has_luasnip then
           i(1, 'First Header'),
         })
       )
+    },
+    c = {
+      docblock,
+    },
+    cpp = {
+      docblock,
     },
     gitcommit = {
       s(
