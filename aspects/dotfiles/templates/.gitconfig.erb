@@ -48,6 +48,9 @@
 	p = add -p
 	patch = add -p
 
+	# Recover previous COMMIT_EDITMSG, if there is one.
+	recover = !cat "$(git rev-parse --git-dir 2> /dev/null)/COMMIT_EDITMSG"
+
 	# requires Git 1.7.11.3 or later
 	reword = commit --amend --only -v --
 
