@@ -232,6 +232,8 @@ end
 -- Don't use colorcolumn when these filetypes get focus (we want them to appear
 -- full-width irrespective of 'textwidth').
 autocmds.colorcolumn_filetype_blacklist = {
+  ['CommandTMatchListing'] = true,
+  ['CommandTPrompt'] = true,
   ['command-t'] = true,
   ['diff'] = true,
   ['fugitiveblame']= true,
@@ -247,6 +249,8 @@ autocmds.conceallevel_filetypes = {
 }
 
 autocmds.cursorline_blacklist = {
+  ['CommandTMatchListing'] = true,
+  ['CommandTPrompt'] = true,
   ['command-t'] = true,
 }
 
@@ -261,6 +265,8 @@ autocmds.winhighlight_filetype_blacklist = {
 
 -- Force 'list' (when `true`) or 'nolist' (when `false`) for these.
 autocmds.list_filetypes = {
+  ['CommandTMatchListing'] = false,
+  ['CommandTPrompt'] = false,
   ['command-t'] = false,
   ['help'] = false,
 }
@@ -273,6 +279,8 @@ autocmds.mkview_filetype_blacklist = {
 
 -- Don't mess with numbers in these filetypes.
 autocmds.number_blacklist = {
+  ['CommandTMatchListing'] = true,
+  ['CommandTPrompt'] = true,
   ['command-t'] = true,
   ['diff'] = true,
   ['fugitiveblame']= true,
