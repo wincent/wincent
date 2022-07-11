@@ -33,7 +33,7 @@
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp_luasnip
 	url = https://github.com/saadparwaiz1/cmp_luasnip.git
 [submodule "command-t"]
-	branch = main
+	branch = pu
 	ignore = dirty
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/command-t
 	url = https://github.com/wincent/command-t.git
