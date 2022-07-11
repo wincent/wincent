@@ -1,3 +1,5 @@
+import * as process from 'node:process';
+
 import {command, file, helpers, path, skip, task} from 'fig';
 
 const {when} = helpers;

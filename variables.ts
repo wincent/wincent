@@ -1,3 +1,5 @@
+import * as process from 'node:process';
+
 import Context from 'fig/Context.js';
 
 /**

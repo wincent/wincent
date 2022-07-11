@@ -1,3 +1,4 @@
+import * as process from 'node:process';
 import {clearLine, cursorTo} from 'node:readline';
 
 import lock from './lock.js';

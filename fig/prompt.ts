@@ -1,3 +1,4 @@
+import * as process from 'node:process';
 import * as readline from 'node:readline';
 import {Writable} from 'node:stream';
 

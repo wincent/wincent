@@ -1,6 +1,7 @@
 const child_process = require('node:child_process');
 const fs = require('node:fs');
 const path = require('node:path');
+const process = require('node:process');
 const {createInterface} = require('node:readline');
 
 const TOOL_NAME = 'gg';

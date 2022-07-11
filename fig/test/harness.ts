@@ -1,4 +1,5 @@
 import * as assert from 'node:assert';
+import * as process from 'node:process';
 import {Writable} from 'node:stream';
 
 import ErrorWithMetadata from '../ErrorWithMetadata.js';

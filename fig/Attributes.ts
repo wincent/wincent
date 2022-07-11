@@ -1,4 +1,5 @@
 import * as os from 'node:os';
+import * as process from 'node:process';
 
 import assert from './assert.js';
 import {existsSync} from './fs.js';
@@ -98,7 +99,7 @@ export default class Attributes {
 
   get gid(): number {
     if (typeof this.#gid !== 'number') {
-      this.#gid = process.getgid();
+      this.#gid = process.getgid?.() || -1;
     }
 
     return this.#gid;
@@ -150,7 +151,7 @@ export default class Attributes {
 
   get uid(): number {
     if (typeof this.#uid !== 'number') {
-      this.#uid = typeof process.getuid === 'function' ? process.getuid() : -1;
+      this.#uid = process.getuid?.() || -1;
     }
 
     return this.#uid;

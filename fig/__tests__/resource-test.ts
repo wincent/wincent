@@ -1,4 +1,5 @@
 import {join} from 'node:path';
+import {cwd} from 'node:process';
 
 import Context from '../Context.js';
 import {file, files, template} from '../dsl/resource.js';
@@ -62,7 +63,7 @@ describe('file()', () => {
       const example: any = file('example.txt');
 
       expect(example.resolve.toString()).toBe(
-        join(process.cwd(), 'aspects/meta/files/example.txt')
+        join(cwd(), 'aspects/meta/files/example.txt')
       );
     })
   );
@@ -86,7 +87,7 @@ describe('file()', () => {
       const example: any = file('example.txt');
 
       expect(example.resolve.dirname.join('other.txt').toString()).toBe(
-        join(process.cwd(), 'aspects/meta/files/other.txt')
+        join(cwd(), 'aspects/meta/files/other.txt')
       );
     })
   );

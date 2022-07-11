@@ -1,3 +1,5 @@
+import * as process from 'node:process';
+
 import Attributes from './Attributes.js';
 import ErrorWithMetadata from './ErrorWithMetadata.js';
 import Compiler from './Compiler.js';
