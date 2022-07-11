@@ -2,7 +2,7 @@ import {command, file, helpers, path, skip, task} from 'fig';
 
 const {when} = helpers;
 
-const NODE_VERSION = '18.0.0';
+const NODE_VERSION = '18.5.0';
 
 const n = path.root.join('vendor/n/bin/n');
 const bin = path.home.join(`n/bin`);
