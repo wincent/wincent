@@ -278,4 +278,62 @@ This list produced with:
 
     :read !git shortlog -s HEAD | grep -v 'Greg Hurrell' | cut -f 2-3 | sed -e 's/^/- /'
 
+## Security
+
+As of [commit ec49be762ff3](https://github.com/wincent/wincent/commit/ec49be762ff3ef0570a9bc27f972d0d1f025e3da) ("feat(dotfiles): automatically sign commits on personal machines", 2022-06-19) and [commit 97143b5d7635](https://github.com/wincent/wincent/commit/97143b5d7635db0c71bb46085db99ebb6039afa9) ("feat(dotfiles): sign commits everywhere except codespaces", 2022-06-20), I started signing most commits in this and other repos with GPG keys corresponding to my work and personal email addresses.
+
+GitHub will label such commits with a "Verified" badge. In order to see signature information using the `git` commandline executable, you would run commands such as `git show --show-signature` and `git log --show-signature`. Note that in order to be able to actually verify these signatures you need a copy of the corresponding public keys, otherwise Git will show:
+
+```
+gpg: Signature made Mon 11 Jul 2022 11:50:35 CEST
+gpg:                using RSA key B0C9C204D656540BDCDA86229F6B84B5B1E9955E
+gpg:                issuer "wincent@github.com"
+gpg: Can't check signature: No public key
+```
+
+You can obtain the public keys with the following:
+
+```
+# Either, download directly given the key fingerprint as shown by Git:
+gpg --keyserver pgp.mit.edu --recv-key C7C225A18975180C4485A1E070516DBB88E4F779
+gpg --keyserver pgp.mit.edu --recv-key B0C9C204D656540BDCDA86229F6B84B5B1E9955E
+
+# Or, chose from a list of possible matches returned by searching for an email address:
+gpg --keyserver https://pgp.mit.edu/ --search-keys greg@hurrell.net
+gpg --keyserver https://pgp.mit.edu/ --search-keys wincent@github.com
+```
+
+You can also grab the keys from GitHub, if you trust GitHub:
+
+```
+curl https://github.com/wincent.gpg | gpg --import
+```
+
+Once you have those, Git will instead show:
+
+```
+gpg: Signature made Mon 11 Jul 2022 12:28:32 CEST
+gpg:                using RSA key B0C9C204D656540BDCDA86229F6B84B5B1E9955E
+gpg:                issuer "wincent@github.com"
+gpg: Good signature from "Greg Hurrell <wincent@github.com>" [unknown]
+gpg: WARNING: This key is not certified with a trusted signature!
+gpg:          There is no indication that the signature belongs to the owner.
+Primary key fingerprint: 2F44 69E0 C1FA 72AA C0A5  60C9 6210 6B56 923F 3481
+     Subkey fingerprint: B0C9 C204 D656 540B DCDA  8622 9F6B 84B5 B1E9 955E
+```
+
+What's going on here, cryptographically speaking?
+
+- GPG keys consist of public and private parts, often referred to as public keys and private keys (together, a "key pair"). As the names suggest, the owner of key must keep the private part secret, but the public part can be freely shared.
+- Roughly speaking, "signing" something means using the private key to encrypt a hash of the contents of the document that is being signed (in this case, the "document" is a commit).
+- The public key can be used to decrypt the hash, which can then be compared against the contents to confirm that they match. This is what is happening when we see `gpg: Good signature` above; it means that the public key for `Greg Hurrell <wincent@github.com>` verifies that the signature was indeed created with the corresponding private key belonging to that address.
+- Because only the owner has access to the private key, only the owner can make signatures with it; but conversely, because everybody has access to the public key, anybody can verify those signatures.
+- GPG keys have two additional concepts: "subkeys" are keys associated with a primary key; and "usages" describe what role those keys each play (eg. "signing", "encryption").
+- In practice, the primary key is always a "signing" key, and GPG will create one "encryption" subkey by default. Users can add/remove additional subkeys and assign them usages.
+- I create "signing" subkeys for making signatures and I rotate them once per year (I keep my primary key "offline" so that it can't be hacked if my machine is compromised).
+
+So those are the cryptographic primitives. The signature is "Good" in the cryptographic sense, but why the scary "WARNING"? It's because there's a whole other layer on top of this called the "web of trust". A good signatures gives us the mathematical certainty that a particular private key _was_ used to produce a given signature, but that tells us nothing about the human world that exists above and around that crypto. That is, the key was used to make the signature, but was it _me_ who used the key? Am I really the handsome Australian man living in Madrid claiming to be Greg Hurrell, or am I in fact part of a clandestine criminal organization operating from a satellite-connected submarine in the Arctic sea?
+
+The web of trust serves to establish link your human-level trust relationships to the underlying digital entities. By running `gpg --edit-key $KEY` and hitting `trust`, you can explicitly record your level of trust in any given key, and you can do [things like going to "key signing parties"](https://www.gnupg.org/gph/en/manual/x547.html) and such where you can physically meet people, verify their identity by whatever means you deem appropriate, and then sign one another's public keys. The accrued effect of these actions over time is to establish a web of connections where trust is transitively applied: if you trust `A` and `A` trusts `B`, then you in turn can also trust `B`. Having said all that, how to actually go about building a useful web of trust is beyond the scope of this README, and in all my long years on the internet, I've never once gone to a key signing event or otherwise engaged in activity that would help me integrate my keys into a useful web of trust.
+
 [^1]: The evenings were spent with [vi](https://en.wikipedia.org/wiki/Vi) derivatives, not with Bill Joy.
