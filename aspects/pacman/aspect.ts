@@ -60,6 +60,7 @@ export default {
       'steam', // Ya know, for important stuff, like Factorio.
       'strace', // For observing process activity.
       'stress', // CPU (etc) stress tester.
+      'stylua', // Lua pretty printer (https://github.com/JohnnyMorganz/StyLua).
       'sxhkd', // Hotkey daemon for X (eg. open Dmenu with Super+Space).
       'sxiv', // Simple X image viewer.
       'tree', // CLI file hierarchy viewer.
