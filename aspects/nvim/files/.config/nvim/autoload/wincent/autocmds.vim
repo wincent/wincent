@@ -1,10 +1,3 @@
-function! wincent#autocmds#attempt_select_last_file() abort
-  let l:previous=expand('#:t')
-  if l:previous !=# ''
-    call search('\v<' . l:previous . '>')
-  endif
-endfunction
-
 " Directories where we want to perform auto-encryption on save.
 let s:encrypted={}
 let s:encrypted[expand('~/code/ansible-configs')]='vendor/git-cipher/bin/git-cipher'

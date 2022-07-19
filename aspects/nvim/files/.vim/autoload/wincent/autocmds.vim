@@ -1,10 +1,3 @@
-function! wincent#autocmds#attempt_select_last_file() abort
-  let l:previous=expand('#:t')
-  if l:previous !=# ''
-    call search('\v<' . l:previous . '>')
-  endif
-endfunction
-
 function! wincent#autocmds#idleboot() abort
   " Make sure we automatically call wincent#autocmds#idleboot() only once.
   augroup WincentIdleboot
