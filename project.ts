@@ -63,11 +63,14 @@ export default {
       pattern: '/^(?:retiro|huertas)(?:\\b|$)/i',
       variables: {
         corpusNotes: '~/Sync/Personal/Corpus',
+        pinentryProgram: '/usr/local/bin/pinentry-curses',
       },
     },
     work: {
       pattern: '/^gregorys-mbp(?:\\b|$)/i',
-      variables: {},
+      variables: {
+        pinentryProgram: '/opt/homebrew/bin/pinentry-curses',
+      },
     },
   },
   variables: {
@@ -106,5 +109,6 @@ export default {
         },
       ],
     },
+    pinentryProgram: '/usr/bin/pinentry-curses',
   },
 };

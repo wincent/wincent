@@ -33,7 +33,6 @@
       ".github-handles.json",
       ".gitignore",
       ".gitk",
-      ".gnupg/gpg-agent.conf",
       ".hammerspoon",
       ".hgrc",
       ".inputrc",
@@ -57,6 +56,7 @@
       ".corpusrc.erb",
       ".fehbg",
       ".gitconfig.erb",
+      ".gnupg/gpg-agent.conf.erb",
       ".hammerspoon/iterm.lua.erb",
       ".zsh/bin/asdf.erb",
       ".zsh/bin/asdf-wrapper.erb"
