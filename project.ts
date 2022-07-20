@@ -41,7 +41,9 @@ export default {
         'node',
         'nvim',
       ],
-      variables: {},
+      variables: {
+        pinentryProgram: '/usr/bin/pinentry-curses',
+      },
     },
     'linux.debian': {
       aspects: [
