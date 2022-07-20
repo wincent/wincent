@@ -288,15 +288,19 @@ function swallow() {
 # "[t]ime[w]arp" by setting GIT_AUTHOR_DATE and GIT_COMMITTER_DATE.
 function tw() {
   emulate -L zsh
+  zmodload zsh/datetime # For strftime.
 
-  local TS=$(ts "$@")
-  echo "Spawning subshell with timestamp: $TS"
-  env GIT_AUTHOR_DATE="$TS" GIT_COMMITTER_DATE="$TS" zsh
+  local TS=$(ts "$@" 2> /dev/null)
+  local TZ=$(date +%z)
+  local HUMAN=$(strftime %c $(($TS $TZ * 36)))
+  echo "Spawning subshell with timestamp: $TS $TZ ($HUMAN $TZ)"
+  env GIT_AUTHOR_DATE="$TS $TZ" GIT_COMMITTER_DATE="$TS $TZ" zsh
 }
 
 # "tick" by incrementing GIT_AUTHOR_DATE and GIT_COMMITTER_DATE.
 function tick() {
   emulate -L zsh
+  zmodload zsh/datetime # For strftime.
 
   if [ -z "$GIT_AUTHOR_DATE" -o -z "$GIT_COMMITTER_DATE" ]; then
     echo 'Expected $GIT_AUTHOR_DATE and $GIT_COMMITTER_DATE to be set.'
@@ -308,7 +312,8 @@ function tick() {
       $(parseoffset "$@") \
     )
     local TZ=$(date +%z)
-    echo "Bumping timestamp to: $TS $TZ"
+    local HUMAN=$(strftime %c $(($TS $TZ * 36)))
+    echo "Bumping timestamp to: $TS $TZ ($HUMAN $TZ)"
     export GIT_AUTHOR_DATE="$TS $TZ"
     export GIT_COMMITTER_DATE="$TS $TZ"
   fi
