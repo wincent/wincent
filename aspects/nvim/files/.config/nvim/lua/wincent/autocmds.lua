@@ -234,6 +234,7 @@ end
 autocmds.colorcolumn_filetype_blacklist = {
   ['CommandTMatchListing'] = true,
   ['CommandTPrompt'] = true,
+  ['CommandTTitle'] = true,
   ['command-t'] = true,
   ['diff'] = true,
   ['fugitiveblame']= true,
@@ -251,11 +252,15 @@ autocmds.conceallevel_filetypes = {
 autocmds.cursorline_blacklist = {
   ['CommandTMatchListing'] = true,
   ['CommandTPrompt'] = true,
+  ['CommandTTitle'] = true,
   ['command-t'] = true,
 }
 
 -- Don't use 'winhighlight' to make these filetypes seem blurred.
 autocmds.winhighlight_filetype_blacklist = {
+  ['CommandTMatchListing'] = true,
+  ['CommandTPrompt'] = true,
+  ['CommandTTitle'] = true,
   ['diff'] = true,
   ['fugitiveblame']= true,
   ['undotree'] = true,
@@ -267,6 +272,7 @@ autocmds.winhighlight_filetype_blacklist = {
 autocmds.list_filetypes = {
   ['CommandTMatchListing'] = false,
   ['CommandTPrompt'] = false,
+  ['CommandTTitle'] = false,
   ['command-t'] = false,
   ['help'] = false,
 }
@@ -281,6 +287,7 @@ autocmds.mkview_filetype_blacklist = {
 autocmds.number_blacklist = {
   ['CommandTMatchListing'] = true,
   ['CommandTPrompt'] = true,
+  ['CommandTTitle'] = true,
   ['command-t'] = true,
   ['diff'] = true,
   ['fugitiveblame']= true,
@@ -292,6 +299,9 @@ autocmds.number_blacklist = {
 
 -- Don't do "ownsyntax off" for these.
 autocmds.ownsyntax_filetypes = {
+  ['CommandTMatchListing'] = true,
+  ['CommandTPrompt'] = true,
+  ['CommandTTitle'] = true,
   ['NvimTree'] = true,
   ['dirvish'] = true,
   ['help'] = true,
