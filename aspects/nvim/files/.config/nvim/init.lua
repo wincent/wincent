@@ -444,6 +444,13 @@ if has_luasnip then
   })
 end
 
+local has_commandt, commandt = pcall(require, 'wincent.commandt')
+if has_commandt then
+  commandt.setup({
+    height = 30, -- Default is 15.
+  })
+end
+
 -------------------------------------------------------------------------------
 -- Footer {{{1 ----------------------------------------------------------------
 -------------------------------------------------------------------------------

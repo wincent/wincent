@@ -1,5 +1,9 @@
 local command = wincent.vim.command
 
+-- NOTE: With the move to the Lua version, most of the following settings have
+-- no effect; instead, see the `commandt.setup()` call in
+-- ~/.config/nvim/init.lua.
+
 --
 -- Settings.
 --
@@ -36,10 +40,18 @@ vim.g.CommandTWindowFilter = '!&buflisted && &buftype == "nofile" && &filetype !
 -- Mappings.
 --
 
-vim.keymap.set('n', '<LocalLeader>c', '<Plug>(CommandTCommand)', {unique = true})
-vim.keymap.set('n', '<Leader>h', '<Plug>(CommandTHelp)', {unique = true})
-vim.keymap.set('n', '<LocalLeader>h', '<Plug>(CommandTHistory)', {unique = true})
-vim.keymap.set('n', '<LocalLeader>l', '<Plug>(CommandTLine)', {unique = true})
+-- Lua version doesn't come with any bindings of its own, so we do need to set
+-- these up.
+
+vim.keymap.set('n', '<Leader>b', '<Plug>(CommandTBuffer)', { remap = true })
+vim.keymap.set('n', '<Leader>h', '<Plug>(CommandTHelp)', { remap  = true })
+vim.keymap.set('n', '<Leader>t', '<Plug>(CommandT)', { remap = true })
+
+-- Note: These ones come from the Ruby version, for now.
+
+vim.keymap.set('n', '<LocalLeader>c', '<Plug>(CommandTCommand)', { remap = true })
+vim.keymap.set('n', '<LocalLeader>h', '<Plug>(CommandTHistory)', { remap = true })
+vim.keymap.set('n', '<LocalLeader>l', '<Plug>(CommandTLine)', { remap = true })
 
 -- Convenience for starting Command-T at launch without causing freak-out inside
 -- tmux.
