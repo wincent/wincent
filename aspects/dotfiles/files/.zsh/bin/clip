@@ -1,20 +1,18 @@
 #!/bin/bash
 
-if [ -n "$KITTY_WINDOW_ID" ]; then
-  # iTerm2 and Kitty both support OSC 52, but only Kitty seems to handle _long_
-  # copies properly out-of-the-box. So, for Kitty we'll do this and for
-  # everything else we'll fall back to using Clipper.
-  if [ -n "$TMUX" ]; then
-    printf "\ePtmux;\e\e]52;c;%s\a\e\\" "$(cat - | openssl base64 -A)"
-  else
-    printf "\e]52;c;%s\a" "$(cat - | openssl base64 -A)"
+if [ -e /etc/arch-release ]; then
+  # Try to send both locally and to remote host, if we can.
+  if [ -S "$HOME/.clipper.sock" -a -S "$HOME/.clipper-remote.sock"  ]; then
+    tee \
+      >(socat - UNIX-CLIENT:$HOME/.clipper.sock) \
+      | socat - UNIX-CLIENT:$HOME/.clipper-remote.sock
+  elif [ -S "$HOME/.clipper.sock" ]; then
+    socat - UNIX-CLIENT:$HOME/.clipper.sock
+  elif [ -S "$HOME/.clipper-remote.sock" ]; then
+    socat - UNIX-CLIENT:$HOME/.clipper-remote.sock
   fi
+elif [ -e /etc/debian_version ]; then
+  socat - UNIX-CLIENT:$HOME/.clipper.sock
 else
-  if [ -e /etc/arch-release ]; then
-    socat - UNIX-CLIENT:$HOME/.clipper.sock
-  elif [ -e /etc/debian_version ]; then
-    socat - UNIX-CLIENT:$HOME/.clipper.sock
-  else
-    nc -U ~/.clipper.sock
-  fi
+  nc -U ~/.clipper.sock
 fi
