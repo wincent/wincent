@@ -73,11 +73,23 @@ task('extract Neovim appimage files', when('debian'), async () => {
   });
 });
 
-const COMMAND_T_BASE =
-  'nvim/pack/bundle/opt/command-t/ruby/command-t/ext/command-t';
+const COMMAND_T_BASE = 'nvim/pack/bundle/opt/command-t';
+const COMMAND_T_LUA = 'lua/wincent/commandt/lib';
+const COMMAND_T_RUBY = 'ruby/command-t/ext/command-t';
 
-task('configure Command-T', async () => {
-  const base = resource.file('.config').join(COMMAND_T_BASE);
+task('compile Command-T (Lua)', async () => {
+  const bundle =
+    attributes.platform === 'darwin' ? 'commandt.bundle' : 'commandt.so';
+  const base = resource.file('.config').join(COMMAND_T_BASE, COMMAND_T_LUA);
+
+  await command('make', [], {
+    chdir: base,
+    creates: base.join(bundle),
+  });
+});
+
+task('configure Command-T (Ruby)', async () => {
+  const base = resource.file('.config').join(COMMAND_T_BASE, COMMAND_T_RUBY);
 
   await command('ruby', ['extconf.rb'], {
     chdir: base,
@@ -85,9 +97,9 @@ task('configure Command-T', async () => {
   });
 });
 
-task('compile Command-T', async () => {
+task('compile Command-T (Ruby)', async () => {
   const bundle = attributes.platform === 'darwin' ? 'ext.bundle' : 'ext.so';
-  const base = resource.file('.config').join(COMMAND_T_BASE);
+  const base = resource.file('.config').join(COMMAND_T_BASE, COMMAND_T_RUBY);
 
   await command('make', [], {
     chdir: base,
