@@ -40,6 +40,7 @@ vim.opt.formatoptions  = vim.opt.formatoptions + 'n'       -- smart auto-indenti
 vim.opt.guifont        = 'Source Code Pro Light:h13'
 vim.opt.hidden         = true                              -- allows you to hide buffers with unsaved changes without being prompted
 vim.opt.inccommand     = 'split'                           -- live preview of :s results
+vim.opt.ignorecase     = true                              -- ignore case in searches
 vim.opt.joinspaces     = false                             -- don't autoinsert two spaces after '.', '?', '!' for join command
 vim.opt.laststatus     = 2                                 -- always show status line
 vim.opt.lazyredraw     = true                              -- don't bother updating screen during macro playback
@@ -101,6 +102,7 @@ vim.opt.showbreak     = '↳ '                    -- DOWNWARDS ARROW WITH TIP RI
 vim.opt.showcmd       = false                   -- don't show extra info at end of command line
 vim.opt.sidescroll    = 0                       -- sidescroll in jumps because terminals are slow
 vim.opt.sidescrolloff = 3                       -- same as scrolloff, but for columns
+vim.opt.smartcase     = true                    -- don't ignore case in searches if uppercase characters present
 vim.opt.smarttab      = true                    -- <tab>/<BS> indent/dedent in leading whitespace
 
 if not vi then
