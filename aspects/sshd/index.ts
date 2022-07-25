@@ -10,6 +10,19 @@ task('disable password-based authentication', async () => {
   });
 });
 
+task(
+  'set "StreamLocalBindUnlink yes" in /etc/ssh/sshd_config (systemd)',
+  async () => {
+    await line({
+      line: 'StreamLocalBindUnlink yes',
+      notify: 'restart sshd.service',
+      path: '/etc/ssh/sshd_config',
+      regexp: /^(?:\s*#\s*)?StreamLocalBindUnlink\b/,
+      sudo: true,
+    });
+  }
+);
+
 task('activate sshd', async () => {
   const result = await command('systemctl', ['is-active', 'sshd'], {
     failedWhen: () => false,

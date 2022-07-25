@@ -1,22 +1,20 @@
-import {command, file, line, path, skip, task, variable} from 'fig';
+import {command, file, handler, line, path, skip, task, variable} from 'fig';
 import stat from 'fig/fs/stat.js';
 
-task('set "StreamLocalBindUnlink yes" in /etc/ssh/sshd_config', async () => {
-  const result = await line({
-    group: 'root',
-    line: 'StreamLocalBindUnlink yes',
-    owner: 'root',
-    path: '/etc/ssh/sshd_config',
-    regexp: /^(?:\s*#\s*)?StreamLocalBindUnlink\b/,
-    sudo: true,
-  });
-
-  if (result === 'changed') {
-    await command('pkill', ['-HUP', '-F', '/var/run/sshd.pid'], {sudo: true});
-  } else {
-    await skip('no need to send SIGHUP to sshd (no changes made)');
+task(
+  'set "StreamLocalBindUnlink yes" in /etc/ssh/sshd_config (HUP)',
+  async () => {
+    await line({
+      group: 'root',
+      line: 'StreamLocalBindUnlink yes',
+      notify: 'send HUP to sshd',
+      owner: 'root',
+      path: '/etc/ssh/sshd_config',
+      regexp: /^(?:\s*#\s*)?StreamLocalBindUnlink\b/,
+      sudo: true,
+    });
   }
-});
+);
 
 task('symlink files', async () => {
   const files = variable.paths('files');
@@ -74,4 +72,8 @@ task('run ripper-tags', async () => {
       chdir: '/workspaces/github',
     });
   }
+});
+
+handler('send HUP to sshd', async () => {
+  await command('pkill', ['-HUP', '-F', '/var/run/sshd.pid'], {sudo: true});
 });
