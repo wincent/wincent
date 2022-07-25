@@ -9,8 +9,8 @@
   "license": "Unlicense",
   "scripts": {
     "ci": "yarn format:check",
-    "format:check": "npx prettier --check \"**/*.{js,json,md,ts}\" \"*.{md,ts}\"",
-    "format": "npx prettier --write \"**/*.{js,json,md,ts}\" \"*.{md,ts}\""
+    "format:check": "npx -y prettier --check \"**/*.{js,json,md,ts}\" \"*.{md,ts}\"",
+    "format": "npx -y prettier --write \"**/*.{js,json,md,ts}\" \"*.{md,ts}\""
   },
   "type": "module",
   "dependencies": {
