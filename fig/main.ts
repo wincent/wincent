@@ -94,7 +94,10 @@ async function main() {
   for (const aspect of aspects.flat()) {
     await loadAspect(aspect);
 
-    if (options.focused.size && !options.focused.has(aspect)) {
+    if (
+      (options.focused.size && !options.focused.has(aspect)) ||
+      (options.excluded.size && options.excluded.has(aspect))
+    ) {
       continue;
     }
 
@@ -209,7 +212,10 @@ async function main() {
           join(root, 'aspects', aspect)
         );
 
-        if (options.focused.size && !options.focused.has(aspect)) {
+        if (
+          (options.focused.size && !options.focused.has(aspect)) ||
+          (options.excluded.size && options.excluded.has(aspect))
+        ) {
           await log.info(`Skipping aspect: ${aspect}`);
           return;
         }

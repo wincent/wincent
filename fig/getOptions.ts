@@ -15,6 +15,7 @@ import type {Aspect} from './types/Project.js';
 
 export type Options = {
   check: boolean;
+  excluded: Set<Aspect>;
   focused: Set<Aspect>;
   logLevel: LogLevel;
   parallel: boolean;
@@ -34,6 +35,7 @@ export default async function getOptions(
 ): Promise<Options> {
   const options: Options = {
     check: false,
+    excluded: new Set(),
     focused: new Set(),
     logLevel: LOG_LEVEL.INFO,
     parallel: false,
@@ -112,6 +114,18 @@ export default async function getOptions(
           arg
         )} - pass "--help" to see allowed options`
       );
+    } else if (arg.startsWith('^') || arg.startsWith('!')) {
+      const sliced = arg.slice(1);
+      try {
+        assertAspect(sliced);
+        options.excluded.add(sliced);
+      } catch {
+        throw new ErrorWithMetadata(
+          `unrecognized aspect ${stringify(
+            sliced
+          )} - pass "--help" to see full list`
+        );
+      }
     } else {
       try {
         assertAspect(arg);
