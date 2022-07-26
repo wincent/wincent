@@ -95,13 +95,13 @@ local focus_window = function()
     vim.wo.relativenumber = true
   end
 
-  if filetype ~= '' and autocmds.winhighlight_filetype_blacklist[filetype] ~= true then
+  if filetype == '' or autocmds.winhighlight_filetype_blacklist[filetype] ~= true then
     vim.wo.winhighlight = ''
   end
-  if filetype ~= '' and autocmds.colorcolumn_filetype_blacklist[filetype] ~= true then
+  if filetype == '' or autocmds.colorcolumn_filetype_blacklist[filetype] ~= true then
     vim.wo.colorcolumn = focused_colorcolumn
   end
-  if filetype ~= '' and autocmds.ownsyntax_filetypes[filetype] ~= true then
+  if filetype == '' or autocmds.ownsyntax_filetypes[filetype] ~= true then
     ownsyntax(true)
   end
   if filetype == '' then
