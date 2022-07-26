@@ -45,7 +45,6 @@ if has('folding')
 
   set foldmethod=indent                 " not as cool as syntax, but faster
   set foldlevelstart=99                 " start unfolded
-  set foldtext=wincent#settings#foldtext()
 endif
 
 if v:version > 703 || v:version == 703 && has('patch541')

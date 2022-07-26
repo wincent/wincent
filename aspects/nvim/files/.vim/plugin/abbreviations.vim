@@ -1,1 +1,0 @@
-cabbrev sord sort
