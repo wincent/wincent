@@ -215,7 +215,8 @@ At the time of writing, these are the aspects, which you can expect to change ov
 ./install dotfiles --step   # Prompt for confirmation at each step.
 ./install dotfiles --check  # Do a dry-run, showing what would be changed.
 ./install                   # Install everything.
-./install --help            # Info on installing specific rol
+./install ^homebrew         # Install everything except for the "homebrew" aspect.
+./install --help            # Lists all aspects, descriptions, options.
 ```
 
 This sets up a local Node environment using [n](https://github.com/tj/n), and then uses [Fig](./fig/README.md) to copy the dotfiles and configure the machine.
