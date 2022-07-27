@@ -69,7 +69,7 @@ export default {
       },
     },
     work: {
-      pattern: '/^gregorys-mbp(?:\\b|$)/i',
+      pattern: '/^quevedo(?:\\b|$)/i',
       variables: {
         pinentryProgram: '/opt/homebrew/bin/pinentry-curses',
       },
