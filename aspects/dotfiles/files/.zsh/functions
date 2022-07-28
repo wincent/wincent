@@ -303,8 +303,7 @@ function tick() {
   zmodload zsh/datetime # For strftime.
 
   if [ -z "$GIT_AUTHOR_DATE" -o -z "$GIT_COMMITTER_DATE" ]; then
-    echo 'Expected $GIT_AUTHOR_DATE and $GIT_COMMITTER_DATE to be set.'
-    echo 'Did you forget to timewarp with `tw`?'
+    tw "$@"
   else
     # Fragile assumption: dates are in format produced by `tw`/`ts`.
     local TS=$(expr \
