@@ -56,19 +56,19 @@ local ownsyntax = function(active)
     -- We are focussing; restore previous settings.
     vim.cmd('ownsyntax on')
 
-    vim.wo.spell = vim.w.spell or false
-    vim.bo.spellcapcheck = vim.w.spellcapcheck or ''
-    vim.bo.spellfile = vim.w.spellfile or ''
-    vim.bo.spelllang = vim.w.spelllang or 'en'
+    vim.wo.spell = vim.w.saved_spell or false
+    vim.bo.spellcapcheck = vim.w.saved_spellcapcheck or ''
+    vim.bo.spellfile = vim.w.saved_spellfile or ''
+    vim.bo.spelllang = vim.w.saved_spelllang or 'en'
 
     -- Set flag to show that we have restored the captured options.
     vim.w[ownsyntax_flag] = true
   elseif not active and vim.bo.filetype ~= '' and flag ~= false then
     -- We are blurring; save settings for later restoration.
-    vim.w.spell = vim.wo.spell
-    vim.w.spellcapcheck = vim.bo.spellcapcheck
-    vim.w.spellfile = vim.bo.spellfile
-    vim.w.spelllang = vim.bo.spelllang
+    vim.w.saved_spell = vim.wo.spell
+    vim.w.saved_spellcapcheck = vim.bo.spellcapcheck
+    vim.w.saved_spellfile = vim.bo.spellfile
+    vim.w.saved_spelllang = vim.bo.spelllang
 
     vim.cmd('ownsyntax off')
 
@@ -297,7 +297,7 @@ autocmds.number_blacklist = {
   ['undotree'] = true,
 }
 
--- Don't do "ownsyntax off" for these.
+-- Don't do "ownsyntax on/off" for these.
 autocmds.ownsyntax_filetypes = {
   ['CommandTMatchListing'] = true,
   ['CommandTPrompt'] = true,
