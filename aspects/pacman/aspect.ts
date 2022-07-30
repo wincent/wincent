@@ -13,6 +13,7 @@ export default {
       'dmenu', // Item selection UI.
       'dnsutils', // For `host`, `nslookup` and friends.
       'dunst', // Notification daemon (eg. for clock dropdown in status bar).
+      'evtest', // For introspecting/trouble-shooting keyboard events.
       'feh', // Sets desktop background.
       'git', // Version control system.
       'graphviz', // Generating images of graphs from DOT language descriptions.
