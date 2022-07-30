@@ -450,6 +450,28 @@ local has_commandt, commandt = pcall(require, 'wincent.commandt')
 if has_commandt then
   commandt.setup({
     height = 30, -- Default is 15.
+
+    -- Demo: showing how to set up arbitrary command scanner that runs
+    -- `ack -f --print0`. See accompanying `:CommandTAck` definition below.
+    finders = {
+      ack = {
+        command = function(directory)
+          local command = 'ack -f --print0'
+          if directory ~= '' and directory ~= '.' and directory ~= './' then
+            directory = vim.fn.shellescape(directory)
+            command = command .. ' -- ' .. directory
+          end
+          return command
+        end,
+      },
+    },
+  })
+
+  vim.api.nvim_create_user_command('CommandTAck', function(command)
+    require('wincent.commandt').finder('ack', command.args)
+  end, {
+    complete = 'dir',
+    nargs = '?',
   })
 end
 
