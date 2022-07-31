@@ -3,14 +3,14 @@ import {command, file, handler, helpers, resource, task, template} from 'fig';
 const {when} = helpers;
 
 task('build mac2linux', when('arch'), async () => {
-  const chdir = resource.support();
+  const chdir = resource.support('mac2linux');
 
   await command('cmake', ['--build', '.'], {chdir});
   await command('make', [], {chdir});
 });
 
 task('install mac2linux', when('arch'), async () => {
-  const chdir = resource.support();
+  const chdir = resource.support('mac2linux');
 
   await command('cmake', ['--install', '.', '--prefix', '/usr'], {
     chdir,
