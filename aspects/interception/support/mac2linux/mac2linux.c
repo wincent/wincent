@@ -12,7 +12,7 @@
 #define EV_REPEAT 2
 
 // When pushing keys in the Colemak layout, these are the hardware keys seen by
-// the libevdev.
+// the libevdev (see /usr/include/linux/input-event-codes.h for definitions).
 
 #define COLEMAK_A KEY_A
 #define COLEMAK_C KEY_C
@@ -99,17 +99,36 @@ typedef struct mapping {
 } mapping;
 
 const mapping mappings[] = {
-    // Dead-key mappings.
+    // Dead-key mappings; picking function keys based on stuff in
+    // /usr/share/X11/xkb/symbols/inet that I won't be needing.
     {
-        .from = {.code = COLEMAK_N, .modifiers = {.meta = LEFT}},
+        // For em-dash.
+        .from = {.code = KEY_MINUS, .modifiers = {.meta = EITHER, .shift = EITHER}},
+        // F13 normally gets mapped to XF86Tools.
+        .to = {.code = KEY_F13, .modifiers = {}},
+    },
+    {
+        // For euro symbol.
+        .from = {.code = KEY_2, .modifiers = {.meta = EITHER, .shift = EITHER}},
+        // F14 normally gets mapped to XF86Launch5.
+        .to = {.code = KEY_F14, .modifiers = {}},
+    },
+    {
+        // For tilde.
+        .from = {.code = COLEMAK_N, .modifiers = {.meta = EITHER}},
+        // F21 normally gets mapped to XF86TouchpadToggle.
         .to = {.code = KEY_F21, .modifiers = {}},
     },
     {
-        .from = {.code = COLEMAK_E, .modifiers = {.meta = LEFT}},
+        // For acute accent.
+        .from = {.code = COLEMAK_E, .modifiers = {.meta = EITHER}},
+        // F22 normally gets mapped to XF86TouchpadOn.
         .to = {.code = KEY_F22, .modifiers = {}},
     },
     {
-        .from = {.code = COLEMAK_U, .modifiers = {.meta = LEFT}},
+        // For diaeresis (AKA "umlaut").
+        .from = {.code = COLEMAK_U, .modifiers = {.meta = EITHER}},
+        // F23 normally gets mapped to XF86TouchpadOff.
         .to = {.code = KEY_F23, .modifiers = {}},
     },
     // TODO: move some of these into Chrome (etc) specific muxer

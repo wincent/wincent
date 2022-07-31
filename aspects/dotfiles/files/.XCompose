@@ -2,9 +2,9 @@
 include "%L"
 
 # This file hacks together macOS-like dead-key support for characters commonly
-# typed in Spanish:
+# typed in Spanish, plus some handy others:
 #
-# - Á, É, Í, Ó, Ú, Ü, Ñ
+# - Á, É, Í, Ó, Ú, Ü, Ñ, — (EM DASH), €
 # - á, é, í, ó, ú, ü, ñ
 #
 # You might think that something like the following could be used but, sadly, X
@@ -55,14 +55,14 @@ include "%L"
 # here.
 #
 # So here is where we finally end up: we use Interception Tools to map to
-# function keys F21, F22, and F23 instead. The final fly in the ointment is that
-# even though the right keycodes are being sent (and `evtest` confirms this),
-# XCompose (and also `xev`) aren't seeing those function keys, unless we
-# override them in our `~/.Xmodmap` and call it from our `~/.xinitrc`.
-#
-# For example, the kernel may see F21, but /usr/share/X11/xkb/symbols/inet
-# transforms that into XF86TouchpadToggle.
-#
+# function keys instead. The final fly in the ointment is that even though the
+# right keycodes are being sent (and `evtest` confirms this), XCompose (and
+# also `xev`) aren't seeing those function keys, unless we override them in our
+# `~/.Xmodmap` and call it from our `~/.xinitrc`.
+
+<F13> : "—" U2014 # EM DASH
+<F14> : "€" U20AC # EURO SIGN
+
 <F21> <space>  : "~" U007E # TILDE
 <F21> <N>      : "Ñ" U00D1 # LATIN CAPITAL LETTER N WITH TILDE
 <F21> <n>      : "ñ" U00F1 # LATIN SMALL LETTER N WITH TILDE
