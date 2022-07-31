@@ -13,16 +13,8 @@ if [ -f $sysresources ]; then
   xrdb -merge $sysresources
 fi
 
-if [ -f $sysmodmap ]; then
-  xmodmap $sysmodmap
-fi
-
 if [ -f "$userresources" ]; then
   xrdb -merge "$userresources"
-fi
-
-if [ -f "$usermodmap" ]; then
-  xmodmap "$usermodmap"
 fi
 
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
@@ -41,6 +33,18 @@ sh ~/.fehbg &
 picom -b --experimental-backends --backend glx
 setxkbmap -option ''
 setxkbmap -layout us -variant colemak -option shift:both_capslock -option terminate:ctrl_alt_bksp
+
+# These `xmodmap` calls based on /etc/X11/xinit/xinitrc (moved down here so they
+# happen _after_ the setxkbmap.
+
+if [ -f $sysmodmap ]; then
+  xmodmap $sysmodmap
+fi
+
+if [ -f "$usermodmap" ]; then
+  xmodmap "$usermodmap"
+fi
+
 dunst &
 
 XSECURELOCK_FONT=SourceCodePro

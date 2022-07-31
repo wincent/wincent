@@ -3,6 +3,7 @@
   "variables": {
     "files": [
       ".XCompose",
+      ".Xmodmap",
       ".Xresources",
       ".ackrc",
       ".agignore",
