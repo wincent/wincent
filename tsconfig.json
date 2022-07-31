@@ -16,7 +16,10 @@
     "strict": true,
     "target": "ES2019"
   },
-  "exclude": ["aspects/interception/support/mac2linux/CMakeFiles/**", "node_modules"],
+  "exclude": [
+    "aspects/interception/support/mac2linux/CMakeFiles/**",
+    "node_modules"
+  ],
   "include": [
     "aspects/**/*.ts",
     "fig/**/*.ts",
