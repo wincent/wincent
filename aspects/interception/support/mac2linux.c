@@ -16,6 +16,7 @@
 
 #define COLEMAK_A KEY_A
 #define COLEMAK_C KEY_C
+#define COLEMAK_E KEY_K
 #define COLEMAK_F KEY_E
 #define COLEMAK_G KEY_T
 #define COLEMAK_I KEY_L
@@ -23,6 +24,7 @@
 #define COLEMAK_N KEY_J
 #define COLEMAK_R KEY_S
 #define COLEMAK_T KEY_F
+#define COLEMAK_U KEY_I
 #define COLEMAK_W KEY_W
 #define COLEMAK_X KEY_X
 #define COLEMAK_Z KEY_Z
@@ -97,6 +99,21 @@ typedef struct mapping {
 } mapping;
 
 const mapping mappings[] = {
+    // Dead-key mappings.
+    {
+        .from = {.code = COLEMAK_N, .modifiers = {.meta = LEFT}},
+        .to = {.code = KEY_F21, .modifiers = {}},
+    },
+    {
+        .from = {.code = COLEMAK_E, .modifiers = {.meta = LEFT}},
+        .to = {.code = KEY_F22, .modifiers = {}},
+    },
+    {
+        .from = {.code = COLEMAK_U, .modifiers = {.meta = LEFT}},
+        .to = {.code = KEY_F23, .modifiers = {}},
+    },
+    // TODO: move some of these into Chrome (etc) specific muxer
+    // see https://gitlab.com/interception/linux/plugins/xswitch
     {
         .from = {.code = COLEMAK_A, .modifiers = {.alt = EITHER}},
         .to = {.code = COLEMAK_A, .modifiers = {.ctrl = LEFT}},
