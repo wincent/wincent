@@ -11,18 +11,18 @@
 // @updateURL    http://localhost/~<%= variables.username %>/UserScripts/youtube/unhideYouTubeInfo.user.js
 // ==/UserScript==
 
-(function() {
-    'use strict';
+(function () {
+  'use strict';
 
-    const style = document.createElement('style');
+  const style = document.createElement('style');
 
-    style.innerHTML = `
+  style.innerHTML = `
         #info.ytd-video-primary-info-renderer {
             display: block !important;
         }
     `;
 
-    document.head.appendChild(style);
+  document.head.appendChild(style);
 })();
 
 // <%= variables.figManaged %>
