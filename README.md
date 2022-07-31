@@ -48,7 +48,6 @@ On macOS, we use [Karabiner-Elements](https://github.com/tekezo/Karabiner-Elemen
 
 - Make Caps Lock serve as Backspace (when tapped) and Left Control (when chorded with another key). When held down alone, Caps Lock fires repeated Backspace events.
 - Make Return serve as Return (when tapped) and Right Control (when chorded with another key). When held down alone, Return fires repeated Return events.
-- Maps Control-I to F6 (only in the terminal) so that it can be mapped independently from Tab in Vim.
 - Toggle Caps Lock on by tapping both Shift keys simultaneously.
 - Makes the function keys on my external Realforce keyboard behave like the "media" keys on Apple's keyboards.
 
@@ -56,8 +55,11 @@ And these only on macOS:
 
 - Swap Option and Command keys on my external Realforce keyboard.
 - Make the "application" key (extra modifier key on right-hand side) behave as "fn" on Realforce keyboard.
+- Map Control-I to F6 (only in the terminal) so that it can be mapped independently from Tab in Vim[^linux].
 - Make "pause" (at far-right of function key row) behave as "power" (effectively, sleep) on Realforce keyboard.
 - Adds a "SpaceFN" layer that can be activated by holding down Space while hitting other keys; I use this to make the cursor keys available on or near the home row in any app.
+
+[^linux]: This isn't needed on Linux because we can achieve the same via a Kitty configuration.
 
 ### Zsh
 
