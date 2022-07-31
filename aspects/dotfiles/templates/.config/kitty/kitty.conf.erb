@@ -484,6 +484,7 @@ disable_ligatures always
 
 #: Click the link under the mouse or move the cursor even when grabbed
 
+mouse_map <%= variables.kittyAlt %>+left click grabbed,ungrabbed mouse_handle_click selection link prompt
 # mouse_map shift+left click grabbed,ungrabbed mouse_handle_click selection link prompt
 
 #::  Same as above, except that the action is performed even when the
@@ -491,6 +492,7 @@ disable_ligatures always
 
 #: Click the link under the mouse cursor
 
+mouse_map <%= variables.kittyAlt %>+shift+left release grabbed,ungrabbed mouse_handle_click link
 # mouse_map ctrl+shift+left release grabbed,ungrabbed mouse_handle_click link
 
 #::  Variant with Ctrl+Shift is present because the simple click based
@@ -499,6 +501,7 @@ disable_ligatures always
 
 #: Discard press event for link click
 
+mouse_map <%= variables.kittyAlt %>+shift+left press grabbed discard_event
 # mouse_map ctrl+shift+left press grabbed discard_event
 
 #::  Prevent this press event from being sent to the program that has

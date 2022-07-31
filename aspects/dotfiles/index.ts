@@ -17,8 +17,42 @@ import stat from 'fig/fs/stat.js';
 
 const {is, when} = helpers;
 
-variables(({hostHandle, identity, profile}) => {
+variables(({hostHandle, identity, platform, profile}) => {
   return {
+    // This one is because Kitty defines these names to be the same:
+    //
+    // - "alt", "opt", "option", "⌥" (ie. the small modifier key next to Control)
+    // - "super", "cmd", "command", "⌘" (ie. the large modifier key next to Space)
+    //
+    // That is, the _documentation_ uses Mac-centric terminology rather than
+    // Linux terminology, where the following would apply:
+    //
+    // - "alt" refers to the large modifier key next to Space.
+    // - "super" refers to the small modifier key next to Control.
+    //
+    // In general I prefer to use the Linux-centric names everywhere, because at
+    // least those are partially in common with the names used in Windows:
+    //
+    // - "alt" refers to the large modifier key next to Space.
+    // - "windows" refers to the small modifier key next to Control.
+    //
+    // (Also, because Apple itself stopped writing the word "alt" on the its
+    // "super" key some years ago.)
+    //
+    // For more info on modifier key names, see: https://wincent.com/wiki/Modifier_keys
+    //
+    // Anyway, all this means that if you want to use the "alt" key (ie. the
+    // large modifier key) for anything in Kitty and have it work the same way
+    // on both platforms, you need to call it "alt" in your Linux config and
+    // "cmd" on your macOS one. On Linux, "alt" _does_ refer to the large
+    // modifier. On Darwin, only "cmd" does.
+    //
+    // Kitty's `macos_options_as_alt` setting doesn't help us here because it
+    // appears to only affect the behavior of the "option" key (ie. it makes it
+    // behave like "alt") but it does not actually _swap_ the functionality of
+    // the other key, so the other key ("cmd") continues to behave like "cmd".
+    kittyAlt: platform === 'darwin' ? 'cmd' : 'alt',
+
     gitGpgSign: identity === 'wincent' && profile !== 'codespaces',
     gitHostSpecificInclude: `.gitconfig.d/${hostHandle}`,
     gitUserEmail: identity === 'wincent' ? 'greg@hurrell.net' : '',
