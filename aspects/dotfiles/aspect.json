@@ -55,6 +55,7 @@
       ".zshrc"
     ],
     "templates": [
+      ".config/kitty/kitty.conf.erb",
       ".corpusrc.erb",
       ".fehbg",
       ".gitconfig.erb",
