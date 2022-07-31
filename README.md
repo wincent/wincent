@@ -133,7 +133,7 @@ If there are background processes, a yellow asterisk is shown:
 - Relatively recent [Zsh](http://www.zsh.org/).
 - Relatively recent [Git](http://git-scm.com/).
 - [Clipper](https://wincent.com/products/clipper) for transparent access to the local system clipboard.
-- On macOS, [iTerm2](http://www.iterm2.com/). Additionally, only the latest version of macOS (at the time of writing, Monterey) gets actively tested.
+- On macOS, [iTerm2](http://www.iterm2.com/) or [Kitty](https://sw.kovidgoyal.net/kitty/). Additionally, only the latest version of macOS (at the time of writing, Monterey) gets actively tested.
 - [Ruby](https://www.ruby-lang.org/).
 - [Adobe Source Code Pro](https://github.com/adobe-fonts/source-code-pro) or any other fixed-width font that includes the [Powerline glyphs](http://powerline.readthedocs.io/en/master/installation.html#fonts-installation).
 
