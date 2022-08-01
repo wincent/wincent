@@ -104,45 +104,49 @@ const mapping mappings[] = {
     {
         // For em-dash.
         .from = {.code = KEY_MINUS, .modifiers = {.meta = EITHER, .shift = EITHER}},
-        // F13 normally gets mapped to XF86Tools.
-        .to = {.code = KEY_F13, .modifiers = {}},
+        .to = {.code = KEY_F13 /* XF86Tools */, .modifiers = {}},
     },
     {
         // For euro symbol.
         .from = {.code = KEY_2, .modifiers = {.meta = EITHER, .shift = EITHER}},
-        // F14 normally gets mapped to XF86Launch5.
-        .to = {.code = KEY_F14, .modifiers = {}},
+        .to = {.code = KEY_F14 /* XF86Launch5 */, .modifiers = {}},
     },
     {
         // For inverted exclamation mark.
         .from = {.code = KEY_1, .modifiers = {.meta = EITHER}},
-        // F15 normally gets mapped to XF86Launch6.
-        .to = {.code = KEY_F15, .modifiers = {}},
+        .to = {.code = KEY_F15 /* XF86Launch6 */, .modifiers = {}},
     },
     {
         // For inverted question mark.
         .from = {.code = KEY_SLASH, .modifiers = {.meta = EITHER, .shift = EITHER}},
-        // F16 normally gets mapped to XF86Launch7.
-        .to = {.code = KEY_F16, .modifiers = {}},
+        .to = {.code = KEY_F16 /* XF86Launch7 */, .modifiers = {}},
+    },
+    {
+        // For feminine ordinal indicator.
+        .from = {.code = KEY_9, .modifiers = {.meta = EITHER, .shift = EITHER}},
+        .to = {.code = KEY_F17 /* XF86Launch8 */, .modifiers = {}},
+    },
+    {
+        // For masculine ordinal indicator.
+        .from = {.code = KEY_0, .modifiers = {.meta = EITHER, .shift = EITHER}},
+        .to = {.code = KEY_F18 /* XF86Launch9 */, .modifiers = {}},
     },
     {
         // For tilde.
         .from = {.code = COLEMAK_N, .modifiers = {.meta = EITHER}},
-        // F21 normally gets mapped to XF86TouchpadToggle.
-        .to = {.code = KEY_F21, .modifiers = {}},
+        .to = {.code = KEY_F21 /* XF86TouchpadToggle */, .modifiers = {}},
     },
     {
         // For acute accent.
         .from = {.code = COLEMAK_E, .modifiers = {.meta = EITHER}},
-        // F22 normally gets mapped to XF86TouchpadOn.
-        .to = {.code = KEY_F22, .modifiers = {}},
+        .to = {.code = KEY_F22 /* XF86TouchpadOn */, .modifiers = {}},
     },
     {
         // For diaeresis (AKA "umlaut").
         .from = {.code = COLEMAK_U, .modifiers = {.meta = EITHER}},
-        // F23 normally gets mapped to XF86TouchpadOff.
-        .to = {.code = KEY_F23, .modifiers = {}},
+        .to = {.code = KEY_F23 /* XF86TouchpadOff */, .modifiers = {}},
     },
+
     // TODO: move some of these into Chrome (etc) specific muxer
     // see https://gitlab.com/interception/linux/plugins/xswitch
     {
