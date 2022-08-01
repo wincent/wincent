@@ -71,7 +71,7 @@ include "%L"
 
 <F22> <space>  : "´" U0301 # COMBINING ACUTE ACCENT
 
-# Could to more, but sticking to vowels as that's all that are used in Spanish.
+# Could do more, but sticking to vowels as that's all that are used in Spanish.
 <F22> <A>      : "Á" U00C1 # LATIN CAPITAL LETTER A WITH ACUTE
 <F22> <a>      : "á" U00E1 # LATIN SMALL LETTER A WITH ACUTE
 <F22> <E>      : "É" U00C9 # LATIN CAPITAL LETTER E WITH ACUTE
@@ -100,7 +100,7 @@ include "%L"
 <F23> <o>     : "ö" U00F6 # LATIN SMALL LETTER O WITH DIAERESIS
 
 # Ideally, we'd have a bunch of other dead-key equivalents to what we have on
-# macOS for typing things that I need semi-regularly (like € and so on), but
-# I'll probably need to find a better way of doing things before I expand this
-# too much. For now, starting with the basics that I need to be able to write
-# Spanish.
+# macOS for typing things that I need semi-regularly, but I'll probably need
+# to find a better way of doing things before I expand this too much. For now,
+# starting with the basics that I need to be able to write Spanish and a couple
+# of other things.
