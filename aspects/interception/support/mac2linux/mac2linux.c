@@ -123,12 +123,12 @@ const mapping mappings[] = {
     },
     {
         // For feminine ordinal indicator.
-        .from = {.code = KEY_9, .modifiers = {.meta = EITHER, .shift = EITHER}},
+        .from = {.code = KEY_9, .modifiers = {.meta = EITHER}},
         .to = {.code = KEY_F17 /* XF86Launch8 */, .modifiers = {}},
     },
     {
         // For masculine ordinal indicator.
-        .from = {.code = KEY_0, .modifiers = {.meta = EITHER, .shift = EITHER}},
+        .from = {.code = KEY_0, .modifiers = {.meta = EITHER}},
         .to = {.code = KEY_F18 /* XF86Launch9 */, .modifiers = {}},
     },
     {
