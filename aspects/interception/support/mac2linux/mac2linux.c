@@ -114,6 +114,18 @@ const mapping mappings[] = {
         .to = {.code = KEY_F14, .modifiers = {}},
     },
     {
+        // For inverted exclamation mark.
+        .from = {.code = KEY_1, .modifiers = {.meta = EITHER}},
+        // F15 normally gets mapped to XF86Launch6.
+        .to = {.code = KEY_F15, .modifiers = {}},
+    },
+    {
+        // For inverted question mark.
+        .from = {.code = KEY_SLASH, .modifiers = {.meta = EITHER, .shift = EITHER}},
+        // F16 normally gets mapped to XF86Launch7.
+        .to = {.code = KEY_F16, .modifiers = {}},
+    },
+    {
         // For tilde.
         .from = {.code = COLEMAK_N, .modifiers = {.meta = EITHER}},
         // F21 normally gets mapped to XF86TouchpadToggle.

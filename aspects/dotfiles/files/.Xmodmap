@@ -1,5 +1,7 @@
 keycode 191 = F13 F13 F13
 keycode 192 = F14 F14 F14
+keycode 193 = F15 F15 F15
+keycode 194 = F16 F16 F16
 keycode 199 = F21 F21 F21
 keycode 200 = F22 F22 F22
 keycode 201 = F23 F23 F23
