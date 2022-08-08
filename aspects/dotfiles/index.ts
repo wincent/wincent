@@ -13,6 +13,7 @@ import {
   variable,
   variables,
 } from 'fig';
+import {promises as fs} from 'fig/fs.js';
 import stat from 'fig/fs/stat.js';
 
 const {is, when} = helpers;
@@ -62,13 +63,22 @@ variables(({hostHandle, identity, platform, profile}) => {
 });
 
 task('check for decrypted files', when('wincent'), async () => {
-  const result = await command('vendor/git-cipher/bin/git-cipher', ['status'], {
+  const result = await command('bin/git-cipher', ['ls', '--verbose'], {
     failedWhen: () => false,
   });
 
+  // TODO: consider whether I want to scan for magic headers instead, like I am
+  // in the "create symlinks" task... (basically, just want to try out the too
+  // methods).
   if (result !== null) {
-    if (result.status !== 0) {
-      log.warn(`git-cipher status:\n\n${result.stdout}\n`);
+    // BUG: git-cipher should be printing this to stdout, not stderr, so will
+    // need to update this once that is fixed.
+    const pending = result.status === 0 ? result.stderr.trim().split(/\n/).filter((line) => {
+      return line.length && !line.includes('worktree=decrypted');
+    }) : ['unable to determine encryption status for any file']
+
+    if (pending.length) {
+      log.warn(`git-cipher files not yet decrypted:\n\n${pending.join('\n')}\n`);
 
       if (!(await prompt.confirm('Continue anyway'))) {
         fail(`decrypted file check failed`);
@@ -107,10 +117,23 @@ task('create symlinks', async () => {
     // Skip over encrypted files on codespaces (as we'll never have decryption
     // keys in that environment).
     if (is('codespaces')) {
-      const result = await stat(path.aspect.join('files', `.${src}.encrypted`));
-      const encrypted = result !== null && !(result instanceof Error);
-      if (encrypted) {
-        continue;
+      const target = path.aspect.join('files', src);
+      const result = await stat(target);
+      // TODO: figure out whether skipping over non-files is enough/ok. There
+      // are some encrypted files which live inside directories; we maybe should
+      // be searching for those with `git-cipher ls` (although that begs the
+      // question whether we should be avoinding making a link, wholesale in
+      // that case).
+      if (result !== null && !(result instanceof Error) && result.type === 'file') {
+        // Peek at magic header.
+        // TODO: once `git-cipher is-encrypted` is a thing, may want to use that
+        // (if it is fast enough; and it probably will be...).
+        const contents = await fs.readFile(path.aspect.join('files', src), 'utf8');
+        const encrypted = /\s*\bmagic\s*=\s*com\.wincent\.git-cipher\b\s*/.test(contents.slice(0, 200));
+        if (encrypted) {
+          console.log("encrypted", src);
+          continue;
+        }
       }
     }
 

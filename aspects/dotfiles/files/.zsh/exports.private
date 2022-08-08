@@ -1,0 +1,12 @@
+magic = com.wincent.git-cipher
+url = https://github.com/wincent/git-cipher/blob/v2.0.0-pre.2/PROTOCOL.md
+version = 1
+algorithm = aes-256-cbc
+filename = "aspects/dotfiles/files/.zsh/exports.private"
+iv = 4d3d38e2a718a8f9eb42799c59c67b61
+ciphertext =
+386bab9a5df9b32ade29341bde785a50f5de700bc15a3cc4f755204d20ccfd4c955553ca
+363fd5a2a5483618c9517fe63d4d1c0d699f72703b3dccb4fa49752e2460d80a382d7201
+ae3b83d2bb3aa439b1e7dd9833c987e1763bb60128bb15502571b01023be1a92c0ceec2f
+ba203cb9475b861264f4e289c74dfe32e67ad8b4
+hmac = daa43b5b0ee75ef2e3677cb72edaa723a639be963fc92e0abba5f0b19c1b85c0

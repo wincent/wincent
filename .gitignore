@@ -1,24 +1,12 @@
-/aspects/dotfiles/files/.config/Raycast/Script Commands/emp.sh
-/aspects/dotfiles/files/.config/Raycast/Script Commands/the-hub.sh
 /aspects/dotfiles/files/.config/kitty/kitty.conf
-/aspects/dotfiles/files/.gitconfig.d/retiro
-/aspects/dotfiles/files/.github-handles.json
 /aspects/dotfiles/files/.hammerspoon/iterm.lua
-/aspects/dotfiles/files/.irssi/config
-/aspects/dotfiles/files/.npmrc
-/aspects/dotfiles/files/.pypirc
 /aspects/dotfiles/files/.zsh/.base16
 /aspects/dotfiles/files/.zsh/.base16.previous
-/aspects/dotfiles/files/.zsh/exports.private
-/aspects/dotfiles/files/.zsh/hash.private
 /aspects/nvim/files/.config/nvim/after/plugin/command-t.private.vim
 /aspects/nvim/files/.config/nvim/plugin/private.vim
 /aspects/nvim/files/.config/nvim/spell/en.utf-8.add.spl
 /aspects/nvim/files/.config/nvim/shada
 /aspects/nvim/files/.vim/viminfo
-/aspects/ssh/files/.ssh/config.d/pre/quevedo
-/aspects/ssh/files/.ssh/config.d/pre/retiro
-/aspects/ssh/templates/.ssh/config.erb
 /media
 /node_modules
 /vendor/base16-schemes

@@ -1,37 +1,3 @@
-" Directories where we want to perform auto-encryption on save.
-let s:encrypted={}
-let s:encrypted[expand('~/code/ansible-configs')]='vendor/git-cipher/bin/git-cipher'
-let s:encrypted[expand('~/code/wincent')]='vendor/git-cipher/bin/git-cipher'
-
-" Update encryptable files after saving.
-function! wincent#autocmds#encrypt(file) abort
-  let l:base=fnamemodify(a:file, ':h')
-  let l:directories=keys(s:encrypted)
-  for l:directory in l:directories
-    if stridx(a:file, l:directory) == 0
-      let l:encrypted=l:base . '/.' . fnamemodify(a:file, ':t') . '.encrypted'
-      if filewritable(l:encrypted) == 1
-        let l:executable=l:directory . '/' . s:encrypted[l:directory]
-        if executable(l:executable)
-          " If encryption ever stops working here, can debug by
-          " swapping in `echomsg` for `call`. An example cause
-          " would be forgetting to trust the public keys (eg.
-          " `gpg --edit-key greg@hurrell.net` + `trust`) and seeing
-          " an error like:
-          "
-          " > There is no assurance this key belongs to the named user... etc
-          call system(
-                \   fnamemodify(l:executable, ':S') .
-                \   ' encrypt ' .
-                \   shellescape(a:file)
-                \ )
-        endif
-      endif
-      break
-    endif
-  endfor
-endfunction
-
 " TODO move all this into a separate file
 let g:WincentEditorConfigPathBlacklist=[]
 

@@ -1,0 +1,12 @@
+"aspects/dotfiles/files/.config/Raycast/Script Commands/emp.sh"	diff=git-cipher	filter=git-cipher	merge=git-cipher
+"aspects/dotfiles/files/.config/Raycast/Script Commands/the-hub.sh"	diff=git-cipher	filter=git-cipher	merge=git-cipher
+aspects/dotfiles/files/.npmrc	diff=git-cipher	filter=git-cipher	merge=git-cipher
+aspects/dotfiles/files/.irssi/config	diff=git-cipher	filter=git-cipher	merge=git-cipher
+aspects/dotfiles/files/.gitconfig.d/retiro	diff=git-cipher	filter=git-cipher	merge=git-cipher
+aspects/dotfiles/files/.pypirc	diff=git-cipher	filter=git-cipher	merge=git-cipher
+aspects/dotfiles/files/.github-handles.json	diff=git-cipher	filter=git-cipher	merge=git-cipher
+aspects/dotfiles/files/.zsh/exports.private	diff=git-cipher	filter=git-cipher	merge=git-cipher
+aspects/dotfiles/files/.zsh/hash.private	diff=git-cipher	filter=git-cipher	merge=git-cipher
+aspects/ssh/files/.ssh/config.d/pre/quevedo	diff=git-cipher	filter=git-cipher	merge=git-cipher
+aspects/ssh/files/.ssh/config.d/pre/retiro	diff=git-cipher	filter=git-cipher	merge=git-cipher
+aspects/ssh/templates/.ssh/config.erb	diff=git-cipher	filter=git-cipher	merge=git-cipher
