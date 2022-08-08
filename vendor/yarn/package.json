@@ -1,7 +1,8 @@
 {
   "name": "yarn",
   "installationMethod": "tar",
-  "version": "1.22.5",
+  "version": "1.22.19",
+  "packageManager": "yarn@1.22.17",
   "license": "BSD-2-Clause",
   "preferGlobal": true,
   "description": "📦🐈 Fast, reliable, and secure dependency management.",
@@ -15,6 +16,9 @@
   "bin": {
     "yarn": "./bin/yarn.js",
     "yarnpkg": "./bin/yarn.js"
+  },
+  "scripts": {
+    "preinstall": ":; (node ./preinstall.js > /dev/null 2>&1 || true)"
   },
   "config": {
     "commitizen": {
