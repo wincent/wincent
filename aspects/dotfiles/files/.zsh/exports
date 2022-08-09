@@ -144,4 +144,12 @@ fi
 
 export RIPGREP_CONFIG_PATH=$HOME/.rgrc
 
-test -e $HOME/.zsh/exports.private && source $HOME/.zsh/exports.private
+() {
+  local PRIVATE="$HOME/.zsh/exports.private"
+  if grep 'com\.wincent\.git-cipher' "$PRIVATE" &> /dev/null; then
+    # Don't source still-encrypted file.
+  else
+    # Source it if it's actually there.
+    test -e "$PRIVATE" && source "$PRIVATE"
+  fi
+}

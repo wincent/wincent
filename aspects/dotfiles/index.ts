@@ -8,13 +8,14 @@ import {
   path,
   prompt,
   resource,
+  skip,
   template,
   task,
   variable,
   variables,
 } from 'fig';
 
-const {is, when} = helpers;
+const {is, isDecrypted, when} = helpers;
 
 variables(({hostHandle, identity, platform, profile}) => {
   return {
@@ -122,22 +123,9 @@ task('create symlinks', async () => {
     // keys in that environment).
     if (is('codespaces')) {
       const target = path.aspect.join('files', src);
-
-      // TODO: figure out whether skipping over non-files is enough/ok. There
-      // are some encrypted files which live inside directories; we maybe should
-      // be searching for those with `git-cipher ls` (although that begs the
-      // question whether we should be avoinding making a link, wholesale in
-      // that case).
-
-      const result = await command(
-        'bin/git-cipher',
-        ['is-encrypted', '--exit-code', target],
-        {
-          failedWhen: () => false,
-        }
-      );
-
-      if (result && result.status === 0) {
+      const decrypted = await isDecrypted(target);
+      if (!decrypted) {
+        skip(`not linking ${target} because it is not decrypted`);
         continue;
       }
     }

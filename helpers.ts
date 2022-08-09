@@ -1,4 +1,4 @@
-import {attributes, variable} from 'fig';
+import {attributes, path, run, variable} from 'fig';
 
 /**
  * @file
@@ -109,4 +109,15 @@ function checkCondition(label: string): boolean {
         `checkCondition(): Unknown condition label ${JSON.stringify(label)}`
       );
   }
+}
+
+export async function isDecrypted(pathish: string): Promise<boolean> {
+  const result = await run('bin/git-cipher', [
+    'is-encrypted',
+    '--exit-code',
+    path(pathish).expand,
+  ]);
+
+  // 0 = encrypted, 1 = decrypted, anything else = error.
+  return result.status === 1;
 }

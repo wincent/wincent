@@ -1,7 +1,7 @@
 import {
-  fail,
   file,
   helpers,
+  log,
   path,
   resource,
   skip,
@@ -9,9 +9,8 @@ import {
   template,
   variable,
 } from 'fig';
-import stat from 'fig/fs/stat.js';
 
-const {when} = helpers;
+const {isDecrypted, when} = helpers;
 
 task('create ~/.ssh/* directories', async () => {
   for (const directory of [
@@ -38,17 +37,10 @@ task('create ~/.ssh', async () => {
 
 task('install ~/.ssh/config', when('wincent'), async () => {
   const src = resource.template('.ssh/config.erb');
+  const decrypted = await isDecrypted(src);
 
-  const stats = await stat(src);
-
-  // TODO: make this warn instead of fail
-  // (on first run on a new machine, we might not have decrypted yet...
-  // because we won't have the GPG key on the machine yet...
-  // although maybe I should just do that...)
-  if (stats === null) {
-    fail(`"${src}" does not exist; run "bin/git-cipher"`);
-  } else if (stats instanceof Error) {
-    throw stats;
+  if (!decrypted) {
+    await log.warn(`"${src}" does not exist; run "bin/git-cipher unlock"`);
   } else {
     await template({
       mode: '0600',
@@ -62,9 +54,9 @@ task('install host-specific to ~/.ssh/config/config.d/*', async () => {
   for (const directory of ['pre', 'post']) {
     const hostHandle = variable.string('hostHandle');
     const src = resource.file('.ssh/config.d').join(directory, hostHandle);
-    const stats = await stat(src);
+    const decrypted = await isDecrypted(src);
 
-    if (stats && !(stats instanceof Error)) {
+    if (decrypted) {
       await file({
         force: true,
         path: path.home.join('.ssh/config.d', directory, hostHandle),
