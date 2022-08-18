@@ -67,8 +67,7 @@ task('check for decrypted files', when('wincent'), async () => {
   });
 
   // TODO: consider whether I want to scan for magic headers instead, like I am
-  // in the "create symlinks" task... (basically, just want to try out the too
-  // methods).
+  // in the "create symlinks" task...
   if (result !== null) {
     const pending =
       result.status === 0
