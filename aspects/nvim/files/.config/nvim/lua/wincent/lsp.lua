@@ -88,6 +88,12 @@ lsp.init = function ()
     }
   end
 
+  require'lspconfig'.gopls.setup {
+    capabilities = capabilities,
+    handlers = handlers,
+    on_attach = on_attach,
+  }
+
   require'lspconfig'.ocamlls.setup{
     capabilities = capabilities,
     handlers = handlers,
