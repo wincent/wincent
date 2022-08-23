@@ -80,7 +80,7 @@ Overall structure remains similar to Ansible, but I made some changes to better 
   - An (optional) `files` directory containing resources to be copied or otherwise manipulated.
   - An (optional) `templates` directory containing templates to be dynamically generated (and then copied, installed etc).
   - An (optional) `support` directory to contain any other useful resources (eg. helper scripts etc).
-- A [top-level `project.ts`](https://github.com/wincent/wincent/blob/main/project.ts) (or `project.json`)declares:
+- A [top-level `project.ts`](https://github.com/wincent/wincent/blob/main/project.ts) (or `project.json`) declares:
   - Supported platforms (eg. "darwin", "linux") plus their related aspects and variables.
   - Profiles (eg. "personal" and "work") along with their associated variables, and patterns for determining which profile should apply on a given machine.
   - Default variables that apply in the absence of more specific settings (see ["Variables"](#variables) for more details).
