@@ -73,6 +73,7 @@ prepend_to PATH /usr/local/bin
 prepend_to PATH /usr/local/sbin
 prepend_to PATH /usr/local/opt/srm/bin
 prepend_to PATH $HOME/.cargo/bin
+test -d $HOME/code/go/bin && prepend_to PATH $HOME/code/go/bin
 prepend_to PATH $HOME/.config/nvim/pack/bundle/opt/vcs-jump/bin
 test -d /opt/nvim/squashfs-root/usr/bin && prepend_to PATH /opt/nvim/squashfs-root/usr/bin
 
