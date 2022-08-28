@@ -237,6 +237,7 @@ autocmds.colorcolumn_filetype_blacklist = {
   ['CommandTTitle'] = true,
   ['command-t'] = true,
   ['diff'] = true,
+  ['dirvish'] = true,
   ['fugitiveblame']= true,
   ['undotree'] = true,
   ['qf'] = true,
