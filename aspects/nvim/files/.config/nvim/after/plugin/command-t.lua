@@ -45,7 +45,7 @@ vim.g.CommandTWindowFilter = '!&buflisted && &buftype == "nofile" && &filetype !
 
 vim.keymap.set('n', '<Leader>b', '<Plug>(CommandTBuffer)', { remap = true })
 vim.keymap.set('n', '<Leader>h', '<Plug>(CommandTHelp)', { remap  = true })
-vim.keymap.set('n', '<Leader>t', '<Plug>(CommandT)', { remap = true })
+vim.keymap.set('n', '<Leader>t', '<Plug>(CommandTRipgrep)', { remap = true })
 
 -- Note: These ones come from the Ruby version, for now.
 
