@@ -1,9 +1,8 @@
 local fmt = string.format
 
 -- Iterator that splits a string o a given delimiter
-local function split(str, delim)
-  delim = delim or "%s"
-  return string.gmatch(str, fmt("[^%s]+", delim))
+local function split(str)
+  return string.gmatch(str, fmt("[^%s]+", "%;"))
 end
 
 -- Find the proper directory separator depending
@@ -25,7 +24,7 @@ local function include_paths(fname, ext)
   ext = ext or "lua"
   local sep = dir_separator()
   local paths = string.gsub(package.path, "%?", fname)
-  for path in split(paths, "%;") do
+  for path in split(paths) do
     if vim.fn.filereadable(path) == 1 then
       return path
     end
