@@ -267,6 +267,7 @@ Unless otherwise noted, the contents of this repo are in the public domain. See 
 The repo is written and maintained by Greg Hurrell &lt;[greg@hurrell.net](mailto:greg@hurrell.net)&gt;. Other contributors that have submitted patches include, in alphabetical order:
 
 - Anton Kastritskiy
+- Hashem A. Damrah
 - Joe Lencioni
 - Jonathan Wilkins
 - Keng Kiat Lim
