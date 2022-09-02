@@ -6,7 +6,7 @@ local separator = string.match(package.config, '^[^\n]')
 
 -- Search in Lua `package.path` locations.
 local search_package_path = function (fname)
-  local paths = string.gsub(package.path, "%?", fname)
+  local paths = string.gsub(package.path, '%?', fname)
   for path in string.gmatch(paths, '[^%;]+') do
     if vim.fn.filereadable(path) == 1 then
       return path
@@ -19,12 +19,12 @@ local search_runtimepath = function(fname, ext)
   local candidate
   for _, path in ipairs(vim.api.nvim_list_runtime_paths()) do
     -- Look for "lua/*.lua".
-    candidate = table.concat({ path, ext, fmt("%s.%s", fname, ext) }, separator)
+    candidate = table.concat({ path, ext, fmt('%s.%s', fname, ext) }, separator)
     if vim.fn.filereadable(candidate) == 1 then
       return candidate
     end
     -- Look for "lua/*/init.lua".
-    candidate = table.concat({ path, ext, fname, fmt("init.%s", ext) }, separator)
+    candidate = table.concat({ path, ext, fname, fmt('init.%s', ext) }, separator)
     if vim.fn.filereadable(candidate) == 1 then
       return candidate
     end
