@@ -44,5 +44,5 @@ jobs:
           # *************************************************************
           # * NOTE: Keep this list up-to-date with bin/{check-,}format. *
           # *************************************************************
-          args: --check aspects/dotfiles/.hammerspoon aspects/nvim/files/.config
+          args: --check aspects/dotfiles/files/.hammerspoon aspects/nvim/files/.config
           version: "0.14.0"
