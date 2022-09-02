@@ -17,16 +17,17 @@ end
 
 -- Search for nvim lua include paths
 local function include_rtpaths(fname, ext)
+  local candidate
   for _, path in ipairs(vim.api.nvim_list_runtime_paths()) do
-    -- Look on runtime path for 'lua/*.lua' files
-    local path1 = table.concat({ path, ext, fmt("%s.%s", fname, ext) }, separator)
-    if vim.fn.filereadable(path1) == 1 then
-      return path1
+    -- Look for "lua/*.lua".
+    candidate = table.concat({ path, ext, fmt("%s.%s", fname, ext) }, separator)
+    if vim.fn.filereadable(candidate) == 1 then
+      return candidate
     end
-    -- Look on runtime path for 'lua/*/init.lua' files
-    local path2 = table.concat({ path, ext, fname, fmt("init.%s", ext) }, separator)
-    if vim.fn.filereadable(path2) == 1 then
-      return path2
+    -- Look for "lua/*/init.lua".
+    candidate = table.concat({ path, ext, fname, fmt("init.%s", ext) }, separator)
+    if vim.fn.filereadable(candidate) == 1 then
+      return candidate
     end
   end
 end
