@@ -1,17 +1,8 @@
 local fmt = string.format
 
--- Find the proper directory separator depending
--- on lua installation or OS.
-local function dir_separator()
-  -- Look at package.config for directory separator string (it's the first line)
-  if package.config then
-    return string.match(package.config, "^[^\n]")
-  elseif vim.fn.has("win32") == 1 then
-    return "\\"
-  else
-    return "/"
-  end
-end
+-- Look at first line of `package.config` for directory separator.
+-- See: http://www.lua.org/manual/5.2/manual.html#pdf-package.config
+local separator = string.match(package.config, '^[^\n]')
 
 -- Search for lua traditional include paths.
 -- This mimics how require internally works.
@@ -28,17 +19,16 @@ end
 -- Search for nvim lua include paths
 local function include_rtpaths(fname, ext)
   ext = ext or "lua"
-  local sep = dir_separator()
   local rtpaths = vim.api.nvim_list_runtime_paths()
   local modfile, initfile = fmt("%s.%s", fname, ext), fmt("init.%s", ext)
   for _, path in ipairs(rtpaths) do
     -- Look on runtime path for 'lua/*.lua' files
-    local path1 = table.concat({ path, ext, modfile }, sep)
+    local path1 = table.concat({ path, ext, modfile }, separator)
     if vim.fn.filereadable(path1) == 1 then
       return path1
     end
     -- Look on runtime path for 'lua/*/init.lua' files
-    local path2 = table.concat({ path, ext, fname, initfile }, sep)
+    local path2 = table.concat({ path, ext, fname, initfile }, separator)
     if vim.fn.filereadable(path2) == 1 then
       return path2
     end
@@ -47,10 +37,8 @@ end
 
 -- Global function that searches the path for the required file
 local function find_required_path(module)
-  -- Look at package.config for directory separator string (it's the first line)
-  local sep = string.match(package.config, "^[^\n]")
   -- Properly change '.' to separator (probably '/' on *nix and '\' on Windows)
-  local fname = vim.fn.substitute(module, "\\.", sep, "g")
+  local fname = vim.fn.substitute(module, '\\.', separator, 'g')
   local f
   ---- First search for lua modules
   f = include_paths(fname, "lua")
