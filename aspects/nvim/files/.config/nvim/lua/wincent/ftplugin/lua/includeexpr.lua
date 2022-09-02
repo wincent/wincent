@@ -18,7 +18,7 @@ end
 local function include_paths(fname, ext)
   ext = ext or "lua"
   local paths = string.gsub(package.path, "%?", fname)
-  for path in string.gmatch(paths, fmt("[^%s]+", "%;")) do
+  for path in string.gmatch(paths, '[^%;]+') do
     if vim.fn.filereadable(path) == 1 then
       return path
     end
