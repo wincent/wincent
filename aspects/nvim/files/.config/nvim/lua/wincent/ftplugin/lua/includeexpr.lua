@@ -17,7 +17,6 @@ end
 
 -- Search for nvim lua include paths
 local function include_rtpaths(fname, ext)
-  ext = ext or "lua"
   local rtpaths = vim.api.nvim_list_runtime_paths()
   local modfile, initfile = fmt("%s.%s", fname, ext), fmt("init.%s", ext)
   for _, path in ipairs(rtpaths) do
