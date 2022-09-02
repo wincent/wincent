@@ -8,10 +8,17 @@ cd "$REPO_ROOT"
 EXIT=0
 
 # stylua will skip hidden directories, so have to be explicit.
+#
+# ******************************************************************
+# * NOTE: Keep this list up-to-date with .github/workflows/ci.yml. *
+# ******************************************************************
 stylua --check \
   aspects/dotfiles/files/.hammerspoon \
   aspects/nvim/files/.config || EXIT=1
 
-yarn format:check || EXIT=1
+# ***********************************************************************
+# * NOTE: Keep these patterns up-to-date with .github/workflows/ci.yml. *
+# ***********************************************************************
+npx -y prettier --check "**/*.{js,json,md,ts}" "*.{md,ts}" || EXIT=1
 
 exit $EXIT

@@ -9,14 +9,11 @@ on:
     branches: [main, next, pu]
 
 jobs:
-  build:
 
-    runs-on: ubuntu-latest
-
+  check-lockfile:
     strategy:
       matrix:
         node-version: [18.x]
-
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
@@ -24,6 +21,27 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: yarn --frozen-lockfile
-    - run: yarn ci
-      env:
-        CI: true
+
+  prettier:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actionsx/prettier@v2
+        with:
+          # ******************************************************************
+          # * NOTE: Keep these patterns up-to-date with bin/{check-,}format. *
+          # ******************************************************************
+          args: --list-different "**/*.{js,json,md,ts}" "*.{md,ts}"
+
+  stylua:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: JohnnyMorganz/stylua-action@1.0.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # *************************************************************
+          # * NOTE: Keep this list up-to-date with bin/{check-,}format. *
+          # *************************************************************
+          args: --check aspects/dotfiles/.hammerspoon aspects/nvim/files/.config
+          version: "0.14.0"

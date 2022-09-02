@@ -8,9 +8,8 @@
   "author": "Greg Hurrell <greg@hurrell.net>",
   "license": "Unlicense",
   "scripts": {
-    "ci": "yarn format:check",
-    "format:check": "npx -y prettier --check \"**/*.{js,json,md,ts}\" \"*.{md,ts}\"",
-    "format": "npx -y prettier --write \"**/*.{js,json,md,ts}\" \"*.{md,ts}\""
+    "format:check": "bin/check-format",
+    "format": "bin/format"
   },
   "type": "module",
   "dependencies": {

@@ -8,8 +8,15 @@ REPO_ROOT="${BASH_SOURCE%/*}/.."
 cd "$REPO_ROOT"
 
 # stylua will skip hidden directories, so have to be explicit.
+#
+# ******************************************************************
+# * NOTE: Keep this list up-to-date with .github/workflows/ci.yml. *
+# ******************************************************************
 stylua \
   aspects/dotfiles/files/.hammerspoon \
   aspects/nvim/files/.config
 
-yarn format
+# ***********************************************************************
+# * NOTE: Keep these patterns up-to-date with .github/workflows/ci.yml. *
+# ***********************************************************************
+npx -y prettier --write "**/*.{js,json,md,ts}" "*.{md,ts}"
