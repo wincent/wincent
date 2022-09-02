@@ -32,9 +32,9 @@ local search_runtimepath = function(fname, ext)
 end
 
 -- Global function that searches the path for the required file
-local includeexpr = function (module)
+local includeexpr = function (fname)
   -- Properly change '.' to separator (probably '/' on *nix and '\' on Windows)
-  local fname = vim.fn.substitute(module, '\\.', separator, 'g')
+  fname = vim.fn.substitute(fname, '\\.', separator, 'g')
   local f
   ---- First search for lua modules
   f = search_package_path(fname)
