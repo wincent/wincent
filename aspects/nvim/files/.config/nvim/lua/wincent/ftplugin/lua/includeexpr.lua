@@ -33,24 +33,10 @@ end
 
 -- Global function that searches the path for the required file
 local includeexpr = function (fname)
-  -- Properly change '.' to separator (probably '/' on *nix and '\' on Windows)
   fname = vim.fn.substitute(fname, '\\.', separator, 'g')
-  local f
-  ---- First search for lua modules
-  f = search_package_path(fname)
-  if f then
-    return f
-  end
-  -- This part is just for nvim modules
-  f = search_runtimepath(fname, "lua")
-  if f then
-    return f
-  end
-  -- This part is just for nvim modules
-  f = search_runtimepath(fname, "fnl")
-  if f then
-    return f
-  end
+  return search_package_path(fname) or
+    search_runtimepath(fname, 'lua') or
+    search_runtimepath(fname, 'fnl')
 end
 
 return includeexpr
