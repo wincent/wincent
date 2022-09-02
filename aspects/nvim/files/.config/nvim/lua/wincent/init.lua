@@ -1,4 +1,4 @@
-local autoload = require'wincent.autoload'
+local autoload = require('wincent.autoload')
 
 local wincent = autoload('wincent')
 

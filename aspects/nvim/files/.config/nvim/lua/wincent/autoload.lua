@@ -30,7 +30,7 @@ local autoload = function(base)
         storage[key] = require(base .. '.' .. key)
       end
       return storage[key]
-    end
+    end,
   }
 
   return setmetatable({}, mt)

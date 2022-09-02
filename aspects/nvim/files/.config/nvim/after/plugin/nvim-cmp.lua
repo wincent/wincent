@@ -51,7 +51,7 @@ if has_cmp then
   --
   -- For other buffers ('expandtab'), we let Neovim behave as standard and that
   -- yields intuitive behavior.
-  local smart_bs = function ()
+  local smart_bs = function()
     if vim.o.expandtab then
       return rhs('<BS>')
     else
@@ -107,7 +107,7 @@ if has_cmp then
         local sw = shift_width()
         local previous_char = prefix:sub(#prefix, #prefix)
         local previous_column = #prefix - #previous_char + 1
-        local current_column = vim.fn.virtcol({vim.fn.line('.'), previous_column}) + 1
+        local current_column = vim.fn.virtcol({ vim.fn.line('.'), previous_column }) + 1
         local remainder = (current_column - 1) % sw
         local move = remainder == 0 and sw or sw - remainder
         keys = (' '):rep(move)
@@ -117,7 +117,7 @@ if has_cmp then
     vim.api.nvim_feedkeys(rhs(keys), 'nt', true)
   end
 
-  cmp.setup {
+  cmp.setup({
     mapping = {
       ['<BS>'] = cmp.mapping(function(_fallback)
         local keys = smart_bs()
@@ -203,5 +203,5 @@ if has_cmp then
     window = {
       documentation = cmp.config.window.bordered(),
     },
-  }
+  })
 end

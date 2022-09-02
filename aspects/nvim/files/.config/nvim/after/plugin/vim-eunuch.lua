@@ -14,4 +14,4 @@
 --
 -- Due to: https://github.com/neovim/neovim/issues/1716
 
-wincent.vim.command('W', 'call v:lua.wincent.sudo.write("<bang>")', {bang = true})
+wincent.vim.command('W', 'call v:lua.wincent.sudo.write("<bang>")', { bang = true })

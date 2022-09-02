@@ -3,13 +3,13 @@
 --
 
 return {
-  create = (function()
+  create = function()
     local head = nil
     local tail = nil
     local length = 0
     return setmetatable({
-      enqueue = (function(item)
-        new = {item = item}
+      enqueue = function(item)
+        new = { item = item }
         if tail then
           tail.next = new
         else
@@ -17,8 +17,8 @@ return {
           tail = new
         end
         length = length + 1
-      end),
-      dequeue = (function()
+      end,
+      dequeue = function()
         if head then
           length = length - 1
           item = head.item
@@ -30,12 +30,12 @@ return {
         else
           return nil
         end
-      end),
-      pet
+      end,
+      pet,
     }, {
-      __len = (function(t)
+      __len = function(t)
         return length
-      end),
+      end,
     })
-  end),
+  end,
 }

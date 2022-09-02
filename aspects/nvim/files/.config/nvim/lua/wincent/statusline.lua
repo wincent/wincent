@@ -1,4 +1,4 @@
-local pinnacle = require'wincent.pinnacle'
+local pinnacle = require('wincent.pinnacle')
 
 local statusline = {}
 
@@ -30,20 +30,19 @@ local update_statusline = function(default, action)
     end
   elseif filetype == 'undotree' then
     -- Don't override; undotree does its own thing.
-    result =  0
+    result = 0
   elseif filetype == 'qf' then
     if action == 'blur' then
-      result =
-            '%{v:lua.wincent.statusline.gutterpadding()}'
-            .. ' '
-            .. ' '
-            .. ' '
-            .. ' '
-            .. '%<'
-            .. '%q'
-            .. ' '
-            .. '%{get(w:,"quickfix_title","")}'
-            .. '%='
+      result = '%{v:lua.wincent.statusline.gutterpadding()}'
+        .. ' '
+        .. ' '
+        .. ' '
+        .. ' '
+        .. '%<'
+        .. '%q'
+        .. ' '
+        .. '%{get(w:,"quickfix_title","")}'
+        .. '%='
     else
       result = vim.g.WincentQuickfixStatusline or ''
     end
@@ -73,7 +72,7 @@ end
 
 statusline.blur_statusline = function()
   -- Default blurred statusline (buffer number: filename).
-  local blurred='%{v:lua.wincent.statusline.gutterpadding()}'
+  local blurred = '%{v:lua.wincent.statusline.gutterpadding()}'
   blurred = blurred .. ' ' -- space
   blurred = blurred .. ' ' -- space
   blurred = blurred .. ' ' -- space
@@ -150,11 +149,7 @@ statusline.gutterpadding = function()
   local minwidth = 2
   local numberwidth = vim.wo.numberwidth
   local row = vim.api.nvim_buf_line_count(0)
-  local gutterwidth = math.max(
-    (#tostring(row) + 1),
-    minwidth,
-    numberwidth
-  ) + signcolumn
+  local gutterwidth = math.max((#tostring(row) + 1), minwidth, numberwidth) + signcolumn
   local padding = (' '):rep(gutterwidth - 1)
   return padding
 end
@@ -213,34 +208,34 @@ statusline.set = function()
   --    %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
   --
   vim.opt.statusline = ''
-    .. '%7*'                                        -- Switch to User7 highlight group
-    .. '%{v:lua.wincent.statusline.lhs()}'          -- Red/green/orange modified/activity status.
-    .. '%*'                                         -- Reset highlight group.
-    .. '%4*'                                        -- Switch to User4 highlight group (Powerline arrow).
-    .. ''                                          -- Powerline arrow.
-    .. '%*'                                         -- Reset highlight group.
-    .. ' '                                          -- Space.
-    .. '%<'                                         -- Truncation point, if not enough width available.
-    .. '%{v:lua.wincent.statusline.fileprefix()}'   -- Relative path to file's directory.
-    .. '%3*'                                        -- Switch to User3 highlight group (bold).
-    .. '%t'                                         -- Filename.
-    .. '%*'                                         -- Reset highlight group.
-    .. ' '                                          -- Space.
-    .. '%1*'                                        -- Switch to User1 highlight group (italics).
-    .. '%('                                         -- Start item group.
-    .. '['                                          -- Left bracket (literal).
-    .. '%R'                                         -- Read-only flag: ,RO or nothing.
-    .. '%{v:lua.wincent.statusline.filetype()}'     -- Filetype (not using %Y because I don't want caps).
+    .. '%7*' -- Switch to User7 highlight group
+    .. '%{v:lua.wincent.statusline.lhs()}' -- Red/green/orange modified/activity status.
+    .. '%*' -- Reset highlight group.
+    .. '%4*' -- Switch to User4 highlight group (Powerline arrow).
+    .. '' -- Powerline arrow.
+    .. '%*' -- Reset highlight group.
+    .. ' ' -- Space.
+    .. '%<' -- Truncation point, if not enough width available.
+    .. '%{v:lua.wincent.statusline.fileprefix()}' -- Relative path to file's directory.
+    .. '%3*' -- Switch to User3 highlight group (bold).
+    .. '%t' -- Filename.
+    .. '%*' -- Reset highlight group.
+    .. ' ' -- Space.
+    .. '%1*' -- Switch to User1 highlight group (italics).
+    .. '%(' -- Start item group.
+    .. '[' -- Left bracket (literal).
+    .. '%R' -- Read-only flag: ,RO or nothing.
+    .. '%{v:lua.wincent.statusline.filetype()}' -- Filetype (not using %Y because I don't want caps).
     .. '%{v:lua.wincent.statusline.fileencoding()}' -- File-encoding if not UTF-8.
-    .. ']'                                          -- Right bracket (literal).
-    .. '%)'                                         -- End item group.
-    .. '%*'                                         -- Reset highlight group.
-    .. '%='                                         -- Split point for left and right groups.
-    .. ' '                                          -- Space.
-    .. ''                                          -- Powerline arrow.
-    .. '%5*'                                        -- Switch to User5 highlight group.
-    .. '%{v:lua.wincent.statusline.rhs()}'          -- Line/column info.
-    .. '%*'                                         -- Reset highlight group.
+    .. ']' -- Right bracket (literal).
+    .. '%)' -- End item group.
+    .. '%*' -- Reset highlight group.
+    .. '%=' -- Split point for left and right groups.
+    .. ' ' -- Space.
+    .. '' -- Powerline arrow.
+    .. '%5*' -- Switch to User5 highlight group.
+    .. '%{v:lua.wincent.statusline.rhs()}' -- Line/column info.
+    .. '%*' -- Reset highlight group.
 end
 
 statusline.update_highlight = function()
@@ -259,13 +254,13 @@ statusline.update_highlight = function()
   -- Inverted Error styling, for left-hand side "Powerline" triangle.
   local fg = pinnacle.extract_fg(status_highlight)
   local bg = pinnacle.extract_bg('StatusLine')
-  vim.cmd('highlight User4 ' .. pinnacle.highlight({bg = bg, fg = fg}))
+  vim.cmd('highlight User4 ' .. pinnacle.highlight({ bg = bg, fg = fg }))
 
   -- And opposite for the buffer number area.
   vim.cmd('highlight User7 ' .. pinnacle.highlight({
     bg = fg,
     fg = pinnacle.extract_fg('Normal'),
-    term = 'bold'
+    term = 'bold',
   }))
 
   -- Right-hand side section.
@@ -274,14 +269,14 @@ statusline.update_highlight = function()
   vim.cmd('highlight User5 ' .. pinnacle.highlight({
     bg = fg,
     fg = bg,
-    term = 'bold'
+    term = 'bold',
   }))
 
   -- Right-hand side section + italic (used for %).
   vim.cmd('highlight User6 ' .. pinnacle.highlight({
     bg = fg,
     fg = bg,
-    term = 'bold,italic'
+    term = 'bold,italic',
   }))
 
   vim.cmd('highlight clear StatusLineNC')

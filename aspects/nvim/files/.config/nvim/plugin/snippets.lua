@@ -6,7 +6,7 @@ if has_luasnip then
     ext_opts = {
       [types.choiceNode] = {
         active = {
-          virt_text = {{'← Choice', 'Todo'}},
+          virt_text = { { '← Choice', 'Todo' } },
         },
       },
       -- [types.insertNode] = {
@@ -15,8 +15,8 @@ if has_luasnip then
       --   },
       -- },
     },
-    store_selection_keys='<Tab>',
-    update_events='InsertLeave,TextChangedI',
+    store_selection_keys = '<Tab>',
+    update_events = 'InsertLeave,TextChangedI',
   })
 
   -- Tell LuaSnip to load on demand based on file-type.

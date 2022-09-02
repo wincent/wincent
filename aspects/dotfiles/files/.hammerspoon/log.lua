@@ -26,12 +26,24 @@ local module = {
   --
   --   hs.logger.setGlobalLogLevel('debug')
   --
-  debug = (function() log.setLogLevel('debug') end),
-  info = (function() log.setLogLevel('info') end),
-  verbose = (function() log.setLogLevel('verbose') end),
-  warning = (function() log.setLogLevel('warning') end),
-  error = (function() log.setLogLevel('error') end),
-  nothing = (function() log.setLogLevel('nothing') end),
+  debug = function()
+    log.setLogLevel('debug')
+  end,
+  info = function()
+    log.setLogLevel('info')
+  end,
+  verbose = function()
+    log.setLogLevel('verbose')
+  end,
+  warning = function()
+    log.setLogLevel('warning')
+  end,
+  error = function()
+    log.setLogLevel('error')
+  end,
+  nothing = function()
+    log.setLogLevel('nothing')
+  end,
 }
 
 -- Add this separately in order to avoid a syntax error.

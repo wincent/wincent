@@ -58,9 +58,16 @@ local lazy = function(pack, config)
         opts = ''
       end
       vim.cmd(
-        'command! ' .. opts .. ' ' .. command .. ' ' ..
-        ':call v:lua.wincent.g.lazy.' ..  key .. '.load() <bar> ' ..
-        command .. ' <args>'
+        'command! '
+          .. opts
+          .. ' '
+          .. command
+          .. ' '
+          .. ':call v:lua.wincent.g.lazy.'
+          .. key
+          .. '.load() <bar> '
+          .. command
+          .. ' <args>'
       )
     end
   end
@@ -87,7 +94,7 @@ local lazy = function(pack, config)
     else
       wincent.vim.autocmd('VimEnter', '*', function()
         vim.cmd('packadd! ' .. pack)
-      end, {once = true})
+      end, { once = true })
     end
   end
 end

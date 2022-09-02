@@ -3,10 +3,10 @@ hs.grid.MARGINX = 0
 hs.grid.MARGINY = 0
 hs.window.animationDuration = 0 -- disable animations
 
-local events = require 'events'
-local iterm = require 'iterm'
-local log = require 'log'
-local reloader = require 'reloader'
+local events = require('events')
+local iterm = require('iterm')
+local log = require('log')
+local reloader = require('reloader')
 
 -- Forward function declarations.
 local activate = nil
@@ -46,72 +46,72 @@ local grid = {
 }
 
 local layoutConfig = {
-  _before_ = (function()
+  _before_ = function()
     hide('com.spotify.client')
-  end),
+  end,
 
-  _after_ = (function()
+  _after_ = function()
     -- Make sure iTerm appears in front of others.
     activate('com.googlecode.iterm2')
-  end),
+  end,
 
-  ['com.flexibits.fantastical2.mac'] = (function(window)
+  ['com.flexibits.fantastical2.mac'] = function(window)
     hs.grid.set(window, grid.fullScreen, internalDisplay())
-  end),
+  end,
 
-  ['com.github.atom'] = (function(window)
+  ['com.github.atom'] = function(window)
     -- Leave room for simulator to the right.
     hs.grid.set(window, grid.leftTwoThirds, internalDisplay())
-  end),
+  end,
 
-  ['com.google.Chrome'] = (function(window, forceScreenCount)
+  ['com.google.Chrome'] = function(window, forceScreenCount)
     local count = forceScreenCount or screenCount
     if count == 1 then
       hs.grid.set(window, grid.fullScreen)
     else
       hs.grid.set(window, grid.fullScreen, hs.screen.primaryScreen())
     end
-  end),
+  end,
 
-  ['com.google.Chrome.canary'] = (function(window, forceScreenCount)
+  ['com.google.Chrome.canary'] = function(window, forceScreenCount)
     local count = forceScreenCount or screenCount
     if count == 1 then
       hs.grid.set(window, grid.fullScreen)
     else
       hs.grid.set(window, grid.fullScreen, hs.screen.primaryScreen())
     end
-  end),
+  end,
 
-  ['com.googlecode.iterm2'] = (function(window, forceScreenCount)
+  ['com.googlecode.iterm2'] = function(window, forceScreenCount)
     local count = forceScreenCount or screenCount
     if count == 1 then
       hs.grid.set(window, grid.fullScreen)
     else
       hs.grid.set(window, grid.fullScreen, hs.screen.primaryScreen())
     end
-  end),
+  end,
 
-  ['com.microsoft.edgemac'] = (function(window, forceScreenCount)
+  ['com.microsoft.edgemac'] = function(window, forceScreenCount)
     local count = forceScreenCount or screenCount
     if count == 1 then
       hs.grid.set(window, grid.fullScreen)
     else
       hs.grid.set(window, grid.fullScreen, hs.screen.primaryScreen())
     end
-  end),
+  end,
 
-  ['com.tinyspeck.slackmacgap'] = (function(window)
+  ['com.tinyspeck.slackmacgap'] = function(window)
     hs.grid.set(window, grid.fullScreen, internalDisplay())
-  end),
+  end,
 
-  ['net.kovidgoyal.kitty'] = (function(window, forceScreenCount)
+  ['net.kovidgoyal.kitty'] = function(window, forceScreenCount)
     local count = forceScreenCount or screenCount
     if count == 1 then
       hs.grid.set(window, grid.fullScreen)
     else
       hs.grid.set(window, grid.fullScreen, hs.screen.primaryScreen())
     end
-  end),
+  end,
 }
 
 --
@@ -122,7 +122,7 @@ local layoutConfig = {
 --
 -- (For Chrome, which has two windows per visible window on screen, but only one
 -- window per minimized window).
-windowCount = (function(app)
+windowCount = function(app)
   local count = 0
   if app then
     for _, window in pairs(app:allWindows()) do
@@ -132,31 +132,30 @@ windowCount = (function(app)
     end
   end
   return count
-end)
+end
 
-hide = (function(bundleID)
+hide = function(bundleID)
   local app = hs.application.get(bundleID)
   if app then
     app:hide()
   end
-end)
+end
 
-activate = (function(bundleID)
+activate = function(bundleID)
   local app = hs.application.get(bundleID)
   if app then
     app:activate()
   end
-end)
+end
 
-canManageWindow = (function(window)
+canManageWindow = function(window)
   local application = window:application()
   local bundleID = application:bundleID()
 
   -- Special handling for iTerm: windows without title bars are
   -- non-standard.
-  return window:isStandard() or
-    bundleID == 'com.googlecode.iterm2'
-end)
+  return window:isStandard() or bundleID == 'com.googlecode.iterm2'
+end
 
 local benQPD2700U = '1920x1080'
 local macBookPro13 = '1440x900'
@@ -164,16 +163,15 @@ local macBookPro15 = '1440x900'
 
 local samsung_S24C450 = '1920x1200'
 
-externalDisplay = (function()
+externalDisplay = function()
   return hs.screen.find(benQPD2700U)
-end)
+end
 
-internalDisplay = (function()
-  return hs.screen.find(macBookPro13) or
-    hs.screen.find(macBookPro15)
-end)
+internalDisplay = function()
+  return hs.screen.find(macBookPro13) or hs.screen.find(macBookPro15)
+end
 
-activateLayout = (function(forceScreenCount)
+activateLayout = function(forceScreenCount)
   layoutConfig._before_()
   events.emit('layout', forceScreenCount)
 
@@ -190,13 +188,13 @@ activateLayout = (function(forceScreenCount)
   end
 
   layoutConfig._after_()
-end)
+end
 
 --
 -- Event-handling
 --
 
-handleWindowEvent = (function(window)
+handleWindowEvent = function(window)
   if canManageWindow(window) then
     local application = window:application()
     local bundleID = application:bundleID()
@@ -204,12 +202,12 @@ handleWindowEvent = (function(window)
       layoutConfig[bundleID](window)
     end
   end
-end)
+end
 
-local windowFilter=hs.window.filter.new()
+local windowFilter = hs.window.filter.new()
 windowFilter:subscribe(hs.window.filter.windowCreated, handleWindowEvent)
 
-handleScreenEvent = (function()
+handleScreenEvent = function()
   -- Make sure that something noteworthy (display count) actually
   -- changed. We no longer check geometry because we were seeing spurious
   -- events.
@@ -218,17 +216,17 @@ handleScreenEvent = (function()
     screenCount = #screens
     activateLayout(screenCount)
   end
-end)
+end
 
-initEventHandling = (function()
+initEventHandling = function()
   screenWatcher = hs.screen.watcher.new(handleScreenEvent)
   screenWatcher:start()
-end)
+end
 
-tearDownEventHandling = (function()
+tearDownEventHandling = function()
   screenWatcher:stop()
   screenWatcher = nil
-end)
+end
 
 local lastSeenChain = nil
 local lastSeenWindow = nil
@@ -242,7 +240,7 @@ local lastSeenWindow = nil
 --    one chain to another, or on switching from one app to another, or from one
 --    window to another.
 --
-chain = (function(movements)
+chain = function(movements)
   local chainResetInterval = 2 -- seconds
   local cycleLength = #movements
   local sequenceNumber = 1
@@ -253,14 +251,10 @@ chain = (function(movements)
     local now = hs.timer.secondsSinceEpoch()
     local screen = win:screen()
 
-    if
-      lastSeenChain ~= movements or
-      lastSeenAt < now - chainResetInterval or
-      lastSeenWindow ~= id
-    then
+    if lastSeenChain ~= movements or lastSeenAt < now - chainResetInterval or lastSeenWindow ~= id then
       sequenceNumber = 1
       lastSeenChain = movements
-    elseif (sequenceNumber == 1) then
+    elseif sequenceNumber == 1 then
       -- At end of chain, restart chain on next screen.
       screen = screen:next()
     end
@@ -270,75 +264,95 @@ chain = (function(movements)
     hs.grid.set(win, movements[sequenceNumber], screen)
     sequenceNumber = sequenceNumber % cycleLength + 1
   end
-end)
+end
 
 --
 -- Key bindings.
 --
 
-hs.hotkey.bind({'ctrl', 'alt'}, 'up', chain({
-  grid.topHalf,
-  grid.topThird,
-  grid.topTwoThirds,
-}))
+hs.hotkey.bind(
+  { 'ctrl', 'alt' },
+  'up',
+  chain({
+    grid.topHalf,
+    grid.topThird,
+    grid.topTwoThirds,
+  })
+)
 
-hs.hotkey.bind({'ctrl', 'alt'}, 'right', chain({
-  grid.rightHalf,
-  grid.rightThird,
-  grid.rightTwoThirds,
-}))
+hs.hotkey.bind(
+  { 'ctrl', 'alt' },
+  'right',
+  chain({
+    grid.rightHalf,
+    grid.rightThird,
+    grid.rightTwoThirds,
+  })
+)
 
-hs.hotkey.bind({'ctrl', 'alt'}, 'down', chain({
-  grid.bottomHalf,
-  grid.bottomThird,
-  grid.bottomTwoThirds,
-}))
+hs.hotkey.bind(
+  { 'ctrl', 'alt' },
+  'down',
+  chain({
+    grid.bottomHalf,
+    grid.bottomThird,
+    grid.bottomTwoThirds,
+  })
+)
 
-hs.hotkey.bind({'ctrl', 'alt'}, 'left', chain({
-  grid.leftHalf,
-  grid.leftThird,
-  grid.leftTwoThirds,
-}))
+hs.hotkey.bind(
+  { 'ctrl', 'alt' },
+  'left',
+  chain({
+    grid.leftHalf,
+    grid.leftThird,
+    grid.leftTwoThirds,
+  })
+)
 
-hs.hotkey.bind({'ctrl', 'alt', 'cmd'}, 'up', chain({
-  grid.topLeft,
-  grid.topRight,
-  grid.bottomRight,
-  grid.bottomLeft,
-}))
+hs.hotkey.bind(
+  { 'ctrl', 'alt', 'cmd' },
+  'up',
+  chain({
+    grid.topLeft,
+    grid.topRight,
+    grid.bottomRight,
+    grid.bottomLeft,
+  })
+)
 
-hs.hotkey.bind({'ctrl', 'alt', 'cmd'}, 'down', chain({
-  grid.fullScreen,
-  grid.centeredBig,
-  grid.centeredSmall,
-}))
+hs.hotkey.bind(
+  { 'ctrl', 'alt', 'cmd' },
+  'down',
+  chain({
+    grid.fullScreen,
+    grid.centeredBig,
+    grid.centeredSmall,
+  })
+)
 
-hs.hotkey.bind({'ctrl', 'alt', 'cmd'}, 'f1', (function()
+hs.hotkey.bind({ 'ctrl', 'alt', 'cmd' }, 'f1', function()
   hs.alert('One-monitor layout')
   activateLayout(1)
-end))
+end)
 
-hs.hotkey.bind({'ctrl', 'alt', 'cmd'}, 'f2', (function()
+hs.hotkey.bind({ 'ctrl', 'alt', 'cmd' }, 'f2', function()
   hs.alert('Two-monitor layout')
   activateLayout(2)
-end))
+end)
 
-hs.hotkey.bind({'ctrl', 'alt', 'cmd'}, 'f3', (function()
-  hs.console.alpha(.75)
+hs.hotkey.bind({ 'ctrl', 'alt', 'cmd' }, 'f3', function()
+  hs.console.alpha(0.75)
   hs.toggleConsole()
-end))
+end)
 
-hs.hotkey.bind({'ctrl', 'alt', 'cmd'}, 'f4', (function()
-  hs.notify.show(
-    'Hammerspoon',
-    'Reloaded in the background',
-    'Press ⌃⌥⌘F3 to reveal the console.'
-  )
+hs.hotkey.bind({ 'ctrl', 'alt', 'cmd' }, 'f4', function()
+  hs.notify.show('Hammerspoon', 'Reloaded in the background', 'Press ⌃⌥⌘F3 to reveal the console.')
   reloader.reload()
-end))
+end)
 
 hs.hotkey.bind('alt', 'v', function()
-  hs.applescript [[
+  hs.applescript([[
     tell application "System Events" to tell process "Finder"
       set frontmost to true
       tell menu bar item "Edit" of menu bar 1
@@ -346,7 +360,7 @@ hs.hotkey.bind('alt', 'v', function()
         click menu item "Show Clipboard" of menu 1
       end tell
     end tell
-  ]]
+  ]])
 end)
 
 iterm.init()

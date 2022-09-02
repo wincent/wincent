@@ -4,7 +4,7 @@
 
 __globals = {}
 
-return (function(value)
+return function(value)
   __globals[#__globals + 1] = value
   return value
-end)
+end

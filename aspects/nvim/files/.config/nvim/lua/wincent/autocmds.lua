@@ -5,7 +5,7 @@ local autocmds = {}
 local ownsyntax_flag = 'wincent_ownsyntax'
 local number_flag = leader.number_flag
 
--- +0,+1,+2, ... +254
+-- stylua: ignore
 local focused_colorcolumn = '+' .. table.concat({
   '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12',
   '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23',
@@ -41,7 +41,7 @@ local winhighlight_blurred = table.concat({
   'Normal:ColorColumn',
   'NormalNC:ColorColumn',
   'Search:ColorColumn',
-  'SignColumn:ColorColumn'
+  'SignColumn:ColorColumn',
 }, ',')
 
 -- As described in a7e4d8b8383a375d124, `ownsyntax` resets spelling
@@ -81,9 +81,9 @@ local ownsyntax = function(active)
 end
 
 local should_mkview = function()
-  return vim.bo.buftype == '' and
-    autocmds.mkview_filetype_blacklist[vim.bo.filetype] == nil and
-    vim.fn.exists('$SUDO_USER') == 0 -- Don't create root-owned files.
+  return vim.bo.buftype == ''
+    and autocmds.mkview_filetype_blacklist[vim.bo.filetype] == nil
+    and vim.fn.exists('$SUDO_USER') == 0 -- Don't create root-owned files.
 end
 
 local focus_window = function()
@@ -161,10 +161,12 @@ local mkview = function()
       end
     end)
     if not success then
-      if err:find('%f[%w]E32%f[%W]') == nil and -- No file name; could be no buffer (eg. :checkhealth)
-        err:find('%f[%w]E186%f[%W]') == nil and -- No previous directory: probably a `git` operation.
-        err:find('%f[%w]E190%f[%W]') == nil and -- Could be name or path length exceeding NAME_MAX or PATH_MAX.
-        err:find('%f[%w]E5108%f[%W]') == nil then
+      if
+        err:find('%f[%w]E32%f[%W]') == nil -- No file name; could be no buffer (eg. :checkhealth)
+        and err:find('%f[%w]E186%f[%W]') == nil -- No previous directory: probably a `git` operation.
+        and err:find('%f[%w]E190%f[%W]') == nil -- Could be name or path length exceeding NAME_MAX or PATH_MAX.
+        and err:find('%f[%w]E5108%f[%W]') == nil
+      then
         error(err)
       end
     end
@@ -238,7 +240,7 @@ autocmds.colorcolumn_filetype_blacklist = {
   ['command-t'] = true,
   ['diff'] = true,
   ['dirvish'] = true,
-  ['fugitiveblame']= true,
+  ['fugitiveblame'] = true,
   ['undotree'] = true,
   ['qf'] = true,
   ['sagahover'] = true,
@@ -263,7 +265,7 @@ autocmds.winhighlight_filetype_blacklist = {
   ['CommandTPrompt'] = true,
   ['CommandTTitle'] = true,
   ['diff'] = true,
-  ['fugitiveblame']= true,
+  ['fugitiveblame'] = true,
   ['undotree'] = true,
   ['qf'] = true,
   ['sagahover'] = true,
@@ -291,7 +293,7 @@ autocmds.number_blacklist = {
   ['CommandTTitle'] = true,
   ['command-t'] = true,
   ['diff'] = true,
-  ['fugitiveblame']= true,
+  ['fugitiveblame'] = true,
   ['help'] = true,
   ['qf'] = true,
   ['sagahover'] = true,

@@ -21,15 +21,15 @@ local plaintext = function()
   --
   --   https://github.com/ahmedelgabri/dotfiles/blob/f2b74f6cd4d/files/.vim/plugin/mappings.vim#L27-L33
   --
-  vim.keymap.set('i', '!', '!<C-g>u', {buffer = true})
-  vim.keymap.set('i', ',', ',<C-g>u', {buffer = true})
-  vim.keymap.set('i', '.', '.<C-g>u', {buffer = true})
-  vim.keymap.set('i', ':', ':<C-g>u', {buffer = true})
-  vim.keymap.set('i', ';', ';<C-g>u', {buffer = true})
-  vim.keymap.set('i', '?', '?<C-g>u', {buffer = true})
+  vim.keymap.set('i', '!', '!<C-g>u', { buffer = true })
+  vim.keymap.set('i', ',', ',<C-g>u', { buffer = true })
+  vim.keymap.set('i', '.', '.<C-g>u', { buffer = true })
+  vim.keymap.set('i', ':', ':<C-g>u', { buffer = true })
+  vim.keymap.set('i', ';', ';<C-g>u', { buffer = true })
+  vim.keymap.set('i', '?', '?<C-g>u', { buffer = true })
 
-  vim.keymap.set('n', 'j', 'gj', {buffer = true})
-  vim.keymap.set('n', 'k', 'gk', {buffer = true})
+  vim.keymap.set('n', 'j', 'gj', { buffer = true })
+  vim.keymap.set('n', 'k', 'gk', { buffer = true })
 
   -- Ideally would keep 'list' set, and restrict 'listchars' to just
   -- show whitespace errors, but 'listchars' is global and I don't want

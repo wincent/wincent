@@ -12,36 +12,33 @@ local snippets = {
   -- TODO: make these smart about whether to use trailing semi or
   -- not, based on directory (or maybe .editorconfig)
   s(
-    {trig = 'import', dscr = 'import statement'},
+    { trig = 'import', dscr = 'import statement' },
     fmt("import {} from '{}{}';", {
       i(1, 'name'),
       i(2),
-      d(3, function (nodes)
+      d(3, function(nodes)
         local text = nodes[1][1]
-        local _, _, typish, target = text:find("^%s*(%a*)%s*{?%s*(%a+).*}?%s*$")
+        local _, _, typish, target = text:find('^%s*(%a*)%s*{?%s*(%a+).*}?%s*$')
         if typish == 'type' and target then
-          return sn(1, {i(1, target)})
+          return sn(1, { i(1, target) })
         elseif typish and target then
-          return sn(1, {i(1, typish .. target)})
+          return sn(1, { i(1, typish .. target) })
         else
-          return sn(1, {i(1, 'specifier')})
+          return sn(1, { i(1, 'specifier') })
         end
-      end, {1}),
+      end, { 1 }),
     })
   ),
+  s({ trig = 'log', dscr = 'console.log' }, fmt('console.log({});', { i(1, 'value') })),
   s(
-    {trig = 'log', dscr = 'console.log'},
-    fmt('console.log({});', {i(1, 'value')})
-  ),
-  s(
-    {trig = 'require', dscr = 'require statement'},
+    { trig = 'require', dscr = 'require statement' },
     fmt("const {} = require('{}{}');", {
       i(1, 'name'),
       i(2),
-      d(3, function (nodes)
+      d(3, function(nodes)
         local text = nodes[1][1]
-        return sn(1, {i(1, text)})
-      end, {1}),
+        return sn(1, { i(1, text) })
+      end, { 1 }),
     })
   ),
 }

@@ -8,29 +8,29 @@
 -- and at other times as window-local.
 
 local options = {
-  breakindent = {scope = 'window', type = 'boolean'},
-  breakindentopt = {scope = 'window', type = 'string'},
-  colorcolumn = {scope = 'window', type = 'string'},
-  concealcursor = {scope = 'window', type = 'string'},
-  expandtab = {scope = 'buffer', type = 'boolean'},
-  foldenable = {scope = 'window', type = 'boolean'},
-  formatprg = {scope = 'buffer', type = 'string'},
-  iskeyword = {scope = 'buffer', type = 'list'},
-  list = {scope = 'window', type = 'boolean'},
-  modifiable = {scope = 'buffer', type = 'boolean'},
-  omnifunc = {scope = 'buffer', type = 'string'},
-  readonly = {scope = 'buffer', type = 'boolean'},
-  shiftwidth = {scope = 'buffer', type = 'number'},
-  smartindent = {scope = 'buffer', type = 'boolean'},
-  spell = {scope = 'window', type = 'boolean'},
-  spellfile = {scope = 'buffer', type = 'string'},
-  spelllang = {scope = 'buffer', type = 'string'},
-  statusline = {scope = 'window', type = 'string'},
-  synmaxcol = {scope = 'buffer', type = 'number'},
-  tabstop = {scope = 'buffer', type = 'number'},
-  textwidth = {scope = 'buffer', type = 'number'},
-  wrap = {scope = 'window', type = 'boolean'},
-  wrapmargin = {scope = 'buffer', type = 'number'},
+  breakindent = { scope = 'window', type = 'boolean' },
+  breakindentopt = { scope = 'window', type = 'string' },
+  colorcolumn = { scope = 'window', type = 'string' },
+  concealcursor = { scope = 'window', type = 'string' },
+  expandtab = { scope = 'buffer', type = 'boolean' },
+  foldenable = { scope = 'window', type = 'boolean' },
+  formatprg = { scope = 'buffer', type = 'string' },
+  iskeyword = { scope = 'buffer', type = 'list' },
+  list = { scope = 'window', type = 'boolean' },
+  modifiable = { scope = 'buffer', type = 'boolean' },
+  omnifunc = { scope = 'buffer', type = 'string' },
+  readonly = { scope = 'buffer', type = 'boolean' },
+  shiftwidth = { scope = 'buffer', type = 'number' },
+  smartindent = { scope = 'buffer', type = 'boolean' },
+  spell = { scope = 'window', type = 'boolean' },
+  spellfile = { scope = 'buffer', type = 'string' },
+  spelllang = { scope = 'buffer', type = 'string' },
+  statusline = { scope = 'window', type = 'string' },
+  synmaxcol = { scope = 'buffer', type = 'number' },
+  tabstop = { scope = 'buffer', type = 'number' },
+  textwidth = { scope = 'buffer', type = 'number' },
+  wrap = { scope = 'window', type = 'boolean' },
+  wrapmargin = { scope = 'buffer', type = 'number' },
 }
 
 local bail = function(msg)
@@ -38,7 +38,7 @@ local bail = function(msg)
 end
 
 local setlocal = function(name, ...)
-  local args = {...}
+  local args = { ... }
   local operator = nil
   local value = nil
   if #args == 0 then
@@ -59,13 +59,9 @@ local setlocal = function(name, ...)
     return bail('setlocal(): unsupported option: ' .. name)
   end
 
-  local get = option.scope == 'buffer' and
-    vim.api.nvim_buf_get_option or
-    vim.api.nvim_win_get_option
+  local get = option.scope == 'buffer' and vim.api.nvim_buf_get_option or vim.api.nvim_win_get_option
 
-  local set = option.scope == 'buffer' and
-    vim.api.nvim_buf_set_option or
-    vim.api.nvim_win_set_option
+  local set = option.scope == 'buffer' and vim.api.nvim_buf_set_option or vim.api.nvim_win_set_option
 
   if operator == '=' then
     set(0, name, value)

@@ -8,7 +8,7 @@ local indent_blankline = {
     else
       return mapping
     end
-  end
+  end,
 }
 
 return indent_blankline

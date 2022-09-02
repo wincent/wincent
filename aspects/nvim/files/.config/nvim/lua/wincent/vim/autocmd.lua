@@ -2,7 +2,7 @@ wincent.g.autocommand_callbacks = {}
 
 -- Wrapper for simple autocmd use cases. `cmd` may be a string or a Lua
 -- function.
-local autocmd = function (name, pattern, cmd, opts)
+local autocmd = function(name, pattern, cmd, opts)
   opts = opts or {}
   local cmd_type = type(cmd)
   if cmd_type == 'function' then
@@ -14,19 +14,18 @@ local autocmd = function (name, pattern, cmd, opts)
   end
   local bang = opts.bang and '!' or ''
   local once = opts.once and '++once' or ''
-  vim.cmd(
-    table.concat(
-      vim.tbl_filter(
-        function (item) return item ~= '' end, {
-          'autocmd' .. bang,
-          name,
-          pattern,
-          once,
-          cmd,
-        }
-      ), ' '
-    )
-  )
+  vim.cmd(table.concat(
+    vim.tbl_filter(function(item)
+      return item ~= ''
+    end, {
+      'autocmd' .. bang,
+      name,
+      pattern,
+      once,
+      cmd,
+    }),
+    ' '
+  ))
 end
 
 return autocmd

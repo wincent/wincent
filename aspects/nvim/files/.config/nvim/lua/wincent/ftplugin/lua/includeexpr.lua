@@ -5,7 +5,7 @@ local fmt = string.format
 local separator = string.match(package.config, '^[^\n]')
 
 -- Search in Lua `package.path` locations.
-local search_package_path = function (fname)
+local search_package_path = function(fname)
   local paths = string.gsub(package.path, '%?', fname)
   for path in string.gmatch(paths, '[^%;]+') do
     if vim.fn.filereadable(path) == 1 then
@@ -32,11 +32,9 @@ local search_runtimepath = function(fname, ext)
 end
 
 -- Global function that searches the path for the required file
-local includeexpr = function (fname)
+local includeexpr = function(fname)
   fname = vim.fn.substitute(fname, '\\.', separator, 'g')
-  return search_package_path(fname) or
-    search_runtimepath(fname, 'lua') or
-    search_runtimepath(fname, 'fnl')
+  return search_package_path(fname) or search_runtimepath(fname, 'lua') or search_runtimepath(fname, 'fnl')
 end
 
 return includeexpr

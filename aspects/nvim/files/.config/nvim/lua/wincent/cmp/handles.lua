@@ -29,7 +29,7 @@ handles.setup = function()
   local source = {}
 
   source.new = function()
-    return setmetatable({}, {__index = source})
+    return setmetatable({}, { __index = source })
   end
 
   source.get_trigger_characters = function()
@@ -49,30 +49,29 @@ handles.setup = function()
       local items = {}
       for handle, name_and_email in pairs(handles_with_names_and_emails) do
         table.insert(items, {
-            filterText = handle .. ' ' .. name_and_email,
-            label = name_and_email,
-            textEdit = {
-              newText = name_and_email,
-              range = {
-                start = {
-                  line = request.context.cursor.row - 1,
-                  character = request.context.cursor.col - 1 - #input,
-                },
-                ['end'] = {
-                  line = request.context.cursor.row - 1,
-                  character = request.context.cursor.col - 1,
-                },
+          filterText = handle .. ' ' .. name_and_email,
+          label = name_and_email,
+          textEdit = {
+            newText = name_and_email,
+            range = {
+              start = {
+                line = request.context.cursor.row - 1,
+                character = request.context.cursor.col - 1 - #input,
+              },
+              ['end'] = {
+                line = request.context.cursor.row - 1,
+                character = request.context.cursor.col - 1,
               },
             },
-          }
-        )
+          },
+        })
       end
-      callback {
+      callback({
         items = items,
         isIncomplete = true,
-      }
+      })
     else
-      callback({isIncomplete = true})
+      callback({ isIncomplete = true })
     end
   end
 

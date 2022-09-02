@@ -9,7 +9,7 @@ wincent.g.command_callbacks = {}
 -- (ie. `:command!` instead of `:command`), seeing as I am using that at
 -- literally every call-site.
 --
-local command = function (name, repl, opts)
+local command = function(name, repl, opts)
   opts = opts or {}
   local repl_type = type(repl)
   if repl_type == 'function' then

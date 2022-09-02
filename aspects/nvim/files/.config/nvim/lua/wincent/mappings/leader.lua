@@ -10,13 +10,13 @@ local cycle_numbering = function()
   -- - relativenumber + number
   -- - number (only)
   -- - no numbering
-  if (vim.deep_equal({relativenumber, number}, {true, true})) then
+  if vim.deep_equal({ relativenumber, number }, { true, true }) then
     relativenumber, number = false, true
-  elseif (vim.deep_equal({relativenumber, number}, {false, true})) then
+  elseif vim.deep_equal({ relativenumber, number }, { false, true }) then
     relativenumber, number = false, false
-  elseif (vim.deep_equal({relativenumber, number}, {false, false})) then
+  elseif vim.deep_equal({ relativenumber, number }, { false, false }) then
     relativenumber, number = true, true
-  elseif (vim.deep_equal({relativenumber, number}, {true, false})) then
+  elseif vim.deep_equal({ relativenumber, number }, { true, false }) then
     relativenumber, number = false, true
   end
 
@@ -37,13 +37,13 @@ local get_highlight_group = function()
   local synIDattr = vim.fn.synIDattr
   local synIDtrans = vim.fn.synIDtrans
   return (
-    'hi<' ..
-    synIDattr(synID(line, col, true), 'name') ..
-    '> trans<' ..
-    synIDattr(synID(line, col, false), 'name') ..
-    '> lo<' ..
-    synIDattr(synIDtrans(synID(line, col, true)), 'name') ..
-    '>'
+    'hi<'
+    .. synIDattr(synID(line, col, true), 'name')
+    .. '> trans<'
+    .. synIDattr(synID(line, col, false), 'name')
+    .. '> lo<'
+    .. synIDattr(synIDtrans(synID(line, col, true)), 'name')
+    .. '>'
   )
 end
 
@@ -60,7 +60,7 @@ local jump = function(mapping, delta)
     local next_entry = jumplist[next_idx]
     if next_entry.bufnr ~= previous_entry.bufnr then
       -- We found the next file; we're done.
-      local key =  vim.api.nvim_replace_termcodes(mapping, true, false, true)
+      local key = vim.api.nvim_replace_termcodes(mapping, true, false, true)
       vim.api.nvim_feedkeys(count .. key, 'n', true)
       vim.cmd('echo') -- Clear any previous "No more jumps!" message.
       return
@@ -72,11 +72,11 @@ local jump = function(mapping, delta)
   vim.api.nvim_err_writeln('No more jumps!')
 end
 
-local jump_in_file = function ()
+local jump_in_file = function()
   jump('<C-i>', 1)
 end
 
-local jump_out_file = function ()
+local jump_out_file = function()
   jump('<C-o>', -1)
 end
 

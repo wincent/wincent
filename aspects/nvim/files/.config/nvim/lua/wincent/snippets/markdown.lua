@@ -5,15 +5,17 @@ local s = luasnip.snippet
 
 luasnip.add_snippets('markdown', {
   s(
-    {trig = 'frontmatter', dscr = 'Document frontmatter'},
-    fmt([[
+    { trig = 'frontmatter', dscr = 'Document frontmatter' },
+    fmt(
+      [[
       ---
       tags: {}
       ---
 
     ]],
-    {
-      i(1, 'value')
-    })
+      {
+        i(1, 'value'),
+      }
+    )
   ),
 })

@@ -8,13 +8,13 @@ local command = wincent.vim.command
 -- Settings.
 --
 
-vim.g.CommandTCancelMap = {'<ESC>', '<C-c>'}
+vim.g.CommandTCancelMap = { '<ESC>', '<C-c>' }
 
 local term = vim.api.nvim_get_option('term') -- because `vim.o.term` goes 💥
 
 if vim.regex('screen|tmux|xterm'):match_str(term) then
-  vim.g.CommandTSelectNextMap = {'<C-j>', '<Down>', '<ESC>OB'}
-  vim.g.CommandTSelectPrevMap = {'<C-k>', '<Up>', '<ESC>OA'}
+  vim.g.CommandTSelectNextMap = { '<C-j>', '<Down>', '<ESC>OB' }
+  vim.g.CommandTSelectPrevMap = { '<C-k>', '<Up>', '<ESC>OA' }
 end
 
 vim.g.CommandTEncoding = 'UTF-8'
@@ -25,13 +25,13 @@ vim.g.CommandTMaxFiles = 3000000
 vim.g.CommandTScanDotDirectories = 1
 vim.g.CommandTTraverseSCM = 'pwd'
 vim.g.CommandTWildIgnore = vim.o.wildignore
- .. ',*/.git/*'
- .. ',*/.hg/*'
- .. ',*/bower_components/*'
- .. ',*/tmp/*'
- .. ',*.class'
- .. ',*/classes/*'
- .. ',*/build/*'
+  .. ',*/.git/*'
+  .. ',*/.hg/*'
+  .. ',*/bower_components/*'
+  .. ',*/tmp/*'
+  .. ',*.class'
+  .. ',*/classes/*'
+  .. ',*/build/*'
 
 -- Allow Command-T to open selections in dirvish windows.
 vim.g.CommandTWindowFilter = '!&buflisted && &buftype == "nofile" && &filetype !=# "dirvish"'
@@ -44,7 +44,7 @@ vim.g.CommandTWindowFilter = '!&buflisted && &buftype == "nofile" && &filetype !
 -- these up.
 
 vim.keymap.set('n', '<Leader>b', '<Plug>(CommandTBuffer)', { remap = true })
-vim.keymap.set('n', '<Leader>h', '<Plug>(CommandTHelp)', { remap  = true })
+vim.keymap.set('n', '<Leader>h', '<Plug>(CommandTHelp)', { remap = true })
 vim.keymap.set('n', '<Leader>t', '<Plug>(CommandTRipgrep)', { remap = true })
 
 -- Note: These ones come from the Ruby version, for now.
@@ -69,9 +69,9 @@ show = function()
       tries = tries - 1
       vim.defer_fn(show, 100)
     else
-      vim.cmd [[
+      vim.cmd([[
         echoerr "Startup too slow: giving up waiting to :CommandTBoot"
-      ]]
+      ]])
     end
   end
 end

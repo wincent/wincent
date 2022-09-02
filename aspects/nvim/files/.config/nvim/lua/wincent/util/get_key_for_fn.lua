@@ -20,7 +20,7 @@ local config_prefix = vim.env.HOME .. '/.config/nvim/'
 -- For example, an anonymous function defined in "~/.config/nvim/plugin/mappings/normal.lua"
 -- might receive a key like `plugin_mappings_normal_L38`.
 --
-local get_key_for_fn = function (fn, storage)
+local get_key_for_fn = function(fn, storage)
   local info = debug.getinfo(fn)
   local key = info.short_src
   if vim.startswith(key, config_prefix) then

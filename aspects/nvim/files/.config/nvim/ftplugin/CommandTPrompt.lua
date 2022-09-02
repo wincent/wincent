@@ -7,7 +7,7 @@ if not has_cmp then
 end
 
 if not wincent.g.CommandTPrompt then
-  wincent.g.CommandTPrompt = {registered = true}
+  wincent.g.CommandTPrompt = { registered = true }
   cmp.setup.filetype('CommandTPrompt', {
     sources = cmp.config.sources({}),
   })

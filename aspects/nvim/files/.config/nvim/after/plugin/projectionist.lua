@@ -33,7 +33,7 @@ local heuristics = {
         'src/{}.re',
       },
       ['type'] = 'test',
-    }
+    },
   },
 
   ['package.json'] = {},
@@ -49,10 +49,10 @@ end
 
 -- Set up projections for JS variants.
 for _, root_and_extension in ipairs({
-  {'package.json', '.js'},
-  {'package.json', '.jsx'},
-  {'tsconfig.json', '.ts'},
-  {'tsconfig.json', '.tsx'},
+  { 'package.json', '.js' },
+  { 'package.json', '.jsx' },
+  { 'tsconfig.json', '.ts' },
+  { 'tsconfig.json', '.tsx' },
 }) do
   local root = root_and_extension[1]
   local extension = root_and_extension[2]
@@ -74,7 +74,7 @@ for _, root_and_extension in ipairs({
       ['alternate'] = '{dirname}/{basename}' .. extension,
       ['type'] = 'test',
     },
-    ['**/__tests__/*-test' .. extension] =  {
+    ['**/__tests__/*-test' .. extension] = {
       ['alternate'] = '{dirname}/{basename}' .. extension,
       ['type'] = 'test',
     },

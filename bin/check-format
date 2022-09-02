@@ -1,0 +1,17 @@
+#!/bin/bash
+
+REPO_ROOT="${BASH_SOURCE%/*}/.."
+
+# Must `cd` to root in order for `stylua.toml` to get picked up.
+cd "$REPO_ROOT"
+
+EXIT=0
+
+# stylua will skip hidden directories, so have to be explicit.
+stylua --check \
+  aspects/dotfiles/files/.hammerspoon \
+  aspects/nvim/files/.config || EXIT=1
+
+yarn format:check || EXIT=1
+
+exit $EXIT
