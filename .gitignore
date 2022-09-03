@@ -9,8 +9,6 @@
 /aspects/nvim/files/.vim/viminfo
 /media
 /node_modules
-/vendor/base16-schemes
-/vendor/base16-templates
 /vendor/neovim
 /vendor/skim
 /vendor/yay
