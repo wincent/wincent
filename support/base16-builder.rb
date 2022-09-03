@@ -83,7 +83,7 @@ templates = vendor.join("base16-templates")
       sub(%r{\Ahttps://github\.com/}, '').
       sub(%r{\.git\z}, '')
     template_dir = templates.join("base16-#{target}")
-    unless ENV['NO_CLONE'] == 1
+    unless ENV['NO_CLONE'] == '1'
       if template_dir.exist?
         puts "#{target}: updating clone #{template_dir}"
         system("git", "-C", template_dir.to_s, "pull")
