@@ -1,6 +1,6 @@
 #!/bin/sh
 # base16-shell (https://github.com/chriskempson/base16-shell)
-# Base16 Shell template by Chris Kempson (http://chriskempson.com)
+# Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Solar Flare scheme by Chuck Harmston (https://chuck.harmston.ch)
 
 color00="18/26/2F" # Base 00 - Black

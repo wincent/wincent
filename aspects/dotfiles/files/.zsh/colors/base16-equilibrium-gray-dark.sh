@@ -1,6 +1,6 @@
 #!/bin/sh
 # base16-shell (https://github.com/chriskempson/base16-shell)
-# Base16 Shell template by Chris Kempson (http://chriskempson.com)
+# Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Equilibrium Gray Dark scheme by Carlo Abelli
 
 color00="11/11/11" # Base 00 - Black

@@ -1,6 +1,6 @@
 #!/bin/sh
 # base16-shell (https://github.com/chriskempson/base16-shell)
-# Base16 Shell template by Chris Kempson (http://chriskempson.com)
+# Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Solarized Dark scheme by Ethan Schoonover (modified by aramisgithub)
 
 color00="00/2b/36" # Base 00 - Black

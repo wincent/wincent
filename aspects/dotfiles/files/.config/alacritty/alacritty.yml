@@ -171,7 +171,7 @@ font:
 draw_bold_text_with_bright_colors: true
 
 # Base16 Default Dark 256 - alacritty color config
-# Chris Kempson (http://chriskempson.com)
+# Chris Kempson (https://github.com/chriskempson)
 # From: https://github.com/aarowill/base16-alacritty/blob/master/colors/base16-bright-256.yml
 colors:
   # Default colors

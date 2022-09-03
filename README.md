@@ -13,7 +13,7 @@
 - Target platforms: macOS and Linux (see [Platform status](#platform-status) below).
 - Set-up method: ~~Beautiful and intricate snowflake~~ an incredibly over-engineered custom configuration framework called [Fig](./fig/README.md).
 - Visible in the screenshot:
-  - [The "bright" Base16](http://chriskempson.com/projects/base16/) color scheme (see [screenshots of other colorschemes](https://github.com/wincent/wincent/blob/media/colorschemes/README.md)).
+  - [The "bright" Base16](https://github.com/chriskempson/base16) color scheme (see [screenshots of other colorschemes](https://github.com/wincent/wincent/blob/media/colorschemes/README.md)).
   - [Adobe Source Code Pro](https://github.com/adobe-fonts/source-code-pro) (Light) font.
   - [Neovim](https://neovim.io), running inside [tmux](https://github.com/tmux/tmux), inside [iTerm2](http://www.iterm2.com/), on macOS "Big Sur"[^monterey].
 

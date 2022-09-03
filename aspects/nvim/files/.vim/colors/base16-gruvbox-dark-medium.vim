@@ -1,7 +1,7 @@
 " vi:syntax=vim
 
 " base16-vim (https://github.com/chriskempson/base16-vim)
-" by Chris Kempson (http://chriskempson.com)
+" by Chris Kempson (https://github.com/chriskempson)
 " Gruvbox dark, medium scheme by Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
 
 " This enables the coresponding base16-shell script to run so that

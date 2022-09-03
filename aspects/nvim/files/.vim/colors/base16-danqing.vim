@@ -1,7 +1,7 @@
 " vi:syntax=vim
 
 " base16-vim (https://github.com/chriskempson/base16-vim)
-" by Chris Kempson (http://chriskempson.com)
+" by Chris Kempson (https://github.com/chriskempson)
 " DanQing scheme by Wenhan Zhu (Cosmos) (zhuwenhan950913@gmail.com)
 
 " This enables the coresponding base16-shell script to run so that

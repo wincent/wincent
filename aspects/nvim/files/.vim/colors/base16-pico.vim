@@ -1,7 +1,7 @@
 " vi:syntax=vim
 
 " base16-vim (https://github.com/chriskempson/base16-vim)
-" by Chris Kempson (http://chriskempson.com)
+" by Chris Kempson (https://github.com/chriskempson)
 " Pico scheme by PICO-8 (http://www.lexaloffle.com/pico-8.php)
 
 " This enables the coresponding base16-shell script to run so that

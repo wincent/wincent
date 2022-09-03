@@ -1,6 +1,6 @@
 #!/bin/sh
 # base16-shell (https://github.com/chriskempson/base16-shell)
-# Base16 Shell template by Chris Kempson (http://chriskempson.com)
+# Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Harmonic16 Light scheme by Jannik Siebert (https://github.com/janniks)
 
 color00="f7/f9/fb" # Base 00 - Black

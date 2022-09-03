@@ -1,7 +1,7 @@
 " vi:syntax=vim
 
 " base16-vim (https://github.com/chriskempson/base16-vim)
-" by Chris Kempson (http://chriskempson.com)
+" by Chris Kempson (https://github.com/chriskempson)
 " Shades of Purple scheme by Iolar Demartini Junior (http://github.com/demartini) based on Shades of Purple Theme (https://github.com/ahmadawais/shades-of-purple-vscode).
 
 " This enables the coresponding base16-shell script to run so that

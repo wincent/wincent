@@ -1,6 +1,6 @@
 #!/bin/sh
 # base16-shell (https://github.com/chriskempson/base16-shell)
-# Base16 Shell template by Chris Kempson (http://chriskempson.com)
+# Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Heetch Light scheme by Geoffrey Teale (tealeg@gmail.com)
 
 color00="fe/ff/ff" # Base 00 - Black

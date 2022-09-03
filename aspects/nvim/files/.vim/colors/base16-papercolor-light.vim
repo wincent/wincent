@@ -1,7 +1,7 @@
 " vi:syntax=vim
 
 " base16-vim (https://github.com/chriskempson/base16-vim)
-" by Chris Kempson (http://chriskempson.com)
+" by Chris Kempson (https://github.com/chriskempson)
 " PaperColor Light scheme by Jon Leopard (http://github.com/jonleopard) based on PaperColor Theme (https://github.com/NLKNguyen/papercolor-theme)
 
 " This enables the coresponding base16-shell script to run so that

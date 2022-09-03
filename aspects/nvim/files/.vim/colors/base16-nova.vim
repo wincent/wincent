@@ -1,7 +1,7 @@
 " vi:syntax=vim
 
 " base16-vim (https://github.com/chriskempson/base16-vim)
-" by Chris Kempson (http://chriskempson.com)
+" by Chris Kempson (https://github.com/chriskempson)
 " Nova scheme by George Essig (https://github.com/gessig), Trevor D. Miller (https://trevordmiller.com)
 
 " This enables the coresponding base16-shell script to run so that

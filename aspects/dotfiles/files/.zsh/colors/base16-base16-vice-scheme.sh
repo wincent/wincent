@@ -1,6 +1,6 @@
 #!/bin/sh
 # base16-shell (https://github.com/chriskempson/base16-shell)
-# Base16 Shell template by Chris Kempson (http://chriskempson.com)
+# Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # vice scheme by Thomas Leon Highbaugh thighbaugh@zoho.com
 
 color00="17/19/1E" # Base 00 - Black

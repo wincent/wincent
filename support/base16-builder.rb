@@ -141,7 +141,7 @@ banner "Updating templates"
                       when "b" then definition["base#{$~[1]}"][4..5].to_s
                       end
                     else
-                      # See http://chriskempson.com/projects/base16/ for more
+                      # See https://github.com/chriskempson/base16 for more
                       # possibilities, which I'll implement only if needed.
                       raise "error: unrecognized interpolation (#{interpolation.inspect})"
                     end

@@ -1,6 +1,6 @@
 #!/bin/sh
 # base16-shell (https://github.com/chriskempson/base16-shell)
-# Base16 Shell template by Chris Kempson (http://chriskempson.com)
+# Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Eva Dim scheme by kjakapat (https://github.com/kjakapat)
 
 color00="2a/3b/4d" # Base 00 - Black

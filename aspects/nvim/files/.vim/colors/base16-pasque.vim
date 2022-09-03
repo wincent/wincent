@@ -1,7 +1,7 @@
 " vi:syntax=vim
 
 " base16-vim (https://github.com/chriskempson/base16-vim)
-" by Chris Kempson (http://chriskempson.com)
+" by Chris Kempson (https://github.com/chriskempson)
 " Pasque scheme by Gabriel Fontes (https://github.com/Misterio77)
 
 " This enables the coresponding base16-shell script to run so that

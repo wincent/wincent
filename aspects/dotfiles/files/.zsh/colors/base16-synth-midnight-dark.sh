@@ -1,6 +1,6 @@
 #!/bin/sh
 # base16-shell (https://github.com/chriskempson/base16-shell)
-# Base16 Shell template by Chris Kempson (http://chriskempson.com)
+# Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Synth Midnight Terminal Dark scheme by Michaël Ball (http://github.com/michael-ball/)
 
 color00="05/06/08" # Base 00 - Black
