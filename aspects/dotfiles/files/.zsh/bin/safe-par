@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# `par` (https://bitbucket.org/amc-nicemice/par/src/master/) wrapper that passes
+# through the original input for any error.
+#
+# With the `R` option, if a word is too long (which can happen surprisingly
+# often when formatting source code), `par` will print:
+#
+#     par error:
+#     Word too long: ...
+#
+# to standard output and exit with status 1.
+#
+# To avoid this, you can not pass `R`, or set `R0`, but that will _truncate_ the
+# overlength word.
+#
+# This script provides a third way: by buffering into temporary files, it will
+# return the `par`-transformed output only if there is no error; otherwise it
+# will return the original input unchanged.
+
+BACKUP=$(mktemp)
+OUTPUT=$(mktemp)
+
+tee "$BACKUP" | par "$@" > "$OUTPUT"
+
+if [ $? -eq 0 ]; then
+  cat "$OUTPUT"
+else
+  cat "$BACKUP"
+fi

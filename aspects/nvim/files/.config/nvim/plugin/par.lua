@@ -24,14 +24,15 @@ if vim.o.formatprg == '' and vim.fn.executable('par') then
   --
   -- Note that you can use `gw`/`gww` if `gq`/`gqq` ever does the wrong thing.
   --
-  vim.opt.formatprg = 'par rTbgqR B=.,\\?_A_a_0 Q=_s\\>\\|'
+  vim.opt.formatprg = vim.env.HOME .. '/.zsh/bin/safe-par rTbgqR B=.,\\?_A_a_0 Q=_s\\>\\|'
 end
 
 wincent.vim.augroup('WincentParAutocmds', function()
   wincent.vim.autocmd('FileType', '*', function()
     local formatprg = vim.o.formatprg -- gets local or global (fallback) 'formatprg'
 
-    if not vim.regex('^par'):match_str(formatprg) then
+    -- vim.regex assumes 'magic', so must escape (, ), |.
+    if not vim.regex('\\(^\\|/safe-\\)par'):match_str(formatprg) then
       return
     end
 
