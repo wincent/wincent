@@ -43,6 +43,12 @@ local write = function(bang)
     return vim.fn.writefile({ '#!/bin/bash', 'builtin echo -n ' .. vim.fn.shellescape(password) }, askpass, 's')
   end, 'writefile (fill)')
 
+  local buftype = vim.o.buftype
+  if buftype == '' then
+    -- Avoid `:help W12` warning.
+    vim.opt_local.buftype = 'nowrite'
+  end
+
   pcall(function()
     vim.cmd('silent write !env SUDO_ASKPASS=' .. vim.fn.shellescape(askpass) .. '  sudo -A tee % > /dev/null')
   end)
@@ -52,6 +58,15 @@ local write = function(bang)
     password = nil
     if timer ~= nil then
       timer:stop()
+    end
+
+    if buftype == '' then
+      vim.opt_local.buftype = buftype
+    end
+  else
+    if buftype == '' then
+      vim.cmd('edit')
+      vim.opt_local.buftype = buftype
     end
   end
 
