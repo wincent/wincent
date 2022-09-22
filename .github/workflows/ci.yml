@@ -42,4 +42,4 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           args: --allow-hidden --check .
-          version: "0.15.0"
+          version: "0.15.1"
