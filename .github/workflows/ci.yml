@@ -41,8 +41,5 @@ jobs:
       - uses: JohnnyMorganz/stylua-action@1.0.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          # *************************************************************
-          # * NOTE: Keep this list up-to-date with bin/{check-,}format. *
-          # *************************************************************
-          args: --check aspects/dotfiles/files/.hammerspoon aspects/nvim/files/.config
-          version: "0.14.0"
+          args: --allow-hidden --check .
+          version: "0.15.0"

@@ -7,14 +7,7 @@ REPO_ROOT="${BASH_SOURCE%/*}/.."
 # Must `cd` to root in order for `stylua.toml` to get picked up.
 cd "$REPO_ROOT"
 
-# stylua will skip hidden directories, so have to be explicit.
-#
-# ******************************************************************
-# * NOTE: Keep this list up-to-date with .github/workflows/ci.yml. *
-# ******************************************************************
-stylua \
-  aspects/dotfiles/files/.hammerspoon \
-  aspects/nvim/files/.config
+stylua --allow-hidden .
 
 # ***********************************************************************
 # * NOTE: Keep these patterns up-to-date with .github/workflows/ci.yml. *
