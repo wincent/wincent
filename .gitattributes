@@ -10,3 +10,4 @@ aspects/dotfiles/files/.zsh/hash.private	diff=git-cipher	filter=git-cipher	merge
 aspects/ssh/files/.ssh/config.d/pre/quevedo	diff=git-cipher	filter=git-cipher	merge=git-cipher
 aspects/ssh/files/.ssh/config.d/pre/retiro	diff=git-cipher	filter=git-cipher	merge=git-cipher
 aspects/ssh/templates/.ssh/config.erb	diff=git-cipher	filter=git-cipher	merge=git-cipher
+aspects/dotfiles/files/.zsh/host/quevedo	diff=git-cipher	filter=git-cipher	merge=git-cipher

@@ -1,5 +1,11 @@
-# Host-specific config.
-
-alias irl=".irl.rb 2021 6 1"
-
-source $HOME/.zsh/github/path
+magic = com.wincent.git-cipher
+url = https://github.com/wincent/git-cipher/blob/v2.0.0-pre.2/PROTOCOL.md
+version = 1
+algorithm = aes-256-cbc
+filename = "aspects/dotfiles/files/.zsh/host/quevedo"
+iv = aaf6054a8b407982288d6f67a9eabf76
+ciphertext =
+80749259d43615c2ca3d0c7bbb7b50d5602dae69fb49ac55c8c257e0362577b16b0fe33d
+70998cc053a1905e9833049b17325797056f2cff337b6e901199aa9232961a7b7a795e40
+14a6b3ba625d9760ebc0a60f09021766b5ad799900ff330b
+hmac = 802c43ad021c3ec968dcbc16f71e02c557cf548458d181202bc5ef218bdd61aa
