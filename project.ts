@@ -49,7 +49,8 @@ export default {
       aspects: [
         'meta',
         ['apt', 'dotfiles', 'shell', 'node', 'terminfo'],
-        ['nvim', 'ruby', 'codespaces'],
+        ['nvim', 'ruby'],
+        'codespaces',
       ],
       variables: {},
     },
