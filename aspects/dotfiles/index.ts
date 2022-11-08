@@ -9,6 +9,7 @@ import {
   prompt,
   resource,
   skip,
+  stat,
   template,
   task,
   variable,
@@ -122,19 +123,23 @@ task('create symlinks', async () => {
     // keys in that environment).
     if (is('codespaces')) {
       const target = path.aspect.join('files', src);
-      const decrypted = await isDecrypted(target);
-      if (!decrypted) {
-        skip(`not linking ${target} because it is not decrypted`);
-        continue;
+      const stats = await stat(target);
+      if (stats && !(stats instanceof Error)) {
+        if (stats.type === 'file') {
+          const decrypted = await isDecrypted(target);
+          if (!decrypted) {
+            skip(`not linking ${target} because it is not decrypted`);
+            continue;
+          }
+          await file({
+            force: true,
+            path: path.home.join(src),
+            src: path.aspect.join('files', src),
+            state: 'link',
+          });
+        }
       }
     }
-
-    await file({
-      force: true,
-      path: path.home.join(src),
-      src: path.aspect.join('files', src),
-      state: 'link',
-    });
   }
 });
 

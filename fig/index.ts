@@ -34,6 +34,7 @@ export {log} from './console.js';
 export {default as path} from './path.js';
 export {default as prompt} from './prompt.js';
 export {default as run} from './run.js';
+export {default as stat} from './fs/stat.js';
 
 // Re-export project-local helpers.
 
