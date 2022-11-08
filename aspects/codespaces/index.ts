@@ -75,5 +75,8 @@ task('run ripper-tags', async () => {
 });
 
 handler('send HUP to sshd', async () => {
-  await command('pkill', ['-HUP', '-F', '/var/run/sshd.pid'], {sudo: true});
+  await command('pkill', ['-HUP', '-F', '/var/run/sshd.pid'], {
+    failedWhen: () => false,
+    sudo: true,
+  });
 });
