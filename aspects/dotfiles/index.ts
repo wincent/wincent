@@ -131,15 +131,15 @@ task('create symlinks', async () => {
             skip(`not linking ${target} because it is not decrypted`);
             continue;
           }
-          await file({
-            force: true,
-            path: path.home.join(src),
-            src: path.aspect.join('files', src),
-            state: 'link',
-          });
         }
       }
     }
+    await file({
+      force: true,
+      path: path.home.join(src),
+      src: path.aspect.join('files', src),
+      state: 'link',
+    });
   }
 });
 
