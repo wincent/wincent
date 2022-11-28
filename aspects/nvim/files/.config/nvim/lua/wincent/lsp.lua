@@ -113,11 +113,11 @@ lsp.init = function()
     on_attach = on_attach,
   })
   --]]
-  require'lspconfig'.sorbet.setup{
+  require('lspconfig').sorbet.setup({
     capabilities = capabilities,
     handlers = handlers,
     on_attach = on_attach,
-  }
+  })
 
   require('lspconfig').tsserver.setup({
     capabilities = capabilities,
