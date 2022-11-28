@@ -57,6 +57,27 @@ function prepend_to() {
 append_to PATH $HOME/.local/bin
 append_to PATH $HOME/.cabal/bin
 
+# Stuff we would do if we wanted to use Homebrew Ruby...
+# function() {
+#   if [ -x /opt/homebrew/opt/ruby/bin/ruby ]; then
+#     # Gem binaries for Homebrew Ruby.
+#     local RUBY_VERSION=$(/opt/homebrew/opt/ruby/bin/ruby -e "puts RUBY_VERSION" 2> /dev/null)
+#     if [ -d "/opt/homebrew/lib/ruby/gems/${RUBY_VERSION}/bin" ]; then
+#       prepend_to PATH "/opt/homebrew/lib/ruby/gems/${RUBY_VERSION}/bin"
+#     fi
+#
+#     # Homebrew Ruby executable.
+#     prepend_to PATH /opt/homebrew/opt/ruby/bin
+#
+#     # Things that may need to be set on-demand, but which we don't want to set
+#     # unconditionally.
+#     #
+#     #     export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
+#     #     export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
+#     #     export PKG_CONFIG_PATH="/opt/homebrew/opt/ruby/lib/pkgconfig"
+#   fi
+# }
+
 if command -v gem &> /dev/null; then
   # Split string at ":".
   # Via: https://unix.stackexchange.com/a/614304
