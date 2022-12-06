@@ -94,7 +94,7 @@ log "Installing other packages you want"
 pacman -S --noconfirm man-db terminus-font # for 4K display, instead of `setfont -d`
 
 log "Preparing ramdisks for kernel boot"
-sed -i 's/^HOOKS=(/HOOKS=(encrypt /' /etc/mkinitcpio.conf
+sed -i '/^HOOKS=/s/filesystems/encrypt filesystems/' /etc/mkinitcpio.conf
 
 echo FONT=ter-132n >> /etc/vconsole.conf
 echo KEYMAP=colemak >> /etc/vconsole.conf
