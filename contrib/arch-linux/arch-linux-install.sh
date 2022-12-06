@@ -52,7 +52,9 @@ mkfs.fat -F32 /dev/nvme0n1p1
 log "Mounting /dev/nvme0n1p2 at /"
 echo -n "${__PASSPHRASE__}" | cryptsetup luksFormat /dev/nvme0n1p2 -
 echo -n "${__PASSPHRASE__}" | cryptsetup open /dev/nvme0n1p2 cryptroot --key-file -
-mkfs.ext4 /dev/mapper/cryptroot
+
+# -F needed in case this is a re-install to force overwrite.
+mkfs.ext4 -F /dev/mapper/cryptroot
 mount /dev/mapper/cryptroot /mnt
 
 mkdir -p /mnt/boot
