@@ -117,7 +117,7 @@ echo '%wheel ALL=(ALL) ALL' > /etc/sudoers.d/wheel
 log "Setting up boot"
 pacman -S --noconfirm efibootmgr dosfstools os-prober mtools
 
-PARTUUID=\$(lsblk /dev/nvme0n1p2 -o PARTUUID -d -n)
+PARTUUID=\$(blkid -s PARTUUID -o value /dev/nvme0n1p2)
 
 efibootmgr --disk /dev/nvme0n1 --part 1 --create --label "Arch Linux LTS" --loader /vmlinuz-linux-lts --unicode "cryptdevice=PARTUUID=\${PARTUUID}:root root=/dev/mapper/root rw initrd=\initramfs-linux-lts.img" --verbose
 efibootmgr --disk /dev/nvme0n1 --part 1 --create --label "Arch Linux" --loader /vmlinuz-linux --unicode "cryptdevice=PARTUUID=\${PARTUUID}:root root=/dev/mapper/root rw initrd=\initramfs-linux.img" --verbose
