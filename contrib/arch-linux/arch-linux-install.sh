@@ -144,10 +144,6 @@ log "Installing gfx stuff"
 pacman -S --noconfirm libva-mesa-driver linux-firmware mesa-vdpau vulkan-radeon xf86-video-amdgpu
 
 log "Setting up network"
-# TODO: see if we still get iwctl transitively without explicitly installing wireless_tools
-#pacman -S --noconfirm wpa_supplicant wireless_tools netctl dhcpcd
-#pacman -S --noconfirm dialog # for wifi-menu, although we're not using it here
-
 systemctl enable systemd-networkd.service
 systemctl enable systemd-resolved.service
 WIFICONF=/etc/systemd/network/25-wireless.network
