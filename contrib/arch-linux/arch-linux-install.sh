@@ -24,7 +24,6 @@ function ask {
 log "Setup questions:"
 ask 'User passphrase' __PASSPHRASE__
 ask 'Wireless SSID' __SSID__
-ask 'Wireless passphrase' __WIFI_PASSPHRASE__
 
 log "Checking network reachability"
 ping -c 3 google.com
@@ -67,6 +66,12 @@ log "Installing base packages"
 pacstrap /mnt base base-devel
 
 cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/
+
+log "Copying WiFi config into chroot mount"
+IWDDIR="/mnt/var/lib/iwd"
+mkdir -p "$IWDDIR"
+chmod 700 "$IWDDIR"
+cp "/var/lib/iwd/${__SSID__}.psk" "$IWDDIR"
 
 cat << HERE > /mnt/arch-install-chroot.sh
 set -e
@@ -136,24 +141,21 @@ systemctl enable apcupsd
 log "Installing gfx stuff"
 pacman -S --noconfirm libva-mesa-driver linux-firmware mesa-vdpau vulkan-radeon xf86-video-amdgpu
 
-log "Installing network support"
-pacman -S --noconfirm wpa_supplicant wireless_tools netctl dhcpcd
-pacman -S --noconfirm dialog # for wifi-menu, although we're not using it here
+log "Setting up network"
+# TODO: see if we still get iwctl transitively without explicitly installing wireless_tools
+#pacman -S --noconfirm wpa_supplicant wireless_tools netctl dhcpcd
+#pacman -S --noconfirm dialog # for wifi-menu, although we're not using it here
 
-NETCTL_PROFILE=\$(echo "\$__SSID__" | tr ' ' '-' | tr '[:upper:]' '[:lower:]')
-NETCTL_KEY=\$(wpa_passphrase "\$__SSID__" "\$__WIFI_PASSPHRASE__" | grep psk= | grep -v '#' | cut -d = -f 2)
-NETCTL_CONFIG=/etc/netctl/\$NETCTL_PROFILE
-NETCTL_SSID=\$(echo "\$__SSID__" | sed 's/ /\\\\ /g')
-touch \$NETCTL_CONFIG
-chmod 600 \$NETCTL_CONFIG
-echo "Description='\$NETCTL_PROFILE'" >> "\$NETCTL_CONFIG"
-echo "Interface=wlp4s0" >> "\$NETCTL_CONFIG"
-echo "Connection=wireless" >> "\$NETCTL_CONFIG"
-echo "Security=wpa" >> "\$NETCTL_CONFIG"
-echo "ESSID=\$NETCTL_SSID" >> "\$NETCTL_CONFIG"
-echo "IP=dhcp" >> "\$NETCTL_CONFIG"
-echo "Key=\\\\\"\$NETCTL_KEY" >> "\$NETCTL_CONFIG"
-netctl enable "\$NETCTL_PROFILE"
+systemctl enable systemd-networkd.service
+systemctl enable systemd-resolved.service
+WIFICONF=/etc/systemd/network/25-wireless.network
+touch "\$WIFICONF"
+chmod 600 "\$WIFICONF"
+echo "[Match]" >> "\$WIFICONF"
+echo "Name=wlan0" >> "\$WIFICONF"
+echo "[Network]" >> "\$WIFICONF"
+echo "DHCP=yes" >> "\$WIFICONF"
+echo "IgnoreCarrierLoss=3s" >> "\$WIFICONF"
 
 ln -sf /usr/share/zoneinfo/Europe/Madrid /etc/localtime
 hwclock --systohc
@@ -167,6 +169,11 @@ HERE
 
 log "Entering chroot environment"
 arch-chroot /mnt /bin/bash arch-install-chroot.sh
+
+# As noted in https://wiki.archlinux.org/title/Systemd-resolved
+# we can only set up this symlink from outside the chroot.
+log "Setting up resolve.conf symlink"
+ln -rsf /run/systemd/resolve/stub-resolv.conf /mnt/etc/resolv.conf
 
 log "Finished: rebooting"
 rm /mnt/arch-install-chroot.sh
