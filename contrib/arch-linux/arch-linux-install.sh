@@ -50,7 +50,7 @@ log "Formatting /boot"
 mkfs.fat -F32 /dev/nvme0n1p1
 
 log "Mounting /dev/nvme0n1p2 at /"
-echo -n "${__PASSPHRASE__}" | cryptsetup luksFormat /dev/nvme0n1p2 -
+echo -n "${__PASSPHRASE__}" | cryptsetup luksFormat --type luks1 /dev/nvme0n1p2 -
 echo -n "${__PASSPHRASE__}" | cryptsetup open /dev/nvme0n1p2 cryptroot --key-file -
 
 # -F needed in case this is a re-install to force overwrite.
