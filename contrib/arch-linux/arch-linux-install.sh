@@ -144,8 +144,7 @@ log "Installing gfx stuff"
 pacman -S --noconfirm libva-mesa-driver linux-firmware mesa-vdpau vulkan-radeon xf86-video-amdgpu
 
 log "Setting up network"
-systemctl enable systemd-networkd.service
-systemctl enable systemd-resolved.service
+pacman -S iwd
 WIFICONF=/etc/systemd/network/25-wireless.network
 touch "\$WIFICONF"
 chmod 600 "\$WIFICONF"
@@ -154,6 +153,14 @@ echo "Name=wlan0" >> "\$WIFICONF"
 echo "[Network]" >> "\$WIFICONF"
 echo "DHCP=yes" >> "\$WIFICONF"
 echo "IgnoreCarrierLoss=3s" >> "\$WIFICONF"
+IWDCONF=/etc/iwd/main.conf
+mkdir -p /etc/iwd
+touch "\$IWDCONF"
+echo "[General]" >> "\$IWDCONF"
+echo "EnableNetworkConfiguration=true" >> "\$IWDCONF"
+systemctl enable iwd.service
+systemctl enable systemd-networkd.service
+systemctl enable systemd-resolved.service
 
 ln -sf /usr/share/zoneinfo/Europe/Madrid /etc/localtime
 hwclock --systohc
