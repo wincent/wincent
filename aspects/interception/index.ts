@@ -5,6 +5,7 @@ const {when} = helpers;
 task('build mac2linux', when('arch'), async () => {
   const chdir = resource.support('mac2linux');
 
+  await command('cmake', ['.'], {chdir});
   await command('cmake', ['--build', '.'], {chdir});
   await command('make', [], {chdir});
 });
@@ -14,6 +15,7 @@ task('install mac2linux', when('arch'), async () => {
 
   await command('cmake', ['--install', '.', '--prefix', '/usr'], {
     chdir,
+    creates: '/usr/bin/mac2linux',
     notify: 'enable udevmon',
     sudo: true,
   });
