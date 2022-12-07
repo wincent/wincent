@@ -1,6 +1,6 @@
 import {backup, command, file, helpers, path, task, variable} from 'fig';
 
-const {when} = helpers;
+const {when, yay} = helpers;
 
 task('make directories', when('wincent', 'arch'), async () => {
   await file({path: '~/.bitcoin', state: 'directory'});
@@ -31,7 +31,7 @@ task('create symlinks', when('wincent', 'arch'), async () => {
 // TODO: fix smell here (implicit dependency on "aur" aspect to install yay)
 task('install packages', when('wincent', 'arch'), async () => {
   // TODO: consider running `yay -Qi $package` to see whether already installed
-  await command('yay', ['-S', '--noconfirm', ...variable.strings('packages')]);
+  await yay('-S', '--noconfirm', ...variable.strings('packages'));
 });
 
 // TODO: consider auto-starting `systemctl start bitcoind`

@@ -1,10 +1,18 @@
-import {attributes, path, run, variable} from 'fig';
+import {attributes, command, path, run, variable} from 'fig';
 
 /**
  * @file
  *
  * Project-local helpers.
  */
+
+export async function yay(...args: Array<string>): Promise<void> {
+  // Refresh sudo timestamp.
+  await command('true', [], {sudo: true});
+
+  // Use `--sudoloop` to make sure sudo timestamp is regularly refreshed.
+  await command('yay', ['--sudoloop', ...args]);
+}
 
 /**
  * Returns `true` if `conditions` apply.

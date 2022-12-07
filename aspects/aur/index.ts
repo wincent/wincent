@@ -10,7 +10,7 @@ import {
 } from 'fig';
 import {join} from 'node:path';
 
-const {when} = helpers;
+const {yay, when} = helpers;
 
 task('fetch yay', when('arch'), async () => {
   // TODO: make a `git` operation? (if I need to do this in more than one
@@ -30,7 +30,7 @@ task('install yay', when('arch'), async () => {
 });
 
 task('install packages', when('arch'), async () => {
-  await command('yay', ['-S', '--noconfirm', ...variable.strings('packages')]);
+  await yay('-S', '--noconfirm', ...variable.strings('packages'));
 });
 
 task('create ~/.config/systemd/user', when('arch'), async () => {
