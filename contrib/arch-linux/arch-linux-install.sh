@@ -144,7 +144,7 @@ log "Installing gfx stuff"
 pacman -S --noconfirm libva-mesa-driver linux-firmware mesa-vdpau vulkan-radeon xf86-video-amdgpu
 
 log "Setting up network"
-pacman -S iwd
+pacman -S --noconfirm iwd
 WIFICONF=/etc/systemd/network/25-wireless.network
 touch "\$WIFICONF"
 chmod 600 "\$WIFICONF"
