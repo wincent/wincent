@@ -24,7 +24,6 @@ function ask {
 log "Setup questions:"
 ask 'User passphrase' __PASSPHRASE__
 ask 'Wireless SSID' __SSID__
-ask 'Wireless passphrase' __WIFI_PASSPHRASE__
 
 log "Checking network reachability"
 ping -c 3 google.com
@@ -51,9 +50,11 @@ log "Formatting /boot"
 mkfs.fat -F32 /dev/nvme0n1p1
 
 log "Mounting /dev/nvme0n1p2 at /"
-echo -n "${__PASSPHRASE__}" | cryptsetup luksFormat /dev/nvme0n1p2 -
+echo -n "${__PASSPHRASE__}" | cryptsetup luksFormat --type luks1 /dev/nvme0n1p2 -
 echo -n "${__PASSPHRASE__}" | cryptsetup open /dev/nvme0n1p2 cryptroot --key-file -
-mkfs.ext4 /dev/mapper/cryptroot
+
+# -F needed in case this is a re-install to force overwrite.
+mkfs.ext4 -F /dev/mapper/cryptroot
 mount /dev/mapper/cryptroot /mnt
 
 mkdir -p /mnt/boot
@@ -67,6 +68,12 @@ log "Installing base packages"
 pacstrap /mnt base base-devel
 
 cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/
+
+log "Copying WiFi config into chroot mount"
+IWDDIR="/mnt/var/lib/iwd"
+mkdir -p "$IWDDIR"
+chmod 700 "$IWDDIR"
+cp "/var/lib/iwd/${__SSID__}.psk" "$IWDDIR"
 
 cat << HERE > /mnt/arch-install-chroot.sh
 set -e
@@ -87,7 +94,7 @@ log "Installing other packages you want"
 pacman -S --noconfirm man-db terminus-font # for 4K display, instead of `setfont -d`
 
 log "Preparing ramdisks for kernel boot"
-sed -i 's/^HOOKS=(base udev autodetect modconf block filesystems keyboard fsck)/HOOKS=(base udev autodetect keyboard keymap modconf block encrypt filesystems fsck)/' /etc/mkinitcpio.conf
+sed -i '/^HOOKS=/s/filesystems/encrypt filesystems/' /etc/mkinitcpio.conf
 
 echo FONT=ter-132n >> /etc/vconsole.conf
 echo KEYMAP=colemak >> /etc/vconsole.conf
@@ -110,7 +117,7 @@ echo '%wheel ALL=(ALL) ALL' > /etc/sudoers.d/wheel
 log "Setting up boot"
 pacman -S --noconfirm efibootmgr dosfstools os-prober mtools
 
-PARTUUID=\$(lsblk /dev/nvme0n1p2 -o PARTUUID -d -n)
+PARTUUID=\$(blkid -s PARTUUID -o value /dev/nvme0n1p2)
 
 efibootmgr --disk /dev/nvme0n1 --part 1 --create --label "Arch Linux LTS" --loader /vmlinuz-linux-lts --unicode "cryptdevice=PARTUUID=\${PARTUUID}:root root=/dev/mapper/root rw initrd=\initramfs-linux-lts.img" --verbose
 efibootmgr --disk /dev/nvme0n1 --part 1 --create --label "Arch Linux" --loader /vmlinuz-linux --unicode "cryptdevice=PARTUUID=\${PARTUUID}:root root=/dev/mapper/root rw initrd=\initramfs-linux.img" --verbose
@@ -136,24 +143,24 @@ systemctl enable apcupsd
 log "Installing gfx stuff"
 pacman -S --noconfirm libva-mesa-driver linux-firmware mesa-vdpau vulkan-radeon xf86-video-amdgpu
 
-log "Installing network support"
-pacman -S --noconfirm wpa_supplicant wireless_tools netctl dhcpcd
-pacman -S --noconfirm dialog # for wifi-menu, although we're not using it here
-
-NETCTL_PROFILE=\$(echo "\$__SSID__" | tr ' ' '-' | tr '[:upper:]' '[:lower:]')
-NETCTL_KEY=\$(wpa_passphrase "\$__SSID__" "\$__WIFI_PASSPHRASE__" | grep psk= | grep -v '#' | cut -d = -f 2)
-NETCTL_CONFIG=/etc/netctl/\$NETCTL_PROFILE
-NETCTL_SSID=\$(echo "\$__SSID__" | sed 's/ /\\\\ /g')
-touch \$NETCTL_CONFIG
-chmod 600 \$NETCTL_CONFIG
-echo "Description='\$NETCTL_PROFILE'" >> "\$NETCTL_CONFIG"
-echo "Interface=wlp4s0" >> "\$NETCTL_CONFIG"
-echo "Connection=wireless" >> "\$NETCTL_CONFIG"
-echo "Security=wpa" >> "\$NETCTL_CONFIG"
-echo "ESSID=\$NETCTL_SSID" >> "\$NETCTL_CONFIG"
-echo "IP=dhcp" >> "\$NETCTL_CONFIG"
-echo "Key=\\\\\"\$NETCTL_KEY" >> "\$NETCTL_CONFIG"
-netctl enable "\$NETCTL_PROFILE"
+log "Setting up network"
+pacman -S --noconfirm iwd
+WIFICONF=/etc/systemd/network/25-wireless.network
+touch "\$WIFICONF"
+chmod 600 "\$WIFICONF"
+echo "[Match]" >> "\$WIFICONF"
+echo "Name=wlan0" >> "\$WIFICONF"
+echo "[Network]" >> "\$WIFICONF"
+echo "DHCP=yes" >> "\$WIFICONF"
+echo "IgnoreCarrierLoss=3s" >> "\$WIFICONF"
+IWDCONF=/etc/iwd/main.conf
+mkdir -p /etc/iwd
+touch "\$IWDCONF"
+echo "[General]" >> "\$IWDCONF"
+echo "EnableNetworkConfiguration=true" >> "\$IWDCONF"
+systemctl enable iwd.service
+systemctl enable systemd-networkd.service
+systemctl enable systemd-resolved.service
 
 ln -sf /usr/share/zoneinfo/Europe/Madrid /etc/localtime
 hwclock --systohc
@@ -167,6 +174,11 @@ HERE
 
 log "Entering chroot environment"
 arch-chroot /mnt /bin/bash arch-install-chroot.sh
+
+# As noted in https://wiki.archlinux.org/title/Systemd-resolved
+# we can only set up this symlink from outside the chroot.
+log "Setting up resolve.conf symlink"
+ln -rsf /run/systemd/resolve/stub-resolv.conf /mnt/etc/resolv.conf
 
 log "Finished: rebooting"
 rm /mnt/arch-install-chroot.sh
