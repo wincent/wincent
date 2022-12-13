@@ -40,7 +40,7 @@ assert.JSONObject = function (
   );
 };
 
-const MODE_REGEXP = /^0[0-7]{3}$/;
+const MODE_REGEXP = /^[0-7]{4}$/;
 
 assert.mode = function (mode: string): asserts mode is Mode {
   if (!MODE_REGEXP.test(mode)) {
