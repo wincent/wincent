@@ -17,7 +17,7 @@
   - [Adobe Source Code Pro](https://github.com/adobe-fonts/source-code-pro) (Light) font.
   - [Neovim](https://neovim.io), running inside [tmux](https://github.com/tmux/tmux), inside [iTerm2](http://www.iterm2.com/), on macOS "Big Sur"[^monterey].
 
-[^monterey]: I'm currently running Monterey, but haven't taken a new screenshot yet.
+[^monterey]: I'm currently running Monterey on my personal laptop and Ventura on my work laptop, but haven't taken a new screenshot yet.
 
 ## Features
 
@@ -133,7 +133,7 @@ If there are background processes, a yellow asterisk is shown:
 - Relatively recent [Zsh](http://www.zsh.org/).
 - Relatively recent [Git](http://git-scm.com/).
 - [Clipper](https://wincent.com/products/clipper) for transparent access to the local system clipboard.
-- On macOS, [iTerm2](http://www.iterm2.com/) or [Kitty](https://sw.kovidgoyal.net/kitty/). Additionally, only the latest version of macOS (at the time of writing, Monterey) gets actively tested.
+- On macOS, [iTerm2](http://www.iterm2.com/) or [Kitty](https://sw.kovidgoyal.net/kitty/). Additionally, only the latest one or two versions of macOS (at the time of writing, that means Monterey and Ventura) get actively tested.
 - [Ruby](https://www.ruby-lang.org/).
 - [Adobe Source Code Pro](https://github.com/adobe-fonts/source-code-pro) or any other fixed-width font that includes the [Powerline glyphs](http://powerline.readthedocs.io/en/master/installation.html#fonts-installation).
 
@@ -141,7 +141,7 @@ If there are background processes, a yellow asterisk is shown:
 
 | Platform                               | Status                                                                                                                                                               |
 | -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| macOS                                  | :1st_place_medal: Currently the most tested platform, as well as the one with most aspects (because macOS 12 "Monterey" is my daily driver both at home and at work) |
+| macOS                                  | :1st_place_medal: Currently the most tested platform, as well as the one with most aspects (because my daily drivers are macOS 12 "Monterey" at home and macOS 13 "Ventura" at work) |
 | Debian(-ish) Linux                     | :2nd_place_medal: I use this heavily at work, but in the somewhat odd Codespaces VM environment, so there are some weird assumptions at play                         |
 | Arch Linux                             | :3rd_place_medal: Less tested, fewer aspects involved, but likely to evolve in the future as I'm using Arch Linux on my "leisure" desktop machine                    |
 | Red Hat Linux and related (eg. CentOS) | :skull: Abandoned, but in the past (2011-2018) this was the distro I used full-time at work                                                                          |
