@@ -91,7 +91,7 @@ log "Installing kernel and other packages"
 pacman -S --noconfirm linux linux-lts linux-headers linux-lts-headers linux-firmware amd-ucode
 
 log "Installing other packages you want"
-pacman -S --noconfirm man-db terminus-font # for 4K display, instead of `setfont -d`
+pacman -S --noconfirm iwd man-db terminus-font # for 4K display, instead of `setfont -d`
 
 log "Preparing ramdisks for kernel boot"
 sed -i '/^HOOKS=/s/filesystems/encrypt filesystems/' /etc/mkinitcpio.conf
