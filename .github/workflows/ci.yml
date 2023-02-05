@@ -1,5 +1,2009 @@
 # Based on: https://github.com/actions/starter-workflows/blob/master/ci/node.js.yml
+BEGIN:
+GLOW7:
+!#/User/bin/Bash env :
+Welcome to GitHub docs contributing guide
+Thank you for investing your time in contributing to our project! Any contribution you make will be reflected on docs.github.com ✨.
 
+Read our Code of Conduct to keep our community approachable and respectable.
+
+In this guide you will get an overview of the contribution workflow from opening an issue, creating a PR, reviewing, and merging the PR.
+
+Use the table of contents icon  on the top left corner of this document to get to a specific section of this guide quickly.
+
+New contributor guide
+To get an overview of the project, read the README. Here are some resources to help you get started with open source contributions:
+
+Finding ways to contribute to open source on GitHub
+Set up Git
+GitHub flow
+Collaborating with pull requests
+Getting started
+To navigate our codebase with confidence, see the introduction to working in the docs repository 🎊. For more information on how we write our markdown files, see the GitHub Markdown reference.
+
+Check to see what types of contributions we accept before making changes. Some of them don't even require writing a single line of code ✨.
+
+Issues
+Create a new issue
+If you spot a problem with the docs, search if an issue already exists. If a related issue doesn't exist, you can open a new issue using a relevant issue form.
+
+Solve an issue
+Scan through our existing issues to find one that interests you. You can narrow down the search using labels as filters. See Labels for more information. As a general rule, we don’t assign issues to anyone. If you find an issue to work on, you are welcome to open a PR with a fix.
+
+Make Changes
+Make changes in the UI
+Click Make a contribution at the bottom of any docs page to make small changes such as a typo, sentence fix, or a broken link. This takes you to the .md file where you can make your changes and create a pull request for a review.
+
+
+
+Make changes in a codespace
+For more information about using a codespace for working on GitHub documentation, see "Working in a codespace."
+
+Make changes locally
+Fork the repository.
+Using GitHub Desktop:
+
+Getting started with GitHub Desktop will guide you through setting up Desktop.
+Once Desktop is set up, you can use it to fork the repo!
+Using the command line:
+
+Fork the repo so that you can make your changes without affecting the original project until you're ready to merge them.
+Install or update to Node.js, at the version specified in .node-version. For more information, see the development guide.
+
+Create a working branch and start with your changes!
+
+Amazon Web Services
+Contact Us
+
+English
+Complete Sign Up
+AWS
+Documentation
+AWS Data Exchange
+Feedback 
+Preferences 
+
+AWS Data Exchange User Guide
+AWS Data Exchange User Guide
+What is AWS Data Exchange?
+Setting up
+Using Open Data on AWS data sets
+
+Subscribing to data products
+
+Providing data products
+Publishing guidelines
+Product details
+Getting started
+Publishing a new product
+Product description templates
+Updating products
+
+Creating offers
+Subscription verification
+Provider financials on AWS Marketplace
+Data in AWS Data Exchange
+Jobs in AWS Data Exchange
+Quotas
+
+Security
+
+AWS Marketplace Catalog API
+Document history
+AWS glossary
+Providing data products on AWS Data Exchange
+PDF
+RSS
+At a high level, this is how to use AWS Data Exchange as a provider:
+
+Potential provider registers to be a provider – Registering allows you to list products on AWS Data Exchange and make them available on AWS Marketplace. For more information, see Step 2: Register to be a provider.
+
+The data is eligible to be published on AWS Data Exchange – You're limited to distributing data sets that meet the legal eligibility requirements set forth in the Terms and Conditions for AWS Marketplace Sellers. For more information about the types of permitted data, see Publishing guidelines.
+
+Provider creates a data set, a revision, and imports assets – You can create data sets through the AWS Data Exchange console or API. Then, you can create revisions in the data set, and add assets to that revision. For more information, see Data in AWS Data Exchange.
+
+Provider creates a product and its offer – To create a product, you must provide product details, include one or more data sets, and optionally provide public offer details. For more information, see Publishing a new product.
+
+Products containing Files (Amazon S3 Objects) – When an owned data set containing Amazon S3 objects is published in a product, AWS Data Exchange creates a copy of the data set. Subscribers can access that copy of the data set as an entitled data set.
+
+Products containing Amazon API Gateway APIs – When an owned data set containing Amazon API Gateway APIs is published in a product, AWS Data Exchange allows requests to the AWS Data Exchange endpoint to proxy through to your Amazon API Gateway API. Subscribers can view the API and download the API specification as an entitled data set. Subscribers can also call the API through the AWS Data Exchange console.
+
+Products containing Amazon Redshift data sets – When an owned data set containing Amazon Redshift data sets is published in a product, AWS Data Exchange allows requests to the AWS Data Exchange endpoint to proxy through to your Amazon Redshift datashare. Subscribers can have read-only access to the tables, views, schemas, and user-defined functions that you've added to the datashare.
+
+Products containing Amazon S3 data access (Preview) – When an owned data set containing Amazon S3 data access is published in a product, AWS Data Exchange allows subscribers the same Amazon S3 objects that the data provider maintains. This approach provides the most current data available. Providers share direct access to an Amazon S3 bucket or specific prefix and Amazon S3 objects and use AWS Data Exchange to manage subscriptions, entitlements, billing, and payment.
+
+Products containing AWS Lake Formation data sets (Preview) – When an owned data set containing Lake Formation data permission data sets is published in a product, AWS Data Exchange grants read-only access to the data associated with the LF-tags you included in the data set. Subscribers can subscribe to the databases, tables, or columns that you share with them with downstream query services integrated with Lake Formation such as Amazon Athena and Redshift Spectrum.
+
+(Optional) Provider enables subscription verification – If you enable subscription verification, subscribers must request a subscription to your product. This gives you an opportunity to review potential subscribers before they access your data sets. For more information, see Subscription verification for providers.
+
+(Optional) Provider creates custom offers for the product – In addition to a public offer, you can create custom offers, including private and Bring Your Own Subscription (BYOS) offers, for select customers. For more information, see Creating custom offers.
+
+(Optional) Provider publishes new revision – You can update dynamic data sets over time by creating a new revision using the AWS Data Exchange API or console. These revisions can then be published. For more information, see Revisions or Updating products.
+
+Provider reviews reports through the AWS Marketplace Management Portal – Reports are available to all registered AWS Marketplace sellers and are released on a regular cadence (daily, weekly, or monthly). For more information, see Provider financials on AWS Marketplace.
+
+Provider receives funds distributed by AWS Marketplace – For more information, see Provider financials on AWS Marketplace.
+
+Extended Provider Program (EPP)
+The Extended Provider Program (EPP) is a program for qualiﬁed data providers to publish data products containing sensitive categories of personal information and/or personal information that is not otherwise publicly available.
+
+Providers seeking to participate in the EPP must complete an additional review process by the AWS Data Exchange team. For more information about eligibility for the Extended Provider Program, send an email message to <aws-data-exchange-support@amazon.com>.
+
+For more information about publishing guidelines for data providers who are enrolled in the EPP, see Publishing guidelines.
+
+Programmatic access
+If you're using AWS Data Exchange programmatically, there are two different sets of resources with two different APIs:
+
+AWS Data Exchange API – Use these API operations to create, view, update, and delete data sets and revisions. You can also use these API operations to import and export assets to and from those revisions. For more information, see the AWS Data Exchange API Reference.
+
+AWS Marketplace Catalog API – Used by providers to view and update products on AWS Data Exchange and AWS Marketplace. For more information, see the AWS Marketplace Catalog API Reference.
+
+Before you become a data product provider on AWS Data Exchange, review the following topic:
+
+Setting up AWS Data Exchange
+
+After you review this topic, you're ready to get started.
+
+Related topics
+Publishing guidelines
+
+Product details
+
+Getting started as a provider
+
+Publishing a new product
+
+Product description templates
+
+Updating products
+
+Creating an offer for AWS Data Exchange products
+
+Data in AWS Data Exchange
+
+
+
+Did this page help you?
+Yes
+No
+Provide feedback
+Edit this page on GitHub 
+Next topic:Publishing guidelines
+Previous topic:Tutorial: Subscribe to AWS Data Exchange for Amazon S3 (Preview)
+Need help?
+Try AWS re:Post 
+Connect with an AWS IQ expert 
+PrivacySite termsCookie preferences© 2023, Amazon Web Services, Inc. or its affiliates. All rights reserved.
+
+On this page
+Extended Provider Program (EPP)
+Programmatic access
+Amazon Web Services
+Contact Us
+
+English
+Complete Sign Up
+AWS
+Documentation
+Amazon VPC
+User Guide
+Feedback 
+Preferences 
+
+Amazon Virtual Private Cloud
+User Guide
+What is Amazon VPC?
+How Amazon VPC works
+Get started
+
+Virtual private clouds
+
+Subnets
+Work with subnets
+Subnet CIDR reservations
+
+Managed prefix lists
+
+Route tables
+Example routing options
+Work with route tables
+
+Middlebox routing wizard
+Network ACLs
+
+Connect your VPC
+
+Monitoring
+
+Security
+
+Use with other services
+
+Scenarios
+
+Tutorials
+Quotas
+Document history
+Example routing options
+PDF
+RSS
+The following topics describe routing for specific gateways or connections in your VPC.
+
+Contents
+
+Routing to an internet gateway
+Routing to a NAT device
+Routing to a virtual private gateway
+Routing to an AWS Outposts local gateway
+Routing to a VPC peering connection
+Routing to a gateway VPC endpoint
+Routing to an egress-only internet gateway
+Routing for a transit gateway
+Routing for a middlebox appliance
+Routing using a prefix list
+Routing to a Gateway Load Balancer endpoint
+Routing to an internet gateway
+You can make a subnet a public subnet by adding a route in your subnet route table to an internet gateway. To do this, create and attach an internet gateway to your VPC, and then add a route with a destination of 0.0.0.0/0 for IPv4 traffic or ::/0 for IPv6 traffic, and a target of the internet gateway ID (igw-xxxxxxxxxxxxxxxxx).
+
+Destination	Target
+0.0.0.0/0	igw-id
+::/0	igw-id
+For more information, see Connect to the internet using an internet gateway.
+
+Routing to a NAT device
+To enable instances in a private subnet to connect to the internet, you can create a NAT gateway or launch a NAT instance in a public subnet. Then add a route for the private subnet's route table that routes IPv4 internet traffic (0.0.0.0/0) to the NAT device.
+
+Destination	Target
+0.0.0.0/0	nat-gateway-id
+You can also create more specific routes to other targets to avoid unnecessary data processing charges for using a NAT gateway, or to route certain traffic privately. In the following example, Amazon S3 traffic (pl-xxxxxxxx; a specific IP address range for Amazon S3) is routed to a gateway VPC endpoint, and 10.25.0.0/16 traffic is routed to a VPC peering connection. The pl-xxxxxxxx and 10.25.0.0/16 IP address ranges are more specific than 0.0.0.0/0. When instances send traffic to Amazon S3 or the peer VPC, the traffic is sent to the gateway VPC endpoint or the VPC peering connection. All other traffic is sent to the NAT gateway.
+
+Destination	Target
+0.0.0.0/0	nat-gateway-id
+pl-xxxxxxxx	vpce-id
+10.25.0.0/16	pcx-id
+For more information, see NAT gateways and NAT instances. NAT devices cannot be used for IPv6 traffic.
+
+Routing to a virtual private gateway
+You can use an AWS Site-to-Site VPN connection to enable instances in your VPC to communicate with your own network. To do this, create and attach a virtual private gateway to your VPC. Then add a route in your subnet route table with the destination of your network and a target of the virtual private gateway (vgw-xxxxxxxxxxxxxxxxx).
+
+Destination	Target
+10.0.0.0/16	vgw-id
+You can then create and configure your Site-to-Site VPN connection. For more information, see What is AWS Site-to-Site VPN? and Route tables and VPN route priority in the AWS Site-to-Site VPN User Guide.
+
+A Site-to-Site VPN connection on a virtual private gateway does not support IPv6 traffic. However, we support IPv6 traffic routed through a virtual private gateway to an AWS Direct Connect connection. For more information, see the AWS Direct Connect User Guide.
+
+Routing to an AWS Outposts local gateway
+Subnets that are in VPCs associated with AWS Outposts can have an additional target type of a local gateway. Consider the case where you want to have the local gateway route traffic with a destination address of 192.168.10.0/24 to the customer network. To do this, add the following route with the destination network and a target of the local gateway (lgw-xxxx).
+
+Destination	Target
+192.168.10.0/24	lgw-id
+Routing to a VPC peering connection
+A VPC peering connection is a networking connection between two VPCs that allows you to route traffic between them using private IPv4 addresses. Instances in either VPC can communicate with each other as if they are part of the same network.
+
+To enable the routing of traffic between VPCs in a VPC peering connection, you must add a route to one or more of your subnet route tables that points to the VPC peering connection. This allows you to access all or part of the CIDR block of the other VPC in the peering connection. Similarly, the owner of the other VPC must add a route to their subnet route table to route traffic back to your VPC.
+
+For example, you have a VPC peering connection (pcx-11223344556677889) between two VPCs, with the following information:
+
+VPC A: CIDR block is 10.0.0.0/16
+
+VPC B: CIDR block is 172.31.0.0/16
+
+To enable traffic between the VPCs and allow access to the entire IPv4 CIDR block of either VPC, the VPC A route table is configured as follows.
+
+Destination	Target
+10.0.0.0/16	Local
+172.31.0.0/16	pcx-11223344556677889
+The VPC B route table is configured as follows.
+
+Destination	Target
+172.31.0.0/16	Local
+10.0.0.0/16	pcx-11223344556677889
+Your VPC peering connection can also support IPv6 communication between instances in the VPCs, if the VPCs and instances are enabled for IPv6 communication. To enable the routing of IPv6 traffic between VPCs, you must add a route to your route table that points to the VPC peering connection to access all or part of the IPv6 CIDR block of the peer VPC.
+
+For example, using the same VPC peering connection (pcx-11223344556677889) above, assume the VPCs have the following information:
+
+VPC A: IPv6 CIDR block is 2001:db8:1234:1a00::/56
+
+VPC B: IPv6 CIDR block is 2001:db8:5678:2b00::/56
+
+To enable IPv6 communication over the VPC peering connection, add the following route to the subnet route table for VPC A.
+
+Destination	Target
+10.0.0.0/16	Local
+172.31.0.0/16	pcx-11223344556677889
+2001:db8:5678:2b00::/56	pcx-11223344556677889
+Add the following route to the route table for VPC B.
+
+Destination	Target
+172.31.0.0/16	Local
+10.0.0.0/16	pcx-11223344556677889
+2001:db8:1234:1a00::/56	pcx-11223344556677889
+For more information about VPC peering connections, see the Amazon VPC Peering Guide.
+
+Routing to a gateway VPC endpoint
+A gateway VPC endpoint enables you to create a private connection between your VPC and another AWS service. When you create a gateway endpoint, you specify the subnet route tables in your VPC that are used by the gateway endpoint. A route is automatically added to each of the route tables with a destination that specifies the prefix list ID of the service (pl-xxxxxxxx), and a target with the endpoint ID (vpce-xxxxxxxxxxxxxxxxx). You cannot explicitly delete or modify the endpoint route, but you can change the route tables that are used by the endpoint.
+
+For more information about routing for endpoints, and the implications for routes to AWS services, see Routing for gateway endpoints.
+
+Routing to an egress-only internet gateway
+You can create an egress-only internet gateway for your VPC to enable instances in a private subnet to initiate outbound communication to the internet, but prevent the internet from initiating connections with the instances. An egress-only internet gateway is used for IPv6 traffic only. To configure routing for an egress-only internet gateway, add a route in the private subnet's route table that routes IPv6 internet traffic (::/0) to the egress-only internet gateway.
+
+Destination	Target
+::/0	eigw-id
+For more information, see Enable outbound IPv6 traffic using an egress-only internet gateway.
+
+Routing for a transit gateway
+When you attach a VPC to a transit gateway, you need to add a route to your subnet route table for traffic to route through the transit gateway.
+
+Consider the following scenario where you have three VPCs that are attached to a transit gateway. In this scenario, all attachments are associated with the transit gateway route table and propagate to the transit gateway route table. Therefore, all attachments can route packets to each other, with the transit gateway serving as a simple layer 3 IP hub.
+
+For example, you have two VPCs, with the following information:
+
+VPC A: 10.1.0.0/16, attachment ID tgw-attach-11111111111111111
+
+VPC B: 10.2.0.0/16, attachment ID tgw-attach-22222222222222222
+
+To enable traffic between the VPCs and allow access to the transit gateway, the VPC A route table is configured as follows.
+
+Destination	Target
+10.1.0.0/16	local
+10.0.0.0/8	tgw-id
+The following is an example of the transit gateway route table entries for the VPC attachments.
+
+Destination	Target
+10.1.0.0/16	tgw-attach-11111111111111111
+10.2.0.0/16	tgw-attach-22222222222222222
+For more information about transit gateway route tables, see Routing in Amazon VPC Transit Gateways.
+
+Routing for a middlebox appliance
+You can add middlebox appliances into the routing paths for your VPC. The following are possible use cases:
+
+Intercept traffic that enters your VPC through an internet gateway or a virtual private gateway by directing it to a middlebox appliance in your VPC. You can use the middlebox routing wizard to have AWS automatically configure the appropriate route tables for your gateway, middlebox, and destination subnet. For more information, see Middlebox routing wizard.
+
+Direct traffic between two subnets to a middlebox appliance. You can do so by creating a route for one subnet route table that matches the subnet CIDR of the other subnet and specifies a Gateway Load Balancer endpoint, NAT gateway, Network Firewall endpoint, or the network interface for an appliance as a target. Alternatively, to redirect all traffic from the subnet to any other subnet, replace the target of the local route with a Gateway Load Balancer endpoint, NAT gateway, or network interface.
+
+You can configure the appliance to suit your needs. For example, you can configure a security appliance that screens all traffic, or a WAN acceleration appliance. The appliance is deployed as an Amazon EC2 instance in a subnet in your VPC, and is represented by an elastic network interface (network interface) in your subnet.
+
+If you enable route propagation for the destination subnet route table, be aware of route priority. We prioritize the most specific route, and if the routes match, we prioritize static routes over propagated routes. Review your routes to ensure that traffic is routed correctly and that there are no unintended consequences if you enable or disable route propagation (for example, route propagation is required for an AWS Direct Connect connection that supports jumbo frames).
+
+To route inbound VPC traffic to an appliance, you associate a route table with the internet gateway or virtual private gateway, and specify the network interface of your appliance as the target for VPC traffic. For more information, see Gateway route tables. You can also route outbound traffic from your subnet to a middlebox appliance in another subnet.
+
+For middlebox routing examples, see Middlebox scenarios.
+
+Contents
+
+Appliance considerations
+Routing traffic between a gateway and an appliance
+Routing inter-subnet traffic to an appliance
+Appliance considerations
+You can choose a third-party appliance from AWS Marketplace, or you can configure your own appliance. When you create or configure an appliance, take note of the following:
+
+The appliance must be configured in a separate subnet to the source or destination traffic.
+
+You must disable source/destination checking on the appliance. For more information, see Changing the Source or Destination Checking in the Amazon EC2 User Guide for Linux Instances.
+
+You cannot route traffic between hosts in the same subnet through an appliance.
+
+The appliance does not have to perform network address translation (NAT).
+
+You can add a route to your route tables that is more specific than the local route. You can use more specific routes to redirect traffic between subnets within a VPC (East-West traffic) to a middlebox appliance. The destination of the route must match the entire IPv4 or IPv6 CIDR block of a subnet in your VPC.
+
+To intercept IPv6 traffic, ensure that you configure your VPC, subnet, and appliance for IPv6. For more information, see Work with VPCs. Virtual private gateways do not support IPv6 traffic.
+
+Routing traffic between a gateway and an appliance
+To route inbound VPC traffic to an appliance, you associate a route table with the internet gateway or virtual private gateway, and specify the network interface of your appliance as the target for VPC traffic. In the following example, the VPC has an internet gateway, an appliance, and a subnet with instances. Traffic from the internet is routed through an appliance.
+
+
+                    Routing inbound traffic through an appliance
+                
+Associate this route table with your internet gateway or virtual private gateway. The first entry is the local route. The second entry sends IPv4 traffic destined for the subnet to the network interface for the appliance. This route is more specific than the local route.
+
+Destination	Target
+VPC CIDR	Local
+Subnet CIDR	Appliance network interface ID
+Alternatively, you can replace the target for the local route with the network interface of the appliance. You can do this to ensure that all traffic is automatically routed to the appliance, including traffic destined for subnets that you add to the VPC in the future.
+
+Destination	Target
+VPC CIDR	Appliance network interface ID
+To route traffic from your subnet to an appliance in another subnet, add a route to your subnet route table that routes traffic to the appliance's network interface. The destination must be less specific than the destination for the local route. For example, for traffic destined for the internet, specify 0.0.0.0/0 (all IPv4 addresses) for the destination.
+
+Destination	Target
+VPC CIDR	Local
+0.0.0.0/0	Appliance network interface ID
+Then, in the route table associated with the appliance's subnet, add a route that sends the traffic back to the internet gateway or virtual private gateway.
+
+Destination	Target
+VPC CIDR	Local
+0.0.0.0/0	igw-id
+Routing inter-subnet traffic to an appliance
+You can route traffic destined for a specific subnet to the network interface of an appliance. In the following example, the VPC contains two subnets and an appliance. Traffic between the subnets is routed through an appliance.
+
+
+                    Routing traffic between subnets through an appliance
+                
+Security groups
+When you route traffic between instances in different subnets through a middlebox appliance, the security groups for both instances must allow traffic to flow between the instances. The security group for each instance must reference the private IP address of the other instance, or the CIDR range of the subnet that contains the other instance, as the source. If you reference the security group of the other instance as the source, this does not allow traffic to flow between the instances.
+
+Routing
+The following is an example route table for subnet A. The first entry enables instances in the VPC to communicate with each other. The second entry routes all traffic from subnet A to subnet B to the network interface of the appliance.
+
+Destination	Target
+VPC CIDR	Local
+Subnet B CIDR	Appliance network interface ID
+The following is an example route table for subnet B. The first entry enables instances in the VPC to communicate with each other. The second entry routes all traffic from subnet B to subnet A to the network interface of the appliance.
+
+Destination	Target
+VPC CIDR	Local
+Subnet A CIDR	Appliance network interface ID
+Alternatively, you can replace the target for the local route with the network interface of the appliance. You can do this to ensure that all traffic is automatically routed to the appliance, including traffic destined for subnets that you add to the VPC in the future.
+
+Destination	Target
+VPC CIDR	Appliance network interface ID
+Routing using a prefix list
+If you frequently reference the same set of CIDR blocks across your AWS resources, you can create a customer-managed prefix list to group them together. You can then specify the prefix list as the destination in your route table entry. You can later add or remove entries for the prefix list without needing to update your route tables.
+
+For example, you have a transit gateway with multiple VPC attachments. The VPCs must be able to communicate with two specific VPC attachments that have the following CIDR blocks:
+
+10.0.0.0/16
+
+10.2.0.0/16
+
+You create a prefix list with both entries. In your subnet route tables, you create a route and specify the prefix list as the destination, and the transit gateway as the target.
+
+Destination	Target
+172.31.0.0/16	Local
+pl-123abc123abc123ab	tgw-id
+The maximum number of entries for the prefix lists equals the same number of entries in the route table.
+
+Routing to a Gateway Load Balancer endpoint
+A Gateway Load Balancer enables you to distribute traffic to a fleet of virtual appliances, such as firewalls. You can configure the load balancer as a service by creating a VPC endpoint service configuration. You then create a Gateway Load Balancer endpoint in your VPC to connect your VPC to the service.
+
+To route your traffic to the Gateway Load Balancer (for example, for security inspection), specify the Gateway Load Balancer endpoint as a target in your route tables.
+
+For an example of a security appliances behind a Gateway Load Balancer, see Inspect traffic using appliances in a security VPC.
+
+To specify the Gateway Load Balancer endpoint in the route table, use the ID of the VPC endpoint. For example to route traffic for 10.0.1.0/24 to a Gateway Load Balancer endpoint, add the following route.
+
+Destination	Target
+10.0.1.0/24	vpc-endpoint-id
+For more information, see Gateway Load Balancers.
+
+
+
+Did this page help you?
+Yes
+No
+Provide feedback
+Edit this page on GitHub 
+Next topic:Work with route tables
+Previous topic:Route tables
+Need help?
+Try AWS re:Post 
+Connect with an AWS IQ expert 
+PrivacySite termsCookie preferences© 2023, Amazon Web Services, Inc. or its affiliates. All rights reserved.
+
+On this page
+Routing to an internet gateway
+Routing to a NAT device
+Routing to a virtual private gateway
+Routing to an AWS Outposts local gateway
+Routing to a VPC peering connection
+Routing to a gateway VPC endpoint
+Routing to an egress-only internet gateway
+Routing for a transit gateway
+Routing for a middlebox appliance
+Routing using a prefix list
+Routing to a Gateway Load Balancer endpointCommit your update
+Commit the changes once you are happy with them. Don't forget to self-review to speed up the review process⚡.
+
+Pull Request
+When you're finished with the changes, create a pull request, also known as a PR.
+
+Fill the "Ready for review" template so that we can review your PR. This template helps reviewers understand your changes as well as the purpose of your pull request.
+Don't forget to link PR to issue if you are solving one.
+Enable the checkbox to allow maintainer edits so the branch can be updated for a merge. Once you submit your PR, a Docs team member will review your proposal. We may ask questions or request additional information.
+We may ask for changes to be made before a PR can be merged, either using suggested changes or pull request comments. You can apply suggested changes directly through the UI. You can make any other changes in your fork, then commit them to your branch.
+As you update your PR and apply changes, mark each conversation as resolved.
+If you run into any merge issues, checkout this git tutorial to help you resolve merge conflicts and other issues.
+Your PR is merged!
+Congratulations 🎉🎉 The GitHub team thanks you ✨.
+
+Once your PR is merged, your contributions will be publicly visible on the GitHub docs.
+
+Now that you are part of the GitHub docs community, see how else you can contribute to the docs.
+
+Windows
+This site can be developed on Windows, however a few potential gotchas need to be kept in mind:
+
+Regular Expressions: Windows uses \r\n for line endings, while Unix-based systems use \n. Therefore, when working on Regular Expressions, use \r?\n instead of \n in order to support both environments. The Node.js os.EOL property can be used to get an OS-specific end-of-line marker.
+Paths: Windows systems use \ for the path separator, which would be returned by path.join and others. You could use path.posix, path.posix.join etc and the slash module, if you need forward slashes - like for constructing URLs - or ensure your code works with either.
+Bash: Not every Windows developer has a terminal that fully supports Bash, so it's generally preferred to write scripts in JavaScript instead of Bash.
+Filename too long error: There is a 260 character limit for a filename when Git is compiled with msys. While the suggestions below are not guaranteed to work and could cause other issues, a few workarounds include:
+Update Git configuration: git config --system core.longpaths true
+Consider using a different Git client on WindowsRequest: Pull
+Pull:: pull_request
+Discussions
+Actions
+Projects
+Security
+Insights
+ansible: update to v2.2.0.0-1
+First update in a long time, so hopefully haven't broken anything. Main
+thing of interest here is purported performance increase, and maybe also
+some better control over what gets logged (via loop_control).
+* vendor/ansible 671f9c3...cdec853 (833):
+  > New release v2.2.0.0-1
+  > Updating CHANGELOG for CVEs fixed in 2.2.0
+  > Exception.message gone in 3.x (#18221)
+  > Update submodule refs
+  > Add tests for dnf modelled after the yum tests (#18226)
+  > Simplify surrogate check in to_text() (#18211)
+  > Cleanup StringIO import for module_utils/shell.py
+  > New release v2.2.0.0-0.4.rc4
+  > Add hint that python3 might be too old
+  > iterate through task results only if the key is not at the root level (#18214)
+  > tasks_queue_manager: fix fork calculation if serial in %
+  > A few fixes for python3
+  > Fix #10865
+  > bump core submodule ref for win_shell/win_command fixes
+  > add large interleaved stdout/stderr integration tests for win_shell/win_command
+  > fix version check to support >=rc5
+  > backport various docker_common fixes from devel
+  > Fix lxd_container module fails if certificate already in trust store
+  > Add a new potential su prompt
+  > New release v2.2.0.0-0.3.rc3
+  > Filter out internal magic and connection variables from facts returns
+  > Fish hacking setup fix (#18084)
+  > Change all links in readme to https
+  > handler: notify a handler by name _and_ listen
+  > Update submodule refs to pick up python3 fix for uri
+  > Fix the uri testserver to run on python3
+  > test-module _ansible_selinux_special_fs arg added
+  > bump core submodule ref for win async bugfix
+  > reenable win_async loop test
+  > Update submodule refs
+  > Fix 18151, by converting float to int
+  > Fix some errors in CHANGELOG.md (#18149)
+  > Correctly read use_private_network as boolean
+  > Fix improper handling of machine_type in ovirt inventory (#16251)
+  > Set Suse family for openSUSE Tumbleweed & Leap
+  > Make bcrypt + passlib work in password_hash filter
+  > Add changelog for apt_key
+  > submodule ref update to pull in apt and apt_key fixes
+  > Bump core modules submodule ref
+  > Update submodule ref for py3 compile test fix
+  > Enable the git test on py3
+  > Update submodule refs for py3 and git fixes
+  > Handle 'smart' scp_if_ssh option for fetch (#18125)
+  > Enable filters test for python 3
+  > Now that we convert salt inside of do_encryptas needed, keep salt as text type until then.
+  > pip tests now pass on python3.  Enable them.
+  > Update submodule refs
+  > Enable test for lookups on python 3
+  > role now fails if specified file not found
+  > fix for check_mode/async interaction
+  > Thanks to mscherer, these tests are now passing
+  > Let authorized_keys be tested on python 3
+  > Update submodule refs
+  > Port validate-modules to stable-2.2 (#18119)
+  > Update 2.2 submodule refs for core
+  > Use six.move for module in module_utils/facts.py
+  > Update submodule refs to pick up git fix
+  > Fix test_filters fail because of dict sort (#18105)
+  > Pixelrebel amc pr2654 (#18089)
+  > New release v2.2.0.0-0.2.rc2
+  > Update submodule ref
+  > Add changelog entries for ansible_managed and yum fix
+  > Make the default Ansible_managed string static so it doesn't interfere with idempotency
+  > properly propagate loop vars
+  > fix include_role dynamic path
+  > include_role now allows duplicates by default
+  > Update submodule refs
+  > epdb doesn't work on python3 so we need a different package to test pip
+  > Fix ansible-pull on python3
+  > Break out of linear strategy if all hosts are failed and the result is not OK
+  > Update extras submodule ref to pick up no_log fix for ovirt_auth
+  > Note subversion no_log fix
+  > Update submodule ref to pick up subversion no_log fix
+  > Remove -b option from pbrun.
+  > updated pbrun test to match expected output
+  > Fix search path for relative paths in roles (fixes #17877)
+  > fixes to ansible_search_path
+  > avoid errors when dynamic role
+  > Update extras submodule ref to pull in password hiding fix for postgresql_lang and postgresql_ext
+  > Update submodule refs
+  > Allow unicode inventory filename
+  > Change <support@ansible.com> - it's being retired.
+  > Fixes to handle non-ascii become passwords
+  > Fix become password using non-ascii for local connection
+  > unarchive tests now pass on python3
+  > Don't mark parent role complete for nested include_role calls
+  > update  
+Hello,
+ZACHRY T WOOD
+
+About
+Categories
+Delivery Methods
+Solutions
+AWS IQ
+Resources
+ Your Saved ListPartners Sell in AWS Marketplace Amazon Web Services Home Help
+Refine results
+Clear all filters
+Categories
+Infrastructure Software(16)
+DevOps(11)
+Business Applications(1)
+Industries(1)
+Delivery methods
+Clear
+Container Image(37)
+Helm Chart(19)
+Publisher
+Datree(2)
+Palo Alto Networks(1)
+Dynatrace(1)
+Prosimo(1)
+Tetrate Io(1)
+DataStax, Inc(1)
+UP9(1)
+HAProxy Technologies(1)
+Trilio(1)
+Solodev(1)
+Show All
+Pricing model
+Upfront Commitment(10)
+Free(7)
+Bring Your Own License(1)
+Recurring Fee(1)
+Pricing unit
+Custom Units(10)
+Contract type
+Standard Contract(6)
+Supported services
+Clear
+Amazon EKS(34)
+Amazon ECS(21)
+Amazon EKS Anywhere(19)
+Self-managed Kubernetes(19)
+Amazon ECS Anywhere(1)
+Region
+Asia Pacific (Hong Kong)(19)
+Asia Pacific (Tokyo)(19)
+Asia Pacific (Mumbai)(19)
+Asia Pacific (Singapore)(19)
+Asia Pacific (Sydney)(19)
+Canada (Central)(19)
+Europe (Frankfurt)(19)
+Europe (Stockholm)(19)
+Europe (Ireland)(19)
+Europe (London)(19)
+Show 10 More
+All products (19 results) showing 1 - 19
+
+
+1
+
+
+Sort By: Relevance
+Dynatrace Container Agent
+Dynatrace Container Agent
+ByDynatrace | Ver Dynatrace Operator Deployment via Helm Chart
+The Dynatrace Container Agent requires a subscription to Dynatrace. Please see the full platform located here, https://aws.amazon.com/marketplace/pp/prodview-zcobx7h2mbtk2?sr=0-2&ref_=beagle&applicationId=AWSMPContessa, and contact your AWS or Dynatrace sales team for further details and...
+
+Tetrate Istio Distro (TID)
+Tetrate Istio Distro (TID)
+ByTetrate Io | Ver NG-1.16.1-tetrate-v0
+Tetrate Istio Distro (TID) is an enterprise-level Istio distribution (with [available support options](https://aws.amazon.com/marketplace/pp/prodview-r2kdhgz2mmocm)) that: - enforces fetching certified versions of Istio and enables only compatible versions of Istio installation - includes a FIPS-ver...
+
+Upbound Universal Crossplane (UXP)
+Upbound Universal Crossplane (UXP)
+ByUpbound | Ver v1.9.1-up.2
+Upbound Universal Crossplane (UXP) is Upbound's official enterprise-grade Crossplane distribution. It's free, open source, and fully conformant with upstream Crossplane. UXP is hardened and tested by Upbound so customers can confidently deploy control plane architectures to production. Connect UXP...
+
+CN-Series Container Next-Gen Firewall
+CN-Series Container Next-Gen Firewall
+ByPalo Alto Networks | Ver Version1.2.2
+The Palo Alto Networks CN-Series Container Firewall is the best-in-class next generation firewall purpose built to secure the Kubernetes environment from network based attacks. The CN-Series firewall enables you to 1. Gain Layer-7 traffic visibility and control within the cluster 2. Stop latera...
+
+Stargate for Apache Cassandra
+Stargate for Apache Cassandra
+ByDataStax, Inc | Ver 2.0.5
+Stargate is a data API gateway for Apache Cassandra. It supports native drivers, and elevates gRPC to native-driver-level performance while modernizing Apache Cassandra for other web APIs and JSON. With Stargate, your Cassandra database is automatically available with a schemaless JSON document...
+
+Isovalent Cilium Enterprise
+Isovalent Cilium Enterprise
+ByIsovalent, Inc. | Ver Version 1.10.5-cee.1
+Isovalent Cilium Enterprise leverages eBPF, the powerful new Linux kernel technology, to build high-performance, cloud native-aware networking, observability, and security. Going well beyond what is possible with traditional Linux networking like iptables, Cilium enables zero-trust network security...
+
+SUSE NeuVector for EKS
+SUSE NeuVector for EKS
+BySUSE | Ver NeuVector 5.0.5 via Helm
+SUSE NeuVector is a 100% open-source Kubernetes container security platform built for enterprise-grade environments. Supported by a strong community of users, SUSE NeuVector provides full lifecycle container security from build, pipeline, registry to production. SUSE NeuVector enables you to run...
+
+Kpow for Apache Kafka (SE-LM)
+Kpow for Apache Kafka (SE-LM)
+ByFactor House | Ver 90.5
+3 external reviews
+Subscribe to the Kpow SE-LM AWS Marketplace Container with integrated AWS License Manager support, then manage as many Kafka Clusters as you require by purchasing Cluster Credits. You may run one or many Kpow instances and manage as many Kafka Clusters concurrently as you have Cluster Credit...
+
+Solodev CMS for Kubernetes
+Solodev CMS for Kubernetes
+BySolodev | Ver 9.6.0
+57 external reviews
+Solodev CMS for Kubernetes (Contract) lets you build and deploy fully containerized websites and apps on premises, powered by Amazon EKS. Ideal for both low code/no code marketers and advanced developers, Solodev CMS lets users collaborate on content, publish across channels, create custom...
+
+Datree
+Datree
+ByDatree | Ver 1.0.4
+For many organizations, adopting and enforcing a Kubernetes policy can be a challenging process, because it requires alignment across different levels of the company, from the developers to the senior leadership. Datree helps by offering a suite of tools to make adoptions seamless: * Monitoring - D...
+
+Datree Free
+Datree Free
+ByDatree | Ver 1.0.1-rc.1
+For many organizations, adopting and enforcing a Kubernetes policy can be a challenging process, because it requires alignment across different levels of the company, from the developers to the senior leadership. Datree helps by offering a suite of tools to make adoptions seamless: * Monitoring - D...
+
+RegScale - Continuous Compliance Automation
+RegScale - Continuous Compliance Automation
+ByRegScale | Ver 4.12.1
+RegScale frees organizations from (digital) paper via its real-time Governance Risk and Compliance software. Our API-centric platform integrates with your existing security and compliance platforms to dynamically manage security control state, shifting compliance left to deliver audit-ready...
+
+Kasten K10 By Veeam (Hybrid deployments - Term)
+Kasten K10 By Veeam (Hybrid deployments - Term)
+ByKasten by Veeam | Ver 5.5.4
+10 external reviews
+Purpose-built for Kubernetes, Kasten K10 by Veeam provides enterprise operations teams an easy-to-use, scalable, and secure system for backup/restore, disaster recovery, and mobility of Kubernetes applications across hybrid deployments that span AWS cloud and on-premises. LICENSING: The version of...
+
+Nirmata Enterprise for Kyverno
+Nirmata Enterprise for Kyverno
+ByNirmata | Ver v1.8.5-02
+The Nirmata Enterprise for Kyverno is designed to address the needs of organizations running production Kubernetes clusters with critical applications. Nirmata, the team behind the #1 Kubernetes-native policy engine, Kyverno, provides its certified distribution of Kyverno along with curated...
+
+Apache ShardingSphere for Kubernetes packaged by SphereEx
+Apache ShardingSphere for Kubernetes packaged by SphereEx
+BySphereEx | Ver 0.1.0
+ShardingSphere for Kubernetes uses Helm to install a ShardingSphere-Proxy cluster on Kubernetes and provide HPA and HA capabilities. Requirements: Kubernetes 1.18+ kubectl Helm 3.2.0+ StorageClass of PV (Persistent Volumes) can be dynamically applied for persistent data (Optional)
+
+Mizu (Pro Edition)
+Mizu (Pro Edition)
+ByUP9 | Ver 30.0
+Starting from $99.00/mo for software + AWS usage fees
+Mizu is an open source API traffic and payload viewer for Kubernetes enabling you to view all API communication between microservices with support for modern protocols like REST, gRPC, Kafka, Redis and RabbitMQ. Think Wireshark reinvented for Kubernetes. In addition to viewing traffic in real time,...
+
+HAProxy Enterprise Ingress Controller
+HAProxy Enterprise Ingress Controller
+ByHAProxy Technologies | Ver v1.7.11
+55 external reviews
+Kubernetes is an open-source platform for scaling containerized workloads across a fleet of machines. It can intelligently schedule work only onto hosts that have the CPU and memory resources needed to run a given container. The challenge is that containers within a Kubernetes cluster typically...
+
+TrilioVault for Kubernetes
+TrilioVault for Kubernetes
+ByTrilio | Ver 3.0.2
+1 external review
+NOTE: This product offers the contractual pricing mentioned in the `Pricing` tab, the users can deploy the TVK on existing EKS cluster by following the instructions or on a new EKS cluster using Cloud Formation Template (CFT). - If user wants to install it on Red Hat Openshift Service on AWS (ROSA),...
+
+Prosimo Jumpstart
+Prosimo Jumpstart
+ByProsimo | Ver 1.0.1
+Prosimo Application eXperience Infrastructure (AXI) makes infrastructure transparent, delivers the desired level of application experience and ensures contextual secure access to users. This is done using data-driven insights powered by AI and ML on top of a multi-cloud and cloud-native...
+
+ AWS Marketplace on Twitter  AWS Marketplace Blog  RSS Feed
+Solutions
+AWS Well-Architected
+Business Applications
+Data & Analytics
+Data Products
+DevOps
+Infrastructure Software
+Internet of Things
+Machine Learning
+Migration
+Security
+Advertising & Marketing
+Energy
+Engineering, Construction & Real Estate
+Financial Services
+Healthcare
+Industrial
+Media & Entertainment
+Nonprofit
+Public Health
+Public Sector
+Retail
+Sustainability
+Telecommunications
+AWS Control Tower
+AWS PrivateLink
+Pre-trained Amazon SageMaker Models
+Infrastructure Software
+Backup & Recovery
+Data Analytics
+High Performance Computing
+Migration
+Network Infrastructure
+Operating Systems
+Security
+Storage
+DevOps
+Agile Lifecycle Management
+Application Development
+Application Servers
+Application Stacks
+Continuous Integration and Continuous Delivery
+Infrastructure as Code
+Issue & Bug Tracking
+Monitoring
+Log Analysis
+Source Control
+Testing
+Business Applications
+Blockchain
+Collaboration & Productivity
+Contact Center
+Content Management
+CRM
+eCommerce
+eLearning
+Human Resources
+IT Business Management
+Project Management
+Machine Learning
+Human Review Services
+ML Solutions
+Data Labeling Services
+Computer Vision
+Natural Language Processing
+Speech Recognition
+Text
+Image
+Video
+Audio
+Structured
+Intelligent Automation
+Data Products
+Financial Services Data
+Healthcare & Life Sciences Data
+Media & Entertainment Data
+Telecommunications Data
+Gaming Data
+Automotive Data
+Manufacturing Data
+Resources Data
+Retail, Location & Marketing Data
+Public Sector Data
+Environmental Data
+IoT
+Analytics
+Applications
+Device Connectivity
+Device Management
+Device Security
+Industrial IoT
+Smart Home & City
+Professional Services
+Assessments
+Implementation
+Managed Services
+Premium Support
+Training
+Industries
+Education & Research
+Financial Services
+Healthcare & Life Sciences
+Media & Entertainment
+Industrial
+Energy
+AWS IQ
+Websites & Mobile Applications
+Databases & Analytics
+Networking & Security
+Machine Learning
+Productivity & Collaboration
+Cost Optimization
+Other
+Resources
+Analyst Reports
+Blogs
+Customer Success Stories
+Events
+Implementation Guides
+Videos
+Webinars
+Whitepapers
+Sell in AWS Marketplace
+Management Portal
+Sign up DC4#999980004010524
+EXPIRES02-2027
+CVV-#780:
+Dashboard
+Banking
+Sales
+Customers & leads
+Cash flow
+Expenses
+Payroll
+Time
+Reports
+Taxes
+Mileage
+Accounting
+My accountant
+Capital
+Commerce
+Apps
+Insurance
+Live Bookkeeping
+Internal Revenue Service-Grant Program Office
+My Experts
+Account and Settings	 Help
+Company
+Billing & subscription
+Usage
+Sales
+Expenses
+Payments
+Time
+Advanced
+We couldn’t process your payment.
+Make sure your billing info is up to date. Update billing info
+
+Register today! In the Know Webinar on Feb. 16 at 11:00 AM PT
+Join us to learn about new features in the QuickBooks Business Network and revenue recognition in QuickBooks Online Advanced.
+Reserve your spot
+Company ID
+9130 3559 1869 9356
+QuickBooks Essentials
+ON HOLD
+Unable to process payment. Update billing info
+QuickBooks Live Bookkeeping Setup
+ON HOLD
+Unable to process payment. Update billing info
+QuickBooks Online Payroll
+Pay employees and contractors with free 24-hour direct deposit.
+Automatic tax calculations on every paycheck
+File and pay federal and state payroll taxes
+Employees can view pay stubs and W-2s online
+When you subscribe to Payroll, a QuickBooks Time subscription will also be included at no extra cost.
+
+Learn more
+QuickBooks Live Full-Service Bookkeeping
+Get live support from a dedicated, QuickBooks-certified bookkeeper who will:
+Go through your past books line by line to bring them up to date
+Maintain your books each month so you're ready for tax time
+Meet with you one-on-one to provide ongoing insights on your business
+Requires a paid QuickBooks Online subscription
+QuickBooks Time
+Track time on any device to streamline payroll, send accurate invoices, and save thousands each year.
+Let employees clock in and out from their devices
+Build, edit, and share schedules by jobs or shifts
+Automatically add employee timesheets for faster, more accurate time entry
+
+Learn more
+Checks and supplies
+Get the products you need to help run your business easily and effectively.
+Choose from popular check styles
+Make tax time less taxingchecking account activity detail - continued. qbo.intuit.com with our tax kits
+Reordering is a snap
+ 
+Save billing info
+
+You're purchasing
+QuickBooks Live Bookkeeping Setup
+$0/(One-time fee)
+Now let's get your billing info
+We couldn't process your payment
+Make sure your billing info is up to date.
+Payment information
+Select a payment method
+Visa
+ZACHRY TYLER WOOD *0524
+Expires: 02/2027
+
++ Add new
+By selecting Save, I understand that I am enrolling in a QuickBooks Online subscription program. I authorize Intuit, using electronic signature, to charge my payment method for the subscription(s) selected, unless I cancel. To cancel, sign in and go to Billing Page. If you are receiving discounted pricing, you will automatically be charged the full price when the discount period ends.
+
+Use this payment method
+
+as a Seller
+Seller Guide
+Partner Application
+Partner Success Stories
+About AWS Marketplace
+What is AWS Marketplace?
+Customer Success Stories
+AWS Blog
+Press Releases
+Events
+Help & FAQ
+Careers
+Featured Categories
+SaaS Subscriptions
+Windows Server
+Manage Your Account
+Management Console
+Billing & Cost Management
+Subscribe to Updates
+Personal Information
+Payment Method
+AWS Identity & Access Management
+Security Credentials
+Request Service Limit Increases
+Contact Us
+AWS Marketplace is hiring!
+Amazon Web Services (AWS) is a dynamic, growing business unit within Amazon.com. We are currently hiring Software Development Engineers, Product Managers, Account Managers, Solutions Architects, Support Engineers, System Engineers, Designers and more. Visit our Careers page or our Developer-specific Careers page to learn more.
+Amazon Web Services is an Equal Opportunity Employer.
+AWS Terms Privacy Policy Cookie Consent©2012- 2023 , Amazon Web Services, Inc. or its affiliates. All rights reserved. submodule ref
+  > Better error for bad role def
+  > Make sure free strategy is returning proper TQM constants
+  > Update submodule refs
+  > toggle missing handler errors/warnings via config
+  > fixes issue when checking if sessions are supported (#18013)
+  > adds additional exception handling in open() (#18003)
+  > minor fix for checking kwargs in get_config() (#18002)
+  > Quick ansible-doc fix -- don't run pager if there was an error (no text)
+  > always log unexpected exceptions
+  > restored 'results' filters
+  > Update submodule refs
+  > adds log message for successful connection and disconnection (#17993)
+  > fixes issue in eos shared module for earlier versions of EOS (#17980)
+  > Update submodule refs
+  > Only dispkay failure to use cryptography at a higher verbosity
+  > Correct delegated_host_name check
+  > Fix unbound method call for JSONEncoder (#17970)
+  > Update extras submodule reference
+  > Make interprocess polling interval configurable (#16560)
+  > Remove archive from the 2.2 will be working to get it updated for 2.3
+  > Update submodule refs
+  > Add a whitelist for checking for six.  Use it for digital_ocean.py
+  > Moves 'statically included' messages to -vv verbosity (#17918)
+  > Sleep briefly while waiting for pending results to reduce CPU churn
+  > adds new option to get_config to grab config with passwords (#17915)
+  > Update submodule refs
+  > Move searching for roles in the cur basedir to last
+  > fixed storing of cwd
+  > Make ini parsing slightly more robust
+  > better inventory error messages
+  > Specify run_command decode error style as arg (#17886)
+  > asa_template wasn't ever officially released
+  > Check for substates in is_failed before checking main state failure
+  > Fix for run_command tests now that it returns native strings
+  > Update submodule refs
+  > Make run_command return native strings
+  > no need for warnings in first_found
+  > fix for include_role conflating vars/directives
+  > include_role process name from options, not task
+  > cast/copy keys() to list to avoid py3 errors
+  > open anziballs payload 'wb' for py3
+  > Update default branch for generate-tests.
+  > Update submodule refs.
+  > Update CI config for stable-2.2 branch. (#17880)
+  > New release v2.2.0.0-0.1.rc1
+  > Updating CHANGELOG and release versions for 2.1.2
+  > bump core submodule ref
+  > New modules (#17870)
+  > added network updates to CHANGELOG
+  > added forman callback plugin to changelog
+  > only change dir to playdir if local
+  > Remove unicode escape (#17866)
+  > Update submodule refs
+  > Add foreman callback plugin (#17141)
+  > On python3, subprocess needs another arg to pass extra file descriptors
+  > Normalize text and byte type in the ssh plugin helper method that builds up an ssh command (#17860)
+  > fixes issue with run_commands raising error (#17861)
+  > switches the kickstart arg from True to False for eos (#17858)
+  > adds new exception for adding condition statements to Conditional (#17859)
+  > bump core submodule ref for windows async_wrapper bugfix
+  > bugfixes to JSON junk filter, added unit/integration tests to exercise (#17834)
+  > Ensure the "attempts" key is set in the final result for do/until loops
+  > Remove the dellosX_template module (#17836)
+  > Disable privileged mode on Shippable. (#17844)
+  > bump core submodule ref for async_wrapper fixes
+  > Add homebrew in squash_actions list (#16966)
+  > dzdo prompt fix
+  > fix fact gathering flag
+  > add ssh error message to failure
+  > Fixing parentage of include_role objects for param inheritance
+  > fixes unicode conversation from junos get_config() method (#17841)
+  > adds better error handling when conditional fails (#17839)
+  > fixes issue when calling save_config() and transport is nxapi (#17835)
+  > Merge pull request #17833 from resmo/docs/fix_loops
+  > remove Windows async doc exclusion
+  > Bugfix: fixes new-alias bug when debugging powershell (#17816)
+  > jabber callback (#16981)
+  > Merge pull request #17818 from chouseknecht/devel
+  > vmware_inventory: Make the ceritifate check default, and create a config option (#17830)
+  > Merge pull request #17556 from gahan-corporation/devel
+  > Merge pull request #14691 from udesilva/patch-1
+  > Merge pull request #17809 from pkyeck/devel
+  > Update changelog for scp_when_ssh=smart (#17819)
+  > Smart mode for sftp+scp (#17813)
+  > mv test_git to 'destructive' integration tests (#17526)
+  > Update ROADMAP_2_2.rst
+  > Update ROADMAP_2_2.rst
+  > Add PRIVILEGED to freebsd because testing of mount keys off of that. (#17803)
+  > Update submodule refs
+  > fixes conditional processing with junos and xml data structures (#17801)
+  > Graceful error handling when delegate_to host null (#17453) (#17783)
+  > Fixes issue #17759
+  > fixed typo
+  > fixes #16865 : we should properly determine connection type for delegated task first, before overriding remote user for local connections (#17723)
+  > Document `copy` module vault decryption behavior (#17777)
+  > Fixes issue #17795
+  > adds overwrite kwarg to load_config in junos (#17798)
+  > Turn mount test back on (#17797)
+  > Update submodules refs
+  > The mode that we fake from stat is checked more closely under python3.5 on El Capitan (#17794)
+  > Use the play term instead of playbook.
+  > better handling of host lists (#17781)
+  > ansible_play_batch (#17779)
+  > Notice of Networking *_template deprecations (#17668)
+  > Run test_template tests on OS X. (#17791)
+  > Enable unarchive tests for OS X and FreeBSD. (#17789)
+  > Add mnt pnts with single quote to test (16855) (#17771)
+  > raises ValueError exception if conditional is not parsable (#17788)
+  > Update get_url test to use httptester. (#17787)
+  > Revert "Clear the plugin path cache when adding new directories" (#17785)
+  > Clear the plugin path cache when adding new directories
+  > Update submodule refs.
+  > swallow errors during async polling (#17760)
+  > remove bare vars and undefined from lookup lists (#17647)
+  > removed deprecated first available file from tasks (#17643)
+  > removed deprecated 'bare' templating environment (#17640)
+  > undefined var should fail 'label' setting (#17675)
+  > fix delegate_facts (#17736)
+  > Update submodule refs
+  > Update submodule refs (especially to pick up the mount fixes)
+  > fixes issue where arguments for regexp search() where transposed (#17764)
+  > gen_distribution_version_testcase.py should fail if ansible run fails (#17693)
+  > Add a umask argument to run_command
+  > removed unused code, added comment explaining
+  > Fixed dev info landing page link
+  > Update OS6 sublevels (#17735)
+  > Revert "Set PRIVILEGED=true for non_destructive tests. (#17733)" (#17738)
+  > Disable expect continue in ansible-core-ci. (#17737)
+  > Disable mount tests for now.  Mount is buggy on too many platforms
+  > Update submodule refs
+  > Improve error handling for ansible-core-ci. (#17734)
+  > Set PRIVILEGED=true for non_destructive tests. (#17733)
+  > Dev guide reorg continues (#17732)
+  > fix for rsync protocol support (#16756)
+  > Update submodule refs to pick up mount fixes
+  > Add tests for the mount module (#17718)
+  > Minor editing of PR#17730
+  > Merge pull request #17730 from davidak/hash
+  > Remove deprecated roll path arg from docs #13563 (#17689)
+  > added note about loops being lookups
+  > fixes issue introduced with raw kwarg (#17728)
+  > added ansible_play_hosts to changelog
+  > clarified play_hosts/ansible_play_hosts docs
+  > Feature/add ansible play hosts all (#17498)
+  > clarified `omit` intended usage
+  > Remove run_tests.sh and update docs. (#17719)
+  > Update integration.sh to copy source by default. (#17717)
+  > bump extras submodule ref
+  > fixes issue where junos shared module was ignoring ssh_keyfile (#17712)
+  > Add shellcheck to code-smell checks. (#17715)
+  > Add '--cover-erase' to 'make tests' cli (#17708)
+  > Add a 'make integration' target (#17710)
+  > add a defaults for integration.sh (#17709)
+  > Add keep on failure option to integration.sh. (#17711)
+  > Integration Playbook for Google Cloud DNS module. (#17698)
+  > Add max_passes to the debug strategy override of _process_pending_results
+  > ini lookup: add 'type' to the list of known arguments (#17707)
+  > fixes issue #13981: unsafe_writes block appeared too late in the atom… (#17405)
+  > fixes mode on module_utils/dellos9.py (#17682)
+  > Update submodule refs
+  > Add a test for int/float parameter type checking (#16741)
+  > Remove _load_hosts() from Play initialization as it's no longer needed and it breaks using extra_vars defining a list for hosts (#17699)
+  > Remove tests for deprecated su and sudo. (#17697)
+  > test_gce_mig integration test playbook (#17249)
+  > Merge pull request #15820 from jinesh-choksi/patch-2
+  > Allow for empty source in dwim_path_relative_stack
+  > Switch tests from sudo to become. (#17694)
+  > Create a raw lookup for hostvars that does not template the data
+  > Add oVirt support to `ansible/module_utils` module (#17364)
+  > Added docker_network to 2.2 change log
+  > Adding raw check to nxos.py (#17659)
+  > Additional tests for check mode idempotence (#17679)
+  > Merge pull request #17677 from privateip/network_docs
+  > Remove test for deprecated first_available_file. (#17674)
+  > fixes issue where config sessions where left behind (#17673)
+  > Merge pull request #17671 from dharmabumstead/deprecation-warnings-update
+  > fixes commit confirm check in junos shared module (#17663)
+  > Remove test-docs from module search ignore list. (#17670)
+  > Update submodule refs.
+  > changed missing file error to warning for lookups (#16800)
+  > Officially naming the 2.2 release "The Battle of Evermore"
+  > Fixed formatting
+  > Update submodule refs to pick up pip fixes
+  > Take ITERATING_ALWAYS into account when setting failed state in PlayIterator
+  > Implements verbose always to assert action plugin module (#17654)
+  > Update core submodule ref for pip fix
+  > Merge branch 'threaded_receiver' into devel
+  > Update sumodule refs
+  > Add pip bugfix to minor changes
+  > Add test for checking pip package in check mode (#17360)
+  > remove old imports from junos shared module (#17655)
+  > allow netcfg to pass kwargs from __call__ to configure() (#17653)
+  > clean up junos shared module (#17652)
+  > Merge pull request #17651 from skg-net/bugfix
+  > Update submodule refs.
+  > Update submodule refs.
+  > Update submodule refs.
+  > Remove Travis and update references to Shippable. (#17649)
+  > Do not set run_once for meta noop tasks
+  > Update submodule refs
+  > Merge pull request #17638 from privateip/fix-netcli
+  > Fix password lookup py3 plus alikins unittest additions refactoring (#17626)
+  > Merge pull request #17646 from bcoca/commitit
+  > draft of return common fields
+  > update facts.py for aix (#17539)
+  > New networking modules in 2.2
+  > Fix #17624 (#17627)
+  > Fix call to `axapi_call_v3()` (#17637)
+  > Networking status for 2.2
+  > cloudstack: move common code to module_utils (#17635)
+  > Another minor typo fix ;) (#17631)
+  > Minor typo fix for FreeBSD (#17633)
+  > cloudstack: fix has_changed dict values comparsion (#17632)
+  > Merge pull request #17625 from skg-net/dellos6_template
+  > Merge pull request #17613 from Qalthos/pyez_check
+  > Merge pull request #17623 from dgjustice/nxos_fixes
+  > Fix slaac filter (#17551)
+  > Add os_family to test_distribution_version (#17620)
+  > Update Changelog for the dellos6_facts module support (#17621)
+  > Fix dataloader using deprecated version of is_encrypted (#17615)
+  > Merge pull request #17622 from privateip/network-plugin-fix
+  > Merge pull request #17545 from privateip/asa
+  > Update submodule refs.
+  > Use text strings when using display() to avoid UnicodeError tracebacks
+  > update consul tests to reflect fixes to the core and session modules (#17451)
+  > Renamed the Modules from dnos* -> dellos*, updated copyright, removed… (#17617)
+  > Fix distribution fact on DragonFly (#17619)
+  > vmware_inventory: decode strings to ascii if not alphanumeric (#17618)
+  > Add note to explain inline comments can only begin with ; (#17607)
+  > include_vars now properly deals with hash_behaviour (#15895)
+  > Fix error using jsonfile with incomplete config (#17567)
+  > copy action plugin: recurse into sub folders of the source (#17614)
+  > remove bare variable support from loops (#17519)
+  > Update submodule refs
+  > Pass the absolute path to dirname when assigning basedir (#17457)
+  > Fixed typo in changelog (#17597)
+  > Changes to enable make gce to run.  Added sys import so libcloud error is displayed; renamed credentials keys in template file so they work properly with gce_credentials.py. (#16607)
+  > Merge pull request #17603 from skg-net/dnos10_facts
+  > Merge pull request #17590 from abadger/vault-fixes
+  > Use default on undefined vars in tests. (#17601)
+  > roadmap update for Windows tasks
+  > Do not use bare vars in integration tests. (#17599)
+  > During initial argument evaluation, cast args to string. (#17595)
+  > Improve inventory script error messages. (#17589)
+  > win_shell/win_command changes + tests (#17557)
+  > Added support OS9 facts (#17591)
+  > Update submodule refs
+  > updated subrefs
+  > added win_command/win_shell to changelog
+  > updated devleoping plugins (#16713)
+  > Ensure parent tempdir's existence (#17585)
+  > Fix cow mode to work with unicode task and play names (#17576)
+  > Add python 3 awareness to apt module tests. (#17574)
+  > Add tool for downloading Shippable logs.
+  > Update submodule refs.
+  > Add action plugin for dnos6_config module (#17553)
+  > Add action pluging for dnos9_template module (#17549)
+  > Add action plugin for dnos6_template module (#17554)
+  > Moved the dnos10_template.py action plugin to the correct directory (#17550)
+  > Fix galaxy's parsing of the command line. (#17569)
+  > Make jsonfile cache plugin errors less vague. (#17568)
+  > [wip] Let jsonfile and memcached cache plugins understand fact_caching_timeout=0 (#17565)
+  > Merge pull request #17564 from offthewoll/patch-2
+  > Allow AWSRetry class to be created without boto3/botocore installed
+  > added msg info to unreachable for oneline callback
+  > Merge pull request #14676 from tes/devel
+  > jenkins_job: extend integration tests (#17558)
+  > Fix for ticket 9664
+  > Fix cpu facts for hosts missing fields in cpuinfo (16533) (#16535)
+  > CloudRetry/AWSRetry backoff decorator with unit tests (#17039)
+  > doas update (#16997)
+  > Merge pull request #17546 from skg-net/dnos9_config
+  > added new ksu method to man page
+  > Cleanup eos (#17548)
+  > Add test for the pause in loop feature (#17336)
+  > Cleanup netcfg.py (#17531)
+  > better display for free strategy (#17355)
+  > eos: cmd should be item (#17540)
+  > Remove extraneous . from VALID_FILE_EXTENSIONS
+  > Update submodule refs
+  > jenkins_job: add integration tests (#17499)
+  > Corrected port designation in INI file (#17543)
+  > updated solaris virtualization detection (#17464)
+  > Cleanup junos (#17530)
+  > Merge pull request #17468 from skg-net/dnos9_command
+  > Cleanup netcli (#17529)
+  > Fixes to the controller text model (#17527)
+  > Update submodule ref for core to fix broken service module
+  > Update submodule refs
+  > Cleanup nxos
+  > Merge pull request #17474 from skg-net/dnos6_command
+  > Merge pull request #17521 from privateip/fix-4797
+  > Cleanup openswitch
+  > docsite/rst/community.rst: Fixed typos (#17502)
+  > Python3 changelog entry
+  > ssh_executbale and controlpersist changes
+  > Check controlpersist (#17443)
+  > Vyos cleanup
+  > Merge pull request #17512 from privateip/nxos
+  > Merge pull request #17508 from privateip/sros
+  > Merge pull request #17509 from privateip/vyos
+  > Merge pull request #17511 from privateip/junos
+  > Merge pull request #17513 from privateip/eos
+  > Merge pull request #17510 from privateip/iosxr
+  > Add missing space in loop variable reuse message (#17516)
+  > typo (#17517)
+  > Merge pull request #17506 from privateip/openswitch
+  > Merge pull request #17507 from privateip/netcfg
+  > bump core submodule ref for win_user fixes
+  > add win_user regression tests
+  > Revert "Flush the queued items in linear periodically"
+  > Merge pull request #17504 from ypid/docs/use_reserved_addresses_and_names
+  > changelog: add missing new modules (#17503)
+  > Flush the queued items in linear periodically
+  > Re-adding processing of results inline with queuing tasks for linear
+  > Merge pull request #17496 from chouseknecht/devel
+  > Merge pull request #17485 from lovmat/clearify_why_using_python2
+  > Filesystem blocks are of size `f_frsize` (#17493)
+  > removed previously deprecated ';' host separator
+  > using delegated host's facts when delegating (#17489)
+  > Iterate through role paths when installing roles (#17487)
+  > Fix from_yaml for non-string_types. This resolves #17397 (#17398)
+  > adjust WinRM service configuration message text
+  > Merge branch 'patch-1' of git://github.com/jlehtniemi-broadsoft/ansible into HEAD
+  > Merge pull request #17481 from privateip/junos
+  > take delegated vars before removing them
+  > Fix fileglob filter to work just like fileglob lookup plugin (#17480)
+  > Support late evaluation, suppress warnings on SyntaxError (#17462)
+  > Don't use the shell to catch output, catch output in python. Fixes #17137 (#17449)
+  > Clean up unarchive action plugin (#17429)
+  > Allow for no prefix in the comment filter (#17421)
+  > Add public_ip option to linode dynamic inventory (#17390)
+  > Enable more integration tests for python 3. (#17473)
+  > Update submodule refs.
+  > Add python 3 support to test_apt_repository. (#17472)
+  > Enable more tests that pass on python 3. (#17471)
+  > Add python3-apt to ubuntu1604py3 Dockerfile.
+  > Merge pull request #17467 from privateip/netcfg
+  > Fixing typo in developing modules doc
+  > Cleanup adhoc doc language regarding shell vs. command syntax
+  > old yaml format has been long gone
+  > linked cause people forget yaml and yml exist
+  > Re-fix the per-item diff output, (#17458)
+  > Defined children for get_vm (#15904)
+  > Fix typo
+  > Merge pull request #17452 from privateip/netcfg
+  > Merge pull request #16553 from ericchou1/devel
+  > Make ssh_executable available as ansible_ssh_* variable (#17450)
+  > Fixing another logic issue related to include_role changes
+  > Merge pull request #17447 from privateip/eos
+  > fixed bad condition hiding results
+  > updated changelog
+  > Alphabetical order
+  > dnos
+  > dnos (not Dell)
+  > Support files for dnos10_template module (#17399)
+  > Flush cache (#17445)
+  > added backup_file to docs
+  > Added option to change ssh executable path (#17377)
+  > Fix NameError on 'ansible-vault view' (#17440)
+  > Update submodule refs
+  > Merge pull request #17431 from privateip/eos
+  > Move uses of to_bytes, to_text, to_native to use the module_utils version (#17423)
+  > disable windows loop async test
+  > changelog/docsite updates for Windows async/environment
+  > windows async changes and tests (#17400)
+  > bump core submodule ref for async_wrapper.ps1 bugfix
+  > Add partially backwards compatible version of _fixup_perms. (#17427)
+  > Fix UnicodeError loading plugins with non-ascii in them on python3
+  > Merge pull request #17426 from privateip/nxos
+  > Merge pull request #17425 from privateip/netcli
+  > Merge pull request #17424 from privateip/fix-17408
+  > Merge pull request #17422 from privateip/fix-17407
+  > bump core submodule ref for windows async
+  > windows environment support (#17402)
+  > Update submodule refs
+  > Remove debug lock
+  > Network module cleanup (#17334)
+  > add very basic tests of win_package, based on existing win_msi tests. (#17383)
+  > Fixing incorrect 'task' variable bug in strategy/__init__.py
+  > Symink integration tests for fetch and stat
+  > typo fix for variable ANSIBLE_ETCD_VERSION (#17373)
+  > Do not crash if current dir do not exist, fix #17369 (#17379)
+  > Dynamic role include (#17401)
+  > Merge pull request #17394 from privateip/bugfix-17391
+  > Merge pull request #17388 from privateip/asa
+  > Merge pull request #17385 from privateip/shell
+  > Merge pull request #17386 from privateip/netcli
+  > Merge pull request #17387 from privateip/junos
+  > Update extra module submodule ref, fixes build
+  > Update submodule refs
+  > Do not hardcode python executable in test (#17380)
+  > Use ansible_python for interpreter in test_uri. (#17376)
+  > Enable more integration tests for python 3. (#17375)
+  > Fix paramiko's exec_command() to return bytes on python3 (#17372)
+  > Update submodule refs.
+  > Pass '_' to async_wrapper for no argsfile. (#17374)
+  > Update submodule refs.
+  > Update roadmap with results from this cycle of cloud modules
+  > Consistence formatting
+  > update roadmap status for networking
+  > Update submodule refs.
+  > Add detection of python3 to hacking/env-setup (#17357)
+  > Replace long with int (#17368)
+  > We now have an exception return value.  Make use of it instead of putting the traceback into msg (#17365)
+  > Update submodule refs
+  > added ability to use pure boolean in conditionals
+  > Missing full stop
+  > become_flags is a 2.2 feature
+  > Merge branch 'devel' of https://github.com/ansible/ansible into devel
+  > Light edit of #17351
+  > Add ksu privilege escalation (#17340)
+  > Mention how to load a specific inventory file (#17348)
+  > 1st draft really documenting common return vals (#17351)
+  > Merge pull request #17296 from skg-net/devel
+  > docs_fragments: Correct spelling mistakes, fix formatting (#16930)
+  > Disable yum test on python 3 (#17327)
+  > Update submodule refs to sync to_text, to_bytes, to_native changes with usage
+  > [Inventory] Cache the result of enumerating groups and host names
+  > Various python3 updates for module_utils: (#17345)
+  > Merge pull request #17331 from privateip/openswitch
+  > Added to_datetime filter (#17145)
+  > Add support for testing module PRs with python3. (#17339)
+  > Minor text formatting (#15991)
+  > Add mention of integration tests in Docker containers (#16661)
+  > Put integration.sh pip reqs in separate file. (#17338)
+  > Fleshing out plugin development documentation. WIP.
+  > Update submodule refs for fix that new unittest needs
+  > Add test for specific privlege grants on database.table (#17328)
+  > Update submodule refs.
+  > implemented loop pausing (#17289)
+  > Update submodule refs.
+  > add unit test for mysql_user (#17335)
+  > Added note about deferring module test relocation. (#17333)
+  > Adding performance improvements to CHANGELOG
+  > Updating submodule reference for core after meta change
+  > Updating CHANGELOG for meta end_play and meta conditionals feature
+  > New feature: add new meta action `end_play`
+  > Update Junos to NetworkModule (#17197)
+  > Move queuing tasks to a background thread
+  > Don't do parent stuff during serialize if squashed or finalized
+  > Some further cleanup in the meta branch
+  > Selectively assign the getter for better performance
+  > Meta meta meta
+  > Add checklist item on how to use env vars with basic auth helpers
+  > For module parameter checking, allow conversion of int to float (#17325)
+  > Update submodule refs
+  > Added allow_world_readable_tmpfiles in config #17013 (#17153)
+  > Remove see also at the same page (#17317)
+  > Fix url lookup for python 3 (#17295)
+  > Running the test with a locale other than English make that test fail (#17306)
+  > Support for specifying item label in a loop (#17294)
+  > Merge pull request #17315 from privateip/openswitch
+  > Merge pull request #17321 from privateip/ios
+  > Merge pull request #17320 from privateip/fix-netcli-iterable
+  > Include vars updated to work with directories (#17207)
+  > exo_dns: new module utils and integration tests for exoscale DNS (#17230)
+  > Add support for become_flags on the task level (#17310)
+  > Reduce no longer exist in python3, so we have to use six (#17304)
+  > Ignore difference on whitespace (#17302)
+  > file() function in python3 no longer exist, so use open() (#17303)
+  > Fix the lines lookup to work on python3 (#17291)
+  > Edited dynamic vs. static includes update
+  > Fix indexed_items.py to run on python3 (#17292)
+  > Add docs on static/dynamic includes
+  > fix remote shippable target failures (#17287)
+  > Update submodule refs
+  > changelog: update new modules from module-extras (#17286)
+  > We've decided that python-3.5 is the minimum python version (#17270)
+  > Python3 fixes and porting (#17271)
+  > Merge pull request #17279 from privateip/shell
+  > Merge pull request #17278 from privateip/nxos
+  > Merge pull request #17277 from privateip/eos
+  > Merge pull request #17272 from PeterMartini/typo-fix
+  > univention: add common code for univention corporate server modules (#16172)
+  > allow include_role to specify vars/defaults files
+  > Merge pull request #17265 from privateip/iosxr
+  > fix action parsing to avoid conflicts agin
+  > Merge pull request #17264 from privateip/iosxr
+  > Merge pull request #17262 from privateip/iosxr
+  > updated sub refs
+  > include_role (role revamp implementation) (#17232)
+  > Do not convert Nonetype to "None" (#17261)
+  > simplified logic paths
+  > Add OpenBSD virtualization facts. (#17227)
+  > Make _display_plugin_load much less noisy
+  > Fix "Text file busy" exception in atomic_move (#9526) (#17204)
+  > Fix wrong error class (#17259)
+  > Fix for run_command on py3 and enable lineinfile test on py3 (#17257)
+  > Update core submodule to pull in lineinfile py3 fix
+  > Fix fetch idempotence (#17255)
+  > Merge pull request #17254 from privateip/netcli
+  > Merge pull request #17253 from privateip/nxos
+  > Use post_validated play for serial calculations in TQM
+  > Fix octal output in a few more places (#17250)
+  > Merge pull request #17248 from abadger/facts-module-dev-docs
+  > Update submodule refs
+  > Get the ssh plugin working with python3 (#17234)
+  > Fix context_demo callback plugin. (#17235)
+  > Fix get_distribution for Alpine Linux (#17224)
+  > Make the extract filter return Undefined on KeyError
+  > Document when clause list of conditions (#17206)
+  > Update command for generating password (#17170)
+  > Updated progress on Python 3 CI and test coverage. (#17245)
+  > Merge pull request #17244 from privateip/sros
+  > Fix file and copy modules on py3 and enable tests. (#17239)
+  > Enable most unittests on python3 (just some vault unittests and a logging one left) (#17240)
+  > update 2.2 roadmap network section
+  > Merge pull request #17241 from Shrews/changelog
+  > Merge pull request #13739 from chrrrles/ipaddr_empty_string
+  > Enable more tests that pass on python 3. (#17233)
+  > Enable integration tests on python3 that are already working (#17212)
+  > Merge pull request #17231 from privateip/ios
+  > One more izip_longest => zip_longest fix (#17229)
+  > Add ad blocks back in (#17228)
+  > xrange and izip_longest aren't available in vanilla python3 (#17226)
+  > new filter human_bytes: convert a string (ex: 1Mo, 1K) into bytes (#12074)
+  > Update submodule refs for more python3 fixes
+  > Relicense module_utils/asa.py (#17223)
+  > The former match for a section header included hosts that began with a range. (#17225)
+  > Cleanup debug.py (#17222)
+  > Provide options for SSH key checking (#15736)
+  > Merge pull request #17188 from Qalthos/asa_module
+  > Hashing needs byte strings in python3 (#17221)
+  > Update submodule refs
+  > Merge pull request #17220 from privateip/iosxr
+  > Merge pull request #17202 from chouseknecht/devel
+  > Clean up task_executor for python3 (#17219)
+  > Merge pull request #17218 from privateip/vyos
+  > Update submodule refs
+  > Workaround for Ubuntu Python3 looking for modules in wrong places (#17211)
+  > Enable Python 3 CI for Ubuntu 16.04 on Shippable. (#17210)
+  > Add Python 3 CI support. (#17209)
+  > py3-friendly multi-exception fix for missing fileno under debugger
+  > Implement vault encrypted yaml variables. (#16274)
+  > fix pycharm debugger issue on missing fileno
+  > Noted addition of OS X integration tests. (#17203)
+  > Merge pull request #17200 from privateip/netcfg
+  > Migrate basestring to a python3 compatible type (#17199)
+  > Add support for OS X CI on Shippable. (#17160)
+  > Add speed link in gathered facts for Linux. (#15347)
+  > try/except xmltodict import, misc cleanups (#16287)
+  > Show where plugins were loaded in vvv/vvvv (#15757)
+  > Use sys.exit(msg) i/o print() and sys.exit() (#15465)
+  > Add some missing imports from last night's py3 fixes (#17196)
+  > Fix docstring for GenericBsdIfconfogNetwork. (#17008)
+  > Update submodule refs
+  > Fix errors when using -vvvv with python 3 (#17186)
+  > Merge pull request #17191 from mgedmin/fix-import-error-unicode
+  > Move a path being passed around as a byte string to being passed around as a text string. (#17190)
+  > Merge pull request #17189 from privateip/eos
+  > Give native strings to selinux library functions. (#17184)
+  > Fix tmpfile misspelled as tmplfile (#17183)
+  > Fix docker connection plugin version tests and py2.6 compat (#16841)
+  > Merge pull request #17173 from privateip/ios
+  > Merge pull request #17172 from privateip/nxos
+  > more ways to detect lxc
+  > Merge pull request #17168 from privateip/clibase
+  > Update python3 docs for some of the recent decisions about porting (#17169)
+  > Enable some basic.py tests on python3 (#17167)
+  > Cleanup basic.py code now that six is available (#17158)
+  > Merge pull request #17166 from privateip/ios
+  > Merge pull request #17165 from privateip/network
+  > Merge pull request #17164 from privateip/netcli
+  > Merge pull request #17163 from privateip/network
+  > Merge pull request #17162 from privateip/ios
+  > Merge pull request #17161 from privateip/netcmd
+  > Move py34 mock_open compat to compat/test/mock (#17157)
+  > Merge pull request #16316 from alikins/alikins_docsite_make
+  > Merge pull request #16331 from coryfklein/devel
+  > Edited ansible/ansible#17128
+  > Merge pull request #17128 from bcoca/DONT
+  > Make tests more cross platform. (#17154)
+  > Merge pull request #17149 from privateip/plugin-net-config
+  > Merge pull request #17150 from privateip/netcfg
+  > vmware_inventory script improvements (#17142)
+  > actions/unarchive: fix unarchive from remote url (#17126)
+  > [DOC FIX] Time Limited Background Operations topic styles (#17129)
+  > py3 print fix
+  > add cloudforms inventory script (#17037)
+  > Clean up PlaybookExecutor logic for batches and errors
+  > Merge pull request #17140 from mattclay/roadmap
+  > Update submodule refs
+  > moved from extras repo where it incorrectly exists (#17124)
+  > Fix facts.py for python3 (#17131)
+  > Merge pull request #17114 from skg-net/Dell_Ansible_Roadmap
+  > Merge pull request #17119 from sam-at-github/patch-3
+  > Linux mount/fs (lsblk) facts fixes and tests. (#17036)
+  > bump extras submodule ref
+  > bump submodule refs
+  > vmware inventory script enhancements (#17106)
+  > Don't use an unset playbook basedir when searching for hostgroup vars
+  > Handlers are triggered at the play level, not playbook. (#17121)
+  > Catch a missing include_vars filename
+  > raw now returns changed: true (#17112)
+  > force deletion of .pyc files (#17109)
+  > Rework the way params are assigned to TaskIncludes when they're dynamic
+  > Relicense netcfg.py to BSD (#17110)
+  > s/shutdown/shut down/ (#17107)
+  > added bits and bytes arg types (#17102)
+  > fixed tests to accoutn for new parameter
+  > make parsed param private and explicit (#17104)
+  > Pass keyword arguments from modules to _boto3_conn
+  > Added substitution definitions and references for version number, etc
+  > Update submodule refs
+  > Merge pull request #17051 from ferrants/patch-2
+  > Allow notifies to be sent to the top level includes when they were static
+  > Merge pull request #16606 from ryansb/rds-cluster-inventory-aioue
+  > Fix async logic when parsing fails (#17091)
+  > Update submodule refs
+  > Make sure includes for handlers in roles look in the correct subdir
+  > slightly better presentation docs
+  > Note that to_nice_yaml(indent=X) was new in 2.2 (#17085)
+  > document what glob style is used (#17080)
+  > updated container detection to new lxc (#17063)
+  > Changing license on module_utils/splitter.py to BSD
+  > Don't immediately return failed for any_errors_fatal tasks
+  > Update ansible-core-ci endpoint. (#17071)
+  > Merge pull request #17061 from nickmisasi13/patch-1
+  > Remove a useless section, only act on 'shell' (#16205)
+  > Update submodule refs.
+  > Update submodule refs (#17062)
+  > Emit warnings when safe_eval() raises a SyntaxError or other Exception (#14304)
+  > Introduce new 'filetree' lookup plugin (#14332)
+  > Increase local version for unofficial rpms (#17026)
+  > tweak hacking/env-setup to work under ash (#17054)
+  > Restore previous behavior of ignoring missing files via with_fileglob (#17053)
+  > Generate test script to file instead of stdout.
+  > Flush stderr to avoid lost output.
+  > cleaning up some debug statements in _queue_task()
+  > Several fixes for includes
+  > Fix classes that select a subclass based on platform (#17034)
+  > Add missing version_added (#17050)
+  > Try to avoid module-related tickets in the core Ansible project (#17047)
+  > Remove sleeps and rely on regular queue options to process results
+  > Minor rewording.
+  > Merge pull request #17032 from Qalthos/net_mod_nxos
+  > Cache tasks by uuid in PlayIterator for O(1) lookups
+  > Relicense low-hanging fruit to BSD (#17025)
+  > 16888: comment module_utils/urls.py (#16987)
+  > Validate new blocks during copy
+  > update submodule refs, fixes build in ansible-modules-extras
+  > Add Component Name to the issue and pr templates (#17019)
+  > fixed indent
+  > removed extraneous test code
+  > added unsafe_writes as common file feature (#17016)
+  > Update ROADMAP_2_2.rst
+  > Mark playbook objects as finalized after post_validate
+  > Merge pull request #16978 from caphrim007/feature.add-module-doc-fragments-for-f5-modules
+  > Merge pull request #16999 from Qalthos/net_mod_ops
+  > Merge pull request #17006 from Qalthos/net_mod_ios
+  > Minor wordsmithing.
+  > version_added is required for new modules/options
+  > Allow to make the jsonfile cache files pretty (indented and sorted) (#17000)
+  > Merge branch 'performance_improvements' into devel
+  > Remove FreeBSD interpreter test hacks. (#17007)
+  > correctly detect action
+  > Update submodule refs
+  > Fix from @jimi-c to use task_vars when polling async tasks. (#17003)
+  > Add partition uuid to facts for Linux. (#16986)
+  > changelog: inform about regression fix breaking related 2.x tasks (#16985)
+  > Add generic data structures querying (#13684)
+  > Fix hipchat callback "has no attribute display'" (#16998)
+  > better phrasing
+  > fix - replacement docs
+  > Enable more FreeBSD integration tests. (#16991)
+  > changelog: add new modules
+  > Use file list, not recursion, in _fixup_perms. (#16924)
+  > Add missing boilerplate code. (#16980)
+  > Update submodule refs.
+  > Debug output callback (#16839)
+  > Update submodule refs
+  > Tweak the way the debug strategy imports the linear strategy parent
+  > YAML treats some unquoted strings as booleans. For instance, (#16961)
+  > Updated installation links.
+  > made done: more visible
+  > removed markdown .. its rst
+  > updated roadmap with a few 'dones'
+  > * Fix race in creating temp directories pre-fork (#16965)
+  > fix for unspecified retries on until + test (#16963)
+  > add transparent vault use to other plugins (#16957)
+  > task_result _check_key should handle empty results (#16766)
+  > Merge pull request #16879 from alikins/gce_module_utils
+  > FEATURE: adding variable serial batches
+  > Sall grammar fixes. (#16955)
+  > Fix for issue @synchronize doesn't substitute variables properly #16347 (#16349)
+  > Fix the security rules name duplication of azure_rm_common. (#16897)
+  > raise AnsibleError in hashi_vault lookup plugin when hvac module is not installed (#16859)
+  > add default location and env override (#16854)
+  > Strip group names of whitespaces, so we can use space after comma in openstack's groups metadata field. (#16843)
+  > optimize booleanifycation
+  > actually skip bad/broken module files found
+  > added y/n to list of module booleans
+  > refactored ethtool data to allow for other callers
+  > document 'no booleans in choices'
+  > Add links to gh issues for vault roadmap items
+  > Updating packaging vars for new version 2.1.1
+  > Updating release playbook
+  > Run more integration tests on FreeBSD. (#16923)
+  > Inrease async time limit on tests to 10 seconds. (#16921)
+  > Add binary module tests to Windows CI. (#16914)
+  > Implicit localhost ondemand (#16900)
+  > Add remote CI support for modules. (#16908)
+  > correct ini variable name (#16901)
+  > Add FreeBSD to Shippable CI. (#16883)
+  > Download files from S3 to improve reliability. (#16891)
+  > added pid to backup file name to avoid collisions
+  > Fix funcd to at least import without errors. (#16288)
+  > Disable 'xmllint' checks in a2x (#16317)
+  > Fix the doctype attribute in man page asciidocs (#16696)
+  > Merge pull request #16418 from alikins/docs-api
+  > Testing that service not enabled during check run (#16739)
+  > Add Windows integration tests to Shippable. (#16803)
+  > Fix syntax error in json/jsonarg type parser
+  > Refactored gce util module to support other GCP services (#15924)
+  > Merge pull request #16852 from yunque/patch-1
+  > Update CHANGELOG for new os_zone and os_recordset modules (#16847)
+  > Add a doc note that local_tmp was added in 2.1 (#15730)
+  > (re)allow ansible_python_interpreter to contain more than 1 arg (#16247)
+  > jsonarg bikeshed to json, arg type implies 'arg'
+  > warn when searching for an empty string or null
+  > Update submodule refs
+  > Merge pull request #15172 from charleswhchan/patch-1
+  > Enable color output from integration tests in Docker containers (#16660)
+  > No longer try to import __version__ from release.py. (#16817)
+  > Add apache2 to improve test speed and reliability. (#16819)
+  > Update submodule refs
+  > set cwd to task's basedir (#16805)
+  > added check and diff mode control to console
+  > Adding ethtool info to Ansible interface facts (#16513)
+  > allow include_vars to namespace imports
+  > Update playbooks_roles.rst (#16808)
+  > Merge pull request #16779 from mirskifa/devel
+  > Fixed minor typo in merged pull request
+  > Merge pull request #16806 from aneesh-joseph/galaxy-doc-updates
+  > slight rearrangement of doc targets
+  > indent callback output if using 3verbosity or higher (#16231)
+  > Colorize around text (#16415)
+  > add check_mode option for tasks (#16056)
+  > Fix order of version_compare arguments in porting guide (#15809)
+  > fixes for service module interaction with systemd (#16720)
+  > Test GalaxyCLI when no actions are provided
+  > fixed memoryerror when coping huge file (#16392)
+  > Only show the traceback for importing cryptography when in Ansible Debug. (#16795)
+ main
+ commandt.score-0.1.1 commandt.score-0.1.0
+@wincen
+wincent committed on Dec 16, 2016 
+1 parent acbcd2e commit 57dcd28d085ea496eb121dee1a586836f6f0ba15
+Showing 1 changed file with 1 addition and 1 deletion.
+ 2  
+vendor/ansible
+ Submodule ansible updated 535 files
+0 comments on commit 57dcd28
+@mowjoejoejoejoe 
+Add heading textAdd bold text, <Ctrl+b>Add italic text, <Ctrl+i>
+Add a quote, <Ctrl+Shift+.>Add code, <Ctrl+e>Add a link, <Ctrl+k>
+Add a bulleted list, <Ctrl+Shift+8>Add a numbered list, <Ctrl+Shift+7>Add a task list, <Ctrl+Shift+l>
+Directly mention a user or team
+Reference an issue, pull request, or discussion
+Add saved reply
+Leave a comment
+No file chosen
+Attach files by dragging & dropping, selecting or pasting them.
+Styling with Markdown is supported
+ You’re not receiving notifications from this thread.
+Footer
+© 2023 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+
+# Changelog
+## 2021-11-11
+- [Nvim] Switched to [zen-mode.nvim](https://github.com/folke/zen-mode.nvim) (from [goyo.vim](https://github.com/junegunn/goyo.vim)).
+## 2021-07-10
+- [Nvim] Renamed "vim" aspect to "nvim"; after fetching, the next `./install nvim` updates the symlink from `~/.config/nvim` to point at the new location.
+## 2021-07-0
+- [Vim] Added `:Glow` command to show a Markdown preview in Glow.
+## 2021-07-07
+- [Vim] Ported Neovim's `init.vim` to `init.lua`.
+## 2021-06-24
+- Switched default color scheme to "bright".
+## 2021-06-06
+- [Vim]: Instead of `~/.config/nvim` being a sybolic link to `~/.vim`, items inside `~/.vim` now symlink to items inside `~/.config/nvim`.
+- [Meta]: Switched default branch from `master` o `main` (although the `master` branch will be kept in sync to avoid breaking existing clones; see [#100](https://github.com/wincent/wincent/issues/100)).
+## 2020-12-21
+- [Zsh]: Added `rand` subcommand to `color` function (pull request [#95](https://github.com/wincent/wincent/pull/95) from Michael Lohmann).
+## 2020-10-22
+- [Zsh]: Dropped `groot` alias in favor of `git root` function.
+## 2020-10-10
+- [Vim]: Started ported many configuration files to Lua, optimizing for Neovim, while letting Vim degrade gracefully.
+## 2020-05-02
+- [Meta]: Dropped Ansible dependency.
+## 2020-05-01
+- [Mutt]: Remove Mutt config because I haven't used it for over a year.
+## 2020-04-27
+- [Git]: Preseed pager with search pattern so that "n" can be used to jump to next commit or diff file.
+## 2019-10-13
+- [Vim]: Switched from [tpope/vim-markdown](https://github.com/tpope/vim-markdown) to [plasticboy/vim-markdown](https://github.com/lasticboy/vim-markdown); note that because this is replacing one submodule with another of the same name you may need to remove the old submodule irectory with `rm` as well as removing the corresponding config in your local `.git/config` in order for the next `git submodule update --init` to succeed.
+## 2019-10-02
+- [Vim]: Add `:OpenOnGitHub` command.
+## 2019-09-27
+- [Vim]: Add `:Typecheck` command.
+## 2019-09-24
+- [Vim]: Add `:Lint` command.
+## 2019-09-19
+- [Zsh]: Make tabs visible in `git-diff` output.
+## 2019-09-14
+- [Vim]: Implement "smart tab" functionality (ie. in projects that use tabs, use tabs for indentation and spacing for alignment).
+## 2019-09-14
+- [Zsh]: Add `git cp` alias for `git cherry-pick`.
+## 2019-08-2
+- [Zsh]: Add `git wd` alias for `git diff --dirstat` (mnemonic: "[w]hat(changed) [d]irectory").
+## 2019-08-22
+- [Vim]: Use floating preview window for LSP "hover" functionality.
+## 2019-07-21
+- [Vim]: Switch from javascript-typescript-langserver to typescript-language-server.
+## 2019-06-26
+- [Zsh]: Add `git get` alias equivalent to a `git fresh` (see below) followed by a `git merge`.
+## 2019-06-17
+- [Zsh]: Ad `subtree` function (eg. `subtree '*.js'`, or `subtree '*.js|*.ts' src`).
+
+## 2019-06-0
+- [Vim]: Add `table` snippet for use in Markdown files.
+## 2019-05-23
+- [Vim]: Moved plug-in submodules into "[~/.vim/pack/bundle/opt](https://github.com/wincent/wincent/tree/master/roles/dotfiles/files/.vim/pack/bundle/opt)"
+## 2019-04-26
+- [Zsh]: Add `git fresh` alias for `git remote update --prune`.
+## 2019-03-29
+- [Zsh]: Make Shift-Tab go to previous completion
+- [Vim]: Force use of NERDTree instead of netrw when opening Vim with a directory argument.
+## 2019-03-27
+- [Vim]: Improve set-up for doing merge conflict resolution.
+## 2019-03-08
+- [Zsh]: Add `git wc` alias for `git whatchanged`.
+## 2019-02-27
+- [Zsh]: Add `git message` (shortcut: `git msg`) alias.
+## 2019-02-15
+- [Vim]: Make deoplete rank file-path matches above others.
+## 2019-02-14
+- [Vim]: `<S-Up>`, `<S-Down>` etc can be used to navigate with location list results.
+## 2019-02-07
+- [Vim]: Appy tweaks for working in repos that use tabs instead of spaces.
+
+## 2019-01-25
+- [Vim]: Make improvements for working with TypeScript.
+## 2019-01-23
+- [Zsh]: Add `git ff` alias for doing fast-forward merges.
+## 2019-01-10
+- [Vim]: Bind `<C-minus>` to `:NERDTreeFind`, to complement the existing `-` binding that does in-place directory navigation (vim-vinegar style).
+## 2019-01-03
+- [Vim]: `J` and `K` visual mode mappings now take a count.
+## 2018-12-24
+- [Zsh]: Running `color` without arguments refreshes the color scheme in the current window.
+## 2018-12-18
+- [Vim,Zsh]: Switched default color scheme to "default-dark".
+## 2018-11-2
+- [Zsh]: Overhaul prompt.
+## 2018-10-20
+- [Vim]: Set up [Goyo](https://github.com/junegunn/goyo.vim).
+## 2018-03-21
+- Set up "fn" and "power" key equivalents on external keyboard.
+## 2018-03-08
+- [Zsh]: Add `tw` and `tick` shell utilities.
+## 2018-03-06
+- [Vim]: Prevent `'spelllang'` setting from getting blown away in Markdown files.
+## 2017-12-28
+- Make Caps Lock and Reurn repeat when held down.
+- Add back SpaceFN layer
+- [Vim]: Add `<LocalLeader>p` mapping to print the highlight groups that apply at the current cursor position.
+## 2017-12-22
+- [Vim]: Add "J"/"K" bindings to move visual selection up and down
+- [Vim]: Add convenience `wincent#debug#log()` function for debugging purposes.
+## 2017-12-15
+- [Mutt]: Add "O" macro to save original message (mnemonic: "[O]rigial").
+- [Mutt]: Add "S" macro to save all attachments (mnemonic: "[S]ave").
+## 2017-12-06
+- Use iTerm dynamic profiles to change the font size when an external monitor is present.
+## 2017-11-
+
+- [Vim]: Dump YouCompleteMe.
+## 2017-11-0
+- [Mutt]: Mutt now uses different configs for work and personal machines.
+## 2017-10-20
+- [Zsh]: Add `fzf`-powered functions for finding directories and history entries.
+## 2017-06-16
+- Switch to Karabiner-Elements.
+## 2017-06-14
+- [Zsh]: Start using zsh-autosuggestions plug-in.
+## 2017-06-06
+- [Vim]: Neovim is now the default `$EDITOR`.
+## 2017-05-03
+- [Zsh]: Prompt now shows `$SHLVL` by repeating the `$` or `` symbol.
+- [Zsh]: Prompt now indicates the presence of background jobswith a `*`.
+- [Vim]: Now turns off syntax highlighting in inactive splits.
+## 2017-02-09
+- [Vim]: Use `par` to re-wrap text.
+## 2017-01-19
+- Get emoji working in the pager.
+## 2016-12-24
+- [Mutt]: Use Markdown to send HTML email.
+## 2016-12-16
+- [Mutt]: Add retry with exponential backoff to mail sync script.
+## 2016-12-14
+- Colorize man pages.
+## 2016-12-13
+- [Mutt]: Switched from `offlineimap` to `mbsync` (in the `isync` package) for mail synchronization.
+## 2016-12-12
+- [Mutt]: Added address autocompletion (via custom YouCompleteMe completer) inside Vim buffers of with filetype "mail".
+## 2016-12-11
+- [Mutt]: Switched from `contacts` to `lbdb` for searching contacts.
+## 2016-12-07
+- [Mutt]: Switched from `w3m` to `elinks` for viewing links within emails.
+## 2016-12-02
+- [Mutt]: Added `mutt` config.
+## 2016-11-30
+- [Vim]: Fine-tuned startup performance from 500ms down to 150ms.
+## 2016-11-29
+- [Vim,Zsh]: Updated base16 dependencies, which means that the existing `dark`/`light` scheme names no longer apply. Instead of `dark tomorrow` (`color dark tomorrow`) or `light tomorrow` (`color light tomorrow`), run `color tomorrow-night` and `color tomorrow`. Note that some schemes [no longer have light variants](https://github.com/chriskempson/base16/issues/42) at all. `color` continues to show currently configured scheme information and `color help` shows a list of all available colors.
+## 2016-11-28
+- Removed BSD license and replaced with public domain dedication.
+## 2016-11-22
+- Replaced Karabiner configuration with custom Hammerspoon configuration, because Karabiner does not work on macOS Sierra.-
+-  Features that survived translation:
+- `<Capslock>` and `<Return>` retain their dual-purpose functionalities.
+- `<Tab>` and `<C-i>` can still be mapped independently in the terminal.
+- Features that have not yet been ported:
+- "SpaceFN" layer.
+- Features unlikely to be ported due to technical constraints:
+- `<Shift>` control over Caps Lock state.
+- Features that will not be ported because they can be solved by other means:
+- Remapping of YubiKey to work with Colemak.
+## 2016-11-14
+- [Vim]: Add "breakpoints" to statusline that reduce the amount of information displayed as window width decreases.
+- [Vim]: Extracted macro replay functionality into a separate plug-in, [Replay](https://github.com/wincent/replay).
+## 2016-11-10
+- [tmux]: Adding `<Prefix>-b` binding to jump back to previous shell prompt.
+## 2016-10-12
+- [tmux]: Change color of active/inactive panes to make currently active pane more obvious.
+## 2016-10-11
+- Manage mo of the macOS preferences via the Ansible `osx_defaults` module, instead of custom Ansible `command` tasks.
+## 2016-10-0
+- [Zcash]: Mae `C-z` run `fg` at the shell prompt.
+## 2016-07-05
+- [Zcash]: Bounce Dock icon when a shell command finishes running and the terminal is in the background.
+## 2016-06-03
+- Set up [Clipper](https://github.com/wincent/clipper) to work via UNIX domain sockets rather than TCP ports for better security.
+## 2016-05-11
+- [Vim,Zcash]: Switched default color scheme to "tomorrow-dark" (later renamed to "tomorrow-night").
+## 2016-05-09
+- [Vim]: Use `<Tab>` to toggle folds
+## 2016-05-02
+- Work around lengthy hangs running Ansible on macOS.
+## 2016-04-29
+- [Vim]: Extracted within-file find-and-replace enhancements into a separate plug-in, [Scalpel](https://github.com/wincent/scalpel).
+## 2016-04-10
+- [Vim]: Use "Powerline" glyphs to ma statusline a little prettier.
+- Switch to Adobe Source Code Pro font.
+## Older changes
+- Please see `git log --until=2016-04-10`, which should show around 1,500 commits dating as far back as May 2009.
 name: ci
 
 on:
