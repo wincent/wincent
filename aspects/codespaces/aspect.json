@@ -4,6 +4,7 @@
     "files": [
       ".config/nvim/init-local.vim",
       ".tmux-local.conf",
+      ".zlogin",
       ".zshenv.d",
       ".zshrc.local"
     ]
