@@ -2,13 +2,7 @@
 
 if [[ $1 == --ssh ]]; then
   # Go in directly with `ssh`.
-  if [[ $TERM == *kitty* ]]; then
-    # Copy ~/.terminfo/x/xterm-kitty when connecting.
-    # See: https://sw.kovidgoyal.net/kitty/faq/
-    kitty +kitten ssh github-codespaces
-  else
-    ssh github-codespaces
-  fi
+  ssh github-codespaces
 elif [[ $# -eq 1 && "$1" = tail ]]; then
   gh cs ssh -- tail -f /root/codespaces-post-start.log
 elif [[ $# -eq 1 && "$1" = create ]]; then
@@ -17,10 +11,5 @@ elif [[ $# -gt 0 ]]; then
   # Forward arguments, so callers can do eg. `gg cs list` etc.
   gh cs "$@"
 else
-  if [[ $TERM == *kitty* ]]; then
-    echo "Can't connect from kitty via \`gh cs\`; use --ssh to bypass \`gh\` and use \`ssh\` directly"
-    exit 1
-  else
-    gh cs ssh --profile github-codespaces
-  fi
+  gh cs ssh --profile github-codespaces
 fi

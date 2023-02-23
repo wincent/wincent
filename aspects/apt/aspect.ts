@@ -10,6 +10,7 @@ export default {
       'g++', // To build Neovim from source.
       'gettext', // To build Neovim from source.
       'iotop', // For monitoring I/O activity.
+      'kitty-terminfo', // So we can connect to Codespaces with Kitty.
       'libtool', // To build Neovim from source.
       'libtool-bin', // To build Neovim from source.
       'neovim', // Editor.
