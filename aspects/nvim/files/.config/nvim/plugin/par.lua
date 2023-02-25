@@ -31,7 +31,7 @@ wincent.vim.augroup('WincentParAutocmds', function()
   wincent.vim.autocmd('FileType', '*', function()
     local formatprg = vim.o.formatprg -- gets local or global (fallback) 'formatprg'
 
-    -- vim.regex assumes 'magic', so must escape (, ), |.
+    -- vim.regex assumes 'magic', so must escape '(' and ')' and '|'.
     if not vim.regex('\\(^\\|/safe-\\)par'):match_str(formatprg) then
       return
     end
@@ -44,8 +44,8 @@ wincent.vim.augroup('WincentParAutocmds', function()
     end
 
     local adjusted = nil
-    if vim.regex('w'):match_str(formatprg) then
-      adjusted = vim.fn.substitute(formatprg, 'w\\d+', 'w' .. textwidth, '')
+    if vim.regex('par .\\+w\\d'):match_str(formatprg) then
+      adjusted = vim.fn.substitute(formatprg, '\\(par .\\+\\)w\\d\\+', '\\1w' .. textwidth, '')
     else
       adjusted = formatprg .. ' w' .. textwidth
     end
