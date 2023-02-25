@@ -70,7 +70,6 @@ local setlocal = function(name, ...)
       return bail('setlocal(): operator "-=" requires list type but got ' .. option.type)
     end
     local current = vim.split(get(0, name), ',')
-    print('current ' .. vim.inspect(current))
     local new = vim.tbl_filter(function(item)
       return item ~= value
     end, current)
