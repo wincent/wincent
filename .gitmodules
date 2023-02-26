@@ -13,21 +13,27 @@
 	path = vendor/base16-templates-source
 	url = https://github.com/chriskempson/base16-templates-source.git
 [submodule "cmp-buffer"]
+	branch = main
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-buffer
 	url = https://github.com/hrsh7th/cmp-buffer.git
 [submodule "cmp-calc"]
+	branch = main
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-calc
 	url = https://github.com/hrsh7th/cmp-calc.git
 [submodule "cmp-emoji"]
+	branch = main
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-emoji
 	url = https://github.com/hrsh7th/cmp-emoji.git
 [submodule "cmp-nvim-lsp"]
+	branch = main
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-nvim-lsp
 	url = https://github.com/hrsh7th/cmp-nvim-lsp.git
 [submodule "cmp-nvim-lua"]
+	branch = main
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-nvim-lua
 	url = https://github.com/hrsh7th/cmp-nvim-lua.git
 [submodule "cmp-path"]
+	branch = main
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-path
 	url = https://github.com/hrsh7th/cmp-path.git
 [submodule "cmp_luasnip"]
@@ -64,6 +70,7 @@
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/neco-ghc
 	url = https://github.com/eagletmt/neco-ghc.git
 [submodule "nvim-cmp"]
+	branch = main
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-cmp
 	url = https://github.com/hrsh7th/nvim-cmp.git
 [submodule "nvim-lspconfig"]
@@ -225,6 +232,7 @@
 	path = aspects/dotfiles/files/.zsh/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
 [submodule "zen-mode.nvim"]
+	branch = main
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/zen-mode.nvim
 	url = https://github.com/folke/zen-mode.nvim.git
 [submodule "indent-blankline.nvim"]
@@ -232,5 +240,6 @@
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/indent-blankline.nvim
 	url = https://github.com/lukas-reineke/indent-blankline.nvim.git
 [submodule "base16-nvim"]
+	branch = main
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/base16-nvim
 	url = https://github.com/wincent/base16-nvim.git
