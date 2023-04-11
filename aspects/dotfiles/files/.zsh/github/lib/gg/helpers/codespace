@@ -6,7 +6,7 @@ if [[ $1 == --ssh ]]; then
 elif [[ $# -eq 1 && "$1" = tail ]]; then
   gh cs ssh -- tail -f /root/codespaces-post-start.log
 elif [[ $# -eq 1 && "$1" = create ]]; then
-  gh cs create --status --repo github/github --branch master
+  gh cs create --status --repo github/github --branch master --idle-timeout 4h
 elif [[ $# -gt 0 ]]; then
   # Forward arguments, so callers can do eg. `gg cs list` etc.
   gh cs "$@"
