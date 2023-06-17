@@ -145,6 +145,32 @@ The levels are, from lowest to highest precedence:
 
 Most of these are static, arising from JSON files, but two of the later levels ("Dynamic" and "Aspect (derived)") provide the means to dynamically set or derive the value of a variable at runtime.
 
+## Extensibility
+
+Because Fig is written in TypeScript, and tasks are defined in TypeScript files, extending the Fig DSL is a simple matter of written and using new functions.
+
+For example, my dotfiles repo defines [a `helpers.ts`](../helpers.ts) file containing functions like [`is()`](https://github.com/wincent/wincent/blob/c102061e2d3324808302f372d6d50ae8731380db/helpers.ts#L9-L36) and [`when()`](https://github.com/wincent/wincent/blob/c102061e2d3324808302f372d6d50ae8731380db/helpers.ts#L38-L82) for expressing common conditional logic. These can be [used like this](https://github.com/wincent/wincent/blob/c102061e2d3324808302f372d6d50ae8731380db/aspects/cron/index.ts#L14-L19) to set up a cron job only for me (`'wincent'`) _and_ only on my personal machines (`'personal'`):
+
+```ts
+task('create ~/Library/Cron', when('wincent', 'personal'), async () => {
+   await file({
+     path: '~/Library/Cron',
+     state: 'directory',
+  });
+});
+```
+
+or [like this](https://github.com/wincent/wincent/blob/c102061e2d3324808302f372d6d50ae8731380db/aspects/terminfo/index.ts#L6-L11), to check if we're running on Linux:
+
+```ts
+if (is('linux')) {
+  await file({path: '~/share', state: 'directory'});
+  await file({path: '~/share/terminfo', state: 'directory'});
+} else {
+  await file({path: '~/.terminfo', state: 'directory'});
+}
+```
+
 ## History
 
 0. **2009**: Originally, the repo was just a [collection of files](https://github.com/wincent/wincent/tree/61a7e2a830edb757c59e542039131e671da8b154) with no installation script.
