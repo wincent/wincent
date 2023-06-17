@@ -153,9 +153,9 @@ For example, my dotfiles repo defines [a `helpers.ts`](../helpers.ts) file conta
 
 ```ts
 task('create ~/Library/Cron', when('wincent', 'personal'), async () => {
-   await file({
-     path: '~/Library/Cron',
-     state: 'directory',
+  await file({
+    path: '~/Library/Cron',
+    state: 'directory',
   });
 });
 ```
