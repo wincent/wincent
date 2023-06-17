@@ -147,7 +147,7 @@ Most of these are static, arising from JSON files, but two of the later levels (
 
 ## Extensibility
 
-Because Fig is written in TypeScript, and tasks are defined in TypeScript files, extending the Fig DSL is a simple matter of written and using new functions.
+Because Fig is written in TypeScript, and tasks are defined in TypeScript files, extending the Fig DSL is a simple matter of writing and using new functions.
 
 For example, my dotfiles repo defines [a `helpers.ts`](../helpers.ts) file containing functions like [`is()`](https://github.com/wincent/wincent/blob/c102061e2d3324808302f372d6d50ae8731380db/helpers.ts#L9-L36) and [`when()`](https://github.com/wincent/wincent/blob/c102061e2d3324808302f372d6d50ae8731380db/helpers.ts#L38-L82) for expressing common conditional logic. These can be [used like this](https://github.com/wincent/wincent/blob/c102061e2d3324808302f372d6d50ae8731380db/aspects/cron/index.ts#L14-L19) to set up a cron job only for me (`'wincent'`) _and_ only on my personal machines (`'personal'`):
 
