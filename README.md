@@ -328,7 +328,7 @@ Primary key fingerprint: 2F44 69E0 C1FA 72AA C0A5  60C9 6210 6B56 923F 3481
 
 What's going on here, cryptographically speaking?
 
-- GPG keys consist of public and private parts, often referred to as public keys and private keys (together, a "key pair"). As the names suggest, the owner of key must keep the private part secret, but the public part can be freely shared.
+- GPG keys consist of public and private parts, often referred to as public keys and private keys (together, a "key pair"). As the names suggest, the owner of the key must keep the private part secret, but the public part can be freely shared.
 - Roughly speaking, "signing" something means using the private key to encrypt a hash of the contents of the document that is being signed (in this case, the "document" is a commit).
 - The public key can be used to decrypt the hash, which can then be compared against the contents to confirm that they match. This is what is happening when we see `gpg: Good signature` above; it means that the public key for `Greg Hurrell <wincent@github.com>` verifies that the signature was indeed created with the corresponding private key belonging to that address.
 - Because only the owner has access to the private key, only the owner can make signatures with it; but conversely, because everybody has access to the public key, anybody can verify those signatures.
