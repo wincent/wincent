@@ -40,36 +40,21 @@ lsp.init = function()
     on_attach = on_attach,
   })
 
-  local cmd = nil
-
-  if vim.fn.has('mac') == 1 then
-    cmd = vim.fn.expand('~/code/lua-language-server/bin/lua-language-server')
-    if vim.fn.executable(cmd) == 1 then
-      cmd = { cmd, '-E', vim.fn.expand('~/code/lua-language-server/main.lua') }
-    else
-      cmd = nil
-    end
-  elseif vim.fn.has('unix') == 1 then
-    cmd = '/usr/bin/lua-language-server'
-    if vim.fn.executable(cmd) == 1 then
-      cmd = { cmd }
-    else
-      cmd = nil
-    end
-  else
-    cmd = 'lua-language-server'
-    if vim.fn.executable(cmd) == 1 then
-      cmd = { cmd }
-    else
-      cmd = nil
-    end
-  end
-
-  if cmd ~= nil then
-    -- Prerequisite: https://github.com/sumneko/lua-language-server/wiki/Build-and-Run
-    require('lspconfig').sumneko_lua.setup({
+  -- Prerequisite: https://github.com/LuaLS/lua-language-server
+  --
+  -- `brew install lua-language-server` on macOS.
+  -- `yay -S lua-languag-server` on Arch.
+  --
+  -- See also:
+  --
+  -- - https://github.com/luals/lua-language-server/wiki/Getting-Started#command-line
+  -- - https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#lua_ls
+  --
+  local cmd = 'lua-language-server'
+  if vim.fn.executable(cmd) == 1 then
+    require('lspconfig').lua_ls.setup({
       capabilities = capabilities,
-      cmd = cmd,
+      cmd = { cmd },
       handlers = handlers,
       on_attach = on_attach,
       settings = {
@@ -82,6 +67,14 @@ lsp.init = function()
           runtime = {
             path = vim.split(package.path, ';'),
             version = 'LuaJIT',
+          },
+          telemetry = {
+            -- Do not send telemetry data.
+            enable = false,
+          },
+          workspace = {
+            -- Make the server aware of Neovim runtime files.
+            library = vim.api.nvim_get_runtime_file("", true),
           },
         },
       },
