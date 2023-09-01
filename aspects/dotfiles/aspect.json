@@ -54,7 +54,6 @@
     ],
     "templates": [
       ".config/kitty/kitty.conf.erb",
-      ".corpusrc.erb",
       ".fehbg",
       ".gitconfig.erb",
       ".gnupg/gpg-agent.conf.erb",

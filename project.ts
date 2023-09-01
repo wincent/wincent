@@ -65,7 +65,6 @@ export default {
     personal: {
       pattern: '/^(?:retiro|huertas)(?:\\b|$)/i',
       variables: {
-        corpusNotes: '~/Sync/Personal/Corpus',
         pinentryProgram: '/usr/local/bin/pinentry-curses',
       },
     },
@@ -77,7 +76,6 @@ export default {
     },
   },
   variables: {
-    corpusNotes: '~/Documents/Corpus',
     figManaged:
       'vim: set nomodifiable : DO NOT EDIT - edit template source instead («file») or use `:set modifiable` to force.',
     gitCipherPath: 'vendor/git-cipher/bin/git-cipher',
