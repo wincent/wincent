@@ -174,6 +174,7 @@ vim.g.CorpusDirectories = {
     transform = 'web',
   },
 }
+vim.g.CorpusSort = 'stat'
 
 -- Stark highlighting is enough to see the current match; don't need the
 -- centering, which can be annoying.
