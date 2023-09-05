@@ -126,31 +126,31 @@ lsp.init = function()
 end
 
 lsp.set_up_highlights = function()
-  local pinnacle = require('wincent.pinnacle')
+  local has_pinnacle, pinnacle = pcall(require, 'wincent.pinnacle')
+  if has_pinnacle then
+    pinnacle.set('DiagnosticError', pinnacle.decorate('italic,underline', 'ModeMsg'))
+    pinnacle.set('DiagnosticHint', pinnacle.decorate('bold,italic,underline', 'Type'))
 
-  vim.cmd('highlight DiagnosticError ' .. pinnacle.decorate('italic,underline', 'ModeMsg'))
+    pinnacle.set('DiagnosticSignHint', {
+      bg = pinnacle.bg('ColorColumn'),
+      fg = pinnacle.fg('Type'),
+    })
 
-  vim.cmd('highlight DiagnosticHint ' .. pinnacle.decorate('bold,italic,underline', 'Type'))
+    pinnacle.set('DiagnosticSignError', {
+      bg = pinnacle.bg('ColorColumn'),
+      fg = pinnacle.fg('ErrorMsg'),
+    })
 
-  vim.cmd('highlight DiagnosticSignHint ' .. pinnacle.highlight({
-    bg = pinnacle.extract_bg('ColorColumn'),
-    fg = pinnacle.extract_fg('Type'),
-  }))
+    pinnacle.set('DiagnosticSignInformation', {
+      bg = pinnacle.bg('ColorColumn'),
+      fg = pinnacle.fg('DiagnosticHint'),
+    })
 
-  vim.cmd('highlight DiagnosticSignError ' .. pinnacle.highlight({
-    bg = pinnacle.extract_bg('ColorColumn'),
-    fg = pinnacle.extract_fg('ErrorMsg'),
-  }))
-
-  vim.cmd('highlight DiagnosticSignInformation ' .. pinnacle.highlight({
-    bg = pinnacle.extract_bg('ColorColumn'),
-    fg = pinnacle.extract_fg('DiagnosticHint'),
-  }))
-
-  vim.cmd('highlight DiagnosticSignWarning ' .. pinnacle.highlight({
-    bg = pinnacle.extract_bg('ColorColumn'),
-    fg = pinnacle.extract_fg('DiagnosticHint'),
-  }))
+    pinnacle.set('DiagnosticSignWarning', {
+      bg = pinnacle.bg('ColorColumn'),
+      fg = pinnacle.fg('DiagnosticHint'),
+    })
+  end
 end
 
 return lsp

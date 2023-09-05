@@ -1,9 +1,9 @@
-local pinnacle = require('wincent.pinnacle')
-
-wincent.vim.augroup('WincentLoupe', function()
-  wincent.vim.autocmd('ColorScheme', '*', function()
-    vim.cmd('highlight! QuickFixLine ' .. pinnacle.extract_highlight('PmenuSel'))
-    vim.cmd('highlight! clear Search')
-    vim.cmd('highlight! Search ' .. pinnacle.embolden('Underlined'))
+local has_pinnacle, pinnacle = pcall(require, 'wincent.pinnacle')
+if has_pinnacle then
+  wincent.vim.augroup('WincentLoupe', function()
+    wincent.vim.autocmd('ColorScheme', '*', function()
+      pinnacle.link('QuickFixLine', 'PmenuSel')
+      pinnacle.set('Search', pinnacle.embolden('Underlined'))
+    end)
   end)
-end)
+end

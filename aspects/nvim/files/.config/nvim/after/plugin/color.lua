@@ -8,99 +8,91 @@ local echoerr = function(msg)
 end
 
 local check = function()
-  local pinnacle = require('wincent.pinnacle')
-  local config_file = vim.fn.expand('~/.zsh/.base16')
+  local has_pinnacle, pinnacle = pcall(require, 'wincent.pinnacle')
+  if has_pinnacle then
+    local config_file = vim.fn.expand('~/.zsh/.base16')
 
-  if vim.fn.filereadable(config_file) then
-    local scheme, background = unpack(vim.fn.readfile(config_file, '', 2))
+    if vim.fn.filereadable(config_file) then
+      local scheme, background = unpack(vim.fn.readfile(config_file, '', 2))
 
-    if background == 'dark' or background == 'light' then
-      vim.opt.background = background
-    else
-      echoerr('Bad background ' .. background .. ' in ' .. config_file)
+      if background == 'dark' or background == 'light' then
+        vim.opt.background = background
+      else
+        echoerr('Bad background ' .. background .. ' in ' .. config_file)
+      end
+
+      if vim.fn.filereadable(vim.fn.expand('~/.config/nvim/colors/base16-' .. scheme .. '.lua')) then
+        vim.cmd('colorscheme base16-' .. scheme)
+      else
+        echoerr('Bad scheme ' .. scheme .. ' in ' .. config_file)
+      end
+    else -- default
+      vim.opt.background = 'dark'
+      vim.cmd('colorscheme base16-bright')
     end
 
-    if vim.fn.filereadable(vim.fn.expand('~/.config/nvim/colors/base16-' .. scheme .. '.lua')) then
-      vim.cmd('colorscheme base16-' .. scheme)
+    local dark = vim.o.background == 'dark'
+
+    pinnacle.merge('Comment', { italic = true })
+
+    -- Hide (or at least make less obvious) the EndOfBuffer region
+    pinnacle.set('EndOfBuffer', {
+      bg = 0,
+      ctermbg = 0,
+      ctermfg = 0,
+      fg = 0,
+    })
+
+    -- Grey, just like we used to get with https://github.com/Yggdroot/indentLine
+    if dark then
+      pinnacle.set('Conceal', { ctermfg = 239, fg = 'Grey30' })
+      pinnacle.merge('IndentBlanklineChar', { fg = 'Grey10', nocombine = true })
     else
-      echoerr('Bad scheme ' .. scheme .. ' in ' .. config_file)
+      pinnacle.set('Conceal', { ctermfg = 249, fg = 'Grey30' })
+      pinnacle.merge('IndentBlanklineChar', { fg = 'Grey30', nocombine = true})
     end
-  else -- default
-    vim.opt.background = 'dark'
-    vim.cmd('colorscheme base16-bright')
+
+    pinnacle.link('NonText', 'Conceal')
+
+    -- Copy rather than link, seeing as we mutate DiffText further down.
+    pinnacle.set('CursorLineNr', pinnacle.dump('DiffText'))
+
+    pinnacle.link('Pmenu', 'Visual')
+    pinnacle.link('DiffDelete', 'Conceal')
+    pinnacle.link('VertSplit', 'LineNr')
+
+    -- Resolve clashes with ColorColumn.
+    pinnacle.clear('vimUserFunc')
+
+    -- See :help 'pb'.
+    pinnacle.merge('PmenuSel', { blend = 0 })
+
+    -- For Git commits, suppress the background of these groups:
+    for _, group in ipairs({ 'DiffAdded', 'DiffFile', 'DiffNewFile', 'DiffLine', 'DiffRemoved' }) do
+      local highlight = pinnacle.dump(group)
+      highlight['bg'] = nil
+      pinnacle.set(group, highlight)
+    end
+
+    -- More subtle highlighting during merge conflict resolution.
+    pinnacle.clear('DiffAdd')
+    pinnacle.clear('DiffChange')
+    pinnacle.clear('DiffText')
+
+    -- Make floating windows look nicer, as seen in wiki:
+    -- https://github.com/neovim/nvim-lspconfig/wiki/UI-customization
+    local factor = dark and 0.15 or -0.15
+    local normal = pinnacle.adjust_lightness('Normal', factor)
+    pinnacle.set('NormalFloat', normal)
+    normal['fg'] = dark and '#ffffff' or '#000000'
+    normal['blend'] = vim.o.winblend
+    pinnacle.set('FloatBorder', normal)
+
+    -- Allow for overrides:
+    -- - `lua/wincent/statusline.lua` will re-set User1, User3 etc.
+    -- - `after/plugin/loupe.lua` will override Search, QuickFixLine.
+    vim.cmd('doautocmd ColorScheme')
   end
-
-  local dark = vim.o.background == 'dark'
-
-  vim.cmd('highlight Comment ' .. pinnacle.italicize('Comment'))
-
-  -- Hide (or at least make less obvious) the EndOfBuffer region
-  vim.cmd('highlight! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg')
-
-  -- Grey, just like we used to get with https://github.com/Yggdroot/indentLine
-  vim.cmd('highlight clear Conceal')
-  if dark then
-    vim.cmd('highlight Conceal ctermfg=239 guifg=Grey30')
-    vim.cmd('highlight IndentBlanklineChar guifg=Grey10 gui=nocombine')
-  else
-    vim.cmd('highlight Conceal ctermfg=249 guifg=Grey70')
-    vim.cmd('highlight IndentBlanklineChar guifg=Grey90 gui=nocombine')
-  end
-
-  vim.cmd([[
-    highlight clear NonText
-    highlight link NonText Conceal
-    highlight clear CursorLineNr
-  ]])
-  vim.cmd('highlight CursorLineNr ' .. pinnacle.extract_highlight('DiffText'))
-  vim.cmd([[
-    highlight clear Pmenu
-    highlight link Pmenu Visual
-
-    " See :help 'pb'.
-    highlight PmenuSel blend=0
-
-    highlight clear DiffDelete
-    highlight link DiffDelete Conceal
-    highlight clear VertSplit
-    highlight link VertSplit LineNr
-
-    " Resolve clashes with ColorColumn.
-    " Instead of linking to Normal (which has a higher priority, link to nothing).
-    highlight link vimUserFunc NONE
-  ]])
-
-  -- For Git commits, suppress the background of these groups:
-  for _, group in ipairs({ 'DiffAdded', 'DiffFile', 'DiffNewFile', 'DiffLine', 'DiffRemoved' }) do
-    local highlight = pinnacle.dump(group)
-    highlight['bg'] = nil
-    vim.cmd('highlight! clear ' .. group)
-    vim.cmd('highlight! ' .. group .. ' ' .. pinnacle.highlight(highlight))
-  end
-
-  -- More subtle highlighting during merge conflict resolution.
-  vim.cmd([[
-    highlight clear DiffAdd
-    highlight clear DiffChange
-    highlight clear DiffText
-  ]])
-
-  vim.cmd('highlight User8 ' .. pinnacle.italicize('ModeMsg'))
-
-  -- Make floating windows look nicer, as seen in wiki:
-  -- https://github.com/neovim/nvim-lspconfig/wiki/UI-customization
-  local factor = dark and 0.15 or -0.15
-  local normal = pinnacle.adjust_lightness('Normal', factor)
-  vim.cmd('highlight! clear NormalFloat')
-  vim.cmd('highlight! NormalFloat ' .. pinnacle.highlight(normal))
-  normal['fg'] = dark and '#ffffff' or '#000000'
-  vim.cmd('highlight! clear FloatBorder')
-  vim.cmd('highlight! FloatBorder ' .. pinnacle.highlight(normal) .. ' blend=' .. vim.o.winblend)
-
-  -- Allow for overrides:
-  -- - `lua/wincent/statusline.lua` will re-set User1, User2 etc.
-  -- - `after/plugin/loupe.lua` will override Search.
-  vim.cmd('doautocmd ColorScheme')
 end
 
 if vim.v.progname ~= 'vi' then

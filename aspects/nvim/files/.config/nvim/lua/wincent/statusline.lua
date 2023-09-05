@@ -240,47 +240,33 @@ end
 
 statusline.update_highlight = function()
   -- Update StatusLine to use italics (used for filetype).
-  local highlight = pinnacle.italicize('StatusLine')
-  vim.cmd('highlight User1 ' .. highlight)
-
-  -- Update MatchParen to use italics (used for blurred statuslines).
-  highlight = pinnacle.italicize('MatchParen')
-  vim.cmd('highlight User2 ' .. highlight)
+  pinnacle.set('User1', pinnacle.italicize('StatusLine'))
 
   -- StatusLine + bold (used for file names).
-  highlight = pinnacle.embolden('StatusLine')
-  vim.cmd('highlight User3 ' .. highlight)
+  pinnacle.set('User3', pinnacle.embolden('StatusLine'))
 
   -- Inverted Error styling, for left-hand side "Powerline" triangle.
-  local fg = pinnacle.extract_fg(status_highlight)
-  local bg = pinnacle.extract_bg('StatusLine')
-  vim.cmd('highlight User4 ' .. pinnacle.highlight({ bg = bg, fg = fg }))
+  local fg = pinnacle.fg(status_highlight)
+  local bg = pinnacle.bg('StatusLine')
+  pinnacle.set('User4', { bg = bg, fg = fg })
 
   -- And opposite for the buffer number area.
-  vim.cmd('highlight User7 ' .. pinnacle.highlight({
+  pinnacle.set('User7', {
     bg = fg,
-    fg = pinnacle.extract_fg('Normal'),
-    term = 'bold',
-  }))
+    fg = pinnacle.fg('Normal'),
+    bold = true,
+  })
 
   -- Right-hand side section.
-  bg = pinnacle.extract_fg('Cursor')
-  fg = pinnacle.extract_fg('User3')
-  vim.cmd('highlight User5 ' .. pinnacle.highlight({
+  bg = pinnacle.fg('Cursor')
+  fg = pinnacle.fg('User3')
+  pinnacle.set('User5', {
     bg = fg,
     fg = bg,
-    term = 'bold',
-  }))
+    bold = true,
+  })
 
-  -- Right-hand side section + italic (used for %).
-  vim.cmd('highlight User6 ' .. pinnacle.highlight({
-    bg = fg,
-    fg = bg,
-    term = 'bold,italic',
-  }))
-
-  vim.cmd('highlight clear StatusLineNC')
-  vim.cmd('highlight! link StatusLineNC User1')
+  pinnacle.link('StatusLineNC', 'User1')
 end
 
 return statusline
