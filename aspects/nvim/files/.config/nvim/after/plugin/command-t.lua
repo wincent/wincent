@@ -53,27 +53,9 @@ vim.keymap.set('n', '<LocalLeader>c', '<Plug>(CommandTCommand)')
 vim.keymap.set('n', '<LocalLeader>h', '<Plug>(CommandTHistory)')
 vim.keymap.set('n', '<LocalLeader>l', '<Plug>(CommandTLine)')
 
--- Convenience for starting Command-T at launch without causing freak-out inside
--- tmux.
---
--- BUG: As of 2021-07-19, it's pretty much freaking out a lot — 😂
-
-local show = nil
-local tries = 20
-
 show = function()
-  if vim.v.vim_did_enter == 1 then
-    vim.cmd('CommandT')
-  else
-    if tries > 0 then
-      tries = tries - 1
-      vim.defer_fn(show, 100)
-    else
-      vim.cmd([[
-        echoerr "Startup too slow: giving up waiting to :CommandTBoot"
-      ]])
-    end
-  end
+  vim.cmd('CommandT')
+  error('`:CommandTBoot` is deprecated; use `:CommandT` instead')
 end
 
 command('CommandTBoot', show)

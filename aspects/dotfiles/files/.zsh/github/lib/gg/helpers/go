@@ -25,7 +25,7 @@ else
   # 1. Main editor window: Vim on the left, shell on the right.
   tmux new-session -d -s $SESSION -n vim -x $(tput cols) -y $(tput lines)
   tmux split-window -t $SESSION:vim -h
-  tmux send-keys -t $SESSION:vim.left "vim -c CommandTBoot" Enter
+  tmux send-keys -t $SESSION:vim.left "vim -c CommandT" Enter
 
   # 2. General shell use: two panes separated by a vertical split.
   tmux new-window -t $SESSION -n zsh

@@ -106,14 +106,13 @@ end
 if vim.v.progname ~= 'vi' then
   augroup('WincentAutocolor', function()
     autocmd('FocusGained', '*', check)
-  end)
 
-  -- This is not all roses... some things stop FocusGained from running; like a
-  -- .tmux script that keeps focus away from Vim... should defer a check anyway;
-  -- if we don't get a call in, say, 250ms... call!
-  if vim.fn.exists('$TMUX') == 0 then
-    -- In tmux we're going to get a `FocusGained` event on launch, but not when
-    -- outside of it.
-    check()
-  end
+    -- Ideally we'd only do this outside of tmux (we don't get FocusGained
+    -- events on launch outside of tmux), but we have to do it unconditionally
+    -- because sometimes tmux doesn't get the events (for example, when Vim is
+    -- launched in a non-focused pane via `tmux send-keys`). This means that
+    -- we'll run twice (VimEnter, then FocusGained) when launched conventionally
+    -- inside tmux. Each call to `check()` takes about 7ms on my work machine.
+    autocmd('VimEnter', '*', check)
+  end)
 end
