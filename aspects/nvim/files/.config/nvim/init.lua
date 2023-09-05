@@ -156,26 +156,6 @@ vim.g.maplocalleader = '\\'
 vim.g.filetype_m = 'objc'
 vim.g.filetype_pl = 'prolog'
 
-vim.g.CorpusBangCreation = 1
-vim.g.CorpusDirectories = {
-  ['~/Documents/Corpus'] = {
-    autocommit = true,
-    autoreference = 1,
-    autotitle = 1,
-    base = './',
-    transform = 'local',
-  },
-  ['~/code/masochist/content/content/wiki'] = {
-    autocommit = false,
-    autoreference = 1,
-    autotitle = 1,
-    base = '/wiki/',
-    tags = { 'wiki' },
-    transform = 'web',
-  },
-}
-vim.g.CorpusSort = 'stat'
-
 -- Stark highlighting is enough to see the current match; don't need the
 -- centering, which can be annoying.
 vim.g.LoupeCenterResults = 0
@@ -471,6 +451,32 @@ if has_commandt then
     complete = 'dir',
     nargs = '?',
   })
+end
+
+-- TODO: this should really be require 'wincent.corpus'
+local has_corpus, corpus = pcall(require, 'corpus')
+if has_corpus then
+  corpus {
+    bang_creation = true,
+    directories = {
+      ['~/Documents/Corpus'] = {
+        autocommit = true,
+        autoreference = 1,
+        autotitle = 1,
+        base = './',
+        transform = 'local',
+      },
+      ['~/code/masochist/content/content/wiki'] = {
+        autocommit = false,
+        autoreference = 1,
+        autotitle = 1,
+        base = '/wiki/',
+        tags = { 'wiki' },
+        transform = 'web',
+      },
+    },
+    sort = 'stat',
+  }
 end
 
 -------------------------------------------------------------------------------
