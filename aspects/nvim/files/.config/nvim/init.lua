@@ -453,8 +453,7 @@ if has_commandt then
   })
 end
 
--- TODO: this should really be require 'wincent.corpus'
-local has_corpus, corpus = pcall(require, 'corpus')
+local has_corpus, corpus = pcall(require, 'wincent.corpus')
 if has_corpus then
   corpus({
     bang_creation = true,
