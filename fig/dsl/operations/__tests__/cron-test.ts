@@ -102,10 +102,10 @@ describe('validate()', () => {
 
   test('names cannot be used in ranges or lists', () => {
     expect(() => validate('weekday', '1-fri')).toThrow(
-      /is not a valid weekday/
+      /is not a valid weekday/,
     );
     expect(() => validate('weekday', '1,2,fri')).toThrow(
-      /is not a valid weekday/
+      /is not a valid weekday/,
     );
     expect(() => validate('month', 'jan-6')).toThrow(/is not a valid month/);
     expect(() => validate('month', 'jan,4-5')).toThrow(/is not a valid month/);
@@ -145,7 +145,7 @@ describe('validate()', () => {
 
   test('bad weekday names are invalid', () => {
     expect(() => validate('weekday', 'garbage')).toThrow(
-      /is not a valid weekday/
+      /is not a valid weekday/,
     );
   });
 
@@ -181,7 +181,7 @@ describe('validate()', () => {
     expect(() => validate('minute', 'random')).toThrow(/is not a valid minute/);
     expect(() => validate('month', 'random')).toThrow(/is not a valid month/);
     expect(() => validate('weekday', 'random')).toThrow(
-      /is not a valid weekday/
+      /is not a valid weekday/,
     );
   });
 });

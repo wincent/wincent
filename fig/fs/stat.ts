@@ -30,7 +30,7 @@ const TYPE_MAP = {
  * with `sudo` if necessary.
  */
 export default async function stat(
-  path: string
+  path: string,
 ): Promise<Error | Stats | null> {
   const target = toPath(path).expand;
 

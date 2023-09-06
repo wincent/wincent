@@ -13,7 +13,7 @@ import {bundleIdentifier, deepCopy, isObject, visit} from './karabiner.js';
   (function $() {
     ok(
       bundleIdentifier('com.apple.TextEdit') === '^com\\.apple\\.TextEdit$',
-      $
+      $,
     );
   })();
 })();
@@ -32,7 +32,7 @@ import {bundleIdentifier, deepCopy, isObject, visit} from './karabiner.js';
     ok(
       JSON.stringify(copy) ===
         '{"object":{"isInner":true},"array":[1,2,[3,4]]}',
-      $
+      $,
     );
   })();
 
@@ -140,7 +140,7 @@ import {bundleIdentifier, deepCopy, isObject, visit} from './karabiner.js';
             }
           ]
         }`),
-      $
+      $,
     );
   })();
 
@@ -154,7 +154,7 @@ import {bundleIdentifier, deepCopy, isObject, visit} from './karabiner.js';
           "foo": 1,
           "bar": [10, 11]
         }`),
-      $
+      $,
     );
   })();
 
@@ -171,7 +171,7 @@ import {bundleIdentifier, deepCopy, isObject, visit} from './karabiner.js';
         updated.bar[0].a !== original.bar[0].a &&
         updated.bar[0].a[0] !== original.bar[0].a[0] &&
         updated.bar[1] === original.bar[1],
-      $
+      $,
     );
   })();
 })();

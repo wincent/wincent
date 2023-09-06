@@ -13,7 +13,7 @@ task(
       regexp: /^(?:\s*#\s*)?StreamLocalBindUnlink\b/,
       sudo: true,
     });
-  }
+  },
 );
 
 task('symlink files', async () => {
@@ -44,7 +44,7 @@ task('fetch lotabout/skim.git', async () => {
       chdir: 'vendor',
       creates: 'vendor/skim',
       raw: true,
-    }
+    },
   );
 });
 

@@ -9,20 +9,20 @@ import * as fs from 'node:fs';
 
 export function createWriteStream(
   path: Parameters<typeof fs.createWriteStream>[0],
-  options: Parameters<typeof fs.createWriteStream>[1]
+  options: Parameters<typeof fs.createWriteStream>[1],
 ): ReturnType<typeof fs.createWriteStream> {
   return fs.createWriteStream(path.toString(), options);
 }
 
 export function existsSync(
-  path: Parameters<typeof fs.existsSync>[0]
+  path: Parameters<typeof fs.existsSync>[0],
 ): ReturnType<typeof fs.existsSync> {
   return fs.existsSync(path.toString());
 }
 
 export function readdirSync(
   path: Parameters<typeof fs.readdirSync>[0],
-  options: Parameters<typeof fs.readdirSync>[1]
+  options: Parameters<typeof fs.readdirSync>[1],
 ): ReturnType<typeof fs.readdirSync> {
   return fs.readdirSync(path.toString(), options);
 }
@@ -49,7 +49,7 @@ const promises = {
   utimes(
     path: Parameters<typeof fs.promises.utimes>[0],
     atime: Parameters<typeof fs.promises.utimes>[1],
-    mtime: Parameters<typeof fs.promises.utimes>[2]
+    mtime: Parameters<typeof fs.promises.utimes>[2],
   ): ReturnType<typeof fs.promises.utimes> {
     return fs.promises.utimes(path.toString(), atime, mtime);
   },
@@ -57,7 +57,7 @@ const promises = {
   writeFile(
     path: Parameters<typeof fs.promises.writeFile>[0],
     data: Parameters<typeof fs.promises.writeFile>[1],
-    options: Parameters<typeof fs.promises.writeFile>[2]
+    options: Parameters<typeof fs.promises.writeFile>[2],
   ): ReturnType<typeof fs.promises.writeFile> {
     return fs.promises.writeFile(path.toString(), data, options);
   },

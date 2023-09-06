@@ -53,8 +53,8 @@ export default async function fetch({
           if (requestedURLs.length > 10) {
             reject(
               new Error(
-                `fetch(): Too many redirects: ${requestedURLs.join(' → ')}`
-              )
+                `fetch(): Too many redirects: ${requestedURLs.join(' → ')}`,
+              ),
             );
           } else {
             const location = response.headers.location;
@@ -73,7 +73,7 @@ export default async function fetch({
             try {
               const contents = await promises.readFile(
                 download,
-                encoding === undefined ? 'utf8' : null
+                encoding === undefined ? 'utf8' : null,
               );
 
               const result = await file({

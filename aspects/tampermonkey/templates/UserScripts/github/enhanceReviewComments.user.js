@@ -15,7 +15,7 @@
 
   const observer = new MutationObserver((_mutationList) => {
     const radio = document.querySelector(
-      'input[name="pull_request_review[event]"'
+      'input[name="pull_request_review[event]"',
     );
 
     if (

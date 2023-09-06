@@ -64,7 +64,7 @@ async function main() {
 
   const [profile] =
     Object.entries(profiles).find(([, {pattern}]) =>
-      regExpFromString(pattern).test(hostname)
+      regExpFromString(pattern).test(hostname),
     ) || [];
 
   await log.info(`Profile: ${profile || 'n/a'}`);
@@ -152,8 +152,8 @@ async function main() {
       ) {
         await log.warn(
           `Invalid choice ${stringify(
-            reply
-          )}; try again or press CTRL-C to abort.`
+            reply,
+          )}; try again or press CTRL-C to abort.`,
         );
 
         await log();
@@ -164,7 +164,7 @@ async function main() {
     }
   } else if (!options.startAt.found && options.startAt.literal) {
     throw new ErrorWithMetadata(
-      `Failed to find task matching ${stringify(options.startAt.literal)}`
+      `Failed to find task matching ${stringify(options.startAt.literal)}`,
     );
   }
 
@@ -183,7 +183,7 @@ async function main() {
     defaultVariables,
     profileVariables,
     platformVariables,
-    variables
+    variables,
   );
 
   // TODO: maybe this should be called registerBaseVariables
@@ -209,7 +209,7 @@ async function main() {
     for (const batch of batches) {
       const promises = batch.map(async (aspect) => {
         const {variables: aspectVariables = {}} = await readAspect(
-          join(root, 'aspects', aspect)
+          join(root, 'aspects', aspect),
         );
 
         if (
@@ -224,7 +224,7 @@ async function main() {
 
         const variables = merge(
           mergedVariables,
-          Context.variables.getVariablesCallback(aspect)(mergedVariables)
+          Context.variables.getVariablesCallback(aspect)(mergedVariables),
         );
 
         await log.debug(`Variables:\n\n${stringify(variables)}\n`);
@@ -238,7 +238,7 @@ async function main() {
               for (;;) {
                 const reply = (
                   await prompt(
-                    `Run task ${name}? [y]es/[n]o/[q]uit]/[c]ontinue/[h]elp: `
+                    `Run task ${name}? [y]es/[n]o/[q]uit]/[c]ontinue/[h]elp: `,
                   )
                 )
                   .toLowerCase()
@@ -251,7 +251,7 @@ async function main() {
                       task: name,
                       variables,
                     },
-                    callback
+                    callback,
                   );
                   break;
                 } else if ('no'.startsWith(reply)) {
@@ -267,7 +267,7 @@ async function main() {
                       task: name,
                       variables,
                     },
-                    callback
+                    callback,
                   );
                   break;
                 } else if ('help'.startsWith(reply)) {
@@ -277,7 +277,7 @@ async function main() {
                       [n]o:       skip the task
                       [q]uit:     stop running
                       [c]ontinue: run all remaining tasks
-                    `
+                    `,
                   );
                 } else {
                   await log.warn('Invalid choice; try again.');
@@ -299,7 +299,7 @@ async function main() {
 
             if (!callback) {
               throw new ErrorWithMetadata(
-                `Failed to find handler with named ${stringify(name)}`
+                `Failed to find handler with named ${stringify(name)}`,
               );
             }
 
@@ -309,7 +309,7 @@ async function main() {
               for (;;) {
                 const reply = (
                   await prompt(
-                    `Run handler ${name}? [y]es/[n]o/[q]uit]/[c]ontinue/[h]elp: `
+                    `Run handler ${name}? [y]es/[n]o/[q]uit]/[c]ontinue/[h]elp: `,
                   )
                 )
                   .toLowerCase()
@@ -322,7 +322,7 @@ async function main() {
                       task: name,
                       variables,
                     },
-                    callback
+                    callback,
                   );
                   break;
                 } else if ('no'.startsWith(reply)) {
@@ -338,7 +338,7 @@ async function main() {
                       task: name,
                       variables,
                     },
-                    callback
+                    callback,
                   );
                   break;
                 } else if ('help'.startsWith(reply)) {
@@ -348,7 +348,7 @@ async function main() {
                       [n]o:       skip the handler
                       [q]uit:     stop running
                       [c]ontinue: run all remaining handlers and tasks
-                    `
+                    `,
                   );
                 } else {
                   await log.warn('Invalid choice; try again.');

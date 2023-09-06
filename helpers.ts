@@ -63,7 +63,7 @@ export function when(
       conditions.every((condition) =>
         Array.isArray(condition)
           ? condition.some(checkCondition)
-          : checkCondition(condition)
+          : checkCondition(condition),
       )
     ) {
       return true;
@@ -106,7 +106,7 @@ function checkCondition(label: string): boolean {
       return variable('identity') === 'wincent';
     default:
       throw new Error(
-        `checkCondition(): Unknown condition label ${JSON.stringify(label)}`
+        `checkCondition(): Unknown condition label ${JSON.stringify(label)}`,
       );
   }
 }

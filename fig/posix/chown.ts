@@ -12,7 +12,7 @@ type Options = {
 
 export default async function chown(
   path: string,
-  options: Options = {}
+  options: Options = {},
 ): Promise<Error | null> {
   // Run one of:
   //

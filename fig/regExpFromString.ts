@@ -10,7 +10,7 @@ export default function regExpFromString(pattern: string): RegExp {
 
   if (!match) {
     throw new Error(
-      `Invalid pattern ${stringify(pattern)} does not match ${VALID_REGEXP}`
+      `Invalid pattern ${stringify(pattern)} does not match ${VALID_REGEXP}`,
     );
   }
 

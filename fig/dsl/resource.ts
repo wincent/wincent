@@ -50,7 +50,7 @@ function resources(subdirectory: string, glob: string): Array<Path> {
     return readdirSync(current, {withFileTypes: true})
       .filter(
         (entry) =>
-          entry.isDirectory() || entry.isFile() || entry.isSymbolicLink()
+          entry.isDirectory() || entry.isFile() || entry.isSymbolicLink(),
       )
       .filter(({name}) => components[0].test(name))
       .flatMap((entry: Dirent) => {
@@ -78,6 +78,6 @@ function resources(subdirectory: string, glob: string): Array<Path> {
 
   return traverse(
     join('aspects', Context.currentAspect, subdirectory),
-    path(glob).components.map((component) => globToRegExp(component))
+    path(glob).components.map((component) => globToRegExp(component)),
   );
 }

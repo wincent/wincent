@@ -39,7 +39,7 @@ task(
       src: resource.template('dual-function-keys.yaml.erb'),
       sudo: true,
     });
-  }
+  },
 );
 
 task('create /etc/interception/udevmon.yaml', when('arch'), async () => {
@@ -65,7 +65,7 @@ task(
       src: resource.template('50-realforce-layout.rules.erb'),
       sudo: true,
     });
-  }
+  },
 );
 
 handler('enable udevmon', async () => {

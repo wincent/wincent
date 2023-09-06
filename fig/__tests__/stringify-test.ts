@@ -50,7 +50,7 @@ test('stringify() an array', () => {
               true,
               "thing",
             ]
-        `.trimEnd()
+        `.trimEnd(),
   );
 });
 
@@ -70,7 +70,7 @@ test('stringify() nested arrays', () => {
                 null,
               ],
             ]
-        `.trimEnd()
+        `.trimEnd(),
   );
 });
 
@@ -87,7 +87,7 @@ test('stringify() an array with circular references', () => {
               "thing",
               «circular»,
             ]
-        `.trimEnd()
+        `.trimEnd(),
   );
 });
 
@@ -98,7 +98,7 @@ test('stringify() an object', () => {
               "a": 1,
               "b": true,
             }
-        `.trimEnd()
+        `.trimEnd(),
   );
 });
 
@@ -116,7 +116,7 @@ test('stringify() a nested object', () => {
                 "d": null,
               },
             }
-        `.trimEnd()
+        `.trimEnd(),
   );
 });
 
@@ -132,7 +132,7 @@ test('stringify() an object with circular references', () => {
               "b": true,
               "c": «circular»,
             }
-        `.trimEnd()
+        `.trimEnd(),
   );
 });
 
@@ -148,7 +148,7 @@ test('stringify() a Set', () => {
               true,
               "thing",
             }
-        `.trimEnd()
+        `.trimEnd(),
   );
 });
 
@@ -179,6 +179,6 @@ test('stringify() a multi-line Function', () => {
                   }
               },
             }
-        `.trimEnd()
+        `.trimEnd(),
   );
 });

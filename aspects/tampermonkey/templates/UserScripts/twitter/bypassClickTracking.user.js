@@ -29,7 +29,7 @@
         event.stopPropagation();
       }
     },
-    true
+    true,
   );
 })();
 

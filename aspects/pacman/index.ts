@@ -32,7 +32,7 @@ task('install packages', when('arch'), async () => {
     ['-S', '--noconfirm', ...variable.strings('packages')],
     {
       sudo: true,
-    }
+    },
   );
 });
 

@@ -45,7 +45,7 @@ export function fill(compiled: string, scope: Scope = {}) {
   const context = Object.entries(scope).map(
     // Not using `stringify()` here because that is only for human-readable
     // use cases.
-    ([key, value]) => `const ${key} = ${JSON.stringify(value)};\n`
+    ([key, value]) => `const ${key} = ${JSON.stringify(value)};\n`,
   );
 
   const sandbox = new Function(context + compiled);
@@ -198,7 +198,7 @@ export function* tokenize(input: string): Generator<Token> {
           // would be useful in .gitconfig.erb
           throw new Error(
             `Unexpected start delimiter "${text}" at index ${match.index}:\n\n` +
-              excerpt(input, match.index)
+              excerpt(input, match.index),
           );
         }
       } else {
@@ -233,7 +233,7 @@ export function* tokenize(input: string): Generator<Token> {
         } else if (text === '%>') {
           throw new Error(
             `Unexpected end delimiter "%>" at index ${match.index}:\n\n` +
-              excerpt(input, match.index)
+              excerpt(input, match.index),
           );
         }
       }

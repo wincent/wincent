@@ -49,7 +49,7 @@ local check = function()
       pinnacle.merge('IndentBlanklineChar', { fg = 'Grey10', nocombine = true })
     else
       pinnacle.set('Conceal', { ctermfg = 249, fg = 'Grey30' })
-      pinnacle.merge('IndentBlanklineChar', { fg = 'Grey30', nocombine = true})
+      pinnacle.merge('IndentBlanklineChar', { fg = 'Grey30', nocombine = true })
     end
 
     pinnacle.link('NonText', 'Conceal')

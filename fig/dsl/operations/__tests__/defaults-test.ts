@@ -55,12 +55,12 @@ describe('equal()', () => {
     // Currently a dictionary, but missing a subset of the desired
     // key/value pairs.
     expect(equal({a: 'foo'}, 'dict', {a: 'foo', b: 'bar'}, 'dict-add')).toBe(
-      false
+      false,
     );
 
     // Currently a dictionary, and containing the desired key/value pair.
     expect(equal({a: 'foo', b: 'bar'}, 'dict', {b: 'bar'}, 'dict-add')).toBe(
-      true
+      true,
     );
 
     // Currently a dictionary, and containing multiple desired
@@ -70,8 +70,8 @@ describe('equal()', () => {
         {a: 'foo', b: 'bar', c: 'baz'},
         'dict',
         {b: 'bar', c: 'baz'},
-        'dict-add'
-      )
+        'dict-add',
+      ),
     ).toBe(true);
   });
 
@@ -260,7 +260,7 @@ describe('scanString()', () => {
 
   test('it scans a sentence that contains quotes', () => {
     expect(scanString(new Scanner('"foo \\\\"bar\\\\" baz"'))).toBe(
-      'foo "bar" baz'
+      'foo "bar" baz',
     );
   });
 

@@ -24,7 +24,7 @@ const PREFIX_LENGTH = PREFIXES.reduce((acc, prefix) => {
 const PREFIX_MAP = Object.fromEntries(
   PREFIXES.map((prefix) => {
     return [prefix, `[${prefix}] `.padEnd(PREFIX_LENGTH)];
-  })
+  }),
 );
 
 /**
@@ -123,7 +123,7 @@ export async function print(...args: Array<any>) {
             return stringify(arg);
           }
         })
-        .join(' ')
+        .join(' '),
     );
   });
 }

@@ -11,7 +11,7 @@ type Options = {
 export default async function chmod(
   mode: Mode,
   path: string,
-  options: Options = {}
+  options: Options = {},
 ): Promise<Error | null> {
   const passphrase = options.sudo ? await Context.sudoPassphrase : undefined;
 

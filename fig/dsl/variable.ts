@@ -6,7 +6,7 @@ import type {Path} from '../path.js';
 
 export default function variable(
   name: string,
-  fallback?: JSONValue
+  fallback?: JSONValue,
 ): JSONValue {
   const variables = Context.currentVariables;
 
@@ -15,7 +15,7 @@ export default function variable(
 
 variable.array = (
   name: string,
-  fallback?: Array<JSONValue>
+  fallback?: Array<JSONValue>,
 ): Array<JSONValue> => {
   const value = variable(name, fallback);
 
@@ -26,7 +26,7 @@ variable.array = (
 
 variable.object = (
   name: string,
-  fallback?: {[key: string]: JSONValue}
+  fallback?: {[key: string]: JSONValue},
 ): {[key: string]: JSONValue} => {
   const value = variable(name, fallback);
 
@@ -47,7 +47,7 @@ variable.paths = (name: string, fallback?: Array<string>): Array<Path> => {
   return value.map((v) => {
     assert(
       typeof v === 'string',
-      `Expected variable ${name} to be an array of strings but it contained a ${typeof v}`
+      `Expected variable ${name} to be an array of strings but it contained a ${typeof v}`,
     );
     return path(v);
   });
@@ -58,7 +58,7 @@ variable.string = (name: string, fallback?: string): string => {
 
   assert(
     typeof value === 'string',
-    `Expected variable ${name} to have type string but it was ${typeof value}`
+    `Expected variable ${name} to have type string but it was ${typeof value}`,
   );
 
   return value;
@@ -73,7 +73,7 @@ variable.strings = (name: string, fallback?: Array<string>): Array<string> => {
 
   assert(
     strings(value),
-    `Expected variable ${name} to be an array of strings but it contained a non-string`
+    `Expected variable ${name} to be an array of strings but it contained a non-string`,
   );
 
   return value;

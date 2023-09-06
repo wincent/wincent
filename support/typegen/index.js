@@ -55,7 +55,7 @@ function main() {
     Object.entries(definitions).forEach(([name, value]) => {
       if (value.enum) {
         b.line(
-          `const ${name.toUpperCase()} = new Set<${name}>(${name}Values);`
+          `const ${name.toUpperCase()} = new Set<${name}>(${name}Values);`,
         ).blank();
       }
     });
@@ -63,7 +63,7 @@ function main() {
     b.interface(typeName, () => {
       if (typeSchema.properties) {
         for (const [propertyName, propertySchema] of Object.entries(
-          typeSchema.properties
+          typeSchema.properties,
         )) {
           genProperty(propertyName, propertySchema, options);
         }
@@ -71,7 +71,7 @@ function main() {
 
       if (typeSchema.patternProperties) {
         for (const [pattern, patternSchema] of Object.entries(
-          typeSchema.patternProperties
+          typeSchema.patternProperties,
         )) {
           genPatternProperty(pattern, patternSchema, options);
         }
@@ -87,7 +87,7 @@ function main() {
           `assert${name}(value: any): asserts value is ${name}`,
           () => {
             b.assert(`${name.toUpperCase()}.has(value)`);
-          }
+          },
         ).blank();
       }
     });
@@ -98,7 +98,7 @@ function main() {
 
     fs.writeFileSync(
       path.join(__dirname, `../../fig/types/${typeName}.ts`),
-      b.output
+      b.output,
     );
   }
 }
@@ -173,7 +173,7 @@ function genAssertFunction(typeName, typeSchema, options) {
             const property = propertyName.replace(/\./g, '_DOT_');
             b.blank().if(`${obj}.hasOwnProperty('${propertyName}')`, () => {
               b.line(
-                `const ${property}: unknown = (${obj} as any)['${propertyName}'];`
+                `const ${property}: unknown = (${obj} as any)['${propertyName}'];`,
               ).blank();
 
               const target = extractTargetFromRef(propertySchema);
@@ -194,7 +194,7 @@ function genAssertFunction(typeName, typeSchema, options) {
                   //    anyOf: [REF.Aspect, {type: 'array', items: REF.Aspect}]
                   //
                   const target = extractTargetFromRef(
-                    propertySchema.items.anyOf[0]
+                    propertySchema.items.anyOf[0],
                   );
                   if (target && definitions[target]?.enum) {
                     b.if(
@@ -204,7 +204,7 @@ function genAssertFunction(typeName, typeSchema, options) {
                       },
                       () => {
                         b.line(`assert${target}(item);`);
-                      }
+                      },
                     );
                   }
                 });
@@ -217,11 +217,11 @@ function genAssertFunction(typeName, typeSchema, options) {
                 throw new Error('Not implemented');
               }
             });
-          }
+          },
         );
 
         assert.ok(
-          !patternProperties || Object.keys(patternProperties).length <= 1
+          !patternProperties || Object.keys(patternProperties).length <= 1,
         );
 
         Object.values({...patternProperties}).forEach((propertySchema) => {
@@ -268,12 +268,12 @@ function genAssertFunction(typeName, typeSchema, options) {
             propertySchema.type === 'string'
           ) {
             b.blank().assert(
-              `Object.values(${obj}).every((value) => typeof value === '${propertySchema.type}')`
+              `Object.values(${obj}).every((value) => typeof value === '${propertySchema.type}')`,
             );
           } else if (propertySchema.type === 'object') {
             b.blank()
               .line(
-                `const valid = Object.values(${obj}).every((value: unknown) => {`
+                `const valid = Object.values(${obj}).every((value: unknown) => {`,
               )
               .indent();
 
@@ -287,7 +287,7 @@ function genAssertFunction(typeName, typeSchema, options) {
       }
 
       genAssertProperties('json', typeSchema);
-    }
+    },
   );
 }
 
@@ -306,13 +306,13 @@ function genObjectValue(schema, options) {
       Object.entries(schema.properties).forEach(
         ([propertyName, propertySchema]) => {
           genProperty(propertyName, propertySchema, nextOptions);
-        }
+        },
       );
     }
 
     if (schema.patternProperties) {
       for (const [pattern, patternSchema] of Object.entries(
-        schema.patternProperties
+        schema.patternProperties,
       )) {
         genPatternProperty(pattern, patternSchema, nextOptions);
       }
@@ -364,8 +364,8 @@ function genProperty(propertyName, propertySchema, options) {
   } else {
     throw new Error(
       `Property ${JSON.stringify(
-        propertyName
-      )} has invalid type ${JSON.stringify(propertySchema.type)}`
+        propertyName,
+      )} has invalid type ${JSON.stringify(propertySchema.type)}`,
     );
   }
 

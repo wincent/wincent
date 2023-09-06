@@ -19,6 +19,6 @@ test('regExpFromString() preserves flags', () => {
 
 test('regExpFromString() rejects an invalid pattern', () => {
   expect(() => regExpFromString('thing')).toThrow(
-    'Invalid pattern "thing" does not match /^\\/(.+)\\/([gimsuy]*)$/'
+    'Invalid pattern "thing" does not match /^\\/(.+)\\/([gimsuy]*)$/',
   );
 });

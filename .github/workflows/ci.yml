@@ -16,9 +16,9 @@ jobs:
       matrix:
         node-version: [18.x]
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
     - run: yarn --frozen-lockfile
@@ -26,8 +26,8 @@ jobs:
   prettier:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actionsx/prettier@v2
+      - uses: actions/checkout@v3
+      - uses: actionsx/prettier@v3
         with:
           # ******************************************************************
           # * NOTE: Keep these patterns up-to-date with bin/{check-,}format. *
@@ -37,9 +37,9 @@ jobs:
   stylua:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: JohnnyMorganz/stylua-action@v1
+      - uses: actions/checkout@v3
+      - uses: JohnnyMorganz/stylua-action@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           args: --allow-hidden --check .
-          version: "0.15.1"
+          version: "0.18.1"

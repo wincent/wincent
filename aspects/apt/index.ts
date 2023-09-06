@@ -7,7 +7,7 @@ task('install packages', when('debian'), async () => {
     const result = await command(
       'dpkg-query',
       ['--show', '--showformat=${db:Status-Status}', pkg],
-      {failedWhen: () => false}
+      {failedWhen: () => false},
     );
 
     if (result?.status !== 0 || result?.stdout.includes('not-installed')) {

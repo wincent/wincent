@@ -41,19 +41,19 @@ export default async function file({
 }): Promise<OperationResult> {
   if (contents !== undefined && state !== 'file') {
     throw new ErrorWithMetadata(
-      `A file-system object cannot have "contents" unless its state is \`file\``
+      `A file-system object cannot have "contents" unless its state is \`file\``,
     );
   }
 
   if (src !== undefined && !(state === 'file' || state === 'link')) {
     throw new ErrorWithMetadata(
-      `A file-system object cannot have "src" unless its state is \`file\` or \`link\``
+      `A file-system object cannot have "src" unless its state is \`file\` or \`link\``,
     );
   }
 
   if (contents !== undefined && src !== undefined) {
     throw new ErrorWithMetadata(
-      `Cannot populate a file-system object with both "contents" and from "src"`
+      `Cannot populate a file-system object with both "contents" and from "src"`,
     );
   }
 
@@ -219,7 +219,7 @@ export default async function file({
     if (mutate) {
       return await Context.informChanged(
         `file[${changed.join('|')}] ${path}`,
-        notify
+        notify,
       );
     } else {
       return await Context.informSkipped(`file[${changed.join('|')}] ${path}`);

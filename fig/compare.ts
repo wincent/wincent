@@ -63,7 +63,7 @@ export default async function compare({
   // Sanity check.
   if (contents !== undefined && state !== 'file') {
     throw new ErrorWithMetadata(
-      `A file-system object cannot have "contents" unless its state is \`file\``
+      `A file-system object cannot have "contents" unless its state is \`file\``,
     );
   }
 
@@ -92,8 +92,8 @@ export default async function compare({
       } else if (stats === null) {
         diff.error = new ErrorWithMetadata(
           `Cannot stat ${stringify(path)} because parent ${stringify(
-            parent
-          )} does not exist`
+            parent,
+          )} does not exist`,
         );
       } else {
         // Parent exists.
@@ -133,7 +133,7 @@ export default async function compare({
         try {
           const actual = await fs.readFile(
             path,
-            encoding === undefined ? 'utf8' : encoding
+            encoding === undefined ? 'utf8' : encoding,
           );
           if (actual !== contents) {
             diff.contents = contents;
@@ -151,12 +151,12 @@ export default async function compare({
       diff.state = 'file';
     } else if (stats.type === 'directory') {
       diff.error = new ErrorWithMetadata(
-        `Cannot replace directory ${stringify(path)} with file`
+        `Cannot replace directory ${stringify(path)} with file`,
       );
     } else {
       // We're not going to bother with "exotic" types such as sockets etc.
       diff.error = new ErrorWithMetadata(
-        `Cannot replace object ${stringify(path)} of unknown type with file`
+        `Cannot replace object ${stringify(path)} of unknown type with file`,
       );
     }
   } else if (state === 'directory') {
@@ -174,16 +174,16 @@ export default async function compare({
 
         diff.error = new ErrorWithMetadata(
           `Cannot replace ${entity} ${stringify(
-            path
-          )} with directory without 'force'`
+            path,
+          )} with directory without 'force'`,
         );
       }
     } else {
       // We're not going to bother with "exotic" types such as sockets etc.
       diff.error = new ErrorWithMetadata(
         `Cannot replace object ${stringify(
-          path
-        )} of unknown type with directory`
+          path,
+        )} of unknown type with directory`,
       );
     }
   } else if (state === 'link') {
@@ -195,7 +195,7 @@ export default async function compare({
       }
     } else if (stats.type === 'directory') {
       diff.error = new ErrorWithMetadata(
-        `Cannot replace directory ${stringify(path)} with link`
+        `Cannot replace directory ${stringify(path)} with link`,
       );
     } else if (stats.type === 'file') {
       if (force) {
@@ -205,14 +205,14 @@ export default async function compare({
         diff.target = target;
       } else {
         diff.error = new ErrorWithMetadata(
-          `Cannot replace file ${stringify(path)} with link without 'force'`
+          `Cannot replace file ${stringify(path)} with link without 'force'`,
         );
       }
     } else {
       diff.error = new ErrorWithMetadata(
         `Cannot replace entity of type ${stats.type} at ${stringify(
-          path
-        )} with link`
+          path,
+        )} with link`,
       );
     }
     // TODO check mode etc...

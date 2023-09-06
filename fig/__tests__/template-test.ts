@@ -34,7 +34,7 @@ test('compile() compiles a template containing statements', () => {
       second
       <% } %>
       third
-    `)
+    `),
   ).toBe(dedent`
     let __buffer__ = "";
     __buffer__ += "first\\n";
@@ -53,7 +53,7 @@ test('compile() compiles a template containing statements', () => {
       second
       <%- } -%>
       third
-    `)
+    `),
   ).toBe(dedent`
     let __buffer__ = "";
     __buffer__ += "first\\n";
@@ -91,7 +91,7 @@ test('fill() fills a template that relies on scope', () => {
 
 test('fill() complains when required scope is missing', () => {
   expect(() => fill(compile('name: <%= name %>'))).toThrow(
-    'name is not defined'
+    'name is not defined',
   );
 });
 
@@ -105,10 +105,10 @@ test('fill() fills a template containing statements', () => {
           second
           <% } %>
           third
-        `
+        `,
       ),
-      {something: 'that'}
-    )
+      {something: 'that'},
+    ),
   ).toBe(dedent`
     first
 
@@ -127,10 +127,10 @@ test('fill() fills a template containing statements', () => {
           second
           <%- } -%>
           third
-        `
+        `,
       ),
-      {something: 'that'}
-    )
+      {something: 'that'},
+    ),
   ).toBe(dedent`
     first
     second
@@ -148,10 +148,10 @@ test('fill() correctly handles indented slurping delimiters', () => {
             middle
             <%- } -%>
           #end
-        `
+        `,
       ),
-      {something: 'that'}
-    )
+      {something: 'that'},
+    ),
   ).toBe(dedent`
     #start
       middle
@@ -167,10 +167,10 @@ test('fill() correctly handles slurping delimiters at edges of template', () => 
           <%- if (something === 'that') { -%>
           conditional
           <%- } -%>
-        `
+        `,
       ),
-      {something: 'that'}
-    )
+      {something: 'that'},
+    ),
   ).toBe(dedent`
     conditional
   `);
@@ -265,20 +265,20 @@ test('tokenize() eats whitespace between previous newline and "<%-" delimiter', 
 
 test('tokenize() complains about unexpected start delimiters', () => {
   expect(() => [...tokenize('outer <% inner <%')]).toThrow(
-    'Unexpected start delimiter "<%" at index 15'
+    'Unexpected start delimiter "<%" at index 15',
   );
 
   expect(() => [...tokenize('outer <%= inner <%')]).toThrow(
-    'Unexpected start delimiter "<%" at index 16'
+    'Unexpected start delimiter "<%" at index 16',
   );
 
   expect(() => [...tokenize('outer <%# inner <%')]).toThrow(
-    'Unexpected start delimiter "<%" at index 16'
+    'Unexpected start delimiter "<%" at index 16',
   );
 });
 
 test('tokenize() complains about unexpected end delimiters', () => {
   expect(() => [...tokenize('before %>')]).toThrow(
-    'Unexpected end delimiter "%>" at index 7'
+    'Unexpected end delimiter "%>" at index 7',
   );
 });

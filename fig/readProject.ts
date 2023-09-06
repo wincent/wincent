@@ -15,7 +15,7 @@ export default async function readProject(directory: string): Promise<Project> {
     const mod = resolve(
       root,
       'lib',
-      relative(root, join(directory, 'project.js'))
+      relative(root, join(directory, 'project.js')),
     );
 
     project = (await import(mod)).default;
@@ -33,7 +33,9 @@ export default async function readProject(directory: string): Promise<Project> {
       throw new Error(`${error.message} in ${directory}`);
     } else {
       throw new Error(
-        `unknown error ${Object.prototype.toString.call(error)} in ${directory}`
+        `unknown error ${Object.prototype.toString.call(
+          error,
+        )} in ${directory}`,
       );
     }
   }

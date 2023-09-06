@@ -25,7 +25,7 @@ export function expect(value: unknown) {
       assert.strictEqual(
         value,
         expected,
-        `Expected ${stringify(value)} to be ${stringify(expected)}`
+        `Expected ${stringify(value)} to be ${stringify(expected)}`,
       );
     },
 
@@ -33,7 +33,7 @@ export function expect(value: unknown) {
       assert.deepStrictEqual(
         value,
         expected,
-        `Expected ${stringify(value)} to equal ${stringify(expected)}`
+        `Expected ${stringify(value)} to equal ${stringify(expected)}`,
       );
     },
 
@@ -41,7 +41,7 @@ export function expect(value: unknown) {
       if (expected instanceof RegExp) {
         assert.ok(
           expected.test(String(value)),
-          `Expected ${stringify(value)} to match ${stringify(expected)}`
+          `Expected ${stringify(value)} to match ${stringify(expected)}`,
         );
       } else {
         throw new Error(`Expected RegExp but received ${typeof expected}`);
@@ -73,20 +73,20 @@ export function expect(value: unknown) {
           assert.ok(
             message.includes(expected),
             `Expected message ${stringify(message)} to contain ${stringify(
-              expected
-            )}`
+              expected,
+            )}`,
           );
         } else if (expected instanceof RegExp) {
           assert.ok(
             expected.test(message),
             `Expected message ${stringify(message)} to match ${stringify(
-              expected
-            )}`
+              expected,
+            )}`,
           );
         } else {
           assert.ok(
             caught instanceof expected,
-            `Expected error to be instance of ${expected}`
+            `Expected error to be instance of ${expected}`,
           );
         }
       }
@@ -118,7 +118,7 @@ export async function run() {
       write(
         chunk: any,
         _encoding: string,
-        callback: (error?: Error | null) => void
+        callback: (error?: Error | null) => void,
       ) {
         captured += chunk.toString();
         callback();
@@ -129,7 +129,7 @@ export async function run() {
       // Need to stay within one line if `clear()` calls below are to work.
       const trimmedDescription = description.slice(
         0,
-        process.stderr.columns - ' TEST '.length - 1
+        process.stderr.columns - ' TEST '.length - 1,
       );
 
       debug(() => print(yellow.reverse` TEST `, trimmedDescription));

@@ -42,7 +42,7 @@ task('configure Apache', when('wincent'), async () => {
     owner: 'root',
     notify: 'restart Apache',
     path: path('/private/etc/apache2/users').join(
-      `${attributes.username}.conf`
+      `${attributes.username}.conf`,
     ),
     src: resource.template('apache2/users/user.conf.erb'),
     sudo: true,
@@ -79,7 +79,7 @@ handler('restart Apache', async () => {
   await command(
     'launchctl',
     ['load', '-w', '/System/Library/LaunchDaemons/org.apache.httpd.plist'],
-    {sudo: true}
+    {sudo: true},
   );
 
   await command('apachectl', ['restart'], {sudo: true});

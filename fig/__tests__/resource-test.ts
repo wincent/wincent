@@ -23,9 +23,9 @@ describe('file()', () => {
     'returns a relative path',
     withMeta(() => {
       expect(file('example.txt').toString()).toBe(
-        'aspects/meta/files/example.txt'
+        'aspects/meta/files/example.txt',
       );
-    })
+    }),
   );
 
   test(
@@ -36,7 +36,7 @@ describe('file()', () => {
       expect(example instanceof String).toBe(true);
       expect(Object.prototype.toString.call(example)).toBe('[object String]');
       expect(example[inspect]()).toBe('aspects/meta/files/example.txt');
-    })
+    }),
   );
 
   test(
@@ -45,7 +45,7 @@ describe('file()', () => {
       const example: any = file('example.txt');
 
       expect(example.basename.toString()).toBe('example.txt');
-    })
+    }),
   );
 
   test(
@@ -54,7 +54,7 @@ describe('file()', () => {
       const example: any = file('example.txt');
 
       expect(example.dirname.toString()).toBe('aspects/meta/files');
-    })
+    }),
   );
 
   test(
@@ -63,9 +63,9 @@ describe('file()', () => {
       const example: any = file('example.txt');
 
       expect(example.resolve.toString()).toBe(
-        join(cwd(), 'aspects/meta/files/example.txt')
+        join(cwd(), 'aspects/meta/files/example.txt'),
       );
-    })
+    }),
   );
 
   test(
@@ -76,9 +76,9 @@ describe('file()', () => {
       // Note that normalization (simplification of ".." components) is
       // automatic.
       expect(example.join('..', 'foo').toString()).toBe(
-        'aspects/meta/files/foo'
+        'aspects/meta/files/foo',
       );
-    })
+    }),
   );
 
   test(
@@ -87,9 +87,9 @@ describe('file()', () => {
       const example: any = file('example.txt');
 
       expect(example.resolve.dirname.join('other.txt').toString()).toBe(
-        join(cwd(), 'aspects/meta/files/other.txt')
+        join(cwd(), 'aspects/meta/files/other.txt'),
       );
-    })
+    }),
   );
 });
 
@@ -100,7 +100,7 @@ describe('files()', () => {
       expect(files('*').map((f) => f.toString())).toEqual([
         'aspects/meta/files/example.txt',
       ]);
-    })
+    }),
   );
 });
 
@@ -109,8 +109,8 @@ describe('template()', () => {
     'returns a relative path',
     withMeta(() => {
       expect(template('sample.txt.erb').toString()).toBe(
-        'aspects/meta/templates/sample.txt.erb'
+        'aspects/meta/templates/sample.txt.erb',
       );
-    })
+    }),
   );
 });

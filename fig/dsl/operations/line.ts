@@ -46,7 +46,7 @@ export default async function line({
     if (stats.type !== 'file') {
       // TODO: make this work with symlinks (problem with file)
       throw new ErrorWithMetadata(
-        `Cannot replace line in ${dest} because its type is ${stats.type}`
+        `Cannot replace line in ${dest} because its type is ${stats.type}`,
       );
     }
 

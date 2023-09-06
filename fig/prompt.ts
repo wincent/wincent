@@ -63,7 +63,7 @@ async function prompt(text: string, options: Options = {}): Promise<string> {
 prompt.confirm = async (text: string): Promise<boolean> => {
   if (process.env.NON_INTERACTIVE) {
     await log.info(
-      `${text}? [y/n]: (assuming "y" because NON_INTERACTIVE is set)`
+      `${text}? [y/n]: (assuming "y" because NON_INTERACTIVE is set)`,
     );
     return true;
   }

@@ -456,7 +456,7 @@ end
 -- TODO: this should really be require 'wincent.corpus'
 local has_corpus, corpus = pcall(require, 'corpus')
 if has_corpus then
-  corpus {
+  corpus({
     bang_creation = true,
     directories = {
       ['~/Documents/Corpus'] = {
@@ -476,7 +476,7 @@ if has_corpus then
       },
     },
     sort = 'stat',
-  }
+  })
 end
 
 -------------------------------------------------------------------------------

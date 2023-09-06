@@ -52,7 +52,7 @@ task(
       type: 'bool',
       value: true,
     });
-  }
+  },
 );
 
 // Last tested: [10.9]
@@ -73,7 +73,7 @@ task(
       type: 'bool',
       value: false,
     });
-  }
+  },
 );
 
 // Last tested: [10.9]
@@ -169,7 +169,7 @@ task(
       type: 'float',
       value: 0,
     });
-  }
+  },
 );
 
 // Last tested: [10.10.2]
@@ -181,7 +181,7 @@ task(
       type: 'bool',
       value: true,
     });
-  }
+  },
 );
 
 // Last tested: [10.9]
@@ -194,7 +194,7 @@ task(
       type: 'bool',
       value: true,
     });
-  }
+  },
 );
 
 // Last tested: [10.9]
@@ -217,7 +217,7 @@ task(
       type: 'bool',
       value: true,
     });
-  }
+  },
 );
 
 // Last tested: [10.9]
@@ -266,7 +266,7 @@ task(
       type: 'bool',
       value: false,
     });
-  }
+  },
 );
 
 task('Finder Preferences -> Sidebar -> Tags -> Recent Tags', async () => {
@@ -315,7 +315,7 @@ task(
       type: 'int',
       value: 1,
     });
-  }
+  },
 );
 
 // Last tested: [10.9]
@@ -328,7 +328,7 @@ task(
       type: 'float',
       value: 0,
     });
-  }
+  },
 );
 
 task(
@@ -347,7 +347,7 @@ task(
       type: 'int',
       value: 262144,
     });
-  }
+  },
 );
 
 // Last tested: [10.10.2]
@@ -360,7 +360,7 @@ task(
       type: 'int',
       value: 5,
     });
-  }
+  },
 );
 
 // Last tested: [10.10.2]
@@ -373,7 +373,7 @@ task(
       type: 'int',
       value: 6,
     });
-  }
+  },
 );
 
 // Last tested: [10.10.2]
@@ -386,7 +386,7 @@ task(
       type: 'dict-add',
       value: {MaxAmount: 50},
     });
-  }
+  },
 );
 
 // Last tested: [10.10.2]
@@ -420,7 +420,7 @@ task(
       type: 'bool',
       value: false,
     });
-  }
+  },
 );
 
 // Last tested: [10.10.2]
@@ -434,7 +434,7 @@ task(
       type: 'int',
       value: 300,
     });
-  }
+  },
 );
 
 task(
@@ -446,7 +446,7 @@ task(
       type: 'bool',
       value: true,
     });
-  }
+  },
 );
 
 // Last tested: 10.11
@@ -458,7 +458,7 @@ task(
       type: 'bool',
       value: true,
     });
-  }
+  },
 );
 
 // Last tested: 10.10
@@ -479,7 +479,7 @@ task(
       type: 'int',
       value: 0,
     });
-  }
+  },
 );
 
 // Last tested: [10.10.2]
@@ -491,7 +491,7 @@ task(
       type: 'string',
       value: 'Automatic',
     });
-  }
+  },
 );
 
 // Last tested: [10.10.2]
@@ -503,7 +503,7 @@ task(
       type: 'int',
       value: 1,
     });
-  }
+  },
 );
 
 // Last tested: [10.10.2]
@@ -515,7 +515,7 @@ task(
       type: 'int',
       value: 0,
     });
-  }
+  },
 );
 
 // Last tested: [10.10.2]
@@ -527,7 +527,7 @@ task(
       type: 'int',
       value: 0,
     });
-  }
+  },
 );
 
 // Last tested: [10.11.5]
@@ -540,7 +540,7 @@ task(
       type: 'bool',
       value: true,
     });
-  }
+  },
 );
 
 // Last tested: [10.10.2]
@@ -552,7 +552,7 @@ task(
       type: 'bool',
       value: false,
     });
-  }
+  },
 );
 
 // Last tested: [10.13.3]
@@ -564,7 +564,7 @@ task(
       type: 'int',
       value: 0,
     });
-  }
+  },
 );
 
 task(
@@ -575,7 +575,7 @@ task(
       type: 'int',
       value: 2,
     });
-  }
+  },
 );
 
 // Last tested: 10.9
@@ -588,7 +588,7 @@ task(
       type: 'int',
       value: 1,
     });
-  }
+  },
 );
 
 // Last tested: [10.9]
@@ -611,7 +611,7 @@ task(
       type: 'bool',
       value: true,
     });
-  }
+  },
 );
 
 // Last tested: 2.9.20150224-nightly
@@ -624,7 +624,7 @@ task(
       type: 'int',
       value: 275,
     });
-  }
+  },
 );
 
 // Last tested: 2.9.20150224-nightly
@@ -647,7 +647,7 @@ task(
       type: 'bool',
       value: true,
     });
-  }
+  },
 );
 
 // Last tested: 3.1.3 (they still show on mouseover)
@@ -660,7 +660,7 @@ task(
       type: 'bool',
       value: true,
     });
-  }
+  },
 );
 
 // Last tested: 2.9.20150224-nightly
@@ -673,7 +673,7 @@ task(
       type: 'bool',
       value: false,
     });
-  }
+  },
 );
 
 // Last tested: 3.1.3
@@ -686,7 +686,7 @@ task(
       type: 'bool',
       value: true,
     });
-  }
+  },
 );
 
 // Last tested: 3.3.20190114-nightly (default: 1)
@@ -709,7 +709,7 @@ task(
       type: 'int',
       value: 1,
     });
-  }
+  },
 );
 
 // Last tested: 3.2.20180604-nightly (default: ?)
@@ -722,7 +722,7 @@ task(
       type: 'int',
       value: 2,
     });
-  }
+  },
 );
 
 // Last tested: 2.9.20150224-nightly
@@ -735,5 +735,5 @@ task(
       type: 'bool',
       value: false,
     });
-  }
+  },
 );

@@ -7,7 +7,7 @@ import {isJSONValue} from './types/JSONValue.js';
  */
 export default function assert(
   condition: unknown,
-  message?: string
+  message?: string,
 ): asserts condition {
   if (!condition) {
     throw new Error(`assert(): ${message || 'assertion failed'}`);
@@ -16,11 +16,11 @@ export default function assert(
 
 assert.JSONArray = function (
   value: unknown,
-  message?: string
+  message?: string,
 ): asserts value is Array<JSONValue> {
   assert(
     Array.isArray(value) && value.every(isJSONValue),
-    message || 'Expected value to be a JSON array'
+    message || 'Expected value to be a JSON array',
   );
 };
 
@@ -29,14 +29,14 @@ assert.JSONArray = function (
  */
 assert.JSONObject = function (
   value: unknown,
-  message?: string
+  message?: string,
 ): asserts value is {[key: string]: JSONValue} {
   assert(
     value &&
       !Array.isArray(value) &&
       typeof value === 'object' &&
       Object.values(value).every(isJSONValue),
-    message || 'Expected value to be a JSON object'
+    message || 'Expected value to be a JSON object',
   );
 };
 

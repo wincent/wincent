@@ -14,7 +14,7 @@ test('merge() merges two objects with non-overlapping keys', () => {
 
 test('merge() merges two objects with overlapping keys', () => {
   expect(
-    merge({example: 'obj', more: 'things'}, {more: 'stuff', and: true})
+    merge({example: 'obj', more: 'things'}, {more: 'stuff', and: true}),
   ).toEqual({example: 'obj', more: 'stuff', and: true});
 });
 
@@ -28,8 +28,8 @@ test('merge() deep-merges objects', () => {
   expect(
     merge(
       {thing: true, nested: {prop: 'value'}},
-      {thing: true, nested: {other: false}}
-    )
+      {thing: true, nested: {other: false}},
+    ),
   ).toEqual({
     thing: true,
     nested: {

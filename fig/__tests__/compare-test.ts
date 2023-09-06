@@ -78,7 +78,7 @@ describe('compare()', () => {
 
       expect(diff.path).toEqual(path);
       expect(diff.error!.message).toMatch(
-        /Cannot stat ".+" because parent ".+" does not exist/
+        /Cannot stat ".+" because parent ".+" does not exist/,
       );
     });
   });

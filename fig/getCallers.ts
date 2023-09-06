@@ -7,7 +7,7 @@ export default function getCallers(): Array<string> {
   try {
     Error.prepareStackTrace = (
       _error: Error,
-      callsites: Array<NodeJS.CallSite>
+      callsites: Array<NodeJS.CallSite>,
     ): Array<NodeJS.CallSite> => {
       return callsites;
     };

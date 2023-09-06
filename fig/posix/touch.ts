@@ -10,7 +10,7 @@ type Options = {
 
 export default async function touch(
   path: string,
-  options: Options = {}
+  options: Options = {},
 ): Promise<Error | null> {
   const passphrase = options.sudo ? await Context.sudoPassphrase : undefined;
 

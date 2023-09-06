@@ -22,7 +22,7 @@ export default async function command(
     notify?: Array<string> | string;
     raw?: boolean;
     sudo?: boolean;
-  } = {}
+  } = {},
 ): Promise<Result | null> {
   const description = [executable, ...args].join(' ');
 
@@ -42,7 +42,7 @@ export default async function command(
 
   try {
     await log.debug(
-      `Run command \`${description}\` with options: ${stringify(options)}`
+      `Run command \`${description}\` with options: ${stringify(options)}`,
     );
 
     if (Context.options.check) {
@@ -57,7 +57,7 @@ export default async function command(
           chdir: options.chdir ? path(options.chdir).expand : undefined,
           env: options.env,
           passphrase: options.sudo ? await Context.sudoPassphrase : undefined,
-        }
+        },
       );
 
       if (

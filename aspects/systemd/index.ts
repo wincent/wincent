@@ -39,7 +39,7 @@ task(
       src: path.aspect.join('files', unit),
       state: 'link',
     });
-  }
+  },
 );
 
 task(
@@ -54,7 +54,7 @@ task(
       src: path.aspect.join('files', unit),
       state: 'link',
     });
-  }
+  },
 );
 
 handler('systemd daemon-reload', async () => {

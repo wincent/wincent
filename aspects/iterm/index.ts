@@ -19,7 +19,7 @@ task('create directories', async () => {
 
 task('link Dynamic Profiles', async () => {
   const profiles = path.home.join(
-    'Library/Application Support/iTerm2/DynamicProfiles'
+    'Library/Application Support/iTerm2/DynamicProfiles',
   );
 
   for (const src of resource.files('DynamicProfiles/*.json')) {
@@ -52,7 +52,7 @@ task('set up switchable symbolic links', async () => {
 
   const sources = path.home.join('Library/Application Support/iTerm2/Sources');
   const profiles = path.home.join(
-    'Library/Application Support/iTerm2/DynamicProfiles'
+    'Library/Application Support/iTerm2/DynamicProfiles',
   );
 
   for (const config of retina) {

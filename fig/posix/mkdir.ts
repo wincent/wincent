@@ -12,7 +12,7 @@ type Options = {
 
 export default async function mkdir(
   path: string,
-  options: Options = {}
+  options: Options = {},
 ): Promise<Error | null> {
   const args = [path];
 

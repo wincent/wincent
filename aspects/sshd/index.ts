@@ -20,7 +20,7 @@ task(
       regexp: /^(?:\s*#\s*)?StreamLocalBindUnlink\b/,
       sudo: true,
     });
-  }
+  },
 );
 
 task('activate sshd', async () => {

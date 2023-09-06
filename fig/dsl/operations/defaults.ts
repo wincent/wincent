@@ -67,7 +67,7 @@ export default async function defaults({
 
     if (type === 'array-add' && (!Array.isArray(value) || !value.length)) {
       throw new Error(
-        'Must provide a non-empty array value if `type` is "array-add"'
+        'Must provide a non-empty array value if `type` is "array-add"',
       );
     }
 
@@ -78,7 +78,7 @@ export default async function defaults({
         !Object.keys(value).length)
     ) {
       throw new Error(
-        'Must provide a non-empty object value if `type` is "dict-add"'
+        'Must provide a non-empty object value if `type` is "dict-add"',
       );
     }
   }
@@ -175,7 +175,7 @@ export default async function defaults({
   await log.debug(
     `${description} current type = ${
       currentType ?? 'unset'
-    }, current value = ${stringify(currentValue)}`
+    }, current value = ${stringify(currentValue)}`,
   );
 
   if (state === 'absent') {
@@ -211,7 +211,7 @@ export default async function defaults({
         typeAndValue = ['-bool', valueToString(value)];
       } else if (type === 'dict-add') {
         assert(
-          value && Object.prototype.toString.call(value) === '[object Object]'
+          value && Object.prototype.toString.call(value) === '[object Object]',
         );
 
         typeAndValue = [
@@ -246,7 +246,7 @@ export default async function defaults({
 
       return await Context.informChanged(
         `set ${description} ${stringify(value)}`,
-        notify
+        notify,
       );
     }
   }
@@ -281,7 +281,7 @@ export function equal(
     | string
     | Array<boolean | number | string>
     | {[key: string]: boolean | number | string},
-  desiredType: 'array-add' | 'bool' | 'dict-add' | 'float' | 'int' | 'string'
+  desiredType: 'array-add' | 'bool' | 'dict-add' | 'float' | 'int' | 'string',
 ): boolean {
   if (
     currentType === 'unknown' ||
@@ -309,7 +309,7 @@ export function equal(
       assert(
         currentValue &&
           typeof currentValue === 'object' &&
-          !Array.isArray(currentValue)
+          !Array.isArray(currentValue),
       );
       assert(typeof desiredValue === 'object');
 
@@ -351,7 +351,7 @@ export function equal(
  * Returns `undefined` if the `defaults` output cannot be parsed.
  */
 export function parseArray(
-  value: string
+  value: string,
 ): Array<boolean | number | string> | undefined {
   const scanner = new Scanner(value);
 
@@ -413,7 +413,7 @@ export function parseArray(
  * Returns `undefined` if the `defaults` output cannot be parsed.
  */
 export function parseDictionary(
-  value: string
+  value: string,
 ): {[key: string]: boolean | number | string} | undefined {
   const scanner = new Scanner(value);
 

@@ -130,7 +130,7 @@ task('create spell file', async () => {
     ['-u', 'NONE', '-N', '-c', `mkspell! ${spellfile} | quit`],
     {
       creates: `${spellfile}.spl`,
-    }
+    },
   );
 });
 

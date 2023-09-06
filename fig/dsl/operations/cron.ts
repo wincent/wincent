@@ -101,7 +101,7 @@ export default async function cron({
         '---- Begin new crontab contents ----',
         crontab,
         '----  End new crontab contents  ----',
-      ].join('\n')
+      ].join('\n'),
     );
 
     if (Context.options.check) {
@@ -205,7 +205,7 @@ const WEEKDAYS = new Set(['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']);
 
 export function validate(
   field: 'day' | 'hour' | 'minute' | 'month' | 'weekday',
-  value: string
+  value: string,
 ) {
   if (
     (field === 'month' && MONTHS.has(value.toLowerCase())) ||
@@ -218,7 +218,7 @@ export function validate(
 
   for (const range of subfields) {
     const match = range.match(
-      /^(?:\*|(?<first>\d+)(?:-(?<last>\d+))?)(?:\/(?<step>\d+))?$/
+      /^(?:\*|(?<first>\d+)(?:-(?<last>\d+))?)(?:\/(?<step>\d+))?$/,
     );
 
     if (match && match.groups) {

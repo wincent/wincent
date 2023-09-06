@@ -16,7 +16,7 @@ type Predicate = () => true | string;
 export default function task(
   name: string,
   predicate: Predicate,
-  callback: Callback
+  callback: Callback,
 ): void;
 
 /**
@@ -27,7 +27,7 @@ export default function task(name: string, callback: Callback): void;
 export default function task(
   name: string,
   callbackOrPredicate: Callback | Predicate,
-  callback?: Callback
+  callback?: Callback,
 ) {
   const aspect = getAspectFromCallers(getCallers());
   assertAspect(aspect);
@@ -44,7 +44,7 @@ export default function task(
           await skip(result);
         } else {
           throw new Error(
-            'task(): expected predicate to return `true` or a string'
+            'task(): expected predicate to return `true` or a string',
           );
         }
       } else {
@@ -54,6 +54,6 @@ export default function task(
         }
       }
     },
-    `${aspect} | ${name}`
+    `${aspect} | ${name}`,
   );
 }

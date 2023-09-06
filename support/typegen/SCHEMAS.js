@@ -106,7 +106,7 @@ export default {
                 return [`${platform}.${distribution}`, REF.Platform];
               }),
             ];
-          })
+          }),
         ),
       },
       profiles: {

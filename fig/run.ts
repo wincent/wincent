@@ -24,7 +24,7 @@ export type Result = {
 export default async function run(
   command: string,
   args: Array<string>,
-  options: Options = {}
+  options: Options = {},
 ): Promise<Result> {
   return new Promise((resolve) => {
     const prompt = `sudo[${randomBytes(16).toString('hex')}]:`;

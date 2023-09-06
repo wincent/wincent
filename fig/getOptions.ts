@@ -31,7 +31,7 @@ export type Options = {
 const {bold} = COLORS;
 
 export default async function getOptions(
-  args: Array<string>
+  args: Array<string>,
 ): Promise<Options> {
   const options: Options = {
     check: false,
@@ -102,7 +102,7 @@ export default async function getOptions(
           ...options.startAt.literal.split(/\s+/).map(escapeRegExpPattern),
           '',
         ].join('.*'),
-        'i'
+        'i',
       );
     } else if (arg === '--step') {
       options.step = true;
@@ -111,8 +111,8 @@ export default async function getOptions(
     } else if (arg.startsWith('-')) {
       throw new ErrorWithMetadata(
         `unrecognized argument ${stringify(
-          arg
-        )} - pass "--help" to see allowed options`
+          arg,
+        )} - pass "--help" to see allowed options`,
       );
     } else if (arg.startsWith('^') || arg.startsWith('!')) {
       const sliced = arg.slice(1);
@@ -122,8 +122,8 @@ export default async function getOptions(
       } catch {
         throw new ErrorWithMetadata(
           `unrecognized aspect ${stringify(
-            sliced
-          )} - pass "--help" to see full list`
+            sliced,
+          )} - pass "--help" to see full list`,
         );
       }
     } else {
@@ -133,8 +133,8 @@ export default async function getOptions(
       } catch {
         throw new ErrorWithMetadata(
           `unrecognized aspect ${stringify(
-            arg
-          )} - pass "--help" to see full list`
+            arg,
+          )} - pass "--help" to see full list`,
         );
       }
     }
@@ -164,7 +164,7 @@ async function printUsage(aspects: Array<[string, string]>) {
            --step
 
       ${bold`Aspects:`}
-    `
+    `,
   );
 
   for (const [aspect, description] of aspects) {

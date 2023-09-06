@@ -99,7 +99,7 @@ export default class VariableRegistry {
       // We throw here because `variables()` is supposed to be called at most
       // once per aspect.
       throw new Error(
-        `Dynamic variables have already been registered for aspect ${aspect}`
+        `Dynamic variables have already been registered for aspect ${aspect}`,
       );
     }
 

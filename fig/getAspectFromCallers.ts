@@ -7,7 +7,7 @@ import {default as root} from './dsl/root.js';
 import type {Aspect} from './types/Project.js';
 
 export default function getAspectFromCallers(
-  callers: Array<string>
+  callers: Array<string>,
 ): Aspect | null {
   for (const caller of callers) {
     if (caller.startsWith('file://')) {

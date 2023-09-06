@@ -78,7 +78,7 @@ function path(...components: Array<string>): Path {
     join: {
       value: (...components: Array<string>) => {
         return path(
-          normalize(join(string, ...components.map((c) => c.toString())))
+          normalize(join(string, ...components.map((c) => c.toString()))),
         );
       },
     },

@@ -27,7 +27,7 @@ export default class HandlerRegistry {
 
     if (this.#callbacks.get(aspect)!.has(name)) {
       throw new Error(
-        `Handler has already be registered with name ${name} for aspect ${aspect}`
+        `Handler has already be registered with name ${name} for aspect ${aspect}`,
       );
     }
 

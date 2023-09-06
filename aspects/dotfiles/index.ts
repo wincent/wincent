@@ -82,7 +82,7 @@ task('check for decrypted files', when('wincent'), async () => {
 
     if (pending.length) {
       log.warn(
-        `git-cipher files not yet decrypted:\n\n${pending.join('\n')}\n`
+        `git-cipher files not yet decrypted:\n\n${pending.join('\n')}\n`,
       );
 
       if (!(await prompt.confirm('Continue anyway'))) {

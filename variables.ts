@@ -27,7 +27,7 @@ const variables = {
       // fire-and-forget on it because: (a) This should be rare; (b) I don't
       // want to make variable look-up async too.
       log.warn(
-        `Bad hostname ${hostname} (numeric) produces invalid hostHandle "${handle}"`
+        `Bad hostname ${hostname} (numeric) produces invalid hostHandle "${handle}"`,
       );
     }
 

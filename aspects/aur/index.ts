@@ -56,7 +56,7 @@ task(
       src: '/usr/share/clipper/clipper.service',
       state: 'file',
     });
-  }
+  },
 );
 
 task('set up sensors', when('arch'), async () => {

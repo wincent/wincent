@@ -252,7 +252,7 @@ export function deepCopy(item) {
  */
 export function visit(item, path, updater) {
   const match = path.match(
-    /^(?<root>\$)|\.(?<child>\w+)|\[(?<slice>.+?)\]|(?<done>$)/
+    /^(?<root>\$)|\.(?<child>\w+)|\[(?<slice>.+?)\]|(?<done>$)/,
   );
   const {
     groups: {root, child, slice},
@@ -311,7 +311,7 @@ function applyExemptions(profile) {
       if (conditions) {
         if (
           conditions.some(
-            (condition) => condition.type === 'frontmost_application_if'
+            (condition) => condition.type === 'frontmost_application_if',
           )
         ) {
           return conditions;
@@ -320,7 +320,7 @@ function applyExemptions(profile) {
       } else {
         return [exemptions];
       }
-    }
+    },
   );
 }
 

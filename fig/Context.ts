@@ -66,7 +66,7 @@ class Context {
 
   async informChanged(
     message: string,
-    notify?: Array<string> | string
+    notify?: Array<string> | string,
   ): Promise<OperationResult> {
     this.#counts.changed++;
 
@@ -136,7 +136,7 @@ class Context {
       task: string;
       variables: Variables;
     },
-    callback: () => Promise<void>
+    callback: () => Promise<void>,
   ) {
     this.#variables.registerFinalVariables(aspect, variables);
     this.#currentTask.set(aspect, task);
@@ -205,7 +205,7 @@ class Context {
             return result.stdout;
           } else {
             throw new Error(
-              `sudoPassphrase(): failed with status ${result.status}, error: ${result.error}`
+              `sudoPassphrase(): failed with status ${result.status}, error: ${result.error}`,
             );
           }
         });

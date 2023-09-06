@@ -30,7 +30,7 @@ task('install Homebrew', async () => {
       'Please run:\n' +
       '\n' +
       '    vendor/homebrew/install.sh\n' +
-      '\n'
+      '\n',
   );
   const answer = await prompt.confirm('Confirm that Homebrew is installed');
 
