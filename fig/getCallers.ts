@@ -19,12 +19,12 @@ export default function getCallers(): Array<string> {
     return stack
       .slice(2)
       .map((frame) => frame.getFileName())
-      .filter(nonNull);
+      .filter(nonNullish);
   } finally {
     Error.prepareStackTrace = prepareStackTrace;
   }
 }
 
-function nonNull(element: string | null): element is string {
-  return element !== null;
+function nonNullish(element: string | null | undefined): element is string {
+  return element != null;
 }
