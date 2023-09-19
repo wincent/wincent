@@ -161,7 +161,7 @@ function () {
   # nested sudo shells but $TERM will.
   local TMUXING=$([[ "$TERM" =~ "tmux" ]] && echo tmux)
   if [ -n "$TMUXING" -a -n "$TMUX" ]; then
-    # In a a tmux session created in a non-root or root shell.
+    # In a tmux session created in a non-root or root shell.
     local LVL=$(($SHLVL - 1))
   elif [ -n "$XAUTHORITY" ]; then
     # Probably in X on Linux.
