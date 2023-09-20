@@ -2,8 +2,6 @@
 # Settings
 #
 
-set color256
-
 # Would be nice to have equivalent of ranger's "set draw_borders separators"
 # (drawbox is too much).
 # set drawbox
