@@ -19,7 +19,7 @@ case $(file --brief --mime-type "$FILE") in
       # https://github.com/charmbracelet/glow/issues/440
       glow -s dark --width "$WIDTH" "$FILE"
     else
-      highlight --force --out-format=ansi -- "$FILE"
+      chroma -- "$FILE"
     fi
     ;;
   *)
