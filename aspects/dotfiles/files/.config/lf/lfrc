@@ -3,8 +3,16 @@
 #
 
 # Would be nice to have equivalent of ranger's "set draw_borders separators"
-# (drawbox is too much).
-# set drawbox
+# (drawbox is too much); feature requested here:
+# https://github.com/gokcehan/lf/issues/1438
+set drawbox
+
+# Turn off cursor in preview pane as it's not super useful:
+# https://github.com/gokcehan/lf/pull/1072#issuecomment-1369146998
+set cursorpreviewfmt ""
+
+# Make parent cursor a bit less strident, to make it obvious focus isn't there.
+set cursorparentfmt "\033[7;90m"
 
 set incsearch
 
@@ -12,12 +20,18 @@ set nodirfirst
 
 set previewer ~/.config/lf/pv.sh
 
-# Two columns.
-set ratios 3:4
+# Three columns.
+set ratios 1:2:3
 
 #
 # Mappings
 #
+
+# Make Ctrl-Z work: https://github.com/gokcehan/lf/wiki/Tips#put-lf-into-background
+map <c-z> $ kill -STOP $PPID
+
+# Toggle display of invisible files/directories.
+map i set hidden!
 
 # Muscle memory (from vim-vinegar): - = updir
 map - updir
