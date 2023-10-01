@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ -n "$GIT_COMMITTER_DATE" -a -n "$GIT_COMMITTER_DATE" ]; then
+	gpg --faked-system-time "$GIT_COMMITTER_DATE" "$@"
+else
+	gpg "$@"
+fi
