@@ -294,7 +294,7 @@ function tw() {
   local TZ=$(date +%z)
   local HUMAN=$(strftime %c $(($TS $TZ * 36)))
   echo "Spawning subshell with timestamp: $TS $TZ ($HUMAN $TZ)"
-  env GIT_AUTHOR_DATE="$TS $TZ" GIT_COMMITTER_DATE="$TS $TZ" zsh
+  env GIT_AUTHOR_DATE="$TS $TZ" GIT_COMMITTER_DATE="$TS $TZ" TW="$*" zsh
 }
 
 # "tick" by incrementing GIT_AUTHOR_DATE and GIT_COMMITTER_DATE.
@@ -315,5 +315,6 @@ function tick() {
     echo "Bumping timestamp to: $TS $TZ ($HUMAN $TZ)"
     export GIT_AUTHOR_DATE="$TS $TZ"
     export GIT_COMMITTER_DATE="$TS $TZ"
+    export TW="$*"
   fi
 }

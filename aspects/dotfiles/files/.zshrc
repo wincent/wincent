@@ -155,33 +155,6 @@ function +vi-git-untracked() {
 RPROMPT_BASE="\${vcs_info_msg_0_}%F{blue}%~%f"
 setopt PROMPT_SUBST
 
-# Anonymous function to avoid leaking variables.
-function () {
-  # Check for tmux by looking at $TERM, because $TMUX won't be propagated to any
-  # nested sudo shells but $TERM will.
-  local TMUXING=$([[ "$TERM" =~ "tmux" ]] && echo tmux)
-  if [ -n "$TMUXING" -a -n "$TMUX" ]; then
-    # In a tmux session created in a non-root or root shell.
-    local LVL=$(($SHLVL - 1))
-  elif [ -n "$XAUTHORITY" ]; then
-    # Probably in X on Linux.
-    local LVL=$(($SHLVL - 2))
-  else
-    # Either in a root shell created inside a non-root tmux session,
-    # or not in a tmux session.
-    local LVL=$SHLVL
-  fi
-  local SUFFIX='%(!.%F{yellow}%n%f.)%(!.%F{yellow}.%F{red})'$(printf '\u276f%.0s' {1..$LVL})'%f'
-
-  export PS1="%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%B%1~%b%F{yellow}%B%(1j.*.)%(?..!)%b%f %B${SUFFIX}%b "
-  if [[ -n "$TMUXING" ]]; then
-    # Outside tmux, ZLE_RPROMPT_INDENT ends up eating the space after PS1, and
-    # prompt still gets corrupted even if we add an extra space to compensate.
-    export ZLE_RPROMPT_INDENT=0
-  fi
-}
-
-export RPROMPT=$RPROMPT_BASE
 export SPROMPT="zsh: correct %F{red}'%R'%f to %F{red}'%r'%f [%B%Uy%u%bes, %B%Un%u%bo, %B%Ue%u%bdit, %B%Ua%u%bbort]? "
 
 #
@@ -395,7 +368,47 @@ function -record-start-time() {
 }
 add-zsh-hook preexec -record-start-time
 
-function -report-start-time() {
+function -update-ps1() {
+  # Check for tmux by looking at $TERM, because $TMUX won't be propagated to any
+  # nested sudo shells but $TERM will.
+  local TMUXING=$([[ "$TERM" =~ "tmux" ]] && echo tmux)
+  if [ -n "$TMUXING" -a -n "$TMUX" ]; then
+    # In a tmux session created in a non-root or root shell.
+    local LVL=$(($SHLVL - 1))
+  elif [ -n "$XAUTHORITY" ]; then
+    # Probably in X on Linux.
+    local LVL=$(($SHLVL - 2))
+  else
+    # Either in a root shell created inside a non-root tmux session,
+    # or not in a tmux session.
+    local LVL=$SHLVL
+  fi
+
+  # %F{green}, %F{blue}, %F{yellow} = change foreground color
+  # %f = turn off foreground color
+  # %n = $USER
+  # %m = hostname up to first "."
+  # %B = bold on, %b = bold off
+  # %1~ = show 1 trailing component of working directory, or "~" if is is $HOME
+  # %(1j.*.) = "*" if the number of jobs is at least 1
+  # %(?..!) = "!" if the exit status of the last command was not 0
+  # %(!.%F{yellow}%n%f.) = if root (!) show yellow $USER, otherwise nothing.
+  # $(!.%F{yellow}.%F{red})$(printf ...) = show one ❯ per $LVL (red for root, otherwise yellow)
+  if [ -n "$GIT_COMMITTER_DATE" -a -n "$GIT_AUTHOR_DATE" -a -n "$TW" ]; then
+    # Show last `tw` or `tick` step.
+    export PS1="%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%B%1~%b%F{yellow}%B(${TW})%(1j.*.)%(?..!)%b%f %B%(!.%F{yellow}%n%f.)%(!.%F{yellow}.%F{red})$(printf '\u276f%.0s' {1..$LVL})%f%b "
+  else
+    export PS1="%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%B%1~%b%F{yellow}%B%(1j.*.)%(?..!)%b%f %B%(!.%F{yellow}%n%f.)%(!.%F{yellow}.%F{red})$(printf '\u276f%.0s' {1..$LVL})%f%b "
+  fi
+  if [[ -n "$TMUXING" ]]; then
+    # Outside tmux, ZLE_RPROMPT_INDENT ends up eating the space after PS1, and
+    # prompt still gets corrupted even if we add an extra space to compensate.
+    export ZLE_RPROMPT_INDENT=0
+  fi
+}
+add-zsh-hook precmd -update-ps1
+
+function -update-rprompt() {
   emulate -L zsh
   if [ $ZSH_START_TIME ]; then
     local DELTA=$(($SECONDS - $ZSH_START_TIME))
@@ -421,7 +434,7 @@ function -report-start-time() {
     export RPROMPT="$RPROMPT_BASE"
   fi
 }
-add-zsh-hook precmd -report-start-time
+add-zsh-hook precmd -update-rprompt
 
 add-zsh-hook precmd bounce
 
