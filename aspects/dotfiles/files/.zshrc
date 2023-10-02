@@ -331,7 +331,7 @@ function -update-window-title-precmd() {
     # the history. Show $PWD.
     -set-tab-and-window-title "$(basename $PWD)"
   else
-    local LAST=$(history | tail -1 | awk '{print $2}')
+    local LAST=$(fc -l -1 | awk '{print $2}')
     if [ -n "$TMUX" ]; then
       # Inside tmux, just show the last command: tmux will prefix it with the
       # session name (for context).
