@@ -201,6 +201,11 @@ autoload -U select-word-style
 select-word-style bash # only alphanumeric chars are considered WORDCHARS
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# For speed:
+# https://github.com/zsh-users/zsh-autosuggestions#disabling-automatic-widget-re-binding
+ZSH_AUTOSUGGEST_MANUAL_REBIND=1
+
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=59'
 ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd completion)
 
