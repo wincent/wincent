@@ -274,7 +274,7 @@ function -set-tab-and-window-title() {
 # $HISTCMD (the current history event number) is shared across all shells
 # (due to SHARE_HISTORY). Maintain this local variable to count the number of
 # commands run in this specific shell.
-HISTCMD_LOCAL=0
+__WINCENT[HISTCMD_LOCAL]=0
 
 function -forkless-basename() {
   emulate -L zsh
@@ -284,7 +284,7 @@ function -forkless-basename() {
 # Executed before displaying prompt.
 function -update-window-title-precmd() {
   emulate -L zsh
-  if [[ HISTCMD_LOCAL -eq 0 ]]; then
+  if [[ __WINCENT[HISTCMD_LOCAL] -eq 0 ]]; then
     # About to display prompt for the first time; nothing interesting to show in
     # the history. Show $PWD.
     -set-tab-and-window-title "$(-forkless-basename)"
@@ -307,7 +307,7 @@ add-zsh-hook precmd -update-window-title-precmd
 function -update-window-title-preexec() {
   emulate -L zsh
   setopt EXTENDED_GLOB
-  HISTCMD_LOCAL=$((++HISTCMD_LOCAL))
+  __WINCENT[HISTCMD_LOCAL]=$((++__WINCENT[HISTCMD_LOCAL]))
 
   # Show first distinctive word of command; mostly stolen from:
   #
