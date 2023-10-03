@@ -284,12 +284,14 @@ function -forkless-basename() {
 # Executed before displaying prompt.
 function -update-window-title-precmd() {
   emulate -L zsh
+  setopt EXTENDED_GLOB
   if [[ __WINCENT[HISTCMD_LOCAL] -eq 0 ]]; then
     # About to display prompt for the first time; nothing interesting to show in
     # the history. Show $PWD.
     -set-tab-and-window-title "$(-forkless-basename)"
   else
-    local LAST=$(fc -l -1 | awk '{print $2}')
+    local LAST=$(fc -l -1)
+    LAST="${LAST[(w)2]}"
     if [ -n "$TMUX" ]; then
       # Inside tmux, just show the last command: tmux will prefix it with the
       # session name (for context).
