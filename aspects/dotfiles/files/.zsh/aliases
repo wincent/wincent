@@ -24,7 +24,7 @@ alias lock='xautolock -locknow'
 alias nlua='rlwrap ~/code/neovim/.deps/usr/bin/luajit'
 alias o='git oneline'
 alias p='git patch'
-alias prettyjson='python -m json.tool'
+alias json='python3 -m json.tool'
 alias oo='git oneline -10'
 alias s=ssh
 alias sudo='sudo '
@@ -62,7 +62,7 @@ alias -g H="|head"
 
 # Pretty-print JSON.
 # Mnemonic: "[J]SON"
-alias -g J="|python -m json.tool"
+alias -g J="|python3 -m json.tool"
 
 # Mnemonic: "[L]ess"
 alias -g L="|less"
