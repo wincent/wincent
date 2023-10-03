@@ -304,10 +304,23 @@ function -update-window-title-preexec() {
   setopt EXTENDED_GLOB
   HISTCMD_LOCAL=$((++HISTCMD_LOCAL))
 
-  # Skip ENV=settings, sudo, ssh; show first distinctive word of command;
-  # mostly stolen from:
+  # Show first distinctive word of command; mostly stolen from:
+  #
   #   https://github.com/robbyrussell/oh-my-zsh/blob/master/lib/termsupport.zsh
-  local TRIMMED="${2[(wr)^(*=*|mosh|ssh|sudo)]}"
+  #
+  # Via `man zshall`, $2, passed into a preexec function:
+  #
+  #     the second argument is a single-line, size-limited version of the
+  #     command (with things like function bodies elided)
+  #
+  # - Due to EXTENDED_GLOB, $2 will be expanded as follows.
+  # - `[(wr)...]` is for array manipulation ([w]ord split, and [r]emove).
+  # - `^` exclude patterns.
+  # - `*=*` will remove env vars (eg. `foo=bar`, anything containing an "=").
+  # - `mosh`/`ssh`/`sudo` get removed too.
+  # - `-*` removes anything starting with a hyphen.
+  # - `:gs/%/%%` ensures that any "%" (rare) gets escaped as "%%".
+  local TRIMMED="${2[(wr)^(*=*|mosh|ssh|sudo|-*)]:gs/%/%%}"
   if [ -n "$TMUX" ]; then
     # Inside tmux, show the running command: tmux will prefix it with the
     # session name (for context).
