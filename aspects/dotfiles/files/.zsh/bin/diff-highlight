@@ -1,4 +1,10 @@
 #!/usr/bin/perl
+#
+# Makes tabs visible in Git diffs.
+#
+# See: https://github.com/wincent/wincent/commit/7c6447bcb3dd12f0202cc037aab9f9cf2abcf3bc
+#
+
 package DiffHighlight;
 
 use 5.008;
