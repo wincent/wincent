@@ -276,13 +276,18 @@ function -set-tab-and-window-title() {
 # commands run in this specific shell.
 HISTCMD_LOCAL=0
 
+function -forkless-basename() {
+  emulate -L zsh
+  echo "${PWD##*/}"
+}
+
 # Executed before displaying prompt.
 function -update-window-title-precmd() {
   emulate -L zsh
   if [[ HISTCMD_LOCAL -eq 0 ]]; then
     # About to display prompt for the first time; nothing interesting to show in
     # the history. Show $PWD.
-    -set-tab-and-window-title "$(basename $PWD)"
+    -set-tab-and-window-title "$(-forkless-basename)"
   else
     local LAST=$(fc -l -1 | awk '{print $2}')
     if [ -n "$TMUX" ]; then
@@ -291,7 +296,7 @@ function -update-window-title-precmd() {
       -set-tab-and-window-title "$LAST"
     else
       # Outside tmux, show $PWD (for context) followed by the last command.
-      -set-tab-and-window-title "$(basename $PWD) > $LAST"
+      -set-tab-and-window-title "$(-forkless-basename) > $LAST"
     fi
   fi
 }
@@ -327,7 +332,7 @@ function -update-window-title-preexec() {
     -set-tab-and-window-title "$TRIMMED"
   else
     # Outside tmux, show $PWD (for context) followed by the running command.
-    -set-tab-and-window-title "$(basename $PWD) > $TRIMMED"
+    -set-tab-and-window-title "$(-forkless-basename) > $TRIMMED"
   fi
 }
 add-zsh-hook preexec -update-window-title-preexec
