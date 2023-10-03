@@ -1,9 +1,0 @@
-#!/bin/bash
-
-CONTEXT=$(cd $(dirname "$BASH_SOURCE"); pwd)
-
-source "${CONTEXT}/.common.bash"
-
-echo "$(red '"git zip" is deprecated in favor of "git sync"')"
-
-exec git sync "$@"
