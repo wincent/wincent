@@ -175,9 +175,8 @@ source ~/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 # https://superuser.com/a/1494647/322531
 HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
 
-# Uncomment this to get syntax highlighting:
 # NOTE: must come after select-word-style.
-# source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #
 # Bindings
