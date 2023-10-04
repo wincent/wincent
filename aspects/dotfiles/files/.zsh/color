@@ -48,11 +48,34 @@ color() {
   local BASE16_CONFIG_PREVIOUS="${__WINCENT[BASE16_CONFIG]}.previous"
   local STATUS=0
 
+  # Helper function to extract a hex value (eg. "abc0123") from a color scheme
+  # and avoid forking:
+  #
+  #     $(grep ... | cut ... | sed ...)
+  #
+  # by instead using Zsh parameter expansion.
+  __extract() {
+    local COLOR=$1
+    local FILE=$2
+    local HEX=$(grep "${COLOR}=" "$FILE")
+
+    # Remove up to and including first ".
+    HEX=${HEX#*\"}
+
+    # Remove after and including last ".
+    HEX=${HEX%\"*}
+
+    # Remove slashes.
+    HEX=${HEX//\//}
+
+    echo $HEX
+  }
+
   __color() {
     SCHEME=$1
     local FILE="$BASE16_DIR/base16-$SCHEME.sh"
     if [[ -e "$FILE" ]]; then
-      local BG=$(grep color_background= "$FILE" | cut -d \" -f2 | sed -e 's#/##g')
+      local BG=$(__extract color_background "$FILE")
       local LUMA=$(luma "$BG")
       local LIGHT=$((LUMA > 127.5))
       local BACKGROUND=dark
@@ -77,7 +100,7 @@ color() {
       )
 
       if [ -n "$TMUX" ]; then
-        local CC=$(grep color18= "$FILE" | cut -d \" -f2 | sed -e 's#/##g')
+        local CC=$(__extract color18 "$FILE")
         if [ -n "$BG" -a -n "$CC" ]; then
           command tmux set -a window-active-style "bg=#$BG"
           command tmux set -a window-style "bg=#$CC"
@@ -148,6 +171,7 @@ color() {
   esac
 
   unfunction __color
+  unfunction __extract
   return $STATUS
 }
 
