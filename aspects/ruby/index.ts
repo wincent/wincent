@@ -3,7 +3,7 @@ import {command, helpers, task} from 'fig';
 const {is} = helpers;
 
 task('install gems', async () => {
-  const gems = ['ripper-tags'];
+  const gems = [];
 
   if (is('darwin')) {
     gems.push('prefnerd');

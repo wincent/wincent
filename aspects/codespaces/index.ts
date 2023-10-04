@@ -62,18 +62,6 @@ task('install skim', async () => {
   });
 });
 
-task('run ripper-tags', async () => {
-  const stats = await stat('/workspaces/github');
-  if (stats === null) {
-    await skip('no repo exists');
-  } else {
-    await command('ripper-tags', ['-R', '--exclude=vendor'], {
-      creates: '/workspaces/github/tags',
-      chdir: '/workspaces/github',
-    });
-  }
-});
-
 handler('send HUP to sshd', async () => {
   await command('pkill', ['-HUP', '-F', '/var/run/sshd.pid'], {
     failedWhen: () => false,

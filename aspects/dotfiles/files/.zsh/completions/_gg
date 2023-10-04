@@ -22,7 +22,6 @@ case "$state" in
       "serve:Run the server"
       "server:Run the server"
       "serviceowners:Regenerate serviceowners files"
-      "tags:Update tags file"
       "tail:Tail the Codespace post-start log"
       "test:Run tests"
     )

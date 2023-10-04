@@ -1,3 +1,0 @@
-#!/bin/zsh
-
-ripper-tags -R --exclude=vendor
