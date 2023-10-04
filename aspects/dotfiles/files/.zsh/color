@@ -19,9 +19,9 @@ luma() {
   fi
 
   # Extract hex channels from background color (RRGGBB).
-  local COLOR_HEX_RED=$(echo "$COLOR_HEX" | cut -c 1-2)
-  local COLOR_HEX_GREEN=$(echo "$COLOR_HEX" | cut -c 3-4)
-  local COLOR_HEX_BLUE=$(echo "$COLOR_HEX" | cut -c 5-6)
+  local COLOR_HEX_RED="${COLOR_HEX[1,2]}"
+  local COLOR_HEX_GREEN="${COLOR_HEX[3,4]}"
+  local COLOR_HEX_BLUE="${COLOR_HEX[5,6]}"
 
   # Convert hex colors to decimal.
   local COLOR_DEC_RED=$((16#$COLOR_HEX_RED))
