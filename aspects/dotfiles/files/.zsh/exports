@@ -14,23 +14,6 @@ else
   export EDITOR=vim
 fi
 
-case "$(uname)" in
-  Darwin*)
-    if [ -x /usr/libexec/java_home ]; then
-      if /usr/libexec/java_home &> /dev/null ; then
-        if /usr/libexec/java_home -v1.8.0 &> /dev/null; then
-          export JAVA_HOME=$(/usr/libexec/java_home -v1.8.0)
-        else
-          export JAVA_HOME=$(/usr/libexec/java_home)
-        fi
-      fi
-    fi
-    ;;
-  Linux*)
-    export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
-    ;;
-esac
-
 # usually this means running on a machine with a statically-linked, hand-built
 # tmux (and ncurses)
 if [ -d "$HOME/share/terminfo" ]; then
