@@ -86,10 +86,6 @@ if command -v gem &> /dev/null; then
   done
 fi
 
-if command -v yarn &> /dev/null; then
-  append_to PATH "$(yarn global bin)"
-fi
-
 prepend_to PATH /usr/local/bin
 prepend_to PATH /usr/local/sbin
 prepend_to PATH /usr/local/opt/srm/bin
