@@ -99,14 +99,21 @@ color() {
         ln -sf colors/base16-$SCHEME-256.conf colors.conf 2> /dev/null
       )
 
-      if [ -n "$TMUX" ]; then
-        local CC=$(__extract color18 "$FILE")
-        if [ -n "$BG" -a -n "$CC" ]; then
+      local CC=$(__extract color18 "$FILE")
+      if [ -n "$BG" -a -n "$CC" ]; then
+        if [ -n "$TMUX" ]; then
           command tmux set -a window-active-style "bg=#$BG"
           command tmux set -a window-style "bg=#$CC"
           command tmux set -g pane-active-border-style "bg=#$CC"
           command tmux set -g pane-border-style "bg=#$CC"
         fi
+
+        cat <<EOF > ~/.config/tmux/colors.conf
+set -a window-active-style "bg=#$BG"
+set -a window-style "bg=#$CC"
+set -g pane-active-border-style "bg=#$CC"
+set -g pane-border-style "bg=#$CC"
+EOF
       fi
     else
       echo "Scheme '$SCHEME' not found in $BASE16_DIR"
@@ -178,15 +185,18 @@ color() {
 function () {
   emulate -L zsh
 
-  if [[ -s "$__WINCENT[BASE16_CONFIG]" ]]; then
-    local SCHEME=$(head -1 "$__WINCENT[BASE16_CONFIG]")
-    local BACKGROUND=$(sed -n -e '2 p' "$__WINCENT[BASE16_CONFIG]")
-    if [ "$BACKGROUND" != 'dark' -a "$BACKGROUND" != 'light' ]; then
-      echo "warning: unknown background type in $__WINCENT[BASE16_CONFIG]"
+  if [[ $SHLVL -eq 1 || ! -s ~/.config/tmux/colors.conf ]]; then
+    # New terminal window, or haven't written tmux config yet.
+    if [[ -s "$__WINCENT[BASE16_CONFIG]" ]]; then
+      local SCHEME=$(head -1 "$__WINCENT[BASE16_CONFIG]")
+      local BACKGROUND=$(sed -n -e '2 p' "$__WINCENT[BASE16_CONFIG]")
+      if [ "$BACKGROUND" != 'dark' -a "$BACKGROUND" != 'light' ]; then
+        echo "warning: unknown background type in $__WINCENT[BASE16_CONFIG]"
+      fi
+      color "$SCHEME"
+    else
+      # Default.
+      color bright
     fi
-    color "$SCHEME"
-  else
-    # Default.
-    color bright
   fi
 }

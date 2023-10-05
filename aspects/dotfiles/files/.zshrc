@@ -1,4 +1,21 @@
 #
+# Start profiling (uncomment when necessary)
+#
+# See: https://stackoverflow.com/a/4351664/2103996
+
+# Per-command profiling:
+
+# zmodload zsh/datetime
+# setopt promptsubst
+# PS4='+$EPOCHREALTIME %N:%i> '
+# exec 3>&2 2> startlog.$$
+# setopt xtrace prompt_subst
+
+# Per-function profiling:
+
+# zmodload zsh/zprof
+
+#
 # Global
 #
 
@@ -552,3 +569,16 @@ if [ -e /etc/motd ]; then
     tee $HOME/.hushlogin < /etc/motd
   fi
 fi
+
+#
+# End profiling (uncomment when necessary)
+#
+
+# Per-command profiling:
+
+# unsetopt xtrace
+# exec 2>&3 3>&-
+
+# Per-function profiling:
+
+# zprof
