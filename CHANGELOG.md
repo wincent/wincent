@@ -1,5 +1,9 @@
 # Changelog
 
+## 2023-10-06
+
+- Switched default color scheme to "classic-dark".
+
 ## 2021-11-11
 
 - [Nvim] Switched to [zen-mode.nvim](https://github.com/folke/zen-mode.nvim) (from [goyo.vim](https://github.com/junegunn/goyo.vim)).

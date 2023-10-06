@@ -28,7 +28,7 @@ local check = function()
       end
     else -- default
       vim.opt.background = 'dark'
-      vim.cmd('colorscheme base16-bright')
+      vim.cmd('colorscheme base16-classic-dark')
     end
 
     local dark = vim.o.background == 'dark'

@@ -8,4 +8,4 @@ let maplocalleader="\\"
 filetype indent plugin on
 syntax on
 
-color base16-bright
+color base16-classic-dark

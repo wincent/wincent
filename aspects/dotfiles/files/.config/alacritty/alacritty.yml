@@ -170,49 +170,48 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
-# Base16 Default Dark 256 - alacritty color config
-# Chris Kempson (https://github.com/chriskempson)
-# From: https://github.com/aarowill/base16-alacritty/blob/master/colors/base16-bright-256.yml
+# Base16 Classic Dark 256 - alacritty color config
+# Jason Heeris (http://heeris.id.au)
 colors:
   # Default colors
   primary:
-    background: '0x000000'
-    foreground: '0xe0e0e0'
+    background: '0x151515'
+    foreground: '0xd0d0d0'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '0x000000'
-    cursor: '0xe0e0e0'
+    text: '0x151515'
+    cursor: '0xd0d0d0'
 
   # Normal colors
   normal:
-    black:   '0x000000'
-    red:     '0xfb0120'
-    green:   '0xa1c659'
-    yellow:  '0xfda331'
-    blue:    '0x6fb3d2'
-    magenta: '0xd381c3'
-    cyan:    '0x76c7b7'
-    white:   '0xe0e0e0'
+    black:   '0x151515'
+    red:     '0xac4142'
+    green:   '0x90a959'
+    yellow:  '0xf4bf75'
+    blue:    '0x6a9fb5'
+    magenta: '0xaa759f'
+    cyan:    '0x75b5aa'
+    white:   '0xd0d0d0'
 
   # Bright colors
   bright:
-    black:   '0xb0b0b0'
-    red:     '0xfb0120'
-    green:   '0xa1c659'
-    yellow:  '0xfda331'
-    blue:    '0x6fb3d2'
-    magenta: '0xd381c3'
-    cyan:    '0x76c7b7'
-    white:   '0xffffff'
+    black:   '0x505050'
+    red:     '0xac4142'
+    green:   '0x90a959'
+    yellow:  '0xf4bf75'
+    blue:    '0x6a9fb5'
+    magenta: '0xaa759f'
+    cyan:    '0x75b5aa'
+    white:   '0xf5f5f5'
 
   indexed_colors:
-    - { index: 16, color: '0xfc6d24' }
-    - { index: 17, color: '0xbe643c' }
-    - { index: 18, color: '0x303030' }
-    - { index: 19, color: '0x505050' }
-    - { index: 20, color: '0xd0d0d0' }
-    - { index: 21, color: '0xf5f5f5' }
+    - { index: 16, color: '0xd28445' }
+    - { index: 17, color: '0x8f5536' }
+    - { index: 18, color: '0x202020' }
+    - { index: 19, color: '0x303030' }
+    - { index: 20, color: '0xb0b0b0' }
+    - { index: 21, color: '0xe0e0e0' }
 
 # Visual Bell
 #

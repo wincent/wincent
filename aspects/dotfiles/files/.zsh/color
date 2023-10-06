@@ -146,7 +146,7 @@ EOF
   case "$SCHEME" in
   help)
     echo 'color                                          (show current scheme)'
-    echo 'color bright|default-dark|grayscale-light|...  (switch to scheme)'
+    echo 'color bright|classic-dark|grayscale-dark|...   (switch to scheme)'
     echo 'color help                                     (show this help)'
     echo 'color ls [pattern]                             (list available schemes)'
     echo 'color rand [-q/--quiet] [pattern]              (choose a random scheme)'
@@ -196,7 +196,7 @@ function () {
       color "$SCHEME"
     else
       # Default.
-      color bright
+      color classic-dark
     fi
   fi
 }
