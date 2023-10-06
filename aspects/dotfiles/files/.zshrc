@@ -470,8 +470,17 @@ if [ -f "$HOME/.zsh/zsh-async/async.zsh" ]; then
     local stdout=$3
     local more=$6
     if [[ $job == '[async]' ]]; then
-      if [[ $return_code -eq 2 ]]; then
+      if [[ $return_code -eq 1 ]]; then
+        # Corrupt worker output.
+        return
+      elif [[ $return_code -eq 2 || $return_code -eq 3 || $return_code -eq 130 ]]; then
+        # 2 = ZLE watcher detected an error on the worker fd.
+        # 3 = Response from async_job when worker is missing.
+        # 130 = Async worker crashed, this should not happen but it can mean the
+        # file descriptor has become corrupt.
+        #
         # Restart worker.
+        async_stop_worker vcs_info
         -start-async-vcs-info-worker
         return
       fi
