@@ -1,5 +1,4 @@
-import {command, file, handler, line, path, skip, task, variable} from 'fig';
-import stat from 'fig/fs/stat.js';
+import {command, file, handler, line, path, task, variable} from 'fig';
 
 task(
   'set "StreamLocalBindUnlink yes" in /etc/ssh/sshd_config (HUP)',
