@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Atelier Sulphurpool Light scheme by Bram de Haan (http://atelierbramdehaan.nl)
+export BASE16_THEME=atelier-sulphurpool-light
 
 color00="f5/f7/ff" # Base 00 - Black
 color01="c9/49/22" # Base 08 - Red

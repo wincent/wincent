@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Rebecca scheme by Victor Borja (http://github.com/vic) based on Rebecca Theme (http://github.com/vic/rebecca-theme)
+export BASE16_THEME=rebecca
 
 color00="29/2a/44" # Base 00 - Black
 color01="a0/a0/c5" # Base 08 - Red

@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Atelier Forest scheme by Bram de Haan (http://atelierbramdehaan.nl)
+export BASE16_THEME=atelier-forest
 
 color00="1b/19/18" # Base 00 - Black
 color01="f2/2c/40" # Base 08 - Red

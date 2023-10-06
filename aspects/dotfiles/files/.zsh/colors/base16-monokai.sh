@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Monokai scheme by Wimer Hazenberg (http://www.monokai.nl)
+export BASE16_THEME=monokai
 
 color00="27/28/22" # Base 00 - Black
 color01="f9/26/72" # Base 08 - Red

@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Material Palenight scheme by Nate Peterson
+export BASE16_THEME=material-palenight
 
 color00="29/2D/3E" # Base 00 - Black
 color01="F0/71/78" # Base 08 - Red

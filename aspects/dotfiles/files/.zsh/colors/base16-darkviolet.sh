@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Dark Violet scheme by ruler501 (https://github.com/ruler501/base16-darkviolet)
+export BASE16_THEME=darkviolet
 
 color00="00/00/00" # Base 00 - Black
 color01="a8/2e/e6" # Base 08 - Red

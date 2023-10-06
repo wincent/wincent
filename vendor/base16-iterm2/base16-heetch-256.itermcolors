@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
     Base16 Heetch Dark-256
-    Template: Chris Kempson, Scheme: Geoffrey Teale (tealeg@gmail.com)
+    Scheme author: Geoffrey Teale (tealeg@gmail.com)
+    Template author: Tinted Theming (https://github.com/tinted-theming)
     semanticClass: theme.base16.heetch
 -->
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">

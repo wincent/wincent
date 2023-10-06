@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Black Metal (Burzum) scheme by metalelf0 (https://github.com/metalelf0)
+export BASE16_THEME=black-metal-burzum
 
 color00="00/00/00" # Base 00 - Black
 color01="5f/87/87" # Base 08 - Red

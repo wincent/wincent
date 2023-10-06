@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Atlas scheme by Alex Lende (https://ajlende.com)
+export BASE16_THEME=atlas
 
 color00="00/26/35" # Base 00 - Black
 color01="ff/5a/67" # Base 08 - Red

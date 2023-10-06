@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Mocha scheme by Chris Kempson (https://github.com/chriskempson)
+export BASE16_THEME=mocha
 
 color00="3B/32/28" # Base 00 - Black
 color01="cb/60/77" # Base 08 - Red

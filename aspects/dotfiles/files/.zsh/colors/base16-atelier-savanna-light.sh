@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Atelier Savanna Light scheme by Bram de Haan (http://atelierbramdehaan.nl)
+export BASE16_THEME=atelier-savanna-light
 
 color00="ec/f4/ee" # Base 00 - Black
 color01="b1/61/39" # Base 08 - Red

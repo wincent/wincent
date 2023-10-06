@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Marrakesh scheme by Alexandre Gavioli (http://github.com/Alexx2/)
+export BASE16_THEME=marrakesh
 
 color00="20/16/02" # Base 00 - Black
 color01="c3/53/59" # Base 08 - Red

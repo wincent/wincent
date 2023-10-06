@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Nord scheme by arcticicestudio
+export BASE16_THEME=nord
 
 color00="2E/34/40" # Base 00 - Black
 color01="BF/61/6A" # Base 08 - Red

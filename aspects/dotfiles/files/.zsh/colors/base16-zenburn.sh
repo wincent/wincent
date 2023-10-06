@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Zenburn scheme by elnawe
+export BASE16_THEME=zenburn
 
 color00="38/38/38" # Base 00 - Black
 color01="dc/a3/a3" # Base 08 - Red

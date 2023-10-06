@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # iA Light scheme by iA Inc. (modified by aramisgithub)
+export BASE16_THEME=ia-light
 
 color00="f6/f6/f6" # Base 00 - Black
 color01="9c/5a/02" # Base 08 - Red

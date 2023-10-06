@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Cupcake scheme by Chris Kempson (https://github.com/chriskempson)
+export BASE16_THEME=cupcake
 
 color00="fb/f1/f2" # Base 00 - Black
 color01="D5/7E/85" # Base 08 - Red

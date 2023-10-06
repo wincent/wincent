@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Mexico Light scheme by Sheldon Johnson
+export BASE16_THEME=mexico-light
 
 color00="f8/f8/f8" # Base 00 - Black
 color01="ab/46/42" # Base 08 - Red

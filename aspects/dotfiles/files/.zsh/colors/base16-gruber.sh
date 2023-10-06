@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Gruber scheme by Patel, Nimai <nimai.m.patel@gmail.com>, colors from www.github.com/rexim/gruber-darker-theme
+export BASE16_THEME=gruber
 
 color00="18/18/18" # Base 00 - Black
 color01="f4/38/41" # Base 08 - Red

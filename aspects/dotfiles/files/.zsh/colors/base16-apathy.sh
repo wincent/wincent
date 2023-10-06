@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Apathy scheme by Jannik Siebert (https://github.com/janniks)
+export BASE16_THEME=apathy
 
 color00="03/1A/16" # Base 00 - Black
 color01="3E/96/88" # Base 08 - Red

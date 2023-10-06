@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Cupertino scheme by Defman21
+export BASE16_THEME=cupertino
 
 color00="ff/ff/ff" # Base 00 - Black
 color01="c4/1a/15" # Base 08 - Red

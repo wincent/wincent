@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Macintosh scheme by Rebecca Bettencourt (http://www.kreativekorp.com)
+export BASE16_THEME=macintosh
 
 color00="00/00/00" # Base 00 - Black
 color01="dd/09/07" # Base 08 - Red

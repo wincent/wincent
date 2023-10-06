@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # London Tube scheme by Jan T. Sott
+export BASE16_THEME=tube
 
 color00="23/1f/20" # Base 00 - Black
 color01="ee/2e/24" # Base 08 - Red

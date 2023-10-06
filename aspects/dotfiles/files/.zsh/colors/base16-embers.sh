@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Embers scheme by Jannik Siebert (https://github.com/janniks)
+export BASE16_THEME=embers
 
 color00="16/13/0F" # Base 00 - Black
 color01="82/6D/57" # Base 08 - Red

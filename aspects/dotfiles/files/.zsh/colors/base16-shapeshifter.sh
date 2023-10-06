@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Shapeshifter scheme by Tyler Benziger (http://tybenz.com)
+export BASE16_THEME=shapeshifter
 
 color00="f9/f9/f9" # Base 00 - Black
 color01="e9/2f/2f" # Base 08 - Red

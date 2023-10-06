@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Espresso scheme by Unknown. Maintained by Alex Mirrington (https://github.com/alexmirrington)
+export BASE16_THEME=espresso
 
 color00="2d/2d/2d" # Base 00 - Black
 color01="d2/52/52" # Base 08 - Red

@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Qualia scheme by isaacwhanson
+export BASE16_THEME=qualia
 
 color00="10/10/10" # Base 00 - Black
 color01="EF/A6/A2" # Base 08 - Red

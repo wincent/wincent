@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Chalk scheme by Chris Kempson (https://github.com/chriskempson)
+export BASE16_THEME=chalk
 
 color00="15/15/15" # Base 00 - Black
 color01="fb/9f/b1" # Base 08 - Red

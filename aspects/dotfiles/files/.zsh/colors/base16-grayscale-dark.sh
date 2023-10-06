@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Grayscale Dark scheme by Alexandre Gavioli (https://github.com/Alexx2/)
+export BASE16_THEME=grayscale-dark
 
 color00="10/10/10" # Base 00 - Black
 color01="7c/7c/7c" # Base 08 - Red

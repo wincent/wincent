@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Railscasts scheme by Ryan Bates (http://railscasts.com)
+export BASE16_THEME=railscasts
 
 color00="2b/2b/2b" # Base 00 - Black
 color01="da/49/39" # Base 08 - Red

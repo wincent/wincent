@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Helios scheme by Alex Meyer (https://github.com/reyemxela)
+export BASE16_THEME=helios
 
 color00="1d/20/21" # Base 00 - Black
 color01="d7/26/38" # Base 08 - Red

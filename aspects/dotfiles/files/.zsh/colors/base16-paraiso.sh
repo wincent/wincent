@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Paraiso scheme by Jan T. Sott
+export BASE16_THEME=paraiso
 
 color00="2f/1e/2e" # Base 00 - Black
 color01="ef/61/55" # Base 08 - Red

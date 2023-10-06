@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Synth Midnight Terminal Dark scheme by Michaël Ball (http://github.com/michael-ball/)
+export BASE16_THEME=synth-midnight-dark
 
 color00="05/06/08" # Base 00 - Black
 color01="b5/3b/50" # Base 08 - Red

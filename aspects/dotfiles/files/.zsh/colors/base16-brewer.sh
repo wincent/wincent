@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Brewer scheme by Timothée Poisot (http://github.com/tpoisot)
+export BASE16_THEME=brewer
 
 color00="0c/0d/0e" # Base 00 - Black
 color01="e3/1a/1c" # Base 08 - Red

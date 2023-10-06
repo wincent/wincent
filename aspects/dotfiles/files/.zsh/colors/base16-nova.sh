@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Nova scheme by George Essig (https://github.com/gessig), Trevor D. Miller (https://trevordmiller.com)
+export BASE16_THEME=nova
 
 color00="3C/4C/55" # Base 00 - Black
 color01="83/AF/E5" # Base 08 - Red

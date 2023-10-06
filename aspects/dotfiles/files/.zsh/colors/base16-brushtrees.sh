@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Brush Trees scheme by Abraham White <abelincoln.white@gmail.com>
+export BASE16_THEME=brushtrees
 
 color00="E3/EF/EF" # Base 00 - Black
 color01="b3/86/86" # Base 08 - Red

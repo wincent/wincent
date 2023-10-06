@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Windows 95 Light scheme by Fergus Collins (https://github.com/C-Fergus)
+export BASE16_THEME=windows-95-light
 
 color00="fc/fc/fc" # Base 00 - Black
 color01="a8/00/00" # Base 08 - Red

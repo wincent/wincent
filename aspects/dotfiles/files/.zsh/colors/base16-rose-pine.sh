@@ -1,30 +1,31 @@
 #!/bin/sh
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
-# Rosé Pine scheme by Emilia Dunfelt <sayhi@dunfelt.se>
+# Rosé Pine scheme by Emilia Dunfelt <edun@dunfelt.se>
+export BASE16_THEME=rose-pine
 
 color00="19/17/24" # Base 00 - Black
-color01="e2/e1/e7" # Base 08 - Red
-color02="eb/bc/ba" # Base 0B - Green
-color03="f6/c1/77" # Base 0A - Yellow
-color04="9c/cf/d8" # Base 0D - Blue
-color05="c4/a7/e7" # Base 0E - Magenta
-color06="31/74/8f" # Base 0C - Cyan
+color01="eb/6f/92" # Base 08 - Red
+color02="31/74/8f" # Base 0B - Green
+color03="eb/bc/ba" # Base 0A - Yellow
+color04="c4/a7/e7" # Base 0D - Blue
+color05="f6/c1/77" # Base 0E - Magenta
+color06="9c/cf/d8" # Base 0C - Cyan
 color07="e0/de/f4" # Base 05 - White
-color08="55/51/69" # Base 03 - Bright Black
+color08="6e/6a/86" # Base 03 - Bright Black
 color09=$color01 # Base 08 - Bright Red
 color10=$color02 # Base 0B - Bright Green
 color11=$color03 # Base 0A - Bright Yellow
 color12=$color04 # Base 0D - Bright Blue
 color13=$color05 # Base 0E - Bright Magenta
 color14=$color06 # Base 0C - Bright Cyan
-color15="c5/c3/ce" # Base 07 - Bright White
-color16="eb/6f/92" # Base 09
-color17="e5/e5/e5" # Base 0F
+color15="52/4f/67" # Base 07 - Bright White
+color16="f6/c1/77" # Base 09
+color17="52/4f/67" # Base 0F
 color18="1f/1d/2e" # Base 01
 color19="26/23/3a" # Base 02
-color20="6e/6a/86" # Base 04
-color21="f0/f0/f3" # Base 06
+color20="90/8c/aa" # Base 04
+color21="e0/de/f4" # Base 06
 color_foreground="e0/de/f4" # Base 05
 color_background="19/17/24" # Base 00
 

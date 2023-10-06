@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Heetch Dark scheme by Geoffrey Teale (tealeg@gmail.com)
+export BASE16_THEME=heetch
 
 color00="19/01/34" # Base 00 - Black
 color01="27/D9/D5" # Base 08 - Red

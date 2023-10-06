@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Classic Light scheme by Jason Heeris (http://heeris.id.au)
+export BASE16_THEME=classic-light
 
 color00="F5/F5/F5" # Base 00 - Black
 color01="AC/41/42" # Base 08 - Red

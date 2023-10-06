@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Framer scheme by Framer (Maintained by Jesse Hoyos)
+export BASE16_THEME=framer
 
 color00="18/18/18" # Base 00 - Black
 color01="FD/88/6B" # Base 08 - Red

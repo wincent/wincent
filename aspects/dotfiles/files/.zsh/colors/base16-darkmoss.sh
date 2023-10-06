@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # darkmoss scheme by Gabriel Avanzi (https://github.com/avanzzzi)
+export BASE16_THEME=darkmoss
 
 color00="17/1e/1f" # Base 00 - Black
 color01="ff/46/58" # Base 08 - Red

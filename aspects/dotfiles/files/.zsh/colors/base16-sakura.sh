@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Sakura scheme by Misterio77 (http://github.com/Misterio77)
+export BASE16_THEME=sakura
 
 color00="fe/ed/f3" # Base 00 - Black
 color01="df/2d/52" # Base 08 - Red

@@ -17,36 +17,36 @@ endif
 " GUI color definitions
 let s:gui00        = "262626"
 let g:base16_gui00 = "262626"
-let s:gui01        = "303030"
-let g:base16_gui01 = "303030"
-let s:gui02        = "333333"
-let g:base16_gui02 = "333333"
-let s:gui03        = "6C6C6C"
-let g:base16_gui03 = "6C6C6C"
-let s:gui04        = "787878"
-let g:base16_gui04 = "787878"
-let s:gui05        = "BCBCBC"
-let g:base16_gui05 = "BCBCBC"
-let s:gui06        = "C9C9C9"
-let g:base16_gui06 = "C9C9C9"
-let s:gui07        = "FFFFFF"
-let g:base16_gui07 = "FFFFFF"
-let s:gui08        = "5F8787"
-let g:base16_gui08 = "5F8787"
+let s:gui01        = "AF5F5F"
+let g:base16_gui01 = "AF5F5F"
+let s:gui02        = "5F875F"
+let g:base16_gui02 = "5F875F"
+let s:gui03        = "87875F"
+let g:base16_gui03 = "87875F"
+let s:gui04        = "5F87AF"
+let g:base16_gui04 = "5F87AF"
+let s:gui05        = "5F5F87"
+let g:base16_gui05 = "5F5F87"
+let s:gui06        = "5F8787"
+let g:base16_gui06 = "5F8787"
+let s:gui07        = "6C6C6C"
+let g:base16_gui07 = "6C6C6C"
+let s:gui08        = "444444"
+let g:base16_gui08 = "444444"
 let s:gui09        = "FF8700"
 let g:base16_gui09 = "FF8700"
-let s:gui0A        = "5F8787"
-let g:base16_gui0A = "5F8787"
-let s:gui0B        = "87AF87"
-let g:base16_gui0B = "87AF87"
-let s:gui0C        = "5F875F"
-let g:base16_gui0C = "5F875F"
-let s:gui0D        = "FFFFAF"
-let g:base16_gui0D = "FFFFAF"
-let s:gui0E        = "87AFD7"
-let g:base16_gui0E = "87AFD7"
-let s:gui0F        = "5F87AF"
-let g:base16_gui0F = "5F87AF"
+let s:gui0A        = "87AF87"
+let g:base16_gui0A = "87AF87"
+let s:gui0B        = "FFFFAF"
+let g:base16_gui0B = "FFFFAF"
+let s:gui0C        = "87AFD7"
+let g:base16_gui0C = "87AFD7"
+let s:gui0D        = "8787AF"
+let g:base16_gui0D = "8787AF"
+let s:gui0E        = "5FAFAF"
+let g:base16_gui0E = "5FAFAF"
+let s:gui0F        = "BCBCBC"
+let g:base16_gui0F = "BCBCBC"
 
 " Terminal color definitions
 let s:cterm00        = "00"
@@ -100,21 +100,21 @@ endif
 " Neovim terminal colours
 if has("nvim")
   let g:terminal_color_0 =  "#262626"
-  let g:terminal_color_1 =  "#5F8787"
-  let g:terminal_color_2 =  "#87AF87"
-  let g:terminal_color_3 =  "#5F8787"
-  let g:terminal_color_4 =  "#FFFFAF"
-  let g:terminal_color_5 =  "#87AFD7"
-  let g:terminal_color_6 =  "#5F875F"
-  let g:terminal_color_7 =  "#BCBCBC"
-  let g:terminal_color_8 =  "#6C6C6C"
-  let g:terminal_color_9 =  "#5F8787"
-  let g:terminal_color_10 = "#87AF87"
-  let g:terminal_color_11 = "#5F8787"
-  let g:terminal_color_12 = "#FFFFAF"
-  let g:terminal_color_13 = "#87AFD7"
-  let g:terminal_color_14 = "#5F875F"
-  let g:terminal_color_15 = "#FFFFFF"
+  let g:terminal_color_1 =  "#444444"
+  let g:terminal_color_2 =  "#FFFFAF"
+  let g:terminal_color_3 =  "#87AF87"
+  let g:terminal_color_4 =  "#8787AF"
+  let g:terminal_color_5 =  "#5FAFAF"
+  let g:terminal_color_6 =  "#87AFD7"
+  let g:terminal_color_7 =  "#5F5F87"
+  let g:terminal_color_8 =  "#87875F"
+  let g:terminal_color_9 =  "#444444"
+  let g:terminal_color_10 = "#FFFFAF"
+  let g:terminal_color_11 = "#87AF87"
+  let g:terminal_color_12 = "#8787AF"
+  let g:terminal_color_13 = "#5FAFAF"
+  let g:terminal_color_14 = "#87AFD7"
+  let g:terminal_color_15 = "#6C6C6C"
   let g:terminal_color_background = g:terminal_color_0
   let g:terminal_color_foreground = g:terminal_color_5
   if &background == "light"
@@ -124,21 +124,21 @@ if has("nvim")
 elseif has("terminal")
   let g:terminal_ansi_colors = [
         \ "#262626",
-        \ "#5F8787",
-        \ "#87AF87",
-        \ "#5F8787",
+        \ "#444444",
         \ "#FFFFAF",
+        \ "#87AF87",
+        \ "#8787AF",
+        \ "#5FAFAF",
         \ "#87AFD7",
-        \ "#5F875F",
-        \ "#BCBCBC",
+        \ "#5F5F87",
+        \ "#87875F",
+        \ "#444444",
+        \ "#FFFFAF",
+        \ "#87AF87",
+        \ "#8787AF",
+        \ "#5FAFAF",
+        \ "#87AFD7",
         \ "#6C6C6C",
-        \ "#5F8787",
-        \ "#87AF87",
-        \ "#5F8787",
-        \ "#FFFFAF",
-        \ "#87AFD7",
-        \ "#5F875F",
-        \ "#FFFFFF",
         \ ]
 endif
 

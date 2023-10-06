@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Atelier Seaside Light scheme by Bram de Haan (http://atelierbramdehaan.nl)
+export BASE16_THEME=atelier-seaside-light
 
 color00="f4/fb/f4" # Base 00 - Black
 color01="e6/19/3c" # Base 08 - Red

@@ -2,6 +2,7 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # OceanicNext scheme by https://github.com/voronianski/oceanic-next-color-scheme
+export BASE16_THEME=oceanicnext
 
 color00="1B/2B/34" # Base 00 - Black
 color01="EC/5f/67" # Base 08 - Red
