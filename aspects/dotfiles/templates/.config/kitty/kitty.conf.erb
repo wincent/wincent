@@ -39,36 +39,16 @@ font_size 13.0
 #: in an RTL script, the words "HELLO WORLD" display in kitty as
 #: "WORLD HELLO", and if you try to select a substring of an RTL-
 #: shaped string, you will get the character that would be there had
-#: the the string been LTR. For example, assuming the Hebrew word
-#: ירושלים, selecting the character that on the screen appears to be ם
-#: actually writes into the selection buffer the character י.  kitty's
-#: default behavior is useful in conjunction with a filter to reverse
-#: the word order, however, if you wish to manipulate RTL glyphs, it
-#: can be very challenging to work with, so this option is provided to
-#: turn it off. Furthermore, this option can be used with the command
-#: line program GNU FriBidi
-#: <https://github.com/fribidi/fribidi#executable> to get BIDI
-#: support, because it will force kitty to always treat the text as
-#: LTR, which FriBidi expects for terminals.
-
-# adjust_line_height  0
-# adjust_column_width 0
-
-#: Change the size of each character cell kitty renders. You can use
-#: either numbers, which are interpreted as pixels or percentages
-#: (number followed by %), which are interpreted as percentages of the
-#: unmodified values. You can use negative pixels or percentages less
-#: than 100% to reduce sizes (but this might cause rendering
-#: artifacts).
-
-# adjust_baseline 0
-
-#: Adjust the vertical alignment of text (the height in the cell at
-#: which text is positioned). You can use either numbers, which are
-#: interpreted as pixels or percentages (number followed by %), which
-#: are interpreted as the percentage of the line height. A positive
-#: value moves the baseline up, and a negative value moves them down.
-#: The underline and strikethrough positions are adjusted accordingly.
+#: the string been LTR. For example, assuming the Hebrew word ירושלים,
+#: selecting the character that on the screen appears to be ם actually
+#: writes into the selection buffer the character י. kitty's default
+#: behavior is useful in conjunction with a filter to reverse the word
+#: order, however, if you wish to manipulate RTL glyphs, it can be
+#: very challenging to work with, so this option is provided to turn
+#: it off. Furthermore, this option can be used with the command line
+#: program GNU FriBidi <https://github.com/fribidi/fribidi#executable>
+#: to get BIDI support, because it will force kitty to always treat
+#: the text as LTR, which FriBidi expects for terminals.
 
 # symbol_map
 
@@ -176,12 +156,92 @@ disable_ligatures always
 
 #:     font_features UnifontMedium +isol -medi -fina -init
 
+# modify_font
+
+#: Modify font characteristics such as the position or thickness of
+#: the underline and strikethrough. The modifications can have the
+#: suffix px for pixels or % for percentage of original value. No
+#: suffix means use pts. For example::
+
+#:     modify_font underline_position -2
+#:     modify_font underline_thickness 150%
+#:     modify_font strikethrough_position 2px
+
+#: Additionally, you can modify the size of the cell in which each
+#: font glyph is rendered and the baseline at which the glyph is
+#: placed in the cell. For example::
+
+#:     modify_font cell_width 80%
+#:     modify_font cell_height -2px
+#:     modify_font baseline 3
+
+#: Note that modifying the baseline will automatically adjust the
+#: underline and strikethrough positions by the same amount.
+#: Increasing the baseline raises glyphs inside the cell and
+#: decreasing it lowers them. Decreasing the cell size might cause
+#: rendering artifacts, so use with care.
+
 # box_drawing_scale 0.001, 1, 1.5, 2
 
 #: The sizes of the lines used for the box drawing Unicode characters.
 #: These values are in pts. They will be scaled by the monitor DPI to
 #: arrive at a pixel value. There must be four values corresponding to
 #: thin, normal, thick, and very thick lines.
+
+# undercurl_style thin-sparse
+
+#: The style with which undercurls are rendered. This option takes the
+#: form (thin|thick)-(sparse|dense). Thin and thick control the
+#: thickness of the undercurl. Sparse and dense control how often the
+#: curl oscillates. With sparse the curl will peak once per character,
+#: with dense twice.
+
+# text_composition_strategy platform
+
+#: Control how kitty composites text glyphs onto the background color.
+#: The default value of platform tries for text rendering as close to
+#: "native" for the platform kitty is running on as possible.
+
+#: A value of legacy uses the old (pre kitty 0.28) strategy for how
+#: glyphs are composited. This will make dark text on light
+#: backgrounds look thicker and light text on dark backgrounds
+#: thinner. It might also make some text appear like the strokes are
+#: uneven.
+
+#: You can fine tune the actual contrast curve used for glyph
+#: composition by specifying up to two space-separated numbers for
+#: this setting.
+
+#: The first number is the gamma adjustment, which controls the
+#: thickness of dark text on light backgrounds. Increasing the value
+#: will make text appear thicker. The default value for this is 1.0 on
+#: Linux and 1.7 on macOS. Valid values are 0.01 and above. The result
+#: is scaled based on the luminance difference between the background
+#: and the foreground. Dark text on light backgrounds receives the
+#: full impact of the curve while light text on dark backgrounds is
+#: affected very little.
+
+#: The second number is an additional multiplicative contrast. It is
+#: percentage ranging from 0 to 100. The default value is 0 on Linux
+#: and 30 on macOS.
+
+#: If you wish to achieve similar looking thickness in light and dark
+#: themes, a good way to experiment is start by setting the value to
+#: 1.0 0 and use a dark theme. Then adjust the second parameter until
+#: it looks good. Then switch to a light theme and adjust the first
+#: parameter until the perceived thickness matches the dark theme.
+
+# text_fg_override_threshold 0
+
+#: The minimum accepted difference in luminance between the foreground
+#: and background color, below which kitty will override the
+#: foreground color. It is percentage ranging from 0 to 100. If the
+#: difference in luminance of the foreground and background is below
+#: this threshold, the foreground color will be set to white if the
+#: background is dark or black if the background is light. The default
+#: value is 0, which means no overriding is performed. Useful when
+#: working with applications that use colors that do not contrast well
+#: with your preferred color scheme.
 
 #: }}}
 
@@ -267,7 +327,7 @@ disable_ligatures always
 #: the scrollback buffer with pager. This separate buffer is not
 #: available for interactive scrolling but will be piped to the pager
 #: program when viewing scrollback buffer in a separate window. The
-#: current implementation stores the data in UTF-8, so approximatively
+#: current implementation stores the data in UTF-8, so approximately
 #: 10000 lines per megabyte at 100 chars per line, for pure ASCII,
 #: unformatted text. A value of zero or less disables this feature.
 #: The maximum allowed size is 4GB. Note that on config reload if this
@@ -290,7 +350,7 @@ disable_ligatures always
 # wheel_scroll_min_lines 1
 
 #: The minimum number of lines scrolled by the mouse wheel. The scroll
-#: multiplier <wheel_scroll_multiplier> only takes effect after it
+#: multiplier wheel_scroll_multiplier only takes effect after it
 #: reaches this number. Note that this is only used for low precision
 #: scrolling devices like wheel mice that scroll by very small amounts
 #: when using the wheel. With a negative number, the minimum number of
@@ -324,9 +384,11 @@ disable_ligatures always
 
 # open_url_with default
 
-#: The program to open clicked URLs. The special value default means
-#: to use the operating system's default URL handler (open on macOS
-#: and xdg-open on Linux).
+#: The program to open clicked URLs. The special value default with
+#: first look for any URL handlers defined via the open_actions
+#: <https://sw.kovidgoyal.net/kitty/open_actions/> facility and if non
+#: are found, it will use the Operating System's default URL handler
+#: (open on macOS and xdg-open on Linux).
 
 # url_prefixes file ftp ftps gemini git gopher http https irc ircs kitty mailto news sftp ssh
 
@@ -343,7 +405,17 @@ disable_ligatures always
 
 #: Additional characters to be disallowed from URLs, when detecting
 #: URLs under the mouse cursor. By default, all characters that are
-#: legal in URLs are allowed.
+#: legal in URLs are allowed. Additionally, newlines are allowed (but
+#: stripped). This is to accommodate programs such as mutt that add
+#: hard line breaks even for continued lines. \n can be added to this
+#: option to disable this behavior. Special characters can be
+#: specified using backslash escapes, to specify a backslash use a
+#: double backslash.
+
+# show_hyperlink_targets no
+
+#: When the mouse hovers over a terminal hyperlink, show the actual
+#: URL that will be activated when the hyperlink is clicked.
 
 # copy_on_select no
 
@@ -371,7 +443,7 @@ disable_ligatures always
 #:     If the text being pasted is a URL and the cursor is at a shell prompt,
 #:     automatically quote the URL (needs shell_integration).
 #: confirm:
-#:     Confirm the paste if bracketed paste mode is not active or there is more
+#:     Confirm the paste if bracketed paste mode is not active or there is
 #:     a large amount of text being pasted.
 #: filter:
 #:     Run the filter_paste() function from the file paste-actions.py in
@@ -663,6 +735,14 @@ enable_audio_bell no
 #: the operating systems sound API, such as WAV or OGA on Linux
 #: (libcanberra) or AIFF, MP3 or WAV on macOS (NSSound)
 
+# linux_bell_theme __custom
+
+#: The XDG Sound Theme kitty will use to play the bell sound. Defaults
+#: to the custom theme name used by GNOME and Budgie, falling back to
+#: the default freedesktop theme if it does not exist. This option may
+#: be removed if Linux ever provides desktop-agnostic support for
+#: setting system sound themes.
+
 #: }}}
 
 #: Window layout {{{
@@ -671,9 +751,9 @@ enable_audio_bell no
 # initial_window_width  640
 # initial_window_height 400
 
-#: If enabled, the window size will be remembered so that new
+#: If enabled, the OS Window size will be remembered so that new
 #: instances of kitty will have the same size as the previous
-#: instance. If disabled, the window will initially have size
+#: instance. If disabled, the OS Window will initially have size
 #: configured by initial_window_width/height, in pixels. You can use a
 #: suffix of "c" on the width/height values to have them interpreted
 #: as number of cells instead of pixels.
@@ -705,9 +785,9 @@ enable_audio_bell no
 # draw_minimal_borders yes
 
 #: Draw only the minimum borders needed. This means that only the
-#: borders that separate the inactive window from a neighbor are
-#: drawn. Note that setting a non-zero window_margin_width overrides
-#: this and causes all borders to be drawn.
+#: borders that separate the window from a neighbor are drawn. Note
+#: that setting a non-zero window_margin_width overrides this and
+#: causes all borders to be drawn.
 
 # window_margin_width 0
 
@@ -763,10 +843,14 @@ hide_window_decorations yes
 # hide_window_decorations no
 
 #: Hide the window decorations (title-bar and window borders) with
-#: yes. On macOS, titlebar-only can be used to only hide the titlebar.
-#: Whether this works and exactly what effect it has depends on the
-#: window manager/operating system. Note that the effects of changing
-#: this option when reloading config are undefined.
+#: yes. On macOS, titlebar-only and titlebar-and-corners can be used
+#: to only hide the titlebar and the rounded corners. Whether this
+#: works and exactly what effect it has depends on the window
+#: manager/operating system. Note that the effects of changing this
+#: option when reloading config are undefined. When using titlebar-
+#: only, it is useful to also set window_margin_width and
+#: placement_strategy to prevent the rounded corners from clipping
+#: text. Or use titlebar-and-corners.
 
 # window_logo_path none
 
@@ -789,20 +873,18 @@ hide_window_decorations yes
 #: The amount the logo should be faded into the background. With zero
 #: being fully faded and one being fully opaque.
 
-# resize_debounce_time 0.1
+# resize_debounce_time 0.1 0.5
 
-#: The time to wait before redrawing the screen when a resize event is
-#: received (in seconds). On platforms such as macOS, where the
-#: operating system sends events corresponding to the start and end of
-#: a resize, this number is ignored.
-
-# resize_draw_strategy static
-
-#: Choose how kitty draws a window while a resize is in progress. A
-#: value of static means draw the current window contents, mostly
-#: unchanged. A value of scale means draw the current window contents
-#: scaled. A value of blank means draw a blank window. A value of size
-#: means show the window size in cells.
+#: The time to wait before redrawing the screen during a live resize
+#: of the OS window, when no new resize events have been received,
+#: i.e. when resizing is either paused or finished. On platforms such
+#: as macOS, where the operating system sends events corresponding to
+#: the start and end of a live resize, the second number is used for
+#: redraw-after-pause since kitty can distinguish between a pause and
+#: end of resizing.  On such systems the first number is ignored and
+#: redraw is immediate after end of resize.  On other systems the
+#: first number is used so that kitty is "ready" quickly after the end
+#: of resizing, while not also continuously redrawing, to save energy.
 
 # resize_in_steps no
 
@@ -817,8 +899,8 @@ hide_window_decorations yes
 #: The list of characters for visual window selection. For example,
 #: for selecting a window to focus on with focus_visible_window. The
 #: value should be a series of unique numbers or alphabets, case
-#: insensitive, from the set [0-9A-Z]. Specify your preference as a
-#: string of characters.
+#: insensitive, from the set 0-9A-Z\-=[];',./\\`. Specify your
+#: preference as a string of characters.
 
 # confirm_os_window_close -1
 
@@ -875,12 +957,12 @@ tab_bar_style separator
 #:     tab_bar.py in the kitty config directory. For examples of how to
 #:     write such a function, see the functions named draw_tab_with_* in
 #:     kitty's source code: kitty/tab_bar.py. See also
-#:     this discussion https://github.com/kovidgoyal/kitty/discussions/4447
+#:     this discussion <https://github.com/kovidgoyal/kitty/discussions/4447>
 #:     for examples from kitty users.
 #: hidden
-#:     The tab bar is hidden. If you use this, you might want to create a mapping
-#:     for the select_tab action which presents you with a list of tabs and
-#:     allows for easy switching to a tab.
+#:     The tab bar is hidden. If you use this, you might want to create
+#:     a mapping for the select_tab action which presents you with a list of
+#:     tabs and allows for easy switching to a tab.
 
 # tab_bar_align left
 
@@ -928,6 +1010,11 @@ tab_separator "│"
 #: leading or trailing spaces, surround the text with quotes. See
 #: tab_title_template for how this is rendered.
 
+# tab_title_max_length 0
+
+#: The maximum number of cells that can be used to render the text in
+#: a tab. A value of zero means that no limit is applied.
+
 tab_title_template "   {fmt.fg.red}{bell_symbol}{activity_symbol}{fmt.fg.tab}{title}   "
 # tab_title_template "{fmt.fg.red}{bell_symbol}{activity_symbol}{fmt.fg.tab}{title}"
 
@@ -935,11 +1022,31 @@ tab_title_template "   {fmt.fg.red}{bell_symbol}{activity_symbol}{fmt.fg.tab}{ti
 #: title with optional symbols for bell and activity. If you wish to
 #: include the tab-index as well, use something like: {index}:{title}.
 #: Useful if you have shortcuts mapped for goto_tab N. If you prefer
-#: to see the index as a superscript, use {sup.index}. In addition you
-#: can use {layout_name} for the current layout name, {num_windows}
-#: for the number of windows in the tab and {num_window_groups} for
-#: the number of window groups (not counting overlay windows) in the
-#: tab. Note that formatting is done by Python's string formatting
+#: to see the index as a superscript, use {sup.index}. All data
+#: available is:
+
+#: title
+#:     The current tab title.
+#: index
+#:     The tab index usable with goto_tab N goto_tab shortcuts.
+#: layout_name
+#:     The current layout name.
+#: num_windows
+#:     The number of windows in the tab.
+#: num_window_groups
+#:     The number of window groups (a window group is a window and all of its overlay windows) in the tab.
+#: tab.active_wd
+#:     The working directory of the currently active window in the tab
+#:     (expensive, requires syscall). Use active_oldest_wd to get
+#:     the directory of the oldest foreground process rather than the newest.
+#: tab.active_exe
+#:     The name of the executable running in the foreground of the currently
+#:     active window in the tab (expensive, requires syscall). Use
+#:     active_oldest_exe for the oldest foreground process.
+#: max_title_length
+#:     The maximum title length available.
+
+#: Note that formatting is done by Python's string formatting
 #: machinery, so you can use, for instance, {layout_name[:2].upper()}
 #: to show only the first two letters of the layout name, upper-cased.
 #: If you want to style the text, you can use styling directives, for
@@ -981,7 +1088,9 @@ tab_bar_background #1e1a1a
 # tab_bar_margin_color none
 
 #: Color for the tab bar margin area. Defaults to using the terminal
-#: background color.
+#: background color for margins above and below the tab bar. For side
+#: margins the default color is chosen to match the background color
+#: of the neighboring tab.
 
 #: }}}
 
@@ -1007,11 +1116,26 @@ tab_bar_background #1e1a1a
 #: color in the editor color scheme. Or use the escape codes to set
 #: the terminals default colors in a shell script to launch your
 #: editor. Be aware that using a value less than 1.0 is a (possibly
-#: significant) performance hit. If you want to dynamically change
+#: significant) performance hit. When using a low value for this
+#: setting, it is desirable that you set the background color to a
+#: color the matches the general color of the desktop background, for
+#: best text rendering.  If you want to dynamically change
 #: transparency of windows, set dynamic_background_opacity to yes
 #: (this is off by default as it has a performance cost). Changing
 #: this option when reloading the config will only work if
 #: dynamic_background_opacity was enabled in the original config.
+
+# background_blur 0
+
+#: Set to a positive value to enable background blur (blurring of the
+#: visuals behind a transparent window) on platforms that support it.
+#: Only takes effect when background_opacity is less than one. On
+#: macOS, this will also control the blur radius (amount of blurring).
+#: Setting it to too high a value will cause severe performance issues
+#: and/or rendering artifacts. Usually, values up to 64 work well.
+#: Note that this might cause performance issues, depending on how the
+#: platform implements it, so use with care. Currently supported on
+#: macOS and KDE under X11.
 
 # background_image none
 
@@ -1020,7 +1144,9 @@ tab_bar_background #1e1a1a
 # background_image_layout tiled
 
 #: Whether to tile, scale or clamp the background image. The value can
-#: be one of tiled, mirror-tiled, scaled, clamped.
+#: be one of tiled, mirror-tiled, scaled, clamped, centered or
+#: cscaled. The scaled and cscaled values scale the image to the
+#: window size, with cscaled preserving the image aspect ratio.
 
 # background_image_linear no
 
@@ -1036,14 +1162,20 @@ tab_bar_background #1e1a1a
 
 # background_tint 0.0
 
-#: How much to tint the background image by the background color. The
-#: tint is applied only under the text area, not margin/borders. This
+#: How much to tint the background image by the background color. This
 #: option makes it easier to read the text. Tinting is done using the
 #: current background color for each window. This option applies only
 #: if background_opacity is set and transparent windows are supported
 #: or background_image is set.
 
-# dim_opacity 0.75
+# background_tint_gaps 1.0
+
+#: How much to tint the background image at the window gaps by the
+#: background color, after applying background_tint. Since this is
+#: multiplicative with background_tint, it can be used to lighten the
+#: tint over the window gaps for a *separated* look.
+
+# dim_opacity 0.4
 
 #: How much to dim text that has the DIM/FAINT attribute set. One
 #: means no dimming and zero means fully dimmed (i.e. invisible).
@@ -1141,7 +1273,8 @@ tab_bar_background #1e1a1a
 #: whatever shell is set as the default shell for the current user.
 #: Note that on macOS if you change this, you might need to add
 #: --login and --interactive to ensure that the shell starts in
-#: interactive mode and reads its startup rc files.
+#: interactive mode and reads its startup rc files. Environment
+#: variables are expanded in this setting.
 
 # editor .
 
@@ -1166,34 +1299,85 @@ tab_bar_background #1e1a1a
 #: background processes still using the terminal can fail silently
 #: because their stdout/stderr/stdin no longer work.
 
+# remote_control_password
+
+#: Allow other programs to control kitty using passwords. This option
+#: can be specified multiple times to add multiple passwords. If no
+#: passwords are present kitty will ask the user for permission if a
+#: program tries to use remote control with a password. A password can
+#: also *optionally* be associated with a set of allowed remote
+#: control actions. For example::
+
+#:     remote_control_password "my passphrase" get-colors set-colors focus-window focus-tab
+
+#: Only the specified actions will be allowed when using this
+#: password. Glob patterns can be used too, for example::
+
+#:     remote_control_password "my passphrase" set-tab-* resize-*
+
+#: To get a list of available actions, run::
+
+#:     kitten @ --help
+
+#: A set of actions to be allowed when no password is sent can be
+#: specified by using an empty password. For example::
+
+#:     remote_control_password "" *-colors
+
+#: Finally, the path to a python module can be specified that provides
+#: a function is_cmd_allowed that is used to check every remote
+#: control command. For example::
+
+#:     remote_control_password "my passphrase" my_rc_command_checker.py
+
+#: Relative paths are resolved from the kitty configuration directory.
+#: See rc_custom_auth <https://sw.kovidgoyal.net/kitty/remote-
+#: control/#rc-custom-auth> for details.
+
 # allow_remote_control no
 
 #: Allow other programs to control kitty. If you turn this on, other
 #: programs can control all aspects of kitty, including sending text
 #: to kitty windows, opening new windows, closing windows, reading the
 #: content of windows, etc. Note that this even works over SSH
-#: connections. You can choose to either allow any program running
-#: within kitty to control it with yes, or only allow programs that
-#: connect to the socket (specified with the listen_on config option
-#: or kitty --listen-on command line option) with the value socket-
-#: only. The latter is useful if you want to prevent programs running
-#: on a remote computer over SSH from controlling kitty. Reloading the
-#: config will not affect this option.
+#: connections. The default setting of no prevents any form of remote
+#: control. The meaning of the various values are:
+
+#: password
+#:     Remote control requests received over both the TTY device and the socket
+#:     are confirmed based on passwords, see remote_control_password.
+
+#: socket-only
+#:     Remote control requests received over a socket are accepted
+#:     unconditionally. Requests received over the TTY are denied.
+#:     See listen_on.
+
+#: socket
+#:     Remote control requests received over a socket are accepted
+#:     unconditionally. Requests received over the TTY are confirmed based on
+#:     password.
+
+#: no
+#:     Remote control is completely disabled.
+
+#: yes
+#:     Remote control requests are always accepted.
 
 # listen_on none
 
-#: Listen to the specified UNIX socket for remote control connections.
-#: Note that this will apply to all kitty instances. It can be
-#: overridden by the kitty --listen-on command line option, which
-#: supports listening on TCP socket. This option accepts only UNIX
-#: sockets, such as unix:${TEMP}/mykitty or unix:@mykitty (on Linux).
+#: Listen to the specified socket for remote control connections. Note
+#: that this will apply to all kitty instances. It can be overridden
+#: by the kitty --listen-on command line option. For UNIX sockets,
+#: such as unix:${TEMP}/mykitty or unix:@mykitty (on Linux).
 #: Environment variables are expanded and relative paths are resolved
 #: with respect to the temporary directory. If {kitty_pid} is present,
 #: then it is replaced by the PID of the kitty process, otherwise the
 #: PID of the kitty process is appended to the value, with a hyphen.
-#: This option is ignored unless you also set allow_remote_control to
-#: enable remote control. See the help for kitty --listen-on for more
-#: details. Changing this option by reloading the config is not
+#: For TCP sockets such as tcp:localhost:0 a random port is always
+#: used even if a non-zero port number is specified.  See the help for
+#: kitty --listen-on for more details. Note that this will be ignored
+#: unless allow_remote_control is set to either: yes, socket or
+#: socket-only. Changing this option by reloading the config is not
 #: supported.
 
 # env
@@ -1250,13 +1434,13 @@ tab_bar_background #1e1a1a
 # startup_session none
 
 #: Path to a session file to use for all kitty instances. Can be
-#: overridden by using the kitty --session command line option for
-#: individual instances. See sessions
-#: <https://sw.kovidgoyal.net/kitty/overview/#startup-sessions> in the
-#: kitty documentation for details. Note that relative paths are
-#: interpreted with respect to the kitty config directory. Environment
-#: variables in the path are expanded. Changing this option by
-#: reloading the config is not supported.
+#: overridden by using the kitty --session =none command line option
+#: for individual instances. See sessions
+#: <https://sw.kovidgoyal.net/kitty/overview/#sessions> in the kitty
+#: documentation for details. Note that relative paths are interpreted
+#: with respect to the kitty config directory. Environment variables
+#: in the path are expanded. Changing this option by reloading the
+#: config is not supported.
 
 # clipboard_control write-clipboard write-primary read-clipboard-ask read-primary-ask
 
@@ -1271,7 +1455,7 @@ tab_bar_background #1e1a1a
 #: remote server via SSH can read your clipboard. See also
 #: clipboard_max_size.
 
-# clipboard_max_size 64
+# clipboard_max_size 512
 
 #: The maximum size (in MB) of data from programs running in kitty
 #: that will be stored for writing to the system clipboard. A value of
@@ -1304,7 +1488,7 @@ tab_bar_background #1e1a1a
 #: disabled to turn off shell integration, completely. It is also
 #: possible to disable individual features, set to a space separated
 #: list of these values: no-rc, no-cursor, no-title, no-cwd, no-
-#: prompt-mark, no-complete. See Shell integration
+#: prompt-mark, no-complete, no-sudo. See Shell integration
 #: <https://sw.kovidgoyal.net/kitty/shell-integration/> for details.
 
 # allow_cloning ask
@@ -1337,7 +1521,7 @@ tab_bar_background #1e1a1a
 #:     KITTY_CLONE_SOURCE_PATH.
 
 #: This option must be a comma separated list of the above values.
-#: This only source the first valid one in the above order.
+#: Only the first valid match, in the order specified, is sourced.
 
 # term xterm-kitty
 
@@ -1351,6 +1535,16 @@ tab_bar_background #1e1a1a
 #: from key-presses, to colors, to various advanced features may not
 #: work. Changing this option by reloading the config will only affect
 #: newly created windows.
+
+# forward_stdio no
+
+#: Forward STDOUT and STDERR of the kitty process to child processes
+#: as file descriptors 3 and 4. This is useful for debugging as it
+#: allows child processes to print to kitty's STDOUT directly. For
+#: example, echo hello world >&3 in a shell will print to the parent
+#: kitty's STDOUT. When enabled, this also sets the
+#: KITTY_STDIO_FORWARDED=3 environment variable so child processes
+#: know about the forwarding.
 
 #: }}}
 
@@ -1408,15 +1602,16 @@ tab_bar_background #1e1a1a
 # macos_window_resizable yes
 
 #: Disable this if you want kitty top-level OS windows to not be
-#: resizable on macOS. Changing this option by reloading the config
-#: will only affect newly created OS windows.
+#: resizable on macOS.
 
 # macos_thicken_font 0
 
 #: Draw an extra border around the font with the given width, to
 #: increase legibility at small font sizes on macOS. For example, a
 #: value of 0.75 will result in rendering that looks similar to sub-
-#: pixel antialiasing at common font sizes.
+#: pixel antialiasing at common font sizes. Note that in modern kitty,
+#: this option is obsolete (although still supported). Consider using
+#: text_composition_strategy instead.
 
 # macos_traditional_fullscreen no
 
@@ -1474,10 +1669,10 @@ tab_bar_background #1e1a1a
 #: For example: a for the A key, [ for the left square bracket key,
 #: etc. For functional keys, such as Enter or Escape, the names are
 #: present at Functional key definitions
-#: <https://sw.kovidgoyal.net/kitty/keyboard-protocol/#functional-key-
-#: definitions>. For modifier keys, the names are ctrl (control, ⌃),
-#: shift (⇧), alt (opt, option, ⌥), super (cmd, command, ⌘). See also:
-#: GLFW mods <https://www.glfw.org/docs/latest/group__mods.html>
+#: <https://sw.kovidgoyal.net/kitty/keyboard-protocol/#functional>.
+#: For modifier keys, the names are ctrl (control, ⌃), shift (⇧), alt
+#: (opt, option, ⌥), super (cmd, command, ⌘). See also: GLFW mods
+#: <https://www.glfw.org/docs/latest/group__mods.html>
 
 #: On Linux you can also use XKB key names to bind keys that are not
 #: supported by GLFW. See XKB keys
@@ -1817,7 +2012,7 @@ tab_bar_background #1e1a1a
 # map kitty_mod+7 seventh_window
 # map cmd+7       seventh_window
 
-#: Eight window
+#: Eighth window
 
 # map kitty_mod+8 eighth_window
 # map cmd+8       eighth_window
@@ -1920,7 +2115,7 @@ tab_bar_background #1e1a1a
 
 #: Similarly, to switch back to the previous layout::
 
-#:    map ctrl+alt+p last_used_layout
+#:     map ctrl+alt+p last_used_layout
 
 #: There is also a toggle_layout action that switches to the named
 #: layout or back to the previous layout if in the named layout.
@@ -2037,6 +2232,10 @@ tab_bar_background #1e1a1a
 
 #: Miscellaneous {{{
 
+#: Show documentation
+
+# map kitty_mod+f1 show_kitty_doc overview
+
 #: Toggle fullscreen
 
 # map kitty_mod+f11 toggle_fullscreen
@@ -2105,19 +2304,37 @@ tab_bar_background #1e1a1a
 #::  If you want to operate on all kitty windows instead of just the
 #::  current one, use all instead of active.
 
-#::  It is also possible to remap Ctrl+L to both scroll the current
-#::  screen contents into the scrollback buffer and clear the screen,
-#::  instead of just clearing the screen, for example, for ZSH add the
-#::  following to ~/.zshrc:
+#::  Some useful functions that can be defined in the shell rc files
+#::  to perform various kinds of clearing of the current window:
+
+#::  .. code-block:: sh
+
+#::      clear-only-screen() {
+#::          printf "\e[H\e[2J"
+#::      }
+
+#::      clear-screen-and-scrollback() {
+#::          printf "\e[H\e[3J"
+#::      }
+
+#::      clear-screen-saving-contents-in-scrollback() {
+#::          printf "\e[H\e[22J"
+#::      }
+
+#::  For instance, using these escape codes, it is possible to remap
+#::  Ctrl+L to both scroll the current screen contents into the
+#::  scrollback buffer and clear the screen, instead of just clearing
+#::  the screen. For ZSH, in ~/.zshrc, add:
 
 #::  .. code-block:: zsh
 
-#::      scroll-and-clear-screen() {
-#::          printf '\n%.0s' {1..$LINES}
-#::          zle clear-screen
+#::      ctrl_l() {
+#::          builtin print -rn -- $'\r\e[0J\e[H\e[22J' >"$TTY"
+#::          builtin zle .reset-prompt
+#::          builtin zle -R
 #::      }
-#::      zle -N scroll-and-clear-screen
-#::      bindkey '^l' scroll-and-clear-screen
+#::      zle -N ctrl_l
+#::      bindkey '^l' ctrl_l
 
 #: Clear up to cursor line
 
@@ -2159,11 +2376,13 @@ tab_bar_background #1e1a1a
 #::      map ctrl+alt+a send_text all Special text
 
 #::  This will send "Special text" when you press the Ctrl+Alt+A key
-#::  combination. The text to be sent is a python string literal so
-#::  you can use escapes like \x1b to send control codes or \u21fb to
-#::  send Unicode characters (or you can just input the Unicode
-#::  characters directly as UTF-8 text). You can use `kitty +kitten
-#::  show_key` to get the key escape codes you want to emulate.
+#::  combination. The text to be sent decodes ANSI C escapes
+#::  <https://www.gnu.org/software/bash/manual/html_node/ANSI_002dC-
+#::  Quoting.html> so you can use escapes like \e to send control
+#::  codes or \u21fb to send Unicode characters (or you can just input
+#::  the Unicode characters directly as UTF-8 text). You can use
+#::  `kitten show_key` to get the key escape codes you want to
+#::  emulate.
 
 #::  The first argument to send_text is the keyboard modes in which to
 #::  activate the shortcut. The possible values are normal,
@@ -2175,14 +2394,30 @@ tab_bar_background #1e1a1a
 #::  Some more examples::
 
 #::      # Output a word and move the cursor to the start of the line (like typing and pressing Home)
-#::      map ctrl+alt+a send_text normal Word\x1b[H
-#::      map ctrl+alt+a send_text application Word\x1bOH
+#::      map ctrl+alt+a send_text normal Word\e[H
+#::      map ctrl+alt+a send_text application Word\eOH
 #::      # Run a command at a shell prompt (like typing the command and pressing Enter)
 #::      map ctrl+alt+a send_text normal,application some command with arguments\r
 
 #: Open kitty Website
 
 # map shift+cmd+/ open_url https://sw.kovidgoyal.net/kitty/
+
+#: Hide macOS kitty application
+
+# map cmd+h hide_macos_app
+
+#: Hide macOS other applications
+
+# map opt+cmd+h hide_macos_other_apps
+
+#: Minimize macOS window
+
+# map cmd+m minimize_macos_window
+
+#: Quit kitty
+
+# map cmd+q quit
 
 #: }}}
 
