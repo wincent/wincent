@@ -25,6 +25,11 @@ def obliterate_crypto_casino_links(text)
   text.gsub('(http://chriskempson.com)', '(https://github.com/chriskempson)')
 end
 
+def no_fetch?(author_and_repo)
+  return true if ENV['NO_CLONE'] == 1
+  return true if author_and_repo =~ %r{\Aaramisgithub/}
+end
+
 banner "Updating schema definitions"
 
 scheme_definitions= {}
@@ -38,7 +43,7 @@ schemes_list.each do |name, url|
       sub(%r{\.git\z}, '')
     schemes = vendor.join("base16-schemes")
     scheme_dir = schemes.join(scheme_author_and_repo)
-    unless ENV['NO_CLONE'] == 1
+    unless no_fetch?(scheme_author_and_repo)
       if scheme_dir.exist?
         puts "#{name}: updating #{scheme_author_and_repo}"
         system("git", "-C", scheme_dir.to_s, "pull")
