@@ -49,34 +49,44 @@ local winhighlight_blurred = table.concat({
 -- here because multiple autocmds can trigger "focus" or "blur" operations; this
 -- means that we can't just naively save and restore: we have to use a flag to
 -- make sure that we only capture the initial state.
-local ownsyntax = function(active)
-  local flag = vim.w[ownsyntax_flag]
+local ownsyntax = function(focussing)
+  -- true when we have captured settings.
+  local captured = vim.w[ownsyntax_flag]
 
-  if active and flag == false then
-    -- We are focussing; restore previous settings.
-    vim.cmd('ownsyntax on')
+  if focussing and vim.bo.filetype ~= '' then
+    if vim.w.current_syntax == nil then
+      -- `ownsyntax` is off.
+      vim.cmd('ownsyntax on')
+    end
 
-    vim.wo.spell = vim.w.saved_spell or false
-    vim.bo.spellcapcheck = vim.w.saved_spellcapcheck or ''
-    vim.bo.spellfile = vim.w.saved_spellfile or ''
-    vim.bo.spelllang = vim.w.saved_spelllang or 'en'
+    if captured == true then
+      vim.wo.spell = vim.w.saved_spell or false
+      vim.bo.spellcapcheck = vim.w.saved_spellcapcheck or ''
+      vim.bo.spellfile = vim.w.saved_spellfile or ''
+      vim.bo.spelllang = vim.w.saved_spelllang or 'en'
 
-    -- Set flag to show that we have restored the captured options.
-    vim.w[ownsyntax_flag] = true
-  elseif not active and vim.bo.filetype ~= '' and flag ~= false then
-    -- We are blurring; save settings for later restoration.
-    vim.w.saved_spell = vim.wo.spell
-    vim.w.saved_spellcapcheck = vim.bo.spellcapcheck
-    vim.w.saved_spellfile = vim.bo.spellfile
-    vim.w.saved_spelllang = vim.bo.spelllang
+      -- Set flag to show that we have restored the captured options.
+      vim.w[ownsyntax_flag] = true
+    end
+  elseif not focussing and vim.bo.filetype ~= '' then
+    if captured ~= true then
+      -- Save settings for later restoration.
+      vim.w.saved_spell = vim.wo.spell
+      vim.w.saved_spellcapcheck = vim.bo.spellcapcheck
+      vim.w.saved_spellfile = vim.bo.spellfile
+      vim.w.saved_spelllang = vim.bo.spelllang
 
-    vim.cmd('ownsyntax off')
+      -- Set flag to show that we have captured options.
+      vim.w[ownsyntax_flag] = false
+    end
+
+    if vim.w.current_syntax ~= nil then
+      -- `ownsyntax` is on.
+      vim.cmd('ownsyntax off')
+    end
 
     -- Suppress spelling in blurred buffer.
     vim.wo.spell = false
-
-    -- Set flag to show that we have captured options.
-    vim.w[ownsyntax_flag] = false
   end
 end
 
