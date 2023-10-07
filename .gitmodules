@@ -112,7 +112,8 @@
 	url = https://github.com/wincent/terminus.git
 [submodule "typescript-vim"]
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/typescript-vim
-	url = https://github.com/leafgarland/typescript-vim.git
+	url = https://github.com/wincent/typescript-vim.git
+	branch = wincent
 [submodule "undotree"]
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/undotree
 	url = https://github.com/mbbill/undotree.git
