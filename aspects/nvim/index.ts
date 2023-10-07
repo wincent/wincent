@@ -51,7 +51,8 @@ task('download Neovim appimage', when('debian'), async () => {
   await fetch({
     dest: '/opt/nvim/nvim.appimage',
     encoding: null,
-    url: 'https://github.com/neovim/neovim/releases/download/v0.9.1/nvim.appimage',
+    url:
+      'https://github.com/neovim/neovim/releases/download/v0.9.1/nvim.appimage',
     sudo: true,
   });
 });
@@ -78,8 +79,9 @@ const COMMAND_T_LUA = 'lua/wincent/commandt/lib';
 const COMMAND_T_RUBY = 'ruby/command-t/ext/command-t';
 
 task('compile Command-T (Lua)', async () => {
-  const bundle =
-    attributes.platform === 'darwin' ? 'commandt.bundle' : 'commandt.so';
+  const bundle = attributes.platform === 'darwin'
+    ? 'commandt.bundle'
+    : 'commandt.so';
   const base = resource.file('.config').join(COMMAND_T_BASE, COMMAND_T_LUA);
 
   await command('make', [], {
@@ -108,10 +110,12 @@ task('compile Command-T (Ruby)', async () => {
 });
 
 task('download spell files', async () => {
-  for (const url of [
-    'https://ftp.nluug.nl/pub/vim/runtime/spell/es.utf-8.spl',
-    'https://ftp.nluug.nl/pub/vim/runtime/spell/es.utf-8.sug',
-  ]) {
+  for (
+    const url of [
+      'https://ftp.nluug.nl/pub/vim/runtime/spell/es.utf-8.spl',
+      'https://ftp.nluug.nl/pub/vim/runtime/spell/es.utf-8.sug',
+    ]
+  ) {
     const dest = path('~/.config/nvim/spell').join(path(url).basename);
 
     await fetch({

@@ -2,10 +2,52 @@
 # yarn lockfile v1
 
 
+"@dprint/darwin-arm64@0.41.0":
+  version "0.41.0"
+  resolved "https://registry.yarnpkg.com/@dprint/darwin-arm64/-/darwin-arm64-0.41.0.tgz#3c06fa18546341241e9e5c3bfd5075d1096873f1"
+  integrity sha512-P9PtcQI0mrI4U6yyd+/iI664BHSqC9KTS6ogq0ptEdnLtlaWzf09D1nv6FBaHiG9m3conuBRlPsoUqt3j6PZ2w==
+
+"@dprint/darwin-x64@0.41.0":
+  version "0.41.0"
+  resolved "https://registry.yarnpkg.com/@dprint/darwin-x64/-/darwin-x64-0.41.0.tgz#5b9f72659f30e1bec3fb170c93e2b8a0e0b1d691"
+  integrity sha512-mSYnSoH0uyCkjgIWTny2DZAcaiRTe3kRWY5SeZECLGO37e+SdVg+ZjSzndhOvvEb9pv8EeBO1NJ9gHOSceT5Xw==
+
+"@dprint/linux-arm64-glibc@0.41.0":
+  version "0.41.0"
+  resolved "https://registry.yarnpkg.com/@dprint/linux-arm64-glibc/-/linux-arm64-glibc-0.41.0.tgz#323b9160b69f0dc42312e48e75f3e354f891bdc1"
+  integrity sha512-U4xWzjjO/aAct8cSSMZFhg8l1jWy6VahXh8zWjGBufwX7t3xEcxMG9RyAp/ioYSY6wl4YXAmnUHywhC+wSjDHQ==
+
+"@dprint/linux-x64-glibc@0.41.0":
+  version "0.41.0"
+  resolved "https://registry.yarnpkg.com/@dprint/linux-x64-glibc/-/linux-x64-glibc-0.41.0.tgz#bb423f89bc123eef7999ecb363f3df160733ebfc"
+  integrity sha512-wjv5l4mGns7E8i32E8FfAk45tw5O7v4NM17gtvhe6ggOiOD6quHowOH00pLfEakMLMF9y0J5ZO2hxJ/w06bXmQ==
+
+"@dprint/linux-x64-musl@0.41.0":
+  version "0.41.0"
+  resolved "https://registry.yarnpkg.com/@dprint/linux-x64-musl/-/linux-x64-musl-0.41.0.tgz#ba7c88a14e883624e38379351845157776ea6d2e"
+  integrity sha512-ZZOqiur9Xi/2uhz0Ce215VTSajAlSrduX/5k/hpIjI7Rgz22Vn77p5fmYxzWkTt/Li1zq5zboTvmGYx0QVNMrQ==
+
+"@dprint/win32-x64@0.41.0":
+  version "0.41.0"
+  resolved "https://registry.yarnpkg.com/@dprint/win32-x64/-/win32-x64-0.41.0.tgz#f9ecf982a12b2cd5d4839c03ff073884a96bd259"
+  integrity sha512-mFx6x4Hn848/D4gPbDm7g1wlnOh2SGoVF9c9HMGCuOobUU2WIBztzV4L5qlFCB3gprlS0ru9BhlMpGhrp0CBYA==
+
 "@types/node@*":
-  version "20.5.9"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.5.9.tgz#a70ec9d8fa0180a314c3ede0e20ea56ff71aed9a"
-  integrity sha512-PcGNd//40kHAS3sTlzKB9C9XL4K0sTup8nbG5lC14kzEteTNuAFh9u5nA0o5TWnSG2r/JNPRXFVcHJIIeRlmqQ==
+  version "20.8.3"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.8.3.tgz#c4ae2bb1cfab2999ed441a95c122bbbe1567a66d"
+  integrity sha512-jxiZQFpb+NlH5kjW49vXxvxTjeeqlbsnTAdBTKpzEdPs9itay7MscYXz3Fo9VYFEsfQ6LJFitHad3faerLAjCw==
+
+dprint@*:
+  version "0.41.0"
+  resolved "https://registry.yarnpkg.com/dprint/-/dprint-0.41.0.tgz#3839caa1d21adf960e7f9bbefa45a4e105d32ffd"
+  integrity sha512-9Ctv6EnwOy5Ai566DczI/QhAC6y+AhWDA2gFU8Zz4xezUy1BevHaIYhfdLWZQxh4Qf4H28lRu1Lq+hhIm1US9w==
+  optionalDependencies:
+    "@dprint/darwin-arm64" "0.41.0"
+    "@dprint/darwin-x64" "0.41.0"
+    "@dprint/linux-arm64-glibc" "0.41.0"
+    "@dprint/linux-x64-glibc" "0.41.0"
+    "@dprint/linux-x64-musl" "0.41.0"
+    "@dprint/win32-x64" "0.41.0"
 
 typescript@*:
   version "5.2.2"

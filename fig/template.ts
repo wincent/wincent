@@ -156,7 +156,6 @@ type TemplateText = {
  *    <%- if (test) { -%>
  *    something
  *    <%- } -%>
- *
  */
 export function* tokenize(input: string): Generator<Token> {
   const delimiter = /(<%#|<%=|<%-|<%|-%>|%>)/g;

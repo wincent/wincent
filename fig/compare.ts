@@ -91,9 +91,11 @@ export default async function compare({
         return diff;
       } else if (stats === null) {
         diff.error = new ErrorWithMetadata(
-          `Cannot stat ${stringify(path)} because parent ${stringify(
-            parent,
-          )} does not exist`,
+          `Cannot stat ${stringify(path)} because parent ${
+            stringify(
+              parent,
+            )
+          } does not exist`,
         );
       } else {
         // Parent exists.
@@ -173,17 +175,21 @@ export default async function compare({
         const entity = stats.type === 'file' ? 'file' : 'symbolic link';
 
         diff.error = new ErrorWithMetadata(
-          `Cannot replace ${entity} ${stringify(
-            path,
-          )} with directory without 'force'`,
+          `Cannot replace ${entity} ${
+            stringify(
+              path,
+            )
+          } with directory without 'force'`,
         );
       }
     } else {
       // We're not going to bother with "exotic" types such as sockets etc.
       diff.error = new ErrorWithMetadata(
-        `Cannot replace object ${stringify(
-          path,
-        )} of unknown type with directory`,
+        `Cannot replace object ${
+          stringify(
+            path,
+          )
+        } of unknown type with directory`,
       );
     }
   } else if (state === 'link') {
@@ -210,9 +216,11 @@ export default async function compare({
       }
     } else {
       diff.error = new ErrorWithMetadata(
-        `Cannot replace entity of type ${stats.type} at ${stringify(
-          path,
-        )} with link`,
+        `Cannot replace entity of type ${stats.type} at ${
+          stringify(
+            path,
+          )
+        } with link`,
       );
     }
     // TODO check mode etc...

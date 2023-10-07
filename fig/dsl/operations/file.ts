@@ -1,7 +1,7 @@
 import Context from '../../Context.js';
 import ErrorWithMetadata from '../../ErrorWithMetadata.js';
-import compare from '../../compare.js';
 import assert from '../../assert.js';
+import compare from '../../compare.js';
 import {promises as fs} from '../../fs.js';
 import stat from '../../fs/stat.js';
 import tempfile from '../../fs/tempfile.js';
@@ -68,8 +68,7 @@ export default async function file({
     if (state !== 'link') {
       // TODO: handle edge case that src is root-owned and not readable
       // TODO: overwriting contents here is a smell?
-      contents =
-        contents ??
+      contents = contents ??
         (await fs.readFile(src, encoding === undefined ? 'utf8' : encoding));
 
       // TODO: make fs wrapper(s) that can deal with Path
@@ -178,8 +177,7 @@ export default async function file({
     if (diff.state === 'link') {
       assert(src);
 
-      const result =
-        mutate &&
+      const result = mutate &&
         (await ln(src, target, {
           force: diff.force,
           sudo,

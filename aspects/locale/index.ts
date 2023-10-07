@@ -1,4 +1,4 @@
-import {task, line, variable} from 'fig';
+import {line, task, variable} from 'fig';
 
 task('set up /etc/locale.conf', async () => {
   for (const setting of variable.strings('lines')) {

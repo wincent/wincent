@@ -81,13 +81,10 @@ export default {
           aspects: {
             type: 'array',
             items: {
-              anyOf: [
-                REF.Aspect,
-                {
-                  type: 'array',
-                  items: REF.Aspect,
-                },
-              ],
+              anyOf: [REF.Aspect, {
+                type: 'array',
+                items: REF.Aspect,
+              }],
             },
           },
           variables: REF.Variables,

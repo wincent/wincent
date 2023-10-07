@@ -223,8 +223,9 @@ export function validate(
 
     if (match && match.groups) {
       const {groups} = match;
-      const first =
-        groups.first === undefined ? undefined : Number(groups.first);
+      const first = groups.first === undefined
+        ? undefined
+        : Number(groups.first);
       const last = groups.last === undefined ? undefined : Number(groups.last);
       const step = groups.step === undefined ? undefined : Number(groups.step);
 

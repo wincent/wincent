@@ -1,5 +1,5 @@
-import {expect, test} from '../test/harness.js';
 import regExpFromString from '../regExpFromString.js';
+import {expect, test} from '../test/harness.js';
 
 test('regExpFromString() returns a RegExp', () => {
   const regExp = regExpFromString('/\\bword\\b/');

@@ -1,4 +1,4 @@
-import {command, file, path, resource, skip, template, task} from 'fig';
+import {command, file, path, resource, skip, task, template} from 'fig';
 
 const node = path.root.join('bin/node');
 

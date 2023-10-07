@@ -102,15 +102,12 @@ import {bundleIdentifier, deepCopy, isObject, visit} from './karabiner.js';
 (function test_visit() {
   const subject = () => ({
     foo: 1,
-    bar: [
-      {
-        a: [{}, {deep: {prop: 3}}],
-      },
-      {
-        a: [],
-        b: [{deep: {prop: 10}}],
-      },
-    ],
+    bar: [{
+      a: [{}, {deep: {prop: 3}}],
+    }, {
+      a: [],
+      b: [{deep: {prop: 10}}],
+    }],
   });
 
   // Helpers for readability.

@@ -8,11 +8,13 @@ import type {Path} from 'fig';
 // iTerm will create some of these on first run, but we specify all here
 // for completeness.
 task('create directories', async () => {
-  for (const directory of [
-    '~/Library/Application Support/iTerm2',
-    '~/Library/Application Support/iTerm2/DynamicProfiles',
-    '~/Library/Application Support/iTerm2/Sources',
-  ]) {
+  for (
+    const directory of [
+      '~/Library/Application Support/iTerm2',
+      '~/Library/Application Support/iTerm2/DynamicProfiles',
+      '~/Library/Application Support/iTerm2/Sources',
+    ]
+  ) {
     await file({path: directory, state: 'directory'});
   }
 });

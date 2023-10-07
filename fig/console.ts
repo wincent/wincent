@@ -1,9 +1,9 @@
 import * as process from 'node:process';
 import {clearLine, cursorTo} from 'node:readline';
 
+import COLORS from './console/COLORS.js';
 import lock from './lock.js';
 import stringify from './stringify.js';
-import COLORS from './console/COLORS.js';
 
 export {COLORS};
 

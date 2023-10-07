@@ -3,8 +3,8 @@ import * as readline from 'node:readline';
 import {Writable} from 'node:stream';
 
 import assert from './assert.js';
-import COLORS from './console/COLORS.js';
 import {log} from './console.js';
+import COLORS from './console/COLORS.js';
 import lock from './lock.js';
 
 type Options = {

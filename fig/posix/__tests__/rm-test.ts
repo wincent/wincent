@@ -1,12 +1,12 @@
 import {join} from 'node:path';
 
 import assert from '../../assert.js';
-import {expect, test} from '../../test/harness.js';
-import chmod from '../chmod.js';
-import rm from '../rm.js';
 import stat from '../../fs/stat.js';
 import tempdir from '../../fs/tempdir.js';
 import tempfile from '../../fs/tempfile.js';
+import {expect, test} from '../../test/harness.js';
+import chmod from '../chmod.js';
+import rm from '../rm.js';
 import touch from '../touch.js';
 
 test('rm() removes a file', async () => {

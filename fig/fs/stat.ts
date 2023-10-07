@@ -15,10 +15,10 @@ type Stats = {
 const TYPE_MAP = {
   'character device': 'special',
   'character special file': 'special',
-  directory: 'directory',
+  'directory': 'directory',
   'regular empty file': 'file',
   'regular file': 'file',
-  socket: 'socket',
+  'socket': 'socket',
   'symbolic link': 'link',
 } as const;
 
@@ -74,13 +74,8 @@ export default async function stat(
     };
 
     const formatString =
-      [
-        formats.mode,
-        formats.type,
-        formats.owner,
-        formats.group,
-        formats.target,
-      ].join(formats.newline) + '\n';
+      [formats.mode, formats.type, formats.owner, formats.group, formats.target]
+        .join(formats.newline) + '\n';
 
     args.push('-c', formatString, target);
   }

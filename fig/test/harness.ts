@@ -64,24 +64,27 @@ export function expect(value: unknown) {
       if (!caught) {
         assert.fail('Expected error but none was thrown');
       } else {
-        const message =
-          caught instanceof Error
-            ? caught.toString()
-            : Object.prototype.toString.call(caught);
+        const message = caught instanceof Error
+          ? caught.toString()
+          : Object.prototype.toString.call(caught);
 
         if (typeof expected === 'string') {
           assert.ok(
             message.includes(expected),
-            `Expected message ${stringify(message)} to contain ${stringify(
-              expected,
-            )}`,
+            `Expected message ${stringify(message)} to contain ${
+              stringify(
+                expected,
+              )
+            }`,
           );
         } else if (expected instanceof RegExp) {
           assert.ok(
             expected.test(message),
-            `Expected message ${stringify(message)} to match ${stringify(
-              expected,
-            )}`,
+            `Expected message ${stringify(message)} to match ${
+              stringify(
+                expected,
+              )
+            }`,
           );
         } else {
           assert.ok(

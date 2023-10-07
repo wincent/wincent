@@ -1,11 +1,11 @@
 import * as path from 'node:path';
 
 import ErrorWithMetadata from './ErrorWithMetadata.js';
-import {root} from './index.js';
 import {COLORS, LOG_LEVEL, log, nextLogLevel} from './console.js';
 import dedent from './dedent.js';
 import escapeRegExpPattern from './escapeRegExpPattern.js';
 import {promises as fs} from './fs.js';
+import {root} from './index.js';
 import readAspect from './readAspect.js';
 import stringify from './stringify.js';
 import {assertAspect} from './types/Project.js';
@@ -110,9 +110,11 @@ export default async function getOptions(
       options.logLevel = nextLogLevel(options.logLevel);
     } else if (arg.startsWith('-')) {
       throw new ErrorWithMetadata(
-        `unrecognized argument ${stringify(
-          arg,
-        )} - pass "--help" to see allowed options`,
+        `unrecognized argument ${
+          stringify(
+            arg,
+          )
+        } - pass "--help" to see allowed options`,
       );
     } else if (arg.startsWith('^') || arg.startsWith('!')) {
       const sliced = arg.slice(1);
@@ -121,9 +123,11 @@ export default async function getOptions(
         options.excluded.add(sliced);
       } catch {
         throw new ErrorWithMetadata(
-          `unrecognized aspect ${stringify(
-            sliced,
-          )} - pass "--help" to see full list`,
+          `unrecognized aspect ${
+            stringify(
+              sliced,
+            )
+          } - pass "--help" to see full list`,
         );
       }
     } else {
@@ -132,9 +136,11 @@ export default async function getOptions(
         options.focused.add(arg);
       } catch {
         throw new ErrorWithMetadata(
-          `unrecognized aspect ${stringify(
-            arg,
-          )} - pass "--help" to see full list`,
+          `unrecognized aspect ${
+            stringify(
+              arg,
+            )
+          } - pass "--help" to see full list`,
         );
       }
     }

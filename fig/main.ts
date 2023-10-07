@@ -4,10 +4,10 @@ import * as process from 'node:process';
 import variables from '../variables.js';
 import Context from './Context.js';
 import ErrorWithMetadata from './ErrorWithMetadata.js';
-import {root} from './index.js';
 import {debug, log, setLogLevel} from './console.js';
 import dedent from './dedent.js';
 import getOptions from './getOptions.js';
+import {root} from './index.js';
 import merge from './merge.js';
 import path from './path.js';
 import prompt from './prompt.js';
@@ -64,7 +64,7 @@ async function main() {
 
   const [profile] =
     Object.entries(profiles).find(([, {pattern}]) =>
-      regExpFromString(pattern).test(hostname),
+      regExpFromString(pattern).test(hostname)
     ) || [];
 
   await log.info(`Profile: ${profile || 'n/a'}`);
@@ -151,9 +151,11 @@ async function main() {
         choice > candidateTasks.length
       ) {
         await log.warn(
-          `Invalid choice ${stringify(
-            reply,
-          )}; try again or press CTRL-C to abort.`,
+          `Invalid choice ${
+            stringify(
+              reply,
+            )
+          }; try again or press CTRL-C to abort.`,
         );
 
         await log();

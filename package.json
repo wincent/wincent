@@ -16,6 +16,7 @@
     "typescript": "*"
   },
   "devDependencies": {
-    "@types/node": "*"
+    "@types/node": "*",
+    "dprint": "*"
   }
 }

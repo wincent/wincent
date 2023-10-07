@@ -1,22 +1,19 @@
-import {resource, template, task} from 'fig';
+import {resource, task, template} from 'fig';
 
 task('configure (global) LaunchDaemons', async () => {
-  const items = [
-    {
-      path: '/Library/LaunchDaemons/limit.maxfiles.plist',
-      variables: {
-        arguments: ['limit', 'maxfiles', 65536, 65536],
-        label: 'limit.maxfiles',
-      },
+  const items = [{
+    path: '/Library/LaunchDaemons/limit.maxfiles.plist',
+    variables: {
+      arguments: ['limit', 'maxfiles', 65536, 65536],
+      label: 'limit.maxfiles',
     },
-    {
-      path: '/Library/LaunchDaemons/limit.maxproc.plist',
-      variables: {
-        arguments: ['limit', 'maxproc', 2048, 2048],
-        label: 'limit.maxproc',
-      },
+  }, {
+    path: '/Library/LaunchDaemons/limit.maxproc.plist',
+    variables: {
+      arguments: ['limit', 'maxproc', 2048, 2048],
+      label: 'limit.maxproc',
     },
-  ];
+  }];
 
   for (const {path, variables} of items) {
     await template({
@@ -32,22 +29,19 @@ task('configure (global) LaunchDaemons', async () => {
 });
 
 task('configure (local) LaunchAgents', async () => {
-  const items = [
-    {
-      path: '~/Library/LaunchAgents/setenv.lang.plist',
-      variables: {
-        arguments: ['setenv', 'LANG', 'en_US.UTF-8'],
-        label: 'setenv.lang',
-      },
+  const items = [{
+    path: '~/Library/LaunchAgents/setenv.lang.plist',
+    variables: {
+      arguments: ['setenv', 'LANG', 'en_US.UTF-8'],
+      label: 'setenv.lang',
     },
-    {
-      path: '~/Library/LaunchAgents/setenv.lc_time.plist',
-      variables: {
-        arguments: ['setenv', 'LC_TIME', 'en_AU.UTF-8'],
-        label: 'setenv.lc_time',
-      },
+  }, {
+    path: '~/Library/LaunchAgents/setenv.lc_time.plist',
+    variables: {
+      arguments: ['setenv', 'LC_TIME', 'en_AU.UTF-8'],
+      label: 'setenv.lc_time',
     },
-  ];
+  }];
 
   for (const {path, variables} of items) {
     await template({

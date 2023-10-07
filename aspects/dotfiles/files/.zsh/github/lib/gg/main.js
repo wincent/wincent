@@ -79,7 +79,7 @@ async function getHelper(command) {
           .filter((entry) => /^[a-z]/.test(entry));
 
         const prefixMatches = candidates.filter((entry) =>
-          entry.startsWith(command),
+          entry.startsWith(command)
         );
 
         if (prefixMatches.length === 1) {
@@ -88,9 +88,11 @@ async function getHelper(command) {
         } else if (prefixMatches.length > 1) {
           // Multiple possible prefix matches.
           log(
-            `Ambiguous command ${JSON.stringify(
-              command,
-            )} - did you mean one of?\n` +
+            `Ambiguous command ${
+              JSON.stringify(
+                command,
+              )
+            } - did you mean one of?\n` +
               '\n' +
               prefixMatches.map((prefix) => `  ${prefix}`).join('\n') +
               '\n',
@@ -118,15 +120,19 @@ async function getHelper(command) {
 
           if (proposed) {
             log(
-              `Command ${JSON.stringify(
-                command,
-              )} invoked, which does not exist.\n`,
+              `Command ${
+                JSON.stringify(
+                  command,
+                )
+              } invoked, which does not exist.\n`,
             );
 
             const proceed = await confirm(
-              `Do you want to run ${JSON.stringify(
-                proposed.candidate,
-              )} instead?`,
+              `Do you want to run ${
+                JSON.stringify(
+                  proposed.candidate,
+                )
+              } instead?`,
             );
 
             if (proceed) {
@@ -210,7 +216,6 @@ function run(command, ...args) {
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- *
  */
 function jaroWinkler(a, b) {
   if (!a.length || !b.length) {

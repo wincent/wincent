@@ -33,9 +33,9 @@ export default async function readAspect(directory: string): Promise<Aspect> {
       throw new Error(`${error.message} in ${directory}`);
     } else {
       throw new Error(
-        `unknown error ${Object.prototype.toString.call(
-          error,
-        )} in ${directory}`,
+        `unknown error ${
+          Object.prototype.toString.call(error)
+        } in ${directory}`,
       );
     }
   }

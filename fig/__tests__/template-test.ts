@@ -1,6 +1,6 @@
 import dedent from '../dedent.js';
-import {expect, test} from '../test/harness.js';
 import {compile, fill, tokenize} from '../template.js';
+import {expect, test} from '../test/harness.js';
 
 test('compile() compiles an empty template', () => {
   expect(compile('')).toBe(dedent`
@@ -181,12 +181,10 @@ test('tokenize() handles empty input', () => {
 });
 
 test('tokenize() handles a template containing only template text', () => {
-  expect([...tokenize('an example here')]).toEqual([
-    {
-      kind: 'TemplateText',
-      text: 'an example here',
-    },
-  ]);
+  expect([...tokenize('an example here')]).toEqual([{
+    kind: 'TemplateText',
+    text: 'an example here',
+  }]);
 });
 
 test('tokenize() handles a template containing an expression', () => {

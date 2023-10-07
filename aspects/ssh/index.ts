@@ -13,12 +13,14 @@ import {
 const {isDecrypted, when} = helpers;
 
 task('create ~/.ssh/* directories', async () => {
-  for (const directory of [
-    '~/.ssh',
-    '~/.ssh/config.d',
-    '~/.ssh/config.d/post',
-    '~/.ssh/config.d/pre',
-  ]) {
+  for (
+    const directory of [
+      '~/.ssh',
+      '~/.ssh/config.d',
+      '~/.ssh/config.d/post',
+      '~/.ssh/config.d/pre',
+    ]
+  ) {
     await file({
       mode: '0700',
       path: directory,

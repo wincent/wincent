@@ -5,8 +5,8 @@ import {
   helpers,
   path,
   resource,
-  template,
   task,
+  template,
 } from 'fig';
 
 const {when} = helpers;

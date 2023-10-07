@@ -1,5 +1,5 @@
-import {describe, expect, test} from '../test/harness.js';
 import Scanner from '../Scanner.js';
+import {describe, expect, test} from '../test/harness.js';
 
 describe('Scanner', () => {
   test('scan() finds matches', () => {

@@ -29,7 +29,6 @@ import {attributes, path, run, variable} from 'fig';
  *    if (profile === 'codespaces' || profile === 'work') {
  *      // ...
  *    }
- *
  */
 export function is(...conditions: Array<Array<string> | string>): boolean {
   return when(...conditions)() === true;
@@ -63,7 +62,7 @@ export function when(
       conditions.every((condition) =>
         Array.isArray(condition)
           ? condition.some(checkCondition)
-          : checkCondition(condition),
+          : checkCondition(condition)
       )
     ) {
       return true;

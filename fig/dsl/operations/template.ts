@@ -29,10 +29,9 @@ export default async function template({
   const contents = (await Context.compile(src)).fill({
     variables: {
       ...variables,
-      figManaged:
-        typeof figManaged === 'string'
-          ? figManaged.replace(`${LAQUO}file${RAQUO}`, toPath(src).resolve)
-          : '',
+      figManaged: typeof figManaged === 'string'
+        ? figManaged.replace(`${LAQUO}file${RAQUO}`, toPath(src).resolve)
+        : '',
     },
   });
 

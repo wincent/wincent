@@ -9,7 +9,4 @@ cd "$REPO_ROOT"
 
 stylua --allow-hidden .
 
-# ***********************************************************************
-# * NOTE: Keep these patterns up-to-date with .github/workflows/ci.yml. *
-# ***********************************************************************
-npx -y prettier --write "**/*.{js,json,md,ts}" "*.{md,ts}"
+yarn dprint fmt

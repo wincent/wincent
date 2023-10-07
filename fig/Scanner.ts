@@ -28,8 +28,9 @@ export default class Scanner {
   }
 
   scan(pattern: string | RegExp): string | undefined {
-    let regExp =
-      typeof pattern === 'string' ? new RegExp(`^${escape(pattern)}`) : pattern;
+    let regExp = typeof pattern === 'string'
+      ? new RegExp(`^${escape(pattern)}`)
+      : pattern;
 
     if (!regExp.source.startsWith('^')) {
       regExp = new RegExp(`^${regExp.source}`, regExp.flags);

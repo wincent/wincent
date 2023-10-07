@@ -62,17 +62,21 @@ function main() {
 
     b.interface(typeName, () => {
       if (typeSchema.properties) {
-        for (const [propertyName, propertySchema] of Object.entries(
-          typeSchema.properties,
-        )) {
+        for (
+          const [propertyName, propertySchema] of Object.entries(
+            typeSchema.properties,
+          )
+        ) {
           genProperty(propertyName, propertySchema, options);
         }
       }
 
       if (typeSchema.patternProperties) {
-        for (const [pattern, patternSchema] of Object.entries(
-          typeSchema.patternProperties,
-        )) {
+        for (
+          const [pattern, patternSchema] of Object.entries(
+            typeSchema.patternProperties,
+          )
+        ) {
           genPatternProperty(pattern, patternSchema, options);
         }
       }
@@ -311,9 +315,11 @@ function genObjectValue(schema, options) {
     }
 
     if (schema.patternProperties) {
-      for (const [pattern, patternSchema] of Object.entries(
-        schema.patternProperties,
-      )) {
+      for (
+        const [pattern, patternSchema] of Object.entries(
+          schema.patternProperties,
+        )
+      ) {
         genPatternProperty(pattern, patternSchema, nextOptions);
       }
     }
@@ -341,16 +347,18 @@ function genProperty(propertyName, propertySchema, options) {
     if (target) {
       value = `Array<${target}>`;
     } else if (propertySchema.items.anyOf) {
-      value = `Array<${propertySchema.items.anyOf
-        .map((member) => {
-          const target = extractTargetFromRef(member);
-          if (target) {
-            return target;
-          } else {
-            return `Array<${extractTargetFromRef(member.items)}>`;
-          }
-        })
-        .join(' | ')}>`;
+      value = `Array<${
+        propertySchema.items.anyOf
+          .map((member) => {
+            const target = extractTargetFromRef(member);
+            if (target) {
+              return target;
+            } else {
+              return `Array<${extractTargetFromRef(member.items)}>`;
+            }
+          })
+          .join(' | ')
+      }>`;
     } else {
       value = `Array<${propertySchema.items.type}>`;
     }
@@ -363,9 +371,11 @@ function genProperty(propertyName, propertySchema, options) {
     value = propertySchema.type;
   } else {
     throw new Error(
-      `Property ${JSON.stringify(
-        propertyName,
-      )} has invalid type ${JSON.stringify(propertySchema.type)}`,
+      `Property ${
+        JSON.stringify(
+          propertyName,
+        )
+      } has invalid type ${JSON.stringify(propertySchema.type)}`,
     );
   }
 

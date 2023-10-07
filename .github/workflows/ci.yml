@@ -23,16 +23,15 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: yarn --frozen-lockfile
 
-  prettier:
+  dprint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actionsx/prettier@v3
+      - uses: actions/setup-node@v3
         with:
-          # ******************************************************************
-          # * NOTE: Keep these patterns up-to-date with bin/{check-,}format. *
-          # ******************************************************************
-          args: --list-different "**/*.{js,json,md,ts}" "*.{md,ts}"
+          node-version: ${{ matrix.node-version }}
+      - name: yarn dprint check
+        run: yarn dprint check
 
   stylua:
     runs-on: ubuntu-latest

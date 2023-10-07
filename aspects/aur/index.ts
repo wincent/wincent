@@ -34,11 +34,13 @@ task('install packages', when('arch'), async () => {
 });
 
 task('create ~/.config/systemd/user', when('arch'), async () => {
-  for (const directory of [
-    '~/.config',
-    '~/.config/systemd',
-    '~/.config/systemd/user',
-  ]) {
+  for (
+    const directory of [
+      '~/.config',
+      '~/.config/systemd',
+      '~/.config/systemd/user',
+    ]
+  ) {
     await file({
       path: directory,
       state: 'directory',
@@ -60,11 +62,13 @@ task(
 );
 
 task('set up sensors', when('arch'), async () => {
-  for (const conf of [
-    'etc/modprobe.d/it87.conf',
-    'etc/modules-load.d/it87.conf',
-    'etc/sensors.d/gigabyte-x570.conf',
-  ]) {
+  for (
+    const conf of [
+      'etc/modprobe.d/it87.conf',
+      'etc/modules-load.d/it87.conf',
+      'etc/sensors.d/gigabyte-x570.conf',
+    ]
+  ) {
     await file({
       path: join('/', conf),
       src: resource.file(conf),

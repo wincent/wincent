@@ -1,14 +1,12 @@
 function fromTo(from, to) {
-  return [
-    {
-      from: {
-        key_code: from,
-      },
-      to: {
-        key_code: to,
-      },
+  return [{
+    from: {
+      key_code: from,
     },
-  ];
+    to: {
+      key_code: to,
+    },
+  }];
 }
 
 export function bundleIdentifier(identifier) {
@@ -45,101 +43,79 @@ function colemak(key) {
 }
 
 function launch(from, ...args) {
-  return [
-    {
-      from: {
-        simultaneous: [
-          {
-            key_code: colemak('n'), // mnemonic: "[n]ow", "[n]ew")
-          },
-          {
-            key_code: from,
-          },
-        ],
-        simultaneous_options: {
-          key_down_order: 'strict',
-          key_up_order: 'strict_inverse',
-        },
+  return [{
+    from: {
+      simultaneous: [{
+        key_code: colemak('n'), // mnemonic: "[n]ow", "[n]ew")
+      }, {
+        key_code: from,
+      }],
+      simultaneous_options: {
+        key_down_order: 'strict',
+        key_up_order: 'strict_inverse',
       },
-      parameters: {
-        'basic.simultaneous_threshold_milliseconds': 500 /* Default: 1000 */,
-      },
-      to: [
-        {
-          shell_command: ['open', ...args].join(' '),
-        },
-      ],
-      type: 'basic',
     },
-  ];
+    parameters: {
+      'basic.simultaneous_threshold_milliseconds': 500, /* Default: 1000 */
+    },
+    to: [{
+      shell_command: ['open', ...args].join(' '),
+    }],
+    type: 'basic',
+  }];
 }
 
 function spaceFN(from, to) {
-  return [
-    {
-      from: {
-        modifiers: {
-          optional: ['any'],
-        },
-        simultaneous: [
-          {
-            key_code: 'spacebar',
-          },
-          {
-            key_code: from,
-          },
-        ],
-        simultaneous_options: {
-          key_down_order: 'strict',
-          key_up_order: 'strict_inverse',
-          to_after_key_up: [
-            {
-              set_variable: {
-                name: 'SpaceFN',
-                value: 0,
-              },
-            },
-          ],
-        },
+  return [{
+    from: {
+      modifiers: {
+        optional: ['any'],
       },
-      parameters: {
-        'basic.simultaneous_threshold_milliseconds': 500 /* Default: 1000 */,
-      },
-      to: [
-        {
+      simultaneous: [{
+        key_code: 'spacebar',
+      }, {
+        key_code: from,
+      }],
+      simultaneous_options: {
+        key_down_order: 'strict',
+        key_up_order: 'strict_inverse',
+        to_after_key_up: [{
           set_variable: {
             name: 'SpaceFN',
-            value: 1,
+            value: 0,
           },
-        },
-        {
-          key_code: to,
-        },
-      ],
-      type: 'basic',
-    },
-    {
-      conditions: [
-        {
-          name: 'SpaceFN',
-          type: 'variable_if',
-          value: 1,
-        },
-      ],
-      from: {
-        key_code: from,
-        modifiers: {
-          optional: ['any'],
-        },
+        }],
       },
-      to: [
-        {
-          key_code: to,
-        },
-      ],
-      type: 'basic',
     },
-  ];
+    parameters: {
+      'basic.simultaneous_threshold_milliseconds': 500, /* Default: 1000 */
+    },
+    to: [{
+      set_variable: {
+        name: 'SpaceFN',
+        value: 1,
+      },
+    }, {
+      key_code: to,
+    }],
+    type: 'basic',
+  }, {
+    conditions: [{
+      name: 'SpaceFN',
+      type: 'variable_if',
+      value: 1,
+    }],
+    from: {
+      key_code: from,
+      modifiers: {
+        optional: ['any'],
+      },
+    },
+    to: [{
+      key_code: to,
+    }],
+    type: 'basic',
+  }];
 }
 
 function swap(a, b) {
@@ -329,7 +305,7 @@ const DEFAULT_PROFILE = applyExemptions({
   complex_modifications: {
     parameters: {
       ...PARAMETER_DEFAULTS,
-      'basic.to_if_alone_timeout_milliseconds': 500 /* Default: 1000 */,
+      'basic.to_if_alone_timeout_milliseconds': 500, /* Default: 1000 */
     },
     rules: [
       // {
@@ -390,173 +366,128 @@ const DEFAULT_PROFILE = applyExemptions({
       {
         description:
           'Disable Karabiner-Elements with Fn+Control+Option+Command+Z',
-        manipulators: [
-          {
-            type: 'basic',
-            from: {
-              key_code: 'z',
-              modifiers: {
-                mandatory: [
-                  'fn',
-                  'left_control',
-                  'left_command',
-                  'left_option',
-                ],
-              },
+        manipulators: [{
+          type: 'basic',
+          from: {
+            key_code: 'z',
+            modifiers: {
+              mandatory: ['fn', 'left_control', 'left_command', 'left_option'],
             },
-            to: [
-              {
-                shell_command: 'open ~/bin/karabiner-kill.command',
-              },
-            ],
           },
-        ],
+          to: [{
+            shell_command: 'open ~/bin/karabiner-kill.command',
+          }],
+        }],
       },
       {
         description:
           'Change Caps Lock to Control when used as modifier, Backspace when used alone',
-        manipulators: [
-          {
-            from: {
-              key_code: 'caps_lock',
-              modifiers: {
-                optional: ['any'],
-              },
+        manipulators: [{
+          from: {
+            key_code: 'caps_lock',
+            modifiers: {
+              optional: ['any'],
             },
-            to: [
-              {
-                key_code: 'left_control',
-                lazy: true,
-              },
-            ],
-            to_if_alone: [
-              {
-                key_code: 'delete_or_backspace',
-              },
-            ],
-            to_if_held_down: [
-              {
-                key_code: 'delete_or_backspace',
-              },
-            ],
-            type: 'basic',
           },
-        ],
+          to: [{
+            key_code: 'left_control',
+            lazy: true,
+          }],
+          to_if_alone: [{
+            key_code: 'delete_or_backspace',
+          }],
+          to_if_held_down: [{
+            key_code: 'delete_or_backspace',
+          }],
+          type: 'basic',
+        }],
       },
       {
         description:
           'Change Return to Control when used as modifier, Return when used alone',
-        manipulators: [
-          {
-            from: {
-              key_code: 'return_or_enter',
-              modifiers: {
-                optional: ['any'],
-              },
+        manipulators: [{
+          from: {
+            key_code: 'return_or_enter',
+            modifiers: {
+              optional: ['any'],
             },
-            to: [
-              {
-                key_code: 'right_control',
-                lazy: true,
-              },
-            ],
-            to_if_alone: [
-              {
-                key_code: 'return_or_enter',
-              },
-            ],
-            to_if_held_down: [
-              {
-                key_code: 'return_or_enter',
-              },
-            ],
-            type: 'basic',
           },
-        ],
+          to: [{
+            key_code: 'right_control',
+            lazy: true,
+          }],
+          to_if_alone: [{
+            key_code: 'return_or_enter',
+          }],
+          to_if_held_down: [{
+            key_code: 'return_or_enter',
+          }],
+          type: 'basic',
+        }],
       },
       {
         description: 'Change Control+I to F6 in Vim',
-        manipulators: [
-          {
-            conditions: [
-              {
-                bundle_identifiers: [
-                  // Note: See ~/.config/kitty/kitty.conf for why this isn't
-                  // needed in Kitty.
-                  bundleIdentifier('com.apple.Terminal'),
-                  bundleIdentifier('com.googlecode.iterm2'),
-                ],
-                type: 'frontmost_application_if',
-              },
+        manipulators: [{
+          conditions: [{
+            bundle_identifiers: [
+              // Note: See ~/.config/kitty/kitty.conf for why this isn't
+              // needed in Kitty.
+              bundleIdentifier('com.apple.Terminal'),
+              bundleIdentifier('com.googlecode.iterm2'),
             ],
-            from: {
-              key_code: 'l',
-              modifiers: {
-                mandatory: ['control'],
-                optional: ['any'],
-              },
+            type: 'frontmost_application_if',
+          }],
+          from: {
+            key_code: 'l',
+            modifiers: {
+              mandatory: ['control'],
+              optional: ['any'],
             },
-            to: [
-              {
-                key_code: 'f6',
-                modifiers: ['fn'],
-              },
-            ],
-            type: 'basic',
           },
-        ],
+          to: [{
+            key_code: 'f6',
+            modifiers: ['fn'],
+          }],
+          type: 'basic',
+        }],
       },
       {
         description: 'Left and Right Shift together toggle Caps Lock',
-        manipulators: [
-          {
-            from: {
-              modifiers: {
-                optional: ['any'],
-              },
-              simultaneous: [
-                {
-                  key_code: 'left_shift',
-                },
-                {
-                  key_code: 'right_shift',
-                },
-              ],
+        manipulators: [{
+          from: {
+            modifiers: {
+              optional: ['any'],
             },
-            to: [
-              {
-                key_code: 'caps_lock',
-              },
-            ],
-            type: 'basic',
+            simultaneous: [{
+              key_code: 'left_shift',
+            }, {
+              key_code: 'right_shift',
+            }],
           },
-        ],
+          to: [{
+            key_code: 'caps_lock',
+          }],
+          type: 'basic',
+        }],
       },
       {
         description: 'Equals plus delete together to forward delete',
-        manipulators: [
-          {
-            from: {
-              modifiers: {
-                optional: ['any'],
-              },
-              simultaneous: [
-                {
-                  key_code: 'equal_sign',
-                },
-                {
-                  key_code: 'delete_or_backspace',
-                },
-              ],
+        manipulators: [{
+          from: {
+            modifiers: {
+              optional: ['any'],
             },
-            to: [
-              {
-                key_code: 'delete_forward',
-              },
-            ],
-            type: 'basic',
+            simultaneous: [{
+              key_code: 'equal_sign',
+            }, {
+              key_code: 'delete_or_backspace',
+            }],
           },
-        ],
+          to: [{
+            key_code: 'delete_forward',
+          }],
+          type: 'basic',
+        }],
       },
     ],
   },

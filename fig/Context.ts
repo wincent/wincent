@@ -1,8 +1,8 @@
 import * as process from 'node:process';
 
 import Attributes from './Attributes.js';
-import ErrorWithMetadata from './ErrorWithMetadata.js';
 import Compiler from './Compiler.js';
+import ErrorWithMetadata from './ErrorWithMetadata.js';
 import HandlerRegistry from './HandlerRegistry.js';
 import TaskRegistry from './TaskRegistry.js';
 import VariableRegistry from './VariableRegistry.js';

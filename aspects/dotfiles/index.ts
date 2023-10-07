@@ -10,8 +10,8 @@ import {
   resource,
   skip,
   stat,
-  template,
   task,
+  template,
   variable,
   variables,
 } from 'fig';
@@ -70,15 +70,14 @@ task('check for decrypted files', when('wincent'), async () => {
   // TODO: consider whether I want to scan for magic headers instead, like I am
   // in the "create symlinks" task...
   if (result !== null) {
-    const pending =
-      result.status === 0
-        ? result.stdout
-            .trim()
-            .split(/\n/)
-            .filter((line) => {
-              return line.length && !line.includes('worktree=decrypted');
-            })
-        : ['unable to determine encryption status for any file'];
+    const pending = result.status === 0
+      ? result.stdout
+        .trim()
+        .split(/\n/)
+        .filter((line) => {
+          return line.length && !line.includes('worktree=decrypted');
+        })
+      : ['unable to determine encryption status for any file'];
 
     if (pending.length) {
       log.warn(

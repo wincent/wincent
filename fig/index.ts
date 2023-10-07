@@ -6,17 +6,17 @@
 //
 
 export {default as attributes} from './dsl/attributes.js';
-export {default as backup} from './dsl/operations/backup.js';
 export {default as fail} from './dsl/fail.js';
+export {default as handler} from './dsl/handler.js';
+export {default as backup} from './dsl/operations/backup.js';
 export {default as command} from './dsl/operations/command.js';
 export {default as cron} from './dsl/operations/cron.js';
 export {default as defaults} from './dsl/operations/defaults.js';
 export {default as fetch} from './dsl/operations/fetch.js';
 export {default as file} from './dsl/operations/file.js';
-export {default as handler} from './dsl/handler.js';
 export {default as line} from './dsl/operations/line.js';
-export {default as options} from './dsl/options.js';
 export {default as template} from './dsl/operations/template.js';
+export {default as options} from './dsl/options.js';
 export * as resource from './dsl/resource.js';
 export {default as root} from './dsl/root.js';
 export {default as skip} from './dsl/skip.js';
@@ -31,10 +31,10 @@ export {default as variables} from './dsl/variables.js';
 export type {Path} from './path.js';
 
 export {log} from './console.js';
+export {default as stat} from './fs/stat.js';
 export {default as path} from './path.js';
 export {default as prompt} from './prompt.js';
 export {default as run} from './run.js';
-export {default as stat} from './fs/stat.js';
 
 // Re-export project-local helpers.
 

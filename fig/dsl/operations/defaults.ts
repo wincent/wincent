@@ -173,9 +173,9 @@ export default async function defaults({
   }
 
   await log.debug(
-    `${description} current type = ${
-      currentType ?? 'unset'
-    }, current value = ${stringify(currentValue)}`,
+    `${description} current type = ${currentType ?? 'unset'}, current value = ${
+      stringify(currentValue)
+    }`,
   );
 
   if (state === 'absent') {
@@ -216,10 +216,9 @@ export default async function defaults({
 
         typeAndValue = [
           '-dict-add',
-          ...Object.entries(value).flatMap(([k, v]: [string, unknown]) => [
-            k,
-            valueToString(v),
-          ]),
+          ...Object.entries(value).flatMap((
+            [k, v]: [string, unknown],
+          ) => [k, valueToString(v)]),
         ];
       } else if (type === 'float') {
         typeAndValue = ['-float', valueToString(value)];

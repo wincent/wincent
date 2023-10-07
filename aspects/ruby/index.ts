@@ -16,7 +16,7 @@ task('install gems', async () => {
     //    sorbet-static requires Ruby version >= 2.7.0. The current ruby version
     //    is 2.6.10.210.
     //
-    //gems.push('sorbet');
+    // gems.push('sorbet');
   }
 
   for (const gem of gems) {
