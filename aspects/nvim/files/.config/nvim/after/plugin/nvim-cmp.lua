@@ -139,8 +139,20 @@ if has_cmp then
         end
       end, { 'i', 's' }),
 
-      ['<C-j>'] = cmp.get_config().mapping['<Down>'],
-      ['<C-k>'] = cmp.get_config().mapping['<Up>'],
+      ['<C-j>'] = cmp.mapping(function(fallback)
+        if cmp.visible() then
+          cmp.select_next_item()
+        else
+          fallback()
+        end
+      end),
+      ['<C-k>'] = cmp.mapping(function(fallback)
+        if cmp.visible() then
+          cmp.select_prev_item()
+        else
+          fallback()
+        end
+      end),
 
       ['<C-y>'] = cmp.mapping(function(fallback)
         if cmp.visible() then
