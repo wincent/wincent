@@ -60,6 +60,7 @@ end
 
 vim.opt.modelines = 5 -- scan this many lines looking for modeline
 vim.opt.number = true -- show line numbers in gutter
+vim.opt.pumheight = 20 -- max number of lines to show in pop-up menu
 vim.opt.pumblend = 10 -- pseudo-transparency for popup-menu
 vim.opt.relativenumber = true -- show relative numbers in gutter
 vim.opt.scrolloff = 3 -- start scrolling 3 lines before edge of viewport
