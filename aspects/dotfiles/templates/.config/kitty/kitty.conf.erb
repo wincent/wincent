@@ -937,7 +937,7 @@ tab_bar_edge top
 #: The second number is the margin between the tab bar and the
 #: contents of the current tab.
 
-tab_bar_style separator
+tab_bar_style powerline
 # tab_bar_style fade
 
 #: The tab bar style, can be one of:
@@ -1015,7 +1015,7 @@ tab_separator "│"
 #: The maximum number of cells that can be used to render the text in
 #: a tab. A value of zero means that no limit is applied.
 
-tab_title_template "   {fmt.fg.red}{bell_symbol}{activity_symbol}{fmt.fg.tab}{title}   "
+tab_title_template "  {fmt.fg.red}{bell_symbol}{activity_symbol}{fmt.fg.tab}{title}  "
 # tab_title_template "{fmt.fg.red}{bell_symbol}{activity_symbol}{fmt.fg.tab}{title}"
 
 #: A template to render the tab title. The default just renders the
@@ -1058,7 +1058,7 @@ tab_title_template "   {fmt.fg.red}{bell_symbol}{activity_symbol}{fmt.fg.tab}{ti
 #: {activity_symbol} are not present in the template, they are
 #: prepended to it.
 
-active_tab_title_template  " « {fmt.bold}{title}{fmt.nobold} » "
+active_tab_title_template  "  {fmt.bold}{title}{fmt.nobold}  "
 # active_tab_title_template none
 
 #: Template to use for active tabs. If not specified falls back to
