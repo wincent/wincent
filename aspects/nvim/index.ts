@@ -53,6 +53,8 @@ task('download Neovim appimage', when('debian'), async () => {
     encoding: null,
     url:
       'https://github.com/neovim/neovim/releases/download/v0.9.2/nvim.appimage',
+    checksum:
+      'sha256:61950131e18157ab9c7f14131a3dda0aa81f8e4fb47994bf6d8b418d9be6e3c0',
     sudo: true,
   });
 });

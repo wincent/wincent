@@ -1,3 +1,4 @@
+import * as crypto from 'node:crypto';
 import * as http from 'node:http';
 import * as https from 'node:https';
 import {join} from 'node:path';
@@ -7,8 +8,11 @@ import {createWriteStream, promises} from '../../fs.js';
 import tempdir from '../../fs/tempdir.js';
 import file from './file.js';
 
+const DIGEST_PREFIX = 'sha256:';
+
 export default async function fetch({
   dest,
+  checksum,
   encoding,
   group,
   mode,
@@ -18,6 +22,7 @@ export default async function fetch({
   sudo,
 }: {
   dest: string;
+  checksum?: string;
   encoding?: BufferEncoding | null;
   group?: string;
   mode?: Mode;
@@ -27,6 +32,11 @@ export default async function fetch({
   url: string;
 }): Promise<OperationResult> {
   await log.debug(`Download \`${url}\` to \`${dest}\``);
+
+  if (checksum && !checksum.startsWith(DIGEST_PREFIX)) {
+    throw new Error(`digests must start with "${DIGEST_PREFIX}" prefix`);
+  }
+  const sha256 = checksum?.slice(DIGEST_PREFIX.length);
 
   let get: typeof https.get | typeof http.get;
 
@@ -75,6 +85,15 @@ export default async function fetch({
                 download,
                 encoding === undefined ? 'utf8' : null,
               );
+
+              if (sha256) {
+                const hash = crypto.createHash('sha256');
+                hash.update(contents);
+                const digest = hash.digest('hex');
+                if (digest !== sha256) {
+                  reject(`digest ${digest} does not match expected ${sha256}`);
+                }
+              }
 
               const result = await file({
                 contents,
