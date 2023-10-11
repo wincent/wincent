@@ -314,7 +314,7 @@ function -update-window-title-precmd() {
       -set-tab-and-window-title "$LAST"
     else
       # Outside tmux, show $PWD (for context) followed by the last command.
-      -set-tab-and-window-title "$(-forkless-basename) > $LAST"
+      -set-tab-and-window-title "$(-forkless-basename) • $LAST"
     fi
   fi
 }
@@ -350,7 +350,7 @@ function -update-window-title-preexec() {
     -set-tab-and-window-title "$TRIMMED"
   else
     # Outside tmux, show $PWD (for context) followed by the running command.
-    -set-tab-and-window-title "$(-forkless-basename) > $TRIMMED"
+    -set-tab-and-window-title "$(-forkless-basename) • $TRIMMED"
   fi
 }
 add-zsh-hook preexec -update-window-title-preexec
