@@ -283,8 +283,8 @@ autoload -U add-zsh-hook
 
 function -set-tab-and-window-title() {
   emulate -L zsh
-  local CMD="${1:gs/$/\\$}"
-  print -Pn "\e]0;$CMD:q\a"
+  local TITLE="${1:gs/$/\\$}"
+  print -Pn "\e]0;$TITLE:q\a"
 }
 
 # $HISTCMD (the current history event number) is shared across all shells
