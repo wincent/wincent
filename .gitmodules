@@ -247,3 +247,6 @@
 [submodule "zsh-async"]
 	path = aspects/dotfiles/files/.zsh/zsh-async
 	url = https://github.com/mafredri/zsh-async.git
+[submodule "vim-kitty"]
+	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-kitty
+	url = https://github.com/fladson/vim-kitty.git

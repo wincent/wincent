@@ -262,6 +262,7 @@ if vim.o.loadplugins then
   wincent.plugin.load('vim-javascript')
   wincent.plugin.load('vim-json')
   wincent.plugin.load('vim-jsx')
+  wincent.plugin.load('vim-kitty')
   wincent.plugin.load('vim-ledger')
   wincent.plugin.load('vim-lion')
   wincent.plugin.load('vim-markdown')
