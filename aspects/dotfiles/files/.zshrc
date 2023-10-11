@@ -297,37 +297,12 @@ function -forkless-basename() {
   echo "${PWD##*/}"
 }
 
-# Executed before displaying prompt.
-function -update-window-title-precmd() {
+# Show first distinctive word of command (for use in tab titles).
+function -title-command() {
   emulate -L zsh
   setopt EXTENDED_GLOB
-  if [[ __WINCENT[HISTCMD_LOCAL] -eq 0 ]]; then
-    # About to display prompt for the first time; nothing interesting to show in
-    # the history. Show $PWD.
-    -set-tab-and-window-title "$(-forkless-basename)"
-  else
-    local LAST=$(fc -l -1)
-    LAST="${LAST[(w)2]}"
-    if [ -n "$TMUX" ]; then
-      # Inside tmux, just show the last command: tmux will prefix it with the
-      # session name (for context).
-      -set-tab-and-window-title "$LAST"
-    else
-      # Outside tmux, show $PWD (for context) followed by the last command.
-      -set-tab-and-window-title "$(-forkless-basename) • $LAST"
-    fi
-  fi
-}
-add-zsh-hook precmd -update-window-title-precmd
 
-# Executed before executing a command: $2 is one-line (truncated) version of
-# the command.
-function -update-window-title-preexec() {
-  emulate -L zsh
-  setopt EXTENDED_GLOB
-  __WINCENT[HISTCMD_LOCAL]=$((++__WINCENT[HISTCMD_LOCAL]))
-
-  # Show first distinctive word of command; mostly stolen from:
+  # Mostly stolen from:
   #
   #   https://github.com/robbyrussell/oh-my-zsh/blob/master/lib/termsupport.zsh
   #
@@ -343,17 +318,49 @@ function -update-window-title-preexec() {
   # - `mosh`/`ssh`/`sudo` get removed too.
   # - `-*` removes anything starting with a hyphen.
   # - `:gs/%/%%` ensures that any "%" (rare) gets escaped as "%%".
-  local TRIMMED="${2[(wr)^(*=*|mosh|ssh|sudo|-*)]:gs/%/%%}"
+  echo "${1[(wr)^(*=*|mosh|ssh|sudo|-*)]:gs/%/%%}"
+}
+
+# Executed before displaying prompt.
+function -update-title-precmd() {
+  emulate -L zsh
+  setopt EXTENDED_GLOB
+  setopt KSH_GLOB
+  if [[ __WINCENT[HISTCMD_LOCAL] -eq 0 ]]; then
+    # About to display prompt for the first time; nothing interesting to show in
+    # the history. Show $PWD.
+    -set-tab-and-window-title "$(-forkless-basename)"
+  else
+    local LAST=$(fc -l -1)
+    LAST="${LAST##*([^[:space:]])}" # Remove first word (history number).
+    LAST="${LAST##*([:space])}" # Trim leading whitespace.
+    if [ -n "$TMUX" ]; then
+      # Inside tmux, just show the last command: tmux will prefix it with the
+      # session name (for context).
+      -set-tab-and-window-title "$(-title-command "$LAST")"
+    else
+      # Outside tmux, show $PWD (for context) followed by the last command.
+      -set-tab-and-window-title "$(-forkless-basename) • $(-title-command "$LAST")"
+    fi
+  fi
+}
+add-zsh-hook precmd -update-title-precmd
+
+# Executed before executing a command: $2 is one-line (truncated) version of
+# the command.
+function -update-title-preexec() {
+  emulate -L zsh
+  __WINCENT[HISTCMD_LOCAL]=$((++__WINCENT[HISTCMD_LOCAL]))
   if [ -n "$TMUX" ]; then
     # Inside tmux, show the running command: tmux will prefix it with the
     # session name (for context).
-    -set-tab-and-window-title "$TRIMMED"
+    -set-tab-and-window-title "$(-title-command "$2")"
   else
     # Outside tmux, show $PWD (for context) followed by the running command.
-    -set-tab-and-window-title "$(-forkless-basename) • $TRIMMED"
+    -set-tab-and-window-title "$(-forkless-basename) • $(-title-command "$2")"
   fi
 }
-add-zsh-hook preexec -update-window-title-preexec
+add-zsh-hook preexec -update-title-preexec
 
 typeset -F SECONDS
 function -record-start-time() {
