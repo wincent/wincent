@@ -81,7 +81,7 @@ banner "Updating template definitions"
 templates = vendor.join("base16-templates")
 
 # Here we only care about a subset of templates.
-["iterm2", "kitty", "nvim", "shell", "vim"].each do |target|
+["iterm2", "kitty", "nvim", "shell", "tmux", "vim"].each do |target|
   if templates_list.has_key?(target)
     url = templates_list[target]
     template_author_and_repo = url.
@@ -110,6 +110,7 @@ banner "Updating templates"
   "kitty" => root.join("aspects/dotfiles/files/.config/kitty/colors"),
   "nvim" => root.join("aspects/nvim/files/.config/nvim/pack/bundle/opt/base16-nvim/colors"),
   "shell" => root.join("aspects/dotfiles/files/.zsh/colors"),
+  "tmux" => root.join("aspects/dotfiles/files/.config/tmux/colors"),
   "vim" => root.join("aspects/nvim/files/.vim/colors"),
 }.each do |target, output_dir|
   puts "Reading: base16-#{target} config"

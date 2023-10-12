@@ -93,28 +93,36 @@ color() {
 
       # When running a `.tmux` script we may have a race where multiple `ln -sf`
       # are running at the same time (because the script may open multiple
-      # splits), producing "ln: colors.conf: File exists"; so, swallow stderr.
+      # splits), producing "ln: colors.conf: File exists" or similar; so,
+      # swallow stderr.
       (
         cd ~/.config/kitty &&
         ln -sf colors/base16-$SCHEME-256.conf colors.conf 2> /dev/null
+
+        cd ~/.config/tmux &&
+        ln -sf colors/base16-$SCHEME.conf theme.conf 2> /dev/null
       )
 
       if [ -r ~/.config/kitty/kitty.sock ]; then
         kitten @ set-colors --all --configured ~/.config/kitty/colors.conf
       fi
 
+      if [ -n "$TMUX" ]; then
+        command tmux source-file "$HOME/.config/tmux/theme.conf"
+      fi
+
       local CC=$(__extract color18 "$FILE")
       if [ -n "$BG" -a -n "$CC" ]; then
         if [ -n "$TMUX" ]; then
-          command tmux set -a window-active-style "bg=#$BG"
-          command tmux set -a window-style "bg=#$CC"
+          command tmux set -ga window-active-style "bg=#$BG"
+          command tmux set -ga window-style "bg=#$CC"
           command tmux set -g pane-active-border-style "bg=#$CC"
           command tmux set -g pane-border-style "bg=#$CC"
         fi
 
         cat <<EOF > ~/.config/tmux/colors.conf
-set -a window-active-style "bg=#$BG"
-set -a window-style "bg=#$CC"
+set -ga window-active-style "bg=#$BG"
+set -ga window-style "bg=#$CC"
 set -g pane-active-border-style "bg=#$CC"
 set -g pane-border-style "bg=#$CC"
 EOF

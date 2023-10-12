@@ -2,31 +2,32 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (https://github.com/chriskempson)
 # Vice Dark scheme by Thomas Leon Highbaugh
+export BASE16_THEME=vice
 
-color00="17/19/1E" # Base 00 - Black
+color00="18/18/18" # Base 00 - Black
 color01="ff/29/a8" # Base 08 - Red
 color02="0b/ad/ff" # Base 0B - Green
 color03="f0/ff/aa" # Base 0A - Yellow
 color04="00/ea/ff" # Base 0D - Blue
 color05="00/f6/d9" # Base 0E - Magenta
 color06="82/65/ff" # Base 0C - Cyan
-color07="8b/9c/be" # Base 05 - White
-color08="38/3a/47" # Base 03 - Bright Black
+color07="81/81/81" # Base 05 - White
+color08="3f/3f/3f" # Base 03 - Bright Black
 color09=$color01 # Base 08 - Bright Red
 color10=$color02 # Base 0B - Bright Green
 color11=$color03 # Base 0A - Bright Yellow
 color12=$color04 # Base 0D - Bright Blue
 color13=$color05 # Base 0E - Bright Magenta
 color14=$color06 # Base 0C - Bright Cyan
-color15="f4/f4/f7" # Base 07 - Bright White
+color15="e9/e9/e9" # Base 07 - Bright White
 color16="85/ff/e0" # Base 09
 color17="ff/3d/81" # Base 0F
-color18="22/26/2d" # Base 01
-color19="3c/3f/4c" # Base 02
-color20="55/5e/70" # Base 04
-color21="B2/BF/D9" # Base 06
-color_foreground="8b/9c/be" # Base 05
-color_background="17/19/1E" # Base 00
+color18="22/22/22" # Base 01
+color19="32/32/32" # Base 02
+color20="66/66/66" # Base 04
+color21="c6/c6/c6" # Base 06
+color_foreground="81/81/81" # Base 05
+color_background="18/18/18" # Base 00
 
 if [ -n "$TMUX" ]; then
   # Tell tmux to pass the escape sequences through
@@ -78,13 +79,13 @@ put_template 21 $color21
 # foreground / background / cursor color
 if [ -n "$ITERM_SESSION_ID" ]; then
   # iTerm2 proprietary escape codes
-  put_template_custom Pg 8b9cbe # foreground
-  put_template_custom Ph 17191E # background
-  put_template_custom Pi 8b9cbe # bold color
-  put_template_custom Pj 3c3f4c # selection color
-  put_template_custom Pk 8b9cbe # selected text color
-  put_template_custom Pl 8b9cbe # cursor
-  put_template_custom Pm 17191E # cursor text
+  put_template_custom Pg 818181 # foreground
+  put_template_custom Ph 181818 # background
+  put_template_custom Pi 818181 # bold color
+  put_template_custom Pj 323232 # selection color
+  put_template_custom Pk 818181 # selected text color
+  put_template_custom Pl 818181 # cursor
+  put_template_custom Pm 181818 # cursor text
 else
   put_template_var 10 $color_foreground
   if [ "$BASE16_SHELL_SET_BACKGROUND" != false ]; then
