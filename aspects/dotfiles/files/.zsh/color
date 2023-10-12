@@ -99,6 +99,10 @@ color() {
         ln -sf colors/base16-$SCHEME-256.conf colors.conf 2> /dev/null
       )
 
+      if [ -r ~/.config/kitty/kitty.sock ]; then
+        kitten @ set-colors --all --configured ~/.config/kitty/colors.conf
+      fi
+
       local CC=$(__extract color18 "$FILE")
       if [ -n "$BG" -a -n "$CC" ]; then
         if [ -n "$TMUX" ]; then

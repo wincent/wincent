@@ -1328,6 +1328,7 @@ inactive_tab_font_style italic
 #: See rc_custom_auth <https://sw.kovidgoyal.net/kitty/remote-
 #: control/#rc-custom-auth> for details.
 
+allow_remote_control socket-only
 # allow_remote_control no
 
 #: Allow other programs to control kitty. If you turn this on, other
@@ -1357,6 +1358,7 @@ inactive_tab_font_style italic
 #: yes
 #:     Remote control requests are always accepted.
 
+listen_on unix:~/.config/kitty/kitty.sock
 # listen_on none
 
 #: Listen to the specified socket for remote control connections. Note

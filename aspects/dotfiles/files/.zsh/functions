@@ -131,16 +131,25 @@ function ssl() {
 function tmux() {
   emulate -L zsh
 
+  local ENV_OVERRIDES=()
+
   # Make sure even pre-existing tmux sessions use the latest SSH_AUTH_SOCK.
-  # (Inspired by: https://gist.github.com/lann/6771001)
-  local SOCK_SYMLINK=~/.ssh/ssh_auth_sock
+  # Inspired by: https://gist.github.com/lann/6771001
   if [ -r "$SSH_AUTH_SOCK" -a ! -L "$SSH_AUTH_SOCK" ]; then
-    ln -sf "$SSH_AUTH_SOCK" $SOCK_SYMLINK
+    ln -sf "$SSH_AUTH_SOCK" "$HOME/.ssh/ssh_auth_sock"
+    ENV_OVERRIDES+=(SSH_AUTH_SOCK="$HOME/.ssh/ssh_auth_sock")
+  fi
+
+  # Same for KITTY_LISTEN_ON (although note, "unix:" prefix must be stripped).
+  local KITTY_SOCK=${KITTY_LISTEN_ON##unix:}
+  if [ -r "$KITTY_SOCK" -a ! -L "$KITTY_SOCK" ]; then
+    ln -sf "$KITTY_SOCK" "$HOME/.config/kitty/kitty.sock"
+    ENV_OVERRIDES+=(KITTY_LISTEN_ON="unix:$HOME/.config/kitty/kitty.sock")
   fi
 
   # If provided with args, pass them through.
   if [[ -n "$@" ]]; then
-    env SSH_AUTH_SOCK=$SOCK_SYMLINK tmux "$@"
+    env "${ENV_OVERRIDES[@]}" tmux "$@"
     return
   fi
 
@@ -155,18 +164,18 @@ function tmux() {
       echo
       if [[ $REPLY =~ ^[Tt]$ ]]; then
         echo "$DIGEST" >> ~/..tmux.digests
-        ./.tmux
+        env "${ENV_OVERRIDES[@]}" ./.tmux
         return
       fi
     else
-      ./.tmux
+      env "${ENV_OVERRIDES[@]}" ./.tmux
       return
     fi
   fi
 
   # Attach to existing session, or create one, based on current directory.
   local SESSION_NAME=$(basename "${$(pwd)//[.:]/_}")
-  env SSH_AUTH_SOCK=$SOCK_SYMLINK tmux new -A -s "$SESSION_NAME"
+  env "${ENV_OVERRIDES[@]}" tmux new -A -s "$SESSION_NAME"
 }
 
 # Bounce the Dock icon, if iTerm does not have focus.
