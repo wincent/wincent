@@ -117,6 +117,22 @@ if has_cmp then
     vim.api.nvim_feedkeys(rhs(keys), 'nt', true)
   end
 
+  local select_next_item = function(fallback)
+    if cmp.visible() then
+      cmp.select_next_item()
+    else
+      fallback()
+    end
+  end
+
+  local select_prev_item = function(fallback)
+    if cmp.visible() then
+      cmp.select_prev_item()
+    else
+      fallback()
+    end
+  end
+
   cmp.setup({
     mapping = {
       ['<BS>'] = cmp.mapping(function(_fallback)
@@ -139,20 +155,10 @@ if has_cmp then
         end
       end, { 'i', 's' }),
 
-      ['<C-j>'] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-          cmp.select_next_item()
-        else
-          fallback()
-        end
-      end),
-      ['<C-k>'] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-          cmp.select_prev_item()
-        else
-          fallback()
-        end
-      end),
+      ['<C-j>'] = cmp.mapping(select_next_item),
+      ['<Down>'] = cmp.mapping(select_next_item),
+      ['<C-k>'] = cmp.mapping(select_prev_item),
+      ['<Up>'] = cmp.mapping(select_prev_item),
 
       ['<C-y>'] = cmp.mapping(function(fallback)
         if cmp.visible() then
