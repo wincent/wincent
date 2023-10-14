@@ -441,10 +441,23 @@ if has_commandt then
             directory = vim.fn.shellescape(directory)
             command = command .. ' -- ' .. directory
           end
-          return command
+          local drop = 0
+          return command, drop
         end,
+        max_files = 100000,
       },
     },
+    scanners = {
+      file = {
+        max_files = 1000000,
+      },
+      find = {
+        max_files = 1000000,
+      },
+      rg = {
+        max_files = 1000000,
+      },
+    }
   })
 
   vim.api.nvim_create_user_command('CommandTAck', function(command)
