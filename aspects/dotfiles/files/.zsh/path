@@ -92,10 +92,9 @@ prepend_to PATH "$HOME/code/go/bin"
 prepend_to PATH "$HOME/.config/nvim/pack/bundle/opt/vcs-jump/bin"
 prepend_to PATH /opt/nvim/squashfs-root/usr/bin
 
-# On ARM Macs, Homebrew will use this instead of /usr/local.
+# On ARM Macs, Homebrew will use these instead of /usr/local.
 prepend_to PATH /opt/homebrew/sbin
 prepend_to PATH /opt/homebrew/bin
-
 prepend_to MANPATH /opt/homebrew/share/man
 prepend_to INFOPATH /opt/homebrew/share/info
 
@@ -104,6 +103,13 @@ append_to MANPATH /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.pl
 append_to MANPATH /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/usr/share/man
 append_to MANPATH /Applications/Xcode.app/Contents/Developer/usr/share/man
 append_to MANPATH /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/share/man
+
+# Normally these come from `/etc/man.conf`, but only if MANPATH is empty, so
+# re-set them here.
+prepend_to MANPATH /Library/Apple/usr/share/man
+prepend_to MANPATH /usr/X11/man
+prepend_to MANPATH /usr/local/share/man
+prepend_to MANPATH /usr/share/man
 
 prepend_to PATH /usr/local/opt/mysql@5.7/bin
 prepend_to PATH /usr/local/opt/llvm/bin
