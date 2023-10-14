@@ -104,7 +104,9 @@ color() {
       )
 
       if [ -r ~/.config/kitty/kitty.sock ]; then
-        kitten @ set-colors --all --configured ~/.config/kitty/colors.conf
+        if command -v kitten &> /dev/null; then
+          kitten @ set-colors --all --configured ~/.config/kitty/colors.conf
+        fi
       fi
 
       if [ -n "$TMUX" ]; then
