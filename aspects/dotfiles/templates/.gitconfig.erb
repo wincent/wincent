@@ -16,7 +16,7 @@
 	# http://stackoverflow.com/questions/224687/git-find-duplicate-blobs-files-in-this-tree/8408640#8408640
 	dupes = !"git ls-tree -r HEAD | cut -c 13- | sort | uniq -D -w 40"
 
-	ff = merge --ff-only --autostash
+	ff = merge --ff-only
 	find = "!f() { git ls-files | grep \"$@\"; }; f"
 	fixup = !bash -c 'git commit --fixup=$1 ${@:2}' -
 	fresh = remote update --prune
@@ -81,8 +81,8 @@
 	wf = "!f() { git --paginate diff --stat=10000 ${1:-HEAD} | awk '{print $1}' | sed '$d' | sort; }; f"
 
 [branch]
-	autosetupmerge = always
-	autosetuprebase = local
+	autoSetupMerge = always
+	autoSetupRebase = local
 
 [color]
 	ui = auto
@@ -105,8 +105,8 @@
 <%- } -%>
 
 [core]
-	attributesfile = ~/.gitattributes
-	excludesfile = ~/.gitignore
+	attributesFile = ~/.gitattributes
+	excludesFile = ~/.gitignore
 
 	# S = chop long lines (rather than wrap them onto next line)
 	#
@@ -151,7 +151,7 @@
 	patternType = perl
 
 [help]
-	autocorrect = 2
+	autoCorrect = 2
 
 [init]
 	# requires Git 2.28 or later
@@ -164,6 +164,7 @@
 	decorate = short
 
 [merge]
+	autoStash = true
 	conflictStyle = <%= variables.gitMergeConflictStyle %>
 	log = 1000
 
@@ -187,13 +188,14 @@
 	default = simple
 
 [rebase]
-	autosquash = true
+	autoSquash = true
+	autoStash = true
 
 [rerere]
 	enabled = true
 
 [status]
-	submodulesummary = true
+	submoduleSummary = true
 
 [submodule]
 	# Added in Git 2.9.0.
