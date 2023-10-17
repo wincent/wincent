@@ -457,7 +457,7 @@ if has_commandt then
       rg = {
         max_files = 1000000,
       },
-    }
+    },
   })
 
   vim.api.nvim_create_user_command('CommandTAck', function(command)
