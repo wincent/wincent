@@ -332,8 +332,9 @@ function -update-title-precmd() {
     -set-tab-and-window-title "$(-forkless-basename)"
   else
     local LAST=$(fc -l -1)
+    LAST="${LAST## #}" # Trim leading whitespace.
     LAST="${LAST##*([^[:space:]])}" # Remove first word (history number).
-    LAST="${LAST##*([:space])}" # Trim leading whitespace.
+    LAST="${LAST## #}" # Trim leading whitespace.
     if [ -n "$TMUX" ]; then
       # Inside tmux, just show the last command: tmux will prefix it with the
       # session name (for context).
