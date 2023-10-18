@@ -28,6 +28,16 @@ task('symlink files', async () => {
   }
 });
 
+task('symlink ~/.tmux.conf to ~/.config/tmux/tmux.conf', async () => {
+  // Ancient version of tmux doesn't know to look in the latter location.
+  await file({
+    force: true,
+    path: path.home.join('.tmux.conf'),
+    src: path.home.join('.config/tmux/tmux.conf'),
+    state: 'link',
+  });
+});
+
 task('fetch lotabout/skim.git', async () => {
   await command(
     'git',
