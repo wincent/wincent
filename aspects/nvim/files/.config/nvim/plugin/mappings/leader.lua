@@ -41,7 +41,9 @@ end, { silent = true })
 -- or start it.
 --
 -- (mnemonic: [m]atch paren)
-vim.keymap.set('n', '<Leader>m', ':call wincent#mappings#leader#matchparen()<CR>', { silent = true })
+vim.keymap.set('n', '<Leader>m', function()
+  wincent.vim.toggle_matchparen()
+end, { silent = true })
 
 -- Micro-optimizating the slightly-hard-to-type-on-Colemak-but-very-useful `gv`.
 vim.keymap.set('n', '<Leader>v', 'gv')
