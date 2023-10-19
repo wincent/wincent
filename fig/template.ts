@@ -194,7 +194,7 @@ export function* tokenize(input: string): Generator<Token> {
         } else {
           // TODO: may want to tolerate this so that we can write
           // things like: <%= '<%' %>
-          // would be useful in .gitconfig.erb
+          // would be useful in .config/git/config.erb
           throw new Error(
             `Unexpected start delimiter "${text}" at index ${match.index}:\n\n` +
               excerpt(input, match.index),

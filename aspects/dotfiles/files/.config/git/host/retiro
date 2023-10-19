@@ -1,0 +1,13 @@
+magic = com.wincent.git-cipher
+url = https://github.com/wincent/git-cipher/blob/v2.0.0-pre.2/PROTOCOL.md
+version = 1
+algorithm = aes-256-cbc
+filename = "aspects/dotfiles/files/.config/git/host/retiro"
+iv = 7b0f8f94a9a23850e060b471dcb43cce
+ciphertext =
+dd42ff02ce0ce056db0c2ddfacdcf8cfbdb712da5d1b4ad356ed1375805aab33d356e86c
+3516961947b0394db5b229b378a234e83245a24c2c59254d001cbe48415a4c217c0dc4b6
+ec038a9d1fb1f516887c9bd6ea40577b5eb3f87a4fee9e76cba13ad30d6319af8193c3b7
+fa4aee9057ebdc528ada9f136d4fec1e5a96888797f873446bb5ff2bcba320a900000872
+8f7f7b32a0393323d8f6c0c67f92863c
+hmac = 030ba3a730df1449c23e9093faa494a331af1e229019eed03196f81f368de055

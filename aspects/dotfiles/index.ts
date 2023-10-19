@@ -55,7 +55,7 @@ variables(({hostHandle, identity, platform, profile}) => {
     kittyAlt: platform === 'darwin' ? 'cmd' : 'alt',
 
     gitGpgSign: identity === 'wincent' && profile !== 'codespaces',
-    gitHostSpecificInclude: `.gitconfig.d/${hostHandle}`,
+    gitHostSpecificInclude: `host/${hostHandle}`,
     gitUserEmail: identity === 'wincent' ? 'greg@hurrell.net' : '',
     gitUserName: identity === 'wincent' ? 'Greg Hurrell' : '',
     gitHubUsername: identity === 'wincent' ? 'wincent' : '',

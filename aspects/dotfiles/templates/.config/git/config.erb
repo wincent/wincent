@@ -105,9 +105,6 @@
 <%- } -%>
 
 [core]
-	attributesFile = ~/.gitattributes
-	excludesFile = ~/.gitignore
-
 	# S = chop long lines (rather than wrap them onto next line)
 	#
 	# This in addition to the "iFMRX" that we get via LESS environment variable.
@@ -211,5 +208,5 @@
 
 # Ignored by Git older than 1.7.10.
 [include]
-	path = .gitconfig.local
+	path = config.local
 	path = <%= variables.gitHostSpecificInclude %>

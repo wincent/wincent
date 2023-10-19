@@ -1,0 +1,2 @@
+# Ignore templated config file (we version-control the source instead).
+/config

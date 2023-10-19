@@ -1,0 +1,16 @@
+magic = com.wincent.git-cipher
+url = https://github.com/wincent/git-cipher/blob/v2.0.0-pre.2/PROTOCOL.md
+version = 1
+algorithm = aes-256-cbc
+filename = "aspects/dotfiles/files/.config/git/handles.json"
+iv = 7af4f8aae43ec54d909f6aabf9e4f064
+ciphertext =
+adcba540b71368dc13ac20512e5449df7fd409de3d0e4d0d12d044e2ed89337001dda019
+c0708eb6d6b3ab7eb253754a7b6afb30bdfff4cf91a4e13d1ad8e91c2fddb71cfd5daf7c
+a3e6cfb1d03a261b7d7e5062cec4fc2dbf368db5aa3ff0666582957dde055b84280c72ed
+f99c020ece719f6d447e012f1526d5f35f89a81e84c74d91c5fec1593d26bd5c3d44fe92
+c563fa7616524f2d1d6bb0e3daeb7497bf885e2c73457c49834b46422e1de62129013872
+38937cc1c3ab28ebed54fafa3964e379a9dccf9e11f8c65a4f918409a76a868408f4407b
+3a099ddf9fa588ddf88edd68d292f3be24a9c43e3a017b8838d8cebae09c764d7e0b6afc
+5615bacd19ceec02bf1d91ed5ba55dce0ac47797f8b936888ee1da1921a338bfd4f479d7
+hmac = 7f31692df4bbfa7187eb4863af6040ec6084429cd6932d0bbc56130bcc308f75

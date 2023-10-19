@@ -223,11 +223,11 @@ At the time of writing, these are the aspects, which you can expect to change ov
 
 This sets up a local Node environment using [n](https://github.com/tj/n), and then uses [Fig](./fig/README.md) to copy the dotfiles and configure the machine.
 
-**Note:** Given that `~/.gitconfig` is included with these dotfiles, any local modifications or overrides that you apply should be added to `~/.gitconfig.local` instead; for example:
+**Note:** Given that `~/.config/git/config` is included with these dotfiles, any local modifications or overrides that you apply should be added to `~/.config/git/config.local` instead; for example:
 
 ```sh
-git config --file ~/.gitconfig.local user.name "John Doe"
-git config --file ~/.gitconfig.local user.email johndoe@example.com
+git config --file ~/.config/git/config.local user.name "John Doe"
+git config --file ~/.config/git/config.local user.email johndoe@example.com
 ```
 
 #### Manual steps
