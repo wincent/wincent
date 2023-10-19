@@ -16,7 +16,7 @@ handles.setup = function()
   end
 
   local success, handles_with_names_and_emails = pcall(function()
-    local json_path = vim.fn.expand('~/.github-handles.json')
+    local json_path = vim.fn.expand('~/.config/git/handles.json')
     if vim.fn.filereadable(json_path) == 0 then
       error(json_path .. ' not readable')
     end
