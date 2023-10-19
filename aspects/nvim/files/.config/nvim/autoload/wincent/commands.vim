@@ -11,8 +11,8 @@ endfunction
 let s:directories={}
 
 function! s:open_on_github(file, range) abort
-  let l:git_dir=wincent#git#get_git_dir(a:file)
-  if l:git_dir == ''
+  let l:git_dir=v:lua.wincent.git.get_git_dir(a:file)
+  if l:git_dir == v:null
     call wincent#functions#echoerr('No .git directory found above ' . a:file)
     return
   endif
