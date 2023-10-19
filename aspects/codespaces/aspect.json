@@ -2,7 +2,7 @@
   "description": "Custom tweaks for GitHub Codespaces",
   "variables": {
     "files": [
-      ".config/nvim/init-local.vim",
+      ".config/nvim/init-local.lua",
       ".config/tmux/local.conf",
       ".zlogin",
       ".zshenv.d",
