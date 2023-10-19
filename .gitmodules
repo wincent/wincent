@@ -5,6 +5,10 @@
 [submodule "applescript.vim"]
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/applescript.vim
 	url = https://github.com/vim-scripts/applescript.vim.git
+[submodule "base16-nvim"]
+	branch = main
+	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/base16-nvim
+	url = https://github.com/wincent/base16-nvim.git
 [submodule "base16-schemes-source"]
 	branch = main
 	path = vendor/base16-schemes-source
@@ -58,6 +62,10 @@
 	branch = main
 	path = vendor/git-cipher
 	url = https://github.com/wincent/git-cipher.git
+[submodule "indent-blankline.nvim"]
+	ignore = untracked
+	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/indent-blankline.nvim
+	url = https://github.com/lukas-reineke/indent-blankline.nvim.git
 [submodule "loupe"]
 	branch = main
 	ignore = dirty
@@ -165,6 +173,10 @@
 [submodule "vim-jsx"]
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-jsx
 	url = https://github.com/mxw/vim-jsx.git
+[submodule "vim-kitty"]
+	branch = main
+	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-kitty
+	url = https://github.com/fladson/vim-kitty.git
 [submodule "vim-ledger"]
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-ledger
 	url = https://github.com/ledger/vim-ledger.git
@@ -222,6 +234,13 @@
 [submodule "vim-zsh"]
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-zsh
 	url = https://github.com/chrisbra/vim-zsh.git
+[submodule "zen-mode.nvim"]
+	branch = main
+	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/zen-mode.nvim
+	url = https://github.com/folke/zen-mode.nvim.git
+[submodule "zsh-async"]
+	path = aspects/dotfiles/files/.zsh/zsh-async
+	url = https://github.com/mafredri/zsh-async.git
 [submodule "zsh-autosuggestions"]
 	path = aspects/dotfiles/files/.zsh/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
@@ -231,22 +250,3 @@
 [submodule "zsh-syntax-highlighting"]
 	path = aspects/dotfiles/files/.zsh/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
-[submodule "zen-mode.nvim"]
-	branch = main
-	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/zen-mode.nvim
-	url = https://github.com/folke/zen-mode.nvim.git
-[submodule "indent-blankline.nvim"]
-	ignore = untracked
-	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/indent-blankline.nvim
-	url = https://github.com/lukas-reineke/indent-blankline.nvim.git
-[submodule "base16-nvim"]
-	branch = main
-	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/base16-nvim
-	url = https://github.com/wincent/base16-nvim.git
-[submodule "zsh-async"]
-	path = aspects/dotfiles/files/.zsh/zsh-async
-	url = https://github.com/mafredri/zsh-async.git
-[submodule "vim-kitty"]
-	branch = main
-	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-kitty
-	url = https://github.com/fladson/vim-kitty.git

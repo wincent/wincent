@@ -13,19 +13,6 @@ function! wincent#functions#keynote() abort
   quit
 endfunction
 
-" Sort a .gitmodules file.
-"
-" See also: https://wincent.com/wiki/Sorting_.gitmodules_entries_with_Vim
-function! wincent#functions#sortgitmodules(...) abort
-  if &ft ==# 'gitconfig' || a:0
-    silent %s/\v\n\t/@@@/e
-    %sort
-    silent %s/\v\@\@\@/\r\t/ge
-  else
-    echomsg 'Not a "gitconfig" file: use `wincent#functions#sortgitmodules(1)` to force'
-  endif
-endfunction
-
 " http://stackoverflow.com/a/39348498/2103996
 function! wincent#functions#clearregisters() abort
   let l:regs=split('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-"', '\zs')
