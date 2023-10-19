@@ -13,17 +13,6 @@ function! wincent#functions#keynote() abort
   quit
 endfunction
 
-function! wincent#functions#substitute(pattern, replacement, flags) abort
-  let l:number=1
-  for l:line in getline(1, '$')
-    let l:replaced=substitute(l:line, a:pattern, a:replacement, a:flags)
-    if l:replaced != l:line
-      call setline(l:number, l:replaced)
-    endif
-    let l:number=l:number + 1
-  endfor
-endfunction
-
 " Sort a .gitmodules file.
 "
 " See also: https://wincent.com/wiki/Sorting_.gitmodules_entries_with_Vim

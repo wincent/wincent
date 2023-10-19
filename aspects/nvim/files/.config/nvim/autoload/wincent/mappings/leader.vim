@@ -8,8 +8,3 @@ function! wincent#mappings#leader#matchparen() abort
   endif
   execute l:currwin . 'wincmd w'
 endfunction
-
-" Zap trailing whitespace.
-function! wincent#mappings#leader#zap() abort
-  call wincent#functions#substitute('\s\+$', '', '')
-endfunction

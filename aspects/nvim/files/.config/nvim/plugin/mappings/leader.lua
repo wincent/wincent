@@ -33,7 +33,9 @@ vim.keymap.set('n', '<Leader>x', ':xit<CR>')
 --
 --        As this one is somewhat destructive and relatively close to the
 --        oft-used <leader>a mapping, make this one a double key-stroke.
-vim.keymap.set('n', '<Leader>zz', ':call wincent#mappings#leader#zap()<CR>', { silent = true })
+vim.keymap.set('n', '<Leader>zz', function()
+  wincent.vim.zap()
+end, { silent = true })
 
 -- Stop annoying paren match highlighting from flashing all over the screen,
 -- or start it.
