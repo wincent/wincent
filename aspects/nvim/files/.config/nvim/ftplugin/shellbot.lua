@@ -1,4 +1,5 @@
 vim.bo.textwidth = 0
+vim.wo.list = false
 vim.wo.number = false
 vim.wo.relativenumber = false
 vim.wo.showbreak = 'NONE'

@@ -11,8 +11,8 @@ local cpo = vim.o.cpo
 
 vim.cmd([[
   set cpo&vim
-  syntax match ChatGPTHeader /^◭🧑 .*/
-  syntax match ChatGPTHeader /^◮🤖 .*/
+  syntax match ChatGPTHeader /^ 🤓 .*/
+  syntax match ChatGPTHeader /^ 🤖 .*/
   highlight def link ChatGPTHeader TermCursor
 ]])
 
