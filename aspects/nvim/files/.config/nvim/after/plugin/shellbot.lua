@@ -1,4 +1,4 @@
-vim.api.nvim_create_user_command('ChatGPT', function ()
+vim.api.nvim_create_user_command('ChatGPT', function()
   local has_shellbot, shellbot = pcall(require, 'chatgpt')
   if not has_shellbot then
     vim.api.nvim_err_writeln("error: could not require 'chatgpt'; is the submodule initialized?")
