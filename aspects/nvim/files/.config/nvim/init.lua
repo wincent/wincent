@@ -250,6 +250,7 @@ if vim.o.loadplugins then
   wincent.plugin.load('replay')
   wincent.plugin.load('rust.vim')
   wincent.plugin.load('scalpel')
+  wincent.plugin.load('shellbot')
   wincent.plugin.load('tcomment_vim')
   wincent.plugin.load('terminus')
   wincent.plugin.load('typescript-vim')
