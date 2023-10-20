@@ -1,5 +1,5 @@
 vim.bo.textwidth = 0
-vim.wo.showbreak = ''
+vim.wo.showbreak = 'NONE'
 
 local has_shellbot = require('chatgpt')
 if has_shellbot then
