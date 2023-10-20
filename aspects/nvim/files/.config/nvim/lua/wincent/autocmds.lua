@@ -307,6 +307,7 @@ autocmds.number_blacklist = {
   ['help'] = true,
   ['qf'] = true,
   ['sagahover'] = true,
+  ['shellbot'] = true,
   ['undotree'] = true,
 }
 

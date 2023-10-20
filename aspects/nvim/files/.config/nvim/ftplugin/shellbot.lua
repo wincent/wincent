@@ -1,4 +1,6 @@
 vim.bo.textwidth = 0
+vim.wo.number = false
+vim.wo.relativenumber = false
 vim.wo.showbreak = 'NONE'
 
 local has_shellbot = require('chatgpt')
