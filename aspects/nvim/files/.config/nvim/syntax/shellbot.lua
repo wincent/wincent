@@ -7,12 +7,14 @@ elseif vim.fn.exists('b:current_syntax') == 1 and vim.b.current_syntax == 'shell
   return
 end
 
+vim.cmd 'runtime! syntax/markdown.vim'
+
 local cpo = vim.o.cpo
 
 vim.cmd([[
   set cpo&vim
-  syntax match ChatGPTHeader /^ 🤓 .*/
-  syntax match ChatGPTHeader /^ 🤖 .*/
+  syntax match ChatGPTHeader /^ 🤓 .*/ containedin=ALL
+  syntax match ChatGPTHeader /^ 🤖 .*/ containedin=ALL
   highlight def link ChatGPTHeader TermCursor
 ]])
 
