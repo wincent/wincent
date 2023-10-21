@@ -43,7 +43,7 @@ lsp.init = function()
   -- Prerequisite: https://github.com/LuaLS/lua-language-server
   --
   -- `brew install lua-language-server` on macOS.
-  -- `yay -S lua-languag-server` on Arch.
+  -- `yay -S lua-language-server` on Arch.
   --
   -- See also:
   --
@@ -75,6 +75,9 @@ lsp.init = function()
           workspace = {
             -- Make the server aware of Neovim runtime files.
             library = vim.api.nvim_get_runtime_file('', true),
+            -- Stop "Do you need to configure your work environment as
+            -- `luassert`?" spam.
+            checkThirdParty = false,
           },
         },
       },
