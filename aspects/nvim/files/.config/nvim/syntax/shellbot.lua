@@ -7,7 +7,7 @@ elseif vim.fn.exists('b:current_syntax') == 1 and vim.b.current_syntax == 'shell
   return
 end
 
-vim.cmd 'runtime! syntax/markdown.vim'
+vim.cmd('runtime! syntax/markdown.vim')
 
 local cpo = vim.o.cpo
 
