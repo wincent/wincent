@@ -6,8 +6,8 @@ set -e
 # aspects/nvim/files/.config/.nvim/pack:
 
 git submodule foreach '
-  if [ "${path##aspects/nvim/files/.config/nvim/pack/}" != "$path" ]; then
-    NAME=$(basename $path)
+  if [ "${sm_path##aspects/nvim/files/.config/nvim/pack/}" != "$sm_path" ]; then
+    NAME=$(basename $sm_path)
     BRANCH=$(git config -f $toplevel/.gitmodules submodule."$NAME".branch || echo master)
     git remote update --prune
     git checkout $BRANCH
@@ -15,13 +15,13 @@ git submodule foreach '
 '
 
 git submodule foreach '
-  if [ "${path##aspects/nvim/files/.config/nvim/pack/}" != "$path" ]; then
+  if [ "${sm_path##aspects/nvim/files/.config/nvim/pack/}" != "$sm_path" ]; then
     git pull --recurse-submodules || :
   fi
 '
 
 git submodule foreach '
-  if [ "${path##aspects/nvim/files/.config/nvim/pack/}" != "$path" ]; then
+  if [ "${sm_path##aspects/nvim/files/.config/nvim/pack/}" != "$sm_path" ]; then
     git submodule update --init --recursive || :
   fi
 '
