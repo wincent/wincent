@@ -5,7 +5,7 @@ export default {
       'autoconf', // To build Neovim from source.
       'automake', // To build Neovim from source.
       'bfs', // Used in `j` alias.
-      'cargo', // To build skim from source.
+      'cargo', // To build shellbot and skim from source.
       'cmake', // To build Neovim from source.
       'g++', // To build Neovim from source.
       'gettext', // To build Neovim from source.

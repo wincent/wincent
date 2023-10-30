@@ -111,6 +111,15 @@ task('compile Command-T (Ruby)', async () => {
   });
 });
 
+task('build shellbot', async () => {
+  const base = resource.file('.config').join('nvim/pack/bundle/opt/shellbot/lua')
+
+  await command('cargo', ['build', '--release'], {
+    chdir: base,
+    creates: base.join('target/release/shellbot'),
+  });
+});
+
 task('download spell files', async () => {
   for (
     const url of [
