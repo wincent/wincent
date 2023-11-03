@@ -112,7 +112,9 @@ task('compile Command-T (Ruby)', async () => {
 });
 
 task('build shellbot', async () => {
-  const base = resource.file('.config').join('nvim/pack/bundle/opt/shellbot/lua')
+  const base = resource.file('.config').join(
+    'nvim/pack/bundle/opt/shellbot/lua',
+  );
 
   await command('cargo', ['build', '--release'], {
     chdir: base,
