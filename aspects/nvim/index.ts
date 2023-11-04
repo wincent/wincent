@@ -179,7 +179,7 @@ task('install gems', async () => {
 
 task('install pynvim', async () => {
   if (is('arch')) {
-    await command('pip', ['install', '--upgrade', 'pynvim']);
+    await command('pacman', ['-S', 'python-pynvim'], {sudo: true});
   } else {
     await command('pip3', ['install', '--upgrade', 'pynvim']);
   }
