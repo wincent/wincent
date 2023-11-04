@@ -258,6 +258,14 @@ There are a few useful `./install` options:
 ./install --step --start='make directories' dotfiles
 ```
 
+#### `./install` hangs on the first run
+
+If running on a brand new OS install where you have never used `sudo` before, `./install` may appear to hang after requesting your password. This is because `sudo` may show a "lecture"[^lecture] on first run that requires you to respond to a prompt. When running in the context of `./install`, you never see this prompt, because `sudo` is running in a subprocess, which causes the run to hang.
+
+[^lecture]: See `man sudoers`.
+
+To avoid this, one time only, run `sudo -v` before running `./install`.
+
 ## License
 
 Unless otherwise noted, the contents of this repo are in the public domain. See the [LICENSE](LICENSE.md) for details.
