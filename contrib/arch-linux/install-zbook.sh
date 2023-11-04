@@ -1,12 +1,13 @@
 #!/bin/bash
 
 # loadkeys colemak -- (ie. "iyasefjr cyifmae" typing colemak-style on qwerty)
+# setfont ter-132b -- Switch to a larger font, if needed.
 # iwctl device list
 # iwctl station wlan0 scan
 # iwctl station wlan0 get-networks
 # iwctl station wlan0 connect $SSID
-# curl -LO https://wincent.com/link/arch-linux-install.sh
-# bash arch-linux-install.sh
+# curl -LO https://wincent.com/link/arch/zbook.sh
+# bash zbook.sh
 
 set -e
 
