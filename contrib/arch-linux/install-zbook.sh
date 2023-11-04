@@ -114,6 +114,7 @@ echo "root:\$__PASSPHRASE__" | chpasswd
 useradd -m -g users -G wheel wincent
 echo "wincent:\$__PASSPHRASE__" | chpasswd
 echo '%wheel ALL=(ALL) ALL' > /etc/sudoers.d/wheel
+echo 'Defaults:wincent !lecture' > /etc/sudoers.d/wincent
 
 log "Setting up boot"
 pacman -S --noconfirm efibootmgr dosfstools os-prober mtools
