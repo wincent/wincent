@@ -1,3 +1,4 @@
+import * as assert from 'node:assert';
 import * as path from 'node:path';
 
 import ErrorWithMetadata from './ErrorWithMetadata.js';
@@ -65,14 +66,17 @@ export default async function getOptions(
 
   // Explode "-qt" (etc) to "-q", "-t".
   const explodedArgs = args.flatMap((arg) => {
-    if (arg.match(/^-[dhqtv]{2,}$/)) {
+    if (arg.match(/^-[dhqstv]{2,}$/)) {
       return Array.from(arg.slice(1)).map((letter) => `-${letter}`);
     } else {
       return arg;
     }
   });
 
-  for (const arg of explodedArgs) {
+  while (explodedArgs.length) {
+    const arg = explodedArgs.shift();
+    assert.ok(arg);
+
     if (arg === '--check' || arg === '--dry-run') {
       // Support --check for Ansible compatibility and --dry-run because
       // of my Git muscle memory.
@@ -89,21 +93,35 @@ export default async function getOptions(
     } else if (arg === '--parallel') {
       options.parallel = true;
     } else if (
+      arg === '-s' ||
+      arg === '--start' ||
+      arg === '--start-at-task'
+    ) {
+      const task = explodedArgs.shift()?.trim();
+      if (task === undefined) {
+        throw new ErrorWithMetadata(
+          `missing <aspect-or-task> pattern for ${arg} switch`,
+        );
+      } else if (task.startsWith('-')) {
+        throw new ErrorWithMetadata(
+          `invalid <aspect-or-task> pattern ${
+            stringify(task)
+          } for ${arg} switch`,
+        );
+      }
+      options.startAt.literal = task;
+      options.startAt.fuzzy = fuzz(task);
+    } else if (
       arg.startsWith('--start-at-task=') ||
       arg.startsWith('--start=')
     ) {
-      options.startAt.literal = (
-        arg.match(/^--start(?:-at-task)?=(.*)/)?.[1] ?? ''
+      const task = (
+        arg.match(/^--start(?:-at-task)?=(['"])(.*)(\1)$/)?.[2] ??
+          arg.match(/^--start(?:-at-task)?=(.*)/)?.[1] ??
+          ''
       ).trim();
-
-      options.startAt.fuzzy = new RegExp(
-        [
-          '',
-          ...options.startAt.literal.split(/\s+/).map(escapeRegExpPattern),
-          '',
-        ].join('.*'),
-        'i',
-      );
+      options.startAt.literal = task;
+      options.startAt.fuzzy = fuzz(task);
     } else if (arg === '--step') {
       options.step = true;
     } else if (arg === '--verbose' || arg === '-v') {
@@ -149,6 +167,16 @@ export default async function getOptions(
   return options;
 }
 
+/**
+ * Turn `value` into a fuzzy RegExp.
+ */
+function fuzz(value: string) {
+  return new RegExp(
+    ['', ...value.split(/\s+/).map(escapeRegExpPattern), ''].join('.*'),
+    'i',
+  );
+}
+
 async function printUsage(aspects: Array<[string, string]>) {
   // TODO: actually implement all the switches mentioned here
   await log(
@@ -166,7 +194,7 @@ async function printUsage(aspects: Array<[string, string]>) {
         -q/--quiet
         -t/--test
         -v/--verbose  (repeat up to four times for more verbosity)
-           --start-at-task='aspect | task' # TODO: maybe make -s short variant
+        -s/--start-at-task <aspect-or-task>
            --step
 
       ${bold`Aspects:`}
