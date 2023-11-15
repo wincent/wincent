@@ -2,8 +2,8 @@ local leader = wincent.mappings.leader
 
 local autocmds = {}
 
-local ownsyntax_flag = 'wincent_ownsyntax'
 local number_flag = leader.number_flag
+local captured_settings = {}
 
 -- stylua: ignore
 local focused_colorcolumn = '+' .. table.concat({
@@ -44,41 +44,46 @@ local winhighlight_blurred = table.concat({
   'SignColumn:ColorColumn',
 }, ',')
 
--- As described in a7e4d8b8383a375d124, `ownsyntax` resets spelling
--- settings, so we capture and restore them. Note that there is some trickiness
--- here because multiple autocmds can trigger "focus" or "blur" operations; this
--- means that we can't just naively save and restore: we have to use a flag to
--- make sure that we only capture the initial state.
-local ownsyntax = function(focussing)
-  -- true when we have captured settings.
-  local captured = vim.w[ownsyntax_flag]
+-- Helper to Save settings for later restoration; see `ownsyntax` below.
+local capture = function(filetype)
+  if not captured_settings[filetype] then
+    -- We haven't captured settings for this filetype yet.
+    captured_settings[filetype] = {
+      spell = vim.wo.spell,
+      spellcapcheck = vim.bo.spellcapcheck,
+      spellfile = vim.bo.spellfile,
+      spelllang = vim.bo.spelllang,
+    }
+    -- TODO: figure out how/when/if to update one of these objects
+  end
+end
 
-  if focussing and vim.bo.filetype ~= '' then
+-- As described in a7e4d8b8383a375d124, `ownsyntax` resets spelling settings, so
+-- we capture and restore them. Note that there is some trickiness here because
+-- multiple autocmds can trigger "focus" or "blur" operations; this means that
+-- we can't just naively save and restore: we have to use a flag to make sure
+-- that we only capture the initial state, and we also have to do this in a
+-- filetype-aware way, because different filetypes can have different settings
+-- (and the same window can be used to show buffers with different filetypes).
+local ownsyntax = function(focussing)
+  local blurring = not focussing
+
+  local filetype = vim.bo.filetype
+  if focussing and filetype ~= '' then
     if vim.w.current_syntax == nil then
       -- `ownsyntax` is off.
+      capture(filetype)
       vim.cmd('ownsyntax on')
     end
 
-    if captured == true then
-      vim.wo.spell = vim.w.saved_spell or false
-      vim.bo.spellcapcheck = vim.w.saved_spellcapcheck or ''
-      vim.bo.spellfile = vim.w.saved_spellfile or ''
-      vim.bo.spelllang = vim.w.saved_spelllang or 'en'
-
-      -- Set flag to show that we have restored the captured options.
-      vim.w[ownsyntax_flag] = true
+    if captured_settings[filetype] then
+      vim.opt_local.spell = captured_settings[filetype].spell or false
+      vim.opt_local.spellcapcheck = captured_settings[filetype].spellcapcheck or ''
+      vim.opt_local.spellfile = captured_settings[filetype].spellfile or ''
+      vim.opt_local.spelllang = captured_settings[filetype].spelllang or 'en'
     end
-  elseif not focussing and vim.bo.filetype ~= '' then
-    if captured ~= true then
-      -- Save settings for later restoration.
-      vim.w.saved_spell = vim.wo.spell
-      vim.w.saved_spellcapcheck = vim.bo.spellcapcheck
-      vim.w.saved_spellfile = vim.bo.spellfile
-      vim.w.saved_spelllang = vim.bo.spelllang
-
-      -- Set flag to show that we have captured options.
-      vim.w[ownsyntax_flag] = false
-    end
+  elseif blurring and filetype ~= '' then
+    capture(filetype)
 
     if vim.w.current_syntax ~= nil then
       -- `ownsyntax` is on.
@@ -207,6 +212,11 @@ end
 
 autocmds.buf_write_post = function()
   mkview()
+end
+
+autocmds.file_type = function(a)
+  local filetype = vim.fn.expand('<amatch>')
+  capture(filetype)
 end
 
 autocmds.focus_gained = function()

@@ -1,36 +1,41 @@
--- This is a (probably) temporary workaround until:
+-- This was originally a workaround due to buggy behavior of `vim.opt_local`:
 --
 --    https://github.com/neovim/neovim/issues/14670
 --
--- is resolved.
---
--- Basically, Vim's `setlocal` is magical, sometimes operating as buffer-local
--- and at other times as window-local.
+-- That one is apparently resolved now, but I am leaving it as a convenience
+-- wrapper in any case. Its job is to match the magical behavior of Vim's
+-- `:setlocal` command, which can apply window-local or buffer-local settings,
+-- even for settings like `'spell'` which are labeled as "window"-level settings
+-- in the docs, but which actually need to be buffer-level ones in order to
+-- provide a good user experience. `vim.api.nvim_buf_set_option()` errors if you
+-- try to set `'spell'`, but `vim.api.nvim_set_option_value()` does not, and
+-- it ends up setting it at a buffer level, not a window level, so we use that
+-- here.
 
 local options = {
-  breakindent = { scope = 'window', type = 'boolean' },
-  breakindentopt = { scope = 'window', type = 'string' },
-  colorcolumn = { scope = 'window', type = 'string' },
-  concealcursor = { scope = 'window', type = 'string' },
-  expandtab = { scope = 'buffer', type = 'boolean' },
-  foldenable = { scope = 'window', type = 'boolean' },
-  formatprg = { scope = 'buffer', type = 'string' },
-  iskeyword = { scope = 'buffer', type = 'list' },
-  list = { scope = 'window', type = 'boolean' },
-  modifiable = { scope = 'buffer', type = 'boolean' },
-  omnifunc = { scope = 'buffer', type = 'string' },
-  readonly = { scope = 'buffer', type = 'boolean' },
-  shiftwidth = { scope = 'buffer', type = 'number' },
-  smartindent = { scope = 'buffer', type = 'boolean' },
-  spell = { scope = 'window', type = 'boolean' },
-  spellfile = { scope = 'buffer', type = 'string' },
-  spelllang = { scope = 'buffer', type = 'string' },
-  statusline = { scope = 'window', type = 'string' },
-  synmaxcol = { scope = 'buffer', type = 'number' },
-  tabstop = { scope = 'buffer', type = 'number' },
-  textwidth = { scope = 'buffer', type = 'number' },
-  wrap = { scope = 'window', type = 'boolean' },
-  wrapmargin = { scope = 'buffer', type = 'number' },
+  breakindent = { type = 'boolean' },
+  breakindentopt = { type = 'string' },
+  colorcolumn = { type = 'string' },
+  concealcursor = { type = 'string' },
+  expandtab = { type = 'boolean' },
+  foldenable = { type = 'boolean' },
+  formatprg = { type = 'string' },
+  iskeyword = { type = 'list' },
+  list = { type = 'boolean' },
+  modifiable = { type = 'boolean' },
+  omnifunc = { type = 'string' },
+  readonly = { type = 'boolean' },
+  shiftwidth = { type = 'number' },
+  smartindent = { type = 'boolean' },
+  spell = { type = 'boolean' },
+  spellfile = { type = 'string' },
+  spelllang = { type = 'string' },
+  statusline = { type = 'string' },
+  synmaxcol = { type = 'number' },
+  tabstop = { type = 'number' },
+  textwidth = { type = 'number' },
+  wrap = { type = 'boolean' },
+  wrapmargin = { type = 'number' },
 }
 
 local bail = function(msg)
@@ -59,21 +64,25 @@ local setlocal = function(name, ...)
     return bail('setlocal(): unsupported option: ' .. name)
   end
 
-  local get = option.scope == 'buffer' and vim.api.nvim_buf_get_option or vim.api.nvim_win_get_option
+  local get = function(name)
+    return vim.api.nvim_get_option_value(name, { scope = 'local' })
+  end
 
-  local set = option.scope == 'buffer' and vim.api.nvim_buf_set_option or vim.api.nvim_win_set_option
+  local set = function(name, value)
+    vim.api.nvim_set_option_value(name, value, { scope = 'local' })
+  end
 
   if operator == '=' then
-    set(0, name, value)
+    set(name, value)
   elseif operator == '-=' then
     if option.type ~= 'list' then
       return bail('setlocal(): operator "-=" requires list type but got ' .. option.type)
     end
-    local current = vim.split(get(0, name), ',')
+    local current = vim.split(get(name), ',')
     local new = vim.tbl_filter(function(item)
       return item ~= value
     end, current)
-    set(0, name, wincent.util.join(new, ','))
+    set(name, wincent.util.join(new, ','))
   else
     return bail('setlocal(): unsupported operator: ' .. operator)
   end
