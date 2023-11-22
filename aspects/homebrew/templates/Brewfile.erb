@@ -20,6 +20,7 @@ brew "awscli"
 brew "bdw-gc"
 brew "broot"
 brew "bun"
+brew "cabal-install"
 brew "cairo"
 brew "catimg"
 brew "chafa"
@@ -43,9 +44,11 @@ brew "frum"
 brew "fswatch"
 brew "gcc"
 brew "gd"
+brew "gdb" # Not available on ARM yet, but gets skipped harmlessly.
 brew "gdbm"
 brew "gdk-pixbuf"
 brew "gettext"
+brew "ghc"
 brew "gifsicle"
 brew "git"
 brew "git-delta"
@@ -124,6 +127,7 @@ brew "openssl"
 brew "openssl@1.1"
 brew "optipng"
 brew "ossp-uuid"
+brew "pandoc"
 brew "pango"
 brew "par"
 brew "parallel"
@@ -155,6 +159,7 @@ brew "rust"
 brew "rust-analyzer"
 brew "s3cmd"
 brew "shared-mime-info"
+brew "shellcheck"
 brew "sk"
 brew "sqlite"
 brew "stylua"
@@ -184,12 +189,7 @@ brew "zsh"
 <%- if (variables.profile === 'personal') { -%>
 
 # Personal-only packages.
-brew "cabal-install" # Not available on ARM yet.
 brew "hledger"
-brew "gdb" # Not available on ARM yet.
-brew "ghc" # Not available on ARM yet.
-brew "pandoc" # Not available on ARM yet.
-brew "shellcheck" # Not available on ARM yet.
 <%- } -%>
 
 <%- if (variables.profile === 'work') { -%>
