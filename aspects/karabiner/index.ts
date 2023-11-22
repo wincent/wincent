@@ -70,7 +70,7 @@ task('build `dry` executable', async () => {
 });
 
 task('install `dry` executable', async () => {
-  await command('make install', [], {
+  await command('make', ['install'], {
     chdir: path.aspect.join('support/dry'),
     creates: path.home.join('bin/dry'),
   });
