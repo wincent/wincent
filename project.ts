@@ -61,7 +61,7 @@ export default {
       },
     },
     personal: {
-      pattern: '/^(?:retiro|huertas)(?:\\b|$)/i',
+      pattern: '/^(?:latina|huertas)(?:\\b|$)/i',
       variables: {},
     },
     work: {

@@ -13,9 +13,9 @@ let hostnameWarningIssued = false;
 const variables = {
   /**
    * Because a hostname might have random junk at the end of it (eg.
-   * "huertas.local" or "retiro.lan") or potentially be mixed case, set
+   * "huertas.local" or "latina.lan") or potentially be mixed case, set
    * a variable as a convenient shorthand containing a normalized host
-   * "handle" (eg. "huertas", "retiro").
+   * "handle" (eg. "huertas", "latina").
    */
   get hostHandle() {
     const hostname = Context.attributes.hostname;
