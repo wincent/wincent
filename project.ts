@@ -22,7 +22,9 @@ export default {
         'automount',
         'defaults',
       ],
-      variables: {},
+      variables: {
+        pinentryProgram: '/opt/homebrew/bin/pinentry-curses',
+      },
     },
     'linux': {
       aspects: [
@@ -41,9 +43,7 @@ export default {
         'node',
         'nvim',
       ],
-      variables: {
-        pinentryProgram: '/usr/bin/pinentry-curses',
-      },
+      variables: {},
     },
     'linux.debian': {
       aspects: ['meta', ['apt', 'dotfiles', 'shell', 'node', 'terminfo'], [
@@ -62,15 +62,11 @@ export default {
     },
     personal: {
       pattern: '/^(?:retiro|huertas)(?:\\b|$)/i',
-      variables: {
-        pinentryProgram: '/usr/local/bin/pinentry-curses',
-      },
+      variables: {},
     },
     work: {
       pattern: '/^quevedo(?:\\b|$)/i',
-      variables: {
-        pinentryProgram: '/opt/homebrew/bin/pinentry-curses',
-      },
+      variables: {},
     },
   },
   variables: {
