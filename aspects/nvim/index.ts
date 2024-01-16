@@ -166,7 +166,7 @@ task('install gems', async () => {
   // TODO: maybe expose profile more directly in the DSL
   const profile = variable('profile');
   if (profile === 'codespaces' || profile === 'work') {
-    gems.push('sorbet', 'solargraph');
+    gems.push('sorbet');
   }
 
   await command('gem', ['install', ...gems], {
