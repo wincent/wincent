@@ -2,65 +2,65 @@
 # yarn lockfile v1
 
 
-"@dprint/darwin-arm64@0.43.0":
-  version "0.43.0"
-  resolved "https://registry.yarnpkg.com/@dprint/darwin-arm64/-/darwin-arm64-0.43.0.tgz#22e43267d6a66042b0333d19508b852e903aa0cb"
-  integrity sha512-0lf4+ihokesOlYmFCyLdB44QYA0+IfHK8pD53i2FJ3i8XJ5yZypokO2zq+lM9MI6lt8foxh5j8at7ChIaGX6HA==
+"@dprint/darwin-arm64@0.45.0":
+  version "0.45.0"
+  resolved "https://registry.yarnpkg.com/@dprint/darwin-arm64/-/darwin-arm64-0.45.0.tgz#83cab93d86a674a972906aa228c3f71761b463ef"
+  integrity sha512-pkSSmixIKXr5t32bhXIUbpIBm8F8uhsJcUUvfkFNsRbQvNwRp71ribZpE8dKl0ZFOlAFeWD6WLE8smp/QtiGUA==
 
-"@dprint/darwin-x64@0.43.0":
-  version "0.43.0"
-  resolved "https://registry.yarnpkg.com/@dprint/darwin-x64/-/darwin-x64-0.43.0.tgz#549b4b47ad339481f2d4203aed29368760a90a85"
-  integrity sha512-mMVobMZ3QUGSYgyICQSERk6Bdq2EfNL9kYTFqiK+0EBq4WF8XFE/+Itr1Os+QODhtDcn76j2hk3WkvBGruYvog==
+"@dprint/darwin-x64@0.45.0":
+  version "0.45.0"
+  resolved "https://registry.yarnpkg.com/@dprint/darwin-x64/-/darwin-x64-0.45.0.tgz#7ba6cbf228d5782e37f10bd8014c9a02a3514821"
+  integrity sha512-PHcXSrRO53KH9N+YPbPtr40NnDo2t7hO7KLMfl2ktRNLjrmKg6F8XDDsr2C7Z11k3jyEEU2Jq8hhpaKHwNapmQ==
 
-"@dprint/linux-arm64-glibc@0.43.0":
-  version "0.43.0"
-  resolved "https://registry.yarnpkg.com/@dprint/linux-arm64-glibc/-/linux-arm64-glibc-0.43.0.tgz#4857f2a6f2a316717d8ff8e63cef2d49fc8c3dc6"
-  integrity sha512-yyRCS1UYylKfRWXdH7XDfRy0xzub2rLhvC/TwCQS1o7Qo95XXxFhlDrTLsGI+vMS5m2abJtBN3Zv+tvNctGWTQ==
+"@dprint/linux-arm64-glibc@0.45.0":
+  version "0.45.0"
+  resolved "https://registry.yarnpkg.com/@dprint/linux-arm64-glibc/-/linux-arm64-glibc-0.45.0.tgz#f9f7a53a0fd2441015a4297c5f08592080d89305"
+  integrity sha512-NgIpvZHpiQaY4DxSygxknxBtvKE2KLK9dEbUNKNE098yTHhGq7ouPsoM7RtsO34RHJ3tEZLLJEuBHn20XP8LMg==
 
-"@dprint/linux-arm64-musl@0.43.0":
-  version "0.43.0"
-  resolved "https://registry.yarnpkg.com/@dprint/linux-arm64-musl/-/linux-arm64-musl-0.43.0.tgz#b3aa279c0f85a9342c7e1b0f6b640257867f1693"
-  integrity sha512-tDG3h+/IOUC7VXrjF0dNAhstDn+hwuLmQ9Pdp6fOIt9n7nD71VK1M4f8+yi3BdhxYuIKj3+VYPbS9FodWgB6Uw==
+"@dprint/linux-arm64-musl@0.45.0":
+  version "0.45.0"
+  resolved "https://registry.yarnpkg.com/@dprint/linux-arm64-musl/-/linux-arm64-musl-0.45.0.tgz#eecb1bb5fa07e1cf665f3795d03afcc3807cf437"
+  integrity sha512-Y8p+FC0RNyKCGQjy99Uh1LSPrlQtUTvo4brdvU1THF3pyWu6Bg1p6NiP5a6SjE/6t9CMKZJz39zPreQtnDkSDA==
 
-"@dprint/linux-x64-glibc@0.43.0":
-  version "0.43.0"
-  resolved "https://registry.yarnpkg.com/@dprint/linux-x64-glibc/-/linux-x64-glibc-0.43.0.tgz#9eda24dc322aeb9ce80c3db96764375b1437f3e1"
-  integrity sha512-pwHW+/CLcGCzBAL0efmrC/KAgOBIkT+Xc2kOo3e/buEJe32CCTuv74jdsLy8WWrAcOJz0S3dLzdPDEQxuzDOnA==
+"@dprint/linux-x64-glibc@0.45.0":
+  version "0.45.0"
+  resolved "https://registry.yarnpkg.com/@dprint/linux-x64-glibc/-/linux-x64-glibc-0.45.0.tgz#6b0514aa0e171bf59ea31b971f9075e68df6479c"
+  integrity sha512-u03NCZIpJhE5gIl9Q7jNL4sOPBFd/8BLVBiuLoLtbiTZQ+NNudHKgGNATJBU67q1MKpqKnt8/gQm139cJkHhrw==
 
-"@dprint/linux-x64-musl@0.43.0":
-  version "0.43.0"
-  resolved "https://registry.yarnpkg.com/@dprint/linux-x64-musl/-/linux-x64-musl-0.43.0.tgz#c4da2fa028277b47dc89b47089439113c11c5899"
-  integrity sha512-jNOKk0h0oQLzXBkIep03SsgadZ2bnUcI0O0c7IGCPt1S+w66iMDhz78KiGk6FK70Vxb+bNRYeJiL03pbx55PhA==
+"@dprint/linux-x64-musl@0.45.0":
+  version "0.45.0"
+  resolved "https://registry.yarnpkg.com/@dprint/linux-x64-musl/-/linux-x64-musl-0.45.0.tgz#627e89818ae2add74f264ad118ff1383539b96aa"
+  integrity sha512-DQN8LPtxismkeU1X+sQywa80kWwCBcpQh9fXoJcvTEHrgzHBqbG2SEsUZpM12oKEua1KE/iBh+vgZ+4I3TdI2A==
 
-"@dprint/win32-x64@0.43.0":
-  version "0.43.0"
-  resolved "https://registry.yarnpkg.com/@dprint/win32-x64/-/win32-x64-0.43.0.tgz#8f0d157d2cc2b55c4d7a29b73eda3287363d4b3d"
-  integrity sha512-4KtAyDtSTtJZc3VNO0G5pceAJJxvOPSVHJ1LpTdUqcfMGi1pORaCpEFs0TLhz15d8i7HmYbbtwT+hhiuTDRCXw==
+"@dprint/win32-x64@0.45.0":
+  version "0.45.0"
+  resolved "https://registry.yarnpkg.com/@dprint/win32-x64/-/win32-x64-0.45.0.tgz#f8482217aafd66020620a1471140349de28e6bf5"
+  integrity sha512-aZHIWG2jIlEp4BER1QG6YYqPd6TxT9S77AeUkWJixNiMEo+33mPRVCBcugRWI/WJWveX8yWFVXkToORtnSFeEA==
 
 "@types/node@*":
-  version "20.9.4"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.9.4.tgz#cc8f970e869c26834bdb7ed480b30ede622d74c7"
-  integrity sha512-wmyg8HUhcn6ACjsn8oKYjkN/zUzQeNtMy44weTJSM6p4MMzEOuKbA3OjJ267uPCOW7Xex9dyrNTful8XTQYoDA==
+  version "20.11.16"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.11.16.tgz#4411f79411514eb8e2926f036c86c9f0e4ec6708"
+  integrity sha512-gKb0enTmRCzXSSUJDq6/sPcqrfCv2mkkG6Jt/clpn5eiCbKTY+SgZUxo+p8ZKMof5dCp9vHQUAB7wOUTod22wQ==
   dependencies:
     undici-types "~5.26.4"
 
 dprint@*:
-  version "0.43.0"
-  resolved "https://registry.yarnpkg.com/dprint/-/dprint-0.43.0.tgz#1c96727e00d1f1017598c9e677c25c2dc129d3c6"
-  integrity sha512-+dhMk7HE2B6Us4HkxWrJTcVvaOXd+YvSD+AwRXz7fCVrM1lgxqLPR+xt+ZqNjt2tDmCvU/i00L6yIoPbTqr+yA==
+  version "0.45.0"
+  resolved "https://registry.yarnpkg.com/dprint/-/dprint-0.45.0.tgz#b9f987d6f2b776f8262b9d849877bc66db2a1203"
+  integrity sha512-3444h7V47XoA16qgIWjw3CV/Eo/rQbT/XTGlbJ/6vJ+apQyuo0+M3Ai0GS3wu7X9HBUDcA0zIHA3mOxWNz6toA==
   optionalDependencies:
-    "@dprint/darwin-arm64" "0.43.0"
-    "@dprint/darwin-x64" "0.43.0"
-    "@dprint/linux-arm64-glibc" "0.43.0"
-    "@dprint/linux-arm64-musl" "0.43.0"
-    "@dprint/linux-x64-glibc" "0.43.0"
-    "@dprint/linux-x64-musl" "0.43.0"
-    "@dprint/win32-x64" "0.43.0"
+    "@dprint/darwin-arm64" "0.45.0"
+    "@dprint/darwin-x64" "0.45.0"
+    "@dprint/linux-arm64-glibc" "0.45.0"
+    "@dprint/linux-arm64-musl" "0.45.0"
+    "@dprint/linux-x64-glibc" "0.45.0"
+    "@dprint/linux-x64-musl" "0.45.0"
+    "@dprint/win32-x64" "0.45.0"
 
 typescript@*:
-  version "5.3.2"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.3.2.tgz#00d1c7c1c46928c5845c1ee8d0cc2791031d4c43"
-  integrity sha512-6l+RyNy7oAHDfxC4FzSJcz9vnjTKxrLpDG5M2Vu4SHRVNg6xzqZp6LYSR9zjqQTu8DU/f5xwxUdADOkbrIX2gQ==
+  version "5.3.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.3.3.tgz#b3ce6ba258e72e6305ba66f5c9b452aaee3ffe37"
+  integrity sha512-pXWcraxM0uxAS+tN0AG/BF2TyqmHO014Z070UsJ+pFvYuRSq8KH8DmWpnbXe0pEPDHXZV3FcAbJkijJ5oNEnWw==
 
 undici-types@~5.26.4:
   version "5.26.5"
