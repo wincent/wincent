@@ -30,13 +30,13 @@ if [ -e "$KILL_FILE" ]; then
   exit
 fi
 
-/usr/local/bin/gtimeout 600 \
-  /usr/local/bin/lockrun \
+/opt/homebrew/bin/gtimeout 600 \
+  /opt/homebrew/bin/lockrun \
     --lockfile "$LOCK_FILE" \
     --quiet \
     -- \
-      /usr/local/bin/git clone \
+      git clone \
         --bare --depth 1 --quiet --single-branch "$REPO" || \
-        /usr/local/bin/terminal-notifier \
+        /opt/homebrew/bin/terminal-notifier \
           -title 'git.typechecked.net clone test failed' \
           -message "Unable to complete clone of $REPO"
