@@ -8,7 +8,7 @@ cd $(/usr/bin/mktemp -d)
 
 LOCK_FILE="$HOME/Library/Cron/.check-git.lock"
 KILL_FILE="$HOME/Library/Cron/.check-git.kill"
-REPO="git://git.wincent.com/null.git"
+REPO="git://git.typechecked.net/null.git"
 
 if [ $# -gt 1 ]; then
   echo "Expected no more than 1 argument (pause, resume): got $#"
@@ -38,5 +38,5 @@ fi
       /usr/local/bin/git clone \
         --bare --depth 1 --quiet --single-branch "$REPO" || \
         /usr/local/bin/terminal-notifier \
-          -title 'git.wincent.com clone test failed' \
+          -title 'git.typechecked.net clone test failed' \
           -message "Unable to complete clone of $REPO"
