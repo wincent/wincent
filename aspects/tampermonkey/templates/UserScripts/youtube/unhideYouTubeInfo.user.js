@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Unhide YouTube info
-// @namespace    https://wincent.com/
+// @namespace    https://wincent.dev/
 // @version      0.2
 // @description  Unhide view count and date
 // @author       Greg Hurrell <greg@hurrell.net>

@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Turns comment inputs into just saying inputs
-// @namespace    https://wincent.com/
+// @namespace    https://wincent.dev/
 // @version      0.3
 // @description  Turns comment inputs into just saying inputs
 // @author       Greg Hurrell <greg@hurrell.net>

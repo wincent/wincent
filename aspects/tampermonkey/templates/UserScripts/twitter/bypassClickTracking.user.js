@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Bypass Twitter click tracking
-// @namespace    https://wincent.com/
+// @namespace    https://wincent.dev/
 // @version      0.6
 // @description  Bypass Twitter click tracking
 // @author       Greg Hurrell <greg@hurrell.net>

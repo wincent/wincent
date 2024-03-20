@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Remove annoying purple color added to text by Gmail
-// @namespace    https://wincent.com/
+// @namespace    https://wincent.dev/
 // @version      0.1
 // @description  Remove annoying purple color added to text by Gmail
 // @author       Greg Hurrell <greg@hurrell.net>

@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Make GitHub PR textareas bigger
-// @namespace    https://wincent.com/
+// @namespace    https://wincent.dev/
 // @version      0.7
 // @description  Make GitHub PR textareas bigger
 // @author       Greg Hurrell <greg@hurrell.net>

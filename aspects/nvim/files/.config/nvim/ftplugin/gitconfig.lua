@@ -4,7 +4,7 @@ wincent.vim.setlocal('expandtab', false)
 -- suitable for sorting simple .gitmodules files with no comments or blank lines
 -- right now.
 --
--- See also: https://wincent.com/wiki/Sorting_.gitmodules_entries_with_Vim
+-- See also: https://wincent.dev/wiki/Sorting_.gitmodules_entries_with_Vim
 vim.api.nvim_buf_create_user_command(0, 'SortGitConfig', function()
   -- Sort sections.
   vim.cmd('silent %s/\\v\\n\\t/@@@/e')

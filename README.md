@@ -130,7 +130,7 @@ If there are background processes, a yellow asterisk is shown:
 - [Neovim](https://neovim.io) v0.5.0 or later.
 - Relatively recent [Zsh](http://www.zsh.org/).
 - Relatively recent [Git](http://git-scm.com/).
-- [Clipper](https://wincent.com/products/clipper) for transparent access to the local system clipboard.
+- [Clipper](https://github.com/wincent/clipper) for transparent access to the local system clipboard.
 - On macOS, [iTerm2](http://www.iterm2.com/) or [Kitty](https://sw.kovidgoyal.net/kitty/). Additionally, only the latest one or two versions of macOS (at the time of writing, that means Sonoma) get actively tested.
 - [Ruby](https://www.ruby-lang.org/).
 - [Adobe Source Code Pro](https://github.com/adobe-fonts/source-code-pro) or any other fixed-width font that includes the [Powerline glyphs](http://powerline.readthedocs.io/en/master/installation.html#fonts-installation).

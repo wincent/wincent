@@ -40,7 +40,7 @@ variables(({hostHandle, identity, platform, profile}) => {
     // (Also, because Apple itself stopped writing the word "alt" on the its
     // "super" key some years ago.)
     //
-    // For more info on modifier key names, see: https://wincent.com/wiki/Modifier_keys
+    // For more info on modifier key names, see: https://wincent.dev/wiki/Modifier_keys
     //
     // Anyway, all this means that if you want to use the "alt" key (ie. the
     // large modifier key) for anything in Kitty and have it work the same way

@@ -5,7 +5,7 @@
 # iwctl station wlan0 scan
 # iwctl station wlan0 get-networks
 # iwctl station wlan0 connect $SSID
-# curl -LO https://wincent.com/link/arch/desktop.sh
+# curl -LO https://wincent.dev/link/arch/desktop.sh
 # bash desktop.sh
 
 set -e

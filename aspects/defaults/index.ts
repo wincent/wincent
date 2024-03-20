@@ -580,7 +580,7 @@ task(
 
 // Last tested: 10.9
 task(
-  'Tweak subpixel font rendering (https://wincent.com/wiki/AppleFontSmoothing)',
+  'Tweak subpixel font rendering (https://wincent.dev/wiki/AppleFontSmoothing)',
   async () => {
     await defaults({
       host: 'currentHost',

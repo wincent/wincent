@@ -6,7 +6,7 @@
 # iwctl station wlan0 scan
 # iwctl station wlan0 get-networks
 # iwctl station wlan0 connect $SSID
-# curl -LO https://wincent.com/link/arch/zbook.sh
+# curl -LO https://wincent.dev/link/arch/zbook.sh
 # bash zbook.sh
 
 set -e

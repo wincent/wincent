@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Hide Twitter Like buttons
-// @namespace    https://wincent.com/
+// @namespace    https://wincent.dev/
 // @version      0.2
 // @description  Hide Twitter Like buttons
 // @author       Greg Hurrell <greg@hurrell.net>
