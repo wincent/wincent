@@ -24,4 +24,5 @@ nix-shell
 
 - Official site, [nixos.org](https://nixos.org/).
 - Search ([search.nixos.org](https://search.nixos.org/)): eg. for finding `git` is installed with the `git` package, `nvim` is installed with the `neovim` package, and `npm` is installed with the `nodejs` package etc.
+- Version information ([status.nixos.org](https://status.nixos.org/): eg. for pinning to specific versions.
 - ["Nix (package manager)" on Wikipedia](https://en.wikipedia.org/wiki/Nix_%28package_manager%29).
