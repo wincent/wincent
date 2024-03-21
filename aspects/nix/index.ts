@@ -9,3 +9,10 @@ task('download install script to support directory', async () => {
     url: 'https://nixos.org/nix/install',
   });
 });
+
+task('run install script', async () => {
+  await command(INSTALL, [], {
+    creates: '/nix',
+    sudo: true,
+  });
+});
