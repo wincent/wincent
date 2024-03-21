@@ -186,6 +186,7 @@ At the time of writing, these are the aspects, which you can expect to change ov
   - **iterm**: Dynamic profiles for iTerm
   - **karabiner**: Configures Karabiner-Elements (keyboard customization).
   - **launchd**: Configures launchd
+  - **nix**: Installs packages via the Nix package manager.
   - **node**: Installs Node.js
   - **ruby**: Installs Ruby gems
   - **ssh**: Manages local SSH config
