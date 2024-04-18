@@ -2,6 +2,13 @@ local lsp = {}
 
 local on_attach = function()
   vim.keymap.set('n', '<Leader>ld', '<cmd>lua vim.diagnostic.open_float()<CR>', { buffer = true, silent = true })
+
+  -- Mnemonic: kd = "kill diagnostics" (although it's really "toggle diagnostics")
+  vim.keymap.set('n', '<Leader>kd', function()
+    local toggle = not vim.diagnostic.config().virtual_text
+    vim.diagnostic.config({ virtual_text = toggle })
+  end, { buffer = true, silent = true })
+
   vim.keymap.set('n', '<c-]>', '<cmd>lua vim.lsp.buf.definition()<CR>', { buffer = true, silent = true })
   vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', { buffer = true, silent = true })
   vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.declaration()<CR>', { buffer = true, silent = true })
