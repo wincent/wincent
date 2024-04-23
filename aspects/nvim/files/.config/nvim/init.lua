@@ -180,14 +180,6 @@ vim.api.nvim_set_keymap('n', nop .. '<F2>', '<Plug>(Loupen)', {})
 -- type it out).
 vim.api.nvim_set_keymap('', nop .. '<F3>', '<Plug>(FerretLack)', {})
 
--- Prevent tcomment from making a zillion mappings (we just want the operator).
-vim.g.tcomment_mapleader1 = ''
-vim.g.tcomment_mapleader2 = ''
-vim.g.tcomment_mapleader_comment_anyway = ''
-
--- The default (g<) is a bit awkward to type.
-vim.g.tcomment_mapleader_uncomment_anyway = 'gC'
-
 -- Turn off most of the features of this plug-in; I really just want the folding.
 vim.g.vim_markdown_override_foldtext = 0
 vim.g.vim_markdown_no_default_key_mappings = 1
@@ -251,7 +243,6 @@ if vim.o.loadplugins then
   wincent.plugin.load('rust.vim')
   wincent.plugin.load('scalpel')
   wincent.plugin.load('shellbot')
-  wincent.plugin.load('tcomment_vim')
   wincent.plugin.load('terminus')
   wincent.plugin.load('typescript-vim')
   wincent.plugin.load('vcs-jump')

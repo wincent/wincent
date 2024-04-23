@@ -115,9 +115,6 @@
 [submodule "source-code-pro"]
 	path = vendor/fonts/source-code-pro
 	url = https://github.com/adobe-fonts/source-code-pro.git
-[submodule "tcomment_vim"]
-	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/tcomment_vim
-	url = https://github.com/tomtom/tcomment_vim.git
 [submodule "terminus"]
 	branch = main
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/terminus
