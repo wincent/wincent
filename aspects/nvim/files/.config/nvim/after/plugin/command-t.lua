@@ -1,5 +1,3 @@
-local command = wincent.vim.command
-
 --
 -- Mappings.
 --
@@ -16,10 +14,3 @@ vim.keymap.set('n', '<Leader>t', '<Plug>(CommandTRipgrep)')
 vim.keymap.set('n', '<LocalLeader>c', '<Plug>(CommandTCommand)')
 vim.keymap.set('n', '<LocalLeader>h', '<Plug>(CommandTHistory)')
 vim.keymap.set('n', '<LocalLeader>l', '<Plug>(CommandTLine)')
-
-show = function()
-  vim.cmd('CommandT')
-  error('`:CommandTBoot` is deprecated; use `:CommandT` instead')
-end
-
-command('CommandTBoot', show)
