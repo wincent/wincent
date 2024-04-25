@@ -3,7 +3,6 @@ local autocmd = wincent.vim.autocmd
 
 augroup('WincentAutocmds', function()
   autocmd('BufEnter', '*', wincent.autocmds.buf_enter)
-  autocmd('BufFilePost,BufNewFile,BufReadPost', '*', 'call wincent#autocmds#apply_overrides()')
   autocmd('BufLeave', '?*', wincent.autocmds.buf_leave)
   autocmd('BufWinEnter', '?*', wincent.autocmds.buf_win_enter)
   autocmd('BufWritePost', '*/spell/*.add', 'silent! :mkspell! %')
