@@ -44,7 +44,7 @@ task('fetch lotabout/skim.git', async () => {
     [
       'clone',
       '--branch',
-      'v0.10.2', // Not a branch, but a tag (still works).
+      'v0.10.4', // Not a branch, but a tag (still works).
       '--depth',
       '1',
       'https://github.com/lotabout/skim.git',
