@@ -1,1 +1,1 @@
--- Host-specific overrides for retiro.
+-- Host-specific overrides for "latina".
