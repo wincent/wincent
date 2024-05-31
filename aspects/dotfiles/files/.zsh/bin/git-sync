@@ -6,10 +6,6 @@
 #   branches to match (and creating them if necessary).
 # - Iterates over local branches of the form "$USER/*" and moves any that no
 #   longer exist on the remote into the "attic/$USER/" namespace.
-#
-# The primary use case is to do all your "real work" off in Codespaces,
-# periodically pushing it the remote origin, but keep a local copy of a repo too
-# with a copy of all the branches.
 
 # Zsh black magic that does equivalent of $BASH_SOURCE, via:
 # https://stackoverflow.com/a/28336473/2103996

@@ -163,12 +163,6 @@ task('update help tags', async () => {
 task('install gems', async () => {
   const gems = ['neovim'];
 
-  // TODO: maybe expose profile more directly in the DSL
-  const profile = variable('profile');
-  if (profile === 'codespaces' || profile === 'work') {
-    gems.push('sorbet');
-  }
-
   await command('gem', ['install', ...gems], {
     sudo: true,
   });

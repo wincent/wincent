@@ -1,3 +1,0 @@
-append_to PATH $HOME/.zsh/github/bin
-
-export PATH

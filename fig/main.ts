@@ -432,9 +432,6 @@ async function loadAspect(aspect: Aspect): Promise<void> {
     case 'bitcoin':
       await import('../aspects/bitcoin/index.js');
       break;
-    case 'codespaces':
-      await import('../aspects/codespaces/index.js');
-      break;
     case 'cron':
       await import('../aspects/cron/index.js');
       break;

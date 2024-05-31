@@ -51,7 +51,6 @@ brew "gifsicle"
 brew "git"
 brew "git-delta"
 brew "gitui"
-#brew "gh"
 brew "glib"
 brew "glow"
 brew "gmime"
@@ -189,13 +188,6 @@ brew "zsh"
 brew "hledger"
 <%- } -%>
 
-<%- if (variables.profile === 'work') { -%>
-
-# Work-only packages.
-brew "git-lfs"
-brew "gopls"
-<%- } -%>
-
 # General casks.
 cask "bartender"
 cask "blurred"
@@ -228,12 +220,4 @@ cask "arq"
 cask "signal"
 cask "steam"
 cask "superduper"
-<%- } -%>
-<%- if (variables.profile === 'work') { -%>
-
-# Work-only casks.
-cask "graphiql"
-cask "powershell"
-cask "slack"
-cask "utm"
 <%- } -%>

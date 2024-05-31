@@ -8,17 +8,15 @@ import {
   path,
   prompt,
   resource,
-  skip,
-  stat,
   task,
   template,
   variable,
   variables,
 } from 'fig';
 
-const {is, isDecrypted, when} = helpers;
+const {is, when} = helpers;
 
-variables(({hostHandle, identity, platform, profile}) => {
+variables(({hostHandle, identity, platform}) => {
   return {
     // This one is because Kitty defines these names to be the same:
     //
@@ -54,7 +52,7 @@ variables(({hostHandle, identity, platform, profile}) => {
     // the other key, so the other key ("cmd") continues to behave like "cmd".
     kittyAlt: platform === 'darwin' ? 'cmd' : 'alt',
 
-    gitGpgSign: identity === 'wincent' && profile !== 'codespaces',
+    gitGpgSign: identity === 'wincent',
     gitHostSpecificInclude: `host/${hostHandle}`,
     gitUserEmail: identity === 'wincent' ? 'greg@hurrell.net' : '',
     gitUserName: identity === 'wincent' ? 'Greg Hurrell' : '',
@@ -118,21 +116,6 @@ task('create symlinks', async () => {
   const files = variable.paths('files');
 
   for (const src of files) {
-    // Skip over encrypted files on codespaces (as we'll never have decryption
-    // keys in that environment).
-    if (is('codespaces')) {
-      const target = path.aspect.join('files', src);
-      const stats = await stat(target);
-      if (stats && !(stats instanceof Error)) {
-        if (stats.type === 'file') {
-          const decrypted = await isDecrypted(target);
-          if (!decrypted) {
-            skip(`not linking ${target} because it is not decrypted`);
-            continue;
-          }
-        }
-      }
-    }
     await file({
       force: true,
       path: path.home.join(src),

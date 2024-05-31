@@ -1,7 +1,0 @@
-#!/bin/bash
-
-if [ $# -eq 1 ]; then
-  gh cs ports forward --codespace "$1" 80:80
-else
-  gh cs ports forward 80:80
-fi

@@ -91,8 +91,6 @@ function checkCondition(label: string): boolean {
       return attributes.distribution === 'arch';
     case 'arm64':
       return attributes.arch === 'arm64';
-    case 'codespaces':
-      return variable('hostHandle') === 'codespaces';
     case 'darwin':
       return attributes.platform === 'darwin';
     case 'debian':

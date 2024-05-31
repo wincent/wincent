@@ -50,23 +50,13 @@ export default {
       aspects: ['meta', ['apt', 'dotfiles', 'shell', 'node', 'terminfo'], [
         'nvim',
         'ruby',
-      ], 'codespaces'],
+      ]],
       variables: {},
     },
   },
   profiles: {
-    codespaces: {
-      pattern: '/codespaces/i',
-      variables: {
-        gitMergeConflictStyle: 'diff3',
-      },
-    },
     personal: {
       pattern: '/^(?:latina|huertas)(?:\\b|$)/i',
-      variables: {},
-    },
-    work: {
-      pattern: '/^quevedo(?:\\b|$)/i',
       variables: {},
     },
   },

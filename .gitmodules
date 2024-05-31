@@ -197,9 +197,6 @@
 [submodule "vim-projectionist"]
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-projectionist
 	url = https://github.com/tpope/vim-projectionist.git
-[submodule "vim-rails"]
-	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-rails
-	url = https://github.com/tpope/vim-rails.git
 [submodule "vim-reason-plus"]
 	ignore = dirty
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-reason-plus
