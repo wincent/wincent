@@ -59,6 +59,10 @@ export default {
       pattern: '/^(?:latina|huertas)(?:\\b|$)/i',
       variables: {},
     },
+    work: {
+      pattern: '/^COMP-KTW7Q4C5JH/i',
+      variables: {},
+    },
   },
   variables: {
     figManaged:

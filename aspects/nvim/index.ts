@@ -12,7 +12,7 @@ import {
   variable,
 } from 'fig';
 
-const {is, when} = helpers;
+const {when} = helpers;
 
 task('make directories', async () => {
   // Some overlap with "dotfiles" aspect here.
@@ -170,14 +170,6 @@ task('install gems', async () => {
 
 // added in 1a9f9b9fd and probably not used since...
 // pip2 install vim-vint
-
-task('install pynvim', async () => {
-  if (is('arch')) {
-    await command('pacman', ['-S', 'python-pynvim'], {sudo: true});
-  } else {
-    await command('pip3', ['install', '--upgrade', 'pynvim']);
-  }
-});
 
 // For masochist autocompleter
 // pip3 install redis

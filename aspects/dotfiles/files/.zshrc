@@ -251,6 +251,7 @@ bindkey "^[[1;5D" backward-word # For Arch.
 #
 
 test -d $HOME/n && export N_PREFIX="$HOME/n"
+test -d $HOME/.volta && export VOLTA_HOME="$HOME/.volta"
 
 #
 # Other

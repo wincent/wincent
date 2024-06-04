@@ -187,15 +187,18 @@ brew "zsh"
 # Personal-only packages.
 brew "hledger"
 <%- } -%>
+<%- if (variables.profile === 'work') { -%>
+
+# Work-only packages.
+# ...
+<%- } -%>
 
 # General casks.
 cask "bartender"
 cask "blurred"
 cask "cleanshot"
 cask "diffusionbee"
-cask "1password"
 cask "firefox"
-cask "google-chrome"
 cask "hammerspoon"
 cask "hex-fiend"
 cask "istat-menus"
@@ -210,14 +213,22 @@ cask "resilio-sync"
 cask "screenflow"
 cask "skype"
 cask "spotify"
+cask "superlist"
 cask "vlc"
 cask "xquartz"
 <%- if (variables.profile === 'personal') { -%>
 
 # Personal-only casks.
+cask "1password" # Comes pre-installed on work machine.
 cask "1password-cli"
 cask "arq"
+cask "google-chrome" # Comes pre-installed on work machine.
 cask "signal"
 cask "steam"
 cask "superduper"
+<%- } -%>
+<%- if (variables.profile === 'work') { -%>
+
+# Work-only casks.
+casks "volta"
 <%- } -%>

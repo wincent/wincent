@@ -7,6 +7,12 @@ function append_to() {
   local LOCATION=$2
   if [[ -d "$LOCATION" ]]; then
     case "$TARGET" in
+      CDPATH)
+        CDPATH=${CDPATH//":$LOCATION:"/:} # Delete (potentially multiple) from middle.
+        CDPATH=${CDPATH/#"$LOCATION:"/} # Delete from start.
+        CDPATH=${CDPATH/%":$LOCATION"/} # Delete from end.
+        CDPATH="${CDPATH:+$CDPATH:}$LOCATION" # Actually append (or if CDPATH is empty, just set).
+        ;;
       INFOPATH)
         INFOPATH=${INFOPATH//":$LOCATION:"/:} # Delete (potentially multiple) from middle.
         INFOPATH=${INFOPATH/#"$LOCATION:"/} # Delete from start.
@@ -38,6 +44,12 @@ function prepend_to() {
   local LOCATION=$2
   if [[ -d "$LOCATION" ]]; then
     case "$TARGET" in
+      CDPATH)
+        CDPATH=${CDPATH//":$LOCATION:"/:} # Delete (potentially multiple) from middle.
+        CDPATH=${CDPATH/#"$LOCATION:"/} # Delete from start.
+        CDPATH=${CDPATH/%":$LOCATION"/} # Delete from end.
+        CDPATH="$LOCATION${CDPATH:+:$CDPATH}" # Actually prepend (or if CDPATH is empty, just set).
+        ;;
       INFOPATH)
         INFOPATH=${INFOPATH//":$LOCATION:"/:} # Delete (potentially multiple) from middle.
         INFOPATH=${INFOPATH/#"$LOCATION:"/} # Delete from start.
@@ -62,27 +74,6 @@ function prepend_to() {
 
 append_to PATH "$HOME/.local/bin"
 append_to PATH "$HOME/.cabal/bin"
-
-# Stuff we would do if we wanted to use Homebrew Ruby...
-# function() {
-#   if [ -x /opt/homebrew/opt/ruby/bin/ruby ]; then
-#     # Gem binaries for Homebrew Ruby.
-#     local RUBY_VERSION=$(/opt/homebrew/opt/ruby/bin/ruby -e "puts RUBY_VERSION" 2> /dev/null)
-#     if [ -d "/opt/homebrew/lib/ruby/gems/${RUBY_VERSION}/bin" ]; then
-#       prepend_to PATH "/opt/homebrew/lib/ruby/gems/${RUBY_VERSION}/bin"
-#     fi
-#
-#     # Homebrew Ruby executable.
-#     prepend_to PATH /opt/homebrew/opt/ruby/bin
-#
-#     # Things that may need to be set on-demand, but which we don't want to set
-#     # unconditionally.
-#     #
-#     #     export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
-#     #     export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
-#     #     export PKG_CONFIG_PATH="/opt/homebrew/opt/ruby/lib/pkgconfig"
-#   fi
-# }
 
 prepend_to PATH /usr/local/bin
 prepend_to PATH /usr/local/sbin
@@ -114,6 +105,8 @@ prepend_to MANPATH /usr/share/man
 prepend_to PATH /usr/local/opt/mysql@5.7/bin
 prepend_to PATH /usr/local/opt/llvm/bin
 test -n "$N_PREFIX" && prepend_to PATH "$N_PREFIX/bin"
+
+prepend_to "$VOLTA_HOME/bin"
 
 prepend_to PATH "$HOME/.zsh/bin"
 prepend_to PATH "$HOME/bin"

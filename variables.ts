@@ -37,7 +37,10 @@ const variables = {
   get identity() {
     if (process.env.FIG_IDENTITY) {
       return process.env.FIG_IDENTITY;
-    } else if (Context.attributes.username === 'wincent') {
+    } else if (
+      Context.attributes.username === 'wincent' ||
+      Context.attributes.username === 'greg.hurrell'
+    ) {
       return 'wincent';
     } else {
       return 'unknown';

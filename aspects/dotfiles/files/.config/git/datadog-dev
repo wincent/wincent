@@ -1,0 +1,10 @@
+magic = com.wincent.git-cipher
+url = https://github.com/wincent/git-cipher/blob/v2.0.0-pre.2/PROTOCOL.md
+version = 1
+algorithm = aes-256-cbc
+filename = "aspects/dotfiles/files/.config/git/datadog-dev"
+iv = 1f9f8162ea893f09521661588bb016cc
+ciphertext =
+981b40ddbab0c7686707b52ab8c4c787b8f9f166c626e5a2c73a062e3a6b221f882deef4
+17e1fe5bb830be3da164302e
+hmac = 8ebc76e24cadc142fba206abfbff8a6185668e8ae609b5ad4aa9e90717170532
