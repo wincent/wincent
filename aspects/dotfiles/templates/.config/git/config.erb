@@ -52,7 +52,19 @@
 	recover = !cat "$(git rev-parse --git-dir 2> /dev/null)/COMMIT_EDITMSG"
 
 	# Pull down a remote branch for review.
-	review = !git fetch -f origin "$1:$1" && git checkout -t "origin/$1"
+	review = "!f() { \\
+              if [ \$# -eq 0 ]; then \\
+                  echo 'git review expects one argument (a branch name)'; \\
+              else \\
+                  git fetch origin \\"\$1\\" && \\
+                  if git show-ref --verify --quiet \\"refs/heads/\$1\\"; then \\
+                      git checkout \\"\$1\\" && \\
+                      git merge --ff-only \\"origin/\$1\\"; \\
+                  else \\
+                      git checkout -b \\"\$1\\" \\"origin/\$1\\"; \\
+                  fi; \\
+              fi; \\
+          }; f"
 
 	# requires Git 1.7.11.3 or later
 	reword = commit --amend --only -v --
