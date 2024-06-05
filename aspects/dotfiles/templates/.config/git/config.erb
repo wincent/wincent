@@ -51,6 +51,9 @@
 	# Recover previous COMMIT_EDITMSG, if there is one.
 	recover = !cat "$(git rev-parse --git-dir 2> /dev/null)/COMMIT_EDITMSG"
 
+	# Pull down a remote branch for review.
+	review = !git fetch -f origin "$1:$1" && git checkout -t "origin/$1"
+
 	# requires Git 1.7.11.3 or later
 	reword = commit --amend --only -v --
 
