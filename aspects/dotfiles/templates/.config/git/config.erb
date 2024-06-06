@@ -2,7 +2,9 @@
 # <%= variables.figManaged %>
 
 [alias]
+	# See also, `long`.
 	abbrev = !bash -c 'git rev-parse --short ${1-`echo HEAD`}' -
+
 	ack = grep --break --heading
 	amend = commit --amend -v
 	both = diff --ignore-submodules=dirty HEAD
@@ -33,6 +35,9 @@
 	graph = !git --paginate log --graph --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%= '<\%' %>aN>%Creset'
 
 	jump = "!f() { vcs-jump \"$@\"; }; f"
+
+	# Counterpart to `abbrev`.
+	long = !bash -c 'git rev-parse ${1-`echo HEAD`}' -
 
 	# Show just the HEAD commit message (no indent) and nothing else
 	message = !git --paginate log -1 --pretty=format:%B
