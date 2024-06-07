@@ -1,33 +1,34 @@
-#!/bin/zsh
-
-# Required parameters:
-# @raycast.schemaVersion 1
-# @raycast.title GitHub commits
-# @raycast.mode silent
-
-# Optional parameters:
-# @raycast.icon ./github.png
-# @raycast.argument1 { "type": "text", "optional": true, "placeholder": "repo", "percentEncoded": false }
-
-# Documentation:
-# @raycast.description Jump to a specified GitHub repo's HEAD commits
-
-# Get path to current script's directory:
-# https://unix.stackexchange.com/a/115431/140622
-BASE_DIRECTORY=${0:a:h}
-source "$BASE_DIRECTORY/.common.zsh"
-
-REPO=$(trim "$*")
-
-if [ -z "$REPO" ]; then
-  open "https://github.com/github/github/commits"
-elif [[ $REPO != */* ]]; then
-  REPO=$(percent_encode "$REPO")
-  open "https://github.com/github/${REPO}/commits"
-else
-  OWNER=$(dirname "$REPO")
-  OWNER=$(percent_encode "$OWNER")
-  REPO=$(basename "$REPO")
-  REPO=$(percent_encode "$REPO")
-  open "https://github.com/${OWNER}/${REPO}/commits"
-fi
+magic = com.wincent.git-cipher
+url = https://github.com/wincent/git-cipher/blob/v2.0.0-pre.2/PROTOCOL.md
+version = 1
+algorithm = aes-256-cbc
+filename = "aspects/dotfiles/files/.config/Raycast/Script Commands/github-commits.sh"
+iv = 5b13373b40b9428791b1f7e91dacb7cb
+ciphertext =
+f04a5b76e034570a06b5a410e60aec365b31872680af3372e523df7094e8676f298f86fc
+301399058d2b6ae3b003c44e7790cdeea16424b69d5ae087c11b1fc5eb1cbf579924ea4a
+142368f23492c842b10699333a6b50b39c2175fe42f6464338838a501647d465101071ea
+d83496084dd8cfe967ea857b7a8508c479c62883927cb1fd39b2d8c92f772e54d9eb7192
+be864dd95ab379ab0cf4b8f44577aa235f9225b8320537ae1cb498a16f57a13f51f5d9b8
+d7d7163131b467abbee49efcd6826097e0b7da54d4de42f7bae07345548e7f758b003a78
+deeb056b66c1cbadadbf327eed39d98d166a7881df1d45c9c28283c3a22805b0a5943c7a
+3ce61e174be7f91f3bfa404740cf5539cf5ace0d1b97cb954217da628f1c81b803c835e1
+5adc9ab8face406d8ef9c103fb99696bcb6d90a8705bbf9111edf498b8122fb22d1b2d82
+eebb76fc54d366bc80c2420afe9d19500fbbcd08c3ef19802d045c1fb379107d25857cc8
+959e62d7a7e77158b4b4b794f0932672237a232a5f56c25d8500d37a5704311e74ef04cb
+7b7a214a8ea12a754b2e093545f864296b5bfb1316f04f9158817823711612fa6b34f79e
+024e74d8a8574232693d7d96d34a037dd3387e45599084d6c6781bffc983bad0ea496ce0
+d94f8898f577eb6a0fa60f38a4b9cd961bc13fe1d79904ba354bfd32c318330dc537caee
+34ee3f42a91e407a312ddae46f20a112643e2d5434280e8b777a8c1c7125e64994261d9b
+c9139e9a78482af27a56653926cb3c1e14cdfcb769a2a7d18cc90f0e99f31b494f8f8496
+2aa1173eb6ded3b9ab230db3f09988d65105d8c24fb45f478392d25f0f4b38a5c84057a9
+3e4ab6f0e08a82e514ba43512d1bddd6930f5587bbed89cd33afb087801d2a73001acae8
+f24b21053c081c1c72ad31ca632ef84ca5fa4687206f9e9728c1eaaa85fab96b631eef59
+d3e227366038cb7a4728c5443b01e48bb1770fbe7e800e3bda2cdaa274ee32766603ce50
+1fbe48321c36110c327959532a5c768b27ee2255d5b96981bb433341a02032ade7cad092
+aa75fdbcab9c16a38989e95d70dbef68fa55064f46efdf22d3b23ef906da17591e2d8fd9
+8da5fc295fa4ef2808c6fd6335c2717b579fd9dcc3945796252400498ba95473849e3d38
+de01b48cf478635da4ea8ad7171c835d9806e713d27bbfdb0f4e79f16875b9dd57b73ebd
+65cc0a355c15f8b819609e991267190227e3ecb8625f47e61d11d888909e715d02d77f3b
+d17295e738517125baecb187
+hmac = fe9470af1b7c70c7512cb48b8afdeac4ca5767761350679e5942ce0ad0a2df1a

@@ -11,3 +11,6 @@ aspects/ssh/templates/.ssh/config.erb	diff=git-cipher	filter=git-cipher	merge=gi
 aspects/dotfiles/files/.config/git/datadog-dev	diff=git-cipher	filter=git-cipher	merge=git-cipher
 aspects/dotfiles/files/.config/git/host/comp-ktw7q4c5jh	diff=git-cipher	filter=git-cipher	merge=git-cipher
 aspects/dotfiles/files/.zsh/host/comp-ktw7q4c5jh	diff=git-cipher	filter=git-cipher	merge=git-cipher
+"aspects/dotfiles/files/.config/Raycast/Script Commands/github-commits.sh"	diff=git-cipher	filter=git-cipher	merge=git-cipher
+"aspects/dotfiles/files/.config/Raycast/Script Commands/github-pulls.sh"	diff=git-cipher	filter=git-cipher	merge=git-cipher
+"aspects/dotfiles/files/.config/Raycast/Script Commands/github-repo.sh"	diff=git-cipher	filter=git-cipher	merge=git-cipher

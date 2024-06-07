@@ -1,44 +1,42 @@
-#!/bin/zsh
-
-# Required parameters:
-# @raycast.schemaVersion 1
-# @raycast.title GitHub repo
-# @raycast.mode silent
-
-# Optional parameters:
-# @raycast.icon ./github.png
-# @raycast.argument1 { "type": "text", "optional": true, "placeholder": "name", "percentEncoded": false }
-
-# Documentation:
-# @raycast.description Find or jump to a specified GitHub repo
-
-# Get path to current script's directory:
-# https://unix.stackexchange.com/a/115431/140622
-BASE_DIRECTORY=${0:a:h}
-source "$BASE_DIRECTORY/.common.zsh"
-
-NAME=$(trim "$*")
-
-if [ -z "$NAME" ]; then
-  open "https://github.com/github/github"
-elif [[ $NAME == *\? ]]; then
-  # Trim trailing "?" suffix.
-  NAME=$(chop "$NAME")
-  echo -n "$NAME" | while IFS=' ' read -A ARGS; do
-    echo "${ARGS[1]}"
-  done
-  if [ $#ARGS -eq 2 ]; then
-    NAME="org:$ARGS[1] $ARGS[2]"
-    NAME=$(space_to_plus "$NAME")
-    open "https://github.com/search?q=${NAME}&type=repositories"
-  else
-    NAME=$(space_to_plus "$NAME")
-    open "https://github.com/search?q=${NAME}&type=repositories"
-  fi
-elif [[ $NAME != */* ]]; then
-  NAME=$(space_to_plus "$NAME")
-  open "https://github.com/github/${NAME}"
-else
-  NAME=$(space_to_plus "$NAME")
-  open "https://github.com/${NAME}"
-fi
+magic = com.wincent.git-cipher
+url = https://github.com/wincent/git-cipher/blob/v2.0.0-pre.2/PROTOCOL.md
+version = 1
+algorithm = aes-256-cbc
+filename = "aspects/dotfiles/files/.config/Raycast/Script Commands/github-repo.sh"
+iv = cfad9d4d5625aee551a179b85cb5bac7
+ciphertext =
+676bf37f74d89f6411ea7f68c9b8290410c6221529c7d3f8b0a8133472ef9cac343839e8
+6f28205697e3b9ee1ffb2499d0ad229952d2dd31acc03083c69a1025424bfd69ec51ea65
+cdbb453df9e07efd66849aede62f484ff1dbc8fef735d5b42fb890fa4184c396cf57feea
+3fdc5a2630fbcb06986499ce6d60b2f4b11fa52a5bc8be26cadcc7c0adf3a3acf6729d16
+45b79dc013c8f87465f4f97783aec57240c030dc45c1c87c017c9e502e5615e428ddeb3e
+3ec78b97aff4317dc990ad66a2589725ffbf4fd02eaac0ac76cf3b0f0aab0cff7696bc3b
+5abeea2384da95a8c1b7aec93f45be902c0cf8eb143a28a1449e77627a97984f8176ed41
+f9d5e51eab327401cc3f7fe8f1fa2571bdb43ad8ab8c9b0ed7d8455a684bfd77ea14dbbe
+91cb01deca1a653bf3e43879aa0dc760681ba06ec0487fdb48fb2b7025b16e66575d6a1e
+e25942daabffb380c9b952b122bb043d2dab171bdc5edd5cb0fcf0148a422a2ed7e01452
+5befd0c9420149556e911d5740ab3891ccea9456418c87128da2019ced44097d9c01cfc7
+b61f3f317755b79604edfb1e88a4b8a9bffd643e6a7c5e953d793d7bd95b7750df416203
+d1b3fd71261f19253211fb4efaf97539d083e47840a0ca9a0cc170bf84c13d6246b7cd23
+d6e4a5f6cf1301c37281b68013d8f8b6c5d4e0de600ad8537cf2335899ec851dc08fbe5e
+4e2d9e290d8e7a52588727198bff5a17646bd1003974a74dc20b973364ee92b035029e61
+c4cf7162555b8711123404c2dcba46fd4296e2684067adc904ef7abc2712cceb77d8dae7
+ecc3ee15a56b9728139711062ef82e3edf875ec85acdf25c603034f182f7650b822395b4
+ea399f49fd687a5f05a79b35f74e1896a0dd00ca6d4b4bae011998f363e7c100ce3ac3fb
+450fbf99b99410fb0308a96ad32c2552e666c3e56509ee4929d91fe889a8ce6c57792ed7
+7720128702a2cfcfc7644f1d3fc980fae87dcce32c768d7b409647c0d819df5e83fe1bbc
+9a8a288a02d5faac28804610ece859ab79241d79c31a0073791feaf636552d0efaa2e688
+4f4ba7cf82c8d6c33f85ae4d1c56a9a96973c897f723815694fa8a199a4537e9e007cdfd
+298705aa8ca3eb0aea2307be52c495f51f140197618e89eeb9820f10fec0b6c112ad7f81
+1171a604ab3e462250967bfb0da032e1e5d4fe4db4a616efc11ccbac29799cbdb048d59c
+cebb97792cabeea62834a973977af2dbe5cceb848b16adbeb4466602a7976f41c525f991
+77f7ac487604b4da6c1da2e04461b7af63a6def1a070b0c777d4aee78f787d750a647137
+29b9327e9e871eb9903402d729709628480cf1244f259eaaf0836a603a6c109789f655f9
+44d78be4cf3ac3c95359fb312a486023a30ac31dd2667357eeccc784df27d9a856c6af4b
+ffffc07e86235ff39d33705e16a4905fedbf738b83eedb1c6de02f7368e3b77db6d2db59
+d2087bbc3a3eb701d9c866e02cf28f57ca216e76f64d247b10f6e2ba6ba0ad4ab16f4ba6
+e6ec161de5442ef6c1b8ef441c3d298a501647f230e8a0f09ad51bc0e1d137f2bac2371c
+72b41563758d5064fc7649610479704bd7e85f49f1d4c5f0fe74d8bc1e158b68c96fa45d
+6738b8bec690e19701c94c68813478e70948460806e25e1ef35e3a68e43939e58446aed1
+dbcf33b3ea638750bb968d8d7890197d4547d6e6cad1775cf2a41b00
+hmac = f5ee8fbdbd1b3c10338b579ce27acc31322683ad787eaf3baefe117b9ce81433

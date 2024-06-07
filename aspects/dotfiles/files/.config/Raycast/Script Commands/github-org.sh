@@ -20,7 +20,7 @@ source "$BASE_DIRECTORY/.common.zsh"
 ORG=$(trim "$1")
 
 if [ -z "$ORG" ]; then
-  open "https://github.com/github"
+  open "https://github.com/DataDog"
 elif [[ $ORG == *\? ]]; then
   # Trim trailing "?" suffix.
   ORG=$(chop "$ORG")

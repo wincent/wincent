@@ -20,10 +20,10 @@ source "$BASE_DIRECTORY/.common.zsh"
 REPO=$(trim "$*")
 
 if [ -z "$REPO" ]; then
-  open "https://github.com/github/github/issues"
+  open "https://github.com/wincent/wincent/issues"
 elif [[ $REPO != */* ]]; then
   REPO=$(percent_encode "$REPO")
-  open "https://github.com/github/${REPO}/issues"
+  open "https://github.com/DataDog/${REPO}/issues"
 else
   OWNER=$(dirname "$REPO")
   OWNER=$(percent_encode "$OWNER")
