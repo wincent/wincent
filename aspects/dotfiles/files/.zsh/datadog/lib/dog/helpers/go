@@ -1,0 +1,35 @@
+#!/bin/sh
+
+set -e
+
+SESSION=web-ui
+BASE="$HOME/dev/web-ui"
+
+if [ ! -d "$BASE" ]; then
+  echo "error: Cannot find BASE directory"
+  exit 1
+fi
+
+if tmux has-session -t $SESSION 2> /dev/null; then
+  TARGET="$SESSION"
+else
+  TARGET="$SESSION:vim.right"
+
+  cd "$BASE"
+
+  # 1. Main editor window: Vim on the left, shell on the right.
+  tmux new-session -d -s $SESSION -n vim -x $(tput cols) -y $(tput lines)
+  tmux split-window -t $SESSION:vim -h
+  tmux send-keys -t $SESSION:vim.left "vim -c CommandT" Enter
+
+  # 2. General shell use: two panes separated by a vertical split.
+  tmux new-window -t $SESSION -n zsh
+  tmux split-window -t $SESSION:zsh -h
+
+fi
+
+if [ -n "$TMUX" ]; then
+  tmux switch-client -t "$TARGET"
+else
+  tmux attach -t "$TARGET"
+fi

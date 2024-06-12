@@ -1,0 +1,5 @@
+{
+  "name": "Dummy package.json so that NodeJS knows not to treat JS files in here as ESM",
+  "private": true,
+  "type": "commonjs"
+}
