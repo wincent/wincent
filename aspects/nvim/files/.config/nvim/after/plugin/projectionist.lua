@@ -60,6 +60,7 @@ for _, root_and_extension in ipairs({
     ['*' .. extension] = {
       ['alternate'] = {
         '{dirname}/{basename}.test' .. extension,
+        '{dirname}/{basename}.unit' .. extension,
         '{dirname}/__tests__/{basename}.test' .. extension,
         '{dirname}/__tests__/{basename}-test' .. extension,
         '{dirname}/__tests__/{basename}-mocha' .. extension,
@@ -67,7 +68,11 @@ for _, root_and_extension in ipairs({
       ['type'] = 'source',
     },
     ['*.test' .. extension] = {
-      ['alternate'] = '{basename}' .. extension,
+      ['alternate'] = '{dirname}/{basename}' .. extension,
+      ['type'] = 'test',
+    },
+    ['*.unit' .. extension] = {
+      ['alternate'] = '{dirname}/{basename}' .. extension,
       ['type'] = 'test',
     },
     ['**/__tests__/*.test' .. extension] = {
