@@ -26,6 +26,9 @@ else
   tmux new-window -t $SESSION -n zsh
   tmux split-window -t $SESSION:zsh -h
 
+  # 3. Dev server.
+  tmux new-window -t $SESSION -n "yarn dev"
+  tmux send-keys -t $SESSION:"yarn dev" "yarn dev"
 fi
 
 if [ -n "$TMUX" ]; then
