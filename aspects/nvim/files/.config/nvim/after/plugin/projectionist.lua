@@ -74,13 +74,13 @@ for _, root_and_extensions in ipairs({
   project(root, {
     ['*' .. extension] = {
       ['alternate'] = {
-        '{}.test' .. extension,
-        '{}.unit' .. extension,
+        '{dirname}/{basename}.test' .. extension,
+        '{dirname}/{basename}.unit' .. extension,
         '{dirname}/__tests__/{basename}.test' .. extension,
         '{dirname}/__tests__/{basename}-test' .. extension,
         '{dirname}/__tests__/{basename}-mocha' .. extension,
-        '{}.test' .. alternate_extension,
-        '{}.unit' .. alternate_extension,
+        '{dirname}/{basename}.test' .. alternate_extension,
+        '{dirname}/{basename}.unit' .. alternate_extension,
         '{dirname}/__tests__/{basename}.test' .. alternate_extension,
         '{dirname}/__tests__/{basename}-test' .. alternate_extension,
         '{dirname}/__tests__/{basename}-mocha' .. alternate_extension,
@@ -89,15 +89,15 @@ for _, root_and_extensions in ipairs({
     },
     ['*.test' .. extension] = {
       ['alternate'] = {
-        '{}' .. extension,
-        '{}' .. alternate_extension,
+        '{dirname}/{basename}' .. extension,
+        '{dirname}/{basename}' .. alternate_extension,
       },
       ['type'] = 'test',
     },
     ['*.unit' .. extension] = {
       ['alternate'] = {
-        '{}' .. extension,
-        '{}' .. alternate_extension,
+        '{dirname}/{basename}' .. extension,
+        '{dirname}/{basename}' .. alternate_extension,
       },
       ['type'] = 'test',
     },
