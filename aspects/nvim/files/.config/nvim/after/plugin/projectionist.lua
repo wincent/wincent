@@ -47,15 +47,30 @@ local project = function(root, projections)
   end
 end
 
--- Set up projections for JS variants.
-for _, root_and_extension in ipairs({
-  { 'package.json', '.js' },
-  { 'package.json', '.jsx' },
-  { 'tsconfig.json', '.ts' },
-  { 'tsconfig.json', '.tsx' },
+-- Set up projections for JS variants: note that we don't just map to/from:
+--
+--   .js <--> .js
+--   .jsx <--> .jsx
+--   .ts <--> .ts
+--   .tsx <--> .tsx
+--
+-- but also:
+--
+--   .js <--> .jsx
+--   .ts <--> .tsx
+--
+-- to handle edge cases (for example, a hook implementation being defined in a
+-- ".ts" file and its tests using JSX syntax in a ".tsx" file).
+--
+for _, root_and_extensions in ipairs({
+  { 'package.json', '.js', '.jsx' },
+  { 'package.json', '.jsx', '.js' },
+  { 'tsconfig.json', '.ts', '.tsx' },
+  { 'tsconfig.json', '.tsx', '.ts' },
 }) do
-  local root = root_and_extension[1]
-  local extension = root_and_extension[2]
+  local root = root_and_extensions[1]
+  local extension = root_and_extensions[2]
+  local alternate_extension = root_and_extensions[3]
   project(root, {
     ['*' .. extension] = {
       ['alternate'] = {
@@ -64,27 +79,47 @@ for _, root_and_extension in ipairs({
         '{dirname}/__tests__/{basename}.test' .. extension,
         '{dirname}/__tests__/{basename}-test' .. extension,
         '{dirname}/__tests__/{basename}-mocha' .. extension,
+        '{}.test' .. alternate_extension,
+        '{}.unit' .. alternate_extension,
+        '{dirname}/__tests__/{basename}.test' .. alternate_extension,
+        '{dirname}/__tests__/{basename}-test' .. alternate_extension,
+        '{dirname}/__tests__/{basename}-mocha' .. alternate_extension,
       },
       ['type'] = 'source',
     },
     ['*.test' .. extension] = {
-      ['alternate'] = '{}' .. extension,
+      ['alternate'] = {
+        '{}' .. extension,
+        '{}' .. alternate_extension,
+      },
       ['type'] = 'test',
     },
     ['*.unit' .. extension] = {
-      ['alternate'] = '{}' .. extension,
+      ['alternate'] = {
+        '{}' .. extension,
+        '{}' .. alternate_extension,
+      },
       ['type'] = 'test',
     },
     ['**/__tests__/*.test' .. extension] = {
-      ['alternate'] = '{dirname}/{basename}' .. extension,
+      ['alternate'] = {
+        '{dirname}/{basename}' .. extension,
+        '{dirname}/{basename}' .. alternate_extension,
+      },
       ['type'] = 'test',
     },
     ['**/__tests__/*-test' .. extension] = {
-      ['alternate'] = '{dirname}/{basename}' .. extension,
+      ['alternate'] = {
+        '{dirname}/{basename}' .. extension,
+        '{dirname}/{basename}' .. alternate_extension,
+      },
       ['type'] = 'test',
     },
     ['**/__tests__/*-mocha' .. extension] = {
-      ['alternate'] = '{dirname}/{basename}' .. extension,
+      ['alternate'] = {
+        '{dirname}/{basename}' .. extension,
+        '{dirname}/{basename}' .. alternate_extension,
+      },
       ['type'] = 'test',
     },
   })
