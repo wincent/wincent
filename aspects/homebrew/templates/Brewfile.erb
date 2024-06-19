@@ -8,6 +8,11 @@ tap "homebrew/bundle"
 tap "homebrew/services"
 tap "oven-sh/bun"
 tap "tavianator/tap"
+<%- if (variables.profile === 'work') { -%>
+
+# Work-only taps.
+tap "withgraphite/tap"
+<%- } -%>
 
 # General packages.
 brew "ack"
@@ -190,7 +195,7 @@ brew "hledger"
 <%- if (variables.profile === 'work') { -%>
 
 # Work-only packages.
-# ...
+cask "graphite"
 <%- } -%>
 
 # General casks.
