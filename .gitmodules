@@ -195,9 +195,8 @@
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen.git
 [submodule "vim-projectionist"]
-	branch = wincent
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-projectionist
-	url = https://github.com/wincent/vim-projectionist.git
+	url = https://github.com/tpope/vim-projectionist.git
 [submodule "vim-reason-plus"]
 	ignore = dirty
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-reason-plus
