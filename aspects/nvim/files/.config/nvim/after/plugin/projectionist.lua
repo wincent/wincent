@@ -74,13 +74,13 @@ for _, root_and_extensions in ipairs({
   project(root, {
     ['*' .. extension] = {
       ['alternate'] = {
-        '{dirname}/{basename}.test' .. extension,
-        '{dirname}/{basename}.unit' .. extension,
+        '{}.test' .. extension,
+        '{}.unit' .. extension,
         '{dirname}/__tests__/{basename}.test' .. extension,
         '{dirname}/__tests__/{basename}-test' .. extension,
         '{dirname}/__tests__/{basename}-mocha' .. extension,
-        '{dirname}/{basename}.test' .. alternate_extension,
-        '{dirname}/{basename}.unit' .. alternate_extension,
+        '{}.test' .. alternate_extension,
+        '{}.unit' .. alternate_extension,
         '{dirname}/__tests__/{basename}.test' .. alternate_extension,
         '{dirname}/__tests__/{basename}-test' .. alternate_extension,
         '{dirname}/__tests__/{basename}-mocha' .. alternate_extension,
@@ -89,36 +89,36 @@ for _, root_and_extensions in ipairs({
     },
     ['*.test' .. extension] = {
       ['alternate'] = {
-        '{dirname}/{basename}' .. extension,
-        '{dirname}/{basename}' .. alternate_extension,
+        '{}' .. extension,
+        '{}' .. alternate_extension,
       },
       ['type'] = 'test',
     },
     ['*.unit' .. extension] = {
       ['alternate'] = {
-        '{dirname}/{basename}' .. extension,
-        '{dirname}/{basename}' .. alternate_extension,
+        '{}' .. extension,
+        '{}' .. alternate_extension,
       },
       ['type'] = 'test',
     },
     ['**/__tests__/*.test' .. extension] = {
       ['alternate'] = {
-        '{dirname}/{basename}' .. extension,
-        '{dirname}/{basename}' .. alternate_extension,
+        '{}' .. extension,
+        '{}' .. alternate_extension,
       },
       ['type'] = 'test',
     },
     ['**/__tests__/*-test' .. extension] = {
       ['alternate'] = {
-        '{dirname}/{basename}' .. extension,
-        '{dirname}/{basename}' .. alternate_extension,
+        '{}' .. extension,
+        '{}' .. alternate_extension,
       },
       ['type'] = 'test',
     },
     ['**/__tests__/*-mocha' .. extension] = {
       ['alternate'] = {
-        '{dirname}/{basename}' .. extension,
-        '{dirname}/{basename}' .. alternate_extension,
+        '{}' .. extension,
+        '{}' .. alternate_extension,
       },
       ['type'] = 'test',
     },
