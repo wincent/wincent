@@ -7,36 +7,13 @@ cd ~/.config/nvim/pack
 
 COMMANDS=""
 for PACK in $(find . -maxdepth 3 -type d -path '*/opt/*' | cut -f 4 -d /); do
-  COMMANDS="${COMMANDS}packadd! $PACK\n"
+  COMMANDS="${COMMANDS}packadd! $PACK | "
 done
 
-COMMANDS="${COMMANDS}packloadall\n"
-COMMANDS="${COMMANDS}call pathogen#helptags()\n"
+COMMANDS="${COMMANDS}packloadall | "
+COMMANDS="${COMMANDS}call pathogen#helptags() | "
 COMMANDS="${COMMANDS}quit"
-
-# Suppress errors; see below for why.
-set +e
 
 # Using 'verbose' level 1, the minimum required to get Neovim to print Ex
 # commands that it is running.
 echo "$COMMANDS" | nvim -i NONE -u NONE -V1 -es
-
-# Problem: Unless the call to `pathogen#helptags()` is commented out, `nvim`
-# exits with code 1, and prints "E749 Empty buffer". You can reproduce this
-# manually by launching `nvim -i NONE -u NONE -e` and typing:
-#
-#     packadd! vim-pathogen
-#     packloadall
-#     call pathogen#helptags()
-#
-# The error occurs on the first call of _any_ autoloaded function, apparently
-# (for example, try `call pinnacle#sub_newlines("foo")`).
-#
-# As described here, this error can't be surpressed with `:silent`, `:try` and
-# friends:
-#
-# - https://vi.stackexchange.com/a/37450
-#
-# So, we do this sketchy error suppression here, at the risk of masking other
-# potential errors.
-exit 0
