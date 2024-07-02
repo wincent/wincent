@@ -1,6 +1,6 @@
-magic = com.wincent.git-cipher
-url = https://github.com/wincent/git-cipher/blob/v2.0.0-pre.2/PROTOCOL.md
-version = 1
+magic = dev.wincent.git-cipher
+url = https://github.com/wincent/git-cipher/blob/v2.0.0-pre.3/PROTOCOL.md
+version = 2
 algorithm = aes-256-cbc
 filename = "aspects/dotfiles/files/.config/Raycast/Script Commands/github-pulls.sh"
 iv = 001440eeb0e5d00458b50a021addbc66

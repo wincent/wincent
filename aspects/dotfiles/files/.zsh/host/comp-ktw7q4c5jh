@@ -1,6 +1,6 @@
-magic = com.wincent.git-cipher
-url = https://github.com/wincent/git-cipher/blob/v2.0.0-pre.2/PROTOCOL.md
-version = 1
+magic = dev.wincent.git-cipher
+url = https://github.com/wincent/git-cipher/blob/v2.0.0-pre.3/PROTOCOL.md
+version = 2
 algorithm = aes-256-cbc
 filename = "aspects/dotfiles/files/.zsh/host/comp-ktw7q4c5jh"
 iv = 965a36febf9d98836bf8b181944fd203
