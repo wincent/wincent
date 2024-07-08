@@ -9,6 +9,7 @@ if has_corpus then
         autoreference = 1,
         autotitle = 1,
         base = './',
+        tags = { 'corporate' },
         transform = 'local',
       },
       ['~/Documents/Personal/Corpus'] = {
@@ -16,6 +17,7 @@ if has_corpus then
         autoreference = 1,
         autotitle = 1,
         base = './',
+        tags = { 'personal' },
         transform = 'local',
       },
       ['~/code/masochist/content/content/wiki'] = {
