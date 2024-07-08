@@ -168,6 +168,56 @@ task('install gems', async () => {
   });
 });
 
+// On my work machine, I divide my Corpus notes into two folders: one is
+// work-specific, synced via Google Drive, and the other has personal notes
+// in it and is not synced. Because Google Drive isn't good at handling Git
+// directories, I store that elsewhere, and it doesn't get synced.
+task('create Corpus directories', when('wincent', 'work'), async () => {
+  // Corporate Corpus files go here.
+  await file({path: '~/Documents/Corporate', state: 'directory'});
+  await file({path: '~/Documents/Corporate/Corpus', state: 'directory'});
+
+  // Git directory goes under `~/Library/Application Support/Corpus`, with
+  // subdirectories of the form "$HOME-relative path to Corpus files" and a
+  // `.git` extension.
+  await file({
+    path: '~/Library/Application Support/Corpus',
+    state: 'directory',
+  });
+  await file({
+    path: '~/Library/Application Support/Corpus/Documents',
+    state: 'directory',
+  });
+  await file({
+    path: '~/Library/Application Support/Corpus/Documents/Corporate',
+    state: 'directory',
+  });
+  await file({
+    path: '~/Library/Application Support/Corpus/Documents/Corporate/Corpus.git',
+    state: 'directory',
+  });
+
+  await command('git', [
+    'init',
+    `--separate-git-dir=${
+      path.home.join(
+        'Library/Application Support/Corpus/Documents/Corporate/Corpus.git',
+      )
+    }`,
+  ], {
+    chdir: '~/Documents/Corporate/Corpus',
+    creates: '~/Documents/Corporate/Corpus/.git',
+  });
+
+  await file({path: '~/Documents/Personal', state: 'directory'});
+  await file({path: '~/Documents/Personal/Corpus', state: 'directory'});
+
+  await command('git', ['init'], {
+    chdir: '~/Documents/Personal/Corpus',
+    creates: '~/Documents/Personal/Corpus/.git',
+  });
+});
+
 // added in 1a9f9b9fd and probably not used since...
 // pip2 install vim-vint
 

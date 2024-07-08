@@ -101,6 +101,8 @@ function checkCondition(label: string): boolean {
       return variable('profile') === 'personal';
     case 'wincent':
       return variable('identity') === 'wincent';
+    case 'work':
+      return variable('profile') === 'work';
     default:
       throw new Error(
         `checkCondition(): Unknown condition label ${JSON.stringify(label)}`,

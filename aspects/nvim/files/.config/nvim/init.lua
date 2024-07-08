@@ -202,20 +202,6 @@ vim.api.nvim_set_keymap('n', '<Leader>f', '<Plug>(FerretAckWord)', {})
 -- use <Leader>s (mnemonic: "[s]ubstitute") instead.
 vim.api.nvim_set_keymap('n', '<Leader>s', '<Plug>(FerretAcks)', {})
 
--- Allow for per-machine overrides.
-local hostname = vim.fn.substitute(vim.fn.hostname(), '\\..*', '', '')
-local overrides = {
-  config .. '/host/' .. hostname .. '.vim',
-  config .. '/host/' .. hostname .. '.lua',
-  config .. '/init-local.vim',
-  config .. '/init-local.lua',
-}
-for _, override in ipairs(overrides) do
-  if vim.fn.filereadable(override) == 1 then
-    vim.cmd('source ' .. override)
-  end
-end
-
 -------------------------------------------------------------------------------
 -- Plugins {{{1 ---------------------------------------------------------------
 -------------------------------------------------------------------------------
@@ -463,29 +449,18 @@ if has_commandt then
   })
 end
 
-local has_corpus, corpus = pcall(require, 'wincent.corpus')
-if has_corpus then
-  corpus({
-    bang_creation = true,
-    directories = {
-      ['~/Documents/Corpus'] = {
-        autocommit = true,
-        autoreference = 1,
-        autotitle = 1,
-        base = './',
-        transform = 'local',
-      },
-      ['~/code/masochist/content/content/wiki'] = {
-        autocommit = false,
-        autoreference = 1,
-        autotitle = 1,
-        base = '/wiki/',
-        tags = { 'wiki' },
-        transform = 'web',
-      },
-    },
-    sort = 'stat',
-  })
+-- Allow for per-machine overrides.
+local hostname = string.lower(vim.fn.substitute(vim.fn.hostname(), '\\..*', '', ''))
+local overrides = {
+  config .. '/host/' .. hostname .. '.vim',
+  config .. '/host/' .. hostname .. '.lua',
+  config .. '/init-local.vim',
+  config .. '/init-local.lua',
+}
+for _, override in ipairs(overrides) do
+  if vim.fn.filereadable(override) == 1 then
+    vim.cmd('source ' .. override)
+  end
 end
 
 -------------------------------------------------------------------------------
