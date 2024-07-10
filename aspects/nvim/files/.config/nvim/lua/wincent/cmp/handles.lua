@@ -49,7 +49,10 @@ handles.setup = function()
       local items = {}
       for handle, name_and_email in pairs(handles_with_names_and_emails) do
         table.insert(items, {
-          filterText = handle .. ' ' .. name_and_email,
+          data = {
+            handle = handle,
+          },
+          filterText = '@' .. handle .. ' ' .. name_and_email,
           label = name_and_email,
           textEdit = {
             newText = name_and_email,
@@ -75,6 +78,12 @@ handles.setup = function()
     end
   end
 
+  source.resolve = function(self, completion_item, callback)
+    -- Show GitHub handle in documentation window.
+    completion_item.documentation = '@' .. completion_item.data.handle
+    callback(completion_item)
+  end
+
   cmp.register_source('handles', source.new())
 
   cmp.setup.filetype('gitcommit', {
@@ -86,7 +95,7 @@ handles.setup = function()
       { name = 'path' },
 
       -- My custom sources.
-      { name = 'handles' }, -- GitHub handles; eg. @wincent → Greg Hurrell <wincent@github.com>
+      { name = 'handles' }, -- GitHub handles; eg. @wincent → Greg Hurrell <greg.hurrell@datadoghq.com>
     }),
   })
 end
