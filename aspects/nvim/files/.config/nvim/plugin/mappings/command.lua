@@ -35,3 +35,7 @@ end, { expr = true })
 -- sequences in the iTerm2 preferences. See `:help tcsh-style`.
 vim.keymap.set('c', '<A-b>', '<S-Left>')
 vim.keymap.set('c', '<A-f>', '<S-Right>')
+
+-- Same, but for kitty.
+vim.keymap.set('c', '<M-Left>', '<S-Left>')
+vim.keymap.set('c', '<M-Right>', '<S-Right>')
