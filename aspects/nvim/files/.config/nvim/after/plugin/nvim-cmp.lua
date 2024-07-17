@@ -134,6 +134,9 @@ if has_cmp then
   end
 
   cmp.setup({
+    experimental = {
+      ghost_text = true
+    },
     mapping = {
       ['<BS>'] = cmp.mapping(function(_fallback)
         local keys = smart_bs()
