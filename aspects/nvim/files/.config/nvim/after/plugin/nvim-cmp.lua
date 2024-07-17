@@ -135,7 +135,7 @@ if has_cmp then
 
   cmp.setup({
     experimental = {
-      ghost_text = true
+      ghost_text = true,
     },
     mapping = {
       ['<BS>'] = cmp.mapping(function(_fallback)
