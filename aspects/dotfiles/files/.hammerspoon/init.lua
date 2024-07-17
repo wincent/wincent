@@ -1,6 +1,11 @@
-hs.grid.setGrid('12x12') -- allows us to place on quarters, thirds and halves
+-- Use 12x12 grid, which allows us to place on quarters, thirds and halves etc.
+local width = 12
+local height = 12
+
+hs.grid.setGrid(width .. 'x' .. height)
 hs.grid.MARGINX = 0
 hs.grid.MARGINY = 0
+
 hs.window.animationDuration = 0 -- disable animations
 
 local events = require('events')
@@ -23,26 +28,117 @@ local windowCount = nil
 
 local screenCount = #hs.screen.allScreens()
 
+-- Returns a string specifing window location and dimensions on the grid of the
+-- form:
+--
+--   "${x},${y} ${width}x${height}".
+--
+-- Example: "0,0 12x6" (represents a rectangle starting in the top-left,
+-- occupying the full width of the screen and half the height.
+local rect = function(x, y, w, h)
+  return string.format('%d,%d %dx%d', x, y, w, h)
+end
+
 local grid = {
-  topHalf = '0,0 12x6',
-  topThird = '0,0 12x4',
-  topTwoThirds = '0,0 12x8',
-  rightHalf = '6,0 6x12',
-  rightThird = '8,0 4x12',
-  rightTwoThirds = '4,0 8x12',
-  bottomHalf = '0,6 12x6',
-  bottomThird = '0,8 12x4',
-  bottomTwoThirds = '0,4 12x8',
-  leftHalf = '0,0 6x12',
-  leftThird = '0,0 4x12',
-  leftTwoThirds = '0,0 8x12',
-  topLeft = '0,0 6x6',
-  topRight = '6,0 6x6',
-  bottomRight = '6,6 6x6',
-  bottomLeft = '0,6 6x6',
-  fullScreen = '0,0 12x12',
-  centeredBig = '3,3 6x6',
-  centeredSmall = '4,4 4x4',
+  full = {
+    width = width,
+    height = height,
+  },
+  half = {
+    width = width / 2,
+    height = height / 2,
+  },
+  third = {
+    width = width / 3,
+    height = height / 3,
+  },
+  quarter = {
+    width = width / 4,
+    height = height / 4,
+  },
+  sixth = {
+    width = width / 6,
+    height = height / 6,
+  },
+  twelth = {
+    width = width / 12,
+    height = height / 12,
+  },
+  two = {
+    thirds = {
+      width = 2 * width / 3,
+      height = 2 * height / 3,
+    },
+  },
+  three = {
+    quarters = {
+      width = 3 * width / 4,
+      height = 3 * height / 4,
+    },
+  },
+  five = {
+    sixths = {
+      width = 5 * width / 6,
+      height = 5 * height / 6,
+    },
+  },
+}
+local placements = {
+  centered = {
+    full = rect(0, 0, grid.full.width, grid.full.height),
+    huge = rect(grid.twelth.width, grid.twelth.height, grid.five.sixths.width, grid.five.sixths.height),
+    big = rect(grid.sixth.width, grid.sixth.height, grid.two.thirds.width, grid.two.thirds.height),
+    medium = rect(grid.quarter.width, grid.quarter.height, grid.half.width, grid.half.height),
+    small = rect(grid.third.width, grid.third.height, grid.third.width, grid.third.height),
+  },
+  top = {
+    half = rect(0, 0, grid.full.width, grid.half.height),
+    third = rect(0, 0, grid.full.width, grid.third.height),
+    quarter = rect(0, 0, grid.full.width, grid.quarter.height),
+    two = {
+      thirds = rect(0, 0, grid.full.width, grid.two.thirds.height),
+    },
+    three = {
+      quarters = rect(0, 0, grid.full.width, grid.three.quarters.height),
+    },
+    left = rect(0, 0, grid.half.width, grid.half.height),
+    right = rect(grid.half.width, 0, grid.half.width, grid.half.height),
+  },
+  right = {
+    half = rect(grid.half.width, 0, grid.half.width, grid.full.height),
+    third = rect(grid.two.thirds.width, 0, grid.third.width, grid.full.height),
+    quarter = rect(grid.three.quarters.width, 0, grid.quarter.width, grid.full.height),
+    two = {
+      thirds = rect(grid.third.width, 0, grid.two.thirds.width, grid.full.height),
+    },
+    three = {
+      quarters = rect(grid.quarter.width, 0, grid.three.quarters.width, grid.full.height),
+    },
+  },
+  bottom = {
+    half = rect(0, grid.half.height, grid.full.width, grid.half.height),
+    third = rect(0, grid.two.thirds.height, grid.full.width, grid.third.height),
+    quarter = rect(0, grid.three.quarters.height, grid.full.width, grid.quarter.height),
+    two = {
+      thirds = rect(0, grid.third.height, grid.full.width, grid.two.thirds.height),
+    },
+    three = {
+      quarters = rect(0, grid.quarter.height, grid.full.width, grid.three.quarters.height),
+    },
+    left = rect(0, grid.half.height, grid.half.width, grid.half.height),
+    right = rect(grid.half.width, grid.half.height, grid.half.width, grid.half.height),
+  },
+  left = {
+    half = rect(0, 0, grid.half.width, grid.full.height),
+    third = rect(0, 0, grid.third.width, grid.full.height),
+    quarter = rect(0, 0, grid.quarter.width, grid.full.height),
+    two = {
+      thirds = rect(0, 0, grid.two.thirds.width, grid.full.height),
+    },
+    three = {
+      quarters = rect(0, 0, grid.three.quarters.width, grid.full.height),
+    },
+  },
 }
 
 local layoutConfig = {
@@ -55,61 +151,52 @@ local layoutConfig = {
     activate('com.googlecode.iterm2')
   end,
 
-  ['com.flexibits.fantastical2.mac'] = function(window)
-    hs.grid.set(window, grid.fullScreen, internalDisplay())
-  end,
-
-  ['com.github.atom'] = function(window)
-    -- Leave room for simulator to the right.
-    hs.grid.set(window, grid.leftTwoThirds, internalDisplay())
-  end,
-
   ['com.google.Chrome'] = function(window, forceScreenCount)
     local count = forceScreenCount or screenCount
     if count == 1 then
-      hs.grid.set(window, grid.fullScreen)
+      hs.grid.set(window, placements.centered.full)
     else
-      hs.grid.set(window, grid.fullScreen, hs.screen.primaryScreen())
+      hs.grid.set(window, placements.centered.full, hs.screen.primaryScreen())
     end
   end,
 
   ['com.google.Chrome.canary'] = function(window, forceScreenCount)
     local count = forceScreenCount or screenCount
     if count == 1 then
-      hs.grid.set(window, grid.fullScreen)
+      hs.grid.set(window, placements.centered.full)
     else
-      hs.grid.set(window, grid.fullScreen, hs.screen.primaryScreen())
+      hs.grid.set(window, placements.centered.full, hs.screen.primaryScreen())
     end
   end,
 
   ['com.googlecode.iterm2'] = function(window, forceScreenCount)
     local count = forceScreenCount or screenCount
     if count == 1 then
-      hs.grid.set(window, grid.fullScreen)
+      hs.grid.set(window, placements.centered.full)
     else
-      hs.grid.set(window, grid.fullScreen, hs.screen.primaryScreen())
+      hs.grid.set(window, placements.centered.full, hs.screen.primaryScreen())
     end
   end,
 
   ['com.microsoft.edgemac'] = function(window, forceScreenCount)
     local count = forceScreenCount or screenCount
     if count == 1 then
-      hs.grid.set(window, grid.fullScreen)
+      hs.grid.set(window, placements.centered.full)
     else
-      hs.grid.set(window, grid.fullScreen, hs.screen.primaryScreen())
+      hs.grid.set(window, placements.centered.full, hs.screen.primaryScreen())
     end
   end,
 
   ['com.tinyspeck.slackmacgap'] = function(window)
-    hs.grid.set(window, grid.fullScreen, internalDisplay())
+    hs.grid.set(window, placements.centered.full, internalDisplay())
   end,
 
   ['net.kovidgoyal.kitty'] = function(window, forceScreenCount)
     local count = forceScreenCount or screenCount
     if count == 1 then
-      hs.grid.set(window, grid.fullScreen)
+      hs.grid.set(window, placements.centered.full)
     else
-      hs.grid.set(window, grid.fullScreen, hs.screen.primaryScreen())
+      hs.grid.set(window, placements.centered.full, hs.screen.primaryScreen())
     end
   end,
 }
@@ -274,9 +361,11 @@ hs.hotkey.bind(
   { 'ctrl', 'alt' },
   'up',
   chain({
-    grid.topHalf,
-    grid.topThird,
-    grid.topTwoThirds,
+    placements.top.half,
+    placements.top.third,
+    placements.top.quarter,
+    placements.top.three.quarters,
+    placements.top.two.thirds,
   })
 )
 
@@ -284,9 +373,11 @@ hs.hotkey.bind(
   { 'ctrl', 'alt' },
   'right',
   chain({
-    grid.rightHalf,
-    grid.rightThird,
-    grid.rightTwoThirds,
+    placements.right.half,
+    placements.right.third,
+    placements.right.quarter,
+    placements.right.three.quarters,
+    placements.right.two.thirds,
   })
 )
 
@@ -294,9 +385,11 @@ hs.hotkey.bind(
   { 'ctrl', 'alt' },
   'down',
   chain({
-    grid.bottomHalf,
-    grid.bottomThird,
-    grid.bottomTwoThirds,
+    placements.bottom.half,
+    placements.bottom.third,
+    placements.bottom.quarter,
+    placements.bottom.three.quarters,
+    placements.bottom.two.thirds,
   })
 )
 
@@ -304,9 +397,11 @@ hs.hotkey.bind(
   { 'ctrl', 'alt' },
   'left',
   chain({
-    grid.leftHalf,
-    grid.leftThird,
-    grid.leftTwoThirds,
+    placements.left.half,
+    placements.left.third,
+    placements.left.quarter,
+    placements.left.three.quarters,
+    placements.left.two.thirds,
   })
 )
 
@@ -314,10 +409,10 @@ hs.hotkey.bind(
   { 'ctrl', 'alt', 'cmd' },
   'up',
   chain({
-    grid.topLeft,
-    grid.topRight,
-    grid.bottomRight,
-    grid.bottomLeft,
+    placements.top.left,
+    placements.top.right,
+    placements.bottom.right,
+    placements.bottom.left,
   })
 )
 
@@ -325,9 +420,11 @@ hs.hotkey.bind(
   { 'ctrl', 'alt', 'cmd' },
   'down',
   chain({
-    grid.fullScreen,
-    grid.centeredBig,
-    grid.centeredSmall,
+    placements.centered.full,
+    placements.centered.huge,
+    placements.centered.big,
+    placements.centered.medium,
+    placements.centered.small,
   })
 )
 
