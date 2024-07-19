@@ -165,7 +165,7 @@ if has_cmp then
 
       ['<C-y>'] = cmp.mapping(function(fallback)
         if cmp.visible() then
-          cmp.confirm({ select = true })
+          cmp.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace })
         else
           fallback()
         end
@@ -185,7 +185,7 @@ if has_cmp then
         if cmp.visible() then
           -- If there is only one completion candidate, use it.
           if #cmp.get_entries() == 1 then
-            cmp.confirm({ select = true })
+            cmp.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace })
           else
             cmp.select_next_item()
           end
