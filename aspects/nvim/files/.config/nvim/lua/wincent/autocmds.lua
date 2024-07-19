@@ -214,6 +214,26 @@ autocmds.buf_write_post = function()
   mkview()
 end
 
+local global_cmdline_aliases = {
+  ['$PROFILING'] = os.getenv('PROFILING') or '$PROFILING',
+}
+autocmds.cmdline_changed = function()
+  if vim.fn.getcmdtype() ~= ':' then
+    return
+  end
+  local line = vim.fn.getcmdline()
+  local position = vim.fn.getcmdpos()
+  for alias, expansion in pairs(global_cmdline_aliases) do
+    if line:sub(position - #alias, position - 1) == alias then
+      -- Alias appears right before cursor; expand it.
+      line = line:sub(1, position - #alias - 1) .. expansion .. line:sub(position)
+      position = position - #alias + #expansion
+      break
+    end
+  end
+  vim.fn.setcmdline(line, position)
+end
+
 autocmds.file_type = function(a)
   local filetype = vim.fn.expand('<amatch>')
   capture(filetype)
