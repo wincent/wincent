@@ -26,6 +26,7 @@
       ".config/pry",
       ".config/ranger",
       ".config/screenkey.json",
+      ".config/shellbot",
       ".config/sxhkd",
       ".config/tmux",
       ".config/xkeysnail.py",

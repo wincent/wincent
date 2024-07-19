@@ -13,9 +13,9 @@ local cpo = vim.o.cpo
 
 vim.cmd([[
   set cpo&vim
-  syntax match ChatGPTHeader /^ 🤓 .*/ containedin=ALL
-  syntax match ChatGPTHeader /^ 🤖 .*/ containedin=ALL
-  highlight def link ChatGPTHeader TermCursor
+  syntax match ChatBotHeader /^ 🤓 .*/ containedin=ALL
+  syntax match ChatBotHeader /^ 🤖 .*/ containedin=ALL
+  highlight def link ChatBotHeader TermCursor
 ]])
 
 vim.b.current_syntax = 'shellbot'

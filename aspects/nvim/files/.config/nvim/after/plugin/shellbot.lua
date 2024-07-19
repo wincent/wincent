@@ -1,12 +1,16 @@
 vim.api.nvim_create_user_command('ChatGPT', function()
-  local has_shellbot, shellbot = pcall(require, 'chatgpt')
+  local has_shellbot, shellbot = pcall(require, 'chatbot')
   if not has_shellbot then
-    vim.api.nvim_err_writeln("error: could not require 'chatgpt'; is the submodule initialized?")
+    vim.api.nvim_err_writeln("error: could not require 'chatbot'; is the shellbot submodule initialized?")
     return
   end
-  if vim.env['SHELLBOT'] == nil or vim.fn.executable(vim.env['SHELLBOT']) ~= 1 then
-    vim.api.nvim_err_writeln('error: SHELLBOT does not appear to be executable')
-    return
+  local env = vim.env['SHELLBOT']
+  if env ~= nil then
+    local executable = vim.fn.split(env, ' ')[1]
+    if executable ~= nil and vim.fn.executable(executable) == 1 then
+      shellbot.chatbot()
+      return
+    end
   end
-  shellbot.chatgpt()
+  vim.api.nvim_err_writeln('error: SHELLBOT does not appear to be executable')
 end, {})

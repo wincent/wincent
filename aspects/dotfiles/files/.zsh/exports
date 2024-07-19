@@ -128,15 +128,7 @@ fi
 export RIPGREP_CONFIG_PATH=$HOME/.rgrc
 
 # For now, requires a manual `cargo build --release`.
-export SHELLBOT=$HOME/.config/nvim/pack/bundle/opt/shellbot/lua/target/release/shellbot
-export SHELLBOT_PROMPT='
-  You are a helpful assistant who provides brief explanations and short code
-  snippets for technologies like TypeScript, JavaScript, Rust, Ruby, Ruby on
-  Rails, HTML, CSS, Zsh, Go, Lua, and Sorbet. Your user is an expert programmer,
-  so you should be as concise as possible. You do not show lengthy steps or
-  setup instructions. Questions will be asked using Markdown, and you should
-  feel free to use Markdown syntax in your replies.
-'
+export SHELLBOT="$HOME/.config/nvim/pack/bundle/opt/shellbot/lua/target/release/shellbot $HOME/.config/shellbot/prompt"
 
 () {
   local PRIVATE="$HOME/.zsh/exports.private"
