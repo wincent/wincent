@@ -13,7 +13,7 @@ if has_corpus then
         transform = 'local',
       },
       ['~/Documents/Personal/Corpus'] = {
-        autocommit = true,
+        autocommit = false,
         autoreference = 1,
         autotitle = 1,
         base = './',
