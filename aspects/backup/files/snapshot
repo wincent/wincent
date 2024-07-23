@@ -1,5 +1,8 @@
 #!/usr/bin/env ruby
 
+# For the latest version of this script, see:
+# https://github.com/wincent/wincent/blob/main/aspects/backup/files/snapshot
+
 require 'date'
 require 'fileutils'
 require 'pathname'
