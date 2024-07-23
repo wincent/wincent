@@ -22,7 +22,8 @@ TO_COPY = [
   '.vim_org.yml',
   'Library/Keychains/*',
   'Sync/**/*.p12',
-  'Sync/Personal/Corpus/*',
+  'Sync/greg@hurrell.net/Corpus/*',
+  'Sync/greg.hurrell@datadoghq.com/worktree/Corpus/*',
 ]
 
 TO_COPY.each do |src|
