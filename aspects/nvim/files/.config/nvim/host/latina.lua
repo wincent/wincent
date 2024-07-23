@@ -11,6 +11,14 @@ if has_corpus then
         base = './',
         transform = 'local',
       },
+      ['~/Sync/greg.hurrell@datadoghq.com/worktree/Corpus'] = {
+        autocommit = false,
+        autoreference = 1,
+        autotitle = 1,
+        base = './',
+        tags = { 'personal' },
+        transform = 'local',
+      },
       ['~/code/masochist/content/content/wiki'] = {
         autocommit = false,
         autoreference = 1,
