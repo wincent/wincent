@@ -17,13 +17,13 @@ luasnip.add_snippets('all', {
     { trig = 'table', dscr = 'Table template' },
     fmt(
       [[
-      | {}  | Second Header |
-      | ------------- | ------------- |
-      | Content Cell  | Content Cell  |
-      | Content Cell  | Content Cell  |
+      | {}  | Header  |
+      | ------- | ------- |
+      | Content | Content |
+      | Content | Content |
     ]],
       {
-        i(1, 'First Header'),
+        i(1, 'Header'),
       }
     )
   ),
