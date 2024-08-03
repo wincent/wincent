@@ -34,10 +34,17 @@ vim.keymap.set('n', 'Q', '<Nop>')
 -- Note this one is a rare multi-mode mapping (Normal, Operating-pending, Visual modes).
 vim.keymap.set({ 'n', 'o', 'v' }, 'Y', 'y$')
 
+-- Move between splits.
 vim.keymap.set('n', '<C-h>', '<C-w>h')
 vim.keymap.set('n', '<C-j>', '<C-w>j')
 vim.keymap.set('n', '<C-k>', '<C-w>k')
 vim.keymap.set('n', '<C-l>', '<C-w>l')
+
+-- Resize splits.
+vim.keymap.set('n', '<M-Up>', '<C-w>+')
+vim.keymap.set('n', '<M-Down>', '<C-w>-')
+vim.keymap.set('n', '<M-Left>', '<C-w>5<')
+vim.keymap.set('n', '<M-Right>', '<C-w>5>')
 
 -- Repurpose cursor keys (accessible near homerow via "SpaceFN" layout) for one
 -- of my most oft-use key sequences.
