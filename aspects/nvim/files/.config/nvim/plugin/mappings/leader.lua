@@ -56,10 +56,6 @@ vim.keymap.set('n', '<Leader>.', function()
   wincent.mappings.leader.jump_in_file()
 end, { silent = true })
 
--- Grow/shrink window horizontally (ie. make wider or narrower).
-vim.keymap.set('n', '<Leader>=', ':vertical resize +5<CR>', { silent = true })
-vim.keymap.set('n', '<Leader>-', ':vertical resize -5<CR>', { silent = true })
-
 -- <LocalLeader>s -- Fix (most) syntax highlighting problems in current buffer
 -- (mnemonic: syntax).
 vim.keymap.set('n', '<LocalLeader>s', ':syntax sync fromstart<CR>', { silent = true })
