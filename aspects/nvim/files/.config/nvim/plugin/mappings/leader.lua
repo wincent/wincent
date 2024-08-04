@@ -90,7 +90,3 @@ vim.keymap.set('n', '<LocalLeader>p', ':echomsg v:lua.wincent.mappings.leader.ge
 --
 -- (mnemonic: e[X]tract handle)
 vim.keymap.set('n', '<LocalLeader>x', ':%s#\\v<C-r><c-w>#<C-r><C-a>#gc<CR>')
-
--- Grow/shrink window vertically (ie. make taller or shorter).
-vim.keymap.set('n', '<LocalLeader>=', ':resize +5<CR>', { silent = true })
-vim.keymap.set('n', '<LocalLeader>-', ':resize -5<CR>', { silent = true })
