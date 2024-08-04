@@ -41,10 +41,18 @@ vim.keymap.set('n', '<C-k>', '<C-w>k')
 vim.keymap.set('n', '<C-l>', '<C-w>l')
 
 -- Resize splits.
-vim.keymap.set('n', '<M-Up>', '<C-w>+')
-vim.keymap.set('n', '<M-Down>', '<C-w>-')
-vim.keymap.set('n', '<M-Left>', '<C-w>5<')
-vim.keymap.set('n', '<M-Right>', '<C-w>5>')
+vim.keymap.set('n', '<M-Up>', function()
+  wincent.mappings.normal.resize_up()
+end)
+vim.keymap.set('n', '<M-Down>', function()
+  wincent.mappings.normal.resize_down()
+end)
+vim.keymap.set('n', '<M-Left>', function()
+  wincent.mappings.normal.resize_left()
+end)
+vim.keymap.set('n', '<M-Right>', function()
+  wincent.mappings.normal.resize_right()
+end)
 
 -- Repurpose cursor keys (accessible near homerow via "SpaceFN" layout) for one
 -- of my most oft-use key sequences.
