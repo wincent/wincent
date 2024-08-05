@@ -36,9 +36,13 @@ local is_on_edge = function(side)
   end
 end
 
-local is_only_window = function()
+local is_only_window = function(axis)
   local margins = get_margins()
-  return margins.top == 0 and margins.right == 0 and margins.bottom == 0 and margins.left == 0
+  if axis == 'vertical' then
+    return margins.top == 0 and margins.bottom == 0
+  elseif axis == 'horizontal' then
+    return margins.right == 0 and margins.left == 0
+  end
 end
 
 local resize = function(action, axis)
@@ -59,14 +63,14 @@ local resize = function(action, axis)
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(keys, true, false, true), 'n', false)
 end
 
-local should_resize = function()
-  return not is_floating() and not is_only_window()
+local should_resize = function(axis)
+  return not is_floating() and not is_only_window(axis)
 end
 
 local normal = {
   -- Move split down.
   resize_down = function()
-    if should_resize() then
+    if should_resize('vertical') then
       if is_on_edge('bottom') then
         resize('shrink', 'vertical')
       elseif is_on_edge('top') then
@@ -79,7 +83,7 @@ local normal = {
 
   -- Move split left.
   resize_left = function()
-    if should_resize() then
+    if should_resize('horizontal') then
       if is_on_edge('left') then
         resize('shrink', 'horizontal')
       elseif is_on_edge('right') then
@@ -92,7 +96,7 @@ local normal = {
 
   -- Move split right.
   resize_right = function()
-    if should_resize() then
+    if should_resize('horizontal') then
       if is_on_edge('right') then
         resize('shrink', 'horizontal')
       elseif is_on_edge('left') then
@@ -105,7 +109,7 @@ local normal = {
 
   -- Move split up.
   resize_up = function()
-    if should_resize() then
+    if should_resize('vertical') then
       if is_on_edge('top') then
         resize('shrink', 'vertical')
       elseif is_on_edge('bottom') then
