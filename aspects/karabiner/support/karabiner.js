@@ -340,7 +340,7 @@ const DEFAULT_PROFILE = applyExemptions({
       //         ...launch(
       //             colemak('t' /* [t]erminal */),
       //             '-b',
-      //             'com.googlecode.iterm2'
+      //             'net.kovidgoyal.kitty'
       //         ),
       //         ...launch(
       //             colemak('w' /* [w]eek */),
@@ -433,7 +433,6 @@ const DEFAULT_PROFILE = applyExemptions({
               // Note: See ~/.config/kitty/kitty.conf for why this isn't
               // needed in Kitty.
               bundleIdentifier('com.apple.Terminal'),
-              bundleIdentifier('com.googlecode.iterm2'),
             ],
             type: 'frontmost_application_if',
           }],

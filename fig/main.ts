@@ -450,9 +450,6 @@ async function loadAspect(aspect: Aspect): Promise<void> {
     case 'interception':
       await import('../aspects/interception/index.js');
       break;
-    case 'iterm':
-      await import('../aspects/iterm/index.js');
-      break;
     case 'karabiner':
       await import('../aspects/karabiner/index.js');
       break;

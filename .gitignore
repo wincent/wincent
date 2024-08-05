@@ -1,5 +1,4 @@
 /aspects/dotfiles/files/.config/kitty/kitty.conf
-/aspects/dotfiles/files/.hammerspoon/iterm.lua
 /aspects/dotfiles/files/.zsh/.base16
 /aspects/dotfiles/files/.zsh/.base16.previous
 /aspects/nvim/files/.config/nvim/after/plugin/command-t.private.vim

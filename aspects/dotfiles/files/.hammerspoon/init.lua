@@ -9,7 +9,6 @@ hs.grid.MARGINY = 0
 hs.window.animationDuration = 0 -- disable animations
 
 local events = require('events')
-local iterm = require('iterm')
 local log = require('log')
 local reloader = require('reloader')
 
@@ -147,8 +146,6 @@ local layoutConfig = {
   end,
 
   _after_ = function()
-    -- Make sure iTerm appears in front of others.
-    activate('com.googlecode.iterm2')
   end,
 
   ['com.google.Chrome'] = function(window, forceScreenCount)
@@ -161,15 +158,6 @@ local layoutConfig = {
   end,
 
   ['com.google.Chrome.canary'] = function(window, forceScreenCount)
-    local count = forceScreenCount or screenCount
-    if count == 1 then
-      hs.grid.set(window, placements.centered.full)
-    else
-      hs.grid.set(window, placements.centered.full, hs.screen.primaryScreen())
-    end
-  end,
-
-  ['com.googlecode.iterm2'] = function(window, forceScreenCount)
     local count = forceScreenCount or screenCount
     if count == 1 then
       hs.grid.set(window, placements.centered.full)
@@ -236,12 +224,7 @@ activate = function(bundleID)
 end
 
 canManageWindow = function(window)
-  local application = window:application()
-  local bundleID = application:bundleID()
-
-  -- Special handling for iTerm: windows without title bars are
-  -- non-standard.
-  return window:isStandard() or bundleID == 'com.googlecode.iterm2'
+  return window:isStandard()
 end
 
 local benQPD2700U = '1920x1080'
@@ -460,7 +443,6 @@ hs.hotkey.bind('alt', 'v', function()
   ]])
 end)
 
-iterm.init()
 reloader.init()
 initEventHandling()
 events.subscribe('reload', tearDownEventHandling)

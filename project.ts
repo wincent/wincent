@@ -8,7 +8,6 @@ export default {
         'fonts',
         'nix',
         'homebrew',
-        'iterm',
         'node',
         'karabiner',
         'launchd',
@@ -69,28 +68,6 @@ export default {
       'vim: set nomodifiable : DO NOT EDIT - edit template source instead («file») or use `:set modifiable` to force.',
     gitCipherPath: 'vendor/git-cipher/bin/git-cipher',
     gitMergeConflictStyle: 'zdiff3',
-    iTermDynamicProfiles: {
-      external: [{
-        path: 'Mutt.json',
-        src: '40-Mutt-4K.json',
-      }, {
-        path: 'Vim.json',
-        src: '70-Vim-4K.json',
-      }, {
-        path: 'Wincent.json',
-        src: '10-4K.json',
-      }],
-      retina: [{
-        path: 'Mutt.json',
-        src: '40-Mutt-Retina.json',
-      }, {
-        path: 'Vim.json',
-        src: '70-Vim-Retina.json',
-      }, {
-        path: 'Wincent.json',
-        src: '10-Retina.json',
-      }],
-    },
     pinentryProgram: '/usr/bin/pinentry-curses',
   },
 };

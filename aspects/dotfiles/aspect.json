@@ -54,7 +54,6 @@
       ".config/kitty/kitty.conf.erb",
       ".fehbg",
       ".gnupg/gpg-agent.conf.erb",
-      ".hammerspoon/iterm.lua.erb",
       ".zsh/bin/asdf.erb",
       ".zsh/bin/asdf-wrapper.erb"
     ]

@@ -32,7 +32,7 @@
 - Bundles a (not-excessive) number of [useful Vim plug-ins](https://github.com/wincent/wincent/tree/main/aspects/nvim/files/.config/nvim/pack/bundle/opt).
 - Conservative Vim configuration (very few overrides of core functionality; most changes are unobtrusive enhancements; some additional functionality exposed via `<Leader>` and `<LocalLeader>` mappings.
 - Relatively restrained Zsh config, Bash-like but with a few Zsh perks, such as right-side prompt, auto-cd hooks, command elapsed time printing and such.
-- Unified color-handling (across iTerm2 and Vim) via [Base16 Shell](https://github.com/chriskempson/base16-shell).
+- Unified color-handling (across Kitty and Vim) via [Base16 Shell](https://github.com/chriskempson/base16-shell).
 - Encrypted versioning of files with sensitive content (via [git-cipher](https://github.com/wincent/git-cipher)).
 - Comprehensive [Hammerspoon](http://www.hammerspoon.org/) [config](https://github.com/wincent/wincent/tree/main/aspects/dotfiles/files/.hammerspoon).
 
@@ -131,7 +131,7 @@ If there are background processes, a yellow asterisk is shown:
 - Relatively recent [Zsh](http://www.zsh.org/).
 - Relatively recent [Git](http://git-scm.com/).
 - [Clipper](https://github.com/wincent/clipper) for transparent access to the local system clipboard.
-- On macOS, [iTerm2](http://www.iterm2.com/) or [Kitty](https://sw.kovidgoyal.net/kitty/). Additionally, only the latest one or two versions of macOS (at the time of writing, that means Sonoma) get actively tested.
+- [Kitty](https://sw.kovidgoyal.net/kitty/).
 - [Ruby](https://www.ruby-lang.org/).
 - [Adobe Source Code Pro](https://github.com/adobe-fonts/source-code-pro) or any other fixed-width font that includes the [Powerline glyphs](http://powerline.readthedocs.io/en/master/installation.html#fonts-installation).
 
@@ -182,7 +182,6 @@ At the time of writing, these are the aspects, which you can expect to change ov
   - **defaults**: Sets up defaults (ie. preferences) on macOS
   - **fonts**: Installs Source Code Pro font files
   - **homebrew**: Installs and updates Homebrew
-  - **iterm**: Dynamic profiles for iTerm
   - **karabiner**: Configures Karabiner-Elements (keyboard customization).
   - **launchd**: Configures launchd
   - **nix**: Installs packages via the Nix package manager.
@@ -226,15 +225,6 @@ This sets up a local Node environment using [n](https://github.com/tj/n), and th
 git config --file ~/.config/git/config.local user.name "John Doe"
 git config --file ~/.config/git/config.local user.email johndoe@example.com
 ```
-
-#### Manual steps
-
-As much as I would love this thing to be entirely automated, there are some manual steps that must typically be performed.
-
-##### macOS
-
-- **In iTerm, mark the "Wincent" dynamic profile as the default:** _Preferences_ → _Profiles_ → _Other actions..._ → _Set as Default_
-- **Set up full-disk access for iTerm:** [As described here](https://gitlab.com/gnachman/iterm2/-/wikis/Fulldiskaccess), _System Preferences_ → _Security &amp; Privacy_ → _Privacy_ → _Full Disk Access_ (and make sure that iTerm.app is in the list with the checkbox checked).
 
 ### Troubleshooting
 
