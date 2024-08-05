@@ -181,7 +181,7 @@ function tmux() {
 # Bounce the Dock icon, if Kitty does not have focus.
 # Relies on `window_alert_on_bell yes` setting.
 function bounce() {
-  echo -e "\a"
+  echo -en "\a"
 }
 
 function gaps() {
