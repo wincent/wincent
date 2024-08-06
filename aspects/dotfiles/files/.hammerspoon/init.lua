@@ -13,7 +13,6 @@ local log = require('log')
 local reloader = require('reloader')
 
 -- Forward function declarations.
-local activate = nil
 local activateLayout = nil
 local canManageWindow = nil
 local chain = nil
@@ -21,9 +20,9 @@ local handleScreenEvent = nil
 local handleWindowEvent = nil
 local hide = nil
 local initEventHandling = nil
+local externalDisplay = nil
 local internalDisplay = nil
 local tearDownEventHandling = nil
-local windowCount = nil
 
 local screenCount = #hs.screen.allScreens()
 
@@ -192,33 +191,10 @@ local layoutConfig = {
 -- Utility and helper functions.
 --
 
--- Returns the number of standard, non-minimized windows in the application.
---
--- (For Chrome, which has two windows per visible window on screen, but only one
--- window per minimized window).
-windowCount = function(app)
-  local count = 0
-  if app then
-    for _, window in pairs(app:allWindows()) do
-      if window:isStandard() and not window:isMinimized() then
-        count = count + 1
-      end
-    end
-  end
-  return count
-end
-
 hide = function(bundleID)
   local app = hs.application.get(bundleID)
   if app then
     app:hide()
-  end
-end
-
-activate = function(bundleID)
-  local app = hs.application.get(bundleID)
-  if app then
-    app:activate()
   end
 end
 
@@ -227,17 +203,23 @@ canManageWindow = function(window)
 end
 
 local benQPD2700U = '1920x1080'
-local macBookPro13 = '1440x900'
-local macBookPro15 = '1440x900'
+local dellU2723QE = '3840x2160'
 
-local samsung_S24C450 = '1920x1200'
+-- https://everymac.com/systems/apple/macbook_pro/specs/macbook-pro-m3-max-14-core-cpu-30-core-gpu-14-late-2023-specs.html
+local macBookPro14_2023 = '3024x1964'
+
+-- https://everymac.com/systems/apple/macbook_pro/specs/macbook-pro-core-i7-2.8-15-dual-graphics-mid-2015-retina-display-specs.html
+local macBookPro15_2015 = '2880x1800'
+
+-- https://everymac.com/systems/apple/macbook_pro/specs/macbook-pro-m3-max-16-core-cpu-40-core-gpu-16-late-2023-specs.html
+local macBookPro15_2023 = '3456x2234'
 
 externalDisplay = function()
-  return hs.screen.find(benQPD2700U)
+  return hs.screen.find(benQPD2700U) or hs.screen.find(dellU2723QE)
 end
 
 internalDisplay = function()
-  return hs.screen.find(macBookPro13) or hs.screen.find(macBookPro15)
+  return hs.screen.find(macBookPro14_2023) or hs.screen.find(macBookPro15_2015) or hs.screen.find(macBookPro15_2023)
 end
 
 activateLayout = function(forceScreenCount)
