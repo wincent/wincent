@@ -164,7 +164,7 @@ local layoutConfig = {
     end
   end,
 
-  ['com.kagi.kagimacOS'] = function (window, forceScreenCount)
+  ['com.kagi.kagimacOS'] = function(window, forceScreenCount)
     local count = forceScreenCount or screenCount
     local internal = internalDisplay()
     if count == 1 or internal == nil then
