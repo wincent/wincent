@@ -145,8 +145,7 @@ local layoutConfig = {
     hide('com.spotify.client')
   end,
 
-  _after_ = function()
-  end,
+  _after_ = function() end,
 
   ['com.google.Chrome'] = function(window, forceScreenCount)
     local count = forceScreenCount or screenCount
