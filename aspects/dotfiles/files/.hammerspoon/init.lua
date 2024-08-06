@@ -164,6 +164,16 @@ local layoutConfig = {
     end
   end,
 
+  ['com.kagi.kagimacOS'] = function (window, forceScreenCount)
+    local count = forceScreenCount or screenCount
+    local internal = internalDisplay()
+    if count == 1 or internal == nil then
+      hs.grid.set(window, placements.centered.full)
+    else
+      hs.grid.set(window, placements.centered.full, internal)
+    end
+  end,
+
   ['com.microsoft.edgemac'] = function(window, forceScreenCount)
     local count = forceScreenCount or screenCount
     if count == 1 then
@@ -174,7 +184,12 @@ local layoutConfig = {
   end,
 
   ['com.tinyspeck.slackmacgap'] = function(window)
-    hs.grid.set(window, placements.centered.full, internalDisplay())
+    local internal = internalDisplay()
+    if internal == nil then
+      hs.grid.set(window, placements.centered.full)
+    else
+      hs.grid.set(window, placements.centered.full, internalDisplay())
+    end
   end,
 
   ['net.kovidgoyal.kitty'] = function(window, forceScreenCount)
