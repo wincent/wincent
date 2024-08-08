@@ -6,21 +6,22 @@
 # Based on: https://stackoverflow.com/a/53370600
 
 GIT_DIR=$(git rev-parse --git-dir)
+STATUS=$?
 
-if [ $? -ne 0 ]; then
-    exit $?
+if [ $STATUS -ne 0 ]; then
+    exit $STATUS
 fi
 
 if [ -d "${GIT_DIR}/rebase-merge" ]; then
-    git rebase --continue
+    exec git rebase --continue
 elif [ -d "${GIT_DIR}/rebase-apply" ]; then
-    git rebase --continue
+    exec git rebase --continue
 elif [ -f "${GIT_DIR}/MERGE_HEAD" ]; then
-    git merge --continue
+    exec git merge --continue
 elif [ -f "${GIT_DIR}/CHERRY_PICK_HEAD" ]; then
-    git cherry-pick --continue
+    exec git cherry-pick --continue
 elif [ -f "${GIT_DIR}/REVERT_HEAD" ]; then
-    git revert --continue
+    exec git revert --continue
 else
     echo "error: No operation to --continue"
     exit 1
