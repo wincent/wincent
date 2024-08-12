@@ -412,9 +412,9 @@ if has_commandt then
   commandt.setup({
     height = 30, -- Default is 15.
 
-    -- Demo: showing how to set up arbitrary command scanner that runs
-    -- `ack -f --print0`. See accompanying `:CommandTAck` definition below.
     finders = {
+      -- Demo: showing how to set up arbitrary command scanner that runs
+      -- `ack -f --print0`. See accompanying `:CommandTAck` definition below.
       ack = {
         command = function(directory)
           local command = 'ack -f --print0'
@@ -426,6 +426,23 @@ if has_commandt then
           return command, drop
         end,
         max_files = 100000,
+      },
+
+      -- Choose from a list of :ChatGPT sessions.
+      shellbot = {
+        candidates = function()
+          local buffers = {}
+          for _, buffer in ipairs(vim.api.nvim_list_bufs()) do
+            if vim.bo[buffer].filetype == 'shellbot' then
+              local bufpath = vim.api.nvim_buf_get_name(buffer)
+              if bufpath ~= '' then
+                local bufname = vim.fn.fnamemodify(bufpath, ':.')
+                table.insert(buffers, bufname)
+              end
+            end
+          end
+          return buffers
+        end,
       },
     },
     scanners = {
@@ -446,6 +463,12 @@ if has_commandt then
   end, {
     complete = 'dir',
     nargs = '?',
+  })
+
+  vim.api.nvim_create_user_command('CommandTShellbot', function(command)
+    require('wincent.commandt').finder('shellbot', command.args)
+  end, {
+    nargs = 0,
   })
 end
 
