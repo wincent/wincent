@@ -19,7 +19,7 @@ end, {})
 -- the only thing running in it. I do this all the time, losing valuable state.
 vim.api.nvim_create_autocmd('QuitPre', {
   pattern = '*',
-  callback = function ()
+  callback = function()
     local buftype = vim.bo.buftype
     local filetype = vim.bo.filetype
     local win_count = #vim.api.nvim_tabpage_list_wins(0)
