@@ -188,7 +188,7 @@ At the time of writing, these are the aspects, which you can expect to change ov
   - **node**: Installs Node.js
   - **ruby**: Installs Ruby gems
   - **ssh**: Manages local SSH config
-  - **tampermonkey**: Sets up UserScripts
+  - **violentmonkey**: Sets up UserScripts
 - On Linux only:
   - **apt**: Installs packages using `apt-get`.
   - **aur**: Installs packages from the Arch User Repository.

@@ -14,7 +14,7 @@ export default {
         'ruby',
         'shell',
         'ssh',
-        'tampermonkey',
+        'violentmonkey',
         'terminfo',
         'nvim',
         'cron',
