@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name         Bypass Twitter click tracking
 // @namespace    https://wincent.dev/
-// @version      0.6
+// @version      0.7
 // @description  Bypass Twitter click tracking
 // @author       Greg Hurrell <greg@hurrell.net>
 // @match        https://twitter.com/*
+// @match        https://x.com/*
 // @grant        none
 // @downloadURL  http://localhost/~<%= variables.username %>/UserScripts/twitter/bypassClickTracking.user.js
 // @updateURL    http://localhost/~<%= variables.username %>/UserScripts/twitter/bypassClickTracking.user.js
