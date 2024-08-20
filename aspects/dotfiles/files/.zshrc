@@ -74,6 +74,10 @@ fi
 # Completion
 #
 
+# Community completions from https://github.com/zsh-users/zsh-completions
+fpath=($HOME/.zsh/zsh-completions/src $fpath)
+
+# Local/custom completion sources:
 fpath=($HOME/.zsh/completions $fpath)
 
 autoload -U compinit

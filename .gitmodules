@@ -242,6 +242,9 @@
 [submodule "zsh-autosuggestions"]
 	path = aspects/dotfiles/files/.zsh/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
+[submodule "zsh-completions"]
+	path = aspects/dotfiles/files/.zsh/zsh-completions
+	url = https://github.com/zsh-users/zsh-completions.git
 [submodule "zsh-history-substring-search"]
 	path = aspects/dotfiles/files/.zsh/zsh-history-substring-search
 	url = https://github.com/zsh-users/zsh-history-substring-search
