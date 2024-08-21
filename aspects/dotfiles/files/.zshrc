@@ -71,6 +71,12 @@ if [ "$(uname)" = "Darwin" ]; then
 fi
 
 #
+# Autoloaded functions
+#
+
+fpath=($HOME/.zsh/functions.d $fpath)
+
+#
 # Completion
 #
 
@@ -256,6 +262,14 @@ bindkey "^[[1;5D" backward-word # For Arch.
 
 test -d $HOME/n && export N_PREFIX="$HOME/n"
 test -d $HOME/.volta && export VOLTA_HOME="$HOME/.volta"
+
+#
+# And before we `export` etc.
+#
+
+if [ -f "$HOME/.zsh/zsh-async/async.zsh" ]; then
+  autoload -Uz async && async
+fi
 
 #
 # Other
@@ -463,8 +477,6 @@ if [ -f "$HOME/.zsh/zsh-async/async.zsh" ]; then
     }
   }
 
-  source $HOME/.zsh/zsh-async/async.zsh
-
   -start-async-vcs-info-worker() {
     async_start_worker vcs_info
     async_register_callback vcs_info -async-vcs-info-worker-done
@@ -511,7 +523,6 @@ if [ -f "$HOME/.zsh/zsh-async/async.zsh" ]; then
     async_job vcs_info -get-vcs-info-in-worker $PWD
   }
 
-  async_init
   -start-async-vcs-info-worker
   add-zsh-hook precmd -trigger-vcs-info-run-in-worker
   add-zsh-hook chpwd -clear-vcs-info-on-chpwd

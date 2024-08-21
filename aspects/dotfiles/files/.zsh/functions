@@ -15,8 +15,6 @@ function bounce() {
 # Anything that isn't needed for shell startup should go in ~/zsh/functions.d/
 # and be autoloaded.
 
-fpath=(~/.zsh/functions.d $fpath)
-
 autoload -Uz ag
 autoload -Uz fd
 autoload -Uz fh

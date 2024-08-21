@@ -1,3 +1,35 @@
+# Run a slow-running command in the background to compute a value and `export`
+# it.
+#
+# Usage:
+#
+#   async_export NAME 'command to eval'
+#
+async_export() {
+  local NAME="$1"
+  local VALUE="$2"
+  local ID="${RANDOM}"
+  local WORKER="async_worker_${ID}"
+  local CALLBACK="async_worker_callback_${ID}"
+
+  if [ -f "$HOME/.zsh/zsh-async/async.zsh" ]; then
+    eval "
+      $CALLBACK() {
+        local RESULT=\$1
+        export $NAME=\"\$RESULT\"
+        async_stop_worker $WORKER
+        unset -f $CALLBACK
+      }
+    "
+    async_register_callback $WORKER $CALLBACK
+    async_start_worker $WORKER
+    async_job $WORKER eval "$VALUE"
+  else
+    eval "export $NAME=$VALUE"
+  fi
+}
+
+
 # Stop (eg.) `git push github` from triggering:
 # zsh: correct 'github' to '.github' [yes, no, edit, abort]?
 export CORRECT_IGNORE_FILE='.*'
@@ -111,7 +143,8 @@ export FTP_PASSIVE=1
 # colour ls listings
 export CLICOLOR=true
 
-export GPG_TTY=$(tty)
+# `tty` is slow, so do it async.
+async_export GPG_TTY '$(tty)'
 
 export GOPATH=~/code/go
 
