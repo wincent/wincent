@@ -110,6 +110,7 @@
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/shellbot/lua
 	url = https://github.com/wincent/shellbot.git
 [submodule "skim"]
+	ignore = untracked
 	path = aspects/dotfiles/files/.zsh/skim
 	url = https://github.com/lotabout/skim.git
 [submodule "source-code-pro"]

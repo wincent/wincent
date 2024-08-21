@@ -12,3 +12,4 @@
 /vendor/neovim
 /vendor/skim
 /vendor/yay
+*.zwc
