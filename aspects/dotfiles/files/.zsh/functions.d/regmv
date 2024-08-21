@@ -1,0 +1,26 @@
+# regmv = regex + mv (mv with regex parameter specification)
+#   example: regmv '/\.tif$/.tiff/' *
+#   replaces .tif with .tiff for all files in current dir
+#   must quote the regex otherwise "\." becomes "."
+# limitations: ? doesn't seem to work in the regex, nor *
+function regmv() {
+  emulate -L zsh
+
+  if [ $# -lt 2 ]; then
+    echo "  Usage: regmv 'regex' file(s)"
+    echo "  Where:       'regex' should be of the format '/find/replace/'"
+    echo "Example: regmv '/\.tif\$/.tiff/' *"
+    echo "   Note: Must quote/escape the regex otherwise \"\.\" becomes \".\""
+    return 1
+  fi
+  local REGEX="$1"
+  shift
+  while [ -n "$1" ]
+  do
+    local NEWNAME=$(echo "$1" | sed "s${REGEX}g")
+    if [ "${NEWNAME}" != "$1" ]; then
+      mv -i -v "$1" "$NEWNAME"
+    fi
+    shift
+  done
+}

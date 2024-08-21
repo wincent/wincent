@@ -1,0 +1,8 @@
+# Until .agrc exists...
+# (https://github.com/ggreer/the_silver_searcher/pull/709)
+function ag() {
+  emulate -L zsh
+
+  # italic blue paths, pink line numbers, underlined purple matches
+  command ag --pager="less -iFMRSX" --color-path=34\;3 --color-line-number=35 --color-match=35\;1\;4 "$@"
+}

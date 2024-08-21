@@ -1,0 +1,11 @@
+function gaps() {
+  if [[ $1 = "on" ]]; then
+    i3-msg gaps bottom all set 70
+  elif [[ $1 = "off" ]]; then
+    i3-msg gaps bottom all set 0
+  elif [ $# -eq 1 ]; then
+    i3-msg gaps bottom all set "$1"
+  else
+    echo "Usage: gaps [on|off|<bottom-gap>]"
+  fi
+}

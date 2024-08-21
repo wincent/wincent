@@ -1,0 +1,5 @@
+# fh - "find [in] history"
+# Inspired by: https://github.com/junegunn/fzf/wiki/examples#command-history
+function fh() {
+  print -z $(fc -l 1 | sk --no-multi --tac --no-sort -q "$*" -p "❯ " | sed 's/ *[0-9]*\*\{0,1\} *//')
+}

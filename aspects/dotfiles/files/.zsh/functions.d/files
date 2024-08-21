@@ -1,0 +1,4 @@
+# TODO: decide whether this is a reasonable idea
+function files() {
+  find "$@" | xargs -o $EDITOR
+}

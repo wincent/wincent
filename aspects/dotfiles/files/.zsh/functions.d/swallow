@@ -1,0 +1,7 @@
+function swallow() {
+  local ARGS=$*
+  local ID=$(xdo id)
+  xdo hide
+  eval "$*" &> /dev/null
+  xdo show "$ID"
+}

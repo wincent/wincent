@@ -1,0 +1,18 @@
+# Convenience function for jumping to hashed directory aliases
+# (ie. `j rn` -> `jump rn` -> `cd ~rn`).
+function jump() {
+  emulate -L zsh
+
+  if [ $# -eq 0 ]; then
+    fd
+  else
+    local DIR="${*%%/}"
+
+    if [ $(hash -d|cut -d= -f1|grep -c "^${DIR}\$") = 0 ]; then
+      # Not in `hash -d`: use as initial argument to fd.
+      fd "$*"
+    else
+      cd ~"$DIR"
+    fi
+  fi
+}

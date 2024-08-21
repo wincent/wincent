@@ -1,0 +1,6 @@
+function ssh() {
+  emulate -L zsh
+
+  local LOCAL_TERM=$(echo -n "$TERM" | sed -e s/tmux/screen/)
+  env TERM=$LOCAL_TERM command ssh "$@"
+}

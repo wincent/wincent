@@ -1,0 +1,6 @@
+function history() {
+  emulate -L zsh
+
+  # This is a function because Zsh aliases can't take arguments.
+  fc -l 1
+}

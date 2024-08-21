@@ -1,182 +1,6 @@
-# Until .agrc exists...
-# (https://github.com/ggreer/the_silver_searcher/pull/709)
-function ag() {
-  emulate -L zsh
-
-  # italic blue paths, pink line numbers, underlined purple matches
-  command ag --pager="less -iFMRSX" --color-path=34\;3 --color-line-number=35 --color-match=35\;1\;4 "$@"
-}
-
-# fd - "find directory"
-# Inspired by: https://github.com/junegunn/fzf/wiki/examples#changing-directory
-function fd() {
-  local DIR
-  DIR=$(bfs -type d 2> /dev/null | sk --no-multi --preview='test -n "{}" && ls {}' -q "$*" -p "❯ ") && cd "$DIR"
-}
-
-# fh - "find [in] history"
-# Inspired by: https://github.com/junegunn/fzf/wiki/examples#command-history
-function fh() {
-  print -z $(fc -l 1 | sk --no-multi --tac --no-sort -q "$*" -p "❯ " | sed 's/ *[0-9]*\*\{0,1\} *//')
-}
-
-
-# TODO: decide whether this is a reasonable idea
-function files() {
-  find "$@" | xargs -o $EDITOR
-}
-
-# `git` wrapper:
 #
-#     - `git` with no arguments = `git status`; run `git help` to show what
-#       vanilla `git` without arguments would normally show.
-#     - `git root` = `cd` to repo root.
-#     - `ROOT=$(git root)` = no args and stdout is not a tty; prints the root.
-#     - `git root ARG...` = evals `ARG...` from the root (eg. `git root ls`).
-#     - `git ARG...` = behaves just like normal `git` command.
+# Eagerly loaded functions.
 #
-function git() {
-  if [ $# -eq 0 ]; then
-    command git status
-  elif [ "$1" = root ]; then
-    shift
-    local ROOT
-    if [ "$(command git rev-parse --is-inside-git-dir 2> /dev/null)" = true ]; then
-      if [ "$(command git rev-parse --is-bare-repository)" = true ]; then
-        ROOT="$(command git rev-parse --absolute-git-dir)"
-      else
-        # Note: This is a good-enough, rough heuristic, which ignores
-        # the possibility that GIT_DIR might be outside of the worktree;
-        # see:
-        # https://stackoverflow.com/a/38852055/2103996
-        ROOT="$(command git rev-parse --git-dir)/.."
-      fi
-    else
-      # Git 2.13.0 and above:
-      ROOT="$(command git rev-parse --show-superproject-working-tree 2> /dev/null)"
-      if [ -z "$ROOT" ]; then
-        ROOT="$(command git rev-parse --show-toplevel 2> /dev/null)"
-      fi
-    fi
-    if [ -z "$ROOT" ]; then
-      ROOT="$PWD"
-    fi
-    if [ $# -eq 0 ]; then
-      if [ -t 1 ]; then
-        cd "$ROOT"
-      else
-        echo "$ROOT"
-      fi
-    else
-      (cd "$ROOT" && eval "$@")
-    fi
-  else
-    command git "$@"
-  fi
-}
-
-# Print headers, following redirects.
-# Based on: https://stackoverflow.com/a/10060342/2103996
-function headers() {
-  emulate -L zsh
-
-  if [ $# -ne 1 ]; then
-    echo "error: a host argument is required"
-    return 1
-  fi
-
-  local REMOTE=$1
-
-  curl -sSL -D - "$REMOTE" -o /dev/null
-}
-
-function history() {
-  emulate -L zsh
-
-  # This is a function because Zsh aliases can't take arguments.
-  fc -l 1
-}
-
-function scratch() {
-  local SCRATCH=$(mktemp -d)
-  echo 'Spawing subshell in scratch directory:'
-  echo "  $SCRATCH"
-  (cd $SCRATCH; zsh)
-  echo "Removing scratch directory"
-  rm -rf "$SCRATCH"
-}
-
-function ssh() {
-  emulate -L zsh
-
-  local LOCAL_TERM=$(echo -n "$TERM" | sed -e s/tmux/screen/)
-  env TERM=$LOCAL_TERM command ssh "$@"
-}
-
-# Print information about a remote SSL certificate.
-# Based on: https://serverfault.com/a/661982/219567
-function ssl() {
-  emulate -L zsh
-
-  if [ $# -ne 1 ]; then
-    echo "error: a host argument is required"
-    return 1
-  fi
-
-  local REMOTE=$1
-
-  echo | openssl s_client -showcerts -servername "$REMOTE" -connect "$REMOTE:443" 2>/dev/null | openssl x509 -inform pem -noout -text
-}
-
-function tmux() {
-  emulate -L zsh
-
-  local ENV_OVERRIDES=()
-
-  # Make sure even pre-existing tmux sessions use the latest SSH_AUTH_SOCK.
-  # Inspired by: https://gist.github.com/lann/6771001
-  if [ -r "$SSH_AUTH_SOCK" -a ! -L "$SSH_AUTH_SOCK" ]; then
-    ln -sf "$SSH_AUTH_SOCK" "$HOME/.ssh/ssh_auth_sock"
-    ENV_OVERRIDES+=(SSH_AUTH_SOCK="$HOME/.ssh/ssh_auth_sock")
-  fi
-
-  # Same for KITTY_LISTEN_ON (although note, "unix:" prefix must be stripped).
-  local KITTY_SOCK=${KITTY_LISTEN_ON##unix:}
-  if [ -r "$KITTY_SOCK" -a ! -L "$KITTY_SOCK" ]; then
-    ln -sf "$KITTY_SOCK" "$HOME/.config/kitty/kitty.sock"
-    ENV_OVERRIDES+=(KITTY_LISTEN_ON="unix:$HOME/.config/kitty/kitty.sock")
-  fi
-
-  # If provided with args, pass them through.
-  if [[ -n "$@" ]]; then
-    env "${ENV_OVERRIDES[@]}" tmux "$@"
-    return
-  fi
-
-  # Check for .tmux file (poor man's Tmuxinator).
-  if [ -x .tmux ]; then
-    # Prompt the first time we see a given .tmux file before running it.
-    local DIGEST="$(openssl sha512 .tmux)"
-    if ! grep -q "$DIGEST" ~/..tmux.digests 2> /dev/null; then
-      cat .tmux
-      read -k 1 -r \
-        'REPLY?Trust (and run) this .tmux file? (t = trust, otherwise = skip) '
-      echo
-      if [[ $REPLY =~ ^[Tt]$ ]]; then
-        echo "$DIGEST" >> ~/..tmux.digests
-        env "${ENV_OVERRIDES[@]}" ./.tmux
-        return
-      fi
-    else
-      env "${ENV_OVERRIDES[@]}" ./.tmux
-      return
-    fi
-  fi
-
-  # Attach to existing session, or create one, based on current directory.
-  local SESSION_NAME=$(basename "${$(pwd)//[.:]/_}")
-  env "${ENV_OVERRIDES[@]}" tmux new -A -s "$SESSION_NAME"
-}
 
 # Bounce the Dock icon, if Kitty does not have focus.
 # Relies on `window_alert_on_bell yes` setting.
@@ -184,63 +8,33 @@ function bounce() {
   echo -en "\a"
 }
 
-function gaps() {
-  if [[ $1 = "on" ]]; then
-    i3-msg gaps bottom all set 70
-  elif [[ $1 = "off" ]]; then
-    i3-msg gaps bottom all set 0
-  elif [ $# -eq 1 ]; then
-    i3-msg gaps bottom all set "$1"
-  else
-    echo "Usage: gaps [on|off|<bottom-gap>]"
-  fi
-}
+#
+# Autoloaded functions.
+#
 
-# regmv = regex + mv (mv with regex parameter specification)
-#   example: regmv '/\.tif$/.tiff/' *
-#   replaces .tif with .tiff for all files in current dir
-#   must quote the regex otherwise "\." becomes "."
-# limitations: ? doesn't seem to work in the regex, nor *
-function regmv() {
-  emulate -L zsh
+# Anything that isn't needed for shell startup should go in ~/zsh/functions.d/
+# and be autoloaded.
 
-  if [ $# -lt 2 ]; then
-    echo "  Usage: regmv 'regex' file(s)"
-    echo "  Where:       'regex' should be of the format '/find/replace/'"
-    echo "Example: regmv '/\.tif\$/.tiff/' *"
-    echo "   Note: Must quote/escape the regex otherwise \"\.\" becomes \".\""
-    return 1
-  fi
-  local REGEX="$1"
-  shift
-  while [ -n "$1" ]
-  do
-    local NEWNAME=$(echo "$1" | sed "s${REGEX}g")
-    if [ "${NEWNAME}" != "$1" ]; then
-      mv -i -v "$1" "$NEWNAME"
-    fi
-    shift
-  done
-}
+fpath=(~/.zsh/functions.d $fpath)
 
-# Convenience function for jumping to hashed directory aliases
-# (ie. `j rn` -> `jump rn` -> `cd ~rn`).
-function jump() {
-  emulate -L zsh
-
-  if [ $# -eq 0 ]; then
-    fd
-  else
-    local DIR="${*%%/}"
-
-    if [ $(hash -d|cut -d= -f1|grep -c "^${DIR}\$") = 0 ]; then
-      # Not in `hash -d`: use as initial argument to fd.
-      fd "$*"
-    else
-      cd ~"$DIR"
-    fi
-  fi
-}
+autoload -Uz ag
+autoload -Uz fd
+autoload -Uz fh
+autoload -Uz files
+autoload -Uz gaps
+autoload -Uz git
+autoload -Uz history
+autoload -Uz jump
+autoload -Uz regmv
+autoload -Uz scratch
+autoload -Uz serve
+autoload -Uz ssh
+autoload -Uz ssl
+autoload -Uz subtree
+autoload -Uz swallow
+autoload -Uz tick
+autoload -Uz tmux
+autoload -Uz tw
 
 function _jump_complete() {
   emulate -L zsh
@@ -252,73 +46,3 @@ function _jump_complete() {
 
 # Complete filenames and `hash -d` entries.
 compctl -f -K _jump_complete jump
-
-# Usage: serve [--directory DIRECTORY] [PORT]
-#
-# Defaults to port 8000, current directory (ie. will use index.html if present).
-function serve() {
-  if command -v python3 &> /dev/null; then
-    python3 -m http.server "$@"
-  else
-    python -m SimpleHTTPServer "$@" || python -m http.server "$@"
-  fi
-}
-
-# Print a pruned version of a tree.
-#
-# Examples:
-#
-#   # Print all "*.js" files in src:
-#   subtree '*.js' src
-#
-#   # Print all "*.js" files in the current directory:
-#   subtree '*.js'
-#
-#   # Print all "*.js" and "*.ts" files in current directory:
-#   subtree '*.js|*.ts'
-#
-function subtree() {
-  tree -a --prune -P "$@"
-}
-
-function swallow() {
-  local ARGS=$*
-  local ID=$(xdo id)
-  xdo hide
-  eval "$*" &> /dev/null
-  xdo show "$ID"
-}
-
-# "[t]ime[w]arp" by setting GIT_AUTHOR_DATE and GIT_COMMITTER_DATE.
-function tw() {
-  emulate -L zsh
-  zmodload zsh/datetime # For strftime.
-
-  local TS=$(ts "$@" 2> /dev/null)
-  local TZ=$(date +%z)
-  local HUMAN=$(strftime %c $(($TS $TZ * 36)))
-  echo "Spawning subshell with timestamp: $TS $TZ ($HUMAN $TZ)"
-  env GIT_AUTHOR_DATE="$TS $TZ" GIT_COMMITTER_DATE="$TS $TZ" TW="$*" zsh
-}
-
-# "tick" by incrementing GIT_AUTHOR_DATE and GIT_COMMITTER_DATE.
-function tick() {
-  emulate -L zsh
-  zmodload zsh/datetime # For strftime.
-
-  if [ -z "$GIT_AUTHOR_DATE" -o -z "$GIT_COMMITTER_DATE" ]; then
-    tw "$@"
-  else
-    # Fragile assumption: dates are in format produced by `tw`/`ts`.
-    local TS=$(expr \
-      $(echo $GIT_AUTHOR_DATE | cut -d ' ' -f 1) \
-      $(parseoffset "$@") \
-    )
-    local TZ=$(date +%z)
-    local HUMAN=$(strftime %c $(($TS $TZ * 36)))
-    echo "Bumping timestamp to: $TS $TZ ($HUMAN $TZ)"
-    export GIT_AUTHOR_DATE="$TS $TZ"
-    export GIT_COMMITTER_DATE="$TS $TZ"
-    export TW="$*"
-  fi
-}

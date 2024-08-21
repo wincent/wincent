@@ -1,0 +1,21 @@
+# "tick" by incrementing GIT_AUTHOR_DATE and GIT_COMMITTER_DATE.
+function tick() {
+  emulate -L zsh
+  zmodload zsh/datetime # For strftime.
+
+  if [ -z "$GIT_AUTHOR_DATE" -o -z "$GIT_COMMITTER_DATE" ]; then
+    tw "$@"
+  else
+    # Fragile assumption: dates are in format produced by `tw`/`ts`.
+    local TS=$(expr \
+      $(echo $GIT_AUTHOR_DATE | cut -d ' ' -f 1) \
+      $(parseoffset "$@") \
+    )
+    local TZ=$(date +%z)
+    local HUMAN=$(strftime %c $(($TS $TZ * 36)))
+    echo "Bumping timestamp to: $TS $TZ ($HUMAN $TZ)"
+    export GIT_AUTHOR_DATE="$TS $TZ"
+    export GIT_COMMITTER_DATE="$TS $TZ"
+    export TW="$*"
+  fi
+}
