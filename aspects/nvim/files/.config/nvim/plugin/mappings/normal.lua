@@ -40,7 +40,21 @@ vim.keymap.set('n', '<C-j>', '<C-w>j')
 vim.keymap.set('n', '<C-k>', '<C-w>k')
 vim.keymap.set('n', '<C-l>', '<C-w>l')
 
--- Resize splits.
+-- Resize splits (outside tmux).
+vim.keymap.set('n', '<D-Up>', function()
+  wincent.mappings.normal.resize_up()
+end)
+vim.keymap.set('n', '<D-Down>', function()
+  wincent.mappings.normal.resize_down()
+end)
+vim.keymap.set('n', '<D-Left>', function()
+  wincent.mappings.normal.resize_left()
+end)
+vim.keymap.set('n', '<D-Right>', function()
+  wincent.mappings.normal.resize_right()
+end)
+
+-- Resize splits (inside tmux).
 vim.keymap.set('n', '<M-Up>', function()
   wincent.mappings.normal.resize_up()
 end)
