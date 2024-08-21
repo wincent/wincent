@@ -1,0 +1,57 @@
+#!/usr/bin/expect -f
+
+# Prints microseconds between shell spawn and full interactivity (ie. working
+# dir being shown in RPROMPT). Technically, the shell might be interactive
+# before this, but for us it's an indication of the shell being "fully" ready.
+
+# Determine the simplfied working directory, as that's what will be shown in the
+# RPROMPT (ie. if we're in "~/code/wincent", it will show "~/code/wincent";
+# otherwise it will show the absolute path).
+set homedir [file nativename [glob ~]]
+set user $::env(USER)
+set pwd [pwd]
+if {[string match "$homedir*" $pwd]} {
+    set rprompt "~[string range $pwd [string length $homedir] end]"
+} else {
+    set rprompt $pwd
+}
+
+# Wait up to 2 seconds to see RPROMPT, instead of default (10 seconds).
+set timeout 2
+
+set start [clock microseconds]
+
+# Spawn:
+# - A login (`-l`) shell: ie. sources /etc/zprofile, ~/.zprofile.
+# - An interactive (`-i`) shell: ie. sources /etc/zshrc, ~/zshrc.
+spawn -noecho zsh -li
+
+expect {
+  # Ignore escape sequences that could cause false positives; eg:
+  #
+  # ${ESC (\e)} ] ${OSC command} ; ${OSC data} ; ${BEL}
+  # ${ESC (\e)} ] ${OSC command} ; ${OSC data} ; ${ESC (\e)} \
+  #
+  # - OSC 0 (set icon name and window title).
+  # - OSC 1 (set icon name).
+  # - OSC 2 (set window title).
+  # - OSC 7 (set current directory).
+  # - OSC 1337 (iTerm2 proprietary escape sequences).
+  #
+  # Note the use of the non-greedy match (`.*?`) to avoid ignoring too much.
+  -re {\e](?:[0127]|1337);.*?(?:\a|\e\\)} { exp_continue } ;
+
+  # Match RPROMPT.
+  $rprompt {
+    set elapsed_microseconds [expr [clock microseconds] - $start]
+    set elapsed_milliseconds [expr $elapsed_microseconds / 1000.0]
+    send_error "[format %.3f $elapsed_milliseconds]ms\n"
+  } ;
+
+  # Or die trying (after 2 seconds).
+  timeout { exit 1 }
+}
+
+# Give the shell 1 second to start up before telling it to exit.
+sleep 1
+send "exit\r"
