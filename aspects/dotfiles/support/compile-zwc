@@ -1,20 +1,22 @@
-#!/usr/bin/env zsh -i
+#!/usr/bin/env zsh
 
-# Third-party submodules.
+# Everything in $fpath, regardless of extension.
 FILES_TO_COMPILE=()
+FILES_TO_COMPILE+=($HOME/.zsh/completions/*)
+FILES_TO_COMPILE+=($HOME/.zsh/functions.d/*)
+FILES_TO_COMPILE+=($HOME/.zsh/zsh-completions/src/*)
+FILES_TO_COMPILE+=(/opt/homebrew/share/zsh/site-functions/*)
+FILES_TO_COMPILE+=(/opt/homebrew/Cellar/zsh/5.9/share/zsh/functions/*)
+
+# Other third-party submodules.
 FILES_TO_COMPILE+=($HOME/.zsh/zsh-autosuggestions/*.zsh)
 FILES_TO_COMPILE+=($HOME/.zsh/zsh-syntax-highlighting/*.zsh)
 FILES_TO_COMPILE+=($HOME/.zsh/zsh-history-substring-search/*.zsh)
 
-# Add everything in $fpath, regardless of extension.
-for DIR in $fpath; do
-  if [[ -d $DIR ]]; then
-    FILES_TO_COMPILE+=("${DIR}"/*)
-  fi
-done
-
 # Adding these ones manually for now, until I decide what to do with them.
-# Most things except encrypted files and the main .zshrc/.zshenv.
+# (May want to give them a ".zsh" extension to make them easier to target.)
+# Most things except encrypted files.
+FILES_TO_COMPILE+=($HOME/.zshrc)
 FILES_TO_COMPILE+=($HOME/.zsh/aliases)
 FILES_TO_COMPILE+=($HOME/.zsh/color)
 FILES_TO_COMPILE+=($HOME/.zsh/common)
@@ -31,7 +33,7 @@ FILES_TO_COMPILE+=($HOME/.zsh/vars)
 for FILE in $FILES_TO_COMPILE; do
   if [[ ! "${FILE}" == *.zwc ]]; then
     echo "-> ${FILE}"
-    zcompile -R -- "${FILE}.zwc" "${FILE}"
+    zcompile -M -- "${FILE}.zwc" "${FILE}"
   fi
 done
 
