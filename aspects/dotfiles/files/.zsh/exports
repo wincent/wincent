@@ -3,7 +3,11 @@
 #
 # Usage:
 #
-#   async_export NAME 'command to eval'
+#     async_export NAME '$(expensive command to eval)'
+#
+# Example:
+#
+#     async_export GITLAB_TOKEN '$(security find-generic-password -a ${USER} -s gitlab_token -w)'
 #
 async_export() {
   local NAME="$1"
@@ -15,20 +19,23 @@ async_export() {
   if [ -f "$HOME/.zsh/zsh-async/async.zsh" ]; then
     eval "
       $CALLBACK() {
-        local RESULT=\$1
-        export $NAME=\"\$RESULT\"
+        local STATUS=\$2
+        local RESULT=\$3
+        if [ \$STATUS = 0 ]; then
+          export $NAME=\"\$RESULT\"
+        fi
         async_stop_worker $WORKER
         unset -f $CALLBACK
       }
     "
-    async_register_callback $WORKER $CALLBACK
+
     async_start_worker $WORKER
-    async_job $WORKER eval "$VALUE"
+    async_register_callback $WORKER $CALLBACK
+    async_job $WORKER eval "print $VALUE"
   else
     eval "export $NAME=$VALUE"
   fi
 }
-
 
 # Stop (eg.) `git push github` from triggering:
 # zsh: correct 'github' to '.github' [yes, no, edit, abort]?
@@ -143,8 +150,11 @@ export FTP_PASSIVE=1
 # colour ls listings
 export CLICOLOR=true
 
-# `tty` is slow, so do it async.
-async_export GPG_TTY '$(tty)'
+if [ -n "$TTY" ]; then
+  export GPG_TTY=$TTY
+else
+  export GPG_TTY=$(tty)
+fi
 
 export GOPATH=~/code/go
 
