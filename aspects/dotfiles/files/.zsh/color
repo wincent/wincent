@@ -103,9 +103,11 @@ color() {
         ln -sf colors/base16-$SCHEME.conf theme.conf 2> /dev/null
       )
 
-      if [ -r ~/.config/kitty/kitty.sock ]; then
-        if command -v kitten &> /dev/null; then
-          kitten @ set-colors --all --configured ~/.config/kitty/colors.conf
+      if [[ -n "$KITTY_WINDOW_ID" ]]; then
+        if [ -r ~/.config/kitty/kitty.sock ]; then
+          if command -v kitten &> /dev/null; then
+            kitten @ set-colors --all --configured ~/.config/kitty/colors.conf
+          fi
         fi
       fi
 
