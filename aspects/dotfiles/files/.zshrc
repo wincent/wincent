@@ -405,22 +405,69 @@ function -update-ps1() {
     local LVL=$SHLVL
   fi
 
-  # %F{green}, %F{blue}, %F{yellow} = change foreground color
+  # OSC-133 escape sequences for prompt navigation.
+  #
+  # See: https://gitlab.freedesktop.org/Per_Bothner/specifications/blob/master/proposals/semantic-prompts.md
+  #
+  # tmux only cares about $PROMPT_START, but we emit other escapes just for
+  # completeness (see also, `-mark-output()`, further down).
+  local PROMPT_START=$'\e]133;A\e\\'
+  local PROMPT_END=$'\e]133;B\e\\'
+
+  # %F{green}, %F{blue}, %F{yellow} etc... = change foreground color
   # %f = turn off foreground color
   # %n = $USER
   # %m = hostname up to first "."
   # %B = bold on, %b = bold off
+  local SSH_USER_AND_HOST="%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b"
+
   # %1~ = show 1 trailing component of working directory, or "~" if is is $HOME
-  # %(1j.*.) = "*" if the number of jobs is at least 1
-  # %(?..!) = "!" if the exit status of the last command was not 0
+  local CURRENT_DIRECTORY="%F{blue}%B%1~%b"
+
+  # %(1j.*.) = bold yellow "*" if the number of jobs is at least 1
+  local JOB_STATUS_INDICATOR="%F{yellow}%B%(1j.*.)%b%f"
+
+  # %(?..!) = bold yellow "!" if the exit status of the last command was not 0
+  local EXIT_STATUS_INDICATOR="%F{yellow}%B%(?..!)%b%f"
+
+  local PROMPT_SEPARATOR=" "
+
   # %(!.%F{yellow}%n%f.) = if root (!) show yellow $USER, otherwise nothing.
-  # $(!.%F{yellow}.%F{red})$(printf ...) = show one ❯ per $LVL (red for root, otherwise yellow)
+  local USER_INDICATOR="%B%(!.%F{yellow}%n%f.)%b"
+
+  # show one ❯ per $LVL
+  local PROMPT_CHARACTERS="$(printf '\u276f%.0s' {1..$LVL})"
+
+  # $(!.%F{yellow}.%F{red})$(...) = use bold yellow for root, otherwise bold red
+  local FINAL_PROMPT_MARKER="%B%(!.%F{yellow}.%F{red})${PROMPT_CHARACTERS}%f%b"
+
   if [ -n "$GIT_COMMITTER_DATE" -a -n "$GIT_AUTHOR_DATE" -a -n "$TW" ]; then
     # Show last `tw` or `tick` step.
-    export PS1="%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%B%1~%b%F{yellow}%B(${TW})%(1j.*.)%(?..!)%b%f %B%(!.%F{yellow}%n%f.)%(!.%F{yellow}.%F{red})$(printf '\u276f%.0s' {1..$LVL})%f%b "
+    local TW_SUMMARY="%F{yellow}%B(${TW})%b%f"
+    PS1="%{${PROMPT_START}%}"
+    PS1="${PS1}${SSH_USER_AND_HOST}"
+    PS1="${PS1}${CURRENT_DIRECTORY}"
+    PS1="${PS1}${TW_SUMMARY}"
+    PS1="${PS1}${JOB_STATUS_INDICATOR}"
+    PS1="${PS1}${EXIT_STATUS_INDICATOR}"
+    PS1="${PS1}${PROMPT_SEPARATOR}"
+    PS1="${PS1}${USER_INDICATOR}"
+    PS1="${PS1}${FINAL_PROMPT_MARKER}"
+    PS1="${PS1}%{${PROMPT_END}%}"
+    PS1="${PS1}${PROMPT_SEPARATOR}"
   else
-    export PS1="%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%B%1~%b%F{yellow}%B%(1j.*.)%(?..!)%b%f %B%(!.%F{yellow}%n%f.)%(!.%F{yellow}.%F{red})$(printf '\u276f%.0s' {1..$LVL})%f%b "
+    PS1="%{${PROMPT_START}%}"
+    PS1="${PS1}${SSH_USER_AND_HOST}"
+    PS1="${PS1}${CURRENT_DIRECTORY}"
+    PS1="${PS1}${JOB_STATUS_INDICATOR}"
+    PS1="${PS1}${EXIT_STATUS_INDICATOR}"
+    PS1="${PS1}${PROMPT_SEPARATOR}"
+    PS1="${PS1}${USER_INDICATOR}"
+    PS1="${PS1}${FINAL_PROMPT_MARKER}"
+    PS1="${PS1}%{${PROMPT_END}%}"
+    PS1="${PS1}${PROMPT_SEPARATOR}"
   fi
+  export PS1
   if [[ -n "$TMUXING" ]]; then
     # Outside tmux, ZLE_RPROMPT_INDENT ends up eating the space after PS1, and
     # prompt still gets corrupted even if we add an extra space to compensate.
@@ -428,6 +475,12 @@ function -update-ps1() {
   fi
 }
 add-zsh-hook precmd -update-ps1
+
+function -mark-output() {
+  # Emit OSC 133;C (mark beginning of command output).
+  builtin print -n '\e]133;C\e\\'
+}
+add-zsh-hook preexec -mark-output
 
 if [ -f "$HOME/.zsh/zsh-async/async.zsh" ]; then
   # http://zsh.sourceforge.net/Doc/Release/User-Contributions.html
