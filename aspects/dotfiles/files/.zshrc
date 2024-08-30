@@ -424,6 +424,9 @@ function -update-ps1() {
   # %1~ = show 1 trailing component of working directory, or "~" if is is $HOME
   local CURRENT_DIRECTORY="%F{blue}%B%1~%b"
 
+  # Show last `tw` or `tick` step in bold yellow.
+  local TW_SUMMARY="%F{yellow}%B(${TW})%b%f"
+
   # %(1j.*.) = bold yellow "*" if the number of jobs is at least 1
   local JOB_STATUS_INDICATOR="%F{yellow}%B%(1j.*.)%b%f"
 
@@ -441,33 +444,21 @@ function -update-ps1() {
   # $(!.%F{yellow}.%F{red})$(...) = use bold yellow for root, otherwise bold red
   local FINAL_PROMPT_MARKER="%B%(!.%F{yellow}.%F{red})${PROMPT_CHARACTERS}%f%b"
 
+  PS1="%{${PROMPT_START}%}"
+  PS1="${PS1}${SSH_USER_AND_HOST}"
+  PS1="${PS1}${CURRENT_DIRECTORY}"
   if [ -n "$GIT_COMMITTER_DATE" -a -n "$GIT_AUTHOR_DATE" -a -n "$TW" ]; then
-    # Show last `tw` or `tick` step.
-    local TW_SUMMARY="%F{yellow}%B(${TW})%b%f"
-    PS1="%{${PROMPT_START}%}"
-    PS1="${PS1}${SSH_USER_AND_HOST}"
-    PS1="${PS1}${CURRENT_DIRECTORY}"
     PS1="${PS1}${TW_SUMMARY}"
-    PS1="${PS1}${JOB_STATUS_INDICATOR}"
-    PS1="${PS1}${EXIT_STATUS_INDICATOR}"
-    PS1="${PS1}${PROMPT_SEPARATOR}"
-    PS1="${PS1}${USER_INDICATOR}"
-    PS1="${PS1}${FINAL_PROMPT_MARKER}"
-    PS1="${PS1}%{${PROMPT_END}%}"
-    PS1="${PS1}${PROMPT_SEPARATOR}"
-  else
-    PS1="%{${PROMPT_START}%}"
-    PS1="${PS1}${SSH_USER_AND_HOST}"
-    PS1="${PS1}${CURRENT_DIRECTORY}"
-    PS1="${PS1}${JOB_STATUS_INDICATOR}"
-    PS1="${PS1}${EXIT_STATUS_INDICATOR}"
-    PS1="${PS1}${PROMPT_SEPARATOR}"
-    PS1="${PS1}${USER_INDICATOR}"
-    PS1="${PS1}${FINAL_PROMPT_MARKER}"
-    PS1="${PS1}%{${PROMPT_END}%}"
-    PS1="${PS1}${PROMPT_SEPARATOR}"
   fi
+  PS1="${PS1}${JOB_STATUS_INDICATOR}"
+  PS1="${PS1}${EXIT_STATUS_INDICATOR}"
+  PS1="${PS1}${PROMPT_SEPARATOR}"
+  PS1="${PS1}${USER_INDICATOR}"
+  PS1="${PS1}${FINAL_PROMPT_MARKER}"
+  PS1="${PS1}%{${PROMPT_END}%}"
+  PS1="${PS1}${PROMPT_SEPARATOR}"
   export PS1
+
   if [[ -n "$TMUXING" ]]; then
     # Outside tmux, ZLE_RPROMPT_INDENT ends up eating the space after PS1, and
     # prompt still gets corrupted even if we add an extra space to compensate.
