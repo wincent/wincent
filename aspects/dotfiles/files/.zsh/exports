@@ -43,12 +43,8 @@ export CORRECT_IGNORE_FILE='.*'
 
 export PAGER=less
 
-if which nvim &> /dev/null; then
-  export EDITOR=$(which nvim)
-elif [ -x "$HOME/bin/vim" ]; then
-  # PATH isn't set yet (.zsh/path depends on this file), so we do this check
-  # instead of a simple `export EDITOR=$(which vim)`:
-  export EDITOR=$HOME/bin/vim
+if builtin command -v nvim &> /dev/null; then
+  export EDITOR=$(builtin command -v nvim)
 else
   export EDITOR=vim
 fi
