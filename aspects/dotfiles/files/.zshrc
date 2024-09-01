@@ -445,18 +445,18 @@ function -update-ps1() {
   local FINAL_PROMPT_MARKER="%B%(!.%F{yellow}.%F{red})${PROMPT_CHARACTERS}%f%b"
 
   PS1="%{${PROMPT_START}%}"
-  PS1="${PS1}${SSH_USER_AND_HOST}"
-  PS1="${PS1}${CURRENT_DIRECTORY}"
+  PS1+="${SSH_USER_AND_HOST}"
+  PS1+="${CURRENT_DIRECTORY}"
   if [ -n "$GIT_COMMITTER_DATE" -a -n "$GIT_AUTHOR_DATE" -a -n "$TW" ]; then
-    PS1="${PS1}${TW_SUMMARY}"
+    PS1+="${TW_SUMMARY}"
   fi
-  PS1="${PS1}${JOB_STATUS_INDICATOR}"
-  PS1="${PS1}${EXIT_STATUS_INDICATOR}"
-  PS1="${PS1}${PROMPT_SEPARATOR}"
-  PS1="${PS1}${USER_INDICATOR}"
-  PS1="${PS1}${FINAL_PROMPT_MARKER}"
-  PS1="${PS1}%{${PROMPT_END}%}"
-  PS1="${PS1}${PROMPT_SEPARATOR}"
+  PS1+="${JOB_STATUS_INDICATOR}"
+  PS1+="${EXIT_STATUS_INDICATOR}"
+  PS1+="${PROMPT_SEPARATOR}"
+  PS1+="${USER_INDICATOR}"
+  PS1+="${FINAL_PROMPT_MARKER}"
+  PS1+="%{${PROMPT_END}%}"
+  PS1+="${PROMPT_SEPARATOR}"
   export PS1
 
   if [[ -n "$TMUXING" ]]; then
@@ -587,8 +587,8 @@ function -update-rprompt() {
     local SECS=$(($DELTA - $DAYS * 86400 - $HOURS * 3600 - $MINUTES * 60))
     local ELAPSED=''
     test "$DAYS" != '0' && ELAPSED="${DAYS}d"
-    test "$HOURS" != '0' && ELAPSED="${ELAPSED}${HOURS}h"
-    test "$MINUTES" != '0' && ELAPSED="${ELAPSED}${MINUTES}m"
+    test "$HOURS" != '0' && ELAPSED+="${HOURS}h"
+    test "$MINUTES" != '0' && ELAPSED+="${MINUTES}m"
     if [ "$ELAPSED" = '' ]; then
       SECS="$(print -f "%.2f" $SECS)s"
     elif [ "$DAYS" != '0' ]; then
@@ -596,7 +596,7 @@ function -update-rprompt() {
     else
       SECS="$((~~$SECS))s"
     fi
-    ELAPSED="${ELAPSED}${SECS}"
+    ELAPSED+="${SECS}"
     export RPROMPT="%F{cyan}%{$__WINCENT[ITALIC_ON]%}${ELAPSED}%{$__WINCENT[ITALIC_OFF]%}%f $RPROMPT_BASE"
     unset ZSH_START_TIME
   else
