@@ -138,6 +138,12 @@ task('fill templates', async () => {
   }
 });
 
+task('zcompile shell files', async () => {
+  const script = resource.support('compile-zwc');
+
+  await command('zsh', [script]);
+});
+
 task('create ~/code/.editorconfig', when('wincent'), async () => {
   await template({
     path: '~/code/.editorconfig',
