@@ -36,5 +36,3 @@ for FILE in $FILES_TO_COMPILE; do
     zcompile -M -- "${FILE}.zwc" "${FILE}"
   fi
 done
-
-exit
