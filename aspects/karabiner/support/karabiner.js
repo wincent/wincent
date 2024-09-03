@@ -176,8 +176,12 @@ const VANILLA_PROFILE = {
     ...fromTo('f1', 'display_brightness_decrement'),
     ...fromTo('f2', 'display_brightness_increment'),
     ...fromTo('f3', 'mission_control'),
-    ...fromTo('f4', 'launchpad'),
+    ...fromTo('f4', 'spotlight'),
+    // On newer models, F5 turns on dictation, but I find this more useful:
     ...fromTo('f5', 'illumination_decrement'),
+    // On newer models, F6 activates Do Not Disturb, but again, I find this more
+    // useful.
+    // See also: https://github.com/pqrs-org/Karabiner-Elements/issues/3851
     ...fromTo('f6', 'illumination_increment'),
     ...fromTo('f7', 'rewind'),
     ...fromTo('f8', 'play_or_pause'),
