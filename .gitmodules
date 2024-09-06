@@ -49,7 +49,7 @@
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/command-t
 	url = https://github.com/wincent/command-t.git
 [submodule "corpus"]
-	branch = next
+	branch = main
 	ignore = untracked
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/corpus
 	url = https://github.com/wincent/corpus.git
