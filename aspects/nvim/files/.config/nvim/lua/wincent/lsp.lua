@@ -40,86 +40,89 @@ lsp.init = function()
     capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
   end
 
-  require('lspconfig').clangd.setup({
-    capabilities = capabilities,
-    cmd = { 'clangd', '--background-index' },
-    handlers = handlers,
-    on_attach = on_attach,
-  })
-
-  -- Prerequisite: https://github.com/LuaLS/lua-language-server
-  --
-  -- `brew install lua-language-server` on macOS.
-  -- `yay -S lua-language-server` on Arch.
-  --
-  -- See also:
-  --
-  -- - https://github.com/luals/lua-language-server/wiki/Getting-Started#command-line
-  -- - https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#lua_ls
-  --
-  local cmd = 'lua-language-server'
-  if vim.fn.executable(cmd) == 1 then
-    require('lspconfig').lua_ls.setup({
+  local has_lspconfig, lspconfig = pcall(require, 'lspconfig')
+  if has_lspconfig then
+    lspconfig.clangd.setup({
       capabilities = capabilities,
-      cmd = { cmd },
+      cmd = { 'clangd', '--background-index' },
       handlers = handlers,
       on_attach = on_attach,
-      settings = {
-        Lua = {
-          diagnostics = {
-            enable = true,
-            globals = { 'vim' },
-          },
-          filetypes = { 'lua' },
-          runtime = {
-            path = vim.split(package.path, ';'),
-            version = 'LuaJIT',
-          },
-          telemetry = {
-            -- Do not send telemetry data.
-            enable = false,
-          },
-          workspace = {
-            -- Make the server aware of Neovim runtime files.
-            library = vim.api.nvim_get_runtime_file('', true),
-            -- Stop "Do you need to configure your work environment as
-            -- `luassert`?" spam.
-            checkThirdParty = false,
+    })
+
+    -- Prerequisite: https://github.com/LuaLS/lua-language-server
+    --
+    -- `brew install lua-language-server` on macOS.
+    -- `yay -S lua-language-server` on Arch.
+    --
+    -- See also:
+    --
+    -- - https://github.com/luals/lua-language-server/wiki/Getting-Started#command-line
+    -- - https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#lua_ls
+    --
+    local cmd = 'lua-language-server'
+    if vim.fn.executable(cmd) == 1 then
+      lspconfig.lua_ls.setup({
+        capabilities = capabilities,
+        cmd = { cmd },
+        handlers = handlers,
+        on_attach = on_attach,
+        settings = {
+          Lua = {
+            diagnostics = {
+              enable = true,
+              globals = { 'vim' },
+            },
+            filetypes = { 'lua' },
+            runtime = {
+              path = vim.split(package.path, ';'),
+              version = 'LuaJIT',
+            },
+            telemetry = {
+              -- Do not send telemetry data.
+              enable = false,
+            },
+            workspace = {
+              -- Make the server aware of Neovim runtime files.
+              library = vim.api.nvim_get_runtime_file('', true),
+              -- Stop "Do you need to configure your work environment as
+              -- `luassert`?" spam.
+              checkThirdParty = false,
+            },
           },
         },
-      },
+      })
+    end
+
+    lspconfig.gopls.setup({
+      capabilities = capabilities,
+      handlers = handlers,
+      on_attach = on_attach,
+    })
+
+    lspconfig.ocamlls.setup({
+      capabilities = capabilities,
+      handlers = handlers,
+      on_attach = on_attach,
+    })
+
+    lspconfig.rust_analyzer.setup({
+      capabilities = capabilities,
+      handlers = handlers,
+      on_attach = on_attach,
+    })
+
+    lspconfig.tsserver.setup({
+      capabilities = capabilities,
+      handlers = handlers,
+      on_attach = on_attach,
+    })
+
+    lspconfig.vimls.setup({
+      capabilities = capabilities,
+      handlers = handlers,
+      on_attach = on_attach,
     })
   end
-
-  require('lspconfig').gopls.setup({
-    capabilities = capabilities,
-    handlers = handlers,
-    on_attach = on_attach,
-  })
-
-  require('lspconfig').ocamlls.setup({
-    capabilities = capabilities,
-    handlers = handlers,
-    on_attach = on_attach,
-  })
-
-  require('lspconfig').rust_analyzer.setup({
-    capabilities = capabilities,
-    handlers = handlers,
-    on_attach = on_attach,
-  })
-
-  require('lspconfig').tsserver.setup({
-    capabilities = capabilities,
-    handlers = handlers,
-    on_attach = on_attach,
-  })
-
-  require('lspconfig').vimls.setup({
-    capabilities = capabilities,
-    handlers = handlers,
-    on_attach = on_attach,
-  })
 end
 
 lsp.set_up_highlights = function()

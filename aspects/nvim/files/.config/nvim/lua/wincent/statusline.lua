@@ -1,5 +1,3 @@
-local pinnacle = require('wincent.pinnacle')
-
 local statusline = {}
 
 local async = false
@@ -239,34 +237,37 @@ statusline.set = function()
 end
 
 statusline.update_highlight = function()
-  -- Update StatusLine to use italics (used for filetype).
-  pinnacle.set('User1', pinnacle.italicize('StatusLine'))
+  local has_pinnacle, pinnacle = pcall(require, 'wincent.pinnacle')
+  if has_pinnacle then
+    -- Update StatusLine to use italics (used for filetype).
+    pinnacle.set('User1', pinnacle.italicize('StatusLine'))
 
-  -- StatusLine + bold (used for file names).
-  pinnacle.set('User3', pinnacle.embolden('StatusLine'))
+    -- StatusLine + bold (used for file names).
+    pinnacle.set('User3', pinnacle.embolden('StatusLine'))
 
-  -- Inverted Error styling, for left-hand side "Powerline" triangle.
-  local fg = pinnacle.fg(status_highlight)
-  local bg = pinnacle.bg('StatusLine')
-  pinnacle.set('User4', { bg = bg, fg = fg })
+    -- Inverted Error styling, for left-hand side "Powerline" triangle.
+    local fg = pinnacle.fg(status_highlight)
+    local bg = pinnacle.bg('StatusLine')
+    pinnacle.set('User4', { bg = bg, fg = fg })
 
-  -- And opposite for the buffer number area.
-  pinnacle.set('User7', {
-    bg = fg,
-    fg = pinnacle.fg('Normal'),
-    bold = true,
-  })
+    -- And opposite for the buffer number area.
+    pinnacle.set('User7', {
+      bg = fg,
+      fg = pinnacle.fg('Normal'),
+      bold = true,
+    })
 
-  -- Right-hand side section.
-  bg = pinnacle.fg('Cursor')
-  fg = pinnacle.fg('User3')
-  pinnacle.set('User5', {
-    bg = fg,
-    fg = bg,
-    bold = true,
-  })
+    -- Right-hand side section.
+    bg = pinnacle.fg('Cursor')
+    fg = pinnacle.fg('User3')
+    pinnacle.set('User5', {
+      bg = fg,
+      fg = bg,
+      bold = true,
+    })
 
-  pinnacle.link('StatusLineNC', 'User1')
+    pinnacle.link('StatusLineNC', 'User1')
+  end
 end
 
 return statusline

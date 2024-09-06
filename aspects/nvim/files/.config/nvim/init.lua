@@ -209,6 +209,8 @@ vim.api.nvim_set_keymap('n', '<Leader>s', '<Plug>(FerretAcks)', {})
 if vim.o.loadplugins then
   wincent.plugin.load('LuaSnip')
   wincent.plugin.load('applescript.vim')
+
+  -- All of these depend on nvim-cmp.
   wincent.plugin.load('cmp-buffer')
   wincent.plugin.load('cmp-calc')
   wincent.plugin.load('cmp-emoji')
@@ -216,6 +218,7 @@ if vim.o.loadplugins then
   wincent.plugin.load('cmp-nvim-lua')
   wincent.plugin.load('cmp-path')
   wincent.plugin.load('cmp_luasnip')
+
   wincent.plugin.load('command-t')
   wincent.plugin.load('corpus')
   wincent.plugin.load('ferret')
