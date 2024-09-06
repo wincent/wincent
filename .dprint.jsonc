@@ -38,6 +38,7 @@
     "/aspects/dotfiles/files/.zsh/skim",
     "/aspects/dotfiles/files/.zsh/zsh-async",
     "/aspects/dotfiles/files/.zsh/zsh-autosuggestions",
+    "/aspects/dotfiles/files/.zsh/zsh-completions",
     "/aspects/dotfiles/files/.zsh/zsh-history-substring-search",
     "/aspects/dotfiles/files/.zsh/zsh-syntax-highlighting",
     "/aspects/interception/support/mac2linux/CMakeFiles",
