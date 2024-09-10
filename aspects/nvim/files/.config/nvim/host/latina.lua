@@ -9,6 +9,7 @@ if has_corpus then
         autoreference = 1,
         autotitle = 1,
         base = './',
+        referenceheader = 'References',
         transform = 'local',
       },
       ['~/Sync/greg.hurrell@datadoghq.com/worktree/Corpus'] = {
@@ -16,6 +17,7 @@ if has_corpus then
         autoreference = 1,
         autotitle = 1,
         base = './',
+        referenceheader = 'References',
         tags = { 'personal' },
         transform = 'local',
       },
@@ -24,6 +26,7 @@ if has_corpus then
         autoreference = 1,
         autotitle = 1,
         base = '/wiki/',
+        referenceheader = 'References',
         tags = { 'wiki' },
         transform = 'web',
       },
