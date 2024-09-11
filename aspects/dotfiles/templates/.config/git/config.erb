@@ -137,6 +137,10 @@
 [difftool]
 	prompt = false
 
+[feature]
+	# See caveats in `man git-config` about using this before Git 2.40 (2023-03-13).
+	manyFiles = true
+
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
