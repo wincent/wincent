@@ -14,14 +14,18 @@ local reloader = require('reloader')
 
 -- Forward function declarations.
 local activateLayout = nil
+local arrangeDisplays = nil
 local canManageWindow = nil
 local chain = nil
+local getMenu = nil
 local handleScreenEvent = nil
 local handleWindowEvent = nil
 local hide = nil
 local initEventHandling = nil
+local initMenu = nil
 local externalDisplay = nil
 local internalDisplay = nil
+local menu = nil
 local tearDownEventHandling = nil
 
 local screenCount = #hs.screen.allScreens()
@@ -277,16 +281,98 @@ handleScreenEvent = function()
   -- Make sure that something noteworthy (display count) actually
   -- changed. We no longer check geometry because we were seeing spurious
   -- events.
+  log.i('Handling screen event')
   local screens = hs.screen.allScreens()
   if not (#screens == screenCount) then
     screenCount = #screens
     activateLayout(screenCount)
+    if menu then
+      if screenCount == 2 then
+        log.i('Returning menu to menu bar')
+        menu:returnToMenuBar()
+      else
+        log.i('Removing menu to menu bar')
+        menu:removeFromMenuBar()
+      end
+    end
   end
 end
 
 initEventHandling = function()
   screenWatcher = hs.screen.watcher.new(handleScreenEvent)
   screenWatcher:start()
+end
+
+local displaysAreVertical = function()
+  local internal = internalDisplay()
+  local external = externalDisplay()
+  if internal and external then
+    if internal:fullFrame().y >= external:fullFrame().h then
+      return true
+    end
+  end
+  return false
+end
+
+arrangeDisplays = function(arrangement)
+  local external = externalDisplay()
+  local internal = internalDisplay()
+  if internal and external then
+    local internalFrame = internal:fullFrame()
+    local externalFrame = external:fullFrame()
+    if arrangement == 'vertical' then
+      -- Center internal display underneath the external one.
+      internal:setOrigin((externalFrame.w - internalFrame.w) / 2, externalFrame.h)
+    else
+      -- Place internal display to the right of the external one, near the bottom.
+      internal:setOrigin(externalFrame.w, externalFrame.h - internalFrame.h)
+    end
+    if menu and getMenu then
+      menu:setMenu(getMenu())
+    end
+  end
+end
+
+getMenu = function()
+  local vertical = displaysAreVertical()
+  return {
+    {
+      title = 'Vertical',
+      fn = function()
+        arrangeDisplays('vertical')
+      end,
+      checked = vertical,
+    },
+    {
+      title = 'Horizontal',
+      fn = function()
+        arrangeDisplays('horizontal')
+      end,
+      checked = not vertical,
+    },
+  }
+end
+
+initMenu = function()
+  local visible = screenCount > 1
+  menu = hs.menubar.new(visible, 'dev.wincent.hammerspoon.menu'):setMenu(getMenu()):setIcon([[ASCII:
+................
+.A............B.
+.E..............
+...G........H...
+...K.......L....
+....O.....P.....
+....N......M....
+...J........I...
+................
+.D............C.
+................
+......R..S......
+................
+......W..T......
+...V........U...
+................
+]])
 end
 
 tearDownEventHandling = function()
@@ -407,6 +493,10 @@ hs.hotkey.bind(
   })
 )
 
+-- NOTE: These function key bindings only work on the internal keyboard, and
+-- only when the "fn" modifier is pressed (otherwise the function keys get
+-- treated as "media" keys such as "Play", "Volume Up" etc).
+
 hs.hotkey.bind({ 'ctrl', 'alt', 'cmd' }, 'f1', function()
   hs.alert('One-monitor layout')
   activateLayout(1)
@@ -427,6 +517,16 @@ hs.hotkey.bind({ 'ctrl', 'alt', 'cmd' }, 'f4', function()
   reloader.reload()
 end)
 
+hs.hotkey.bind({ 'ctrl', 'alt', 'cmd' }, 'f5', function()
+  hs.alert('Forcing vertical display arrangement')
+  arrangeDisplays('vertical')
+end)
+
+hs.hotkey.bind({ 'ctrl', 'alt', 'cmd' }, 'f6', function()
+  hs.alert('Forcing horizontal display arrangement')
+  arrangeDisplays('horizontal')
+end)
+
 hs.hotkey.bind('alt', 'v', function()
   hs.applescript([[
     tell application "System Events" to tell process "Finder"
@@ -440,6 +540,7 @@ hs.hotkey.bind('alt', 'v', function()
 end)
 
 reloader.init()
+initMenu()
 initEventHandling()
 events.subscribe('reload', tearDownEventHandling)
 
