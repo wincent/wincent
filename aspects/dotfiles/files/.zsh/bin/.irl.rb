@@ -3,8 +3,13 @@
 require 'date'
 
 # 2017-10-31: Personal MacBook Pro (Haswell, Mid-2015, dual graphics).
-# 2021-05-31: GitHub MacBook Pro (13-Inch "M1" 8-Core 3.2 (2020)).
+# → http://www.everymac.com/systems/apple/macbook_pro/specs/macbook-pro-core-i7-2.8-15-dual-graphics-mid-2015-retina-display-specs.html
+#
 # 2023-11-22: Personal MacBook Pro ("M3 Max" 16 CPU/40 GPU 16" (2023)).
+# → https://everymac.com/systems/apple/macbook_pro/specs/macbook-pro-m3-max-16-core-cpu-40-core-gpu-16-late-2023-specs.html
+#
+# 2024-06-03: Datadog MacBook Pro ("M3 Max" 14 CPU/30 GPU 14" (2023)).
+# → https://everymac.com/systems/apple/macbook_pro/specs/macbook-pro-m3-max-14-core-cpu-30-core-gpu-14-late-2023-specs.html
 
 year = (ARGV[0] || 2023).to_i
 month = (ARGV[1] || 11).to_i
