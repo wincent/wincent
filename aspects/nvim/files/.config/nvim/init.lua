@@ -225,6 +225,7 @@ if vim.o.loadplugins then
   wincent.plugin.load('indent-blankline.nvim')
   wincent.plugin.load('loupe')
   wincent.plugin.load('mini.ai')
+  wincent.plugin.load('mini.extra')
   wincent.plugin.load('mini.surround')
   wincent.plugin.load('neco-ghc')
   wincent.plugin.load('nvim-cmp')
