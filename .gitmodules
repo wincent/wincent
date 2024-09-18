@@ -216,10 +216,6 @@
 [submodule "vim-speeddating"]
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-speeddating
 	url = https://github.com/tpope/vim-speeddating.git
-[submodule "vim-surround"]
-	ignore = untracked
-	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-surround
-	url = https://github.com/tpope/vim-surround.git
 [submodule "vim-textobj-comment"]
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-textobj-comment
 	url = https://github.com/glts/vim-textobj-comment.git
@@ -255,3 +251,6 @@
 [submodule "mini.ai"]
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.ai
 	url = https://github.com/echasnovski/mini.ai.git
+[submodule "mini.surround"]
+	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.surround
+	url = https://github.com/echasnovski/mini.surround.git
