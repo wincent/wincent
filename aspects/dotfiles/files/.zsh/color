@@ -76,6 +76,7 @@ color() {
     local FILE="$BASE16_DIR/base16-$SCHEME.sh"
     if [[ -e "$FILE" ]]; then
       local BG=$(__extract color_background "$FILE")
+      local FG=$(__extract color_foreground "$FILE")
       local LUMA=$(luma "$BG")
       local LIGHT=$((LUMA > 127.5))
       local BACKGROUND=dark
@@ -90,6 +91,13 @@ color() {
       echo "$SCHEME" >! "$__WINCENT[BASE16_CONFIG]"
       echo "$BACKGROUND" >> "$__WINCENT[BASE16_CONFIG]"
       sh "$FILE"
+
+      # Kitty overwrites go in ~/.config/kitty/colors-extras.conf
+      # (saves us from having to fork the third-party templates).
+      (
+        cd ~/.config/kitty &&
+        echo "tab_bar_margin_color #$FG" > colors-extras.conf
+      )
 
       # When running a `.tmux` script we may have a race where multiple `ln -sf`
       # are running at the same time (because the script may open multiple
@@ -107,6 +115,7 @@ color() {
         if [ -r ~/.config/kitty/kitty.sock ]; then
           if command -v kitten &> /dev/null; then
             kitten @ set-colors --all --configured ~/.config/kitty/colors.conf
+            kitten @ set-colors --all --configured ~/.config/kitty/colors-extras.conf
           fi
         fi
       fi

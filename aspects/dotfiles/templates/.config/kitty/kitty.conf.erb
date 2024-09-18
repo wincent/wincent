@@ -872,7 +872,7 @@ enable_audio_bell no
 #: set the vertical and horizontal sides. Three values set top,
 #: horizontal and bottom. Four values set top, right, bottom and left.
 
-# placement_strategy center
+placement_strategy top
 
 #: When the window size is not an exact multiple of the cell size, the
 #: cell area of the terminal window will have some extra padding on
@@ -1007,7 +1007,7 @@ tab_bar_edge top
 
 #: The margin to the left and right of the tab bar (in pts).
 
-# tab_bar_margin_height 0.0 0.0
+tab_bar_margin_height 0.0 2.0
 
 #: The margin above and below the tab bar (in pts). The first number
 #: is the margin between the edge of the OS Window and the tab bar.
@@ -2555,7 +2555,8 @@ map ctrl+i send_text application \x1b[17~
 # Default color scheme: classic-dark.
 include colors/base16-classic-dark-256.conf
 
-# Optional override; kitty will ignore if not present.
+# Optional overrides; kitty will ignore if not present.
 include colors.conf
+include colors-extras.conf
 
 #: }}}
