@@ -13,28 +13,43 @@
 	co = checkout
 	count = !git --no-pager log --oneline | wc -l
 	cp = cherry-pick
-	delta = "!f() { git diff \"$@\" | delta; }; f"
+
+	delta = "!f() { \
+		git diff \"$@\" | delta; \
+	}; f"
 
 	# http://stackoverflow.com/questions/224687/git-find-duplicate-blobs-files-in-this-tree/8408640#8408640
 	dupes = !"git ls-tree -r HEAD | cut -c 13- | sort | uniq -D -w 40"
 
 	ff = merge --ff-only
-	find = "!f() { git ls-files | grep \"$@\"; }; f"
+
+	find = "!f() { \
+		git ls-files | grep \"$@\"; \
+	}; f"
+
 	fixup = !bash -c 'git commit --fixup=$1 ${@:2}' -
 	fresh = remote update --prune
 	full = show --format=fuller
 
 	# Shortcut for updating all remotes and fast-forwarding to a specific one:
 	# eg. `git get upstream/main`
-	get = "!f() { git fresh && git ff \"$@\"; }; f"
+	get = "!f() { \
+		git fresh && git ff \"$@\"; \
+	}; f"
 
-	# equivalent to: graph --all
+	# Equivalent to: `graph --all`
 	gr = !git --paginate log --graph --all --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%= '<\%' %>aN>%Creset'
 
-	# requires Git 1.6.3 or later; %C(auto) requires Git 1.8.3 or later
+	# Requires Git 1.6.3 or later; `%C(auto)` requires Git 1.8.3 or later.
 	graph = !git --paginate log --graph --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%= '<\%' %>aN>%Creset'
 
-	jump = "!f() {\
+	# Wrapper for vcs-jump that provides sensible default behavior when invoked
+	# without args:
+	# - If there are merge conflits, runs `vcs-jump merge`.
+	# - If there are changed files, runs `vcs-jump diff`.
+	# - Otherwise, runs `vcs-jump` alone (which shows help).
+	# - If there are arguments, passes them to `vcs-jump`.
+	jump = "!f() { \
 		if [ \"$#\" -eq 0 ]; then \
 			if [ -n \"$(git diff --name-only --diff-filter=U)\" ]; then \
 				vcs-jump merge; \
@@ -51,17 +66,17 @@
 	# Counterpart to `abbrev`.
 	long = !bash -c 'git rev-parse ${1-`echo HEAD`}' -
 
-	# Show just the HEAD commit message (no indent) and nothing else
+	# Show just the HEAD commit message (no indent) and nothing else.
 	message = !git --paginate log -1 --pretty=format:%B
 	msg = message
 
 	no-edit = commit --amend --no-edit
 
-	# %C(auto) requires Git 1.8.3 or later
+	# `%C(auto)` requires Git 1.8.3 or later.
 	one = !git --paginate log --pretty=format:'%C(auto)%h%Creset %s%C(auto)%d%Creset %C(magenta bold)(%cr)%Creset %C(cyan)<%= '<\%' %>aN>%Creset'
 	oneline = !git --paginate log --pretty=format:'%C(auto)%h%Creset %s%C(auto)%d%Creset %C(magenta bold)(%cr)%Creset %C(cyan)<%= '<\%' %>aN>%Creset'
 
-	# requires Git 1.5.4 or later
+	# Requires Git 1.5.4 or later.
 	p = add -p
 	patch = add -p
 
@@ -69,36 +84,44 @@
 	recover = !cat "$(git rev-parse --git-dir 2> /dev/null)/COMMIT_EDITMSG"
 
 	# Mark merge conflicts as resolved.
-	resolve = "!f() { git add $(git diff --name-only --diff-filter=U -- \"${@:-.}\"); }; f"
+	resolve = "!f() { \
+		git add $(git diff --name-only --diff-filter=U -- \"${@:-.}\"); \
+	}; f"
 
-	# requires Git 1.7.11.3 or later
+	# Requires Git 1.7.11.3 or later.
 	reword = commit --amend --only -v --
 
-	# requires Git 1.6.2 or later
+	# Requires Git 1.6.2 or later.
 	rollback = !bash -c 'git reset --merge HEAD~${1-1}' -
 
 	# "smartlog", although it's not that smart.
-	# Equivalent to `git graph --all --simplify-by-decoration.
+	# Equivalent to `git graph --all --simplify-by-decoration`.
 	sl = !git --paginate log --graph --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%= '<\%' %>aN>%Creset' --all --simplify-by-decoration
 
 	st = status
 	staged = diff --cached --ignore-submodules=dirty
 
-	# %C(auto) requires Git 1.8.3 or later
+	# `%C(auto)` requires Git 1.8.3 or later.
 	ten = !git --paginate log -10 --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%= '<\%' %>aN>%Creset'
 
-	# compensate for brain damage caused by using Mercurial
+	# Compensate for brain damage caused by using Mercurial.
 	up = checkout
 
 	wc = whatchanged
 
-	# similar to whatchanged, but gives a dir-level overview:
-	# usage: git wd [diff-against=HEAD] [max-depth=4]
-	wd = "!f() { git --paginate diff --dirstat=cumulative,files,0 ${1:-HEAD} | awk '{print $2}' | cut -d / -f1-${2:-4} | sort | uniq; }; f"
+	# Similar to `whatchanged`, but gives a dir-level overview.
+	#
+	# Usage: git wd [diff-against=HEAD] [max-depth=4]
+	wd = "!f() { \
+		git --paginate diff --dirstat=cumulative,files,0 ${1:-HEAD} | awk '{print $2}' | cut -d / -f1-${2:-4} | sort | uniq; \
+	}; f"
 
-	# same as wd ("what directories?") but for files ("what files?")
-	# usage: git wd [diff-against=HEAD]
-	wf = "!f() { git --paginate diff --stat=10000 ${1:-HEAD} | awk '{print $1}' | sed '$d' | sort; }; f"
+	# Same as `wd` ("what directories?") but for files ("what files?").
+	#
+	# Usage: git wd [diff-against=HEAD]
+	wf = "!f() { \
+		git --paginate diff --stat=10000 ${1:-HEAD} | awk '{print $1}' | sed '$d' | sort; \
+	}; f"
 
 [branch]
 	autoSetupMerge = always
