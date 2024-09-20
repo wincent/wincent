@@ -34,7 +34,19 @@
 	# requires Git 1.6.3 or later; %C(auto) requires Git 1.8.3 or later
 	graph = !git --paginate log --graph --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%= '<\%' %>aN>%Creset'
 
-	jump = "!f() { vcs-jump \"$@\"; }; f"
+	jump = "!f() {\
+		if [ \"$#\" -eq 0 ]; then \
+			if [ -n \"$(git diff --name-only --diff-filter=U)\" ]; then \
+				vcs-jump merge; \
+			elif ! git diff --quiet; then \
+				vcs-jump diff; \
+			else \
+				vcs-jump; \
+			fi; \
+		else \
+			vcs-jump \"$@\"; \
+		fi; \
+	}; f"
 
 	# Counterpart to `abbrev`.
 	long = !bash -c 'git rev-parse ${1-`echo HEAD`}' -
