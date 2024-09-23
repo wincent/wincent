@@ -2,67 +2,73 @@
 # yarn lockfile v1
 
 
-"@dprint/darwin-arm64@0.45.0":
-  version "0.45.0"
-  resolved "https://registry.yarnpkg.com/@dprint/darwin-arm64/-/darwin-arm64-0.45.0.tgz#83cab93d86a674a972906aa228c3f71761b463ef"
-  integrity sha512-pkSSmixIKXr5t32bhXIUbpIBm8F8uhsJcUUvfkFNsRbQvNwRp71ribZpE8dKl0ZFOlAFeWD6WLE8smp/QtiGUA==
+"@dprint/darwin-arm64@0.47.2":
+  version "0.47.2"
+  resolved "https://registry.yarnpkg.com/@dprint/darwin-arm64/-/darwin-arm64-0.47.2.tgz#dea8bfa146159e565e510266a2f1d7ebd2676090"
+  integrity sha512-mVPFBJsXxGDKHHCAY8wbqOyS4028g1bN15H9tivCnPAjwaZhkUimZHXWejXADjhGn+Xm2SlakugY9PY/68pH3Q==
 
-"@dprint/darwin-x64@0.45.0":
-  version "0.45.0"
-  resolved "https://registry.yarnpkg.com/@dprint/darwin-x64/-/darwin-x64-0.45.0.tgz#7ba6cbf228d5782e37f10bd8014c9a02a3514821"
-  integrity sha512-PHcXSrRO53KH9N+YPbPtr40NnDo2t7hO7KLMfl2ktRNLjrmKg6F8XDDsr2C7Z11k3jyEEU2Jq8hhpaKHwNapmQ==
+"@dprint/darwin-x64@0.47.2":
+  version "0.47.2"
+  resolved "https://registry.yarnpkg.com/@dprint/darwin-x64/-/darwin-x64-0.47.2.tgz#9e03a7ebb1a38ffcd46fbade96e98e8326d4c77c"
+  integrity sha512-T7wzlc+rBV+6BRRiBjoqoy5Hj4TR2Nv2p2s9+ycyPGs10Kj/JXOWD8dnEHeBgUr2r4qe/ZdcxmsFQ5Hf2n0WuA==
 
-"@dprint/linux-arm64-glibc@0.45.0":
-  version "0.45.0"
-  resolved "https://registry.yarnpkg.com/@dprint/linux-arm64-glibc/-/linux-arm64-glibc-0.45.0.tgz#f9f7a53a0fd2441015a4297c5f08592080d89305"
-  integrity sha512-NgIpvZHpiQaY4DxSygxknxBtvKE2KLK9dEbUNKNE098yTHhGq7ouPsoM7RtsO34RHJ3tEZLLJEuBHn20XP8LMg==
+"@dprint/linux-arm64-glibc@0.47.2":
+  version "0.47.2"
+  resolved "https://registry.yarnpkg.com/@dprint/linux-arm64-glibc/-/linux-arm64-glibc-0.47.2.tgz#7d6c70b1c097d8dd8756cb4cdff40afdde4d42f3"
+  integrity sha512-B0m1vT5LdVtrNOVdkqpLPrSxuCD+l5bTIgRzPaDoIB1ChWQkler9IlX8C+RStpujjPj6SYvwo5vTzjQSvRdQkA==
 
-"@dprint/linux-arm64-musl@0.45.0":
-  version "0.45.0"
-  resolved "https://registry.yarnpkg.com/@dprint/linux-arm64-musl/-/linux-arm64-musl-0.45.0.tgz#eecb1bb5fa07e1cf665f3795d03afcc3807cf437"
-  integrity sha512-Y8p+FC0RNyKCGQjy99Uh1LSPrlQtUTvo4brdvU1THF3pyWu6Bg1p6NiP5a6SjE/6t9CMKZJz39zPreQtnDkSDA==
+"@dprint/linux-arm64-musl@0.47.2":
+  version "0.47.2"
+  resolved "https://registry.yarnpkg.com/@dprint/linux-arm64-musl/-/linux-arm64-musl-0.47.2.tgz#76158f3400848d6d00023559c7b1fbf1cf1198c9"
+  integrity sha512-zID6wZZqpg2/Q2Us+ERQkbhLwlW3p3xaeEr00MPf49bpydmEjMiPuSjWPkNv+slQSIyIsVovOxF4lbNZjsdtvw==
 
-"@dprint/linux-x64-glibc@0.45.0":
-  version "0.45.0"
-  resolved "https://registry.yarnpkg.com/@dprint/linux-x64-glibc/-/linux-x64-glibc-0.45.0.tgz#6b0514aa0e171bf59ea31b971f9075e68df6479c"
-  integrity sha512-u03NCZIpJhE5gIl9Q7jNL4sOPBFd/8BLVBiuLoLtbiTZQ+NNudHKgGNATJBU67q1MKpqKnt8/gQm139cJkHhrw==
+"@dprint/linux-x64-glibc@0.47.2":
+  version "0.47.2"
+  resolved "https://registry.yarnpkg.com/@dprint/linux-x64-glibc/-/linux-x64-glibc-0.47.2.tgz#1c30261e7a085bcbd6d673c7ac4064a4e50c1a02"
+  integrity sha512-rB3WXMdINnRd33DItIp7mObS7dzHW90ZzeJSsoKJLPp+Z7wXjjb27UUowfqVI4baa/1pd7sdbX54DPohMtfu/A==
 
-"@dprint/linux-x64-musl@0.45.0":
-  version "0.45.0"
-  resolved "https://registry.yarnpkg.com/@dprint/linux-x64-musl/-/linux-x64-musl-0.45.0.tgz#627e89818ae2add74f264ad118ff1383539b96aa"
-  integrity sha512-DQN8LPtxismkeU1X+sQywa80kWwCBcpQh9fXoJcvTEHrgzHBqbG2SEsUZpM12oKEua1KE/iBh+vgZ+4I3TdI2A==
+"@dprint/linux-x64-musl@0.47.2":
+  version "0.47.2"
+  resolved "https://registry.yarnpkg.com/@dprint/linux-x64-musl/-/linux-x64-musl-0.47.2.tgz#27d50baca893bbaa8d5ff6448621a1d68d5eba1b"
+  integrity sha512-E0+TNbzYdTXJ/jCVjUctVxkda/faw++aDQLfyWGcmdMJnbM7NZz+W4fUpDXzMPsjy+zTWxXcPK7/q2DZz2gnbg==
 
-"@dprint/win32-x64@0.45.0":
-  version "0.45.0"
-  resolved "https://registry.yarnpkg.com/@dprint/win32-x64/-/win32-x64-0.45.0.tgz#f8482217aafd66020620a1471140349de28e6bf5"
-  integrity sha512-aZHIWG2jIlEp4BER1QG6YYqPd6TxT9S77AeUkWJixNiMEo+33mPRVCBcugRWI/WJWveX8yWFVXkToORtnSFeEA==
+"@dprint/win32-arm64@0.47.2":
+  version "0.47.2"
+  resolved "https://registry.yarnpkg.com/@dprint/win32-arm64/-/win32-arm64-0.47.2.tgz#eb7eb2b4acd17d8221ae85c835c80aa1b6b3110c"
+  integrity sha512-K1EieTCFjfOCmyIhw9zFSduE6qVCNHEveupqZEfbSkVGw5T9MJQ1I9+n7MDb3RIDYEUk0enJ58/w82q8oDKCyA==
+
+"@dprint/win32-x64@0.47.2":
+  version "0.47.2"
+  resolved "https://registry.yarnpkg.com/@dprint/win32-x64/-/win32-x64-0.47.2.tgz#117c4b22de19dd11991851f27424ccc332d2266a"
+  integrity sha512-LhizWr8VrhHvq4ump8HwOERyFmdLiE8C6A42QSntGXzKdaa2nEOq20x/o56ZIiDcesiV+1TmosMKimPcOZHa+Q==
 
 "@types/node@*":
-  version "20.11.28"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.11.28.tgz#4fd5b2daff2e580c12316e457473d68f15ee6f66"
-  integrity sha512-M/GPWVS2wLkSkNHVeLkrF2fD5Lx5UC4PxA0uZcKc6QqbIQUJyW1jVjueJYi1z8n0I5PxYrtpnPnWglE+y9A0KA==
+  version "22.5.5"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.5.5.tgz#52f939dd0f65fc552a4ad0b392f3c466cc5d7a44"
+  integrity sha512-Xjs4y5UPO/CLdzpgR6GirZJx36yScjh73+2NlLlkFRSoQN8B0DpfXPdZGnvVmLRLOsqDpOfTNv7D9trgGhmOIA==
   dependencies:
-    undici-types "~5.26.4"
+    undici-types "~6.19.2"
 
 dprint@*:
-  version "0.45.0"
-  resolved "https://registry.yarnpkg.com/dprint/-/dprint-0.45.0.tgz#b9f987d6f2b776f8262b9d849877bc66db2a1203"
-  integrity sha512-3444h7V47XoA16qgIWjw3CV/Eo/rQbT/XTGlbJ/6vJ+apQyuo0+M3Ai0GS3wu7X9HBUDcA0zIHA3mOxWNz6toA==
+  version "0.47.2"
+  resolved "https://registry.yarnpkg.com/dprint/-/dprint-0.47.2.tgz#f3aca518324b9948066652c87e4c4a3bc509869d"
+  integrity sha512-geUcVIIrmLaY+YtuOl4gD7J/QCjsXZa5gUqre9sO6cgH0X/Fa9heBN3l/AWVII6rKPw45ATuCSDWz1pyO+HkPQ==
   optionalDependencies:
-    "@dprint/darwin-arm64" "0.45.0"
-    "@dprint/darwin-x64" "0.45.0"
-    "@dprint/linux-arm64-glibc" "0.45.0"
-    "@dprint/linux-arm64-musl" "0.45.0"
-    "@dprint/linux-x64-glibc" "0.45.0"
-    "@dprint/linux-x64-musl" "0.45.0"
-    "@dprint/win32-x64" "0.45.0"
+    "@dprint/darwin-arm64" "0.47.2"
+    "@dprint/darwin-x64" "0.47.2"
+    "@dprint/linux-arm64-glibc" "0.47.2"
+    "@dprint/linux-arm64-musl" "0.47.2"
+    "@dprint/linux-x64-glibc" "0.47.2"
+    "@dprint/linux-x64-musl" "0.47.2"
+    "@dprint/win32-arm64" "0.47.2"
+    "@dprint/win32-x64" "0.47.2"
 
 typescript@*:
-  version "5.4.2"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.4.2.tgz#0ae9cebcfae970718474fe0da2c090cad6577372"
-  integrity sha512-+2/g0Fds1ERlP6JsakQQDXjZdZMM+rqpamFZJEKh4kwTIn3iDkgKtby0CeNd5ATNZ4Ry1ax15TMx0W2V+miizQ==
+  version "5.6.2"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.6.2.tgz#d1de67b6bef77c41823f822df8f0b3bcff60a5a0"
+  integrity sha512-NW8ByodCSNCwZeghjN3o+JX5OFH0Ojg6sadjEKY4huZ52TqbJTJnDo5+Tw98lSy63NZvi4n+ez5m2u5d4PkZyw==
 
-undici-types@~5.26.4:
-  version "5.26.5"
-  resolved "https://registry.yarnpkg.com/undici-types/-/undici-types-5.26.5.tgz#bcd539893d00b56e964fd2657a4866b221a65617"
-  integrity sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==
+undici-types@~6.19.2:
+  version "6.19.8"
+  resolved "https://registry.yarnpkg.com/undici-types/-/undici-types-6.19.8.tgz#35111c9d1437ab83a7cdc0abae2f26d88eda0a02"
+  integrity sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==
