@@ -23,10 +23,10 @@ For example, consider [this configuration that moves items into a `~/.backups` d
   command: mv ~/{{ item.0 }} ~/.backups/
     creates=~/.backups/{{ item.0 }}
     removes=~/{{ item.0 }}
-  loop: '{{ (dotfile_files + dotfile_templates) | zip(original_check.results) | list }}'
+  loop: "{{ (dotfile_files + dotfile_templates) | zip(original_check.results) | list }}"
   when: item.1.stat.exists and not item.1.stat.islnk
   loop_control:
-    label: '{{item.0}}'
+    label: "{{item.0}}"
 ```
 
 Note:
