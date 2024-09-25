@@ -480,8 +480,8 @@ if [ -f "$HOME/.zsh/zsh-async/async.zsh" ]; then
   () {
     zstyle ':vcs_info:*' enable git hg
     zstyle ':vcs_info:*' check-for-changes true
-    zstyle ':vcs_info:*' stagedstr "%F{green}●%f" # default 'S'
-    zstyle ':vcs_info:*' unstagedstr "%F{red}●%f" # default 'U'
+    zstyle ':vcs_info:*' stagedstr "%F{green}•%f" # default 'S'
+    zstyle ':vcs_info:*' unstagedstr "%F{red}•%f" # default 'U'
     zstyle ':vcs_info:*' use-simple true
     zstyle ':vcs_info:git+set-message:*' hooks git-untracked
     zstyle ':vcs_info:git*:*' formats '[%b%m%c%u] ' # default ' (%s)-[%b]%c%u-'
@@ -516,7 +516,7 @@ if [ -f "$HOME/.zsh/zsh-async/async.zsh" ]; then
     function +vi-git-untracked() {
       emulate -L zsh
       if [[ -n $(git ls-files --exclude-standard --others 2> /dev/null) ]]; then
-        hook_com[unstaged]+="%F{blue}●%f"
+        hook_com[unstaged]+="%F{blue}•%f"
       fi
     }
   }
