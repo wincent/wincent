@@ -9,9 +9,6 @@
 	branch = main
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/base16-nvim
 	url = https://github.com/wincent/base16-nvim.git
-[submodule "base16-templates-source"]
-	path = vendor/base16-templates-source
-	url = https://github.com/chriskempson/base16-templates-source.git
 [submodule "cmp-buffer"]
 	branch = main
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-buffer
@@ -256,3 +253,15 @@
 [submodule "tinted-theming/schemes"]
 	path = vendor/tinted-theming/schemes
 	url = https://github.com/tinted-theming/schemes.git
+[submodule "tinted-theming/base16-vim"]
+	path = vendor/tinted-theming/base16-vim
+	url = https://github.com/tinted-theming/base16-vim.git
+[submodule "tinted-theming/tinted-tmux"]
+	path = vendor/tinted-theming/tinted-tmux
+	url = https://github.com/tinted-theming/tinted-tmux.git
+[submodule "tinted-theming/tinted-shell"]
+	path = vendor/tinted-theming/tinted-shell
+	url = https://github.com/tinted-theming/tinted-shell.git
+[submodule "tinted-theming/tinted-kitty"]
+	path = vendor/tinted-theming/tinted-kitty
+	url = https://github.com/tinted-theming/tinted-kitty.git

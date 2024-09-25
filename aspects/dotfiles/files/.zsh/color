@@ -44,7 +44,7 @@ color() {
   emulate -L zsh
 
   local SCHEME
-  local BASE16_DIR=~/.zsh/colors
+  local BASE16_DIR=~/.zsh/colors/scripts
   local BASE16_CONFIG_PREVIOUS="${__WINCENT[BASE16_CONFIG]}.previous"
   local STATUS=0
 
@@ -105,7 +105,7 @@ color() {
       # swallow stderr.
       (
         cd ~/.config/kitty &&
-        ln -sf colors/base16-$SCHEME-256.conf colors.conf 2> /dev/null
+        ln -sf colors-256/base16-$SCHEME.conf colors.conf 2> /dev/null
 
         cd ~/.config/tmux &&
         ln -sf colors/base16-$SCHEME.conf theme.conf 2> /dev/null
