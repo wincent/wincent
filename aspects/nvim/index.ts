@@ -42,7 +42,6 @@ task('create symlinks', async () => {
   }
 });
 
-
 const COMMAND_T_BASE = 'nvim/pack/bundle/opt/command-t';
 const COMMAND_T_LUA = 'lua/wincent/commandt/lib';
 const COMMAND_T_RUBY = 'ruby/command-t/ext/command-t';
