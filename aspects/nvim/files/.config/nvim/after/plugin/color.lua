@@ -88,6 +88,9 @@ local check = function()
     normal['blend'] = vim.o.winblend
     pinnacle.set('FloatBorder', normal)
 
+    -- Make undercurl color for misspelled words red instead of matching text.
+    pinnacle.merge('SpellBad', { sp = 'Red' })
+
     -- Allow for overrides:
     -- - `lua/wincent/statusline.lua` will re-set User1, User3 etc.
     -- - `after/plugin/loupe.lua` will override Search, QuickFixLine.
