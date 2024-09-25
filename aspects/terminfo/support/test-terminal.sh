@@ -24,6 +24,7 @@ echo "# text decorations"
 printf '\e[1mbold\e[22m\n'
 printf '\e[2mdim\e[22m\n'
 printf '\e[3mitalic\e[23m\n'
+printf '\e[1;3mbold + italic\e[22;23m\n'
 printf '\e[4munderline\e[24m\n'
 printf '\e[4:1mthis is also underline\e[24m\n'
 printf '\e[21mdouble underline\e[24m\n'
