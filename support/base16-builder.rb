@@ -9,7 +9,7 @@ require "yaml"
 base = Pathname.new(__dir__)
 root = base.join("..")
 vendor = root.join("vendor")
-schemes_list = YAML.load(vendor.join("base16-schemes-source/list.yaml").read)
+schemes = vendor.join("tinted-theming/schemes/base16").glob("*.yaml")
 templates_list = YAML.load(vendor.join("base16-templates-source/list.yaml").read)
 
 def banner(msg)
@@ -34,45 +34,18 @@ banner "Updating schema definitions"
 
 scheme_definitions= {}
 
-schemes_list.each do |name, url|
-  if url !~ %r{\Ahttps://github\.com/}
-    puts "#{name}: skipping (unsupported format: #{url})"
+schemes.each do |scheme_definition|
+  slug = scheme_definition.basename.sub_ext("")
+  data = YAML.load_file(scheme_definition)
+  if data["system"] == "base16"
+    puts "Read: #{slug}"
+    scheme_definitions[slug] = data['palette']
+    scheme_definitions[slug]['author'] = obliterate_crypto_casino_links(data['author'])
+    scheme_definitions[slug]['scheme'] = data['name']
   else
-    scheme_author_and_repo = url.
-      sub(%r{\Ahttps://github\.com/}, '').
-      sub(%r{\.git\z}, '')
-    schemes = vendor.join("base16-schemes")
-    scheme_dir = schemes.join(scheme_author_and_repo)
-    unless no_fetch?(scheme_author_and_repo)
-      if scheme_dir.exist?
-        puts "#{name}: updating #{scheme_author_and_repo}"
-        system("git", "-C", scheme_dir.to_s, "pull")
-      else
-        puts "#{name}: cloning #{scheme_author_and_repo}"
-        author = scheme_author_and_repo.split('/').first
-        author_dir = schemes.join(author)
-        author_dir.mkpath
-        system("git", "-C", author_dir.to_s, "clone", url)
-      end
-    end
-
-    scheme_dir.glob("*.{yaml,yml}").each do |scheme|
-      basename = scheme.basename(scheme.extname).to_s
-      if scheme_definitions.has_key?(basename)
-        puts "Skipped: #{basename} (already exists)"
-      else
-        data = YAML.load(scheme.read)
-        if data['scheme'].is_a?(String) && data['author'].is_a?(String) && data['base00'].is_a?(String)
-          puts "Read: #{scheme.basename}"
-          data['author'] = obliterate_crypto_casino_links(data['author'])
-          scheme_definitions[basename] = data
-        else
-          # Needed for repos like stepchowfun/base16-circus-scheme, which has
-          # "circus.yaml" (a scheme) and "toast.yml" (not a scheme).
-          puts "Skipped: #{basename} (not a scheme definition)"
-        end
-      end
-    end
+    # Needed for repos like stepchowfun/base16-circus-scheme, which has
+    # "circus.yaml" (a scheme) and "toast.yml" (not a scheme).
+    puts "Skipped: #{slug} (not a Base16 scheme definition)"
   end
 end
 
@@ -88,12 +61,13 @@ templates = vendor.join("base16-templates")
       sub(%r{\Ahttps://github\.com/}, '').
       sub(%r{\.git\z}, '')
     template_dir = templates.join("base16-#{target}")
+    template_dir_relative = template_dir.relative_path_from(Dir.pwd)
     unless ENV['NO_CLONE'] == '1'
       if template_dir.exist?
-        puts "#{target}: updating clone #{template_dir}"
-        system("git", "-C", template_dir.to_s, "pull")
+        puts "#{target}: updating clone #{template_dir_relative}"
+        system("git", "-C", template_dir_relative.to_s, "pull")
       else
-        puts "#{target}: cloning into #{template_dir}"
+        puts "#{target}: cloning into #{template_dir_relative}"
         system("git", "-C", templates.to_s, "clone", url)
       end
     end
@@ -119,7 +93,14 @@ banner "Updating templates"
   template_config.keys.each do |name|
     raise 'Missing "extension" key' unless template_config[name].has_key?("extension")
     extension = template_config[name]["extension"]
-    template = template_dir.join("templates/#{name}.mustache").read
+    if template_config[name]['supported-systems']&.include?('base24')
+      # Beware base16-tmux, which has a Base24 template and uses interpolations
+      # we don't currently support.
+      puts "Skipping Base24 template: #{name}"
+      next
+    end
+    source = template_dir.join("templates/#{name}.mustache")
+    template = source.read
     template = obliterate_crypto_casino_links(template)
     scheme_definitions.each do |slug, definition|
       output = ""
@@ -140,7 +121,7 @@ banner "Updating templates"
                     when /\A\s*scheme-name\s*\z/
                       definition["scheme"]
                     when /\A\s*scheme-slug\s*\z/
-                      slug
+                      slug.to_s
                     when /\A\s*base(00|01|02|03|04|05|06|07|08|09|0A|0B|0C|0D|0E|0F)-dec-([rgb])\s*\z/
                       case $~[2]
                       when "r" then (definition["base#{$~[1]}"][0..1].to_i(16) / 255.0).to_s
@@ -155,24 +136,32 @@ banner "Updating templates"
                       when "g" then definition["base#{$~[1]}"][2..3].to_s
                       when "b" then definition["base#{$~[1]}"][4..5].to_s
                       end
+                    when /\A[a-z0-f-]+\z/
+                      # See https://github.com/chriskempson/base16/blob/main/builder.md
+                      # for more possibilities, which I'll implement only if
+                      # needed.
+                      raise "error: unrecognized interpolation (#{interpolation.inspect}) in #{source}"
                     else
-                      # See https://github.com/chriskempson/base16 for more
-                      # possibilities, which I'll implement only if needed.
-                      raise "error: unrecognized interpolation (#{interpolation.inspect})"
+                      # Not a Base16 interpolation. Pass through. An
+                      # example of this can be found in base16-tmux,
+                      # which has a window status format containing
+                      # `#W#{{?window_zoomed_flag,*Z,}}`.
+                      interpolation
                     end
         end
       end
       output_file = output_dir.join("base16-#{slug}#{extension}")
+      output_file_relative = output_file.relative_path_from(Dir.pwd)
       if output_file.exist?
         current_contents = output_file.read
         if output != current_contents
-          puts "Writing: #{output_file}"
+          puts "Writing: #{output_file_relative}"
           output_file.write(output)
         else
-          puts "Up-to-date: #{output_file}"
+          puts "Up-to-date: #{output_file_relative}"
         end
       else
-        puts "Creating: #{output_file}"
+        puts "Creating: #{output_file_relative}"
         output_file.write(output)
       end
     end
