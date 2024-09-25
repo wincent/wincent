@@ -43,10 +43,6 @@ export default {
       ],
       variables: {},
     },
-    'linux.debian': {
-      aspects: ['meta', ['apt', 'dotfiles', 'shell', 'node'], ['nvim', 'ruby']],
-      variables: {},
-    },
   },
   profiles: {
     personal: {

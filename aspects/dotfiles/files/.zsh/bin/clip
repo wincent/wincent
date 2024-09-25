@@ -11,8 +11,6 @@ if [ -e /etc/arch-release ]; then
   elif [ -S "$HOME/.clipper-remote.sock" ]; then
     socat - UNIX-CLIENT:$HOME/.clipper-remote.sock
   fi
-elif [ -e /etc/debian_version ]; then
-  socat - UNIX-CLIENT:$HOME/.clipper.sock
 else
   nc -U ~/.clipper.sock
 fi

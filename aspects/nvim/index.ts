@@ -42,39 +42,6 @@ task('create symlinks', async () => {
   }
 });
 
-task('make /opt/nvim', when('debian'), async () => {
-  await file({path: '/opt', state: 'directory', sudo: true});
-  await file({path: '/opt/nvim', state: 'directory', sudo: true});
-});
-
-task('download Neovim appimage', when('debian'), async () => {
-  await fetch({
-    dest: '/opt/nvim/nvim.appimage',
-    encoding: null,
-    url:
-      'https://github.com/neovim/neovim/releases/download/v0.10.0/nvim.appimage',
-    checksum:
-      'sha256:6a021e9465fe3d3375e28c3e94c1c2c4f7d1a5a67e4a78cf52d18d77b1471390',
-    sudo: true,
-  });
-});
-
-task('make Neovim appimage executable', when('debian'), async () => {
-  await file({
-    path: '/opt/nvim/nvim.appimage',
-    mode: '0755',
-    state: 'file',
-    sudo: true,
-  });
-});
-
-task('extract Neovim appimage files', when('debian'), async () => {
-  await command('/opt/nvim/nvim.appimage', ['--appimage-extract'], {
-    chdir: '/opt/nvim',
-    creates: '/opt/nvim/squashfs-root',
-    sudo: true,
-  });
-});
 
 const COMMAND_T_BASE = 'nvim/pack/bundle/opt/command-t';
 const COMMAND_T_LUA = 'lua/wincent/commandt/lib';

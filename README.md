@@ -190,7 +190,6 @@ At the time of writing, these are the aspects, which you can expect to change ov
   - **ssh**: Manages local SSH config
   - **violentmonkey**: Sets up UserScripts
 - On Linux only:
-  - **apt**: Installs packages using `apt-get`.
   - **aur**: Installs packages from the Arch User Repository.
   - **avahi**: Manages the Avahi zeroconf ("Bonjour") networking daemon.
   - **interception**: Sets up Interceptions Tools (keyboard customization).

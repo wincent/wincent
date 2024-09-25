@@ -411,9 +411,6 @@ function msToHumanReadable(ms: number): string {
 
 async function loadAspect(aspect: Aspect): Promise<void> {
   switch (aspect) {
-    case 'apt':
-      await import('../aspects/apt/index.js');
-      break;
     case 'aur':
       await import('../aspects/aur/index.js');
       break;
