@@ -15,7 +15,6 @@ export default {
         'shell',
         'ssh',
         'violentmonkey',
-        'terminfo',
         'nvim',
         'cron',
         'automator',
@@ -39,14 +38,13 @@ export default {
         'sshd',
         'systemd',
         'interception',
-        'terminfo',
         'node',
         'nvim',
       ],
       variables: {},
     },
     'linux.debian': {
-      aspects: ['meta', ['apt', 'dotfiles', 'shell', 'node', 'terminfo'], [
+      aspects: ['meta', ['apt', 'dotfiles', 'shell', 'node'], [
         'nvim',
         'ruby',
       ]],

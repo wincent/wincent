@@ -489,9 +489,6 @@ async function loadAspect(aspect: Aspect): Promise<void> {
     case 'violentmonkey':
       await import('../aspects/violentmonkey/index.js');
       break;
-    case 'terminfo':
-      await import('../aspects/terminfo/index.js');
-      break;
     case 'nvim':
       await import('../aspects/nvim/index.js');
       break;

@@ -202,7 +202,6 @@ At the time of writing, these are the aspects, which you can expect to change ov
   - **dotfiles**: Creates symlinks in \$HOME to the dotfiles in this repo
   - **meta**: Tests the configuration framework
   - **shell**: Sets the use shell to zsh
-  - **terminfo**: Sets up terminfo database entries for italics and 256-color support
   - **nvim**: Configures Neovim and Vim
 
 #### Examples
