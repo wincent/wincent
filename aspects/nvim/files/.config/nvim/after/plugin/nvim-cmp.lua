@@ -135,13 +135,17 @@ if has_cmp then
 
   cmp.setup({
     experimental = {
+      -- See also `toggle_ghost_text()` below.
       ghost_text = true,
     },
+
     mapping = {
       ['<BS>'] = cmp.mapping(function(_fallback)
         local keys = smart_bs()
         vim.api.nvim_feedkeys(keys, 'nt', true)
       end, { 'i', 's' }),
+
+      ['<C-b>'] = cmp.mapping.scroll_docs(-4),
 
       -- Choose a choice using vim.ui.select (ugh);
       -- prettier would be a pop-up, but it will require a bit of config:
@@ -158,6 +162,7 @@ if has_cmp then
         end
       end, { 'i', 's' }),
 
+      ['<C-f>'] = cmp.mapping.scroll_docs(4),
       ['<C-j>'] = cmp.mapping(select_next_item),
       ['<Down>'] = cmp.mapping(select_next_item),
       ['<C-k>'] = cmp.mapping(select_prev_item),
@@ -222,7 +227,50 @@ if has_cmp then
     }),
 
     window = {
-      documentation = cmp.config.window.bordered(),
+      completion = cmp.config.window.bordered({
+        col_offset = -1,
+        scrollbar = false,
+        scrolloff = 3,
+        -- Default for bordered() is 'Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None'
+        -- Default for non-bordered, which we'll use here, is:
+        winhighlight = 'Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None',
+      }),
+      documentation = cmp.config.window.bordered({
+        scrollbar = false,
+        -- Default for bordered() is 'Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None'
+        -- Default for non-bordered is 'FloatBorder:NormalFloat'
+        -- Suggestion from: https://github.com/hrsh7th/nvim-cmp/issues/2042
+        -- is to use 'NormalFloat:NormalFloat,FloatBorder:FloatBorder,CursorLine:Visual,Search:None'
+        -- but this also seems to suffice:
+        winhighlight = 'CursorLine:Visual,Search:None',
+      }),
     },
+  })
+
+  -- Only show ghost text at word boundaries, not inside keywords. Based on idea
+  -- from: https://github.com/hrsh7th/nvim-cmp/issues/2035#issuecomment-2347186210
+
+  local config = require('cmp.config')
+
+  local toggle_ghost_text = function()
+    if vim.api.nvim_get_mode().mode ~= 'i' then
+      return
+    end
+
+    local cursor_column = vim.fn.col('.')
+    local current_line_contents = vim.fn.getline('.')
+    local character_after_cursor = current_line_contents:sub(cursor_column, cursor_column)
+
+    local should_enable_ghost_text = character_after_cursor == '' or vim.fn.match(character_after_cursor, [[\k]]) == -1
+
+    config.set_onetime({
+      experimental = {
+        ghost_text = should_enable_ghost_text,
+      },
+    })
+  end
+
+  vim.api.nvim_create_autocmd({ 'InsertEnter', 'CursorMovedI' }, {
+    callback = toggle_ghost_text,
   })
 end

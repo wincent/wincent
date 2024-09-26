@@ -81,7 +81,7 @@ local check = function()
 
     -- Make floating windows look nicer, as seen in wiki:
     -- https://github.com/neovim/nvim-lspconfig/wiki/UI-customization
-    local factor = dark and 0.15 or -0.15
+    local factor = dark and 0.1 or -0.1
     local normal = pinnacle.adjust_lightness('Normal', factor)
     pinnacle.set('NormalFloat', normal)
     normal['fg'] = dark and '#ffffff' or '#000000'
