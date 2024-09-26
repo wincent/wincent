@@ -91,6 +91,11 @@ local check = function()
     -- Make undercurl color for misspelled words red instead of matching text.
     pinnacle.merge('SpellBad', { sp = 'Red' })
 
+    local match = pinnacle.decorate({ 'underline', 'bold' }, 'PMenu')
+
+    pinnacle.set('CmpItemAbbrMatch', match)
+    pinnacle.set('CmpItemAbbrMatchFuzzy', match)
+
     -- Allow for overrides:
     -- - `lua/wincent/statusline.lua` will re-set User1, User3 etc.
     -- - `after/plugin/loupe.lua` will override Search, QuickFixLine.

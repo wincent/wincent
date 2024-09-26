@@ -4,6 +4,43 @@ if has_cmp then
   local rhs = wincent.vim.rhs
   local has_luasnip, luasnip = pcall(require, 'luasnip')
 
+  -- Icons from font bundled with kitty, as shown by `kitty
+  -- --debug-font-fallback`:
+  --
+  --      [3.235] U+eb62 Face(family=Symbols Nerd Font Mono,
+  --      full_name=Symbols Nerd Font Mono, postscript_name=SymbolsNFM,
+  --      path=/Applications/kitty.app/Contents/Resources/kitty/fonts/SymbolsNerdFontMono-Regular.ttf,
+  --      units_per_em=2048, ascent=22.4, descent=5.6, leading=0.0,
+  --      scaled_point_sz=28.0, underline_position=-3.5 underline_thickness=1.4)
+  --
+  local lsp_kinds = {
+    Class = ' ',
+    Color = ' ',
+    Constant = ' ',
+    Constructor = ' ',
+    Enum = ' ',
+    EnumMember = ' ',
+    Event = ' ',
+    Field = ' ',
+    File = ' ',
+    Folder = ' ',
+    Function = ' ',
+    Interface = ' ',
+    Keyword = ' ',
+    Method = ' ',
+    Module = ' ',
+    Operator = ' ',
+    Property = ' ',
+    Reference = ' ',
+    Snippet = ' ',
+    Struct = ' ',
+    Text = ' ',
+    TypeParameter = ' ',
+    Unit = ' ',
+    Value = ' ',
+    Variable = ' ',
+  }
+
   -- Returns the current column number.
   local column = function()
     local _line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -137,6 +174,22 @@ if has_cmp then
     experimental = {
       -- See also `toggle_ghost_text()` below.
       ghost_text = true,
+    },
+
+    formatting = {
+      -- See: https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance
+      format = function(entry, vim_item)
+        -- Set `kind` to "$icon $kind".
+        vim_item.kind = string.format('%s %s', lsp_kinds[vim_item.kind], vim_item.kind)
+        vim_item.menu = ({
+          buffer = '[Buffer]',
+          nvim_lsp = '[LSP]',
+          luasnip = '[LuaSnip]',
+          nvim_lua = '[Lua]',
+          latex_symbols = '[LaTeX]',
+        })[entry.source.name]
+        return vim_item
+      end,
     },
 
     mapping = {
