@@ -101,7 +101,7 @@ lsp.init = function()
       on_attach = on_attach,
     })
 
-    lspconfig.tsserver.setup({
+    lspconfig.ts_ls.setup({
       capabilities = capabilities,
       handlers = handlers,
       on_attach = on_attach,
