@@ -20,19 +20,9 @@ lsp.init = function()
   local capabilities = vim.lsp.protocol.make_client_capabilities()
 
   -- UI tweaks from https://github.com/neovim/nvim-lspconfig/wiki/UI-customization
-  local border = {
-    { '╭', 'FloatBorder' },
-    { '─', 'FloatBorder' },
-    { '╮', 'FloatBorder' },
-    { '│', 'FloatBorder' },
-    { '╯', 'FloatBorder' },
-    { '─', 'FloatBorder' },
-    { '╰', 'FloatBorder' },
-    { '│', 'FloatBorder' },
-  }
   local handlers = {
-    ['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
-    ['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
+    ['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'single' }),
+    ['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'single' }),
   }
 
   local has_cmp_nvim_lsp, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
