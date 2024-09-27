@@ -242,14 +242,17 @@
 	path = aspects/dotfiles/files/.zsh/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
 [submodule "mini.ai"]
+	branch = main
 	ignore = untracked
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.ai
 	url = https://github.com/echasnovski/mini.ai.git
 [submodule "mini.surround"]
+	branch = main
 	ignore = untracked
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.surround
 	url = https://github.com/echasnovski/mini.surround.git
 [submodule "mini.extra"]
+	branch = main
 	ignore = untracked
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.extra
 	url = https://github.com/echasnovski/mini.extra.git
