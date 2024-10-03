@@ -73,8 +73,8 @@ vim.keymap.set('n', '<C-s>', function()
   local buffer_line = vim.api.nvim_win_get_cursor(0)[1]
   local column = vim.api.nvim_win_get_cursor(0)[2] + 1
   local screenpos = vim.fn.screenpos(0, buffer_line, column)
-  local compacted = vim.inspect(screenpos):gsub('%s+', ' ')
-  print(compacted)
+  local compact_result = vim.inspect(screenpos):gsub('%s+', ' ')
+  print(string.format('screenpos(0, %d, %d) = %s', buffer_line, column, compact_result))
 end)
 
 -- Repurpose cursor keys (accessible near homerow via "SpaceFN" layout) for one
