@@ -68,6 +68,15 @@ vim.keymap.set('n', '<M-Right>', function()
   wincent.mappings.normal.resize_right()
 end)
 
+-- Debug helper for https://github.com/neovim/neovim/issues/19606
+vim.keymap.set('n', '<C-s>', function()
+  local buffer_line = vim.api.nvim_win_get_cursor(0)[1]
+  local column = vim.api.nvim_win_get_cursor(0)[2] + 1
+  local screenpos = vim.fn.screenpos(0, buffer_line, column)
+  local compacted = vim.inspect(screenpos):gsub('%s+', ' ')
+  print(compacted)
+end)
+
 -- Repurpose cursor keys (accessible near homerow via "SpaceFN" layout) for one
 -- of my most oft-use key sequences.
 vim.keymap.set('n', '<Up>', ':cprevious<CR>', { silent = true })
