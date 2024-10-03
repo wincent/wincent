@@ -18,7 +18,7 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" Repurpose cursor keys (accessible near homerow via "SpaceFN" layout) for one
+" Repurpose cursor keys (accessible near home row via "SpaceFN" layout) for one
 " of my most oft-use key sequences.
 nnoremap <silent> <Up> :cprevious<CR>
 nnoremap <silent> <Down> :cnext<CR>

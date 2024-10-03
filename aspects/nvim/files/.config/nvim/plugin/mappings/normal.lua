@@ -77,7 +77,7 @@ vim.keymap.set('n', '<C-s>', function()
   print(string.format('screenpos(0, %d, %d) = %s', buffer_line, column, compact_result))
 end)
 
--- Repurpose cursor keys (accessible near homerow via "SpaceFN" layout) for one
+-- Repurpose cursor keys (accessible near home row via "SpaceFN" layout) for one
 -- of my most oft-use key sequences.
 vim.keymap.set('n', '<Up>', ':cprevious<CR>', { silent = true })
 vim.keymap.set('n', '<Down>', ':cnext<CR>', { silent = true })
