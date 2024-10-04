@@ -8,7 +8,7 @@ local lazy = function(pack, config)
   -- As a convenience, accept: {'CommandA', 'CommandB'}
   -- and transform it into: {CommandA = true, CommandB = true}
   -- which is equivalent to: {CommandA = '', CommandB = ''} (ie. no opts)
-  if config.commands ~= nil and vim.tbl_islist(config.commands) then
+  if config.commands ~= nil and vim.islist(config.commands) then
     local commands = {}
     for _, command in ipairs(config.commands) do
       commands[command] = true
