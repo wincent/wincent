@@ -232,6 +232,23 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '^x^x' edit-command-line
 
+edit-last-command-output() {
+  if [[ "$TERM" =~ "tmux" ]]; then
+    tmux capture-pane -p -S - -E - -J | tac | awk '
+      found && !/❯/ { print }
+      /❯/ && !found { found=1; next }
+      /❯/ && found {exit}
+    ' | tac | nvim -
+  else
+    echo
+    print -Pn "%F{red}error: can't capture last command output outside of tmux%f"
+    zle accept-line
+  fi
+}
+
+zle -N edit-last-command-output
+bindkey '^x^o' edit-last-command-output
+
 bindkey ' ' magic-space # do history expansion on space
 
 # Replace standard history-incremental-search-{backward,forward} bindings.
