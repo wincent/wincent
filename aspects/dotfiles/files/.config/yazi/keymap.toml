@@ -34,6 +34,12 @@ run  = "plugin --sync smart-enter"
 desc = "Enter the child directory, or open the file"
 
 [[manager.prepend_keymap]]
+# See: https://yazi-rs.github.io/docs/tips/#smart-paste
+on   = "p"
+run  = "plugin --sync smart-paste"
+desc = "Paste into the hovered directory or CWD"
+
+[[manager.prepend_keymap]]
 # (Normally, "Open selected files".)
 # See: https://yazi-rs.github.io/docs/tips#smart-enter
 on   = "<Enter>"
