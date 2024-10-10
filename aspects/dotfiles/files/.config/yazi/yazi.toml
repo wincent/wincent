@@ -5,5 +5,5 @@ linemode = "size" # default = "none"
 ratio = [2, 3, 5] # default = [1, 4, 3]
 
 [preview]
-max_width       = 1600 # default = 600
-max_height      = 1900 # default = 900
+max_width       = 3024 # default = 600
+max_height      = 1964 # default = 900
