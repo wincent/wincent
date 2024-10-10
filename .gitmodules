@@ -272,5 +272,5 @@
 	path = vendor/tinted-theming/tinted-kitty
 	url = https://github.com/tinted-theming/tinted-kitty.git
 [submodule "yazi-rs/plugins"]
-	path = aspects/dotfiles/files/.config/yazi/plugins
+	path = aspects/dotfiles/files/.config/yazi/vendor/plugins
 	url = https://github.com/yazi-rs/plugins.git

@@ -1,3 +1,4 @@
+/aspects/dotfiles/files/.config/yazi/vendor
 /aspects/nvim/files/.config/nvim/pack
 /aspects/nvim/files/.config/nvim/undo
 /vendor

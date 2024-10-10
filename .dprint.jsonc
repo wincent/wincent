@@ -35,6 +35,7 @@
     "/aspects/dotfiles/files/.config/Raycast/extensions",
     "/aspects/dotfiles/files/.config/git/handles.json",
     "/aspects/dotfiles/files/.config/screenkey.json",
+    "/aspects/dotfiles/files/.config/yazi/vendor",
     "/aspects/dotfiles/files/.zsh/skim",
     "/aspects/dotfiles/files/.zsh/zsh-async",
     "/aspects/dotfiles/files/.zsh/zsh-autosuggestions",
