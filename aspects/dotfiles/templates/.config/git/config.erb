@@ -68,6 +68,11 @@
 
 	# Show just the HEAD commit message (no indent) and nothing else.
 	message = !git --paginate log -1 --pretty=format:%B
+
+	# Show "my" branches (ie. those starting with "$USER/") in order of recency.
+	# See also `recent`.
+	mine = branch --list --sort=-committerdate '<%= variables.gitHubUsername %>/*'
+
 	msg = message
 
 	no-edit = commit --amend --no-edit
@@ -79,6 +84,10 @@
 	# Requires Git 1.5.4 or later.
 	p = add -p
 	patch = add -p
+
+	# Show recently-committed-to branches.
+	# See also `mine`.
+	recent = branch --list --sort=-committerdate
 
 	# Recover previous COMMIT_EDITMSG, if there is one.
 	recover = !cat "$(git rev-parse --git-dir 2> /dev/null)/COMMIT_EDITMSG"
