@@ -25,3 +25,17 @@ desc = "Navigate down in the parent directory without changing focus"
 on  = "K"
 run = "plugin --sync parent-arrow --args=-1"
 desc = "Navigate up in the parent directory without changing focus"
+
+[[manager.prepend_keymap]]
+# (Normally, "Open selected files".)
+# See: https://yazi-rs.github.io/docs/tips#smart-enter
+on   = "o"
+run  = "plugin --sync smart-enter"
+desc = "Enter the child directory, or open the file"
+
+[[manager.prepend_keymap]]
+# (Normally, "Open selected files".)
+# See: https://yazi-rs.github.io/docs/tips#smart-enter
+on   = "<Enter>"
+run  = "plugin --sync smart-enter"
+desc = "Enter the child directory, or open the file"
