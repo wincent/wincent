@@ -11,3 +11,17 @@ desc = "Hide or show preview"
 on   = "F"
 run  = "plugin --sync max-preview"
 desc = "Maximize or restore preview"
+
+[[manager.prepend_keymap]]
+# (Normally, "Seek down 5 units in the preview".)
+# See: https://yazi-rs.github.io/docs/tips#parent-arrow
+on  = "J"
+run = "plugin --sync parent-arrow --args=1"
+desc = "Navigate down in the parent directory without changing focus"
+
+[[manager.prepend_keymap]]
+# (Normally, "Seek up 5 units in the preview".)
+# See: https://yazi-rs.github.io/docs/tips#parent-arrow
+on  = "K"
+run = "plugin --sync parent-arrow --args=-1"
+desc = "Navigate up in the parent directory without changing focus"
