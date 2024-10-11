@@ -37,6 +37,7 @@ if command -v nvim &> /dev/null; then
 fi
 
 alias word='shuf -n1 /usr/share/dict/words'
+alias y=yazi
 
 #
 # Suffix aliases
