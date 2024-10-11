@@ -45,3 +45,10 @@ desc = "Paste into the hovered directory or CWD"
 on   = "<Enter>"
 run  = "plugin --sync smart-enter"
 desc = "Enter the child directory, or open the file"
+
+[[manager.prepend_keymap]]
+# Mnemonic: "[s]how"
+# (Normally, "Search files by name via fd".)
+on   = "s"
+run  = "plugin --sync reveal-in-finder"
+desc = "Reveal in Finder"
