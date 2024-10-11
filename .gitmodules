@@ -100,7 +100,7 @@
 	url = https://github.com/wincent/scalpel.git
 [submodule "shellbot"]
 	branch = wincent
-	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/shellbot/lua
+	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/shellbot
 	url = https://github.com/wincent/shellbot.git
 [submodule "skim"]
 	ignore = untracked
