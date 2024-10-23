@@ -22,10 +22,9 @@
 	dupes = !"f() { \
 		git ls-tree -r HEAD --format='%(objecttype)%x09%(path)%x09%(objectname)' | \
 		awk '$1 == \"blob\"' | \
-		cut -f 2- | \
 		sort | \
-		uniq -D -f 1 | \
-		awk '{ print $2 \" \" $1 }'; \
+		uniq -D -f 2 | \
+		awk '{ print $3 \" \" $2 }'; \
 	}; f"
 
 	ff = merge --ff-only
