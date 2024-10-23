@@ -19,7 +19,14 @@
 	}; f"
 
 	# http://stackoverflow.com/questions/224687/git-find-duplicate-blobs-files-in-this-tree/8408640#8408640
-	dupes = !"git ls-tree -r HEAD | cut -c 13- | sort | uniq -D -w 40"
+	dupes = !"f() { \
+		git ls-tree -r HEAD --format='%(objecttype)%x09%(path)%x09%(objectname)' | \
+		awk '$1 == \"blob\"' | \
+		cut -f 2- | \
+		sort | \
+		uniq -D -f 1 | \
+		awk '{ print $2 \" \" $1 }'; \
+	}; f"
 
 	ff = merge --ff-only
 
