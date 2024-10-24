@@ -21,7 +21,8 @@ HANDLE=$(trim "$1")
 HANDLE=$(space_to_plus "$HANDLE")
 
 if [ -z "$HANDLE" ]; then
-  open "https://github.com/$USER"
+  HANDLE=$(git config github.username 2> /dev/null || echo "$USER")
+  open "https://github.com/$HANDLE"
 elif [[ $HANDLE == *\? ]]; then
   # Trim trailing "?" suffix.
   HANDLE=$(chop "$HANDLE")
