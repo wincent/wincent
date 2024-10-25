@@ -69,6 +69,34 @@ function launch(from, ...args) {
   }];
 }
 
+const ALL_MODIFIERS = [
+  'left_control',
+  'left_command',
+  'left_option',
+  'left_shift',
+  'right_control',
+  'right_command',
+  'right_option',
+  'right_shift',
+];
+
+function forwardModifiedFunctionKey(functionKey) {
+  return ALL_MODIFIERS.map((modifier) => ({
+    from: {
+      key_code: functionKey,
+      modifiers: {
+        mandatory: [modifier],
+        optional: ['any'],
+      },
+    },
+    to: [{
+      key_code: functionKey,
+      modifiers: ['fn', modifier],
+    }],
+    type: 'basic',
+  }));
+}
+
 function spaceFN(from, to) {
   return [{
     from: {
@@ -495,6 +523,24 @@ const DEFAULT_PROFILE = applyExemptions({
           }],
           type: 'basic',
         }],
+      },
+      {
+        description:
+          'Media keys behave like function keys if modifiers are pressed',
+        manipulators: [
+          ...forwardModifiedFunctionKey('f1'),
+          ...forwardModifiedFunctionKey('f2'),
+          ...forwardModifiedFunctionKey('f3'),
+          ...forwardModifiedFunctionKey('f4'),
+          ...forwardModifiedFunctionKey('f5'),
+          ...forwardModifiedFunctionKey('f6'),
+          ...forwardModifiedFunctionKey('f7'),
+          ...forwardModifiedFunctionKey('f8'),
+          ...forwardModifiedFunctionKey('f9'),
+          ...forwardModifiedFunctionKey('f10'),
+          ...forwardModifiedFunctionKey('f11'),
+          ...forwardModifiedFunctionKey('f12'),
+        ],
       },
     ],
   },

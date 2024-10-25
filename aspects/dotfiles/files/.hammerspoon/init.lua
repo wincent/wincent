@@ -493,10 +493,6 @@ hs.hotkey.bind(
   })
 )
 
--- NOTE: These function key bindings only work on the internal keyboard, and
--- only when the "fn" modifier is pressed (otherwise the function keys get
--- treated as "media" keys such as "Play", "Volume Up" etc).
-
 hs.hotkey.bind({ 'ctrl', 'alt', 'cmd' }, 'f1', function()
   hs.alert('One-monitor layout')
   activateLayout(1)
