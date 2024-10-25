@@ -1,10 +1,14 @@
+const SPECIAL_MAPPINGS = {
+  spotlight: {apple_vendor_keyboard_key_code: 'spotlight'},
+};
+
 function fromTo(from, to) {
   return [{
     from: {
       key_code: from,
     },
     to: {
-      key_code: to,
+      ...(SPECIAL_MAPPINGS[to] ?? {key_code: to}),
     },
   }];
 }
