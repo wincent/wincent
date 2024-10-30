@@ -1,6 +1,11 @@
 <%# vim: set filetype=eruby.gitconfig : -%>
 # <%= variables.figManaged %>
 
+[absorb]
+	autoStageIfNothingStaged = true
+	fixupTargetAlwaysSHA = true
+	maxStack = 50
+
 [alias]
 	# See also, `long`.
 	abbrev = !bash -c 'git rev-parse --short ${1-`echo HEAD`}' -
