@@ -1,5 +1,7 @@
 local lsp = {}
 
+local open_floating_preview = vim.lsp.util.open_floating_preview
+
 local virtual_text = {
   virt_text_pos = 'right_align',
 }
@@ -26,11 +28,12 @@ end
 lsp.init = function()
   local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-  -- UI tweaks from https://github.com/neovim/nvim-lspconfig/wiki/UI-customization
-  local handlers = {
-    ['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'single' }),
-    ['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'single' }),
-  }
+  -- Global override, from https://github.com/neovim/nvim-lspconfig/wiki/UI-customization
+  function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+    opts = opts or {}
+    opts.border = opts.border or 'single'
+    return open_floating_preview(contents, syntax, opts, ...)
+  end
 
   vim.diagnostic.config({
     virtual_text = virtual_text,
@@ -46,7 +49,6 @@ lsp.init = function()
     lspconfig.clangd.setup({
       capabilities = capabilities,
       cmd = { 'clangd', '--background-index' },
-      handlers = handlers,
       on_attach = on_attach,
     })
 
@@ -65,7 +67,6 @@ lsp.init = function()
       lspconfig.lua_ls.setup({
         capabilities = capabilities,
         cmd = { cmd },
-        handlers = handlers,
         on_attach = on_attach,
         settings = {
           Lua = {
@@ -96,31 +97,26 @@ lsp.init = function()
 
     lspconfig.gopls.setup({
       capabilities = capabilities,
-      handlers = handlers,
       on_attach = on_attach,
     })
 
     lspconfig.ocamlls.setup({
       capabilities = capabilities,
-      handlers = handlers,
       on_attach = on_attach,
     })
 
     lspconfig.rust_analyzer.setup({
       capabilities = capabilities,
-      handlers = handlers,
       on_attach = on_attach,
     })
 
     lspconfig.ts_ls.setup({
       capabilities = capabilities,
-      handlers = handlers,
       on_attach = on_attach,
     })
 
     lspconfig.vimls.setup({
       capabilities = capabilities,
-      handlers = handlers,
       on_attach = on_attach,
     })
   end
