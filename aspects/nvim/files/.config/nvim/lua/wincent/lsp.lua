@@ -1,12 +1,19 @@
 local lsp = {}
 
+local virtual_text = {
+  virt_text_pos = 'right_align',
+}
+
 local on_attach = function()
   vim.keymap.set('n', '<Leader>ld', '<cmd>lua vim.diagnostic.open_float()<CR>', { buffer = true, silent = true })
 
   -- Mnemonic: kd = "kill diagnostics" (although it's really "toggle diagnostics")
   vim.keymap.set('n', '<Leader>kd', function()
-    local toggle = not vim.diagnostic.config().virtual_text
-    vim.diagnostic.config({ virtual_text = toggle })
+    if vim.diagnostic.config().virtual_text then
+      vim.diagnostic.config({ virtual_text = false })
+    else
+      vim.diagnostic.config({ virtual_text = virtual_text })
+    end
   end, { buffer = true, silent = true })
 
   vim.keymap.set('n', '<c-]>', '<cmd>lua vim.lsp.buf.definition()<CR>', { buffer = true, silent = true })
@@ -24,6 +31,10 @@ lsp.init = function()
     ['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'single' }),
     ['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'single' }),
   }
+
+  vim.diagnostic.config({
+    virtual_text = virtual_text,
+  })
 
   local has_cmp_nvim_lsp, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
   if has_cmp_nvim_lsp then
