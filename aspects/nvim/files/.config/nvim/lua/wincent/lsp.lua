@@ -59,6 +59,7 @@ lsp.init = function()
 
   vim.diagnostic.config({
     virtual_text = virtual_text,
+    severity_sort = true,
   })
 
   local has_cmp_nvim_lsp, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
@@ -147,27 +148,29 @@ end
 lsp.set_up_highlights = function()
   local has_pinnacle, pinnacle = pcall(require, 'wincent.pinnacle')
   if has_pinnacle then
-    pinnacle.set('DiagnosticError', pinnacle.decorate('italic,underline', 'ModeMsg'))
-    pinnacle.set('DiagnosticHint', pinnacle.decorate('bold,italic,underline', 'Type'))
-
-    pinnacle.set('DiagnosticSignHint', {
-      bg = pinnacle.bg('ColorColumn'),
-      fg = pinnacle.fg('Type'),
-    })
+    pinnacle.set('DiagnosticError', pinnacle.decorate('italic,underline', 'ErrorMsg'))
+    pinnacle.set('DiagnosticHint', pinnacle.decorate('italic,underline', 'ModeMsg'))
+    pinnacle.set('DiagnosticInfo', pinnacle.decorate('italic,underline', 'NvimLightCyan'))
+    pinnacle.set('DiagnosticWarn', pinnacle.decorate('italic,underline', 'Type'))
 
     pinnacle.set('DiagnosticSignError', {
       bg = pinnacle.bg('ColorColumn'),
       fg = pinnacle.fg('ErrorMsg'),
     })
 
+    pinnacle.set('DiagnosticSignHint', {
+      bg = pinnacle.bg('ColorColumn'),
+      fg = pinnacle.fg('ModeMsg'),
+    })
+
     pinnacle.set('DiagnosticSignInformation', {
       bg = pinnacle.bg('ColorColumn'),
-      fg = pinnacle.fg('DiagnosticHint'),
+      fg = pinnacle.fg('NvimLightCyan'),
     })
 
     pinnacle.set('DiagnosticSignWarning', {
       bg = pinnacle.bg('ColorColumn'),
-      fg = pinnacle.fg('DiagnosticHint'),
+      fg = pinnacle.fg('Type'),
     })
   end
 end
