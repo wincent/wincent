@@ -58,7 +58,23 @@ lsp.init = function()
   end
 
   vim.diagnostic.config({
-    virtual_text = virtual_text,
+    float = {
+      header = 'Diagnostics', -- Default is "Diagnostics:"
+      prefix = function(diagnostic, i, total)
+        if diagnostic.severity == vim.diagnostic.severity.ERROR then
+          return '✖ ', ''
+        elseif diagnostic.severity == vim.diagnostic.severity.HINT then
+          return '➤ ', ''
+        elseif diagnostic.severity == vim.diagnostic.severity.INFO then
+          return 'ℹ ', ''
+        elseif diagnostic.severity == vim.diagnostic.severity.WARN then
+          return '⚠︎ ', ''
+        else
+          return '- ', ''
+        end
+      end,
+    },
+
     severity_sort = true,
 
     -- See also: https://github.com/neovim/nvim-lspconfig/wiki/UI-customization#change-diagnostic-symbols-in-the-sign-column-gutter
@@ -82,6 +98,8 @@ lsp.init = function()
         [vim.diagnostic.severity.WARN] = 'DiagnosticSignWarn',
       },
     },
+
+    virtual_text = virtual_text,
   })
 
   local has_cmp_nvim_lsp, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
