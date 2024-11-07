@@ -14,6 +14,9 @@ local virtual_text = {
         break
       end
     end
+    if window == nil then
+      return diagnostic.message
+    end
     local win_width = vim.api.nvim_win_get_width(window)
     local line = vim.api.nvim_buf_get_lines(bufnr, lnum, lnum + 1, false)[1]
     local line_length = #line
