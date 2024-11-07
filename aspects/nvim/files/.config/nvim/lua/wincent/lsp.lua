@@ -2,6 +2,14 @@ local lsp = {}
 
 local open_floating_preview = vim.lsp.util.open_floating_preview
 
+local signs = {
+  ERROR = '✖',
+  WARN = '⚐',
+  INFO = '𝒾',
+  HINT = '✶',
+  UNKNOWN = '•',
+}
+
 local virtual_text = {
   virt_text_pos = 'right_align',
   format = function(diagnostic)
@@ -65,15 +73,15 @@ lsp.init = function()
       header = 'Diagnostics', -- Default is "Diagnostics:"
       prefix = function(diagnostic, i, total)
         if diagnostic.severity == vim.diagnostic.severity.ERROR then
-          return '✖ ', ''
+          return (signs.ERROR .. ' '), ''
         elseif diagnostic.severity == vim.diagnostic.severity.HINT then
-          return '➤ ', ''
+          return (signs.HINT .. ' '), ''
         elseif diagnostic.severity == vim.diagnostic.severity.INFO then
-          return 'ℹ ', ''
+          return (signs.INFO .. ' '), ''
         elseif diagnostic.severity == vim.diagnostic.severity.WARN then
-          return '⚠︎ ', ''
+          return (signs.WARN .. ' '), ''
         else
-          return '- ', ''
+          return (signs.UNKNOWN .. ' '), ''
         end
       end,
     },
@@ -83,10 +91,10 @@ lsp.init = function()
     -- See also: https://github.com/neovim/nvim-lspconfig/wiki/UI-customization#change-diagnostic-symbols-in-the-sign-column-gutter
     signs = {
       text = {
-        [vim.diagnostic.severity.ERROR] = '✖',
-        [vim.diagnostic.severity.HINT] = '➤',
-        [vim.diagnostic.severity.INFO] = 'ℹ',
-        [vim.diagnostic.severity.WARN] = '⚠',
+        [vim.diagnostic.severity.ERROR] = signs.ERROR,
+        [vim.diagnostic.severity.HINT] = signs.HINT,
+        [vim.diagnostic.severity.INFO] = signs.INFO,
+        [vim.diagnostic.severity.WARN] = signs.WARN,
       },
       texthl = {
         [vim.diagnostic.severity.ERROR] = '',
