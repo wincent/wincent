@@ -60,6 +60,28 @@ lsp.init = function()
   vim.diagnostic.config({
     virtual_text = virtual_text,
     severity_sort = true,
+
+    -- See also: https://github.com/neovim/nvim-lspconfig/wiki/UI-customization#change-diagnostic-symbols-in-the-sign-column-gutter
+    signs = {
+      text = {
+        [vim.diagnostic.severity.ERROR] = '✖',
+        [vim.diagnostic.severity.HINT] = '➤',
+        [vim.diagnostic.severity.INFO] = 'ℹ',
+        [vim.diagnostic.severity.WARN] = '⚠',
+      },
+      texthl = {
+        [vim.diagnostic.severity.ERROR] = '',
+        [vim.diagnostic.severity.HINT] = '',
+        [vim.diagnostic.severity.INFO] = '',
+        [vim.diagnostic.severity.WARN] = '',
+      },
+      numhl = {
+        [vim.diagnostic.severity.ERROR] = 'DiagnosticSignError',
+        [vim.diagnostic.severity.HINT] = 'DiagnosticSignHint',
+        [vim.diagnostic.severity.INFO] = 'DiagnosticSignInfo',
+        [vim.diagnostic.severity.WARN] = 'DiagnosticSignWarn',
+      },
+    },
   })
 
   local has_cmp_nvim_lsp, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
@@ -148,31 +170,68 @@ end
 lsp.set_up_highlights = function()
   local has_pinnacle, pinnacle = pcall(require, 'wincent.pinnacle')
   if has_pinnacle then
-    pinnacle.set('DiagnosticError', pinnacle.decorate('italic,underline', 'ErrorMsg'))
-    pinnacle.set('DiagnosticHint', pinnacle.decorate('italic,underline', 'ModeMsg'))
-    pinnacle.set('DiagnosticInfo', pinnacle.decorate('italic,underline', 'NvimLightCyan'))
-    pinnacle.set('DiagnosticWarn', pinnacle.decorate('italic,underline', 'Type'))
+    -- Base colors, in order of decreasing severity.
+    -- The `LspDiagnosticsDefault*` highlight groups here are coming from Base16.
+    pinnacle.link('DiagnosticError', 'LspDiagnosticsDefaultError') -- Red and scary.
+    pinnacle.link('DiagnosticWarn', 'LspDiagnosticsDefaultWarning') -- Orange and attention-grabbing.
+    pinnacle.set('DiagnosticInfo', {
+      fg = pinnacle.fg('ModeMsg'), -- Green and friendly.
+    })
+    pinnacle.set('DiagnosticHint', {
+      fg = pinnacle.fg('Special'), -- Blue/cyan and chirpy.
+    })
 
+    -- Sign column colors.
     pinnacle.set('DiagnosticSignError', {
       bg = pinnacle.bg('ColorColumn'),
-      fg = pinnacle.fg('ErrorMsg'),
+      fg = pinnacle.embolden('DiagnosticError').fg,
     })
-
     pinnacle.set('DiagnosticSignHint', {
       bg = pinnacle.bg('ColorColumn'),
-      fg = pinnacle.fg('ModeMsg'),
+      fg = pinnacle.embolden('DiagnosticHint').fg,
+    })
+    pinnacle.set('DiagnosticSignInfo', {
+      bg = pinnacle.bg('ColorColumn'),
+      fg = pinnacle.embolden('DiagnosticInfo').fg,
+    })
+    pinnacle.set('DiagnosticSignWarn', {
+      bg = pinnacle.bg('ColorColumn'),
+      fg = pinnacle.embolden('DiagnosticWarn').fg,
     })
 
-    pinnacle.set('DiagnosticSignInformation', {
-      bg = pinnacle.bg('ColorColumn'),
-      fg = pinnacle.fg('NvimLightCyan'),
-    })
+    -- Virtual text colors.
+    pinnacle.set('DiagnosticVirtualTextError', pinnacle.decorate('italic,underline', 'DiagnosticError'))
+    pinnacle.set('DiagnosticVirtualTextHint', pinnacle.decorate('italic,underline', 'DiagnosticHint'))
+    pinnacle.set('DiagnosticVirtualTextInfo', pinnacle.decorate('italic,underline', 'DiagnosticInfo'))
+    pinnacle.set('DiagnosticVirtualTextWarn', pinnacle.decorate('italic,underline', 'DiagnosticWarn'))
 
-    pinnacle.set('DiagnosticSignWarning', {
-      bg = pinnacle.bg('ColorColumn'),
-      fg = pinnacle.fg('Type'),
-    })
+    -- Diagnostic float colors.
+    pinnacle.set('DiagnosticFloatingError', pinnacle.italicize('DiagnosticError'))
+    pinnacle.set('DiagnosticFloatingHint', pinnacle.italicize('DiagnosticHint'))
+    pinnacle.set('DiagnosticFloatingInfo', pinnacle.italicize('DiagnosticInfo'))
+    pinnacle.set('DiagnosticFloatingWarn', pinnacle.italicize('DiagnosticWarn'))
   end
 end
 
 return lsp
+
+-- Testing diagnostics using Lua
+-- (https://github.com/LuaLS/lua-language-server/wiki/Diagnostics)
+
+-- Uncomment this to see an INFO diagnostic ("Global variable in lowecase
+-- initial, Did you miss `local` or misspell it?"):
+
+-- something = true
+
+-- Uncomment this to see a HINT diagnostic ("Unused functions"):
+
+-- local function example(); end
+
+-- Uncomment this to see a WARN diangostic ("Compute `'hello' .. _.e` first. You
+-- may need to add brackets"):
+
+-- print('hello' .. _.e or 'World')
+
+-- Uncomment this to see an ERROR diagnostic ("Unexpected <exp>"):
+
+-- vim.....
