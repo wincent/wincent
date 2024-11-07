@@ -227,7 +227,7 @@ lsp.set_up_highlights = function()
     pinnacle.set('DiagnosticVirtualTextWarn', pinnacle.decorate('italic,underline', 'DiagnosticWarn'))
 
     -- Diagnostic float colors.
-    pinnacle.set('DiagnosticFloatingError', pinnacle.italicize('DiagnosticError'))
+    pinnacle.set('DiagnosticFloatingError', pinnacle.decorate('italic,bold', 'DiagnosticError'))
     pinnacle.set('DiagnosticFloatingHint', pinnacle.italicize('DiagnosticHint'))
     pinnacle.set('DiagnosticFloatingInfo', pinnacle.italicize('DiagnosticInfo'))
     pinnacle.set('DiagnosticFloatingWarn', pinnacle.italicize('DiagnosticWarn'))
