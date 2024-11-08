@@ -134,7 +134,7 @@ lsp.init = function()
     -- See also:
     --
     -- - https://github.com/luals/lua-language-server/wiki/Getting-Started#command-line
-    -- - https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#lua_ls
+    -- - https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#lua_ls
     --
     local cmd = 'lua-language-server'
     if vim.fn.executable(cmd) == 1 then
