@@ -247,20 +247,24 @@ return lsp
 -- Testing diagnostics using Lua
 -- (https://github.com/LuaLS/lua-language-server/wiki/Diagnostics)
 
--- Uncomment this to see an INFO diagnostic ("Global variable in lowecase
--- initial, Did you miss `local` or misspell it?"):
+--[[
 
--- something = true
+-- Line with an INFO diagnostic ("Global variable in lowecase initial, Did you
+-- miss `local` or misspell it?"):
 
--- Uncomment this to see a HINT diagnostic ("Unused functions"):
+something = true
 
--- local function example(); end
+-- Line with a HINT diagnostic ("Unused functions"):
 
--- Uncomment this to see a WARN diangostic ("Compute `'hello' .. _.e` first. You
--- may need to add brackets"):
+local function example(); end
 
--- print('hello' .. _.e or 'World')
+-- Line with a WARN diangostic ("Compute `'hello' .. _.e` first. You may need to
+-- add brackets"):
 
--- Uncomment this to see an ERROR diagnostic ("Unexpected <exp>"):
+print('hello' .. _.e or 'World')
 
--- vim.....
+-- Line with an ERROR diagnostic ("Unexpected <exp>"):
+
+vim.....
+
+--]]
