@@ -340,8 +340,10 @@ if vim.o.loadplugins then
           },
         },
         window = {
+          backdrop = 1, -- Default is 0.95.
           height = 0.9, -- Could also make this a function...
           options = {
+            breakindent = false,
             cursorline = false,
             number = false,
             relativenumber = false,

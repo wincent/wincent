@@ -35,14 +35,6 @@ local check = function()
 
     pinnacle.merge('Comment', { italic = true })
 
-    -- Hide (or at least make less obvious) the EndOfBuffer region
-    pinnacle.set('EndOfBuffer', {
-      bg = 0,
-      ctermbg = 0,
-      ctermfg = 0,
-      fg = 0,
-    })
-
     -- Grey, just like we used to get with https://github.com/Yggdroot/indentLine
     if dark then
       pinnacle.set('Conceal', { ctermfg = 239, fg = 'Grey30' })
