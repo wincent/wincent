@@ -1,12 +1,11 @@
-vim.g.indent_blankline_filetype_exclude = {
-  -- Defaults.
-  'lspinfo',
-  'packer',
-  'checkhealth',
-  'help',
-  '',
-
-  -- Additions.
-  'gitcommit',
-  'markdown',
-}
+local has_ibl, ibl = pcall(require, 'ibl')
+if has_ibl then
+  ibl.setup({
+    exclude = {
+      filetypes = {
+        -- In addition to defaults (see `:h ibl.config.exclude`).
+        'markdown',
+      },
+    },
+  })
+end
