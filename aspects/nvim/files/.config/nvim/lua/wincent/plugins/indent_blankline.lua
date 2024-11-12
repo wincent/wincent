@@ -1,10 +1,10 @@
 -- For wrapping mappings related to folding and horizontal shifting so that
--- indent-blankline.nvim can update immediately. See:
--- https://github.com/lukas-reineke/indent-blankline.nvim/issues/118
+-- indent-blankline.nvim can update immediately when folds change.
 local indent_blankline = {
   wrap_mapping = function(mapping)
-    if vim.g.loaded_indent_blankline == 1 then
-      return mapping .. ':IndentBlanklineRefresh<CR>'
+    local has_ibl, ibl = pcall(require, 'ibl')
+    if has_ibl then
+      return mapping .. ":lua require('ibl').refresh(0)<CR>"
     else
       return mapping
     end
