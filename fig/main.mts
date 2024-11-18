@@ -495,7 +495,9 @@ async function loadAspect(aspect: Aspect): Promise<void> {
   }
 }
 
-main().catch(async (error) => {
+try {
+  await main();
+} catch (error) {
   if (error instanceof ErrorWithMetadata) {
     if (error.metadata) {
       await log.error(`${error.message}\n\n${stringify(error.metadata)}\n`);
@@ -503,10 +505,12 @@ main().catch(async (error) => {
       await log.error(error.message);
     }
   } else {
-    await log.error(error.toString());
+    await log.error(stringify(error));
   }
 
-  await log.debug(String(error.stack));
+  if (error instanceof Error) {
+    await log.debug(String(error.stack));
+  }
 
   process.exit(1);
-});
+}

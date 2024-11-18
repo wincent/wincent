@@ -21,7 +21,9 @@
     "node_modules"
   ],
   "include": [
+    "aspects/**/*.mts",
     "aspects/**/*.ts",
+    "fig/**/*.mts",
     "fig/**/*.ts",
     "helpers.ts",
     "project.ts",

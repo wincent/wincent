@@ -40,4 +40,4 @@ HERE
 
 log_info "Running main"
 
-node lib/fig/main.js "$@"
+node lib/fig/main.mjs "$@"
