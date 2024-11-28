@@ -14,7 +14,7 @@
       "fig/*": ["fig/*"]
     },
     "strict": true,
-    "target": "ES2019"
+    "target": "ES2023"
   },
   "exclude": [
     "aspects/interception/support/mac2linux/CMakeFiles/**",

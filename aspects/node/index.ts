@@ -4,7 +4,7 @@ import {command, file, helpers, path, skip, task} from 'fig';
 
 const {when} = helpers;
 
-const NODE_VERSION = '20.11.1';
+const NODE_VERSION = '22.11.0';
 
 const n = path.root.join('vendor/n/bin/n');
 const bin = path.home.join(`n/bin`);
