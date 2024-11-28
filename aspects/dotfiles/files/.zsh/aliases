@@ -13,6 +13,7 @@ alias b=bundle
 alias be='bundle exec'
 alias cd..='cd ..'
 alias chatgpt='vim -c ChatGPT -c only'
+alias chatgptx='env OPENAI_MODEL=o1-mini nvim -c ChatGPT -c only'
 alias d='hash -d'
 alias e=exit
 alias f='find . -name'
