@@ -10,18 +10,23 @@ local signs = {
   UNKNOWN = '•',
 }
 
+local get_window = function(bufnr)
+  local windows = vim.fn.win_findbuf(bufnr)
+  local tab = vim.api.nvim_get_current_tabpage()
+  for _, window in ipairs(windows) do
+    if tab == vim.api.nvim_win_get_tabpage(window) then
+      return window
+    end
+  end
+  return windows[1]
+end
+
 local virtual_text = {
   virt_text_pos = 'right_align',
   format = function(diagnostic)
     local bufnr = diagnostic.bufnr
     local lnum = diagnostic.lnum
-    local window = nil
-    for _, window_id in ipairs(vim.api.nvim_list_wins()) do
-      if vim.api.nvim_win_get_buf(window_id) == bufnr then
-        window = window_id
-        break
-      end
-    end
+    local window = get_window(bufnr)
     if window == nil then
       return diagnostic.message
     end
