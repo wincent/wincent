@@ -277,6 +277,10 @@ if has_cmp then
       { name = 'calc' },
       { name = 'emoji' },
       { name = 'path' },
+
+      -- BUG: this works, but is obviously undesirable because it makes the
+      -- custom source available everywhere...
+      { name = 'handles' },
     }),
 
     window = {
