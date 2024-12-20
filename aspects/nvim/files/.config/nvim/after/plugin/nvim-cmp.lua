@@ -277,10 +277,6 @@ if has_cmp then
       { name = 'calc' },
       { name = 'emoji' },
       { name = 'path' },
-
-      -- BUG: this works, but is obviously undesirable because it makes the
-      -- custom source available everywhere...
-      { name = 'handles' },
     }),
 
     window = {
@@ -322,7 +318,7 @@ if has_cmp then
 
     local should_enable_ghost_text = character_after_cursor == '' or vim.fn.match(character_after_cursor, [[\k]]) == -1
 
-    config.set_onetime({
+    config.set_global({
       experimental = {
         ghost_text = should_enable_ghost_text,
       },
