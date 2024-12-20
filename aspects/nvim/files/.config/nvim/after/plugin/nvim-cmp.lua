@@ -318,11 +318,14 @@ if has_cmp then
 
     local should_enable_ghost_text = character_after_cursor == '' or vim.fn.match(character_after_cursor, [[\k]]) == -1
 
-    config.set_global({
-      experimental = {
-        ghost_text = should_enable_ghost_text,
-      },
-    })
+    local current = config.get().experimental.ghost_text
+    if current ~= should_enable_ghost_text then
+      config.set_global({
+        experimental = {
+          ghost_text = should_enable_ghost_text,
+        },
+      })
+    end
   end
 
   vim.api.nvim_create_autocmd({ 'InsertEnter', 'CursorMovedI' }, {
