@@ -37,8 +37,8 @@ handles.setup = function()
   end
 
   source.get_keyword_pattern = function()
-    -- Add dot to existing keyword characters (\k).
-    return [[\%(\k\|\.\)\+]]
+    -- Add dot and space to existing keyword characters (\k).
+    return [[\%(\k\|\.\| \)\+]]
   end
 
   source.complete = function(self, request, callback)
