@@ -14,3 +14,5 @@ font-feature = -dlig
 
 font-size = 14
 font-thicken = true
+
+macos-titlebar-style = tabs
