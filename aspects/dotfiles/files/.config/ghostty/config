@@ -1,0 +1,16 @@
+font-family = Source Code Pro Light
+font-style-bold = Source Code Pro Medium
+font-style-italic = Source Code Pro ExtraLight Italic
+font-style-bold-italic = Source Code Pro Italic
+
+# Enable slashed zero.
+font-feature = zero
+
+# Disable ligatures as described here:
+# https://ghostty.org/docs/config/reference#font-feature
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
+
+font-size = 14
+font-thicken = true
