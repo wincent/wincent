@@ -28,11 +28,6 @@ def obliterate_crypto_casino_links(text)
   text.gsub('(http://chriskempson.com)', '(https://github.com/chriskempson)')
 end
 
-def no_fetch?(author_and_repo)
-  return true if ENV['NO_CLONE'] == 1
-  return true if author_and_repo =~ %r{\Aaramisgithub/}
-end
-
 banner "Updating schema definitions"
 
 scheme_definitions= {}
@@ -42,8 +37,20 @@ schemes.each do |scheme_definition|
   data = YAML.load_file(scheme_definition)
   if data["system"] == "base16"
     puts "Read: #{slug}"
-    scheme_definitions[slug] = data['palette']
+    scheme_definitions[slug] = data['palette'].transform_values do |v|
+      # Hack to accommodate https://github.com/tinted-theming/schemes/pull/34
+      # which added a `#` prefix to all the values.
+      if v.start_with?("#")
+        v[1..-1]
+      else
+        v
+      end
+    end
     scheme_definitions[slug]['author'] = obliterate_crypto_casino_links(data['author'])
+    scheme_definitions[slug]['description'] = data.fetch(
+      'description',
+      '(no description provided)'
+    )
     scheme_definitions[slug]['scheme'] = data['name']
     scheme_definitions[slug]['system'] = data['system']
   else
@@ -82,10 +89,61 @@ banner "Updating templates"
   template_config = YAML.load_file(template_config_path)
   puts "Read: #{relative(template_config_path)} config"
 
+  # As of 2024-12-31, some templates have forms like this:
+  #
+  #     # tinted-theming/tinted-vim:
+  #     tinted-vim:
+  #       supported-systems: [base24, base16]
+  #       filename: colors/{{ scheme-system }}-{{ scheme-slug }}.vim
+  #
+  #     # tinted-theming/tinted-kitty:
+  #     base16:
+  #       filename: colors/ {{ scheme-system }}-{{ scheme-slug }}.conf
+  #       supported-systems: [base16]
+  #     base24:
+  #       filename: colors/ {{ scheme-system }}-{{ scheme-slug }}.conf
+  #       supported-systems: [base24]
+  #     base16-256-deprecated:
+  #       filename: colors-256/{{ scheme-system }}-{{ scheme-slug }}.conf
+  #       supported-systems: [base16]
+  #     base24-256-deprecated:
+  #       filename: colors-256/{{ scheme-system }}-{{ scheme-slug }}.conf
+  #       supported-systems: [base24]
+  #
+  # While others have this form:
+  #
+  #     # tinted-theming/tinted-shell:
+  #     base16:
+  #       extension: .sh
+  #       output: scripts
+  #     base24:
+  #       extension: .sh
+  #       output: scripts
+  #       supported-systems: [base24]
+  #
+  #     # tinted-theming/tinted-tmux:
+  #     base16:
+  #       extension: .conf
+  #       output: colors
+  #     base24:
+  #       extension: .conf
+  #       output: colors
+  #       supported-systems: [base24]
+
   template_config.keys.each do |name|
-    raise 'Missing "extension" key' unless template_config[name].has_key?("extension")
-    output_dir = template_config[name]["output"]
-    extension = template_config[name]["extension"]
+    output_dir = ''
+    extension = ''
+    if template_config[name].has_key?("filename")
+      filename = Pathname.new(template_config[name]["filename"])
+      output_dir = filename.each_filename.first # first path component
+      extension = filename.extname
+    elsif template_config[name].has_key?("extension") &&
+      template_config[name].has_key?("output")
+      output_dir = template_config[name]["output"]
+      extension = template_config[name]["extension"]
+    else
+      raise 'Template must have "extension"/"output" keys or a "filename" key'
+    end
     if template_config[name]['supported-systems']&.include?('base24')
       puts "Skipping Base24 template: #{name}"
       next
@@ -109,6 +167,8 @@ banner "Updating templates"
           output += case interpolation
                     when /\A\s*scheme-author\s*\z/
                       definition["author"]
+                    when /\A\s*scheme-description\s*\z/
+                      definition["description"]
                     when /\A\s*scheme-name\s*\z/
                       definition["scheme"]
                     when /\A\s*scheme-slug\s*\z/
@@ -136,9 +196,18 @@ banner "Updating templates"
                       raise "error: unrecognized interpolation (#{interpolation.inspect}) in #{relative(source_file)}"
                     else
                       # Not a Base16 interpolation. Pass through. An
-                      # example of this can be found in tmux-tinted,
-                      # which has a window status format containing
-                      # `#W#{{?window_zoomed_flag,*Z,}}`.
+                      # example of this used to be found in tmux-tinted,
+                      # which had a window status format containing:
+                      #
+                      #     #W#{{?window_zoomed_flag,*Z,}}
+                      #
+                      # Was removed in:
+                      #
+                      # - https://github.com/tinted-theming/tinted-tmux/pull/24
+                      #
+                      # but I'm keeping it around in case this kind of thing
+                      # happens again in the future.
+                      #
                       interpolation
                     end
         end
