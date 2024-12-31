@@ -272,9 +272,9 @@
 	path = vendor/tinted-theming/base16-vim
 	url = https://github.com/tinted-theming/base16-vim.git
 [submodule "tinted-theming/tinted-tmux"]
-	branch = main
+	branch = zoom
 	path = vendor/tinted-theming/tinted-tmux
-	url = https://github.com/tinted-theming/tinted-tmux.git
+	url = https://github.com/wincent/tinted-tmux.git
 [submodule "tinted-theming/tinted-shell"]
 	branch = main
 	path = vendor/tinted-theming/tinted-shell
