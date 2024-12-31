@@ -103,12 +103,6 @@ banner "Updating templates"
   #     base24:
   #       filename: colors/ {{ scheme-system }}-{{ scheme-slug }}.conf
   #       supported-systems: [base24]
-  #     base16-256-deprecated:
-  #       filename: colors-256/{{ scheme-system }}-{{ scheme-slug }}.conf
-  #       supported-systems: [base16]
-  #     base24-256-deprecated:
-  #       filename: colors-256/{{ scheme-system }}-{{ scheme-slug }}.conf
-  #       supported-systems: [base24]
   #
   # While others have this form:
   #
@@ -146,6 +140,10 @@ banner "Updating templates"
     end
     if template_config[name]['supported-systems']&.include?('base24')
       puts "Skipping Base24 template: #{name}"
+      next
+    end
+    if name.end_with?("-deprecated")
+      puts "Skipping deprecated template: #{name}"
       next
     end
     source_file = source.join("templates/#{name}.mustache")
