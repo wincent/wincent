@@ -103,10 +103,12 @@
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/shellbot
 	url = https://github.com/wincent/shellbot.git
 [submodule "skim"]
+	branch = master
 	ignore = untracked
 	path = aspects/dotfiles/files/.zsh/skim
 	url = https://github.com/lotabout/skim.git
 [submodule "source-code-pro"]
+	branch = release
 	path = vendor/fonts/source-code-pro
 	url = https://github.com/adobe-fonts/source-code-pro.git
 [submodule "terminus"]
@@ -227,18 +229,23 @@
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/zen-mode.nvim
 	url = https://github.com/folke/zen-mode.nvim.git
 [submodule "zsh-async"]
+	branch = main
 	path = aspects/dotfiles/files/.zsh/zsh-async
 	url = https://github.com/mafredri/zsh-async.git
 [submodule "zsh-autosuggestions"]
+	branch = master
 	path = aspects/dotfiles/files/.zsh/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
 [submodule "zsh-completions"]
+	branch = master
 	path = aspects/dotfiles/files/.zsh/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions.git
 [submodule "zsh-history-substring-search"]
+	branch = master
 	path = aspects/dotfiles/files/.zsh/zsh-history-substring-search
 	url = https://github.com/zsh-users/zsh-history-substring-search
 [submodule "zsh-syntax-highlighting"]
+	branch = master
 	path = aspects/dotfiles/files/.zsh/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
 [submodule "mini.ai"]
@@ -257,20 +264,26 @@
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.extra
 	url = https://github.com/echasnovski/mini.extra.git
 [submodule "tinted-theming/schemes"]
+	branch = spec-0.11
 	path = vendor/tinted-theming/schemes
 	url = https://github.com/tinted-theming/schemes.git
 [submodule "tinted-theming/base16-vim"]
+	branch = main
 	path = vendor/tinted-theming/base16-vim
 	url = https://github.com/tinted-theming/base16-vim.git
 [submodule "tinted-theming/tinted-tmux"]
+	branch = main
 	path = vendor/tinted-theming/tinted-tmux
 	url = https://github.com/tinted-theming/tinted-tmux.git
 [submodule "tinted-theming/tinted-shell"]
+	branch = main
 	path = vendor/tinted-theming/tinted-shell
 	url = https://github.com/tinted-theming/tinted-shell.git
 [submodule "tinted-theming/tinted-kitty"]
+	branch = main
 	path = vendor/tinted-theming/tinted-kitty
 	url = https://github.com/tinted-theming/tinted-kitty.git
 [submodule "yazi-rs/plugins"]
+	branch = main
 	path = aspects/dotfiles/files/.config/yazi/vendor/plugins
 	url = https://github.com/yazi-rs/plugins.git
