@@ -15,6 +15,12 @@ Once the Violentmonkey extension is installed, installing the scripts is a matte
 
 **NOTE:** For these URLs to work the `USERNAME` string should be substituted with your macOS account's username:
 
+## Fastmail
+
+| Script                                                                                                                                           | Description                                          |
+| ------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------- |
+| [http://localhost/~USERNAME/UserScripts/fastmail/suppressEscape.user.js](http://localhost/~USERNAME/UserScripts/fastmail/suppressEscape.user.js) | Stop the Escape key from discarding changes in notes |
+
 ## Github
 
 | Script                                                                                                                                                     | Description                                  |
