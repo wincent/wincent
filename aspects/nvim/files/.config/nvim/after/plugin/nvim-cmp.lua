@@ -170,6 +170,29 @@ if has_cmp then
     end
   end
 
+  -- Until https://github.com/hrsh7th/nvim-cmp/issues/1716
+  -- (cmp.ConfirmBehavior.MatchSuffix) gets implemented, use this local wrapper
+  -- to choose between `cmp.ConfirmBehavior.Insert` and
+  -- `cmp.ConfirmBehavior.Replace`:
+  local confirm = function(entry)
+    local behavior = cmp.ConfirmBehavior.Replace
+    if entry and entry.completion_item.textEdit then
+      -- How many characters will be different after the cursor position if we
+      -- replace?
+      local diff_after = math.max(0, entry.replace_range['end'].character + 1) - entry.context.cursor.col
+
+      -- Does the text that will be replaced after the cursor match the suffix
+      -- of the `newText` to be inserted? If not, we should `Insert` instead.
+      if
+        entry.context.cursor_after_line:sub(1, diff_after)
+        ~= entry.completion_item.textEdit.newText:sub(-diff_after)
+      then
+        behavior = cmp.ConfirmBehavior.Insert
+      end
+    end
+    cmp.confirm({ select = true, behavior = behavior })
+  end
+
   cmp.setup({
     experimental = {
       -- See also `toggle_ghost_text()` below.
@@ -223,7 +246,8 @@ if has_cmp then
 
       ['<C-y>'] = cmp.mapping(function(fallback)
         if cmp.visible() then
-          cmp.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace })
+          local entry = cmp.get_selected_entry()
+          confirm(entry)
         else
           fallback()
         end
@@ -242,8 +266,9 @@ if has_cmp then
       ['<Tab>'] = cmp.mapping(function(_fallback)
         if cmp.visible() then
           -- If there is only one completion candidate, use it.
-          if #cmp.get_entries() == 1 then
-            cmp.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace })
+          local entries = cmp.get_entries()
+          if #entries == 1 then
+            confirm(entries[1])
           else
             cmp.select_next_item()
           end
