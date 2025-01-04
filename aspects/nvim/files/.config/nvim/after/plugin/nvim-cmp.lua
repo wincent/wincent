@@ -69,6 +69,13 @@ if has_cmp then
     return col == 0 or vim.api.nvim_get_current_line():sub(col, col):match('%s')
   end
 
+  local in_leading_indent = function()
+    local col = column()
+    local line = vim.api.nvim_get_current_line()
+    local prefix = line:sub(1, col)
+    return prefix:find('^%s*$')
+  end
+
   local shift_width = function()
     if vim.o.softtabstop <= 0 then
       return vim.fn.shiftwidth()
@@ -87,36 +94,44 @@ if has_cmp then
   --    - Everywhere else it will just delete the previous character.
   --
   -- For other buffers ('expandtab'), we let Neovim behave as standard and that
-  -- yields intuitive behavior.
-  local smart_bs = function()
+  -- yields intuitive behavior, unless the `dedent` parameter is truthy, in
+  -- which case we issue <C-D> to dedent (see `:help i_CTRL-D`).
+  local smart_bs = function(dedent)
+    local keys = nil
     if vim.o.expandtab then
-      return rhs('<BS>')
+      if dedent then
+        keys = rhs('<C-D>')
+      else
+        keys = rhs('<BS>')
+      end
     else
       local col = column()
       local line = vim.api.nvim_get_current_line()
       local prefix = line:sub(1, col)
-      local in_leading_indent = prefix:find('^%s*$')
-      if in_leading_indent then
-        return rhs('<BS>')
+      if in_leading_indent() then
+        keys = rhs('<BS>')
+      else
+        local previous_char = prefix:sub(#prefix, #prefix)
+        if previous_char ~= ' ' then
+          keys = rhs('<BS>')
+        else
+          -- Delete enough spaces to take us back to the previous tabstop.
+          --
+          -- Originally I was calculating the number of <BS> to send, but
+          -- Neovim has some special casing that causes one <BS> to delete
+          -- multiple characters even when 'expandtab' is off (eg. if you hit
+          -- <BS> after pressing <CR> on a line with trailing whitespace and
+          -- Neovim inserts whitespace to match.
+          --
+          -- So, turn 'expandtab' on temporarily and let Neovim figure out
+          -- what a single <BS> should do.
+          --
+          -- See `:h i_CTRL-\_CTRL-O`.
+          keys = rhs('<C-\\><C-o>:set expandtab<CR><BS><C-\\><C-o>:set noexpandtab<CR>')
+        end
       end
-      local previous_char = prefix:sub(#prefix, #prefix)
-      if previous_char ~= ' ' then
-        return rhs('<BS>')
-      end
-      -- Delete enough spaces to take us back to the previous tabstop.
-      --
-      -- Originally I was calculating the number of <BS> to send, but
-      -- Neovim has some special casing that causes one <BS> to delete
-      -- multiple characters even when 'expandtab' is off (eg. if you hit
-      -- <BS> after pressing <CR> on a line with trailing whitespace and
-      -- Neovim inserts whitespace to match.
-      --
-      -- So, turn 'expandtab' on temporarily and let Neovim figure out
-      -- what a single <BS> should do.
-      --
-      -- See `:h i_CTRL-\_CTRL-O`.
-      return rhs('<C-\\><C-o>:set expandtab<CR><BS><C-\\><C-o>:set noexpandtab<CR>')
     end
+    vim.api.nvim_feedkeys(keys, 'nt', true)
   end
 
   -- In buffers where 'noexpandtab' is set (ie. hard tabs are in use), <Tab>:
@@ -224,8 +239,7 @@ if has_cmp then
 
     mapping = {
       ['<BS>'] = cmp.mapping(function(_fallback)
-        local keys = smart_bs()
-        vim.api.nvim_feedkeys(keys, 'nt', true)
+        smart_bs()
       end, { 'i', 's' }),
 
       ['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -265,6 +279,10 @@ if has_cmp then
           cmp.select_prev_item()
         elseif has_luasnip and in_snippet() and luasnip.jumpable(-1) then
           luasnip.jump(-1)
+        elseif in_leading_indent() then
+          smart_bs(true) -- true means to dedent
+        elseif in_whitespace() then
+          smart_bs()
         else
           fallback()
         end
