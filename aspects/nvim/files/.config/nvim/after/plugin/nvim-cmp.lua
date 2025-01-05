@@ -47,21 +47,6 @@ if has_cmp then
     return col
   end
 
-  -- Based on (private) function in LuaSnip/lua/luasnip/init.lua.
-  local in_snippet = function()
-    local session = require('luasnip.session')
-    local node = session.current_nodes[vim.api.nvim_get_current_buf()]
-    if not node then
-      return false
-    end
-    local snippet = node.parent.snippet
-    local snip_begin_pos, snip_end_pos = snippet.mark:pos_begin_end()
-    local pos = vim.api.nvim_win_get_cursor(0)
-    if pos[1] - 1 >= snip_begin_pos[1] and pos[1] - 1 <= snip_end_pos[1] then
-      return true
-    end
-  end
-
   -- Returns true if the cursor is in leftmost column or at a whitespace
   -- character.
   local in_whitespace = function()
@@ -277,7 +262,7 @@ if has_cmp then
       ['<S-Tab>'] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_prev_item()
-        elseif has_luasnip and in_snippet() and luasnip.jumpable(-1) then
+        elseif has_luasnip and luasnip.in_snippet() and luasnip.jumpable(-1) then
           luasnip.jump(-1)
         elseif in_leading_indent() then
           smart_bs(true) -- true means to dedent
