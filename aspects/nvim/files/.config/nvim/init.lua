@@ -228,6 +228,7 @@ if vim.o.loadplugins then
   wincent.plugin.load('neco-ghc')
   wincent.plugin.load('nvim-cmp')
   wincent.plugin.load('nvim-lspconfig')
+  wincent.plugin.load('nvim-treesitter')
   wincent.plugin.load('pinnacle')
   wincent.plugin.load('replay')
   wincent.plugin.load('rust.vim')
@@ -474,6 +475,78 @@ if has_commandt then
     require('wincent.commandt').finder('shellbot', command.args)
   end, {
     nargs = 0,
+  })
+end
+
+local has_treesitter, treesitter = pcall(require, 'nvim-treesitter.configs')
+if has_treesitter then
+  treesitter.setup({
+    auto_install = false,
+    ensure_installed = {
+      -- These are bundled with Neovim:
+      'c',
+      'lua',
+      'markdown',
+      'markdown_inline',
+      'vim', -- Vimscript.
+      'vimdoc',
+      'query',
+
+      -- Extras to be downloaded:
+      'bash',
+      'css',
+      'diff',
+      'dot',
+      'editorconfig',
+      'git_config',
+      'gitcommit',
+      'gitignore',
+      'go',
+      'gpg',
+      'graphql',
+      'haskell',
+      'html',
+      'java',
+      'javascript',
+      'json',
+      'jsonc',
+      'make',
+      'nginx',
+      'ninja',
+      'objc',
+      'ocaml',
+      'perl',
+      'php',
+      'prolog',
+      'python',
+      'ruby',
+      'rust',
+      'sql',
+      'ssh_config',
+      'tcl',
+      'tmux',
+      'toml',
+      'typescript',
+      'yaml',
+    },
+
+    highlight = {
+      enable = true,
+    },
+    incremental_selection = {
+      -- gnn = init selection
+      -- grn = node incremental
+      -- grc = scope incremental
+      -- grm = node decremental
+      -- See: `:h nvim-treesitter-incremental-selection-mod`
+      enable = true,
+    },
+    ignore_install = {},
+    modules = {},
+    sync_install = false,
+    text_objects = {
+      enable = true,
+    },
   })
 end
 
