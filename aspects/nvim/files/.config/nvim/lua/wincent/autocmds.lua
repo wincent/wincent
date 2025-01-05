@@ -125,7 +125,7 @@ local focus_window = function()
     local list = autocmds.list_filetypes[filetype]
     vim.wo.list = list == nil and true or list
   end
-  local conceallevel = autocmds.conceallevel_filetypes[filetype] or 2
+  local conceallevel = autocmds.conceallevel_filetypes[filetype] or 0
   vim.wo.conceallevel = conceallevel
   wincent.statusline.focus_statusline()
 end
