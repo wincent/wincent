@@ -12,8 +12,10 @@ alias a=ag
 alias b=bundle
 alias be='bundle exec'
 alias cd..='cd ..'
-alias chatgpt='vim -c ChatGPT -c only'
-alias chatgptx='env OPENAI_MODEL=o1-mini nvim -c ChatGPT -c only'
+alias chatgpt='env -u ANTHROPIC_API_KEY nvim -c ChatGPT -c only'
+alias chatgptx='env -u ANTHROPIC_API_KEY OPENAI_MODEL=o1-mini nvim -c ChatGPT -c only'
+alias claude='env -u OPENAI_API_KEY nvim -c ChatGPT -c only'
+alias opus='env -u OPENAI_API_KEY ANTHROPIC_MODEL=claude-3-opus-20240229 nvim -c ChatGPT -c only'
 alias d='hash -d'
 alias e=exit
 alias f='find . -name'

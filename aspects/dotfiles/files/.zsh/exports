@@ -160,8 +160,11 @@ fi
 
 export RIPGREP_CONFIG_PATH=$HOME/.rgrc
 
+# Shellbot.
 # For now, requires a manual `cargo build --release`.
 export SHELLBOT="$HOME/.config/nvim/pack/bundle/opt/shellbot/target/release/shellbot $HOME/.config/shellbot/prompt"
+export ANTHROPIC_MODEL=claude-3-5-sonnet-20241022
+export OPENAI_MODEL=gpt-4o
 
 () {
   local PRIVATE="$HOME/.zsh/exports.private"

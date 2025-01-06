@@ -434,7 +434,7 @@ if has_commandt then
         max_files = 100000,
       },
 
-      -- Choose from a list of :ChatGPT sessions.
+      -- Choose from a list of :Shellbot sessions.
       shellbot = {
         candidates = function()
           local buffers = {}
