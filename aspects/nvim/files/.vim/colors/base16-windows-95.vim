@@ -86,6 +86,8 @@ function! s:create_color_globals() abort
     let l:num = printf('%02X', i)
     execute 'let g:tinted_gui' . l:num . ' = s:gui' . l:num
     execute 'let g:tinted_cterm' . l:num . ' = s:cterm' . l:num
+    " Legacy vars for lualine
+    execute 'let g:base16_gui' . l:num . ' = s:gui' . l:num
   endfor
 endfunction
 
@@ -209,7 +211,6 @@ call <sid>hi('tinted_gui14', s:gui14, '', s:cterm14, '', '', '')
 call <sid>hi('tinted_gui15', s:gui15, '', s:cterm15, '', '', '')
 call <sid>hi('tinted_gui16', s:gui16, '', s:cterm16, '', '', '')
 call <sid>hi('tinted_gui17', s:gui17, '', s:cterm17, '', '', '')
-
 
 " Vim editor colors
 

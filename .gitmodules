@@ -267,10 +267,6 @@
 	branch = spec-0.11
 	path = vendor/tinted-theming/schemes
 	url = https://github.com/tinted-theming/schemes.git
-[submodule "tinted-theming/base16-vim"]
-	branch = main
-	path = vendor/tinted-theming/base16-vim
-	url = https://github.com/tinted-theming/base16-vim.git
 [submodule "tinted-theming/tinted-tmux"]
 	branch = main
 	path = vendor/tinted-theming/tinted-tmux
@@ -290,3 +286,6 @@
 [submodule "nvim-treesitter"]
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-treesitter
 	url = https://github.com/nvim-treesitter/nvim-treesitter.git
+[submodule "tinted-theming/tinted-vim"]
+	path = vendor/tinted-theming/tinted-vim
+	url = https://github.com/tinted-theming/tinted-vim.git

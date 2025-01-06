@@ -81,7 +81,7 @@ banner "Updating templates"
 # Tuple of [template source, output base directory].
 [
   [
-    root.join('vendor/tinted-theming/base16-vim'),
+    root.join('vendor/tinted-theming/tinted-vim'),
     root.join("aspects/nvim/files/.vim"),
   ],
   [
