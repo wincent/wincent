@@ -3,7 +3,7 @@
 # Scheme name: Snazzy 
 # Scheme author: Chawye Hsu (https://github.com/chawyehsu), based on Hyper Snazzy Theme (https://github.com/sindresorhus/hyper-snazzy)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
-export BASE16_THEME=snazzy
+export BASE24_THEME="snazzy"
 
 color00="28/2a/36" # Base 00 - Black
 color01="ff/5c/57" # Base 08 - Red
@@ -12,14 +12,14 @@ color03="f3/f9/9d" # Base 0A - Yellow
 color04="57/c7/ff" # Base 0D - Blue
 color05="ff/6a/c1" # Base 0E - Magenta
 color06="9a/ed/fe" # Base 0C - Cyan
-color07="e2/e4/e5" # Base 05 - White
-color08="43/45/4f" # Base 03 - Bright Black
-color09="$color01" # Base 08 - Bright Red
-color10="$color02" # Base 0B - Bright Green
-color11="$color03" # Base 0A - Bright Yellow
-color12="$color04" # Base 0D - Bright Blue
-color13="$color05" # Base 0E - Bright Magenta
-color14="$color06" # Base 0C - Bright Cyan
+color07="ef/f0/eb" # Base 06 - White
+color08="43/45/4f" # Base 02 - Bright Black
+color09="ff/5c/57" # Base 12 - Bright Red
+color10="5a/f7/8e" # Base 14 - Bright Green
+color11="f3/f9/9d" # Base 13 - Bright Yellow
+color12="57/c7/ff" # Base 16 - Bright Blue
+color13="ff/6a/c1" # Base 17 - Bright Magenta
+color14="9a/ed/fe" # Base 15 - Bright Cyan
 color15="f1/f1/f0" # Base 07 - Bright White
 color16="ff/9f/43" # Base 09
 color17="b2/64/3c" # Base 0F
@@ -29,6 +29,7 @@ color20="a5/a5/a9" # Base 04
 color21="ef/f0/eb" # Base 06
 color_foreground="e2/e4/e5" # Base 05
 color_background="28/2a/36" # Base 00
+
 
 if [ -z "$TTY" ] && ! TTY=$(tty); then
   put_template() { true; }
@@ -73,14 +74,6 @@ put_template 13 "$color13"
 put_template 14 "$color14"
 put_template 15 "$color15"
 
-# 256 color space
-put_template 16 "$color16"
-put_template 17 "$color17"
-put_template 18 "$color18"
-put_template 19 "$color19"
-put_template 20 "$color20"
-put_template 21 "$color21"
-
 # foreground / background / cursor color
 if [ -n "$ITERM_SESSION_ID" ]; then
   # iTerm2 proprietary escape codes
@@ -93,7 +86,7 @@ if [ -n "$ITERM_SESSION_ID" ]; then
   put_template_custom Pm 282a36 # cursor text
 else
   put_template_var 10 "$color_foreground"
-  if [ "$BASE16_SHELL_SET_BACKGROUND" != false ]; then
+  if [ "$BASE24_SHELL_SET_BACKGROUND" != false ]; then
     put_template_var 11 "$color_background"
     if [ "${TERM%%-*}" = "rxvt" ]; then
       put_template_var 708 "$color_background" # internal border (rxvt)
@@ -121,32 +114,40 @@ unset color11
 unset color12
 unset color13
 unset color14
-unset color15
 unset color16
 unset color17
 unset color18
 unset color19
 unset color20
 unset color21
+unset color15
 unset color_foreground
 unset color_background
 
 # Optionally export variables
-if [ -n "$TINTED_SHELL_ENABLE_BASE16_VARS" ] || [ -n "$BASE16_SHELL_ENABLE_VARS" ]; then
-  export BASE16_COLOR_00_HEX="282a36"
-  export BASE16_COLOR_01_HEX="34353e"
-  export BASE16_COLOR_02_HEX="43454f"
-  export BASE16_COLOR_03_HEX="78787e"
-  export BASE16_COLOR_04_HEX="a5a5a9"
-  export BASE16_COLOR_05_HEX="e2e4e5"
-  export BASE16_COLOR_06_HEX="eff0eb"
-  export BASE16_COLOR_07_HEX="f1f1f0"
-  export BASE16_COLOR_08_HEX="ff5c57"
-  export BASE16_COLOR_09_HEX="ff9f43"
-  export BASE16_COLOR_0A_HEX="f3f99d"
-  export BASE16_COLOR_0B_HEX="5af78e"
-  export BASE16_COLOR_0C_HEX="9aedfe"
-  export BASE16_COLOR_0D_HEX="57c7ff"
-  export BASE16_COLOR_0E_HEX="ff6ac1"
-  export BASE16_COLOR_0F_HEX="b2643c"
+if [ -n "$TINTED_SHELL_ENABLE_BASE24_VARS" ]; then
+  export BASE24_COLOR_00_HEX="282a36"
+  export BASE24_COLOR_01_HEX="34353e"
+  export BASE24_COLOR_02_HEX="43454f"
+  export BASE24_COLOR_03_HEX="78787e"
+  export BASE24_COLOR_04_HEX="a5a5a9"
+  export BASE24_COLOR_05_HEX="e2e4e5"
+  export BASE24_COLOR_06_HEX="eff0eb"
+  export BASE24_COLOR_07_HEX="f1f1f0"
+  export BASE24_COLOR_08_HEX="ff5c57"
+  export BASE24_COLOR_09_HEX="ff9f43"
+  export BASE24_COLOR_0A_HEX="f3f99d"
+  export BASE24_COLOR_0B_HEX="5af78e"
+  export BASE24_COLOR_0C_HEX="9aedfe"
+  export BASE24_COLOR_0D_HEX="57c7ff"
+  export BASE24_COLOR_0E_HEX="ff6ac1"
+  export BASE24_COLOR_0F_HEX="b2643c"
+  export BASE24_COLOR_10_HEX="282a36"
+  export BASE24_COLOR_11_HEX="282a36"
+  export BASE24_COLOR_12_HEX="ff5c57"
+  export BASE24_COLOR_13_HEX="f3f99d"
+  export BASE24_COLOR_14_HEX="5af78e"
+  export BASE24_COLOR_15_HEX="9aedfe"
+  export BASE24_COLOR_16_HEX="57c7ff"
+  export BASE24_COLOR_17_HEX="ff6ac1"
 fi

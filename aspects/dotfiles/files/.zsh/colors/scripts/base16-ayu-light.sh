@@ -3,7 +3,7 @@
 # Scheme name: Ayu Light 
 # Scheme author: Khue Nguyen <Z5483Y@gmail.com>
 # Template author: Tinted Theming (https://github.com/tinted-theming)
-export BASE16_THEME=ayu-light
+export BASE24_THEME="ayu-light"
 
 color00="FA/FA/FA" # Base 00 - Black
 color01="F0/71/78" # Base 08 - Red
@@ -12,14 +12,14 @@ color03="F2/AE/49" # Base 0A - Yellow
 color04="36/A3/D9" # Base 0D - Blue
 color05="A3/7A/CC" # Base 0E - Magenta
 color06="4C/BF/99" # Base 0C - Cyan
-color07="5C/67/73" # Base 05 - White
-color08="F8/F9/FA" # Base 03 - Bright Black
-color09="$color01" # Base 08 - Bright Red
-color10="$color02" # Base 0B - Bright Green
-color11="$color03" # Base 0A - Bright Yellow
-color12="$color04" # Base 0D - Bright Blue
-color13="$color05" # Base 0E - Bright Magenta
-color14="$color06" # Base 0C - Bright Cyan
+color07="24/29/36" # Base 06 - White
+color08="F8/F9/FA" # Base 02 - Bright Black
+color09="F0/71/78" # Base 12 - Bright Red
+color10="86/B3/00" # Base 14 - Bright Green
+color11="F2/AE/49" # Base 13 - Bright Yellow
+color12="36/A3/D9" # Base 16 - Bright Blue
+color13="A3/7A/CC" # Base 17 - Bright Magenta
+color14="4C/BF/99" # Base 15 - Bright Cyan
 color15="1A/1F/29" # Base 07 - Bright White
 color16="FA/8D/3E" # Base 09
 color17="E6/BA/7E" # Base 0F
@@ -29,6 +29,7 @@ color20="82/8C/99" # Base 04
 color21="24/29/36" # Base 06
 color_foreground="5C/67/73" # Base 05
 color_background="FA/FA/FA" # Base 00
+
 
 if [ -z "$TTY" ] && ! TTY=$(tty); then
   put_template() { true; }
@@ -73,14 +74,6 @@ put_template 13 "$color13"
 put_template 14 "$color14"
 put_template 15 "$color15"
 
-# 256 color space
-put_template 16 "$color16"
-put_template 17 "$color17"
-put_template 18 "$color18"
-put_template 19 "$color19"
-put_template 20 "$color20"
-put_template 21 "$color21"
-
 # foreground / background / cursor color
 if [ -n "$ITERM_SESSION_ID" ]; then
   # iTerm2 proprietary escape codes
@@ -93,7 +86,7 @@ if [ -n "$ITERM_SESSION_ID" ]; then
   put_template_custom Pm FAFAFA # cursor text
 else
   put_template_var 10 "$color_foreground"
-  if [ "$BASE16_SHELL_SET_BACKGROUND" != false ]; then
+  if [ "$BASE24_SHELL_SET_BACKGROUND" != false ]; then
     put_template_var 11 "$color_background"
     if [ "${TERM%%-*}" = "rxvt" ]; then
       put_template_var 708 "$color_background" # internal border (rxvt)
@@ -121,32 +114,40 @@ unset color11
 unset color12
 unset color13
 unset color14
-unset color15
 unset color16
 unset color17
 unset color18
 unset color19
 unset color20
 unset color21
+unset color15
 unset color_foreground
 unset color_background
 
 # Optionally export variables
-if [ -n "$TINTED_SHELL_ENABLE_BASE16_VARS" ] || [ -n "$BASE16_SHELL_ENABLE_VARS" ]; then
-  export BASE16_COLOR_00_HEX="FAFAFA"
-  export BASE16_COLOR_01_HEX="F3F4F5"
-  export BASE16_COLOR_02_HEX="F8F9FA"
-  export BASE16_COLOR_03_HEX="ABB0B6"
-  export BASE16_COLOR_04_HEX="828C99"
-  export BASE16_COLOR_05_HEX="5C6773"
-  export BASE16_COLOR_06_HEX="242936"
-  export BASE16_COLOR_07_HEX="1A1F29"
-  export BASE16_COLOR_08_HEX="F07178"
-  export BASE16_COLOR_09_HEX="FA8D3E"
-  export BASE16_COLOR_0A_HEX="F2AE49"
-  export BASE16_COLOR_0B_HEX="86B300"
-  export BASE16_COLOR_0C_HEX="4CBF99"
-  export BASE16_COLOR_0D_HEX="36A3D9"
-  export BASE16_COLOR_0E_HEX="A37ACC"
-  export BASE16_COLOR_0F_HEX="E6BA7E"
+if [ -n "$TINTED_SHELL_ENABLE_BASE24_VARS" ]; then
+  export BASE24_COLOR_00_HEX="FAFAFA"
+  export BASE24_COLOR_01_HEX="F3F4F5"
+  export BASE24_COLOR_02_HEX="F8F9FA"
+  export BASE24_COLOR_03_HEX="ABB0B6"
+  export BASE24_COLOR_04_HEX="828C99"
+  export BASE24_COLOR_05_HEX="5C6773"
+  export BASE24_COLOR_06_HEX="242936"
+  export BASE24_COLOR_07_HEX="1A1F29"
+  export BASE24_COLOR_08_HEX="F07178"
+  export BASE24_COLOR_09_HEX="FA8D3E"
+  export BASE24_COLOR_0A_HEX="F2AE49"
+  export BASE24_COLOR_0B_HEX="86B300"
+  export BASE24_COLOR_0C_HEX="4CBF99"
+  export BASE24_COLOR_0D_HEX="36A3D9"
+  export BASE24_COLOR_0E_HEX="A37ACC"
+  export BASE24_COLOR_0F_HEX="E6BA7E"
+  export BASE24_COLOR_10_HEX="FAFAFA"
+  export BASE24_COLOR_11_HEX="FAFAFA"
+  export BASE24_COLOR_12_HEX="F07178"
+  export BASE24_COLOR_13_HEX="F2AE49"
+  export BASE24_COLOR_14_HEX="86B300"
+  export BASE24_COLOR_15_HEX="4CBF99"
+  export BASE24_COLOR_16_HEX="36A3D9"
+  export BASE24_COLOR_17_HEX="A37ACC"
 fi
