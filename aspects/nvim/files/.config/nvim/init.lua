@@ -378,13 +378,9 @@ if vim.o.loadplugins then
   })
 end
 
--- Automatic, language-dependent indentation, syntax coloring and other
--- functionality.
---
 -- Must come *after* the `:packadd!` calls above otherwise the contents of
 -- package "ftdetect" directories won't be evaluated.
 vim.cmd('filetype indent plugin on')
-vim.cmd('syntax on')
 
 local has_luasnip, luasnip = pcall(require, 'luasnip')
 if has_luasnip then

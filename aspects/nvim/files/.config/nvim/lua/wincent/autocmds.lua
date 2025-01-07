@@ -44,57 +44,6 @@ local winhighlight_blurred = table.concat({
   'SignColumn:ColorColumn',
 }, ',')
 
--- Helper to Save settings for later restoration; see `ownsyntax` below.
-local capture = function(filetype)
-  if not captured_settings[filetype] then
-    -- We haven't captured settings for this filetype yet.
-    captured_settings[filetype] = {
-      spell = vim.wo.spell,
-      spellcapcheck = vim.bo.spellcapcheck,
-      spellfile = vim.bo.spellfile,
-      spelllang = vim.bo.spelllang,
-    }
-    -- TODO: figure out how/when/if to update one of these objects
-  end
-end
-
--- As described in a7e4d8b8383a375d124, `ownsyntax` resets spelling settings, so
--- we capture and restore them. Note that there is some trickiness here because
--- multiple autocmds can trigger "focus" or "blur" operations; this means that
--- we can't just naively save and restore: we have to use a flag to make sure
--- that we only capture the initial state, and we also have to do this in a
--- filetype-aware way, because different filetypes can have different settings
--- (and the same window can be used to show buffers with different filetypes).
-local ownsyntax = function(focussing)
-  local blurring = not focussing
-
-  local filetype = vim.bo.filetype
-  if focussing and filetype ~= '' then
-    if vim.w.current_syntax == nil then
-      -- `ownsyntax` is off.
-      capture(filetype)
-      vim.cmd('ownsyntax on')
-    end
-
-    if captured_settings[filetype] then
-      vim.opt_local.spell = captured_settings[filetype].spell or false
-      vim.opt_local.spellcapcheck = captured_settings[filetype].spellcapcheck or ''
-      vim.opt_local.spellfile = captured_settings[filetype].spellfile or ''
-      vim.opt_local.spelllang = captured_settings[filetype].spelllang or 'en'
-    end
-  elseif blurring and filetype ~= '' then
-    capture(filetype)
-
-    if vim.w.current_syntax ~= nil then
-      -- `ownsyntax` is on.
-      vim.cmd('ownsyntax off')
-    end
-
-    -- Suppress spelling in blurred buffer.
-    vim.wo.spell = false
-  end
-end
-
 local should_mkview = function()
   return vim.bo.buftype == ''
     and autocmds.mkview_filetype_blacklist[vim.bo.filetype] == nil
@@ -115,9 +64,6 @@ local focus_window = function()
   end
   if filetype == '' or autocmds.colorcolumn_filetype_blacklist[filetype] ~= true then
     vim.wo.colorcolumn = focused_colorcolumn
-  end
-  if filetype == '' or autocmds.ownsyntax_filetypes[filetype] ~= true then
-    ownsyntax(true)
   end
   if filetype == '' then
     vim.wo.list = true
@@ -142,9 +88,6 @@ local blur_window = function()
 
   if filetype == '' or autocmds.winhighlight_filetype_blacklist[filetype] ~= true then
     vim.wo.winhighlight = winhighlight_blurred
-  end
-  if filetype == '' or autocmds.ownsyntax_filetypes[filetype] ~= true then
-    ownsyntax(false)
   end
   if filetype == '' then
     vim.wo.list = false
@@ -232,11 +175,6 @@ autocmds.cmdline_changed = function()
     end
   end
   vim.fn.setcmdline(line, position)
-end
-
-autocmds.file_type = function(a)
-  local filetype = vim.fn.expand('<amatch>')
-  capture(filetype)
 end
 
 autocmds.focus_gained = function()
@@ -340,17 +278,6 @@ autocmds.number_blacklist = {
   ['sagahover'] = true,
   ['shellbot'] = true,
   ['undotree'] = true,
-}
-
--- Don't do "ownsyntax on/off" for these.
-autocmds.ownsyntax_filetypes = {
-  ['CommandTMatchListing'] = true,
-  ['CommandTPrompt'] = true,
-  ['CommandTTitle'] = true,
-  ['NvimTree'] = true,
-  ['dirvish'] = true,
-  ['help'] = true,
-  ['qf'] = true,
 }
 
 return autocmds
