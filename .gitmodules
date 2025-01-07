@@ -161,9 +161,6 @@
 [submodule "vim-javascript"]
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
-[submodule "vim-json"]
-	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-json
-	url = https://github.com/elzr/vim-json.git
 [submodule "vim-jsx"]
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-jsx
 	url = https://github.com/mxw/vim-jsx.git
