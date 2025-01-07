@@ -180,10 +180,6 @@
 [submodule "vim-lion"]
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-lion
 	url = https://github.com/tommcdo/vim-lion.git
-[submodule "vim-operator-user"]
-	ignore = dirty
-	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-operator-user
-	url = https://github.com/kana/vim-operator-user.git
 [submodule "vim-pathogen"]
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen.git

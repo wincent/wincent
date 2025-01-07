@@ -244,7 +244,6 @@ if vim.o.loadplugins then
   wincent.plugin.load('vim-kitty')
   wincent.plugin.load('vim-ledger')
   wincent.plugin.load('vim-lion')
-  wincent.plugin.load('vim-operator-user')
   wincent.plugin.load('vim-projectionist')
   wincent.plugin.load('vim-reason-plus')
   wincent.plugin.load('vim-repeat')
