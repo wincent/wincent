@@ -178,15 +178,6 @@ vim.api.nvim_set_keymap('n', nop .. '<F2>', '<Plug>(Loupen)', {})
 -- type it out).
 vim.api.nvim_set_keymap('', nop .. '<F3>', '<Plug>(FerretLack)', {})
 
--- Turn off most of the features of this plug-in; I really just want the folding.
-vim.g.vim_markdown_override_foldtext = 0
-vim.g.vim_markdown_no_default_key_mappings = 1
-vim.g.vim_markdown_emphasis_multiline = 0
-vim.g.vim_markdown_conceal = 0
-vim.g.vim_markdown_conceal_code_blocks = 0
-vim.g.vim_markdown_frontmatter = 1
-vim.g.vim_markdown_new_list_item_indent = 0
-
 if vim.fn.filereadable('/usr/local/bin/python3') == 1 then
   -- Avoid search, speeding up start-up.
   vim.g.python3_host_prog = '/usr/local/bin/python3'
@@ -253,7 +244,6 @@ if vim.o.loadplugins then
   wincent.plugin.load('vim-kitty')
   wincent.plugin.load('vim-ledger')
   wincent.plugin.load('vim-lion')
-  wincent.plugin.load('vim-markdown')
   wincent.plugin.load('vim-operator-user')
   wincent.plugin.load('vim-projectionist')
   wincent.plugin.load('vim-reason-plus')
