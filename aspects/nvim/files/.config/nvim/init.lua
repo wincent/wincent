@@ -227,7 +227,6 @@ if vim.o.loadplugins then
   wincent.plugin.load('scalpel')
   wincent.plugin.load('shellbot')
   wincent.plugin.load('terminus')
-  wincent.plugin.load('typescript-vim')
   wincent.plugin.load('vcs-jump')
   wincent.plugin.load('vim-ansible-yaml')
   wincent.plugin.load('vim-clipper')
