@@ -229,6 +229,7 @@ if vim.o.loadplugins then
   wincent.plugin.load('nvim-cmp')
   wincent.plugin.load('nvim-lspconfig')
   wincent.plugin.load('nvim-treesitter')
+  wincent.plugin.load('nvim-treesitter-textobjects')
   wincent.plugin.load('pinnacle')
   wincent.plugin.load('replay')
   wincent.plugin.load('rust.vim')
@@ -260,9 +261,6 @@ if vim.o.loadplugins then
   wincent.plugin.load('vim-signature')
   wincent.plugin.load('vim-slime')
   wincent.plugin.load('vim-speeddating')
-  wincent.plugin.load('vim-textobj-comment')
-  wincent.plugin.load('vim-textobj-rubyblock')
-  wincent.plugin.load('vim-textobj-user')
   wincent.plugin.load('vim-zsh')
 
   -- Lazy because vim-abolish doesn't use autoloading internally.
@@ -544,8 +542,31 @@ if has_treesitter then
     ignore_install = {},
     modules = {},
     sync_install = false,
-    text_objects = {
-      enable = true,
+    textobjects = {
+      select = {
+        enable = true,
+        keymaps = {
+          -- Similar to vim-textobj-comment: https://github.com/glts/vim-textobj-comment/
+          ['ac'] = { query = '@comment.outer', desc = 'Select outer part of a comment region' },
+          ['ic'] = { query = '@comment.inner', desc = 'Select inner part of a comment region' },
+
+          ['af'] = { query = '@function.outer', desc = 'Select outer part of a function region' },
+          ['if'] = { query = '@function.inner', desc = 'Select inner part of a function region' },
+
+          ['ak'] = { query = '@class.outer', desc = 'Select outer part of a class region' },
+          ['ik'] = { query = '@class.inner', desc = 'Select inner part of a class region' },
+
+          ['al'] = { query = '@loop.outer', desc = 'Select outer part of a loop region' },
+          ['il'] = { query = '@loop.inner', desc = 'Select inner part of a loop region' },
+
+          -- Equivalent of vim-textobj-rubyblock: https://github.com/nelstrom/vim-textobj-rubyblock
+          ['ar'] = { query = '@block.outer', desc = 'Select language scope' },
+          ['ir'] = { query = '@block.inner', desc = 'Select language scope' },
+
+          ['as'] = { query = '@local.scope', query_group = 'locals', desc = 'Select language scope' },
+        },
+        lookahead = true,
+      },
     },
   })
 end
