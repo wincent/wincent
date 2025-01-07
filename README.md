@@ -1,6 +1,6 @@
 # "dotfiles" and system configuration
 
-![](https://github.com/wincent/wincent/workflows/ci/badge.svg)
+![CI status badge](https://github.com/wincent/wincent/workflows/ci/badge.svg)
 
 > These dotfiles are affectionately dedicated to the vi editor originally created by Bill Joy, with whom I have spent many pleasant evenings[^1]
 
@@ -8,7 +8,7 @@
 
 ## Overview
 
-![](https://raw.githubusercontent.com/wincent/wincent/media/screenshot.png)
+![screenshot](https://raw.githubusercontent.com/wincent/wincent/media/screenshot.png)
 
 - Target platforms: macOS and Linux (see [Platform status](#platform-status) below).
 - Set-up method: ~~Beautiful and intricate snowflake~~ an incredibly over-engineered custom configuration framework called [Fig](./fig/README.md).
@@ -80,7 +80,7 @@ And these only on macOS:
 
 Zsh is configured with the following prompt:
 
-![](https://raw.githubusercontent.com/wincent/wincent/media/prompt.png)
+![Zsh prompt](https://raw.githubusercontent.com/wincent/wincent/media/prompt.png)
 
 Visible here are:
 
@@ -98,31 +98,31 @@ Visible here are:
 
 Nested shells are indicated with additional prompt characters. For example, one nested shell:
 
-![](https://raw.githubusercontent.com/wincent/wincent/media/prompt-shlvl-2.png)
+![Zsh prompt with one nested shell](https://raw.githubusercontent.com/wincent/wincent/media/prompt-shlvl-2.png)
 
 Two nested shells:
 
-![](https://raw.githubusercontent.com/wincent/wincent/media/prompt-shlvl-3.png)
+![Zsh prompt with two nested shells](https://raw.githubusercontent.com/wincent/wincent/media/prompt-shlvl-3.png)
 
 Root shells are indicated with a different color prompt character and the word "root":
 
-![](https://raw.githubusercontent.com/wincent/wincent/media/prompt-root.png)
+![Zsh prompt with root shell](https://raw.githubusercontent.com/wincent/wincent/media/prompt-root.png)
 
 Nesting within a root shell is indicated like this:
 
-![](https://raw.githubusercontent.com/wincent/wincent/media/prompt-root-shlvl-2.png)
+![Zsh root prompt with one nested shell](https://raw.githubusercontent.com/wincent/wincent/media/prompt-root-shlvl-2.png)
 
 Two nested shells:
 
-![](https://raw.githubusercontent.com/wincent/wincent/media/prompt-root-shlvl-3.png)
+![Zsh root prompt with two nested shells](https://raw.githubusercontent.com/wincent/wincent/media/prompt-root-shlvl-3.png)
 
 If the last command exited with a non-zero status (usually indicative of an error), a yellow exclamation is shown:
 
-![](https://raw.githubusercontent.com/wincent/wincent/media/prompt-error.png)
+![Zsh prompt showing command with non-zero exit status](https://raw.githubusercontent.com/wincent/wincent/media/prompt-error.png)
 
 If there are background processes, a yellow asterisk is shown:
 
-![](https://raw.githubusercontent.com/wincent/wincent/media/prompt-bg.png)
+![Zsh prompt showing background proceses](https://raw.githubusercontent.com/wincent/wincent/media/prompt-bg.png)
 
 ## Dependencies
 
