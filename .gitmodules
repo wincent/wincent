@@ -158,9 +158,6 @@
 	ignore = untracked
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-git
 	url = https://github.com/tpope/vim-git.git
-[submodule "vim-jsx"]
-	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-jsx
-	url = https://github.com/mxw/vim-jsx.git
 [submodule "vim-kitty"]
 	branch = main
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-kitty

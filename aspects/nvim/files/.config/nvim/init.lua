@@ -237,7 +237,6 @@ if vim.o.loadplugins then
   wincent.plugin.load('vim-eunuch')
   wincent.plugin.load('vim-fugitive')
   wincent.plugin.load('vim-git')
-  wincent.plugin.load('vim-jsx')
   wincent.plugin.load('vim-kitty')
   wincent.plugin.load('vim-ledger')
   wincent.plugin.load('vim-lion')
