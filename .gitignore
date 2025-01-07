@@ -1,6 +1,6 @@
 /aspects/dotfiles/files/.config/kitty/kitty.conf
-/aspects/dotfiles/files/.zsh/.base16
-/aspects/dotfiles/files/.zsh/.base16.previous
+/aspects/dotfiles/files/.zsh/.tinted
+/aspects/dotfiles/files/.zsh/.tinted.previous
 /aspects/nvim/files/.config/nvim/after/plugin/command-t.private.vim
 /aspects/nvim/files/.config/nvim/plugin/private.vim
 /aspects/nvim/files/.config/nvim/spell/en.utf-8.add.spl

@@ -10,7 +10,7 @@ end
 local check = function()
   local has_pinnacle, pinnacle = pcall(require, 'wincent.pinnacle')
   if has_pinnacle then
-    local config_file = vim.fn.expand('~/.zsh/.base16')
+    local config_file = vim.fn.expand('~/.zsh/.tinted')
 
     if vim.fn.filereadable(config_file) then
       local scheme, background = unpack(vim.fn.readfile(config_file, '', 2))
@@ -21,14 +21,14 @@ local check = function()
         echoerr('Bad background ' .. background .. ' in ' .. config_file)
       end
 
-      if vim.fn.filereadable(vim.fn.expand('~/.config/nvim/colors/base16-' .. scheme .. '.lua')) then
-        vim.cmd('colorscheme base16-' .. scheme)
+      if vim.fn.filereadable(vim.fn.expand('~/.config/nvim/colors/' .. scheme .. '.lua')) then
+        vim.cmd('colorscheme ' .. scheme)
       else
         echoerr('Bad scheme ' .. scheme .. ' in ' .. config_file)
       end
     else -- default
       vim.opt.background = 'dark'
-      vim.cmd('colorscheme base16-classic-dark')
+      vim.cmd('colorscheme classic-dark')
     end
 
     local dark = vim.o.background == 'dark'

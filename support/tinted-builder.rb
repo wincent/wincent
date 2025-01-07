@@ -30,7 +30,7 @@ def obliterate_crypto_casino_links(text)
   text.gsub('(http://chriskempson.com)', '(https://github.com/chriskempson)')
 end
 
-banner "Updating schema definitions"
+banner "Reading schema definitions"
 
 scheme_definitions= {}
 
@@ -74,9 +74,7 @@ schemes.each do |scheme_definition|
   end
 end
 
-templates = vendor.join("base16-templates")
-
-banner "Updating templates"
+banner "Updating output files from templates"
 
 # Tuple of [template source, output base directory].
 [
@@ -257,7 +255,7 @@ banner "Updating templates"
                     end
         end
       end
-      output_file = output_base.join(output_dir, "base16-#{slug}#{extension}")
+      output_file = output_base.join(output_dir, "#{slug}#{extension}")
       output_file_relative = relative(output_file)
       if output_file.exist?
         current_contents = output_file.read

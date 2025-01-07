@@ -13,7 +13,7 @@
 - Target platforms: macOS and Linux (see [Platform status](#platform-status) below).
 - Set-up method: ~~Beautiful and intricate snowflake~~ an incredibly over-engineered custom configuration framework called [Fig](./fig/README.md).
 - Visible in the screenshot:
-  - [The "classic-dark" Base16](https://github.com/chriskempson/base16) color scheme (see [screenshots of other colorschemes](https://github.com/wincent/wincent/blob/media/colorschemes/README.md)).
+  - [The "classic-dark"](https://github.com/tinted-theming/schemes/blob/spec-0.11/base16/classic-dark.yaml) color scheme (see [screenshots of other colorschemes](https://github.com/wincent/wincent/blob/media/colorschemes/README.md)).
   - [Adobe Source Code Pro](https://github.com/adobe-fonts/source-code-pro) (Light) font.
   - [Neovim](https://neovim.io), running inside [tmux](https://github.com/tmux/tmux), inside [kitty](https://sw.kovidgoyal.net/kitty/), on macOS "Sonoma".
 
@@ -32,7 +32,7 @@
 - Bundles a (not-excessive) number of [useful Vim plug-ins](https://github.com/wincent/wincent/tree/main/aspects/nvim/files/.config/nvim/pack/bundle/opt).
 - Conservative Vim configuration (very few overrides of core functionality; most changes are unobtrusive enhancements; some additional functionality exposed via `<Leader>` and `<LocalLeader>` mappings.
 - Relatively restrained Zsh config, Bash-like but with a few Zsh perks, such as right-side prompt, auto-cd hooks, command elapsed time printing and such.
-- Unified color-handling (across Kitty and Vim) via [Base16 Shell](https://github.com/chriskempson/base16-shell).
+- Unified color-handling (across Kitty, Neovim, etc) via [tinted-theming/tinted-kitty](https://github.com/tinted-theming/tinted-kitty), [tinted-theming/tinted-shell](https://github.com/tinted-theming/tinted-shell), [tinted-theming/tinted-tmux](https://github.com/tinted-theming/tinted-tmux), [tinted-theming/tinted-vim](https://github.com/tinted-theming/tinted-vim), and [wincent/base16-nvim](https://github.com/wincent/base16-nvim).
 - Encrypted versioning of files with sensitive content (via [git-cipher](https://github.com/wincent/git-cipher)).
 - Comprehensive [Hammerspoon](http://www.hammerspoon.org/) [config](https://github.com/wincent/wincent/tree/main/aspects/dotfiles/files/.hammerspoon).
 

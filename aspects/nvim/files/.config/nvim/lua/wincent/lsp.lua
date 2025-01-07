@@ -204,17 +204,6 @@ end
 lsp.set_up_highlights = function()
   local has_pinnacle, pinnacle = pcall(require, 'wincent.pinnacle')
   if has_pinnacle then
-    -- Base colors, in order of decreasing severity.
-    -- The `LspDiagnosticsDefault*` highlight groups here are coming from Base16.
-    pinnacle.link('DiagnosticError', 'LspDiagnosticsDefaultError') -- Red and scary.
-    pinnacle.link('DiagnosticWarn', 'LspDiagnosticsDefaultWarning') -- Orange and attention-grabbing.
-    pinnacle.set('DiagnosticInfo', {
-      fg = pinnacle.fg('ModeMsg'), -- Green and friendly.
-    })
-    pinnacle.set('DiagnosticHint', {
-      fg = pinnacle.fg('Special'), -- Blue/cyan and chirpy.
-    })
-
     -- Sign column colors.
     pinnacle.set('DiagnosticSignError', {
       bg = pinnacle.bg('ColorColumn'),
