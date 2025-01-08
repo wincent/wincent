@@ -520,6 +520,9 @@ if has_treesitter then
       -- See: `:h nvim-treesitter-incremental-selection-mod`
       enable = true,
     },
+    indent = {
+      enable = true,
+    },
     ignore_install = {},
     modules = {},
     sync_install = false,
