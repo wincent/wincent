@@ -38,9 +38,9 @@ local foldexpr = function(line_number)
     local previous_indent = line_number > 1 and vim.fn.indent(line_number - 1) or 0
     local line_count = vim.api.nvim_buf_line_count(0)
     local next_indent = line_number < line_count and vim.fn.indent(line_number + 1) or 0
-    local next_non_blank = vim.fn.nextnonblank(line_number + 1)
+    local next_non_blank_indent = vim.fn.indent(vim.fn.nextnonblank(line_number + 1))
     local has_indented = previous_non_blank == line_number - 1 and current_indent > previous_indent
-    local will_dedent = next_non_blank == line_number + 1 and current_indent > next_indent
+    local will_dedent = current_indent > next_non_blank_indent
     if previous_indent == next_indent then
       -- Special case: there's a single line with equal indents above and below
       -- it.
@@ -48,7 +48,7 @@ local foldexpr = function(line_number)
     elseif has_indented then
       return 'a' .. math.floor((current_indent - previous_indent) / vim.fn.shiftwidth())
     elseif will_dedent then
-      return 's' .. math.floor((current_indent - next_indent) / vim.fn.shiftwidth())
+      return 's' .. math.floor((current_indent - next_non_blank_indent) / vim.fn.shiftwidth())
     else
       -- Line has same fold level as previous line.
       return '='
