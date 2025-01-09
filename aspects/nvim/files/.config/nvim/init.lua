@@ -37,7 +37,8 @@ vim.opt.fillchars = {
   vert = '│', -- BOX DRAWINGS LIGHT VERTICAL (U+2502, UTF-8: E2 94 82)
 }
 vim.opt.foldlevelstart = 99 -- start unfolded
-vim.opt.foldmethod = 'indent' -- not as cool as syntax, but faster
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'v:lua.wincent.foldexpr(v:lnum)'
 vim.opt.foldtext = 'v:lua.wincent.foldtext()'
 vim.opt.formatoptions = vim.opt.formatoptions + 'j' -- remove comment leader when joining comment lines
 vim.opt.formatoptions = vim.opt.formatoptions + 'n' -- smart auto-indenting inside numbered lists
@@ -588,9 +589,3 @@ To see all leader mappings, including those from plugins:
     nvim -c 'map <LocalLeader>'
 
 --]]
-
--------------------------------------------------------------------------------
--- Modeline {{{1 --------------------------------------------------------------
--------------------------------------------------------------------------------
-
--- vim: foldmethod=marker
