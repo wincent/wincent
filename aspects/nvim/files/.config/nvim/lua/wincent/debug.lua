@@ -1,7 +1,7 @@
 local debug = nil
 
 local writefile = function(lines)
-  vim.fn.writefile(lines, '/tmp/wincent-nvim-debug.txt', 'aS')
+  vim.fn.writefile(lines, '/tmp/wincent-nvim-debug.txt', 'as')
 end
 
 -- TODO: extract this?
