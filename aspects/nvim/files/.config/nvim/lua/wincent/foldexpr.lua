@@ -103,12 +103,6 @@ local foldexpr = function(line_number)
           -- Update line numbers of anything after the inserted/removed markers.
           for i = position + #new_markers, #old_markers, 1 do
             if i ~= 0 then
-              wincent.debug('iterating: ' .. vim.inspect({
-                i = i,
-                position = position,
-                new_markers = #new_markers,
-                old_markers = #old_markers,
-              }))
               old_markers[i].line = old_markers[i].line + delta
             end
           end
