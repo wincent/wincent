@@ -77,41 +77,46 @@ local foldexpr = function(line_number)
           local new_markers = parse_markers(new_lines, first_line)
           local old_markers = cache[bufnr]
 
-          -- Remove potentially invalid markers inside changed range.
-          -- Also, calculate position of marker from which we'll need to adjust
-          -- line numbers.
-          local position = #old_markers
-          if position == 0 then
-            -- Beware! If position is 0 (ie. `old_markers` table is empty), then
-            -- the `table.move` below will effectively turn it into a non-list
-            -- table, breaking it!
-            position = 1
-          else
-            for i = #old_markers, 1, -1 do
-              local marker = old_markers[i]
-              if marker.line < first_line then
-                break
-              elseif marker.line > last_line then
-                position = i
-              elseif marker.line >= first_line and marker.line <= last_line then
-                table.remove(old_markers, i)
-                position = position - 1
+          if old_markers then
+            -- Remove potentially invalid markers inside changed range.
+            -- Also, calculate position of marker from which we'll need to adjust
+            -- line numbers.
+            local position = #old_markers
+            if position == 0 then
+              -- Beware! If position is 0 (ie. `old_markers` table is empty), then
+              -- the `table.move` below will effectively turn it into a non-list
+              -- table, breaking it!
+              position = 1
+            else
+              for i = #old_markers, 1, -1 do
+                local marker = old_markers[i]
+                if marker.line < first_line then
+                  break
+                elseif marker.line > last_line then
+                  position = i
+                elseif marker.line >= first_line and marker.line <= last_line then
+                  table.remove(old_markers, i)
+                  position = position - 1
+                end
               end
             end
-          end
 
-          -- Add new markers.
-          -- Make space by moving elements to the right.
-          table.move(old_markers, position, #old_markers, position + #new_markers)
-          -- Copy elements from `new_markers` into `old_markers`.
-          table.move(new_markers, 1, #new_markers, position, old_markers)
+            -- Add new markers.
+            -- Make space by moving elements to the right.
+            table.move(old_markers, position, #old_markers, position + #new_markers)
+            -- Copy elements from `new_markers` into `old_markers`.
+            table.move(new_markers, 1, #new_markers, position, old_markers)
 
-          -- Update line numbers of anything after the inserted/removed markers.
-          local delta = new_last_line - last_line
-          for i = position + #new_markers, #old_markers, 1 do
-            if i ~= 0 then
-              old_markers[i].line = old_markers[i].line + delta
+            -- Update line numbers of anything after the inserted/removed markers.
+            local delta = new_last_line - last_line
+            for i = position + #new_markers, #old_markers, 1 do
+              if i ~= 0 then
+                old_markers[i].line = old_markers[i].line + delta
+              end
             end
+          else
+            -- Somehow, cache got cleared. Repopulate it.
+            cache[bufnr] = new_markers
           end
         end,
         on_detach = function()
