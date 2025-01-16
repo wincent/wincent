@@ -17,12 +17,21 @@ vim.api.nvim_create_user_command('OpenOnGitHub', function(options)
     vim.notify('vim-rhubarb is not active.', vim.log.levels.ERROR)
   end
   if has_fugitive and has_rhubarb then
-    if options.range == 1 then
-      vim.cmd(options.line1 .. 'GBrowse ' .. (options.args or ''))
-    elseif options.range == 2 then
-      vim.cmd(options.line1 .. ',' .. options.line2 .. 'GBrowse ' .. (options.args or ''))
-    else
-      vim.cmd('GBrowse ' .. (options.args or ''))
+    -- Using `pcall()` to suppress the ugly stack trace that `vim.cmd()` will
+    -- spit out if fugitive does an `:echoerr "fugitive: can't browse to
+    -- unpushed change"`. (Only `vim.cmd()` does this; you see just the error
+    -- message without a stack trace when calling `:GBrowse` directly.)
+    local success, error = pcall(function()
+      if options.range == 1 then
+        vim.cmd(options.line1 .. 'GBrowse ' .. (options.args or ''))
+      elseif options.range == 2 then
+        vim.cmd(options.line1 .. ',' .. options.line2 .. 'GBrowse ' .. (options.args or ''))
+      else
+        vim.cmd('GBrowse ' .. (options.args or ''))
+      end
+    end)
+    if not success and error ~= nil then
+      vim.notify(tostring(error), vim.log.levels.ERROR)
     end
   end
 end, {
