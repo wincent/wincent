@@ -19,13 +19,13 @@ if has_shellbot then
     end
   end
 
-  vim.api.nvim_create_user_command('ChatGPT', function()
+  wincent.vim.command('ChatGPT', function()
     shellbot({
       unset = { 'ANTHROPIC_API_KEY' },
     })
   end, {})
 
-  vim.api.nvim_create_user_command('ChatGPTX', function()
+  wincent.vim.command('ChatGPTX', function()
     shellbot({
       unset = { 'ANTHROPIC_API_KEY' },
       set = {
@@ -34,13 +34,13 @@ if has_shellbot then
     })
   end, {})
 
-  vim.api.nvim_create_user_command('Claude', function()
+  wincent.vim.command('Claude', function()
     shellbot({
       unset = { 'OPENAI_API_KEY' },
     })
   end, {})
 
-  vim.api.nvim_create_user_command('Opus', function()
+  wincent.vim.command('Opus', function()
     shellbot({
       unset = { 'OPENAI_API_KEY' },
       set = {
@@ -76,8 +76,8 @@ else
   local print_error = function()
     vim.api.nvim_err_writeln('error: SHELLBOT does not appear to be executable')
   end
-  vim.api.nvim_create_user_command('ChatGPT', print_error, {})
-  vim.api.nvim_create_user_command('ChatGPTX', print_error, {})
-  vim.api.nvim_create_user_command('Claude', print_error, {})
-  vim.api.nvim_create_user_command('Opus', print_error, {})
+  wincent.vim.command('ChatGPT', print_error, {})
+  wincent.vim.command('ChatGPTX', print_error, {})
+  wincent.vim.command('Claude', print_error, {})
+  wincent.vim.command('Opus', print_error, {})
 end

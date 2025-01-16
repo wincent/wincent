@@ -12,7 +12,8 @@ local move = function(address, should_move)
 end
 
 local visual = {
-  move_down = function(lastline)
+  move_down = function(options)
+    local lastline = options.line2
     local count = vim.v.count == 0 and 1 or vim.v.count
     local max = vim.fn.line('$') - lastline
     local movement = vim.fn.min({ count, max })
@@ -21,7 +22,8 @@ local visual = {
     move(address, should_move)
   end,
 
-  move_up = function(firstline)
+  move_up = function(options)
+    local firstline = options.line1
     local count = vim.v.count == 0 and -1 or -vim.v.count
     local max = (firstline - 1) * -1
     local movement = vim.fn.max({ count, max })

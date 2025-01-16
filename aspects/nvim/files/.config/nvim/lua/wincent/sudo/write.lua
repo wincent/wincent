@@ -20,8 +20,8 @@ local reject = function(rejected, fn, description)
   end
 end
 
-local write = function(bang)
-  if bang == '!' or password == nil then
+local write = function(options)
+  if (options and options.bang == '!') or password == nil then
     password = vim.fn.inputsecret('Password:')
     if timer ~= nil then
       timer:stop()

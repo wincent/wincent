@@ -6,7 +6,7 @@ command('Find', 'call wincent#commands#find(<q-args>)', { complete = 'file', nar
 
 command('Lint', 'call wincent#commands#lint()')
 
-vim.api.nvim_create_user_command('OpenOnGitHub', function(options)
+command('OpenOnGitHub', function(options)
   vim.notify(':OpenOnGitHub is deprecated. Use :GBrowse instead.', vim.log.levels.WARN)
   local has_fugitive = wincent.plugin.is_loaded('vim-fugitive')
   local has_rhubarb = wincent.plugin.is_loaded('vim-rhubarb')
@@ -39,6 +39,7 @@ end, {
   nargs = '*',
   range = true,
 })
+
 command('Typecheck', 'call wincent#commands#typecheck()')
 command('Vim', 'call wincent#commands#vim()')
 

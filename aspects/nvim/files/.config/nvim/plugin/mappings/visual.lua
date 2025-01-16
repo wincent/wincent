@@ -12,8 +12,8 @@ vim.keymap.set('x', '<C-k>', '<C-w>k')
 vim.keymap.set('x', '<C-l>', '<C-w>l')
 
 -- Move VISUAL LINE selection within buffer.
-command('MoveDown', 'call v:lua.wincent.mappings.visual.move_down(<line2>)', { range = true })
-command('MoveUp', 'call v:lua.wincent.mappings.visual.move_up(<line1>)', { range = true })
+command('MoveDown', wincent.mappings.visual.move_down, { range = true })
+command('MoveUp', wincent.mappings.visual.move_up, { range = true })
 
 vim.keymap.set('x', 'K', ':MoveUp<CR>', { silent = true })
 vim.keymap.set('x', 'J', ':MoveDown<CR>', { silent = true })
