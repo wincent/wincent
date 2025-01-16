@@ -59,9 +59,14 @@ if has_shellbot then
       local win_count = #vim.api.nvim_tabpage_list_wins(0)
 
       if filetype == 'shellbot' and buftype == 'nofile' and win_count == 1 then
-        vim.api.nvim_err_writeln('')
-        vim.api.nvim_err_writeln('Use :q! if you really want to quit the last shellbot window')
-        vim.api.nvim_err_writeln('')
+        vim.notify(
+          '\n'
+            .. '┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n'
+            .. '┃ Use :q! if you really want to quit the last shellbot window ┃\n'
+            .. '┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n'
+            .. '\n',
+          vim.log.levels.WARN
+        )
 
         -- Will make Neovim abort the quit with:
         --
@@ -74,7 +79,7 @@ if has_shellbot then
   })
 else
   local print_error = function()
-    vim.api.nvim_err_writeln('error: SHELLBOT does not appear to be executable')
+    vim.notify('error: SHELLBOT does not appear to be executable', vim.log.levels.ERROR)
   end
   wincent.vim.command('ChatGPT', print_error, {})
   wincent.vim.command('ChatGPTX', print_error, {})

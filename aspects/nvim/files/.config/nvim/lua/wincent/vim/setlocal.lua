@@ -39,7 +39,7 @@ local options = {
 }
 
 local bail = function(msg)
-  vim.api.nvim_err_writeln(msg)
+  vim.notify(msg, vim.log.levels.ERROR)
 end
 
 local setlocal = function(name, ...)

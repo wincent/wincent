@@ -69,7 +69,7 @@ local jump = function(mapping, delta)
       next_idx = next_idx + delta
     end
   end
-  vim.api.nvim_err_writeln('No more jumps!')
+  vim.notify('No more jumps!', vim.log.levels.WARN)
 end
 
 local jump_in_file = function()

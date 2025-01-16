@@ -1,10 +1,9 @@
 local augroup = wincent.vim.augroup
 local autocmd = wincent.vim.autocmd
 
--- Convenience function so we don't have to escape input and pass it to
--- `:echoerr`.
-local echoerr = function(msg)
-  vim.api.nvim_err_writeln(msg)
+-- Convenience wrapper.
+local warn = function(msg)
+  vim.notify(msg, vim.log.levels.WARN)
 end
 
 local check = function()
@@ -18,13 +17,13 @@ local check = function()
       if background == 'dark' or background == 'light' then
         vim.opt.background = background
       else
-        echoerr('Bad background ' .. background .. ' in ' .. config_file)
+        warn('Bad background ' .. background .. ' in ' .. config_file)
       end
 
       if vim.fn.filereadable(vim.fn.expand('~/.config/nvim/colors/' .. scheme .. '.lua')) then
         vim.cmd('colorscheme ' .. scheme)
       else
-        echoerr('Bad scheme ' .. scheme .. ' in ' .. config_file)
+        warn('Bad scheme ' .. scheme .. ' in ' .. config_file)
       end
     else -- default
       vim.opt.background = 'dark'
