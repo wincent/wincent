@@ -244,6 +244,7 @@ if vim.o.loadplugins then
   wincent.plugin.load('vim-projectionist')
   wincent.plugin.load('vim-reason-plus')
   wincent.plugin.load('vim-repeat')
+  wincent.plugin.load('vim-rhubarb')
   wincent.plugin.load('vim-signature')
   wincent.plugin.load('vim-slime')
   wincent.plugin.load('vim-speeddating')
