@@ -430,6 +430,12 @@ if has_commandt then
           end
           return buffers
         end,
+        options = function(options)
+          -- `options` is a copy, so we're free to mutate it.
+          options.always_show_dot_files = true
+          options.never_show_dot_files = false
+          return options
+        end,
       },
     },
     scanners = {
