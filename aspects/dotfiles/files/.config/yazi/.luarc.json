@@ -1,0 +1,13 @@
+{
+  "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
+  "diagnostics.globals": [
+    "Entity",
+    "MANAGER",
+    "Status",
+    "THEME",
+    "Tab",
+    "cx",
+    "ui",
+    "ya"
+  ]
+}
