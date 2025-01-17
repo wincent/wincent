@@ -5,8 +5,5 @@
 -- https://github.com/vim/vim/issues/4830
 vim.cmd(
   'noautocmd set filetype='
-    .. vim.api
-      .nvim_buf_get_option(0, 'filetype')
-      :gsub('javascriptreact', 'javascript')
-      :gsub('typescriptreact', 'typescript')
+    .. vim.bo.filetype:gsub('javascriptreact', 'javascript'):gsub('typescriptreact', 'typescript')
 )
