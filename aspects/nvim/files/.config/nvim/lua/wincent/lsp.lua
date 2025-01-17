@@ -73,6 +73,18 @@ lsp.init = function()
     return open_floating_preview(contents, syntax, opts, ...)
   end
 
+  vim.lsp.handlers['window/showMessage'] = function(_, result, _context, _config)
+    if result.message:match('For performance reasons') then
+      -- Suppress Lua LS spam:
+      --
+      --     LSP[lua_ls][Warning] For performance reasons, the parsing of this
+      --     file has been stopped: file:///...
+      return
+    else
+      vim.lsp.log.info(result.message)
+    end
+  end
+
   vim.diagnostic.config({
     float = {
       header = 'Diagnostics', -- Default is "Diagnostics:"
