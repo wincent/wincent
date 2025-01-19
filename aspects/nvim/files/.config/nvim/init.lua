@@ -381,10 +381,6 @@ if vim.o.loadplugins then
   })
 end
 
--- Must come *after* the `:packadd!` calls above otherwise the contents of
--- package "ftdetect" directories won't be evaluated.
-vim.cmd('filetype indent plugin on')
-
 local has_luasnip, luasnip = pcall(require, 'luasnip')
 if has_luasnip then
   -- LuaSnip sets up its autocmds in "plugin/luasnip.vim", too early
