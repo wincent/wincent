@@ -520,6 +520,12 @@ if has_treesitter then
 
     highlight = {
       enable = true,
+      disable = function(_lang, buffer)
+        if wincent.vim.is_large_buffer(buffer) then
+          -- Equivalent to :TSBufDisable highlight.
+          return true
+        end
+      end,
     },
     incremental_selection = {
       -- gnn = init selection
@@ -528,9 +534,21 @@ if has_treesitter then
       -- grm = node decremental
       -- See: `:h nvim-treesitter-incremental-selection-mod`
       enable = true,
+      disable = function(_lang, buffer)
+        if wincent.vim.is_large_buffer(buffer) then
+          -- Equivalent to :TSBufDisable incremental_selection.
+          return true
+        end
+      end,
     },
     indent = {
       enable = true,
+      disable = function(_lang, buffer)
+        if wincent.vim.is_large_buffer(buffer) then
+          -- Equivalent to :TSBufDisable indent.
+          return true
+        end
+      end,
     },
     ignore_install = {},
     modules = {},
@@ -538,6 +556,11 @@ if has_treesitter then
     textobjects = {
       select = {
         enable = true,
+        disable = function(_lang, buffer)
+          if wincent.vim.is_large_buffer(buffer) then
+            return true
+          end
+        end,
         keymaps = {
           -- Similar to vim-textobj-comment: https://github.com/glts/vim-textobj-comment/
           ['ac'] = { query = '@comment.outer', desc = 'Select outer part of a comment region' },
