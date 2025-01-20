@@ -1,5 +1,6 @@
 import Context from '../../Context.js';
 import ErrorWithMetadata from '../../ErrorWithMetadata.js';
+import UnsupportedValueError from '../../UnsupportedValueError.js';
 import assert from '../../assert.js';
 import compare from '../../compare.js';
 import {promises as fs} from '../../fs.js';
@@ -198,7 +199,7 @@ export default async function file({
 
     changed.push('touch');
   } else {
-    throw new Error('Unreachable');
+    throw new UnsupportedValueError(state);
   }
 
   if (diff.mode) {

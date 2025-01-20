@@ -4,6 +4,7 @@ import * as process from 'node:process';
 import variables from '../variables.js';
 import Context from './Context.js';
 import ErrorWithMetadata from './ErrorWithMetadata.js';
+import UnsupportedValueError from './UnsupportedValueError.js';
 import {debug, log, setLogLevel} from './console.js';
 import dedent from './dedent.js';
 import getOptions from './getOptions.js';
@@ -490,8 +491,7 @@ async function loadAspect(aspect: Aspect): Promise<void> {
       await import('../aspects/nvim/index.js');
       break;
     default:
-      const unreachable: never = aspect;
-      throw new Error(`Unreachable ${unreachable}`);
+      throw new UnsupportedValueError(aspect);
   }
 }
 
