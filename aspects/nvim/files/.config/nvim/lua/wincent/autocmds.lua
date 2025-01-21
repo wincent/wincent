@@ -3,7 +3,6 @@ local leader = wincent.mappings.leader
 local autocmds = {}
 
 local number_flag = leader.number_flag
-local captured_settings = {}
 
 -- stylua: ignore
 local focused_colorcolumn = '+' .. table.concat({
