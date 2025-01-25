@@ -25,6 +25,11 @@ typeset -A __WINCENT
 
 __WINCENT[ITALIC_ON]=$'\e[3m'
 __WINCENT[ITALIC_OFF]=$'\e[23m'
+__WINCENT[ZSHRC]=$HOME/.zshrc
+__WINCENT[REAL_ZSHRC]=${__WINCENT[ZSHRC]:A}
+
+# ~/code/wincent, 4 levels up from ~/code/wincent/aspects/dotfiles/files/.zshrc
+__WINCENT[DOTFILES]=${__WINCENT[REAL_ZSHRC]:h:h:h:h}
 
 #
 # Teh H4xx

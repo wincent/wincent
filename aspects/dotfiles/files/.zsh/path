@@ -111,5 +111,8 @@ prepend_to "$VOLTA_HOME/bin"
 prepend_to PATH "$HOME/.zsh/bin"
 prepend_to PATH "$HOME/bin"
 
+# For running Neovim nightlies.
+prepend_to PATH "${__WINCENT[DOTFILES]}/vendor/nvim-macos-arm64/bin"
+
 # If you ever want to see this in easy-to-read form: `echo $PATH | tr : '\n'`
 export PATH

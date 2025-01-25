@@ -9,7 +9,7 @@
 /aspects/nvim/files/.vim/viminfo
 /media
 /node_modules
-/vendor/neovim
+/vendor/nvim-macos-arm64
 /vendor/skim
 /vendor/yay
 *.zwc
