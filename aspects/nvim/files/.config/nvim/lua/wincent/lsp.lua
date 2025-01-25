@@ -22,26 +22,7 @@ local get_window = function(bufnr)
 end
 
 local virtual_text = {
-  virt_text_pos = 'right_align',
-  format = function(diagnostic)
-    local bufnr = diagnostic.bufnr
-    local lnum = diagnostic.lnum
-    local window = get_window(bufnr)
-    if window == nil then
-      return diagnostic.message
-    end
-    local win_width = vim.api.nvim_win_get_width(window)
-    local line = vim.api.nvim_buf_get_lines(bufnr, lnum, lnum + 1, false)[1]
-    local line_length = #line
-    local padding = 20
-    local excess = (line_length + padding + #diagnostic.message) - win_width
-    if excess > 0 then
-      local trimmed = string.sub(diagnostic.message, 1, -excess) .. '…'
-      return trimmed
-    else
-      return diagnostic.message
-    end
-  end,
+  virt_text_pos = 'eol_right_align',
 }
 
 local on_attach = function()
