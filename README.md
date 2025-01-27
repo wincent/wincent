@@ -127,7 +127,7 @@ If there are background processes, a yellow asterisk is shown:
 ## Dependencies
 
 - [tmux](https://github.com/tmux/tmux) 3.2 or later.
-- [Neovim](https://neovim.io) v0.5.0 or later.
+- [Neovim](https://neovim.io) generally tracking the [latest release and sometimes the nightly](https://github.com/neovim/neovim/releases).
 - Relatively recent [Zsh](http://www.zsh.org/).
 - Relatively recent [Git](http://git-scm.com/).
 - [Clipper](https://github.com/wincent/clipper) for transparent access to the local system clipboard.
@@ -222,6 +222,18 @@ This sets up a local Node environment using [n](https://github.com/tj/n), and th
 ```sh
 git config --file ~/.config/git/config.local user.name "John Doe"
 git config --file ~/.config/git/config.local user.email johndoe@example.com
+```
+
+### Running Neovim nightly
+
+Occasionally I need to switch to [a nightly release of Neovim](https://github.com/neovim/neovim/releases) in order to get access to unreleased features. I do this by installing a copy of the nightly under `vendor/`; for example, on macOS:
+
+```sh
+wget https://github.com/neovim/neovim/releases/download/nightly/nvim-macos-arm64.tar.gz
+sha256sum nvim-macos-arm64.tar.gz
+xattr -c nvim-macos-arm64.tar.gz
+tar xzvf nvim-macos-arm64.tar.gz
+rm nvim-macos-arm64.tar.gz
 ```
 
 ### Troubleshooting
