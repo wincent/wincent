@@ -21,6 +21,7 @@ autoload -Uz fh
 autoload -Uz files
 autoload -Uz gaps
 autoload -Uz git
+autoload -Uz headers
 autoload -Uz history
 autoload -Uz jump
 autoload -Uz regmv
