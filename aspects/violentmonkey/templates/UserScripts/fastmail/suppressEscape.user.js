@@ -1,11 +1,11 @@
 // ==UserScript==
 // @name         Stop the Escape key from discarding changes in Fastmail notes
 // @namespace    https://wincent.dev/
-// @version      0.1
+// @version      0.2
 // @description  Stop the Escape key from discarding changes in Fastmail notes
 // @author       Greg Hurrell <greg@hurrell.net>
-// @match        https://betaapp.fastmail.com/notes/*
-// @match        https://app.fastmail.com/notes/*
+// @match        https://betaapp.fastmail.com/*
+// @match        https://app.fastmail.com/*
 // @grant        none
 // @downloadURL  http://localhost/~<%= variables.username %>/UserScripts/fastmail/suppressEscape.user.js
 // @updateURL    http://localhost/~<%= variables.username %>/UserScripts/fastmail/suppressEscape.user.js
