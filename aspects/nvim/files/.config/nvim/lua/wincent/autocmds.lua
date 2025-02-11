@@ -216,8 +216,8 @@ autocmds.colorcolumn_filetype_blacklist = {
   ['CommandTTitle'] = true,
   ['command-t'] = true,
   ['diff'] = true,
-  ['dirvish'] = true,
   ['fugitiveblame'] = true,
+  ['oil'] = true,
   ['undotree'] = true,
   ['qf'] = true,
   ['sagahover'] = true,
@@ -225,8 +225,8 @@ autocmds.colorcolumn_filetype_blacklist = {
 
 -- Don't mess with 'conceallevel' for these.
 autocmds.conceallevel_filetypes = {
-  ['dirvish'] = 2,
   ['help'] = 2,
+  ['oil'] = 2,
 }
 
 autocmds.cursorline_blacklist = {

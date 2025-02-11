@@ -133,9 +133,6 @@
 	branch = main
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-clipper
 	url = https://github.com/wincent/vim-clipper.git
-[submodule "vim-dirvish"]
-	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-dirvish
-	url = https://github.com/justinmk/vim-dirvish.git
 [submodule "vim-dispatch"]
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-dispatch
 	url = https://github.com/tpope/vim-dispatch.git
@@ -266,3 +263,6 @@
 [submodule "vim-rhubarb"]
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-rhubarb
 	url = https://github.com/tpope/vim-rhubarb.git
+[submodule "oil.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/oil.nvim
+	url = https://github.com/stevearc/oil.nvim.git
