@@ -350,7 +350,11 @@ if vim.o.loadplugins then
   -- Lazy because it adds a slow BufEnter autocmd.
   wincent.plugin.lazy('nvim-tree.lua', {
     afterload = function()
-      require('nvim-tree').setup()
+      require('nvim-tree').setup({
+        git = {
+          enable = false,
+        },
+      })
     end,
     commands = {
       'NvimTreeFindFile',
