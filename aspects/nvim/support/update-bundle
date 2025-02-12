@@ -24,3 +24,5 @@ git submodule foreach '
     git submodule update --init --recursive || :
   fi
 '
+
+echo "Update complete; please consider running: aspects/nvim/support/update-help-tags"
