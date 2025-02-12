@@ -434,6 +434,7 @@ if has_commandt then
           end
           return buffers
         end,
+        kind = 'virtual',
         options = function(options)
           -- `options` is a copy, so we're free to mutate it.
           options.always_show_dot_files = true
