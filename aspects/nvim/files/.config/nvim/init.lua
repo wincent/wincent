@@ -217,6 +217,7 @@ if vim.o.loadplugins then
   wincent.plugin.load('loupe')
   wincent.plugin.load('mini.ai')
   wincent.plugin.load('mini.extra')
+  wincent.plugin.load('mini.icons')
   wincent.plugin.load('mini.surround')
   wincent.plugin.load('neco-ghc')
   wincent.plugin.load('nvim-cmp')
@@ -343,6 +344,8 @@ if vim.o.loadplugins then
       'ZenMode',
     },
   })
+
+  require('mini.icons').setup()
 
   -- Lazy because it adds a slow BufEnter autocmd.
   wincent.plugin.lazy('nvim-tree.lua', {
