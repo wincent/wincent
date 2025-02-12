@@ -267,5 +267,6 @@
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/oil.nvim
 	url = https://github.com/stevearc/oil.nvim.git
 [submodule "mini.icons"]
+	branch = main
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.icons
 	url = https://github.com/echasnovski/mini.icons.git
