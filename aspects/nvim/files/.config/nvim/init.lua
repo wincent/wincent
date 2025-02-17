@@ -220,6 +220,7 @@ if vim.o.loadplugins then
   wincent.plugin.load('mini.icons')
   wincent.plugin.load('mini.surround')
   wincent.plugin.load('neco-ghc')
+  wincent.plugin.load('nvim-clipper')
   wincent.plugin.load('nvim-cmp')
   wincent.plugin.load('nvim-lspconfig')
   wincent.plugin.load('nvim-treesitter')
@@ -233,7 +234,6 @@ if vim.o.loadplugins then
   wincent.plugin.load('terminus')
   wincent.plugin.load('vcs-jump')
   wincent.plugin.load('vim-ansible-yaml')
-  wincent.plugin.load('vim-clipper')
   wincent.plugin.load('vim-dispatch')
   wincent.plugin.load('vim-docvim')
   wincent.plugin.load('vim-easydir')
@@ -395,6 +395,13 @@ if has_luasnip then
   -- last), so we have to do this even earlier, here.
   luasnip.config.set_config({
     updateevents = 'TextChanged,TextChangedI', -- default is InsertLeave
+  })
+end
+
+local has_clipper, clipper = pcall(require, 'wincent.clipper')
+if has_clipper then
+  clipper.setup({
+    socket = '~/.clipper.sock',
   })
 end
 
