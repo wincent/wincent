@@ -1,13 +1,13 @@
 -- See: https://yazi-rs.github.io/docs/tips#parent-arrow
-local function entry(_, args)
+local function entry(_, job)
   local parent = cx.active.parent
   if not parent then
     return
   end
 
-  local offset = tonumber(args[1])
+  local offset = tonumber(job.args[1])
   if not offset then
-    return ya.err(args[1], 'is not a number')
+    return ya.err(job.args[1], 'is not a number')
   end
 
   local start = parent.cursor + 1 + offset
