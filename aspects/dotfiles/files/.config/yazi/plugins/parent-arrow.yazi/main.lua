@@ -1,3 +1,5 @@
+--- @sync entry
+
 -- See: https://yazi-rs.github.io/docs/tips#parent-arrow
 local function entry(_, job)
   local parent = cx.active.parent
