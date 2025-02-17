@@ -268,5 +268,6 @@
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.icons
 	url = https://github.com/echasnovski/mini.icons.git
 [submodule "nvim-clipper"]
+	branch = main
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-clipper
 	url = https://github.com/wincent/nvim-clipper.git
