@@ -1,4 +1,4 @@
-# Default keymaps: https://github.com/sxyazi/yazi/blob/shipped/yazi-config/preset/keymap.toml
+# Default keymaps: https://github.com/sxyazi/yazi/blob/shipped/yazi-config/preset/keymap-default.toml
 
 [[manager.prepend_keymap]]
 # Mnemonic: "[T]oggle preview"
