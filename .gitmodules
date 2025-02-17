@@ -102,11 +102,6 @@
 	branch = wincent
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/shellbot
 	url = https://github.com/wincent/shellbot.git
-[submodule "skim"]
-	branch = master
-	ignore = untracked
-	path = aspects/dotfiles/files/.zsh/skim
-	url = https://github.com/lotabout/skim.git
 [submodule "source-code-pro"]
 	branch = release
 	path = vendor/fonts/source-code-pro
