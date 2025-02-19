@@ -157,9 +157,14 @@ autocmds.buf_write_post = function()
 end
 
 local global_cmdline_aliases = {
-  ['$PROFILING'] = os.getenv('PROFILING') or '$PROFILING',
+  -- Not currently using any of these, but could use them to do things like:
+  -- ['$PROFILING'] = os.getenv('PROFILING') or '$PROFILING',
 }
 autocmds.cmdline_changed = function()
+  if next(global_cmdline_aliases) == nil then
+    -- Bail early when no aliases are defined.
+    return
+  end
   if vim.fn.getcmdtype() ~= ':' then
     return
   end
