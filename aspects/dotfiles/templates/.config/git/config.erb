@@ -108,6 +108,12 @@
 		git add $(git diff --name-only --diff-filter=U -- \"${@:-.}\"); \
 	}; f"
 
+	# Look for unreachable (dropped) stashes.
+	# https://stackoverflow.com/a/5879550/2103996
+	resurrect = "!f() { \
+		git fsck --unreachable | grep commit | cut -d' ' -f3 | xargs git log --merges --no-walk --grep='WIP on '; \
+	}; f"
+
 	# Requires Git 1.7.11.3 or later.
 	reword = commit --amend --only -v --
 
