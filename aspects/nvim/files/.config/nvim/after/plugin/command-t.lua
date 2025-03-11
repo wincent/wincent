@@ -8,7 +8,7 @@
 vim.keymap.set('n', '<Leader>b', '<Plug>(CommandTBuffer)')
 vim.keymap.set('n', '<Leader>h', '<Plug>(CommandTHelp)')
 vim.keymap.set('n', '<LocalLeader>l', '<Plug>(CommandTLine)')
-vim.keymap.set('n', '<Leader>t', '<Plug>(CommandTRipgrep)')
+vim.keymap.set('n', '<Leader>t', '<Plug>(CommandTFd)')
 
 -- Note: These ones come from the Ruby version, for now.
 

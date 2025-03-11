@@ -454,6 +454,9 @@ if has_commandt then
       file = {
         max_files = 1000000,
       },
+      fd = {
+        max_files = 1000000,
+      },
       find = {
         max_files = 1000000,
       },
