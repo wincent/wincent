@@ -15,6 +15,8 @@ jobs:
     strategy: &matrix
       matrix:
         node-version: [22.11.0]
+    steps:
+      - run: /bin/true
 
   check-lockfile:
     runs-on: ubuntu-latest
