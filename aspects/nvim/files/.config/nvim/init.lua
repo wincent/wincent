@@ -154,6 +154,10 @@ wincent.vim.setlocal('colorcolumn', '+' .. wincent.util.join(wincent.util.range(
 -- Globals {{{1 ---------------------------------------------------------------
 -------------------------------------------------------------------------------
 
+-- Avoid :checkhealth warnings for providers I don't intend to use.
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_perl_provider = 0
+
 vim.g.mapleader = ' '
 vim.g.maplocalleader = '\\'
 
