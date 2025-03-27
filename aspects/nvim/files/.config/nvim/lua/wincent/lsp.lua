@@ -212,6 +212,12 @@ lsp.set_up_highlights = function()
       fg = pinnacle.embolden('DiagnosticWarn').fg,
     })
 
+    -- Virtual lines colors
+    pinnacle.set('DiagnosticVirtualLinesError', pinnacle.italicize('DiagnosticError'))
+    pinnacle.set('DiagnosticVirtualLinesHint', pinnacle.italicize('DiagnosticHint'))
+    pinnacle.set('DiagnosticVirtualLinesInfo', pinnacle.italicize('DiagnosticInfo'))
+    pinnacle.set('DiagnosticVirtualLinesWarn', pinnacle.italicize('DiagnosticWarn'))
+
     -- Virtual text colors.
     pinnacle.set('DiagnosticVirtualTextError', pinnacle.decorate('italic,underline', 'DiagnosticError'))
     pinnacle.set('DiagnosticVirtualTextHint', pinnacle.decorate('italic,underline', 'DiagnosticHint'))
