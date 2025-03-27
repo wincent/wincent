@@ -22,16 +22,17 @@ local get_window = function(bufnr)
 end
 
 local on_attach = function()
-  vim.keymap.set('n', '<Leader>ld', '<cmd>lua vim.diagnostic.open_float()<CR>', { buffer = true, silent = true })
-
-  -- Mnemonic: kd = "kill diagnostics" (although it's really "toggle diagnostics")
-  vim.keymap.set('n', '<Leader>kd', function()
+  -- Mnemonic: ld = "(toggle) line diagnostics"
+  vim.keymap.set('n', '<Leader>ld', function()
     if vim.diagnostic.config().virtual_lines then
       vim.diagnostic.config({ virtual_lines = false })
     else
       vim.diagnostic.config({ virtual_lines = true })
     end
   end, { buffer = true, silent = true })
+
+  -- Mnemonic: ld = "(toggle) line diagnostics floating window"
+  vim.keymap.set('n', '<LocalLeader>ld', '<cmd>lua vim.diagnostic.open_float()<CR>', { buffer = true, silent = true })
 
   vim.keymap.set('n', '<c-]>', '<cmd>lua vim.lsp.buf.definition()<CR>', { buffer = true, silent = true })
   vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', { buffer = true, silent = true })
