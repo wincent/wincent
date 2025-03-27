@@ -21,19 +21,15 @@ local get_window = function(bufnr)
   return windows[1]
 end
 
-local virtual_text = {
-  virt_text_pos = 'eol_right_align',
-}
-
 local on_attach = function()
   vim.keymap.set('n', '<Leader>ld', '<cmd>lua vim.diagnostic.open_float()<CR>', { buffer = true, silent = true })
 
   -- Mnemonic: kd = "kill diagnostics" (although it's really "toggle diagnostics")
   vim.keymap.set('n', '<Leader>kd', function()
-    if vim.diagnostic.config().virtual_text then
-      vim.diagnostic.config({ virtual_text = false })
+    if vim.diagnostic.config().virtual_lines then
+      vim.diagnostic.config({ virtual_lines = false })
     else
-      vim.diagnostic.config({ virtual_text = virtual_text })
+      vim.diagnostic.config({ virtual_lines = true })
     end
   end, { buffer = true, silent = true })
 
@@ -108,7 +104,7 @@ lsp.init = function()
       },
     },
 
-    virtual_text = virtual_text,
+    virtual_lines = true,
   })
 
   local has_cmp_nvim_lsp, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
