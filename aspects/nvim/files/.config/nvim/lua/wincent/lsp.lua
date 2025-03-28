@@ -71,8 +71,6 @@ local function open_floating_window()
 end
 
 lsp.init = function()
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-
   -- Global override, from https://github.com/neovim/nvim-lspconfig/wiki/UI-customization
   function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
     opts = opts or {}
@@ -171,6 +169,8 @@ lsp.init = function()
 
     virtual_lines = true,
   })
+
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
 
   local has_cmp_nvim_lsp, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
   if has_cmp_nvim_lsp then
