@@ -41,6 +41,35 @@ local on_attach = function()
   vim.wo.signcolumn = 'yes'
 end
 
+local window = nil
+local buffer = nil
+local last_message = nil
+local timer = nil
+
+local function open_floating_window()
+  local editor_height = vim.o.lines
+  local editor_width = vim.o.columns
+  local window_height = 1
+  local window_width = math.max(1, math.floor(editor_width / 2))
+  if buffer == nil or not vim.api.nvim_buf_is_valid(buffer) then
+    buffer = vim.api.nvim_create_buf(false, true)
+  end
+  window = vim.api.nvim_open_win(buffer, false, {
+    relative = 'editor',
+    width = window_width,
+    height = window_height,
+    row = editor_height - window_height - 4,
+    col = editor_width - window_width - 2,
+    style = 'minimal',
+    border = 'rounded',
+  })
+
+  vim.api.nvim_set_option_value('winblend', 75, {
+    scope = 'local',
+    win = window,
+  })
+end
+
 lsp.init = function()
   local capabilities = vim.lsp.protocol.make_client_capabilities()
 
@@ -49,6 +78,41 @@ lsp.init = function()
     opts = opts or {}
     opts.border = opts.border or 'single'
     return open_floating_preview(contents, syntax, opts, ...)
+  end
+
+  vim.lsp.handlers['$/progress'] = function(_, result, _context, _config)
+    local message = nil
+    if result and result.value then
+      if result.value.kind == 'begin' and result.value.title then
+        message = tostring(result.value.title)
+      elseif result.value.kind == 'end' then
+        -- Nothing...
+      elseif result.value.kind == 'report' and result.value.message then
+        message = tostring(result.value.message)
+        if result.value.percentage and result.value.percentage > 0 then
+          message = string.format('%s (%d%%)', message, result.value.percentage)
+        end
+      end
+    end
+    if message and message ~= last_message then
+      if window == nil then
+        open_floating_window()
+      end
+      vim.api.nvim_buf_set_lines(buffer, 0, 1, false, { message })
+      last_message = message
+
+      if timer then
+        timer:stop()
+      end
+
+      timer = vim.defer_fn(function()
+        if window then
+          vim.api.nvim_win_close(window, true)
+          window = nil
+          last_message = nil
+        end
+      end, 1000)
+    end
   end
 
   vim.lsp.handlers['window/showMessage'] = function(_, result, _context, _config)
