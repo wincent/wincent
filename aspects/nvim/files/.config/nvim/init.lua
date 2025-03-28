@@ -169,6 +169,9 @@ vim.g.filetype_pl = 'prolog'
 -- centering, which can be annoying.
 vim.g.LoupeCenterResults = 0
 
+-- Not needed in Neovim (see `:help hl-CurSearch`).
+vim.g.LoupeHighlightGroup = ''
+
 -- Using <F13> instead of actual <Nop> to avoid messing with "<" mappings.
 -- (<Nop> works fine in RHS of mappings, but on LHS, Vim treats it like "<" +
 -- "n" + "o" + "p" + ">".)
