@@ -32,11 +32,11 @@ local on_attach = function()
   end, { buffer = true, silent = true })
 
   -- Mnemonic: ld = "(toggle) line diagnostics floating window"
-  vim.keymap.set('n', '<LocalLeader>ld', '<cmd>lua vim.diagnostic.open_float()<CR>', { buffer = true, silent = true })
+  vim.keymap.set('n', '<LocalLeader>ld', vim.diagnostic.open_float, { buffer = true, silent = true })
 
-  vim.keymap.set('n', '<c-]>', '<cmd>lua vim.lsp.buf.definition()<CR>', { buffer = true, silent = true })
-  vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', { buffer = true, silent = true })
-  vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.declaration()<CR>', { buffer = true, silent = true })
+  vim.keymap.set('n', '<c-]>', vim.lsp.buf.definition, { buffer = true, silent = true })
+  vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = true, silent = true })
+  vim.keymap.set('n', 'gd', vim.lsp.buf.declaration, { buffer = true, silent = true })
 
   vim.wo.signcolumn = 'yes'
 end
