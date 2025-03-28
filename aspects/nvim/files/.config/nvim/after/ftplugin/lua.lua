@@ -28,4 +28,7 @@ if wincent.vim.is_large_buffer() then
 
   -- This definitely is needed...
   vim.opt_local.syntax = 'OFF'
+else
+  -- Undo unwanted side-effects of `$VIMRUNTIME/ftplugin/lua.lua`.
+  vim.opt_local.foldexpr = 'v:lua.wincent.foldexpr(v:lnum)'
 end
