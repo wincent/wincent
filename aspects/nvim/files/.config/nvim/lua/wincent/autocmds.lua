@@ -260,7 +260,6 @@ autocmds.list_filetypes = {
   ['CommandTTitle'] = false,
   ['command-t'] = false,
   ['help'] = false,
-  ['shellbot'] = false,
 }
 
 autocmds.mkview_filetype_blacklist = {
