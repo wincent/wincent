@@ -8,6 +8,19 @@ require('full-border'):setup()
 -- Additions
 --
 
+-- Make status bar show symlink target.
+--
+-- See: https://yazi-rs.github.io/docs/tips#symlink-in-status
+--
+Status:children_add(function(self)
+  local h = self._current.hovered
+  if h and h.link_to then
+    return ui.Span(string.format(' → %s', tostring(h.link_to))):style(th.mgr.symlink_target) or ''
+  else
+    return ''
+  end
+end, 3300, Status.LEFT)
+
 -- Show owner:group in status bar.
 --
 -- See: https://yazi-rs.github.io/docs/tips#user-group-in-status
@@ -40,22 +53,4 @@ function Entity:symlink()
 
   local to = self._file.link_to
   return to and ui.Span(string.format(' → %s', to)):style(th.mgr.symlink_target) or ''
-end
-
--- Make status bar show symlink target.
---
--- See: https://yazi-rs.github.io/docs/tips#symlink-in-status
---
--- Original: https://github.com/sxyazi/yazi/blob/7c445cef1fd9f/yazi-plugin/preset/components/status.lua#L60-L67
-function Status:name()
-  local h = self._tab.current.hovered
-  if not h then
-    return ui.Line({})
-  end
-
-  local linked = ui.Span('')
-  if h.link_to ~= nil then
-    linked = ui.Span(' → ' .. tostring(h.link_to)):italic()
-  end
-  return ui.Line({ ui.Span(' ' .. h.name), linked })
 end
