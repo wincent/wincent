@@ -32,14 +32,14 @@ end, 500, Status.RIGHT)
 
 -- Make `Entity:symlink()` render "→" instead of "->".
 --
--- Original: https://github.com/sxyazi/yazi/blob/7c445cef1fd9f/yazi-plugin/preset/components/entity.lua#L70-L77
+-- Original: https://github.com/sxyazi/yazi/blob/99ea3b74c4260a72/yazi-plugin/preset/components/entity.lua
 function Entity:symlink()
-  if not MANAGER.show_symlink then
-    return ui.Line({})
+  if not rt.mgr.show_symlink then
+    return ''
   end
 
   local to = self._file.link_to
-  return to and ui.Line(' → ' .. tostring(to)):italic() or ui.Line({})
+  return to and ui.Span(string.format(' → %s', to)):style(th.mgr.symlink_target) or ''
 end
 
 -- Make status bar show symlink target.
