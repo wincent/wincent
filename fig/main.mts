@@ -4,7 +4,6 @@ import * as process from 'node:process';
 import variables from '../variables.js';
 import Context from './Context.js';
 import ErrorWithMetadata from './ErrorWithMetadata.js';
-import UnsupportedValueError from './UnsupportedValueError.js';
 import {debug, log, setLogLevel} from './console.js';
 import dedent from './dedent.js';
 import getOptions from './getOptions.js';
@@ -411,88 +410,7 @@ function msToHumanReadable(ms: number): string {
 }
 
 async function loadAspect(aspect: Aspect): Promise<void> {
-  switch (aspect) {
-    case 'aur':
-      await import('../aspects/aur/index.js');
-      break;
-    case 'automator':
-      await import('../aspects/automator/index.js');
-      break;
-    case 'automount':
-      await import('../aspects/automount/index.js');
-      break;
-    case 'avahi':
-      await import('../aspects/avahi/index.js');
-      break;
-    case 'backup':
-      await import('../aspects/backup/index.js');
-      break;
-    case 'bitcoin':
-      await import('../aspects/bitcoin/index.js');
-      break;
-    case 'cron':
-      await import('../aspects/cron/index.js');
-      break;
-    case 'defaults':
-      await import('../aspects/defaults/index.js');
-      break;
-    case 'dotfiles':
-      await import('../aspects/dotfiles/index.js');
-      break;
-    case 'fonts':
-      await import('../aspects/fonts/index.js');
-      break;
-    case 'homebrew':
-      await import('../aspects/homebrew/index.js');
-      break;
-    case 'interception':
-      await import('../aspects/interception/index.js');
-      break;
-    case 'karabiner':
-      await import('../aspects/karabiner/index.js');
-      break;
-    case 'launchd':
-      await import('../aspects/launchd/index.js');
-      break;
-    case 'locale':
-      await import('../aspects/locale/index.js');
-      break;
-    case 'meta':
-      await import('../aspects/meta/index.js');
-      break;
-    case 'nix':
-      await import('../aspects/nix/index.js');
-      break;
-    case 'node':
-      await import('../aspects/node/index.js');
-      break;
-    case 'pacman':
-      await import('../aspects/pacman/index.js');
-      break;
-    case 'ruby':
-      await import('../aspects/ruby/index.js');
-      break;
-    case 'shell':
-      await import('../aspects/shell/index.js');
-      break;
-    case 'ssh':
-      await import('../aspects/ssh/index.js');
-      break;
-    case 'sshd':
-      await import('../aspects/sshd/index.js');
-      break;
-    case 'systemd':
-      await import('../aspects/systemd/index.js');
-      break;
-    case 'violentmonkey':
-      await import('../aspects/violentmonkey/index.js');
-      break;
-    case 'nvim':
-      await import('../aspects/nvim/index.js');
-      break;
-    default:
-      throw new UnsupportedValueError(aspect);
-  }
+      await import(`../aspects/${aspect}/index.js`);
 }
 
 try {
