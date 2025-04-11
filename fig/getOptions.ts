@@ -169,6 +169,8 @@ export default async function getOptions(
 
 /**
  * Turn `value` into a fuzzy RegExp.
+ *
+ * eg. "foo bar baz" → /foo.*bar.*baz/
  */
 function fuzz(value: string) {
   return new RegExp(
