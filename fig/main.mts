@@ -108,8 +108,7 @@ async function main() {
         options.startAt.found = true;
       } else if (
         !options.startAt.found &&
-        options.startAt.fuzzy &&
-        options.startAt.fuzzy.test(name)
+        options.startAt.fuzzy?.test(name)
       ) {
         candidateTasks.push(name);
       }
