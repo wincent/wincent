@@ -119,7 +119,7 @@ lsp.init = function()
     capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
   end
 
-  local has_lspconfig, lspconfig = pcall(require, 'lspconfig')
+  local has_lspconfig = pcall(require, 'lspconfig')
   if has_lspconfig then
     vim.lsp.config('*', {
       capabilities = capabilities,
