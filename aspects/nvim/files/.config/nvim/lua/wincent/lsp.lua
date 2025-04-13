@@ -78,53 +78,6 @@ lsp.init = function()
     return open_floating_preview(contents, syntax, opts, ...)
   end
 
-  vim.lsp.handlers['$/progress'] = function(_, result, _context, _config)
-    local message = nil
-    if result and result.value then
-      if result.value.kind == 'begin' and result.value.title then
-        message = tostring(result.value.title)
-      elseif result.value.kind == 'end' then
-        -- Nothing...
-      elseif result.value.kind == 'report' and result.value.message then
-        message = tostring(result.value.message)
-        if result.value.percentage and result.value.percentage > 0 then
-          message = string.format('%s (%d%%)', message, result.value.percentage)
-        end
-      end
-    end
-    if message and message ~= last_message then
-      if window == nil then
-        open_floating_window()
-      end
-      vim.api.nvim_buf_set_lines(buffer, 0, 1, false, { message })
-      last_message = message
-
-      if timer then
-        timer:stop()
-      end
-
-      timer = vim.defer_fn(function()
-        if window then
-          vim.api.nvim_win_close(window, true)
-          window = nil
-          last_message = nil
-        end
-      end, 1000)
-    end
-  end
-
-  vim.lsp.handlers['window/showMessage'] = function(_, result, _context, _config)
-    if result.message:match('For performance reasons') then
-      -- Suppress Lua LS spam:
-      --
-      --     LSP[lua_ls][Warning] For performance reasons, the parsing of this
-      --     file has been stopped: file:///...
-      return
-    else
-      vim.lsp.log.info(result.message)
-    end
-  end
-
   vim.diagnostic.config({
     float = {
       header = 'Diagnostics', -- Default is "Diagnostics:"
@@ -179,11 +132,66 @@ lsp.init = function()
 
   local has_lspconfig, lspconfig = pcall(require, 'lspconfig')
   if has_lspconfig then
-    lspconfig.clangd.setup({
+    vim.lsp.config('*', {
       capabilities = capabilities,
-      cmd = { 'clangd', '--background-index' },
+      handlers = {
+        ['$/progress'] = function(_, result, _context, _config)
+          local message = nil
+          if result and result.value then
+            if result.value.kind == 'begin' and result.value.title then
+              message = tostring(result.value.title)
+            elseif result.value.kind == 'end' then
+              -- Nothing...
+            elseif result.value.kind == 'report' and result.value.message then
+              message = tostring(result.value.message)
+              if result.value.percentage and result.value.percentage > 0 then
+                message = string.format('%s (%d%%)', message, result.value.percentage)
+              end
+            end
+          end
+          if message and message ~= last_message then
+            if window == nil then
+              open_floating_window()
+            end
+            vim.api.nvim_buf_set_lines(buffer, 0, 1, false, { message })
+            last_message = message
+
+            if timer then
+              timer:stop()
+            end
+
+            timer = vim.defer_fn(function()
+              if window then
+                vim.api.nvim_win_close(window, true)
+                window = nil
+                last_message = nil
+              end
+            end, 1000)
+          end
+        end,
+        ['window/showMessage'] = function(_, result, _context, _config)
+          if result.message:match('For performance reasons') then
+            -- Suppress Lua LS spam:
+            --
+            --     LSP[lua_ls][Warning] For performance reasons, the parsing of this
+            --     file has been stopped: file:///...
+            return
+          else
+            vim.lsp.log.info(result.message)
+          end
+        end,
+      },
       on_attach = on_attach,
     })
+
+    vim.lsp.config('clangd', {
+      settings = {
+        clangd = {
+          cmd = { 'clangd', '--background-index' },
+        },
+      },
+    })
+    vim.lsp.enable('clangd')
 
     -- Prerequisite: https://github.com/LuaLS/lua-language-server
     --
@@ -197,10 +205,8 @@ lsp.init = function()
     --
     local cmd = 'lua-language-server'
     if vim.fn.executable(cmd) == 1 then
-      lspconfig.lua_ls.setup({
-        capabilities = capabilities,
+      vim.lsp.config('lua_ls', {
         cmd = { cmd },
-        on_attach = on_attach,
         settings = {
           Lua = {
             diagnostics = {
@@ -226,32 +232,14 @@ lsp.init = function()
           },
         },
       })
+      vim.lsp.enable('lua_ls')
     end
 
-    lspconfig.gopls.setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
-
-    lspconfig.ocamlls.setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
-
-    lspconfig.rust_analyzer.setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
-
-    lspconfig.ts_ls.setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
-
-    lspconfig.vimls.setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
+    vim.lsp.enable('gopls')
+    vim.lsp.enable('ocamlls')
+    vim.lsp.enable('rust_analyzer')
+    vim.lsp.enable('ts_ls')
+    vim.lsp.enable('vimls')
   end
 end
 
