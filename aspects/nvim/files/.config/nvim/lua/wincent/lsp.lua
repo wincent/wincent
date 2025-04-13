@@ -10,17 +10,6 @@ local signs = {
   UNKNOWN = '•',
 }
 
-local get_window = function(bufnr)
-  local windows = vim.fn.win_findbuf(bufnr)
-  local tab = vim.api.nvim_get_current_tabpage()
-  for _, window in ipairs(windows) do
-    if tab == vim.api.nvim_win_get_tabpage(window) then
-      return window
-    end
-  end
-  return windows[1]
-end
-
 local on_attach = function()
   -- Mnemonic: ld = "(toggle) line diagnostics"
   vim.keymap.set('n', '<Leader>ld', function()
