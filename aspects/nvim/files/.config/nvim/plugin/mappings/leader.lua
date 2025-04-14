@@ -16,7 +16,7 @@ vim.keymap.set('n', '<Leader>p', ":echo expand('%')<CR>")
 
 -- <Leader>pp -- Like <Leader>p, but additionally yanks the filename and sends it
 -- off to Clipper.
-vim.keymap.set('n', '<Leader>pp', ":let @0=expand('%') <Bar> :Clip<CR> :echo expand('%')<CR>")
+vim.keymap.set('n', '<Leader>pp', ":let @\"=expand('%') <Bar> :Clip<CR> :echo expand('%')<CR>")
 
 vim.keymap.set('n', '<Leader>q', ':quit<CR>')
 
