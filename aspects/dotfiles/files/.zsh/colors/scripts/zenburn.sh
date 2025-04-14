@@ -1,34 +1,34 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
 # Scheme name: Zenburn 
-# Scheme author: elnawe
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="zenburn"
 
-color00="38/38/38" # Base 00 - Black
-color01="dc/a3/a3" # Base 08 - Red
-color02="5f/7f/5f" # Base 0B - Green
-color03="e0/cf/9f" # Base 0A - Yellow
-color04="7c/b8/bb" # Base 0D - Blue
+color00="3f/3f/3f" # Base 00 - Black
+color01="70/50/50" # Base 08 - Red
+color02="60/b4/8a" # Base 0B - Green
+color03="94/bf/f3" # Base 0A - Yellow
+color04="50/60/70" # Base 0D - Blue
 color05="dc/8c/c3" # Base 0E - Magenta
-color06="93/e0/e3" # Base 0C - Cyan
-color07="c0/c0/c0" # Base 06 - White
-color08="60/60/60" # Base 02 - Bright Black
+color06="8c/d0/d3" # Base 0C - Cyan
+color07="dc/dc/cc" # Base 06 - White
+color08="70/90/80" # Base 02 - Bright Black
 color09="dc/a3/a3" # Base 12 - Bright Red
-color10="5f/7f/5f" # Base 14 - Bright Green
+color10="c3/bf/9f" # Base 14 - Bright Green
 color11="e0/cf/9f" # Base 13 - Bright Yellow
-color12="7c/b8/bb" # Base 16 - Bright Blue
-color13="dc/8c/c3" # Base 17 - Bright Magenta
+color12="94/bf/f3" # Base 16 - Bright Blue
+color13="ec/93/d3" # Base 17 - Bright Magenta
 color14="93/e0/e3" # Base 15 - Bright Cyan
 color15="ff/ff/ff" # Base 07 - Bright White
-color16="df/af/8f" # Base 09
-color17="00/00/00" # Base 0F
-color18="40/40/40" # Base 01
-color19="60/60/60" # Base 02
-color20="80/80/80" # Base 04
-color21="c0/c0/c0" # Base 06
-color_foreground="dc/dc/cc" # Base 05
-color_background="38/38/38" # Base 00
+color16="f0/df/af" # Base 09
+color17="38/28/28" # Base 0F
+color18="4d/4d/4d" # Base 01
+color19="70/90/80" # Base 02
+color20="a6/b6/a6" # Base 04
+color21="dc/dc/cc" # Base 06
+color_foreground="c1/c9/b9" # Base 05
+color_background="3f/3f/3f" # Base 00
 
 
 if [ -z "$TTY" ] && ! TTY=$(tty); then
@@ -77,13 +77,13 @@ put_template 15 "$color15"
 # foreground / background / cursor color
 if [ -n "$ITERM_SESSION_ID" ]; then
   # iTerm2 proprietary escape codes
-  put_template_custom Pg dcdccc # foreground
-  put_template_custom Ph 383838 # background
-  put_template_custom Pi dcdccc # bold color
-  put_template_custom Pj 606060 # selection color
-  put_template_custom Pk dcdccc # selected text color
-  put_template_custom Pl dcdccc # cursor
-  put_template_custom Pm 383838 # cursor text
+  put_template_custom Pg c1c9b9 # foreground
+  put_template_custom Ph 3f3f3f # background
+  put_template_custom Pi c1c9b9 # bold color
+  put_template_custom Pj 709080 # selection color
+  put_template_custom Pk c1c9b9 # selected text color
+  put_template_custom Pl c1c9b9 # cursor
+  put_template_custom Pm 3f3f3f # cursor text
 else
   put_template_var 10 "$color_foreground"
   if [ "$BASE24_SHELL_SET_BACKGROUND" != false ]; then
@@ -126,28 +126,28 @@ unset color_background
 
 # Optionally export variables
 if [ -n "$TINTED_SHELL_ENABLE_BASE24_VARS" ]; then
-  export BASE24_COLOR_00_HEX="383838"
-  export BASE24_COLOR_01_HEX="404040"
-  export BASE24_COLOR_02_HEX="606060"
-  export BASE24_COLOR_03_HEX="6f6f6f"
-  export BASE24_COLOR_04_HEX="808080"
-  export BASE24_COLOR_05_HEX="dcdccc"
-  export BASE24_COLOR_06_HEX="c0c0c0"
+  export BASE24_COLOR_00_HEX="3f3f3f"
+  export BASE24_COLOR_01_HEX="4d4d4d"
+  export BASE24_COLOR_02_HEX="709080"
+  export BASE24_COLOR_03_HEX="8ba393"
+  export BASE24_COLOR_04_HEX="a6b6a6"
+  export BASE24_COLOR_05_HEX="c1c9b9"
+  export BASE24_COLOR_06_HEX="dcdccc"
   export BASE24_COLOR_07_HEX="ffffff"
-  export BASE24_COLOR_08_HEX="dca3a3"
-  export BASE24_COLOR_09_HEX="dfaf8f"
-  export BASE24_COLOR_0A_HEX="e0cf9f"
-  export BASE24_COLOR_0B_HEX="5f7f5f"
-  export BASE24_COLOR_0C_HEX="93e0e3"
-  export BASE24_COLOR_0D_HEX="7cb8bb"
+  export BASE24_COLOR_08_HEX="705050"
+  export BASE24_COLOR_09_HEX="f0dfaf"
+  export BASE24_COLOR_0A_HEX="94bff3"
+  export BASE24_COLOR_0B_HEX="60b48a"
+  export BASE24_COLOR_0C_HEX="8cd0d3"
+  export BASE24_COLOR_0D_HEX="506070"
   export BASE24_COLOR_0E_HEX="dc8cc3"
-  export BASE24_COLOR_0F_HEX="000000"
-  export BASE24_COLOR_10_HEX="383838"
-  export BASE24_COLOR_11_HEX="383838"
+  export BASE24_COLOR_0F_HEX="382828"
+  export BASE24_COLOR_10_HEX="4a6055"
+  export BASE24_COLOR_11_HEX="25302a"
   export BASE24_COLOR_12_HEX="dca3a3"
   export BASE24_COLOR_13_HEX="e0cf9f"
-  export BASE24_COLOR_14_HEX="5f7f5f"
+  export BASE24_COLOR_14_HEX="c3bf9f"
   export BASE24_COLOR_15_HEX="93e0e3"
-  export BASE24_COLOR_16_HEX="7cb8bb"
-  export BASE24_COLOR_17_HEX="dc8cc3"
+  export BASE24_COLOR_16_HEX="94bff3"
+  export BASE24_COLOR_17_HEX="ec93d3"
 fi

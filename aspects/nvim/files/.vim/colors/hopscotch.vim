@@ -2,7 +2,7 @@
 
 " tinted-vim (https://github.com/tinted-theming/tinted-vim)
 " Scheme name: Hopscotch
-" Scheme author: Jan T. Sott
+" Scheme author: FredHappyface (https://github.com/fredHappyface)
 " Template author: Tinted Theming (https://github.com/tinted-theming)
 
 " This enables the coresponding base16-shell script to run so that
@@ -11,35 +11,35 @@
 "   let g:tinted_shell_path=path/to/shell/scripts
 if !has('gui_running')
   if exists('g:tinted_shell_path')
-    execute 'silent !/bin/sh '.g:tinted_shell_path.'/base16/hopscotch.sh'
+    execute 'silent !/bin/sh '.g:tinted_shell_path.'/base24/hopscotch.sh'
   endif
 endif
 
 " GUI colors
 let s:gui00        = '322931'
-let s:gui01        = '433b42'
-let s:gui02        = '5c545b'
-let s:gui03        = '797379'
-let s:gui04        = '989498'
-let s:gui05        = 'b9b5b8'
-let s:gui06        = 'd5d3d5'
+let s:gui01        = '322931'
+let s:gui02        = '797379'
+let s:gui03        = '898388'
+let s:gui04        = '999498'
+let s:gui05        = 'a9a4a8'
+let s:gui06        = 'b9b5b8'
 let s:gui07        = 'ffffff'
 let s:gui08        = 'dd464c'
-let s:gui09        = 'fd8b19'
-let s:gui0A        = 'fdcc59'
+let s:gui09        = 'fdcc59'
+let s:gui0A        = '989498'
 let s:gui0B        = '8fc13e'
 let s:gui0C        = '149b93'
 let s:gui0D        = '1290bf'
 let s:gui0E        = 'c85e7c'
-let s:gui0F        = 'b33508'
-let s:gui10        = '322931'
-let s:gui11        = '322931'
-let s:gui12        = 'dd464c'
-let s:gui13        = 'fdcc59'
-let s:gui14        = '8fc13e'
-let s:gui15        = '149b93'
-let s:gui16        = '1290bf'
-let s:gui17        = 'c85e7c'
+let s:gui0F        = '6e2326'
+let s:gui10        = '504c50'
+let s:gui11        = '282628'
+let s:gui12        = 'fd8b19'
+let s:gui13        = '5c545b'
+let s:gui14        = '433b42'
+let s:gui15        = 'b33508'
+let s:gui16        = '989498'
+let s:gui17        = 'd5d3d5'
 
 " Terminal colors
 let s:cterm00  = '00'
@@ -98,18 +98,18 @@ let s:colors = [
   \ '#322931',
   \ '#dd464c',
   \ '#8fc13e',
-  \ '#fdcc59',
+  \ '#989498',
   \ '#1290bf',
   \ '#c85e7c',
   \ '#149b93',
-  \ '#b9b5b8',
-  \ '#797379',
-  \ '#dd464c',
-  \ '#8fc13e',
-  \ '#fdcc59',
-  \ '#1290bf',
-  \ '#c85e7c',
-  \ '#149b93',
+  \ '#a9a4a8',
+  \ '#898388',
+  \ '#fd8b19',
+  \ '#433b42',
+  \ '#5c545b',
+  \ '#989498',
+  \ '#d5d3d5',
+  \ '#b33508',
   \ '#ffffff'
 \]
 
@@ -132,7 +132,7 @@ else
 endif
 
 " Theme setup
-let g:colors_name = 'base16-hopscotch'
+let g:colors_name = 'base24-hopscotch'
 
 " Highlighting function
 " Optional variables are attributes and guisp

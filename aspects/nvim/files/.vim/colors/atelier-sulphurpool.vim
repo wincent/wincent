@@ -2,7 +2,7 @@
 
 " tinted-vim (https://github.com/tinted-theming/tinted-vim)
 " Scheme name: Atelier Sulphurpool
-" Scheme author: Bram de Haan (http://atelierbramdehaan.nl)
+" Scheme author: FredHappyface (https://github.com/fredHappyface)
 " Template author: Tinted Theming (https://github.com/tinted-theming)
 
 " This enables the coresponding base16-shell script to run so that
@@ -11,35 +11,35 @@
 "   let g:tinted_shell_path=path/to/shell/scripts
 if !has('gui_running')
   if exists('g:tinted_shell_path')
-    execute 'silent !/bin/sh '.g:tinted_shell_path.'/base16/atelier-sulphurpool.sh'
+    execute 'silent !/bin/sh '.g:tinted_shell_path.'/base24/atelier-sulphurpool.sh'
   endif
 endif
 
 " GUI colors
 let s:gui00        = '202746'
-let s:gui01        = '293256'
-let s:gui02        = '5e6687'
-let s:gui03        = '6b7394'
-let s:gui04        = '898ea4'
-let s:gui05        = '979db4'
-let s:gui06        = 'dfe2f1'
+let s:gui01        = '202746'
+let s:gui02        = '6b7394'
+let s:gui03        = '767d9c'
+let s:gui04        = '8188a4'
+let s:gui05        = '8c92ac'
+let s:gui06        = '979db4'
 let s:gui07        = 'f5f7ff'
 let s:gui08        = 'c94922'
-let s:gui09        = 'c76b29'
-let s:gui0A        = 'c08b30'
+let s:gui09        = 'c08b30'
+let s:gui0A        = '898ea4'
 let s:gui0B        = 'ac9739'
 let s:gui0C        = '22a2c9'
 let s:gui0D        = '3d8fd1'
 let s:gui0E        = '6679cc'
-let s:gui0F        = '9c637a'
-let s:gui10        = '202746'
-let s:gui11        = '202746'
-let s:gui12        = 'c94922'
-let s:gui13        = 'c08b30'
-let s:gui14        = 'ac9739'
-let s:gui15        = '22a2c9'
-let s:gui16        = '3d8fd1'
-let s:gui17        = '6679cc'
+let s:gui0F        = '642411'
+let s:gui10        = '474c62'
+let s:gui11        = '232631'
+let s:gui12        = 'c76b29'
+let s:gui13        = '5e6687'
+let s:gui14        = '293256'
+let s:gui15        = '9c637a'
+let s:gui16        = '898ea4'
+let s:gui17        = 'dfe2f1'
 
 " Terminal colors
 let s:cterm00  = '00'
@@ -98,18 +98,18 @@ let s:colors = [
   \ '#202746',
   \ '#c94922',
   \ '#ac9739',
-  \ '#c08b30',
+  \ '#898ea4',
   \ '#3d8fd1',
   \ '#6679cc',
   \ '#22a2c9',
-  \ '#979db4',
-  \ '#6b7394',
-  \ '#c94922',
-  \ '#ac9739',
-  \ '#c08b30',
-  \ '#3d8fd1',
-  \ '#6679cc',
-  \ '#22a2c9',
+  \ '#8c92ac',
+  \ '#767d9c',
+  \ '#c76b29',
+  \ '#293256',
+  \ '#5e6687',
+  \ '#898ea4',
+  \ '#dfe2f1',
+  \ '#9c637a',
   \ '#f5f7ff'
 \]
 
@@ -132,7 +132,7 @@ else
 endif
 
 " Theme setup
-let g:colors_name = 'base16-atelier-sulphurpool'
+let g:colors_name = 'base24-atelier-sulphurpool'
 
 " Highlighting function
 " Optional variables are attributes and guisp

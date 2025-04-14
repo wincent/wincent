@@ -2,7 +2,7 @@
 
 " tinted-vim (https://github.com/tinted-theming/tinted-vim)
 " Scheme name: Zenburn
-" Scheme author: elnawe
+" Scheme author: FredHappyface (https://github.com/fredHappyface)
 " Template author: Tinted Theming (https://github.com/tinted-theming)
 
 " This enables the coresponding base16-shell script to run so that
@@ -11,35 +11,35 @@
 "   let g:tinted_shell_path=path/to/shell/scripts
 if !has('gui_running')
   if exists('g:tinted_shell_path')
-    execute 'silent !/bin/sh '.g:tinted_shell_path.'/base16/zenburn.sh'
+    execute 'silent !/bin/sh '.g:tinted_shell_path.'/base24/zenburn.sh'
   endif
 endif
 
 " GUI colors
-let s:gui00        = '383838'
-let s:gui01        = '404040'
-let s:gui02        = '606060'
-let s:gui03        = '6f6f6f'
-let s:gui04        = '808080'
-let s:gui05        = 'dcdccc'
-let s:gui06        = 'c0c0c0'
+let s:gui00        = '3f3f3f'
+let s:gui01        = '4d4d4d'
+let s:gui02        = '709080'
+let s:gui03        = '8ba393'
+let s:gui04        = 'a6b6a6'
+let s:gui05        = 'c1c9b9'
+let s:gui06        = 'dcdccc'
 let s:gui07        = 'ffffff'
-let s:gui08        = 'dca3a3'
-let s:gui09        = 'dfaf8f'
-let s:gui0A        = 'e0cf9f'
-let s:gui0B        = '5f7f5f'
-let s:gui0C        = '93e0e3'
-let s:gui0D        = '7cb8bb'
+let s:gui08        = '705050'
+let s:gui09        = 'f0dfaf'
+let s:gui0A        = '94bff3'
+let s:gui0B        = '60b48a'
+let s:gui0C        = '8cd0d3'
+let s:gui0D        = '506070'
 let s:gui0E        = 'dc8cc3'
-let s:gui0F        = '000000'
-let s:gui10        = '383838'
-let s:gui11        = '383838'
+let s:gui0F        = '382828'
+let s:gui10        = '4a6055'
+let s:gui11        = '25302a'
 let s:gui12        = 'dca3a3'
 let s:gui13        = 'e0cf9f'
-let s:gui14        = '5f7f5f'
+let s:gui14        = 'c3bf9f'
 let s:gui15        = '93e0e3'
-let s:gui16        = '7cb8bb'
-let s:gui17        = 'dc8cc3'
+let s:gui16        = '94bff3'
+let s:gui17        = 'ec93d3'
 
 " Terminal colors
 let s:cterm00  = '00'
@@ -95,20 +95,20 @@ call s:create_color_globals()
 
 " Integrated Terminal colors
 let s:colors = [
-  \ '#383838',
-  \ '#dca3a3',
-  \ '#5f7f5f',
-  \ '#e0cf9f',
-  \ '#7cb8bb',
+  \ '#3f3f3f',
+  \ '#705050',
+  \ '#60b48a',
+  \ '#94bff3',
+  \ '#506070',
   \ '#dc8cc3',
-  \ '#93e0e3',
-  \ '#dcdccc',
-  \ '#6f6f6f',
+  \ '#8cd0d3',
+  \ '#c1c9b9',
+  \ '#8ba393',
   \ '#dca3a3',
-  \ '#5f7f5f',
+  \ '#c3bf9f',
   \ '#e0cf9f',
-  \ '#7cb8bb',
-  \ '#dc8cc3',
+  \ '#94bff3',
+  \ '#ec93d3',
   \ '#93e0e3',
   \ '#ffffff'
 \]
@@ -132,7 +132,7 @@ else
 endif
 
 " Theme setup
-let g:colors_name = 'base16-zenburn'
+let g:colors_name = 'base24-zenburn'
 
 " Highlighting function
 " Optional variables are attributes and guisp

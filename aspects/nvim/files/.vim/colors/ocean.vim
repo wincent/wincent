@@ -2,7 +2,7 @@
 
 " tinted-vim (https://github.com/tinted-theming/tinted-vim)
 " Scheme name: Ocean
-" Scheme author: Chris Kempson (https://github.com/chriskempson)
+" Scheme author: FredHappyface (https://github.com/fredHappyface)
 " Template author: Tinted Theming (https://github.com/tinted-theming)
 
 " This enables the coresponding base16-shell script to run so that
@@ -11,35 +11,35 @@
 "   let g:tinted_shell_path=path/to/shell/scripts
 if !has('gui_running')
   if exists('g:tinted_shell_path')
-    execute 'silent !/bin/sh '.g:tinted_shell_path.'/base16/ocean.sh'
+    execute 'silent !/bin/sh '.g:tinted_shell_path.'/base24/ocean.sh'
   endif
 endif
 
 " GUI colors
-let s:gui00        = '2b303b'
-let s:gui01        = '343d46'
-let s:gui02        = '4f5b66'
-let s:gui03        = '65737e'
-let s:gui04        = 'a7adba'
-let s:gui05        = 'c0c5ce'
-let s:gui06        = 'dfe1e8'
-let s:gui07        = 'eff1f5'
-let s:gui08        = 'bf616a'
-let s:gui09        = 'd08770'
-let s:gui0A        = 'ebcb8b'
-let s:gui0B        = 'a3be8c'
-let s:gui0C        = '96b5b4'
-let s:gui0D        = '8fa1b3'
-let s:gui0E        = 'b48ead'
-let s:gui0F        = 'ab7967'
-let s:gui10        = '2b303b'
-let s:gui11        = '2b303b'
-let s:gui12        = 'bf616a'
-let s:gui13        = 'ebcb8b'
-let s:gui14        = 'a3be8c'
-let s:gui15        = '96b5b4'
-let s:gui16        = '8fa1b3'
-let s:gui17        = 'b48ead'
+let s:gui00        = '224fbc'
+let s:gui01        = '000000'
+let s:gui02        = '666666'
+let s:gui03        = '7c7c7c'
+let s:gui04        = '929292'
+let s:gui05        = 'a8a8a8'
+let s:gui06        = 'bfbfbf'
+let s:gui07        = 'e5e5e5'
+let s:gui08        = '990000'
+let s:gui09        = '999900'
+let s:gui0A        = '0000ff'
+let s:gui0B        = '00a600'
+let s:gui0C        = '00a6b2'
+let s:gui0D        = '0000b2'
+let s:gui0E        = 'b200b2'
+let s:gui0F        = '4c0000'
+let s:gui10        = '444444'
+let s:gui11        = '222222'
+let s:gui12        = 'e50000'
+let s:gui13        = 'e5e500'
+let s:gui14        = '00d900'
+let s:gui15        = '00e5e5'
+let s:gui16        = '0000ff'
+let s:gui17        = 'e500e5'
 
 " Terminal colors
 let s:cterm00  = '00'
@@ -95,22 +95,22 @@ call s:create_color_globals()
 
 " Integrated Terminal colors
 let s:colors = [
-  \ '#2b303b',
-  \ '#bf616a',
-  \ '#a3be8c',
-  \ '#ebcb8b',
-  \ '#8fa1b3',
-  \ '#b48ead',
-  \ '#96b5b4',
-  \ '#c0c5ce',
-  \ '#65737e',
-  \ '#bf616a',
-  \ '#a3be8c',
-  \ '#ebcb8b',
-  \ '#8fa1b3',
-  \ '#b48ead',
-  \ '#96b5b4',
-  \ '#eff1f5'
+  \ '#224fbc',
+  \ '#990000',
+  \ '#00a600',
+  \ '#0000ff',
+  \ '#0000b2',
+  \ '#b200b2',
+  \ '#00a6b2',
+  \ '#a8a8a8',
+  \ '#7c7c7c',
+  \ '#e50000',
+  \ '#00d900',
+  \ '#e5e500',
+  \ '#0000ff',
+  \ '#e500e5',
+  \ '#00e5e5',
+  \ '#e5e5e5'
 \]
 
 if has('nvim')
@@ -132,7 +132,7 @@ else
 endif
 
 " Theme setup
-let g:colors_name = 'base16-ocean'
+let g:colors_name = 'base24-ocean'
 
 " Highlighting function
 " Optional variables are attributes and guisp

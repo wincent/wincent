@@ -1,8 +1,8 @@
 " vi:syntax=vim
 
 " tinted-vim (https://github.com/tinted-theming/tinted-vim)
-" Scheme name: Github
-" Scheme author: FredHappyface (https://github.com/fredHappyface)
+" Scheme name: Github Light
+" Scheme author: Tinted Theming (https://github.com/tinted-theming)
 " Template author: Tinted Theming (https://github.com/tinted-theming)
 
 " This enables the coresponding base16-shell script to run so that
@@ -16,30 +16,30 @@ if !has('gui_running')
 endif
 
 " GUI colors
-let s:gui00        = 'f4f4f4'
-let s:gui01        = '3e3e3e'
-let s:gui02        = '666666'
-let s:gui03        = '8c8c8c'
-let s:gui04        = 'b2b2b2'
-let s:gui05        = 'd8d8d8'
-let s:gui06        = 'ffffff'
-let s:gui07        = 'ffffff'
-let s:gui08        = '970b16'
-let s:gui09        = 'f8eec7'
-let s:gui0A        = '2e6cba'
-let s:gui0B        = '07962a'
-let s:gui0C        = '89d1ec'
-let s:gui0D        = '003e8a'
-let s:gui0E        = 'e94691'
-let s:gui0F        = '4b050b'
-let s:gui10        = '444444'
-let s:gui11        = '222222'
-let s:gui12        = 'de0000'
-let s:gui13        = 'f1d007'
-let s:gui14        = '87d5a2'
-let s:gui15        = '1cfafe'
-let s:gui16        = '2e6cba'
-let s:gui17        = 'ffa29f'
+let s:gui00        = 'eaeef2'
+let s:gui01        = 'd0d7de'
+let s:gui02        = 'afb8c1'
+let s:gui03        = '8c959f'
+let s:gui04        = '6e7781'
+let s:gui05        = '424a53'
+let s:gui06        = '32383f'
+let s:gui07        = '1f2328'
+let s:gui08        = 'fa4549'
+let s:gui09        = 'e16f24'
+let s:gui0A        = 'bf8700'
+let s:gui0B        = '2da44e'
+let s:gui0C        = '339D9B'
+let s:gui0D        = '218bff'
+let s:gui0E        = 'a475f9'
+let s:gui0F        = '4d2d00'
+let s:gui10        = '1f2328'
+let s:gui11        = '000000'
+let s:gui12        = 'ff8182'
+let s:gui13        = 'd4a72c'
+let s:gui14        = '4ac26b'
+let s:gui15        = '49BCB7'
+let s:gui16        = '54aeff'
+let s:gui17        = 'c297ff'
 
 " Terminal colors
 let s:cterm00  = '00'
@@ -95,22 +95,22 @@ call s:create_color_globals()
 
 " Integrated Terminal colors
 let s:colors = [
-  \ '#f4f4f4',
-  \ '#970b16',
-  \ '#07962a',
-  \ '#2e6cba',
-  \ '#003e8a',
-  \ '#e94691',
-  \ '#89d1ec',
-  \ '#d8d8d8',
-  \ '#8c8c8c',
-  \ '#de0000',
-  \ '#87d5a2',
-  \ '#f1d007',
-  \ '#2e6cba',
-  \ '#ffa29f',
-  \ '#1cfafe',
-  \ '#ffffff'
+  \ '#eaeef2',
+  \ '#fa4549',
+  \ '#2da44e',
+  \ '#bf8700',
+  \ '#218bff',
+  \ '#a475f9',
+  \ '#339D9B',
+  \ '#424a53',
+  \ '#8c959f',
+  \ '#ff8182',
+  \ '#4ac26b',
+  \ '#d4a72c',
+  \ '#54aeff',
+  \ '#c297ff',
+  \ '#49BCB7',
+  \ '#1f2328'
 \]
 
 if has('nvim')

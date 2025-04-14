@@ -1,8 +1,8 @@
 " vi:syntax=vim
 
 " tinted-vim (https://github.com/tinted-theming/tinted-vim)
-" Scheme name: pandora
-" Scheme author: Cassandra Fox
+" Scheme name: Pandora
+" Scheme author: FredHappyface (https://github.com/fredHappyface)
 " Template author: Tinted Theming (https://github.com/tinted-theming)
 
 " This enables the coresponding base16-shell script to run so that
@@ -11,35 +11,35 @@
 "   let g:tinted_shell_path=path/to/shell/scripts
 if !has('gui_running')
   if exists('g:tinted_shell_path')
-    execute 'silent !/bin/sh '.g:tinted_shell_path.'/base16/pandora.sh'
+    execute 'silent !/bin/sh '.g:tinted_shell_path.'/base24/pandora.sh'
   endif
 endif
 
 " GUI colors
-let s:gui00        = '131213'
-let s:gui01        = '2f1823'
-let s:gui02        = '472234'
-let s:gui03        = 'ffbee3'
-let s:gui04        = '9b2a46'
-let s:gui05        = 'f15c99'
-let s:gui06        = '81506a'
-let s:gui07        = '632227'
-let s:gui08        = 'b00b69'
-let s:gui09        = 'ff9153'
-let s:gui0A        = 'ffcc00'
-let s:gui0B        = '9ddf69'
-let s:gui0C        = '714ca6'
-let s:gui0D        = '008080'
-let s:gui0E        = 'a24030'
-let s:gui0F        = 'a24030'
-let s:gui10        = '131213'
-let s:gui11        = '131213'
-let s:gui12        = 'b00b69'
-let s:gui13        = 'ffcc00'
-let s:gui14        = '9ddf69'
-let s:gui15        = '714ca6'
-let s:gui16        = '008080'
-let s:gui17        = 'a24030'
+let s:gui00        = '131d42'
+let s:gui01        = '000000'
+let s:gui02        = '3e5548'
+let s:gui03        = '66786e'
+let s:gui04        = '8f9b94'
+let s:gui05        = 'b8beba'
+let s:gui06        = 'e1e1e1'
+let s:gui07        = 'ffffff'
+let s:gui08        = 'ff4242'
+let s:gui09        = 'ffad29'
+let s:gui0A        = '23d7d7'
+let s:gui0B        = '74af68'
+let s:gui0C        = '23d7d7'
+let s:gui0D        = '338f86'
+let s:gui0E        = '9413e5'
+let s:gui0F        = '7f2121'
+let s:gui10        = '293830'
+let s:gui11        = '141c18'
+let s:gui12        = 'ff3242'
+let s:gui13        = 'ffb929'
+let s:gui14        = '74cd68'
+let s:gui15        = '00ede1'
+let s:gui16        = '23d7d7'
+let s:gui17        = 'ff37ff'
 
 " Terminal colors
 let s:cterm00  = '00'
@@ -95,22 +95,22 @@ call s:create_color_globals()
 
 " Integrated Terminal colors
 let s:colors = [
-  \ '#131213',
-  \ '#b00b69',
-  \ '#9ddf69',
-  \ '#ffcc00',
-  \ '#008080',
-  \ '#a24030',
-  \ '#714ca6',
-  \ '#f15c99',
-  \ '#ffbee3',
-  \ '#b00b69',
-  \ '#9ddf69',
-  \ '#ffcc00',
-  \ '#008080',
-  \ '#a24030',
-  \ '#714ca6',
-  \ '#632227'
+  \ '#131d42',
+  \ '#ff4242',
+  \ '#74af68',
+  \ '#23d7d7',
+  \ '#338f86',
+  \ '#9413e5',
+  \ '#23d7d7',
+  \ '#b8beba',
+  \ '#66786e',
+  \ '#ff3242',
+  \ '#74cd68',
+  \ '#ffb929',
+  \ '#23d7d7',
+  \ '#ff37ff',
+  \ '#00ede1',
+  \ '#ffffff'
 \]
 
 if has('nvim')
@@ -132,7 +132,7 @@ else
 endif
 
 " Theme setup
-let g:colors_name = 'base16-pandora'
+let g:colors_name = 'base24-pandora'
 
 " Highlighting function
 " Optional variables are attributes and guisp

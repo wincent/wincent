@@ -1,33 +1,33 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
 # Scheme name: Atelier Sulphurpool 
-# Scheme author: Bram de Haan (http://atelierbramdehaan.nl)
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="atelier-sulphurpool"
 
 color00="20/27/46" # Base 00 - Black
 color01="c9/49/22" # Base 08 - Red
 color02="ac/97/39" # Base 0B - Green
-color03="c0/8b/30" # Base 0A - Yellow
+color03="89/8e/a4" # Base 0A - Yellow
 color04="3d/8f/d1" # Base 0D - Blue
 color05="66/79/cc" # Base 0E - Magenta
 color06="22/a2/c9" # Base 0C - Cyan
-color07="df/e2/f1" # Base 06 - White
-color08="5e/66/87" # Base 02 - Bright Black
-color09="c9/49/22" # Base 12 - Bright Red
-color10="ac/97/39" # Base 14 - Bright Green
-color11="c0/8b/30" # Base 13 - Bright Yellow
-color12="3d/8f/d1" # Base 16 - Bright Blue
-color13="66/79/cc" # Base 17 - Bright Magenta
-color14="22/a2/c9" # Base 15 - Bright Cyan
+color07="97/9d/b4" # Base 06 - White
+color08="6b/73/94" # Base 02 - Bright Black
+color09="c7/6b/29" # Base 12 - Bright Red
+color10="29/32/56" # Base 14 - Bright Green
+color11="5e/66/87" # Base 13 - Bright Yellow
+color12="89/8e/a4" # Base 16 - Bright Blue
+color13="df/e2/f1" # Base 17 - Bright Magenta
+color14="9c/63/7a" # Base 15 - Bright Cyan
 color15="f5/f7/ff" # Base 07 - Bright White
-color16="c7/6b/29" # Base 09
-color17="9c/63/7a" # Base 0F
-color18="29/32/56" # Base 01
-color19="5e/66/87" # Base 02
-color20="89/8e/a4" # Base 04
-color21="df/e2/f1" # Base 06
-color_foreground="97/9d/b4" # Base 05
+color16="c0/8b/30" # Base 09
+color17="64/24/11" # Base 0F
+color18="20/27/46" # Base 01
+color19="6b/73/94" # Base 02
+color20="81/88/a4" # Base 04
+color21="97/9d/b4" # Base 06
+color_foreground="8c/92/ac" # Base 05
 color_background="20/27/46" # Base 00
 
 
@@ -77,12 +77,12 @@ put_template 15 "$color15"
 # foreground / background / cursor color
 if [ -n "$ITERM_SESSION_ID" ]; then
   # iTerm2 proprietary escape codes
-  put_template_custom Pg 979db4 # foreground
+  put_template_custom Pg 8c92ac # foreground
   put_template_custom Ph 202746 # background
-  put_template_custom Pi 979db4 # bold color
-  put_template_custom Pj 5e6687 # selection color
-  put_template_custom Pk 979db4 # selected text color
-  put_template_custom Pl 979db4 # cursor
+  put_template_custom Pi 8c92ac # bold color
+  put_template_custom Pj 6b7394 # selection color
+  put_template_custom Pk 8c92ac # selected text color
+  put_template_custom Pl 8c92ac # cursor
   put_template_custom Pm 202746 # cursor text
 else
   put_template_var 10 "$color_foreground"
@@ -127,27 +127,27 @@ unset color_background
 # Optionally export variables
 if [ -n "$TINTED_SHELL_ENABLE_BASE24_VARS" ]; then
   export BASE24_COLOR_00_HEX="202746"
-  export BASE24_COLOR_01_HEX="293256"
-  export BASE24_COLOR_02_HEX="5e6687"
-  export BASE24_COLOR_03_HEX="6b7394"
-  export BASE24_COLOR_04_HEX="898ea4"
-  export BASE24_COLOR_05_HEX="979db4"
-  export BASE24_COLOR_06_HEX="dfe2f1"
+  export BASE24_COLOR_01_HEX="202746"
+  export BASE24_COLOR_02_HEX="6b7394"
+  export BASE24_COLOR_03_HEX="767d9c"
+  export BASE24_COLOR_04_HEX="8188a4"
+  export BASE24_COLOR_05_HEX="8c92ac"
+  export BASE24_COLOR_06_HEX="979db4"
   export BASE24_COLOR_07_HEX="f5f7ff"
   export BASE24_COLOR_08_HEX="c94922"
-  export BASE24_COLOR_09_HEX="c76b29"
-  export BASE24_COLOR_0A_HEX="c08b30"
+  export BASE24_COLOR_09_HEX="c08b30"
+  export BASE24_COLOR_0A_HEX="898ea4"
   export BASE24_COLOR_0B_HEX="ac9739"
   export BASE24_COLOR_0C_HEX="22a2c9"
   export BASE24_COLOR_0D_HEX="3d8fd1"
   export BASE24_COLOR_0E_HEX="6679cc"
-  export BASE24_COLOR_0F_HEX="9c637a"
-  export BASE24_COLOR_10_HEX="202746"
-  export BASE24_COLOR_11_HEX="202746"
-  export BASE24_COLOR_12_HEX="c94922"
-  export BASE24_COLOR_13_HEX="c08b30"
-  export BASE24_COLOR_14_HEX="ac9739"
-  export BASE24_COLOR_15_HEX="22a2c9"
-  export BASE24_COLOR_16_HEX="3d8fd1"
-  export BASE24_COLOR_17_HEX="6679cc"
+  export BASE24_COLOR_0F_HEX="642411"
+  export BASE24_COLOR_10_HEX="474c62"
+  export BASE24_COLOR_11_HEX="232631"
+  export BASE24_COLOR_12_HEX="c76b29"
+  export BASE24_COLOR_13_HEX="5e6687"
+  export BASE24_COLOR_14_HEX="293256"
+  export BASE24_COLOR_15_HEX="9c637a"
+  export BASE24_COLOR_16_HEX="898ea4"
+  export BASE24_COLOR_17_HEX="dfe2f1"
 fi

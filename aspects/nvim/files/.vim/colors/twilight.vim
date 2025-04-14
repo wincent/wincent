@@ -2,7 +2,7 @@
 
 " tinted-vim (https://github.com/tinted-theming/tinted-vim)
 " Scheme name: Twilight
-" Scheme author: David Hart (https://github.com/hartbit)
+" Scheme author: FredHappyface (https://github.com/fredHappyface)
 " Template author: Tinted Theming (https://github.com/tinted-theming)
 
 " This enables the coresponding base16-shell script to run so that
@@ -11,35 +11,35 @@
 "   let g:tinted_shell_path=path/to/shell/scripts
 if !has('gui_running')
   if exists('g:tinted_shell_path')
-    execute 'silent !/bin/sh '.g:tinted_shell_path.'/base16/twilight.sh'
+    execute 'silent !/bin/sh '.g:tinted_shell_path.'/base24/twilight.sh'
   endif
 endif
 
 " GUI colors
-let s:gui00        = '1e1e1e'
-let s:gui01        = '323537'
-let s:gui02        = '464b50'
-let s:gui03        = '5f5a60'
-let s:gui04        = '838184'
-let s:gui05        = 'a7a7a7'
-let s:gui06        = 'c3c3c3'
-let s:gui07        = 'ffffff'
-let s:gui08        = 'cf6a4c'
-let s:gui09        = 'cda869'
-let s:gui0A        = 'f9ee98'
-let s:gui0B        = '8f9d6a'
-let s:gui0C        = 'afc4db'
-let s:gui0D        = '7587a6'
-let s:gui0E        = '9b859d'
-let s:gui0F        = '9b703f'
-let s:gui10        = '1e1e1e'
-let s:gui11        = '1e1e1e'
-let s:gui12        = 'cf6a4c'
-let s:gui13        = 'f9ee98'
-let s:gui14        = '8f9d6a'
-let s:gui15        = 'afc4db'
-let s:gui16        = '7587a6'
-let s:gui17        = '9b859d'
+let s:gui00        = '141414'
+let s:gui01        = '141414'
+let s:gui02        = '262626'
+let s:gui03        = '5c5c51'
+let s:gui04        = '92927c'
+let s:gui05        = 'c8c8a7'
+let s:gui06        = 'feffd3'
+let s:gui07        = 'feffd3'
+let s:gui08        = 'c06c43'
+let s:gui09        = 'c2a86c'
+let s:gui0A        = '5a5d61'
+let s:gui0B        = 'afb979'
+let s:gui0C        = '778284'
+let s:gui0D        = '444649'
+let s:gui0E        = 'b4be7b'
+let s:gui0F        = '603621'
+let s:gui10        = '191919'
+let s:gui11        = '0c0c0c'
+let s:gui12        = 'dd7c4c'
+let s:gui13        = 'e1c47d'
+let s:gui14        = 'cbd88c'
+let s:gui15        = '8a989a'
+let s:gui16        = '5a5d61'
+let s:gui17        = 'd0db8e'
 
 " Terminal colors
 let s:cterm00  = '00'
@@ -95,22 +95,22 @@ call s:create_color_globals()
 
 " Integrated Terminal colors
 let s:colors = [
-  \ '#1e1e1e',
-  \ '#cf6a4c',
-  \ '#8f9d6a',
-  \ '#f9ee98',
-  \ '#7587a6',
-  \ '#9b859d',
-  \ '#afc4db',
-  \ '#a7a7a7',
-  \ '#5f5a60',
-  \ '#cf6a4c',
-  \ '#8f9d6a',
-  \ '#f9ee98',
-  \ '#7587a6',
-  \ '#9b859d',
-  \ '#afc4db',
-  \ '#ffffff'
+  \ '#141414',
+  \ '#c06c43',
+  \ '#afb979',
+  \ '#5a5d61',
+  \ '#444649',
+  \ '#b4be7b',
+  \ '#778284',
+  \ '#c8c8a7',
+  \ '#5c5c51',
+  \ '#dd7c4c',
+  \ '#cbd88c',
+  \ '#e1c47d',
+  \ '#5a5d61',
+  \ '#d0db8e',
+  \ '#8a989a',
+  \ '#feffd3'
 \]
 
 if has('nvim')
@@ -132,7 +132,7 @@ else
 endif
 
 " Theme setup
-let g:colors_name = 'base16-twilight'
+let g:colors_name = 'base24-twilight'
 
 " Highlighting function
 " Optional variables are attributes and guisp

@@ -2,7 +2,7 @@
 
 " tinted-vim (https://github.com/tinted-theming/tinted-vim)
 " Scheme name: Windows NT Light
-" Scheme author: Fergus Collins (https://github.com/C-Fergus)
+" Scheme author: Fergus Collins (https://github.com/ferguscollins)
 " Template author: Tinted Theming (https://github.com/tinted-theming)
 
 " This enables the coresponding base16-shell script to run so that

@@ -2,7 +2,7 @@
 
 " tinted-vim (https://github.com/tinted-theming/tinted-vim)
 " Scheme name: Rebecca
-" Scheme author: Victor Borja (http://github.com/vic) based on Rebecca Theme (http://github.com/vic/rebecca-theme)
+" Scheme author: FredHappyface (https://github.com/fredHappyface)
 " Template author: Tinted Theming (https://github.com/tinted-theming)
 
 " This enables the coresponding base16-shell script to run so that
@@ -11,35 +11,35 @@
 "   let g:tinted_shell_path=path/to/shell/scripts
 if !has('gui_running')
   if exists('g:tinted_shell_path')
-    execute 'silent !/bin/sh '.g:tinted_shell_path.'/base16/rebecca.sh'
+    execute 'silent !/bin/sh '.g:tinted_shell_path.'/base24/rebecca.sh'
   endif
 endif
 
 " GUI colors
 let s:gui00        = '292a44'
-let s:gui01        = '663399'
-let s:gui02        = '383a62'
-let s:gui03        = '666699'
-let s:gui04        = 'a0a0c5'
-let s:gui05        = 'f1eff8'
-let s:gui06        = 'ccccff'
-let s:gui07        = '53495d'
-let s:gui08        = 'a0a0c5'
-let s:gui09        = 'efe4a1'
-let s:gui0A        = 'ae81ff'
-let s:gui0B        = '6dfedf'
-let s:gui0C        = '8eaee0'
-let s:gui0D        = '2de0a7'
-let s:gui0E        = '7aa5ff'
-let s:gui0F        = 'ff79c6'
-let s:gui10        = '292a44'
-let s:gui11        = '292a44'
-let s:gui12        = 'a0a0c5'
-let s:gui13        = 'ae81ff'
-let s:gui14        = '6dfedf'
-let s:gui15        = '8eaee0'
-let s:gui16        = '2de0a7'
-let s:gui17        = '7aa5ff'
+let s:gui01        = '12131d'
+let s:gui02        = '666699'
+let s:gui03        = '8585ac'
+let s:gui04        = 'a4a4c0'
+let s:gui05        = 'c3c3d4'
+let s:gui06        = 'e3e2e8'
+let s:gui07        = 'f3f2f8'
+let s:gui08        = 'dd7655'
+let s:gui09        = 'f2e7b7'
+let s:gui0A        = '69bffa'
+let s:gui0B        = '04dbb4'
+let s:gui0C        = '56d3c1'
+let s:gui0D        = '7aa5ff'
+let s:gui0E        = 'be9bf8'
+let s:gui0F        = '6e3b2a'
+let s:gui10        = '444466'
+let s:gui11        = '222233'
+let s:gui12        = 'ff91cd'
+let s:gui13        = 'fefca8'
+let s:gui14        = '00e9c0'
+let s:gui15        = '8bfce1'
+let s:gui16        = '69bffa'
+let s:gui17        = 'c07ff8'
 
 " Terminal colors
 let s:cterm00  = '00'
@@ -96,21 +96,21 @@ call s:create_color_globals()
 " Integrated Terminal colors
 let s:colors = [
   \ '#292a44',
-  \ '#a0a0c5',
-  \ '#6dfedf',
-  \ '#ae81ff',
-  \ '#2de0a7',
+  \ '#dd7655',
+  \ '#04dbb4',
+  \ '#69bffa',
   \ '#7aa5ff',
-  \ '#8eaee0',
-  \ '#f1eff8',
-  \ '#666699',
-  \ '#a0a0c5',
-  \ '#6dfedf',
-  \ '#ae81ff',
-  \ '#2de0a7',
-  \ '#7aa5ff',
-  \ '#8eaee0',
-  \ '#53495d'
+  \ '#be9bf8',
+  \ '#56d3c1',
+  \ '#c3c3d4',
+  \ '#8585ac',
+  \ '#ff91cd',
+  \ '#00e9c0',
+  \ '#fefca8',
+  \ '#69bffa',
+  \ '#c07ff8',
+  \ '#8bfce1',
+  \ '#f3f2f8'
 \]
 
 if has('nvim')
@@ -132,7 +132,7 @@ else
 endif
 
 " Theme setup
-let g:colors_name = 'base16-rebecca'
+let g:colors_name = 'base24-rebecca'
 
 " Highlighting function
 " Optional variables are attributes and guisp
