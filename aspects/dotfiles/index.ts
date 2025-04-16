@@ -14,7 +14,7 @@ import {
   variables,
 } from 'fig';
 
-const {is, when} = helpers;
+const {when} = helpers;
 
 variables(({hostHandle, identity, platform}) => {
   return {
@@ -96,10 +96,6 @@ task('make directories', async () => {
   await file({mode: '0700', path: '~/.gnupg', state: 'directory'});
   await file({path: '~/.irssi', state: 'directory'});
   await file({path: '~/.mail', state: 'directory'});
-
-  if (is('wincent')) {
-    await file({path: '~/code', state: 'directory'});
-  }
 });
 
 task('move originals to ~/.backups', async () => {
@@ -145,9 +141,18 @@ task('zcompile shell files', async () => {
 });
 
 task('create ~/code/.editorconfig', when('wincent'), async () => {
+  await file({path: '~/code', state: 'directory'});
   await template({
     path: '~/code/.editorconfig',
     src: resource.template('code/.editorconfig'),
+  });
+});
+
+task('create ~/dev/.editorconfig', when('wincent', 'work'), async () => {
+  await file({path: '~/dev', state: 'directory'});
+  await template({
+    path: '~/dev/.editorconfig',
+    src: resource.template('dev/.editorconfig'),
   });
 });
 

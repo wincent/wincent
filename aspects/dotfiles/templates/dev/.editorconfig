@@ -1,0 +1,7 @@
+# <%= variables.figManaged %>
+
+root = true
+
+[profiling-backend/**/*.java]
+indent_size = 4
+indent_style = tab
