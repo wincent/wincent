@@ -1,5 +1,3 @@
-local autocmd = wincent.vim.autocmd
-
 -- Switch to plaintext mode with: `:lua wincent.vim.plaintext()`
 local plaintext = function()
   vim.opt_local.concealcursor = 'nc'
