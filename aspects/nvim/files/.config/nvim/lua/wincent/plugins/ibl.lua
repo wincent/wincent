@@ -1,6 +1,6 @@
 -- For wrapping mappings related to folding and horizontal shifting so that
 -- indent-blankline.nvim can update immediately when folds change.
-local indent_blankline = {
+local ibl = {
   wrap_mapping = function(mapping)
     local has_ibl = pcall(require, 'ibl')
     if has_ibl then
@@ -11,4 +11,4 @@ local indent_blankline = {
   end,
 }
 
-return indent_blankline
+return ibl
