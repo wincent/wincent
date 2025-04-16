@@ -1,10 +1,20 @@
-import {attributes, path, run, variable} from 'fig';
+import {UnsupportedValueError, attributes, path, run, variable} from 'fig';
 
 /**
  * @file
  *
  * Project-local helpers.
  */
+
+type Condition =
+  | 'arch'
+  | 'arm64'
+  | 'darwin'
+  | 'debian'
+  | 'linux'
+  | 'personal'
+  | 'wincent'
+  | 'work';
 
 /**
  * Returns `true` if `conditions` apply.
@@ -30,7 +40,9 @@ import {attributes, path, run, variable} from 'fig';
  *      // ...
  *    }
  */
-export function is(...conditions: Array<Array<string> | string>): boolean {
+export function is(
+  ...conditions: Array<Array<Condition> | Condition>
+): boolean {
   return when(...conditions)() === true;
 }
 
@@ -55,7 +67,7 @@ export function is(...conditions: Array<Array<string> | string>): boolean {
  *    unsatisfied condition: (arch OR debian) AND (wincent)
  */
 export function when(
-  ...conditions: Array<Array<string> | string>
+  ...conditions: Array<Array<Condition> | Condition>
 ): () => true | string {
   return () => {
     if (
@@ -85,8 +97,8 @@ export function when(
  *
  * @internal
  */
-function checkCondition(label: string): boolean {
-  switch (label) {
+function checkCondition(condition: Condition): boolean {
+  switch (condition) {
     case 'arch':
       return attributes.distribution === 'arch';
     case 'arm64':
@@ -104,9 +116,7 @@ function checkCondition(label: string): boolean {
     case 'work':
       return variable('profile') === 'work';
     default:
-      throw new Error(
-        `checkCondition(): Unknown condition label ${JSON.stringify(label)}`,
-      );
+      throw new UnsupportedValueError(condition);
   }
 }
 

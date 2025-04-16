@@ -30,6 +30,7 @@ export {default as variables} from './dsl/variables.js';
 
 export type {Path} from './path.js';
 
+export {default as UnsupportedValueError} from './UnsupportedValueError.js';
 export {log} from './console.js';
 export {default as stat} from './fs/stat.js';
 export {default as path} from './path.js';
