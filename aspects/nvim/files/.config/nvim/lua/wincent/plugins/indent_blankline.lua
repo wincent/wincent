@@ -2,7 +2,7 @@
 -- indent-blankline.nvim can update immediately when folds change.
 local indent_blankline = {
   wrap_mapping = function(mapping)
-    local has_ibl, ibl = pcall(require, 'ibl')
+    local has_ibl = pcall(require, 'ibl')
     if has_ibl then
       return mapping .. ":lua require('ibl').refresh(0)<CR>"
     else
