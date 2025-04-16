@@ -2,7 +2,7 @@
 -- Normal mode mappings.
 --
 
-local indent_wrap_mapping = wincent.plugins.indent_blankline.wrap_mapping
+local indent_wrap_mapping = wincent.plugins.ibl.wrap_mapping
 
 -- Toggle fold at current position.
 vim.keymap.set('n', '<Tab>', indent_wrap_mapping('za'), { silent = true })

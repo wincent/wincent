@@ -2,7 +2,7 @@
 -- Visual mode mappings.
 --
 
-local indent_wrap_mapping = wincent.plugins.indent_blankline.wrap_mapping
+local indent_wrap_mapping = wincent.plugins.ibl.wrap_mapping
 local command = wincent.vim.command
 
 -- Move between windows.
