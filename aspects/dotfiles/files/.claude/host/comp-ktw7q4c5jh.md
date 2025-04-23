@@ -1,0 +1,16 @@
+magic = dev.wincent.git-cipher
+url = https://github.com/wincent/git-cipher/blob/v2.0.0-pre.3/PROTOCOL.md
+version = 2
+algorithm = aes-256-cbc
+filename = "aspects/dotfiles/files/.claude/host/comp-ktw7q4c5jh.md"
+iv = cfe0b24aa5cef146304836665d85b151
+ciphertext =
+c31722fd516d353bf7b5be568dc2f6df8ae59a92c800e0f1d719d5b534f32e4d50ebe57e
+1d3f23f7f06f35acc07510a17832b90ae35b131a60b47248034a05e83028d9cbc33bcb3f
+91c8384573f3557d853a68de09aadc33ee3afab8cf420bca2f5f09da1fb7f32e1767a20a
+ba2385b4b13724587d7a4d6a3fa62784cd677e1e35a68d1ad80f8f458e4c5d18c44163cd
+4a8ace5c745bba94ef0a80895f7efeacbac432bbd54bb996fe5323b9207f64878e5d6b9a
+fb44caba388a903df8be26a76215c6cc3a16d4abdf47d6ae69b144d36c94616f3b2076d5
+4bf45a6b055148e6402a33a4bb1d354b0743f41b512c236ad1f2e9e55e3169c7726c219f
+5db3cfa7523d00c6f19e492e941555749c111ffa
+hmac = 0c5f36f44a5fd1cf47a2f62465e5f13e0ccae5c784062317af1cbc087231c2c8

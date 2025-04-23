@@ -8,6 +8,7 @@
       ".ackrc",
       ".agignore",
       ".claude/CLAUDE.md",
+      ".claude/host",
       ".clipper.json",
       ".config/Raycast",
       ".config/alacritty",
