@@ -7,6 +7,7 @@
       ".Xresources",
       ".ackrc",
       ".agignore",
+      ".claude/CLAUDE.md",
       ".clipper.json",
       ".config/Raycast",
       ".config/alacritty",
