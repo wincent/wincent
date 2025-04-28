@@ -1,1 +1,1 @@
-wincent.vim.setlocal('concealcursor', 'nc')
+vim.opt_local.concealcursor = 'nc'

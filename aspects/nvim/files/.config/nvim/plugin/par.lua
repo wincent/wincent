@@ -50,7 +50,7 @@ wincent.vim.augroup('WincentParAutocmds', function()
     end
 
     if formatprg ~= adjusted then
-      wincent.vim.setlocal('formatprg', adjusted)
+      vim.opt_local.formatprg = adjusted
     end
   end)
 end)

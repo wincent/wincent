@@ -1,4 +1,4 @@
-wincent.vim.setlocal('expandtab', false)
+vim.opt_local.expandtab = false
 
 -- For now this is aspirationally named `SortGitConfig`, but it's really only
 -- suitable for sorting simple .gitmodules files with no comments or blank lines

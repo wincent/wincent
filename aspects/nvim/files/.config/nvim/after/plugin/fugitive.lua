@@ -1,6 +1,5 @@
 local augroup = wincent.vim.augroup
 local autocmd = wincent.vim.autocmd
-local setlocal = wincent.vim.setlocal
 
 augroup('WincentFugitive', function()
   -- As per `man git-diff`, diff views for:
@@ -11,7 +10,7 @@ augroup('WincentFugitive', function()
   --  stage 3 = "theirs" (other branch in a merge, own branch in a rebase)
   --
   autocmd('BufReadPost', 'fugitive:///*//[0123]/*', function()
-    setlocal('modifiable', false)
-    setlocal('readonly')
+    vim.opt_local.modifiable = false
+    vim.opt_local.readonly = true
   end)
 end)

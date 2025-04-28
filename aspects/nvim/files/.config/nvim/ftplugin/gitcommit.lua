@@ -1,4 +1,4 @@
-wincent.vim.setlocal('foldenable', false)
+vim.opt_local.foldenable = false
 
 wincent.vim.spell()
 

@@ -1,5 +1,5 @@
 wincent.vim.plaintext()
 
-wincent.vim.setlocal('breakindent')
-wincent.vim.setlocal('breakindentopt', 'sbr,shift:' .. vim.bo.shiftwidth)
-wincent.vim.setlocal('synmaxcol', 0)
+vim.opt_local.breakindent = true
+vim.opt_local.breakindentopt = 'sbr,shift:' .. vim.bo.shiftwidth
+vim.opt_local.synmaxcol = 0

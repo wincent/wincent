@@ -1,1 +1,1 @@
-wincent.vim.setlocal('iskeyword', '-=', '#')
+vim.opt_local.iskeyword:remove({ '#' })
