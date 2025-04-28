@@ -6,7 +6,7 @@ In the same directory as this file, there is a subdirectory called "host". If th
 
 When working in a repo, check to see whether there are any files under `.cursor/rules` in the repo root. These files have an ".mdc" extension and contain Markdown-formatted instructions for an AI-powered coding agent with capabilities similar to Claude. Use the contents of these files to guide your suggestions.
 
-# Beware of aliases, such as `git`
+# Beware of aliases, such as `git` and `claude`
 
 If you try to run a Git command like `git show`, you may see this error:
 
@@ -15,6 +15,14 @@ If you try to run a Git command like `git show`, you may see this error:
 ```
 
 That's because I have `git` defined as a function in my shell. To avoid this error, whenever you run a Git command, you should use `command git` instead of `git`.
+
+Likewise, if you try to run `claude`, you may see it trying to open Neovim instead. This is because I have `claude` alias defined that looks like this:
+
+```
+claude='env -u OPENAI_API_KEY nvim -c ChatGPT -c only'
+```
+
+To avoid this error, whenever you run a Claude command (such as `claude mcp`), you should run `command claude` (eg. `command claude mcp`) instead.
 
 # Follow the instructions in `CLAUDE.md` and related files eagerly
 
