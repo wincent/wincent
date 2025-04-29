@@ -1,52 +1,58 @@
-local has_shellbot = pcall(require, 'chatbot')
+local has_shellbot, shellbot = pcall(require, 'chatbot')
 if has_shellbot then
-  -- Set up wrapper commands for specifically targetting ChatGPT and Claude.
-  local shellbot = function(config)
-    local saved_variables = {}
-    for _, unset in ipairs(config.unset or {}) do
-      saved_variables[unset] = vim.env[unset]
-      vim.env[unset] = nil
-    end
-    for key, value in pairs(config.set or {}) do
-      saved_variables[key] = vim.env[key]
-      vim.env[key] = value
-    end
-    pcall(function()
-      vim.cmd('Shellbot')
-    end)
-    for key, value in pairs(saved_variables) do
-      vim.env[key] = value
+  -- Set up wrapper commands for specifically targetting ChatGPT, Claude (etc).
+  local function get_executable()
+    local executable = vim.fn.split((vim.env['SHELLBOT'] or '/dev/null'), ' ')[1]
+    if executable and vim.fn.executable(executable) == 1 then
+      return executable
+    else
+      vim.api.nvim_echo(
+        { {
+          'error: $SHELLBOT does not appear to be executable',
+          'ErrorMsg',
+        } },
+        true,
+        {}
+      )
     end
   end
 
-  wincent.vim.command('ChatGPT', function()
-    shellbot({
-      unset = { 'ANTHROPIC_API_KEY' },
-    })
+  vim.api.nvim_create_user_command('ChatGPT', function()
+    local executable = get_executable()
+    if executable then
+      shellbot.chatbot({
+        OPENAI_API_KEY = vim.env.OPENAI_API_KEY,
+      })
+    end
   end, {})
 
-  wincent.vim.command('ChatGPTX', function()
-    shellbot({
-      unset = { 'ANTHROPIC_API_KEY' },
-      set = {
+  vim.api.nvim_create_user_command('ChatGPTX', function()
+    local executable = get_executable()
+    if executable then
+      shellbot.chatbot({
+        OPENAI_API_KEY = vim.env.OPENAI_API_KEY,
         OPENAI_MODEL = 'o1-mini',
-      },
-    })
+      })
+    end
   end, {})
 
-  wincent.vim.command('Claude', function()
-    shellbot({
-      unset = { 'OPENAI_API_KEY' },
-    })
+  vim.api.nvim_create_user_command('Claude', function()
+    local executable = get_executable()
+    if executable then
+      shellbot.chatbot({
+        ANTHROPIC_API_KEY = vim.env.ANTHROPIC_API_KEY,
+      })
+    end
   end, {})
 
-  wincent.vim.command('Opus', function()
-    shellbot({
-      unset = { 'OPENAI_API_KEY' },
-      set = {
+  vim.api.nvim_create_user_command('Opus', function()
+    local executable = get_executable()
+    if executable then
+      shellbot.chatbot({
+        ANTHROPIC_API_KEY = vim.env.ANTHROPIC_API_KEY,
         ANTHROPIC_MODEL = 'claude-3-opus-20240229',
-      },
-    })
+      })
+    end
   end, {})
 
   -- Set up an autocmd to stop me from accidentally quitting vim when shellbot is
