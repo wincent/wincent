@@ -300,21 +300,39 @@ gpg:                issuer "wincent@github.com"
 gpg: Can't check signature: No public key
 ```
 
-You can obtain the public keys with the following:
+Note that the key fingerprint that you see in the commit is usually a subkey, signed by a primary key, which is kept offline as described in ["GPG key rotation notes"](https://wincent.dev/wiki/GPG_key_rotation_notes). In the example above, you can search a keyserver using either the subkey fingerprint that appears in the commit ([B0C9C204D656540BDCDA86229F6B84B5B1E9955E](https://keyserver.ubuntu.com/pks/lookup?search=B0C9C204D656540BDCDA86229F6B84B5B1E9955E+&fingerprint=on&op=index)) or the primary key fingerprint ([2F4469E0C1FA72AAC0A560C962106B56923F3481](https://keyserver.ubuntu.com/pks/lookup?search=2F4469E0C1FA72AAC0A560C962106B56923F3481+&fingerprint=on&op=index), and you'll see that _both_ keys are listed in the search result, with _all_ subkeys (not just the one you searched for) listed underneath the primary key.
+
+You can obtain the latest and full versions of the public keys with the following:
 
 ```
 # Either, download directly given the key fingerprint as shown by Git:
-gpg --keyserver pgp.mit.edu --recv-key C7C225A18975180C4485A1E070516DBB88E4F779
-gpg --keyserver pgp.mit.edu --recv-key B0C9C204D656540BDCDA86229F6B84B5B1E9955E
+gpg --keyserver pgp.mit.edu --recv-key 4282ED4A05CC894D53A541C3F962DC1A1941CCC4 # greg@hurrell.net
+gpg --keyserver pgp.mit.edu --recv-key CA35A4528D888CDF264D0A2A4838AEDCA8CE883C # greg.hurrell@datadoghq.com
+gpg --keyserver pgp.mit.edu --recv-key 2F4469E0C1FA72AAC0A560C962106B56923F3481 # wincent@github.com
+
+# Same, but using an alternate keyserver:
+gpg --keyserver keyserver.ubuntu.com --recv-key 4282ED4A05CC894D53A541C3F962DC1A1941CCC4 # greg@hurrell.net
+gpg --keyserver keyserver.ubuntu.com --recv-key CA35A4528D888CDF264D0A2A4838AEDCA8CE883C # greg.hurrell@datadoghq.com
+gpg --keyserver keyserver.ubuntu.com --recv-key 2F4469E0C1FA72AAC0A560C962106B56923F3481 # wincent@github.com
 
 # Or, chose from a list of possible matches returned by searching for an email address:
-gpg --keyserver https://pgp.mit.edu/ --search-keys greg@hurrell.net
-gpg --keyserver https://pgp.mit.edu/ --search-keys wincent@github.com
+gpg --keyserver pgp.mit.edu --search-keys greg@hurrell.net
+gpg --keyserver pgp.mit.edu --search-keys greg.hurrell@datadoghq.com
+gpg --keyserver pgp.mit.edu --search-keys wincent@github.com
+
+# Same, but using an alternate keyserver:
+gpg --keyserver keyserver.ubuntu.com --search-keys greg@hurrell.net
+gpg --keyserver keyserver.ubuntu.com --search-keys greg.hurrell@datadoghq.com
+gpg --keyserver keyserver.ubuntu.com --search-keys wincent@github.com
 ```
 
 You can also grab the keys from GitHub, if you trust GitHub:
 
 ```
+# Merely inspect:
+curl https://github.com/wincent.gpg | gpg --show-keys
+
+# Actually import:
 curl https://github.com/wincent.gpg | gpg --import
 ```
 
