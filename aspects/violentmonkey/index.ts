@@ -36,6 +36,13 @@ task('fill templates', when('wincent'), async () => {
   }
 });
 
+task('create index.html', async () => {
+  await template({
+    path: '~/Sites/UserScripts/index.html',
+    src: resource.template('index.html'),
+  });
+});
+
 task('configure Apache', when('wincent'), async () => {
   await template({
     group: 'wheel',
