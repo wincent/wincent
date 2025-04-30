@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Autoclose Zoom interstitial
 // @namespace    https://wincent.dev/
-// @version      0.1
+// @version      0.2
 // @description  Close the Zoom "join" window
 // @author       Greg Hurrell <greg@hurrell.net>
 // @match        https://*.zoom.us/j/*
@@ -31,3 +31,5 @@
     }
   }, 1000);
 })();
+
+// <%= variables.figManaged %>
