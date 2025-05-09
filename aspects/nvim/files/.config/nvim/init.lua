@@ -352,8 +352,6 @@ if vim.o.loadplugins then
     },
   })
 
-  require('mini.icons').setup()
-
   -- Lazy because it adds a slow BufEnter autocmd.
   wincent.plugin.lazy('nvim-tree.lua', {
     afterload = function()
@@ -403,6 +401,11 @@ if has_luasnip then
   luasnip.config.set_config({
     updateevents = 'TextChanged,TextChangedI', -- default is InsertLeave
   })
+end
+
+local has_mini_icons, mini_icons = pcall(require, 'mini.icons')
+if has_mini_icons then
+  mini_icons.setup()
 end
 
 local has_clipper, clipper = pcall(require, 'wincent.clipper')
