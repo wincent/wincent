@@ -24,6 +24,10 @@ claude='env -u OPENAI_API_KEY nvim -c ChatGPT -c only'
 
 To avoid this error, whenever you run a Claude command (such as `claude mcp`), you should run `command claude` (eg. `command claude mcp`) instead.
 
+# Don't ask for confirmation before running harmless, read-only commands
+
+For example, commands of the form `git show $SOME_COMMIT` or `git diff $SOME_REV`, which only read data, can be run without asking first.
+
 # Follow the instructions in `CLAUDE.md` and related files eagerly
 
 In this file and in any related host-specific files, you should follow the instructions immediately without being prompted.
