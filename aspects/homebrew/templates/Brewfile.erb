@@ -185,10 +185,12 @@ brew "s3cmd" # "Command-line tool for the Amazon S3 service"
 <%- if (variables.profile === 'work') { -%>
 
 # Work-only packages.
+brew "aws-vault" # "Securely store and access AWS credentials in development environments"
 brew "colima" # "Container runtimes on MacOS (and Linux) with minimal setup"
 brew "git-lfs" # "Git extension for versioning large files"
 brew "graphite" # "Allows you to manage your stacked changes and submit them for review on GitHub"
 brew "maven" # "Java-based project management"
+brew "yq" # "Process YAML, JSON, XML, CSV and properties documents from the CLI"
 <%- } -%>
 
 # General casks.
