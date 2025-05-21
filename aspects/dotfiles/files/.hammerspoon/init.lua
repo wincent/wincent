@@ -1,3 +1,5 @@
+local start = hs.timer.absoluteTime()
+
 -- Use 12x12 grid, which allows us to place on quarters, thirds and halves etc.
 local width = 12
 local height = 12
@@ -27,6 +29,8 @@ local externalDisplay = nil
 local internalDisplay = nil
 local menu = nil
 local tearDownEventHandling = nil
+
+log.i('Evaluating configuration')
 
 local screenCount = #hs.screen.allScreens()
 
@@ -143,14 +147,24 @@ local placements = {
   },
 }
 
+local bundle_identifiers = {
+  Chrome = 'com.google.Chrome',
+  ChromeCanary = 'com.google.Chrome.canary',
+  Edge = 'com.microsoft.edgemac',
+  Orion = 'com.kagi.kagimacOS',
+  Slack = 'com.tinyspeck.slackmacgap',
+  Spotify = 'com.spotify.client',
+  kitty = 'net.kovidgoyal.kitty',
+}
+
 local layoutConfig = {
   _before_ = function()
-    hide('com.spotify.client')
+    hide(bundle_identifiers.Spotify)
   end,
 
   _after_ = function() end,
 
-  ['com.google.Chrome'] = function(window, forceScreenCount)
+  [bundle_identifiers.Chrome] = function(window, forceScreenCount)
     local count = forceScreenCount or screenCount
     if count == 1 then
       hs.grid.set(window, placements.centered.full)
@@ -159,7 +173,7 @@ local layoutConfig = {
     end
   end,
 
-  ['com.google.Chrome.canary'] = function(window, forceScreenCount)
+  [bundle_identifiers.ChromeCanary] = function(window, forceScreenCount)
     local count = forceScreenCount or screenCount
     if count == 1 then
       hs.grid.set(window, placements.centered.full)
@@ -168,7 +182,7 @@ local layoutConfig = {
     end
   end,
 
-  ['com.kagi.kagimacOS'] = function(window, forceScreenCount)
+  [bundle_identifiers.Orion] = function(window, forceScreenCount)
     local count = forceScreenCount or screenCount
     local internal = internalDisplay()
     if count == 1 or internal == nil then
@@ -178,7 +192,7 @@ local layoutConfig = {
     end
   end,
 
-  ['com.microsoft.edgemac'] = function(window, forceScreenCount)
+  [bundle_identifiers.Edge] = function(window, forceScreenCount)
     local count = forceScreenCount or screenCount
     if count == 1 then
       hs.grid.set(window, placements.centered.full)
@@ -187,7 +201,7 @@ local layoutConfig = {
     end
   end,
 
-  ['com.tinyspeck.slackmacgap'] = function(window)
+  [bundle_identifiers.Slack] = function(window)
     local internal = internalDisplay()
     if internal == nil then
       hs.grid.set(window, placements.centered.full)
@@ -196,7 +210,7 @@ local layoutConfig = {
     end
   end,
 
-  ['net.kovidgoyal.kitty'] = function(window, forceScreenCount)
+  [bundle_identifiers.kitty] = function(window, forceScreenCount)
     local count = forceScreenCount or screenCount
     if count == 1 then
       hs.grid.set(window, placements.centered.full)
@@ -493,34 +507,41 @@ hs.hotkey.bind(
   })
 )
 
+hs.hotkey.bind({ 'ctrl', 'alt', 'cmd' }, 'escape', function()
+  hs.alert('One-monitor layout (^⌥⌘-F1)')
+  activateLayout(1)
+end)
+
 hs.hotkey.bind({ 'ctrl', 'alt', 'cmd' }, 'f1', function()
-  hs.alert('One-monitor layout')
+  hs.alert('One-monitor layout (^⌥⌘-F1)')
   activateLayout(1)
 end)
 
 hs.hotkey.bind({ 'ctrl', 'alt', 'cmd' }, 'f2', function()
-  hs.alert('Two-monitor layout')
+  hs.alert('Two-monitor layout (^⌥⌘-F2)')
   activateLayout(2)
 end)
 
 hs.hotkey.bind({ 'ctrl', 'alt', 'cmd' }, 'f3', function()
-  hs.console.alpha(0.75)
-  hs.toggleConsole()
-end)
-
-hs.hotkey.bind({ 'ctrl', 'alt', 'cmd' }, 'f4', function()
-  hs.notify.show('Hammerspoon', 'Reloaded in the background', 'Press ⌃⌥⌘F3 to reveal the console.')
-  reloader.reload()
-end)
-
-hs.hotkey.bind({ 'ctrl', 'alt', 'cmd' }, 'f5', function()
-  hs.alert('Forcing vertical display arrangement')
+  hs.alert('Forcing vertical display arrangement (^⌥⌘-F3)')
   arrangeDisplays('vertical')
 end)
 
-hs.hotkey.bind({ 'ctrl', 'alt', 'cmd' }, 'f6', function()
-  hs.alert('Forcing horizontal display arrangement')
+hs.hotkey.bind({ 'ctrl', 'alt', 'cmd' }, 'f4', function()
+  hs.alert('Forcing horizontal display arrangement (^⌥⌘-F4)')
   arrangeDisplays('horizontal')
+end)
+
+hs.hotkey.bind({ 'ctrl', 'alt', 'cmd' }, 'f5', function()
+  hs.alert('Toggling console (^⌥⌘-F5)')
+  hs.toggleConsole()
+end)
+
+hs.hotkey.bind({ 'ctrl', 'alt', 'cmd' }, 'f6', function()
+  hs.notify.show('Hammerspoon', 'Reloading in the background (⌃⌥⌘-F6)', 'This may take a few seconds...')
+  hs.timer.doAfter(1, function()
+    reloader.reload()
+  end)
 end)
 
 hs.hotkey.bind('alt', 'v', function()
@@ -540,4 +561,6 @@ initMenu()
 initEventHandling()
 events.subscribe('reload', tearDownEventHandling)
 
-log.i('Config loaded')
+local elapsed = math.floor((hs.timer.absoluteTime() - start) / 1000000)
+log.i(string.format('Configuration intialized (%dms)', elapsed))
+hs.notify.show('Hammerspoon', '', string.format('Initialized in %dms', elapsed))
