@@ -50,7 +50,7 @@ if has_shellbot then
     if executable then
       shellbot.chatbot({
         ANTHROPIC_API_KEY = vim.env.ANTHROPIC_API_KEY,
-        ANTHROPIC_MODEL = 'claude-3-opus-20240229',
+        ANTHROPIC_MODEL = 'claude-opus-4-20250514',
       })
     end
   end, {})
