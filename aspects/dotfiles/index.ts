@@ -148,11 +148,11 @@ task('create ~/code/.editorconfig', when('wincent'), async () => {
   });
 });
 
-task('create ~/dev/.editorconfig', when('wincent', 'work'), async () => {
-  await file({path: '~/dev', state: 'directory'});
+task('create ~/dd/.editorconfig', when('wincent', 'work'), async () => {
+  await file({path: '~/dd', state: 'directory'});
   await template({
-    path: '~/dev/.editorconfig',
-    src: resource.template('dev/.editorconfig'),
+    path: '~/dd/.editorconfig',
+    src: resource.template('dd/.editorconfig'),
   });
 });
 
