@@ -25,4 +25,4 @@ git submodule foreach '
   fi
 '
 
-echo "Update complete; please consider running: aspects/nvim/support/update-help-tags"
+echo "Update complete; please consider running: update-help-tags"
