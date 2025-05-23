@@ -5,22 +5,13 @@ set -e
 # Conditionals here are to ensure we only do any work in submodules under
 # aspects/nvim/files/.config/.nvim/pack:
 
-git submodule foreach '
+git submodule foreach --quiet '
   if [ "${sm_path##aspects/nvim/files/.config/nvim/pack/}" != "$sm_path" ]; then
+    echo "$(tput bold)$(tput setaf 2)Entering $sm_path$(tput sgr0)"
     BRANCH=$(git config -f $toplevel/.gitmodules submodule."$name".branch || echo master)
     git remote update --prune
     git checkout $BRANCH
-  fi
-'
-
-git submodule foreach '
-  if [ "${sm_path##aspects/nvim/files/.config/nvim/pack/}" != "$sm_path" ]; then
     git pull --recurse-submodules || :
-  fi
-'
-
-git submodule foreach '
-  if [ "${sm_path##aspects/nvim/files/.config/nvim/pack/}" != "$sm_path" ]; then
     git submodule update --init --recursive || :
   fi
 '
