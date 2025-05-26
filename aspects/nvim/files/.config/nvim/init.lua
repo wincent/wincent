@@ -231,7 +231,7 @@ if vim.o.loadplugins then
   wincent.plugin.load('nvim-cmp')
   wincent.plugin.load('nvim-lspconfig')
   wincent.plugin.load('nvim-treesitter')
-  wincent.plugin.load('nvim-treesitter-textobjects')
+  -- wincent.plugin.load('nvim-treesitter-textobjects')
   wincent.plugin.load('oil.nvim')
   wincent.plugin.load('pinnacle')
   wincent.plugin.load('replay')
@@ -490,7 +490,7 @@ if has_commandt then
   })
 end
 
-local has_treesitter, treesitter = pcall(require, 'nvim-treesitter.configs')
+local has_treesitter, treesitter = pcall(require, 'nvim-treesitter')
 if has_treesitter then
   treesitter.setup({
     auto_install = false,
