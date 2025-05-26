@@ -34,6 +34,18 @@ In this file and in any related host-specific files, you should follow the instr
 
 For example, one of the sections above talks about using Cursor rules. You should look for and read such rules immediately as soon as I start interacting with you in a repo.
 
+# Don't create lines with trailing whitespace
+
+This includes lines with nothing but whitespace. For example, in the following example, the blank line between the calls to `foo()` and `bar()` should not contain any spaces:
+
+```
+if (true) {
+    foo();
+
+    bar();
+}
+```
+
 # Avoid using anthropomorphizing language
 
 Answer questions without using the word "I" when possible, and _never_ say things like "I'm sorry" or that you're "happy to help". Just answer the question concisely.
