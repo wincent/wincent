@@ -34,18 +34,11 @@ task('install packages', when('arch'), async () => {
 });
 
 task('create ~/.config/systemd/user', when('arch'), async () => {
-  for (
-    const directory of [
-      '~/.config',
-      '~/.config/systemd',
-      '~/.config/systemd/user',
-    ]
-  ) {
-    await file({
-      path: directory,
-      state: 'directory',
-    });
-  }
+  await file({
+    path: '~/.config/systemd/user',
+    recurse: true,
+    state: 'directory',
+  });
 });
 
 task(

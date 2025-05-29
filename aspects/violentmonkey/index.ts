@@ -15,9 +15,7 @@ const {when} = helpers;
 
 task('make ~/Sites/UserScripts/*', when('wincent'), async () => {
   const base = path('~/Sites/UserScripts');
-
-  await file({path: '~/Sites', state: 'directory'});
-  await file({path: base, state: 'directory'});
+  await file({path: base, recurse: true, state: 'directory'});
 
   for (const directory of resource.templates('UserScripts/*')) {
     await file({

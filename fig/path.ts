@@ -12,7 +12,9 @@ import {
 import Context from './Context.js';
 import root from './dsl/root.js';
 
-const inspect = Symbol.for('nodejs.util.inspect.custom');
+const INSPECT = Symbol.for('nodejs.util.inspect.custom');
+const TAG_NAME = 'fig.Path';
+const TAG = Symbol(TAG_NAME);
 
 // TODO: export path module wrappers as well, then I can just use it as a
 // drop-in replacement
@@ -29,7 +31,7 @@ export type Path = string & {
   strip: (extension?: string) => Path;
 
   // Makes sure value as printed by `console.log()` looks like a string.
-  [inspect]: () => string;
+  [INSPECT]: () => string;
 };
 
 interface path {
@@ -38,6 +40,7 @@ interface path {
   aspect: Path;
   home: Path;
   root: Path;
+  sep: string;
 }
 
 function path(...components: Array<string>): Path {
@@ -53,7 +56,9 @@ function path(...components: Array<string>): Path {
 
     components: {
       get() {
-        return string.split(sep).map((component) => path(component));
+        return string.split(sep).map((component) => {
+          return path(component || sep);
+        });
       },
     },
 
@@ -85,10 +90,14 @@ function path(...components: Array<string>): Path {
 
     last: {
       value: (count: number) => {
-        return string
-          .split(sep)
-          .slice(-count)
-          .map((component) => path(component));
+        if (count) {
+          return string
+            .split(sep)
+            .slice(-count)
+            .map((component) => path(component));
+        } else {
+          return [];
+        }
       },
     },
 
@@ -123,8 +132,14 @@ function path(...components: Array<string>): Path {
       },
     },
 
-    [inspect]: {
+    [INSPECT]: {
       value: () => string,
+    },
+
+    [TAG]: {
+      get() {
+        return TAG_NAME;
+      },
     },
   }) as Path;
 }
@@ -139,4 +154,16 @@ export default Object.assign(path, {
   home: path('~').expand,
 
   root: path(root),
+
+  sep,
 }) as path;
+
+export function isPath(value: unknown): value is Path {
+  return !!(
+    value &&
+    typeof value === 'object' &&
+    value instanceof String &&
+    TAG in value &&
+    value[TAG] === TAG_NAME
+  );
+}

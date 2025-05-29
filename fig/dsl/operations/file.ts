@@ -24,6 +24,7 @@ export default async function file({
   notify,
   owner,
   path,
+  recurse,
   src,
   state,
   sudo,
@@ -36,6 +37,7 @@ export default async function file({
   mode?: Mode;
   notify?: Array<string> | string;
   owner?: string;
+  recurse?: boolean;
   src?: string;
   state: 'directory' | 'file' | 'link' | 'touch';
   sudo?: boolean;
@@ -43,6 +45,12 @@ export default async function file({
   if (contents !== undefined && state !== 'file') {
     throw new ErrorWithMetadata(
       `A file-system object cannot have "contents" unless its state is \`file\``,
+    );
+  }
+
+  if (recurse && state !== 'directory') {
+    throw new ErrorWithMetadata(
+      `A file-system object cannot have "recurse" set to \`true\` unless its state is \`directory\``,
     );
   }
 
@@ -62,7 +70,42 @@ export default async function file({
     throw new ErrorWithMetadata(`Cannot manage state \`link\` without "src"`);
   }
 
-  const target = toPath(path).resolve.toString();
+  const resolved = toPath(path).resolve;
+
+  // Syntactic sugar when `recurse` is `true`: break into path components and
+  // call `file` for each component, serially.
+  if (recurse) {
+    let directory = toPath('/');
+    let result: OperationResult = 'ok';
+    for (const component of resolved.components) {
+      if (component.toString() !== toPath.sep) {
+        directory = directory.join(component);
+
+        // Pass all args, even though some of them will be `undefined`,
+        // overriding only two.
+        result = await file({
+          contents,
+          encoding,
+          force,
+          group,
+          mode,
+          notify,
+          owner,
+          path: directory,
+          recurse: false,
+          src,
+          state,
+          sudo,
+        });
+        if (result === 'failed') {
+          break;
+        }
+      }
+    }
+    return result;
+  }
+
+  const target = resolved.toString();
 
   if (src) {
     src = toPath(src).resolve.toString();

@@ -140,26 +140,18 @@ task('install gems', async () => {
 // directories, I store that elsewhere, and it doesn't get synced.
 task('create Corpus directories', when('wincent', 'work'), async () => {
   // Corporate Corpus files go here.
-  await file({path: '~/Documents/Corporate', state: 'directory'});
-  await file({path: '~/Documents/Corporate/Corpus', state: 'directory'});
+  await file({
+    path: '~/Documents/Corporate/Corpus',
+    recurse: true,
+    state: 'directory',
+  });
 
   // Git directory goes under `~/Library/Application Support/Corpus`, with
   // subdirectories of the form "$HOME-relative path to Corpus files" and a
   // `.git` extension.
   await file({
-    path: '~/Library/Application Support/Corpus',
-    state: 'directory',
-  });
-  await file({
-    path: '~/Library/Application Support/Corpus/Documents',
-    state: 'directory',
-  });
-  await file({
-    path: '~/Library/Application Support/Corpus/Documents/Corporate',
-    state: 'directory',
-  });
-  await file({
     path: '~/Library/Application Support/Corpus/Documents/Corporate/Corpus.git',
+    recurse: true,
     state: 'directory',
   });
 
@@ -175,8 +167,11 @@ task('create Corpus directories', when('wincent', 'work'), async () => {
     creates: '~/Documents/Corporate/Corpus/.git',
   });
 
-  await file({path: '~/Documents/Personal', state: 'directory'});
-  await file({path: '~/Documents/Personal/Corpus', state: 'directory'});
+  await file({
+    path: '~/Documents/Personal/Corpus',
+    recurse: true,
+    state: 'directory',
+  });
 
   await command('git', ['init'], {
     chdir: '~/Documents/Personal/Corpus',

@@ -20,11 +20,11 @@ task('set up hostname', when('arch'), async () => {
 });
 
 task('create ~/.config/systemd/user', when('arch'), async () => {
-  // TODO: I am doing something similar with a `for` loop in the "aur" aspect;
-  // maybe I should add `recurse: true` support to the `file` DSL.
-  await file({path: '~/.config', state: 'directory'});
-  await file({path: '~/.config/systemd', state: 'directory'});
-  await file({path: '~/.config/systemd/user', state: 'directory'});
+  await file({
+    path: '~/.config/systemd/user',
+    recurse: true,
+    state: 'directory',
+  });
 });
 
 task(
