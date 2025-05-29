@@ -1,69 +1,69 @@
 # Default keymaps: https://github.com/sxyazi/yazi/blob/shipped/yazi-config/preset/keymap-default.toml
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = "-"
 run  = "leave"
 desc = "Go back to the parent directory"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 # Mnemonic: "[T]oggle preview"
 on   = "T"
 run  = "plugin hide-preview"
 desc = "Hide or show preview"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 # Mnemonic: "[F]ull-size preview"
 on   = "F"
 run  = "plugin max-preview"
 desc = "Maximize or restore preview"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 # (Normally, "Seek down 5 units in the preview".)
 # See: https://yazi-rs.github.io/docs/tips#parent-arrow
 on  = "J"
 run = "plugin parent-arrow 1"
 desc = "Navigate down in the parent directory without changing focus"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 # (Normally, "Seek up 5 units in the preview".)
 # See: https://yazi-rs.github.io/docs/tips#parent-arrow
 on  = "K"
 run = "plugin parent-arrow -1"
 desc = "Navigate up in the parent directory without changing focus"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 # Mnemonic: "Go to [p]ictures"
 on   = ["g", "p"]
 run  = "cd ~/Pictures"
 desc = "Go to the pictures directory"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 # Mnemonic: "Go to [s]creenshots"
 on   = ["g", "s"]
 run  = "cd ~/Pictures/Screenshots"
 desc = "Go to the screenshots directory"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 # (Normally, "Open selected files".)
 # See: https://yazi-rs.github.io/docs/tips#smart-enter
 on   = "o"
 run  = "plugin --sync smart-enter"
 desc = "Enter the child directory, or open the file"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 # See: https://yazi-rs.github.io/docs/tips/#smart-paste
 on   = "p"
 run  = "plugin --sync smart-paste"
 desc = "Paste into the hovered directory or CWD"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 # (Normally, "Open selected files".)
 # See: https://yazi-rs.github.io/docs/tips#smart-enter
 on   = "<Enter>"
 run  = "plugin --sync smart-enter"
 desc = "Enter the child directory, or open the file"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 # Mnemonic: "[s]how"
 # (Normally, "Search files by name via fd".)
 on   = "s"
