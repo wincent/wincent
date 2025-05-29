@@ -97,9 +97,7 @@ export default async function file({
     let directory = toPath('/');
     let result: OperationResult = 'ok';
     for (const component of toCreate) {
-      if (component.toString() !== toPath.sep) {
-        directory = directory.join(component);
-      }
+      directory = directory.join(component);
       if (toSkip.length) {
         toSkip.shift();
       } else if (component.toString() !== toPath.sep) {
