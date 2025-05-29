@@ -29,14 +29,6 @@ task('create ~/.ssh/* directories', async () => {
   }
 });
 
-task('create ~/.ssh', async () => {
-  await file({
-    mode: '0700',
-    path: '~/.ssh',
-    state: 'directory',
-  });
-});
-
 task('install ~/.ssh/config', when('wincent'), async () => {
   const src = resource.template('.ssh/config.erb');
   const decrypted = await isDecrypted(src);
