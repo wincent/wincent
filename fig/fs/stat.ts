@@ -34,6 +34,12 @@ export default async function stat(
 ): Promise<Error | Stats | null> {
   const target = toPath(path).expand;
 
+  // Hack: avoid GNU coreutils `stat` which might be ahead of `/usr/bin/stat`
+  // in the `$PATH` on Darwin.
+  const command = Context.attributes.platform === 'darwin'
+    ? '/usr/bin/stat'
+    : 'stat';
+
   const args = [];
 
   if (Context.attributes.platform === 'darwin') {
@@ -86,7 +92,7 @@ export default async function stat(
       ? {passphrase: await Context.sudoPassphrase}
       : undefined;
 
-    const {status, stderr, stdout} = await run('stat', args, options);
+    const {status, stderr, stdout} = await run(command, args, options);
 
     if (status === 0) {
       const [mode, type, owner, group, target] = stdout.split('\n');
