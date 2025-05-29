@@ -25,6 +25,7 @@ export default async function file({
   owner,
   path,
   recurse,
+  skip,
   src,
   state,
   sudo,
@@ -38,6 +39,7 @@ export default async function file({
   notify?: Array<string> | string;
   owner?: string;
   recurse?: boolean;
+  skip?: string;
   src?: string;
   state: 'directory' | 'file' | 'link' | 'touch';
   sudo?: boolean;
@@ -51,6 +53,12 @@ export default async function file({
   if (recurse && state !== 'directory') {
     throw new ErrorWithMetadata(
       `A file-system object cannot have "recurse" set to \`true\` unless its state is \`directory\``,
+    );
+  }
+
+  if (skip && !recurse) {
+    throw new ErrorWithMetadata(
+      `A file-system object cannot have "skip" unless "recurse" is set to \`true\``,
     );
   }
 
@@ -70,17 +78,31 @@ export default async function file({
     throw new ErrorWithMetadata(`Cannot manage state \`link\` without "src"`);
   }
 
-  const resolved = toPath(path).resolve;
+  const resolved = toPath(path).expand.resolve;
 
   // Syntactic sugar when `recurse` is `true`: break into path components and
   // call `file` for each component, serially.
   if (recurse) {
+    const toCreate = resolved.components;
+    const toSkip = skip ? toPath(skip).expand.resolve.components : [];
+    if (
+      toSkip.length >= toCreate.length ||
+      !toSkip.every((component, i) =>
+        component.toString() == toCreate[i].toString()
+      )
+    ) {
+      throw new ErrorWithMetadata('"skip" must be a subset of "path"');
+    }
+
     let directory = toPath('/');
     let result: OperationResult = 'ok';
-    for (const component of resolved.components) {
+    for (const component of toCreate) {
       if (component.toString() !== toPath.sep) {
         directory = directory.join(component);
-
+      }
+      if (toSkip.length) {
+        toSkip.shift();
+      } else if (component.toString() !== toPath.sep) {
         // Pass all args, even though some of them will be `undefined`,
         // overriding only two.
         result = await file({
