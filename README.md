@@ -15,7 +15,7 @@
 - Visible in the screenshot:
   - [The "classic-dark"](https://github.com/tinted-theming/schemes/blob/spec-0.11/base16/classic-dark.yaml) color scheme (see [screenshots of other colorschemes](https://github.com/wincent/wincent/blob/media/colorschemes/README.md)).
   - [Adobe Source Code Pro](https://github.com/adobe-fonts/source-code-pro) (Light) font.
-  - [Neovim](https://neovim.io), running inside [tmux](https://github.com/tmux/tmux), inside [kitty](https://sw.kovidgoyal.net/kitty/), on macOS "Sonoma".
+  - [Neovim](https://neovim.io), running inside [tmux](https://github.com/tmux/tmux), inside [kitty](https://sw.kovidgoyal.net/kitty/), on macOS "Sequoia".
 
 ## Features
 
@@ -139,7 +139,7 @@ If there are background processes, a yellow asterisk is shown:
 
 | Platform                               | Status                                                                                                                                            |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| macOS                                  | :1st_place_medal: Currently the most tested platform, as well as the one with most aspects (because my daily driver is macOS 13 "Sonoma")         |
+| macOS                                  | :1st_place_medal: Currently the most tested platform, as well as the one with most aspects (because my daily driver is macOS 15 "Sequoia")        |
 | Arch Linux                             | :2nd_place_medal: Less tested, fewer aspects involved, but likely to evolve in the future as I'm using Arch Linux on my "leisure" desktop machine |
 | Red Hat Linux and related (eg. CentOS) | :skull: Abandoned, but in the past (2011-2018) this was the distro I used full-time at work                                                       |
 
