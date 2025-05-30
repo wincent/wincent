@@ -1,6 +1,7 @@
 import Context from '../Context.js';
 import ErrorWithMetadata from '../ErrorWithMetadata.js';
 import {log} from '../console.js';
+import executable from '../executable.js';
 import run from '../run.js';
 import stringify from '../stringify.js';
 
@@ -19,7 +20,7 @@ export default async function touch(
 
   await log.debug(`Touching: ${args.join(' ')}`);
 
-  const result = await run('touch', args, {passphrase});
+  const result = await run(executable('touch'), args, {passphrase});
 
   if (result.status === 0) {
     return null;

@@ -1,6 +1,7 @@
 import Context from '../Context.js';
 import ErrorWithMetadata from '../ErrorWithMetadata.js';
 import assert from '../assert.js';
+import executable from '../executable.js';
 import {default as toPath} from '../path.js';
 import run from '../run.js';
 
@@ -33,12 +34,6 @@ export default async function stat(
   path: string,
 ): Promise<Error | Stats | null> {
   const target = toPath(path).expand;
-
-  // Hack: avoid GNU coreutils `stat` which might be ahead of `/usr/bin/stat`
-  // in the `$PATH` on Darwin.
-  const command = Context.attributes.platform === 'darwin'
-    ? '/usr/bin/stat'
-    : 'stat';
 
   const args = [];
 
@@ -92,7 +87,11 @@ export default async function stat(
       ? {passphrase: await Context.sudoPassphrase}
       : undefined;
 
-    const {status, stderr, stdout} = await run(command, args, options);
+    const {status, stderr, stdout} = await run(
+      executable('stat'),
+      args,
+      options,
+    );
 
     if (status === 0) {
       const [mode, type, owner, group, target] = stdout.split('\n');

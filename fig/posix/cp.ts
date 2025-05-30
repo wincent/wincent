@@ -1,6 +1,7 @@
 import Context from '../Context.js';
 import ErrorWithMetadata from '../ErrorWithMetadata.js';
 import {log} from '../console.js';
+import executable from '../executable.js';
 import run from '../run.js';
 import stringify from '../stringify.js';
 
@@ -18,7 +19,7 @@ export default async function cp(
   await log.debug(`Copying: ${source} ${target}`);
 
   // TODO: consider passing -f here
-  const result = await run('cp', [source, target], {passphrase});
+  const result = await run(executable('cp'), [source, target], {passphrase});
 
   if (result.status === 0) {
     return null;
