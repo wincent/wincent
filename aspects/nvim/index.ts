@@ -174,8 +174,8 @@ task('create Corpus directories', when('wincent', 'work'), async () => {
   });
 
   await command('git', ['init'], {
-    chdir: '~/Documents/Personal/Corpus',
-    creates: '~/Documents/Personal/Corpus/.git',
+    chdir: '~/Documents/Personal',
+    creates: '~/Documents/Personal/.git',
   });
 });
 
