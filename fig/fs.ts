@@ -20,10 +20,16 @@ export function existsSync(
   return fs.existsSync(path.toString());
 }
 
+/**
+ * `fs.readdirSync` has multiple overloads, but we only care about one.
+ */
 export function readdirSync(
-  path: Parameters<typeof fs.readdirSync>[0],
-  options: Parameters<typeof fs.readdirSync>[1],
-): ReturnType<typeof fs.readdirSync> {
+  path: fs.PathLike,
+  options: fs.ObjectEncodingOptions & {
+    withFileTypes: true;
+    recursive?: boolean | undefined;
+  },
+): Array<fs.Dirent> {
   return fs.readdirSync(path.toString(), options);
 }
 
