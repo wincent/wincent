@@ -1,0 +1,21 @@
+#!/bin/bash
+
+set -e
+
+REPO_ROOT="${BASH_SOURCE%/*}/.."
+
+cd "$REPO_ROOT"
+
+git submodule foreach --quiet '
+  if [ "${sm_path##vendor/tinted-theming/}" != "$sm_path" ]; then
+    echo "$(tput bold)$(tput setaf 2)Entering $sm_path$(tput sgr0)"
+    BRANCH=$(git config -f $toplevel/.gitmodules submodule."$name".branch || echo master)
+    git remote update --prune
+    git checkout $BRANCH
+    git pull --recurse-submodules || :
+    git submodule update --init --recursive || :
+  fi
+'
+
+echo "$(tput bold)$(tput setaf 2)Running support/tinted-builder.rb$(tput sgr0)"
+support/tinted-builder.rb

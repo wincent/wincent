@@ -22,7 +22,7 @@ let s:gui02        = '3c3f4c'
 let s:gui03        = '383a47'
 let s:gui04        = '555e70'
 let s:gui05        = '8b9cbe'
-let s:gui06        = 'B2BFD9'
+let s:gui06        = 'b2bfd9'
 let s:gui07        = 'f4f4f7'
 let s:gui08        = 'ff29a8'
 let s:gui09        = '85ffe0'
@@ -225,10 +225,10 @@ call <sid>hi('CursorLine',    '', s:gui01, '', s:cterm01, 'none', '')
 call <sid>hi('Directory',     s:gui0D, '', s:cterm0D, '', '', '')
 
 " Diff
-call <sid>hi('DiffAdd',       s:gui14, s:gui01,  s:cterm14, s:cterm01, '', '')
-call <sid>hi('DiffChange',    s:gui04, s:gui01,  s:cterm04, s:cterm01, '', '')
-call <sid>hi('DiffDelete',    s:gui02, s:guibg,  s:cterm02, s:ctermbg, '', '')
-call <sid>hi('DiffText',      s:gui16, s:gui01,  s:cterm16, s:cterm01, '', '')
+call <sid>hi('DiffAdd',       '', s:gui01,  '', s:cterm01, '', '')
+call <sid>hi('DiffChange',    '', s:gui01,  '', s:cterm01, '', '')
+call <sid>hi('DiffDelete',    s:gui03, s:guibg,  s:cterm03, s:ctermbg, '', '')
+call <sid>hi('DiffText',      '', s:gui02,  '', s:cterm02, '', '')
 
 call <sid>hi('EndOfBuffer',   s:guibg, s:guibg, s:ctermbg, s:ctermbg, '', '')
 call <sid>hi('ErrorMsg',      s:gui08, '', s:cterm08, '', '', '')
@@ -613,17 +613,11 @@ call <sid>hi('gitcommitDiscardedFile', s:gui08, '', s:cterm08, '', 'bold', '')
 call <sid>hi('gitcommitSelectedFile',  s:gui0B, '', s:cterm0B, '', 'bold', '')
 
 " Gitsigns
-call <sid>hi('GitSignsAddInline',       s:gui01, s:gui14, s:cterm01, s:cterm14, '', '')
-call <sid>hi('GitSignsAddLnInline',     s:gui01, s:gui14, s:cterm01, s:cterm14, '', '')
-call <sid>hi('GitSignsAddPreview',      s:gui14, s:gui01, s:cterm14, s:cterm01, 'italic', '')
-
-call <sid>hi('GitSignsDeleteInline',    s:gui01, s:gui12, s:cterm01, s:cterm12, '', '')
-call <sid>hi('GitSignsDeleteLnInline',  s:gui01, s:gui12, s:cterm01, s:cterm12, '', '')
-call <sid>hi('GitSignsDeleteVirtLn',    s:gui12, s:gui01, s:cterm12, s:cterm01, 'italic', '')
-call <sid>hi('GitSignsDeletePreview',   s:gui12, s:gui01, s:cterm12, s:cterm01, 'italic', '')
-
-call <sid>hi('GitSignsChangeInline',    s:gui01, s:gui14, s:cterm01, s:cterm14, '', '')
-call <sid>hi('GitSignsChangeLnInline',  s:gui01, s:gui16, s:cterm01, s:cterm16, '', '')
+call <sid>hi('GitSignsAddInline',           s:gui14, s:gui02, s:cterm14, s:cterm02, '', '')
+call <sid>hi('GitSignsChangeInline',        s:gui16, s:gui02, s:cterm16, s:cterm02, '', '')
+call <sid>hi('GitSignsDeleteLnInline',      s:gui12, s:gui02, s:cterm12, s:cterm02, '', '')
+call <sid>hi('GitSignsDeleteVirtLnInline',  s:gui16, s:gui02, s:cterm16, s:cterm02, '', '')
+call <sid>hi('GitSignsDeleteVirtLn',        s:gui05, s:gui02, s:cterm05, s:cterm02, '', '')
 
 " HTML
 call <sid>hi('htmlBold',   s:gui05, '', s:cterm0A, '', 'bold', '')
@@ -784,6 +778,11 @@ call <sid>hi('CocHighlightWrite',  s:gui08, s:gui01,  s:cterm08, s:cterm01, '', 
 call <sid>hi('CocListMode',        s:gui01, s:gui0B,  s:cterm01, s:cterm0B, 'bold', '')
 call <sid>hi('CocListPath',        s:gui01, s:gui0B,  s:cterm01, s:cterm0B, '', '')
 call <sid>hi('CocSessionsName',    s:gui05, '', s:cterm05, '', '', '')
+
+" fugtive
+hi link diffAdded GitAddSign
+hi link diffChanged GitChangeSign
+hi link diffRemoved GitDeleteSign
 
 " CMP
 " https://microsoft.github.io/language-server-protocol/specifications/lsp/3.18/specification/#completionItemKind
