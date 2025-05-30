@@ -45,7 +45,9 @@ interface path {
 
 function path(...components: Array<string>): Path {
   // Unwrap (possible) Path string-like(s) back to primitive string.
-  const string = join(...components.map((component) => component.toString()));
+  const string = join(...components.map((component) => component.toString()))
+    .replace(/\/+/g, '/') // Collapse consecutive slashes.
+    .replace(/(.+)\/$/, '$1'); // Remove any trailing (non-leading) slash.
 
   return Object.defineProperties(new String(string), {
     basename: {

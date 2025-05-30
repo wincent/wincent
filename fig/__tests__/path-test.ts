@@ -20,6 +20,12 @@ describe('path()', () => {
     expect(path('foo', 'bar', 'baz').toString()).toBe('foo/bar/baz');
   });
 
+  test('normalizes redundant separators', () => {
+    expect(path('///foo').toString()).toBe('/foo');
+    expect(path('/foo//bar').toString()).toBe('/foo/bar');
+    expect(path('foo//bar').toString()).toBe('foo/bar');
+  });
+
   describe('basename', () => {
     test('returns a Path', () => {
       expect(isPath(path('foo').basename)).toBe(true);
@@ -90,6 +96,21 @@ describe('path()', () => {
     test('appends components', () => {
       expect(path('foo').join('bar').toString()).toBe('foo/bar');
       expect(path('foo').join('bar', 'baz').toString()).toBe('foo/bar/baz');
+    });
+
+    test('ignores empty components', () => {
+      expect(path('foo').join('bar', '', '', 'baz', '').toString()).toBe(
+        'foo/bar/baz',
+      );
+    });
+
+    test('ignores excess separator components', () => {
+      expect(path('foo').join('/').toString()).toBe('foo');
+      expect(path('foo').join('/', 'bar', '/', '/', 'baz').toString()).toBe(
+        'foo/bar/baz',
+      );
+      expect(path('foo').join('/', 'bar', '/', '/', 'baz', '/').toString())
+        .toBe('foo/bar/baz');
     });
   });
 
