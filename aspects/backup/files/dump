@@ -13,16 +13,22 @@
 #
 # op account add \
 #   --address vault.1password.com \
-#   --email $USER@example.net \
-#   --secret-key $SECRET_KEY
+#   --email $USER@example.net
+#
+# op account add \
+#   --address my.1password.eu \
+#   --email $USER@example.net
 #
 # Subsequent sign-ins:
 #
-# op signin --account vault
+# op signin --account $USER_ID
+#
+# ($USER_ID can be looked up with `op account list`, or you can use the domain
+# like I am below; see `op --help` for more details.)
 #
 # Exporting to shell:
 #
-# eval $(op signin --account vault)
+# eval $(op signin --account $USER_ID)
 #
 
 # set -e
@@ -61,40 +67,41 @@ which parallel
 FOLDER=$(date '+%Y-%m-%d')
 mkdir -p "$FOLDER"
 cd "$FOLDER" || exit 1
-echo 'Dumping to:'
-pwd
 
-eval $(op signin --account vault)
+for ACCOUNT in vault.1password.com my.1password.eu; do
+  mkdir $ACCOUNT
+  pushd $ACCOUNT
+  echo 'Dumping to:'
+  pwd
 
-echo '-> vaults.json'
-op vault list --cache | jq . > vaults.json
+  eval $(op signin --account $ACCOUNT)
 
-while read -r VAULT <&3
-do
-  echo "-> vaults/$VAULT/items/"
-  echo "-> vaults/$VAULT/documents/"
-  mkdir -p vaults/"$VAULT"/{items,documents}
+  echo '-> vaults.json'
+  op vault list --cache --account $ACCOUNT | jq . > vaults.json
 
-  echo "-> vaults/$VAULT/vault.json"
-  op vault get --cache "$VAULT" | jq . > vaults/"$VAULT"/vault.json
+  while read -r VAULT <&3
+  do
+    echo "-> vaults/$VAULT/items/"
+    echo "-> vaults/$VAULT/documents/"
+    mkdir -p vaults/"$VAULT"/{items,documents}
 
-  echo "-> vaults/$VAULT/items.json"
-  op item list --include-archive --cache --vault="$VAULT" | jq . > vaults/"$VAULT"/items.json
+    echo "-> vaults/$VAULT/vault.json"
+    op vault get --cache "$VAULT" --account $ACCOUNT | jq . > vaults/"$VAULT"/vault.json
 
-  echo "-> vaults/$VAULT/documents.json"
-  op document list --include-archive --cache --vault="$VAULT" | jq . > vaults/"$VAULT"/documents.json
+    echo "-> vaults/$VAULT/items.json"
+    op item list --include-archive --cache --vault="$VAULT" --account $ACCOUNT | jq . > vaults/"$VAULT"/items.json
 
-  jq -r '.[].id' vaults/"$VAULT"/items.json | \
-    parallel --verbose --joblog vaults/"$VAULT"/items.log --retries 5 --eta -j $JOBS \
-    "op item get --debug --include-archive --cache '{}' | jq . > 'vaults/$VAULT/items/{}.json'"
+    echo "-> vaults/$VAULT/documents.json"
+    op document list --include-archive --cache --vault="$VAULT" --account $ACCOUNT | jq . > vaults/"$VAULT"/documents.json
 
-  # Many documents fail with 404 errors, so, here is a one-time workaround to
-  # make them accessible:
-  # jq -r '.[].id' vaults/"$VAULT"/documents.json | \
-  #   parallel --verbose --joblog vaults/"$VAULT"/documents-fix.log --retries 5 --eta -j $JOBS \
-  #   "op item edit '{}'"
+    jq -r '.[].id' vaults/"$VAULT"/items.json | \
+      parallel --verbose --joblog vaults/"$VAULT"/items.log --retries 5 --eta -j $JOBS \
+      "op item get --debug --include-archive --cache '{}' --account $ACCOUNT | jq . > 'vaults/$VAULT/items/{}.json'"
 
-  jq -r '.[].id' vaults/"$VAULT"/documents.json | \
-    parallel --verbose --joblog vaults/"$VAULT"/documents.log --retries 5 --eta -j $JOBS \
-    "op document get --debug --include-archive --cache '{}' --output 'vaults/$VAULT/documents/{}.bin'"
-done 3< <(jq -r '.[].id' vaults.json)
+    jq -r '.[].id' vaults/"$VAULT"/documents.json | \
+      parallel --verbose --joblog vaults/"$VAULT"/documents.log --retries 5 --eta -j $JOBS \
+      "op document get --debug --include-archive --cache '{}' --output 'vaults/$VAULT/documents/{}.bin' --account $ACCOUNT"
+  done 3< <(jq -r '.[].id' vaults.json)
+
+  popd
+done
