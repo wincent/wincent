@@ -43,11 +43,13 @@ interface path {
   sep: string;
 }
 
+const separatorPattern = sep === '/' ? '/' : '\\\\';
+
 function path(...components: Array<string>): Path {
   // Unwrap (possible) Path string-like(s) back to primitive string.
   const string = join(...components.map((component) => component.toString()))
-    .replace(/\/+/g, '/') // Collapse consecutive slashes.
-    .replace(/(.+)\/$/, '$1'); // Remove any trailing (non-leading) slash.
+    .replace(new RegExp(`${separatorPattern}+`, 'g'), sep) // Collapse consecutive slashes.
+    .replace(new RegExp(`(.+)${separatorPattern}$`), '$1'); // Remove any trailing (non-leading) slash.
 
   return Object.defineProperties(new String(string), {
     basename: {
