@@ -12,7 +12,7 @@ import merge from './merge.js';
 import path from './path.js';
 import prompt from './prompt.js';
 import readAspect from './readAspect.js';
-import readProject from './readProject.js';
+import readConfig from './readConfig.js';
 import regExpFromString from './regExpFromString.js';
 import stringify from './stringify.js';
 import test from './test.js';
@@ -56,7 +56,7 @@ async function main() {
     return;
   }
 
-  const project = await readProject(root);
+  const project = await readConfig(root);
 
   const hostname = Context.attributes.hostname;
 

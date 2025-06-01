@@ -25,10 +25,10 @@
   "include": [
     "aspects/**/*.mts",
     "aspects/**/*.ts",
+    "fig.config.ts",
     "fig/**/*.mts",
     "fig/**/*.ts",
     "helpers.ts",
-    "project.ts",
     "variables.ts"
   ]
 }

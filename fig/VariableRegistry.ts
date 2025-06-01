@@ -11,9 +11,9 @@ type Callback = (variables: Variables) => Variables;
  *
  * 1. Base variables (eg. "profile")
  * 2. Attributes
- * 3. Top-level defaults (from "project.json")
- * 4. Profile-level variables (also from "project.json")
- * 5. Platform-level variables (also from "project.json")
+ * 3. Top-level defaults (from "fig.config.ts")
+ * 4. Profile-level variables (also from "fig.config.ts")
+ * 5. Platform-level variables (also from "fig.config.ts")
  * 6. Dynamic variables (computed in the top-level "variables.ts" file)
  * 7. Aspect-level static variables (from "aspect.json" or "aspect.ts")
  * 8. Aspect-level derived variables (via `variables()` DSL calls in "index.ts")
