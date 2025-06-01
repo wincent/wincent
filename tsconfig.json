@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "erasableSyntaxOnly": true,
     "incremental": true,
     "module": "esnext",
     "moduleResolution": "node",
@@ -14,7 +15,8 @@
       "fig/*": ["fig/*"]
     },
     "strict": true,
-    "target": "ES2024"
+    "target": "ES2024",
+    "verbatimModuleSyntax": true
   },
   "exclude": [
     "aspects/interception/support/mac2linux/CMakeFiles/**",

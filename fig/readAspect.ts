@@ -3,7 +3,7 @@ import {join, relative, resolve} from 'node:path';
 import {log} from './console.js';
 import {promises as fs} from './fs.js';
 import {root} from './index.js';
-import {Aspect, assertAspect} from './types/Aspect.js';
+import {type Aspect, assertAspect} from './types/Aspect.js';
 
 export default async function readAspect(directory: string): Promise<Aspect> {
   await log.debug(`Reading aspect configuration: ${directory}`);

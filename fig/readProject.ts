@@ -3,7 +3,7 @@ import {join, relative, resolve} from 'node:path';
 import {log} from './console.js';
 import {promises as fs} from './fs.js';
 import {root} from './index.js';
-import {Project, assertProject} from './types/Project.js';
+import {type Project, assertProject} from './types/Project.js';
 
 export default async function readProject(directory: string): Promise<Project> {
   await log.debug(`Reading project configuration: ${directory}`);
