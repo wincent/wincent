@@ -1,7 +1,7 @@
 import {join, relative, resolve} from 'node:path';
 
 import {log} from './console.ts';
-import {root} from './index.ts';
+import root from './dsl/root.ts';
 import {type Project, assertProject} from './types/Project.ts';
 
 export default async function readConfig(directory: string): Promise<Project> {

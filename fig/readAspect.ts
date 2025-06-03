@@ -1,8 +1,8 @@
 import {join, relative, resolve} from 'node:path';
 
 import {log} from './console.ts';
+import root from './dsl/root.ts';
 import {promises as fs} from './fs.ts';
-import {root} from './index.ts';
 import {type Aspect, assertAspect} from './types/Aspect.ts';
 
 export default async function readAspect(directory: string): Promise<Aspect> {
