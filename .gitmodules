@@ -244,6 +244,7 @@
 	url = https://github.com/yazi-rs/plugins.git
 [submodule "nvim-treesitter"]
 	branch = main
+	ignore = untracked
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-treesitter
 	url = https://github.com/nvim-treesitter/nvim-treesitter.git
 [submodule "tinted-theming/tinted-vim"]
