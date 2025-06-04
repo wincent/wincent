@@ -10,8 +10,9 @@ vim.keymap.set('n', '<Leader>g', ':VcsJump grep<Space>')
 
 vim.keymap.set('n', '<Leader>o', ':only<CR>')
 
--- <Leader>p -- Show the path of the current file (mnemonic: path; useful when
--- you have a lot of splits and the status line gets truncated).
+-- <Leader>p -- Show the path of the current file (mnemonic: [p]ath).
+-- Easier to type and cleaner output than alternatives (see `:help :file` or
+-- `:help CTRL-G`).
 vim.keymap.set('n', '<Leader>p', ":echo expand('%')<CR>")
 
 -- <Leader>pp -- Like <Leader>p, but additionally yanks the filename and sends it
