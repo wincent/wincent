@@ -1,11 +1,13 @@
+// @ts-nocheck TODO properly type this file later, which will be annoying
+
 import * as assert from 'node:assert';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import * as url from 'node:url';
 
-import Builder from './Builder.js';
+import Builder from './Builder.ts';
 
-import SCHEMAS from './SCHEMAS.js';
+import SCHEMAS from './SCHEMAS.ts';
 
 /**
  * Generate types and runtime assertion functions for the types defined in
@@ -384,7 +386,7 @@ function genProperty(propertyName, propertySchema, options) {
   b.property(key, value);
 }
 
-function genPatternProperty(pattern, schema, options) {
+function genPatternProperty(pattern: string, schema, options) {
   assert.ok(pattern === '.*');
 
   const {builder: b, definitions} = options;

@@ -1,13 +1,19 @@
 import * as assert from 'node:assert';
 
+type Callback = () => void;
+
 export default class Builder {
+  indentLevel: number;
+  output: string;
+  tabWidth: number;
+
   constructor({tabWidth = 2} = {}) {
     this.indentLevel = 0;
     this.output = '';
     this.tabWidth = tabWidth;
   }
 
-  arrow(params, value) {
+  arrow(params: string, value: Callback | string) {
     this.printIndent().print(`${params} => `);
 
     if (typeof value === 'function') {
@@ -17,7 +23,7 @@ export default class Builder {
     }
   }
 
-  assert(condition, message = null) {
+  assert(condition: string, message = null) {
     if (message) {
       return this.line(`assert(${condition}, ${message});`);
     } else {
@@ -29,7 +35,7 @@ export default class Builder {
     return this.print('\n');
   }
 
-  block(callback) {
+  block(callback: Callback) {
     this.indent();
 
     callback();
@@ -37,7 +43,7 @@ export default class Builder {
     return this.dedent();
   }
 
-  call(name, args) {
+  call(name: string, args: Callback | string) {
     this.print(`.${name}`);
 
     if (typeof args === 'function') {
@@ -55,14 +61,19 @@ export default class Builder {
     return this;
   }
 
-  forOf(binding, collection, callback) {
+  forOf(binding: string, collection: string, callback: Callback) {
     return this.line(`for (const ${binding} of ${collection}) {`)
       .block(callback)
       .line('}');
   }
 
-  ['function'](open, ...rest) {
-    let callback;
+  ['function'](
+    open: string,
+    ...rest:
+      | [Callback]
+      | [{export?: boolean}, Callback]
+  ) {
+    let callback: Callback | undefined;
     let options = {export: true};
 
     if (typeof rest[0] === 'function') {
@@ -71,6 +82,7 @@ export default class Builder {
       options = {...options, ...rest[0]};
       callback = rest[1];
     }
+    assert.ok(callback);
 
     if (options.export) {
       this.line(`export function ${open} {`).block(callback).line('}');
@@ -87,7 +99,7 @@ export default class Builder {
 
   // `rest`, if supplied, is an `else` callback.
   // TODO: make it handle `else if` too
-  ['if'](condition, callback, ...rest) {
+  ['if'](condition: string, callback: Callback, ...rest: [Callback] | []) {
     if (rest.length) {
       return this.line(`if (${condition}) {`)
         .block(callback)
@@ -105,11 +117,11 @@ export default class Builder {
     return this;
   }
 
-  interface(name, callback = () => {}) {
+  interface(name: string, callback = () => {}) {
     return this.line(`export interface ${name} {`).block(callback).line(`}`);
   }
 
-  docblock(...lines) {
+  docblock(...lines: Array<string>) {
     this.line('/**');
 
     lines.forEach((line) => {
@@ -123,7 +135,7 @@ export default class Builder {
     return this.line(' */');
   }
 
-  print(text) {
+  print(text: string) {
     this.output += text;
 
     return this;
@@ -139,11 +151,11 @@ export default class Builder {
     }
   }
 
-  line(line) {
+  line(line: string) {
     return this.printIndent().print(`${line}\n`);
   }
 
-  property(key, value) {
+  property(key: string, value: Callback | string) {
     this.printIndent().print(`${key}: `);
 
     if (typeof value === 'function') {

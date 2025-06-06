@@ -14,20 +14,19 @@ yarn --frozen-lockfile --no-default-rc --no-progress --silent
 
 log_info "Cleaning"
 
-git clean -fdxq -- lib
 git clean -fdxq -- fig/types
 
 log_info "Generating TypeScript types"
 
-node support/typegen
+node --experimental-strip-types --no-warnings support/typegen/index.ts
 
-log_info "Compiling TypeScript source to JavaScript"
+log_info "Checking TypeScript source"
 
 tsc
 
-# Hacks so that local files can import from 'fig':
+# Hack so that local files can import from 'fig':
 ln -fns ../fig node_modules/fig
 
-log_info "Running main"
+log_info "Running Fig"
 
-node --experimental-strip-types fig/main.mts "$@"
+node --experimental-strip-types --no-warnings fig/main.mts "$@"

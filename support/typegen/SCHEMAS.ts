@@ -19,8 +19,8 @@ const aspects = (() => {
  * combinations, we prefer to just generate them all and assume the user isn't
  * going to bother targeting the invalid ones.
  */
-const PLATFORMS = ['darwin', 'linux'];
-const DISTRIBUTIONS = ['arch', 'debian'];
+const PLATFORMS = ['darwin', 'linux'] as const;
+const DISTRIBUTIONS = ['arch', 'debian'] as const;
 
 /**
  * Subset of JSON Schema.
@@ -33,7 +33,7 @@ const REF = {
   JSONValue: {$ref: '#/definitions/JSONValue'},
   Platform: {$ref: '#/definitions/Platform'},
   Variables: {$ref: '#/definitions/Variables'},
-};
+} as const;
 
 const DEFINITIONS = {
   JSONValue: {
@@ -52,9 +52,9 @@ const DEFINITIONS = {
       '.*': REF.JSONValue,
     },
   },
-};
+} as const;
 
-export default {
+const SCHEMAS = {
   Aspect: {
     definitions: DEFINITIONS,
     properties: {
@@ -126,4 +126,6 @@ export default {
     required: ['platforms'],
     type: 'object',
   },
-};
+} as const;
+
+export default SCHEMAS;

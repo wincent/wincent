@@ -31,6 +31,7 @@
     "fig/**/*.mts",
     "fig/**/*.ts",
     "helpers.ts",
+    "support/typegen/**/*.ts",
     "variables.ts"
   ]
 }
