@@ -28,14 +28,61 @@ const DISTRIBUTIONS = ['arch', 'debian'] as const;
  * @see https://json-schema.org/
  */
 
-const REF = {
+export type RefKeys = 'Aspect' | 'JSONValue' | 'Platform' | 'Variables';
+type RefPath<T extends string> = `#/definitions/${T}`;
+
+export type Ref = {$ref: RefPath<RefKeys>};
+export type Type =
+  | AnyOfType
+  | ArrayType
+  | BooleanType
+  | NullType
+  | NumberType
+  | ObjectType
+  | StringType
+  | Ref;
+type AnyOfType = {
+  anyOf: Array<Type>;
+};
+type ArrayType = {
+  type: 'array';
+  items?: Type;
+};
+type BooleanType = {
+  type: 'boolean';
+};
+type NullType = {
+  type: 'null';
+};
+type NumberType = {
+  type: 'number';
+};
+export type ObjectType = {
+  type: 'object';
+  definitions?: {
+    [name: string]: Type;
+  };
+  patternProperties?: {
+    [pattern: string]: Type;
+  };
+  properties?: {
+    [name: string]: Type;
+  };
+  required?: Array<string>;
+};
+type StringType = {
+  type: 'string';
+  enum?: Array<string>;
+};
+
+const REF: { [K in RefKeys]: {$ref: RefPath<K>} } = {
   Aspect: {$ref: '#/definitions/Aspect'},
   JSONValue: {$ref: '#/definitions/JSONValue'},
   Platform: {$ref: '#/definitions/Platform'},
   Variables: {$ref: '#/definitions/Variables'},
-} as const;
+};
 
-const DEFINITIONS = {
+const DEFINITIONS: {[name: string]: Type} = {
   JSONValue: {
     anyOf: [
       {type: 'array'},
@@ -52,9 +99,9 @@ const DEFINITIONS = {
       '.*': REF.JSONValue,
     },
   },
-} as const;
+};
 
-const SCHEMAS = {
+const SCHEMAS: {[name: string]: Type} = {
   Aspect: {
     definitions: DEFINITIONS,
     properties: {
@@ -126,6 +173,6 @@ const SCHEMAS = {
     required: ['platforms'],
     type: 'object',
   },
-} as const;
+};
 
 export default SCHEMAS;

@@ -1,5 +1,3 @@
-// @ts-nocheck TODO properly type this file later, which will be annoying
-
 import * as assert from 'node:assert';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
@@ -7,7 +5,18 @@ import * as url from 'node:url';
 
 import Builder from './Builder.ts';
 
-import SCHEMAS from './SCHEMAS.ts';
+import {
+  type ObjectType,
+  type RefKeys,
+  type Type,
+  default as SCHEMAS,
+} from './SCHEMAS.ts';
+
+type Options = {
+  builder: Builder;
+  definitions: {[name: string]: Type};
+  required: Set<string>;
+};
 
 /**
  * Generate types and runtime assertion functions for the types defined in
@@ -20,13 +29,13 @@ import SCHEMAS from './SCHEMAS.ts';
 function main() {
   for (const [typeName, typeSchema] of Object.entries(SCHEMAS)) {
     // We only generate interfaces, which means we need objects.
-    assert.ok(typeSchema.type === 'object');
+    assert.ok('type' in typeSchema && typeSchema.type === 'object');
 
     const b = new Builder();
 
     const definitions = typeSchema.definitions || {};
 
-    const options = {
+    const options: Options = {
       builder: b,
       definitions,
       required: new Set(typeSchema.required || []),
@@ -40,7 +49,7 @@ function main() {
 
     // Create types.
     Object.entries(definitions).forEach(([name, value]) => {
-      if (value.enum) {
+      if ('enum' in value && value.enum) {
         b.line(`const ${name}Values = [`).indent();
 
         value.enum.forEach((v) => {
@@ -55,7 +64,7 @@ function main() {
 
     // Create sets for runtime checks.
     Object.entries(definitions).forEach(([name, value]) => {
-      if (value.enum) {
+      if ('enum' in value && value.enum) {
         b.line(
           `const ${name.toUpperCase()} = new Set<${name}>(${name}Values);`,
         ).blank();
@@ -88,7 +97,7 @@ function main() {
 
     // Create runtime checks.
     Object.entries(definitions).forEach(([name, value]) => {
-      if (value.enum) {
+      if ('enum' in value && value.enum) {
         b.function(
           `assert${name}(value: any): asserts value is ${name}`,
           () => {
@@ -109,23 +118,26 @@ function main() {
   }
 }
 
-function extractTargetFromRef(node) {
-  const ref = node.$ref;
+function extractTargetFromRef(node: Type | undefined): RefKeys | undefined {
+  if (node && '$ref' in node) {
+    const [, target] = node.$ref.match(/^#\/definitions\/(\w+)/) || [];
 
-  if (ref) {
-    const [, target] = ref.match(/^#\/definitions\/(\w+)/) || [];
-
-    return target;
+    return target as RefKeys;
   }
+  return undefined;
 }
 
-function genAssertFunction(typeName, typeSchema, options) {
+function genAssertFunction(
+  typeName: string,
+  typeSchema: ObjectType,
+  options: Options,
+) {
   const {builder: b, definitions} = options;
 
   b.function(
     `assert${typeName}(json: any): asserts json is ${typeName}`,
     () => {
-      function genAssertProperties(obj, typeSchema) {
+      function genAssertProperties(obj: string, typeSchema: ObjectType) {
         // Order matters here (TypeScript bug?):
         // - `typeof x === 'object' && x`: narrows to "object"
         // - `x && typeof x === 'object'`: narrows to "object | null"
@@ -188,9 +200,13 @@ function genAssertFunction(typeName, typeSchema, options) {
                 propertySchema = definitions[target];
               }
 
-              if (propertySchema.type === 'object') {
+              if (
+                'type' in propertySchema && propertySchema.type === 'object'
+              ) {
                 genAssertProperties(property, propertySchema);
-              } else if (propertySchema.type === 'array') {
+              } else if (
+                'type' in propertySchema && propertySchema.type === 'array'
+              ) {
                 b.assert(`Array.isArray(${property})`).blank();
 
                 b.forOf('item', property, () => {
@@ -200,9 +216,17 @@ function genAssertFunction(typeName, typeSchema, options) {
                   //    anyOf: [REF.Aspect, {type: 'array', items: REF.Aspect}]
                   //
                   const target = extractTargetFromRef(
-                    propertySchema.items.anyOf[0],
+                    'items' in propertySchema &&
+                      propertySchema.items &&
+                      'anyOf' in propertySchema.items ?
+                      propertySchema.items.anyOf[0] :
+                      undefined,
                   );
-                  if (target && definitions[target]?.enum) {
+                  if (
+                    target && definitions[target] &&
+                    'enum' in definitions[target] &&
+                    definitions[target].enum
+                  ) {
                     b.if(
                       'Array.isArray(item)',
                       () => {
@@ -215,8 +239,9 @@ function genAssertFunction(typeName, typeSchema, options) {
                   }
                 });
               } else if (
-                propertySchema.type === 'number' ||
-                propertySchema.type === 'string'
+                'type' in propertySchema &&
+                (propertySchema.type === 'number' ||
+                  propertySchema.type === 'string')
               ) {
                 b.assert(`typeof ${property} === '${propertySchema.type}'`);
               } else {
@@ -239,19 +264,22 @@ function genAssertFunction(typeName, typeSchema, options) {
 
           if (isJSONValue(propertySchema)) {
             b.blank().line(`Object.values(${obj}).forEach(assertJSONValue)`);
-          } else if (propertySchema.anyOf) {
-            const conditions = propertySchema.anyOf.map(({type}) => {
+          } else if ('anyOf' in propertySchema && propertySchema.anyOf) {
+            const conditions = propertySchema.anyOf.map((schema) => {
               if (
-                type === 'boolean' ||
-                type === 'number' ||
-                type === 'string'
+                'type' in schema && (
+                  schema.type === 'boolean' ||
+                  schema.type === 'number' ||
+                  schema.type === 'string'
+                )
               ) {
-                return `typeof value === '${type}'`;
-              } else if (type === 'null') {
+                return `typeof value === '${schema.type}'`;
+              } else if ('type' in schema && schema.type === 'null') {
                 return `value === null`;
               } else {
                 // TODO: support complex values too
                 // TODO: see if we can re-use a single `anyOf` generator
+                throw new Error('Not implemented');
               }
             });
 
@@ -270,13 +298,17 @@ function genAssertFunction(typeName, typeSchema, options) {
 
             b.blank().assert(`Object.values(${obj}).every(isValid)`);
           } else if (
-            propertySchema.type === 'number' ||
-            propertySchema.type === 'string'
+            'type' in propertySchema && (
+              propertySchema.type === 'number' ||
+              propertySchema.type === 'string'
+            )
           ) {
             b.blank().assert(
               `Object.values(${obj}).every((value) => typeof value === '${propertySchema.type}')`,
             );
-          } else if (propertySchema.type === 'object') {
+          } else if (
+            'type' in propertySchema && propertySchema.type === 'object'
+          ) {
             b.blank()
               .line(
                 `const valid = Object.values(${obj}).every((value: unknown) => {`,
@@ -286,7 +318,9 @@ function genAssertFunction(typeName, typeSchema, options) {
             genAssertProperties('value', propertySchema);
 
             b.line('return true;').dedent().line('});').blank().assert('valid');
-          } else if (propertySchema.type === 'array') {
+          } else if (
+            'type' in propertySchema && propertySchema.type === 'array'
+          ) {
             // TODO: impl
           }
         });
@@ -297,7 +331,7 @@ function genAssertFunction(typeName, typeSchema, options) {
   );
 }
 
-function genObjectValue(schema, options) {
+function genObjectValue(schema: ObjectType, options: Options) {
   const b = options.builder;
 
   return () => {
@@ -330,7 +364,11 @@ function genObjectValue(schema, options) {
   };
 }
 
-function genProperty(propertyName, propertySchema, options) {
+function genProperty(
+  propertyName: string,
+  propertySchema: Type,
+  options: Options,
+) {
   const {builder: b, definitions, required} = options;
 
   const optional = required.has(propertyName) ? '' : '?';
@@ -343,32 +381,35 @@ function genProperty(propertyName, propertySchema, options) {
     propertySchema = definitions[target];
   }
 
-  if (propertySchema.type === 'array') {
+  if ('type' in propertySchema && propertySchema.type === 'array') {
     const target = extractTargetFromRef(propertySchema.items);
 
     if (target) {
       value = `Array<${target}>`;
-    } else if (propertySchema.items.anyOf) {
+    } else if (propertySchema.items && 'anyOf' in propertySchema.items) {
       value = `Array<${
         propertySchema.items.anyOf
           .map((member) => {
             const target = extractTargetFromRef(member);
             if (target) {
               return target;
-            } else {
+            } else if ('items' in member) {
               return `Array<${extractTargetFromRef(member.items)}>`;
+            } else {
+              throw new Error('Unexpected');
             }
           })
           .join(' | ')
       }>`;
-    } else {
+    } else if (propertySchema.items && 'type' in propertySchema.items) {
       value = `Array<${propertySchema.items.type}>`;
     }
-  } else if (propertySchema.type === 'object') {
+  } else if ('type' in propertySchema && propertySchema.type === 'object') {
     value = genObjectValue(propertySchema, options);
   } else if (
-    propertySchema.type === 'number' ||
-    propertySchema.type === 'string'
+    'type' in propertySchema &&
+    (propertySchema.type === 'number' ||
+      propertySchema.type === 'string')
   ) {
     value = propertySchema.type;
   } else {
@@ -377,16 +418,20 @@ function genProperty(propertyName, propertySchema, options) {
         JSON.stringify(
           propertyName,
         )
-      } has invalid type ${JSON.stringify(propertySchema.type)}`,
+      } has invalid type ${
+        JSON.stringify(
+          'type' in propertySchema ? propertySchema.type : 'unknown',
+        )
+      }`,
     );
   }
 
   const key = `'${propertyName}'${optional}`;
 
-  b.property(key, value);
+  b.property(key, value || 'undefined');
 }
 
-function genPatternProperty(pattern: string, schema, options) {
+function genPatternProperty(pattern: string, schema: Type, options: Options) {
   assert.ok(pattern === '.*');
 
   const {builder: b, definitions} = options;
@@ -401,12 +446,21 @@ function genPatternProperty(pattern: string, schema, options) {
 
   if (isJSONValue(schema)) {
     value = 'JSONValue';
-  } else if (schema.anyOf) {
-    // TODO: handle non-simple types here.
-    value = schema.anyOf.map(({type}) => type).join(' | ');
-  } else if (schema.type === 'number' || schema.type === 'string') {
+  } else if ('anyOf' in schema) {
+    value = schema.anyOf.map((schema) => {
+      if ('type' in schema) {
+        return schema.type;
+      } else {
+        // TODO: handle non-simple types here.
+        return 'unknown';
+      }
+    }).join(' | ');
+  } else if (
+    'type' in schema && (schema.type === 'number' ||
+      schema.type === 'string')
+  ) {
     value = schema.type;
-  } else if (schema.type === 'object') {
+  } else if ('type' in schema && schema.type === 'object') {
     value = genObjectValue(schema, options);
   } else {
     throw new Error('TODO: Implement');
@@ -420,7 +474,7 @@ function genPatternProperty(pattern: string, schema, options) {
  *
  *    (any) array | boolean | null | number | (any) object | string
  */
-function isJSONValue(schema) {
+function isJSONValue(schema: Type) {
   const items = new Set([
     'array',
     'boolean',
@@ -430,16 +484,21 @@ function isJSONValue(schema) {
     'string',
   ]);
 
-  const {anyOf} = schema;
+  if ('anyOf' in schema) {
+    const {anyOf} = schema;
 
-  if (anyOf && anyOf.length === items.size) {
-    anyOf.forEach((schema) => {
-      if (Object.keys(schema).length === 1) {
-        items.delete(schema.type);
-      }
-    });
+    if (anyOf.length === items.size) {
+      anyOf.forEach((schema) => {
+        if (
+          Object.keys(schema).length === 1 &&
+          'type' in schema
+        ) {
+          items.delete(schema.type);
+        }
+      });
 
-    return !items.size;
+      return !items.size;
+    }
   }
 
   return false;
