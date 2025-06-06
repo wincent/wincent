@@ -1,13 +1,13 @@
 import {join} from 'node:path';
 
-import Context from '../Context.js';
-import {readdirSync, statSync} from '../fs.js';
-import globToRegExp from '../globToRegExp.js';
-import path from '../path.js';
+import Context from '../Context.ts';
+import {readdirSync, statSync} from '../fs.ts';
+import globToRegExp from '../globToRegExp.ts';
+import path from '../path.ts';
 
 import type {Dirent} from 'node:fs';
 
-import type {Path} from '../path.js';
+import type {Path} from '../path.ts';
 
 // TODO: think about exporting these separately (from separate files)
 

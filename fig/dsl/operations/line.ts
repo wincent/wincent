@@ -1,10 +1,10 @@
-import ErrorWithMetadata from '../../ErrorWithMetadata.js';
-import Scanner from '../../Scanner.js';
-import {log} from '../../console.js';
-import {promises as fs} from '../../fs.js';
-import stat from '../../fs/stat.js';
-import path from '../../path.js';
-import file from './file.js';
+import ErrorWithMetadata from '../../ErrorWithMetadata.ts';
+import Scanner from '../../Scanner.ts';
+import {log} from '../../console.ts';
+import {promises as fs} from '../../fs.ts';
+import stat from '../../fs/stat.ts';
+import path from '../../path.ts';
+import file from './file.ts';
 
 /**
  * @see https://docs.ansible.com/ansible/latest/modules/lineinfile_module.html

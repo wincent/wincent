@@ -9,6 +9,7 @@
 /aspects/nvim/files/.vim/viminfo
 /media
 /node_modules
+/tsconfig.tsbuildinfo
 /vendor/nvim-macos-arm64
 /vendor/skim
 /vendor/yay

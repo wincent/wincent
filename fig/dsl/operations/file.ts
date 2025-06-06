@@ -1,19 +1,19 @@
-import Context from '../../Context.js';
-import ErrorWithMetadata from '../../ErrorWithMetadata.js';
-import UnsupportedValueError from '../../UnsupportedValueError.js';
-import assert from '../../assert.js';
-import compare from '../../compare.js';
-import {promises as fs} from '../../fs.js';
-import stat from '../../fs/stat.js';
-import tempfile from '../../fs/tempfile.js';
-import {default as toPath} from '../../path.js';
-import chmod from '../../posix/chmod.js';
-import chown from '../../posix/chown.js';
-import cp from '../../posix/cp.js';
-import ln from '../../posix/ln.js';
-import mkdir from '../../posix/mkdir.js';
-import rm from '../../posix/rm.js';
-import touch from '../../posix/touch.js';
+import Context from '../../Context.ts';
+import ErrorWithMetadata from '../../ErrorWithMetadata.ts';
+import UnsupportedValueError from '../../UnsupportedValueError.ts';
+import assert from '../../assert.ts';
+import compare from '../../compare.ts';
+import {promises as fs} from '../../fs.ts';
+import stat from '../../fs/stat.ts';
+import tempfile from '../../fs/tempfile.ts';
+import {default as toPath} from '../../path.ts';
+import chmod from '../../posix/chmod.ts';
+import chown from '../../posix/chown.ts';
+import cp from '../../posix/cp.ts';
+import ln from '../../posix/ln.ts';
+import mkdir from '../../posix/mkdir.ts';
+import rm from '../../posix/rm.ts';
+import touch from '../../posix/touch.ts';
 
 export default async function file({
   contents,

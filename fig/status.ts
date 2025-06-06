@@ -1,4 +1,4 @@
-import {log} from './console.js';
+import {log} from './console.ts';
 
 // TODO: ansible also has: unreachable, rescued, ignored
 // decide whether we need any of those.

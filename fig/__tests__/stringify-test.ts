@@ -1,6 +1,6 @@
-import dedent from '../dedent.js';
-import stringify from '../stringify.js';
-import {expect, test} from '../test/harness.js';
+import dedent from '../dedent.ts';
+import stringify from '../stringify.ts';
+import {expect, test} from '../test/harness.ts';
 
 test('stringify() null', () => {
   expect(stringify(null)).toBe('null');
@@ -168,15 +168,13 @@ function fn(a, b) {
 }
 
 test('stringify() a multi-line Function', () => {
-  // Obviously this test is pretty fragile; depends on TS continuing to
-  // use a 4-space indent in its build output.
   expect(stringify({fn})).toBe(
     dedent`
             {
               "fn": function fn(a, b) {
-                  if (a > 0) {
-                      return a + b;
-                  }
+                if (a > 0) {
+                  return a + b;
+                }
               },
             }
         `.trimEnd(),

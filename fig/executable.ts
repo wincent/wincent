@@ -1,4 +1,4 @@
-import Context from './Context.js';
+import Context from './Context.ts';
 const EXECUTABLES: {
   darwin: {[key: string]: string};
   linux: {[key: string]: string};

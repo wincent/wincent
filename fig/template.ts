@@ -1,4 +1,4 @@
-import stringify from './stringify.js';
+import stringify from './stringify.ts';
 
 export type Scope = {
   [property: string]: JSONValue;

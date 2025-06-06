@@ -1,8 +1,8 @@
-import Context from '../../Context.js';
-import stat from '../../fs/stat.js';
-import path from '../../path.js';
-import mkdir from '../../posix/mkdir.js';
-import command from './command.js';
+import Context from '../../Context.ts';
+import stat from '../../fs/stat.ts';
+import path from '../../path.ts';
+import mkdir from '../../posix/mkdir.ts';
+import command from './command.ts';
 
 export default async function backup({
   src,

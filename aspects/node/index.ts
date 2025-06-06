@@ -18,7 +18,7 @@ task('hide ~/n', when('darwin'), async () => {
   await command('chflags', ['hidden', '~/n']);
 });
 
-task(`install Node.js v${NODE_VERSION}`, async () => {
+task(`install NodeJS v${NODE_VERSION}`, async () => {
   const env = {
     ...process.env,
     N_PREFIX: path.home.join('n'),

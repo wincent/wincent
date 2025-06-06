@@ -1,8 +1,8 @@
 import {homedir} from 'node:os';
 import {join, relative, sep} from 'node:path';
 import {cwd} from 'node:process';
-import {default as path, isPath} from '../path.js';
-import {describe, expect, test} from '../test/harness.js';
+import {default as path, isPath} from '../path.ts';
+import {describe, expect, test} from '../test/harness.ts';
 
 describe('path()', () => {
   test('returns a Path instance', () => {

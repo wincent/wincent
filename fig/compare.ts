@@ -1,8 +1,8 @@
 import {dirname} from 'node:path';
 
-import ErrorWithMetadata from './ErrorWithMetadata.js';
-import {promises as fs} from './fs.js';
-import stat from './fs/stat.js';
+import ErrorWithMetadata from './ErrorWithMetadata.ts';
+import {promises as fs} from './fs.ts';
+import stat from './fs/stat.ts';
 
 /**
  * Summary of differences between actual and desired state of a file-system

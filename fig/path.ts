@@ -9,8 +9,8 @@ import {
   sep,
 } from 'node:path';
 
-import Context from './Context.js';
-import root from './dsl/root.js';
+import Context from './Context.ts';
+import root from './dsl/root.ts';
 
 const INSPECT = Symbol.for('nodejs.util.inspect.custom');
 const TAG_NAME = 'fig.Path';

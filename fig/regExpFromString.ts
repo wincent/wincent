@@ -1,4 +1,4 @@
-import stringify from './stringify.js';
+import stringify from './stringify.ts';
 
 /**
  * Loose definition of "valid" RegExp.

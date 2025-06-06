@@ -1,8 +1,7 @@
-// import {log} from './console.js';
-import {promises as fs} from './fs.js';
-import {compile, fill} from './template.js';
+import {promises as fs} from './fs.ts';
+import {compile, fill} from './template.ts';
 
-import type {Scope} from './template.js';
+import type {Scope} from './template.ts';
 
 /**
  * Template compiler that manages a cache of compiled templates.

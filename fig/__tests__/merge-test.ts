@@ -1,5 +1,5 @@
-import merge from '../merge.js';
-import {expect, test} from '../test/harness.js';
+import merge from '../merge.ts';
+import {expect, test} from '../test/harness.ts';
 
 test('merge() returns an single object', () => {
   expect(merge({example: 'obj'})).toEqual({example: 'obj'});

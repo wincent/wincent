@@ -1,7 +1,7 @@
-import Context from '../../Context.js';
-import {LAQUO, RAQUO} from '../../Unicode.js';
-import {default as toPath} from '../../path.js';
-import file from './file.js';
+import Context from '../../Context.ts';
+import {LAQUO, RAQUO} from '../../Unicode.ts';
+import {default as toPath} from '../../path.ts';
+import file from './file.ts';
 
 export default async function template({
   force,

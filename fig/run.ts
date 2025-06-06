@@ -1,6 +1,6 @@
 import {randomBytes} from 'node:crypto';
 
-import {spawn} from './child_process.js';
+import {spawn} from './child_process.ts';
 
 type Options = {
   chdir?: string;

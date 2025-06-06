@@ -1,3 +1,3 @@
-import Context from '../Context.js';
+import Context from '../Context.ts';
 
 export default Context.attributes;

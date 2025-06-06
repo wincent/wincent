@@ -11,11 +11,11 @@ import {
   task,
   template,
 } from 'fig';
-import Context from 'fig/Context.js';
-import assert from 'fig/assert.js';
-import {promises} from 'fig/fs.js';
-import stat from 'fig/fs/stat.js';
-import tempdir from 'fig/fs/tempdir.js';
+import Context from 'fig/Context.ts';
+import assert from 'fig/assert.ts';
+import {promises} from 'fig/fs.ts';
+import stat from 'fig/fs/stat.ts';
+import tempdir from 'fig/fs/tempdir.ts';
 
 function live() {
   return !Context.options.check;

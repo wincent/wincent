@@ -1,9 +1,9 @@
-import assert from '../../assert.js';
-import stat from '../../fs/stat.js';
-import tempdir from '../../fs/tempdir.js';
-import tempfile from '../../fs/tempfile.js';
-import {expect, test} from '../../test/harness.js';
-import chmod from '../chmod.js';
+import assert from '../../assert.ts';
+import stat from '../../fs/stat.ts';
+import tempdir from '../../fs/tempdir.ts';
+import tempfile from '../../fs/tempfile.ts';
+import {expect, test} from '../../test/harness.ts';
+import chmod from '../chmod.ts';
 
 test('chmod() changes the mode of a file', async () => {
   const path = await tempfile('chmod-test');

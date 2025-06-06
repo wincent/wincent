@@ -1,6 +1,6 @@
-import assert from './assert.js';
+import assert from './assert.ts';
 
-import type {Aspect} from './types/Project.js';
+import type {Aspect} from './types/Project.ts';
 
 type Callback = (variables: Variables) => Variables;
 

@@ -3,10 +3,10 @@ import * as http from 'node:http';
 import * as https from 'node:https';
 import {join} from 'node:path';
 
-import {log} from '../../console.js';
-import {createWriteStream, promises} from '../../fs.js';
-import tempdir from '../../fs/tempdir.js';
-import file from './file.js';
+import {log} from '../../console.ts';
+import {createWriteStream, promises} from '../../fs.ts';
+import tempdir from '../../fs/tempdir.ts';
+import file from './file.ts';
 
 const DIGEST_PREFIX = 'sha256:';
 

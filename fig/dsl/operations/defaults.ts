@@ -1,10 +1,10 @@
-import Context from '../../Context.js';
-import ErrorWithMetadata from '../../ErrorWithMetadata.js';
-import Scanner from '../../Scanner.js';
-import assert from '../../assert.js';
-import {log} from '../../console.js';
-import run from '../../run.js';
-import stringify from '../../stringify.js';
+import Context from '../../Context.ts';
+import ErrorWithMetadata from '../../ErrorWithMetadata.ts';
+import Scanner from '../../Scanner.ts';
+import assert from '../../assert.ts';
+import {log} from '../../console.ts';
+import run from '../../run.ts';
+import stringify from '../../stringify.ts';
 
 type Type =
   | 'array'

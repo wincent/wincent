@@ -1,9 +1,9 @@
 import {join, relative, resolve} from 'node:path';
 
-import {log} from './console.js';
-import {promises as fs} from './fs.js';
-import {root} from './index.js';
-import {type Aspect, assertAspect} from './types/Aspect.js';
+import {log} from './console.ts';
+import {promises as fs} from './fs.ts';
+import {root} from './index.ts';
+import {type Aspect, assertAspect} from './types/Aspect.ts';
 
 export default async function readAspect(directory: string): Promise<Aspect> {
   await log.debug(`Reading aspect configuration: ${directory}`);
@@ -11,11 +11,10 @@ export default async function readAspect(directory: string): Promise<Aspect> {
   let aspect;
 
   try {
-    // First try for "aspect.js" in build output (lib/aspects) directory.
+    // First try for "aspect.ts".
     const mod = resolve(
       root,
-      'lib',
-      relative(root, join(directory, 'aspect.js')),
+      relative(root, join(directory, 'aspect.ts')),
     );
 
     aspect = (await import(mod)).default;

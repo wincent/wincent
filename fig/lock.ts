@@ -1,4 +1,4 @@
-import assert from './assert.js';
+import assert from './assert.ts';
 
 type Queue = {
   items: Array<{

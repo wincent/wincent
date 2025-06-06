@@ -1,5 +1,5 @@
-import Scanner from '../../../Scanner.js';
-import {describe, expect, test} from '../../../test/harness.js';
+import Scanner from '../../../Scanner.ts';
+import {describe, expect, test} from '../../../test/harness.ts';
 import {
   equal,
   parseArray,
@@ -8,7 +8,7 @@ import {
   scanNumber,
   scanString,
   valueToString,
-} from '../defaults.js';
+} from '../defaults.ts';
 
 describe('equal()', () => {
   test('returns false if no current type and value', () => {

@@ -1,11 +1,11 @@
 import * as os from 'node:os';
 import * as process from 'node:process';
 
-import assert from './assert.js';
-import {spawnSync} from './child_process.js';
-import {existsSync} from './fs.js';
-import id from './posix/id.js';
-import stringify from './stringify.js';
+import assert from './assert.ts';
+import {spawnSync} from './child_process.ts';
+import {existsSync} from './fs.ts';
+import id from './posix/id.ts';
+import stringify from './stringify.ts';
 
 /**
  * Immutable system attributes (read-only).

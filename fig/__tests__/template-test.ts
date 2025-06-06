@@ -1,6 +1,6 @@
-import dedent from '../dedent.js';
-import {compile, fill, tokenize} from '../template.js';
-import {expect, test} from '../test/harness.js';
+import dedent from '../dedent.ts';
+import {compile, fill, tokenize} from '../template.ts';
+import {expect, test} from '../test/harness.ts';
 
 test('compile() compiles an empty template', () => {
   expect(compile('')).toBe(dedent`

@@ -1,10 +1,10 @@
 import {join} from 'node:path';
 
-import assert from '../../assert.js';
-import stat from '../../fs/stat.js';
-import tempdir from '../../fs/tempdir.js';
-import {expect, test} from '../../test/harness.js';
-import touch from '../touch.js';
+import assert from '../../assert.ts';
+import stat from '../../fs/stat.ts';
+import tempdir from '../../fs/tempdir.ts';
+import {expect, test} from '../../test/harness.ts';
+import touch from '../touch.ts';
 
 test('touch() creates a file', async () => {
   const path = await tempdir('rm-test');

@@ -8,9 +8,9 @@
 
 import {join} from 'node:path';
 
-import compare from '../compare.js';
-import root from '../dsl/root.js';
-import {describe, expect, test} from '../test/harness.js';
+import compare from '../compare.ts';
+import root from '../dsl/root.ts';
+import {describe, expect, test} from '../test/harness.ts';
 
 /**
  * Helper to get fixtures (in "fig/") irrespective of where we run from.

@@ -1,8 +1,8 @@
-import Context from '../Context.js';
-import assert from '../assert.js';
-import path from '../path.js';
+import Context from '../Context.ts';
+import assert from '../assert.ts';
+import path from '../path.ts';
 
-import type {Path} from '../path.js';
+import type {Path} from '../path.ts';
 
 export default function variable(
   name: string,

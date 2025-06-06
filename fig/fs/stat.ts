@@ -1,9 +1,9 @@
-import Context from '../Context.js';
-import ErrorWithMetadata from '../ErrorWithMetadata.js';
-import assert from '../assert.js';
-import executable from '../executable.js';
-import {default as toPath} from '../path.js';
-import run from '../run.js';
+import Context from '../Context.ts';
+import ErrorWithMetadata from '../ErrorWithMetadata.ts';
+import assert from '../assert.ts';
+import executable from '../executable.ts';
+import {default as toPath} from '../path.ts';
+import run from '../run.ts';
 
 type Stats = {
   group: string;

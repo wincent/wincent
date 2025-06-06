@@ -1,4 +1,4 @@
-import {isJSONValue} from './types/JSONValue.js';
+import {isJSONValue} from './types/JSONValue.ts';
 
 /**
  * For those (many) places where we can't use Node's own `assert`

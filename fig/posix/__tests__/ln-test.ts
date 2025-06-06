@@ -1,11 +1,11 @@
 import {join} from 'node:path';
 
-import assert from '../../assert.js';
-import stat from '../../fs/stat.js';
-import tempdir from '../../fs/tempdir.js';
-import {expect, test} from '../../test/harness.js';
-import ln from '../ln.js';
-import touch from '../touch.js';
+import assert from '../../assert.ts';
+import stat from '../../fs/stat.ts';
+import tempdir from '../../fs/tempdir.ts';
+import {expect, test} from '../../test/harness.ts';
+import ln from '../ln.ts';
+import touch from '../touch.ts';
 
 test('ln() links a file', async () => {
   const base = await tempdir('ln-test');

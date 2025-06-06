@@ -1,23 +1,23 @@
 import {join} from 'node:path';
 import * as process from 'node:process';
 
-import variables from '../variables.js';
-import Context from './Context.js';
-import ErrorWithMetadata from './ErrorWithMetadata.js';
-import {debug, log, setLogLevel} from './console.js';
-import dedent from './dedent.js';
-import getOptions from './getOptions.js';
-import {root} from './index.js';
-import merge from './merge.js';
-import path from './path.js';
-import prompt from './prompt.js';
-import readAspect from './readAspect.js';
-import readConfig from './readConfig.js';
-import regExpFromString from './regExpFromString.js';
-import stringify from './stringify.js';
-import test from './test.js';
+import variables from '../variables.ts';
+import Context from './Context.ts';
+import ErrorWithMetadata from './ErrorWithMetadata.ts';
+import {debug, log, setLogLevel} from './console.ts';
+import dedent from './dedent.ts';
+import getOptions from './getOptions.ts';
+import {root} from './index.ts';
+import merge from './merge.ts';
+import path from './path.ts';
+import prompt from './prompt.ts';
+import readAspect from './readAspect.ts';
+import readConfig from './readConfig.ts';
+import regExpFromString from './regExpFromString.ts';
+import stringify from './stringify.ts';
+import test from './test.ts';
 
-import type {Aspect} from './types/Project.js';
+import type {Aspect} from './types/Project.ts';
 
 class AbortError extends Error {}
 
@@ -30,7 +30,7 @@ async function main() {
     }
   }
 
-  // Skip first two args (node executable and main.js script).
+  // Skip first two args (node executable and main.ts script).
   const options = await getOptions(process.argv.slice(2));
   Context.options = options;
 
@@ -409,7 +409,7 @@ function msToHumanReadable(ms: number): string {
 }
 
 async function loadAspect(aspect: Aspect): Promise<void> {
-      await import(`../aspects/${aspect}/index.js`);
+      await import(`../aspects/${aspect}/index.ts`);
 }
 
 try {

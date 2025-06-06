@@ -1,3 +1,3 @@
-import './tests.js';
+import './tests.ts';
 
-import './global.js';
+import './global.ts';

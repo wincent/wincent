@@ -1,7 +1,7 @@
-import Context from '../Context.js';
+import Context from '../Context.ts';
 
-import type {LogLevel} from '../console.js';
-import type {Aspect} from '../types/Project.js';
+import type {LogLevel} from '../console.ts';
+import type {Aspect} from '../types/Project.ts';
 
 export default {
   get check(): boolean {

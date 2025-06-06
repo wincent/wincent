@@ -1,6 +1,6 @@
-import {log} from '../console.js';
-import {promises as fs} from '../fs.js';
-import tempname from './tempname.js';
+import {log} from '../console.ts';
+import {promises as fs} from '../fs.ts';
+import tempname from './tempname.ts';
 
 /**
  * Writes the `contents` to a temporary file and returns the path to that file.

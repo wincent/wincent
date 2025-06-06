@@ -1,18 +1,18 @@
 import * as assert from 'node:assert';
 import * as path from 'node:path';
 
-import ErrorWithMetadata from './ErrorWithMetadata.js';
-import {COLORS, LOG_LEVEL, log, nextLogLevel} from './console.js';
-import dedent from './dedent.js';
-import escapeRegExpPattern from './escapeRegExpPattern.js';
-import {promises as fs} from './fs.js';
-import {root} from './index.js';
-import readAspect from './readAspect.js';
-import stringify from './stringify.js';
-import {assertAspect} from './types/Project.js';
+import ErrorWithMetadata from './ErrorWithMetadata.ts';
+import {COLORS, LOG_LEVEL, log, nextLogLevel} from './console.ts';
+import dedent from './dedent.ts';
+import escapeRegExpPattern from './escapeRegExpPattern.ts';
+import {promises as fs} from './fs.ts';
+import {root} from './index.ts';
+import readAspect from './readAspect.ts';
+import stringify from './stringify.ts';
+import {assertAspect} from './types/Project.ts';
 
-import type {LogLevel} from './console.js';
-import type {Aspect} from './types/Project.js';
+import type {LogLevel} from './console.ts';
+import type {Aspect} from './types/Project.ts';
 
 export type Options = {
   check: boolean;

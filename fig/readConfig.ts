@@ -1,16 +1,15 @@
 import {join, relative, resolve} from 'node:path';
 
-import {log} from './console.js';
-import {root} from './index.js';
-import {type Project, assertProject} from './types/Project.js';
+import {log} from './console.ts';
+import {root} from './index.ts';
+import {type Project, assertProject} from './types/Project.ts';
 
 export default async function readConfig(directory: string): Promise<Project> {
   await log.debug(`Reading project configuration: ${directory}`);
 
   const mod = resolve(
     root,
-    'lib',
-    relative(root, join(directory, 'fig.config.js')),
+    relative(root, join(directory, 'fig.config.ts')),
   );
 
   const project = (await import(mod)).default;

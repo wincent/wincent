@@ -1,8 +1,8 @@
-import Context from '../Context.js';
-import getAspectFromCallers from '../getAspectFromCallers.js';
-import getCallers from '../getCallers.js';
-import {assertAspect} from '../types/Project.js';
-import skip from './skip.js';
+import Context from '../Context.ts';
+import getAspectFromCallers from '../getAspectFromCallers.ts';
+import getCallers from '../getCallers.ts';
+import {assertAspect} from '../types/Project.ts';
+import skip from './skip.ts';
 
 type Callback = () => Promise<void>;
 type Predicate = () => true | string;

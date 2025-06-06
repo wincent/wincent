@@ -185,7 +185,7 @@ At the time of writing, these are the aspects, which you can expect to change ov
   - **karabiner**: Configures Karabiner-Elements (keyboard customization).
   - **launchd**: Configures launchd
   - **nix**: Installs packages via the Nix package manager.
-  - **node**: Installs Node.js
+  - **node**: Installs NodeJS
   - **ruby**: Installs Ruby gems
   - **ssh**: Manages local SSH config
   - **violentmonkey**: Sets up UserScripts

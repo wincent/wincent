@@ -1,7 +1,7 @@
 import * as process from 'node:process';
 
-import Context from 'fig/Context.js';
-import {log} from 'fig/console.js';
+import Context from 'fig/Context.ts';
+import {log} from 'fig/console.ts';
 
 let hostnameWarningIssued = false;
 

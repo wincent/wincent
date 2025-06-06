@@ -1,22 +1,22 @@
 import * as process from 'node:process';
 
-import Attributes from './Attributes.js';
-import Compiler from './Compiler.js';
-import ErrorWithMetadata from './ErrorWithMetadata.js';
-import HandlerRegistry from './HandlerRegistry.js';
-import TaskRegistry from './TaskRegistry.js';
-import VariableRegistry from './VariableRegistry.js';
-import assert from './assert.js';
-import getAspectFromCallers from './getAspectFromCallers.js';
-import getCallers from './getCallers.js';
-import prompt from './prompt.js';
-import run from './run.js';
-import * as status from './status.js';
-import {assertAspect} from './types/Project.js';
+import Attributes from './Attributes.ts';
+import Compiler from './Compiler.ts';
+import ErrorWithMetadata from './ErrorWithMetadata.ts';
+import HandlerRegistry from './HandlerRegistry.ts';
+import TaskRegistry from './TaskRegistry.ts';
+import VariableRegistry from './VariableRegistry.ts';
+import assert from './assert.ts';
+import getAspectFromCallers from './getAspectFromCallers.ts';
+import getCallers from './getCallers.ts';
+import prompt from './prompt.ts';
+import run from './run.ts';
+import * as status from './status.ts';
+import {assertAspect} from './types/Project.ts';
 
-import type {Metadata} from './ErrorWithMetadata.js';
-import type {Options} from './getOptions.js';
-import type {Aspect} from './types/Project.js';
+import type {Metadata} from './ErrorWithMetadata.ts';
+import type {Options} from './getOptions.ts';
+import type {Aspect} from './types/Project.ts';
 
 type Counts = {
   changed: number;

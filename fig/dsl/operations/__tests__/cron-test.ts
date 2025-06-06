@@ -1,5 +1,5 @@
-import {describe, expect, test} from '../../../test/harness.js';
-import {validate} from '../cron.js';
+import {describe, expect, test} from '../../../test/harness.ts';
+import {validate} from '../cron.ts';
 
 describe('validate()', () => {
   test('"*" is valid', () => {

@@ -2,10 +2,10 @@ import * as assert from 'node:assert';
 import * as process from 'node:process';
 import {Writable} from 'node:stream';
 
-import ErrorWithMetadata from '../ErrorWithMetadata.js';
-import {RAQUO} from '../Unicode.js';
-import {COLORS, LOG_LEVEL, debug, getLogLevel, log, print} from '../console.js';
-import stringify from '../stringify.js';
+import ErrorWithMetadata from '../ErrorWithMetadata.ts';
+import {RAQUO} from '../Unicode.ts';
+import {COLORS, LOG_LEVEL, debug, getLogLevel, log, print} from '../console.ts';
+import stringify from '../stringify.ts';
 
 const {green, red, yellow} = COLORS;
 

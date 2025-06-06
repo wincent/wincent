@@ -32,8 +32,8 @@ function main() {
 
     b.docblock('vim: set nomodifiable :', '', '@generated').blank();
 
-    b.line(`import assert from '../assert.js';`)
-      .line(`import {assertJSONValue} from './JSONValue.js';`)
+    b.line(`import assert from '../assert.ts';`)
+      .line(`import {assertJSONValue} from './JSONValue.ts';`)
       .blank();
 
     // Create types.

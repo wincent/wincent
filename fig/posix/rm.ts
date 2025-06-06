@@ -1,9 +1,9 @@
-import Context from '../Context.js';
-import ErrorWithMetadata from '../ErrorWithMetadata.js';
-import {log} from '../console.js';
-import executable from '../executable.js';
-import run from '../run.js';
-import stringify from '../stringify.js';
+import Context from '../Context.ts';
+import ErrorWithMetadata from '../ErrorWithMetadata.ts';
+import {log} from '../console.ts';
+import executable from '../executable.ts';
+import run from '../run.ts';
+import stringify from '../stringify.ts';
 
 type Options = {
   recurse?: boolean;

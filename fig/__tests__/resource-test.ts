@@ -1,9 +1,9 @@
 import {join} from 'node:path';
 import {cwd} from 'node:process';
 
-import Context from '../Context.js';
-import {file, files, template} from '../dsl/resource.js';
-import {describe, expect, test} from '../test/harness.js';
+import Context from '../Context.ts';
+import {file, files, template} from '../dsl/resource.ts';
+import {describe, expect, test} from '../test/harness.ts';
 
 function withMeta(callback: () => void) {
   return () => {

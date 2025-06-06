@@ -1,14 +1,16 @@
 {
   "compilerOptions": {
+    "allowImportingTsExtensions": true,
     "erasableSyntaxOnly": true,
     "incremental": true,
     "module": "esnext",
     "moduleResolution": "node",
+    "noEmit": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "outDir": "./lib",
+    "outDir": ".",
     "baseUrl": ".",
     "paths": {
       "fig": ["fig/index.js"],

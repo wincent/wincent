@@ -2,10 +2,10 @@ import * as process from 'node:process';
 import * as readline from 'node:readline';
 import {Writable} from 'node:stream';
 
-import assert from './assert.js';
-import {log} from './console.js';
-import COLORS from './console/COLORS.js';
-import lock from './lock.js';
+import assert from './assert.ts';
+import {log} from './console.ts';
+import COLORS from './console/COLORS.ts';
+import lock from './lock.ts';
 
 type Options = {
   private?: boolean;

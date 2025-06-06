@@ -1,5 +1,5 @@
 import {command, file, log, path, resource, skip, task} from 'fig';
-import stat from 'fig/fs/stat.js';
+import stat from 'fig/fs/stat.ts';
 
 task('create ~/Library/Fonts', async () => {
   await file({

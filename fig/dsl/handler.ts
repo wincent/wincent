@@ -1,7 +1,7 @@
-import Context from '../Context.js';
-import getAspectFromCallers from '../getAspectFromCallers.js';
-import getCallers from '../getCallers.js';
-import {assertAspect} from '../types/Project.js';
+import Context from '../Context.ts';
+import getAspectFromCallers from '../getAspectFromCallers.ts';
+import getCallers from '../getCallers.ts';
+import {assertAspect} from '../types/Project.ts';
 
 export default function handler(name: string, callback: () => Promise<void>) {
   const aspect = getAspectFromCallers(getCallers());
