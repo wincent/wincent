@@ -99,9 +99,9 @@ function main() {
     Object.entries(definitions).forEach(([name, value]) => {
       if ('enum' in value && value.enum) {
         b.function(
-          `assert${name}(value: any): asserts value is ${name}`,
+          `assert${name}(value: unknown): asserts value is ${name}`,
           () => {
-            b.assert(`${name.toUpperCase()}.has(value)`);
+            b.assert(`${name.toUpperCase()}.has(value as ${name})`);
           },
         ).blank();
       }
