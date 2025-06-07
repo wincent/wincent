@@ -191,7 +191,7 @@ function genAssertFunction(
             const property = propertyName.replace(/\./g, '_DOT_');
             b.blank().if(`${obj}.hasOwnProperty('${propertyName}')`, () => {
               b.line(
-                `const ${property}: unknown = (${obj} as any)['${propertyName}'];`,
+                `const ${property}: unknown = '${propertyName}' in ${obj} ? ${obj}['${propertyName}'] : undefined;`,
               ).blank();
 
               const target = extractTargetFromRef(propertySchema);
