@@ -135,7 +135,7 @@ function genAssertFunction(
   const {builder: b, definitions} = options;
 
   b.function(
-    `assert${typeName}(json: any): asserts json is ${typeName}`,
+    `assert${typeName}(json: unknown): asserts json is ${typeName}`,
     () => {
       function genAssertProperties(obj: string, typeSchema: ObjectType) {
         // Order matters here (TypeScript bug?):
