@@ -5,6 +5,8 @@ import Context from '../Context.ts';
 import {file, files, template} from '../dsl/resource.ts';
 import {describe, expect, test} from '../test/harness.ts';
 
+import type {Path} from '../path.ts';
+
 function withMeta(callback: () => void) {
   return () => {
     try {
@@ -42,7 +44,7 @@ describe('file()', () => {
   test(
     'returns a value with a basename property',
     withMeta(() => {
-      const example: any = file('example.txt');
+      const example: Path = file('example.txt');
 
       expect(example.basename.toString()).toBe('example.txt');
     }),

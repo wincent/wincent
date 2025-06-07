@@ -78,7 +78,7 @@ export function getLogLevel(): LogLevel {
   return logLevel;
 }
 
-export async function log(...args: Array<any>) {
+export async function log(...args: Array<unknown>) {
   await print(...args, '\n');
 }
 
@@ -112,7 +112,7 @@ log.warn = async function warn(message: string) {
   }
 };
 
-export async function print(...args: Array<any>) {
+export async function print(...args: Array<unknown>) {
   await lock('console', async () => {
     process.stderr.write(
       args

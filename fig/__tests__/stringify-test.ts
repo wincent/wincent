@@ -75,7 +75,7 @@ test('stringify() nested arrays', () => {
 });
 
 test('stringify() an array with circular references', () => {
-  const array: Array<any> = [1, true, 'thing'];
+  const array: Array<unknown> = [1, true, 'thing'];
 
   array.push(array);
 
