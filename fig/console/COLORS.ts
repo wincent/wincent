@@ -27,11 +27,14 @@ function bold(
   ...interpolations: unknown[]
 ): string;
 
-function bold(input: any, ...interpolations: unknown[]) {
-  if (Array.isArray(input)) {
-    return style(interpolate(input as any, interpolations), BOLD);
-  } else {
+function bold(
+  input: string | TemplateStringsArray,
+  ...interpolations: unknown[]
+) {
+  if (typeof input === 'string') {
     return style(input, BOLD);
+  } else {
+    return style(interpolate(input, interpolations), BOLD);
   }
 }
 
@@ -52,11 +55,14 @@ function green(
   ...interpolations: unknown[]
 ): string;
 
-function green(input: any, ...interpolations: unknown[]) {
-  if (Array.isArray(input)) {
-    return style(interpolate(input as any, interpolations), GREEN);
-  } else {
+function green(
+  input: string | TemplateStringsArray,
+  ...interpolations: unknown[]
+) {
+  if (typeof input === 'string') {
     return style(input, GREEN);
+  } else {
+    return style(interpolate(input, interpolations), GREEN);
   }
 }
 
@@ -77,11 +83,14 @@ function purple(
   ...interpolations: unknown[]
 ): string;
 
-function purple(input: any, ...interpolations: unknown[]) {
-  if (Array.isArray(input)) {
-    return style(interpolate(input as any, interpolations), PURPLE);
-  } else {
+function purple(
+  input: string | TemplateStringsArray,
+  ...interpolations: unknown[]
+) {
+  if (typeof input === 'string') {
     return style(input, PURPLE);
+  } else {
+    return style(interpolate(input, interpolations), PURPLE);
   }
 }
 
@@ -99,11 +108,14 @@ function red(input: string): string;
  */
 function red(input: TemplateStringsArray, ...interpolations: unknown[]): string;
 
-function red(input: any, ...interpolations: unknown[]) {
-  if (Array.isArray(input)) {
-    return style(interpolate(input as any, interpolations), RED);
-  } else {
+function red(
+  input: string | TemplateStringsArray,
+  ...interpolations: unknown[]
+) {
+  if (typeof input === 'string') {
     return style(input, RED);
+  } else {
+    return style(interpolate(input, interpolations), RED);
   }
 }
 
@@ -124,11 +136,14 @@ function reverse(
   ...interpolations: unknown[]
 ): string;
 
-function reverse(input: any, ...interpolations: unknown[]) {
-  if (Array.isArray(input)) {
-    return style(interpolate(input as any, interpolations), REVERSE);
-  } else {
+function reverse(
+  input: string | TemplateStringsArray,
+  ...interpolations: unknown[]
+) {
+  if (typeof input === 'string') {
     return style(input, REVERSE);
+  } else {
+    return style(interpolate(input, interpolations), REVERSE);
   }
 }
 
@@ -149,11 +164,14 @@ function yellow(
   ...interpolations: unknown[]
 ): string;
 
-function yellow(input: any, ...interpolations: unknown[]) {
-  if (Array.isArray(input)) {
-    return style(interpolate(input as any, interpolations), YELLOW);
-  } else {
+function yellow(
+  input: string | TemplateStringsArray,
+  ...interpolations: unknown[]
+) {
+  if (typeof input === 'string') {
     return style(input, YELLOW);
+  } else {
+    return style(interpolate(input, interpolations), YELLOW);
   }
 }
 
@@ -172,8 +190,14 @@ function interpolate(strings: TemplateStringsArray, interpolations: unknown[]) {
 }
 
 const COLORS = {
-  bold(this: unknown, strings: any, ...interpolations: unknown[]): string {
-    const result = bold(strings, ...interpolations);
+  bold(
+    this: unknown,
+    strings: string | TemplateStringsArray,
+    ...interpolations: unknown[]
+  ): string {
+    const result = typeof strings === 'string'
+      ? bold(strings)
+      : bold(strings, ...interpolations);
 
     if (typeof this === 'function') {
       return this.call(null, result);
@@ -182,8 +206,14 @@ const COLORS = {
     }
   },
 
-  green(this: unknown, strings: any, ...interpolations: unknown[]): string {
-    const result = green(strings, ...interpolations);
+  green(
+    this: unknown,
+    strings: string | TemplateStringsArray,
+    ...interpolations: unknown[]
+  ): string {
+    const result = typeof strings === 'string'
+      ? green(strings)
+      : green(strings, ...interpolations);
 
     if (typeof this === 'function') {
       return this.call(null, result);
@@ -192,8 +222,14 @@ const COLORS = {
     }
   },
 
-  purple(this: unknown, strings: any, ...interpolations: unknown[]): string {
-    const result = purple(strings, ...interpolations);
+  purple(
+    this: unknown,
+    strings: string | TemplateStringsArray,
+    ...interpolations: unknown[]
+  ): string {
+    const result = typeof strings === 'string'
+      ? purple(strings)
+      : purple(strings, ...interpolations);
 
     if (typeof this === 'function') {
       return this.call(null, result);
@@ -202,8 +238,14 @@ const COLORS = {
     }
   },
 
-  red(this: unknown, strings: any, ...interpolations: unknown[]): string {
-    const result = red(strings, ...interpolations);
+  red(
+    this: unknown,
+    strings: string | TemplateStringsArray,
+    ...interpolations: unknown[]
+  ): string {
+    const result = typeof strings === 'string'
+      ? red(strings)
+      : red(strings, ...interpolations);
 
     if (typeof this === 'function') {
       return this.call(null, result);
@@ -212,8 +254,14 @@ const COLORS = {
     }
   },
 
-  reverse(this: unknown, strings: any, ...interpolations: unknown[]): string {
-    const result = reverse(strings, ...interpolations);
+  reverse(
+    this: unknown,
+    strings: string | TemplateStringsArray,
+    ...interpolations: unknown[]
+  ): string {
+    const result = typeof strings === 'string'
+      ? reverse(strings)
+      : reverse(strings, ...interpolations);
 
     if (typeof this === 'function') {
       return this.call(null, result);
@@ -222,8 +270,14 @@ const COLORS = {
     }
   },
 
-  yellow(this: unknown, strings: any, ...interpolations: unknown[]): string {
-    const result = yellow(strings, ...interpolations);
+  yellow(
+    this: unknown,
+    strings: string | TemplateStringsArray,
+    ...interpolations: unknown[]
+  ): string {
+    const result = typeof strings === 'string'
+      ? yellow(strings)
+      : yellow(strings, ...interpolations);
 
     if (typeof this === 'function') {
       return this.call(null, result);
