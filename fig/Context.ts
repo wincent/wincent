@@ -94,13 +94,16 @@ class Context {
    */
   informFailed(message: string, metadata?: Metadata): never;
 
-  async informFailed(...args: Array<any>): Promise<never> {
+  async informFailed(
+    errorOrMessage: ErrorWithMetadata | string,
+    metadata?: Metadata,
+  ): Promise<never> {
     let error: ErrorWithMetadata;
 
-    if (typeof args[0] === 'string') {
-      error = new ErrorWithMetadata(args[0], args[1]);
+    if (typeof errorOrMessage === 'string') {
+      error = new ErrorWithMetadata(errorOrMessage, metadata);
     } else {
-      error = args[0];
+      error = errorOrMessage;
     }
 
     this.#counts.failed++;
