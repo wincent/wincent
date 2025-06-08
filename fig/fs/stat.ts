@@ -23,6 +23,10 @@ const TYPE_MAP = {
   'symbolic link': 'link',
 } as const;
 
+function isValidTypeKey(key: string): key is keyof typeof TYPE_MAP {
+  return key in TYPE_MAP;
+}
+
 /**
  * Wrapper for "stat" command.
  *
@@ -118,11 +122,12 @@ export default async function stat(
         }
       }
 
+      const typeKey = type.toLowerCase();
       return {
         group,
         mode: paddedMode,
         target: parsedTarget,
-        type: (TYPE_MAP as any)[type.toLowerCase()] || 'unknown',
+        type: isValidTypeKey(typeKey) ? TYPE_MAP[typeKey] : 'unknown',
         owner,
       };
     }
