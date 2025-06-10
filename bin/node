@@ -8,7 +8,7 @@ source "$REPO_ROOT/bin/common"
 
 if [ -n "$GITHUB_ACTIONS" ]; then
   # In CI we rely on `.github/workflows/ci.yml` to make desired NODE_VERSION
-  # availale on the `$PATH`, so we bypass `n`.
+  # available on the `$PATH`, so we bypass `n`.
   command node "$@"
 else
   n run "$NODE_VERSION" "$@"
