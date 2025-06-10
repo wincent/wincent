@@ -22,7 +22,7 @@ node --experimental-strip-types --no-warnings support/typegen/index.ts
 
 log_info "Checking TypeScript source"
 
-tsc
+bin/tsc
 
 # Hack so that local files can import from 'fig':
 ln -fns ../fig node_modules/fig
