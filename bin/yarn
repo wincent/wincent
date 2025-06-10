@@ -1,6 +1,8 @@
 #!/bin/bash
 
 set -e
+set -x
+export
 
 REPO_ROOT="${BASH_SOURCE%/*}/.."
 
