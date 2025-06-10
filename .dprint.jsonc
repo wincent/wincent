@@ -62,7 +62,7 @@
     "tsconfig-base.json"
   ],
   "includes": [
-    "**/*.{html,js,json,md,ts,yml}"
+    "**/*.{html,js,json,md,mts,ts,yml}"
   ],
   // Update with: `dprint config update`.
   "plugins": [

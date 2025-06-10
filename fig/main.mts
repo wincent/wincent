@@ -409,7 +409,7 @@ function msToHumanReadable(ms: number): string {
 }
 
 async function loadAspect(aspect: Aspect): Promise<void> {
-      await import(`../aspects/${aspect}/index.ts`);
+  await import(`../aspects/${aspect}/index.ts`);
 }
 
 try {

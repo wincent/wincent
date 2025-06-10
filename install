@@ -10,7 +10,7 @@ source bin/common
 
 log_info "Installing TypeScript"
 
-yarn --frozen-lockfile --no-default-rc --no-progress --silent
+bin/yarn install --immutable --silent
 
 log_info "Cleaning"
 

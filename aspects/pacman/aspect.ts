@@ -77,7 +77,6 @@ export default {
       'xorg', // Window system.
       'xorg-xinit', // X initializer.
       'xsecurelock', // Secure screen lock from Google.
-      'yarn', // JavaScript package manager.
       'zsh', // Shell.
     ],
   },

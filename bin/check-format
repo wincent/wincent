@@ -9,6 +9,6 @@ EXIT=0
 
 stylua --allow-hidden --check . || EXIT=1
 
-yarn dprint check || EXIT=1
+bin/yarn dprint check || EXIT=1
 
 exit $EXIT

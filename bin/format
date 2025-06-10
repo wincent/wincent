@@ -9,4 +9,4 @@ cd "$REPO_ROOT"
 
 stylua --allow-hidden .
 
-yarn dprint fmt
+bin/yarn dprint fmt
