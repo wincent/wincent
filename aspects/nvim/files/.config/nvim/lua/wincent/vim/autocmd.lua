@@ -1,35 +1,15 @@
-wincent.g.autocommand_callbacks = {}
-
--- Wrapper for simple autocmd use cases. `cmd` may be a string or a Lua
--- function.
---
--- TODO: replace this with `vim.api.nvim_create_autocmd()`.
-local autocmd = function(name, pattern, cmd, opts)
+-- Wrapper for simple autocmd use cases. `cmd` may be a string containing an EX
+-- command (see `:h Ex-commands`) or a Lua function.
+local function autocmd(name, pattern, cmd, opts)
   opts = opts or {}
-  local cmd_type = type(cmd)
-  if cmd_type == 'function' then
-    local key = wincent.util.get_key_for_fn(cmd, wincent.g.autocommand_callbacks)
-    wincent.g.autocommand_callbacks[key] = cmd
-    cmd = 'lua wincent.g.autocommand_callbacks.' .. key .. '()'
-  elseif cmd_type ~= 'string' then
-    error('autocmd(): unsupported cmd type: ' .. cmd_type)
-  end
-  local group = opts.group or ''
-  local bang = opts.bang and '!' or ''
-  local once = opts.once and '++once' or ''
-  vim.cmd(table.concat(
-    vim.tbl_filter(function(item)
-      return item ~= ''
-    end, {
-      'autocmd' .. bang,
-      group,
-      name,
-      pattern,
-      once,
-      cmd,
-    }),
-    ' '
-  ))
+  local events = vim.split(vim.trim(name), ',')
+  vim.api.nvim_create_autocmd(events, {
+    callback = type(cmd) == 'function' and cmd or nil,
+    command = type(cmd) == 'string' and cmd or nil,
+    group = opts.group,
+    once = not not opts.once,
+    pattern = pattern,
+  })
 end
 
 return autocmd
