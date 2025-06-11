@@ -11,8 +11,8 @@ local signs = {
 }
 
 local on_attach = function()
-  -- Mnemonic: ld = "(toggle) line diagnostics"
-  vim.keymap.set('n', '<Leader>ld', function()
+  -- Mnemonic: k = "kill (toggle) line diagnostics"
+  vim.keymap.set('n', '<Leader>k', function()
     if vim.diagnostic.config().virtual_lines then
       vim.diagnostic.config({ virtual_lines = false })
     else
@@ -20,8 +20,8 @@ local on_attach = function()
     end
   end, { buffer = true, silent = true })
 
-  -- Mnemonic: ld = "(toggle) line diagnostics floating window"
-  vim.keymap.set('n', '<LocalLeader>ld', vim.diagnostic.open_float, { buffer = true, silent = true })
+  -- Mnemonic: l = "toggle line diagnostics floating window"
+  vim.keymap.set('n', '<Leader>l', vim.diagnostic.open_float, { buffer = true, silent = true })
 
   vim.keymap.set('n', '<c-]>', vim.lsp.buf.definition, { buffer = true, silent = true })
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = true, silent = true })
