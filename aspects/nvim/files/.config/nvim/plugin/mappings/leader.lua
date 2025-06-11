@@ -21,7 +21,7 @@ vim.keymap.set('n', '<Leader>pp', ":let @\"=expand('%') <Bar> :Clip<CR> :echo ex
 
 -- <Leader>ppp -- Like <Leader>pp, but yansk the absolute path and sends it off
 -- to Clipper.
-vim.keymap.set('n', '<Leader>ppp', ":let @\"=expand('%:p') <Bar> :Clip<CR> :echo expand('%')<CR>")
+vim.keymap.set('n', '<Leader>ppp', ":let @\"=expand('%:p') <Bar> :Clip<CR> :echo expand('%:p')<CR>")
 
 vim.keymap.set('n', '<Leader>q', ':quit<CR>')
 
