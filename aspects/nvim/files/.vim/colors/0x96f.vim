@@ -1,8 +1,8 @@
 " vi:syntax=vim
 
 " tinted-vim (https://github.com/tinted-theming/tinted-vim)
-" Scheme name: Mountain
-" Scheme author: Stefan Weigl-Bosker (https://github.com/sweiglbosker), based on Mountain Theme (https://github.com/mountain-theme/Mountain)
+" Scheme name: 0x96f
+" Scheme author: Filip Janevski (https://0x96f.dev/theme)
 " Template author: Tinted Theming (https://github.com/tinted-theming)
 
 " This enables the coresponding base16-shell script to run so that
@@ -11,35 +11,35 @@
 "   let g:tinted_shell_path=path/to/shell/scripts
 if !has('gui_running')
   if exists('g:tinted_shell_path')
-    execute 'silent !/bin/sh '.g:tinted_shell_path.'/base24/mountain.sh'
+    execute 'silent !/bin/sh '.g:tinted_shell_path.'/base24/0x96f.sh'
   endif
 endif
 
 " GUI colors
-let s:gui00        = '0f0f0f'
-let s:gui01        = '191919'
-let s:gui02        = '262626'
-let s:gui03        = '393939'
-let s:gui04        = '4c4c4c'
-let s:gui05        = 'cacaca'
-let s:gui06        = 'e7e7e7'
-let s:gui07        = 'f0f0f0'
-let s:gui08        = 'ac8a8c'
-let s:gui09        = 'c6a679'
-let s:gui0A        = 'aca98a'
-let s:gui0B        = '8aac8b'
-let s:gui0C        = '8aabac'
-let s:gui0D        = '8f8aac'
-let s:gui0E        = 'ac8aac'
-let s:gui0F        = 'ac8a8c'
-let s:gui10        = '0d0d0d'
-let s:gui11        = '0a0a0a'
-let s:gui12        = 'c49ea0'
-let s:gui13        = 'c4c19e'
-let s:gui14        = '9ec49f'
-let s:gui15        = '9ec3c4'
-let s:gui16        = 'a39ec4'
-let s:gui17        = 'c49ec4'
+let s:gui00        = '262427'
+let s:gui01        = '3b393c'
+let s:gui02        = '514f52'
+let s:gui03        = '676567'
+let s:gui04        = '7c7b7d'
+let s:gui05        = 'fcfcfc'
+let s:gui06        = 'eae9eb'
+let s:gui07        = 'fcfcfc'
+let s:gui08        = 'ff7272'
+let s:gui09        = 'fc9d6f'
+let s:gui0A        = 'ffca58'
+let s:gui0B        = 'bcdf59'
+let s:gui0C        = 'aee8f4'
+let s:gui0D        = '49cae4'
+let s:gui0E        = 'a093e2'
+let s:gui0F        = 'ff8787'
+let s:gui10        = '1e1d1f'
+let s:gui11        = '0f0e10'
+let s:gui12        = 'ff8787'
+let s:gui13        = 'ffd271'
+let s:gui14        = 'c6e472'
+let s:gui15        = 'baebf6'
+let s:gui16        = '64d2e8'
+let s:gui17        = 'aea3e6'
 
 " Terminal colors
 let s:cterm00  = '00'
@@ -95,22 +95,22 @@ call s:create_color_globals()
 
 " Integrated Terminal colors
 let s:colors = [
-  \ '#0f0f0f',
-  \ '#ac8a8c',
-  \ '#8aac8b',
-  \ '#aca98a',
-  \ '#8f8aac',
-  \ '#ac8aac',
-  \ '#8aabac',
-  \ '#cacaca',
-  \ '#393939',
-  \ '#c49ea0',
-  \ '#9ec49f',
-  \ '#c4c19e',
-  \ '#a39ec4',
-  \ '#c49ec4',
-  \ '#9ec3c4',
-  \ '#f0f0f0'
+  \ '#262427',
+  \ '#ff7272',
+  \ '#bcdf59',
+  \ '#ffca58',
+  \ '#49cae4',
+  \ '#a093e2',
+  \ '#aee8f4',
+  \ '#fcfcfc',
+  \ '#676567',
+  \ '#ff8787',
+  \ '#c6e472',
+  \ '#ffd271',
+  \ '#64d2e8',
+  \ '#aea3e6',
+  \ '#baebf6',
+  \ '#fcfcfc'
 \]
 
 if has('nvim')
@@ -132,7 +132,7 @@ else
 endif
 
 " Theme setup
-let g:colors_name = 'base24-mountain'
+let g:colors_name = 'base24-0x96f'
 
 " Highlighting function
 " Optional variables are attributes and guisp
