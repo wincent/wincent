@@ -1,9 +1,8 @@
 local augroup = wincent.vim.augroup
-local autocmd = wincent.vim.autocmd
 
 wincent.statusline.set()
 
-augroup('WincentStatusline', function()
+augroup('WincentStatusline', function(autocmd)
   autocmd(
     'BufWinEnter,BufWritePost,FileWritePost,TextChanged,TextChangedI,WinEnter',
     '*',

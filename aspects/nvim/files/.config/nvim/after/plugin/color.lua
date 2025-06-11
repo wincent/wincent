@@ -1,5 +1,4 @@
 local augroup = wincent.vim.augroup
-local autocmd = wincent.vim.autocmd
 
 -- Convenience wrapper.
 local warn = function(msg)
@@ -95,7 +94,7 @@ local check = function()
 end
 
 if vim.v.progname ~= 'vi' then
-  augroup('WincentAutocolor', function()
+  augroup('WincentAutocolor', function(autocmd)
     autocmd('FocusGained', '*', check)
 
     -- Ideally we'd only do this outside of tmux (we don't get FocusGained

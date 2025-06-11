@@ -309,9 +309,9 @@ if vim.o.loadplugins then
               matchadd = nil
             end
 
-            local augroup = wincent.g.augroup_callbacks['WincentAutocmds']
-            if augroup ~= nil then
-              wincent.vim.augroup('WincentAutocmds', augroup)
+            local augroup_callback = wincent.g.augroup_callbacks['WincentAutocmds']
+            if augroup_callback ~= nil then
+              wincent.vim.augroup('WincentAutocmds', augroup_callback)
             end
           end
         end,

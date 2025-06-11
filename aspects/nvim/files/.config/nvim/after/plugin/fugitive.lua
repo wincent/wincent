@@ -1,7 +1,6 @@
 local augroup = wincent.vim.augroup
-local autocmd = wincent.vim.autocmd
 
-augroup('WincentFugitive', function()
+augroup('WincentFugitive', function(autocmd)
   -- As per `man git-diff`, diff views for:
   --
   --  stage 0 = index
