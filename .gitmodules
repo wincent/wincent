@@ -229,7 +229,7 @@
 [submodule "tinted-theming/tinted-tmux"]
 	branch = main
 	path = vendor/tinted-theming/tinted-tmux
-	url = https://github.com/tinted-tmux/tinted-tmux.git
+	url = https://github.com/tinted-theming/tinted-tmux.git
 [submodule "tinted-theming/tinted-shell"]
 	branch = main
 	path = vendor/tinted-theming/tinted-shell
