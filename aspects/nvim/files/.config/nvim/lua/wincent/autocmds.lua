@@ -197,6 +197,10 @@ autocmds.insert_leave = function()
   set_cursorline(true)
 end
 
+autocmds.text_yank_post = function()
+  vim.hl.on_yank({ higroup = 'Substitute', timeout = 200 })
+end
+
 autocmds.vim_enter = function()
   set_cursorline(true)
   focus_window()
