@@ -425,15 +425,15 @@ if has_commandt then
       -- `ack -f --print0`. See accompanying `:CommandTAck` definition below.
       ack = {
         command = function(directory)
+          commandt.pushd(directory)
           local command = 'ack -f --print0'
-          if directory ~= '' and directory ~= '.' and directory ~= './' then
-            directory = vim.fn.shellescape(directory)
-            command = command .. ' -- ' .. directory
-          end
           local drop = 0
           return command, drop
         end,
         max_files = 100000,
+        on_close = commandt.popd,
+        on_directory = commandt.on_directory,
+        open = commandt.on_open,
       },
 
       -- Choose from a list of :Shellbot sessions.
