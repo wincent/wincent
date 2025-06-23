@@ -151,7 +151,9 @@ lsp.init = function()
 
             timer = vim.defer_fn(function()
               if window then
-                vim.api.nvim_win_close(window, true)
+                if vim.api.nvim_win_is_valid(window) then
+                  vim.api.nvim_win_close(window, true)
+                end
                 window = nil
                 last_message = nil
               end
