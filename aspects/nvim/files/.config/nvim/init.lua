@@ -425,15 +425,15 @@ if has_commandt then
       -- `ack -f --print0`. See accompanying `:CommandTAck` definition below.
       ack = {
         command = function(directory)
-          commandt.pushd(directory)
+          require('wincent.commandt.pushd')(directory)
           local command = 'ack -f --print0'
           local drop = 0
           return command, drop
         end,
         max_files = 100000,
-        on_close = commandt.popd,
-        on_directory = commandt.on_directory,
-        open = commandt.on_open,
+        on_close = require('wincent.commandt.popd'),
+        on_directory = require('wincent.commandt.get_directory'),
+        open = require('wincent.commandt.sbuffer'),
       },
 
       -- Choose from a list of :Shellbot sessions.
@@ -477,14 +477,14 @@ if has_commandt then
   })
 
   wincent.vim.command('CommandTAck', function(options)
-    require('wincent.commandt').finder('ack', options.args)
+    require('wincent.commandt.finder')('ack', options.args)
   end, {
     complete = 'dir',
     nargs = '?',
   })
 
   wincent.vim.command('CommandTShellbot', function(options)
-    require('wincent.commandt').finder('shellbot', options.args)
+    require('wincent.commandt.finder')('shellbot', options.args)
   end, {
     nargs = 0,
   })
