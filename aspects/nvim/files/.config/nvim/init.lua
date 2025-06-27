@@ -473,6 +473,9 @@ if has_commandt then
       rg = {
         max_files = 1000000,
       },
+      tag = {
+        include_filenames = true,
+      },
     },
   })
 
