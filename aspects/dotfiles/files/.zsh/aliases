@@ -15,6 +15,7 @@ alias cd..='cd ..'
 alias chatgpt='nvim -c ChatGPT -c only'
 alias chatgptx='nvim -c ChatGPTX -c only'
 alias claude='nvim -c Claude -c only'
+alias code="$HOME/.claude/local/claude"
 alias opus='nvim -c Opus -c only'
 alias d='hash -d'
 alias e=exit

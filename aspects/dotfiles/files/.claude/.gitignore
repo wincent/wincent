@@ -1,4 +1,5 @@
 __store.db
-projects
-statsig
-todos
+/local
+/projects
+/statsig
+/todos
