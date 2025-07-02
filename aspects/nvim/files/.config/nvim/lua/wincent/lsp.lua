@@ -199,25 +199,39 @@ lsp.init = function()
     --
     local cmd = 'lua-language-server'
     if vim.fn.executable(cmd) == 1 then
-      -- `nvim_get_runtime_file()` will return plug-in paths like
-      -- "~/.config/nvim/pack/bundle/opt/command-t" but also the top-level
-      -- config path (ie. "~/.config/nvim"), which means that
-      -- lua-language-server will actually read plug-in files twice, and produce
+      -- `nvim_get_runtime_file()` will return:
+      --
+      -- - The top-level config path (ie. "~/.config/nvim")
+      -- - Special folders inside the top-level, like "~/.config/nvim/after"
+      -- - Plug-in paths like "~/.config/nvim/pack/bundle/opt/command-t"
+      -- - System paths like "/opt/homebrew/Cellar/neovim/0.11.2/share/nvim/runtime"
+      --
+      -- If we include paths that are nested inside other paths
+      -- lua-language-server will actually read some files twice, and produce
       -- spurious `duplicate-doc-field` diagnostics.
       --
-      -- So, filter out anything that's under the main config path.
+      -- In any case, passing our own config file or plug-in files into
+      -- "workspace.library" is likely a misuse of the setting; the docs state
+      -- it is for "library implementation code and definition files" (the later
+      -- should generally be tagged with `@meta`, and not include executable Lua
+      -- code).
+      --
+      -- So, filter out the main config path and anything that's under it. This
+      -- is what definitively resolves the `duplicate-doc-field` diagnostics.
       --
       -- See:
       -- - https://github.com/neovim/nvim-lspconfig/issues/3189
       -- - https://github.com/LuaLS/lua-language-server/issues/2061
+      -- - https://luals.github.io/wiki/settings/#workspacelibrary
+      -- - https://luals.github.io/wiki/definition-files/
       --
       local config_directory = vim.fn.stdpath('config')
       local prefix = config_directory .. '/'
       local runtime_directories = vim.api.nvim_get_runtime_file('', true)
       local filtered_library_directories = vim.tbl_filter(function(path)
         if path == config_directory then
-          -- Keep main config path.
-          return true
+          -- Discard main config path.
+          return false
         elseif string.sub(path, 1, #prefix) == prefix then
           -- Candidate is inside the config directory; discard it.
           return false
