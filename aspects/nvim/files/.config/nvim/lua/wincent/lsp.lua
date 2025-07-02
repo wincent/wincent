@@ -207,10 +207,10 @@ lsp.init = function()
       -- - System paths like "/opt/homebrew/Cellar/neovim/0.11.2/share/nvim/runtime"
       --
       -- If we include paths that are nested inside other paths
-      -- lua-language-server will actually read some files twice, and produce
-      -- spurious `duplicate-doc-field` diagnostics.
+      -- lua-language-server will actually read some files more than once, and
+      -- produce spurious `duplicate-doc-field` diagnostics.
       --
-      -- In any case, passing our own config file or plug-in files into
+      -- Additionally, passing our own config file or plug-in files into
       -- "workspace.library" is likely a misuse of the setting; the docs state
       -- it is for "library implementation code and definition files" (the later
       -- should generally be tagged with `@meta`, and not include executable Lua
@@ -225,25 +225,37 @@ lsp.init = function()
       -- - https://luals.github.io/wiki/settings/#workspacelibrary
       -- - https://luals.github.io/wiki/definition-files/
       --
-      local config_directory = vim.fn.stdpath('config')
-      local prefix = config_directory .. '/'
-      local runtime_directories = vim.api.nvim_get_runtime_file('', true)
-      local filtered_library_directories = vim.tbl_filter(function(path)
-        if path == config_directory then
-          -- Discard main config path.
-          return false
-        elseif string.sub(path, 1, #prefix) == prefix then
-          -- Candidate is inside the config directory; discard it.
-          return false
-        else
-          -- Otherwise, keep it (it's a path outside the main config directory).
-          return true
-        end
-      end, runtime_directories)
+      local function get_library_directories()
+        local config_directory = vim.fn.stdpath('config')
+        local prefix = config_directory .. '/'
+        local runtime_directories = vim.api.nvim_get_runtime_file('', true)
+        return vim.tbl_filter(function(path)
+          if path == config_directory then
+            -- Discard main config path.
+            return false
+          elseif string.sub(path, 1, #prefix) == prefix then
+            -- Candidate is inside the config directory; discard it.
+            return false
+          else
+            -- Otherwise, keep it (it's a path outside the main config directory).
+            return true
+          end
+        end, runtime_directories)
+      end
 
       vim.lsp.config('lua_ls', {
         cmd = { cmd },
         on_init = function(client)
+          if client.workspace_folders then
+            -- Found a root marker.
+            local path = client.workspace_folders[1].name
+            if vim.uv.fs_stat(path .. '.luarc.json') or vim.uv.fs_stat(path .. '.luarc.jsonc') then
+              -- We have a ".luarc.json" (or ".luarc.jsonc"); defer to that.
+              return
+            end
+          end
+
+          -- Provide defaults for my common case (working on Neovim Lua).
           client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
             diagnostics = {
               enable = true,
@@ -264,13 +276,17 @@ lsp.init = function()
             },
             workspace = {
               -- Make the server aware of Neovim runtime files.
-              library = filtered_library_directories,
+              library = get_library_directories(),
               -- Stop "Do you need to configure your work environment as
               -- `luassert`?" spam.
               checkThirdParty = false,
             },
           })
         end,
+        root_markers = {
+          { '.luarc.json', '.luarc.jsonc', '.luacheckrc', '.stylua.toml', 'stylua.toml' },
+          '.git',
+        },
         settings = {
           Lua = {},
         },
