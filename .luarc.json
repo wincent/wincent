@@ -1,6 +1,23 @@
 {
   "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
-  "workspace.ignoreDir": [
-    "**/.config/nvim/undo/"
-  ]
+  "diagnostics": {
+    "globals": [
+      "vim"
+    ]
+  },
+  "runtime": {
+    "path": [
+      "lua/?.lua",
+      "lua/?/init.lua"
+    ],
+    "version": "LuaJIT"
+  },
+  "workspace": {
+    "ignoreDir": [
+      "**/.config/nvim/undo/"
+    ],
+    "library": [
+      "$VIMRUNTIME"
+    ]
+  }
 }

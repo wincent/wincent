@@ -199,6 +199,15 @@ lsp.init = function()
     --
     local cmd = 'lua-language-server'
     if vim.fn.executable(cmd) == 1 then
+      local config_directory = vim.fn.stdpath('config')
+
+      --- @param a string A path
+      --- @param b string A possible prefix matching or included in that path
+      --- @return boolean Does path `a` include `b` as a prefix?
+      local function has_prefix(a, b)
+        return string.sub(a .. '/', 1, #(b .. '/')) == (b .. '/')
+      end
+
       -- `nvim_get_runtime_file()` will return:
       --
       -- - The top-level config path (ie. "~/.config/nvim")
@@ -224,23 +233,18 @@ lsp.init = function()
       -- - https://github.com/LuaLS/lua-language-server/issues/2061
       -- - https://luals.github.io/wiki/settings/#workspacelibrary
       -- - https://luals.github.io/wiki/definition-files/
-      --
-      local function get_library_directories()
-        local config_directory = vim.fn.stdpath('config')
-        local prefix = config_directory .. '/'
+      local function get_library_directories(options)
+        local filter = options and options.filter or false
         local runtime_directories = vim.api.nvim_get_runtime_file('', true)
-        return vim.tbl_filter(function(path)
-          if path == config_directory then
-            -- Discard main config path.
-            return false
-          elseif string.sub(path, 1, #prefix) == prefix then
-            -- Candidate is inside the config directory; discard it.
-            return false
-          else
-            -- Otherwise, keep it (it's a path outside the main config directory).
-            return true
-          end
-        end, runtime_directories)
+        if filter then
+          return vim.tbl_filter(function(path)
+            -- Keep directory unless it coincides with the config directory (or
+            -- is inside it).
+            return not has_prefix(path, config_directory)
+          end, runtime_directories)
+        else
+          return runtime_directories
+        end
       end
 
       vim.lsp.config('lua_ls', {
@@ -249,39 +253,53 @@ lsp.init = function()
           if client.workspace_folders then
             -- Found a root marker.
             local path = client.workspace_folders[1].name
-            if vim.uv.fs_stat(path .. '.luarc.json') or vim.uv.fs_stat(path .. '.luarc.jsonc') then
+            if vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc') then
               -- We have a ".luarc.json" (or ".luarc.jsonc"); defer to that.
               return
             end
-          end
 
-          -- Provide defaults for my common case (working on Neovim Lua).
-          client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
-            diagnostics = {
-              enable = true,
-              globals = { 'vim' },
-            },
-            filetypes = { 'lua' },
-            runtime = {
-              path = {
-                -- Load modules the same was as Neovim does (see `:help lua-module-load`).
-                'lua/?.lua',
-                'lua/?/init.lua',
-              },
-              version = 'LuaJIT',
-            },
-            telemetry = {
-              -- Do not send telemetry data.
-              enable = false,
-            },
-            workspace = {
-              -- Make the server aware of Neovim runtime files.
-              library = get_library_directories(),
-              -- Stop "Do you need to configure your work environment as
-              -- `luassert`?" spam.
-              checkThirdParty = false,
-            },
-          })
+            -- Is the workspace somewhere under "~/.nvim/config" or any runtime
+            -- directory?
+            local real_workspace_path = vim.uv.fs_realpath(path)
+            local library_directories = get_library_directories()
+            for _, library_directory in ipairs(library_directories) do
+              local real_library_directory_path = vim.uv.fs_realpath(library_directory)
+              if
+                real_workspace_path
+                and real_library_directory_path
+                and has_prefix(real_workspace_path, real_library_directory_path)
+              then
+                -- Provide defaults for my common case (working on Neovim Lua).
+                client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+                  diagnostics = {
+                    enable = true,
+                    globals = { 'vim' },
+                  },
+                  filetypes = { 'lua' },
+                  runtime = {
+                    path = {
+                      -- Load modules the same was as Neovim does (see `:help lua-module-load`).
+                      'lua/?.lua',
+                      'lua/?/init.lua',
+                    },
+                    version = 'LuaJIT',
+                  },
+                  telemetry = {
+                    -- Do not send telemetry data.
+                    enable = false,
+                  },
+                  workspace = {
+                    -- Make the server aware of Neovim runtime files.
+                    library = get_library_directories({ filter = true }),
+                    -- Stop "Do you need to configure your work environment as
+                    -- `luassert`?" spam.
+                    checkThirdParty = false,
+                  },
+                })
+                return
+              end
+            end
+          end
         end,
         root_markers = {
           { '.luarc.json', '.luarc.jsonc', '.luacheckrc', '.stylua.toml', 'stylua.toml' },
