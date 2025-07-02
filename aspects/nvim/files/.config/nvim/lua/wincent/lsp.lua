@@ -243,15 +243,19 @@ lsp.init = function()
 
       vim.lsp.config('lua_ls', {
         cmd = { cmd },
-        settings = {
-          Lua = {
+        on_init = function(client)
+          client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
             diagnostics = {
               enable = true,
               globals = { 'vim' },
             },
             filetypes = { 'lua' },
             runtime = {
-              path = vim.split(package.path, ';'),
+              path = {
+                -- Load modules the same was as Neovim does (see `:help lua-module-load`).
+                'lua/?.lua',
+                'lua/?/init.lua',
+              },
               version = 'LuaJIT',
             },
             telemetry = {
@@ -265,7 +269,10 @@ lsp.init = function()
               -- `luassert`?" spam.
               checkThirdParty = false,
             },
-          },
+          })
+        end,
+        settings = {
+          Lua = {},
         },
       })
       vim.lsp.enable('lua_ls')
