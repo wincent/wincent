@@ -10,25 +10,27 @@ local signs = {
   UNKNOWN = '•',
 }
 
-local on_attach = function()
-  -- Mnemonic: k = "kill (toggle) line diagnostics"
-  vim.keymap.set('n', '<Leader>k', function()
-    if vim.diagnostic.config().virtual_lines then
-      vim.diagnostic.config({ virtual_lines = false })
-    else
-      vim.diagnostic.config({ virtual_lines = true })
-    end
-  end, { buffer = true, silent = true })
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function()
+    -- Mnemonic: k = "kill (toggle) line diagnostics"
+    vim.keymap.set('n', '<Leader>k', function()
+      if vim.diagnostic.config().virtual_lines then
+        vim.diagnostic.config({ virtual_lines = false })
+      else
+        vim.diagnostic.config({ virtual_lines = true })
+      end
+    end, { buffer = true, silent = true })
 
-  -- Mnemonic: l = "toggle line diagnostics floating window"
-  vim.keymap.set('n', '<Leader>l', vim.diagnostic.open_float, { buffer = true, silent = true })
+    -- Mnemonic: l = "toggle line diagnostics floating window"
+    vim.keymap.set('n', '<Leader>l', vim.diagnostic.open_float, { buffer = true, silent = true })
 
-  vim.keymap.set('n', '<c-]>', vim.lsp.buf.definition, { buffer = true, silent = true })
-  vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = true, silent = true })
-  vim.keymap.set('n', 'gd', vim.lsp.buf.declaration, { buffer = true, silent = true })
+    vim.keymap.set('n', '<c-]>', vim.lsp.buf.definition, { buffer = true, silent = true })
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = true, silent = true })
+    vim.keymap.set('n', 'gd', vim.lsp.buf.declaration, { buffer = true, silent = true })
 
-  vim.wo.signcolumn = 'yes'
-end
+    vim.wo.signcolumn = 'yes'
+  end,
+})
 
 local window = nil
 local buffer = nil
@@ -123,7 +125,6 @@ lsp.init = function()
   if has_lspconfig then
     -- Set up defaults, but beware that individual LSP configs may override
     -- these settings: https://github.com/neovim/nvim-lspconfig/issues/3827
-    -- (ie. we should probably call `on_attach` from `LspAttach` instead)
     vim.lsp.config('*', {
       capabilities = capabilities,
       handlers = {
@@ -175,7 +176,6 @@ lsp.init = function()
           end
         end,
       },
-      on_attach = on_attach,
     })
 
     vim.lsp.config('clangd', {
