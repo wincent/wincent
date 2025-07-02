@@ -121,6 +121,9 @@ lsp.init = function()
 
   local has_lspconfig = pcall(require, 'lspconfig')
   if has_lspconfig then
+    -- Set up defaults, but beware that individual LSP configs may override
+    -- these settings: https://github.com/neovim/nvim-lspconfig/issues/3827
+    -- (ie. we should probably call `on_attach` from `LspAttach` instead)
     vim.lsp.config('*', {
       capabilities = capabilities,
       handlers = {
