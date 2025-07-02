@@ -196,6 +196,34 @@ lsp.init = function()
     --
     local cmd = 'lua-language-server'
     if vim.fn.executable(cmd) == 1 then
+      -- `nvim_get_runtime_file()` will return plug-in paths like
+      -- "~/.config/nvim/pack/bundle/opt/command-t" but also the top-level
+      -- config path (ie. "~/.config/nvim"), which means that
+      -- lua-language-server will actually read plug-in files twice, and produce
+      -- spurious `duplicate-doc-field` diagnostics.
+      --
+      -- So, filter out anything that's under the main config path.
+      --
+      -- See:
+      -- - https://github.com/neovim/nvim-lspconfig/issues/3189
+      -- - https://github.com/LuaLS/lua-language-server/issues/2061
+      --
+      local config_directory = vim.fn.stdpath('config')
+      local prefix = config_directory .. '/'
+      local runtime_directories = vim.api.nvim_get_runtime_file('', true)
+      local filtered_library_directories = vim.tbl_filter(function(path)
+        if path == config_directory then
+          -- Keep main config path.
+          return true
+        elseif string.sub(path, 1, #prefix) == prefix then
+          -- Candidate is inside the config directory; discard it.
+          return false
+        else
+          -- Otherwise, keep it (it's a path outside the main config directory).
+          return true
+        end
+      end, runtime_directories)
+
       vim.lsp.config('lua_ls', {
         cmd = { cmd },
         settings = {
@@ -215,7 +243,7 @@ lsp.init = function()
             },
             workspace = {
               -- Make the server aware of Neovim runtime files.
-              library = vim.api.nvim_get_runtime_file('', true),
+              library = filtered_library_directories,
               -- Stop "Do you need to configure your work environment as
               -- `luassert`?" spam.
               checkThirdParty = false,
