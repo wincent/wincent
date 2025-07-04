@@ -55,7 +55,7 @@ if has_oil then
           local line = vim.fn.line('.')
           vim.hl.range(0, ns, 'Substitute', { line - 1, 1 }, { line - 1, -1 }, { timeout = 200 })
 
-          local has_clipper = wincent.plugin.is_loaded('vim-clipper')
+          local has_clipper = pcall(require, 'wincent.clipper')
           if has_clipper then
             vim.cmd('Clip')
           end
