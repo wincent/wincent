@@ -1,4 +1,4 @@
-local augroup = wincent.nvim.augroup
+local augroup = require('wincent.nvim.augroup')
 
 wincent.statusline.set()
 

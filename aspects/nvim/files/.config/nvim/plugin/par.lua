@@ -1,3 +1,5 @@
+local augroup = require('wincent.nvim.augroup')
+
 if vim.o.formatprg == '' and vim.fn.executable('par') then
   -- Good luck understanding these options, even after reading the man page:
   --
@@ -26,7 +28,7 @@ if vim.o.formatprg == '' and vim.fn.executable('par') then
   vim.opt.formatprg = vim.env.HOME .. '/.zsh/bin/safe-par rTbqR B=.,\\?_A_a_0 Q=_s\\>\\|'
 end
 
-wincent.nvim.augroup('WincentParAutocmds', function(autocmd)
+augroup('WincentParAutocmds', function(autocmd)
   autocmd('FileType', '*', function()
     local formatprg = vim.o.formatprg -- gets local or global (fallback) 'formatprg'
 

@@ -1,9 +1,13 @@
-local autocmd = wincent.nvim.autocmd
+local autocmd = require('wincent.nvim.autocmd')
 
+--- @type table<string, AutocmdCallback>
 wincent.g.augroup_callbacks = {}
 
--- Encapsulates the common pattern of creating (or redeclaring) an augroup,
--- clearing it, and populating it with autocommands.
+--- Encapsulates the common pattern of creating (or redeclaring) an augroup,
+--- clearing it, and populating it with autocommands.
+---
+--- @param group_name string Group name.
+--- @param callback fun(cb: AutocmdCallback)
 local augroup = function(group_name, callback)
   vim.api.nvim_create_augroup(group_name, { clear = true })
 
