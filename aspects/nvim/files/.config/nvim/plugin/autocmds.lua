@@ -1,6 +1,6 @@
-local augroup = require('wincent.nvim.augroup')
+local augroup = wincent.nvim.augroup
 
-augroup('WincentAutocmds', function(autocmd)
+augroup('wincent.autocmds', function(autocmd)
   autocmd('BufEnter', '*', wincent.autocmds.buf_enter)
   autocmd('BufLeave', '?*', wincent.autocmds.buf_leave)
   autocmd('BufWinEnter', '?*', wincent.autocmds.buf_win_enter)

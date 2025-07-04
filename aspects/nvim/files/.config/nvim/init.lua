@@ -281,10 +281,10 @@ if vim.o.loadplugins then
       local matchadd = nil
 
       vim.cmd([[
-        augroup WincentAutocmds
+        augroup wincent.autocmds
           autocmd!
         augroup END
-        augroup! WincentAutocmds
+        augroup! wincent.autocmds
       ]])
 
       require('zen-mode').setup({
@@ -309,9 +309,9 @@ if vim.o.loadplugins then
               matchadd = nil
             end
 
-            local augroup_callback = wincent.g.augroup_callbacks['WincentAutocmds']
+            local augroup_callback = wincent.g.augroup_callbacks['wincent.autocmds']
             if augroup_callback ~= nil then
-              wincent.nvim.augroup('WincentAutocmds', augroup_callback)
+              wincent.nvim.augroup('wincent.autocmds', augroup_callback)
             end
           end
         end,

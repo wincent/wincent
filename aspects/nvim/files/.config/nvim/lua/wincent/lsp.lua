@@ -1,3 +1,5 @@
+local augroup = require('wincent.nvim.augroup')
+
 local lsp = {}
 
 local open_floating_preview = vim.lsp.util.open_floating_preview
@@ -318,47 +320,49 @@ lsp.init = function()
     vim.lsp.enable('ts_ls')
     vim.lsp.enable('vimls')
   end
-end
 
-lsp.set_up_highlights = function()
-  local has_pinnacle, pinnacle = pcall(require, 'wincent.pinnacle')
-  if has_pinnacle then
-    -- Sign column colors.
-    pinnacle.set('DiagnosticSignError', {
-      bg = pinnacle.bg('ColorColumn'),
-      fg = pinnacle.embolden('DiagnosticError').fg,
-    })
-    pinnacle.set('DiagnosticSignHint', {
-      bg = pinnacle.bg('ColorColumn'),
-      fg = pinnacle.embolden('DiagnosticHint').fg,
-    })
-    pinnacle.set('DiagnosticSignInfo', {
-      bg = pinnacle.bg('ColorColumn'),
-      fg = pinnacle.embolden('DiagnosticInfo').fg,
-    })
-    pinnacle.set('DiagnosticSignWarn', {
-      bg = pinnacle.bg('ColorColumn'),
-      fg = pinnacle.embolden('DiagnosticWarn').fg,
-    })
+  augroup('wincent.lsp', function(autocmd)
+    autocmd('ColorScheme', '*', function()
+      local has_pinnacle, pinnacle = pcall(require, 'wincent.pinnacle')
+      if has_pinnacle then
+        -- Sign column colors.
+        pinnacle.set('DiagnosticSignError', {
+          bg = pinnacle.bg('ColorColumn'),
+          fg = pinnacle.embolden('DiagnosticError').fg,
+        })
+        pinnacle.set('DiagnosticSignHint', {
+          bg = pinnacle.bg('ColorColumn'),
+          fg = pinnacle.embolden('DiagnosticHint').fg,
+        })
+        pinnacle.set('DiagnosticSignInfo', {
+          bg = pinnacle.bg('ColorColumn'),
+          fg = pinnacle.embolden('DiagnosticInfo').fg,
+        })
+        pinnacle.set('DiagnosticSignWarn', {
+          bg = pinnacle.bg('ColorColumn'),
+          fg = pinnacle.embolden('DiagnosticWarn').fg,
+        })
 
-    -- Virtual lines colors
-    pinnacle.set('DiagnosticVirtualLinesError', pinnacle.italicize('DiagnosticError'))
-    pinnacle.set('DiagnosticVirtualLinesHint', pinnacle.italicize('DiagnosticHint'))
-    pinnacle.set('DiagnosticVirtualLinesInfo', pinnacle.italicize('DiagnosticInfo'))
-    pinnacle.set('DiagnosticVirtualLinesWarn', pinnacle.italicize('DiagnosticWarn'))
+        -- Virtual lines colors
+        pinnacle.set('DiagnosticVirtualLinesError', pinnacle.italicize('DiagnosticError'))
+        pinnacle.set('DiagnosticVirtualLinesHint', pinnacle.italicize('DiagnosticHint'))
+        pinnacle.set('DiagnosticVirtualLinesInfo', pinnacle.italicize('DiagnosticInfo'))
+        pinnacle.set('DiagnosticVirtualLinesWarn', pinnacle.italicize('DiagnosticWarn'))
 
-    -- Virtual text colors.
-    pinnacle.set('DiagnosticVirtualTextError', pinnacle.decorate('italic,underline', 'DiagnosticError'))
-    pinnacle.set('DiagnosticVirtualTextHint', pinnacle.decorate('italic,underline', 'DiagnosticHint'))
-    pinnacle.set('DiagnosticVirtualTextInfo', pinnacle.decorate('italic,underline', 'DiagnosticInfo'))
-    pinnacle.set('DiagnosticVirtualTextWarn', pinnacle.decorate('italic,underline', 'DiagnosticWarn'))
+        -- Virtual text colors.
+        pinnacle.set('DiagnosticVirtualTextError', pinnacle.decorate('italic,underline', 'DiagnosticError'))
+        pinnacle.set('DiagnosticVirtualTextHint', pinnacle.decorate('italic,underline', 'DiagnosticHint'))
+        pinnacle.set('DiagnosticVirtualTextInfo', pinnacle.decorate('italic,underline', 'DiagnosticInfo'))
+        pinnacle.set('DiagnosticVirtualTextWarn', pinnacle.decorate('italic,underline', 'DiagnosticWarn'))
 
-    -- Diagnostic float colors.
-    pinnacle.set('DiagnosticFloatingError', pinnacle.decorate('italic,bold', 'DiagnosticError'))
-    pinnacle.set('DiagnosticFloatingHint', pinnacle.italicize('DiagnosticHint'))
-    pinnacle.set('DiagnosticFloatingInfo', pinnacle.italicize('DiagnosticInfo'))
-    pinnacle.set('DiagnosticFloatingWarn', pinnacle.italicize('DiagnosticWarn'))
-  end
+        -- Diagnostic float colors.
+        pinnacle.set('DiagnosticFloatingError', pinnacle.decorate('italic,bold', 'DiagnosticError'))
+        pinnacle.set('DiagnosticFloatingHint', pinnacle.italicize('DiagnosticHint'))
+        pinnacle.set('DiagnosticFloatingInfo', pinnacle.italicize('DiagnosticInfo'))
+        pinnacle.set('DiagnosticFloatingWarn', pinnacle.italicize('DiagnosticWarn'))
+      end
+    end)
+  end)
 end
 
 return lsp

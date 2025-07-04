@@ -2,7 +2,7 @@ local augroup = require('wincent.nvim.augroup')
 
 wincent.statusline.set()
 
-augroup('WincentStatusline', function(autocmd)
+augroup('wincent.statusline', function(autocmd)
   autocmd(
     'BufWinEnter,BufWritePost,FileWritePost,TextChanged,TextChangedI,WinEnter',
     '*',

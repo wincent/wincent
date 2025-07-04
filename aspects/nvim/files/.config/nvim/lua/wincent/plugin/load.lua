@@ -1,5 +1,5 @@
 --- @param plugin string The name of the plugin to be loaded
---- @return void
+--- @return nil
 local function load(plugin)
   if vim.v.vim_did_enter == 1 then
     -- Modifies 'runtimepath' _and_ sources files.

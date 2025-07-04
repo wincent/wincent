@@ -1,6 +1,6 @@
 local augroup = require('wincent.nvim.augroup')
 
-augroup('WincentFugitive', function(autocmd)
+augroup('wincent.fugitive', function(autocmd)
   -- As per `man git-diff`, diff views for:
   --
   --  stage 0 = index

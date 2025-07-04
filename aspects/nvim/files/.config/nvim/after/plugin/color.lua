@@ -94,7 +94,7 @@ local function check()
 end
 
 if vim.v.progname ~= 'vi' then
-  augroup('WincentAutocolor', function(autocmd)
+  augroup('wincent.color', function(autocmd)
     autocmd('FocusGained', '*', check)
 
     -- Ideally we'd only do this outside of tmux (we don't get FocusGained

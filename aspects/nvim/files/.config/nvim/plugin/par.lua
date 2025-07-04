@@ -28,7 +28,7 @@ if vim.o.formatprg == '' and vim.fn.executable('par') then
   vim.opt.formatprg = vim.env.HOME .. '/.zsh/bin/safe-par rTbqR B=.,\\?_A_a_0 Q=_s\\>\\|'
 end
 
-augroup('WincentParAutocmds', function(autocmd)
+augroup('wincent.par', function(autocmd)
   autocmd('FileType', '*', function()
     local formatprg = vim.o.formatprg -- gets local or global (fallback) 'formatprg'
 
