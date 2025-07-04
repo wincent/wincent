@@ -1,4 +1,4 @@
-local augroup = wincent.vim.augroup
+local augroup = wincent.nvim.augroup
 
 -- Convenience wrapper.
 local warn = function(msg)

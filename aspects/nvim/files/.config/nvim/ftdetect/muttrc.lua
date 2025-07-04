@@ -1,1 +1,1 @@
-wincent.vim.autocmd('BufNewFile,BufRead', '*.mutt', 'set filetype=muttrc')
+wincent.nvim.autocmd('BufNewFile,BufRead', '*.mutt', 'set filetype=muttrc')

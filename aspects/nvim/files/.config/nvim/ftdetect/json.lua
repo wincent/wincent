@@ -1,1 +1,1 @@
-wincent.vim.autocmd('BufNewFile,BufRead', '.eslintrc', 'set filetype=json')
+wincent.nvim.autocmd('BufNewFile,BufRead', '.eslintrc', 'set filetype=json')

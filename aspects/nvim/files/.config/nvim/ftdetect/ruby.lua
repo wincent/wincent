@@ -4,4 +4,4 @@ local patterns = table.concat({
   'pryrc',
 }, ',')
 
-wincent.vim.autocmd('BufNewFile,BufRead', patterns, 'set filetype=ruby')
+wincent.nvim.autocmd('BufNewFile,BufRead', patterns, 'set filetype=ruby')

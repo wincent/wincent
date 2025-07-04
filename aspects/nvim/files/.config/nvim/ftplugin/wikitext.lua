@@ -1,1 +1,1 @@
-wincent.vim.plaintext()
+wincent.nvim.plaintext()

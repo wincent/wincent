@@ -1,4 +1,4 @@
-if wincent.vim.is_large_buffer() then
+if wincent.nvim.is_large_buffer() then
   -- nvim-treesitter set-up in ~/.config/nvim/init.lua suppresses most
   -- treesitter functionality for large files (you can confirm this with
   -- :TSModuleInfo), but we still need this, to compensate the

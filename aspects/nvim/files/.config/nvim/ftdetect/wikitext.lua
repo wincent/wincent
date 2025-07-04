@@ -1,1 +1,1 @@
-wincent.vim.autocmd('BufNewFile,BufRead', '*.wikitext', 'set filetype=wikitext')
+wincent.nvim.autocmd('BufNewFile,BufRead', '*.wikitext', 'set filetype=wikitext')

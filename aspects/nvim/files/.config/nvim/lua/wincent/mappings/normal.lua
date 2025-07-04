@@ -60,7 +60,7 @@ local resize = function(action, axis)
       keys = '<C-W>5-'
     end
   end
-  wincent.vim.feedkeys(keys)
+  wincent.nvim.feedkeys(keys)
 end
 
 local should_resize = function(axis)

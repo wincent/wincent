@@ -115,7 +115,7 @@ if has_cmp then
         end
       end
     end
-    wincent.vim.feedkeys(keys)
+    wincent.nvim.feedkeys(keys)
   end
 
   -- In buffers where 'noexpandtab' is set (ie. hard tabs are in use), <Tab>:
@@ -150,7 +150,7 @@ if has_cmp then
       end
     end
 
-    wincent.vim.feedkeys(keys)
+    wincent.nvim.feedkeys(keys)
   end
 
   local select_next_item = function(fallback)

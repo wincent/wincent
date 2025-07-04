@@ -1,4 +1,4 @@
-local autocmd = wincent.vim.autocmd
+local autocmd = wincent.nvim.autocmd
 
 wincent.g.augroup_callbacks = {}
 

@@ -8,4 +8,4 @@ local set_tsx = function()
   end
 end
 
-wincent.vim.autocmd('BufNewFile,BufRead', '*.tsx', set_tsx)
+wincent.nvim.autocmd('BufNewFile,BufRead', '*.tsx', set_tsx)

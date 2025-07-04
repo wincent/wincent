@@ -311,7 +311,7 @@ if vim.o.loadplugins then
 
             local augroup_callback = wincent.g.augroup_callbacks['WincentAutocmds']
             if augroup_callback ~= nil then
-              wincent.vim.augroup('WincentAutocmds', augroup_callback)
+              wincent.nvim.augroup('WincentAutocmds', augroup_callback)
             end
           end
         end,
@@ -321,7 +321,7 @@ if vim.o.loadplugins then
           matchadd = vim.fn.matchadd('Error', nbsp)
           vim.api.nvim_buf_set_var(0, 'quitting', 0)
           vim.api.nvim_buf_set_var(0, 'quitting_bang', 0)
-          wincent.vim.autocmd('QuitPre', '<buffer>', 'let b:quitting = 1')
+          wincent.nvim.autocmd('QuitPre', '<buffer>', 'let b:quitting = 1')
           vim.cmd('cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!')
         end,
 
@@ -553,7 +553,7 @@ if has_treesitter then
     highlight = {
       enable = true,
       disable = function(_lang, buffer)
-        if wincent.vim.is_large_buffer(buffer) then
+        if wincent.nvim.is_large_buffer(buffer) then
           -- Equivalent to :TSBufDisable highlight.
           return true
         end
@@ -567,7 +567,7 @@ if has_treesitter then
       -- See: `:h nvim-treesitter-incremental-selection-mod`
       enable = true,
       disable = function(_lang, buffer)
-        if wincent.vim.is_large_buffer(buffer) then
+        if wincent.nvim.is_large_buffer(buffer) then
           -- Equivalent to :TSBufDisable incremental_selection.
           return true
         end
@@ -576,7 +576,7 @@ if has_treesitter then
     indent = {
       enable = true,
       disable = function(_lang, buffer)
-        if wincent.vim.is_large_buffer(buffer) then
+        if wincent.nvim.is_large_buffer(buffer) then
           -- Equivalent to :TSBufDisable indent.
           return true
         end
@@ -589,7 +589,7 @@ if has_treesitter then
       select = {
         enable = true,
         disable = function(_lang, buffer)
-          if wincent.vim.is_large_buffer(buffer) then
+          if wincent.nvim.is_large_buffer(buffer) then
             return true
           end
         end,

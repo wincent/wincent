@@ -1,4 +1,4 @@
-local autocmd = wincent.vim.autocmd
+local autocmd = wincent.nvim.autocmd
 
 local scan_file = function()
   local n = 1

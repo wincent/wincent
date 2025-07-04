@@ -1,1 +1,1 @@
-wincent.vim.autocmd('BufNewFile,BufRead', '*.applescript', 'set filetype=applescript')
+wincent.nvim.autocmd('BufNewFile,BufRead', '*.applescript', 'set filetype=applescript')

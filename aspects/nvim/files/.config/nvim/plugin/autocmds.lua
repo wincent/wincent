@@ -1,4 +1,4 @@
-local augroup = wincent.vim.augroup
+local augroup = wincent.nvim.augroup
 
 augroup('WincentAutocmds', function(autocmd)
   autocmd('BufEnter', '*', wincent.autocmds.buf_enter)

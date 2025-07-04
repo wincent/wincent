@@ -1,6 +1,6 @@
 vim.opt_local.foldenable = false
 
-wincent.vim.spell()
+wincent.nvim.spell()
 
 local has_cmp, cmp = pcall(require, 'cmp')
 if has_cmp then

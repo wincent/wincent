@@ -1,4 +1,4 @@
-local augroup = wincent.vim.augroup
+local augroup = wincent.nvim.augroup
 
 wincent.statusline.set()
 
