@@ -205,62 +205,67 @@ vim.api.nvim_set_keymap('n', '<Leader>s', '<Plug>(FerretAcks)', {})
 -------------------------------------------------------------------------------
 
 if vim.o.loadplugins then
-  wincent.plugin.load('LuaSnip')
-  wincent.plugin.load('applescript.vim')
+  local load = require('wincent.plugin.load')
+  local lazy = require('wincent.plugin.lazy')
 
-  -- All of these depend on nvim-cmp.
-  wincent.plugin.load('cmp-buffer')
-  wincent.plugin.load('cmp-calc')
-  wincent.plugin.load('cmp-emoji')
-  wincent.plugin.load('cmp-nvim-lsp')
-  wincent.plugin.load('cmp-nvim-lua')
-  wincent.plugin.load('cmp-path')
-  wincent.plugin.load('cmp_luasnip')
+  load(
+    'LuaSnip',
+    'applescript.vim',
 
-  wincent.plugin.load('command-t')
-  wincent.plugin.load('corpus')
-  wincent.plugin.load('ferret')
-  wincent.plugin.load('indent-blankline.nvim')
-  wincent.plugin.load('loupe')
-  wincent.plugin.load('mini.ai')
-  wincent.plugin.load('mini.extra')
-  wincent.plugin.load('mini.icons')
-  wincent.plugin.load('mini.surround')
-  wincent.plugin.load('neco-ghc')
-  wincent.plugin.load('nvim-clipper')
-  wincent.plugin.load('nvim-cmp')
-  wincent.plugin.load('nvim-lspconfig')
-  wincent.plugin.load('nvim-treesitter')
-  -- wincent.plugin.load('nvim-treesitter-textobjects')
-  wincent.plugin.load('oil.nvim')
-  wincent.plugin.load('pinnacle')
-  wincent.plugin.load('replay')
-  wincent.plugin.load('rust.vim')
-  wincent.plugin.load('scalpel')
-  wincent.plugin.load('shellbot')
-  wincent.plugin.load('terminus')
-  wincent.plugin.load('vcs-jump')
-  wincent.plugin.load('vim-ansible-yaml')
-  wincent.plugin.load('vim-dispatch')
-  wincent.plugin.load('vim-docvim')
-  wincent.plugin.load('vim-easydir')
-  wincent.plugin.load('vim-eunuch')
-  wincent.plugin.load('vim-fugitive')
-  wincent.plugin.load('vim-git')
-  wincent.plugin.load('vim-kitty')
-  wincent.plugin.load('vim-ledger')
-  wincent.plugin.load('vim-lion')
-  wincent.plugin.load('vim-projectionist')
-  wincent.plugin.load('vim-reason-plus')
-  wincent.plugin.load('vim-repeat')
-  wincent.plugin.load('vim-rhubarb')
-  wincent.plugin.load('vim-signature')
-  wincent.plugin.load('vim-slime')
-  wincent.plugin.load('vim-speeddating')
-  wincent.plugin.load('vim-zsh')
+    -- All of these depend on nvim-cmp.
+    'cmp-buffer',
+    'cmp-calc',
+    'cmp-emoji',
+    'cmp-nvim-lsp',
+    'cmp-nvim-lua',
+    'cmp-path',
+    'cmp_luasnip',
+
+    'command-t',
+    'corpus',
+    'ferret',
+    'indent-blankline.nvim',
+    'loupe',
+    'mini.ai',
+    'mini.extra',
+    'mini.icons',
+    'mini.surround',
+    'neco-ghc',
+    'nvim-clipper',
+    'nvim-cmp',
+    'nvim-lspconfig',
+    'nvim-treesitter',
+    -- 'nvim-treesitter-textobjects',
+    'oil.nvim',
+    'pinnacle',
+    'replay',
+    'rust.vim',
+    'scalpel',
+    'shellbot',
+    'terminus',
+    'vcs-jump',
+    'vim-ansible-yaml',
+    'vim-dispatch',
+    'vim-docvim',
+    'vim-easydir',
+    'vim-eunuch',
+    'vim-fugitive',
+    'vim-git',
+    'vim-kitty',
+    'vim-ledger',
+    'vim-lion',
+    'vim-projectionist',
+    'vim-reason-plus',
+    'vim-repeat',
+    'vim-rhubarb',
+    'vim-signature',
+    'vim-slime',
+    'vim-speeddating',
+    'vim-zsh'
+  )
 
   -- Lazy because vim-abolish doesn't use autoloading internally.
-  wincent.plugin.lazy('vim-abolish', {
+  lazy('vim-abolish', {
     afterload = function()
       vim.cmd('Abolish aboud about')
       vim.cmd('Abolish ahve have')
@@ -276,7 +281,7 @@ if vim.o.loadplugins then
   })
 
   -- Lazy because I rarely use it.
-  wincent.plugin.lazy('zen-mode.nvim', {
+  lazy('zen-mode.nvim', {
     afterload = function()
       local matchadd = nil
 
@@ -353,7 +358,7 @@ if vim.o.loadplugins then
   })
 
   -- Lazy because it adds a slow BufEnter autocmd.
-  wincent.plugin.lazy('nvim-tree.lua', {
+  lazy('nvim-tree.lua', {
     afterload = function()
       require('nvim-tree').setup({
         git = {
@@ -373,7 +378,7 @@ if vim.o.loadplugins then
   })
 
   -- Lazy because you don't need it until you need it.
-  wincent.plugin.lazy('undotree', {
+  lazy('undotree', {
     beforeload = function()
       vim.g.undotree_HighlightChangedText = 0
       vim.g.undotree_SetFocusWhenToggle = 1

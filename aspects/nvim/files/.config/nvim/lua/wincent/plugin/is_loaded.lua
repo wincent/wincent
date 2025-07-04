@@ -1,6 +1,6 @@
 --- Checks to see whether `plugin` is in the `'runtimepath'` ie. whether the
---- call to `wincent.plugin.load()` (and therefore `:packadd`) is present and
---- uncommented in the `init.lua` startup file.
+--- call to `require('wincent.plugin.load')()` (and therefore `:packadd`) is
+--- present and uncommented in the `init.lua` startup file.
 ---
 --- For Lua plugins, we would generally do the idiomatic thing with `pcall()`
 --- instead:

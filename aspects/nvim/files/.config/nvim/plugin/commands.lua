@@ -6,8 +6,9 @@ vim.api.nvim_create_user_command('Lint', 'call wincent#commands#lint()', {})
 
 vim.api.nvim_create_user_command('OpenOnGitHub', function(options)
   vim.notify(':OpenOnGitHub is deprecated. Use :GBrowse instead.', vim.log.levels.WARN)
-  local has_fugitive = wincent.plugin.is_loaded('vim-fugitive')
-  local has_rhubarb = wincent.plugin.is_loaded('vim-rhubarb')
+  local is_loaded = require('wincent.plugin.is_loaded')
+  local has_fugitive = is_loaded('vim-fugitive')
+  local has_rhubarb = is_loaded('vim-rhubarb')
   if not has_fugitive then
     vim.notify('vim-fugitive is not active.', vim.log.levels.ERROR)
   end
