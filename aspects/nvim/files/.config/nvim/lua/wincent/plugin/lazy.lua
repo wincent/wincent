@@ -2,7 +2,7 @@ wincent.g.lazy = {}
 
 local lazy_index = 0
 
-local lazy = function(pack, config)
+local function lazy(pack, config)
   config = vim.deepcopy(config or {})
 
   -- As a convenience, accept: {'CommandA', 'CommandB'}

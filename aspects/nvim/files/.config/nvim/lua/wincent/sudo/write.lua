@@ -2,25 +2,21 @@ local cache_time = 5 * 60 * 1000 -- 5 minutes
 local password = nil
 local timer = nil
 
-local expect = function(expected, fn, description)
+local function expect(expected, fn, description)
   local result = fn()
   if result ~= expected then
-    error(
-      'error: wincent.sudo.write got result ' .. result .. ' for ' .. description .. '(expected ' .. expected .. ')'
-    )
+    error('error: got result ' .. result .. ' for ' .. description .. '(expected ' .. expected .. ')')
   end
 end
 
-local reject = function(rejected, fn, description)
+local function reject(rejected, fn, description)
   local result = fn()
   if result == rejected then
-    error(
-      'error: wincent.sudo.write got result ' .. result .. ' for ' .. description .. '(expected non-' .. rejected .. ')'
-    )
+    error('error: got result ' .. result .. ' for ' .. description .. '(expected non-' .. rejected .. ')')
   end
 end
 
-local write = function(options)
+local function write(options)
   if (options and options.bang == '!') or password == nil then
     password = vim.fn.inputsecret('Password:')
     if timer ~= nil then

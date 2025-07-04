@@ -1,4 +1,6 @@
-local load = function(plugin)
+--- @param plugin string The name of the plugin to be loaded
+--- @return void
+local function load(plugin)
   if vim.v.vim_did_enter == 1 then
     -- Modifies 'runtimepath' _and_ sources files.
     vim.cmd('packadd ' .. plugin)
