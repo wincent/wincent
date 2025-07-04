@@ -14,4 +14,4 @@
 --
 -- Due to: https://github.com/neovim/neovim/issues/1716
 
-vim.api.nvim_create_user_command('W', wincent.sudo.write, { bang = true })
+vim.api.nvim_create_user_command('W', require('wincent.sudo.write'), { bang = true })

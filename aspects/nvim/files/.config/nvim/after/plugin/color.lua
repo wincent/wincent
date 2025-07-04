@@ -1,11 +1,11 @@
-local augroup = wincent.nvim.augroup
+local augroup = require('wincent.nvim.augroup')
 
 -- Convenience wrapper.
-local warn = function(msg)
+local function warn(msg)
   vim.notify(msg, vim.log.levels.WARN)
 end
 
-local check = function()
+local function check()
   local has_pinnacle, pinnacle = pcall(require, 'wincent.pinnacle')
   if has_pinnacle then
     local config_file = vim.fn.expand('~/.zsh/.tinted')
