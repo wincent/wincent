@@ -85,19 +85,6 @@ handles.setup = function()
   end
 
   cmp.register_source('handles', source.new())
-
-  cmp.setup.filetype('gitcommit', {
-    sources = cmp.config.sources({
-      { name = 'luasnip' },
-      { name = 'buffer' },
-      { name = 'calc' },
-      { name = 'emoji' },
-      { name = 'path' },
-
-      -- My custom sources.
-      { name = 'handles' }, -- GitHub handles; eg. @wincent → Greg Hurrell <greg.hurrell@datadoghq.com>
-    }),
-  })
 end
 
 return handles
