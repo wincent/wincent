@@ -484,14 +484,14 @@ if has_commandt then
     },
   })
 
-  wincent.vim.command('CommandTAck', function(options)
+  vim.api.nvim_create_user_command('CommandTAck', function(options)
     require('wincent.commandt.finder')('ack', options.args)
   end, {
     complete = 'dir',
     nargs = '?',
   })
 
-  wincent.vim.command('CommandTShellbot', function(options)
+  vim.api.nvim_create_user_command('CommandTShellbot', function(options)
     require('wincent.commandt.finder')('shellbot', options.args)
   end, {
     nargs = 0,

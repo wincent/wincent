@@ -1,12 +1,10 @@
-local command = wincent.vim.command
-
 -- TODO: complete `find` arg names too
 -- TODO: check escaping (q-args) is correct
-command('Find', 'call wincent#commands#find(<q-args>)', { complete = 'file', nargs = '*' })
+vim.api.nvim_create_user_command('Find', 'call wincent#commands#find(<q-args>)', { complete = 'file', nargs = '*' })
 
-command('Lint', 'call wincent#commands#lint()')
+vim.api.nvim_create_user_command('Lint', 'call wincent#commands#lint()', {})
 
-command('OpenOnGitHub', function(options)
+vim.api.nvim_create_user_command('OpenOnGitHub', function(options)
   vim.notify(':OpenOnGitHub is deprecated. Use :GBrowse instead.', vim.log.levels.WARN)
   local has_fugitive = wincent.plugin.is_loaded('vim-fugitive')
   local has_rhubarb = wincent.plugin.is_loaded('vim-rhubarb')
@@ -40,10 +38,14 @@ end, {
   range = true,
 })
 
-command('Typecheck', 'call wincent#commands#typecheck()')
-command('Vim', 'call wincent#commands#vim()')
+vim.api.nvim_create_user_command('Typecheck', 'call wincent#commands#typecheck()', {})
+vim.api.nvim_create_user_command('Vim', 'call wincent#commands#vim()', {})
 
 -- Markdown previews.
-command('Glow', 'call wincent#commands#glow(<q-args>)', { complete = 'file', nargs = '?' })
-command('Marked', 'call wincent#commands#marked(<q-args>)', { complete = 'file', nargs = '?' })
-command('Preview', 'call wincent#commands#preview(<q-args>)', { complete = 'file', nargs = '?' })
+vim.api.nvim_create_user_command('Glow', 'call wincent#commands#glow(<q-args>)', { complete = 'file', nargs = '?' })
+vim.api.nvim_create_user_command('Marked', 'call wincent#commands#marked(<q-args>)', { complete = 'file', nargs = '?' })
+vim.api.nvim_create_user_command(
+  'Preview',
+  'call wincent#commands#preview(<q-args>)',
+  { complete = 'file', nargs = '?' }
+)

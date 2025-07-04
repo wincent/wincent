@@ -87,8 +87,8 @@ else
   local print_error = function()
     vim.notify('error: SHELLBOT does not appear to be executable', vim.log.levels.ERROR)
   end
-  wincent.vim.command('ChatGPT', print_error, {})
-  wincent.vim.command('ChatGPTX', print_error, {})
-  wincent.vim.command('Claude', print_error, {})
-  wincent.vim.command('Opus', print_error, {})
+  vim.api.nvim_create_user_command('ChatGPT', print_error, {})
+  vim.api.nvim_create_user_command('ChatGPTX', print_error, {})
+  vim.api.nvim_create_user_command('Claude', print_error, {})
+  vim.api.nvim_create_user_command('Opus', print_error, {})
 end
