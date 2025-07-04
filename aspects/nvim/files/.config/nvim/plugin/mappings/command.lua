@@ -15,17 +15,17 @@ vim.keymap.set('c', '<C-e>', '<End>')
 -- work.
 vim.keymap.set('c', '<Tab>', function()
   if is_search() then
-    return wincent.vim.keys('<CR>/<C-r>/')
+    return '<CR>/<C-r>/'
   else
-    return wincent.vim.keys('<C-z>')
+    return '<C-z>'
   end
 end, { expr = true })
 
 vim.keymap.set('c', '<S-Tab>', function()
   if is_search() then
-    return wincent.vim.keys('<CR>?<C-r>/')
+    return '<CR>?<C-r>/'
   else
-    return wincent.vim.keys('<S-Tab>')
+    return '<S-Tab>'
   end
 end, { expr = true })
 
