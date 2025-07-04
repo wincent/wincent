@@ -1,7 +1,6 @@
 local has_cmp, cmp = pcall(require, 'cmp')
 
 if has_cmp then
-  local rhs = wincent.vim.rhs
   local has_luasnip, luasnip = pcall(require, 'luasnip')
 
   -- Icons from font bundled with kitty, as shown by `kitty
@@ -85,20 +84,20 @@ if has_cmp then
     local keys = nil
     if vim.o.expandtab then
       if dedent then
-        keys = rhs('<C-D>')
+        keys = '<C-D>'
       else
-        keys = rhs('<BS>')
+        keys = '<BS>'
       end
     else
       local col = column()
       local line = vim.api.nvim_get_current_line()
       local prefix = line:sub(1, col)
       if in_leading_indent() then
-        keys = rhs('<BS>')
+        keys = '<BS>'
       else
         local previous_char = prefix:sub(#prefix, #prefix)
         if previous_char ~= ' ' then
-          keys = rhs('<BS>')
+          keys = '<BS>'
         else
           -- Delete enough spaces to take us back to the previous tabstop.
           --
@@ -112,11 +111,11 @@ if has_cmp then
           -- what a single <BS> should do.
           --
           -- See `:h i_CTRL-\_CTRL-O`.
-          keys = rhs('<C-\\><C-o>:set expandtab<CR><BS><C-\\><C-o>:set noexpandtab<CR>')
+          keys = '<C-\\><C-o>:set expandtab<CR><BS><C-\\><C-o>:set noexpandtab<CR>'
         end
       end
     end
-    vim.api.nvim_feedkeys(keys, 'nt', true)
+    wincent.vim.feedkeys(keys)
   end
 
   -- In buffers where 'noexpandtab' is set (ie. hard tabs are in use), <Tab>:
@@ -151,7 +150,7 @@ if has_cmp then
       end
     end
 
-    vim.api.nvim_feedkeys(rhs(keys), 'nt', true)
+    wincent.vim.feedkeys(keys)
   end
 
   local select_next_item = function(fallback)

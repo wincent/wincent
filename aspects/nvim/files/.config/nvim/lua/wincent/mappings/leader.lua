@@ -47,7 +47,7 @@ local get_highlight_group = function()
   )
 end
 
-local jump = function(mapping, delta)
+local function jump(mapping, delta)
   -- Calculate the number of steps to move up or down through the jump list in
   -- order to get to a new bufnr (we use bufnr because not all entries will have a
   -- filename).
@@ -60,8 +60,7 @@ local jump = function(mapping, delta)
     local next_entry = jumplist[next_idx]
     if next_entry.bufnr ~= previous_entry.bufnr then
       -- We found the next file; we're done.
-      local key = vim.api.nvim_replace_termcodes(mapping, true, false, true)
-      vim.api.nvim_feedkeys(count .. key, 'n', true)
+      wincent.vim.feedkeys(count .. mapping)
       vim.cmd('echo') -- Clear any previous "No more jumps!" message.
       return
     else

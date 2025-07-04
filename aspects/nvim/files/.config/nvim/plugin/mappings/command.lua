@@ -2,8 +2,6 @@
 -- Command mode mappings.
 --
 
-local rhs = wincent.vim.rhs
-
 local is_search = function()
   local cmdtype = vim.fn.getcmdtype()
   return cmdtype == '/' or cmdtype == '?'
@@ -17,17 +15,17 @@ vim.keymap.set('c', '<C-e>', '<End>')
 -- work.
 vim.keymap.set('c', '<Tab>', function()
   if is_search() then
-    return rhs('<CR>/<C-r>/')
+    return wincent.vim.keys('<CR>/<C-r>/')
   else
-    return rhs('<C-z>')
+    return wincent.vim.keys('<C-z>')
   end
 end, { expr = true })
 
 vim.keymap.set('c', '<S-Tab>', function()
   if is_search() then
-    return rhs('<CR>?<C-r>/')
+    return wincent.vim.keys('<CR>?<C-r>/')
   else
-    return rhs('<S-Tab>')
+    return wincent.vim.keys('<S-Tab>')
   end
 end, { expr = true })
 
