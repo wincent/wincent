@@ -285,12 +285,7 @@ if vim.o.loadplugins then
     afterload = function()
       local matchadd = nil
 
-      vim.cmd([[
-        augroup wincent.autocmds
-          autocmd!
-        augroup END
-        augroup! wincent.autocmds
-      ]])
+      vim.api.nvim_create_augroup('wincent.autocmds', { clear = true })
 
       require('zen-mode').setup({
         on_close = function()
