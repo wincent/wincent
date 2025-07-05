@@ -4,6 +4,9 @@ end
 
 require('wincent')
 
+local join = require('wincent.util.join')
+local range = require('wincent.util.range')
+
 -------------------------------------------------------------------------------
 -- Options {{{1 ---------------------------------------------------------------
 -------------------------------------------------------------------------------
@@ -148,7 +151,7 @@ vim.opt.wildmode = 'longest:full,full' -- shell-like autocomplete to unambiguous
 vim.opt.writebackup = false -- don't keep backups after writing
 
 -- Highlight up to 255 columns (this is the current Vim max) beyond 'textwidth'
-vim.opt_local.colorcolumn = '+' .. wincent.util.join(wincent.util.range(0, 254), ',+')
+vim.opt_local.colorcolumn = '+' .. join(range(0, 254), ',+')
 
 -------------------------------------------------------------------------------
 -- Globals {{{1 ---------------------------------------------------------------

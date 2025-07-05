@@ -2,7 +2,7 @@
 -- Visual mode mappings.
 --
 
-local indent_wrap_mapping = wincent.plugins.ibl.wrap_mapping
+local wrap_mapping = require('wincent.plugins.ibl.wrap_mapping')
 
 -- Move between windows.
 vim.keymap.set('x', '<C-h>', '<C-w>h')
@@ -18,5 +18,5 @@ vim.keymap.set('x', 'K', ':MoveUp<CR>', { silent = true })
 vim.keymap.set('x', 'J', ':MoveDown<CR>', { silent = true })
 
 -- For compatibility with indent-blankline.nvim:
-vim.keymap.set('x', '<', indent_wrap_mapping('<'), { silent = true })
-vim.keymap.set('x', '>', indent_wrap_mapping('>'), { silent = true })
+vim.keymap.set('x', '<', wrap_mapping('<'), { silent = true })
+vim.keymap.set('x', '>', wrap_mapping('>'), { silent = true })

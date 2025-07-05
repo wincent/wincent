@@ -2,27 +2,28 @@
 -- Normal mode mappings.
 --
 
-local indent_wrap_mapping = wincent.plugins.ibl.wrap_mapping
+-- Wraps a mapping with a call telling indent-blankline.nvim to update itself.
+local wrap_mapping = require('wincent.plugins.ibl.wrap_mapping')
 
--- Toggle fold at current position.
-vim.keymap.set('n', '<Tab>', indent_wrap_mapping('za'), { silent = true })
+-- (Custom) toggle fold at current position.
+vim.keymap.set('n', '<Tab>', wrap_mapping('za'), { silent = true })
 
--- Other indent-related remaps for compatibility with indent-blankline.nvim:
-vim.keymap.set('n', 'zA', indent_wrap_mapping('zA'), { silent = true })
-vim.keymap.set('n', 'zC', indent_wrap_mapping('zC'), { silent = true })
-vim.keymap.set('n', 'zM', indent_wrap_mapping('zM'), { silent = true })
-vim.keymap.set('n', 'zO', indent_wrap_mapping('zO'), { silent = true })
-vim.keymap.set('n', 'zR', indent_wrap_mapping('zR'), { silent = true })
-vim.keymap.set('n', 'zX', indent_wrap_mapping('zX'), { silent = true })
-vim.keymap.set('n', 'za', indent_wrap_mapping('za'), { silent = true })
-vim.keymap.set('n', 'zc', indent_wrap_mapping('zc'), { silent = true })
-vim.keymap.set('n', 'zm', indent_wrap_mapping('zm'), { silent = true })
-vim.keymap.set('n', 'zo', indent_wrap_mapping('zo'), { silent = true })
-vim.keymap.set('n', 'zr', indent_wrap_mapping('zr'), { silent = true })
-vim.keymap.set('n', 'zv', indent_wrap_mapping('zv'), { silent = true })
-vim.keymap.set('n', 'zx', indent_wrap_mapping('zx'), { silent = true })
-vim.keymap.set('n', '<<', indent_wrap_mapping('<<'), { silent = true })
-vim.keymap.set('n', '>>', indent_wrap_mapping('>>'), { silent = true })
+-- Wrap built-in fold-related mappings.
+vim.keymap.set('n', 'zA', wrap_mapping('zA'), { silent = true })
+vim.keymap.set('n', 'zC', wrap_mapping('zC'), { silent = true })
+vim.keymap.set('n', 'zM', wrap_mapping('zM'), { silent = true })
+vim.keymap.set('n', 'zO', wrap_mapping('zO'), { silent = true })
+vim.keymap.set('n', 'zR', wrap_mapping('zR'), { silent = true })
+vim.keymap.set('n', 'zX', wrap_mapping('zX'), { silent = true })
+vim.keymap.set('n', 'za', wrap_mapping('za'), { silent = true })
+vim.keymap.set('n', 'zc', wrap_mapping('zc'), { silent = true })
+vim.keymap.set('n', 'zm', wrap_mapping('zm'), { silent = true })
+vim.keymap.set('n', 'zo', wrap_mapping('zo'), { silent = true })
+vim.keymap.set('n', 'zr', wrap_mapping('zr'), { silent = true })
+vim.keymap.set('n', 'zv', wrap_mapping('zv'), { silent = true })
+vim.keymap.set('n', 'zx', wrap_mapping('zx'), { silent = true })
+vim.keymap.set('n', '<<', wrap_mapping('<<'), { silent = true })
+vim.keymap.set('n', '>>', wrap_mapping('>>'), { silent = true })
 
 -- Relying on Karabiner-Elements (macOS) or Interception Tools (Linux) to avoid
 -- collision between <Tab> and <C-i> (have it send F6 instead for <C-i>).
