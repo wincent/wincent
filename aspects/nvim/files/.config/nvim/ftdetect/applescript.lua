@@ -1,1 +1,3 @@
-wincent.nvim.autocmd('BufNewFile,BufRead', '*.applescript', 'set filetype=applescript')
+local autocmd = require('wincent.nvim.autocmd')
+
+autocmd('BufNewFile,BufRead', '*.applescript', 'set filetype=applescript')

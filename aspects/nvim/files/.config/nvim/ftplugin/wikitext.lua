@@ -1,1 +1,1 @@
-wincent.nvim.plaintext()
+require('wincent.nvim.plaintext')()

@@ -1,4 +1,6 @@
-wincent.nvim.autocmd('FileType', '*', function()
+local autocmd = require('wincent.nvim.autocmd')
+
+autocmd('FileType', '*', function()
   local filetype = vim.o.filetype
   local is_js = vim.regex('\\v<javascript|javascriptreact|typescript|typescriptreact>'):match_str(filetype)
   local is_jest = vim.regex('\\v<jest>'):match_str(filetype)

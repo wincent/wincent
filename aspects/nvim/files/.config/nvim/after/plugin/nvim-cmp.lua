@@ -3,6 +3,8 @@ local has_cmp, cmp = pcall(require, 'cmp')
 if has_cmp then
   local has_luasnip, luasnip = pcall(require, 'luasnip')
 
+  local feedkeys = require('wincent.nvim.feedkeys')
+
   -- Icons from font bundled with kitty, as shown by `kitty
   -- --debug-font-fallback`:
   --
@@ -115,7 +117,7 @@ if has_cmp then
         end
       end
     end
-    wincent.nvim.feedkeys(keys)
+    feedkeys(keys)
   end
 
   -- In buffers where 'noexpandtab' is set (ie. hard tabs are in use), <Tab>:
@@ -150,7 +152,7 @@ if has_cmp then
       end
     end
 
-    wincent.nvim.feedkeys(keys)
+    feedkeys(keys)
   end
 
   local select_next_item = function(fallback)
