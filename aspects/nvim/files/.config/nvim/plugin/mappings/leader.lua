@@ -28,7 +28,7 @@ vim.keymap.set('n', '<Leader>q', ':quit<CR>')
 -- <Leader>r -- Cycle through relativenumber + number, number (only), and no
 -- numbering (mnemonic: relative).
 vim.keymap.set('n', '<Leader>r', function()
-  wincent.mappings.leader.cycle_numbering()
+  require('wincent.mappings.leader.cycle_numbering')()
 end, { silent = true })
 
 vim.keymap.set('n', '<Leader>w', ':write<CR>')
@@ -55,10 +55,10 @@ vim.keymap.set('n', '<Leader>v', 'gv')
 
 -- File-wise movement in/out of jump list.
 vim.keymap.set('n', '<Leader>,', function()
-  wincent.mappings.leader.jump_out_file()
+  require('wincent.mappings.leader.jump_out_file')()
 end, { silent = true })
 vim.keymap.set('n', '<Leader>.', function()
-  wincent.mappings.leader.jump_in_file()
+  require('wincent.mappings.leader.jump_in_file')()
 end, { silent = true })
 
 -- <LocalLeader>s -- Fix (most) syntax highlighting problems in current buffer
@@ -78,7 +78,9 @@ vim.keymap.set('n', '<LocalLeader>e', ":edit <C-R>=expand('%:p:h') . '/'<CR>")
 
 -- <LocalLeader>p -- [P]rint the syntax highlighting group(s) that apply at the
 -- current cursor position.
-vim.keymap.set('n', '<LocalLeader>p', ':echomsg v:lua.wincent.mappings.leader.get_highlight_group()<CR>')
+vim.keymap.set('n', '<LocalLeader>p', function()
+  print(require('wincent.mappings.leader.get_highlight_group')())
+end)
 
 -- <LocalLeader>x -- Turn references to the word under the cursor to references
 -- to the WORD under the cursor:

@@ -1,8 +1,6 @@
-local leader = wincent.mappings.leader
-
 local autocmds = {}
 
-local number_flag = leader.number_flag
+local number_flag = require('wincent.mappings.leader.cycle_numbering').flag
 
 -- stylua: ignore
 local focused_colorcolumn = '+' .. table.concat({
