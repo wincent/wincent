@@ -1,14 +1,11 @@
 local augroup = require('wincent.nvim.augroup')
+local statusline = require('wincent.statusline')
 
-wincent.statusline.set()
+statusline.set()
 
 augroup('wincent.statusline', function(autocmd)
-  autocmd(
-    'BufWinEnter,BufWritePost,FileWritePost,TextChanged,TextChangedI,WinEnter',
-    '*',
-    wincent.statusline.check_modified
-  )
-  autocmd('ColorScheme', '*', wincent.statusline.update_highlight)
-  autocmd('User', 'FerretAsyncStart', wincent.statusline.async_start)
-  autocmd('User', 'FerretAsyncFinish', wincent.statusline.async_finish)
+  autocmd('BufWinEnter,BufWritePost,FileWritePost,TextChanged,TextChangedI,WinEnter', '*', statusline.check_modified)
+  autocmd('ColorScheme', '*', statusline.update_highlight)
+  autocmd('User', 'FerretAsyncStart', statusline.async_start)
+  autocmd('User', 'FerretAsyncFinish', statusline.async_finish)
 end)

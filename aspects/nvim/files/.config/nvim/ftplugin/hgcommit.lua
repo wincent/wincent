@@ -1,7 +1,7 @@
 -- Note: This config is shared by both filetype=arc + filetype=hgcommit (via a
 -- symlink).
 
-wincent.nvim.plaintext()
+require('wincent.nvim.plaintext')()
 
 -- Can't just use 'colorcolumn' here because it's really only the first
 -- line whose length we care about, and our focus tricks elsewhere would
