@@ -370,8 +370,8 @@ if vim.o.loadplugins then
       'NvimTreeOpen',
     },
     keymap = {
-      { 'n', '<LocalLeader>f', ':NvimTreeFindFile<CR>', { silent = true } },
-      { 'n', '<LocalLeader>t', ':NvimTreeToggle<CR>', { silent = true } },
+      { 'n', '<LocalLeader>f', 'NvimTreeFindFile', { silent = true } },
+      { 'n', '<LocalLeader>t', 'NvimTreeToggle', { silent = true } },
     },
   })
 
@@ -387,7 +387,7 @@ if vim.o.loadplugins then
       vim.g.Undotree_CustomMap = require('wincent.plugins.undotree').custom_map
     end,
     keymap = {
-      { 'n', '<Leader>u', ':UndotreeToggle<CR>', { silent = true } },
+      { 'n', '<Leader>u', 'UndotreeToggle', { silent = true } },
     },
   })
 end

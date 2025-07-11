@@ -37,8 +37,11 @@ local function lazy(pack, config)
       for _, item in ipairs(config.keymap) do
         local modes = item[1]
         local lhs = item[2]
-        local rhs = item[3]
+        local cmd = item[3]
         local opts = item[4] or {}
+        local rhs = function()
+          vim.cmd(cmd)
+        end
         vim.keymap.set(modes, lhs, rhs, opts)
       end
     end
@@ -76,8 +79,12 @@ local function lazy(pack, config)
     for _, item in ipairs(config.keymap) do
       local modes = item[1]
       local lhs = item[2]
-      local rhs = ':call v:lua.wincent.g.lazy.' .. key .. '.load()<CR>' .. item[3]
+      local cmd = item[3]
       local opts = item[4] or {}
+      local rhs = function()
+        wincent.g.lazy[key].load()
+        vim.cmd(cmd)
+      end
       vim.keymap.set(modes, lhs, rhs, opts)
     end
   end
