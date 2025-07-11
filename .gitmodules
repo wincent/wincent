@@ -64,12 +64,36 @@
 	ignore = dirty
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/loupe
 	url = https://github.com/wincent/loupe.git
+[submodule "mini.ai"]
+	branch = main
+	ignore = untracked
+	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.ai
+	url = https://github.com/echasnovski/mini.ai.git
+[submodule "mini.extra"]
+	branch = main
+	ignore = untracked
+	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.extra
+	url = https://github.com/echasnovski/mini.extra.git
+[submodule "mini.icons"]
+	ignore = untracked
+	branch = main
+	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.icons
+	url = https://github.com/echasnovski/mini.icons.git
+[submodule "mini.surround"]
+	branch = main
+	ignore = untracked
+	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.surround
+	url = https://github.com/echasnovski/mini.surround.git
 [submodule "n"]
 	path = vendor/n
 	url = https://github.com/tj/n.git
 [submodule "neco-ghc"]
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/neco-ghc
 	url = https://github.com/eagletmt/neco-ghc.git
+[submodule "nvim-clipper"]
+	branch = main
+	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-clipper
+	url = https://github.com/wincent/nvim-clipper.git
 [submodule "nvim-cmp"]
 	branch = main
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-cmp
@@ -81,6 +105,18 @@
 [submodule "nvim-tree.lua"]
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-tree.lua
 	url = https://github.com/kyazdani42/nvim-tree.lua.git
+[submodule "nvim-treesitter"]
+	branch = main
+	ignore = untracked
+	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter.git
+[submodule "nvim-treesitter-textobjects"]
+	branch = main
+	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-treesitter-textobjects
+	url = https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git
+[submodule "oil.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/oil.nvim
+	url = https://github.com/stevearc/oil.nvim.git
 [submodule "pinnacle"]
 	branch = main
 	ignore = untracked
@@ -110,6 +146,26 @@
 	branch = main
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/terminus
 	url = https://github.com/wincent/terminus.git
+[submodule "tinted-theming/schemes"]
+	branch = spec-0.11
+	path = vendor/tinted-theming/schemes
+	url = https://github.com/tinted-theming/schemes.git
+[submodule "tinted-theming/tinted-kitty"]
+	branch = main
+	path = vendor/tinted-theming/tinted-kitty
+	url = https://github.com/tinted-theming/tinted-kitty.git
+[submodule "tinted-theming/tinted-shell"]
+	branch = main
+	path = vendor/tinted-theming/tinted-shell
+	url = https://github.com/tinted-theming/tinted-shell.git
+[submodule "tinted-theming/tinted-tmux"]
+	branch = main
+	path = vendor/tinted-theming/tinted-tmux
+	url = https://github.com/tinted-theming/tinted-tmux.git
+[submodule "tinted-theming/tinted-vim"]
+	branch = main
+	path = vendor/tinted-theming/tinted-vim
+	url = https://github.com/tinted-theming/tinted-vim.git
 [submodule "undotree"]
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/undotree
 	url = https://github.com/mbbill/undotree.git
@@ -170,6 +226,9 @@
 	ignore = untracked
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
+[submodule "vim-rhubarb"]
+	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-rhubarb
+	url = https://github.com/tpope/vim-rhubarb.git
 [submodule "vim-signature"]
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-signature
 	url = https://github.com/kshenoy/vim-signature.git
@@ -183,6 +242,10 @@
 [submodule "vim-zsh"]
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-zsh
 	url = https://github.com/chrisbra/vim-zsh.git
+[submodule "yazi-rs/plugins"]
+	branch = main
+	path = aspects/dotfiles/files/.config/yazi/vendor/plugins
+	url = https://github.com/yazi-rs/plugins.git
 [submodule "zen-mode.nvim"]
 	branch = main
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/zen-mode.nvim
@@ -207,66 +270,3 @@
 	branch = master
 	path = aspects/dotfiles/files/.zsh/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
-[submodule "mini.ai"]
-	branch = main
-	ignore = untracked
-	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.ai
-	url = https://github.com/echasnovski/mini.ai.git
-[submodule "mini.surround"]
-	branch = main
-	ignore = untracked
-	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.surround
-	url = https://github.com/echasnovski/mini.surround.git
-[submodule "mini.extra"]
-	branch = main
-	ignore = untracked
-	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.extra
-	url = https://github.com/echasnovski/mini.extra.git
-[submodule "tinted-theming/schemes"]
-	branch = spec-0.11
-	path = vendor/tinted-theming/schemes
-	url = https://github.com/tinted-theming/schemes.git
-[submodule "tinted-theming/tinted-tmux"]
-	branch = main
-	path = vendor/tinted-theming/tinted-tmux
-	url = https://github.com/tinted-theming/tinted-tmux.git
-[submodule "tinted-theming/tinted-shell"]
-	branch = main
-	path = vendor/tinted-theming/tinted-shell
-	url = https://github.com/tinted-theming/tinted-shell.git
-[submodule "tinted-theming/tinted-kitty"]
-	branch = main
-	path = vendor/tinted-theming/tinted-kitty
-	url = https://github.com/tinted-theming/tinted-kitty.git
-[submodule "yazi-rs/plugins"]
-	branch = main
-	path = aspects/dotfiles/files/.config/yazi/vendor/plugins
-	url = https://github.com/yazi-rs/plugins.git
-[submodule "nvim-treesitter"]
-	branch = main
-	ignore = untracked
-	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-treesitter
-	url = https://github.com/nvim-treesitter/nvim-treesitter.git
-[submodule "tinted-theming/tinted-vim"]
-	branch = main
-	path = vendor/tinted-theming/tinted-vim
-	url = https://github.com/tinted-theming/tinted-vim.git
-[submodule "nvim-treesitter-textobjects"]
-	branch = main
-	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-treesitter-textobjects
-	url = https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git
-[submodule "vim-rhubarb"]
-	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-rhubarb
-	url = https://github.com/tpope/vim-rhubarb.git
-[submodule "oil.nvim"]
-	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/oil.nvim
-	url = https://github.com/stevearc/oil.nvim.git
-[submodule "mini.icons"]
-	ignore = untracked
-	branch = main
-	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.icons
-	url = https://github.com/echasnovski/mini.icons.git
-[submodule "nvim-clipper"]
-	branch = main
-	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-clipper
-	url = https://github.com/wincent/nvim-clipper.git
