@@ -1,2 +1,77 @@
+# In order to pick up these settings, $RIPGREP_CONFIG_PATH must
+# be set to $HOME/.rgrc, and `rg` must not be invoked with the
+# `--no-config` switch. Ferret uses similar overrides, defined in
+# `~/.config/nvim/after/plugin/ferret.lua`.
+
+# Automatically switch to PCRE2 when needed; eg. for:
+#
+# | Lookaround          | Example     | Description                 |
+# | ------------------- | ----------- | --------------------------- |
+# | Negative lookbehind | (?<!foo)bar | "bar" not preceded by "foo" |
+# | Negative lookahead  | foo(?!bar)  | "foo" not followed by "bar" |
+# | Positive lookbehind | (?<=foo)bar | "bar" preceded by "foo"     |
+# | Positive lookahead  | foo(?=bar)  | "foo" followed by "bar"     |
+#
+# --engine=ENGINE
+#     Specify which regular expression engine to use. When you choose a
+#     regex engine, it applies that choice for every regex provided to
+#     ripgrep (e.g., via multiple -e/--regexp or -f/--file flags).
+#
+#     Accepted values are default, pcre2, or auto.
+#
+#     The default value is default, which is usually the fastest and
+#     should be good for most use cases. The pcre2 engine is generally
+#     useful when you want to use features such as look-around or
+#     backreferences. auto will dynamically choose between supported
+#     regex engines depending on the features used in a pattern on a
+#     best effort basis.
+#
+#     Note that the pcre2 engine is an optional ripgrep feature. If
+#     PCRE2 wasn't included in your build of ripgrep, then using this
+#     flag will result in ripgrep printing an error message and exiting.
+#
+#     This overrides previous uses of the -P/--pcre2 and --auto-hybrid-regex
+#     flags.
+#
+--engine=auto
+
+# Don't look in ".git" folders.
+#
+# --glob=GLOB
+#     Include or exclude files and directories for searching that match
+#     the given glob. This always overrides any other ignore logic.
+#     Multiple glob flags may be used. Globbing rules match .gitignore
+#     globs. Precede a glob with a ! to exclude it. If multiple globs
+#     match a file or directory, the glob given later in the command
+#     line takes precedence.
+#
+#     As an extension, globs support specifying alternatives: -g
+#     'ab{c,d}*' is equivalent to -g abc -g abd. Empty alternatives
+#     like -g 'ab{,c}' are not currently supported. Note that this
+#     syntax extension is also currently enabled in gitignore files,
+#     even though this syntax isn't supported by git itself. ripgrep
+#     may disable this syntax extension in gitignore files, but it will
+#     always remain available via the -g/--glob flag.
+#
+#     When this flag is set, every file and directory is applied to it
+#     to test for a match. For example, if you only want to search in a
+#     particular directory foo, then -g foo is incorrect because foo/bar
+#     does not match the glob foo. Instead, you should use -g 'foo/**'.
+#
 --glob=!.git
+
+# --hidden
+#     Search hidden files and directories. By default, hidden files and
+#     directories are skipped. Note that if a hidden file or a directory is
+#     whitelisted in an ignore file, then it will be searched even if this
+#     flag isn't provided. Similarly if a hidden file or directory is given
+#     explicitly as an argument to ripgrep.
+#
+#     A file or directory is considered hidden if its base name starts with
+#     a dot character (.). On operating systems which support a "hidden" file
+#     attribute, like Windows, files with this attribute are also considered
+#     hidden.
+#
+#     This flag can be disabled with --no-hidden.
+#
 --hidden

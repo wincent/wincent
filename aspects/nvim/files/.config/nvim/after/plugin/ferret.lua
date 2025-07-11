@@ -1,3 +1,17 @@
 vim.g.FerretExecutableArguments = {
-  rg = '--vimgrep --no-heading --no-config --max-columns 4096 --hidden --glob !.git',
+  rg = table.concat(
+    vim.list_extend({
+      -- Defaults, as reported by `:echo ferret#get_default_arguments('rg')`:
+      '--max-columns 4096',
+      '--no-config',
+      '--no-heading',
+      '--vimgrep',
+    }, {
+      -- Additions, same as in `$HOME/.rgrc`:
+      '--engine=auto',
+      '--glob !.git',
+      '--hidden',
+    }),
+    ' '
+  ),
 }
