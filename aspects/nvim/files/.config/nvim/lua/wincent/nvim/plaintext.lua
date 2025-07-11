@@ -1,12 +1,12 @@
--- Switch to plaintext mode with: `:lua wincent.nvim.plaintext()`
-local plaintext = function()
+-- Switch to plaintext mode with: `:lua require('wincent.nvim.plaintext')()`
+local function plaintext()
   vim.opt_local.concealcursor = 'nc'
   vim.opt_local.listchars = 'trail:•'
   vim.opt_local.textwidth = 0
   vim.opt_local.wrap = true
   vim.opt_local.wrapmargin = 0
 
-  wincent.nvim.spell()
+  require('wincent.nvim.spell')()
 
   -- Break undo sequences into chunks (after punctuation); see: `:h i_CTRL-G_u`
   --

@@ -1,4 +1,4 @@
-wincent.nvim.plaintext()
+require('wincent.nvim.plaintext')()
 
 vim.opt_local.breakindent = true
 vim.opt_local.breakindentopt = 'sbr,shift:' .. vim.bo.shiftwidth

@@ -1,6 +1,8 @@
--- Cleaner/simpler clone of the built-in tabline, but without the window
--- counts, the modified flag, or the close widget.
-local render = function()
+--- Cleaner/simpler clone of the built-in tabline, but without the window
+--- counts, the modified flag, or the close widget.
+---
+--- @return string
+local function render()
   local line = ''
   local current = vim.api.nvim_tabpage_get_number(0)
 

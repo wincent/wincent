@@ -39,7 +39,7 @@ vim.keymap.set('n', '<Leader>x', ':xit<CR>')
 --        As this one is somewhat destructive and relatively close to the
 --        oft-used <leader>a mapping, make this one a double key-stroke.
 vim.keymap.set('n', '<Leader>zz', function()
-  wincent.nvim.zap()
+  require('wincent.nvim.zap')()
 end, { silent = true })
 
 -- Stop annoying paren match highlighting from flashing all over the screen,
@@ -47,7 +47,7 @@ end, { silent = true })
 --
 -- (mnemonic: [m]atch paren)
 vim.keymap.set('n', '<Leader>m', function()
-  wincent.nvim.toggle_matchparen()
+  require('wincent.nvim.toggle_matchparen')()
 end, { silent = true })
 
 -- Micro-optimizating the slightly-hard-to-type-on-Colemak-but-very-useful `gv`.

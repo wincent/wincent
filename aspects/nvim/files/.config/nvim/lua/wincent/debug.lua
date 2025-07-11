@@ -1,9 +1,9 @@
-local writefile = function(lines)
+local function writefile(lines)
   vim.fn.writefile(lines, '/tmp/wincent-nvim-debug.txt', 'as')
 end
 
 -- TODO: extract this? it's the same as wincent.commandt.private.is_list()
-local is_list = function(value)
+local function is_list(value)
   if type(value) ~= 'table' then
     return false
   elseif #value > 0 then

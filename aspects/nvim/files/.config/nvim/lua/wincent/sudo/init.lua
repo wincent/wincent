@@ -1,1 +1,1 @@
-return wincent.autoload('wincent.sudo')
+return require('wincent.autoload')('wincent.sudo')

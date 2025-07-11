@@ -92,7 +92,7 @@ local function lazy(pack, config)
     if vim.v.vim_did_enter == 1 then
       vim.cmd('packadd! ' .. pack)
     else
-      wincent.nvim.autocmd('VimEnter', '*', function()
+      require('wincent.nvim.autocmd')('VimEnter', '*', function()
         vim.cmd('packadd! ' .. pack)
       end, { once = true })
     end

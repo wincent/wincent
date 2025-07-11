@@ -1,1 +1,1 @@
-return wincent.autoload('wincent.plugins')
+return require('wincent.autoload')('wincent.plugins')

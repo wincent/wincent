@@ -384,11 +384,7 @@ if vim.o.loadplugins then
       vim.g.undotree_DiffCommand = 'diff -u'
 
       -- Mappings to emulate Gundo behavior.
-      vim.cmd([[
-        function! g:Undotree_CustomMap() abort
-          lua wincent.plugins.undotree.custom_map()
-        endfunction
-      ]])
+      vim.g.Undotree_CustomMap = require('wincent.plugins.undotree').custom_map
     end,
     keymap = {
       { 'n', '<Leader>u', ':UndotreeToggle<CR>', { silent = true } },

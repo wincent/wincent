@@ -1,6 +1,6 @@
-local autocmd = wincent.nvim.autocmd
+local autocmd = require('wincent.nvim.autocmd')
 
-local scan_file = function()
+local function scan_file()
   local n = 1
   local nmax = vim.fn.line('$')
   if vim.fn.line('$') > 500 then
@@ -15,17 +15,17 @@ local scan_file = function()
   return false
 end
 
-local has_jsx_filetype = function()
+local function has_jsx_filetype()
   return vim.regex('\\v<jsx>'):match_str(vim.o.filetype)
 end
 
-local set_jsx = function()
+local function set_jsx()
   if not has_jsx_filetype() then
     vim.cmd('noautocmd set filetype+=.jsx')
   end
 end
 
-local detect_jsx = function()
+local function detect_jsx()
   if has_jsx_filetype() then
     return
   end

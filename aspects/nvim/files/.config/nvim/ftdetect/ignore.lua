@@ -1,1 +1,3 @@
-wincent.nvim.autocmd('BufNewFile,BufRead', '.eslintignore,.gitignore,.prettierignore', 'set filetype=ignore')
+local autocmd = require('wincent.nvim.autocmd')
+
+autocmd('BufNewFile,BufRead', '.eslintignore,.gitignore,.prettierignore', 'set filetype=ignore')

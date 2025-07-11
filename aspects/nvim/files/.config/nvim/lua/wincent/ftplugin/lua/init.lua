@@ -1,1 +1,1 @@
-return wincent.autoload('wincent.ftplugin.lua')
+return require('wincent.autoload')('wincent.ftplugin.lua')

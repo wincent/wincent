@@ -1,1 +1,1 @@
-return wincent.autoload('wincent.tabline')
+return require('wincent.autoload')('wincent.tabline')

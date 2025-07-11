@@ -1,1 +1,3 @@
-wincent.nvim.autocmd('BufNewFile,BufRead', 'differential-update-comments,new-commit', 'set filetype=arc')
+local autocmd = require('wincent.nvim.autocmd')
+
+autocmd('BufNewFile,BufRead', 'differential-update-comments,new-commit', 'set filetype=arc')

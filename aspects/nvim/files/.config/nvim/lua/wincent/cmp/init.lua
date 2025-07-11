@@ -1,1 +1,1 @@
-return wincent.autoload('wincent.cmp')
+return require('wincent.autoload')('wincent.cmp')

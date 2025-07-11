@@ -1,26 +1,43 @@
 -- Provides a lazy autoload mechanism similar to Vimscript's autoload mechanism.
 --
--- Examples:
+-- In Vimscript, we would write:
 --
---    " Vimscript - looks for function named `wincent#foo#bar#baz()` in
---    " autoload/wincent/foo/bar.vim):
+--    :set tabline=wincent#tabline#render()
 --
---    call wincent#foo#bar#baz()
+-- and Neovim would look for function named `wincent#tabline#render()` in
+-- "autoload/wincent/tabline.vim".
 --
---    -- Lua - lazy-loads these files in sequence before calling
---    -- `wincent.foo.bar.baz()`:
---    --
---    --    1. lua/wincent/foo.lua (or lua/wincent/foo/init.lua)
---    --    2. lua/wincent/foo/bar.lua (or lua/wincent/foo/bar/init.lua)
---    --    3. lua/wincent/foo/bar/baz.lua (or lua/wincent/foo/bar/baz/init.lua)
+-- Using the mechanism implemented here, in Lua, we can write:
 --
---    local wincent = require'wincent'
---    wincent.foo.bar.baz()
+--    vim.opt.tabline = '%!v:lua.wincent.tabline.render()'
 --
---    -- Note that because `require'wincent'` appears at the top of the top-level
---    -- init.lua, the previous example can be written as:
+-- and Neovim will lazy-load these files in sequence before calling
+-- `wincent.tabline.render()`:
 --
---    wincent.foo.bar.baz()
+-- 1. "lua/wincent/tabline.lua" (or "lua/wincent/tabline/init.lua")
+-- 2. "lua/wincent/tabline/render.lua" (or "lua/wincent/tabline/render/init.lua")
+--
+-- Note that this works because:
+--
+-- - `wincent` is a global (defined in "lua/wincent/init.lua", which is required
+--    with `require('wincent')` at the top of "~/.config/nvim/init.lua").
+-- - "lua/wincent/init.lua" includes an `autoload('wincent')` call.
+-- - "lua/wincent/tabline/init.lua" includes an `autoload('wincent.tabline')`
+--    call.
+-- - "lua/wincent/tabline/render.lua" returns a function.
+--
+-- This mechanism should be used in places like the example above, where we have
+-- to pass a string containing a Lua expression in a context that expects
+-- Vimscript. These places often use `v:lua`. The autoloading mechanism saves us
+-- from writing something less pleasant, like:
+--
+--     vim.opt.tabline = '%{luaeval("require(\'wincent.tabline.render\')()")}'
+--
+-- It should _not_ be used in pure Lua contexts (ie. places where we can
+-- literally write Lua instead of passing Lua snippets around in strings). In
+-- pure Lua contexts it is better to use an explicit `require` instead, because
+-- this will work nicely with file navigation (eg. `gf`), jumping to definition,
+-- and showing hover documentation.
 --
 local autoload = function(base)
   local storage = {}

@@ -1,1 +1,1 @@
-return wincent.autoload('wincent.nvim')
+return require('wincent.autoload')('wincent.nvim')

@@ -1,7 +1,3 @@
-local patterns = table.concat({
-  '.pryrc',
-  'Guardfile',
-  'pryrc',
-}, ',')
+local autocmd = require('wincent.nvim.autocmd')
 
-wincent.nvim.autocmd('BufNewFile,BufRead', patterns, 'set filetype=ruby')
+autocmd('BufNewFile,BufRead', '.pryrc,Guardfile,pryrc', 'set filetype=ruby')

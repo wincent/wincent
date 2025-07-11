@@ -1,1 +1,1 @@
-return wincent.autoload('wincent.ftplugin')
+return require('wincent.autoload')('wincent.ftplugin')

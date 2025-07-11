@@ -1,1 +1,1 @@
-return wincent.autoload('wincent.variables')
+return require('wincent.autoload')('wincent.variables')

@@ -1,1 +1,1 @@
-wincent.lsp.init()
+require('wincent.lsp').init()

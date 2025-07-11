@@ -6,4 +6,4 @@ vim.opt_local.synmaxcol = 0
 vim.keymap.set('n', 'j', 'gj', { buffer = true })
 vim.keymap.set('n', 'k', 'gk', { buffer = true })
 
-wincent.nvim.spell()
+require('wincent.nvim.spell')()
