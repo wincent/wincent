@@ -180,14 +180,16 @@ lsp.init = function()
       },
     })
 
-    vim.lsp.config('clangd', {
-      settings = {
-        clangd = {
-          cmd = { 'clangd', '--background-index' },
+    if vim.fn.executable('clangd') == 1 then
+      vim.lsp.config('clangd', {
+        settings = {
+          clangd = {
+            cmd = { 'clangd', '--background-index' },
+          },
         },
-      },
-    })
-    vim.lsp.enable('clangd')
+      })
+      vim.lsp.enable('clangd')
+    end
 
     -- Prerequisite: https://github.com/LuaLS/lua-language-server
     --
@@ -199,8 +201,7 @@ lsp.init = function()
     -- - https://github.com/luals/lua-language-server/wiki/Getting-Started#command-line
     -- - https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#lua_ls
     --
-    local cmd = 'lua-language-server'
-    if vim.fn.executable(cmd) == 1 then
+    if vim.fn.executable('lua-language-server') == 1 then
       local config_directory = vim.fn.stdpath('config')
 
       --- @param a string A path
@@ -250,7 +251,6 @@ lsp.init = function()
       end
 
       vim.lsp.config('lua_ls', {
-        cmd = { cmd },
         on_init = function(client)
           if client.workspace_folders then
             -- Found a root marker.
@@ -314,11 +314,25 @@ lsp.init = function()
       vim.lsp.enable('lua_ls')
     end
 
-    vim.lsp.enable('gopls')
-    vim.lsp.enable('ocamlls')
-    vim.lsp.enable('rust_analyzer')
-    vim.lsp.enable('ts_ls')
-    vim.lsp.enable('vimls')
+    if vim.fn.executable('gopls') == 1 then
+      vim.lsp.enable('gopls')
+    end
+
+    if vim.fn.executable('ocaml-language-server') == 1 then
+      vim.lsp.enable('ocamlls')
+    end
+
+    if vim.fn.executable('rust-analyzer') == 1 then
+      vim.lsp.enable('rust_analyzer')
+    end
+
+    if vim.fn.executable('typescript-language-server') == 1 then
+      vim.lsp.enable('ts_ls')
+    end
+
+    if vim.fn.executable('vim-language-server') == 1 then
+      vim.lsp.enable('vimls')
+    end
   end
 
   augroup('wincent.lsp', function(autocmd)
