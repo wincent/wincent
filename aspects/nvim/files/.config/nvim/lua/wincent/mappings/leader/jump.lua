@@ -12,7 +12,7 @@ local function jump(mapping, delta)
     if next_entry.bufnr ~= previous_entry.bufnr then
       -- We found the next file; we're done.
       require('wincent.nvim.feedkeys')(count .. mapping)
-      vim.cmd('echo') -- Clear any previous "No more jumps!" message.
+      vim.cmd.echo() -- Clear any previous "No more jumps!" message.
       return
     else
       previous_entry = next_entry

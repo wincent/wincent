@@ -1,1 +1,1 @@
-vim.cmd('cabbrev sord sort')
+vim.cmd.cabbrev('sord sort')

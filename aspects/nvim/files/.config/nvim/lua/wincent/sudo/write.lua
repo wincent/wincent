@@ -61,7 +61,7 @@ local function write(options)
     end
   else
     if buftype == '' then
-      vim.cmd('edit')
+      vim.cmd.edit()
       vim.opt_local.buftype = buftype
     end
   end

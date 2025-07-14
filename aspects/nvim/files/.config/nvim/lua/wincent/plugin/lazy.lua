@@ -27,11 +27,11 @@ local function lazy(pack, config)
 
     if config.commands ~= nil then
       for command in pairs(config.commands) do
-        vim.cmd('delcommand ' .. command)
+        vim.cmd.delcommand(command)
       end
     end
 
-    vim.cmd('packadd ' .. pack)
+    vim.cmd.packadd(pack)
 
     if config.keymap ~= nil then
       for _, item in ipairs(config.keymap) do
@@ -97,10 +97,10 @@ local function lazy(pack, config)
     -- will work, but Vim won't load the plugin files as long as we do this
     -- _after_ startup.
     if vim.v.vim_did_enter == 1 then
-      vim.cmd('packadd! ' .. pack)
+      vim.cmd.packadd({ pack, bang = true })
     else
       require('wincent.nvim.autocmd')('VimEnter', '*', function()
-        vim.cmd('packadd! ' .. pack)
+        vim.cmd.packadd({ pack, bang = true })
       end, { once = true })
     end
   end

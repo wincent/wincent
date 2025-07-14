@@ -6,9 +6,9 @@ local function load(...)
   -- If already booted, use `:packadd` (modifies 'runtimepath' _and_ sources
   -- files). Otherwise, use `:packadd!` (just modifies 'runtimepath'; Neovim
   -- will source the files later as part of |load-plugins| process).
-  local command = vim.v.vim_did_enter == 1 and 'packadd' or 'packadd!'
+  local bang = vim.v.vim_did_enter ~= 1
   for _, plugin in ipairs(plugins) do
-    vim.cmd(command .. ' ' .. plugin)
+    vim.cmd.packadd({ plugin, bang = bang })
   end
 end
 

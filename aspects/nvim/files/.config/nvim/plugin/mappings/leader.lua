@@ -100,11 +100,11 @@ vim.keymap.set('n', '<LocalLeader>z', function()
   local window = vim.api.nvim_get_current_win()
   local is_zoomed = vim.w[window].is_zoomed == true
   if is_zoomed then
-    vim.cmd('wincmd =') -- Equalize size (`: help CTRL-W_=`).
+    vim.cmd.wincmd('=') -- Equalize size (`: help CTRL-W_=`).
     vim.w[window].is_zoomed = nil
   else
     vim.w[window].is_zoomed = true
-    vim.cmd('wincmd |') -- Maximize horizontal size (`:help CTRL-W__`).
-    vim.cmd('wincmd _') -- Maximize vertical size (`:help CTRL-W_bar`).
+    vim.cmd.wincmd('|') -- Maximize horizontal size (`:help CTRL-W__`).
+    vim.cmd.wincmd('_') -- Maximize vertical size (`:help CTRL-W_bar`).
   end
 end, { desc = 'Toggle maximize split' })

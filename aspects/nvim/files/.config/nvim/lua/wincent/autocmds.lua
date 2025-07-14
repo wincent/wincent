@@ -108,11 +108,11 @@ local mkview = function()
     local success, err = pcall(function()
       if vim.fn.haslocaldir() == 1 then
         -- We never want to save an :lcd command, so hack around it...
-        vim.cmd('cd -')
-        vim.cmd('mkview')
-        vim.cmd('lcd -')
+        vim.cmd.cd('-')
+        vim.cmd.mkview()
+        vim.cmd.lcd('-')
       else
-        vim.cmd('mkview')
+        vim.cmd.mkview()
       end
     end)
     if not success then

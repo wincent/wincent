@@ -20,13 +20,13 @@ local function check()
       end
 
       if vim.fn.filereadable(vim.fn.expand('~/.config/nvim/colors/' .. scheme .. '.lua')) then
-        vim.cmd('colorscheme ' .. scheme)
+        vim.cmd.colorscheme(scheme)
       else
         warn('Bad scheme ' .. scheme .. ' in ' .. config_file)
       end
     else -- default
       vim.opt.background = 'dark'
-      vim.cmd('colorscheme classic-dark')
+      vim.cmd.colorscheme('classic-dark')
     end
 
     local dark = vim.o.background == 'dark'
@@ -89,7 +89,7 @@ local function check()
     -- Allow for overrides:
     -- - `lua/wincent/statusline.lua` will re-set User1, User3 etc.
     -- - `after/plugin/loupe.lua` will override Search, QuickFixLine.
-    vim.cmd('doautocmd ColorScheme')
+    vim.cmd.doautocmd('ColorScheme')
   end
 end
 

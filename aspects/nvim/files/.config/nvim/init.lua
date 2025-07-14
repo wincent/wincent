@@ -270,16 +270,16 @@ if vim.o.loadplugins then
   -- Lazy because vim-abolish doesn't use autoloading internally.
   lazy('vim-abolish', {
     afterload = function()
-      vim.cmd('Abolish aboud about')
-      vim.cmd('Abolish ahve have')
-      vim.cmd('Abolish funciton{,ed,s} function{}')
-      vim.cmd('Abolish paramater parameter')
-      vim.cmd('Abolish provied{,d,s} provide{}')
-      vim.cmd('Abolish strinfigy stringify')
-      vim.cmd('Abolish submodlue{,s} submodule{}')
-      vim.cmd('Abolish {hte,teh} the')
-      vim.cmd('Abolish updaet{,ed,es} update{}')
-      vim.cmd('Abolish varient{,s} variant{}')
+      vim.cmd.Abolish({ 'aboud', 'about' })
+      vim.cmd.Abolish({ 'ahve', 'have' })
+      vim.cmd.Abolish({ 'funciton{,ed,s}', 'function{}' })
+      vim.cmd.Abolish({ 'paramater', 'parameter' })
+      vim.cmd.Abolish({ 'provied{,d,s}', 'provide{}' })
+      vim.cmd.Abolish({ 'strinfigy', 'stringify' })
+      vim.cmd.Abolish({ 'submodlue{,s}', 'submodule{}' })
+      vim.cmd.Abolish({ '{hte,teh}', 'the' })
+      vim.cmd.Abolish({ 'updaet{,ed,es}', 'update{}' })
+      vim.cmd.Abolish({ 'varient{,s}', 'variant{}' })
     end,
   })
 
@@ -296,9 +296,9 @@ if vim.o.loadplugins then
 
           if vim.api.nvim_buf_get_var(0, 'quitting') == 1 and is_last_buffer then
             if vim.api.nvim_buf_get_var(0, 'quitting_bang') == 1 then
-              vim.cmd('qa!')
+              vim.cmd.qa({ bang = true })
             else
-              vim.cmd('qa')
+              vim.cmd.qa()
             end
           else
             if matchadd ~= nil then
@@ -628,7 +628,7 @@ local overrides = {
 }
 for _, override in ipairs(overrides) do
   if vim.fn.filereadable(override) == 1 then
-    vim.cmd('source ' .. override)
+    vim.cmd.source(override)
   end
 end
 
