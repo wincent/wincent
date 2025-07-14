@@ -24,10 +24,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end, { buffer = true, silent = true })
 
     -- Mnemonic: l = "toggle line diagnostics floating window"
-    vim.keymap.set('n', '<Leader>l', vim.diagnostic.open_float, { buffer = true, silent = true })
+    vim.keymap.set('n', '<Leader>l', function()
+      vim.diagnostic.open_float({ border = 'single' })
+    end, { buffer = true, silent = true })
 
     vim.keymap.set('n', '<c-]>', vim.lsp.buf.definition, { buffer = true, silent = true })
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = true, silent = true })
+    vim.keymap.set('n', 'K', function()
+      vim.lsp.buf.hover({ border = 'single' })
+    end, { buffer = true, silent = true })
     vim.keymap.set('n', 'gd', vim.lsp.buf.declaration, { buffer = true, silent = true })
 
     vim.wo.signcolumn = 'yes'
@@ -64,13 +68,6 @@ local function open_floating_window()
 end
 
 lsp.init = function()
-  -- Global override, from https://github.com/neovim/nvim-lspconfig/wiki/UI-customization
-  function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-    opts = opts or {}
-    opts.border = opts.border or 'single'
-    return open_floating_preview(contents, syntax, opts, ...)
-  end
-
   vim.diagnostic.config({
     float = {
       header = 'Diagnostics', -- Default is "Diagnostics:"
