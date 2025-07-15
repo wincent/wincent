@@ -33,7 +33,7 @@ local update_statusline = function(default, action)
         .. '%{get(w:,"quickfix_title","")}'
         .. '%='
     else
-      result = vim.g.WincentQuickfixStatusline or ''
+      result = require('wincent.statusline.quickfix') or ''
     end
   else
     result = 1

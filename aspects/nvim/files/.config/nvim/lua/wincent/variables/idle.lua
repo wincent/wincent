@@ -1,4 +1,4 @@
-local idle = function()
+local function idle()
   -- Set up shortcut variables for "hash -d" directories.
   local dirs = vim.fn.system([[zsh -c "source ~/.zsh/hash; hash -d"]])
 
