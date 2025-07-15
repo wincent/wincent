@@ -2,7 +2,7 @@
 -- Given that we don't expect there to be many markers in any given file, we
 -- just store them in a simple list as opposed to a fancier data structure (like
 -- a search tree).
-local cache = require('wincent.util.retain')({})
+local cache = {}
 
 -- Don't bother trying to compute marker-based folds for buffers with more than
 -- this number of lines.

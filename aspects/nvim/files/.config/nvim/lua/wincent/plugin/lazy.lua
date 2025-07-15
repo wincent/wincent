@@ -1,4 +1,4 @@
-wincent.g.lazy = {}
+local store = {}
 
 local lazy_index = 0
 
@@ -18,7 +18,7 @@ local function lazy(pack, config)
 
   local key = '_' .. lazy_index
   lazy_index = lazy_index + 1
-  wincent.g.lazy[key] = config
+  store[key] = config
 
   config.load = function()
     if config.beforeload ~= nil then
@@ -50,28 +50,22 @@ local function lazy(pack, config)
       config.afterload()
     end
 
-    wincent.g.lazy[key] = nil
+    store[key] = nil
   end
 
   if config.commands ~= nil then
     for command, opts in pairs(config.commands) do
       if opts == true then
-        -- TODO: consider supporting type(opts) == 'table' in future
-        -- eg. {nargs = '?', bar = true, bang = true} etc
-        opts = ''
+        opts = {}
       end
-      vim.cmd(
-        'command! '
-          .. opts
-          .. ' '
-          .. command
-          .. ' '
-          .. ':call v:lua.wincent.g.lazy.'
-          .. key
-          .. '.load() <bar> '
-          .. command
-          .. ' <args>'
-      )
+      vim.api.nvim_create_user_command(command, function(data)
+        store[key].load()
+        if data.args ~= '' then
+          vim.cmd({ cmd = command, args = { data.args } })
+        else
+          vim.cmd(command)
+        end
+      end, opts)
     end
   end
 
@@ -82,7 +76,7 @@ local function lazy(pack, config)
       local cmd = item[3]
       local opts = item[4] or {}
       local rhs = function()
-        wincent.g.lazy[key].load()
+        store[key].load()
         vim.cmd(cmd)
       end
       vim.keymap.set(modes, lhs, rhs, opts)

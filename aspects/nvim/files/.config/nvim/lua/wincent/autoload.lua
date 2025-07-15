@@ -39,7 +39,7 @@
 -- this will work nicely with file navigation (eg. `gf`), jumping to definition,
 -- and showing hover documentation.
 --
-local autoload = function(base)
+local function autoload(base)
   local storage = {}
   local mt = {
     __index = function(_, key)
