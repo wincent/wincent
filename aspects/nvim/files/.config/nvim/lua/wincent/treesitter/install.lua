@@ -5,7 +5,7 @@
 --
 local function install()
   local parsers = require('wincent.treesitter.config').get().parsers
-  for _, parser in parsers do
+  for _, parser in ipairs(parsers) do
     require('nvim-treesitter').install(parser)
   end
 end
