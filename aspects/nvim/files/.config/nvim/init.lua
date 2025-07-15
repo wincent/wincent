@@ -497,126 +497,56 @@ if has_commandt then
   })
 end
 
-local has_treesitter, treesitter = pcall(require, 'nvim-treesitter')
-if has_treesitter then
-  treesitter.setup({
-    auto_install = false,
-    ensure_installed = {
-      -- These are bundled with Neovim:
-      'c',
-      'lua',
-      'markdown',
-      'markdown_inline',
-      'vim', -- Vimscript.
-      'vimdoc',
-      'query',
-
-      -- Extras to be downloaded:
-      'bash',
-      'css',
-      'diff',
-      'dot',
-      'editorconfig',
-      'git_config',
-      'gitcommit',
-      'gitignore',
-      'go',
-      'gpg',
-      'graphql',
-      'haskell',
-      'html',
-      'java',
-      'javascript',
-      'json',
-      'jsonc',
-      'make',
-      'nginx',
-      'ninja',
-      'objc',
-      'ocaml',
-      'perl',
-      'php',
-      'prolog',
-      'python',
-      'ruby',
-      'rust',
-      'sql',
-      'ssh_config',
-      'tcl',
-      'tmux',
-      'toml',
-      'typescript',
-      'yaml',
-    },
-
-    highlight = {
-      enable = true,
-      disable = function(_lang, buffer)
-        if require('wincent.nvim.is_large_buffer')(buffer) then
-          -- Equivalent to :TSBufDisable highlight.
-          return true
-        end
-      end,
-    },
-    incremental_selection = {
-      -- gnn = init selection
-      -- grn = node incremental
-      -- grc = scope incremental
-      -- grm = node decremental
-      -- See: `:h nvim-treesitter-incremental-selection-mod`
-      enable = true,
-      disable = function(_lang, buffer)
-        if require('wincent.nvim.is_large_buffer')(buffer) then
-          -- Equivalent to :TSBufDisable incremental_selection.
-          return true
-        end
-      end,
-    },
-    indent = {
-      enable = true,
-      disable = function(_lang, buffer)
-        if require('wincent.nvim.is_large_buffer')(buffer) then
-          -- Equivalent to :TSBufDisable indent.
-          return true
-        end
-      end,
-    },
-    ignore_install = {},
-    modules = {},
-    sync_install = false,
-    textobjects = {
-      select = {
-        enable = true,
-        disable = function(_lang, buffer)
-          if require('wincent.nvim.is_large_buffer')(buffer) then
-            return true
-          end
-        end,
-        keymaps = {
-          -- Similar to vim-textobj-comment: https://github.com/glts/vim-textobj-comment/
-          ['ac'] = { query = '@comment.outer', desc = 'Select outer part of a comment region' },
-          ['ic'] = { query = '@comment.inner', desc = 'Select inner part of a comment region' },
-
-          ['af'] = { query = '@function.outer', desc = 'Select outer part of a function region' },
-          ['if'] = { query = '@function.inner', desc = 'Select inner part of a function region' },
-
-          ['ak'] = { query = '@class.outer', desc = 'Select outer part of a class region' },
-          ['ik'] = { query = '@class.inner', desc = 'Select inner part of a class region' },
-
-          ['al'] = { query = '@loop.outer', desc = 'Select outer part of a loop region' },
-          ['il'] = { query = '@loop.inner', desc = 'Select inner part of a loop region' },
-
-          -- Equivalent of vim-textobj-rubyblock: https://github.com/nelstrom/vim-textobj-rubyblock
-          ['ar'] = { query = '@block.outer', desc = 'Select language scope' },
-          ['ir'] = { query = '@block.inner', desc = 'Select language scope' },
-
-          ['as'] = { query = '@local.scope', query_group = 'locals', desc = 'Select language scope' },
-        },
-        lookahead = true,
-      },
-    },
-  })
-end
+-- NOTE: To actually install these, run:
+--
+--     :lua require('wincent.treesitter.install')()`
+--
+require('wincent.treesitter.setup')({
+  parsers = {
+    'c',
+    'lua',
+    'markdown',
+    'markdown_inline',
+    'vim', -- Vimscript.
+    'vimdoc',
+    'query',
+    'bash',
+    'css',
+    'diff',
+    'dot',
+    'editorconfig',
+    'git_config',
+    'gitcommit',
+    'gitignore',
+    'go',
+    'gpg',
+    'graphql',
+    'haskell',
+    'html',
+    'java',
+    'javascript',
+    'json',
+    'jsonc',
+    'make',
+    'nginx',
+    'ninja',
+    'objc',
+    'ocaml',
+    'perl',
+    'php',
+    'prolog',
+    'python',
+    'ruby',
+    'rust',
+    'sql',
+    'ssh_config',
+    'tcl',
+    'tmux',
+    'toml',
+    'typescript',
+    'yaml',
+  },
+})
 
 -- Allow for per-machine overrides.
 local hostname = string.lower(vim.fn.substitute(vim.fn.hostname(), '\\..*', '', ''))
