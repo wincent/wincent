@@ -1,5 +1,109 @@
 # Changelog
 
+Noteworthy changes, as selected from `git changelog --since $LAST_DATE`.
+
+## 2025-07-16
+
+- Added new `--pretty` formats to Git: `default` and `changelog`.
+- Added new Git alias, `git changelog`.
+
+## 2025-07-11
+
+- (Riggrep) Use `--engine=auto` by default (allows use of PCRE2 features, such as lookaround).
+
+## 2025-06-16
+
+- (Git) Set `rebase.updateRefs` to `true` (ie. behave like `git rebase --update-refs`).
+
+## 2025-06-11
+
+- (Neovim) Add `<Leader>ppp` mapping (prints absolute path and copies it to clipboard).
+
+## 2025-05-29
+
+- (Fig) Taught `file()` operation to `skip` path components.
+
+## 2025-03-28
+
+- (Neovim) Add simple LSP progress display.
+
+## 2025-03-17
+
+- (Raycast) Add "tt" (new tab) and "dt" (duplicate tab) commands.
+
+## 2025-03-10
+
+- Add `git resurrect`, which attempts to recover dropped stashes.
+
+## 2025-02-25
+
+- (Git) Sort tags by `version:refname` (ie. "1.2" now comes before "1.11"; previously, they would sort lexicographically).
+
+## 2025-02-17
+
+- (Neovim) Switch from [vim-clipper](https://github.com/wincent/vim-clipper) (Vimscript) to [nvim-clipper](https://github.com/wincent/nvim-clipper) (Lua).
+
+## 2025-02-11
+
+- (Neovim) Switch from [vim-dirvish](https://github.com/justinmk/vim-dirvish) to [oil.nvim](https://github.com/stevearc/oil.nvim).
+
+## 2025-01-31
+
+- (Neovim) Add `<LocalLeader>z` mapping to "zoom" current window.
+
+## 2025-01-09
+
+- (Neovim) Add a custom `'foldexpr'` that combines indent and marker-based folding.
+
+## 2025-01-05
+
+- Start using tree-titter in Neovim.
+
+## 2025-01-03
+
+- (Neovim) Teach [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) to behave as if `cmp.ConfirmBehavior.MatchSuffix` existed ([nvim-cmp#1716](https://github.com/hrsh7th/nvim-cmp/issues/1716)).
+
+## 2024-10-10
+
+- Added `git recent` alias.
+- Set up `yazi`.
+
+## 2024-10-10
+
+- (Zsh) Add binding (`^x^o`) to edit last command's output.
+
+## 2024-10-09
+
+- Use `interactive.singleKey` in Git config.
+
+## 2024-08-21
+
+- Added `bin/benchmark` script to measure shell startup time.
+
+## 2024-08-16
+
+- Prefer [Violentmonkey](https://violentmonkey.github.io) to [Tampermonkey](https://www.tampermonkey.net).
+
+## 2024-08-08
+
+- Added `git continue`.
+
+## 2024-08-03
+
+- (Neovim) Added mappings for resizing splits.
+
+## 2024-07-17
+
+- Teach Hammerspoon to cycle through more window sizes.
+
+## 2024-06-06
+
+- Added `git long`, counterpart to `git abbrev`.
+
+## 2023-10-08
+
+- Switched from [Prettier](https://prettier.io) to [dprint](https://dprint.dev) for formatting.
+
 ## 2023-10-06
 
 - Switched default color scheme to "classic-dark".

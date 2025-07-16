@@ -14,6 +14,7 @@
 	amend = commit --amend -v
 	both = diff --ignore-submodules=dirty HEAD
 	br = branch
+	changelog = log --pretty=changelog --reverse
 	ci = commit -v
 	co = checkout
 	count = !git --no-pager log --oneline | wc -l
@@ -49,10 +50,10 @@
 	}; f"
 
 	# Equivalent to: `graph --all`
-	gr = !git --paginate log --graph --all --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%= '<\%' %>aN>%Creset'
+	gr = !git --paginate log --graph --all --pretty=default
 
-	# Requires Git 1.6.3 or later; `%C(auto)` requires Git 1.8.3 or later.
-	graph = !git --paginate log --graph --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%= '<\%' %>aN>%Creset'
+	# Requires Git 1.6.3 or later.
+	graph = !git --paginate log --graph --pretty=default
 
 	# Wrapper for vcs-jump that provides sensible default behavior when invoked
 	# without args:
@@ -88,9 +89,8 @@
 
 	no-edit = commit --amend --no-edit
 
-	# `%C(auto)` requires Git 1.8.3 or later.
-	one = !git --paginate log --pretty=format:'%C(auto)%h%Creset %s%C(auto)%d%Creset %C(magenta bold)(%cr)%Creset %C(cyan)<%= '<\%' %>aN>%Creset'
-	oneline = !git --paginate log --pretty=format:'%C(auto)%h%Creset %s%C(auto)%d%Creset %C(magenta bold)(%cr)%Creset %C(cyan)<%= '<\%' %>aN>%Creset'
+	one = !git --paginate log --pretty=default
+	oneline = !git --paginate log --pretty=default
 
 	# Requires Git 1.5.4 or later.
 	p = add -p
@@ -122,13 +122,11 @@
 
 	# "smartlog", although it's not that smart.
 	# Equivalent to `git graph --all --simplify-by-decoration`.
-	sl = !git --paginate log --graph --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%= '<\%' %>aN>%Creset' --all --simplify-by-decoration
+	sl = !git --paginate log --graph --pretty=default --all --simplify-by-decoration
 
 	st = status
 	staged = diff --cached --ignore-submodules=dirty
-
-	# `%C(auto)` requires Git 1.8.3 or later.
-	ten = !git --paginate log -10 --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)<%= '<\%' %>aN>%Creset'
+	ten = !git --paginate log -10 --pretty=default
 
 	# Compensate for brain damage caused by using Mercurial.
 	up = checkout
@@ -248,6 +246,14 @@
 	show-branch = true
 	status = true
 	whatchanged = ~/.zsh/bin/diff-highlight | menos -iFMRSX --pattern='^(commit|diff)'
+
+# `%C(auto)` requires Git 1.8.3 or later.
+[pretty]
+	# Commit hash, YYYY-MM-DD (committer date), commit subject, decoration, author.
+	changelog = %C(auto)%h%Creset %C(magenta bold)(%cs)%Creset %s%C(auto)%d%Creset %C(cyan)<%= '<\%' %>aN>%Creset
+
+  # Commit hash, commit subject, decoration, relative committer date, author.
+	default = %C(auto)%h%Creset %s%C(auto)%d%Creset %C(magenta bold)(%cr)%Creset %C(cyan)<%= '<\%' %>aN>%Creset
 
 [protocol]
 	# Added in Git 2.18.0.
