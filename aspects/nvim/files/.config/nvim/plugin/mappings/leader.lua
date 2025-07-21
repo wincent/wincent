@@ -76,12 +76,6 @@ vim.keymap.set('n', '<LocalLeader>dl', ':diffget //3<CR>', { silent = true })
 -- <LocalLeader>e -- Edit file, starting in same directory as current file.
 vim.keymap.set('n', '<LocalLeader>e', ":edit <C-R>=expand('%:p:h') . '/'<CR>")
 
--- <LocalLeader>p -- [P]rint the syntax highlighting group(s) that apply at the
--- current cursor position.
-vim.keymap.set('n', '<LocalLeader>p', function()
-  print(require('wincent.mappings.leader.get_highlight_group')())
-end)
-
 -- <LocalLeader>x -- Turn references to the word under the cursor to references
 -- to the WORD under the cursor:
 --
