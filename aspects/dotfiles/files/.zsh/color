@@ -105,7 +105,7 @@ color() {
       # swallow stderr.
       (
         cd ~/.config/kitty &&
-        ln -sf colors/$SCHEME.conf colors.conf 2> /dev/null
+        ln -sf themes/$SCHEME.conf colors.conf 2> /dev/null
 
         cd ~/.config/tmux &&
         ln -sf colors/$SCHEME.conf theme.conf 2> /dev/null

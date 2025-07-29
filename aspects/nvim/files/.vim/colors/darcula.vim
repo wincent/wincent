@@ -69,7 +69,7 @@ let s:cterm17  = '13'
 
 " base16_colorspace` and `base16colorspace` are legacy properties and
 " exist to keep existing setups from breaking
-if (exists('base16colorspace') && base16_colorspace !=? '256') || (exists('tinted_colorspace') && tinted_colorspace !=? '256')
+if (exists('base16_colorspace') && base16_colorspace !=? '256') || (exists('base16colorspace') && base16colorspace !=? '256') || (exists('tinted_colorspace') && tinted_colorspace !=? '256')
   " We have only 16 colors so define fallbacks for codes > 15
   let s:cterm01 = s:cterm00
   let s:cterm02 = s:cterm03
@@ -131,6 +131,34 @@ else
   let s:ctermbg = s:cterm00
 endif
 
+if !exists('g:tinted_bold')
+  let g:tinted_bold = 1
+endif
+
+if !exists('g:tinted_italic')
+  let g:tinted_italic = 1
+endif
+
+if !exists('g:tinted_strikethrough')
+  let g:tinted_strikethrough = 1
+endif
+
+if !exists('g:tinted_underline')
+  let g:tinted_underline = 1
+endif
+
+if !exists('g:tinted_undercurl')
+  let g:tinted_undercurl = g:tinted_underline
+endif
+
+let s:attrs = {
+      \ 'bold': g:tinted_bold,
+      \ 'italic': g:tinted_italic,
+      \ 'strikethrough': g:tinted_strikethrough,
+      \ 'underline': g:tinted_underline,
+      \ 'undercurl': g:tinted_undercurl,
+      \}
+
 " Theme setup
 let g:colors_name = 'base16-darcula'
 
@@ -141,7 +169,7 @@ function! g:Tinted_Hi(group, guifg, guibg, ctermfg, ctermbg, ...)
   " Clear the highlight to be more robust against default Highlighting changes
   exec 'hi! clear ' . a:group
 
-  let l:attr = get(a:, 1, '')
+  let l:attr = join(filter(split(get(a:, 1, ''), ','), 'get(s:attrs, v:val, 1)'), ',')
   let l:guisp = get(a:, 2, '')
 
   " See :help highlight-guifg
@@ -443,10 +471,18 @@ if has('nvim-0.8.0')
   call <sid>hi('@comment.note',    s:gui0D, '', s:cterm0D, '', 'italic', '')
   call <sid>hi('@comment.todo',    s:gui0C, '', s:cterm0C, '', 'italic', '')
 
-  hi! @markup.strong        gui=bold          cterm=bold
-  hi! @markup.italic        gui=italic        cterm=italic
-  hi! @markup.strikethrough gui=strikethrough cterm=strikethrough
-  hi! @markup.underline     gui=underline     cterm=underline
+  if (g:tinted_bold == 1)
+    hi! @markup.strong        gui=bold          cterm=bold
+  endif
+  if (g:tinted_italic == 1)
+    hi! @markup.italic        gui=italic        cterm=italic
+  endif
+  if (g:tinted_strikethrough == 1)
+    hi! @markup.strikethrough gui=strikethrough cterm=strikethrough
+  endif
+  if (g:tinted_underline == 1)
+    hi! @markup.underline     gui=underline     cterm=underline
+  endif
 
   hi! link @markup.heading Title
   hi! link @markup.quote String

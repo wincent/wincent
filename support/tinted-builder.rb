@@ -76,29 +76,34 @@ end
 
 banner "Updating output files from templates"
 
-# Tuple of [template source, output base directory].
+# Tuple of [template source, output base directory, optional key name].
 [
   [
     root.join('vendor/tinted-theming/tinted-vim'),
     root.join("aspects/nvim/files/.vim"),
+    nil,
   ],
   [
-    root.join('vendor/tinted-theming/tinted-kitty'),
+    root.join('vendor/tinted-theming/tinted-terminal'),
     root.join("aspects/dotfiles/files/.config/kitty"),
+    'kitty-base24',
   ],
   [
     root.join('vendor/tinted-theming/tinted-shell'),
     root.join("aspects/dotfiles/files/.zsh/colors"),
+    nil,
   ],
   [
     root.join('vendor/tinted-theming/tinted-tmux'),
     root.join("aspects/dotfiles/files/.config/tmux"),
+    nil,
   ],
   [
     root.join('aspects/nvim/files/.config/nvim/pack/bundle/opt/base16-nvim'),
     root.join("aspects/nvim/files/.config/nvim/pack/bundle/opt/base16-nvim"),
+    nil,
   ],
-].each do |(source, output_base)|
+].each do |(source, output_base, key_name)|
   template_config_path = source.join("templates/config.yaml")
   template_config = YAML.load_file(template_config_path)
   puts "Read: #{relative(template_config_path)} config"
@@ -110,35 +115,30 @@ banner "Updating output files from templates"
   #       supported-systems: [base24, base16]
   #       filename: colors/{{ scheme-system }}-{{ scheme-slug }}.vim
   #
-  #     # tinted-theming/tinted-kitty:
-  #     base16:
-  #       filename: colors/ {{ scheme-system }}-{{ scheme-slug }}.conf
-  #       supported-systems: [base16]
-  #     base24:
-  #       filename: colors/ {{ scheme-system }}-{{ scheme-slug }}.conf
+  #     # tinted-theming/tinted-terminal:
+  #     kitty-base24:
+  #       filename: themes/kitty/{{ scheme-system }}-{{ scheme-slug }}.conf
   #       supported-systems: [base24]
   #
   # While others have this form:
   #
   #     # tinted-theming/tinted-shell:
-  #     base16:
-  #       extension: .sh
-  #       output: scripts
   #     base24:
   #       extension: .sh
   #       output: scripts
   #       supported-systems: [base24]
   #
   #     # tinted-theming/tinted-tmux:
-  #     base16:
-  #       extension: .conf
-  #       output: colors
   #     base24:
   #       extension: .conf
   #       output: colors
   #       supported-systems: [base24]
 
   template_config.keys.each do |name|
+    if !key_name.nil? && name != key_name
+      puts "Skipping key: #{name}"
+      next
+    end
     if name.end_with?("-deprecated")
       puts "Skipping deprecated template: #{name}"
       next
