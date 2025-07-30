@@ -177,16 +177,16 @@ lsp.init = function()
       },
     })
 
-    if vim.fn.executable('clangd') == 1 then
-      vim.lsp.config('clangd', {
-        settings = {
-          clangd = {
-            cmd = { 'clangd', '--background-index' },
-          },
+    vim.lsp.config('clangd', {
+      settings = {
+        clangd = {
+          cmd = { 'clangd', '--background-index' },
         },
-      })
-      vim.lsp.enable('clangd')
-    end
+      },
+    })
+    vim.lsp.enable('clangd', vim.fn.executable('clangd') == 1)
+
+    vim.lsp.enable('gopls', vim.fn.executable('gopls') == 1)
 
     -- Prerequisite: https://github.com/LuaLS/lua-language-server
     --
@@ -311,25 +311,10 @@ lsp.init = function()
       vim.lsp.enable('lua_ls')
     end
 
-    if vim.fn.executable('gopls') == 1 then
-      vim.lsp.enable('gopls')
-    end
-
-    if vim.fn.executable('ocaml-language-server') == 1 then
-      vim.lsp.enable('ocamlls')
-    end
-
-    if vim.fn.executable('rust-analyzer') == 1 then
-      vim.lsp.enable('rust_analyzer')
-    end
-
-    if vim.fn.executable('typescript-language-server') == 1 then
-      vim.lsp.enable('ts_ls')
-    end
-
-    if vim.fn.executable('vim-language-server') == 1 then
-      vim.lsp.enable('vimls')
-    end
+    vim.lsp.enable('ocamlls', vim.fn.executable('ocaml-language-server') == 1)
+    vim.lsp.enable('rust_analyzer', vim.fn.executable('rust-analyzer') == 1)
+    vim.lsp.enable('ts_ls', vim.fn.executable('typescript-language-server') == 1)
+    vim.lsp.enable('vimls', vim.fn.executable('vim-language-server') == 1)
   end
 
   augroup('wincent.lsp', function(autocmd)
