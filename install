@@ -18,7 +18,7 @@ git clean -fdxq -- fig/types
 
 log_info "Generating TypeScript types"
 
-node --experimental-strip-types --no-warnings support/typegen/index.ts
+node support/typegen/index.ts
 
 log_info "Checking TypeScript source"
 
@@ -29,4 +29,4 @@ ln -fns ../fig node_modules/fig
 
 log_info "Running Fig"
 
-node --experimental-strip-types --no-warnings fig/main.mts "$@"
+node fig/main.mts "$@"
