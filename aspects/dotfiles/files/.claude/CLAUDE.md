@@ -28,6 +28,10 @@ To avoid this error, whenever you run a Claude command (such as `claude mcp`), y
 
 For example, commands of the form `git show $SOME_COMMIT` or `git diff $SOME_REV`, which only read data, can be run without asking first.
 
+# Prefer `rg` over `grep`
+
+In general, if you're thinking of using `grep`, you should use `rg` instead, because it is faster.
+
 # Follow the instructions in `CLAUDE.md` and related files eagerly
 
 In this file and in any related host-specific files, you should follow the instructions immediately without being prompted.
