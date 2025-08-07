@@ -53,15 +53,16 @@ local function open_floating_window()
   end
   window = vim.api.nvim_open_win(buffer, false, {
     relative = 'editor',
+    title = ' LSP ',
     width = window_width,
     height = window_height,
     row = editor_height - window_height - 4,
     col = editor_width - window_width - 2,
     style = 'minimal',
-    border = 'rounded',
+    border = 'single',
   })
 
-  vim.api.nvim_set_option_value('winblend', 75, {
+  vim.api.nvim_set_option_value('winblend', 50, {
     scope = 'local',
     win = window,
   })
