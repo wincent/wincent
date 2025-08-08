@@ -1,7 +1,6 @@
 -- Map from parsers to filetypes.
 local filetypes = {
   git_config = 'gitconfig',
-  gitignore = 'ignore',
   markdown_inline = 'markdown',
   query = 'scheme',
   ssh_config = 'sshconfig',
