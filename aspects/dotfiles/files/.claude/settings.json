@@ -4,6 +4,8 @@
       "Bash(command git diff:*)",
       "Bash(command git log:*)",
       "Bash(command git show:*)",
+      "Bash(command git status:*)",
+      "Bash(find:*)",
       "Bash(grep:*)",
       "Bash(rg:*)"
     ]
