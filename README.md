@@ -175,7 +175,6 @@ git clone --recursive https://github.com/wincent/wincent.git
 At the time of writing, these are the aspects, which you can expect to change over time (see [the `aspects/` directory](./aspects) for an up-to-date listing):
 
 - On macOS only:
-  - **automator**: Scripts for use with Automator
   - **automount**: Sets up macOS's automount facility
   - **backup**: Backup scripts
   - **cron**: Sets up cron files

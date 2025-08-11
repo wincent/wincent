@@ -17,7 +17,6 @@ export default {
         'violentmonkey',
         'nvim',
         'cron',
-        'automator',
         'automount',
         'defaults',
       ],
