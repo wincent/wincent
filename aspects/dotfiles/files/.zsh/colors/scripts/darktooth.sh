@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Darktooth 
+# Scheme name: Darktooth
 # Scheme author: Jason Milkins (https://github.com/jasonm23)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="darktooth"
@@ -12,8 +12,8 @@ color03="FA/C0/3B" # Base 0A - Yellow
 color04="0D/66/78" # Base 0D - Blue
 color05="8F/46/73" # Base 0E - Magenta
 color06="8B/A5/9B" # Base 0C - Cyan
-color07="D5/C4/A1" # Base 06 - White
-color08="50/49/45" # Base 02 - Bright Black
+color07="A8/99/84" # Base 05 - White
+color08="66/5C/54" # Base 03 - Bright Black
 color09="FB/54/3F" # Base 12 - Bright Red
 color10="95/C0/85" # Base 14 - Bright Green
 color11="FA/C0/3B" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="A8/99/84" # Base 05
 color_background="1D/20/21" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

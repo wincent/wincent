@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Windows 10 Light 
+# Scheme name: Windows 10 Light
 # Scheme author: Fergus Collins (https://github.com/ferguscollins)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="windows-10-light"
@@ -12,8 +12,8 @@ color03="c1/9c/00" # Base 0A - Yellow
 color04="00/37/da" # Base 0D - Blue
 color05="88/17/98" # Base 0E - Magenta
 color06="3a/96/dd" # Base 0C - Cyan
-color07="41/41/41" # Base 06 - White
-color08="d9/d9/d9" # Base 02 - Bright Black
+color07="76/76/76" # Base 05 - White
+color08="cc/cc/cc" # Base 03 - Bright Black
 color09="c5/0f/1f" # Base 12 - Bright Red
 color10="13/a1/0e" # Base 14 - Bright Green
 color11="c1/9c/00" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="76/76/76" # Base 05
 color_background="f2/f2/f2" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

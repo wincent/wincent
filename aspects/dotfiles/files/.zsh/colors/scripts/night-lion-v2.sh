@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Night Lion V2 
+# Scheme name: Night Lion V2
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="night-lion-v2"
@@ -12,8 +12,8 @@ color03="62/ca/e7" # Base 0A - Yellow
 color04="63/d0/f0" # Base 0D - Blue
 color05="ce/6f/da" # Base 0E - Magenta
 color06="00/d9/df" # Base 0C - Cyan
-color07="bb/bb/bb" # Base 06 - White
-color08="55/55/55" # Base 02 - Bright Black
+color07="a1/a1/a1" # Base 05 - White
+color08="6e/6e/6e" # Base 03 - Bright Black
 color09="ff/55/55" # Base 12 - Bright Red
 color10="7d/f6/1c" # Base 14 - Bright Green
 color11="ff/ff/55" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="a1/a1/a1" # Base 05
 color_background="17/17/17" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

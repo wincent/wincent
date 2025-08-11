@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Argonaut 
+# Scheme name: Argonaut
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="argonaut"
@@ -12,8 +12,8 @@ color03="00/92/ff" # Base 0A - Yellow
 color04="00/8d/f8" # Base 0D - Blue
 color05="6c/43/a5" # Base 0E - Magenta
 color06="00/d7/eb" # Base 0C - Cyan
-color07="ff/ff/ff" # Base 06 - White
-color08="44/44/44" # Base 02 - Bright Black
+color07="d0/d0/d0" # Base 05 - White
+color08="72/72/72" # Base 03 - Bright Black
 color09="ff/27/3f" # Base 12 - Bright Red
 color10="ab/e0/5a" # Base 14 - Bright Green
 color11="ff/d1/41" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="d0/d0/d0" # Base 05
 color_background="0d/0f/18" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

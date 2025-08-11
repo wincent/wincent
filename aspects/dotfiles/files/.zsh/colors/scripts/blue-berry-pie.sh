@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Blue Berry Pie 
+# Scheme name: Blue Berry Pie
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="blue-berry-pie"
@@ -12,8 +12,8 @@ color03="38/16/3d" # Base 0A - Yellow
 color04="90/a5/bc" # Base 0D - Blue
 color05="9d/53/a7" # Base 0E - Magenta
 color06="7e/82/cc" # Base 0C - Cyan
-color07="f0/e7/d5" # Base 06 - White
-color08="1f/16/37" # Base 02 - Bright Black
+color07="bb/b2/ad" # Base 05 - White
+color08="53/4a/5e" # Base 03 - Bright Black
 color09="c7/71/71" # Base 12 - Bright Red
 color10="0a/6b/7e" # Base 14 - Bright Green
 color11="79/31/88" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="bb/b2/ad" # Base 05
 color_background="1c/0b/28" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Highway 
+# Scheme name: Highway
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="highway"
@@ -12,8 +12,8 @@ color03="4f/c2/fd" # Base 0A - Yellow
 color04="00/6a/b3" # Base 0D - Blue
 color05="6a/26/74" # Base 0E - Magenta
 color06="38/45/63" # Base 0C - Cyan
-color07="ed/ed/ed" # Base 06 - White
-color08="5c/4f/49" # Base 02 - Bright Black
+color07="c8/c5/c4" # Base 05 - White
+color08="80/76/72" # Base 03 - Bright Black
 color09="ef/7d/17" # Base 12 - Bright Red
 color10="b1/d1/30" # Base 14 - Bright Green
 color11="ff/f1/1f" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="c8/c5/c4" # Base 05
 color_background="21/22/24" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Synth Midnight Terminal Dark 
+# Scheme name: Synth Midnight Terminal Dark
 # Scheme author: Michaël Ball (http://github.com/michael-ball/)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="synth-midnight-dark"
@@ -12,8 +12,8 @@ color03="c9/d3/64" # Base 0A - Yellow
 color04="03/ae/ff" # Base 0D - Blue
 color05="ea/5c/e2" # Base 0E - Magenta
 color06="42/ff/f9" # Base 0C - Cyan
-color07="cf/d1/d2" # Base 06 - White
-color08="28/29/2a" # Base 02 - Bright Black
+color07="c1/c3/c4" # Base 05 - White
+color08="47/48/49" # Base 03 - Bright Black
 color09="b5/3b/50" # Base 12 - Bright Red
 color10="06/ea/61" # Base 14 - Bright Green
 color11="c9/d3/64" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="c1/c3/c4" # Base 05
 color_background="05/06/08" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

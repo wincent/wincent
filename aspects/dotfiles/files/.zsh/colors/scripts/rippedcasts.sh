@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Rippedcasts 
+# Scheme name: Rippedcasts
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="rippedcasts"
@@ -12,8 +12,8 @@ color03="86/bd/c9" # Base 0A - Yellow
 color04="75/a5/b0" # Base 0D - Blue
 color05="ff/73/fd" # Base 0E - Magenta
 color06="59/64/7e" # Base 0C - Cyan
-color07="bf/bf/bf" # Base 06 - White
-color08="66/66/66" # Base 02 - Bright Black
+color07="a8/a8/a8" # Base 05 - White
+color08="7c/7c/7c" # Base 03 - Bright Black
 color09="ee/cb/ad" # Base 12 - Bright Red
 color10="bc/ee/68" # Base 14 - Bright Green
 color11="e5/e5/00" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="a8/a8/a8" # Base 05
 color_background="2b/2b/2b" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

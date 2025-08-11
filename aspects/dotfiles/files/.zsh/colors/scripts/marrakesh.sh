@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Marrakesh 
+# Scheme name: Marrakesh
 # Scheme author: Alexandre Gavioli (http://github.com/Alexx2/)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="marrakesh"
@@ -12,8 +12,8 @@ color03="a8/83/39" # Base 0A - Yellow
 color04="47/7c/a1" # Base 0D - Blue
 color05="88/68/b3" # Base 0E - Magenta
 color06="75/a7/38" # Base 0C - Cyan
-color07="cc/c3/7a" # Base 06 - White
-color08="5f/5b/17" # Base 02 - Bright Black
+color07="94/8e/48" # Base 05 - White
+color08="6c/68/23" # Base 03 - Bright Black
 color09="c3/53/59" # Base 12 - Bright Red
 color10="18/97/4e" # Base 14 - Bright Green
 color11="a8/83/39" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="94/8e/48" # Base 05
 color_background="20/16/02" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Horizon Light 
+# Scheme name: Horizon Light
 # Scheme author: Michaël Ball (http://github.com/michael-ball/)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="horizon-light"
@@ -12,8 +12,8 @@ color03="FB/E0/D9" # Base 0A - Yellow
 color04="DA/10/3F" # Base 0D - Blue
 color05="1D/89/91" # Base 0E - Magenta
 color06="DC/33/18" # Base 0C - Cyan
-color07="30/2C/2D" # Base 06 - White
-color08="F9/CB/BE" # Base 02 - Bright Black
+color07="40/3C/3D" # Base 05 - White
+color08="BD/B3/B1" # Base 03 - Bright Black
 color09="F7/93/9B" # Base 12 - Bright Red
 color10="94/E1/B0" # Base 14 - Bright Green
 color11="FB/E0/D9" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="40/3C/3D" # Base 05
 color_background="FD/F0/ED" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

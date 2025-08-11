@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: OneDark Dark 
+# Scheme name: OneDark Dark
 # Scheme author: olimorris (https://github.com/olimorris)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="onedark-dark"
@@ -12,8 +12,8 @@ color03="e5/c0/7b" # Base 0A - Yellow
 color04="61/af/ef" # Base 0D - Blue
 color05="d5/5f/de" # Base 0E - Magenta
 color06="2b/ba/c5" # Base 0C - Cyan
-color07="b6/bd/ca" # Base 06 - White
-color08="2c/31/3a" # Base 02 - Bright Black
+color07="ab/b2/bf" # Base 05 - White
+color08="43/48/52" # Base 03 - Bright Black
 color09="ef/59/6f" # Base 12 - Bright Red
 color10="89/ca/78" # Base 14 - Bright Green
 color11="e5/c0/7b" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="ab/b2/bf" # Base 05
 color_background="00/00/00" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

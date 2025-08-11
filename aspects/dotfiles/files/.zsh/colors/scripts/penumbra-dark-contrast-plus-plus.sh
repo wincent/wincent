@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Penumbra Dark Contrast Plus Plus 
+# Scheme name: Penumbra Dark Contrast Plus Plus
 # Scheme author: Zachary Weiss (https://github.com/zacharyweiss)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="penumbra-dark-contrast-plus-plus"
@@ -12,8 +12,8 @@ color03="A9/B8/52" # Base 0A - Yellow
 color04="6E/B2/FD" # Base 0D - Blue
 color05="B6/9C/F6" # Base 0E - Magenta
 color06="00/C4/D7" # Base 0C - Cyan
-color07="FF/F7/ED" # Base 06 - White
-color08="3E/40/44" # Base 02 - Bright Black
+color07="DE/DE/DE" # Base 05 - White
+color08="63/63/63" # Base 03 - Bright Black
 color09="F5/8C/81" # Base 12 - Bright Red
 color10="54/C7/94" # Base 14 - Bright Green
 color11="A9/B8/52" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="DE/DE/DE" # Base 05
 color_background="0D/0F/13" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

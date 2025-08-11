@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: IR Black 
+# Scheme name: IR Black
 # Scheme author: Timothée Poisot (http://timotheepoisot.fr)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="irblack"
@@ -12,8 +12,8 @@ color03="ff/ff/b6" # Base 0A - Yellow
 color04="96/cb/fe" # Base 0D - Blue
 color05="ff/73/fd" # Base 0E - Magenta
 color06="c6/c5/fe" # Base 0C - Cyan
-color07="d9/d7/cc" # Base 06 - White
-color08="48/48/44" # Base 02 - Bright Black
+color07="b5/b3/aa" # Base 05 - White
+color08="6c/6c/66" # Base 03 - Bright Black
 color09="ff/6c/60" # Base 12 - Bright Red
 color10="a8/ff/60" # Base 14 - Bright Green
 color11="ff/ff/b6" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="b5/b3/aa" # Base 05
 color_background="00/00/00" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Warm Neon 
+# Scheme name: Warm Neon
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="warm-neon"
@@ -12,8 +12,8 @@ color03="7a/90/d5" # Base 0A - Yellow
 color04="42/60/c5" # Base 0D - Blue
 color05="f8/1f/fb" # Base 0E - Magenta
 color06="29/ba/d3" # Base 0C - Cyan
-color07="d0/b8/a3" # Base 06 - White
-color08="fd/fc/fc" # Base 02 - Bright Black
+color07="dc/c9/ba" # Base 05 - White
+color08="f2/eb/e6" # Base 03 - Bright Black
 color09="e8/6f/71" # Base 12 - Bright Red
 color10="9b/c0/8f" # Base 14 - Bright Green
 color11="dd/d9/79" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="dc/c9/ba" # Base 05
 color_background="3f/3f/3f" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

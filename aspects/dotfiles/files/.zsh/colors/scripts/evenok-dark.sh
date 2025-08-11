@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Evenok Dark 
+# Scheme name: Evenok Dark
 # Scheme author: Mekeor Melire
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="evenok-dark"
@@ -12,8 +12,8 @@ color03="b8/a3/00" # Base 0A - Yellow
 color04="00/af/f2" # Base 0D - Blue
 color05="90/95/ff" # Base 0E - Magenta
 color06="00/ba/b3" # Base 0C - Cyan
-color07="e0/e0/e0" # Base 06 - White
-color08="30/30/30" # Base 02 - Bright Black
+color07="d0/d0/d0" # Base 05 - White
+color08="50/50/50" # Base 03 - Bright Black
 color09="f5/70/8a" # Base 12 - Bright Red
 color10="54/bc/5c" # Base 14 - Bright Green
 color11="b8/a3/00" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="d0/d0/d0" # Base 05
 color_background="00/00/00" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

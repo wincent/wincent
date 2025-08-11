@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Medallion 
+# Scheme name: Medallion
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="medallion"
@@ -12,8 +12,8 @@ color03="ab/b8/ff" # Base 0A - Yellow
 color04="60/6b/af" # Base 0D - Blue
 color05="8b/59/90" # Base 0E - Magenta
 color06="90/6b/25" # Base 0C - Cyan
-color07="c9/c1/99" # Base 06 - White
-color08="5e/51/18" # Base 02 - Bright Black
+color07="ae/a5/78" # Base 05 - White
+color08="78/6d/38" # Base 03 - Bright Black
 color09="ff/91/48" # Base 12 - Bright Red
 color10="b1/c9/3a" # Base 14 - Bright Green
 color11="ff/e4/49" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="ae/a5/78" # Base 05
 color_background="1d/18/08" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

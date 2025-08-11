@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Monokai Vivid 
+# Scheme name: Monokai Vivid
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="monokai-vivid"
@@ -12,8 +12,8 @@ color03="04/42/fe" # Base 0A - Yellow
 color04="04/42/fe" # Base 0D - Blue
 color05="f8/00/f8" # Base 0E - Magenta
 color06="01/b6/ed" # Base 0C - Cyan
-color07="ff/fe/fe" # Base 06 - White
-color08="82/82/82" # Base 02 - Bright Black
+color07="df/df/df" # Base 05 - White
+color08="a1/a1/a1" # Base 03 - Bright Black
 color09="f5/66/9c" # Base 12 - Bright Red
 color10="b0/e0/5e" # Base 14 - Bright Green
 color11="fe/f2/6c" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="df/df/df" # Base 05
 color_background="12/12/12" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

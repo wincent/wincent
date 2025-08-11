@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Summerfruit Light 
+# Scheme name: Summerfruit Light
 # Scheme author: Christopher Corley (http://christop.club/)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="summerfruit-light"
@@ -12,8 +12,8 @@ color03="AB/A8/00" # Base 0A - Yellow
 color04="37/77/E6" # Base 0D - Blue
 color05="AD/00/A1" # Base 0E - Magenta
 color06="1F/AA/AA" # Base 0C - Cyan
-color07="15/15/15" # Base 06 - White
-color08="D0/D0/D0" # Base 02 - Bright Black
+color07="10/10/10" # Base 05 - White
+color08="B0/B0/B0" # Base 03 - Bright Black
 color09="FF/00/86" # Base 12 - Bright Red
 color10="00/C9/18" # Base 14 - Bright Green
 color11="AB/A8/00" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="10/10/10" # Base 05
 color_background="FF/FF/FF" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: ShadeSmear Light 
+# Scheme name: ShadeSmear Light
 # Scheme author: Kyle Giammarco (http://kyle.giammar.co)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="shadesmear-light"
@@ -12,8 +12,8 @@ color03="30/78/78" # Base 0A - Yellow
 color04="37/63/88" # Base 0D - Blue
 color05="D7/AB/54" # Base 0E - Magenta
 color06="C5/7D/42" # Base 0C - Cyan
-color07="1C/1C/1C" # Base 06 - White
-color08="C0/C0/C0" # Base 02 - Bright Black
+color07="23/23/23" # Base 05 - White
+color08="4E/4E/4E" # Base 03 - Bright Black
 color09="CC/54/50" # Base 12 - Bright Red
 color10="71/98/3B" # Base 14 - Bright Green
 color11="30/78/78" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="23/23/23" # Base 05
 color_background="DB/DB/DB" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

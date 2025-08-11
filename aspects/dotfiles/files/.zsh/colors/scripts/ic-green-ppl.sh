@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: IC-Green-PPL 
+# Scheme name: IC-Green-PPL
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="ic-green-ppl"
@@ -12,8 +12,8 @@ color03="2e/fa/eb" # Base 0A - Yellow
 color04="2e/c3/b9" # Base 0D - Blue
 color05="50/a0/96" # Base 0E - Magenta
 color06="3c/a0/78" # Base 0C - Cyan
-color07="e6/fe/f2" # Base 06 - White
-color08="02/5c/02" # Base 02 - Bright Black
+color07="ad/d5/b6" # Base 05 - White
+color08="3b/84/3e" # Base 03 - Bright Black
 color09="b4/fa/5c" # Base 12 - Bright Red
 color10="ae/fa/86" # Base 14 - Bright Green
 color11="da/fa/87" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="ad/d5/b6" # Base 05
 color_background="2c/2c/2c" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

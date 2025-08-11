@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Wez 
+# Scheme name: Wez
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="wez"
@@ -12,8 +12,8 @@ color03="55/55/ff" # Base 0A - Yellow
 color04="54/55/cb" # Base 0D - Blue
 color05="cc/55/cc" # Base 0E - Magenta
 color06="7a/ca/ca" # Base 0C - Cyan
-color07="cc/cc/cc" # Base 06 - White
-color08="55/55/55" # Base 02 - Bright Black
+color07="ae/ae/ae" # Base 05 - White
+color08="72/72/72" # Base 03 - Bright Black
 color09="ff/55/55" # Base 12 - Bright Red
 color10="55/ff/55" # Base 14 - Bright Green
 color11="ff/ff/55" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="ae/ae/ae" # Base 05
 color_background="00/00/00" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

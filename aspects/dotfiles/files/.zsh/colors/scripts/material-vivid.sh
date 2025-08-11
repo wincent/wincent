@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Material Vivid 
+# Scheme name: Material Vivid
 # Scheme author: joshyrobot
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="material-vivid"
@@ -12,8 +12,8 @@ color03="ff/eb/3b" # Base 0A - Yellow
 color04="21/96/f3" # Base 0D - Blue
 color05="67/3a/b7" # Base 0E - Magenta
 color06="00/bc/d4" # Base 0C - Cyan
-color07="9e/9e/9e" # Base 06 - White
-color08="32/36/39" # Base 02 - Bright Black
+color07="80/86/8b" # Base 05 - White
+color08="44/46/4d" # Base 03 - Bright Black
 color09="f4/43/36" # Base 12 - Bright Red
 color10="00/e6/76" # Base 14 - Bright Green
 color11="ff/eb/3b" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="80/86/8b" # Base 05
 color_background="20/21/24" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

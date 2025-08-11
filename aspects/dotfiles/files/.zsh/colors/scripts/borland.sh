@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Borland 
+# Scheme name: Borland
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="borland"
@@ -12,8 +12,8 @@ color03="b5/dc/fe" # Base 0A - Yellow
 color04="96/ca/fd" # Base 0D - Blue
 color05="ff/73/fd" # Base 0E - Magenta
 color06="c6/c4/fd" # Base 0C - Cyan
-color07="ee/ee/ee" # Base 06 - White
-color08="7c/7c/7c" # Base 02 - Bright Black
+color07="d1/d1/d1" # Base 05 - White
+color08="98/98/98" # Base 03 - Bright Black
 color09="ff/b6/b0" # Base 12 - Bright Red
 color10="ce/ff/ab" # Base 14 - Bright Green
 color11="ff/ff/cb" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="d1/d1/d1" # Base 05
 color_background="00/00/a4" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

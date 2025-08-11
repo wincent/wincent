@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Windows NT Light 
+# Scheme name: Windows NT Light
 # Scheme author: Fergus Collins (https://github.com/ferguscollins)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="windows-nt-light"
@@ -12,8 +12,8 @@ color03="80/80/00" # Base 0A - Yellow
 color04="00/00/80" # Base 0D - Blue
 color05="80/00/80" # Base 0E - Magenta
 color06="00/80/80" # Base 0C - Cyan
-color07="40/40/40" # Base 06 - White
-color08="d5/d5/d5" # Base 02 - Bright Black
+color07="80/80/80" # Base 05 - White
+color08="c0/c0/c0" # Base 03 - Bright Black
 color09="80/00/00" # Base 12 - Bright Red
 color10="00/80/00" # Base 14 - Bright Green
 color11="80/80/00" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="80/80/80" # Base 05
 color_background="ff/ff/ff" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

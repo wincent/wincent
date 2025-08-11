@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Tokyodark Terminal 
+# Scheme name: Tokyodark Terminal
 # Scheme author: Tiagovla (https://github.com/tiagovla/)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="tokyodark-terminal"
@@ -12,8 +12,8 @@ color03="d7/a6/5f" # Base 0A - Yellow
 color04="71/99/ee" # Base 0D - Blue
 color05="a4/85/dd" # Base 0E - Magenta
 color06="38/a8/9d" # Base 0C - Cyan
-color07="a0/a8/cd" # Base 06 - White
-color08="21/22/34" # Base 02 - Bright Black
+color07="a0/a8/cd" # Base 05 - White
+color08="28/2c/34" # Base 03 - Bright Black
 color09="ee/6d/85" # Base 12 - Bright Red
 color10="95/c5/61" # Base 14 - Bright Green
 color11="d7/a6/5f" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="a0/a8/cd" # Base 05
 color_background="11/12/1d" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Idle Toes 
+# Scheme name: Idle Toes
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="idle-toes"
@@ -12,8 +12,8 @@ color03="5e/b7/f7" # Base 0A - Yellow
 color04="40/98/ff" # Base 0D - Blue
 color05="f5/7f/ff" # Base 0E - Magenta
 color06="be/d6/ff" # Base 0C - Cyan
-color07="ee/ee/ec" # Base 06 - White
-color08="53/53/53" # Base 02 - Bright Black
+color07="c7/c7/c5" # Base 05 - White
+color08="79/79/79" # Base 03 - Bright Black
 color09="f0/70/70" # Base 12 - Bright Red
 color10="9d/ff/90" # Base 14 - Bright Green
 color11="ff/e4/8b" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="c7/c7/c5" # Base 05
 color_background="32/32/32" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

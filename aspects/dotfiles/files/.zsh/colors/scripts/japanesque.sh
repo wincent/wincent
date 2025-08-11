@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Japanesque 
+# Scheme name: Japanesque
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="japanesque"
@@ -12,8 +12,8 @@ color03="13/58/79" # Base 0A - Yellow
 color04="4c/99/d3" # Base 0D - Blue
 color05="a5/7f/c4" # Base 0E - Magenta
 color06="38/9a/ac" # Base 0C - Cyan
-color07="f9/fa/f6" # Base 06 - White
-color08="58/5a/58" # Base 02 - Bright Black
+color07="d0/d2/ce" # Base 05 - White
+color08="80/82/7f" # Base 03 - Bright Black
 color09="d1/8e/a6" # Base 12 - Bright Red
 color10="76/7e/2b" # Base 14 - Bright Green
 color11="77/59/2e" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="d0/d2/ce" # Base 05
 color_background="1d/1d/1d" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

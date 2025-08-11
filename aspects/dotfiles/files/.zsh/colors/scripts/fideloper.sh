@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Fideloper 
+# Scheme name: Fideloper
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="fideloper"
@@ -12,8 +12,8 @@ color03="7c/84/c4" # Base 0A - Yellow
 color04="2e/78/c1" # Base 0D - Blue
 color05="c0/22/6e" # Base 0E - Magenta
 color06="30/91/85" # Base 0C - Cyan
-color07="e9/e2/cd" # Base 06 - White
-color08="09/20/27" # Base 02 - Bright Black
+color07="b1/b1/a3" # Base 05 - White
+color08="41/50/50" # Base 03 - Bright Black
 color09="d3/5f/5a" # Base 12 - Bright Red
 color10="d3/5f/5a" # Base 14 - Bright Green
 color11="a8/65/71" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="b1/b1/a3" # Base 05
 color_background="28/2f/32" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

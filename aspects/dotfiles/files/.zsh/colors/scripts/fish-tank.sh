@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Fish Tank 
+# Scheme name: Fish Tank
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="fish-tank"
@@ -12,8 +12,8 @@ color03="b1/bd/f9" # Base 0A - Yellow
 color04="52/5f/b8" # Base 0D - Blue
 color05="97/6f/81" # Base 0E - Magenta
 color06="96/86/62" # Base 0C - Cyan
-color07="ec/ef/fc" # Base 06 - White
-color08="6c/5a/30" # Base 02 - Bright Black
+color07="cc/c9/c9" # Base 05 - White
+color08="8c/7f/63" # Base 03 - Bright Black
 color09="d9/4a/8a" # Base 12 - Bright Red
 color10="da/ff/a8" # Base 14 - Bright Green
 color11="fe/e6/a8" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="cc/c9/c9" # Base 05
 color_background="22/24/36" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

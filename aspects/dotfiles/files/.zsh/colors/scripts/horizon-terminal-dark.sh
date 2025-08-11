@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Horizon Terminal Dark 
+# Scheme name: Horizon Terminal Dark
 # Scheme author: Michaël Ball (http://github.com/michael-ball/)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="horizon-terminal-dark"
@@ -12,8 +12,8 @@ color03="FA/C2/9A" # Base 0A - Yellow
 color04="26/BB/D9" # Base 0D - Blue
 color05="EE/64/AC" # Base 0E - Magenta
 color06="59/E1/E3" # Base 0C - Cyan
-color07="DC/DF/E4" # Base 06 - White
-color08="2E/30/3E" # Base 02 - Bright Black
+color07="CB/CE/D0" # Base 05 - White
+color08="6F/6F/70" # Base 03 - Bright Black
 color09="E9/56/78" # Base 12 - Bright Red
 color10="29/D3/98" # Base 14 - Bright Green
 color11="FA/C2/9A" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="CB/CE/D0" # Base 05
 color_background="1C/1E/26" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

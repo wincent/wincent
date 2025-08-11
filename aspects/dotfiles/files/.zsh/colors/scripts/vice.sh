@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: vice 
+# Scheme name: vice
 # Scheme author: Thomas Leon Highbaugh thighbaugh@zoho.com
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="vice"
@@ -12,8 +12,8 @@ color03="f0/ff/aa" # Base 0A - Yellow
 color04="00/ea/ff" # Base 0D - Blue
 color05="00/f6/d9" # Base 0E - Magenta
 color06="82/65/ff" # Base 0C - Cyan
-color07="b2/bf/d9" # Base 06 - White
-color08="3c/3f/4c" # Base 02 - Bright Black
+color07="8b/9c/be" # Base 05 - White
+color08="38/3a/47" # Base 03 - Bright Black
 color09="ff/29/a8" # Base 12 - Bright Red
 color10="0b/ad/ff" # Base 14 - Bright Green
 color11="f0/ff/aa" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="8b/9c/be" # Base 05
 color_background="17/19/1E" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

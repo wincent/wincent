@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Dark Plus 
+# Scheme name: Dark Plus
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="dark-plus"
@@ -12,8 +12,8 @@ color03="3b/8e/ea" # Base 0A - Yellow
 color04="24/72/c8" # Base 0D - Blue
 color05="bc/3f/bc" # Base 0E - Magenta
 color06="11/a8/cd" # Base 0C - Cyan
-color07="e5/e5/e5" # Base 06 - White
-color08="66/66/66" # Base 02 - Bright Black
+color07="c5/c5/c5" # Base 05 - White
+color08="85/85/85" # Base 03 - Bright Black
 color09="f1/4c/4c" # Base 12 - Bright Red
 color10="23/d1/8b" # Base 14 - Bright Green
 color11="f5/f5/43" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="c5/c5/c5" # Base 05
 color_background="0e/0e/0e" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

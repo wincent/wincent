@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Pop 
+# Scheme name: Pop
 # Scheme author: Chris Kempson (https://github.com/chriskempson)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="pop"
@@ -12,8 +12,8 @@ color03="f8/ca/12" # Base 0A - Yellow
 color04="0e/5a/94" # Base 0D - Blue
 color05="b3/1e/8d" # Base 0E - Magenta
 color06="00/aa/bb" # Base 0C - Cyan
-color07="e0/e0/e0" # Base 06 - White
-color08="30/30/30" # Base 02 - Bright Black
+color07="d0/d0/d0" # Base 05 - White
+color08="50/50/50" # Base 03 - Bright Black
 color09="eb/00/8a" # Base 12 - Bright Red
 color10="37/b3/49" # Base 14 - Bright Green
 color11="f8/ca/12" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="d0/d0/d0" # Base 05
 color_background="00/00/00" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

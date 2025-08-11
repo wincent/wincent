@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Bluloco Light 
+# Scheme name: Bluloco Light
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="bluloco-light"
@@ -12,8 +12,8 @@ color03="10/85/d9" # Base 0A - Yellow
 color04="1d/44/dd" # Base 0D - Blue
 color05="6d/1b/ed" # Base 0E - Magenta
 color06="1e/4d/7a" # Base 0C - Cyan
-color07="00/00/00" # Base 06 - White
-color08="dd/de/e8" # Base 02 - Bright Black
+color07="38/38/3a" # Base 05 - White
+color08="a6/a7/ae" # Base 03 - Bright Black
 color09="fb/49/6d" # Base 12 - Bright Red
 color10="34/b2/53" # Base 14 - Bright Green
 color11="b7/93/26" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="38/38/3a" # Base 05
 color_background="f7/f7/f7" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

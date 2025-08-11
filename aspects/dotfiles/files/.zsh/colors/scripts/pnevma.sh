@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Pnevma 
+# Scheme name: Pnevma
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="pnevma"
@@ -12,8 +12,8 @@ color03="a1/bd/ce" # Base 0A - Yellow
 color04="7f/a5/bd" # Base 0D - Blue
 color05="c7/9e/c4" # Base 0E - Magenta
 color06="8a/db/b4" # Base 0C - Cyan
-color07="d0/d0/d0" # Base 06 - White
-color08="4a/48/45" # Base 02 - Bright Black
+color07="ae/ae/ad" # Base 05 - White
+color08="6b/6a/67" # Base 03 - Bright Black
 color09="d7/87/87" # Base 12 - Bright Red
 color10="af/be/a2" # Base 14 - Bright Green
 color11="e4/c9/af" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="ae/ae/ad" # Base 05
 color_background="1c/1c/1c" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

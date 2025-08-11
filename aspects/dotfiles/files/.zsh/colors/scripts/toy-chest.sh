@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Toy Chest 
+# Scheme name: Toy Chest
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="toy-chest"
@@ -12,8 +12,8 @@ color03="33/a5/d9" # Base 0A - Yellow
 color04="32/5d/96" # Base 0D - Blue
 color05="8a/5d/db" # Base 0E - Magenta
 color06="35/a0/8f" # Base 0C - Cyan
-color07="23/d0/82" # Base 06 - White
-color08="32/68/89" # Base 02 - Bright Black
+color07="27/b6/84" # Base 05 - White
+color08="2f/82/88" # Base 03 - Bright Black
 color09="dd/59/43" # Base 12 - Bright Red
 color10="30/cf/7b" # Base 14 - Bright Green
 color11="e7/d7/4b" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="27/b6/84" # Base 05
 color_background="23/36/4a" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

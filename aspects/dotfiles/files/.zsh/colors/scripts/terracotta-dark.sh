@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Terracotta Dark 
+# Scheme name: Terracotta Dark
 # Scheme author: Alexander Rossell Hayes (https://github.com/rossellhayes)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="terracotta-dark"
@@ -12,8 +12,8 @@ color03="ff/c3/7a" # Base 0A - Yellow
 color04="b0/a4/c3" # Base 0D - Blue
 color05="d8/a2/b0" # Base 0E - Magenta
 color06="c0/bc/db" # Base 0C - Cyan
-color07="ca/bb/b5" # Base 06 - White
-color08="47/39/33" # Base 02 - Bright Black
+color07="b8/a5/9d" # Base 05 - White
+color08="59/47/40" # Base 03 - Bright Black
 color09="f6/99/8f" # Base 12 - Bright Red
 color10="b6/c6/8a" # Base 14 - Bright Green
 color11="ff/c3/7a" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="b8/a5/9d" # Base 05
 color_background="24/1d/1a" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Penumbra Dark 
+# Scheme name: Penumbra Dark
 # Scheme author: Zachary Weiss (https://github.com/zacharyweiss)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="penumbra-dark"
@@ -12,8 +12,8 @@ color03="8D/97/41" # Base 0A - Yellow
 color04="57/94/D0" # Base 0D - Blue
 color05="94/81/CC" # Base 0E - Magenta
 color06="00/A2/AF" # Base 0C - Cyan
-color07="FF/F7/ED" # Base 06 - White
-color08="3E/40/44" # Base 02 - Bright Black
+color07="BE/BE/BE" # Base 05 - White
+color08="63/63/63" # Base 03 - Bright Black
 color09="CA/73/6C" # Base 12 - Bright Red
 color10="47/A4/77" # Base 14 - Bright Green
 color11="8D/97/41" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="BE/BE/BE" # Base 05
 color_background="24/27/2B" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

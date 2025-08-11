@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Default Light 
+# Scheme name: Default Light
 # Scheme author: Chris Kempson (https://github.com/chriskempson)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="default-light"
@@ -12,8 +12,8 @@ color03="f7/ca/88" # Base 0A - Yellow
 color04="7c/af/c2" # Base 0D - Blue
 color05="ba/8b/af" # Base 0E - Magenta
 color06="86/c1/b9" # Base 0C - Cyan
-color07="28/28/28" # Base 06 - White
-color08="d8/d8/d8" # Base 02 - Bright Black
+color07="38/38/38" # Base 05 - White
+color08="b8/b8/b8" # Base 03 - Bright Black
 color09="ab/46/42" # Base 12 - Bright Red
 color10="a1/b5/6c" # Base 14 - Bright Green
 color11="f7/ca/88" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="38/38/38" # Base 05
 color_background="f8/f8/f8" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

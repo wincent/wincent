@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Crayon Pony Fish 
+# Scheme name: Crayon Pony Fish
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="crayon-pony-fish"
@@ -12,8 +12,8 @@ color03="cf/c9/ff" # Base 0A - Yellow
 color04="8b/87/af" # Base 0D - Blue
 color05="68/2e/50" # Base 0E - Magenta
 color06="e8/a7/66" # Base 0C - Cyan
-color07="68/52/59" # Base 06 - White
-color08="3c/2a/2e" # Base 02 - Bright Black
+color07="5d/48/4e" # Base 05 - White
+color08="47/34/38" # Base 03 - Bright Black
 color09="c5/24/5c" # Base 12 - Bright Red
 color10="8d/ff/56" # Base 14 - Bright Green
 color11="c7/37/1d" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="5d/48/4e" # Base 05
 color_background="14/06/07" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

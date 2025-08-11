@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: One Light 
+# Scheme name: One Light
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="one-light"
@@ -12,8 +12,8 @@ color03="fe/bb/2a" # Base 0A - Yellow
 color04="40/78/f2" # Base 0D - Blue
 color05="a6/26/a4" # Base 0E - Magenta
 color06="01/84/bc" # Base 0C - Cyan
-color07="20/22/27" # Base 06 - White
-color08="ca/ca/ce" # Base 02 - Bright Black
+color07="38/3a/42" # Base 05 - White
+color08="a0/a1/a7" # Base 03 - Bright Black
 color09="ec/22/58" # Base 12 - Bright Red
 color10="6d/b7/6c" # Base 14 - Bright Green
 color11="f4/a7/01" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="38/3a/42" # Base 05
 color_background="e7/e7/e9" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Grape 
+# Scheme name: Grape
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="grape"
@@ -12,8 +12,8 @@ color03="a9/bb/eb" # Base 0A - Yellow
 color04="48/7c/f4" # Base 0D - Blue
 color05="8c/35/c8" # Base 0E - Magenta
 color06="3a/dd/ed" # Base 0C - Cyan
-color07="9e/9e/a0" # Base 06 - White
-color08="58/50/6a" # Base 02 - Bright Black
+color07="8c/8a/92" # Base 05 - White
+color08="69/63/77" # Base 03 - Bright Black
 color09="f0/71/9a" # Base 12 - Bright Red
 color10="52/a9/5d" # Base 14 - Bright Green
 color11="b2/dc/87" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="8c/8a/92" # Base 05
 color_background="16/14/23" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

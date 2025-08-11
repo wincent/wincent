@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Classic Dark 
+# Scheme name: Classic Dark
 # Scheme author: Jason Heeris (http://heeris.id.au)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="classic-dark"
@@ -12,8 +12,8 @@ color03="F4/BF/75" # Base 0A - Yellow
 color04="6A/9F/B5" # Base 0D - Blue
 color05="AA/75/9F" # Base 0E - Magenta
 color06="75/B5/AA" # Base 0C - Cyan
-color07="E0/E0/E0" # Base 06 - White
-color08="30/30/30" # Base 02 - Bright Black
+color07="D0/D0/D0" # Base 05 - White
+color08="50/50/50" # Base 03 - Bright Black
 color09="AC/41/42" # Base 12 - Bright Red
 color10="90/A9/59" # Base 14 - Bright Green
 color11="F4/BF/75" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="D0/D0/D0" # Base 05
 color_background="15/15/15" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

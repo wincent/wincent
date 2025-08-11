@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Da One Paper 
+# Scheme name: Da One Paper
 # Scheme author: NNB (https://github.com/NNBnh)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="da-one-paper"
@@ -12,8 +12,8 @@ color03="b3/68/4f" # Base 0A - Yellow
 color04="58/90/f8" # Base 0D - Blue
 color05="c1/73/d1" # Base 0E - Magenta
 color06="64/b5/a7" # Base 0C - Cyan
-color07="00/00/00" # Base 06 - White
-color08="88/88/88" # Base 02 - Bright Black
+color07="18/18/18" # Base 05 - White
+color08="58/58/58" # Base 03 - Bright Black
 color09="de/5d/6e" # Base 12 - Bright Red
 color10="76/a8/5d" # Base 14 - Bright Green
 color11="b3/68/4f" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="18/18/18" # Base 05
 color_background="fa/f0/dc" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

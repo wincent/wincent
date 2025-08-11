@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Cupertino 
+# Scheme name: Cupertino
 # Scheme author: Defman21
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="cupertino"
@@ -12,8 +12,8 @@ color03="82/6b/28" # Base 0A - Yellow
 color04="00/00/ff" # Base 0D - Blue
 color05="a9/0d/91" # Base 0E - Magenta
 color06="31/84/95" # Base 0C - Cyan
-color07="40/40/40" # Base 06 - White
-color08="c0/c0/c0" # Base 02 - Bright Black
+color07="40/40/40" # Base 05 - White
+color08="80/80/80" # Base 03 - Bright Black
 color09="c4/1a/15" # Base 12 - Bright Red
 color10="00/74/00" # Base 14 - Bright Green
 color11="82/6b/28" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="40/40/40" # Base 05
 color_background="ff/ff/ff" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

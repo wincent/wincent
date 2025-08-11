@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Gruvbox dark, pale 
+# Scheme name: Gruvbox dark, pale
 # Scheme author: Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="gruvbox-dark-pale"
@@ -12,8 +12,8 @@ color03="ff/af/00" # Base 0A - Yellow
 color04="83/ad/ad" # Base 0D - Blue
 color05="d4/85/ad" # Base 0E - Magenta
 color06="85/ad/85" # Base 0C - Cyan
-color07="d5/c4/a1" # Base 06 - White
-color08="4e/4e/4e" # Base 02 - Bright Black
+color07="da/b9/97" # Base 05 - White
+color08="8a/8a/8a" # Base 03 - Bright Black
 color09="d7/5f/5f" # Base 12 - Bright Red
 color10="af/af/00" # Base 14 - Bright Green
 color11="ff/af/00" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="da/b9/97" # Base 05
 color_background="26/26/26" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

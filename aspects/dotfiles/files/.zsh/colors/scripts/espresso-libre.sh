@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Espresso Libre 
+# Scheme name: Espresso Libre
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="espresso-libre"
@@ -12,8 +12,8 @@ color03="43/a8/ed" # Base 0A - Yellow
 color04="00/66/ff" # Base 0D - Blue
 color05="c5/65/6b" # Base 0E - Magenta
 color06="05/98/9a" # Base 0C - Cyan
-color07="d3/d7/cf" # Base 06 - White
-color08="54/57/53" # Base 02 - Bright Black
+color07="b3/b7/b0" # Base 05 - White
+color08="73/77/72" # Base 03 - Bright Black
 color09="ef/28/28" # Base 12 - Bright Red
 color10="9a/ff/87" # Base 14 - Bright Green
 color11="ff/fa/5c" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="b3/b7/b0" # Base 05
 color_background="2a/21/1c" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

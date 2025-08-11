@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Vibrant Ink 
+# Scheme name: Vibrant Ink
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="vibrant-ink"
@@ -12,8 +12,8 @@ color03="00/00/ff" # Base 0A - Yellow
 color04="44/b3/cc" # Base 0D - Blue
 color05="99/33/cc" # Base 0E - Magenta
 color06="44/b3/cc" # Base 0C - Cyan
-color07="f5/f5/f5" # Base 06 - White
-color08="55/55/55" # Base 02 - Bright Black
+color07="cd/cd/cd" # Base 05 - White
+color08="7d/7d/7d" # Base 03 - Bright Black
 color09="ff/00/00" # Base 12 - Bright Red
 color10="00/ff/00" # Base 14 - Bright Green
 color11="ff/ff/00" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="cd/cd/cd" # Base 05
 color_background="00/00/00" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

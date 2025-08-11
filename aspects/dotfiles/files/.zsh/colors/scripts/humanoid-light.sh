@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Humanoid light 
+# Scheme name: Humanoid light
 # Scheme author: Thomas (tasmo) Friese
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="humanoid-light"
@@ -12,8 +12,8 @@ color03="ff/b6/27" # Base 0A - Yellow
 color04="00/82/c9" # Base 0D - Blue
 color05="70/0f/98" # Base 0E - Magenta
 color06="00/8e/8e" # Base 0C - Cyan
-color07="2f/33/37" # Base 06 - White
-color08="de/de/d8" # Base 02 - Bright Black
+color07="23/26/29" # Base 05 - White
+color08="c0/c0/bd" # Base 03 - Bright Black
 color09="b0/15/1a" # Base 12 - Bright Red
 color10="38/8e/3c" # Base 14 - Bright Green
 color11="ff/b6/27" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="23/26/29" # Base 05
 color_background="f8/f8/f2" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

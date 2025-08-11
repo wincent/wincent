@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Later This Evening 
+# Scheme name: Later This Evening
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="later-this-evening"
@@ -12,8 +12,8 @@ color03="65/99/d5" # Base 0A - Yellow
 color04="a0/b9/d5" # Base 0D - Blue
 color05="bf/92/d5" # Base 0E - Magenta
 color06="91/be/b6" # Base 0C - Cyan
-color07="3b/3c/3c" # Base 06 - White
-color08="44/47/47" # Base 02 - Bright Black
+color07="3e/3f/3f" # Base 05 - White
+color08="42/45/45" # Base 03 - Bright Black
 color09="d3/22/2e" # Base 12 - Bright Red
 color10="aa/bb/39" # Base 14 - Bright Green
 color11="e4/bd/39" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="3e/3f/3f" # Base 05
 color_background="21/21/21" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

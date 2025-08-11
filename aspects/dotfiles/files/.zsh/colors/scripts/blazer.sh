@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Blazer 
+# Scheme name: Blazer
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="blazer"
@@ -12,8 +12,8 @@ color03="bd/bd/db" # Base 0A - Yellow
 color04="7a/7a/b8" # Base 0D - Blue
 color05="b8/7a/b8" # Base 0E - Magenta
 color06="7a/b8/b8" # Base 0C - Cyan
-color07="d9/d9/d9" # Base 06 - White
-color08="26/26/26" # Base 02 - Bright Black
+color07="ac/ac/ac" # Base 05 - White
+color08="52/52/52" # Base 03 - Bright Black
 color09="db/bd/bd" # Base 12 - Bright Red
 color10="bd/db/bd" # Base 14 - Bright Green
 color11="db/db/bd" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="ac/ac/ac" # Base 05
 color_background="0d/19/26" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

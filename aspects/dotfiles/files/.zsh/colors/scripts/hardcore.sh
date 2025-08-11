@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Hardcore 
+# Scheme name: Hardcore
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="hardcore"
@@ -12,8 +12,8 @@ color03="33/bb/ff" # Base 0A - Yellow
 color04="00/aa/ff" # Base 0D - Blue
 color05="aa/88/ff" # Base 0E - Magenta
 color06="88/dd/ff" # Base 0C - Cyan
-color07="cc/cc/cc" # Base 06 - White
-color08="41/41/41" # Base 02 - Bright Black
+color07="a9/a9/a9" # Base 05 - White
+color08="63/63/63" # Base 03 - Bright Black
 color09="ff/88/88" # Base 12 - Bright Red
 color10="b6/f2/92" # Base 14 - Bright Green
 color11="ff/d9/66" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="a9/a9/a9" # Base 05
 color_background="11/11/11" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

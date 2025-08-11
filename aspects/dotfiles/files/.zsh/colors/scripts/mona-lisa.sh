@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Mona Lisa 
+# Scheme name: Mona Lisa
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="mona-lisa"
@@ -12,8 +12,8 @@ color03="9e/b2/b3" # Base 0A - Yellow
 color04="51/5b/5c" # Base 0D - Blue
 color05="9b/1d/29" # Base 0E - Magenta
 color06="58/80/56" # Base 0C - Cyan
-color07="f6/d7/5c" # Base 06 - White
-color08="87/42/27" # Base 02 - Bright Black
+color07="da/b1/4e" # Base 05 - White
+color08="a2/67/34" # Base 03 - Bright Black
 color09="ff/42/30" # Base 12 - Bright Red
 color10="b3/b1/63" # Base 14 - Bright Green
 color11="ff/95/65" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="da/b1/4e" # Base 05
 color_background="11/0b/0d" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

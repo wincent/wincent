@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Pasque 
+# Scheme name: Pasque
 # Scheme author: Gabriel Fontes (https://github.com/Misterio77)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="pasque"
@@ -12,8 +12,8 @@ color03="80/4e/ad" # Base 0A - Yellow
 color04="8E/7D/C6" # Base 0D - Blue
 color05="95/3B/9D" # Base 0E - Magenta
 color06="72/63/AA" # Base 0C - Cyan
-color07="ED/EA/EF" # Base 06 - White
-color08="3E/2D/5C" # Base 02 - Bright Black
+color07="DE/DC/DF" # Base 05 - White
+color08="5D/57/66" # Base 03 - Bright Black
 color09="A9/22/58" # Base 12 - Bright Red
 color10="C6/91/4B" # Base 14 - Bright Green
 color11="80/4e/ad" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="DE/DC/DF" # Base 05
 color_background="27/1C/3A" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

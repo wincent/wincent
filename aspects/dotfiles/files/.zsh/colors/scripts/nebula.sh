@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Nebula 
+# Scheme name: Nebula
 # Scheme author: Gabriel Fontes (https://github.com/Misterio77)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="nebula"
@@ -12,8 +12,8 @@ color03="4f/90/62" # Base 0A - Yellow
 color04="4d/6b/b6" # Base 0D - Blue
 color05="71/6c/ae" # Base 0E - Magenta
 color06="22/6f/68" # Base 0C - Cyan
-color07="c7/c9/cd" # Base 06 - White
-color08="5a/83/80" # Base 02 - Bright Black
+color07="a4/a6/a9" # Base 05 - White
+color08="6e/6f/72" # Base 03 - Bright Black
 color09="77/7a/bc" # Base 12 - Bright Red
 color10="65/62/a8" # Base 14 - Bright Green
 color11="4f/90/62" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="a4/a6/a9" # Base 05
 color_background="22/27/3b" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

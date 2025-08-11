@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Sea Shells 
+# Scheme name: Sea Shells
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="sea-shells"
@@ -12,8 +12,8 @@ color03="1b/bc/dd" # Base 0A - Yellow
 color04="1e/49/50" # Base 0D - Blue
 color05="68/d3/f1" # Base 0E - Magenta
 color06="50/a3/b5" # Base 0C - Cyan
-color07="de/b8/8d" # Base 06 - White
-color08="42/4b/52" # Base 02 - Bright Black
+color07="b7/9c/7e" # Base 05 - White
+color08="69/66/60" # Base 03 - Bright Black
 color09="d3/86/77" # Base 12 - Bright Red
 color10="61/8c/98" # Base 14 - Bright Green
 color11="fd/d2/9e" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="b7/9c/7e" # Base 05
 color_background="08/13/1a" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

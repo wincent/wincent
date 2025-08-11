@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Atelier Forest 
+# Scheme name: Atelier Forest
 # Scheme author: Bram de Haan (http://atelierbramdehaan.nl)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="atelier-forest"
@@ -12,8 +12,8 @@ color03="c3/84/18" # Base 0A - Yellow
 color04="40/7e/e7" # Base 0D - Blue
 color05="66/66/ea" # Base 0E - Magenta
 color06="3d/97/b8" # Base 0C - Cyan
-color07="e6/e2/e0" # Base 06 - White
-color08="68/61/5e" # Base 02 - Bright Black
+color07="a8/a1/9f" # Base 05 - White
+color08="76/6e/6b" # Base 03 - Bright Black
 color09="f2/2c/40" # Base 12 - Bright Red
 color10="7b/97/26" # Base 14 - Bright Green
 color11="c3/84/18" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="a8/a1/9f" # Base 05
 color_background="1b/19/18" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

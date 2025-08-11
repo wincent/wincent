@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Arthur 
+# Scheme name: Arthur
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="arthur"
@@ -12,8 +12,8 @@ color03="87/ce/eb" # Base 0A - Yellow
 color04="64/95/ed" # Base 0D - Blue
 color05="de/b8/87" # Base 0E - Magenta
 color06="b0/c4/de" # Base 0C - Cyan
-color07="bb/aa/99" # Base 06 - White
-color08="55/44/44" # Base 02 - Bright Black
+color07="a1/90/83" # Base 05 - White
+color08="6e/5d/59" # Base 03 - Bright Black
 color09="cc/55/33" # Base 12 - Bright Red
 color10="88/aa/22" # Base 14 - Bright Green
 color11="ff/a7/5d" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="a1/90/83" # Base 05
 color_background="1c/1c/1c" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

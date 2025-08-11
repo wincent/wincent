@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Red Sands 
+# Scheme name: Red Sands
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="red-sands"
@@ -12,8 +12,8 @@ color03="00/71/ae" # Base 0A - Yellow
 color04="00/71/ff" # Base 0D - Blue
 color05="bb/00/bb" # Base 0E - Magenta
 color06="00/bb/bb" # Base 0C - Cyan
-color07="bb/bb/bb" # Base 06 - White
-color08="55/55/55" # Base 02 - Bright Black
+color07="a1/a1/a1" # Base 05 - White
+color08="6e/6e/6e" # Base 03 - Bright Black
 color09="bb/00/00" # Base 12 - Bright Red
 color10="00/bb/00" # Base 14 - Bright Green
 color11="e7/b0/00" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="a1/a1/a1" # Base 05
 color_background="79/24/1e" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Tokyo Night Storm 
+# Scheme name: Tokyo Night Storm
 # Scheme author: Michaël Ball
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="tokyo-night-storm"
@@ -12,8 +12,8 @@ color03="0D/B9/D7" # Base 0A - Yellow
 color04="2A/C3/DE" # Base 0D - Blue
 color05="BB/9A/F7" # Base 0E - Magenta
 color06="B4/F9/F8" # Base 0C - Cyan
-color07="CB/CC/D1" # Base 06 - White
-color08="34/3A/52" # Base 02 - Bright Black
+color07="A9/B1/D6" # Base 05 - White
+color08="44/4B/6A" # Base 03 - Bright Black
 color09="C0/CA/F5" # Base 12 - Bright Red
 color10="9E/CE/6A" # Base 14 - Bright Green
 color11="0D/B9/D7" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="A9/B1/D6" # Base 05
 color_background="24/28/3B" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

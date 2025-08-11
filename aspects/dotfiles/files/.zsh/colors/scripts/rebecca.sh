@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Rebecca 
+# Scheme name: Rebecca
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="rebecca"
@@ -12,8 +12,8 @@ color03="69/bf/fa" # Base 0A - Yellow
 color04="7a/a5/ff" # Base 0D - Blue
 color05="be/9b/f8" # Base 0E - Magenta
 color06="56/d3/c1" # Base 0C - Cyan
-color07="e3/e2/e8" # Base 06 - White
-color08="66/66/99" # Base 02 - Bright Black
+color07="c3/c3/d4" # Base 05 - White
+color08="85/85/ac" # Base 03 - Bright Black
 color09="ff/91/cd" # Base 12 - Bright Red
 color10="00/e9/c0" # Base 14 - Bright Green
 color11="fe/fc/a8" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="c3/c3/d4" # Base 05
 color_background="29/2a/44" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

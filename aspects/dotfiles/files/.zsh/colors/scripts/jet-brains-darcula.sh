@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Jet Brains Darcula 
+# Scheme name: Jet Brains Darcula
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="jet-brains-darcula"
@@ -12,8 +12,8 @@ color03="6d/9d/f1" # Base 0A - Yellow
 color04="45/81/eb" # Base 0D - Blue
 color05="fa/54/ff" # Base 0E - Magenta
 color06="33/c2/c1" # Base 0C - Cyan
-color07="ad/ad/ad" # Base 06 - White
-color08="55/55/55" # Base 02 - Bright Black
+color07="97/97/97" # Base 05 - White
+color08="6b/6b/6b" # Base 03 - Bright Black
 color09="fb/71/72" # Base 12 - Bright Red
 color10="67/ff/4f" # Base 14 - Bright Green
 color11="ff/ff/00" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="97/97/97" # Base 05
 color_background="20/20/20" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

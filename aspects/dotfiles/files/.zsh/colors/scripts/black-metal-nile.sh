@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Black Metal (Nile) 
+# Scheme name: Black Metal (Nile)
 # Scheme author: metalelf0 (https://github.com/metalelf0)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="black-metal-nile"
@@ -12,8 +12,8 @@ color03="77/77/55" # Base 0A - Yellow
 color04="88/88/88" # Base 0D - Blue
 color05="99/99/99" # Base 0E - Magenta
 color06="aa/aa/aa" # Base 0C - Cyan
-color07="99/99/99" # Base 06 - White
-color08="22/22/22" # Base 02 - Bright Black
+color07="c1/c1/c1" # Base 05 - White
+color08="33/33/33" # Base 03 - Bright Black
 color09="5f/87/87" # Base 12 - Bright Red
 color10="aa/99/88" # Base 14 - Bright Green
 color11="77/77/55" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="c1/c1/c1" # Base 05
 color_background="00/00/00" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

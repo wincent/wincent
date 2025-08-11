@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Hurtado 
+# Scheme name: Hurtado
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="hurtado"
@@ -12,8 +12,8 @@ color03="89/bd/ff" # Base 0A - Yellow
 color04="48/63/87" # Base 0D - Blue
 color05="fc/5e/f0" # Base 0E - Magenta
 color06="85/e9/fe" # Base 0C - Cyan
-color07="cb/cb/cb" # Base 06 - White
-color08="25/25/25" # Base 02 - Bright Black
+color07="a1/a1/a1" # Base 05 - White
+color08="4e/4e/4e" # Base 03 - Bright Black
 color09="d4/1c/00" # Base 12 - Bright Red
 color10="a5/df/55" # Base 14 - Bright Green
 color11="fb/e7/49" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="a1/a1/a1" # Base 05
 color_background="00/00/00" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

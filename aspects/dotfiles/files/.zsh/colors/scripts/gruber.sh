@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Gruber 
+# Scheme name: Gruber
 # Scheme author: Patel, Nimai <nimai.m.patel@gmail.com>, colors from www.github.com/rexim/gruber-darker-theme
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="gruber"
@@ -12,8 +12,8 @@ color03="ff/dd/33" # Base 0A - Yellow
 color04="96/a6/c8" # Base 0D - Blue
 color05="9e/95/c7" # Base 0E - Magenta
 color06="95/a9/9f" # Base 0C - Cyan
-color07="f5/f5/f5" # Base 06 - White
-color08="48/48/48" # Base 02 - Bright Black
+color07="f4/f4/ff" # Base 05 - White
+color08="52/49/4e" # Base 03 - Bright Black
 color09="f4/38/41" # Base 12 - Bright Red
 color10="73/c9/36" # Base 14 - Bright Green
 color11="ff/dd/33" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="f4/f4/ff" # Base 05
 color_background="18/18/18" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

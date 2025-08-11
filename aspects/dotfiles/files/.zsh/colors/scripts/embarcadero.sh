@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Embarcadero 
+# Scheme name: Embarcadero
 # Scheme author: Thomas Leon Highbaugh
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="embarcadero"
@@ -12,8 +12,8 @@ color03="EB/82/4D" # Base 0A - Yellow
 color04="40/80/D0" # Base 0D - Blue
 color05="A0/70/D0" # Base 0E - Magenta
 color06="02/EF/EF" # Base 0C - Cyan
-color07="DA/DB/DB" # Base 06 - White
-color08="61/65/68" # Base 02 - Bright Black
+color07="BC/BD/C0" # Base 05 - White
+color08="7F/82/85" # Base 03 - Bright Black
 color09="F5/7D/9A" # Base 12 - Bright Red
 color10="A0/D0/A0" # Base 14 - Bright Green
 color11="FF/E0/89" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="BC/BD/C0" # Base 05
 color_background="25/2A/2F" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

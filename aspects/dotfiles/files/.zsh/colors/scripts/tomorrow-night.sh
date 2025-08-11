@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Tomorrow Night 
+# Scheme name: Tomorrow Night
 # Scheme author: Chris Kempson (https://github.com/chriskempson)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="tomorrow-night"
@@ -12,8 +12,8 @@ color03="f0/c6/74" # Base 0A - Yellow
 color04="81/a2/be" # Base 0D - Blue
 color05="b2/94/bb" # Base 0E - Magenta
 color06="8a/be/b7" # Base 0C - Cyan
-color07="e0/e0/e0" # Base 06 - White
-color08="37/3b/41" # Base 02 - Bright Black
+color07="c5/c8/c6" # Base 05 - White
+color08="96/98/96" # Base 03 - Bright Black
 color09="cc/66/66" # Base 12 - Bright Red
 color10="b5/bd/68" # Base 14 - Bright Green
 color11="f0/c6/74" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="c5/c8/c6" # Base 05
 color_background="1d/1f/21" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

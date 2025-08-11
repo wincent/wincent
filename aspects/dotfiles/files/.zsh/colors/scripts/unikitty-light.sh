@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Unikitty Light 
+# Scheme name: Unikitty Light
 # Scheme author: Josh W Lewis (@joshwlewis)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="unikitty-light"
@@ -12,8 +12,8 @@ color03="dc/8a/0e" # Base 0A - Yellow
 color04="77/5d/ff" # Base 0D - Blue
 color05="aa/17/e6" # Base 0E - Magenta
 color06="14/9b/da" # Base 0C - Cyan
-color07="4f/4b/51" # Base 06 - White
-color08="c4/c3/c5" # Base 02 - Bright Black
+color07="6c/69/6e" # Base 05 - White
+color08="a7/a5/a8" # Base 03 - Bright Black
 color09="d8/13/7f" # Base 12 - Bright Red
 color10="17/ad/98" # Base 14 - Bright Green
 color11="dc/8a/0e" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="6c/69/6e" # Base 05
 color_background="ff/ff/ff" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

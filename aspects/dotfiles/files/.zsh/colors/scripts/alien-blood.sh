@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Alien Blood 
+# Scheme name: Alien Blood
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="alien-blood"
@@ -12,8 +12,8 @@ color03="00/a9/df" # Base 0A - Yellow
 color04="2f/69/7f" # Base 0D - Blue
 color05="47/57/7e" # Base 0E - Magenta
 color06="31/7f/76" # Base 0C - Cyan
-color07="64/7d/75" # Base 06 - White
-color08="3c/47/11" # Base 02 - Bright Black
+color07="5a/6f/5c" # Base 05 - White
+color08="46/54/2a" # Base 03 - Bright Black
 color09="df/80/08" # Base 12 - Bright Red
 color10="18/e0/00" # Base 14 - Bright Green
 color11="bd/e0/00" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="5a/6f/5c" # Base 05
 color_background="0f/16/0f" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

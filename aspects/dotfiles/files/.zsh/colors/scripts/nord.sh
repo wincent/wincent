@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Nord 
+# Scheme name: Nord
 # Scheme author: arcticicestudio
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="nord"
@@ -12,8 +12,8 @@ color03="EB/CB/8B" # Base 0A - Yellow
 color04="81/A1/C1" # Base 0D - Blue
 color05="B4/8E/AD" # Base 0E - Magenta
 color06="88/C0/D0" # Base 0C - Cyan
-color07="EC/EF/F4" # Base 06 - White
-color08="43/4C/5E" # Base 02 - Bright Black
+color07="E5/E9/F0" # Base 05 - White
+color08="4C/56/6A" # Base 03 - Bright Black
 color09="BF/61/6A" # Base 12 - Bright Red
 color10="A3/BE/8C" # Base 14 - Bright Green
 color11="EB/CB/8B" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="E5/E9/F0" # Base 05
 color_background="2E/34/40" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

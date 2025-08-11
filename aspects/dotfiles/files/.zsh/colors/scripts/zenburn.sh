@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Zenburn 
+# Scheme name: Zenburn
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="zenburn"
@@ -12,8 +12,8 @@ color03="94/bf/f3" # Base 0A - Yellow
 color04="50/60/70" # Base 0D - Blue
 color05="dc/8c/c3" # Base 0E - Magenta
 color06="8c/d0/d3" # Base 0C - Cyan
-color07="dc/dc/cc" # Base 06 - White
-color08="70/90/80" # Base 02 - Bright Black
+color07="c1/c9/b9" # Base 05 - White
+color08="8b/a3/93" # Base 03 - Bright Black
 color09="dc/a3/a3" # Base 12 - Bright Red
 color10="c3/bf/9f" # Base 14 - Bright Green
 color11="e0/cf/9f" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="c1/c9/b9" # Base 05
 color_background="3f/3f/3f" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: UwUnicorn 
+# Scheme name: UwUnicorn
 # Scheme author: Fernando Marques (https://github.com/RakkiUwU) and Gabriel Fontes (https://github.com/Misterio77)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="uwunicorn"
@@ -12,8 +12,8 @@ color03="a8/4a/73" # Base 0A - Yellow
 color04="6a/9e/b5" # Base 0D - Blue
 color05="78/a3/8f" # Base 0E - Magenta
 color06="9c/5f/ce" # Base 0C - Cyan
-color07="d9/c2/c6" # Base 06 - White
-color08="46/35/4a" # Base 02 - Bright Black
+color07="ee/d5/d9" # Base 05 - White
+color08="6c/3c/b2" # Base 03 - Bright Black
 color09="87/7b/b6" # Base 12 - Bright Red
 color10="c9/65/bf" # Base 14 - Bright Green
 color11="a8/4a/73" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="ee/d5/d9" # Base 05
 color_background="24/1b/26" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

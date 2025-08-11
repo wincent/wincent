@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: emil 
+# Scheme name: emil
 # Scheme author: limelier
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="emil"
@@ -12,8 +12,8 @@ color03="ff/66/9b" # Base 0A - Yellow
 color04="47/13/97" # Base 0D - Blue
 color05="69/16/b6" # Base 0E - Magenta
 color06="21/55/d6" # Base 0C - Cyan
-color07="22/22/3a" # Base 06 - White
-color08="9e/9e/af" # Base 02 - Bright Black
+color07="31/31/45" # Base 05 - White
+color08="7c/7c/98" # Base 03 - Bright Black
 color09="f4/39/79" # Base 12 - Bright Red
 color10="00/73/a8" # Base 14 - Bright Green
 color11="ff/66/9b" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="31/31/45" # Base 05
 color_background="ef/ef/ef" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

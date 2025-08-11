@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Solarized Dark Patched 
+# Scheme name: Solarized Dark Patched
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="solarized-dark-patched"
@@ -12,8 +12,8 @@ color03="70/81/83" # Base 0A - Yellow
 color04="20/75/c7" # Base 0D - Blue
 color05="c6/1b/6e" # Base 0E - Magenta
 color06="25/91/85" # Base 0C - Cyan
-color07="e9/e2/cb" # Base 06 - White
-color08="46/5a/61" # Base 02 - Bright Black
+color07="c0/c0/b0" # Base 05 - White
+color08="6e/7c/7b" # Base 03 - Bright Black
 color09="bd/36/12" # Base 12 - Bright Red
 color10="46/5a/61" # Base 14 - Bright Green
 color11="52/67/6f" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="c0/c0/b0" # Base 05
 color_background="00/1e/26" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

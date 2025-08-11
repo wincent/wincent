@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Everforest Dark Hard 
+# Scheme name: Everforest Dark Hard
 # Scheme author: Sainnhe Park (https://github.com/sainnhe)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="everforest-dark-hard"
@@ -12,8 +12,8 @@ color03="db/bc/7f" # Base 0A - Yellow
 color04="7f/bb/b3" # Base 0D - Blue
 color05="d6/99/b6" # Base 0E - Magenta
 color06="83/c0/92" # Base 0C - Cyan
-color07="ed/ea/da" # Base 06 - White
-color08="41/4b/50" # Base 02 - Bright Black
+color07="d3/c6/aa" # Base 05 - White
+color08="85/92/89" # Base 03 - Bright Black
 color09="e6/7e/80" # Base 12 - Bright Red
 color10="a7/c0/80" # Base 14 - Bright Green
 color11="db/bc/7f" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="d3/c6/aa" # Base 05
 color_background="27/2e/33" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

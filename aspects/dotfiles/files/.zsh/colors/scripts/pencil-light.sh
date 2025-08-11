@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Pencil Light 
+# Scheme name: Pencil Light
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="pencil-light"
@@ -12,8 +12,8 @@ color03="20/bb/fc" # Base 0A - Yellow
 color04="00/8e/c4" # Base 0D - Blue
 color05="52/3c/79" # Base 0E - Magenta
 color06="20/a5/ba" # Base 0C - Cyan
-color07="d9/d9/d9" # Base 06 - White
-color08="42/42/42" # Base 02 - Bright Black
+color07="b3/b3/b3" # Base 05 - White
+color08="67/67/67" # Base 03 - Bright Black
 color09="fb/00/7a" # Base 12 - Bright Red
 color10="5f/d7/af" # Base 14 - Bright Green
 color11="f3/e4/30" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="b3/b3/b3" # Base 05
 color_background="f1/f1/f1" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

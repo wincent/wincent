@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Builtin Solarized Dark 
+# Scheme name: Builtin Solarized Dark
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="builtin-solarized-dark"
@@ -12,8 +12,8 @@ color03="83/94/96" # Base 0A - Yellow
 color04="26/8b/d2" # Base 0D - Blue
 color05="d3/36/82" # Base 0E - Magenta
 color06="2a/a1/98" # Base 0C - Cyan
-color07="ee/e8/d5" # Base 06 - White
-color08="00/2b/36" # Base 02 - Bright Black
+color07="b2/b8/ad" # Base 05 - White
+color08="3b/5a/5d" # Base 03 - Bright Black
 color09="cb/4b/16" # Base 12 - Bright Red
 color10="58/6e/75" # Base 14 - Bright Green
 color11="65/7b/83" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="b2/b8/ad" # Base 05
 color_background="00/2b/36" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

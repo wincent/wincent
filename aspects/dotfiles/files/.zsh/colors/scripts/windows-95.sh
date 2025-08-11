@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Windows 95 
+# Scheme name: Windows 95
 # Scheme author: Fergus Collins (https://github.com/ferguscollins)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="windows-95"
@@ -12,8 +12,8 @@ color03="fc/fc/54" # Base 0A - Yellow
 color04="54/54/fc" # Base 0D - Blue
 color05="fc/54/fc" # Base 0E - Magenta
 color06="54/fc/fc" # Base 0C - Cyan
-color07="d2/d2/d2" # Base 06 - White
-color08="38/38/38" # Base 02 - Bright Black
+color07="a8/a8/a8" # Base 05 - White
+color08="54/54/54" # Base 03 - Bright Black
 color09="fc/54/54" # Base 12 - Bright Red
 color10="54/fc/54" # Base 14 - Bright Green
 color11="fc/fc/54" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="a8/a8/a8" # Base 05
 color_background="00/00/00" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

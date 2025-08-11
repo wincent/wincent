@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Kimber 
+# Scheme name: Kimber
 # Scheme author: Mishka Nguyen (https://github.com/akhsiM)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="kimber"
@@ -12,8 +12,8 @@ color03="D8/B5/6D" # Base 0A - Yellow
 color04="53/7C/9C" # Base 0D - Blue
 color05="86/CA/CD" # Base 0E - Magenta
 color06="78/B4/B4" # Base 0C - Cyan
-color07="C3/C3/B4" # Base 06 - White
-color08="55/5D/55" # Base 02 - Bright Black
+color07="DE/DE/E7" # Base 05 - White
+color08="64/46/46" # Base 03 - Bright Black
 color09="C8/8C/8C" # Base 12 - Bright Red
 color10="99/C8/99" # Base 14 - Bright Green
 color11="D8/B5/6D" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="DE/DE/E7" # Base 05
 color_background="22/22/22" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

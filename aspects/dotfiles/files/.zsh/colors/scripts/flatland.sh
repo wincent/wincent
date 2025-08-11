@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Flatland 
+# Scheme name: Flatland
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="flatland"
@@ -12,8 +12,8 @@ color03="61/b8/d0" # Base 0A - Yellow
 color04="4f/96/be" # Base 0D - Blue
 color05="69/5a/bb" # Base 0E - Magenta
 color06="d5/38/64" # Base 0C - Cyan
-color07="fe/ff/fe" # Base 06 - White
-color08="1c/1d/19" # Base 02 - Bright Black
+color07="c5/c6/c4" # Base 05 - White
+color08="54/55/52" # Base 03 - Bright Black
 color09="d1/2a/24" # Base 12 - Bright Red
 color10="a7/d3/2c" # Base 14 - Bright Green
 color11="ff/89/48" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="c5/c6/c4" # Base 05
 color_background="1c/1e/20" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

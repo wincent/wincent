@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: vulcan 
+# Scheme name: vulcan
 # Scheme author: Andrey Varfolomeev
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="vulcan"
@@ -12,8 +12,8 @@ color03="ad/b4/b9" # Base 0A - Yellow
 color04="97/7d/7c" # Base 0D - Blue
 color05="91/98/a3" # Base 0E - Magenta
 color06="97/7d/7c" # Base 0C - Cyan
-color07="33/32/38" # Base 06 - White
-color08="00/35/52" # Base 02 - Bright Black
+color07="5b/77/8c" # Base 05 - White
+color08="7a/57/59" # Base 03 - Bright Black
 color09="81/85/91" # Base 12 - Bright Red
 color10="97/7d/7c" # Base 14 - Bright Green
 color11="ad/b4/b9" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="5b/77/8c" # Base 05
 color_background="04/15/23" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

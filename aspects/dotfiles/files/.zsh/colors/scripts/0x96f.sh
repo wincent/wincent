@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: 0x96f 
+# Scheme name: 0x96f
 # Scheme author: Filip Janevski (https://0x96f.dev/theme)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="0x96f"
@@ -12,8 +12,8 @@ color03="ff/ca/58" # Base 0A - Yellow
 color04="49/ca/e4" # Base 0D - Blue
 color05="a0/93/e2" # Base 0E - Magenta
 color06="ae/e8/f4" # Base 0C - Cyan
-color07="ea/e9/eb" # Base 06 - White
-color08="51/4f/52" # Base 02 - Bright Black
+color07="fc/fc/fc" # Base 05 - White
+color08="67/65/67" # Base 03 - Bright Black
 color09="ff/87/87" # Base 12 - Bright Red
 color10="c6/e4/72" # Base 14 - Bright Green
 color11="ff/d2/71" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="fc/fc/fc" # Base 05
 color_background="26/24/27" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

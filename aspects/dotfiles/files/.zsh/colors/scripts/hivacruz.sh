@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Hivacruz 
+# Scheme name: Hivacruz
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="hivacruz"
@@ -12,8 +12,8 @@ color03="89/8e/a4" # Base 0A - Yellow
 color04="3d/8f/d1" # Base 0D - Blue
 color05="66/79/cc" # Base 0E - Magenta
 color06="22/a2/c9" # Base 0C - Cyan
-color07="97/9d/b4" # Base 06 - White
-color08="6b/73/94" # Base 02 - Bright Black
+color07="8c/92/ac" # Base 05 - White
+color08="76/7d/9c" # Base 03 - Bright Black
 color09="c7/6b/29" # Base 12 - Bright Red
 color10="73/ad/43" # Base 14 - Bright Green
 color11="5e/66/87" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="8c/92/ac" # Base 05
 color_background="13/25/37" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

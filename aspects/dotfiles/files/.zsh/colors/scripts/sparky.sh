@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Sparky 
+# Scheme name: Sparky
 # Scheme author: Leila Sother (https://github.com/mixcoac)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="sparky"
@@ -12,8 +12,8 @@ color03="FB/DD/40" # Base 0A - Yellow
 color04="46/98/CB" # Base 0D - Blue
 color05="D5/9E/D7" # Base 0E - Magenta
 color06="2D/CC/D3" # Base 0C - Cyan
-color07="F5/F5/F1" # Base 06 - White
-color08="00/3C/46" # Base 02 - Bright Black
+color07="F4/F5/F0" # Base 05 - White
+color08="00/3B/49" # Base 03 - Bright Black
 color09="FF/72/76" # Base 12 - Bright Red
 color10="8E/DD/65" # Base 14 - Bright Green
 color11="F6/EB/61" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="F4/F5/F0" # Base 05
 color_background="07/2B/31" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

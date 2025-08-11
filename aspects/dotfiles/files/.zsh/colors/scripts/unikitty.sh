@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Unikitty 
+# Scheme name: Unikitty
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="unikitty"
@@ -12,8 +12,8 @@ color03="00/74/ea" # Base 0A - Yellow
 color04="14/5f/cd" # Base 0D - Blue
 color05="ff/36/a2" # Base 0E - Magenta
 color06="6b/d0/bc" # Base 0C - Cyan
-color07="e1/d6/e0" # Base 06 - White
-color08="42/42/42" # Base 02 - Bright Black
+color07="b9/b1/b8" # Base 05 - White
+color08="69/67/69" # Base 03 - Bright Black
 color09="d8/13/29" # Base 12 - Bright Red
 color10="d2/ff/af" # Base 14 - Bright Green
 color11="ff/ee/50" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="b9/b1/b8" # Base 05
 color_background="ff/8c/d9" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

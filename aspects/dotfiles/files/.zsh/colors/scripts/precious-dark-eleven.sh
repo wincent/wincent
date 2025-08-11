@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Precious Dark Eleven 
+# Scheme name: Precious Dark Eleven
 # Scheme author: 4lex4 <4lex49@zoho.com>
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="precious-dark-eleven"
@@ -12,8 +12,8 @@ color03="d0/a5/43" # Base 0A - Yellow
 color04="68/b0/ee" # Base 0D - Blue
 color05="b7/99/fe" # Base 0E - Magenta
 color06="42/bd/a7" # Base 0C - Cyan
-color07="b8/b7/b6" # Base 06 - White
-color08="37/39/3a" # Base 02 - Bright Black
+color07="b8/b7/b6" # Base 05 - White
+color08="85/85/85" # Base 03 - Bright Black
 color09="ff/87/82" # Base 12 - Bright Red
 color10="95/b6/58" # Base 14 - Bright Green
 color11="d0/a5/43" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="b8/b7/b6" # Base 05
 color_background="1c/1e/20" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

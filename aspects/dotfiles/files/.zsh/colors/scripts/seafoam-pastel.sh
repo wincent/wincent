@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Seafoam Pastel 
+# Scheme name: Seafoam Pastel
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="seafoam-pastel"
@@ -12,8 +12,8 @@ color03="79/c3/cf" # Base 0A - Yellow
 color04="4d/7b/82" # Base 0D - Blue
 color05="8a/71/67" # Base 0E - Magenta
 color06="71/93/93" # Base 0C - Cyan
-color07="e0/e0/e0" # Base 06 - White
-color08="8a/8a/8a" # Base 02 - Bright Black
+color07="ca/ca/ca" # Base 05 - White
+color08="9f/9f/9f" # Base 03 - Bright Black
 color09="cf/93/79" # Base 12 - Bright Red
 color10="98/d9/aa" # Base 14 - Bright Green
 color11="fa/e7/9d" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="ca/ca/ca" # Base 05
 color_background="24/34/34" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

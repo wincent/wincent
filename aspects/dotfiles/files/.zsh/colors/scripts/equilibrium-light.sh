@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Equilibrium Light 
+# Scheme name: Equilibrium Light
 # Scheme author: Carlo Abelli
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="equilibrium-light"
@@ -12,8 +12,8 @@ color03="9d/6f/00" # Base 0A - Yellow
 color04="00/73/b5" # Base 0D - Blue
 color05="4e/66/b6" # Base 0E - Magenta
 color06="00/7a/72" # Base 0C - Cyan
-color07="2c/31/38" # Base 06 - White
-color08="d8/d4/cb" # Base 02 - Bright Black
+color07="43/47/4e" # Base 05 - White
+color08="73/77/7f" # Base 03 - Bright Black
 color09="d0/20/23" # Base 12 - Bright Red
 color10="63/72/00" # Base 14 - Bright Green
 color11="9d/6f/00" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="43/47/4e" # Base 05
 color_background="f5/f0/e7" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

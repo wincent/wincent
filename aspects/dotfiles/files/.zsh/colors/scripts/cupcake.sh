@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Cupcake 
+# Scheme name: Cupcake
 # Scheme author: Chris Kempson (https://github.com/chriskempson)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="cupcake"
@@ -12,8 +12,8 @@ color03="DC/B1/6C" # Base 0A - Yellow
 color04="72/97/B9" # Base 0D - Blue
 color05="BB/99/B4" # Base 0E - Magenta
 color06="69/A9/A7" # Base 0C - Cyan
-color07="72/67/7E" # Base 06 - White
-color08="d8/d5/dd" # Base 02 - Bright Black
+color07="8b/81/98" # Base 05 - White
+color08="bf/b9/c6" # Base 03 - Bright Black
 color09="D5/7E/85" # Base 12 - Bright Red
 color10="A3/B3/67" # Base 14 - Bright Green
 color11="DC/B1/6C" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="8b/81/98" # Base 05
 color_background="fb/f1/f2" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

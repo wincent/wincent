@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Adventure Time 
+# Scheme name: Adventure Time
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="adventure-time"
@@ -12,8 +12,8 @@ color03="18/96/c6" # Base 0A - Yellow
 color04="0f/49/c6" # Base 0D - Blue
 color05="66/59/92" # Base 0E - Magenta
 color06="6f/a4/97" # Base 0C - Cyan
-color07="f8/db/c0" # Base 06 - White
-color08="4e/7b/bf" # Base 02 - Bright Black
+color07="cd/c3/bf" # Base 05 - White
+color08="78/93/bf" # Base 03 - Bright Black
 color09="fc/5e/59" # Base 12 - Bright Red
 color10="9d/ff/6e" # Base 14 - Bright Green
 color11="ef/c1/1a" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="cd/c3/bf" # Base 05
 color_background="1e/1c/44" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Woodland 
+# Scheme name: Woodland
 # Scheme author: Jay Cornwall (https://jcornwall.com)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="woodland"
@@ -12,8 +12,8 @@ color03="e0/ac/16" # Base 0A - Yellow
 color04="88/a4/d3" # Base 0D - Blue
 color05="bb/90/e2" # Base 0E - Magenta
 color06="6e/b9/58" # Base 0C - Cyan
-color07="d7/c8/bc" # Base 06 - White
-color08="48/41/3a" # Base 02 - Bright Black
+color07="ca/bc/b1" # Base 05 - White
+color08="9d/8b/70" # Base 03 - Bright Black
 color09="d3/5c/5c" # Base 12 - Bright Red
 color10="b7/ba/53" # Base 14 - Bright Green
 color11="e0/ac/16" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="ca/bc/b1" # Base 05
 color_background="23/1e/18" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

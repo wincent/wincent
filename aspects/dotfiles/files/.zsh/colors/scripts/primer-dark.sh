@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Primer Dark 
+# Scheme name: Primer Dark
 # Scheme author: Jimmy Lin
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="primer-dark"
@@ -12,8 +12,8 @@ color03="d2/99/22" # Base 0A - Yellow
 color04="58/a6/ff" # Base 0D - Blue
 color05="f7/78/ba" # Base 0E - Magenta
 color06="a5/d6/ff" # Base 0C - Cyan
-color07="c9/d1/d9" # Base 06 - White
-color08="30/36/3d" # Base 02 - Bright Black
+color07="b1/ba/c4" # Base 05 - White
+color08="48/4f/58" # Base 03 - Bright Black
 color09="ff/7b/72" # Base 12 - Bright Red
 color10="3f/b9/50" # Base 14 - Bright Green
 color11="d2/99/22" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="b1/ba/c4" # Base 05
 color_background="01/04/09" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

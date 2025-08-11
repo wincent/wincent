@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Operator Mono Dark 
+# Scheme name: Operator Mono Dark
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="operator-mono-dark"
@@ -12,8 +12,8 @@ color03="89/d3/f6" # Base 0A - Yellow
 color04="43/87/cf" # Base 0D - Blue
 color05="b8/6c/b4" # Base 0E - Magenta
 color06="72/d4/c6" # Base 0C - Cyan
-color07="cd/d3/cd" # Base 06 - White
-color08="9a/9a/99" # Base 02 - Bright Black
+color07="c0/c4/c0" # Base 05 - White
+color08="a6/a8/a6" # Base 03 - Bright Black
 color09="c3/7d/62" # Base 12 - Bright Red
 color10="83/d0/a2" # Base 14 - Bright Green
 color11="fd/fd/c5" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="c0/c4/c0" # Base 05
 color_background="19/19/19" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

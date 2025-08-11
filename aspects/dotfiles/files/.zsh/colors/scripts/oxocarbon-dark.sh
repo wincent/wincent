@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Oxocarbon Dark 
+# Scheme name: Oxocarbon Dark
 # Scheme author: shaunsingh/IBM
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="oxocarbon-dark"
@@ -12,8 +12,8 @@ color03="ee/53/96" # Base 0A - Yellow
 color04="42/be/65" # Base 0D - Blue
 color05="be/95/ff" # Base 0E - Magenta
 color06="ff/7e/b6" # Base 0C - Cyan
-color07="ff/ff/ff" # Base 06 - White
-color08="39/39/39" # Base 02 - Bright Black
+color07="f2/f4/f8" # Base 05 - White
+color08="52/52/52" # Base 03 - Bright Black
 color09="3d/db/d9" # Base 12 - Bright Red
 color10="33/b1/ff" # Base 14 - Bright Green
 color11="ee/53/96" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="f2/f4/f8" # Base 05
 color_background="16/16/16" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

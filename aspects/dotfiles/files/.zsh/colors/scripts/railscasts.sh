@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Railscasts 
+# Scheme name: Railscasts
 # Scheme author: Ryan Bates (http://railscasts.com)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="railscasts"
@@ -12,8 +12,8 @@ color03="ff/c6/6d" # Base 0A - Yellow
 color04="6d/9c/be" # Base 0D - Blue
 color05="b6/b3/eb" # Base 0E - Magenta
 color06="51/9f/50" # Base 0C - Cyan
-color07="f4/f1/ed" # Base 06 - White
-color08="3a/40/55" # Base 02 - Bright Black
+color07="e6/e1/dc" # Base 05 - White
+color08="5a/64/7e" # Base 03 - Bright Black
 color09="da/49/39" # Base 12 - Bright Red
 color10="a5/c2/61" # Base 14 - Bright Green
 color11="ff/c6/6d" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="e6/e1/dc" # Base 05
 color_background="2b/2b/2b" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

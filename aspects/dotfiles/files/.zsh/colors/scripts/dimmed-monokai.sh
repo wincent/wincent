@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Dimmed Monokai 
+# Scheme name: Dimmed Monokai
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="dimmed-monokai"
@@ -12,8 +12,8 @@ color03="17/6c/e3" # Base 0A - Yellow
 color04="4e/76/a1" # Base 0D - Blue
 color05="85/5b/8d" # Base 0E - Magenta
 color06="56/8e/a3" # Base 0C - Cyan
-color07="b8/bc/b9" # Base 06 - White
-color08="88/89/87" # Base 02 - Bright Black
+color07="ac/af/ac" # Base 05 - White
+color08="94/95/93" # Base 03 - Bright Black
 color09="fb/00/1e" # Base 12 - Bright Red
 color10="0e/71/2e" # Base 14 - Bright Green
 color11="c3/70/33" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="ac/af/ac" # Base 05
 color_background="1e/1e/1e" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

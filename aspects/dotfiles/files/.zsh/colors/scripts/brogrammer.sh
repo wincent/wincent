@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Brogrammer 
+# Scheme name: Brogrammer
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="brogrammer"
@@ -12,8 +12,8 @@ color03="0f/80/d5" # Base 0A - Yellow
 color04="2a/84/d2" # Base 0D - Blue
 color05="4e/59/b7" # Base 0E - Magenta
 color06="0f/80/d5" # Base 0C - Cyan
-color07="e3/e6/ed" # Base 06 - White
-color08="2a/31/41" # Base 02 - Bright Black
+color07="c1/c8/d7" # Base 05 - White
+color08="34/3d/50" # Base 03 - Bright Black
 color09="de/34/2e" # Base 12 - Bright Red
 color10="1d/d2/60" # Base 14 - Bright Green
 color11="f2/bd/09" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="c1/c8/d7" # Base 05
 color_background="13/13/13" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

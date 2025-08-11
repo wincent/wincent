@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Seti UI 
+# Scheme name: Seti UI
 # Scheme author: 
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="seti"
@@ -12,8 +12,8 @@ color03="e6/cd/69" # Base 0A - Yellow
 color04="55/b5/db" # Base 0D - Blue
 color05="a0/74/c4" # Base 0E - Magenta
 color06="55/db/be" # Base 0C - Cyan
-color07="ee/ee/ee" # Base 06 - White
-color08="3B/75/8C" # Base 02 - Bright Black
+color07="d6/d6/d6" # Base 05 - White
+color08="41/53/5B" # Base 03 - Bright Black
 color09="Cd/3f/45" # Base 12 - Bright Red
 color10="9f/ca/56" # Base 14 - Bright Green
 color11="e6/cd/69" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="d6/d6/d6" # Base 05
 color_background="15/17/18" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Gruvbox Material Light, Medium 
+# Scheme name: Gruvbox Material Light, Medium
 # Scheme author: Mayush Kumar (https://github.com/MayushKumar), sainnhe (https://github.com/sainnhe/gruvbox-material-vscode)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="gruvbox-material-light-medium"
@@ -12,8 +12,8 @@ color03="b4/71/09" # Base 0A - Yellow
 color04="45/70/7a" # Base 0D - Blue
 color05="94/5e/80" # Base 0E - Magenta
 color06="4c/7a/5d" # Base 0C - Cyan
-color07="3c/38/36" # Base 06 - White
-color08="d5/c4/a1" # Base 02 - Bright Black
+color07="65/47/35" # Base 05 - White
+color08="bd/ae/93" # Base 03 - Bright Black
 color09="c1/4a/4a" # Base 12 - Bright Red
 color10="6c/78/2e" # Base 14 - Bright Green
 color11="b4/71/09" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="65/47/35" # Base 05
 color_background="fb/f1/c7" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

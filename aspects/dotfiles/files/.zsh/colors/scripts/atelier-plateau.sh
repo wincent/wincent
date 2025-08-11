@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Atelier Plateau 
+# Scheme name: Atelier Plateau
 # Scheme author: Bram de Haan (http://atelierbramdehaan.nl)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="atelier-plateau"
@@ -12,8 +12,8 @@ color03="a0/6e/3b" # Base 0A - Yellow
 color04="72/72/ca" # Base 0D - Blue
 color05="84/64/c4" # Base 0E - Magenta
 color06="54/85/b6" # Base 0C - Cyan
-color07="e7/df/df" # Base 06 - White
-color08="58/50/50" # Base 02 - Bright Black
+color07="8a/85/85" # Base 05 - White
+color08="65/5d/5d" # Base 03 - Bright Black
 color09="ca/49/49" # Base 12 - Bright Red
 color10="4b/8b/8b" # Base 14 - Bright Green
 color11="a0/6e/3b" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="8a/85/85" # Base 05
 color_background="1b/18/18" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

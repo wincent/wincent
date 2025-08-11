@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Atelier Seaside Light 
+# Scheme name: Atelier Seaside Light
 # Scheme author: Bram de Haan (http://atelierbramdehaan.nl)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="atelier-seaside-light"
@@ -12,8 +12,8 @@ color03="98/98/1b" # Base 0A - Yellow
 color04="3d/62/f5" # Base 0D - Blue
 color05="ad/2b/ee" # Base 0E - Magenta
 color06="19/99/b3" # Base 0C - Cyan
-color07="24/29/24" # Base 06 - White
-color08="8c/a6/8c" # Base 02 - Bright Black
+color07="5e/6e/5e" # Base 05 - White
+color08="80/99/80" # Base 03 - Bright Black
 color09="e6/19/3c" # Base 12 - Bright Red
 color10="29/a3/29" # Base 14 - Bright Green
 color11="98/98/1b" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="5e/6e/5e" # Base 05
 color_background="f4/fb/f4" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

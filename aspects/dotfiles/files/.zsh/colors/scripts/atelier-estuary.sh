@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Atelier Estuary 
+# Scheme name: Atelier Estuary
 # Scheme author: Bram de Haan (http://atelierbramdehaan.nl)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="atelier-estuary"
@@ -12,8 +12,8 @@ color03="a5/98/0d" # Base 0A - Yellow
 color04="36/a1/66" # Base 0D - Blue
 color05="5f/91/82" # Base 0E - Magenta
 color06="5b/9d/48" # Base 0C - Cyan
-color07="e7/e6/df" # Base 06 - White
-color08="5f/5e/4e" # Base 02 - Bright Black
+color07="92/91/81" # Base 05 - White
+color08="6c/6b/5a" # Base 03 - Bright Black
 color09="ba/62/36" # Base 12 - Bright Red
 color10="7d/97/26" # Base 14 - Bright Green
 color11="a5/98/0d" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="92/91/81" # Base 05
 color_background="22/22/1b" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

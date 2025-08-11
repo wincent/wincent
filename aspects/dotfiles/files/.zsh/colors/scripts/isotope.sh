@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Isotope 
+# Scheme name: Isotope
 # Scheme author: Jan T. Sott
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="isotope"
@@ -12,8 +12,8 @@ color03="ff/00/99" # Base 0A - Yellow
 color04="00/66/ff" # Base 0D - Blue
 color05="cc/00/ff" # Base 0E - Magenta
 color06="00/ff/ff" # Base 0C - Cyan
-color07="e0/e0/e0" # Base 06 - White
-color08="60/60/60" # Base 02 - Bright Black
+color07="d0/d0/d0" # Base 05 - White
+color08="80/80/80" # Base 03 - Bright Black
 color09="ff/00/00" # Base 12 - Bright Red
 color10="33/ff/00" # Base 14 - Bright Green
 color11="ff/00/99" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="d0/d0/d0" # Base 05
 color_background="00/00/00" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

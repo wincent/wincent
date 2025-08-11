@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Red Alert 
+# Scheme name: Red Alert
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="red-alert"
@@ -12,8 +12,8 @@ color03="65/a9/f0" # Base 0A - Yellow
 color04="47/9b/ed" # Base 0D - Blue
 color05="e8/78/d6" # Base 0E - Magenta
 color06="6b/be/b8" # Base 0C - Cyan
-color07="d6/d6/d6" # Base 06 - White
-color08="26/26/26" # Base 02 - Bright Black
+color07="aa/aa/aa" # Base 05 - White
+color08="52/52/52" # Base 03 - Bright Black
 color09="e0/24/53" # Base 12 - Bright Red
 color10="af/f0/8b" # Base 14 - Bright Green
 color11="df/dd/b7" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="aa/aa/aa" # Base 05
 color_background="76/24/23" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

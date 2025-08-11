@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Slate 
+# Scheme name: Slate
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="slate"
@@ -12,8 +12,8 @@ color03="79/af/d2" # Base 0A - Yellow
 color04="25/4a/49" # Base 0D - Blue
 color05="a3/80/d3" # Base 0E - Magenta
 color06="14/ab/9c" # Base 0C - Cyan
-color07="02/c4/e0" # Base 06 - White
-color08="ff/ff/ff" # Base 02 - Bright Black
+color07="42/d3/e8" # Base 05 - White
+color08="c0/f1/f8" # Base 03 - Bright Black
 color09="ff/cc/d8" # Base 12 - Bright Red
 color10="bd/ff/a8" # Base 14 - Bright Green
 color11="d0/cb/c9" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="42/d3/e8" # Base 05
 color_background="21/21/21" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

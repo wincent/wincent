@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Broadcast 
+# Scheme name: Broadcast
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="broadcast"
@@ -12,8 +12,8 @@ color03="9f/ce/f0" # Base 0A - Yellow
 color04="6d/9c/be" # Base 0D - Blue
 color05="d0/d0/ff" # Base 0E - Magenta
 color06="6e/9c/be" # Base 0C - Cyan
-color07="ff/ff/ff" # Base 06 - White
-color08="32/32/32" # Base 02 - Bright Black
+color07="cb/cb/cb" # Base 05 - White
+color08="65/65/65" # Base 03 - Bright Black
 color09="ff/7b/6b" # Base 12 - Bright Red
 color10="83/d1/82" # Base 14 - Bright Green
 color11="ff/ff/7c" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="cb/cb/cb" # Base 05
 color_background="2b/2b/2b" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

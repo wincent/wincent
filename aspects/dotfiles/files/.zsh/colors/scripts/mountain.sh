@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Mountain 
+# Scheme name: Mountain
 # Scheme author: Stefan Weigl-Bosker (https://github.com/sweiglbosker), based on Mountain Theme (https://github.com/mountain-theme/Mountain)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="mountain"
@@ -12,8 +12,8 @@ color03="ac/a9/8a" # Base 0A - Yellow
 color04="8f/8a/ac" # Base 0D - Blue
 color05="ac/8a/ac" # Base 0E - Magenta
 color06="8a/ab/ac" # Base 0C - Cyan
-color07="e7/e7/e7" # Base 06 - White
-color08="26/26/26" # Base 02 - Bright Black
+color07="ca/ca/ca" # Base 05 - White
+color08="39/39/39" # Base 03 - Bright Black
 color09="c4/9e/a0" # Base 12 - Bright Red
 color10="9e/c4/9f" # Base 14 - Bright Green
 color11="c4/c1/9e" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="ca/ca/ca" # Base 05
 color_background="0f/0f/0f" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

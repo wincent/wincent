@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Unikitty Reversible 
+# Scheme name: Unikitty Reversible
 # Scheme author: Josh W Lewis (@joshwlewis)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="unikitty-reversible"
@@ -12,8 +12,8 @@ color03="dc/8a/0e" # Base 0A - Yellow
 color04="78/64/fa" # Base 0D - Blue
 color05="b3/3c/e8" # Base 0E - Magenta
 color06="14/9b/da" # Base 0C - Cyan
-color07="e1/e0/e1" # Base 06 - White
-color08="69/66/6b" # Base 02 - Bright Black
+color07="c3/c2/c4" # Base 05 - White
+color08="87/85/89" # Base 03 - Bright Black
 color09="d8/13/7f" # Base 12 - Bright Red
 color10="17/ad/98" # Base 14 - Bright Green
 color11="dc/8a/0e" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="c3/c2/c4" # Base 05
 color_background="2e/2a/31" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

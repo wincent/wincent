@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Chicago Day 
+# Scheme name: Chicago Day
 # Scheme author: Wendell, Ryan <ryanjwendell@gmail.com>
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="chicago-day"
@@ -12,8 +12,8 @@ color03="96/84/00" # Base 0A - Yellow
 color04="52/23/98" # Base 0D - Blue
 color05="e2/7e/a6" # Base 0E - Magenta
 color06="00/a1/de" # Base 0C - Cyan
-color07="2a/3b/32" # Base 06 - White
-color08="b9/d0/c3" # Base 02 - Bright Black
+color07="36/4c/40" # Base 05 - White
+color08="8a/9a/91" # Base 03 - Bright Black
 color09="c6/0c/30" # Base 12 - Bright Red
 color10="00/9b/3a" # Base 14 - Bright Green
 color11="96/84/00" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="36/4c/40" # Base 05
 color_background="e8/f0/ea" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

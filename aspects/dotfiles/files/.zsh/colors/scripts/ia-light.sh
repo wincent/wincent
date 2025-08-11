@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: iA Light 
+# Scheme name: iA Light
 # Scheme author: iA Inc. (modified by aramisgithub)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="ia-light"
@@ -12,8 +12,8 @@ color03="c4/82/18" # Base 0A - Yellow
 color04="48/ba/c2" # Base 0D - Blue
 color05="a9/45/98" # Base 0E - Magenta
 color06="2d/6b/b1" # Base 0C - Cyan
-color07="e8/e8/e8" # Base 06 - White
-color08="bd/e5/f2" # Base 02 - Bright Black
+color07="18/18/18" # Base 05 - White
+color08="89/89/89" # Base 03 - Bright Black
 color09="9c/5a/02" # Base 12 - Bright Red
 color10="38/78/1c" # Base 14 - Bright Green
 color11="c4/82/18" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="18/18/18" # Base 05
 color_background="f6/f6/f6" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

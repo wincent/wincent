@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Ciapre 
+# Scheme name: Ciapre
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="ciapre"
@@ -12,8 +12,8 @@ color03="2f/97/c6" # Base 0A - Yellow
 color04="56/6d/8c" # Base 0D - Blue
 color05="72/4c/7c" # Base 0E - Magenta
 color06="5b/4f/4a" # Base 0C - Cyan
-color07="ad/a3/7e" # Base 06 - White
-color08="55/55/55" # Base 02 - Bright Black
+color07="97/8f/73" # Base 05 - White
+color08="6b/68/5f" # Base 03 - Bright Black
 color09="ab/38/34" # Base 12 - Bright Red
 color10="a6/a6/5d" # Base 14 - Bright Green
 color11="dc/de/7b" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="97/8f/73" # Base 05
 color_background="18/1c/27" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

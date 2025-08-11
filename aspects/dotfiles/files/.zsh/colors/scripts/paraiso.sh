@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Paraiso 
+# Scheme name: Paraiso
 # Scheme author: Jan T. Sott
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="paraiso"
@@ -12,8 +12,8 @@ color03="fe/c4/18" # Base 0A - Yellow
 color04="06/b6/ef" # Base 0D - Blue
 color05="81/5b/a4" # Base 0E - Magenta
 color06="5b/c4/bf" # Base 0C - Cyan
-color07="b9/b6/b0" # Base 06 - White
-color08="4f/42/4c" # Base 02 - Bright Black
+color07="a3/9e/9b" # Base 05 - White
+color08="77/6e/71" # Base 03 - Bright Black
 color09="ef/61/55" # Base 12 - Bright Red
 color10="48/b6/85" # Base 14 - Bright Green
 color11="fe/c4/18" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="a3/9e/9b" # Base 05
 color_background="2f/1e/2e" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

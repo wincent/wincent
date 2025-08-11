@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Fun Forrest 
+# Scheme name: Fun Forrest
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="fun-forrest"
@@ -12,8 +12,8 @@ color03="7c/c9/ce" # Base 0A - Yellow
 color04="46/98/a2" # Base 0D - Blue
 color05="8c/42/31" # Base 0E - Magenta
 color06="d9/81/12" # Base 0C - Cyan
-color07="dd/c1/65" # Base 06 - White
-color08="7e/69/54" # Base 02 - Bright Black
+color07="c5/ab/60" # Base 05 - White
+color08="95/7f/58" # Base 03 - Bright Black
 color09="e4/59/1b" # Base 12 - Bright Red
 color10="bf/c6/59" # Base 14 - Bright Green
 color11="ff/ca/1b" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="c5/ab/60" # Base 05
 color_background="24/12/00" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

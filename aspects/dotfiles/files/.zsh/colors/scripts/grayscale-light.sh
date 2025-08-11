@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Grayscale Light 
+# Scheme name: Grayscale Light
 # Scheme author: Alexandre Gavioli (https://github.com/Alexx2/)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="grayscale-light"
@@ -12,8 +12,8 @@ color03="a0/a0/a0" # Base 0A - Yellow
 color04="68/68/68" # Base 0D - Blue
 color05="74/74/74" # Base 0E - Magenta
 color06="86/86/86" # Base 0C - Cyan
-color07="25/25/25" # Base 06 - White
-color08="b9/b9/b9" # Base 02 - Bright Black
+color07="46/46/46" # Base 05 - White
+color08="ab/ab/ab" # Base 03 - Bright Black
 color09="7c/7c/7c" # Base 12 - Bright Red
 color10="8e/8e/8e" # Base 14 - Bright Green
 color11="a0/a0/a0" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="46/46/46" # Base 05
 color_background="f7/f7/f7" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

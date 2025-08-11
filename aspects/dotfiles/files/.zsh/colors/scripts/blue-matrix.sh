@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Blue Matrix 
+# Scheme name: Blue Matrix
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="blue-matrix"
@@ -12,8 +12,8 @@ color03="68/71/ff" # Base 0A - Yellow
 color04="00/b0/fe" # Base 0D - Blue
 color05="d4/7b/fe" # Base 0E - Magenta
 color06="75/c1/fe" # Base 0C - Cyan
-color07="c7/c7/c7" # Base 06 - White
-color08="67/67/67" # Base 02 - Bright Black
+color07="af/af/af" # Base 05 - White
+color08="7f/7f/7f" # Base 03 - Bright Black
 color09="ff/6d/67" # Base 12 - Bright Red
 color10="5f/f9/67" # Base 14 - Bright Green
 color11="fe/fb/67" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="af/af/af" # Base 05
 color_background="0f/11/15" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

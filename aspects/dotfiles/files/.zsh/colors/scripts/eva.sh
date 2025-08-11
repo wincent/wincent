@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Eva 
+# Scheme name: Eva
 # Scheme author: kjakapat (https://github.com/kjakapat)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="eva"
@@ -12,8 +12,8 @@ color03="ff/ff/66" # Base 0A - Yellow
 color04="15/f4/ee" # Base 0D - Blue
 color05="9c/6c/d3" # Base 0E - Magenta
 color06="4b/8f/77" # Base 0C - Cyan
-color07="d6/d7/d9" # Base 06 - White
-color08="4b/69/88" # Base 02 - Bright Black
+color07="9f/a2/a6" # Base 05 - White
+color08="55/79/9c" # Base 03 - Bright Black
 color09="c4/67/6c" # Base 12 - Bright Red
 color10="66/ff/66" # Base 14 - Bright Green
 color11="ff/ff/66" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="9f/a2/a6" # Base 05
 color_background="2a/3b/4d" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

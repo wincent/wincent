@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Catppuccin Mocha 
+# Scheme name: Catppuccin Mocha
 # Scheme author: https://github.com/catppuccin/catppuccin
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="catppuccin-mocha"
@@ -12,8 +12,8 @@ color03="f9/e2/af" # Base 0A - Yellow
 color04="89/b4/fa" # Base 0D - Blue
 color05="cb/a6/f7" # Base 0E - Magenta
 color06="94/e2/d5" # Base 0C - Cyan
-color07="f5/e0/dc" # Base 06 - White
-color08="31/32/44" # Base 02 - Bright Black
+color07="cd/d6/f4" # Base 05 - White
+color08="45/47/5a" # Base 03 - Bright Black
 color09="eb/a0/ac" # Base 12 - Bright Red
 color10="a6/e3/a1" # Base 14 - Bright Green
 color11="f5/e0/dc" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="cd/d6/f4" # Base 05
 color_background="1e/1e/2e" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

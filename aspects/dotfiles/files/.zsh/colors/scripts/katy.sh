@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Katy 
+# Scheme name: Katy
 # Scheme author: George Essig (https://github.com/gessig)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="katy"
@@ -12,8 +12,8 @@ color03="e0/a5/57" # Base 0A - Yellow
 color04="82/aa/ff" # Base 0D - Blue
 color05="c7/92/ea" # Base 0E - Magenta
 color06="83/b7/e5" # Base 0C - Cyan
-color07="95/9d/cb" # Base 06 - White
-color08="5c/59/8b" # Base 02 - Bright Black
+color07="95/9d/cb" # Base 05 - White
+color08="67/6e/95" # Base 03 - Bright Black
 color09="6e/98/e1" # Base 12 - Bright Red
 color10="78/c0/6e" # Base 14 - Bright Green
 color11="e0/a5/57" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="95/9d/cb" # Base 05
 color_background="29/2d/3e" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

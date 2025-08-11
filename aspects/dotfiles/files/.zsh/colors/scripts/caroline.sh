@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: caroline 
+# Scheme name: caroline
 # Scheme author: ed (https://codeberg.org/ed)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="caroline"
@@ -12,8 +12,8 @@ color03="f2/81/71" # Base 0A - Yellow
 color04="68/4c/59" # Base 0D - Blue
 color05="a6/36/50" # Base 0E - Magenta
 color06="6b/65/66" # Base 0C - Cyan
-color07="c5/8d/7b" # Base 06 - White
-color08="56/38/37" # Base 02 - Bright Black
+color07="a8/75/69" # Base 05 - White
+color08="6d/47/45" # Base 03 - Bright Black
 color09="c2/4f/57" # Base 12 - Bright Red
 color10="80/6c/61" # Base 14 - Bright Green
 color11="f2/81/71" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="a8/75/69" # Base 05
 color_background="1c/12/13" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

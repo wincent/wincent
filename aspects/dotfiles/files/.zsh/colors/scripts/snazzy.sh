@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Snazzy 
+# Scheme name: Snazzy
 # Scheme author: Chawye Hsu (https://github.com/chawyehsu), based on Hyper Snazzy Theme (https://github.com/sindresorhus/hyper-snazzy)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="snazzy"
@@ -12,8 +12,8 @@ color03="f3/f9/9d" # Base 0A - Yellow
 color04="57/c7/ff" # Base 0D - Blue
 color05="ff/6a/c1" # Base 0E - Magenta
 color06="9a/ed/fe" # Base 0C - Cyan
-color07="ef/f0/eb" # Base 06 - White
-color08="43/45/4f" # Base 02 - Bright Black
+color07="e2/e4/e5" # Base 05 - White
+color08="78/78/7e" # Base 03 - Bright Black
 color09="ff/5c/57" # Base 12 - Bright Red
 color10="5a/f7/8e" # Base 14 - Bright Green
 color11="f3/f9/9d" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="e2/e4/e5" # Base 05
 color_background="28/2a/36" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

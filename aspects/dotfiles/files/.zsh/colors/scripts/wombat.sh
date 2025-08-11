@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Wombat 
+# Scheme name: Wombat
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="wombat"
@@ -12,8 +12,8 @@ color03="a5/c7/ff" # Base 0A - Yellow
 color04="5d/a9/f6" # Base 0D - Blue
 color05="e8/6a/ff" # Base 0E - Magenta
 color06="82/ff/f6" # Base 0C - Cyan
-color07="de/d9/ce" # Base 06 - White
-color08="31/31/31" # Base 02 - Bright Black
+color07="b2/af/a6" # Base 05 - White
+color08="5c/5b/58" # Base 03 - Bright Black
 color09="f5/8b/7f" # Base 12 - Bright Red
 color10="dc/f8/8f" # Base 14 - Bright Green
 color11="ee/e5/b2" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="b2/af/a6" # Base 05
 color_background="17/17/17" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

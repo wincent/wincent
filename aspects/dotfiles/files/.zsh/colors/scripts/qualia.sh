@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Qualia 
+# Scheme name: Qualia
 # Scheme author: isaacwhanson
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="qualia"
@@ -12,8 +12,8 @@ color03="E6/A3/DC" # Base 0A - Yellow
 color04="50/CA/CD" # Base 0D - Blue
 color05="E0/AF/85" # Base 0E - Magenta
 color06="C8/C8/74" # Base 0C - Cyan
-color07="C0/C0/C0" # Base 06 - White
-color08="45/45/45" # Base 02 - Bright Black
+color07="C0/C0/C0" # Base 05 - White
+color08="45/45/45" # Base 03 - Bright Black
 color09="EF/A6/A2" # Base 12 - Bright Red
 color10="80/C9/90" # Base 14 - Bright Green
 color11="E6/A3/DC" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="C0/C0/C0" # Base 05
 color_background="10/10/10" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

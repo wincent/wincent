@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Still Alive 
+# Scheme name: Still Alive
 # Scheme author: Derrick McKee (derrick.mckee@gmail.com)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="still-alive"
@@ -12,8 +12,8 @@ color03="42/63/95" # Base 0A - Yellow
 color04="00/18/78" # Base 0D - Blue
 color05="90/00/00" # Base 0E - Magenta
 color06="2C/3C/57" # Base 0C - Cyan
-color07="48/90/00" # Base 06 - White
-color08="FF/F0/18" # Base 02 - Bright Black
+color07="D8/00/00" # Base 05 - White
+color08="F0/18/18" # Base 03 - Bright Black
 color09="48/78/30" # Base 12 - Bright Red
 color10="5C/5C/6A" # Base 14 - Bright Green
 color11="42/63/95" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="D8/00/00" # Base 05
 color_background="F0/F0/F0" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

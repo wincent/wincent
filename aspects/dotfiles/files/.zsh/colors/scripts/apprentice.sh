@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Apprentice 
+# Scheme name: Apprentice
 # Scheme author: romainl
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="apprentice"
@@ -12,8 +12,8 @@ color03="87/AF/87" # Base 0A - Yellow
 color04="87/87/AF" # Base 0D - Blue
 color05="5F/AF/AF" # Base 0E - Magenta
 color06="87/AF/D7" # Base 0C - Cyan
-color07="5F/87/87" # Base 06 - White
-color08="5F/87/5F" # Base 02 - Bright Black
+color07="5F/5F/87" # Base 05 - White
+color08="87/87/5F" # Base 03 - Bright Black
 color09="44/44/44" # Base 12 - Bright Red
 color10="FF/FF/AF" # Base 14 - Bright Green
 color11="87/AF/87" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="5F/5F/87" # Base 05
 color_background="26/26/26" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

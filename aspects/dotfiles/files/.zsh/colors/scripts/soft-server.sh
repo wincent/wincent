@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Soft Server 
+# Scheme name: Soft Server
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="soft-server"
@@ -12,8 +12,8 @@ color03="62/b1/df" # Base 0A - Yellow
 color04="6a/8f/a3" # Base 0D - Blue
 color05="69/71/a3" # Base 0E - Magenta
 color06="6b/a4/8f" # Base 0C - Cyan
-color07="99/a3/a2" # Base 06 - White
-color08="66/6c/6b" # Base 02 - Bright Black
+color07="8c/95/94" # Base 05 - White
+color08="72/79/78" # Base 03 - Bright Black
 color09="dc/5b/5f" # Base 12 - Bright Red
 color10="bf/de/54" # Base 14 - Bright Green
 color11="de/b3/5f" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="8c/95/94" # Base 05
 color_background="24/26/26" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

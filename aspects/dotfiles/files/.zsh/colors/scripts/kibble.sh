@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Kibble 
+# Scheme name: Kibble
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="kibble"
@@ -12,8 +12,8 @@ color03="97/a4/f7" # Base 0A - Yellow
 color04="34/49/d1" # Base 0D - Blue
 color05="84/00/ff" # Base 0E - Magenta
 color06="07/98/ab" # Base 0C - Cyan
-color07="e2/d1/e3" # Base 06 - White
-color08="5a/5a/5a" # Base 02 - Bright Black
+color07="c0/b3/c0" # Base 05 - White
+color08="7c/77/7c" # Base 03 - Bright Black
 color09="f0/15/78" # Base 12 - Bright Red
 color10="6c/e0/5c" # Base 14 - Bright Green
 color11="f3/f7/9e" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="c0/b3/c0" # Base 05
 color_background="0e/10/0a" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

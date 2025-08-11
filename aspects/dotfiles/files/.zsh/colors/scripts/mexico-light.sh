@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Mexico Light 
+# Scheme name: Mexico Light
 # Scheme author: Sheldon Johnson
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="mexico-light"
@@ -12,8 +12,8 @@ color03="f7/9a/0e" # Base 0A - Yellow
 color04="7c/af/c2" # Base 0D - Blue
 color05="96/60/9e" # Base 0E - Magenta
 color06="4b/80/93" # Base 0C - Cyan
-color07="28/28/28" # Base 06 - White
-color08="d8/d8/d8" # Base 02 - Bright Black
+color07="38/38/38" # Base 05 - White
+color08="b8/b8/b8" # Base 03 - Bright Black
 color09="ab/46/42" # Base 12 - Bright Red
 color10="53/89/47" # Base 14 - Bright Green
 color11="f7/9a/0e" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="38/38/38" # Base 05
 color_background="f8/f8/f8" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

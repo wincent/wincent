@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Sakura 
+# Scheme name: Sakura
 # Scheme author: Misterio77 (http://github.com/Misterio77)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="sakura"
@@ -12,8 +12,8 @@ color03="c2/94/61" # Base 0A - Yellow
 color04="00/6e/93" # Base 0D - Blue
 color05="5e/21/80" # Base 0E - Magenta
 color06="1d/89/91" # Base 0C - Cyan
-color07="42/38/3a" # Base 06 - White
-color08="e0/cc/d1" # Base 02 - Bright Black
+color07="56/44/48" # Base 05 - White
+color08="75/5f/64" # Base 03 - Bright Black
 color09="df/2d/52" # Base 12 - Bright Red
 color10="2e/91/6d" # Base 14 - Bright Green
 color11="c2/94/61" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="56/44/48" # Base 05
 color_background="fe/ed/f3" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

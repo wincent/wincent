@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: 3024 Day 
+# Scheme name: 3024 Day
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="3024-day"
@@ -12,8 +12,8 @@ color03="80/7d/7c" # Base 0A - Yellow
 color04="01/a0/e4" # Base 0D - Blue
 color05="a1/6a/94" # Base 0E - Magenta
 color06="b5/e4/f4" # Base 0C - Cyan
-color07="a5/a2/a2" # Base 06 - White
-color08="5c/58/55" # Base 02 - Bright Black
+color07="92/8f/8e" # Base 05 - White
+color08="6e/6a/68" # Base 03 - Bright Black
 color09="e8/bb/d0" # Base 12 - Bright Red
 color10="3a/34/32" # Base 14 - Bright Green
 color11="4a/45/43" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="92/8f/8e" # Base 05
 color_background="f7/f7/f7" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

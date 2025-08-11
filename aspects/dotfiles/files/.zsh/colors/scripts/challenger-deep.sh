@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Challenger Deep 
+# Scheme name: Challenger Deep
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="challenger-deep"
@@ -12,8 +12,8 @@ color03="91/dd/ff" # Base 0A - Yellow
 color04="65/b2/ff" # Base 0D - Blue
 color05="90/6c/ff" # Base 0E - Magenta
 color06="63/f2/f1" # Base 0C - Cyan
-color07="a6/b3/cc" # Base 06 - White
-color08="56/55/75" # Base 02 - Bright Black
+color07="92/9b/b6" # Base 05 - White
+color08="6a/6c/8a" # Base 03 - Bright Black
 color09="ff/80/80" # Base 12 - Bright Red
 color10="95/ff/a4" # Base 14 - Bright Green
 color11="ff/e9/aa" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="92/9b/b6" # Base 05
 color_background="1e/1c/31" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

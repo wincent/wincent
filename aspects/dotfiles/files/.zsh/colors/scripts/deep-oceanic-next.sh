@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Deep Oceanic Next 
+# Scheme name: Deep Oceanic Next
 # Scheme author: spearkkk (https://github.com/spearkkk)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="deep-oceanic-next"
@@ -12,8 +12,8 @@ color03="f3/b8/63" # Base 0A - Yellow
 color04="56/8c/cf" # Base 0D - Blue
 color05="8b/66/d6" # Base 0E - Magenta
 color06="4f/b7/ae" # Base 0C - Cyan
-color07="e0/e9/ef" # Base 06 - White
-color08="00/36/40" # Base 02 - Bright Black
+color07="d4/e1/e8" # Base 05 - White
+color08="00/48/52" # Base 03 - Bright Black
 color09="ff/66/70" # Base 12 - Bright Red
 color10="72/e1/a6" # Base 14 - Bright Green
 color11="ff/e0/8a" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="d4/e1/e8" # Base 05
 color_background="00/1c/1f" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

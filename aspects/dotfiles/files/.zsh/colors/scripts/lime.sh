@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: lime 
+# Scheme name: lime
 # Scheme author: limelier
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="lime"
@@ -12,8 +12,8 @@ color03="ff/d1/5e" # Base 0A - Yellow
 color04="2b/92/6f" # Base 0D - Blue
 color05="1b/82/5f" # Base 0E - Magenta
 color06="4c/ad/83" # Base 0C - Cyan
-color07="ff/f2/d1" # Base 06 - White
-color08="2a/2a/3f" # Base 02 - Bright Black
+color07="81/81/75" # Base 05 - White
+color08="31/31/40" # Base 03 - Bright Black
 color09="ff/66/2a" # Base 12 - Bright Red
 color10="8c/d9/7c" # Base 14 - Bright Green
 color11="ff/d1/5e" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="81/81/75" # Base 05
 color_background="1a/1a/2f" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

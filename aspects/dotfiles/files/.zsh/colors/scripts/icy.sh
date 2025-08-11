@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Icy Dark 
+# Scheme name: Icy Dark
 # Scheme author: icyphox (https://icyphox.ga)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="icy"
@@ -12,8 +12,8 @@ color03="80/de/ea" # Base 0A - Yellow
 color04="00/bc/d4" # Base 0D - Blue
 color05="00/ac/c1" # Base 0E - Magenta
 color06="26/c6/da" # Base 0C - Cyan
-color07="0c/7c/8c" # Base 06 - White
-color08="04/1f/23" # Base 02 - Bright Black
+color07="09/5b/67" # Base 05 - White
+color08="05/2e/34" # Base 03 - Bright Black
 color09="16/c1/d9" # Base 12 - Bright Red
 color10="4d/d0/e1" # Base 14 - Bright Green
 color11="80/de/ea" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="09/5b/67" # Base 05
 color_background="02/10/12" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

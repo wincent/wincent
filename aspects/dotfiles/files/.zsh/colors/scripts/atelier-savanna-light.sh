@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Atelier Savanna Light 
+# Scheme name: Atelier Savanna Light
 # Scheme author: Bram de Haan (http://atelierbramdehaan.nl)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="atelier-savanna-light"
@@ -12,8 +12,8 @@ color03="a0/7e/3b" # Base 0A - Yellow
 color04="47/8c/90" # Base 0D - Blue
 color05="55/85/9b" # Base 0E - Magenta
 color06="1c/9a/a0" # Base 0C - Cyan
-color07="23/2a/25" # Base 06 - White
-color08="87/92/8a" # Base 02 - Bright Black
+color07="52/60/57" # Base 05 - White
+color08="78/87/7d" # Base 03 - Bright Black
 color09="b1/61/39" # Base 12 - Bright Red
 color10="48/99/63" # Base 14 - Bright Green
 color11="a0/7e/3b" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="52/60/57" # Base 05
 color_background="ec/f4/ee" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

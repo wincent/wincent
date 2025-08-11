@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Forest Blue 
+# Scheme name: Forest Blue
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="forest-blue"
@@ -12,8 +12,8 @@ color03="39/a7/a2" # Base 0A - Yellow
 color04="8e/d0/ce" # Base 0D - Blue
 color05="5e/46/8c" # Base 0E - Magenta
 color06="31/65/8c" # Base 0C - Cyan
-color07="e2/d8/cd" # Base 06 - White
-color08="3d/3d/3d" # Base 02 - Bright Black
+color07="b8/b1/a9" # Base 05 - White
+color08="66/63/61" # Base 03 - Bright Black
 color09="fb/3d/66" # Base 12 - Bright Red
 color10="6b/b4/8d" # Base 14 - Bright Green
 color11="2f/c8/59" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="b8/b1/a9" # Base 05
 color_background="05/15/19" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

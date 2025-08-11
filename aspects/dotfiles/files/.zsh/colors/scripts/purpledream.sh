@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Purpledream 
+# Scheme name: Purpledream
 # Scheme author: malet
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="purpledream"
@@ -12,8 +12,8 @@ color03="F0/00/A0" # Base 0A - Yellow
 color04="00/A0/F0" # Base 0D - Blue
 color05="B0/00/D0" # Base 0E - Magenta
 color06="00/75/B0" # Base 0C - Cyan
-color07="ee/e0/ee" # Base 06 - White
-color08="40/30/40" # Base 02 - Bright Black
+color07="dd/d0/dd" # Base 05 - White
+color08="60/50/60" # Base 03 - Bright Black
 color09="FF/1D/0D" # Base 12 - Bright Red
 color10="14/CC/64" # Base 14 - Bright Green
 color11="F0/00/A0" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="dd/d0/dd" # Base 05
 color_background="10/05/10" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

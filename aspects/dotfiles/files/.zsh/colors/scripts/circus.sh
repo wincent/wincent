@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Circus 
+# Scheme name: Circus
 # Scheme author: Stephan Boyer (https://github.com/stepchowfun) and Esther Wang (https://github.com/ewang12)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="circus"
@@ -12,8 +12,8 @@ color03="c3/ba/63" # Base 0A - Yellow
 color04="63/9e/e4" # Base 0D - Blue
 color05="b8/88/e2" # Base 0E - Magenta
 color06="4b/b1/a7" # Base 0C - Cyan
-color07="80/80/80" # Base 06 - White
-color08="30/30/30" # Base 02 - Bright Black
+color07="a7/a7/a7" # Base 05 - White
+color08="5f/5a/60" # Base 03 - Bright Black
 color09="dc/65/7d" # Base 12 - Bright Red
 color10="84/b9/7c" # Base 14 - Bright Green
 color11="c3/ba/63" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="a7/a7/a7" # Base 05
 color_background="19/19/19" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

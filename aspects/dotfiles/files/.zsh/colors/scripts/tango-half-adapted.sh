@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Tango Half Adapted 
+# Scheme name: Tango Half Adapted
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="tango-half-adapted"
@@ -12,8 +12,8 @@ color03="75/be/ff" # Base 0A - Yellow
 color04="00/8d/f5" # Base 0D - Blue
 color05="a8/6b/b2" # Base 0E - Magenta
 color06="00/bd/c3" # Base 0C - Cyan
-color07="e0/e4/db" # Base 06 - White
-color08="79/7c/75" # Base 02 - Bright Black
+color07="c6/ca/c1" # Base 05 - White
+color08="92/96/8e" # Base 03 - Bright Black
 color09="ff/00/12" # Base 12 - Bright Red
 color10="8a/f6/00" # Base 14 - Bright Green
 color11="ff/eb/00" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="c6/ca/c1" # Base 05
 color_background="ff/fe/fe" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

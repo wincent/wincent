@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Blueish 
+# Scheme name: Blueish
 # Scheme author: Ben Mayoras
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="blueish"
@@ -12,8 +12,8 @@ color03="82/AA/FF" # Base 0A - Yellow
 color04="82/AA/FF" # Base 0D - Blue
 color05="FF/84/DD" # Base 0E - Magenta
 color06="5F/D1/FF" # Base 0C - Cyan
-color07="DD/EA/F6" # Base 06 - White
-color08="46/29/0A" # Base 02 - Bright Black
+color07="C8/E1/F8" # Base 05 - White
+color08="61/6D/78" # Base 03 - Bright Black
 color09="4C/E5/87" # Base 12 - Bright Red
 color10="C3/E8/8D" # Base 14 - Bright Green
 color11="82/AA/FF" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="C8/E1/F8" # Base 05
 color_background="18/24/30" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

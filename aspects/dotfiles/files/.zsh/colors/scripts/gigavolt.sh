@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Gigavolt 
+# Scheme name: Gigavolt
 # Scheme author: Aidan Swope (http://github.com/Whillikers)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="gigavolt"
@@ -12,8 +12,8 @@ color03="ff/dc/2d" # Base 0A - Yellow
 color04="40/bf/ff" # Base 0D - Blue
 color05="ae/94/f9" # Base 0E - Magenta
 color06="fb/6a/cb" # Base 0C - Cyan
-color07="ef/f0/f9" # Base 06 - White
-color08="5a/57/6e" # Base 02 - Bright Black
+color07="e9/e7/e1" # Base 05 - White
+color08="a1/d2/e6" # Base 03 - Bright Black
 color09="ff/66/1a" # Base 12 - Bright Red
 color10="f2/e6/a9" # Base 14 - Bright Green
 color11="ff/dc/2d" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="e9/e7/e1" # Base 05
 color_background="20/21/26" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

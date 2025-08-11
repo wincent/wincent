@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Atelier Sulphurpool Light 
+# Scheme name: Atelier Sulphurpool Light
 # Scheme author: Bram de Haan (http://atelierbramdehaan.nl)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="atelier-sulphurpool-light"
@@ -12,8 +12,8 @@ color03="c0/8b/30" # Base 0A - Yellow
 color04="3d/8f/d1" # Base 0D - Blue
 color05="66/79/cc" # Base 0E - Magenta
 color06="22/a2/c9" # Base 0C - Cyan
-color07="29/32/56" # Base 06 - White
-color08="97/9d/b4" # Base 02 - Bright Black
+color07="5e/66/87" # Base 05 - White
+color08="89/8e/a4" # Base 03 - Bright Black
 color09="c9/49/22" # Base 12 - Bright Red
 color10="ac/97/39" # Base 14 - Bright Green
 color11="c0/8b/30" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="5e/66/87" # Base 05
 color_background="f5/f7/ff" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

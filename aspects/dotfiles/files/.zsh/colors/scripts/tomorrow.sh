@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Tomorrow 
+# Scheme name: Tomorrow
 # Scheme author: Chris Kempson (https://github.com/chriskempson)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="tomorrow"
@@ -12,8 +12,8 @@ color03="ea/b7/00" # Base 0A - Yellow
 color04="42/71/ae" # Base 0D - Blue
 color05="89/59/a8" # Base 0E - Magenta
 color06="3e/99/9f" # Base 0C - Cyan
-color07="28/2a/2e" # Base 06 - White
-color08="d6/d6/d6" # Base 02 - Bright Black
+color07="37/3b/41" # Base 05 - White
+color08="b4/b7/b4" # Base 03 - Bright Black
 color09="c8/28/29" # Base 12 - Bright Red
 color10="71/8c/00" # Base 14 - Bright Green
 color11="ea/b7/00" # Base 13 - Bright Yellow
@@ -24,14 +24,14 @@ color15="1d/1f/21" # Base 07 - Bright White
 color16="f5/87/1f" # Base 09
 color17="a3/68/5a" # Base 0F
 color18="e0/e0/e0" # Base 01
-color19="d6/d6/d6" # Base 02
+color19="c5/c8/c6" # Base 02
 color20="96/98/96" # Base 04
 color21="28/2a/2e" # Base 06
-color_foreground="4d/4d/4c" # Base 05
+color_foreground="37/3b/41" # Base 05
 color_background="ff/ff/ff" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }
@@ -77,12 +77,12 @@ put_template 15 "$color15"
 # foreground / background / cursor color
 if [ -n "$ITERM_SESSION_ID" ]; then
   # iTerm2 proprietary escape codes
-  put_template_custom Pg 4d4d4c # foreground
+  put_template_custom Pg 373b41 # foreground
   put_template_custom Ph ffffff # background
-  put_template_custom Pi 4d4d4c # bold color
-  put_template_custom Pj d6d6d6 # selection color
-  put_template_custom Pk 4d4d4c # selected text color
-  put_template_custom Pl 4d4d4c # cursor
+  put_template_custom Pi 373b41 # bold color
+  put_template_custom Pj c5c8c6 # selection color
+  put_template_custom Pk 373b41 # selected text color
+  put_template_custom Pl 373b41 # cursor
   put_template_custom Pm ffffff # cursor text
 else
   put_template_var 10 "$color_foreground"
@@ -128,10 +128,10 @@ unset color_background
 if [ -n "$TINTED_SHELL_ENABLE_BASE24_VARS" ]; then
   export BASE24_COLOR_00_HEX="ffffff"
   export BASE24_COLOR_01_HEX="e0e0e0"
-  export BASE24_COLOR_02_HEX="d6d6d6"
-  export BASE24_COLOR_03_HEX="8e908c"
+  export BASE24_COLOR_02_HEX="c5c8c6"
+  export BASE24_COLOR_03_HEX="b4b7b4"
   export BASE24_COLOR_04_HEX="969896"
-  export BASE24_COLOR_05_HEX="4d4d4c"
+  export BASE24_COLOR_05_HEX="373b41"
   export BASE24_COLOR_06_HEX="282a2e"
   export BASE24_COLOR_07_HEX="1d1f21"
   export BASE24_COLOR_08_HEX="c82829"

@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Digital Rain 
+# Scheme name: Digital Rain
 # Scheme author: Nathan Byrd (https://github.com/cognitivegears)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="digital-rain"
@@ -12,8 +12,8 @@ color03="A6/7A/50" # Base 0A - Yellow
 color04="54/82/AF" # Base 0D - Blue
 color05="94/72/B4" # Base 0E - Magenta
 color06="46/8C/78" # Base 0C - Cyan
-color07="C4/CE/C4" # Base 06 - White
-color08="4A/8D/7E" # Base 02 - Bright Black
+color07="00/FF/00" # Base 05 - White
+color08="7C/8D/7C" # Base 03 - Bright Black
 color09="C8/5A/46" # Base 12 - Bright Red
 color10="64/C8/3C" # Base 14 - Bright Green
 color11="A6/7A/50" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="00/FF/00" # Base 05
 color_background="00/00/00" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

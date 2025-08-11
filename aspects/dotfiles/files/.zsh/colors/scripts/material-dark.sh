@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Material Dark 
+# Scheme name: Material Dark
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="material-dark"
@@ -12,8 +12,8 @@ color03="53/a4/f3" # Base 0A - Yellow
 color04="13/4e/b2" # Base 0D - Blue
 color05="55/00/87" # Base 0E - Magenta
 color06="0e/70/7c" # Base 0C - Cyan
-color07="ee/ee/ee" # Base 06 - White
-color08="42/42/42" # Base 02 - Bright Black
+color07="c3/c3/c3" # Base 05 - White
+color08="6d/6d/6d" # Base 03 - Bright Black
 color09="e8/3a/3f" # Base 12 - Bright Red
 color10="7a/ba/39" # Base 14 - Bright Green
 color11="fe/e9/2e" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="c3/c3/c3" # Base 05
 color_background="22/22/21" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

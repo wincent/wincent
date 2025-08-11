@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Misterioso 
+# Scheme name: Misterioso
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="misterioso"
@@ -12,8 +12,8 @@ color03="23/d7/d7" # Base 0A - Yellow
 color04="33/8f/86" # Base 0D - Blue
 color05="94/13/e5" # Base 0E - Magenta
 color06="23/d7/d7" # Base 0C - Cyan
-color07="e1/e1/e0" # Base 06 - White
-color08="55/55/55" # Base 02 - Bright Black
+color07="be/be/bd" # Base 05 - White
+color08="78/78/77" # Base 03 - Bright Black
 color09="ff/32/42" # Base 12 - Bright Red
 color10="74/cd/68" # Base 14 - Bright Green
 color11="ff/b9/29" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="be/be/bd" # Base 05
 color_background="2d/37/43" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

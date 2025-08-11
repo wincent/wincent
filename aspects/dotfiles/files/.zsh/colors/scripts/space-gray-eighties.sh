@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Space Gray Eighties 
+# Scheme name: Space Gray Eighties
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="space-gray-eighties"
@@ -12,8 +12,8 @@ color03="4d/83/d0" # Base 0A - Yellow
 color04="54/85/c0" # Base 0D - Blue
 color05="bf/83/c0" # Base 0E - Magenta
 color06="57/c2/c0" # Base 0C - Cyan
-color07="ee/ec/e7" # Base 06 - White
-color08="55/55/55" # Base 02 - Bright Black
+color07="c7/c6/c2" # Base 05 - White
+color08="7b/7a/79" # Base 03 - Bright Black
 color09="ff/69/73" # Base 12 - Bright Red
 color10="93/d3/93" # Base 14 - Bright Green
 color11="ff/d1/56" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="c7/c6/c2" # Base 05
 color_background="21/21/21" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

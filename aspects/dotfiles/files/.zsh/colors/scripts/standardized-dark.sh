@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: standardized-dark 
+# Scheme name: standardized-dark
 # Scheme author: ali (https://github.com/ali-githb/base16-standardized-scheme)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="standardized-dark"
@@ -12,8 +12,8 @@ color03="e1/b3/1a" # Base 0A - Yellow
 color04="00/a3/f2" # Base 0D - Blue
 color05="b4/6e/e0" # Base 0E - Magenta
 color06="21/c9/92" # Base 0C - Cyan
-color07="e0/e0/e0" # Base 06 - White
-color08="55/55/55" # Base 02 - Bright Black
+color07="c0/c0/c0" # Base 05 - White
+color08="89/89/89" # Base 03 - Bright Black
 color09="e1/5d/67" # Base 12 - Bright Red
 color10="5d/b1/29" # Base 14 - Bright Green
 color11="e1/b3/1a" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="c0/c0/c0" # Base 05
 color_background="22/22/22" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

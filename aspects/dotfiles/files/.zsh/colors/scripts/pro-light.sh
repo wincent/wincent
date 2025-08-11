@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Pro Light 
+# Scheme name: Pro Light
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="pro-light"
@@ -12,8 +12,8 @@ color03="00/81/ff" # Base 0A - Yellow
 color04="3a/75/ff" # Base 0D - Blue
 color05="ec/65/e7" # Base 0E - Magenta
 color06="4e/d1/dd" # Base 0C - Cyan
-color07="dc/dc/dc" # Base 06 - White
-color08="9f/9f/9f" # Base 02 - Bright Black
+color07="cc/cc/cc" # Base 05 - White
+color08="ae/ae/ae" # Base 03 - Bright Black
 color09="ff/66/40" # Base 12 - Bright Red
 color10="61/ee/56" # Base 14 - Bright Green
 color11="f2/f0/55" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="cc/cc/cc" # Base 05
 color_background="fe/ff/ff" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

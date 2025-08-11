@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: London Tube 
+# Scheme name: London Tube
 # Scheme author: Jan T. Sott
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="tube"
@@ -12,8 +12,8 @@ color03="ff/d2/04" # Base 0A - Yellow
 color04="00/9d/dc" # Base 0D - Blue
 color05="98/00/5d" # Base 0E - Magenta
 color06="85/ce/bc" # Base 0C - Cyan
-color07="e7/e7/e8" # Base 06 - White
-color08="5a/57/58" # Base 02 - Bright Black
+color07="d9/d8/d8" # Base 05 - White
+color08="73/71/71" # Base 03 - Bright Black
 color09="ee/2e/24" # Base 12 - Bright Red
 color10="00/85/3e" # Base 14 - Bright Green
 color11="ff/d2/04" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="d9/d8/d8" # Base 05
 color_background="23/1f/20" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

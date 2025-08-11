@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Ashes 
+# Scheme name: Ashes
 # Scheme author: Jannik Siebert (https://github.com/janniks)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="ashes"
@@ -12,8 +12,8 @@ color03="AE/C7/95" # Base 0A - Yellow
 color04="AE/95/C7" # Base 0D - Blue
 color05="C7/95/AE" # Base 0E - Magenta
 color06="95/AE/C7" # Base 0C - Cyan
-color07="DF/E2/E5" # Base 06 - White
-color08="56/5E/65" # Base 02 - Bright Black
+color07="C7/CC/D1" # Base 05 - White
+color08="74/7C/84" # Base 03 - Bright Black
 color09="C7/AE/95" # Base 12 - Bright Red
 color10="95/C7/AE" # Base 14 - Bright Green
 color11="AE/C7/95" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="C7/CC/D1" # Base 05
 color_background="1C/20/23" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

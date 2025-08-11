@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Treehouse 
+# Scheme name: Treehouse
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="treehouse"
@@ -12,8 +12,8 @@ color03="85/cf/ec" # Base 0A - Yellow
 color04="57/84/99" # Base 0D - Blue
 color05="96/36/3c" # Base 0E - Magenta
 color06="b2/59/1d" # Base 0C - Cyan
-color07="77/6b/53" # Base 06 - White
-color08="42/36/25" # Base 02 - Bright Black
+color07="69/5d/47" # Base 05 - White
+color08="4f/43/30" # Base 03 - Bright Black
 color09="ed/5c/20" # Base 12 - Bright Red
 color10="55/f2/37" # Base 14 - Bright Green
 color11="f1/b7/31" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="69/5d/47" # Base 05
 color_background="19/19/19" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

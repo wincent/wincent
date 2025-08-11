@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Lavandula 
+# Scheme name: Lavandula
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="lavandula"
@@ -12,8 +12,8 @@ color03="8e/86/df" # Base 0A - Yellow
 color04="4f/4a/7f" # Base 0D - Blue
 color05="59/3f/7e" # Base 0E - Magenta
 color06="57/76/7f" # Base 0C - Cyan
-color07="73/6e/7d" # Base 06 - White
-color08="37/2c/46" # Base 02 - Bright Black
+color07="64/5d/6f" # Base 05 - White
+color08="46/3c/53" # Base 03 - Bright Black
 color09="df/50/66" # Base 12 - Bright Red
 color10="52/e0/c4" # Base 14 - Bright Green
 color11="e0/c2/86" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="64/5d/6f" # Base 05
 color_background="05/00/14" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

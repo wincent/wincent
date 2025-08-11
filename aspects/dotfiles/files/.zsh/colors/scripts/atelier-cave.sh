@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Atelier Cave 
+# Scheme name: Atelier Cave
 # Scheme author: Bram de Haan (http://atelierbramdehaan.nl)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="atelier-cave"
@@ -12,8 +12,8 @@ color03="a0/6e/3b" # Base 0A - Yellow
 color04="57/6d/db" # Base 0D - Blue
 color05="95/5a/e7" # Base 0E - Magenta
 color06="39/8b/c6" # Base 0C - Cyan
-color07="e2/df/e7" # Base 06 - White
-color08="58/52/60" # Base 02 - Bright Black
+color07="8b/87/92" # Base 05 - White
+color08="65/5f/6d" # Base 03 - Bright Black
 color09="be/46/78" # Base 12 - Bright Red
 color10="2a/92/92" # Base 14 - Bright Green
 color11="a0/6e/3b" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="8b/87/92" # Base 05
 color_background="19/17/1c" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

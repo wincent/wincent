@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Material Palenight 
+# Scheme name: Material Palenight
 # Scheme author: Nate Peterson
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="material-palenight"
@@ -12,8 +12,8 @@ color03="FF/CB/6B" # Base 0A - Yellow
 color04="82/AA/FF" # Base 0D - Blue
 color05="C7/92/EA" # Base 0E - Magenta
 color06="89/DD/FF" # Base 0C - Cyan
-color07="95/9D/CB" # Base 06 - White
-color08="32/37/4D" # Base 02 - Bright Black
+color07="95/9D/CB" # Base 05 - White
+color08="67/6E/95" # Base 03 - Bright Black
 color09="F0/71/78" # Base 12 - Bright Red
 color10="C3/E8/8D" # Base 14 - Bright Green
 color11="FF/CB/6B" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="95/9D/CB" # Base 05
 color_background="29/2D/3E" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

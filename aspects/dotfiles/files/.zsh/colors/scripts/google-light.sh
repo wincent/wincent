@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Google Light 
+# Scheme name: Google Light
 # Scheme author: Seth Wright (http://sethawright.com)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="google-light"
@@ -12,8 +12,8 @@ color03="FB/A9/22" # Base 0A - Yellow
 color04="39/71/ED" # Base 0D - Blue
 color05="A3/6A/C7" # Base 0E - Magenta
 color06="39/71/ED" # Base 0C - Cyan
-color07="28/2a/2e" # Base 06 - White
-color08="c5/c8/c6" # Base 02 - Bright Black
+color07="37/3b/41" # Base 05 - White
+color08="b4/b7/b4" # Base 03 - Bright Black
 color09="CC/34/2B" # Base 12 - Bright Red
 color10="19/88/44" # Base 14 - Bright Green
 color11="FB/A9/22" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="37/3b/41" # Base 05
 color_background="ff/ff/ff" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

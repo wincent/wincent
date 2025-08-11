@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Da One Ocean 
+# Scheme name: Da One Ocean
 # Scheme author: NNB (https://github.com/NNBnh)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="da-one-ocean"
@@ -12,8 +12,8 @@ color03="ff/94/70" # Base 0A - Yellow
 color04="6b/b8/ff" # Base 0D - Blue
 color05="e7/99/ff" # Base 0E - Magenta
 color06="8a/f5/ff" # Base 0C - Cyan
-color07="ff/ff/ff" # Base 06 - White
-color08="52/58/66" # Base 02 - Bright Black
+color07="ff/ff/ff" # Base 05 - White
+color08="87/8d/96" # Base 03 - Bright Black
 color09="fa/78/83" # Base 12 - Bright Red
 color10="98/c3/79" # Base 14 - Bright Green
 color11="ff/94/70" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="ff/ff/ff" # Base 05
 color_background="17/17/26" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

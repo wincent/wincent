@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: tarot 
+# Scheme name: tarot
 # Scheme author: ed (https://codeberg.org/ed)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="tarot"
@@ -12,8 +12,8 @@ color03="ff/65/65" # Base 0A - Yellow
 color04="6e/60/80" # Base 0D - Blue
 color05="a4/57/82" # Base 0E - Magenta
 color06="8c/97/85" # Base 0C - Cyan
-color07="c4/68/6d" # Base 06 - White
-color08="4b/20/54" # Base 02 - Bright Black
+color07="aa/55/6f" # Base 05 - White
+color08="74/31/6b" # Base 03 - Bright Black
 color09="c5/32/53" # Base 12 - Bright Red
 color10="a6/8e/5a" # Base 14 - Bright Green
 color11="ff/65/65" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="aa/55/6f" # Base 05
 color_background="0e/09/1d" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

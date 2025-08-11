@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Moonlight 
+# Scheme name: Moonlight
 # Scheme author: Jeremy Swinarton (https://github.com/jswinarton)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="moonlight"
@@ -12,8 +12,8 @@ color03="ff/c7/77" # Base 0A - Yellow
 color04="40/ff/ff" # Base 0D - Blue
 color05="b9/94/f1" # Base 0E - Magenta
 color06="04/d1/f9" # Base 0C - Cyan
-color07="b4/a4/f4" # Base 06 - White
-color08="59/63/99" # Base 02 - Bright Black
+color07="a3/ac/e1" # Base 05 - White
+color08="74/8c/d6" # Base 03 - Bright Black
 color09="ff/53/70" # Base 12 - Bright Red
 color10="2d/f4/c0" # Base 14 - Bright Green
 color11="ff/c7/77" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="a3/ac/e1" # Base 05
 color_background="21/23/37" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

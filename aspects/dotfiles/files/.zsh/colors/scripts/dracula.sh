@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Dracula 
+# Scheme name: Dracula
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="dracula"
@@ -12,8 +12,8 @@ color03="f1/fa/8c" # Base 0A - Yellow
 color04="80/bf/ff" # Base 0D - Blue
 color05="ff/79/c6" # Base 0E - Magenta
 color06="8b/e9/fd" # Base 0C - Cyan
-color07="f0/f1/f4" # Base 06 - White
-color08="44/47/5a" # Base 02 - Bright Black
+color07="f8/f8/f2" # Base 05 - White
+color08="62/72/a4" # Base 03 - Bright Black
 color09="f2/8c/8c" # Base 12 - Bright Red
 color10="a3/f5/b8" # Base 14 - Bright Green
 color11="ee/f5/a3" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="f8/f8/f2" # Base 05
 color_background="28/2a/36" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

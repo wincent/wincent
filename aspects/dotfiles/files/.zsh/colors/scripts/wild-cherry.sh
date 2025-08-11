@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Wild Cherry 
+# Scheme name: Wild Cherry
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="wild-cherry"
@@ -12,8 +12,8 @@ color03="2f/8b/b9" # Base 0A - Yellow
 color04="88/3c/dc" # Base 0D - Blue
 color05="ec/ec/ec" # Base 0E - Magenta
 color06="c1/b8/b7" # Base 0C - Cyan
-color07="ff/f8/dd" # Base 06 - White
-color08="00/9c/c9" # Base 02 - Bright Black
+color07="bf/e1/d8" # Base 05 - White
+color08="3f/b3/ce" # Base 03 - Bright Black
 color09="da/6b/ab" # Base 12 - Bright Red
 color10="f4/db/a5" # Base 14 - Bright Green
 color11="ea/c0/66" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="bf/e1/d8" # Base 05
 color_background="1f/16/26" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

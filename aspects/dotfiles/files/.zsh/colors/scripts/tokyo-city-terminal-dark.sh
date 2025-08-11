@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Tokyo City Terminal Dark 
+# Scheme name: Tokyo City Terminal Dark
 # Scheme author: Michaël Ball
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="tokyo-city-terminal-dark"
@@ -12,8 +12,8 @@ color03="EB/BF/83" # Base 0A - Yellow
 color04="53/9A/FC" # Base 0D - Blue
 color05="B6/2D/65" # Base 0E - Magenta
 color06="70/E1/E8" # Base 0C - Cyan
-color07="F6/F6/F8" # Base 06 - White
-color08="28/32/3A" # Base 02 - Bright Black
+color07="D8/E2/EC" # Base 05 - White
+color08="52/62/70" # Base 03 - Bright Black
 color09="D9/54/68" # Base 12 - Bright Red
 color10="8B/D4/9C" # Base 14 - Bright Green
 color11="EB/BF/83" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="D8/E2/EC" # Base 05
 color_background="17/1D/23" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Apathy 
+# Scheme name: Apathy
 # Scheme author: Jannik Siebert (https://github.com/janniks)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="apathy"
@@ -12,8 +12,8 @@ color03="3E/4C/96" # Base 0A - Yellow
 color04="96/88/3E" # Base 0D - Blue
 color05="4C/96/3E" # Base 0E - Magenta
 color06="96/3E/4C" # Base 0C - Cyan
-color07="A7/CE/C8" # Base 06 - White
-color08="18/4E/45" # Base 02 - Bright Black
+color07="81/B5/AC" # Base 05 - White
+color08="2B/68/5E" # Base 03 - Bright Black
 color09="3E/96/88" # Base 12 - Bright Red
 color10="88/3E/96" # Base 14 - Bright Green
 color11="3E/4C/96" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="81/B5/AC" # Base 05
 color_background="03/1A/16" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

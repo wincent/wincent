@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Thayer Bright 
+# Scheme name: Thayer Bright
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="thayer-bright"
@@ -12,8 +12,8 @@ color03="3f/78/ff" # Base 0A - Yellow
 color04="26/56/d6" # Base 0D - Blue
 color05="8c/54/fe" # Base 0E - Magenta
 color06="37/c8/b4" # Base 0C - Cyan
-color07="cc/cc/c6" # Base 06 - White
-color08="50/53/54" # Base 02 - Bright Black
+color07="ad/ad/a9" # Base 05 - White
+color08="6f/71/70" # Base 03 - Bright Black
 color09="ff/59/95" # Base 12 - Bright Red
 color10="b6/e3/54" # Base 14 - Bright Green
 color11="fe/ed/6c" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="ad/ad/a9" # Base 05
 color_background="1b/1d/1e" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

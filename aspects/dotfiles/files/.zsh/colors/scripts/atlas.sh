@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Atlas 
+# Scheme name: Atlas
 # Scheme author: Alex Lende (https://ajlende.com)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="atlas"
@@ -12,8 +12,8 @@ color03="ff/cc/1b" # Base 0A - Yellow
 color04="14/74/7e" # Base 0D - Blue
 color05="9a/70/a4" # Base 0E - Magenta
 color06="5d/d7/b9" # Base 0C - Cyan
-color07="e6/e6/dc" # Base 06 - White
-color08="51/7F/8D" # Base 02 - Bright Black
+color07="a1/a1/9a" # Base 05 - White
+color08="6C/8B/91" # Base 03 - Bright Black
 color09="ff/5a/67" # Base 12 - Bright Red
 color10="7f/c0/6e" # Base 14 - Bright Green
 color11="ff/cc/1b" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="a1/a1/9a" # Base 05
 color_background="00/26/35" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

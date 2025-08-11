@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: PaperColor Dark 
+# Scheme name: PaperColor Dark
 # Scheme author: Jon Leopard (http://github.com/jonleopard), based on PaperColor Theme (https://github.com/NLKNguyen/papercolor-theme)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="papercolor-dark"
@@ -12,8 +12,8 @@ color03="af/d7/00" # Base 0A - Yellow
 color04="ff/5f/af" # Base 0D - Blue
 color05="00/af/af" # Base 0E - Magenta
 color06="ff/af/00" # Base 0C - Cyan
-color07="d7/87/5f" # Base 06 - White
-color08="5f/af/00" # Base 02 - Bright Black
+color07="80/80/80" # Base 05 - White
+color08="d7/af/5f" # Base 03 - Bright Black
 color09="58/58/58" # Base 12 - Bright Red
 color10="af/87/d7" # Base 14 - Bright Green
 color11="af/d7/00" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="80/80/80" # Base 05
 color_background="1c/1c/1c" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

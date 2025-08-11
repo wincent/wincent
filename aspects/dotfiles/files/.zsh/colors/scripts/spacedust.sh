@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Spacedust 
+# Scheme name: Spacedust
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="spacedust"
@@ -12,8 +12,8 @@ color03="67/a0/cd" # Base 0A - Yellow
 color04="0e/54/8b" # Base 0D - Blue
 color05="e3/5a/00" # Base 0E - Magenta
 color06="06/af/c7" # Base 0C - Cyan
-color07="f0/f1/ce" # Base 06 - White
-color08="67/4c/31" # Base 02 - Bright Black
+color07="cd/c7/a6" # Base 05 - White
+color08="89/75/58" # Base 03 - Bright Black
 color09="ff/8a/39" # Base 12 - Bright Red
 color10="ad/ca/b8" # Base 14 - Bright Green
 color11="ff/c7/77" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="cd/c7/a6" # Base 05
 color_background="0a/1e/24" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

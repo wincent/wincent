@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Batman 
+# Scheme name: Batman
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="batman"
@@ -12,8 +12,8 @@ color03="90/94/95" # Base 0A - Yellow
 color04="73/70/74" # Base 0D - Blue
 color05="73/72/71" # Base 0E - Magenta
 color06="61/5f/5e" # Base 0C - Cyan
-color07="c5/c5/be" # Base 06 - White
-color08="50/53/54" # Base 02 - Bright Black
+color07="a7/a8/a3" # Base 05 - White
+color08="6d/6f/6e" # Base 03 - Bright Black
 color09="ff/f6/8d" # Base 12 - Bright Red
 color10="ff/f2/7c" # Base 14 - Bright Green
 color11="fe/ed/6c" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="a7/a8/a3" # Base 05
 color_background="1b/1d/1e" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

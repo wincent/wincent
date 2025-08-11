@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Eighties 
+# Scheme name: Eighties
 # Scheme author: Chris Kempson (https://github.com/chriskempson)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="eighties"
@@ -12,8 +12,8 @@ color03="ff/cc/66" # Base 0A - Yellow
 color04="66/99/cc" # Base 0D - Blue
 color05="cc/99/cc" # Base 0E - Magenta
 color06="66/cc/cc" # Base 0C - Cyan
-color07="e8/e6/df" # Base 06 - White
-color08="51/51/51" # Base 02 - Bright Black
+color07="d3/d0/c8" # Base 05 - White
+color08="74/73/69" # Base 03 - Bright Black
 color09="f2/77/7a" # Base 12 - Bright Red
 color10="99/cc/99" # Base 14 - Bright Green
 color11="ff/cc/66" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="d3/d0/c8" # Base 05
 color_background="2d/2d/2d" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Floraverse 
+# Scheme name: Floraverse
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="floraverse"
@@ -12,8 +12,8 @@ color03="40/a4/cf" # Base 0A - Yellow
 color04="1d/6d/a1" # Base 0D - Blue
 color05="b7/07/7e" # Base 0E - Magenta
 color06="42/a3/8c" # Base 0C - Cyan
-color07="f3/e0/b8" # Base 06 - White
-color08="33/1e/4d" # Base 02 - Bright Black
+color07="c3/af/9d" # Base 05 - White
+color08="63/4e/67" # Base 03 - Bright Black
 color09="d0/20/63" # Base 12 - Bright Red
 color10="b4/ce/59" # Base 14 - Bright Green
 color11="fa/c3/57" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="c3/af/9d" # Base 05
 color_background="0e/0c/15" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

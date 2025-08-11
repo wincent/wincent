@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Solarized Light 
+# Scheme name: Solarized Light
 # Scheme author: Ethan Schoonover (modified by aramisgithub)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="solarized-light"
@@ -12,8 +12,8 @@ color03="b5/89/00" # Base 0A - Yellow
 color04="26/8b/d2" # Base 0D - Blue
 color05="6c/71/c4" # Base 0E - Magenta
 color06="2a/a1/98" # Base 0C - Cyan
-color07="07/36/42" # Base 06 - White
-color08="93/a1/a1" # Base 02 - Bright Black
+color07="58/6e/75" # Base 05 - White
+color08="83/94/96" # Base 03 - Bright Black
 color09="dc/32/2f" # Base 12 - Bright Red
 color10="85/99/00" # Base 14 - Bright Green
 color11="b5/89/00" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="58/6e/75" # Base 05
 color_background="fd/f6/e3" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

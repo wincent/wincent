@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Violet Dark 
+# Scheme name: Violet Dark
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="violet-dark"
@@ -12,8 +12,8 @@ color03="20/75/c7" # Base 0A - Yellow
 color04="2e/8b/ce" # Base 0D - Blue
 color05="d1/3a/82" # Base 0E - Magenta
 color06="32/a1/98" # Base 0C - Cyan
-color07="c8/c5/bc" # Base 06 - White
-color08="45/48/4b" # Base 02 - Bright Black
+color07="a7/a5/9f" # Base 05 - White
+color08="65/67/67" # Base 03 - Bright Black
 color09="bd/36/12" # Base 12 - Bright Red
 color10="72/89/03" # Base 14 - Bright Green
 color11="a5/77/04" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="a7/a5/9f" # Base 05
 color_background="1b/1d/1f" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

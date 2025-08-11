@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: deep 
+# Scheme name: deep
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="deep"
@@ -12,8 +12,8 @@ color03="9f/a8/fe" # Base 0A - Yellow
 color04="56/65/fe" # Base 0D - Blue
 color05="af/51/d9" # Base 0E - Magenta
 color06="4f/d2/d9" # Base 0C - Cyan
-color07="df/df/df" # Base 06 - White
-color08="53/53/53" # Base 02 - Bright Black
+color07="bc/bc/bc" # Base 05 - White
+color08="76/76/76" # Base 03 - Bright Black
 color09="fb/00/06" # Base 12 - Bright Red
 color10="21/fe/17" # Base 14 - Bright Green
 color11="fe/dc/2b" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="bc/bc/bc" # Base 05
 color_background="08/08/08" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

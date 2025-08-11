@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Heetch Dark 
+# Scheme name: Heetch Dark
 # Scheme author: Geoffrey Teale (tealeg@gmail.com)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="heetch"
@@ -12,8 +12,8 @@ color03="8F/6C/97" # Base 0A - Yellow
 color04="BD/01/52" # Base 0D - Blue
 color05="82/03/4C" # Base 0E - Magenta
 color06="F8/00/59" # Base 0C - Cyan
-color07="DE/DA/E2" # Base 06 - White
-color08="5A/49/6E" # Base 02 - Bright Black
+color07="BD/B6/C5" # Base 05 - White
+color08="7B/6D/8B" # Base 03 - Bright Black
 color09="27/D9/D5" # Base 12 - Bright Red
 color10="C3/36/78" # Base 14 - Bright Green
 color11="8F/6C/97" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="BD/B6/C5" # Base 05
 color_background="19/01/34" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

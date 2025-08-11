@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Tokyo City Light 
+# Scheme name: Tokyo City Light
 # Scheme author: Michaël Ball
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="tokyo-city-light"
@@ -12,8 +12,8 @@ color03="4C/50/5E" # Base 0A - Yellow
 color04="34/54/8a" # Base 0D - Blue
 color05="5A/4A/78" # Base 0E - Magenta
 color06="4C/50/5E" # Base 0C - Cyan
-color07="1D/25/2C" # Base 06 - White
-color08="ED/EF/F6" # Base 02 - Bright Black
+color07="34/3B/59" # Base 05 - White
+color08="96/99/A3" # Base 03 - Bright Black
 color09="8C/43/51" # Base 12 - Bright Red
 color10="48/5E/30" # Base 14 - Bright Green
 color11="4C/50/5E" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="34/3B/59" # Base 05
 color_background="FB/FB/FD" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

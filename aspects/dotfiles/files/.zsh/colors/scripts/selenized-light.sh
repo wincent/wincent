@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: selenized-light 
+# Scheme name: selenized-light
 # Scheme author: Jan Warchol (https://github.com/jan-warchol/selenized) / adapted to base16 by ali
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="selenized-light"
@@ -12,8 +12,8 @@ color03="a7/83/00" # Base 0A - Yellow
 color04="00/6d/ce" # Base 0D - Blue
 color05="82/5d/c0" # Base 0E - Magenta
 color06="00/97/8a" # Base 0C - Cyan
-color07="3a/4d/53" # Base 06 - White
-color08="d5/cd/b6" # Base 02 - Bright Black
+color07="53/67/6d" # Base 05 - White
+color08="90/99/95" # Base 03 - Bright Black
 color09="cc/17/29" # Base 12 - Bright Red
 color10="42/8b/00" # Base 14 - Bright Green
 color11="a7/83/00" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="53/67/6d" # Base 05
 color_background="fb/f3/db" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

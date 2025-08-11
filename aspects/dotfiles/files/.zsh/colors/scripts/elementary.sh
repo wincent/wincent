@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Elementary 
+# Scheme name: Elementary
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="elementary"
@@ -12,8 +12,8 @@ color03="08/55/fe" # Base 0A - Yellow
 color04="05/3a/8c" # Base 0D - Blue
 color05="e4/00/38" # Base 0E - Magenta
 color06="25/94/e0" # Base 0C - Cyan
-color07="ee/ee/ee" # Base 06 - White
-color08="4a/4a/4a" # Base 02 - Bright Black
+color07="c5/c5/c5" # Base 05 - White
+color08="73/73/73" # Base 03 - Bright Black
 color09="fb/1b/18" # Base 12 - Bright Red
 color10="6a/c1/18" # Base 14 - Bright Green
 color11="fd/c7/0e" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="c5/c5/c5" # Base 05
 color_background="18/18/18" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

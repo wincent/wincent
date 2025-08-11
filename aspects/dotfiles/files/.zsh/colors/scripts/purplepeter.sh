@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Purplepeter 
+# Scheme name: Purplepeter
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="purplepeter"
@@ -12,8 +12,8 @@ color03="79/da/ed" # Base 0A - Yellow
 color04="66/d9/ef" # Base 0D - Blue
 color05="e6/8e/cd" # Base 0E - Magenta
 color06="b9/8c/ff" # Base 0C - Cyan
-color07="ff/ba/81" # Base 06 - White
-color08="10/0b/22" # Base 02 - Bright Black
+color07="c3/8e/69" # Base 05 - White
+color08="4b/36/39" # Base 03 - Bright Black
 color09="f8/9f/92" # Base 12 - Bright Red
 color10="b4/bd/8e" # Base 14 - Bright Green
 color11="f1/e9/bf" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="c3/8e/69" # Base 05
 color_background="2a/1a/4a" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

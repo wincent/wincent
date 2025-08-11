@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Solar Flare Light 
+# Scheme name: Solar Flare Light
 # Scheme author: Chuck Harmston (https://chuck.harmston.ch)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="solarflare-light"
@@ -12,8 +12,8 @@ color03="E4/B5/1C" # Base 0A - Yellow
 color04="33/B5/E1" # Base 0D - Blue
 color05="A3/63/D5" # Base 0E - Magenta
 color06="52/CB/B0" # Base 0C - Cyan
-color07="22/2E/38" # Base 06 - White
-color08="A6/AF/B8" # Base 02 - Bright Black
+color07="58/68/75" # Base 05 - White
+color08="85/93/9E" # Base 03 - Bright Black
 color09="EF/52/53" # Base 12 - Bright Red
 color10="7C/C8/44" # Base 14 - Bright Green
 color11="E4/B5/1C" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="58/68/75" # Base 05
 color_background="F5/F7/FA" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

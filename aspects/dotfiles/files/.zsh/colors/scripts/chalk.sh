@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Chalk 
+# Scheme name: Chalk
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="chalk"
@@ -12,8 +12,8 @@ color03="dd/b2/6f" # Base 0A - Yellow
 color04="5a/b9/ed" # Base 0D - Blue
 color05="db/8f/ea" # Base 0E - Magenta
 color06="10/bc/ad" # Base 0C - Cyan
-color07="e0/e0/e0" # Base 06 - White
-color08="30/30/30" # Base 02 - Bright Black
+color07="d0/d0/d0" # Base 05 - White
+color08="50/50/50" # Base 03 - Bright Black
 color09="fb/9f/b1" # Base 12 - Bright Red
 color10="ac/c2/67" # Base 14 - Bright Green
 color11="ed/a9/87" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="d0/d0/d0" # Base 05
 color_background="15/15/15" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

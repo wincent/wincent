@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Silk Dark 
+# Scheme name: Silk Dark
 # Scheme author: Gabriel Fontes (https://github.com/Misterio77)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="silk-dark"
@@ -12,8 +12,8 @@ color03="fc/e3/80" # Base 0A - Yellow
 color04="46/bd/dd" # Base 0D - Blue
 color05="75/6b/8a" # Base 0E - Magenta
 color06="3f/b2/b9" # Base 0C - Cyan
-color07="CB/F2/F7" # Base 06 - White
-color08="2A/50/54" # Base 02 - Bright Black
+color07="C7/DB/DD" # Base 05 - White
+color08="58/70/73" # Base 03 - Bright Black
 color09="fb/69/53" # Base 12 - Bright Red
 color10="73/d8/ad" # Base 14 - Bright Green
 color11="fc/e3/80" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="C7/DB/DD" # Base 05
 color_background="0e/3c/46" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

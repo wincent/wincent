@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Bright 
+# Scheme name: Bright
 # Scheme author: Chris Kempson (https://github.com/chriskempson)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="bright"
@@ -12,8 +12,8 @@ color03="fd/a3/31" # Base 0A - Yellow
 color04="6f/b3/d2" # Base 0D - Blue
 color05="d3/81/c3" # Base 0E - Magenta
 color06="76/c7/b7" # Base 0C - Cyan
-color07="f5/f5/f5" # Base 06 - White
-color08="50/50/50" # Base 02 - Bright Black
+color07="e0/e0/e0" # Base 05 - White
+color08="b0/b0/b0" # Base 03 - Bright Black
 color09="fb/01/20" # Base 12 - Bright Red
 color10="a1/c6/59" # Base 14 - Bright Green
 color11="fd/a3/31" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="e0/e0/e0" # Base 05
 color_background="00/00/00" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

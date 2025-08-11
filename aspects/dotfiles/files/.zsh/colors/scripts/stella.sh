@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Stella 
+# Scheme name: Stella
 # Scheme author: Shrimpram
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="stella"
@@ -12,8 +12,8 @@ color03="C7/C6/91" # Base 0A - Yellow
 color04="A5/AA/D4" # Base 0D - Blue
 color05="C5/94/FF" # Base 0E - Magenta
 color06="9B/C7/BF" # Base 0C - Cyan
-color07="B4/A5/C8" # Base 06 - White
-color08="4D/41/60" # Base 02 - Bright Black
+color07="99/8B/AD" # Base 05 - White
+color08="65/59/78" # Base 03 - Bright Black
 color09="C7/99/87" # Base 12 - Bright Red
 color10="AC/C7/9B" # Base 14 - Bright Green
 color11="C7/C6/91" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="99/8B/AD" # Base 05
 color_background="2B/21/3C" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

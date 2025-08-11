@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: summercamp 
+# Scheme name: summercamp
 # Scheme author: zoe firi (zoefiri.github.io)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="summercamp"
@@ -12,8 +12,8 @@ color03="f2/ff/27" # Base 0A - Yellow
 color04="48/9b/f0" # Base 0D - Blue
 color05="FF/80/80" # Base 0E - Magenta
 color06="5a/eb/bc" # Base 0C - Cyan
-color07="ba/b6/96" # Base 06 - White
-color08="3a/35/27" # Base 02 - Bright Black
+color07="73/6e/55" # Base 05 - White
+color08="50/4b/38" # Base 03 - Bright Black
 color09="e3/51/42" # Base 12 - Bright Red
 color10="5c/eb/5a" # Base 14 - Bright Green
 color11="f2/ff/27" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="73/6e/55" # Base 05
 color_background="1c/18/10" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

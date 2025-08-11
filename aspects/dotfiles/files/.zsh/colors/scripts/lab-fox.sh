@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Lab Fox 
+# Scheme name: Lab Fox
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="lab-fox"
@@ -12,8 +12,8 @@ color03="db/50/1f" # Base 0A - Yellow
 color04="db/3b/21" # Base 0D - Blue
 color05="38/0d/75" # Base 0E - Magenta
 color06="6e/49/cb" # Base 0C - Cyan
-color07="fe/ff/ff" # Base 06 - White
-color08="45/45/45" # Base 02 - Bright Black
+color07="cf/d0/d0" # Base 05 - White
+color08="73/73/73" # Base 03 - Bright Black
 color09="ff/65/17" # Base 12 - Bright Red
 color10="52/e9/a8" # Base 14 - Bright Green
 color11="fc/a0/12" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="cf/d0/d0" # Base 05
 color_background="2e/2e/2e" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

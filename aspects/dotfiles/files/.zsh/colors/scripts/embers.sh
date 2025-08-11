@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Embers 
+# Scheme name: Embers
 # Scheme author: Jannik Siebert (https://github.com/janniks)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="embers"
@@ -12,8 +12,8 @@ color03="6D/82/57" # Base 0A - Yellow
 color04="6D/57/82" # Base 0D - Blue
 color05="82/57/6D" # Base 0E - Magenta
 color06="57/6D/82" # Base 0C - Cyan
-color07="BE/B6/AE" # Base 06 - White
-color08="43/3B/32" # Base 02 - Bright Black
+color07="A3/9A/90" # Base 05 - White
+color08="5A/50/47" # Base 03 - Bright Black
 color09="82/6D/57" # Base 12 - Bright Red
 color10="57/82/6D" # Base 14 - Bright Green
 color11="6D/82/57" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="A3/9A/90" # Base 05
 color_background="16/13/0F" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

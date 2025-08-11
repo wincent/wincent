@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Nocturnal Winter 
+# Scheme name: Nocturnal Winter
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="nocturnal-winter"
@@ -12,8 +12,8 @@ color03="60/95/fe" # Base 0A - Yellow
 color04="30/81/df" # Base 0D - Blue
 color05="fe/2a/6c" # Base 0E - Magenta
 color06="09/c8/7a" # Base 0C - Cyan
-color07="fb/fb/fb" # Base 06 - White
-color08="7f/7f/7f" # Base 02 - Bright Black
+color07="dc/dc/dc" # Base 05 - White
+color08="9e/9e/9e" # Base 03 - Bright Black
 color09="f1/6c/85" # Base 12 - Bright Red
 color10="0a/e7/8d" # Base 14 - Bright Green
 color11="fe/fb/67" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="dc/dc/dc" # Base 05
 color_background="0d/0d/17" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

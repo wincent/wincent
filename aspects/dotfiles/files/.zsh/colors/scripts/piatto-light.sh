@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Piatto Light 
+# Scheme name: Piatto Light
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="piatto-light"
@@ -12,8 +12,8 @@ color03="3c/5e/a8" # Base 0A - Yellow
 color04="3c/5e/a8" # Base 0D - Blue
 color05="a4/54/b2" # Base 0E - Magenta
 color06="66/78/1e" # Base 0C - Cyan
-color07="ff/ff/ff" # Base 06 - White
-color08="3f/3f/3f" # Base 02 - Bright Black
+color07="cf/cf/cf" # Base 05 - White
+color08="6f/6f/6f" # Base 03 - Bright Black
 color09="db/33/65" # Base 12 - Bright Red
 color10="82/94/29" # Base 14 - Bright Green
 color11="cd/6f/34" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="cf/cf/cf" # Base 05
 color_background="ff/ff/ff" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

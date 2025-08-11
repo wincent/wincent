@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Sandcastle 
+# Scheme name: Sandcastle
 # Scheme author: George Essig (https://github.com/gessig)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="sandcastle"
@@ -12,8 +12,8 @@ color03="a0/7e/3b" # Base 0A - Yellow
 color04="83/a5/98" # Base 0D - Blue
 color05="d7/5f/5f" # Base 0E - Magenta
 color06="83/a5/98" # Base 0C - Cyan
-color07="d5/c4/a1" # Base 06 - White
-color08="3e/44/51" # Base 02 - Bright Black
+color07="a8/99/84" # Base 05 - White
+color08="66/5c/54" # Base 03 - Bright Black
 color09="83/a5/98" # Base 12 - Bright Red
 color10="52/8b/8b" # Base 14 - Bright Green
 color11="a0/7e/3b" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="a8/99/84" # Base 05
 color_background="28/2c/34" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

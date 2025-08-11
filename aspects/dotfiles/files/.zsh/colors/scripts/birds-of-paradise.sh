@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Birds Of Paradise 
+# Scheme name: Birds Of Paradise
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="birds-of-paradise"
@@ -12,8 +12,8 @@ color03="b8/d3/ed" # Base 0A - Yellow
 color04="5a/86/ac" # Base 0D - Blue
 color05="ab/80/a6" # Base 0E - Magenta
 color06="74/a5/ac" # Base 0C - Cyan
-color07="df/da/b7" # Base 06 - White
-color08="9a/6b/49" # Base 02 - Bright Black
+color07="cd/be/9b" # Base 05 - White
+color08="ab/86/64" # Base 03 - Bright Black
 color09="e8/45/26" # Base 12 - Bright Red
 color10="94/d7/ba" # Base 14 - Bright Green
 color11="d0/d0/4f" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="cd/be/9b" # Base 05
 color_background="2a/1e/1d" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

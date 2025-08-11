@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Mocha 
+# Scheme name: Mocha
 # Scheme author: Chris Kempson (https://github.com/chriskempson)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="mocha"
@@ -12,8 +12,8 @@ color03="f4/bc/87" # Base 0A - Yellow
 color04="8a/b3/b5" # Base 0D - Blue
 color05="a8/9b/b9" # Base 0E - Magenta
 color06="7b/bd/a4" # Base 0C - Cyan
-color07="e9/e1/dd" # Base 06 - White
-color08="64/52/40" # Base 02 - Bright Black
+color07="d0/c8/c6" # Base 05 - White
+color08="7e/70/5a" # Base 03 - Bright Black
 color09="cb/60/77" # Base 12 - Bright Red
 color10="be/b5/5b" # Base 14 - Bright Green
 color11="f4/bc/87" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="d0/c8/c6" # Base 05
 color_background="3B/32/28" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

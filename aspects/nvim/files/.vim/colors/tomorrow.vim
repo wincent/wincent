@@ -18,10 +18,10 @@ endif
 " GUI colors
 let s:gui00        = 'ffffff'
 let s:gui01        = 'e0e0e0'
-let s:gui02        = 'd6d6d6'
-let s:gui03        = '8e908c'
+let s:gui02        = 'c5c8c6'
+let s:gui03        = 'b4b7b4'
 let s:gui04        = '969896'
-let s:gui05        = '4d4d4c'
+let s:gui05        = '373b41'
 let s:gui06        = '282a2e'
 let s:gui07        = '1d1f21'
 let s:gui08        = 'c82829'
@@ -102,8 +102,8 @@ let s:colors = [
   \ '#4271ae',
   \ '#8959a8',
   \ '#3e999f',
-  \ '#4d4d4c',
-  \ '#8e908c',
+  \ '#373b41',
+  \ '#b4b7b4',
   \ '#c82829',
   \ '#718c00',
   \ '#eab700',

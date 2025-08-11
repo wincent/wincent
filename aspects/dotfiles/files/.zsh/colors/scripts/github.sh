@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Github Light 
+# Scheme name: Github Light
 # Scheme author: Tinted Theming (https://github.com/tinted-theming)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="github"
@@ -12,8 +12,8 @@ color03="bf/87/00" # Base 0A - Yellow
 color04="21/8b/ff" # Base 0D - Blue
 color05="a4/75/f9" # Base 0E - Magenta
 color06="33/9D/9B" # Base 0C - Cyan
-color07="32/38/3f" # Base 06 - White
-color08="af/b8/c1" # Base 02 - Bright Black
+color07="42/4a/53" # Base 05 - White
+color08="8c/95/9f" # Base 03 - Bright Black
 color09="ff/81/82" # Base 12 - Bright Red
 color10="4a/c2/6b" # Base 14 - Bright Green
 color11="d4/a7/2c" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="42/4a/53" # Base 05
 color_background="ea/ee/f2" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

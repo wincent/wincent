@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Atelier Lakeside Light 
+# Scheme name: Atelier Lakeside Light
 # Scheme author: Bram de Haan (http://atelierbramdehaan.nl)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="atelier-lakeside-light"
@@ -12,8 +12,8 @@ color03="8a/8a/0f" # Base 0A - Yellow
 color04="25/7f/ad" # Base 0D - Blue
 color05="6b/6b/b8" # Base 0E - Magenta
 color06="2d/8f/6f" # Base 0C - Cyan
-color07="1f/29/2e" # Base 06 - White
-color08="7e/a2/b4" # Base 02 - Bright Black
+color07="51/6d/7b" # Base 05 - White
+color08="71/95/a8" # Base 03 - Bright Black
 color09="d2/2d/72" # Base 12 - Bright Red
 color10="56/8c/3b" # Base 14 - Bright Green
 color11="8a/8a/0f" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="51/6d/7b" # Base 05
 color_background="eb/f8/ff" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

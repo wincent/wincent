@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Nord Light 
+# Scheme name: Nord Light
 # Scheme author: threddast, based on fuxialexander's doom-nord-light-theme (Doom Emacs)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="nord-light"
@@ -12,8 +12,8 @@ color03="9a/75/00" # Base 0A - Yellow
 color04="3b/6e/a8" # Base 0D - Blue
 color05="97/36/5b" # Base 0E - Magenta
 color06="39/8e/ac" # Base 0C - Cyan
-color07="3b/42/52" # Base 06 - White
-color08="b8/c5/db" # Base 02 - Bright Black
+color07="2e/34/40" # Base 05 - White
+color08="ae/ba/cf" # Base 03 - Bright Black
 color09="99/32/4b" # Base 12 - Bright Red
 color10="4f/89/4c" # Base 14 - Bright Green
 color11="9a/75/00" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="2e/34/40" # Base 05
 color_background="e5/e9/f0" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

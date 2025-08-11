@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Cyberdyne 
+# Scheme name: Cyberdyne
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="cyberdyne"
@@ -12,8 +12,8 @@ color03="c1/e3/fe" # Base 0A - Yellow
 color04="00/71/cf" # Base 0D - Blue
 color05="ff/8f/fd" # Base 0E - Magenta
 color06="6b/ff/dc" # Base 0C - Cyan
-color07="f1/f1/f1" # Base 06 - White
-color08="2d/2d/2d" # Base 02 - Bright Black
+color07="c0/c0/c0" # Base 05 - White
+color08="5e/5e/5e" # Base 03 - Bright Black
 color09="ff/c4/bd" # Base 12 - Bright Red
 color10="d6/fc/b9" # Base 14 - Bright Green
 color11="fe/fd/d5" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="c0/c0/c0" # Base 05
 color_background="15/11/44" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

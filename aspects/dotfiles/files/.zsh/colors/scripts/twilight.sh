@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Twilight 
+# Scheme name: Twilight
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="twilight"
@@ -12,8 +12,8 @@ color03="5a/5d/61" # Base 0A - Yellow
 color04="44/46/49" # Base 0D - Blue
 color05="b4/be/7b" # Base 0E - Magenta
 color06="77/82/84" # Base 0C - Cyan
-color07="fe/ff/d3" # Base 06 - White
-color08="26/26/26" # Base 02 - Bright Black
+color07="c8/c8/a7" # Base 05 - White
+color08="5c/5c/51" # Base 03 - Bright Black
 color09="dd/7c/4c" # Base 12 - Bright Red
 color10="cb/d8/8c" # Base 14 - Bright Green
 color11="e1/c4/7d" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="c8/c8/a7" # Base 05
 color_background="14/14/14" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

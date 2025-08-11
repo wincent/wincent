@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Macintosh 
+# Scheme name: Macintosh
 # Scheme author: Rebecca Bettencourt (http://www.kreativekorp.com)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="macintosh"
@@ -12,8 +12,8 @@ color03="fb/f3/05" # Base 0A - Yellow
 color04="00/00/d3" # Base 0D - Blue
 color05="47/00/a5" # Base 0E - Magenta
 color06="02/ab/ea" # Base 0C - Cyan
-color07="c0/c0/c0" # Base 06 - White
-color08="40/40/40" # Base 02 - Bright Black
+color07="c0/c0/c0" # Base 05 - White
+color08="80/80/80" # Base 03 - Bright Black
 color09="dd/09/07" # Base 12 - Bright Red
 color10="1f/b7/14" # Base 14 - Bright Green
 color11="fb/f3/05" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="c0/c0/c0" # Base 05
 color_background="00/00/00" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

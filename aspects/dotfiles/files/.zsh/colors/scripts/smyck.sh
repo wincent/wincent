@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Smyck 
+# Scheme name: Smyck
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="smyck"
@@ -12,8 +12,8 @@ color03="8d/cf/f0" # Base 0A - Yellow
 color04="62/a3/c4" # Base 0D - Blue
 color05="b9/8a/cc" # Base 0E - Magenta
 color06="20/73/83" # Base 0C - Cyan
-color07="a0/a0/a0" # Base 06 - White
-color08="7a/7a/7a" # Base 02 - Bright Black
+color07="96/96/96" # Base 05 - White
+color08="83/83/83" # Base 03 - Bright Black
 color09="d6/83/7b" # Base 12 - Bright Red
 color10="c4/f0/36" # Base 14 - Bright Green
 color11="fe/e1/4d" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="96/96/96" # Base 05
 color_background="1b/1b/1b" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

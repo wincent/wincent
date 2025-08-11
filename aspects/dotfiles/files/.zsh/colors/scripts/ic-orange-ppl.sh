@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: IC-Orange-PPL 
+# Scheme name: IC-Orange-PPL
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="ic-orange-ppl"
@@ -12,8 +12,8 @@ color03="ff/bd/54" # Base 0A - Yellow
 color04="bd/6c/00" # Base 0D - Blue
 color05="fb/5d/00" # Base 0E - Magenta
 color06="f7/94/00" # Base 0C - Cyan
-color07="ff/c8/8a" # Base 06 - White
-color08="6a/4e/29" # Base 02 - Bright Black
+color07="d9/a9/71" # Base 05 - White
+color08="8f/6c/41" # Base 03 - Bright Black
 color09="ff/8b/67" # Base 12 - Bright Red
 color10="f6/ff/3f" # Base 14 - Bright Green
 color11="ff/e3/6e" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="d9/a9/71" # Base 05
 color_background="26/26/26" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Hybrid 
+# Scheme name: Hybrid
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="hybrid"
@@ -12,8 +12,8 @@ color03="4b/6b/88" # Base 0A - Yellow
 color04="6d/90/b0" # Base 0D - Blue
 color05="a0/7e/ab" # Base 0E - Magenta
 color06="7f/be/b3" # Base 0C - Cyan
-color07="b5/b8/b6" # Base 06 - White
-color08="1d/1e/21" # Base 02 - Bright Black
+color07="8f/91/90" # Base 05 - White
+color08="43/44/46" # Base 03 - Bright Black
 color09="8c/2d/32" # Base 12 - Bright Red
 color10="78/83/31" # Base 14 - Bright Green
 color11="e5/89/4f" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="8f/91/90" # Base 05
 color_background="16/17/18" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

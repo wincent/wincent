@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: SAGA 
+# Scheme name: SAGA
 # Scheme author: https://github.com/SAGAtheme/SAGA
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="saga"
@@ -12,8 +12,8 @@ color03="fb/eb/c8" # Base 0A - Yellow
 color04="c9/ff/f7" # Base 0D - Blue
 color05="dc/c3/f9" # Base 0E - Magenta
 color06="c5/ed/c1" # Base 0C - Cyan
-color07="f8/ea/e7" # Base 06 - White
-color08="0f/18/1e" # Base 02 - Bright Black
+color07="dc/e2/f7" # Base 05 - White
+color08="14/1f/27" # Base 03 - Bright Black
 color09="ff/d4/e9" # Base 12 - Bright Red
 color10="f7/dd/ff" # Base 14 - Bright Green
 color11="fb/eb/c8" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="dc/e2/f7" # Base 05
 color_background="05/08/0a" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Dark Violet 
+# Scheme name: Dark Violet
 # Scheme author: ruler501 (https://github.com/ruler501/base16-darkviolet)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="darkviolet"
@@ -12,8 +12,8 @@ color03="f2/9d/f2" # Base 0A - Yellow
 color04="41/36/d9" # Base 0D - Blue
 color05="7e/5c/e6" # Base 0E - Magenta
 color06="40/df/ff" # Base 0C - Cyan
-color07="90/45/e6" # Base 06 - White
-color08="43/2d/59" # Base 02 - Bright Black
+color07="b0/8a/e6" # Base 05 - White
+color08="59/33/80" # Base 03 - Bright Black
 color09="a8/2e/e6" # Base 12 - Bright Red
 color10="45/95/e6" # Base 14 - Bright Green
 color11="f2/9d/f2" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="b0/8a/e6" # Base 05
 color_background="00/00/00" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

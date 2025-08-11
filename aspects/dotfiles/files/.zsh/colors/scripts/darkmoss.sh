@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: darkmoss 
+# Scheme name: darkmoss
 # Scheme author: Gabriel Avanzi (https://github.com/avanzzzi)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="darkmoss"
@@ -12,8 +12,8 @@ color03="fd/b1/1f" # Base 0A - Yellow
 color04="49/80/91" # Base 0D - Blue
 color05="9b/c0/c8" # Base 0E - Magenta
 color06="66/d9/ef" # Base 0C - Cyan
-color07="e3/e3/c8" # Base 06 - White
-color08="37/3c/3d" # Base 02 - Bright Black
+color07="c7/c7/a5" # Base 05 - White
+color08="55/5e/5f" # Base 03 - Bright Black
 color09="ff/46/58" # Base 12 - Bright Red
 color10="49/91/80" # Base 14 - Bright Green
 color11="fd/b1/1f" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="c7/c7/a5" # Base 05
 color_background="17/1e/1f" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

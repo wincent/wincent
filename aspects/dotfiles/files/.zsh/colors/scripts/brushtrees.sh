@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Brush Trees 
+# Scheme name: Brush Trees
 # Scheme author: Abraham White <abelincoln.white@gmail.com>
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="brushtrees"
@@ -12,8 +12,8 @@ color03="aa/b3/86" # Base 0A - Yellow
 color04="86/8c/b3" # Base 0D - Blue
 color05="b3/86/b2" # Base 0E - Magenta
 color06="86/b3/b3" # Base 0C - Cyan
-color07="5A/6D/7A" # Base 06 - White
-color08="B0/C5/C8" # Base 02 - Bright Black
+color07="6D/82/8E" # Base 05 - White
+color08="98/AF/B5" # Base 03 - Bright Black
 color09="b3/86/86" # Base 12 - Bright Red
 color10="87/b3/86" # Base 14 - Bright Green
 color11="aa/b3/86" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="6D/82/8E" # Base 05
 color_background="E3/EF/EF" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

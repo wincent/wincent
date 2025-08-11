@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Porple 
+# Scheme name: Porple
 # Scheme author: Niek den Breeje (https://github.com/AuditeMarlow)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="porple"
@@ -12,8 +12,8 @@ color03="ef/a1/6b" # Base 0A - Yellow
 color04="84/85/ce" # Base 0D - Blue
 color05="b7/49/89" # Base 0E - Magenta
 color06="64/87/8f" # Base 0C - Cyan
-color07="e8/e8/e8" # Base 06 - White
-color08="47/41/60" # Base 02 - Bright Black
+color07="d8/d8/d8" # Base 05 - White
+color08="65/56/8a" # Base 03 - Bright Black
 color09="f8/45/47" # Base 12 - Bright Red
 color10="95/c7/6f" # Base 14 - Bright Green
 color11="ef/a1/6b" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="d8/d8/d8" # Base 05
 color_background="29/2c/36" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

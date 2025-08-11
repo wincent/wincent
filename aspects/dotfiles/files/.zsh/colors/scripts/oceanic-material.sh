@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Oceanic Material 
+# Scheme name: Oceanic Material
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="oceanic-material"
@@ -12,8 +12,8 @@ color03="53/a4/f3" # Base 0A - Yellow
 color04="1d/80/ef" # Base 0D - Blue
 color05="88/00/a0" # Base 0E - Magenta
 color06="16/ae/c9" # Base 0C - Cyan
-color07="a4/a4/a4" # Base 06 - White
-color08="76/76/76" # Base 02 - Bright Black
+color07="98/98/98" # Base 05 - White
+color08="81/81/81" # Base 03 - Bright Black
 color09="dc/5b/60" # Base 12 - Bright Red
 color10="70/be/71" # Base 14 - Bright Green
 color11="fe/f0/63" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="98/98/98" # Base 05
 color_background="1c/26/2b" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

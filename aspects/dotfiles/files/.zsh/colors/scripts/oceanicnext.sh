@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: OceanicNext 
+# Scheme name: OceanicNext
 # Scheme author: https://github.com/voronianski/oceanic-next-color-scheme
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="oceanicnext"
@@ -12,8 +12,8 @@ color03="FA/C8/63" # Base 0A - Yellow
 color04="66/99/CC" # Base 0D - Blue
 color05="C5/94/C5" # Base 0E - Magenta
 color06="5F/B3/B3" # Base 0C - Cyan
-color07="CD/D3/DE" # Base 06 - White
-color08="4F/5B/66" # Base 02 - Bright Black
+color07="C0/C5/CE" # Base 05 - White
+color08="65/73/7E" # Base 03 - Bright Black
 color09="EC/5f/67" # Base 12 - Bright Red
 color10="99/C7/94" # Base 14 - Bright Green
 color11="FA/C8/63" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="C0/C5/CE" # Base 05
 color_background="1B/2B/34" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

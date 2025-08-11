@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Tango 
+# Scheme name: Tango
 # Scheme author: @Schnouki, based on the Tango Desktop Project
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="tango"
@@ -12,8 +12,8 @@ color03="c4/a0/00" # Base 0A - Yellow
 color04="34/65/a4" # Base 0D - Blue
 color05="75/50/7b" # Base 0E - Magenta
 color06="06/98/9a" # Base 0C - Cyan
-color07="ad/7f/a8" # Base 06 - White
-color08="fc/e9/4f" # Base 02 - Bright Black
+color07="d3/d7/cf" # Base 05 - White
+color08="55/57/53" # Base 03 - Bright Black
 color09="cc/00/00" # Base 12 - Bright Red
 color10="4e/9a/06" # Base 14 - Bright Green
 color11="c4/a0/00" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="d3/d7/cf" # Base 05
 color_background="2e/34/36" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Mission Brogue 
+# Scheme name: Mission Brogue
 # Scheme author: Thomas Leon Highbaugh
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="mission-brogue"
@@ -12,8 +12,8 @@ color03="E0/B8/8A" # Base 0A - Yellow
 color04="A2/C5/FD" # Base 0D - Blue
 color05="CC/B7/DB" # Base 0E - Magenta
 color06="93/DF/EC" # Base 0C - Cyan
-color07="AB/B9/C4" # Base 06 - White
-color08="4D/60/6F" # Base 02 - Bright Black
+color07="93/A5/B4" # Base 05 - White
+color08="60/77/8A" # Base 03 - Bright Black
 color09="F6/BF/BF" # Base 12 - Bright Red
 color10="b5/E0/90" # Base 14 - Bright Green
 color11="FF/F0/B2" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="93/A5/B4" # Base 05
 color_background="28/31/39" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: pinky 
+# Scheme name: pinky
 # Scheme author: Benjamin (https://github.com/b3nj5m1n)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="pinky"
@@ -12,8 +12,8 @@ color03="20/df/6c" # Base 0A - Yellow
 color04="00/ff/ff" # Base 0D - Blue
 color05="00/7f/ff" # Base 0E - Magenta
 color06="66/00/ff" # Base 0C - Cyan
-color07="ff/ff/ff" # Base 06 - White
-color08="1d/1b/1d" # Base 02 - Bright Black
+color07="f5/f5/f5" # Base 05 - White
+color08="38/33/38" # Base 03 - Bright Black
 color09="ff/a6/00" # Base 12 - Bright Red
 color10="ff/00/66" # Base 14 - Bright Green
 color11="20/df/6c" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="f5/f5/f5" # Base 05
 color_background="17/15/17" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: DanQing Light 
+# Scheme name: DanQing Light
 # Scheme author: Wenhan Zhu (Cosmos) (zhuwenhan950913@gmail.com)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="danqing-light"
@@ -12,8 +12,8 @@ color03="F0/C2/39" # Base 0A - Yellow
 color04="B0/A4/E3" # Base 0D - Blue
 color05="CC/A4/E3" # Base 0E - Magenta
 color06="30/DF/F3" # Base 0C - Cyan
-color07="43/48/46" # Base 06 - White
-color08="e0/f0/eF" # Base 02 - Bright Black
+color07="5a/60/5d" # Base 05 - White
+color08="ca/d8/d2" # Base 03 - Bright Black
 color09="F9/90/6F" # Base 12 - Bright Red
 color10="8A/B3/61" # Base 14 - Bright Green
 color11="F0/C2/39" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="5a/60/5d" # Base 05
 color_background="fc/fe/fd" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

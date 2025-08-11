@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: The Hulk 
+# Scheme name: The Hulk
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="the-hulk"
@@ -12,8 +12,8 @@ color03="4f/6a/95" # Base 0A - Yellow
 color04="24/24/f4" # Base 0D - Blue
 color05="64/1e/73" # Base 0E - Magenta
 color06="37/8c/a9" # Base 0C - Cyan
-color07="d8/d8/d0" # Base 06 - White
-color08="50/53/54" # Base 02 - Bright Black
+color07="b6/b6/b1" # Base 05 - White
+color08="72/74/73" # Base 03 - Bright Black
 color09="8d/ff/2a" # Base 12 - Bright Red
 color10="48/ff/76" # Base 14 - Bright Green
 color11="3a/fe/15" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="b6/b6/b1" # Base 05
 color_background="1b/1d/1e" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

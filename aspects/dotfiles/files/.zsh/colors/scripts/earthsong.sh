@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Earthsong 
+# Scheme name: Earthsong
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="earthsong"
@@ -12,8 +12,8 @@ color03="5e/d9/ff" # Base 0A - Yellow
 color04="13/97/b9" # Base 0D - Blue
 color05="d0/62/3c" # Base 0E - Magenta
 color06="4f/94/52" # Base 0C - Cyan
-color07="e5/c5/a9" # Base 06 - White
-color08="66/5e/54" # Base 02 - Bright Black
+color07="c5/ab/93" # Base 05 - White
+color08="85/77/69" # Base 03 - Bright Black
 color09="ff/64/59" # Base 12 - Bright Red
 color10="97/e0/35" # Base 14 - Bright Green
 color11="df/d5/61" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="c5/ab/93" # Base 05
 color_background="28/24/20" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

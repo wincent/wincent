@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Paul Millr 
+# Scheme name: Paul Millr
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="paul-millr"
@@ -12,8 +12,8 @@ color03="70/9a/ed" # Base 0A - Yellow
 color04="38/6b/d7" # Base 0D - Blue
 color05="b3/49/be" # Base 0E - Magenta
 color06="66/cc/ff" # Base 0C - Cyan
-color07="bb/bb/bb" # Base 06 - White
-color08="66/66/66" # Base 02 - Bright Black
+color07="a5/a5/a5" # Base 05 - White
+color08="7b/7b/7b" # Base 03 - Bright Black
 color09="ff/00/80" # Base 12 - Bright Red
 color10="66/ff/66" # Base 14 - Bright Green
 color11="f3/d6/4e" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="a5/a5/a5" # Base 05
 color_background="00/00/00" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

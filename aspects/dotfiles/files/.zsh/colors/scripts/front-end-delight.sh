@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Front End Delight 
+# Scheme name: Front End Delight
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="front-end-delight"
@@ -12,8 +12,8 @@ color03="33/93/c9" # Base 0A - Yellow
 color04="2c/70/b7" # Base 0D - Blue
 color05="f0/2d/4e" # Base 0E - Magenta
 color06="3b/a0/a5" # Base 0C - Cyan
-color07="ac/ac/ac" # Base 06 - White
-color08="5e/ac/6c" # Base 02 - Bright Black
+color07="98/ac/9c" # Base 05 - White
+color08="71/ac/7c" # Base 03 - Bright Black
 color09="f6/43/19" # Base 12 - Bright Red
 color10="74/eb/4c" # Base 14 - Bright Green
 color11="fc/c2/24" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="98/ac/9c" # Base 05
 color_background="1b/1b/1d" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

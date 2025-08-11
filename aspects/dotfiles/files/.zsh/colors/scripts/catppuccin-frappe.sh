@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Catppuccin Frappe 
+# Scheme name: Catppuccin Frappe
 # Scheme author: https://github.com/catppuccin/catppuccin
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="catppuccin-frappe"
@@ -12,8 +12,8 @@ color03="e5/c8/90" # Base 0A - Yellow
 color04="8c/aa/ee" # Base 0D - Blue
 color05="ca/9e/e6" # Base 0E - Magenta
 color06="81/c8/be" # Base 0C - Cyan
-color07="f2/d5/cf" # Base 06 - White
-color08="41/45/59" # Base 02 - Bright Black
+color07="c6/d0/f5" # Base 05 - White
+color08="51/57/6d" # Base 03 - Bright Black
 color09="ea/99/9c" # Base 12 - Bright Red
 color10="a6/d1/89" # Base 14 - Bright Green
 color11="f2/d5/cf" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="c6/d0/f5" # Base 05
 color_background="30/34/46" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

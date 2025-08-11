@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Under The Sea 
+# Scheme name: Under The Sea
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="under-the-sea"
@@ -12,8 +12,8 @@ color03="61/d4/b9" # Base 0A - Yellow
 color04="44/99/85" # Base 0D - Blue
 color05="00/59/9c" # Base 0E - Magenta
 color06="5c/7e/19" # Base 0C - Cyan
-color07="40/55/54" # Base 06 - White
-color08="37/43/50" # Base 02 - Bright Black
+color07="3d/50/53" # Base 05 - White
+color08="39/47/51" # Base 03 - Bright Black
 color09="ff/42/42" # Base 12 - Bright Red
 color10="2a/ea/5e" # Base 14 - Bright Green
 color11="8d/d3/fd" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="3d/50/53" # Base 05
 color_background="00/10/15" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

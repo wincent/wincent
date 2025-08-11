@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Material Darker 
+# Scheme name: Material Darker
 # Scheme author: Nate Peterson
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="material-darker"
@@ -12,8 +12,8 @@ color03="FF/CB/6B" # Base 0A - Yellow
 color04="82/AA/FF" # Base 0D - Blue
 color05="C7/92/EA" # Base 0E - Magenta
 color06="89/DD/FF" # Base 0C - Cyan
-color07="EE/FF/FF" # Base 06 - White
-color08="35/35/35" # Base 02 - Bright Black
+color07="EE/FF/FF" # Base 05 - White
+color08="4A/4A/4A" # Base 03 - Bright Black
 color09="F0/71/78" # Base 12 - Bright Red
 color10="C3/E8/8D" # Base 14 - Bright Green
 color11="FF/CB/6B" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="EE/FF/FF" # Base 05
 color_background="21/21/21" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Edge Light 
+# Scheme name: Edge Light
 # Scheme author: cjayross (https://github.com/cjayross)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="edge-light"
@@ -12,8 +12,8 @@ color03="d6/98/22" # Base 0A - Yellow
 color04="65/87/bf" # Base 0D - Blue
 color05="b8/70/ce" # Base 0E - Magenta
 color06="50/9c/93" # Base 0C - Cyan
-color07="b8/70/ce" # Base 06 - White
-color08="d6/98/22" # Base 02 - Bright Black
+color07="5e/64/6f" # Base 05 - White
+color08="5e/64/6f" # Base 03 - Bright Black
 color09="db/70/70" # Base 12 - Bright Red
 color10="7c/9f/4b" # Base 14 - Bright Green
 color11="d6/98/22" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="5e/64/6f" # Base 05
 color_background="fa/fa/fa" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

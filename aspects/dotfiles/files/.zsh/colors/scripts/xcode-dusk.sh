@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: XCode Dusk 
+# Scheme name: XCode Dusk
 # Scheme author: Elsa Gonsiorowski (https://github.com/gonsie)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="xcode-dusk"
@@ -12,8 +12,8 @@ color03="43/82/88" # Base 0A - Yellow
 color04="79/0E/AD" # Base 0D - Blue
 color05="B2/18/89" # Base 0E - Magenta
 color06="00/A0/BE" # Base 0C - Cyan
-color07="A9/AA/AE" # Base 06 - White
-color08="53/55/5D" # Base 02 - Bright Black
+color07="93/95/99" # Base 05 - White
+color08="68/6A/71" # Base 03 - Bright Black
 color09="B2/18/89" # Base 12 - Bright Red
 color10="DF/00/02" # Base 14 - Bright Green
 color11="43/82/88" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="93/95/99" # Base 05
 color_background="28/2B/35" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

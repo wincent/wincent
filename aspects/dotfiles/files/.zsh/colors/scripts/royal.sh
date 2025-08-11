@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Royal 
+# Scheme name: Royal
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="royal"
@@ -12,8 +12,8 @@ color03="8f/b9/f9" # Base 0A - Yellow
 color04="64/80/af" # Base 0D - Blue
 color05="66/4d/96" # Base 0E - Magenta
 color06="8a/aa/bd" # Base 0C - Cyan
-color07="51/49/65" # Base 06 - White
-color08="31/2d/3c" # Base 02 - Bright Black
+color07="49/42/5a" # Base 05 - White
+color08="39/34/46" # Base 03 - Bright Black
 color09="d4/34/6c" # Base 12 - Bright Red
 color10="2c/d8/45" # Base 14 - Bright Green
 color11="fd/e8/3a" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="49/42/5a" # Base 05
 color_background="10/08/14" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

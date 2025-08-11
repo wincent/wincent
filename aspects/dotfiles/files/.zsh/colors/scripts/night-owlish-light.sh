@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Night Owlish Light 
+# Scheme name: Night Owlish Light
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="night-owlish-light"
@@ -12,8 +12,8 @@ color03="5c/a7/e4" # Base 0A - Yellow
 color04="48/76/d6" # Base 0D - Blue
 color05="40/3f/53" # Base 0E - Magenta
 color06="08/91/6a" # Base 0C - Cyan
-color07="7a/81/81" # Base 06 - White
-color08="7a/81/81" # Base 02 - Bright Black
+color07="7a/81/81" # Base 05 - White
+color08="7a/81/81" # Base 03 - Bright Black
 color09="f7/6e/6e" # Base 12 - Bright Red
 color10="49/d0/c5" # Base 14 - Bright Green
 color11="da/c2/6b" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="7a/81/81" # Base 05
 color_background="ff/ff/ff" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

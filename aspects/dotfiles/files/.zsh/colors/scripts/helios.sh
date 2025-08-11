@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Helios 
+# Scheme name: Helios
 # Scheme author: Alex Meyer (https://github.com/reyemxela)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="helios"
@@ -12,8 +12,8 @@ color03="f1/9d/1a" # Base 0A - Yellow
 color04="1e/8b/ac" # Base 0D - Blue
 color05="be/42/64" # Base 0E - Magenta
 color06="1b/a5/95" # Base 0C - Cyan
-color07="dd/dd/dd" # Base 06 - White
-color08="53/58/5b" # Base 02 - Bright Black
+color07="d5/d5/d5" # Base 05 - White
+color08="6f/75/79" # Base 03 - Bright Black
 color09="d7/26/38" # Base 12 - Bright Red
 color10="88/b9/2d" # Base 14 - Bright Green
 color11="f1/9d/1a" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="d5/d5/d5" # Base 05
 color_background="1d/20/21" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

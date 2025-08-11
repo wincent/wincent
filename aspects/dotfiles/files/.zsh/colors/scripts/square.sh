@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Square 
+# Scheme name: Square
 # Scheme author: FredHappyface (https://github.com/fredHappyface)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="square"
@@ -12,8 +12,8 @@ color03="b6/de/fb" # Base 0A - Yellow
 color04="a9/cd/eb" # Base 0D - Blue
 color05="75/50/7b" # Base 0E - Magenta
 color06="c9/ca/ec" # Base 0C - Cyan
-color07="f2/f2/f2" # Base 06 - White
-color08="14/14/14" # Base 02 - Bright Black
+color07="ba/ba/ba" # Base 05 - White
+color08="4b/4b/4b" # Base 03 - Bright Black
 color09="f9/92/86" # Base 12 - Bright Red
 color10="c3/f7/86" # Base 14 - Bright Green
 color11="fc/fb/cc" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="ba/ba/ba" # Base 05
 color_background="1a/1a/1a" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

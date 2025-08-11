@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Aztec 
+# Scheme name: Aztec
 # Scheme author: TheNeverMan (github.com/TheNeverMan)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="aztec"
@@ -12,8 +12,8 @@ color03="EE/BB/00" # Base 0A - Yellow
 color04="5B/4A/9F" # Base 0D - Blue
 color05="88/3E/9F" # Base 0E - Magenta
 color06="3D/94/A5" # Base 0C - Cyan
-color07="FF/E1/78" # Base 06 - White
-color08="24/26/04" # Base 02 - Bright Black
+color07="FF/DA/51" # Base 05 - White
+color08="2E/2E/05" # Base 03 - Bright Black
 color09="EE/2E/00" # Base 12 - Bright Red
 color10="63/D9/32" # Base 14 - Bright Green
 color11="EE/BB/00" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="FF/DA/51" # Base 05
 color_background="10/16/00" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Atelier Dune Light 
+# Scheme name: Atelier Dune Light
 # Scheme author: Bram de Haan (http://atelierbramdehaan.nl)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="atelier-dune-light"
@@ -12,8 +12,8 @@ color03="ae/95/13" # Base 0A - Yellow
 color04="66/84/e1" # Base 0D - Blue
 color05="b8/54/d4" # Base 0E - Magenta
 color06="1f/ad/83" # Base 0C - Cyan
-color07="29/28/24" # Base 06 - White
-color08="a6/a2/8c" # Base 02 - Bright Black
+color07="6e/6b/5e" # Base 05 - White
+color08="99/95/80" # Base 03 - Bright Black
 color09="d7/37/37" # Base 12 - Bright Red
 color10="60/ac/39" # Base 14 - Bright Green
 color11="ae/95/13" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="6e/6b/5e" # Base 05
 color_background="fe/fb/ec" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }

@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Rosé Pine Dawn 
+# Scheme name: Rosé Pine Dawn
 # Scheme author: Emilia Dunfelt <edun@dunfelt.se>
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="rose-pine-dawn"
@@ -12,8 +12,8 @@ color03="d7/82/7e" # Base 0A - Yellow
 color04="90/7a/a9" # Base 0D - Blue
 color05="ea/9d/34" # Base 0E - Magenta
 color06="56/94/9f" # Base 0C - Cyan
-color07="57/52/79" # Base 06 - White
-color08="f2/e9/de" # Base 02 - Bright Black
+color07="57/52/79" # Base 05 - White
+color08="98/93/a5" # Base 03 - Bright Black
 color09="b4/63/7a" # Base 12 - Bright Red
 color10="28/69/83" # Base 14 - Bright Green
 color11="d7/82/7e" # Base 13 - Bright Yellow
@@ -31,7 +31,7 @@ color_foreground="57/52/79" # Base 05
 color_background="fa/f4/ed" # Base 00
 
 
-if [ -z "$TTY" ] && ! TTY=$(tty); then
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
   put_template_var() { true; }
   put_template_custom() { true; }
