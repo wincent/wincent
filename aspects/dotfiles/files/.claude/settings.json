@@ -7,8 +7,10 @@
       "Bash(command git status:*)",
       "Bash(command rg:*)",
       "Bash(find:*)",
-      "Bash(grep:*)",
       "Bash(rg:*)"
+    ],
+    "deny": [
+      "Bash(find:*-exec*)"
     ]
   }
 }
