@@ -1,0 +1,26 @@
+#!/usr/bin/env ruby
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright (c) Scott Chacon
+# Forked from: https://github.com/schacon/cc-hooks-auto-commit
+
+require 'json'
+
+# Read JSON from STDIN
+input = STDIN.read
+data = JSON.parse(input)
+
+# Extract required fields
+session_id = data['session_id']
+cwd = data['cwd']
+file_path = data.dig('tool_input', 'file_path')
+
+# Change directory to the cwd
+Dir.chdir(cwd)
+
+# Construct path to the sessions index file
+index_file = File.join(cwd, '.git', 'claude', 'indexes', session_id, 'index')
+
+# Run git add on the file_path using the session-specific index
+if File.exist?(index_file) && file_path
+  system("GIT_INDEX_FILE=#{index_file} git add #{file_path}")
+end
