@@ -65,6 +65,12 @@ def capture(command)
   result
 end
 
+def default_branch
+  name = remote()
+  ref = capture("git symbolic-ref refs/remotes/#{Shellwords.shellescape(name)}/HEAD")
+  ref[%r{refs/remotes/#{name}/(.+)}, 1]
+end
+
 def remote_config
   capture('git remote -v')
     .split(/\n/)
@@ -181,7 +187,7 @@ when 'get'
 
 when 'send'
   target = arg('user')
-  branch = arg('branch', 'master')
+  branch = arg('branch', default_branch)
   repo = project.sub(%r{^[^/]+/}, '')
   upstream = current_branch
   if upstream == 'HEAD'
@@ -240,8 +246,7 @@ when 'open'
       open link(target)
     else
       prefix = capture('git rev-parse --show-prefix')
-      # TODO: teach this and other places in here to figure out if default branch is different (ie. not "master")
-      url = "https://github.com/#{project}/tree/master/#{prefix}"
+      url = "https://github.com/#{project}/tree/#{default_branch}/#{prefix}"
       url += target
       open Shellwords.shellescape(url)
     end
@@ -262,7 +267,8 @@ when 'merge'
   pull = ARGV.shift
   current = current_pr
   upstream = current_branch
-  # If no explicit PR specified, assume we want to merge current PR to master.
+  # If no explicit PR specified, assume we want to merge current PR to default
+  # branch.
   if pull.nil?
     if current.nil?
       die "no explicit PR number provided, and can't infer from current branch"
