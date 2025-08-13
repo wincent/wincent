@@ -44,11 +44,10 @@ local function check()
 
     pinnacle.link('NonText', 'Conceal')
 
-    -- Copy rather than link, seeing as we mutate DiffText further down.
+    -- Copy rather than link, seeing as we might mutate DiffText later on.
     pinnacle.set('CursorLineNr', pinnacle.dump('DiffText'))
 
     pinnacle.link('Pmenu', 'Visual')
-    pinnacle.link('DiffDelete', 'Conceal')
     pinnacle.link('VertSplit', 'LineNr')
 
     -- Resolve clashes with ColorColumn.
@@ -57,17 +56,25 @@ local function check()
     -- See :help 'pb'.
     pinnacle.merge('PmenuSel', { blend = 0 })
 
-    -- For Git commits, suppress the background of these groups:
+    -- For Git commits (eg. viewing diffs from `:G blame`), suppress the
+    -- unwanted black background of these groups, as it clashes with our
+    -- ColorColumn highlighting (see 44a1262db734).
     for _, group in ipairs({ 'DiffAdded', 'DiffFile', 'DiffNewFile', 'DiffLine', 'DiffRemoved' }) do
       local highlight = pinnacle.dump(group)
       highlight['bg'] = nil
       pinnacle.set(group, highlight)
     end
 
-    -- More subtle highlighting during merge conflict resolution.
-    pinnacle.clear('DiffAdd')
-    pinnacle.clear('DiffChange')
-    pinnacle.clear('DiffText')
+    -- Diff mode overrides (see `:help hl-DiffAdd` and nearby friends).
+
+    -- This one is too strong.
+    pinnacle.link('DiffDelete', 'Conceal')
+
+    -- But these ones are too subtle, at least until:
+    -- https://github.com/vim/vim/pull/16881 is ported to resolve this:
+    -- https://github.com/neovim/neovim/issues/29549
+    pinnacle.merge('DiffAdd', { bg = 'green' })
+    pinnacle.merge('DiffText', { bg = 'blue' })
 
     -- Make floating windows look nicer, as seen in wiki:
     -- https://github.com/neovim/nvim-lspconfig/wiki/UI-customization

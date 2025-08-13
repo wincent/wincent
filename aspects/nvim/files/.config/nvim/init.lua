@@ -28,13 +28,14 @@ vim.opt.completeopt = 'menu' -- show completion menu (for nvim-cmp)
 vim.opt.completeopt = vim.opt.completeopt + 'menuone' -- show menu even if there is only one candidate (for nvim-cmp)
 vim.opt.completeopt = vim.opt.completeopt + 'noselect' -- don't automatically select canditate (for nvim-cmp)
 vim.opt.cursorline = true -- highlight current line
-vim.opt.diffopt = vim.opt.diffopt + 'foldcolumn:0' -- don't show fold column in diff view
+vim.opt.diffopt:append('algorithm:histogram') -- use "histogram" in internal diff engine instead of "myers"
+vim.opt.diffopt:append('foldcolumn:0') -- don't show fold column in diff view
 vim.opt.directory = config .. '/nvim/swap//' -- keep swap files out of the way
 vim.opt.directory = vim.opt.directory + '.' -- fallback
 vim.opt.emoji = false -- don't assume all emoji are double width
 vim.opt.expandtab = true -- always use spaces instead of tabs
 vim.opt.fillchars = {
-  diff = '∙', -- BULLET OPERATOR (U+2219, UTF-8: E2 88 99)
+  diff = '╱', -- BOX DRAWINGS LIGHT DIAGONAL UPPER RIGHT TO LOWER LEFT (U+2571, UTF-8: E2 95 B1)
   eob = ' ', -- NO-BREAK SPACE (U+00A0, UTF-8: C2 A0) to suppress ~ at EndOfBuffer
   fold = '·', -- MIDDLE DOT (U+00B7, UTF-8: C2 B7)
   vert = '│', -- BOX DRAWINGS LIGHT VERTICAL (U+2502, UTF-8: E2 94 82)
@@ -226,6 +227,7 @@ if vim.o.loadplugins then
 
     'command-t',
     'corpus',
+    'diffview.nvim',
     'ferret',
     'indent-blankline.nvim',
     'loupe',

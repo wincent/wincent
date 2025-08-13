@@ -270,3 +270,6 @@
 	branch = master
 	path = aspects/dotfiles/files/.zsh/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "diffview.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/diffview.nvim
+	url = https://github.com/sindrets/diffview.nvim.git
