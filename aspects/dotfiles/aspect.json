@@ -31,6 +31,7 @@
       ".config/tmux",
       ".config/xkeysnail.py",
       ".config/yazi",
+      ".docker",
       ".ghci",
       ".hammerspoon",
       ".hgrc",
