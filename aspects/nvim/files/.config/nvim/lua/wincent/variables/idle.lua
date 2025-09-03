@@ -15,6 +15,21 @@ local function idle()
       end
     end
   end
+
+  -- Set up $HELP variable with all "doc" directories from &rtp.
+  local rtp_paths = vim.split(vim.o.rtp, ',')
+  local doc_dirs = {}
+
+  for _, path in ipairs(rtp_paths) do
+    local doc_path = path .. '/doc'
+    if vim.fn.isdirectory(doc_path) == 1 then
+      table.insert(doc_dirs, doc_path)
+    end
+  end
+
+  if #doc_dirs > 0 then
+    vim.env.HELP = table.concat(doc_dirs, ':')
+  end
 end
 
 return idle
