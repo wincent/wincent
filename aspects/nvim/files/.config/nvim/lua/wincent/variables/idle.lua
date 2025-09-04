@@ -16,7 +16,10 @@ local function idle()
     end
   end
 
-  -- Set up $HELP variable with all "doc" directories from &rtp.
+  -- Set up $HELP variable with all "doc" directories from &rtp. You can achieve
+  -- a similar effect with `:helpgrep <pattern>`, but provides an alternative
+  -- that allows you to write Perl-compatible regular expressions (ie. by
+  -- calling Ripgrep with `:Ack <pattern> $HELP`)
   local rtp_paths = vim.split(vim.o.rtp, ',')
   local doc_dirs = {}
 
