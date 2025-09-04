@@ -6,10 +6,8 @@ if require('wincent.nvim.is_large_buffer')() then
   -- `$VIMRUNTIME/ftplugin/lua.lua`.
   vim.treesitter.stop()
 
-  -- Likewise we need this. The suppression merely replaces
-  -- `nvim_treesitter#indent()` (slow) with `GetLuaIndent()` (slow);
-  -- furthermore, we have to delay the operation because the order of events is
-  -- actually this:
+  -- Likewise we need this. We have to delay the operation because the order of
+  -- events is actually this:
   --
   -- 1. This file is evaluated, where we'd like to set `'indentexpr'` to ''.
   -- 2. Callbacks in nvim-treesitter config run, resetting `'indentexpr'` to

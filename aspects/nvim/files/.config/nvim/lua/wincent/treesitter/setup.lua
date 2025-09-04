@@ -24,7 +24,9 @@ local function setup(config)
     pattern = table.concat(vim.tbl_keys(pattern), ','),
     callback = function(data)
       if not require('wincent.nvim.is_large_buffer')(data.buf) then
-        vim.bo.indentexpr = 'v:lua.wincent.treesitter.indentexpr()'
+        -- Not using treesitter indents until logic is settled: see:
+        -- https://github.com/nvim-treesitter/nvim-treesitter/issues/7840
+        -- vim.bo.indentexpr = 'v:lua.wincent.treesitter.indentexpr()'
         vim.treesitter.start()
       end
     end,
