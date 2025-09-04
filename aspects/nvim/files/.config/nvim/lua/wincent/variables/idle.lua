@@ -33,6 +33,19 @@ local function idle()
   if #doc_dirs > 0 then
     vim.env.HELP = table.concat(doc_dirs, ':')
   end
+
+  -- And $RTP for searching all Neovim files.
+  local rtp_dirs = {}
+
+  for _, path in ipairs(rtp_paths) do
+    if vim.fn.isdirectory(path) == 1 then
+      table.insert(rtp_dirs, path)
+    end
+  end
+
+  if #rtp_dirs > 0 then
+    vim.env.RTP = table.concat(rtp_dirs, ':')
+  end
 end
 
 return idle
