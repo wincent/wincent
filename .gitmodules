@@ -68,22 +68,22 @@
 	branch = main
 	ignore = untracked
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.ai
-	url = https://github.com/echasnovski/mini.ai.git
+	url = https://github.com/nvim-mini/mini.ai.git
 [submodule "mini.extra"]
 	branch = main
 	ignore = untracked
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.extra
-	url = https://github.com/echasnovski/mini.extra.git
+	url = https://github.com/nvim-mini/mini.extra.git
 [submodule "mini.icons"]
 	ignore = untracked
 	branch = main
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.icons
-	url = https://github.com/echasnovski/mini.icons.git
+	url = https://github.com/nvim-mini/mini.icons.git
 [submodule "mini.surround"]
 	branch = main
 	ignore = untracked
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.surround
-	url = https://github.com/echasnovski/mini.surround.git
+	url = https://github.com/nvim-mini/mini.surround.git
 [submodule "n"]
 	path = vendor/n
 	url = https://github.com/tj/n.git
