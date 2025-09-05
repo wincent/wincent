@@ -235,7 +235,13 @@ canManageWindow = function(window)
   return window:isStandard()
 end
 
+-- https://www.benq.com/en-us/monitor/professional/pd2700u/spec.html
 local benQPD2700U = '1920x1080' -- real resolution = '3840x2160'
+
+-- https://www.benq.com/en-us/monitor/professional/pd2730s/spec.html
+local benQPD2730S = '2560x1440' -- real resolution = '5120x2880'
+
+-- https://www.dell.com/en-us/shop/dell-ultrasharp-27-4k-usb-c-hub-monitor-u2723qe/apd/210-bdpf/monitors-monitor-accessories#techspecs_section
 local dellU2723QE = '1920x1080' -- real resolution = '3840x2160'
 
 -- https://everymac.com/systems/apple/macbook_pro/specs/macbook-pro-m3-max-14-core-cpu-30-core-gpu-14-late-2023-specs.html
@@ -248,7 +254,7 @@ local macBookPro15_2015 = '1440x900' -- real resolution = '2880x1800'
 local macBookPro15_2023 = '1728x1117' -- real resolution = '3456x2234'
 
 externalDisplay = function()
-  return hs.screen.find(benQPD2700U) or hs.screen.find(dellU2723QE)
+  return hs.screen.find(benQPD2700U) or hs.screen.find(benQPD2730S) or hs.screen.find(dellU2723QE)
 end
 
 internalDisplay = function()
