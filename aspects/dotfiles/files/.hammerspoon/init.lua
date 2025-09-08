@@ -350,6 +350,9 @@ arrangeDisplays = function(arrangement)
     if menu and getMenu then
       menu:setMenu(getMenu())
     end
+    activateLayout(2)
+  else
+    activateLayout(1)
   end
 end
 
