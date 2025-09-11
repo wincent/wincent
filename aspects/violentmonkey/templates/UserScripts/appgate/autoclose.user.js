@@ -15,7 +15,7 @@
   'use strict';
 
   const mayClose = document.body.textContent?.match(
-    /You may close this window/,
+    /You may close this (window|page)/,
   );
   if (mayClose) {
     window.close();
