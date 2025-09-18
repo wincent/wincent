@@ -131,7 +131,8 @@
 	# Compensate for brain damage caused by using Mercurial.
 	up = checkout
 
-	wc = log --raw
+	# Equivalent to the (deprecated) `git whatchanged`.
+	wc = log --raw --no-merges
 
 	# Similar to `whatchanged`, but gives a dir-level overview.
 	#
