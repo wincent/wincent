@@ -11,10 +11,10 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "outDir": ".",
-    "baseUrl": ".",
     "paths": {
-      "fig": ["fig/index.js"],
-      "fig/*": ["fig/*"]
+      "fig": ["./fig/index.js"],
+      "fig/*": ["./fig/*"],
+      "*": ["./*"]
     },
     "strict": true,
     "target": "ES2024",
