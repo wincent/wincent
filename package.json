@@ -21,6 +21,6 @@
     "node": ">=22.18.0"
   },
   "dependencies": {
-    "@typescript/native-preview": "^7.0.0-dev.20250930.1"
+    "@typescript/native-preview": "^7.0.0-dev.20251002.1"
   }
 }
