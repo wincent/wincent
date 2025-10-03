@@ -50,13 +50,10 @@
       "Bash(command git diff:*)",
       "Bash(command git log:*)",
       "Bash(command git show:*)",
-      "Bash(command git status:*)",
-      "Bash(command rg:*)",
-      "Bash(find:*)",
-      "Bash(rg:*)"
+      "Bash(command git status:*)"
     ],
     "deny": [
-      "Bash(find:*-exec*)"
     ]
-  }
+  },
+  "alwaysThinkingEnabled": false
 }
