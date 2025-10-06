@@ -52,8 +52,7 @@
       "Bash(command git show:*)",
       "Bash(command git status:*)"
     ],
-    "deny": [
-    ]
+    "deny": []
   },
   "alwaysThinkingEnabled": false
 }
