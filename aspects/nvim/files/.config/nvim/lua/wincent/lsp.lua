@@ -314,7 +314,14 @@ lsp.init = function()
 
     vim.lsp.enable('ocamlls', vim.fn.executable('ocaml-language-server') == 1)
     vim.lsp.enable('rust_analyzer', vim.fn.executable('rust-analyzer') == 1)
-    vim.lsp.enable('ts_ls', vim.fn.executable('typescript-language-server') == 1)
+    if vim.fn.executable('tsgo') == 1 and false then
+      vim.lsp.config('ts_ls', {
+        cmd = { 'tsgo', '--lsp', '--stdio' },
+      })
+      vim.lsp.enable('ts_ls')
+    elseif vim.fn.executable('typescript-language-server') == 1 then
+      vim.lsp.enable('ts_ls')
+    end
     vim.lsp.enable('vimls', vim.fn.executable('vim-language-server') == 1)
   end
 
