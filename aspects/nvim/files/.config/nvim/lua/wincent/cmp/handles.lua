@@ -23,7 +23,7 @@ handles.setup = function()
 
     -- readfile() returns a list of lines; filter comment lines, then join.
     local lines = vim.fn.readfile(json_path)
-    local non_comments = vim.tbl_filter(function (line)
+    local non_comments = vim.tbl_filter(function(line)
       return not line:match('^%s*//')
     end, lines)
     local json = table.concat(non_comments, '\n')
