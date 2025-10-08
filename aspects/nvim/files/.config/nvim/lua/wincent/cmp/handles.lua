@@ -16,11 +16,19 @@ handles.setup = function()
   end
 
   local success, handles_with_names_and_emails = pcall(function()
-    local json_path = vim.fn.expand('~/.config/git/handles.json')
+    local json_path = vim.fn.expand('~/.config/git/handles.jsonc')
     if vim.fn.filereadable(json_path) == 0 then
       error(json_path .. ' not readable')
     end
-    return vim.fn.json_decode(vim.fn.readfile(json_path))
+
+    -- readfile() returns a list of lines; filter comment lines, then join.
+    local lines = vim.fn.readfile(json_path)
+    local non_comments = vim.tbl_filter(function (line)
+      return not line:match('^%s*//')
+    end, lines)
+    local json = table.concat(non_comments, '\n')
+
+    return vim.json.decode(json)
   end)
   if not success then
     return

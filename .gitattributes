@@ -1,5 +1,4 @@
 "aspects/dotfiles/files/.config/Raycast/Script Commands/the-hub.sh"	diff=git-cipher	filter=git-cipher	merge=git-cipher
-aspects/dotfiles/files/.config/git/handles.json	diff=git-cipher	filter=git-cipher	merge=git-cipher
 aspects/dotfiles/files/.config/git/host/latina	diff=git-cipher	filter=git-cipher	merge=git-cipher
 aspects/dotfiles/files/.irssi/config	diff=git-cipher	filter=git-cipher	merge=git-cipher
 aspects/dotfiles/files/.npmrc	diff=git-cipher	filter=git-cipher	merge=git-cipher
@@ -13,3 +12,4 @@ aspects/dotfiles/files/.zsh/host/comp-ktw7q4c5jh	diff=git-cipher	filter=git-ciph
 "aspects/dotfiles/files/.config/Raycast/Script Commands/github-pulls.sh"	diff=git-cipher	filter=git-cipher	merge=git-cipher
 "aspects/dotfiles/files/.config/Raycast/Script Commands/github-repo.sh"	diff=git-cipher	filter=git-cipher	merge=git-cipher
 aspects/dotfiles/files/.claude/host/comp-ktw7q4c5jh.md	diff=git-cipher	filter=git-cipher	merge=git-cipher
+aspects/dotfiles/files/.config/git/handles.jsonc	diff=git-cipher	filter=git-cipher	merge=git-cipher
