@@ -1,0 +1,21 @@
+#!/bin/bash
+#
+# SPDX-FileCopyrightText: Copyright 2022-present Greg Hurrell and contributors.
+# SPDX-License-Identifier: BSD-2-Clause
+
+REPO_ROOT="${BASH_SOURCE%/*}/.."
+
+# Must `cd` to root in order for `stylua.toml` to get picked up.
+cd "$REPO_ROOT"
+
+EXIT=0
+
+stylua --check . || EXIT=1
+
+npx -y dprint@0.50.0 check "**/*.md" "**/*.jsonc" || EXIT=1
+
+set -o pipefail
+
+find . -iname '*.[ch]' | xargs clang-format --dry-run || EXIT=1
+
+exit $EXIT

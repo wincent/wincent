@@ -1,0 +1,9 @@
+*swp
+*~
+.un~
+/*.zip
+/.vagrant
+/Vagrantfile
+/media
+/tags
+commandt-debug.log

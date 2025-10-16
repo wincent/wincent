@@ -1,0 +1,65 @@
+name: lua
+
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - '**'
+
+jobs:
+  style:
+    runs-on: ubuntu-22.04
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.event.pull_request.base.repo.full_name
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: JohnnyMorganz/stylua-action@b6661824b86c9c33121bed87a778b660ba90cf77 # v4.0.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          args: --check .
+          version: "0.20.0"
+      - uses: jidicula/clang-format-action@d05cecd4a1a5b7e64c22f5a468456135a43f13f6 # v4.14.0
+        with:
+          clang-format-version: "18"
+          check-path: lua
+
+  test:
+    runs-on: ubuntu-22.04
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.event.pull_request.base.repo.full_name
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: leafo/gh-actions-lua@8aace3457a2fcf3f3c4e9007ecc6b869ff6d74d6 # v11
+        with:
+          luaVersion: luajit-openresty
+
+      - name: Build extension (release)
+        run: |
+          pushd lua/wincent/commandt/lib
+          make
+          popd
+
+      - name: Run unit tests (release)
+        run: bin/test
+
+      - name: Run stress tests (release, matcher benchmarks)
+        run: TIMES=1 bin/benchmarks/matcher.lua
+
+      - name: Run stress tests (release, scanner benchmarks)
+        run: TIMES=1 bin/benchmarks/scanner.lua
+
+      # Repeat the tests in DEBUG mode (ie. with `assert()` calls active).
+      - name: Build extension (debug)
+        run: |
+          pushd lua/wincent/commandt/lib
+          DEBUG=1 make
+          popd
+
+      - name: Run unit tests (debug)
+        run: bin/test
+
+      - name: Run stress tests (debug, matcher benchmarks)
+        run: TIMES=1 bin/benchmarks/matcher.lua
+
+      - name: Run stress tests (debug, scanner benchmarks)
+        run: TIMES=1 bin/benchmarks/scanner.lua
