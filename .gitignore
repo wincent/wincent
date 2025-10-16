@@ -14,3 +14,4 @@
 /vendor/skim
 /vendor/yay
 *.zwc
+**/doc/tags
