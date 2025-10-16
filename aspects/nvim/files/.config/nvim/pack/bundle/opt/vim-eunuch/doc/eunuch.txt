@@ -1,0 +1,129 @@
+*eunuch.txt*  File manipulation
+Author:  Tim Pope <http://tpo.pe/>
+License: Same terms as Vim itself (see |license|)
+
+This plugin is only available if 'compatible' is not set.
+
+INTRODUCTION                                    *eunuch*
+
+Vim sugar for the UNIX shell commands that need it the most.  Delete or rename
+a buffer and the underlying file at the same time.  Load a `find` or a
+`locate` into the quickfix list.  And so on.
+
+COMMANDS                                        *eunuch-commands*
+
+                                        *eunuch-:Remove* *eunuch-:Unlink*
+:Remove[!]              Delete the file from disk and reload the buffer.  If
+:Unlink[!]              you change your mind, the contents of the buffer can
+                        be restored with |u| (see 'undoreload').
+
+                                                *eunuch-:Delete*
+:Delete[!]              Delete the file from disk and |:bdelete| the buffer.
+                        This cannot be undone, and thus a `!` is required to
+                        delete non-empty files.
+
+                                                *eunuch-:Copy*
+:Copy[!] {file}         Small wrapper around |:saveas|.  Parent directories
+                        are automatically created.  If the argument itself is
+                        a directory, a file with the same basename will be
+                        created inside that directory.
+
+                                                *eunuch-:Duplicate*
+:Duplicate[!] {file}    Like |:Copy|, but the argument is taken as relative to
+                        the current file's parent directory.
+
+                                                *eunuch-:Move*
+:Move[!] {file}         Like |:Copy|, but delete the old file and |:bwipe| the
+                        old buffer afterwards.
+
+                                                *eunuch-:Rename*
+:Rename[!] {file}       Like |:Move|, but the argument is taken as relative to
+                        the current file's parent directory.
+
+                                                *eunuch-:Chmod*
+:Chmod {mode}           Change the permissions of the current file.
+
+                                                *eunuch-:Mkdir*
+:Mkdir {dir}            Create directory {dir} and all parent directories,
+                        like `mkdir -p`.
+
+:Mkdir                  With no argument, create the containing directory for
+                        the current file.
+
+                                                *eunuch-:Cfind*
+:Cfind[!] {args}        Run `find` and load the results into the quickfix
+                        list.  Jump to the first result unless ! is given.
+
+                                                *eunuch-:Lfind*
+:Lfind[!] {args}        Run `find` and load the results into the location
+                        list.  Jump to the first result unless ! is given.
+
+                                                *eunuch-:Clocate*
+:Clocate[!] {args}      Run `locate` and load the results into the quickfix
+                        list.  Jump to the first result unless ! is given.
+
+                                                *eunuch-:Llocate*
+:Llocate[!] {args}      Run `locate` and load the results into the location
+                        list.  Jump to the first result unless ! is given.
+
+                                                *eunuch-:SudoEdit*
+:SudoEdit [file]        Edit a file using sudo.  This overrides any read
+                        permission issues, plus allows you to write the file
+                        with :w!.
+
+                                                *eunuch-:SudoWrite*
+:SudoWrite              Use sudo to write the file to disk.  Handy when you
+                        forgot to use sudo to invoke Vim.  This uses :SudoEdit
+                        internally, so after the first invocation you can
+                        subsequently use :w!.
+
+                        Both sudo commands are implemented using `sudo -e`,
+                        also known as sudoedit.  This has the advantage of
+                        respecting sudoedit permissions in /etc/sudoers, and
+                        the constraint of not allowing edits to symlinks or
+                        files in writable directories, both of which can be
+                        abused in some circumstances to write to files that
+                        were not intended.  These restrictions can be lifted
+                        with the sudoedit_follow and sudoedit_checkdir sudo
+                        options, respectively.
+
+                                                *eunuch-:Wall* *eunuch-:W*
+:Wall                   Like |:wall|, but for windows rather than buffers.
+:W                      It also writes files that haven't changed, which is
+                        useful for kicking off build and test suites (such as
+                        with watchr or guard).  Furthermore, it handily
+                        doubles as a safe fallback for people who, like me,
+                        accidentally type :W instead of :w a lot.
+
+PASSIVE BEHAVIORS                               *eunuch-passive*
+
+If you type a line at the beginning of a file that starts with #! and press
+<CR>, The current file type will be re-detected.  This is implemented using a
+<CR> map.  If you already have a <CR> map, Eunuch will attempt to combine with
+it.  For best results, use an <expr> map.
+
+Additionally, if the shebang line lacks a path (e.g., `#!bash`), it will be
+normalized by adding `/usr/bin/env` (e.g., `#!/usr/bin/env bash`).  If it
+lacks a command entirely (just `#!`), Eunuch will invert the process and pick
+a command appropriate for the current file type.  For example, if the file
+type is "python", the shebang will become `#!/usr/bin/env python3` .
+
+Finally, adding a shebang line to a new or existing file will cause `chmod +x`
+to be invoked on the file on the next write.
+
+                                                *g:eunuch_interpreters*
+You can customize the generated shebang with g:eunuch_interpreters, a
+dictionary that maps between file types and shell commands:
+>
+        let g:eunuch_interpreters = {
+                \ 'lua': '/usr/bin/lua5.1'}
+<
+This example is a joke.  Do not use Lua.
+
+ABOUT                                           *eunuch-about*
+
+Grab the latest version or report a bug on GitHub:
+
+http://github.com/tpope/vim-eunuch
+
+ vim:tw=78:et:ft=help:norl:
