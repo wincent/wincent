@@ -1,0 +1,976 @@
+*tinted-vim.txt*
+
+
+			TINTED-VIM DOCUMENTATION
+
+
+                                                                    *tinted-vim*
+                                                             *neovim-highlights*
+A comprehensive guide to Neovim highlight groups
+
+    1. Introduction ........................... |tinted-vim-introduction|
+    2. GUI Highlights ......................... |tinted-vim-gui|
+    3. Default Syntax Highlights .............. |tinted-vim-syntax|
+    4. Treesitter Syntax Highlights ........... |tinted-vim-treesitter|
+    5. LSP Semantic Syntax Highlights ......... |tinted-vim-lsp-semantic|
+    6. LSP Highlights ......................... |tinted-vim-lsp|
+    7. Diagnostic Highlights .................. |tinted-vim-diagnostic|
+    8. Language Specific Highlights ........... |tinted-vim-lang|
+       Lua .................................... |tinted-vim-lang-lua|
+       Rust ................................... |tinted-vim-lang-rust|
+       Vimscript............................... |tinted-vim-lang-vimscript|
+
+==============================================================================
+1. INTRODUCTION                      *tinted-vim-introduction* *tinted-vim-colors*
+
+This document provides a comprehensive reference for all highlight groups in
+Neovim. It includes GUI highlights, syntax highlights, Treesitter highlights,
+LSP highlights, and diagnostic highlights. Each section contains detailed
+descriptions of the highlight groups and their intended usage.
+
+Colors Overview:
+
+|https://github.com/tinted-theming/base24/blob/main/styling.md|
+
+Vim Variable	BaseNN  Ansi  Terminal/Color	Text Editor
+g:tinted_gui00  base00  -     Background        Default Background
+g:tinted_gui01  base01  0     Black             Lighter Background (Status bars)
+g:tinted_gui02  base02  8     Bright Black      Selection Background
+g:tinted_gui03  base03  -     (Grey)            Comments, Invisibles, Line Highlighting
+g:tinted_gui04  base04  -     (Light Grey)      Dark Foreground (Status bars)
+g:tinted_gui05  base05  -     Foreground        Default, Caret, Delimiters, Operators
+g:tinted_gui06  base06  7     White             Light Foreground (Not often used)
+g:tinted_gui07  base07  15    Bright White      Lightest Foreground (Not often used)
+g:tinted_gui08  base08  9     Bright Red        Variables, XML Tags, Markup Links, Lists
+g:tinted_gui09  base09  ~11   (Orange)          Integers, Boolean, XML Attributes
+g:tinted_gui0A  base0A  11    Bright Yellow     Classes, Markup Bold, Search Background
+g:tinted_gui0B  base0B  10    Bright Green      Strings, Inherited Class, Markup Code
+g:tinted_gui0C  base0C  14    Bright Cyan       Support, RegEx, Escape Chars, Quotes
+g:tinted_gui0D  base0D  12    Bright Blue       Functions, Methods, IDs, Headings
+g:tinted_gui0E  base0E  13    Bright Purple     Keywords, Storage, Selector, Markup
+g:tinted_gui0F  base0F  -     (Dark Red)        Deprecated Methods and Functions
+g:tinted_gui10  base10  -     (Darker Black)    Darker Background
+g:tinted_gui11  base11  -     (Darkest Black)   The Darkest Background
+g:tinted_gui12  base12  1     Red               NA
+g:tinted_gui13  base13  3     Yellow            NA
+g:tinted_gui14  base14  2     Green             NA
+g:tinted_gui15  base15  6     Cyan              NA
+g:tinted_gui16  base16  4     Blue              NA
+g:tinted_gui17  base17  5     Purple            NA
+
+==============================================================================
+2. GUI HIGHLIGHTS                                               *tinted-vim-gui*
+
+Source: |highlight-groups|
+
+ColorColumn	    Used for the columns set with 'colorcolumn'.
+Conceal		    Placeholder characters substituted for concealed
+		    text (see 'conceallevel').
+CurSearch	    Current match for the last search pattern (see 'hlsearch').
+		    Note: This is correct after a search, but may get outdated if
+		    changes are made or the screen is redrawn.
+Cursor		    Character under the cursor.
+lCursor		    Character under the cursor when |language-mapping|
+		    is used (see 'guicursor').
+CursorIM	    Like Cursor, but used when in IME mode.
+CursorColumn	    Screen-column at the cursor, when 'cursorcolumn' is set.
+CursorLine	    Screen-line at the cursor, when 'cursorline' is set.
+		    Low-priority if foreground (ctermfg OR guifg) is not set.
+Directory	    Directory names (and other special names in listings).
+DiffAdd		    Diff mode: Added line. |diff.txt|
+DiffChange	    Diff mode: Changed line. |diff.txt|
+DiffDelete	    Diff mode: Deleted line. |diff.txt|
+DiffText	    Diff mode: Changed text within a changed line. |diff.txt|
+EndOfBuffer	    Filler lines (~) after the end of the buffer.
+		    By default, this is highlighted like |hl-NonText|.
+TermCursor	    Cursor in a focused terminal.
+TermCursorNC	    Cursor in an unfocused terminal.
+ErrorMsg	    Error messages on the command line.
+WinSeparator	    Separators between window splits.
+Folded		    Line used for closed folds.
+FoldColumn	    'foldcolumn'
+SignColumn	    Column where |signs| are displayed.
+IncSearch	    'incsearch' highlighting; also used for the text replaced with
+		    ":s///c".
+Substitute	    |:substitute| replacement text highlighting.
+LineNr		    Line number for ":number" and ":#" commands, and when 'number'
+		    or 'relativenumber' option is set.
+LineNrAbove	    Line number for when the 'relativenumber'
+		    option is set, above the cursor line.
+LineNrBelow	    Line number for when the 'relativenumber'
+		    option is set, below the cursor line.
+CursorLineNr	    Like LineNr when 'cursorline' is set and 'cursorlineopt'
+		    contains "number" or is "both", for the cursor line.
+CursorLineFold	    Like FoldColumn when 'cursorline' is set for the cursor line.
+CursorLineSign	    Like SignColumn when 'cursorline' is set for the cursor line.
+MatchParen	    Character under the cursor or just before it, if it
+		    is a paired bracket, and its match. |pi_paren.txt|
+ModeMsg		    'showmode' message (e.g., "-- INSERT --").
+MsgArea		    Area for messages and command-line, see also 'cmdheight'.
+MsgSeparator	    Separator for scrolled messages |msgsep|.
+MoreMsg		    |more-prompt|
+NonText		    '@' at the end of the window, characters from 'showbreak'
+		    and other characters that do not really exist in the text
+		    (e.g., ">" displayed when a double-wide character doesn't
+		    fit at the end of the line). See also |hl-EndOfBuffer|.
+Normal		    Normal text.
+NormalFloat	    Normal text in floating windows.
+FloatBorder	    Border of floating windows.
+FloatTitle	    Title of floating windows.
+FloatFooter	    Footer of floating windows.
+NormalNC	    Normal text in non-current windows.
+Pmenu		    Popup menu: Normal item.
+PmenuSel	    Popup menu: Selected item. Combined with |hl-Pmenu|.
+PmenuKind	    Popup menu: Normal item "kind".
+PmenuKindSel	    Popup menu: Selected item "kind".
+PmenuExtra	    Popup menu: Normal item "extra text".
+PmenuExtraSel	    Popup menu: Selected item "extra text".
+PmenuSbar	    Popup menu: Scrollbar.
+PmenuThumb	    Popup menu: Thumb of the scrollbar.
+PmenuMatch	    Popup menu: Matched text in normal item. Combined with
+		    |hl-Pmenu|.
+PmenuMatchSel	    Popup menu: Matched text in selected item. Combined with
+		    |hl-PmenuMatch| and |hl-PmenuSel|.
+Question	    |hit-enter| prompt and yes/no questions.
+QuickFixLine	    Current |quickfix| item in the quickfix window. Combined with
+		    |hl-CursorLine| when the cursor is there.
+Search		    Last search pattern highlighting (see 'hlsearch').
+		    Also used for similar items that need to stand out.
+SnippetTabstop	    Tabstops in snippets. |vim.snippet|
+SpecialKey	    Unprintable characters: Text displayed differently from what
+		    it really is. But not 'listchars' whitespace. |hl-Whitespace|
+SpellBad	    Word that is not recognized by the spellchecker. |spell|
+		    Combined with the highlighting used otherwise.
+SpellCap	    Word that should start with a capital. |spell|
+		    Combined with the highlighting used otherwise.
+SpellLocal	    Word that is recognized by the spellchecker as one that is
+		    used in another region. |spell|
+		    Combined with the highlighting used otherwise.
+SpellRare	    Word that is recognized by the spellchecker as one that is
+		    hardly ever used. |spell|
+		    Combined with the highlighting used otherwise.
+StatusLine	    Status line of current window.
+StatusLineNC	    Status lines of not-current windows.
+StatusLineTerm	    Status line of |terminal| window.
+StatusLineTermNC    Status line of non-current |terminal| windows.
+TabLine		    Tab pages line, not active tab page label.
+TabLineFill	    Tab pages line, where there are no labels.
+TabLineSel	    Tab pages line, active tab page label.
+Title		    Titles for output from ":set all", ":autocmd" etc.
+Visual		    Visual mode selection.
+VisualNOS	    Visual mode selection when vim is "Not Owning the Selection".
+WarningMsg	    Warning messages.
+Whitespace	    "nbsp", "space", "tab", "multispace", "lead" and "trail"
+		    in 'listchars'.
+WildMenu	    Current match in 'wildmenu' completion.
+WinBar		    Window bar of current window.
+WinBarNC	    Window bar of not-current windows.
+Menu		    Current font, background and foreground colors of the menus.
+		    Also used for the toolbar.
+		    Applicable highlight arguments: font, guibg, guifg.
+Scrollbar	    Current background and foreground of the main window's
+		    scrollbars.
+		    Applicable highlight arguments: guibg, guifg.
+Tooltip		    Current font, background and foreground of the tooltips.
+		    Applicable highlight arguments: font, guibg, guifg.
+
+==============================================================================
+3. DEFAULT SYNTAX HIGHLIGHTS                                 *tinted-vim-syntax*
+
+Source: |group-name|
+
+Comment		any comment
+
+Constant	any constant
+String		a string constant: "this is a string"
+Character	a character constant: 'c', '\n'
+Number		a number constant: 234, 0xff
+Boolean		a boolean constant: TRUE, false
+Float		a floating point constant: 2.3e10
+
+Identifier	any variable name
+Function	function name (also: methods for classes)
+
+Statement	any statement
+Conditional	if, then, else, endif, switch, etc.
+Repeat		for, do, while, etc.
+Label		case, default, etc.
+Operator	"sizeof", "+", "*", etc.
+Keyword		any other keyword
+Exception	try, catch, throw
+
+PreProc		generic Preprocessor
+Include		preprocessor #include
+Define		preprocessor #define
+Macro		same as Define
+PreCondit	preprocessor #if, #else, #endif, etc.
+
+Type		int, long, char, etc.
+StorageClass	static, register, volatile, etc.
+Structure	struct, union, enum, etc.
+Typedef		a typedef
+
+Special		any special symbol
+SpecialChar	special character in a constant
+Tag		you can use CTRL-] on this
+Delimiter	character that needs attention
+SpecialComment	special things inside a comment
+Debug		debugging statements
+
+Underlined	text that stands out, HTML links
+
+Ignore		left blank, hidden
+
+Error		any erroneous construct
+
+Todo		anything that needs extra attention; mostly the
+		keywords TODO FIXME and XXX
+
+Added		added line in a diff
+Changed		changed line in a diff
+Removed		removed line in a diff
+
+==============================================================================
+4. TREESITTER SYNTAX HIGHLIGHTS                          *tinted-vim-treesitter*
+
+Source: |treesitter-highlight-groups|
+
+@variable                       various variable names
+@variable.builtin               built-in variable names (e.g. `this`, `self`)
+@variable.parameter             parameters of a function
+@variable.parameter.builtin     special parameters (e.g. `_`, `it`)
+@variable.member                object and struct fields
+
+@constant		constant identifiers
+@constant.builtin       built-in constant values
+@constant.macro         constants defined by the preprocessor
+
+@module                 modules or namespaces
+@module.builtin         built-in modules or namespaces
+@label                  `GOTO` and other labels (e.g. `label:` in C), including heredoc labels
+
+@string                 string literals
+@string.documentation   string documenting code (e.g. Python docstrings)
+@string.regexp          regular expressions
+@string.escape          escape sequences
+@string.special         other special strings (e.g. dates)
+@string.special.symbol  symbols or atoms
+@string.special.path    filenames
+@string.special.url     URIs (e.g. hyperlinks)
+
+@character              character literals
+@character.special      special characters (e.g. wildcards)
+
+@boolean                boolean literals
+@number                 numeric literals
+@number.float           floating-point number literals
+
+@type                   type or class definitions and annotations
+@type.builtin           built-in types
+@type.definition        identifiers in type definitions (e.g. `typedef <type> <identifier>` in C)
+
+@attribute              attribute annotations (e.g. Python decorators, Rust lifetimes)
+@attribute.builtin      builtin annotations (e.g. `@property` in Python)
+@property               the key in key/value pairs
+
+@function               function definitions
+@function.builtin       built-in functions
+@function.call          function calls
+@function.macro         preprocessor macros
+
+@function.method        method definitions
+@function.method.call   method calls
+
+@constructor            constructor calls and definitions
+@operator               symbolic operators (e.g. `+`, `*`)
+
+@keyword                keywords not fitting into specific categories
+@keyword.coroutine      keywords related to coroutines (e.g. `go` in Go, `async/await` in Python)
+@keyword.function       keywords that define a function (e.g. `func` in Go, `def` in Python)
+@keyword.operator       operators that are English words (e.g. `and`, `or`)
+@keyword.import         keywords for including or exporting modules (e.g. `import`, `from` in Python)
+@keyword.type           keywords describing namespaces and composite types (e.g. `struct`, `enum`)
+@keyword.modifier       keywords modifying other constructs (e.g. `const`, `static`, `public`)
+@keyword.repeat         keywords related to loops (e.g. `for`, `while`)
+@keyword.return         keywords like `return` and `yield`
+@keyword.debug          keywords related to debugging
+@keyword.exception      keywords related to exceptions (e.g. `throw`, `catch`)
+
+@keyword.conditional         keywords related to conditionals (e.g. `if`, `else`)
+@keyword.conditional.ternary ternary operator (e.g. `?`, `:`)
+
+@keyword.directive           various preprocessor directives and shebangs
+@keyword.directive.define    preprocessor definition directives
+
+@punctuation.delimiter  delimiters (e.g. `;`, `.`, `,`)
+@punctuation.bracket    brackets (e.g. `()`, `{}`, `[]`)
+@punctuation.special    special symbols (e.g. `{}` in string interpolation)
+
+@comment                line and block comments
+@comment.documentation  comments documenting code
+
+@comment.error          error-type comments (e.g. `ERROR`, `FIXME`, `DEPRECATED`)
+@comment.warning        warning-type comments (e.g. `WARNING`, `FIX`, `HACK`)
+@comment.todo           todo-type comments (e.g. `TODO`, `WIP`)
+@comment.note           note-type comments (e.g. `NOTE`, `INFO`, `XXX`)
+
+@markup.strong          bold text
+@markup.italic          italic text
+@markup.strikethrough   struck-through text
+@markup.underline       underlined text (only for literal underline markup!)
+
+@markup.heading         headings, titles (including markers)
+@markup.heading.1       top-level heading
+@markup.heading.2       section heading
+@markup.heading.3       subsection heading
+@markup.heading.4       and so on
+@markup.heading.5       and so forth
+@markup.heading.6       six levels ought to be enough for anybody
+
+@markup.quote           block quotes
+@markup.math            math environments (e.g. `$ ... $` in LaTeX)
+
+@markup.link            text references, footnotes, citations, etc.
+@markup.link.label      link, reference descriptions
+@markup.link.url        URL-style links
+
+@markup.raw             literal or verbatim text (e.g. inline code)
+@markup.raw.block       literal or verbatim text as a stand-alone block
+
+@markup.list            list markers
+@markup.list.checked    checked todo-style list markers
+@markup.list.unchecked  unchecked todo-style list markers
+
+@diff.plus              added text (for diff files)
+@diff.minus             deleted text (for diff files)
+@diff.delta             changed text (for diff files)
+
+@tag                    XML-style tag names (e.g. in XML, HTML, etc.)
+@tag.builtin            builtin tag names (e.g. HTML5 tags)
+@tag.attribute          XML-style tag attributes
+@tag.delimiter          XML-style tag delimiters
+
+==============================================================================
+5. LSP SEMANTIC SYNTAX HIGHLIGHTS                      *tinted-vim-lsp-semantic*
+
+Source: |lsp-semantic-highlight|
+
+@lsp.type.class          Identifiers that declare or reference a class type
+@lsp.type.comment        Tokens that represent a comment
+@lsp.type.decorator      Identifiers that declare or reference decorators and annotations
+@lsp.type.enum           Identifiers that declare or reference an enumeration type
+@lsp.type.enumMember     Identifiers that declare or reference an enumeration property, constant, or member
+@lsp.type.event          Identifiers that declare an event property
+@lsp.type.function       Identifiers that declare a function
+@lsp.type.interface      Identifiers that declare or reference an interface type
+@lsp.type.keyword        Tokens that represent a language keyword
+@lsp.type.macro          Identifiers that declare a macro
+@lsp.type.method         Identifiers that declare a member function or method
+@lsp.type.modifier       Tokens that represent a modifier
+@lsp.type.namespace      Identifiers that declare or reference a namespace, module, or package
+@lsp.type.number         Tokens that represent a number literal
+@lsp.type.operator       Tokens that represent an operator
+@lsp.type.parameter      Identifiers that declare or reference a function or method parameters
+@lsp.type.property       Identifiers that declare or reference a member property, member field, or member variable
+@lsp.type.regexp         Tokens that represent a regular expression literal
+@lsp.type.string         Tokens that represent a string literal
+@lsp.type.struct         Identifiers that declare or reference a struct type
+@lsp.type.type           Identifiers that declare or reference a type that is not covered above
+@lsp.type.typeParameter  Identifiers that declare or reference a type parameter
+@lsp.type.variable       Identifiers that declare or reference a local or global variable
+
+@lsp.mod.abstract        Types and member functions that are abstract
+@lsp.mod.async           Functions that are marked async
+@lsp.mod.declaration     Declarations of symbols
+@lsp.mod.defaultLibrary  Symbols that are part of the standard library
+@lsp.mod.definition      Definitions of symbols, for example, in header files
+@lsp.mod.deprecated      Symbols that should no longer be used
+@lsp.mod.documentation   Occurrences of symbols in documentation
+@lsp.mod.modification    Variable references where the variable is assigned to
+@lsp.mod.readonly        Readonly variables and member fields (constants)
+@lsp.mod.static          Class members (static members)
+
+================================================================================
+6. LSP HIGHLIGHTS                                                 *tinted-vim-lsp*
+
+Source: |lsp-highlight|
+
+LspReferenceText          used for highlighting "text" references
+LspReferenceRead          used for highlighting "read" references
+LspReferenceWrite         used for highlighting "write" references
+LspInlayHint              used for highlighting inlay hints
+
+LspCodeLens
+    Used to color the virtual text of the codelens.
+
+LspCodeLensSeparator
+    Used to color the separator between two or more code lenses.
+
+LspSignatureActiveParameter
+    Used to highlight the active parameter in the signature help. See
+
+
+==============================================================================
+7. DIAGNOSTIC HIGHLIGHTS                                 *tinted-vim-diagnostic*
+
+Source: |diagnostic-highlights|
+
+DiagnosticError
+    Used as the base highlight group.
+    Other Diagnostic highlights link to this by default (except Underline)
+DiagnosticWarn
+    Used as the base highlight group.
+    Other Diagnostic highlights link to this by default (except Underline)
+DiagnosticInfo
+    Used as the base highlight group.
+    Other Diagnostic highlights link to this by default (except Underline)
+DiagnosticHint
+    Used as the base highlight group.
+    Other Diagnostic highlights link to this by default (except Underline)
+DiagnosticOk
+    Used as the base highlight group.
+    Other Diagnostic highlights link to this by default (except Underline)
+
+DiagnosticVirtualTextError
+    Used for "Error" diagnostic virtual text.
+DiagnosticVirtualTextWarn
+    Used for "Warn" diagnostic virtual text.
+DiagnosticVirtualTextInfo
+    Used for "Info" diagnostic virtual text.
+DiagnosticVirtualTextHint
+    Used for "Hint" diagnostic virtual text.
+DiagnosticVirtualTextOk
+    Used for "Ok" diagnostic virtual text.
+
+DiagnosticUnderlineError
+    Used to underline "Error" diagnostics.
+DiagnosticUnderlineWarn
+    Used to underline "Warn" diagnostics.
+DiagnosticUnderlineInfo
+    Used to underline "Info" diagnostics.
+DiagnosticUnderlineHint
+    Used to underline "Hint" diagnostics.
+DiagnosticUnderlineOk
+    Used to underline "Ok" diagnostics.
+
+DiagnosticFloatingError
+    Used to color "Error" diagnostic messages in diagnostics float.
+DiagnosticFloatingWarn
+    Used to color "Warn" diagnostic messages in diagnostics float.
+DiagnosticFloatingInfo
+    Used to color "Info" diagnostic messages in diagnostics float.
+DiagnosticFloatingHint
+    Used to color "Hint" diagnostic messages in diagnostics float.
+DiagnosticFloatingOk
+    Used to color "Ok" diagnostic messages in diagnostics float.
+
+DiagnosticSignError
+    Used for "Error" signs in sign column.
+DiagnosticSignWarn
+    Used for "Warn" signs in sign column.
+DiagnosticSignInfo
+    Used for "Info" signs in sign column.
+DiagnosticSignHint
+    Used for "Hint" signs in sign column.
+DiagnosticSignOk
+    Used for "Ok" signs in sign column.
+
+DiagnosticDeprecated
+    Used for deprecated or obsolete code.
+DiagnosticUnnecessary
+    Used for unnecessary or unused code.
+
+==============================================================================
+8. LANGUAGE SPECIFIC HIGHLIGHTS                                *tinted-vim-lang*
+
+The ones you can actually see could differ, because the highlights defined 
+in |lsp-semantic-highlight| are not applied here.
+
+------------------------------------------------------------------------------
+Lua							   *tinted-vim-lang-lua*
+>lua
+    -- Variable declarations and assignments
+    local x = 10
+    local y, z = 20, 30
+
+    -- Arithmetic expressions
+    local result = (x + y) * z / 2
+
+    -- Function declaration
+    local function calculateArea(length, width)
+	return length * width
+    end
+
+    -- Table constructor
+    local person = {
+	name = "John",
+	age = 25,
+	hobbies = {"reading", "gaming", "coding"}
+    }
+
+    -- Control structures
+    if x > 5 then
+	print("x is greater than 5")
+    elseif x < 5 then
+	print("x is less than 5")
+    else
+	print("x equals 5")
+    end
+
+    -- Loops
+    for i = 1, 5 do
+	print(i)
+    end
+
+    local count = 0
+    while count < 3 do
+	count = count + 1
+	print("Count: " .. count)
+    end
+
+    repeat
+	x = x - 1
+    until x == 0
+
+    -- Iterator-based for loop
+    for key, value in pairs(person) do
+	print(key, value)
+    end
+
+    -- Function calls
+    local area = calculateArea(10, 20)
+    print("Area:", area)
+
+    -- Method calls
+    local string_example = "Hello"
+    print(string_example:upper())
+
+    -- Anonymous function
+    local multiply = function(a, b)
+	return a * b
+    end
+
+    -- Closures
+    local function counter()
+	local count = 0
+	return function()
+	    count = count + 1
+	    return count
+	end
+    end
+
+    -- Multiple return values
+    local function getCoordinates()
+	return 100, 200, 300
+    end
+
+    -- String concatenation
+    local fullName = "John" .. " " .. "Doe"
+
+    -- Boolean expressions
+    local isValid = (x > 0) and (y < 100) or (z == 30)
+
+    -- Table indexing
+    local firstHobby = person.hobbies[1]
+    person["age"] = 26
+
+    -- Local block
+    do
+	local blockVar = 42
+	print(blockVar)
+    end
+
+    -- Error handling
+    local status, err = pcall(function()
+	error("This is an error")
+    end)
+
+    -- Varargs
+    local function printAll(...)
+	local args = {...}
+	for i, v in ipairs(args) do
+	    print(i, v)
+	end
+    end
+
+    -- Metatables
+    local mt = {
+	__add = function(a, b)
+	    return a.value + b.value
+	end
+    }
+
+    local obj1 = {value = 10}
+    local obj2 = {value = 20}
+    setmetatable(obj1, mt)
+    setmetatable(obj2, mt)
+
+    -- Comments (single-line and multi-line)
+    --[[ 
+	This is a 
+	multi-line comment
+    ]]
+
+    -- Numeric literals
+    local numbers = {
+	integer = 42,
+	float = 3.14,
+	scientific = 1.5e3,
+	hex = 0xFF
+    }
+
+    -- String literals
+    local strings = {
+	single = 'single quotes',
+	double = "double quotes",
+	multiline = [[
+	    This is a
+	    multi-line string
+	]]
+    }
+
+    -- Binary operators
+    local binaryOps = {
+	addition = 1 + 2,
+	subtraction = 3 - 1,
+	multiplication = 4 * 2,
+	division = 8 / 2,
+	modulo = 7 % 3,
+	power = 2 ^ 3,
+	concatenation = "a" .. "b"
+    }
+
+    -- Unary operators
+    local unaryOps = {
+	negation = -x,
+	length = #"hello",
+	logicalNot = not true
+    }
+
+    -- Function calls with method syntax
+    local t = {
+	method = function(self, x)
+	    return x * 2
+	end
+    }
+    t:method(5)
+<
+------------------------------------------------------------------------------
+Rust     					          *tinted-vim-lang-rust*
+>rust
+    // External crate declaration
+    extern crate some_library;
+
+    // Use declarations
+    use std::collections::HashMap;
+    use std::sync::{Arc, Mutex};
+
+    // Constants and static variables
+    const MAX_SIZE: usize = 100;
+    static GLOBAL_COUNTER: AtomicUsize = AtomicUsize::new(0);
+
+    // Type aliases
+    type Result<T> = std::result::Result<T, Box<dyn Error>>;
+
+    // Traits
+    trait Animal {
+        // Associated types
+        type Sound;
+        
+        // Required methods
+        fn make_sound(&self) -> Self::Sound;
+        
+        // Default methods
+        fn describe(&self) -> String {
+            String::from("Some animal")
+        }
+    }
+
+    // Structs
+    #[derive(Debug, Clone)]
+    struct Dog {
+        name: String,
+        age: u8,
+        tags: Vec<String>,
+    }
+
+    // Enums
+    #[derive(Debug)]
+    enum PetType {
+        Dog(Dog),
+        Cat { name: String, lives: u8 },
+        Bird(String),
+    }
+
+    // Implementation blocks
+    impl Dog {
+        // Associated function (static method)
+        pub fn new(name: String, age: u8) -> Self {
+            Dog {
+                name,
+                age,
+                tags: Vec::new(),
+            }
+        }
+
+        // Instance method
+        pub fn add_tag(&mut self, tag: String) {
+            self.tags.push(tag);
+        }
+    }
+
+    // Trait implementation
+    impl Animal for Dog {
+        type Sound = String;
+
+        fn make_sound(&self) -> Self::Sound {
+            format!("{} says: Woof!", self.name)
+        }
+    }
+
+    // Generic function
+    fn process_data<T: Display + Clone>(data: T) -> String {
+        format!("Processed: {}", data)
+    }
+
+    // Async function
+    async fn fetch_data(url: &str) -> Result<String> {
+        // Await expression
+        let response = reqwest::get(url).await?;
+        let text = response.text().await?;
+        Ok(text)
+    }
+
+    // Main function with error handling
+    fn main() -> Result<()> {
+        // Variable declaration
+        let mut map = HashMap::new();
+        
+        // Insert into HashMap
+        map.insert("key1", "value1");
+        
+        // Pattern matching
+        match map.get("key1") {
+            Some(value) => println!("Found: {}", value),
+            None => println!("Not found"),
+        }
+        
+        // Loop constructs
+        for (key, value) in &map {
+            println!("{}: {}", key, value);
+        }
+        
+        while let Some(value) = some_iterator.next() {
+            println!("Value: {}", value);
+        }
+        
+        // Closure
+        let multiply = |x: i32, y: i32| x * y;
+        
+        // If-else expression
+        let result = if true {
+            "true branch"
+        } else {
+            "false branch"
+        };
+        
+        // Block expression
+        let computed = {
+            let x = 10;
+            let y = 20;
+            x + y
+        };
+        
+        // Array
+        let array = [1, 2, 3, 4, 5];
+        
+        // Slice
+        let slice = &array[1..4];
+        
+        // Tuple
+        let tuple = (1, "hello", 3.14);
+        
+        // Reference and dereference
+        let ref_value = &computed;
+        let deref_value = *ref_value;
+        
+        // Unsafe block
+        unsafe {
+            let ptr = &computed as *const i32;
+            println!("Raw pointer value: {}", *ptr);
+        }
+        
+        // Macro invocation
+        println!("Hello, {}", "world");
+        
+        // Error handling with ?
+        let dog = Dog::new("Rover".to_string(), 5);
+        dog.add_tag("friendly".to_string())?;
+        
+        // Return statement
+        Ok(())
+    }
+
+    // Module declaration
+    mod tests {
+        use super::*;
+
+        // Test function
+        #[test]
+        fn test_dog_sound() {
+            let dog = Dog::new("Rex".to_string(), 3);
+            assert_eq!(dog.make_sound(), "Rex says: Woof!");
+        }
+    }
+<
+------------------------------------------------------------------------------
+Vimscript					     *tinted-vim-lang-vimscript*
+>vim
+    " Function definition
+    function! CompleteExample(arg1, ...)
+	" Variable declarations
+	let l:local_var = 'local'
+	let g:global_var = 'global'
+	let s:script_var = 'script'
+	
+	" Conditional statements
+	if a:arg1 == 'test'
+	    echo 'Test condition'
+	elseif a:arg1 == 'other'
+	    echo 'Other condition'
+	else
+	    echo 'Default condition'
+	endif
+
+	" Loop constructs
+	for item in ['a', 'b', 'c']
+	    echo 'Item: ' . item
+	endfor
+
+	let counter = 0
+	while counter < 5
+	    let counter += 1
+	    if counter == 3
+		continue
+	    endif
+	    echo 'Counter: ' . counter
+	endwhile
+
+	" Try-catch block
+	try
+	    throw 'Custom error'
+	catch /Custom.*/
+	    echo 'Caught error: ' . v:exception
+	finally
+	    echo 'Cleanup'
+	endtry
+
+	" Dictionary
+	let dict = {
+	    \ 'key1': 'value1',
+	    \ 'key2': 'value2',
+	    \ 'nested': {'subkey': 'subvalue'}
+	    \ }
+
+	" List
+	let list = ['item1', 'item2', ['nested', 'items']]
+
+	" Function calls
+	call SomeFunction()
+	call SomeOtherFunction('arg1', 'arg2')
+
+	" Expression statement
+	let result = 10 + 20 * 2
+
+	" String concatenation
+	let str = 'Hello' . ' ' . 'World'
+
+	" Regular expressions
+	let pattern = '\v^[a-zA-Z]+$'
+	if 'test' =~# pattern
+	    echo 'Matches pattern'
+	endif
+
+	" Lambda expression (Vim 8.0+)
+	let Callback = {x -> x * 2}
+	echo Callback(5)
+
+	" Dictionary methods
+	let dict.newkey = 'newvalue'
+	unlet dict.key1
+
+	" List operations
+	call add(list, 'new_item')
+	let sliced_list = list[0:1]
+
+	" Command execution
+	execute 'echo "Dynamic command"'
+	normal! gg
+
+	" Return statement
+	return {'status': 'success', 'data': l:local_var}
+    endfunction
+
+    " Autoload function
+    function! mypackage#module#Function()
+	echo 'Autoload function'
+    endfunction
+
+    " Command definition
+    command! -nargs=* MyCommand call CompleteExample(<f-args>)
+
+    " Autocommand
+    augroup MyAutoGroup
+	autocmd!
+	autocmd BufWritePre * call SomeFunction()
+    augroup END
+
+    " Mapping
+    nnoremap <silent> <Leader>x :call CompleteExample('test')<CR>
+
+    " Script-local function
+    function! s:HelperFunction()
+	echo 'Helper function'
+    endfunction
+
+    " Class-like structure (dictionary as object)
+    let s:MyClass = {}
+
+    function! s:MyClass.new()
+	let instance = copy(self)
+	let instance.data = ''
+	return instance
+    endfunction
+
+    function! s:MyClass.method()
+	echo 'Method called'
+    endfunction
+
+    " Variable scope modifiers
+    let &option = 'value'
+    let @a = 'register content'
+    let $ENV_VAR = 'environment variable'
+
+    " Built-in functions usage
+    echo strlen('test')
+    echo type([])
+    echo exists('g:var')
+
+    " Operator expressions
+    let num += 5
+
+    " Ternary expression
+    let result = condition ? 'true' : 'false'
+
+    " Line continuation
+    let long_string = "This is a very long string " .
+	\ "that continues on " .
+	\ "multiple lines"
+
+    " Range specification
+    function! RangeFunction() range
+	echo a:firstline . ' to ' . a:lastline
+    endfunction
+<
+==============================================================================
+vim:tw=78:ts=8:noet:ft=help:norl:

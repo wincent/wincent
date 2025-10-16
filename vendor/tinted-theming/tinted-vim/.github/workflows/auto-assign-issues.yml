@@ -1,0 +1,11 @@
+name: "Auto assignment for issues"
+
+on:
+  issues:
+    types: ["opened"]
+
+jobs:
+  auto-assign:
+    uses: "tinted-theming/home/.github/workflows/shared-auto-assign-issues.yml@main"
+    secrets:
+      token: ${{ secrets.BOT_ACCESS_TOKEN }}
