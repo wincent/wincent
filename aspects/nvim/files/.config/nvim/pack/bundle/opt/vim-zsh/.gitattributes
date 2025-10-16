@@ -1,0 +1,2 @@
+# Mark as generated so it won't show up in diffs etc. on GitHub
+/syntax_test.vim linguist-generated=true
