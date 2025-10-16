@@ -1,0 +1,102 @@
+*speeddating.txt* Use CTRL-A/CTRL-X to increment dates, times, and more
+
+Author:  Tim Pope <http://tpo.pe/>
+License: Same terms as Vim itself (see |license|)
+
+This plugin is only available if 'compatible' is not set.
+
+INTRODUCTION                                    *speeddating*
+
+The easiest way to get a feel for this plugin is to copy the following lines
+to a temp file and go to town on them with <C-A> and <C-X>.  When you're done,
+come back here and read about some of the more advanced features, like
+incrementing lists and custom formats. >
+
+        Fri, 31 Dec 1999 23:59:59 +0000
+        Fri Dec 31 23:59:59 UTC 1999
+        2008-01-05T04:59:59Z
+        1865-04-15
+        11/Sep/01
+        January 14th, 1982
+        11:55 AM
+        3rd
+        XXXVIII
+<
+MAPS                                            *speeddating-maps*
+
+Here, "component" refers to any year, month, day, hour, minute, or second
+written as either a number or a word ("January") in any recognized format, or
+a number or ordinal ("1st") outside of a time.
+
+                                                *speeddating-CTRL-A*
+<C-A>                   Increment by [count] the component under the cursor.
+
+                                                *speeddating-CTRL-X*
+<C-X>                   Decrement by [count] the component under the cursor.
+
+                                                *speeddating-d_CTRL-A*
+d<C-A>                  Change the time under the cursor to the current time
+                        in UTC.
+
+                                                *speeddating-d_CTRL-X*
+d<C-X>                  Change the time under the cursor to the current local
+                        time.
+
+                                                *speeddating-v_CTRL-A*
+{Visual}<C-A>           Increment by [count] the component under the cursor on
+                        each line of the linewise visual selection.  If a
+                        component is absent on a line, it is filled in as
+                        being [count] higher than on the line above it.  This
+                        can be used to create sequences.  For example, place a
+                        "0" on a line followed by 4 blank lines, visually
+                        select all 5 lines, and press <C-A> to get a sequence
+                        of 1 through 5.  You can use letters in visual mode
+                        too: make the first entry Z if you want a list
+                        starting with A.
+
+                                                *speeddating-v_CTRL-X*
+{Visual}<C-X>           Like |v_CTRL-A|, but decrement.
+
+                                                *speeddating-.*
+.                       If you want to use |.| to repeat a speeddating.vim
+                        mapping, install repeat.vim.
+
+FORMATS                                         *speeddating-formats*
+
+One can use the :SpeedDatingFormat command to list, add, and remove formats.
+A good place to do this is in .vim/after/plugin/speeddating.vim.
+
+                                                *:SpeedDatingFormat*
+:SpeedDatingFormat      List defined formats.
+
+:SpeedDatingFormat!     Help for defining formats.
+
+:SpeedDatingFormat {format}
+                        Define a new format.
+
+:{count}SpeedDatingFormat {format}
+                        Define a new format with the specified priority.
+
+:SpeedDatingFormat! {format}
+                        Remove an existing format.
+
+:{count}SpeedDatingFormat!
+                        Remove an existing format by priority.
+
+Of note is that the built-in support for Roman numerals is actually
+implemented with a Roman numeral year format and can be removed.
+
+CAVEATS                                         *speeddating-caveats*
+
+Gregorian calendar always used.
+
+Time zone abbreviation support is limited to a few predefined codes on Windows
+and other platforms without strftime("%Z") support.  If your time zone
+abbreviation is not correctly identified set the g:speeddating_zone and
+g:speeddating_zone_dst variables.
+
+Beginning a format with a digit causes Vim to treat leading digits as a count
+instead.  To work around this escape it with %[] (e.g., %[2]0%0y%0m%0d%* is a
+decent format for DNS serials).
+
+ vim:tw=78:et:ft=help:norl:
