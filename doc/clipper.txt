@@ -1,0 +1,224 @@
+*clipper.txt* Clipper plug-in for Neovim                   *clipper* *nvim-clipper*
+
+CONTENTS                                                     *clipper-contents*
+
+ 1. Intro           |clipper-intro|
+ 2. Installation    |clipper-installation|
+ 3. Commands        |clipper-commands|
+ 4. Options         |clipper-options|
+ 5. Functions       |clipper-functions|
+ 6. Mappings        |clipper-mappings|
+ 7. Website         |clipper-website|
+ 8. License         |clipper-license|
+ 9. Development     |clipper-development|
+10. Authors         |clipper-authors|
+11. History         |clipper-history|
+
+
+INTRO                                                           *clipper-intro*
+
+    "clipper (noun)
+    an instrument for cutting or trimming small pieces off things."
+
+                                                             *clipper-features*
+nvim-clipper provides integration between Neovim and Clipper
+(https://github.com/wincent/clipper), which is a macOS "launch agent" or
+Linux daemon that runs in the background providing a service that exposes the
+local clipboard to tmux sessions and other processes running both locally and
+remotely.
+
+Specifically, nvim-clipper provides a |:Clip| command (and an underlying
+|clipper.clip()| function) to send the last-yanked text to Clipper, and it
+optionally uses the |TextYankPost| |autocommand| to always send the
+last-yanked text to Clipper automatically.
+
+nvim-clipper is a pure-Lua plug-in that supports only Neovim. For an
+equivalent plug-in that supports both Neovim and Vim, see vim-clipper
+(https://github.com/wincent/vim-clipper).
+
+
+
+
+INSTALLATION                                             *clipper-installation*
+
+To install nvim-clipper, use your plug-in management system of choice, such as
+one of:
+
+- https://github.com/Shougo/dein.vim
+- https://github.com/echasnovski/mini.deps
+- https://github.com/folke/lazy.nvim
+- https://github.com/junegunn/vim-plug
+- https://github.com/wbthomason/packer.nvim
+
+or others listed here:
+
+- https://github.com/rockerBOO/awesome-neovim?tab=readme-ov-file#plugin-manager
+
+Alternatively, clone the Git repository and use Neovim's build-in |packages|
+functionality to add nvim-clipper's files to the |'runtimepath'|.
+
+Once installed, nvim-clipper it can be activated with the following in your
+|init.lua|: >
+
+    require('wincent.clipper').setup()
+<
+
+COMMANDS                                                     *clipper-commands*
+
+                                                                        *:Clip*
+:Clip       Sends the last-yanked text to Clipper.
+
+
+OPTIONS                                                       *clipper-options*
+
+Possible values that can be passed via |clipper.setup()| are as follows.
+
+                                                        *clipper.setup.address*
+                                                  string (default: localhost)
+
+Specifies the address at which to connect to the Clipper daemon.
+
+Not used if connecting to a UNIX socket (see |clipper.setup.socket|).
+
+                                                        *clipper.setup.autocmd*
+                                                      boolean (default: true)
+
+Controls whether to use the |TextYankPost| autocommand to route yanked text
+to Clipper automatically. To prevent this, set to `false`.
+
+                                                     *clipper.setup.invocation*
+                                                        string (default: nil)
+
+If |clipper.setup.address|, |clipper.setup.port|, and |clipper.setup.socket|
+provide insufficient configurability (for example, because you are using a
+version of `nc` that doesn't support UNIX sockets and want to use an
+alternative like `socat - UNIX-CLIENT:$SOCKET`), then you can use
+|clipper.setup.invocation| to provide an entirely custom string.
+
+If set, |clipper.setup.invocation| takes precedence and the values provided
+via |clipper.setup.address|, |clipper.setup.port|, and |clipper.setup.socket|
+are ignored.
+
+                                                      *clipper.setup.operators*
+                                                 list (default: { 'd', 'y' })
+
+Operators after which nvim-clipper should pass text to Clipper. The default of
+`{ 'd', 'y' }` will pass text after |deleting| or a |yank|. Other operators that
+may be added to the list include |c|.
+
+                                                           *clipper.setup.port*
+                                                       number (default: 8377)
+
+Specifies the port on which to connect to the Clipper daemon.
+
+                                                         *clipper.setup.socket*
+                                                        string (default: nil)
+
+Specifies the socket on which to connect to the Clipper daemon; if set, this
+takes precedence over the values provided via |clipper.setup.address| and
+|clipper.setup.port|.
+
+
+FUNCTIONS                                                   *clipper-functions*
+
+                                                               *clipper.clip()*
+
+Sends the last-yanked or last-deleted text (specifically, the contents of the
+unnamed register: |quotequote|) to Clipper. Example: >
+
+    :lua require('wincent.clipper.clip')()
+<
+                                                              *clipper.setup()*
+
+Configuration is done by passing a table to the `clipper.setup()` function in
+your |init.lua|: >
+
+    require('wincent.clipper').setup({
+      address = 'localhost',
+      autocmd = true,
+      port = 8377,
+    })
+<
+
+MAPPINGS                                                     *clipper-mappings*
+
+nvim-clipper does not provide built-in mappings, but you can configure your
+own. For example, to set `<leader>y` to place the last-yanked text into the
+clipboard, use: >
+
+    vim.keymap.set('n', '<leader>y', require('wincent.clipper.clip'))
+<
+
+WEBSITE                                                       *clipper-website*
+
+Source code:
+
+  https://github.com/wincent/nvim-clipper
+
+
+LICENSE                                                       *clipper-license*
+
+Copyright 2025-present Greg Hurrell. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice,
+   this list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+
+DEVELOPMENT                                               *clipper-development*
+
+Contributing patches ~
+
+Patches can be sent via mail to greg@hurrell.net, or as GitHub pull requests
+at: https://github.com/wincent/nvim-clipper/pulls
+
+Cutting a new release ~
+
+At the moment the release process is manual:
+
+- Perform final sanity checks and manual testing
+- Update the |clipper-history| section of the documentation
+- Verify clean work tree:
+>
+    git status
+<
+- Tag the release:
+>
+    git tag -s -m "$VERSION release" $VERSION
+<
+- Publish the code:
+>
+    git push origin main --follow-tags
+    git push github main --follow-tags
+<
+
+AUTHORS                                                       *clipper-authors*
+
+nvim-clipper is written and maintained by Greg Hurrell <greg@hurrell.net>.
+
+
+HISTORY                                                       *clipper-history*
+
+0.1 (17 February 2025)
+
+- Initial release, based on vim-clipper
+  (https://github.com/wincent/vim-clipper).
+
+-----------------------------------------------------------------------------
+vim:tw=78:ft=help:
