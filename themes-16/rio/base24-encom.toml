@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: ENCOM by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#555555' # base02
+selection-foreground = '#a1a1a1' # base05
+
+cursor         = '#a1a1a1' # base05
+tabs           = '#000000' # base01
+tabs-active    = '#555555' # base02
+
+background     = '#000000' # base00
+foreground     = '#a1a1a1' # base05
+black          = '#000000' # base01
+red            = '#9f0000' # base08
+yellow         = '#0000ff' # base0A
+green          = '#008b00' # base0B
+cyan           = '#008b8b' # base0C
+blue           = '#0081ff' # base0D
+magenta        = '#bc00ca' # base0E
+white          = '#bbbbbb' # base06
+
+dim-foreground   = '#a1a1a1' # base05
+dim-black        = '#000000' # base01
+dim-red          = '#9f0000' # base08
+dim-yellow       = '#0000ff' # base0A
+dim-green        = '#008b00' # base0B
+dim-cyan         = '#008b8b' # base0C
+dim-blue         = '#0081ff' # base0D
+dim-magenta      = '#bc00ca' # base0E
+dim-white        = '#888888' # base04
+
+light-foreground = '#a1a1a1' # base05
+light-black      = '#555555' # base02
+light-red        = '#ff0000' # base12
+light-yellow     = '#ffff00' # base13
+light-green      = '#00ee00' # base14
+light-cyan       = '#00cdcd' # base15
+light-blue       = '#0000ff' # base16
+light-magenta    = '#ff00ff' # base17
+light-white      = '#ffffff' # base07

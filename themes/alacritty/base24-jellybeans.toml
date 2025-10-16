@@ -1,0 +1,58 @@
+# base24 Jellybeans 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x121212'
+foreground = '0xd5d5d5'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x121212'
+cursor = '0xd5d5d5'
+
+# Normal colors
+[colors.normal]
+black = '0x929292'
+red = '0xe27373'
+green = '0x93b979'
+yellow = '0xb1d8f6'
+blue = '0x97bedc'
+magenta = '0xe1c0fa'
+cyan = '0x00988e'
+white = '0xdedede'
+
+# Bright colors
+[colors.bright]
+black = '0xbdbdbd'
+red = '0xffa1a1'
+green = '0xbddeab'
+yellow = '0xffdca0'
+blue = '0xb1d8f6'
+magenta = '0xfbdaff'
+cyan = '0x1ab2a8'
+white = '0xffffff'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xffba7b"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x713939"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x929292"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0xbdbdbd"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0xcdcdcd"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xdedede"

@@ -1,0 +1,10 @@
+# Scheme name: Bluloco Light
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-bluloco-light
+ColorForeground=#38383a
+ColorBackground=#f7f7f7
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#cbccd4;#c80d41;#208839;#1085d9;#1d44dd;#6d1bed;#1e4d7a;#000000;#dddee8;#fb496d;#34b253;#b79326;#1085d9;#c00cb2;#5a7fac;#1c1d21

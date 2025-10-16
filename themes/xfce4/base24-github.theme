@@ -1,0 +1,10 @@
+# Scheme name: Github
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-github
+ColorForeground=#d8d8d8
+ColorBackground=#f4f4f4
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#3e3e3e;#970b16;#07962a;#2e6cba;#003e8a;#e94691;#89d1ec;#ffffff;#666666;#de0000;#87d5a2;#f1d007;#2e6cba;#ffa29f;#1cfafe;#ffffff

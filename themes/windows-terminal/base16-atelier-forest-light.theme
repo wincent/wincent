@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Atelier Forest Light",
+	"foreground": "#68615e",
+	"background": "#f1efee",
+	"black": "#e6e2e0",
+	"blue": "#407ee7",
+	"brightBlack": "#a8a19f",
+	"brightBlue": "#407ee7",
+	"brightCyan": "#3d97b8",
+	"brightGreen": "#7b9726",
+	"brightPurple": "#6666ea",
+	"brightRed": "#f22c40",
+	"brightWhite": "#1b1918",
+	"brightYellow": "#c38418",
+	"cyan": "#3d97b8",
+	"green": "#7b9726",
+	"purple": "#6666ea",
+	"red": "#f22c40",
+	"white": "#2c2421",
+	"yellow": "#df5320"
+},

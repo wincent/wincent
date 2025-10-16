@@ -1,0 +1,43 @@
+# base24 Sparky
+# Scheme author: Leila Sother (https://github.com/mixcoac)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#072b31"
+foreground = "#f4f5f0"
+
+cursor_bg = "#00313c"
+cursor_border = "#f4f5f0"
+cursor_fg = "#f5f5f1"
+
+selection_bg = "#f4f5f0"
+selection_fg = "#003c46"
+
+ansi = [
+  "#072b31",
+  "#ff585d",
+  "#78d64b",
+  "#fbdd40",
+  "#4698cb",
+  "#d59ed7",
+  "#2dccd3",
+  "#f5f5f1"
+]
+brights = [
+  "#003c46",
+  "#ff7276",
+  "#8edd65",
+  "#f6eb61",
+  "#69b3e7",
+  "#f99fc9",
+  "#00c1d5",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#ff8f1c"
+17 = "#9b704d"
+18 = "#00313c"
+19 = "#003c46"
+20 = "#00778b"
+21 = "#f4f5f0"

@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Tokyo Night Terminal Dark",
+	"foreground": "#787c99",
+	"background": "#16161e",
+	"black": "#1a1b26",
+	"blue": "#7aa2f7",
+	"brightBlack": "#2f3549",
+	"brightBlue": "#7aa2f7",
+	"brightCyan": "#7dcfff",
+	"brightGreen": "#41a6b5",
+	"brightPurple": "#bb9af7",
+	"brightRed": "#f7768e",
+	"brightWhite": "#d5d6db",
+	"brightYellow": "#e0af68",
+	"cyan": "#7dcfff",
+	"green": "#41a6b5",
+	"purple": "#bb9af7",
+	"red": "#f7768e",
+	"white": "#cbccd1",
+	"yellow": "#ff9e64"
+},

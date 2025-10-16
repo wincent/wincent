@@ -1,0 +1,10 @@
+# Scheme name: OceanicNext
+# Scheme author: https://github.com/voronianski/oceanic-next-color-scheme
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-oceanicnext
+ColorForeground=#c0c5ce
+ColorBackground=#1b2b34
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#343d46;#ec5f67;#99c794;#fac863;#6699cc;#c594c5;#5fb3b3;#cdd3de;#4f5b66;#ec5f67;#99c794;#fac863;#6699cc;#c594c5;#5fb3b3;#d8dee9

@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Linux VT",
+	"foreground": "#aaaaaa",
+	"background": "#000000",
+	"black": "#333333",
+	"blue": "#5555ff",
+	"brightBlack": "#444444",
+	"brightBlue": "#5555ff",
+	"brightCyan": "#00aaaa",
+	"brightGreen": "#00aa00",
+	"brightPurple": "#ff55ff",
+	"brightRed": "#aa0000",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#ffff55",
+	"cyan": "#00aaaa",
+	"green": "#00aa00",
+	"purple": "#ff55ff",
+	"red": "#aa0000",
+	"white": "#cccccc",
+	"yellow": "#ff5555"
+},

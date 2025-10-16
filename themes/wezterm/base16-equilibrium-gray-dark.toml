@@ -1,0 +1,43 @@
+# base16 Equilibrium Gray Dark
+# Scheme author: Carlo Abelli
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#111111"
+foreground = "#ababab"
+
+cursor_bg = "#ababab"
+cursor_border = "#ababab"
+cursor_fg = "#111111"
+
+selection_bg = "#ababab"
+selection_fg = "#262626"
+
+ansi = [
+  "#111111",
+  "#f04339",
+  "#7f8b00",
+  "#bb8801",
+  "#008dd1",
+  "#6a7fd2",
+  "#00948b",
+  "#c6c6c6"
+]
+brights = [
+  "#262626",
+  "#f04339",
+  "#7f8b00",
+  "#bb8801",
+  "#008dd1",
+  "#6a7fd2",
+  "#00948b",
+  "#e2e2e2"
+]
+
+[colors.indexed]
+16 = "#df5923"
+17 = "#e3488e"
+18 = "#1b1b1b"
+19 = "#262626"
+20 = "#919191"
+21 = "#ababab"

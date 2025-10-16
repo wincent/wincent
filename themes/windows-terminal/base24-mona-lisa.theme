@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Mona Lisa",
+	"foreground": "#dab14e",
+	"background": "#110b0d",
+	"black": "#341a0d",
+	"blue": "#515b5c",
+	"brightBlack": "#874227",
+	"brightBlue": "#9eb2b3",
+	"brightCyan": "#89cc8e",
+	"brightGreen": "#b3b163",
+	"brightPurple": "#ff5b6a",
+	"brightRed": "#ff4230",
+	"brightWhite": "#ffe597",
+	"brightYellow": "#ff9565",
+	"cyan": "#588056",
+	"green": "#626132",
+	"purple": "#9b1d29",
+	"red": "#9b281b",
+	"white": "#f6d75c",
+	"yellow": "#c26e27"
+},

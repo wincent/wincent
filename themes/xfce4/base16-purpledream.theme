@@ -1,0 +1,10 @@
+# Scheme name: Purpledream
+# Scheme author: malet
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-purpledream
+ColorForeground=#ddd0dd
+ColorBackground=#100510
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#302030;#ff1d0d;#14cc64;#f000a0;#00a0f0;#b000d0;#0075b0;#eee0ee;#403040;#ff1d0d;#14cc64;#f000a0;#00a0f0;#b000d0;#0075b0;#fff0ff

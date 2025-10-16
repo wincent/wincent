@@ -1,0 +1,58 @@
+# base24 Wild Cherry 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x1f1626'
+foreground = '0xbfe1d8'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x1f1626'
+cursor = '0xbfe1d8'
+
+# Normal colors
+[colors.normal]
+black = '0x000506'
+red = '0xd94085'
+green = '0x2ab250'
+yellow = '0x2f8bb9'
+blue = '0x883cdc'
+magenta = '0xececec'
+cyan = '0xc1b8b7'
+white = '0xfff8dd'
+
+# Bright colors
+[colors.bright]
+black = '0x009cc9'
+red = '0xda6bab'
+green = '0xf4dba5'
+yellow = '0xeac066'
+blue = '0x2f8bb9'
+magenta = '0xae636b'
+cyan = '0xff919d'
+white = '0xe4838d'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xffd16f"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x6c2042"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x000506"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x009cc9"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x7fcad3"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xfff8dd"

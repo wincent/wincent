@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Bluloco Light by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#dddee8' # base02
+selection-foreground = '#38383a' # base05
+
+cursor         = '#38383a' # base05
+tabs           = '#cbccd4' # base01
+tabs-active    = '#dddee8' # base02
+
+background     = '#f7f7f7' # base00
+foreground     = '#38383a' # base05
+black          = '#cbccd4' # base01
+red            = '#c80d41' # base08
+yellow         = '#1085d9' # base0A
+green          = '#208839' # base0B
+cyan           = '#1e4d7a' # base0C
+blue           = '#1d44dd' # base0D
+magenta        = '#6d1bed' # base0E
+white          = '#000000' # base06
+
+dim-foreground   = '#38383a' # base05
+dim-black        = '#cbccd4' # base01
+dim-red          = '#c80d41' # base08
+dim-yellow       = '#1085d9' # base0A
+dim-green        = '#208839' # base0B
+dim-cyan         = '#1e4d7a' # base0C
+dim-blue         = '#1d44dd' # base0D
+dim-magenta      = '#6d1bed' # base0E
+dim-white        = '#6f6f74' # base04
+
+light-foreground = '#38383a' # base05
+light-black      = '#dddee8' # base02
+light-red        = '#fb496d' # base12
+light-yellow     = '#b79326' # base13
+light-green      = '#34b253' # base14
+light-cyan       = '#5a7fac' # base15
+light-blue       = '#1085d9' # base16
+light-magenta    = '#c00cb2' # base17
+light-white      = '#1c1d21' # base07

@@ -1,0 +1,10 @@
+# Scheme name: Jabuti
+# Scheme author: https://github.com/notusknot
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-jabuti
+ColorForeground=#c0cbe3
+ColorBackground=#292a37
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#343545;#ec6a88;#3fdaa4;#e1c697;#3fc6de;#be95ff;#ff7eb6;#d9e0ee;#3c3e51;#ec6a88;#3fdaa4;#e1c697;#3fc6de;#be95ff;#ff7eb6;#ffffff

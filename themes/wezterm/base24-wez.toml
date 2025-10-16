@@ -1,0 +1,43 @@
+# base24 Wez
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#000000"
+foreground = "#aeaeae"
+
+cursor_bg = "#000000"
+cursor_border = "#aeaeae"
+cursor_fg = "#cccccc"
+
+selection_bg = "#aeaeae"
+selection_fg = "#555555"
+
+ansi = [
+  "#000000",
+  "#cc5555",
+  "#55cc55",
+  "#5555ff",
+  "#5455cb",
+  "#cc55cc",
+  "#7acaca",
+  "#cccccc"
+]
+brights = [
+  "#555555",
+  "#ff5555",
+  "#55ff55",
+  "#ffff55",
+  "#5555ff",
+  "#ff55ff",
+  "#55ffff",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#cdcd55"
+17 = "#662a2a"
+18 = "#000000"
+19 = "#555555"
+20 = "#909090"
+21 = "#aeaeae"

@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Shapeshifter",
+	"foreground": "#102015",
+	"background": "#f9f9f9",
+	"black": "#e0e0e0",
+	"blue": "#3b48e3",
+	"brightBlack": "#ababab",
+	"brightBlue": "#3b48e3",
+	"brightCyan": "#23edda",
+	"brightGreen": "#0ed839",
+	"brightPurple": "#f996e2",
+	"brightRed": "#e92f2f",
+	"brightWhite": "#000000",
+	"brightYellow": "#dddd13",
+	"cyan": "#23edda",
+	"green": "#0ed839",
+	"purple": "#f996e2",
+	"red": "#e92f2f",
+	"white": "#040404",
+	"yellow": "#e09448"
+},

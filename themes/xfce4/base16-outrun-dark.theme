@@ -1,0 +1,10 @@
+# Scheme name: Outrun Dark
+# Scheme author: Hugo Delahousse (http://github.com/hugodelahousse/)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-outrun-dark
+ColorForeground=#d0d0fa
+ColorBackground=#00002a
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#20204a;#ff4242;#59f176;#f3e877;#66b0ff;#f10596;#0ef0f0;#e0e0ff;#30305a;#ff4242;#59f176;#f3e877;#66b0ff;#f10596;#0ef0f0;#f5f5ff

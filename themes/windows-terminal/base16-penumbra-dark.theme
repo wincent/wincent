@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Penumbra Dark",
+	"foreground": "#bebebe",
+	"background": "#24272b",
+	"black": "#303338",
+	"blue": "#5794d0",
+	"brightBlack": "#3e4044",
+	"brightBlue": "#5794d0",
+	"brightCyan": "#00a2af",
+	"brightGreen": "#47a477",
+	"brightPurple": "#9481cc",
+	"brightRed": "#ca736c",
+	"brightWhite": "#fffdfb",
+	"brightYellow": "#8d9741",
+	"cyan": "#00a2af",
+	"green": "#47a477",
+	"purple": "#9481cc",
+	"red": "#ca736c",
+	"white": "#fff7ed",
+	"yellow": "#ba823a"
+},

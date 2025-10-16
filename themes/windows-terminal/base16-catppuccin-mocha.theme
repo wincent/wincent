@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Catppuccin Mocha",
+	"foreground": "#cdd6f4",
+	"background": "#1e1e2e",
+	"black": "#181825",
+	"blue": "#89b4fa",
+	"brightBlack": "#313244",
+	"brightBlue": "#89b4fa",
+	"brightCyan": "#94e2d5",
+	"brightGreen": "#a6e3a1",
+	"brightPurple": "#cba6f7",
+	"brightRed": "#f38ba8",
+	"brightWhite": "#b4befe",
+	"brightYellow": "#f9e2af",
+	"cyan": "#94e2d5",
+	"green": "#a6e3a1",
+	"purple": "#cba6f7",
+	"red": "#f38ba8",
+	"white": "#f5e0dc",
+	"yellow": "#fab387"
+},

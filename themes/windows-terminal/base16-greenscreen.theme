@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Green Screen",
+	"foreground": "#00bb00",
+	"background": "#001100",
+	"black": "#003300",
+	"blue": "#009900",
+	"brightBlack": "#005500",
+	"brightBlue": "#009900",
+	"brightCyan": "#005500",
+	"brightGreen": "#00bb00",
+	"brightPurple": "#00bb00",
+	"brightRed": "#007700",
+	"brightWhite": "#00ff00",
+	"brightYellow": "#007700",
+	"cyan": "#005500",
+	"green": "#00bb00",
+	"purple": "#00bb00",
+	"red": "#007700",
+	"white": "#00dd00",
+	"yellow": "#009900"
+},

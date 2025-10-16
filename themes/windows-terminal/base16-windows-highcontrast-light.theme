@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Windows High Contrast Light",
+	"foreground": "#545454",
+	"background": "#fcfcfc",
+	"black": "#e8e8e8",
+	"blue": "#000080",
+	"brightBlack": "#d4d4d4",
+	"brightBlue": "#000080",
+	"brightCyan": "#008080",
+	"brightGreen": "#008000",
+	"brightPurple": "#800080",
+	"brightRed": "#800000",
+	"brightWhite": "#000000",
+	"brightYellow": "#808000",
+	"cyan": "#008080",
+	"green": "#008000",
+	"purple": "#800080",
+	"red": "#800000",
+	"white": "#2a2a2a",
+	"yellow": "#fcfc54"
+},

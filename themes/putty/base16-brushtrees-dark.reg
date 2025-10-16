@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Brush Trees Dark
+; Scheme system: base16
+; Scheme description: 
+; Scheme author: Abraham White &lt;abelincoln.white@gmail.com&gt;
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base16-brushtrees-dark]
+
+; Default Foreground
+; base05 #b0c5c8
+"Colour0"="176,197,200"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #b0c5c8
+"Colour1"="176,197,200"
+
+; Default Background
+; base00 #485867
+"Colour2"="72,88,103"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #485867
+"Colour3"="72,88,103"
+
+; Cursor Text -- equals to default background
+; base00 #485867
+"Colour4"="72,88,103"
+
+; Cursor Colour -- equals to default foreground
+; base05 #b0c5c8
+"Colour5"="176,197,200"
+
+; ANSI Black
+; 30m
+; base01 #5a6d7a
+"Colour6"="90,109,122"
+
+; ANSI Black Bright
+; 1;30m
+; base02 #6d828e
+"Colour7"="109,130,142"
+
+; ANSI Red
+; 31m
+; base08 #b38686
+"Colour8"="179,134,134"
+
+; ANSI Red Bright
+; 1;31m
+; base08 #b38686
+"Colour9"="179,134,134"
+
+; ANSI Green
+; 32m
+; base0B #87b386
+"Colour10"="135,179,134"
+
+; ANSI Green Bright
+; 1;32m
+; base0B #87b386
+"Colour11"="135,179,134"
+
+; ANSI Yellow
+; 33m
+; base0A #aab386
+"Colour12"="170,179,134"
+
+; ANSI Yellow Bright
+; 1;33m
+; base0A #aab386
+"Colour13"="170,179,134"
+
+; ANSI Blue
+; 34m
+; base0D #868cb3
+"Colour14"="134,140,179"
+
+; ANSI Blue Bright
+; 1;34m
+; base0D #868cb3
+"Colour15"="134,140,179"
+
+; ANSI Magenta
+; 35m
+; base0E #b386b2
+"Colour16"="179,134,178"
+
+; ANSI Magenta Bright
+; 1;35m
+; base0E #b386b2
+"Colour17"="179,134,178"
+
+; ANSI Cyan
+; 36m
+; base0C #86b3b3
+"Colour18"="134,179,179"
+
+; ANSI Cyan Bright
+; 1;36m
+; base0C #86b3b3
+"Colour19"="134,179,179"
+
+; ANSI White
+; 37m
+; base06 #c9dbdc
+"Colour20"="201,219,220"
+
+; ANSI White Bright
+; 1;37m
+; base07 e3efef
+"Colour21"="227,239,239"

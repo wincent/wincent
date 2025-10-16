@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "3024 Night",
+	"foreground": "#928f8e",
+	"background": "#090300",
+	"black": "#090300",
+	"blue": "#01a0e4",
+	"brightBlack": "#5c5855",
+	"brightBlue": "#807d7c",
+	"brightCyan": "#cdab53",
+	"brightGreen": "#3a3432",
+	"brightPurple": "#d6d5d4",
+	"brightRed": "#e8bbd0",
+	"brightWhite": "#f7f7f7",
+	"brightYellow": "#4a4543",
+	"cyan": "#b5e4f4",
+	"green": "#01a252",
+	"purple": "#a16a94",
+	"red": "#db2d20",
+	"white": "#a5a2a2",
+	"yellow": "#fded02"
+},

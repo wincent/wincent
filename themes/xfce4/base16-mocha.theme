@@ -1,0 +1,10 @@
+# Scheme name: Mocha
+# Scheme author: Chris Kempson (http://chriskempson.com)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-mocha
+ColorForeground=#d0c8c6
+ColorBackground=#3b3228
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#534636;#cb6077;#beb55b;#f4bc87;#8ab3b5;#a89bb9;#7bbda4;#e9e1dd;#645240;#cb6077;#beb55b;#f4bc87;#8ab3b5;#a89bb9;#7bbda4;#f5eeeb

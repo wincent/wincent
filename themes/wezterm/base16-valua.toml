@@ -1,0 +1,43 @@
+# base16 Valua
+# Scheme author: Nonetrix (https://github.com/nonetrix)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#131f1f"
+foreground = "#98c1a3"
+
+cursor_bg = "#98c1a3"
+cursor_border = "#98c1a3"
+cursor_fg = "#131f1f"
+
+selection_bg = "#98c1a3"
+selection_fg = "#273d3c"
+
+ansi = [
+  "#131f1f",
+  "#d7586e",
+  "#59d678",
+  "#dfe754",
+  "#4ed2d2",
+  "#a874e0",
+  "#76dbd2",
+  "#a5cbb9"
+]
+brights = [
+  "#273d3c",
+  "#d7586e",
+  "#59d678",
+  "#dfe754",
+  "#4ed2d2",
+  "#a874e0",
+  "#76dbd2",
+  "#aacbcb"
+]
+
+[colors.indexed]
+16 = "#e6b466"
+17 = "#c05a8f"
+18 = "#213132"
+19 = "#273d3c"
+20 = "#6d9877"
+21 = "#98c1a3"

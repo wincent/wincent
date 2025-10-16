@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Blazer by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#262626' # base02
+selection-foreground = '#acacac' # base05
+
+cursor         = '#acacac' # base05
+tabs           = '#000000' # base01
+tabs-active    = '#262626' # base02
+
+background     = '#0d1926' # base00
+foreground     = '#acacac' # base05
+black          = '#000000' # base01
+red            = '#b87a7a' # base08
+yellow         = '#bdbddb' # base0A
+green          = '#7ab87a' # base0B
+cyan           = '#7ab8b8' # base0C
+blue           = '#7a7ab8' # base0D
+magenta        = '#b87ab8' # base0E
+white          = '#d9d9d9' # base06
+
+dim-foreground   = '#acacac' # base05
+dim-black        = '#000000' # base01
+dim-red          = '#b87a7a' # base08
+dim-yellow       = '#bdbddb' # base0A
+dim-green        = '#7ab87a' # base0B
+dim-cyan         = '#7ab8b8' # base0C
+dim-blue         = '#7a7ab8' # base0D
+dim-magenta      = '#b87ab8' # base0E
+dim-white        = '#7f7f7f' # base04
+
+light-foreground = '#acacac' # base05
+light-black      = '#262626' # base02
+light-red        = '#dbbdbd' # base12
+light-yellow     = '#dbdbbd' # base13
+light-green      = '#bddbbd' # base14
+light-cyan       = '#bddbdb' # base15
+light-blue       = '#bdbddb' # base16
+light-magenta    = '#dbbddb' # base17
+light-white      = '#ffffff' # base07

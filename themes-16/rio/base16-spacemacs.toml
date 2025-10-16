@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Spacemacs by Nasser Alshammari (https://github.com/nashamri/spacemacs-theme)
+
+[colors]
+selection-background = '#444155' # base02
+selection-foreground = '#a3a3a3' # base05
+
+cursor         = '#a3a3a3' # base05
+tabs           = '#282828' # base01
+tabs-active    = '#444155' # base02
+
+background     = '#1f2022' # base00
+foreground     = '#a3a3a3' # base05
+black          = '#282828' # base01
+red            = '#f2241f' # base08
+yellow         = '#b1951d' # base0A
+green          = '#67b11d' # base0B
+cyan           = '#2d9574' # base0C
+blue           = '#4f97d7' # base0D
+magenta        = '#a31db1' # base0E
+white          = '#e8e8e8' # base06
+
+dim-foreground   = '#a3a3a3' # base05
+dim-black        = '#282828' # base01
+dim-red          = '#f2241f' # base08
+dim-yellow       = '#b1951d' # base0A
+dim-green        = '#67b11d' # base0B
+dim-cyan         = '#2d9574' # base0C
+dim-blue         = '#4f97d7' # base0D
+dim-magenta      = '#a31db1' # base0E
+dim-white        = '#b8b8b8' # base04
+
+light-foreground = '#a3a3a3' # base05
+light-black      = '#444155' # base02
+light-red        = '#f2241f' # base08
+light-yellow     = '#b1951d' # base0A
+light-green      = '#67b11d' # base0B
+light-cyan       = '#2d9574' # base0C
+light-blue       = '#4f97d7' # base0D
+light-magenta    = '#a31db1' # base0E
+light-white      = '#f8f8f8' # base07

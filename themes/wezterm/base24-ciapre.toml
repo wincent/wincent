@@ -1,0 +1,43 @@
+# base24 Ciapre
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#181c27"
+foreground = "#978f73"
+
+cursor_bg = "#181818"
+cursor_border = "#978f73"
+cursor_fg = "#ada37e"
+
+selection_bg = "#978f73"
+selection_fg = "#555555"
+
+ansi = [
+  "#181c27",
+  "#800009",
+  "#48513b",
+  "#2f97c6",
+  "#566d8c",
+  "#724c7c",
+  "#5b4f4a",
+  "#ada37e"
+]
+brights = [
+  "#555555",
+  "#ab3834",
+  "#a6a65d",
+  "#dcde7b",
+  "#2f97c6",
+  "#d33060",
+  "#f3dab1",
+  "#f3f3f3"
+]
+
+[colors.indexed]
+16 = "#cc8a3e"
+17 = "#400004"
+18 = "#181818"
+19 = "#555555"
+20 = "#817c69"
+21 = "#978f73"

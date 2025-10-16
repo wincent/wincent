@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Galaxy",
+	"foreground": "#a1a1a1",
+	"background": "#1c2836",
+	"black": "#000000",
+	"blue": "#589cf5",
+	"brightBlack": "#555555",
+	"brightBlue": "#589cf5",
+	"brightCyan": "#3978bb",
+	"brightGreen": "#34bb99",
+	"brightPurple": "#e75598",
+	"brightRed": "#fa8b8e",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#ffff55",
+	"cyan": "#1e9ee6",
+	"green": "#20af89",
+	"purple": "#934d95",
+	"red": "#f9555f",
+	"white": "#bbbbbb",
+	"yellow": "#fdf029"
+},

@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Darktooth",
+	"foreground": "#a89984",
+	"background": "#1d2021",
+	"black": "#32302f",
+	"blue": "#0d6678",
+	"brightBlack": "#504945",
+	"brightBlue": "#0d6678",
+	"brightCyan": "#8ba59b",
+	"brightGreen": "#95c085",
+	"brightPurple": "#8f4673",
+	"brightRed": "#fb543f",
+	"brightWhite": "#fdf4c1",
+	"brightYellow": "#fac03b",
+	"cyan": "#8ba59b",
+	"green": "#95c085",
+	"purple": "#8f4673",
+	"red": "#fb543f",
+	"white": "#d5c4a1",
+	"yellow": "#fe8625"
+},

@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Mathias by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#555555' # base02
+selection-foreground = '#cacaca' # base05
+
+cursor         = '#cacaca' # base05
+tabs           = '#000000' # base01
+tabs-active    = '#555555' # base02
+
+background     = '#000000' # base00
+foreground     = '#cacaca' # base05
+black          = '#000000' # base01
+red            = '#e52222' # base08
+yellow         = '#5555ff' # base0A
+green          = '#a6e32d' # base0B
+cyan           = '#67d9f0' # base0C
+blue           = '#c48dff' # base0D
+magenta        = '#fa2573' # base0E
+white          = '#f2f2f2' # base06
+
+dim-foreground   = '#cacaca' # base05
+dim-black        = '#000000' # base01
+dim-red          = '#e52222' # base08
+dim-yellow       = '#5555ff' # base0A
+dim-green        = '#a6e32d' # base0B
+dim-cyan         = '#67d9f0' # base0C
+dim-blue         = '#c48dff' # base0D
+dim-magenta      = '#fa2573' # base0E
+dim-white        = '#a3a3a3' # base04
+
+light-foreground = '#cacaca' # base05
+light-black      = '#555555' # base02
+light-red        = '#ff5555' # base12
+light-yellow     = '#ffff55' # base13
+light-green      = '#55ff55' # base14
+light-cyan       = '#55ffff' # base15
+light-blue       = '#5555ff' # base16
+light-magenta    = '#ff55ff' # base17
+light-white      = '#ffffff' # base07

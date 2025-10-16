@@ -1,0 +1,58 @@
+# base16 Grayscale Dark 256 - alacritty color config
+# Alexandre Gavioli (https://github.com/Alexx2/)
+
+# Default colors
+[colors.primary]
+background = '0x101010'
+foreground = '0xb9b9b9'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x101010'
+cursor = '0xb9b9b9'
+
+# Normal colors
+[colors.normal]
+black = '0x252525'
+red = '0x7c7c7c'
+green = '0x8e8e8e'
+yellow = '0xa0a0a0'
+blue = '0x686868'
+magenta = '0x747474'
+cyan = '0x868686'
+white = '0xe3e3e3'
+
+# Bright colors
+[colors.bright]
+black = '0x464646'
+red = '0x7c7c7c'
+green = '0x8e8e8e'
+yellow = '0xa0a0a0'
+blue = '0x686868'
+magenta = '0x747474'
+cyan = '0x868686'
+white = '0xf7f7f7'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0x999999"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x5e5e5e"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x252525"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x464646"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0xababab"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xe3e3e3"

@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Medallion",
+	"foreground": "#aea578",
+	"background": "#1d1808",
+	"black": "#000000",
+	"blue": "#606baf",
+	"brightBlack": "#5e5118",
+	"brightBlue": "#abb8ff",
+	"brightCyan": "#ffbb51",
+	"brightGreen": "#b1c93a",
+	"brightPurple": "#fe9fff",
+	"brightRed": "#ff9148",
+	"brightWhite": "#fed597",
+	"brightYellow": "#ffe449",
+	"cyan": "#906b25",
+	"green": "#7c8a16",
+	"purple": "#8b5990",
+	"red": "#b54c00",
+	"white": "#c9c199",
+	"yellow": "#d2bd25"
+},

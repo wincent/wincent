@@ -1,0 +1,10 @@
+# Scheme name: Kimber
+# Scheme author: Mishka Nguyen (https://github.com/akhsiM)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-kimber
+ColorForeground=#dedee7
+ColorBackground=#222222
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#313131;#c88c8c;#99c899;#d8b56d;#537c9c;#86cacd;#78b4b4;#c3c3b4;#555d55;#c88c8c;#99c899;#d8b56d;#537c9c;#86cacd;#78b4b4;#ffffe6

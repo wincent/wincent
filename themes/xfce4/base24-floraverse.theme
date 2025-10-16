@@ -1,0 +1,10 @@
+# Scheme name: Floraverse
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-floraverse
+ColorForeground=#c3af9d
+ColorBackground=#0e0c15
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#08002e;#64002c;#5d731a;#40a4cf;#1d6da1;#b7077e;#42a38c;#f3e0b8;#331e4d;#d02063;#b4ce59;#fac357;#40a4cf;#f12aae;#62caa8;#fff5db

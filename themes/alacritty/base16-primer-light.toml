@@ -1,0 +1,58 @@
+# base16 Primer Light 256 - alacritty color config
+# Jimmy Lin
+
+# Default colors
+[colors.primary]
+background = '0xfafbfc'
+foreground = '0x2f363d'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0xfafbfc'
+cursor = '0x2f363d'
+
+# Normal colors
+[colors.normal]
+black = '0xe1e4e8'
+red = '0xd73a49'
+green = '0x28a745'
+yellow = '0xffd33d'
+blue = '0x0366d6'
+magenta = '0xea4aaa'
+cyan = '0x79b8ff'
+white = '0x24292e'
+
+# Bright colors
+[colors.bright]
+black = '0xd1d5da'
+red = '0xd73a49'
+green = '0x28a745'
+yellow = '0xffd33d'
+blue = '0x0366d6'
+magenta = '0xea4aaa'
+cyan = '0x79b8ff'
+white = '0x1b1f23'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xf66a0a"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xa04100"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0xe1e4e8"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0xd1d5da"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x444d56"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0x24292e"

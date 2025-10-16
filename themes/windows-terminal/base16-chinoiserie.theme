@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Chinoiserie",
+	"foreground": "#4a4035",
+	"background": "#ffffff",
+	"black": "#e0e0e0",
+	"blue": "#815c94",
+	"brightBlack": "#d6d6d6",
+	"brightBlue": "#815c94",
+	"brightCyan": "#2b73af",
+	"brightGreen": "#428675",
+	"brightPurple": "#c08eaf",
+	"brightRed": "#c04851",
+	"brightWhite": "#131124",
+	"brightYellow": "#d6a01d",
+	"cyan": "#2b73af",
+	"green": "#428675",
+	"purple": "#c08eaf",
+	"red": "#c04851",
+	"white": "#2f2f35",
+	"yellow": "#fb8b05"
+},

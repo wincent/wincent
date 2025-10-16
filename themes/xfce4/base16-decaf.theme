@@ -1,0 +1,10 @@
+# Scheme name: Decaf
+# Scheme author: Alex Mirrington (https://github.com/alexmirrington)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-decaf
+ColorForeground=#cccccc
+ColorBackground=#2d2d2d
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#393939;#ff7f7b;#beda78;#ffd67c;#90bee1;#efb3f7;#bed6ff;#e0e0e0;#515151;#ff7f7b;#beda78;#ffd67c;#90bee1;#efb3f7;#bed6ff;#ffffff

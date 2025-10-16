@@ -1,0 +1,10 @@
+# Scheme name: Galaxy
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-galaxy
+ColorForeground=#a1a1a1
+ColorBackground=#1c2836
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#000000;#f9555f;#20af89;#589cf5;#589cf5;#934d95;#1e9ee6;#bbbbbb;#555555;#fa8b8e;#34bb99;#ffff55;#589cf5;#e75598;#3978bb;#ffffff

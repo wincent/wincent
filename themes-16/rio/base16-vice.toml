@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: vice by Thomas Leon Highbaugh thighbaugh@zoho.com
+
+[colors]
+selection-background = '#3c3f4c' # base02
+selection-foreground = '#8b9cbe' # base05
+
+cursor         = '#8b9cbe' # base05
+tabs           = '#22262d' # base01
+tabs-active    = '#3c3f4c' # base02
+
+background     = '#17191e' # base00
+foreground     = '#8b9cbe' # base05
+black          = '#22262d' # base01
+red            = '#ff29a8' # base08
+yellow         = '#f0ffaa' # base0A
+green          = '#0badff' # base0B
+cyan           = '#8265ff' # base0C
+blue           = '#00eaff' # base0D
+magenta        = '#00f6d9' # base0E
+white          = '#b2bfd9' # base06
+
+dim-foreground   = '#8b9cbe' # base05
+dim-black        = '#22262d' # base01
+dim-red          = '#ff29a8' # base08
+dim-yellow       = '#f0ffaa' # base0A
+dim-green        = '#0badff' # base0B
+dim-cyan         = '#8265ff' # base0C
+dim-blue         = '#00eaff' # base0D
+dim-magenta      = '#00f6d9' # base0E
+dim-white        = '#555e70' # base04
+
+light-foreground = '#8b9cbe' # base05
+light-black      = '#3c3f4c' # base02
+light-red        = '#ff29a8' # base08
+light-yellow     = '#f0ffaa' # base0A
+light-green      = '#0badff' # base0B
+light-cyan       = '#8265ff' # base0C
+light-blue       = '#00eaff' # base0D
+light-magenta    = '#00f6d9' # base0E
+light-white      = '#f4f4f7' # base07

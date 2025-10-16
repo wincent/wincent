@@ -1,0 +1,43 @@
+# base24 CLRS
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#ffffff"
+foreground = "#9a9b9a"
+
+cursor_bg = "#000000"
+cursor_border = "#9a9b9a"
+cursor_fg = "#b2b2b2"
+
+selection_bg = "#9a9b9a"
+selection_fg = "#545753"
+
+ansi = [
+  "#ffffff",
+  "#f72729",
+  "#32895c",
+  "#156ffe",
+  "#125ccf",
+  "#9f00bc",
+  "#32c2c0",
+  "#b2b2b2"
+]
+brights = [
+  "#545753",
+  "#fb0416",
+  "#2cc631",
+  "#fcd627",
+  "#156ffe",
+  "#e800b0",
+  "#39d5ce",
+  "#ededec"
+]
+
+[colors.indexed]
+16 = "#f96f1c"
+17 = "#7b1314"
+18 = "#000000"
+19 = "#545753"
+20 = "#838482"
+21 = "#9a9b9a"

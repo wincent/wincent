@@ -1,0 +1,58 @@
+# base16 Penumbra Light Contrast Plus 256 - alacritty color config
+# Zachary Weiss (https://github.com/zacharyweiss)
+
+# Default colors
+[colors.primary]
+background = '0xfffdfb'
+foreground = '0x636363'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0xfffdfb'
+cursor = '0x636363'
+
+# Normal colors
+[colors.normal]
+black = '0xfff7ed'
+red = '0xdf7f78'
+green = '0x50b584'
+yellow = '0x9ca748'
+blue = '0x61a3e6'
+magenta = '0xa48fe1'
+cyan = '0x00b3c2'
+white = '0x24272b'
+
+# Bright colors
+[colors.bright]
+black = '0xf2e6d4'
+red = '0xdf7f78'
+green = '0x50b584'
+yellow = '0x9ca748'
+blue = '0x61a3e6'
+magenta = '0xa48fe1'
+cyan = '0x00b3c2'
+white = '0x181b1f'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xce9042"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xd080b6"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0xfff7ed"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0xf2e6d4"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x9e9e9e"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0x24272b"

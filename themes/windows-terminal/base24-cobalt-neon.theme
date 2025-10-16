@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Cobalt Neon",
+	"foreground": "#cc72a6",
+	"background": "#142838",
+	"black": "#142630",
+	"blue": "#8ff586",
+	"brightBlack": "#fff688",
+	"brightBlue": "#3c7dd2",
+	"brightCyan": "#6cbc67",
+	"brightGreen": "#8ff586",
+	"brightPurple": "#8230a7",
+	"brightRed": "#d4312e",
+	"brightWhite": "#8ff586",
+	"brightYellow": "#e9f06d",
+	"cyan": "#8ff586",
+	"green": "#3aa5ff",
+	"purple": "#781aa0",
+	"red": "#ff2320",
+	"white": "#ba45b1",
+	"yellow": "#e9e75c"
+},

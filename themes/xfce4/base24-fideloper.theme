@@ -1,0 +1,10 @@
+# Scheme name: Fideloper
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-fideloper
+ColorForeground=#b1b1a3
+ColorBackground=#282f32
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#282f32;#ca1d2c;#edb7ab;#7c84c4;#2e78c1;#c0226e;#309185;#e9e2cd;#092027;#d35f5a;#d35f5a;#a86571;#7c84c4;#5b5db2;#81908f;#fcf4de

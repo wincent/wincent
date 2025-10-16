@@ -1,0 +1,10 @@
+# Scheme name: Homebrew
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-homebrew
+ColorForeground=#a8a8a8
+ColorBackground=#000000
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#000000;#990000;#00a600;#0000ff;#0000b2;#b200b2;#00a6b2;#bfbfbf;#666666;#e50000;#00d900;#e5e500;#0000ff;#e500e5;#00e5e5;#e5e5e5

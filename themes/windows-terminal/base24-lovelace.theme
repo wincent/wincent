@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Lovelace",
+	"foreground": "#ceced3",
+	"background": "#1d1f28",
+	"black": "#282a36",
+	"blue": "#8897f4",
+	"brightBlack": "#414458",
+	"brightBlue": "#556fff",
+	"brightCyan": "#3fdcee",
+	"brightGreen": "#18e3c8",
+	"brightPurple": "#b043d1",
+	"brightRed": "#ff4971",
+	"brightWhite": "#bebec1",
+	"brightYellow": "#ff8037",
+	"cyan": "#79e6f3",
+	"green": "#5adecd",
+	"purple": "#c574dd",
+	"red": "#f37f97",
+	"white": "#fdfdfd",
+	"yellow": "#f2a272"
+},

@@ -1,0 +1,10 @@
+# Scheme name: Fun Forrest
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-fun-forrest
+ColorForeground=#c5ab60
+ColorBackground=#241200
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#000000;#d5252b;#909b00;#7cc9ce;#4698a2;#8c4231;#d98112;#ddc165;#7e6954;#e4591b;#bfc659;#ffca1b;#7cc9ce;#d16349;#e6a96b;#ffe9a3

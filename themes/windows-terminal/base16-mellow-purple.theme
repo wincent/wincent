@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Mellow Purple",
+	"foreground": "#ffeeff",
+	"background": "#1e0528",
+	"black": "#1a092d",
+	"blue": "#550068",
+	"brightBlack": "#331354",
+	"brightBlue": "#550068",
+	"brightCyan": "#b900b1",
+	"brightGreen": "#05cb0d",
+	"brightPurple": "#8991bb",
+	"brightRed": "#00d9e9",
+	"brightWhite": "#f8c0ff",
+	"brightYellow": "#955ae7",
+	"cyan": "#b900b1",
+	"green": "#05cb0d",
+	"purple": "#8991bb",
+	"red": "#00d9e9",
+	"white": "#ffeeff",
+	"yellow": "#aa00a3"
+},

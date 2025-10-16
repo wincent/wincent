@@ -1,0 +1,58 @@
+# base24 Ollie 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x212024'
+foreground = '0x7e7789'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x212024'
+cursor = '0x7e7789'
+
+# Normal colors
+[colors.normal]
+black = '0x000000'
+red = '0xab2e30'
+green = '0x31ab60'
+yellow = '0x4487ff'
+blue = '0x2c56ab'
+magenta = '0xaf8427'
+cyan = '0x1fa5ab'
+white = '0x8a8dab'
+
+# Bright colors
+[colors.bright]
+black = '0x5a3625'
+red = '0xff3d48'
+green = '0x3bff99'
+yellow = '0xff5e1e'
+blue = '0x4487ff'
+magenta = '0xffc21c'
+cyan = '0x1efaff'
+white = '0x5b6da7'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xab4200"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x551718"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x000000"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x5a3625"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x726168"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0x8a8dab"

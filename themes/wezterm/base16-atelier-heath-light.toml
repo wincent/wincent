@@ -1,0 +1,43 @@
+# base16 Atelier Heath Light
+# Scheme author: Bram de Haan (http://atelierbramdehaan.nl)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#f7f3f7"
+foreground = "#695d69"
+
+cursor_bg = "#695d69"
+cursor_border = "#695d69"
+cursor_fg = "#f7f3f7"
+
+selection_bg = "#695d69"
+selection_fg = "#ab9bab"
+
+ansi = [
+  "#f7f3f7",
+  "#ca402b",
+  "#918b3b",
+  "#bb8a35",
+  "#516aec",
+  "#7b59c0",
+  "#159393",
+  "#292329"
+]
+brights = [
+  "#ab9bab",
+  "#ca402b",
+  "#918b3b",
+  "#bb8a35",
+  "#516aec",
+  "#7b59c0",
+  "#159393",
+  "#1b181b"
+]
+
+[colors.indexed]
+16 = "#a65926"
+17 = "#cc33cc"
+18 = "#d8cad8"
+19 = "#ab9bab"
+20 = "#776977"
+21 = "#695d69"

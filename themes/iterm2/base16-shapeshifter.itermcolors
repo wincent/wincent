@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    base16 Shapeshifter
+    Scheme author: Tyler Benziger (http://tybenz.com)
+    Template author: Tinted Theming (https://github.com/tinted-theming)
+    semanticClass: theme.base16.shapeshifter
+-->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Ansi 0 Color</key>
+	<dict>
+		<key>Color Space</key>
+		<string>sRGB</string>
+		<key>Blue Component</key>
+		<real>0.87843137</real>
+		<key>Green Component</key>
+		<real>0.87843137</real>
+		<key>Red Component</key>
+		<real>0.87843137</real>
+	</dict>
+	<key>Ansi 1 Color</key>
+	<dict>
+		<key>Color Space</key>
+		<string>sRGB</string>
+		<key>Blue Component</key>
+		<real>0.18431373</real>
+		<key>Green Component</key>
+		<real>0.18431373</real>
+		<key>Red Component</key>
+		<real>0.91372549</real>
+	</dict>
+	<key>Ansi 2 Color</key>
+	<dict>
+		<key>Color Space</key>
+		<string>sRGB</string>
+		<key>Blue Component</key>
+		<real>0.22352941</real>
+		<key>Green Component</key>
+		<real>0.84705882</real>
+		<key>Red Component</key>
+		<real>0.05490196</real>
+	</dict>
+	<key>Ansi 3 Color</key>
+	<dict>
+		<key>Color Space</key>
+		<string>sRGB</string>
+		<key>Blue Component</key>
+		<real>0.07450980</real>
+		<key>Green Component</key>
+		<real>0.86666667</real>
+		<key>Red Component</key>
+		<real>0.86666667</real>
+	</dict>
+	<key>Ansi 4 Color</key>
+	<dict>
+		<key>Color Space</key>
+		<string>sRGB</string>
+		<key>Blue Component</key>
+		<real>0.89019608</real>
+		<key>Green Component</key>
+		<real>0.28235294</real>
+		<key>Red Component</key>
+		<real>0.23137255</real>
+	</dict>
+	<key>Ansi 5 Color</key>
+	<dict>
+		<key>Color Space</key>
+		<string>sRGB</string>
+		<key>Blue Component</key>
+		<real>0.88627451</real>
+		<key>Green Component</key>
+		<real>0.58823529</real>
+		<key>Red Component</key>
+		<real>0.97647059</real>
+	</dict>
+	<key>Ansi 6 Color</key>
+	<dict>
+		<key>Color Space</key>
+		<string>sRGB</string>
+		<key>Blue Component</key>
+		<real>0.85490196</real>
+		<key>Green Component</key>
+		<real>0.92941176</real>
+		<key>Red Component</key>
+		<real>0.13725490</real>
+	</dict>
+	<key>Ansi 7 Color</key>
+	<dict>
+		<key>Color Space</key>
+		<string>sRGB</string>
+		<key>Blue Component</key>
+		<real>0.01568627</real>
+		<key>Green Component</key>
+		<real>0.01568627</real>
+		<key>Red Component</key>
+		<real>0.01568627</real>
+	</dict>
+	<key>Ansi 8 Color</key>
+	<dict>
+		<key>Color Space</key>
+		<string>sRGB</string>
+		<key>Blue Component</key>
+		<real>0.67058824</real>
+		<key>Green Component</key>
+		<real>0.67058824</real>
+		<key>Red Component</key>
+		<real>0.67058824</real>
+	</dict>
+	<key>Ansi 9 Color</key>
+	<dict>
+		<key>Color Space</key>
+		<string>sRGB</string>
+		<key>Blue Component</key>
+		<real>0.18431373</real>
+		<key>Green Component</key>
+		<real>0.18431373</real>
+		<key>Red Component</key>
+		<real>0.91372549</real>
+	</dict>
+	<key>Ansi 10 Color</key>
+	<dict>
+		<key>Color Space</key>
+		<string>sRGB</string>
+		<key>Blue Component</key>
+		<real>0.22352941</real>
+		<key>Green Component</key>
+		<real>0.84705882</real>
+		<key>Red Component</key>
+		<real>0.05490196</real>
+	</dict>
+	<key>Ansi 11 Color</key>
+	<dict>
+		<key>Color Space</key>
+		<string>sRGB</string>
+		<key>Blue Component</key>
+		<real>0.07450980</real>
+		<key>Green Component</key>
+		<real>0.86666667</real>
+		<key>Red Component</key>
+		<real>0.86666667</real>
+	</dict>
+	<key>Ansi 12 Color</key>
+	<dict>
+		<key>Color Space</key>
+		<string>sRGB</string>
+		<key>Blue Component</key>
+		<real>0.89019608</real>
+		<key>Green Component</key>
+		<real>0.28235294</real>
+		<key>Red Component</key>
+		<real>0.23137255</real>
+	</dict>
+	<key>Ansi 13 Color</key>
+	<dict>
+		<key>Color Space</key>
+		<string>sRGB</string>
+		<key>Blue Component</key>
+		<real>0.88627451</real>
+		<key>Green Component</key>
+		<real>0.58823529</real>
+		<key>Red Component</key>
+		<real>0.97647059</real>
+	</dict>
+	<key>Ansi 14 Color</key>
+	<dict>
+		<key>Color Space</key>
+		<string>sRGB</string>
+		<key>Blue Component</key>
+		<real>0.85490196</real>
+		<key>Green Component</key>
+		<real>0.92941176</real>
+		<key>Red Component</key>
+		<real>0.13725490</real>
+	</dict>
+	<key>Ansi 15 Color</key>
+	<dict>
+		<key>Color Space</key>
+		<string>sRGB</string>
+		<key>Blue Component</key>
+		<real>0.00000000</real>
+		<key>Green Component</key>
+		<real>0.00000000</real>
+		<key>Red Component</key>
+		<real>0.00000000</real>
+	</dict>
+	<key>Background Color</key>
+	<dict>
+		<key>Color Space</key>
+		<string>sRGB</string>
+		<key>Blue Component</key>
+		<real>0.97647059</real>
+		<key>Green Component</key>
+		<real>0.97647059</real>
+		<key>Red Component</key>
+		<real>0.97647059</real>
+	</dict>
+	<key>Bold Color</key>
+	<dict>
+		<key>Color Space</key>
+		<string>sRGB</string>
+		<key>Blue Component</key>
+		<real>0.08235294</real>
+		<key>Green Component</key>
+		<real>0.12549020</real>
+		<key>Red Component</key>
+		<real>0.06274510</real>
+	</dict>
+	<key>Cursor Color</key>
+	<dict>
+		<key>Color Space</key>
+		<string>sRGB</string>
+		<key>Blue Component</key>
+		<real>0.08235294</real>
+		<key>Green Component</key>
+		<real>0.12549020</real>
+		<key>Red Component</key>
+		<real>0.06274510</real>
+	</dict>
+	<key>Cursor Text Color</key>
+	<dict>
+		<key>Color Space</key>
+		<string>sRGB</string>
+		<key>Blue Component</key>
+		<real>0.97647059</real>
+		<key>Green Component</key>
+		<real>0.97647059</real>
+		<key>Red Component</key>
+		<real>0.97647059</real>
+	</dict>
+	<key>Foreground Color</key>
+	<dict>
+		<key>Color Space</key>
+		<string>sRGB</string>
+		<key>Blue Component</key>
+		<real>0.08235294</real>
+		<key>Green Component</key>
+		<real>0.12549020</real>
+		<key>Red Component</key>
+		<real>0.06274510</real>
+	</dict>
+	<key>Selected Text Color</key>
+	<dict>
+		<key>Color Space</key>
+		<string>sRGB</string>
+		<key>Blue Component</key>
+		<real>0.08235294</real>
+		<key>Green Component</key>
+		<real>0.12549020</real>
+		<key>Red Component</key>
+		<real>0.06274510</real>
+	</dict>
+	<key>Selection Color</key>
+	<dict>
+		<key>Color Space</key>
+		<string>sRGB</string>
+		<key>Blue Component</key>
+		<real>0.67058824</real>
+		<key>Green Component</key>
+		<real>0.67058824</real>
+		<key>Red Component</key>
+		<real>0.67058824</real>
+	</dict>
+</dict>
+</plist>

@@ -1,0 +1,43 @@
+# base16 Linux VT
+# Scheme author: j-c-m (https://github.com/j-c-m/)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#000000"
+foreground = "#aaaaaa"
+
+cursor_bg = "#aaaaaa"
+cursor_border = "#aaaaaa"
+cursor_fg = "#000000"
+
+selection_bg = "#aaaaaa"
+selection_fg = "#444444"
+
+ansi = [
+  "#000000",
+  "#aa0000",
+  "#00aa00",
+  "#ffff55",
+  "#5555ff",
+  "#ff55ff",
+  "#00aaaa",
+  "#cccccc"
+]
+brights = [
+  "#444444",
+  "#aa0000",
+  "#00aa00",
+  "#ffff55",
+  "#5555ff",
+  "#ff55ff",
+  "#00aaaa",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#ff5555"
+17 = "#aa5500"
+18 = "#333333"
+19 = "#444444"
+20 = "#888888"
+21 = "#aaaaaa"

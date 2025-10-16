@@ -1,0 +1,43 @@
+# vim: ft=ghostty
+# Gruvbox Material Dark, Hard theme for Ghostty
+# Scheme Author: Mayush Kumar (https://github.com/MayushKumar), sainnhe (https://github.com/sainnhe/gruvbox-material-vscode)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# Color palette
+palette = 0=#202020
+palette = 1=#ea6962
+palette = 2=#a9b665
+palette = 3=#d8a657
+palette = 4=#7daea3
+palette = 5=#d3869b
+palette = 6=#89b482
+palette = 7=#ddc7a1
+palette = 8=#504945
+palette = 9=#ea6962
+palette = 10=#a9b665
+palette = 11=#d8a657
+palette = 12=#7daea3
+palette = 13=#d3869b
+palette = 14=#89b482
+palette = 15=#fbf1c7
+palette = 16=#e78a4e
+palette = 17=#bd6f3e
+palette = 18=#2a2827
+palette = 19=#504945
+palette = 20=#bdae93
+palette = 21=#ebdbb2
+
+# Foreground & background colors
+background = #202020
+foreground = #ddc7a1
+cursor-color = #ddc7a1
+selection-background = #504945
+selection-foreground = #ddc7a1
+
+# Set `macos-icon = custom-style` in your main configuration file to enable theming of the app icon.
+#
+# Set the ghost color to the lightest foreground:
+macos-icon-ghost-color = #fbf1c7
+# Replace the official icon's blue background with the designated bright blue color:
+macos-icon-screen-color = #7daea3

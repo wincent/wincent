@@ -1,0 +1,10 @@
+# Scheme name: IC-Green-PPL
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-ic-green-ppl
+ColorForeground=#add5b6
+ColorBackground=#2c2c2c
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#014401;#fe2635;#41a638;#2efaeb;#2ec3b9;#50a096;#3ca078;#e6fef2;#025c02;#b4fa5c;#aefa86;#dafa87;#2efaeb;#50fafa;#3cfac8;#e0f1dc

@@ -1,0 +1,43 @@
+# base16 Mellow Purple
+# Scheme author: gidsi
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#1e0528"
+foreground = "#ffeeff"
+
+cursor_bg = "#ffeeff"
+cursor_border = "#ffeeff"
+cursor_fg = "#1e0528"
+
+selection_bg = "#ffeeff"
+selection_fg = "#331354"
+
+ansi = [
+  "#1e0528",
+  "#00d9e9",
+  "#05cb0d",
+  "#955ae7",
+  "#550068",
+  "#8991bb",
+  "#b900b1",
+  "#ffeeff"
+]
+brights = [
+  "#331354",
+  "#00d9e9",
+  "#05cb0d",
+  "#955ae7",
+  "#550068",
+  "#8991bb",
+  "#b900b1",
+  "#f8c0ff"
+]
+
+[colors.indexed]
+16 = "#aa00a3"
+17 = "#4d6fff"
+18 = "#1a092d"
+19 = "#331354"
+20 = "#873582"
+21 = "#ffeeff"

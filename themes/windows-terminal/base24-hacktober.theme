@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Hacktober",
+	"foreground": "#bfbdb7",
+	"background": "#141414",
+	"black": "#191918",
+	"blue": "#206ec5",
+	"brightBlack": "#2c2b2a",
+	"brightBlue": "#5389c5",
+	"brightCyan": "#ebc587",
+	"brightGreen": "#42824a",
+	"brightPurple": "#e795a5",
+	"brightRed": "#b33323",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#c75a22",
+	"cyan": "#ac9166",
+	"green": "#587744",
+	"purple": "#864651",
+	"red": "#b34538",
+	"white": "#f1eee7",
+	"yellow": "#d08949"
+},

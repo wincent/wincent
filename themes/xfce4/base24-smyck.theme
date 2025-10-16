@@ -1,0 +1,10 @@
+# Scheme name: Smyck
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-smyck
+ColorForeground=#969696
+ColorBackground=#1b1b1b
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#000000;#b74131;#7da900;#8dcff0;#62a3c4;#b98acc;#207383;#a0a0a0;#7a7a7a;#d6837b;#c4f036;#fee14d;#8dcff0;#f799ff;#69d9cf;#f7f7f7

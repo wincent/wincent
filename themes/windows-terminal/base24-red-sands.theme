@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Red Sands",
+	"foreground": "#a1a1a1",
+	"background": "#79241e",
+	"black": "#000000",
+	"blue": "#0071ff",
+	"brightBlack": "#555555",
+	"brightBlue": "#0071ae",
+	"brightCyan": "#55ffff",
+	"brightGreen": "#00bb00",
+	"brightPurple": "#ff55ff",
+	"brightRed": "#bb0000",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#e7b000",
+	"cyan": "#00bbbb",
+	"green": "#00bb00",
+	"purple": "#bb00bb",
+	"red": "#ff3f00",
+	"white": "#bbbbbb",
+	"yellow": "#e7b000"
+},

@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Tomorrow Night by Cody Buell (https://github.com/codybuell)
+
+[colors]
+selection-background = '#373b41' # base02
+selection-foreground = '#c5c8c6' # base05
+
+cursor         = '#c5c8c6' # base05
+tabs           = '#282a2e' # base01
+tabs-active    = '#373b41' # base02
+
+background     = '#1d1f21' # base00
+foreground     = '#c5c8c6' # base05
+black          = '#282a2e' # base01
+red            = '#cc6666' # base08
+yellow         = '#f0c674' # base0A
+green          = '#b5bd68' # base0B
+cyan           = '#8abeb7' # base0C
+blue           = '#81a2be' # base0D
+magenta        = '#b294bb' # base0E
+white          = '#e0e0e0' # base06
+
+dim-foreground   = '#c5c8c6' # base05
+dim-black        = '#282a2e' # base01
+dim-red          = '#cc6666' # base08
+dim-yellow       = '#f0c674' # base0A
+dim-green        = '#b5bd68' # base0B
+dim-cyan         = '#8abeb7' # base0C
+dim-blue         = '#81a2be' # base0D
+dim-magenta      = '#b294bb' # base0E
+dim-white        = '#b4b7b4' # base04
+
+light-foreground = '#c5c8c6' # base05
+light-black      = '#373b41' # base02
+light-red        = '#e74c3c' # base12
+light-yellow     = '#f7dc6f' # base13
+light-green      = '#b8d4b3' # base14
+light-cyan       = '#95d3ce' # base15
+light-blue       = '#85c1e9' # base16
+light-magenta    = '#d7a3ca' # base17
+light-white      = '#ffffff' # base07

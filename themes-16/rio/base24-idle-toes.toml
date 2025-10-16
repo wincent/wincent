@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Idle Toes by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#535353' # base02
+selection-foreground = '#c7c7c5' # base05
+
+cursor         = '#c7c7c5' # base05
+tabs           = '#323232' # base01
+tabs-active    = '#535353' # base02
+
+background     = '#323232' # base00
+foreground     = '#c7c7c5' # base05
+black          = '#323232' # base01
+red            = '#d25252' # base08
+yellow         = '#5eb7f7' # base0A
+green          = '#7fe173' # base0B
+cyan           = '#bed6ff' # base0C
+blue           = '#4098ff' # base0D
+magenta        = '#f57fff' # base0E
+white          = '#eeeeec' # base06
+
+dim-foreground   = '#c7c7c5' # base05
+dim-black        = '#323232' # base01
+dim-red          = '#d25252' # base08
+dim-yellow       = '#5eb7f7' # base0A
+dim-green        = '#7fe173' # base0B
+dim-cyan         = '#bed6ff' # base0C
+dim-blue         = '#4098ff' # base0D
+dim-magenta      = '#f57fff' # base0E
+dim-white        = '#a0a09f' # base04
+
+light-foreground = '#c7c7c5' # base05
+light-black      = '#535353' # base02
+light-red        = '#f07070' # base12
+light-yellow     = '#ffe48b' # base13
+light-green      = '#9dff90' # base14
+light-cyan       = '#dcf4ff' # base15
+light-blue       = '#5eb7f7' # base16
+light-magenta    = '#ff9dff' # base17
+light-white      = '#ffffff' # base07

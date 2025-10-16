@@ -1,0 +1,10 @@
+# Scheme name: Toy Chest
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-toy-chest
+ColorForeground=#27b684
+ColorBackground=#23364a
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#2c3f57;#be2d26;#199171;#33a5d9;#325d96;#8a5ddb;#35a08f;#23d082;#326889;#dd5943;#30cf7b;#e7d74b;#33a5d9;#ad6bdc;#41c3ad;#d4d4d4

@@ -1,0 +1,10 @@
+# Scheme name: Firefox Dev
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-firefox-dev
+ColorForeground=#a5acae
+ColorBackground=#0e1011
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#002731;#e63853;#5eb83c;#006fc0;#359ddf;#d75cff;#4b73a2;#dcdcdc;#001e26;#e1003f;#1d9000;#cc9308;#006fc0;#a200da;#005794;#e2e2e2

@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: OneDark by Lalit Magant (http://github.com/tilal6991)
+
+[colors]
+selection-background = '#3e4451' # base02
+selection-foreground = '#abb2bf' # base05
+
+cursor         = '#abb2bf' # base05
+tabs           = '#353b45' # base01
+tabs-active    = '#3e4451' # base02
+
+background     = '#282c34' # base00
+foreground     = '#abb2bf' # base05
+black          = '#353b45' # base01
+red            = '#e06c75' # base08
+yellow         = '#e5c07b' # base0A
+green          = '#98c379' # base0B
+cyan           = '#56b6c2' # base0C
+blue           = '#61afef' # base0D
+magenta        = '#c678dd' # base0E
+white          = '#b6bdca' # base06
+
+dim-foreground   = '#abb2bf' # base05
+dim-black        = '#353b45' # base01
+dim-red          = '#e06c75' # base08
+dim-yellow       = '#e5c07b' # base0A
+dim-green        = '#98c379' # base0B
+dim-cyan         = '#56b6c2' # base0C
+dim-blue         = '#61afef' # base0D
+dim-magenta      = '#c678dd' # base0E
+dim-white        = '#565c64' # base04
+
+light-foreground = '#abb2bf' # base05
+light-black      = '#3e4451' # base02
+light-red        = '#e06c75' # base08
+light-yellow     = '#e5c07b' # base0A
+light-green      = '#98c379' # base0B
+light-cyan       = '#56b6c2' # base0C
+light-blue       = '#61afef' # base0D
+light-magenta    = '#c678dd' # base0E
+light-white      = '#c8ccd4' # base07

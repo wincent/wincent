@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Floraverse",
+	"foreground": "#c3af9d",
+	"background": "#0e0c15",
+	"black": "#08002e",
+	"blue": "#1d6da1",
+	"brightBlack": "#331e4d",
+	"brightBlue": "#40a4cf",
+	"brightCyan": "#62caa8",
+	"brightGreen": "#b4ce59",
+	"brightPurple": "#f12aae",
+	"brightRed": "#d02063",
+	"brightWhite": "#fff5db",
+	"brightYellow": "#fac357",
+	"cyan": "#42a38c",
+	"green": "#5d731a",
+	"purple": "#b7077e",
+	"red": "#64002c",
+	"white": "#f3e0b8",
+	"yellow": "#cd751c"
+},

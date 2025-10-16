@@ -1,0 +1,43 @@
+# base24 Wryan
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#101010"
+foreground = "#768488"
+
+cursor_bg = "#333333"
+cursor_border = "#768488"
+cursor_fg = "#899ca1"
+
+selection_bg = "#768488"
+selection_fg = "#3d3d3d"
+
+ansi = [
+  "#101010",
+  "#8c4665",
+  "#287373",
+  "#477ab3",
+  "#395573",
+  "#5e468c",
+  "#31658c",
+  "#899ca1"
+]
+brights = [
+  "#3d3d3d",
+  "#bf4d80",
+  "#53a6a6",
+  "#9e9ecb",
+  "#477ab3",
+  "#7e62b3",
+  "#6096bf",
+  "#c0c0c0"
+]
+
+[colors.indexed]
+16 = "#7c7c99"
+17 = "#462332"
+18 = "#333333"
+19 = "#3d3d3d"
+20 = "#636c6f"
+21 = "#768488"

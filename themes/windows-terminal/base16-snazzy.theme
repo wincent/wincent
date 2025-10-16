@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Snazzy",
+	"foreground": "#e2e4e5",
+	"background": "#282a36",
+	"black": "#34353e",
+	"blue": "#57c7ff",
+	"brightBlack": "#43454f",
+	"brightBlue": "#57c7ff",
+	"brightCyan": "#9aedfe",
+	"brightGreen": "#5af78e",
+	"brightPurple": "#ff6ac1",
+	"brightRed": "#ff5c57",
+	"brightWhite": "#f1f1f0",
+	"brightYellow": "#f3f99d",
+	"cyan": "#9aedfe",
+	"green": "#5af78e",
+	"purple": "#ff6ac1",
+	"red": "#ff5c57",
+	"white": "#eff0eb",
+	"yellow": "#ff9f43"
+},

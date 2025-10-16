@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Fruit Soda",
+	"foreground": "#515151",
+	"background": "#f1ecf1",
+	"black": "#e0dee0",
+	"blue": "#2931df",
+	"brightBlack": "#d8d5d5",
+	"brightBlue": "#2931df",
+	"brightCyan": "#0f9cfd",
+	"brightGreen": "#47f74c",
+	"brightPurple": "#611fce",
+	"brightRed": "#fe3e31",
+	"brightWhite": "#2d2c2c",
+	"brightYellow": "#f7e203",
+	"cyan": "#0f9cfd",
+	"green": "#47f74c",
+	"purple": "#611fce",
+	"red": "#fe3e31",
+	"white": "#474545",
+	"yellow": "#fe6d08"
+},

@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Equilibrium Dark",
+	"foreground": "#afaba2",
+	"background": "#0c1118",
+	"black": "#181c22",
+	"blue": "#008dd1",
+	"brightBlack": "#22262d",
+	"brightBlue": "#008dd1",
+	"brightCyan": "#00948b",
+	"brightGreen": "#7f8b00",
+	"brightPurple": "#6a7fd2",
+	"brightRed": "#f04339",
+	"brightWhite": "#e7e2d9",
+	"brightYellow": "#bb8801",
+	"cyan": "#00948b",
+	"green": "#7f8b00",
+	"purple": "#6a7fd2",
+	"red": "#f04339",
+	"white": "#cac6bd",
+	"yellow": "#df5923"
+},

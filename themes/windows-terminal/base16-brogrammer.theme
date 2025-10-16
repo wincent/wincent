@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Brogrammer",
+	"foreground": "#4e5ab7",
+	"background": "#1f1f1f",
+	"black": "#f81118",
+	"blue": "#5350b9",
+	"brightBlack": "#2dc55e",
+	"brightBlue": "#5350b9",
+	"brightCyan": "#1081d6",
+	"brightGreen": "#f3bd09",
+	"brightPurple": "#0f7ddb",
+	"brightRed": "#d6dbe5",
+	"brightWhite": "#d6dbe5",
+	"brightYellow": "#1dd361",
+	"cyan": "#1081d6",
+	"green": "#f3bd09",
+	"purple": "#0f7ddb",
+	"red": "#d6dbe5",
+	"white": "#1081d6",
+	"yellow": "#de352e"
+},

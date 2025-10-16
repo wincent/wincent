@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "vulcan",
+	"foreground": "#5b778c",
+	"background": "#041523",
+	"black": "#122339",
+	"blue": "#977d7c",
+	"brightBlack": "#003552",
+	"brightBlue": "#977d7c",
+	"brightCyan": "#977d7c",
+	"brightGreen": "#977d7c",
+	"brightPurple": "#9198a3",
+	"brightRed": "#818591",
+	"brightWhite": "#214d68",
+	"brightYellow": "#adb4b9",
+	"cyan": "#977d7c",
+	"green": "#977d7c",
+	"purple": "#9198a3",
+	"red": "#818591",
+	"white": "#333238",
+	"yellow": "#9198a3"
+},

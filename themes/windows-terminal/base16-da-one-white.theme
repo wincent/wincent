@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Da One White",
+	"foreground": "#181818",
+	"background": "#ffffff",
+	"black": "#c8c8c8",
+	"blue": "#5890f8",
+	"brightBlack": "#888888",
+	"brightBlue": "#5890f8",
+	"brightCyan": "#64b5a7",
+	"brightGreen": "#76a85d",
+	"brightPurple": "#c173d1",
+	"brightRed": "#de5d6e",
+	"brightWhite": "#000000",
+	"brightYellow": "#b3684f",
+	"cyan": "#64b5a7",
+	"green": "#76a85d",
+	"purple": "#c173d1",
+	"red": "#de5d6e",
+	"white": "#000000",
+	"yellow": "#ff9470"
+},

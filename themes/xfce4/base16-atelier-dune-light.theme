@@ -1,0 +1,10 @@
+# Scheme name: Atelier Dune Light
+# Scheme author: Bram de Haan (http://atelierbramdehaan.nl)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-atelier-dune-light
+ColorForeground=#6e6b5e
+ColorBackground=#fefbec
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#e8e4cf;#d73737;#60ac39;#ae9513;#6684e1;#b854d4;#1fad83;#292824;#a6a28c;#d73737;#60ac39;#ae9513;#6684e1;#b854d4;#1fad83;#20201d

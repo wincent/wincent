@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Later This Evening
+; Scheme system: base24
+; Scheme description: 
+; Scheme author: FredHappyface (https://github.com/fredHappyface)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base24-later-this-evening]
+
+; Default Foreground
+; base05 #3e3f3f
+"Colour0"="62,63,63"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #3e3f3f
+"Colour1"="62,63,63"
+
+; Default Background
+; base00 #212121
+"Colour2"="33,33,33"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #212121
+"Colour3"="33,33,33"
+
+; Cursor Text -- equals to default background
+; base00 #212121
+"Colour4"="33,33,33"
+
+; Cursor Colour -- equals to default foreground
+; base05 #3e3f3f
+"Colour5"="62,63,63"
+
+; ANSI Black
+; 30m
+; base01 #2b2b2b
+"Colour6"="43,43,43"
+
+; ANSI Black Bright
+; 1;30m
+; base02 #444747
+"Colour7"="68,71,71"
+
+; ANSI Red
+; 31m
+; base08 #d35a5f
+"Colour8"="211,90,95"
+
+; ANSI Red Bright
+; 1;31m
+; base12 #d3222e
+"Colour9"="211,34,46"
+
+; ANSI Green
+; 32m
+; base0B #afba66
+"Colour10"="175,186,102"
+
+; ANSI Green Bright
+; 1;32m
+; base14 #aabb39
+"Colour11"="170,187,57"
+
+; ANSI Yellow
+; 33m
+; base0A #6599d5
+"Colour12"="101,153,213"
+
+; ANSI Yellow Bright
+; 1;33m
+; base13 #e4bd39
+"Colour13"="228,189,57"
+
+; ANSI Blue
+; 34m
+; base0D #a0b9d5
+"Colour14"="160,185,213"
+
+; ANSI Blue Bright
+; 1;34m
+; base16 #6599d5
+"Colour15"="101,153,213"
+
+; ANSI Magenta
+; 35m
+; base0E #bf92d5
+"Colour16"="191,146,213"
+
+; ANSI Magenta Bright
+; 1;35m
+; base17 #aa52d5
+"Colour17"="170,82,213"
+
+; ANSI Cyan
+; 36m
+; base0C #91beb6
+"Colour18"="145,190,182"
+
+; ANSI Cyan Bright
+; 1;36m
+; base15 #5fbfad
+"Colour19"="95,191,173"
+
+; ANSI White
+; 37m
+; base06 #3b3c3c
+"Colour20"="59,60,60"
+
+; ANSI White Bright
+; 1;37m
+; base07 c0c2c2
+"Colour21"="192,194,194"

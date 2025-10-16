@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Atlas by Alex Lende (https://ajlende.com)
+
+[colors]
+selection-background = '#517f8d' # base02
+selection-foreground = '#a1a19a' # base05
+
+cursor         = '#a1a19a' # base05
+tabs           = '#00384d' # base01
+tabs-active    = '#517f8d' # base02
+
+background     = '#002635' # base00
+foreground     = '#a1a19a' # base05
+black          = '#00384d' # base01
+red            = '#ff5a67' # base08
+yellow         = '#ffcc1b' # base0A
+green          = '#7fc06e' # base0B
+cyan           = '#5dd7b9' # base0C
+blue           = '#14747e' # base0D
+magenta        = '#9a70a4' # base0E
+white          = '#e6e6dc' # base06
+
+dim-foreground   = '#a1a19a' # base05
+dim-black        = '#00384d' # base01
+dim-red          = '#ff5a67' # base08
+dim-yellow       = '#ffcc1b' # base0A
+dim-green        = '#7fc06e' # base0B
+dim-cyan         = '#5dd7b9' # base0C
+dim-blue         = '#14747e' # base0D
+dim-magenta      = '#9a70a4' # base0E
+dim-white        = '#869696' # base04
+
+light-foreground = '#a1a19a' # base05
+light-black      = '#517f8d' # base02
+light-red        = '#ff5a67' # base08
+light-yellow     = '#ffcc1b' # base0A
+light-green      = '#7fc06e' # base0B
+light-cyan       = '#5dd7b9' # base0C
+light-blue       = '#14747e' # base0D
+light-magenta    = '#9a70a4' # base0E
+light-white      = '#fafaf8' # base07

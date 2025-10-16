@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Rippedcasts by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#666666' # base02
+selection-foreground = '#a8a8a8' # base05
+
+cursor         = '#a8a8a8' # base05
+tabs           = '#000000' # base01
+tabs-active    = '#666666' # base02
+
+background     = '#2b2b2b' # base00
+foreground     = '#a8a8a8' # base05
+black          = '#000000' # base01
+red            = '#cdaf95' # base08
+yellow         = '#86bdc9' # base0A
+green          = '#a7ff60' # base0B
+cyan           = '#59647e' # base0C
+blue           = '#75a5b0' # base0D
+magenta        = '#ff73fd' # base0E
+white          = '#bfbfbf' # base06
+
+dim-foreground   = '#a8a8a8' # base05
+dim-black        = '#000000' # base01
+dim-red          = '#cdaf95' # base08
+dim-yellow       = '#86bdc9' # base0A
+dim-green        = '#a7ff60' # base0B
+dim-cyan         = '#59647e' # base0C
+dim-blue         = '#75a5b0' # base0D
+dim-magenta      = '#ff73fd' # base0E
+dim-white        = '#929292' # base04
+
+light-foreground = '#a8a8a8' # base05
+light-black      = '#666666' # base02
+light-red        = '#eecbad' # base12
+light-yellow     = '#e5e500' # base13
+light-green      = '#bcee68' # base14
+light-cyan       = '#8c9bc3' # base15
+light-blue       = '#86bdc9' # base16
+light-magenta    = '#e500e5' # base17
+light-white      = '#e5e5e5' # base07

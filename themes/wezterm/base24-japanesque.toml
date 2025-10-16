@@ -1,0 +1,43 @@
+# base24 Japanesque
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#1d1d1d"
+foreground = "#d0d2ce"
+
+cursor_bg = "#343835"
+cursor_border = "#d0d2ce"
+cursor_fg = "#f9faf6"
+
+selection_bg = "#d0d2ce"
+selection_fg = "#585a58"
+
+ansi = [
+  "#1d1d1d",
+  "#ce3e60",
+  "#7bb75b",
+  "#135879",
+  "#4c99d3",
+  "#a57fc4",
+  "#389aac",
+  "#f9faf6"
+]
+brights = [
+  "#585a58",
+  "#d18ea6",
+  "#767e2b",
+  "#77592e",
+  "#135879",
+  "#5f4190",
+  "#76bbca",
+  "#b1b5ae"
+]
+
+[colors.indexed]
+16 = "#e8b32a"
+17 = "#671f30"
+18 = "#343835"
+19 = "#585a58"
+20 = "#a8aaa7"
+21 = "#d0d2ce"

@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Terracotta Dark",
+	"foreground": "#b8a59d",
+	"background": "#241d1a",
+	"black": "#362b27",
+	"blue": "#b0a4c3",
+	"brightBlack": "#473933",
+	"brightBlue": "#b0a4c3",
+	"brightCyan": "#c0bcdb",
+	"brightGreen": "#b6c68a",
+	"brightPurple": "#d8a2b0",
+	"brightRed": "#f6998f",
+	"brightWhite": "#dcd2ce",
+	"brightYellow": "#ffc37a",
+	"cyan": "#c0bcdb",
+	"green": "#b6c68a",
+	"purple": "#d8a2b0",
+	"red": "#f6998f",
+	"white": "#cabbb5",
+	"yellow": "#ffa888"
+},

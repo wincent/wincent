@@ -1,0 +1,43 @@
+# base16 XCode Dusk
+# Scheme author: Elsa Gonsiorowski (https://github.com/gonsie)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#282b35"
+foreground = "#939599"
+
+cursor_bg = "#939599"
+cursor_border = "#939599"
+cursor_fg = "#282b35"
+
+selection_bg = "#939599"
+selection_fg = "#53555d"
+
+ansi = [
+  "#282b35",
+  "#b21889",
+  "#df0002",
+  "#438288",
+  "#790ead",
+  "#b21889",
+  "#00a0be",
+  "#a9aaae"
+]
+brights = [
+  "#53555d",
+  "#b21889",
+  "#df0002",
+  "#438288",
+  "#790ead",
+  "#b21889",
+  "#00a0be",
+  "#bebfc2"
+]
+
+[colors.indexed]
+16 = "#786dc5"
+17 = "#c77c48"
+18 = "#3d4048"
+19 = "#53555d"
+20 = "#7e8086"
+21 = "#939599"

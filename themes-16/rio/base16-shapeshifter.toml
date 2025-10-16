@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Shapeshifter by Tyler Benziger (http://tybenz.com)
+
+[colors]
+selection-background = '#ababab' # base02
+selection-foreground = '#102015' # base05
+
+cursor         = '#102015' # base05
+tabs           = '#e0e0e0' # base01
+tabs-active    = '#ababab' # base02
+
+background     = '#f9f9f9' # base00
+foreground     = '#102015' # base05
+black          = '#e0e0e0' # base01
+red            = '#e92f2f' # base08
+yellow         = '#dddd13' # base0A
+green          = '#0ed839' # base0B
+cyan           = '#23edda' # base0C
+blue           = '#3b48e3' # base0D
+magenta        = '#f996e2' # base0E
+white          = '#040404' # base06
+
+dim-foreground   = '#102015' # base05
+dim-black        = '#e0e0e0' # base01
+dim-red          = '#e92f2f' # base08
+dim-yellow       = '#dddd13' # base0A
+dim-green        = '#0ed839' # base0B
+dim-cyan         = '#23edda' # base0C
+dim-blue         = '#3b48e3' # base0D
+dim-magenta      = '#f996e2' # base0E
+dim-white        = '#343434' # base04
+
+light-foreground = '#102015' # base05
+light-black      = '#ababab' # base02
+light-red        = '#e92f2f' # base08
+light-yellow     = '#dddd13' # base0A
+light-green      = '#0ed839' # base0B
+light-cyan       = '#23edda' # base0C
+light-blue       = '#3b48e3' # base0D
+light-magenta    = '#f996e2' # base0E
+light-white      = '#000000' # base07

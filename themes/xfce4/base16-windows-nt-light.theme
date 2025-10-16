@@ -1,0 +1,10 @@
+# Scheme name: Windows NT Light
+# Scheme author: Fergus Collins (https://github.com/ferguscollins)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-windows-nt-light
+ColorForeground=#808080
+ColorBackground=#ffffff
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#eaeaea;#800000;#008000;#808000;#000080;#800080;#008080;#404040;#d5d5d5;#800000;#008000;#808000;#000080;#800080;#008080;#000000

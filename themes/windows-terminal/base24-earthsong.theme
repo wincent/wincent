@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Earthsong",
+	"foreground": "#c5ab93",
+	"background": "#282420",
+	"black": "#111417",
+	"blue": "#1397b9",
+	"brightBlack": "#665e54",
+	"brightBlue": "#5ed9ff",
+	"brightCyan": "#83ef88",
+	"brightGreen": "#97e035",
+	"brightPurple": "#ff9168",
+	"brightRed": "#ff6459",
+	"brightWhite": "#f6f6ec",
+	"brightYellow": "#dfd561",
+	"cyan": "#4f9452",
+	"green": "#84c44b",
+	"purple": "#d0623c",
+	"red": "#c84134",
+	"white": "#e5c5a9",
+	"yellow": "#f4ae2e"
+},

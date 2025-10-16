@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Front End Delight",
+	"foreground": "#98ac9c",
+	"background": "#1b1b1d",
+	"black": "#242426",
+	"blue": "#2c70b7",
+	"brightBlack": "#5eac6c",
+	"brightBlue": "#3393c9",
+	"brightCyan": "#4ebce5",
+	"brightGreen": "#74eb4c",
+	"brightPurple": "#e75e4e",
+	"brightRed": "#f64319",
+	"brightWhite": "#8b735a",
+	"brightYellow": "#fcc224",
+	"cyan": "#3ba0a5",
+	"green": "#565746",
+	"purple": "#f02d4e",
+	"red": "#f8501a",
+	"white": "#acacac",
+	"yellow": "#f9761d"
+},

@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: 0x96f
+; Scheme system: base24
+; Scheme description: 
+; Scheme author: Filip Janevski (https://0x96f.dev/theme)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base24-0x96f]
+
+; Default Foreground
+; base05 #fcfcfc
+"Colour0"="252,252,252"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #fcfcfc
+"Colour1"="252,252,252"
+
+; Default Background
+; base00 #262427
+"Colour2"="38,36,39"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #262427
+"Colour3"="38,36,39"
+
+; Cursor Text -- equals to default background
+; base00 #262427
+"Colour4"="38,36,39"
+
+; Cursor Colour -- equals to default foreground
+; base05 #fcfcfc
+"Colour5"="252,252,252"
+
+; ANSI Black
+; 30m
+; base01 #3b393c
+"Colour6"="59,57,60"
+
+; ANSI Black Bright
+; 1;30m
+; base02 #514f52
+"Colour7"="81,79,82"
+
+; ANSI Red
+; 31m
+; base08 #ff7272
+"Colour8"="255,114,114"
+
+; ANSI Red Bright
+; 1;31m
+; base12 #ff8787
+"Colour9"="255,135,135"
+
+; ANSI Green
+; 32m
+; base0B #bcdf59
+"Colour10"="188,223,89"
+
+; ANSI Green Bright
+; 1;32m
+; base14 #c6e472
+"Colour11"="198,228,114"
+
+; ANSI Yellow
+; 33m
+; base0A #ffca58
+"Colour12"="255,202,88"
+
+; ANSI Yellow Bright
+; 1;33m
+; base13 #ffd271
+"Colour13"="255,210,113"
+
+; ANSI Blue
+; 34m
+; base0D #49cae4
+"Colour14"="73,202,228"
+
+; ANSI Blue Bright
+; 1;34m
+; base16 #64d2e8
+"Colour15"="100,210,232"
+
+; ANSI Magenta
+; 35m
+; base0E #a093e2
+"Colour16"="160,147,226"
+
+; ANSI Magenta Bright
+; 1;35m
+; base17 #aea3e6
+"Colour17"="174,163,230"
+
+; ANSI Cyan
+; 36m
+; base0C #aee8f4
+"Colour18"="174,232,244"
+
+; ANSI Cyan Bright
+; 1;36m
+; base15 #baebf6
+"Colour19"="186,235,246"
+
+; ANSI White
+; 37m
+; base06 #eae9eb
+"Colour20"="234,233,235"
+
+; ANSI White Bright
+; 1;37m
+; base07 fcfcfc
+"Colour21"="252,252,252"

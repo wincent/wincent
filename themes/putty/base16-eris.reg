@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: eris
+; Scheme system: base16
+; Scheme description: 
+; Scheme author: ed (https://codeberg.org/ed)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base16-eris]
+
+; Default Foreground
+; base05 #606bac
+"Colour0"="96,107,172"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #606bac
+"Colour1"="96,107,172"
+
+; Default Background
+; base00 #0a0920
+"Colour2"="10,9,32"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #0a0920
+"Colour3"="10,9,32"
+
+; Cursor Text -- equals to default background
+; base00 #0a0920
+"Colour4"="10,9,32"
+
+; Cursor Colour -- equals to default foreground
+; base05 #606bac
+"Colour5"="96,107,172"
+
+; ANSI Black
+; 30m
+; base01 #13133a
+"Colour6"="19,19,58"
+
+; ANSI Black Bright
+; 1;30m
+; base02 #23255a
+"Colour7"="35,37,90"
+
+; ANSI Red
+; 31m
+; base08 #f768a3
+"Colour8"="247,104,163"
+
+; ANSI Red Bright
+; 1;31m
+; base08 #f768a3
+"Colour9"="247,104,163"
+
+; ANSI Green
+; 32m
+; base0B #faaea2
+"Colour10"="250,174,162"
+
+; ANSI Green Bright
+; 1;32m
+; base0B #faaea2
+"Colour11"="250,174,162"
+
+; ANSI Yellow
+; 33m
+; base0A #faaea2
+"Colour12"="250,174,162"
+
+; ANSI Yellow Bright
+; 1;33m
+; base0A #faaea2
+"Colour13"="250,174,162"
+
+; ANSI Blue
+; 34m
+; base0D #258fc4
+"Colour14"="37,143,196"
+
+; ANSI Blue Bright
+; 1;34m
+; base0D #258fc4
+"Colour15"="37,143,196"
+
+; ANSI Magenta
+; 35m
+; base0E #f768a3
+"Colour16"="247,104,163"
+
+; ANSI Magenta Bright
+; 1;35m
+; base0E #f768a3
+"Colour17"="247,104,163"
+
+; ANSI Cyan
+; 36m
+; base0C #258fc4
+"Colour18"="37,143,196"
+
+; ANSI Cyan Bright
+; 1;36m
+; base0C #258fc4
+"Colour19"="37,143,196"
+
+; ANSI White
+; 37m
+; base06 #7986c5
+"Colour20"="121,134,197"
+
+; ANSI White Bright
+; 1;37m
+; base07 9aaae5
+"Colour21"="154,170,229"

@@ -1,0 +1,10 @@
+# Scheme name: Framer
+# Scheme author: Framer (Maintained by Jesse Hoyos)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-framer
+ColorForeground=#d0d0d0
+ColorBackground=#181818
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#151515;#fd886b;#32ccdc;#fecb6e;#20bcfc;#ba8cfc;#acddfd;#e8e8e8;#464646;#fd886b;#32ccdc;#fecb6e;#20bcfc;#ba8cfc;#acddfd;#eeeeee

@@ -1,0 +1,10 @@
+# Scheme name: Mountain
+# Scheme author: Stefan Weigl-Bosker (https://github.com/sweiglbosker), based on Mountain Theme (https://github.com/mountain-theme/Mountain)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-mountain
+ColorForeground=#cacaca
+ColorBackground=#0f0f0f
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#191919;#ac8a8c;#8aac8b;#aca98a;#8f8aac;#ac8aac;#8aabac;#e7e7e7;#262626;#c49ea0;#9ec49f;#c4c19e;#a39ec4;#c49ec4;#9ec3c4;#f0f0f0

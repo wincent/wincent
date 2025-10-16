@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Cyberdyne",
+	"foreground": "#c0c0c0",
+	"background": "#151144",
+	"black": "#080808",
+	"blue": "#0071cf",
+	"brightBlack": "#2d2d2d",
+	"brightBlue": "#c1e3fe",
+	"brightCyan": "#e5e6fe",
+	"brightGreen": "#d6fcb9",
+	"brightPurple": "#ffb1fe",
+	"brightRed": "#ffc4bd",
+	"brightWhite": "#feffff",
+	"brightYellow": "#fefdd5",
+	"cyan": "#6bffdc",
+	"green": "#00c172",
+	"purple": "#ff8ffd",
+	"red": "#ff8272",
+	"white": "#f1f1f1",
+	"yellow": "#d2a700"
+},

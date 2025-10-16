@@ -1,0 +1,58 @@
+# base16 Everforest Dark Medium 256 - alacritty color config
+# Sainnhe Park (https://github.com/sainnhe)
+
+# Default colors
+[colors.primary]
+background = '0x2d353b'
+foreground = '0x859289'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x2d353b'
+cursor = '0x859289'
+
+# Normal colors
+[colors.normal]
+black = '0x343f44'
+red = '0xe67e80'
+green = '0xa7c080'
+yellow = '0xdbbc7f'
+blue = '0x7fbbb3'
+magenta = '0xd699b6'
+cyan = '0x83c092'
+white = '0x9da9a0'
+
+# Bright colors
+[colors.bright]
+black = '0x3d484d'
+red = '0xe67e80'
+green = '0xa7c080'
+yellow = '0xdbbc7f'
+blue = '0x7fbbb3'
+magenta = '0xd699b6'
+cyan = '0x83c092'
+white = '0xd3c6aa'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xe69875"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x514045"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x343f44"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x3d484d"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x7a8478"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0x9da9a0"

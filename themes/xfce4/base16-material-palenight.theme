@@ -1,0 +1,10 @@
+# Scheme name: Material Palenight
+# Scheme author: Nate Peterson
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-material-palenight
+ColorForeground=#959dcb
+ColorBackground=#292d3e
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#444267;#f07178;#c3e88d;#ffcb6b;#82aaff;#c792ea;#89ddff;#959dcb;#32374d;#f07178;#c3e88d;#ffcb6b;#82aaff;#c792ea;#89ddff;#ffffff

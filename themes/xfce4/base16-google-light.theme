@@ -1,0 +1,10 @@
+# Scheme name: Google Light
+# Scheme author: Seth Wright (http://sethawright.com)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-google-light
+ColorForeground=#373b41
+ColorBackground=#ffffff
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#e0e0e0;#cc342b;#198844;#fba922;#3971ed;#a36ac7;#3971ed;#282a2e;#c5c8c6;#cc342b;#198844;#fba922;#3971ed;#a36ac7;#3971ed;#1d1f21

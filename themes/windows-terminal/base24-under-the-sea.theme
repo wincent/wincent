@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Under The Sea",
+	"foreground": "#3d5053",
+	"background": "#001015",
+	"black": "#022026",
+	"blue": "#449985",
+	"brightBlack": "#374350",
+	"brightBlue": "#61d4b9",
+	"brightCyan": "#98cf28",
+	"brightGreen": "#2aea5e",
+	"brightPurple": "#1298ff",
+	"brightRed": "#ff4242",
+	"brightWhite": "#58fad6",
+	"brightYellow": "#8dd3fd",
+	"cyan": "#5c7e19",
+	"green": "#00a940",
+	"purple": "#00599c",
+	"red": "#b12f2c",
+	"white": "#405554",
+	"yellow": "#58809c"
+},

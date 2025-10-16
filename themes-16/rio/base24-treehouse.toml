@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Treehouse by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#423625' # base02
+selection-foreground = '#695d47' # base05
+
+cursor         = '#695d47' # base05
+tabs           = '#321200' # base01
+tabs-active    = '#423625' # base02
+
+background     = '#191919' # base00
+foreground     = '#695d47' # base05
+black          = '#321200' # base01
+red            = '#b1270e' # base08
+yellow         = '#85cfec' # base0A
+green          = '#44a900' # base0B
+cyan           = '#b2591d' # base0C
+blue           = '#578499' # base0D
+magenta        = '#96363c' # base0E
+white          = '#776b53' # base06
+
+dim-foreground   = '#695d47' # base05
+dim-black        = '#321200' # base01
+dim-red          = '#b1270e' # base08
+dim-yellow       = '#85cfec' # base0A
+dim-green        = '#44a900' # base0B
+dim-cyan         = '#b2591d' # base0C
+dim-blue         = '#578499' # base0D
+dim-magenta      = '#96363c' # base0E
+dim-white        = '#5c503c' # base04
+
+light-foreground = '#695d47' # base05
+light-black      = '#423625' # base02
+light-red        = '#ed5c20' # base12
+light-yellow     = '#f1b731' # base13
+light-green      = '#55f237' # base14
+light-cyan       = '#f07d14' # base15
+light-blue       = '#85cfec' # base16
+light-magenta    = '#e04b5a' # base17
+light-white      = '#ffc800' # base07

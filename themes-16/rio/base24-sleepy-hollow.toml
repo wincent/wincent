@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Sleepy Hollow by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#4e4b60' # base02
+selection-foreground = '#968684' # base05
+
+cursor         = '#968684' # base05
+tabs           = '#572000' # base01
+tabs-active    = '#4e4b60' # base02
+
+background     = '#121213' # base00
+foreground     = '#968684' # base05
+black          = '#572000' # base01
+red            = '#b93934' # base08
+yellow         = '#8085ef' # base0A
+green          = '#90773e' # base0B
+cyan           = '#8eaea9' # base0C
+blue           = '#5e62b4' # base0D
+magenta        = '#a07c7b' # base0E
+white          = '#af9a91' # base06
+
+dim-foreground   = '#968684' # base05
+dim-black        = '#572000' # base01
+dim-red          = '#b93934' # base08
+dim-yellow       = '#8085ef' # base0A
+dim-green        = '#90773e' # base0B
+dim-cyan         = '#8eaea9' # base0C
+dim-blue         = '#5e62b4' # base0D
+dim-magenta      = '#a07c7b' # base0E
+dim-white        = '#7e7278' # base04
+
+light-foreground = '#968684' # base05
+light-black      = '#4e4b60' # base02
+light-red        = '#d9443e' # base12
+light-yellow     = '#f66713' # base13
+light-green      = '#d6b04e' # base14
+light-cyan       = '#a4dbe7' # base15
+light-blue       = '#8085ef' # base16
+light-magenta    = '#e1c2ba' # base17
+light-white      = '#d1c7a9' # base07

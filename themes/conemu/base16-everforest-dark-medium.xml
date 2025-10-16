@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    base16 Everforest Dark Medium
+    Scheme author: Sainnhe Park (https://github.com/sainnhe)
+    Template author: Tinted Theming (https://github.com/tinted-theming)
+    semanticClass: theme.base16.everforest-dark-medium
+-->
+<key name="Palette1">
+    <value name="Name" type="string" data="base16-everforest-dark-medium"/>
+    <value name="ExtendColors" type="hex" data="00"/>
+    <value name="ExtendColorIdx" type="hex" data="0e"/>
+    <value name="TextColorIdx" type="hex" data="10"/>
+    <value name="BackColorIdx" type="hex" data="10"/>
+    <value name="PopTextColorIdx" type="hex" data="10"/>
+    <value name="PopBackColorIdx" type="hex" data="10"/>
+    <value name="ColorTable00" type="dword" data="00443f34"/> <!-- base01 - Black -->
+    <value name="ColorTable01" type="dword" data="00807ee6"/> <!-- base08 - Red -->
+    <value name="ColorTable02" type="dword" data="0080c0a7"/> <!-- base0B - Green -->
+    <value name="ColorTable03" type="dword" data="007fbcdb"/> <!-- base0A - Yellow -->
+    <value name="ColorTable04" type="dword" data="00b3bb7f"/> <!-- base0D - Blue -->
+    <value name="ColorTable05" type="dword" data="00b699d6"/> <!-- base0E - Magenta -->
+    <value name="ColorTable06" type="dword" data="0092c083"/> <!-- base0C - Cyan -->
+    <value name="ColorTable07" type="dword" data="00a0a99d"/> <!-- base06 - White -->
+    <value name="ColorTable08" type="dword" data="004d483d"/> <!-- base02 - Bright Black -->
+    <value name="ColorTable09" type="dword" data="00807ee6"/> <!-- base08 - Bright Red -->
+    <value name="ColorTable10" type="dword" data="0080c0a7"/> <!-- base0B - Bright Green -->
+    <value name="ColorTable11" type="dword" data="007fbcdb"/> <!-- base0A - Bright Yellow -->
+    <value name="ColorTable12" type="dword" data="00b3bb7f"/> <!-- base0D - Bright Blue -->
+    <value name="ColorTable13" type="dword" data="00b699d6"/> <!-- base0E - Bright Magenta -->
+    <value name="ColorTable14" type="dword" data="0092c083"/> <!-- base0C - Bright Cyan -->
+    <value name="ColorTable15" type="dword" data="00aac6d3"/> <!-- base07 - Bright White -->
+    <value name="ColorTable16" type="dword" data="007598e6"/> <!-- base09 -->
+    <value name="ColorTable17" type="dword" data="00454051"/> <!-- base0F -->
+    <value name="ColorTable18" type="dword" data="00443f34"/> <!-- base01 -->
+    <value name="ColorTable19" type="dword" data="004d483d"/> <!-- base02 -->
+    <value name="ColorTable20" type="dword" data="0078847a"/> <!-- base04 -->
+    <value name="ColorTable21" type="dword" data="00a0a99d"/> <!-- base06 -->
+</key>

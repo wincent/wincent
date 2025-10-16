@@ -1,0 +1,43 @@
+# base16 Equilibrium Gray Light
+# Scheme author: Carlo Abelli
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#f1f1f1"
+foreground = "#474747"
+
+cursor_bg = "#474747"
+cursor_border = "#474747"
+cursor_fg = "#f1f1f1"
+
+selection_bg = "#474747"
+selection_fg = "#d4d4d4"
+
+ansi = [
+  "#f1f1f1",
+  "#d02023",
+  "#637200",
+  "#9d6f00",
+  "#0073b5",
+  "#4e66b6",
+  "#007a72",
+  "#303030"
+]
+brights = [
+  "#d4d4d4",
+  "#d02023",
+  "#637200",
+  "#9d6f00",
+  "#0073b5",
+  "#4e66b6",
+  "#007a72",
+  "#1b1b1b"
+]
+
+[colors.indexed]
+16 = "#bf3e05"
+17 = "#c42775"
+18 = "#e2e2e2"
+19 = "#d4d4d4"
+20 = "#5e5e5e"
+21 = "#474747"

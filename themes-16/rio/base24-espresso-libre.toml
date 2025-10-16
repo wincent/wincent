@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Espresso Libre by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#545753' # base02
+selection-foreground = '#b3b7b0' # base05
+
+cursor         = '#b3b7b0' # base05
+tabs           = '#000000' # base01
+tabs-active    = '#545753' # base02
+
+background     = '#2a211c' # base00
+foreground     = '#b3b7b0' # base05
+black          = '#000000' # base01
+red            = '#cc0000' # base08
+yellow         = '#43a8ed' # base0A
+green          = '#1a921c' # base0B
+cyan           = '#05989a' # base0C
+blue           = '#0066ff' # base0D
+magenta        = '#c5656b' # base0E
+white          = '#d3d7cf' # base06
+
+dim-foreground   = '#b3b7b0' # base05
+dim-black        = '#000000' # base01
+dim-red          = '#cc0000' # base08
+dim-yellow       = '#43a8ed' # base0A
+dim-green        = '#1a921c' # base0B
+dim-cyan         = '#05989a' # base0C
+dim-blue         = '#0066ff' # base0D
+dim-magenta      = '#c5656b' # base0E
+dim-white        = '#939791' # base04
+
+light-foreground = '#b3b7b0' # base05
+light-black      = '#545753' # base02
+light-red        = '#ef2828' # base12
+light-yellow     = '#fffa5c' # base13
+light-green      = '#9aff87' # base14
+light-cyan       = '#34e2e2' # base15
+light-blue       = '#43a8ed' # base16
+light-magenta    = '#ff8089' # base17
+light-white      = '#ededec' # base07

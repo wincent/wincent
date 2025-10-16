@@ -1,0 +1,43 @@
+# base24 Ubuntu
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#300a24"
+foreground = "#b3b7b0"
+
+cursor_bg = "#2e3436"
+cursor_border = "#b3b7b0"
+cursor_fg = "#d3d7cf"
+
+selection_bg = "#b3b7b0"
+selection_fg = "#555753"
+
+ansi = [
+  "#300a24",
+  "#cc0000",
+  "#4e9a06",
+  "#729fcf",
+  "#3465a4",
+  "#75507b",
+  "#06989a",
+  "#d3d7cf"
+]
+brights = [
+  "#555753",
+  "#ef2929",
+  "#8ae234",
+  "#fce94f",
+  "#729fcf",
+  "#ad7fa8",
+  "#34e2e2",
+  "#eeeeec"
+]
+
+[colors.indexed]
+16 = "#c4a000"
+17 = "#660000"
+18 = "#2e3436"
+19 = "#555753"
+20 = "#949791"
+21 = "#b3b7b0"

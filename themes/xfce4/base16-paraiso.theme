@@ -1,0 +1,10 @@
+# Scheme name: Paraiso
+# Scheme author: Jan T. Sott
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-paraiso
+ColorForeground=#a39e9b
+ColorBackground=#2f1e2e
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#41323f;#ef6155;#48b685;#fec418;#06b6ef;#815ba4;#5bc4bf;#b9b6b0;#4f424c;#ef6155;#48b685;#fec418;#06b6ef;#815ba4;#5bc4bf;#e7e9db

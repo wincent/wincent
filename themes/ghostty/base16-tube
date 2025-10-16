@@ -1,0 +1,43 @@
+# vim: ft=ghostty
+# London Tube theme for Ghostty
+# Scheme Author: Jan T. Sott
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# Color palette
+palette = 0=#231f20
+palette = 1=#ee2e24
+palette = 2=#00853e
+palette = 3=#ffd204
+palette = 4=#009ddc
+palette = 5=#98005d
+palette = 6=#85cebc
+palette = 7=#d9d8d8
+palette = 8=#5a5758
+palette = 9=#ee2e24
+palette = 10=#00853e
+palette = 11=#ffd204
+palette = 12=#009ddc
+palette = 13=#98005d
+palette = 14=#85cebc
+palette = 15=#ffffff
+palette = 16=#f386a1
+palette = 17=#b06110
+palette = 18=#1c3f95
+palette = 19=#5a5758
+palette = 20=#959ca1
+palette = 21=#e7e7e8
+
+# Foreground & background colors
+background = #231f20
+foreground = #d9d8d8
+cursor-color = #d9d8d8
+selection-background = #5a5758
+selection-foreground = #d9d8d8
+
+# Set `macos-icon = custom-style` in your main configuration file to enable theming of the app icon.
+#
+# Set the ghost color to the lightest foreground:
+macos-icon-ghost-color = #ffffff
+# Replace the official icon's blue background with the designated bright blue color:
+macos-icon-screen-color = #009ddc

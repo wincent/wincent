@@ -1,0 +1,10 @@
+# Scheme name: Lab Fox
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-lab-fox
+ColorForeground=#cfd0d0
+ColorBackground=#2e2e2e
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#2e2e2e;#fc6d26;#3eb383;#db501f;#db3b21;#380d75;#6e49cb;#feffff;#454545;#ff6517;#52e9a8;#fca012;#db501f;#441090;#7d53e7;#feffff

@@ -1,0 +1,10 @@
+# Scheme name: Tango Half Adapted
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-tango-half-adapted
+ColorForeground=#c6cac1
+ColorBackground=#fffefe
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#000000;#ff0000;#4cc300;#75beff;#008df5;#a86bb2;#00bdc3;#e0e4db;#797c75;#ff0012;#8af600;#ffeb00;#75beff;#d798d0;#00f6fa;#f3f3f1

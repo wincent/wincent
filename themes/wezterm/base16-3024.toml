@@ -1,0 +1,43 @@
+# base16 3024
+# Scheme author: Jan T. Sott (http://github.com/idleberg)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#090300"
+foreground = "#a5a2a2"
+
+cursor_bg = "#a5a2a2"
+cursor_border = "#a5a2a2"
+cursor_fg = "#090300"
+
+selection_bg = "#a5a2a2"
+selection_fg = "#4a4543"
+
+ansi = [
+  "#090300",
+  "#db2d20",
+  "#01a252",
+  "#fded02",
+  "#01a0e4",
+  "#a16a94",
+  "#b5e4f4",
+  "#d6d5d4"
+]
+brights = [
+  "#4a4543",
+  "#db2d20",
+  "#01a252",
+  "#fded02",
+  "#01a0e4",
+  "#a16a94",
+  "#b5e4f4",
+  "#f7f7f7"
+]
+
+[colors.indexed]
+16 = "#e8bbd0"
+17 = "#cdab53"
+18 = "#3a3432"
+19 = "#4a4543"
+20 = "#807d7c"
+21 = "#a5a2a2"

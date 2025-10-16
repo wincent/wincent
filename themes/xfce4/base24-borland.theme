@@ -1,0 +1,10 @@
+# Scheme name: Borland
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-borland
+ColorForeground=#d1d1d1
+ColorBackground=#0000a4
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#4e4e4e;#ff6b60;#a7ff60;#b5dcfe;#96cafd;#ff73fd;#c6c4fd;#eeeeee;#7c7c7c;#ffb6b0;#ceffab;#ffffcb;#b5dcfe;#ff9cfe;#dfdffe;#ffffff

@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Silk Dark",
+	"foreground": "#c7dbdd",
+	"background": "#0e3c46",
+	"black": "#1d494e",
+	"blue": "#46bddd",
+	"brightBlack": "#2a5054",
+	"brightBlue": "#46bddd",
+	"brightCyan": "#3fb2b9",
+	"brightGreen": "#73d8ad",
+	"brightPurple": "#756b8a",
+	"brightRed": "#fb6953",
+	"brightWhite": "#d2faff",
+	"brightYellow": "#fce380",
+	"cyan": "#3fb2b9",
+	"green": "#73d8ad",
+	"purple": "#756b8a",
+	"red": "#fb6953",
+	"white": "#cbf2f7",
+	"yellow": "#fcab74"
+},

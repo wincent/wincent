@@ -1,0 +1,10 @@
+# Scheme name: Blue Matrix
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-blue-matrix
+ColorForeground=#afafaf
+ColorBackground=#0f1115
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#101116;#ff567f;#00ff9b;#6871ff;#00b0fe;#d47bfe;#75c1fe;#c7c7c7;#676767;#ff6d67;#5ff967;#fefb67;#6871ff;#d582eb;#5ffdff;#feffff

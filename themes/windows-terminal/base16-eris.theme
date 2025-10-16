@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "eris",
+	"foreground": "#606bac",
+	"background": "#0a0920",
+	"black": "#13133a",
+	"blue": "#258fc4",
+	"brightBlack": "#23255a",
+	"brightBlue": "#258fc4",
+	"brightCyan": "#258fc4",
+	"brightGreen": "#faaea2",
+	"brightPurple": "#f768a3",
+	"brightRed": "#f768a3",
+	"brightWhite": "#9aaae5",
+	"brightYellow": "#faaea2",
+	"cyan": "#258fc4",
+	"green": "#faaea2",
+	"purple": "#f768a3",
+	"red": "#f768a3",
+	"white": "#7986c5",
+	"yellow": "#f768a3"
+},

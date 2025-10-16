@@ -1,0 +1,43 @@
+# base16 Dark Violet
+# Scheme author: ruler501 (https://github.com/ruler501/base16-darkviolet)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#000000"
+foreground = "#b08ae6"
+
+cursor_bg = "#b08ae6"
+cursor_border = "#b08ae6"
+cursor_fg = "#000000"
+
+selection_bg = "#b08ae6"
+selection_fg = "#432d59"
+
+ansi = [
+  "#000000",
+  "#a82ee6",
+  "#4595e6",
+  "#f29df2",
+  "#4136d9",
+  "#7e5ce6",
+  "#40dfff",
+  "#9045e6"
+]
+brights = [
+  "#432d59",
+  "#a82ee6",
+  "#4595e6",
+  "#f29df2",
+  "#4136d9",
+  "#7e5ce6",
+  "#40dfff",
+  "#a366ff"
+]
+
+[colors.indexed]
+16 = "#bb66cc"
+17 = "#a886bf"
+18 = "#231a40"
+19 = "#432d59"
+20 = "#00ff00"
+21 = "#b08ae6"

@@ -1,0 +1,43 @@
+# base16 Equilibrium Light
+# Scheme author: Carlo Abelli
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#f5f0e7"
+foreground = "#43474e"
+
+cursor_bg = "#43474e"
+cursor_border = "#43474e"
+cursor_fg = "#f5f0e7"
+
+selection_bg = "#43474e"
+selection_fg = "#d8d4cb"
+
+ansi = [
+  "#f5f0e7",
+  "#d02023",
+  "#637200",
+  "#9d6f00",
+  "#0073b5",
+  "#4e66b6",
+  "#007a72",
+  "#2c3138"
+]
+brights = [
+  "#d8d4cb",
+  "#d02023",
+  "#637200",
+  "#9d6f00",
+  "#0073b5",
+  "#4e66b6",
+  "#007a72",
+  "#181c22"
+]
+
+[colors.indexed]
+16 = "#bf3e05"
+17 = "#c42775"
+18 = "#e7e2d9"
+19 = "#d8d4cb"
+20 = "#5a5f66"
+21 = "#43474e"

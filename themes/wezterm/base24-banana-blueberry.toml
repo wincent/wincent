@@ -1,0 +1,43 @@
+# base24 Banana Blueberry
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#191322"
+foreground = "#c6c9cd"
+
+cursor_bg = "#16141e"
+cursor_border = "#c6c9cd"
+cursor_fg = "#f1f1f1"
+
+selection_bg = "#c6c9cd"
+selection_fg = "#485161"
+
+ansi = [
+  "#191322",
+  "#ff6a7e",
+  "#00bc9b",
+  "#91fff3",
+  "#22e8df",
+  "#dc3969",
+  "#55b6c1",
+  "#f1f1f1"
+]
+brights = [
+  "#485161",
+  "#fd9ea1",
+  "#97c378",
+  "#f9e46a",
+  "#91fff3",
+  "#da70d5",
+  "#bcf2fe",
+  "#feffff"
+]
+
+[colors.indexed]
+16 = "#e5c62f"
+17 = "#7f353f"
+18 = "#16141e"
+19 = "#485161"
+20 = "#9ca1a9"
+21 = "#c6c9cd"

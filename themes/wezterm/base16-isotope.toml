@@ -1,0 +1,43 @@
+# base16 Isotope
+# Scheme author: Jan T. Sott
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#000000"
+foreground = "#d0d0d0"
+
+cursor_bg = "#d0d0d0"
+cursor_border = "#d0d0d0"
+cursor_fg = "#000000"
+
+selection_bg = "#d0d0d0"
+selection_fg = "#606060"
+
+ansi = [
+  "#000000",
+  "#ff0000",
+  "#33ff00",
+  "#ff0099",
+  "#0066ff",
+  "#cc00ff",
+  "#00ffff",
+  "#e0e0e0"
+]
+brights = [
+  "#606060",
+  "#ff0000",
+  "#33ff00",
+  "#ff0099",
+  "#0066ff",
+  "#cc00ff",
+  "#00ffff",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#ff9900"
+17 = "#3300ff"
+18 = "#404040"
+19 = "#606060"
+20 = "#c0c0c0"
+21 = "#d0d0d0"

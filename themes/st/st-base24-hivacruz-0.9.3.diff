@@ -1,0 +1,71 @@
+diff '--color=auto' -u -N st-0.9.3/config.def.h st-0.9.3-mod/config.def.h
+--- st-0.9.3/config.def.h	2025-08-09 15:00:58.350298234 +0200
++++ st-0.9.3-mod/config.def.h	2025-09-01 00:13:44.845756640 +0200
+@@ -94,34 +94,36 @@
+ unsigned int tabspaces = 8;
+
+ /* Terminal colors (16 first used in escape sequence) */
++/*
++ * Scheme name: Hivacruz
++ * Scheme author: FredHappyface (https://github.com/fredHappyface)
++ * Template author: Tinted Theming (https://github.com/tinted-theming)
++ */
+ static const char *colorname[] = {
+ 	/* 8 normal colors */
+-	"black",
+-	"red3",
+-	"green3",
+-	"yellow3",
+-	"blue2",
+-	"magenta3",
+-	"cyan3",
+-	"gray90",
++	[0] = "#202746",   /* black  */
++	[1] = "#c94922",   /* red    */
++	[2] = "#ac9739",   /* green  */
++	[3] = "#898ea4",   /* yellow */
++	[4] = "#3d8fd1",   /* blue   */
++	[5] = "#6679cc",   /* magenta*/
++	[6] = "#22a2c9",   /* cyan   */
++	[7] = "#979db4",   /* white  */
+
+ 	/* 8 bright colors */
+-	"gray50",
+-	"red",
+-	"green",
+-	"yellow",
+-	"#5c5cff",
+-	"magenta",
+-	"cyan",
+-	"white",
++	[8] = "#6b7394",   /* black  */
++	[9] = "#c76b29",   /* red    */
++	[10] = "#73ad43",  /* green  */
++	[11] = "#5e6687",  /* yellow */
++	[12] = "#898ea4",  /* blue   */
++	[13] = "#dfe2f1",  /* magenta*/
++	[14] = "#9c637a",  /* cyan   */
++	[15] = "#f5f7ff",  /* white  */
+
+ 	[255] = 0,
+
+-	/* more colors can be added after 255 to use with DefaultXX */
+-	"#cccccc",
+-	"#555555",
+-	"gray90", /* default foreground colour */
+-	"black", /* default background colour */
++	[256] = "#8c92ac",  /* foreground */
++	[257] = "#132537",  /* background */
+ };
+
+
+@@ -129,8 +131,8 @@
+  * Default colors (colorname index)
+  * foreground, background, cursor, reverse cursor
+  */
+-unsigned int defaultfg = 258;
+-unsigned int defaultbg = 259;
++unsigned int defaultfg = 256;
++unsigned int defaultbg = 257;
+ unsigned int defaultcs = 256;
+ static unsigned int defaultrcs = 257;

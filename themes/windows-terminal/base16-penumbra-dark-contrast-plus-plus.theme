@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Penumbra Dark Contrast Plus Plus",
+	"foreground": "#dedede",
+	"background": "#0d0f13",
+	"black": "#181b1f",
+	"blue": "#6eb2fd",
+	"brightBlack": "#3e4044",
+	"brightBlue": "#6eb2fd",
+	"brightCyan": "#00c4d7",
+	"brightGreen": "#54c794",
+	"brightPurple": "#b69cf6",
+	"brightRed": "#f58c81",
+	"brightWhite": "#fffdfb",
+	"brightYellow": "#a9b852",
+	"cyan": "#00c4d7",
+	"green": "#54c794",
+	"purple": "#b69cf6",
+	"red": "#f58c81",
+	"white": "#fff7ed",
+	"yellow": "#e09f47"
+},

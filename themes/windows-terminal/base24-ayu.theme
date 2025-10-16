@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "ayu",
+	"foreground": "#cbcbcb",
+	"background": "#0f1419",
+	"black": "#000000",
+	"blue": "#36a3d9",
+	"brightBlack": "#323232",
+	"brightBlue": "#68d5ff",
+	"brightCyan": "#c7fffd",
+	"brightGreen": "#eafe84",
+	"brightPurple": "#ffa3aa",
+	"brightRed": "#ff6565",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#fff779",
+	"cyan": "#95e6cb",
+	"green": "#b8cc52",
+	"purple": "#f07178",
+	"red": "#ff3333",
+	"white": "#ffffff",
+	"yellow": "#e7c547"
+},

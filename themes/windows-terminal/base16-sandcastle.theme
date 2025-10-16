@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Sandcastle",
+	"foreground": "#a89984",
+	"background": "#282c34",
+	"black": "#2c323b",
+	"blue": "#83a598",
+	"brightBlack": "#3e4451",
+	"brightBlue": "#83a598",
+	"brightCyan": "#83a598",
+	"brightGreen": "#528b8b",
+	"brightPurple": "#d75f5f",
+	"brightRed": "#83a598",
+	"brightWhite": "#fdf4c1",
+	"brightYellow": "#a07e3b",
+	"cyan": "#83a598",
+	"green": "#528b8b",
+	"purple": "#d75f5f",
+	"red": "#83a598",
+	"white": "#d5c4a1",
+	"yellow": "#a07e3b"
+},

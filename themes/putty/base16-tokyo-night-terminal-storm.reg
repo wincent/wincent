@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Tokyo Night Terminal Storm
+; Scheme system: base16
+; Scheme description: 
+; Scheme author: Michaël Ball
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base16-tokyo-night-terminal-storm]
+
+; Default Foreground
+; base05 #787c99
+"Colour0"="120,124,153"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #787c99
+"Colour1"="120,124,153"
+
+; Default Background
+; base00 #24283b
+"Colour2"="36,40,59"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #24283b
+"Colour3"="36,40,59"
+
+; Cursor Text -- equals to default background
+; base00 #24283b
+"Colour4"="36,40,59"
+
+; Cursor Colour -- equals to default foreground
+; base05 #787c99
+"Colour5"="120,124,153"
+
+; ANSI Black
+; 30m
+; base01 #1a1b26
+"Colour6"="26,27,38"
+
+; ANSI Black Bright
+; 1;30m
+; base02 #343a52
+"Colour7"="52,58,82"
+
+; ANSI Red
+; 31m
+; base08 #f7768e
+"Colour8"="247,118,142"
+
+; ANSI Red Bright
+; 1;31m
+; base08 #f7768e
+"Colour9"="247,118,142"
+
+; ANSI Green
+; 32m
+; base0B #41a6b5
+"Colour10"="65,166,181"
+
+; ANSI Green Bright
+; 1;32m
+; base0B #41a6b5
+"Colour11"="65,166,181"
+
+; ANSI Yellow
+; 33m
+; base0A #e0af68
+"Colour12"="224,175,104"
+
+; ANSI Yellow Bright
+; 1;33m
+; base0A #e0af68
+"Colour13"="224,175,104"
+
+; ANSI Blue
+; 34m
+; base0D #7aa2f7
+"Colour14"="122,162,247"
+
+; ANSI Blue Bright
+; 1;34m
+; base0D #7aa2f7
+"Colour15"="122,162,247"
+
+; ANSI Magenta
+; 35m
+; base0E #bb9af7
+"Colour16"="187,154,247"
+
+; ANSI Magenta Bright
+; 1;35m
+; base0E #bb9af7
+"Colour17"="187,154,247"
+
+; ANSI Cyan
+; 36m
+; base0C #7dcfff
+"Colour18"="125,207,255"
+
+; ANSI Cyan Bright
+; 1;36m
+; base0C #7dcfff
+"Colour19"="125,207,255"
+
+; ANSI White
+; 37m
+; base06 #cbccd1
+"Colour20"="203,204,209"
+
+; ANSI White Bright
+; 1;37m
+; base07 d5d6db
+"Colour21"="213,214,219"

@@ -1,0 +1,43 @@
+# vim: ft=ghostty
+# Tokyo City Terminal Dark theme for Ghostty
+# Scheme Author: Michaël Ball
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# Color palette
+palette = 0=#171d23
+palette = 1=#d95468
+palette = 2=#8bd49c
+palette = 3=#ebbf83
+palette = 4=#539afc
+palette = 5=#b62d65
+palette = 6=#70e1e8
+palette = 7=#d8e2ec
+palette = 8=#28323a
+palette = 9=#d95468
+palette = 10=#8bd49c
+palette = 11=#ebbf83
+palette = 12=#539afc
+palette = 13=#b62d65
+palette = 14=#70e1e8
+palette = 15=#fbfbfd
+palette = 16=#ff9e64
+palette = 17=#dd9d82
+palette = 18=#1d252c
+palette = 19=#28323a
+palette = 20=#b7c5d3
+palette = 21=#f6f6f8
+
+# Foreground & background colors
+background = #171d23
+foreground = #d8e2ec
+cursor-color = #d8e2ec
+selection-background = #28323a
+selection-foreground = #d8e2ec
+
+# Set `macos-icon = custom-style` in your main configuration file to enable theming of the app icon.
+#
+# Set the ghost color to the lightest foreground:
+macos-icon-ghost-color = #fbfbfd
+# Replace the official icon's blue background with the designated bright blue color:
+macos-icon-screen-color = #539afc

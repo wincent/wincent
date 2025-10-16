@@ -1,0 +1,10 @@
+# Scheme name: Catppuccin Macchiato
+# Scheme author: https://github.com/catppuccin/catppuccin
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-catppuccin-macchiato
+ColorForeground=#cad3f5
+ColorBackground=#24273a
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#1e2030;#ed8796;#a6da95;#eed49f;#8aadf4;#c6a0f6;#8bd5ca;#f4dbd6;#363a4f;#ee99a0;#a6da95;#f4dbd6;#7dc4e4;#f5bde6;#91d7e3;#b7bdf8

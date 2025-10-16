@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Warm Neon by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#fdfcfc' # base02
+selection-foreground = '#dcc9ba' # base05
+
+cursor         = '#dcc9ba' # base05
+tabs           = '#000000' # base01
+tabs-active    = '#fdfcfc' # base02
+
+background     = '#3f3f3f' # base00
+foreground     = '#dcc9ba' # base05
+black          = '#000000' # base01
+red            = '#e24345' # base08
+yellow         = '#7a90d5' # base0A
+green          = '#38b139' # base0B
+cyan           = '#29bad3' # base0C
+blue           = '#4260c5' # base0D
+magenta        = '#f81ffb' # base0E
+white          = '#d0b8a3' # base06
+
+dim-foreground   = '#dcc9ba' # base05
+dim-black        = '#000000' # base01
+dim-red          = '#e24345' # base08
+dim-yellow       = '#7a90d5' # base0A
+dim-green        = '#38b139' # base0B
+dim-cyan         = '#29bad3' # base0C
+dim-blue         = '#4260c5' # base0D
+dim-magenta      = '#f81ffb' # base0E
+dim-white        = '#e7dad0' # base04
+
+light-foreground = '#dcc9ba' # base05
+light-black      = '#fdfcfc' # base02
+light-red        = '#e86f71' # base12
+light-yellow     = '#ddd979' # base13
+light-green      = '#9bc08f' # base14
+light-cyan       = '#5ed1e4' # base15
+light-blue       = '#7a90d5' # base16
+light-magenta    = '#f674b9' # base17
+light-white      = '#d8c8bb' # base07

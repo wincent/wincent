@@ -1,0 +1,43 @@
+# base24 Twilight
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#141414"
+foreground = "#c8c8a7"
+
+cursor_bg = "#141414"
+cursor_border = "#c8c8a7"
+cursor_fg = "#feffd3"
+
+selection_bg = "#c8c8a7"
+selection_fg = "#262626"
+
+ansi = [
+  "#141414",
+  "#c06c43",
+  "#afb979",
+  "#5a5d61",
+  "#444649",
+  "#b4be7b",
+  "#778284",
+  "#feffd3"
+]
+brights = [
+  "#262626",
+  "#dd7c4c",
+  "#cbd88c",
+  "#e1c47d",
+  "#5a5d61",
+  "#d0db8e",
+  "#8a989a",
+  "#feffd3"
+]
+
+[colors.indexed]
+16 = "#c2a86c"
+17 = "#603621"
+18 = "#141414"
+19 = "#262626"
+20 = "#92927c"
+21 = "#c8c8a7"

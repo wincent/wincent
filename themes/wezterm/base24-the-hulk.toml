@@ -1,0 +1,43 @@
+# base24 The Hulk
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#1b1d1e"
+foreground = "#b6b6b1"
+
+cursor_bg = "#1b1d1e"
+cursor_border = "#b6b6b1"
+cursor_fg = "#d8d8d0"
+
+selection_bg = "#b6b6b1"
+selection_fg = "#505354"
+
+ansi = [
+  "#1b1d1e",
+  "#259d1a",
+  "#13ce2f",
+  "#4f6a95",
+  "#2424f4",
+  "#641e73",
+  "#378ca9",
+  "#d8d8d0"
+]
+brights = [
+  "#505354",
+  "#8dff2a",
+  "#48ff76",
+  "#3afe15",
+  "#4f6a95",
+  "#72579d",
+  "#3f85a5",
+  "#e5e5e0"
+]
+
+[colors.indexed]
+16 = "#62e456"
+17 = "#124e0d"
+18 = "#1b1d1e"
+19 = "#505354"
+20 = "#949592"
+21 = "#b6b6b1"

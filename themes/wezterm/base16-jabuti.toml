@@ -1,0 +1,43 @@
+# base16 Jabuti
+# Scheme author: https://github.com/notusknot
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#292a37"
+foreground = "#c0cbe3"
+
+cursor_bg = "#c0cbe3"
+cursor_border = "#c0cbe3"
+cursor_fg = "#292a37"
+
+selection_bg = "#c0cbe3"
+selection_fg = "#3c3e51"
+
+ansi = [
+  "#292a37",
+  "#ec6a88",
+  "#3fdaa4",
+  "#e1c697",
+  "#3fc6de",
+  "#be95ff",
+  "#ff7eb6",
+  "#d9e0ee"
+]
+brights = [
+  "#3c3e51",
+  "#ec6a88",
+  "#3fdaa4",
+  "#e1c697",
+  "#3fc6de",
+  "#be95ff",
+  "#ff7eb6",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#efb993"
+17 = "#8b8da9"
+18 = "#343545"
+19 = "#3c3e51"
+20 = "#50526b"
+21 = "#c0cbe3"

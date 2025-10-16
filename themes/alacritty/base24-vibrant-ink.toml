@@ -1,0 +1,58 @@
+# base24 Vibrant Ink 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x000000'
+foreground = '0xcdcdcd'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x000000'
+cursor = '0xcdcdcd'
+
+# Normal colors
+[colors.normal]
+black = '0x878787'
+red = '0xff6600'
+green = '0xccff04'
+yellow = '0x0000ff'
+blue = '0x44b3cc'
+magenta = '0x9933cc'
+cyan = '0x44b3cc'
+white = '0xf5f5f5'
+
+# Bright colors
+[colors.bright]
+black = '0x555555'
+red = '0xff0000'
+green = '0x00ff00'
+yellow = '0xffff00'
+blue = '0x0000ff'
+magenta = '0xff00ff'
+cyan = '0x00ffff'
+white = '0xe5e5e5'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xffcc00"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x7f3300"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x878787"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x555555"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0xa5a5a5"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xf5f5f5"

@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Misterioso",
+	"foreground": "#bebebd",
+	"background": "#2d3743",
+	"black": "#000000",
+	"blue": "#338f86",
+	"brightBlack": "#555555",
+	"brightBlue": "#23d7d7",
+	"brightCyan": "#00ede1",
+	"brightGreen": "#74cd68",
+	"brightPurple": "#ff37ff",
+	"brightRed": "#ff3242",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#ffb929",
+	"cyan": "#23d7d7",
+	"green": "#74af68",
+	"purple": "#9413e5",
+	"red": "#ff4242",
+	"white": "#e1e1e0",
+	"yellow": "#ffad29"
+},

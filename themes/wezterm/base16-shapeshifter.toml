@@ -1,0 +1,43 @@
+# base16 Shapeshifter
+# Scheme author: Tyler Benziger (http://tybenz.com)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#f9f9f9"
+foreground = "#102015"
+
+cursor_bg = "#102015"
+cursor_border = "#102015"
+cursor_fg = "#f9f9f9"
+
+selection_bg = "#102015"
+selection_fg = "#ababab"
+
+ansi = [
+  "#f9f9f9",
+  "#e92f2f",
+  "#0ed839",
+  "#dddd13",
+  "#3b48e3",
+  "#f996e2",
+  "#23edda",
+  "#040404"
+]
+brights = [
+  "#ababab",
+  "#e92f2f",
+  "#0ed839",
+  "#dddd13",
+  "#3b48e3",
+  "#f996e2",
+  "#23edda",
+  "#000000"
+]
+
+[colors.indexed]
+16 = "#e09448"
+17 = "#69542d"
+18 = "#e0e0e0"
+19 = "#ababab"
+20 = "#343434"
+21 = "#102015"

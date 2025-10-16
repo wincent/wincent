@@ -1,0 +1,10 @@
+# Scheme name: Soft Server
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-soft-server
+ColorForeground=#8c9594
+ColorBackground=#242626
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#000000;#a16869;#99a569;#62b1df;#6a8fa3;#6971a3;#6ba48f;#99a3a2;#666c6b;#dc5b5f;#bfde54;#deb35f;#62b1df;#5f6ede;#64e39c;#d1dfde

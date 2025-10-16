@@ -1,0 +1,43 @@
+# base16 Embers Light
+# Scheme author: Jannik Siebert (https://github.com/janniks)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#d1d6db"
+foreground = "#323b43"
+
+cursor_bg = "#323b43"
+cursor_border = "#323b43"
+cursor_fg = "#d1d6db"
+
+selection_bg = "#323b43"
+selection_fg = "#909aa3"
+
+ansi = [
+  "#d1d6db",
+  "#576d82",
+  "#6d8257",
+  "#57826d",
+  "#82576d",
+  "#6d5782",
+  "#826d57",
+  "#20262c"
+]
+brights = [
+  "#909aa3",
+  "#576d82",
+  "#6d8257",
+  "#57826d",
+  "#82576d",
+  "#6d5782",
+  "#826d57",
+  "#0f1316"
+]
+
+[colors.indexed]
+16 = "#578282"
+17 = "#575782"
+18 = "#aeb6be"
+19 = "#909aa3"
+20 = "#47505a"
+21 = "#323b43"

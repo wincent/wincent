@@ -1,0 +1,10 @@
+# Scheme name: Moonlight
+# Scheme author: Jeremy Swinarton (https://github.com/jswinarton)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-moonlight
+ColorForeground=#a3ace1
+ColorBackground=#212337
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#403c64;#ff5370;#2df4c0;#ffc777;#40ffff;#b994f1;#04d1f9;#b4a4f4;#596399;#ff5370;#2df4c0;#ffc777;#40ffff;#b994f1;#04d1f9;#ef43fa

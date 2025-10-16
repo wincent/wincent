@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Wez",
+	"foreground": "#aeaeae",
+	"background": "#000000",
+	"black": "#000000",
+	"blue": "#5455cb",
+	"brightBlack": "#555555",
+	"brightBlue": "#5555ff",
+	"brightCyan": "#55ffff",
+	"brightGreen": "#55ff55",
+	"brightPurple": "#ff55ff",
+	"brightRed": "#ff5555",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#ffff55",
+	"cyan": "#7acaca",
+	"green": "#55cc55",
+	"purple": "#cc55cc",
+	"red": "#cc5555",
+	"white": "#cccccc",
+	"yellow": "#cdcd55"
+},

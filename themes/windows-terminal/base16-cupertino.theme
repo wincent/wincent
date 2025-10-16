@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Cupertino",
+	"foreground": "#404040",
+	"background": "#ffffff",
+	"black": "#c0c0c0",
+	"blue": "#0000ff",
+	"brightBlack": "#c0c0c0",
+	"brightBlue": "#0000ff",
+	"brightCyan": "#318495",
+	"brightGreen": "#007400",
+	"brightPurple": "#a90d91",
+	"brightRed": "#c41a15",
+	"brightWhite": "#5e5e5e",
+	"brightYellow": "#826b28",
+	"cyan": "#318495",
+	"green": "#007400",
+	"purple": "#a90d91",
+	"red": "#c41a15",
+	"white": "#404040",
+	"yellow": "#eb8500"
+},

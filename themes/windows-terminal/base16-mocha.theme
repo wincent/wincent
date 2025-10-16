@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Mocha",
+	"foreground": "#d0c8c6",
+	"background": "#3b3228",
+	"black": "#534636",
+	"blue": "#8ab3b5",
+	"brightBlack": "#645240",
+	"brightBlue": "#8ab3b5",
+	"brightCyan": "#7bbda4",
+	"brightGreen": "#beb55b",
+	"brightPurple": "#a89bb9",
+	"brightRed": "#cb6077",
+	"brightWhite": "#f5eeeb",
+	"brightYellow": "#f4bc87",
+	"cyan": "#7bbda4",
+	"green": "#beb55b",
+	"purple": "#a89bb9",
+	"red": "#cb6077",
+	"white": "#e9e1dd",
+	"yellow": "#d28b71"
+},

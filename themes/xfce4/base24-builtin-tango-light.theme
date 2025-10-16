@@ -1,0 +1,10 @@
+# Scheme name: Builtin Tango Light
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-builtin-tango-light
+ColorForeground=#b3b7b0
+ColorBackground=#ffffff
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#000000;#cc0000;#4e9a05;#719ecf;#3464a4;#74507a;#05989a;#d3d7cf;#545753;#ef2828;#8ae234;#fce94e;#719ecf;#ad7ea7;#34e2e2;#ededec

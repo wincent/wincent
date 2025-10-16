@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Slate by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#ffffff' # base02
+selection-foreground = '#42d3e8' # base05
+
+cursor         = '#42d3e8' # base05
+tabs           = '#212121' # base01
+tabs-active    = '#ffffff' # base02
+
+background     = '#212121' # base00
+foreground     = '#42d3e8' # base05
+black          = '#212121' # base01
+red            = '#e1a7bf' # base08
+yellow         = '#79afd2' # base0A
+green          = '#80d778' # base0B
+cyan           = '#14ab9c' # base0C
+blue           = '#254a49' # base0D
+magenta        = '#a380d3' # base0E
+white          = '#02c4e0' # base06
+
+dim-foreground   = '#42d3e8' # base05
+dim-black        = '#212121' # base01
+dim-red          = '#e1a7bf' # base08
+dim-yellow       = '#79afd2' # base0A
+dim-green        = '#80d778' # base0B
+dim-cyan         = '#14ab9c' # base0C
+dim-blue         = '#254a49' # base0D
+dim-magenta      = '#a380d3' # base0E
+dim-white        = '#81e2f0' # base04
+
+light-foreground = '#42d3e8' # base05
+light-black      = '#ffffff' # base02
+light-red        = '#ffccd8' # base12
+light-yellow     = '#d0cbc9' # base13
+light-green      = '#bdffa8' # base14
+light-cyan       = '#8bdee0' # base15
+light-blue       = '#79afd2' # base16
+light-magenta    = '#c4a7d8' # base17
+light-white      = '#e0e0e0' # base07

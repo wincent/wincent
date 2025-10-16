@@ -1,0 +1,10 @@
+# Scheme name: Later This Evening
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-later-this-evening
+ColorForeground=#3e3f3f
+ColorBackground=#212121
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#2b2b2b;#d35a5f;#afba66;#6599d5;#a0b9d5;#bf92d5;#91beb6;#3b3c3c;#444747;#d3222e;#aabb39;#e4bd39;#6599d5;#aa52d5;#5fbfad;#c0c2c2

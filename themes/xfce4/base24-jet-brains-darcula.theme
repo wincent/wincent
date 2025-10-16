@@ -1,0 +1,10 @@
+# Scheme name: Jet Brains Darcula
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-jet-brains-darcula
+ColorForeground=#979797
+ColorBackground=#202020
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#000000;#fa5355;#126e00;#6d9df1;#4581eb;#fa54ff;#33c2c1;#adadad;#555555;#fb7172;#67ff4f;#ffff00;#6d9df1;#fb82ff;#60d3d1;#eeeeee

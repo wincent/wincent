@@ -1,0 +1,43 @@
+# base16 Primer Dark
+# Scheme author: Jimmy Lin
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#010409"
+foreground = "#b1bac4"
+
+cursor_bg = "#b1bac4"
+cursor_border = "#b1bac4"
+cursor_fg = "#010409"
+
+selection_bg = "#b1bac4"
+selection_fg = "#30363d"
+
+ansi = [
+  "#010409",
+  "#ff7b72",
+  "#3fb950",
+  "#d29922",
+  "#58a6ff",
+  "#f778ba",
+  "#a5d6ff",
+  "#c9d1d9"
+]
+brights = [
+  "#30363d",
+  "#ff7b72",
+  "#3fb950",
+  "#d29922",
+  "#58a6ff",
+  "#f778ba",
+  "#a5d6ff",
+  "#f0f6fc"
+]
+
+[colors.indexed]
+16 = "#f0883e"
+17 = "#bd561d"
+18 = "#21262d"
+19 = "#30363d"
+20 = "#8b949e"
+21 = "#b1bac4"

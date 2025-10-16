@@ -1,0 +1,10 @@
+# Scheme name: Charcoal Dark
+# Scheme author: Mubin Muhammad (https://github.com/mubin6th)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-charcoal-dark
+ColorForeground=#c0a179
+ColorBackground=#120f09
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#1e1812;#887254;#927a60;#c0a179;#d6b891;#a28662;#a28662;#d6b891;#35291d;#887254;#927a60;#c0a179;#d6b891;#a28662;#a28662;#292016

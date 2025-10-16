@@ -1,0 +1,58 @@
+# base24 Hivacruz 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x132537'
+foreground = '0x8c92ac'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x132537'
+cursor = '0x8c92ac'
+
+# Normal colors
+[colors.normal]
+black = '0x202746'
+red = '0xc94922'
+green = '0xac9739'
+yellow = '0x898ea4'
+blue = '0x3d8fd1'
+magenta = '0x6679cc'
+cyan = '0x22a2c9'
+white = '0x979db4'
+
+# Bright colors
+[colors.bright]
+black = '0x6b7394'
+red = '0xc76b29'
+green = '0x73ad43'
+yellow = '0x5e6687'
+blue = '0x898ea4'
+magenta = '0xdfe2f1'
+cyan = '0x9c637a'
+white = '0xf5f7ff'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xc08b30"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x642411"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x202746"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x6b7394"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x8188a4"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0x979db4"

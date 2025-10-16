@@ -1,0 +1,43 @@
+# base24 Soft Server
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#242626"
+foreground = "#8c9594"
+
+cursor_bg = "#000000"
+cursor_border = "#8c9594"
+cursor_fg = "#99a3a2"
+
+selection_bg = "#8c9594"
+selection_fg = "#666c6b"
+
+ansi = [
+  "#242626",
+  "#a16869",
+  "#99a569",
+  "#62b1df",
+  "#6a8fa3",
+  "#6971a3",
+  "#6ba48f",
+  "#99a3a2"
+]
+brights = [
+  "#666c6b",
+  "#dc5b5f",
+  "#bfde54",
+  "#deb35f",
+  "#62b1df",
+  "#5f6ede",
+  "#64e39c",
+  "#d1dfde"
+]
+
+[colors.indexed]
+16 = "#a29069"
+17 = "#503434"
+18 = "#000000"
+19 = "#666c6b"
+20 = "#7f8786"
+21 = "#8c9594"

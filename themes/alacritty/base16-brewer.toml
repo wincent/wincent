@@ -1,0 +1,58 @@
+# base16 Brewer 256 - alacritty color config
+# Timothée Poisot (http://github.com/tpoisot)
+
+# Default colors
+[colors.primary]
+background = '0x0c0d0e'
+foreground = '0xb7b8b9'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x0c0d0e'
+cursor = '0xb7b8b9'
+
+# Normal colors
+[colors.normal]
+black = '0x2e2f30'
+red = '0xe31a1c'
+green = '0x31a354'
+yellow = '0xdca060'
+blue = '0x3182bd'
+magenta = '0x756bb1'
+cyan = '0x80b1d3'
+white = '0xdadbdc'
+
+# Bright colors
+[colors.bright]
+black = '0x515253'
+red = '0xe31a1c'
+green = '0x31a354'
+yellow = '0xdca060'
+blue = '0x3182bd'
+magenta = '0x756bb1'
+cyan = '0x80b1d3'
+white = '0xfcfdfe'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xe6550d"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xb15928"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x2e2f30"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x515253"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x959697"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xdadbdc"

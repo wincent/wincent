@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "ENCOM",
+	"foreground": "#a1a1a1",
+	"background": "#000000",
+	"black": "#000000",
+	"blue": "#0081ff",
+	"brightBlack": "#555555",
+	"brightBlue": "#0000ff",
+	"brightCyan": "#00cdcd",
+	"brightGreen": "#00ee00",
+	"brightPurple": "#ff00ff",
+	"brightRed": "#ff0000",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#ffff00",
+	"cyan": "#008b8b",
+	"green": "#008b00",
+	"purple": "#bc00ca",
+	"red": "#9f0000",
+	"white": "#bbbbbb",
+	"yellow": "#ffcf00"
+},

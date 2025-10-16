@@ -1,0 +1,43 @@
+# base24 Mona Lisa
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#110b0d"
+foreground = "#dab14e"
+
+cursor_bg = "#341a0d"
+cursor_border = "#dab14e"
+cursor_fg = "#f6d75c"
+
+selection_bg = "#dab14e"
+selection_fg = "#874227"
+
+ansi = [
+  "#110b0d",
+  "#9b281b",
+  "#626132",
+  "#9eb2b3",
+  "#515b5c",
+  "#9b1d29",
+  "#588056",
+  "#f6d75c"
+]
+brights = [
+  "#874227",
+  "#ff4230",
+  "#b3b163",
+  "#ff9565",
+  "#9eb2b3",
+  "#ff5b6a",
+  "#89cc8e",
+  "#ffe597"
+]
+
+[colors.indexed]
+16 = "#c26e27"
+17 = "#4d140d"
+18 = "#341a0d"
+19 = "#874227"
+20 = "#be8c41"
+21 = "#dab14e"

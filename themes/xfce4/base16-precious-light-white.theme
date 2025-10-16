@@ -1,0 +1,10 @@
+# Scheme name: Precious Light White
+# Scheme author: 4lex4 &lt;4lex49@zoho.com&gt;
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-precious-light-white
+ColorForeground=#555555
+ColorBackground=#ffffff
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#ededed;#af4947;#557301;#876500;#186daa;#7b4ecb;#087767;#555555;#dbdbdb;#af4947;#557301;#876500;#186daa;#7b4ecb;#087767;#555555

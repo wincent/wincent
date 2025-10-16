@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    base16 Sandcastle
+    Scheme author: George Essig (https://github.com/gessig)
+    Template author: Tinted Theming (https://github.com/tinted-theming)
+    semanticClass: theme.base16.sandcastle
+-->
+<key name="Palette1">
+    <value name="Name" type="string" data="base16-sandcastle"/>
+    <value name="ExtendColors" type="hex" data="00"/>
+    <value name="ExtendColorIdx" type="hex" data="0e"/>
+    <value name="TextColorIdx" type="hex" data="10"/>
+    <value name="BackColorIdx" type="hex" data="10"/>
+    <value name="PopTextColorIdx" type="hex" data="10"/>
+    <value name="PopBackColorIdx" type="hex" data="10"/>
+    <value name="ColorTable00" type="dword" data="003b322c"/> <!-- base01 - Black -->
+    <value name="ColorTable01" type="dword" data="0098a583"/> <!-- base08 - Red -->
+    <value name="ColorTable02" type="dword" data="008b8b52"/> <!-- base0B - Green -->
+    <value name="ColorTable03" type="dword" data="003b7ea0"/> <!-- base0A - Yellow -->
+    <value name="ColorTable04" type="dword" data="0098a583"/> <!-- base0D - Blue -->
+    <value name="ColorTable05" type="dword" data="005f5fd7"/> <!-- base0E - Magenta -->
+    <value name="ColorTable06" type="dword" data="0098a583"/> <!-- base0C - Cyan -->
+    <value name="ColorTable07" type="dword" data="00a1c4d5"/> <!-- base06 - White -->
+    <value name="ColorTable08" type="dword" data="0051443e"/> <!-- base02 - Bright Black -->
+    <value name="ColorTable09" type="dword" data="0098a583"/> <!-- base08 - Bright Red -->
+    <value name="ColorTable10" type="dword" data="008b8b52"/> <!-- base0B - Bright Green -->
+    <value name="ColorTable11" type="dword" data="003b7ea0"/> <!-- base0A - Bright Yellow -->
+    <value name="ColorTable12" type="dword" data="0098a583"/> <!-- base0D - Bright Blue -->
+    <value name="ColorTable13" type="dword" data="005f5fd7"/> <!-- base0E - Bright Magenta -->
+    <value name="ColorTable14" type="dword" data="0098a583"/> <!-- base0C - Bright Cyan -->
+    <value name="ColorTable15" type="dword" data="00c1f4fd"/> <!-- base07 - Bright White -->
+    <value name="ColorTable16" type="dword" data="003b7ea0"/> <!-- base09 -->
+    <value name="ColorTable17" type="dword" data="002273a8"/> <!-- base0F -->
+    <value name="ColorTable18" type="dword" data="003b322c"/> <!-- base01 -->
+    <value name="ColorTable19" type="dword" data="0051443e"/> <!-- base02 -->
+    <value name="ColorTable20" type="dword" data="00748392"/> <!-- base04 -->
+    <value name="ColorTable21" type="dword" data="00a1c4d5"/> <!-- base06 -->
+</key>

@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Molokai by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#555555' # base02
+selection-foreground = '#a1a1a1' # base05
+
+cursor         = '#a1a1a1' # base05
+tabs           = '#121212' # base01
+tabs-active    = '#555555' # base02
+
+background     = '#121212' # base00
+foreground     = '#a1a1a1' # base05
+black          = '#121212' # base01
+red            = '#fa2573' # base08
+yellow         = '#00afff' # base0A
+green          = '#97e123' # base0B
+cyan           = '#42a7cf' # base0C
+blue           = '#0f7fcf' # base0D
+magenta        = '#8700ff' # base0E
+white          = '#bbbbbb' # base06
+
+dim-foreground   = '#a1a1a1' # base05
+dim-black        = '#121212' # base01
+dim-red          = '#fa2573' # base08
+dim-yellow       = '#00afff' # base0A
+dim-green        = '#97e123' # base0B
+dim-cyan         = '#42a7cf' # base0C
+dim-blue         = '#0f7fcf' # base0D
+dim-magenta      = '#8700ff' # base0E
+dim-white        = '#888888' # base04
+
+light-foreground = '#a1a1a1' # base05
+light-black      = '#555555' # base02
+light-red        = '#f5669c' # base12
+light-yellow     = '#fef26c' # base13
+light-green      = '#b0e05e' # base14
+light-cyan       = '#50cdfe' # base15
+light-blue       = '#00afff' # base16
+light-magenta    = '#af87ff' # base17
+light-white      = '#ffffff' # base07

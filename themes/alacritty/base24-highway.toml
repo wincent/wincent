@@ -1,0 +1,58 @@
+# base24 Highway 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x212224'
+foreground = '0xc8c5c4'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x212224'
+cursor = '0xc8c5c4'
+
+# Normal colors
+[colors.normal]
+black = '0x000000'
+red = '0xcf0d17'
+green = '0x128033'
+yellow = '0x4fc2fd'
+blue = '0x006ab3'
+magenta = '0x6a2674'
+cyan = '0x384563'
+white = '0xededed'
+
+# Bright colors
+[colors.bright]
+black = '0x5c4f49'
+red = '0xef7d17'
+green = '0xb1d130'
+yellow = '0xfff11f'
+blue = '0x4fc2fd'
+magenta = '0xde0070'
+cyan = '0x5c4f49'
+white = '0xfefffe'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xffca3d"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x67060b"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x000000"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x5c4f49"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0xa49e9b"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xededed"

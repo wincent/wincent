@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Macintosh",
+	"foreground": "#c0c0c0",
+	"background": "#000000",
+	"black": "#404040",
+	"blue": "#0000d3",
+	"brightBlack": "#404040",
+	"brightBlue": "#0000d3",
+	"brightCyan": "#02abea",
+	"brightGreen": "#1fb714",
+	"brightPurple": "#4700a5",
+	"brightRed": "#dd0907",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#fbf305",
+	"cyan": "#02abea",
+	"green": "#1fb714",
+	"purple": "#4700a5",
+	"red": "#dd0907",
+	"white": "#c0c0c0",
+	"yellow": "#ff6403"
+},

@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: 0x96f by Filip Janevski (https://0x96f.dev/theme)
+
+[colors]
+selection-background = '#514f52' # base02
+selection-foreground = '#fcfcfc' # base05
+
+cursor         = '#fcfcfc' # base05
+tabs           = '#3b393c' # base01
+tabs-active    = '#514f52' # base02
+
+background     = '#262427' # base00
+foreground     = '#fcfcfc' # base05
+black          = '#3b393c' # base01
+red            = '#ff7272' # base08
+yellow         = '#ffca58' # base0A
+green          = '#bcdf59' # base0B
+cyan           = '#aee8f4' # base0C
+blue           = '#49cae4' # base0D
+magenta        = '#a093e2' # base0E
+white          = '#eae9eb' # base06
+
+dim-foreground   = '#fcfcfc' # base05
+dim-black        = '#3b393c' # base01
+dim-red          = '#ff7272' # base08
+dim-yellow       = '#ffca58' # base0A
+dim-green        = '#bcdf59' # base0B
+dim-cyan         = '#aee8f4' # base0C
+dim-blue         = '#49cae4' # base0D
+dim-magenta      = '#a093e2' # base0E
+dim-white        = '#7c7b7d' # base04
+
+light-foreground = '#fcfcfc' # base05
+light-black      = '#514f52' # base02
+light-red        = '#ff8787' # base12
+light-yellow     = '#ffd271' # base13
+light-green      = '#c6e472' # base14
+light-cyan       = '#baebf6' # base15
+light-blue       = '#64d2e8' # base16
+light-magenta    = '#aea3e6' # base17
+light-white      = '#fcfcfc' # base07

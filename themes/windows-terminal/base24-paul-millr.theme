@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Paul Millr",
+	"foreground": "#a5a5a5",
+	"background": "#000000",
+	"black": "#2a2a2a",
+	"blue": "#386bd7",
+	"brightBlack": "#666666",
+	"brightBlue": "#709aed",
+	"brightCyan": "#79dff2",
+	"brightGreen": "#66ff66",
+	"brightPurple": "#db67e6",
+	"brightRed": "#ff0080",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#f3d64e",
+	"cyan": "#66ccff",
+	"green": "#79ff0f",
+	"purple": "#b349be",
+	"red": "#ff0000",
+	"white": "#bbbbbb",
+	"yellow": "#e7bf00"
+},

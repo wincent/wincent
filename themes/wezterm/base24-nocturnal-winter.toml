@@ -1,0 +1,43 @@
+# base24 Nocturnal Winter
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#0d0d17"
+foreground = "#dcdcdc"
+
+cursor_bg = "#4c4c4c"
+cursor_border = "#dcdcdc"
+cursor_fg = "#fbfbfb"
+
+selection_bg = "#dcdcdc"
+selection_fg = "#7f7f7f"
+
+ansi = [
+  "#0d0d17",
+  "#f12d52",
+  "#08cd7d",
+  "#6095fe",
+  "#3081df",
+  "#fe2a6c",
+  "#09c87a",
+  "#fbfbfb"
+]
+brights = [
+  "#7f7f7f",
+  "#f16c85",
+  "#0ae78d",
+  "#fefb67",
+  "#6095fe",
+  "#ff78a2",
+  "#0ae78d",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#f5f079"
+17 = "#781629"
+18 = "#4c4c4c"
+19 = "#7f7f7f"
+20 = "#bdbdbd"
+21 = "#dcdcdc"

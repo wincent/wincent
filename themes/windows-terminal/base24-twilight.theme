@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Twilight",
+	"foreground": "#c8c8a7",
+	"background": "#141414",
+	"black": "#141414",
+	"blue": "#444649",
+	"brightBlack": "#262626",
+	"brightBlue": "#5a5d61",
+	"brightCyan": "#8a989a",
+	"brightGreen": "#cbd88c",
+	"brightPurple": "#d0db8e",
+	"brightRed": "#dd7c4c",
+	"brightWhite": "#feffd3",
+	"brightYellow": "#e1c47d",
+	"cyan": "#778284",
+	"green": "#afb979",
+	"purple": "#b4be7b",
+	"red": "#c06c43",
+	"white": "#feffd3",
+	"yellow": "#c2a86c"
+},

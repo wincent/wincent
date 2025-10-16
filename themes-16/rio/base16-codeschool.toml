@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Codeschool by blockloop
+
+[colors]
+selection-background = '#2a343a' # base02
+selection-foreground = '#9ea7a6' # base05
+
+cursor         = '#9ea7a6' # base05
+tabs           = '#1c3657' # base01
+tabs-active    = '#2a343a' # base02
+
+background     = '#232c31' # base00
+foreground     = '#9ea7a6' # base05
+black          = '#1c3657' # base01
+red            = '#2a5491' # base08
+yellow         = '#a03b1e' # base0A
+green          = '#237986' # base0B
+cyan           = '#b02f30' # base0C
+blue           = '#484d79' # base0D
+magenta        = '#c59820' # base0E
+white          = '#a7cfa3' # base06
+
+dim-foreground   = '#9ea7a6' # base05
+dim-black        = '#1c3657' # base01
+dim-red          = '#2a5491' # base08
+dim-yellow       = '#a03b1e' # base0A
+dim-green        = '#237986' # base0B
+dim-cyan         = '#b02f30' # base0C
+dim-blue         = '#484d79' # base0D
+dim-magenta      = '#c59820' # base0E
+dim-white        = '#84898c' # base04
+
+light-foreground = '#9ea7a6' # base05
+light-black      = '#2a343a' # base02
+light-red        = '#2a5491' # base08
+light-yellow     = '#a03b1e' # base0A
+light-green      = '#237986' # base0B
+light-cyan       = '#b02f30' # base0C
+light-blue       = '#484d79' # base0D
+light-magenta    = '#c59820' # base0E
+light-white      = '#b5d8f6' # base07

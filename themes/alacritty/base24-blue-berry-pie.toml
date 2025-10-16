@@ -1,0 +1,58 @@
+# base24 Blue Berry Pie 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x1c0b28'
+foreground = '0xbbb2ad'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x1c0b28'
+cursor = '0xbbb2ad'
+
+# Normal colors
+[colors.normal]
+black = '0x0a4b61'
+red = '0x99236d'
+green = '0x5bb0b2'
+yellow = '0x38163d'
+blue = '0x90a5bc'
+magenta = '0x9d53a7'
+cyan = '0x7e82cc'
+white = '0xf0e7d5'
+
+# Bright colors
+[colors.bright]
+black = '0x1f1637'
+red = '0xc77171'
+green = '0x0a6b7e'
+yellow = '0x793188'
+blue = '0x38163d'
+magenta = '0xbc93b6'
+cyan = '0x5d5f71'
+white = '0x0a6b7e'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xe9b8a7"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x4c1136"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x0a4b61"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x1f1637"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x877e86"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xf0e7d5"

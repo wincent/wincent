@@ -1,0 +1,10 @@
+# Scheme name: Fish Tank
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-fish-tank
+ColorForeground=#ccc9c9
+ColorBackground=#222436
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#03063c;#c60049;#abf157;#b1bdf9;#525fb8;#976f81;#968662;#eceffc;#6c5a30;#d94a8a;#daffa8;#fee6a8;#b1bdf9;#fda4cc;#a4bc86;#f6ffec

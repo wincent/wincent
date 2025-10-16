@@ -1,0 +1,43 @@
+# base24 Highway
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#212224"
+foreground = "#c8c5c4"
+
+cursor_bg = "#000000"
+cursor_border = "#c8c5c4"
+cursor_fg = "#ededed"
+
+selection_bg = "#c8c5c4"
+selection_fg = "#5c4f49"
+
+ansi = [
+  "#212224",
+  "#cf0d17",
+  "#128033",
+  "#4fc2fd",
+  "#006ab3",
+  "#6a2674",
+  "#384563",
+  "#ededed"
+]
+brights = [
+  "#5c4f49",
+  "#ef7d17",
+  "#b1d130",
+  "#fff11f",
+  "#4fc2fd",
+  "#de0070",
+  "#5c4f49",
+  "#fefffe"
+]
+
+[colors.indexed]
+16 = "#ffca3d"
+17 = "#67060b"
+18 = "#000000"
+19 = "#5c4f49"
+20 = "#a49e9b"
+21 = "#c8c5c4"

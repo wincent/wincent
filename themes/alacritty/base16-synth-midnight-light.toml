@@ -1,0 +1,58 @@
+# base16 Synth Midnight Terminal Light 256 - alacritty color config
+# Michaël Ball (http://github.com/michael-ball/)
+
+# Default colors
+[colors.primary]
+background = '0xdddfe0'
+foreground = '0x28292a'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0xdddfe0'
+cursor = '0x28292a'
+
+# Normal colors
+[colors.normal]
+black = '0xcfd1d2'
+red = '0xb53b50'
+green = '0x06ea61'
+yellow = '0xc9d364'
+blue = '0x03aeff'
+magenta = '0xea5ce2'
+cyan = '0x42fff9'
+white = '0x1a1b1c'
+
+# Bright colors
+[colors.bright]
+black = '0xc1c3c4'
+red = '0xb53b50'
+green = '0x06ea61'
+yellow = '0xc9d364'
+blue = '0x03aeff'
+magenta = '0xea5ce2'
+cyan = '0x42fff9'
+white = '0x050608'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xea770d"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xcd6320"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0xcfd1d2"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0xc1c3c4"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x474849"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0x1a1b1c"

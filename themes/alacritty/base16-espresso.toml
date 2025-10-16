@@ -1,0 +1,58 @@
+# base16 Espresso 256 - alacritty color config
+# Unknown. Maintained by Alex Mirrington (https://github.com/alexmirrington)
+
+# Default colors
+[colors.primary]
+background = '0x2d2d2d'
+foreground = '0xcccccc'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x2d2d2d'
+cursor = '0xcccccc'
+
+# Normal colors
+[colors.normal]
+black = '0x393939'
+red = '0xd25252'
+green = '0xa5c261'
+yellow = '0xffc66d'
+blue = '0x6c99bb'
+magenta = '0xd197d9'
+cyan = '0xbed6ff'
+white = '0xe0e0e0'
+
+# Bright colors
+[colors.bright]
+black = '0x515151'
+red = '0xd25252'
+green = '0xa5c261'
+yellow = '0xffc66d'
+blue = '0x6c99bb'
+magenta = '0xd197d9'
+cyan = '0xbed6ff'
+white = '0xffffff'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xf9a959"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xf97394"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x393939"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x515151"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0xb4b7b4"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xe0e0e0"

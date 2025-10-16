@@ -1,0 +1,43 @@
+# base16 Purpledream
+# Scheme author: malet
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#100510"
+foreground = "#ddd0dd"
+
+cursor_bg = "#ddd0dd"
+cursor_border = "#ddd0dd"
+cursor_fg = "#100510"
+
+selection_bg = "#ddd0dd"
+selection_fg = "#403040"
+
+ansi = [
+  "#100510",
+  "#ff1d0d",
+  "#14cc64",
+  "#f000a0",
+  "#00a0f0",
+  "#b000d0",
+  "#0075b0",
+  "#eee0ee"
+]
+brights = [
+  "#403040",
+  "#ff1d0d",
+  "#14cc64",
+  "#f000a0",
+  "#00a0f0",
+  "#b000d0",
+  "#0075b0",
+  "#fff0ff"
+]
+
+[colors.indexed]
+16 = "#ccae14"
+17 = "#6a2a3c"
+18 = "#302030"
+19 = "#403040"
+20 = "#bbb0bb"
+21 = "#ddd0dd"

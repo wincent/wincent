@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Operator Mono Dark
+; Scheme system: base24
+; Scheme description: 
+; Scheme author: FredHappyface (https://github.com/fredHappyface)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base24-operator-mono-dark]
+
+; Default Foreground
+; base05 #c0c4c0
+"Colour0"="192,196,192"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #c0c4c0
+"Colour1"="192,196,192"
+
+; Default Background
+; base00 #191919
+"Colour2"="25,25,25"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #191919
+"Colour3"="25,25,25"
+
+; Cursor Text -- equals to default background
+; base00 #191919
+"Colour4"="25,25,25"
+
+; Cursor Colour -- equals to default foreground
+; base05 #c0c4c0
+"Colour5"="192,196,192"
+
+; ANSI Black
+; 30m
+; base01 #5a5a5a
+"Colour6"="90,90,90"
+
+; ANSI Black Bright
+; 1;30m
+; base02 #9a9a99
+"Colour7"="154,154,153"
+
+; ANSI Red
+; 31m
+; base08 #ca372d
+"Colour8"="202,55,45"
+
+; ANSI Red Bright
+; 1;31m
+; base12 #c37d62
+"Colour9"="195,125,98"
+
+; ANSI Green
+; 32m
+; base0B #4d7b3a
+"Colour10"="77,123,58"
+
+; ANSI Green Bright
+; 1;32m
+; base14 #83d0a2
+"Colour11"="131,208,162"
+
+; ANSI Yellow
+; 33m
+; base0A #89d3f6
+"Colour12"="137,211,246"
+
+; ANSI Yellow Bright
+; 1;33m
+; base13 #fdfdc5
+"Colour13"="253,253,197"
+
+; ANSI Blue
+; 34m
+; base0D #4387cf
+"Colour14"="67,135,207"
+
+; ANSI Blue Bright
+; 1;34m
+; base16 #89d3f6
+"Colour15"="137,211,246"
+
+; ANSI Magenta
+; 35m
+; base0E #b86cb4
+"Colour16"="184,108,180"
+
+; ANSI Magenta Bright
+; 1;35m
+; base17 #fe2c79
+"Colour17"="254,44,121"
+
+; ANSI Cyan
+; 36m
+; base0C #72d4c6
+"Colour18"="114,212,198"
+
+; ANSI Cyan Bright
+; 1;36m
+; base15 #82e9da
+"Colour19"="130,233,218"
+
+; ANSI White
+; 37m
+; base06 #cdd3cd
+"Colour20"="205,211,205"
+
+; ANSI White Bright
+; 1;37m
+; base07 fdfdf6
+"Colour21"="253,253,246"

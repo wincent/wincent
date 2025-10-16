@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "pandora",
+	"foreground": "#f15c99",
+	"background": "#131213",
+	"black": "#2f1823",
+	"blue": "#008080",
+	"brightBlack": "#472234",
+	"brightBlue": "#008080",
+	"brightCyan": "#714ca6",
+	"brightGreen": "#9ddf69",
+	"brightPurple": "#a24030",
+	"brightRed": "#b00b69",
+	"brightWhite": "#632227",
+	"brightYellow": "#ffcc00",
+	"cyan": "#714ca6",
+	"green": "#9ddf69",
+	"purple": "#a24030",
+	"red": "#b00b69",
+	"white": "#81506a",
+	"yellow": "#ff9153"
+},

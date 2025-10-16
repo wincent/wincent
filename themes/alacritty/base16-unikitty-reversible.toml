@@ -1,0 +1,58 @@
+# base16 Unikitty Reversible 256 - alacritty color config
+# Josh W Lewis (@joshwlewis)
+
+# Default colors
+[colors.primary]
+background = '0x2e2a31'
+foreground = '0xc3c2c4'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x2e2a31'
+cursor = '0xc3c2c4'
+
+# Normal colors
+[colors.normal]
+black = '0x4b484e'
+red = '0xd8137f'
+green = '0x17ad98'
+yellow = '0xdc8a0e'
+blue = '0x7864fa'
+magenta = '0xb33ce8'
+cyan = '0x149bda'
+white = '0xe1e0e1'
+
+# Bright colors
+[colors.bright]
+black = '0x69666b'
+red = '0xd8137f'
+green = '0x17ad98'
+yellow = '0xdc8a0e'
+blue = '0x7864fa'
+magenta = '0xb33ce8'
+cyan = '0x149bda'
+white = '0xffffff'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xd65407"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xd41acd"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x4b484e"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x69666b"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0xa5a3a6"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xe1e0e1"

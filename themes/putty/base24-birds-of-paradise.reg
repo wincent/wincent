@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Birds Of Paradise
+; Scheme system: base24
+; Scheme description: 
+; Scheme author: FredHappyface (https://github.com/fredHappyface)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base24-birds-of-paradise]
+
+; Default Foreground
+; base05 #cdbe9b
+"Colour0"="205,190,155"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #cdbe9b
+"Colour1"="205,190,155"
+
+; Default Background
+; base00 #2a1e1d
+"Colour2"="42,30,29"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #2a1e1d
+"Colour3"="42,30,29"
+
+; Cursor Text -- equals to default background
+; base00 #2a1e1d
+"Colour4"="42,30,29"
+
+; Cursor Colour -- equals to default foreground
+; base05 #cdbe9b
+"Colour5"="205,190,155"
+
+; ANSI Black
+; 30m
+; base01 #573d25
+"Colour6"="87,61,37"
+
+; ANSI Black Bright
+; 1;30m
+; base02 #9a6b49
+"Colour7"="154,107,73"
+
+; ANSI Red
+; 31m
+; base08 #be2d26
+"Colour8"="190,45,38"
+
+; ANSI Red Bright
+; 1;31m
+; base12 #e84526
+"Colour9"="232,69,38"
+
+; ANSI Green
+; 32m
+; base0B #6ba08a
+"Colour10"="107,160,138"
+
+; ANSI Green Bright
+; 1;32m
+; base14 #94d7ba
+"Colour11"="148,215,186"
+
+; ANSI Yellow
+; 33m
+; base0A #b8d3ed
+"Colour12"="184,211,237"
+
+; ANSI Yellow Bright
+; 1;33m
+; base13 #d0d04f
+"Colour13"="208,208,79"
+
+; ANSI Blue
+; 34m
+; base0D #5a86ac
+"Colour14"="90,134,172"
+
+; ANSI Blue Bright
+; 1;34m
+; base16 #b8d3ed
+"Colour15"="184,211,237"
+
+; ANSI Magenta
+; 35m
+; base0E #ab80a6
+"Colour16"="171,128,166"
+
+; ANSI Magenta Bright
+; 1;35m
+; base17 #d09dca
+"Colour17"="208,157,202"
+
+; ANSI Cyan
+; 36m
+; base0C #74a5ac
+"Colour18"="116,165,172"
+
+; ANSI Cyan Bright
+; 1;36m
+; base15 #92ced6
+"Colour19"="146,206,214"
+
+; ANSI White
+; 37m
+; base06 #dfdab7
+"Colour20"="223,218,183"
+
+; ANSI White Bright
+; 1;37m
+; base07 fff9d4
+"Colour21"="255,249,212"

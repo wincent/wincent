@@ -1,0 +1,10 @@
+# Scheme name: Catppuccin Mocha
+# Scheme author: https://github.com/catppuccin/catppuccin
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-catppuccin-mocha
+ColorForeground=#cdd6f4
+ColorBackground=#1e1e2e
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#181825;#f38ba8;#a6e3a1;#f9e2af;#89b4fa;#cba6f7;#94e2d5;#f5e0dc;#313244;#f38ba8;#a6e3a1;#f9e2af;#89b4fa;#cba6f7;#94e2d5;#b4befe

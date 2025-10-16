@@ -1,0 +1,43 @@
+# base16 Tomorrow Night Eighties
+# Scheme author: Chris Kempson (http://chriskempson.com)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#2d2d2d"
+foreground = "#cccccc"
+
+cursor_bg = "#cccccc"
+cursor_border = "#cccccc"
+cursor_fg = "#2d2d2d"
+
+selection_bg = "#cccccc"
+selection_fg = "#515151"
+
+ansi = [
+  "#2d2d2d",
+  "#f2777a",
+  "#99cc99",
+  "#ffcc66",
+  "#6699cc",
+  "#cc99cc",
+  "#66cccc",
+  "#e0e0e0"
+]
+brights = [
+  "#515151",
+  "#f2777a",
+  "#99cc99",
+  "#ffcc66",
+  "#6699cc",
+  "#cc99cc",
+  "#66cccc",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#f99157"
+17 = "#a3685a"
+18 = "#393939"
+19 = "#515151"
+20 = "#b4b7b4"
+21 = "#cccccc"

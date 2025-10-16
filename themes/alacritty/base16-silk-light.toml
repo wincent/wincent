@@ -1,0 +1,58 @@
+# base16 Silk Light 256 - alacritty color config
+# Gabriel Fontes (https://github.com/Misterio77)
+
+# Default colors
+[colors.primary]
+background = '0xe9f1ef'
+foreground = '0x385156'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0xe9f1ef'
+cursor = '0x385156'
+
+# Normal colors
+[colors.normal]
+black = '0xccd4d3'
+red = '0xcf432e'
+green = '0x6ca38c'
+yellow = '0xcfad25'
+blue = '0x39aac9'
+magenta = '0x6e6582'
+cyan = '0x329ca2'
+white = '0x0e3c46'
+
+# Bright colors
+[colors.bright]
+black = '0x90b7b6'
+red = '0xcf432e'
+green = '0x6ca38c'
+yellow = '0xcfad25'
+blue = '0x39aac9'
+magenta = '0x6e6582'
+cyan = '0x329ca2'
+white = '0xd2faff'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xd27f46"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x865369"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0xccd4d3"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x90b7b6"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x4b5b5f"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0x0e3c46"

@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Edge Light",
+	"foreground": "#5e646f",
+	"background": "#fafafa",
+	"black": "#7c9f4b",
+	"blue": "#6587bf",
+	"brightBlack": "#d69822",
+	"brightBlue": "#6587bf",
+	"brightCyan": "#509c93",
+	"brightGreen": "#7c9f4b",
+	"brightPurple": "#b870ce",
+	"brightRed": "#db7070",
+	"brightWhite": "#5e646f",
+	"brightYellow": "#d69822",
+	"cyan": "#509c93",
+	"green": "#7c9f4b",
+	"purple": "#b870ce",
+	"red": "#db7070",
+	"white": "#b870ce",
+	"yellow": "#db7070"
+},

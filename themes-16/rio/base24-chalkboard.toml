@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Chalkboard by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#323232' # base02
+selection-foreground = '#afafaf' # base05
+
+cursor         = '#afafaf' # base05
+tabs           = '#000000' # base01
+tabs-active    = '#323232' # base02
+
+background     = '#29262f' # base00
+foreground     = '#afafaf' # base05
+black          = '#000000' # base01
+red            = '#c37372' # base08
+yellow         = '#aaaadb' # base0A
+green          = '#72c373' # base0B
+cyan           = '#72c2c3' # base0C
+blue           = '#7372c3' # base0D
+magenta        = '#c372c2' # base0E
+white          = '#d9d9d9' # base06
+
+dim-foreground   = '#afafaf' # base05
+dim-black        = '#000000' # base01
+dim-red          = '#c37372' # base08
+dim-yellow       = '#aaaadb' # base0A
+dim-green        = '#72c373' # base0B
+dim-cyan         = '#72c2c3' # base0C
+dim-blue         = '#7372c3' # base0D
+dim-magenta      = '#c372c2' # base0E
+dim-white        = '#858585' # base04
+
+light-foreground = '#afafaf' # base05
+light-black      = '#323232' # base02
+light-red        = '#dbaaaa' # base12
+light-yellow     = '#dadbaa' # base13
+light-green      = '#aadbaa' # base14
+light-cyan       = '#aadadb' # base15
+light-blue       = '#aaaadb' # base16
+light-magenta    = '#dbaada' # base17
+light-white      = '#ffffff' # base07

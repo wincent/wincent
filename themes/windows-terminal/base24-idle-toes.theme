@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Idle Toes",
+	"foreground": "#c7c7c5",
+	"background": "#323232",
+	"black": "#323232",
+	"blue": "#4098ff",
+	"brightBlack": "#535353",
+	"brightBlue": "#5eb7f7",
+	"brightCyan": "#dcf4ff",
+	"brightGreen": "#9dff90",
+	"brightPurple": "#ff9dff",
+	"brightRed": "#f07070",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#ffe48b",
+	"cyan": "#bed6ff",
+	"green": "#7fe173",
+	"purple": "#f57fff",
+	"red": "#d25252",
+	"white": "#eeeeec",
+	"yellow": "#ffc66d"
+},

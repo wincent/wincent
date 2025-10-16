@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Fideloper by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#092027' # base02
+selection-foreground = '#b1b1a3' # base05
+
+cursor         = '#b1b1a3' # base05
+tabs           = '#282f32' # base01
+tabs-active    = '#092027' # base02
+
+background     = '#282f32' # base00
+foreground     = '#b1b1a3' # base05
+black          = '#282f32' # base01
+red            = '#ca1d2c' # base08
+yellow         = '#7c84c4' # base0A
+green          = '#edb7ab' # base0B
+cyan           = '#309185' # base0C
+blue           = '#2e78c1' # base0D
+magenta        = '#c0226e' # base0E
+white          = '#e9e2cd' # base06
+
+dim-foreground   = '#b1b1a3' # base05
+dim-black        = '#282f32' # base01
+dim-red          = '#ca1d2c' # base08
+dim-yellow       = '#7c84c4' # base0A
+dim-green        = '#edb7ab' # base0B
+dim-cyan         = '#309185' # base0C
+dim-blue         = '#2e78c1' # base0D
+dim-magenta      = '#c0226e' # base0E
+dim-white        = '#79817a' # base04
+
+light-foreground = '#b1b1a3' # base05
+light-black      = '#092027' # base02
+light-red        = '#d35f5a' # base12
+light-yellow     = '#a86571' # base13
+light-green      = '#d35f5a' # base14
+light-cyan       = '#81908f' # base15
+light-blue       = '#7c84c4' # base16
+light-magenta    = '#5b5db2' # base17
+light-white      = '#fcf4de' # base07

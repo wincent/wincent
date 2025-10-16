@@ -1,0 +1,43 @@
+# base24 Batman
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#1b1d1e"
+foreground = "#a7a8a3"
+
+cursor_bg = "#1b1d1e"
+cursor_border = "#a7a8a3"
+cursor_fg = "#c5c5be"
+
+selection_bg = "#a7a8a3"
+selection_fg = "#505354"
+
+ansi = [
+  "#1b1d1e",
+  "#e6db43",
+  "#c8be46",
+  "#909495",
+  "#737074",
+  "#737271",
+  "#615f5e",
+  "#c5c5be"
+]
+brights = [
+  "#505354",
+  "#fff68d",
+  "#fff27c",
+  "#feed6c",
+  "#909495",
+  "#9a999d",
+  "#a2a2a5",
+  "#dadad5"
+]
+
+[colors.indexed]
+16 = "#f3fd21"
+17 = "#736d21"
+18 = "#1b1d1e"
+19 = "#505354"
+20 = "#8a8c89"
+21 = "#a7a8a3"

@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Framer",
+	"foreground": "#a9a9a9",
+	"background": "#111111",
+	"black": "#141414",
+	"blue": "#00aaff",
+	"brightBlack": "#414141",
+	"brightBlue": "#33bbff",
+	"brightCyan": "#bbecff",
+	"brightGreen": "#b6f292",
+	"brightPurple": "#cebbff",
+	"brightRed": "#ff8888",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#ffd966",
+	"cyan": "#88ddff",
+	"green": "#98ec65",
+	"purple": "#aa88ff",
+	"red": "#ff5555",
+	"white": "#cccccc",
+	"yellow": "#ffcc33"
+},

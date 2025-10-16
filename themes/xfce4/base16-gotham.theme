@@ -1,0 +1,10 @@
+# Scheme name: Gotham
+# Scheme author: Andrea Leopardi (arranged by Brett Jones)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-gotham
+ColorForeground=#599cab
+ColorBackground=#0c1014
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#11151c;#c23127;#33859e;#edb443;#195466;#888ca6;#2aa889;#99d1ce;#091f2e;#c23127;#33859e;#edb443;#195466;#888ca6;#2aa889;#d3ebe9

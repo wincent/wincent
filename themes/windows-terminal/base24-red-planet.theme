@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Red Planet",
+	"foreground": "#a4998c",
+	"background": "#222222",
+	"black": "#201f1f",
+	"blue": "#69809e",
+	"brightBlack": "#676767",
+	"brightBlue": "#60827e",
+	"brightCyan": "#38add8",
+	"brightGreen": "#869985",
+	"brightPurple": "#de4873",
+	"brightRed": "#b55242",
+	"brightWhite": "#d6bfb8",
+	"brightYellow": "#ebeb91",
+	"cyan": "#5b8390",
+	"green": "#728271",
+	"purple": "#896492",
+	"red": "#8c3432",
+	"white": "#b9aa99",
+	"yellow": "#e8bf6a"
+},

@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Jet Brains Darcula
+; Scheme system: base24
+; Scheme description: 
+; Scheme author: FredHappyface (https://github.com/fredHappyface)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base24-jet-brains-darcula]
+
+; Default Foreground
+; base05 #979797
+"Colour0"="151,151,151"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #979797
+"Colour1"="151,151,151"
+
+; Default Background
+; base00 #202020
+"Colour2"="32,32,32"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #202020
+"Colour3"="32,32,32"
+
+; Cursor Text -- equals to default background
+; base00 #202020
+"Colour4"="32,32,32"
+
+; Cursor Colour -- equals to default foreground
+; base05 #979797
+"Colour5"="151,151,151"
+
+; ANSI Black
+; 30m
+; base01 #000000
+"Colour6"="0,0,0"
+
+; ANSI Black Bright
+; 1;30m
+; base02 #555555
+"Colour7"="85,85,85"
+
+; ANSI Red
+; 31m
+; base08 #fa5355
+"Colour8"="250,83,85"
+
+; ANSI Red Bright
+; 1;31m
+; base12 #fb7172
+"Colour9"="251,113,114"
+
+; ANSI Green
+; 32m
+; base0B #126e00
+"Colour10"="18,110,0"
+
+; ANSI Green Bright
+; 1;32m
+; base14 #67ff4f
+"Colour11"="103,255,79"
+
+; ANSI Yellow
+; 33m
+; base0A #6d9df1
+"Colour12"="109,157,241"
+
+; ANSI Yellow Bright
+; 1;33m
+; base13 #ffff00
+"Colour13"="255,255,0"
+
+; ANSI Blue
+; 34m
+; base0D #4581eb
+"Colour14"="69,129,235"
+
+; ANSI Blue Bright
+; 1;34m
+; base16 #6d9df1
+"Colour15"="109,157,241"
+
+; ANSI Magenta
+; 35m
+; base0E #fa54ff
+"Colour16"="250,84,255"
+
+; ANSI Magenta Bright
+; 1;35m
+; base17 #fb82ff
+"Colour17"="251,130,255"
+
+; ANSI Cyan
+; 36m
+; base0C #33c2c1
+"Colour18"="51,194,193"
+
+; ANSI Cyan Bright
+; 1;36m
+; base15 #60d3d1
+"Colour19"="96,211,209"
+
+; ANSI White
+; 37m
+; base06 #adadad
+"Colour20"="173,173,173"
+
+; ANSI White Bright
+; 1;37m
+; base07 eeeeee
+"Colour21"="238,238,238"

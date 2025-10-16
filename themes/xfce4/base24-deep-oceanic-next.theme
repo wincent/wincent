@@ -1,0 +1,10 @@
+# Scheme name: Deep Oceanic Next
+# Scheme author: spearkkk (https://github.com/spearkkk)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-deep-oceanic-next
+ColorForeground=#d4e1e8
+ColorBackground=#001c1f
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#002931;#d3464d;#63b784;#f3b863;#568ccf;#8b66d6;#4fb7ae;#e0e9ef;#003640;#ff6670;#72e1a6;#ffe08a;#5caeff;#b788ff;#4de3e3;#f2f7f9

@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Wild Cherry",
+	"foreground": "#bfe1d8",
+	"background": "#1f1626",
+	"black": "#000506",
+	"blue": "#883cdc",
+	"brightBlack": "#009cc9",
+	"brightBlue": "#2f8bb9",
+	"brightCyan": "#ff919d",
+	"brightGreen": "#f4dba5",
+	"brightPurple": "#ae636b",
+	"brightRed": "#da6bab",
+	"brightWhite": "#e4838d",
+	"brightYellow": "#eac066",
+	"cyan": "#c1b8b7",
+	"green": "#2ab250",
+	"purple": "#ececec",
+	"red": "#d94085",
+	"white": "#fff8dd",
+	"yellow": "#ffd16f"
+},

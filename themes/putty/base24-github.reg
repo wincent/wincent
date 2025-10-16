@@ -1,0 +1,95 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Github
+; Scheme system: base24
+; Scheme author: FredHappyface (https://github.com/fredHappyface)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base24-github]
+
+; Default Foreground
+; base05 #d8d8d8
+"Colour0"="216,216,216"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #d8d8d8
+"Colour1"="216,216,216"
+
+; Default Background
+; base00 #f4f4f4
+"Colour2"="244,244,244"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #f4f4f4
+"Colour3"="244,244,244"
+
+; Cursor Text -- equals to default background
+; base00 #f4f4f4
+"Colour4"="244,244,244"
+
+; Cursor Colour -- equals to default foreground
+; base05 #d8d8d8
+"Colour5"="216,216,216"
+
+; ANSI Black
+; base01 #3e3e3e
+"Colour6"="62,62,62"
+
+; ANSI Black Bright
+; base02 #666666
+"Colour7"="102,102,102"
+
+; ANSI Red
+; base08 #970b16
+"Colour8"="151,11,22"
+
+; ANSI Red Bright
+; base12 #de0000
+"Colour9"="222,0,0"
+
+; ANSI Green
+; base0B #07962a
+"Colour10"="7,150,42"
+
+; ANSI Green Bright
+; base14 #87d5a2
+"Colour11"="135,213,162"
+
+; ANSI Yellow
+; base0A #2e6cba
+"Colour12"="46,108,186"
+
+; ANSI Yellow Bright
+; base13 #f1d007
+"Colour13"="241,208,7"
+
+; ANSI Blue
+; base0D #003e8a
+"Colour14"="0,62,138"
+
+; ANSI Blue Bright
+; base16 #2e6cba
+"Colour15"="46,108,186"
+
+; ANSI Magenta
+; base0E #e94691
+"Colour16"="233,70,145"
+
+; ANSI Magenta Bright
+; base17 #ffa29f
+"Colour17"="255,162,159"
+
+; ANSI Cyan
+; base0C #89d1ec
+"Colour18"="137,209,236"
+
+; ANSI Cyan Bright
+; base15 #1cfafe
+"Colour19"="28,250,254"
+
+; ANSI White
+; base06 #ffffff
+"Colour20"="255,255,255"
+
+; ANSI White Bright
+; base07 ffffff
+"Colour21"="255,255,255"

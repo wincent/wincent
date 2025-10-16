@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Digital Rain",
+	"foreground": "#00ff00",
+	"background": "#000000",
+	"black": "#4a806c",
+	"blue": "#5482af",
+	"brightBlack": "#4a8d7e",
+	"brightBlue": "#5482af",
+	"brightCyan": "#468c78",
+	"brightGreen": "#64c83c",
+	"brightPurple": "#9472b4",
+	"brightRed": "#c85a46",
+	"brightWhite": "#d8e2dc",
+	"brightYellow": "#a67a50",
+	"cyan": "#468c78",
+	"green": "#64c83c",
+	"purple": "#9472b4",
+	"red": "#c85a46",
+	"white": "#c4cec4",
+	"yellow": "#c86428"
+},

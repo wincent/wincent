@@ -1,0 +1,58 @@
+# base16 Humanoid light 256 - alacritty color config
+# Thomas (tasmo) Friese
+
+# Default colors
+[colors.primary]
+background = '0xf8f8f2'
+foreground = '0x232629'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0xf8f8f2'
+cursor = '0x232629'
+
+# Normal colors
+[colors.normal]
+black = '0xefefe9'
+red = '0xb0151a'
+green = '0x388e3c'
+yellow = '0xffb627'
+blue = '0x0082c9'
+magenta = '0x700f98'
+cyan = '0x008e8e'
+white = '0x2f3337'
+
+# Bright colors
+[colors.bright]
+black = '0xdeded8'
+red = '0xb0151a'
+green = '0x388e3c'
+yellow = '0xffb627'
+blue = '0x0082c9'
+magenta = '0x700f98'
+cyan = '0x008e8e'
+white = '0x070708'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xff3d00"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xb27701"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0xefefe9"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0xdeded8"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x60615d"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0x2f3337"

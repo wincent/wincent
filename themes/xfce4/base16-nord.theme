@@ -1,0 +1,10 @@
+# Scheme name: Nord
+# Scheme author: arcticicestudio
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-nord
+ColorForeground=#e5e9f0
+ColorBackground=#2e3440
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#3b4252;#bf616a;#a3be8c;#ebcb8b;#81a1c1;#b48ead;#88c0d0;#eceff4;#434c5e;#bf616a;#a3be8c;#ebcb8b;#81a1c1;#b48ead;#88c0d0;#8fbcbb

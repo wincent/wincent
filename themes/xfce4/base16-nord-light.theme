@@ -1,0 +1,10 @@
+# Scheme name: Nord Light
+# Scheme author: threddast, based on fuxialexander&#39;s doom-nord-light-theme (Doom Emacs)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-nord-light
+ColorForeground=#2e3440
+ColorBackground=#e5e9f0
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#c2d0e7;#99324b;#4f894c;#9a7500;#3b6ea8;#97365b;#398eac;#3b4252;#b8c5db;#99324b;#4f894c;#9a7500;#3b6ea8;#97365b;#398eac;#29838d

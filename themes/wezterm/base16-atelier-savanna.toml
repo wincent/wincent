@@ -1,0 +1,43 @@
+# base16 Atelier Savanna
+# Scheme author: Bram de Haan (http://atelierbramdehaan.nl)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#171c19"
+foreground = "#87928a"
+
+cursor_bg = "#87928a"
+cursor_border = "#87928a"
+cursor_fg = "#171c19"
+
+selection_bg = "#87928a"
+selection_fg = "#526057"
+
+ansi = [
+  "#171c19",
+  "#b16139",
+  "#489963",
+  "#a07e3b",
+  "#478c90",
+  "#55859b",
+  "#1c9aa0",
+  "#dfe7e2"
+]
+brights = [
+  "#526057",
+  "#b16139",
+  "#489963",
+  "#a07e3b",
+  "#478c90",
+  "#55859b",
+  "#1c9aa0",
+  "#ecf4ee"
+]
+
+[colors.indexed]
+16 = "#9f713c"
+17 = "#867469"
+18 = "#232a25"
+19 = "#526057"
+20 = "#78877d"
+21 = "#87928a"

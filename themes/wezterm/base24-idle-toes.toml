@@ -1,0 +1,43 @@
+# base24 Idle Toes
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#323232"
+foreground = "#c7c7c5"
+
+cursor_bg = "#323232"
+cursor_border = "#c7c7c5"
+cursor_fg = "#eeeeec"
+
+selection_bg = "#c7c7c5"
+selection_fg = "#535353"
+
+ansi = [
+  "#323232",
+  "#d25252",
+  "#7fe173",
+  "#5eb7f7",
+  "#4098ff",
+  "#f57fff",
+  "#bed6ff",
+  "#eeeeec"
+]
+brights = [
+  "#535353",
+  "#f07070",
+  "#9dff90",
+  "#ffe48b",
+  "#5eb7f7",
+  "#ff9dff",
+  "#dcf4ff",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#ffc66d"
+17 = "#692929"
+18 = "#323232"
+19 = "#535353"
+20 = "#a0a09f"
+21 = "#c7c7c5"

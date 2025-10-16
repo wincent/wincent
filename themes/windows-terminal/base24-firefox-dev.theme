@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Firefox Dev",
+	"foreground": "#a5acae",
+	"background": "#0e1011",
+	"black": "#002731",
+	"blue": "#359ddf",
+	"brightBlack": "#001e26",
+	"brightBlue": "#006fc0",
+	"brightCyan": "#005794",
+	"brightGreen": "#1d9000",
+	"brightPurple": "#a200da",
+	"brightRed": "#e1003f",
+	"brightWhite": "#e2e2e2",
+	"brightYellow": "#cc9308",
+	"cyan": "#4b73a2",
+	"green": "#5eb83c",
+	"purple": "#d75cff",
+	"red": "#e63853",
+	"white": "#dcdcdc",
+	"yellow": "#a57705"
+},

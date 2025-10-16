@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Red Alert",
+	"foreground": "#aaaaaa",
+	"background": "#762423",
+	"black": "#000000",
+	"blue": "#479bed",
+	"brightBlack": "#262626",
+	"brightBlue": "#65a9f0",
+	"brightCyan": "#b7dfdd",
+	"brightGreen": "#aff08b",
+	"brightPurple": "#ddb7df",
+	"brightRed": "#e02453",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#dfddb7",
+	"cyan": "#6bbeb8",
+	"green": "#71be6b",
+	"purple": "#e878d6",
+	"red": "#d52e4d",
+	"white": "#d6d6d6",
+	"yellow": "#beb86b"
+},

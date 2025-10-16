@@ -1,0 +1,58 @@
+# base24 Ultra Violet 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x242728'
+foreground = '0xc1c2c2'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x242728'
+cursor = '0xc1c2c2'
+
+# Normal colors
+[colors.normal]
+black = '0x232628'
+red = '0xff0090'
+green = '0xb5ff00'
+yellow = '0x7febff'
+blue = '0x47dffb'
+magenta = '0xd630ff'
+cyan = '0x0effbb'
+white = '0xe1e1e1'
+
+# Bright colors
+[colors.bright]
+black = '0x626566'
+red = '0xfb57b4'
+green = '0xdeff8b'
+yellow = '0xebdf86'
+blue = '0x7febff'
+magenta = '0xe681ff'
+cyan = '0x68fcd2'
+white = '0xf9f9f4'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xfff727"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x7f0048"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x232628"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x626566"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0xa1a3a3"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xe1e1e1"

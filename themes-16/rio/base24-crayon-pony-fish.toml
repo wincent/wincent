@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Crayon Pony Fish by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#3c2a2e' # base02
+selection-foreground = '#5d484e' # base05
+
+cursor         = '#5d484e' # base05
+tabs           = '#2a1a1c' # base01
+tabs-active    = '#3c2a2e' # base02
+
+background     = '#140607' # base00
+foreground     = '#5d484e' # base05
+black          = '#2a1a1c' # base01
+red            = '#90002a' # base08
+yellow         = '#cfc9ff' # base0A
+green          = '#579523' # base0B
+cyan           = '#e8a766' # base0C
+blue           = '#8b87af' # base0D
+magenta        = '#682e50' # base0E
+white          = '#685259' # base06
+
+dim-foreground   = '#5d484e' # base05
+dim-black        = '#2a1a1c' # base01
+dim-red          = '#90002a' # base08
+dim-yellow       = '#cfc9ff' # base0A
+dim-green        = '#579523' # base0B
+dim-cyan         = '#e8a766' # base0C
+dim-blue         = '#8b87af' # base0D
+dim-magenta      = '#682e50' # base0E
+dim-white        = '#523e43' # base04
+
+light-foreground = '#5d484e' # base05
+light-black      = '#3c2a2e' # base02
+light-red        = '#c5245c' # base12
+light-yellow     = '#c7371d' # base13
+light-green      = '#8dff56' # base14
+light-cyan       = '#ffceae' # base15
+light-blue       = '#cfc9ff' # base16
+light-magenta    = '#fb6cb9' # base17
+light-white      = '#af949d' # base07

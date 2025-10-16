@@ -1,0 +1,43 @@
+# base24 Bluloco Light
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#f7f7f7"
+foreground = "#38383a"
+
+cursor_bg = "#cbccd4"
+cursor_border = "#38383a"
+cursor_fg = "#000000"
+
+selection_bg = "#38383a"
+selection_fg = "#dddee8"
+
+ansi = [
+  "#f7f7f7",
+  "#c80d41",
+  "#208839",
+  "#1085d9",
+  "#1d44dd",
+  "#6d1bed",
+  "#1e4d7a",
+  "#000000"
+]
+brights = [
+  "#dddee8",
+  "#fb496d",
+  "#34b253",
+  "#b79326",
+  "#1085d9",
+  "#c00cb2",
+  "#5a7fac",
+  "#1c1d21"
+]
+
+[colors.indexed]
+16 = "#d44d16"
+17 = "#640620"
+18 = "#cbccd4"
+19 = "#dddee8"
+20 = "#6f6f74"
+21 = "#38383a"

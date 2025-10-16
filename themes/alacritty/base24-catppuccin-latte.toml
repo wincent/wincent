@@ -1,0 +1,58 @@
+# base24 Catppuccin Latte 256 - alacritty color config
+# https://github.com/catppuccin/catppuccin
+
+# Default colors
+[colors.primary]
+background = '0xeff1f5'
+foreground = '0x4c4f69'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0xeff1f5'
+cursor = '0x4c4f69'
+
+# Normal colors
+[colors.normal]
+black = '0xe6e9ef'
+red = '0xd20f39'
+green = '0x40a02b'
+yellow = '0xdf8e1d'
+blue = '0x1e66f5'
+magenta = '0x8839ef'
+cyan = '0x179299'
+white = '0xdc8a78'
+
+# Bright colors
+[colors.bright]
+black = '0xccd0da'
+red = '0xe64553'
+green = '0x40a02b'
+yellow = '0xdc8a78'
+blue = '0x209fb5'
+magenta = '0xea76cb'
+cyan = '0x04a5e5'
+white = '0x7287fd'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xfe640b"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xdd7878"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0xe6e9ef"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0xccd0da"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0xacb0be"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xdc8a78"

@@ -1,0 +1,43 @@
+# base24 Zenburn
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#3f3f3f"
+foreground = "#c1c9b9"
+
+cursor_bg = "#4d4d4d"
+cursor_border = "#c1c9b9"
+cursor_fg = "#dcdccc"
+
+selection_bg = "#c1c9b9"
+selection_fg = "#709080"
+
+ansi = [
+  "#3f3f3f",
+  "#705050",
+  "#60b48a",
+  "#94bff3",
+  "#506070",
+  "#dc8cc3",
+  "#8cd0d3",
+  "#dcdccc"
+]
+brights = [
+  "#709080",
+  "#dca3a3",
+  "#c3bf9f",
+  "#e0cf9f",
+  "#94bff3",
+  "#ec93d3",
+  "#93e0e3",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#f0dfaf"
+17 = "#382828"
+18 = "#4d4d4d"
+19 = "#709080"
+20 = "#a6b6a6"
+21 = "#c1c9b9"

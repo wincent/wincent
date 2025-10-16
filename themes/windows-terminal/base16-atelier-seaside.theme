@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Atelier Seaside",
+	"foreground": "#8ca68c",
+	"background": "#131513",
+	"black": "#242924",
+	"blue": "#3d62f5",
+	"brightBlack": "#5e6e5e",
+	"brightBlue": "#3d62f5",
+	"brightCyan": "#1999b3",
+	"brightGreen": "#29a329",
+	"brightPurple": "#ad2bee",
+	"brightRed": "#e6193c",
+	"brightWhite": "#f4fbf4",
+	"brightYellow": "#98981b",
+	"cyan": "#1999b3",
+	"green": "#29a329",
+	"purple": "#ad2bee",
+	"red": "#e6193c",
+	"white": "#cfe8cf",
+	"yellow": "#87711d"
+},

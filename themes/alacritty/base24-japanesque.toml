@@ -1,0 +1,58 @@
+# base24 Japanesque 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x1d1d1d'
+foreground = '0xd0d2ce'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x1d1d1d'
+cursor = '0xd0d2ce'
+
+# Normal colors
+[colors.normal]
+black = '0x343835'
+red = '0xce3e60'
+green = '0x7bb75b'
+yellow = '0x135879'
+blue = '0x4c99d3'
+magenta = '0xa57fc4'
+cyan = '0x389aac'
+white = '0xf9faf6'
+
+# Bright colors
+[colors.bright]
+black = '0x585a58'
+red = '0xd18ea6'
+green = '0x767e2b'
+yellow = '0x77592e'
+blue = '0x135879'
+magenta = '0x5f4190'
+cyan = '0x76bbca'
+white = '0xb1b5ae'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xe8b32a"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x671f30"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x343835"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x585a58"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0xa8aaa7"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xf9faf6"

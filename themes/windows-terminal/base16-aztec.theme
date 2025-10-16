@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Aztec",
+	"foreground": "#ffda51",
+	"background": "#101600",
+	"black": "#1a1e01",
+	"blue": "#5b4a9f",
+	"brightBlack": "#242604",
+	"brightBlue": "#5b4a9f",
+	"brightCyan": "#3d94a5",
+	"brightGreen": "#63d932",
+	"brightPurple": "#883e9f",
+	"brightRed": "#ee2e00",
+	"brightWhite": "#ffeba0",
+	"brightYellow": "#eebb00",
+	"cyan": "#3d94a5",
+	"green": "#63d932",
+	"purple": "#883e9f",
+	"red": "#ee2e00",
+	"white": "#ffe178",
+	"yellow": "#ee8800"
+},

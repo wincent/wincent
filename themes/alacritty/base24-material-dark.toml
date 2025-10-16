@@ -1,0 +1,58 @@
+# base24 Material Dark 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x222221'
+foreground = '0xc3c3c3'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x222221'
+cursor = '0xc3c3c3'
+
+# Normal colors
+[colors.normal]
+black = '0x212121'
+red = '0xb7141e'
+green = '0x457b23'
+yellow = '0x53a4f3'
+blue = '0x134eb2'
+magenta = '0x550087'
+cyan = '0x0e707c'
+white = '0xeeeeee'
+
+# Bright colors
+[colors.bright]
+black = '0x424242'
+red = '0xe83a3f'
+green = '0x7aba39'
+yellow = '0xfee92e'
+blue = '0x53a4f3'
+magenta = '0xa94dbb'
+cyan = '0x26bad1'
+white = '0xd8d8d8'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xf5971d"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x5b0a0f"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x212121"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x424242"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x989898"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xeeeeee"

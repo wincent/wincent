@@ -1,0 +1,58 @@
+# base24 Later This Evening 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x212121'
+foreground = '0x3e3f3f'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x212121'
+cursor = '0x3e3f3f'
+
+# Normal colors
+[colors.normal]
+black = '0x2b2b2b'
+red = '0xd35a5f'
+green = '0xafba66'
+yellow = '0x6599d5'
+blue = '0xa0b9d5'
+magenta = '0xbf92d5'
+cyan = '0x91beb6'
+white = '0x3b3c3c'
+
+# Bright colors
+[colors.bright]
+black = '0x444747'
+red = '0xd3222e'
+green = '0xaabb39'
+yellow = '0xe4bd39'
+blue = '0x6599d5'
+magenta = '0xaa52d5'
+cyan = '0x5fbfad'
+white = '0xc0c2c2'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xe5d289"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x692d2f"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x2b2b2b"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x444747"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x404242"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0x3b3c3c"

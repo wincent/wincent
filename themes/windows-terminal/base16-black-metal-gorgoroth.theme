@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Black Metal (Gorgoroth)",
+	"foreground": "#c1c1c1",
+	"background": "#000000",
+	"black": "#121212",
+	"blue": "#888888",
+	"brightBlack": "#222222",
+	"brightBlue": "#888888",
+	"brightCyan": "#aaaaaa",
+	"brightGreen": "#9b8d7f",
+	"brightPurple": "#999999",
+	"brightRed": "#5f8787",
+	"brightWhite": "#c1c1c1",
+	"brightYellow": "#8c7f70",
+	"cyan": "#aaaaaa",
+	"green": "#9b8d7f",
+	"purple": "#999999",
+	"red": "#5f8787",
+	"white": "#999999",
+	"yellow": "#aaaaaa"
+},

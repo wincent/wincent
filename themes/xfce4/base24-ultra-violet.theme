@@ -1,0 +1,10 @@
+# Scheme name: Ultra Violet
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-ultra-violet
+ColorForeground=#c1c2c2
+ColorBackground=#242728
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#232628;#ff0090;#b5ff00;#7febff;#47dffb;#d630ff;#0effbb;#e1e1e1;#626566;#fb57b4;#deff8b;#ebdf86;#7febff;#e681ff;#68fcd2;#f9f9f4

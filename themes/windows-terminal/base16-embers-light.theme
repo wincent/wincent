@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Embers Light",
+	"foreground": "#323b43",
+	"background": "#d1d6db",
+	"black": "#aeb6be",
+	"blue": "#82576d",
+	"brightBlack": "#909aa3",
+	"brightBlue": "#82576d",
+	"brightCyan": "#826d57",
+	"brightGreen": "#6d8257",
+	"brightPurple": "#6d5782",
+	"brightRed": "#576d82",
+	"brightWhite": "#0f1316",
+	"brightYellow": "#57826d",
+	"cyan": "#826d57",
+	"green": "#6d8257",
+	"purple": "#6d5782",
+	"red": "#576d82",
+	"white": "#20262c",
+	"yellow": "#578282"
+},

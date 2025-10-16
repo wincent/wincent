@@ -1,0 +1,58 @@
+# base16 Gruvbox Material Dark, Hard 256 - alacritty color config
+# Mayush Kumar (https://github.com/MayushKumar), sainnhe (https://github.com/sainnhe/gruvbox-material-vscode)
+
+# Default colors
+[colors.primary]
+background = '0x202020'
+foreground = '0xddc7a1'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x202020'
+cursor = '0xddc7a1'
+
+# Normal colors
+[colors.normal]
+black = '0x2a2827'
+red = '0xea6962'
+green = '0xa9b665'
+yellow = '0xd8a657'
+blue = '0x7daea3'
+magenta = '0xd3869b'
+cyan = '0x89b482'
+white = '0xebdbb2'
+
+# Bright colors
+[colors.bright]
+black = '0x504945'
+red = '0xea6962'
+green = '0xa9b665'
+yellow = '0xd8a657'
+blue = '0x7daea3'
+magenta = '0xd3869b'
+cyan = '0x89b482'
+white = '0xfbf1c7'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xe78a4e"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xbd6f3e"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x2a2827"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x504945"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0xbdae93"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xebdbb2"

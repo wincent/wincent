@@ -1,0 +1,58 @@
+# base16 Colors 256 - alacritty color config
+# mrmrs (http://clrs.cc)
+
+# Default colors
+[colors.primary]
+background = '0x111111'
+foreground = '0xbbbbbb'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x111111'
+cursor = '0xbbbbbb'
+
+# Normal colors
+[colors.normal]
+black = '0x333333'
+red = '0xff4136'
+green = '0x2ecc40'
+yellow = '0xffdc00'
+blue = '0x0074d9'
+magenta = '0xb10dc9'
+cyan = '0x7fdbff'
+white = '0xdddddd'
+
+# Bright colors
+[colors.bright]
+black = '0x555555'
+red = '0xff4136'
+green = '0x2ecc40'
+yellow = '0xffdc00'
+blue = '0x0074d9'
+magenta = '0xb10dc9'
+cyan = '0x7fdbff'
+white = '0xffffff'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xff851b"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x85144b"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x333333"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x555555"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x999999"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xdddddd"

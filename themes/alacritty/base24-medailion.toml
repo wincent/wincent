@@ -1,0 +1,58 @@
+# base24 Medailion 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x1d1808'
+foreground = '0xaea578'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x1d1808'
+cursor = '0xaea578'
+
+# Normal colors
+[colors.normal]
+black = '0x000000'
+red = '0xb54c00'
+green = '0x7c8a16'
+yellow = '0xabb8ff'
+blue = '0x606baf'
+magenta = '0x8b5990'
+cyan = '0x906b25'
+white = '0xc9c199'
+
+# Bright colors
+[colors.bright]
+black = '0x5e5118'
+red = '0xff9148'
+green = '0xb1c93a'
+yellow = '0xffe449'
+blue = '0xabb8ff'
+magenta = '0xfe9fff'
+cyan = '0xffbb51'
+white = '0xfed597'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xd2bd25"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x5a2600"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x000000"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x5e5118"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x938958"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xc9c199"

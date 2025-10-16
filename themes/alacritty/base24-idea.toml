@@ -1,0 +1,58 @@
+# base24 Idea 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x202020'
+foreground = '0x515151'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x202020'
+cursor = '0x515151'
+
+# Normal colors
+[colors.normal]
+black = '0xacacac'
+red = '0xfb5255'
+green = '0x98b61b'
+yellow = '0x6c9bed'
+blue = '0x437ee6'
+magenta = '0x9d73b0'
+cyan = '0x248886'
+white = '0x171717'
+
+# Bright colors
+[colors.bright]
+black = '0xfffefe'
+red = '0xfc6f72'
+green = '0x98b61b'
+yellow = '0xffff0a'
+blue = '0x6c9bed'
+magenta = '0xfc7efe'
+cyan = '0x248886'
+white = '0x171717'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xccb343"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x7d292a"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0xacacac"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0xfffefe"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x8b8b8b"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0x171717"

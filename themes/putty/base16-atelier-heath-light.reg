@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Atelier Heath Light
+; Scheme system: base16
+; Scheme description: 
+; Scheme author: Bram de Haan (http://atelierbramdehaan.nl)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base16-atelier-heath-light]
+
+; Default Foreground
+; base05 #695d69
+"Colour0"="105,93,105"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #695d69
+"Colour1"="105,93,105"
+
+; Default Background
+; base00 #f7f3f7
+"Colour2"="247,243,247"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #f7f3f7
+"Colour3"="247,243,247"
+
+; Cursor Text -- equals to default background
+; base00 #f7f3f7
+"Colour4"="247,243,247"
+
+; Cursor Colour -- equals to default foreground
+; base05 #695d69
+"Colour5"="105,93,105"
+
+; ANSI Black
+; 30m
+; base01 #d8cad8
+"Colour6"="216,202,216"
+
+; ANSI Black Bright
+; 1;30m
+; base02 #ab9bab
+"Colour7"="171,155,171"
+
+; ANSI Red
+; 31m
+; base08 #ca402b
+"Colour8"="202,64,43"
+
+; ANSI Red Bright
+; 1;31m
+; base08 #ca402b
+"Colour9"="202,64,43"
+
+; ANSI Green
+; 32m
+; base0B #918b3b
+"Colour10"="145,139,59"
+
+; ANSI Green Bright
+; 1;32m
+; base0B #918b3b
+"Colour11"="145,139,59"
+
+; ANSI Yellow
+; 33m
+; base0A #bb8a35
+"Colour12"="187,138,53"
+
+; ANSI Yellow Bright
+; 1;33m
+; base0A #bb8a35
+"Colour13"="187,138,53"
+
+; ANSI Blue
+; 34m
+; base0D #516aec
+"Colour14"="81,106,236"
+
+; ANSI Blue Bright
+; 1;34m
+; base0D #516aec
+"Colour15"="81,106,236"
+
+; ANSI Magenta
+; 35m
+; base0E #7b59c0
+"Colour16"="123,89,192"
+
+; ANSI Magenta Bright
+; 1;35m
+; base0E #7b59c0
+"Colour17"="123,89,192"
+
+; ANSI Cyan
+; 36m
+; base0C #159393
+"Colour18"="21,147,147"
+
+; ANSI Cyan Bright
+; 1;36m
+; base0C #159393
+"Colour19"="21,147,147"
+
+; ANSI White
+; 37m
+; base06 #292329
+"Colour20"="41,35,41"
+
+; ANSI White Bright
+; 1;37m
+; base07 1b181b
+"Colour21"="27,24,27"

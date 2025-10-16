@@ -1,0 +1,58 @@
+# base24 Hurtado 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x000000'
+foreground = '0xa1a1a1'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x000000'
+cursor = '0xa1a1a1'
+
+# Normal colors
+[colors.normal]
+black = '0x575757'
+red = '0xff1b00'
+green = '0xa5df55'
+yellow = '0x89bdff'
+blue = '0x486387'
+magenta = '0xfc5ef0'
+cyan = '0x85e9fe'
+white = '0xcbcbcb'
+
+# Bright colors
+[colors.bright]
+black = '0x252525'
+red = '0xd41c00'
+green = '0xa5df55'
+yellow = '0xfbe749'
+blue = '0x89bdff'
+magenta = '0xbf00c0'
+cyan = '0x85e9fe'
+white = '0xdbdbdb'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xfbe74a"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x7f0d00"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x575757"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x252525"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x787878"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xcbcbcb"

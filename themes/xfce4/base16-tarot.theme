@@ -1,0 +1,10 @@
+# Scheme name: tarot
+# Scheme author: ed (https://codeberg.org/ed)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-tarot
+ColorForeground=#aa556f
+ColorBackground=#0e091d
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#2a153c;#c53253;#a68e5a;#ff6565;#6e6080;#a45782;#8c9785;#c4686d;#4b2054;#c53253;#a68e5a;#ff6565;#6e6080;#a45782;#8c9785;#dc8f7c

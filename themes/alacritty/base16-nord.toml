@@ -1,0 +1,58 @@
+# base16 Nord 256 - alacritty color config
+# arcticicestudio
+
+# Default colors
+[colors.primary]
+background = '0x2e3440'
+foreground = '0xe5e9f0'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x2e3440'
+cursor = '0xe5e9f0'
+
+# Normal colors
+[colors.normal]
+black = '0x3b4252'
+red = '0xbf616a'
+green = '0xa3be8c'
+yellow = '0xebcb8b'
+blue = '0x81a1c1'
+magenta = '0xb48ead'
+cyan = '0x88c0d0'
+white = '0xeceff4'
+
+# Bright colors
+[colors.bright]
+black = '0x434c5e'
+red = '0xbf616a'
+green = '0xa3be8c'
+yellow = '0xebcb8b'
+blue = '0x81a1c1'
+magenta = '0xb48ead'
+cyan = '0x88c0d0'
+white = '0x8fbcbb'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xd08770"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x5e81ac"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x3b4252"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x434c5e"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0xd8dee9"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xeceff4"

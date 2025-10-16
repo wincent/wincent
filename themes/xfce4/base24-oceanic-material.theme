@@ -1,0 +1,10 @@
+# Scheme name: Oceanic Material
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-oceanic-material
+ColorForeground=#989898
+ColorBackground=#1c262b
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#000000;#ee2a29;#3fa33f;#53a4f3;#1d80ef;#8800a0;#16aec9;#a4a4a4;#767676;#dc5b60;#70be71;#fef063;#53a4f3;#a94dbb;#42c6d9;#fffefe

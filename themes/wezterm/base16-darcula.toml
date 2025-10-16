@@ -1,0 +1,43 @@
+# base16 Darcula
+# Scheme author: jetbrains
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#2b2b2b"
+foreground = "#a9b7c6"
+
+cursor_bg = "#a9b7c6"
+cursor_border = "#a9b7c6"
+cursor_fg = "#2b2b2b"
+
+selection_bg = "#a9b7c6"
+selection_fg = "#323232"
+
+ansi = [
+  "#2b2b2b",
+  "#4eade5",
+  "#6a8759",
+  "#bbb529",
+  "#9876aa",
+  "#cc7832",
+  "#629755",
+  "#ffc66d"
+]
+brights = [
+  "#323232",
+  "#4eade5",
+  "#6a8759",
+  "#bbb529",
+  "#9876aa",
+  "#cc7832",
+  "#629755",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#689757"
+17 = "#808080"
+18 = "#323232"
+19 = "#323232"
+20 = "#a4a3a3"
+21 = "#a9b7c6"

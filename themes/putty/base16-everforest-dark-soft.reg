@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Everforest Dark Soft
+; Scheme system: base16
+; Scheme description: 
+; Scheme author: Sainnhe Park (https://github.com/sainnhe)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base16-everforest-dark-soft]
+
+; Default Foreground
+; base05 #d3c6aa
+"Colour0"="211,198,170"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #d3c6aa
+"Colour1"="211,198,170"
+
+; Default Background
+; base00 #333c43
+"Colour2"="51,60,67"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #333c43
+"Colour3"="51,60,67"
+
+; Cursor Text -- equals to default background
+; base00 #333c43
+"Colour4"="51,60,67"
+
+; Cursor Colour -- equals to default foreground
+; base05 #d3c6aa
+"Colour5"="211,198,170"
+
+; ANSI Black
+; 30m
+; base01 #3a464c
+"Colour6"="58,70,76"
+
+; ANSI Black Bright
+; 1;30m
+; base02 #4d5960
+"Colour7"="77,89,96"
+
+; ANSI Red
+; 31m
+; base08 #e67e80
+"Colour8"="230,126,128"
+
+; ANSI Red Bright
+; 1;31m
+; base08 #e67e80
+"Colour9"="230,126,128"
+
+; ANSI Green
+; 32m
+; base0B #a7c080
+"Colour10"="167,192,128"
+
+; ANSI Green Bright
+; 1;32m
+; base0B #a7c080
+"Colour11"="167,192,128"
+
+; ANSI Yellow
+; 33m
+; base0A #dbbc7f
+"Colour12"="219,188,127"
+
+; ANSI Yellow Bright
+; 1;33m
+; base0A #dbbc7f
+"Colour13"="219,188,127"
+
+; ANSI Blue
+; 34m
+; base0D #7fbbb3
+"Colour14"="127,187,179"
+
+; ANSI Blue Bright
+; 1;34m
+; base0D #7fbbb3
+"Colour15"="127,187,179"
+
+; ANSI Magenta
+; 35m
+; base0E #d699b6
+"Colour16"="214,153,182"
+
+; ANSI Magenta Bright
+; 1;35m
+; base0E #d699b6
+"Colour17"="214,153,182"
+
+; ANSI Cyan
+; 36m
+; base0C #83c092
+"Colour18"="131,192,146"
+
+; ANSI Cyan Bright
+; 1;36m
+; base0C #83c092
+"Colour19"="131,192,146"
+
+; ANSI White
+; 37m
+; base06 #ddd8be
+"Colour20"="221,216,190"
+
+; ANSI White Bright
+; 1;37m
+; base07 f3ead3
+"Colour21"="243,234,211"

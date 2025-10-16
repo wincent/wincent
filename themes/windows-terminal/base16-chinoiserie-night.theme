@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Chinoiserie Night",
+	"foreground": "#c4cbcf",
+	"background": "#1d1d1d",
+	"black": "#282828",
+	"blue": "#8fb2c9",
+	"brightBlack": "#373737",
+	"brightBlue": "#8fb2c9",
+	"brightCyan": "#b0d5df",
+	"brightGreen": "#b2cf87",
+	"brightPurple": "#be9db9",
+	"brightRed": "#f07c82",
+	"brightWhite": "#fffef9",
+	"brightYellow": "#f4ce69",
+	"cyan": "#b0d5df",
+	"green": "#b2cf87",
+	"purple": "#be9db9",
+	"red": "#f07c82",
+	"white": "#eee7f2",
+	"yellow": "#f4a83a"
+},

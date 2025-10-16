@@ -1,0 +1,10 @@
+# Scheme name: Materia
+# Scheme author: Defman21
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-materia
+ColorForeground=#cdd3de
+ColorBackground=#263238
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#2c393f;#ec5f67;#8bd649;#ffcc00;#89ddff;#82aaff;#80cbc4;#d5dbe5;#37474f;#ec5f67;#8bd649;#ffcc00;#89ddff;#82aaff;#80cbc4;#ffffff

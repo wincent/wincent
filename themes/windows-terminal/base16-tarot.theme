@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "tarot",
+	"foreground": "#aa556f",
+	"background": "#0e091d",
+	"black": "#2a153c",
+	"blue": "#6e6080",
+	"brightBlack": "#4b2054",
+	"brightBlue": "#6e6080",
+	"brightCyan": "#8c9785",
+	"brightGreen": "#a68e5a",
+	"brightPurple": "#a45782",
+	"brightRed": "#c53253",
+	"brightWhite": "#dc8f7c",
+	"brightYellow": "#ff6565",
+	"cyan": "#8c9785",
+	"green": "#a68e5a",
+	"purple": "#a45782",
+	"red": "#c53253",
+	"white": "#c4686d",
+	"yellow": "#ea4d60"
+},

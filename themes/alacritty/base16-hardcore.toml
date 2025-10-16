@@ -1,0 +1,58 @@
+# base16 Hardcore 256 - alacritty color config
+# Chris Caller
+
+# Default colors
+[colors.primary]
+background = '0x212121'
+foreground = '0xcdcdcd'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x212121'
+cursor = '0xcdcdcd'
+
+# Normal colors
+[colors.normal]
+black = '0x303030'
+red = '0xf92672'
+green = '0xa6e22e'
+yellow = '0xe6db74'
+blue = '0x66d9ef'
+magenta = '0x9e6ffe'
+cyan = '0x708387'
+white = '0xe5e5e5'
+
+# Bright colors
+[colors.bright]
+black = '0x353535'
+red = '0xf92672'
+green = '0xa6e22e'
+yellow = '0xe6db74'
+blue = '0x66d9ef'
+magenta = '0x9e6ffe'
+cyan = '0x708387'
+white = '0xffffff'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xfd971f"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xe8b882"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x303030"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x353535"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x707070"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xe5e5e5"

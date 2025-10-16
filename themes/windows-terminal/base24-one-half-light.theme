@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "One Half Light",
+	"foreground": "#cfd0d2",
+	"background": "#fafafa",
+	"black": "#373942",
+	"blue": "#0084bc",
+	"brightBlack": "#4f525d",
+	"brightBlue": "#61afef",
+	"brightCyan": "#56b5c1",
+	"brightGreen": "#98c379",
+	"brightPurple": "#c577dd",
+	"brightRed": "#df6c75",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#e4c07a",
+	"cyan": "#0996b3",
+	"green": "#4fa14f",
+	"purple": "#a625a4",
+	"red": "#e45649",
+	"white": "#fafafa",
+	"yellow": "#c08400"
+},

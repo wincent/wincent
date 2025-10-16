@@ -1,0 +1,43 @@
+# vim: ft=ghostty
+# Mission Brogue theme for Ghostty
+# Scheme Author: Thomas Leon Highbaugh
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# Color palette
+palette = 0=#283139
+palette = 1=#efa9a9
+palette = 2=#8cd4b0
+palette = 3=#e0b88a
+palette = 4=#a2c5fd
+palette = 5=#ccb7db
+palette = 6=#93dfec
+palette = 7=#abb9c4
+palette = 8=#4d606f
+palette = 9=#f6bfbf
+palette = 10=#b5e090
+palette = 11=#fff0b2
+palette = 12=#c3d9fd
+palette = 13=#e3c3e6
+palette = 14=#b2f0fd
+palette = 15=#e7ebee
+palette = 16=#f2db78
+palette = 17=#8e9ecb
+palette = 18=#3b4954
+palette = 19=#4d606f
+palette = 20=#788ea1
+palette = 21=#abb9c4
+
+# Foreground & background colors
+background = #283139
+foreground = #93a5b4
+cursor-color = #93a5b4
+selection-background = #4d606f
+selection-foreground = #93a5b4
+
+# Set `macos-icon = custom-style` in your main configuration file to enable theming of the app icon.
+#
+# Set the ghost color to the lightest foreground:
+macos-icon-ghost-color = #e7ebee
+# Replace the official icon's blue background with the designated bright blue color:
+macos-icon-screen-color = #c3d9fd

@@ -1,0 +1,10 @@
+# Scheme name: Vesper
+# Scheme author: FormalSnake (https://github.com/formalsnake)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-vesper
+ColorForeground=#b7b7b7
+ColorBackground=#101010
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#232323;#de6e6e;#5f8787;#ffc799;#8eaaaa;#d69094;#60a592;#c1c1c1;#222222;#de6e6e;#5f8787;#ffc799;#8eaaaa;#d69094;#60a592;#d5d5d5

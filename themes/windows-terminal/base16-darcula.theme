@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Darcula",
+	"foreground": "#a9b7c6",
+	"background": "#2b2b2b",
+	"black": "#323232",
+	"blue": "#9876aa",
+	"brightBlack": "#323232",
+	"brightBlue": "#9876aa",
+	"brightCyan": "#629755",
+	"brightGreen": "#6a8759",
+	"brightPurple": "#cc7832",
+	"brightRed": "#4eade5",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#bbb529",
+	"cyan": "#629755",
+	"green": "#6a8759",
+	"purple": "#cc7832",
+	"red": "#4eade5",
+	"white": "#ffc66d",
+	"yellow": "#689757"
+},

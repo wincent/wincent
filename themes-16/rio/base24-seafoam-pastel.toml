@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Seafoam Pastel by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#8a8a8a' # base02
+selection-foreground = '#cacaca' # base05
+
+cursor         = '#cacaca' # base05
+tabs           = '#757575' # base01
+tabs-active    = '#8a8a8a' # base02
+
+background     = '#243434' # base00
+foreground     = '#cacaca' # base05
+black          = '#757575' # base01
+red            = '#825d4d' # base08
+yellow         = '#79c3cf' # base0A
+green          = '#718c61' # base0B
+cyan           = '#719393' # base0C
+blue           = '#4d7b82' # base0D
+magenta        = '#8a7167' # base0E
+white          = '#e0e0e0' # base06
+
+dim-foreground   = '#cacaca' # base05
+dim-black        = '#757575' # base01
+dim-red          = '#825d4d' # base08
+dim-yellow       = '#79c3cf' # base0A
+dim-green        = '#718c61' # base0B
+dim-cyan         = '#719393' # base0C
+dim-blue         = '#4d7b82' # base0D
+dim-magenta      = '#8a7167' # base0E
+dim-white        = '#b5b5b5' # base04
+
+light-foreground = '#cacaca' # base05
+light-black      = '#8a8a8a' # base02
+light-red        = '#cf9379' # base12
+light-yellow     = '#fae79d' # base13
+light-green      = '#98d9aa' # base14
+light-cyan       = '#ade0e0' # base15
+light-blue       = '#79c3cf' # base16
+light-magenta    = '#d6b2a1' # base17
+light-white      = '#e0e0e0' # base07

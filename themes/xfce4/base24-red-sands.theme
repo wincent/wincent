@@ -1,0 +1,10 @@
+# Scheme name: Red Sands
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-red-sands
+ColorForeground=#a1a1a1
+ColorBackground=#79241e
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#000000;#ff3f00;#00bb00;#0071ae;#0071ff;#bb00bb;#00bbbb;#bbbbbb;#555555;#bb0000;#00bb00;#e7b000;#0071ae;#ff55ff;#55ffff;#ffffff

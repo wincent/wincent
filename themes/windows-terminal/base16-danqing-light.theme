@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "DanQing Light",
+	"foreground": "#5a605d",
+	"background": "#fcfefd",
+	"black": "#ecf6f2",
+	"blue": "#b0a4e3",
+	"brightBlack": "#e0f0ef",
+	"brightBlue": "#b0a4e3",
+	"brightCyan": "#30dff3",
+	"brightGreen": "#8ab361",
+	"brightPurple": "#cca4e3",
+	"brightRed": "#f9906f",
+	"brightWhite": "#2d302f",
+	"brightYellow": "#f0c239",
+	"cyan": "#30dff3",
+	"green": "#8ab361",
+	"purple": "#cca4e3",
+	"red": "#f9906f",
+	"white": "#434846",
+	"yellow": "#b38a61"
+},

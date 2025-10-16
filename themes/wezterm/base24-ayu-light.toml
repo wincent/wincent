@@ -1,0 +1,43 @@
+# base24 Ayu Light
+# Scheme author: Tinted Theming (https://github.com/tinted-theming), Ayu Theme (https://github.com/ayu-theme)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#f8f9fa"
+foreground = "#5c6166"
+
+cursor_bg = "#edeff1"
+cursor_border = "#5c6166"
+cursor_fg = "#4e5257"
+
+selection_bg = "#5c6166"
+selection_fg = "#d2d4d8"
+
+ansi = [
+  "#f8f9fa",
+  "#f07171",
+  "#6cbf49",
+  "#f2ae49",
+  "#399ee6",
+  "#a37acc",
+  "#4cbf99",
+  "#4e5257"
+]
+brights = [
+  "#d2d4d8",
+  "#ff7383",
+  "#86b300",
+  "#ffaa33",
+  "#478acc",
+  "#b595d6",
+  "#55b4d4",
+  "#404447"
+]
+
+[colors.indexed]
+16 = "#fa8d3e"
+17 = "#e6ba7e"
+18 = "#edeff1"
+19 = "#d2d4d8"
+20 = "#8a9199"
+21 = "#5c6166"

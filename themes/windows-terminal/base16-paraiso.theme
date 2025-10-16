@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Paraiso",
+	"foreground": "#a39e9b",
+	"background": "#2f1e2e",
+	"black": "#41323f",
+	"blue": "#06b6ef",
+	"brightBlack": "#4f424c",
+	"brightBlue": "#06b6ef",
+	"brightCyan": "#5bc4bf",
+	"brightGreen": "#48b685",
+	"brightPurple": "#815ba4",
+	"brightRed": "#ef6155",
+	"brightWhite": "#e7e9db",
+	"brightYellow": "#fec418",
+	"cyan": "#5bc4bf",
+	"green": "#48b685",
+	"purple": "#815ba4",
+	"red": "#ef6155",
+	"white": "#b9b6b0",
+	"yellow": "#f99b15"
+},

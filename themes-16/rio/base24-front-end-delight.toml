@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Front End Delight by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#5eac6c' # base02
+selection-foreground = '#98ac9c' # base05
+
+cursor         = '#98ac9c' # base05
+tabs           = '#242426' # base01
+tabs-active    = '#5eac6c' # base02
+
+background     = '#1b1b1d' # base00
+foreground     = '#98ac9c' # base05
+black          = '#242426' # base01
+red            = '#f8501a' # base08
+yellow         = '#3393c9' # base0A
+green          = '#565746' # base0B
+cyan           = '#3ba0a5' # base0C
+blue           = '#2c70b7' # base0D
+magenta        = '#f02d4e' # base0E
+white          = '#acacac' # base06
+
+dim-foreground   = '#98ac9c' # base05
+dim-black        = '#242426' # base01
+dim-red          = '#f8501a' # base08
+dim-yellow       = '#3393c9' # base0A
+dim-green        = '#565746' # base0B
+dim-cyan         = '#3ba0a5' # base0C
+dim-blue         = '#2c70b7' # base0D
+dim-magenta      = '#f02d4e' # base0E
+dim-white        = '#85ac8c' # base04
+
+light-foreground = '#98ac9c' # base05
+light-black      = '#5eac6c' # base02
+light-red        = '#f64319' # base12
+light-yellow     = '#fcc224' # base13
+light-green      = '#74eb4c' # base14
+light-cyan       = '#4ebce5' # base15
+light-blue       = '#3393c9' # base16
+light-magenta    = '#e75e4e' # base17
+light-white      = '#8b735a' # base07

@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Everforest Dark Hard",
+	"foreground": "#d3c6aa",
+	"background": "#272e33",
+	"black": "#2e383c",
+	"blue": "#7fbbb3",
+	"brightBlack": "#414b50",
+	"brightBlue": "#7fbbb3",
+	"brightCyan": "#83c092",
+	"brightGreen": "#a7c080",
+	"brightPurple": "#d699b6",
+	"brightRed": "#e67e80",
+	"brightWhite": "#fffbef",
+	"brightYellow": "#dbbc7f",
+	"cyan": "#83c092",
+	"green": "#a7c080",
+	"purple": "#d699b6",
+	"red": "#e67e80",
+	"white": "#edeada",
+	"yellow": "#e69875"
+},

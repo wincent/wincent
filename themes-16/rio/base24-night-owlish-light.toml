@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Night Owlish Light by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#7a8181' # base02
+selection-foreground = '#7a8181' # base05
+
+cursor         = '#7a8181' # base05
+tabs           = '#011627' # base01
+tabs-active    = '#7a8181' # base02
+
+background     = '#ffffff' # base00
+foreground     = '#7a8181' # base05
+black          = '#011627' # base01
+red            = '#d3423e' # base08
+yellow         = '#5ca7e4' # base0A
+green          = '#2aa298' # base0B
+cyan           = '#08916a' # base0C
+blue           = '#4876d6' # base0D
+magenta        = '#403f53' # base0E
+white          = '#7a8181' # base06
+
+dim-foreground   = '#7a8181' # base05
+dim-black        = '#011627' # base01
+dim-red          = '#d3423e' # base08
+dim-yellow       = '#5ca7e4' # base0A
+dim-green        = '#2aa298' # base0B
+dim-cyan         = '#08916a' # base0C
+dim-blue         = '#4876d6' # base0D
+dim-magenta      = '#403f53' # base0E
+dim-white        = '#7a8181' # base04
+
+light-foreground = '#7a8181' # base05
+light-black      = '#7a8181' # base02
+light-red        = '#f76e6e' # base12
+light-yellow     = '#dac26b' # base13
+light-green      = '#49d0c5' # base14
+light-cyan       = '#00c990' # base15
+light-blue       = '#5ca7e4' # base16
+light-magenta    = '#697098' # base17
+light-white      = '#989fb1' # base07

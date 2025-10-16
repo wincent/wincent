@@ -1,0 +1,58 @@
+# base16 Aztec 256 - alacritty color config
+# TheNeverMan (github.com/TheNeverMan)
+
+# Default colors
+[colors.primary]
+background = '0x101600'
+foreground = '0xffda51'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x101600'
+cursor = '0xffda51'
+
+# Normal colors
+[colors.normal]
+black = '0x1a1e01'
+red = '0xee2e00'
+green = '0x63d932'
+yellow = '0xeebb00'
+blue = '0x5b4a9f'
+magenta = '0x883e9f'
+cyan = '0x3d94a5'
+white = '0xffe178'
+
+# Bright colors
+[colors.bright]
+black = '0x242604'
+red = '0xee2e00'
+green = '0x63d932'
+yellow = '0xeebb00'
+blue = '0x5b4a9f'
+magenta = '0x883e9f'
+cyan = '0x3d94a5'
+white = '0xffeba0'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xee8800"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xa928b9"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x1a1e01"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x242604"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0xffd129"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xffe178"

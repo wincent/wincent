@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Icy Dark",
+	"foreground": "#095b67",
+	"background": "#021012",
+	"black": "#031619",
+	"blue": "#00bcd4",
+	"brightBlack": "#041f23",
+	"brightBlue": "#00bcd4",
+	"brightCyan": "#26c6da",
+	"brightGreen": "#4dd0e1",
+	"brightPurple": "#00acc1",
+	"brightRed": "#16c1d9",
+	"brightWhite": "#109cb0",
+	"brightYellow": "#80deea",
+	"cyan": "#26c6da",
+	"green": "#4dd0e1",
+	"purple": "#00acc1",
+	"red": "#16c1d9",
+	"white": "#0c7c8c",
+	"yellow": "#b3ebf2"
+},

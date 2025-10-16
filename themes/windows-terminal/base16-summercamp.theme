@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "summercamp",
+	"foreground": "#736e55",
+	"background": "#1c1810",
+	"black": "#2a261c",
+	"blue": "#489bf0",
+	"brightBlack": "#3a3527",
+	"brightBlue": "#489bf0",
+	"brightCyan": "#5aebbc",
+	"brightGreen": "#5ceb5a",
+	"brightPurple": "#ff8080",
+	"brightRed": "#e35142",
+	"brightWhite": "#f8f5de",
+	"brightYellow": "#f2ff27",
+	"cyan": "#5aebbc",
+	"green": "#5ceb5a",
+	"purple": "#ff8080",
+	"red": "#e35142",
+	"white": "#bab696",
+	"yellow": "#fba11b"
+},

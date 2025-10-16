@@ -1,0 +1,43 @@
+# base16 Atelier Forest Light
+# Scheme author: Bram de Haan (http://atelierbramdehaan.nl)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#f1efee"
+foreground = "#68615e"
+
+cursor_bg = "#68615e"
+cursor_border = "#68615e"
+cursor_fg = "#f1efee"
+
+selection_bg = "#68615e"
+selection_fg = "#a8a19f"
+
+ansi = [
+  "#f1efee",
+  "#f22c40",
+  "#7b9726",
+  "#c38418",
+  "#407ee7",
+  "#6666ea",
+  "#3d97b8",
+  "#2c2421"
+]
+brights = [
+  "#a8a19f",
+  "#f22c40",
+  "#7b9726",
+  "#c38418",
+  "#407ee7",
+  "#6666ea",
+  "#3d97b8",
+  "#1b1918"
+]
+
+[colors.indexed]
+16 = "#df5320"
+17 = "#c33ff3"
+18 = "#e6e2e0"
+19 = "#a8a19f"
+20 = "#766e6b"
+21 = "#68615e"

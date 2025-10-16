@@ -1,0 +1,10 @@
+# Scheme name: Linux VT
+# Scheme author: j-c-m (https://github.com/j-c-m/)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-linux-vt
+ColorForeground=#aaaaaa
+ColorBackground=#000000
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#333333;#aa0000;#00aa00;#ffff55;#5555ff;#ff55ff;#00aaaa;#cccccc;#444444;#aa0000;#00aa00;#ffff55;#5555ff;#ff55ff;#00aaaa;#ffffff

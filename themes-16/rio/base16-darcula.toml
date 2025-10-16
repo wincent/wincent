@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Darcula by jetbrains
+
+[colors]
+selection-background = '#323232' # base02
+selection-foreground = '#a9b7c6' # base05
+
+cursor         = '#a9b7c6' # base05
+tabs           = '#323232' # base01
+tabs-active    = '#323232' # base02
+
+background     = '#2b2b2b' # base00
+foreground     = '#a9b7c6' # base05
+black          = '#323232' # base01
+red            = '#4eade5' # base08
+yellow         = '#bbb529' # base0A
+green          = '#6a8759' # base0B
+cyan           = '#629755' # base0C
+blue           = '#9876aa' # base0D
+magenta        = '#cc7832' # base0E
+white          = '#ffc66d' # base06
+
+dim-foreground   = '#a9b7c6' # base05
+dim-black        = '#323232' # base01
+dim-red          = '#4eade5' # base08
+dim-yellow       = '#bbb529' # base0A
+dim-green        = '#6a8759' # base0B
+dim-cyan         = '#629755' # base0C
+dim-blue         = '#9876aa' # base0D
+dim-magenta      = '#cc7832' # base0E
+dim-white        = '#a4a3a3' # base04
+
+light-foreground = '#a9b7c6' # base05
+light-black      = '#323232' # base02
+light-red        = '#4eade5' # base08
+light-yellow     = '#bbb529' # base0A
+light-green      = '#6a8759' # base0B
+light-cyan       = '#629755' # base0C
+light-blue       = '#9876aa' # base0D
+light-magenta    = '#cc7832' # base0E
+light-white      = '#ffffff' # base07

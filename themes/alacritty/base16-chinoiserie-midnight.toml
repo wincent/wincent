@@ -1,0 +1,58 @@
+# base16 Chinoiserie Midnight 256 - alacritty color config
+# Di Wang (https://cs.cmu.edu/~diw3)
+
+# Default colors
+[colors.primary]
+background = '0x1d1d1d'
+foreground = '0xc4cbcf'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x1d1d1d'
+cursor = '0xc4cbcf'
+
+# Normal colors
+[colors.normal]
+black = '0x282828'
+red = '0xed5a56'
+green = '0xaeb831'
+yellow = '0xfbb957'
+blue = '0x81a2a2'
+magenta = '0xcf8997'
+cyan = '0x88b68d'
+white = '0xeee7f2'
+
+# Bright colors
+[colors.bright]
+black = '0x373737'
+red = '0xed5a56'
+green = '0xaeb831'
+yellow = '0xfbb957'
+blue = '0x81a2a2'
+magenta = '0xcf8997'
+cyan = '0x88b68d'
+white = '0xfffef9'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xfc8c23"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xcd6227"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x282828"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x373737"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0xbdaead"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xeee7f2"

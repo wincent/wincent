@@ -1,0 +1,43 @@
+# vim: ft=ghostty
+# Chicago Day theme for Ghostty
+# Scheme Author: Wendell, Ryan &lt;ryanjwendell@gmail.com&gt;
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# Color palette
+palette = 0=#e8f0ea
+palette = 1=#c60c30
+palette = 2=#009b3a
+palette = 3=#968400
+palette = 4=#522398
+palette = 5=#e27ea6
+palette = 6=#00a1de
+palette = 7=#364c40
+palette = 8=#b9d0c3
+palette = 9=#c60c30
+palette = 10=#009b3a
+palette = 11=#968400
+palette = 12=#522398
+palette = 13=#e27ea6
+palette = 14=#00a1de
+palette = 15=#1e2a24
+palette = 16=#f9461c
+palette = 17=#62361b
+palette = 18=#d1e0d7
+palette = 19=#b9d0c3
+palette = 20=#4b5a51
+palette = 21=#2a3b32
+
+# Foreground & background colors
+background = #e8f0ea
+foreground = #364c40
+cursor-color = #364c40
+selection-background = #b9d0c3
+selection-foreground = #364c40
+
+# Set `macos-icon = custom-style` in your main configuration file to enable theming of the app icon.
+#
+# Set the ghost color to the lightest foreground:
+macos-icon-ghost-color = #1e2a24
+# Replace the official icon's blue background with the designated bright blue color:
+macos-icon-screen-color = #522398

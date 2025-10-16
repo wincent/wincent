@@ -1,0 +1,95 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Thayler Bright
+; Scheme system: base24
+; Scheme author: FredHappyface (https://github.com/fredHappyface)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base24-thayler-bright]
+
+; Default Foreground
+; base05 #adada9
+"Colour0"="173,173,169"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #adada9
+"Colour1"="173,173,169"
+
+; Default Background
+; base00 #1b1d1e
+"Colour2"="27,29,30"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #1b1d1e
+"Colour3"="27,29,30"
+
+; Cursor Text -- equals to default background
+; base00 #1b1d1e
+"Colour4"="27,29,30"
+
+; Cursor Colour -- equals to default foreground
+; base05 #adada9
+"Colour5"="173,173,169"
+
+; ANSI Black
+; base01 #1b1d1e
+"Colour6"="27,29,30"
+
+; ANSI Black Bright
+; base02 #505354
+"Colour7"="80,83,84"
+
+; ANSI Red
+; base08 #f92672
+"Colour8"="249,38,114"
+
+; ANSI Red Bright
+; base12 #ff5995
+"Colour9"="255,89,149"
+
+; ANSI Green
+; base0B #4df740
+"Colour10"="77,247,64"
+
+; ANSI Green Bright
+; base14 #b6e354
+"Colour11"="182,227,84"
+
+; ANSI Yellow
+; base0A #3f78ff
+"Colour12"="63,120,255"
+
+; ANSI Yellow Bright
+; base13 #feed6c
+"Colour13"="254,237,108"
+
+; ANSI Blue
+; base0D #2656d6
+"Colour14"="38,86,214"
+
+; ANSI Blue Bright
+; base16 #3f78ff
+"Colour15"="63,120,255"
+
+; ANSI Magenta
+; base0E #8c54fe
+"Colour16"="140,84,254"
+
+; ANSI Magenta Bright
+; base17 #9e6ffe
+"Colour17"="158,111,254"
+
+; ANSI Cyan
+; base0C #37c8b4
+"Colour18"="55,200,180"
+
+; ANSI Cyan Bright
+; base15 #23ced4
+"Colour19"="35,206,212"
+
+; ANSI White
+; base06 #ccccc6
+"Colour20"="204,204,198"
+
+; ANSI White Bright
+; base07 f8f8f2
+"Colour21"="248,248,242"

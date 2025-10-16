@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Spiderman",
+	"foreground": "#d3d3cd",
+	"background": "#1b1d1e",
+	"black": "#1b1d1e",
+	"blue": "#2b3fff",
+	"brightBlack": "#505354",
+	"brightBlue": "#1d4fff",
+	"brightCyan": "#6083ff",
+	"brightGreen": "#ff3238",
+	"brightPurple": "#737bff",
+	"brightRed": "#ff0325",
+	"brightWhite": "#fefff9",
+	"brightYellow": "#fe3935",
+	"cyan": "#3255ff",
+	"green": "#e22828",
+	"purple": "#2435db",
+	"red": "#e60712",
+	"white": "#fffef6",
+	"yellow": "#e24655"
+},

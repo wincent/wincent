@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Mountain",
+	"foreground": "#cacaca",
+	"background": "#0f0f0f",
+	"black": "#191919",
+	"blue": "#8f8aac",
+	"brightBlack": "#262626",
+	"brightBlue": "#8f8aac",
+	"brightCyan": "#8aabac",
+	"brightGreen": "#8aac8b",
+	"brightPurple": "#ac8aac",
+	"brightRed": "#ac8a8c",
+	"brightWhite": "#f0f0f0",
+	"brightYellow": "#aca98a",
+	"cyan": "#8aabac",
+	"green": "#8aac8b",
+	"purple": "#ac8aac",
+	"red": "#ac8a8c",
+	"white": "#e7e7e7",
+	"yellow": "#ceb188"
+},

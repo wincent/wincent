@@ -1,0 +1,43 @@
+# base16 Atelier Forest
+# Scheme author: Bram de Haan (http://atelierbramdehaan.nl)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#1b1918"
+foreground = "#a8a19f"
+
+cursor_bg = "#a8a19f"
+cursor_border = "#a8a19f"
+cursor_fg = "#1b1918"
+
+selection_bg = "#a8a19f"
+selection_fg = "#68615e"
+
+ansi = [
+  "#1b1918",
+  "#f22c40",
+  "#7b9726",
+  "#c38418",
+  "#407ee7",
+  "#6666ea",
+  "#3d97b8",
+  "#e6e2e0"
+]
+brights = [
+  "#68615e",
+  "#f22c40",
+  "#7b9726",
+  "#c38418",
+  "#407ee7",
+  "#6666ea",
+  "#3d97b8",
+  "#f1efee"
+]
+
+[colors.indexed]
+16 = "#df5320"
+17 = "#c33ff3"
+18 = "#2c2421"
+19 = "#68615e"
+20 = "#9c9491"
+21 = "#a8a19f"

@@ -1,0 +1,10 @@
+# Scheme name: Qualia
+# Scheme author: isaacwhanson
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-qualia
+ColorForeground=#c0c0c0
+ColorBackground=#101010
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#454545;#efa6a2;#80c990;#e6a3dc;#50cacd;#e0af85;#c8c874;#c0c0c0;#454545;#efa6a2;#80c990;#e6a3dc;#50cacd;#e0af85;#c8c874;#454545

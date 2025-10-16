@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Woodland by Jay Cornwall (https://jcornwall.com)
+
+[colors]
+selection-background = '#48413a' # base02
+selection-foreground = '#cabcb1' # base05
+
+cursor         = '#cabcb1' # base05
+tabs           = '#302b25' # base01
+tabs-active    = '#48413a' # base02
+
+background     = '#231e18' # base00
+foreground     = '#cabcb1' # base05
+black          = '#302b25' # base01
+red            = '#d35c5c' # base08
+yellow         = '#e0ac16' # base0A
+green          = '#b7ba53' # base0B
+cyan           = '#6eb958' # base0C
+blue           = '#88a4d3' # base0D
+magenta        = '#bb90e2' # base0E
+white          = '#d7c8bc' # base06
+
+dim-foreground   = '#cabcb1' # base05
+dim-black        = '#302b25' # base01
+dim-red          = '#d35c5c' # base08
+dim-yellow       = '#e0ac16' # base0A
+dim-green        = '#b7ba53' # base0B
+dim-cyan         = '#6eb958' # base0C
+dim-blue         = '#88a4d3' # base0D
+dim-magenta      = '#bb90e2' # base0E
+dim-white        = '#b4a490' # base04
+
+light-foreground = '#cabcb1' # base05
+light-black      = '#48413a' # base02
+light-red        = '#d35c5c' # base08
+light-yellow     = '#e0ac16' # base0A
+light-green      = '#b7ba53' # base0B
+light-cyan       = '#6eb958' # base0C
+light-blue       = '#88a4d3' # base0D
+light-magenta    = '#bb90e2' # base0E
+light-white      = '#e4d4c8' # base07

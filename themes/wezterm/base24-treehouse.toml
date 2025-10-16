@@ -1,0 +1,43 @@
+# base24 Treehouse
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#191919"
+foreground = "#695d47"
+
+cursor_bg = "#321200"
+cursor_border = "#695d47"
+cursor_fg = "#776b53"
+
+selection_bg = "#695d47"
+selection_fg = "#423625"
+
+ansi = [
+  "#191919",
+  "#b1270e",
+  "#44a900",
+  "#85cfec",
+  "#578499",
+  "#96363c",
+  "#b2591d",
+  "#776b53"
+]
+brights = [
+  "#423625",
+  "#ed5c20",
+  "#55f237",
+  "#f1b731",
+  "#85cfec",
+  "#e04b5a",
+  "#f07d14",
+  "#ffc800"
+]
+
+[colors.indexed]
+16 = "#a9810b"
+17 = "#581307"
+18 = "#321200"
+19 = "#423625"
+20 = "#5c503c"
+21 = "#695d47"

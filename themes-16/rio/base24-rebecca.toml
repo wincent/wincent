@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Rebecca by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#666699' # base02
+selection-foreground = '#c3c3d4' # base05
+
+cursor         = '#c3c3d4' # base05
+tabs           = '#12131d' # base01
+tabs-active    = '#666699' # base02
+
+background     = '#292a44' # base00
+foreground     = '#c3c3d4' # base05
+black          = '#12131d' # base01
+red            = '#dd7655' # base08
+yellow         = '#69bffa' # base0A
+green          = '#04dbb4' # base0B
+cyan           = '#56d3c1' # base0C
+blue           = '#7aa5ff' # base0D
+magenta        = '#be9bf8' # base0E
+white          = '#e3e2e8' # base06
+
+dim-foreground   = '#c3c3d4' # base05
+dim-black        = '#12131d' # base01
+dim-red          = '#dd7655' # base08
+dim-yellow       = '#69bffa' # base0A
+dim-green        = '#04dbb4' # base0B
+dim-cyan         = '#56d3c1' # base0C
+dim-blue         = '#7aa5ff' # base0D
+dim-magenta      = '#be9bf8' # base0E
+dim-white        = '#a4a4c0' # base04
+
+light-foreground = '#c3c3d4' # base05
+light-black      = '#666699' # base02
+light-red        = '#ff91cd' # base12
+light-yellow     = '#fefca8' # base13
+light-green      = '#00e9c0' # base14
+light-cyan       = '#8bfce1' # base15
+light-blue       = '#69bffa' # base16
+light-magenta    = '#c07ff8' # base17
+light-white      = '#f3f2f8' # base07

@@ -1,0 +1,43 @@
+# base16 iA Light
+# Scheme author: iA Inc. (modified by aramisgithub)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#f6f6f6"
+foreground = "#181818"
+
+cursor_bg = "#181818"
+cursor_border = "#181818"
+cursor_fg = "#f6f6f6"
+
+selection_bg = "#181818"
+selection_fg = "#bde5f2"
+
+ansi = [
+  "#f6f6f6",
+  "#9c5a02",
+  "#38781c",
+  "#c48218",
+  "#48bac2",
+  "#a94598",
+  "#2d6bb1",
+  "#e8e8e8"
+]
+brights = [
+  "#bde5f2",
+  "#9c5a02",
+  "#38781c",
+  "#c48218",
+  "#48bac2",
+  "#a94598",
+  "#2d6bb1",
+  "#f8f8f8"
+]
+
+[colors.indexed]
+16 = "#c43e18"
+17 = "#8b6c37"
+18 = "#dedede"
+19 = "#bde5f2"
+20 = "#767676"
+21 = "#181818"

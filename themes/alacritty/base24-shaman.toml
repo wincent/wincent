@@ -1,0 +1,58 @@
+# base24 Shaman 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x001014'
+foreground = '0x3d5053'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x001014'
+cursor = '0x3d5053'
+
+# Normal colors
+[colors.normal]
+black = '0x012026'
+red = '0xb12f2c'
+green = '0x00a940'
+yellow = '0x61d4b9'
+blue = '0x449985'
+magenta = '0x00599c'
+cyan = '0x5c7e19'
+white = '0x405554'
+
+# Bright colors
+[colors.bright]
+black = '0x374350'
+red = '0xff4242'
+green = '0x2aea5e'
+yellow = '0x8dd3fd'
+blue = '0x61d4b9'
+magenta = '0x1298ff'
+cyan = '0x98cf28'
+white = '0x58fad6'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0x5d8aa9"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x581716"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x012026"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x374350"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x3b4c52"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0x405554"

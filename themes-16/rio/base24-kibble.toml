@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Kibble by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#5a5a5a' # base02
+selection-foreground = '#c0b3c0' # base05
+
+cursor         = '#c0b3c0' # base05
+tabs           = '#4d4d4d' # base01
+tabs-active    = '#5a5a5a' # base02
+
+background     = '#0e100a' # base00
+foreground     = '#c0b3c0' # base05
+black          = '#4d4d4d' # base01
+red            = '#c70031' # base08
+yellow         = '#97a4f7' # base0A
+green          = '#29cf13' # base0B
+cyan           = '#0798ab' # base0C
+blue           = '#3449d1' # base0D
+magenta        = '#8400ff' # base0E
+white          = '#e2d1e3' # base06
+
+dim-foreground   = '#c0b3c0' # base05
+dim-black        = '#4d4d4d' # base01
+dim-red          = '#c70031' # base08
+dim-yellow       = '#97a4f7' # base0A
+dim-green        = '#29cf13' # base0B
+dim-cyan         = '#0798ab' # base0C
+dim-blue         = '#3449d1' # base0D
+dim-magenta      = '#8400ff' # base0E
+dim-white        = '#9e959e' # base04
+
+light-foreground = '#c0b3c0' # base05
+light-black      = '#5a5a5a' # base02
+light-red        = '#f01578' # base12
+light-yellow     = '#f3f79e' # base13
+light-green      = '#6ce05c' # base14
+light-cyan       = '#68f2e0' # base15
+light-blue       = '#97a4f7' # base16
+light-magenta    = '#c495f0' # base17
+light-white      = '#ffffff' # base07

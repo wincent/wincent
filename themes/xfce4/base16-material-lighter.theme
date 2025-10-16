@@ -1,0 +1,10 @@
+# Scheme name: Material Lighter
+# Scheme author: Nate Peterson
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-material-lighter
+ColorForeground=#80cbc4
+ColorBackground=#fafafa
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#e7eaec;#ff5370;#91b859;#ffb62c;#6182b8;#7c4dff;#39adb5;#80cbc4;#cceae7;#ff5370;#91b859;#ffb62c;#6182b8;#7c4dff;#39adb5;#ffffff

@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Builtin Light",
+	"foreground": "#a1a1a1",
+	"background": "#ffffff",
+	"black": "#000000",
+	"blue": "#0000bb",
+	"brightBlack": "#555555",
+	"brightBlue": "#5555ff",
+	"brightCyan": "#55ffff",
+	"brightGreen": "#55ff55",
+	"brightPurple": "#ff55ff",
+	"brightRed": "#ff5555",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#ffff55",
+	"cyan": "#00bbbb",
+	"green": "#00bb00",
+	"purple": "#bb00bb",
+	"red": "#bb0000",
+	"white": "#bbbbbb",
+	"yellow": "#bbbb00"
+},

@@ -1,0 +1,43 @@
+# base16 Shades of Purple
+# Scheme author: Iolar Demartini Junior (http://github.com/demartini), based on Shades of Purple Theme (https://github.com/ahmadawais/shades-of-purple-vscode)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#1e1e3f"
+foreground = "#c7c7c7"
+
+cursor_bg = "#c7c7c7"
+cursor_border = "#c7c7c7"
+cursor_fg = "#1e1e3f"
+
+selection_bg = "#c7c7c7"
+selection_fg = "#f1d000"
+
+ansi = [
+  "#1e1e3f",
+  "#d90429",
+  "#3ad900",
+  "#ffe700",
+  "#6943ff",
+  "#ff2c70",
+  "#00c5c7",
+  "#ff77ff"
+]
+brights = [
+  "#f1d000",
+  "#d90429",
+  "#3ad900",
+  "#ffe700",
+  "#6943ff",
+  "#ff2c70",
+  "#00c5c7",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#f92a1c"
+17 = "#79e8fb"
+18 = "#43d426"
+19 = "#f1d000"
+20 = "#6871ff"
+21 = "#c7c7c7"

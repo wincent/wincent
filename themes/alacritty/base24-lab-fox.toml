@@ -1,0 +1,58 @@
+# base24 Lab Fox 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x2e2e2e'
+foreground = '0xcfd0d0'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x2e2e2e'
+cursor = '0xcfd0d0'
+
+# Normal colors
+[colors.normal]
+black = '0x2e2e2e'
+red = '0xfc6d26'
+green = '0x3eb383'
+yellow = '0xdb501f'
+blue = '0xdb3b21'
+magenta = '0x380d75'
+cyan = '0x6e49cb'
+white = '0xfeffff'
+
+# Bright colors
+[colors.bright]
+black = '0x454545'
+red = '0xff6517'
+green = '0x52e9a8'
+yellow = '0xfca012'
+blue = '0xdb501f'
+magenta = '0x441090'
+cyan = '0x7d53e7'
+white = '0xfeffff'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xfca121"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x7e3613"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x2e2e2e"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x454545"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0xa1a2a2"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xfeffff"

@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Hopscotch",
+	"foreground": "#a9a4a8",
+	"background": "#322931",
+	"black": "#322931",
+	"blue": "#1290bf",
+	"brightBlack": "#797379",
+	"brightBlue": "#989498",
+	"brightCyan": "#b33508",
+	"brightGreen": "#433b42",
+	"brightPurple": "#d5d3d5",
+	"brightRed": "#fd8b19",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#5c545b",
+	"cyan": "#149b93",
+	"green": "#8fc13e",
+	"purple": "#c85e7c",
+	"red": "#dd464c",
+	"white": "#b9b5b8",
+	"yellow": "#fdcc59"
+},

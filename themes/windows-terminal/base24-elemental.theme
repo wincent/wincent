@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Elemental",
+	"foreground": "#756f68",
+	"background": "#21211c",
+	"black": "#3c3b30",
+	"blue": "#497f7d",
+	"brightBlack": "#545444",
+	"brightBlue": "#78d8d8",
+	"brightCyan": "#58d598",
+	"brightGreen": "#60e06f",
+	"brightPurple": "#cd7c53",
+	"brightRed": "#df502a",
+	"brightWhite": "#fff1e8",
+	"brightYellow": "#d69827",
+	"cyan": "#387f58",
+	"green": "#479942",
+	"purple": "#7e4e2e",
+	"red": "#97280f",
+	"white": "#807974",
+	"yellow": "#7f7110"
+},

@@ -1,0 +1,58 @@
+# base24 Hopscotch 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x322931'
+foreground = '0xa9a4a8'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x322931'
+cursor = '0xa9a4a8'
+
+# Normal colors
+[colors.normal]
+black = '0x322931'
+red = '0xdd464c'
+green = '0x8fc13e'
+yellow = '0x989498'
+blue = '0x1290bf'
+magenta = '0xc85e7c'
+cyan = '0x149b93'
+white = '0xb9b5b8'
+
+# Bright colors
+[colors.bright]
+black = '0x797379'
+red = '0xfd8b19'
+green = '0x433b42'
+yellow = '0x5c545b'
+blue = '0x989498'
+magenta = '0xd5d3d5'
+cyan = '0xb33508'
+white = '0xffffff'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xfdcc59"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x6e2326"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x322931"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x797379"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x999498"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xb9b5b8"

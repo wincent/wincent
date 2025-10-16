@@ -1,0 +1,43 @@
+# base24 Purple Rain
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#20084a"
+foreground = "#d3d4d4"
+
+cursor_bg = "#000000"
+cursor_border = "#d3d4d4"
+cursor_fg = "#feffff"
+
+selection_bg = "#d3d4d4"
+selection_fg = "#555555"
+
+ansi = [
+  "#20084a",
+  "#ff260d",
+  "#9ae204",
+  "#00a5ff",
+  "#00a1f9",
+  "#805bb5",
+  "#00ddef",
+  "#feffff"
+]
+brights = [
+  "#555555",
+  "#ff4250",
+  "#b8e36d",
+  "#ffd852",
+  "#00a5ff",
+  "#ab7aef",
+  "#74fcf3",
+  "#feffff"
+]
+
+[colors.indexed]
+16 = "#ffc400"
+17 = "#7f1306"
+18 = "#000000"
+19 = "#555555"
+20 = "#a9aaaa"
+21 = "#d3d4d4"

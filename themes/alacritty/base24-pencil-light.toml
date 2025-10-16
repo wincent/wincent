@@ -1,0 +1,58 @@
+# base24 Pencil Light 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0xf1f1f1'
+foreground = '0xb3b3b3'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0xf1f1f1'
+cursor = '0xb3b3b3'
+
+# Normal colors
+[colors.normal]
+black = '0x212121'
+red = '0xc30771'
+green = '0x10a778'
+yellow = '0x20bbfc'
+blue = '0x008ec4'
+magenta = '0x523c79'
+cyan = '0x20a5ba'
+white = '0xd9d9d9'
+
+# Bright colors
+[colors.bright]
+black = '0x424242'
+red = '0xfb007a'
+green = '0x5fd7af'
+yellow = '0xf3e430'
+blue = '0x20bbfc'
+magenta = '0x6855de'
+cyan = '0x4fb8cc'
+white = '0xf1f1f1'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xa89c14"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x610338"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x212121"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x424242"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x8d8d8d"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xd9d9d9"

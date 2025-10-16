@@ -1,0 +1,58 @@
+# base16 Charcoal Light 256 - alacritty color config
+# Mubin Muhammad (https://github.com/mubin6th)
+
+# Default colors
+[colors.primary]
+background = '0xd6b891'
+foreground = '0x35291d'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0xd6b891'
+cursor = '0x35291d'
+
+# Normal colors
+[colors.normal]
+black = '0xc0a179'
+red = '0x413325'
+green = '0x120f09'
+yellow = '0x292016'
+blue = '0x120f09'
+magenta = '0x292016'
+cyan = '0x413325'
+white = '0x413325'
+
+# Bright colors
+[colors.bright]
+black = '0xa28662'
+red = '0x413325'
+green = '0x120f09'
+yellow = '0x292016'
+blue = '0x120f09'
+magenta = '0x292016'
+cyan = '0x413325'
+white = '0xd6b891'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0x120f09"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x66553f"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0xc0a179"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0xa28662"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x1e1812"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0x413325"

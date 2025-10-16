@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Qualia",
+	"foreground": "#c0c0c0",
+	"background": "#101010",
+	"black": "#454545",
+	"blue": "#50cacd",
+	"brightBlack": "#454545",
+	"brightBlue": "#50cacd",
+	"brightCyan": "#c8c874",
+	"brightGreen": "#80c990",
+	"brightPurple": "#e0af85",
+	"brightRed": "#efa6a2",
+	"brightWhite": "#454545",
+	"brightYellow": "#e6a3dc",
+	"cyan": "#c8c874",
+	"green": "#80c990",
+	"purple": "#e0af85",
+	"red": "#efa6a2",
+	"white": "#c0c0c0",
+	"yellow": "#a3b8ef"
+},

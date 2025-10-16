@@ -1,0 +1,10 @@
+# Scheme name: Cupertino
+# Scheme author: Defman21
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-cupertino
+ColorForeground=#404040
+ColorBackground=#ffffff
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#c0c0c0;#c41a15;#007400;#826b28;#0000ff;#a90d91;#318495;#404040;#c0c0c0;#c41a15;#007400;#826b28;#0000ff;#a90d91;#318495;#5e5e5e

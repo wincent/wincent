@@ -1,0 +1,10 @@
+# Scheme name: Blazer
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-blazer
+ColorForeground=#acacac
+ColorBackground=#0d1926
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#000000;#b87a7a;#7ab87a;#bdbddb;#7a7ab8;#b87ab8;#7ab8b8;#d9d9d9;#262626;#dbbdbd;#bddbbd;#dbdbbd;#bdbddb;#dbbddb;#bddbdb;#ffffff

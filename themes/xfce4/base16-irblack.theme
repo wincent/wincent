@@ -1,0 +1,10 @@
+# Scheme name: IR Black
+# Scheme author: Timothée Poisot (http://timotheepoisot.fr)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-irblack
+ColorForeground=#b5b3aa
+ColorBackground=#000000
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#242422;#ff6c60;#a8ff60;#ffffb6;#96cbfe;#ff73fd;#c6c5fe;#d9d7cc;#484844;#ff6c60;#a8ff60;#ffffb6;#96cbfe;#ff73fd;#c6c5fe;#fdfbee

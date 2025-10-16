@@ -1,0 +1,43 @@
+# base16 Railscasts
+# Scheme author: Ryan Bates (http://railscasts.com)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#2b2b2b"
+foreground = "#e6e1dc"
+
+cursor_bg = "#e6e1dc"
+cursor_border = "#e6e1dc"
+cursor_fg = "#2b2b2b"
+
+selection_bg = "#e6e1dc"
+selection_fg = "#3a4055"
+
+ansi = [
+  "#2b2b2b",
+  "#da4939",
+  "#a5c261",
+  "#ffc66d",
+  "#6d9cbe",
+  "#b6b3eb",
+  "#519f50",
+  "#f4f1ed"
+]
+brights = [
+  "#3a4055",
+  "#da4939",
+  "#a5c261",
+  "#ffc66d",
+  "#6d9cbe",
+  "#b6b3eb",
+  "#519f50",
+  "#f9f7f3"
+]
+
+[colors.indexed]
+16 = "#cc7833"
+17 = "#bc9458"
+18 = "#272935"
+19 = "#3a4055"
+20 = "#d4cfc9"
+21 = "#e6e1dc"

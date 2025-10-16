@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Atelier Savanna
+; Scheme system: base16
+; Scheme description: 
+; Scheme author: Bram de Haan (http://atelierbramdehaan.nl)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base16-atelier-savanna]
+
+; Default Foreground
+; base05 #87928a
+"Colour0"="135,146,138"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #87928a
+"Colour1"="135,146,138"
+
+; Default Background
+; base00 #171c19
+"Colour2"="23,28,25"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #171c19
+"Colour3"="23,28,25"
+
+; Cursor Text -- equals to default background
+; base00 #171c19
+"Colour4"="23,28,25"
+
+; Cursor Colour -- equals to default foreground
+; base05 #87928a
+"Colour5"="135,146,138"
+
+; ANSI Black
+; 30m
+; base01 #232a25
+"Colour6"="35,42,37"
+
+; ANSI Black Bright
+; 1;30m
+; base02 #526057
+"Colour7"="82,96,87"
+
+; ANSI Red
+; 31m
+; base08 #b16139
+"Colour8"="177,97,57"
+
+; ANSI Red Bright
+; 1;31m
+; base08 #b16139
+"Colour9"="177,97,57"
+
+; ANSI Green
+; 32m
+; base0B #489963
+"Colour10"="72,153,99"
+
+; ANSI Green Bright
+; 1;32m
+; base0B #489963
+"Colour11"="72,153,99"
+
+; ANSI Yellow
+; 33m
+; base0A #a07e3b
+"Colour12"="160,126,59"
+
+; ANSI Yellow Bright
+; 1;33m
+; base0A #a07e3b
+"Colour13"="160,126,59"
+
+; ANSI Blue
+; 34m
+; base0D #478c90
+"Colour14"="71,140,144"
+
+; ANSI Blue Bright
+; 1;34m
+; base0D #478c90
+"Colour15"="71,140,144"
+
+; ANSI Magenta
+; 35m
+; base0E #55859b
+"Colour16"="85,133,155"
+
+; ANSI Magenta Bright
+; 1;35m
+; base0E #55859b
+"Colour17"="85,133,155"
+
+; ANSI Cyan
+; 36m
+; base0C #1c9aa0
+"Colour18"="28,154,160"
+
+; ANSI Cyan Bright
+; 1;36m
+; base0C #1c9aa0
+"Colour19"="28,154,160"
+
+; ANSI White
+; 37m
+; base06 #dfe7e2
+"Colour20"="223,231,226"
+
+; ANSI White Bright
+; 1;37m
+; base07 ecf4ee
+"Colour21"="236,244,238"

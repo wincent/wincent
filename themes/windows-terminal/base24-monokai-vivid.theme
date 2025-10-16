@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Monokai Vivid",
+	"foreground": "#dfdfdf",
+	"background": "#121212",
+	"black": "#121212",
+	"blue": "#0442fe",
+	"brightBlack": "#828282",
+	"brightBlue": "#0442fe",
+	"brightCyan": "#50cdfe",
+	"brightGreen": "#b0e05e",
+	"brightPurple": "#f200f5",
+	"brightRed": "#f5669c",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#fef26c",
+	"cyan": "#01b6ed",
+	"green": "#97e123",
+	"purple": "#f800f8",
+	"red": "#fa2834",
+	"white": "#fffefe",
+	"yellow": "#fef20a"
+},

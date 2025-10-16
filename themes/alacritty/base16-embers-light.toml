@@ -1,0 +1,58 @@
+# base16 Embers Light 256 - alacritty color config
+# Jannik Siebert (https://github.com/janniks)
+
+# Default colors
+[colors.primary]
+background = '0xd1d6db'
+foreground = '0x323b43'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0xd1d6db'
+cursor = '0x323b43'
+
+# Normal colors
+[colors.normal]
+black = '0xaeb6be'
+red = '0x576d82'
+green = '0x6d8257'
+yellow = '0x57826d'
+blue = '0x82576d'
+magenta = '0x6d5782'
+cyan = '0x826d57'
+white = '0x20262c'
+
+# Bright colors
+[colors.bright]
+black = '0x909aa3'
+red = '0x576d82'
+green = '0x6d8257'
+yellow = '0x57826d'
+blue = '0x82576d'
+magenta = '0x6d5782'
+cyan = '0x826d57'
+white = '0x0f1316'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0x578282"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x575782"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0xaeb6be"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x909aa3"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x47505a"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0x20262c"

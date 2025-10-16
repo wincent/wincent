@@ -1,0 +1,10 @@
+# Scheme name: Everforest
+# Scheme author: Sainnhe Park (https://github.com/sainnhe)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-everforest
+ColorForeground=#d3c6aa
+ColorBackground=#2d353b
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#343f44;#e67e80;#a7c080;#dbbc7f;#7fbbb3;#d699b6;#83c092;#e6e2cc;#475258;#e67e80;#a7c080;#dbbc7f;#7fbbb3;#d699b6;#83c092;#fdf6e3

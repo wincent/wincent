@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Bluloco Dark",
+	"foreground": "#b1bac9",
+	"background": "#1e2027",
+	"black": "#494f5c",
+	"blue": "#285afe",
+	"brightBlack": "#60697a",
+	"brightBlue": "#189ffd",
+	"brightCyan": "#4fabad",
+	"brightGreen": "#37bc58",
+	"brightPurple": "#fb57f6",
+	"brightRed": "#fb496d",
+	"brightWhite": "#fefefe",
+	"brightYellow": "#f6bd47",
+	"cyan": "#366f99",
+	"green": "#23974a",
+	"purple": "#8c62fd",
+	"red": "#f71041",
+	"white": "#ccd5e4",
+	"yellow": "#fc7e57"
+},

@@ -1,0 +1,10 @@
+# Scheme name: Spacemacs
+# Scheme author: Nasser Alshammari (https://github.com/nashamri/spacemacs-theme)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-spacemacs
+ColorForeground=#a3a3a3
+ColorBackground=#1f2022
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#282828;#f2241f;#67b11d;#b1951d;#4f97d7;#a31db1;#2d9574;#e8e8e8;#444155;#f2241f;#67b11d;#b1951d;#4f97d7;#a31db1;#2d9574;#f8f8f8

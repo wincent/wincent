@@ -1,0 +1,10 @@
+# Scheme name: Monokai Vivid
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-monokai-vivid
+ColorForeground=#dfdfdf
+ColorBackground=#121212
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#121212;#fa2834;#97e123;#0442fe;#0442fe;#f800f8;#01b6ed;#fffefe;#828282;#f5669c;#b0e05e;#fef26c;#0442fe;#f200f5;#50cdfe;#ffffff

@@ -1,0 +1,43 @@
+# base16 Bright
+# Scheme author: Chris Kempson (http://chriskempson.com)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#000000"
+foreground = "#e0e0e0"
+
+cursor_bg = "#e0e0e0"
+cursor_border = "#e0e0e0"
+cursor_fg = "#000000"
+
+selection_bg = "#e0e0e0"
+selection_fg = "#505050"
+
+ansi = [
+  "#000000",
+  "#fb0120",
+  "#a1c659",
+  "#fda331",
+  "#6fb3d2",
+  "#d381c3",
+  "#76c7b7",
+  "#f5f5f5"
+]
+brights = [
+  "#505050",
+  "#fb0120",
+  "#a1c659",
+  "#fda331",
+  "#6fb3d2",
+  "#d381c3",
+  "#76c7b7",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#fc6d24"
+17 = "#be643c"
+18 = "#303030"
+19 = "#505050"
+20 = "#d0d0d0"
+21 = "#e0e0e0"

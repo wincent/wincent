@@ -1,0 +1,10 @@
+# Scheme name: vulcan
+# Scheme author: Andrey Varfolomeev
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-vulcan
+ColorForeground=#5b778c
+ColorBackground=#041523
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#122339;#818591;#977d7c;#adb4b9;#977d7c;#9198a3;#977d7c;#333238;#003552;#818591;#977d7c;#adb4b9;#977d7c;#9198a3;#977d7c;#214d68

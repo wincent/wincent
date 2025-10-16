@@ -1,0 +1,58 @@
+# base24 Earthsong 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x282420'
+foreground = '0xc5ab93'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x282420'
+cursor = '0xc5ab93'
+
+# Normal colors
+[colors.normal]
+black = '0x111417'
+red = '0xc84134'
+green = '0x84c44b'
+yellow = '0x5ed9ff'
+blue = '0x1397b9'
+magenta = '0xd0623c'
+cyan = '0x4f9452'
+white = '0xe5c5a9'
+
+# Bright colors
+[colors.bright]
+black = '0x665e54'
+red = '0xff6459'
+green = '0x97e035'
+yellow = '0xdfd561'
+blue = '0x5ed9ff'
+magenta = '0xff9168'
+cyan = '0x83ef88'
+white = '0xf6f6ec'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xf4ae2e"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x64201a"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x111417"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x665e54"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0xa5917e"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xe5c5a9"

@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "selenized-white",
+	"foreground": "#474747",
+	"background": "#ffffff",
+	"black": "#ebebeb",
+	"blue": "#0054cf",
+	"brightBlack": "#cdcdcd",
+	"brightBlue": "#0054cf",
+	"brightCyan": "#009a8a",
+	"brightGreen": "#008400",
+	"brightPurple": "#6b40c3",
+	"brightRed": "#bf0000",
+	"brightWhite": "#282828",
+	"brightYellow": "#af8500",
+	"cyan": "#009a8a",
+	"green": "#008400",
+	"purple": "#6b40c3",
+	"red": "#bf0000",
+	"white": "#282828",
+	"yellow": "#ba3700"
+},

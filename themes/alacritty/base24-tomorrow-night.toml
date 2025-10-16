@@ -1,0 +1,58 @@
+# base24 Tomorrow Night 256 - alacritty color config
+# Cody Buell (https://github.com/codybuell)
+
+# Default colors
+[colors.primary]
+background = '0x1d1f21'
+foreground = '0xc5c8c6'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x1d1f21'
+cursor = '0xc5c8c6'
+
+# Normal colors
+[colors.normal]
+black = '0x282a2e'
+red = '0xcc6666'
+green = '0xb5bd68'
+yellow = '0xf0c674'
+blue = '0x81a2be'
+magenta = '0xb294bb'
+cyan = '0x8abeb7'
+white = '0xe0e0e0'
+
+# Bright colors
+[colors.bright]
+black = '0x373b41'
+red = '0xe74c3c'
+green = '0xb8d4b3'
+yellow = '0xf7dc6f'
+blue = '0x85c1e9'
+magenta = '0xd7a3ca'
+cyan = '0x95d3ce'
+white = '0xffffff'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xde935f"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xa3685a"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x282a2e"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x373b41"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0xb4b7b4"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xe0e0e0"

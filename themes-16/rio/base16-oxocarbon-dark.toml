@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Oxocarbon Dark by shaunsingh/IBM
+
+[colors]
+selection-background = '#393939' # base02
+selection-foreground = '#f2f4f8' # base05
+
+cursor         = '#f2f4f8' # base05
+tabs           = '#262626' # base01
+tabs-active    = '#393939' # base02
+
+background     = '#161616' # base00
+foreground     = '#f2f4f8' # base05
+black          = '#262626' # base01
+red            = '#3ddbd9' # base08
+yellow         = '#ee5396' # base0A
+green          = '#33b1ff' # base0B
+cyan           = '#ff7eb6' # base0C
+blue           = '#42be65' # base0D
+magenta        = '#be95ff' # base0E
+white          = '#ffffff' # base06
+
+dim-foreground   = '#f2f4f8' # base05
+dim-black        = '#262626' # base01
+dim-red          = '#3ddbd9' # base08
+dim-yellow       = '#ee5396' # base0A
+dim-green        = '#33b1ff' # base0B
+dim-cyan         = '#ff7eb6' # base0C
+dim-blue         = '#42be65' # base0D
+dim-magenta      = '#be95ff' # base0E
+dim-white        = '#dde1e6' # base04
+
+light-foreground = '#f2f4f8' # base05
+light-black      = '#393939' # base02
+light-red        = '#3ddbd9' # base08
+light-yellow     = '#ee5396' # base0A
+light-green      = '#33b1ff' # base0B
+light-cyan       = '#ff7eb6' # base0C
+light-blue       = '#42be65' # base0D
+light-magenta    = '#be95ff' # base0E
+light-white      = '#08bdba' # base07

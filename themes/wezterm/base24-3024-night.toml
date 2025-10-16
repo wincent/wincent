@@ -1,0 +1,43 @@
+# base24 3024 Night
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#090300"
+foreground = "#928f8e"
+
+cursor_bg = "#090300"
+cursor_border = "#928f8e"
+cursor_fg = "#a5a2a2"
+
+selection_bg = "#928f8e"
+selection_fg = "#5c5855"
+
+ansi = [
+  "#090300",
+  "#db2d20",
+  "#01a252",
+  "#807d7c",
+  "#01a0e4",
+  "#a16a94",
+  "#b5e4f4",
+  "#a5a2a2"
+]
+brights = [
+  "#5c5855",
+  "#e8bbd0",
+  "#3a3432",
+  "#4a4543",
+  "#807d7c",
+  "#d6d5d4",
+  "#cdab53",
+  "#f7f7f7"
+]
+
+[colors.indexed]
+16 = "#fded02"
+17 = "#6d1610"
+18 = "#090300"
+19 = "#5c5855"
+20 = "#807d7b"
+21 = "#928f8e"

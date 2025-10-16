@@ -1,0 +1,43 @@
+# base24 Red Planet
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#222222"
+foreground = "#a4998c"
+
+cursor_bg = "#201f1f"
+cursor_border = "#a4998c"
+cursor_fg = "#b9aa99"
+
+selection_bg = "#a4998c"
+selection_fg = "#676767"
+
+ansi = [
+  "#222222",
+  "#8c3432",
+  "#728271",
+  "#60827e",
+  "#69809e",
+  "#896492",
+  "#5b8390",
+  "#b9aa99"
+]
+brights = [
+  "#676767",
+  "#b55242",
+  "#869985",
+  "#ebeb91",
+  "#60827e",
+  "#de4873",
+  "#38add8",
+  "#d6bfb8"
+]
+
+[colors.indexed]
+16 = "#e8bf6a"
+17 = "#461a19"
+18 = "#201f1f"
+19 = "#676767"
+20 = "#908880"
+21 = "#a4998c"

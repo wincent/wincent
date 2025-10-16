@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Ciapre",
+	"foreground": "#978f73",
+	"background": "#181c27",
+	"black": "#181818",
+	"blue": "#566d8c",
+	"brightBlack": "#555555",
+	"brightBlue": "#2f97c6",
+	"brightCyan": "#f3dab1",
+	"brightGreen": "#a6a65d",
+	"brightPurple": "#d33060",
+	"brightRed": "#ab3834",
+	"brightWhite": "#f3f3f3",
+	"brightYellow": "#dcde7b",
+	"cyan": "#5b4f4a",
+	"green": "#48513b",
+	"purple": "#724c7c",
+	"red": "#800009",
+	"white": "#ada37e",
+	"yellow": "#cc8a3e"
+},

@@ -1,0 +1,43 @@
+# base16 Chinoiserie
+# Scheme author: Di Wang (https://cs.cmu.edu/~diw3)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#ffffff"
+foreground = "#4a4035"
+
+cursor_bg = "#4a4035"
+cursor_border = "#4a4035"
+cursor_fg = "#ffffff"
+
+selection_bg = "#4a4035"
+selection_fg = "#d6d6d6"
+
+ansi = [
+  "#ffffff",
+  "#c04851",
+  "#428675",
+  "#d6a01d",
+  "#815c94",
+  "#c08eaf",
+  "#2b73af",
+  "#2f2f35"
+]
+brights = [
+  "#d6d6d6",
+  "#c04851",
+  "#428675",
+  "#d6a01d",
+  "#815c94",
+  "#c08eaf",
+  "#2b73af",
+  "#131124"
+]
+
+[colors.indexed]
+16 = "#fb8b05"
+17 = "#945833"
+18 = "#e0e0e0"
+19 = "#d6d6d6"
+20 = "#918072"
+21 = "#4a4035"

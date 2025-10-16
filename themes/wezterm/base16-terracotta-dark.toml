@@ -1,0 +1,43 @@
+# base16 Terracotta Dark
+# Scheme author: Alexander Rossell Hayes (https://github.com/rossellhayes)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#241d1a"
+foreground = "#b8a59d"
+
+cursor_bg = "#b8a59d"
+cursor_border = "#b8a59d"
+cursor_fg = "#241d1a"
+
+selection_bg = "#b8a59d"
+selection_fg = "#473933"
+
+ansi = [
+  "#241d1a",
+  "#f6998f",
+  "#b6c68a",
+  "#ffc37a",
+  "#b0a4c3",
+  "#d8a2b0",
+  "#c0bcdb",
+  "#cabbb5"
+]
+brights = [
+  "#473933",
+  "#f6998f",
+  "#b6c68a",
+  "#ffc37a",
+  "#b0a4c3",
+  "#d8a2b0",
+  "#c0bcdb",
+  "#dcd2ce"
+]
+
+[colors.indexed]
+16 = "#ffa888"
+17 = "#f1ae97"
+18 = "#362b27"
+19 = "#473933"
+20 = "#a78e84"
+21 = "#b8a59d"

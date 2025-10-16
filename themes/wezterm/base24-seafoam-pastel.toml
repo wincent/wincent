@@ -1,0 +1,43 @@
+# base24 Seafoam Pastel
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#243434"
+foreground = "#cacaca"
+
+cursor_bg = "#757575"
+cursor_border = "#cacaca"
+cursor_fg = "#e0e0e0"
+
+selection_bg = "#cacaca"
+selection_fg = "#8a8a8a"
+
+ansi = [
+  "#243434",
+  "#825d4d",
+  "#718c61",
+  "#79c3cf",
+  "#4d7b82",
+  "#8a7167",
+  "#719393",
+  "#e0e0e0"
+]
+brights = [
+  "#8a8a8a",
+  "#cf9379",
+  "#98d9aa",
+  "#fae79d",
+  "#79c3cf",
+  "#d6b2a1",
+  "#ade0e0",
+  "#e0e0e0"
+]
+
+[colors.indexed]
+16 = "#ada16d"
+17 = "#412e26"
+18 = "#757575"
+19 = "#8a8a8a"
+20 = "#b5b5b5"
+21 = "#cacaca"

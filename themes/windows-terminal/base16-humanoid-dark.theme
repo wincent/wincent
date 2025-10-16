@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Humanoid dark",
+	"foreground": "#f8f8f2",
+	"background": "#232629",
+	"black": "#333b3d",
+	"blue": "#00a6fb",
+	"brightBlack": "#484e54",
+	"brightBlue": "#00a6fb",
+	"brightCyan": "#0dd9d6",
+	"brightGreen": "#02d849",
+	"brightPurple": "#f15ee3",
+	"brightRed": "#f11235",
+	"brightWhite": "#fcfcfc",
+	"brightYellow": "#ffb627",
+	"cyan": "#0dd9d6",
+	"green": "#02d849",
+	"purple": "#f15ee3",
+	"red": "#f11235",
+	"white": "#fcfcf6",
+	"yellow": "#ff9505"
+},

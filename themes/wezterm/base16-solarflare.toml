@@ -1,0 +1,43 @@
+# base16 Solar Flare
+# Scheme author: Chuck Harmston (https://chuck.harmston.ch)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#18262f"
+foreground = "#a6afb8"
+
+cursor_bg = "#a6afb8"
+cursor_border = "#a6afb8"
+cursor_fg = "#18262f"
+
+selection_bg = "#a6afb8"
+selection_fg = "#586875"
+
+ansi = [
+  "#18262f",
+  "#ef5253",
+  "#7cc844",
+  "#e4b51c",
+  "#33b5e1",
+  "#a363d5",
+  "#52cbb0",
+  "#e8e9ed"
+]
+brights = [
+  "#586875",
+  "#ef5253",
+  "#7cc844",
+  "#e4b51c",
+  "#33b5e1",
+  "#a363d5",
+  "#52cbb0",
+  "#f5f7fa"
+]
+
+[colors.indexed]
+16 = "#e66b2b"
+17 = "#d73c9a"
+18 = "#222e38"
+19 = "#586875"
+20 = "#85939e"
+21 = "#a6afb8"

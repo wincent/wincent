@@ -1,0 +1,10 @@
+# Scheme name: Jackie Brown
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-jackie-brown
+ColorForeground=#a8a8a8
+ColorBackground=#2c1c15
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#2c1d16;#ef5734;#2baf2b;#0000ff;#246db2;#cf5ec0;#00acee;#bfbfbf;#666666;#e50000;#86a83e;#e5e500;#0000ff;#e500e5;#00e5e5;#e5e5e5

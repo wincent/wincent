@@ -1,0 +1,10 @@
+# Scheme name: Flatland
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-flatland
+ColorForeground=#c5c6c4
+ColorBackground=#1c1e20
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#1c1d19;#f18238;#9ed264;#61b8d0;#4f96be;#695abb;#d53864;#fefffe;#1c1d19;#d12a24;#a7d32c;#ff8948;#61b8d0;#695abb;#d53864;#fefffe

@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Eva Dim
+; Scheme system: base16
+; Scheme description: 
+; Scheme author: kjakapat (https://github.com/kjakapat)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base16-eva-dim]
+
+; Default Foreground
+; base05 #9fa2a6
+"Colour0"="159,162,166"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #9fa2a6
+"Colour1"="159,162,166"
+
+; Default Background
+; base00 #2a3b4d
+"Colour2"="42,59,77"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #2a3b4d
+"Colour3"="42,59,77"
+
+; Cursor Text -- equals to default background
+; base00 #2a3b4d
+"Colour4"="42,59,77"
+
+; Cursor Colour -- equals to default foreground
+; base05 #9fa2a6
+"Colour5"="159,162,166"
+
+; ANSI Black
+; 30m
+; base01 #3d566f
+"Colour6"="61,86,111"
+
+; ANSI Black Bright
+; 1;30m
+; base02 #4b6988
+"Colour7"="75,105,136"
+
+; ANSI Red
+; 31m
+; base08 #c4676c
+"Colour8"="196,103,108"
+
+; ANSI Red Bright
+; 1;31m
+; base08 #c4676c
+"Colour9"="196,103,108"
+
+; ANSI Green
+; 32m
+; base0B #5de561
+"Colour10"="93,229,97"
+
+; ANSI Green Bright
+; 1;32m
+; base0B #5de561
+"Colour11"="93,229,97"
+
+; ANSI Yellow
+; 33m
+; base0A #cfd05d
+"Colour12"="207,208,93"
+
+; ANSI Yellow Bright
+; 1;33m
+; base0A #cfd05d
+"Colour13"="207,208,93"
+
+; ANSI Blue
+; 34m
+; base0D #1ae1dc
+"Colour14"="26,225,220"
+
+; ANSI Blue Bright
+; 1;34m
+; base0D #1ae1dc
+"Colour15"="26,225,220"
+
+; ANSI Magenta
+; 35m
+; base0E #9c6cd3
+"Colour16"="156,108,211"
+
+; ANSI Magenta Bright
+; 1;35m
+; base0E #9c6cd3
+"Colour17"="156,108,211"
+
+; ANSI Cyan
+; 36m
+; base0C #4b8f77
+"Colour18"="75,143,119"
+
+; ANSI Cyan Bright
+; 1;36m
+; base0C #4b8f77
+"Colour19"="75,143,119"
+
+; ANSI White
+; 37m
+; base06 #d6d7d9
+"Colour20"="214,215,217"
+
+; ANSI White Bright
+; 1;37m
+; base07 ffffff
+"Colour21"="255,255,255"

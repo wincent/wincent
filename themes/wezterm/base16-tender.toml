@@ -1,0 +1,43 @@
+# base16 tender
+# Scheme author: Jacobo Tabernero (https://github/com/jacoborus/tender.vim)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#282828"
+foreground = "#eeeeee"
+
+cursor_bg = "#eeeeee"
+cursor_border = "#eeeeee"
+cursor_fg = "#282828"
+
+selection_bg = "#eeeeee"
+selection_fg = "#484848"
+
+ansi = [
+  "#282828",
+  "#f43753",
+  "#c9d05c",
+  "#ffc24b",
+  "#b3deef",
+  "#d3b987",
+  "#73cef4",
+  "#e8e8e8"
+]
+brights = [
+  "#484848",
+  "#f43753",
+  "#c9d05c",
+  "#ffc24b",
+  "#b3deef",
+  "#d3b987",
+  "#73cef4",
+  "#feffff"
+]
+
+[colors.indexed]
+16 = "#dc9656"
+17 = "#a16946"
+18 = "#383838"
+19 = "#484848"
+20 = "#b8b8b8"
+21 = "#eeeeee"

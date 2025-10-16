@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Tomorrow Night",
+	"foreground": "#c5c8c6",
+	"background": "#1d1f21",
+	"black": "#282a2e",
+	"blue": "#81a2be",
+	"brightBlack": "#373b41",
+	"brightBlue": "#81a2be",
+	"brightCyan": "#8abeb7",
+	"brightGreen": "#b5bd68",
+	"brightPurple": "#b294bb",
+	"brightRed": "#cc6666",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#f0c674",
+	"cyan": "#8abeb7",
+	"green": "#b5bd68",
+	"purple": "#b294bb",
+	"red": "#cc6666",
+	"white": "#e0e0e0",
+	"yellow": "#de935f"
+},

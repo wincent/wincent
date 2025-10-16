@@ -1,0 +1,10 @@
+# Scheme name: Windows High Contrast Light
+# Scheme author: Fergus Collins (https://github.com/ferguscollins)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-windows-highcontrast-light
+ColorForeground=#545454
+ColorBackground=#fcfcfc
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#e8e8e8;#800000;#008000;#808000;#000080;#800080;#008080;#2a2a2a;#d4d4d4;#800000;#008000;#808000;#000080;#800080;#008080;#000000

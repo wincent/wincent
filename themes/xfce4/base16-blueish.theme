@@ -1,0 +1,10 @@
+# Scheme name: Blueish
+# Scheme author: Ben Mayoras
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-blueish
+ColorForeground=#c8e1f8
+ColorBackground=#182430
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#243c54;#4ce587;#c3e88d;#82aaff;#82aaff;#ff84dd;#5fd1ff;#ddeaf6;#46290a;#4ce587;#c3e88d;#82aaff;#82aaff;#ff84dd;#5fd1ff;#8f98a0

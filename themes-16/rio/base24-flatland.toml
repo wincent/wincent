@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Flatland by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#1c1d19' # base02
+selection-foreground = '#c5c6c4' # base05
+
+cursor         = '#c5c6c4' # base05
+tabs           = '#1c1d19' # base01
+tabs-active    = '#1c1d19' # base02
+
+background     = '#1c1e20' # base00
+foreground     = '#c5c6c4' # base05
+black          = '#1c1d19' # base01
+red            = '#f18238' # base08
+yellow         = '#61b8d0' # base0A
+green          = '#9ed264' # base0B
+cyan           = '#d53864' # base0C
+blue           = '#4f96be' # base0D
+magenta        = '#695abb' # base0E
+white          = '#fefffe' # base06
+
+dim-foreground   = '#c5c6c4' # base05
+dim-black        = '#1c1d19' # base01
+dim-red          = '#f18238' # base08
+dim-yellow       = '#61b8d0' # base0A
+dim-green        = '#9ed264' # base0B
+dim-cyan         = '#d53864' # base0C
+dim-blue         = '#4f96be' # base0D
+dim-magenta      = '#695abb' # base0E
+dim-white        = '#8d8e8b' # base04
+
+light-foreground = '#c5c6c4' # base05
+light-black      = '#1c1d19' # base02
+light-red        = '#d12a24' # base12
+light-yellow     = '#ff8948' # base13
+light-green      = '#a7d32c' # base14
+light-cyan       = '#d53864' # base15
+light-blue       = '#61b8d0' # base16
+light-magenta    = '#695abb' # base17
+light-white      = '#fefffe' # base07

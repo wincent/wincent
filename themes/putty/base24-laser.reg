@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Laser
+; Scheme system: base24
+; Scheme description: 
+; Scheme author: FredHappyface (https://github.com/fredHappyface)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base24-laser]
+
+; Default Foreground
+; base05 #d8d8d8
+"Colour0"="216,216,216"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #d8d8d8
+"Colour1"="216,216,216"
+
+; Default Background
+; base00 #030d18
+"Colour2"="3,13,24"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #030d18
+"Colour3"="3,13,24"
+
+; Cursor Text -- equals to default background
+; base00 #030d18
+"Colour4"="3,13,24"
+
+; Cursor Colour -- equals to default foreground
+; base05 #d8d8d8
+"Colour5"="216,216,216"
+
+; ANSI Black
+; 30m
+; base01 #616161
+"Colour6"="97,97,97"
+
+; ANSI Black Bright
+; 1;30m
+; base02 #8e8e8e
+"Colour7"="142,142,142"
+
+; ANSI Red
+; 31m
+; base08 #ff8272
+"Colour8"="255,130,114"
+
+; ANSI Red Bright
+; 1;31m
+; base12 #ffc4bd
+"Colour9"="255,196,189"
+
+; ANSI Green
+; 32m
+; base0B #b4fa72
+"Colour10"="180,250,114"
+
+; ANSI Green Bright
+; 1;32m
+; base14 #d6fcb9
+"Colour11"="214,252,185"
+
+; ANSI Yellow
+; 33m
+; base0A #f92883
+"Colour12"="249,40,131"
+
+; ANSI Yellow Bright
+; 1;33m
+; base13 #fefdd5
+"Colour13"="254,253,213"
+
+; ANSI Blue
+; 34m
+; base0D #fed300
+"Colour14"="254,211,0"
+
+; ANSI Blue Bright
+; 1;34m
+; base16 #f92883
+"Colour15"="249,40,131"
+
+; ANSI Magenta
+; 35m
+; base0E #ff8ffd
+"Colour16"="255,143,253"
+
+; ANSI Magenta Bright
+; 1;35m
+; base17 #ffb1fe
+"Colour17"="255,177,254"
+
+; ANSI Cyan
+; 36m
+; base0C #d0d1fe
+"Colour18"="208,209,254"
+
+; ANSI Cyan Bright
+; 1;36m
+; base15 #e5e6fe
+"Colour19"="229,230,254"
+
+; ANSI White
+; 37m
+; base06 #f1f1f1
+"Colour20"="241,241,241"
+
+; ANSI White Bright
+; 1;37m
+; base07 feffff
+"Colour21"="254,255,255"

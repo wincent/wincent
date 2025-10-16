@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Misterioso by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#555555' # base02
+selection-foreground = '#bebebd' # base05
+
+cursor         = '#bebebd' # base05
+tabs           = '#000000' # base01
+tabs-active    = '#555555' # base02
+
+background     = '#2d3743' # base00
+foreground     = '#bebebd' # base05
+black          = '#000000' # base01
+red            = '#ff4242' # base08
+yellow         = '#23d7d7' # base0A
+green          = '#74af68' # base0B
+cyan           = '#23d7d7' # base0C
+blue           = '#338f86' # base0D
+magenta        = '#9413e5' # base0E
+white          = '#e1e1e0' # base06
+
+dim-foreground   = '#bebebd' # base05
+dim-black        = '#000000' # base01
+dim-red          = '#ff4242' # base08
+dim-yellow       = '#23d7d7' # base0A
+dim-green        = '#74af68' # base0B
+dim-cyan         = '#23d7d7' # base0C
+dim-blue         = '#338f86' # base0D
+dim-magenta      = '#9413e5' # base0E
+dim-white        = '#9b9b9a' # base04
+
+light-foreground = '#bebebd' # base05
+light-black      = '#555555' # base02
+light-red        = '#ff3242' # base12
+light-yellow     = '#ffb929' # base13
+light-green      = '#74cd68' # base14
+light-cyan       = '#00ede1' # base15
+light-blue       = '#23d7d7' # base16
+light-magenta    = '#ff37ff' # base17
+light-white      = '#ffffff' # base07

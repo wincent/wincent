@@ -1,0 +1,10 @@
+# Scheme name: Purplepeter
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-purplepeter
+ColorForeground=#c38e69
+ColorBackground=#2a1a4a
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#0a041f;#ff786c;#98b481;#79daed;#66d9ef;#e68ecd;#b98cff;#ffba81;#100b22;#f89f92;#b4bd8e;#f1e9bf;#79daed;#b991d4;#a0a0d6;#b9aed3

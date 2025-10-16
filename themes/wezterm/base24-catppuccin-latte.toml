@@ -1,0 +1,43 @@
+# base24 Catppuccin Latte
+# Scheme author: https://github.com/catppuccin/catppuccin
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#eff1f5"
+foreground = "#4c4f69"
+
+cursor_bg = "#e6e9ef"
+cursor_border = "#4c4f69"
+cursor_fg = "#dc8a78"
+
+selection_bg = "#4c4f69"
+selection_fg = "#ccd0da"
+
+ansi = [
+  "#eff1f5",
+  "#d20f39",
+  "#40a02b",
+  "#df8e1d",
+  "#1e66f5",
+  "#8839ef",
+  "#179299",
+  "#dc8a78"
+]
+brights = [
+  "#ccd0da",
+  "#e64553",
+  "#40a02b",
+  "#dc8a78",
+  "#209fb5",
+  "#ea76cb",
+  "#04a5e5",
+  "#7287fd"
+]
+
+[colors.indexed]
+16 = "#fe640b"
+17 = "#dd7878"
+18 = "#e6e9ef"
+19 = "#ccd0da"
+20 = "#acb0be"
+21 = "#4c4f69"

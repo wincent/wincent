@@ -1,0 +1,58 @@
+# base16 Brogrammer 256 - alacritty color config
+# Vik Ramanujam (http://github.com/piggyslasher)
+
+# Default colors
+[colors.primary]
+background = '0x1f1f1f'
+foreground = '0x4e5ab7'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x1f1f1f'
+cursor = '0x4e5ab7'
+
+# Normal colors
+[colors.normal]
+black = '0xf81118'
+red = '0xd6dbe5'
+green = '0xf3bd09'
+yellow = '0x1dd361'
+blue = '0x5350b9'
+magenta = '0x0f7ddb'
+cyan = '0x1081d6'
+white = '0x1081d6'
+
+# Bright colors
+[colors.bright]
+black = '0x2dc55e'
+red = '0xd6dbe5'
+green = '0xf3bd09'
+yellow = '0x1dd361'
+blue = '0x5350b9'
+magenta = '0x0f7ddb'
+cyan = '0x1081d6'
+white = '0xd6dbe5'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xde352e"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xffffff"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0xf81118"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x2dc55e"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x2a84d2"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0x1081d6"

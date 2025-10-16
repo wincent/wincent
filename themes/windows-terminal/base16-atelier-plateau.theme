@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Atelier Plateau",
+	"foreground": "#8a8585",
+	"background": "#1b1818",
+	"black": "#292424",
+	"blue": "#7272ca",
+	"brightBlack": "#585050",
+	"brightBlue": "#7272ca",
+	"brightCyan": "#5485b6",
+	"brightGreen": "#4b8b8b",
+	"brightPurple": "#8464c4",
+	"brightRed": "#ca4949",
+	"brightWhite": "#f4ecec",
+	"brightYellow": "#a06e3b",
+	"cyan": "#5485b6",
+	"green": "#4b8b8b",
+	"purple": "#8464c4",
+	"red": "#ca4949",
+	"white": "#e7dfdf",
+	"yellow": "#b45a3c"
+},

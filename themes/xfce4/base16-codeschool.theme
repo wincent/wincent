@@ -1,0 +1,10 @@
+# Scheme name: Codeschool
+# Scheme author: blockloop
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-codeschool
+ColorForeground=#9ea7a6
+ColorBackground=#232c31
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#1c3657;#2a5491;#237986;#a03b1e;#484d79;#c59820;#b02f30;#a7cfa3;#2a343a;#2a5491;#237986;#a03b1e;#484d79;#c59820;#b02f30;#b5d8f6

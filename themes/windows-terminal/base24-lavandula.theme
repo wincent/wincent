@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Lavandula",
+	"foreground": "#645d6f",
+	"background": "#050014",
+	"black": "#230045",
+	"blue": "#4f4a7f",
+	"brightBlack": "#372c46",
+	"brightBlue": "#8e86df",
+	"brightCyan": "#9ad3df",
+	"brightGreen": "#52e0c4",
+	"brightPurple": "#a675df",
+	"brightRed": "#df5066",
+	"brightWhite": "#8c91fa",
+	"brightYellow": "#e0c286",
+	"cyan": "#57767f",
+	"green": "#337e6f",
+	"purple": "#593f7e",
+	"red": "#7c1525",
+	"white": "#736e7d",
+	"yellow": "#7f6f49"
+},

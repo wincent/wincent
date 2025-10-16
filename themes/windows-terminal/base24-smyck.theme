@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Smyck",
+	"foreground": "#969696",
+	"background": "#1b1b1b",
+	"black": "#000000",
+	"blue": "#62a3c4",
+	"brightBlack": "#7a7a7a",
+	"brightBlue": "#8dcff0",
+	"brightCyan": "#69d9cf",
+	"brightGreen": "#c4f036",
+	"brightPurple": "#f799ff",
+	"brightRed": "#d6837b",
+	"brightWhite": "#f7f7f7",
+	"brightYellow": "#fee14d",
+	"cyan": "#207383",
+	"green": "#7da900",
+	"purple": "#b98acc",
+	"red": "#b74131",
+	"white": "#a0a0a0",
+	"yellow": "#c4a400"
+},

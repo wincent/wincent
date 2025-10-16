@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Apathy",
+	"foreground": "#81b5ac",
+	"background": "#031a16",
+	"black": "#0b342d",
+	"blue": "#96883e",
+	"brightBlack": "#184e45",
+	"brightBlue": "#96883e",
+	"brightCyan": "#963e4c",
+	"brightGreen": "#883e96",
+	"brightPurple": "#4c963e",
+	"brightRed": "#3e9688",
+	"brightWhite": "#d2e7e4",
+	"brightYellow": "#3e4c96",
+	"cyan": "#963e4c",
+	"green": "#883e96",
+	"purple": "#4c963e",
+	"red": "#3e9688",
+	"white": "#a7cec8",
+	"yellow": "#3e7996"
+},

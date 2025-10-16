@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Grape",
+	"foreground": "#8c8a92",
+	"background": "#161423",
+	"black": "#2d283e",
+	"blue": "#487cf4",
+	"brightBlack": "#58506a",
+	"brightBlue": "#a9bbeb",
+	"brightCyan": "#9ce3ea",
+	"brightGreen": "#52a95d",
+	"brightPurple": "#ac81c1",
+	"brightRed": "#f0719a",
+	"brightWhite": "#a188f7",
+	"brightYellow": "#b2dc87",
+	"cyan": "#3added",
+	"green": "#1fa91b",
+	"purple": "#8c35c8",
+	"red": "#ec2160",
+	"white": "#9e9ea0",
+	"yellow": "#8ddc1f"
+},

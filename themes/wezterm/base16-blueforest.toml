@@ -1,0 +1,43 @@
+# base16 Blue Forest
+# Scheme author: alonsodomin (https://github.com/alonsodomin)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#141f2e"
+foreground = "#ffcc33"
+
+cursor_bg = "#ffcc33"
+cursor_border = "#ffcc33"
+cursor_fg = "#141f2e"
+
+selection_bg = "#ffcc33"
+selection_fg = "#273e5c"
+
+ansi = [
+  "#141f2e",
+  "#fffab1",
+  "#80ff80",
+  "#91ccff",
+  "#a2cff5",
+  "#0099ff",
+  "#80ff80",
+  "#91ccff"
+]
+brights = [
+  "#273e5c",
+  "#fffab1",
+  "#80ff80",
+  "#91ccff",
+  "#a2cff5",
+  "#0099ff",
+  "#80ff80",
+  "#375780"
+]
+
+[colors.indexed]
+16 = "#ff8080"
+17 = "#e7e7e7"
+18 = "#1e5c1e"
+19 = "#273e5c"
+20 = "#1e5c1e"
+21 = "#ffcc33"

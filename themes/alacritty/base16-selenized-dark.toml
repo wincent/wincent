@@ -1,0 +1,58 @@
+# base16 selenized-dark 256 - alacritty color config
+# Jan Warchol (https://github.com/jan-warchol/selenized) / adapted to base16 by ali
+
+# Default colors
+[colors.primary]
+background = '0x103c48'
+foreground = '0xadbcbc'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x103c48'
+cursor = '0xadbcbc'
+
+# Normal colors
+[colors.normal]
+black = '0x184956'
+red = '0xfa5750'
+green = '0x75b938'
+yellow = '0xdbb32d'
+blue = '0x4695f7'
+magenta = '0xaf88eb'
+cyan = '0x41c7b9'
+white = '0xcad8d9'
+
+# Bright colors
+[colors.bright]
+black = '0x2d5b69'
+red = '0xfa5750'
+green = '0x75b938'
+yellow = '0xdbb32d'
+blue = '0x4695f7'
+magenta = '0xaf88eb'
+cyan = '0x41c7b9'
+white = '0xcad8d9'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xed8649"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xf275be"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x184956"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x2d5b69"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x72898f"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xcad8d9"

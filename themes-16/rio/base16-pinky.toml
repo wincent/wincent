@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: pinky by Benjamin (https://github.com/b3nj5m1n)
+
+[colors]
+selection-background = '#1d1b1d' # base02
+selection-foreground = '#f5f5f5' # base05
+
+cursor         = '#f5f5f5' # base05
+tabs           = '#1b181b' # base01
+tabs-active    = '#1d1b1d' # base02
+
+background     = '#171517' # base00
+foreground     = '#f5f5f5' # base05
+black          = '#1b181b' # base01
+red            = '#ffa600' # base08
+yellow         = '#20df6c' # base0A
+green          = '#ff0066' # base0B
+cyan           = '#6600ff' # base0C
+blue           = '#00ffff' # base0D
+magenta        = '#007fff' # base0E
+white          = '#ffffff' # base06
+
+dim-foreground   = '#f5f5f5' # base05
+dim-black        = '#1b181b' # base01
+dim-red          = '#ffa600' # base08
+dim-yellow       = '#20df6c' # base0A
+dim-green        = '#ff0066' # base0B
+dim-cyan         = '#6600ff' # base0C
+dim-blue         = '#00ffff' # base0D
+dim-magenta      = '#007fff' # base0E
+dim-white        = '#e7dbdb' # base04
+
+light-foreground = '#f5f5f5' # base05
+light-black      = '#1d1b1d' # base02
+light-red        = '#ffa600' # base08
+light-yellow     = '#20df6c' # base0A
+light-green      = '#ff0066' # base0B
+light-cyan       = '#6600ff' # base0C
+light-blue       = '#00ffff' # base0D
+light-magenta    = '#007fff' # base0E
+light-white      = '#f7f3f7' # base07

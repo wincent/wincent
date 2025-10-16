@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Ayu Mirage",
+	"foreground": "#cccac2",
+	"background": "#1f2430",
+	"black": "#242936",
+	"blue": "#73d0ff",
+	"brightBlack": "#323844",
+	"brightBlue": "#80b0ff",
+	"brightCyan": "#5ccfe6",
+	"brightGreen": "#87d963",
+	"brightPurple": "#b692ff",
+	"brightRed": "#ff6666",
+	"brightWhite": "#f3f4f5",
+	"brightYellow": "#ffcc66",
+	"cyan": "#95e6cb",
+	"green": "#d5ff80",
+	"purple": "#d4bfff",
+	"red": "#f28779",
+	"white": "#d9d7ce",
+	"yellow": "#ffad66"
+},

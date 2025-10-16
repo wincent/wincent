@@ -1,0 +1,43 @@
+# base24 Brogrammer
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#131313"
+foreground = "#c1c8d7"
+
+cursor_bg = "#1f1f1f"
+cursor_border = "#c1c8d7"
+cursor_fg = "#e3e6ed"
+
+selection_bg = "#c1c8d7"
+selection_fg = "#2a3141"
+
+ansi = [
+  "#131313",
+  "#f71118",
+  "#2cc55d",
+  "#0f80d5",
+  "#2a84d2",
+  "#4e59b7",
+  "#0f80d5",
+  "#e3e6ed"
+]
+brights = [
+  "#2a3141",
+  "#de342e",
+  "#1dd260",
+  "#f2bd09",
+  "#509bdc",
+  "#524fb9",
+  "#289af0",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#ecb90f"
+17 = "#7b080c"
+18 = "#1f1f1f"
+19 = "#2a3141"
+20 = "#d6dae4"
+21 = "#c1c8d7"

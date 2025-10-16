@@ -1,0 +1,10 @@
+# Scheme name: Ocean
+# Scheme author: Chris Kempson (http://chriskempson.com)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-ocean
+ColorForeground=#c0c5ce
+ColorBackground=#2b303b
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#343d46;#bf616a;#a3be8c;#ebcb8b;#8fa1b3;#b48ead;#96b5b4;#dfe1e8;#4f5b66;#bf616a;#a3be8c;#ebcb8b;#8fa1b3;#b48ead;#96b5b4;#eff1f5

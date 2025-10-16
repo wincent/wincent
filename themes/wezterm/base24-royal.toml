@@ -1,0 +1,43 @@
+# base24 Royal
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#100814"
+foreground = "#49425a"
+
+cursor_bg = "#241f2a"
+cursor_border = "#49425a"
+cursor_fg = "#514965"
+
+selection_bg = "#49425a"
+selection_fg = "#312d3c"
+
+ansi = [
+  "#100814",
+  "#90274b",
+  "#23801c",
+  "#8fb9f9",
+  "#6480af",
+  "#664d96",
+  "#8aaabd",
+  "#514965"
+]
+brights = [
+  "#312d3c",
+  "#d4346c",
+  "#2cd845",
+  "#fde83a",
+  "#8fb9f9",
+  "#a479e2",
+  "#abd3eb",
+  "#9d8bbd"
+]
+
+[colors.indexed]
+16 = "#b49d27"
+17 = "#481325"
+18 = "#241f2a"
+19 = "#312d3c"
+20 = "#413b50"
+21 = "#49425a"

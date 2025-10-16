@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Tango",
+	"foreground": "#d3d7cf",
+	"background": "#2e3436",
+	"black": "#8ae234",
+	"blue": "#3465a4",
+	"brightBlack": "#fce94f",
+	"brightBlue": "#3465a4",
+	"brightCyan": "#06989a",
+	"brightGreen": "#4e9a06",
+	"brightPurple": "#75507b",
+	"brightRed": "#cc0000",
+	"brightWhite": "#eeeeec",
+	"brightYellow": "#c4a000",
+	"cyan": "#06989a",
+	"green": "#4e9a06",
+	"purple": "#75507b",
+	"red": "#cc0000",
+	"white": "#ad7fa8",
+	"yellow": "#ef2929"
+},

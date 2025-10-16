@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Toy Chest by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#326889' # base02
+selection-foreground = '#27b684' # base05
+
+cursor         = '#27b684' # base05
+tabs           = '#2c3f57' # base01
+tabs-active    = '#326889' # base02
+
+background     = '#23364a' # base00
+foreground     = '#27b684' # base05
+black          = '#2c3f57' # base01
+red            = '#be2d26' # base08
+yellow         = '#33a5d9' # base0A
+green          = '#199171' # base0B
+cyan           = '#35a08f' # base0C
+blue           = '#325d96' # base0D
+magenta        = '#8a5ddb' # base0E
+white          = '#23d082' # base06
+
+dim-foreground   = '#27b684' # base05
+dim-black        = '#2c3f57' # base01
+dim-red          = '#be2d26' # base08
+dim-yellow       = '#33a5d9' # base0A
+dim-green        = '#199171' # base0B
+dim-cyan         = '#35a08f' # base0C
+dim-blue         = '#325d96' # base0D
+dim-magenta      = '#8a5ddb' # base0E
+dim-white        = '#2b9c86' # base04
+
+light-foreground = '#27b684' # base05
+light-black      = '#326889' # base02
+light-red        = '#dd5943' # base12
+light-yellow     = '#e7d74b' # base13
+light-green      = '#30cf7b' # base14
+light-cyan       = '#41c3ad' # base15
+light-blue       = '#33a5d9' # base16
+light-magenta    = '#ad6bdc' # base17
+light-white      = '#d4d4d4' # base07

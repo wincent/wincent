@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Pro Light",
+	"foreground": "#cccccc",
+	"background": "#feffff",
+	"black": "#000000",
+	"blue": "#3a75ff",
+	"brightBlack": "#9f9f9f",
+	"brightBlue": "#0081ff",
+	"brightCyan": "#60f6f8",
+	"brightGreen": "#61ee56",
+	"brightPurple": "#ff7dfe",
+	"brightRed": "#ff6640",
+	"brightWhite": "#f1f1f1",
+	"brightYellow": "#f2f055",
+	"cyan": "#4ed1dd",
+	"green": "#50d048",
+	"purple": "#ec65e7",
+	"red": "#e4492b",
+	"white": "#dcdcdc",
+	"yellow": "#c5c340"
+},

@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Pasque",
+	"foreground": "#dedcdf",
+	"background": "#271c3a",
+	"black": "#100323",
+	"blue": "#8e7dc6",
+	"brightBlack": "#3e2d5c",
+	"brightBlue": "#8e7dc6",
+	"brightCyan": "#7263aa",
+	"brightGreen": "#c6914b",
+	"brightPurple": "#953b9d",
+	"brightRed": "#a92258",
+	"brightWhite": "#bbaadd",
+	"brightYellow": "#804ead",
+	"cyan": "#7263aa",
+	"green": "#c6914b",
+	"purple": "#953b9d",
+	"red": "#a92258",
+	"white": "#edeaef",
+	"yellow": "#918889"
+},

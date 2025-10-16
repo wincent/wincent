@@ -1,0 +1,43 @@
+# base24 Smyck
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#1b1b1b"
+foreground = "#969696"
+
+cursor_bg = "#000000"
+cursor_border = "#969696"
+cursor_fg = "#a0a0a0"
+
+selection_bg = "#969696"
+selection_fg = "#7a7a7a"
+
+ansi = [
+  "#1b1b1b",
+  "#b74131",
+  "#7da900",
+  "#8dcff0",
+  "#62a3c4",
+  "#b98acc",
+  "#207383",
+  "#a0a0a0"
+]
+brights = [
+  "#7a7a7a",
+  "#d6837b",
+  "#c4f036",
+  "#fee14d",
+  "#8dcff0",
+  "#f799ff",
+  "#69d9cf",
+  "#f7f7f7"
+]
+
+[colors.indexed]
+16 = "#c4a400"
+17 = "#5b2018"
+18 = "#000000"
+19 = "#7a7a7a"
+20 = "#8d8d8d"
+21 = "#969696"

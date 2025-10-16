@@ -1,0 +1,58 @@
+# base16 Atelier Seaside 256 - alacritty color config
+# Bram de Haan (http://atelierbramdehaan.nl)
+
+# Default colors
+[colors.primary]
+background = '0x131513'
+foreground = '0x8ca68c'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x131513'
+cursor = '0x8ca68c'
+
+# Normal colors
+[colors.normal]
+black = '0x242924'
+red = '0xe6193c'
+green = '0x29a329'
+yellow = '0x98981b'
+blue = '0x3d62f5'
+magenta = '0xad2bee'
+cyan = '0x1999b3'
+white = '0xcfe8cf'
+
+# Bright colors
+[colors.bright]
+black = '0x5e6e5e'
+red = '0xe6193c'
+green = '0x29a329'
+yellow = '0x98981b'
+blue = '0x3d62f5'
+magenta = '0xad2bee'
+cyan = '0x1999b3'
+white = '0xf4fbf4'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0x87711d"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xe619c3"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x242924"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x5e6e5e"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x809980"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xcfe8cf"

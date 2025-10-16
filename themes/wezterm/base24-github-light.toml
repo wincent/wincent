@@ -1,0 +1,43 @@
+# base24 Github Light
+# Scheme author: Tinted Theming (https://github.com/tinted-theming)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#eaeef2"
+foreground = "#424a53"
+
+cursor_bg = "#d0d7de"
+cursor_border = "#424a53"
+cursor_fg = "#32383f"
+
+selection_bg = "#424a53"
+selection_fg = "#afb8c1"
+
+ansi = [
+  "#eaeef2",
+  "#fa4549",
+  "#2da44e",
+  "#bf8700",
+  "#218bff",
+  "#a475f9",
+  "#339d9b",
+  "#32383f"
+]
+brights = [
+  "#afb8c1",
+  "#ff8182",
+  "#4ac26b",
+  "#d4a72c",
+  "#54aeff",
+  "#c297ff",
+  "#49bcb7",
+  "#1f2328"
+]
+
+[colors.indexed]
+16 = "#e16f24"
+17 = "#4d2d00"
+18 = "#d0d7de"
+19 = "#afb8c1"
+20 = "#6e7781"
+21 = "#424a53"

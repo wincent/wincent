@@ -1,0 +1,10 @@
+# Scheme name: Black Metal (Gorgoroth)
+# Scheme author: metalelf0 (https://github.com/metalelf0)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-black-metal-gorgoroth
+ColorForeground=#c1c1c1
+ColorBackground=#000000
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#121212;#5f8787;#9b8d7f;#8c7f70;#888888;#999999;#aaaaaa;#999999;#222222;#5f8787;#9b8d7f;#8c7f70;#888888;#999999;#aaaaaa;#c1c1c1

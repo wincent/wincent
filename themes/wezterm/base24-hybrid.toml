@@ -1,0 +1,43 @@
+# base24 Hybrid
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#161718"
+foreground = "#8f9190"
+
+cursor_bg = "#2a2e33"
+cursor_border = "#8f9190"
+cursor_fg = "#b5b8b6"
+
+selection_bg = "#8f9190"
+selection_fg = "#1d1e21"
+
+ansi = [
+  "#161718",
+  "#b74d50",
+  "#b3be5a",
+  "#4b6b88",
+  "#6d90b0",
+  "#a07eab",
+  "#7fbeb3",
+  "#b5b8b6"
+]
+brights = [
+  "#1d1e21",
+  "#8c2d32",
+  "#788331",
+  "#e5894f",
+  "#4b6b88",
+  "#6e4f79",
+  "#4d7b73",
+  "#5a6169"
+]
+
+[colors.indexed]
+16 = "#e3b55e"
+17 = "#5b2628"
+18 = "#2a2e33"
+19 = "#1d1e21"
+20 = "#696b6b"
+21 = "#8f9190"

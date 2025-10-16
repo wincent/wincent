@@ -1,0 +1,43 @@
+# base16 Green Screen
+# Scheme author: Chris Kempson (http://chriskempson.com)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#001100"
+foreground = "#00bb00"
+
+cursor_bg = "#00bb00"
+cursor_border = "#00bb00"
+cursor_fg = "#001100"
+
+selection_bg = "#00bb00"
+selection_fg = "#005500"
+
+ansi = [
+  "#001100",
+  "#007700",
+  "#00bb00",
+  "#007700",
+  "#009900",
+  "#00bb00",
+  "#005500",
+  "#00dd00"
+]
+brights = [
+  "#005500",
+  "#007700",
+  "#00bb00",
+  "#007700",
+  "#009900",
+  "#00bb00",
+  "#005500",
+  "#00ff00"
+]
+
+[colors.indexed]
+16 = "#009900"
+17 = "#005500"
+18 = "#003300"
+19 = "#005500"
+20 = "#009900"
+21 = "#00bb00"

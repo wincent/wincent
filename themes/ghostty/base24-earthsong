@@ -1,0 +1,43 @@
+# vim: ft=ghostty
+# Earthsong theme for Ghostty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# Color palette
+palette = 0=#282420
+palette = 1=#c84134
+palette = 2=#84c44b
+palette = 3=#5ed9ff
+palette = 4=#1397b9
+palette = 5=#d0623c
+palette = 6=#4f9452
+palette = 7=#e5c5a9
+palette = 8=#665e54
+palette = 9=#ff6459
+palette = 10=#97e035
+palette = 11=#dfd561
+palette = 12=#5ed9ff
+palette = 13=#ff9168
+palette = 14=#83ef88
+palette = 15=#f6f6ec
+palette = 16=#f4ae2e
+palette = 17=#64201a
+palette = 18=#111417
+palette = 19=#665e54
+palette = 20=#a5917e
+palette = 21=#e5c5a9
+
+# Foreground & background colors
+background = #282420
+foreground = #c5ab93
+cursor-color = #c5ab93
+selection-background = #665e54
+selection-foreground = #c5ab93
+
+# Set `macos-icon = custom-style` in your main configuration file to enable theming of the app icon.
+#
+# Set the ghost color to the lightest foreground:
+macos-icon-ghost-color = #f6f6ec
+# Replace the official icon's blue background with the designated bright blue color:
+macos-icon-screen-color = #5ed9ff

@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Icy Dark by icyphox (https://icyphox.ga)
+
+[colors]
+selection-background = '#041f23' # base02
+selection-foreground = '#095b67' # base05
+
+cursor         = '#095b67' # base05
+tabs           = '#031619' # base01
+tabs-active    = '#041f23' # base02
+
+background     = '#021012' # base00
+foreground     = '#095b67' # base05
+black          = '#031619' # base01
+red            = '#16c1d9' # base08
+yellow         = '#80deea' # base0A
+green          = '#4dd0e1' # base0B
+cyan           = '#26c6da' # base0C
+blue           = '#00bcd4' # base0D
+magenta        = '#00acc1' # base0E
+white          = '#0c7c8c' # base06
+
+dim-foreground   = '#095b67' # base05
+dim-black        = '#031619' # base01
+dim-red          = '#16c1d9' # base08
+dim-yellow       = '#80deea' # base0A
+dim-green        = '#4dd0e1' # base0B
+dim-cyan         = '#26c6da' # base0C
+dim-blue         = '#00bcd4' # base0D
+dim-magenta      = '#00acc1' # base0E
+dim-white        = '#064048' # base04
+
+light-foreground = '#095b67' # base05
+light-black      = '#041f23' # base02
+light-red        = '#16c1d9' # base08
+light-yellow     = '#80deea' # base0A
+light-green      = '#4dd0e1' # base0B
+light-cyan       = '#26c6da' # base0C
+light-blue       = '#00bcd4' # base0D
+light-magenta    = '#00acc1' # base0E
+light-white      = '#109cb0' # base07

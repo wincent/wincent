@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Pnevma by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#4a4845' # base02
+selection-foreground = '#aeaead' # base05
+
+cursor         = '#aeaead' # base05
+tabs           = '#2f2e2d' # base01
+tabs-active    = '#4a4845' # base02
+
+background     = '#1c1c1c' # base00
+foreground     = '#aeaead' # base05
+black          = '#2f2e2d' # base01
+red            = '#a36666' # base08
+yellow         = '#a1bdce' # base0A
+green          = '#90a57d' # base0B
+cyan           = '#8adbb4' # base0C
+blue           = '#7fa5bd' # base0D
+magenta        = '#c79ec4' # base0E
+white          = '#d0d0d0' # base06
+
+dim-foreground   = '#aeaead' # base05
+dim-black        = '#2f2e2d' # base01
+dim-red          = '#a36666' # base08
+dim-yellow       = '#a1bdce' # base0A
+dim-green        = '#90a57d' # base0B
+dim-cyan         = '#8adbb4' # base0C
+dim-blue         = '#7fa5bd' # base0D
+dim-magenta      = '#c79ec4' # base0E
+dim-white        = '#8d8c8a' # base04
+
+light-foreground = '#aeaead' # base05
+light-black      = '#4a4845' # base02
+light-red        = '#d78787' # base12
+light-yellow     = '#e4c9af' # base13
+light-green      = '#afbea2' # base14
+light-cyan       = '#b1e7dd' # base15
+light-blue       = '#a1bdce' # base16
+light-magenta    = '#d7beda' # base17
+light-white      = '#efefef' # base07

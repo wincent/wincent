@@ -1,0 +1,43 @@
+# base16 Gotham
+# Scheme author: Andrea Leopardi (arranged by Brett Jones)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#0c1014"
+foreground = "#599cab"
+
+cursor_bg = "#599cab"
+cursor_border = "#599cab"
+cursor_fg = "#0c1014"
+
+selection_bg = "#599cab"
+selection_fg = "#091f2e"
+
+ansi = [
+  "#0c1014",
+  "#c23127",
+  "#33859e",
+  "#edb443",
+  "#195466",
+  "#888ca6",
+  "#2aa889",
+  "#99d1ce"
+]
+brights = [
+  "#091f2e",
+  "#c23127",
+  "#33859e",
+  "#edb443",
+  "#195466",
+  "#888ca6",
+  "#2aa889",
+  "#d3ebe9"
+]
+
+[colors.indexed]
+16 = "#d26937"
+17 = "#4e5166"
+18 = "#11151c"
+19 = "#091f2e"
+20 = "#245361"
+21 = "#599cab"

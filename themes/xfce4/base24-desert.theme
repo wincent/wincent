@@ -1,0 +1,10 @@
+# Scheme name: Desert
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-desert
+ColorForeground=#cdbb9b
+ColorBackground=#333333
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#4d4d4d;#ff2b2b;#98fb98;#87ceff;#cd853f;#ffdead;#ffa0a0;#f5deb3;#555555;#ff5555;#55ff55;#ffff55;#87ceff;#ff55ff;#ffd700;#ffffff

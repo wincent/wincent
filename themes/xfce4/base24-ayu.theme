@@ -1,0 +1,10 @@
+# Scheme name: ayu
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-ayu
+ColorForeground=#cbcbcb
+ColorBackground=#0f1419
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#000000;#ff3333;#b8cc52;#68d5ff;#36a3d9;#f07178;#95e6cb;#ffffff;#323232;#ff6565;#eafe84;#fff779;#68d5ff;#ffa3aa;#c7fffd;#ffffff

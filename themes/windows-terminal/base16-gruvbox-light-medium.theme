@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Gruvbox light, medium",
+	"foreground": "#504945",
+	"background": "#fbf1c7",
+	"black": "#ebdbb2",
+	"blue": "#076678",
+	"brightBlack": "#d5c4a1",
+	"brightBlue": "#076678",
+	"brightCyan": "#427b58",
+	"brightGreen": "#79740e",
+	"brightPurple": "#8f3f71",
+	"brightRed": "#9d0006",
+	"brightWhite": "#282828",
+	"brightYellow": "#b57614",
+	"cyan": "#427b58",
+	"green": "#79740e",
+	"purple": "#8f3f71",
+	"red": "#9d0006",
+	"white": "#3c3836",
+	"yellow": "#af3a03"
+},

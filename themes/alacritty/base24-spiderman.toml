@@ -1,0 +1,58 @@
+# base24 Spiderman 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x1b1d1e'
+foreground = '0xd3d3cd'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x1b1d1e'
+cursor = '0xd3d3cd'
+
+# Normal colors
+[colors.normal]
+black = '0x1b1d1e'
+red = '0xe60712'
+green = '0xe22828'
+yellow = '0x1d4fff'
+blue = '0x2b3fff'
+magenta = '0x2435db'
+cyan = '0x3255ff'
+white = '0xfffef6'
+
+# Bright colors
+[colors.bright]
+black = '0x505354'
+red = '0xff0325'
+green = '0xff3238'
+yellow = '0xfe3935'
+blue = '0x1d4fff'
+magenta = '0x737bff'
+cyan = '0x6083ff'
+white = '0xfefff9'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xe24655"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x730309"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x1b1d1e"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x505354"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0xa7a8a5"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xfffef6"

@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Banana Blueberry",
+	"foreground": "#c6c9cd",
+	"background": "#191322",
+	"black": "#16141e",
+	"blue": "#22e8df",
+	"brightBlack": "#485161",
+	"brightBlue": "#91fff3",
+	"brightCyan": "#bcf2fe",
+	"brightGreen": "#97c378",
+	"brightPurple": "#da70d5",
+	"brightRed": "#fd9ea1",
+	"brightWhite": "#feffff",
+	"brightYellow": "#f9e46a",
+	"cyan": "#55b6c1",
+	"green": "#00bc9b",
+	"purple": "#dc3969",
+	"red": "#ff6a7e",
+	"white": "#f1f1f1",
+	"yellow": "#e5c62f"
+},

@@ -1,0 +1,58 @@
+# base16 Digital Rain 256 - alacritty color config
+# Nathan Byrd (https://github.com/cognitivegears)
+
+# Default colors
+[colors.primary]
+background = '0x000000'
+foreground = '0x00ff00'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x000000'
+cursor = '0x00ff00'
+
+# Normal colors
+[colors.normal]
+black = '0x4a806c'
+red = '0xc85a46'
+green = '0x64c83c'
+yellow = '0xa67a50'
+blue = '0x5482af'
+magenta = '0x9472b4'
+cyan = '0x468c78'
+white = '0xc4cec4'
+
+# Bright colors
+[colors.bright]
+black = '0x4a8d7e'
+red = '0xc85a46'
+green = '0x64c83c'
+yellow = '0xa67a50'
+blue = '0x5482af'
+magenta = '0x9472b4'
+cyan = '0x468c78'
+white = '0xd8e2dc'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xc86428"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xb37c5e"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x4a806c"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x4a8d7e"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x919893"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xc4cec4"

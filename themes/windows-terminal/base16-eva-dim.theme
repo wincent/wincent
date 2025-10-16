@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Eva Dim",
+	"foreground": "#9fa2a6",
+	"background": "#2a3b4d",
+	"black": "#3d566f",
+	"blue": "#1ae1dc",
+	"brightBlack": "#4b6988",
+	"brightBlue": "#1ae1dc",
+	"brightCyan": "#4b8f77",
+	"brightGreen": "#5de561",
+	"brightPurple": "#9c6cd3",
+	"brightRed": "#c4676c",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#cfd05d",
+	"cyan": "#4b8f77",
+	"green": "#5de561",
+	"purple": "#9c6cd3",
+	"red": "#c4676c",
+	"white": "#d6d7d9",
+	"yellow": "#ff9966"
+},

@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Solarized Dark Higher Contrast",
+	"foreground": "#aec2ba",
+	"background": "#001e26",
+	"black": "#002731",
+	"blue": "#2075c7",
+	"brightBlack": "#006388",
+	"brightBlue": "#178dc7",
+	"brightCyan": "#00b29e",
+	"brightGreen": "#50ee84",
+	"brightPurple": "#e14d8e",
+	"brightRed": "#f4153b",
+	"brightWhite": "#fcf4dc",
+	"brightYellow": "#b17e28",
+	"cyan": "#259185",
+	"green": "#6bbe6c",
+	"purple": "#c61b6e",
+	"red": "#d01b24",
+	"white": "#e9e2cb",
+	"yellow": "#a57705"
+},

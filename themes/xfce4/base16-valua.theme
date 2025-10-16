@@ -1,0 +1,10 @@
+# Scheme name: Valua
+# Scheme author: Nonetrix (https://github.com/nonetrix)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-valua
+ColorForeground=#98c1a3
+ColorBackground=#131f1f
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#213132;#d7586e;#59d678;#dfe754;#4ed2d2;#a874e0;#76dbd2;#a5cbb9;#273d3c;#d7586e;#59d678;#dfe754;#4ed2d2;#a874e0;#76dbd2;#aacbcb

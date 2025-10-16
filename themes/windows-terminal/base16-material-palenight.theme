@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Material Palenight",
+	"foreground": "#959dcb",
+	"background": "#292d3e",
+	"black": "#444267",
+	"blue": "#82aaff",
+	"brightBlack": "#32374d",
+	"brightBlue": "#82aaff",
+	"brightCyan": "#89ddff",
+	"brightGreen": "#c3e88d",
+	"brightPurple": "#c792ea",
+	"brightRed": "#f07178",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#ffcb6b",
+	"cyan": "#89ddff",
+	"green": "#c3e88d",
+	"purple": "#c792ea",
+	"red": "#f07178",
+	"white": "#959dcb",
+	"yellow": "#f78c6c"
+},

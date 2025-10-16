@@ -1,0 +1,43 @@
+# base16 Tokyo City Terminal Light
+# Scheme author: Michaël Ball
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#fbfbfd"
+foreground = "#28323a"
+
+cursor_bg = "#28323a"
+cursor_border = "#28323a"
+cursor_fg = "#fbfbfd"
+
+selection_bg = "#28323a"
+selection_fg = "#d8e2ec"
+
+ansi = [
+  "#fbfbfd",
+  "#8c4351",
+  "#33635c",
+  "#8f5e15",
+  "#34548a",
+  "#5a4a78",
+  "#0f4b6e",
+  "#1d252c"
+]
+brights = [
+  "#d8e2ec",
+  "#8c4351",
+  "#33635c",
+  "#8f5e15",
+  "#34548a",
+  "#5a4a78",
+  "#0f4b6e",
+  "#171d23"
+]
+
+[colors.indexed]
+16 = "#965027"
+17 = "#7e5140"
+18 = "#f6f6f8"
+19 = "#d8e2ec"
+20 = "#526270"
+21 = "#28323a"

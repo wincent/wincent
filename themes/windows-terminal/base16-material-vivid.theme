@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Material Vivid",
+	"foreground": "#80868b",
+	"background": "#202124",
+	"black": "#27292c",
+	"blue": "#2196f3",
+	"brightBlack": "#323639",
+	"brightBlue": "#2196f3",
+	"brightCyan": "#00bcd4",
+	"brightGreen": "#00e676",
+	"brightPurple": "#673ab7",
+	"brightRed": "#f44336",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#ffeb3b",
+	"cyan": "#00bcd4",
+	"green": "#00e676",
+	"purple": "#673ab7",
+	"red": "#f44336",
+	"white": "#9e9e9e",
+	"yellow": "#ff9800"
+},

@@ -1,0 +1,43 @@
+# base16 OneDark
+# Scheme author: Lalit Magant (http://github.com/tilal6991)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#282c34"
+foreground = "#abb2bf"
+
+cursor_bg = "#abb2bf"
+cursor_border = "#abb2bf"
+cursor_fg = "#282c34"
+
+selection_bg = "#abb2bf"
+selection_fg = "#3e4451"
+
+ansi = [
+  "#282c34",
+  "#e06c75",
+  "#98c379",
+  "#e5c07b",
+  "#61afef",
+  "#c678dd",
+  "#56b6c2",
+  "#b6bdca"
+]
+brights = [
+  "#3e4451",
+  "#e06c75",
+  "#98c379",
+  "#e5c07b",
+  "#61afef",
+  "#c678dd",
+  "#56b6c2",
+  "#c8ccd4"
+]
+
+[colors.indexed]
+16 = "#d19a66"
+17 = "#be5046"
+18 = "#353b45"
+19 = "#3e4451"
+20 = "#565c64"
+21 = "#abb2bf"

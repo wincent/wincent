@@ -1,0 +1,58 @@
+# base16 PaperColor Dark 256 - alacritty color config
+# Jon Leopard (http://github.com/jonleopard), based on PaperColor Theme (https://github.com/NLKNguyen/papercolor-theme)
+
+# Default colors
+[colors.primary]
+background = '0x1c1c1c'
+foreground = '0x808080'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x1c1c1c'
+cursor = '0x808080'
+
+# Normal colors
+[colors.normal]
+black = '0xaf005f'
+red = '0x585858'
+green = '0xaf87d7'
+yellow = '0xafd700'
+blue = '0xff5faf'
+magenta = '0x00afaf'
+cyan = '0xffaf00'
+white = '0xd7875f'
+
+# Bright colors
+[colors.bright]
+black = '0x5faf00'
+red = '0x585858'
+green = '0xaf87d7'
+yellow = '0xafd700'
+blue = '0xff5faf'
+magenta = '0x00afaf'
+cyan = '0xffaf00'
+white = '0xd0d0d0'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0x5faf5f"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x5f8787"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0xaf005f"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x5faf00"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x5fafd7"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xd7875f"

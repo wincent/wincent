@@ -1,0 +1,43 @@
+# base16 Material Darker
+# Scheme author: Nate Peterson
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#212121"
+foreground = "#eeffff"
+
+cursor_bg = "#eeffff"
+cursor_border = "#eeffff"
+cursor_fg = "#212121"
+
+selection_bg = "#eeffff"
+selection_fg = "#353535"
+
+ansi = [
+  "#212121",
+  "#f07178",
+  "#c3e88d",
+  "#ffcb6b",
+  "#82aaff",
+  "#c792ea",
+  "#89ddff",
+  "#eeffff"
+]
+brights = [
+  "#353535",
+  "#f07178",
+  "#c3e88d",
+  "#ffcb6b",
+  "#82aaff",
+  "#c792ea",
+  "#89ddff",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#f78c6c"
+17 = "#ff5370"
+18 = "#303030"
+19 = "#353535"
+20 = "#b2ccd6"
+21 = "#eeffff"

@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Atelier Heath Light",
+	"foreground": "#695d69",
+	"background": "#f7f3f7",
+	"black": "#d8cad8",
+	"blue": "#516aec",
+	"brightBlack": "#ab9bab",
+	"brightBlue": "#516aec",
+	"brightCyan": "#159393",
+	"brightGreen": "#918b3b",
+	"brightPurple": "#7b59c0",
+	"brightRed": "#ca402b",
+	"brightWhite": "#1b181b",
+	"brightYellow": "#bb8a35",
+	"cyan": "#159393",
+	"green": "#918b3b",
+	"purple": "#7b59c0",
+	"red": "#ca402b",
+	"white": "#292329",
+	"yellow": "#a65926"
+},

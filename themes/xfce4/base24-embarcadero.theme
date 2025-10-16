@@ -1,0 +1,10 @@
+# Scheme name: Embarcadero
+# Scheme author: Thomas Leon Highbaugh
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-embarcadero
+ColorForeground=#bcbdc0
+ColorBackground=#252a2f
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#43474c;#ed5d86;#20c290;#eb824d;#4080d0;#a070d0;#02efef;#dadbdb;#616568;#f57d9a;#a0d0a0;#ffe089;#80b0f0;#c090f0;#40c0c0;#f8f8f8

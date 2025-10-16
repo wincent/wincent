@@ -1,0 +1,43 @@
+# base16 Tokyo Night Terminal Light
+# Scheme author: Michaël Ball
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#d5d6db"
+foreground = "#4c505e"
+
+cursor_bg = "#4c505e"
+cursor_border = "#4c505e"
+cursor_fg = "#d5d6db"
+
+selection_bg = "#4c505e"
+selection_fg = "#dfe0e5"
+
+ansi = [
+  "#d5d6db",
+  "#8c4351",
+  "#33635c",
+  "#8f5e15",
+  "#34548a",
+  "#5a4a78",
+  "#0f4b6e",
+  "#1a1b26"
+]
+brights = [
+  "#dfe0e5",
+  "#8c4351",
+  "#33635c",
+  "#8f5e15",
+  "#34548a",
+  "#5a4a78",
+  "#0f4b6e",
+  "#1a1b26"
+]
+
+[colors.indexed]
+16 = "#965027"
+17 = "#655259"
+18 = "#cbccd1"
+19 = "#dfe0e5"
+20 = "#4c505e"
+21 = "#4c505e"

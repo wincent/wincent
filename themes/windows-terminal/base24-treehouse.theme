@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Treehouse",
+	"foreground": "#695d47",
+	"background": "#191919",
+	"black": "#321200",
+	"blue": "#578499",
+	"brightBlack": "#423625",
+	"brightBlue": "#85cfec",
+	"brightCyan": "#f07d14",
+	"brightGreen": "#55f237",
+	"brightPurple": "#e04b5a",
+	"brightRed": "#ed5c20",
+	"brightWhite": "#ffc800",
+	"brightYellow": "#f1b731",
+	"cyan": "#b2591d",
+	"green": "#44a900",
+	"purple": "#96363c",
+	"red": "#b1270e",
+	"white": "#776b53",
+	"yellow": "#a9810b"
+},

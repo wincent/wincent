@@ -1,0 +1,10 @@
+# Scheme name: Chinoiserie Morandi
+# Scheme author: Di Wang (https://cs.cmu.edu/~diw3)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-chinoiserie-morandi
+ColorForeground=#c4cbcf
+ColorBackground=#1d1d1d
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#282828;#c06061;#8ca07b;#e5bc84;#839ec9;#98a1d8;#5e8c9b;#eee7f2;#373737;#c06061;#8ca07b;#e5bc84;#839ec9;#98a1d8;#5e8c9b;#fffef9

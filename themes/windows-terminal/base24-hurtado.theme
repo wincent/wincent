@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Hurtado",
+	"foreground": "#a1a1a1",
+	"background": "#000000",
+	"black": "#575757",
+	"blue": "#486387",
+	"brightBlack": "#252525",
+	"brightBlue": "#89bdff",
+	"brightCyan": "#85e9fe",
+	"brightGreen": "#a5df55",
+	"brightPurple": "#bf00c0",
+	"brightRed": "#d41c00",
+	"brightWhite": "#dbdbdb",
+	"brightYellow": "#fbe749",
+	"cyan": "#85e9fe",
+	"green": "#a5df55",
+	"purple": "#fc5ef0",
+	"red": "#ff1b00",
+	"white": "#cbcbcb",
+	"yellow": "#fbe74a"
+},

@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Soft Server",
+	"foreground": "#8c9594",
+	"background": "#242626",
+	"black": "#000000",
+	"blue": "#6a8fa3",
+	"brightBlack": "#666c6b",
+	"brightBlue": "#62b1df",
+	"brightCyan": "#64e39c",
+	"brightGreen": "#bfde54",
+	"brightPurple": "#5f6ede",
+	"brightRed": "#dc5b5f",
+	"brightWhite": "#d1dfde",
+	"brightYellow": "#deb35f",
+	"cyan": "#6ba48f",
+	"green": "#99a569",
+	"purple": "#6971a3",
+	"red": "#a16869",
+	"white": "#99a3a2",
+	"yellow": "#a29069"
+},

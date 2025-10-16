@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "iA Dark",
+	"foreground": "#cccccc",
+	"background": "#1a1a1a",
+	"black": "#222222",
+	"blue": "#8eccdd",
+	"brightBlack": "#1d414d",
+	"brightBlue": "#8eccdd",
+	"brightCyan": "#7c9cae",
+	"brightGreen": "#83a471",
+	"brightPurple": "#b98eb2",
+	"brightRed": "#d88568",
+	"brightWhite": "#f8f8f8",
+	"brightYellow": "#b99353",
+	"cyan": "#7c9cae",
+	"green": "#83a471",
+	"purple": "#b98eb2",
+	"red": "#d88568",
+	"white": "#e8e8e8",
+	"yellow": "#d86868"
+},

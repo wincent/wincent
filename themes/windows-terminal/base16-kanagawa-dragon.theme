@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Kanagawa Dragon",
+	"foreground": "#c5c9c5",
+	"background": "#0d0c0c",
+	"black": "#1d1c19",
+	"blue": "#8ba4b0",
+	"brightBlack": "#282727",
+	"brightBlue": "#8ba4b0",
+	"brightCyan": "#8ea4a2",
+	"brightGreen": "#87a987",
+	"brightPurple": "#8992a7",
+	"brightRed": "#c4746e",
+	"brightWhite": "#c5c9c5",
+	"brightYellow": "#c4b28a",
+	"cyan": "#8ea4a2",
+	"green": "#87a987",
+	"purple": "#8992a7",
+	"red": "#c4746e",
+	"white": "#7a8382",
+	"yellow": "#b98d7b"
+},

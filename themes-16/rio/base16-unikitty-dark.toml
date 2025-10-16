@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Unikitty Dark by Josh W Lewis (@joshwlewis)
+
+[colors]
+selection-background = '#666369' # base02
+selection-foreground = '#bcbabe' # base05
+
+cursor         = '#bcbabe' # base05
+tabs           = '#4a464d' # base01
+tabs-active    = '#666369' # base02
+
+background     = '#2e2a31' # base00
+foreground     = '#bcbabe' # base05
+black          = '#4a464d' # base01
+red            = '#d8137f' # base08
+yellow         = '#dc8a0e' # base0A
+green          = '#17ad98' # base0B
+cyan           = '#149bda' # base0C
+blue           = '#796af5' # base0D
+magenta        = '#bb60ea' # base0E
+white          = '#d8d7da' # base06
+
+dim-foreground   = '#bcbabe' # base05
+dim-black        = '#4a464d' # base01
+dim-red          = '#d8137f' # base08
+dim-yellow       = '#dc8a0e' # base0A
+dim-green        = '#17ad98' # base0B
+dim-cyan         = '#149bda' # base0C
+dim-blue         = '#796af5' # base0D
+dim-magenta      = '#bb60ea' # base0E
+dim-white        = '#9f9da2' # base04
+
+light-foreground = '#bcbabe' # base05
+light-black      = '#666369' # base02
+light-red        = '#d8137f' # base08
+light-yellow     = '#dc8a0e' # base0A
+light-green      = '#17ad98' # base0B
+light-cyan       = '#149bda' # base0C
+light-blue       = '#796af5' # base0D
+light-magenta    = '#bb60ea' # base0E
+light-white      = '#f5f4f7' # base07

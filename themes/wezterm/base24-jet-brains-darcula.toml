@@ -1,0 +1,43 @@
+# base24 Jet Brains Darcula
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#202020"
+foreground = "#979797"
+
+cursor_bg = "#000000"
+cursor_border = "#979797"
+cursor_fg = "#adadad"
+
+selection_bg = "#979797"
+selection_fg = "#555555"
+
+ansi = [
+  "#202020",
+  "#fa5355",
+  "#126e00",
+  "#6d9df1",
+  "#4581eb",
+  "#fa54ff",
+  "#33c2c1",
+  "#adadad"
+]
+brights = [
+  "#555555",
+  "#fb7172",
+  "#67ff4f",
+  "#ffff00",
+  "#6d9df1",
+  "#fb82ff",
+  "#60d3d1",
+  "#eeeeee"
+]
+
+[colors.indexed]
+16 = "#c2c300"
+17 = "#7d292a"
+18 = "#000000"
+19 = "#555555"
+20 = "#818181"
+21 = "#979797"

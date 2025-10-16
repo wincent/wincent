@@ -1,0 +1,43 @@
+# base16 Google Light
+# Scheme author: Seth Wright (http://sethawright.com)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#ffffff"
+foreground = "#373b41"
+
+cursor_bg = "#373b41"
+cursor_border = "#373b41"
+cursor_fg = "#ffffff"
+
+selection_bg = "#373b41"
+selection_fg = "#c5c8c6"
+
+ansi = [
+  "#ffffff",
+  "#cc342b",
+  "#198844",
+  "#fba922",
+  "#3971ed",
+  "#a36ac7",
+  "#3971ed",
+  "#282a2e"
+]
+brights = [
+  "#c5c8c6",
+  "#cc342b",
+  "#198844",
+  "#fba922",
+  "#3971ed",
+  "#a36ac7",
+  "#3971ed",
+  "#1d1f21"
+]
+
+[colors.indexed]
+16 = "#f96a38"
+17 = "#3971ed"
+18 = "#e0e0e0"
+19 = "#c5c8c6"
+20 = "#969896"
+21 = "#373b41"

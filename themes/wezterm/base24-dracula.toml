@@ -1,0 +1,43 @@
+# base24 Dracula
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#282a36"
+foreground = "#f8f8f2"
+
+cursor_bg = "#363447"
+cursor_border = "#f8f8f2"
+cursor_fg = "#f0f1f4"
+
+selection_bg = "#f8f8f2"
+selection_fg = "#44475a"
+
+ansi = [
+  "#282a36",
+  "#ff5555",
+  "#50fa7b",
+  "#f1fa8c",
+  "#80bfff",
+  "#ff79c6",
+  "#8be9fd",
+  "#f0f1f4"
+]
+brights = [
+  "#44475a",
+  "#f28c8c",
+  "#a3f5b8",
+  "#eef5a3",
+  "#a3ccf5",
+  "#f5a3d2",
+  "#baedf7",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#ffb86c"
+17 = "#bd93f9"
+18 = "#363447"
+19 = "#44475a"
+20 = "#9ea8c7"
+21 = "#f8f8f2"

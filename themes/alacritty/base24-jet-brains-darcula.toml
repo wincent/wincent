@@ -1,0 +1,58 @@
+# base24 Jet Brains Darcula 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x202020'
+foreground = '0x979797'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x202020'
+cursor = '0x979797'
+
+# Normal colors
+[colors.normal]
+black = '0x000000'
+red = '0xfa5355'
+green = '0x126e00'
+yellow = '0x6d9df1'
+blue = '0x4581eb'
+magenta = '0xfa54ff'
+cyan = '0x33c2c1'
+white = '0xadadad'
+
+# Bright colors
+[colors.bright]
+black = '0x555555'
+red = '0xfb7172'
+green = '0x67ff4f'
+yellow = '0xffff00'
+blue = '0x6d9df1'
+magenta = '0xfb82ff'
+cyan = '0x60d3d1'
+white = '0xeeeeee'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xc2c300"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x7d292a"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x000000"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x555555"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x818181"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xadadad"

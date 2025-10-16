@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Material Vivid
+; Scheme system: base16
+; Scheme description: 
+; Scheme author: joshyrobot
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base16-material-vivid]
+
+; Default Foreground
+; base05 #80868b
+"Colour0"="128,134,139"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #80868b
+"Colour1"="128,134,139"
+
+; Default Background
+; base00 #202124
+"Colour2"="32,33,36"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #202124
+"Colour3"="32,33,36"
+
+; Cursor Text -- equals to default background
+; base00 #202124
+"Colour4"="32,33,36"
+
+; Cursor Colour -- equals to default foreground
+; base05 #80868b
+"Colour5"="128,134,139"
+
+; ANSI Black
+; 30m
+; base01 #27292c
+"Colour6"="39,41,44"
+
+; ANSI Black Bright
+; 1;30m
+; base02 #323639
+"Colour7"="50,54,57"
+
+; ANSI Red
+; 31m
+; base08 #f44336
+"Colour8"="244,67,54"
+
+; ANSI Red Bright
+; 1;31m
+; base08 #f44336
+"Colour9"="244,67,54"
+
+; ANSI Green
+; 32m
+; base0B #00e676
+"Colour10"="0,230,118"
+
+; ANSI Green Bright
+; 1;32m
+; base0B #00e676
+"Colour11"="0,230,118"
+
+; ANSI Yellow
+; 33m
+; base0A #ffeb3b
+"Colour12"="255,235,59"
+
+; ANSI Yellow Bright
+; 1;33m
+; base0A #ffeb3b
+"Colour13"="255,235,59"
+
+; ANSI Blue
+; 34m
+; base0D #2196f3
+"Colour14"="33,150,243"
+
+; ANSI Blue Bright
+; 1;34m
+; base0D #2196f3
+"Colour15"="33,150,243"
+
+; ANSI Magenta
+; 35m
+; base0E #673ab7
+"Colour16"="103,58,183"
+
+; ANSI Magenta Bright
+; 1;35m
+; base0E #673ab7
+"Colour17"="103,58,183"
+
+; ANSI Cyan
+; 36m
+; base0C #00bcd4
+"Colour18"="0,188,212"
+
+; ANSI Cyan Bright
+; 1;36m
+; base0C #00bcd4
+"Colour19"="0,188,212"
+
+; ANSI White
+; 37m
+; base06 #9e9e9e
+"Colour20"="158,158,158"
+
+; ANSI White Bright
+; 1;37m
+; base07 ffffff
+"Colour21"="255,255,255"

@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Spaceduck",
+	"foreground": "#ecf0c1",
+	"background": "#16172d",
+	"black": "#1b1c36",
+	"blue": "#7a5ccc",
+	"brightBlack": "#30365f",
+	"brightBlue": "#7a5ccc",
+	"brightCyan": "#00a3cc",
+	"brightGreen": "#5ccc96",
+	"brightPurple": "#b3a1e6",
+	"brightRed": "#e33400",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#f2ce00",
+	"cyan": "#00a3cc",
+	"green": "#5ccc96",
+	"purple": "#b3a1e6",
+	"red": "#e33400",
+	"white": "#c1c3cc",
+	"yellow": "#e39400"
+},

@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Royal",
+	"foreground": "#49425a",
+	"background": "#100814",
+	"black": "#241f2a",
+	"blue": "#6480af",
+	"brightBlack": "#312d3c",
+	"brightBlue": "#8fb9f9",
+	"brightCyan": "#abd3eb",
+	"brightGreen": "#2cd845",
+	"brightPurple": "#a479e2",
+	"brightRed": "#d4346c",
+	"brightWhite": "#9d8bbd",
+	"brightYellow": "#fde83a",
+	"cyan": "#8aaabd",
+	"green": "#23801c",
+	"purple": "#664d96",
+	"red": "#90274b",
+	"white": "#514965",
+	"yellow": "#b49d27"
+},

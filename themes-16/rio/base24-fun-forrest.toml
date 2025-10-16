@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Fun Forrest by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#7e6954' # base02
+selection-foreground = '#c5ab60' # base05
+
+cursor         = '#c5ab60' # base05
+tabs           = '#000000' # base01
+tabs-active    = '#7e6954' # base02
+
+background     = '#241200' # base00
+foreground     = '#c5ab60' # base05
+black          = '#000000' # base01
+red            = '#d5252b' # base08
+yellow         = '#7cc9ce' # base0A
+green          = '#909b00' # base0B
+cyan           = '#d98112' # base0C
+blue           = '#4698a2' # base0D
+magenta        = '#8c4231' # base0E
+white          = '#ddc165' # base06
+
+dim-foreground   = '#c5ab60' # base05
+dim-black        = '#000000' # base01
+dim-red          = '#d5252b' # base08
+dim-yellow       = '#7cc9ce' # base0A
+dim-green        = '#909b00' # base0B
+dim-cyan         = '#d98112' # base0C
+dim-blue         = '#4698a2' # base0D
+dim-magenta      = '#8c4231' # base0E
+dim-white        = '#ad955c' # base04
+
+light-foreground = '#c5ab60' # base05
+light-black      = '#7e6954' # base02
+light-red        = '#e4591b' # base12
+light-yellow     = '#ffca1b' # base13
+light-green      = '#bfc659' # base14
+light-cyan       = '#e6a96b' # base15
+light-blue       = '#7cc9ce' # base16
+light-magenta    = '#d16349' # base17
+light-white      = '#ffe9a3' # base07

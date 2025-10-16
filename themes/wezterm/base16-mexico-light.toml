@@ -1,0 +1,43 @@
+# base16 Mexico Light
+# Scheme author: Sheldon Johnson
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#f8f8f8"
+foreground = "#383838"
+
+cursor_bg = "#383838"
+cursor_border = "#383838"
+cursor_fg = "#f8f8f8"
+
+selection_bg = "#383838"
+selection_fg = "#d8d8d8"
+
+ansi = [
+  "#f8f8f8",
+  "#ab4642",
+  "#538947",
+  "#f79a0e",
+  "#7cafc2",
+  "#96609e",
+  "#4b8093",
+  "#282828"
+]
+brights = [
+  "#d8d8d8",
+  "#ab4642",
+  "#538947",
+  "#f79a0e",
+  "#7cafc2",
+  "#96609e",
+  "#4b8093",
+  "#181818"
+]
+
+[colors.indexed]
+16 = "#dc9656"
+17 = "#a16946"
+18 = "#e8e8e8"
+19 = "#d8d8d8"
+20 = "#585858"
+21 = "#383838"

@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Sleepy Hollow",
+	"foreground": "#968684",
+	"background": "#121213",
+	"black": "#572000",
+	"blue": "#5e62b4",
+	"brightBlack": "#4e4b60",
+	"brightBlue": "#8085ef",
+	"brightCyan": "#a4dbe7",
+	"brightGreen": "#d6b04e",
+	"brightPurple": "#e1c2ba",
+	"brightRed": "#d9443e",
+	"brightWhite": "#d1c7a9",
+	"brightYellow": "#f66713",
+	"cyan": "#8eaea9",
+	"green": "#90773e",
+	"purple": "#a07c7b",
+	"red": "#b93934",
+	"white": "#af9a91",
+	"yellow": "#b45600"
+},

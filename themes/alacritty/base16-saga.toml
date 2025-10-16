@@ -1,0 +1,58 @@
+# base16 SAGA 256 - alacritty color config
+# https://github.com/SAGAtheme/SAGA
+
+# Default colors
+[colors.primary]
+background = '0x05080a'
+foreground = '0xdce2f7'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x05080a'
+cursor = '0xdce2f7'
+
+# Normal colors
+[colors.normal]
+black = '0x0a1014'
+red = '0xffd4e9'
+green = '0xf7ddff'
+yellow = '0xfbebc8'
+blue = '0xc9fff7'
+magenta = '0xdcc3f9'
+cyan = '0xc5edc1'
+white = '0xf8eae7'
+
+# Bright colors
+[colors.bright]
+black = '0x0f181e'
+red = '0xffd4e9'
+green = '0xf7ddff'
+yellow = '0xfbebc8'
+blue = '0xc9fff7'
+magenta = '0xdcc3f9'
+cyan = '0xc5edc1'
+white = '0xccd3fe'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xfbcbae"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xf6dddd"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x0a1014"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x0f181e"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x192630"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xf8eae7"

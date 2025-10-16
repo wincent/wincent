@@ -1,0 +1,10 @@
+# Scheme name: Front End Delight
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-front-end-delight
+ColorForeground=#98ac9c
+ColorBackground=#1b1b1d
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#242426;#f8501a;#565746;#3393c9;#2c70b7;#f02d4e;#3ba0a5;#acacac;#5eac6c;#f64319;#74eb4c;#fcc224;#3393c9;#e75e4e;#4ebce5;#8b735a

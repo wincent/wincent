@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Desert",
+	"foreground": "#cdbb9b",
+	"background": "#333333",
+	"black": "#4d4d4d",
+	"blue": "#cd853f",
+	"brightBlack": "#555555",
+	"brightBlue": "#87ceff",
+	"brightCyan": "#ffd700",
+	"brightGreen": "#55ff55",
+	"brightPurple": "#ff55ff",
+	"brightRed": "#ff5555",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#ffff55",
+	"cyan": "#ffa0a0",
+	"green": "#98fb98",
+	"purple": "#ffdead",
+	"red": "#ff2b2b",
+	"white": "#f5deb3",
+	"yellow": "#f0e68c"
+},

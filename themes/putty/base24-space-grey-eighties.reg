@@ -1,0 +1,95 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Space Grey Eighties
+; Scheme system: base24
+; Scheme author: FredHappyface (https://github.com/fredHappyface)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base24-space-grey-eighties]
+
+; Default Foreground
+; base05 #c7c6c2
+"Colour0"="199,198,194"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #c7c6c2
+"Colour1"="199,198,194"
+
+; Default Background
+; base00 #212121
+"Colour2"="33,33,33"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #212121
+"Colour3"="33,33,33"
+
+; Cursor Text -- equals to default background
+; base00 #212121
+"Colour4"="33,33,33"
+
+; Cursor Colour -- equals to default foreground
+; base05 #c7c6c2
+"Colour5"="199,198,194"
+
+; ANSI Black
+; base01 #15171c
+"Colour6"="21,23,28"
+
+; ANSI Black Bright
+; base02 #555555
+"Colour7"="85,85,85"
+
+; ANSI Red
+; base08 #ec5f67
+"Colour8"="236,95,103"
+
+; ANSI Red Bright
+; base12 #ff6973
+"Colour9"="255,105,115"
+
+; ANSI Green
+; base0B #80a763
+"Colour10"="128,167,99"
+
+; ANSI Green Bright
+; base14 #93d393
+"Colour11"="147,211,147"
+
+; ANSI Yellow
+; base0A #4d83d0
+"Colour12"="77,131,208"
+
+; ANSI Yellow Bright
+; base13 #ffd156
+"Colour13"="255,209,86"
+
+; ANSI Blue
+; base0D #5485c0
+"Colour14"="84,133,192"
+
+; ANSI Blue Bright
+; base16 #4d83d0
+"Colour15"="77,131,208"
+
+; ANSI Magenta
+; base0E #bf83c0
+"Colour16"="191,131,192"
+
+; ANSI Magenta Bright
+; base17 #ff55ff
+"Colour17"="255,85,255"
+
+; ANSI Cyan
+; base0C #57c2c0
+"Colour18"="87,194,192"
+
+; ANSI Cyan Bright
+; base15 #83e8e4
+"Colour19"="131,232,228"
+
+; ANSI White
+; base06 #eeece7
+"Colour20"="238,236,231"
+
+; ANSI White Bright
+; base07 ffffff
+"Colour21"="255,255,255"

@@ -1,0 +1,43 @@
+# base24 Dark Plus
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#0e0e0e"
+foreground = "#c5c5c5"
+
+cursor_bg = "#000000"
+cursor_border = "#c5c5c5"
+cursor_fg = "#e5e5e5"
+
+selection_bg = "#c5c5c5"
+selection_fg = "#666666"
+
+ansi = [
+  "#0e0e0e",
+  "#cd3131",
+  "#0dbc79",
+  "#3b8eea",
+  "#2472c8",
+  "#bc3fbc",
+  "#11a8cd",
+  "#e5e5e5"
+]
+brights = [
+  "#666666",
+  "#f14c4c",
+  "#23d18b",
+  "#f5f543",
+  "#3b8eea",
+  "#d670d6",
+  "#29b8db",
+  "#e5e5e5"
+]
+
+[colors.indexed]
+16 = "#e5e510"
+17 = "#661818"
+18 = "#000000"
+19 = "#666666"
+20 = "#a5a5a5"
+21 = "#c5c5c5"

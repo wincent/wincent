@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Unikitty Reversible",
+	"foreground": "#c3c2c4",
+	"background": "#2e2a31",
+	"black": "#4b484e",
+	"blue": "#7864fa",
+	"brightBlack": "#69666b",
+	"brightBlue": "#7864fa",
+	"brightCyan": "#149bda",
+	"brightGreen": "#17ad98",
+	"brightPurple": "#b33ce8",
+	"brightRed": "#d8137f",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#dc8a0e",
+	"cyan": "#149bda",
+	"green": "#17ad98",
+	"purple": "#b33ce8",
+	"red": "#d8137f",
+	"white": "#e1e0e1",
+	"yellow": "#d65407"
+},

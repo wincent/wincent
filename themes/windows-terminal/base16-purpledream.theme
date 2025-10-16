@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Purpledream",
+	"foreground": "#ddd0dd",
+	"background": "#100510",
+	"black": "#302030",
+	"blue": "#00a0f0",
+	"brightBlack": "#403040",
+	"brightBlue": "#00a0f0",
+	"brightCyan": "#0075b0",
+	"brightGreen": "#14cc64",
+	"brightPurple": "#b000d0",
+	"brightRed": "#ff1d0d",
+	"brightWhite": "#fff0ff",
+	"brightYellow": "#f000a0",
+	"cyan": "#0075b0",
+	"green": "#14cc64",
+	"purple": "#b000d0",
+	"red": "#ff1d0d",
+	"white": "#eee0ee",
+	"yellow": "#ccae14"
+},

@@ -1,0 +1,10 @@
+# Scheme name: Ollie
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-ollie
+ColorForeground=#7e7789
+ColorBackground=#212024
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#000000;#ab2e30;#31ab60;#4487ff;#2c56ab;#af8427;#1fa5ab;#8a8dab;#5a3625;#ff3d48;#3bff99;#ff5e1e;#4487ff;#ffc21c;#1efaff;#5b6da7

@@ -1,0 +1,43 @@
+# base16 Tokyodark Terminal
+# Scheme author: Tiagovla (https://github.com/tiagovla/)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#11121d"
+foreground = "#a0a8cd"
+
+cursor_bg = "#a0a8cd"
+cursor_border = "#a0a8cd"
+cursor_fg = "#11121d"
+
+selection_bg = "#a0a8cd"
+selection_fg = "#212234"
+
+ansi = [
+  "#11121d",
+  "#ee6d85",
+  "#95c561",
+  "#d7a65f",
+  "#7199ee",
+  "#a485dd",
+  "#38a89d",
+  "#a0a8cd"
+]
+brights = [
+  "#212234",
+  "#ee6d85",
+  "#95c561",
+  "#d7a65f",
+  "#7199ee",
+  "#a485dd",
+  "#38a89d",
+  "#a0a8cd"
+]
+
+[colors.indexed]
+16 = "#f6955b"
+17 = "#773440"
+18 = "#1a1b2a"
+19 = "#212234"
+20 = "#4a5057"
+21 = "#a0a8cd"

@@ -1,0 +1,43 @@
+# base16 Apathy
+# Scheme author: Jannik Siebert (https://github.com/janniks)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#031a16"
+foreground = "#81b5ac"
+
+cursor_bg = "#81b5ac"
+cursor_border = "#81b5ac"
+cursor_fg = "#031a16"
+
+selection_bg = "#81b5ac"
+selection_fg = "#184e45"
+
+ansi = [
+  "#031a16",
+  "#3e9688",
+  "#883e96",
+  "#3e4c96",
+  "#96883e",
+  "#4c963e",
+  "#963e4c",
+  "#a7cec8"
+]
+brights = [
+  "#184e45",
+  "#3e9688",
+  "#883e96",
+  "#3e4c96",
+  "#96883e",
+  "#4c963e",
+  "#963e4c",
+  "#d2e7e4"
+]
+
+[colors.indexed]
+16 = "#3e7996"
+17 = "#3e965b"
+18 = "#0b342d"
+19 = "#184e45"
+20 = "#5f9c92"
+21 = "#81b5ac"

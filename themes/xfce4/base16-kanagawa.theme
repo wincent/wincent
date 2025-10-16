@@ -1,0 +1,10 @@
+# Scheme name: Kanagawa
+# Scheme author: Tommaso Laurenzi (https://github.com/rebelot)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-kanagawa
+ColorForeground=#dcd7ba
+ColorBackground=#1f1f28
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#16161d;#c34043;#76946a;#c0a36e;#7e9cd8;#957fb8;#6a9589;#c8c093;#223249;#c34043;#76946a;#c0a36e;#7e9cd8;#957fb8;#6a9589;#717c7c

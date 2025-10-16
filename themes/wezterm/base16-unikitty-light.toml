@@ -1,0 +1,43 @@
+# base16 Unikitty Light
+# Scheme author: Josh W Lewis (@joshwlewis)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#ffffff"
+foreground = "#6c696e"
+
+cursor_bg = "#6c696e"
+cursor_border = "#6c696e"
+cursor_fg = "#ffffff"
+
+selection_bg = "#6c696e"
+selection_fg = "#c4c3c5"
+
+ansi = [
+  "#ffffff",
+  "#d8137f",
+  "#17ad98",
+  "#dc8a0e",
+  "#775dff",
+  "#aa17e6",
+  "#149bda",
+  "#4f4b51"
+]
+brights = [
+  "#c4c3c5",
+  "#d8137f",
+  "#17ad98",
+  "#dc8a0e",
+  "#775dff",
+  "#aa17e6",
+  "#149bda",
+  "#322d34"
+]
+
+[colors.indexed]
+16 = "#d65407"
+17 = "#e013d0"
+18 = "#e1e1e2"
+19 = "#c4c3c5"
+20 = "#89878b"
+21 = "#6c696e"

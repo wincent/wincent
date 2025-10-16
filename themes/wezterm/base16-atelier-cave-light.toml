@@ -1,0 +1,43 @@
+# base16 Atelier Cave Light
+# Scheme author: Bram de Haan (http://atelierbramdehaan.nl)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#efecf4"
+foreground = "#585260"
+
+cursor_bg = "#585260"
+cursor_border = "#585260"
+cursor_fg = "#efecf4"
+
+selection_bg = "#585260"
+selection_fg = "#8b8792"
+
+ansi = [
+  "#efecf4",
+  "#be4678",
+  "#2a9292",
+  "#a06e3b",
+  "#576ddb",
+  "#955ae7",
+  "#398bc6",
+  "#26232a"
+]
+brights = [
+  "#8b8792",
+  "#be4678",
+  "#2a9292",
+  "#a06e3b",
+  "#576ddb",
+  "#955ae7",
+  "#398bc6",
+  "#19171c"
+]
+
+[colors.indexed]
+16 = "#aa573c"
+17 = "#bf40bf"
+18 = "#e2dfe7"
+19 = "#8b8792"
+20 = "#655f6d"
+21 = "#585260"

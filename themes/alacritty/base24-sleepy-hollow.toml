@@ -1,0 +1,58 @@
+# base24 Sleepy Hollow 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x121213'
+foreground = '0x968684'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x121213'
+cursor = '0x968684'
+
+# Normal colors
+[colors.normal]
+black = '0x572000'
+red = '0xb93934'
+green = '0x90773e'
+yellow = '0x8085ef'
+blue = '0x5e62b4'
+magenta = '0xa07c7b'
+cyan = '0x8eaea9'
+white = '0xaf9a91'
+
+# Bright colors
+[colors.bright]
+black = '0x4e4b60'
+red = '0xd9443e'
+green = '0xd6b04e'
+yellow = '0xf66713'
+blue = '0x8085ef'
+magenta = '0xe1c2ba'
+cyan = '0xa4dbe7'
+white = '0xd1c7a9'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xb45600"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x5c1c1a"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x572000"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x4e4b60"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x7e7278"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xaf9a91"

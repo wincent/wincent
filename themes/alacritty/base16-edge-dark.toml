@@ -1,0 +1,58 @@
+# base16 Edge Dark 256 - alacritty color config
+# cjayross (https://github.com/cjayross)
+
+# Default colors
+[colors.primary]
+background = '0x262729'
+foreground = '0xb7bec9'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x262729'
+cursor = '0xb7bec9'
+
+# Normal colors
+[colors.normal]
+black = '0x88909f'
+red = '0xe77171'
+green = '0xa1bf78'
+yellow = '0xdbb774'
+blue = '0x73b3e7'
+magenta = '0xd390e7'
+cyan = '0x5ebaa5'
+white = '0xd390e7'
+
+# Bright colors
+[colors.bright]
+black = '0xb7bec9'
+red = '0xe77171'
+green = '0xa1bf78'
+yellow = '0xdbb774'
+blue = '0x73b3e7'
+magenta = '0xd390e7'
+cyan = '0x5ebaa5'
+white = '0x3e4249'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xe77171"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x5ebaa5"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x88909f"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0xb7bec9"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x73b3e7"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xd390e7"

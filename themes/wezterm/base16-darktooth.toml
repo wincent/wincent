@@ -1,0 +1,43 @@
+# base16 Darktooth
+# Scheme author: Jason Milkins (https://github.com/jasonm23)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#1d2021"
+foreground = "#a89984"
+
+cursor_bg = "#a89984"
+cursor_border = "#a89984"
+cursor_fg = "#1d2021"
+
+selection_bg = "#a89984"
+selection_fg = "#504945"
+
+ansi = [
+  "#1d2021",
+  "#fb543f",
+  "#95c085",
+  "#fac03b",
+  "#0d6678",
+  "#8f4673",
+  "#8ba59b",
+  "#d5c4a1"
+]
+brights = [
+  "#504945",
+  "#fb543f",
+  "#95c085",
+  "#fac03b",
+  "#0d6678",
+  "#8f4673",
+  "#8ba59b",
+  "#fdf4c1"
+]
+
+[colors.indexed]
+16 = "#fe8625"
+17 = "#a87322"
+18 = "#32302f"
+19 = "#504945"
+20 = "#928374"
+21 = "#a89984"

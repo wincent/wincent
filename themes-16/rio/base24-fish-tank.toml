@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Fish Tank by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#6c5a30' # base02
+selection-foreground = '#ccc9c9' # base05
+
+cursor         = '#ccc9c9' # base05
+tabs           = '#03063c' # base01
+tabs-active    = '#6c5a30' # base02
+
+background     = '#222436' # base00
+foreground     = '#ccc9c9' # base05
+black          = '#03063c' # base01
+red            = '#c60049' # base08
+yellow         = '#b1bdf9' # base0A
+green          = '#abf157' # base0B
+cyan           = '#968662' # base0C
+blue           = '#525fb8' # base0D
+magenta        = '#976f81' # base0E
+white          = '#eceffc' # base06
+
+dim-foreground   = '#ccc9c9' # base05
+dim-black        = '#03063c' # base01
+dim-red          = '#c60049' # base08
+dim-yellow       = '#b1bdf9' # base0A
+dim-green        = '#abf157' # base0B
+dim-cyan         = '#968662' # base0C
+dim-blue         = '#525fb8' # base0D
+dim-magenta      = '#976f81' # base0E
+dim-white        = '#aca496' # base04
+
+light-foreground = '#ccc9c9' # base05
+light-black      = '#6c5a30' # base02
+light-red        = '#d94a8a' # base12
+light-yellow     = '#fee6a8' # base13
+light-green      = '#daffa8' # base14
+light-cyan       = '#a4bc86' # base15
+light-blue       = '#b1bdf9' # base16
+light-magenta    = '#fda4cc' # base17
+light-white      = '#f6ffec' # base07

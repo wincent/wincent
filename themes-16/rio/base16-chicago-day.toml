@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Chicago Day by Wendell, Ryan &lt;ryanjwendell@gmail.com&gt;
+
+[colors]
+selection-background = '#b9d0c3' # base02
+selection-foreground = '#364c40' # base05
+
+cursor         = '#364c40' # base05
+tabs           = '#d1e0d7' # base01
+tabs-active    = '#b9d0c3' # base02
+
+background     = '#e8f0ea' # base00
+foreground     = '#364c40' # base05
+black          = '#d1e0d7' # base01
+red            = '#c60c30' # base08
+yellow         = '#968400' # base0A
+green          = '#009b3a' # base0B
+cyan           = '#00a1de' # base0C
+blue           = '#522398' # base0D
+magenta        = '#e27ea6' # base0E
+white          = '#2a3b32' # base06
+
+dim-foreground   = '#364c40' # base05
+dim-black        = '#d1e0d7' # base01
+dim-red          = '#c60c30' # base08
+dim-yellow       = '#968400' # base0A
+dim-green        = '#009b3a' # base0B
+dim-cyan         = '#00a1de' # base0C
+dim-blue         = '#522398' # base0D
+dim-magenta      = '#e27ea6' # base0E
+dim-white        = '#4b5a51' # base04
+
+light-foreground = '#364c40' # base05
+light-black      = '#b9d0c3' # base02
+light-red        = '#c60c30' # base08
+light-yellow     = '#968400' # base0A
+light-green      = '#009b3a' # base0B
+light-cyan       = '#00a1de' # base0C
+light-blue       = '#522398' # base0D
+light-magenta    = '#e27ea6' # base0E
+light-white      = '#1e2a24' # base07

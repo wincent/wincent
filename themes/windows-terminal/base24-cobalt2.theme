@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Cobalt2",
+	"foreground": "#a1a1a1",
+	"background": "#122637",
+	"black": "#000000",
+	"blue": "#1460d2",
+	"brightBlack": "#555555",
+	"brightBlue": "#5555ff",
+	"brightCyan": "#6ae3f9",
+	"brightGreen": "#3bcf1d",
+	"brightPurple": "#ff55ff",
+	"brightRed": "#f40d17",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#ecc809",
+	"cyan": "#00bbbb",
+	"green": "#37dd21",
+	"purple": "#ff005d",
+	"red": "#ff0000",
+	"white": "#bbbbbb",
+	"yellow": "#fee409"
+},

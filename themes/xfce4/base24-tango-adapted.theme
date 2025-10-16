@@ -1,0 +1,10 @@
+# Scheme name: Tango Adapted
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-tango-adapted
+ColorForeground=#d0d4cb
+ColorBackground=#fffefe
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#000000;#ff0000;#59d500;#88c9ff;#00a1ff;#c17ecb;#00d0d6;#e6eae1;#8e928a;#ff0012;#93fe00;#fff021;#88c9ff;#e8a6e1;#00fdff;#f6f6f4

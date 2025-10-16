@@ -1,0 +1,10 @@
+# Scheme name: Pop
+# Scheme author: Chris Kempson (http://chriskempson.com)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-pop
+ColorForeground=#d0d0d0
+ColorBackground=#000000
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#202020;#eb008a;#37b349;#f8ca12;#0e5a94;#b31e8d;#00aabb;#e0e0e0;#303030;#eb008a;#37b349;#f8ca12;#0e5a94;#b31e8d;#00aabb;#ffffff

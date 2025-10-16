@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Nocturnal Winter",
+	"foreground": "#dcdcdc",
+	"background": "#0d0d17",
+	"black": "#4c4c4c",
+	"blue": "#3081df",
+	"brightBlack": "#7f7f7f",
+	"brightBlue": "#6095fe",
+	"brightCyan": "#0ae78d",
+	"brightGreen": "#0ae78d",
+	"brightPurple": "#ff78a2",
+	"brightRed": "#f16c85",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#fefb67",
+	"cyan": "#09c87a",
+	"green": "#08cd7d",
+	"purple": "#fe2a6c",
+	"red": "#f12d52",
+	"white": "#fbfbfb",
+	"yellow": "#f5f079"
+},

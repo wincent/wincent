@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "The Hulk",
+	"foreground": "#b6b6b1",
+	"background": "#1b1d1e",
+	"black": "#1b1d1e",
+	"blue": "#2424f4",
+	"brightBlack": "#505354",
+	"brightBlue": "#4f6a95",
+	"brightCyan": "#3f85a5",
+	"brightGreen": "#48ff76",
+	"brightPurple": "#72579d",
+	"brightRed": "#8dff2a",
+	"brightWhite": "#e5e5e0",
+	"brightYellow": "#3afe15",
+	"cyan": "#378ca9",
+	"green": "#13ce2f",
+	"purple": "#641e73",
+	"red": "#259d1a",
+	"white": "#d8d8d0",
+	"yellow": "#62e456"
+},

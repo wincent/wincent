@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Ashes",
+	"foreground": "#c7ccd1",
+	"background": "#1c2023",
+	"black": "#393f45",
+	"blue": "#ae95c7",
+	"brightBlack": "#565e65",
+	"brightBlue": "#ae95c7",
+	"brightCyan": "#95aec7",
+	"brightGreen": "#95c7ae",
+	"brightPurple": "#c795ae",
+	"brightRed": "#c7ae95",
+	"brightWhite": "#f3f4f5",
+	"brightYellow": "#aec795",
+	"cyan": "#95aec7",
+	"green": "#95c7ae",
+	"purple": "#c795ae",
+	"red": "#c7ae95",
+	"white": "#dfe2e5",
+	"yellow": "#c7c795"
+},

@@ -1,0 +1,10 @@
+# Scheme name: Sandcastle
+# Scheme author: George Essig (https://github.com/gessig)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-sandcastle
+ColorForeground=#a89984
+ColorBackground=#282c34
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#2c323b;#83a598;#528b8b;#a07e3b;#83a598;#d75f5f;#83a598;#d5c4a1;#3e4451;#83a598;#528b8b;#a07e3b;#83a598;#d75f5f;#83a598;#fdf4c1

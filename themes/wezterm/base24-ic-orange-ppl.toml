@@ -1,0 +1,43 @@
+# base24 IC-Orange-PPL
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#262626"
+foreground = "#d9a971"
+
+cursor_bg = "#000000"
+cursor_border = "#d9a971"
+cursor_fg = "#ffc88a"
+
+selection_bg = "#d9a971"
+selection_fg = "#6a4e29"
+
+ansi = [
+  "#262626",
+  "#c03900",
+  "#a3a900",
+  "#ffbd54",
+  "#bd6c00",
+  "#fb5d00",
+  "#f79400",
+  "#ffc88a"
+]
+brights = [
+  "#6a4e29",
+  "#ff8b67",
+  "#f6ff3f",
+  "#ffe36e",
+  "#ffbd54",
+  "#fc874f",
+  "#c59752",
+  "#f9f9fe"
+]
+
+[colors.indexed]
+16 = "#caae00"
+17 = "#601c00"
+18 = "#000000"
+19 = "#6a4e29"
+20 = "#b48b59"
+21 = "#d9a971"

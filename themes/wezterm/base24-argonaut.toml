@@ -1,0 +1,43 @@
+# base24 Argonaut
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#0d0f18"
+foreground = "#d0d0d0"
+
+cursor_bg = "#222222"
+cursor_border = "#d0d0d0"
+cursor_fg = "#ffffff"
+
+selection_bg = "#d0d0d0"
+selection_fg = "#444444"
+
+ansi = [
+  "#0d0f18",
+  "#ff000f",
+  "#8ce00a",
+  "#0092ff",
+  "#008df8",
+  "#6c43a5",
+  "#00d7eb",
+  "#ffffff"
+]
+brights = [
+  "#444444",
+  "#ff273f",
+  "#abe05a",
+  "#ffd141",
+  "#0092ff",
+  "#9a5feb",
+  "#67ffef",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#ffb900"
+17 = "#7f0007"
+18 = "#222222"
+19 = "#444444"
+20 = "#a1a1a1"
+21 = "#d0d0d0"

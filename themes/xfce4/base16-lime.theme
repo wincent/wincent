@@ -1,0 +1,10 @@
+# Scheme name: lime
+# Scheme author: limelier
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-lime
+ColorForeground=#818175
+ColorBackground=#1a1a2f
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#202030;#ff662a;#8cd97c;#ffd15e;#2b926f;#1b825f;#4cad83;#fff2d1;#2a2a3f;#ff662a;#8cd97c;#ffd15e;#2b926f;#1b825f;#4cad83;#fff8e1

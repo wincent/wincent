@@ -1,0 +1,43 @@
+# base16 Material Lighter
+# Scheme author: Nate Peterson
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#fafafa"
+foreground = "#80cbc4"
+
+cursor_bg = "#80cbc4"
+cursor_border = "#80cbc4"
+cursor_fg = "#fafafa"
+
+selection_bg = "#80cbc4"
+selection_fg = "#cceae7"
+
+ansi = [
+  "#fafafa",
+  "#ff5370",
+  "#91b859",
+  "#ffb62c",
+  "#6182b8",
+  "#7c4dff",
+  "#39adb5",
+  "#80cbc4"
+]
+brights = [
+  "#cceae7",
+  "#ff5370",
+  "#91b859",
+  "#ffb62c",
+  "#6182b8",
+  "#7c4dff",
+  "#39adb5",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#f76d47"
+17 = "#e53935"
+18 = "#e7eaec"
+19 = "#cceae7"
+20 = "#8796b0"
+21 = "#80cbc4"

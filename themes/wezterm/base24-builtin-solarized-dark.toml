@@ -1,0 +1,43 @@
+# base24 Builtin Solarized Dark
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#002b36"
+foreground = "#b2b8ad"
+
+cursor_bg = "#073642"
+cursor_border = "#b2b8ad"
+cursor_fg = "#eee8d5"
+
+selection_bg = "#b2b8ad"
+selection_fg = "#002b36"
+
+ansi = [
+  "#002b36",
+  "#dc322f",
+  "#859900",
+  "#839496",
+  "#268bd2",
+  "#d33682",
+  "#2aa198",
+  "#eee8d5"
+]
+brights = [
+  "#002b36",
+  "#cb4b16",
+  "#586e75",
+  "#657b83",
+  "#839496",
+  "#6c71c4",
+  "#93a1a1",
+  "#fdf6e3"
+]
+
+[colors.indexed]
+16 = "#b58900"
+17 = "#6e1917"
+18 = "#073642"
+19 = "#002b36"
+20 = "#778985"
+21 = "#b2b8ad"

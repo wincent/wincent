@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Vibrant Ink by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#555555' # base02
+selection-foreground = '#cdcdcd' # base05
+
+cursor         = '#cdcdcd' # base05
+tabs           = '#878787' # base01
+tabs-active    = '#555555' # base02
+
+background     = '#000000' # base00
+foreground     = '#cdcdcd' # base05
+black          = '#878787' # base01
+red            = '#ff6600' # base08
+yellow         = '#0000ff' # base0A
+green          = '#ccff04' # base0B
+cyan           = '#44b3cc' # base0C
+blue           = '#44b3cc' # base0D
+magenta        = '#9933cc' # base0E
+white          = '#f5f5f5' # base06
+
+dim-foreground   = '#cdcdcd' # base05
+dim-black        = '#878787' # base01
+dim-red          = '#ff6600' # base08
+dim-yellow       = '#0000ff' # base0A
+dim-green        = '#ccff04' # base0B
+dim-cyan         = '#44b3cc' # base0C
+dim-blue         = '#44b3cc' # base0D
+dim-magenta      = '#9933cc' # base0E
+dim-white        = '#a5a5a5' # base04
+
+light-foreground = '#cdcdcd' # base05
+light-black      = '#555555' # base02
+light-red        = '#ff0000' # base12
+light-yellow     = '#ffff00' # base13
+light-green      = '#00ff00' # base14
+light-cyan       = '#00ffff' # base15
+light-blue       = '#0000ff' # base16
+light-magenta    = '#ff00ff' # base17
+light-white      = '#e5e5e5' # base07

@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Zenbones",
+	"foreground": "#b279a7",
+	"background": "#191919",
+	"black": "#de6e7c",
+	"blue": "#cf86c1",
+	"brightBlack": "#819b69",
+	"brightBlue": "#cf86c1",
+	"brightCyan": "#61abda",
+	"brightGreen": "#d68c67",
+	"brightPurple": "#65b8c1",
+	"brightRed": "#3d3839",
+	"brightWhite": "#bbbbbb",
+	"brightYellow": "#8bae68",
+	"cyan": "#61abda",
+	"green": "#d68c67",
+	"purple": "#65b8c1",
+	"red": "#3d3839",
+	"white": "#66a5ad",
+	"yellow": "#e8838f"
+},

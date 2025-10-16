@@ -1,0 +1,10 @@
+# Scheme name: Dark Violet
+# Scheme author: ruler501 (https://github.com/ruler501/base16-darkviolet)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-darkviolet
+ColorForeground=#b08ae6
+ColorBackground=#000000
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#231a40;#a82ee6;#4595e6;#f29df2;#4136d9;#7e5ce6;#40dfff;#9045e6;#432d59;#a82ee6;#4595e6;#f29df2;#4136d9;#7e5ce6;#40dfff;#a366ff

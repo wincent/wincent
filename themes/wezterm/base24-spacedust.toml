@@ -1,0 +1,43 @@
+# base24 Spacedust
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#0a1e24"
+foreground = "#cdc7a6"
+
+cursor_bg = "#6e5246"
+cursor_border = "#cdc7a6"
+cursor_fg = "#f0f1ce"
+
+selection_bg = "#cdc7a6"
+selection_fg = "#674c31"
+
+ansi = [
+  "#0a1e24",
+  "#e35a00",
+  "#5cab96",
+  "#67a0cd",
+  "#0e548b",
+  "#e35a00",
+  "#06afc7",
+  "#f0f1ce"
+]
+brights = [
+  "#674c31",
+  "#ff8a39",
+  "#adcab8",
+  "#ffc777",
+  "#67a0cd",
+  "#ff8a39",
+  "#83a6b3",
+  "#fefff0"
+]
+
+[colors.indexed]
+16 = "#e3cd7b"
+17 = "#712d00"
+18 = "#6e5246"
+19 = "#674c31"
+20 = "#ab9e7f"
+21 = "#cdc7a6"

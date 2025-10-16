@@ -1,0 +1,10 @@
+# Scheme name: Penumbra Dark Contrast Plus
+# Scheme author: Zachary Weiss (https://github.com/zacharyweiss)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-penumbra-dark-contrast-plus
+ColorForeground=#cecece
+ColorBackground=#181b1f
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#24272b;#df7f78;#50b584;#9ca748;#61a3e6;#a48fe1;#00b3c2;#fff7ed;#3e4044;#df7f78;#50b584;#9ca748;#61a3e6;#a48fe1;#00b3c2;#fffdfb

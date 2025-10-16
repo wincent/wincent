@@ -1,0 +1,43 @@
+# base24 Solarized Dark Higher Contrast
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#001e26"
+foreground = "#aec2ba"
+
+cursor_bg = "#002731"
+cursor_border = "#aec2ba"
+cursor_fg = "#e9e2cb"
+
+selection_bg = "#aec2ba"
+selection_fg = "#006388"
+
+ansi = [
+  "#001e26",
+  "#d01b24",
+  "#6bbe6c",
+  "#178dc7",
+  "#2075c7",
+  "#c61b6e",
+  "#259185",
+  "#e9e2cb"
+]
+brights = [
+  "#006388",
+  "#f4153b",
+  "#50ee84",
+  "#b17e28",
+  "#178dc7",
+  "#e14d8e",
+  "#00b29e",
+  "#fcf4dc"
+]
+
+[colors.indexed]
+16 = "#a57705"
+17 = "#680d12"
+18 = "#002731"
+19 = "#006388"
+20 = "#74a2a9"
+21 = "#aec2ba"

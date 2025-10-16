@@ -1,0 +1,43 @@
+# base24 Jellybeans
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#121212"
+foreground = "#d5d5d5"
+
+cursor_bg = "#929292"
+cursor_border = "#d5d5d5"
+cursor_fg = "#dedede"
+
+selection_bg = "#d5d5d5"
+selection_fg = "#bdbdbd"
+
+ansi = [
+  "#121212",
+  "#e27373",
+  "#93b979",
+  "#b1d8f6",
+  "#97bedc",
+  "#e1c0fa",
+  "#00988e",
+  "#dedede"
+]
+brights = [
+  "#bdbdbd",
+  "#ffa1a1",
+  "#bddeab",
+  "#ffdca0",
+  "#b1d8f6",
+  "#fbdaff",
+  "#1ab2a8",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#ffba7b"
+17 = "#713939"
+18 = "#929292"
+19 = "#bdbdbd"
+20 = "#cdcdcd"
+21 = "#d5d5d5"

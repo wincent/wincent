@@ -1,0 +1,58 @@
+# base16 Shapeshifter 256 - alacritty color config
+# Tyler Benziger (http://tybenz.com)
+
+# Default colors
+[colors.primary]
+background = '0xf9f9f9'
+foreground = '0x102015'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0xf9f9f9'
+cursor = '0x102015'
+
+# Normal colors
+[colors.normal]
+black = '0xe0e0e0'
+red = '0xe92f2f'
+green = '0x0ed839'
+yellow = '0xdddd13'
+blue = '0x3b48e3'
+magenta = '0xf996e2'
+cyan = '0x23edda'
+white = '0x040404'
+
+# Bright colors
+[colors.bright]
+black = '0xababab'
+red = '0xe92f2f'
+green = '0x0ed839'
+yellow = '0xdddd13'
+blue = '0x3b48e3'
+magenta = '0xf996e2'
+cyan = '0x23edda'
+white = '0x000000'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xe09448"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x69542d"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0xe0e0e0"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0xababab"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x343434"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0x040404"

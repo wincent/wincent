@@ -1,0 +1,43 @@
+# base16 Tokyo Night Terminal Storm
+# Scheme author: Michaël Ball
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#24283b"
+foreground = "#787c99"
+
+cursor_bg = "#787c99"
+cursor_border = "#787c99"
+cursor_fg = "#24283b"
+
+selection_bg = "#787c99"
+selection_fg = "#343a52"
+
+ansi = [
+  "#24283b",
+  "#f7768e",
+  "#41a6b5",
+  "#e0af68",
+  "#7aa2f7",
+  "#bb9af7",
+  "#7dcfff",
+  "#cbccd1"
+]
+brights = [
+  "#343a52",
+  "#f7768e",
+  "#41a6b5",
+  "#e0af68",
+  "#7aa2f7",
+  "#bb9af7",
+  "#7dcfff",
+  "#d5d6db"
+]
+
+[colors.indexed]
+16 = "#ff9e64"
+17 = "#d18616"
+18 = "#1a1b26"
+19 = "#343a52"
+20 = "#787c99"
+21 = "#787c99"

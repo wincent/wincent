@@ -1,0 +1,43 @@
+# base16 London Tube
+# Scheme author: Jan T. Sott
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#231f20"
+foreground = "#d9d8d8"
+
+cursor_bg = "#d9d8d8"
+cursor_border = "#d9d8d8"
+cursor_fg = "#231f20"
+
+selection_bg = "#d9d8d8"
+selection_fg = "#5a5758"
+
+ansi = [
+  "#231f20",
+  "#ee2e24",
+  "#00853e",
+  "#ffd204",
+  "#009ddc",
+  "#98005d",
+  "#85cebc",
+  "#e7e7e8"
+]
+brights = [
+  "#5a5758",
+  "#ee2e24",
+  "#00853e",
+  "#ffd204",
+  "#009ddc",
+  "#98005d",
+  "#85cebc",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#f386a1"
+17 = "#b06110"
+18 = "#1c3f95"
+19 = "#5a5758"
+20 = "#959ca1"
+21 = "#d9d8d8"

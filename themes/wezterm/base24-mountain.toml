@@ -1,0 +1,43 @@
+# base24 Mountain
+# Scheme author: Stefan Weigl-Bosker (https://github.com/sweiglbosker), based on Mountain Theme (https://github.com/mountain-theme/Mountain)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#0f0f0f"
+foreground = "#cacaca"
+
+cursor_bg = "#191919"
+cursor_border = "#cacaca"
+cursor_fg = "#e7e7e7"
+
+selection_bg = "#cacaca"
+selection_fg = "#262626"
+
+ansi = [
+  "#0f0f0f",
+  "#ac8a8c",
+  "#8aac8b",
+  "#aca98a",
+  "#8f8aac",
+  "#ac8aac",
+  "#8aabac",
+  "#e7e7e7"
+]
+brights = [
+  "#262626",
+  "#c49ea0",
+  "#9ec49f",
+  "#c4c19e",
+  "#a39ec4",
+  "#c49ec4",
+  "#9ec3c4",
+  "#f0f0f0"
+]
+
+[colors.indexed]
+16 = "#c6a679"
+17 = "#ac8a8c"
+18 = "#191919"
+19 = "#262626"
+20 = "#4c4c4c"
+21 = "#cacaca"

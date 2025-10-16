@@ -1,0 +1,43 @@
+# base24 Mission Brogue
+# Scheme author: Thomas Leon Highbaugh
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#283139"
+foreground = "#93a5b4"
+
+cursor_bg = "#3b4954"
+cursor_border = "#93a5b4"
+cursor_fg = "#abb9c4"
+
+selection_bg = "#93a5b4"
+selection_fg = "#4d606f"
+
+ansi = [
+  "#283139",
+  "#efa9a9",
+  "#8cd4b0",
+  "#e0b88a",
+  "#a2c5fd",
+  "#ccb7db",
+  "#93dfec",
+  "#abb9c4"
+]
+brights = [
+  "#4d606f",
+  "#f6bfbf",
+  "#b5e090",
+  "#fff0b2",
+  "#c3d9fd",
+  "#e3c3e6",
+  "#b2f0fd",
+  "#e7ebee"
+]
+
+[colors.indexed]
+16 = "#f2db78"
+17 = "#8e9ecb"
+18 = "#3b4954"
+19 = "#4d606f"
+20 = "#788ea1"
+21 = "#93a5b4"

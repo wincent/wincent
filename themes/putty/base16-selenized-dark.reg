@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: selenized-dark
+; Scheme system: base16
+; Scheme description: 
+; Scheme author: Jan Warchol (https://github.com/jan-warchol/selenized) / adapted to base16 by ali
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base16-selenized-dark]
+
+; Default Foreground
+; base05 #adbcbc
+"Colour0"="173,188,188"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #adbcbc
+"Colour1"="173,188,188"
+
+; Default Background
+; base00 #103c48
+"Colour2"="16,60,72"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #103c48
+"Colour3"="16,60,72"
+
+; Cursor Text -- equals to default background
+; base00 #103c48
+"Colour4"="16,60,72"
+
+; Cursor Colour -- equals to default foreground
+; base05 #adbcbc
+"Colour5"="173,188,188"
+
+; ANSI Black
+; 30m
+; base01 #184956
+"Colour6"="24,73,86"
+
+; ANSI Black Bright
+; 1;30m
+; base02 #2d5b69
+"Colour7"="45,91,105"
+
+; ANSI Red
+; 31m
+; base08 #fa5750
+"Colour8"="250,87,80"
+
+; ANSI Red Bright
+; 1;31m
+; base08 #fa5750
+"Colour9"="250,87,80"
+
+; ANSI Green
+; 32m
+; base0B #75b938
+"Colour10"="117,185,56"
+
+; ANSI Green Bright
+; 1;32m
+; base0B #75b938
+"Colour11"="117,185,56"
+
+; ANSI Yellow
+; 33m
+; base0A #dbb32d
+"Colour12"="219,179,45"
+
+; ANSI Yellow Bright
+; 1;33m
+; base0A #dbb32d
+"Colour13"="219,179,45"
+
+; ANSI Blue
+; 34m
+; base0D #4695f7
+"Colour14"="70,149,247"
+
+; ANSI Blue Bright
+; 1;34m
+; base0D #4695f7
+"Colour15"="70,149,247"
+
+; ANSI Magenta
+; 35m
+; base0E #af88eb
+"Colour16"="175,136,235"
+
+; ANSI Magenta Bright
+; 1;35m
+; base0E #af88eb
+"Colour17"="175,136,235"
+
+; ANSI Cyan
+; 36m
+; base0C #41c7b9
+"Colour18"="65,199,185"
+
+; ANSI Cyan Bright
+; 1;36m
+; base0C #41c7b9
+"Colour19"="65,199,185"
+
+; ANSI White
+; 37m
+; base06 #cad8d9
+"Colour20"="202,216,217"
+
+; ANSI White Bright
+; 1;37m
+; base07 cad8d9
+"Colour21"="202,216,217"

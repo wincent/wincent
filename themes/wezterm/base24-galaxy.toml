@@ -1,0 +1,43 @@
+# base24 Galaxy
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#1c2836"
+foreground = "#a1a1a1"
+
+cursor_bg = "#000000"
+cursor_border = "#a1a1a1"
+cursor_fg = "#bbbbbb"
+
+selection_bg = "#a1a1a1"
+selection_fg = "#555555"
+
+ansi = [
+  "#1c2836",
+  "#f9555f",
+  "#20af89",
+  "#589cf5",
+  "#589cf5",
+  "#934d95",
+  "#1e9ee6",
+  "#bbbbbb"
+]
+brights = [
+  "#555555",
+  "#fa8b8e",
+  "#34bb99",
+  "#ffff55",
+  "#589cf5",
+  "#e75598",
+  "#3978bb",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#fdf029"
+17 = "#7c2a2f"
+18 = "#000000"
+19 = "#555555"
+20 = "#888888"
+21 = "#a1a1a1"

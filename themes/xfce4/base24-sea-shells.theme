@@ -1,0 +1,10 @@
+# Scheme name: Sea Shells
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-sea-shells
+ColorForeground=#b79c7e
+ColorBackground=#08131a
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#17384c;#d15023;#027c9b;#1bbcdd;#1e4950;#68d3f1;#50a3b5;#deb88d;#424b52;#d38677;#618c98;#fdd29e;#1bbcdd;#bbe3ee;#86abb3;#fee3cd

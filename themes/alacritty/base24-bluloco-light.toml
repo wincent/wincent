@@ -1,0 +1,58 @@
+# base24 Bluloco Light 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0xf7f7f7'
+foreground = '0x38383a'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0xf7f7f7'
+cursor = '0x38383a'
+
+# Normal colors
+[colors.normal]
+black = '0xcbccd4'
+red = '0xc80d41'
+green = '0x208839'
+yellow = '0x1085d9'
+blue = '0x1d44dd'
+magenta = '0x6d1bed'
+cyan = '0x1e4d7a'
+white = '0x000000'
+
+# Bright colors
+[colors.bright]
+black = '0xdddee8'
+red = '0xfb496d'
+green = '0x34b253'
+yellow = '0xb79326'
+blue = '0x1085d9'
+magenta = '0xc00cb2'
+cyan = '0x5a7fac'
+white = '0x1c1d21'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xd44d16"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x640620"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0xcbccd4"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0xdddee8"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x6f6f74"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0x000000"

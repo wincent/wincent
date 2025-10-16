@@ -1,0 +1,58 @@
+# base24 Blazer 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x0d1926'
+foreground = '0xacacac'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x0d1926'
+cursor = '0xacacac'
+
+# Normal colors
+[colors.normal]
+black = '0x000000'
+red = '0xb87a7a'
+green = '0x7ab87a'
+yellow = '0xbdbddb'
+blue = '0x7a7ab8'
+magenta = '0xb87ab8'
+cyan = '0x7ab8b8'
+white = '0xd9d9d9'
+
+# Bright colors
+[colors.bright]
+black = '0x262626'
+red = '0xdbbdbd'
+green = '0xbddbbd'
+yellow = '0xdbdbbd'
+blue = '0xbdbddb'
+magenta = '0xdbbddb'
+cyan = '0xbddbdb'
+white = '0xffffff'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xb8b87a"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x5c3d3d"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x000000"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x262626"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x7f7f7f"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xd9d9d9"

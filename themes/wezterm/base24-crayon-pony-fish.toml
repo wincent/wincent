@@ -1,0 +1,43 @@
+# base24 Crayon Pony Fish
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#140607"
+foreground = "#5d484e"
+
+cursor_bg = "#2a1a1c"
+cursor_border = "#5d484e"
+cursor_fg = "#685259"
+
+selection_bg = "#5d484e"
+selection_fg = "#3c2a2e"
+
+ansi = [
+  "#140607",
+  "#90002a",
+  "#579523",
+  "#cfc9ff",
+  "#8b87af",
+  "#682e50",
+  "#e8a766",
+  "#685259"
+]
+brights = [
+  "#3c2a2e",
+  "#c5245c",
+  "#8dff56",
+  "#c7371d",
+  "#cfc9ff",
+  "#fb6cb9",
+  "#ffceae",
+  "#af949d"
+]
+
+[colors.indexed]
+16 = "#aa301b"
+17 = "#480015"
+18 = "#2a1a1c"
+19 = "#3c2a2e"
+20 = "#523e43"
+21 = "#5d484e"

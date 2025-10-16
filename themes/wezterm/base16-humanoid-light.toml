@@ -1,0 +1,43 @@
+# base16 Humanoid light
+# Scheme author: Thomas (tasmo) Friese
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#f8f8f2"
+foreground = "#232629"
+
+cursor_bg = "#232629"
+cursor_border = "#232629"
+cursor_fg = "#f8f8f2"
+
+selection_bg = "#232629"
+selection_fg = "#deded8"
+
+ansi = [
+  "#f8f8f2",
+  "#b0151a",
+  "#388e3c",
+  "#ffb627",
+  "#0082c9",
+  "#700f98",
+  "#008e8e",
+  "#2f3337"
+]
+brights = [
+  "#deded8",
+  "#b0151a",
+  "#388e3c",
+  "#ffb627",
+  "#0082c9",
+  "#700f98",
+  "#008e8e",
+  "#070708"
+]
+
+[colors.indexed]
+16 = "#ff3d00"
+17 = "#b27701"
+18 = "#efefe9"
+19 = "#deded8"
+20 = "#60615d"
+21 = "#232629"

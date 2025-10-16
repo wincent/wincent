@@ -1,0 +1,58 @@
+# base24 Galaxy 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x1c2836'
+foreground = '0xa1a1a1'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x1c2836'
+cursor = '0xa1a1a1'
+
+# Normal colors
+[colors.normal]
+black = '0x000000'
+red = '0xf9555f'
+green = '0x20af89'
+yellow = '0x589cf5'
+blue = '0x589cf5'
+magenta = '0x934d95'
+cyan = '0x1e9ee6'
+white = '0xbbbbbb'
+
+# Bright colors
+[colors.bright]
+black = '0x555555'
+red = '0xfa8b8e'
+green = '0x34bb99'
+yellow = '0xffff55'
+blue = '0x589cf5'
+magenta = '0xe75598'
+cyan = '0x3978bb'
+white = '0xffffff'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xfdf029"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x7c2a2f"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x000000"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x555555"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x888888"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xbbbbbb"

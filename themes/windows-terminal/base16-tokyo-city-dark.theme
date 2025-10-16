@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Tokyo City Dark",
+	"foreground": "#d8e2ec",
+	"background": "#171d23",
+	"black": "#1d252c",
+	"blue": "#7aa2f7",
+	"brightBlack": "#28323a",
+	"brightBlue": "#7aa2f7",
+	"brightCyan": "#89ddff",
+	"brightGreen": "#9ece6a",
+	"brightPurple": "#bb9af7",
+	"brightRed": "#f7768e",
+	"brightWhite": "#fbfbfd",
+	"brightYellow": "#b7c5d3",
+	"cyan": "#89ddff",
+	"green": "#9ece6a",
+	"purple": "#bb9af7",
+	"red": "#f7768e",
+	"white": "#f6f6f8",
+	"yellow": "#ff9e64"
+},

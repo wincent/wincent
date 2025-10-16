@@ -1,0 +1,10 @@
+# Scheme name: 3024
+# Scheme author: Jan T. Sott (http://github.com/idleberg)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-3024
+ColorForeground=#a5a2a2
+ColorBackground=#090300
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#3a3432;#db2d20;#01a252;#fded02;#01a0e4;#a16a94;#b5e4f4;#d6d5d4;#4a4543;#db2d20;#01a252;#fded02;#01a0e4;#a16a94;#b5e4f4;#f7f7f7

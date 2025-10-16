@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Atelier Lakeside",
+	"foreground": "#7ea2b4",
+	"background": "#161b1d",
+	"black": "#1f292e",
+	"blue": "#257fad",
+	"brightBlack": "#516d7b",
+	"brightBlue": "#257fad",
+	"brightCyan": "#2d8f6f",
+	"brightGreen": "#568c3b",
+	"brightPurple": "#6b6bb8",
+	"brightRed": "#d22d72",
+	"brightWhite": "#ebf8ff",
+	"brightYellow": "#8a8a0f",
+	"cyan": "#2d8f6f",
+	"green": "#568c3b",
+	"purple": "#6b6bb8",
+	"red": "#d22d72",
+	"white": "#c1e4f6",
+	"yellow": "#935c25"
+},

@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Fun Forrest",
+	"foreground": "#c5ab60",
+	"background": "#241200",
+	"black": "#000000",
+	"blue": "#4698a2",
+	"brightBlack": "#7e6954",
+	"brightBlue": "#7cc9ce",
+	"brightCyan": "#e6a96b",
+	"brightGreen": "#bfc659",
+	"brightPurple": "#d16349",
+	"brightRed": "#e4591b",
+	"brightWhite": "#ffe9a3",
+	"brightYellow": "#ffca1b",
+	"cyan": "#d98112",
+	"green": "#909b00",
+	"purple": "#8c4231",
+	"red": "#d5252b",
+	"white": "#ddc165",
+	"yellow": "#bd8a13"
+},

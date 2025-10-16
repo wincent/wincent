@@ -1,0 +1,43 @@
+# base24 IC-Green-PPL
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#2c2c2c"
+foreground = "#add5b6"
+
+cursor_bg = "#014401"
+cursor_border = "#add5b6"
+cursor_fg = "#e6fef2"
+
+selection_bg = "#add5b6"
+selection_fg = "#025c02"
+
+ansi = [
+  "#2c2c2c",
+  "#fe2635",
+  "#41a638",
+  "#2efaeb",
+  "#2ec3b9",
+  "#50a096",
+  "#3ca078",
+  "#e6fef2"
+]
+brights = [
+  "#025c02",
+  "#b4fa5c",
+  "#aefa86",
+  "#dafa87",
+  "#2efaeb",
+  "#50fafa",
+  "#3cfac8",
+  "#e0f1dc"
+]
+
+[colors.indexed]
+16 = "#76a830"
+17 = "#7f131a"
+18 = "#014401"
+19 = "#025c02"
+20 = "#74ad7a"
+21 = "#add5b6"

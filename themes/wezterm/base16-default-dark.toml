@@ -1,0 +1,43 @@
+# base16 Default Dark
+# Scheme author: Chris Kempson (http://chriskempson.com)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#181818"
+foreground = "#d8d8d8"
+
+cursor_bg = "#d8d8d8"
+cursor_border = "#d8d8d8"
+cursor_fg = "#181818"
+
+selection_bg = "#d8d8d8"
+selection_fg = "#383838"
+
+ansi = [
+  "#181818",
+  "#ab4642",
+  "#a1b56c",
+  "#f7ca88",
+  "#7cafc2",
+  "#ba8baf",
+  "#86c1b9",
+  "#e8e8e8"
+]
+brights = [
+  "#383838",
+  "#ab4642",
+  "#a1b56c",
+  "#f7ca88",
+  "#7cafc2",
+  "#ba8baf",
+  "#86c1b9",
+  "#f8f8f8"
+]
+
+[colors.indexed]
+16 = "#dc9656"
+17 = "#a16946"
+18 = "#282828"
+19 = "#383838"
+20 = "#b8b8b8"
+21 = "#d8d8d8"

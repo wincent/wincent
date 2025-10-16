@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Red Alert by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#262626' # base02
+selection-foreground = '#aaaaaa' # base05
+
+cursor         = '#aaaaaa' # base05
+tabs           = '#000000' # base01
+tabs-active    = '#262626' # base02
+
+background     = '#762423' # base00
+foreground     = '#aaaaaa' # base05
+black          = '#000000' # base01
+red            = '#d52e4d' # base08
+yellow         = '#65a9f0' # base0A
+green          = '#71be6b' # base0B
+cyan           = '#6bbeb8' # base0C
+blue           = '#479bed' # base0D
+magenta        = '#e878d6' # base0E
+white          = '#d6d6d6' # base06
+
+dim-foreground   = '#aaaaaa' # base05
+dim-black        = '#000000' # base01
+dim-red          = '#d52e4d' # base08
+dim-yellow       = '#65a9f0' # base0A
+dim-green        = '#71be6b' # base0B
+dim-cyan         = '#6bbeb8' # base0C
+dim-blue         = '#479bed' # base0D
+dim-magenta      = '#e878d6' # base0E
+dim-white        = '#7e7e7e' # base04
+
+light-foreground = '#aaaaaa' # base05
+light-black      = '#262626' # base02
+light-red        = '#e02453' # base12
+light-yellow     = '#dfddb7' # base13
+light-green      = '#aff08b' # base14
+light-cyan       = '#b7dfdd' # base15
+light-blue       = '#65a9f0' # base16
+light-magenta    = '#ddb7df' # base17
+light-white      = '#ffffff' # base07

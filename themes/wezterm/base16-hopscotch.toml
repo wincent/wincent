@@ -1,0 +1,43 @@
+# base16 Hopscotch
+# Scheme author: Jan T. Sott
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#322931"
+foreground = "#b9b5b8"
+
+cursor_bg = "#b9b5b8"
+cursor_border = "#b9b5b8"
+cursor_fg = "#322931"
+
+selection_bg = "#b9b5b8"
+selection_fg = "#5c545b"
+
+ansi = [
+  "#322931",
+  "#dd464c",
+  "#8fc13e",
+  "#fdcc59",
+  "#1290bf",
+  "#c85e7c",
+  "#149b93",
+  "#d5d3d5"
+]
+brights = [
+  "#5c545b",
+  "#dd464c",
+  "#8fc13e",
+  "#fdcc59",
+  "#1290bf",
+  "#c85e7c",
+  "#149b93",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#fd8b19"
+17 = "#b33508"
+18 = "#433b42"
+19 = "#5c545b"
+20 = "#989498"
+21 = "#b9b5b8"

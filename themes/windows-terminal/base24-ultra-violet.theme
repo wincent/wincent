@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Ultra Violet",
+	"foreground": "#c1c2c2",
+	"background": "#242728",
+	"black": "#232628",
+	"blue": "#47dffb",
+	"brightBlack": "#626566",
+	"brightBlue": "#7febff",
+	"brightCyan": "#68fcd2",
+	"brightGreen": "#deff8b",
+	"brightPurple": "#e681ff",
+	"brightRed": "#fb57b4",
+	"brightWhite": "#f9f9f4",
+	"brightYellow": "#ebdf86",
+	"cyan": "#0effbb",
+	"green": "#b5ff00",
+	"purple": "#d630ff",
+	"red": "#ff0090",
+	"white": "#e1e1e1",
+	"yellow": "#fff727"
+},

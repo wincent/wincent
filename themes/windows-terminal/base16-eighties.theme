@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Eighties",
+	"foreground": "#d3d0c8",
+	"background": "#2d2d2d",
+	"black": "#393939",
+	"blue": "#6699cc",
+	"brightBlack": "#515151",
+	"brightBlue": "#6699cc",
+	"brightCyan": "#66cccc",
+	"brightGreen": "#99cc99",
+	"brightPurple": "#cc99cc",
+	"brightRed": "#f2777a",
+	"brightWhite": "#f2f0ec",
+	"brightYellow": "#ffcc66",
+	"cyan": "#66cccc",
+	"green": "#99cc99",
+	"purple": "#cc99cc",
+	"red": "#f2777a",
+	"white": "#e8e6df",
+	"yellow": "#f99157"
+},

@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Ayu Dark by Tinted Theming (https://github.com/tinted-theming), Ayu Theme (https://github.com/ayu-theme)
+
+[colors]
+selection-background = '#202229' # base02
+selection-foreground = '#e6e1cf' # base05
+
+cursor         = '#e6e1cf' # base05
+tabs           = '#131721' # base01
+tabs-active    = '#202229' # base02
+
+background     = '#0b0e14' # base00
+foreground     = '#e6e1cf' # base05
+black          = '#131721' # base01
+red            = '#f07178' # base08
+yellow         = '#ffb454' # base0A
+green          = '#aad94c' # base0B
+cyan           = '#95e6cb' # base0C
+blue           = '#59c2ff' # base0D
+magenta        = '#d2a6ff' # base0E
+white          = '#ece8db' # base06
+
+dim-foreground   = '#e6e1cf' # base05
+dim-black        = '#131721' # base01
+dim-red          = '#f07178' # base08
+dim-yellow       = '#ffb454' # base0A
+dim-green        = '#aad94c' # base0B
+dim-cyan         = '#95e6cb' # base0C
+dim-blue         = '#59c2ff' # base0D
+dim-magenta      = '#d2a6ff' # base0E
+dim-white        = '#bfbdb6' # base04
+
+light-foreground = '#e6e1cf' # base05
+light-black      = '#202229' # base02
+light-red        = '#f26d78' # base12
+light-yellow     = '#e6b673' # base13
+light-green      = '#7fd962' # base14
+light-cyan       = '#39bae6' # base15
+light-blue       = '#73b8ff' # base16
+light-magenta    = '#ddbcff' # base17
+light-white      = '#f2f0e7' # base07

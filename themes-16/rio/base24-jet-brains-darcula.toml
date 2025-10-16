@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Jet Brains Darcula by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#555555' # base02
+selection-foreground = '#979797' # base05
+
+cursor         = '#979797' # base05
+tabs           = '#000000' # base01
+tabs-active    = '#555555' # base02
+
+background     = '#202020' # base00
+foreground     = '#979797' # base05
+black          = '#000000' # base01
+red            = '#fa5355' # base08
+yellow         = '#6d9df1' # base0A
+green          = '#126e00' # base0B
+cyan           = '#33c2c1' # base0C
+blue           = '#4581eb' # base0D
+magenta        = '#fa54ff' # base0E
+white          = '#adadad' # base06
+
+dim-foreground   = '#979797' # base05
+dim-black        = '#000000' # base01
+dim-red          = '#fa5355' # base08
+dim-yellow       = '#6d9df1' # base0A
+dim-green        = '#126e00' # base0B
+dim-cyan         = '#33c2c1' # base0C
+dim-blue         = '#4581eb' # base0D
+dim-magenta      = '#fa54ff' # base0E
+dim-white        = '#818181' # base04
+
+light-foreground = '#979797' # base05
+light-black      = '#555555' # base02
+light-red        = '#fb7172' # base12
+light-yellow     = '#ffff00' # base13
+light-green      = '#67ff4f' # base14
+light-cyan       = '#60d3d1' # base15
+light-blue       = '#6d9df1' # base16
+light-magenta    = '#fb82ff' # base17
+light-white      = '#eeeeee' # base07

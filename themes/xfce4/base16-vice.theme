@@ -1,0 +1,10 @@
+# Scheme name: vice
+# Scheme author: Thomas Leon Highbaugh thighbaugh@zoho.com
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-vice
+ColorForeground=#8b9cbe
+ColorBackground=#17191e
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#22262d;#ff29a8;#0badff;#f0ffaa;#00eaff;#00f6d9;#8265ff;#b2bfd9;#3c3f4c;#ff29a8;#0badff;#f0ffaa;#00eaff;#00f6d9;#8265ff;#f4f4f7

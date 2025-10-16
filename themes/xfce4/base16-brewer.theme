@@ -1,0 +1,10 @@
+# Scheme name: Brewer
+# Scheme author: Timothée Poisot (http://github.com/tpoisot)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-brewer
+ColorForeground=#b7b8b9
+ColorBackground=#0c0d0e
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#2e2f30;#e31a1c;#31a354;#dca060;#3182bd;#756bb1;#80b1d3;#dadbdc;#515253;#e31a1c;#31a354;#dca060;#3182bd;#756bb1;#80b1d3;#fcfdfe

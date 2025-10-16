@@ -1,0 +1,58 @@
+# base16 Chinoiserie Morandi 256 - alacritty color config
+# Di Wang (https://cs.cmu.edu/~diw3)
+
+# Default colors
+[colors.primary]
+background = '0x1d1d1d'
+foreground = '0xc4cbcf'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x1d1d1d'
+cursor = '0xc4cbcf'
+
+# Normal colors
+[colors.normal]
+black = '0x282828'
+red = '0xc06061'
+green = '0x8ca07b'
+yellow = '0xe5bc84'
+blue = '0x839ec9'
+magenta = '0x98a1d8'
+cyan = '0x5e8c9b'
+white = '0xeee7f2'
+
+# Bright colors
+[colors.bright]
+black = '0x373737'
+red = '0xc06061'
+green = '0x8ca07b'
+yellow = '0xe5bc84'
+blue = '0x839ec9'
+magenta = '0x98a1d8'
+cyan = '0x5e8c9b'
+white = '0xfffef9'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xff937f"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xd9cdb4"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x282828"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x373737"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0xbdaead"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xeee7f2"

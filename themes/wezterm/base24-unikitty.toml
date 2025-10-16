@@ -1,0 +1,43 @@
+# base24 Unikitty
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#ff8cd9"
+foreground = "#b9b1b8"
+
+cursor_bg = "#0c0c0c"
+cursor_border = "#b9b1b8"
+cursor_fg = "#e1d6e0"
+
+selection_bg = "#b9b1b8"
+selection_fg = "#424242"
+
+ansi = [
+  "#ff8cd9",
+  "#a80f20",
+  "#bafc8b",
+  "#0074ea",
+  "#145fcd",
+  "#ff36a2",
+  "#6bd0bc",
+  "#e1d6e0"
+]
+brights = [
+  "#424242",
+  "#d81329",
+  "#d2ffaf",
+  "#ffee50",
+  "#0074ea",
+  "#fdd5e5",
+  "#79ebd5",
+  "#fff2fd"
+]
+
+[colors.indexed]
+16 = "#eedf4b"
+17 = "#540710"
+18 = "#0c0c0c"
+19 = "#424242"
+20 = "#918c91"
+21 = "#b9b1b8"

@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Hipster Green",
+	"foreground": "#a8a8a8",
+	"background": "#0f0a05",
+	"black": "#000000",
+	"blue": "#246db2",
+	"brightBlack": "#666666",
+	"brightBlue": "#0000ff",
+	"brightCyan": "#00e5e5",
+	"brightGreen": "#86a83e",
+	"brightPurple": "#e500e5",
+	"brightRed": "#e50000",
+	"brightWhite": "#e5e5e5",
+	"brightYellow": "#e5e500",
+	"cyan": "#00a6b2",
+	"green": "#00a600",
+	"purple": "#b200b2",
+	"red": "#b6204a",
+	"white": "#bfbfbf",
+	"yellow": "#bebe00"
+},

@@ -1,0 +1,43 @@
+# base16 Mocha
+# Scheme author: Chris Kempson (http://chriskempson.com)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#3b3228"
+foreground = "#d0c8c6"
+
+cursor_bg = "#d0c8c6"
+cursor_border = "#d0c8c6"
+cursor_fg = "#3b3228"
+
+selection_bg = "#d0c8c6"
+selection_fg = "#645240"
+
+ansi = [
+  "#3b3228",
+  "#cb6077",
+  "#beb55b",
+  "#f4bc87",
+  "#8ab3b5",
+  "#a89bb9",
+  "#7bbda4",
+  "#e9e1dd"
+]
+brights = [
+  "#645240",
+  "#cb6077",
+  "#beb55b",
+  "#f4bc87",
+  "#8ab3b5",
+  "#a89bb9",
+  "#7bbda4",
+  "#f5eeeb"
+]
+
+[colors.indexed]
+16 = "#d28b71"
+17 = "#bb9584"
+18 = "#534636"
+19 = "#645240"
+20 = "#b8afad"
+21 = "#d0c8c6"

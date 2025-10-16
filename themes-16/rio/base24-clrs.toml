@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: CLRS by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#545753' # base02
+selection-foreground = '#9a9b9a' # base05
+
+cursor         = '#9a9b9a' # base05
+tabs           = '#000000' # base01
+tabs-active    = '#545753' # base02
+
+background     = '#ffffff' # base00
+foreground     = '#9a9b9a' # base05
+black          = '#000000' # base01
+red            = '#f72729' # base08
+yellow         = '#156ffe' # base0A
+green          = '#32895c' # base0B
+cyan           = '#32c2c0' # base0C
+blue           = '#125ccf' # base0D
+magenta        = '#9f00bc' # base0E
+white          = '#b2b2b2' # base06
+
+dim-foreground   = '#9a9b9a' # base05
+dim-black        = '#000000' # base01
+dim-red          = '#f72729' # base08
+dim-yellow       = '#156ffe' # base0A
+dim-green        = '#32895c' # base0B
+dim-cyan         = '#32c2c0' # base0C
+dim-blue         = '#125ccf' # base0D
+dim-magenta      = '#9f00bc' # base0E
+dim-white        = '#838482' # base04
+
+light-foreground = '#9a9b9a' # base05
+light-black      = '#545753' # base02
+light-red        = '#fb0416' # base12
+light-yellow     = '#fcd627' # base13
+light-green      = '#2cc631' # base14
+light-cyan       = '#39d5ce' # base15
+light-blue       = '#156ffe' # base16
+light-magenta    = '#e800b0' # base17
+light-white      = '#ededec' # base07

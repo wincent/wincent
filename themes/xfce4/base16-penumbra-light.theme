@@ -1,0 +1,10 @@
+# Scheme name: Penumbra Light
+# Scheme author: Zachary Weiss (https://github.com/zacharyweiss)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-penumbra-light
+ColorForeground=#636363
+ColorBackground=#fffdfb
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#fff7ed;#ca736c;#47a477;#8d9741;#5794d0;#9481cc;#00a2af;#303338;#f2e6d4;#ca736c;#47a477;#8d9741;#5794d0;#9481cc;#00a2af;#24272b

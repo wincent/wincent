@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Japanesque",
+	"foreground": "#d0d2ce",
+	"background": "#1d1d1d",
+	"black": "#343835",
+	"blue": "#4c99d3",
+	"brightBlack": "#585a58",
+	"brightBlue": "#135879",
+	"brightCyan": "#76bbca",
+	"brightGreen": "#767e2b",
+	"brightPurple": "#5f4190",
+	"brightRed": "#d18ea6",
+	"brightWhite": "#b1b5ae",
+	"brightYellow": "#77592e",
+	"cyan": "#389aac",
+	"green": "#7bb75b",
+	"purple": "#a57fc4",
+	"red": "#ce3e60",
+	"white": "#f9faf6",
+	"yellow": "#e8b32a"
+},

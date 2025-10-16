@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Espresso",
+	"foreground": "#cccccc",
+	"background": "#2d2d2d",
+	"black": "#393939",
+	"blue": "#6c99bb",
+	"brightBlack": "#515151",
+	"brightBlue": "#6c99bb",
+	"brightCyan": "#bed6ff",
+	"brightGreen": "#a5c261",
+	"brightPurple": "#d197d9",
+	"brightRed": "#d25252",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#ffc66d",
+	"cyan": "#bed6ff",
+	"green": "#a5c261",
+	"purple": "#d197d9",
+	"red": "#d25252",
+	"white": "#e0e0e0",
+	"yellow": "#f9a959"
+},

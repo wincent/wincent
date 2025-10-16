@@ -1,0 +1,43 @@
+# base24 Slate
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#212121"
+foreground = "#42d3e8"
+
+cursor_bg = "#212121"
+cursor_border = "#42d3e8"
+cursor_fg = "#02c4e0"
+
+selection_bg = "#42d3e8"
+selection_fg = "#ffffff"
+
+ansi = [
+  "#212121",
+  "#e1a7bf",
+  "#80d778",
+  "#79afd2",
+  "#254a49",
+  "#a380d3",
+  "#14ab9c",
+  "#02c4e0"
+]
+brights = [
+  "#ffffff",
+  "#ffccd8",
+  "#bdffa8",
+  "#d0cbc9",
+  "#79afd2",
+  "#c4a7d8",
+  "#8bdee0",
+  "#e0e0e0"
+]
+
+[colors.indexed]
+16 = "#c4c9bf"
+17 = "#70535f"
+18 = "#212121"
+19 = "#ffffff"
+20 = "#81e2f0"
+21 = "#42d3e8"

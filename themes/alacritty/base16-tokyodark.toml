@@ -1,0 +1,58 @@
+# base16 Tokyodark 256 - alacritty color config
+# Jamy Golden (https://github.com/JamyGolden), Based on Tokyodark.nvim (https://github.com/tiagovla/tokyodark.nvim)
+
+# Default colors
+[colors.primary]
+background = '0x11121d'
+foreground = '0xa0a8cd'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x11121d'
+cursor = '0xa0a8cd'
+
+# Normal colors
+[colors.normal]
+black = '0x212234'
+red = '0xee6d85'
+green = '0x95c561'
+yellow = '0xd7a65f'
+blue = '0x7199ee'
+magenta = '0xa485dd'
+cyan = '0x9fbbf3'
+white = '0xabb2bf'
+
+# Bright colors
+[colors.bright]
+black = '0x212234'
+red = '0xee6d85'
+green = '0x95c561'
+yellow = '0xd7a65f'
+blue = '0x7199ee'
+magenta = '0xa485dd'
+cyan = '0x9fbbf3'
+white = '0xbcc2dc'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xf6955b"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x773440"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x212234"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x212234"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x4a5057"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xabb2bf"

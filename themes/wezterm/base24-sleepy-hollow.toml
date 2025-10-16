@@ -1,0 +1,43 @@
+# base24 Sleepy Hollow
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#121213"
+foreground = "#968684"
+
+cursor_bg = "#572000"
+cursor_border = "#968684"
+cursor_fg = "#af9a91"
+
+selection_bg = "#968684"
+selection_fg = "#4e4b60"
+
+ansi = [
+  "#121213",
+  "#b93934",
+  "#90773e",
+  "#8085ef",
+  "#5e62b4",
+  "#a07c7b",
+  "#8eaea9",
+  "#af9a91"
+]
+brights = [
+  "#4e4b60",
+  "#d9443e",
+  "#d6b04e",
+  "#f66713",
+  "#8085ef",
+  "#e1c2ba",
+  "#a4dbe7",
+  "#d1c7a9"
+]
+
+[colors.indexed]
+16 = "#b45600"
+17 = "#5c1c1a"
+18 = "#572000"
+19 = "#4e4b60"
+20 = "#7e7278"
+21 = "#968684"

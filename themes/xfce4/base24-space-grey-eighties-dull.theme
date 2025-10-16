@@ -1,0 +1,10 @@
+# Scheme name: Space Grey Eighties Dull
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-space-grey-eighties-dull
+ColorForeground=#9a9fa6
+ColorBackground=#212121
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#15171c;#b14956;#91b377;#5485c0;#7b8fa4;#a5779e;#7fcccb;#b2b8c2;#555555;#ec5f67;#88e985;#fdc253;#5485c0;#bf83c0;#58c2c0;#ffffff

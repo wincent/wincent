@@ -1,0 +1,43 @@
+# vim: ft=ghostty
+# summercamp theme for Ghostty
+# Scheme Author: zoe firi (zoefiri.github.io)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# Color palette
+palette = 0=#1c1810
+palette = 1=#e35142
+palette = 2=#5ceb5a
+palette = 3=#f2ff27
+palette = 4=#489bf0
+palette = 5=#ff8080
+palette = 6=#5aebbc
+palette = 7=#736e55
+palette = 8=#3a3527
+palette = 9=#e35142
+palette = 10=#5ceb5a
+palette = 11=#f2ff27
+palette = 12=#489bf0
+palette = 13=#ff8080
+palette = 14=#5aebbc
+palette = 15=#f8f5de
+palette = 16=#fba11b
+palette = 17=#f69be7
+palette = 18=#2a261c
+palette = 19=#3a3527
+palette = 20=#5f5b45
+palette = 21=#bab696
+
+# Foreground & background colors
+background = #1c1810
+foreground = #736e55
+cursor-color = #736e55
+selection-background = #3a3527
+selection-foreground = #736e55
+
+# Set `macos-icon = custom-style` in your main configuration file to enable theming of the app icon.
+#
+# Set the ghost color to the lightest foreground:
+macos-icon-ghost-color = #f8f5de
+# Replace the official icon's blue background with the designated bright blue color:
+macos-icon-screen-color = #489bf0

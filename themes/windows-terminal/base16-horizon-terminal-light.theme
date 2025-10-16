@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Horizon Terminal Light",
+	"foreground": "#403c3d",
+	"background": "#fdf0ed",
+	"black": "#fadad1",
+	"blue": "#26bbd9",
+	"brightBlack": "#f9cbbe",
+	"brightBlue": "#26bbd9",
+	"brightCyan": "#59e1e3",
+	"brightGreen": "#29d398",
+	"brightPurple": "#ee64ac",
+	"brightRed": "#e95678",
+	"brightWhite": "#201c1d",
+	"brightYellow": "#fadad1",
+	"cyan": "#59e1e3",
+	"green": "#29d398",
+	"purple": "#ee64ac",
+	"red": "#e95678",
+	"white": "#302c2d",
+	"yellow": "#f9cec3"
+},

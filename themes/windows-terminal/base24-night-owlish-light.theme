@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Night Owlish Light",
+	"foreground": "#7a8181",
+	"background": "#ffffff",
+	"black": "#011627",
+	"blue": "#4876d6",
+	"brightBlack": "#7a8181",
+	"brightBlue": "#5ca7e4",
+	"brightCyan": "#00c990",
+	"brightGreen": "#49d0c5",
+	"brightPurple": "#697098",
+	"brightRed": "#f76e6e",
+	"brightWhite": "#989fb1",
+	"brightYellow": "#dac26b",
+	"cyan": "#08916a",
+	"green": "#2aa298",
+	"purple": "#403f53",
+	"red": "#d3423e",
+	"white": "#7a8181",
+	"yellow": "#daaa01"
+},

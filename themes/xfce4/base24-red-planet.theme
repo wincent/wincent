@@ -1,0 +1,10 @@
+# Scheme name: Red Planet
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-red-planet
+ColorForeground=#a4998c
+ColorBackground=#222222
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#201f1f;#8c3432;#728271;#60827e;#69809e;#896492;#5b8390;#b9aa99;#676767;#b55242;#869985;#ebeb91;#60827e;#de4873;#38add8;#d6bfb8

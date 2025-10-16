@@ -1,0 +1,58 @@
+# base16 Darktooth 256 - alacritty color config
+# Jason Milkins (https://github.com/jasonm23)
+
+# Default colors
+[colors.primary]
+background = '0x1d2021'
+foreground = '0xa89984'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x1d2021'
+cursor = '0xa89984'
+
+# Normal colors
+[colors.normal]
+black = '0x32302f'
+red = '0xfb543f'
+green = '0x95c085'
+yellow = '0xfac03b'
+blue = '0x0d6678'
+magenta = '0x8f4673'
+cyan = '0x8ba59b'
+white = '0xd5c4a1'
+
+# Bright colors
+[colors.bright]
+black = '0x504945'
+red = '0xfb543f'
+green = '0x95c085'
+yellow = '0xfac03b'
+blue = '0x0d6678'
+magenta = '0x8f4673'
+cyan = '0x8ba59b'
+white = '0xfdf4c1'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xfe8625"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xa87322"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x32302f"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x504945"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x928374"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xd5c4a1"

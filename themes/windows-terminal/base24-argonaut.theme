@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Argonaut",
+	"foreground": "#d0d0d0",
+	"background": "#0d0f18",
+	"black": "#222222",
+	"blue": "#008df8",
+	"brightBlack": "#444444",
+	"brightBlue": "#0092ff",
+	"brightCyan": "#67ffef",
+	"brightGreen": "#abe05a",
+	"brightPurple": "#9a5feb",
+	"brightRed": "#ff273f",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#ffd141",
+	"cyan": "#00d7eb",
+	"green": "#8ce00a",
+	"purple": "#6c43a5",
+	"red": "#ff000f",
+	"white": "#ffffff",
+	"yellow": "#ffb900"
+},

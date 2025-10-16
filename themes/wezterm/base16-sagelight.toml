@@ -1,0 +1,43 @@
+# base16 Sagelight
+# Scheme author: Carter Veldhuizen
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#f8f8f8"
+foreground = "#383838"
+
+cursor_bg = "#383838"
+cursor_border = "#383838"
+cursor_fg = "#f8f8f8"
+
+selection_bg = "#383838"
+selection_fg = "#d8d8d8"
+
+ansi = [
+  "#f8f8f8",
+  "#fa8480",
+  "#a0d2c8",
+  "#ffdc61",
+  "#a0a7d2",
+  "#c8a0d2",
+  "#a2d6f5",
+  "#282828"
+]
+brights = [
+  "#d8d8d8",
+  "#fa8480",
+  "#a0d2c8",
+  "#ffdc61",
+  "#a0a7d2",
+  "#c8a0d2",
+  "#a2d6f5",
+  "#181818"
+]
+
+[colors.indexed]
+16 = "#ffaa61"
+17 = "#d2b2a0"
+18 = "#e8e8e8"
+19 = "#d8d8d8"
+20 = "#585858"
+21 = "#383838"

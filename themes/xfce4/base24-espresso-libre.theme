@@ -1,0 +1,10 @@
+# Scheme name: Espresso Libre
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-espresso-libre
+ColorForeground=#b3b7b0
+ColorBackground=#2a211c
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#000000;#cc0000;#1a921c;#43a8ed;#0066ff;#c5656b;#05989a;#d3d7cf;#545753;#ef2828;#9aff87;#fffa5c;#43a8ed;#ff8089;#34e2e2;#ededec

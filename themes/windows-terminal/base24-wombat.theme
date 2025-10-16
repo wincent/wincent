@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Wombat",
+	"foreground": "#b2afa6",
+	"background": "#171717",
+	"black": "#000000",
+	"blue": "#5da9f6",
+	"brightBlack": "#313131",
+	"brightBlue": "#a5c7ff",
+	"brightCyan": "#b6fff9",
+	"brightGreen": "#dcf88f",
+	"brightPurple": "#ddaaff",
+	"brightRed": "#f58b7f",
+	"brightWhite": "#fefffe",
+	"brightYellow": "#eee5b2",
+	"cyan": "#82fff6",
+	"green": "#b1e869",
+	"purple": "#e86aff",
+	"red": "#ff605a",
+	"white": "#ded9ce",
+	"yellow": "#ead89c"
+},

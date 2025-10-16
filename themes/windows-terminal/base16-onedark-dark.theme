@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "OneDark Dark",
+	"foreground": "#abb2bf",
+	"background": "#000000",
+	"black": "#1c1f24",
+	"blue": "#61afef",
+	"brightBlack": "#2c313a",
+	"brightBlue": "#61afef",
+	"brightCyan": "#2bbac5",
+	"brightGreen": "#89ca78",
+	"brightPurple": "#d55fde",
+	"brightRed": "#ef596f",
+	"brightWhite": "#c8ccd4",
+	"brightYellow": "#e5c07b",
+	"cyan": "#2bbac5",
+	"green": "#89ca78",
+	"purple": "#d55fde",
+	"red": "#ef596f",
+	"white": "#b6bdca",
+	"yellow": "#d19a66"
+},

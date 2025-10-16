@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Lovelace by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#414458' # base02
+selection-foreground = '#ceced3' # base05
+
+cursor         = '#ceced3' # base05
+tabs           = '#282a36' # base01
+tabs-active    = '#414458' # base02
+
+background     = '#1d1f28' # base00
+foreground     = '#ceced3' # base05
+black          = '#282a36' # base01
+red            = '#f37f97' # base08
+yellow         = '#556fff' # base0A
+green          = '#5adecd' # base0B
+cyan           = '#79e6f3' # base0C
+blue           = '#8897f4' # base0D
+magenta        = '#c574dd' # base0E
+white          = '#fdfdfd' # base06
+
+dim-foreground   = '#ceced3' # base05
+dim-black        = '#282a36' # base01
+dim-red          = '#f37f97' # base08
+dim-yellow       = '#556fff' # base0A
+dim-green        = '#5adecd' # base0B
+dim-cyan         = '#79e6f3' # base0C
+dim-blue         = '#8897f4' # base0D
+dim-magenta      = '#c574dd' # base0E
+dim-white        = '#9fa0aa' # base04
+
+light-foreground = '#ceced3' # base05
+light-black      = '#414458' # base02
+light-red        = '#ff4971' # base12
+light-yellow     = '#ff8037' # base13
+light-green      = '#18e3c8' # base14
+light-cyan       = '#3fdcee' # base15
+light-blue       = '#556fff' # base16
+light-magenta    = '#b043d1' # base17
+light-white      = '#bebec1' # base07

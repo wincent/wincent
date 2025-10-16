@@ -1,0 +1,43 @@
+# base16 caroline
+# Scheme author: ed (https://codeberg.org/ed)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#1c1213"
+foreground = "#a87569"
+
+cursor_bg = "#a87569"
+cursor_border = "#a87569"
+cursor_fg = "#1c1213"
+
+selection_bg = "#a87569"
+selection_fg = "#563837"
+
+ansi = [
+  "#1c1213",
+  "#c24f57",
+  "#806c61",
+  "#f28171",
+  "#684c59",
+  "#a63650",
+  "#6b6566",
+  "#c58d7b"
+]
+brights = [
+  "#563837",
+  "#c24f57",
+  "#806c61",
+  "#f28171",
+  "#684c59",
+  "#a63650",
+  "#6b6566",
+  "#e3a68c"
+]
+
+[colors.indexed]
+16 = "#a63650"
+17 = "#893f45"
+18 = "#3a2425"
+19 = "#563837"
+20 = "#8b5d57"
+21 = "#a87569"

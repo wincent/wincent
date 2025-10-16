@@ -1,0 +1,58 @@
+# base24 Molokai 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x121212'
+foreground = '0xa1a1a1'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x121212'
+cursor = '0xa1a1a1'
+
+# Normal colors
+[colors.normal]
+black = '0x121212'
+red = '0xfa2573'
+green = '0x97e123'
+yellow = '0x00afff'
+blue = '0x0f7fcf'
+magenta = '0x8700ff'
+cyan = '0x42a7cf'
+white = '0xbbbbbb'
+
+# Bright colors
+[colors.bright]
+black = '0x555555'
+red = '0xf5669c'
+green = '0xb0e05e'
+yellow = '0xfef26c'
+blue = '0x00afff'
+magenta = '0xaf87ff'
+cyan = '0x50cdfe'
+white = '0xffffff'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xdfd460"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x7d1239"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x121212"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x555555"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x888888"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xbbbbbb"

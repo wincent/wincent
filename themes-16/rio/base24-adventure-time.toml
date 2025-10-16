@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Adventure Time by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#4e7bbf' # base02
+selection-foreground = '#cdc3bf' # base05
+
+cursor         = '#cdc3bf' # base05
+tabs           = '#050404' # base01
+tabs-active    = '#4e7bbf' # base02
+
+background     = '#1e1c44' # base00
+foreground     = '#cdc3bf' # base05
+black          = '#050404' # base01
+red            = '#bc0013' # base08
+yellow         = '#1896c6' # base0A
+green          = '#49b117' # base0B
+cyan           = '#6fa497' # base0C
+blue           = '#0f49c6' # base0D
+magenta        = '#665992' # base0E
+white          = '#f8dbc0' # base06
+
+dim-foreground   = '#cdc3bf' # base05
+dim-black        = '#050404' # base01
+dim-red          = '#bc0013' # base08
+dim-yellow       = '#1896c6' # base0A
+dim-green        = '#49b117' # base0B
+dim-cyan         = '#6fa497' # base0C
+dim-blue         = '#0f49c6' # base0D
+dim-magenta      = '#665992' # base0E
+dim-white        = '#a3abbf' # base04
+
+light-foreground = '#cdc3bf' # base05
+light-black      = '#4e7bbf' # base02
+light-red        = '#fc5e59' # base12
+light-yellow     = '#efc11a' # base13
+light-green      = '#9dff6e' # base14
+light-cyan       = '#c8f9f3' # base15
+light-blue       = '#1896c6' # base16
+light-magenta    = '#9a5952' # base17
+light-white      = '#f5f4fb' # base07

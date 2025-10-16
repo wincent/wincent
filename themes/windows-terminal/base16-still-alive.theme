@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Still Alive",
+	"foreground": "#d80000",
+	"background": "#f0f0f0",
+	"black": "#f0d848",
+	"blue": "#001878",
+	"brightBlack": "#fff018",
+	"brightBlue": "#001878",
+	"brightCyan": "#2c3c57",
+	"brightGreen": "#5c5c6a",
+	"brightPurple": "#900000",
+	"brightRed": "#487830",
+	"brightWhite": "#30a860",
+	"brightYellow": "#426395",
+	"cyan": "#2c3c57",
+	"green": "#5c5c6a",
+	"purple": "#900000",
+	"red": "#487830",
+	"white": "#489000",
+	"yellow": "#183048"
+},

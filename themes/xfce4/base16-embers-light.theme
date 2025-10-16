@@ -1,0 +1,10 @@
+# Scheme name: Embers Light
+# Scheme author: Jannik Siebert (https://github.com/janniks)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-embers-light
+ColorForeground=#323b43
+ColorBackground=#d1d6db
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#aeb6be;#576d82;#6d8257;#57826d;#82576d;#6d5782;#826d57;#20262c;#909aa3;#576d82;#6d8257;#57826d;#82576d;#6d5782;#826d57;#0f1316

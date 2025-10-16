@@ -1,0 +1,43 @@
+# vim: ft=ghostty
+# Precious Dark Eleven theme for Ghostty
+# Scheme Author: 4lex4 &lt;4lex49@zoho.com&gt;
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# Color palette
+palette = 0=#1c1e20
+palette = 1=#ff8782
+palette = 2=#95b658
+palette = 3=#d0a543
+palette = 4=#68b0ee
+palette = 5=#b799fe
+palette = 6=#42bda7
+palette = 7=#b8b7b6
+palette = 8=#37393a
+palette = 9=#ff8782
+palette = 10=#95b658
+palette = 11=#d0a543
+palette = 12=#68b0ee
+palette = 13=#b799fe
+palette = 14=#42bda7
+palette = 15=#b8b7b6
+palette = 16=#ea9755
+palette = 17=#f382d8
+palette = 18=#292b2d
+palette = 19=#37393a
+palette = 20=#a8a8a7
+palette = 21=#b8b7b6
+
+# Foreground & background colors
+background = #1c1e20
+foreground = #b8b7b6
+cursor-color = #b8b7b6
+selection-background = #37393a
+selection-foreground = #b8b7b6
+
+# Set `macos-icon = custom-style` in your main configuration file to enable theming of the app icon.
+#
+# Set the ghost color to the lightest foreground:
+macos-icon-ghost-color = #b8b7b6
+# Replace the official icon's blue background with the designated bright blue color:
+macos-icon-screen-color = #68b0ee
