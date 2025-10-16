@@ -1,0 +1,56 @@
+local util = require 'lspconfig.util'
+
+local function build_index()
+  local params = {
+    command = 'systemverilog.build_index',
+  }
+  vim.lsp.buf.execute_command(params)
+end
+
+local function report_hierarchy()
+  local params = {
+    command = 'systemverilog.report_hierarchy',
+    arguments = { vim.fn.expand '<cword>' },
+  }
+  vim.lsp.buf.execute_command(params)
+end
+
+return {
+  default_config = {
+    cmd = { 'svlangserver' },
+    filetypes = { 'verilog', 'systemverilog' },
+    root_dir = function(fname)
+      return util.root_pattern '.svlangserver'(fname)
+        or vim.fs.dirname(vim.fs.find('.git', { path = fname, upward = true })[1])
+    end,
+    single_file_support = true,
+    settings = {
+      systemverilog = {
+        includeIndexing = { '*.{v,vh,sv,svh}', '**/*.{v,vh,sv,svh}' },
+      },
+    },
+  },
+  commands = {
+    SvlangserverBuildIndex = {
+      build_index,
+      description = 'Instructs language server to rerun indexing',
+    },
+    SvlangserverReportHierarchy = {
+      report_hierarchy,
+      description = 'Generates hierarchy for the given module',
+    },
+  },
+  docs = {
+    description = [[
+https://github.com/imc-trading/svlangserver
+
+Language server for SystemVerilog.
+
+`svlangserver` can be installed via `npm`:
+
+```sh
+$ npm install -g @imc-trading/svlangserver
+```
+]],
+  },
+}
