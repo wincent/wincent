@@ -1,0 +1,104 @@
+*ansible.txt*   Configuration for editing Ansible (YAML) files
+
+For |Vim version 7.3| and later.  Last change:  2014 Nov 18
+
+*ansible* *ansible.vim*
+This plugin adds additional syntax highlighting and fixes indentation for
+Ansible's dialect of YAML.
+
+Ansible YAML files are detected based on the presence of a
+structure following Ansible's Playbook Best Practices
+(http://www.ansibleworks.com/docs/playbooks_best_practices.html#directory-layout).
+For details, see the |ansible-detect| section below.
+
+The functionality mentioned here is an ftplugin, see |ftplugins|.
+This plugin is only available if 'compatible' is not set.
+
+{Vi does not have any of this}
+
+1. Installation						|ansible-install|
+
+==============================================================================
+1. Installation						*ansible-install*
+
+1.1 Using Vundle (https://github.com/gmarik/vundle)
+
+  1. Add the following to your |vimrc| where other bundles are located: >
+	Bundle 'chase/vim-ansible-yaml'
+~
+  2. Run from command line: >
+	$ vim +BundleInstall
+
+1.2 Using Pathogen (https://github.com/tpope/vim-pathogen)
+
+  1. Check out the repository into your bundle path: >
+        $ cd ~/.vim/bundle
+        $ git clone git://github.com/chase/vim-ansible-yaml.git
+~
+  2. Install this help file. (Repeat this step if you get an updated version.)
+     From inside vim, >
+	:Helptags
+
+1.3 Normal
+
+  1. Check out the repository and copy the following to `.vim/` directory or
+     any other 'runtimepath', keeping their directory structure intact:
+
+		doc/ansible.txt
+		ftdetect/ansible.vim
+		syntax/ansible.vim
+		syntax/include/jinja.vim
+		syntax/include/yaml.vim
+		indent/ansible.vim
+
+  2. Install the help file.  From inside vim, >
+	:helptags ~/.vim/doc
+
+2. Detection						*ansible-detection*
+
+You can tell vim to recognize a file as Ansible by adding a |modeline| near
+the top or bottom of the file: >
+	# vim:ft=ansible:
+
+A file is recognized as an Ansible YAML file, and its filetype is set to
+`ansible`, if
+
+  1. The extension is `.yml`
+  2. AND one of the following conditions holds:
+    1. The file is somewhere under a directory named `roles`.
+    2. The file is in the same directory as a directory (or file) named
+      `group_vars`, `host_vars`, or `roles`.
+
+3. Configuration				 *ansible-configuration*
+
+So far, there is only one option. Others may be added later.
+
+If you define >
+
+    :let g:ansible_options = {'ignore_blank_lines': 0}
+
+in your |vimrc| file, then the indent function will remove all indent after a
+blank line. The default behavior is to ignore blank lines when calculating the
+indent of the current line. This is helpful if your style is to insert blank
+lines, as in >
+
+    tasks:
+      - name: Say hello.
+	command: echo Hello, world.
+
+      - name: Say good night, Dick.
+	command: echo Good night, Dick.
+
+If `g:ansible_options` is not defined, or if the `ignore_blank_lines` key is
+not present, or the value is not `0`, then the indent function uses the
+default behavior.
+
+4. Thanks						*ansible-credits*
+
+A huge thanks to Igor Vergeichik (mailto:iverg@mail.ru) and Nikolai Weibull
+(https://github.com/now) for their work on the YAML syntax that this bundle
+uses.
+Also, thank you, Armin Ronacher (https://github.com/mitsuhiko), for the
+simple and effective Jinja syntax file.
+
+  vim:tw=78:ts=8:ft=help:norl:
