@@ -1,0 +1,316 @@
+""
+" @header
+"
+" @image https://raw.githubusercontent.com/wincent/vcs-jump/media/logo.png center
+
+""
+" @plugin vcs-jump vcs-jump plug-in for Vim
+"
+" # Intro
+"
+" This plug-in allows you to jump to useful places within a Git or Mercurial
+" repository: diff hunks, merge conflicts, and "grep" results.
+"
+" The actual work is done by the included `vcs-jump` script, which is a Ruby
+" port of the "git-jump" (shell) script from official Git repo, adapted to work
+" transparently with either Git or Mercurial:
+"
+" https://git.kernel.org/pub/scm/git/git.git/tree/contrib/git-jump
+"
+" # Requirements
+"
+" - A Ruby interpreter must be available on the host system: the `vcs-jump`
+"   script uses a "shebang" line of "/usr/bin/env ruby".
+"
+" # Installation
+"
+" To install vcs-jump, use your plug-in management system of choice.
+"
+" vcs-jump consists of a Vim plug-in that provides a |:VcsJump| command which
+" invokes a bundled `vcs-jump` executable. The executable itself is useful
+" outside of Vim, so you may wish to add the plug-in's `bin` directory
+" to your `$PATH`; for example, if you installed the plug-in inside
+" `~/.vim/pack/bundle/vcs-jump`, you could add the following to your shell's
+" startup file:
+"
+" ```
+" export PATH=$PATH:~/.vim/pack/bundle/vcs-jump/bin
+" ```
+"
+" See |vcs-jump-usage| for a description of usage from the command-line.
+"
+" # Usage
+"
+" vcs-jump can be used from inside or outside of Vim. Inside Vim, run |:VcsJump|
+" to populate the |quickfix| list with "interesting" locations (diff hunks,
+" merge conflicts, or grep results).
+"
+" Outside of Vim, provided you have set up your `$PATH` as described in
+" |vcs-jump-installation|, you can run the bundled `vcs-jump` executable in any
+" of the following ways to open Vim and immediately populate the
+" |quickfix| list:
+"
+" ```
+" vcs-jump diff # find hunks with diffs relative to current HEAD
+" vcs-jump diff HEAD~10 # find hunks with diffs relative to specified commit
+" vcs-jump grep stuff # find grep results for "stuff"
+" vcs-jump merge # find merge conflicts
+" ```
+"
+" You can also add `vcs-jump` as a Git subcommand that can be invoked as
+" `git jump`:
+"
+" ```
+" git jump diff # find hunks with diffs relative to current HEAD
+" git jump diff HEAD~10 # find hunks with diffs relative to specified commit
+" git jump grep stuff # find grep results for "stuff"
+" git jump merge # find merge conflicts
+" ```
+"
+" To do this, use one of the following three methods.
+"
+" Firstly, you can add a `git-jump` file to your `$PATH` with these contents,
+" and then mark it as executable with `chmod +x`:
+"
+" ```
+" #!/bin/sh
+"
+" vcs-jump "$@"
+" ```
+"
+" Secondly, you can add a symbolic link to the vcs-jump executable anywhere in
+" your path:
+"
+" ```
+" cd ~/bin
+" ln -s path/to/vcs-jump git-jump
+" ```
+"
+" Thirdly, you can create a Git alias:
+"
+" ```
+" git config --global alias.jump '!f() { vcs-jump "$@"; }; f'
+" ```
+"
+" By default, vcs-jump will print usage information if called without any
+" arguments. A useful enhancement to the above alias is to teach `git jump` to
+" pick a reasonable default action instead. The following runs `git jump merge`
+" if there are conflicts, and `git jump diff` if there are modifications,
+" otherwise falling back to the standard behavior:
+"
+" ```
+" git config --global alias.jump '!f() {
+"   if [ "$#" -eq 0 ]; then
+"     if [ -n "$(git diff --name-only --diff-filter=U)" ]; then
+"       vcs-jump merge;
+"     elif ! git diff --quiet; then
+"       vcs-jump diff;
+"     else
+"       vcs-jump;
+"     fi;
+"   else
+"     vcs-jump "$@";
+"   fi;
+" }; f'
+" ```
+"
+" @footer
+"
+" # Website
+"
+" Source code:
+"
+"   https://github.com/wincent/vcs-jump
+"
+" Official releases are listed at:
+"
+"   http://www.vim.org/scripts/script.php?script_id=5790
+"
+"
+" # License
+"
+" Copyright 2014-present Greg Hurrell. All rights reserved.
+"
+" Redistribution and use in source and binary forms, with or without
+" modification, are permitted provided that the following conditions are met:
+"
+" 1. Redistributions of source code must retain the above copyright notice,
+"    this list of conditions and the following disclaimer.
+"
+" 2. Redistributions in binary form must reproduce the above copyright notice,
+"    this list of conditions and the following disclaimer in the documentation
+"    and/or other materials provided with the distribution.
+"
+" THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+" IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+" ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR CONTRIBUTORS BE
+" LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+" CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+" SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+" INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+" CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+" ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+" POSSIBILITY OF SUCH DAMAGE.
+"
+"
+" # Development
+"
+" ## Contributing patches
+"
+" Patches can be sent via mail to greg@hurrell.net, or as GitHub pull requests
+" at: https://github.com/wincent/vcs-jump/pulls
+"
+" ## Cutting a new release
+"
+" At the moment the release process is manual:
+"
+" - Perform final sanity checks and manual testing
+" - Update the |vcs-jump-history| section of the documentation
+" - Verify clean work tree:
+"
+" ```
+" git status
+" ```
+"
+" - Tag the release:
+"
+" ```
+" git tag -s -m "$VERSION release" $VERSION
+" ```
+"
+" - Publish the code:
+"
+" ```
+" git push origin main --follow-tags
+" git push github main --follow-tags
+" ```
+"
+" - Produce the release archive:
+"
+" ```
+" git archive -o vcs-jump-$VERSION.zip HEAD -- .
+" ```
+"
+" - Upload to http://www.vim.org/scripts/script.php?script_id=5790
+"
+"
+" # Authors
+"
+" vcs-jump is written and maintained by Greg Hurrell <greg@hurrell.net>.
+"
+" Other contributors that have submitted patches include (in alphabetical
+" order):
+"
+" - Aaron Schrab
+" - Adam P. Regasz-Rethy
+" - Pascal Lalancette
+"
+" This list produced with:
+"
+" ```
+" :read !git shortlog -s HEAD | grep -v 'Greg Hurrell' | cut -f 2-3 | sed -e 's/^/- /'
+" ```
+"
+" # History
+"
+" ## main (not yet released)
+"
+" - Pass `diff.mnemonicPrefix=no` and `diff.noprefix=no` to Git to
+"   ensure `diff` output has the necessary prefixes for parsing (patches
+"   from Aaron Schrab: https://github.com/wincent/vcs-jump/pull/7; and
+"   Adam P. Regasz-Rethy: https://github.com/wincent/vcs-jump/pull/9).
+" - fix: don't clobber 'cpoptions' (patch from Adam P. Regasz-Rethy:
+"   https://github.com/wincent/vcs-jump/pull/10).
+" - fix: don't allow local 'errorformat' to interfere with operation.
+"
+" ## 1.0 (12 October 2019)
+"
+" - Provide a meaningful title for the |quickfix| listing.
+" - Run `git diff` with `--no-color` to prevent a `git config color.ui` setting
+"   of "always" from breaking diff mode
+"   (https://github.com/wincent/vcs-jump/issues/1)
+" - Add |g:VcsJumpMode| and teach |:VcsJump| to accept a |:command-bang| suffix
+"   that can be used to make vcs-jump operate relative to the current buffer
+"   instead of the current working directory (patch from Pascal Lalancette,
+"   https://github.com/wincent/vcs-jump/pull/5).
+"
+" ## 0.1 (2 June 2019)
+"
+" - Initial release: originally extracted from my dotfiles in
+"   https://wincent.dev/n/vcs-jump-origin and then iterated on before extracting
+"   into a standalone Vim plug-in.
+"
+
+""
+" @option g:VcsJumpLoaded any
+"
+" To prevent vcs-jump from being loaded, set |g:VcsJumpLoaded| to any value in
+" your " |.vimrc|. For example:
+"
+" ```
+" let g:VcsJumpLoaded=1
+" ```
+if exists('g:VcsJumpLoaded') || &compatible || v:version < 700
+  finish
+endif
+let g:VcsJumpLoaded = 1
+
+" Temporarily set 'cpoptions' to Vim default as per `:h use-cpo-save`.
+let s:cpoptions = &cpoptions
+set cpoptions&vim
+
+""
+" @command :VcsJump
+"
+" This command invokes the bundled `vcs-jump` script to get the list of
+" "interesting" locations (diff hunks, merge conflicts, or grep results) in the
+" repo, and put them in the |quickfix| list.
+"
+" Filename completion is available in the context of this command.
+"
+" Subcommands are:
+"
+" - "diff": Results are diff hunks. Arguments are passed on to the Mercurial or
+"   Git `diff` invocation. This means that in the absence of any arguments, a
+"   diff against the current "HEAD" will be performed, but you can change that
+"   by passing options (eg. `--cached`) or specifying a target revision to
+"   compare against.
+" - "merge": Results are merge conflicts. Arguments are ignored.
+" - "grep": Results are grep hits. Arguments are given to the underlying Git or
+"   Mercurial `grep` command.
+"
+" When called with a trailing |:command-bang| (eg. `:VcsJump!`) the current
+" value of the |g:VcsJumpMode| setting is inverted for the duration of that
+" invocation.
+"
+command! -bang -nargs=+ -complete=file VcsJump call vcsjump#jump(<bang>0, <q-args>)
+
+if !hasmapto('<Plug>(VcsJump)') && maparg('<Leader>d', 'n') ==# ''
+  ""
+  " @mapping <Plug>(VcsJump)
+  "
+  " This mapping invokes the bundled `vcs-jump` script, defaulting to "diff"
+  " mode.
+  "
+  " By default, `<Leader>d` will invoke this mapping unless:
+  "
+  " - A mapping with the same |{lhs}| already exists; or:
+  " - An alternative mapping to |<Plug>(VcsJump)| has already been defined in
+  "   your |.vimrc|.
+  "
+  " You can create a different mapping like this:
+  "
+  " ```
+  " " Use <Leader>g instead of <Leader>d
+  " nmap <Leader>g <Plug>(VcsJump)
+  " ```
+  "
+  nmap <unique> <Leader>d <Plug>(VcsJump)
+endif
+
+nnoremap <Plug>(VcsJump) :VcsJump diff<space>
+
+" Restore 'cpoptions' to its former value.
+let &cpoptions = s:cpoptions
+unlet s:cpoptions
