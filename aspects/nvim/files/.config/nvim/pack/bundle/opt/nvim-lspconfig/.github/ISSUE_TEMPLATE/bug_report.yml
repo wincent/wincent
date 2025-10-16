@@ -1,0 +1,16 @@
+name: Bug report
+description: Report a problem in nvim-lspconfig
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The configs in this repo are UNSUPPORTED and provided only as a starting point. We depend on users (like you) to troubleshoot issues with their specific LSP setups and [send improvements](https://github.com/neovim/nvim-lspconfig/blob/master/CONTRIBUTING.md).
+        
+        If you have a feature request or found a bug in the core Nvim `vim.lsp` module (not this repo), [report it to Nvim](https://github.com/neovim/neovim/issues/new?assignees=&labels=bug%2Clsp&projects=&template=lsp_bug_report.yml).
+  - type: textarea
+    attributes:
+      label: "Description"
+      description: "A short description of the problem you are reporting."
+    validations:
+      required: true
