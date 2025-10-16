@@ -51,10 +51,6 @@
 	ignore = untracked
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/ferret
 	url = https://github.com/wincent/ferret.git
-[submodule "git-cipher"]
-	branch = main
-	path = vendor/git-cipher
-	url = https://github.com/wincent/git-cipher.git
 [submodule "indent-blankline.nvim"]
 	ignore = untracked
 	path = aspects/nvim/files/.config/nvim/pack/bundle/opt/indent-blankline.nvim
