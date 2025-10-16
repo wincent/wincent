@@ -1,0 +1,76 @@
+#compdef coffee
+# ------------------------------------------------------------------------------
+# Copyright (c) 2011 Github zsh-users - https://github.com/zsh-users
+# All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+#     * Redistributions of source code must retain the above copyright
+#       notice, this list of conditions and the following disclaimer.
+#     * Redistributions in binary form must reproduce the above copyright
+#       notice, this list of conditions and the following disclaimer in the
+#       documentation and/or other materials provided with the distribution.
+#     * Neither the name of the zsh-users nor the
+#       names of its contributors may be used to endorse or promote products
+#       derived from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+# ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+# WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED. IN NO EVENT SHALL ZSH-USERS BE LIABLE FOR ANY
+# DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+# (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+# LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+# ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+# SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+# ------------------------------------------------------------------------------
+# Description
+# -----------
+#
+#  Completion script for Coffee.js v2.7.0 (https://coffeescript.org/)
+#
+# ------------------------------------------------------------------------------
+# Authors
+# -------
+#
+#  * Mario Fernandez (https://github.com/sirech)
+#  * Dong Weiming (https://github.com/dongweiming)
+#
+# ------------------------------------------------------------------------------
+
+local curcontext="$curcontext" state line ret=1
+typeset -A opt_args
+
+_arguments -s -S \
+  '--ast[generate an abstract syntax tree of nodes]' \
+  '(-b --bare)'{-b,--bare}'[compile without a top-level function wrapper]' \
+  '(-c --compile)'{-c,--compile}'[compile to JavaScript and save as .js files]' \
+  '(-e --eval)'{-e,--eval}'[pass a string from the command line as input]:Inline Script' \
+  '(- *)'{-h,--help}'[display this help message]' \
+  '(-i --interactive)'{-i,--interactive}'[run an interactive CoffeeScript REPL]' \
+  '(-j --join)'{-j,--join}'[concatenate the source CoffeeScript before compiling]: :_files -g "*.coffee"' \
+  '(-l --literate)'{-l,--literate}'[treat stdio as literate style coffeescript]' \
+  '(-m --map)'{-m,--map}'[generate source map and save as .js.map files]' \
+  '(-M --inline-map)'{-M,--inline-map}'[generate source map and include it directly in output]' \
+  '(-n --nodes)'{-n,--nodes}'[print out the parse tree that the parser produces]' \
+  '--nodejs[pass options directly to the "node" binary]' \
+  '(-o --output)'{-o,--output}'[set the output directory for compiled JavaScript]: :_files' \
+  '(-p --print --tokens)'{-p,--print}'[print out the compiled JavaScript]' \
+  '(-r --require)'\*{-r,--require}'[require the given module before eval or REPL]:module' \
+  '(-s --stdio)'{-s,--stdio}'[listen for and compile scripts over stdio]' \
+  '(-t --transpile)'{-t,--transpile}'[pipe generated JavaScript through Babel]' \
+  '(-p --print --tokens)--tokens[print out the tokens that the lexer/rewriter produce]' \
+  '(- *)'{-v,--version}'[display the version number]' \
+  '(-w --watch)'{-w,--watch}'[watch scripts for changes and rerun commands]' \
+  '*:script or directory:_files' && ret=0
+
+return ret
+
+# Local Variables:
+# mode: Shell-Script
+# sh-indentation: 2
+# indent-tabs-mode: nil
+# sh-basic-offset: 2
+# End:
+# vim: ft=zsh sw=2 ts=2 et
