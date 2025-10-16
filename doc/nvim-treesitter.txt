@@ -1,0 +1,188 @@
+*nvim-treesitter.txt*         Treesitter parser and query installer for Neovim
+
+Authors:
+  Kiyan Yazdani <yazdani.kiyan@protonmail.com>
+  Thomas Vigouroux <tomvig38@gmail.com>
+  Stephan Seitz <stephan.seitz@fau.de>
+  Steven Sojka <Steven.Sojka@tdameritrade.com>
+  Santos Gallegos <stsewd@protonmail.com>
+  https://github.com/nvim-treesitter/nvim-treesitter/graphs/contributors
+
+                                       Type |gO| to see the table of contents.
+
+==============================================================================
+INTRODUCTION                                             *nvim-treesitter-intro*
+
+Nvim-treesitter provides functionalities for managing treesitter parsers and
+compatible queries for core features (highlighting, injections, folds,
+indents).
+
+==============================================================================
+QUICK START                                         *nvim-treesitter-quickstart*
+
+To configure `nvim-treesitter`, put this in your `init.lua` file:
+>lua
+  require'nvim-treesitter'.setup {
+    -- A directory to install the parsers and queries to.
+    -- Defaults to the `stdpath('data')/site` dir.
+    install_dir = "/some/path/to/store/parsers",
+  }
+
+NOTE: You do not need to call `setup` to use this plugin with the default
+settings!
+
+Parsers and queries can then be installed with >lua
+  require'nvim-treesitter'.install { 'rust', 'javascript', 'zig' }
+<
+To check installed parsers and queries, use `:checkhealth nvim-treesitter`.
+
+Treesitter features for installed languages need to be enabled manually in a
+|FileType| autocommand or |ftplugin|, e.g. >lua
+  vim.api.nvim_create_autocmd('FileType', {
+    pattern = { 'rust', 'javascript', 'zig' },
+    callback = function()
+      -- syntax highlighting, provided by Neovim
+      vim.treesitter.start()
+      -- folds, provided by Neovim
+      vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+      -- indentation, provided by nvim-treesitter
+      vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    end,
+  })
+<
+==============================================================================
+COMMANDS                                              *nvim-treesitter-commands*
+
+:TSInstall {language}                                               *:TSInstall*
+
+Install one or more treesitter parsers. {language} can be one or multiple
+parsers or tiers (`stable`, `unstable`, or `all` (not recommended)). This is a
+no-op of the parser(s) are already installed. Installation is performed
+asynchronously. Use *:TSInstall!* to force installation even if a parser is
+already installed.
+
+:TSInstallFromGrammar {language}                         *:TSInstallFromGrammar*
+
+Like |:TSInstall| but also regenerates the `parser.c` from the original
+grammar. Useful for languages where the provided `parser.c` is outdated (e.g.,
+uses a no longer supported ABI).
+
+:TSUpdate [{language}]                                              *:TSUpdate*
+
+Update parsers to the `revision` specified in the manifest if this is newer
+than the installed version. If {language} is specified, update the
+corresponding parser or tier; otherwise update all installed parsers. This is
+a no-op if all (specified) parsers are up to date.
+
+Note: It is recommended to add this command as a build step in your plugin
+manager.
+
+:TSUninstall {language}                                           *:TSUninstall*
+
+Deletes the parser for one or more {language}, or all parsers with `all`.
+
+:TSLog                                                                  *:TSLog*
+
+Shows all messages from previous install, update, or uninstall operations.
+
+==============================================================================
+API                                                        *nvim-treesitter-api*
+
+setup({opts})                                          *nvim-treesitter.setup()*
+
+    Configure installation options. Needs to be specified before any
+    installation operation.
+
+    Note: You only need to call `setup` if you want to set non-default
+    options!
+
+    Parameters: ~
+    • {opts}  `(table?)` Optional parameters:
+              • {install_dir} (`string?`, default `stdpath('data')/site/`)
+                directory to install parsers and queries to. Note: will be
+                prepended to |runtimepath|.
+
+install({languages} [, {opts}])                      *nvim-treesitter.install()*
+
+    Download, compile, and install the specified treesitter parsers and copy
+    the corresponding queries to a directory on |runtimepath|, enabling their
+    use in Neovim.
+
+    Note: This operation is performed asynchronously by default. For
+    synchronous operation (e.g., in a bootstrapping script), you need to
+    `wait()` for it: >lua
+        require('nvim-treesitter').install({ 'rust', 'javascript', 'zig' })
+                                  :wait(300000) -- max. 5 minutes
+<
+    Parameters: ~
+    • {languages}  `(string[]|string)` (List of) languages or tiers (`stable`,
+                   `unstable`) to install.
+    • {opts}       `(table?)` Optional parameters:
+                   • {force} (`boolean?`, default `false`) force installation
+                     of already installed parsers
+                   • {generate} (`boolean?`, default `false`) generate
+                     `parser.c` from `grammar.json` or `grammar.js` before
+                     compiling.
+                   • {max_jobs} (`integer?`) limit parallel tasks (useful in
+                     combination with {generate} on memory-limited systems).
+                   • {summary} (`boolean?`, default `false`) print summary of
+                     successful and total operations for multiple languages.
+
+uninstall({languages} [, {opts}])                  *nvim-treesitter.uninstall()*
+
+    Remove the parser and queries for the specified language(s).
+
+    Parameters: ~
+    • {languages}  `(string[]|string)` (List of) languages or tiers (`stable`,
+                   `unstable`) to update.
+    • {opts}       `(table?)` Optional parameters:
+                   • {summary} (`boolean?`, default `false`) print summary of
+                     successful and total operations for multiple languages.
+
+update([{languages}, {opts}])                         *nvim-treesitter.update()*
+
+    Update the parsers and queries if older than the revision specified in the
+    manifest.
+
+    Note: This operation is performed asynchronously by default. For
+    synchronous operation (e.g., in a bootstrapping script), you need to
+    `wait()` for it: >lua
+        require('nvim-treesitter').update():wait(300000) -- max. 5 minutes
+<
+    Parameters: ~
+    • {languages}  `(string[]|string)?` (List of) languages or tiers to update
+                   (default: all installed).
+    • {opts}       `(table?)` Optional parameters:
+                   • {max_jobs} (`integer?`) limit parallel tasks (useful in
+                     combination with {generate} on memory-limited systems).
+                   • {summary} (`boolean?`, default `false`) print summary of
+                     successful and total operations for multiple languages.
+
+indentexpr()                                      *nvim-treesitter.indentexpr()*
+
+    Used to enable treesitter indentation for a language via >lua
+        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+<
+get_available([{tier}])                        *nvim-treesitter.get_available()*
+
+    Return list of languages available for installation.
+
+    Parameters: ~
+    • {tier}  `(integer?)` Only return languages of specified {tier} (`1`:
+              stable, `2`: unstable, `3`: unmaintained, `4`: unsupported)
+
+get_installed([{type}])                        *nvim-treesitter.get_installed()*
+
+    Return list of languages installed via `nvim-treesitter`.
+
+    Note: This only searches `nvim-treesitter`'s (configured or default)
+    installation directory; parsers and queries from other sources can be
+    placed anywhere on 'runtimepath' and are not included. To list all, e.g.,
+    parsers that are installed from any source, use >lua
+        vim.api.nvim_get_runtime_file('parser/*', true)
+<
+    Parameters: ~
+    • {type}  `('queries'|parsers'?)` If specified, only show languages with
+              installed queries or parsers, respectively.
+
+vim:tw=78:ts=8:expandtab:noet:ft=help:norl:

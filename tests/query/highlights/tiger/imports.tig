@@ -1,0 +1,4 @@
+import "lib.tih"
+/* <- @keyword.import */
+/*      ^ @string.special.path */
+/* vim: set ft=tiger: */
