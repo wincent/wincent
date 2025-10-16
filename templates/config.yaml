@@ -1,0 +1,4 @@
+default:
+  extension: .lua
+  output: colors
+  supported-systems: [base16, base24]
