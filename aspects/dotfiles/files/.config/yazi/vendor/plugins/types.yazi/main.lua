@@ -1,0 +1,2920 @@
+-- luacheck: globals Command Url cx fs ps rt th ui ya
+
+---@alias Stdio integer
+
+---@class (exact) Recv
+---@field recv fun(self: self): string
+
+---@type Command
+Command = Command
+---@type Url
+Url = Url
+---@type cx
+cx = cx
+---@type fs
+fs = fs
+---@type ps
+ps = ps
+---@type rt
+rt = rt
+---@type th
+th = th
+---@type ui
+ui = ui
+---@type ya
+ya = ya
+
+-- A set of constants representing the origin of a position.
+-- |       |                                                                                                                                          |
+-- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+-- | Alias | `"top-left"` \| `"top-center"` \| `"top-right"` \| `"bottom-left"` \| `"bottom-center"` \| `"bottom-right"` \| `"center"` \| `"hovered"` |
+---@alias Origin "top-left"|"top-center"|"top-right"|"bottom-left"|"bottom-center"|"bottom-right"|"center"|"hovered"
+-- A value that can be sent across threads. See [Sendable value](/docs/plugins/overview#sendable) for more details.
+-- |       |                                                                                   |
+-- | ----- | --------------------------------------------------------------------------------- |
+-- | Alias | `nil` \| `boolean` \| `number` \| `string` \| `Url` \| `{ [Sendable]: Sendable }` |
+---@alias Sendable nil|boolean|number|string|Url|{ [Sendable]: Sendable }
+-- An element that can be rendered.
+-- |       |                                                                       |
+-- | ----- | --------------------------------------------------------------------- |
+-- | Alias | `Bar` \| `Border` \| `Clear` \| `Gauge` \| `Line` \| `List` \| `Text` |
+---@alias Renderable ui.Bar|ui.Border|ui.Clear|ui.Gauge|ui.Line|ui.List|ui.Text
+-- A value that can be covariantly treated as a [`Pos`](/docs/plugins/layout#pos).
+-- |       |                                                                                |
+-- | ----- | ------------------------------------------------------------------------------ |
+-- | Alias | `Pos` \| `{ [1]: Origin, x: integer?, y: integer?, w: integer?, h: integer? }` |
+---@alias AsPos ui.Pos|{ [1]: Origin, x: integer?, y: integer?, w: integer?, h: integer? }
+-- A value that can be covariantly treated as a [`Span`](/docs/plugins/layout#span).
+-- |       |                    |
+-- | ----- | ------------------ |
+-- | Alias | `string` \| `Span` |
+---@alias AsSpan string|ui.Span
+-- A value that can be covariantly treated as a [`Line`](/docs/plugins/layout#line).
+-- |       |                                                          |
+-- | ----- | -------------------------------------------------------- |
+-- | Alias | `string` \| `Span` \| `Line` \| `(string\|Span\|Line)[]` |
+---@alias AsLine string|ui.Span|ui.Line|(string|ui.Span|ui.Line)[]
+-- A value that can be covariantly treated as a [`Text`](/docs/plugins/layout#text).
+-- |       |                                                          |
+-- | ----- | -------------------------------------------------------- |
+-- | Alias | `string` \| `Span` \| `Line` \| `(string\|Span\|Line)[]` |
+---@alias AsText string|ui.Span|ui.Line|(string|ui.Span|ui.Line)[]
+-- A set of constants representing colors.
+-- |       |                                                                                                                                                                                                                                                                     |
+-- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+-- | Alias | `"black"` \| `"white"` \| `"red"` \| `"lightred"` \| `"green"` \| `"lightgreen"` \| `"yellow"` \| `"lightyellow"` \| `"blue"` \| `"lightblue"` \| `"magenta"` \| `"lightmagenta"` \| `"cyan"` \| `"lightcyan"` \| `"gray"` \| `"darkgray"` \| `"reset"` \| `string` |
+---@alias AsColor "black"|"white"|"red"|"lightred"|"green"|"lightgreen"|"yellow"|"lightyellow"|"blue"|"lightblue"|"magenta"|"lightmagenta"|"cyan"|"lightcyan"|"gray"|"darkgray"|"reset"|string
+
+-- Create a Url:
+-- ```lua
+-- -- regular file
+-- local url = Url("/root/Downloads/logo.png")
+-- -- `bgm.mp3` from the archive `ost.zip`
+-- local url = Url("archive:///root/ost.zip#bgm.mp3")
+-- ```
+---@class (exact) Url
+-- Filename of the url.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `string?` |
+---@field name string?
+-- Filename without the extension.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `string?` |
+---@field stem string?
+-- Url fragment.
+-- Let's say the url `archive:///root/my-archive.zip#1.jpg`, the fragment `1.jpg`.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `string?` |
+---@field frag string?
+-- Parent directory.
+-- |      |         |
+-- | ---- | ------- |
+-- | Type | `Self?` |
+---@field parent self?
+-- Whether the file represented by the url is a regular file.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `boolean` |
+---@field is_regular boolean
+-- Whether the file represented by the url is from an archive.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `boolean` |
+---@field is_archive boolean
+-- Whether the path represented by the url has a root.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `boolean` |
+---@field has_root boolean
+-- Join with `another` to create a new url.
+-- | In/Out    | Type               |
+-- | --------- | ------------------ |
+-- | `self`    | `Self`             |
+-- | `another` | `Self` \| `string` |
+-- | Return    | `Self`             |
+---@field join fun(self: self, another: self|string): self
+-- Whether the url starts with `another`.
+-- | In/Out    | Type               |
+-- | --------- | ------------------ |
+-- | `self`    | `Self`             |
+-- | `another` | `Self` \| `string` |
+-- | Return    | `boolean`          |
+---@field starts_with fun(self: self, another: self|string): boolean
+-- Whether the url ends with `another`.
+-- | In/Out    | Type               |
+-- | --------- | ------------------ |
+-- | `self`    | `Self`             |
+-- | `another` | `Self` \| `string` |
+-- | Return    | `boolean`          |
+---@field ends_with fun(self: self, another: self|string): boolean
+-- Strips the prefix of `another`.
+-- | In/Out    | Type               |
+-- | --------- | ------------------ |
+-- | `self`    | `Self`             |
+-- | `another` | `Self` \| `string` |
+-- | Return    | `Self`             |
+---@field strip_prefix fun(self: self, another: self|string): self
+-- Whether the url is equal to `another`.
+-- | In/Out    | Type      |
+-- | --------- | --------- |
+-- | `self`    | `Self`    |
+-- | `another` | `Self`    |
+-- | Return    | `boolean` |
+---@field __eq fun(self: self, another: self): boolean
+-- Convert the url to string.
+-- | In/Out | Type     |
+-- | ------ | -------- |
+-- | `self` | `Self`   |
+-- | Return | `string` |
+---@field __tostring fun(self: self): string
+-- Concatenate the url with `another`.
+-- | In/Out    | Type     |
+-- | --------- | -------- |
+-- | `self`    | `Self`   |
+-- | `another` | `string` |
+-- | Return    | `Self`   |
+---@field __concat fun(self: self, another: string): self
+-- Make a new url.
+-- | In/Out  | Type               |
+-- | ------- | ------------------ |
+-- | `value` | `string` \| `Self` |
+-- | Return  | `Self`             |
+---@overload fun(value: string|self): Url
+
+-- One file's characteristics.
+---@class (exact) Cha
+-- Whether the file is a directory.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `boolean` |
+---@field is_dir boolean
+-- Whether the file is hidden.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `boolean` |
+---@field is_hidden boolean
+-- Whether the file is a symlink.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `boolean` |
+---@field is_link boolean
+-- Whether the file is a bad symlink, which points to a non-existent file.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `boolean` |
+---@field is_orphan boolean
+-- Whether the file is dummy, which fails to load complete metadata, possibly the filesystem doesn't support it, such as FUSE.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `boolean` |
+---@field is_dummy boolean
+-- Whether the file is a block device.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `boolean` |
+---@field is_block boolean
+-- Whether the file is a character device.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `boolean` |
+---@field is_char boolean
+-- Whether the file is a FIFO.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `boolean` |
+---@field is_fifo boolean
+-- Whether the file is a socket.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `boolean` |
+---@field is_sock boolean
+-- Whether the file is executable.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `boolean` |
+---@field is_exec boolean
+-- Whether the file has the sticky bit set.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `boolean` |
+---@field is_sticky boolean
+-- Length of the file in bytes.
+-- If you want to get the size of a directory, use [`size()`](/docs/plugins/context#fs-file.size) instead.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `integer` |
+---@field len integer
+-- Accessed time of the file in Unix timestamp.
+-- |      |            |
+-- | ---- | ---------- |
+-- | Type | `integer?` |
+---@field atime integer?
+-- Birth time of the file in Unix timestamp.
+-- |      |            |
+-- | ---- | ---------- |
+-- | Type | `integer?` |
+---@field btime integer?
+-- Modified time of the file in Unix timestamp.
+-- |      |            |
+-- | ---- | ---------- |
+-- | Type | `integer?` |
+---@field mtime integer?
+-- User id of the file.
+-- |           |                        |
+-- | --------- | ---------------------- |
+-- | Type      | `integer?`             |
+-- | Available | Unix-like systems only |
+---@field uid integer?
+-- Group id of the file.
+-- |           |                        |
+-- | --------- | ---------------------- |
+-- | Type      | `integer?`             |
+-- | Available | Unix-like systems only |
+---@field gid integer?
+-- Number of hard links to the file.
+-- |           |                        |
+-- | --------- | ---------------------- |
+-- | Type      | `integer?`             |
+-- | Available | Unix-like systems only |
+---@field nlink integer?
+-- Unix permission representation, such as `drwxr-xr-x`.
+-- |           |                        |
+-- | --------- | ---------------------- |
+-- | Type      | `string?`              |
+-- | Available | Unix-like systems only |
+---@field perm string?
+
+-- A bare file without any context information. See also [`fs::File`](/docs/plugins/context#fs-file).
+---@class (exact) File
+-- Url of the file.
+-- |      |       |
+-- | ---- | ----- |
+-- | Type | `Url` |
+---@field url Url
+-- Cha of the file.
+-- |      |       |
+-- | ---- | ----- |
+-- | Type | `Cha` |
+---@field cha Cha
+-- Url of the file points to, if it's a symlink.
+-- |      |        |
+-- | ---- | ------ |
+-- | Type | `Url?` |
+---@field link_to Url?
+-- Name of the file.
+-- |      |          |
+-- | ---- | -------- |
+-- | Type | `string` |
+---@field name string
+
+-- An icon.
+---@class (exact) Icon
+-- Text of the icon.
+-- |      |          |
+-- | ---- | -------- |
+-- | Type | `string` |
+---@field text string
+-- [Style](/docs/plugins/layout#style) of the icon.
+-- |      |         |
+-- | ---- | ------- |
+-- | Type | `Style` |
+---@field style ui.Style
+
+-- An error.
+---@class (exact) Error
+-- Raw error code.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `integer` |
+---@field code integer
+-- Convert the error to string.
+-- | In/Out | Type     |
+-- | ------ | -------- |
+-- | `self` | `Self`   |
+-- | Return | `string` |
+---@field __tostring fun(self: self): string
+-- Concatenate the error with `another`.
+-- | In/Out    | Type     |
+-- | --------- | -------- |
+-- | `self`    | `Self`   |
+-- | `another` | `string` |
+-- | Return    | `Error`  |
+---@field __concat fun(self: self, another: string): Error
+
+-- 
+---@class (exact) Window
+-- Number of rows.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `integer` |
+---@field rows integer
+-- Number of columns.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `integer` |
+---@field cols integer
+-- Width in pixels.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `integer` |
+---@field width integer
+-- Height in pixels.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `integer` |
+---@field height integer
+
+
+-- A Rect is represented an area within the terminal by four attributes:
+-- ```lua
+-- ui.Rect {
+--   x = 10, -- x position
+--   y = 10, -- y position
+--   w = 20, -- width
+--   h = 30, -- height
+-- }
+-- ui.Rect.default  -- Equal to `ui.Rect { x = 0, y = 0, w = 0, h = 0 }`
+-- ```
+-- You can get a pre-computed `Rect` through [`ui.Layout()`](#layout).
+-- Note that if you intend to create a `Rect` yourself, ensure these values are calculated accurately; otherwise, it may cause Yazi to crash!
+---@class (exact) ui.Rect
+-- X position of the rect.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `integer` |
+---@field x integer
+-- Y position of the rect.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `integer` |
+---@field y integer
+-- Width of the rect.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `integer` |
+---@field w integer
+-- Height of the rect.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `integer` |
+---@field h integer
+-- Left position of the rect.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `integer` |
+---@field left integer
+-- Right position of the rect.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `integer` |
+---@field right integer
+-- Top position of the rect.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `integer` |
+---@field top integer
+-- Bottom position of the rect.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `integer` |
+---@field bottom integer
+-- Apply a `padding` to the rect.
+-- | In/Out    | Type          |
+-- | --------- | ------------- |
+-- | `self`    | `Self`        |
+-- | `padding` | [`Pad`](#pad) |
+-- | Return    | `self`        |
+---@field pad fun(self: self, padding: ui.Pad): self
+-- Make a new rect.
+-- | In/Out  | Type                                                     |
+-- | ------- | -------------------------------------------------------- |
+-- | `value` | `{ x: integer?, y: integer?, w: integer?, h: integer? }` |
+-- | Return  | `Self`                                                   |
+---@overload fun(value: { x: integer?, y: integer?, w: integer?, h: integer? }): ui.Rect
+
+-- `Pad` represents a padding, and all of its parameters are integers:
+-- ```lua
+-- ui.Pad(top, right, bottom, left)
+-- ```
+---@class (exact) ui.Pad
+-- Top padding.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `integer` |
+---@field top integer
+-- Right padding.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `integer` |
+---@field right integer
+-- Bottom padding.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `integer` |
+---@field bottom integer
+-- Left padding.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `integer` |
+---@field left integer
+-- Create a padding with only top value, which is equal to `ui.Pad(top, 0, 0, 0)`.
+-- | In/Out | Type      |
+-- | ------ | --------- |
+-- | `top`  | `integer` |
+-- | Return | `Self`    |
+---@field top fun(top: integer): self
+-- Create a padding with only right value, which is equal to `ui.Pad(0, right, 0, 0)`.
+-- | In/Out  | Type      |
+-- | ------- | --------- |
+-- | `right` | `integer` |
+-- | Return  | `Self`    |
+---@field right fun(right: integer): self
+-- Create a padding with only bottom value, which is equal to `ui.Pad(0, 0, bottom, 0)`.
+-- | In/Out   | Type      |
+-- | -------- | --------- |
+-- | `bottom` | `integer` |
+-- | Return   | `Self`    |
+---@field bottom fun(bottom: integer): self
+-- Create a padding with only left value, which is equal to `ui.Pad(0, 0, 0, left)`.
+-- | In/Out | Type      |
+-- | ------ | --------- |
+-- | `left` | `integer` |
+-- | Return | `Self`    |
+---@field left fun(left: integer): self
+-- Create a padding on both x-axis, which is equal to `ui.Pad(0, x, 0, x)`.
+-- | In/Out | Type      |
+-- | ------ | --------- |
+-- | `x`    | `integer` |
+-- | Return | `Self`    |
+---@field x fun(x: integer): self
+-- Create a padding on both y-axis, which is equal to `ui.Pad(y, 0, y, 0)`.
+-- | In/Out | Type      |
+-- | ------ | --------- |
+-- | `y`    | `integer` |
+-- | Return | `Self`    |
+---@field y fun(y: integer): self
+-- Create a padding on both x and y-axis, which is equal to `ui.Pad(y, x, y, x)`.
+-- | In/Out | Type      |
+-- | ------ | --------- |
+-- | `x`    | `integer` |
+-- | `y`    | `integer` |
+-- | Return | `Self`    |
+---@field xy fun(x: integer, y: integer): self
+-- Make a new padding.
+-- | In/Out   | Type      |
+-- | -------- | --------- |
+-- | `top`    | `integer` |
+-- | `right`  | `integer` |
+-- | `bottom` | `integer` |
+-- | `left`   | `integer` |
+-- | Return   | `Self`    |
+---@overload fun(top: integer, right: integer, bottom: integer, left: integer): ui.Pad
+
+-- `Pos` represents a position, which is composed of an origin and an offset relative to that origin:
+-- ```lua
+-- ui.Pos { "center", x = 5, y = 3, w = 20, h = 10 }
+-- ```
+-- Its only parameter is a table containing the following keys:
+-- - `[1]`: [Origin](/docs/plugins/aliases#origin) of the position.
+-- - `x`: X-offset relative to the origin, default is 0.
+-- - `y`: Y-offset relative to the origin, default is 0.
+-- - `w`: Width, default is 0.
+-- - `h`: Height, default is 0.
+---@class (exact) ui.Pos
+-- X-offset relative to the origin.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `integer` |
+---@field x integer
+-- Y-offset relative to the origin.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `integer` |
+---@field y integer
+-- Width of the position.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `integer` |
+---@field w integer
+-- Height of the position.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `integer` |
+---@field h integer
+-- Make a new position.
+-- | In/Out  | Type                                                                  |
+-- | ------- | --------------------------------------------------------------------- |
+-- | `value` | `{ [1]: Origin, x?: integer, y?: integer, w?: integer, h?: integer }` |
+-- | Return  | `Self`                                                                |
+---@overload fun(value: { [1]: Origin, x?: integer, y?: integer, w?: integer, h?: integer }): ui.Pos
+
+-- Create a style:
+-- ```lua
+-- ui.Style()
+-- ```
+---@class (exact) ui.Style
+-- Apply a foreground color.
+-- | In/Out  | Type                                        |
+-- | ------- | ------------------------------------------- |
+-- | `self`  | `Self`                                      |
+-- | `color` | [`AsColor`](/docs/plugins/aliases#as-color) |
+-- | Return  | `self`                                      |
+---@field fg fun(self: self, color: AsColor): self
+-- Apply a background color.
+-- | In/Out  | Type                                        |
+-- | ------- | ------------------------------------------- |
+-- | `self`  | `Self`                                      |
+-- | `color` | [`AsColor`](/docs/plugins/aliases#as-color) |
+-- | Return  | `self`                                      |
+---@field bg fun(self: self, color: AsColor): self
+-- Apply a bold style.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | `self` | `Self` |
+-- | Return | `self` |
+---@field bold fun(self: self): self
+-- Apply a dim style.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | `self` | `Self` |
+-- | Return | `self` |
+---@field dim fun(self: self): self
+-- Apply an italic style.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | `self` | `Self` |
+-- | Return | `self` |
+---@field italic fun(self: self): self
+-- Apply an underline style.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | `self` | `Self` |
+-- | Return | `self` |
+---@field underline fun(self: self): self
+-- Apply a blink style.
+-- Note that this style may not be supported by all terminals.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | `self` | `Self` |
+-- | Return | `self` |
+---@field blink fun(self: self): self
+-- Apply a rapid blink style.
+-- Note that this style may not be supported by all terminals.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | `self` | `Self` |
+-- | Return | `self` |
+---@field blink_rapid fun(self: self): self
+-- Apply a reverse style.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | `self` | `Self` |
+-- | Return | `self` |
+---@field reverse fun(self: self): self
+-- Apply a hidden style.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | `self` | `Self` |
+-- | Return | `self` |
+---@field hidden fun(self: self): self
+-- Apply a crossed style.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | `self` | `Self` |
+-- | Return | `self` |
+---@field crossed fun(self: self): self
+-- Apply a reset style.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | `self` | `Self` |
+-- | Return | `self` |
+---@field reset fun(self: self): self
+-- Patch the style with `another`.
+-- | In/Out    | Type                            |
+-- | --------- | ------------------------------- |
+-- | `self`    | `Self`                          |
+-- | `another` | `Self`                          |
+-- | Return    | `self`                          |
+-- | Private   | This method can't be inherited. |
+---@field patch fun(self: self, another: self): self
+-- Make a new style.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | Return | `Self` |
+---@overload fun(): ui.Style
+
+-- `ui.Span` is the smallest unit of text, yet a component of `ui.Line`. Create a span:
+-- ```lua
+-- ui.Span("foo")
+-- ```
+-- For convenience, `ui.Span` can also accept itself as a argument:
+-- ```lua
+-- ui.Span(ui.Span("bar"))
+-- ```
+-- |         |                   |                                                  |
+-- | ------- | ----------------- | ------------------------------------------------ |
+-- | Inherit | [`Style`](#style) | To call [`Style`](#style) methods on it directly |
+---@class (exact) ui.Span
+-- Whether the span is visible, i.e. includes any printable characters.
+-- | In/Out | Type      |
+-- | ------ | --------- |
+-- | `self` | `Self`    |
+-- | Return | `boolean` |
+---@field visible fun(self: self): boolean
+-- Set the style of the span.
+-- | In/Out  | Type              |
+-- | ------- | ----------------- |
+-- | `self`  | `Self`            |
+-- | `style` | [`Style`](#style) |
+-- | Return  | `self`            |
+-- Span inherits from `Style`, besides applying a whole `Style`, you can also call those methods of `Style` directly on it, which means:
+-- ```lua
+-- local style = ui.Style():fg("white"):bg("black"):bold()
+-- ui.Span("Hello world"):style(style)
+-- ```
+-- can be also written as:
+-- ```lua
+-- ui.Span("Hello world"):fg("white"):bg("black"):bold()
+-- ```
+---@field style fun(self: self, style: ui.Style): self
+-- Apply a foreground color.
+-- | In/Out  | Type                                        |
+-- | ------- | ------------------------------------------- |
+-- | `self`  | `Self`                                      |
+-- | `color` | [`AsColor`](/docs/plugins/aliases#as-color) |
+-- | Return  | `self`                                      |
+---@field fg fun(self: self, color: AsColor): self
+-- Apply a background color.
+-- | In/Out  | Type                                        |
+-- | ------- | ------------------------------------------- |
+-- | `self`  | `Self`                                      |
+-- | `color` | [`AsColor`](/docs/plugins/aliases#as-color) |
+-- | Return  | `self`                                      |
+---@field bg fun(self: self, color: AsColor): self
+-- Apply a bold style.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | `self` | `Self` |
+-- | Return | `self` |
+---@field bold fun(self: self): self
+-- Apply a dim style.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | `self` | `Self` |
+-- | Return | `self` |
+---@field dim fun(self: self): self
+-- Apply an italic style.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | `self` | `Self` |
+-- | Return | `self` |
+---@field italic fun(self: self): self
+-- Apply an underline style.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | `self` | `Self` |
+-- | Return | `self` |
+---@field underline fun(self: self): self
+-- Apply a blink style.
+-- Note that this style may not be supported by all terminals.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | `self` | `Self` |
+-- | Return | `self` |
+---@field blink fun(self: self): self
+-- Apply a rapid blink style.
+-- Note that this style may not be supported by all terminals.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | `self` | `Self` |
+-- | Return | `self` |
+---@field blink_rapid fun(self: self): self
+-- Apply a reverse style.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | `self` | `Self` |
+-- | Return | `self` |
+---@field reverse fun(self: self): self
+-- Apply a hidden style.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | `self` | `Self` |
+-- | Return | `self` |
+---@field hidden fun(self: self): self
+-- Apply a crossed style.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | `self` | `Self` |
+-- | Return | `self` |
+---@field crossed fun(self: self): self
+-- Apply a reset style.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | `self` | `Self` |
+-- | Return | `self` |
+---@field reset fun(self: self): self
+-- Make a new span.
+-- | In/Out  | Type                                      |
+-- | ------- | ----------------------------------------- |
+-- | `value` | [`AsSpan`](/docs/plugins/aliases#as-span) |
+-- | Return  | `Self`                                    |
+---@overload fun(value: AsSpan): ui.Span
+
+-- `ui.Line` represents a line, consisting of multiple `ui.Span`s, and it accepts a table of them:
+-- ```lua
+-- ui.Line { ui.Span("foo"), ui.Span("bar") }
+-- ```
+-- For convenience, the following types are also supported:
+-- ```lua
+-- -- string
+-- ui.Line("foo")
+-- -- ui.Span
+-- ui.Line(ui.Span("bar"))
+-- -- ui.Line itself
+-- ui.Line(ui.Line("baz"))
+-- -- Mixed table of string, ui.Span, ui.Line
+-- ui.Line { "foo", ui.Span("bar"), ui.Line("baz") }
+-- ```
+-- |         |                   |                                                  |
+-- | ------- | ----------------- | ------------------------------------------------ |
+-- | Inherit | [`Style`](#style) | To call [`Style`](#style) methods on it directly |
+---@class (exact) ui.Line
+-- Set the area of the line.
+-- | In/Out | Type                      |
+-- | ------ | ------------------------- |
+-- | `self` | `Self`                    |
+-- | `rect` | [`Rect?`](#rect)          |
+-- | Return | `self` \| [`Rect`](#rect) |
+-- If `rect` is not specified, it returns the current area.
+---@field area fun(self: self, rect: ui.Rect?): self|ui.Rect
+-- Calculate the width of the line.
+-- | In/Out | Type      |
+-- | ------ | --------- |
+-- | `self` | `Self`    |
+-- | Return | `integer` |
+---@field width fun(self: self): integer
+-- Set the alignment of the line.
+-- | In/Out  | Type              |
+-- | ------- | ----------------- |
+-- | `self`  | `Self`            |
+-- | `align` | [`Align`](#align) |
+-- | Return  | `self`            |
+---@field align fun(self: self, align: ui.Align): self
+-- Whether the line is visible, i.e. includes any printable characters.
+-- | In/Out | Type      |
+-- | ------ | --------- |
+-- | `self` | `Self`    |
+-- | Return | `boolean` |
+---@field visible fun(self: self): boolean
+-- Set the style of the line.
+-- | In/Out  | Type              |
+-- | ------- | ----------------- |
+-- | `self`  | `Self`            |
+-- | `style` | [`Style`](#style) |
+-- | Return  | `self`            |
+-- Like with [`Span`](#span), you can also call the [`Style`](#style) methods on it directly:
+-- ```lua
+-- ui.Line("Hello world"):fg("white"):bg("black"):bold()
+-- ```
+---@field style fun(self: self, style: ui.Style): self
+-- Apply a foreground color.
+-- | In/Out  | Type                                        |
+-- | ------- | ------------------------------------------- |
+-- | `self`  | `Self`                                      |
+-- | `color` | [`AsColor`](/docs/plugins/aliases#as-color) |
+-- | Return  | `self`                                      |
+---@field fg fun(self: self, color: AsColor): self
+-- Apply a background color.
+-- | In/Out  | Type                                        |
+-- | ------- | ------------------------------------------- |
+-- | `self`  | `Self`                                      |
+-- | `color` | [`AsColor`](/docs/plugins/aliases#as-color) |
+-- | Return  | `self`                                      |
+---@field bg fun(self: self, color: AsColor): self
+-- Apply a bold style.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | `self` | `Self` |
+-- | Return | `self` |
+---@field bold fun(self: self): self
+-- Apply a dim style.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | `self` | `Self` |
+-- | Return | `self` |
+---@field dim fun(self: self): self
+-- Apply an italic style.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | `self` | `Self` |
+-- | Return | `self` |
+---@field italic fun(self: self): self
+-- Apply an underline style.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | `self` | `Self` |
+-- | Return | `self` |
+---@field underline fun(self: self): self
+-- Apply a blink style.
+-- Note that this style may not be supported by all terminals.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | `self` | `Self` |
+-- | Return | `self` |
+---@field blink fun(self: self): self
+-- Apply a rapid blink style.
+-- Note that this style may not be supported by all terminals.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | `self` | `Self` |
+-- | Return | `self` |
+---@field blink_rapid fun(self: self): self
+-- Apply a reverse style.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | `self` | `Self` |
+-- | Return | `self` |
+---@field reverse fun(self: self): self
+-- Apply a hidden style.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | `self` | `Self` |
+-- | Return | `self` |
+---@field hidden fun(self: self): self
+-- Apply a crossed style.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | `self` | `Self` |
+-- | Return | `self` |
+---@field crossed fun(self: self): self
+-- Apply a reset style.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | `self` | `Self` |
+-- | Return | `self` |
+---@field reset fun(self: self): self
+-- Make a new line.
+-- | In/Out  | Type                                      |
+-- | ------- | ----------------------------------------- |
+-- | `value` | [`AsLine`](/docs/plugins/aliases#as-line) |
+-- | Return  | `Self`                                    |
+---@overload fun(value: AsLine): ui.Line
+
+-- `ui.Text` is used to represent multi-line text, it takes a table of `ui.Line`:
+-- ```lua
+-- ui.Text { ui.Line("foo"), ui.Line("bar") }
+-- ```
+-- For convenience, the following types are also supported:
+-- ```lua
+-- -- string
+-- ui.Text("foo\nbar")
+-- -- ui.Line
+-- ui.Text(ui.Line("foo"))
+-- -- ui.Span
+-- ui.Text(ui.Span("bar"))
+-- -- Mixed table of string, ui.Line, ui.Span
+-- ui.Text { "foo", ui.Line("bar"), ui.Span("baz") }
+-- ```
+-- You can also use `ui.Text.parse(code)` to parse an [ANSI escape sequence](https://en.wikipedia.org/wiki/ANSI_escape_code) string into a text.
+-- |         |                   |                                                  |
+-- | ------- | ----------------- | ------------------------------------------------ |
+-- | Inherit | [`Style`](#style) | To call [`Style`](#style) methods on it directly |
+---@class (exact) ui.Text
+-- Set the area of the text.
+-- | In/Out | Type                      |
+-- | ------ | ------------------------- |
+-- | `self` | `Self`                    |
+-- | `rect` | [`Rect?`](#rect)          |
+-- | Return | `self` \| [`Rect`](#rect) |
+-- If `rect` is not specified, it returns the current area.
+---@field area fun(self: self, rect: ui.Rect?): self|ui.Rect
+-- Set the alignment of the text.
+-- | In/Out  | Type              |
+-- | ------- | ----------------- |
+-- | `self`  | `Self`            |
+-- | `align` | [`Align`](#align) |
+-- | Return  | `self`            |
+---@field align fun(self: self, align: ui.Align): self
+-- Set the wrap of the text.
+-- | In/Out | Type            |
+-- | ------ | --------------- |
+-- | `self` | `Self`          |
+-- | `wrap` | [`Wrap`](#wrap) |
+-- | Return | `self`          |
+---@field wrap fun(self: self, wrap: ui.Wrap): self
+-- Calculate the maximum width of the text across all lines.
+-- | In/Out | Type      |
+-- | ------ | --------- |
+-- | `self` | `Self`    |
+-- | Return | `integer` |
+---@field max_width fun(self: self): integer
+-- Set the style of the text.
+-- | In/Out  | Type              |
+-- | ------- | ----------------- |
+-- | `self`  | `Self`            |
+-- | `style` | [`Style`](#style) |
+-- | Return  | `self`            |
+-- Like with [`Span`](#span), you can also call the [`Style`](#style) methods on it directly:
+-- ```lua
+-- ui.Text("Hello world"):fg("white"):bg("black"):bold()
+-- ```
+---@field style fun(self: self, style: ui.Style): self
+-- Apply a foreground color.
+-- | In/Out  | Type                                        |
+-- | ------- | ------------------------------------------- |
+-- | `self`  | `Self`                                      |
+-- | `color` | [`AsColor`](/docs/plugins/aliases#as-color) |
+-- | Return  | `self`                                      |
+---@field fg fun(self: self, color: AsColor): self
+-- Apply a background color.
+-- | In/Out  | Type                                        |
+-- | ------- | ------------------------------------------- |
+-- | `self`  | `Self`                                      |
+-- | `color` | [`AsColor`](/docs/plugins/aliases#as-color) |
+-- | Return  | `self`                                      |
+---@field bg fun(self: self, color: AsColor): self
+-- Apply a bold style.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | `self` | `Self` |
+-- | Return | `self` |
+---@field bold fun(self: self): self
+-- Apply a dim style.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | `self` | `Self` |
+-- | Return | `self` |
+---@field dim fun(self: self): self
+-- Apply an italic style.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | `self` | `Self` |
+-- | Return | `self` |
+---@field italic fun(self: self): self
+-- Apply an underline style.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | `self` | `Self` |
+-- | Return | `self` |
+---@field underline fun(self: self): self
+-- Apply a blink style.
+-- Note that this style may not be supported by all terminals.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | `self` | `Self` |
+-- | Return | `self` |
+---@field blink fun(self: self): self
+-- Apply a rapid blink style.
+-- Note that this style may not be supported by all terminals.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | `self` | `Self` |
+-- | Return | `self` |
+---@field blink_rapid fun(self: self): self
+-- Apply a reverse style.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | `self` | `Self` |
+-- | Return | `self` |
+---@field reverse fun(self: self): self
+-- Apply a hidden style.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | `self` | `Self` |
+-- | Return | `self` |
+---@field hidden fun(self: self): self
+-- Apply a crossed style.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | `self` | `Self` |
+-- | Return | `self` |
+---@field crossed fun(self: self): self
+-- Apply a reset style.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | `self` | `Self` |
+-- | Return | `self` |
+---@field reset fun(self: self): self
+-- Make a new text.
+-- | In/Out  | Type                                      |
+-- | ------- | ----------------------------------------- |
+-- | `value` | [`AsText`](/docs/plugins/aliases#as-text) |
+-- | Return  | `Self`                                    |
+---@overload fun(value: AsText): ui.Text
+
+-- Create a layout:
+-- ```lua
+-- local areas = ui.Layout()
+--   :direction(ui.Layout.HORIZONTAL)
+--   :constraints({ ui.Constraint.Percentage(50), ui.Constraint.Percentage(50) })
+--   :split(area)
+-- local left = areas[1] -- The first rect
+-- local right = areas[2] -- The second rect
+-- ```
+---@class (exact) ui.Layout
+-- Set the direction of the layout.
+-- | In/Out      | Type        |
+-- | ----------- | ----------- |
+-- | `self`      | `Self`      |
+-- | `direction` | `Direction` |
+-- | Return      | `self`      |
+-- The `direction` accepts the following constants:
+-- - `ui.Layout.HORIZONTAL`
+-- - `ui.Layout.VERTICAL`
+---@field direction fun(self: self, direction: Direction): self
+-- Set the margin of the layout.
+-- | In/Out   | Type      | Note             |
+-- | -------- | --------- | ---------------- |
+-- | `self`   | `Self`    | -                |
+-- | `margin` | `integer` | Positive integer |
+-- | Return   | `self`    | -                |
+---@field margin fun(self: self, margin: integer): self
+-- Set the horizontal margin of the layout.
+-- | In/Out   | Type      | Note             |
+-- | -------- | --------- | ---------------- |
+-- | `self`   | `Self`    | -                |
+-- | `margin` | `integer` | Positive integer |
+-- | Return   | `self`    | -                |
+---@field margin_h fun(self: self, margin: integer): self
+-- Set the vertical margin of the layout.
+-- | In/Out   | Type      | Note             |
+-- | -------- | --------- | ---------------- |
+-- | `self`   | `Self`    | -                |
+-- | `margin` | `integer` | Positive integer |
+-- | Return   | `self`    | -                |
+---@field margin_v fun(self: self, margin: integer): self
+-- Set the constraints of the layout.
+-- | In/Out        | Type                          |
+-- | ------------- | ----------------------------- |
+-- | `self`        | `Self`                        |
+-- | `constraints` | [`Constraint[]`](#constraint) |
+-- | Return        | `self`                        |
+---@field constraints fun(self: self, constraints: ui.Constraint[]): self
+-- Split the layout into multiple [Rect](#rect)s according to the constraints.
+-- | In/Out | Type              |
+-- | ------ | ----------------- |
+-- | `self` | `Self`            |
+-- | `rect` | [`Rect`](#rect)   |
+-- | Return | [`Rect[]`](#rect) |
+---@field split fun(self: self, rect: ui.Rect): ui.Rect[]
+-- Make a new layout.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | Return | `Self` |
+---@overload fun(): ui.Layout
+
+-- A constraint that defines the size of a layout element.
+-- Constraints can be used to specify a fixed size, a percentage of the available space, a ratio of
+-- the available space, a minimum or maximum size or a fill proportional value for a layout
+-- element.
+-- Relative constraints (percentage, ratio) are calculated relative to the entire space being
+-- divided, rather than the space available after applying more fixed constraints (min, max,
+-- length).
+-- Constraints are prioritized in the following order:
+-- 1. `ui.Constraint.Min(min)`
+-- 2. `ui.Constraint.Max(max)`
+-- 3. `ui.Constraint.Length(len)`
+-- 4. `ui.Constraint.Percentage(p)`
+-- 5. `ui.Constraint.Ratio(num, den)`
+-- 6. `ui.Constraint.Fill(scale)`
+---@class (exact) ui.Constraint
+-- Applies a minimum size constraint to the element.
+-- | In/Out | Type      |
+-- | ------ | --------- |
+-- | `min`  | `integer` |
+-- | Return | `Self`    |
+-- The element size is set to at least the specified amount.
+-- ```lua
+-- -- { Percentage(100), Min(20) }
+-- -- ┌────────────────────────────┐┌──────────────────┐
+-- -- │            30 px           ││       20 px      │
+-- -- └────────────────────────────┘└──────────────────┘
+-- -- { Percentage(100), Min(10) }
+-- -- ┌──────────────────────────────────────┐┌────────┐
+-- -- │                 40 px                ││  10 px │
+-- -- └──────────────────────────────────────┘└────────┘
+-- ```
+---@field Min fun(min: integer): self
+-- Applies a maximum size constraint to the element.
+-- | In/Out | Type      |
+-- | ------ | --------- |
+-- | `max`  | `integer` |
+-- | Return | `Self`    |
+-- The element size is set to at most the specified amount.
+-- ```lua
+-- -- { Percentage(0), Max(20) }
+-- -- ┌────────────────────────────┐┌──────────────────┐
+-- -- │            30 px           ││       20 px      │
+-- -- └────────────────────────────┘└──────────────────┘
+-- -- { Percentage(0), Max(10) }
+-- -- ┌──────────────────────────────────────┐┌────────┐
+-- -- │                 40 px                ││  10 px │
+-- -- └──────────────────────────────────────┘└────────┘
+-- ```
+---@field Max fun(max: integer): self
+-- Applies a length constraint to the element.
+-- | In/Out | Type      |
+-- | ------ | --------- |
+-- | `len`  | `integer` |
+-- | Return | `Self`    |
+-- The element size is set to the specified amount:
+-- ```lua
+-- -- { Length(20), Length(20) }
+-- -- ┌──────────────────┐┌──────────────────┐
+-- -- │       20 px      ││       20 px      │
+-- -- └──────────────────┘└──────────────────┘
+-- -- { Length(20), Length(30) }
+-- -- ┌──────────────────┐┌────────────────────────────┐
+-- -- │       20 px      ││            30 px           │
+-- -- └──────────────────┘└────────────────────────────┘
+-- ```
+---@field Length fun(len: integer): self
+-- Applies a percentage of the available space to the element.
+-- | In/Out | Type      |
+-- | ------ | --------- |
+-- | `p`    | `integer` |
+-- | Return | `Self`    |
+-- Converts the given percentage to a floating-point value and multiplies that with area.
+-- This value is rounded back to an integer as part of the layout split calculation.
+-- ```lua
+-- -- { Percentage(75), Fill(1) }
+-- -- ┌────────────────────────────────────┐┌──────────┐
+-- -- │                38 px               ││   12 px  │
+-- -- └────────────────────────────────────┘└──────────┘
+-- -- { Percentage(50), Fill(1) }
+-- -- ┌───────────────────────┐┌───────────────────────┐
+-- -- │         25 px         ││         25 px         │
+-- -- └───────────────────────┘└───────────────────────┘
+-- ```
+---@field Percentage fun(p: integer): self
+-- Applies a ratio of the available space to the element.
+-- | In/Out | Type      |
+-- | ------ | --------- |
+-- | `num`  | `integer` |
+-- | `den`  | `integer` |
+-- | Return | `Self`    |
+-- Converts the given ratio to a floating-point value and multiplies that with area.
+-- This value is rounded back to an integer as part of the layout split calculation.
+-- ```lua
+-- -- { Ratio(1, 2), Ratio(1, 2) }
+-- -- ┌───────────────────────┐┌───────────────────────┐
+-- -- │         25 px         ││         25 px         │
+-- -- └───────────────────────┘└───────────────────────┘
+-- -- { Ratio(1, 4), Ratio(1, 4), Ratio(1, 4), Ratio(1, 4) }
+-- -- ┌───────────┐┌──────────┐┌───────────┐┌──────────┐
+-- -- │   13 px   ││   12 px  ││   13 px   ││   12 px  │
+-- -- └───────────┘└──────────┘└───────────┘└──────────┘
+-- ```
+---@field Ratio fun(num: integer, den: integer): self
+-- Applies the scaling factor proportional to all other `Fill` elements
+-- to fill excess space.
+-- | In/Out  | Type      |
+-- | ------- | --------- |
+-- | `scale` | `integer` |
+-- | Return  | `Self`    |
+-- The element will only expand or fill into excess available space, proportionally matching
+-- other `Fill` elements while satisfying all other constraints.
+-- ```lua
+-- -- { Fill(1), Fill(2), Fill(3) }
+-- -- ┌──────┐┌───────────────┐┌───────────────────────┐
+-- -- │ 8 px ││     17 px     ││         25 px         │
+-- -- └──────┘└───────────────┘└───────────────────────┘
+-- -- { Fill(1), Percentage(50), Fill(1) }
+-- -- ┌───────────┐┌───────────────────────┐┌──────────┐
+-- -- │   13 px   ││         25 px         ││   12 px  │
+-- -- └───────────┘└───────────────────────┘└──────────┘
+-- ```
+-- See https://docs.rs/ratatui/latest/ratatui/layout/enum.Constraint.html for more information.
+---@field Fill fun(scale: integer): self
+
+-- Create a `List` that takes a table of `ui.Text`:
+-- ```lua
+-- ui.List { ui.Text("foo"), ui.Text("bar") }
+-- ```
+-- For convenience, the following types are also supported:
+-- ```lua
+-- -- Table of string
+-- ui.List { "foo", "bar" }
+-- -- Table of ui.Line
+-- ui.List { ui.Line("foo"), ui.Line("bar") }
+-- -- Table of ui.Span
+-- ui.List { ui.Span("foo"), ui.Span("bar") }
+-- -- Mixed table of string, ui.Line, ui.Span
+-- ui.List { "foo", ui.Line("bar"), ui.Span("baz") }
+-- ```
+---@class (exact) ui.List
+-- Set the area of the list.
+-- | In/Out | Type                      |
+-- | ------ | ------------------------- |
+-- | `self` | `Self`                    |
+-- | `rect` | [`Rect?`](#rect)          |
+-- | Return | `self` \| [`Rect`](#rect) |
+-- If `rect` is not specified, it returns the current area.
+---@field area fun(self: self, rect: ui.Rect?): self|ui.Rect
+-- Set the style of the list.
+-- | In/Out  | Type              |
+-- | ------- | ----------------- |
+-- | `self`  | `Self`            |
+-- | `style` | [`Style`](#style) |
+-- | Return  | `self`            |
+---@field style fun(self: self, style: ui.Style): self
+-- Make a new list.
+-- | In/Out  | Type                                                                     |
+-- | ------- | ------------------------------------------------------------------------ |
+-- | `value` | `string` \| `Span` \| `Line` \| `Text` \| `(string\|Span\|Line\|Text)[]` |
+-- | Return  | `Self`                                                                   |
+---@overload fun(value: string|ui.Span|ui.Line|ui.Text|(string|ui.Span|ui.Line|ui.Text)[]): ui.List
+
+-- Create a bar:
+-- ```lua
+-- ui.Bar(edge)
+-- ```
+-- The first attribute denotes the direction of the bar and accepts an [`Edge`](#edge) constant.
+---@class (exact) ui.Bar
+-- Set the area of the bar.
+-- | In/Out | Type                      |
+-- | ------ | ------------------------- |
+-- | `self` | `Self`                    |
+-- | `rect` | [`Rect?`](#rect)          |
+-- | Return | `self` \| [`Rect`](#rect) |
+-- If `rect` is not specified, it returns the current area.
+---@field area fun(self: self, rect: ui.Rect?): self|ui.Rect
+-- Set the symbol of the bar.
+-- | In/Out   | Type     |
+-- | -------- | -------- |
+-- | `self`   | `Self`   |
+-- | `symbol` | `string` |
+-- | Return   | `self`   |
+---@field symbol fun(self: self, symbol: string): self
+-- Set the style of the bar.
+-- | In/Out  | Type              |
+-- | ------- | ----------------- |
+-- | `self`  | `Self`            |
+-- | `style` | [`Style`](#style) |
+-- | Return  | `self`            |
+---@field style fun(self: self, style: ui.Style): self
+-- Make a new bar.
+-- | In/Out | Type            |
+-- | ------ | --------------- |
+-- | `edge` | [`Edge`](#edge) |
+-- | Return | `Self`          |
+---@overload fun(edge: ui.Edge): ui.Bar
+
+-- Create a border:
+-- ```lua
+-- ui.Border(edge)
+-- ```
+-- The first attribute denotes the edge of the border and accepts an [`Edge`](#edge) constant.
+---@class (exact) ui.Border
+-- Set the area of the border.
+-- | In/Out | Type                      |
+-- | ------ | ------------------------- |
+-- | `self` | `Self`                    |
+-- | `rect` | [`Rect?`](#rect)          |
+-- | Return | `self` \| [`Rect`](#rect) |
+-- If `rect` is not specified, it returns the current area.
+---@field area fun(self: self, rect: ui.Rect?): self|ui.Rect
+-- Set the type of the border.
+-- | In/Out | Type      |
+-- | ------ | --------- |
+-- | `self` | `Self`    |
+-- | `type` | `integer` |
+-- | Return | `self`    |
+-- The `type` accepts the following constants:
+-- - `ui.Border.PLAIN`
+-- - `ui.Border.ROUNDED`
+-- - `ui.Border.DOUBLE`
+-- - `ui.Border.THICK`
+-- - `ui.Border.QUADRANT_INSIDE`
+-- - `ui.Border.QUADRANT_OUTSIDE`
+---@field type fun(self: self, type: integer): self
+-- Set the style of the border.
+-- | In/Out  | Type              |
+-- | ------- | ----------------- |
+-- | `self`  | `Self`            |
+-- | `style` | [`Style`](#style) |
+-- | Return  | `self`            |
+---@field style fun(self: self, style: ui.Style): self
+-- Make a new border.
+-- | In/Out | Type            |
+-- | ------ | --------------- |
+-- | `edge` | [`Edge`](#edge) |
+-- | Return | `Self`          |
+---@overload fun(edge: ui.Edge): ui.Border
+
+-- Create a gauge:
+-- ```lua
+-- ui.Gauge()
+-- ```
+---@class (exact) ui.Gauge
+-- Set the area of the gauge.
+-- | In/Out | Type                      |
+-- | ------ | ------------------------- |
+-- | `self` | `Self`                    |
+-- | `rect` | [`Rect?`](#rect)          |
+-- | Return | `self` \| [`Rect`](#rect) |
+-- If `rect` is not specified, it returns the current area.
+---@field area fun(self: self, rect: ui.Rect?): self|ui.Rect
+-- Set the percentage of the gauge.
+-- | In/Out    | Type      |
+-- | --------- | --------- |
+-- | `self`    | `Self`    |
+-- | `percent` | `integer` |
+-- | Return    | `self`    |
+---@field percent fun(self: self, percent: integer): self
+-- Set the ratio of the gauge.
+-- | In/Out  | Type     | Note            |
+-- | ------- | -------- | --------------- |
+-- | `self`  | `Self`   | -               |
+-- | `ratio` | `number` | Between 0 and 1 |
+-- | Return  | `self`   | -               |
+---@field ratio fun(self: self, ratio: number): self
+-- Set the label of the gauge.
+-- | In/Out  | Type     |
+-- | ------- | -------- |
+-- | `self`  | `Self`   |
+-- | `label` | `string` |
+-- | Return  | `self`   |
+---@field label fun(self: self, label: string): self
+-- Set the style of everything except the gauge itself.
+-- | In/Out  | Type              |
+-- | ------- | ----------------- |
+-- | `self`  | `Self`            |
+-- | `style` | [`Style`](#style) |
+-- | Return  | `self`            |
+---@field style fun(self: self, style: ui.Style): self
+-- Set the style of the gauge itself.
+-- | In/Out  | Type              |
+-- | ------- | ----------------- |
+-- | `self`  | `Self`            |
+-- | `style` | [`Style`](#style) |
+-- | Return  | `self`            |
+---@field gauge_style fun(self: self, style: ui.Style): self
+-- Make a new gauge.
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | Return | `Self` |
+---@overload fun(): ui.Gauge
+
+-- Clear the content of a specific area, which is a [Rect](#rect). Place it followed by the component that you want to clear:
+-- ```lua
+-- local components = {
+--   ui.Text("..."):area(rect),
+--   -- ...
+--   ui.Clear(rect),
+-- }
+-- ```
+---@class (exact) ui.Clear
+-- Set the area of the clear.
+-- | In/Out | Type                      |
+-- | ------ | ------------------------- |
+-- | `self` | `Self`                    |
+-- | `rect` | [`Rect?`](#rect)          |
+-- | Return | `self` \| [`Rect`](#rect) |
+-- If `rect` is not specified, it returns the current area.
+---@field area fun(self: self, rect: ui.Rect?): self|ui.Rect
+-- Make a new clear.
+-- | In/Out | Type            |
+-- | ------ | --------------- |
+-- | `rect` | [`Rect`](#rect) |
+-- | Return | `Self`          |
+---@overload fun(rect: ui.Rect): ui.Clear
+
+-- Alignment of an element such as [`Text`](#text) or [`Line`](#line).
+---@class (exact) ui.Align
+-- Align to the left.
+-- |      |        |
+-- | ---- | ------ |
+-- | Type | `Self` |
+---@field LEFT self
+-- Align to the center.
+-- |      |        |
+-- | ---- | ------ |
+-- | Type | `Self` |
+---@field CENTER self
+-- Align to the right.
+-- |      |        |
+-- | ---- | ------ |
+-- | Type | `Self` |
+---@field RIGHT self
+
+-- Wrapping behavior of a [`Text`](#text).
+---@class (exact) ui.Wrap
+-- Disables wrapping.
+-- |      |        |
+-- | ---- | ------ |
+-- | Type | `Self` |
+---@field NO self
+-- Enables wrapping.
+-- |      |        |
+-- | ---- | ------ |
+-- | Type | `Self` |
+---@field YES self
+-- Enables wrapping and trims the leading whitespace.
+-- |      |        |
+-- | ---- | ------ |
+-- | Type | `Self` |
+---@field TRIM self
+
+-- Which edges of elements such as [`Bar`](#bar) or [`Border`](#border) should be applied.
+---@class (exact) ui.Edge
+-- No edge is applied.
+-- |      |        |
+-- | ---- | ------ |
+-- | Type | `Self` |
+---@field NONE self
+-- Applies the top edge.
+-- |      |        |
+-- | ---- | ------ |
+-- | Type | `Self` |
+---@field TOP self
+-- Applies the right edge.
+-- |      |        |
+-- | ---- | ------ |
+-- | Type | `Self` |
+---@field RIGHT self
+-- Applies the bottom edge.
+-- |      |        |
+-- | ---- | ------ |
+-- | Type | `Self` |
+---@field BOTTOM self
+-- Applies the left edge.
+-- |      |        |
+-- | ---- | ------ |
+-- | Type | `Self` |
+---@field LEFT self
+-- Applies all edges.
+-- |      |        |
+-- | ---- | ------ |
+-- | Type | `Self` |
+---@field ALL self
+
+
+-- You can access all states within [sync context](/docs/plugins/overview#sync-context) through `cx`.
+---@class (exact) cx
+-- The active tab.
+-- |      |                        |
+-- | ---- | ---------------------- |
+-- | Type | [`tab::Tab`](#tab-tab) |
+---@field active tab__Tab
+-- All of tabs.
+-- |      |                          |
+-- | ---- | ------------------------ |
+-- | Type | [`mgr::Tabs`](#mgr-tabs) |
+---@field tabs mgr__Tabs
+-- All of tasks.
+-- |      |                                |
+-- | ---- | ------------------------------ |
+-- | Type | [`tasks::Tasks`](#tasks-tasks) |
+---@field tasks tasks__Tasks
+-- Yanked files.
+-- |      |                              |
+-- | ---- | ---------------------------- |
+-- | Type | [`mgr::Yanked`](#mgr-yanked) |
+---@field yanked mgr__Yanked
+
+-- Visual mode status.
+---@class (exact) tab__Mode
+-- Whether in select mode.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `boolean` |
+---@field is_select boolean
+-- Whether in unset mode.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `boolean` |
+---@field is_unset boolean
+-- Whether in select mode, or unset mode.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `boolean` |
+---@field is_visual boolean
+-- Converts the mode to string.
+-- | In/Out | Type     |
+-- | ------ | -------- |
+-- | `self` | `Self`   |
+-- | Return | `string` |
+---@field __tostring fun(self: self): string
+
+-- Tab-specific user preferences.
+---@class (exact) tab__Pref
+-- File sorting method. See [`sort_by`](/docs/configuration/yazi#mgr.sort_by) for details.
+-- |      |                                                                                                                  |
+-- | ---- | ---------------------------------------------------------------------------------------------------------------- |
+-- | Type | `"none"` \| `"mtime"` \| `"btime"` \| `"extension"` \| `"alphabetical"` \| `"natural"` \| `"size"` \| `"random"` |
+---@field sort_by "none"|"mtime"|"btime"|"extension"|"alphabetical"|"natural"|"size"|"random"
+-- Sort case-sensitively. See [`sort_sensitive`](/docs/configuration/yazi#mgr.sort_sensitive) for details.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `boolean` |
+---@field sort_sensitive boolean
+-- Display files in reverse order. See [`sort_reverse`](/docs/configuration/yazi#mgr.sort_reverse) for details.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `boolean` |
+---@field sort_reverse boolean
+-- Display directories first. See [`sort_dir_first`](/docs/configuration/yazi#mgr.sort_dir_first) for details.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `boolean` |
+---@field sort_dir_first boolean
+-- Transliterate filenames for sorting. See [`sort_translit`](/docs/configuration/yazi#mgr.sort_translit) for details.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `boolean` |
+---@field sort_translit boolean
+-- Line mode. See [`linemode`](/docs/configuration/yazi#mgr.linemode) for details.
+-- |      |                                                                                            |
+-- | ---- | ------------------------------------------------------------------------------------------ |
+-- | Type | `string` \| `"none"` \| `"size"` \| `"btime"` \| `"mtime"` \| `"permissions"` \| `"owner"` |
+---@field linemode string|"none"|"size"|"btime"|"mtime"|"permissions"|"owner"
+-- Show hidden files. See [`show_hidden`](/docs/configuration/yazi#mgr.show_hidden) for details.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `boolean` |
+---@field show_hidden boolean
+
+-- [Url](#url)s of the selected files.
+---@class (exact) tab__Selected
+-- Returns the number of selected [Url](#url)s.
+-- | In/Out | Type      |
+-- | ------ | --------- |
+-- | `self` | `Self`    |
+-- | Return | `integer` |
+---@field __len fun(self: self): integer
+-- Iterate over the selected [Url](#url)s.
+-- | In/Out | Type                                 |
+-- | ------ | ------------------------------------ |
+-- | `self` | `Self`                               |
+-- | Return | `fun(t: self, k: any): integer, Url` |
+---@field __pairs fun(self: self): fun(t: self, k: any): integer, Url
+
+-- State of the preview pane.
+---@class (exact) tab__Preview
+-- Number of units to skip. The units largely depend on your previewer, such as lines for code and percentages for videos.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `integer` |
+---@field skip integer
+-- The folder being previewed, or `nil` if this preview is not for a folder.
+-- |      |                               |
+-- | ---- | ----------------------------- |
+-- | Type | [`tab::Folder?`](#tab-folder) |
+---@field folder tab__Folder?
+
+-- A folder.
+---@class (exact) tab__Folder
+-- Current working directory.
+-- |      |               |
+-- | ---- | ------------- |
+-- | Type | [`Url`](#url) |
+---@field cwd Url
+-- Offset of the folder.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `integer` |
+---@field offset integer
+-- Cursor position.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `integer` |
+---@field cursor integer
+-- Files within the visible area.
+-- |      |                          |
+-- | ---- | ------------------------ |
+-- | Type | [`fs::Files`](#fs-files) |
+---@field window fs__Files
+-- All of the files in the folder.
+-- |      |                          |
+-- | ---- | ------------------------ |
+-- | Type | [`fs::Files`](#fs-files) |
+---@field files fs__Files
+-- Hovered file, or `nil` if no file is hovered.
+-- |      |                         |
+-- | ---- | ----------------------- |
+-- | Type | [`fs::File?`](#fs-file) |
+---@field hovered fs__File?
+
+-- Files in a [`tab::Folder`](#tab-folder).
+---@class (exact) fs__Files
+-- Returns the number of files in this folder.
+-- | In/Out | Type      |
+-- | ------ | --------- |
+-- | `self` | `Self`    |
+-- | Return | `integer` |
+---@field __len fun(self: self): integer
+-- Access each file by index.
+-- | In/Out | Type                    |
+-- | ------ | ----------------------- |
+-- | `self` | `Self`                  |
+-- | `idx`  | `integer`               |
+-- | Return | [`fs::File?`](#fs-file) |
+---@field __index fun(self: self, idx: integer): fs__File?
+
+-- A file lives in the current context, which inherits from [`File`](/docs/plugins/types#file) but has many more context-specific properties and methods.
+-- |         |                                    |                                  |
+-- | ------- | ---------------------------------- | -------------------------------- |
+-- | Inherit | [`File`](/docs/plugins/types#file) | To access basic file attributes. |
+---@class (exact) fs__File
+-- Whether the file is hovered.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `boolean` |
+---@field is_hovered boolean
+-- Url of the file.
+-- |      |       |
+-- | ---- | ----- |
+-- | Type | `Url` |
+---@field url Url
+-- Cha of the file.
+-- |      |       |
+-- | ---- | ----- |
+-- | Type | `Cha` |
+---@field cha Cha
+-- Url of the file points to, if it's a symlink.
+-- |      |        |
+-- | ---- | ------ |
+-- | Type | `Url?` |
+---@field link_to Url?
+-- Name of the file.
+-- |      |          |
+-- | ---- | -------- |
+-- | Type | `string` |
+---@field name string
+-- Size of the file in bytes, or `nil` if it's a directory yet not been evaluated.
+-- | In/Out | Type       |
+-- | ------ | ---------- |
+-- | `self` | `Self`     |
+-- | Return | `integer?` |
+---@field size fun(self: self): integer?
+-- Mimetype of the file, or `nil` if it's a directory or hasn't been lazily calculated.
+-- | In/Out | Type      |
+-- | ------ | --------- |
+-- | `self` | `Self`    |
+-- | Return | `string?` |
+---@field mime fun(self: self): string?
+-- Prefix of the file relative to `CWD`, which used in the flat view during search.
+-- For instance, if `CWD` is `/foo`, and the file is `/foo/bar/baz`, then the prefix is `bar/`.
+-- | In/Out | Type      |
+-- | ------ | --------- |
+-- | `self` | `Self`    |
+-- | Return | `string?` |
+---@field prefix fun(self: self): string?
+-- Icon of the file, or `nil` if no [`[icon]`](/docs/configuration/theme#icon) rules match.
+-- | In/Out | Type    |
+-- | ------ | ------- |
+-- | `self` | `Self`  |
+-- | Return | `Icon?` |
+---@field icon fun(self: self): Icon?
+-- Style of the file, or `nil` if no [`[filetype]`](/docs/configuration/theme#filetype) rules match.
+-- | In/Out | Type     |
+-- | ------ | -------- |
+-- | `self` | `Self`   |
+-- | Return | `Style?` |
+---@field style fun(self: self): ui.Style?
+-- Whether the file is yanked.
+-- | In/Out | Type      |
+-- | ------ | --------- |
+-- | `self` | `Self`    |
+-- | Return | `boolean` |
+---@field is_yanked fun(self: self): boolean
+-- Whether the file is selected.
+-- | In/Out | Type      |
+-- | ------ | --------- |
+-- | `self` | `Self`    |
+-- | Return | `boolean` |
+---@field is_selected fun(self: self): boolean
+-- File find status:
+-- - `nil` if if the user not in [`find`](/docs/configuration/keymap#mgr.find) mode.
+-- - `nil` if current file is not related to the keyword entered by the user.
+-- - `integer, integer` if current file is one of the files found, where first is its index among the results and second is the total count of files found.
+-- | In/Out | Type                 |
+-- | ------ | -------------------- |
+-- | `self` | `Self`               |
+-- | Return | `integer?, integer?` |
+---@field found fun(self: self): integer?, integer?
+
+-- All of tabs.
+---@class (exact) mgr__Tabs
+-- Index of the active tab.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `integer` |
+---@field idx integer
+-- Returns the number of tabs.
+-- | In/Out | Type      |
+-- | ------ | --------- |
+-- | `self` | `Self`    |
+-- | Return | `integer` |
+---@field __len fun(self: self): integer
+-- Access each tab by index.
+-- | In/Out | Type                    |
+-- | ------ | ----------------------- |
+-- | `self` | `Self`                  |
+-- | `idx`  | `integer`               |
+-- | Return | [`tab::Tab?`](#tab-tab) |
+---@field __index fun(self: self, idx: integer): tab__Tab?
+
+-- A tab.
+---@class (exact) tab__Tab
+-- Name of the tab.
+-- |      |          |
+-- | ---- | -------- |
+-- | Type | `string` |
+---@field name string
+-- Mode of the tab.
+-- |      |                          |
+-- | ---- | ------------------------ |
+-- | Type | [`tab::Mode`](#tab-mode) |
+---@field mode tab__Mode
+-- Preference of the tab.
+-- |      |                          |
+-- | ---- | ------------------------ |
+-- | Type | [`tab::Pref`](#tab-pref) |
+---@field pref tab__Pref
+-- Current working folder.
+-- |      |                              |
+-- | ---- | ---------------------------- |
+-- | Type | [`tab::Folder`](#tab-folder) |
+---@field current tab__Folder
+-- Parent folder of the `CWD`, or `nil` if no parent folder exists.
+-- |      |                               |
+-- | ---- | ----------------------------- |
+-- | Type | [`tab::Folder?`](#tab-folder) |
+---@field parent tab__Folder?
+-- Selected files within the tab.
+-- |      |                                  |
+-- | ---- | -------------------------------- |
+-- | Type | [`tab::Selected`](#tab-selected) |
+---@field selected tab__Selected
+-- Preview of the tab.
+-- |      |                                |
+-- | ---- | ------------------------------ |
+-- | Type | [`tab::Preview`](#tab-preview) |
+---@field preview tab__Preview
+
+-- 
+---@class (exact) tasks__Tasks
+-- Progress of all tasks:
+-- ```lua
+-- {
+--   -- Number of tasks
+--   total = 0,
+--   succ  = 0,
+--   fail  = 0,
+--   -- Workload of tasks
+--   found     = 0,
+--   processed = 0,
+-- }
+-- ```
+-- |      |                                                                                        |
+-- | ---- | -------------------------------------------------------------------------------------- |
+-- | Type | `{ total: integer, succ: integer, fail: integer, found: integer, processed: integer }` |
+---@field progress { total: integer, succ: integer, fail: integer, found: integer, processed: integer }
+
+-- Yanked files.
+---@class (exact) mgr__Yanked
+-- Whether in cut mode.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `boolean` |
+---@field is_cut boolean
+-- Returns the number of yanked files.
+-- | In/Out | Type      |
+-- | ------ | --------- |
+-- | `self` | `Self`    |
+-- | Return | `integer` |
+---@field __len fun(self: self): integer
+-- Iterate over the url of yanked files.
+-- | In/Out | Type                                 |
+-- | ------ | ------------------------------------ |
+-- | `self` | `Self`                               |
+-- | Return | `fun(t: self, k: any): integer, Url` |
+---@field __pairs fun(self: self): fun(t: self, k: any): integer, Url
+
+
+-- You can access Yazi's runtime through `rt` to obtain startup parameters, terminal properties, [user preferences](/docs/configuration/yazi), etc.
+---@class (exact) rt
+-- Command-line arguments passed by the user when launching Yazi.
+-- |      |                        |
+-- | ---- | ---------------------- |
+-- | Type | [`rt::Args`](#rt-args) |
+---@field args rt__Args
+-- User's terminal emulator properties.
+-- |      |                        |
+-- | ---- | ---------------------- |
+-- | Type | [`rt::Term`](#rt-term) |
+---@field term rt__Term
+-- User preferences under [\[mgr\]](/docs/configuration/yazi#mgr).
+-- |      |         |
+-- | ---- | ------- |
+-- | Type | `table` |
+---@field mgr table
+-- User preferences under [\[plugin\]](/docs/configuration/yazi#plugin).
+-- |      |                            |
+-- | ---- | -------------------------- |
+-- | Type | [`rt::Plugin`](#rt-plugin) |
+---@field plugin rt__Plugin
+-- User preferences under [\[preview\]](/docs/configuration/yazi#preview).
+-- |      |         |
+-- | ---- | ------- |
+-- | Type | `table` |
+---@field preview table
+-- User preferences under [\[tasks\]](/docs/configuration/yazi#tasks).
+-- |      |         |
+-- | ---- | ------- |
+-- | Type | `table` |
+---@field tasks table
+
+-- You can access the user's theme and flavor configuration through `th`.
+---@class (exact) th
+-- See [\[mgr\]](/docs/configuration/theme#mgr).
+-- |      |         |
+-- | ---- | ------- |
+-- | Type | `table` |
+---@field mgr table
+-- See [\[tabs\]](/docs/configuration/theme#tabs).
+-- |      |         |
+-- | ---- | ------- |
+-- | Type | `table` |
+---@field tabs table
+-- See [\[mode\]](/docs/configuration/theme#mode).
+-- |      |         |
+-- | ---- | ------- |
+-- | Type | `table` |
+---@field mode table
+-- See [\[status\]](/docs/configuration/theme#status).
+-- |      |         |
+-- | ---- | ------- |
+-- | Type | `table` |
+---@field status table
+-- See [\[which\]](/docs/configuration/theme#which).
+-- |      |         |
+-- | ---- | ------- |
+-- | Type | `table` |
+---@field which table
+-- See [\[confirm\]](/docs/configuration/theme#confirm).
+-- |      |         |
+-- | ---- | ------- |
+-- | Type | `table` |
+---@field confirm table
+-- See [\[spot\]](/docs/configuration/theme#spot).
+-- |      |         |
+-- | ---- | ------- |
+-- | Type | `table` |
+---@field spot table
+-- See [\[notify\]](/docs/configuration/theme#notify).
+-- |      |         |
+-- | ---- | ------- |
+-- | Type | `table` |
+---@field notify table
+-- See [\[pick\]](/docs/configuration/theme#pick).
+-- |      |         |
+-- | ---- | ------- |
+-- | Type | `table` |
+---@field pick table
+-- See [\[input\]](/docs/configuration/theme#input).
+-- |      |         |
+-- | ---- | ------- |
+-- | Type | `table` |
+---@field input table
+-- See [\[cmp\]](/docs/configuration/theme#cmp).
+-- |      |         |
+-- | ---- | ------- |
+-- | Type | `table` |
+---@field cmp table
+-- See [\[tasks\]](/docs/configuration/theme#tasks).
+-- |      |         |
+-- | ---- | ------- |
+-- | Type | `table` |
+---@field tasks table
+-- See [\[help\]](/docs/configuration/theme#help).
+-- |      |         |
+-- | ---- | ------- |
+-- | Type | `table` |
+---@field help table
+
+-- 
+---@class (exact) rt__Args
+
+-- User's terminal emulator properties.
+---@class (exact) rt__Term
+-- Whether the terminal is in light mode.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `boolean` |
+---@field light boolean
+
+-- TODO
+---@class (exact) rt__Plugin
+
+
+-- 
+---@class (exact) ya
+-- Hide Yazi to the secondary screen by returning to the terminal, completely controlled by the requested plugin.
+-- ```lua
+-- local permit = ya.hide()
+-- ```
+-- This method returns a `permit` for this resource. When it's necessary to restore the TUI display, call its `drop()` method:
+-- ```lua
+-- permit:drop()
+-- ```
+-- Note that since there's always only one available terminal control resource, `ya.hide()` cannot be called again before the previous `permit` is dropped, otherwise an error will be thrown, effectively avoiding deadlocks.
+-- | In/Out    | Type               |
+-- | --------- | ------------------ |
+-- | Return    | `Permit`           |
+-- | Available | Async context only |
+---@field hide fun(): Permit
+-- Calculate the cached [Url](/docs/plugins/types#url) corresponding to the given file.
+-- ```lua
+-- ya.file_cache {
+--   -- File to be cached.
+--   file = file,
+--   -- Number of units to skip. It's units largely depend on your previewer,
+--   -- such as lines for code, and percentages for videos.
+--   skip = 1,
+-- }
+-- ```
+-- If the file is not allowed to be cached, such as it's ignored in the user config, or the file itself is a cache, returns `nil`.
+-- | In/Out | Type                            |
+-- | ------ | ------------------------------- |
+-- | `opts` | `{ file: File, skip: integer }` |
+-- | Return | `Url?`                          |
+---@field file_cache fun(opts: { file: File, skip: integer }): Url?
+-- Re-render the UI:
+-- ```lua
+-- local update_state = ya.sync(function(self, new_state)
+--   self.state = new_state
+--   ya.render()
+-- end)
+-- ```
+-- | In/Out    | Type              |
+-- | --------- | ----------------- |
+-- | Return    | `unknown`         |
+-- | Available | Sync context only |
+---@field render fun(): unknown
+-- Send a command to the [`[mgr]`](/docs/configuration/keymap#mgr) without waiting for the executor to execute:
+-- ```lua
+-- ya.emit("my-cmd", { "hello", 123, foo = true, bar_baz = "world" })
+-- -- Equivalent to:
+-- -- my-cmd "hello" "123" --foo --bar-baz="world"
+-- ```
+-- | In/Out | Type                              | Note                                                                                    |
+-- | ------ | --------------------------------- | --------------------------------------------------------------------------------------- |
+-- | `cmd`  | `string`                          | -                                                                                       |
+-- | `args` | `{ [integer\|string]: Sendable }` | Table values are [Sendable][sendable] that follow [Ownership transfer rules][ownership] |
+-- | Return | `unknown`                         | -                                                                                       |
+---@field emit fun(cmd: string, args: { [integer|string]: Sendable }): unknown
+-- Display the image of `url` within the `rect`, and the image will downscale to fit the area automatically:
+-- | In/Out    | Type               |
+-- | --------- | ------------------ |
+-- | `url`     | `Url`              |
+-- | `rect`    | `Rect`             |
+-- | Return    | `unknown`          |
+-- | Available | Async context only |
+---@field image_show fun(url: Url, rect: ui.Rect): unknown
+-- Pre-cache the image of `src` as `dist` based on user-configured [`max_width` and `max_height`](/docs/configuration/yazi#preview).
+-- | In/Out    | Type               |
+-- | --------- | ------------------ |
+-- | `src`     | `Url`              |
+-- | `dist`    | `Url`              |
+-- | Return    | `unknown`          |
+-- | Available | Async context only |
+---@field image_precache fun(src: Url, dist: Url): unknown
+-- Prompt users with a set of available keys:
+-- ```lua
+-- local cand = ya.which {
+--   -- Key candidates, contains the following fields:
+--   --   `on`: Key to be prompted, which is a string or a table of strings if multiple.
+--   --   `desc`: Description of the key.
+--   cands = {
+--     { on = "a" },
+--     { on = "b", desc = "optional description" },
+--     { on = "<C-c>", desc = "key combination" },
+--     { on = { "d", "e" }, desc = "multiple keys" },
+--   },
+--   -- Whether to show the UI of key indicator
+--   silent = false,
+-- }
+-- ```
+-- When the user clicks a valid candidate, `ya.which` returns the 1-based index of that `cand`;
+-- otherwise, it returns `nil`, indicating that the user has canceled the key operation.
+-- | In/Out    | Type                                                                     |
+-- | --------- | ------------------------------------------------------------------------ |
+-- | `opts`    | `{ cands: { on: string\|string[], desc: string? }[], silent: boolean? }` |
+-- | Return    | `number?`                                                                |
+-- | Available | Async context only                                                       |
+---@field which fun(opts: { cands: { on: string|string[], desc: string? }[], silent: boolean? }): number?
+-- Request user input:
+-- ```lua
+-- local value, event = ya.input {
+--   -- Title
+--   title = "Archive name:",
+--   -- Default value
+--   value = "",
+--   -- Whether to obscure the input.
+--   obscure = false,
+--   -- Position
+--   position = { "top-center", y = 3, w = 40 },
+--   -- Whether to report user input in real time.
+--   realtime = false,
+--   -- Number of seconds to wait for the user to stop typing, available if `realtime = true`.
+--   debounce = 0.3,
+-- }
+-- ```
+-- Returns `(value, event)`:
+-- - `value`: The user input value carried by this event, which is a string if the `event` is non-zero; otherwise, `nil`.
+-- - `event`: The event type, which is an integer:
+--   - 0: Unknown error.
+--   - 1: The user has confirmed the input.
+--   - 2: The user has canceled the input.
+--   - 3: The user has changed the input (only if `realtime` is true).
+-- When `realtime = true` specified, `ya.input()` returns a receiver, which has a `recv()` method that can be called multiple times to receive events:
+-- ```lua
+-- local input = ya.input {
+--   title = "Input in realtime:",
+--   position = { "center", w = 50 },
+--   realtime = true,
+-- }
+-- while true do
+--   local value, event = input:recv()
+--   if not value then
+--     break
+--   end
+--   ya.dbg(value)
+-- end
+-- ```
+-- | In/Out    | Type                                                                                                           |
+-- | --------- | -------------------------------------------------------------------------------------------------------------- |
+-- | `opts`    | `{ title: string, value: string?, obscure: boolean?, position: AsPos, realtime: boolean?, debounce: number? }` |
+-- | Return    | `(string?, integer)` \| `Recv`                                                                                 |
+-- | Available | Async context only                                                                                             |
+---@field input fun(opts: { title: string, value: string?, obscure: boolean?, position: AsPos, realtime: boolean?, debounce: number? }): (string?, integer)|Recv
+-- Send a foreground notification to the user:
+-- ```lua
+-- ya.notify {
+--   -- Title.
+--   title = "Hello, World!",
+--   -- Content.
+--   content = "This is a notification from Lua!",
+--   -- Timeout.
+--   timeout = 6.5,
+--   -- Level, available values: "info", "warn", and "error", default is "info".
+--   level = "info",
+-- }
+-- ```
+-- | In/Out | Type                                                                                       |
+-- | ------ | ------------------------------------------------------------------------------------------ |
+-- | `opts` | `{ title: string, content: string, timeout: number, level: "info"\|"warn"\|"error"\|nil }` |
+-- | Return | `unknown`                                                                                  |
+---@field notify fun(opts: { title: string, content: string, timeout: number, level: "info"|"warn"|"error"|nil }): unknown
+-- Request user confirmation:
+-- ```lua
+-- local answer = ya.confirm {
+--   -- Position
+--   pos = { "center", w = 40, h = 10 },
+--   -- Title
+--   title = "Test",
+--   -- Body
+--   body = "Hello, World!",
+-- }
+-- ```
+-- | In/Out    | Type                                          |
+-- | --------- | --------------------------------------------- |
+-- | `opts`    | `{ pos: AsPos, title: AsLine, body: AsText }` |
+-- | Return    | `boolean`                                     |
+-- | Available | Async context only                            |
+---@field confirm fun(opts: { pos: AsPos, title: AsLine, body: AsText }): boolean
+-- Append messages to [the log file](/docs/plugins/overview#logging) at the debug level:
+-- ```lua
+-- ya.dbg("Hello", "World!")                       -- Multiple arguments are supported
+-- ya.dbg({ foo = "bar", baz = 123, qux = true })  -- Any type of data is supported
+-- ```
+-- | In/Out | Type      |
+-- | ------ | --------- |
+-- | `msg`  | `any`     |
+-- | `...`  | `any`     |
+-- | Return | `unknown` |
+---@field dbg fun(msg: any, ...: any): unknown
+-- Append messages to [the log file](/docs/plugins/overview#logging) at the error level:
+-- ```lua
+-- ya.err("Hello", "World!")                       -- Multiple arguments are supported
+-- ya.err({ foo = "bar", baz = 123, qux = true })  -- Any type of data is supported
+-- ```
+-- | In/Out | Type      |
+-- | ------ | --------- |
+-- | `msg`  | `any`     |
+-- | `...`  | `any`     |
+-- | Return | `unknown` |
+---@field err fun(msg: any, ...: any): unknown
+-- Preview the file as code into the specified area:
+-- ```lua
+-- ya.preview_code {
+--   -- Available preview area
+--   area = area,
+--   -- File to be previewed.
+--   file = file,
+--   -- Mimetype of the file.
+--   mime = "text/plain",
+--   -- Number of units to skip. The units depend on your previewer,
+--   -- such as lines for code and percentages for videos.
+--   skip = 1,
+-- }
+-- ```
+-- Returns `(err, upper_bound)`:
+-- - `err`: Error string if the preview fails; otherwise, `nil`.
+-- - `upper_bound`: If the preview fails and it's because exceeds the maximum upper bound, return this bound; otherwise, `nil`.
+-- | In/Out    | Type                                                      |
+-- | --------- | --------------------------------------------------------- |
+-- | `opts`    | `{ area: Rect, file: File, mime: string, skip: integer }` |
+-- | Return    | `Error?, integer?`                                        |
+-- | Available | Async context only                                        |
+---@field preview_code fun(opts: { area: ui.Rect, file: File, mime: string, skip: integer }): Error?, integer?
+-- ```lua
+-- local opts = {
+--   -- Available preview area.
+--   area = area,
+--   -- File to be previewed.
+--   file = file,
+--   -- Mimetype of the file.
+--   mime = "text/plain",
+--   -- Number of units to skip. The units depend on your previewer,
+--   -- such as lines for code and percentages for videos.
+--   skip = 1,
+-- }
+-- -- Preview a widget in the specified area.
+-- ya.preview_widget(opts, ui.Line("Hello world"):area(area))
+-- -- Preview multiple widgets in the specified area.
+-- ya.preview_widget(opts, {
+--   ui.Line("Hello"):area(area1),
+--   ui.Line("world"):area(area2),
+-- })
+-- ```
+-- | In/Out    | Type                                                      |
+-- | --------- | --------------------------------------------------------- |
+-- | `opts`    | `{ area: Rect, file: File, mime: string, skip: integer }` |
+-- | `widget`  | `Renderable` \| `Renderable[]`                            |
+-- | Return    | `unknown`                                                 |
+-- | Available | Async context only                                        |
+---@field preview_widget fun(opts: { area: ui.Rect, file: File, mime: string, skip: integer }, widget: Renderable|Renderable[]): unknown
+-- See [Async context](/docs/plugins/overview#async-context).
+-- | In/Out | Type                 |
+-- | ------ | -------------------- |
+-- | `fn`   | `fun(...: any): any` |
+-- | Return | `fun(...: any): any` |
+---@field sync fun(fn: fun(...: any): any): fun(...: any): any
+-- Returns a string describing the specific operating system in use.
+-- | In/Out | Type                                                                                                                                                    |
+-- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+-- | Return | `string` \| `"linux"` \| `"macos"` \| `"ios"` \| `"freebsd"` \| `"dragonfly"` \| `"netbsd"` \| `"openbsd"` \| `"solaris"` \| `"android"` \| `"windows"` |
+---@field target_os fun(): string|"linux"|"macos"|"ios"|"freebsd"|"dragonfly"|"netbsd"|"openbsd"|"solaris"|"android"|"windows"
+-- Returns the family of the operating system.
+-- | In/Out | Type                                            |
+-- | ------ | ----------------------------------------------- |
+-- | Return | `string` \| `"unix"` \| `"windows"` \| `"wasm"` |
+---@field target_family fun(): string|"unix"|"windows"|"wasm"
+-- Returns the hash of `str`:
+-- ```lua
+-- ya.hash("Hello, World!")
+-- ```
+-- It is designed to work with algorithm-independent tasks, such as generating file cache names.
+-- The current implementation uses MD5, but it will be replaced with a faster hash algorithm, like [xxHash](https://github.com/Cyan4973/xxHash), in the future. So, don't rely on this implementation detail.
+-- | In/Out    | Type               |
+-- | --------- | ------------------ |
+-- | `str`     | `string`           |
+-- | Return    | `string`           |
+-- | Available | Async context only |
+---@field hash fun(str: string): string
+-- Quote characters in `str` that may have special meaning in a shell:
+-- ```lua
+-- local handle = io.popen("ls " .. ya.quote(filename))
+-- ```
+-- | In/Out | Type     |
+-- | ------ | -------- |
+-- | `str`  | `string` |
+-- | Return | `string` |
+---@field quote fun(str: string): string
+-- Truncate the `text` to the specified width and return the truncated result:
+-- ```lua
+-- ya.truncate("Hello, World!", {
+--   -- Maximum width of the text.
+--   max = 5,
+--   -- Whether to truncate the text from right-to-left.
+--   rtl = false
+-- })
+-- ```
+-- | In/Out | Type                              |
+-- | ------ | --------------------------------- |
+-- | `text` | `string`                          |
+-- | `opts` | `{ max: integer, rtl: boolean? }` |
+-- | Return | `string`                          |
+---@field truncate fun(text: string, opts: { max: integer, rtl: boolean? }): string
+-- Get or set the content of the system clipboard:
+-- ```lua
+-- -- Get contents from the clipboard if no argument is provided
+-- local content = ya.clipboard()
+-- -- Set contents to the clipboard
+-- ya.clipboard("new content")
+-- ```
+-- | In/Out    | Type               |
+-- | --------- | ------------------ |
+-- | `text`    | `string?`          |
+-- | Return    | `string?`          |
+-- | Available | Async context only |
+---@field clipboard fun(text: string?): string?
+-- Returns the current timestamp, which is a float, the integer part represents the seconds, and the decimal part represents the milliseconds.
+-- | In/Out | Type     |
+-- | ------ | -------- |
+-- | Return | `number` |
+---@field time fun(): number
+-- Waits until `secs` has elapsed:
+-- ```lua
+-- ya.sleep(0.5)  -- Sleep for 500 milliseconds
+-- ```
+-- | In/Out    | Type               |
+-- | --------- | ------------------ |
+-- | `secs`    | `number`           |
+-- | Return    | `unknown`          |
+-- | Available | Async context only |
+---@field sleep fun(secs: number): unknown
+-- Returns the id of the current user.
+-- | In/Out    | Type                   |
+-- | --------- | ---------------------- |
+-- | Return    | `integer`              |
+-- | Available | Unix-like systems only |
+---@field uid fun(): integer
+-- Returns the group id of the current user.
+-- | In/Out    | Type                   |
+-- | --------- | ---------------------- |
+-- | Return    | `integer`              |
+-- | Available | Unix-like systems only |
+---@field gid fun(): integer
+-- Get the username by `uid`:
+-- ```lua
+-- -- Get the current user's name if no argument is provided
+-- ya.user_name()
+-- -- Get the name of user with id 1000
+-- ya.user_name(1000)
+-- ```
+-- | In/Out    | Type                   |
+-- | --------- | ---------------------- |
+-- | `uid`     | `integer?`             |
+-- | Return    | `string?`              |
+-- | Available | Unix-like systems only |
+---@field user_name fun(uid: integer?): string?
+-- Get the group name by `gid`:
+-- ```lua
+-- -- Get the current user's group name if no argument is provided
+-- ya.group_name()
+-- -- Get the name of group with id 1000
+-- ya.group_name(1000)
+-- ```
+-- | In/Out    | Type                   |
+-- | --------- | ---------------------- |
+-- | `gid`     | `integer?`             |
+-- | Return    | `string?`              |
+-- | Available | Unix-like systems only |
+---@field group_name fun(gid: integer?): string?
+-- Returns the hostname of the current machine.
+-- | In/Out    | Type                   |
+-- | --------- | ---------------------- |
+-- | Return    | `string?`              |
+-- | Available | Unix-like systems only |
+---@field host_name fun(): string?
+
+-- Yazi's DDS (Data Distribution Service) uses a Lua-based publish-subscribe model as its carrier. That is, you can achieve cross-instance communication and state persistence through the `ps` API. See [DDS](/docs/dds) for details.
+-- The following functions can only be used within a sync context.
+---@class (exact) ps
+-- Publish a message to the current instance, and all plugins subscribed through `sub()` for this `kind` will receive it, achieving internal communication within the instance:
+-- ```lua
+-- ps.pub("greeting", "Hello, World!")
+-- ```
+-- Since the `kind` is used globally, to add the plugin name as the prefix is a best practice.
+-- For example, the combination of the plugin `my-plugin` and the kind `event1` would be `my-plugin-event1`.
+-- | In/Out  | Type       | Note                                                                            |
+-- | ------- | ---------- | ------------------------------------------------------------------------------- |
+-- | `kind`  | `string`   | Alphanumeric with dashes, cannot be [built-in kinds](/docs/dds#kinds)           |
+-- | `value` | `Sendable` | A [Sendable value][sendable] that follows [Ownership transfer rules][ownership] |
+-- | Return  | `unknown`  | -                                                                               |
+---@field pub fun(kind: string, value: Sendable): unknown
+-- Publish a message to a specific instance with `receiver` as the ID:
+-- ```lua
+-- ps.pub_to(1711957283332834, "greeting", "Hello, World!")
+-- ```
+-- Where:
+-- - Local - `receiver` is the current instance, and is subscribed to this `kind` via `sub()`, it will receive the message.
+-- - Remote - `receiver` isn't the current instance, and is subscribed to this `kind` via `sub_remote()`, it will receive the message.
+-- - Broadcast - `receiver` is `0`, all remote instances subscribed to this `kind` via `sub_remote()` will receive the message.
+-- | In/Out     | Type       | Note                                                                            |
+-- | ---------- | ---------- | ------------------------------------------------------------------------------- |
+-- | `receiver` | `integer`  | -                                                                               |
+-- | `kind`     | `string`   | Alphanumeric with dashes, cannot be [built-in kinds](/docs/dds#kinds)           |
+-- | `value`    | `Sendable` | A [Sendable value][sendable] that follows [Ownership transfer rules][ownership] |
+-- | Return     | `unknown`  | -                                                                               |
+---@field pub_to fun(receiver: integer, kind: string, value: Sendable): unknown
+-- Subscribe to local messages of `kind` and call the `callback` handler for it:
+-- ```lua
+-- -- The same `kind` from the same plugin can only be subscribed once,
+-- -- re-subscribing (`sub()`) before unsubscribing (`unsub()`) will throw an error.
+-- ps.sub("cd", function(body)
+--   ya.dbg("New cwd", cx.active.current.cwd)
+-- end)
+-- ```
+-- It runs in a sync context, so you can access all states via `cx` for the data of interest.
+-- | In/Out     | Type                  | Note                                                                  |
+-- | ---------- | --------------------- | --------------------------------------------------------------------- |
+-- | `kind`     | `string`              | Alphanumeric with dashes, cannot be [built-in kinds](/docs/dds#kinds) |
+-- | `callback` | `fun(body: Sendable)` | No time-consuming work should be done in the callback                 |
+-- | Return     | `unknown`             | -                                                                     |
+---@field sub fun(kind: string, callback: fun(body: Sendable)): unknown
+-- Same as `sub()`, except it subscribes to remote messages of this `kind` instead of local.
+-- | In/Out     | Type                  | Note            |
+-- | ---------- | --------------------- | --------------- |
+-- | `kind`     | `string`              | Same as `sub()` |
+-- | `callback` | `fun(body: Sendable)` | Same as `sub()` |
+-- | Return     | `unknown`             | -               |
+---@field sub_remote fun(kind: string, callback: fun(body: Sendable)): unknown
+-- Unsubscribe from local messages of this `kind`:
+-- ```lua
+-- ps.unsub("my-message")
+-- ```
+-- | In/Out | Type      | Note                                                                  |
+-- | ------ | --------- | --------------------------------------------------------------------- |
+-- | `kind` | `string`  | Alphanumeric with dashes, cannot be [built-in kinds](/docs/dds#kinds) |
+-- | Return | `unknown` | -                                                                     |
+---@field unsub fun(kind: string): unknown
+-- Unsubscribe from remote messages of this `kind`:
+-- ```lua
+-- ps.unsub_remote("my-message")
+-- ```
+-- | In/Out | Type      | Note              |
+-- | ------ | --------- | ----------------- |
+-- | `kind` | `string`  | Same as `unsub()` |
+-- | Return | `unknown` | -                 |
+---@field unsub_remote fun(kind: string): unknown
+
+-- The following functions can only be used within an async context.
+---@class (exact) fs
+-- Get the current working directory (CWD) of the process.
+-- This API was added to compensate for the lack of a [`getcwd`][getcwd] in Lua; it is used to retrieve the directory of the last [`chdir`][chdir] call:
+-- ```lua
+-- local url, err = fs.cwd()
+-- ```
+-- You probably will never need it, and more likely, you'll need [`cx.active.current.cwd`][folder-cwd], which is the current directory where the user is working.
+-- Specifically, when the user changes the directory, `cx.active.current.cwd` gets updated immediately, while synchronizing this update with the filesystem via `chdir` involves I/O operations, such as checking if the directory is valid.
+-- So, there may be some delay, which is particularly noticeable on slow devices. For example, when an HDD wakes up from sleep, it typically takes 3~4 seconds.
+-- It is useful if you just need a valid directory as the CWD of a process to start some work that doesn't depend on the CWD.
+-- | In/Out    | Type               |
+-- | --------- | ------------------ |
+-- | Return    | `Url?, Error?`     |
+-- | Available | Async context only |
+-- [getcwd]: https://man7.org/linux/man-pages/man3/getcwd.3.html
+-- [chdir]: https://man7.org/linux/man-pages/man2/chdir.2.html
+-- [folder-cwd]: /docs/plugins/context#tab-folder.cwd
+---@field cwd fun(): Url?, Error?
+-- Get the [Cha](/docs/plugins/types#cha) of the specified `url`:
+-- ```lua
+-- -- Not following symbolic links
+-- local cha, err = fs.cha(url)
+-- -- Follow symbolic links
+-- local cha, err = fs.cha(url, true)
+-- ```
+-- | In/Out    | Type               |
+-- | --------- | ------------------ |
+-- | `url`     | `Url`              |
+-- | `follow`  | `boolean?`         |
+-- | Return    | `Cha?, Error?`     |
+-- | Available | Async context only |
+---@field cha fun(url: Url, follow: boolean?): Cha?, Error?
+-- Write `data` to the specified `url`:
+-- ```lua
+-- local ok, err = fs.write(url, "hello world")
+-- ```
+-- | In/Out    | Type               |
+-- | --------- | ------------------ |
+-- | `url`     | `Url`              |
+-- | `data`    | `string`           |
+-- | Return    | `boolean, Error?`  |
+-- | Available | Async context only |
+---@field write fun(url: Url, data: string): boolean, Error?
+-- Create file(s) at the `url` of the file system:
+-- ```lua
+-- local ok, err = fs.create("dir_all", Url("/tmp/test/nest/nested"))
+-- ```
+-- Where `type` can be one of the following:
+-- - `"dir"`: Creates a new, empty directory.
+-- - `"dir_all"`: Recursively create a directory and all of its parents if they are missing.
+-- | In/Out    | Type                               |
+-- | --------- | ---------------------------------- |
+-- | `type`    | `string` \| `"dir"` \| `"dir_all"` |
+-- | `url`     | `Url`                              |
+-- | Return    | `boolean, Error?`                  |
+-- | Available | Async context only                 |
+---@field create fun(type: string|"dir"|"dir_all", url: Url): boolean, Error?
+-- Remove file(s) at the `url` of the file system:
+-- ```lua
+-- local ok, err = fs.remove("file", Url("/tmp/test.txt"))
+-- ```
+-- Where `type` can be one of the following:
+-- - `"file"`: Removes a file from the filesystem.
+-- - `"dir"`: Removes an existing, empty directory.
+-- - `"dir_all"`: Removes a directory at this url, after removing all its contents. Use carefully!
+-- - `"dir_clean"`: Remove all empty directories under it, and if the directory itself is empty afterward, remove it as well.
+-- | In/Out    | Type                                                            |
+-- | --------- | --------------------------------------------------------------- |
+-- | `type`    | `string` \| `"file"` \| `"dir"` \| `"dir_all"` \| `"dir_clean"` |
+-- | `url`     | `Url`                                                           |
+-- | Return    | `boolean, Error?`                                               |
+-- | Available | Async context only                                              |
+---@field remove fun(type: string|"file"|"dir"|"dir_all"|"dir_clean", url: Url): boolean, Error?
+-- Reads the directory contents of `url`:
+-- ```lua
+-- local files, err = fs.read_dir(url, {
+--   -- Glob pattern to filter files out if provided.
+--   glob = nil,
+--   -- Maximum number of files to read, defaults to unlimited.
+--   limit = 10,
+--   -- Whether to resolve symbolic links, defaults to `false`.
+--   resolve = false,
+-- })
+-- ```
+-- | In/Out    | Type                                                    |
+-- | --------- | ------------------------------------------------------- |
+-- | `url`     | `Url`                                                   |
+-- | `options` | `{ glob: string?, limit: integer?, resolve: boolean? }` |
+-- | Return    | `File[]?, Error?`                                       |
+-- | Available | Async context only                                      |
+---@field read_dir fun(url: Url, options: { glob: string?, limit: integer?, resolve: boolean? }): File[]?, Error?
+-- Get a unique name from the given `url` to ensure it's unique in the filesystem:
+-- ```lua
+-- local url, err = fs.unique_name(Url("/tmp/test.txt"))
+-- ```
+-- If the file already exists, it will append `_n` to the filename, where `n` is a number, and keep incrementing until the first available name is found.
+-- | In/Out    | Type               |
+-- | --------- | ------------------ |
+-- | `url`     | `Url`              |
+-- | Return    | `Url?, Error?`     |
+-- | Available | Async context only |
+---@field unique_name fun(url: Url): Url?, Error?
+
+-- You can invoke external programs through:
+-- ```lua
+-- local child, err = Command("ls")
+--   :args({ "-a", "-l" })
+--   :stdout(Command.PIPED)
+--   :spawn()
+-- ```
+-- Compared to Lua's `os.execute`, it provides many comprehensive and convenient methods, and the entire process is async.
+-- It takes better advantage of the benefits of concurrent scheduling. However, it can only be used in async contexts, such as preloaders, previewers, and async functional plugins.
+---@class (exact) Command
+-- Append one or more arguments to the command:
+-- ```lua
+-- local cmd = Command("ls"):arg("-a"):arg("-l")
+-- -- Equivalent to:
+-- local cmd = Command("ls"):arg { "-a", "-l" }
+-- ```
+-- | In/Out | Type                   |
+-- | ------ | ---------------------- |
+-- | `self` | `Self`                 |
+-- | `arg`  | `string` \| `string[]` |
+-- | Return | `self`                 |
+---@field arg fun(self: self, arg: string|string[]): self
+-- Set the current working directory of the command:
+-- ```lua
+-- local cmd = Command("ls"):cwd("/root")
+-- ```
+-- | In/Out | Type     |
+-- | ------ | -------- |
+-- | `self` | `Self`   |
+-- | `dir`  | `string` |
+-- | Return | `self`   |
+---@field cwd fun(self: self, dir: string): self
+-- Append an environment variable to the command:
+-- ```lua
+-- local cmd = Command("ls"):env("PATH", "/bin"):env("HOME", "/home")
+-- ```
+-- | In/Out  | Type     |
+-- | ------- | -------- |
+-- | `self`  | `Self`   |
+-- | `key`   | `string` |
+-- | `value` | `string` |
+-- | Return  | `self`   |
+---@field env fun(self: self, key: string, value: string): self
+-- Set the stdin of the command:
+-- ```lua
+-- local cmd = Command("ls"):stdin(Command.PIPED)
+-- ```
+-- Where `stdio` can be one of the following:
+-- - `Command.PIPED`: Pipe the stdin.
+-- - `Command.NULL`: Discard the stdin (default).
+-- - `Command.INHERIT`: Inherit the stdin.
+-- | In/Out  | Type    |
+-- | ------- | ------- |
+-- | `self`  | `Self`  |
+-- | `stdio` | `Stdio` |
+-- | Return  | `self`  |
+---@field stdin fun(self: self, stdio: Stdio): self
+-- Set the stdout of the command:
+-- ```lua
+-- local cmd = Command("ls"):stdout(Command.PIPED)
+-- ```
+-- Where `stdio` can be one of the following:
+-- - `Command.PIPED`: Pipe the stdout.
+-- - `Command.NULL`: Discard the stdout (default).
+-- - `Command.INHERIT`: Inherit the stdout.
+-- | In/Out  | Type    |
+-- | ------- | ------- |
+-- | `self`  | `Self`  |
+-- | `stdio` | `Stdio` |
+-- | Return  | `self`  |
+---@field stdout fun(self: self, stdio: Stdio): self
+-- Set the stderr of the command:
+-- ```lua
+-- local cmd = Command("ls"):stderr(Command.PIPED)
+-- ```
+-- Where `stdio` can be one of the following:
+-- - `Command.PIPED`: Pipe the stderr.
+-- - `Command.NULL`: Discard the stderr (default).
+-- - `Command.INHERIT`: Inherit the stderr.
+-- | In/Out  | Type    |
+-- | ------- | ------- |
+-- | `self`  | `Self`  |
+-- | `stdio` | `Stdio` |
+-- | Return  | `self`  |
+---@field stderr fun(self: self, stdio: Stdio): self
+-- Spawn the command:
+-- ```lua
+-- local child, err = Command("ls"):spawn()
+-- ```
+-- | In/Out | Type             |
+-- | ------ | ---------------- |
+-- | `self` | `Self`           |
+-- | Return | `Child?, Error?` |
+---@field spawn fun(self: self): Child?, Error?
+-- Spawn the command and wait for it to finish:
+-- ```lua
+-- local output, err = Command("ls"):output()
+-- ```
+-- | In/Out | Type              |
+-- | ------ | ----------------- |
+-- | `self` | `Self`            |
+-- | Return | `Output?, Error?` |
+---@field output fun(self: self): Output?, Error?
+-- Executes the command as a child process, waiting for it to finish and collecting its exit status:
+-- ```lua
+-- local status, err = Command("ls"):status()
+-- ```
+-- | In/Out | Type              |
+-- | ------ | ----------------- |
+-- | `self` | `Self`            |
+-- | Return | `Status?, Error?` |
+---@field status fun(self: self): Status?, Error?
+-- Make a new command.
+-- | In/Out  | Type     |
+-- | ------- | -------- |
+-- | `value` | `string` |
+-- | Return  | `Self`   |
+---@overload fun(value: string): Command
+
+-- This object is created by [`Command:spawn()`](#Command.spawn) and represents a running child process.
+-- You can access the runtime data of this process through its proprietary methods.
+---@class (exact) Child
+-- Reads data from the available data source alternately:
+-- ```lua
+-- local data, event = child:read(1024)
+-- ```
+-- "available data source" refers to `stdout` or `stderr` that has `Command.PIPED` set, or them both, the `event` indicates where the data comes from:
+-- - Data comes from stdout, if event is 0.
+-- - Data comes from stderr, if event is 1.
+-- - No data to read from both stdout and stderr, if event is 2.
+-- | In/Out | Type              |
+-- | ------ | ----------------- |
+-- | `self` | `Self`            |
+-- | `len`  | `integer`         |
+-- | Return | `string, integer` |
+---@field read fun(self: self, len: integer): string, integer
+-- Same as [`read()`](#Child.read), except it reads data line by line:
+-- ```lua
+-- local line, event = child:read_line()
+-- ```
+-- | In/Out | Type              |
+-- | ------ | ----------------- |
+-- | `self` | `Self`            |
+-- | Return | `string, integer` |
+---@field read_line fun(self: self): string, integer
+-- Same as [`read_line()`](#Child.read_line), except it accepts a table of options:
+-- ```lua
+-- local line, event = child:read_line_with {
+--   -- Timeout to read
+--   timeout = 500,
+-- }
+-- ```
+-- It has a extra event:
+-- - Timeout, if event is 3.
+-- | In/Out | Type                   |
+-- | ------ | ---------------------- |
+-- | `self` | `Self`                 |
+-- | `opts` | `{ timeout: integer }` |
+-- | Return | `string, integer`      |
+---@field read_line_with fun(self: self, opts: { timeout: integer }): string, integer
+-- Writes all `src` to the stdin of the child process:
+-- ```lua
+-- local ok, err = child:write_all(src)
+-- ```
+-- Ensure that the child's stdin is available when calling this method, specifically:
+-- 1. [`stdin(Command.PIPED)`](/docs/plugins/utils#Command.stdin) is set.
+-- 2. [`take_stdin()`](/docs/plugins/utils#Child.take_stdin) has never been called.
+-- Otherwise, an error will be thrown.
+-- | In/Out | Type              |
+-- | ------ | ----------------- |
+-- | `self` | `Self`            |
+-- | `src`  | `string`          |
+-- | Return | `boolean, Error?` |
+---@field write_all fun(self: self, src: string): boolean, Error?
+-- Wait for the child process to finish:
+-- ```lua
+-- local status, err = child:wait()
+-- ```
+-- | In/Out | Type              |
+-- | ------ | ----------------- |
+-- | `self` | `Self`            |
+-- | Return | `Status?, Error?` |
+---@field wait fun(self: self): Status?, Error?
+-- Wait for the child process to finish and get the output:
+-- ```lua
+-- local output, err = child:wait_with_output()
+-- ```
+-- | In/Out | Type              |
+-- | ------ | ----------------- |
+-- | `self` | `Self`            |
+-- | Return | `Output?, Error?` |
+---@field wait_with_output fun(self: self): Output?, Error?
+-- Send a SIGTERM signal to the child process:
+-- ```lua
+-- local ok, err = child:start_kill()
+-- ```
+-- | In/Out | Type              |
+-- | ------ | ----------------- |
+-- | `self` | `Self`            |
+-- | Return | `boolean, Error?` |
+---@field start_kill fun(self: self): boolean, Error?
+-- Take and return the stdin stream of the child process:
+-- ```lua
+-- local stdin = child:take_stdin()
+-- ```
+-- This method can only be called once and is only applicable to processes with [`stdin(Command.PIPED)`](/docs/plugins/utils#Command.stdin) set;
+-- otherwise, it returns `nil`.
+-- | In/Out | Type     |
+-- | ------ | -------- |
+-- | `self` | `Self`   |
+-- | Return | `Stdio?` |
+---@field take_stdin fun(self: self): Stdio?
+-- Take and return the stdout stream of the child process:
+-- ```lua
+-- local stderr = child:take_stdout()
+-- ```
+-- which is useful when redirecting stdout to another process's stdin:
+-- ```lua
+-- local echo = Command("echo"):arg("Hello"):stdout(Command.PIPED):spawn()
+-- local rev = Command("rev"):stdin(echo:take_stdout()):stdout(Command.PIPED):output()
+-- ya.dbg(rev.stdout) -- "olleH\n"
+-- ```
+-- This method can only be called once and is only applicable to processes with [`stdout(Command.PIPED)`](/docs/plugins/utils#Command.stdin) set;
+-- otherwise, it returns `nil`.
+-- | In/Out | Type     |
+-- | ------ | -------- |
+-- | `self` | `Self`   |
+-- | Return | `Stdio?` |
+---@field take_stdout fun(self: self): Stdio?
+-- Take and return the stderr stream of the child process:
+-- ```lua
+-- local stderr = child:take_stderr()
+-- ```
+-- See [`take_stdout()`](/docs/plugins/utils#Child.take_stdout) for an example.
+-- This method can only be called once and is only applicable to processes with [`stderr(Command.PIPED)`](/docs/plugins/utils#Command.stdin) set;
+-- otherwise, it returns `nil`.
+-- | In/Out | Type     |
+-- | ------ | -------- |
+-- | `self` | `Self`   |
+-- | Return | `Stdio?` |
+---@field take_stderr fun(self: self): Stdio?
+
+-- 
+---@class (exact) Output
+-- Status of the child process.
+-- |      |                     |
+-- | ---- | ------------------- |
+-- | Type | [`Status`](#status) |
+---@field status Status
+-- Stdout of the child process.
+-- |      |          |
+-- | ---- | -------- |
+-- | Type | `string` |
+---@field stdout string
+-- Stderr of the child process.
+-- |      |          |
+-- | ---- | -------- |
+-- | Type | `string` |
+---@field stderr string
+
+-- This object represents the exit status of a child process, and it is created by [`wait()`](#Child.wait), or [`output()`](#Command.output).
+---@class (exact) Status
+-- Whether the child process exited successfully.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `boolean` |
+---@field success boolean
+-- Exit code of the child process.
+-- |      |            |
+-- | ---- | ---------- |
+-- | Type | `integer?` |
+-- <!-- Links -->
+-- [sendable]: /docs/plugins/overview#sendable
+-- [ownership]: /docs/plugins/overview#ownership
+---@field code integer?
+
+
+-- 
+---@class (exact) ui
+-- A constraint that defines the size of a layout element.
+-- Constraints can be used to specify a fixed size, a percentage of the available space, a ratio of
+-- the available space, a minimum or maximum size or a fill proportional value for a layout
+-- element.
+-- Relative constraints (percentage, ratio) are calculated relative to the entire space being
+-- divided, rather than the space available after applying more fixed constraints (min, max,
+-- length).
+-- Constraints are prioritized in the following order:
+-- 1. `ui.Constraint.Min(min)`
+-- 2. `ui.Constraint.Max(max)`
+-- 3. `ui.Constraint.Length(len)`
+-- 4. `ui.Constraint.Percentage(p)`
+-- 5. `ui.Constraint.Ratio(num, den)`
+-- 6. `ui.Constraint.Fill(scale)`
+---@field Constraint ui.Constraint
+-- Alignment of an element such as [`Text`](#text) or [`Line`](#line).
+---@field Align ui.Align
+-- Wrapping behavior of a [`Text`](#text).
+---@field Wrap ui.Wrap
+-- Which edges of elements such as [`Bar`](#bar) or [`Border`](#border) should be applied.
+---@field Edge ui.Edge
+-- A Rect is represented an area within the terminal by four attributes:
+-- ```lua
+-- ui.Rect {
+--   x = 10, -- x position
+--   y = 10, -- y position
+--   w = 20, -- width
+--   h = 30, -- height
+-- }
+-- ui.Rect.default  -- Equal to `ui.Rect { x = 0, y = 0, w = 0, h = 0 }`
+-- ```
+-- You can get a pre-computed `Rect` through [`ui.Layout()`](#layout).
+-- Note that if you intend to create a `Rect` yourself, ensure these values are calculated accurately; otherwise, it may cause Yazi to crash!
+---@field Rect fun(value: { x: integer?, y: integer?, w: integer?, h: integer? }): ui.Rect
+-- `Pad` represents a padding, and all of its parameters are integers:
+-- ```lua
+-- ui.Pad(top, right, bottom, left)
+-- ```
+---@field Pad fun(top: integer, right: integer, bottom: integer, left: integer): ui.Pad
+-- `Pos` represents a position, which is composed of an origin and an offset relative to that origin:
+-- ```lua
+-- ui.Pos { "center", x = 5, y = 3, w = 20, h = 10 }
+-- ```
+-- Its only parameter is a table containing the following keys:
+-- - `[1]`: [Origin](/docs/plugins/aliases#origin) of the position.
+-- - `x`: X-offset relative to the origin, default is 0.
+-- - `y`: Y-offset relative to the origin, default is 0.
+-- - `w`: Width, default is 0.
+-- - `h`: Height, default is 0.
+---@field Pos fun(value: { [1]: Origin, x?: integer, y?: integer, w?: integer, h?: integer }): ui.Pos
+-- Create a style:
+-- ```lua
+-- ui.Style()
+-- ```
+---@field Style fun(): ui.Style
+-- `ui.Span` is the smallest unit of text, yet a component of `ui.Line`. Create a span:
+-- ```lua
+-- ui.Span("foo")
+-- ```
+-- For convenience, `ui.Span` can also accept itself as a argument:
+-- ```lua
+-- ui.Span(ui.Span("bar"))
+-- ```
+-- |         |                   |                                                  |
+-- | ------- | ----------------- | ------------------------------------------------ |
+-- | Inherit | [`Style`](#style) | To call [`Style`](#style) methods on it directly |
+---@field Span fun(value: AsSpan): ui.Span
+-- `ui.Line` represents a line, consisting of multiple `ui.Span`s, and it accepts a table of them:
+-- ```lua
+-- ui.Line { ui.Span("foo"), ui.Span("bar") }
+-- ```
+-- For convenience, the following types are also supported:
+-- ```lua
+-- -- string
+-- ui.Line("foo")
+-- -- ui.Span
+-- ui.Line(ui.Span("bar"))
+-- -- ui.Line itself
+-- ui.Line(ui.Line("baz"))
+-- -- Mixed table of string, ui.Span, ui.Line
+-- ui.Line { "foo", ui.Span("bar"), ui.Line("baz") }
+-- ```
+-- |         |                   |                                                  |
+-- | ------- | ----------------- | ------------------------------------------------ |
+-- | Inherit | [`Style`](#style) | To call [`Style`](#style) methods on it directly |
+---@field Line fun(value: AsLine): ui.Line
+-- `ui.Text` is used to represent multi-line text, it takes a table of `ui.Line`:
+-- ```lua
+-- ui.Text { ui.Line("foo"), ui.Line("bar") }
+-- ```
+-- For convenience, the following types are also supported:
+-- ```lua
+-- -- string
+-- ui.Text("foo\nbar")
+-- -- ui.Line
+-- ui.Text(ui.Line("foo"))
+-- -- ui.Span
+-- ui.Text(ui.Span("bar"))
+-- -- Mixed table of string, ui.Line, ui.Span
+-- ui.Text { "foo", ui.Line("bar"), ui.Span("baz") }
+-- ```
+-- You can also use `ui.Text.parse(code)` to parse an [ANSI escape sequence](https://en.wikipedia.org/wiki/ANSI_escape_code) string into a text.
+-- |         |                   |                                                  |
+-- | ------- | ----------------- | ------------------------------------------------ |
+-- | Inherit | [`Style`](#style) | To call [`Style`](#style) methods on it directly |
+---@field Text fun(value: AsText): ui.Text
+-- Create a layout:
+-- ```lua
+-- local areas = ui.Layout()
+--   :direction(ui.Layout.HORIZONTAL)
+--   :constraints({ ui.Constraint.Percentage(50), ui.Constraint.Percentage(50) })
+--   :split(area)
+-- local left = areas[1] -- The first rect
+-- local right = areas[2] -- The second rect
+-- ```
+---@field Layout fun(): ui.Layout
+-- Create a `List` that takes a table of `ui.Text`:
+-- ```lua
+-- ui.List { ui.Text("foo"), ui.Text("bar") }
+-- ```
+-- For convenience, the following types are also supported:
+-- ```lua
+-- -- Table of string
+-- ui.List { "foo", "bar" }
+-- -- Table of ui.Line
+-- ui.List { ui.Line("foo"), ui.Line("bar") }
+-- -- Table of ui.Span
+-- ui.List { ui.Span("foo"), ui.Span("bar") }
+-- -- Mixed table of string, ui.Line, ui.Span
+-- ui.List { "foo", ui.Line("bar"), ui.Span("baz") }
+-- ```
+---@field List fun(value: string|ui.Span|ui.Line|ui.Text|(string|ui.Span|ui.Line|ui.Text)[]): ui.List
+-- Create a bar:
+-- ```lua
+-- ui.Bar(edge)
+-- ```
+-- The first attribute denotes the direction of the bar and accepts an [`Edge`](#edge) constant.
+---@field Bar fun(edge: ui.Edge): ui.Bar
+-- Create a border:
+-- ```lua
+-- ui.Border(edge)
+-- ```
+-- The first attribute denotes the edge of the border and accepts an [`Edge`](#edge) constant.
+---@field Border fun(edge: ui.Edge): ui.Border
+-- Create a gauge:
+-- ```lua
+-- ui.Gauge()
+-- ```
+---@field Gauge fun(): ui.Gauge
+-- Clear the content of a specific area, which is a [Rect](#rect). Place it followed by the component that you want to clear:
+-- ```lua
+-- local components = {
+--   ui.Text("..."):area(rect),
+--   -- ...
+--   ui.Clear(rect),
+-- }
+-- ```
+---@field Clear fun(rect: ui.Rect): ui.Clear
