@@ -1,0 +1,14 @@
+name: Run tests
+
+on: pull_request_target
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.head_ref }}
+      - uses: nixbuild/nix-quick-install-action@v30
+      - run: nix develop -i -c bash -c 'make test_nix'
