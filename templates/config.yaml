@@ -1,0 +1,3 @@
+tinted-vim:
+    supported-systems: [base24, base16]
+    filename: colors/{{ scheme-system }}-{{ scheme-slug }}.vim
