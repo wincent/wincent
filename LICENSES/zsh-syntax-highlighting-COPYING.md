@@ -1,0 +1,1 @@
+../aspects/dotfiles/files/.zsh/zsh-syntax-highlighting/COPYING.md
