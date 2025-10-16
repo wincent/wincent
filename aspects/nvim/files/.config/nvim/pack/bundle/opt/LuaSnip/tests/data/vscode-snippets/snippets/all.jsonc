@@ -1,0 +1,27 @@
+// uh oh, a comment.
+{
+	"a": {
+		"prefix": "jsonc",
+		"body": [
+			"jsonc!!!"
+		]
+	},
+	/* oh no a block comment */
+	"b": {
+		"prefix": "bbbb",
+		"body": [
+			"1"
+		],
+		"luasnip": {
+			"priority": 2000
+		}
+	},
+	"c": {
+		"prefix": "cc",
+		"body": [
+			"3"
+		],
+		"scope": "cpp,c"
+	}
+}
+

@@ -1,0 +1,31 @@
+name: Generate docs and format
+
+on:
+  push:
+    branches:
+      - master
+  pull_request_target:
+
+jobs:
+  postprocessing:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.head_ref }}
+      - uses: nixbuild/nix-quick-install-action@v30
+      - run: nix develop -i -c bash -c 'make doc'
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Auto generate docs"
+      - name: "Format with Stylua"
+        uses: JohnnyMorganz/stylua-action@v1.1.2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          version: v0.15.1
+          args: .
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Format with stylua"
