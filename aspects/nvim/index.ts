@@ -7,7 +7,6 @@ import {
   helpers,
   path,
   resource,
-  skip,
   task,
   variable,
 } from 'fig';
@@ -115,11 +114,6 @@ task('create spell file', async () => {
       creates: `${spellfile}.spl`,
     },
   );
-});
-
-task('update bundle', async () => {
-  await skip('not yet implemented');
-  // update-bundle
 });
 
 task('update help tags', async () => {
