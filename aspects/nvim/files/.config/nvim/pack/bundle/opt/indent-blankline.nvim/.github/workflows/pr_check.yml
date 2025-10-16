@@ -1,0 +1,81 @@
+name: Pull Request Check
+
+on:
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    uses: ./.github/workflows/tests.yml
+    with:
+      neovim_versions: |
+        [ "nightly", "v0.10.0" ]
+
+  lua-language-server:
+    uses: ./.github/workflows/lua_language_server.yml
+    with:
+      lua_ls_version: 3.9.1
+      neovim_versions: |
+        [ "nightly", "v0.10.0" ]
+
+  stylua:
+    name: stylua
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: JohnnyMorganz/stylua-action@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          version: latest
+          args: --color always --check .
+
+  luacheck:
+    name: luacheck
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Prepare
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y luarocks
+          sudo luarocks install luacheck
+
+      - name: Lint
+        run: sudo make luacheck
+
+  block-fixup:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Block Fixup Commit Merge
+        uses: 13rac1/block-fixup-merge-action@v2.0.0
+
+  conventional-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Check Commit Messages
+        run: |
+          commits=$(git log --no-merges --pretty=format:"%s" HEAD~${{ github.event.pull_request.commits }}..HEAD)
+          bad_commits=()
+          for commit in "$commits"; do
+            if ! echo $commit | grep -qE "^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test)(\(.+\))?: .+"; then
+              bad_commits+=("$commit")
+            fi
+          done
+          if [[ ${#bad_commits[@]} -ne 0 ]]; then
+            echo "The following commits do not follow the Conventional Commit format:"
+            for bad_commit in "${bad_commits[@]}"; do
+              echo "  - $bad_commit"
+            done
+            exit 1
+          fi
