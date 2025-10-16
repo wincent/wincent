@@ -1,0 +1,87 @@
+name: Test
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  macos:
+    name: macOS
+    strategy:
+      matrix:
+        os: [macos-12, macos-11]
+    runs-on: ${{matrix.os}}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run tests
+        timeout-minutes: 1
+        run: |
+          zsh --version
+          script -q <<<'zsh -if ./test.zsh -v; exit $?'
+
+  ubuntu:
+    name: Ubuntu
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        zsh-version:
+          - "5.9"
+          - "5.8.1"
+          - "5.8"
+          - "5.7.1"
+          - "5.7"
+          - "5.6.2"
+          - "5.5.1"
+          - "5.4.2"
+          # Too old to build/use on GitHub Actions (missing signals).
+          # - "5.3.1"
+          # - "5.3"
+          # - "5.2"
+          # - "5.1.1"
+          # - "5.0.8"
+          # - "5.0.2"
+    runs-on: ${{matrix.os}}
+    steps:
+      - name: Install deps
+        run: |
+          sudo apt-get install zsh
+
+      - name: Cache zsh
+        id: cache-zsh
+        uses: actions/cache@v2
+        with:
+          path: /opt/zsh
+          key: ${{runner.os}}-${{matrix.zsh-version}}
+
+      - name: Checkout zsh
+        if: steps.cache-zsh.outputs.cache-hit != 'true'
+        uses: actions/checkout@v2
+        with:
+          repository: zsh-users/zsh
+          ref: zsh-${{matrix.zsh-version}}
+          path: zsh-build
+
+      - name: Build zsh
+        if: steps.cache-zsh.outputs.cache-hit != 'true'
+        run: |
+          sudo apt-get install build-essential autoconf yodl libncurses-dev
+          cd "$GITHUB_WORKSPACE/zsh-build"
+          aclocal
+          autoconf
+          autoheader
+          script -qec './configure --prefix=/opt/zsh'
+          make
+          sudo make install.bin install.modules install.fns
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run tests
+        timeout-minutes: 1
+        run: |
+          export PATH="/opt/zsh/bin:$PATH"
+          zsh --version
+          script -qec 'zsh -if ./test.zsh -v' /dev/null
