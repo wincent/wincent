@@ -1,0 +1,20 @@
+name: Test
+"on":
+  pull_request:
+    branches:
+      - "spec-**"
+  push:
+    branches:
+      - "spec-**"
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install deps
+        run: sudo apt install yamllint
+
+      - name: Lint schemes
+        run: yamllint ${{ github.workspace }} && ${{ github.workspace }}/scripts/lint "${{ github.workspace }}"

@@ -1,0 +1,21 @@
+system: "base16"
+name: "Sparky"
+author: "Leila Sother (https://github.com/mixcoac)"
+variant: "dark"
+palette:
+  base00: "#072B31" # 546 C - Background
+  base01: "#00313C" # 547 C - Lighter Background
+  base02: "#003C46" # 547 CP - Selection
+  base03: "#003B49" # 309 C - Comments
+  base04: "#00778B" # 7705 C - Lightest Background
+  base05: "#F4F5F0" # 11-0601 Tcx - Foreground
+  base06: "#F5F5F1" # P 179-1 U - Grey
+  base07: "#FFFFFF" # Hex White - White - there is no whiter Pantone than 11-0601 Tcx
+  base08: "#FF585D" # 178 C - Red
+  base09: "#FF8F1C" # 1375 C - Orange
+  base0A: "#FBDD40" # 114 C - Yellow
+  base0B: "#78D64B" # 7488 C - Green
+  base0C: "#2DCCD3" # 319 C - Cyan
+  base0D: "#4698CB" # 7688 C - Blue
+  base0E: "#D59ED7" # 7438 C - Purple
+  base0F: "#9B704D" # 10367 C - Brown

@@ -1,0 +1,22 @@
+system: "base16"
+name: "Penumbra Dark Contrast Plus Plus"
+author: "Zachary Weiss (https://github.com/zacharyweiss)"
+variant: "dark"
+description: "A mathematically balanced colour scheme constructed in a perceptually uniform colour space, by Neal McKee. https://github.com/nealmckee/penumbra"
+palette:
+  base00: "#0D0F13" # shade-
+  base01: "#181B1F" # shade
+  base02: "#3E4044" # shade+
+  base03: "#636363" # sky-
+  base04: "#AEAEAE" # sky
+  base05: "#DEDEDE" # sky+
+  base06: "#FFF7ED" # sun
+  base07: "#FFFDFB" # sun+
+  base08: "#F58C81" # red
+  base09: "#E09F47" # orange
+  base0A: "#A9B852" # yellow
+  base0B: "#54C794" # green
+  base0C: "#00C4D7" # cyan
+  base0D: "#6EB2FD" # blue
+  base0E: "#B69CF6" # purple
+  base0F: "#E58CC5" # magenta

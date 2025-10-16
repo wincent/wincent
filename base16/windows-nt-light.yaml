@@ -1,0 +1,21 @@
+system: "base16"
+name: "Windows NT Light"
+author: "Fergus Collins (https://github.com/ferguscollins)"
+variant: "light"
+palette:
+  base00: "#ffffff" # bright white
+  base01: "#eaeaea" # brightish white
+  base02: "#d5d5d5" # darkish white
+  base03: "#c0c0c0" # white
+  base04: "#a0a0a0" # brighter black
+  base05: "#808080" # bright black
+  base06: "#404040" # middle black
+  base07: "#000000" # black
+  base08: "#800000" # red
+  base09: "#ffff00" # bright yellow
+  base0A: "#808000" # yellow
+  base0B: "#008000" # green
+  base0C: "#008080" # cyan
+  base0D: "#000080" # blue
+  base0E: "#800080" # magenta
+  base0F: "#00ff00" # bright green

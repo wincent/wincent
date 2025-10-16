@@ -1,0 +1,11 @@
+---
+
+extends: default
+
+rules:
+  document-start: disable
+  comments: disable
+  line-length:
+    max: 180
+    level: error
+    allow-non-breakable-inline-mappings: true
