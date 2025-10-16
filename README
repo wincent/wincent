@@ -1,0 +1,3 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=1736
+
+Syntax file for AppleScript. Requires local ~/.vim/filetype.vim. More details on http://www.fastnlight.com/syntax
