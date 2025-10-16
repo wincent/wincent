@@ -1,0 +1,600 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+<!-- markdownlint-disable MD024 -->
+
+## [Unreleased] (date goes here)
+
+## [10.2.0] (2025-05-21)
+
+### Added
+
+- environment variable `N_ARCH` to set architecture for download, like using `--arch` ([#832])
+
+## [10.1.0] (2024-11-09)
+
+### Added
+
+- `--cleanup` option to delete cached version after install for a one-shot install ([#818])
+- `download` command to download Node.js version into cache ([#821])
+- document using `--download` with run/exec/which in README
+- support trailing comments in `.nvmrc` file ([#820])
+- mask password in download URL when displayed ([#815])
+
+### Changed
+
+- removed stale code ([#817])
+
+## [10.0.0] (2024-09-06)
+
+The major version bump is due to using `jq` in preference to `node` for reading `package.json`.
+
+### Changed
+
+- if `jq` is available, use `jq` for reading `engines` from `package.json` instead of using `node` ([#810])
+- avoid a network lookup if auto or engine find a fully specified numeric version. ([#813])
+
+## [9.2.3] (2024-04-21)
+
+### Fixed
+
+- avoid problems with `curl` 8.7.1 and `--compressed` by removing option until fixed
+
+## [9.2.2] (2024-04-21)
+
+(No changes.)
+
+## [9.2.1] (2024-02-25)
+
+### Fixed
+
+- `n doctor` works with custom `N_CACHE_PREFIX`
+
+### Added
+
+- expand tests in `n doctor` for folder existence and permissions
+
+## [9.2.0] (2023-10-15)
+
+### Added
+
+- `--offline` for resolving target version against cached downloads instead of internet lookup ([#785])
+
+## [9.1.0] (2023-04-15)
+
+### Added
+
+- check for possible problem with multiple `npm` locations when running `n doctor` ([#764])
+
+## [9.0.1] (2022-11-04)
+
+### Fixed
+
+- `Makefile` compatible with more flavours of `make` ([#745])
+- quote paths in `Makefile` in case `PREFIX` contains spaces ([#746])
+
+## [9.0.0] (2022-07-16)
+
+### Changed
+
+- `--preserve` preserves `corepack` too ([#736])
+
+### Added
+
+- optional `N_PRESERVE_COREPACK` to change default behaviour for preserving `corepack` ([#736])
+
+## [8.2.0] (2022-04-18)
+
+### Added
+
+- log before copying files during install ([#720])
+
+## [8.1.0] (2022-03-18)
+
+### Added
+
+- optional `N_CACHE_PREFIX` for separate location for downloaded files than install location ([#717])
+
+## [8.0.2] (2022-01-09)
+
+### Fixed
+
+- improved warning message when utility location hash may be holding old location to cover a wider range of shells including dash ([#707])
+
+## [8.0.1] (2021-12-04)
+
+### Fixed
+
+- improve error handling for tar extraction errors ([#701])
+- add tar flag for compatibility with tar builds which do not default to stdin ([#697])
+
+## [8.0.0] (2021-10-23)
+
+### Changed
+
+- display error if version missing in version file for `n auto` and `n engine` (rather than fallback to current) ([#693])
+
+## [7.5.0] (2021-09-26)
+
+### Added
+
+- support for Corepack (which was added to Node.js in v16.9.0)
+
+## [7.4.1] (2021-09-11)
+
+### Fixed
+
+- run commands from correct directory after `--download` causes a download
+
+## [7.4.0] (2021-09-10)
+
+### Added
+
+- support for `--download` option to `run` and `exec` to download the target version when needed ([#685])
+
+## [7.3.1] (2021-07-25)
+
+### Changed
+
+- Improved README for new users missing expected folders in `/usr/local` ([#679])
+
+## [7.3.0] (2021-06-06)
+
+### Added
+
+- ls-remote supports `engine` and `auto` labels ([#675])
+- reduce `engine` and `auto` logging with `--quiet` ([#675])
+- add WSL support to README ([#676])
+- support for Emacs up and down keys (`ctrl-p` and `ctrl-n`) ([#669])
+
+### Changed
+
+- diagnostic logging during processing of engine and auto written to stderr rather than stdout ([#675])
+
+## [7.2.2] (2021-04-25)
+
+### Fixed
+
+- arrow key navigation of version menu when terminal in application mode (e.g. PowerShell on Mac) ([#668])
+
+## [7.2.1] (2021-04-19)
+
+### Added
+
+- install native arm64 Node.js on Macs with Apple silicon for Node.js 16 and higher ([#664])
+
+## [7.2.0] (2021-04-19) [YANKED]
+
+Released off wrong branch, essentially same as 7.1.0.
+
+## [7.1.0] (2021-03-12)
+
+### Added
+
+- support installs where /usr/local/share/man is a symlink (such as archlinux)
+- remove requirement for rsync for --preserve
+- avoid install pollution if user installs global packages when using n exec
+
+## [7.0.2] (2021-02-27)
+
+### Fixed
+
+- consistently log to STDOUT ([#654])
+
+## [7.0.1] (2021-01-30)
+
+### Changed
+
+- update bats, and use bats-assert for better unit test failure messages
+
+### Fixed
+
+- fail to display error in some cases for missing both `curl` and `wget` ([#649])
+
+## [7.0.0] (2020-12-20)
+
+### Changed
+
+- `auto` label now scans for `package.json` only if it can not find a version control file ([#644])
+
+### Added
+
+- `engine` label to look for `engines.node` in `package.json` (as used by`auto`) ([#644])
+
+### Fixed
+
+- avoid colorized grep output via `GREP_OPTIONS` breaking version lookup ([#643])
+
+## [6.8.0] (2020-12-12)
+
+### Fixed
+
+- suppress unwanted warning during `auto` when using npx with npm 7
+- temporary fix for installing on Mac with Apple M1 chip, look for x64 versions of node as arm64 not available yet
+
+## [6.7.1] (2020-11-25)
+
+### Fixed
+
+- detect and handle a failed download of full archive ([#635])
+
+## [6.7.0] (2020-07-25)
+
+### Added
+
+- `auto` support for:
+    - `.node-version`
+    - `.nvmrc`
+    - `engines` field of `package.json`
+
+## [6.6.0] (2020-07-04)
+
+### Added
+
+- labels for node support aliases, such as `lts_latest`
+
+### Fixed
+
+- Enable `xz` support by default for macOS 11+ ([#624])
+
+## [6.5.1] (2020-04-11)
+
+### Added
+
+- specify `auto` to read the target version from a `.n-node-version` file (i.e. change filename)
+
+## [6.5.0] (2020-04-11) [YANKED]
+
+### Added
+
+- specify `auto` to read the target version from a `.node-version` file ([#616])
+
+## [6.4.0] (2020-03-10)
+
+### Added
+
+- treat `armv8l` as `arm64` ([#614])
+
+## [6.3.1] (2020-02-25)
+
+### Fixed
+
+- remove old version of node before copy to avoid firewall issues on macOS ([#394])
+
+## [6.3.0] (2020-02-24)
+
+### Added
+
+- `--preserve` to preserve npm and npx during install of node ([#587])
+
+## [6.2.0] (2020-01-29)
+
+### Added
+
+- Downloads now default to using tarballs compressed by `xz` over `gzip`, if `xz` support detected. ([#606] [#607])
+
+## [6.1.3] (2019-11-23)
+
+### Added
+
+- added How It Works to README
+
+### Changed
+
+- simplified layout for `n doctor` output
+
+## [6.1.2] (2019-11-16)
+
+### Added
+
+- advice to reset command hash when node location changes ([#170] [#381] [#451] [#588])
+- in README describe raw download of `n` to bootstrap install of node and npm
+
+## [6.1.1] (2019-11-10)
+
+### Fixed
+
+- Specify `--no-same-owner` for tarball extraction so cache files not owned by unexpected user (when run with sudo) ([#593])
+
+## [6.1.0] (2019-10-25)
+
+### Added
+
+- deletion of cached versions from menu using 'd' ([#590])
+
+## [6.0.1] (2019-08-20)
+
+### Fixed
+
+- allow options to come after commands, especially `n lsr --all`
+
+## [6.0.0] (2019-08-16)
+
+### Added
+
+- version specified using release stream codenames, like `argon` ([#423])
+- version specified using nightly et al ([#376])
+- `n exec` for running arbitrary command with node and npm in `PATH` ([#185])
+- `n run` with legacy aliases of `as` and `use`
+- `n lsr` for listing matching remote versions, limited to 20 by default ([#383])
+- `n doctor` for displaying diagnostic information
+- `n install` for people used to other products with this command ([#524])
+- `--insecure` to disable curl/wget certificate checks
+- added npm version to installed message ([#210] [#484] [#574])
+  
+### Changed
+
+- **Breaking** wget now checks certificates (secure by default, same as curl setup). (#475 #509)
+- failure messages go to stderr instead of stdout
+- prefixed `N_NODE_MIRROR` to eventually replace `NODE_MIRROR`
+- **Breaking** `n ls` now lists local download versions (rather than remote versions)
+- lookup available versions using `index.tab` rather than screen-scraping (#560)
+
+### Fixed
+
+- download errors display informative message, instead of just `Invalid version` ([#482] [#492] et al)
+- improve reliability of downloads from custom node mirrors, including removing broken `is_oss_ok` ([#560])
+- restrict downloads to versions with architecture available ([#463])
+
+### Removed
+
+- **Breaking** support for `PROJECT_NAME` and `PROJECT_URL` for custom downloads ([#342])
+
+## [5.0.2] (2019-08-02)
+
+### Added
+
+- instructions to bottom of menu version selection
+
+## [5.0.1] (2019-07-20)
+
+### Changed
+
+- removed reference to prerelease version of v5.0.0 from README
+
+## [5.0.0] (2019-07-20)
+
+### Added
+
+- log message after install from cache (previously silent)
+- extra logging after install if the active and installed node locations are different
+- support for [NO_COLOR](https://no-color.org) and [CLICOLOR=0](https://bixense.com/clicolors)
+- suppress progress and colour if not interactive tty
+- define `N_USE_XZ` to download `.xz` compressed archives instead of `.gz` archives
+  
+### Changed
+
+- reinstalling active node version always does reinstall (previously silently did nothing)
+- log message for installing using menu now same format as `npm install` message
+- updates to GitHub templates and guidelines for contributing et al
+
+## [4.1.0] (2019-05-10)
+
+### Added
+
+- 'n uninstall` to remove node and npm
+- describe `NODE_MIRROR` in `README`
+
+### Removed
+
+- `PROJECT_NAME` and `PROJECT_URL` from `README`. First step to deprecating `n project`. Open an issue if you still need this!
+
+## [4.0.0] (2019-05-05)
+
+Only minor functional changes, but technically could break scripts relying on specific behaviour.
+
+### Fixed
+
+- remove trailing space from `bin` output [#456]
+
+### Added
+
+- development tests [#545]
+
+### Changed
+
+- internal: improve shell script based on ShellCheck suggestions, quoting variables use etc [#187] [#465]
+- put single quote marks around parameters to clarify error messages [#485]
+- update terminology to be more careful with current/latest [#522]
+
+## [3.0.2] (2019-04-07)
+
+### Added
+
+- instructions to avoid need for `sudo` when installing to `/usr/local`  [#416] [#562]
+
+### Fixed
+
+- permission denied errors when running read-only commands without sudo [#416]
+
+## [3.0.1] (2019-04-05)
+
+### Added
+
+- install instruction using Homebrew (macOS) [#534]
+- Table of Contents to README [#466]
+
+### Fixed
+
+- lts lookup on node mirrors which don't purge old versions (e.g. taobao) [#512]
+- hide cursor while selecting version from menu [#528]
+
+### Removed
+
+- gitter badge from README, as gitter chatroom inactive
+- inactive Core Team from README
+- instructions for scripted install of npm from README, which should no longer be needed and not working on Mac [#536]
+
+## [3.0.0] (2019-03-29)
+
+### Added
+
+- detect arm64 architecture [#448][] [#521][]
+
+### Changed
+
+- allow `n rm` of active version of node [#541][] [#169][] [#327][] [#441][]
+- show more version examples in README, including partial version number [#548][]
+- updated description of interactive version selection [#518][]
+- make (old) stable an alias for lts [#467][] [#335][]
+- replace use of `which` with more standard `command -v` [#532][]
+
+### Fixed
+
+- error messages when selecting from version menu if active node version not listed [#541][] [#292][] [#367][] [#391][] [#400][]
+- removed inappropriate `shift` from prune function [#531][] [#529][]
+
+### Removed
+
+- Remove old io project support [#516][] [#331][]
+
+<!-- reference links for issues and pull requests -->
+
+[#169]: https://github.com/tj/n/issues/169
+[#170]: https://github.com/tj/n/issues/170
+[#185]: https://github.com/tj/n/issues/185
+[#187]: https://github.com/tj/n/issues/187
+[#210]: https://github.com/tj/n/issues/210
+[#292]: https://github.com/tj/n/issues/292
+[#327]: https://github.com/tj/n/issues/327
+[#331]: https://github.com/tj/n/issues/331
+[#335]: https://github.com/tj/n/issues/335
+[#342]: https://github.com/tj/n/issues/342
+[#367]: https://github.com/tj/n/issues/367
+[#376]: https://github.com/tj/n/issues/376
+[#381]: https://github.com/tj/n/issues/381
+[#383]: https://github.com/tj/n/issues/383
+[#391]: https://github.com/tj/n/issues/391
+[#394]: https://github.com/tj/n/issues/394
+[#400]: https://github.com/tj/n/issues/400
+[#416]: https://github.com/tj/n/issues/416
+[#423]: https://github.com/tj/n/issues/423
+[#441]: https://github.com/tj/n/issues/441
+[#448]: https://github.com/tj/n/issues/448
+[#451]: https://github.com/tj/n/issues/451
+[#456]: https://github.com/tj/n/issues/456
+[#463]: https://github.com/tj/n/issues/463
+[#465]: https://github.com/tj/n/issues/465
+[#466]: https://github.com/tj/n/issues/466
+[#467]: https://github.com/tj/n/issues/467
+[#482]: https://github.com/tj/n/issues/482
+[#484]: https://github.com/tj/n/issues/484
+[#485]: https://github.com/tj/n/issues/485
+[#492]: https://github.com/tj/n/issues/492
+[#512]: https://github.com/tj/n/issues/512
+[#516]: https://github.com/tj/n/issues/516
+[#518]: https://github.com/tj/n/issues/518
+[#521]: https://github.com/tj/n/issues/521
+[#522]: https://github.com/tj/n/issues/522
+[#524]: https://github.com/tj/n/issues/524
+[#528]: https://github.com/tj/n/issues/528
+[#529]: https://github.com/tj/n/issues/529
+[#531]: https://github.com/tj/n/issues/531
+[#532]: https://github.com/tj/n/issues/532
+[#534]: https://github.com/tj/n/issues/534
+[#536]: https://github.com/tj/n/issues/536
+[#541]: https://github.com/tj/n/issues/541
+[#545]: https://github.com/tj/n/issues/545
+[#548]: https://github.com/tj/n/issues/548
+[#560]: https://github.com/tj/n/issues/560
+[#562]: https://github.com/tj/n/issues/562
+[#574]: https://github.com/tj/n/issues/574
+[#587]: https://github.com/tj/n/issues/587
+[#588]: https://github.com/tj/n/issues/588
+[#590]: https://github.com/tj/n/issues/590
+[#593]: https://github.com/tj/n/issues/593
+[#606]: https://github.com/tj/n/issues/606
+[#607]: https://github.com/tj/n/issues/607
+[#614]: https://github.com/tj/n/issues/614
+[#616]: https://github.com/tj/n/issues/616
+[#624]: https://github.com/tj/n/issues/624
+[#635]: https://github.com/tj/n/pull/635
+[#643]: https://github.com/tj/n/pull/643
+[#644]: https://github.com/tj/n/pull/644
+[#649]: https://github.com/tj/n/issues/649
+[#654]: https://github.com/tj/n/issues/654
+[#664]: https://github.com/tj/n/pull/664
+[#668]: https://github.com/tj/n/pull/668
+[#669]: https://github.com/tj/n/pull/669
+[#675]: https://github.com/tj/n/pull/675
+[#676]: https://github.com/tj/n/pull/676
+[#679]: https://github.com/tj/n/issues/679
+[#685]: https://github.com/tj/n/issues/685
+[#693]: https://github.com/tj/n/issues/693
+[#697]: https://github.com/tj/n/issues/697
+[#701]: https://github.com/tj/n/issues/701
+[#707]: https://github.com/tj/n/issues/707
+[#717]: https://github.com/tj/n/issues/717
+[#720]: https://github.com/tj/n/issues/720
+[#736]: https://github.com/tj/n/pull/736
+[#745]: https://github.com/tj/n/pull/745
+[#746]: https://github.com/tj/n/pull/746
+[#764]: https://github.com/tj/n/pull/764
+[#785]: https://github.com/tj/n/pull/785
+[#810]: https://github.com/tj/n/pull/810
+[#813]: https://github.com/tj/n/pull/813
+[#815]: https://github.com/tj/n/pull/815
+[#817]: https://github.com/tj/n/pull/817
+[#818]: https://github.com/tj/n/pull/818
+[#820]: https://github.com/tj/n/pull/820
+[#821]: https://github.com/tj/n/pull/821
+[#832]: https://github.com/tj/n/pull/832
+
+<!-- reference links for releases -->
+
+[Unreleased]: https://github.com/tj/n/compare/master...develop
+[10.2.0]: https://github.com/tj/n/compare/v10.1.0...v10.2.0
+[10.1.0]: https://github.com/tj/n/compare/v10.0.0...v10.1.0
+[10.0.0]: https://github.com/tj/n/compare/v9.2.3...v10.0.0
+[9.2.3]: https://github.com/tj/n/compare/v9.2.2...v9.2.3
+[9.2.2]: https://github.com/tj/n/compare/v9.2.1...v9.2.2
+[9.2.1]: https://github.com/tj/n/compare/v9.2.0...v9.2.1
+[9.2.0]: https://github.com/tj/n/compare/v9.1.0...v9.2.0
+[9.1.0]: https://github.com/tj/n/compare/v9.0.1...v9.1.0
+[9.0.1]: https://github.com/tj/n/compare/v9.0.0...v9.0.1
+[9.0.0]: https://github.com/tj/n/compare/v8.2.0...v9.0.0
+[8.2.0]: https://github.com/tj/n/compare/v8.1.0...v8.2.0
+[8.1.0]: https://github.com/tj/n/compare/v8.0.2...v8.1.0
+[8.0.2]: https://github.com/tj/n/compare/v8.0.1...v8.0.2
+[8.0.1]: https://github.com/tj/n/compare/v8.0.0...v8.0.1
+[8.0.0]: https://github.com/tj/n/compare/v7.5.0...v8.0.0
+[7.5.0]: https://github.com/tj/n/compare/v7.4.1...v7.5.0
+[7.4.1]: https://github.com/tj/n/compare/v7.4.0...v7.4.1
+[7.4.0]: https://github.com/tj/n/compare/v7.3.1...v7.4.0
+[7.3.1]: https://github.com/tj/n/compare/v7.3.0...v7.3.1
+[7.3.0]: https://github.com/tj/n/compare/v7.2.2...v7.3.0
+[7.2.2]: https://github.com/tj/n/compare/v7.2.1...v7.2.2
+[7.2.1]: https://github.com/tj/n/compare/v7.1.0...v7.2.1
+[7.2.0]: https://github.com/tj/n/compare/v7.1.0...v7.2.0
+[7.1.0]: https://github.com/tj/n/compare/v7.0.2...v7.1.0
+[7.0.2]: https://github.com/tj/n/compare/v7.0.1...v7.0.2
+[7.0.1]: https://github.com/tj/n/compare/v7.0.0...v7.0.1
+[7.0.0]: https://github.com/tj/n/compare/v6.8.0...v7.0.0
+[6.8.0]: https://github.com/tj/n/compare/v6.7.1...v6.8.0
+[6.7.1]: https://github.com/tj/n/compare/v6.7.0...v6.7.1
+[6.7.0]: https://github.com/tj/n/compare/v6.6.0...v6.7.0
+[6.6.0]: https://github.com/tj/n/compare/v6.5.1...v6.6.0
+[6.5.1]: https://github.com/tj/n/compare/v6.5.0...v6.5.1
+[6.5.0]: https://github.com/tj/n/compare/v6.4.0...v6.5.0
+[6.4.0]: https://github.com/tj/n/compare/v6.3.1...v6.4.0
+[6.3.1]: https://github.com/tj/n/compare/v6.3.0...v6.3.1
+[6.3.0]: https://github.com/tj/n/compare/v6.2.0...v6.3.0
+[6.2.0]: https://github.com/tj/n/compare/v6.1.3...v6.2.0
+[6.1.3]: https://github.com/tj/n/compare/v6.0.2...v6.1.3
+[6.1.2]: https://github.com/tj/n/compare/v6.0.1...v6.1.2
+[6.1.1]: https://github.com/tj/n/compare/v6.0.0...v6.1.1
+[6.1.0]: https://github.com/tj/n/compare/v6.0.1...v6.1.0
+[6.0.1]: https://github.com/tj/n/compare/v6.0.0...v6.0.1
+[6.0.0]: https://github.com/tj/n/compare/v5.0.2...v6.0.0
+[5.0.2]: https://github.com/tj/n/compare/v5.0.1...v5.0.2
+[5.0.1]: https://github.com/tj/n/compare/v5.0.0...v5.0.1
+[5.0.0]: https://github.com/tj/n/compare/v4.1.0...v5.0.0
+[4.1.0]: https://github.com/tj/n/compare/v4.0.0...v4.1.0
+[4.0.0]: https://github.com/tj/n/compare/v3.0.2...v4.0.0
+[3.0.2]: https://github.com/tj/n/compare/v3.0.1...v3.0.2
+[3.0.1]: https://github.com/tj/n/compare/v3.0.0...v3.0.1
+[3.0.0]: https://github.com/tj/n/compare/v2.1.12...v3.0.0

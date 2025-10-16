@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -e
+
+# Get directory containing current script.
+#
+# Via: https://stackoverflow.com/a/246128/2103996
+SOURCE=${BASH_SOURCE[0]}
+while [ -L "$SOURCE" ]; do
+  DIRECTORY=$(cd -P "$(dirname "$SOURCE")" >/dev/null 2>&1 && pwd)
+  SOURCE=$(readlink "$SOURCE")
+  [[ $SOURCE != /* ]] && SOURCE=$DIRECTORY/$SOURCE
+done
+DIRECTORY=$(cd -P "$(dirname "$SOURCE")" >/dev/null 2>&1 && pwd)
+ROOT="$DIRECTORY/.."
+
+"$ROOT/bin/n" run auto "$@"

@@ -1,0 +1,18 @@
+version: '2'
+# Define base service to specify the mounts and environment variables
+services:
+  testbed:
+    volumes:
+      # make locally installed  bats available in container (based on bats/install.sh)
+      - ../node_modules/bats/bin/bats:/usr/local/bin/bats
+      - ../node_modules/bats/libexec/bats-core:/usr/local/libexec/bats-core
+      - ../node_modules/bats/lib/bats-core:/usr/local/lib/bats-core
+      - ../node_modules/bats/man/bats.1:/usr/local/share/man/man1"
+      - ../node_modules/bats/man/bats.7:/usr/local/share/man/man7"
+      # the bats tests, same relative location to node_modules as in repo
+      - ./tests:/mnt/test/tests
+      # bats extra libraries, into similar relative location
+      - ../node_modules/bats-support:/mnt/node_modules/bats-support
+      - ../node_modules/bats-assert:/mnt/node_modules/bats-assert
+      # the n script
+      - ../bin/n:/usr/local/bin/n

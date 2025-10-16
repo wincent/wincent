@@ -1,0 +1,50 @@
+{
+  "name": "n",
+  "description": "Interactively Manage All Your Node Versions",
+  "version": "10.2.0",
+  "author": "TJ Holowaychuk <tj@vision-media.ca>",
+  "homepage": "https://github.com/tj/n",
+  "bugs": "https://github.com/tj/n/issues",
+  "contributors": [
+    {
+      "name": "n Contributors",
+      "url": "https://github.com/tj/n/graphs/contributors"
+    }
+  ],
+  "keywords": [
+    "nvm",
+    "node",
+    "version",
+    "manager",
+    "switcher",
+    "node",
+    "binary",
+    "env"
+  ],
+  "bin": {
+    "n": "bin/n"
+  },
+  "files": [
+    "bin/n"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tj/n.git"
+  },
+  "scripts": {
+    "test": "test/bin/run-all-tests"
+  },
+  "devDependencies": {
+    "bats": "^1.2.1",
+    "bats-assert": "github:bats-core/bats-assert",
+    "bats-support": "github:bats-core/bats-support"
+  },
+  "preferGlobal": true,
+  "os": [
+    "!win32"
+  ],
+  "engines": {
+    "node": "*"
+  },
+  "license": "MIT"
+}
