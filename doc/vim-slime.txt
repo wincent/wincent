@@ -1,0 +1,369 @@
+*slime.txt*   Grab some text and "send" it to a GNU Screen / tmux / whimrepl session.
+
+Author:  Jonathan Palardy                                    *slime-author*
+License: Same terms as Vim itself (see |license|)
+
+This plugin is only available if 'compatible' is not set.
+
+==============================================================================
+                                                               *slime*
+Grab some text and "send" it to a GNU Screen / tmux / whimrepl session.
+
+	VIM ---(text)---> screen / tmux / whimrepl~
+
+Presumably, your session contains a REPL, maybe Clojure, R or python. If you
+can type text into it, vim-slime can send text to it.
+
+The reason you're doing this? Because you want the benefits of a REPL and the
+benefits of using Vim (familiar environment, syntax highlighting, persistence
+...).
+
+1. Usage				|slime-usage|
+2. Screen Configuration 		|slime-screen|
+3. Tmux Configuration			|slime-tmux|
+4. dtach Configuration			|slime-dtach|
+5. Neovim Configuration			|slime-neovim|
+6. Kitty Configuration			|slime-kitty|
+7. Zellij Configuration			|slime-zellij|
+8. Wezterm Configuration	        |slime-wezterm|
+9. X11 Configuration			|slime-x11|
+10. whimrepl Configuration		|slime-whimrepl|
+11. vimterminal Configuration		|slime-vimterminal|
+12. Slime Configuration			|slime-configuration|
+13. Slime Requirements			|slime-requirements|
+
+==============================================================================
+1. Slime Usage 					*slime-usage*
+
+						*CTRL-C_CTRL-C* *<c-c><c-c>*
+<c-c><c-c>		Send the current paragraph text to screen/tmux/whimrepl.
+			Slime will prompt for configuration if slime is not
+			configured for the current buffer.
+
+						*v_CTRL-C_CTRL-C* *v_<c-c><c-c>*
+{Visual}<c-c><c-c>	Send highlighted text to screen/tmux/whimrepl.
+
+						*CTRL-C_v* *<c-c>v*
+						*:SlimeConfig*
+<c-c>v			Setup slime to use screen, tmux or whimrepl. You will
+:SlimeConfig		be prompted for information regarding how to target
+			screen, tmux or whimrepl. See |slime-screen|,
+			|slime-tmux| or |slime-whimrepl| for more information.
+
+						*:SlimeSend*
+:<range>SlimeSend	Send a [range] of lines to screen, tmux or whimrepl.
+			If no range is provided the current line is sent.
+
+                                                *:SlimeSend1*
+:SlimeSend1 {text}      Send a single line of text, specified on the command
+                        line, to screen, tmux, or whimrepl. A carriage return
+                        is automatically appended.
+
+                                                *:SlimeSend0*
+:SlimeSend0 {text}      Send a single line of text, specified on the command
+                        line, to screen, tmux, or whimrepl. This will not
+			automatically append a carriage return.
+
+
+==============================================================================
+2. Screen Configuration 			*slime-screen*
+
+By default, GNU Screen is assumed, you don't have to do anything. If you want
+to be explicit, you can add this line to your |.vimrc|:
+>
+	let g:slime_target = "screen"
+<
+When you invoke vim-slime for the first time (see below), you will be prompted
+for more configuration.
+
+Screen session name~
+
+This is what you put in the -S flag, or one of the line of "screen -ls".
+
+Screen window name~
+
+This is the window number or name, zero-based.
+
+==============================================================================
+3. Tmux Configuration 				*slime-tmux*
+
+Tmux is not the default, to use it you will have to add this line to your
+|.vimrc|:
+>
+	let g:slime_target = "tmux"
+<
+When you invoke vim-slime for the first time (see below), you will be prompted
+for more configuration.
+
+Tmux socket name~
+
+This is what you put in the -L flag, it will be "default" if you didn't put
+anything.
+
+Tmux target pane~
+
+A tmux pane can be targeted with any of the following values:
+  - ":" means current window, current pane (a reasonable default)
+  - ":i" means the ith window, current pane
+  - ":i.j" means the ith window, jth pane
+  - "h:i.j" means the tmux session where h is the session identifier
+    (either session name or number), the ith window and the jth pane
+  - "%i" means i refers the pane's unique id
+  - "{token}" one of tmux's supported special tokens, like "{right-of}"
+
+To get a list of all the available pane execute the following:
+>
+	tmux list-panes -a
+<
+
+Use bracketed-paste mode~
+
+Sometimes REPL are too smart for their own good, e.g. autocompleting a bracket
+that should not be autocompleted when pasting code from a file. In this case
+it can be useful to rely on bracketed-paste
+(https://cirw.in/blog/bracketed-paste). Luckily, some targets (https://github.com/jpalardy/vim-slime#targets) know how to handle
+that.
+
+You can enable bracketed-paste using eiter
+>
+    g:slime_bracketed_paste
+<
+or
+>
+    b:slime_bracketed_paste
+<
+
+Note that the buffer variable takes precedence over the global's one.
+
+==============================================================================
+4. dtach Configuration 			*slime-dtach*
+
+dtach is not the default, to use it you will have to add this line to your
+|.vimrc|:
+>
+	let g:slime_target = "dtach"
+
+<
+When you invoke vim-slime for the first time, you will be prompted for more
+configuration.
+
+socket_path~
+
+The path to the Unix-domain socket that the dtach session is attached to.
+The default is /tmp/slime
+
+==============================================================================
+5. Neovim Configuration 			*slime-neovim*
+
+Neovim is not the default, to use it you will have to add this line to your
+|.vimrc|:
+>
+	let g:slime_target = "neovim"
+<
+When you invoke vim-slime for the first time (see below), you will be prompted
+for more configuration.
+
+jobid~
+
+In the neovim terminal buffer type ":echo &channel" to get the
+job_id for that terminal
+
+==============================================================================
+6. Kitty Configuration 			*slime-kitty*
+
+Kitty is not the default, to use it you will have to add this line to your
+|.vimrc|:
+>
+	let g:slime_target = "kitty"
+<
+When you invoke vim-slime for the first time (see below), you will be prompted
+for more configuration.
+
+kitty target window~
+
+See e.g. the value of $KITTY_WINDOW_ID in the target window.
+
+==============================================================================
+7. Zellij Configuration 			*slime-zellij*
+
+Zellij is not the default, to use it you will have to add this line to your
+|.vimrc|:
+>
+	let g:slime_target = "zellij"
+<
+When you invoke vim-slime for the first time (see below), you will be prompted
+for more configuration.
+
+Zellij session id~
+
+This is the id of the zellij session that you wish to target, the default value is "current" meaning the session containing the vim pane.
+See e.g. the value of "zellij list-sessions" in the target window to figure out specific session names.
+
+Zellij relative pane~
+
+A pane relative to the currently active one in the target session
+  - "current" for the currently active pane
+  - "up"/"down"/"right"/"left" for the pane in that direction relative to the location of the active pane
+
+==============================================================================
+8. Wezterm Configuration 			*slime-wezterm*
+
+Wezterm is not the default, to use it you will have to add this line to your
+|.vimrc|:
+>
+	let g:slime_target = "wezterm"
+<
+When you invoke vim-slime for the first time (see below), you will be prompted
+for more configuration.
+
+wezterm pane id~
+
+See e.g. the value of $WEZTERM_PANE in the target pane.
+
+wezterm pane direction~
+
+If you want the id of the pane in a relative direction to the default, see "wezterm cli get-pane-direction --help" for possible values.
+
+You can configure the defaults for these options. If you generally run vim to the left of your REPL, you could set the default pane direction to "right".~
+>
+	let g:slime_default_config = {"pane_direction": "right"}
+<
+
+==============================================================================
+9. X11 Configuration 				*slime-x11*
+
+x11 is not the default, to use it you will have to add this line to your
+|.vimrc|:
+>
+	let g:slime_target = "x11"
+<
+When you invoke vim-slime for the first time, you will have to designate a
+target window by clicking on it.
+
+==============================================================================
+10. whimrepl Configuration 			*slime-whimrepl*
+
+whimrepl is not the default, to use it you will have to add this line to
+your |.vimrc|:
+>
+	let g:slime_target = "whimrepl"
+<
+When you invoke vim-slime for the first time (see below), you will be prompted
+for more configuration.
+
+whimrepl server name~
+
+This is the name of the whimrepl server that you wish to target.  whimrepl
+displays that name in its banner every time you start up an instance of
+whimrepl.
+
+==============================================================================
+11. Vim :terminal Configuration 			*slime-vimterminal*
+
+Vim :terminal support targets the terminal emulator built into vim from
+version 8.0.0693, accessed via the :terminal command. It does not support the
+neovim implementation of :terminal, which is instead supported by the separate
+'neovim' target.
+
+Vim :terminal is not the default, to use it you will have to add this line to
+your |.vimrc|:
+>
+        let g:slime_target = "vimterminal"
+
+Vim terminal configuration can be set by using the following in your .vimrc:
+
+    let g:slime_vimterminal_config = {options}
+
+for possible options, see help term_start()
+
+You can specify if you have frequently used commands:
+>
+	let b:slime_vimterminal_cmd = "command"
+<
+or
+>
+	let g:slime_vimterminal_cmd = "command"
+<
+For example, if you use Python, set the following in your |.vimrc|:
+>
+	autocmd FileType python let b:slime_vimterminal_cmd='python3'
+<
+Note that the buffer variable takes precedence over the global one.
+
+When you invoke vim-slime for the first time (see below), you will be prompted
+to select from an existing terminal or to create a new one.
+
+==============================================================================
+12. Slime Configuration 				*slime-configuration*
+
+Global Variables~
+						*g:slime_target*
+g:slime_target		Set to either "screen" (default), "tmux" or "whimrepl".
+
+						*g:slime_no_mappings*
+g:slime_no_mappings	Set to non zero value to disable the default mappings.
+
+						*g:slime_paste_file*
+g:slime_paste_file	Required to transfer data from vim to GNU screen.
+			Set to "$HOME/.slime_paste" by default. Setting
+			this explicitly can work around some occasional
+			portability issues. whimrepl does not require or
+			support this setting.
+
+						*g:slime_preserve_curpos*
+g:slime_preserve_curpos	Set to non zero value to preserve cursor position when
+			sending a line or paragraph. Default is 1.
+
+
+						*g:slime_default_config*
+g:slime_default_config	Set to dictionary of pre-filled prompt answer. See
+			the README for details: https://github.com/jpalardy/vim-slime
+
+						*g:slime_dont_ask_default*
+g:slime_dont_ask_default	Works with g:slime_default_config. See
+			the README for details: https://github.com/jpalardy/vim-slime
+
+Mappings~
+
+Slime's default mappings can be overridden by setting up mappings in your
+|.vimrc| like so:
+>
+	xmap <leader>s <Plug>SlimeRegionSend
+	nmap <leader>s <Plug>SlimeParagraphSend
+<
+
+The following special plugin mappings are provided by slime:
+
+  Used by the default mappings:
+  <Plug>SlimeRegionSend		Send {visual} text. Use |xmap|.
+  <Plug>SlimeParagraphSend	Send a paragraph. Use |nmap|.
+  <Plug>SlimeConfig		Call |:SlimeConfig|. Use |nmap|.
+
+  Optional mappings:
+  <Plug>SlimeLineSend		Send {count} line(s). Use |nmap|.
+  <Plug>SlimeMotionSend		Send {motion}. Use |nmap|.
+
+Disabling a mapping is as simple as creating a mapping that does not exist,
+for example:
+>
+	nmap <Plug>NoSlimeParagraphSend <Plug>SlimeParagraphSend
+<
+
+To use vim like mappings instead of emacs keybindings use the following:
+>
+	let g:slime_no_mappings = 1
+	xmap <leader>s <Plug>SlimeRegionSend
+	nmap <leader>s <Plug>SlimeMotionSend
+	nmap <leader>ss <Plug>SlimeLineSend
+<
+
+==============================================================================
+13. Slime Requirements 				*slime-requirements*
+
+Slime requires either screen or tmux to be available and executable. Awk is
+used for completion of screen sessions.  whimrepl does not require any
+executables, only that 'lein whimrepl' was used to start the Leiningen REPL.
+
+==============================================================================
+
+ vim:tw=78:ts=8:ft=help:norl:
