@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -e
+
+REPO_ROOT="${BASH_SOURCE%/*}/.."
+
+# Must `cd` to root in order for `stylua.toml` to get picked up.
+cd "$REPO_ROOT"
+
+stylua .
