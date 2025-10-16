@@ -1,0 +1,11 @@
+# Steps to sync with latest kitty version
+- Get the latest kitty version `curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin`
+- cd into `vim-kitty` directory
+- Run `kitty +launch gen-syntax.py`
+  - Check the changes with the [changelog](https://sw.kovidgoyal.net/kitty/changelog/)
+- Check if the session cmds at [kitty-session.vim](syntax/kitty-session.vim) are up to date with [session.py](https://github.com/kovidgoyal/kitty/blob/master/kitty/session.py)
+- Update README.md
+- Commit `Sync with v<kitty-version>`
+- Create a git tag `git tag -a v<version> -m "Sync with v<kitty-version>"`
+- Push the changes `git push origin --tags`
+- Create a new release on GitHub
