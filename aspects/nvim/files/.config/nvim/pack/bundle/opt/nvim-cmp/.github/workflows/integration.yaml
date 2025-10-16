@@ -1,0 +1,41 @@
+name: integration
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  integration:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup neovim
+      uses: rhysd/action-setup-vim@v1
+      with:
+        version: nightly
+        neovim: true
+
+    - name: Setup lua
+      uses: leafo/gh-actions-lua@v10
+      with:
+        luaVersion: "luajit-openresty"
+
+    - name: Setup luarocks
+      uses: leafo/gh-actions-luarocks@v4
+
+    - name: Setup tools
+      shell: bash
+      run: |
+        luarocks install luacheck
+        luarocks install vusted
+
+    - name: Run tests
+      shell: bash
+      run: make integration
