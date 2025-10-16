@@ -1,0 +1,1 @@
+(section) @local.scope

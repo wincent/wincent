@@ -1,0 +1,4 @@
+runtime/queries/**/*.scm       linguist-language=tsq
+doc/*.txt                      linguist-documentation
+SUPPORTED_LANGUAGES.md         linguist-generated
+lua/nvim-treesitter/async.lua  linguist-vendored

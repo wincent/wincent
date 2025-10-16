@@ -1,0 +1,50 @@
+name: Lint
+
+on:
+  push:
+    branches:
+      - "main"
+  pull_request:
+    branches:
+      - "main"
+  workflow_dispatch:
+
+jobs:
+  lua:
+    name: Lint Lua files
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Format
+        run: |
+          make formatlua
+          git diff --exit-code
+
+      - name: Lint
+        run: make checklua
+
+  queries:
+    name: Lint query files
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Format
+        run: |
+          make formatquery
+          git diff --exit-code
+
+      - name: Lint
+        run: make lintquery
+
+  readme:
+    name: Lint docs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Check SUPPORTED_LANGUAGES
+        run: |
+          make docs
+          git diff --exit-code
