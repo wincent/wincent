@@ -1,0 +1,194 @@
+*nvim-treesitter-textobjects*  Syntax aware |text-objects|, select, move, swap, and peek support.
+
+                                       Type |gO| to see the table of contents.
+
+==============================================================================
+MODULES					 *nvim-treesitter-textobjects-modules*
+
+Available modules for |nvim-treesitter|.
+
+------------------------------------------------------------------------------
+				  *nvim-treesitter-text-objects-select-submod*
+Text object selection~
+
+Define your own text objects mappings
+similar to `ip` (inner paragraph) and `ap` (a paragraph).
+
+Query files: `textobjects.scm`.
+Supported options:
+- lookahead: `true` or `false`, whether or not to look ahead for the textobject
+- selection_modes: map of capture group to `v`(charwise), `V`(linewise), or `<c-v>`(blockwise),
+  choose a selection mode per capture, default is `v`(charwise).
+- include_surrounding_whitespace: `true` or `false`, when `true` textobjects
+  are extended to include preceding or succeeding whitespace, defaults is
+  `false`. Can also be a function which gets passed a table with the keys
+  `query_string` (`@function.inner`) and `selection_mode` (`v`) and returns
+  `true` of `false`.
+
+>lua
+  -- configuration
+  require("nvim-treesitter-textobjects").setup {
+    select = {
+      -- Automatically jump forward to textobj, similar to targets.vim
+      lookahead = true,
+      -- You can choose the select mode (default is charwise 'v')
+      --
+      -- Can also be a function which gets passed a table with the keys
+      -- * query_string: eg '@function.inner'
+      -- * method: eg 'v' or 'o'
+      -- and should return the mode ('v', 'V', or '<c-v>') or a table
+      -- mapping query_strings to modes.
+      selection_modes = {
+	['@parameter.outer'] = 'v', -- charwise
+	['@function.outer'] = 'V', -- linewise
+	['@class.outer'] = '<c-v>', -- blockwise
+      },
+    },
+      -- If you set this to `true` (default is `false`) then any textobject is
+      -- extended to include preceding or succeeding whitespace. Succeeding
+      -- whitespace has priority in order to act similarly to eg the built-in
+      -- `ap`.
+      --
+      -- Can also be a function which gets passed a table with the keys
+      -- * query_string: eg '@function.inner'
+      -- * selection_mode: eg 'v'
+      -- and should return true of false
+      include_surrounding_whitespace = false,
+  }
+
+  -- keymaps
+  -- You can use the capture groups defined in `textobjects.scm`
+  vim.keymap.set({ "x", "o" }, "af", function()
+    require "nvim-treesitter-textobjects.select".select_textobject("@function.outer", "textobjects")
+  end)
+  vim.keymap.set({ "x", "o" }, "if", function()
+    require "nvim-treesitter-textobjects.select".select_textobject("@function.inner", "textobjects")
+  end)
+  vim.keymap.set({ "x", "o" }, "ac", function()
+    require "nvim-treesitter-textobjects.select".select_textobject("@class.outer", "textobjects")
+  end)
+  vim.keymap.set({ "x", "o" }, "ic", function()
+    require "nvim-treesitter-textobjects.select".select_textobject("@class.inner", "textobjects")
+  end)
+  -- You can also use captures from other query groups like `locals.scm`
+  vim.keymap.set({ "x", "o" }, "as", function()
+    require "nvim-treesitter-textobjects.select".select_textobject("@local.scope", "locals")
+  end)
+<
+
+------------------------------------------------------------------------------
+				    *nvim-treesitter-text-objects-swap-submod*
+Swap text objects~
+
+Define your own mappings to swap the node under the cursor with the next or previous one,
+like function parameters or arguments.
+
+Query files: `textobjects.scm`.
+
+>lua
+  vim.keymap.set("n", "<leader>a", function()
+    require("nvim-treesitter-textobjects.swap").swap_next "@parameter.inner"
+  end)
+  vim.keymap.set("n", "<leader>A", function()
+    require("nvim-treesitter-textobjects.swap").swap_next "@parameter.outer"
+  end)
+<
+
+------------------------------------------------------------------------------
+				    *nvim-treesitter-text-objects-move-submod*
+Go to next/previous text object~
+
+Define your own mappings to jump to the next or previous text object.
+This is similar to |]m|, |[m|, |]M|, |[M| Neovim's mappings to jump to the next
+or previous function.
+
+Query files: `textobjects.scm`.
+Supported options:
+- set_jumps: whether to set jumps in the jumplist
+
+>lua
+  -- configuration
+  require("nvim-treesitter-textobjects").setup {
+    move = {
+      -- whether to set jumps in the jumplist
+      set_jumps = true,
+    },
+  }
+
+  -- keymaps
+  -- You can use the capture groups defined in `textobjects.scm`
+  vim.keymap.set({ "n", "x", "o" }, "]m", function()
+    require("nvim-treesitter-textobjects.move").goto_next_start("@function.outer", "textobjects")
+  end)
+  vim.keymap.set({ "n", "x", "o" }, "]]", function()
+    require("nvim-treesitter-textobjects.move").goto_next_start("@class.outer", "textobjects")
+  end)
+  -- You can also pass a list to group multiple queries.
+  vim.keymap.set({ "n", "x", "o" }, "]o", function()
+    move.goto_next_start({"@loop.inner", "@loop.outer"}, "textobjects")
+  end)
+  -- You can also use captures from other query groups like `locals.scm` or `folds.scm`
+  vim.keymap.set({ "n", "x", "o" }, "]s", function()
+    require("nvim-treesitter-textobjects.move").goto_next_start("@local.scope", "locals")
+  end)
+  vim.keymap.set({ "n", "x", "o" }, "]z", function()
+    require("nvim-treesitter-textobjects.move").goto_next_start("@fold", "folds")
+  end)
+
+  vim.keymap.set({ "n", "x", "o" }, "]M", function()
+    require("nvim-treesitter-textobjects.move").goto_next_end("@function.outer", "textobjects")
+  end)
+  vim.keymap.set({ "n", "x", "o" }, "][", function()
+    require("nvim-treesitter-textobjects.move").goto_next_end("@class.outer", "textobjects")
+  end)
+
+  vim.keymap.set({ "n", "x", "o" }, "[m", function()
+    require("nvim-treesitter-textobjects.move").goto_previous_start("@function.outer", "textobjects")
+  end)
+  vim.keymap.set({ "n", "x", "o" }, "[[", function()
+    require("nvim-treesitter-textobjects.move").goto_previous_start("@class.outer", "textobjects")
+  end)
+
+  vim.keymap.set({ "n", "x", "o" }, "[M", function()
+    require("nvim-treesitter-textobjects.move").goto_previous_end("@function.outer", "textobjects")
+  end)
+  vim.keymap.set({ "n", "x", "o" }, "[]", function()
+    require("nvim-treesitter-textobjects.move").goto_previous_end("@class.outer", "textobjects")
+  end)
+
+  -- Go to either the start or the end, whichever is closer.
+  -- Use if you want more granular movements
+  vim.keymap.set({ "n", "x", "o" }, "]d", function()
+    require("nvim-treesitter-textobjects.move").goto_next("@conditional.outer", "textobjects")
+  end)
+  vim.keymap.set({ "n", "x", "o" }, "[d", function()
+    require("nvim-treesitter-textobjects.move").goto_previous("@conditional.outer", "textobjects")
+  end)
+<
+
+------------------------------------------------------------------------------
+				       *nvim-treesitter-text-objects-override*
+Overrriding or extending text objects~
+
+
+Textobjects are defined in the `textobjects.scm` files.
+You can extend or override those files by following the instructions at
+https://github.com/nvim-treesitter/nvim-treesitter#adding-queries.
+
+You can also use a custom capture for your own textobjects,
+and use it in any of the textobject modules, for example:
+>lua
+ for _, mode in ipairs { "x", "o" } do
+    vim.keymap.set(mode, "aF", function()
+      select.select_textobject("@custom_capture", "textobjects", mode)
+    end)
+  end
+<
+Where '@custom-capture' can be defined in a query file
+>query
+  ; queries/python/textobjects.scm
+  ;; extends
+  (function_definition) @custom_capture
+<
+
+vim:tw=78:ts=8:expandtab:noet:ft=help:norl:
