@@ -1,0 +1,69 @@
+*lion.txt*  Plugin to define a code alignment operator
+
+Author: Tom McDonald <http://tommcdo.com>
+License: Same terms as Vim itself (see |license|)
+
+This plugin is only available if 'compatible' is not set.
+
+INTRODUCTION                                    *lion*
+
+This plugin provides operators for aligning text to a specific character.
+The operators are designed to work as closely as possible to the built-in
+Vim |operators|.
+
+MAPPINGS                                        *lion-mappings*
+
+In the mappings below, if {char} is "/", a prompt will input a pattern to use
+for alignment. If the pattern is left blank, "/" will be used.
+
+                                                *gl* *lion-right-align*
+[count]gl{motion}{char} Align text within {motion} to [count] occurrences
+                        of {char}. Spaces are added to the left of each
+                        {char} in the line up to the [count]th position in
+                        the line.
+                        If no [count] is specified, align all occurrences.
+
+                                                *gL* *lion-left-align*
+[count]gL{motion}{char} Align text within {motion} to [count] occurrences
+                        of {char}. Spaces are added to the right of each
+                        {char} in the line up to the [count]th position in
+                        the line.
+                        If no [count] is specified, align all occurrences.
+
+EXAMPLES                                        *lion-examples*
+
+In the below examples, an asterisk (*) denotes the position of cursor. This
+is primarily to help understand {motion}s from the example commands.
+
+  Old text                  Command     New text ~
+
+  $name = "Tom";            glip=       $name     = "Tom";
+  $birthday =* "Jan 12";                $birthday = "Jan 12";
+  $age = 25;                            $age      = 25;
+
+  fish, monkey, giraffe*    2gL3j,      fish,    monkey,   giraffe
+  a, b, c                               a,       b,        c
+  45, saturday, 0                       45,      saturday, 0
+  goodbye, cruel, lamp                  goodbye, cruel,    lamp
+
+CONFIGURATION                                   *lion-configuration*
+
+Mappings can be configured with the following options:
+
+  Option                  Description                        Default ~
+
+  g:lion_create_maps      Whether to create mappings         1
+  b:lion_squeeze_spaces,
+  g:lion_squeeze_spaces   Whether to squeeze extra spaces    0
+  g:lion_map_right        Mapping for right-align operator   gl
+  g:lion_map_left         Mapping for left-align operator    gL
+
+ISSUES AND TODO                                 *lion-issues* *lion-todo*
+
+See https://github.com/tommcdo/vim-lion/issues for bugs and issues.
+
+MY LOVE                                         *lion-my-love*
+
+The love of my life (and Vim plugin hero) is my beautiful wife, Maya. <3
+
+ vim:tw=78:ts=8:ft=help:norl:
