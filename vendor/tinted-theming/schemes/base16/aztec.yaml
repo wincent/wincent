@@ -1,0 +1,21 @@
+system: "base16"
+name: "Aztec"
+author: "TheNeverMan (github.com/TheNeverMan)"
+variant: "dark"
+palette:
+  base00: "#101600" # Background ----
+  base01: "#1A1E01" # Background ---
+  base02: "#242604" # Background --
+  base03: "#2E2E05" # Background -
+  base04: "#FFD129" # Foreground -
+  base05: "#FFDA51" # Foreground --
+  base06: "#FFE178" # Foreground ---
+  base07: "#FFEBA0" # Foreground ----
+  base08: "#EE2E00" # Red
+  base09: "#EE8800" # Orange
+  base0A: "#EEBB00" # Yellow
+  base0B: "#63D932" # Green
+  base0C: "#3D94A5" # Cyan
+  base0D: "#5B4A9F" # Blue
+  base0E: "#883E9F" # Purple
+  base0F: "#A928B9" # Magenta

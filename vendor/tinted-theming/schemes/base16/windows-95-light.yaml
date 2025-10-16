@@ -1,0 +1,21 @@
+system: "base16"
+name: "Windows 95 Light"
+author: "Fergus Collins (https://github.com/ferguscollins)"
+variant: "light"
+palette:
+  base00: "#fcfcfc" # bright white
+  base01: "#e0e0e0" # brightish white
+  base02: "#c4c4c4" # darkish white
+  base03: "#a8a8a8" # white
+  base04: "#7e7e7e" # brighter black
+  base05: "#545454" # bright black
+  base06: "#2a2a2a" # middle black
+  base07: "#000000" # black
+  base08: "#a80000" # red
+  base09: "#fcfc54" # bright yellow
+  base0A: "#a85400" # yellow
+  base0B: "#00a800" # green
+  base0C: "#00a8a8" # cyan
+  base0D: "#0000a8" # blue
+  base0E: "#a800a8" # magenta
+  base0F: "#54fc54" # bright green

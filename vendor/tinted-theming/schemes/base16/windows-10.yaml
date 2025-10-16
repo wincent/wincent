@@ -1,0 +1,21 @@
+system: "base16"
+name: "Windows 10"
+author: "Fergus Collins (https://github.com/ferguscollins)"
+variant: "dark"
+palette:
+  base00: "#0c0c0c" # black
+  base01: "#2f2f2f" # darkish black
+  base02: "#535353" # brightish black
+  base03: "#767676" # bright black
+  base04: "#b9b9b9" # darker white
+  base05: "#cccccc" # white
+  base06: "#dfdfdf" # middle white
+  base07: "#f2f2f2" # bright white
+  base08: "#e74856" # bright red
+  base09: "#c19c00" # yellow
+  base0A: "#f9f1a5" # bright yellow
+  base0B: "#16c60c" # bright green
+  base0C: "#61d6d6" # bright cyan
+  base0D: "#3b78ff" # bright blue
+  base0E: "#b4009e" # bright magenta
+  base0F: "#13a10e" # green

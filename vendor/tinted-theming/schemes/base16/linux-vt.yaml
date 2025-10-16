@@ -1,0 +1,21 @@
+system: base16
+name: Linux VT
+author: j-c-m (https://github.com/j-c-m/)
+variant: dark
+palette:
+  base00: "#000000" # Default Background (Black, ANSI 0)
+  base01: "#333333" # Lighter Background (Interpolated grayscale)
+  base02: "#444444" # Selection Background (Interpolated grayscale)
+  base03: "#555555" # Comments, Invisibles (Bright Black/Gray, ANSI 8)
+  base04: "#888888" # Dark Foreground (Interpolated grayscale)
+  base05: "#AAAAAA" # Default Foreground (White, ANSI 7)
+  base06: "#CCCCCC" # Light Foreground (Interpolated grayscale)
+  base07: "#FFFFFF" # Lightest Foreground (Bright White, ANSI 15)
+  base08: "#AA0000" # Variables, Red (Red, ANSI 1)
+  base09: "#FF5555" # Integers, Orange (Bright Red, ANSI 9, as no true orange)
+  base0A: "#FFFF55" # Classes, Yellow (Bright Yellow, ANSI 11)
+  base0B: "#00AA00" # Strings, Green (Green, ANSI 2)
+  base0C: "#00AAAA" # Escape Characters, Cyan (Cyan, ANSI 6)
+  base0D: "#5555FF" # Functions, Blue (Bright Blue, ANSI 12)
+  base0E: "#FF55FF" # Keywords, Purple (Bright Magenta, ANSI 13)
+  base0F: "#AA5500" # Deprecated, Brown (Yellow, ANSI 3, as closest to brown)

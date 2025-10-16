@@ -1,0 +1,10 @@
+blank_issues_enabled: true
+contact_links:
+  - system: "base16"
+    name: Learn more about the various specs and larger ecosystem
+    url: https://github.com/base16-project/home
+    about: Sometimes the answers are right there, just waiting to be discovered.
+  - system: "base16"
+    name: Discuss within the broader project
+    about: Your issue is broadly applicable to most Base16 schemes (or the whole ecosystem).
+    url: https://github.com/base16-project/home/issues/new
