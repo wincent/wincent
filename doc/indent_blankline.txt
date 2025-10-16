@@ -1,0 +1,929 @@
+*indent-blankline.txt*                       Adds indentation guides to Neovim
+
+
+Author: Lukas Reineke <lukas.reineke@protonmail.com>
+
+==============================================================================
+CONTENTS                                              *ibl* *indent-blankline*
+
+  1. Introduction                          |ibl.introduction|
+  2. Functions                             |ibl.functions|
+  3. Types                                 |ibl.types|
+  4. Highlights                            |ibl.highlights|
+  5. Commands                              |ibl.commands|
+  6. License                               |ibl.license|
+
+==============================================================================
+ 1. INTRODUCTION                                            *ibl.introduction*
+
+ This plugin adds indentation guides to Neovim.
+ It uses Neovim's virtual text feature and **no conceal**
+
+ To start using indent-blankline, call the |ibl.setup()| function.
+
+ This plugin requires the latest stable version of Neovim.
+
+==============================================================================
+ 2. FUNCTIONS                                                  *ibl.functions*
+
+setup({config})                                                  *ibl.setup()*
+
+ Initializes and configures indent-blankline.
+
+ Optionally, the first parameter can be a configuration table.
+ All values that are not passed in the table are set to the default value.
+ List values get merged with the default list value.
+
+ `setup` is idempotent, meaning you can call it multiple times, and each call
+ will reset indent-blankline. If you want to only update the current
+ configuration, use |ibl.update()| or |ibl.overwrite()|.
+
+ Parameters: ~
+   • {config}  (|ibl.config|?) Configuration table
+
+ Example: ~
+   >lua
+   require "ibl".setup()
+
+
+update({config})                                                *ibl.update()*
+
+ Updates the indent-blankline configuration
+
+ The first parameter is a configuration table.
+ All values that are not passed in the table are kept as they are.
+ List values get merged with the current list value.
+
+ Parameters: ~
+   • {config}  (|ibl.config|) Configuration table
+
+ Example: ~
+   >lua
+   require "ibl".update { enabled = false }
+<
+
+overwrite({config})                                          *ibl.overwrite()*
+
+ Overwrites the indent-blankline configuration
+
+ The first parameter is a configuration table.
+ All values that are not passed in the table are kept as they are.
+ All values that are passed overwrite existing and default values.
+
+ In case you use both |ibl.setup()| and |ibl.overwrite()|, make sure to
+ call setup first.
+
+ Parameters: ~
+   • {config}  (|ibl.config|) Configuration table
+
+ Example: ~
+   >lua
+   require "ibl".overwrite {
+     exclude = { filetypes = {} }
+   }
+<
+
+setup_buffer({bufnr}, {config})                           *ibl.setup_buffer()*
+
+ Configures indent-blankline for one buffer
+
+ All values that are not passed are cleared, and will fall back to
+ the global config.
+ List values get merged with the global config values.
+
+ Parameters: ~
+   • {bufnr}   (number) Buffer number (0 for current buffer)
+   • {config}  (|ibl.config|?) Configuration table
+
+
+refresh({bufnr})                                               *ibl.refresh()*
+
+ Refreshes indent-blankline in one buffer
+
+ Only use this directly if you know what you are doing,
+ consider |ibl.debounced_refresh| instead
+
+ Parameters: ~
+   • {bufnr}  (number) Buffer number (0 for current buffer)
+
+
+debounced_refresh({bufnr})                           *ibl.debounced_refresh()*
+
+ Refreshes indent-blankline in one buffer, debounced
+
+ Parameters: ~
+   • {bufnr}  (number) Buffer number (0 for current buffer)
+
+
+refresh_all()                                              *ibl.refresh_all()*
+
+ Refreshes indent-blankline in all buffers
+
+
+hooks.register({type}, {fn}, {opts})                    *ibl.hooks.register()*
+
+ Registers a hook.
+ See |ibl.hooks| for more information
+
+ Each hook type takes a different callback, and a configuration table
+
+ Parameters: ~
+   • {type}  (|ibl.hooks.type|) Type of the hook
+   • {cb}    (|ibl.hooks.cb|) Callback function
+   • {opts}  (|ibl.hooks.options|?) Optional options for the hook
+
+ Return: ~
+   (string) ID of the hook
+
+ Example: ~
+   >lua
+   local hooks = require "ibl.hooks"
+   hooks.register(
+     hooks.type.ACTIVE,
+     function(bufnr)
+       return vim.api.nvim_buf_line_count(bufnr) < 5000
+     end
+   )
+<
+
+hooks.clear({id})                                          *ibl.hooks.clear()*
+
+ Clears a hook by id
+
+ Parameters: ~
+   • {id}  (string) ID of the hook
+
+
+hooks.clear_all()                                      *ibl.hooks.clear_all()*
+
+ Clears all hooks
+
+
+hooks.get({bufnr}, {type})                                   *ibl.hooks.get()*
+
+ Returns a list of all hooks for that buffer with the type
+
+ Parameters: ~
+   • {bufnr}  (number) Buffer number (0 for current buffer)
+   • {type}   (|ibl.hooks.type|) Type of the hook
+
+ Return: ~
+   (|ibl.hooks.cb|[]) List of hooks
+
+==============================================================================
+ 3. TYPES                                                          *ibl.types*
+
+config                                                            *ibl.config*
+
+ Configuration table for indent-blankline.
+
+ Fields: ~
+                                                          *ibl.config.enabled*
+   • {enabled}          (boolean)
+                        Enables or disables indent-blankline
+
+                        Default: `true` ~
+
+                                                         *ibl.config.debounce*
+   • {debounce}         (number)
+                        Sets the amount indent-blankline debounces
+                        refreshes in milliseconds
+
+                        Default: `200` ~
+
+   • {viewport_buffer}  (|ibl.config.viewport_buffer|)
+                        Configures the viewport of where indentation guides
+                        are generated
+
+   • {indent}           (|ibl.config.indent|)
+                        Configures the indentation
+
+   • {whitespace}       (|ibl.config.whitespace|)
+                        Configures the whitespace
+
+   • {scope}            (|ibl.config.scope|)
+                        Configures the scope
+
+   • {exclude}          (|ibl.config.exclude|)
+                        Configures what is excluded from indent-blankline
+
+ Example: ~
+   >lua
+   {
+       debounce = 100,
+       indent = { char = "|" },
+       whitespace = { highlight = { "Whitespace", "NonText" } },
+       scope = { exclude = { language = { "lua" } } },
+   }
+<
+
+config.viewport_buffer                            *ibl.config.viewport_buffer*
+
+ Configures the viewport of where indentation guides are generated
+
+ Fields: ~
+                                              *ibl.config.viewport_buffer.min*
+   • {min}  (number)
+            Minimum number of lines above and below of what is currently
+            visible in the window for which indentation guides will
+            be generated
+
+            Default: `30` ~
+
+                                              *ibl.config.viewport_buffer.max*
+   • {max}  (number) [deprecated]
+            Maximum number of lines above and below of what is currently
+            visible in the window for which indentation guides will
+            be generated
+
+            (This functionality has been deprecated, and the exact offset
+            can be chosen with `min` instead)
+
+            Default: `500` ~
+
+ Example: ~
+   >lua
+   { min = 100, max = 600 }
+<
+
+config.indent                                              *ibl.config.indent*
+
+ Configures the indentation
+
+ Fields: ~
+                                                      *ibl.config.indent.char*
+   • {char}              (string|string[])
+                         Character, or list of characters, that get used to
+                         display the indentation guide
+                         Each character has to have a display width of 0 or 1
+
+                         Default: `▎` ~
+
+                         Alternatives: ~
+                           • left aligned solid
+                             • `▏`
+                             • `▎` (default)
+                             • `▍`
+                             • `▌`
+                             • `▋`
+                             • `▊`
+                             • `▉`
+                             • `█`
+                           • center aligned solid
+                             • `│`
+                             • `┃`
+                           • right aligned solid
+                             • `▕`
+                             • `▐`
+                           • center aligned dashed
+                             • `╎`
+                             • `╏`
+                             • `┆`
+                             • `┇`
+                             • `┊`
+                             • `┋`
+                           • center aligned double
+                             • `║`
+
+                                                  *ibl.config.indent.tab_char*
+   • {tab_char}          (string|string[])
+                         Character, or list of characters, that get used to
+                         display the indentation guide for tabs
+                         Each character has to have a display width of 0 or 1
+
+                         Default: uses |lcs-tab| if |'list'| is set, ~
+                                  otherwise, uses |ibl.config.indent.char| ~
+
+                                                 *ibl.config.indent.highlight*
+   • {highlight}         (string|string[])
+                         Highlight group, or list of highlight groups, that
+                         get applied to the indentation guide
+
+                         Default: |hl-IblIndent| ~
+
+                                          *ibl.config.indent.smart_indent_cap*
+   • {smart_indent_cap}  (boolean)
+                         Caps the number of indentation levels by looking at
+                         the surrounding code
+
+                         Default: `true` ~
+
+                         Example: ~
+                           >c
+                           # OFF
+                           {
+                           ▎ foo_bar(a, b,
+                           ▎ ▎ ▎ ▎ ▎ c, d);
+                           }
+
+                           # ON
+                           {
+                           ▎ foo_bar(a, b,
+                           ▎ ▎       c, d);
+                           }
+<
+                                                  *ibl.config.indent.priority*
+   • {priority}          (number)
+                         Virtual text priority for the indentation guide
+
+                         Default: `1` ~
+
+                                          *ibl.config.indent.repeat_linebreak*
+   • {repeat_linebreak}  (boolean)
+                         Repeat indentation guide virtual text on wrapped
+                         lines if |'breakindent'| is set, and |'breakindentopt'|
+                         does not contain any of the following:
+                           • `column`
+                           • `sbr`
+                           • `shift` with a negative value
+
+                         Default: `true` ~
+
+                         Note: requires Neovim version 0.10 or higher ~
+
+ Example: ~
+   >lua
+   {
+       char = "|",
+       tab_char = { "a", "b", "c" },
+       highlight = { "Function", "Label" },
+       smart_indent_cap = true,
+       priority = 2,
+       repeat_linebreak = false,
+   }
+<
+
+config.whitespace                                      *ibl.config.whitespace*
+
+ Configures the whitespace
+
+ Fields: ~
+                                             *ibl.config.whitespace.highlight*
+   • {highlight}               (string|string[])
+                               Highlight group, or list of highlight groups,
+                               that get applied to the whitespace
+
+                               Default: |hl-IblWhitespace| ~
+
+                                *ibl.config.whitespace.remove_blankline_trail*
+   • {remove_blankline_trail}  (boolean)
+                               Removes trailing whitespace on blanklines
+
+                               Turn this off if you want to add background
+                               color to the whitespace highlight group
+
+                               Default: `true` ~
+
+ Example: ~
+   >lua
+   {
+       highlight = { "Function", "Label" },
+       remove_blankline_trail = true,
+   }
+<
+
+config.scope                                                *ibl.config.scope*
+
+ Configures the scope
+
+ The scope is *not* the current indentation level! Instead, it is the
+ indentation level where variables or functions are accessible. This depends
+ on the language you are writing.
+
+ Example: ~
+
+ In Python, an `if` block is not a new scope, variables defined inside `if`
+ are accessible outside. The scope is the function `foo`.
+ (please don't actually write code like this)
+ >python
+ def foo();
+ ┋   if True:
+ ┋       a = "foo █ar"
+ ┋       #        ↳ cursor here
+ ┋   print(a)
+<
+ In Rust on the other hand, `if` blocks are a new scope. Variables defined
+ inside are not accesible outside. Indent-blanklines scope reflects this, and
+ the scope is just the `if` block.
+ (this code would not compile)
+ >rust
+ fn foo() {
+     if true {
+     ┋   let a = "foo █ar";
+     ┋   //           ↳ cursor here
+     }
+     print(a);
+ }
+<
+ Note: Scope requires treesitter to be set up ~
+
+ Fields: ~
+                                                    *ibl.config.scope.enabled*
+   • {enabled}             (boolean)
+                           Enables or disables scope
+
+                           Default: `true` ~
+
+                                                       *ibl.config.scope.char*
+   • {char}                (string|string[])
+                           Character, or list of characters, that get used to
+                           display the scope indentation guide
+                           Each character has to have a display width
+                           of 0 or 1
+
+                           Default: |ibl.config.indent.char| ~
+
+                                                 *ibl.config.scope.show_start*
+   • {show_start}          (boolean)
+                           Shows an underline on the first line of the scope
+
+                           Default: `true` ~
+
+                                                   *ibl.config.scope.show_end*
+   • {show_end}            (boolean)
+                           Shows an underline on the last line of the scope
+
+                           Default: `true` ~
+
+
+                                           *ibl.config.scope.show_exact_scope*
+   • {show_exact_scope}    (boolean)
+                           Shows an underline on the first line of the scope
+                           starting at the exact start of the scope (even if
+                           this is to the right of the indent guide) and an
+                           underline on the last line of the scope ending at
+                           the exact end of the scope.
+
+                           Default: `false` ~
+
+                                         *ibl.config.scope.injected_languages*
+   • {injected_languages}  (boolean)
+                           Checks for the current scope in injected
+                           treesitter languages
+
+                           This also influences if the scope gets excluded
+                           or not
+
+                           Default: `true` ~
+
+                                                  *ibl.config.scope.highlight*
+   • {highlight}           (string|string[])
+                           Highlight group, or list of highlight groups,
+                           that get applied to the scope
+
+                           Default: |hl-IblScope| ~
+
+                                                   *ibl.config.scope.priority*
+   • {priority}            (number)
+                           Virtual text priority for the scope
+
+                           Default: `1024` ~
+
+   • {include}             (|ibl.config.scope.include|)
+                           Configures additional nodes to be used as scope
+
+   • {exclude}             (|ibl.config.scope.exclude|)
+                           Configures nodes or languages to be excluded
+                           from scope
+
+ Example: ~
+   >lua
+   {
+       enabled = true,
+       show_start = true,
+       show_end = false,
+       injected_languages = false,
+       highlight = { "Function", "Label" },
+       priority = 500,
+   }
+<
+
+config.scope.include                                *ibl.config.scope.include*
+
+ Configures additional nodes to be used as scope
+
+ Fields: ~
+                                          *ibl.config.scope.include.node_type*
+   • {node_type}  (table<string, string[]>)
+                  map of language to a list of node types which can be
+                  used as scope
+
+                  Use `*` as the language to act as a wildcard for all languages
+                  Use `*` as a node type to act as a wildcard for all node types
+
+                  Default: empty ~
+
+ Example: ~
+   >lua
+   -- Add some node types to lua
+   {
+       node_type = { lua = { "return_statement", "table_constructor" } },
+   }
+   -- Make every node type valid. Note that this can lead to some weird
+   -- behavior
+   {
+       node_type = { ["*"] = { "*" } },
+   }
+
+
+config.scope.exclude                                *ibl.config.scope.exclude*
+
+ Configures nodes or languages to be excluded from scope
+
+ Fields: ~
+                                           *ibl.config.scope.exclude.language*
+   • {language}   (string[])
+                  List of treesitter languages for which scope is disabled
+
+                  Default: empty ~
+
+                                          *ibl.config.scope.exclude.node_type*
+   • {node_type}  (table<string, string[]>)
+                  map of language to a list of node types which should not
+                  be used as scope
+
+                  Use `*` as a wildcard for all languages
+
+                  Default: ~
+                    • `*`:
+                      • `source_file`
+                      • `program`
+                    • `lua`:
+                      • `chunk`
+                    • `python`:
+                      • `module`
+
+ Example: ~
+   >lua
+   {
+       language = { "rust" },
+       node_type = { lua = { "block", "chunk" } },
+   }
+<
+
+config.exclude                                            *ibl.config.exclude*
+
+ Configures what is excluded from indent-blankline
+
+ Fields: ~
+                                                *ibl.config.exclude.filetypes*
+   • {filetypes}  (string[])
+                  List of |'filetype'|s for which indent-blankline is disabled
+
+                  Default: ~
+                    • `lspinfo`
+                    • `packer`
+                    • `checkhealth`
+                    • `help`
+                    • `man`
+                    • `gitcommit`
+                    • `TelescopePrompt`
+                    • `TelescopeResults`
+                    • `''`
+
+                                                 *ibl.config.exclude.buftypes*
+   • {buftypes}  (string[])
+                  List of |'buftype'|s for which indent-blankline is disabled
+
+                  Default: ~
+                    • `terminal`
+                    • `nofile`
+                    • `quickfix`
+                    • `prompt`
+
+ Example: ~
+   >lua
+   {
+       filetypes = { "rust" },
+       buftypes = { "terminal" },
+   }
+<
+
+indent.whitespace                                      *ibl.indent.whitespace*
+
+ Enum of whitespace types
+
+ Variants: ~
+   • {TAB_START}
+   • {TAB_START_SINGLE}
+   • {TAB_FILL}
+   • {TAB_END}
+   • {SPACE}
+   • {INDENT}
+
+
+hooks                                                              *ibl.hooks*
+
+ Hooks provide a way to extend the functionality of indent-blankline. Either
+ from your own config, or even from other third part plugins.
+ Hooks consist of a type (|ibl.hooks.type|) and a callback
+ function (|ibl.hooks.cb|). When indent-blankline computes values for which
+ hooks exist, for example if a buffer is active, it then calls all registered
+ hooks for that type to get the final value.
+
+ Most hooks can be global or buffer scoped.
+
+
+hooks.type                                                    *ibl.hooks.type*
+
+ Enum of hook types
+
+ Variants: ~
+   • {ACTIVE}
+   • {SCOPE_ACTIVE}
+   • {SKIP_LINE}
+   • {WHITESPACE}
+   • {VIRTUAL_TEXT}
+   • {SCOPE_HIGHLIGHT}
+   • {CLEAR}
+   • {HIGHLIGHT_SETUP}
+
+
+hooks.cb                                                        *ibl.hooks.cb*
+
+ Each hook type takes a different callback function
+
+
+hooks.cb.active({bufnr})                               *ibl.hooks.cb.active()*
+
+ Callback function for the |ibl.hooks.type|.ACTIVE hook.
+
+ Gets called before refreshing indent-blankline for a buffer.
+ If the callback returns false, the buffer will not be refreshed, and all
+ existing indentation guides will be cleared.
+
+ Parameters: ~
+   • {bufnr}  (number) Buffer number
+
+ Return: ~
+   (boolean)
+
+
+hooks.cb.scope_active({bufnr})                    *ibl.hooks.cb.scope_active()*
+
+ Callback function for the |ibl.hooks.type|.SCOPE_ACTIVE hook.
+
+ Gets called before refreshing indent-blankline for a buffer.
+ If the callback returns false, |ibl.config.scope| will be disabled.
+
+ Parameters: ~
+   • {bufnr}  (number) Buffer number
+
+ Return: ~
+   (boolean)
+
+
+hooks.cb.skip_line({tick}, {bufnr}, {row}, {line})  *ibl.hooks.cb.skip_line()*
+
+ Callback function for the |ibl.hooks.type|.SKIP_LINE hook.
+
+ Gets called for every line before indentation is calculated.
+ If the callback returns true, the line will get skipped.
+
+ Parameters: ~
+   • {tick}   (number) auto-incrementing id of the current refresh
+   • {bufnr}  (number) Buffer number
+   • {row}    (number) Row of the buffer
+   • {line}   (string) Text of that row
+
+ Return: ~
+   (boolean)
+
+                                                   *ibl.hooks.cb.whitespace()*
+hooks.cb.whitespace({tick}, {bufnr}, {row}, {whitespace})
+
+ Callback function for the |ibl.hooks.type|.WHITESPACE hook.
+
+ Gets called for every line after the whitespace is determined.
+ The return value overwrites the whitespace for that line.
+
+ Whitespace is a table of `ibl.indent.whitespace` enum values, where each
+ value represents a display cell.
+
+ Parameters: ~
+   • {tick}        (number) auto-incrementing id of the current refresh
+   • {bufnr}       (number) Buffer number
+   • {row}         (number) Row of the buffer
+   • {whitespace}  (|ib.indent.whitespace|[]) List of whitespace enum
+
+ Return: ~
+   (|ib.indent.whitespace|[])
+
+                                                 *ibl.hooks.cb.virtual_text()*
+hooks.cb.virtual_text({tick}, {bufnr}, {row}, {virtual_text})
+
+ Callback function for the |ibl.hooks.type|.VIRTUAL_TEXT hook.
+
+ Gets called for every line after the virtual text is determined.
+ The return value overwrites the virtual text for that line.
+
+ See |nvim_buf_set_extmark()| for more information about virtual text.
+
+ Parameters: ~
+   • {tick}          (number) auto-incrementing id of the current refresh
+   • {bufnr}         (number) Buffer number
+   • {row}           (number) Row of the buffer
+   • {virtual_text}  ({string, string|string[]}[]) Virtual text for the line
+
+ Return: ~
+   ({string, string|string[]}[])
+
+                                              *ibl.hooks.cb.scope_highlight()*
+hooks.cb.scope_highlight({tick}, {bufnr}, {scope}, {scope_index})
+
+ Callback function for the |ibl.hooks.type|.SCOPE_HIGHLIGHT hook.
+
+ Gets called once per refresh after the scope is determined.
+ The return value overwrites the index of the highlight group
+ defined in |ibl.config.scope.highlight|
+
+ Parameters: ~
+   • {tick}         (number) auto-incrementing id of the current refresh
+   • {bufnr}        (number) Buffer number
+   • {scope}        (|TSNode|) The current scope
+   • {scope_index}  (number) Index of the highlight group
+
+ Return: ~
+   (number)
+
+
+hooks.cb.clear({bufnr})                                 *ibl.hooks.cb.clear()*
+
+ Callback function for the |ibl.hooks.type|.CLEAR hook.
+
+ Gets called when a buffer is cleared.
+
+ Parameters: ~
+   • {bufnr}  (number) Buffer number
+
+
+hooks.cb.highlight_setup()                    *ibl.hooks.cb.highlight_setup()*
+
+ Callback function for the |ibl.hooks.type|.HIGHLIGHT_SETUP hook.
+
+ Gets called before the highlight groups are created.
+ If you want to define custom highlight groups, do it in this hook, so they
+ are reset if you change the colorscheme with |:colorscheme|.
+
+
+hooks.options                                              *ibl.hooks.options*
+
+ Option table for hook registration
+
+ Fields: ~
+                                                     *ibl.hooks.options.bufnr*
+   • {bufnr}  (number)
+              Buffer number (0 for current buffer)
+
+
+hooks.builtin                                              *ibl.hooks.builtin*
+
+hooks.builtin.skip_preproc_lines        *ibl.hooks.builtin.skip_preproc_lines*
+
+ Skip preproc lines
+ Automatically active for `c` and `cpp`
+
+ Example: ~
+   >lua
+   local hooks = require "ibl.hooks"
+   hooks.register(
+     hooks.type.SKIP_LINE,
+     hooks.builtin.skip_preproc_lines,
+     { bufnr = 0 }
+   )
+<
+                                  *hooks.builtin.scope_highlight_from_extmark*
+hooks.builtin.scope_highlight_from_extmark
+
+ Gets the highlight group from existing extmark highlights at the end or
+ beginning of the scope.
+ This can be used to get a somewhat reliable sync between
+ "rainbow parentheses" plugins like
+ https://gitlab.com/HiPhish/rainbow-delimiters.nvim and indent-blankline.
+
+ Example: ~
+   >lua
+   local highlight = {
+     "RainbowDelimiterRed",
+     "RainbowDelimiterYellow",
+     "RainbowDelimiterBlue",
+     "RainbowDelimiterOrange",
+     "RainbowDelimiterGreen",
+     "RainbowDelimiterViolet",
+     "RainbowDelimiterCyan",
+   }
+   vim.g.rainbow_delimiters = { highlight = highlight }
+   require "ibl".setup { scope = { highlight = highlight } }
+
+   local hooks = require "ibl.hooks"
+   hooks.register(
+     hooks.type.SCOPE_HIGHLIGHT,
+     hooks.builtin.scope_highlight_from_extmark
+   )
+<
+                             *ibl.hooks.builtin.hide_first_space_indent_level*
+hooks.builtin.hide_first_space_indent_level
+
+ Replaces the first indentation guide for space indentation with a normal
+ space.
+
+ Example: ~
+   >lua
+   local hooks = require "ibl.hooks"
+   hooks.register(
+     hooks.type.WHITESPACE,
+     hooks.builtin.hide_first_space_indent_level
+   )
+<
+                               *ibl.hooks.builtin.hide_first_tab_indent_level*
+hooks.builtin.hide_tab_space_indent_level
+
+ Replaces the first indentation guide for tab indentation with
+ |lcs-tab| tab fill.
+
+ Example: ~
+   >lua
+   local hooks = require "ibl.hooks"
+   hooks.register(
+     hooks.type.WHITESPACE,
+     hooks.builtin.hide_first_tab_indent_level
+   )
+<
+==============================================================================
+ 4. HIGHLIGHTS                                                *ibl.highlights*
+
+IblIndent                                                       *hl-IblIndent*
+
+ The default highlight group for indentation characters.
+
+ Default: takes the values from |hl-Whitespace| when not defined ~
+
+
+IblWhitespace                                               *hl-IblWhitespace*
+
+ The default highlight group for whitespace characters.
+
+ Default: takes the values from |hl-Whitespace| when not defined ~
+
+
+IblScope                                                         *hl-IblScope*
+
+ The default highlight group for |ibl.config.scope| characters.
+
+ Default: takes the values from |hl-LineNr| when not defined ~
+
+==============================================================================
+ 5. COMMANDS                                                    *ibl.commands*
+
+:IBLEnable                                                        *:IBLEnable*
+
+ Enables indent-blankline
+
+:IBLDisable                                                      *:IBLDisable*
+
+ Disables indent-blankline
+
+:IBLToggle                                                        *:IBLToggle*
+
+ Toggles indent-blankline on and off
+
+:IBLEnableScope                                              *:IBLEnableScope*
+
+ Enables indent-blanklines scope
+
+:IBLDisableScope                                            *:IBLDisableScope*
+
+ Disables indent-blanklines scope
+
+:IBLToggleScope                                              *:IBLToggleScope*
+
+ Toggles indent-blanklines scope on and off
+
+==============================================================================
+ 6. LICENSE                                                      *ibl.license*
+
+ The MIT Licence
+ http://www.opensource.org/licenses/mit-license.php
+
+ Copyright (c) 2023 Lukas Reineke
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.
+
+==============================================================================
+vim:tw=78:ts=8:ft=help:norl
