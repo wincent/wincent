@@ -1,0 +1,153 @@
+#!/usr/bin/env sh
+# tinted-shell (https://github.com/tinted-theming/tinted-shell)
+# Scheme name: {{scheme-name}}
+# Scheme author: {{scheme-author}}
+# Template author: Tinted Theming (https://github.com/tinted-theming)
+export BASE24_THEME="{{scheme-slug}}"
+
+color00="{{base00-hex-r}}/{{base00-hex-g}}/{{base00-hex-b}}" # Base 00 - Black
+color01="{{base08-hex-r}}/{{base08-hex-g}}/{{base08-hex-b}}" # Base 08 - Red
+color02="{{base0B-hex-r}}/{{base0B-hex-g}}/{{base0B-hex-b}}" # Base 0B - Green
+color03="{{base0A-hex-r}}/{{base0A-hex-g}}/{{base0A-hex-b}}" # Base 0A - Yellow
+color04="{{base0D-hex-r}}/{{base0D-hex-g}}/{{base0D-hex-b}}" # Base 0D - Blue
+color05="{{base0E-hex-r}}/{{base0E-hex-g}}/{{base0E-hex-b}}" # Base 0E - Magenta
+color06="{{base0C-hex-r}}/{{base0C-hex-g}}/{{base0C-hex-b}}" # Base 0C - Cyan
+color07="{{base05-hex-r}}/{{base05-hex-g}}/{{base05-hex-b}}" # Base 05 - White
+color08="{{base03-hex-r}}/{{base03-hex-g}}/{{base03-hex-b}}" # Base 03 - Bright Black
+color09="{{base12-hex-r}}/{{base12-hex-g}}/{{base12-hex-b}}" # Base 12 - Bright Red
+color10="{{base14-hex-r}}/{{base14-hex-g}}/{{base14-hex-b}}" # Base 14 - Bright Green
+color11="{{base13-hex-r}}/{{base13-hex-g}}/{{base13-hex-b}}" # Base 13 - Bright Yellow
+color12="{{base16-hex-r}}/{{base16-hex-g}}/{{base16-hex-b}}" # Base 16 - Bright Blue
+color13="{{base17-hex-r}}/{{base17-hex-g}}/{{base17-hex-b}}" # Base 17 - Bright Magenta
+color14="{{base15-hex-r}}/{{base15-hex-g}}/{{base15-hex-b}}" # Base 15 - Bright Cyan
+color15="{{base07-hex-r}}/{{base07-hex-g}}/{{base07-hex-b}}" # Base 07 - Bright White
+color16="{{base09-hex-r}}/{{base09-hex-g}}/{{base09-hex-b}}" # Base 09
+color17="{{base0F-hex-r}}/{{base0F-hex-g}}/{{base0F-hex-b}}" # Base 0F
+color18="{{base01-hex-r}}/{{base01-hex-g}}/{{base01-hex-b}}" # Base 01
+color19="{{base02-hex-r}}/{{base02-hex-g}}/{{base02-hex-b}}" # Base 02
+color20="{{base04-hex-r}}/{{base04-hex-g}}/{{base04-hex-b}}" # Base 04
+color21="{{base06-hex-r}}/{{base06-hex-g}}/{{base06-hex-b}}" # Base 06
+color_foreground="{{base05-hex-r}}/{{base05-hex-g}}/{{base05-hex-b}}" # Base 05
+color_background="{{base00-hex-r}}/{{base00-hex-g}}/{{base00-hex-b}}" # Base 00
+
+
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
+  put_template() { true; }
+  put_template_var() { true; }
+  put_template_custom() { true; }
+elif [ -n "$TMUX" ] || [ "${TERM%%[-.]*}" = "tmux" ]; then
+  # Tell tmux to pass the escape sequences through
+  # (Source: http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1324)
+  put_template() { printf '\033Ptmux;\033\033]4;%d;rgb:%s\033\033\\\033\\' "$@" > "$TTY"; }
+  put_template_var() { printf '\033Ptmux;\033\033]%d;rgb:%s\033\033\\\033\\' "$@" > "$TTY"; }
+  put_template_custom() { printf '\033Ptmux;\033\033]%s%s\033\033\\\033\\' "$@" > "$TTY"; }
+elif [ "${TERM%%[-.]*}" = "screen" ]; then
+  # GNU screen (screen, screen-256color, screen-256color-bce)
+  put_template() { printf '\033P\033]4;%d;rgb:%s\007\033\\' "$@" > "$TTY"; }
+  put_template_var() { printf '\033P\033]%d;rgb:%s\007\033\\' "$@" > "$TTY"; }
+  put_template_custom() { printf '\033P\033]%s%s\007\033\\' "$@" > "$TTY"; }
+elif [ "${TERM%%-*}" = "linux" ]; then
+  put_template() { [ "$1" -lt 16 ] && printf "\e]P%x%s" "$1" "$(echo "$2" | sed 's/\///g')" > "$TTY"; }
+  put_template_var() { true; }
+  put_template_custom() { true; }
+else
+  put_template() { printf '\033]4;%d;rgb:%s\033\\' "$@" > "$TTY"; }
+  put_template_var() { printf '\033]%d;rgb:%s\033\\' "$@" > "$TTY"; }
+  put_template_custom() { printf '\033]%s%s\033\\' "$@" > "$TTY"; }
+fi
+
+# 16 color space
+put_template 0  "$color00"
+put_template 1  "$color01"
+put_template 2  "$color02"
+put_template 3  "$color03"
+put_template 4  "$color04"
+put_template 5  "$color05"
+put_template 6  "$color06"
+put_template 7  "$color07"
+put_template 8  "$color08"
+put_template 9  "$color09"
+put_template 10 "$color10"
+put_template 11 "$color11"
+put_template 12 "$color12"
+put_template 13 "$color13"
+put_template 14 "$color14"
+put_template 15 "$color15"
+
+# foreground / background / cursor color
+if [ -n "$ITERM_SESSION_ID" ]; then
+  # iTerm2 proprietary escape codes
+  put_template_custom Pg {{base05-hex}} # foreground
+  put_template_custom Ph {{base00-hex}} # background
+  put_template_custom Pi {{base05-hex}} # bold color
+  put_template_custom Pj {{base02-hex}} # selection color
+  put_template_custom Pk {{base05-hex}} # selected text color
+  put_template_custom Pl {{base05-hex}} # cursor
+  put_template_custom Pm {{base00-hex}} # cursor text
+else
+  put_template_var 10 "$color_foreground"
+  if [ "$BASE24_SHELL_SET_BACKGROUND" != false ]; then
+    put_template_var 11 "$color_background"
+    if [ "${TERM%%-*}" = "rxvt" ]; then
+      put_template_var 708 "$color_background" # internal border (rxvt)
+    fi
+  fi
+  put_template_custom 12 ";7" # cursor (reverse video)
+fi
+
+# clean up
+unset put_template
+unset put_template_var
+unset put_template_custom
+unset color00
+unset color01
+unset color02
+unset color03
+unset color04
+unset color05
+unset color06
+unset color07
+unset color08
+unset color09
+unset color10
+unset color11
+unset color12
+unset color13
+unset color14
+unset color16
+unset color17
+unset color18
+unset color19
+unset color20
+unset color21
+unset color15
+unset color_foreground
+unset color_background
+
+# Optionally export variables
+if [ -n "$TINTED_SHELL_ENABLE_BASE24_VARS" ]; then
+  export BASE24_COLOR_00_HEX="{{base00-hex}}"
+  export BASE24_COLOR_01_HEX="{{base01-hex}}"
+  export BASE24_COLOR_02_HEX="{{base02-hex}}"
+  export BASE24_COLOR_03_HEX="{{base03-hex}}"
+  export BASE24_COLOR_04_HEX="{{base04-hex}}"
+  export BASE24_COLOR_05_HEX="{{base05-hex}}"
+  export BASE24_COLOR_06_HEX="{{base06-hex}}"
+  export BASE24_COLOR_07_HEX="{{base07-hex}}"
+  export BASE24_COLOR_08_HEX="{{base08-hex}}"
+  export BASE24_COLOR_09_HEX="{{base09-hex}}"
+  export BASE24_COLOR_0A_HEX="{{base0A-hex}}"
+  export BASE24_COLOR_0B_HEX="{{base0B-hex}}"
+  export BASE24_COLOR_0C_HEX="{{base0C-hex}}"
+  export BASE24_COLOR_0D_HEX="{{base0D-hex}}"
+  export BASE24_COLOR_0E_HEX="{{base0E-hex}}"
+  export BASE24_COLOR_0F_HEX="{{base0F-hex}}"
+  export BASE24_COLOR_10_HEX="{{base10-hex}}"
+  export BASE24_COLOR_11_HEX="{{base11-hex}}"
+  export BASE24_COLOR_12_HEX="{{base12-hex}}"
+  export BASE24_COLOR_13_HEX="{{base13-hex}}"
+  export BASE24_COLOR_14_HEX="{{base14-hex}}"
+  export BASE24_COLOR_15_HEX="{{base15-hex}}"
+  export BASE24_COLOR_16_HEX="{{base16-hex}}"
+  export BASE24_COLOR_17_HEX="{{base17-hex}}"
+fi
