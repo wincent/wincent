@@ -1,0 +1,43 @@
+# base24 Sea Shells
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#08131a"
+foreground = "#b79c7e"
+
+cursor_bg = "#17384c"
+cursor_border = "#b79c7e"
+cursor_fg = "#deb88d"
+
+selection_bg = "#b79c7e"
+selection_fg = "#424b52"
+
+ansi = [
+  "#08131a",
+  "#d15023",
+  "#027c9b",
+  "#1bbcdd",
+  "#1e4950",
+  "#68d3f1",
+  "#50a3b5",
+  "#deb88d"
+]
+brights = [
+  "#424b52",
+  "#d38677",
+  "#618c98",
+  "#fdd29e",
+  "#1bbcdd",
+  "#bbe3ee",
+  "#86abb3",
+  "#fee3cd"
+]
+
+[colors.indexed]
+16 = "#fca02f"
+17 = "#682811"
+18 = "#17384c"
+19 = "#424b52"
+20 = "#90816f"
+21 = "#b79c7e"

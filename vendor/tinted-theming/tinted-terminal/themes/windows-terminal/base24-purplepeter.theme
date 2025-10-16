@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Purplepeter",
+	"foreground": "#c38e69",
+	"background": "#2a1a4a",
+	"black": "#0a041f",
+	"blue": "#66d9ef",
+	"brightBlack": "#100b22",
+	"brightBlue": "#79daed",
+	"brightCyan": "#a0a0d6",
+	"brightGreen": "#b4bd8e",
+	"brightPurple": "#b991d4",
+	"brightRed": "#f89f92",
+	"brightWhite": "#b9aed3",
+	"brightYellow": "#f1e9bf",
+	"cyan": "#b98cff",
+	"green": "#98b481",
+	"purple": "#e68ecd",
+	"red": "#ff786c",
+	"white": "#ffba81",
+	"yellow": "#efdeab"
+},

@@ -1,0 +1,10 @@
+# Scheme name: Birds Of Paradise
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-birds-of-paradise
+ColorForeground=#cdbe9b
+ColorBackground=#2a1e1d
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#573d25;#be2d26;#6ba08a;#b8d3ed;#5a86ac;#ab80a6;#74a5ac;#dfdab7;#9a6b49;#e84526;#94d7ba;#d0d04f;#b8d3ed;#d09dca;#92ced6;#fff9d4

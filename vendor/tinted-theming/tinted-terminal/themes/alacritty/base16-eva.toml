@@ -1,0 +1,58 @@
+# base16 Eva 256 - alacritty color config
+# kjakapat (https://github.com/kjakapat)
+
+# Default colors
+[colors.primary]
+background = '0x2a3b4d'
+foreground = '0x9fa2a6'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x2a3b4d'
+cursor = '0x9fa2a6'
+
+# Normal colors
+[colors.normal]
+black = '0x3d566f'
+red = '0xc4676c'
+green = '0x66ff66'
+yellow = '0xffff66'
+blue = '0x15f4ee'
+magenta = '0x9c6cd3'
+cyan = '0x4b8f77'
+white = '0xd6d7d9'
+
+# Bright colors
+[colors.bright]
+black = '0x4b6988'
+red = '0xc4676c'
+green = '0x66ff66'
+yellow = '0xffff66'
+blue = '0x15f4ee'
+magenta = '0x9c6cd3'
+cyan = '0x4b8f77'
+white = '0xffffff'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xff9966"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xbb64a9"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x3d566f"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x4b6988"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x7e90a3"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xd6d7d9"

@@ -1,0 +1,10 @@
+# Scheme name: Wild Cherry
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-wild-cherry
+ColorForeground=#bfe1d8
+ColorBackground=#1f1626
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#000506;#d94085;#2ab250;#2f8bb9;#883cdc;#ececec;#c1b8b7;#fff8dd;#009cc9;#da6bab;#f4dba5;#eac066;#2f8bb9;#ae636b;#ff919d;#e4838d

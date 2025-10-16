@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Google Light",
+	"foreground": "#373b41",
+	"background": "#ffffff",
+	"black": "#e0e0e0",
+	"blue": "#3971ed",
+	"brightBlack": "#c5c8c6",
+	"brightBlue": "#3971ed",
+	"brightCyan": "#3971ed",
+	"brightGreen": "#198844",
+	"brightPurple": "#a36ac7",
+	"brightRed": "#cc342b",
+	"brightWhite": "#1d1f21",
+	"brightYellow": "#fba922",
+	"cyan": "#3971ed",
+	"green": "#198844",
+	"purple": "#a36ac7",
+	"red": "#cc342b",
+	"white": "#282a2e",
+	"yellow": "#f96a38"
+},

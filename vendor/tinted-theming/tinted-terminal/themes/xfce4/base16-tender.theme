@@ -1,0 +1,10 @@
+# Scheme name: tender
+# Scheme author: Jacobo Tabernero (https://github/com/jacoborus/tender.vim)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-tender
+ColorForeground=#eeeeee
+ColorBackground=#282828
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#383838;#f43753;#c9d05c;#ffc24b;#b3deef;#d3b987;#73cef4;#e8e8e8;#484848;#f43753;#c9d05c;#ffc24b;#b3deef;#d3b987;#73cef4;#feffff

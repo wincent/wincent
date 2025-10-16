@@ -1,0 +1,58 @@
+# base16 Mocha 256 - alacritty color config
+# Chris Kempson (http://chriskempson.com)
+
+# Default colors
+[colors.primary]
+background = '0x3b3228'
+foreground = '0xd0c8c6'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x3b3228'
+cursor = '0xd0c8c6'
+
+# Normal colors
+[colors.normal]
+black = '0x534636'
+red = '0xcb6077'
+green = '0xbeb55b'
+yellow = '0xf4bc87'
+blue = '0x8ab3b5'
+magenta = '0xa89bb9'
+cyan = '0x7bbda4'
+white = '0xe9e1dd'
+
+# Bright colors
+[colors.bright]
+black = '0x645240'
+red = '0xcb6077'
+green = '0xbeb55b'
+yellow = '0xf4bc87'
+blue = '0x8ab3b5'
+magenta = '0xa89bb9'
+cyan = '0x7bbda4'
+white = '0xf5eeeb'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xd28b71"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xbb9584"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x534636"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x645240"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0xb8afad"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xe9e1dd"

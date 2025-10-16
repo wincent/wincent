@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Tomorrow Night
+; Scheme system: base24
+; Scheme description: 
+; Scheme author: Cody Buell (https://github.com/codybuell)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base24-tomorrow-night]
+
+; Default Foreground
+; base05 #c5c8c6
+"Colour0"="197,200,198"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #c5c8c6
+"Colour1"="197,200,198"
+
+; Default Background
+; base00 #1d1f21
+"Colour2"="29,31,33"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #1d1f21
+"Colour3"="29,31,33"
+
+; Cursor Text -- equals to default background
+; base00 #1d1f21
+"Colour4"="29,31,33"
+
+; Cursor Colour -- equals to default foreground
+; base05 #c5c8c6
+"Colour5"="197,200,198"
+
+; ANSI Black
+; 30m
+; base01 #282a2e
+"Colour6"="40,42,46"
+
+; ANSI Black Bright
+; 1;30m
+; base02 #373b41
+"Colour7"="55,59,65"
+
+; ANSI Red
+; 31m
+; base08 #cc6666
+"Colour8"="204,102,102"
+
+; ANSI Red Bright
+; 1;31m
+; base12 #e74c3c
+"Colour9"="231,76,60"
+
+; ANSI Green
+; 32m
+; base0B #b5bd68
+"Colour10"="181,189,104"
+
+; ANSI Green Bright
+; 1;32m
+; base14 #b8d4b3
+"Colour11"="184,212,179"
+
+; ANSI Yellow
+; 33m
+; base0A #f0c674
+"Colour12"="240,198,116"
+
+; ANSI Yellow Bright
+; 1;33m
+; base13 #f7dc6f
+"Colour13"="247,220,111"
+
+; ANSI Blue
+; 34m
+; base0D #81a2be
+"Colour14"="129,162,190"
+
+; ANSI Blue Bright
+; 1;34m
+; base16 #85c1e9
+"Colour15"="133,193,233"
+
+; ANSI Magenta
+; 35m
+; base0E #b294bb
+"Colour16"="178,148,187"
+
+; ANSI Magenta Bright
+; 1;35m
+; base17 #d7a3ca
+"Colour17"="215,163,202"
+
+; ANSI Cyan
+; 36m
+; base0C #8abeb7
+"Colour18"="138,190,183"
+
+; ANSI Cyan Bright
+; 1;36m
+; base15 #95d3ce
+"Colour19"="149,211,206"
+
+; ANSI White
+; 37m
+; base06 #e0e0e0
+"Colour20"="224,224,224"
+
+; ANSI White Bright
+; 1;37m
+; base07 ffffff
+"Colour21"="255,255,255"

@@ -1,0 +1,43 @@
+# base16 Material Vivid
+# Scheme author: joshyrobot
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#202124"
+foreground = "#80868b"
+
+cursor_bg = "#80868b"
+cursor_border = "#80868b"
+cursor_fg = "#202124"
+
+selection_bg = "#80868b"
+selection_fg = "#323639"
+
+ansi = [
+  "#202124",
+  "#f44336",
+  "#00e676",
+  "#ffeb3b",
+  "#2196f3",
+  "#673ab7",
+  "#00bcd4",
+  "#9e9e9e"
+]
+brights = [
+  "#323639",
+  "#f44336",
+  "#00e676",
+  "#ffeb3b",
+  "#2196f3",
+  "#673ab7",
+  "#00bcd4",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#ff9800"
+17 = "#8d6e63"
+18 = "#27292c"
+19 = "#323639"
+20 = "#676c71"
+21 = "#80868b"

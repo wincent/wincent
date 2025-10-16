@@ -1,0 +1,43 @@
+# base16 selenized-light
+# Scheme author: Jan Warchol (https://github.com/jan-warchol/selenized) / adapted to base16 by ali
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#fbf3db"
+foreground = "#53676d"
+
+cursor_bg = "#53676d"
+cursor_border = "#53676d"
+cursor_fg = "#fbf3db"
+
+selection_bg = "#53676d"
+selection_fg = "#d5cdb6"
+
+ansi = [
+  "#fbf3db",
+  "#cc1729",
+  "#428b00",
+  "#a78300",
+  "#006dce",
+  "#825dc0",
+  "#00978a",
+  "#3a4d53"
+]
+brights = [
+  "#d5cdb6",
+  "#cc1729",
+  "#428b00",
+  "#a78300",
+  "#006dce",
+  "#825dc0",
+  "#00978a",
+  "#3a4d53"
+]
+
+[colors.indexed]
+16 = "#bc5819"
+17 = "#c44392"
+18 = "#ece3cc"
+19 = "#d5cdb6"
+20 = "#909995"
+21 = "#53676d"

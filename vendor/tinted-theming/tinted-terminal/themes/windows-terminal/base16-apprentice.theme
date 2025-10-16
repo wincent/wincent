@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Apprentice",
+	"foreground": "#5f5f87",
+	"background": "#262626",
+	"black": "#af5f5f",
+	"blue": "#8787af",
+	"brightBlack": "#5f875f",
+	"brightBlue": "#8787af",
+	"brightCyan": "#87afd7",
+	"brightGreen": "#ffffaf",
+	"brightPurple": "#5fafaf",
+	"brightRed": "#444444",
+	"brightWhite": "#6c6c6c",
+	"brightYellow": "#87af87",
+	"cyan": "#87afd7",
+	"green": "#ffffaf",
+	"purple": "#5fafaf",
+	"red": "#444444",
+	"white": "#5f8787",
+	"yellow": "#ff8700"
+},

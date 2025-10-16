@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "emil",
+	"foreground": "#313145",
+	"background": "#efefef",
+	"black": "#bebed2",
+	"blue": "#471397",
+	"brightBlack": "#9e9eaf",
+	"brightBlue": "#471397",
+	"brightCyan": "#2155d6",
+	"brightGreen": "#0073a8",
+	"brightPurple": "#6916b6",
+	"brightRed": "#f43979",
+	"brightWhite": "#1a1a2f",
+	"brightYellow": "#ff669b",
+	"cyan": "#2155d6",
+	"green": "#0073a8",
+	"purple": "#6916b6",
+	"red": "#f43979",
+	"white": "#22223a",
+	"yellow": "#d22a8b"
+},

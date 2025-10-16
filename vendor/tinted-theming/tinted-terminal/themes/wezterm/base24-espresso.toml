@@ -1,0 +1,43 @@
+# base24 Espresso
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#262626"
+foreground = "#c7c7c5"
+
+cursor_bg = "#343434"
+cursor_border = "#c7c7c5"
+cursor_fg = "#eeeeec"
+
+selection_bg = "#c7c7c5"
+selection_fg = "#535353"
+
+ansi = [
+  "#262626",
+  "#d25151",
+  "#a5c261",
+  "#8ab7d9",
+  "#6c99bb",
+  "#d197d9",
+  "#bed6ff",
+  "#eeeeec"
+]
+brights = [
+  "#535353",
+  "#f00c0c",
+  "#c2e075",
+  "#e1e38b",
+  "#8ab7d9",
+  "#efb5f7",
+  "#dcf3ff",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#ffc66d"
+17 = "#692828"
+18 = "#343434"
+19 = "#535353"
+20 = "#a0a09f"
+21 = "#c7c7c5"

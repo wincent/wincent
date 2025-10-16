@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: pinky
+; Scheme system: base16
+; Scheme description: 
+; Scheme author: Benjamin (https://github.com/b3nj5m1n)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base16-pinky]
+
+; Default Foreground
+; base05 #f5f5f5
+"Colour0"="245,245,245"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #f5f5f5
+"Colour1"="245,245,245"
+
+; Default Background
+; base00 #171517
+"Colour2"="23,21,23"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #171517
+"Colour3"="23,21,23"
+
+; Cursor Text -- equals to default background
+; base00 #171517
+"Colour4"="23,21,23"
+
+; Cursor Colour -- equals to default foreground
+; base05 #f5f5f5
+"Colour5"="245,245,245"
+
+; ANSI Black
+; 30m
+; base01 #1b181b
+"Colour6"="27,24,27"
+
+; ANSI Black Bright
+; 1;30m
+; base02 #1d1b1d
+"Colour7"="29,27,29"
+
+; ANSI Red
+; 31m
+; base08 #ffa600
+"Colour8"="255,166,0"
+
+; ANSI Red Bright
+; 1;31m
+; base08 #ffa600
+"Colour9"="255,166,0"
+
+; ANSI Green
+; 32m
+; base0B #ff0066
+"Colour10"="255,0,102"
+
+; ANSI Green Bright
+; 1;32m
+; base0B #ff0066
+"Colour11"="255,0,102"
+
+; ANSI Yellow
+; 33m
+; base0A #20df6c
+"Colour12"="32,223,108"
+
+; ANSI Yellow Bright
+; 1;33m
+; base0A #20df6c
+"Colour13"="32,223,108"
+
+; ANSI Blue
+; 34m
+; base0D #00ffff
+"Colour14"="0,255,255"
+
+; ANSI Blue Bright
+; 1;34m
+; base0D #00ffff
+"Colour15"="0,255,255"
+
+; ANSI Magenta
+; 35m
+; base0E #007fff
+"Colour16"="0,127,255"
+
+; ANSI Magenta Bright
+; 1;35m
+; base0E #007fff
+"Colour17"="0,127,255"
+
+; ANSI Cyan
+; 36m
+; base0C #6600ff
+"Colour18"="102,0,255"
+
+; ANSI Cyan Bright
+; 1;36m
+; base0C #6600ff
+"Colour19"="102,0,255"
+
+; ANSI White
+; 37m
+; base06 #ffffff
+"Colour20"="255,255,255"
+
+; ANSI White Bright
+; 1;37m
+; base07 f7f3f7
+"Colour21"="247,243,247"

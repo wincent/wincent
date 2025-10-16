@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Piatto Light",
+	"foreground": "#cfcfcf",
+	"background": "#ffffff",
+	"black": "#414141",
+	"blue": "#3c5ea8",
+	"brightBlack": "#3f3f3f",
+	"brightBlue": "#3c5ea8",
+	"brightCyan": "#829429",
+	"brightGreen": "#829429",
+	"brightPurple": "#a454b2",
+	"brightRed": "#db3365",
+	"brightWhite": "#f2f2f2",
+	"brightYellow": "#cd6f34",
+	"cyan": "#66781e",
+	"green": "#66781e",
+	"purple": "#a454b2",
+	"red": "#b23771",
+	"white": "#ffffff",
+	"yellow": "#cd6f34"
+},

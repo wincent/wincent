@@ -1,0 +1,10 @@
+# Scheme name: selenized-black
+# Scheme author: Jan Warchol (https://github.com/jan-warchol/selenized) / adapted to base16 by ali
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-selenized-black
+ColorForeground=#b9b9b9
+ColorBackground=#181818
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#252525;#ed4a46;#70b433;#dbb32d;#368aeb;#a580e2;#3fc5b7;#dedede;#3b3b3b;#ed4a46;#70b433;#dbb32d;#368aeb;#a580e2;#3fc5b7;#dedede

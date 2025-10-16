@@ -1,0 +1,10 @@
+# Scheme name: Seti UI
+# Scheme author: 
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-seti
+ColorForeground=#d6d6d6
+ColorBackground=#151718
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#282a2b;#cd3f45;#9fca56;#e6cd69;#55b5db;#a074c4;#55dbbe;#eeeeee;#3b758c;#cd3f45;#9fca56;#e6cd69;#55b5db;#a074c4;#55dbbe;#ffffff

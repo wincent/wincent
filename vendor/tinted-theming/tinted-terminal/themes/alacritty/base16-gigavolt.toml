@@ -1,0 +1,58 @@
+# base16 Gigavolt 256 - alacritty color config
+# Aidan Swope (http://github.com/Whillikers)
+
+# Default colors
+[colors.primary]
+background = '0x202126'
+foreground = '0xe9e7e1'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x202126'
+cursor = '0xe9e7e1'
+
+# Normal colors
+[colors.normal]
+black = '0x2d303d'
+red = '0xff661a'
+green = '0xf2e6a9'
+yellow = '0xffdc2d'
+blue = '0x40bfff'
+magenta = '0xae94f9'
+cyan = '0xfb6acb'
+white = '0xeff0f9'
+
+# Bright colors
+[colors.bright]
+black = '0x5a576e'
+red = '0xff661a'
+green = '0xf2e6a9'
+yellow = '0xffdc2d'
+blue = '0x40bfff'
+magenta = '0xae94f9'
+cyan = '0xfb6acb'
+white = '0xf2fbff'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0x19f988"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x6187ff"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x2d303d"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x5a576e"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0xcad3ff"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xeff0f9"

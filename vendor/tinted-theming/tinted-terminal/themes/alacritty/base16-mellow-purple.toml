@@ -1,0 +1,58 @@
+# base16 Mellow Purple 256 - alacritty color config
+# gidsi
+
+# Default colors
+[colors.primary]
+background = '0x1e0528'
+foreground = '0xffeeff'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x1e0528'
+cursor = '0xffeeff'
+
+# Normal colors
+[colors.normal]
+black = '0x1a092d'
+red = '0x00d9e9'
+green = '0x05cb0d'
+yellow = '0x955ae7'
+blue = '0x550068'
+magenta = '0x8991bb'
+cyan = '0xb900b1'
+white = '0xffeeff'
+
+# Bright colors
+[colors.bright]
+black = '0x331354'
+red = '0x00d9e9'
+green = '0x05cb0d'
+yellow = '0x955ae7'
+blue = '0x550068'
+magenta = '0x8991bb'
+cyan = '0xb900b1'
+white = '0xf8c0ff'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xaa00a3"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x4d6fff"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x1a092d"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x331354"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x873582"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xffeeff"

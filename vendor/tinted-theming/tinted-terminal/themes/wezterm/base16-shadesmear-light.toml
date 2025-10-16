@@ -1,0 +1,43 @@
+# base16 ShadeSmear Light
+# Scheme author: Kyle Giammarco (http://kyle.giammar.co)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#dbdbdb"
+foreground = "#232323"
+
+cursor_bg = "#232323"
+cursor_border = "#232323"
+cursor_fg = "#dbdbdb"
+
+selection_bg = "#232323"
+selection_fg = "#c0c0c0"
+
+ansi = [
+  "#dbdbdb",
+  "#cc5450",
+  "#71983b",
+  "#307878",
+  "#376388",
+  "#d7ab54",
+  "#c57d42",
+  "#1c1c1c"
+]
+brights = [
+  "#c0c0c0",
+  "#cc5450",
+  "#71983b",
+  "#307878",
+  "#376388",
+  "#d7ab54",
+  "#c57d42",
+  "#e4e4e4"
+]
+
+[colors.indexed]
+16 = "#a64270"
+17 = "#6d6d6d"
+18 = "#e4e4e4"
+19 = "#c0c0c0"
+20 = "#1c1c1c"
+21 = "#232323"

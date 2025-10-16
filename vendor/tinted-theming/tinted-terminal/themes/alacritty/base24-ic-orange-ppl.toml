@@ -1,0 +1,58 @@
+# base24 IC-Orange-PPL 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x262626'
+foreground = '0xd9a971'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x262626'
+cursor = '0xd9a971'
+
+# Normal colors
+[colors.normal]
+black = '0x000000'
+red = '0xc03900'
+green = '0xa3a900'
+yellow = '0xffbd54'
+blue = '0xbd6c00'
+magenta = '0xfb5d00'
+cyan = '0xf79400'
+white = '0xffc88a'
+
+# Bright colors
+[colors.bright]
+black = '0x6a4e29'
+red = '0xff8b67'
+green = '0xf6ff3f'
+yellow = '0xffe36e'
+blue = '0xffbd54'
+magenta = '0xfc874f'
+cyan = '0xc59752'
+white = '0xf9f9fe'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xcaae00"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x601c00"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x000000"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x6a4e29"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0xb48b59"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xffc88a"

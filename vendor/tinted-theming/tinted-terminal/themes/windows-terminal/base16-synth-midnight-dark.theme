@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Synth Midnight Terminal Dark",
+	"foreground": "#c1c3c4",
+	"background": "#050608",
+	"black": "#1a1b1c",
+	"blue": "#03aeff",
+	"brightBlack": "#28292a",
+	"brightBlue": "#03aeff",
+	"brightCyan": "#42fff9",
+	"brightGreen": "#06ea61",
+	"brightPurple": "#ea5ce2",
+	"brightRed": "#b53b50",
+	"brightWhite": "#dddfe0",
+	"brightYellow": "#c9d364",
+	"cyan": "#42fff9",
+	"green": "#06ea61",
+	"purple": "#ea5ce2",
+	"red": "#b53b50",
+	"white": "#cfd1d2",
+	"yellow": "#ea770d"
+},

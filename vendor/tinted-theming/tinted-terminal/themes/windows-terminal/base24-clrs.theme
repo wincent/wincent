@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "CLRS",
+	"foreground": "#9a9b9a",
+	"background": "#ffffff",
+	"black": "#000000",
+	"blue": "#125ccf",
+	"brightBlack": "#545753",
+	"brightBlue": "#156ffe",
+	"brightCyan": "#39d5ce",
+	"brightGreen": "#2cc631",
+	"brightPurple": "#e800b0",
+	"brightRed": "#fb0416",
+	"brightWhite": "#ededec",
+	"brightYellow": "#fcd627",
+	"cyan": "#32c2c0",
+	"green": "#32895c",
+	"purple": "#9f00bc",
+	"red": "#f72729",
+	"white": "#b2b2b2",
+	"yellow": "#f96f1c"
+},

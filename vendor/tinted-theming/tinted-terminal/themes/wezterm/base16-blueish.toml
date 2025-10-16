@@ -1,0 +1,43 @@
+# base16 Blueish
+# Scheme author: Ben Mayoras
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#182430"
+foreground = "#c8e1f8"
+
+cursor_bg = "#c8e1f8"
+cursor_border = "#c8e1f8"
+cursor_fg = "#182430"
+
+selection_bg = "#c8e1f8"
+selection_fg = "#46290a"
+
+ansi = [
+  "#182430",
+  "#4ce587",
+  "#c3e88d",
+  "#82aaff",
+  "#82aaff",
+  "#ff84dd",
+  "#5fd1ff",
+  "#ddeaf6"
+]
+brights = [
+  "#46290a",
+  "#4ce587",
+  "#c3e88d",
+  "#82aaff",
+  "#82aaff",
+  "#ff84dd",
+  "#5fd1ff",
+  "#8f98a0"
+]
+
+[colors.indexed]
+16 = "#f6a85c"
+17 = "#bbd2e8"
+18 = "#243c54"
+19 = "#46290a"
+20 = "#74afe7"
+21 = "#c8e1f8"

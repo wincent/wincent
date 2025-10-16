@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Ciapre by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#555555' # base02
+selection-foreground = '#978f73' # base05
+
+cursor         = '#978f73' # base05
+tabs           = '#181818' # base01
+tabs-active    = '#555555' # base02
+
+background     = '#181c27' # base00
+foreground     = '#978f73' # base05
+black          = '#181818' # base01
+red            = '#800009' # base08
+yellow         = '#2f97c6' # base0A
+green          = '#48513b' # base0B
+cyan           = '#5b4f4a' # base0C
+blue           = '#566d8c' # base0D
+magenta        = '#724c7c' # base0E
+white          = '#ada37e' # base06
+
+dim-foreground   = '#978f73' # base05
+dim-black        = '#181818' # base01
+dim-red          = '#800009' # base08
+dim-yellow       = '#2f97c6' # base0A
+dim-green        = '#48513b' # base0B
+dim-cyan         = '#5b4f4a' # base0C
+dim-blue         = '#566d8c' # base0D
+dim-magenta      = '#724c7c' # base0E
+dim-white        = '#817c69' # base04
+
+light-foreground = '#978f73' # base05
+light-black      = '#555555' # base02
+light-red        = '#ab3834' # base12
+light-yellow     = '#dcde7b' # base13
+light-green      = '#a6a65d' # base14
+light-cyan       = '#f3dab1' # base15
+light-blue       = '#2f97c6' # base16
+light-magenta    = '#d33060' # base17
+light-white      = '#f3f3f3' # base07

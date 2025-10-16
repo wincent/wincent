@@ -1,0 +1,43 @@
+# base24 0x96f
+# Scheme author: Filip Janevski (https://0x96f.dev/theme)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#262427"
+foreground = "#fcfcfc"
+
+cursor_bg = "#3b393c"
+cursor_border = "#fcfcfc"
+cursor_fg = "#eae9eb"
+
+selection_bg = "#fcfcfc"
+selection_fg = "#514f52"
+
+ansi = [
+  "#262427",
+  "#ff7272",
+  "#bcdf59",
+  "#ffca58",
+  "#49cae4",
+  "#a093e2",
+  "#aee8f4",
+  "#eae9eb"
+]
+brights = [
+  "#514f52",
+  "#ff8787",
+  "#c6e472",
+  "#ffd271",
+  "#64d2e8",
+  "#aea3e6",
+  "#baebf6",
+  "#fcfcfc"
+]
+
+[colors.indexed]
+16 = "#fc9d6f"
+17 = "#ff8787"
+18 = "#3b393c"
+19 = "#514f52"
+20 = "#7c7b7d"
+21 = "#fcfcfc"

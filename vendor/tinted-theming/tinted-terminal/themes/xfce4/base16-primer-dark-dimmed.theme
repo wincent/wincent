@@ -1,0 +1,10 @@
+# Scheme name: Primer Dark Dimmed
+# Scheme author: Jimmy Lin
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-primer-dark-dimmed
+ColorForeground=#909dab
+ColorBackground=#1c2128
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#373e47;#f47067;#57ab5a;#c69026;#539bf5;#e275ad;#96d0ff;#adbac7;#444c56;#f47067;#57ab5a;#c69026;#539bf5;#e275ad;#96d0ff;#cdd9e5

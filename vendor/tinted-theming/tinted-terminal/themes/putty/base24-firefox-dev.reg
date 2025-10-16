@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Firefox Dev
+; Scheme system: base24
+; Scheme description: 
+; Scheme author: FredHappyface (https://github.com/fredHappyface)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base24-firefox-dev]
+
+; Default Foreground
+; base05 #a5acae
+"Colour0"="165,172,174"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #a5acae
+"Colour1"="165,172,174"
+
+; Default Background
+; base00 #0e1011
+"Colour2"="14,16,17"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #0e1011
+"Colour3"="14,16,17"
+
+; Cursor Text -- equals to default background
+; base00 #0e1011
+"Colour4"="14,16,17"
+
+; Cursor Colour -- equals to default foreground
+; base05 #a5acae
+"Colour5"="165,172,174"
+
+; ANSI Black
+; 30m
+; base01 #002731
+"Colour6"="0,39,49"
+
+; ANSI Black Bright
+; 1;30m
+; base02 #001e26
+"Colour7"="0,30,38"
+
+; ANSI Red
+; 31m
+; base08 #e63853
+"Colour8"="230,56,83"
+
+; ANSI Red Bright
+; 1;31m
+; base12 #e1003f
+"Colour9"="225,0,63"
+
+; ANSI Green
+; 32m
+; base0B #5eb83c
+"Colour10"="94,184,60"
+
+; ANSI Green Bright
+; 1;32m
+; base14 #1d9000
+"Colour11"="29,144,0"
+
+; ANSI Yellow
+; 33m
+; base0A #006fc0
+"Colour12"="0,111,192"
+
+; ANSI Yellow Bright
+; 1;33m
+; base13 #cc9308
+"Colour13"="204,147,8"
+
+; ANSI Blue
+; 34m
+; base0D #359ddf
+"Colour14"="53,157,223"
+
+; ANSI Blue Bright
+; 1;34m
+; base16 #006fc0
+"Colour15"="0,111,192"
+
+; ANSI Magenta
+; 35m
+; base0E #d75cff
+"Colour16"="215,92,255"
+
+; ANSI Magenta Bright
+; 1;35m
+; base17 #a200da
+"Colour17"="162,0,218"
+
+; ANSI Cyan
+; 36m
+; base0C #4b73a2
+"Colour18"="75,115,162"
+
+; ANSI Cyan Bright
+; 1;36m
+; base15 #005794
+"Colour19"="0,87,148"
+
+; ANSI White
+; 37m
+; base06 #dcdcdc
+"Colour20"="220,220,220"
+
+; ANSI White Bright
+; 1;37m
+; base07 e2e2e2
+"Colour21"="226,226,226"

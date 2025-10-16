@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Idea",
+	"foreground": "#515151",
+	"background": "#202020",
+	"black": "#acacac",
+	"blue": "#437ee6",
+	"brightBlack": "#fffefe",
+	"brightBlue": "#6c9bed",
+	"brightCyan": "#248886",
+	"brightGreen": "#98b61b",
+	"brightPurple": "#fc7efe",
+	"brightRed": "#fc6f72",
+	"brightWhite": "#171717",
+	"brightYellow": "#ffff0a",
+	"cyan": "#248886",
+	"green": "#98b61b",
+	"purple": "#9d73b0",
+	"red": "#fb5255",
+	"white": "#171717",
+	"yellow": "#ccb343"
+},

@@ -1,0 +1,10 @@
+# Scheme name: Tokyo Night Dark
+# Scheme author: Michaël Ball
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-tokyo-night-dark
+ColorForeground=#a9b1d6
+ColorBackground=#1a1b26
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#16161e;#c0caf5;#9ece6a;#0db9d7;#2ac3de;#bb9af7;#b4f9f8;#cbccd1;#2f3549;#c0caf5;#9ece6a;#0db9d7;#2ac3de;#bb9af7;#b4f9f8;#d5d6db

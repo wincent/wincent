@@ -1,0 +1,58 @@
+# base24 Chalkboard 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x29262f'
+foreground = '0xafafaf'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x29262f'
+cursor = '0xafafaf'
+
+# Normal colors
+[colors.normal]
+black = '0x000000'
+red = '0xc37372'
+green = '0x72c373'
+yellow = '0xaaaadb'
+blue = '0x7372c3'
+magenta = '0xc372c2'
+cyan = '0x72c2c3'
+white = '0xd9d9d9'
+
+# Bright colors
+[colors.bright]
+black = '0x323232'
+red = '0xdbaaaa'
+green = '0xaadbaa'
+yellow = '0xdadbaa'
+blue = '0xaaaadb'
+magenta = '0xdbaada'
+cyan = '0xaadadb'
+white = '0xffffff'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xc2c372"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x613939"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x000000"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x323232"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x858585"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xd9d9d9"

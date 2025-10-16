@@ -1,0 +1,43 @@
+# base24 Grape
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#161423"
+foreground = "#8c8a92"
+
+cursor_bg = "#2d283e"
+cursor_border = "#8c8a92"
+cursor_fg = "#9e9ea0"
+
+selection_bg = "#8c8a92"
+selection_fg = "#58506a"
+
+ansi = [
+  "#161423",
+  "#ec2160",
+  "#1fa91b",
+  "#a9bbeb",
+  "#487cf4",
+  "#8c35c8",
+  "#3added",
+  "#9e9ea0"
+]
+brights = [
+  "#58506a",
+  "#f0719a",
+  "#52a95d",
+  "#b2dc87",
+  "#a9bbeb",
+  "#ac81c1",
+  "#9ce3ea",
+  "#a188f7"
+]
+
+[colors.indexed]
+16 = "#8ddc1f"
+17 = "#761030"
+18 = "#2d283e"
+19 = "#58506a"
+20 = "#7b7785"
+21 = "#8c8a92"

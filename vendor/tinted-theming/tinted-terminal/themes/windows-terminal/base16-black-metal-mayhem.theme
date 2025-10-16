@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Black Metal (Mayhem)",
+	"foreground": "#c1c1c1",
+	"background": "#000000",
+	"black": "#121212",
+	"blue": "#888888",
+	"brightBlack": "#222222",
+	"brightBlue": "#888888",
+	"brightCyan": "#aaaaaa",
+	"brightGreen": "#f3ecd4",
+	"brightPurple": "#999999",
+	"brightRed": "#5f8787",
+	"brightWhite": "#c1c1c1",
+	"brightYellow": "#eecc6c",
+	"cyan": "#aaaaaa",
+	"green": "#f3ecd4",
+	"purple": "#999999",
+	"red": "#5f8787",
+	"white": "#999999",
+	"yellow": "#aaaaaa"
+},

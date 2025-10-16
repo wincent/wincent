@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Precious Dark Fifteen
+; Scheme system: base16
+; Scheme description: 
+; Scheme author: 4lex4 &lt;4lex49@zoho.com&gt;
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base16-precious-dark-fifteen]
+
+; Default Foreground
+; base05 #bab9b6
+"Colour0"="186,185,182"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #bab9b6
+"Colour1"="186,185,182"
+
+; Default Background
+; base00 #23262b
+"Colour2"="35,38,43"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #23262b
+"Colour3"="35,38,43"
+
+; Cursor Text -- equals to default background
+; base00 #23262b
+"Colour4"="35,38,43"
+
+; Cursor Colour -- equals to default foreground
+; base05 #bab9b6
+"Colour5"="186,185,182"
+
+; ANSI Black
+; 30m
+; base01 #303337
+"Colour6"="48,51,55"
+
+; ANSI Black Bright
+; 1;30m
+; base02 #3e4044
+"Colour7"="62,64,68"
+
+; ANSI Red
+; 31m
+; base08 #ff8782
+"Colour8"="255,135,130"
+
+; ANSI Red Bright
+; 1;31m
+; base08 #ff8782
+"Colour9"="255,135,130"
+
+; ANSI Green
+; 32m
+; base0B #95b659
+"Colour10"="149,182,89"
+
+; ANSI Green Bright
+; 1;32m
+; base0B #95b659
+"Colour11"="149,182,89"
+
+; ANSI Yellow
+; 33m
+; base0A #cfa546
+"Colour12"="207,165,70"
+
+; ANSI Yellow Bright
+; 1;33m
+; base0A #cfa546
+"Colour13"="207,165,70"
+
+; ANSI Blue
+; 34m
+; base0D #66b0ef
+"Colour14"="102,176,239"
+
+; ANSI Blue Bright
+; 1;34m
+; base0D #66b0ef
+"Colour15"="102,176,239"
+
+; ANSI Magenta
+; 35m
+; base0E #b799ff
+"Colour16"="183,153,255"
+
+; ANSI Magenta Bright
+; 1;35m
+; base0E #b799ff
+"Colour17"="183,153,255"
+
+; ANSI Cyan
+; 36m
+; base0C #42bda7
+"Colour18"="66,189,167"
+
+; ANSI Cyan Bright
+; 1;36m
+; base0C #42bda7
+"Colour19"="66,189,167"
+
+; ANSI White
+; 37m
+; base06 #bab9b6
+"Colour20"="186,185,182"
+
+; ANSI White Bright
+; 1;37m
+; base07 bab9b6
+"Colour21"="186,185,182"

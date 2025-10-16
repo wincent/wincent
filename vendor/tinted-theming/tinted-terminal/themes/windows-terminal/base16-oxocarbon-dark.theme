@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Oxocarbon Dark",
+	"foreground": "#f2f4f8",
+	"background": "#161616",
+	"black": "#262626",
+	"blue": "#42be65",
+	"brightBlack": "#393939",
+	"brightBlue": "#42be65",
+	"brightCyan": "#ff7eb6",
+	"brightGreen": "#33b1ff",
+	"brightPurple": "#be95ff",
+	"brightRed": "#3ddbd9",
+	"brightWhite": "#08bdba",
+	"brightYellow": "#ee5396",
+	"cyan": "#ff7eb6",
+	"green": "#33b1ff",
+	"purple": "#be95ff",
+	"red": "#3ddbd9",
+	"white": "#ffffff",
+	"yellow": "#78a9ff"
+},

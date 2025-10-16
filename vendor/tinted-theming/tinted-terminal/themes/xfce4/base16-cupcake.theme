@@ -1,0 +1,10 @@
+# Scheme name: Cupcake
+# Scheme author: Chris Kempson (http://chriskempson.com)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-cupcake
+ColorForeground=#8b8198
+ColorBackground=#fbf1f2
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#f2f1f4;#d57e85;#a3b367;#dcb16c;#7297b9;#bb99b4;#69a9a7;#72677e;#d8d5dd;#d57e85;#a3b367;#dcb16c;#7297b9;#bb99b4;#69a9a7;#585062

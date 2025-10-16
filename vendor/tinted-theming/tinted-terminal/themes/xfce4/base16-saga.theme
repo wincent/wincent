@@ -1,0 +1,10 @@
+# Scheme name: SAGA
+# Scheme author: https://github.com/SAGAtheme/SAGA
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-saga
+ColorForeground=#dce2f7
+ColorBackground=#05080a
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#0a1014;#ffd4e9;#f7ddff;#fbebc8;#c9fff7;#dcc3f9;#c5edc1;#f8eae7;#0f181e;#ffd4e9;#f7ddff;#fbebc8;#c9fff7;#dcc3f9;#c5edc1;#ccd3fe

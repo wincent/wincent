@@ -1,0 +1,10 @@
+# Scheme name: Default Dark
+# Scheme author: Chris Kempson (http://chriskempson.com)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-default-dark
+ColorForeground=#d8d8d8
+ColorBackground=#181818
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#282828;#ab4642;#a1b56c;#f7ca88;#7cafc2;#ba8baf;#86c1b9;#e8e8e8;#383838;#ab4642;#a1b56c;#f7ca88;#7cafc2;#ba8baf;#86c1b9;#f8f8f8

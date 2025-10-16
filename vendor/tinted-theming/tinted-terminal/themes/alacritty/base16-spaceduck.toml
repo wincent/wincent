@@ -1,0 +1,58 @@
+# base16 Spaceduck 256 - alacritty color config
+# Guillermo Rodriguez (https://github.com/pineapplegiant), packaged by Gabriel Fontes (https://github.com/Misterio77)
+
+# Default colors
+[colors.primary]
+background = '0x16172d'
+foreground = '0xecf0c1'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x16172d'
+cursor = '0xecf0c1'
+
+# Normal colors
+[colors.normal]
+black = '0x1b1c36'
+red = '0xe33400'
+green = '0x5ccc96'
+yellow = '0xf2ce00'
+blue = '0x7a5ccc'
+magenta = '0xb3a1e6'
+cyan = '0x00a3cc'
+white = '0xc1c3cc'
+
+# Bright colors
+[colors.bright]
+black = '0x30365f'
+red = '0xe33400'
+green = '0x5ccc96'
+yellow = '0xf2ce00'
+blue = '0x7a5ccc'
+magenta = '0xb3a1e6'
+cyan = '0x00a3cc'
+white = '0xffffff'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xe39400"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xce6f8f"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x1b1c36"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x30365f"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x818596"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xc1c3cc"

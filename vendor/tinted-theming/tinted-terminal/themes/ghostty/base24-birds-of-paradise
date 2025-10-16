@@ -1,0 +1,43 @@
+# vim: ft=ghostty
+# Birds Of Paradise theme for Ghostty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# Color palette
+palette = 0=#2a1e1d
+palette = 1=#be2d26
+palette = 2=#6ba08a
+palette = 3=#b8d3ed
+palette = 4=#5a86ac
+palette = 5=#ab80a6
+palette = 6=#74a5ac
+palette = 7=#dfdab7
+palette = 8=#9a6b49
+palette = 9=#e84526
+palette = 10=#94d7ba
+palette = 11=#d0d04f
+palette = 12=#b8d3ed
+palette = 13=#d09dca
+palette = 14=#92ced6
+palette = 15=#fff9d4
+palette = 16=#e99c29
+palette = 17=#5f1613
+palette = 18=#573d25
+palette = 19=#9a6b49
+palette = 20=#bca280
+palette = 21=#dfdab7
+
+# Foreground & background colors
+background = #2a1e1d
+foreground = #cdbe9b
+cursor-color = #cdbe9b
+selection-background = #9a6b49
+selection-foreground = #cdbe9b
+
+# Set `macos-icon = custom-style` in your main configuration file to enable theming of the app icon.
+#
+# Set the ghost color to the lightest foreground:
+macos-icon-ghost-color = #fff9d4
+# Replace the official icon's blue background with the designated bright blue color:
+macos-icon-screen-color = #b8d3ed

@@ -1,0 +1,43 @@
+# base24 Builtin Dark
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#000000"
+foreground = "#a1a1a1"
+
+cursor_bg = "#000000"
+cursor_border = "#a1a1a1"
+cursor_fg = "#bbbbbb"
+
+selection_bg = "#a1a1a1"
+selection_fg = "#555555"
+
+ansi = [
+  "#000000",
+  "#bb0000",
+  "#00bb00",
+  "#5555ff",
+  "#0000bb",
+  "#bb00bb",
+  "#00bbbb",
+  "#bbbbbb"
+]
+brights = [
+  "#555555",
+  "#ff5555",
+  "#55ff55",
+  "#ffff55",
+  "#5555ff",
+  "#ff55ff",
+  "#55ffff",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#bbbb00"
+17 = "#5d0000"
+18 = "#000000"
+19 = "#555555"
+20 = "#888888"
+21 = "#a1a1a1"

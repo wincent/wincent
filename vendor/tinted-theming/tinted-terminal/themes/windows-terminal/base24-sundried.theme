@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Sundried",
+	"foreground": "#a9a9a7",
+	"background": "#1a1818",
+	"black": "#302b2a",
+	"blue": "#485a98",
+	"brightBlack": "#4d4d47",
+	"brightBlue": "#7898f7",
+	"brightCyan": "#fad384",
+	"brightGreen": "#128c20",
+	"brightPurple": "#fc89a0",
+	"brightRed": "#aa000c",
+	"brightWhite": "#fffefe",
+	"brightYellow": "#fc6a20",
+	"cyan": "#9c814e",
+	"green": "#577644",
+	"purple": "#854551",
+	"red": "#a6463d",
+	"white": "#c8c8c8",
+	"yellow": "#9c5f2a"
+},

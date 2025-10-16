@@ -1,0 +1,58 @@
+# base24 Purplepeter 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x2a1a4a'
+foreground = '0xc38e69'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x2a1a4a'
+cursor = '0xc38e69'
+
+# Normal colors
+[colors.normal]
+black = '0x0a041f'
+red = '0xff786c'
+green = '0x98b481'
+yellow = '0x79daed'
+blue = '0x66d9ef'
+magenta = '0xe68ecd'
+cyan = '0xb98cff'
+white = '0xffba81'
+
+# Bright colors
+[colors.bright]
+black = '0x100b22'
+red = '0xf89f92'
+green = '0xb4bd8e'
+yellow = '0xf1e9bf'
+blue = '0x79daed'
+magenta = '0xb991d4'
+cyan = '0xa0a0d6'
+white = '0xb9aed3'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xefdeab"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x7f3c36"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x0a041f"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x100b22"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x876251"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xffba81"

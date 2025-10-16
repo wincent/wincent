@@ -1,0 +1,43 @@
+# vim: ft=ghostty
+# Rosé Pine Dawn theme for Ghostty
+# Scheme Author: Emilia Dunfelt &lt;edun@dunfelt.se&gt;
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# Color palette
+palette = 0=#faf4ed
+palette = 1=#b4637a
+palette = 2=#286983
+palette = 3=#d7827e
+palette = 4=#907aa9
+palette = 5=#ea9d34
+palette = 6=#56949f
+palette = 7=#575279
+palette = 8=#f2e9de
+palette = 9=#b4637a
+palette = 10=#286983
+palette = 11=#d7827e
+palette = 12=#907aa9
+palette = 13=#ea9d34
+palette = 14=#56949f
+palette = 15=#cecacd
+palette = 16=#ea9d34
+palette = 17=#cecacd
+palette = 18=#fffaf3
+palette = 19=#f2e9de
+palette = 20=#797593
+palette = 21=#575279
+
+# Foreground & background colors
+background = #faf4ed
+foreground = #575279
+cursor-color = #575279
+selection-background = #f2e9de
+selection-foreground = #575279
+
+# Set `macos-icon = custom-style` in your main configuration file to enable theming of the app icon.
+#
+# Set the ghost color to the lightest foreground:
+macos-icon-ghost-color = #cecacd
+# Replace the official icon's blue background with the designated bright blue color:
+macos-icon-screen-color = #907aa9

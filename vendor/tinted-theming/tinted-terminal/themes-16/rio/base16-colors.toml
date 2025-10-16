@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Colors by mrmrs (http://clrs.cc)
+
+[colors]
+selection-background = '#555555' # base02
+selection-foreground = '#bbbbbb' # base05
+
+cursor         = '#bbbbbb' # base05
+tabs           = '#333333' # base01
+tabs-active    = '#555555' # base02
+
+background     = '#111111' # base00
+foreground     = '#bbbbbb' # base05
+black          = '#333333' # base01
+red            = '#ff4136' # base08
+yellow         = '#ffdc00' # base0A
+green          = '#2ecc40' # base0B
+cyan           = '#7fdbff' # base0C
+blue           = '#0074d9' # base0D
+magenta        = '#b10dc9' # base0E
+white          = '#dddddd' # base06
+
+dim-foreground   = '#bbbbbb' # base05
+dim-black        = '#333333' # base01
+dim-red          = '#ff4136' # base08
+dim-yellow       = '#ffdc00' # base0A
+dim-green        = '#2ecc40' # base0B
+dim-cyan         = '#7fdbff' # base0C
+dim-blue         = '#0074d9' # base0D
+dim-magenta      = '#b10dc9' # base0E
+dim-white        = '#999999' # base04
+
+light-foreground = '#bbbbbb' # base05
+light-black      = '#555555' # base02
+light-red        = '#ff4136' # base08
+light-yellow     = '#ffdc00' # base0A
+light-green      = '#2ecc40' # base0B
+light-cyan       = '#7fdbff' # base0C
+light-blue       = '#0074d9' # base0D
+light-magenta    = '#b10dc9' # base0E
+light-white      = '#ffffff' # base07

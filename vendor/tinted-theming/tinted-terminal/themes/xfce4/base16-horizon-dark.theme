@@ -1,0 +1,10 @@
+# Scheme name: Horizon Dark
+# Scheme author: Michaël Ball (http://github.com/michael-ball/)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-horizon-dark
+ColorForeground=#cbced0
+ColorBackground=#1c1e26
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#232530;#e93c58;#efaf8e;#efb993;#df5273;#b072d1;#24a8b4;#dcdfe4;#2e303e;#e93c58;#efaf8e;#efb993;#df5273;#b072d1;#24a8b4;#e3e6ee

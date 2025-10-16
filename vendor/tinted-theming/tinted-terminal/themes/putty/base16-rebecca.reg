@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Rebecca
+; Scheme system: base16
+; Scheme description: 
+; Scheme author: Victor Borja (http://github.com/vic) based on Rebecca Theme (http://github.com/vic/rebecca-theme)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base16-rebecca]
+
+; Default Foreground
+; base05 #f1eff8
+"Colour0"="241,239,248"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #f1eff8
+"Colour1"="241,239,248"
+
+; Default Background
+; base00 #292a44
+"Colour2"="41,42,68"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #292a44
+"Colour3"="41,42,68"
+
+; Cursor Text -- equals to default background
+; base00 #292a44
+"Colour4"="41,42,68"
+
+; Cursor Colour -- equals to default foreground
+; base05 #f1eff8
+"Colour5"="241,239,248"
+
+; ANSI Black
+; 30m
+; base01 #663399
+"Colour6"="102,51,153"
+
+; ANSI Black Bright
+; 1;30m
+; base02 #383a62
+"Colour7"="56,58,98"
+
+; ANSI Red
+; 31m
+; base08 #a0a0c5
+"Colour8"="160,160,197"
+
+; ANSI Red Bright
+; 1;31m
+; base08 #a0a0c5
+"Colour9"="160,160,197"
+
+; ANSI Green
+; 32m
+; base0B #6dfedf
+"Colour10"="109,254,223"
+
+; ANSI Green Bright
+; 1;32m
+; base0B #6dfedf
+"Colour11"="109,254,223"
+
+; ANSI Yellow
+; 33m
+; base0A #ae81ff
+"Colour12"="174,129,255"
+
+; ANSI Yellow Bright
+; 1;33m
+; base0A #ae81ff
+"Colour13"="174,129,255"
+
+; ANSI Blue
+; 34m
+; base0D #2de0a7
+"Colour14"="45,224,167"
+
+; ANSI Blue Bright
+; 1;34m
+; base0D #2de0a7
+"Colour15"="45,224,167"
+
+; ANSI Magenta
+; 35m
+; base0E #7aa5ff
+"Colour16"="122,165,255"
+
+; ANSI Magenta Bright
+; 1;35m
+; base0E #7aa5ff
+"Colour17"="122,165,255"
+
+; ANSI Cyan
+; 36m
+; base0C #8eaee0
+"Colour18"="142,174,224"
+
+; ANSI Cyan Bright
+; 1;36m
+; base0C #8eaee0
+"Colour19"="142,174,224"
+
+; ANSI White
+; 37m
+; base06 #ccccff
+"Colour20"="204,204,255"
+
+; ANSI White Bright
+; 1;37m
+; base07 53495d
+"Colour21"="83,73,93"

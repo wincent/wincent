@@ -1,0 +1,10 @@
+# Scheme name: iA Dark
+# Scheme author: iA Inc. (modified by aramisgithub)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-ia-dark
+ColorForeground=#cccccc
+ColorBackground=#1a1a1a
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#222222;#d88568;#83a471;#b99353;#8eccdd;#b98eb2;#7c9cae;#e8e8e8;#1d414d;#d88568;#83a471;#b99353;#8eccdd;#b98eb2;#7c9cae;#f8f8f8

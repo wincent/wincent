@@ -1,0 +1,58 @@
+# base24 ayu 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x0f1419'
+foreground = '0xcbcbcb'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x0f1419'
+cursor = '0xcbcbcb'
+
+# Normal colors
+[colors.normal]
+black = '0x000000'
+red = '0xff3333'
+green = '0xb8cc52'
+yellow = '0x68d5ff'
+blue = '0x36a3d9'
+magenta = '0xf07178'
+cyan = '0x95e6cb'
+white = '0xffffff'
+
+# Bright colors
+[colors.bright]
+black = '0x323232'
+red = '0xff6565'
+green = '0xeafe84'
+yellow = '0xfff779'
+blue = '0x68d5ff'
+magenta = '0xffa3aa'
+cyan = '0xc7fffd'
+white = '0xffffff'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xe7c547"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x7f1919"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x000000"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x323232"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x989898"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xffffff"

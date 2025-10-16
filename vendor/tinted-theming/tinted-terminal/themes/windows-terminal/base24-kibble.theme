@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Kibble",
+	"foreground": "#c0b3c0",
+	"background": "#0e100a",
+	"black": "#4d4d4d",
+	"blue": "#3449d1",
+	"brightBlack": "#5a5a5a",
+	"brightBlue": "#97a4f7",
+	"brightCyan": "#68f2e0",
+	"brightGreen": "#6ce05c",
+	"brightPurple": "#c495f0",
+	"brightRed": "#f01578",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#f3f79e",
+	"cyan": "#0798ab",
+	"green": "#29cf13",
+	"purple": "#8400ff",
+	"red": "#c70031",
+	"white": "#e2d1e3",
+	"yellow": "#d8e30e"
+},

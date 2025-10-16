@@ -1,0 +1,43 @@
+# base16 Atelier Lakeside
+# Scheme author: Bram de Haan (http://atelierbramdehaan.nl)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#161b1d"
+foreground = "#7ea2b4"
+
+cursor_bg = "#7ea2b4"
+cursor_border = "#7ea2b4"
+cursor_fg = "#161b1d"
+
+selection_bg = "#7ea2b4"
+selection_fg = "#516d7b"
+
+ansi = [
+  "#161b1d",
+  "#d22d72",
+  "#568c3b",
+  "#8a8a0f",
+  "#257fad",
+  "#6b6bb8",
+  "#2d8f6f",
+  "#c1e4f6"
+]
+brights = [
+  "#516d7b",
+  "#d22d72",
+  "#568c3b",
+  "#8a8a0f",
+  "#257fad",
+  "#6b6bb8",
+  "#2d8f6f",
+  "#ebf8ff"
+]
+
+[colors.indexed]
+16 = "#935c25"
+17 = "#b72dd2"
+18 = "#1f292e"
+19 = "#516d7b"
+20 = "#7195a8"
+21 = "#7ea2b4"

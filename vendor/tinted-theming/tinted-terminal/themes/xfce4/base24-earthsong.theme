@@ -1,0 +1,10 @@
+# Scheme name: Earthsong
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-earthsong
+ColorForeground=#c5ab93
+ColorBackground=#282420
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#111417;#c84134;#84c44b;#5ed9ff;#1397b9;#d0623c;#4f9452;#e5c5a9;#665e54;#ff6459;#97e035;#dfd561;#5ed9ff;#ff9168;#83ef88;#f6f6ec

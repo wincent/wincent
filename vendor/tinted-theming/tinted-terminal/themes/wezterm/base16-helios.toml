@@ -1,0 +1,43 @@
+# base16 Helios
+# Scheme author: Alex Meyer (https://github.com/reyemxela)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#1d2021"
+foreground = "#d5d5d5"
+
+cursor_bg = "#d5d5d5"
+cursor_border = "#d5d5d5"
+cursor_fg = "#1d2021"
+
+selection_bg = "#d5d5d5"
+selection_fg = "#53585b"
+
+ansi = [
+  "#1d2021",
+  "#d72638",
+  "#88b92d",
+  "#f19d1a",
+  "#1e8bac",
+  "#be4264",
+  "#1ba595",
+  "#dddddd"
+]
+brights = [
+  "#53585b",
+  "#d72638",
+  "#88b92d",
+  "#f19d1a",
+  "#1e8bac",
+  "#be4264",
+  "#1ba595",
+  "#e5e5e5"
+]
+
+[colors.indexed]
+16 = "#eb8413"
+17 = "#c85e0d"
+18 = "#383c3e"
+19 = "#53585b"
+20 = "#cdcdcd"
+21 = "#d5d5d5"

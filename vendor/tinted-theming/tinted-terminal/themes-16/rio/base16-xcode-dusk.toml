@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: XCode Dusk by Elsa Gonsiorowski (https://github.com/gonsie)
+
+[colors]
+selection-background = '#53555d' # base02
+selection-foreground = '#939599' # base05
+
+cursor         = '#939599' # base05
+tabs           = '#3d4048' # base01
+tabs-active    = '#53555d' # base02
+
+background     = '#282b35' # base00
+foreground     = '#939599' # base05
+black          = '#3d4048' # base01
+red            = '#b21889' # base08
+yellow         = '#438288' # base0A
+green          = '#df0002' # base0B
+cyan           = '#00a0be' # base0C
+blue           = '#790ead' # base0D
+magenta        = '#b21889' # base0E
+white          = '#a9aaae' # base06
+
+dim-foreground   = '#939599' # base05
+dim-black        = '#3d4048' # base01
+dim-red          = '#b21889' # base08
+dim-yellow       = '#438288' # base0A
+dim-green        = '#df0002' # base0B
+dim-cyan         = '#00a0be' # base0C
+dim-blue         = '#790ead' # base0D
+dim-magenta      = '#b21889' # base0E
+dim-white        = '#7e8086' # base04
+
+light-foreground = '#939599' # base05
+light-black      = '#53555d' # base02
+light-red        = '#b21889' # base08
+light-yellow     = '#438288' # base0A
+light-green      = '#df0002' # base0B
+light-cyan       = '#00a0be' # base0C
+light-blue       = '#790ead' # base0D
+light-magenta    = '#b21889' # base0E
+light-white      = '#bebfc2' # base07

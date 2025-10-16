@@ -1,0 +1,43 @@
+# base24 Space Gray Eighties
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#212121"
+foreground = "#c7c6c2"
+
+cursor_bg = "#15171c"
+cursor_border = "#c7c6c2"
+cursor_fg = "#eeece7"
+
+selection_bg = "#c7c6c2"
+selection_fg = "#555555"
+
+ansi = [
+  "#212121",
+  "#ec5f67",
+  "#80a763",
+  "#4d83d0",
+  "#5485c0",
+  "#bf83c0",
+  "#57c2c0",
+  "#eeece7"
+]
+brights = [
+  "#555555",
+  "#ff6973",
+  "#93d393",
+  "#ffd156",
+  "#4d83d0",
+  "#ff55ff",
+  "#83e8e4",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#fdc253"
+17 = "#762f33"
+18 = "#15171c"
+19 = "#555555"
+20 = "#a1a09e"
+21 = "#c7c6c2"

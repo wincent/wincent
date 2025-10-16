@@ -1,0 +1,10 @@
+# Scheme name: Cyberdyne
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-cyberdyne
+ColorForeground=#c0c0c0
+ColorBackground=#151144
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#080808;#ff8272;#00c172;#c1e3fe;#0071cf;#ff8ffd;#6bffdc;#f1f1f1;#2d2d2d;#ffc4bd;#d6fcb9;#fefdd5;#c1e3fe;#ffb1fe;#e5e6fe;#feffff

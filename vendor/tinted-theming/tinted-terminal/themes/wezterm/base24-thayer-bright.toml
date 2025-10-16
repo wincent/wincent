@@ -1,0 +1,43 @@
+# base24 Thayer Bright
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#1b1d1e"
+foreground = "#adada9"
+
+cursor_bg = "#1b1d1e"
+cursor_border = "#adada9"
+cursor_fg = "#ccccc6"
+
+selection_bg = "#adada9"
+selection_fg = "#505354"
+
+ansi = [
+  "#1b1d1e",
+  "#f92672",
+  "#4df740",
+  "#3f78ff",
+  "#2656d6",
+  "#8c54fe",
+  "#37c8b4",
+  "#ccccc6"
+]
+brights = [
+  "#505354",
+  "#ff5995",
+  "#b6e354",
+  "#feed6c",
+  "#3f78ff",
+  "#9e6ffe",
+  "#23ced4",
+  "#f8f8f2"
+]
+
+[colors.indexed]
+16 = "#f3fd21"
+17 = "#7c1339"
+18 = "#1b1d1e"
+19 = "#505354"
+20 = "#8e8f8d"
+21 = "#adada9"

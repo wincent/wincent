@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Heetch Dark",
+	"foreground": "#bdb6c5",
+	"background": "#190134",
+	"black": "#392551",
+	"blue": "#bd0152",
+	"brightBlack": "#5a496e",
+	"brightBlue": "#bd0152",
+	"brightCyan": "#f80059",
+	"brightGreen": "#c33678",
+	"brightPurple": "#82034c",
+	"brightRed": "#27d9d5",
+	"brightWhite": "#feffff",
+	"brightYellow": "#8f6c97",
+	"cyan": "#f80059",
+	"green": "#c33678",
+	"purple": "#82034c",
+	"red": "#27d9d5",
+	"white": "#dedae2",
+	"yellow": "#5ba2b6"
+},

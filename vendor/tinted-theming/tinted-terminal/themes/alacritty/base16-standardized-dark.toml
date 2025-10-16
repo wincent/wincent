@@ -1,0 +1,58 @@
+# base16 standardized-dark 256 - alacritty color config
+# ali (https://github.com/ali-githb/base16-standardized-scheme)
+
+# Default colors
+[colors.primary]
+background = '0x222222'
+foreground = '0xc0c0c0'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x222222'
+cursor = '0xc0c0c0'
+
+# Normal colors
+[colors.normal]
+black = '0x303030'
+red = '0xe15d67'
+green = '0x5db129'
+yellow = '0xe1b31a'
+blue = '0x00a3f2'
+magenta = '0xb46ee0'
+cyan = '0x21c992'
+white = '0xe0e0e0'
+
+# Bright colors
+[colors.bright]
+black = '0x555555'
+red = '0xe15d67'
+green = '0x5db129'
+yellow = '0xe1b31a'
+blue = '0x00a3f2'
+magenta = '0xb46ee0'
+cyan = '0x21c992'
+white = '0xffffff'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xfc804e"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xb87d28"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x303030"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x555555"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x898989"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xe0e0e0"

@@ -1,0 +1,43 @@
+# base24 Night Lion V1
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#000000"
+foreground = "#a1a1a1"
+
+cursor_bg = "#4c4c4c"
+cursor_border = "#a1a1a1"
+cursor_fg = "#bbbbbb"
+
+selection_bg = "#a1a1a1"
+selection_fg = "#555555"
+
+ansi = [
+  "#000000",
+  "#bb0000",
+  "#5ede8f",
+  "#5555ff",
+  "#266ad7",
+  "#bb00bb",
+  "#00d9df",
+  "#bbbbbb"
+]
+brights = [
+  "#555555",
+  "#ff5555",
+  "#55ff55",
+  "#ffff55",
+  "#5555ff",
+  "#ff55ff",
+  "#55ffff",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#f2f067"
+17 = "#5d0000"
+18 = "#4c4c4c"
+19 = "#555555"
+20 = "#888888"
+21 = "#a1a1a1"

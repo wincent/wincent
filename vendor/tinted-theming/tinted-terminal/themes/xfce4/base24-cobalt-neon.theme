@@ -1,0 +1,10 @@
+# Scheme name: Cobalt Neon
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-cobalt-neon
+ColorForeground=#cc72a6
+ColorBackground=#142838
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#142630;#ff2320;#3aa5ff;#3c7dd2;#8ff586;#781aa0;#8ff586;#ba45b1;#fff688;#d4312e;#8ff586;#e9f06d;#3c7dd2;#8230a7;#6cbc67;#8ff586

@@ -1,0 +1,43 @@
+# base24 Pro Light
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#feffff"
+foreground = "#cccccc"
+
+cursor_bg = "#000000"
+cursor_border = "#cccccc"
+cursor_fg = "#dcdcdc"
+
+selection_bg = "#cccccc"
+selection_fg = "#9f9f9f"
+
+ansi = [
+  "#feffff",
+  "#e4492b",
+  "#50d048",
+  "#0081ff",
+  "#3a75ff",
+  "#ec65e7",
+  "#4ed1dd",
+  "#dcdcdc"
+]
+brights = [
+  "#9f9f9f",
+  "#ff6640",
+  "#61ee56",
+  "#f2f055",
+  "#0081ff",
+  "#ff7dfe",
+  "#60f6f8",
+  "#f1f1f1"
+]
+
+[colors.indexed]
+16 = "#c5c340"
+17 = "#722415"
+18 = "#000000"
+19 = "#9f9f9f"
+20 = "#bdbdbd"
+21 = "#cccccc"

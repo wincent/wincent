@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Fideloper",
+	"foreground": "#b1b1a3",
+	"background": "#282f32",
+	"black": "#282f32",
+	"blue": "#2e78c1",
+	"brightBlack": "#092027",
+	"brightBlue": "#7c84c4",
+	"brightCyan": "#81908f",
+	"brightGreen": "#d35f5a",
+	"brightPurple": "#5b5db2",
+	"brightRed": "#d35f5a",
+	"brightWhite": "#fcf4de",
+	"brightYellow": "#a86571",
+	"cyan": "#309185",
+	"green": "#edb7ab",
+	"purple": "#c0226e",
+	"red": "#ca1d2c",
+	"white": "#e9e2cd",
+	"yellow": "#b7aa9a"
+},

@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Rippedcasts",
+	"foreground": "#a8a8a8",
+	"background": "#2b2b2b",
+	"black": "#000000",
+	"blue": "#75a5b0",
+	"brightBlack": "#666666",
+	"brightBlue": "#86bdc9",
+	"brightCyan": "#8c9bc3",
+	"brightGreen": "#bcee68",
+	"brightPurple": "#e500e5",
+	"brightRed": "#eecbad",
+	"brightWhite": "#e5e5e5",
+	"brightYellow": "#e5e500",
+	"cyan": "#59647e",
+	"green": "#a7ff60",
+	"purple": "#ff73fd",
+	"red": "#cdaf95",
+	"white": "#bfbfbf",
+	"yellow": "#bfbb1f"
+},

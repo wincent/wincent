@@ -1,0 +1,43 @@
+# base16 Harmonic16 Light
+# Scheme author: Jannik Siebert (https://github.com/janniks)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#f7f9fb"
+foreground = "#405c79"
+
+cursor_bg = "#405c79"
+cursor_border = "#405c79"
+cursor_fg = "#f7f9fb"
+
+selection_bg = "#405c79"
+selection_fg = "#cbd6e2"
+
+ansi = [
+  "#f7f9fb",
+  "#bf8b56",
+  "#56bf8b",
+  "#8bbf56",
+  "#8b56bf",
+  "#bf568b",
+  "#568bbf",
+  "#223b54"
+]
+brights = [
+  "#cbd6e2",
+  "#bf8b56",
+  "#56bf8b",
+  "#8bbf56",
+  "#8b56bf",
+  "#bf568b",
+  "#568bbf",
+  "#0b1c2c"
+]
+
+[colors.indexed]
+16 = "#bfbf56"
+17 = "#bf5656"
+18 = "#e5ebf1"
+19 = "#cbd6e2"
+20 = "#627e99"
+21 = "#405c79"

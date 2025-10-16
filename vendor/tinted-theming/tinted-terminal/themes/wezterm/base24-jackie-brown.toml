@@ -1,0 +1,43 @@
+# base24 Jackie Brown
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#2c1c15"
+foreground = "#a8a8a8"
+
+cursor_bg = "#2c1d16"
+cursor_border = "#a8a8a8"
+cursor_fg = "#bfbfbf"
+
+selection_bg = "#a8a8a8"
+selection_fg = "#666666"
+
+ansi = [
+  "#2c1c15",
+  "#ef5734",
+  "#2baf2b",
+  "#0000ff",
+  "#246db2",
+  "#cf5ec0",
+  "#00acee",
+  "#bfbfbf"
+]
+brights = [
+  "#666666",
+  "#e50000",
+  "#86a83e",
+  "#e5e500",
+  "#0000ff",
+  "#e500e5",
+  "#00e5e5",
+  "#e5e5e5"
+]
+
+[colors.indexed]
+16 = "#bdbe00"
+17 = "#772b1a"
+18 = "#2c1d16"
+19 = "#666666"
+20 = "#929292"
+21 = "#a8a8a8"

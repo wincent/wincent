@@ -1,0 +1,10 @@
+# Scheme name: Atelier Cave
+# Scheme author: Bram de Haan (http://atelierbramdehaan.nl)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-atelier-cave
+ColorForeground=#8b8792
+ColorBackground=#19171c
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#26232a;#be4678;#2a9292;#a06e3b;#576ddb;#955ae7;#398bc6;#e2dfe7;#585260;#be4678;#2a9292;#a06e3b;#576ddb;#955ae7;#398bc6;#efecf4

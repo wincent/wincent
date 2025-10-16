@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Black Metal (Bathory)",
+	"foreground": "#c1c1c1",
+	"background": "#000000",
+	"black": "#121212",
+	"blue": "#888888",
+	"brightBlack": "#222222",
+	"brightBlue": "#888888",
+	"brightCyan": "#aaaaaa",
+	"brightGreen": "#fbcb97",
+	"brightPurple": "#999999",
+	"brightRed": "#5f8787",
+	"brightWhite": "#c1c1c1",
+	"brightYellow": "#e78a53",
+	"cyan": "#aaaaaa",
+	"green": "#fbcb97",
+	"purple": "#999999",
+	"red": "#5f8787",
+	"white": "#999999",
+	"yellow": "#aaaaaa"
+},

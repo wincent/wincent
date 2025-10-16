@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Night Lion V1",
+	"foreground": "#a1a1a1",
+	"background": "#000000",
+	"black": "#4c4c4c",
+	"blue": "#266ad7",
+	"brightBlack": "#555555",
+	"brightBlue": "#5555ff",
+	"brightCyan": "#55ffff",
+	"brightGreen": "#55ff55",
+	"brightPurple": "#ff55ff",
+	"brightRed": "#ff5555",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#ffff55",
+	"cyan": "#00d9df",
+	"green": "#5ede8f",
+	"purple": "#bb00bb",
+	"red": "#bb0000",
+	"white": "#bbbbbb",
+	"yellow": "#f2f067"
+},

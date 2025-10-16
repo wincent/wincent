@@ -1,0 +1,43 @@
+# base16 Atelier Dune Light
+# Scheme author: Bram de Haan (http://atelierbramdehaan.nl)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#fefbec"
+foreground = "#6e6b5e"
+
+cursor_bg = "#6e6b5e"
+cursor_border = "#6e6b5e"
+cursor_fg = "#fefbec"
+
+selection_bg = "#6e6b5e"
+selection_fg = "#a6a28c"
+
+ansi = [
+  "#fefbec",
+  "#d73737",
+  "#60ac39",
+  "#ae9513",
+  "#6684e1",
+  "#b854d4",
+  "#1fad83",
+  "#292824"
+]
+brights = [
+  "#a6a28c",
+  "#d73737",
+  "#60ac39",
+  "#ae9513",
+  "#6684e1",
+  "#b854d4",
+  "#1fad83",
+  "#20201d"
+]
+
+[colors.indexed]
+16 = "#b65611"
+17 = "#d43552"
+18 = "#e8e4cf"
+19 = "#a6a28c"
+20 = "#7d7a68"
+21 = "#6e6b5e"

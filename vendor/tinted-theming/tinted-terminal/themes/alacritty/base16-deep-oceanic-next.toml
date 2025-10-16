@@ -1,0 +1,58 @@
+# base16 Deep Oceanic Next 256 - alacritty color config
+# spearkkk (https://github.com/spearkkk)
+
+# Default colors
+[colors.primary]
+background = '0x001c1f'
+foreground = '0xd4e1e8'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x001c1f'
+cursor = '0xd4e1e8'
+
+# Normal colors
+[colors.normal]
+black = '0x002931'
+red = '0xd3464d'
+green = '0x63b784'
+yellow = '0xf3b863'
+blue = '0x568ccf'
+magenta = '0x8b66d6'
+cyan = '0x4fb7ae'
+white = '0xe0e9ef'
+
+# Bright colors
+[colors.bright]
+black = '0x003640'
+red = '0xd3464d'
+green = '0x63b784'
+yellow = '0xf3b863'
+blue = '0x568ccf'
+magenta = '0x8b66d6'
+cyan = '0x4fb7ae'
+white = '0xf2f7f9'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xe37552"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xd0658e"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x002931"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x003640"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x0093a3"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xe0e9ef"

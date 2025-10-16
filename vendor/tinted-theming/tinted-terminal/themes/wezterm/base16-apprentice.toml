@@ -1,0 +1,43 @@
+# base16 Apprentice
+# Scheme author: romainl
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#262626"
+foreground = "#5f5f87"
+
+cursor_bg = "#5f5f87"
+cursor_border = "#5f5f87"
+cursor_fg = "#262626"
+
+selection_bg = "#5f5f87"
+selection_fg = "#5f875f"
+
+ansi = [
+  "#262626",
+  "#444444",
+  "#ffffaf",
+  "#87af87",
+  "#8787af",
+  "#5fafaf",
+  "#87afd7",
+  "#5f8787"
+]
+brights = [
+  "#5f875f",
+  "#444444",
+  "#ffffaf",
+  "#87af87",
+  "#8787af",
+  "#5fafaf",
+  "#87afd7",
+  "#6c6c6c"
+]
+
+[colors.indexed]
+16 = "#ff8700"
+17 = "#bcbcbc"
+18 = "#af5f5f"
+19 = "#5f875f"
+20 = "#5f87af"
+21 = "#5f5f87"

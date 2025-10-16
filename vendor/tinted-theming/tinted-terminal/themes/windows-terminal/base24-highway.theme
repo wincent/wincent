@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Highway",
+	"foreground": "#c8c5c4",
+	"background": "#212224",
+	"black": "#000000",
+	"blue": "#006ab3",
+	"brightBlack": "#5c4f49",
+	"brightBlue": "#4fc2fd",
+	"brightCyan": "#5c4f49",
+	"brightGreen": "#b1d130",
+	"brightPurple": "#de0070",
+	"brightRed": "#ef7d17",
+	"brightWhite": "#fefffe",
+	"brightYellow": "#fff11f",
+	"cyan": "#384563",
+	"green": "#128033",
+	"purple": "#6a2674",
+	"red": "#cf0d17",
+	"white": "#ededed",
+	"yellow": "#ffca3d"
+},

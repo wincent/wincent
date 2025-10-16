@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Solarized Dark Patched by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#465a61' # base02
+selection-foreground = '#c0c0b0' # base05
+
+cursor         = '#c0c0b0' # base05
+tabs           = '#002731' # base01
+tabs-active    = '#465a61' # base02
+
+background     = '#001e26' # base00
+foreground     = '#c0c0b0' # base05
+black          = '#002731' # base01
+red            = '#d01b24' # base08
+yellow         = '#708183' # base0A
+green          = '#728905' # base0B
+cyan           = '#259185' # base0C
+blue           = '#2075c7' # base0D
+magenta        = '#c61b6e' # base0E
+white          = '#e9e2cb' # base06
+
+dim-foreground   = '#c0c0b0' # base05
+dim-black        = '#002731' # base01
+dim-red          = '#d01b24' # base08
+dim-yellow       = '#708183' # base0A
+dim-green        = '#728905' # base0B
+dim-cyan         = '#259185' # base0C
+dim-blue         = '#2075c7' # base0D
+dim-magenta      = '#c61b6e' # base0E
+dim-white        = '#979e96' # base04
+
+light-foreground = '#c0c0b0' # base05
+light-black      = '#465a61' # base02
+light-red        = '#bd3612' # base12
+light-yellow     = '#52676f' # base13
+light-green      = '#465a61' # base14
+light-cyan       = '#81908f' # base15
+light-blue       = '#708183' # base16
+light-magenta    = '#5856b9' # base17
+light-white      = '#fcf4dc' # base07

@@ -1,0 +1,10 @@
+# Scheme name: Humanoid dark
+# Scheme author: Thomas (tasmo) Friese
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-humanoid-dark
+ColorForeground=#f8f8f2
+ColorBackground=#232629
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#333b3d;#f11235;#02d849;#ffb627;#00a6fb;#f15ee3;#0dd9d6;#fcfcf6;#484e54;#f11235;#02d849;#ffb627;#00a6fb;#f15ee3;#0dd9d6;#fcfcfc

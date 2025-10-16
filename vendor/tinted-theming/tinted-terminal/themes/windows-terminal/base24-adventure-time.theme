@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Adventure Time",
+	"foreground": "#cdc3bf",
+	"background": "#1e1c44",
+	"black": "#050404",
+	"blue": "#0f49c6",
+	"brightBlack": "#4e7bbf",
+	"brightBlue": "#1896c6",
+	"brightCyan": "#c8f9f3",
+	"brightGreen": "#9dff6e",
+	"brightPurple": "#9a5952",
+	"brightRed": "#fc5e59",
+	"brightWhite": "#f5f4fb",
+	"brightYellow": "#efc11a",
+	"cyan": "#6fa497",
+	"green": "#49b117",
+	"purple": "#665992",
+	"red": "#bc0013",
+	"white": "#f8dbc0",
+	"yellow": "#e6741d"
+},

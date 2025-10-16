@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Circus",
+	"foreground": "#a7a7a7",
+	"background": "#191919",
+	"black": "#202020",
+	"blue": "#639ee4",
+	"brightBlack": "#303030",
+	"brightBlue": "#639ee4",
+	"brightCyan": "#4bb1a7",
+	"brightGreen": "#84b97c",
+	"brightPurple": "#b888e2",
+	"brightRed": "#dc657d",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#c3ba63",
+	"cyan": "#4bb1a7",
+	"green": "#84b97c",
+	"purple": "#b888e2",
+	"red": "#dc657d",
+	"white": "#808080",
+	"yellow": "#4bb1a7"
+},

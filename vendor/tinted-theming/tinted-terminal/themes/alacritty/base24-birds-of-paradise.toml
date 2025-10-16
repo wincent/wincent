@@ -1,0 +1,58 @@
+# base24 Birds Of Paradise 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x2a1e1d'
+foreground = '0xcdbe9b'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x2a1e1d'
+cursor = '0xcdbe9b'
+
+# Normal colors
+[colors.normal]
+black = '0x573d25'
+red = '0xbe2d26'
+green = '0x6ba08a'
+yellow = '0xb8d3ed'
+blue = '0x5a86ac'
+magenta = '0xab80a6'
+cyan = '0x74a5ac'
+white = '0xdfdab7'
+
+# Bright colors
+[colors.bright]
+black = '0x9a6b49'
+red = '0xe84526'
+green = '0x94d7ba'
+yellow = '0xd0d04f'
+blue = '0xb8d3ed'
+magenta = '0xd09dca'
+cyan = '0x92ced6'
+white = '0xfff9d4'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xe99c29"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x5f1613"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x573d25"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x9a6b49"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0xbca280"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xdfdab7"

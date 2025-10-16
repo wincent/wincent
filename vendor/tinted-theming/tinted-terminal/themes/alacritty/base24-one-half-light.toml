@@ -1,0 +1,58 @@
+# base24 One Half Light 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0xfafafa'
+foreground = '0xcfd0d2'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0xfafafa'
+cursor = '0xcfd0d2'
+
+# Normal colors
+[colors.normal]
+black = '0x373942'
+red = '0xe45649'
+green = '0x4fa14f'
+yellow = '0x61afef'
+blue = '0x0084bc'
+magenta = '0xa625a4'
+cyan = '0x0996b3'
+white = '0xfafafa'
+
+# Bright colors
+[colors.bright]
+black = '0x4f525d'
+red = '0xdf6c75'
+green = '0x98c379'
+yellow = '0xe4c07a'
+blue = '0x61afef'
+magenta = '0xc577dd'
+cyan = '0x56b5c1'
+white = '0xffffff'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xc08400"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x722b24"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x373942"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x4f525d"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0xa4a6ab"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xfafafa"

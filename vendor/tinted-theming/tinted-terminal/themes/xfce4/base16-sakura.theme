@@ -1,0 +1,10 @@
+# Scheme name: Sakura
+# Scheme author: Misterio77 (http://github.com/Misterio77)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-sakura
+ColorForeground=#564448
+ColorBackground=#feedf3
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#f8e2e7;#df2d52;#2e916d;#c29461;#006e93;#5e2180;#1d8991;#42383a;#e0ccd1;#df2d52;#2e916d;#c29461;#006e93;#5e2180;#1d8991;#33292b

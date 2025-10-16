@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Shades of Purple by Iolar Demartini Junior (http://github.com/demartini), based on Shades of Purple Theme (https://github.com/ahmadawais/shades-of-purple-vscode)
+
+[colors]
+selection-background = '#f1d000' # base02
+selection-foreground = '#c7c7c7' # base05
+
+cursor         = '#c7c7c7' # base05
+tabs           = '#43d426' # base01
+tabs-active    = '#f1d000' # base02
+
+background     = '#1e1e3f' # base00
+foreground     = '#c7c7c7' # base05
+black          = '#43d426' # base01
+red            = '#d90429' # base08
+yellow         = '#ffe700' # base0A
+green          = '#3ad900' # base0B
+cyan           = '#00c5c7' # base0C
+blue           = '#6943ff' # base0D
+magenta        = '#ff2c70' # base0E
+white          = '#ff77ff' # base06
+
+dim-foreground   = '#c7c7c7' # base05
+dim-black        = '#43d426' # base01
+dim-red          = '#d90429' # base08
+dim-yellow       = '#ffe700' # base0A
+dim-green        = '#3ad900' # base0B
+dim-cyan         = '#00c5c7' # base0C
+dim-blue         = '#6943ff' # base0D
+dim-magenta      = '#ff2c70' # base0E
+dim-white        = '#6871ff' # base04
+
+light-foreground = '#c7c7c7' # base05
+light-black      = '#f1d000' # base02
+light-red        = '#d90429' # base08
+light-yellow     = '#ffe700' # base0A
+light-green      = '#3ad900' # base0B
+light-cyan       = '#00c5c7' # base0C
+light-blue       = '#6943ff' # base0D
+light-magenta    = '#ff2c70' # base0E
+light-white      = '#ffffff' # base07

@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Google Dark by Seth Wright (http://sethawright.com)
+
+[colors]
+selection-background = '#373b41' # base02
+selection-foreground = '#c5c8c6' # base05
+
+cursor         = '#c5c8c6' # base05
+tabs           = '#282a2e' # base01
+tabs-active    = '#373b41' # base02
+
+background     = '#1d1f21' # base00
+foreground     = '#c5c8c6' # base05
+black          = '#282a2e' # base01
+red            = '#cc342b' # base08
+yellow         = '#fba922' # base0A
+green          = '#198844' # base0B
+cyan           = '#3971ed' # base0C
+blue           = '#3971ed' # base0D
+magenta        = '#a36ac7' # base0E
+white          = '#e0e0e0' # base06
+
+dim-foreground   = '#c5c8c6' # base05
+dim-black        = '#282a2e' # base01
+dim-red          = '#cc342b' # base08
+dim-yellow       = '#fba922' # base0A
+dim-green        = '#198844' # base0B
+dim-cyan         = '#3971ed' # base0C
+dim-blue         = '#3971ed' # base0D
+dim-magenta      = '#a36ac7' # base0E
+dim-white        = '#b4b7b4' # base04
+
+light-foreground = '#c5c8c6' # base05
+light-black      = '#373b41' # base02
+light-red        = '#cc342b' # base08
+light-yellow     = '#fba922' # base0A
+light-green      = '#198844' # base0B
+light-cyan       = '#3971ed' # base0C
+light-blue       = '#3971ed' # base0D
+light-magenta    = '#a36ac7' # base0E
+light-white      = '#ffffff' # base07

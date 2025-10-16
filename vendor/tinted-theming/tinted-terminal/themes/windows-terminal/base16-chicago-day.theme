@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Chicago Day",
+	"foreground": "#364c40",
+	"background": "#e8f0ea",
+	"black": "#d1e0d7",
+	"blue": "#522398",
+	"brightBlack": "#b9d0c3",
+	"brightBlue": "#522398",
+	"brightCyan": "#00a1de",
+	"brightGreen": "#009b3a",
+	"brightPurple": "#e27ea6",
+	"brightRed": "#c60c30",
+	"brightWhite": "#1e2a24",
+	"brightYellow": "#968400",
+	"cyan": "#00a1de",
+	"green": "#009b3a",
+	"purple": "#e27ea6",
+	"red": "#c60c30",
+	"white": "#2a3b32",
+	"yellow": "#f9461c"
+},

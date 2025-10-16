@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Atelier Lakeside
+; Scheme system: base16
+; Scheme description: 
+; Scheme author: Bram de Haan (http://atelierbramdehaan.nl)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base16-atelier-lakeside]
+
+; Default Foreground
+; base05 #7ea2b4
+"Colour0"="126,162,180"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #7ea2b4
+"Colour1"="126,162,180"
+
+; Default Background
+; base00 #161b1d
+"Colour2"="22,27,29"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #161b1d
+"Colour3"="22,27,29"
+
+; Cursor Text -- equals to default background
+; base00 #161b1d
+"Colour4"="22,27,29"
+
+; Cursor Colour -- equals to default foreground
+; base05 #7ea2b4
+"Colour5"="126,162,180"
+
+; ANSI Black
+; 30m
+; base01 #1f292e
+"Colour6"="31,41,46"
+
+; ANSI Black Bright
+; 1;30m
+; base02 #516d7b
+"Colour7"="81,109,123"
+
+; ANSI Red
+; 31m
+; base08 #d22d72
+"Colour8"="210,45,114"
+
+; ANSI Red Bright
+; 1;31m
+; base08 #d22d72
+"Colour9"="210,45,114"
+
+; ANSI Green
+; 32m
+; base0B #568c3b
+"Colour10"="86,140,59"
+
+; ANSI Green Bright
+; 1;32m
+; base0B #568c3b
+"Colour11"="86,140,59"
+
+; ANSI Yellow
+; 33m
+; base0A #8a8a0f
+"Colour12"="138,138,15"
+
+; ANSI Yellow Bright
+; 1;33m
+; base0A #8a8a0f
+"Colour13"="138,138,15"
+
+; ANSI Blue
+; 34m
+; base0D #257fad
+"Colour14"="37,127,173"
+
+; ANSI Blue Bright
+; 1;34m
+; base0D #257fad
+"Colour15"="37,127,173"
+
+; ANSI Magenta
+; 35m
+; base0E #6b6bb8
+"Colour16"="107,107,184"
+
+; ANSI Magenta Bright
+; 1;35m
+; base0E #6b6bb8
+"Colour17"="107,107,184"
+
+; ANSI Cyan
+; 36m
+; base0C #2d8f6f
+"Colour18"="45,143,111"
+
+; ANSI Cyan Bright
+; 1;36m
+; base0C #2d8f6f
+"Colour19"="45,143,111"
+
+; ANSI White
+; 37m
+; base06 #c1e4f6
+"Colour20"="193,228,246"
+
+; ANSI White Bright
+; 1;37m
+; base07 ebf8ff
+"Colour21"="235,248,255"

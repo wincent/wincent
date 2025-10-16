@@ -1,0 +1,43 @@
+# base16 Marrakesh
+# Scheme author: Alexandre Gavioli (http://github.com/Alexx2/)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#201602"
+foreground = "#948e48"
+
+cursor_bg = "#948e48"
+cursor_border = "#948e48"
+cursor_fg = "#201602"
+
+selection_bg = "#948e48"
+selection_fg = "#5f5b17"
+
+ansi = [
+  "#201602",
+  "#c35359",
+  "#18974e",
+  "#a88339",
+  "#477ca1",
+  "#8868b3",
+  "#75a738",
+  "#ccc37a"
+]
+brights = [
+  "#5f5b17",
+  "#c35359",
+  "#18974e",
+  "#a88339",
+  "#477ca1",
+  "#8868b3",
+  "#75a738",
+  "#faf0a5"
+]
+
+[colors.indexed]
+16 = "#b36144"
+17 = "#b3588e"
+18 = "#302e00"
+19 = "#5f5b17"
+20 = "#86813b"
+21 = "#948e48"

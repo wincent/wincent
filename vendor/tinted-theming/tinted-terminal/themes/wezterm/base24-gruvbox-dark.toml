@@ -1,0 +1,43 @@
+# base24 Gruvbox Dark
+# Scheme author: Tinted Theming (https://github.com/tinted-theming), morhetz (https://github.com/morhetz/gruvbox)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#282828"
+foreground = "#ebdbb2"
+
+cursor_bg = "#3c3836"
+cursor_border = "#ebdbb2"
+cursor_fg = "#fbf1c7"
+
+selection_bg = "#ebdbb2"
+selection_fg = "#504945"
+
+ansi = [
+  "#282828",
+  "#cc241d",
+  "#98971a",
+  "#d79921",
+  "#458588",
+  "#b16286",
+  "#689d6a",
+  "#fbf1c7"
+]
+brights = [
+  "#504945",
+  "#fb4934",
+  "#b8bb26",
+  "#fabd2f",
+  "#83a598",
+  "#d3869b",
+  "#8ec07c",
+  "#f9f5d7"
+]
+
+[colors.indexed]
+16 = "#d65d0e"
+17 = "#9d0006"
+18 = "#3c3836"
+19 = "#504945"
+20 = "#928374"
+21 = "#ebdbb2"

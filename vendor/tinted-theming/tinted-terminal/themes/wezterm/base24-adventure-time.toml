@@ -1,0 +1,43 @@
+# base24 Adventure Time
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#1e1c44"
+foreground = "#cdc3bf"
+
+cursor_bg = "#050404"
+cursor_border = "#cdc3bf"
+cursor_fg = "#f8dbc0"
+
+selection_bg = "#cdc3bf"
+selection_fg = "#4e7bbf"
+
+ansi = [
+  "#1e1c44",
+  "#bc0013",
+  "#49b117",
+  "#1896c6",
+  "#0f49c6",
+  "#665992",
+  "#6fa497",
+  "#f8dbc0"
+]
+brights = [
+  "#4e7bbf",
+  "#fc5e59",
+  "#9dff6e",
+  "#efc11a",
+  "#1896c6",
+  "#9a5952",
+  "#c8f9f3",
+  "#f5f4fb"
+]
+
+[colors.indexed]
+16 = "#e6741d"
+17 = "#5e0009"
+18 = "#050404"
+19 = "#4e7bbf"
+20 = "#a3abbf"
+21 = "#cdc3bf"

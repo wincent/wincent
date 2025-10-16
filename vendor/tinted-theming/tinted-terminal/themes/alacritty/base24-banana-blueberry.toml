@@ -1,0 +1,58 @@
+# base24 Banana Blueberry 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x191322'
+foreground = '0xc6c9cd'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x191322'
+cursor = '0xc6c9cd'
+
+# Normal colors
+[colors.normal]
+black = '0x16141e'
+red = '0xff6a7e'
+green = '0x00bc9b'
+yellow = '0x91fff3'
+blue = '0x22e8df'
+magenta = '0xdc3969'
+cyan = '0x55b6c1'
+white = '0xf1f1f1'
+
+# Bright colors
+[colors.bright]
+black = '0x485161'
+red = '0xfd9ea1'
+green = '0x97c378'
+yellow = '0xf9e46a'
+blue = '0x91fff3'
+magenta = '0xda70d5'
+cyan = '0xbcf2fe'
+white = '0xfeffff'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xe5c62f"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x7f353f"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x16141e"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x485161"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x9ca1a9"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xf1f1f1"

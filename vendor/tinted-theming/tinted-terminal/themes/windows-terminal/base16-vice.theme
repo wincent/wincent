@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "vice",
+	"foreground": "#8b9cbe",
+	"background": "#17191e",
+	"black": "#22262d",
+	"blue": "#00eaff",
+	"brightBlack": "#3c3f4c",
+	"brightBlue": "#00eaff",
+	"brightCyan": "#8265ff",
+	"brightGreen": "#0badff",
+	"brightPurple": "#00f6d9",
+	"brightRed": "#ff29a8",
+	"brightWhite": "#f4f4f7",
+	"brightYellow": "#f0ffaa",
+	"cyan": "#8265ff",
+	"green": "#0badff",
+	"purple": "#00f6d9",
+	"red": "#ff29a8",
+	"white": "#b2bfd9",
+	"yellow": "#85ffe0"
+},

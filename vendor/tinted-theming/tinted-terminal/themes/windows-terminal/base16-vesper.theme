@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Vesper",
+	"foreground": "#b7b7b7",
+	"background": "#101010",
+	"black": "#232323",
+	"blue": "#8eaaaa",
+	"brightBlack": "#222222",
+	"brightBlue": "#8eaaaa",
+	"brightCyan": "#60a592",
+	"brightGreen": "#5f8787",
+	"brightPurple": "#d69094",
+	"brightRed": "#de6e6e",
+	"brightWhite": "#d5d5d5",
+	"brightYellow": "#ffc799",
+	"cyan": "#60a592",
+	"green": "#5f8787",
+	"purple": "#d69094",
+	"red": "#de6e6e",
+	"white": "#c1c1c1",
+	"yellow": "#dab083"
+},

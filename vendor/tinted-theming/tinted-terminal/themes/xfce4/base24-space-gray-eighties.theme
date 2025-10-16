@@ -1,0 +1,10 @@
+# Scheme name: Space Gray Eighties
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-space-gray-eighties
+ColorForeground=#c7c6c2
+ColorBackground=#212121
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#15171c;#ec5f67;#80a763;#4d83d0;#5485c0;#bf83c0;#57c2c0;#eeece7;#555555;#ff6973;#93d393;#ffd156;#4d83d0;#ff55ff;#83e8e4;#ffffff

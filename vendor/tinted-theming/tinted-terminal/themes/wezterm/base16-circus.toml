@@ -1,0 +1,43 @@
+# base16 Circus
+# Scheme author: Stephan Boyer (https://github.com/stepchowfun) and Esther Wang (https://github.com/ewang12)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#191919"
+foreground = "#a7a7a7"
+
+cursor_bg = "#a7a7a7"
+cursor_border = "#a7a7a7"
+cursor_fg = "#191919"
+
+selection_bg = "#a7a7a7"
+selection_fg = "#303030"
+
+ansi = [
+  "#191919",
+  "#dc657d",
+  "#84b97c",
+  "#c3ba63",
+  "#639ee4",
+  "#b888e2",
+  "#4bb1a7",
+  "#808080"
+]
+brights = [
+  "#303030",
+  "#dc657d",
+  "#84b97c",
+  "#c3ba63",
+  "#639ee4",
+  "#b888e2",
+  "#4bb1a7",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#4bb1a7"
+17 = "#b888e2"
+18 = "#202020"
+19 = "#303030"
+20 = "#505050"
+21 = "#a7a7a7"

@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "lime",
+	"foreground": "#818175",
+	"background": "#1a1a2f",
+	"black": "#202030",
+	"blue": "#2b926f",
+	"brightBlack": "#2a2a3f",
+	"brightBlue": "#2b926f",
+	"brightCyan": "#4cad83",
+	"brightGreen": "#8cd97c",
+	"brightPurple": "#1b825f",
+	"brightRed": "#ff662a",
+	"brightWhite": "#fff8e1",
+	"brightYellow": "#ffd15e",
+	"cyan": "#4cad83",
+	"green": "#8cd97c",
+	"purple": "#1b825f",
+	"red": "#ff662a",
+	"white": "#fff2d1",
+	"yellow": "#ff773a"
+},

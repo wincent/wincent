@@ -1,0 +1,58 @@
+# base16 Rebecca 256 - alacritty color config
+# Victor Borja (http://github.com/vic) based on Rebecca Theme (http://github.com/vic/rebecca-theme)
+
+# Default colors
+[colors.primary]
+background = '0x292a44'
+foreground = '0xf1eff8'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x292a44'
+cursor = '0xf1eff8'
+
+# Normal colors
+[colors.normal]
+black = '0x663399'
+red = '0xa0a0c5'
+green = '0x6dfedf'
+yellow = '0xae81ff'
+blue = '0x2de0a7'
+magenta = '0x7aa5ff'
+cyan = '0x8eaee0'
+white = '0xccccff'
+
+# Bright colors
+[colors.bright]
+black = '0x383a62'
+red = '0xa0a0c5'
+green = '0x6dfedf'
+yellow = '0xae81ff'
+blue = '0x2de0a7'
+magenta = '0x7aa5ff'
+cyan = '0x8eaee0'
+white = '0x53495d'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xefe4a1"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xff79c6"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x663399"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x383a62"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0xa0a0c5"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xccccff"

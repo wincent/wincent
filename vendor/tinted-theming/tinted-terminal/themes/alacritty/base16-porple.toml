@@ -1,0 +1,58 @@
+# base16 Porple 256 - alacritty color config
+# Niek den Breeje (https://github.com/AuditeMarlow)
+
+# Default colors
+[colors.primary]
+background = '0x292c36'
+foreground = '0xd8d8d8'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x292c36'
+cursor = '0xd8d8d8'
+
+# Normal colors
+[colors.normal]
+black = '0x333344'
+red = '0xf84547'
+green = '0x95c76f'
+yellow = '0xefa16b'
+blue = '0x8485ce'
+magenta = '0xb74989'
+cyan = '0x64878f'
+white = '0xe8e8e8'
+
+# Bright colors
+[colors.bright]
+black = '0x474160'
+red = '0xf84547'
+green = '0x95c76f'
+yellow = '0xefa16b'
+blue = '0x8485ce'
+magenta = '0xb74989'
+cyan = '0x64878f'
+white = '0xf8f8f8'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xd28e5d"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x986841"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x333344"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x474160"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0xb8b8b8"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xe8e8e8"

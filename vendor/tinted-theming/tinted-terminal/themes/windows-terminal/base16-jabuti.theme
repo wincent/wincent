@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Jabuti",
+	"foreground": "#c0cbe3",
+	"background": "#292a37",
+	"black": "#343545",
+	"blue": "#3fc6de",
+	"brightBlack": "#3c3e51",
+	"brightBlue": "#3fc6de",
+	"brightCyan": "#ff7eb6",
+	"brightGreen": "#3fdaa4",
+	"brightPurple": "#be95ff",
+	"brightRed": "#ec6a88",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#e1c697",
+	"cyan": "#ff7eb6",
+	"green": "#3fdaa4",
+	"purple": "#be95ff",
+	"red": "#ec6a88",
+	"white": "#d9e0ee",
+	"yellow": "#efb993"
+},

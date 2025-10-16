@@ -1,0 +1,10 @@
+# Scheme name: 0x96f
+# Scheme author: Filip Janevski (https://0x96f.dev/theme)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-0x96f
+ColorForeground=#fcfcfc
+ColorBackground=#262427
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#3b393c;#ff7272;#bcdf59;#ffca58;#49cae4;#a093e2;#aee8f4;#eae9eb;#514f52;#ff8787;#c6e472;#ffd271;#64d2e8;#aea3e6;#baebf6;#fcfcfc

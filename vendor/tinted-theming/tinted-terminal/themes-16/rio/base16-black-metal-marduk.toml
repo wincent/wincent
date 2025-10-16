@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Black Metal (Marduk) by metalelf0 (https://github.com/metalelf0)
+
+[colors]
+selection-background = '#222222' # base02
+selection-foreground = '#c1c1c1' # base05
+
+cursor         = '#c1c1c1' # base05
+tabs           = '#121212' # base01
+tabs-active    = '#222222' # base02
+
+background     = '#000000' # base00
+foreground     = '#c1c1c1' # base05
+black          = '#121212' # base01
+red            = '#5f8787' # base08
+yellow         = '#626b67' # base0A
+green          = '#a5aaa7' # base0B
+cyan           = '#aaaaaa' # base0C
+blue           = '#888888' # base0D
+magenta        = '#999999' # base0E
+white          = '#999999' # base06
+
+dim-foreground   = '#c1c1c1' # base05
+dim-black        = '#121212' # base01
+dim-red          = '#5f8787' # base08
+dim-yellow       = '#626b67' # base0A
+dim-green        = '#a5aaa7' # base0B
+dim-cyan         = '#aaaaaa' # base0C
+dim-blue         = '#888888' # base0D
+dim-magenta      = '#999999' # base0E
+dim-white        = '#999999' # base04
+
+light-foreground = '#c1c1c1' # base05
+light-black      = '#222222' # base02
+light-red        = '#5f8787' # base08
+light-yellow     = '#626b67' # base0A
+light-green      = '#a5aaa7' # base0B
+light-cyan       = '#aaaaaa' # base0C
+light-blue       = '#888888' # base0D
+light-magenta    = '#999999' # base0E
+light-white      = '#c1c1c1' # base07

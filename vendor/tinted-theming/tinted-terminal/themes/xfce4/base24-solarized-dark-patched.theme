@@ -1,0 +1,10 @@
+# Scheme name: Solarized Dark Patched
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-solarized-dark-patched
+ColorForeground=#c0c0b0
+ColorBackground=#001e26
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#002731;#d01b24;#728905;#708183;#2075c7;#c61b6e;#259185;#e9e2cb;#465a61;#bd3612;#465a61;#52676f;#708183;#5856b9;#81908f;#fcf4dc

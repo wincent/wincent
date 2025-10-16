@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Obsidian",
+	"foreground": "#a1a1a1",
+	"background": "#273032",
+	"black": "#000000",
+	"blue": "#399bda",
+	"brightBlack": "#555555",
+	"brightBlue": "#a0d6ff",
+	"brightCyan": "#55ffff",
+	"brightGreen": "#92c763",
+	"brightPurple": "#ff55ff",
+	"brightRed": "#ff0003",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#fef773",
+	"cyan": "#00bbbb",
+	"green": "#00bb00",
+	"purple": "#bb00bb",
+	"red": "#a50001",
+	"white": "#bbbbbb",
+	"yellow": "#fecc22"
+},

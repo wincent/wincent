@@ -1,0 +1,43 @@
+# base24 ayu
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#0f1419"
+foreground = "#cbcbcb"
+
+cursor_bg = "#000000"
+cursor_border = "#cbcbcb"
+cursor_fg = "#ffffff"
+
+selection_bg = "#cbcbcb"
+selection_fg = "#323232"
+
+ansi = [
+  "#0f1419",
+  "#ff3333",
+  "#b8cc52",
+  "#68d5ff",
+  "#36a3d9",
+  "#f07178",
+  "#95e6cb",
+  "#ffffff"
+]
+brights = [
+  "#323232",
+  "#ff6565",
+  "#eafe84",
+  "#fff779",
+  "#68d5ff",
+  "#ffa3aa",
+  "#c7fffd",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#e7c547"
+17 = "#7f1919"
+18 = "#000000"
+19 = "#323232"
+20 = "#989898"
+21 = "#cbcbcb"

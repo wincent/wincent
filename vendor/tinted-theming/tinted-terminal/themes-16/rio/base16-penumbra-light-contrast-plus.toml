@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Penumbra Light Contrast Plus by Zachary Weiss (https://github.com/zacharyweiss)
+
+[colors]
+selection-background = '#f2e6d4' # base02
+selection-foreground = '#636363' # base05
+
+cursor         = '#636363' # base05
+tabs           = '#fff7ed' # base01
+tabs-active    = '#f2e6d4' # base02
+
+background     = '#fffdfb' # base00
+foreground     = '#636363' # base05
+black          = '#fff7ed' # base01
+red            = '#df7f78' # base08
+yellow         = '#9ca748' # base0A
+green          = '#50b584' # base0B
+cyan           = '#00b3c2' # base0C
+blue           = '#61a3e6' # base0D
+magenta        = '#a48fe1' # base0E
+white          = '#24272b' # base06
+
+dim-foreground   = '#636363' # base05
+dim-black        = '#fff7ed' # base01
+dim-red          = '#df7f78' # base08
+dim-yellow       = '#9ca748' # base0A
+dim-green        = '#50b584' # base0B
+dim-cyan         = '#00b3c2' # base0C
+dim-blue         = '#61a3e6' # base0D
+dim-magenta      = '#a48fe1' # base0E
+dim-white        = '#9e9e9e' # base04
+
+light-foreground = '#636363' # base05
+light-black      = '#f2e6d4' # base02
+light-red        = '#df7f78' # base08
+light-yellow     = '#9ca748' # base0A
+light-green      = '#50b584' # base0B
+light-cyan       = '#00b3c2' # base0C
+light-blue       = '#61a3e6' # base0D
+light-magenta    = '#a48fe1' # base0E
+light-white      = '#181b1f' # base07

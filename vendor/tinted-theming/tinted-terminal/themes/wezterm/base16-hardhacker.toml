@@ -1,0 +1,43 @@
+# base16 Hardhacker
+# Scheme author: fe2-Nyxar, based on the https://github.com/hardhackerlabs
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#211e2a"
+foreground = "#e4dee9"
+
+cursor_bg = "#e4dee9"
+cursor_border = "#e4dee9"
+cursor_fg = "#211e2a"
+
+selection_bg = "#e4dee9"
+selection_fg = "#3f3951"
+
+ansi = [
+  "#211e2a",
+  "#e965a5",
+  "#b1f2a7",
+  "#ebde76",
+  "#95a6f4",
+  "#ff79c6",
+  "#b3f4f3",
+  "#f2e8f0"
+]
+brights = [
+  "#3f3951",
+  "#e965a5",
+  "#b1f2a7",
+  "#ebde76",
+  "#95a6f4",
+  "#ff79c6",
+  "#b3f4f3",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#f4b870"
+17 = "#bd93f9"
+18 = "#2c2737"
+19 = "#3f3951"
+20 = "#8a829e"
+21 = "#e4dee9"

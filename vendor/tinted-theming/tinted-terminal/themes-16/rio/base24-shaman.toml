@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Shaman by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#374350' # base02
+selection-foreground = '#3d5053' # base05
+
+cursor         = '#3d5053' # base05
+tabs           = '#012026' # base01
+tabs-active    = '#374350' # base02
+
+background     = '#001014' # base00
+foreground     = '#3d5053' # base05
+black          = '#012026' # base01
+red            = '#b12f2c' # base08
+yellow         = '#61d4b9' # base0A
+green          = '#00a940' # base0B
+cyan           = '#5c7e19' # base0C
+blue           = '#449985' # base0D
+magenta        = '#00599c' # base0E
+white          = '#405554' # base06
+
+dim-foreground   = '#3d5053' # base05
+dim-black        = '#012026' # base01
+dim-red          = '#b12f2c' # base08
+dim-yellow       = '#61d4b9' # base0A
+dim-green        = '#00a940' # base0B
+dim-cyan         = '#5c7e19' # base0C
+dim-blue         = '#449985' # base0D
+dim-magenta      = '#00599c' # base0E
+dim-white        = '#3b4c52' # base04
+
+light-foreground = '#3d5053' # base05
+light-black      = '#374350' # base02
+light-red        = '#ff4242' # base12
+light-yellow     = '#8dd3fd' # base13
+light-green      = '#2aea5e' # base14
+light-cyan       = '#98cf28' # base15
+light-blue       = '#61d4b9' # base16
+light-magenta    = '#1298ff' # base17
+light-white      = '#58fad6' # base07

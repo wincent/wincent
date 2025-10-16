@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Gruber",
+	"foreground": "#f4f4ff",
+	"background": "#181818",
+	"black": "#453d41",
+	"blue": "#96a6c8",
+	"brightBlack": "#484848",
+	"brightBlue": "#96a6c8",
+	"brightCyan": "#95a99f",
+	"brightGreen": "#73c936",
+	"brightPurple": "#9e95c7",
+	"brightRed": "#f43841",
+	"brightWhite": "#e4e4ef",
+	"brightYellow": "#ffdd33",
+	"cyan": "#95a99f",
+	"green": "#73c936",
+	"purple": "#9e95c7",
+	"red": "#f43841",
+	"white": "#f5f5f5",
+	"yellow": "#c73c3f"
+},

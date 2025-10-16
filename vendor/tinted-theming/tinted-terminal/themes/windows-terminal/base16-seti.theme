@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Seti UI",
+	"foreground": "#d6d6d6",
+	"background": "#151718",
+	"black": "#282a2b",
+	"blue": "#55b5db",
+	"brightBlack": "#3b758c",
+	"brightBlue": "#55b5db",
+	"brightCyan": "#55dbbe",
+	"brightGreen": "#9fca56",
+	"brightPurple": "#a074c4",
+	"brightRed": "#cd3f45",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#e6cd69",
+	"cyan": "#55dbbe",
+	"green": "#9fca56",
+	"purple": "#a074c4",
+	"red": "#cd3f45",
+	"white": "#eeeeee",
+	"yellow": "#db7b55"
+},

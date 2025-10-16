@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Laser by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#8e8e8e' # base02
+selection-foreground = '#d8d8d8' # base05
+
+cursor         = '#d8d8d8' # base05
+tabs           = '#616161' # base01
+tabs-active    = '#8e8e8e' # base02
+
+background     = '#030d18' # base00
+foreground     = '#d8d8d8' # base05
+black          = '#616161' # base01
+red            = '#ff8272' # base08
+yellow         = '#f92883' # base0A
+green          = '#b4fa72' # base0B
+cyan           = '#d0d1fe' # base0C
+blue           = '#fed300' # base0D
+magenta        = '#ff8ffd' # base0E
+white          = '#f1f1f1' # base06
+
+dim-foreground   = '#d8d8d8' # base05
+dim-black        = '#616161' # base01
+dim-red          = '#ff8272' # base08
+dim-yellow       = '#f92883' # base0A
+dim-green        = '#b4fa72' # base0B
+dim-cyan         = '#d0d1fe' # base0C
+dim-blue         = '#fed300' # base0D
+dim-magenta      = '#ff8ffd' # base0E
+dim-white        = '#bfbfbf' # base04
+
+light-foreground = '#d8d8d8' # base05
+light-black      = '#8e8e8e' # base02
+light-red        = '#ffc4bd' # base12
+light-yellow     = '#fefdd5' # base13
+light-green      = '#d6fcb9' # base14
+light-cyan       = '#e5e6fe' # base15
+light-blue       = '#f92883' # base16
+light-magenta    = '#ffb1fe' # base17
+light-white      = '#feffff' # base07

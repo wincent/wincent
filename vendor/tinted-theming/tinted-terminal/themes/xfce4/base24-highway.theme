@@ -1,0 +1,10 @@
+# Scheme name: Highway
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-highway
+ColorForeground=#c8c5c4
+ColorBackground=#212224
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#000000;#cf0d17;#128033;#4fc2fd;#006ab3;#6a2674;#384563;#ededed;#5c4f49;#ef7d17;#b1d130;#fff11f;#4fc2fd;#de0070;#5c4f49;#fefffe

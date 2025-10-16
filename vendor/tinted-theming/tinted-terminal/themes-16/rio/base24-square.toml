@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Square by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#141414' # base02
+selection-foreground = '#bababa' # base05
+
+cursor         = '#bababa' # base05
+tabs           = '#050505' # base01
+tabs-active    = '#141414' # base02
+
+background     = '#1a1a1a' # base00
+foreground     = '#bababa' # base05
+black          = '#050505' # base01
+red            = '#e9897c' # base08
+yellow         = '#b6defb' # base0A
+green          = '#b6377d' # base0B
+cyan           = '#c9caec' # base0C
+blue           = '#a9cdeb' # base0D
+magenta        = '#75507b' # base0E
+white          = '#f2f2f2' # base06
+
+dim-foreground   = '#bababa' # base05
+dim-black        = '#050505' # base01
+dim-red          = '#e9897c' # base08
+dim-yellow       = '#b6defb' # base0A
+dim-green        = '#b6377d' # base0B
+dim-cyan         = '#c9caec' # base0C
+dim-blue         = '#a9cdeb' # base0D
+dim-magenta      = '#75507b' # base0E
+dim-white        = '#838383' # base04
+
+light-foreground = '#bababa' # base05
+light-black      = '#141414' # base02
+light-red        = '#f99286' # base12
+light-yellow     = '#fcfbcc' # base13
+light-green      = '#c3f786' # base14
+light-cyan       = '#d7d9fc' # base15
+light-blue       = '#b6defb' # base16
+light-magenta    = '#ad7fa8' # base17
+light-white      = '#e2e2e2' # base07

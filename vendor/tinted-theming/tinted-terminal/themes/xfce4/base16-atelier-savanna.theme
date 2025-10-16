@@ -1,0 +1,10 @@
+# Scheme name: Atelier Savanna
+# Scheme author: Bram de Haan (http://atelierbramdehaan.nl)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-atelier-savanna
+ColorForeground=#87928a
+ColorBackground=#171c19
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#232a25;#b16139;#489963;#a07e3b;#478c90;#55859b;#1c9aa0;#dfe7e2;#526057;#b16139;#489963;#a07e3b;#478c90;#55859b;#1c9aa0;#ecf4ee

@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Tomorrow Night Eighties",
+	"foreground": "#cccccc",
+	"background": "#2d2d2d",
+	"black": "#393939",
+	"blue": "#6699cc",
+	"brightBlack": "#515151",
+	"brightBlue": "#6699cc",
+	"brightCyan": "#66cccc",
+	"brightGreen": "#99cc99",
+	"brightPurple": "#cc99cc",
+	"brightRed": "#f2777a",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#ffcc66",
+	"cyan": "#66cccc",
+	"green": "#99cc99",
+	"purple": "#cc99cc",
+	"red": "#f2777a",
+	"white": "#e0e0e0",
+	"yellow": "#f99157"
+},

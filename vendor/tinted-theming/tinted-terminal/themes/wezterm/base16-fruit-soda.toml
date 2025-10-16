@@ -1,0 +1,43 @@
+# base16 Fruit Soda
+# Scheme author: jozip
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#f1ecf1"
+foreground = "#515151"
+
+cursor_bg = "#515151"
+cursor_border = "#515151"
+cursor_fg = "#f1ecf1"
+
+selection_bg = "#515151"
+selection_fg = "#d8d5d5"
+
+ansi = [
+  "#f1ecf1",
+  "#fe3e31",
+  "#47f74c",
+  "#f7e203",
+  "#2931df",
+  "#611fce",
+  "#0f9cfd",
+  "#474545"
+]
+brights = [
+  "#d8d5d5",
+  "#fe3e31",
+  "#47f74c",
+  "#f7e203",
+  "#2931df",
+  "#611fce",
+  "#0f9cfd",
+  "#2d2c2c"
+]
+
+[colors.indexed]
+16 = "#fe6d08"
+17 = "#b16f40"
+18 = "#e0dee0"
+19 = "#d8d5d5"
+20 = "#979598"
+21 = "#515151"

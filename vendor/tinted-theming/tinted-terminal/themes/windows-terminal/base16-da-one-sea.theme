@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Da One Sea",
+	"foreground": "#ffffff",
+	"background": "#22273d",
+	"black": "#374059",
+	"blue": "#6bb8ff",
+	"brightBlack": "#525866",
+	"brightBlue": "#6bb8ff",
+	"brightCyan": "#8af5ff",
+	"brightGreen": "#98c379",
+	"brightPurple": "#e799ff",
+	"brightRed": "#fa7883",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#ff9470",
+	"cyan": "#8af5ff",
+	"green": "#98c379",
+	"purple": "#e799ff",
+	"red": "#fa7883",
+	"white": "#ffffff",
+	"yellow": "#ffc387"
+},

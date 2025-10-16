@@ -1,0 +1,58 @@
+# base24 Adventure Time 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x1e1c44'
+foreground = '0xcdc3bf'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x1e1c44'
+cursor = '0xcdc3bf'
+
+# Normal colors
+[colors.normal]
+black = '0x050404'
+red = '0xbc0013'
+green = '0x49b117'
+yellow = '0x1896c6'
+blue = '0x0f49c6'
+magenta = '0x665992'
+cyan = '0x6fa497'
+white = '0xf8dbc0'
+
+# Bright colors
+[colors.bright]
+black = '0x4e7bbf'
+red = '0xfc5e59'
+green = '0x9dff6e'
+yellow = '0xefc11a'
+blue = '0x1896c6'
+magenta = '0x9a5952'
+cyan = '0xc8f9f3'
+white = '0xf5f4fb'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xe6741d"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x5e0009"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x050404"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x4e7bbf"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0xa3abbf"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xf8dbc0"

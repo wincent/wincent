@@ -1,0 +1,43 @@
+# base24 Blue Matrix
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#0f1115"
+foreground = "#afafaf"
+
+cursor_bg = "#101116"
+cursor_border = "#afafaf"
+cursor_fg = "#c7c7c7"
+
+selection_bg = "#afafaf"
+selection_fg = "#676767"
+
+ansi = [
+  "#0f1115",
+  "#ff567f",
+  "#00ff9b",
+  "#6871ff",
+  "#00b0fe",
+  "#d47bfe",
+  "#75c1fe",
+  "#c7c7c7"
+]
+brights = [
+  "#676767",
+  "#ff6d67",
+  "#5ff967",
+  "#fefb67",
+  "#6871ff",
+  "#d582eb",
+  "#5ffdff",
+  "#feffff"
+]
+
+[colors.indexed]
+16 = "#fefc57"
+17 = "#7f2b3f"
+18 = "#101116"
+19 = "#676767"
+20 = "#979797"
+21 = "#afafaf"

@@ -1,0 +1,10 @@
+# Scheme name: Misterioso
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-misterioso
+ColorForeground=#bebebd
+ColorBackground=#2d3743
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#000000;#ff4242;#74af68;#23d7d7;#338f86;#9413e5;#23d7d7;#e1e1e0;#555555;#ff3242;#74cd68;#ffb929;#23d7d7;#ff37ff;#00ede1;#ffffff

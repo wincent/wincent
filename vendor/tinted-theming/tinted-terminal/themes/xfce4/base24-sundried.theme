@@ -1,0 +1,10 @@
+# Scheme name: Sundried
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-sundried
+ColorForeground=#a9a9a7
+ColorBackground=#1a1818
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#302b2a;#a6463d;#577644;#7898f7;#485a98;#854551;#9c814e;#c8c8c8;#4d4d47;#aa000c;#128c20;#fc6a20;#7898f7;#fc89a0;#fad384;#fffefe

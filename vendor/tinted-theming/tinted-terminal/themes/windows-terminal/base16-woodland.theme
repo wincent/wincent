@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Woodland",
+	"foreground": "#cabcb1",
+	"background": "#231e18",
+	"black": "#302b25",
+	"blue": "#88a4d3",
+	"brightBlack": "#48413a",
+	"brightBlue": "#88a4d3",
+	"brightCyan": "#6eb958",
+	"brightGreen": "#b7ba53",
+	"brightPurple": "#bb90e2",
+	"brightRed": "#d35c5c",
+	"brightWhite": "#e4d4c8",
+	"brightYellow": "#e0ac16",
+	"cyan": "#6eb958",
+	"green": "#b7ba53",
+	"purple": "#bb90e2",
+	"red": "#d35c5c",
+	"white": "#d7c8bc",
+	"yellow": "#ca7f32"
+},

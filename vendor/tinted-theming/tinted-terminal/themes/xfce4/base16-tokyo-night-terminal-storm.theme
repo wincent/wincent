@@ -1,0 +1,10 @@
+# Scheme name: Tokyo Night Terminal Storm
+# Scheme author: Michaël Ball
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-tokyo-night-terminal-storm
+ColorForeground=#787c99
+ColorBackground=#24283b
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#1a1b26;#f7768e;#41a6b5;#e0af68;#7aa2f7;#bb9af7;#7dcfff;#cbccd1;#343a52;#f7768e;#41a6b5;#e0af68;#7aa2f7;#bb9af7;#7dcfff;#d5d6db

@@ -1,0 +1,10 @@
+# Scheme name: Shades Of Purple
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-shades-of-purple
+ColorForeground=#afafaf
+ColorBackground=#1e1d40
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#000000;#d90429;#3ad900;#6871ff;#6943ff;#ff2b70;#00c5c7;#c7c7c7;#676767;#f9291b;#42d425;#f1d000;#6871ff;#ff76ff;#79e7fa;#feffff

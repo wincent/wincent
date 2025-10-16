@@ -1,0 +1,10 @@
+# Scheme name: Thayler Bright
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-thayler-bright
+ColorForeground=#adada9
+ColorBackground=#1b1d1e
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#1b1d1e;#f92672;#4df740;#3f78ff;#2656d6;#8c54fe;#37c8b4;#ccccc6;#505354;#ff5995;#b6e354;#feed6c;#3f78ff;#9e6ffe;#23ced4;#f8f8f2

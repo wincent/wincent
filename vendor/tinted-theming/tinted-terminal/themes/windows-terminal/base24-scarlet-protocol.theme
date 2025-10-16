@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Scarlet Protocol",
+	"foreground": "#afafaf",
+	"background": "#1b153c",
+	"black": "#101116",
+	"blue": "#0271b6",
+	"brightBlack": "#676767",
+	"brightBlue": "#6871ff",
+	"brightCyan": "#5ffdff",
+	"brightGreen": "#5ff967",
+	"brightPurple": "#bc35eb",
+	"brightRed": "#ff6d67",
+	"brightWhite": "#feffff",
+	"brightYellow": "#fefb67",
+	"cyan": "#00c5c7",
+	"green": "#00dc84",
+	"purple": "#c930c7",
+	"red": "#ff0051",
+	"white": "#c7c7c7",
+	"yellow": "#faf945"
+},

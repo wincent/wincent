@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Edge Dark",
+	"foreground": "#b7bec9",
+	"background": "#262729",
+	"black": "#88909f",
+	"blue": "#73b3e7",
+	"brightBlack": "#b7bec9",
+	"brightBlue": "#73b3e7",
+	"brightCyan": "#5ebaa5",
+	"brightGreen": "#a1bf78",
+	"brightPurple": "#d390e7",
+	"brightRed": "#e77171",
+	"brightWhite": "#3e4249",
+	"brightYellow": "#dbb774",
+	"cyan": "#5ebaa5",
+	"green": "#a1bf78",
+	"purple": "#d390e7",
+	"red": "#e77171",
+	"white": "#d390e7",
+	"yellow": "#e77171"
+},

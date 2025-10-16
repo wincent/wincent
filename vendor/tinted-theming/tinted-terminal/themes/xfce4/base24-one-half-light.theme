@@ -1,0 +1,10 @@
+# Scheme name: One Half Light
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-one-half-light
+ColorForeground=#cfd0d2
+ColorBackground=#fafafa
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#373942;#e45649;#4fa14f;#61afef;#0084bc;#a625a4;#0996b3;#fafafa;#4f525d;#df6c75;#98c379;#e4c07a;#61afef;#c577dd;#56b5c1;#ffffff

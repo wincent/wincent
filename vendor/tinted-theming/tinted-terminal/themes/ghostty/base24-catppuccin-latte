@@ -1,0 +1,43 @@
+# vim: ft=ghostty
+# Catppuccin Latte theme for Ghostty
+# Scheme Author: https://github.com/catppuccin/catppuccin
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# Color palette
+palette = 0=#eff1f5
+palette = 1=#d20f39
+palette = 2=#40a02b
+palette = 3=#df8e1d
+palette = 4=#1e66f5
+palette = 5=#8839ef
+palette = 6=#179299
+palette = 7=#dc8a78
+palette = 8=#ccd0da
+palette = 9=#e64553
+palette = 10=#40a02b
+palette = 11=#dc8a78
+palette = 12=#209fb5
+palette = 13=#ea76cb
+palette = 14=#04a5e5
+palette = 15=#7287fd
+palette = 16=#fe640b
+palette = 17=#dd7878
+palette = 18=#e6e9ef
+palette = 19=#ccd0da
+palette = 20=#acb0be
+palette = 21=#dc8a78
+
+# Foreground & background colors
+background = #eff1f5
+foreground = #4c4f69
+cursor-color = #4c4f69
+selection-background = #ccd0da
+selection-foreground = #4c4f69
+
+# Set `macos-icon = custom-style` in your main configuration file to enable theming of the app icon.
+#
+# Set the ghost color to the lightest foreground:
+macos-icon-ghost-color = #7287fd
+# Replace the official icon's blue background with the designated bright blue color:
+macos-icon-screen-color = #209fb5

@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Wryan by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#3d3d3d' # base02
+selection-foreground = '#768488' # base05
+
+cursor         = '#768488' # base05
+tabs           = '#333333' # base01
+tabs-active    = '#3d3d3d' # base02
+
+background     = '#101010' # base00
+foreground     = '#768488' # base05
+black          = '#333333' # base01
+red            = '#8c4665' # base08
+yellow         = '#477ab3' # base0A
+green          = '#287373' # base0B
+cyan           = '#31658c' # base0C
+blue           = '#395573' # base0D
+magenta        = '#5e468c' # base0E
+white          = '#899ca1' # base06
+
+dim-foreground   = '#768488' # base05
+dim-black        = '#333333' # base01
+dim-red          = '#8c4665' # base08
+dim-yellow       = '#477ab3' # base0A
+dim-green        = '#287373' # base0B
+dim-cyan         = '#31658c' # base0C
+dim-blue         = '#395573' # base0D
+dim-magenta      = '#5e468c' # base0E
+dim-white        = '#636c6f' # base04
+
+light-foreground = '#768488' # base05
+light-black      = '#3d3d3d' # base02
+light-red        = '#bf4d80' # base12
+light-yellow     = '#9e9ecb' # base13
+light-green      = '#53a6a6' # base14
+light-cyan       = '#6096bf' # base15
+light-blue       = '#477ab3' # base16
+light-magenta    = '#7e62b3' # base17
+light-white      = '#c0c0c0' # base07

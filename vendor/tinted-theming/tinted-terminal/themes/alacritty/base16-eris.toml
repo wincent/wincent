@@ -1,0 +1,58 @@
+# base16 eris 256 - alacritty color config
+# ed (https://codeberg.org/ed)
+
+# Default colors
+[colors.primary]
+background = '0x0a0920'
+foreground = '0x606bac'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x0a0920'
+cursor = '0x606bac'
+
+# Normal colors
+[colors.normal]
+black = '0x13133a'
+red = '0xf768a3'
+green = '0xfaaea2'
+yellow = '0xfaaea2'
+blue = '0x258fc4'
+magenta = '0xf768a3'
+cyan = '0x258fc4'
+white = '0x7986c5'
+
+# Bright colors
+[colors.bright]
+black = '0x23255a'
+red = '0xf768a3'
+green = '0xfaaea2'
+yellow = '0xfaaea2'
+blue = '0x258fc4'
+magenta = '0xf768a3'
+cyan = '0x258fc4'
+white = '0x9aaae5'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xf768a3"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xf768a3"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x13133a"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x23255a"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x4a5293"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0x7986c5"

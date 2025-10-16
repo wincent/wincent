@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Borland",
+	"foreground": "#d1d1d1",
+	"background": "#0000a4",
+	"black": "#4e4e4e",
+	"blue": "#96cafd",
+	"brightBlack": "#7c7c7c",
+	"brightBlue": "#b5dcfe",
+	"brightCyan": "#dfdffe",
+	"brightGreen": "#ceffab",
+	"brightPurple": "#ff9cfe",
+	"brightRed": "#ffb6b0",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#ffffcb",
+	"cyan": "#c6c4fd",
+	"green": "#a7ff60",
+	"purple": "#ff73fd",
+	"red": "#ff6b60",
+	"white": "#eeeeee",
+	"yellow": "#ffffb6"
+},

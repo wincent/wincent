@@ -1,0 +1,170 @@
+# Alacritty
+# ----------------------------------------------------------------------
+alacritty-base16:
+  filename: themes/alacritty/{{ scheme-system }}-{{ scheme-slug }}.toml
+  supported-systems: [base16]
+
+alacritty-base24:
+  filename: themes/alacritty/{{ scheme-system }}-{{ scheme-slug }}.toml
+  supported-systems: [base24]
+
+# ConEmu
+# ----------------------------------------------------------------------
+conemu-base16:
+  filename: themes/conemu/{{ scheme-system }}-{{ scheme-slug }}.xml
+  supported-systems: [base16]
+
+conemu-base24:
+  filename: themes/conemu/{{ scheme-system }}-{{ scheme-slug }}.xml
+  supported-systems: [base24]
+
+# Foot
+# ----------------------------------------------------------------------
+foot-base16:
+  filename: themes/foot/{{ scheme-system }}-{{ scheme-slug }}.ini
+  supported-systems: [base16]
+
+foot-base24:
+  filename: themes/foot/{{ scheme-system }}-{{ scheme-slug }}.ini
+  supported-systems: [base24]
+
+# Ghostty
+# ----------------------------------------------------------------------
+ghostty-base16:
+  filename: themes/ghostty/{{ scheme-system }}-{{ scheme-slug }}
+  supported-systems: [base16]
+
+ghostty-base24:
+  filename: themes/ghostty/{{ scheme-system }}-{{ scheme-slug }}
+  supported-systems: [base24]
+
+ghostty-script-base16:
+  filename: themes/ghostty-scripts/{{ scheme-system }}-{{ scheme-slug }}.sh
+  supported-systems: [base16]
+
+ghostty-script-base24:
+  filename: themes/ghostty-scripts/{{ scheme-system }}-{{ scheme-slug }}.sh
+  supported-systems: [base24]
+
+# iTerm2
+# ----------------------------------------------------------------------
+iterm2-base16:
+  filename: themes/iterm2/{{ scheme-system }}-{{ scheme-slug }}.itermcolors
+  supported-systems: [base16]
+
+iterm2-base24:
+  filename: themes/iterm2/{{ scheme-system }}-{{ scheme-slug }}.itermcolors
+  supported-systems: [base24]
+
+iterm2-scripts-migration-notice:
+  filename: themes-16/iterm2-scripts/{{ scheme-system }}-{{ scheme-slug }}.sh
+  supported-systems: [base16, base24]
+
+iterm2-applescript-base16-16:
+  filename: themes-16/iterm2-applescripts/{{ scheme-system }}-{{ scheme-slug }}.scpt
+  supported-systems: [base16]
+
+iterm2-applescript-base24-16:
+  filename: themes-16/iterm2-applescripts/{{ scheme-system }}-{{ scheme-slug }}.scpt
+  supported-systems: [base24]
+
+# Kermit
+# ----------------------------------------------------------------------
+kermit-base16-16:
+  filename: themes-16/kermit/{{ scheme-system }}-{{ scheme-slug }}.config
+  supported-systems: [base16]
+
+kermit-base24-16:
+  filename: themes-16/kermit/{{ scheme-system }}-{{ scheme-slug }}.config
+  supported-systems: [base24]
+
+# Kitty
+# ----------------------------------------------------------------------
+kitty-base16:
+  filename: themes/kitty/{{ scheme-system }}-{{ scheme-slug }}.conf
+  supported-systems: [base16]
+
+kitty-base24:
+  filename: themes/kitty/{{ scheme-system }}-{{ scheme-slug }}.conf
+  supported-systems: [base24]
+
+# Putty
+# ----------------------------------------------------------------------
+putty-base16:
+  filename: themes/putty/{{ scheme-system }}-{{ scheme-slug }}.reg
+  supported-systems: [base16]
+
+putty-base24:
+  filename: themes/putty/{{ scheme-system }}-{{ scheme-slug }}.reg
+  supported-systems: [base24]
+
+# QTerminal
+# ----------------------------------------------------------------------
+qterminal-base16:
+    filename: themes/qterminal/{{ scheme-system }}-{{ scheme-slug }}.colorscheme
+    supported-systems: [base16]
+
+qterminal-base24:
+    filename: themes/qterminal/{{ scheme-system }}-{{ scheme-slug }}.colorscheme
+    supported-systems: [base24]
+
+# Rio
+# ----------------------------------------------------------------------
+rio-base16-16:
+  filename: themes-16/rio/{{ scheme-system }}-{{ scheme-slug }}.toml
+  supported-systems: [base16]
+
+rio-base24-16:
+  filename: themes-16/rio/{{ scheme-system }}-{{ scheme-slug }}.toml
+  supported-systems: [base24]
+
+# st
+# ----------------------------------------------------------------------
+st-base16:
+  filename: themes/st/st-{{ scheme-system }}-{{ scheme-slug }}-0.9.3.diff
+  supported-systems: [base16]
+
+st-base24:
+  filename: themes/st/st-{{ scheme-system }}-{{ scheme-slug }}-0.9.3.diff
+  supported-systems: [base24]
+
+# Termite
+# ----------------------------------------------------------------------
+termite-base16:
+  filename: themes/termite/{{ scheme-system }}-{{ scheme-slug }}.config
+  supported-systems: [base16]
+
+termite-base24:
+  filename: themes/termite/{{ scheme-system }}-{{ scheme-slug }}.config
+  supported-systems: [base24]
+
+# Windows Terminal
+# ----------------------------------------------------------------------
+windows-terminal-base16:
+  filename: themes/windows-terminal/{{ scheme-system }}-{{ scheme-slug }}.theme
+  supported-systems: [base16]
+
+windows-terminal-base24:
+  filename: themes/windows-terminal/{{ scheme-system }}-{{ scheme-slug }}.theme
+  supported-systems: [base24]
+
+# xfce4
+# ----------------------------------------------------------------------
+xfce4-base16:
+  filename: themes/xfce4/{{ scheme-system }}-{{ scheme-slug }}.theme
+  supported-systems: [base16]
+
+xfce4-base24:
+  filename: themes/xfce4/{{ scheme-system }}-{{ scheme-slug }}.theme
+  supported-systems: [base24]
+
+# weterm
+# ----------------------------------------------------------------------
+
+wezterm-base16:
+  filename: themes/wezterm/{{ scheme-system }}-{{ scheme-slug }}.toml
+  supported-systems: [base16]
+
+wezterm-base24:
+  filename: themes/wezterm/{{ scheme-system }}-{{ scheme-slug }}.toml
+  supported-systems: [base24]

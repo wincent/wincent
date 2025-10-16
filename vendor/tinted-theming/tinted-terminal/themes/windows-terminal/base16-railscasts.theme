@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Railscasts",
+	"foreground": "#e6e1dc",
+	"background": "#2b2b2b",
+	"black": "#272935",
+	"blue": "#6d9cbe",
+	"brightBlack": "#3a4055",
+	"brightBlue": "#6d9cbe",
+	"brightCyan": "#519f50",
+	"brightGreen": "#a5c261",
+	"brightPurple": "#b6b3eb",
+	"brightRed": "#da4939",
+	"brightWhite": "#f9f7f3",
+	"brightYellow": "#ffc66d",
+	"cyan": "#519f50",
+	"green": "#a5c261",
+	"purple": "#b6b3eb",
+	"red": "#da4939",
+	"white": "#f4f1ed",
+	"yellow": "#cc7833"
+},

@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Thayler Bright by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#505354' # base02
+selection-foreground = '#adada9' # base05
+
+cursor         = '#adada9' # base05
+tabs           = '#1b1d1e' # base01
+tabs-active    = '#505354' # base02
+
+background     = '#1b1d1e' # base00
+foreground     = '#adada9' # base05
+black          = '#1b1d1e' # base01
+red            = '#f92672' # base08
+yellow         = '#3f78ff' # base0A
+green          = '#4df740' # base0B
+cyan           = '#37c8b4' # base0C
+blue           = '#2656d6' # base0D
+magenta        = '#8c54fe' # base0E
+white          = '#ccccc6' # base06
+
+dim-foreground   = '#adada9' # base05
+dim-black        = '#1b1d1e' # base01
+dim-red          = '#f92672' # base08
+dim-yellow       = '#3f78ff' # base0A
+dim-green        = '#4df740' # base0B
+dim-cyan         = '#37c8b4' # base0C
+dim-blue         = '#2656d6' # base0D
+dim-magenta      = '#8c54fe' # base0E
+dim-white        = '#8e8f8d' # base04
+
+light-foreground = '#adada9' # base05
+light-black      = '#505354' # base02
+light-red        = '#ff5995' # base12
+light-yellow     = '#feed6c' # base13
+light-green      = '#b6e354' # base14
+light-cyan       = '#23ced4' # base15
+light-blue       = '#3f78ff' # base16
+light-magenta    = '#9e6ffe' # base17
+light-white      = '#f8f8f2' # base07

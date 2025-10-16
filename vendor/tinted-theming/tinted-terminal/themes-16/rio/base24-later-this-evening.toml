@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Later This Evening by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#444747' # base02
+selection-foreground = '#3e3f3f' # base05
+
+cursor         = '#3e3f3f' # base05
+tabs           = '#2b2b2b' # base01
+tabs-active    = '#444747' # base02
+
+background     = '#212121' # base00
+foreground     = '#3e3f3f' # base05
+black          = '#2b2b2b' # base01
+red            = '#d35a5f' # base08
+yellow         = '#6599d5' # base0A
+green          = '#afba66' # base0B
+cyan           = '#91beb6' # base0C
+blue           = '#a0b9d5' # base0D
+magenta        = '#bf92d5' # base0E
+white          = '#3b3c3c' # base06
+
+dim-foreground   = '#3e3f3f' # base05
+dim-black        = '#2b2b2b' # base01
+dim-red          = '#d35a5f' # base08
+dim-yellow       = '#6599d5' # base0A
+dim-green        = '#afba66' # base0B
+dim-cyan         = '#91beb6' # base0C
+dim-blue         = '#a0b9d5' # base0D
+dim-magenta      = '#bf92d5' # base0E
+dim-white        = '#404242' # base04
+
+light-foreground = '#3e3f3f' # base05
+light-black      = '#444747' # base02
+light-red        = '#d3222e' # base12
+light-yellow     = '#e4bd39' # base13
+light-green      = '#aabb39' # base14
+light-cyan       = '#5fbfad' # base15
+light-blue       = '#6599d5' # base16
+light-magenta    = '#aa52d5' # base17
+light-white      = '#c0c2c2' # base07

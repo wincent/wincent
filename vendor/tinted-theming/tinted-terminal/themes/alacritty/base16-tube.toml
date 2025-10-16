@@ -1,0 +1,58 @@
+# base16 London Tube 256 - alacritty color config
+# Jan T. Sott
+
+# Default colors
+[colors.primary]
+background = '0x231f20'
+foreground = '0xd9d8d8'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x231f20'
+cursor = '0xd9d8d8'
+
+# Normal colors
+[colors.normal]
+black = '0x1c3f95'
+red = '0xee2e24'
+green = '0x00853e'
+yellow = '0xffd204'
+blue = '0x009ddc'
+magenta = '0x98005d'
+cyan = '0x85cebc'
+white = '0xe7e7e8'
+
+# Bright colors
+[colors.bright]
+black = '0x5a5758'
+red = '0xee2e24'
+green = '0x00853e'
+yellow = '0xffd204'
+blue = '0x009ddc'
+magenta = '0x98005d'
+cyan = '0x85cebc'
+white = '0xffffff'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xf386a1"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xb06110"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x1c3f95"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x5a5758"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x959ca1"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xe7e7e8"

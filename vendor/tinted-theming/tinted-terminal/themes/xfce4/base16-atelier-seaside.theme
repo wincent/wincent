@@ -1,0 +1,10 @@
+# Scheme name: Atelier Seaside
+# Scheme author: Bram de Haan (http://atelierbramdehaan.nl)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-atelier-seaside
+ColorForeground=#8ca68c
+ColorBackground=#131513
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#242924;#e6193c;#29a329;#98981b;#3d62f5;#ad2bee;#1999b3;#cfe8cf;#5e6e5e;#e6193c;#29a329;#98981b;#3d62f5;#ad2bee;#1999b3;#f4fbf4

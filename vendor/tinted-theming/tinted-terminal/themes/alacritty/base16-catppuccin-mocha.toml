@@ -1,0 +1,58 @@
+# base16 Catppuccin Mocha 256 - alacritty color config
+# https://github.com/catppuccin/catppuccin
+
+# Default colors
+[colors.primary]
+background = '0x1e1e2e'
+foreground = '0xcdd6f4'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x1e1e2e'
+cursor = '0xcdd6f4'
+
+# Normal colors
+[colors.normal]
+black = '0x181825'
+red = '0xf38ba8'
+green = '0xa6e3a1'
+yellow = '0xf9e2af'
+blue = '0x89b4fa'
+magenta = '0xcba6f7'
+cyan = '0x94e2d5'
+white = '0xf5e0dc'
+
+# Bright colors
+[colors.bright]
+black = '0x313244'
+red = '0xf38ba8'
+green = '0xa6e3a1'
+yellow = '0xf9e2af'
+blue = '0x89b4fa'
+magenta = '0xcba6f7'
+cyan = '0x94e2d5'
+white = '0xb4befe'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xfab387"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xf2cdcd"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x181825"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x313244"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x585b70"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xf5e0dc"

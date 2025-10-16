@@ -1,0 +1,58 @@
+# base16 Eighties 256 - alacritty color config
+# Chris Kempson (http://chriskempson.com)
+
+# Default colors
+[colors.primary]
+background = '0x2d2d2d'
+foreground = '0xd3d0c8'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x2d2d2d'
+cursor = '0xd3d0c8'
+
+# Normal colors
+[colors.normal]
+black = '0x393939'
+red = '0xf2777a'
+green = '0x99cc99'
+yellow = '0xffcc66'
+blue = '0x6699cc'
+magenta = '0xcc99cc'
+cyan = '0x66cccc'
+white = '0xe8e6df'
+
+# Bright colors
+[colors.bright]
+black = '0x515151'
+red = '0xf2777a'
+green = '0x99cc99'
+yellow = '0xffcc66'
+blue = '0x6699cc'
+magenta = '0xcc99cc'
+cyan = '0x66cccc'
+white = '0xf2f0ec'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xf99157"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xd27b53"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x393939"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x515151"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0xa09f93"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xe8e6df"

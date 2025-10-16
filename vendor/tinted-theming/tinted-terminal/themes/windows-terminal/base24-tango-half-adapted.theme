@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Tango Half Adapted",
+	"foreground": "#c6cac1",
+	"background": "#fffefe",
+	"black": "#000000",
+	"blue": "#008df5",
+	"brightBlack": "#797c75",
+	"brightBlue": "#75beff",
+	"brightCyan": "#00f6fa",
+	"brightGreen": "#8af600",
+	"brightPurple": "#d798d0",
+	"brightRed": "#ff0012",
+	"brightWhite": "#f3f3f1",
+	"brightYellow": "#ffeb00",
+	"cyan": "#00bdc3",
+	"green": "#4cc300",
+	"purple": "#a86bb2",
+	"red": "#ff0000",
+	"white": "#e0e4db",
+	"yellow": "#e2bf00"
+},

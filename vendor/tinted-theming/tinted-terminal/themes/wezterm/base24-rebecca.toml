@@ -1,0 +1,43 @@
+# base24 Rebecca
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#292a44"
+foreground = "#c3c3d4"
+
+cursor_bg = "#12131d"
+cursor_border = "#c3c3d4"
+cursor_fg = "#e3e2e8"
+
+selection_bg = "#c3c3d4"
+selection_fg = "#666699"
+
+ansi = [
+  "#292a44",
+  "#dd7655",
+  "#04dbb4",
+  "#69bffa",
+  "#7aa5ff",
+  "#be9bf8",
+  "#56d3c1",
+  "#e3e2e8"
+]
+brights = [
+  "#666699",
+  "#ff91cd",
+  "#00e9c0",
+  "#fefca8",
+  "#69bffa",
+  "#c07ff8",
+  "#8bfce1",
+  "#f3f2f8"
+]
+
+[colors.indexed]
+16 = "#f2e7b7"
+17 = "#6e3b2a"
+18 = "#12131d"
+19 = "#666699"
+20 = "#a4a4c0"
+21 = "#c3c3d4"

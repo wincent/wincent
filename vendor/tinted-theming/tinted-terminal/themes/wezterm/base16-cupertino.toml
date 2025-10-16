@@ -1,0 +1,43 @@
+# base16 Cupertino
+# Scheme author: Defman21
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#ffffff"
+foreground = "#404040"
+
+cursor_bg = "#404040"
+cursor_border = "#404040"
+cursor_fg = "#ffffff"
+
+selection_bg = "#404040"
+selection_fg = "#c0c0c0"
+
+ansi = [
+  "#ffffff",
+  "#c41a15",
+  "#007400",
+  "#826b28",
+  "#0000ff",
+  "#a90d91",
+  "#318495",
+  "#404040"
+]
+brights = [
+  "#c0c0c0",
+  "#c41a15",
+  "#007400",
+  "#826b28",
+  "#0000ff",
+  "#a90d91",
+  "#318495",
+  "#5e5e5e"
+]
+
+[colors.indexed]
+16 = "#eb8500"
+17 = "#826b28"
+18 = "#c0c0c0"
+19 = "#c0c0c0"
+20 = "#808080"
+21 = "#404040"

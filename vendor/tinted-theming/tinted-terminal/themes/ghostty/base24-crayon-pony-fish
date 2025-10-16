@@ -1,0 +1,43 @@
+# vim: ft=ghostty
+# Crayon Pony Fish theme for Ghostty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# Color palette
+palette = 0=#140607
+palette = 1=#90002a
+palette = 2=#579523
+palette = 3=#cfc9ff
+palette = 4=#8b87af
+palette = 5=#682e50
+palette = 6=#e8a766
+palette = 7=#685259
+palette = 8=#3c2a2e
+palette = 9=#c5245c
+palette = 10=#8dff56
+palette = 11=#c7371d
+palette = 12=#cfc9ff
+palette = 13=#fb6cb9
+palette = 14=#ffceae
+palette = 15=#af949d
+palette = 16=#aa301b
+palette = 17=#480015
+palette = 18=#2a1a1c
+palette = 19=#3c2a2e
+palette = 20=#523e43
+palette = 21=#685259
+
+# Foreground & background colors
+background = #140607
+foreground = #5d484e
+cursor-color = #5d484e
+selection-background = #3c2a2e
+selection-foreground = #5d484e
+
+# Set `macos-icon = custom-style` in your main configuration file to enable theming of the app icon.
+#
+# Set the ghost color to the lightest foreground:
+macos-icon-ghost-color = #af949d
+# Replace the official icon's blue background with the designated bright blue color:
+macos-icon-screen-color = #cfc9ff

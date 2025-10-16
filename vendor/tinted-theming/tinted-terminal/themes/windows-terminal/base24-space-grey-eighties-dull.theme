@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Space Grey Eighties Dull",
+	"foreground": "#9a9fa6",
+	"background": "#212121",
+	"black": "#15171c",
+	"blue": "#7b8fa4",
+	"brightBlack": "#555555",
+	"brightBlue": "#5485c0",
+	"brightCyan": "#58c2c0",
+	"brightGreen": "#88e985",
+	"brightPurple": "#bf83c0",
+	"brightRed": "#ec5f67",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#fdc253",
+	"cyan": "#7fcccb",
+	"green": "#91b377",
+	"purple": "#a5779e",
+	"red": "#b14956",
+	"white": "#b2b8c2",
+	"yellow": "#c6725a"
+},

@@ -1,0 +1,43 @@
+# base24 Tomorrow Night
+# Scheme author: Cody Buell (https://github.com/codybuell)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#1d1f21"
+foreground = "#c5c8c6"
+
+cursor_bg = "#282a2e"
+cursor_border = "#c5c8c6"
+cursor_fg = "#e0e0e0"
+
+selection_bg = "#c5c8c6"
+selection_fg = "#373b41"
+
+ansi = [
+  "#1d1f21",
+  "#cc6666",
+  "#b5bd68",
+  "#f0c674",
+  "#81a2be",
+  "#b294bb",
+  "#8abeb7",
+  "#e0e0e0"
+]
+brights = [
+  "#373b41",
+  "#e74c3c",
+  "#b8d4b3",
+  "#f7dc6f",
+  "#85c1e9",
+  "#d7a3ca",
+  "#95d3ce",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#de935f"
+17 = "#a3685a"
+18 = "#282a2e"
+19 = "#373b41"
+20 = "#b4b7b4"
+21 = "#c5c8c6"

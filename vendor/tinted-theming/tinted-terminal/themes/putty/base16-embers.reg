@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Embers
+; Scheme system: base16
+; Scheme description: 
+; Scheme author: Jannik Siebert (https://github.com/janniks)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base16-embers]
+
+; Default Foreground
+; base05 #a39a90
+"Colour0"="163,154,144"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #a39a90
+"Colour1"="163,154,144"
+
+; Default Background
+; base00 #16130f
+"Colour2"="22,19,15"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #16130f
+"Colour3"="22,19,15"
+
+; Cursor Text -- equals to default background
+; base00 #16130f
+"Colour4"="22,19,15"
+
+; Cursor Colour -- equals to default foreground
+; base05 #a39a90
+"Colour5"="163,154,144"
+
+; ANSI Black
+; 30m
+; base01 #2c2620
+"Colour6"="44,38,32"
+
+; ANSI Black Bright
+; 1;30m
+; base02 #433b32
+"Colour7"="67,59,50"
+
+; ANSI Red
+; 31m
+; base08 #826d57
+"Colour8"="130,109,87"
+
+; ANSI Red Bright
+; 1;31m
+; base08 #826d57
+"Colour9"="130,109,87"
+
+; ANSI Green
+; 32m
+; base0B #57826d
+"Colour10"="87,130,109"
+
+; ANSI Green Bright
+; 1;32m
+; base0B #57826d
+"Colour11"="87,130,109"
+
+; ANSI Yellow
+; 33m
+; base0A #6d8257
+"Colour12"="109,130,87"
+
+; ANSI Yellow Bright
+; 1;33m
+; base0A #6d8257
+"Colour13"="109,130,87"
+
+; ANSI Blue
+; 34m
+; base0D #6d5782
+"Colour14"="109,87,130"
+
+; ANSI Blue Bright
+; 1;34m
+; base0D #6d5782
+"Colour15"="109,87,130"
+
+; ANSI Magenta
+; 35m
+; base0E #82576d
+"Colour16"="130,87,109"
+
+; ANSI Magenta Bright
+; 1;35m
+; base0E #82576d
+"Colour17"="130,87,109"
+
+; ANSI Cyan
+; 36m
+; base0C #576d82
+"Colour18"="87,109,130"
+
+; ANSI Cyan Bright
+; 1;36m
+; base0C #576d82
+"Colour19"="87,109,130"
+
+; ANSI White
+; 37m
+; base06 #beb6ae
+"Colour20"="190,182,174"
+
+; ANSI White Bright
+; 1;37m
+; base07 dbd6d1
+"Colour21"="219,214,209"

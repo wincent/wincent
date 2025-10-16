@@ -1,0 +1,43 @@
+# vim: ft=ghostty
+# Blue Berry Pie theme for Ghostty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# Color palette
+palette = 0=#1c0b28
+palette = 1=#99236d
+palette = 2=#5bb0b2
+palette = 3=#38163d
+palette = 4=#90a5bc
+palette = 5=#9d53a7
+palette = 6=#7e82cc
+palette = 7=#f0e7d5
+palette = 8=#1f1637
+palette = 9=#c77171
+palette = 10=#0a6b7e
+palette = 11=#793188
+palette = 12=#38163d
+palette = 13=#bc93b6
+palette = 14=#5d5f71
+palette = 15=#0a6b7e
+palette = 16=#e9b8a7
+palette = 17=#4c1136
+palette = 18=#0a4b61
+palette = 19=#1f1637
+palette = 20=#877e86
+palette = 21=#f0e7d5
+
+# Foreground & background colors
+background = #1c0b28
+foreground = #bbb2ad
+cursor-color = #bbb2ad
+selection-background = #1f1637
+selection-foreground = #bbb2ad
+
+# Set `macos-icon = custom-style` in your main configuration file to enable theming of the app icon.
+#
+# Set the ghost color to the lightest foreground:
+macos-icon-ghost-color = #0a6b7e
+# Replace the official icon's blue background with the designated bright blue color:
+macos-icon-screen-color = #38163d

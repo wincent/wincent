@@ -1,0 +1,58 @@
+# base16 Tokyo City Terminal Light 256 - alacritty color config
+# Michaël Ball
+
+# Default colors
+[colors.primary]
+background = '0xfbfbfd'
+foreground = '0x28323a'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0xfbfbfd'
+cursor = '0x28323a'
+
+# Normal colors
+[colors.normal]
+black = '0xf6f6f8'
+red = '0x8c4351'
+green = '0x33635c'
+yellow = '0x8f5e15'
+blue = '0x34548a'
+magenta = '0x5a4a78'
+cyan = '0x0f4b6e'
+white = '0x1d252c'
+
+# Bright colors
+[colors.bright]
+black = '0xd8e2ec'
+red = '0x8c4351'
+green = '0x33635c'
+yellow = '0x8f5e15'
+blue = '0x34548a'
+magenta = '0x5a4a78'
+cyan = '0x0f4b6e'
+white = '0x171d23'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0x965027"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x7e5140"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0xf6f6f8"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0xd8e2ec"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x526270"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0x1d252c"

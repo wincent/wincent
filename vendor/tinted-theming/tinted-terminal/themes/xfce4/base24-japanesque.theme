@@ -1,0 +1,10 @@
+# Scheme name: Japanesque
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-japanesque
+ColorForeground=#d0d2ce
+ColorBackground=#1d1d1d
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#343835;#ce3e60;#7bb75b;#135879;#4c99d3;#a57fc4;#389aac;#f9faf6;#585a58;#d18ea6;#767e2b;#77592e;#135879;#5f4190;#76bbca;#b1b5ae

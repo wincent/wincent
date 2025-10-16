@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Hybrid",
+	"foreground": "#8f9190",
+	"background": "#161718",
+	"black": "#2a2e33",
+	"blue": "#6d90b0",
+	"brightBlack": "#1d1e21",
+	"brightBlue": "#4b6b88",
+	"brightCyan": "#4d7b73",
+	"brightGreen": "#788331",
+	"brightPurple": "#6e4f79",
+	"brightRed": "#8c2d32",
+	"brightWhite": "#5a6169",
+	"brightYellow": "#e5894f",
+	"cyan": "#7fbeb3",
+	"green": "#b3be5a",
+	"purple": "#a07eab",
+	"red": "#b74d50",
+	"white": "#b5b8b6",
+	"yellow": "#e3b55e"
+},

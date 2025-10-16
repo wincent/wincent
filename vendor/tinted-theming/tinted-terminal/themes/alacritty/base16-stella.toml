@@ -1,0 +1,58 @@
+# base16 Stella 256 - alacritty color config
+# Shrimpram
+
+# Default colors
+[colors.primary]
+background = '0x2b213c'
+foreground = '0x998bad'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x2b213c'
+cursor = '0x998bad'
+
+# Normal colors
+[colors.normal]
+black = '0x362b48'
+red = '0xc79987'
+green = '0xacc79b'
+yellow = '0xc7c691'
+blue = '0xa5aad4'
+magenta = '0xc594ff'
+cyan = '0x9bc7bf'
+white = '0xb4a5c8'
+
+# Bright colors
+[colors.bright]
+black = '0x4d4160'
+red = '0xc79987'
+green = '0xacc79b'
+yellow = '0xc7c691'
+blue = '0xa5aad4'
+magenta = '0xc594ff'
+cyan = '0x9bc7bf'
+white = '0xebdcff'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0x8865c6"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xc7ab87"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x362b48"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x4d4160"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x7f7192"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xb4a5c8"

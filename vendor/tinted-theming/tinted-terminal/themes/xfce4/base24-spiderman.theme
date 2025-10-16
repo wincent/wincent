@@ -1,0 +1,10 @@
+# Scheme name: Spiderman
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-spiderman
+ColorForeground=#d3d3cd
+ColorBackground=#1b1d1e
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#1b1d1e;#e60712;#e22828;#1d4fff;#2b3fff;#2435db;#3255ff;#fffef6;#505354;#ff0325;#ff3238;#fe3935;#1d4fff;#737bff;#6083ff;#fefff9

@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Hurtado
+; Scheme system: base24
+; Scheme description: 
+; Scheme author: FredHappyface (https://github.com/fredHappyface)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base24-hurtado]
+
+; Default Foreground
+; base05 #a1a1a1
+"Colour0"="161,161,161"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #a1a1a1
+"Colour1"="161,161,161"
+
+; Default Background
+; base00 #000000
+"Colour2"="0,0,0"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #000000
+"Colour3"="0,0,0"
+
+; Cursor Text -- equals to default background
+; base00 #000000
+"Colour4"="0,0,0"
+
+; Cursor Colour -- equals to default foreground
+; base05 #a1a1a1
+"Colour5"="161,161,161"
+
+; ANSI Black
+; 30m
+; base01 #575757
+"Colour6"="87,87,87"
+
+; ANSI Black Bright
+; 1;30m
+; base02 #252525
+"Colour7"="37,37,37"
+
+; ANSI Red
+; 31m
+; base08 #ff1b00
+"Colour8"="255,27,0"
+
+; ANSI Red Bright
+; 1;31m
+; base12 #d41c00
+"Colour9"="212,28,0"
+
+; ANSI Green
+; 32m
+; base0B #a5df55
+"Colour10"="165,223,85"
+
+; ANSI Green Bright
+; 1;32m
+; base14 #a5df55
+"Colour11"="165,223,85"
+
+; ANSI Yellow
+; 33m
+; base0A #89bdff
+"Colour12"="137,189,255"
+
+; ANSI Yellow Bright
+; 1;33m
+; base13 #fbe749
+"Colour13"="251,231,73"
+
+; ANSI Blue
+; 34m
+; base0D #486387
+"Colour14"="72,99,135"
+
+; ANSI Blue Bright
+; 1;34m
+; base16 #89bdff
+"Colour15"="137,189,255"
+
+; ANSI Magenta
+; 35m
+; base0E #fc5ef0
+"Colour16"="252,94,240"
+
+; ANSI Magenta Bright
+; 1;35m
+; base17 #bf00c0
+"Colour17"="191,0,192"
+
+; ANSI Cyan
+; 36m
+; base0C #85e9fe
+"Colour18"="133,233,254"
+
+; ANSI Cyan Bright
+; 1;36m
+; base15 #85e9fe
+"Colour19"="133,233,254"
+
+; ANSI White
+; 37m
+; base06 #cbcbcb
+"Colour20"="203,203,203"
+
+; ANSI White Bright
+; 1;37m
+; base07 dbdbdb
+"Colour21"="219,219,219"

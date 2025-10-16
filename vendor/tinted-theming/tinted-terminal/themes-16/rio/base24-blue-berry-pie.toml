@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Blue Berry Pie by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#1f1637' # base02
+selection-foreground = '#bbb2ad' # base05
+
+cursor         = '#bbb2ad' # base05
+tabs           = '#0a4b61' # base01
+tabs-active    = '#1f1637' # base02
+
+background     = '#1c0b28' # base00
+foreground     = '#bbb2ad' # base05
+black          = '#0a4b61' # base01
+red            = '#99236d' # base08
+yellow         = '#38163d' # base0A
+green          = '#5bb0b2' # base0B
+cyan           = '#7e82cc' # base0C
+blue           = '#90a5bc' # base0D
+magenta        = '#9d53a7' # base0E
+white          = '#f0e7d5' # base06
+
+dim-foreground   = '#bbb2ad' # base05
+dim-black        = '#0a4b61' # base01
+dim-red          = '#99236d' # base08
+dim-yellow       = '#38163d' # base0A
+dim-green        = '#5bb0b2' # base0B
+dim-cyan         = '#7e82cc' # base0C
+dim-blue         = '#90a5bc' # base0D
+dim-magenta      = '#9d53a7' # base0E
+dim-white        = '#877e86' # base04
+
+light-foreground = '#bbb2ad' # base05
+light-black      = '#1f1637' # base02
+light-red        = '#c77171' # base12
+light-yellow     = '#793188' # base13
+light-green      = '#0a6b7e' # base14
+light-cyan       = '#5d5f71' # base15
+light-blue       = '#38163d' # base16
+light-magenta    = '#bc93b6' # base17
+light-white      = '#0a6b7e' # base07

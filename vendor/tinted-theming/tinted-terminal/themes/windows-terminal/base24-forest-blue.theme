@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Forest Blue",
+	"foreground": "#b8b1a9",
+	"background": "#051519",
+	"black": "#333333",
+	"blue": "#8ed0ce",
+	"brightBlack": "#3d3d3d",
+	"brightBlue": "#39a7a2",
+	"brightCyan": "#6096bf",
+	"brightGreen": "#6bb48d",
+	"brightPurple": "#7e62b3",
+	"brightRed": "#fb3d66",
+	"brightWhite": "#e2d8cd",
+	"brightYellow": "#2fc859",
+	"cyan": "#31658c",
+	"green": "#92d3a2",
+	"purple": "#5e468c",
+	"red": "#f8818e",
+	"white": "#e2d8cd",
+	"yellow": "#1a8d63"
+},

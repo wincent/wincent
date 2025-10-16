@@ -1,0 +1,43 @@
+# base16 PaperColor Dark
+# Scheme author: Jon Leopard (http://github.com/jonleopard), based on PaperColor Theme (https://github.com/NLKNguyen/papercolor-theme)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#1c1c1c"
+foreground = "#808080"
+
+cursor_bg = "#808080"
+cursor_border = "#808080"
+cursor_fg = "#1c1c1c"
+
+selection_bg = "#808080"
+selection_fg = "#5faf00"
+
+ansi = [
+  "#1c1c1c",
+  "#585858",
+  "#af87d7",
+  "#afd700",
+  "#ff5faf",
+  "#00afaf",
+  "#ffaf00",
+  "#d7875f"
+]
+brights = [
+  "#5faf00",
+  "#585858",
+  "#af87d7",
+  "#afd700",
+  "#ff5faf",
+  "#00afaf",
+  "#ffaf00",
+  "#d0d0d0"
+]
+
+[colors.indexed]
+16 = "#5faf5f"
+17 = "#5f8787"
+18 = "#af005f"
+19 = "#5faf00"
+20 = "#5fafd7"
+21 = "#808080"

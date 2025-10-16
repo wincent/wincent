@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Galaxy by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#555555' # base02
+selection-foreground = '#a1a1a1' # base05
+
+cursor         = '#a1a1a1' # base05
+tabs           = '#000000' # base01
+tabs-active    = '#555555' # base02
+
+background     = '#1c2836' # base00
+foreground     = '#a1a1a1' # base05
+black          = '#000000' # base01
+red            = '#f9555f' # base08
+yellow         = '#589cf5' # base0A
+green          = '#20af89' # base0B
+cyan           = '#1e9ee6' # base0C
+blue           = '#589cf5' # base0D
+magenta        = '#934d95' # base0E
+white          = '#bbbbbb' # base06
+
+dim-foreground   = '#a1a1a1' # base05
+dim-black        = '#000000' # base01
+dim-red          = '#f9555f' # base08
+dim-yellow       = '#589cf5' # base0A
+dim-green        = '#20af89' # base0B
+dim-cyan         = '#1e9ee6' # base0C
+dim-blue         = '#589cf5' # base0D
+dim-magenta      = '#934d95' # base0E
+dim-white        = '#888888' # base04
+
+light-foreground = '#a1a1a1' # base05
+light-black      = '#555555' # base02
+light-red        = '#fa8b8e' # base12
+light-yellow     = '#ffff55' # base13
+light-green      = '#34bb99' # base14
+light-cyan       = '#3978bb' # base15
+light-blue       = '#589cf5' # base16
+light-magenta    = '#e75598' # base17
+light-white      = '#ffffff' # base07

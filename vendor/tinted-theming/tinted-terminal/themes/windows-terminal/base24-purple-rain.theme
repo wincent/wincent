@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Purple Rain",
+	"foreground": "#d3d4d4",
+	"background": "#20084a",
+	"black": "#000000",
+	"blue": "#00a1f9",
+	"brightBlack": "#555555",
+	"brightBlue": "#00a5ff",
+	"brightCyan": "#74fcf3",
+	"brightGreen": "#b8e36d",
+	"brightPurple": "#ab7aef",
+	"brightRed": "#ff4250",
+	"brightWhite": "#feffff",
+	"brightYellow": "#ffd852",
+	"cyan": "#00ddef",
+	"green": "#9ae204",
+	"purple": "#805bb5",
+	"red": "#ff260d",
+	"white": "#feffff",
+	"yellow": "#ffc400"
+},

@@ -1,0 +1,10 @@
+# Scheme name: Tomorrow Night Eighties
+# Scheme author: Chris Kempson (http://chriskempson.com)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-tomorrow-night-eighties
+ColorForeground=#cccccc
+ColorBackground=#2d2d2d
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#393939;#f2777a;#99cc99;#ffcc66;#6699cc;#cc99cc;#66cccc;#e0e0e0;#515151;#f2777a;#99cc99;#ffcc66;#6699cc;#cc99cc;#66cccc;#ffffff

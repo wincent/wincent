@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Dimmed Monokai",
+	"foreground": "#acafac",
+	"background": "#1e1e1e",
+	"black": "#3a3c43",
+	"blue": "#4e76a1",
+	"brightBlack": "#888987",
+	"brightBlue": "#176ce3",
+	"brightCyan": "#2d6f6c",
+	"brightGreen": "#0e712e",
+	"brightPurple": "#fb0067",
+	"brightRed": "#fb001e",
+	"brightWhite": "#fcffb8",
+	"brightYellow": "#c37033",
+	"cyan": "#568ea3",
+	"green": "#869a3a",
+	"purple": "#855b8d",
+	"red": "#be3e48",
+	"white": "#b8bcb9",
+	"yellow": "#c4a535"
+},

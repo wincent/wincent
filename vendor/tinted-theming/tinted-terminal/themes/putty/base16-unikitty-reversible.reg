@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Unikitty Reversible
+; Scheme system: base16
+; Scheme description: 
+; Scheme author: Josh W Lewis (@joshwlewis)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base16-unikitty-reversible]
+
+; Default Foreground
+; base05 #c3c2c4
+"Colour0"="195,194,196"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #c3c2c4
+"Colour1"="195,194,196"
+
+; Default Background
+; base00 #2e2a31
+"Colour2"="46,42,49"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #2e2a31
+"Colour3"="46,42,49"
+
+; Cursor Text -- equals to default background
+; base00 #2e2a31
+"Colour4"="46,42,49"
+
+; Cursor Colour -- equals to default foreground
+; base05 #c3c2c4
+"Colour5"="195,194,196"
+
+; ANSI Black
+; 30m
+; base01 #4b484e
+"Colour6"="75,72,78"
+
+; ANSI Black Bright
+; 1;30m
+; base02 #69666b
+"Colour7"="105,102,107"
+
+; ANSI Red
+; 31m
+; base08 #d8137f
+"Colour8"="216,19,127"
+
+; ANSI Red Bright
+; 1;31m
+; base08 #d8137f
+"Colour9"="216,19,127"
+
+; ANSI Green
+; 32m
+; base0B #17ad98
+"Colour10"="23,173,152"
+
+; ANSI Green Bright
+; 1;32m
+; base0B #17ad98
+"Colour11"="23,173,152"
+
+; ANSI Yellow
+; 33m
+; base0A #dc8a0e
+"Colour12"="220,138,14"
+
+; ANSI Yellow Bright
+; 1;33m
+; base0A #dc8a0e
+"Colour13"="220,138,14"
+
+; ANSI Blue
+; 34m
+; base0D #7864fa
+"Colour14"="120,100,250"
+
+; ANSI Blue Bright
+; 1;34m
+; base0D #7864fa
+"Colour15"="120,100,250"
+
+; ANSI Magenta
+; 35m
+; base0E #b33ce8
+"Colour16"="179,60,232"
+
+; ANSI Magenta Bright
+; 1;35m
+; base0E #b33ce8
+"Colour17"="179,60,232"
+
+; ANSI Cyan
+; 36m
+; base0C #149bda
+"Colour18"="20,155,218"
+
+; ANSI Cyan Bright
+; 1;36m
+; base0C #149bda
+"Colour19"="20,155,218"
+
+; ANSI White
+; 37m
+; base06 #e1e0e1
+"Colour20"="225,224,225"
+
+; ANSI White Bright
+; 1;37m
+; base07 ffffff
+"Colour21"="255,255,255"

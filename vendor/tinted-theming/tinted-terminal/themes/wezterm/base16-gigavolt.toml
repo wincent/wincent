@@ -1,0 +1,43 @@
+# base16 Gigavolt
+# Scheme author: Aidan Swope (http://github.com/Whillikers)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#202126"
+foreground = "#e9e7e1"
+
+cursor_bg = "#e9e7e1"
+cursor_border = "#e9e7e1"
+cursor_fg = "#202126"
+
+selection_bg = "#e9e7e1"
+selection_fg = "#5a576e"
+
+ansi = [
+  "#202126",
+  "#ff661a",
+  "#f2e6a9",
+  "#ffdc2d",
+  "#40bfff",
+  "#ae94f9",
+  "#fb6acb",
+  "#eff0f9"
+]
+brights = [
+  "#5a576e",
+  "#ff661a",
+  "#f2e6a9",
+  "#ffdc2d",
+  "#40bfff",
+  "#ae94f9",
+  "#fb6acb",
+  "#f2fbff"
+]
+
+[colors.indexed]
+16 = "#19f988"
+17 = "#6187ff"
+18 = "#2d303d"
+19 = "#5a576e"
+20 = "#cad3ff"
+21 = "#e9e7e1"

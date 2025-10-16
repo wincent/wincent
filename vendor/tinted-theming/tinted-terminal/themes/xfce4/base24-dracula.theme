@@ -1,0 +1,10 @@
+# Scheme name: Dracula
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-dracula
+ColorForeground=#f8f8f2
+ColorBackground=#282a36
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#363447;#ff5555;#50fa7b;#f1fa8c;#80bfff;#ff79c6;#8be9fd;#f0f1f4;#44475a;#f28c8c;#a3f5b8;#eef5a3;#a3ccf5;#f5a3d2;#baedf7;#ffffff

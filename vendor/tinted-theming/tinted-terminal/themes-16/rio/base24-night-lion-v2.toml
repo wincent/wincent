@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Night Lion V2 by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#555555' # base02
+selection-foreground = '#a1a1a1' # base05
+
+cursor         = '#a1a1a1' # base05
+tabs           = '#4c4c4c' # base01
+tabs-active    = '#555555' # base02
+
+background     = '#171717' # base00
+foreground     = '#a1a1a1' # base05
+black          = '#4c4c4c' # base01
+red            = '#bb0000' # base08
+yellow         = '#62cae7' # base0A
+green          = '#03f622' # base0B
+cyan           = '#00d9df' # base0C
+blue           = '#63d0f0' # base0D
+magenta        = '#ce6fda' # base0E
+white          = '#bbbbbb' # base06
+
+dim-foreground   = '#a1a1a1' # base05
+dim-black        = '#4c4c4c' # base01
+dim-red          = '#bb0000' # base08
+dim-yellow       = '#62cae7' # base0A
+dim-green        = '#03f622' # base0B
+dim-cyan         = '#00d9df' # base0C
+dim-blue         = '#63d0f0' # base0D
+dim-magenta      = '#ce6fda' # base0E
+dim-white        = '#888888' # base04
+
+light-foreground = '#a1a1a1' # base05
+light-black      = '#555555' # base02
+light-red        = '#ff5555' # base12
+light-yellow     = '#ffff55' # base13
+light-green      = '#7df61c' # base14
+light-cyan       = '#00ccd7' # base15
+light-blue       = '#62cae7' # base16
+light-magenta    = '#ff9af5' # base17
+light-white      = '#ffffff' # base07

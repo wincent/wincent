@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Brush Trees by Abraham White &lt;abelincoln.white@gmail.com&gt;
+
+[colors]
+selection-background = '#b0c5c8' # base02
+selection-foreground = '#6d828e' # base05
+
+cursor         = '#6d828e' # base05
+tabs           = '#c9dbdc' # base01
+tabs-active    = '#b0c5c8' # base02
+
+background     = '#e3efef' # base00
+foreground     = '#6d828e' # base05
+black          = '#c9dbdc' # base01
+red            = '#b38686' # base08
+yellow         = '#aab386' # base0A
+green          = '#87b386' # base0B
+cyan           = '#86b3b3' # base0C
+blue           = '#868cb3' # base0D
+magenta        = '#b386b2' # base0E
+white          = '#5a6d7a' # base06
+
+dim-foreground   = '#6d828e' # base05
+dim-black        = '#c9dbdc' # base01
+dim-red          = '#b38686' # base08
+dim-yellow       = '#aab386' # base0A
+dim-green        = '#87b386' # base0B
+dim-cyan         = '#86b3b3' # base0C
+dim-blue         = '#868cb3' # base0D
+dim-magenta      = '#b386b2' # base0E
+dim-white        = '#8299a1' # base04
+
+light-foreground = '#6d828e' # base05
+light-black      = '#b0c5c8' # base02
+light-red        = '#b38686' # base08
+light-yellow     = '#aab386' # base0A
+light-green      = '#87b386' # base0B
+light-cyan       = '#86b3b3' # base0C
+light-blue       = '#868cb3' # base0D
+light-magenta    = '#b386b2' # base0E
+light-white      = '#485867' # base07

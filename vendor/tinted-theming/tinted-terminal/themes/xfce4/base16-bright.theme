@@ -1,0 +1,10 @@
+# Scheme name: Bright
+# Scheme author: Chris Kempson (http://chriskempson.com)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-bright
+ColorForeground=#e0e0e0
+ColorBackground=#000000
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#303030;#fb0120;#a1c659;#fda331;#6fb3d2;#d381c3;#76c7b7;#f5f5f5;#505050;#fb0120;#a1c659;#fda331;#6fb3d2;#d381c3;#76c7b7;#ffffff

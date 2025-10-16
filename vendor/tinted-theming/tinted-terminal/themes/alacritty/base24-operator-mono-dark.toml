@@ -1,0 +1,58 @@
+# base24 Operator Mono Dark 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x191919'
+foreground = '0xc0c4c0'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x191919'
+cursor = '0xc0c4c0'
+
+# Normal colors
+[colors.normal]
+black = '0x5a5a5a'
+red = '0xca372d'
+green = '0x4d7b3a'
+yellow = '0x89d3f6'
+blue = '0x4387cf'
+magenta = '0xb86cb4'
+cyan = '0x72d4c6'
+white = '0xcdd3cd'
+
+# Bright colors
+[colors.bright]
+black = '0x9a9a99'
+red = '0xc37d62'
+green = '0x83d0a2'
+yellow = '0xfdfdc5'
+blue = '0x89d3f6'
+magenta = '0xfe2c79'
+cyan = '0x82e9da'
+white = '0xfdfdf6'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xd4d697"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x651b16"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x5a5a5a"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x9a9a99"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0xb3b6b3"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xcdd3cd"

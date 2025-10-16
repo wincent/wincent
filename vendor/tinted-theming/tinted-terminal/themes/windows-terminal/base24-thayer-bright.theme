@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Thayer Bright",
+	"foreground": "#adada9",
+	"background": "#1b1d1e",
+	"black": "#1b1d1e",
+	"blue": "#2656d6",
+	"brightBlack": "#505354",
+	"brightBlue": "#3f78ff",
+	"brightCyan": "#23ced4",
+	"brightGreen": "#b6e354",
+	"brightPurple": "#9e6ffe",
+	"brightRed": "#ff5995",
+	"brightWhite": "#f8f8f2",
+	"brightYellow": "#feed6c",
+	"cyan": "#37c8b4",
+	"green": "#4df740",
+	"purple": "#8c54fe",
+	"red": "#f92672",
+	"white": "#ccccc6",
+	"yellow": "#f3fd21"
+},

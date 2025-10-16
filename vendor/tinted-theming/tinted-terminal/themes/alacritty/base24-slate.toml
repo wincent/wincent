@@ -1,0 +1,58 @@
+# base24 Slate 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x212121'
+foreground = '0x42d3e8'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x212121'
+cursor = '0x42d3e8'
+
+# Normal colors
+[colors.normal]
+black = '0x212121'
+red = '0xe1a7bf'
+green = '0x80d778'
+yellow = '0x79afd2'
+blue = '0x254a49'
+magenta = '0xa380d3'
+cyan = '0x14ab9c'
+white = '0x02c4e0'
+
+# Bright colors
+[colors.bright]
+black = '0xffffff'
+red = '0xffccd8'
+green = '0xbdffa8'
+yellow = '0xd0cbc9'
+blue = '0x79afd2'
+magenta = '0xc4a7d8'
+cyan = '0x8bdee0'
+white = '0xe0e0e0'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xc4c9bf"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x70535f"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x212121"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0xffffff"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x81e2f0"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0x02c4e0"

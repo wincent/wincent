@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Space Gray Eighties by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#555555' # base02
+selection-foreground = '#c7c6c2' # base05
+
+cursor         = '#c7c6c2' # base05
+tabs           = '#15171c' # base01
+tabs-active    = '#555555' # base02
+
+background     = '#212121' # base00
+foreground     = '#c7c6c2' # base05
+black          = '#15171c' # base01
+red            = '#ec5f67' # base08
+yellow         = '#4d83d0' # base0A
+green          = '#80a763' # base0B
+cyan           = '#57c2c0' # base0C
+blue           = '#5485c0' # base0D
+magenta        = '#bf83c0' # base0E
+white          = '#eeece7' # base06
+
+dim-foreground   = '#c7c6c2' # base05
+dim-black        = '#15171c' # base01
+dim-red          = '#ec5f67' # base08
+dim-yellow       = '#4d83d0' # base0A
+dim-green        = '#80a763' # base0B
+dim-cyan         = '#57c2c0' # base0C
+dim-blue         = '#5485c0' # base0D
+dim-magenta      = '#bf83c0' # base0E
+dim-white        = '#a1a09e' # base04
+
+light-foreground = '#c7c6c2' # base05
+light-black      = '#555555' # base02
+light-red        = '#ff6973' # base12
+light-yellow     = '#ffd156' # base13
+light-green      = '#93d393' # base14
+light-cyan       = '#83e8e4' # base15
+light-blue       = '#4d83d0' # base16
+light-magenta    = '#ff55ff' # base17
+light-white      = '#ffffff' # base07

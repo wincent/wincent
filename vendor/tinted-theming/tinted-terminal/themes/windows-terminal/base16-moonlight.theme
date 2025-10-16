@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Moonlight",
+	"foreground": "#a3ace1",
+	"background": "#212337",
+	"black": "#403c64",
+	"blue": "#40ffff",
+	"brightBlack": "#596399",
+	"brightBlue": "#40ffff",
+	"brightCyan": "#04d1f9",
+	"brightGreen": "#2df4c0",
+	"brightPurple": "#b994f1",
+	"brightRed": "#ff5370",
+	"brightWhite": "#ef43fa",
+	"brightYellow": "#ffc777",
+	"cyan": "#04d1f9",
+	"green": "#2df4c0",
+	"purple": "#b994f1",
+	"red": "#ff5370",
+	"white": "#b4a4f4",
+	"yellow": "#f67f81"
+},

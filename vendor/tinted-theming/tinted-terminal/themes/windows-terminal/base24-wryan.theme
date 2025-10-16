@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Wryan",
+	"foreground": "#768488",
+	"background": "#101010",
+	"black": "#333333",
+	"blue": "#395573",
+	"brightBlack": "#3d3d3d",
+	"brightBlue": "#477ab3",
+	"brightCyan": "#6096bf",
+	"brightGreen": "#53a6a6",
+	"brightPurple": "#7e62b3",
+	"brightRed": "#bf4d80",
+	"brightWhite": "#c0c0c0",
+	"brightYellow": "#9e9ecb",
+	"cyan": "#31658c",
+	"green": "#287373",
+	"purple": "#5e468c",
+	"red": "#8c4665",
+	"white": "#899ca1",
+	"yellow": "#7c7c99"
+},

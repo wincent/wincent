@@ -1,0 +1,43 @@
+# base24 Purplepeter
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#2a1a4a"
+foreground = "#c38e69"
+
+cursor_bg = "#0a041f"
+cursor_border = "#c38e69"
+cursor_fg = "#ffba81"
+
+selection_bg = "#c38e69"
+selection_fg = "#100b22"
+
+ansi = [
+  "#2a1a4a",
+  "#ff786c",
+  "#98b481",
+  "#79daed",
+  "#66d9ef",
+  "#e68ecd",
+  "#b98cff",
+  "#ffba81"
+]
+brights = [
+  "#100b22",
+  "#f89f92",
+  "#b4bd8e",
+  "#f1e9bf",
+  "#79daed",
+  "#b991d4",
+  "#a0a0d6",
+  "#b9aed3"
+]
+
+[colors.indexed]
+16 = "#efdeab"
+17 = "#7f3c36"
+18 = "#0a041f"
+19 = "#100b22"
+20 = "#876251"
+21 = "#c38e69"

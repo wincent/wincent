@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Lab Fox",
+	"foreground": "#cfd0d0",
+	"background": "#2e2e2e",
+	"black": "#2e2e2e",
+	"blue": "#db3b21",
+	"brightBlack": "#454545",
+	"brightBlue": "#db501f",
+	"brightCyan": "#7d53e7",
+	"brightGreen": "#52e9a8",
+	"brightPurple": "#441090",
+	"brightRed": "#ff6517",
+	"brightWhite": "#feffff",
+	"brightYellow": "#fca012",
+	"cyan": "#6e49cb",
+	"green": "#3eb383",
+	"purple": "#380d75",
+	"red": "#fc6d26",
+	"white": "#feffff",
+	"yellow": "#fca121"
+},

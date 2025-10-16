@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Alien Blood by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#3c4711' # base02
+selection-foreground = '#5a6f5c' # base05
+
+cursor         = '#5a6f5c' # base05
+tabs           = '#112615' # base01
+tabs-active    = '#3c4711' # base02
+
+background     = '#0f160f' # base00
+foreground     = '#5a6f5c' # base05
+black          = '#112615' # base01
+red            = '#7f2b26' # base08
+yellow         = '#00a9df' # base0A
+green          = '#2f7e25' # base0B
+cyan           = '#317f76' # base0C
+blue           = '#2f697f' # base0D
+magenta        = '#47577e' # base0E
+white          = '#647d75' # base06
+
+dim-foreground   = '#5a6f5c' # base05
+dim-black        = '#112615' # base01
+dim-red          = '#7f2b26' # base08
+dim-yellow       = '#00a9df' # base0A
+dim-green        = '#2f7e25' # base0B
+dim-cyan         = '#317f76' # base0C
+dim-blue         = '#2f697f' # base0D
+dim-magenta      = '#47577e' # base0E
+dim-white        = '#506243' # base04
+
+light-foreground = '#5a6f5c' # base05
+light-black      = '#3c4711' # base02
+light-red        = '#df8008' # base12
+light-yellow     = '#bde000' # base13
+light-green      = '#18e000' # base14
+light-cyan       = '#00dfc3' # base15
+light-blue       = '#00a9df' # base16
+light-magenta    = '#0058df' # base17
+light-white      = '#73f990' # base07

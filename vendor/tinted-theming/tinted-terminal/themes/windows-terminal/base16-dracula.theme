@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Dracula",
+	"foreground": "#f8f8f2",
+	"background": "#282a36",
+	"black": "#363447",
+	"blue": "#80bfff",
+	"brightBlack": "#44475a",
+	"brightBlue": "#80bfff",
+	"brightCyan": "#8be9fd",
+	"brightGreen": "#50fa7b",
+	"brightPurple": "#ff79c6",
+	"brightRed": "#ff5555",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#f1fa8c",
+	"cyan": "#8be9fd",
+	"green": "#50fa7b",
+	"purple": "#ff79c6",
+	"red": "#ff5555",
+	"white": "#f0f1f4",
+	"yellow": "#ffb86c"
+},

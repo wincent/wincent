@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Mona Lisa by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#874227' # base02
+selection-foreground = '#dab14e' # base05
+
+cursor         = '#dab14e' # base05
+tabs           = '#341a0d' # base01
+tabs-active    = '#874227' # base02
+
+background     = '#110b0d' # base00
+foreground     = '#dab14e' # base05
+black          = '#341a0d' # base01
+red            = '#9b281b' # base08
+yellow         = '#9eb2b3' # base0A
+green          = '#626132' # base0B
+cyan           = '#588056' # base0C
+blue           = '#515b5c' # base0D
+magenta        = '#9b1d29' # base0E
+white          = '#f6d75c' # base06
+
+dim-foreground   = '#dab14e' # base05
+dim-black        = '#341a0d' # base01
+dim-red          = '#9b281b' # base08
+dim-yellow       = '#9eb2b3' # base0A
+dim-green        = '#626132' # base0B
+dim-cyan         = '#588056' # base0C
+dim-blue         = '#515b5c' # base0D
+dim-magenta      = '#9b1d29' # base0E
+dim-white        = '#be8c41' # base04
+
+light-foreground = '#dab14e' # base05
+light-black      = '#874227' # base02
+light-red        = '#ff4230' # base12
+light-yellow     = '#ff9565' # base13
+light-green      = '#b3b163' # base14
+light-cyan       = '#89cc8e' # base15
+light-blue       = '#9eb2b3' # base16
+light-magenta    = '#ff5b6a' # base17
+light-white      = '#ffe597' # base07

@@ -1,0 +1,43 @@
+# base24 Operator Mono Dark
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#191919"
+foreground = "#c0c4c0"
+
+cursor_bg = "#5a5a5a"
+cursor_border = "#c0c4c0"
+cursor_fg = "#cdd3cd"
+
+selection_bg = "#c0c4c0"
+selection_fg = "#9a9a99"
+
+ansi = [
+  "#191919",
+  "#ca372d",
+  "#4d7b3a",
+  "#89d3f6",
+  "#4387cf",
+  "#b86cb4",
+  "#72d4c6",
+  "#cdd3cd"
+]
+brights = [
+  "#9a9a99",
+  "#c37d62",
+  "#83d0a2",
+  "#fdfdc5",
+  "#89d3f6",
+  "#fe2c79",
+  "#82e9da",
+  "#fdfdf6"
+]
+
+[colors.indexed]
+16 = "#d4d697"
+17 = "#651b16"
+18 = "#5a5a5a"
+19 = "#9a9a99"
+20 = "#b3b6b3"
+21 = "#c0c4c0"

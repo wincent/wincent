@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Nord Light",
+	"foreground": "#2e3440",
+	"background": "#e5e9f0",
+	"black": "#c2d0e7",
+	"blue": "#3b6ea8",
+	"brightBlack": "#b8c5db",
+	"brightBlue": "#3b6ea8",
+	"brightCyan": "#398eac",
+	"brightGreen": "#4f894c",
+	"brightPurple": "#97365b",
+	"brightRed": "#99324b",
+	"brightWhite": "#29838d",
+	"brightYellow": "#9a7500",
+	"cyan": "#398eac",
+	"green": "#4f894c",
+	"purple": "#97365b",
+	"red": "#99324b",
+	"white": "#3b4252",
+	"yellow": "#ac4426"
+},

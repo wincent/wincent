@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Builtin Tango Light",
+	"foreground": "#b3b7b0",
+	"background": "#ffffff",
+	"black": "#000000",
+	"blue": "#3464a4",
+	"brightBlack": "#545753",
+	"brightBlue": "#719ecf",
+	"brightCyan": "#34e2e2",
+	"brightGreen": "#8ae234",
+	"brightPurple": "#ad7ea7",
+	"brightRed": "#ef2828",
+	"brightWhite": "#ededec",
+	"brightYellow": "#fce94e",
+	"cyan": "#05989a",
+	"green": "#4e9a05",
+	"purple": "#74507a",
+	"red": "#cc0000",
+	"white": "#d3d7cf",
+	"yellow": "#c4a000"
+},

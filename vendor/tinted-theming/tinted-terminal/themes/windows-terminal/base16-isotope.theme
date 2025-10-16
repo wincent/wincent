@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Isotope",
+	"foreground": "#d0d0d0",
+	"background": "#000000",
+	"black": "#404040",
+	"blue": "#0066ff",
+	"brightBlack": "#606060",
+	"brightBlue": "#0066ff",
+	"brightCyan": "#00ffff",
+	"brightGreen": "#33ff00",
+	"brightPurple": "#cc00ff",
+	"brightRed": "#ff0000",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#ff0099",
+	"cyan": "#00ffff",
+	"green": "#33ff00",
+	"purple": "#cc00ff",
+	"red": "#ff0000",
+	"white": "#e0e0e0",
+	"yellow": "#ff9900"
+},

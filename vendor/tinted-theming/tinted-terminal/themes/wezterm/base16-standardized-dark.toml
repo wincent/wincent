@@ -1,0 +1,43 @@
+# base16 standardized-dark
+# Scheme author: ali (https://github.com/ali-githb/base16-standardized-scheme)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#222222"
+foreground = "#c0c0c0"
+
+cursor_bg = "#c0c0c0"
+cursor_border = "#c0c0c0"
+cursor_fg = "#222222"
+
+selection_bg = "#c0c0c0"
+selection_fg = "#555555"
+
+ansi = [
+  "#222222",
+  "#e15d67",
+  "#5db129",
+  "#e1b31a",
+  "#00a3f2",
+  "#b46ee0",
+  "#21c992",
+  "#e0e0e0"
+]
+brights = [
+  "#555555",
+  "#e15d67",
+  "#5db129",
+  "#e1b31a",
+  "#00a3f2",
+  "#b46ee0",
+  "#21c992",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#fc804e"
+17 = "#b87d28"
+18 = "#303030"
+19 = "#555555"
+20 = "#898989"
+21 = "#c0c0c0"

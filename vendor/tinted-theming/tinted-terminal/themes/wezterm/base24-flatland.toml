@@ -1,0 +1,43 @@
+# base24 Flatland
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#1c1e20"
+foreground = "#c5c6c4"
+
+cursor_bg = "#1c1d19"
+cursor_border = "#c5c6c4"
+cursor_fg = "#fefffe"
+
+selection_bg = "#c5c6c4"
+selection_fg = "#1c1d19"
+
+ansi = [
+  "#1c1e20",
+  "#f18238",
+  "#9ed264",
+  "#61b8d0",
+  "#4f96be",
+  "#695abb",
+  "#d53864",
+  "#fefffe"
+]
+brights = [
+  "#1c1d19",
+  "#d12a24",
+  "#a7d32c",
+  "#ff8948",
+  "#61b8d0",
+  "#695abb",
+  "#d53864",
+  "#fefffe"
+]
+
+[colors.indexed]
+16 = "#f3ef6d"
+17 = "#78411c"
+18 = "#1c1d19"
+19 = "#1c1d19"
+20 = "#8d8e8b"
+21 = "#c5c6c4"

@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Brogrammer by Vik Ramanujam (http://github.com/piggyslasher)
+
+[colors]
+selection-background = '#2dc55e' # base02
+selection-foreground = '#4e5ab7' # base05
+
+cursor         = '#4e5ab7' # base05
+tabs           = '#f81118' # base01
+tabs-active    = '#2dc55e' # base02
+
+background     = '#1f1f1f' # base00
+foreground     = '#4e5ab7' # base05
+black          = '#f81118' # base01
+red            = '#d6dbe5' # base08
+yellow         = '#1dd361' # base0A
+green          = '#f3bd09' # base0B
+cyan           = '#1081d6' # base0C
+blue           = '#5350b9' # base0D
+magenta        = '#0f7ddb' # base0E
+white          = '#1081d6' # base06
+
+dim-foreground   = '#4e5ab7' # base05
+dim-black        = '#f81118' # base01
+dim-red          = '#d6dbe5' # base08
+dim-yellow       = '#1dd361' # base0A
+dim-green        = '#f3bd09' # base0B
+dim-cyan         = '#1081d6' # base0C
+dim-blue         = '#5350b9' # base0D
+dim-magenta      = '#0f7ddb' # base0E
+dim-white        = '#2a84d2' # base04
+
+light-foreground = '#4e5ab7' # base05
+light-black      = '#2dc55e' # base02
+light-red        = '#d6dbe5' # base08
+light-yellow     = '#1dd361' # base0A
+light-green      = '#f3bd09' # base0B
+light-cyan       = '#1081d6' # base0C
+light-blue       = '#5350b9' # base0D
+light-magenta    = '#0f7ddb' # base0E
+light-white      = '#d6dbe5' # base07

@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Alien Blood",
+	"foreground": "#5a6f5c",
+	"background": "#0f160f",
+	"black": "#112615",
+	"blue": "#2f697f",
+	"brightBlack": "#3c4711",
+	"brightBlue": "#00a9df",
+	"brightCyan": "#00dfc3",
+	"brightGreen": "#18e000",
+	"brightPurple": "#0058df",
+	"brightRed": "#df8008",
+	"brightWhite": "#73f990",
+	"brightYellow": "#bde000",
+	"cyan": "#317f76",
+	"green": "#2f7e25",
+	"purple": "#47577e",
+	"red": "#7f2b26",
+	"white": "#647d75",
+	"yellow": "#707f23"
+},

@@ -1,0 +1,43 @@
+# base16 Ocean
+# Scheme author: Chris Kempson (http://chriskempson.com)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#2b303b"
+foreground = "#c0c5ce"
+
+cursor_bg = "#c0c5ce"
+cursor_border = "#c0c5ce"
+cursor_fg = "#2b303b"
+
+selection_bg = "#c0c5ce"
+selection_fg = "#4f5b66"
+
+ansi = [
+  "#2b303b",
+  "#bf616a",
+  "#a3be8c",
+  "#ebcb8b",
+  "#8fa1b3",
+  "#b48ead",
+  "#96b5b4",
+  "#dfe1e8"
+]
+brights = [
+  "#4f5b66",
+  "#bf616a",
+  "#a3be8c",
+  "#ebcb8b",
+  "#8fa1b3",
+  "#b48ead",
+  "#96b5b4",
+  "#eff1f5"
+]
+
+[colors.indexed]
+16 = "#d08770"
+17 = "#ab7967"
+18 = "#343d46"
+19 = "#4f5b66"
+20 = "#a7adba"
+21 = "#c0c5ce"

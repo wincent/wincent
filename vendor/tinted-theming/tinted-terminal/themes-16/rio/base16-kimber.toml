@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Kimber by Mishka Nguyen (https://github.com/akhsiM)
+
+[colors]
+selection-background = '#555d55' # base02
+selection-foreground = '#dedee7' # base05
+
+cursor         = '#dedee7' # base05
+tabs           = '#313131' # base01
+tabs-active    = '#555d55' # base02
+
+background     = '#222222' # base00
+foreground     = '#dedee7' # base05
+black          = '#313131' # base01
+red            = '#c88c8c' # base08
+yellow         = '#d8b56d' # base0A
+green          = '#99c899' # base0B
+cyan           = '#78b4b4' # base0C
+blue           = '#537c9c' # base0D
+magenta        = '#86cacd' # base0E
+white          = '#c3c3b4' # base06
+
+dim-foreground   = '#dedee7' # base05
+dim-black        = '#313131' # base01
+dim-red          = '#c88c8c' # base08
+dim-yellow       = '#d8b56d' # base0A
+dim-green        = '#99c899' # base0B
+dim-cyan         = '#78b4b4' # base0C
+dim-blue         = '#537c9c' # base0D
+dim-magenta      = '#86cacd' # base0E
+dim-white        = '#5a5a5a' # base04
+
+light-foreground = '#dedee7' # base05
+light-black      = '#555d55' # base02
+light-red        = '#c88c8c' # base08
+light-yellow     = '#d8b56d' # base0A
+light-green      = '#99c899' # base0B
+light-cyan       = '#78b4b4' # base0C
+light-blue       = '#537c9c' # base0D
+light-magenta    = '#86cacd' # base0E
+light-white      = '#ffffe6' # base07

@@ -1,0 +1,43 @@
+# base16 Penumbra Light Contrast Plus Plus
+# Scheme author: Zachary Weiss (https://github.com/zacharyweiss)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#fffdfb"
+foreground = "#636363"
+
+cursor_bg = "#636363"
+cursor_border = "#636363"
+cursor_fg = "#fffdfb"
+
+selection_bg = "#636363"
+selection_fg = "#f2e6d4"
+
+ansi = [
+  "#fffdfb",
+  "#f58c81",
+  "#54c794",
+  "#a9b852",
+  "#6eb2fd",
+  "#b69cf6",
+  "#00c4d7",
+  "#181b1f"
+]
+brights = [
+  "#f2e6d4",
+  "#f58c81",
+  "#54c794",
+  "#a9b852",
+  "#6eb2fd",
+  "#b69cf6",
+  "#00c4d7",
+  "#0d0f13"
+]
+
+[colors.indexed]
+16 = "#e09f47"
+17 = "#e58cc5"
+18 = "#fff7ed"
+19 = "#f2e6d4"
+20 = "#aeaeae"
+21 = "#636363"

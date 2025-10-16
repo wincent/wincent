@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Rosé Pine",
+	"foreground": "#e0def4",
+	"background": "#191724",
+	"black": "#1f1d2e",
+	"blue": "#c4a7e7",
+	"brightBlack": "#26233a",
+	"brightBlue": "#c4a7e7",
+	"brightCyan": "#9ccfd8",
+	"brightGreen": "#31748f",
+	"brightPurple": "#f6c177",
+	"brightRed": "#eb6f92",
+	"brightWhite": "#524f67",
+	"brightYellow": "#ebbcba",
+	"cyan": "#9ccfd8",
+	"green": "#31748f",
+	"purple": "#f6c177",
+	"red": "#eb6f92",
+	"white": "#e0def4",
+	"yellow": "#f6c177"
+},

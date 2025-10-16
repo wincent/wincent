@@ -1,0 +1,43 @@
+# base16 Atelier Plateau
+# Scheme author: Bram de Haan (http://atelierbramdehaan.nl)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#1b1818"
+foreground = "#8a8585"
+
+cursor_bg = "#8a8585"
+cursor_border = "#8a8585"
+cursor_fg = "#1b1818"
+
+selection_bg = "#8a8585"
+selection_fg = "#585050"
+
+ansi = [
+  "#1b1818",
+  "#ca4949",
+  "#4b8b8b",
+  "#a06e3b",
+  "#7272ca",
+  "#8464c4",
+  "#5485b6",
+  "#e7dfdf"
+]
+brights = [
+  "#585050",
+  "#ca4949",
+  "#4b8b8b",
+  "#a06e3b",
+  "#7272ca",
+  "#8464c4",
+  "#5485b6",
+  "#f4ecec"
+]
+
+[colors.indexed]
+16 = "#b45a3c"
+17 = "#bd5187"
+18 = "#292424"
+19 = "#585050"
+20 = "#7e7777"
+21 = "#8a8585"

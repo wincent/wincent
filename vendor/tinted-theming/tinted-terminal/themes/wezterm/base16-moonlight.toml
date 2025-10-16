@@ -1,0 +1,43 @@
+# base16 Moonlight
+# Scheme author: Jeremy Swinarton (https://github.com/jswinarton)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#212337"
+foreground = "#a3ace1"
+
+cursor_bg = "#a3ace1"
+cursor_border = "#a3ace1"
+cursor_fg = "#212337"
+
+selection_bg = "#a3ace1"
+selection_fg = "#596399"
+
+ansi = [
+  "#212337",
+  "#ff5370",
+  "#2df4c0",
+  "#ffc777",
+  "#40ffff",
+  "#b994f1",
+  "#04d1f9",
+  "#b4a4f4"
+]
+brights = [
+  "#596399",
+  "#ff5370",
+  "#2df4c0",
+  "#ffc777",
+  "#40ffff",
+  "#b994f1",
+  "#04d1f9",
+  "#ef43fa"
+]
+
+[colors.indexed]
+16 = "#f67f81"
+17 = "#ecb2f0"
+18 = "#403c64"
+19 = "#596399"
+20 = "#a1abe0"
+21 = "#a3ace1"

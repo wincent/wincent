@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Challenger Deep",
+	"foreground": "#929bb6",
+	"background": "#1e1c31",
+	"black": "#141127",
+	"blue": "#65b2ff",
+	"brightBlack": "#565575",
+	"brightBlue": "#91ddff",
+	"brightCyan": "#aaffe4",
+	"brightGreen": "#95ffa4",
+	"brightPurple": "#c991e1",
+	"brightRed": "#ff8080",
+	"brightWhite": "#cbe3e7",
+	"brightYellow": "#ffe9aa",
+	"cyan": "#63f2f1",
+	"green": "#62d196",
+	"purple": "#906cff",
+	"red": "#ff5458",
+	"white": "#a6b3cc",
+	"yellow": "#ffb378"
+},

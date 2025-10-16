@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Sagelight",
+	"foreground": "#383838",
+	"background": "#f8f8f8",
+	"black": "#e8e8e8",
+	"blue": "#a0a7d2",
+	"brightBlack": "#d8d8d8",
+	"brightBlue": "#a0a7d2",
+	"brightCyan": "#a2d6f5",
+	"brightGreen": "#a0d2c8",
+	"brightPurple": "#c8a0d2",
+	"brightRed": "#fa8480",
+	"brightWhite": "#181818",
+	"brightYellow": "#ffdc61",
+	"cyan": "#a2d6f5",
+	"green": "#a0d2c8",
+	"purple": "#c8a0d2",
+	"red": "#fa8480",
+	"white": "#282828",
+	"yellow": "#ffaa61"
+},

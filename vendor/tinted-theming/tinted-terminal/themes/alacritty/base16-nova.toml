@@ -1,0 +1,58 @@
+# base16 Nova 256 - alacritty color config
+# George Essig (https://github.com/gessig), Trevor D. Miller (https://trevordmiller.com)
+
+# Default colors
+[colors.primary]
+background = '0x3c4c55'
+foreground = '0xc5d4dd'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x3c4c55'
+cursor = '0xc5d4dd'
+
+# Normal colors
+[colors.normal]
+black = '0x556873'
+red = '0x83afe5'
+green = '0x7fc1ca'
+yellow = '0xa8ce93'
+blue = '0x83afe5'
+magenta = '0x9a93e1'
+cyan = '0xf2c38f'
+white = '0x899ba6'
+
+# Bright colors
+[colors.bright]
+black = '0x6a7d89'
+red = '0x83afe5'
+green = '0x7fc1ca'
+yellow = '0xa8ce93'
+blue = '0x83afe5'
+magenta = '0x9a93e1'
+cyan = '0xf2c38f'
+white = '0x556873'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0x7fc1ca"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xf2c38f"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x556873"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x6a7d89"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x899ba6"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0x899ba6"

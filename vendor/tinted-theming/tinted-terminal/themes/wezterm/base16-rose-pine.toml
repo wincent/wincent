@@ -1,0 +1,43 @@
+# base16 Rosé Pine
+# Scheme author: Emilia Dunfelt &lt;edun@dunfelt.se&gt;
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#191724"
+foreground = "#e0def4"
+
+cursor_bg = "#e0def4"
+cursor_border = "#e0def4"
+cursor_fg = "#191724"
+
+selection_bg = "#e0def4"
+selection_fg = "#26233a"
+
+ansi = [
+  "#191724",
+  "#eb6f92",
+  "#31748f",
+  "#ebbcba",
+  "#c4a7e7",
+  "#f6c177",
+  "#9ccfd8",
+  "#e0def4"
+]
+brights = [
+  "#26233a",
+  "#eb6f92",
+  "#31748f",
+  "#ebbcba",
+  "#c4a7e7",
+  "#f6c177",
+  "#9ccfd8",
+  "#524f67"
+]
+
+[colors.indexed]
+16 = "#f6c177"
+17 = "#524f67"
+18 = "#1f1d2e"
+19 = "#26233a"
+20 = "#908caa"
+21 = "#e0def4"

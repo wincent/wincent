@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Rosé Pine by Emilia Dunfelt &lt;edun@dunfelt.se&gt;
+
+[colors]
+selection-background = '#26233a' # base02
+selection-foreground = '#e0def4' # base05
+
+cursor         = '#e0def4' # base05
+tabs           = '#1f1d2e' # base01
+tabs-active    = '#26233a' # base02
+
+background     = '#191724' # base00
+foreground     = '#e0def4' # base05
+black          = '#1f1d2e' # base01
+red            = '#eb6f92' # base08
+yellow         = '#ebbcba' # base0A
+green          = '#31748f' # base0B
+cyan           = '#9ccfd8' # base0C
+blue           = '#c4a7e7' # base0D
+magenta        = '#f6c177' # base0E
+white          = '#e0def4' # base06
+
+dim-foreground   = '#e0def4' # base05
+dim-black        = '#1f1d2e' # base01
+dim-red          = '#eb6f92' # base08
+dim-yellow       = '#ebbcba' # base0A
+dim-green        = '#31748f' # base0B
+dim-cyan         = '#9ccfd8' # base0C
+dim-blue         = '#c4a7e7' # base0D
+dim-magenta      = '#f6c177' # base0E
+dim-white        = '#908caa' # base04
+
+light-foreground = '#e0def4' # base05
+light-black      = '#26233a' # base02
+light-red        = '#eb6f92' # base08
+light-yellow     = '#ebbcba' # base0A
+light-green      = '#31748f' # base0B
+light-cyan       = '#9ccfd8' # base0C
+light-blue       = '#c4a7e7' # base0D
+light-magenta    = '#f6c177' # base0E
+light-white      = '#524f67' # base07

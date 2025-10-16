@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "PhD",
+	"foreground": "#b8bbc2",
+	"background": "#061229",
+	"black": "#2a3448",
+	"blue": "#5299bf",
+	"brightBlack": "#4d5666",
+	"brightBlue": "#5299bf",
+	"brightCyan": "#72b9bf",
+	"brightGreen": "#99bf52",
+	"brightPurple": "#9989cc",
+	"brightRed": "#d07346",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#fbd461",
+	"cyan": "#72b9bf",
+	"green": "#99bf52",
+	"purple": "#9989cc",
+	"red": "#d07346",
+	"white": "#dbdde0",
+	"yellow": "#f0a000"
+},

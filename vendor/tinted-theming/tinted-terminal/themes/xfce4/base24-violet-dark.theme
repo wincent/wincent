@@ -1,0 +1,10 @@
+# Scheme name: Violet Dark
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-violet-dark
+ColorForeground=#a7a59f
+ColorBackground=#1b1d1f
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#56595c;#c94c22;#85981c;#2075c7;#2e8bce;#d13a82;#32a198;#c8c5bc;#45484b;#bd3612;#728903;#a57704;#2075c7;#c61b6e;#259185;#c8c5bd

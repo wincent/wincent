@@ -1,0 +1,58 @@
+# base16 Zenburn 256 - alacritty color config
+# elnawe
+
+# Default colors
+[colors.primary]
+background = '0x383838'
+foreground = '0xdcdccc'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x383838'
+cursor = '0xdcdccc'
+
+# Normal colors
+[colors.normal]
+black = '0x404040'
+red = '0xdca3a3'
+green = '0x5f7f5f'
+yellow = '0xe0cf9f'
+blue = '0x7cb8bb'
+magenta = '0xdc8cc3'
+cyan = '0x93e0e3'
+white = '0xc0c0c0'
+
+# Bright colors
+[colors.bright]
+black = '0x606060'
+red = '0xdca3a3'
+green = '0x5f7f5f'
+yellow = '0xe0cf9f'
+blue = '0x7cb8bb'
+magenta = '0xdc8cc3'
+cyan = '0x93e0e3'
+white = '0xffffff'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xdfaf8f"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x000000"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x404040"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x606060"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x808080"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xc0c0c0"

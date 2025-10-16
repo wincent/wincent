@@ -1,0 +1,43 @@
+# base16 Brogrammer
+# Scheme author: Vik Ramanujam (http://github.com/piggyslasher)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#1f1f1f"
+foreground = "#4e5ab7"
+
+cursor_bg = "#4e5ab7"
+cursor_border = "#4e5ab7"
+cursor_fg = "#1f1f1f"
+
+selection_bg = "#4e5ab7"
+selection_fg = "#2dc55e"
+
+ansi = [
+  "#1f1f1f",
+  "#d6dbe5",
+  "#f3bd09",
+  "#1dd361",
+  "#5350b9",
+  "#0f7ddb",
+  "#1081d6",
+  "#1081d6"
+]
+brights = [
+  "#2dc55e",
+  "#d6dbe5",
+  "#f3bd09",
+  "#1dd361",
+  "#5350b9",
+  "#0f7ddb",
+  "#1081d6",
+  "#d6dbe5"
+]
+
+[colors.indexed]
+16 = "#de352e"
+17 = "#ffffff"
+18 = "#f81118"
+19 = "#2dc55e"
+20 = "#2a84d2"
+21 = "#4e5ab7"

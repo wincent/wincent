@@ -1,0 +1,43 @@
+# base16 Penumbra Dark Contrast Plus Plus
+# Scheme author: Zachary Weiss (https://github.com/zacharyweiss)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#0d0f13"
+foreground = "#dedede"
+
+cursor_bg = "#dedede"
+cursor_border = "#dedede"
+cursor_fg = "#0d0f13"
+
+selection_bg = "#dedede"
+selection_fg = "#3e4044"
+
+ansi = [
+  "#0d0f13",
+  "#f58c81",
+  "#54c794",
+  "#a9b852",
+  "#6eb2fd",
+  "#b69cf6",
+  "#00c4d7",
+  "#fff7ed"
+]
+brights = [
+  "#3e4044",
+  "#f58c81",
+  "#54c794",
+  "#a9b852",
+  "#6eb2fd",
+  "#b69cf6",
+  "#00c4d7",
+  "#fffdfb"
+]
+
+[colors.indexed]
+16 = "#e09f47"
+17 = "#e58cc5"
+18 = "#181b1f"
+19 = "#3e4044"
+20 = "#aeaeae"
+21 = "#dedede"

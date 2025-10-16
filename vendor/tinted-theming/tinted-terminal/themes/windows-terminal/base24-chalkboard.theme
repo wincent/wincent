@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Chalkboard",
+	"foreground": "#afafaf",
+	"background": "#29262f",
+	"black": "#000000",
+	"blue": "#7372c3",
+	"brightBlack": "#323232",
+	"brightBlue": "#aaaadb",
+	"brightCyan": "#aadadb",
+	"brightGreen": "#aadbaa",
+	"brightPurple": "#dbaada",
+	"brightRed": "#dbaaaa",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#dadbaa",
+	"cyan": "#72c2c3",
+	"green": "#72c373",
+	"purple": "#c372c2",
+	"red": "#c37372",
+	"white": "#d9d9d9",
+	"yellow": "#c2c372"
+},

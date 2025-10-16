@@ -1,0 +1,43 @@
+# base16 Gruvbox dark, pale
+# Scheme author: Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#262626"
+foreground = "#dab997"
+
+cursor_bg = "#dab997"
+cursor_border = "#dab997"
+cursor_fg = "#262626"
+
+selection_bg = "#dab997"
+selection_fg = "#4e4e4e"
+
+ansi = [
+  "#262626",
+  "#d75f5f",
+  "#afaf00",
+  "#ffaf00",
+  "#83adad",
+  "#d485ad",
+  "#85ad85",
+  "#d5c4a1"
+]
+brights = [
+  "#4e4e4e",
+  "#d75f5f",
+  "#afaf00",
+  "#ffaf00",
+  "#83adad",
+  "#d485ad",
+  "#85ad85",
+  "#ebdbb2"
+]
+
+[colors.indexed]
+16 = "#ff8700"
+17 = "#d65d0e"
+18 = "#3a3a3a"
+19 = "#4e4e4e"
+20 = "#949494"
+21 = "#dab997"

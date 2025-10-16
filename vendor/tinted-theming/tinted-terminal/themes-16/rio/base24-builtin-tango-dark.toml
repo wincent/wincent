@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Builtin Tango Dark by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#545753' # base02
+selection-foreground = '#b3b7b0' # base05
+
+cursor         = '#b3b7b0' # base05
+tabs           = '#000000' # base01
+tabs-active    = '#545753' # base02
+
+background     = '#000000' # base00
+foreground     = '#b3b7b0' # base05
+black          = '#000000' # base01
+red            = '#cc0000' # base08
+yellow         = '#719ecf' # base0A
+green          = '#4e9a05' # base0B
+cyan           = '#05989a' # base0C
+blue           = '#3464a4' # base0D
+magenta        = '#74507a' # base0E
+white          = '#d3d7cf' # base06
+
+dim-foreground   = '#b3b7b0' # base05
+dim-black        = '#000000' # base01
+dim-red          = '#cc0000' # base08
+dim-yellow       = '#719ecf' # base0A
+dim-green        = '#4e9a05' # base0B
+dim-cyan         = '#05989a' # base0C
+dim-blue         = '#3464a4' # base0D
+dim-magenta      = '#74507a' # base0E
+dim-white        = '#939791' # base04
+
+light-foreground = '#b3b7b0' # base05
+light-black      = '#545753' # base02
+light-red        = '#ef2828' # base12
+light-yellow     = '#fce94e' # base13
+light-green      = '#8ae234' # base14
+light-cyan       = '#34e2e2' # base15
+light-blue       = '#719ecf' # base16
+light-magenta    = '#ad7ea7' # base17
+light-white      = '#ededec' # base07

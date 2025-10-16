@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Jellybeans by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#bdbdbd' # base02
+selection-foreground = '#d5d5d5' # base05
+
+cursor         = '#d5d5d5' # base05
+tabs           = '#929292' # base01
+tabs-active    = '#bdbdbd' # base02
+
+background     = '#121212' # base00
+foreground     = '#d5d5d5' # base05
+black          = '#929292' # base01
+red            = '#e27373' # base08
+yellow         = '#b1d8f6' # base0A
+green          = '#93b979' # base0B
+cyan           = '#00988e' # base0C
+blue           = '#97bedc' # base0D
+magenta        = '#e1c0fa' # base0E
+white          = '#dedede' # base06
+
+dim-foreground   = '#d5d5d5' # base05
+dim-black        = '#929292' # base01
+dim-red          = '#e27373' # base08
+dim-yellow       = '#b1d8f6' # base0A
+dim-green        = '#93b979' # base0B
+dim-cyan         = '#00988e' # base0C
+dim-blue         = '#97bedc' # base0D
+dim-magenta      = '#e1c0fa' # base0E
+dim-white        = '#cdcdcd' # base04
+
+light-foreground = '#d5d5d5' # base05
+light-black      = '#bdbdbd' # base02
+light-red        = '#ffa1a1' # base12
+light-yellow     = '#ffdca0' # base13
+light-green      = '#bddeab' # base14
+light-cyan       = '#1ab2a8' # base15
+light-blue       = '#b1d8f6' # base16
+light-magenta    = '#fbdaff' # base17
+light-white      = '#ffffff' # base07

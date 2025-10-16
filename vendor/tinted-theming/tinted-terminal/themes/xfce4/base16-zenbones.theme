@@ -1,0 +1,10 @@
+# Scheme name: Zenbones
+# Scheme author: mcchrish
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-zenbones
+ColorForeground=#b279a7
+ColorBackground=#191919
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#de6e7c;#3d3839;#d68c67;#8bae68;#cf86c1;#65b8c1;#61abda;#66a5ad;#819b69;#3d3839;#d68c67;#8bae68;#cf86c1;#65b8c1;#61abda;#bbbbbb

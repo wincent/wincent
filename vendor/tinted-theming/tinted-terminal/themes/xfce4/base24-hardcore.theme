@@ -1,0 +1,10 @@
+# Scheme name: Hardcore
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-hardcore
+ColorForeground=#a9a9a9
+ColorBackground=#111111
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#141414;#ff5555;#98ec65;#33bbff;#00aaff;#aa88ff;#88ddff;#cccccc;#414141;#ff8888;#b6f292;#ffd966;#33bbff;#cebbff;#bbecff;#ffffff

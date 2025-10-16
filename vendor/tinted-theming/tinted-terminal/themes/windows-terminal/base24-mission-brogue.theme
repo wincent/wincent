@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Mission Brogue",
+	"foreground": "#93a5b4",
+	"background": "#283139",
+	"black": "#3b4954",
+	"blue": "#a2c5fd",
+	"brightBlack": "#4d606f",
+	"brightBlue": "#c3d9fd",
+	"brightCyan": "#b2f0fd",
+	"brightGreen": "#b5e090",
+	"brightPurple": "#e3c3e6",
+	"brightRed": "#f6bfbf",
+	"brightWhite": "#e7ebee",
+	"brightYellow": "#fff0b2",
+	"cyan": "#93dfec",
+	"green": "#8cd4b0",
+	"purple": "#ccb7db",
+	"red": "#efa9a9",
+	"white": "#abb9c4",
+	"yellow": "#f2db78"
+},

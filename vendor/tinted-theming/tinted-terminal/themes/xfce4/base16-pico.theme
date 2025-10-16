@@ -1,0 +1,10 @@
+# Scheme name: Pico
+# Scheme author: PICO-8 (http://www.lexaloffle.com/pico-8.php)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-pico
+ColorForeground=#5f574f
+ColorBackground=#000000
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#1d2b53;#ff004d;#00e756;#fff024;#83769c;#ff77a8;#29adff;#c2c3c7;#7e2553;#ff004d;#00e756;#fff024;#83769c;#ff77a8;#29adff;#fff1e8

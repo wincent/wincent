@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Warm Neon",
+	"foreground": "#dcc9ba",
+	"background": "#3f3f3f",
+	"black": "#000000",
+	"blue": "#4260c5",
+	"brightBlack": "#fdfcfc",
+	"brightBlue": "#7a90d5",
+	"brightCyan": "#5ed1e4",
+	"brightGreen": "#9bc08f",
+	"brightPurple": "#f674b9",
+	"brightRed": "#e86f71",
+	"brightWhite": "#d8c8bb",
+	"brightYellow": "#ddd979",
+	"cyan": "#29bad3",
+	"green": "#38b139",
+	"purple": "#f81ffb",
+	"red": "#e24345",
+	"white": "#d0b8a3",
+	"yellow": "#dae145"
+},

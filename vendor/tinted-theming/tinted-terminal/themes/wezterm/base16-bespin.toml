@@ -1,0 +1,43 @@
+# base16 Bespin
+# Scheme author: Jan T. Sott
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#28211c"
+foreground = "#8a8986"
+
+cursor_bg = "#8a8986"
+cursor_border = "#8a8986"
+cursor_fg = "#28211c"
+
+selection_bg = "#8a8986"
+selection_fg = "#5e5d5c"
+
+ansi = [
+  "#28211c",
+  "#cf6a4c",
+  "#54be0d",
+  "#f9ee98",
+  "#5ea6ea",
+  "#9b859d",
+  "#afc4db",
+  "#9d9b97"
+]
+brights = [
+  "#5e5d5c",
+  "#cf6a4c",
+  "#54be0d",
+  "#f9ee98",
+  "#5ea6ea",
+  "#9b859d",
+  "#afc4db",
+  "#baae9e"
+]
+
+[colors.indexed]
+16 = "#cf7d34"
+17 = "#937121"
+18 = "#36312e"
+19 = "#5e5d5c"
+20 = "#797977"
+21 = "#8a8986"

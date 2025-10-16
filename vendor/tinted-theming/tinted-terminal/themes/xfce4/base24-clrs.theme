@@ -1,0 +1,10 @@
+# Scheme name: CLRS
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-clrs
+ColorForeground=#9a9b9a
+ColorBackground=#ffffff
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#000000;#f72729;#32895c;#156ffe;#125ccf;#9f00bc;#32c2c0;#b2b2b2;#545753;#fb0416;#2cc631;#fcd627;#156ffe;#e800b0;#39d5ce;#ededec

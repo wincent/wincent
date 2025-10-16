@@ -1,0 +1,58 @@
+# base24 Ayu Dark 256 - alacritty color config
+# Tinted Theming (https://github.com/tinted-theming), Ayu Theme (https://github.com/ayu-theme)
+
+# Default colors
+[colors.primary]
+background = '0x0b0e14'
+foreground = '0xe6e1cf'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x0b0e14'
+cursor = '0xe6e1cf'
+
+# Normal colors
+[colors.normal]
+black = '0x131721'
+red = '0xf07178'
+green = '0xaad94c'
+yellow = '0xffb454'
+blue = '0x59c2ff'
+magenta = '0xd2a6ff'
+cyan = '0x95e6cb'
+white = '0xece8db'
+
+# Bright colors
+[colors.bright]
+black = '0x202229'
+red = '0xf26d78'
+green = '0x7fd962'
+yellow = '0xe6b673'
+blue = '0x73b8ff'
+magenta = '0xddbcff'
+cyan = '0x39bae6'
+white = '0xf2f0e7'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xff8f40"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xe6b450"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x131721"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x202229"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0xbfbdb6"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xece8db"

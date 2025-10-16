@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Precious Light Warm",
+	"foreground": "#4e5359",
+	"background": "#fff5e5",
+	"black": "#ece4d6",
+	"blue": "#246da5",
+	"brightBlack": "#d9d3c8",
+	"brightBlue": "#246da5",
+	"brightCyan": "#0e7767",
+	"brightGreen": "#557300",
+	"brightPurple": "#7a50c6",
+	"brightRed": "#b14745",
+	"brightWhite": "#4e5359",
+	"brightYellow": "#876500",
+	"cyan": "#0e7767",
+	"green": "#557300",
+	"purple": "#7a50c6",
+	"red": "#b14745",
+	"white": "#4e5359",
+	"yellow": "#a25600"
+},

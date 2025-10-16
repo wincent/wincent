@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Chalk",
+	"foreground": "#d0d0d0",
+	"background": "#151515",
+	"black": "#202020",
+	"blue": "#5ab9ed",
+	"brightBlack": "#303030",
+	"brightBlue": "#6fc2ef",
+	"brightCyan": "#12cfc0",
+	"brightGreen": "#acc267",
+	"brightPurple": "#e1a3ee",
+	"brightRed": "#fb9fb1",
+	"brightWhite": "#f5f5f5",
+	"brightYellow": "#eda987",
+	"cyan": "#10bcad",
+	"green": "#a1bb54",
+	"purple": "#db8fea",
+	"red": "#fa859c",
+	"white": "#e0e0e0",
+	"yellow": "#ea9971"
+},

@@ -1,0 +1,10 @@
+# Scheme name: Chinoiserie Midnight
+# Scheme author: Di Wang (https://cs.cmu.edu/~diw3)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-chinoiserie-midnight
+ColorForeground=#c4cbcf
+ColorBackground=#1d1d1d
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#282828;#ed5a56;#aeb831;#fbb957;#81a2a2;#cf8997;#88b68d;#eee7f2;#373737;#ed5a56;#aeb831;#fbb957;#81a2a2;#cf8997;#88b68d;#fffef9

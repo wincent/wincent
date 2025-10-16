@@ -1,0 +1,10 @@
+# Scheme name: Hopscotch
+# Scheme author: Jan T. Sott
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-hopscotch
+ColorForeground=#b9b5b8
+ColorBackground=#322931
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#433b42;#dd464c;#8fc13e;#fdcc59;#1290bf;#c85e7c;#149b93;#d5d3d5;#5c545b;#dd464c;#8fc13e;#fdcc59;#1290bf;#c85e7c;#149b93;#ffffff

@@ -1,0 +1,43 @@
+# vim: ft=ghostty
+# Banana Blueberry theme for Ghostty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# Color palette
+palette = 0=#191322
+palette = 1=#ff6a7e
+palette = 2=#00bc9b
+palette = 3=#91fff3
+palette = 4=#22e8df
+palette = 5=#dc3969
+palette = 6=#55b6c1
+palette = 7=#f1f1f1
+palette = 8=#485161
+palette = 9=#fd9ea1
+palette = 10=#97c378
+palette = 11=#f9e46a
+palette = 12=#91fff3
+palette = 13=#da70d5
+palette = 14=#bcf2fe
+palette = 15=#feffff
+palette = 16=#e5c62f
+palette = 17=#7f353f
+palette = 18=#16141e
+palette = 19=#485161
+palette = 20=#9ca1a9
+palette = 21=#f1f1f1
+
+# Foreground & background colors
+background = #191322
+foreground = #c6c9cd
+cursor-color = #c6c9cd
+selection-background = #485161
+selection-foreground = #c6c9cd
+
+# Set `macos-icon = custom-style` in your main configuration file to enable theming of the app icon.
+#
+# Set the ghost color to the lightest foreground:
+macos-icon-ghost-color = #feffff
+# Replace the official icon's blue background with the designated bright blue color:
+macos-icon-screen-color = #91fff3

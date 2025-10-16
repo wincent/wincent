@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Kanagawa Dragon by Tommaso Laurenzi (https://github.com/rebelot)
+
+[colors]
+selection-background = '#282727' # base02
+selection-foreground = '#c5c9c5' # base05
+
+cursor         = '#c5c9c5' # base05
+tabs           = '#1d1c19' # base01
+tabs-active    = '#282727' # base02
+
+background     = '#0d0c0c' # base00
+foreground     = '#c5c9c5' # base05
+black          = '#1d1c19' # base01
+red            = '#c4746e' # base08
+yellow         = '#c4b28a' # base0A
+green          = '#87a987' # base0B
+cyan           = '#8ea4a2' # base0C
+blue           = '#8ba4b0' # base0D
+magenta        = '#8992a7' # base0E
+white          = '#7a8382' # base06
+
+dim-foreground   = '#c5c9c5' # base05
+dim-black        = '#1d1c19' # base01
+dim-red          = '#c4746e' # base08
+dim-yellow       = '#c4b28a' # base0A
+dim-green        = '#87a987' # base0B
+dim-cyan         = '#8ea4a2' # base0C
+dim-blue         = '#8ba4b0' # base0D
+dim-magenta      = '#8992a7' # base0E
+dim-white        = '#a6a69c' # base04
+
+light-foreground = '#c5c9c5' # base05
+light-black      = '#282727' # base02
+light-red        = '#c4746e' # base08
+light-yellow     = '#c4b28a' # base0A
+light-green      = '#87a987' # base0B
+light-cyan       = '#8ea4a2' # base0C
+light-blue       = '#8ba4b0' # base0D
+light-magenta    = '#8992a7' # base0E
+light-white      = '#c5c9c5' # base07

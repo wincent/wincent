@@ -1,0 +1,58 @@
+# base24 Jackie Brown 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x2c1c15'
+foreground = '0xa8a8a8'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x2c1c15'
+cursor = '0xa8a8a8'
+
+# Normal colors
+[colors.normal]
+black = '0x2c1d16'
+red = '0xef5734'
+green = '0x2baf2b'
+yellow = '0x0000ff'
+blue = '0x246db2'
+magenta = '0xcf5ec0'
+cyan = '0x00acee'
+white = '0xbfbfbf'
+
+# Bright colors
+[colors.bright]
+black = '0x666666'
+red = '0xe50000'
+green = '0x86a83e'
+yellow = '0xe5e500'
+blue = '0x0000ff'
+magenta = '0xe500e5'
+cyan = '0x00e5e5'
+white = '0xe5e5e5'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xbdbe00"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x772b1a"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x2c1d16"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x666666"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x929292"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xbfbfbf"

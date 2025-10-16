@@ -1,0 +1,43 @@
+# base24 Violet Light
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#fcf4dc"
+foreground = "#afaea9"
+
+cursor_bg = "#56595c"
+cursor_border = "#afaea9"
+cursor_fg = "#d3d0c9"
+
+selection_bg = "#afaea9"
+selection_fg = "#45484b"
+
+ansi = [
+  "#fcf4dc",
+  "#c94c22",
+  "#85981c",
+  "#2075c7",
+  "#2e8bce",
+  "#d13a82",
+  "#32a198",
+  "#d3d0c9"
+]
+brights = [
+  "#45484b",
+  "#bd3612",
+  "#728903",
+  "#a57704",
+  "#2075c7",
+  "#c61b6e",
+  "#259185",
+  "#c8c5bd"
+]
+
+[colors.indexed]
+16 = "#b4881d"
+17 = "#642611"
+18 = "#56595c"
+19 = "#45484b"
+20 = "#8c8c8a"
+21 = "#afaea9"

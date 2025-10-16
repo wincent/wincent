@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "SAGA",
+	"foreground": "#dce2f7",
+	"background": "#05080a",
+	"black": "#0a1014",
+	"blue": "#c9fff7",
+	"brightBlack": "#0f181e",
+	"brightBlue": "#c9fff7",
+	"brightCyan": "#c5edc1",
+	"brightGreen": "#f7ddff",
+	"brightPurple": "#dcc3f9",
+	"brightRed": "#ffd4e9",
+	"brightWhite": "#ccd3fe",
+	"brightYellow": "#fbebc8",
+	"cyan": "#c5edc1",
+	"green": "#f7ddff",
+	"purple": "#dcc3f9",
+	"red": "#ffd4e9",
+	"white": "#f8eae7",
+	"yellow": "#fbcbae"
+},

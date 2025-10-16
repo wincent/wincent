@@ -1,0 +1,32 @@
+{{=<% %>=}}
+(*
+    <%scheme-system%> <%scheme-name%>
+    Scheme author: <%scheme-author%>
+    Template author: Tinted Theming (https://github.com/tinted-theming)
+*)
+tell application "iTerm2"
+    tell current session of current window
+        set background color to {<%base00-rgb16-r%>, <%base00-rgb16-g%>, <%base00-rgb16-b%>}
+        set foreground color to {<%base05-rgb16-r%>, <%base05-rgb16-g%>, <%base05-rgb16-b%>}
+
+        -- Set ANSI Colors
+        set ANSI black color to {<%base01-rgb16-r%>, <%base01-rgb16-g%>, <%base01-rgb16-b%>}
+        set ANSI red color to {<%base08-rgb16-r%>, <%base08-rgb16-g%>, <%base08-rgb16-b%>}
+        set ANSI green color to {<%base0B-rgb16-r%>, <%base0B-rgb16-g%>, <%base0B-rgb16-b%>}
+        set ANSI yellow color to {<%base0A-rgb16-r%>, <%base0A-rgb16-g%>, <%base0A-rgb16-b%>}
+        set ANSI blue color to {<%base0D-rgb16-r%>, <%base0D-rgb16-g%>, <%base0D-rgb16-b%>}
+        set ANSI magenta color to {<%base0E-rgb16-r%>, <%base0E-rgb16-g%>, <%base0E-rgb16-b%>}
+        set ANSI cyan color to {<%base0C-rgb16-r%>, <%base0C-rgb16-g%>, <%base0C-rgb16-b%>}
+        set ANSI white color to {<%base06-rgb16-r%>, <%base06-rgb16-g%>, <%base06-rgb16-b%>}
+
+        -- Set Bright ANSI Colors
+        set ANSI bright black color to {<%base02-rgb16-r%>, <%base02-rgb16-g%>, <%base02-rgb16-b%>}
+        set ANSI bright red color to {<%base08-rgb16-r%>, <%base08-rgb16-g%>, <%base08-rgb16-b%>}
+        set ANSI bright green color to {<%base0B-rgb16-r%>, <%base0B-rgb16-g%>, <%base0B-rgb16-b%>}
+        set ANSI bright yellow color to {<%base0A-rgb16-r%>, <%base0A-rgb16-g%>, <%base0A-rgb16-b%>}
+        set ANSI bright blue color to {<%base0D-rgb16-r%>, <%base0D-rgb16-g%>, <%base0D-rgb16-b%>}
+        set ANSI bright magenta color to {<%base0E-rgb16-r%>, <%base0E-rgb16-g%>, <%base0E-rgb16-b%>}
+        set ANSI bright cyan color to {<%base0C-rgb16-r%>, <%base0C-rgb16-g%>, <%base0C-rgb16-b%>}
+        set ANSI bright white color to {<%base07-rgb16-r%>, <%base07-rgb16-g%>, <%base07-rgb16-b%>}
+    end tell
+end tell

@@ -1,0 +1,10 @@
+# Scheme name: Blue Forest
+# Scheme author: alonsodomin (https://github.com/alonsodomin)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-blueforest
+ColorForeground=#ffcc33
+ColorBackground=#141f2e
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#1e5c1e;#fffab1;#80ff80;#91ccff;#a2cff5;#0099ff;#80ff80;#91ccff;#273e5c;#fffab1;#80ff80;#91ccff;#a2cff5;#0099ff;#80ff80;#375780

@@ -1,0 +1,43 @@
+# base24 Red Alert
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#762423"
+foreground = "#aaaaaa"
+
+cursor_bg = "#000000"
+cursor_border = "#aaaaaa"
+cursor_fg = "#d6d6d6"
+
+selection_bg = "#aaaaaa"
+selection_fg = "#262626"
+
+ansi = [
+  "#762423",
+  "#d52e4d",
+  "#71be6b",
+  "#65a9f0",
+  "#479bed",
+  "#e878d6",
+  "#6bbeb8",
+  "#d6d6d6"
+]
+brights = [
+  "#262626",
+  "#e02453",
+  "#aff08b",
+  "#dfddb7",
+  "#65a9f0",
+  "#ddb7df",
+  "#b7dfdd",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#beb86b"
+17 = "#6a1726"
+18 = "#000000"
+19 = "#262626"
+20 = "#7e7e7e"
+21 = "#aaaaaa"

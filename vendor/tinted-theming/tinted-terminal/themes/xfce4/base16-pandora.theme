@@ -1,0 +1,10 @@
+# Scheme name: pandora
+# Scheme author: Cassandra Fox
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-pandora
+ColorForeground=#f15c99
+ColorBackground=#131213
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#2f1823;#b00b69;#9ddf69;#ffcc00;#008080;#a24030;#714ca6;#81506a;#472234;#b00b69;#9ddf69;#ffcc00;#008080;#a24030;#714ca6;#632227

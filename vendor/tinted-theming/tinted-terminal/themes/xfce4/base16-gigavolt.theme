@@ -1,0 +1,10 @@
+# Scheme name: Gigavolt
+# Scheme author: Aidan Swope (http://github.com/Whillikers)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-gigavolt
+ColorForeground=#e9e7e1
+ColorBackground=#202126
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#2d303d;#ff661a;#f2e6a9;#ffdc2d;#40bfff;#ae94f9;#fb6acb;#eff0f9;#5a576e;#ff661a;#f2e6a9;#ffdc2d;#40bfff;#ae94f9;#fb6acb;#f2fbff

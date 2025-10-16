@@ -1,0 +1,10 @@
+# Scheme name: Zenburn
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-zenburn
+ColorForeground=#c1c9b9
+ColorBackground=#3f3f3f
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#4d4d4d;#705050;#60b48a;#94bff3;#506070;#dc8cc3;#8cd0d3;#dcdccc;#709080;#dca3a3;#c3bf9f;#e0cf9f;#94bff3;#ec93d3;#93e0e3;#ffffff

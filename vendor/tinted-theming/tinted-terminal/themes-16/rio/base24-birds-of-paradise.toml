@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Birds Of Paradise by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#9a6b49' # base02
+selection-foreground = '#cdbe9b' # base05
+
+cursor         = '#cdbe9b' # base05
+tabs           = '#573d25' # base01
+tabs-active    = '#9a6b49' # base02
+
+background     = '#2a1e1d' # base00
+foreground     = '#cdbe9b' # base05
+black          = '#573d25' # base01
+red            = '#be2d26' # base08
+yellow         = '#b8d3ed' # base0A
+green          = '#6ba08a' # base0B
+cyan           = '#74a5ac' # base0C
+blue           = '#5a86ac' # base0D
+magenta        = '#ab80a6' # base0E
+white          = '#dfdab7' # base06
+
+dim-foreground   = '#cdbe9b' # base05
+dim-black        = '#573d25' # base01
+dim-red          = '#be2d26' # base08
+dim-yellow       = '#b8d3ed' # base0A
+dim-green        = '#6ba08a' # base0B
+dim-cyan         = '#74a5ac' # base0C
+dim-blue         = '#5a86ac' # base0D
+dim-magenta      = '#ab80a6' # base0E
+dim-white        = '#bca280' # base04
+
+light-foreground = '#cdbe9b' # base05
+light-black      = '#9a6b49' # base02
+light-red        = '#e84526' # base12
+light-yellow     = '#d0d04f' # base13
+light-green      = '#94d7ba' # base14
+light-cyan       = '#92ced6' # base15
+light-blue       = '#b8d3ed' # base16
+light-magenta    = '#d09dca' # base17
+light-white      = '#fff9d4' # base07

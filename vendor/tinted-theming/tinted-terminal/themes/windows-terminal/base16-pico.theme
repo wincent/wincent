@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Pico",
+	"foreground": "#5f574f",
+	"background": "#000000",
+	"black": "#1d2b53",
+	"blue": "#83769c",
+	"brightBlack": "#7e2553",
+	"brightBlue": "#83769c",
+	"brightCyan": "#29adff",
+	"brightGreen": "#00e756",
+	"brightPurple": "#ff77a8",
+	"brightRed": "#ff004d",
+	"brightWhite": "#fff1e8",
+	"brightYellow": "#fff024",
+	"cyan": "#29adff",
+	"green": "#00e756",
+	"purple": "#ff77a8",
+	"red": "#ff004d",
+	"white": "#c2c3c7",
+	"yellow": "#ffa300"
+},

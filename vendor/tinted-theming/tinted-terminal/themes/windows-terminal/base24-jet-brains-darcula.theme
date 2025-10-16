@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Jet Brains Darcula",
+	"foreground": "#979797",
+	"background": "#202020",
+	"black": "#000000",
+	"blue": "#4581eb",
+	"brightBlack": "#555555",
+	"brightBlue": "#6d9df1",
+	"brightCyan": "#60d3d1",
+	"brightGreen": "#67ff4f",
+	"brightPurple": "#fb82ff",
+	"brightRed": "#fb7172",
+	"brightWhite": "#eeeeee",
+	"brightYellow": "#ffff00",
+	"cyan": "#33c2c1",
+	"green": "#126e00",
+	"purple": "#fa54ff",
+	"red": "#fa5355",
+	"white": "#adadad",
+	"yellow": "#c2c300"
+},

@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Kanagawa",
+	"foreground": "#dcd7ba",
+	"background": "#1f1f28",
+	"black": "#16161d",
+	"blue": "#7e9cd8",
+	"brightBlack": "#223249",
+	"brightBlue": "#7e9cd8",
+	"brightCyan": "#6a9589",
+	"brightGreen": "#76946a",
+	"brightPurple": "#957fb8",
+	"brightRed": "#c34043",
+	"brightWhite": "#717c7c",
+	"brightYellow": "#c0a36e",
+	"cyan": "#6a9589",
+	"green": "#76946a",
+	"purple": "#957fb8",
+	"red": "#c34043",
+	"white": "#c8c093",
+	"yellow": "#ffa066"
+},

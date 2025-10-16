@@ -1,0 +1,58 @@
+# base24 Hacktober 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x141414'
+foreground = '0xbfbdb7'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x141414'
+cursor = '0xbfbdb7'
+
+# Normal colors
+[colors.normal]
+black = '0x191918'
+red = '0xb34538'
+green = '0x587744'
+yellow = '0x5389c5'
+blue = '0x206ec5'
+magenta = '0x864651'
+cyan = '0xac9166'
+white = '0xf1eee7'
+
+# Bright colors
+[colors.bright]
+black = '0x2c2b2a'
+red = '0xb33323'
+green = '0x42824a'
+yellow = '0xc75a22'
+blue = '0x5389c5'
+magenta = '0xe795a5'
+cyan = '0xebc587'
+white = '0xffffff'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xd08949"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x59221c"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x191918"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x2c2b2a"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x8e8c88"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xf1eee7"

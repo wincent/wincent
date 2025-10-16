@@ -1,0 +1,43 @@
+# base24 Ollie
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#212024"
+foreground = "#7e7789"
+
+cursor_bg = "#000000"
+cursor_border = "#7e7789"
+cursor_fg = "#8a8dab"
+
+selection_bg = "#7e7789"
+selection_fg = "#5a3625"
+
+ansi = [
+  "#212024",
+  "#ab2e30",
+  "#31ab60",
+  "#4487ff",
+  "#2c56ab",
+  "#af8427",
+  "#1fa5ab",
+  "#8a8dab"
+]
+brights = [
+  "#5a3625",
+  "#ff3d48",
+  "#3bff99",
+  "#ff5e1e",
+  "#4487ff",
+  "#ffc21c",
+  "#1efaff",
+  "#5b6da7"
+]
+
+[colors.indexed]
+16 = "#ab4200"
+17 = "#551718"
+18 = "#000000"
+19 = "#5a3625"
+20 = "#726168"
+21 = "#7e7789"

@@ -1,0 +1,58 @@
+# base24 Firefox Dev 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x0e1011'
+foreground = '0xa5acae'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x0e1011'
+cursor = '0xa5acae'
+
+# Normal colors
+[colors.normal]
+black = '0x002731'
+red = '0xe63853'
+green = '0x5eb83c'
+yellow = '0x006fc0'
+blue = '0x359ddf'
+magenta = '0xd75cff'
+cyan = '0x4b73a2'
+white = '0xdcdcdc'
+
+# Bright colors
+[colors.bright]
+black = '0x001e26'
+red = '0xe1003f'
+green = '0x1d9000'
+yellow = '0xcc9308'
+blue = '0x006fc0'
+magenta = '0xa200da'
+cyan = '0x005794'
+white = '0xe2e2e2'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xa57705"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x731c29"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x002731"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x001e26"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x6e7d81"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xdcdcdc"

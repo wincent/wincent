@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Crayon Pony Fish",
+	"foreground": "#5d484e",
+	"background": "#140607",
+	"black": "#2a1a1c",
+	"blue": "#8b87af",
+	"brightBlack": "#3c2a2e",
+	"brightBlue": "#cfc9ff",
+	"brightCyan": "#ffceae",
+	"brightGreen": "#8dff56",
+	"brightPurple": "#fb6cb9",
+	"brightRed": "#c5245c",
+	"brightWhite": "#af949d",
+	"brightYellow": "#c7371d",
+	"cyan": "#e8a766",
+	"green": "#579523",
+	"purple": "#682e50",
+	"red": "#90002a",
+	"white": "#685259",
+	"yellow": "#aa301b"
+},

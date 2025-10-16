@@ -1,0 +1,43 @@
+# base24 Hopscotch
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#322931"
+foreground = "#a9a4a8"
+
+cursor_bg = "#322931"
+cursor_border = "#a9a4a8"
+cursor_fg = "#b9b5b8"
+
+selection_bg = "#a9a4a8"
+selection_fg = "#797379"
+
+ansi = [
+  "#322931",
+  "#dd464c",
+  "#8fc13e",
+  "#989498",
+  "#1290bf",
+  "#c85e7c",
+  "#149b93",
+  "#b9b5b8"
+]
+brights = [
+  "#797379",
+  "#fd8b19",
+  "#433b42",
+  "#5c545b",
+  "#989498",
+  "#d5d3d5",
+  "#b33508",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#fdcc59"
+17 = "#6e2326"
+18 = "#322931"
+19 = "#797379"
+20 = "#999498"
+21 = "#a9a4a8"

@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Purple Rain by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#555555' # base02
+selection-foreground = '#d3d4d4' # base05
+
+cursor         = '#d3d4d4' # base05
+tabs           = '#000000' # base01
+tabs-active    = '#555555' # base02
+
+background     = '#20084a' # base00
+foreground     = '#d3d4d4' # base05
+black          = '#000000' # base01
+red            = '#ff260d' # base08
+yellow         = '#00a5ff' # base0A
+green          = '#9ae204' # base0B
+cyan           = '#00ddef' # base0C
+blue           = '#00a1f9' # base0D
+magenta        = '#805bb5' # base0E
+white          = '#feffff' # base06
+
+dim-foreground   = '#d3d4d4' # base05
+dim-black        = '#000000' # base01
+dim-red          = '#ff260d' # base08
+dim-yellow       = '#00a5ff' # base0A
+dim-green        = '#9ae204' # base0B
+dim-cyan         = '#00ddef' # base0C
+dim-blue         = '#00a1f9' # base0D
+dim-magenta      = '#805bb5' # base0E
+dim-white        = '#a9aaaa' # base04
+
+light-foreground = '#d3d4d4' # base05
+light-black      = '#555555' # base02
+light-red        = '#ff4250' # base12
+light-yellow     = '#ffd852' # base13
+light-green      = '#b8e36d' # base14
+light-cyan       = '#74fcf3' # base15
+light-blue       = '#00a5ff' # base16
+light-magenta    = '#ab7aef' # base17
+light-white      = '#feffff' # base07

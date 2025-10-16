@@ -1,0 +1,43 @@
+# base16 OneDark Dark
+# Scheme author: olimorris (https://github.com/olimorris)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#000000"
+foreground = "#abb2bf"
+
+cursor_bg = "#abb2bf"
+cursor_border = "#abb2bf"
+cursor_fg = "#000000"
+
+selection_bg = "#abb2bf"
+selection_fg = "#2c313a"
+
+ansi = [
+  "#000000",
+  "#ef596f",
+  "#89ca78",
+  "#e5c07b",
+  "#61afef",
+  "#d55fde",
+  "#2bbac5",
+  "#b6bdca"
+]
+brights = [
+  "#2c313a",
+  "#ef596f",
+  "#89ca78",
+  "#e5c07b",
+  "#61afef",
+  "#d55fde",
+  "#2bbac5",
+  "#c8ccd4"
+]
+
+[colors.indexed]
+16 = "#d19a66"
+17 = "#be5046"
+18 = "#1c1f24"
+19 = "#2c313a"
+20 = "#565c64"
+21 = "#abb2bf"

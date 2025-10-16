@@ -1,0 +1,43 @@
+# base16 Katy
+# Scheme author: George Essig (https://github.com/gessig)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#292d3e"
+foreground = "#959dcb"
+
+cursor_bg = "#959dcb"
+cursor_border = "#959dcb"
+cursor_fg = "#292d3e"
+
+selection_bg = "#959dcb"
+selection_fg = "#5c598b"
+
+ansi = [
+  "#292d3e",
+  "#6e98e1",
+  "#78c06e",
+  "#e0a557",
+  "#82aaff",
+  "#c792ea",
+  "#83b7e5",
+  "#959dcb"
+]
+brights = [
+  "#5c598b",
+  "#6e98e1",
+  "#78c06e",
+  "#e0a557",
+  "#82aaff",
+  "#c792ea",
+  "#83b7e5",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#f78c6c"
+17 = "#ff5370"
+18 = "#444267"
+19 = "#5c598b"
+20 = "#8796b0"
+21 = "#959dcb"

@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Builtin Tango Dark
+; Scheme system: base24
+; Scheme description: 
+; Scheme author: FredHappyface (https://github.com/fredHappyface)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base24-builtin-tango-dark]
+
+; Default Foreground
+; base05 #b3b7b0
+"Colour0"="179,183,176"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #b3b7b0
+"Colour1"="179,183,176"
+
+; Default Background
+; base00 #000000
+"Colour2"="0,0,0"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #000000
+"Colour3"="0,0,0"
+
+; Cursor Text -- equals to default background
+; base00 #000000
+"Colour4"="0,0,0"
+
+; Cursor Colour -- equals to default foreground
+; base05 #b3b7b0
+"Colour5"="179,183,176"
+
+; ANSI Black
+; 30m
+; base01 #000000
+"Colour6"="0,0,0"
+
+; ANSI Black Bright
+; 1;30m
+; base02 #545753
+"Colour7"="84,87,83"
+
+; ANSI Red
+; 31m
+; base08 #cc0000
+"Colour8"="204,0,0"
+
+; ANSI Red Bright
+; 1;31m
+; base12 #ef2828
+"Colour9"="239,40,40"
+
+; ANSI Green
+; 32m
+; base0B #4e9a05
+"Colour10"="78,154,5"
+
+; ANSI Green Bright
+; 1;32m
+; base14 #8ae234
+"Colour11"="138,226,52"
+
+; ANSI Yellow
+; 33m
+; base0A #719ecf
+"Colour12"="113,158,207"
+
+; ANSI Yellow Bright
+; 1;33m
+; base13 #fce94e
+"Colour13"="252,233,78"
+
+; ANSI Blue
+; 34m
+; base0D #3464a4
+"Colour14"="52,100,164"
+
+; ANSI Blue Bright
+; 1;34m
+; base16 #719ecf
+"Colour15"="113,158,207"
+
+; ANSI Magenta
+; 35m
+; base0E #74507a
+"Colour16"="116,80,122"
+
+; ANSI Magenta Bright
+; 1;35m
+; base17 #ad7ea7
+"Colour17"="173,126,167"
+
+; ANSI Cyan
+; 36m
+; base0C #05989a
+"Colour18"="5,152,154"
+
+; ANSI Cyan Bright
+; 1;36m
+; base15 #34e2e2
+"Colour19"="52,226,226"
+
+; ANSI White
+; 37m
+; base06 #d3d7cf
+"Colour20"="211,215,207"
+
+; ANSI White Bright
+; 1;37m
+; base07 ededec
+"Colour21"="237,237,236"

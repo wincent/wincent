@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Toy Chest",
+	"foreground": "#27b684",
+	"background": "#23364a",
+	"black": "#2c3f57",
+	"blue": "#325d96",
+	"brightBlack": "#326889",
+	"brightBlue": "#33a5d9",
+	"brightCyan": "#41c3ad",
+	"brightGreen": "#30cf7b",
+	"brightPurple": "#ad6bdc",
+	"brightRed": "#dd5943",
+	"brightWhite": "#d4d4d4",
+	"brightYellow": "#e7d74b",
+	"cyan": "#35a08f",
+	"green": "#199171",
+	"purple": "#8a5ddb",
+	"red": "#be2d26",
+	"white": "#23d082",
+	"yellow": "#da8e26"
+},

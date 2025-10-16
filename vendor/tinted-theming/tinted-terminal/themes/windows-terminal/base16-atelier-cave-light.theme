@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Atelier Cave Light",
+	"foreground": "#585260",
+	"background": "#efecf4",
+	"black": "#e2dfe7",
+	"blue": "#576ddb",
+	"brightBlack": "#8b8792",
+	"brightBlue": "#576ddb",
+	"brightCyan": "#398bc6",
+	"brightGreen": "#2a9292",
+	"brightPurple": "#955ae7",
+	"brightRed": "#be4678",
+	"brightWhite": "#19171c",
+	"brightYellow": "#a06e3b",
+	"cyan": "#398bc6",
+	"green": "#2a9292",
+	"purple": "#955ae7",
+	"red": "#be4678",
+	"white": "#26232a",
+	"yellow": "#aa573c"
+},

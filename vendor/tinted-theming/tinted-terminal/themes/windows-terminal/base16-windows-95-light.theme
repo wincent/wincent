@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Windows 95 Light",
+	"foreground": "#545454",
+	"background": "#fcfcfc",
+	"black": "#e0e0e0",
+	"blue": "#0000a8",
+	"brightBlack": "#c4c4c4",
+	"brightBlue": "#0000a8",
+	"brightCyan": "#00a8a8",
+	"brightGreen": "#00a800",
+	"brightPurple": "#a800a8",
+	"brightRed": "#a80000",
+	"brightWhite": "#000000",
+	"brightYellow": "#a85400",
+	"cyan": "#00a8a8",
+	"green": "#00a800",
+	"purple": "#a800a8",
+	"red": "#a80000",
+	"white": "#2a2a2a",
+	"yellow": "#fcfc54"
+},

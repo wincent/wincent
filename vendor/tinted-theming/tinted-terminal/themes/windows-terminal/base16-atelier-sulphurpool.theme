@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Atelier Sulphurpool",
+	"foreground": "#979db4",
+	"background": "#202746",
+	"black": "#293256",
+	"blue": "#3d8fd1",
+	"brightBlack": "#5e6687",
+	"brightBlue": "#3d8fd1",
+	"brightCyan": "#22a2c9",
+	"brightGreen": "#ac9739",
+	"brightPurple": "#6679cc",
+	"brightRed": "#c94922",
+	"brightWhite": "#f5f7ff",
+	"brightYellow": "#c08b30",
+	"cyan": "#22a2c9",
+	"green": "#ac9739",
+	"purple": "#6679cc",
+	"red": "#c94922",
+	"white": "#dfe2f1",
+	"yellow": "#c76b29"
+},

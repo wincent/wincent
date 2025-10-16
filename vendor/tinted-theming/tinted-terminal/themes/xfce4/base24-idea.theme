@@ -1,0 +1,10 @@
+# Scheme name: Idea
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-idea
+ColorForeground=#515151
+ColorBackground=#202020
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#acacac;#fb5255;#98b61b;#6c9bed;#437ee6;#9d73b0;#248886;#171717;#fffefe;#fc6f72;#98b61b;#ffff0a;#6c9bed;#fc7efe;#248886;#171717

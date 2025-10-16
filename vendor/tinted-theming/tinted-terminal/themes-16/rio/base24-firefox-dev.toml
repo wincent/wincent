@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Firefox Dev by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#001e26' # base02
+selection-foreground = '#a5acae' # base05
+
+cursor         = '#a5acae' # base05
+tabs           = '#002731' # base01
+tabs-active    = '#001e26' # base02
+
+background     = '#0e1011' # base00
+foreground     = '#a5acae' # base05
+black          = '#002731' # base01
+red            = '#e63853' # base08
+yellow         = '#006fc0' # base0A
+green          = '#5eb83c' # base0B
+cyan           = '#4b73a2' # base0C
+blue           = '#359ddf' # base0D
+magenta        = '#d75cff' # base0E
+white          = '#dcdcdc' # base06
+
+dim-foreground   = '#a5acae' # base05
+dim-black        = '#002731' # base01
+dim-red          = '#e63853' # base08
+dim-yellow       = '#006fc0' # base0A
+dim-green        = '#5eb83c' # base0B
+dim-cyan         = '#4b73a2' # base0C
+dim-blue         = '#359ddf' # base0D
+dim-magenta      = '#d75cff' # base0E
+dim-white        = '#6e7d81' # base04
+
+light-foreground = '#a5acae' # base05
+light-black      = '#001e26' # base02
+light-red        = '#e1003f' # base12
+light-yellow     = '#cc9308' # base13
+light-green      = '#1d9000' # base14
+light-cyan       = '#005794' # base15
+light-blue       = '#006fc0' # base16
+light-magenta    = '#a200da' # base17
+light-white      = '#e2e2e2' # base07

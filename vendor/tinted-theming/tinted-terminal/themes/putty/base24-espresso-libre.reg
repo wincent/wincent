@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Espresso Libre
+; Scheme system: base24
+; Scheme description: 
+; Scheme author: FredHappyface (https://github.com/fredHappyface)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base24-espresso-libre]
+
+; Default Foreground
+; base05 #b3b7b0
+"Colour0"="179,183,176"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #b3b7b0
+"Colour1"="179,183,176"
+
+; Default Background
+; base00 #2a211c
+"Colour2"="42,33,28"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #2a211c
+"Colour3"="42,33,28"
+
+; Cursor Text -- equals to default background
+; base00 #2a211c
+"Colour4"="42,33,28"
+
+; Cursor Colour -- equals to default foreground
+; base05 #b3b7b0
+"Colour5"="179,183,176"
+
+; ANSI Black
+; 30m
+; base01 #000000
+"Colour6"="0,0,0"
+
+; ANSI Black Bright
+; 1;30m
+; base02 #545753
+"Colour7"="84,87,83"
+
+; ANSI Red
+; 31m
+; base08 #cc0000
+"Colour8"="204,0,0"
+
+; ANSI Red Bright
+; 1;31m
+; base12 #ef2828
+"Colour9"="239,40,40"
+
+; ANSI Green
+; 32m
+; base0B #1a921c
+"Colour10"="26,146,28"
+
+; ANSI Green Bright
+; 1;32m
+; base14 #9aff87
+"Colour11"="154,255,135"
+
+; ANSI Yellow
+; 33m
+; base0A #43a8ed
+"Colour12"="67,168,237"
+
+; ANSI Yellow Bright
+; 1;33m
+; base13 #fffa5c
+"Colour13"="255,250,92"
+
+; ANSI Blue
+; 34m
+; base0D #0066ff
+"Colour14"="0,102,255"
+
+; ANSI Blue Bright
+; 1;34m
+; base16 #43a8ed
+"Colour15"="67,168,237"
+
+; ANSI Magenta
+; 35m
+; base0E #c5656b
+"Colour16"="197,101,107"
+
+; ANSI Magenta Bright
+; 1;35m
+; base17 #ff8089
+"Colour17"="255,128,137"
+
+; ANSI Cyan
+; 36m
+; base0C #05989a
+"Colour18"="5,152,154"
+
+; ANSI Cyan Bright
+; 1;36m
+; base15 #34e2e2
+"Colour19"="52,226,226"
+
+; ANSI White
+; 37m
+; base06 #d3d7cf
+"Colour20"="211,215,207"
+
+; ANSI White Bright
+; 1;37m
+; base07 ededec
+"Colour21"="237,237,236"

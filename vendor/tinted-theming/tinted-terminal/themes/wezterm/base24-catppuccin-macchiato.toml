@@ -1,0 +1,43 @@
+# base24 Catppuccin Macchiato
+# Scheme author: https://github.com/catppuccin/catppuccin
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#24273a"
+foreground = "#cad3f5"
+
+cursor_bg = "#1e2030"
+cursor_border = "#cad3f5"
+cursor_fg = "#f4dbd6"
+
+selection_bg = "#cad3f5"
+selection_fg = "#363a4f"
+
+ansi = [
+  "#24273a",
+  "#ed8796",
+  "#a6da95",
+  "#eed49f",
+  "#8aadf4",
+  "#c6a0f6",
+  "#8bd5ca",
+  "#f4dbd6"
+]
+brights = [
+  "#363a4f",
+  "#ee99a0",
+  "#a6da95",
+  "#f4dbd6",
+  "#7dc4e4",
+  "#f5bde6",
+  "#91d7e3",
+  "#b7bdf8"
+]
+
+[colors.indexed]
+16 = "#f5a97f"
+17 = "#f0c6c6"
+18 = "#1e2030"
+19 = "#363a4f"
+20 = "#5b6078"
+21 = "#cad3f5"

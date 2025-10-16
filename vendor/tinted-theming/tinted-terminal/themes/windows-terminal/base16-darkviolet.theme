@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Dark Violet",
+	"foreground": "#b08ae6",
+	"background": "#000000",
+	"black": "#231a40",
+	"blue": "#4136d9",
+	"brightBlack": "#432d59",
+	"brightBlue": "#4136d9",
+	"brightCyan": "#40dfff",
+	"brightGreen": "#4595e6",
+	"brightPurple": "#7e5ce6",
+	"brightRed": "#a82ee6",
+	"brightWhite": "#a366ff",
+	"brightYellow": "#f29df2",
+	"cyan": "#40dfff",
+	"green": "#4595e6",
+	"purple": "#7e5ce6",
+	"red": "#a82ee6",
+	"white": "#9045e6",
+	"yellow": "#bb66cc"
+},

@@ -1,0 +1,10 @@
+# Scheme name: Builtin Dark
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-builtin-dark
+ColorForeground=#a1a1a1
+ColorBackground=#000000
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#000000;#bb0000;#00bb00;#5555ff;#0000bb;#bb00bb;#00bbbb;#bbbbbb;#555555;#ff5555;#55ff55;#ffff55;#5555ff;#ff55ff;#55ffff;#ffffff

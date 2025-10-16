@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Cupcake",
+	"foreground": "#8b8198",
+	"background": "#fbf1f2",
+	"black": "#f2f1f4",
+	"blue": "#7297b9",
+	"brightBlack": "#d8d5dd",
+	"brightBlue": "#7297b9",
+	"brightCyan": "#69a9a7",
+	"brightGreen": "#a3b367",
+	"brightPurple": "#bb99b4",
+	"brightRed": "#d57e85",
+	"brightWhite": "#585062",
+	"brightYellow": "#dcb16c",
+	"cyan": "#69a9a7",
+	"green": "#a3b367",
+	"purple": "#bb99b4",
+	"red": "#d57e85",
+	"white": "#72677e",
+	"yellow": "#ebb790"
+},

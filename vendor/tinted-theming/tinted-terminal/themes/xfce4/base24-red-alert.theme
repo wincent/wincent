@@ -1,0 +1,10 @@
+# Scheme name: Red Alert
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-red-alert
+ColorForeground=#aaaaaa
+ColorBackground=#762423
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#000000;#d52e4d;#71be6b;#65a9f0;#479bed;#e878d6;#6bbeb8;#d6d6d6;#262626;#e02453;#aff08b;#dfddb7;#65a9f0;#ddb7df;#b7dfdd;#ffffff

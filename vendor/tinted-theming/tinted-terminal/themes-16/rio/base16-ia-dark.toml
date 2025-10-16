@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: iA Dark by iA Inc. (modified by aramisgithub)
+
+[colors]
+selection-background = '#1d414d' # base02
+selection-foreground = '#cccccc' # base05
+
+cursor         = '#cccccc' # base05
+tabs           = '#222222' # base01
+tabs-active    = '#1d414d' # base02
+
+background     = '#1a1a1a' # base00
+foreground     = '#cccccc' # base05
+black          = '#222222' # base01
+red            = '#d88568' # base08
+yellow         = '#b99353' # base0A
+green          = '#83a471' # base0B
+cyan           = '#7c9cae' # base0C
+blue           = '#8eccdd' # base0D
+magenta        = '#b98eb2' # base0E
+white          = '#e8e8e8' # base06
+
+dim-foreground   = '#cccccc' # base05
+dim-black        = '#222222' # base01
+dim-red          = '#d88568' # base08
+dim-yellow       = '#b99353' # base0A
+dim-green        = '#83a471' # base0B
+dim-cyan         = '#7c9cae' # base0C
+dim-blue         = '#8eccdd' # base0D
+dim-magenta      = '#b98eb2' # base0E
+dim-white        = '#b8b8b8' # base04
+
+light-foreground = '#cccccc' # base05
+light-black      = '#1d414d' # base02
+light-red        = '#d88568' # base08
+light-yellow     = '#b99353' # base0A
+light-green      = '#83a471' # base0B
+light-cyan       = '#7c9cae' # base0C
+light-blue       = '#8eccdd' # base0D
+light-magenta    = '#b98eb2' # base0E
+light-white      = '#f8f8f8' # base07

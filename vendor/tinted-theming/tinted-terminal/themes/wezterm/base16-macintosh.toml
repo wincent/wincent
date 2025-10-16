@@ -1,0 +1,43 @@
+# base16 Macintosh
+# Scheme author: Rebecca Bettencourt (http://www.kreativekorp.com)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#000000"
+foreground = "#c0c0c0"
+
+cursor_bg = "#c0c0c0"
+cursor_border = "#c0c0c0"
+cursor_fg = "#000000"
+
+selection_bg = "#c0c0c0"
+selection_fg = "#404040"
+
+ansi = [
+  "#000000",
+  "#dd0907",
+  "#1fb714",
+  "#fbf305",
+  "#0000d3",
+  "#4700a5",
+  "#02abea",
+  "#c0c0c0"
+]
+brights = [
+  "#404040",
+  "#dd0907",
+  "#1fb714",
+  "#fbf305",
+  "#0000d3",
+  "#4700a5",
+  "#02abea",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#ff6403"
+17 = "#90713a"
+18 = "#404040"
+19 = "#404040"
+20 = "#808080"
+21 = "#c0c0c0"

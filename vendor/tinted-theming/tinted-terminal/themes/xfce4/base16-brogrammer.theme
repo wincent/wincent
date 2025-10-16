@@ -1,0 +1,10 @@
+# Scheme name: Brogrammer
+# Scheme author: Vik Ramanujam (http://github.com/piggyslasher)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-brogrammer
+ColorForeground=#4e5ab7
+ColorBackground=#1f1f1f
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#f81118;#d6dbe5;#f3bd09;#1dd361;#5350b9;#0f7ddb;#1081d6;#1081d6;#2dc55e;#d6dbe5;#f3bd09;#1dd361;#5350b9;#0f7ddb;#1081d6;#d6dbe5

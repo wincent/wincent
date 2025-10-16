@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Blue Berry Pie",
+	"foreground": "#bbb2ad",
+	"background": "#1c0b28",
+	"black": "#0a4b61",
+	"blue": "#90a5bc",
+	"brightBlack": "#1f1637",
+	"brightBlue": "#38163d",
+	"brightCyan": "#5d5f71",
+	"brightGreen": "#0a6b7e",
+	"brightPurple": "#bc93b6",
+	"brightRed": "#c77171",
+	"brightWhite": "#0a6b7e",
+	"brightYellow": "#793188",
+	"cyan": "#7e82cc",
+	"green": "#5bb0b2",
+	"purple": "#9d53a7",
+	"red": "#99236d",
+	"white": "#f0e7d5",
+	"yellow": "#e9b8a7"
+},

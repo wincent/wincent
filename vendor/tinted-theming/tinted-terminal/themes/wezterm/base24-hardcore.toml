@@ -1,0 +1,43 @@
+# base24 Hardcore
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#111111"
+foreground = "#a9a9a9"
+
+cursor_bg = "#141414"
+cursor_border = "#a9a9a9"
+cursor_fg = "#cccccc"
+
+selection_bg = "#a9a9a9"
+selection_fg = "#414141"
+
+ansi = [
+  "#111111",
+  "#ff5555",
+  "#98ec65",
+  "#33bbff",
+  "#00aaff",
+  "#aa88ff",
+  "#88ddff",
+  "#cccccc"
+]
+brights = [
+  "#414141",
+  "#ff8888",
+  "#b6f292",
+  "#ffd966",
+  "#33bbff",
+  "#cebbff",
+  "#bbecff",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#ffcc33"
+17 = "#7f2a2a"
+18 = "#141414"
+19 = "#414141"
+20 = "#868686"
+21 = "#a9a9a9"

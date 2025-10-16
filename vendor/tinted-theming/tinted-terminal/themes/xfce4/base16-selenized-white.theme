@@ -1,0 +1,10 @@
+# Scheme name: selenized-white
+# Scheme author: Jan Warchol (https://github.com/jan-warchol/selenized) / adapted to base16 by ali
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-selenized-white
+ColorForeground=#474747
+ColorBackground=#ffffff
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#ebebeb;#bf0000;#008400;#af8500;#0054cf;#6b40c3;#009a8a;#282828;#cdcdcd;#bf0000;#008400;#af8500;#0054cf;#6b40c3;#009a8a;#282828

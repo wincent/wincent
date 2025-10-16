@@ -1,0 +1,58 @@
+# base24 Lavandula 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x050014'
+foreground = '0x645d6f'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x050014'
+cursor = '0x645d6f'
+
+# Normal colors
+[colors.normal]
+black = '0x230045'
+red = '0x7c1525'
+green = '0x337e6f'
+yellow = '0x8e86df'
+blue = '0x4f4a7f'
+magenta = '0x593f7e'
+cyan = '0x57767f'
+white = '0x736e7d'
+
+# Bright colors
+[colors.bright]
+black = '0x372c46'
+red = '0xdf5066'
+green = '0x52e0c4'
+yellow = '0xe0c286'
+blue = '0x8e86df'
+magenta = '0xa675df'
+cyan = '0x9ad3df'
+white = '0x8c91fa'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0x7f6f49"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x3e0a12"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x230045"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x372c46"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x554d61"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0x736e7d"

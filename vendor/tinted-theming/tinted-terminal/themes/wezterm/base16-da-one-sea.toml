@@ -1,0 +1,43 @@
+# base16 Da One Sea
+# Scheme author: NNB (https://github.com/NNBnh)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#22273d"
+foreground = "#ffffff"
+
+cursor_bg = "#ffffff"
+cursor_border = "#ffffff"
+cursor_fg = "#22273d"
+
+selection_bg = "#ffffff"
+selection_fg = "#525866"
+
+ansi = [
+  "#22273d",
+  "#fa7883",
+  "#98c379",
+  "#ff9470",
+  "#6bb8ff",
+  "#e799ff",
+  "#8af5ff",
+  "#ffffff"
+]
+brights = [
+  "#525866",
+  "#fa7883",
+  "#98c379",
+  "#ff9470",
+  "#6bb8ff",
+  "#e799ff",
+  "#8af5ff",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#ffc387"
+17 = "#b3684f"
+18 = "#374059"
+19 = "#525866"
+20 = "#c8c8c8"
+21 = "#ffffff"

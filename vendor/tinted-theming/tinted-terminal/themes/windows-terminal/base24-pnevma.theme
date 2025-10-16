@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Pnevma",
+	"foreground": "#aeaead",
+	"background": "#1c1c1c",
+	"black": "#2f2e2d",
+	"blue": "#7fa5bd",
+	"brightBlack": "#4a4845",
+	"brightBlue": "#a1bdce",
+	"brightCyan": "#b1e7dd",
+	"brightGreen": "#afbea2",
+	"brightPurple": "#d7beda",
+	"brightRed": "#d78787",
+	"brightWhite": "#efefef",
+	"brightYellow": "#e4c9af",
+	"cyan": "#8adbb4",
+	"green": "#90a57d",
+	"purple": "#c79ec4",
+	"red": "#a36666",
+	"white": "#d0d0d0",
+	"yellow": "#d7af87"
+},

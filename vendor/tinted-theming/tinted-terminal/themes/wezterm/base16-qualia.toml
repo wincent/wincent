@@ -1,0 +1,43 @@
+# base16 Qualia
+# Scheme author: isaacwhanson
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#101010"
+foreground = "#c0c0c0"
+
+cursor_bg = "#c0c0c0"
+cursor_border = "#c0c0c0"
+cursor_fg = "#101010"
+
+selection_bg = "#c0c0c0"
+selection_fg = "#454545"
+
+ansi = [
+  "#101010",
+  "#efa6a2",
+  "#80c990",
+  "#e6a3dc",
+  "#50cacd",
+  "#e0af85",
+  "#c8c874",
+  "#c0c0c0"
+]
+brights = [
+  "#454545",
+  "#efa6a2",
+  "#80c990",
+  "#e6a3dc",
+  "#50cacd",
+  "#e0af85",
+  "#c8c874",
+  "#454545"
+]
+
+[colors.indexed]
+16 = "#a3b8ef"
+17 = "#808080"
+18 = "#454545"
+19 = "#454545"
+20 = "#808080"
+21 = "#c0c0c0"

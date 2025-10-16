@@ -1,0 +1,58 @@
+# base16 Atelier Heath Light 256 - alacritty color config
+# Bram de Haan (http://atelierbramdehaan.nl)
+
+# Default colors
+[colors.primary]
+background = '0xf7f3f7'
+foreground = '0x695d69'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0xf7f3f7'
+cursor = '0x695d69'
+
+# Normal colors
+[colors.normal]
+black = '0xd8cad8'
+red = '0xca402b'
+green = '0x918b3b'
+yellow = '0xbb8a35'
+blue = '0x516aec'
+magenta = '0x7b59c0'
+cyan = '0x159393'
+white = '0x292329'
+
+# Bright colors
+[colors.bright]
+black = '0xab9bab'
+red = '0xca402b'
+green = '0x918b3b'
+yellow = '0xbb8a35'
+blue = '0x516aec'
+magenta = '0x7b59c0'
+cyan = '0x159393'
+white = '0x1b181b'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xa65926"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xcc33cc"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0xd8cad8"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0xab9bab"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x776977"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0x292329"

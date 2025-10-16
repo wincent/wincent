@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Spacemacs",
+	"foreground": "#a3a3a3",
+	"background": "#1f2022",
+	"black": "#282828",
+	"blue": "#4f97d7",
+	"brightBlack": "#444155",
+	"brightBlue": "#4f97d7",
+	"brightCyan": "#2d9574",
+	"brightGreen": "#67b11d",
+	"brightPurple": "#a31db1",
+	"brightRed": "#f2241f",
+	"brightWhite": "#f8f8f8",
+	"brightYellow": "#b1951d",
+	"cyan": "#2d9574",
+	"green": "#67b11d",
+	"purple": "#a31db1",
+	"red": "#f2241f",
+	"white": "#e8e8e8",
+	"yellow": "#ffa500"
+},

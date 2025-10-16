@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "darkmoss",
+	"foreground": "#c7c7a5",
+	"background": "#171e1f",
+	"black": "#252c2d",
+	"blue": "#498091",
+	"brightBlack": "#373c3d",
+	"brightBlue": "#498091",
+	"brightCyan": "#66d9ef",
+	"brightGreen": "#499180",
+	"brightPurple": "#9bc0c8",
+	"brightRed": "#ff4658",
+	"brightWhite": "#e1eaef",
+	"brightYellow": "#fdb11f",
+	"cyan": "#66d9ef",
+	"green": "#499180",
+	"purple": "#9bc0c8",
+	"red": "#ff4658",
+	"white": "#e3e3c8",
+	"yellow": "#e6db74"
+},

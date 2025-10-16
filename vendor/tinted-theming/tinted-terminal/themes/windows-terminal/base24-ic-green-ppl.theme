@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "IC-Green-PPL",
+	"foreground": "#add5b6",
+	"background": "#2c2c2c",
+	"black": "#014401",
+	"blue": "#2ec3b9",
+	"brightBlack": "#025c02",
+	"brightBlue": "#2efaeb",
+	"brightCyan": "#3cfac8",
+	"brightGreen": "#aefa86",
+	"brightPurple": "#50fafa",
+	"brightRed": "#b4fa5c",
+	"brightWhite": "#e0f1dc",
+	"brightYellow": "#dafa87",
+	"cyan": "#3ca078",
+	"green": "#41a638",
+	"purple": "#50a096",
+	"red": "#fe2635",
+	"white": "#e6fef2",
+	"yellow": "#76a830"
+},

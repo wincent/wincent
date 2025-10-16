@@ -1,0 +1,10 @@
+# Scheme name: Molokai
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-molokai
+ColorForeground=#a1a1a1
+ColorBackground=#121212
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#121212;#fa2573;#97e123;#00afff;#0f7fcf;#8700ff;#42a7cf;#bbbbbb;#555555;#f5669c;#b0e05e;#fef26c;#00afff;#af87ff;#50cdfe;#ffffff

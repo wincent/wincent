@@ -1,0 +1,43 @@
+# base24 Rippedcasts
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#2b2b2b"
+foreground = "#a8a8a8"
+
+cursor_bg = "#000000"
+cursor_border = "#a8a8a8"
+cursor_fg = "#bfbfbf"
+
+selection_bg = "#a8a8a8"
+selection_fg = "#666666"
+
+ansi = [
+  "#2b2b2b",
+  "#cdaf95",
+  "#a7ff60",
+  "#86bdc9",
+  "#75a5b0",
+  "#ff73fd",
+  "#59647e",
+  "#bfbfbf"
+]
+brights = [
+  "#666666",
+  "#eecbad",
+  "#bcee68",
+  "#e5e500",
+  "#86bdc9",
+  "#e500e5",
+  "#8c9bc3",
+  "#e5e5e5"
+]
+
+[colors.indexed]
+16 = "#bfbb1f"
+17 = "#66574a"
+18 = "#000000"
+19 = "#666666"
+20 = "#929292"
+21 = "#a8a8a8"

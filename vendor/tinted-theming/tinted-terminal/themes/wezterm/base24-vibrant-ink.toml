@@ -1,0 +1,43 @@
+# base24 Vibrant Ink
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#000000"
+foreground = "#cdcdcd"
+
+cursor_bg = "#878787"
+cursor_border = "#cdcdcd"
+cursor_fg = "#f5f5f5"
+
+selection_bg = "#cdcdcd"
+selection_fg = "#555555"
+
+ansi = [
+  "#000000",
+  "#ff6600",
+  "#ccff04",
+  "#0000ff",
+  "#44b3cc",
+  "#9933cc",
+  "#44b3cc",
+  "#f5f5f5"
+]
+brights = [
+  "#555555",
+  "#ff0000",
+  "#00ff00",
+  "#ffff00",
+  "#0000ff",
+  "#ff00ff",
+  "#00ffff",
+  "#e5e5e5"
+]
+
+[colors.indexed]
+16 = "#ffcc00"
+17 = "#7f3300"
+18 = "#878787"
+19 = "#555555"
+20 = "#a5a5a5"
+21 = "#cdcdcd"

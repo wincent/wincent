@@ -1,0 +1,58 @@
+# base24 Alien Blood 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x0f160f'
+foreground = '0x5a6f5c'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x0f160f'
+cursor = '0x5a6f5c'
+
+# Normal colors
+[colors.normal]
+black = '0x112615'
+red = '0x7f2b26'
+green = '0x2f7e25'
+yellow = '0x00a9df'
+blue = '0x2f697f'
+magenta = '0x47577e'
+cyan = '0x317f76'
+white = '0x647d75'
+
+# Bright colors
+[colors.bright]
+black = '0x3c4711'
+red = '0xdf8008'
+green = '0x18e000'
+yellow = '0xbde000'
+blue = '0x00a9df'
+magenta = '0x0058df'
+cyan = '0x00dfc3'
+white = '0x73f990'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0x707f23"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x3f1513"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x112615"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x3c4711"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x506243"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0x647d75"

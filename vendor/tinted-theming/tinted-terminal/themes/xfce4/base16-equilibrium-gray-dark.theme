@@ -1,0 +1,10 @@
+# Scheme name: Equilibrium Gray Dark
+# Scheme author: Carlo Abelli
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-equilibrium-gray-dark
+ColorForeground=#ababab
+ColorBackground=#111111
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#1b1b1b;#f04339;#7f8b00;#bb8801;#008dd1;#6a7fd2;#00948b;#c6c6c6;#262626;#f04339;#7f8b00;#bb8801;#008dd1;#6a7fd2;#00948b;#e2e2e2

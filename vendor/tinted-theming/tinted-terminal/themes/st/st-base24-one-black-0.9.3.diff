@@ -1,0 +1,71 @@
+diff '--color=auto' -u -N st-0.9.3/config.def.h st-0.9.3-mod/config.def.h
+--- st-0.9.3/config.def.h	2025-08-09 15:00:58.350298234 +0200
++++ st-0.9.3-mod/config.def.h	2025-09-01 00:13:44.845756640 +0200
+@@ -94,34 +94,36 @@
+ unsigned int tabspaces = 8;
+
+ /* Terminal colors (16 first used in escape sequence) */
++/*
++ * Scheme name: One Black
++ * Scheme author: FredHappyface (https://github.com/fredHappyface)
++ * Template author: Tinted Theming (https://github.com/tinted-theming)
++ */
+ static const char *colorname[] = {
+ 	/* 8 normal colors */
+-	"black",
+-	"red3",
+-	"green3",
+-	"yellow3",
+-	"blue2",
+-	"magenta3",
+-	"cyan3",
+-	"gray90",
++	[0] = "#000000",   /* black  */
++	[1] = "#e05561",   /* red    */
++	[2] = "#8cc265",   /* green  */
++	[3] = "#e6b965",   /* yellow */
++	[4] = "#4aa5f0",   /* blue   */
++	[5] = "#c162de",   /* magenta*/
++	[6] = "#42b3c2",   /* cyan   */
++	[7] = "#e6e6e6",   /* white  */
+
+ 	/* 8 bright colors */
+-	"gray50",
+-	"red",
+-	"green",
+-	"yellow",
+-	"#5c5cff",
+-	"magenta",
+-	"cyan",
+-	"white",
++	[8] = "#4f5666",   /* black  */
++	[9] = "#ff616e",   /* red    */
++	[10] = "#a5e075",  /* green  */
++	[11] = "#f0a45d",  /* yellow */
++	[12] = "#4dc4ff",  /* blue   */
++	[13] = "#de73ff",  /* magenta*/
++	[14] = "#4cd1e0",  /* cyan   */
++	[15] = "#ffffff",  /* white  */
+
+ 	[255] = 0,
+
+-	/* more colors can be added after 255 to use with DefaultXX */
+-	"#cccccc",
+-	"#555555",
+-	"gray90", /* default foreground colour */
+-	"black", /* default background colour */
++	[256] = "#abb2bf",  /* foreground */
++	[257] = "#000000",  /* background */
+ };
+
+
+@@ -129,8 +131,8 @@
+  * Default colors (colorname index)
+  * foreground, background, cursor, reverse cursor
+  */
+-unsigned int defaultfg = 258;
+-unsigned int defaultbg = 259;
++unsigned int defaultfg = 256;
++unsigned int defaultbg = 257;
+ unsigned int defaultcs = 256;
+ static unsigned int defaultrcs = 257;

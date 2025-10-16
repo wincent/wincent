@@ -1,0 +1,10 @@
+# Scheme name: IC-Orange-PPL
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-ic-orange-ppl
+ColorForeground=#d9a971
+ColorBackground=#262626
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#000000;#c03900;#a3a900;#ffbd54;#bd6c00;#fb5d00;#f79400;#ffc88a;#6a4e29;#ff8b67;#f6ff3f;#ffe36e;#ffbd54;#fc874f;#c59752;#f9f9fe

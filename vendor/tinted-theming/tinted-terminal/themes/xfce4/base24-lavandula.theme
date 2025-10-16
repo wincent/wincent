@@ -1,0 +1,10 @@
+# Scheme name: Lavandula
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-lavandula
+ColorForeground=#645d6f
+ColorBackground=#050014
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#230045;#7c1525;#337e6f;#8e86df;#4f4a7f;#593f7e;#57767f;#736e7d;#372c46;#df5066;#52e0c4;#e0c286;#8e86df;#a675df;#9ad3df;#8c91fa

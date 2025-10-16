@@ -1,0 +1,10 @@
+# Scheme name: Royal
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-royal
+ColorForeground=#49425a
+ColorBackground=#100814
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#241f2a;#90274b;#23801c;#8fb9f9;#6480af;#664d96;#8aaabd;#514965;#312d3c;#d4346c;#2cd845;#fde83a;#8fb9f9;#a479e2;#abd3eb;#9d8bbd

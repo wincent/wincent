@@ -1,0 +1,10 @@
+# Scheme name: Apprentice
+# Scheme author: romainl
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-apprentice
+ColorForeground=#5f5f87
+ColorBackground=#262626
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#af5f5f;#444444;#ffffaf;#87af87;#8787af;#5fafaf;#87afd7;#5f8787;#5f875f;#444444;#ffffaf;#87af87;#8787af;#5fafaf;#87afd7;#6c6c6c

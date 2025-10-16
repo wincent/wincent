@@ -1,0 +1,10 @@
+# Scheme name: ENCOM
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-encom
+ColorForeground=#a1a1a1
+ColorBackground=#000000
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#000000;#9f0000;#008b00;#0000ff;#0081ff;#bc00ca;#008b8b;#bbbbbb;#555555;#ff0000;#00ee00;#ffff00;#0000ff;#ff00ff;#00cdcd;#ffffff

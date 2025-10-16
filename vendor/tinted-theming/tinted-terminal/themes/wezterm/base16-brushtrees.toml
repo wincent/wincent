@@ -1,0 +1,43 @@
+# base16 Brush Trees
+# Scheme author: Abraham White &lt;abelincoln.white@gmail.com&gt;
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#e3efef"
+foreground = "#6d828e"
+
+cursor_bg = "#6d828e"
+cursor_border = "#6d828e"
+cursor_fg = "#e3efef"
+
+selection_bg = "#6d828e"
+selection_fg = "#b0c5c8"
+
+ansi = [
+  "#e3efef",
+  "#b38686",
+  "#87b386",
+  "#aab386",
+  "#868cb3",
+  "#b386b2",
+  "#86b3b3",
+  "#5a6d7a"
+]
+brights = [
+  "#b0c5c8",
+  "#b38686",
+  "#87b386",
+  "#aab386",
+  "#868cb3",
+  "#b386b2",
+  "#86b3b3",
+  "#485867"
+]
+
+[colors.indexed]
+16 = "#d8bba2"
+17 = "#b39f9f"
+18 = "#c9dbdc"
+19 = "#b0c5c8"
+20 = "#8299a1"
+21 = "#6d828e"

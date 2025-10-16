@@ -1,0 +1,43 @@
+# base16 PhD
+# Scheme author: Hennig Hasemann (http://leetless.de/vim.html)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#061229"
+foreground = "#b8bbc2"
+
+cursor_bg = "#b8bbc2"
+cursor_border = "#b8bbc2"
+cursor_fg = "#061229"
+
+selection_bg = "#b8bbc2"
+selection_fg = "#4d5666"
+
+ansi = [
+  "#061229",
+  "#d07346",
+  "#99bf52",
+  "#fbd461",
+  "#5299bf",
+  "#9989cc",
+  "#72b9bf",
+  "#dbdde0"
+]
+brights = [
+  "#4d5666",
+  "#d07346",
+  "#99bf52",
+  "#fbd461",
+  "#5299bf",
+  "#9989cc",
+  "#72b9bf",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#f0a000"
+17 = "#b08060"
+18 = "#2a3448"
+19 = "#4d5666"
+20 = "#9a99a3"
+21 = "#b8bbc2"

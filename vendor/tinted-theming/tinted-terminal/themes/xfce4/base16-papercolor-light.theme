@@ -1,0 +1,10 @@
+# Scheme name: PaperColor Light
+# Scheme author: Jon Leopard (http://github.com/jonleopard), based on PaperColor Theme (https://github.com/NLKNguyen/papercolor-theme)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-papercolor-light
+ColorForeground=#444444
+ColorBackground=#eeeeee
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#af0000;#bcbcbc;#8700af;#d70087;#d75f00;#005faf;#d75f00;#005f87;#008700;#bcbcbc;#8700af;#d70087;#d75f00;#005faf;#d75f00;#878787

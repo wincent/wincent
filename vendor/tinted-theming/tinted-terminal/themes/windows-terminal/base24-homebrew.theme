@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Homebrew",
+	"foreground": "#a8a8a8",
+	"background": "#000000",
+	"black": "#000000",
+	"blue": "#0000b2",
+	"brightBlack": "#666666",
+	"brightBlue": "#0000ff",
+	"brightCyan": "#00e5e5",
+	"brightGreen": "#00d900",
+	"brightPurple": "#e500e5",
+	"brightRed": "#e50000",
+	"brightWhite": "#e5e5e5",
+	"brightYellow": "#e5e500",
+	"cyan": "#00a6b2",
+	"green": "#00a600",
+	"purple": "#b200b2",
+	"red": "#990000",
+	"white": "#bfbfbf",
+	"yellow": "#999900"
+},

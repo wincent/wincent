@@ -1,0 +1,43 @@
+# base16 darkmoss
+# Scheme author: Gabriel Avanzi (https://github.com/avanzzzi)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#171e1f"
+foreground = "#c7c7a5"
+
+cursor_bg = "#c7c7a5"
+cursor_border = "#c7c7a5"
+cursor_fg = "#171e1f"
+
+selection_bg = "#c7c7a5"
+selection_fg = "#373c3d"
+
+ansi = [
+  "#171e1f",
+  "#ff4658",
+  "#499180",
+  "#fdb11f",
+  "#498091",
+  "#9bc0c8",
+  "#66d9ef",
+  "#e3e3c8"
+]
+brights = [
+  "#373c3d",
+  "#ff4658",
+  "#499180",
+  "#fdb11f",
+  "#498091",
+  "#9bc0c8",
+  "#66d9ef",
+  "#e1eaef"
+]
+
+[colors.indexed]
+16 = "#e6db74"
+17 = "#d27b53"
+18 = "#252c2d"
+19 = "#373c3d"
+20 = "#818f80"
+21 = "#c7c7a5"

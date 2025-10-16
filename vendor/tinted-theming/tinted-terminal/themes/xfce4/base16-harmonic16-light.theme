@@ -1,0 +1,10 @@
+# Scheme name: Harmonic16 Light
+# Scheme author: Jannik Siebert (https://github.com/janniks)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-harmonic16-light
+ColorForeground=#405c79
+ColorBackground=#f7f9fb
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#e5ebf1;#bf8b56;#56bf8b;#8bbf56;#8b56bf;#bf568b;#568bbf;#223b54;#cbd6e2;#bf8b56;#56bf8b;#8bbf56;#8b56bf;#bf568b;#568bbf;#0b1c2c

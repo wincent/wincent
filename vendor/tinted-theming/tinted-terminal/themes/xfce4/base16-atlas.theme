@@ -1,0 +1,10 @@
+# Scheme name: Atlas
+# Scheme author: Alex Lende (https://ajlende.com)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-atlas
+ColorForeground=#a1a19a
+ColorBackground=#002635
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#00384d;#ff5a67;#7fc06e;#ffcc1b;#14747e;#9a70a4;#5dd7b9;#e6e6dc;#517f8d;#ff5a67;#7fc06e;#ffcc1b;#14747e;#9a70a4;#5dd7b9;#fafaf8

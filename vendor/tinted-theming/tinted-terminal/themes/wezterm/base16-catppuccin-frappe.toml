@@ -1,0 +1,43 @@
+# base16 Catppuccin Frappe
+# Scheme author: https://github.com/catppuccin/catppuccin
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#303446"
+foreground = "#c6d0f5"
+
+cursor_bg = "#c6d0f5"
+cursor_border = "#c6d0f5"
+cursor_fg = "#303446"
+
+selection_bg = "#c6d0f5"
+selection_fg = "#414559"
+
+ansi = [
+  "#303446",
+  "#e78284",
+  "#a6d189",
+  "#e5c890",
+  "#8caaee",
+  "#ca9ee6",
+  "#81c8be",
+  "#f2d5cf"
+]
+brights = [
+  "#414559",
+  "#e78284",
+  "#a6d189",
+  "#e5c890",
+  "#8caaee",
+  "#ca9ee6",
+  "#81c8be",
+  "#babbf1"
+]
+
+[colors.indexed]
+16 = "#ef9f76"
+17 = "#eebebe"
+18 = "#292c3c"
+19 = "#414559"
+20 = "#626880"
+21 = "#c6d0f5"

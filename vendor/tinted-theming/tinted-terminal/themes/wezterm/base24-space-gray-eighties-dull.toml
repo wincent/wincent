@@ -1,0 +1,43 @@
+# base24 Space Gray Eighties Dull
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#212121"
+foreground = "#9a9fa6"
+
+cursor_bg = "#15171c"
+cursor_border = "#9a9fa6"
+cursor_fg = "#b2b8c2"
+
+selection_bg = "#9a9fa6"
+selection_fg = "#555555"
+
+ansi = [
+  "#212121",
+  "#b14956",
+  "#91b377",
+  "#5485c0",
+  "#7b8fa4",
+  "#a5779e",
+  "#7fcccb",
+  "#b2b8c2"
+]
+brights = [
+  "#555555",
+  "#ec5f67",
+  "#88e985",
+  "#fdc253",
+  "#5485c0",
+  "#bf83c0",
+  "#58c2c0",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#c6725a"
+17 = "#58242b"
+18 = "#15171c"
+19 = "#555555"
+20 = "#83868b"
+21 = "#9a9fa6"

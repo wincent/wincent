@@ -1,0 +1,10 @@
+# Scheme name: Gruvbox light, hard
+# Scheme author: Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-gruvbox-light-hard
+ColorForeground=#504945
+ColorBackground=#f9f5d7
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#ebdbb2;#9d0006;#79740e;#b57614;#076678;#8f3f71;#427b58;#3c3836;#d5c4a1;#9d0006;#79740e;#b57614;#076678;#8f3f71;#427b58;#282828

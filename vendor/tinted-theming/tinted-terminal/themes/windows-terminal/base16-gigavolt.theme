@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Gigavolt",
+	"foreground": "#e9e7e1",
+	"background": "#202126",
+	"black": "#2d303d",
+	"blue": "#40bfff",
+	"brightBlack": "#5a576e",
+	"brightBlue": "#40bfff",
+	"brightCyan": "#fb6acb",
+	"brightGreen": "#f2e6a9",
+	"brightPurple": "#ae94f9",
+	"brightRed": "#ff661a",
+	"brightWhite": "#f2fbff",
+	"brightYellow": "#ffdc2d",
+	"cyan": "#fb6acb",
+	"green": "#f2e6a9",
+	"purple": "#ae94f9",
+	"red": "#ff661a",
+	"white": "#eff0f9",
+	"yellow": "#19f988"
+},

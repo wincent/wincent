@@ -1,0 +1,58 @@
+# base24 Blue Matrix 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x0f1115'
+foreground = '0xafafaf'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x0f1115'
+cursor = '0xafafaf'
+
+# Normal colors
+[colors.normal]
+black = '0x101116'
+red = '0xff567f'
+green = '0x00ff9b'
+yellow = '0x6871ff'
+blue = '0x00b0fe'
+magenta = '0xd47bfe'
+cyan = '0x75c1fe'
+white = '0xc7c7c7'
+
+# Bright colors
+[colors.bright]
+black = '0x676767'
+red = '0xff6d67'
+green = '0x5ff967'
+yellow = '0xfefb67'
+blue = '0x6871ff'
+magenta = '0xd582eb'
+cyan = '0x5ffdff'
+white = '0xfeffff'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xfefc57"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x7f2b3f"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x101116"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x676767"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x979797"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xc7c7c7"

@@ -1,0 +1,43 @@
+# base16 Nord
+# Scheme author: arcticicestudio
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#2e3440"
+foreground = "#e5e9f0"
+
+cursor_bg = "#e5e9f0"
+cursor_border = "#e5e9f0"
+cursor_fg = "#2e3440"
+
+selection_bg = "#e5e9f0"
+selection_fg = "#434c5e"
+
+ansi = [
+  "#2e3440",
+  "#bf616a",
+  "#a3be8c",
+  "#ebcb8b",
+  "#81a1c1",
+  "#b48ead",
+  "#88c0d0",
+  "#eceff4"
+]
+brights = [
+  "#434c5e",
+  "#bf616a",
+  "#a3be8c",
+  "#ebcb8b",
+  "#81a1c1",
+  "#b48ead",
+  "#88c0d0",
+  "#8fbcbb"
+]
+
+[colors.indexed]
+16 = "#d08770"
+17 = "#5e81ac"
+18 = "#3b4252"
+19 = "#434c5e"
+20 = "#d8dee9"
+21 = "#e5e9f0"

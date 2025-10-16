@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Windows NT Light",
+	"foreground": "#808080",
+	"background": "#ffffff",
+	"black": "#eaeaea",
+	"blue": "#000080",
+	"brightBlack": "#d5d5d5",
+	"brightBlue": "#000080",
+	"brightCyan": "#008080",
+	"brightGreen": "#008000",
+	"brightPurple": "#800080",
+	"brightRed": "#800000",
+	"brightWhite": "#000000",
+	"brightYellow": "#808000",
+	"cyan": "#008080",
+	"green": "#008000",
+	"purple": "#800080",
+	"red": "#800000",
+	"white": "#404040",
+	"yellow": "#ffff00"
+},

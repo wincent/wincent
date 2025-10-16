@@ -1,0 +1,10 @@
+# Scheme name: Laser
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-laser
+ColorForeground=#d8d8d8
+ColorBackground=#030d18
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#616161;#ff8272;#b4fa72;#f92883;#fed300;#ff8ffd;#d0d1fe;#f1f1f1;#8e8e8e;#ffc4bd;#d6fcb9;#fefdd5;#f92883;#ffb1fe;#e5e6fe;#feffff

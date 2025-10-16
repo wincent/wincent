@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Chinoiserie Midnight by Di Wang (https://cs.cmu.edu/~diw3)
+
+[colors]
+selection-background = '#373737' # base02
+selection-foreground = '#c4cbcf' # base05
+
+cursor         = '#c4cbcf' # base05
+tabs           = '#282828' # base01
+tabs-active    = '#373737' # base02
+
+background     = '#1d1d1d' # base00
+foreground     = '#c4cbcf' # base05
+black          = '#282828' # base01
+red            = '#ed5a56' # base08
+yellow         = '#fbb957' # base0A
+green          = '#aeb831' # base0B
+cyan           = '#88b68d' # base0C
+blue           = '#81a2a2' # base0D
+magenta        = '#cf8997' # base0E
+white          = '#eee7f2' # base06
+
+dim-foreground   = '#c4cbcf' # base05
+dim-black        = '#282828' # base01
+dim-red          = '#ed5a56' # base08
+dim-yellow       = '#fbb957' # base0A
+dim-green        = '#aeb831' # base0B
+dim-cyan         = '#88b68d' # base0C
+dim-blue         = '#81a2a2' # base0D
+dim-magenta      = '#cf8997' # base0E
+dim-white        = '#bdaead' # base04
+
+light-foreground = '#c4cbcf' # base05
+light-black      = '#373737' # base02
+light-red        = '#ed5a56' # base08
+light-yellow     = '#fbb957' # base0A
+light-green      = '#aeb831' # base0B
+light-cyan       = '#88b68d' # base0C
+light-blue       = '#81a2a2' # base0D
+light-magenta    = '#cf8997' # base0E
+light-white      = '#fffef9' # base07

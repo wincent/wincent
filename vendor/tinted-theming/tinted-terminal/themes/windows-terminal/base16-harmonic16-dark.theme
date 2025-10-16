@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Harmonic16 Dark",
+	"foreground": "#cbd6e2",
+	"background": "#0b1c2c",
+	"black": "#223b54",
+	"blue": "#8b56bf",
+	"brightBlack": "#405c79",
+	"brightBlue": "#8b56bf",
+	"brightCyan": "#568bbf",
+	"brightGreen": "#56bf8b",
+	"brightPurple": "#bf568b",
+	"brightRed": "#bf8b56",
+	"brightWhite": "#f7f9fb",
+	"brightYellow": "#8bbf56",
+	"cyan": "#568bbf",
+	"green": "#56bf8b",
+	"purple": "#bf568b",
+	"red": "#bf8b56",
+	"white": "#e5ebf1",
+	"yellow": "#bfbf56"
+},

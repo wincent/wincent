@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Solarized Light",
+	"foreground": "#586e75",
+	"background": "#fdf6e3",
+	"black": "#eee8d5",
+	"blue": "#268bd2",
+	"brightBlack": "#93a1a1",
+	"brightBlue": "#268bd2",
+	"brightCyan": "#2aa198",
+	"brightGreen": "#859900",
+	"brightPurple": "#6c71c4",
+	"brightRed": "#dc322f",
+	"brightWhite": "#002b36",
+	"brightYellow": "#b58900",
+	"cyan": "#2aa198",
+	"green": "#859900",
+	"purple": "#6c71c4",
+	"red": "#dc322f",
+	"white": "#073642",
+	"yellow": "#cb4b16"
+},

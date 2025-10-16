@@ -1,0 +1,43 @@
+# base24 Pnevma
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#1c1c1c"
+foreground = "#aeaead"
+
+cursor_bg = "#2f2e2d"
+cursor_border = "#aeaead"
+cursor_fg = "#d0d0d0"
+
+selection_bg = "#aeaead"
+selection_fg = "#4a4845"
+
+ansi = [
+  "#1c1c1c",
+  "#a36666",
+  "#90a57d",
+  "#a1bdce",
+  "#7fa5bd",
+  "#c79ec4",
+  "#8adbb4",
+  "#d0d0d0"
+]
+brights = [
+  "#4a4845",
+  "#d78787",
+  "#afbea2",
+  "#e4c9af",
+  "#a1bdce",
+  "#d7beda",
+  "#b1e7dd",
+  "#efefef"
+]
+
+[colors.indexed]
+16 = "#d7af87"
+17 = "#513333"
+18 = "#2f2e2d"
+19 = "#4a4845"
+20 = "#8d8c8a"
+21 = "#aeaead"

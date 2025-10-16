@@ -1,0 +1,43 @@
+# base16 PaperColor Light
+# Scheme author: Jon Leopard (http://github.com/jonleopard), based on PaperColor Theme (https://github.com/NLKNguyen/papercolor-theme)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#eeeeee"
+foreground = "#444444"
+
+cursor_bg = "#444444"
+cursor_border = "#444444"
+cursor_fg = "#eeeeee"
+
+selection_bg = "#444444"
+selection_fg = "#008700"
+
+ansi = [
+  "#eeeeee",
+  "#bcbcbc",
+  "#8700af",
+  "#d70087",
+  "#d75f00",
+  "#005faf",
+  "#d75f00",
+  "#005f87"
+]
+brights = [
+  "#008700",
+  "#bcbcbc",
+  "#8700af",
+  "#d70087",
+  "#d75f00",
+  "#005faf",
+  "#d75f00",
+  "#878787"
+]
+
+[colors.indexed]
+16 = "#d70000"
+17 = "#005f87"
+18 = "#af0000"
+19 = "#008700"
+20 = "#0087af"
+21 = "#444444"

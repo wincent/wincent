@@ -1,0 +1,10 @@
+# Scheme name: Medallion
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-medallion
+ColorForeground=#aea578
+ColorBackground=#1d1808
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#000000;#b54c00;#7c8a16;#abb8ff;#606baf;#8b5990;#906b25;#c9c199;#5e5118;#ff9148;#b1c93a;#ffe449;#abb8ff;#fe9fff;#ffbb51;#fed597

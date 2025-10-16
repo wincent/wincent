@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "ShadeSmear Dark",
+	"foreground": "#dbdbdb",
+	"background": "#232323",
+	"black": "#1c1c1c",
+	"blue": "#376388",
+	"brightBlack": "#4e4e4e",
+	"brightBlue": "#376388",
+	"brightCyan": "#c57d42",
+	"brightGreen": "#71983b",
+	"brightPurple": "#d7ab54",
+	"brightRed": "#cc5450",
+	"brightWhite": "#1c1c1c",
+	"brightYellow": "#307878",
+	"cyan": "#c57d42",
+	"green": "#71983b",
+	"purple": "#d7ab54",
+	"red": "#cc5450",
+	"white": "#e4e4e4",
+	"yellow": "#a64270"
+},

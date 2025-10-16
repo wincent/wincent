@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Porple",
+	"foreground": "#d8d8d8",
+	"background": "#292c36",
+	"black": "#333344",
+	"blue": "#8485ce",
+	"brightBlack": "#474160",
+	"brightBlue": "#8485ce",
+	"brightCyan": "#64878f",
+	"brightGreen": "#95c76f",
+	"brightPurple": "#b74989",
+	"brightRed": "#f84547",
+	"brightWhite": "#f8f8f8",
+	"brightYellow": "#efa16b",
+	"cyan": "#64878f",
+	"green": "#95c76f",
+	"purple": "#b74989",
+	"red": "#f84547",
+	"white": "#e8e8e8",
+	"yellow": "#d28e5d"
+},

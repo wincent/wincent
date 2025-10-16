@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: selenized-black by Jan Warchol (https://github.com/jan-warchol/selenized) / adapted to base16 by ali
+
+[colors]
+selection-background = '#3b3b3b' # base02
+selection-foreground = '#b9b9b9' # base05
+
+cursor         = '#b9b9b9' # base05
+tabs           = '#252525' # base01
+tabs-active    = '#3b3b3b' # base02
+
+background     = '#181818' # base00
+foreground     = '#b9b9b9' # base05
+black          = '#252525' # base01
+red            = '#ed4a46' # base08
+yellow         = '#dbb32d' # base0A
+green          = '#70b433' # base0B
+cyan           = '#3fc5b7' # base0C
+blue           = '#368aeb' # base0D
+magenta        = '#a580e2' # base0E
+white          = '#dedede' # base06
+
+dim-foreground   = '#b9b9b9' # base05
+dim-black        = '#252525' # base01
+dim-red          = '#ed4a46' # base08
+dim-yellow       = '#dbb32d' # base0A
+dim-green        = '#70b433' # base0B
+dim-cyan         = '#3fc5b7' # base0C
+dim-blue         = '#368aeb' # base0D
+dim-magenta      = '#a580e2' # base0E
+dim-white        = '#777777' # base04
+
+light-foreground = '#b9b9b9' # base05
+light-black      = '#3b3b3b' # base02
+light-red        = '#ed4a46' # base08
+light-yellow     = '#dbb32d' # base0A
+light-green      = '#70b433' # base0B
+light-cyan       = '#3fc5b7' # base0C
+light-blue       = '#368aeb' # base0D
+light-magenta    = '#a580e2' # base0E
+light-white      = '#dedede' # base07

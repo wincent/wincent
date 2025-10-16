@@ -1,0 +1,58 @@
+# base16 darkmoss 256 - alacritty color config
+# Gabriel Avanzi (https://github.com/avanzzzi)
+
+# Default colors
+[colors.primary]
+background = '0x171e1f'
+foreground = '0xc7c7a5'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x171e1f'
+cursor = '0xc7c7a5'
+
+# Normal colors
+[colors.normal]
+black = '0x252c2d'
+red = '0xff4658'
+green = '0x499180'
+yellow = '0xfdb11f'
+blue = '0x498091'
+magenta = '0x9bc0c8'
+cyan = '0x66d9ef'
+white = '0xe3e3c8'
+
+# Bright colors
+[colors.bright]
+black = '0x373c3d'
+red = '0xff4658'
+green = '0x499180'
+yellow = '0xfdb11f'
+blue = '0x498091'
+magenta = '0x9bc0c8'
+cyan = '0x66d9ef'
+white = '0xe1eaef'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xe6db74"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xd27b53"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x252c2d"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x373c3d"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x818f80"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xe3e3c8"

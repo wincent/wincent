@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Hipster Green by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#666666' # base02
+selection-foreground = '#a8a8a8' # base05
+
+cursor         = '#a8a8a8' # base05
+tabs           = '#000000' # base01
+tabs-active    = '#666666' # base02
+
+background     = '#0f0a05' # base00
+foreground     = '#a8a8a8' # base05
+black          = '#000000' # base01
+red            = '#b6204a' # base08
+yellow         = '#0000ff' # base0A
+green          = '#00a600' # base0B
+cyan           = '#00a6b2' # base0C
+blue           = '#246db2' # base0D
+magenta        = '#b200b2' # base0E
+white          = '#bfbfbf' # base06
+
+dim-foreground   = '#a8a8a8' # base05
+dim-black        = '#000000' # base01
+dim-red          = '#b6204a' # base08
+dim-yellow       = '#0000ff' # base0A
+dim-green        = '#00a600' # base0B
+dim-cyan         = '#00a6b2' # base0C
+dim-blue         = '#246db2' # base0D
+dim-magenta      = '#b200b2' # base0E
+dim-white        = '#929292' # base04
+
+light-foreground = '#a8a8a8' # base05
+light-black      = '#666666' # base02
+light-red        = '#e50000' # base12
+light-yellow     = '#e5e500' # base13
+light-green      = '#86a83e' # base14
+light-cyan       = '#00e5e5' # base15
+light-blue       = '#0000ff' # base16
+light-magenta    = '#e500e5' # base17
+light-white      = '#e5e5e5' # base07

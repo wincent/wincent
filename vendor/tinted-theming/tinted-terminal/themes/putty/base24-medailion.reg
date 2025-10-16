@@ -1,0 +1,95 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Medailion
+; Scheme system: base24
+; Scheme author: FredHappyface (https://github.com/fredHappyface)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base24-medailion]
+
+; Default Foreground
+; base05 #aea578
+"Colour0"="174,165,120"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #aea578
+"Colour1"="174,165,120"
+
+; Default Background
+; base00 #1d1808
+"Colour2"="29,24,8"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #1d1808
+"Colour3"="29,24,8"
+
+; Cursor Text -- equals to default background
+; base00 #1d1808
+"Colour4"="29,24,8"
+
+; Cursor Colour -- equals to default foreground
+; base05 #aea578
+"Colour5"="174,165,120"
+
+; ANSI Black
+; base01 #000000
+"Colour6"="0,0,0"
+
+; ANSI Black Bright
+; base02 #5e5118
+"Colour7"="94,81,24"
+
+; ANSI Red
+; base08 #b54c00
+"Colour8"="181,76,0"
+
+; ANSI Red Bright
+; base12 #ff9148
+"Colour9"="255,145,72"
+
+; ANSI Green
+; base0B #7c8a16
+"Colour10"="124,138,22"
+
+; ANSI Green Bright
+; base14 #b1c93a
+"Colour11"="177,201,58"
+
+; ANSI Yellow
+; base0A #abb8ff
+"Colour12"="171,184,255"
+
+; ANSI Yellow Bright
+; base13 #ffe449
+"Colour13"="255,228,73"
+
+; ANSI Blue
+; base0D #606baf
+"Colour14"="96,107,175"
+
+; ANSI Blue Bright
+; base16 #abb8ff
+"Colour15"="171,184,255"
+
+; ANSI Magenta
+; base0E #8b5990
+"Colour16"="139,89,144"
+
+; ANSI Magenta Bright
+; base17 #fe9fff
+"Colour17"="254,159,255"
+
+; ANSI Cyan
+; base0C #906b25
+"Colour18"="144,107,37"
+
+; ANSI Cyan Bright
+; base15 #ffbb51
+"Colour19"="255,187,81"
+
+; ANSI White
+; base06 #c9c199
+"Colour20"="201,193,153"
+
+; ANSI White Bright
+; base07 fed597
+"Colour21"="254,213,151"

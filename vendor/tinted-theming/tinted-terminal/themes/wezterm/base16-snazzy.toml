@@ -1,0 +1,43 @@
+# base16 Snazzy
+# Scheme author: Chawye Hsu (https://github.com/chawyehsu), based on Hyper Snazzy Theme (https://github.com/sindresorhus/hyper-snazzy)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#282a36"
+foreground = "#e2e4e5"
+
+cursor_bg = "#e2e4e5"
+cursor_border = "#e2e4e5"
+cursor_fg = "#282a36"
+
+selection_bg = "#e2e4e5"
+selection_fg = "#43454f"
+
+ansi = [
+  "#282a36",
+  "#ff5c57",
+  "#5af78e",
+  "#f3f99d",
+  "#57c7ff",
+  "#ff6ac1",
+  "#9aedfe",
+  "#eff0eb"
+]
+brights = [
+  "#43454f",
+  "#ff5c57",
+  "#5af78e",
+  "#f3f99d",
+  "#57c7ff",
+  "#ff6ac1",
+  "#9aedfe",
+  "#f1f1f0"
+]
+
+[colors.indexed]
+16 = "#ff9f43"
+17 = "#b2643c"
+18 = "#34353e"
+19 = "#43454f"
+20 = "#a5a5a9"
+21 = "#e2e4e5"

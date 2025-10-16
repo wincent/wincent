@@ -1,0 +1,43 @@
+# base24 Sundried
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#1a1818"
+foreground = "#a9a9a7"
+
+cursor_bg = "#302b2a"
+cursor_border = "#a9a9a7"
+cursor_fg = "#c8c8c8"
+
+selection_bg = "#a9a9a7"
+selection_fg = "#4d4d47"
+
+ansi = [
+  "#1a1818",
+  "#a6463d",
+  "#577644",
+  "#7898f7",
+  "#485a98",
+  "#854551",
+  "#9c814e",
+  "#c8c8c8"
+]
+brights = [
+  "#4d4d47",
+  "#aa000c",
+  "#128c20",
+  "#fc6a20",
+  "#7898f7",
+  "#fc89a0",
+  "#fad384",
+  "#fffefe"
+]
+
+[colors.indexed]
+16 = "#9c5f2a"
+17 = "#53231e"
+18 = "#302b2a"
+19 = "#4d4d47"
+20 = "#8a8a87"
+21 = "#a9a9a7"

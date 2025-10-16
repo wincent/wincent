@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Gotham",
+	"foreground": "#599cab",
+	"background": "#0c1014",
+	"black": "#11151c",
+	"blue": "#195466",
+	"brightBlack": "#091f2e",
+	"brightBlue": "#195466",
+	"brightCyan": "#2aa889",
+	"brightGreen": "#33859e",
+	"brightPurple": "#888ca6",
+	"brightRed": "#c23127",
+	"brightWhite": "#d3ebe9",
+	"brightYellow": "#edb443",
+	"cyan": "#2aa889",
+	"green": "#33859e",
+	"purple": "#888ca6",
+	"red": "#c23127",
+	"white": "#99d1ce",
+	"yellow": "#d26937"
+},

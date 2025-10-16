@@ -1,0 +1,43 @@
+# base24 Broadcast
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#2b2b2b"
+foreground = "#cbcbcb"
+
+cursor_bg = "#000000"
+cursor_border = "#cbcbcb"
+cursor_fg = "#ffffff"
+
+selection_bg = "#cbcbcb"
+selection_fg = "#323232"
+
+ansi = [
+  "#2b2b2b",
+  "#da4939",
+  "#519f50",
+  "#9fcef0",
+  "#6d9cbe",
+  "#d0d0ff",
+  "#6e9cbe",
+  "#ffffff"
+]
+brights = [
+  "#323232",
+  "#ff7b6b",
+  "#83d182",
+  "#ffff7c",
+  "#9fcef0",
+  "#ffffff",
+  "#a0cef0",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#ffd24a"
+17 = "#6d241c"
+18 = "#000000"
+19 = "#323232"
+20 = "#989898"
+21 = "#cbcbcb"

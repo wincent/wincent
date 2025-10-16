@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "UwUnicorn",
+	"foreground": "#eed5d9",
+	"background": "#241b26",
+	"black": "#2f2a3f",
+	"blue": "#6a9eb5",
+	"brightBlack": "#46354a",
+	"brightBlue": "#6a9eb5",
+	"brightCyan": "#9c5fce",
+	"brightGreen": "#c965bf",
+	"brightPurple": "#78a38f",
+	"brightRed": "#877bb6",
+	"brightWhite": "#e4ccd0",
+	"brightYellow": "#a84a73",
+	"cyan": "#9c5fce",
+	"green": "#c965bf",
+	"purple": "#78a38f",
+	"red": "#877bb6",
+	"white": "#d9c2c6",
+	"yellow": "#de5b44"
+},

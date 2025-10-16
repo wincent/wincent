@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Deep Oceanic Next",
+	"foreground": "#d4e1e8",
+	"background": "#001c1f",
+	"black": "#002931",
+	"blue": "#568ccf",
+	"brightBlack": "#003640",
+	"brightBlue": "#5caeff",
+	"brightCyan": "#4de3e3",
+	"brightGreen": "#72e1a6",
+	"brightPurple": "#b788ff",
+	"brightRed": "#ff6670",
+	"brightWhite": "#f2f7f9",
+	"brightYellow": "#ffe08a",
+	"cyan": "#4fb7ae",
+	"green": "#63b784",
+	"purple": "#8b66d6",
+	"red": "#d3464d",
+	"white": "#e0e9ef",
+	"yellow": "#e37552"
+},

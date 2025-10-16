@@ -1,0 +1,10 @@
+# Scheme name: Google Dark
+# Scheme author: Seth Wright (http://sethawright.com)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-google-dark
+ColorForeground=#c5c8c6
+ColorBackground=#1d1f21
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#282a2e;#cc342b;#198844;#fba922;#3971ed;#a36ac7;#3971ed;#e0e0e0;#373b41;#cc342b;#198844;#fba922;#3971ed;#a36ac7;#3971ed;#ffffff

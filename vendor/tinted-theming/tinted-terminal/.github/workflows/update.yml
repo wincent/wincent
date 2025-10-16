@@ -1,0 +1,13 @@
+name: Update with the latest tinted-theming colorschemes
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * 0" # https://crontab.guru/every-week
+
+jobs:
+  build-and-commit:
+    uses: tinted-theming/home/.github/workflows/shared-build-template-and-commit-themes.yml@main
+    secrets:
+      token: ${{ secrets.BOT_ACCESS_TOKEN }}
+    with:
+      ref: ${{ github.head_ref }}

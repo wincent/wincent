@@ -1,0 +1,10 @@
+# Scheme name: ShadeSmear Light
+# Scheme author: Kyle Giammarco (http://kyle.giammar.co)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-shadesmear-light
+ColorForeground=#232323
+ColorBackground=#dbdbdb
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#e4e4e4;#cc5450;#71983b;#307878;#376388;#d7ab54;#c57d42;#1c1c1c;#c0c0c0;#cc5450;#71983b;#307878;#376388;#d7ab54;#c57d42;#e4e4e4

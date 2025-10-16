@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Dimmed Monokai by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#888987' # base02
+selection-foreground = '#acafac' # base05
+
+cursor         = '#acafac' # base05
+tabs           = '#3a3c43' # base01
+tabs-active    = '#888987' # base02
+
+background     = '#1e1e1e' # base00
+foreground     = '#acafac' # base05
+black          = '#3a3c43' # base01
+red            = '#be3e48' # base08
+yellow         = '#176ce3' # base0A
+green          = '#869a3a' # base0B
+cyan           = '#568ea3' # base0C
+blue           = '#4e76a1' # base0D
+magenta        = '#855b8d' # base0E
+white          = '#b8bcb9' # base06
+
+dim-foreground   = '#acafac' # base05
+dim-black        = '#3a3c43' # base01
+dim-red          = '#be3e48' # base08
+dim-yellow       = '#176ce3' # base0A
+dim-green        = '#869a3a' # base0B
+dim-cyan         = '#568ea3' # base0C
+dim-blue         = '#4e76a1' # base0D
+dim-magenta      = '#855b8d' # base0E
+dim-white        = '#a0a2a0' # base04
+
+light-foreground = '#acafac' # base05
+light-black      = '#888987' # base02
+light-red        = '#fb001e' # base12
+light-yellow     = '#c37033' # base13
+light-green      = '#0e712e' # base14
+light-cyan       = '#2d6f6c' # base15
+light-blue       = '#176ce3' # base16
+light-magenta    = '#fb0067' # base17
+light-white      = '#fcffb8' # base07

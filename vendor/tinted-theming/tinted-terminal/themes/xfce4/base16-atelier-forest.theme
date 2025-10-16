@@ -1,0 +1,10 @@
+# Scheme name: Atelier Forest
+# Scheme author: Bram de Haan (http://atelierbramdehaan.nl)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-atelier-forest
+ColorForeground=#a8a19f
+ColorBackground=#1b1918
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#2c2421;#f22c40;#7b9726;#c38418;#407ee7;#6666ea;#3d97b8;#e6e2e0;#68615e;#f22c40;#7b9726;#c38418;#407ee7;#6666ea;#3d97b8;#f1efee

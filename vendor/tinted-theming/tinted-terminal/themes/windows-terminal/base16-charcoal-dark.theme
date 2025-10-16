@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Charcoal Dark",
+	"foreground": "#c0a179",
+	"background": "#120f09",
+	"black": "#1e1812",
+	"blue": "#d6b891",
+	"brightBlack": "#35291d",
+	"brightBlue": "#d6b891",
+	"brightCyan": "#a28662",
+	"brightGreen": "#927a60",
+	"brightPurple": "#a28662",
+	"brightRed": "#887254",
+	"brightWhite": "#292016",
+	"brightYellow": "#c0a179",
+	"cyan": "#a28662",
+	"green": "#927a60",
+	"purple": "#a28662",
+	"red": "#887254",
+	"white": "#d6b891",
+	"yellow": "#d6b891"
+},

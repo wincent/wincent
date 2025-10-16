@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Primer Light",
+	"foreground": "#2f363d",
+	"background": "#fafbfc",
+	"black": "#e1e4e8",
+	"blue": "#0366d6",
+	"brightBlack": "#d1d5da",
+	"brightBlue": "#0366d6",
+	"brightCyan": "#79b8ff",
+	"brightGreen": "#28a745",
+	"brightPurple": "#ea4aaa",
+	"brightRed": "#d73a49",
+	"brightWhite": "#1b1f23",
+	"brightYellow": "#ffd33d",
+	"cyan": "#79b8ff",
+	"green": "#28a745",
+	"purple": "#ea4aaa",
+	"red": "#d73a49",
+	"white": "#24292e",
+	"yellow": "#f66a0a"
+},

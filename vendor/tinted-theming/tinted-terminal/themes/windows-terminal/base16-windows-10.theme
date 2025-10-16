@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Windows 10",
+	"foreground": "#cccccc",
+	"background": "#0c0c0c",
+	"black": "#2f2f2f",
+	"blue": "#3b78ff",
+	"brightBlack": "#535353",
+	"brightBlue": "#3b78ff",
+	"brightCyan": "#61d6d6",
+	"brightGreen": "#16c60c",
+	"brightPurple": "#b4009e",
+	"brightRed": "#e74856",
+	"brightWhite": "#f2f2f2",
+	"brightYellow": "#f9f1a5",
+	"cyan": "#61d6d6",
+	"green": "#16c60c",
+	"purple": "#b4009e",
+	"red": "#e74856",
+	"white": "#dfdfdf",
+	"yellow": "#c19c00"
+},

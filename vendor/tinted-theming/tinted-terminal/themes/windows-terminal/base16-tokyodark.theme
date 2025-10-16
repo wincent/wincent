@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Tokyodark",
+	"foreground": "#a0a8cd",
+	"background": "#11121d",
+	"black": "#212234",
+	"blue": "#7199ee",
+	"brightBlack": "#212234",
+	"brightBlue": "#7199ee",
+	"brightCyan": "#9fbbf3",
+	"brightGreen": "#95c561",
+	"brightPurple": "#a485dd",
+	"brightRed": "#ee6d85",
+	"brightWhite": "#bcc2dc",
+	"brightYellow": "#d7a65f",
+	"cyan": "#9fbbf3",
+	"green": "#95c561",
+	"purple": "#a485dd",
+	"red": "#ee6d85",
+	"white": "#abb2bf",
+	"yellow": "#f6955b"
+},

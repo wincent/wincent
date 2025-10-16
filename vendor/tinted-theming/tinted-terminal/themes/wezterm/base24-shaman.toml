@@ -1,0 +1,43 @@
+# base24 Shaman
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#001014"
+foreground = "#3d5053"
+
+cursor_bg = "#012026"
+cursor_border = "#3d5053"
+cursor_fg = "#405554"
+
+selection_bg = "#3d5053"
+selection_fg = "#374350"
+
+ansi = [
+  "#001014",
+  "#b12f2c",
+  "#00a940",
+  "#61d4b9",
+  "#449985",
+  "#00599c",
+  "#5c7e19",
+  "#405554"
+]
+brights = [
+  "#374350",
+  "#ff4242",
+  "#2aea5e",
+  "#8dd3fd",
+  "#61d4b9",
+  "#1298ff",
+  "#98cf28",
+  "#58fad6"
+]
+
+[colors.indexed]
+16 = "#5d8aa9"
+17 = "#581716"
+18 = "#012026"
+19 = "#374350"
+20 = "#3b4c52"
+21 = "#3d5053"

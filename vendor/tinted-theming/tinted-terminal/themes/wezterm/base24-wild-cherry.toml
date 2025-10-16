@@ -1,0 +1,43 @@
+# base24 Wild Cherry
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#1f1626"
+foreground = "#bfe1d8"
+
+cursor_bg = "#000506"
+cursor_border = "#bfe1d8"
+cursor_fg = "#fff8dd"
+
+selection_bg = "#bfe1d8"
+selection_fg = "#009cc9"
+
+ansi = [
+  "#1f1626",
+  "#d94085",
+  "#2ab250",
+  "#2f8bb9",
+  "#883cdc",
+  "#ececec",
+  "#c1b8b7",
+  "#fff8dd"
+]
+brights = [
+  "#009cc9",
+  "#da6bab",
+  "#f4dba5",
+  "#eac066",
+  "#2f8bb9",
+  "#ae636b",
+  "#ff919d",
+  "#e4838d"
+]
+
+[colors.indexed]
+16 = "#ffd16f"
+17 = "#6c2042"
+18 = "#000506"
+19 = "#009cc9"
+20 = "#7fcad3"
+21 = "#bfe1d8"

@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Helios",
+	"foreground": "#d5d5d5",
+	"background": "#1d2021",
+	"black": "#383c3e",
+	"blue": "#1e8bac",
+	"brightBlack": "#53585b",
+	"brightBlue": "#1e8bac",
+	"brightCyan": "#1ba595",
+	"brightGreen": "#88b92d",
+	"brightPurple": "#be4264",
+	"brightRed": "#d72638",
+	"brightWhite": "#e5e5e5",
+	"brightYellow": "#f19d1a",
+	"cyan": "#1ba595",
+	"green": "#88b92d",
+	"purple": "#be4264",
+	"red": "#d72638",
+	"white": "#dddddd",
+	"yellow": "#eb8413"
+},

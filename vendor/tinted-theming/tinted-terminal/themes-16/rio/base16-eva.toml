@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Eva by kjakapat (https://github.com/kjakapat)
+
+[colors]
+selection-background = '#4b6988' # base02
+selection-foreground = '#9fa2a6' # base05
+
+cursor         = '#9fa2a6' # base05
+tabs           = '#3d566f' # base01
+tabs-active    = '#4b6988' # base02
+
+background     = '#2a3b4d' # base00
+foreground     = '#9fa2a6' # base05
+black          = '#3d566f' # base01
+red            = '#c4676c' # base08
+yellow         = '#ffff66' # base0A
+green          = '#66ff66' # base0B
+cyan           = '#4b8f77' # base0C
+blue           = '#15f4ee' # base0D
+magenta        = '#9c6cd3' # base0E
+white          = '#d6d7d9' # base06
+
+dim-foreground   = '#9fa2a6' # base05
+dim-black        = '#3d566f' # base01
+dim-red          = '#c4676c' # base08
+dim-yellow       = '#ffff66' # base0A
+dim-green        = '#66ff66' # base0B
+dim-cyan         = '#4b8f77' # base0C
+dim-blue         = '#15f4ee' # base0D
+dim-magenta      = '#9c6cd3' # base0E
+dim-white        = '#7e90a3' # base04
+
+light-foreground = '#9fa2a6' # base05
+light-black      = '#4b6988' # base02
+light-red        = '#c4676c' # base08
+light-yellow     = '#ffff66' # base0A
+light-green      = '#66ff66' # base0B
+light-cyan       = '#4b8f77' # base0C
+light-blue       = '#15f4ee' # base0D
+light-magenta    = '#9c6cd3' # base0E
+light-white      = '#ffffff' # base07

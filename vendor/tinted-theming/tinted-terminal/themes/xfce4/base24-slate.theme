@@ -1,0 +1,10 @@
+# Scheme name: Slate
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-slate
+ColorForeground=#42d3e8
+ColorBackground=#212121
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#212121;#e1a7bf;#80d778;#79afd2;#254a49;#a380d3;#14ab9c;#02c4e0;#ffffff;#ffccd8;#bdffa8;#d0cbc9;#79afd2;#c4a7d8;#8bdee0;#e0e0e0

@@ -1,0 +1,43 @@
+# base16 Paraiso
+# Scheme author: Jan T. Sott
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#2f1e2e"
+foreground = "#a39e9b"
+
+cursor_bg = "#a39e9b"
+cursor_border = "#a39e9b"
+cursor_fg = "#2f1e2e"
+
+selection_bg = "#a39e9b"
+selection_fg = "#4f424c"
+
+ansi = [
+  "#2f1e2e",
+  "#ef6155",
+  "#48b685",
+  "#fec418",
+  "#06b6ef",
+  "#815ba4",
+  "#5bc4bf",
+  "#b9b6b0"
+]
+brights = [
+  "#4f424c",
+  "#ef6155",
+  "#48b685",
+  "#fec418",
+  "#06b6ef",
+  "#815ba4",
+  "#5bc4bf",
+  "#e7e9db"
+]
+
+[colors.indexed]
+16 = "#f99b15"
+17 = "#e96ba8"
+18 = "#41323f"
+19 = "#4f424c"
+20 = "#8d8687"
+21 = "#a39e9b"

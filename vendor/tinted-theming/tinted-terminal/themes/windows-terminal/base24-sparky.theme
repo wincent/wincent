@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Sparky",
+	"foreground": "#f4f5f0",
+	"background": "#072b31",
+	"black": "#00313c",
+	"blue": "#4698cb",
+	"brightBlack": "#003c46",
+	"brightBlue": "#69b3e7",
+	"brightCyan": "#00c1d5",
+	"brightGreen": "#8edd65",
+	"brightPurple": "#f99fc9",
+	"brightRed": "#ff7276",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#f6eb61",
+	"cyan": "#2dccd3",
+	"green": "#78d64b",
+	"purple": "#d59ed7",
+	"red": "#ff585d",
+	"white": "#f5f5f1",
+	"yellow": "#ff8f1c"
+},

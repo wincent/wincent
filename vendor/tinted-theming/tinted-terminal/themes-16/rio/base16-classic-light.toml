@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Classic Light by Jason Heeris (http://heeris.id.au)
+
+[colors]
+selection-background = '#d0d0d0' # base02
+selection-foreground = '#303030' # base05
+
+cursor         = '#303030' # base05
+tabs           = '#e0e0e0' # base01
+tabs-active    = '#d0d0d0' # base02
+
+background     = '#f5f5f5' # base00
+foreground     = '#303030' # base05
+black          = '#e0e0e0' # base01
+red            = '#ac4142' # base08
+yellow         = '#f4bf75' # base0A
+green          = '#90a959' # base0B
+cyan           = '#75b5aa' # base0C
+blue           = '#6a9fb5' # base0D
+magenta        = '#aa759f' # base0E
+white          = '#202020' # base06
+
+dim-foreground   = '#303030' # base05
+dim-black        = '#e0e0e0' # base01
+dim-red          = '#ac4142' # base08
+dim-yellow       = '#f4bf75' # base0A
+dim-green        = '#90a959' # base0B
+dim-cyan         = '#75b5aa' # base0C
+dim-blue         = '#6a9fb5' # base0D
+dim-magenta      = '#aa759f' # base0E
+dim-white        = '#505050' # base04
+
+light-foreground = '#303030' # base05
+light-black      = '#d0d0d0' # base02
+light-red        = '#ac4142' # base08
+light-yellow     = '#f4bf75' # base0A
+light-green      = '#90a959' # base0B
+light-cyan       = '#75b5aa' # base0C
+light-blue       = '#6a9fb5' # base0D
+light-magenta    = '#aa759f' # base0E
+light-white      = '#151515' # base07

@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Flatland",
+	"foreground": "#c5c6c4",
+	"background": "#1c1e20",
+	"black": "#1c1d19",
+	"blue": "#4f96be",
+	"brightBlack": "#1c1d19",
+	"brightBlue": "#61b8d0",
+	"brightCyan": "#d53864",
+	"brightGreen": "#a7d32c",
+	"brightPurple": "#695abb",
+	"brightRed": "#d12a24",
+	"brightWhite": "#fefffe",
+	"brightYellow": "#ff8948",
+	"cyan": "#d53864",
+	"green": "#9ed264",
+	"purple": "#695abb",
+	"red": "#f18238",
+	"white": "#fefffe",
+	"yellow": "#f3ef6d"
+},

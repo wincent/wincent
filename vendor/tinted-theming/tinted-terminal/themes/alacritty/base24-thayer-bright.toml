@@ -1,0 +1,58 @@
+# base24 Thayer Bright 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x1b1d1e'
+foreground = '0xadada9'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x1b1d1e'
+cursor = '0xadada9'
+
+# Normal colors
+[colors.normal]
+black = '0x1b1d1e'
+red = '0xf92672'
+green = '0x4df740'
+yellow = '0x3f78ff'
+blue = '0x2656d6'
+magenta = '0x8c54fe'
+cyan = '0x37c8b4'
+white = '0xccccc6'
+
+# Bright colors
+[colors.bright]
+black = '0x505354'
+red = '0xff5995'
+green = '0xb6e354'
+yellow = '0xfeed6c'
+blue = '0x3f78ff'
+magenta = '0x9e6ffe'
+cyan = '0x23ced4'
+white = '0xf8f8f2'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xf3fd21"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x7c1339"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x1b1d1e"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x505354"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x8e8f8d"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xccccc6"

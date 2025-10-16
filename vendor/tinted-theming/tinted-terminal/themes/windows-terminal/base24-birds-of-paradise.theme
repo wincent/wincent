@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Birds Of Paradise",
+	"foreground": "#cdbe9b",
+	"background": "#2a1e1d",
+	"black": "#573d25",
+	"blue": "#5a86ac",
+	"brightBlack": "#9a6b49",
+	"brightBlue": "#b8d3ed",
+	"brightCyan": "#92ced6",
+	"brightGreen": "#94d7ba",
+	"brightPurple": "#d09dca",
+	"brightRed": "#e84526",
+	"brightWhite": "#fff9d4",
+	"brightYellow": "#d0d04f",
+	"cyan": "#74a5ac",
+	"green": "#6ba08a",
+	"purple": "#ab80a6",
+	"red": "#be2d26",
+	"white": "#dfdab7",
+	"yellow": "#e99c29"
+},

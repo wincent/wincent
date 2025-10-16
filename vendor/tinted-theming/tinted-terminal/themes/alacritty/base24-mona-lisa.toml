@@ -1,0 +1,58 @@
+# base24 Mona Lisa 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x110b0d'
+foreground = '0xdab14e'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x110b0d'
+cursor = '0xdab14e'
+
+# Normal colors
+[colors.normal]
+black = '0x341a0d'
+red = '0x9b281b'
+green = '0x626132'
+yellow = '0x9eb2b3'
+blue = '0x515b5c'
+magenta = '0x9b1d29'
+cyan = '0x588056'
+white = '0xf6d75c'
+
+# Bright colors
+[colors.bright]
+black = '0x874227'
+red = '0xff4230'
+green = '0xb3b163'
+yellow = '0xff9565'
+blue = '0x9eb2b3'
+magenta = '0xff5b6a'
+cyan = '0x89cc8e'
+white = '0xffe597'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xc26e27"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x4d140d"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x341a0d"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x874227"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0xbe8c41"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xf6d75c"

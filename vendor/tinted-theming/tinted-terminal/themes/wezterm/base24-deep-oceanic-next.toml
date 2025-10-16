@@ -1,0 +1,43 @@
+# base24 Deep Oceanic Next
+# Scheme author: spearkkk (https://github.com/spearkkk)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#001c1f"
+foreground = "#d4e1e8"
+
+cursor_bg = "#002931"
+cursor_border = "#d4e1e8"
+cursor_fg = "#e0e9ef"
+
+selection_bg = "#d4e1e8"
+selection_fg = "#003640"
+
+ansi = [
+  "#001c1f",
+  "#d3464d",
+  "#63b784",
+  "#f3b863",
+  "#568ccf",
+  "#8b66d6",
+  "#4fb7ae",
+  "#e0e9ef"
+]
+brights = [
+  "#003640",
+  "#ff6670",
+  "#72e1a6",
+  "#ffe08a",
+  "#5caeff",
+  "#b788ff",
+  "#4de3e3",
+  "#f2f7f9"
+]
+
+[colors.indexed]
+16 = "#e37552"
+17 = "#d0658e"
+18 = "#002931"
+19 = "#003640"
+20 = "#0093a3"
+21 = "#d4e1e8"

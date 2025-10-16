@@ -1,0 +1,58 @@
+# base16 Rosé Pine Moon 256 - alacritty color config
+# Emilia Dunfelt &lt;edun@dunfelt.se&gt;
+
+# Default colors
+[colors.primary]
+background = '0x232136'
+foreground = '0xe0def4'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x232136'
+cursor = '0xe0def4'
+
+# Normal colors
+[colors.normal]
+black = '0x2a273f'
+red = '0xeb6f92'
+green = '0x3e8fb0'
+yellow = '0xea9a97'
+blue = '0xc4a7e7'
+magenta = '0xf6c177'
+cyan = '0x9ccfd8'
+white = '0xe0def4'
+
+# Bright colors
+[colors.bright]
+black = '0x393552'
+red = '0xeb6f92'
+green = '0x3e8fb0'
+yellow = '0xea9a97'
+blue = '0xc4a7e7'
+magenta = '0xf6c177'
+cyan = '0x9ccfd8'
+white = '0x56526e'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xf6c177"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x56526e"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x2a273f"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x393552"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x908caa"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xe0def4"

@@ -1,0 +1,10 @@
+# Scheme name: Snazzy
+# Scheme author: Chawye Hsu (https://github.com/chawyehsu), based on Hyper Snazzy Theme (https://github.com/sindresorhus/hyper-snazzy)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-snazzy
+ColorForeground=#e2e4e5
+ColorBackground=#282a36
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#34353e;#ff5c57;#5af78e;#f3f99d;#57c7ff;#ff6ac1;#9aedfe;#eff0eb;#43454f;#ff5c57;#5af78e;#f3f99d;#57c7ff;#ff6ac1;#9aedfe;#f1f1f0

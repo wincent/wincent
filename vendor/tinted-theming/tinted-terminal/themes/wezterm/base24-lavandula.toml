@@ -1,0 +1,43 @@
+# base24 Lavandula
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#050014"
+foreground = "#645d6f"
+
+cursor_bg = "#230045"
+cursor_border = "#645d6f"
+cursor_fg = "#736e7d"
+
+selection_bg = "#645d6f"
+selection_fg = "#372c46"
+
+ansi = [
+  "#050014",
+  "#7c1525",
+  "#337e6f",
+  "#8e86df",
+  "#4f4a7f",
+  "#593f7e",
+  "#57767f",
+  "#736e7d"
+]
+brights = [
+  "#372c46",
+  "#df5066",
+  "#52e0c4",
+  "#e0c286",
+  "#8e86df",
+  "#a675df",
+  "#9ad3df",
+  "#8c91fa"
+]
+
+[colors.indexed]
+16 = "#7f6f49"
+17 = "#3e0a12"
+18 = "#230045"
+19 = "#372c46"
+20 = "#554d61"
+21 = "#645d6f"

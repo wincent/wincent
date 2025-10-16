@@ -1,0 +1,10 @@
+# Scheme name: Man Page
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-man-page
+ColorForeground=#b2b2b2
+ColorBackground=#fef49c
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#000000;#cc0000;#00a600;#0000ff;#0000b2;#b200b2;#00a6b2;#cccccc;#666666;#e50000;#00d900;#e5e500;#0000ff;#e500e5;#00e5e5;#e5e5e5

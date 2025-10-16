@@ -1,0 +1,43 @@
+# base16 Precious Light White
+# Scheme author: 4lex4 &lt;4lex49@zoho.com&gt;
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#ffffff"
+foreground = "#555555"
+
+cursor_bg = "#555555"
+cursor_border = "#555555"
+cursor_fg = "#ffffff"
+
+selection_bg = "#555555"
+selection_fg = "#dbdbdb"
+
+ansi = [
+  "#ffffff",
+  "#af4947",
+  "#557301",
+  "#876500",
+  "#186daa",
+  "#7b4ecb",
+  "#087767",
+  "#555555"
+]
+brights = [
+  "#dbdbdb",
+  "#af4947",
+  "#557301",
+  "#876500",
+  "#186daa",
+  "#7b4ecb",
+  "#087767",
+  "#555555"
+]
+
+[colors.indexed]
+16 = "#a0570d"
+17 = "#a93e93"
+18 = "#ededed"
+19 = "#dbdbdb"
+20 = "#636363"
+21 = "#555555"

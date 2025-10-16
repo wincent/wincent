@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Red Sands by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#555555' # base02
+selection-foreground = '#a1a1a1' # base05
+
+cursor         = '#a1a1a1' # base05
+tabs           = '#000000' # base01
+tabs-active    = '#555555' # base02
+
+background     = '#79241e' # base00
+foreground     = '#a1a1a1' # base05
+black          = '#000000' # base01
+red            = '#ff3f00' # base08
+yellow         = '#0071ae' # base0A
+green          = '#00bb00' # base0B
+cyan           = '#00bbbb' # base0C
+blue           = '#0071ff' # base0D
+magenta        = '#bb00bb' # base0E
+white          = '#bbbbbb' # base06
+
+dim-foreground   = '#a1a1a1' # base05
+dim-black        = '#000000' # base01
+dim-red          = '#ff3f00' # base08
+dim-yellow       = '#0071ae' # base0A
+dim-green        = '#00bb00' # base0B
+dim-cyan         = '#00bbbb' # base0C
+dim-blue         = '#0071ff' # base0D
+dim-magenta      = '#bb00bb' # base0E
+dim-white        = '#888888' # base04
+
+light-foreground = '#a1a1a1' # base05
+light-black      = '#555555' # base02
+light-red        = '#bb0000' # base12
+light-yellow     = '#e7b000' # base13
+light-green      = '#00bb00' # base14
+light-cyan       = '#55ffff' # base15
+light-blue       = '#0071ae' # base16
+light-magenta    = '#ff55ff' # base17
+light-white      = '#ffffff' # base07

@@ -1,0 +1,43 @@
+# base24 Embarcadero
+# Scheme author: Thomas Leon Highbaugh
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#252a2f"
+foreground = "#bcbdc0"
+
+cursor_bg = "#43474c"
+cursor_border = "#bcbdc0"
+cursor_fg = "#dadbdb"
+
+selection_bg = "#bcbdc0"
+selection_fg = "#616568"
+
+ansi = [
+  "#252a2f",
+  "#ed5d86",
+  "#20c290",
+  "#eb824d",
+  "#4080d0",
+  "#a070d0",
+  "#02efef",
+  "#dadbdb"
+]
+brights = [
+  "#616568",
+  "#f57d9a",
+  "#a0d0a0",
+  "#ffe089",
+  "#80b0f0",
+  "#c090f0",
+  "#40c0c0",
+  "#f8f8f8"
+]
+
+[colors.indexed]
+16 = "#ffcb3d"
+17 = "#50509f"
+18 = "#43474c"
+19 = "#616568"
+20 = "#9ea0a2"
+21 = "#bcbdc0"

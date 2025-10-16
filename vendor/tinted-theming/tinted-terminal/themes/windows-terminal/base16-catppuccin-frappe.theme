@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Catppuccin Frappe",
+	"foreground": "#c6d0f5",
+	"background": "#303446",
+	"black": "#292c3c",
+	"blue": "#8caaee",
+	"brightBlack": "#414559",
+	"brightBlue": "#8caaee",
+	"brightCyan": "#81c8be",
+	"brightGreen": "#a6d189",
+	"brightPurple": "#ca9ee6",
+	"brightRed": "#e78284",
+	"brightWhite": "#babbf1",
+	"brightYellow": "#e5c890",
+	"cyan": "#81c8be",
+	"green": "#a6d189",
+	"purple": "#ca9ee6",
+	"red": "#e78284",
+	"white": "#f2d5cf",
+	"yellow": "#ef9f76"
+},

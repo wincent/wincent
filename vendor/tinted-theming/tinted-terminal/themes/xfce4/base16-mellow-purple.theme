@@ -1,0 +1,10 @@
+# Scheme name: Mellow Purple
+# Scheme author: gidsi
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-mellow-purple
+ColorForeground=#ffeeff
+ColorBackground=#1e0528
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#1a092d;#00d9e9;#05cb0d;#955ae7;#550068;#8991bb;#b900b1;#ffeeff;#331354;#00d9e9;#05cb0d;#955ae7;#550068;#8991bb;#b900b1;#f8c0ff

@@ -1,0 +1,10 @@
+# Scheme name: Gruvbox Light
+# Scheme author: Tinted Theming (https://github.com/tinted-theming), morhetz (https://github.com/morhetz/gruvbox)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-gruvbox-light
+ColorForeground=#3c3836
+ColorBackground=#fbf1c7
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#ebdbb2;#cc241d;#98971a;#d79921;#458588;#b16286;#689d6a;#282828;#d5c4a1;#cc241d;#98971a;#d79921;#458588;#b16286;#689d6a;#1d2021

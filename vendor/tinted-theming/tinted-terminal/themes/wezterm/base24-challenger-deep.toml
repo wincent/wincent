@@ -1,0 +1,43 @@
+# base24 Challenger Deep
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#1e1c31"
+foreground = "#929bb6"
+
+cursor_bg = "#141127"
+cursor_border = "#929bb6"
+cursor_fg = "#a6b3cc"
+
+selection_bg = "#929bb6"
+selection_fg = "#565575"
+
+ansi = [
+  "#1e1c31",
+  "#ff5458",
+  "#62d196",
+  "#91ddff",
+  "#65b2ff",
+  "#906cff",
+  "#63f2f1",
+  "#a6b3cc"
+]
+brights = [
+  "#565575",
+  "#ff8080",
+  "#95ffa4",
+  "#ffe9aa",
+  "#91ddff",
+  "#c991e1",
+  "#aaffe4",
+  "#cbe3e7"
+]
+
+[colors.indexed]
+16 = "#ffb378"
+17 = "#7f2a2c"
+18 = "#141127"
+19 = "#565575"
+20 = "#7e84a0"
+21 = "#929bb6"

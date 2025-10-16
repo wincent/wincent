@@ -1,0 +1,10 @@
+# Scheme name: Tokyo Night Moon
+# Scheme author: Ólafur Bjarki Bogason
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-tokyo-night-moon
+ColorForeground=#3b4261
+ColorBackground=#222436
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#1e2030;#ff757f;#c3e88d;#ffc777;#82aaff;#fca7ea;#86e1fc;#828bb8;#2d3f76;#ff757f;#c3e88d;#ffc777;#82aaff;#fca7ea;#86e1fc;#c8d3f5

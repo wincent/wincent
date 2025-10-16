@@ -1,0 +1,10 @@
+# Scheme name: Brush Trees
+# Scheme author: Abraham White &lt;abelincoln.white@gmail.com&gt;
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-brushtrees
+ColorForeground=#6d828e
+ColorBackground=#e3efef
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#c9dbdc;#b38686;#87b386;#aab386;#868cb3;#b386b2;#86b3b3;#5a6d7a;#b0c5c8;#b38686;#87b386;#aab386;#868cb3;#b386b2;#86b3b3;#485867

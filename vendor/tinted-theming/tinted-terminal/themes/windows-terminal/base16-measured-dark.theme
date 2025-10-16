@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Measured Dark",
+	"foreground": "#dcdcdc",
+	"background": "#00211f",
+	"black": "#003a38",
+	"blue": "#88b0da",
+	"brightBlack": "#005453",
+	"brightBlue": "#88b0da",
+	"brightCyan": "#62c0be",
+	"brightGreen": "#56c16f",
+	"brightPurple": "#b39be0",
+	"brightRed": "#ce7e8e",
+	"brightWhite": "#f5f5f5",
+	"brightYellow": "#bfac4e",
+	"cyan": "#62c0be",
+	"green": "#56c16f",
+	"purple": "#b39be0",
+	"red": "#ce7e8e",
+	"white": "#efefef",
+	"yellow": "#dca37c"
+},

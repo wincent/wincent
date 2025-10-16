@@ -1,0 +1,43 @@
+# base16 Woodland
+# Scheme author: Jay Cornwall (https://jcornwall.com)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#231e18"
+foreground = "#cabcb1"
+
+cursor_bg = "#cabcb1"
+cursor_border = "#cabcb1"
+cursor_fg = "#231e18"
+
+selection_bg = "#cabcb1"
+selection_fg = "#48413a"
+
+ansi = [
+  "#231e18",
+  "#d35c5c",
+  "#b7ba53",
+  "#e0ac16",
+  "#88a4d3",
+  "#bb90e2",
+  "#6eb958",
+  "#d7c8bc"
+]
+brights = [
+  "#48413a",
+  "#d35c5c",
+  "#b7ba53",
+  "#e0ac16",
+  "#88a4d3",
+  "#bb90e2",
+  "#6eb958",
+  "#e4d4c8"
+]
+
+[colors.indexed]
+16 = "#ca7f32"
+17 = "#b49368"
+18 = "#302b25"
+19 = "#48413a"
+20 = "#b4a490"
+21 = "#cabcb1"

@@ -1,0 +1,10 @@
+# Scheme name: Espresso
+# Scheme author: Unknown. Maintained by Alex Mirrington (https://github.com/alexmirrington)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-espresso
+ColorForeground=#cccccc
+ColorBackground=#2d2d2d
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#393939;#d25252;#a5c261;#ffc66d;#6c99bb;#d197d9;#bed6ff;#e0e0e0;#515151;#d25252;#a5c261;#ffc66d;#6c99bb;#d197d9;#bed6ff;#ffffff

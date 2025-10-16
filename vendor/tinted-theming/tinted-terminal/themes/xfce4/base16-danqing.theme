@@ -1,0 +1,10 @@
+# Scheme name: DanQing
+# Scheme author: Wenhan Zhu (Cosmos) (zhuwenhan950913@gmail.com)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-danqing
+ColorForeground=#e0f0ef
+ColorBackground=#2d302f
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#434846;#f9906f;#8ab361;#f0c239;#b0a4e3;#cca4e3;#30dff3;#ecf6f2;#5a605d;#f9906f;#8ab361;#f0c239;#b0a4e3;#cca4e3;#30dff3;#fcfefd

@@ -1,0 +1,10 @@
+# Scheme name: Tomorrow Night
+# Scheme author: Chris Kempson (http://chriskempson.com)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-tomorrow-night
+ColorForeground=#c5c8c6
+ColorBackground=#1d1f21
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#282a2e;#cc6666;#b5bd68;#f0c674;#81a2be;#b294bb;#8abeb7;#e0e0e0;#373b41;#cc6666;#b5bd68;#f0c674;#81a2be;#b294bb;#8abeb7;#ffffff

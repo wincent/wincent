@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Nebula",
+	"foreground": "#a4a6a9",
+	"background": "#22273b",
+	"black": "#414f60",
+	"blue": "#4d6bb6",
+	"brightBlack": "#5a8380",
+	"brightBlue": "#4d6bb6",
+	"brightCyan": "#226f68",
+	"brightGreen": "#6562a8",
+	"brightPurple": "#716cae",
+	"brightRed": "#777abc",
+	"brightWhite": "#8dbdaa",
+	"brightYellow": "#4f9062",
+	"cyan": "#226f68",
+	"green": "#6562a8",
+	"purple": "#716cae",
+	"red": "#777abc",
+	"white": "#c7c9cd",
+	"yellow": "#94929e"
+},

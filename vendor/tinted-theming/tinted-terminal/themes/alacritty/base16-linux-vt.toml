@@ -1,0 +1,58 @@
+# base16 Linux VT 256 - alacritty color config
+# j-c-m (https://github.com/j-c-m/)
+
+# Default colors
+[colors.primary]
+background = '0x000000'
+foreground = '0xaaaaaa'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x000000'
+cursor = '0xaaaaaa'
+
+# Normal colors
+[colors.normal]
+black = '0x333333'
+red = '0xaa0000'
+green = '0x00aa00'
+yellow = '0xffff55'
+blue = '0x5555ff'
+magenta = '0xff55ff'
+cyan = '0x00aaaa'
+white = '0xcccccc'
+
+# Bright colors
+[colors.bright]
+black = '0x444444'
+red = '0xaa0000'
+green = '0x00aa00'
+yellow = '0xffff55'
+blue = '0x5555ff'
+magenta = '0xff55ff'
+cyan = '0x00aaaa'
+white = '0xffffff'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xff5555"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xaa5500"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x333333"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x444444"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x888888"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xcccccc"

@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Solarized Dark Patched",
+	"foreground": "#c0c0b0",
+	"background": "#001e26",
+	"black": "#002731",
+	"blue": "#2075c7",
+	"brightBlack": "#465a61",
+	"brightBlue": "#708183",
+	"brightCyan": "#81908f",
+	"brightGreen": "#465a61",
+	"brightPurple": "#5856b9",
+	"brightRed": "#bd3612",
+	"brightWhite": "#fcf4dc",
+	"brightYellow": "#52676f",
+	"cyan": "#259185",
+	"green": "#728905",
+	"purple": "#c61b6e",
+	"red": "#d01b24",
+	"white": "#e9e2cb",
+	"yellow": "#a57705"
+},

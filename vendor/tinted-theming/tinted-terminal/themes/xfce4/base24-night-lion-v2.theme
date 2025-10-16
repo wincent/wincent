@@ -1,0 +1,10 @@
+# Scheme name: Night Lion V2
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-night-lion-v2
+ColorForeground=#a1a1a1
+ColorBackground=#171717
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#4c4c4c;#bb0000;#03f622;#62cae7;#63d0f0;#ce6fda;#00d9df;#bbbbbb;#555555;#ff5555;#7df61c;#ffff55;#62cae7;#ff9af5;#00ccd7;#ffffff

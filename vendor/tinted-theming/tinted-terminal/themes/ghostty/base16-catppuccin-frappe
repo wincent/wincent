@@ -1,0 +1,43 @@
+# vim: ft=ghostty
+# Catppuccin Frappe theme for Ghostty
+# Scheme Author: https://github.com/catppuccin/catppuccin
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# Color palette
+palette = 0=#303446
+palette = 1=#e78284
+palette = 2=#a6d189
+palette = 3=#e5c890
+palette = 4=#8caaee
+palette = 5=#ca9ee6
+palette = 6=#81c8be
+palette = 7=#c6d0f5
+palette = 8=#414559
+palette = 9=#e78284
+palette = 10=#a6d189
+palette = 11=#e5c890
+palette = 12=#8caaee
+palette = 13=#ca9ee6
+palette = 14=#81c8be
+palette = 15=#babbf1
+palette = 16=#ef9f76
+palette = 17=#eebebe
+palette = 18=#292c3c
+palette = 19=#414559
+palette = 20=#626880
+palette = 21=#f2d5cf
+
+# Foreground & background colors
+background = #303446
+foreground = #c6d0f5
+cursor-color = #c6d0f5
+selection-background = #414559
+selection-foreground = #c6d0f5
+
+# Set `macos-icon = custom-style` in your main configuration file to enable theming of the app icon.
+#
+# Set the ghost color to the lightest foreground:
+macos-icon-ghost-color = #babbf1
+# Replace the official icon's blue background with the designated bright blue color:
+macos-icon-screen-color = #8caaee

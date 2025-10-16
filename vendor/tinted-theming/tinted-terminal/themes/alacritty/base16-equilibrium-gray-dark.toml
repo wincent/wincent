@@ -1,0 +1,58 @@
+# base16 Equilibrium Gray Dark 256 - alacritty color config
+# Carlo Abelli
+
+# Default colors
+[colors.primary]
+background = '0x111111'
+foreground = '0xababab'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x111111'
+cursor = '0xababab'
+
+# Normal colors
+[colors.normal]
+black = '0x1b1b1b'
+red = '0xf04339'
+green = '0x7f8b00'
+yellow = '0xbb8801'
+blue = '0x008dd1'
+magenta = '0x6a7fd2'
+cyan = '0x00948b'
+white = '0xc6c6c6'
+
+# Bright colors
+[colors.bright]
+black = '0x262626'
+red = '0xf04339'
+green = '0x7f8b00'
+yellow = '0xbb8801'
+blue = '0x008dd1'
+magenta = '0x6a7fd2'
+cyan = '0x00948b'
+white = '0xe2e2e2'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xdf5923"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xe3488e"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x1b1b1b"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x262626"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x919191"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xc6c6c6"

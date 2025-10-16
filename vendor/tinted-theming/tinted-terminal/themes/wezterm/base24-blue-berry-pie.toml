@@ -1,0 +1,43 @@
+# base24 Blue Berry Pie
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#1c0b28"
+foreground = "#bbb2ad"
+
+cursor_bg = "#0a4b61"
+cursor_border = "#bbb2ad"
+cursor_fg = "#f0e7d5"
+
+selection_bg = "#bbb2ad"
+selection_fg = "#1f1637"
+
+ansi = [
+  "#1c0b28",
+  "#99236d",
+  "#5bb0b2",
+  "#38163d",
+  "#90a5bc",
+  "#9d53a7",
+  "#7e82cc",
+  "#f0e7d5"
+]
+brights = [
+  "#1f1637",
+  "#c77171",
+  "#0a6b7e",
+  "#793188",
+  "#38163d",
+  "#bc93b6",
+  "#5d5f71",
+  "#0a6b7e"
+]
+
+[colors.indexed]
+16 = "#e9b8a7"
+17 = "#4c1136"
+18 = "#0a4b61"
+19 = "#1f1637"
+20 = "#877e86"
+21 = "#bbb2ad"

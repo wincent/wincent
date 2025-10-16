@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Jabuti by https://github.com/notusknot
+
+[colors]
+selection-background = '#3c3e51' # base02
+selection-foreground = '#c0cbe3' # base05
+
+cursor         = '#c0cbe3' # base05
+tabs           = '#343545' # base01
+tabs-active    = '#3c3e51' # base02
+
+background     = '#292a37' # base00
+foreground     = '#c0cbe3' # base05
+black          = '#343545' # base01
+red            = '#ec6a88' # base08
+yellow         = '#e1c697' # base0A
+green          = '#3fdaa4' # base0B
+cyan           = '#ff7eb6' # base0C
+blue           = '#3fc6de' # base0D
+magenta        = '#be95ff' # base0E
+white          = '#d9e0ee' # base06
+
+dim-foreground   = '#c0cbe3' # base05
+dim-black        = '#343545' # base01
+dim-red          = '#ec6a88' # base08
+dim-yellow       = '#e1c697' # base0A
+dim-green        = '#3fdaa4' # base0B
+dim-cyan         = '#ff7eb6' # base0C
+dim-blue         = '#3fc6de' # base0D
+dim-magenta      = '#be95ff' # base0E
+dim-white        = '#50526b' # base04
+
+light-foreground = '#c0cbe3' # base05
+light-black      = '#3c3e51' # base02
+light-red        = '#ec6a88' # base08
+light-yellow     = '#e1c697' # base0A
+light-green      = '#3fdaa4' # base0B
+light-cyan       = '#ff7eb6' # base0C
+light-blue       = '#3fc6de' # base0D
+light-magenta    = '#be95ff' # base0E
+light-white      = '#ffffff' # base07

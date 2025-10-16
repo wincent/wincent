@@ -1,0 +1,43 @@
+# base16 Oxocarbon Light
+# Scheme author: shaunsingh/IBM
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#f2f4f8"
+foreground = "#393939"
+
+cursor_bg = "#393939"
+cursor_border = "#393939"
+cursor_fg = "#f2f4f8"
+
+selection_bg = "#393939"
+selection_fg = "#525252"
+
+ansi = [
+  "#f2f4f8",
+  "#ff7eb6",
+  "#0f62fe",
+  "#ff6f00",
+  "#42be65",
+  "#be95ff",
+  "#673ab7",
+  "#525252"
+]
+brights = [
+  "#525252",
+  "#ff7eb6",
+  "#0f62fe",
+  "#ff6f00",
+  "#42be65",
+  "#be95ff",
+  "#673ab7",
+  "#08bdba"
+]
+
+[colors.indexed]
+16 = "#ee5396"
+17 = "#37474f"
+18 = "#dde1e6"
+19 = "#525252"
+20 = "#262626"
+21 = "#393939"

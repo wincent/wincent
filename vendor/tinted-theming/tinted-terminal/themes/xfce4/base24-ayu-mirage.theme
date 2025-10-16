@@ -1,0 +1,10 @@
+# Scheme name: Ayu Mirage
+# Scheme author: Tinted Theming (https://github.com/tinted-theming), Ayu Theme (https://github.com/ayu-theme)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-ayu-mirage
+ColorForeground=#cccac2
+ColorBackground=#1f2430
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#242936;#f28779;#d5ff80;#ffd173;#73d0ff;#d4bfff;#95e6cb;#d9d7ce;#323844;#ff6666;#87d963;#ffcc66;#80b0ff;#b692ff;#5ccfe6;#f3f4f5

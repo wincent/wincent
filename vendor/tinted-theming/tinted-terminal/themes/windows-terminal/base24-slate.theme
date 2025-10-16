@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Slate",
+	"foreground": "#42d3e8",
+	"background": "#212121",
+	"black": "#212121",
+	"blue": "#254a49",
+	"brightBlack": "#ffffff",
+	"brightBlue": "#79afd2",
+	"brightCyan": "#8bdee0",
+	"brightGreen": "#bdffa8",
+	"brightPurple": "#c4a7d8",
+	"brightRed": "#ffccd8",
+	"brightWhite": "#e0e0e0",
+	"brightYellow": "#d0cbc9",
+	"cyan": "#14ab9c",
+	"green": "#80d778",
+	"purple": "#a380d3",
+	"red": "#e1a7bf",
+	"white": "#02c4e0",
+	"yellow": "#c4c9bf"
+},

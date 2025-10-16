@@ -1,0 +1,43 @@
+# base24 Alien Blood
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#0f160f"
+foreground = "#5a6f5c"
+
+cursor_bg = "#112615"
+cursor_border = "#5a6f5c"
+cursor_fg = "#647d75"
+
+selection_bg = "#5a6f5c"
+selection_fg = "#3c4711"
+
+ansi = [
+  "#0f160f",
+  "#7f2b26",
+  "#2f7e25",
+  "#00a9df",
+  "#2f697f",
+  "#47577e",
+  "#317f76",
+  "#647d75"
+]
+brights = [
+  "#3c4711",
+  "#df8008",
+  "#18e000",
+  "#bde000",
+  "#00a9df",
+  "#0058df",
+  "#00dfc3",
+  "#73f990"
+]
+
+[colors.indexed]
+16 = "#707f23"
+17 = "#3f1513"
+18 = "#112615"
+19 = "#3c4711"
+20 = "#506243"
+21 = "#5a6f5c"

@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Aztec by TheNeverMan (github.com/TheNeverMan)
+
+[colors]
+selection-background = '#242604' # base02
+selection-foreground = '#ffda51' # base05
+
+cursor         = '#ffda51' # base05
+tabs           = '#1a1e01' # base01
+tabs-active    = '#242604' # base02
+
+background     = '#101600' # base00
+foreground     = '#ffda51' # base05
+black          = '#1a1e01' # base01
+red            = '#ee2e00' # base08
+yellow         = '#eebb00' # base0A
+green          = '#63d932' # base0B
+cyan           = '#3d94a5' # base0C
+blue           = '#5b4a9f' # base0D
+magenta        = '#883e9f' # base0E
+white          = '#ffe178' # base06
+
+dim-foreground   = '#ffda51' # base05
+dim-black        = '#1a1e01' # base01
+dim-red          = '#ee2e00' # base08
+dim-yellow       = '#eebb00' # base0A
+dim-green        = '#63d932' # base0B
+dim-cyan         = '#3d94a5' # base0C
+dim-blue         = '#5b4a9f' # base0D
+dim-magenta      = '#883e9f' # base0E
+dim-white        = '#ffd129' # base04
+
+light-foreground = '#ffda51' # base05
+light-black      = '#242604' # base02
+light-red        = '#ee2e00' # base08
+light-yellow     = '#eebb00' # base0A
+light-green      = '#63d932' # base0B
+light-cyan       = '#3d94a5' # base0C
+light-blue       = '#5b4a9f' # base0D
+light-magenta    = '#883e9f' # base0E
+light-white      = '#ffeba0' # base07

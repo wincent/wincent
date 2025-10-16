@@ -1,0 +1,43 @@
+# base24 Mathias
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#000000"
+foreground = "#cacaca"
+
+cursor_bg = "#000000"
+cursor_border = "#cacaca"
+cursor_fg = "#f2f2f2"
+
+selection_bg = "#cacaca"
+selection_fg = "#555555"
+
+ansi = [
+  "#000000",
+  "#e52222",
+  "#a6e32d",
+  "#5555ff",
+  "#c48dff",
+  "#fa2573",
+  "#67d9f0",
+  "#f2f2f2"
+]
+brights = [
+  "#555555",
+  "#ff5555",
+  "#55ff55",
+  "#ffff55",
+  "#5555ff",
+  "#ff55ff",
+  "#55ffff",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#fc951e"
+17 = "#721111"
+18 = "#000000"
+19 = "#555555"
+20 = "#a3a3a3"
+21 = "#cacaca"

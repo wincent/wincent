@@ -1,0 +1,70 @@
+# Global
+/.github/* @tinted-theming/terminal
+LICENSE @tinted-theming/terminal
+README.md @tinted-theming/terminal
+
+# Alacritty
+/templates/alacritty-* @tinted-theming/alacritty-terminal
+/themes/alacritty/* @tinted-theming/alacritty-terminal
+/assets/alacritty-icon.svg @tinted-theming/alacritty-terminal
+
+# ConEmu
+/templates/conemu-* @tinted-theming/conemu-terminal
+/themes/conemu/* @tinted-theming/conemu-terminal
+/scripts/Install-ConEmuTheme.ps1 @tinted-theming/conemu-terminal
+/assets/conemu-icon.png @tinted-theming/conemu-terminal
+
+# Foot
+/templates/foot-* @tinted-theming/foot-terminal
+/themes/foot/* @tinted-theming/foot-terminal
+/assets/foot-icon.svg @tinted-theming/foot-terminal
+
+# Ghostty
+/templates/ghostty-* @tinted-theming/ghostty-terminal
+/themes/ghostty/* @tinted-theming/ghostty-terminal
+/assets/ghostty-icon.png @tinted-theming/ghostty-terminal
+
+# iTerm2
+/templates/iterm2-* @tinted-theming/iterm2-terminal
+/themes/iterm2/* @tinted-theming/iterm2-terminal
+/themes-16/iterm2-scripts/* @tinted-theming/iterm2-terminal
+/assets/iterm2-icon.png @tinted-theming/iterm2-terminal
+
+# Kermit
+/templates/kermit-* @tinted-theming/kermit-terminal
+/themes-16/kermit/* @tinted-theming/kermit-terminal
+
+# Kitty
+/templates/kitty-* @tinted-theming/kitty-terminal
+/themes/kitty/* @tinted-theming/kitty-terminal
+/assets/kitty-icon.svg @tinted-theming/kitty-terminal
+
+# PuTTY
+/templates/putty-* @tinted-theming/putty-terminal
+/themes/putty/* @tinted-theming/putty-terminal
+/assets/putty-icon.svg @tinted-theming/putty-terminal
+
+# Rio
+/templates/rio-* @tinted-theming/rio-terminal
+/themes-16/rio/* @tinted-theming/rio-terminal
+/assets/rio-icon.svg @tinted-theming/rio-terminal
+
+# st
+/templates/st-* @tinted-theming/st-terminal
+/themes/st/* @tinted-theming/st-terminal
+
+# Termite
+/templates/termite-* @tinted-theming/termite-terminal
+/themes/termite/* @tinted-theming/termite-terminal
+
+# WezTerm
+/templates/wezterm-* @tinted-theming/wezterm-terminal
+/themes/wezterm/* @tinted-theming/wezterm-terminal
+
+# Windows Terminal
+/templates/windows-terminal-* @tinted-theming/windows-terminal
+/themes/windows-terminal/* @tinted-theming/windows-terminal
+
+# XFCE4
+/templates/xfce4-* @tinted-theming/xfce4-terminal
+/themes/xfce4/* @tinted-theming/xfce4-terminal

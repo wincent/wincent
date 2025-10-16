@@ -1,0 +1,43 @@
+# base16 Materia
+# Scheme author: Defman21
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#263238"
+foreground = "#cdd3de"
+
+cursor_bg = "#cdd3de"
+cursor_border = "#cdd3de"
+cursor_fg = "#263238"
+
+selection_bg = "#cdd3de"
+selection_fg = "#37474f"
+
+ansi = [
+  "#263238",
+  "#ec5f67",
+  "#8bd649",
+  "#ffcc00",
+  "#89ddff",
+  "#82aaff",
+  "#80cbc4",
+  "#d5dbe5"
+]
+brights = [
+  "#37474f",
+  "#ec5f67",
+  "#8bd649",
+  "#ffcc00",
+  "#89ddff",
+  "#82aaff",
+  "#80cbc4",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#ea9560"
+17 = "#ec5f67"
+18 = "#2c393f"
+19 = "#37474f"
+20 = "#c9ccd3"
+21 = "#cdd3de"

@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "London Tube",
+	"foreground": "#d9d8d8",
+	"background": "#231f20",
+	"black": "#1c3f95",
+	"blue": "#009ddc",
+	"brightBlack": "#5a5758",
+	"brightBlue": "#009ddc",
+	"brightCyan": "#85cebc",
+	"brightGreen": "#00853e",
+	"brightPurple": "#98005d",
+	"brightRed": "#ee2e24",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#ffd204",
+	"cyan": "#85cebc",
+	"green": "#00853e",
+	"purple": "#98005d",
+	"red": "#ee2e24",
+	"white": "#e7e7e8",
+	"yellow": "#f386a1"
+},

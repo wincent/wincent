@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Arthur by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#554444' # base02
+selection-foreground = '#a19083' # base05
+
+cursor         = '#a19083' # base05
+tabs           = '#3d352a' # base01
+tabs-active    = '#554444' # base02
+
+background     = '#1c1c1c' # base00
+foreground     = '#a19083' # base05
+black          = '#3d352a' # base01
+red            = '#cd5c5c' # base08
+yellow         = '#87ceeb' # base0A
+green          = '#86af80' # base0B
+cyan           = '#b0c4de' # base0C
+blue           = '#6495ed' # base0D
+magenta        = '#deb887' # base0E
+white          = '#bbaa99' # base06
+
+dim-foreground   = '#a19083' # base05
+dim-black        = '#3d352a' # base01
+dim-red          = '#cd5c5c' # base08
+dim-yellow       = '#87ceeb' # base0A
+dim-green        = '#86af80' # base0B
+dim-cyan         = '#b0c4de' # base0C
+dim-blue         = '#6495ed' # base0D
+dim-magenta      = '#deb887' # base0E
+dim-white        = '#88776e' # base04
+
+light-foreground = '#a19083' # base05
+light-black      = '#554444' # base02
+light-red        = '#cc5533' # base12
+light-yellow     = '#ffa75d' # base13
+light-green      = '#88aa22' # base14
+light-cyan       = '#b0c4de' # base15
+light-blue       = '#87ceeb' # base16
+light-magenta    = '#996600' # base17
+light-white      = '#ddccbb' # base07

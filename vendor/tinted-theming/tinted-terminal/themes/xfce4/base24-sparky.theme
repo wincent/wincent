@@ -1,0 +1,10 @@
+# Scheme name: Sparky
+# Scheme author: Leila Sother (https://github.com/mixcoac)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-sparky
+ColorForeground=#f4f5f0
+ColorBackground=#072b31
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#00313c;#ff585d;#78d64b;#fbdd40;#4698cb;#d59ed7;#2dccd3;#f5f5f1;#003c46;#ff7276;#8edd65;#f6eb61;#69b3e7;#f99fc9;#00c1d5;#ffffff

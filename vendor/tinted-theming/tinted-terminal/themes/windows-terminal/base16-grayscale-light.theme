@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Grayscale Light",
+	"foreground": "#464646",
+	"background": "#f7f7f7",
+	"black": "#e3e3e3",
+	"blue": "#686868",
+	"brightBlack": "#b9b9b9",
+	"brightBlue": "#686868",
+	"brightCyan": "#868686",
+	"brightGreen": "#8e8e8e",
+	"brightPurple": "#747474",
+	"brightRed": "#7c7c7c",
+	"brightWhite": "#101010",
+	"brightYellow": "#a0a0a0",
+	"cyan": "#868686",
+	"green": "#8e8e8e",
+	"purple": "#747474",
+	"red": "#7c7c7c",
+	"white": "#252525",
+	"yellow": "#999999"
+},

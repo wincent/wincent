@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Chinoiserie Morandi
+; Scheme system: base16
+; Scheme description: A variant of Tomorrow scheme from https://github.com/stonebuddha/base16-chinoiserie-scheme
+; Scheme author: Di Wang (https://cs.cmu.edu/~diw3)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base16-chinoiserie-morandi]
+
+; Default Foreground
+; base05 #c4cbcf
+"Colour0"="196,203,207"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #c4cbcf
+"Colour1"="196,203,207"
+
+; Default Background
+; base00 #1d1d1d
+"Colour2"="29,29,29"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #1d1d1d
+"Colour3"="29,29,29"
+
+; Cursor Text -- equals to default background
+; base00 #1d1d1d
+"Colour4"="29,29,29"
+
+; Cursor Colour -- equals to default foreground
+; base05 #c4cbcf
+"Colour5"="196,203,207"
+
+; ANSI Black
+; 30m
+; base01 #282828
+"Colour6"="40,40,40"
+
+; ANSI Black Bright
+; 1;30m
+; base02 #373737
+"Colour7"="55,55,55"
+
+; ANSI Red
+; 31m
+; base08 #c06061
+"Colour8"="192,96,97"
+
+; ANSI Red Bright
+; 1;31m
+; base08 #c06061
+"Colour9"="192,96,97"
+
+; ANSI Green
+; 32m
+; base0B #8ca07b
+"Colour10"="140,160,123"
+
+; ANSI Green Bright
+; 1;32m
+; base0B #8ca07b
+"Colour11"="140,160,123"
+
+; ANSI Yellow
+; 33m
+; base0A #e5bc84
+"Colour12"="229,188,132"
+
+; ANSI Yellow Bright
+; 1;33m
+; base0A #e5bc84
+"Colour13"="229,188,132"
+
+; ANSI Blue
+; 34m
+; base0D #839ec9
+"Colour14"="131,158,201"
+
+; ANSI Blue Bright
+; 1;34m
+; base0D #839ec9
+"Colour15"="131,158,201"
+
+; ANSI Magenta
+; 35m
+; base0E #98a1d8
+"Colour16"="152,161,216"
+
+; ANSI Magenta Bright
+; 1;35m
+; base0E #98a1d8
+"Colour17"="152,161,216"
+
+; ANSI Cyan
+; 36m
+; base0C #5e8c9b
+"Colour18"="94,140,155"
+
+; ANSI Cyan Bright
+; 1;36m
+; base0C #5e8c9b
+"Colour19"="94,140,155"
+
+; ANSI White
+; 37m
+; base06 #eee7f2
+"Colour20"="238,231,242"
+
+; ANSI White Bright
+; 1;37m
+; base07 fffef9
+"Colour21"="255,254,249"

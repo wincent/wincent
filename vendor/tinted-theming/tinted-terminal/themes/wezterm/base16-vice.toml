@@ -1,0 +1,43 @@
+# base16 vice
+# Scheme author: Thomas Leon Highbaugh thighbaugh@zoho.com
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#17191e"
+foreground = "#8b9cbe"
+
+cursor_bg = "#8b9cbe"
+cursor_border = "#8b9cbe"
+cursor_fg = "#17191e"
+
+selection_bg = "#8b9cbe"
+selection_fg = "#3c3f4c"
+
+ansi = [
+  "#17191e",
+  "#ff29a8",
+  "#0badff",
+  "#f0ffaa",
+  "#00eaff",
+  "#00f6d9",
+  "#8265ff",
+  "#b2bfd9"
+]
+brights = [
+  "#3c3f4c",
+  "#ff29a8",
+  "#0badff",
+  "#f0ffaa",
+  "#00eaff",
+  "#00f6d9",
+  "#8265ff",
+  "#f4f4f7"
+]
+
+[colors.indexed]
+16 = "#85ffe0"
+17 = "#ff3d81"
+18 = "#22262d"
+19 = "#3c3f4c"
+20 = "#555e70"
+21 = "#8b9cbe"

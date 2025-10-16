@@ -1,0 +1,43 @@
+# base16 Zenburn
+# Scheme author: elnawe
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#383838"
+foreground = "#dcdccc"
+
+cursor_bg = "#dcdccc"
+cursor_border = "#dcdccc"
+cursor_fg = "#383838"
+
+selection_bg = "#dcdccc"
+selection_fg = "#606060"
+
+ansi = [
+  "#383838",
+  "#dca3a3",
+  "#5f7f5f",
+  "#e0cf9f",
+  "#7cb8bb",
+  "#dc8cc3",
+  "#93e0e3",
+  "#c0c0c0"
+]
+brights = [
+  "#606060",
+  "#dca3a3",
+  "#5f7f5f",
+  "#e0cf9f",
+  "#7cb8bb",
+  "#dc8cc3",
+  "#93e0e3",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#dfaf8f"
+17 = "#000000"
+18 = "#404040"
+19 = "#606060"
+20 = "#808080"
+21 = "#dcdccc"

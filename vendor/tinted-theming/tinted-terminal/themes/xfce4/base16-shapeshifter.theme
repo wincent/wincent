@@ -1,0 +1,10 @@
+# Scheme name: Shapeshifter
+# Scheme author: Tyler Benziger (http://tybenz.com)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-shapeshifter
+ColorForeground=#102015
+ColorBackground=#f9f9f9
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#e0e0e0;#e92f2f;#0ed839;#dddd13;#3b48e3;#f996e2;#23edda;#040404;#ababab;#e92f2f;#0ed839;#dddd13;#3b48e3;#f996e2;#23edda;#000000

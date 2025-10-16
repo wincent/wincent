@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Scarlet Protocol by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#676767' # base02
+selection-foreground = '#afafaf' # base05
+
+cursor         = '#afafaf' # base05
+tabs           = '#101116' # base01
+tabs-active    = '#676767' # base02
+
+background     = '#1b153c' # base00
+foreground     = '#afafaf' # base05
+black          = '#101116' # base01
+red            = '#ff0051' # base08
+yellow         = '#6871ff' # base0A
+green          = '#00dc84' # base0B
+cyan           = '#00c5c7' # base0C
+blue           = '#0271b6' # base0D
+magenta        = '#c930c7' # base0E
+white          = '#c7c7c7' # base06
+
+dim-foreground   = '#afafaf' # base05
+dim-black        = '#101116' # base01
+dim-red          = '#ff0051' # base08
+dim-yellow       = '#6871ff' # base0A
+dim-green        = '#00dc84' # base0B
+dim-cyan         = '#00c5c7' # base0C
+dim-blue         = '#0271b6' # base0D
+dim-magenta      = '#c930c7' # base0E
+dim-white        = '#979797' # base04
+
+light-foreground = '#afafaf' # base05
+light-black      = '#676767' # base02
+light-red        = '#ff6d67' # base12
+light-yellow     = '#fefb67' # base13
+light-green      = '#5ff967' # base14
+light-cyan       = '#5ffdff' # base15
+light-blue       = '#6871ff' # base16
+light-magenta    = '#bc35eb' # base17
+light-white      = '#feffff' # base07

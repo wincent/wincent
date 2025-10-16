@@ -1,0 +1,43 @@
+# base16 Precious Dark Fifteen
+# Scheme author: 4lex4 &lt;4lex49@zoho.com&gt;
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#23262b"
+foreground = "#bab9b6"
+
+cursor_bg = "#bab9b6"
+cursor_border = "#bab9b6"
+cursor_fg = "#23262b"
+
+selection_bg = "#bab9b6"
+selection_fg = "#3e4044"
+
+ansi = [
+  "#23262b",
+  "#ff8782",
+  "#95b659",
+  "#cfa546",
+  "#66b0ef",
+  "#b799ff",
+  "#42bda7",
+  "#bab9b6"
+]
+brights = [
+  "#3e4044",
+  "#ff8782",
+  "#95b659",
+  "#cfa546",
+  "#66b0ef",
+  "#b799ff",
+  "#42bda7",
+  "#bab9b6"
+]
+
+[colors.indexed]
+16 = "#e99857"
+17 = "#f382d8"
+18 = "#303337"
+19 = "#3e4044"
+20 = "#abaaa8"
+21 = "#bab9b6"

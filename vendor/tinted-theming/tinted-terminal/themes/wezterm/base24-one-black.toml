@@ -1,0 +1,43 @@
+# base24 One Black
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#000000"
+foreground = "#abb2bf"
+
+cursor_bg = "#000000"
+cursor_border = "#abb2bf"
+cursor_fg = "#e6e6e6"
+
+selection_bg = "#abb2bf"
+selection_fg = "#4f5666"
+
+ansi = [
+  "#000000",
+  "#e05561",
+  "#8cc265",
+  "#e6b965",
+  "#4aa5f0",
+  "#c162de",
+  "#42b3c2",
+  "#e6e6e6"
+]
+brights = [
+  "#4f5666",
+  "#ff616e",
+  "#a5e075",
+  "#f0a45d",
+  "#4dc4ff",
+  "#de73ff",
+  "#4cd1e0",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#d18f52"
+17 = "#bf4034"
+18 = "#000000"
+19 = "#4f5666"
+20 = "#9196a1"
+21 = "#abb2bf"

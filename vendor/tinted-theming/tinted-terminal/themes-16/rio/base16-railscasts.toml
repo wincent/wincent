@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Railscasts by Ryan Bates (http://railscasts.com)
+
+[colors]
+selection-background = '#3a4055' # base02
+selection-foreground = '#e6e1dc' # base05
+
+cursor         = '#e6e1dc' # base05
+tabs           = '#272935' # base01
+tabs-active    = '#3a4055' # base02
+
+background     = '#2b2b2b' # base00
+foreground     = '#e6e1dc' # base05
+black          = '#272935' # base01
+red            = '#da4939' # base08
+yellow         = '#ffc66d' # base0A
+green          = '#a5c261' # base0B
+cyan           = '#519f50' # base0C
+blue           = '#6d9cbe' # base0D
+magenta        = '#b6b3eb' # base0E
+white          = '#f4f1ed' # base06
+
+dim-foreground   = '#e6e1dc' # base05
+dim-black        = '#272935' # base01
+dim-red          = '#da4939' # base08
+dim-yellow       = '#ffc66d' # base0A
+dim-green        = '#a5c261' # base0B
+dim-cyan         = '#519f50' # base0C
+dim-blue         = '#6d9cbe' # base0D
+dim-magenta      = '#b6b3eb' # base0E
+dim-white        = '#d4cfc9' # base04
+
+light-foreground = '#e6e1dc' # base05
+light-black      = '#3a4055' # base02
+light-red        = '#da4939' # base08
+light-yellow     = '#ffc66d' # base0A
+light-green      = '#a5c261' # base0B
+light-cyan       = '#519f50' # base0C
+light-blue       = '#6d9cbe' # base0D
+light-magenta    = '#b6b3eb' # base0E
+light-white      = '#f9f7f3' # base07

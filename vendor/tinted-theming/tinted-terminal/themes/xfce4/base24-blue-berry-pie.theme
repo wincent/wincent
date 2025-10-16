@@ -1,0 +1,10 @@
+# Scheme name: Blue Berry Pie
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-blue-berry-pie
+ColorForeground=#bbb2ad
+ColorBackground=#1c0b28
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#0a4b61;#99236d;#5bb0b2;#38163d;#90a5bc;#9d53a7;#7e82cc;#f0e7d5;#1f1637;#c77171;#0a6b7e;#793188;#38163d;#bc93b6;#5d5f71;#0a6b7e

@@ -1,0 +1,58 @@
+# base24 Laser 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x030d18'
+foreground = '0xd8d8d8'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x030d18'
+cursor = '0xd8d8d8'
+
+# Normal colors
+[colors.normal]
+black = '0x616161'
+red = '0xff8272'
+green = '0xb4fa72'
+yellow = '0xf92883'
+blue = '0xfed300'
+magenta = '0xff8ffd'
+cyan = '0xd0d1fe'
+white = '0xf1f1f1'
+
+# Bright colors
+[colors.bright]
+black = '0x8e8e8e'
+red = '0xffc4bd'
+green = '0xd6fcb9'
+yellow = '0xfefdd5'
+blue = '0xf92883'
+magenta = '0xffb1fe'
+cyan = '0xe5e6fe'
+white = '0xfeffff'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0x09b4bd"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x7f4139"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x616161"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x8e8e8e"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0xbfbfbf"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xf1f1f1"

@@ -1,0 +1,43 @@
+# base16 Monokai
+# Scheme author: Wimer Hazenberg (http://www.monokai.nl)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#272822"
+foreground = "#f8f8f2"
+
+cursor_bg = "#f8f8f2"
+cursor_border = "#f8f8f2"
+cursor_fg = "#272822"
+
+selection_bg = "#f8f8f2"
+selection_fg = "#49483e"
+
+ansi = [
+  "#272822",
+  "#f92672",
+  "#a6e22e",
+  "#f4bf75",
+  "#66d9ef",
+  "#ae81ff",
+  "#a1efe4",
+  "#f5f4f1"
+]
+brights = [
+  "#49483e",
+  "#f92672",
+  "#a6e22e",
+  "#f4bf75",
+  "#66d9ef",
+  "#ae81ff",
+  "#a1efe4",
+  "#f9f8f5"
+]
+
+[colors.indexed]
+16 = "#fd971f"
+17 = "#cc6633"
+18 = "#383830"
+19 = "#49483e"
+20 = "#a59f85"
+21 = "#f8f8f2"

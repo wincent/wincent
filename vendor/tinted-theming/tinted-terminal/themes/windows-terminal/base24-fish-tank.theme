@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Fish Tank",
+	"foreground": "#ccc9c9",
+	"background": "#222436",
+	"black": "#03063c",
+	"blue": "#525fb8",
+	"brightBlack": "#6c5a30",
+	"brightBlue": "#b1bdf9",
+	"brightCyan": "#a4bc86",
+	"brightGreen": "#daffa8",
+	"brightPurple": "#fda4cc",
+	"brightRed": "#d94a8a",
+	"brightWhite": "#f6ffec",
+	"brightYellow": "#fee6a8",
+	"cyan": "#968662",
+	"green": "#abf157",
+	"purple": "#976f81",
+	"red": "#c60049",
+	"white": "#eceffc",
+	"yellow": "#fdcd5e"
+},

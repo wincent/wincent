@@ -1,0 +1,10 @@
+# Scheme name: Rosé Pine Dawn
+# Scheme author: Emilia Dunfelt &lt;edun@dunfelt.se&gt;
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-rose-pine-dawn
+ColorForeground=#575279
+ColorBackground=#faf4ed
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#fffaf3;#b4637a;#286983;#d7827e;#907aa9;#ea9d34;#56949f;#575279;#f2e9de;#b4637a;#286983;#d7827e;#907aa9;#ea9d34;#56949f;#cecacd

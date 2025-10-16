@@ -1,0 +1,58 @@
+# base24 Dimmed Monokai 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x1e1e1e'
+foreground = '0xacafac'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x1e1e1e'
+cursor = '0xacafac'
+
+# Normal colors
+[colors.normal]
+black = '0x3a3c43'
+red = '0xbe3e48'
+green = '0x869a3a'
+yellow = '0x176ce3'
+blue = '0x4e76a1'
+magenta = '0x855b8d'
+cyan = '0x568ea3'
+white = '0xb8bcb9'
+
+# Bright colors
+[colors.bright]
+black = '0x888987'
+red = '0xfb001e'
+green = '0x0e712e'
+yellow = '0xc37033'
+blue = '0x176ce3'
+magenta = '0xfb0067'
+cyan = '0x2d6f6c'
+white = '0xfcffb8'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xc4a535"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x5f1f24"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x3a3c43"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x888987"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0xa0a2a0"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xb8bcb9"

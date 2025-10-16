@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Green Screen by Chris Kempson (http://chriskempson.com)
+
+[colors]
+selection-background = '#005500' # base02
+selection-foreground = '#00bb00' # base05
+
+cursor         = '#00bb00' # base05
+tabs           = '#003300' # base01
+tabs-active    = '#005500' # base02
+
+background     = '#001100' # base00
+foreground     = '#00bb00' # base05
+black          = '#003300' # base01
+red            = '#007700' # base08
+yellow         = '#007700' # base0A
+green          = '#00bb00' # base0B
+cyan           = '#005500' # base0C
+blue           = '#009900' # base0D
+magenta        = '#00bb00' # base0E
+white          = '#00dd00' # base06
+
+dim-foreground   = '#00bb00' # base05
+dim-black        = '#003300' # base01
+dim-red          = '#007700' # base08
+dim-yellow       = '#007700' # base0A
+dim-green        = '#00bb00' # base0B
+dim-cyan         = '#005500' # base0C
+dim-blue         = '#009900' # base0D
+dim-magenta      = '#00bb00' # base0E
+dim-white        = '#009900' # base04
+
+light-foreground = '#00bb00' # base05
+light-black      = '#005500' # base02
+light-red        = '#007700' # base08
+light-yellow     = '#007700' # base0A
+light-green      = '#00bb00' # base0B
+light-cyan       = '#005500' # base0C
+light-blue       = '#009900' # base0D
+light-magenta    = '#00bb00' # base0E
+light-white      = '#00ff00' # base07

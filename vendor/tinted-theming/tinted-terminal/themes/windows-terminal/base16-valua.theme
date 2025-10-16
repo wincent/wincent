@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Valua",
+	"foreground": "#98c1a3",
+	"background": "#131f1f",
+	"black": "#213132",
+	"blue": "#4ed2d2",
+	"brightBlack": "#273d3c",
+	"brightBlue": "#4ed2d2",
+	"brightCyan": "#76dbd2",
+	"brightGreen": "#59d678",
+	"brightPurple": "#a874e0",
+	"brightRed": "#d7586e",
+	"brightWhite": "#aacbcb",
+	"brightYellow": "#dfe754",
+	"cyan": "#76dbd2",
+	"green": "#59d678",
+	"purple": "#a874e0",
+	"red": "#d7586e",
+	"white": "#a5cbb9",
+	"yellow": "#e6b466"
+},

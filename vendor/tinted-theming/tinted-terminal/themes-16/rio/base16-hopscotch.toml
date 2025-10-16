@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Hopscotch by Jan T. Sott
+
+[colors]
+selection-background = '#5c545b' # base02
+selection-foreground = '#b9b5b8' # base05
+
+cursor         = '#b9b5b8' # base05
+tabs           = '#433b42' # base01
+tabs-active    = '#5c545b' # base02
+
+background     = '#322931' # base00
+foreground     = '#b9b5b8' # base05
+black          = '#433b42' # base01
+red            = '#dd464c' # base08
+yellow         = '#fdcc59' # base0A
+green          = '#8fc13e' # base0B
+cyan           = '#149b93' # base0C
+blue           = '#1290bf' # base0D
+magenta        = '#c85e7c' # base0E
+white          = '#d5d3d5' # base06
+
+dim-foreground   = '#b9b5b8' # base05
+dim-black        = '#433b42' # base01
+dim-red          = '#dd464c' # base08
+dim-yellow       = '#fdcc59' # base0A
+dim-green        = '#8fc13e' # base0B
+dim-cyan         = '#149b93' # base0C
+dim-blue         = '#1290bf' # base0D
+dim-magenta      = '#c85e7c' # base0E
+dim-white        = '#989498' # base04
+
+light-foreground = '#b9b5b8' # base05
+light-black      = '#5c545b' # base02
+light-red        = '#dd464c' # base08
+light-yellow     = '#fdcc59' # base0A
+light-green      = '#8fc13e' # base0B
+light-cyan       = '#149b93' # base0C
+light-blue       = '#1290bf' # base0D
+light-magenta    = '#c85e7c' # base0E
+light-white      = '#ffffff' # base07

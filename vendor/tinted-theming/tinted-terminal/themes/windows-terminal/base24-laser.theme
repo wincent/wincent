@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Laser",
+	"foreground": "#d8d8d8",
+	"background": "#030d18",
+	"black": "#616161",
+	"blue": "#fed300",
+	"brightBlack": "#8e8e8e",
+	"brightBlue": "#f92883",
+	"brightCyan": "#e5e6fe",
+	"brightGreen": "#d6fcb9",
+	"brightPurple": "#ffb1fe",
+	"brightRed": "#ffc4bd",
+	"brightWhite": "#feffff",
+	"brightYellow": "#fefdd5",
+	"cyan": "#d0d1fe",
+	"green": "#b4fa72",
+	"purple": "#ff8ffd",
+	"red": "#ff8272",
+	"white": "#f1f1f1",
+	"yellow": "#09b4bd"
+},

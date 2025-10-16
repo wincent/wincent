@@ -1,0 +1,43 @@
+# base16 Zenbones
+# Scheme author: mcchrish
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#191919"
+foreground = "#b279a7"
+
+cursor_bg = "#b279a7"
+cursor_border = "#b279a7"
+cursor_fg = "#191919"
+
+selection_bg = "#b279a7"
+selection_fg = "#819b69"
+
+ansi = [
+  "#191919",
+  "#3d3839",
+  "#d68c67",
+  "#8bae68",
+  "#cf86c1",
+  "#65b8c1",
+  "#61abda",
+  "#66a5ad"
+]
+brights = [
+  "#819b69",
+  "#3d3839",
+  "#d68c67",
+  "#8bae68",
+  "#cf86c1",
+  "#65b8c1",
+  "#61abda",
+  "#bbbbbb"
+]
+
+[colors.indexed]
+16 = "#e8838f"
+17 = "#8e8e8e"
+18 = "#de6e7c"
+19 = "#819b69"
+20 = "#6099c0"
+21 = "#b279a7"

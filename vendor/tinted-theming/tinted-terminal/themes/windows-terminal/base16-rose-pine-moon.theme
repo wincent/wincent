@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Rosé Pine Moon",
+	"foreground": "#e0def4",
+	"background": "#232136",
+	"black": "#2a273f",
+	"blue": "#c4a7e7",
+	"brightBlack": "#393552",
+	"brightBlue": "#c4a7e7",
+	"brightCyan": "#9ccfd8",
+	"brightGreen": "#3e8fb0",
+	"brightPurple": "#f6c177",
+	"brightRed": "#eb6f92",
+	"brightWhite": "#56526e",
+	"brightYellow": "#ea9a97",
+	"cyan": "#9ccfd8",
+	"green": "#3e8fb0",
+	"purple": "#f6c177",
+	"red": "#eb6f92",
+	"white": "#e0def4",
+	"yellow": "#f6c177"
+},

@@ -1,0 +1,10 @@
+# Scheme name: Obsidian
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-obsidian
+ColorForeground=#a1a1a1
+ColorBackground=#273032
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#000000;#a50001;#00bb00;#a0d6ff;#399bda;#bb00bb;#00bbbb;#bbbbbb;#555555;#ff0003;#92c763;#fef773;#a0d6ff;#ff55ff;#55ffff;#ffffff

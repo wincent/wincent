@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Monokai Vivid
+; Scheme system: base24
+; Scheme description: 
+; Scheme author: FredHappyface (https://github.com/fredHappyface)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base24-monokai-vivid]
+
+; Default Foreground
+; base05 #dfdfdf
+"Colour0"="223,223,223"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #dfdfdf
+"Colour1"="223,223,223"
+
+; Default Background
+; base00 #121212
+"Colour2"="18,18,18"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #121212
+"Colour3"="18,18,18"
+
+; Cursor Text -- equals to default background
+; base00 #121212
+"Colour4"="18,18,18"
+
+; Cursor Colour -- equals to default foreground
+; base05 #dfdfdf
+"Colour5"="223,223,223"
+
+; ANSI Black
+; 30m
+; base01 #121212
+"Colour6"="18,18,18"
+
+; ANSI Black Bright
+; 1;30m
+; base02 #828282
+"Colour7"="130,130,130"
+
+; ANSI Red
+; 31m
+; base08 #fa2834
+"Colour8"="250,40,52"
+
+; ANSI Red Bright
+; 1;31m
+; base12 #f5669c
+"Colour9"="245,102,156"
+
+; ANSI Green
+; 32m
+; base0B #97e123
+"Colour10"="151,225,35"
+
+; ANSI Green Bright
+; 1;32m
+; base14 #b0e05e
+"Colour11"="176,224,94"
+
+; ANSI Yellow
+; 33m
+; base0A #0442fe
+"Colour12"="4,66,254"
+
+; ANSI Yellow Bright
+; 1;33m
+; base13 #fef26c
+"Colour13"="254,242,108"
+
+; ANSI Blue
+; 34m
+; base0D #0442fe
+"Colour14"="4,66,254"
+
+; ANSI Blue Bright
+; 1;34m
+; base16 #0442fe
+"Colour15"="4,66,254"
+
+; ANSI Magenta
+; 35m
+; base0E #f800f8
+"Colour16"="248,0,248"
+
+; ANSI Magenta Bright
+; 1;35m
+; base17 #f200f5
+"Colour17"="242,0,245"
+
+; ANSI Cyan
+; 36m
+; base0C #01b6ed
+"Colour18"="1,182,237"
+
+; ANSI Cyan Bright
+; 1;36m
+; base15 #50cdfe
+"Colour19"="80,205,254"
+
+; ANSI White
+; 37m
+; base06 #fffefe
+"Colour20"="255,254,254"
+
+; ANSI White Bright
+; 1;37m
+; base07 ffffff
+"Colour21"="255,255,255"

@@ -1,0 +1,43 @@
+# base24 Cyberdyne
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#151144"
+foreground = "#c0c0c0"
+
+cursor_bg = "#080808"
+cursor_border = "#c0c0c0"
+cursor_fg = "#f1f1f1"
+
+selection_bg = "#c0c0c0"
+selection_fg = "#2d2d2d"
+
+ansi = [
+  "#151144",
+  "#ff8272",
+  "#00c172",
+  "#c1e3fe",
+  "#0071cf",
+  "#ff8ffd",
+  "#6bffdc",
+  "#f1f1f1"
+]
+brights = [
+  "#2d2d2d",
+  "#ffc4bd",
+  "#d6fcb9",
+  "#fefdd5",
+  "#c1e3fe",
+  "#ffb1fe",
+  "#e5e6fe",
+  "#feffff"
+]
+
+[colors.indexed]
+16 = "#d2a700"
+17 = "#7f4139"
+18 = "#080808"
+19 = "#2d2d2d"
+20 = "#8f8f8f"
+21 = "#c0c0c0"

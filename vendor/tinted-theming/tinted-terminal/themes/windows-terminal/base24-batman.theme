@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Batman",
+	"foreground": "#a7a8a3",
+	"background": "#1b1d1e",
+	"black": "#1b1d1e",
+	"blue": "#737074",
+	"brightBlack": "#505354",
+	"brightBlue": "#909495",
+	"brightCyan": "#a2a2a5",
+	"brightGreen": "#fff27c",
+	"brightPurple": "#9a999d",
+	"brightRed": "#fff68d",
+	"brightWhite": "#dadad5",
+	"brightYellow": "#feed6c",
+	"cyan": "#615f5e",
+	"green": "#c8be46",
+	"purple": "#737271",
+	"red": "#e6db43",
+	"white": "#c5c5be",
+	"yellow": "#f3fd21"
+},

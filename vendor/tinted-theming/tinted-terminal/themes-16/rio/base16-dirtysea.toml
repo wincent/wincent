@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: dirtysea by Kahlil (Kal) Hodgson
+
+[colors]
+selection-background = '#d0d0d0' # base02
+selection-foreground = '#000000' # base05
+
+cursor         = '#000000' # base05
+tabs           = '#d0dad0' # base01
+tabs-active    = '#d0d0d0' # base02
+
+background     = '#e0e0e0' # base00
+foreground     = '#000000' # base05
+black          = '#d0dad0' # base01
+red            = '#840000' # base08
+yellow         = '#755b00' # base0A
+green          = '#730073' # base0B
+cyan           = '#755b00' # base0C
+blue           = '#007300' # base0D
+magenta        = '#000090' # base0E
+white          = '#f8f8f8' # base06
+
+dim-foreground   = '#000000' # base05
+dim-black        = '#d0dad0' # base01
+dim-red          = '#840000' # base08
+dim-yellow       = '#755b00' # base0A
+dim-green        = '#730073' # base0B
+dim-cyan         = '#755b00' # base0C
+dim-blue         = '#007300' # base0D
+dim-magenta      = '#000090' # base0E
+dim-white        = '#202020' # base04
+
+light-foreground = '#000000' # base05
+light-black      = '#d0d0d0' # base02
+light-red        = '#840000' # base08
+light-yellow     = '#755b00' # base0A
+light-green      = '#730073' # base0B
+light-cyan       = '#755b00' # base0C
+light-blue       = '#007300' # base0D
+light-magenta    = '#000090' # base0E
+light-white      = '#c4d9c4' # base07

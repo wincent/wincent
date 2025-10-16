@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Tokyodark Terminal",
+	"foreground": "#a0a8cd",
+	"background": "#11121d",
+	"black": "#1a1b2a",
+	"blue": "#7199ee",
+	"brightBlack": "#212234",
+	"brightBlue": "#7199ee",
+	"brightCyan": "#38a89d",
+	"brightGreen": "#95c561",
+	"brightPurple": "#a485dd",
+	"brightRed": "#ee6d85",
+	"brightWhite": "#a0a8cd",
+	"brightYellow": "#d7a65f",
+	"cyan": "#38a89d",
+	"green": "#95c561",
+	"purple": "#a485dd",
+	"red": "#ee6d85",
+	"white": "#a0a8cd",
+	"yellow": "#f6955b"
+},

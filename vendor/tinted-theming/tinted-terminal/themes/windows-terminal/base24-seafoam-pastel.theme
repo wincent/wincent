@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Seafoam Pastel",
+	"foreground": "#cacaca",
+	"background": "#243434",
+	"black": "#757575",
+	"blue": "#4d7b82",
+	"brightBlack": "#8a8a8a",
+	"brightBlue": "#79c3cf",
+	"brightCyan": "#ade0e0",
+	"brightGreen": "#98d9aa",
+	"brightPurple": "#d6b2a1",
+	"brightRed": "#cf9379",
+	"brightWhite": "#e0e0e0",
+	"brightYellow": "#fae79d",
+	"cyan": "#719393",
+	"green": "#718c61",
+	"purple": "#8a7167",
+	"red": "#825d4d",
+	"white": "#e0e0e0",
+	"yellow": "#ada16d"
+},

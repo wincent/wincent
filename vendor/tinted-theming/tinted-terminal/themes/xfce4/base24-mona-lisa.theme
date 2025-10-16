@@ -1,0 +1,10 @@
+# Scheme name: Mona Lisa
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-mona-lisa
+ColorForeground=#dab14e
+ColorBackground=#110b0d
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#341a0d;#9b281b;#626132;#9eb2b3;#515b5c;#9b1d29;#588056;#f6d75c;#874227;#ff4230;#b3b163;#ff9565;#9eb2b3;#ff5b6a;#89cc8e;#ffe597

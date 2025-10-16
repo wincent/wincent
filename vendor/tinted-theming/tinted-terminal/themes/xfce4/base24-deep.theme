@@ -1,0 +1,10 @@
+# Scheme name: deep
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-deep
+ColorForeground=#bcbcbc
+ColorBackground=#080808
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#000000;#d60005;#1cd815;#9fa8fe;#5665fe;#af51d9;#4fd2d9;#dfdfdf;#535353;#fb0006;#21fe17;#fedc2b;#9fa8fe;#e099fe;#8cf9fe;#fffefe

@@ -1,0 +1,10 @@
+# Scheme name: Chicago Night
+# Scheme author: Wendell, Ryan &lt;ryanjwendell@gmail.com&gt;
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-chicago-night
+ColorForeground=#a7b8af
+ColorBackground=#1e2a24
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#2a3b32;#c60c30;#009b3a;#f9e300;#522398;#e27ea6;#00a1de;#c1cdc7;#364c40;#c60c30;#009b3a;#f9e300;#522398;#e27ea6;#00a1de;#dbe3de

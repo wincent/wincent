@@ -1,0 +1,43 @@
+# base24 Borland
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#0000a4"
+foreground = "#d1d1d1"
+
+cursor_bg = "#4e4e4e"
+cursor_border = "#d1d1d1"
+cursor_fg = "#eeeeee"
+
+selection_bg = "#d1d1d1"
+selection_fg = "#7c7c7c"
+
+ansi = [
+  "#0000a4",
+  "#ff6b60",
+  "#a7ff60",
+  "#b5dcfe",
+  "#96cafd",
+  "#ff73fd",
+  "#c6c4fd",
+  "#eeeeee"
+]
+brights = [
+  "#7c7c7c",
+  "#ffb6b0",
+  "#ceffab",
+  "#ffffcb",
+  "#b5dcfe",
+  "#ff9cfe",
+  "#dfdffe",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#ffffb6"
+17 = "#7f3530"
+18 = "#4e4e4e"
+19 = "#7c7c7c"
+20 = "#b5b5b5"
+21 = "#d1d1d1"

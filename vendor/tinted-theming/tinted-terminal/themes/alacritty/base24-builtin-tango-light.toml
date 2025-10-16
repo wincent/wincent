@@ -1,0 +1,58 @@
+# base24 Builtin Tango Light 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0xffffff'
+foreground = '0xb3b7b0'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0xffffff'
+cursor = '0xb3b7b0'
+
+# Normal colors
+[colors.normal]
+black = '0x000000'
+red = '0xcc0000'
+green = '0x4e9a05'
+yellow = '0x719ecf'
+blue = '0x3464a4'
+magenta = '0x74507a'
+cyan = '0x05989a'
+white = '0xd3d7cf'
+
+# Bright colors
+[colors.bright]
+black = '0x545753'
+red = '0xef2828'
+green = '0x8ae234'
+yellow = '0xfce94e'
+blue = '0x719ecf'
+magenta = '0xad7ea7'
+cyan = '0x34e2e2'
+white = '0xededec'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xc4a000"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x660000"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x000000"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x545753"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x939791"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xd3d7cf"

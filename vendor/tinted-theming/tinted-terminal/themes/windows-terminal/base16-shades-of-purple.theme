@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Shades of Purple",
+	"foreground": "#c7c7c7",
+	"background": "#1e1e3f",
+	"black": "#43d426",
+	"blue": "#6943ff",
+	"brightBlack": "#f1d000",
+	"brightBlue": "#6943ff",
+	"brightCyan": "#00c5c7",
+	"brightGreen": "#3ad900",
+	"brightPurple": "#ff2c70",
+	"brightRed": "#d90429",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#ffe700",
+	"cyan": "#00c5c7",
+	"green": "#3ad900",
+	"purple": "#ff2c70",
+	"red": "#d90429",
+	"white": "#ff77ff",
+	"yellow": "#f92a1c"
+},

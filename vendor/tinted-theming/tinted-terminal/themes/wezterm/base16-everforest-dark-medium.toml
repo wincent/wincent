@@ -1,0 +1,43 @@
+# base16 Everforest Dark Medium
+# Scheme author: Sainnhe Park (https://github.com/sainnhe)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#2d353b"
+foreground = "#859289"
+
+cursor_bg = "#859289"
+cursor_border = "#859289"
+cursor_fg = "#2d353b"
+
+selection_bg = "#859289"
+selection_fg = "#3d484d"
+
+ansi = [
+  "#2d353b",
+  "#e67e80",
+  "#a7c080",
+  "#dbbc7f",
+  "#7fbbb3",
+  "#d699b6",
+  "#83c092",
+  "#9da9a0"
+]
+brights = [
+  "#3d484d",
+  "#e67e80",
+  "#a7c080",
+  "#dbbc7f",
+  "#7fbbb3",
+  "#d699b6",
+  "#83c092",
+  "#d3c6aa"
+]
+
+[colors.indexed]
+16 = "#e69875"
+17 = "#514045"
+18 = "#343f44"
+19 = "#3d484d"
+20 = "#7a8478"
+21 = "#859289"

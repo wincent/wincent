@@ -1,0 +1,58 @@
+# base16 Jabuti 256 - alacritty color config
+# https://github.com/notusknot
+
+# Default colors
+[colors.primary]
+background = '0x292a37'
+foreground = '0xc0cbe3'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x292a37'
+cursor = '0xc0cbe3'
+
+# Normal colors
+[colors.normal]
+black = '0x343545'
+red = '0xec6a88'
+green = '0x3fdaa4'
+yellow = '0xe1c697'
+blue = '0x3fc6de'
+magenta = '0xbe95ff'
+cyan = '0xff7eb6'
+white = '0xd9e0ee'
+
+# Bright colors
+[colors.bright]
+black = '0x3c3e51'
+red = '0xec6a88'
+green = '0x3fdaa4'
+yellow = '0xe1c697'
+blue = '0x3fc6de'
+magenta = '0xbe95ff'
+cyan = '0xff7eb6'
+white = '0xffffff'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xefb993"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x8b8da9"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x343545"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x3c3e51"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x50526b"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xd9e0ee"

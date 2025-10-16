@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Zenburn by FredHappyface (https://github.com/fredHappyface)
+
+[colors]
+selection-background = '#709080' # base02
+selection-foreground = '#c1c9b9' # base05
+
+cursor         = '#c1c9b9' # base05
+tabs           = '#4d4d4d' # base01
+tabs-active    = '#709080' # base02
+
+background     = '#3f3f3f' # base00
+foreground     = '#c1c9b9' # base05
+black          = '#4d4d4d' # base01
+red            = '#705050' # base08
+yellow         = '#94bff3' # base0A
+green          = '#60b48a' # base0B
+cyan           = '#8cd0d3' # base0C
+blue           = '#506070' # base0D
+magenta        = '#dc8cc3' # base0E
+white          = '#dcdccc' # base06
+
+dim-foreground   = '#c1c9b9' # base05
+dim-black        = '#4d4d4d' # base01
+dim-red          = '#705050' # base08
+dim-yellow       = '#94bff3' # base0A
+dim-green        = '#60b48a' # base0B
+dim-cyan         = '#8cd0d3' # base0C
+dim-blue         = '#506070' # base0D
+dim-magenta      = '#dc8cc3' # base0E
+dim-white        = '#a6b6a6' # base04
+
+light-foreground = '#c1c9b9' # base05
+light-black      = '#709080' # base02
+light-red        = '#dca3a3' # base12
+light-yellow     = '#e0cf9f' # base13
+light-green      = '#c3bf9f' # base14
+light-cyan       = '#93e0e3' # base15
+light-blue       = '#94bff3' # base16
+light-magenta    = '#ec93d3' # base17
+light-white      = '#ffffff' # base07

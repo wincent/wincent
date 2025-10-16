@@ -1,0 +1,43 @@
+# base24 Breeze
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#31363b"
+foreground = "#d3d7d8"
+
+cursor_bg = "#31363b"
+cursor_border = "#d3d7d8"
+cursor_fg = "#eff0f1"
+
+selection_bg = "#d3d7d8"
+selection_fg = "#7f8c8d"
+
+ansi = [
+  "#31363b",
+  "#ed1515",
+  "#11d116",
+  "#3daee9",
+  "#1d99f3",
+  "#9b59b6",
+  "#1abc9c",
+  "#eff0f1"
+]
+brights = [
+  "#7f8c8d",
+  "#c0392b",
+  "#1cdc9a",
+  "#fdbc4b",
+  "#3daee9",
+  "#8e44ad",
+  "#16a085",
+  "#fcfcfc"
+]
+
+[colors.indexed]
+16 = "#f67400"
+17 = "#760a0a"
+18 = "#31363b"
+19 = "#7f8c8d"
+20 = "#b7bebf"
+21 = "#d3d7d8"

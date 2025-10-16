@@ -1,0 +1,43 @@
+# base16 Black Metal (Nile)
+# Scheme author: metalelf0 (https://github.com/metalelf0)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#000000"
+foreground = "#c1c1c1"
+
+cursor_bg = "#c1c1c1"
+cursor_border = "#c1c1c1"
+cursor_fg = "#000000"
+
+selection_bg = "#c1c1c1"
+selection_fg = "#222222"
+
+ansi = [
+  "#000000",
+  "#5f8787",
+  "#aa9988",
+  "#777755",
+  "#888888",
+  "#999999",
+  "#aaaaaa",
+  "#999999"
+]
+brights = [
+  "#222222",
+  "#5f8787",
+  "#aa9988",
+  "#777755",
+  "#888888",
+  "#999999",
+  "#aaaaaa",
+  "#c1c1c1"
+]
+
+[colors.indexed]
+16 = "#aaaaaa"
+17 = "#444444"
+18 = "#121212"
+19 = "#222222"
+20 = "#999999"
+21 = "#c1c1c1"
