@@ -1,0 +1,469 @@
+*terminus.txt* Terminus plug-in for Vim                                *terminus*
+
+CONTENTS                                                    *terminus-contents*
+
+1. Intro            |terminus-intro|
+2. Requirements     |terminus-requirements|
+3. Installation     |terminus-installation|
+4. Options          |terminus-options|
+5. Overrides        |terminus-overrides|
+6. Troubleshooting  |terminus-troubleshooting|
+7. FAQ              |terminus-faq|
+8. Website          |terminus-website|
+9. License          |terminus-license|
+10. Development     |terminus-development|
+11. Authors         |terminus-authors|
+12. History         |terminus-history|
+
+
+INTRO                                                          *terminus-intro*
+
+    "terminus (noun, pl. termini or terminuses)
+    the end of a railroad or other transportation route, or a station at such
+    a point; a terminal."
+
+                                                            *terminus-features*
+Terminus enhances Vim's integration with the terminal in four ways,
+particularly when using tmux (https://tmux.github.io/) and iTerm
+(https://www.iterm2.com/) or KDE Konsole (https://konsole.kde.org/), closing
+the gap between terminal and GUI Vim:
+
+1. Cursor shape change in insert and replace mode ~
+
+In insert mode, the cursor shape changes to a thin vertical bar. In replace
+mode, it changes to an underline. On returning to normal mode, it reverts to
+the standard "block" shape. Configuration options are provided to select among
+the different shapes.
+
+2. Improved mouse support ~
+
+Activates 'mouse' support in all modes and additionally tries to activate
+|sgr-mouse| support, which allows the mouse to work "even in columns beyond
+223".
+
+3. Focus reporting ~
+
+Allows Vim to receive |FocusGained| and |FocusLost| events, even in the
+terminal and inside tmux. This is in turn used to fire the |:checktime|
+command, which, in conjunction with the 'autoread', allows Vim to
+automatically pick up changes made by other processes when switching to and
+from Vim.
+
+4. "Bracketed Paste" mode ~
+
+Sets up "Bracketed Paste" mode, which means you can forget about manually
+setting the 'paste' option and simply go ahead and paste in any mode.
+
+
+REQUIREMENTS                                            *terminus-requirements*
+
+Terminus was principally developed to enhance Vim's integration with iTerm,
+but it can also improve the experience on other terminals, albeit with some
+limitations:
+
+- iTerm (https://www.iterm2.com/): Fully supported.
+- Konsole (https://konsole.kde.org/): Supports iTerm escape sequences, so
+  Terminus treats it just like iTerm.
+- gnome-terminal (https://wiki.gnome.org/Apps/Terminal) and other terminals
+  using the VTE library (https://github.com/GNOME/vte): Partially supported
+  (for example, supports cursor shape changes but not focus reporting).
+
+For other known limitations and problems, see |terminus-troubleshooting|.
+
+
+INSTALLATION                                            *terminus-installation*
+
+To install Terminus, use your plug-in management system of choice.
+
+If you don't have a "plug-in management system of choice", I recommend
+Pathogen (https://github.com/tpope/vim-pathogen) due to its simplicity and
+robustness. Assuming that you have Pathogen installed and configured, and that
+you want to install Terminus into `~/.vim/bundle`, you can do so with: >
+
+  git clone https://github.com/wincent/terminus.git ~/.vim/bundle/terminus
+
+Alternatively, if you use a Git submodule for each Vim plug-in, you could do
+the following after `cd`-ing into the top-level of your Git superproject: >
+
+  git submodule add https://github.com/wincent/terminus.git ~/vim/bundle/terminus
+  git submodule init
+
+To generate help tags under Pathogen, you can do so from inside Vim with: >
+
+  :call pathogen#helptags()
+
+
+OPTIONS                                                      *terminus-options*
+
+                                                        *g:TerminusCursorShape*
+  |g:TerminusCursorShape|                                  boolean (default: 1)
+
+  Controls whether cursor shape changes are made when entering or leaving
+  insert and replace modes. To disable, set to 0: >
+
+    let g:TerminusCursorShape=0
+<
+                                                  *g:TerminusInsertCursorShape*
+  |g:TerminusInsertCursorShape|                             number (default: 1)
+
+  Controls the shape of the cursor in insert mode. Possible values are:
+
+  - 0: "block" shape
+  - 1: "bar" shape
+  - 2: "underline" shape
+
+  To override the default, set a new value in your |.vimrc|: >
+
+    let g:TerminusInsertCursorShape=0
+<
+  The value set here is passed directly through to iTerm (and Konsole), so if
+  future versions of those terminals start to support other possible shapes,
+  Terminus will support those automatically. (And conversely, if you supply an
+  invalid value, the terminal may have undefined behavior.)
+
+  Note: has no effect if cursor shape changing is disabled via the
+  |g:TerminusCursorShape| setting.
+
+                                                  *g:TerminusNormalCursorShape*
+  |g:TerminusNormalCursorShape|                             number (default: 0)
+
+  Controls the shape of the cursor in normal mode. Possible values are:
+
+  - 0: "block" shape
+  - 1: "bar" shape
+  - 2: "underline" shape
+
+  To override the default, set a new value in your |.vimrc|: >
+
+    let g:TerminusNormalCursorShape=2
+<
+  The value set here is passed directly through to iTerm (and Konsole), so if
+  future versions of those terminals start to support other possible shapes,
+  Terminus will support those automatically. (And conversely, if you supply an
+  invalid value, the terminal may have undefined behavior.)
+
+  Note: has no effect if cursor shape changing is disabled via the
+  |g:TerminusCursorShape| setting.
+
+                                                 *g:TerminusReplaceCursorShape*
+  |g:TerminusReplaceCursorShape|                            number (default: 2)
+
+  Controls the shape of the cursor in replace mode. Possible values are:
+
+  - 0: "block" shape
+  - 1: "bar" shape
+  - 2: "underline" shape
+
+  To override the default, set a new value in your |.vimrc|: >
+
+    let g:TerminusReplaceCursorShape=1
+<
+  The value set here is passed directly through to iTerm (and Konsole), so if
+  future versions of those terminals start to support other possible shapes,
+  Terminus will support those automatically. (And conversely, if you supply an
+  invalid value, the terminal may have undefined behavior.)
+
+  Note: has no effect if cursor shape changing is disabled via the
+  |g:TerminusCursorShape| setting.
+
+                                                              *g:TerminusMouse*
+  |g:TerminusMouse|                                         boolean (default: 1)
+
+  Controls whether Terminus attempts to improve mouse function by setting the
+  'mouse' and 'ttymouse' settings. To disable this action, set to 0: >
+
+    let g:TerminusMouse=0
+<
+                                                     *g:TerminusFocusReporting*
+  |g:TerminusFocusReporting|                               boolean (default: 1)
+
+  Controls whether Terminus attempts to enable focus reporting and therefore
+  |FocusGained| and |FocusLost| events, which then trigger the |:checktime|
+  command and allow changed files to be refreshed automatically via
+  'autoread'. To disable this feature, set to 0: >
+
+    let g:TerminusFocusReporting=0
+<
+                                                     *g:TerminusBracketedPaste*
+  |g:TerminusBracketedPaste|                               boolean (default: 1)
+
+  Controls whether Terminus attempts to set-up Bracketed Paste mode. To
+  disable, set to 0: >
+
+    let g:TerminusBracketedPaste=0
+<
+                                                        *terminus-assume-iterm*
+                                                        *g:TerminusAssumeITerm*
+  |g:TerminusAssumeITerm|                                      any (no default)
+
+  Terminus will try to autodetect when Vim is running inside of iTerm or an
+  iTerm-like terminal such as Konsole, but it is possible that when running on
+  a remote host via SSH the necessary environment variables (`$ITERM_PROFILE`,
+  `$ITERM_SESSION_ID`, `$KONSOLE_DBUS_SESSION` or `$KONSOLE_PROFILE_NAME`) may
+  not be present.
+
+  In this case, it is possible to signal to Terminus that iTerm is operative by
+  doing either of the following:
+
+  - Touching (ie. creating) a file at `~/.vim/.assume-iterm`.
+  - Setting |g:TerminusAssumeITerm| to any value
+
+                                                             *g:TerminusLoaded*
+  |g:TerminusLoaded|                                           any (no default)
+
+  To prevent Terminus from being loaded, set |g:TerminusLoaded| to any value
+  in your |.vimrc|. For example: >
+
+    let g:TerminusLoaded=1
+<
+
+OVERRIDES                                                  *terminus-overrides*
+
+Terminus sets some Vim settings to reasonable defaults in order to provide a
+good "out of the box" experience:
+
+                                                            *terminus-autoread*
+  'autoread'
+
+  Turned on (if a file change made outside of Vim is detected as the result of
+  running the |:checktime| command, reloads the file).
+
+                                                         *terminus-ttimeoutlen*
+  'ttimeoutlen'
+
+  Reduced to 10 (milliseconds) to speed up the response of some mappings (for
+  example, |O|) in the terminal. If the effective 'ttimeoutlen' is already 10
+  or lower, Terminus leaves this setting untouched.
+
+To override any of these choices, you can place overrides in an
+|after-directory| (ie. `~/.vim/after/plugin/terminus.vim`). For example: >
+
+  " Override Terminus' 'autoread' setting.
+  set noautoread
+
+
+TROUBLESHOOTING                                      *terminus-troubleshooting*
+
+Some features work in iTerm but not in Apple's Terminal.app ~
+
+The following features are known to work in iTerm but may not work in Apple's
+Terminal.app due to limitations in the latter:
+
+- Cursor shape changes.
+- |FocusGained| and |FocusLost| events.
+- Improved mouse support.
+
+Upgrading to iTerm is strongly recommended.
+
+Focus events aren't working inside tmux prior to 1.8 ~
+
+tmux only added support for per-pane focus events in version 1.8.
+
+Focus events aren't working inside tmux 1.9 and up ~
+
+In tmux 1.9, focus events aren't reported unless the `focus-events` option is
+set to "on" in the `~/.tmux.conf` file: >
+
+  set -g focus-events on
+
+There is a delay on leaving insert mode inside tmux ~
+
+You may need to set `escape-time` to 0 in your `~/.tmux.conf` file: >
+
+  set -s escape-time 0
+
+Mouse support and other features aren't working in tmux ~
+
+In the iTerm settings, ensure that "Enable mouse reporting" is enabled, and
+the "Report Terminal Type" setting is set to "xterm-256color".
+
+Cursor shape changes and other features aren't working on remote hosts ~
+
+If you are connecting to remote hosts via Mosh (https://mosh.mit.edu/) instead
+of SSH, be aware that Mosh lacks support for some xterm control sequences and
+cannot change the cursor (https://github.com/mobile-shell/mosh/issues/352).
+
+I can't copy text to the clipboard ~
+
+In the iTerm settings, ensure that "Copy to pasteboard on selection" is
+disabled (under "Selection" in the "General" section of the preferences), then
+hold down the Option key when making a selection, then press Command-C to
+copy.
+
+For seamless integration between the local system clipboard and terminal-based
+processes (even processes running on remote systems via SSH, inside tmux,
+inside Vim etc), consider using Clipper (https://github.com/wincent/clipper),
+along with the vim-clipper plug-in (https://github.com/wincent/vim-clipper).
+
+The cursor is hard to see in insert mode ~
+
+In insert mode, the cursor becomes a narrow bar, which may be hard to see
+depending on your color scheme and other settings.
+
+Reducing visual clutter may be helpful in this case. For example, you might
+turn off 'cursorline' and 'cursorcolumn' when in insert mode (sample
+configuration from my dotfiles: https://wincent.dev/g). Alternatively, you can
+try a different cursor shapes by changing the |g:TerminusInsertCursorShape| and
+|g:TerminusNormalCursorShape| settings.
+
+
+FAQ                                                              *terminus-faq*
+
+Does Terminus work with Neovim? ~
+
+Yes, although Terminus has to do much less work in Neovim because Neovim
+has better terminal integration out of the box. Specifically, Terminus
+doesn't need to set up cursor shape changes, bracketed paste mode, or improved
+mouse support in Neovim, but it does set up |:checktime| and |'autoread'| to make
+focus reporting more useful.
+
+
+WEBSITE                                                      *terminus-website*
+
+Source code:
+
+  https://github.com/wincent/terminus
+
+Official releases are listed at:
+
+  http://www.vim.org/scripts/script.php?script_id=5216
+
+
+LICENSE                                                      *terminus-license*
+
+Copyright 2015-present Greg Hurrell. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice,
+   this list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+
+
+DEVELOPMENT                                              *terminus-development*
+
+Contributing patches ~
+
+Patches can be sent via mail to greg@hurrell.net, or as GitHub pull requests
+at: https://github.com/wincent/terminus/pulls
+
+Cutting a new release ~
+
+At the moment the release process is manual:
+
+- Perform final sanity checks and manual testing
+- Update the |terminus-history| section of the documentation
+- Verify clean work tree: >
+
+    git status
+
+- Tag the release: >
+
+    git tag -s -m "$VERSION release" $VERSION
+
+- Publish the code: >
+
+    git push --follow-tags
+    git push github --follow-tags
+
+- Produce the release archive: >
+
+    git archive -o terminus-$VERSION.zip HEAD -- .
+
+- Upload to http://www.vim.org/scripts/script.php?script_id=5216
+
+
+AUTHORS                                                      *terminus-authors*
+
+Terminus is written and maintained by Greg Hurrell <greg@hurrell.net>.
+
+Other contributors that have submitted patches include (in alphabetical
+order):
+
+  Darwin Groskleg
+  Jan Christoph Ebersbach
+  Joe Lencioni
+  Jon Parise
+  Peteris Krumin
+  Rastislav Barlik
+
+
+HISTORY                                                      *terminus-history*
+
+main (not yet released) ~
+
+- Make Bracketed Paste mode work in urxvt (patch from Peteris Krumins,
+  https://github.com/wincent/terminus/pull/43).
+- Suppress |E11| errors when switching focus and the |command-line-window| is
+  open (https://github.com/wincent/terminus/issues/33).
+- Avoid unwanted characters appearing in Vim terminal on focus (patch from
+  "Neui", https://github.com/wincent/terminus/pull/39).
+- Support SGR in iTerm2, providing better mouse reporting in large windows
+  (patch from Darwin Groskleg, https://github.com/wincent/terminus/pull/50).
+
+1.3 (6 June 2017) ~
+
+- Add support for Neovim.
+
+1.2 (21 March 2017) ~
+
+- Reduce delay on leaving insert mode to 10ms.
+- Work-around lag for focus/blur events caused by creation and destruction of
+  tmux splits.
+- Tweak insert mode mappings to work correctly when omni completion is
+  active (https://github.com/wincent/terminus/pull/18).
+
+1.1 (13 July 2016) ~
+
+- Use non-deprecated escape sequences when running on sufficiently recent
+  versions of iTerm.
+
+1.0.1 (29 January 2016) ~
+
+- Correctly guard against Terminus being loaded multiple times.
+
+1.0 (28 December 2015) ~
+
+- Silence unwanted "No matching autocommands" output on gaining/losing focus
+  in normal mode.
+
+0.4 (15 October 2015) ~
+
+- Enabled support for KDE Konsole (patch from Jan Christoph Ebersbach).
+- Added |g:TerminusReplaceCursorShape| and made cursor shape substition work
+  with VTE terminals such as gnome-terminal (patch from Jan Christoph
+  Ebersbach).
+- Fixed bug where file modelines were being inappropriately evaluated when on
+  |FocusGained| and |FocusLost| events.
+- Added guard for "Unknown option: t_SR" for older versions of Vim (patch from
+  Joe Lencioni).
+- Added support for "tmux" `TERM` type.
+
+0.2 (24 July 2015) ~
+
+- Added |g:TerminusInsertCursorShape| and |g:TerminusNormalCursorShape|
+  settings for selecting among "bar", "block" and "underline" cursor shapes.
+
+0.1 (6 July 2015) ~
+
+- Initial release, extracted from my dotfiles
+  (https://github.com/wincent/wincent).
+
+
+-----------------------------------------------------------------------------
+vim:tw=78:ft=help:
