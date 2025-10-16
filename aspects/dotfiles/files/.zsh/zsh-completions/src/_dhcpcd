@@ -1,0 +1,59 @@
+#compdef dhcpcd
+# ------------------------------------------------------------------------------
+# Description
+# -----------
+#
+#  Completion script for dhcpcd 9.4.1 (http://roy.marples.name/projects/dhcpcd/)
+#
+# ------------------------------------------------------------------------------
+# Authors
+# -------
+#
+#  * Julien Nicoulaud <julien.nicoulaud@gmail.com>
+#
+# ------------------------------------------------------------------------------
+
+_arguments \
+  '(-b --background)'{-b,--background}'[Background immediately]' \
+  '(-c --script)'{-c,--script}'[Use this script instead of the default]: :_files' \
+  '(-D --duid)'{-d,--duid}'[Use a DHCP Unique Identifier]:id' \
+  '(-d --debug)'{-d,--debug}'[Echo debug messages to the stderr and syslog]' \
+  '(-E --lastlease)'{-E,--lastlease}'[If dhcpcd cannot obtain a lease, then try to use the last lease acquired for the interface]' \
+  '--lastleaseextend[Same as the -E/--lastlease, but the lease will be retained even if it expires]' \
+  \*{-e,--env}'[Push value to the environment for use in dhcpcd-run-hooks(8)]:env' \
+  '(-g --reconfigure)'{-g,--reconfigure}'[dhcpcd will re-apply IP address, routing and run dhcpcd-run-hooks(8) for each interface]' \
+  '(-F --fqdn)'{-F,--fqdn}'[Requests that the DHCP server updates DNS using FQDN instead of just a hostname]:fqdn' \
+  '(-f --config)'{-f,--config}'[Specify a config to load instead of default]: :_files' \
+  '(-h --hostname)'{-h,--hostname}'[Sends hostname to the DHCP server so it can be registered in DNS]:hostname' \
+  '(-I --clientid)'{-I,--clientid}'[Send the clientid]:clientid' \
+  '(-i --vendorclassid)'{-i,--vendorclassid}'[Override the DHCPv4 venderclassid field sent]:vendorclassid' \
+  '(-j --logfile)'{-j,--logfile}'[Writes to the specified logfile]: :_files' \
+  \*{-k,--release}'[Release its lease and de-configure the interface regardless of -p, --persistent option]: :_net_interfaces' \
+  '(-l --leasetime)'{-l,--leasetime}'[Request a lease time of seconds. -1 represents an infinite lease time]:seconds' \
+  '(-M --manager)'{-M,--manager}'[Start dhcpcd in Manager mode even if only one interface specified on the command line]' \
+  '(-m --metric)'{-m,--metric}'[Metrics are used to prefer an interface over another one, lowest wins]:metric' \
+  \*{-n,--rebind}'[Notifies dhcpcd to reload its configuration and rebind the specified interface]: :_net_interfaces' \
+  \*{-N,--renew}'[Notifies dhcpcd to renew existing addresses on the specified interface]: :_net_interfaces' \
+  \*{-o,--option}'[Request the DHCP option variable for use in dhcpcd-run-hooks]:option' \
+  '(-p --persistent)'{-p,--persistent}"[Don't de-configure the interface and configuration at exit]" \
+  '(-r --request)'{-r,--request}'[Request the address in the DHCP DISCOVER message]:address' \
+  '(-s --inform)'{-s,--inform}'[Behaves exactly like -r, but sends a DHCP inform instead of a request]:address' \
+  '--inform6[Performs a DHCPv6 Information Request]' \
+  \*{-S,--static}'[Configures a static DHCP value]:value' \
+  '(-t --timeout)'{-t,--timeout}'[Timeout after seconds]:seconds' \
+  '(-u --userclass)'{-u,--userclass}'[Tags the DHCPv4 message with the userclass class]:class' \
+  '(-v --vendor)'{-v,--vendor}'[Add an encapsulated vendor option]:vendor' \
+  '(- *)--version[Display both program version and copyright information]' \
+  '-w[Wait for an address to be assigned before forking to the background]' \
+  '--waitip=[Wait for an address to assigned before forking to the background]: :(4 6)' \
+  \*{-x,--exit}'[This will signal an existing dhcpcd process running on the interface to exit]: :_net_interfaces' \
+  '(-y --reboot)'{-y,--reboot}'[Allow reboot seconds before moving to the discover phase if we have an old lease to use]:seconds' \
+   '1:network interface:_net_interfaces'
+
+# Local Variables:
+# mode: Shell-Script
+# sh-indentation: 2
+# indent-tabs-mode: nil
+# sh-basic-offset: 2
+# End:
+# vim: ft=zsh sw=2 ts=2 et

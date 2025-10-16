@@ -1,0 +1,179 @@
+#compdef fwupdmgr
+# ------------------------------------------------------------------------------
+# Description
+# -----------
+#
+#  Completion script for fwupdmgr 1.8.12 (https://github.com/hughsie/fwupd).
+#
+# ------------------------------------------------------------------------------
+# Authors
+# -------
+#
+#  * Julien Nicoulaud <julien.nicoulaud@gmail.com>
+#  * Shohei Yoshida (https://github.com/syohex)
+#
+# ------------------------------------------------------------------------------
+
+_fwupdmgr() {
+  local context state state_descr line
+  typeset -A opt_args
+  local ret=1
+
+  _arguments -C \
+    '(- : *)'{-h,--help}'[display help information]' \
+    '(- : *)'{-v,--version}'[display version information]' \
+    {-v,--verbose}'[show extra debugging information]' \
+    --offline'[schedule installation for next reboot when possible]' \
+    --allow-reinstall'[allow re-installing existing firmware versions]' \
+    --allow-older'[allow downgrading firmware versions]' \
+    --allow-branch-switch'[allow switching firmware branch]' \
+    --force'[override warnings and force the action]' \
+    '(-y, --assume-yes)'{-y,--assume-yes}'[answer yes to all questions]' \
+    --sign'[sign the uploaded data with the client certificate]' \
+    --no-unreported-check'[do not check for unreported history]' \
+    --no-metadata-check'[do not check for old metadata]' \
+    --no-reboot-check'[do not check for reboot after update]' \
+    --no-safety-check'[do not perform device safety checks]' \
+    --no-device-prompt'[do not prompt for devices]' \
+    --no-history'[do not write to the history database]' \
+    --show-all'[show all results]' \
+    --disable-ssl-strict'[ignore SSL strict checks when downloading files]' \
+    --ipfs'[only use IPFS when downloading files]' \
+    --filter'[filter with a set of device flags using a ~ prefix to exclude]:filter' \
+    --json'[output in JSON format]' \
+    --no-authenticate'[do not prompt for authentication]' \
+    '(-): :->command' \
+    '(-)*:: :->arguments' \
+  && ret=0
+
+  case $state in
+    (command)
+      _fwupdmgr_commands
+    ;;
+    (arguments)
+      case $words[1] in
+        (activate|downgrade|emulation-tag|emulation-untag|get-releases|get-updates|reinstall|update|verify|verify-update)
+          _arguments \
+            '1::device_id or GUID:_fwupdmgr_device_ids' \
+            && ret=0
+        ;;
+        (clear-results|get-results|unlock)
+          _arguments \
+            '1:device_id or GUID:_fwupdmgr_device_ids' \
+            && ret=0
+        ;;
+        (device-emulate|device-test|emulation-load|emulation-save|get-details|set-approved-firmware)
+          _arguments \
+            '*::files:_files' \
+            && ret=0
+        ;;
+        (disable-remote|modify-remote)
+          _arguments \
+            '1:remote ID:_fwupdmgr_remote_ids' \
+            && ret=0
+        ;;
+        (install)
+          _arguments \
+            '1:device_id or GUID:_fwupdmgr_device_ids' \
+            '2:version' \
+            && ret=0
+        ;;
+        (local-install)
+          _arguments \
+            '1:file:_files' \
+            '2:device_id or GUID:_fwupdmgr_device_ids' \
+            && ret=0
+        ;;
+        (refresh)
+          _arguments \
+            '1:file or remote ID:_alternative _files _fwupdmgr_remote_ids' \
+            && ret=0
+        ;;
+        (switch-branch)
+          _arguments \
+            '1:device_id or GUID:_fwupdmgr_device_ids' \
+            '2:branch' \
+            && ret=0
+        ;;
+      esac
+    ;;
+  esac
+
+  return ret
+}
+
+(( $+functions[_fwupdmgr_commands] )) ||
+_fwupdmgr_commands() {
+  local -a commands=(
+    'activate:activate devices'
+    'block-firmware:blocks a specific firmware from being installed'
+    'clear-results:clears the results from the last update'
+    'device-emulate:emulate a device using a JSON manifest'
+    'device-test:test a device using a JSON manifest'
+    'disable-remote:disables a given remote'
+    'downgrade:downgrades the firmware on a device'
+    'emulation-load:load device emulation data'
+    'emulation-save:save device emulation data'
+    'emulation-tag:adds devices to watch for future emulation'
+    'emulation-untag:removes devices to watch for future emulation'
+    'enable-remote:enables a given remote'
+    'get-approved-firmware:gets the list of approved firmware'
+    'get-bios-settings:retrieve BIOS settings'
+    'get-blocked-firmware:gets the list of blocked firmware'
+    'get-details:gets details about a firmware file'
+    'get-devices:get all devices that support firmware updates'
+    'get-history:show history of firmware updates'
+    'get-plugins:get all enabled plugins registered with the system'
+    'get-releases:gets the releases for a device'
+    'get-remotes:gets the configured remotes'
+    'get-results:gets the results from the last update'
+    'get-topology:get all devices according to the system topology'
+    'get-updates:gets the list of updates for connected hardware'
+    'inhibit:inhibit the system to prevent upgrades'
+    'install:install a firmware file on this hardware'
+    'local-install:install a firmware file on this hardware'
+    'modify-config:modifies a daemon configuration value'
+    'modify-remote:modifies a given remote'
+    'quit:asks the daemon to quit'
+    'refresh:refresh metadata from remote server'
+    'security:gets the host security attributes'
+    'report-history:share firmware history with the developers'
+    'set-approved-firmware:sets the list of approved firmware'
+    'set-bios-setting:sets one or more BIOS settings'
+    'switch-branch:switch the firmware branch on device'
+    'sync-bkc:sync firmware versions to the host best known configuration '
+    'unblock-firmware:unblocks a specific firmware from being installed'
+    'uninhibit:uninhibit the system to allow upgrades'
+    'unlock:unlocks the device for firmware access'
+    'update:updates all firmware to latest versions available'
+    'verify:gets the cryptographic hash of the dumped firmware'
+    'verify-update:update the stored metadata with current ROM contents'
+  )
+  _describe -t commands commands commands
+}
+
+(( $+functions[_fwupdmgr_device_ids] )) ||
+_fwupdmgr_device_ids() {
+  # TODO add device name as description
+  local -a devices
+  devices=($(_call_program devices fwupdmgr get-devices | awk '/Device ID/||/DeviceId/{print $NF}'))
+  _describe -t devices 'device ID' devices
+}
+
+(( $+functions[_fwupdmgr_remote_ids] )) ||
+_fwupdmgr_remote_ids() {
+  # TODO add remote description
+  local -a remotes
+  remotes=($(_call_program remotes fwupdmgr get-remotes | awk '/Remote ID/{print $NF}'))
+  _describe -t remotes 'remote ID' remotes
+}
+
+_fwupdmgr "$@"
+
+# Local Variables:
+# mode: Shell-Script
+# sh-indentation: 2
+# indent-tabs-mode: nil
+# sh-basic-offset: 2
+# End:
+# vim: ft=zsh sw=2 ts=2 et

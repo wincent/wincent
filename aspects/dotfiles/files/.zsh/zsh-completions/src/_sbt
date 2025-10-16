@@ -1,0 +1,146 @@
+#compdef sbt
+# ------------------------------------------------------------------------------
+# Copyright (c) 2013 Github zsh-users - https://github.com/zsh-users
+# All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+#     * Redistributions of source code must retain the above copyright
+#       notice, this list of conditions and the following disclaimer.
+#     * Redistributions in binary form must reproduce the above copyright
+#       notice, this list of conditions and the following disclaimer in the
+#       documentation and/or other materials provided with the distribution.
+#     * Neither the name of the zsh-users nor the
+#       names of its contributors may be used to endorse or promote products
+#       derived from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+# ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+# WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED. IN NO EVENT SHALL ZSH-USERS BE LIABLE FOR ANY
+# DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+# (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+# LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+# ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+# SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+# ------------------------------------------------------------------------------
+# Description
+# -----------
+#
+#  Completion script for sbt 1.8.0 (https://www.scala-sbt.org).
+#
+# ------------------------------------------------------------------------------
+# Authors
+# -------
+#
+#  * Tony Sloane <inkytonik@gmail.com>
+#  * Mirko Caserta <mirko.caserta@gmail.com>
+#  * Shohei Yoshida <https://github.com/syohex>
+#
+# ------------------------------------------------------------------------------
+
+_sbt() {
+  typeset -A opt_args
+  local context state line
+  local curcontext="$curcontext"
+  local ret=1
+
+  _arguments \
+    '(- *)'{-h,--help}'[print help message]' \
+    '(-v --verbose)'{-v,--verbose}'[this runner is chattier]' \
+    '(- *)'{-V,--version}'[print sbt version information]' \
+    '--numeric-version[print the version of sbt script]' \
+    '(-d --debug)'{-d,--debug}'[set sbt log level to debug]' \
+    '--no-colors[disable ANSI color codes]' \
+    '--color=[enable or disable ANSI color codes]: :(auto always true false never)' \
+    '--supershell=[enable or disable super shell]: :(auto always true false never)' \
+    '--traces[generate Trace Event report on shutdown]' \
+    '--timings[display task timings report on shutdown]' \
+    '--sbt-create[start sbt even if current directory contains no sbt project]' \
+    '--sbt-dir[path to global settings/plugins directory]: :_files -/' \
+    '--sbt-boot[path to shared boot directory]: :_files -/' \
+    '--sbt-cache[path to global cache directory]: :_files -/' \
+    '--ivy[path to local Ivy repository]: :_files -/' \
+    '--mem[set memory options]:memory' \
+    '--no-share[use all local caches; no sharing]' \
+    '--no-global[uses global caches, but does not use global directory]' \
+    '--jvm-debug[Turn on JVM debugging, open at the given port]:port' \
+    '--batch[disable interactive mode]' \
+    '--sbt-version[use the specified version of sbt]:version' \
+    '--sbt-jar[use the specified jar as the sbt launcher]: :_files' \
+    '--java-home[alternate JAVA_HOME]: :_files -/' \
+    '1: :_sbt_commands' \
+    '*:: :->args' && ret=0
+
+  case "$state" in
+    (args)
+      case $words[1] in
+        (new)
+          local -a g8_templates=(
+            foundweekends/giter8.g8
+            scala/scala-seed.g8
+            scala/scala3.g8
+            scala/hello-world.g8
+            scala/scalatest-example.g8
+            playframework/play-scala-seed.g8
+            playframework/play-java-seed.g8
+            lagom/lagom-scala.g8
+            lagom/lagom-java.g8
+            scala-native/scala-native.g8
+            scala-native/sbt-crossproject.g8
+            http4s/http4s.g8
+            unfiltered/unfiltered.g8
+            scalatra/scalatra-sbt.g8
+          )
+          _values 'g8_templates' $g8_templates
+        ;;
+      esac
+      ;;
+  esac
+
+  return $ret
+}
+
+(( $+functions[_sbt_commands] )) ||
+_sbt_commands() {
+  local -a commands=(
+    'about:Displays basic information about sbt and the build'
+    'clean:delete files produced by the build'
+    'compile:compile sources'
+    'console:start the Scala REPL with project classes on the classpath'
+    'console-quick:start the Scala REPL with project deps on the classpath'
+    'console-project:start the Scala REPL w/sbt+build-def on the classpath'
+    'dist:generate distribution artifacts'
+    'dist\:clean:clean distribution artifacts'
+    'doc:generate API documentation'
+    'new:Creates a new sbt build'
+    'package:produce the main artifact, such as a binary jar'
+    'package-doc:produce a doc artifact, such as a jar containing API docs'
+    'package-src:produce a source artifact, such as a jar containing sources'
+    'projects:Lists the names of available projects'
+    'publish:publish artifacts to a repository'
+    'publish-local:publish artifacts to the local repository'
+    'run:run a main class'
+    'run-main:run the main class selected by the first argument'
+    'settings:Lists the settings defined for the current project'
+    'shutdownall:shutdown all running sbt-launch processes'
+    'tasks:Lists the tasks defined for the current project'
+    'test:execute all tests'
+    'test-only:execute the tests provided as arguments'
+    'test-quick:execute previously failed tests'
+    'update:resolve and optionally retrieve dependencies'
+  )
+
+  _describe -t subcommands 'subcommand' commands
+}
+
+_sbt "$@"
+
+# Local Variables:
+# mode: Shell-Script
+# sh-indentation: 2
+# indent-tabs-mode: nil
+# sh-basic-offset: 2
+# End:
+# vim: ft=zsh sw=2 ts=2 et

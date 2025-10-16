@@ -1,0 +1,133 @@
+#compdef direnv
+# ------------------------------------------------------------------------------
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+#     * Redistributions of source code must retain the above copyright
+#       notice, this list of conditions and the following disclaimer.
+#     * Redistributions in binary form must reproduce the above copyright
+#       notice, this list of conditions and the following disclaimer in the
+#       documentation and/or other materials provided with the distribution.
+#     * Neither the name of the zsh-users nor the
+#       names of its contributors may be used to endorse or promote products
+#       derived from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+# ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+# WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED. IN NO EVENT SHALL ZSH-USERS OR THE AUTHOR BE LIABLE FOR ANY
+# DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+# (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+# LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+# ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+# SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+# ------------------------------------------------------------------------------
+# Description
+# -----------
+#
+#  Completion script for direnv 2.34.0 (https://direnv.net/)
+#
+# ------------------------------------------------------------------------------
+# Authors
+# -------
+#
+#  * Nitai J. Perez <youcangetselfish@gmail.com>
+#
+# ------------------------------------------------------------------------------
+
+(( $+functions[_direnv_commands] )) ||
+_direnv_commands() {
+  local -a commands=(
+    'allow:Grants direnv permission to load the given .envrc or .env file'
+    'permit:Grants direnv permission to load the given .envrc or .env file'
+    'grant:Grants direnv permission to load the given .envrc or .env file'
+    'block:Revokes the authorization of a given .envrc or .env file'
+    'deny:Revokes the authorization of a given .envrc or .env file'
+    'revoke:Revokes the authorization of a given .envrc or .env file'
+    'edit:Opens PATH_TO_RC or the current .envrc or .env into an $EDITOR and allow the file to be loaded afterwards'
+    'exec:Executes a command after loading the first .envrc or .env found in DIR'
+    "fetchurl:Fetches a given URL into direnv's CAS"
+    'help:shows this help'
+    'hook:Used to setup the shell hook'
+    'prune:removes old allowed files'
+    'reload:triggers an env reload'
+    'status:prints some debug status information'
+    'stdlib:Displays the stdlib available in the .envrc execution context'
+    'version:prints the version or checks that direnv is older than VERSION_AT_LEAST'
+  )
+
+  _describe 'command' commands
+}
+
+_direnv() {
+  local curcontext="$curcontext" state line
+  typeset -A opt_args
+  local ret=1
+
+  _arguments -C \
+    '1: :_direnv_commands' \
+    '*:: :->command_args' && ret=0
+
+  case $state in
+    (command_args)
+      case $words[1] in
+        (allow|permit|grant|block|deny|revoke|edit)
+          _arguments \
+            '1:rc file:_files' \
+            && ret=0
+            ;;
+        (exec)
+          _arguments \
+            '1:directory:_files -/' \
+            '2:command:_command_names' \
+            && ret=0
+          ;;
+        (hook)
+          _arguments \
+            '1:shell:(bash zsh fish tcsh elvish)' \
+            && ret=0
+          ;;
+        (fetchurl)
+          _arguments \
+            '1:url:_urls' \
+            '2:integrity hash' \
+            && ret=0
+          ;;
+        (status)
+          _arguments \
+            '--json[print status information in JSON format]' \
+            && ret=0
+          ;;
+        (version)
+          _arguments \
+            '1:version at least' \
+            && ret=0
+          ;;
+        (help)
+          _arguments \
+            '1:show private:(SHOW_PRIVATE)' \
+            && ret=0
+          ;;
+        (prune|reload|status|stdlib)
+          # do not complete
+          ret=0
+          ;;
+        (*)
+          _default && ret=0
+          ;;
+      esac
+    ;;
+  esac
+
+  return ret
+}
+
+_direnv "$@"
+
+# Local Variables:
+# mode: Shell-Script
+# sh-indentation: 2
+# indent-tabs-mode: nil
+# sh-basic-offset: 2
+# End:
+# vim: ft=zsh sw=2 ts=2 et

@@ -1,0 +1,93 @@
+#compdef cap
+# ------------------------------------------------------------------------------
+# Copyright (c) 2016 Github zsh-users - https://github.com/zsh-users
+# All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+#     * Redistributions of source code must retain the above copyright
+#       notice, this list of conditions and the following disclaimer.
+#     * Redistributions in binary form must reproduce the above copyright
+#       notice, this list of conditions and the following disclaimer in the
+#       documentation and/or other materials provided with the distribution.
+#     * Neither the name of the zsh-users nor the
+#       names of its contributors may be used to endorse or promote products
+#       derived from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+# ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+# WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED. IN NO EVENT SHALL ZSH-USERS BE LIABLE FOR ANY
+# DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+# (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+# LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+# ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+# SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+# ------------------------------------------------------------------------------
+# Description
+# -----------
+#
+#  Completion script for Capistrano 3.17.1 (https://capistranorb.com/)
+#
+# ------------------------------------------------------------------------------
+# Authors
+# -------
+#
+#  * Bruno Michel (https://github.com/nono)
+#  * Shohei Yoshida (https://github.com/syohex)
+#
+# ------------------------------------------------------------------------------
+
+
+local curcontext="$curcontext" state line cmds ret=1
+
+_arguments -C \
+  '--backtrace=[Enable full backtrace]: :(stderr stdout)' \
+  '--comments[Show commented tasks only]' \
+  '--job-stats[Display job statistics]:level' \
+  '--suppress-backtrace[Suppress backtrace lines matching regexp PATTERN]:pattern' \
+  '(-A --all)'{-A,--all}'[Show all tasks, even uncommented ones]' \
+  '(-B --build-all)'{-B,--build-all}'[Build all prerequisites, including those which are up-to-date]' \
+  '(-C --directory)'{-C,--directory}'[Change to DIRECTORY before doing anything]: :_files -/' \
+  '(-D --describe)'{-D,--describe}'[Describe the tasks, then exit]:pattern' \
+  '(-E --execute-continue)'{-E,--execute-continue}'[Execute Ruby code and exit]:code' \
+  '(-f --rakefile)'{-f,--rakefile}'[Use FILENAME as the rakefile to search for]: :_files' \
+  '(-G --no-system --nosystem)'{-G,--no-system,--nosystem}'[Use standard project Rakefile search paths, ignore system wide rakefiles]' \
+  '(-g --system)'{-g,--system}'[Using system wide rakefiles]' \
+  '(-I --libdir)'\*{-I,--libdir}'[Include LIBDIR in the search path for required modules]: :_files -/' \
+  '(-j --jobs)'{-j,--jobs}'[Specifies the maximum number of tasks to execute in parallel]:num' \
+  '(-m --multitask)'{-m,--multitask}'[Treat all tasks as multitasks]' \
+  '(-N --no-search --nosearch)'{-N,--no-search,--nosearch}'[Do not search parent directories for the Rakefile]' \
+  '(-P --prereqs)'{-P,--prereqs}'[Display the tasks and dependencies, then exit]' \
+  '--execute-print[Execute some Ruby code, print the result, then exit]:code' \
+  '--require[Require MODULE before executing rakefile]:module' \
+  '(-R --rakelibdir --rakelib)'{-R,--rakelibdir,--rakelib}'[Auto-import any .rake files in RAKELIBDIR]: :_files -/' \
+  '(-t --trace)'{-t,--trace}'[Turn on invoke/execute tracing, enable full backtrace]: :(stderr stdout)' \
+  '(-T --tasks)'{-T,--tasks}'[Display the tasks with descriptions]::pattern' \
+  '(-W --where)'{-W,--where}'[Describe the tasks then exit]::pattern' \
+  '(-X --no-deprecation-warnings)'{-X,--no-deprecation-warnings}'[Disable the deprecation warnings]' \
+  '(- *)'{-V,--version}'[Display the program version]' \
+  '(-n --dry-run)'{-n,--dry-run}'[Do a dry run without executing actions]' \
+  '(-r --roles)'{-r,--roles}'[Run SSH commands only on hosts matching these roles]:roles' \
+  '(-z --hosts)'{-z,--hosts}'[Run SSH commands only on matching hosts]:hosts' \
+  '(-p --print-config-variables)'{-p,--print-config-variables}'[Display the defined config variables before starting the deployment tasks]' \
+  '(- *)'{-h,-H,--help}'[Display help message]' \
+  '*: :->cmds' && ret=0
+
+case $state in
+  cmds)
+    cmds=( ${(f)"$(_call_program commands cap -T 2>/dev/null | sed -e '/ # /!d; s/:/\\:/g; s/cap \([A-Za-z0-9\\:_-]*\) .*# /\1:/')"} )
+    _describe -t commands 'cap command' cmds && ret=0
+    ;;
+esac
+
+return ret
+
+# Local Variables:
+# mode: Shell-Script
+# sh-indentation: 2
+# indent-tabs-mode: nil
+# sh-basic-offset: 2
+# End:
+# vim: ft=zsh sw=2 ts=2 et
