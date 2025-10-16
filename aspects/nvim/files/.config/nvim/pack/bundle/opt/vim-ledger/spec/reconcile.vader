@@ -1,0 +1,78 @@
+Given ledger:
+  2020-03-06 Buy
+    Expenses  $10.00
+    Cash
+
+Execute (set state):
+  2
+  call ledger#transaction_post_state_set(line('.'), '*')
+
+Expect ledger:
+  2020-03-06 Buy
+    * Expenses  $10.00
+    Cash
+
+Execute (clear state):
+  2
+  call ledger#transaction_post_state_set(line('.'), '*')
+  call ledger#transaction_post_state_set(line('.'), '')
+
+Expect ledger:
+  2020-03-06 Buy
+    Expenses  $10.00
+    Cash
+
+Execute (clear already clear state):
+  2
+  call ledger#transaction_post_state_set(line('.'), '')
+
+Expect ledger:
+  2020-03-06 Buy
+    Expenses  $10.00
+    Cash
+
+Execute (toggle state):
+  2
+  call ledger#transaction_post_state_toggle(line('.'), '!* ')
+
+Expect ledger:
+  2020-03-06 Buy
+    ! Expenses  $10.00
+    Cash
+
+Execute (toggle state x2):
+  2
+  call ledger#transaction_post_state_toggle(line('.'), '!* ')
+  call ledger#transaction_post_state_toggle(line('.'), '!* ')
+
+Expect ledger:
+  2020-03-06 Buy
+    * Expenses  $10.00
+    Cash
+
+Execute (toggle state x3):
+  2
+  call ledger#transaction_post_state_toggle(line('.'), '!* ')
+  call ledger#transaction_post_state_toggle(line('.'), '!* ')
+  call ledger#transaction_post_state_toggle(line('.'), '!* ')
+
+Expect ledger:
+  2020-03-06 Buy
+    Expenses  $10.00
+    Cash
+
+Execute (fallback to posting):
+  call ledger#transaction_post_state_toggle(line('.'), '!* ')
+
+Expect ledger:
+  2020-03-06 ! Buy
+    Expenses  $10.00
+    Cash
+
+Execute (fallback to posting, clear):
+  call ledger#transaction_post_state_set(line('.'), ' ')
+
+Expect ledger:
+  2020-03-06 Buy
+    Expenses  $10.00
+    Cash

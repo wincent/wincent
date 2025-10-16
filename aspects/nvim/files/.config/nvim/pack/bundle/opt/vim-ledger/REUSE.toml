@@ -1,0 +1,16 @@
+version = 1
+
+[[annotations]]
+path = ["*.vim", "doc/ledger.txt"]
+SPDX-FileCopyrightText = "Caleb Maclennan, Johann Klähn, Stefan Karrmann, Wolfgang Oertl"
+SPDX-License-Identifier = "GPL-2.0-or-later"
+
+[[annotations]]
+path = [".github/**/*.yml", ".gitignore", ".vintrc.yaml", "Justfile"]
+SPDX-FileCopyrightText = "Caleb Maclennan, Johann Klähn, Stefan Karrmann, Wolfgang Oertl"
+SPDX-License-Identifier = "0BSD"
+
+[[annotations]]
+path = ["README.md", "spec/*.ledger", "spec/*.vader", "test/*.journal"]
+SPDX-FileCopyrightText = "Caleb Maclennan, Johann Klähn, Stefan Karrmann, Wolfgang Oertl"
+SPDX-License-Identifier = "CC0-1.0"

@@ -1,0 +1,42 @@
+name: Vader
+on: [push, pull_request]
+jobs:
+  vader:
+    name: vader
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        vimFlavor: ["vim", "nvim"]
+        ledgerFlavor: ["ledger", "hledger"]
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Enable Universe package repository
+      run: |
+        sudo add-apt-repository universe
+        sudo apt-get update
+    - name: Install ${{ matrix.ledgerFlavor }}
+      run: |
+        sudo apt-get install ${{ matrix.ledgerFlavor }}
+    - name: Install ${{ matrix.vimFlavor }}
+      run: |
+        sudo apt-get install ${{ matrix.vimFlavor == 'nvim' && 'neovim' || 'vim' }}
+    - name: Review versions
+      run: |
+        ${{ matrix.ledgerFlavor }} --version
+        ${{ matrix.vimFlavor }} --version
+    - name: Fetch Vader
+      run: |
+        git clone --depth 1 https://github.com/junegunn/vader.vim.git
+    - name: Run test suite
+      run: |
+        ${{ matrix.vimFlavor == 'nvim' && 'nvim --headless' || 'vim -N' }} \
+        -u <(cat << VIMRC
+        filetype off
+        set rtp+=vader.vim
+        set rtp+=.
+        filetype plugin indent on
+        syntax enable
+        VIMRC
+        ) "+Vader! spec/*"
