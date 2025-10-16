@@ -1,0 +1,751 @@
+*oil.txt*
+*Oil* *oil* *oil.nvim*
+--------------------------------------------------------------------------------
+CONTENTS                                                            *oil-contents*
+
+  1. Config                                                       |oil-config|
+  2. Options                                                     |oil-options|
+  3. Api                                                             |oil-api|
+  4. Columns                                                     |oil-columns|
+  5. Actions                                                     |oil-actions|
+  6. Highlights                                               |oil-highlights|
+  7. Trash                                                         |oil-trash|
+
+--------------------------------------------------------------------------------
+CONFIG                                                                *oil-config*
+
+>lua
+    require("oil").setup({
+      -- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
+      -- Set to false if you want some other plugin (e.g. netrw) to open when you edit directories.
+      default_file_explorer = true,
+      -- Id is automatically added at the beginning, and name at the end
+      -- See :help oil-columns
+      columns = {
+        "icon",
+        -- "permissions",
+        -- "size",
+        -- "mtime",
+      },
+      -- Buffer-local options to use for oil buffers
+      buf_options = {
+        buflisted = false,
+        bufhidden = "hide",
+      },
+      -- Window-local options to use for oil buffers
+      win_options = {
+        wrap = false,
+        signcolumn = "no",
+        cursorcolumn = false,
+        foldcolumn = "0",
+        spell = false,
+        list = false,
+        conceallevel = 3,
+        concealcursor = "nvic",
+      },
+      -- Send deleted files to the trash instead of permanently deleting them (:help oil-trash)
+      delete_to_trash = false,
+      -- Skip the confirmation popup for simple operations (:help oil.skip_confirm_for_simple_edits)
+      skip_confirm_for_simple_edits = false,
+      -- Selecting a new/moved/renamed file or directory will prompt you to save changes first
+      -- (:help prompt_save_on_select_new_entry)
+      prompt_save_on_select_new_entry = true,
+      -- Oil will automatically delete hidden buffers after this delay
+      -- You can set the delay to false to disable cleanup entirely
+      -- Note that the cleanup process only starts when none of the oil buffers are currently displayed
+      cleanup_delay_ms = 2000,
+      lsp_file_methods = {
+        -- Enable or disable LSP file operations
+        enabled = true,
+        -- Time to wait for LSP file operations to complete before skipping
+        timeout_ms = 1000,
+        -- Set to true to autosave buffers that are updated with LSP willRenameFiles
+        -- Set to "unmodified" to only save unmodified buffers
+        autosave_changes = false,
+      },
+      -- Constrain the cursor to the editable parts of the oil buffer
+      -- Set to `false` to disable, or "name" to keep it on the file names
+      constrain_cursor = "editable",
+      -- Set to true to watch the filesystem for changes and reload oil
+      watch_for_changes = false,
+      -- Keymaps in oil buffer. Can be any value that `vim.keymap.set` accepts OR a table of keymap
+      -- options with a `callback` (e.g. { callback = function() ... end, desc = "", mode = "n" })
+      -- Additionally, if it is a string that matches "actions.<name>",
+      -- it will use the mapping at require("oil.actions").<name>
+      -- Set to `false` to remove a keymap
+      -- See :help oil-actions for a list of all available actions
+      keymaps = {
+        ["g?"] = { "actions.show_help", mode = "n" },
+        ["<CR>"] = "actions.select",
+        ["<C-s>"] = { "actions.select", opts = { vertical = true } },
+        ["<C-h>"] = { "actions.select", opts = { horizontal = true } },
+        ["<C-t>"] = { "actions.select", opts = { tab = true } },
+        ["<C-p>"] = "actions.preview",
+        ["<C-c>"] = { "actions.close", mode = "n" },
+        ["<C-l>"] = "actions.refresh",
+        ["-"] = { "actions.parent", mode = "n" },
+        ["_"] = { "actions.open_cwd", mode = "n" },
+        ["`"] = { "actions.cd", mode = "n" },
+        ["~"] = { "actions.cd", opts = { scope = "tab" }, mode = "n" },
+        ["gs"] = { "actions.change_sort", mode = "n" },
+        ["gx"] = "actions.open_external",
+        ["g."] = { "actions.toggle_hidden", mode = "n" },
+        ["g\\"] = { "actions.toggle_trash", mode = "n" },
+      },
+      -- Set to false to disable all of the above keymaps
+      use_default_keymaps = true,
+      view_options = {
+        -- Show files and directories that start with "."
+        show_hidden = false,
+        -- This function defines what is considered a "hidden" file
+        is_hidden_file = function(name, bufnr)
+          local m = name:match("^%.")
+          return m ~= nil
+        end,
+        -- This function defines what will never be shown, even when `show_hidden` is set
+        is_always_hidden = function(name, bufnr)
+          return false
+        end,
+        -- Sort file names with numbers in a more intuitive order for humans.
+        -- Can be "fast", true, or false. "fast" will turn it off for large directories.
+        natural_order = "fast",
+        -- Sort file and directory names case insensitive
+        case_insensitive = false,
+        sort = {
+          -- sort order can be "asc" or "desc"
+          -- see :help oil-columns to see which columns are sortable
+          { "type", "asc" },
+          { "name", "asc" },
+        },
+        -- Customize the highlight group for the file name
+        highlight_filename = function(entry, is_hidden, is_link_target, is_link_orphan)
+          return nil
+        end,
+      },
+      -- Extra arguments to pass to SCP when moving/copying files over SSH
+      extra_scp_args = {},
+      -- EXPERIMENTAL support for performing file operations with git
+      git = {
+        -- Return true to automatically git add/mv/rm files
+        add = function(path)
+          return false
+        end,
+        mv = function(src_path, dest_path)
+          return false
+        end,
+        rm = function(path)
+          return false
+        end,
+      },
+      -- Configuration for the floating window in oil.open_float
+      float = {
+        -- Padding around the floating window
+        padding = 2,
+        -- max_width and max_height can be integers or a float between 0 and 1 (e.g. 0.4 for 40%)
+        max_width = 0,
+        max_height = 0,
+        border = nil,
+        win_options = {
+          winblend = 0,
+        },
+        -- optionally override the oil buffers window title with custom function: fun(winid: integer): string
+        get_win_title = nil,
+        -- preview_split: Split direction: "auto", "left", "right", "above", "below".
+        preview_split = "auto",
+        -- This is the config that will be passed to nvim_open_win.
+        -- Change values here to customize the layout
+        override = function(conf)
+          return conf
+        end,
+      },
+      -- Configuration for the file preview window
+      preview_win = {
+        -- Whether the preview window is automatically updated when the cursor is moved
+        update_on_cursor_moved = true,
+        -- How to open the preview window "load"|"scratch"|"fast_scratch"
+        preview_method = "fast_scratch",
+        -- A function that returns true to disable preview on a file e.g. to avoid lag
+        disable_preview = function(filename)
+          return false
+        end,
+        -- Window-local options to use for preview window buffers
+        win_options = {},
+      },
+      -- Configuration for the floating action confirmation window
+      confirmation = {
+        -- Width dimensions can be integers or a float between 0 and 1 (e.g. 0.4 for 40%)
+        -- min_width and max_width can be a single value or a list of mixed integer/float types.
+        -- max_width = {100, 0.8} means "the lesser of 100 columns or 80% of total"
+        max_width = 0.9,
+        -- min_width = {40, 0.4} means "the greater of 40 columns or 40% of total"
+        min_width = { 40, 0.4 },
+        -- optionally define an integer/float for the exact width of the preview window
+        width = nil,
+        -- Height dimensions can be integers or a float between 0 and 1 (e.g. 0.4 for 40%)
+        -- min_height and max_height can be a single value or a list of mixed integer/float types.
+        -- max_height = {80, 0.9} means "the lesser of 80 columns or 90% of total"
+        max_height = 0.9,
+        -- min_height = {5, 0.1} means "the greater of 5 columns or 10% of total"
+        min_height = { 5, 0.1 },
+        -- optionally define an integer/float for the exact height of the preview window
+        height = nil,
+        border = nil,
+        win_options = {
+          winblend = 0,
+        },
+      },
+      -- Configuration for the floating progress window
+      progress = {
+        max_width = 0.9,
+        min_width = { 40, 0.4 },
+        width = nil,
+        max_height = { 10, 0.9 },
+        min_height = { 5, 0.1 },
+        height = nil,
+        border = nil,
+        minimized_border = "none",
+        win_options = {
+          winblend = 0,
+        },
+      },
+      -- Configuration for the floating SSH window
+      ssh = {
+        border = nil,
+      },
+      -- Configuration for the floating keymaps help window
+      keymaps_help = {
+        border = nil,
+      },
+    })
+<
+
+--------------------------------------------------------------------------------
+OPTIONS                                                              *oil-options*
+
+
+skip_confirm_for_simple_edits                  *oil.skip_confirm_for_simple_edits*
+    type: `boolean` default: `false`
+    Before performing filesystem operations, Oil displays a confirmation popup to ensure
+    that all operations are intentional. When this option is `true`, the popup will be
+    skipped if the operations:
+        * contain no deletes
+        * contain no cross-adapter moves or copies (e.g. from local to ssh)
+        * contain at most one copy or move
+        * contain at most five creates
+
+prompt_save_on_select_new_entry              *oil.prompt_save_on_select_new_entry*
+    type: `boolean` default: `true`
+    There are two cases where this option is relevant:
+    1. You copy a file to a new location, then you select it and make edits before
+       saving.
+    2. You copy a directory to a new location, then you enter the directory and make
+       changes before saving.
+
+    In case 1, when you edit the file you are actually editing the original file because
+    oil has not yet moved/copied it to its new location. This means that the original
+    file will, perhaps unexpectedly, also be changed by any edits you make.
+
+    Case 2 is similar; when you edit the directory you are again actually editing the
+    original location of the directory. If you add new files, those files will be
+    created in both the original location and the copied directory.
+
+    When this option is `true`, Oil will prompt you to save before entering a file or
+    directory that is pending within oil, but does not exist on disk.
+
+--------------------------------------------------------------------------------
+API                                                                      *oil-api*
+
+get_entry_on_line({bufnr}, {lnum}): nil|oil.Entry          *oil.get_entry_on_line*
+    Get the entry on a specific line (1-indexed)
+
+    Parameters:
+      {bufnr} `integer`
+      {lnum}  `integer`
+
+get_cursor_entry(): nil|oil.Entry                           *oil.get_cursor_entry*
+    Get the entry currently under the cursor
+
+
+discard_all_changes()                                    *oil.discard_all_changes*
+    Discard all changes made to oil buffers
+
+
+set_columns({cols})                                              *oil.set_columns*
+    Change the display columns for oil
+
+    Parameters:
+      {cols} `oil.ColumnSpec[]`
+
+set_sort({sort})                                                    *oil.set_sort*
+    Change the sort order for oil
+
+    Parameters:
+      {sort} `oil.SortSpec[]` List of columns plus direction. See :help oil-
+             columns to see which ones are sortable.
+
+    Examples: >lua
+      require("oil").set_sort({ { "type", "asc" }, { "size", "desc" } })
+<
+
+set_is_hidden_file({is_hidden_file})                      *oil.set_is_hidden_file*
+    Change how oil determines if the file is hidden
+
+    Parameters:
+      {is_hidden_file} `fun(filename: string, bufnr: integer): boolean` Return
+                       true if the file/dir should be hidden
+
+toggle_hidden()                                                *oil.toggle_hidden*
+    Toggle hidden files and directories
+
+
+get_current_dir({bufnr}): nil|string                         *oil.get_current_dir*
+    Get the current directory
+
+    Parameters:
+      {bufnr} `nil|integer`
+
+open_float({dir}, {opts}, {cb})                                   *oil.open_float*
+    Open oil browser in a floating window
+
+    Parameters:
+      {dir}  `nil|string` When nil, open the parent of the current buffer, or
+             the cwd if current buffer is not a file
+      {opts} `nil|oil.OpenOpts`
+          {preview} `nil|oil.OpenPreviewOpts` When present, open the preview
+                    window after opening oil
+              {vertical}   `nil|boolean` Open the buffer in a vertical split
+              {horizontal} `nil|boolean` Open the buffer in a horizontal split
+              {split}      `nil|"aboveleft"|"belowright"|"topleft"|"botright"` S
+                           plit modifier
+      {cb}   `nil|fun()` Called after the oil buffer is ready
+
+toggle_float({dir})                                             *oil.toggle_float*
+    Open oil browser in a floating window, or close it if open
+
+    Parameters:
+      {dir} `nil|string` When nil, open the parent of the current buffer, or the
+            cwd if current buffer is not a file
+
+open({dir}, {opts}, {cb})                                               *oil.open*
+    Open oil browser for a directory
+
+    Parameters:
+      {dir}  `nil|string` When nil, open the parent of the current buffer, or
+             the cwd if current buffer is not a file
+      {opts} `nil|oil.OpenOpts`
+          {preview} `nil|oil.OpenPreviewOpts` When present, open the preview
+                    window after opening oil
+              {vertical}   `nil|boolean` Open the buffer in a vertical split
+              {horizontal} `nil|boolean` Open the buffer in a horizontal split
+              {split}      `nil|"aboveleft"|"belowright"|"topleft"|"botright"` S
+                           plit modifier
+      {cb}   `nil|fun()` Called after the oil buffer is ready
+
+close({opts})                                                          *oil.close*
+    Restore the buffer that was present when oil was opened
+
+    Parameters:
+      {opts} `nil|oil.CloseOpts`
+          {exit_if_last_buf} `nil|boolean` Exit vim if this oil buffer is the
+                             last open buffer
+
+open_preview({opts}, {callback})                                *oil.open_preview*
+    Preview the entry under the cursor in a split
+
+    Parameters:
+      {opts}     `nil|oil.OpenPreviewOpts`
+          {vertical}   `nil|boolean` Open the buffer in a vertical split
+          {horizontal} `nil|boolean` Open the buffer in a horizontal split
+          {split}      `nil|"aboveleft"|"belowright"|"topleft"|"botright"` Split
+                       modifier
+      {callback} `nil|fun(err: nil|string)` Called once the preview window has
+                 been opened
+
+select({opts}, {callback})                                            *oil.select*
+    Select the entry under the cursor
+
+    Parameters:
+      {opts}     `nil|oil.SelectOpts`
+          {vertical}   `nil|boolean` Open the buffer in a vertical split
+          {horizontal} `nil|boolean` Open the buffer in a horizontal split
+          {split}      `nil|"aboveleft"|"belowright"|"topleft"|"botright"` Split
+                       modifier
+          {tab}        `nil|boolean` Open the buffer in a new tab
+          {close}      `nil|boolean` Close the original oil buffer once
+                       selection is made
+          {handle_buffer_callback} `nil|fun(buf_id: integer)` If defined, all
+                       other buffer related options here would be ignored. This
+                       callback allows you to take over the process of opening
+                       the buffer yourself.
+      {callback} `nil|fun(err: nil|string)` Called once all entries have been
+                 opened
+
+save({opts}, {cb})                                                      *oil.save*
+    Save all changes
+
+    Parameters:
+      {opts} `nil|table`
+          {confirm} `nil|boolean` Show confirmation when true, never when false,
+                    respect skip_confirm_for_simple_edits if nil
+      {cb}   `nil|fun(err: nil|string)` Called when mutations complete.
+
+    Note:
+      If you provide your own callback function, there will be no notification for errors.
+
+setup({opts})                                                          *oil.setup*
+    Initialize oil
+
+    Parameters:
+      {opts} `oil.setupOpts|nil`
+
+--------------------------------------------------------------------------------
+COLUMNS                                                              *oil-columns*
+
+Columns can be specified as a string to use default arguments (e.g. `"icon"`),
+or as a table to pass parameters (e.g. `{"size", highlight = "Special"}`)
+
+type                                                                 *column-type*
+    Adapters: *
+    Sortable: this column can be used in view_props.sort
+    The type of the entry (file, directory, link, etc)
+
+    Parameters:
+      {highlight} `string|fun(value: string): string` Highlight group, or
+                  function that returns a highlight group
+      {icons}     `table<string, string>` Mapping of entry type to icon
+
+icon                                                                 *column-icon*
+    Adapters: *
+    An icon for the entry's type (requires nvim-web-devicons)
+
+    Parameters:
+      {highlight}    `string|fun(value: string): string` Highlight group, or
+                     function that returns a highlight group
+      {default_file} `string` Fallback icon for files when nvim-web-devicons
+                     returns nil
+      {directory}    `string` Icon for directories
+      {add_padding}  `boolean` Set to false to remove the extra whitespace after
+                     the icon
+
+size                                                                 *column-size*
+    Adapters: files, ssh
+    Sortable: this column can be used in view_props.sort
+    The size of the file
+
+    Parameters:
+      {highlight} `string|fun(value: string): string` Highlight group, or
+                  function that returns a highlight group
+
+permissions                                                   *column-permissions*
+    Adapters: files, ssh
+    Editable: this column is read/write
+    Access permissions of the file
+
+    Parameters:
+      {highlight} `string|fun(value: string): string` Highlight group, or
+                  function that returns a highlight group
+
+ctime                                                               *column-ctime*
+    Adapters: files
+    Sortable: this column can be used in view_props.sort
+    Change timestamp of the file
+
+    Parameters:
+      {highlight} `string|fun(value: string): string` Highlight group, or
+                  function that returns a highlight group
+      {format}    `string` Format string (see :help strftime)
+
+mtime                                                               *column-mtime*
+    Adapters: files
+    Sortable: this column can be used in view_props.sort
+    Last modified time of the file
+
+    Parameters:
+      {highlight} `string|fun(value: string): string` Highlight group, or
+                  function that returns a highlight group
+      {format}    `string` Format string (see :help strftime)
+
+atime                                                               *column-atime*
+    Adapters: files
+    Sortable: this column can be used in view_props.sort
+    Last access time of the file
+
+    Parameters:
+      {highlight} `string|fun(value: string): string` Highlight group, or
+                  function that returns a highlight group
+      {format}    `string` Format string (see :help strftime)
+
+birthtime                                                       *column-birthtime*
+    Adapters: files
+    Sortable: this column can be used in view_props.sort
+    The time the file was created
+
+    Parameters:
+      {highlight} `string|fun(value: string): string` Highlight group, or
+                  function that returns a highlight group
+      {format}    `string` Format string (see :help strftime)
+
+--------------------------------------------------------------------------------
+ACTIONS                                                              *oil-actions*
+
+The `keymaps` option in `oil.setup` allow you to create mappings using all the same parameters as |vim.keymap.set|.
+>lua
+    keymaps = {
+        -- Mappings can be a string
+        ["~"] = "<cmd>edit $HOME<CR>",
+        -- Mappings can be a function
+        ["gd"] = function()
+            require("oil").set_columns({ "icon", "permissions", "size", "mtime" })
+        end,
+        -- You can pass additional opts to vim.keymap.set by using
+        -- a table with the mapping as the first element.
+        ["<leader>ff"] = {
+            function()
+                require("telescope.builtin").find_files({
+                    cwd = require("oil").get_current_dir()
+                })
+            end,
+            mode = "n",
+            nowait = true,
+            desc = "Find files in the current directory"
+        },
+        -- Mappings that are a string starting with "actions." will be
+        -- one of the built-in actions, documented below.
+        ["`"] = "actions.tcd",
+        -- Some actions have parameters. These are passed in via the `opts` key.
+        ["<leader>:"] = {
+            "actions.open_cmdline",
+            opts = {
+                shorten_path = true,
+                modify = ":h",
+            },
+            desc = "Open the command line with the current directory as an argument",
+        },
+    }
+
+Below are the actions that can be used in the `keymaps` section of config
+options. You can refer to them as strings (e.g. "actions.<action_name>") or you
+can use the functions directly with
+`require("oil.actions").action_name.callback()`
+
+cd                                                                    *actions.cd*
+    :cd to the current oil directory
+
+    Parameters:
+      {scope}  `nil|"tab"|"win"` Scope of the directory change (e.g. use |:tcd|
+               or |:lcd|)
+      {silent} `boolean` Do not show a message when changing directories
+
+change_sort                                                  *actions.change_sort*
+    Change the sort order
+
+    Parameters:
+      {sort} `oil.SortSpec[]` List of columns plus direction (see
+             |oil.set_sort|) instead of interactive selection
+
+close                                                              *actions.close*
+    Close oil and restore original buffer
+
+    Parameters:
+      {exit_if_last_buf} `boolean` Exit vim if oil is closed as the last buffer
+
+copy_to_system_clipboard                        *actions.copy_to_system_clipboard*
+    Copy the entry under the cursor to the system clipboard
+
+open_cmdline                                                *actions.open_cmdline*
+    Open vim cmdline with current entry as an argument
+
+    Parameters:
+      {modify}       `string` Modify the path with |fnamemodify()| using this as
+                     the mods argument
+      {shorten_path} `boolean` Use relative paths when possible
+
+open_cwd                                                        *actions.open_cwd*
+    Open oil in Neovim's current working directory
+
+open_external                                              *actions.open_external*
+    Open the entry under the cursor in an external program
+
+open_terminal                                              *actions.open_terminal*
+    Open a terminal in the current directory
+
+parent                                                            *actions.parent*
+    Navigate to the parent path
+
+paste_from_system_clipboard                  *actions.paste_from_system_clipboard*
+    Paste the system clipboard into the current oil directory
+
+    Parameters:
+      {delete_original} `boolean` Delete the original file after copying
+
+preview                                                          *actions.preview*
+    Open the entry under the cursor in a preview window, or close the preview
+    window if already open
+
+    Parameters:
+      {horizontal} `boolean` Open the buffer in a horizontal split
+      {split}      `"aboveleft"|"belowright"|"topleft"|"botright"` Split
+                   modifier
+      {vertical}   `boolean` Open the buffer in a vertical split
+
+preview_scroll_down                                  *actions.preview_scroll_down*
+    Scroll down in the preview window
+
+preview_scroll_up                                      *actions.preview_scroll_up*
+    Scroll up in the preview window
+
+refresh                                                          *actions.refresh*
+    Refresh current directory list
+
+    Parameters:
+      {force} `boolean` When true, do not prompt user if they will be discarding
+              changes
+
+select                                                            *actions.select*
+    Open the entry under the cursor
+
+    Parameters:
+      {close}      `boolean` Close the original oil buffer once selection is
+                   made
+      {horizontal} `boolean` Open the buffer in a horizontal split
+      {split}      `"aboveleft"|"belowright"|"topleft"|"botright"` Split
+                   modifier
+      {tab}        `boolean` Open the buffer in a new tab
+      {vertical}   `boolean` Open the buffer in a vertical split
+
+send_to_qflist                                            *actions.send_to_qflist*
+    Sends files in the current oil directory to the quickfix list, replacing the
+    previous entries.
+
+    Parameters:
+      {action} `"r"|"a"` Replace or add to current quickfix list (see
+               |setqflist-action|)
+      {only_matching_search} `boolean` Whether to only add the files that
+               matches the last search. This option only applies when search
+               highlighting is active
+      {target} `"qflist"|"loclist"` The target list to send files to
+
+show_help                                                      *actions.show_help*
+    Show default keymaps
+
+toggle_hidden                                              *actions.toggle_hidden*
+    Toggle hidden files and directories
+
+toggle_trash                                                *actions.toggle_trash*
+    Jump to and from the trash for the current directory
+
+yank_entry                                                    *actions.yank_entry*
+    Yank the filepath of the entry under the cursor to a register
+
+    Parameters:
+      {modify} `string` Modify the path with |fnamemodify()| using this as the
+               mods argument
+
+--------------------------------------------------------------------------------
+HIGHLIGHTS                                                        *oil-highlights*
+
+OilHidden                                                           *hl-OilHidden*
+    Hidden entry in an oil buffer
+
+OilDir                                                                 *hl-OilDir*
+    Directory names in an oil buffer
+
+OilDirHidden                                                     *hl-OilDirHidden*
+    Hidden directory names in an oil buffer
+
+OilDirIcon                                                         *hl-OilDirIcon*
+    Icon for directories
+
+OilSocket                                                           *hl-OilSocket*
+    Socket files in an oil buffer
+
+OilSocketHidden                                               *hl-OilSocketHidden*
+    Hidden socket files in an oil buffer
+
+OilLink                                                               *hl-OilLink*
+    Soft links in an oil buffer
+
+OilOrphanLink                                                   *hl-OilOrphanLink*
+    Orphaned soft links in an oil buffer
+
+OilLinkHidden                                                   *hl-OilLinkHidden*
+    Hidden soft links in an oil buffer
+
+OilOrphanLinkHidden                                       *hl-OilOrphanLinkHidden*
+    Hidden orphaned soft links in an oil buffer
+
+OilLinkTarget                                                   *hl-OilLinkTarget*
+    The target of a soft link
+
+OilOrphanLinkTarget                                       *hl-OilOrphanLinkTarget*
+    The target of an orphaned soft link
+
+OilLinkTargetHidden                                       *hl-OilLinkTargetHidden*
+    The target of a hidden soft link
+
+OilOrphanLinkTargetHidden                           *hl-OilOrphanLinkTargetHidden*
+    The target of an hidden orphaned soft link
+
+OilFile                                                               *hl-OilFile*
+    Normal files in an oil buffer
+
+OilFileHidden                                                   *hl-OilFileHidden*
+    Hidden normal files in an oil buffer
+
+OilCreate                                                           *hl-OilCreate*
+    Create action in the oil preview window
+
+OilDelete                                                           *hl-OilDelete*
+    Delete action in the oil preview window
+
+OilMove                                                               *hl-OilMove*
+    Move action in the oil preview window
+
+OilCopy                                                               *hl-OilCopy*
+    Copy action in the oil preview window
+
+OilChange                                                           *hl-OilChange*
+    Change action in the oil preview window
+
+OilRestore                                                         *hl-OilRestore*
+    Restore (from the trash) action in the oil preview window
+
+OilPurge                                                             *hl-OilPurge*
+    Purge (Permanently delete a file from trash) action in the oil preview
+    window
+
+OilTrash                                                             *hl-OilTrash*
+    Trash (delete a file to trash) action in the oil preview window
+
+OilTrashSourcePath                                         *hl-OilTrashSourcePath*
+    Virtual text that shows the original path of file in the trash
+
+--------------------------------------------------------------------------------
+TRASH                                                                  *oil-trash*
+
+
+Oil has built-in support for using the system trash. When
+`delete_to_trash = true`, any deleted files will be sent to the trash instead
+of being permanently deleted. You can browse the trash for a directory using
+the `toggle_trash` action (bound to `g\` by default). You can view all files
+in the trash with `:Oil --trash /`.
+
+To restore files, simply move them from the trash to the desired destination,
+the same as any other file operation. If you delete files from the trash they
+will be permanently deleted (purged).
+
+Linux:
+    Oil supports the FreeDesktop trash specification.
+    https://specifications.freedesktop.org/trash-spec/1.0/
+    All features should work.
+
+Mac:
+    Oil has limited support for MacOS due to the proprietary nature of the
+    implementation. The trash bin can only be viewed as a single dir
+    (instead of being able to see files that were trashed from a directory).
+
+Windows:
+    Oil supports the Windows Recycle Bin. All features should work.
+
+================================================================================
+vim:tw=80:ts=2:ft=help:norl:syntax=help:
