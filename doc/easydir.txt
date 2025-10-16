@@ -1,0 +1,23 @@
+*easydir.txt*   An easy way to create files and directories at the same time!
+
+Author:              Doug Yun | <doug.yun@dockyard.com> | http://dockyard.com
+License:             MIT License 2013
+
+INTRODUCTION                                                        *easydir*
+
+Using easydir is quite easy. Functionality remains the same for editing and
+saving files, but now you can prepend nonexistent directories to the desired
+file name to create them both.
+
+EXAMPLES
+
+:e new_directory/new_file.txt      Edits a file called |new_file.txt|
+                                   which is nested inside |new_directory|
+
+:sp new_directory/new_file2.txt    Split a new window assign the file
+                                   as |new_file2.txt| and
+                                   create the directory |new_directory|
+
+:n new_dir/another_dir/file.txt    You can even nest multiple directories!
+
+That's it! So *easy!*
