@@ -1,0 +1,13 @@
+#:schema https://jj-vcs.github.io/jj/latest/config-schema.json
+
+[ui]
+default-command = "log"
+diff-editor = ":builtin"
+
+[user]
+name = "Greg Hurrell"
+email = "greg.hurrell@datadoghq.com"
+
+[signing]
+behavior = "own"
+backend = "gpg"
