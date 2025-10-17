@@ -7,10 +7,7 @@ import {type Project, assertProject} from './types/Project.ts';
 export default async function readConfig(directory: string): Promise<Project> {
   await log.debug(`Reading project configuration: ${directory}`);
 
-  const mod = resolve(
-    root,
-    relative(root, join(directory, 'fig.config.ts')),
-  );
+  const mod = resolve(root, relative(root, join(directory, 'fig.config.ts')));
 
   const project = (await import(mod)).default;
 
@@ -22,7 +19,9 @@ export default async function readConfig(directory: string): Promise<Project> {
     } else {
       throw new Error(
         `unknown error ${
-          Object.prototype.toString.call(error)
+          Object.prototype.toString.call(
+            error,
+          )
         } in ${directory}`,
       );
     }

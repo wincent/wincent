@@ -174,7 +174,9 @@ export default async function defaults({
 
   await log.debug(
     `${description} current type = ${currentType ?? 'unset'}, current value = ${
-      stringify(currentValue)
+      stringify(
+        currentValue,
+      )
     }`,
   );
 

@@ -92,11 +92,7 @@ export default async function getOptions(
       throw new ErrorWithMetadata('aborting');
     } else if (arg === '--parallel') {
       options.parallel = true;
-    } else if (
-      arg === '-s' ||
-      arg === '--start' ||
-      arg === '--start-at-task'
-    ) {
+    } else if (arg === '-s' || arg === '--start' || arg === '--start-at-task') {
       const task = explodedArgs.shift()?.trim();
       if (task === undefined) {
         throw new ErrorWithMetadata(
@@ -105,7 +101,9 @@ export default async function getOptions(
       } else if (task.startsWith('-')) {
         throw new ErrorWithMetadata(
           `invalid <aspect-or-task> pattern ${
-            stringify(task)
+            stringify(
+              task,
+            )
           } for ${arg} switch`,
         );
       }

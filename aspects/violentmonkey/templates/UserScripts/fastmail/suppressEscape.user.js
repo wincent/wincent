@@ -21,19 +21,23 @@
       if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
         mutation.addedNodes.forEach((node) => {
           if (node.nodeType === Node.ELEMENT_NODE) {
-            node.querySelectorAll('div[contenteditable="true"]').forEach(
-              (div) => {
-                div.addEventListener('keydown', function (event) {
-                  if (
-                    window.location.pathname.startsWith('/notes/') &&
-                    event.key === 'Escape'
-                  ) {
-                    event.stopPropagation();
-                    event.preventDefault();
-                  }
-                }, true);
-              },
-            );
+            node
+              .querySelectorAll('div[contenteditable="true"]')
+              .forEach((div) => {
+                div.addEventListener(
+                  'keydown',
+                  function (event) {
+                    if (
+                      window.location.pathname.startsWith('/notes/') &&
+                      event.key === 'Escape'
+                    ) {
+                      event.stopPropagation();
+                      event.preventDefault();
+                    }
+                  },
+                  true,
+                );
+              });
           }
         });
       }

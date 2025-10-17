@@ -72,7 +72,7 @@ async function main() {
   await log.debug(`Profiles:\n\n${stringify(profiles)}\n`);
 
   const profileVariables: {[key: string]: JSONValue} = profile
-    ? profiles[profile]!.variables ?? {}
+    ? (profiles[profile]!.variables ?? {})
     : {};
 
   const {distribution, platform} = Context.attributes;
@@ -106,10 +106,7 @@ async function main() {
     for (const [, name] of Context.tasks.get(aspect)) {
       if (name === options.startAt.literal) {
         options.startAt.found = true;
-      } else if (
-        !options.startAt.found &&
-        options.startAt.fuzzy?.test(name)
-      ) {
+      } else if (!options.startAt.found && options.startAt.fuzzy?.test(name)) {
         candidateTasks.push(name);
       }
     }
@@ -285,7 +282,10 @@ async function main() {
                 }
               }
             } else {
-              await Context.execute({aspect, task: name, variables}, callback);
+              await Context.execute(
+                {aspect, task: name, variables},
+                callback,
+              );
             }
           }
         }
@@ -356,7 +356,10 @@ async function main() {
                 }
               }
             } else {
-              await Context.execute({aspect, task: name, variables}, callback);
+              await Context.execute(
+                {aspect, task: name, variables},
+                callback,
+              );
             }
           }
 

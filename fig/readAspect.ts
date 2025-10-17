@@ -12,10 +12,7 @@ export default async function readAspect(directory: string): Promise<Aspect> {
 
   try {
     // First try for "aspect.ts".
-    const mod = resolve(
-      root,
-      relative(root, join(directory, 'aspect.ts')),
-    );
+    const mod = resolve(root, relative(root, join(directory, 'aspect.ts')));
 
     aspect = (await import(mod)).default;
   } catch {
@@ -33,7 +30,9 @@ export default async function readAspect(directory: string): Promise<Aspect> {
     } else {
       throw new Error(
         `unknown error ${
-          Object.prototype.toString.call(error)
+          Object.prototype.toString.call(
+            error,
+          )
         } in ${directory}`,
       );
     }

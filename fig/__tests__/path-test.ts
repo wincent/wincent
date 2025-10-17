@@ -109,8 +109,9 @@ describe('path()', () => {
       expect(path('foo').join('/', 'bar', '/', '/', 'baz').toString()).toBe(
         'foo/bar/baz',
       );
-      expect(path('foo').join('/', 'bar', '/', '/', 'baz', '/').toString())
-        .toBe('foo/bar/baz');
+      expect(
+        path('foo').join('/', 'bar', '/', '/', 'baz', '/').toString(),
+      ).toBe('foo/bar/baz');
     });
   });
 

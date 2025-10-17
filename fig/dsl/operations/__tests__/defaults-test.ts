@@ -54,14 +54,14 @@ describe('equal()', () => {
 
     // Currently a dictionary, but missing a subset of the desired
     // key/value pairs.
-    expect(equal({a: 'foo'}, 'dict', {a: 'foo', b: 'bar'}, 'dict-add')).toBe(
-      false,
-    );
+    expect(
+      equal({a: 'foo'}, 'dict', {a: 'foo', b: 'bar'}, 'dict-add'),
+    ).toBe(false);
 
     // Currently a dictionary, and containing the desired key/value pair.
-    expect(equal({a: 'foo', b: 'bar'}, 'dict', {b: 'bar'}, 'dict-add')).toBe(
-      true,
-    );
+    expect(
+      equal({a: 'foo', b: 'bar'}, 'dict', {b: 'bar'}, 'dict-add'),
+    ).toBe(true);
 
     // Currently a dictionary, and containing multiple desired
     // key/value pairs.

@@ -18,10 +18,7 @@
       'label[for="pull_request_review[event]_comment"]',
     );
 
-    if (
-      label &&
-      label.textContent.match(/\bComment\b/)
-    ) {
+    if (label && label.textContent.match(/\bComment\b/)) {
       label.textContent = "I'm just sayin'";
       label.style.position = 'relative';
 

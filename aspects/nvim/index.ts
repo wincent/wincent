@@ -77,9 +77,9 @@ task('compile Command-T (Ruby)', async () => {
 });
 
 task('build shellbot', async () => {
-  const base = resource.file('.config').join(
-    'nvim/pack/bundle/opt/shellbot/lua',
-  );
+  const base = resource
+    .file('.config')
+    .join('nvim/pack/bundle/opt/shellbot/lua');
 
   await command('cargo', ['build', '--release'], {
     chdir: base,
@@ -149,17 +149,21 @@ task('create Corpus directories', when('wincent', 'work'), async () => {
     state: 'directory',
   });
 
-  await command('git', [
-    'init',
-    `--separate-git-dir=${
-      path.home.join(
-        'Library/Application Support/Corpus/Documents/Corporate/Corpus.git',
-      )
-    }`,
-  ], {
-    chdir: '~/Documents/Corporate/Corpus',
-    creates: '~/Documents/Corporate/Corpus/.git',
-  });
+  await command(
+    'git',
+    [
+      'init',
+      `--separate-git-dir=${
+        path.home.join(
+          'Library/Application Support/Corpus/Documents/Corporate/Corpus.git',
+        )
+      }`,
+    ],
+    {
+      chdir: '~/Documents/Corporate/Corpus',
+      creates: '~/Documents/Corporate/Corpus/.git',
+    },
+  );
 
   await file({
     path: '~/Documents/Personal/Corpus',

@@ -13,8 +13,7 @@ export default function getAspectFromCallers(
     if (caller.startsWith('file://')) {
       const path = url.fileURLToPath(caller);
       const ancestors = relative(root, path).split(sep);
-      const aspect = ancestors[0] === 'aspects' &&
-        ancestors[1];
+      const aspect = ancestors[0] === 'aspects' && ancestors[1];
 
       if (aspect) {
         assertAspect(aspect);

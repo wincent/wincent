@@ -3,7 +3,11 @@ import {command, file, path, resource, skip, task, template} from 'fig';
 const node = path.root.join('bin/node');
 
 task('make directories', async () => {
-  await file({path: '~/.config/karabiner', recurse: true, state: 'directory'});
+  await file({
+    path: '~/.config/karabiner',
+    recurse: true,
+    state: 'directory',
+  });
   await file({path: '~/bin', state: 'directory'});
 });
 

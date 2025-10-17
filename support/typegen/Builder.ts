@@ -69,9 +69,7 @@ export default class Builder {
 
   ['function'](
     open: string,
-    ...rest:
-      | [Callback]
-      | [{export?: boolean}, Callback]
+    ...rest: [Callback] | [{export?: boolean}, Callback]
   ) {
     let callback: Callback | undefined;
     let options = {export: true};

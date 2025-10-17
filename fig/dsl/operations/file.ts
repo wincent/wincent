@@ -87,8 +87,8 @@ export default async function file({
     const toSkip = skip ? toPath(skip).expand.resolve.components : [];
     if (
       toSkip.length >= toCreate.length ||
-      !toSkip.every((component, i) =>
-        component.toString() == toCreate[i].toString()
+      !toSkip.every(
+        (component, i) => component.toString() == toCreate[i].toString(),
       )
     ) {
       throw new ErrorWithMetadata('"skip" must be a subset of "path"');

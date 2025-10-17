@@ -201,11 +201,13 @@ function genAssertFunction(
               }
 
               if (
-                'type' in propertySchema && propertySchema.type === 'object'
+                'type' in propertySchema &&
+                propertySchema.type === 'object'
               ) {
                 genAssertProperties(property, propertySchema);
               } else if (
-                'type' in propertySchema && propertySchema.type === 'array'
+                'type' in propertySchema &&
+                propertySchema.type === 'array'
               ) {
                 b.assert(`Array.isArray(${property})`).blank();
 
@@ -218,12 +220,13 @@ function genAssertFunction(
                   const target = extractTargetFromRef(
                     'items' in propertySchema &&
                       propertySchema.items &&
-                      'anyOf' in propertySchema.items ?
-                      propertySchema.items.anyOf[0] :
-                      undefined,
+                      'anyOf' in propertySchema.items
+                      ? propertySchema.items.anyOf[0]
+                      : undefined,
                   );
                   if (
-                    target && definitions[target] &&
+                    target &&
+                    definitions[target] &&
                     'enum' in definitions[target] &&
                     definitions[target].enum
                   ) {
@@ -267,11 +270,10 @@ function genAssertFunction(
           } else if ('anyOf' in propertySchema && propertySchema.anyOf) {
             const conditions = propertySchema.anyOf.map((schema) => {
               if (
-                'type' in schema && (
-                  schema.type === 'boolean' ||
+                'type' in schema &&
+                (schema.type === 'boolean' ||
                   schema.type === 'number' ||
-                  schema.type === 'string'
-                )
+                  schema.type === 'string')
               ) {
                 return `typeof value === '${schema.type}'`;
               } else if ('type' in schema && schema.type === 'null') {
@@ -298,16 +300,16 @@ function genAssertFunction(
 
             b.blank().assert(`Object.values(${obj}).every(isValid)`);
           } else if (
-            'type' in propertySchema && (
-              propertySchema.type === 'number' ||
-              propertySchema.type === 'string'
-            )
+            'type' in propertySchema &&
+            (propertySchema.type === 'number' ||
+              propertySchema.type === 'string')
           ) {
             b.blank().assert(
               `Object.values(${obj}).every((value) => typeof value === '${propertySchema.type}')`,
             );
           } else if (
-            'type' in propertySchema && propertySchema.type === 'object'
+            'type' in propertySchema &&
+            propertySchema.type === 'object'
           ) {
             b.blank()
               .line(
@@ -319,7 +321,8 @@ function genAssertFunction(
 
             b.line('return true;').dedent().line('});').blank().assert('valid');
           } else if (
-            'type' in propertySchema && propertySchema.type === 'array'
+            'type' in propertySchema &&
+            propertySchema.type === 'array'
           ) {
             // TODO: impl
           }
@@ -408,8 +411,7 @@ function genProperty(
     value = genObjectValue(propertySchema, options);
   } else if (
     'type' in propertySchema &&
-    (propertySchema.type === 'number' ||
-      propertySchema.type === 'string')
+    (propertySchema.type === 'number' || propertySchema.type === 'string')
   ) {
     value = propertySchema.type;
   } else {
@@ -447,17 +449,19 @@ function genPatternProperty(pattern: string, schema: Type, options: Options) {
   if (isJSONValue(schema)) {
     value = 'JSONValue';
   } else if ('anyOf' in schema) {
-    value = schema.anyOf.map((schema) => {
-      if ('type' in schema) {
-        return schema.type;
-      } else {
-        // TODO: handle non-simple types here.
-        return 'unknown';
-      }
-    }).join(' | ');
+    value = schema.anyOf
+      .map((schema) => {
+        if ('type' in schema) {
+          return schema.type;
+        } else {
+          // TODO: handle non-simple types here.
+          return 'unknown';
+        }
+      })
+      .join(' | ');
   } else if (
-    'type' in schema && (schema.type === 'number' ||
-      schema.type === 'string')
+    'type' in schema &&
+    (schema.type === 'number' || schema.type === 'string')
   ) {
     value = schema.type;
   } else if ('type' in schema && schema.type === 'object') {
@@ -489,10 +493,7 @@ function isJSONValue(schema: Type) {
 
     if (anyOf.length === items.size) {
       anyOf.forEach((schema) => {
-        if (
-          Object.keys(schema).length === 1 &&
-          'type' in schema
-        ) {
+        if (Object.keys(schema).length === 1 && 'type' in schema) {
           items.delete(schema.type);
         }
       });
