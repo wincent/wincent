@@ -1,5 +1,10 @@
 /.cache
+/aspects/dotfiles/files/.claude/debug
+/aspects/dotfiles/files/.claude/file-history
+/aspects/dotfiles/files/.claude/history.jsonl
 /aspects/dotfiles/files/.config/kitty/kitty.conf
+/aspects/dotfiles/files/.docker
+!/aspects/dotfiles/files/.docker/config.json
 /aspects/dotfiles/files/.zsh/.tinted
 /aspects/dotfiles/files/.zsh/.tinted.previous
 /aspects/nvim/files/.config/nvim/after/plugin/command-t.private.vim
