@@ -20,363 +20,7 @@ const REPO_ROOT = join(__dirname, '..');
 const CACHE_DIR = join(REPO_ROOT, '.cache', 'repos');
 const DEPENDENCIES_FILE = join(REPO_ROOT, 'dependencies.json');
 
-const DEPENDENCIES = [
-  {
-    prefix: 'aspects/dotfiles/files/.config/yazi/vendor/plugins',
-    repo: 'https://github.com/yazi-rs/plugins.git',
-    branch: 'main',
-  },
-  {
-    prefix: 'aspects/dotfiles/files/.zsh/zsh-async',
-    repo: 'https://github.com/mafredri/zsh-async.git',
-    branch: 'main',
-  },
-  {
-    prefix: 'aspects/dotfiles/files/.zsh/zsh-autosuggestions',
-    repo: 'https://github.com/zsh-users/zsh-autosuggestions',
-    branch: 'master',
-  },
-  {
-    prefix: 'aspects/dotfiles/files/.zsh/zsh-completions',
-    repo: 'https://github.com/zsh-users/zsh-completions.git',
-    branch: 'master',
-  },
-  {
-    prefix: 'aspects/dotfiles/files/.zsh/zsh-history-substring-search',
-    repo: 'https://github.com/zsh-users/zsh-history-substring-search',
-    branch: 'master',
-  },
-  {
-    prefix: 'aspects/dotfiles/files/.zsh/zsh-syntax-highlighting',
-    repo: 'https://github.com/zsh-users/zsh-syntax-highlighting.git',
-    branch: 'master',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/LuaSnip',
-    repo: 'https://github.com/L3MON4D3/LuaSnip.git',
-    branch: 'master',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/applescript.vim',
-    repo: 'https://github.com/vim-scripts/applescript.vim.git',
-    branch: 'master',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/base16-nvim',
-    repo: 'https://github.com/wincent/base16-nvim.git',
-    branch: 'main',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-buffer',
-    repo: 'https://github.com/hrsh7th/cmp-buffer.git',
-    branch: 'main',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-calc',
-    repo: 'https://github.com/hrsh7th/cmp-calc.git',
-    branch: 'main',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-emoji',
-    repo: 'https://github.com/hrsh7th/cmp-emoji.git',
-    branch: 'main',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-nvim-lsp',
-    repo: 'https://github.com/hrsh7th/cmp-nvim-lsp.git',
-    branch: 'main',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-nvim-lua',
-    repo: 'https://github.com/hrsh7th/cmp-nvim-lua.git',
-    branch: 'main',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-path',
-    repo: 'https://github.com/hrsh7th/cmp-path.git',
-    branch: 'main',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp_luasnip',
-    repo: 'https://github.com/saadparwaiz1/cmp_luasnip.git',
-    branch: 'master',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/command-t',
-    repo: 'https://github.com/wincent/command-t.git',
-    branch: 'main',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/corpus',
-    repo: 'https://github.com/wincent/corpus.git',
-    branch: 'main',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/diffview.nvim',
-    repo: 'https://github.com/sindrets/diffview.nvim.git',
-    branch: 'main',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/ferret',
-    repo: 'https://github.com/wincent/ferret.git',
-    branch: 'main',
-  },
-  {
-    prefix:
-      'aspects/nvim/files/.config/nvim/pack/bundle/opt/indent-blankline.nvim',
-    repo: 'https://github.com/lukas-reineke/indent-blankline.nvim.git',
-    branch: 'master',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/loupe',
-    repo: 'https://github.com/wincent/loupe.git',
-    branch: 'main',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.ai',
-    repo: 'https://github.com/nvim-mini/mini.ai.git',
-    branch: 'main',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.extra',
-    repo: 'https://github.com/nvim-mini/mini.extra.git',
-    branch: 'main',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.icons',
-    repo: 'https://github.com/nvim-mini/mini.icons.git',
-    branch: 'main',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.surround',
-    repo: 'https://github.com/nvim-mini/mini.surround.git',
-    branch: 'main',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/neco-ghc',
-    repo: 'https://github.com/eagletmt/neco-ghc.git',
-    branch: 'master',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-clipper',
-    repo: 'https://github.com/wincent/nvim-clipper.git',
-    branch: 'main',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-cmp',
-    repo: 'https://github.com/hrsh7th/nvim-cmp.git',
-    branch: 'main',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-lspconfig',
-    repo: 'https://github.com/neovim/nvim-lspconfig.git',
-    branch: 'master',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-tree.lua',
-    repo: 'https://github.com/kyazdani42/nvim-tree.lua.git',
-    branch: 'master',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-treesitter',
-    repo: 'https://github.com/nvim-treesitter/nvim-treesitter.git',
-    branch: 'main',
-  },
-  {
-    prefix:
-      'aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-treesitter-textobjects',
-    repo: 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git',
-    branch: 'main',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/oil.nvim',
-    repo: 'https://github.com/stevearc/oil.nvim.git',
-    branch: 'master',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/pinnacle',
-    repo: 'https://github.com/wincent/pinnacle.git',
-    branch: 'main',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/replay',
-    repo: 'https://github.com/wincent/replay.git',
-    branch: 'main',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/rust.vim',
-    repo: 'https://github.com/rust-lang/rust.vim.git',
-    branch: 'master',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/scalpel',
-    repo: 'https://github.com/wincent/scalpel.git',
-    branch: 'main',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/shellbot',
-    repo: 'https://github.com/wincent/shellbot.git',
-    branch: 'wincent',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/terminus',
-    repo: 'https://github.com/wincent/terminus.git',
-    branch: 'main',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/undotree',
-    repo: 'https://github.com/mbbill/undotree.git',
-    branch: 'master',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vcs-jump',
-    repo: 'https://github.com/wincent/vcs-jump.git',
-    branch: 'main',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-abolish',
-    repo: 'https://github.com/tpope/vim-abolish.git',
-    branch: 'master',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-ansible-yaml',
-    repo: 'https://github.com/chase/vim-ansible-yaml.git',
-    branch: 'master',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-dispatch',
-    repo: 'https://github.com/tpope/vim-dispatch.git',
-    branch: 'master',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-docvim',
-    repo: 'https://github.com/wincent/vim-docvim.git',
-    branch: 'main',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-easydir',
-    repo: 'https://github.com/duggiefresh/vim-easydir.git',
-    branch: 'master',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-eunuch',
-    repo: 'https://github.com/tpope/vim-eunuch.git',
-    branch: 'master',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-fugitive',
-    repo: 'https://github.com/tpope/vim-fugitive.git',
-    branch: 'master',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-git',
-    repo: 'https://github.com/tpope/vim-git.git',
-    branch: 'master',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-kitty',
-    repo: 'https://github.com/fladson/vim-kitty.git',
-    branch: 'main',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-ledger',
-    repo: 'https://github.com/ledger/vim-ledger.git',
-    branch: 'master',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-lion',
-    repo: 'https://github.com/tommcdo/vim-lion.git',
-    branch: 'master',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-pathogen',
-    repo: 'https://github.com/tpope/vim-pathogen.git',
-    branch: 'master',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-projectionist',
-    repo: 'https://github.com/tpope/vim-projectionist.git',
-    branch: 'master',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-reason-plus',
-    repo: 'https://github.com/reasonml-editor/vim-reason-plus.git',
-    branch: 'master',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-repeat',
-    repo: 'https://github.com/tpope/vim-repeat.git',
-    branch: 'master',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-rhubarb',
-    repo: 'https://github.com/tpope/vim-rhubarb.git',
-    branch: 'master',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-signature',
-    repo: 'https://github.com/kshenoy/vim-signature.git',
-    branch: 'master',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-slime',
-    repo: 'https://github.com/jpalardy/vim-slime.git',
-    branch: 'main',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-speeddating',
-    repo: 'https://github.com/tpope/vim-speeddating.git',
-    branch: 'master',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-zsh',
-    repo: 'https://github.com/chrisbra/vim-zsh.git',
-    branch: 'master',
-  },
-  {
-    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/zen-mode.nvim',
-    repo: 'https://github.com/folke/zen-mode.nvim.git',
-    branch: 'main',
-  },
-  {
-    prefix: 'vendor/fonts/source-code-pro',
-    repo: 'https://github.com/adobe-fonts/source-code-pro.git',
-    branch: 'release',
-  },
-  {
-    prefix: 'vendor/git-cipher',
-    repo: 'https://github.com/wincent/git-cipher',
-    branch: 'main',
-  },
-  {prefix: 'vendor/n', repo: 'https://github.com/tj/n.git', branch: 'master'},
-  {
-    prefix: 'vendor/tinted-theming/schemes',
-    repo: 'https://github.com/tinted-theming/schemes.git',
-    branch: 'spec-0.11',
-  },
-  {
-    prefix: 'vendor/tinted-theming/tinted-shell',
-    repo: 'https://github.com/tinted-theming/tinted-shell.git',
-    branch: 'main',
-  },
-  {
-    prefix: 'vendor/tinted-theming/tinted-terminal',
-    repo: 'https://github.com/tinted-theming/tinted-terminal.git',
-    branch: 'main',
-  },
-  {
-    prefix: 'vendor/tinted-theming/tinted-tmux',
-    repo: 'https://github.com/tinted-theming/tinted-tmux.git',
-    branch: 'main',
-  },
-  {
-    prefix: 'vendor/tinted-theming/tinted-vim',
-    repo: 'https://github.com/tinted-theming/tinted-vim.git',
-    branch: 'main',
-  },
-];
-
-// Load existing dependencies tracking
+// Load dependencies config and state
 function loadDependenciesState() {
   if (existsSync(DEPENDENCIES_FILE)) {
     try {
@@ -389,6 +33,15 @@ function loadDependenciesState() {
     }
   }
   return {};
+}
+
+// Extract dependencies list from the state file
+function getDependenciesList(dependenciesState) {
+  return Object.entries(dependenciesState).map(([cacheName, config]) => ({
+    prefix: config.prefix,
+    repo: config.repo,
+    branch: config.branch,
+  }));
 }
 
 // Save dependencies tracking
@@ -425,6 +78,7 @@ mkdirSync(CACHE_DIR, {recursive: true});
 
 // Load previous state
 const dependenciesState = loadDependenciesState();
+const DEPENDENCIES = getDependenciesList(dependenciesState);
 const changelog = [];
 
 // Process dependencies in parallel
@@ -464,8 +118,11 @@ async function updateDependency({prefix, repo, branch}) {
   // Get new HEAD
   const currentHead = getRepoHead(cachePath);
 
-  // Update state
+  // Update state (preserve config fields)
   dependenciesState[cacheName] = {
+    prefix,
+    repo,
+    branch,
     previous: previousHead,
     current: currentHead,
   };

@@ -1,285 +1,498 @@
 {
   "github/yazi-rs/plugins": {
+    "prefix": "aspects/dotfiles/files/.config/yazi/vendor/plugins",
+    "repo": "https://github.com/yazi-rs/plugins.git",
+    "branch": "main",
     "previous": null,
     "current": "9a52857eac61ede58d11c06ca813c3fa63fe3609"
   },
   "github/mafredri/zsh-async": {
+    "prefix": "aspects/dotfiles/files/.zsh/zsh-async",
+    "repo": "https://github.com/mafredri/zsh-async.git",
+    "branch": "main",
     "previous": null,
     "current": "ee1d11b68c38dec24c22b1c51a45e8a815a79756"
   },
   "github/zsh-users/zsh-autosuggestions": {
+    "prefix": "aspects/dotfiles/files/.zsh/zsh-autosuggestions",
+    "repo": "https://github.com/zsh-users/zsh-autosuggestions",
+    "branch": "master",
     "previous": null,
     "current": "85919cd1ffa7d2d5412f6d3fe437ebdbeeec4fc5"
   },
   "github/zsh-users/zsh-completions": {
+    "prefix": "aspects/dotfiles/files/.zsh/zsh-completions",
+    "repo": "https://github.com/zsh-users/zsh-completions.git",
+    "branch": "master",
     "previous": null,
     "current": "5fd23d5376a8eba491c4d3cffe5141447bac15a2"
   },
   "github/zsh-users/zsh-history-substring-search": {
+    "prefix": "aspects/dotfiles/files/.zsh/zsh-history-substring-search",
+    "repo": "https://github.com/zsh-users/zsh-history-substring-search",
+    "branch": "master",
     "previous": null,
     "current": "87ce96b1862928d84b1afe7c173316614b30e301"
   },
   "github/zsh-users/zsh-syntax-highlighting": {
+    "prefix": "aspects/dotfiles/files/.zsh/zsh-syntax-highlighting",
+    "repo": "https://github.com/zsh-users/zsh-syntax-highlighting.git",
+    "branch": "master",
     "previous": null,
     "current": "5eb677bb0fa9a3e60f0eff031dc13926e093df92"
   },
   "github/L3MON4D3/LuaSnip": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/LuaSnip",
+    "repo": "https://github.com/L3MON4D3/LuaSnip.git",
+    "branch": "master",
     "previous": null,
     "current": "eec1a84823e3fb9eb51705265cab77d9a970be20"
   },
   "github/vim-scripts/applescript.vim": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/applescript.vim",
+    "repo": "https://github.com/vim-scripts/applescript.vim.git",
+    "branch": "master",
     "previous": null,
     "current": "00840b4059c7884120913907f4778092edb006f7"
   },
   "github/wincent/base16-nvim": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/base16-nvim",
+    "repo": "https://github.com/wincent/base16-nvim.git",
+    "branch": "main",
     "previous": null,
     "current": "6e503dc07bf22317c7e755dc0569a2bad6cfd9ce"
   },
   "github/hrsh7th/cmp-buffer": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-buffer",
+    "repo": "https://github.com/hrsh7th/cmp-buffer.git",
+    "branch": "main",
     "previous": null,
     "current": "b74fab3656eea9de20a9b8116afa3cfc4ec09657"
   },
   "github/hrsh7th/cmp-calc": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-calc",
+    "repo": "https://github.com/hrsh7th/cmp-calc.git",
+    "branch": "main",
     "previous": null,
     "current": "5947b412da67306c5b68698a02a846760059be2e"
   },
   "github/hrsh7th/cmp-emoji": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-emoji",
+    "repo": "https://github.com/hrsh7th/cmp-emoji.git",
+    "branch": "main",
     "previous": null,
     "current": "e8398e2adf512a03bb4e1728ca017ffeac670a9f"
   },
   "github/hrsh7th/cmp-nvim-lsp": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-nvim-lsp",
+    "repo": "https://github.com/hrsh7th/cmp-nvim-lsp.git",
+    "branch": "main",
     "previous": null,
     "current": "bd5a7d6db125d4654b50eeae9f5217f24bb22fd3"
   },
   "github/hrsh7th/cmp-nvim-lua": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-nvim-lua",
+    "repo": "https://github.com/hrsh7th/cmp-nvim-lua.git",
+    "branch": "main",
     "previous": null,
     "current": "f12408bdb54c39c23e67cab726264c10db33ada8"
   },
   "github/hrsh7th/cmp-path": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-path",
+    "repo": "https://github.com/hrsh7th/cmp-path.git",
+    "branch": "main",
     "previous": null,
     "current": "c642487086dbd9a93160e1679a1327be111cbc25"
   },
   "github/saadparwaiz1/cmp_luasnip": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp_luasnip",
+    "repo": "https://github.com/saadparwaiz1/cmp_luasnip.git",
+    "branch": "master",
     "previous": null,
     "current": "98d9cb5c2c38532bd9bdb481067b20fea8f32e90"
   },
   "github/wincent/command-t": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/command-t",
+    "repo": "https://github.com/wincent/command-t.git",
+    "branch": "main",
     "previous": null,
     "current": "dddab8a97fd4a4b58d008e0c15303e1a2c9d8a5e"
   },
   "github/wincent/corpus": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/corpus",
+    "repo": "https://github.com/wincent/corpus.git",
+    "branch": "main",
     "previous": null,
     "current": "ab7e9532c5580386e068fd1d94cf51be80b2b894"
   },
   "github/sindrets/diffview.nvim": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/diffview.nvim",
+    "repo": "https://github.com/sindrets/diffview.nvim.git",
+    "branch": "main",
     "previous": null,
     "current": "4516612fe98ff56ae0415a259ff6361a89419b0a"
   },
   "github/wincent/ferret": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/ferret",
+    "repo": "https://github.com/wincent/ferret.git",
+    "branch": "main",
     "previous": null,
     "current": "80a1c6f2f6e18952fa6eb85000446650216987fd"
   },
   "github/lukas-reineke/indent-blankline.nvim": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/indent-blankline.nvim",
+    "repo": "https://github.com/lukas-reineke/indent-blankline.nvim.git",
+    "branch": "master",
     "previous": null,
     "current": "005b56001b2cb30bfa61b7986bc50657816ba4ba"
   },
   "github/wincent/loupe": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/loupe",
+    "repo": "https://github.com/wincent/loupe.git",
+    "branch": "main",
     "previous": null,
     "current": "9189e7fa2d9dd54f4f0211c5edfdd6260252fe4b"
   },
   "github/nvim-mini/mini.ai": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.ai",
+    "repo": "https://github.com/nvim-mini/mini.ai.git",
+    "branch": "main",
     "previous": null,
     "current": "11c57180bc9084089206e211ac7aa598bedc9673"
   },
   "github/nvim-mini/mini.extra": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.extra",
+    "repo": "https://github.com/nvim-mini/mini.extra.git",
+    "branch": "main",
     "previous": null,
     "current": "188422c54ee770f14a634d9511e71e3b1e3686e2"
   },
   "github/nvim-mini/mini.icons": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.icons",
+    "repo": "https://github.com/nvim-mini/mini.icons.git",
+    "branch": "main",
     "previous": null,
     "current": "284798619aed9f4c1ac1b9417b9a5e3b4b85ef3a"
   },
   "github/nvim-mini/mini.surround": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.surround",
+    "repo": "https://github.com/nvim-mini/mini.surround.git",
+    "branch": "main",
     "previous": null,
     "current": "444e155147e2b5159dd28a65f9736254c16cb817"
   },
   "github/eagletmt/neco-ghc": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/neco-ghc",
+    "repo": "https://github.com/eagletmt/neco-ghc.git",
+    "branch": "master",
     "previous": null,
     "current": "699897c2f4ba82c4fd2be6b93c9a2e8e548efe4e"
   },
   "github/wincent/nvim-clipper": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-clipper",
+    "repo": "https://github.com/wincent/nvim-clipper.git",
+    "branch": "main",
     "previous": null,
     "current": "6ef27113aa4c77426d92d49a4b62905e96972996"
   },
   "github/hrsh7th/nvim-cmp": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-cmp",
+    "repo": "https://github.com/hrsh7th/nvim-cmp.git",
+    "branch": "main",
     "previous": null,
     "current": "b5311ab3ed9c846b585c0c15b7559be131ec4be9"
   },
   "github/neovim/nvim-lspconfig": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-lspconfig",
+    "repo": "https://github.com/neovim/nvim-lspconfig.git",
+    "branch": "master",
     "previous": null,
     "current": "ac98db2f9f06a56498ec890a96928774eae412c3"
   },
   "github/kyazdani42/nvim-tree.lua": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-tree.lua",
+    "repo": "https://github.com/kyazdani42/nvim-tree.lua.git",
+    "branch": "master",
     "previous": null,
     "current": "e397756d2a79d74314ea4cd3efc41300e91c0ff0"
   },
   "github/nvim-treesitter/nvim-treesitter": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-treesitter",
+    "repo": "https://github.com/nvim-treesitter/nvim-treesitter.git",
+    "branch": "main",
     "previous": null,
     "current": "cdb5d5ef233cd5d3c558b4a48dc367943bd5c016"
   },
   "github/nvim-treesitter/nvim-treesitter-textobjects": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-treesitter-textobjects",
+    "repo": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git",
+    "branch": "main",
     "previous": null,
     "current": "1b2d85d3de6114c4bcea89ffb2cd1ce9e3a19931"
   },
   "github/stevearc/oil.nvim": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/oil.nvim",
+    "repo": "https://github.com/stevearc/oil.nvim.git",
+    "branch": "master",
     "previous": null,
     "current": "71948729cda5fc1b761d6ae60ff774b5525f1d50"
   },
   "github/wincent/pinnacle": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/pinnacle",
+    "repo": "https://github.com/wincent/pinnacle.git",
+    "branch": "main",
     "previous": null,
     "current": "6849357c9cf1138894e26d87b6721946fb193406"
   },
   "github/wincent/replay": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/replay",
+    "repo": "https://github.com/wincent/replay.git",
+    "branch": "main",
     "previous": null,
     "current": "34ad3247a2bec4218af9ea9881ffc269bbf775cf"
   },
   "github/rust-lang/rust.vim": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/rust.vim",
+    "repo": "https://github.com/rust-lang/rust.vim.git",
+    "branch": "master",
     "previous": null,
     "current": "889b9a7515db477f4cb6808bef1769e53493c578"
   },
   "github/wincent/scalpel": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/scalpel",
+    "repo": "https://github.com/wincent/scalpel.git",
+    "branch": "main",
     "previous": null,
     "current": "25147091c1c2a6475b0cef93ed38fee575fcffb5"
   },
   "github/wincent/shellbot": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/shellbot",
+    "repo": "https://github.com/wincent/shellbot.git",
+    "branch": "wincent",
     "previous": null,
     "current": "f8470e5718188078fef50a48846e85fc50b3c3cf"
   },
   "github/wincent/terminus": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/terminus",
+    "repo": "https://github.com/wincent/terminus.git",
+    "branch": "main",
     "previous": null,
     "current": "47247474350e3c2cae12220ef06bed975b7be2dc"
   },
   "github/mbbill/undotree": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/undotree",
+    "repo": "https://github.com/mbbill/undotree.git",
+    "branch": "master",
     "previous": null,
     "current": "0f1c9816975b5d7f87d5003a19c53c6fd2ff6f7f"
   },
   "github/wincent/vcs-jump": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/vcs-jump",
+    "repo": "https://github.com/wincent/vcs-jump.git",
+    "branch": "main",
     "previous": null,
     "current": "213920aa86fa27e3b37970cbe50131b4c459001f"
   },
   "github/tpope/vim-abolish": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-abolish",
+    "repo": "https://github.com/tpope/vim-abolish.git",
+    "branch": "master",
     "previous": null,
     "current": "dcbfe065297d31823561ba787f51056c147aa682"
   },
   "github/chase/vim-ansible-yaml": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-ansible-yaml",
+    "repo": "https://github.com/chase/vim-ansible-yaml.git",
+    "branch": "master",
     "previous": null,
     "current": "a6f92d17ff01b2e63d6c9fdbb7f7e13c7fd41d14"
   },
   "github/tpope/vim-dispatch": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-dispatch",
+    "repo": "https://github.com/tpope/vim-dispatch.git",
+    "branch": "master",
     "previous": null,
     "current": "a2ff28abdb2d89725192db5b8562977d392a4d3f"
   },
   "github/wincent/vim-docvim": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-docvim",
+    "repo": "https://github.com/wincent/vim-docvim.git",
+    "branch": "main",
     "previous": null,
     "current": "ea0480a6e08dee634df364c6cffac531036d0af3"
   },
   "github/duggiefresh/vim-easydir": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-easydir",
+    "repo": "https://github.com/duggiefresh/vim-easydir.git",
+    "branch": "master",
     "previous": null,
     "current": "2efbed9e24438f626971a526d19af719b89e8040"
   },
   "github/tpope/vim-eunuch": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-eunuch",
+    "repo": "https://github.com/tpope/vim-eunuch.git",
+    "branch": "master",
     "previous": null,
     "current": "e86bb794a1c10a2edac130feb0ea590a00d03f1e"
   },
   "github/tpope/vim-fugitive": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-fugitive",
+    "repo": "https://github.com/tpope/vim-fugitive.git",
+    "branch": "master",
     "previous": null,
     "current": "61b51c09b7c9ce04e821f6cf76ea4f6f903e3cf4"
   },
   "github/tpope/vim-git": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-git",
+    "repo": "https://github.com/tpope/vim-git.git",
+    "branch": "master",
     "previous": null,
     "current": "485e38f29494e46a9998100e707c755d114155f1"
   },
   "github/fladson/vim-kitty": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-kitty",
+    "repo": "https://github.com/fladson/vim-kitty.git",
+    "branch": "main",
     "previous": null,
     "current": "5c3efc79af70dc2c22cad03e6a7374a5f81205d9"
   },
   "github/ledger/vim-ledger": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-ledger",
+    "repo": "https://github.com/ledger/vim-ledger.git",
+    "branch": "master",
     "previous": null,
     "current": "b5bc6ab65d325c53e39fb02d8f0dd42e2de5d72d"
   },
   "github/tommcdo/vim-lion": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-lion",
+    "repo": "https://github.com/tommcdo/vim-lion.git",
+    "branch": "master",
     "previous": null,
     "current": "ce46593ecd60e6051fb6e4d3986d2fc9f5a618b1"
   },
   "github/tpope/vim-pathogen": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-pathogen",
+    "repo": "https://github.com/tpope/vim-pathogen.git",
+    "branch": "master",
     "previous": null,
     "current": "ac4dd9494fa9008754e49dff85bff1b5746c89b4"
   },
   "github/tpope/vim-projectionist": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-projectionist",
+    "repo": "https://github.com/tpope/vim-projectionist.git",
+    "branch": "master",
     "previous": null,
     "current": "5ff7bf79a6ef741036d2038a226bcb5f8b1cd296"
   },
   "github/reasonml-editor/vim-reason-plus": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-reason-plus",
+    "repo": "https://github.com/reasonml-editor/vim-reason-plus.git",
+    "branch": "master",
     "previous": null,
     "current": "c11a2940f8f3e3915e472c366fe460b0fe008bac"
   },
   "github/tpope/vim-repeat": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-repeat",
+    "repo": "https://github.com/tpope/vim-repeat.git",
+    "branch": "master",
     "previous": null,
     "current": "65846025c15494983dafe5e3b46c8f88ab2e9635"
   },
   "github/tpope/vim-rhubarb": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-rhubarb",
+    "repo": "https://github.com/tpope/vim-rhubarb.git",
+    "branch": "master",
     "previous": null,
     "current": "5496d7c94581c4c9ad7430357449bb57fc59f501"
   },
   "github/kshenoy/vim-signature": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-signature",
+    "repo": "https://github.com/kshenoy/vim-signature.git",
+    "branch": "master",
     "previous": null,
     "current": "6bc3dd1294a22e897f0dcf8dd72b85f350e306bc"
   },
   "github/jpalardy/vim-slime": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-slime",
+    "repo": "https://github.com/jpalardy/vim-slime.git",
+    "branch": "main",
     "previous": null,
     "current": "67b24bf93cff3ac39db94694a7aefcdb3f44b927"
   },
   "github/tpope/vim-speeddating": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-speeddating",
+    "repo": "https://github.com/tpope/vim-speeddating.git",
+    "branch": "master",
     "previous": null,
     "current": "c17eb01ebf5aaf766c53bab1f6592710e5ffb796"
   },
   "github/chrisbra/vim-zsh": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-zsh",
+    "repo": "https://github.com/chrisbra/vim-zsh.git",
+    "branch": "master",
     "previous": null,
     "current": "630eced2ca368326a29cb91ea02fc9383452de6a"
   },
   "github/folke/zen-mode.nvim": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/zen-mode.nvim",
+    "repo": "https://github.com/folke/zen-mode.nvim.git",
+    "branch": "main",
     "previous": null,
     "current": "438a59c33763d79e34ceb394e012c3bfd6aa1084"
   },
   "github/adobe-fonts/source-code-pro": {
+    "prefix": "vendor/fonts/source-code-pro",
+    "repo": "https://github.com/adobe-fonts/source-code-pro.git",
+    "branch": "release",
     "previous": null,
     "current": "208d9ac7a6827ceb51ea2dc635794839d9659e52"
   },
   "github/wincent/git-cipher": {
+    "prefix": "vendor/git-cipher",
+    "repo": "https://github.com/wincent/git-cipher",
+    "branch": "main",
     "previous": null,
     "current": "bf94cf36b49e75d9ae60de440f677df0b9899be2"
   },
   "github/tj/n": {
+    "prefix": "vendor/n",
+    "repo": "https://github.com/tj/n.git",
+    "branch": "master",
     "previous": null,
     "current": "f52d2172f12cd76f0efe9524690723f52ab74f40"
   },
   "github/tinted-theming/schemes": {
+    "prefix": "vendor/tinted-theming/schemes",
+    "repo": "https://github.com/tinted-theming/schemes.git",
+    "branch": "spec-0.11",
     "previous": null,
     "current": "317a5e10c35825a6c905d912e480dfe8e71c7559"
   },
   "github/tinted-theming/tinted-shell": {
+    "prefix": "vendor/tinted-theming/tinted-shell",
+    "repo": "https://github.com/tinted-theming/tinted-shell.git",
+    "branch": "main",
     "previous": null,
     "current": "1099c2e60b2240f843d1b7ee3aef55617472c99c"
   },
   "github/tinted-theming/tinted-terminal": {
+    "prefix": "vendor/tinted-theming/tinted-terminal",
+    "repo": "https://github.com/tinted-theming/tinted-terminal.git",
+    "branch": "main",
     "previous": null,
     "current": "c8c2bfbf973ddbc0b3025922d1a79c4d4a5b2023"
   },
   "github/tinted-theming/tinted-tmux": {
+    "prefix": "vendor/tinted-theming/tinted-tmux",
+    "repo": "https://github.com/tinted-theming/tinted-tmux.git",
+    "branch": "main",
     "previous": null,
     "current": "d217ba31c846006e9e0ae70775b0ee0f00aa6b1e"
   },
   "github/tinted-theming/tinted-vim": {
+    "prefix": "vendor/tinted-theming/tinted-vim",
+    "repo": "https://github.com/tinted-theming/tinted-vim.git",
+    "branch": "main",
     "previous": null,
     "current": "89a72d0451b74e374845f592033a154c4434a06e"
   }
