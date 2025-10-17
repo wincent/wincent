@@ -1,4 +1,4 @@
--- Tomorrow Night scheme by Cody Buell (https://github.com/codybuell)
+-- Chinoiserie Night scheme by Di Wang (https://cs.cmu.edu/~diw3)
 --
 -- Generated from this template:
 --
@@ -13,32 +13,32 @@
 --   by the Tinted Theming contributors.
 
 -- Base16 colors.
-local gui00 = "#1d1f21"
-local gui01 = "#282a2e"
-local gui02 = "#373b41"
-local gui03 = "#969896"
-local gui04 = "#b4b7b4"
-local gui05 = "#c5c8c6"
-local gui06 = "#e0e0e0"
-local gui07 = "#ffffff"
-local gui08 = "#cc6666"
-local gui09 = "#de935f"
-local gui0A = "#f0c674"
-local gui0B = "#b5bd68"
-local gui0C = "#8abeb7"
-local gui0D = "#81a2be"
-local gui0E = "#b294bb"
-local gui0F = "#a3685a"
+local gui00 = "#1d1d1d"
+local gui01 = "#282828"
+local gui02 = "#373737"
+local gui03 = "#918072"
+local gui04 = "#bdaead"
+local gui05 = "#c4cbcf"
+local gui06 = "#eee7f2"
+local gui07 = "#fffef9"
+local gui08 = "#f07c82"
+local gui09 = "#f4a83a"
+local gui0A = "#f4ce69"
+local gui0B = "#b2cf87"
+local gui0C = "#b0d5df"
+local gui0D = "#8fb2c9"
+local gui0E = "#be9db9"
+local gui0F = "#b89485"
 
 -- Base24 colors.
-local gui10 = "#080909"
-local gui11 = "#2d3135"
-local gui12 = "#e74c3c"
-local gui13 = "#f7dc6f"
-local gui14 = "#b8d4b3"
-local gui15 = "#95d3ce"
-local gui16 = "#85c1e9"
-local gui17 = "#d7a3ca"
+local gui10 = "#1d1d1d"
+local gui11 = "#1d1d1d"
+local gui12 = "#f07c82"
+local gui13 = "#f4ce69"
+local gui14 = "#b2cf87"
+local gui15 = "#b0d5df"
+local gui16 = "#8fb2c9"
+local gui17 = "#be9db9"
 
 -- Base16 colors.
 local cterm00 = 0
@@ -72,7 +72,7 @@ vim.cmd [[
   highlight clear
   syntax reset
 ]]
-vim.g.colors_name = "tomorrow-night"
+vim.g.colors_name = "chinoiserie-night"
 
 -- Vim editor colors
 vim.api.nvim_set_hl(0, 'Normal', { fg = gui05, bg = gui00, ctermfg = cterm05, ctermbg = cterm00 })

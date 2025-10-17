@@ -1,8 +1,8 @@
 " vi:syntax=vim
 
 " tinted-vim (https://github.com/tinted-theming/tinted-vim)
-" Scheme name: Tomorrow Night
-" Scheme author: Cody Buell (https://github.com/codybuell)
+" Scheme name: Chinoiserie Morandi
+" Scheme author: Di Wang (https://cs.cmu.edu/~diw3)
 " Template author: Tinted Theming (https://github.com/tinted-theming)
 
 " This enables the coresponding base16-shell script to run so that
@@ -11,35 +11,35 @@
 "   let g:tinted_shell_path=path/to/shell/scripts
 if !has('gui_running')
   if exists('g:tinted_shell_path')
-    execute 'silent !/bin/sh '.g:tinted_shell_path.'/base24/tomorrow-night.sh'
+    execute 'silent !/bin/sh '.g:tinted_shell_path.'/base16/chinoiserie-morandi.sh'
   endif
 endif
 
 " GUI colors
-let s:gui00        = '1d1f21'
-let s:gui01        = '282a2e'
-let s:gui02        = '373b41'
-let s:gui03        = '969896'
-let s:gui04        = 'b4b7b4'
-let s:gui05        = 'c5c8c6'
-let s:gui06        = 'e0e0e0'
-let s:gui07        = 'ffffff'
-let s:gui08        = 'cc6666'
-let s:gui09        = 'de935f'
-let s:gui0A        = 'f0c674'
-let s:gui0B        = 'b5bd68'
-let s:gui0C        = '8abeb7'
-let s:gui0D        = '81a2be'
-let s:gui0E        = 'b294bb'
-let s:gui0F        = 'a3685a'
-let s:gui10        = '080909'
-let s:gui11        = '2d3135'
-let s:gui12        = 'e74c3c'
-let s:gui13        = 'f7dc6f'
-let s:gui14        = 'b8d4b3'
-let s:gui15        = '95d3ce'
-let s:gui16        = '85c1e9'
-let s:gui17        = 'd7a3ca'
+let s:gui00        = '1d1d1d'
+let s:gui01        = '282828'
+let s:gui02        = '373737'
+let s:gui03        = '918072'
+let s:gui04        = 'bdaead'
+let s:gui05        = 'c4cbcf'
+let s:gui06        = 'eee7f2'
+let s:gui07        = 'fffef9'
+let s:gui08        = 'c06061'
+let s:gui09        = 'ff937f'
+let s:gui0A        = 'e5bc84'
+let s:gui0B        = '8ca07b'
+let s:gui0C        = '5e8c9b'
+let s:gui0D        = '839ec9'
+let s:gui0E        = '98a1d8'
+let s:gui0F        = 'd9cdb4'
+let s:gui10        = '1d1d1d'
+let s:gui11        = '1d1d1d'
+let s:gui12        = 'c06061'
+let s:gui13        = 'e5bc84'
+let s:gui14        = '8ca07b'
+let s:gui15        = '5e8c9b'
+let s:gui16        = '839ec9'
+let s:gui17        = '98a1d8'
 
 " Terminal colors
 let s:cterm00  = '00'
@@ -95,22 +95,22 @@ call s:create_color_globals()
 
 " Integrated Terminal colors
 let s:colors = [
-  \ '#1d1f21',
-  \ '#cc6666',
-  \ '#b5bd68',
-  \ '#f0c674',
-  \ '#81a2be',
-  \ '#b294bb',
-  \ '#8abeb7',
-  \ '#c5c8c6',
-  \ '#969896',
-  \ '#e74c3c',
-  \ '#b8d4b3',
-  \ '#f7dc6f',
-  \ '#85c1e9',
-  \ '#d7a3ca',
-  \ '#95d3ce',
-  \ '#ffffff'
+  \ '#1d1d1d',
+  \ '#c06061',
+  \ '#8ca07b',
+  \ '#e5bc84',
+  \ '#839ec9',
+  \ '#98a1d8',
+  \ '#5e8c9b',
+  \ '#c4cbcf',
+  \ '#918072',
+  \ '#c06061',
+  \ '#8ca07b',
+  \ '#e5bc84',
+  \ '#839ec9',
+  \ '#98a1d8',
+  \ '#5e8c9b',
+  \ '#fffef9'
 \]
 
 if has('nvim')
@@ -160,7 +160,7 @@ let s:attrs = {
       \}
 
 " Theme setup
-let g:colors_name = 'base24-tomorrow-night'
+let g:colors_name = 'base16-chinoiserie-morandi'
 
 " Highlighting function
 " Optional variables are attributes and guisp

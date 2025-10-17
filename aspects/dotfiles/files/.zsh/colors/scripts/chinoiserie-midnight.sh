@@ -1,34 +1,34 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
-# Scheme name: Tomorrow Night
-# Scheme author: Cody Buell (https://github.com/codybuell)
+# Scheme name: Chinoiserie Midnight
+# Scheme author: Di Wang (https://cs.cmu.edu/~diw3)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
-export BASE24_THEME="tomorrow-night"
+export BASE24_THEME="chinoiserie-midnight"
 
-color00="1d/1f/21" # Base 00 - Black
-color01="cc/66/66" # Base 08 - Red
-color02="b5/bd/68" # Base 0B - Green
-color03="f0/c6/74" # Base 0A - Yellow
-color04="81/a2/be" # Base 0D - Blue
-color05="b2/94/bb" # Base 0E - Magenta
-color06="8a/be/b7" # Base 0C - Cyan
-color07="c5/c8/c6" # Base 05 - White
-color08="96/98/96" # Base 03 - Bright Black
-color09="e7/4c/3c" # Base 12 - Bright Red
-color10="b8/d4/b3" # Base 14 - Bright Green
-color11="f7/dc/6f" # Base 13 - Bright Yellow
-color12="85/c1/e9" # Base 16 - Bright Blue
-color13="d7/a3/ca" # Base 17 - Bright Magenta
-color14="95/d3/ce" # Base 15 - Bright Cyan
-color15="ff/ff/ff" # Base 07 - Bright White
-color16="de/93/5f" # Base 09
-color17="a3/68/5a" # Base 0F
-color18="28/2a/2e" # Base 01
-color19="37/3b/41" # Base 02
-color20="b4/b7/b4" # Base 04
-color21="e0/e0/e0" # Base 06
-color_foreground="c5/c8/c6" # Base 05
-color_background="1d/1f/21" # Base 00
+color00="1d/1d/1d" # Base 00 - Black
+color01="ed/5a/56" # Base 08 - Red
+color02="ae/b8/31" # Base 0B - Green
+color03="fb/b9/57" # Base 0A - Yellow
+color04="81/a2/a2" # Base 0D - Blue
+color05="cf/89/97" # Base 0E - Magenta
+color06="88/b6/8d" # Base 0C - Cyan
+color07="c4/cb/cf" # Base 05 - White
+color08="91/80/72" # Base 03 - Bright Black
+color09="ed/5a/56" # Base 12 - Bright Red
+color10="ae/b8/31" # Base 14 - Bright Green
+color11="fb/b9/57" # Base 13 - Bright Yellow
+color12="81/a2/a2" # Base 16 - Bright Blue
+color13="cf/89/97" # Base 17 - Bright Magenta
+color14="88/b6/8d" # Base 15 - Bright Cyan
+color15="ff/fe/f9" # Base 07 - Bright White
+color16="fc/8c/23" # Base 09
+color17="cd/62/27" # Base 0F
+color18="28/28/28" # Base 01
+color19="37/37/37" # Base 02
+color20="bd/ae/ad" # Base 04
+color21="ee/e7/f2" # Base 06
+color_foreground="c4/cb/cf" # Base 05
+color_background="1d/1d/1d" # Base 00
 
 
 if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
@@ -77,13 +77,13 @@ put_template 15 "$color15"
 # foreground / background / cursor color
 if [ -n "$ITERM_SESSION_ID" ]; then
   # iTerm2 proprietary escape codes
-  put_template_custom Pg c5c8c6 # foreground
-  put_template_custom Ph 1d1f21 # background
-  put_template_custom Pi c5c8c6 # bold color
-  put_template_custom Pj 373b41 # selection color
-  put_template_custom Pk c5c8c6 # selected text color
-  put_template_custom Pl c5c8c6 # cursor
-  put_template_custom Pm 1d1f21 # cursor text
+  put_template_custom Pg c4cbcf # foreground
+  put_template_custom Ph 1d1d1d # background
+  put_template_custom Pi c4cbcf # bold color
+  put_template_custom Pj 373737 # selection color
+  put_template_custom Pk c4cbcf # selected text color
+  put_template_custom Pl c4cbcf # cursor
+  put_template_custom Pm 1d1d1d # cursor text
 else
   put_template_var 10 "$color_foreground"
   if [ "$BASE24_SHELL_SET_BACKGROUND" != false ]; then
@@ -126,28 +126,28 @@ unset color_background
 
 # Optionally export variables
 if [ -n "$TINTED_SHELL_ENABLE_BASE24_VARS" ]; then
-  export BASE24_COLOR_00_HEX="1d1f21"
-  export BASE24_COLOR_01_HEX="282a2e"
-  export BASE24_COLOR_02_HEX="373b41"
-  export BASE24_COLOR_03_HEX="969896"
-  export BASE24_COLOR_04_HEX="b4b7b4"
-  export BASE24_COLOR_05_HEX="c5c8c6"
-  export BASE24_COLOR_06_HEX="e0e0e0"
-  export BASE24_COLOR_07_HEX="ffffff"
-  export BASE24_COLOR_08_HEX="cc6666"
-  export BASE24_COLOR_09_HEX="de935f"
-  export BASE24_COLOR_0A_HEX="f0c674"
-  export BASE24_COLOR_0B_HEX="b5bd68"
-  export BASE24_COLOR_0C_HEX="8abeb7"
-  export BASE24_COLOR_0D_HEX="81a2be"
-  export BASE24_COLOR_0E_HEX="b294bb"
-  export BASE24_COLOR_0F_HEX="a3685a"
-  export BASE24_COLOR_10_HEX="080909"
-  export BASE24_COLOR_11_HEX="2d3135"
-  export BASE24_COLOR_12_HEX="e74c3c"
-  export BASE24_COLOR_13_HEX="f7dc6f"
-  export BASE24_COLOR_14_HEX="b8d4b3"
-  export BASE24_COLOR_15_HEX="95d3ce"
-  export BASE24_COLOR_16_HEX="85c1e9"
-  export BASE24_COLOR_17_HEX="d7a3ca"
+  export BASE24_COLOR_00_HEX="1d1d1d"
+  export BASE24_COLOR_01_HEX="282828"
+  export BASE24_COLOR_02_HEX="373737"
+  export BASE24_COLOR_03_HEX="918072"
+  export BASE24_COLOR_04_HEX="bdaead"
+  export BASE24_COLOR_05_HEX="c4cbcf"
+  export BASE24_COLOR_06_HEX="eee7f2"
+  export BASE24_COLOR_07_HEX="fffef9"
+  export BASE24_COLOR_08_HEX="ed5a56"
+  export BASE24_COLOR_09_HEX="fc8c23"
+  export BASE24_COLOR_0A_HEX="fbb957"
+  export BASE24_COLOR_0B_HEX="aeb831"
+  export BASE24_COLOR_0C_HEX="88b68d"
+  export BASE24_COLOR_0D_HEX="81a2a2"
+  export BASE24_COLOR_0E_HEX="cf8997"
+  export BASE24_COLOR_0F_HEX="cd6227"
+  export BASE24_COLOR_10_HEX="1d1d1d"
+  export BASE24_COLOR_11_HEX="1d1d1d"
+  export BASE24_COLOR_12_HEX="ed5a56"
+  export BASE24_COLOR_13_HEX="fbb957"
+  export BASE24_COLOR_14_HEX="aeb831"
+  export BASE24_COLOR_15_HEX="88b68d"
+  export BASE24_COLOR_16_HEX="81a2a2"
+  export BASE24_COLOR_17_HEX="cf8997"
 fi
