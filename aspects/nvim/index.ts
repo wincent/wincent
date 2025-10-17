@@ -1,5 +1,4 @@
 import {
-  attributes,
   backup,
   command,
   fetch,
@@ -41,45 +40,19 @@ task('create symlinks', async () => {
   }
 });
 
-const COMMAND_T_BASE = 'nvim/pack/bundle/opt/command-t';
-const COMMAND_T_LUA = 'lua/wincent/commandt/lib';
-const COMMAND_T_RUBY = 'ruby/command-t/ext/command-t';
+const CACHE = path.root.join('.cache/repos');
 
 task('compile Command-T (Lua)', async () => {
-  const bundle = attributes.platform === 'darwin'
-    ? 'commandt.bundle'
-    : 'commandt.so';
-  const base = resource.file('.config').join(COMMAND_T_BASE, COMMAND_T_LUA);
+  const base = CACHE.join('github/wincent/command-t');
 
   await command('make', [], {
     chdir: base,
-    creates: base.join(bundle),
-  });
-});
-
-task('configure Command-T (Ruby)', async () => {
-  const base = resource.file('.config').join(COMMAND_T_BASE, COMMAND_T_RUBY);
-
-  await command('ruby', ['extconf.rb'], {
-    chdir: base,
-    creates: base.join('Makefile'),
-  });
-});
-
-task('compile Command-T (Ruby)', async () => {
-  const bundle = attributes.platform === 'darwin' ? 'ext.bundle' : 'ext.so';
-  const base = resource.file('.config').join(COMMAND_T_BASE, COMMAND_T_RUBY);
-
-  await command('make', [], {
-    chdir: base,
-    creates: base.join(bundle),
+    creates: base.join('lua/wincent/commandt/lib/commandt.so'),
   });
 });
 
 task('build shellbot', async () => {
-  const base = resource
-    .file('.config')
-    .join('nvim/pack/bundle/opt/shellbot/lua');
+  const base = CACHE.join('github/wincent/shellbot');
 
   await command('cargo', ['build', '--release'], {
     chdir: base,
