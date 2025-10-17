@@ -1,31 +1,3 @@
-#!/usr/bin/env ruby
-# SPDX-License-Identifier: MIT
-# SPDX-FileCopyrightText: Copyright (c) Scott Chacon
-# Forked from: https://github.com/schacon/cc-hooks-auto-commit
+#!/bin/bash
 
-require 'json'
-require 'fileutils'
-
-# Read JSON from STDIN
-input = STDIN.read
-data = JSON.parse(input)
-
-# Extract required fields
-session_id = data['session_id']
-cwd = data['cwd']
-
-# change directory to the cwd
-Dir.chdir(cwd)
-
-# Write index file if it's not there yet
-index_dir = File.join(cwd, '.git', 'claude', 'indexes', session_id)
-unless Dir.exist?(index_dir)
-  FileUtils.mkdir_p(index_dir)
-
-  index_file = File.join(index_dir, 'index')
-
-  system("git read-tree --index-output=#{index_file} HEAD")
-
-  base_commit = `git rev-parse HEAD`.strip
-  File.write(File.join(index_dir, 'base_commit'), base_commit)
-end
+# No-op, for now.
