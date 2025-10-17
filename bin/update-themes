@@ -1,21 +1,26 @@
 #!/bin/bash
 
+# Updates themes and (optionally) copies modified files into ../base16-nvim.
+
 set -e
 
 REPO_ROOT="${BASH_SOURCE%/*}/.."
 
 cd "$REPO_ROOT"
 
-git submodule foreach --quiet '
-  if [ "${sm_path##vendor/tinted-theming/}" != "$sm_path" ]; then
-    echo "$(tput bold)$(tput setaf 2)Entering $sm_path$(tput sgr0)"
-    BRANCH=$(git config -f $toplevel/.gitmodules submodule."$name".branch || echo master)
-    git remote update --prune
-    git checkout $BRANCH
-    git pull --recurse-submodules || :
-    git submodule update --init --recursive || :
-  fi
-'
-
 echo "$(tput bold)$(tput setaf 2)Running support/tinted-builder.rb$(tput sgr0)"
 support/tinted-builder.rb
+
+echo "$(tput bold)$(tput setaf 2)Changes to be synced to base16-nvim:$(tput sgr0)"
+jj status aspects/nvim/files/.config/nvim/pack/bundle/opt/base16-nvim
+
+echo
+read -p "Copy updated files to ../base16-nvim? (Y/n) " -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]] || [[ -z $REPLY ]]; then
+    echo "$(tput bold)$(tput setaf 2)Copying files to ../base16-nvim$(tput sgr0)"
+    rsync -av --delete --exclude=.git --exclude=.jj aspects/nvim/files/.config/nvim/pack/bundle/opt/base16-nvim/ ../base16-nvim/
+    echo "$(tput bold)$(tput setaf 2)Files copied successfully$(tput sgr0)"
+else
+    echo "Skipping copy operation"
+fi

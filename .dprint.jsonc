@@ -23,7 +23,13 @@
     "spaceSurroundingProperties": false,
     "quoteStyle": "preferSingle",
     "quoteProps": "consistent",
-    "whileStatement.useBraces": "always"
+    "whileStatement.useBraces": "always",
+    "associations": [
+      "**/*.js",
+      "**/*.mts",
+      "**/*.ts",
+      "bin/update-subtrees"
+    ]
   },
   "json": {
     // See: https://github.com/dprint/dprint-plugin-json/blob/main/src/configuration/configuration.rs
@@ -58,11 +64,13 @@
     "/media",
     "/node_modules",
     "/python",
+    "/.cache",
     "/vendor",
     "tsconfig-base.json"
   ],
   "includes": [
-    "**/*.{html,js,json,md,mts,ts,yml}"
+    "**/*.{html,js,json,md,mts,ts,yml}",
+    "bin/update-subtrees"
   ],
   // Update with: `dprint config update`.
   "plugins": [

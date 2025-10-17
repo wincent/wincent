@@ -1,75 +1,547 @@
-#!/bin/bash
+#!/usr/bin/env node
+// vim: set ft=javascript:
 
-set -e
+import {execSync} from 'child_process';
+import {
+  cpSync,
+  existsSync,
+  mkdirSync,
+  readFileSync,
+  rmSync,
+  writeFileSync,
+} from 'fs';
+import {dirname, join} from 'path';
+import {fileURLToPath} from 'url';
 
-git subtree pull --prefix=aspects/dotfiles/files/.config/yazi/vendor/plugins --squash https://github.com/yazi-rs/plugins.git main
-git subtree pull --prefix=aspects/dotfiles/files/.zsh/zsh-async --squash https://github.com/mafredri/zsh-async.git main
-git subtree pull --prefix=aspects/dotfiles/files/.zsh/zsh-autosuggestions --squash https://github.com/zsh-users/zsh-autosuggestions master
-git subtree pull --prefix=aspects/dotfiles/files/.zsh/zsh-completions --squash https://github.com/zsh-users/zsh-completions.git master
-git subtree pull --prefix=aspects/dotfiles/files/.zsh/zsh-history-substring-search --squash https://github.com/zsh-users/zsh-history-substring-search master
-git subtree pull --prefix=aspects/dotfiles/files/.zsh/zsh-syntax-highlighting --squash https://github.com/zsh-users/zsh-syntax-highlighting.git master
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/LuaSnip --squash https://github.com/L3MON4D3/LuaSnip.git master
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/applescript.vim --squash https://github.com/vim-scripts/applescript.vim.git master
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/base16-nvim --squash https://github.com/wincent/base16-nvim.git main
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-buffer --squash https://github.com/hrsh7th/cmp-buffer.git main
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-calc --squash https://github.com/hrsh7th/cmp-calc.git main
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-emoji --squash https://github.com/hrsh7th/cmp-emoji.git main
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-nvim-lsp --squash https://github.com/hrsh7th/cmp-nvim-lsp.git main
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-nvim-lua --squash https://github.com/hrsh7th/cmp-nvim-lua.git main
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-path --squash https://github.com/hrsh7th/cmp-path.git main
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp_luasnip --squash https://github.com/saadparwaiz1/cmp_luasnip.git master
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/command-t --squash https://github.com/wincent/command-t.git main
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/corpus --squash https://github.com/wincent/corpus.git main
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/diffview.nvim --squash https://github.com/sindrets/diffview.nvim.git main
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/ferret --squash https://github.com/wincent/ferret.git main
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/indent-blankline.nvim --squash https://github.com/lukas-reineke/indent-blankline.nvim.git master
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/loupe --squash https://github.com/wincent/loupe.git main
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.ai --squash https://github.com/nvim-mini/mini.ai.git main
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.extra --squash https://github.com/nvim-mini/mini.extra.git main
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.icons --squash https://github.com/nvim-mini/mini.icons.git main
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.surround --squash https://github.com/nvim-mini/mini.surround.git main
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/neco-ghc --squash https://github.com/eagletmt/neco-ghc.git master
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-clipper --squash https://github.com/wincent/nvim-clipper.git main
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-cmp --squash https://github.com/hrsh7th/nvim-cmp.git main
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-lspconfig --squash https://github.com/neovim/nvim-lspconfig.git master
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-tree.lua --squash https://github.com/kyazdani42/nvim-tree.lua.git master
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-treesitter --squash https://github.com/nvim-treesitter/nvim-treesitter.git main
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-treesitter-textobjects --squash https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git main
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/oil.nvim --squash https://github.com/stevearc/oil.nvim.git master
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/pinnacle --squash https://github.com/wincent/pinnacle.git main
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/replay --squash https://github.com/wincent/replay.git main
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/rust.vim --squash https://github.com/rust-lang/rust.vim.git master
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/scalpel --squash https://github.com/wincent/scalpel.git main
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/shellbot --squash https://github.com/wincent/shellbot.git wincent
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/terminus --squash https://github.com/wincent/terminus.git main
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/undotree --squash https://github.com/mbbill/undotree.git master
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/vcs-jump --squash https://github.com/wincent/vcs-jump.git main
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-abolish --squash https://github.com/tpope/vim-abolish.git master
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-ansible-yaml --squash https://github.com/chase/vim-ansible-yaml.git master
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-dispatch --squash https://github.com/tpope/vim-dispatch.git master
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-docvim --squash https://github.com/wincent/vim-docvim.git main
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-easydir --squash https://github.com/duggiefresh/vim-easydir.git master
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-eunuch --squash https://github.com/tpope/vim-eunuch.git master
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-fugitive --squash https://github.com/tpope/vim-fugitive.git master
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-git --squash https://github.com/tpope/vim-git.git master
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-kitty --squash https://github.com/fladson/vim-kitty.git main
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-ledger --squash https://github.com/ledger/vim-ledger.git master
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-lion --squash https://github.com/tommcdo/vim-lion.git master
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-pathogen --squash https://github.com/tpope/vim-pathogen.git master
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-projectionist --squash https://github.com/tpope/vim-projectionist.git master
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-reason-plus --squash https://github.com/reasonml-editor/vim-reason-plus.git master
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-repeat --squash https://github.com/tpope/vim-repeat.git master
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-rhubarb --squash https://github.com/tpope/vim-rhubarb.git master
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-signature --squash https://github.com/kshenoy/vim-signature.git master
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-slime --squash https://github.com/jpalardy/vim-slime.git main
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-speeddating --squash https://github.com/tpope/vim-speeddating.git master
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-zsh --squash https://github.com/chrisbra/vim-zsh.git master
-git subtree pull --prefix=aspects/nvim/files/.config/nvim/pack/bundle/opt/zen-mode.nvim --squash https://github.com/folke/zen-mode.nvim.git main
-git subtree pull --prefix=vendor/fonts/source-code-pro --squash https://github.com/adobe-fonts/source-code-pro.git release
-git subtree pull --prefix=vendor/git-cipher --squash https://github.com/wincent/git-cipher main
-git subtree pull --prefix=vendor/n --squash https://github.com/tj/n.git master
-git subtree pull --prefix=vendor/tinted-theming/schemes --squash https://github.com/tinted-theming/schemes.git spec-0.11
-git subtree pull --prefix=vendor/tinted-theming/tinted-shell --squash https://github.com/tinted-theming/tinted-shell.git main
-git subtree pull --prefix=vendor/tinted-theming/tinted-terminal --squash https://github.com/tinted-theming/tinted-terminal.git main
-git subtree pull --prefix=vendor/tinted-theming/tinted-tmux --squash https://github.com/tinted-theming/tinted-tmux.git main
-git subtree pull --prefix=vendor/tinted-theming/tinted-vim --squash https://github.com/tinted-theming/tinted-vim.git main
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const REPO_ROOT = join(__dirname, '..');
+const CACHE_DIR = join(REPO_ROOT, '.cache', 'repos');
+const DEPENDENCIES_FILE = join(REPO_ROOT, 'dependencies.json');
+
+const DEPENDENCIES = [
+  {
+    prefix: 'aspects/dotfiles/files/.config/yazi/vendor/plugins',
+    repo: 'https://github.com/yazi-rs/plugins.git',
+    branch: 'main',
+  },
+  {
+    prefix: 'aspects/dotfiles/files/.zsh/zsh-async',
+    repo: 'https://github.com/mafredri/zsh-async.git',
+    branch: 'main',
+  },
+  {
+    prefix: 'aspects/dotfiles/files/.zsh/zsh-autosuggestions',
+    repo: 'https://github.com/zsh-users/zsh-autosuggestions',
+    branch: 'master',
+  },
+  {
+    prefix: 'aspects/dotfiles/files/.zsh/zsh-completions',
+    repo: 'https://github.com/zsh-users/zsh-completions.git',
+    branch: 'master',
+  },
+  {
+    prefix: 'aspects/dotfiles/files/.zsh/zsh-history-substring-search',
+    repo: 'https://github.com/zsh-users/zsh-history-substring-search',
+    branch: 'master',
+  },
+  {
+    prefix: 'aspects/dotfiles/files/.zsh/zsh-syntax-highlighting',
+    repo: 'https://github.com/zsh-users/zsh-syntax-highlighting.git',
+    branch: 'master',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/LuaSnip',
+    repo: 'https://github.com/L3MON4D3/LuaSnip.git',
+    branch: 'master',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/applescript.vim',
+    repo: 'https://github.com/vim-scripts/applescript.vim.git',
+    branch: 'master',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/base16-nvim',
+    repo: 'https://github.com/wincent/base16-nvim.git',
+    branch: 'main',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-buffer',
+    repo: 'https://github.com/hrsh7th/cmp-buffer.git',
+    branch: 'main',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-calc',
+    repo: 'https://github.com/hrsh7th/cmp-calc.git',
+    branch: 'main',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-emoji',
+    repo: 'https://github.com/hrsh7th/cmp-emoji.git',
+    branch: 'main',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-nvim-lsp',
+    repo: 'https://github.com/hrsh7th/cmp-nvim-lsp.git',
+    branch: 'main',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-nvim-lua',
+    repo: 'https://github.com/hrsh7th/cmp-nvim-lua.git',
+    branch: 'main',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-path',
+    repo: 'https://github.com/hrsh7th/cmp-path.git',
+    branch: 'main',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp_luasnip',
+    repo: 'https://github.com/saadparwaiz1/cmp_luasnip.git',
+    branch: 'master',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/command-t',
+    repo: 'https://github.com/wincent/command-t.git',
+    branch: 'main',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/corpus',
+    repo: 'https://github.com/wincent/corpus.git',
+    branch: 'main',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/diffview.nvim',
+    repo: 'https://github.com/sindrets/diffview.nvim.git',
+    branch: 'main',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/ferret',
+    repo: 'https://github.com/wincent/ferret.git',
+    branch: 'main',
+  },
+  {
+    prefix:
+      'aspects/nvim/files/.config/nvim/pack/bundle/opt/indent-blankline.nvim',
+    repo: 'https://github.com/lukas-reineke/indent-blankline.nvim.git',
+    branch: 'master',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/loupe',
+    repo: 'https://github.com/wincent/loupe.git',
+    branch: 'main',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.ai',
+    repo: 'https://github.com/nvim-mini/mini.ai.git',
+    branch: 'main',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.extra',
+    repo: 'https://github.com/nvim-mini/mini.extra.git',
+    branch: 'main',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.icons',
+    repo: 'https://github.com/nvim-mini/mini.icons.git',
+    branch: 'main',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.surround',
+    repo: 'https://github.com/nvim-mini/mini.surround.git',
+    branch: 'main',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/neco-ghc',
+    repo: 'https://github.com/eagletmt/neco-ghc.git',
+    branch: 'master',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-clipper',
+    repo: 'https://github.com/wincent/nvim-clipper.git',
+    branch: 'main',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-cmp',
+    repo: 'https://github.com/hrsh7th/nvim-cmp.git',
+    branch: 'main',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-lspconfig',
+    repo: 'https://github.com/neovim/nvim-lspconfig.git',
+    branch: 'master',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-tree.lua',
+    repo: 'https://github.com/kyazdani42/nvim-tree.lua.git',
+    branch: 'master',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-treesitter',
+    repo: 'https://github.com/nvim-treesitter/nvim-treesitter.git',
+    branch: 'main',
+  },
+  {
+    prefix:
+      'aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-treesitter-textobjects',
+    repo: 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git',
+    branch: 'main',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/oil.nvim',
+    repo: 'https://github.com/stevearc/oil.nvim.git',
+    branch: 'master',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/pinnacle',
+    repo: 'https://github.com/wincent/pinnacle.git',
+    branch: 'main',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/replay',
+    repo: 'https://github.com/wincent/replay.git',
+    branch: 'main',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/rust.vim',
+    repo: 'https://github.com/rust-lang/rust.vim.git',
+    branch: 'master',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/scalpel',
+    repo: 'https://github.com/wincent/scalpel.git',
+    branch: 'main',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/shellbot',
+    repo: 'https://github.com/wincent/shellbot.git',
+    branch: 'wincent',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/terminus',
+    repo: 'https://github.com/wincent/terminus.git',
+    branch: 'main',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/undotree',
+    repo: 'https://github.com/mbbill/undotree.git',
+    branch: 'master',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vcs-jump',
+    repo: 'https://github.com/wincent/vcs-jump.git',
+    branch: 'main',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-abolish',
+    repo: 'https://github.com/tpope/vim-abolish.git',
+    branch: 'master',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-ansible-yaml',
+    repo: 'https://github.com/chase/vim-ansible-yaml.git',
+    branch: 'master',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-dispatch',
+    repo: 'https://github.com/tpope/vim-dispatch.git',
+    branch: 'master',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-docvim',
+    repo: 'https://github.com/wincent/vim-docvim.git',
+    branch: 'main',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-easydir',
+    repo: 'https://github.com/duggiefresh/vim-easydir.git',
+    branch: 'master',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-eunuch',
+    repo: 'https://github.com/tpope/vim-eunuch.git',
+    branch: 'master',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-fugitive',
+    repo: 'https://github.com/tpope/vim-fugitive.git',
+    branch: 'master',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-git',
+    repo: 'https://github.com/tpope/vim-git.git',
+    branch: 'master',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-kitty',
+    repo: 'https://github.com/fladson/vim-kitty.git',
+    branch: 'main',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-ledger',
+    repo: 'https://github.com/ledger/vim-ledger.git',
+    branch: 'master',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-lion',
+    repo: 'https://github.com/tommcdo/vim-lion.git',
+    branch: 'master',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-pathogen',
+    repo: 'https://github.com/tpope/vim-pathogen.git',
+    branch: 'master',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-projectionist',
+    repo: 'https://github.com/tpope/vim-projectionist.git',
+    branch: 'master',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-reason-plus',
+    repo: 'https://github.com/reasonml-editor/vim-reason-plus.git',
+    branch: 'master',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-repeat',
+    repo: 'https://github.com/tpope/vim-repeat.git',
+    branch: 'master',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-rhubarb',
+    repo: 'https://github.com/tpope/vim-rhubarb.git',
+    branch: 'master',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-signature',
+    repo: 'https://github.com/kshenoy/vim-signature.git',
+    branch: 'master',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-slime',
+    repo: 'https://github.com/jpalardy/vim-slime.git',
+    branch: 'main',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-speeddating',
+    repo: 'https://github.com/tpope/vim-speeddating.git',
+    branch: 'master',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-zsh',
+    repo: 'https://github.com/chrisbra/vim-zsh.git',
+    branch: 'master',
+  },
+  {
+    prefix: 'aspects/nvim/files/.config/nvim/pack/bundle/opt/zen-mode.nvim',
+    repo: 'https://github.com/folke/zen-mode.nvim.git',
+    branch: 'main',
+  },
+  {
+    prefix: 'vendor/fonts/source-code-pro',
+    repo: 'https://github.com/adobe-fonts/source-code-pro.git',
+    branch: 'release',
+  },
+  {
+    prefix: 'vendor/git-cipher',
+    repo: 'https://github.com/wincent/git-cipher',
+    branch: 'main',
+  },
+  {prefix: 'vendor/n', repo: 'https://github.com/tj/n.git', branch: 'master'},
+  {
+    prefix: 'vendor/tinted-theming/schemes',
+    repo: 'https://github.com/tinted-theming/schemes.git',
+    branch: 'spec-0.11',
+  },
+  {
+    prefix: 'vendor/tinted-theming/tinted-shell',
+    repo: 'https://github.com/tinted-theming/tinted-shell.git',
+    branch: 'main',
+  },
+  {
+    prefix: 'vendor/tinted-theming/tinted-terminal',
+    repo: 'https://github.com/tinted-theming/tinted-terminal.git',
+    branch: 'main',
+  },
+  {
+    prefix: 'vendor/tinted-theming/tinted-tmux',
+    repo: 'https://github.com/tinted-theming/tinted-tmux.git',
+    branch: 'main',
+  },
+  {
+    prefix: 'vendor/tinted-theming/tinted-vim',
+    repo: 'https://github.com/tinted-theming/tinted-vim.git',
+    branch: 'main',
+  },
+];
+
+// Load existing dependencies tracking
+function loadDependenciesState() {
+  if (existsSync(DEPENDENCIES_FILE)) {
+    try {
+      return JSON.parse(readFileSync(DEPENDENCIES_FILE, 'utf8'));
+    } catch (error) {
+      console.error(
+        'Warning: Could not parse dependencies.json, starting fresh',
+      );
+      return {};
+    }
+  }
+  return {};
+}
+
+// Save dependencies tracking
+function saveDependenciesState(state) {
+  writeFileSync(DEPENDENCIES_FILE, JSON.stringify(state, null, 2) + '\n');
+}
+
+// Get current HEAD hash for a repo
+function getRepoHead(repoPath) {
+  try {
+    return execSync('git rev-parse HEAD', {
+      cwd: repoPath,
+      encoding: 'utf8',
+    }).trim();
+  } catch (error) {
+    return null;
+  }
+}
+
+// Get commit log between two refs
+function getCommitLog(repoPath, fromRef, toRef) {
+  try {
+    return execSync(`git log --oneline ${fromRef}..${toRef}`, {
+      cwd: repoPath,
+      encoding: 'utf8',
+    }).trim();
+  } catch (error) {
+    return null;
+  }
+}
+
+// Ensure cache directory exists
+mkdirSync(CACHE_DIR, {recursive: true});
+
+// Load previous state
+const dependenciesState = loadDependenciesState();
+const changelog = [];
+
+// Process dependencies in parallel
+async function updateDependency({prefix, repo, branch}) {
+  // Derive cache name from repo URL (e.g., github/wincent/command-t)
+  const url = new URL(repo);
+  const pathParts = url.pathname.replace(/\.git$/, '').split('/').filter(
+    Boolean,
+  );
+  const host = url.hostname.split('.')[0]; // e.g., github.com -> github
+  const cacheName = join(host, ...pathParts);
+  const cachePath = join(CACHE_DIR, cacheName);
+
+  console.log(`Processing ${prefix}...`);
+
+  // Get previous HEAD if it exists
+  const previousState = dependenciesState[cacheName] || {};
+  const previousHead = previousState.current || null;
+
+  // Clone or update cached repo
+  if (existsSync(join(cachePath, '.git'))) {
+    console.log(`  [${prefix}] Updating cached repo...`);
+    execSync(
+      `git fetch origin && git checkout ${branch} && git merge origin/${branch}`,
+      {
+        cwd: cachePath,
+        stdio: 'inherit',
+      },
+    );
+  } else {
+    console.log(`  [${prefix}] Cloning to cache...`);
+    execSync(`git clone --branch ${branch} ${repo} ${cachePath}`, {
+      stdio: 'inherit',
+    });
+  }
+
+  // Get new HEAD
+  const currentHead = getRepoHead(cachePath);
+
+  // Update state
+  dependenciesState[cacheName] = {
+    previous: previousHead,
+    current: currentHead,
+  };
+
+  // Generate changelog entry if there were changes
+  if (previousHead && currentHead && previousHead !== currentHead) {
+    const log = getCommitLog(cachePath, previousHead, currentHead);
+    if (log) {
+      changelog.push({
+        prefix,
+        cacheName,
+        previousHead,
+        currentHead,
+        log,
+      });
+    }
+  }
+
+  // Sync from cache to target using rsync
+  // Note: Build artifacts for subprojects like Command-T and Shellbot should
+  // be built in the `.cache` directory so they get synced over and not deleted
+  // due to `--delete`.
+  const targetPath = join(REPO_ROOT, prefix);
+  console.log(`  [${prefix}] Syncing from cache...`);
+  mkdirSync(dirname(targetPath), {recursive: true});
+  execSync(
+    `rsync -av --delete --exclude='.git' "${cachePath}/" "${targetPath}/"`,
+    {
+      stdio: 'inherit',
+    },
+  );
+
+  console.log(`  [${prefix}] Done.\n`);
+}
+
+// Run updates in batches of 5
+const BATCH_SIZE = 5;
+for (let i = 0; i < DEPENDENCIES.length; i += BATCH_SIZE) {
+  const batch = DEPENDENCIES.slice(i, i + BATCH_SIZE);
+  await Promise.all(batch.map(updateDependency));
+}
+
+// Save updated state
+saveDependenciesState(dependenciesState);
+
+console.log('All dependencies updated successfully.');
+
+// Print changelog
+if (changelog.length > 0) {
+  console.log('\n' + '='.repeat(80));
+  console.log('CHANGELOG');
+  console.log('='.repeat(80) + '\n');
+
+  for (const entry of changelog) {
+    console.log(`${entry.prefix}`);
+    console.log(
+      `  ${entry.previousHead.substring(0, 7)}..${
+        entry.currentHead.substring(0, 7)
+      }`,
+    );
+    console.log();
+    // Indent each line of the log
+    const indentedLog = entry.log.split('\n').map((line) => `  ${line}`).join(
+      '\n',
+    );
+    console.log(indentedLog);
+    console.log();
+  }
+
+  console.log('='.repeat(80));
+  console.log(
+    `${changelog.length} ${
+      changelog.length === 1 ? 'dependency' : 'dependencies'
+    } updated`,
+  );
+  console.log('='.repeat(80));
+} else {
+  console.log('\nNo changes detected in any dependencies.');
+}

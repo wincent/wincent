@@ -1,3 +1,4 @@
+/.cache
 /aspects/dotfiles/files/.config/kitty/kitty.conf
 /aspects/dotfiles/files/.zsh/.tinted
 /aspects/dotfiles/files/.zsh/.tinted.previous
