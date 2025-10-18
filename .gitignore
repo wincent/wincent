@@ -1,23 +1,37 @@
+**/doc/tags
+*.zwc
 /.cache
 /aspects/dotfiles/files/.claude/debug
 /aspects/dotfiles/files/.claude/file-history
 /aspects/dotfiles/files/.claude/history.jsonl
+/aspects/dotfiles/files/.claude/host/comp-ktw7q4c5jh.md
+/aspects/dotfiles/files/.config/Raycast/Script Commands/github-commits.sh
+/aspects/dotfiles/files/.config/Raycast/Script Commands/github-pulls.sh
+/aspects/dotfiles/files/.config/Raycast/Script Commands/github-repo.sh
+/aspects/dotfiles/files/.config/git/handles.jsonc
+/aspects/dotfiles/files/.config/git/host/comp-ktw7q4c5jh
+/aspects/dotfiles/files/.config/git/host/latina
 /aspects/dotfiles/files/.config/kitty/kitty.conf
 /aspects/dotfiles/files/.docker
 !/aspects/dotfiles/files/.docker/config.json
+/aspects/dotfiles/files/.irssi/config
+/aspects/dotfiles/files/.npmrc
+/aspects/dotfiles/files/.pypirc
 /aspects/dotfiles/files/.zsh/.tinted
 /aspects/dotfiles/files/.zsh/.tinted.previous
+/aspects/dotfiles/files/.zsh/exports.private
+/aspects/dotfiles/files/.zsh/hash.private
+/aspects/dotfiles/files/.zsh/host/comp-ktw7q4c5jh
 /aspects/nvim/files/.config/nvim/after/plugin/command-t.private.vim
 /aspects/nvim/files/.config/nvim/plugin/private.vim
-/aspects/nvim/files/.config/nvim/spell/en.utf-8.add.spl
 /aspects/nvim/files/.config/nvim/shada
 /aspects/nvim/files/.config/nvim/shada.tmp.*
+/aspects/nvim/files/.config/nvim/spell/en.utf-8.add.spl
 /aspects/nvim/files/.vim/viminfo
+/aspects/ssh/templates/.ssh/config.erb
 /media
 /node_modules
 /tsconfig.tsbuildinfo
 /vendor/nvim-macos-arm64
 /vendor/skim
 /vendor/yay
-*.zwc
-**/doc/tags

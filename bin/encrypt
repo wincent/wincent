@@ -1,0 +1,95 @@
+#!/bin/bash
+
+set -e
+
+SCRIPT_NAME=$(basename "$0")
+if [[ "$SCRIPT_NAME" == "decrypt" ]]; then
+  OPERATION="decrypt"
+else
+  OPERATION="encrypt"
+fi
+
+RECIPIENT=age1l4fu9sazx2umpxw6t2hfdyq4ckun728epmz22y38tvlycu7t6sqqygexfu
+IDENTITY="$HOME/.config/age/key.txt"
+
+BOLD=$(tput bold)
+GREEN=$(tput setaf 2)
+RED=$(tput setaf 1)
+RESET=$(tput sgr0)
+
+ITEMS[0]="aspects/dotfiles/files/.config/Raycast/Script Commands/github-commits.sh"
+ITEMS[1]="aspects/dotfiles/files/.config/Raycast/Script Commands/github-pulls.sh"
+ITEMS[2]="aspects/dotfiles/files/.config/Raycast/Script Commands/github-repo.sh"
+ITEMS[3]=aspects/dotfiles/files/.claude/host/comp-ktw7q4c5jh.md
+ITEMS[4]=aspects/dotfiles/files/.config/git/handles.jsonc
+ITEMS[5]=aspects/dotfiles/files/.config/git/host/comp-ktw7q4c5jh
+ITEMS[6]=aspects/dotfiles/files/.config/git/host/latina
+ITEMS[7]=aspects/dotfiles/files/.irssi/config
+ITEMS[8]=aspects/dotfiles/files/.npmrc
+ITEMS[9]=aspects/dotfiles/files/.pypirc
+ITEMS[10]=aspects/dotfiles/files/.zsh/exports.private
+ITEMS[11]=aspects/dotfiles/files/.zsh/hash.private
+ITEMS[12]=aspects/dotfiles/files/.zsh/host/comp-ktw7q4c5jh
+ITEMS[13]=aspects/ssh/templates/.ssh/config.erb
+
+decrypt() {
+  local PLAINTEXT=$1
+  local CIPHERTEXT="${PLAINTEXT}.encrypted"
+
+  if [ ! -f "$IDENTITY" ]; then
+    echo "💥 ${BOLD}${RED}Cannot decrypt without identity:${RESET} ${IDENTITY}"
+    exit 1
+  fi
+
+  if [ -f "$CIPHERTEXT" ]; then
+    echo "🔓 ${BOLD}${GREEN}Decrypting:${RESET} ${PLAINTEXT}"
+    age --decrypt -i "$IDENTITY" -o "$PLAINTEXT" "$CIPHERTEXT"
+  else
+    echo "💥 ${BOLD}${RED}Not decrypting (non-file):${RESET} ${CIPHERTEXT}"
+  fi
+}
+
+encrypt() {
+  local PLAINTEXT=$1
+  local CIPHERTEXT="${PLAINTEXT}.encrypted"
+
+  if [ -f "$PLAINTEXT" ]; then
+    if [ -f "$CIPHERTEXT" -a -f "$IDENTITY" ]; then
+      local DECRYPTED=$(age --decrypt -i "$IDENTITY" "$CIPHERTEXT")
+      if [[ "$DECRYPTED" == "$(cat "$PLAINTEXT")" ]]; then
+        echo "⏩ ${BOLD}Skipping (already up-to-date):${RESET} ${PLAINTEXT}"
+        return
+      fi
+    fi
+    echo "🔑 ${BOLD}${GREEN}Encrypting:${RESET} ${PLAINTEXT}"
+    age --encrypt -r $RECIPIENT --armor -o "${CIPHERTEXT}"  "$PLAINTEXT"
+  else
+    echo "💥 ${BOLD}${RED}Not encrypting (non-file):${RESET} ${PLAINTEXT}"
+  fi
+}
+
+ignore() {
+  local PLAINTEXT=$1
+
+  if ! grep -qxF "/$PLAINTEXT" .gitignore 2> /dev/null; then
+    echo "✅ ${BOLD}${GREEN}Ignoring:${RESET} ${PLAINTEXT}"
+    echo "/$PLAINTEXT" >> .gitignore
+  else
+    echo "🙈 ${BOLD}Already ignored:${RESET} ${PLAINTEXT}"
+  fi
+}
+
+REPO_ROOT="${BASH_SOURCE%/*}/.."
+cd "$REPO_ROOT"
+
+for ITEM in "${ITEMS[@]}"; do
+  if [[ "$OPERATION" == "encrypt" ]]; then
+    encrypt "$ITEM"
+    ignore "$ITEM"
+  elif [[ "$OPERATION" == "decrypt" ]]; then
+    decrypt "$ITEM"
+  else
+    echo "💥 ${BOLD}${RED}Unsupported operation:${RESET} $OPERATION"
+    exit 1
+  fi
+done

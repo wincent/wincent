@@ -33,7 +33,7 @@
 - Conservative Vim configuration (very few overrides of core functionality; most changes are unobtrusive enhancements; some additional functionality exposed via `<Leader>` and `<LocalLeader>` mappings.
 - Relatively restrained Zsh config, Bash-like but with a few Zsh perks, such as right-side prompt, auto-cd hooks, command elapsed time printing and such.
 - Unified color-handling (across Kitty, Neovim, etc) via [tinted-theming/tinted-kitty](https://github.com/tinted-theming/tinted-kitty), [tinted-theming/tinted-shell](https://github.com/tinted-theming/tinted-shell), [tinted-theming/tinted-tmux](https://github.com/tinted-theming/tinted-tmux), [tinted-theming/tinted-vim](https://github.com/tinted-theming/tinted-vim), and [wincent/base16-nvim](https://github.com/wincent/base16-nvim).
-- Encrypted versioning of files with sensitive content (via [git-cipher](https://github.com/wincent/git-cipher)).
+- Encrypted versioning of files with sensitive content (via [age](https://github.com/FiloSottile/age)).
 - Comprehensive [Hammerspoon](http://www.hammerspoon.org/) [config](https://github.com/wincent/wincent/tree/main/aspects/dotfiles/files/.hammerspoon).
 
 ### Homebrew
@@ -159,14 +159,12 @@ git clone --recursive https://github.com/wincent/wincent.git
 
 ```sh
 sudo pacman -Syu
-sudo pacman -S git ruby tmux vim
-git clone --recursive https://github.com/wincent/wincent.git
+sudo pacman -S git tmux
+git clone https://github.com/wincent/wincent.git
 ```
 
 - `git`: In order to clone the repo.
-- `ruby`: So that git-cipher can run (also used to build Command-T).
 - `tmux`: Just for comfort (eg. so you can see scrollback).
-- `vim`: Because the `nvim` aspect needs Vim (it runs `vim` to do a `:helptags` update).
 
 ### Install
 
