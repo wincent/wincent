@@ -56,7 +56,6 @@ export default {
   variables: {
     figManaged:
       'vim: set nomodifiable : DO NOT EDIT - edit template source instead («file») or use `:set modifiable` to force.',
-    gitCipherPath: 'vendor/git-cipher/bin/git-cipher',
     pinentryProgram: '/usr/bin/pinentry-curses',
   },
 };

@@ -1,4 +1,4 @@
-import {UnsupportedValueError, attributes, path, run, variable} from 'fig';
+import {UnsupportedValueError, attributes, path, stat, variable} from 'fig';
 
 /**
  * @file
@@ -121,12 +121,7 @@ function checkCondition(condition: Condition): boolean {
 }
 
 export async function isDecrypted(pathish: string): Promise<boolean> {
-  const result = await run('bin/git-cipher', [
-    'is-encrypted',
-    '--exit-code',
-    path(pathish).expand,
-  ]);
-
-  // 0 = encrypted, 1 = decrypted, anything else = error.
-  return result.status === 1;
+  // If the file exists on disk, it has been decrypted.
+  const result = await stat(path(pathish).expand);
+  return result !== null && !(result instanceof Error);
 }

@@ -29,7 +29,7 @@ task('install ~/.ssh/config', when('wincent'), async () => {
   const decrypted = await isDecrypted(src);
 
   if (!decrypted) {
-    await log.warn(`"${src}" does not exist; run "bin/git-cipher unlock"`);
+    await log.warn(`"${src}" does not exist; run "bin/decrypt"`);
   } else {
     await template({
       mode: '0600',
