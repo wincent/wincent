@@ -85,6 +85,25 @@ ignore() {
 REPO_ROOT="${BASH_SOURCE%/*}/.."
 cd "$REPO_ROOT"
 
+# If specific files are provided as arguments, filter ITEMS to only those files
+if [ $# -gt 0 ]; then
+  FILTERED_ITEMS=()
+  for ARG in "$@"; do
+    # Make path relative to repo root if it's absolute
+    if [[ "$ARG" == "$REPO_ROOT"/* ]]; then
+      ARG="${ARG#$REPO_ROOT/}"
+    fi
+    # Check if this argument matches any item in ITEMS
+    for ITEM in "${ITEMS[@]}"; do
+      if [[ "$ITEM" == "$ARG" ]]; then
+        FILTERED_ITEMS+=("$ITEM")
+        break
+      fi
+    done
+  done
+  ITEMS=("${FILTERED_ITEMS[@]}")
+fi
+
 for ITEM in "${ITEMS[@]}"; do
   if [[ "$OPERATION" == "encrypt" ]]; then
     encrypt "$ITEM"

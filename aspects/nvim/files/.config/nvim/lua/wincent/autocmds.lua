@@ -150,8 +150,37 @@ autocmds.buf_win_enter = function()
   end
 end
 
+-- Auto-encrypt files when saved.
+local encrypt = function()
+  local file = vim.fn.expand('<afile>:p')
+  local wincent_dir = vim.fn.expand('~/code/wincent')
+
+  -- Only auto-encrypt files within the wincent repo.
+  if vim.fn.stridx(file, wincent_dir) ~= 0 then
+    return
+  end
+
+  local encrypted = file .. '.encrypted'
+
+  -- Only auto-encrypt if a corresponding .encrypted file exists.
+  if vim.fn.filewritable(encrypted) ~= 1 then
+    return
+  end
+
+  local encrypt_script = wincent_dir .. '/bin/encrypt'
+  if vim.fn.executable(encrypt_script) == 1 then
+    -- Make path relative to repo root
+    local relative_file = file
+    if vim.fn.stridx(file, wincent_dir .. '/') == 0 then
+      relative_file = file:sub(#wincent_dir + 2)
+    end
+    vim.fn.system(vim.fn.fnameescape(encrypt_script) .. ' ' .. vim.fn.shellescape(relative_file))
+  end
+end
+
 autocmds.buf_write_post = function()
   mkview()
+  encrypt()
 end
 
 local global_cmdline_aliases = {
