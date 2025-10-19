@@ -6,11 +6,7 @@
   # local SOME_DIR=...
   # test -d $SOME_DIR && hash -d $SHORTCUT=$SOME_DIR
 
+  # Source if decrypted.
   local PRIVATE="$HOME/.zsh/hash.private"
-  if grep 'com\.wincent\.git-cipher' "$PRIVATE" &> /dev/null; then
-    # Don't source still-encrypted file.
-  else
-    # Source it if it's actually there.
-    test -e "$PRIVATE" && source "$PRIVATE"
-  fi
+  test -e "$PRIVATE" && source "$PRIVATE"
 }

@@ -5,6 +5,8 @@ set -e
 SCRIPT_NAME=$(basename "$0")
 if [[ "$SCRIPT_NAME" == "decrypt" ]]; then
   OPERATION="decrypt"
+elif [[ "$SCRIPT_NAME" == "crypt-status" ]]; then
+  OPERATION="status"
 else
   OPERATION="encrypt"
 fi
@@ -82,6 +84,14 @@ ignore() {
   fi
 }
 
+status() {
+  local PLAINTEXT=$1
+
+  if [ ! -f "$PLAINTEXT" ]; then
+    echo "$PLAINTEXT"
+  fi
+}
+
 REPO_ROOT="${BASH_SOURCE%/*}/.."
 cd "$REPO_ROOT"
 
@@ -110,6 +120,8 @@ for ITEM in "${ITEMS[@]}"; do
     ignore "$ITEM"
   elif [[ "$OPERATION" == "decrypt" ]]; then
     decrypt "$ITEM"
+  elif [[ "$OPERATION" == "status" ]]; then
+    status "$ITEM"
   else
     echo "💥 ${BOLD}${RED}Unsupported operation:${RESET} $OPERATION"
     exit 1

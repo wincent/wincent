@@ -61,25 +61,21 @@ variables(({hostHandle, identity, platform}) => {
 });
 
 task('check for decrypted files', when('wincent'), async () => {
-  const result = await command('bin/git-cipher', ['ls', '--verbose'], {
+  const result = await command('bin/crypt-status', [], {
     failedWhen: () => false,
   });
 
-  // TODO: consider whether I want to scan for magic headers instead, like I am
-  // in the "create symlinks" task...
   if (result !== null) {
     const pending = result.status === 0
       ? result.stdout
         .trim()
         .split(/\n/)
-        .filter((line) => {
-          return line.length && !line.includes('worktree=decrypted');
-        })
+        .filter((line) => line.length)
       : ['unable to determine encryption status for any file'];
 
     if (pending.length) {
       log.warn(
-        `git-cipher files not yet decrypted:\n\n${pending.join('\n')}\n`,
+        `Files not yet decrypted:\n\n${pending.join('\n')}\n`,
       );
 
       if (!(await prompt.confirm('Continue anyway'))) {

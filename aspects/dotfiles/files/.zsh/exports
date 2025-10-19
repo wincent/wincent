@@ -167,11 +167,7 @@ export ANTHROPIC_MODEL=claude-sonnet-4-5-20250929
 export OPENAI_MODEL=gpt-5
 
 () {
+  # Source if decrypted.
   local PRIVATE="$HOME/.zsh/exports.private"
-  if grep 'com\.wincent\.git-cipher' "$PRIVATE" &> /dev/null; then
-    # Don't source still-encrypted file.
-  else
-    # Source it if it's actually there.
-    test -e "$PRIVATE" && source "$PRIVATE"
-  fi
+  test -e "$PRIVATE" && source "$PRIVATE"
 }
