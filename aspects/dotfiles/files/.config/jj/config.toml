@@ -11,6 +11,9 @@
 behavior = "own"
 backend = "gpg"
 
+[template-aliases]
+'format_short_change_id(id)' = 'id.shortest()'
+
 [templates]
 draft_commit_description = '''
 concat(
