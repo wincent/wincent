@@ -1,11 +1,17 @@
 #:schema https://jj-vcs.github.io/jj/latest/config-schema.json
 
+[aliases]
+tug = ["bookmark", "move", "--from", "closest_bookmark(@-)", "--to", "@-"]
+
 [colors]
 # Remove unreadable underline styling.
 # TODO: find a way to do this without hard-coding (won't look good for all color
 # schemes).
 "diff removed token" = { bg = "#221111", underline = false }
 "diff added token" = { bg = "#002200", underline = false }
+
+[revset-aliases]
+'closest_bookmark(to)' = 'heads(::to & bookmarks())'
 
 [signing]
 behavior = "own"
