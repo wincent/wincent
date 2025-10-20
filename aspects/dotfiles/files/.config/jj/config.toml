@@ -1,5 +1,12 @@
 #:schema https://jj-vcs.github.io/jj/latest/config-schema.json
 
+[colors]
+# Remove unreadable underline styling.
+# TODO: find a way to do this without hard-coding (won't look good for all color
+# schemes).
+"diff removed token" = { bg = "#221111", underline = false }
+"diff added token" = { bg = "#002200", underline = false }
+
 [signing]
 behavior = "own"
 backend = "gpg"
