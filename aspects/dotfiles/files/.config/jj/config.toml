@@ -1,5 +1,9 @@
 #:schema https://jj-vcs.github.io/jj/latest/config-schema.json
 
+[signing]
+behavior = "own"
+backend = "gpg"
+
 [templates]
 draft_commit_description = '''
 concat(
@@ -21,6 +25,3 @@ diff-editor = ":builtin"
 name = "Greg Hurrell"
 email = "greg.hurrell@datadoghq.com"
 
-[signing]
-behavior = "own"
-backend = "gpg"
