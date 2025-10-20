@@ -27,6 +27,8 @@ concat(
 [ui]
 default-command = "log"
 diff-editor = ":builtin"
+# diff-formatter = ":git"
+# pager = "delta"
 
 [user]
 name = "Greg Hurrell"
