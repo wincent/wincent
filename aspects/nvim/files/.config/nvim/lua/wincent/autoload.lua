@@ -54,3 +54,4 @@ local function autoload(base)
 end
 
 return autoload
+-- TODO: check that the places we're using autoload() actually need it

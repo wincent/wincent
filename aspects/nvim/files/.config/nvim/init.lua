@@ -458,6 +458,7 @@ if has_commandt then
           return buffers
         end,
         mode = 'virtual',
+        -- TODO: maybe use `wincent.commandt.private.options.force_dotfiles`, if I decide to make it public
         options = function(options)
           -- `options` is a copy, so we're free to mutate it.
           options.always_show_dot_files = true
