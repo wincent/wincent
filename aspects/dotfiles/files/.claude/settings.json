@@ -1,4 +1,13 @@
 {
+  "permissions": {
+    "allow": [
+      "Bash(command git diff:*)",
+      "Bash(command git log:*)",
+      "Bash(command git show:*)",
+      "Bash(command git status:*)"
+    ],
+    "deny": []
+  },
   "hooks": {
     "Notification": [
       {
@@ -45,14 +54,5 @@
       }
     ]
   },
-  "permissions": {
-    "allow": [
-      "Bash(command git diff:*)",
-      "Bash(command git log:*)",
-      "Bash(command git show:*)",
-      "Bash(command git status:*)"
-    ],
-    "deny": []
-  },
-  "alwaysThinkingEnabled": false
+  "alwaysThinkingEnabled": true
 }
