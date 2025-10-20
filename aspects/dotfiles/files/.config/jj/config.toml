@@ -34,3 +34,4 @@ diff-editor = ":builtin"
 name = "Greg Hurrell"
 email = "greg.hurrell@datadoghq.com"
 
+# Note: can't do per-directory override of email, because GPG signing will fail.
