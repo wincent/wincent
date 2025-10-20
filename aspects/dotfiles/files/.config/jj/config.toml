@@ -2,10 +2,16 @@
 
 [aliases]
 tug = ["util", "exec", "--", "sh", "-c", """
-if [ "x$1" = "x" ]; then
-  jj bookmark move --from "closest_bookmark(@)" --to "closest_pushable(@)"
-else
+source ~/.config/jj/helpers.sh
+
+if [ "$#" -gt 1 ]; then
+  jj_error "jj tug: expected 0 or 1 arguments, got: $*"
+  jj_hint "Target multiple branches with ``|`` or ``&`` or ``~``)"
+  exit 1
+elif [ -n "$1" ]; then
   jj bookmark move --to "closest_pushable(@)" "$@"
+else
+  jj bookmark move --from "closest_bookmark(@)" --to "closest_pushable(@)"
 fi
 """, ""]
 
