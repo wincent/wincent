@@ -1,7 +1,13 @@
 #:schema https://jj-vcs.github.io/jj/latest/config-schema.json
 
 [aliases]
-tug = ["bookmark", "move", "--from", "closest_bookmark(@-)", "--to", "@-"]
+tug = ["util", "exec", "--", "sh", "-c", """
+if [ "x$1" = "x" ]; then
+  jj bookmark move --from "closest_bookmark(@)" --to "closest_pushable(@)"
+else
+  jj bookmark move --to "closest_pushable(@)" "$@"
+fi
+""", ""]
 
 [colors]
 # Remove unreadable underline styling.
@@ -12,6 +18,7 @@ tug = ["bookmark", "move", "--from", "closest_bookmark(@-)", "--to", "@-"]
 
 [revset-aliases]
 'closest_bookmark(to)' = 'heads(::to & bookmarks())'
+'closest_pushable(to)' = 'heads(::to & mutable() & ~description(exact:"") & (~empty() | merges()))'
 
 [signing]
 behavior = "own"
