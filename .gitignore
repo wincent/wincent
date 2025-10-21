@@ -11,6 +11,7 @@
 /aspects/dotfiles/files/.config/git/handles.jsonc
 /aspects/dotfiles/files/.config/git/host/comp-ktw7q4c5jh
 /aspects/dotfiles/files/.config/git/host/latina
+/aspects/dotfiles/files/.config/jj/config.toml
 /aspects/dotfiles/files/.config/kitty/kitty.conf
 /aspects/dotfiles/files/.docker
 !/aspects/dotfiles/files/.docker/config.json

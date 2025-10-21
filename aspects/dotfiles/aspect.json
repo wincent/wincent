@@ -54,6 +54,7 @@
     ],
     "templates": [
       ".config/git/config.erb",
+      ".config/jj/config.toml.erb",
       ".config/kitty/kitty.conf.erb",
       ".fehbg",
       ".gnupg/gpg-agent.conf.erb",

@@ -1,4 +1,6 @@
 #:schema https://jj-vcs.github.io/jj/latest/config-schema.json
+# <%# vim: set filetype=eruby.toml : -%>
+# <%= variables.figManaged %>
 
 [aliases]
 tug = ["util", "exec", "--", "sh", "-c", """
@@ -27,8 +29,10 @@ fi
 'closest_pushable(to)' = 'heads(::to & mutable() & ~description(exact:"") & (~empty() | merges()))'
 
 [signing]
+<%- if (variables.vcsGpgSign) { -%>
 behavior = "own"
 backend = "gpg"
+<%- } -%>
 
 [template-aliases]
 'format_short_change_id(id)' = 'id.shortest()'
@@ -45,6 +49,12 @@ concat(
   diff.git(),
 )
 '''
+<%- if (variables.gitHubUsername) { -%>
+
+# Generate prefixed bookmark names when running `jj git push --change`:
+# See: https://jj-vcs.github.io/jj/latest/config/#generated-bookmark-names-on-push
+git_push_bookmark = '"<%= variables.gitHubUsername %>/" ++ change_id.short()'
+<%- } -%>
 
 [ui]
 default-command = "log"
@@ -53,7 +63,9 @@ diff-editor = ":builtin"
 # pager = "delta"
 
 [user]
+<%- if (variables.vcsUserName) { -%>
 name = "Greg Hurrell"
+<%- } -%>
+<%- if (variables.vcsUserEmail) { -%>
 email = "greg.hurrell@datadoghq.com"
-
-# Note: can't do per-directory override of email, because GPG signing will fail.
+<%- } -%>

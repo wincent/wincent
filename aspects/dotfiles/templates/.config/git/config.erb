@@ -166,7 +166,7 @@
 
 [color "status"]
 	untracked = blue
-<%- if (variables.gitGpgSign) { -%>
+<%- if (variables.vcsGpgSign) { -%>
 
 [commit]
 	gpgSign = true
@@ -286,11 +286,11 @@
 	sort = version:refname
 
 [user]
-<%- if (variables.gitUserEmail) { -%>
-	email = <%= variables.gitUserEmail %>
+<%- if (variables.vcsUserEmail) { -%>
+	email = <%= variables.vcsUserEmail %>
 <%- } -%>
-<%- if (variables.gitUserName) { -%>
-	name = <%= variables.gitUserName %>
+<%- if (variables.vcsUserName) { -%>
+	name = <%= variables.vcsUserName %>
 <%- } -%>
 
 # Ignored by Git older than 1.7.10.

@@ -52,11 +52,13 @@ variables(({hostHandle, identity, platform}) => {
     // the other key, so the other key ("cmd") continues to behave like "cmd".
     kittyAlt: platform === 'darwin' ? 'cmd' : 'alt',
 
-    gitGpgSign: identity === 'wincent',
     gitHostSpecificInclude: `host/${hostHandle}`,
-    gitUserEmail: identity === 'wincent' ? 'greg@hurrell.net' : '',
-    gitUserName: identity === 'wincent' ? 'Greg Hurrell' : '',
+
     gitHubUsername: identity === 'wincent' ? 'wincent' : '',
+
+    vcsGpgSign: identity === 'wincent',
+    vcsUserEmail: identity === 'wincent' ? 'greg@hurrell.net' : '',
+    vcsUserName: identity === 'wincent' ? 'Greg Hurrell' : '',
   };
 });
 
