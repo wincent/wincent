@@ -301,17 +301,14 @@ handleScreenEvent = function()
   -- Make sure that something noteworthy (display count) actually
   -- changed. We no longer check geometry because we were seeing spurious
   -- events.
-  log.i('Handling screen event')
   local screens = hs.screen.allScreens()
   if not (#screens == screenCount) then
     screenCount = #screens
     activateLayout(screenCount)
     if menu then
       if screenCount == 2 then
-        log.i('Returning menu to menu bar')
         menu:returnToMenuBar()
       else
-        log.i('Removing menu to menu bar')
         menu:removeFromMenuBar()
       end
     end
