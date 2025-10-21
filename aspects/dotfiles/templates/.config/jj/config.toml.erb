@@ -32,6 +32,7 @@ fi
 <%- if (variables.vcsGpgSign) { -%>
 behavior = "own"
 backend = "gpg"
+backends.gpg.program = "<%= variables.home %>/.zsh/bin/vcs-gpg"
 <%- } -%>
 
 [template-aliases]
