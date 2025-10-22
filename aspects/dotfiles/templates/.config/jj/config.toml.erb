@@ -18,10 +18,10 @@ fi
 """, ""]
 
 [colors]
-# See ~/.config/jj/conf.d/colors.toml (maintained by `color` command, so as to 
-# have colors that look good in both light and dark schemes).
-"diff removed token" = { bg = "#221111", underline = false }
-"diff added token" = { bg = "#002200", underline = false }
+# See also overrides in ~/.config/jj/conf.d/colors.toml (maintained by `color`
+# command, so as to have colors that look good in both light and dark schemes).
+"diff removed token" = { underline = false }
+"diff added token" = { underline = false }
 
 [revset-aliases]
 'closest_bookmark(to)' = 'heads(::to & bookmarks())'

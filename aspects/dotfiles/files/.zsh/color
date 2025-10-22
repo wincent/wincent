@@ -147,15 +147,15 @@ EOF
         cat <<EOF > "$JJ_CONF_D/colors.toml"
 [colors]
 # Good colors for light schemes.
-"diff removed token" = { bg = "#ffdddd", underline = false }
-"diff added token" = { bg = "#ddffdd", underline = false }
+"diff removed token" = { bg = "#ffdddd" }
+"diff added token" = { bg = "#ddffdd" }
 EOF
       else
         cat <<EOF > "$JJ_CONF_D/colors.toml"
 [colors]
 # Good colors for dark schemes.
-"diff removed token" = { bg = "#221111", underline = false }
-"diff added token" = { bg = "#002200", underline = false }
+"diff removed token" = { bg = "#221111" }
+"diff added token" = { bg = "#002200" }
 EOF
       fi
     else
