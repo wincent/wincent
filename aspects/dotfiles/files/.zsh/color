@@ -140,6 +140,24 @@ set -g pane-active-border-style "bg=#$CC"
 set -g pane-border-style "bg=#$CC"
 EOF
       fi
+
+      # Write jj color overrides based on light/dark scheme.
+      local JJ_CONF_D=~/.config/jj/conf.d
+      if [ "$BACKGROUND" = "light" ]; then
+        cat <<EOF > "$JJ_CONF_D/colors.toml"
+[colors]
+# Good colors for light schemes.
+"diff removed token" = { bg = "#ffdddd", underline = false }
+"diff added token" = { bg = "#ddffdd", underline = false }
+EOF
+      else
+        cat <<EOF > "$JJ_CONF_D/colors.toml"
+[colors]
+# Good colors for dark schemes.
+"diff removed token" = { bg = "#221111", underline = false }
+"diff added token" = { bg = "#002200", underline = false }
+EOF
+      fi
     else
       echo "Scheme '$SCHEME' not found in $SHELL_COLORS_DIR"
       STATUS=1
