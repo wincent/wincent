@@ -1,41 +1,43 @@
+import assert from 'node:assert';
+import {describe, test} from 'node:test';
+
 import Scanner from '../Scanner.ts';
-import {describe, expect, test} from '../test/harness.ts';
 
 describe('Scanner', () => {
   test('scan() finds matches', () => {
     const scanner = new Scanner('foo bar baz');
 
-    expect(scanner.scan(/foo /)).toBe('foo ');
-    expect(scanner.scan(/nope/)).toBe(undefined);
+    assert.strictEqual(scanner.scan(/foo /), 'foo ');
+    assert.strictEqual(scanner.scan(/nope/), undefined);
 
     // Can only find at current position.
-    expect(scanner.scan(/baz/)).toBe(undefined);
-    expect(scanner.scan(/bar /)).toBe('bar ');
-    expect(scanner.scan(/baz/)).toBe('baz');
+    assert.strictEqual(scanner.scan(/baz/), undefined);
+    assert.strictEqual(scanner.scan(/bar /), 'bar ');
+    assert.strictEqual(scanner.scan(/baz/), 'baz');
   });
 
   test('scan() accepts string literals', () => {
     const scanner = new Scanner('foo (bar)');
 
-    expect(scanner.scan('foo ')).toBe('foo ');
+    assert.strictEqual(scanner.scan('foo '), 'foo ');
 
     // Note how the parens would have special meaning in a RegExp, but they
     // get escaped here.
-    expect(scanner.scan('(bar)')).toBe('(bar)');
+    assert.strictEqual(scanner.scan('(bar)'), '(bar)');
   });
 
   test('atEnd() informs when at end of string', () => {
     const scanner = new Scanner('foo bar baz');
 
-    expect(scanner.atEnd()).toBe(false);
+    assert.strictEqual(scanner.atEnd(), false);
 
     scanner.scan(/.../);
 
-    expect(scanner.atEnd()).toBe(false);
+    assert.strictEqual(scanner.atEnd(), false);
 
     scanner.scan(/.+/);
 
-    expect(scanner.atEnd()).toBe(true);
+    assert.strictEqual(scanner.atEnd(), true);
   });
 
   test('peek() looks ahead', () => {
@@ -43,23 +45,23 @@ describe('Scanner', () => {
 
     scanner.scan('foo');
 
-    expect(scanner.peek()).toBe(' ');
-    expect(scanner.peek(0)).toBe('');
-    expect(scanner.peek(4)).toBe(' bar');
-    expect(scanner.peek(4000)).toBe(' bar baz');
+    assert.strictEqual(scanner.peek(), ' ');
+    assert.strictEqual(scanner.peek(0), '');
+    assert.strictEqual(scanner.peek(4), ' bar');
+    assert.strictEqual(scanner.peek(4000), ' bar baz');
   });
 
   test('reading captures', () => {
     const scanner = new Scanner('foo bar baz');
 
-    expect(scanner.captures).toBe(undefined);
+    assert.strictEqual(scanner.captures, undefined);
 
     scanner.scan(/foo /);
 
-    expect(scanner.captures).toEqual([]);
+    assert.deepStrictEqual(scanner.captures, []);
 
-    expect(scanner.scan(/(\w+) (\w+)/)).toBe('bar baz');
+    assert.strictEqual(scanner.scan(/(\w+) (\w+)/), 'bar baz');
 
-    expect(scanner.captures).toEqual(['bar', 'baz']);
+    assert.deepStrictEqual(scanner.captures, ['bar', 'baz']);
   });
 });

@@ -1,9 +1,10 @@
+import assert from 'node:assert';
 import {join} from 'node:path';
+import {test} from 'node:test';
 
-import assert from '../../assert.ts';
+import figAssert from '../../assert.ts';
 import stat from '../../fs/stat.ts';
 import tempdir from '../../fs/tempdir.ts';
-import {expect, test} from '../../test/harness.ts';
 import touch from '../touch.ts';
 
 test('touch() creates a file', async () => {
@@ -11,8 +12,8 @@ test('touch() creates a file', async () => {
 
   let stats = await stat(path);
 
-  assert(stats !== null);
-  assert(!(stats instanceof Error));
+  figAssert(stats !== null);
+  figAssert(!(stats instanceof Error));
 
   const file = join(path, 'file');
 
@@ -20,8 +21,8 @@ test('touch() creates a file', async () => {
 
   stats = await stat(file);
 
-  assert(stats !== null);
-  assert(!(stats instanceof Error));
+  figAssert(stats !== null);
+  figAssert(!(stats instanceof Error));
 
-  expect(stats.type).toBe('file');
+  assert.strictEqual(stats.type, 'file');
 });

@@ -1,9 +1,10 @@
+import assert from 'node:assert';
 import {join} from 'node:path';
-import {cwd} from 'node:process';
+import {chdir, cwd} from 'node:process';
+import {describe, test} from 'node:test';
 
 import Context from '../Context.ts';
 import {file, files, template} from '../dsl/resource.ts';
-import {describe, expect, test} from '../test/harness.ts';
 
 import type {Path} from '../path.ts';
 
@@ -24,7 +25,8 @@ describe('file()', () => {
   test(
     'returns a relative path',
     withMeta(() => {
-      expect(file('example.txt').toString()).toBe(
+      assert.strictEqual(
+        file('example.txt').toString(),
         'aspects/meta/files/example.txt',
       );
     }),
@@ -35,9 +37,12 @@ describe('file()', () => {
     withMeta(() => {
       const example: any = file('example.txt');
 
-      expect(example instanceof String).toBe(true);
-      expect(Object.prototype.toString.call(example)).toBe('[object String]');
-      expect(example[inspect]()).toBe('aspects/meta/files/example.txt');
+      assert.strictEqual(example instanceof String, true);
+      assert.strictEqual(
+        Object.prototype.toString.call(example),
+        '[object String]',
+      );
+      assert.strictEqual(example[inspect](), 'aspects/meta/files/example.txt');
     }),
   );
 
@@ -46,7 +51,7 @@ describe('file()', () => {
     withMeta(() => {
       const example: Path = file('example.txt');
 
-      expect(example.basename.toString()).toBe('example.txt');
+      assert.strictEqual(example.basename.toString(), 'example.txt');
     }),
   );
 
@@ -55,7 +60,7 @@ describe('file()', () => {
     withMeta(() => {
       const example: any = file('example.txt');
 
-      expect(example.dirname.toString()).toBe('aspects/meta/files');
+      assert.strictEqual(example.dirname.toString(), 'aspects/meta/files');
     }),
   );
 
@@ -64,7 +69,8 @@ describe('file()', () => {
     withMeta(() => {
       const example: any = file('example.txt');
 
-      expect(example.resolve.toString()).toBe(
+      assert.strictEqual(
+        example.resolve.toString(),
         join(cwd(), 'aspects/meta/files/example.txt'),
       );
     }),
@@ -77,7 +83,8 @@ describe('file()', () => {
 
       // Note that normalization (simplification of ".." components) is
       // automatic.
-      expect(example.join('..', 'foo').toString()).toBe(
+      assert.strictEqual(
+        example.join('..', 'foo').toString(),
         'aspects/meta/files/foo',
       );
     }),
@@ -88,7 +95,8 @@ describe('file()', () => {
     withMeta(() => {
       const example: any = file('example.txt');
 
-      expect(example.resolve.dirname.join('other.txt').toString()).toBe(
+      assert.strictEqual(
+        example.resolve.dirname.join('other.txt').toString(),
         join(cwd(), 'aspects/meta/files/other.txt'),
       );
     }),
@@ -99,9 +107,15 @@ describe('files()', () => {
   test(
     'returns relative paths',
     withMeta(() => {
-      expect(files('*').map((f) => f.toString())).toEqual([
-        'aspects/meta/files/example.txt',
-      ]);
+      const previous = cwd();
+      try {
+        process.chdir('..'); // cd so that glob below can work.
+        assert.deepStrictEqual(files('*').map((f) => f.toString()), [
+          'aspects/meta/files/example.txt',
+        ]);
+      } finally {
+        chdir(previous);
+      }
     }),
   );
 });
@@ -110,7 +124,8 @@ describe('template()', () => {
   test(
     'returns a relative path',
     withMeta(() => {
-      expect(template('sample.txt.erb').toString()).toBe(
+      assert.strictEqual(
+        template('sample.txt.erb').toString(),
         'aspects/meta/templates/sample.txt.erb',
       );
     }),

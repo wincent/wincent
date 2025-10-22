@@ -1,24 +1,29 @@
+import assert from 'node:assert';
+import {test} from 'node:test';
+
 import regExpFromString from '../regExpFromString.ts';
-import {expect, test} from '../test/harness.ts';
 
 test('regExpFromString() returns a RegExp', () => {
   const regExp = regExpFromString('/\\bword\\b/');
 
-  expect(regExp instanceof RegExp).toBe(true);
-  expect(regExp.source).toBe('\\bword\\b');
-  expect(regExp.flags).toBe('');
+  assert.strictEqual(regExp instanceof RegExp, true);
+  assert.strictEqual(regExp.source, '\\bword\\b');
+  assert.strictEqual(regExp.flags, '');
 });
 
 test('regExpFromString() preserves flags', () => {
   const regExp = regExpFromString('/^foo/mig');
 
-  expect(regExp instanceof RegExp).toBe(true);
-  expect(regExp.source).toBe('^foo');
-  expect(regExp.flags).toBe('gim');
+  assert.strictEqual(regExp instanceof RegExp, true);
+  assert.strictEqual(regExp.source, '^foo');
+  assert.strictEqual(regExp.flags, 'gim');
 });
 
 test('regExpFromString() rejects an invalid pattern', () => {
-  expect(() => regExpFromString('thing')).toThrow(
-    'Invalid pattern "thing" does not match /^\\/(.+)\\/([gimsuy]*)$/',
-  );
+  assert.throws(() => regExpFromString('thing'), (error) => {
+    return error instanceof Error &&
+      error.message.includes(
+        'Invalid pattern "thing" does not match /^\\/(.+)\\/([gimsuy]*)$/',
+      );
+  });
 });

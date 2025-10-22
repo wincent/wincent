@@ -6,11 +6,12 @@
  * we don't want to have to do in the test suite.
  */
 
+import assert from 'node:assert';
 import {join} from 'node:path';
+import {describe, test} from 'node:test';
 
 import compare from '../compare.ts';
 import root from '../dsl/root.ts';
-import {describe, expect, test} from '../test/harness.ts';
 
 /**
  * Helper to get fixtures (in "fig/") irrespective of where we run from.
@@ -26,7 +27,7 @@ describe('compare()', () => {
 
       const diff = await compare({path});
 
-      expect(diff).toEqual({path});
+      assert.deepStrictEqual(diff, {path});
     });
 
     test('indicates when contents match', async () => {
@@ -34,7 +35,7 @@ describe('compare()', () => {
 
       const diff = await compare({path, contents: 'sample contents\n'});
 
-      expect(diff).toEqual({
+      assert.deepStrictEqual(diff, {
         path,
       });
     });
@@ -44,7 +45,7 @@ describe('compare()', () => {
 
       const diff = await compare({path, contents: 'something'});
 
-      expect(diff).toEqual({
+      assert.deepStrictEqual(diff, {
         contents: 'something',
         path,
       });
@@ -57,7 +58,7 @@ describe('compare()', () => {
 
       const diff = await compare({path, state: 'file'});
 
-      expect(diff).toEqual({path});
+      assert.deepStrictEqual(diff, {path});
     });
 
     test('returns {state: "file"} for non-existent files', async () => {
@@ -65,7 +66,7 @@ describe('compare()', () => {
 
       const diff = await compare({path, state: 'file'});
 
-      expect(diff).toEqual({
+      assert.deepStrictEqual(diff, {
         path,
         state: 'file',
       });
@@ -76,8 +77,9 @@ describe('compare()', () => {
 
       const diff = await compare({path, state: 'file'});
 
-      expect(diff.path).toEqual(path);
-      expect(diff.error!.message).toMatch(
+      assert.deepStrictEqual(diff.path, path);
+      assert.match(
+        diff.error!.message,
         /Cannot stat ".+" because parent ".+" does not exist/,
       );
     });
@@ -89,7 +91,7 @@ describe('compare()', () => {
 
       const diff = await compare({path, state: 'absent'});
 
-      expect(diff).toEqual({
+      assert.deepStrictEqual(diff, {
         path,
       });
     });

@@ -1,33 +1,44 @@
+import assert from 'node:assert';
+import {test} from 'node:test';
+
 import dedent from '../dedent.ts';
 import {compile, fill, tokenize} from '../template.ts';
-import {expect, test} from '../test/harness.ts';
 
 test('compile() compiles an empty template', () => {
-  expect(compile('')).toBe(dedent`
+  assert.strictEqual(
+    compile(''),
+    dedent`
     let __buffer__ = "";
     return __buffer__;
-  `);
+  `,
+  );
 });
 
 test('compile() compiles a template containing only template text', () => {
-  expect(compile('my stuff')).toBe(dedent`
+  assert.strictEqual(
+    compile('my stuff'),
+    dedent`
     let __buffer__ = "";
     __buffer__ += "my stuff";
     return __buffer__;
-  `);
+  `,
+  );
 });
 
 test('compile() compiles a template containing an expression', () => {
-  expect(compile('his name was <%= "Robert Paulson" %>')).toBe(dedent`
+  assert.strictEqual(
+    compile('his name was <%= "Robert Paulson" %>'),
+    dedent`
     let __buffer__ = "";
     __buffer__ += "his name was ";
     __buffer__ += ("Robert Paulson");
     return __buffer__;
-  `);
+  `,
+  );
 });
 
 test('compile() compiles a template containing statements', () => {
-  expect(
+  assert.strictEqual(
     compile(dedent`
       first
       <% if (true) { %>
@@ -35,18 +46,19 @@ test('compile() compiles a template containing statements', () => {
       <% } %>
       third
     `),
-  ).toBe(dedent`
-    let __buffer__ = "";
-    __buffer__ += "first\\n";
-    if (true) {
-    __buffer__ += "\\nsecond\\n";
-    }
-    __buffer__ += "\\nthird\\n";
-    return __buffer__;
-  `);
+    dedent`
+      let __buffer__ = "";
+      __buffer__ += "first\\n";
+      if (true) {
+      __buffer__ += "\\nsecond\\n";
+      }
+      __buffer__ += "\\nthird\\n";
+      return __buffer__;
+    `,
+  );
 
   // In practice, you'd probably use the slurping variants ("<%-", "-%>").
-  expect(
+  assert.strictEqual(
     compile(dedent`
       first
       <%- if (true) { -%>
@@ -54,49 +66,58 @@ test('compile() compiles a template containing statements', () => {
       <%- } -%>
       third
     `),
-  ).toBe(dedent`
-    let __buffer__ = "";
-    __buffer__ += "first\\n";
-    if (true) {
-    __buffer__ += "second\\n";
-    }
-    __buffer__ += "third\\n";
-    return __buffer__;
-  `);
+    dedent`
+      let __buffer__ = "";
+      __buffer__ += "first\\n";
+      if (true) {
+      __buffer__ += "second\\n";
+      }
+      __buffer__ += "third\\n";
+      return __buffer__;
+    `,
+  );
 });
 
 test('compile() compiles a template containing a comment', () => {
-  expect(compile('his name was <%# to be decided %>')).toBe(dedent`
+  assert.strictEqual(
+    compile('his name was <%# to be decided %>'),
+    dedent`
     let __buffer__ = "";
     __buffer__ += "his name was ";
     return __buffer__;
-  `);
+  `,
+  );
 });
 
 test('fill() fills an empty template', () => {
-  expect(fill(compile(''))).toBe('');
+  assert.strictEqual(fill(compile('')), '');
 });
 
 test('fill() fills a template containing only template text', () => {
-  expect(fill(compile('stuff'))).toBe('stuff');
+  assert.strictEqual(fill(compile('stuff')), 'stuff');
 });
 
 test('fill() fills a template containing an expression', () => {
-  expect(fill(compile('stuff <%= "here" %>'))).toBe('stuff here');
+  assert.strictEqual(fill(compile('stuff <%= "here" %>')), 'stuff here');
 });
 
 test('fill() fills a template that relies on scope', () => {
-  expect(fill(compile('name: <%= name %>'), {name: 'Bob'})).toBe('name: Bob');
+  assert.strictEqual(
+    fill(compile('name: <%= name %>'), {name: 'Bob'}),
+    'name: Bob',
+  );
 });
 
 test('fill() complains when required scope is missing', () => {
-  expect(() => fill(compile('name: <%= name %>'))).toThrow(
-    'name is not defined',
+  assert.throws(
+    () => fill(compile('name: <%= name %>')),
+    (error) =>
+      error instanceof Error && error.message.includes('name is not defined'),
   );
 });
 
 test('fill() fills a template containing statements', () => {
-  expect(
+  assert.strictEqual(
     fill(
       compile(
         dedent`
@@ -109,16 +130,17 @@ test('fill() fills a template containing statements', () => {
       ),
       {something: 'that'},
     ),
-  ).toBe(dedent`
-    first
+    dedent`
+      first
 
-    second
+      second
 
-    third
-  `);
+      third
+    `,
+  );
 
   // In practice, you'd use the slurping variants ("<%-", "-%>").
-  expect(
+  assert.strictEqual(
     fill(
       compile(
         dedent`
@@ -131,15 +153,16 @@ test('fill() fills a template containing statements', () => {
       ),
       {something: 'that'},
     ),
-  ).toBe(dedent`
-    first
-    second
-    third
-  `);
+    dedent`
+      first
+      second
+      third
+    `,
+  );
 });
 
 test('fill() correctly handles indented slurping delimiters', () => {
-  expect(
+  assert.strictEqual(
     fill(
       compile(
         dedent`
@@ -152,15 +175,16 @@ test('fill() correctly handles indented slurping delimiters', () => {
       ),
       {something: 'that'},
     ),
-  ).toBe(dedent`
-    #start
-      middle
-    #end
-  `);
+    dedent`
+      #start
+        middle
+      #end
+    `,
+  );
 });
 
 test('fill() correctly handles slurping delimiters at edges of template', () => {
-  expect(
+  assert.strictEqual(
     fill(
       compile(
         dedent`
@@ -171,24 +195,25 @@ test('fill() correctly handles slurping delimiters at edges of template', () => 
       ),
       {something: 'that'},
     ),
-  ).toBe(dedent`
-    conditional
-  `);
+    dedent`
+      conditional
+    `,
+  );
 });
 
 test('tokenize() handles empty input', () => {
-  expect([...tokenize('')]).toEqual([]);
+  assert.deepStrictEqual([...tokenize('')], []);
 });
 
 test('tokenize() handles a template containing only template text', () => {
-  expect([...tokenize('an example here')]).toEqual([{
+  assert.deepStrictEqual([...tokenize('an example here')], [{
     kind: 'TemplateText',
     text: 'an example here',
   }]);
 });
 
 test('tokenize() handles a template containing an expression', () => {
-  expect([...tokenize('this <%= "thing" %>')]).toEqual([
+  assert.deepStrictEqual([...tokenize('this <%= "thing" %>')], [
     {kind: 'TemplateText', text: 'this '},
     {kind: 'StartExpression'},
     {kind: 'HostText', text: ' "thing" '},
@@ -197,7 +222,7 @@ test('tokenize() handles a template containing an expression', () => {
 });
 
 test('tokenize() handles a template containing a statement', () => {
-  expect([...tokenize('this <% call() %>')]).toEqual([
+  assert.deepStrictEqual([...tokenize('this <% call() %>')], [
     {kind: 'TemplateText', text: 'this '},
     {kind: 'StartStatement'},
     {kind: 'HostText', text: ' call() '},
@@ -206,7 +231,7 @@ test('tokenize() handles a template containing a statement', () => {
 });
 
 test('tokenize() handles a template containing a comment', () => {
-  expect([...tokenize('this <%# stuff %> here')]).toEqual([
+  assert.deepStrictEqual([...tokenize('this <%# stuff %> here')], [
     {kind: 'TemplateText', text: 'this '},
     {kind: 'StartComment'},
     {kind: 'CommentText', text: ' stuff '},
@@ -216,7 +241,7 @@ test('tokenize() handles a template containing a comment', () => {
 });
 
 test('tokenize() eats a newline after a "-%>" delimiter', () => {
-  expect([...tokenize('before\n<% something -%>\nafter')]).toEqual([
+  assert.deepStrictEqual([...tokenize('before\n<% something -%>\nafter')], [
     {kind: 'TemplateText', text: 'before\n'},
     {kind: 'StartStatement'},
     {kind: 'HostText', text: ' something '},
@@ -224,7 +249,7 @@ test('tokenize() eats a newline after a "-%>" delimiter', () => {
     {kind: 'TemplateText', text: 'after'},
   ]);
 
-  expect([...tokenize('before\n<%= something -%>\nafter')]).toEqual([
+  assert.deepStrictEqual([...tokenize('before\n<%= something -%>\nafter')], [
     {kind: 'TemplateText', text: 'before\n'},
     {kind: 'StartExpression'},
     {kind: 'HostText', text: ' something '},
@@ -232,7 +257,7 @@ test('tokenize() eats a newline after a "-%>" delimiter', () => {
     {kind: 'TemplateText', text: 'after'},
   ]);
 
-  expect([...tokenize('before\n<%# something -%>\nafter')]).toEqual([
+  assert.deepStrictEqual([...tokenize('before\n<%# something -%>\nafter')], [
     {kind: 'TemplateText', text: 'before\n'},
     {kind: 'StartComment'},
     {kind: 'CommentText', text: ' something '},
@@ -242,7 +267,7 @@ test('tokenize() eats a newline after a "-%>" delimiter', () => {
 });
 
 test('tokenize() eats whitespace between previous newline and "<%-" delimiter', () => {
-  expect([...tokenize('before\n  <%- something %>\nafter')]).toEqual([
+  assert.deepStrictEqual([...tokenize('before\n  <%- something %>\nafter')], [
     {kind: 'TemplateText', text: 'before\n'},
     {kind: 'StartStatement'},
     {kind: 'HostText', text: ' something '},
@@ -252,7 +277,7 @@ test('tokenize() eats whitespace between previous newline and "<%-" delimiter', 
 
   // But note that, more realistically, "<%-" and "-%>" are generally used
   // together.
-  expect([...tokenize('before\n  <%- something -%>\nafter')]).toEqual([
+  assert.deepStrictEqual([...tokenize('before\n  <%- something -%>\nafter')], [
     {kind: 'TemplateText', text: 'before\n'},
     {kind: 'StartStatement'},
     {kind: 'HostText', text: ' something '},
@@ -262,21 +287,33 @@ test('tokenize() eats whitespace between previous newline and "<%-" delimiter', 
 });
 
 test('tokenize() complains about unexpected start delimiters', () => {
-  expect(() => [...tokenize('outer <% inner <%')]).toThrow(
-    'Unexpected start delimiter "<%" at index 15',
+  assert.throws(
+    () => [...tokenize('outer <% inner <%')],
+    (error) =>
+      error instanceof Error &&
+      error.message.includes('Unexpected start delimiter "<%" at index 15'),
   );
 
-  expect(() => [...tokenize('outer <%= inner <%')]).toThrow(
-    'Unexpected start delimiter "<%" at index 16',
+  assert.throws(
+    () => [...tokenize('outer <%= inner <%')],
+    (error) =>
+      error instanceof Error &&
+      error.message.includes('Unexpected start delimiter "<%" at index 16'),
   );
 
-  expect(() => [...tokenize('outer <%# inner <%')]).toThrow(
-    'Unexpected start delimiter "<%" at index 16',
+  assert.throws(
+    () => [...tokenize('outer <%# inner <%')],
+    (error) =>
+      error instanceof Error &&
+      error.message.includes('Unexpected start delimiter "<%" at index 16'),
   );
 });
 
 test('tokenize() complains about unexpected end delimiters', () => {
-  expect(() => [...tokenize('before %>')]).toThrow(
-    'Unexpected end delimiter "%>" at index 7',
+  assert.throws(
+    () => [...tokenize('before %>')],
+    (error) =>
+      error instanceof Error &&
+      error.message.includes('Unexpected end delimiter "%>" at index 7'),
   );
 });

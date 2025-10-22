@@ -15,7 +15,6 @@ import readAspect from './readAspect.ts';
 import readConfig from './readConfig.ts';
 import regExpFromString from './regExpFromString.ts';
 import stringify from './stringify.ts';
-import test from './test.ts';
 
 import type {Aspect} from './types/Project.ts';
 
@@ -46,14 +45,6 @@ async function main() {
   } else {
     await log.notice(`Changing to root: ${path(root).simplify}`);
     process.chdir(root);
-  }
-
-  await log.info('Running tests');
-
-  await test();
-
-  if (options.testsOnly) {
-    return;
   }
 
   const project = await readConfig(root);

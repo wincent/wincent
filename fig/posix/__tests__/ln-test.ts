@@ -1,9 +1,10 @@
+import assert from 'node:assert';
 import {join} from 'node:path';
+import {test} from 'node:test';
 
-import assert from '../../assert.ts';
+import figAssert from '../../assert.ts';
 import stat from '../../fs/stat.ts';
 import tempdir from '../../fs/tempdir.ts';
-import {expect, test} from '../../test/harness.ts';
 import ln from '../ln.ts';
 import touch from '../touch.ts';
 
@@ -18,15 +19,15 @@ test('ln() links a file', async () => {
 
   const result = await ln(source, target);
 
-  expect(result).toBe(null);
+  assert.strictEqual(result, null);
 
   const stats = await stat(target);
-  assert(!(stats instanceof Error));
+  figAssert(!(stats instanceof Error));
 
-  assert(stats !== null);
+  figAssert(stats !== null);
 
-  expect(stats.type).toBe('link');
-  expect(stats.target).toBe(source);
+  assert.strictEqual(stats.type, 'link');
+  assert.strictEqual(stats.target, source);
 });
 
 test('ln() with `{force: true}` overwrites if necessary', async () => {
@@ -41,15 +42,15 @@ test('ln() with `{force: true}` overwrites if necessary', async () => {
 
   const result = await ln(source, target, {force: true});
 
-  expect(result).toBe(null);
+  assert.strictEqual(result, null);
 
   const stats = await stat(target);
-  assert(!(stats instanceof Error));
+  figAssert(!(stats instanceof Error));
 
-  assert(stats !== null);
+  figAssert(stats !== null);
 
-  expect(stats.type).toBe('link');
-  expect(stats.target).toBe(source);
+  assert.strictEqual(stats.type, 'link');
+  assert.strictEqual(stats.target, source);
 });
 
 test('ln() can create links to non-existent files', async () => {
@@ -62,13 +63,13 @@ test('ln() can create links to non-existent files', async () => {
 
   const result = await ln(source, target);
 
-  expect(result).toBe(null);
+  assert.strictEqual(result, null);
 
   const stats = await stat(target);
-  assert(!(stats instanceof Error));
+  figAssert(!(stats instanceof Error));
 
-  assert(stats !== null);
+  figAssert(stats !== null);
 
-  expect(stats.type).toBe('link');
-  expect(stats.target).toBe(source);
+  assert.strictEqual(stats.type, 'link');
+  assert.strictEqual(stats.target, source);
 });

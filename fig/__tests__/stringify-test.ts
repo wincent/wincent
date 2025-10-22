@@ -1,49 +1,55 @@
+import assert from 'node:assert';
+import {test} from 'node:test';
+
 import dedent from '../dedent.ts';
 import stringify from '../stringify.ts';
-import {expect, test} from '../test/harness.ts';
 
 test('stringify() null', () => {
-  expect(stringify(null)).toBe('null');
+  assert.strictEqual(stringify(null), 'null');
 });
 
 test('stringify() undefined', () => {
-  expect(stringify(undefined)).toBe('undefined');
+  assert.strictEqual(stringify(undefined), 'undefined');
 });
 
 test('stringify() true', () => {
-  expect(stringify(true)).toBe('true');
+  assert.strictEqual(stringify(true), 'true');
 });
 
 test('stringify() false', () => {
-  expect(stringify(false)).toBe('false');
+  assert.strictEqual(stringify(false), 'false');
 });
 
 test('stringify() a number', () => {
-  expect(stringify(9000)).toBe('9000');
+  assert.strictEqual(stringify(9000), '9000');
 });
 
 test('stringify() a string', () => {
-  expect(stringify('thing')).toBe('"thing"');
+  assert.strictEqual(stringify('thing'), '"thing"');
 });
 
 test('stringify() a String', () => {
-  expect(stringify(new String('thing'))).toBe('"thing"');
+  assert.strictEqual(stringify(new String('thing')), '"thing"');
 });
 
 test('stringify() a Symbol', () => {
-  expect(stringify(Symbol.for('sample'))).toBe('Symbol(sample)');
+  assert.strictEqual(stringify(Symbol.for('sample')), 'Symbol(sample)');
 });
 
 test('stringify() an Error', () => {
-  expect(stringify(new Error('Utter failure'))).toBe('"Error: Utter failure"');
+  assert.strictEqual(
+    stringify(new Error('Utter failure')),
+    '"Error: Utter failure"',
+  );
 });
 
 test('stringify() a RegExp', () => {
-  expect(stringify(/stuff \w+/i)).toBe('/stuff \\w+/i');
+  assert.strictEqual(stringify(/stuff \w+/i), '/stuff \\w+/i');
 });
 
 test('stringify() an array', () => {
-  expect(stringify([1, true, 'thing'])).toBe(
+  assert.strictEqual(
+    stringify([1, true, 'thing']),
     dedent`
             [
               1,
@@ -55,11 +61,12 @@ test('stringify() an array', () => {
 });
 
 test('stringify() an empty array', () => {
-  expect(stringify([])).toBe('[]');
+  assert.strictEqual(stringify([]), '[]');
 });
 
 test('stringify() nested arrays', () => {
-  expect(stringify([1, true, 'thing', ['nested', null]])).toBe(
+  assert.strictEqual(
+    stringify([1, true, 'thing', ['nested', null]]),
     dedent`
             [
               1,
@@ -79,7 +86,8 @@ test('stringify() an array with circular references', () => {
 
   array.push(array);
 
-  expect(stringify(array)).toBe(
+  assert.strictEqual(
+    stringify(array),
     dedent`
             [
               1,
@@ -92,7 +100,8 @@ test('stringify() an array with circular references', () => {
 });
 
 test('stringify() an object', () => {
-  expect(stringify({a: 1, b: true})).toBe(
+  assert.strictEqual(
+    stringify({a: 1, b: true}),
     dedent`
             {
               "a": 1,
@@ -103,11 +112,12 @@ test('stringify() an object', () => {
 });
 
 test('stringify() an empty object', () => {
-  expect(stringify({})).toBe('{}');
+  assert.strictEqual(stringify({}), '{}');
 });
 
 test('stringify() a nested object', () => {
-  expect(stringify({a: 1, b: true, c: {d: null}})).toBe(
+  assert.strictEqual(
+    stringify({a: 1, b: true, c: {d: null}}),
     dedent`
             {
               "a": 1,
@@ -125,7 +135,8 @@ test('stringify() an object with circular references', () => {
 
   object.c = object;
 
-  expect(stringify(object)).toBe(
+  assert.strictEqual(
+    stringify(object),
     dedent`
             {
               "a": 1,
@@ -137,11 +148,12 @@ test('stringify() an object with circular references', () => {
 });
 
 test('stringify() a Date', () => {
-  expect(stringify(new Date())).toBe('[object Date]');
+  assert.strictEqual(stringify(new Date()), '[object Date]');
 });
 
 test('stringify() a Set', () => {
-  expect(stringify(new Set([1, true, 'thing']))).toBe(
+  assert.strictEqual(
+    stringify(new Set([1, true, 'thing'])),
     dedent`
             Set {
               1,
@@ -153,11 +165,11 @@ test('stringify() a Set', () => {
 });
 
 test('stringify() an empty Set', () => {
-  expect(stringify(new Set())).toBe('Set {}');
+  assert.strictEqual(stringify(new Set()), 'Set {}');
 });
 
 test('stringify() a one-line Function', () => {
-  expect(stringify(() => 1)).toBe('() => 1');
+  assert.strictEqual(stringify(() => 1), '() => 1');
 });
 
 // @ts-ignore: suppress TS7006: Parameter 'a' implicitly has an 'any' type.
@@ -168,7 +180,8 @@ function fn(a, b) {
 }
 
 test('stringify() a multi-line Function', () => {
-  expect(stringify({fn})).toBe(
+  assert.strictEqual(
+    stringify({fn}),
     dedent`
             {
               "fn": function fn(a, b) {

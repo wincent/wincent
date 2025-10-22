@@ -1,40 +1,47 @@
+import assert from 'node:assert';
+import {test} from 'node:test';
+
 import merge from '../merge.ts';
-import {expect, test} from '../test/harness.ts';
 
 test('merge() returns an single object', () => {
-  expect(merge({example: 'obj'})).toEqual({example: 'obj'});
+  assert.deepStrictEqual(merge({example: 'obj'}), {example: 'obj'});
 });
 
 test('merge() merges two objects with non-overlapping keys', () => {
-  expect(merge({example: 'obj'}, {more: 'stuff'})).toEqual({
+  assert.deepStrictEqual(merge({example: 'obj'}, {more: 'stuff'}), {
     example: 'obj',
     more: 'stuff',
   });
 });
 
 test('merge() merges two objects with overlapping keys', () => {
-  expect(
+  assert.deepStrictEqual(
     merge({example: 'obj', more: 'things'}, {more: 'stuff', and: true}),
-  ).toEqual({example: 'obj', more: 'stuff', and: true});
+    {example: 'obj', more: 'stuff', and: true},
+  );
 });
 
 test('merge() overwrites arrays', () => {
-  expect(merge({list: [1, 2, 3]}, {list: ['a', 'b', 'c', 'd']})).toEqual({
-    list: ['a', 'b', 'c', 'd'],
-  });
+  assert.deepStrictEqual(
+    merge({list: [1, 2, 3]}, {list: ['a', 'b', 'c', 'd']}),
+    {
+      list: ['a', 'b', 'c', 'd'],
+    },
+  );
 });
 
 test('merge() deep-merges objects', () => {
-  expect(
+  assert.deepStrictEqual(
     merge(
       {thing: true, nested: {prop: 'value'}},
       {thing: true, nested: {other: false}},
     ),
-  ).toEqual({
-    thing: true,
-    nested: {
-      prop: 'value',
-      other: false,
+    {
+      thing: true,
+      nested: {
+        prop: 'value',
+        other: false,
+      },
     },
-  });
+  );
 });
