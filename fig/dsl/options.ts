@@ -23,8 +23,4 @@ export default {
   get step(): boolean {
     return Context.options.step;
   },
-
-  get testsOnly(): boolean {
-    return Context.options.testsOnly;
-  },
 };

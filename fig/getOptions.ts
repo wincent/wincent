@@ -26,7 +26,6 @@ export type Options = {
     fuzzy?: RegExp;
   };
   step: boolean;
-  testsOnly: boolean;
 };
 
 const {bold} = COLORS;
@@ -45,7 +44,6 @@ export default async function getOptions(
       literal: '',
     },
     step: false,
-    testsOnly: false,
   };
 
   const directory = path.join(root, 'aspects');
@@ -85,8 +83,6 @@ export default async function getOptions(
       options.logLevel = LOG_LEVEL.DEBUG;
     } else if (arg === '--quiet' || arg === '-q') {
       options.logLevel = LOG_LEVEL.NOTICE;
-    } else if (arg === '--test' || arg === '-t') {
-      options.testsOnly = true;
     } else if (arg === '--help' || arg === '-h') {
       await printUsage(aspects);
       throw new ErrorWithMetadata('aborting');
