@@ -9,7 +9,8 @@
   "license": "Unlicense",
   "scripts": {
     "format:check": "bin/check-format",
-    "format": "bin/format"
+    "format": "bin/format",
+    "test": "bin/test"
   },
   "type": "module",
   "devDependencies": {
