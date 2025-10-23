@@ -8,24 +8,7 @@ cd "$REPO_ROOT"
 
 source bin/common
 
-log_info "Installing TypeScript"
-
-bin/yarn install --immutable > /dev/null
-
-log_info "Cleaning"
-
-git clean -fdxq -- fig/types
-
-log_info "Generating TypeScript types"
-
-node support/typegen/index.ts
-
-log_info "Checking TypeScript source"
-
-bin/tsgo
-
-# Hack so that local files can import from 'fig':
-ln -fns ../fig node_modules/fig
+bin/typegen
 
 log_info "Running Fig"
 
