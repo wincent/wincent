@@ -1,5 +1,5 @@
-import * as process from 'node:process';
 import * as assert from 'node:assert';
+import * as process from 'node:process';
 
 import Attributes from './Attributes.ts';
 import Compiler from './Compiler.ts';

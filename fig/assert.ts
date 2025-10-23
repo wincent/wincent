@@ -10,7 +10,7 @@ export function assertJSONArray(
     Array.isArray(value) && value.every(isJSONValue),
     message || 'Expected value to be a JSON array',
   );
-};
+}
 
 /**
  * Convenience helper for working with JSON objects.
@@ -26,7 +26,7 @@ export function assertJSONObject(
       Object.values(value).every(isJSONValue),
     message || 'Expected value to be a JSON object',
   );
-};
+}
 
 const MODE_REGEXP = /^[0-7]{4}$/;
 
@@ -34,4 +34,4 @@ export function assertMode(mode: string): asserts mode is Mode {
   if (!MODE_REGEXP.test(mode)) {
     throw new Error(`Invalid mode ${mode}`);
   }
-};
+}
