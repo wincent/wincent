@@ -1,4 +1,5 @@
 import * as process from 'node:process';
+import * as assert from 'node:assert';
 
 import Attributes from './Attributes.ts';
 import Compiler from './Compiler.ts';
@@ -6,7 +7,6 @@ import ErrorWithMetadata from './ErrorWithMetadata.ts';
 import HandlerRegistry from './HandlerRegistry.ts';
 import TaskRegistry from './TaskRegistry.ts';
 import VariableRegistry from './VariableRegistry.ts';
-import assert from './assert.ts';
 import getAspectFromCallers from './getAspectFromCallers.ts';
 import getCallers from './getCallers.ts';
 import prompt from './prompt.ts';
@@ -170,7 +170,7 @@ class Context {
 
   get currentTask(): string {
     const task = this.#currentTask.get(this.currentAspect);
-    assert(task);
+    assert.ok(task);
     return task;
   }
 
@@ -178,7 +178,7 @@ class Context {
     const aspect = getAspectFromCallers(getCallers());
     if (aspect) {
       const variables = this.#variables.getFinalVariables(aspect);
-      assert(variables);
+      assert.ok(variables);
       return variables;
     } else {
       // If no aspect, we are somewhere global, like in "helpers.ts".
@@ -191,7 +191,7 @@ class Context {
   }
 
   get options() {
-    assert(this.#options);
+    assert.ok(this.#options);
     return this.#options;
   }
 

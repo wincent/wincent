@@ -1,8 +1,7 @@
-import assert from 'node:assert';
+import * as assert from 'node:assert';
 import {join} from 'node:path';
 import {test} from 'node:test';
 
-import figAssert from '../../assert.ts';
 import stat from '../../fs/stat.ts';
 import tempdir from '../../fs/tempdir.ts';
 import ln from '../ln.ts';
@@ -22,9 +21,9 @@ test('ln() links a file', async () => {
   assert.strictEqual(result, null);
 
   const stats = await stat(target);
-  figAssert(!(stats instanceof Error));
+  assert.ok(!(stats instanceof Error));
 
-  figAssert(stats !== null);
+  assert.ok(stats !== null);
 
   assert.strictEqual(stats.type, 'link');
   assert.strictEqual(stats.target, source);
@@ -45,9 +44,9 @@ test('ln() with `{force: true}` overwrites if necessary', async () => {
   assert.strictEqual(result, null);
 
   const stats = await stat(target);
-  figAssert(!(stats instanceof Error));
+  assert.ok(!(stats instanceof Error));
 
-  figAssert(stats !== null);
+  assert.ok(stats !== null);
 
   assert.strictEqual(stats.type, 'link');
   assert.strictEqual(stats.target, source);
@@ -66,9 +65,9 @@ test('ln() can create links to non-existent files', async () => {
   assert.strictEqual(result, null);
 
   const stats = await stat(target);
-  figAssert(!(stats instanceof Error));
+  assert.ok(!(stats instanceof Error));
 
-  figAssert(stats !== null);
+  assert.ok(stats !== null);
 
   assert.strictEqual(stats.type, 'link');
   assert.strictEqual(stats.target, source);

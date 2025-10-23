@@ -1,4 +1,4 @@
-import assert from 'node:assert';
+import * as assert from 'node:assert';
 import {test} from 'node:test';
 
 import regExpFromString from '../regExpFromString.ts';

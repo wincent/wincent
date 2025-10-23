@@ -6,7 +6,7 @@
  * we don't want to have to do in the test suite.
  */
 
-import assert from 'node:assert';
+import * as assert from 'node:assert';
 import {join} from 'node:path';
 import {describe, test} from 'node:test';
 

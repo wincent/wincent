@@ -1,7 +1,6 @@
-import assert from 'node:assert';
+import * as assert from 'node:assert';
 import {test} from 'node:test';
 
-import figAssert from '../../assert.ts';
 import stat from '../../fs/stat.ts';
 import tempdir from '../../fs/tempdir.ts';
 import tempfile from '../../fs/tempfile.ts';
@@ -12,9 +11,9 @@ test('chmod() changes the mode of a file', async () => {
 
   let stats = await stat(path);
 
-  figAssert(stats !== null);
-  figAssert(!(stats instanceof Error));
-  figAssert(stats.mode !== '0600');
+  assert.ok(stats !== null);
+  assert.ok(!(stats instanceof Error));
+  assert.ok(stats.mode !== '0600');
 
   const result = await chmod('0600', path);
 
@@ -22,8 +21,8 @@ test('chmod() changes the mode of a file', async () => {
 
   stats = await stat(path);
 
-  figAssert(stats !== null);
-  figAssert(!(stats instanceof Error));
+  assert.ok(stats !== null);
+  assert.ok(!(stats instanceof Error));
 
   assert.strictEqual(stats.mode, '0600');
 });
@@ -33,9 +32,9 @@ test('chmod() changes the mode of a directory', async () => {
 
   let stats = await stat(path);
 
-  figAssert(stats !== null);
-  figAssert(!(stats instanceof Error));
-  figAssert(stats.mode !== '0700');
+  assert.ok(stats !== null);
+  assert.ok(!(stats instanceof Error));
+  assert.ok(stats.mode !== '0700');
 
   const result = await chmod('0700', path);
 
@@ -43,8 +42,8 @@ test('chmod() changes the mode of a directory', async () => {
 
   stats = await stat(path);
 
-  figAssert(stats !== null);
-  figAssert(!(stats instanceof Error));
+  assert.ok(stats !== null);
+  assert.ok(!(stats instanceof Error));
 
   assert.strictEqual(stats.mode, '0700');
 });

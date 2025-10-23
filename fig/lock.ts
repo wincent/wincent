@@ -1,4 +1,4 @@
-import assert from './assert.ts';
+import * as assert from 'node:assert';
 
 type Queue = {
   items: Array<{
@@ -39,9 +39,9 @@ export default function lock(name: string, callback: () => Promise<unknown>) {
 }
 
 async function tick(queue: Queue) {
-  assert(queue.tickScheduled);
+  assert.ok(queue.tickScheduled);
   const next = queue.items[0];
-  assert(next);
+  assert.ok(next);
 
   try {
     const value = await next.callback();

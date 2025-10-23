@@ -1,4 +1,4 @@
-import assert from 'node:assert';
+import * as assert from 'node:assert';
 import {join} from 'node:path';
 import {chdir, cwd} from 'node:process';
 import {describe, test} from 'node:test';

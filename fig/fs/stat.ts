@@ -1,6 +1,6 @@
 import Context from '../Context.ts';
 import ErrorWithMetadata from '../ErrorWithMetadata.ts';
-import assert from '../assert.ts';
+import {assertMode} from '../assert.ts';
 import executable from '../executable.ts';
 import {default as toPath} from '../path.ts';
 import run from '../run.ts';
@@ -102,7 +102,7 @@ export default async function stat(
 
       const paddedMode = mode.padStart(4, '0');
 
-      assert.mode(paddedMode);
+      assertMode(paddedMode);
 
       let parsedTarget: string | undefined = undefined;
 

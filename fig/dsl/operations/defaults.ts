@@ -1,7 +1,8 @@
+import * as assert from 'node:assert';
+
 import Context from '../../Context.ts';
 import ErrorWithMetadata from '../../ErrorWithMetadata.ts';
 import Scanner from '../../Scanner.ts';
-import assert from '../../assert.ts';
 import {log} from '../../console.ts';
 import run from '../../run.ts';
 import stringify from '../../stringify.ts';
@@ -206,13 +207,13 @@ export default async function defaults({
       let typeAndValue: Array<string> = [];
 
       if (type === 'array-add') {
-        assert(Array.isArray(value));
+        assert.ok(Array.isArray(value));
 
         typeAndValue = ['-array-add', ...value.map(valueToString)];
       } else if (type === 'bool') {
         typeAndValue = ['-bool', valueToString(value)];
       } else if (type === 'dict-add') {
-        assert(
+        assert.ok(
           value && Object.prototype.toString.call(value) === '[object Object]',
         );
 
@@ -294,8 +295,8 @@ export function equal(
 
   if (desiredType === 'array-add') {
     if (currentType === 'array') {
-      assert(Array.isArray(currentValue));
-      assert(Array.isArray(desiredValue));
+      assert.ok(Array.isArray(currentValue));
+      assert.ok(Array.isArray(desiredValue));
 
       return desiredValue.every((item) => {
         return currentValue.some((other) => other === item);
@@ -307,12 +308,12 @@ export function equal(
 
   if (desiredType === 'dict-add') {
     if (currentType === 'dict') {
-      assert(
+      assert.ok(
         currentValue &&
           typeof currentValue === 'object' &&
           !Array.isArray(currentValue),
       );
-      assert(typeof desiredValue === 'object');
+      assert.ok(typeof desiredValue === 'object');
 
       return Object.entries(desiredValue).every(([key, value]) => {
         return currentValue[key] === value;

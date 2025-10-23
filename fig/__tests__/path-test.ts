@@ -1,4 +1,4 @@
-import assert from 'node:assert';
+import * as assert from 'node:assert';
 import {homedir} from 'node:os';
 import {join, relative, sep} from 'node:path';
 import {cwd} from 'node:process';

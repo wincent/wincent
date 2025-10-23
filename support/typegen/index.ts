@@ -43,7 +43,7 @@ function main() {
 
     b.docblock('vim: set nomodifiable :', '', '@generated').blank();
 
-    b.line(`import assert from '../assert.ts';`)
+    b.line(`import * as assert from 'node:assert';`)
       .line(`import {assertJSONValue} from './JSONValue.ts';`)
       .blank();
 

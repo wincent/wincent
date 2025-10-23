@@ -1,4 +1,4 @@
-import {equal, ok} from 'node:assert';
+import * as assert from 'node:assert';
 import {join} from 'node:path';
 
 import {
@@ -12,7 +12,6 @@ import {
   template,
 } from 'fig';
 import Context from 'fig/Context.ts';
-import assert from 'fig/assert.ts';
 import {promises} from 'fig/fs.ts';
 import stat from 'fig/fs/stat.ts';
 import tempdir from 'fig/fs/tempdir.ts';
@@ -24,13 +23,13 @@ function live() {
 const expect = {
   equal(actual: any, expected: any, message?: string | Error | undefined) {
     if (live()) {
-      equal(actual, expected, message);
+      assert.strictEqual(actual, expected, message);
     }
   },
 
   ok(value: any, message?: string | Error | undefined) {
     if (live()) {
-      ok(value, message);
+      assert.ok(value, message);
     }
   },
 };
@@ -169,7 +168,7 @@ task('create a directory', async () => {
 
   let stats = live() ? await stat(path) : DEFAULT_STATS;
 
-  assert(stats && !(stats instanceof Error));
+  assert.ok(stats && !(stats instanceof Error));
 
   expect.equal(stats.type, 'directory');
 
@@ -192,7 +191,7 @@ task('create a directory', async () => {
 
   stats = live() ? await stat(path) : DEFAULT_STATS;
 
-  assert(stats && !(stats instanceof Error));
+  assert.ok(stats && !(stats instanceof Error));
 
   expect.equal(stats.mode, '0700');
 
@@ -214,7 +213,7 @@ task('create a directory', async () => {
 
   stats = live() ? await stat(path) : DEFAULT_STATS;
 
-  assert(stats && !(stats instanceof Error));
+  assert.ok(stats && !(stats instanceof Error));
 
   expect.equal(stats.mode, '0700');
 
@@ -246,7 +245,7 @@ task('manage a symbolic link', async () => {
 
   let stats = live() ? await stat(path) : DEFAULT_STATS;
 
-  assert(stats && !(stats instanceof Error));
+  assert.ok(stats && !(stats instanceof Error));
 
   expect.equal(stats.type, 'link');
   expect.equal(stats.target, toPath(src).resolve);
@@ -357,7 +356,7 @@ task('template a file', async () => {
 
   let stats = live() ? await stat(path) : DEFAULT_STATS;
 
-  assert(stats && !(stats instanceof Error));
+  assert.ok(stats && !(stats instanceof Error));
 
   expect.equal(stats.mode, '0600');
 
@@ -387,7 +386,7 @@ task('template a file', async () => {
 
   stats = live() ? await stat(path) : DEFAULT_STATS;
 
-  assert(stats && !(stats instanceof Error));
+  assert.ok(stats && !(stats instanceof Error));
 
   expect.equal(stats.mode, '0644');
 });

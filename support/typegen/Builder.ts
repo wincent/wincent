@@ -25,9 +25,9 @@ export default class Builder {
 
   assert(condition: string, message = null) {
     if (message) {
-      return this.line(`assert(${condition}, ${message});`);
+      return this.line(`assert.ok(${condition}, ${message});`);
     } else {
-      return this.line(`assert(${condition});`);
+      return this.line(`assert.ok(${condition});`);
     }
   }
 

@@ -1,7 +1,7 @@
 import * as os from 'node:os';
 import * as process from 'node:process';
 
-import assert from './assert.ts';
+import {assertMode} from './assert.ts';
 import {spawnSync} from './child_process.ts';
 import {existsSync} from './fs.ts';
 import id from './posix/id.ts';
@@ -168,7 +168,7 @@ export default class Attributes {
 
       const paddedUmask = umask.toString(8).padStart(4, '0');
 
-      assert.mode(paddedUmask);
+      assertMode(paddedUmask);
 
       this.#umask = paddedUmask;
     }

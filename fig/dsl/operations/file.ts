@@ -1,7 +1,8 @@
+import * as assert from 'node:assert';
+
 import Context from '../../Context.ts';
 import ErrorWithMetadata from '../../ErrorWithMetadata.ts';
 import UnsupportedValueError from '../../UnsupportedValueError.ts';
-import assert from '../../assert.ts';
 import compare from '../../compare.ts';
 import {promises as fs} from '../../fs.ts';
 import stat from '../../fs/stat.ts';
@@ -239,7 +240,7 @@ export default async function file({
     }
   } else if (state === 'link') {
     if (diff.state === 'link') {
-      assert(src);
+      assert.ok(src);
 
       const result = mutate &&
         (await ln(src, target, {

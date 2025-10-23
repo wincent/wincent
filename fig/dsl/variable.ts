@@ -1,5 +1,7 @@
+import * as assert from 'node:assert';
+
 import Context from '../Context.ts';
-import assert from '../assert.ts';
+import {assertJSONArray, assertJSONObject} from '../assert.ts';
 import path from '../path.ts';
 
 import type {Path} from '../path.ts';
@@ -19,7 +21,7 @@ variable.array = (
 ): Array<JSONValue> => {
   const value = variable(name, fallback);
 
-  assert.JSONArray(value, `Expected variable ${name} to be an array`);
+  assertJSONArray(value, `Expected variable ${name} to be an array`);
 
   return value;
 };
@@ -30,7 +32,7 @@ variable.object = (
 ): {[key: string]: JSONValue} => {
   const value = variable(name, fallback);
 
-  assert.JSONObject(value, `Expected variable ${name} to be an object`);
+  assertJSONObject(value, `Expected variable ${name} to be an object`);
 
   return value;
 };
@@ -45,7 +47,7 @@ variable.paths = (name: string, fallback?: Array<string>): Array<Path> => {
   const value = variable.array(name, fallback);
 
   return value.map((v) => {
-    assert(
+    assert.ok(
       typeof v === 'string',
       `Expected variable ${name} to be an array of strings but it contained a ${typeof v}`,
     );
@@ -56,7 +58,7 @@ variable.paths = (name: string, fallback?: Array<string>): Array<Path> => {
 variable.string = (name: string, fallback?: string): string => {
   const value = variable(name, fallback);
 
-  assert(
+  assert.ok(
     typeof value === 'string',
     `Expected variable ${name} to have type string but it was ${typeof value}`,
   );
@@ -71,7 +73,7 @@ function strings(array: Array<unknown>): array is Array<string> {
 variable.strings = (name: string, fallback?: Array<string>): Array<string> => {
   const value = variable.array(name, fallback);
 
-  assert(
+  assert.ok(
     strings(value),
     `Expected variable ${name} to be an array of strings but it contained a non-string`,
   );

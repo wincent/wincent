@@ -1,4 +1,4 @@
-import assert from 'node:assert';
+import * as assert from 'node:assert';
 import {describe, test} from 'node:test';
 
 import {validate} from '../cron.ts';

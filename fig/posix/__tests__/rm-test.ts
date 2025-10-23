@@ -1,8 +1,7 @@
-import assert from 'node:assert';
+import * as assert from 'node:assert';
 import {join} from 'node:path';
 import {test} from 'node:test';
 
-import figAssert from '../../assert.ts';
 import stat from '../../fs/stat.ts';
 import tempdir from '../../fs/tempdir.ts';
 import tempfile from '../../fs/tempfile.ts';
@@ -15,8 +14,8 @@ test('rm() removes a file', async () => {
 
   let stats = await stat(path);
 
-  figAssert(stats !== null);
-  figAssert(!(stats instanceof Error));
+  assert.ok(stats !== null);
+  assert.ok(!(stats instanceof Error));
 
   const result = await rm(path);
 
@@ -34,8 +33,8 @@ test('rm() removes a file, ignoring permissions', async () => {
 
   let stats = await stat(path);
 
-  figAssert(stats !== null);
-  figAssert(!(stats instanceof Error));
+  assert.ok(stats !== null);
+  assert.ok(!(stats instanceof Error));
 
   assert.strictEqual(stats.mode, '0400');
 
@@ -53,8 +52,8 @@ test('rm() with `recurse: true` removes an empty directory', async () => {
 
   let stats = await stat(path);
 
-  figAssert(stats !== null);
-  figAssert(!(stats instanceof Error));
+  assert.ok(stats !== null);
+  assert.ok(!(stats instanceof Error));
 
   const result = await rm(path, {recurse: true});
 
@@ -70,8 +69,8 @@ test('rm() with `recurse: true` removes a non-empty directory', async () => {
 
   let stats = await stat(path);
 
-  figAssert(stats !== null);
-  figAssert(!(stats instanceof Error));
+  assert.ok(stats !== null);
+  assert.ok(!(stats instanceof Error));
 
   const file = join(path, 'file');
 
@@ -79,8 +78,8 @@ test('rm() with `recurse: true` removes a non-empty directory', async () => {
 
   stats = await stat(file);
 
-  figAssert(stats !== null);
-  figAssert(!(stats instanceof Error));
+  assert.ok(stats !== null);
+  assert.ok(!(stats instanceof Error));
 
   assert.strictEqual(stats.type, 'file');
 
@@ -98,8 +97,8 @@ test('rm() without `recurse: true` does not remove a directory', async () => {
 
   let stats = await stat(path);
 
-  figAssert(stats !== null);
-  figAssert(!(stats instanceof Error));
+  assert.ok(stats !== null);
+  assert.ok(!(stats instanceof Error));
 
   const result = await rm(path);
 
@@ -107,6 +106,6 @@ test('rm() without `recurse: true` does not remove a directory', async () => {
 
   stats = await stat(path);
 
-  figAssert(stats !== null);
-  figAssert(!(stats instanceof Error));
+  assert.ok(stats !== null);
+  assert.ok(!(stats instanceof Error));
 });

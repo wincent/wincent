@@ -1,4 +1,4 @@
-import assert from './assert.ts';
+import * as assert from 'node:assert';
 
 import type {Aspect} from './types/Project.ts';
 
@@ -50,7 +50,7 @@ export default class VariableRegistry {
    */
   getFinalVariables(aspect: Aspect): Variables {
     const variables = this.#variables.get(aspect);
-    assert(variables);
+    assert.ok(variables);
     return variables;
   }
 
@@ -58,7 +58,7 @@ export default class VariableRegistry {
    * Returns "global" variables that are not specific to any individual aspect.
    */
   getGlobalVariables(): Variables {
-    assert(this.#globals);
+    assert.ok(this.#globals);
     return this.#globals;
   }
 

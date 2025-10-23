@@ -1,24 +1,12 @@
+import * as assert from 'node:assert';
+
 import {isJSONValue} from './types/JSONValue.ts';
 
-/**
- * For those (many) places where we can't use Node's own `assert`
- * (because it's not currently typed as an "assert" function in the TS
- * sense).
- */
-export default function assert(
-  condition: unknown,
-  message?: string,
-): asserts condition {
-  if (!condition) {
-    throw new Error(`assert(): ${message || 'assertion failed'}`);
-  }
-}
-
-assert.JSONArray = function (
+export function assertJSONArray(
   value: unknown,
   message?: string,
 ): asserts value is Array<JSONValue> {
-  assert(
+  assert.ok(
     Array.isArray(value) && value.every(isJSONValue),
     message || 'Expected value to be a JSON array',
   );
@@ -27,11 +15,11 @@ assert.JSONArray = function (
 /**
  * Convenience helper for working with JSON objects.
  */
-assert.JSONObject = function (
+export function assertJSONObject(
   value: unknown,
   message?: string,
 ): asserts value is {[key: string]: JSONValue} {
-  assert(
+  assert.ok(
     value &&
       !Array.isArray(value) &&
       typeof value === 'object' &&
@@ -42,7 +30,7 @@ assert.JSONObject = function (
 
 const MODE_REGEXP = /^[0-7]{4}$/;
 
-assert.mode = function (mode: string): asserts mode is Mode {
+export function assertMode(mode: string): asserts mode is Mode {
   if (!MODE_REGEXP.test(mode)) {
     throw new Error(`Invalid mode ${mode}`);
   }
