@@ -152,7 +152,13 @@ Development occurs on the `main` branch, but to avoid inconvenience for people w
 #### macOS
 
 ```sh
-git clone --recursive https://github.com/wincent/wincent.git
+git clone https://github.com/wincent/wincent.git
+```
+
+Note that locally, I'm actually using Jujutsu for version control, so I've "colocated" a `jj` repo on top of my Git clone with:
+
+```sh
+jj git init --colocate
 ```
 
 #### Arch Linux
@@ -220,6 +226,29 @@ This sets up a local Node environment using [n](https://github.com/tj/n), and th
 git config --file ~/.config/git/config.local user.name "John Doe"
 git config --file ~/.config/git/config.local user.email johndoe@example.com
 ```
+
+### Encrypted files
+
+There are some encrypted files in the repo. If you run `./install dotfiles` you will see a warning like this:
+
+```
+[notice]  Task: dotfiles | check for decrypted files
+[notice]  Changed: command `bin/crypt-status`
+[warning] Files not yet decrypted:
+
+... (list of still-encrypted files)
+
+Continue anyway? [y/n]:
+```
+
+To decrypt these I use my age key, stored in 1Password, and placed in:
+
+```
+mkdir -p ~/.config/age
+chmod 0700 !$
+```
+
+To decrypt, I run `bin/decrypt`, which relies on the `age` executable (ie. it won't work until after the first Homebrew run, or a `brew install age`).
 
 ### Running Neovim nightly
 
