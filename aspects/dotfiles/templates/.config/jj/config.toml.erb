@@ -64,8 +64,8 @@ diff-editor = ":builtin"
 
 [user]
 <%- if (variables.vcsUserName) { -%>
-name = "Greg Hurrell"
+  name = "<%= variables.vcsUserName %>"
 <%- } -%>
 <%- if (variables.vcsUserEmail) { -%>
-email = "greg.hurrell@datadoghq.com"
+  email = "<%= variables.vcsUserEmail %>"
 <%- } -%>
