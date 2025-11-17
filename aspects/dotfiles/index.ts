@@ -16,7 +16,7 @@ import {
 
 const {when} = helpers;
 
-variables(({hostHandle, identity, platform}) => {
+variables(({hostHandle, identity, platform, profile}) => {
   return {
     // This one is because Kitty defines these names to be the same:
     //
@@ -57,7 +57,9 @@ variables(({hostHandle, identity, platform}) => {
     gitHubUsername: identity === 'wincent' ? 'wincent' : '',
 
     vcsGpgSign: identity === 'wincent',
-    vcsUserEmail: identity === 'wincent' ? 'greg@hurrell.net' : '',
+    vcsUserEmail: identity === 'wincent'
+      ? profile === 'work' ? 'greg.hurrell@datadoghq.com' : 'greg@hurrell.net'
+      : '',
     vcsUserName: identity === 'wincent' ? 'Greg Hurrell' : '',
   };
 });
