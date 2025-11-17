@@ -18,7 +18,7 @@ REPO_ROOT=$(cd "${BASH_SOURCE%/*}/.." && pwd)
 
 BIN_DIR="$REPO_ROOT/bin"
 
-NODE_VERSION=22.18.0
+NODE_VERSION=24.11.1
 
 if [ -z "$GITHUB_ACTIONS" ]; then
   # In CI we don't have `n` and instead rely on corepack to ensure `yarn` is
