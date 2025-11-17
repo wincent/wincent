@@ -314,6 +314,7 @@ lsp.init = function()
 
     vim.lsp.enable('ocamlls', vim.fn.executable('ocaml-language-server') == 1)
     vim.lsp.enable('rust_analyzer', vim.fn.executable('rust-analyzer') == 1)
+    vim.lsp.enable('taplo', vim.fn.executable('taplo') == 1)
     if vim.fn.executable('tsgo') == 1 and false then
       vim.lsp.config('ts_ls', {
         cmd = { 'tsgo', '--lsp', '--stdio' },
