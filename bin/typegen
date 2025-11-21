@@ -10,7 +10,7 @@ source bin/common
 
 log_info "Installing TypeScript"
 
-bin/yarn install --immutable > /dev/null
+bin/npm install > /dev/null
 
 log_info "Cleaning"
 

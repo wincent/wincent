@@ -20,7 +20,7 @@ jobs:
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: ${{ matrix.node-version }}
-      - run: bin/yarn install --immutable
+      - run: bin/npm clean-install
 
   dprint:
     runs-on: ubuntu-latest
@@ -33,10 +33,10 @@ jobs:
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: ${{ matrix.node-version }}
-      - name: bin/yarn install --immutable
-        run: bin/yarn install --immutable
-      - name: bin/yarn dprint check
-        run: bin/yarn dprint check
+      - name: bin/npm clean-install
+        run: bin/npm clean-install
+      - name: bin/npm exec dprint check
+        run: bin/npm exec dprint check
 
   stylua:
     runs-on: ubuntu-latest
@@ -59,6 +59,8 @@ jobs:
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: ${{ matrix.node-version }}
+      - name: bin/npm clean-install
+        run: bin/npm clean-install
       - name: bin/typegen
         run: bin/typegen
       - name: bin/test

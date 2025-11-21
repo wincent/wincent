@@ -6,12 +6,10 @@ REPO_ROOT="${BASH_SOURCE%/*}/.."
 
 source "$REPO_ROOT/bin/common"
 
-corepack enable
-
 if [ -n "$GITHUB_ACTIONS" ]; then
   # In CI we rely on `.github/workflows/ci.yml` to make desired NODE_VERSION
   # available on the `$PATH`, so we bypass `n`.
-  corepack yarn "$@"
+  npm "$@"
 else
-  n exec "$NODE_VERSION" corepack yarn "$@"
+  n exec "$NODE_VERSION" npm "$@"
 fi
