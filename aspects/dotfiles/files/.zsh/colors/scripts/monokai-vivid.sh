@@ -8,12 +8,12 @@ export BASE24_THEME="monokai-vivid"
 color00="12/12/12" # Base 00 - Black
 color01="fa/28/34" # Base 08 - Red
 color02="97/e1/23" # Base 0B - Green
-color03="04/42/fe" # Base 0A - Yellow
+color03="fe/f2/0a" # Base 0A - Yellow
 color04="04/42/fe" # Base 0D - Blue
 color05="f8/00/f8" # Base 0E - Magenta
 color06="01/b6/ed" # Base 0C - Cyan
 color07="df/df/df" # Base 05 - White
-color08="a1/a1/a1" # Base 03 - Bright Black
+color08="52/52/52" # Base 03 - Bright Black
 color09="f5/66/9c" # Base 12 - Bright Red
 color10="b0/e0/5e" # Base 14 - Bright Green
 color11="fe/f2/6c" # Base 13 - Bright Yellow
@@ -21,12 +21,12 @@ color12="04/42/fe" # Base 16 - Bright Blue
 color13="f2/00/f5" # Base 17 - Bright Magenta
 color14="50/cd/fe" # Base 15 - Bright Cyan
 color15="ff/ff/ff" # Base 07 - Bright White
-color16="fe/f2/0a" # Base 09
+color16="fe/c5/0a" # Base 09
 color17="7d/14/1a" # Base 0F
-color18="12/12/12" # Base 01
-color19="82/82/82" # Base 02
+color18="32/32/32" # Base 01
+color19="42/42/42" # Base 02
 color20="c0/c0/c0" # Base 04
-color21="ff/fe/fe" # Base 06
+color21="f1/f1/f1" # Base 06
 color_foreground="df/df/df" # Base 05
 color_background="12/12/12" # Base 00
 
@@ -80,7 +80,7 @@ if [ -n "$ITERM_SESSION_ID" ]; then
   put_template_custom Pg dfdfdf # foreground
   put_template_custom Ph 121212 # background
   put_template_custom Pi dfdfdf # bold color
-  put_template_custom Pj 828282 # selection color
+  put_template_custom Pj 424242 # selection color
   put_template_custom Pk dfdfdf # selected text color
   put_template_custom Pl dfdfdf # cursor
   put_template_custom Pm 121212 # cursor text
@@ -127,16 +127,16 @@ unset color_background
 # Optionally export variables
 if [ -n "$TINTED_SHELL_ENABLE_BASE24_VARS" ]; then
   export BASE24_COLOR_00_HEX="121212"
-  export BASE24_COLOR_01_HEX="121212"
-  export BASE24_COLOR_02_HEX="828282"
-  export BASE24_COLOR_03_HEX="a1a1a1"
+  export BASE24_COLOR_01_HEX="323232"
+  export BASE24_COLOR_02_HEX="424242"
+  export BASE24_COLOR_03_HEX="525252"
   export BASE24_COLOR_04_HEX="c0c0c0"
   export BASE24_COLOR_05_HEX="dfdfdf"
-  export BASE24_COLOR_06_HEX="fffefe"
+  export BASE24_COLOR_06_HEX="f1f1f1"
   export BASE24_COLOR_07_HEX="ffffff"
   export BASE24_COLOR_08_HEX="fa2834"
-  export BASE24_COLOR_09_HEX="fef20a"
-  export BASE24_COLOR_0A_HEX="0442fe"
+  export BASE24_COLOR_09_HEX="fec50a"
+  export BASE24_COLOR_0A_HEX="fef20a"
   export BASE24_COLOR_0B_HEX="97e123"
   export BASE24_COLOR_0C_HEX="01b6ed"
   export BASE24_COLOR_0D_HEX="0442fe"

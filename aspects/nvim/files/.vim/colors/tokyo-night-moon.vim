@@ -19,14 +19,14 @@ endif
 let s:gui00        = '222436'
 let s:gui01        = '1e2030'
 let s:gui02        = '2d3f76'
-let s:gui03        = '636da6'
-let s:gui04        = '828bb8'
-let s:gui05        = '3b4261'
-let s:gui06        = '828bb8'
+let s:gui03        = '3b4261'
+let s:gui04        = '636da6'
+let s:gui05        = '828bb8'
+let s:gui06        = 'aeb4d1'
 let s:gui07        = 'c8d3f5'
 let s:gui08        = 'ff757f'
 let s:gui09        = 'ffc777'
-let s:gui0A        = 'ffc777'
+let s:gui0A        = 'ffdf77'
 let s:gui0B        = 'c3e88d'
 let s:gui0C        = '86e1fc'
 let s:gui0D        = '82aaff'
@@ -35,7 +35,7 @@ let s:gui0F        = 'c53b53'
 let s:gui10        = '222436'
 let s:gui11        = '222436'
 let s:gui12        = 'ff757f'
-let s:gui13        = 'ffc777'
+let s:gui13        = 'ffdf77'
 let s:gui14        = 'c3e88d'
 let s:gui15        = '86e1fc'
 let s:gui16        = '82aaff'
@@ -98,15 +98,15 @@ let s:colors = [
   \ '#222436',
   \ '#ff757f',
   \ '#c3e88d',
-  \ '#ffc777',
+  \ '#ffdf77',
   \ '#82aaff',
   \ '#fca7ea',
   \ '#86e1fc',
+  \ '#828bb8',
   \ '#3b4261',
-  \ '#636da6',
   \ '#ff757f',
   \ '#c3e88d',
-  \ '#ffc777',
+  \ '#ffdf77',
   \ '#82aaff',
   \ '#fca7ea',
   \ '#86e1fc',

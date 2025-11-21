@@ -5,10 +5,10 @@
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="one-half-light"
 
-color00="fa/fa/fa" # Base 00 - Black
+color00="2A/2B/32" # Base 00 - Black
 color01="e4/56/49" # Base 08 - Red
 color02="4f/a1/4f" # Base 0B - Green
-color03="61/af/ef" # Base 0A - Yellow
+color03="c0/aa/00" # Base 0A - Yellow
 color04="00/84/bc" # Base 0D - Blue
 color05="a6/25/a4" # Base 0E - Magenta
 color06="09/96/b3" # Base 0C - Cyan
@@ -28,7 +28,7 @@ color19="4f/52/5d" # Base 02
 color20="a4/a6/ab" # Base 04
 color21="fa/fa/fa" # Base 06
 color_foreground="cf/d0/d2" # Base 05
-color_background="fa/fa/fa" # Base 00
+color_background="2A/2B/32" # Base 00
 
 
 if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
@@ -78,12 +78,12 @@ put_template 15 "$color15"
 if [ -n "$ITERM_SESSION_ID" ]; then
   # iTerm2 proprietary escape codes
   put_template_custom Pg cfd0d2 # foreground
-  put_template_custom Ph fafafa # background
+  put_template_custom Ph 2A2B32 # background
   put_template_custom Pi cfd0d2 # bold color
   put_template_custom Pj 4f525d # selection color
   put_template_custom Pk cfd0d2 # selected text color
   put_template_custom Pl cfd0d2 # cursor
-  put_template_custom Pm fafafa # cursor text
+  put_template_custom Pm 2A2B32 # cursor text
 else
   put_template_var 10 "$color_foreground"
   if [ "$BASE24_SHELL_SET_BACKGROUND" != false ]; then
@@ -126,7 +126,7 @@ unset color_background
 
 # Optionally export variables
 if [ -n "$TINTED_SHELL_ENABLE_BASE24_VARS" ]; then
-  export BASE24_COLOR_00_HEX="fafafa"
+  export BASE24_COLOR_00_HEX="2A2B32"
   export BASE24_COLOR_01_HEX="373942"
   export BASE24_COLOR_02_HEX="4f525d"
   export BASE24_COLOR_03_HEX="797c84"
@@ -136,7 +136,7 @@ if [ -n "$TINTED_SHELL_ENABLE_BASE24_VARS" ]; then
   export BASE24_COLOR_07_HEX="ffffff"
   export BASE24_COLOR_08_HEX="e45649"
   export BASE24_COLOR_09_HEX="c08400"
-  export BASE24_COLOR_0A_HEX="61afef"
+  export BASE24_COLOR_0A_HEX="c0aa00"
   export BASE24_COLOR_0B_HEX="4fa14f"
   export BASE24_COLOR_0C_HEX="0996b3"
   export BASE24_COLOR_0D_HEX="0084bc"

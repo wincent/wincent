@@ -1,8 +1,8 @@
 " vi:syntax=vim
 
 " tinted-vim (https://github.com/tinted-theming/tinted-vim)
-" Scheme name: Charcoal Dark
-" Scheme author: Mubin Muhammad (https://github.com/mubin6th)
+" Scheme name: Ascendancy
+" Scheme author: EmergentMind (https://github.com/emergentmind/ascendancy-scheme)
 " Template author: Tinted Theming (https://github.com/tinted-theming)
 
 " This enables the coresponding base16-shell script to run so that
@@ -11,35 +11,35 @@
 "   let g:tinted_shell_path=path/to/shell/scripts
 if !has('gui_running')
   if exists('g:tinted_shell_path')
-    execute 'silent !/bin/sh '.g:tinted_shell_path.'/base16/charcoal-dark.sh'
+    execute 'silent !/bin/sh '.g:tinted_shell_path.'/base16/ascendancy.sh'
   endif
 endif
 
 " GUI colors
-let s:gui00        = '0f0b05'
-let s:gui01        = '231b0e'
-let s:gui02        = '2a2012'
-let s:gui03        = '57462c'
-let s:gui04        = 'a88c62'
-let s:gui05        = 'c3a983'
-let s:gui06        = 'dec8a7'
-let s:gui07        = '231b0e'
-let s:gui08        = 'a88c62'
-let s:gui09        = 'dec8a7'
-let s:gui0A        = 'dec8a7'
-let s:gui0B        = 'dec8a7'
-let s:gui0C        = 'dec8a7'
-let s:gui0D        = 'c3a983'
-let s:gui0E        = 'a88c62'
-let s:gui0F        = '876e48'
-let s:gui10        = '0f0b05'
-let s:gui11        = '0f0b05'
-let s:gui12        = 'a88c62'
-let s:gui13        = 'dec8a7'
-let s:gui14        = 'dec8a7'
-let s:gui15        = 'dec8a7'
-let s:gui16        = 'c3a983'
-let s:gui17        = 'a88c62'
+let s:gui00        = '282828'
+let s:gui01        = '212F3D'
+let s:gui02        = '504945'
+let s:gui03        = '928374'
+let s:gui04        = 'BDAE93'
+let s:gui05        = 'D5C7A1'
+let s:gui06        = 'EBDBB2'
+let s:gui07        = 'fbf1c7'
+let s:gui08        = 'C03900'
+let s:gui09        = 'FE8019'
+let s:gui0A        = 'FFCC1B'
+let s:gui0B        = 'B8BB26'
+let s:gui0C        = '8F3F71'
+let s:gui0D        = '458588'
+let s:gui0E        = 'FABD2F'
+let s:gui0F        = 'B59B4D'
+let s:gui10        = '282828'
+let s:gui11        = '282828'
+let s:gui12        = 'C03900'
+let s:gui13        = 'FFCC1B'
+let s:gui14        = 'B8BB26'
+let s:gui15        = '8F3F71'
+let s:gui16        = '458588'
+let s:gui17        = 'FABD2F'
 
 " Terminal colors
 let s:cterm00  = '00'
@@ -95,22 +95,22 @@ call s:create_color_globals()
 
 " Integrated Terminal colors
 let s:colors = [
-  \ '#0f0b05',
-  \ '#a88c62',
-  \ '#dec8a7',
-  \ '#dec8a7',
-  \ '#c3a983',
-  \ '#a88c62',
-  \ '#dec8a7',
-  \ '#c3a983',
-  \ '#57462c',
-  \ '#a88c62',
-  \ '#dec8a7',
-  \ '#dec8a7',
-  \ '#c3a983',
-  \ '#a88c62',
-  \ '#dec8a7',
-  \ '#231b0e'
+  \ '#282828',
+  \ '#C03900',
+  \ '#B8BB26',
+  \ '#FFCC1B',
+  \ '#458588',
+  \ '#FABD2F',
+  \ '#8F3F71',
+  \ '#D5C7A1',
+  \ '#928374',
+  \ '#C03900',
+  \ '#B8BB26',
+  \ '#FFCC1B',
+  \ '#458588',
+  \ '#FABD2F',
+  \ '#8F3F71',
+  \ '#fbf1c7'
 \]
 
 if has('nvim')
@@ -160,7 +160,7 @@ let s:attrs = {
       \}
 
 " Theme setup
-let g:colors_name = 'base16-charcoal-dark'
+let g:colors_name = 'base16-ascendancy'
 
 " Highlighting function
 " Optional variables are attributes and guisp

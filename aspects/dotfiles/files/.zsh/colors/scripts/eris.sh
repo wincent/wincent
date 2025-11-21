@@ -1,28 +1,28 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
 # Scheme name: eris
-# Scheme author: ed (https://codeberg.org/ed)
+# Scheme author: ed (https://codeberg.org/ed), Tinted Theming (https://github.com/tinted-theming)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="eris"
 
 color00="0a/09/20" # Base 00 - Black
 color01="f7/68/a3" # Base 08 - Red
-color02="fa/ae/a2" # Base 0B - Green
-color03="fa/ae/a2" # Base 0A - Yellow
+color02="a2/fa/a8" # Base 0B - Green
+color03="f7/d6/68" # Base 0A - Yellow
 color04="25/8f/c4" # Base 0D - Blue
-color05="f7/68/a3" # Base 0E - Magenta
-color06="25/8f/c4" # Base 0C - Cyan
+color05="c3/68/f7" # Base 0E - Magenta
+color06="a2/fa/f0" # Base 0C - Cyan
 color07="60/6b/ac" # Base 05 - White
 color08="33/37/73" # Base 03 - Bright Black
 color09="f7/68/a3" # Base 12 - Bright Red
-color10="fa/ae/a2" # Base 14 - Bright Green
-color11="fa/ae/a2" # Base 13 - Bright Yellow
+color10="a2/fa/a8" # Base 14 - Bright Green
+color11="f7/d6/68" # Base 13 - Bright Yellow
 color12="25/8f/c4" # Base 16 - Bright Blue
-color13="f7/68/a3" # Base 17 - Bright Magenta
-color14="25/8f/c4" # Base 15 - Bright Cyan
+color13="c3/68/f7" # Base 17 - Bright Magenta
+color14="a2/fa/f0" # Base 15 - Bright Cyan
 color15="9a/aa/e5" # Base 07 - Bright White
-color16="f7/68/a3" # Base 09
-color17="f7/68/a3" # Base 0F
+color16="f7/89/68" # Base 09
+color17="b8/56/00" # Base 0F
 color18="13/13/3a" # Base 01
 color19="23/25/5a" # Base 02
 color20="4a/52/93" # Base 04
@@ -135,19 +135,19 @@ if [ -n "$TINTED_SHELL_ENABLE_BASE24_VARS" ]; then
   export BASE24_COLOR_06_HEX="7986c5"
   export BASE24_COLOR_07_HEX="9aaae5"
   export BASE24_COLOR_08_HEX="f768a3"
-  export BASE24_COLOR_09_HEX="f768a3"
-  export BASE24_COLOR_0A_HEX="faaea2"
-  export BASE24_COLOR_0B_HEX="faaea2"
-  export BASE24_COLOR_0C_HEX="258fc4"
+  export BASE24_COLOR_09_HEX="f78968"
+  export BASE24_COLOR_0A_HEX="f7d668"
+  export BASE24_COLOR_0B_HEX="a2faa8"
+  export BASE24_COLOR_0C_HEX="a2faf0"
   export BASE24_COLOR_0D_HEX="258fc4"
-  export BASE24_COLOR_0E_HEX="f768a3"
-  export BASE24_COLOR_0F_HEX="f768a3"
+  export BASE24_COLOR_0E_HEX="c368f7"
+  export BASE24_COLOR_0F_HEX="b85600"
   export BASE24_COLOR_10_HEX="0a0920"
   export BASE24_COLOR_11_HEX="0a0920"
   export BASE24_COLOR_12_HEX="f768a3"
-  export BASE24_COLOR_13_HEX="faaea2"
-  export BASE24_COLOR_14_HEX="faaea2"
-  export BASE24_COLOR_15_HEX="258fc4"
+  export BASE24_COLOR_13_HEX="f7d668"
+  export BASE24_COLOR_14_HEX="a2faa8"
+  export BASE24_COLOR_15_HEX="a2faf0"
   export BASE24_COLOR_16_HEX="258fc4"
-  export BASE24_COLOR_17_HEX="f768a3"
+  export BASE24_COLOR_17_HEX="c368f7"
 fi

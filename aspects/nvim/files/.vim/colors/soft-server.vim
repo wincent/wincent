@@ -11,35 +11,35 @@
 "   let g:tinted_shell_path=path/to/shell/scripts
 if !has('gui_running')
   if exists('g:tinted_shell_path')
-    execute 'silent !/bin/sh '.g:tinted_shell_path.'/base24/soft-server.sh'
+    execute 'silent !/bin/sh '.g:tinted_shell_path.'/base16/soft-server.sh'
   endif
 endif
 
 " GUI colors
-let s:gui00        = '242626'
-let s:gui01        = '000000'
-let s:gui02        = '666c6b'
-let s:gui03        = '727978'
-let s:gui04        = '7f8786'
-let s:gui05        = '8c9594'
-let s:gui06        = '99a3a2'
-let s:gui07        = 'd1dfde'
-let s:gui08        = 'a16869'
-let s:gui09        = 'a29069'
-let s:gui0A        = '62b1df'
-let s:gui0B        = '99a569'
-let s:gui0C        = '6ba48f'
-let s:gui0D        = '6a8fa3'
-let s:gui0E        = '6971a3'
-let s:gui0F        = '503434'
-let s:gui10        = '444847'
-let s:gui11        = '222423'
-let s:gui12        = 'dc5b5f'
-let s:gui13        = 'deb35f'
-let s:gui14        = 'bfde54'
-let s:gui15        = '64e39c'
-let s:gui16        = '62b1df'
-let s:gui17        = '5f6ede'
+let s:gui00        = '211e2a'
+let s:gui01        = '2c2737'
+let s:gui02        = '3f3951'
+let s:gui03        = '6e6780'
+let s:gui04        = '8a829e'
+let s:gui05        = 'e4dee9'
+let s:gui06        = 'f2e8f0'
+let s:gui07        = 'ffffff'
+let s:gui08        = 'e965a5'
+let s:gui09        = 'f4b870'
+let s:gui0A        = 'ebde76'
+let s:gui0B        = 'b1f2a7'
+let s:gui0C        = 'b3f4f3'
+let s:gui0D        = '95a6f4'
+let s:gui0E        = 'ff79c6'
+let s:gui0F        = 'bd93f9'
+let s:gui10        = '211e2a'
+let s:gui11        = '211e2a'
+let s:gui12        = 'e965a5'
+let s:gui13        = 'ebde76'
+let s:gui14        = 'b1f2a7'
+let s:gui15        = 'b3f4f3'
+let s:gui16        = '95a6f4'
+let s:gui17        = 'ff79c6'
 
 " Terminal colors
 let s:cterm00  = '00'
@@ -95,22 +95,22 @@ call s:create_color_globals()
 
 " Integrated Terminal colors
 let s:colors = [
-  \ '#242626',
-  \ '#a16869',
-  \ '#99a569',
-  \ '#62b1df',
-  \ '#6a8fa3',
-  \ '#6971a3',
-  \ '#6ba48f',
-  \ '#8c9594',
-  \ '#727978',
-  \ '#dc5b5f',
-  \ '#bfde54',
-  \ '#deb35f',
-  \ '#62b1df',
-  \ '#5f6ede',
-  \ '#64e39c',
-  \ '#d1dfde'
+  \ '#211e2a',
+  \ '#e965a5',
+  \ '#b1f2a7',
+  \ '#ebde76',
+  \ '#95a6f4',
+  \ '#ff79c6',
+  \ '#b3f4f3',
+  \ '#e4dee9',
+  \ '#6e6780',
+  \ '#e965a5',
+  \ '#b1f2a7',
+  \ '#ebde76',
+  \ '#95a6f4',
+  \ '#ff79c6',
+  \ '#b3f4f3',
+  \ '#ffffff'
 \]
 
 if has('nvim')
@@ -160,7 +160,7 @@ let s:attrs = {
       \}
 
 " Theme setup
-let g:colors_name = 'base24-soft-server'
+let g:colors_name = 'base16-soft-server'
 
 " Highlighting function
 " Optional variables are attributes and guisp

@@ -8,15 +8,15 @@ export BASE24_THEME="tokyo-night-moon"
 color00="22/24/36" # Base 00 - Black
 color01="ff/75/7f" # Base 08 - Red
 color02="c3/e8/8d" # Base 0B - Green
-color03="ff/c7/77" # Base 0A - Yellow
+color03="ff/df/77" # Base 0A - Yellow
 color04="82/aa/ff" # Base 0D - Blue
 color05="fc/a7/ea" # Base 0E - Magenta
 color06="86/e1/fc" # Base 0C - Cyan
-color07="3b/42/61" # Base 05 - White
-color08="63/6d/a6" # Base 03 - Bright Black
+color07="82/8b/b8" # Base 05 - White
+color08="3b/42/61" # Base 03 - Bright Black
 color09="ff/75/7f" # Base 12 - Bright Red
 color10="c3/e8/8d" # Base 14 - Bright Green
-color11="ff/c7/77" # Base 13 - Bright Yellow
+color11="ff/df/77" # Base 13 - Bright Yellow
 color12="82/aa/ff" # Base 16 - Bright Blue
 color13="fc/a7/ea" # Base 17 - Bright Magenta
 color14="86/e1/fc" # Base 15 - Bright Cyan
@@ -25,9 +25,9 @@ color16="ff/c7/77" # Base 09
 color17="c5/3b/53" # Base 0F
 color18="1e/20/30" # Base 01
 color19="2d/3f/76" # Base 02
-color20="82/8b/b8" # Base 04
-color21="82/8b/b8" # Base 06
-color_foreground="3b/42/61" # Base 05
+color20="63/6d/a6" # Base 04
+color21="ae/b4/d1" # Base 06
+color_foreground="82/8b/b8" # Base 05
 color_background="22/24/36" # Base 00
 
 
@@ -77,12 +77,12 @@ put_template 15 "$color15"
 # foreground / background / cursor color
 if [ -n "$ITERM_SESSION_ID" ]; then
   # iTerm2 proprietary escape codes
-  put_template_custom Pg 3b4261 # foreground
+  put_template_custom Pg 828bb8 # foreground
   put_template_custom Ph 222436 # background
-  put_template_custom Pi 3b4261 # bold color
+  put_template_custom Pi 828bb8 # bold color
   put_template_custom Pj 2d3f76 # selection color
-  put_template_custom Pk 3b4261 # selected text color
-  put_template_custom Pl 3b4261 # cursor
+  put_template_custom Pk 828bb8 # selected text color
+  put_template_custom Pl 828bb8 # cursor
   put_template_custom Pm 222436 # cursor text
 else
   put_template_var 10 "$color_foreground"
@@ -129,14 +129,14 @@ if [ -n "$TINTED_SHELL_ENABLE_BASE24_VARS" ]; then
   export BASE24_COLOR_00_HEX="222436"
   export BASE24_COLOR_01_HEX="1e2030"
   export BASE24_COLOR_02_HEX="2d3f76"
-  export BASE24_COLOR_03_HEX="636da6"
-  export BASE24_COLOR_04_HEX="828bb8"
-  export BASE24_COLOR_05_HEX="3b4261"
-  export BASE24_COLOR_06_HEX="828bb8"
+  export BASE24_COLOR_03_HEX="3b4261"
+  export BASE24_COLOR_04_HEX="636da6"
+  export BASE24_COLOR_05_HEX="828bb8"
+  export BASE24_COLOR_06_HEX="aeb4d1"
   export BASE24_COLOR_07_HEX="c8d3f5"
   export BASE24_COLOR_08_HEX="ff757f"
   export BASE24_COLOR_09_HEX="ffc777"
-  export BASE24_COLOR_0A_HEX="ffc777"
+  export BASE24_COLOR_0A_HEX="ffdf77"
   export BASE24_COLOR_0B_HEX="c3e88d"
   export BASE24_COLOR_0C_HEX="86e1fc"
   export BASE24_COLOR_0D_HEX="82aaff"
@@ -145,7 +145,7 @@ if [ -n "$TINTED_SHELL_ENABLE_BASE24_VARS" ]; then
   export BASE24_COLOR_10_HEX="222436"
   export BASE24_COLOR_11_HEX="222436"
   export BASE24_COLOR_12_HEX="ff757f"
-  export BASE24_COLOR_13_HEX="ffc777"
+  export BASE24_COLOR_13_HEX="ffdf77"
   export BASE24_COLOR_14_HEX="c3e88d"
   export BASE24_COLOR_15_HEX="86e1fc"
   export BASE24_COLOR_16_HEX="82aaff"

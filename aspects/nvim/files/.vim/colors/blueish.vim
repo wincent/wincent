@@ -26,7 +26,7 @@ let s:gui06        = 'DDEAF6'
 let s:gui07        = '8F98A0'
 let s:gui08        = '4CE587'
 let s:gui09        = 'F6A85C'
-let s:gui0A        = '82AAFF'
+let s:gui0A        = 'F6CD5C'
 let s:gui0B        = 'C3E88D'
 let s:gui0C        = '5FD1FF'
 let s:gui0D        = '82AAFF'
@@ -35,7 +35,7 @@ let s:gui0F        = 'BBD2E8'
 let s:gui10        = '182430'
 let s:gui11        = '182430'
 let s:gui12        = '4CE587'
-let s:gui13        = '82AAFF'
+let s:gui13        = 'F6CD5C'
 let s:gui14        = 'C3E88D'
 let s:gui15        = '5FD1FF'
 let s:gui16        = '82AAFF'
@@ -98,7 +98,7 @@ let s:colors = [
   \ '#182430',
   \ '#4CE587',
   \ '#C3E88D',
-  \ '#82AAFF',
+  \ '#F6CD5C',
   \ '#82AAFF',
   \ '#FF84DD',
   \ '#5FD1FF',
@@ -106,7 +106,7 @@ let s:colors = [
   \ '#616D78',
   \ '#4CE587',
   \ '#C3E88D',
-  \ '#82AAFF',
+  \ '#F6CD5C',
   \ '#82AAFF',
   \ '#FF84DD',
   \ '#5FD1FF',

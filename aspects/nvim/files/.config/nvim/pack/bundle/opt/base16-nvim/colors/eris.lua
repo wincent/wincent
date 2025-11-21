@@ -1,4 +1,4 @@
--- eris scheme by ed (https://codeberg.org/ed)
+-- eris scheme by ed (https://codeberg.org/ed), Tinted Theming (https://github.com/tinted-theming)
 --
 -- Generated from this template:
 --
@@ -22,23 +22,23 @@ local gui05 = "#606bac"
 local gui06 = "#7986c5"
 local gui07 = "#9aaae5"
 local gui08 = "#f768a3"
-local gui09 = "#f768a3"
-local gui0A = "#faaea2"
-local gui0B = "#faaea2"
-local gui0C = "#258fc4"
+local gui09 = "#f78968"
+local gui0A = "#f7d668"
+local gui0B = "#a2faa8"
+local gui0C = "#a2faf0"
 local gui0D = "#258fc4"
-local gui0E = "#f768a3"
-local gui0F = "#f768a3"
+local gui0E = "#c368f7"
+local gui0F = "#b85600"
 
 -- Base24 colors.
 local gui10 = "#0a0920"
 local gui11 = "#0a0920"
 local gui12 = "#f768a3"
-local gui13 = "#faaea2"
-local gui14 = "#faaea2"
-local gui15 = "#258fc4"
+local gui13 = "#f7d668"
+local gui14 = "#a2faa8"
+local gui15 = "#a2faf0"
 local gui16 = "#258fc4"
-local gui17 = "#f768a3"
+local gui17 = "#c368f7"
 
 -- Base16 colors.
 local cterm00 = 0

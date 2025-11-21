@@ -1,4 +1,4 @@
--- Tango Half Adapted scheme by FredHappyface (https://github.com/fredHappyface)
+-- Ascendancy scheme by EmergentMind (https://github.com/emergentmind/ascendancy-scheme)
 --
 -- Generated from this template:
 --
@@ -13,32 +13,32 @@
 --   by the Tinted Theming contributors.
 
 -- Base16 colors.
-local gui00 = "#feffff"
-local gui01 = "#f1f1f1"
-local gui02 = "#dcdcdc"
-local gui03 = "#cccccc"
-local gui04 = "#757575"
-local gui05 = "#4f4f4f"
-local gui06 = "#323232"
-local gui07 = "#000000"
-local gui08 = "#ff0000"
-local gui09 = "#e28400"
-local gui0A = "#e2bf00"
-local gui0B = "#4cc300"
-local gui0C = "#00bdc3"
-local gui0D = "#008df5"
-local gui0E = "#a86bb2"
-local gui0F = "#7f0000"
+local gui00 = "#282828"
+local gui01 = "#212F3D"
+local gui02 = "#504945"
+local gui03 = "#928374"
+local gui04 = "#BDAE93"
+local gui05 = "#D5C7A1"
+local gui06 = "#EBDBB2"
+local gui07 = "#fbf1c7"
+local gui08 = "#C03900"
+local gui09 = "#FE8019"
+local gui0A = "#FFCC1B"
+local gui0B = "#B8BB26"
+local gui0C = "#8F3F71"
+local gui0D = "#458588"
+local gui0E = "#FABD2F"
+local gui0F = "#B59B4D"
 
 -- Base24 colors.
-local gui10 = "#50524e"
-local gui11 = "#282927"
-local gui12 = "#ff0012"
-local gui13 = "#ffeb00"
-local gui14 = "#8af600"
-local gui15 = "#00f6fa"
-local gui16 = "#75beff"
-local gui17 = "#d798d0"
+local gui10 = "#282828"
+local gui11 = "#282828"
+local gui12 = "#C03900"
+local gui13 = "#FFCC1B"
+local gui14 = "#B8BB26"
+local gui15 = "#8F3F71"
+local gui16 = "#458588"
+local gui17 = "#FABD2F"
 
 -- Base16 colors.
 local cterm00 = 0
@@ -72,7 +72,7 @@ vim.cmd [[
   highlight clear
   syntax reset
 ]]
-vim.g.colors_name = "tango-half-adapted"
+vim.g.colors_name = "ascendancy"
 
 -- Vim editor colors
 vim.api.nvim_set_hl(0, 'Normal', { fg = gui05, bg = gui00, ctermfg = cterm05, ctermbg = cterm00 })
