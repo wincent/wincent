@@ -35,13 +35,13 @@ ghostty_palette_color_11="#ffb62c"
 ghostty_palette_color_12="#6182b8"
 ghostty_palette_color_13="#7c4dff"
 ghostty_palette_color_14="#39adb5"
-ghostty_palette_color_15="#ffffff"
+ghostty_palette_color_15="#000000"
 ghostty_palette_color_16="#f76d47"
 ghostty_palette_color_17="#e53935"
 ghostty_palette_color_18="#e7eaec"
 ghostty_palette_color_19="#cceae7"
 ghostty_palette_color_20="#8796b0"
-ghostty_palette_color_21="#80cbc4"
+ghostty_palette_color_21="#43a39a"
 
 _theme_file() {
 cat <<EOF

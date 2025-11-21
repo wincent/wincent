@@ -16,7 +16,7 @@ if !has('gui_running')
 endif
 
 " GUI colors
-let s:gui00        = 'fafafa'
+let s:gui00        = '2a2b32'
 let s:gui01        = '373942'
 let s:gui02        = '4f525d'
 let s:gui03        = '797c84'
@@ -26,7 +26,7 @@ let s:gui06        = 'fafafa'
 let s:gui07        = 'ffffff'
 let s:gui08        = 'e45649'
 let s:gui09        = 'c08400'
-let s:gui0A        = '61afef'
+let s:gui0A        = 'c0aa00'
 let s:gui0B        = '4fa14f'
 let s:gui0C        = '0996b3'
 let s:gui0D        = '0084bc'
@@ -95,10 +95,10 @@ call s:create_color_globals()
 
 " Integrated Terminal colors
 let s:colors = [
-  \ '#fafafa',
+  \ '#2a2b32',
   \ '#e45649',
   \ '#4fa14f',
-  \ '#61afef',
+  \ '#c0aa00',
   \ '#0084bc',
   \ '#a625a4',
   \ '#0996b3',

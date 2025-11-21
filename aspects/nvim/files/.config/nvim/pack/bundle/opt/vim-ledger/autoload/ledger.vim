@@ -812,6 +812,7 @@ function! s:quickfix_toggle(...) abort
 
   if l:open
     execute (b:ledger_qf_vertical ? 'vert' : 'botright') l:list.'open' b:ledger_qf_size
+    call ledger#init()
     " Set local mappings to quit the quickfix window  or lose focus.
     nnoremap <silent> <buffer> <tab> <c-w><c-w>
     execute 'nnoremap <silent> <buffer> q :' l:list.'close<CR>'
@@ -926,6 +927,7 @@ function! ledger#output(report) abort
   " Open a new buffer to show Ledger's output.
   execute get(s:winpos_map, b:ledger_winpos, 'bo new')
   setlocal buftype=nofile bufhidden=wipe modifiable nobuflisted noswapfile nowrap
+  call ledger#init()
   call append(0, a:report)
   setlocal nomodifiable
   " Set local mappings to quit window or lose focus.

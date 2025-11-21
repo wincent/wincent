@@ -8,7 +8,7 @@ export BASE16_THEME=blueish
 color00="18/24/30" # Base 00 - Black
 color01="4c/e5/87" # Base 08 - Red
 color02="c3/e8/8d" # Base 0B - Green
-color03="82/aa/ff" # Base 0A - Yellow
+color03="f6/cd/5c" # Base 0A - Yellow
 color04="82/aa/ff" # Base 0D - Blue
 color05="ff/84/dd" # Base 0E - Magenta
 color06="5f/d1/ff" # Base 0C - Cyan
@@ -143,7 +143,7 @@ if [ -n "$TINTED_SHELL_ENABLE_BASE16_VARS" ] || [ -n "$BASE16_SHELL_ENABLE_VARS"
   export BASE16_COLOR_07_HEX="8f98a0"
   export BASE16_COLOR_08_HEX="4ce587"
   export BASE16_COLOR_09_HEX="f6a85c"
-  export BASE16_COLOR_0A_HEX="82aaff"
+  export BASE16_COLOR_0A_HEX="f6cd5c"
   export BASE16_COLOR_0B_HEX="c3e88d"
   export BASE16_COLOR_0C_HEX="5fd1ff"
   export BASE16_COLOR_0D_HEX="82aaff"

@@ -17,18 +17,18 @@ endif
 
 " GUI colors
 let s:gui00        = 'ffffff'
-let s:gui01        = '414141'
-let s:gui02        = '3f3f3f'
-let s:gui03        = '6f6f6f'
-let s:gui04        = '9f9f9f'
-let s:gui05        = 'cfcfcf'
-let s:gui06        = 'ffffff'
-let s:gui07        = 'f2f2f2'
+let s:gui01        = 'f1f1f1'
+let s:gui02        = 'e1e1e1'
+let s:gui03        = 'c1c1c1'
+let s:gui04        = '717171'
+let s:gui05        = '515151'
+let s:gui06        = '414141'
+let s:gui07        = '212121'
 let s:gui08        = 'b23771'
 let s:gui09        = 'cd6f34'
-let s:gui0A        = '3c5ea8'
+let s:gui0A        = 'cda434'
 let s:gui0B        = '66781e'
-let s:gui0C        = '66781e'
+let s:gui0C        = '1e7878'
 let s:gui0D        = '3c5ea8'
 let s:gui0E        = 'a454b2'
 let s:gui0F        = '591b38'
@@ -37,7 +37,7 @@ let s:gui11        = '151515'
 let s:gui12        = 'db3365'
 let s:gui13        = 'cd6f34'
 let s:gui14        = '829429'
-let s:gui15        = '829429'
+let s:gui15        = '175e5e'
 let s:gui16        = '3c5ea8'
 let s:gui17        = 'a454b2'
 
@@ -98,19 +98,19 @@ let s:colors = [
   \ '#ffffff',
   \ '#b23771',
   \ '#66781e',
-  \ '#3c5ea8',
+  \ '#cda434',
   \ '#3c5ea8',
   \ '#a454b2',
-  \ '#66781e',
-  \ '#cfcfcf',
-  \ '#6f6f6f',
+  \ '#1e7878',
+  \ '#515151',
+  \ '#c1c1c1',
   \ '#db3365',
   \ '#829429',
   \ '#cd6f34',
   \ '#3c5ea8',
   \ '#a454b2',
-  \ '#829429',
-  \ '#f2f2f2'
+  \ '#175e5e',
+  \ '#212121'
 \]
 
 if has('nvim')

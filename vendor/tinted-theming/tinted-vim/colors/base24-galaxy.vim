@@ -25,8 +25,8 @@ let s:gui05        = 'a1a1a1'
 let s:gui06        = 'bbbbbb'
 let s:gui07        = 'ffffff'
 let s:gui08        = 'f9555f'
-let s:gui09        = 'fdf029'
-let s:gui0A        = '589cf5'
+let s:gui09        = 'fdba29'
+let s:gui0A        = 'fdf029'
 let s:gui0B        = '20af89'
 let s:gui0C        = '1e9ee6'
 let s:gui0D        = '589cf5'
@@ -98,7 +98,7 @@ let s:colors = [
   \ '#1c2836',
   \ '#f9555f',
   \ '#20af89',
-  \ '#589cf5',
+  \ '#fdf029',
   \ '#589cf5',
   \ '#934d95',
   \ '#1e9ee6',

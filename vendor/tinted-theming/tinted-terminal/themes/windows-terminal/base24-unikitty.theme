@@ -2,7 +2,7 @@
 {
 	"name": "Unikitty",
 	"foreground": "#b9b1b8",
-	"background": "#ff8cd9",
+	"background": "#ff7ad3",
 	"black": "#0c0c0c",
 	"blue": "#145fcd",
 	"brightBlack": "#424242",
@@ -18,5 +18,5 @@
 	"purple": "#ff36a2",
 	"red": "#a80f20",
 	"white": "#e1d6e0",
-	"yellow": "#eedf4b"
+	"yellow": "#eeaa4b"
 },

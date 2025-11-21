@@ -5,10 +5,10 @@
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="unikitty"
 
-color00="ff/8c/d9" # Base 00 - Black
+color00="ff/7a/d3" # Base 00 - Black
 color01="a8/0f/20" # Base 08 - Red
 color02="ba/fc/8b" # Base 0B - Green
-color03="00/74/ea" # Base 0A - Yellow
+color03="ee/df/4b" # Base 0A - Yellow
 color04="14/5f/cd" # Base 0D - Blue
 color05="ff/36/a2" # Base 0E - Magenta
 color06="6b/d0/bc" # Base 0C - Cyan
@@ -21,14 +21,14 @@ color12="00/74/ea" # Base 16 - Bright Blue
 color13="fd/d5/e5" # Base 17 - Bright Magenta
 color14="79/eb/d5" # Base 15 - Bright Cyan
 color15="ff/f2/fd" # Base 07 - Bright White
-color16="ee/df/4b" # Base 09
+color16="ee/aa/4b" # Base 09
 color17="54/07/10" # Base 0F
 color18="0c/0c/0c" # Base 01
 color19="42/42/42" # Base 02
 color20="91/8c/91" # Base 04
 color21="e1/d6/e0" # Base 06
 color_foreground="b9/b1/b8" # Base 05
-color_background="ff/8c/d9" # Base 00
+color_background="ff/7a/d3" # Base 00
 
 
 if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
@@ -78,12 +78,12 @@ put_template 15 "$color15"
 if [ -n "$ITERM_SESSION_ID" ]; then
   # iTerm2 proprietary escape codes
   put_template_custom Pg b9b1b8 # foreground
-  put_template_custom Ph ff8cd9 # background
+  put_template_custom Ph ff7ad3 # background
   put_template_custom Pi b9b1b8 # bold color
   put_template_custom Pj 424242 # selection color
   put_template_custom Pk b9b1b8 # selected text color
   put_template_custom Pl b9b1b8 # cursor
-  put_template_custom Pm ff8cd9 # cursor text
+  put_template_custom Pm ff7ad3 # cursor text
 else
   put_template_var 10 "$color_foreground"
   if [ "$BASE24_SHELL_SET_BACKGROUND" != false ]; then
@@ -126,7 +126,7 @@ unset color_background
 
 # Optionally export variables
 if [ -n "$TINTED_SHELL_ENABLE_BASE24_VARS" ]; then
-  export BASE24_COLOR_00_HEX="ff8cd9"
+  export BASE24_COLOR_00_HEX="ff7ad3"
   export BASE24_COLOR_01_HEX="0c0c0c"
   export BASE24_COLOR_02_HEX="424242"
   export BASE24_COLOR_03_HEX="696769"
@@ -135,8 +135,8 @@ if [ -n "$TINTED_SHELL_ENABLE_BASE24_VARS" ]; then
   export BASE24_COLOR_06_HEX="e1d6e0"
   export BASE24_COLOR_07_HEX="fff2fd"
   export BASE24_COLOR_08_HEX="a80f20"
-  export BASE24_COLOR_09_HEX="eedf4b"
-  export BASE24_COLOR_0A_HEX="0074ea"
+  export BASE24_COLOR_09_HEX="eeaa4b"
+  export BASE24_COLOR_0A_HEX="eedf4b"
   export BASE24_COLOR_0B_HEX="bafc8b"
   export BASE24_COLOR_0C_HEX="6bd0bc"
   export BASE24_COLOR_0D_HEX="145fcd"

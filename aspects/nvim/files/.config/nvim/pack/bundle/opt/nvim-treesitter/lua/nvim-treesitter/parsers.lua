@@ -2,7 +2,7 @@
 return {
   ada = {
     install_info = {
-      revision = 'b23672d313b4c994ab96fd54f1b7ff15eac68a55',
+      revision = '6c26c4413965dc7bacbccfa66503bf6b8228e254',
       url = 'https://github.com/briot/tree-sitter-ada',
     },
     maintainers = { '@briot' },
@@ -18,7 +18,7 @@ return {
   },
   angular = {
     install_info = {
-      revision = 'c884ad6cce47da111584aee4b147cdf7dd3383e1',
+      revision = '513aad1a321a698b2fb1e388781a53038a672b24',
       url = 'https://github.com/dlvandenberg/tree-sitter-angular',
     },
     maintainers = { '@dlvandenberg' },
@@ -45,7 +45,7 @@ return {
   },
   asm = {
     install_info = {
-      revision = '04962e15f6b464cf1d75eada59506dc25090e186',
+      revision = '839741fef4dab5128952334624905c82b40c7133',
       url = 'https://github.com/RubixDev/tree-sitter-asm',
     },
     maintainers = { '@RubixDev' },
@@ -166,7 +166,7 @@ return {
   },
   c3 = {
     install_info = {
-      revision = '057a75df0c866034d8edce989f701ee2cb0481d8',
+      revision = 'e4570693b8064a83cd7826795d5ef29400313d3c',
       url = 'https://github.com/c3lang/tree-sitter-c3',
     },
     maintainers = { '@cbuttner' },
@@ -174,7 +174,7 @@ return {
   },
   c_sharp = {
     install_info = {
-      revision = '6563c3af3f03ec948d08f9325e4bbd072e4c6b99',
+      revision = '485f0bae0274ac9114797fc10db6f7034e4086e3',
       url = 'https://github.com/tree-sitter/tree-sitter-c-sharp',
     },
     maintainers = { '@amaanq' },
@@ -230,7 +230,7 @@ return {
   },
   cmake = {
     install_info = {
-      revision = 'cf9799600b2ba5e6620fdabddec3b2db8306bc46',
+      revision = 'c7b2a71e7f8ecb167fad4c97227c838439280175',
       url = 'https://github.com/uyha/tree-sitter-cmake',
     },
     maintainers = { '@uyha' },
@@ -296,7 +296,7 @@ return {
   csv = {
     install_info = {
       location = 'csv',
-      revision = '7eb7297823605392d2bbcc4c09b1cd18d6fa9529',
+      revision = 'f6bf6e35eb0b95fbadea4bb39cb9709507fcb181',
       url = 'https://github.com/tree-sitter-grammars/tree-sitter-csv',
     },
     maintainers = { '@amaanq' },
@@ -346,7 +346,7 @@ return {
   },
   desktop = {
     install_info = {
-      revision = '73b9f3ac30ac8d01267a16b1c4f0880aecdb56b2',
+      revision = '685a0076aa68b897e592af1ec6bf862bb84321e5',
       url = 'https://github.com/ValdezFOmar/tree-sitter-desktop',
     },
     maintainers = { '@ValdezFOmar' },
@@ -354,7 +354,7 @@ return {
   },
   devicetree = {
     install_info = {
-      revision = '6557729f4afaf01dec7481d4e5975515ea8f0edd',
+      revision = 'e685f1f6ac1702b046415efb476444167d63e41a',
       url = 'https://github.com/joelspadin/tree-sitter-devicetree',
     },
     maintainers = { '@jedrzejboczar' },
@@ -370,8 +370,8 @@ return {
   },
   diff = {
     install_info = {
-      revision = 'e42b8def4f75633568f1aecfe01817bf15164928',
-      url = 'https://github.com/the-mikedavis/tree-sitter-diff',
+      revision = '2520c3f934b3179bb540d23e0ef45f75304b5fed',
+      url = 'https://github.com/tree-sitter-grammars/tree-sitter-diff',
     },
     maintainers = { '@gbprod' },
     tier = 2,
@@ -402,7 +402,7 @@ return {
   },
   dot = {
     install_info = {
-      revision = '9ab85550c896d8b294d9b9ca1e30698736f08cea',
+      revision = '80327abbba6f47530edeb0df9f11bd5d5c93c14d',
       url = 'https://github.com/rydesun/tree-sitter-dot',
     },
     maintainers = { '@rydesun' },
@@ -427,7 +427,7 @@ return {
   },
   earthfile = {
     install_info = {
-      revision = 'a37c5ee95ce401ca311c0ae1369d9cfb953e151d',
+      revision = '5baef88717ad0156fd29a8b12d0d8245bb1096a8',
       url = 'https://github.com/glehmann/tree-sitter-earthfile',
     },
     maintainers = { '@glehmann' },
@@ -449,7 +449,7 @@ return {
   },
   editorconfig = {
     install_info = {
-      revision = '911d7017566116b15c4b2c339e1dbe11fcf03f63',
+      revision = '439a3fcdbf239db35f587936a36f48b704ba8357',
       url = 'https://github.com/ValdezFOmar/tree-sitter-editorconfig',
     },
     maintainers = { '@ValdezFOmar' },
@@ -660,10 +660,10 @@ return {
   },
   gdshader = {
     install_info = {
-      revision = '14e834063e136fa69b6d91f711f4f1981acf424b',
-      url = 'https://github.com/GodOfAvacyn/tree-sitter-gdshader',
+      revision = 'a06bc744f89c532bc7980b545bd39ae5489e314c',
+      url = 'https://github.com/airblast-dev/tree-sitter-gdshader',
     },
-    maintainers = { '@godofavacyn' },
+    maintainers = { '@airblast-dev' },
     tier = 2,
   },
   git_config = {
@@ -794,7 +794,7 @@ return {
   },
   gomod = {
     install_info = {
-      revision = '6efb59652d30e0e9cd5f3b3a669afd6f1a926d3c',
+      revision = '2e886870578eeba1927a2dc4bd2e2b3f598c5f9a',
       url = 'https://github.com/camdencheek/tree-sitter-go-mod',
     },
     maintainers = { '@camdencheek' },
@@ -810,7 +810,7 @@ return {
   },
   gotmpl = {
     install_info = {
-      revision = 'ca26229bafcd3f37698a2496c2a5efa2f07e86bc',
+      revision = '9e54fa38db26c556c2669492063324ef481c9d43',
       url = 'https://github.com/ngalaiko/tree-sitter-go-template',
     },
     maintainers = { '@qvalentin' },
@@ -874,7 +874,7 @@ return {
   },
   hack = {
     install_info = {
-      revision = 'bc5b3a10d6d27e8220a113a9a7fe9bec0a1574b0',
+      revision = '1a7ded90288189746c54861ac144ede97df95081',
       url = 'https://github.com/slackhq/tree-sitter-hack',
     },
     tier = 2,
@@ -889,8 +889,8 @@ return {
   },
   haskell = {
     install_info = {
-      revision = '0975ef72fc3c47b530309ca93937d7d143523628',
-      url = 'https://github.com/tree-sitter/tree-sitter-haskell',
+      revision = 'da65949d6f82242dbf29d67bc69b18fce125ef87',
+      url = 'https://github.com/tree-sitter-grammars/tree-sitter-haskell',
     },
     maintainers = { '@mrcjkb' },
     tier = 2,
@@ -913,7 +913,7 @@ return {
   },
   heex = {
     install_info = {
-      revision = '6603380caf806b3e6c7f0bf61627bb47023d79f1',
+      revision = 'b5a7cb5f74dc695a9ff5f04919f872ebc7a895e9',
       url = 'https://github.com/connorlay/tree-sitter-heex',
     },
     maintainers = { '@connorlay' },
@@ -922,7 +922,7 @@ return {
   helm = {
     install_info = {
       location = 'dialects/helm',
-      revision = 'ca26229bafcd3f37698a2496c2a5efa2f07e86bc',
+      revision = '9e54fa38db26c556c2669492063324ef481c9d43',
       url = 'https://github.com/ngalaiko/tree-sitter-go-template',
     },
     maintainers = { '@qvalentin' },
@@ -1010,7 +1010,7 @@ return {
   },
   hyprlang = {
     install_info = {
-      revision = 'd626ec06e4d876fc41200a30b3e6f2b4714c7367',
+      revision = '22723f25f3faf329863d952c9601b492afd971c9',
       url = 'https://github.com/tree-sitter-grammars/tree-sitter-hyprlang',
     },
     maintainers = { '@luckasRanarison' },
@@ -1018,7 +1018,7 @@ return {
   },
   idl = {
     install_info = {
-      revision = '3632e926ef4ba924b05993683111480af0d5c9e3',
+      revision = '86d434e732f971ecec24571e0dcb6b14c8b19952',
       url = 'https://github.com/cathaysia/tree-sitter-idl',
     },
     maintainers = { '@cathaysia' },
@@ -1074,7 +1074,7 @@ return {
   },
   javadoc = {
     install_info = {
-      revision = '92f9d7115598c1b012f5931a84ee5d50d46c0eb7',
+      revision = '2533affe83e57df9b0dbf7350cd73a84af9811b3',
       url = 'https://github.com/rmuir/tree-sitter-javadoc',
     },
     maintainers = { '@rmuir' },
@@ -1166,10 +1166,10 @@ return {
   },
   julia = {
     install_info = {
-      revision = '73d1539a51b8a202d6d2471cc594cf4d7c5e673f',
-      url = 'https://github.com/tree-sitter/tree-sitter-julia',
+      revision = '5a5d3082e13edd5afc4c274498d6125ecc914870',
+      url = 'https://github.com/tree-sitter-grammars/tree-sitter-julia',
     },
-    maintainers = { '@fredrikekre' },
+    maintainers = { '@clason' },
     tier = 2,
   },
   just = {
@@ -1206,7 +1206,7 @@ return {
   },
   kitty = {
     install_info = {
-      revision = '064d1b4d8ae1b93244de0ff6bc9f0ee0cffee3b5',
+      revision = '2e9b602ca676cac63887cca5a4535106f3475c82',
       url = 'https://github.com/OXY2DEV/tree-sitter-kitty',
     },
     maintainers = { '@OXY2DEV' },
@@ -1222,7 +1222,7 @@ return {
   },
   koto = {
     install_info = {
-      revision = '172050b74825a38e29ecc94c85a4dcd10d733738',
+      revision = '5bdb50e0c15a513397933620b8827e0ec83bca97',
       url = 'https://github.com/koto-lang/tree-sitter-koto',
     },
     maintainers = { '@irh' },
@@ -1374,7 +1374,7 @@ return {
   },
   matlab = {
     install_info = {
-      revision = '96a3e8fb0a4ebd0db64db6b52043483937e9ca3a',
+      revision = '2e60b9e96774e52edd91cbef37ead8f46c6e1221',
       url = 'https://github.com/acristoffers/tree-sitter-matlab',
     },
     maintainers = { '@acristoffers' },
@@ -1406,7 +1406,7 @@ return {
   mlir = {
     install_info = {
       generate = true,
-      revision = '7eadef0de98de1170cdffb68c0931e375fc1b046',
+      revision = 'f13087c89de99738217a84727dbf95339a67591f',
       url = 'https://github.com/artagnon/tree-sitter-mlir',
     },
     maintainers = { '@artagnon' },
@@ -1470,7 +1470,7 @@ return {
   },
   nix = {
     install_info = {
-      revision = 'ff4e2b4c5a3598e8be3edf16bc69f6677af32145',
+      revision = 'c5795af5a64ab8daa76bb77f30c24b5ed38976b5',
       url = 'https://github.com/nix-community/tree-sitter-nix',
     },
     maintainers = { '@leo60228', '@zimbatm' },
@@ -1486,7 +1486,7 @@ return {
   },
   nu = {
     install_info = {
-      revision = 'e1509fc9f9aa6579430a65f167528617df56b107',
+      revision = '47d4b4f5369c0cae866724758ae88ef07e10e4f1',
       url = 'https://github.com/nushell/tree-sitter-nu',
     },
     maintainers = { '@abhisheksingh0x558' },
@@ -1531,7 +1531,7 @@ return {
   ocamllex = {
     install_info = {
       generate = true,
-      revision = 'ed488aa334d1b4e3235e1efaaf96f00815ebc0e0',
+      revision = '33722b8be73079946a7c6dd9598e3f57956ed36d',
       url = 'https://github.com/atom-ocaml/tree-sitter-ocamllex',
     },
     maintainers = { '@undu' },
@@ -1581,7 +1581,7 @@ return {
   php = {
     install_info = {
       location = 'php',
-      revision = '9a85df21c63bdaf1695b7ac1430e29354cb5904f',
+      revision = 'de11d0bcec62b8ed6b0c7edd55051042f37b8b05',
       url = 'https://github.com/tree-sitter/tree-sitter-php',
     },
     maintainers = { '@tk-shirasaka', '@calebdw' },
@@ -1592,7 +1592,7 @@ return {
   php_only = {
     install_info = {
       location = 'php_only',
-      revision = '9a85df21c63bdaf1695b7ac1430e29354cb5904f',
+      revision = 'de11d0bcec62b8ed6b0c7edd55051042f37b8b05',
       url = 'https://github.com/tree-sitter/tree-sitter-php',
     },
     maintainers = { '@tk-shirasaka', '@calebdw' },
@@ -1617,7 +1617,7 @@ return {
   },
   pkl = {
     install_info = {
-      revision = 'd62e832b69a0aa3d4f87fc34ba62d931d6c23f55',
+      revision = 'a109e0b4823d61ccd1461a1641da8119af7c0a5e',
       url = 'https://github.com/apple/tree-sitter-pkl',
     },
     maintainers = { '@ribru17' },
@@ -1660,7 +1660,7 @@ return {
   powershell = {
     filetype = 'ps1',
     install_info = {
-      revision = '497fe9ac43bdf090efbfe28fba65b7c0c7c6a7b3',
+      revision = '9379c77984af1f3d3d7e3cc5e897de3496725280',
       url = 'https://github.com/airbus-cert/tree-sitter-powershell',
     },
     maintainers = { '@L2jLiga' },
@@ -1737,7 +1737,7 @@ return {
   psv = {
     install_info = {
       location = 'psv',
-      revision = '7eb7297823605392d2bbcc4c09b1cd18d6fa9529',
+      revision = 'f6bf6e35eb0b95fbadea4bb39cb9709507fcb181',
       url = 'https://github.com/tree-sitter-grammars/tree-sitter-csv',
     },
     maintainers = { '@amaanq' },
@@ -1803,7 +1803,7 @@ return {
   },
   qmljs = {
     install_info = {
-      revision = '0889da4632bba3ec6f39ef4102625654890c15c1',
+      revision = '0bec4359a7eb2f6c9220cd57372d87d236f66d59',
       url = 'https://github.com/yuja/tree-sitter-qmljs',
     },
     maintainers = { '@Decodetalkers' },
@@ -1860,7 +1860,7 @@ return {
   },
   rbs = {
     install_info = {
-      revision = 'de893b166476205b09e79cd3689f95831269579a',
+      revision = '5282e2f36d4109f5315c1d9486b5b0c2044622bb',
       url = 'https://github.com/joker1007/tree-sitter-rbs',
     },
     maintainers = { '@joker1007' },
@@ -2005,9 +2005,7 @@ return {
   },
   scfg = {
     install_info = {
-      generate = true,
-      generate_from_json = false,
-      revision = '2f3709e7656fa2c443f92041c91a9f843f8cd625',
+      revision = 'd850fd470445d73de318a21d734d1e09e29b773c',
       url = 'https://github.com/rockorager/tree-sitter-scfg',
     },
     maintainers = { '@WhyNotHugo' },
@@ -2133,7 +2131,7 @@ return {
   },
   sparql = {
     install_info = {
-      revision = 'd853661ca680d8ff7f8d800182d5782b61d0dd58',
+      revision = '1ef52d35a73a2a5f2e433ecfd1c751c1360a923b',
       url = 'https://github.com/GordianDziwis/tree-sitter-sparql',
     },
     maintainers = { '@GordianDziwis' },
@@ -2150,7 +2148,7 @@ return {
   sql = {
     install_info = {
       branch = 'gh-pages',
-      revision = '4afe285bb142542cee0aa7b689fec00a71df4741',
+      revision = '4094309b58ccb74d041fb531ae6b7193a3ebc351',
       url = 'https://github.com/derekstride/tree-sitter-sql',
     },
     maintainers = { '@derekstride' },
@@ -2207,7 +2205,7 @@ return {
   superhtml = {
     install_info = {
       location = 'tree-sitter-superhtml',
-      revision = 'aeaa0c7d9ef983453952a2ee4983476fef0168f3',
+      revision = '8b5bb272b269afdd38cdf641c4a707dd92fbe902',
       url = 'https://github.com/kristoff-it/superhtml',
     },
     maintainers = { '@rockorager' },
@@ -2265,7 +2263,7 @@ return {
   },
   systemverilog = {
     install_info = {
-      revision = 'e88937e66adc3ee7be0bfe40b7e937eafe4212bb',
+      revision = '7c4b01b7df2f6e7fa1f698c9d30ac8f93af18ed2',
       url = 'https://github.com/gmlarumbe/tree-sitter-systemverilog',
     },
     maintainers = { '@zhangwwpeng' },
@@ -2273,7 +2271,7 @@ return {
   },
   t32 = {
     install_info = {
-      revision = 'd4e26ab7a730cfbe0cf84dba6ea3647989064839',
+      revision = '3cf141649c74f3aa018a8e24c7f3fa01bc5ecd1e',
       url = 'https://github.com/xasc/tree-sitter-t32',
     },
     maintainers = { '@xasc' },
@@ -2314,7 +2312,7 @@ return {
   },
   templ = {
     install_info = {
-      revision = '27a1fc62c8dd4c49669e03629491f66449c6c435',
+      revision = '1975f67058325403c5412cde48b181a3fa817870',
       url = 'https://github.com/vrischmann/tree-sitter-templ',
     },
     maintainers = { '@vrischmann' },
@@ -2372,7 +2370,7 @@ return {
   },
   tmux = {
     install_info = {
-      revision = '72b42cd0307bdfe471fd151a0282d0d38e889944',
+      revision = '75d1b995b0c23400ac8e49db757a2e0386f9fa8f',
       url = 'https://github.com/Freed-Wu/tree-sitter-tmux',
     },
     maintainers = { '@Freed-Wu', '@stevenxxiu' },
@@ -2397,7 +2395,7 @@ return {
   tsv = {
     install_info = {
       location = 'tsv',
-      revision = '7eb7297823605392d2bbcc4c09b1cd18d6fa9529',
+      revision = 'f6bf6e35eb0b95fbadea4bb39cb9709507fcb181',
       url = 'https://github.com/tree-sitter-grammars/tree-sitter-csv',
     },
     maintainers = { '@amaanq' },
@@ -2605,11 +2603,11 @@ return {
   },
   wit = {
     install_info = {
-      revision = '230984dfaf803a0ff8f77da5034361a62c326577',
+      revision = 'v1.2.0',
       url = 'https://github.com/bytecodealliance/tree-sitter-wit',
     },
     maintainers = { '@mkatychev' },
-    tier = 2,
+    tier = 1,
   },
   wxml = {
     install_info = {
@@ -2639,7 +2637,7 @@ return {
   },
   xresources = {
     install_info = {
-      revision = 'fd546d43fe0a179b59dfdfb296082c584870e11b',
+      revision = '099f2bec9b441c960d66ebd856fbbcc84b3f8015',
       url = 'https://github.com/ValdezFOmar/tree-sitter-xresources',
     },
     maintainers = { '@ValdezFOmar' },
@@ -2691,8 +2689,7 @@ return {
       revision = '4353b20ef2ac750e35c6d68e4eb2a07c2d7cf901',
       url = 'https://github.com/kristoff-it/ziggy',
     },
-    maintainers = { '@rockorager' },
-    tier = 2,
+    tier = 3,
   },
   ziggy_schema = {
     install_info = {
@@ -2700,7 +2697,14 @@ return {
       revision = '4353b20ef2ac750e35c6d68e4eb2a07c2d7cf901',
       url = 'https://github.com/kristoff-it/ziggy',
     },
-    maintainers = { '@rockorager' },
-    tier = 2,
+    tier = 3,
+  },
+  zsh = {
+    install_info = {
+      revision = 'v0.42.0',
+      url = 'https://github.com/georgeharker/tree-sitter-zsh',
+    },
+    maintainers = { '@georgeharker' },
+    tier = 1,
   },
 }

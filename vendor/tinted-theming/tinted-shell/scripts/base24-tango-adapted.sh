@@ -5,30 +5,30 @@
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="tango-adapted"
 
-color00="ff/fe/fe" # Base 00 - Black
+color00="fe/ff/ff" # Base 00 - Black
 color01="ff/00/00" # Base 08 - Red
 color02="59/d5/00" # Base 0B - Green
-color03="88/c9/ff" # Base 0A - Yellow
+color03="ef/ca/00" # Base 0A - Yellow
 color04="00/a1/ff" # Base 0D - Blue
 color05="c1/7e/cb" # Base 0E - Magenta
 color06="00/d0/d6" # Base 0C - Cyan
-color07="d0/d4/cb" # Base 05 - White
-color08="a4/a8/9f" # Base 03 - Bright Black
+color07="4f/4f/4f" # Base 05 - White
+color08="cc/cc/cc" # Base 03 - Bright Black
 color09="ff/00/12" # Base 12 - Bright Red
 color10="93/fe/00" # Base 14 - Bright Green
 color11="ff/f0/21" # Base 13 - Bright Yellow
 color12="88/c9/ff" # Base 16 - Bright Blue
 color13="e8/a6/e1" # Base 17 - Bright Magenta
 color14="00/fd/ff" # Base 15 - Bright Cyan
-color15="f6/f6/f4" # Base 07 - Bright White
-color16="ef/ca/00" # Base 09
+color15="00/00/00" # Base 07 - Bright White
+color16="ef/9b/00" # Base 09
 color17="7f/00/00" # Base 0F
-color18="00/00/00" # Base 01
-color19="8e/92/8a" # Base 02
-color20="ba/be/b5" # Base 04
-color21="e6/ea/e1" # Base 06
-color_foreground="d0/d4/cb" # Base 05
-color_background="ff/fe/fe" # Base 00
+color18="f1/f1/f1" # Base 01
+color19="dc/dc/dc" # Base 02
+color20="75/75/75" # Base 04
+color21="32/32/32" # Base 06
+color_foreground="4f/4f/4f" # Base 05
+color_background="fe/ff/ff" # Base 00
 
 
 if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
@@ -77,13 +77,13 @@ put_template 15 "$color15"
 # foreground / background / cursor color
 if [ -n "$ITERM_SESSION_ID" ]; then
   # iTerm2 proprietary escape codes
-  put_template_custom Pg d0d4cb # foreground
-  put_template_custom Ph fffefe # background
-  put_template_custom Pi d0d4cb # bold color
-  put_template_custom Pj 8e928a # selection color
-  put_template_custom Pk d0d4cb # selected text color
-  put_template_custom Pl d0d4cb # cursor
-  put_template_custom Pm fffefe # cursor text
+  put_template_custom Pg 4f4f4f # foreground
+  put_template_custom Ph feffff # background
+  put_template_custom Pi 4f4f4f # bold color
+  put_template_custom Pj dcdcdc # selection color
+  put_template_custom Pk 4f4f4f # selected text color
+  put_template_custom Pl 4f4f4f # cursor
+  put_template_custom Pm feffff # cursor text
 else
   put_template_var 10 "$color_foreground"
   if [ "$BASE24_SHELL_SET_BACKGROUND" != false ]; then
@@ -126,17 +126,17 @@ unset color_background
 
 # Optionally export variables
 if [ -n "$TINTED_SHELL_ENABLE_BASE24_VARS" ]; then
-  export BASE24_COLOR_00_HEX="fffefe"
-  export BASE24_COLOR_01_HEX="000000"
-  export BASE24_COLOR_02_HEX="8e928a"
-  export BASE24_COLOR_03_HEX="a4a89f"
-  export BASE24_COLOR_04_HEX="babeb5"
-  export BASE24_COLOR_05_HEX="d0d4cb"
-  export BASE24_COLOR_06_HEX="e6eae1"
-  export BASE24_COLOR_07_HEX="f6f6f4"
+  export BASE24_COLOR_00_HEX="feffff"
+  export BASE24_COLOR_01_HEX="f1f1f1"
+  export BASE24_COLOR_02_HEX="dcdcdc"
+  export BASE24_COLOR_03_HEX="cccccc"
+  export BASE24_COLOR_04_HEX="757575"
+  export BASE24_COLOR_05_HEX="4f4f4f"
+  export BASE24_COLOR_06_HEX="323232"
+  export BASE24_COLOR_07_HEX="000000"
   export BASE24_COLOR_08_HEX="ff0000"
-  export BASE24_COLOR_09_HEX="efca00"
-  export BASE24_COLOR_0A_HEX="88c9ff"
+  export BASE24_COLOR_09_HEX="ef9b00"
+  export BASE24_COLOR_0A_HEX="efca00"
   export BASE24_COLOR_0B_HEX="59d500"
   export BASE24_COLOR_0C_HEX="00d0d6"
   export BASE24_COLOR_0D_HEX="00a1ff"

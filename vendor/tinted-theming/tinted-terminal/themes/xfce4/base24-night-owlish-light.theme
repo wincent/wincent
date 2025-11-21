@@ -3,8 +3,8 @@
 # Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
 [Scheme]
 Name=base24-night-owlish-light
-ColorForeground=#7a8181
+ColorForeground=#585b5b
 ColorBackground=#ffffff
 ColorCursor=x
 ColorBoldIsBright=FALSE
-ColorPalette=#011627;#d3423e;#2aa298;#5ca7e4;#4876d6;#403f53;#08916a;#7a8181;#7a8181;#f76e6e;#49d0c5;#dac26b;#5ca7e4;#697098;#00c990;#989fb1
+ColorPalette=#e5e6e6;#d3423e;#2aa298;#dac801;#4876d6;#403f53;#08916a;#3f4141;#cbcdcd;#f76e6e;#49d0c5;#dac26b;#5ca7e4;#697098;#00c990;#011627

@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Ascendancy by EmergentMind (https://github.com/emergentmind/ascendancy-scheme)
+
+[colors]
+selection-background = '#504945' # base02
+selection-foreground = '#d5c7a1' # base05
+
+cursor         = '#d5c7a1' # base05
+tabs           = '#212f3d' # base01
+tabs-active    = '#504945' # base02
+
+background     = '#282828' # base00
+foreground     = '#d5c7a1' # base05
+black          = '#212f3d' # base01
+red            = '#c03900' # base08
+yellow         = '#ffcc1b' # base0A
+green          = '#b8bb26' # base0B
+cyan           = '#8f3f71' # base0C
+blue           = '#458588' # base0D
+magenta        = '#fabd2f' # base0E
+white          = '#ebdbb2' # base06
+
+dim-foreground   = '#d5c7a1' # base05
+dim-black        = '#212f3d' # base01
+dim-red          = '#c03900' # base08
+dim-yellow       = '#ffcc1b' # base0A
+dim-green        = '#b8bb26' # base0B
+dim-cyan         = '#8f3f71' # base0C
+dim-blue         = '#458588' # base0D
+dim-magenta      = '#fabd2f' # base0E
+dim-white        = '#bdae93' # base04
+
+light-foreground = '#d5c7a1' # base05
+light-black      = '#504945' # base02
+light-red        = '#c03900' # base08
+light-yellow     = '#ffcc1b' # base0A
+light-green      = '#b8bb26' # base0B
+light-cyan       = '#8f3f71' # base0C
+light-blue       = '#458588' # base0D
+light-magenta    = '#fabd2f' # base0E
+light-white      = '#fbf1c7' # base07

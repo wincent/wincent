@@ -20,10 +20,10 @@ EOF
 }
 
 
-ghostty_palette_color_0="#ff8cd9"
+ghostty_palette_color_0="#ff7ad3"
 ghostty_palette_color_1="#a80f20"
 ghostty_palette_color_2="#bafc8b"
-ghostty_palette_color_3="#0074ea"
+ghostty_palette_color_3="#eedf4b"
 ghostty_palette_color_4="#145fcd"
 ghostty_palette_color_5="#ff36a2"
 ghostty_palette_color_6="#6bd0bc"
@@ -36,7 +36,7 @@ ghostty_palette_color_12="#0074ea"
 ghostty_palette_color_13="#fdd5e5"
 ghostty_palette_color_14="#79ebd5"
 ghostty_palette_color_15="#fff2fd"
-ghostty_palette_color_16="#eedf4b"
+ghostty_palette_color_16="#eeaa4b"
 ghostty_palette_color_17="#540710"
 ghostty_palette_color_18="#0c0c0c"
 ghostty_palette_color_19="#424242"

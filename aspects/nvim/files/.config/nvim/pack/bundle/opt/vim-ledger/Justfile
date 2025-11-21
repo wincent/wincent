@@ -1,9 +1,10 @@
 set ignore-comments := true
 set unstable := true
 
+git := which('git')
 just := just_executable()
-vim := which('vim')
 nvim := which('nvim')
+vim := which('vim')
 
 [default]
 [private]
@@ -23,3 +24,20 @@ preview vimcmd *ARGS:
     	-c {{ quote("let &runtimepath=\"" + justfile_directory() + ",\" . &runtimepath") }} \
     	-c 'filetype detect' \
     	{{ ARGS }}
+
+[no-cd]
+check-vim *ARGS: (check vim + ' --clean -N' ARGS)
+
+[no-cd]
+check-nvim *ARGS: (check nvim + ' --clean --headless' ARGS)
+
+[no-cd]
+[private]
+check vimcmd *ARGS:
+    test -d vader.vim || {{ git }} clone --depth 1 https://github.com/junegunn/vader.vim.git
+    {{ vimcmd }} \
+    	-c {{ quote("let &runtimepath=\"" + justfile_directory() + "/vader.vim," + justfile_directory() + ",\" . &runtimepath") }} \
+    	-c 'filetype detect' \
+    	-c 'source vader.vim/plugin/vader.vim' \
+    	{{ ARGS }} \
+    	'+Vader! spec/*'

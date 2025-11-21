@@ -6,7 +6,13 @@ SPDX-FileCopyrightText = "Caleb Maclennan, Johann Klähn, Stefan Karrmann, Wolfg
 SPDX-License-Identifier = "GPL-2.0-or-later"
 
 [[annotations]]
-path = [".github/**/*.yml", ".gitignore", ".vintrc.yaml", "Justfile"]
+path = [
+	".editorconfig",
+	".github/**/*.yml",
+	".gitignore",
+	".vintrc.yaml",
+	"Justfile",
+]
 SPDX-FileCopyrightText = "Caleb Maclennan, Johann Klähn, Stefan Karrmann, Wolfgang Oertl"
 SPDX-License-Identifier = "0BSD"
 

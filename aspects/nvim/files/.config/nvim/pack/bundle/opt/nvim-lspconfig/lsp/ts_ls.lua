@@ -62,10 +62,14 @@ return {
     -- Give the root markers equal priority by wrapping them in a table
     root_markers = vim.fn.has('nvim-0.11.3') == 1 and { root_markers, { '.git' } }
       or vim.list_extend(root_markers, { '.git' })
+    -- exclude deno
+    local deno_path = vim.fs.root(bufnr, { 'deno.json', 'deno.jsonc', 'deno.lock' })
+    local project_root = vim.fs.root(bufnr, root_markers)
+    if deno_path and (not project_root or #deno_path >= #project_root) then
+      return
+    end
     -- We fallback to the current working directory if no project root is found
-    local project_root = vim.fs.root(bufnr, root_markers) or vim.fn.getcwd()
-
-    on_dir(project_root)
+    on_dir(project_root or vim.fn.getcwd())
   end,
   handlers = {
     -- handle rename request for certain code actions like extracting functions / types
@@ -87,7 +91,7 @@ return {
       local client = assert(vim.lsp.get_client_by_id(ctx.client_id))
       local file_uri, position, references = unpack(command.arguments)
 
-      local quickfix_items = vim.lsp.util.locations_to_items(references, client.offset_encoding)
+      local quickfix_items = vim.lsp.util.locations_to_items(references --[[@as any]], client.offset_encoding)
       vim.fn.setqflist({}, ' ', {
         title = command.title,
         items = quickfix_items,
@@ -98,12 +102,13 @@ return {
       })
 
       vim.lsp.util.show_document({
-        uri = file_uri,
+        uri = file_uri --[[@as string]],
         range = {
-          start = position,
-          ['end'] = position,
+          start = position --[[@as lsp.Position]],
+          ['end'] = position --[[@as lsp.Position]],
         },
       }, client.offset_encoding)
+      ---@diagnostic enable: assign-type-mismatch
 
       vim.cmd('botright copen')
     end,
@@ -119,6 +124,7 @@ return {
       vim.lsp.buf.code_action({
         context = {
           only = source_actions,
+          diagnostics = {},
         },
       })
     end, {})

@@ -1,5 +1,5 @@
 # Scheme name: eris
-# Scheme author: ed (https://codeberg.org/ed)
+# Scheme author: ed (https://codeberg.org/ed), Tinted Theming (https://github.com/tinted-theming)
 # Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
 [Scheme]
 Name=base16-eris
@@ -7,4 +7,4 @@ ColorForeground=#606bac
 ColorBackground=#0a0920
 ColorCursor=x
 ColorBoldIsBright=FALSE
-ColorPalette=#13133a;#f768a3;#faaea2;#faaea2;#258fc4;#f768a3;#258fc4;#7986c5;#23255a;#f768a3;#faaea2;#faaea2;#258fc4;#f768a3;#258fc4;#9aaae5
+ColorPalette=#13133a;#f768a3;#a2faa8;#f7d668;#258fc4;#c368f7;#a2faf0;#7986c5;#23255a;#f768a3;#a2faa8;#f7d668;#258fc4;#c368f7;#a2faf0;#9aaae5

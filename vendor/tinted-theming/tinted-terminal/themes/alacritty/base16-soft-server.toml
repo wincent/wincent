@@ -1,0 +1,58 @@
+# base16 Soft Server 256 - alacritty color config
+# FredHappyface (https://github.com/fredHappyface)
+
+# Default colors
+[colors.primary]
+background = '0x211e2a'
+foreground = '0xe4dee9'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x211e2a'
+cursor = '0xe4dee9'
+
+# Normal colors
+[colors.normal]
+black = '0x2c2737'
+red = '0xe965a5'
+green = '0xb1f2a7'
+yellow = '0xebde76'
+blue = '0x95a6f4'
+magenta = '0xff79c6'
+cyan = '0xb3f4f3'
+white = '0xf2e8f0'
+
+# Bright colors
+[colors.bright]
+black = '0x3f3951'
+red = '0xe965a5'
+green = '0xb1f2a7'
+yellow = '0xebde76'
+blue = '0x95a6f4'
+magenta = '0xff79c6'
+cyan = '0xb3f4f3'
+white = '0xffffff'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xf4b870"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xbd93f9"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x2c2737"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x3f3951"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x8a829e"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xf2e8f0"

@@ -1,5 +1,5 @@
 # base16 eris 256 - alacritty color config
-# ed (https://codeberg.org/ed)
+# ed (https://codeberg.org/ed), Tinted Theming (https://github.com/tinted-theming)
 
 # Default colors
 [colors.primary]
@@ -15,31 +15,31 @@ cursor = '0x606bac'
 [colors.normal]
 black = '0x13133a'
 red = '0xf768a3'
-green = '0xfaaea2'
-yellow = '0xfaaea2'
+green = '0xa2faa8'
+yellow = '0xf7d668'
 blue = '0x258fc4'
-magenta = '0xf768a3'
-cyan = '0x258fc4'
+magenta = '0xc368f7'
+cyan = '0xa2faf0'
 white = '0x7986c5'
 
 # Bright colors
 [colors.bright]
 black = '0x23255a'
 red = '0xf768a3'
-green = '0xfaaea2'
-yellow = '0xfaaea2'
+green = '0xa2faa8'
+yellow = '0xf7d668'
 blue = '0x258fc4'
-magenta = '0xf768a3'
-cyan = '0x258fc4'
+magenta = '0xc368f7'
+cyan = '0xa2faf0'
 white = '0x9aaae5'
 
 [[colors.indexed_colors]]
 index = 16
-color = "0xf768a3"
+color = "0xf78968"
 
 [[colors.indexed_colors]]
 index = 17
-color = "0xf768a3"
+color = "0xb85600"
 
 [[colors.indexed_colors]]
 index = 18

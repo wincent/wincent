@@ -2,40 +2,40 @@
 # Color scheme: Tango Adapted by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#8e928a' # base02
-selection-foreground = '#d0d4cb' # base05
+selection-background = '#dcdcdc' # base02
+selection-foreground = '#4f4f4f' # base05
 
-cursor         = '#d0d4cb' # base05
-tabs           = '#000000' # base01
-tabs-active    = '#8e928a' # base02
+cursor         = '#4f4f4f' # base05
+tabs           = '#f1f1f1' # base01
+tabs-active    = '#dcdcdc' # base02
 
-background     = '#fffefe' # base00
-foreground     = '#d0d4cb' # base05
-black          = '#000000' # base01
+background     = '#feffff' # base00
+foreground     = '#4f4f4f' # base05
+black          = '#f1f1f1' # base01
 red            = '#ff0000' # base08
-yellow         = '#88c9ff' # base0A
+yellow         = '#efca00' # base0A
 green          = '#59d500' # base0B
 cyan           = '#00d0d6' # base0C
 blue           = '#00a1ff' # base0D
 magenta        = '#c17ecb' # base0E
-white          = '#e6eae1' # base06
+white          = '#323232' # base06
 
-dim-foreground   = '#d0d4cb' # base05
-dim-black        = '#000000' # base01
+dim-foreground   = '#4f4f4f' # base05
+dim-black        = '#f1f1f1' # base01
 dim-red          = '#ff0000' # base08
-dim-yellow       = '#88c9ff' # base0A
+dim-yellow       = '#efca00' # base0A
 dim-green        = '#59d500' # base0B
 dim-cyan         = '#00d0d6' # base0C
 dim-blue         = '#00a1ff' # base0D
 dim-magenta      = '#c17ecb' # base0E
-dim-white        = '#babeb5' # base04
+dim-white        = '#757575' # base04
 
-light-foreground = '#d0d4cb' # base05
-light-black      = '#8e928a' # base02
+light-foreground = '#4f4f4f' # base05
+light-black      = '#dcdcdc' # base02
 light-red        = '#ff0012' # base12
 light-yellow     = '#fff021' # base13
 light-green      = '#93fe00' # base14
 light-cyan       = '#00fdff' # base15
 light-blue       = '#88c9ff' # base16
 light-magenta    = '#e8a6e1' # base17
-light-white      = '#f6f6f4' # base07
+light-white      = '#000000' # base07

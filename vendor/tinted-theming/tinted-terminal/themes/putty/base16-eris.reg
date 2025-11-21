@@ -3,7 +3,7 @@ Windows Registry Editor Version 5.00
 ; Scheme name: eris
 ; Scheme system: base16
 ; Scheme description: 
-; Scheme author: ed (https://codeberg.org/ed)
+; Scheme author: ed (https://codeberg.org/ed), Tinted Theming (https://github.com/tinted-theming)
 ; Template author: Tinted Theming (https://github.com/tinted-theming)
 [HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base16-eris]
 
@@ -53,23 +53,23 @@ Windows Registry Editor Version 5.00
 
 ; ANSI Green
 ; 32m
-; base0B #faaea2
-"Colour10"="250,174,162"
+; base0B #a2faa8
+"Colour10"="162,250,168"
 
 ; ANSI Green Bright
 ; 1;32m
-; base0B #faaea2
-"Colour11"="250,174,162"
+; base0B #a2faa8
+"Colour11"="162,250,168"
 
 ; ANSI Yellow
 ; 33m
-; base0A #faaea2
-"Colour12"="250,174,162"
+; base0A #f7d668
+"Colour12"="247,214,104"
 
 ; ANSI Yellow Bright
 ; 1;33m
-; base0A #faaea2
-"Colour13"="250,174,162"
+; base0A #f7d668
+"Colour13"="247,214,104"
 
 ; ANSI Blue
 ; 34m
@@ -83,23 +83,23 @@ Windows Registry Editor Version 5.00
 
 ; ANSI Magenta
 ; 35m
-; base0E #f768a3
-"Colour16"="247,104,163"
+; base0E #c368f7
+"Colour16"="195,104,247"
 
 ; ANSI Magenta Bright
 ; 1;35m
-; base0E #f768a3
-"Colour17"="247,104,163"
+; base0E #c368f7
+"Colour17"="195,104,247"
 
 ; ANSI Cyan
 ; 36m
-; base0C #258fc4
-"Colour18"="37,143,196"
+; base0C #a2faf0
+"Colour18"="162,250,240"
 
 ; ANSI Cyan Bright
 ; 1;36m
-; base0C #258fc4
-"Colour19"="37,143,196"
+; base0C #a2faf0
+"Colour19"="162,250,240"
 
 ; ANSI White
 ; 37m

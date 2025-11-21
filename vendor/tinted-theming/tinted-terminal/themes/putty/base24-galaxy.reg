@@ -63,8 +63,8 @@ Windows Registry Editor Version 5.00
 
 ; ANSI Yellow
 ; 33m
-; base0A #589cf5
-"Colour12"="88,156,245"
+; base0A #fdf029
+"Colour12"="253,240,41"
 
 ; ANSI Yellow Bright
 ; 1;33m

@@ -4,11 +4,11 @@
 --- An integrated language service for Typst [taɪpst]. You can also call it "微霭" [wēi ǎi] in Chinese.
 ---
 --- Currently some of Tinymist's workspace commands are supported, namely:
---- `LspTinymistExportSvg`, `LspTinymistExportPng`, `LspTinymistExportPdf
+--- `LspTinymistExportSvg`, `LspTinymistExportPng`, `LspTinymistExportPdf`,
 --- `LspTinymistExportMarkdown`, `LspTinymistExportText`, `LspTinymistExportQuery`,
 --- `LspTinymistExportAnsiHighlight`, `LspTinymistGetServerInfo`,
---- `LspTinymistGetDocumentTrace`, `LspTinymistGetWorkspaceLabels`, and
---- `LspTinymistGetDocumentMetrics`.
+--- `LspTinymistGetDocumentTrace`, `LspTinymistGetWorkspaceLabels`,
+--- `LspTinymistGetDocumentMetrics`, and `LspTinymistPinMain`.
 
 ---@param command_name string
 ---@param client vim.lsp.Client
@@ -17,10 +17,7 @@
 local function create_tinymist_command(command_name, client, bufnr)
   local export_type = command_name:match 'tinymist%.export(%w+)'
   local info_type = command_name:match 'tinymist%.(%w+)'
-  if info_type and info_type:match '^get' then
-    info_type = info_type:gsub('^get', 'Get')
-  end
-  local cmd_display = export_type or info_type
+  local cmd_display = export_type or info_type:gsub('^get', 'Get'):gsub('^pin', 'Pin')
   ---@return nil
   local function run_tinymist_command()
     local arguments = { vim.api.nvim_buf_get_name(bufnr) }
@@ -30,8 +27,7 @@ local function create_tinymist_command(command_name, client, bufnr)
       if err then
         return vim.notify(err.code .. ': ' .. err.message, vim.log.levels.ERROR)
       end
-      -- If exporting, show the string result; else, show the table for inspection
-      vim.notify(export_type and res or vim.inspect(res), vim.log.levels.INFO)
+      vim.notify(vim.inspect(res), vim.log.levels.INFO)
     end
     return client:exec_cmd({
       title = title_str,
@@ -64,6 +60,7 @@ return {
       'tinymist.getDocumentTrace',
       'tinymist.getWorkspaceLabels',
       'tinymist.getDocumentMetrics',
+      'tinymist.pinMain',
     } do
       local cmd_func, cmd_name, cmd_desc = create_tinymist_command(command, client, bufnr)
       vim.api.nvim_buf_create_user_command(bufnr, 'Lsp' .. cmd_name, cmd_func, { nargs = 0, desc = cmd_desc })

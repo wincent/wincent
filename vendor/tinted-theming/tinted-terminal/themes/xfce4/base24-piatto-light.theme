@@ -3,8 +3,8 @@
 # Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
 [Scheme]
 Name=base24-piatto-light
-ColorForeground=#cfcfcf
+ColorForeground=#515151
 ColorBackground=#ffffff
 ColorCursor=x
 ColorBoldIsBright=FALSE
-ColorPalette=#414141;#b23771;#66781e;#3c5ea8;#3c5ea8;#a454b2;#66781e;#ffffff;#3f3f3f;#db3365;#829429;#cd6f34;#3c5ea8;#a454b2;#829429;#f2f2f2
+ColorPalette=#f1f1f1;#b23771;#66781e;#cda434;#3c5ea8;#a454b2;#1e7878;#414141;#e1e1e1;#db3365;#829429;#cd6f34;#3c5ea8;#a454b2;#175e5e;#212121

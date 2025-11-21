@@ -1,10 +1,8 @@
 ---@brief
 ---
---- https://github.com/coq-community/vscoq
+--- Renamed to [vsrocq](#vsrocq)
+
+vim.deprecate('vscoqtop', 'vsrocq', '2.0.0', 'nvim-lspconfig', false)
 
 ---@type vim.lsp.Config
-return {
-  cmd = { 'vscoqtop' },
-  filetypes = { 'coq' },
-  root_markers = { '_CoqProject', '.git' },
-}
+return vim.lsp.config.vsrocq

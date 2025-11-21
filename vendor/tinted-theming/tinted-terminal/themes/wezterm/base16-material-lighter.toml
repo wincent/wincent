@@ -21,7 +21,7 @@ ansi = [
   "#6182b8",
   "#7c4dff",
   "#39adb5",
-  "#80cbc4"
+  "#43a39a"
 ]
 brights = [
   "#cceae7",
@@ -31,7 +31,7 @@ brights = [
   "#6182b8",
   "#7c4dff",
   "#39adb5",
-  "#ffffff"
+  "#000000"
 ]
 
 [colors.indexed]

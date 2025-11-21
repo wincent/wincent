@@ -2,40 +2,40 @@
 # Color scheme: Piatto Light by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#3f3f3f' # base02
-selection-foreground = '#cfcfcf' # base05
+selection-background = '#e1e1e1' # base02
+selection-foreground = '#515151' # base05
 
-cursor         = '#cfcfcf' # base05
-tabs           = '#414141' # base01
-tabs-active    = '#3f3f3f' # base02
+cursor         = '#515151' # base05
+tabs           = '#f1f1f1' # base01
+tabs-active    = '#e1e1e1' # base02
 
 background     = '#ffffff' # base00
-foreground     = '#cfcfcf' # base05
-black          = '#414141' # base01
+foreground     = '#515151' # base05
+black          = '#f1f1f1' # base01
 red            = '#b23771' # base08
-yellow         = '#3c5ea8' # base0A
+yellow         = '#cda434' # base0A
 green          = '#66781e' # base0B
-cyan           = '#66781e' # base0C
+cyan           = '#1e7878' # base0C
 blue           = '#3c5ea8' # base0D
 magenta        = '#a454b2' # base0E
-white          = '#ffffff' # base06
+white          = '#414141' # base06
 
-dim-foreground   = '#cfcfcf' # base05
-dim-black        = '#414141' # base01
+dim-foreground   = '#515151' # base05
+dim-black        = '#f1f1f1' # base01
 dim-red          = '#b23771' # base08
-dim-yellow       = '#3c5ea8' # base0A
+dim-yellow       = '#cda434' # base0A
 dim-green        = '#66781e' # base0B
-dim-cyan         = '#66781e' # base0C
+dim-cyan         = '#1e7878' # base0C
 dim-blue         = '#3c5ea8' # base0D
 dim-magenta      = '#a454b2' # base0E
-dim-white        = '#9f9f9f' # base04
+dim-white        = '#717171' # base04
 
-light-foreground = '#cfcfcf' # base05
-light-black      = '#3f3f3f' # base02
+light-foreground = '#515151' # base05
+light-black      = '#e1e1e1' # base02
 light-red        = '#db3365' # base12
 light-yellow     = '#cd6f34' # base13
 light-green      = '#829429' # base14
-light-cyan       = '#829429' # base15
+light-cyan       = '#175e5e' # base15
 light-blue       = '#3c5ea8' # base16
 light-magenta    = '#a454b2' # base17
-light-white      = '#f2f2f2' # base07
+light-white      = '#212121' # base07

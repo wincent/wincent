@@ -16,7 +16,7 @@ cursor = '0xa1a1a1'
 black = '0x000000'
 red = '0xf9555f'
 green = '0x20af89'
-yellow = '0x589cf5'
+yellow = '0xfdf029'
 blue = '0x589cf5'
 magenta = '0x934d95'
 cyan = '0x1e9ee6'
@@ -35,7 +35,7 @@ white = '0xffffff'
 
 [[colors.indexed_colors]]
 index = 16
-color = "0xfdf029"
+color = "0xfdba29"
 
 [[colors.indexed_colors]]
 index = 17

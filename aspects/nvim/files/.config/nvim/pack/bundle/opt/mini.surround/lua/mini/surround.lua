@@ -2265,7 +2265,15 @@ H.map = function(mode, lhs, rhs, opts)
   if lhs == '' then return end
   opts = vim.tbl_deep_extend('force', { silent = true }, opts or {})
   vim.keymap.set(mode, lhs, rhs, opts)
-  if vim.fn.maparg('s', mode) == '' and lhs:find('^s.') ~= nil then vim.keymap.set(mode, 's', '<Nop>') end
+  local no_global_s_mapping = not H.has_global_mapping(mode, 's')
+  if no_global_s_mapping and lhs:find('^s.') ~= nil then vim.keymap.set(mode, 's', '<Nop>') end
+end
+
+H.has_global_mapping = function(mode, lhs)
+  for _, map in ipairs(vim.api.nvim_get_keymap(mode)) do
+    if map.lhs == lhs then return true end
+  end
+  return false
 end
 
 H.get_line_cols = function(line_num) return vim.fn.getline(line_num):len() end

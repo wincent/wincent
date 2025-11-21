@@ -1,5 +1,6 @@
 local compare = require('cmp.config.compare')
 local types = require('cmp.types')
+local window = require('cmp.config.window')
 
 local WIDE_HEIGHT = 40
 
@@ -48,7 +49,7 @@ return function()
 
     formatting = {
       expandable_indicator = true,
-      fields = { 'abbr', 'kind', 'menu' },
+      fields = { 'abbr', 'icon', 'kind', 'menu' },
       format = function(_, vim_item)
         return vim_item
       end,
@@ -98,6 +99,7 @@ return function()
       entries = {
         name = 'custom',
         selection_order = 'top_down',
+        vertical_positioning = 'below',
         follow_cursor = false,
       },
       docs = {
@@ -107,7 +109,7 @@ return function()
 
     window = {
       completion = {
-        border = { '', '', '', '', '', '', '', '' },
+        border = window.get_border(),
         winhighlight = 'Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None',
         winblend = vim.o.pumblend,
         scrolloff = 0,
@@ -118,9 +120,10 @@ return function()
       documentation = {
         max_height = math.floor(WIDE_HEIGHT * (WIDE_HEIGHT / vim.o.lines)),
         max_width = math.floor((WIDE_HEIGHT * 2) * (vim.o.columns / (WIDE_HEIGHT * 2 * 16 / 9))),
-        border = { '', '', '', ' ', '', '', '', ' ' },
+        border = window.get_border(),
         winhighlight = 'FloatBorder:NormalFloat',
         winblend = vim.o.pumblend,
+        col_offset = 0,
       },
     },
   }

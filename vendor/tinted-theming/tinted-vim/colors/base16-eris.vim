@@ -2,7 +2,7 @@
 
 " tinted-vim (https://github.com/tinted-theming/tinted-vim)
 " Scheme name: eris
-" Scheme author: ed (https://codeberg.org/ed)
+" Scheme author: ed (https://codeberg.org/ed), Tinted Theming (https://github.com/tinted-theming)
 " Template author: Tinted Theming (https://github.com/tinted-theming)
 
 " This enables the coresponding base16-shell script to run so that
@@ -25,21 +25,21 @@ let s:gui05        = '606bac'
 let s:gui06        = '7986c5'
 let s:gui07        = '9aaae5'
 let s:gui08        = 'f768a3'
-let s:gui09        = 'f768a3'
-let s:gui0A        = 'faaea2'
-let s:gui0B        = 'faaea2'
-let s:gui0C        = '258fc4'
+let s:gui09        = 'f78968'
+let s:gui0A        = 'f7d668'
+let s:gui0B        = 'a2faa8'
+let s:gui0C        = 'a2faf0'
 let s:gui0D        = '258fc4'
-let s:gui0E        = 'f768a3'
-let s:gui0F        = 'f768a3'
+let s:gui0E        = 'c368f7'
+let s:gui0F        = 'b85600'
 let s:gui10        = '0a0920'
 let s:gui11        = '0a0920'
 let s:gui12        = 'f768a3'
-let s:gui13        = 'faaea2'
-let s:gui14        = 'faaea2'
-let s:gui15        = '258fc4'
+let s:gui13        = 'f7d668'
+let s:gui14        = 'a2faa8'
+let s:gui15        = 'a2faf0'
 let s:gui16        = '258fc4'
-let s:gui17        = 'f768a3'
+let s:gui17        = 'c368f7'
 
 " Terminal colors
 let s:cterm00  = '00'
@@ -97,19 +97,19 @@ call s:create_color_globals()
 let s:colors = [
   \ '#0a0920',
   \ '#f768a3',
-  \ '#faaea2',
-  \ '#faaea2',
+  \ '#a2faa8',
+  \ '#f7d668',
   \ '#258fc4',
-  \ '#f768a3',
-  \ '#258fc4',
+  \ '#c368f7',
+  \ '#a2faf0',
   \ '#606bac',
   \ '#333773',
   \ '#f768a3',
-  \ '#faaea2',
-  \ '#faaea2',
+  \ '#a2faa8',
+  \ '#f7d668',
   \ '#258fc4',
-  \ '#f768a3',
-  \ '#258fc4',
+  \ '#c368f7',
+  \ '#a2faf0',
   \ '#9aaae5'
 \]
 

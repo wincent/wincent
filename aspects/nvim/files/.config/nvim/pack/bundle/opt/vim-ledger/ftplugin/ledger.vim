@@ -285,11 +285,6 @@ endfunction
 
 " Helper functions
 
-" return length of string with fix for multibyte characters
-function! s:multibyte_strlen(text)
-   return strlen(substitute(a:text, '.', 'x', 'g'))
-endfunction
-
 " get # of visible/usable columns in current window
 function! s:get_columns()
   " As long as vim doesn't provide a command natively,
@@ -333,9 +328,7 @@ function! s:autocomplete_account_or_payee(argLead, cmdLine, cursorPos)
 endfunction
 
 function! s:reconcile(file, account)
-  " call inputsave()
   let l:amount = input('Target amount' . (empty(b:ledger_default_commodity) ? ': ' : ' (' . b:ledger_default_commodity . '): '))
-  " call inputrestore()
   call ledger#reconcile(a:file, a:account, str2float(l:amount))
 endfunction
 

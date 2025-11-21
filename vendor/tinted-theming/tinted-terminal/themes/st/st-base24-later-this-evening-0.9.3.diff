@@ -20,14 +20,14 @@ diff '--color=auto' -u -N st-0.9.3/config.def.h st-0.9.3-mod/config.def.h
 -	"magenta3",
 -	"cyan3",
 -	"gray90",
-+	[0] = "#2b2b2b",   /* black  */
++	[0] = "#313131",   /* black  */
 +	[1] = "#d35a5f",   /* red    */
 +	[2] = "#afba66",   /* green  */
-+	[3] = "#6599d5",   /* yellow */
++	[3] = "#e5d289",   /* yellow */
 +	[4] = "#a0b9d5",   /* blue   */
 +	[5] = "#bf92d5",   /* magenta*/
 +	[6] = "#91beb6",   /* cyan   */
-+	[7] = "#3b3c3c",   /* white  */
++	[7] = "#bfbfbf",   /* white  */
 
  	/* 8 bright colors */
 -	"gray50",
@@ -38,14 +38,14 @@ diff '--color=auto' -u -N st-0.9.3/config.def.h st-0.9.3-mod/config.def.h
 -	"magenta",
 -	"cyan",
 -	"white",
-+	[8] = "#444747",   /* black  */
++	[8] = "#4f4f4f",   /* black  */
 +	[9] = "#d3222e",   /* red    */
 +	[10] = "#aabb39",  /* green  */
 +	[11] = "#e4bd39",  /* yellow */
 +	[12] = "#6599d5",  /* blue   */
 +	[13] = "#aa52d5",  /* magenta*/
 +	[14] = "#5fbfad",  /* cyan   */
-+	[15] = "#c0c2c2",  /* white  */
++	[15] = "#d9d9d9",  /* white  */
 
  	[255] = 0,
 
@@ -54,7 +54,7 @@ diff '--color=auto' -u -N st-0.9.3/config.def.h st-0.9.3-mod/config.def.h
 -	"#555555",
 -	"gray90", /* default foreground colour */
 -	"black", /* default background colour */
-+	[256] = "#3e3f3f",  /* foreground */
++	[256] = "#a6a6a6",  /* foreground */
 +	[257] = "#212121",  /* background */
  };
 

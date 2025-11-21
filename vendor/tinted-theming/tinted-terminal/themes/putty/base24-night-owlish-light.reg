@@ -8,12 +8,12 @@ Windows Registry Editor Version 5.00
 [HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base24-night-owlish-light]
 
 ; Default Foreground
-; base05 #7a8181
-"Colour0"="122,129,129"
+; base05 #585b5b
+"Colour0"="88,91,91"
 
 ; Default Bold Foreground  -- equals to non-bold
-; base05 #7a8181
-"Colour1"="122,129,129"
+; base05 #585b5b
+"Colour1"="88,91,91"
 
 ; Default Background
 ; base00 #ffffff
@@ -28,18 +28,18 @@ Windows Registry Editor Version 5.00
 "Colour4"="255,255,255"
 
 ; Cursor Colour -- equals to default foreground
-; base05 #7a8181
-"Colour5"="122,129,129"
+; base05 #585b5b
+"Colour5"="88,91,91"
 
 ; ANSI Black
 ; 30m
-; base01 #011627
-"Colour6"="1,22,39"
+; base01 #e5e6e6
+"Colour6"="229,230,230"
 
 ; ANSI Black Bright
 ; 1;30m
-; base02 #7a8181
-"Colour7"="122,129,129"
+; base02 #cbcdcd
+"Colour7"="203,205,205"
 
 ; ANSI Red
 ; 31m
@@ -63,8 +63,8 @@ Windows Registry Editor Version 5.00
 
 ; ANSI Yellow
 ; 33m
-; base0A #5ca7e4
-"Colour12"="92,167,228"
+; base0A #dac801
+"Colour12"="218,200,1"
 
 ; ANSI Yellow Bright
 ; 1;33m
@@ -103,10 +103,10 @@ Windows Registry Editor Version 5.00
 
 ; ANSI White
 ; 37m
-; base06 #7a8181
-"Colour20"="122,129,129"
+; base06 #3f4141
+"Colour20"="63,65,65"
 
 ; ANSI White Bright
 ; 1;37m
-; base07 989fb1
-"Colour21"="152,159,177"
+; base07 011627
+"Colour21"="1,22,39"

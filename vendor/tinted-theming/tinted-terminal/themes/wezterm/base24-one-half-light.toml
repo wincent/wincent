@@ -3,7 +3,7 @@
 # Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
 
 [colors]
-background = "#fafafa"
+background = "#2a2b32"
 foreground = "#cfd0d2"
 
 cursor_bg = "#373942"
@@ -14,10 +14,10 @@ selection_bg = "#cfd0d2"
 selection_fg = "#4f525d"
 
 ansi = [
-  "#fafafa",
+  "#2a2b32",
   "#e45649",
   "#4fa14f",
-  "#61afef",
+  "#c0aa00",
   "#0084bc",
   "#a625a4",
   "#0996b3",

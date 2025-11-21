@@ -1125,7 +1125,7 @@ MiniAi.select_textobject = function(ai_type, id, opts)
     vim.cmd('normal! zv')
     vim.cmd('normal! ' .. vis_mode)
     set_cursor(tobj.to)
-    if vim.o.selection == 'exclusive' then vim.cmd('set whichwrap=l | normal! l') end
+    if vim.o.selection == 'exclusive' and not tobj_is_empty then vim.cmd('set whichwrap=l | normal! l') end
     vim.cmd('normal! zv')
 
     -- Restore horizontal view which was possibly affected by moving cursor

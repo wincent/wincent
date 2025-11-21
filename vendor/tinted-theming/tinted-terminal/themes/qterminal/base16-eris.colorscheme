@@ -17,16 +17,16 @@ Color=247,104,163
 Color=247,104,163
 
 [Color2]
-Color=250,174,162
+Color=162,250,168
 
 [Color2Intense]
-Color=250,174,162
+Color=162,250,168
 
 [Color3]
-Color=250,174,162
+Color=247,214,104
 
 [Color3Intense]
-Color=250,174,162
+Color=247,214,104
 
 [Color4]
 Color=37,143,196
@@ -35,16 +35,16 @@ Color=37,143,196
 Color=37,143,196
 
 [Color5]
-Color=247,104,163
+Color=195,104,247
 
 [Color5Intense]
-Color=247,104,163
+Color=195,104,247
 
 [Color6]
-Color=37,143,196
+Color=162,250,240
 
 [Color6Intense]
-Color=37,143,196
+Color=162,250,240
 
 [Color7]
 Color=96,107,172

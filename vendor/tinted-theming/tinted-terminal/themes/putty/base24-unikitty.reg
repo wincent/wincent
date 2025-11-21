@@ -16,16 +16,16 @@ Windows Registry Editor Version 5.00
 "Colour1"="185,177,184"
 
 ; Default Background
-; base00 #ff8cd9
-"Colour2"="255,140,217"
+; base00 #ff7ad3
+"Colour2"="255,122,211"
 
 ; Default Bold Background  -- equals to non-bold
-; base00 #ff8cd9
-"Colour3"="255,140,217"
+; base00 #ff7ad3
+"Colour3"="255,122,211"
 
 ; Cursor Text -- equals to default background
-; base00 #ff8cd9
-"Colour4"="255,140,217"
+; base00 #ff7ad3
+"Colour4"="255,122,211"
 
 ; Cursor Colour -- equals to default foreground
 ; base05 #b9b1b8
@@ -63,8 +63,8 @@ Windows Registry Editor Version 5.00
 
 ; ANSI Yellow
 ; 33m
-; base0A #0074ea
-"Colour12"="0,116,234"
+; base0A #eedf4b
+"Colour12"="238,223,75"
 
 ; ANSI Yellow Bright
 ; 1;33m

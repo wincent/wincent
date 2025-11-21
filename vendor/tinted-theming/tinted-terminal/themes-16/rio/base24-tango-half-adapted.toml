@@ -2,40 +2,40 @@
 # Color scheme: Tango Half Adapted by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#797c75' # base02
-selection-foreground = '#c6cac1' # base05
+selection-background = '#dcdcdc' # base02
+selection-foreground = '#4f4f4f' # base05
 
-cursor         = '#c6cac1' # base05
-tabs           = '#000000' # base01
-tabs-active    = '#797c75' # base02
+cursor         = '#4f4f4f' # base05
+tabs           = '#f1f1f1' # base01
+tabs-active    = '#dcdcdc' # base02
 
-background     = '#fffefe' # base00
-foreground     = '#c6cac1' # base05
-black          = '#000000' # base01
+background     = '#feffff' # base00
+foreground     = '#4f4f4f' # base05
+black          = '#f1f1f1' # base01
 red            = '#ff0000' # base08
-yellow         = '#75beff' # base0A
+yellow         = '#e2bf00' # base0A
 green          = '#4cc300' # base0B
 cyan           = '#00bdc3' # base0C
 blue           = '#008df5' # base0D
 magenta        = '#a86bb2' # base0E
-white          = '#e0e4db' # base06
+white          = '#323232' # base06
 
-dim-foreground   = '#c6cac1' # base05
-dim-black        = '#000000' # base01
+dim-foreground   = '#4f4f4f' # base05
+dim-black        = '#f1f1f1' # base01
 dim-red          = '#ff0000' # base08
-dim-yellow       = '#75beff' # base0A
+dim-yellow       = '#e2bf00' # base0A
 dim-green        = '#4cc300' # base0B
 dim-cyan         = '#00bdc3' # base0C
 dim-blue         = '#008df5' # base0D
 dim-magenta      = '#a86bb2' # base0E
-dim-white        = '#acb0a8' # base04
+dim-white        = '#757575' # base04
 
-light-foreground = '#c6cac1' # base05
-light-black      = '#797c75' # base02
+light-foreground = '#4f4f4f' # base05
+light-black      = '#dcdcdc' # base02
 light-red        = '#ff0012' # base12
 light-yellow     = '#ffeb00' # base13
 light-green      = '#8af600' # base14
 light-cyan       = '#00f6fa' # base15
 light-blue       = '#75beff' # base16
 light-magenta    = '#d798d0' # base17
-light-white      = '#f3f3f1' # base07
+light-white      = '#000000' # base07

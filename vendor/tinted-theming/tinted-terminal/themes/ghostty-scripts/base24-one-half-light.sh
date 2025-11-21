@@ -20,10 +20,10 @@ EOF
 }
 
 
-ghostty_palette_color_0="#fafafa"
+ghostty_palette_color_0="#2a2b32"
 ghostty_palette_color_1="#e45649"
 ghostty_palette_color_2="#4fa14f"
-ghostty_palette_color_3="#61afef"
+ghostty_palette_color_3="#c0aa00"
 ghostty_palette_color_4="#0084bc"
 ghostty_palette_color_5="#a625a4"
 ghostty_palette_color_6="#0996b3"

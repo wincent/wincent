@@ -7,7 +7,7 @@ diff '--color=auto' -u -N st-0.9.3/config.def.h st-0.9.3-mod/config.def.h
  /* Terminal colors (16 first used in escape sequence) */
 +/*
 + * Scheme name: eris
-+ * Scheme author: ed (https://codeberg.org/ed)
++ * Scheme author: ed (https://codeberg.org/ed), Tinted Theming (https://github.com/tinted-theming)
 + * Template author: Tinted Theming (https://github.com/tinted-theming)
 + */
  static const char *colorname[] = {
@@ -22,11 +22,11 @@ diff '--color=auto' -u -N st-0.9.3/config.def.h st-0.9.3-mod/config.def.h
 -	"gray90",
 +	[0] = "#13133a",   /* black  */
 +	[1] = "#f768a3",   /* red    */
-+	[2] = "#faaea2",   /* green  */
-+	[3] = "#faaea2",   /* yellow */
++	[2] = "#a2faa8",   /* green  */
++	[3] = "#f7d668",   /* yellow */
 +	[4] = "#258fc4",   /* blue   */
-+	[5] = "#f768a3",   /* magenta*/
-+	[6] = "#258fc4",   /* cyan   */
++	[5] = "#c368f7",   /* magenta*/
++	[6] = "#a2faf0",   /* cyan   */
 +	[7] = "#7986c5",   /* white  */
 
  	/* 8 bright colors */
@@ -40,11 +40,11 @@ diff '--color=auto' -u -N st-0.9.3/config.def.h st-0.9.3-mod/config.def.h
 -	"white",
 +	[8] = "#23255a",   /* black  */
 +	[9] = "#f768a3",   /* red    */
-+	[10] = "#faaea2",  /* green  */
-+	[11] = "#faaea2",  /* yellow */
++	[10] = "#a2faa8",  /* green  */
++	[11] = "#f7d668",  /* yellow */
 +	[12] = "#258fc4",  /* blue   */
-+	[13] = "#f768a3",  /* magenta*/
-+	[14] = "#258fc4",  /* cyan   */
++	[13] = "#c368f7",  /* magenta*/
++	[14] = "#a2faf0",  /* cyan   */
 +	[15] = "#9aaae5",  /* white  */
 
  	[255] = 0,

@@ -22,22 +22,22 @@ EOF
 
 ghostty_palette_color_0="#0a0920"
 ghostty_palette_color_1="#f768a3"
-ghostty_palette_color_2="#faaea2"
-ghostty_palette_color_3="#faaea2"
+ghostty_palette_color_2="#a2faa8"
+ghostty_palette_color_3="#f7d668"
 ghostty_palette_color_4="#258fc4"
-ghostty_palette_color_5="#f768a3"
-ghostty_palette_color_6="#258fc4"
+ghostty_palette_color_5="#c368f7"
+ghostty_palette_color_6="#a2faf0"
 ghostty_palette_color_7="#606bac"
 ghostty_palette_color_8="#23255a"
 ghostty_palette_color_9="#f768a3"
-ghostty_palette_color_10="#faaea2"
-ghostty_palette_color_11="#faaea2"
+ghostty_palette_color_10="#a2faa8"
+ghostty_palette_color_11="#f7d668"
 ghostty_palette_color_12="#258fc4"
-ghostty_palette_color_13="#f768a3"
-ghostty_palette_color_14="#258fc4"
+ghostty_palette_color_13="#c368f7"
+ghostty_palette_color_14="#a2faf0"
 ghostty_palette_color_15="#9aaae5"
-ghostty_palette_color_16="#f768a3"
-ghostty_palette_color_17="#f768a3"
+ghostty_palette_color_16="#f78968"
+ghostty_palette_color_17="#b85600"
 ghostty_palette_color_18="#13133a"
 ghostty_palette_color_19="#23255a"
 ghostty_palette_color_20="#4a5293"
@@ -47,7 +47,7 @@ _theme_file() {
 cat <<EOF
 # vim: ft=ghostty
 # eris theme for Ghostty
-# Scheme Author: ed (https://codeberg.org/ed)
+# Scheme Author: ed (https://codeberg.org/ed), Tinted Theming (https://github.com/tinted-theming)
 # Scheme System: base16
 # Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
 

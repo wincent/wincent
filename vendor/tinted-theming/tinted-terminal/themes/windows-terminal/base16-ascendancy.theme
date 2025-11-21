@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Ascendancy",
+	"foreground": "#d5c7a1",
+	"background": "#282828",
+	"black": "#212f3d",
+	"blue": "#458588",
+	"brightBlack": "#504945",
+	"brightBlue": "#458588",
+	"brightCyan": "#8f3f71",
+	"brightGreen": "#b8bb26",
+	"brightPurple": "#fabd2f",
+	"brightRed": "#c03900",
+	"brightWhite": "#fbf1c7",
+	"brightYellow": "#ffcc1b",
+	"cyan": "#8f3f71",
+	"green": "#b8bb26",
+	"purple": "#fabd2f",
+	"red": "#c03900",
+	"white": "#ebdbb2",
+	"yellow": "#fe8019"
+},

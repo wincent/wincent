@@ -2,12 +2,12 @@
 ---
 --- https://github.com/julia-vscode/julia-vscode
 ---
---- LanguageServer.jl can be installed with `julia` and `Pkg`:
+--- LanguageServer.jl, SymbolServer.jl and StaticLint.jl can be installed with `julia` and `Pkg`:
 --- ```sh
---- julia --project=~/.julia/environments/nvim-lspconfig -e 'using Pkg; Pkg.add("LanguageServer")'
+--- julia --project=~/.julia/environments/nvim-lspconfig -e 'using Pkg; Pkg.add("LanguageServer"); Pkg.add("SymbolServer"); Pkg.add("StaticLint")'
 --- ```
 --- where `~/.julia/environments/nvim-lspconfig` is the location where
---- the default configuration expects LanguageServer.jl to be installed.
+--- the default configuration expects LanguageServer.jl, SymbolServer.jl and StaticLint.jl to be installed.
 ---
 --- To update an existing install, use the following command:
 --- ```sh
@@ -36,6 +36,7 @@ local function activate_env(path)
   local function _activate_env(environment)
     if environment then
       for _, julials_client in ipairs(julials_clients) do
+        ---@diagnostic disable-next-line: param-type-mismatch
         julials_client:notify('julia/activateenvironment', { envPath = environment })
       end
       vim.notify('Julia environment activated: \n`' .. environment .. '`', vim.log.levels.INFO)
@@ -89,7 +90,7 @@ local cmd = {
         "environments", "nvim-lspconfig"
     )
     pushfirst!(LOAD_PATH, ls_install_path)
-    using LanguageServer
+    using LanguageServer, SymbolServer, StaticLint
     popfirst!(LOAD_PATH)
     depot_path = get(ENV, "JULIA_DEPOT_PATH", "")
     project_path = let

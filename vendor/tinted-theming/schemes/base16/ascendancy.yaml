@@ -1,0 +1,26 @@
+system: "base16"
+name: "Ascendancy"
+author: "EmergentMind (https://github.com/emergentmind/ascendancy-scheme)"
+description: |
+  The Ascendancy colour scheme aims to provide a comfortable spectrum of
+  background and foreground shades complimented by soft but regal colours. The
+  palette has a small bias towards golden colours without creating a sense of
+  washed out overexposure.
+variant: "dark"
+palette:
+  base00: "#282828"
+  base01: "#212F3D"
+  base02: "#504945"
+  base03: "#928374"
+  base04: "#BDAE93"
+  base05: "#D5C7A1"
+  base06: "#EBDBB2"
+  base07: "#fbf1c7"
+  base08: "#C03900"
+  base09: "#FE8019"
+  base0A: "#FFCC1B"
+  base0B: "#B8BB26"
+  base0C: "#8F3F71"
+  base0D: "#458588"
+  base0E: "#FABD2F"
+  base0F: "#B59B4D"

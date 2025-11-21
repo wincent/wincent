@@ -4,7 +4,7 @@
 (identifier) @variable
 
 ; Reset highlighting in f-string interpolations
-(interpolation) @none
+(interpolation) @none @nospell
 
 ; Identifier naming conventions
 ((identifier) @type
@@ -417,9 +417,17 @@
   function: (attribute
     object: (identifier) @_re)
   arguments: (argument_list
-    .
     (string
       (string_content) @string.regexp))
+  (#eq? @_re "re"))
+
+(call
+  function: (attribute
+    object: (identifier) @_re)
+  arguments: (argument_list
+    (concatenated_string
+      (string
+        (string_content) @string.regexp)))
   (#eq? @_re "re"))
 
 ; Decorators

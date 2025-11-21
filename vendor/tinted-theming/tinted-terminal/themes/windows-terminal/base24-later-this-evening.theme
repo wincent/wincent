@@ -1,22 +1,22 @@
 // Add custom color schemes to the "schemes" array
 {
 	"name": "Later This Evening",
-	"foreground": "#3e3f3f",
+	"foreground": "#a6a6a6",
 	"background": "#212121",
-	"black": "#2b2b2b",
+	"black": "#313131",
 	"blue": "#a0b9d5",
-	"brightBlack": "#444747",
+	"brightBlack": "#4f4f4f",
 	"brightBlue": "#6599d5",
 	"brightCyan": "#5fbfad",
 	"brightGreen": "#aabb39",
 	"brightPurple": "#aa52d5",
 	"brightRed": "#d3222e",
-	"brightWhite": "#c0c2c2",
+	"brightWhite": "#d9d9d9",
 	"brightYellow": "#e4bd39",
 	"cyan": "#91beb6",
 	"green": "#afba66",
 	"purple": "#bf92d5",
 	"red": "#d35a5f",
-	"white": "#3b3c3c",
-	"yellow": "#e5d289"
+	"white": "#bfbfbf",
+	"yellow": "#e5af89"
 },

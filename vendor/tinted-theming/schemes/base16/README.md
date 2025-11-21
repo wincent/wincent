@@ -8,6 +8,7 @@ Have a look at the
 These are the original locations all schemes were imported from.
 
 * [Apprentice](https://github.com/casonadams/base16-apprentice-scheme) maintained by [casonadams](https://github.com/casonadams)
+* [Ascendancy](https://github.com/emergentmind/ascendancy-scheme) maintained by [EmergentMind](https://github.com/emergentmind)
 * [Atelier](https://github.com/atelierbram/base16-atelier-schemes) maintained by [atelierbram](https://github.com/atelierbram)
 * [Atlas](https://github.com/ajlende/base16-atlas-scheme) maintained by [ajlende](https://github.com/ajlende)
 * [Ayu](https://github.com/Z5483/base16-ayu-scheme) maintained by [Z5483](https://github.com/Z5483)

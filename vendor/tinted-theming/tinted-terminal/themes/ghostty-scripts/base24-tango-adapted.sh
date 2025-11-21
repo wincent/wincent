@@ -20,28 +20,28 @@ EOF
 }
 
 
-ghostty_palette_color_0="#fffefe"
+ghostty_palette_color_0="#feffff"
 ghostty_palette_color_1="#ff0000"
 ghostty_palette_color_2="#59d500"
-ghostty_palette_color_3="#88c9ff"
+ghostty_palette_color_3="#efca00"
 ghostty_palette_color_4="#00a1ff"
 ghostty_palette_color_5="#c17ecb"
 ghostty_palette_color_6="#00d0d6"
-ghostty_palette_color_7="#e6eae1"
-ghostty_palette_color_8="#8e928a"
+ghostty_palette_color_7="#323232"
+ghostty_palette_color_8="#dcdcdc"
 ghostty_palette_color_9="#ff0012"
 ghostty_palette_color_10="#93fe00"
 ghostty_palette_color_11="#fff021"
 ghostty_palette_color_12="#88c9ff"
 ghostty_palette_color_13="#e8a6e1"
 ghostty_palette_color_14="#00fdff"
-ghostty_palette_color_15="#f6f6f4"
-ghostty_palette_color_16="#efca00"
+ghostty_palette_color_15="#000000"
+ghostty_palette_color_16="#ef9b00"
 ghostty_palette_color_17="#7f0000"
-ghostty_palette_color_18="#000000"
-ghostty_palette_color_19="#8e928a"
-ghostty_palette_color_20="#babeb5"
-ghostty_palette_color_21="#e6eae1"
+ghostty_palette_color_18="#f1f1f1"
+ghostty_palette_color_19="#dcdcdc"
+ghostty_palette_color_20="#757575"
+ghostty_palette_color_21="#323232"
 
 _theme_file() {
 cat <<EOF

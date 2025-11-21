@@ -1,11 +1,10 @@
 #!/usr/bin/env sh
 
-workspace="$1"
+workspace="${1:-.}"
 supported_schemes_systems="base16 base24"
 
 if [ -z "$workspace" ]; then
-  echo "Missing 'workspace' argument"
-  exit 1
+  echo "Info: Missing 'workspace' argument, using current directory"
 fi
 
 for scheme_system in $supported_schemes_systems; do
@@ -14,22 +13,24 @@ for scheme_system in $supported_schemes_systems; do
 
     case "$scheme_filename" in
       *.yaml)
-        if ! $(grep -q "author" "$scheme_path" \
+        if ! grep -q "author" "$scheme_path" \
           && grep -q "name" "$scheme_path" \
           && grep -q "palette" "$scheme_path" \
           && grep -q "system" "$scheme_path" \
-          && grep -q "variant" "$scheme_path"); then
+          && grep -q "variant" "$scheme_path"; then
 
           echo "Error: Missing one of the required yaml properties (author|name|palette|system|variant) in $scheme_path"
           exit 1
         fi
 
         if ! grep -q "$scheme_system" "$scheme_path"; then
-          echo "Error: Scheme system "$scheme_system" value missing from file"
+          echo "system: $scheme_system"
+          echo "path: $scheme_path"
+          echo "Error: Scheme system \"$scheme_system\" value missing from file"
           exit 1
         fi
 
-        if $(grep -q "base0.: \"[^#]" "$scheme_path"); then
+        if grep -q "base0.: \"[^#]" "$scheme_path"; then
           echo "Error: \"base0x\" palette property must begin with a hash (\"#\") in $scheme_path"
           exit 1
         fi

@@ -64,7 +64,7 @@ describe("snippets_basic", function()
 			ls.expand({
 				jump_into_func = function(snip)
 					izero = snip.insert_nodes[0]
-					require("luasnip.util.util").no_region_check_wrap(izero.jump_into, izero, 1)
+					izero:jump_into(1)
 				end
 			})
 		]])
@@ -1416,6 +1416,7 @@ describe("snippets_basic", function()
 			}
 		]])
 		exec_lua([[ls.lsp_expand("a$1$1a")]])
+		exec_lua("vim.wait(10, function() end)")
 		exec_lua([[ls.lsp_expand("b$1")]])
 		feed("ccc")
 		exec_lua([[ls.active_update_dependents()]])
@@ -1666,4 +1667,19 @@ describe("snippets_basic", function()
 			})
 		end
 	)
+	it("throws error when reusing nodes", function()
+		local ok, err = pcall(
+			exec_lua,
+			[[
+			local i1 = i(1)
+			local snipA = ls.s({trig="asdf"}, {i1})
+			local snipB = ls.s({trig="asdf"}, {i1})
+		]]
+		)
+		assert(not ok, "Throws error")
+		assert(
+			err:match("Node at position 1 is already initialized") ~= nil,
+			"Throws correct error"
+		)
+	end)
 end)

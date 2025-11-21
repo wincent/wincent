@@ -5,10 +5,10 @@
 # Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
 
 # Color palette
-palette = 0=#ff8cd9
+palette = 0=#ff7ad3
 palette = 1=#a80f20
 palette = 2=#bafc8b
-palette = 3=#0074ea
+palette = 3=#eedf4b
 palette = 4=#145fcd
 palette = 5=#ff36a2
 palette = 6=#6bd0bc
@@ -21,7 +21,7 @@ palette = 12=#0074ea
 palette = 13=#fdd5e5
 palette = 14=#79ebd5
 palette = 15=#fff2fd
-palette = 16=#eedf4b
+palette = 16=#eeaa4b
 palette = 17=#540710
 palette = 18=#0c0c0c
 palette = 19=#424242
@@ -29,7 +29,7 @@ palette = 20=#918c91
 palette = 21=#e1d6e0
 
 # Foreground & background colors
-background = #ff8cd9
+background = #ff7ad3
 foreground = #b9b1b8
 cursor-color = #b9b1b8
 selection-background = #424242

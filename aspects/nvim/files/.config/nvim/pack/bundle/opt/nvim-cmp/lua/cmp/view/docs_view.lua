@@ -25,7 +25,8 @@ end
 ---Open documentation window
 ---@param e cmp.Entry
 ---@param view cmp.WindowStyle
-docs_view.open = function(self, e, view)
+---@param bottom_up boolean|nil
+docs_view.open = function(self, e, view, bottom_up)
   local documentation = config.get().window.documentation
   if not documentation then
     return
@@ -68,13 +69,10 @@ docs_view.open = function(self, e, view)
   vim.api.nvim_buf_set_option(self.window:get_buffer(), 'modified', false)
 
   -- Calculate window size.
-  local opts = {
+  local width, height = vim.lsp.util._make_floating_popup_size(vim.api.nvim_buf_get_lines(self.window:get_buffer(), 0, -1, false), {
     max_width = max_width - border_info.horiz,
-  }
-  if documentation.max_height > 0 then
-    opts.max_height = documentation.max_height - border_info.vert
-  end
-  local width, height = vim.lsp.util._make_floating_popup_size(vim.api.nvim_buf_get_lines(self.window:get_buffer(), 0, -1, false), opts)
+    max_height = documentation.max_height - border_info.vert,
+  })
   if width <= 0 or height <= 0 then
     return self:close()
   end
@@ -99,6 +97,8 @@ docs_view.open = function(self, e, view)
     return self:close()
   end
 
+  local row = bottom_up and math.max(view.row - (height + border_info.vert - view.height), 1) or view.row
+
   -- Render window.
   self.window:option('winblend', documentation.winblend)
   self.window:option('winhighlight', documentation.winhighlight)
@@ -108,7 +108,7 @@ docs_view.open = function(self, e, view)
     width = width,
     height = height,
     row = view.row,
-    col = col,
+    col = col + documentation.col_offset,
     border = documentation.border,
     zindex = documentation.zindex or 50,
   }
@@ -116,7 +116,7 @@ docs_view.open = function(self, e, view)
 
   -- Correct left-col for scrollbar existence.
   if left then
-    style.col = style.col - self.window:info().scrollbar_offset
+    style.col = col - self.window:info().scrollbar_offset - documentation.col_offset
     self.window:open(style)
   end
 end

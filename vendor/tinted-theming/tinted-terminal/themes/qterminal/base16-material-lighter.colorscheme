@@ -50,13 +50,13 @@ Color=57,173,181
 Color=128,203,196
 
 [Color7Intense]
-Color=255,255,255
+Color=0,0,0
 
 [Foreground]
 Color=128,203,196
 
 [ForegroundIntense]
-Color=255,255,255
+Color=0,0,0
 
 [General]
 Blur=true

@@ -9,15 +9,17 @@ See more details in [Features](#features) and [Documentation](doc/mini-extra.txt
 > [!NOTE]
 > This was previously hosted at a personal `echasnovski` GitHub account. It was transferred to a dedicated organization to improve long term project stability. See more details [here](https://github.com/nvim-mini/mini.nvim/discussions/1970).
 
-⦿ This is a part of [mini.nvim](https://github.com/nvim-mini/mini.nvim) library. Please use [this link](https://github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-extra.md) if you want to mention this module.
+⦿ This is a part of [mini.nvim](https://nvim-mini.org/mini.nvim) library. Please use [this link](https://nvim-mini.org/mini.nvim/readmes/mini-extra) if you want to mention this module.
 
 ⦿ All contributions (issues, pull requests, discussions, etc.) are done inside of 'mini.nvim'.
 
-⦿ See the repository page to learn about common design principles and configuration recipes.
+⦿ See [whole library documentation](https://nvim-mini.org/mini.nvim/doc/mini-nvim) to learn about general design principles, disable/configuration recipes, and more.
+
+⦿ See [MiniMax](https://nvim-mini.org/MiniMax) for a full config example that uses this module.
 
 ---
 
-If you want to help this project grow but don't know where to start, check out [contributing guides of 'mini.nvim'](https://github.com/nvim-mini/mini.nvim/blob/main/CONTRIBUTING.md) or leave a Github star for 'mini.nvim' project and/or any its standalone Git repositories.
+If you want to help this project grow but don't know where to start, check out [contributing guides of 'mini.nvim'](https://nvim-mini.org/mini.nvim/CONTRIBUTING) or leave a Github star for 'mini.nvim' project and/or any its standalone Git repositories.
 
 ## Demo
 
@@ -30,7 +32,7 @@ Extra useful functionality which is not essential enough for other 'mini.nvim' m
 
 Features:
 
-- Various pickers for ['mini.pick'](https://github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-pick.md):
+- Various pickers for ['mini.pick'](https://nvim-mini.org/mini.nvim/readmes/mini-pick):
     - Built-in diagnostic (`MiniExtra.pickers.diagnostic()`).
     - File explorer (`MiniExtra.pickers.explorer()`).
     - Git branches/commits/files/hunks (`MiniExtra.pickers.git_hunks()`, etc.).
@@ -40,9 +42,9 @@ Features:
     - **And much more**.
   See `:h MiniExtra.pickers` for more.
 
-- Various textobject specifications for ['mini.ai'](https://github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-ai.md). See `:h MiniExtra.gen_ai_spec`.
+- Various textobject specifications for ['mini.ai'](https://nvim-mini.org/mini.nvim/readmes/mini-ai). See `:h MiniExtra.gen_ai_spec`.
 
-- Various highlighters for ['mini.hipatterns'](https://github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-hipatterns.md). See `:h MiniExtra.gen_highlighter`.
+- Various highlighters for ['mini.hipatterns'](https://nvim-mini.org/mini.nvim/readmes/mini-hipatterns). See `:h MiniExtra.gen_highlighter`.
 
 Notes:
 
@@ -66,7 +68,7 @@ There are two branches to install from:
 Here are code snippets for some common installation methods (use only one):
 
 <details>
-<summary>With <a href="https://github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-deps.md">mini.deps</a></summary>
+<summary>With <a href="https://nvim-mini.org/mini.nvim/readmes/mini-deps">mini.deps</a></summary>
 
 - 'mini.nvim' library:
 

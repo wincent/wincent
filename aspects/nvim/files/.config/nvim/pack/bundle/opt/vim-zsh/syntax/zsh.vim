@@ -333,7 +333,7 @@ hi def link zshKeyword          Keyword
 hi def link zshFunction         None
 hi def link zshKSHFunction      zshFunction
 hi def link zshHereDoc          String
-hi def link zshOperator         None
+hi def link zshOperator         Operator
 hi def link zshRedir            Operator
 hi def link zshVariable         None
 hi def link zshVariableDef      zshVariable

@@ -16,7 +16,7 @@
     <value name="ColorTable00" type="dword" data="00423937"/> <!-- base01 - Black -->
     <value name="ColorTable01" type="dword" data="004956e4"/> <!-- base08 - Red -->
     <value name="ColorTable02" type="dword" data="004fa14f"/> <!-- base0B - Green -->
-    <value name="ColorTable03" type="dword" data="00efaf61"/> <!-- base0A - Yellow -->
+    <value name="ColorTable03" type="dword" data="0000aac0"/> <!-- base0A - Yellow -->
     <value name="ColorTable04" type="dword" data="00bc8400"/> <!-- base0D - Blue -->
     <value name="ColorTable05" type="dword" data="00a425a6"/> <!-- base0E - Magenta -->
     <value name="ColorTable06" type="dword" data="00b39609"/> <!-- base0C - Cyan -->

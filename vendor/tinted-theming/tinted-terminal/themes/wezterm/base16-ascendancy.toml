@@ -1,0 +1,43 @@
+# base16 Ascendancy
+# Scheme author: EmergentMind (https://github.com/emergentmind/ascendancy-scheme)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#282828"
+foreground = "#d5c7a1"
+
+cursor_bg = "#d5c7a1"
+cursor_border = "#d5c7a1"
+cursor_fg = "#282828"
+
+selection_bg = "#d5c7a1"
+selection_fg = "#504945"
+
+ansi = [
+  "#282828",
+  "#c03900",
+  "#b8bb26",
+  "#ffcc1b",
+  "#458588",
+  "#fabd2f",
+  "#8f3f71",
+  "#ebdbb2"
+]
+brights = [
+  "#504945",
+  "#c03900",
+  "#b8bb26",
+  "#ffcc1b",
+  "#458588",
+  "#fabd2f",
+  "#8f3f71",
+  "#fbf1c7"
+]
+
+[colors.indexed]
+16 = "#fe8019"
+17 = "#b59b4d"
+18 = "#212f3d"
+19 = "#504945"
+20 = "#bdae93"
+21 = "#d5c7a1"

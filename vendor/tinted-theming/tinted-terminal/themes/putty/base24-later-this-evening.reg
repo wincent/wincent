@@ -8,12 +8,12 @@ Windows Registry Editor Version 5.00
 [HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base24-later-this-evening]
 
 ; Default Foreground
-; base05 #3e3f3f
-"Colour0"="62,63,63"
+; base05 #a6a6a6
+"Colour0"="166,166,166"
 
 ; Default Bold Foreground  -- equals to non-bold
-; base05 #3e3f3f
-"Colour1"="62,63,63"
+; base05 #a6a6a6
+"Colour1"="166,166,166"
 
 ; Default Background
 ; base00 #212121
@@ -28,18 +28,18 @@ Windows Registry Editor Version 5.00
 "Colour4"="33,33,33"
 
 ; Cursor Colour -- equals to default foreground
-; base05 #3e3f3f
-"Colour5"="62,63,63"
+; base05 #a6a6a6
+"Colour5"="166,166,166"
 
 ; ANSI Black
 ; 30m
-; base01 #2b2b2b
-"Colour6"="43,43,43"
+; base01 #313131
+"Colour6"="49,49,49"
 
 ; ANSI Black Bright
 ; 1;30m
-; base02 #444747
-"Colour7"="68,71,71"
+; base02 #4f4f4f
+"Colour7"="79,79,79"
 
 ; ANSI Red
 ; 31m
@@ -63,8 +63,8 @@ Windows Registry Editor Version 5.00
 
 ; ANSI Yellow
 ; 33m
-; base0A #6599d5
-"Colour12"="101,153,213"
+; base0A #e5d289
+"Colour12"="229,210,137"
 
 ; ANSI Yellow Bright
 ; 1;33m
@@ -103,10 +103,10 @@ Windows Registry Editor Version 5.00
 
 ; ANSI White
 ; 37m
-; base06 #3b3c3c
-"Colour20"="59,60,60"
+; base06 #bfbfbf
+"Colour20"="191,191,191"
 
 ; ANSI White Bright
 ; 1;37m
-; base07 c0c2c2
-"Colour21"="192,194,194"
+; base07 d9d9d9
+"Colour21"="217,217,217"

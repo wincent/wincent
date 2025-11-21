@@ -3,8 +3,8 @@
 # Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
 [Scheme]
 Name=base24-tango-adapted
-ColorForeground=#d0d4cb
-ColorBackground=#fffefe
+ColorForeground=#4f4f4f
+ColorBackground=#feffff
 ColorCursor=x
 ColorBoldIsBright=FALSE
-ColorPalette=#000000;#ff0000;#59d500;#88c9ff;#00a1ff;#c17ecb;#00d0d6;#e6eae1;#8e928a;#ff0012;#93fe00;#fff021;#88c9ff;#e8a6e1;#00fdff;#f6f6f4
+ColorPalette=#f1f1f1;#ff0000;#59d500;#efca00;#00a1ff;#c17ecb;#00d0d6;#323232;#dcdcdc;#ff0012;#93fe00;#fff021;#88c9ff;#e8a6e1;#00fdff;#000000

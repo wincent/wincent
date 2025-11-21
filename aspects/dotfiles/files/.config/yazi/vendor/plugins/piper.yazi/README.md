@@ -17,8 +17,8 @@ It accepts a string parameter, which is the shell command to be executed, for ex
 ```toml
 # ~/.config/yazi/yazi.toml
 [[plugin.prepend_previewers]]
-name = "*"
-run  = 'piper -- echo "$1"'
+url = "*"
+run = 'piper -- echo "$1"'
 ```
 
 This will set `piper` as the previewer for all file types and use `$1` (file path) as the preview content.
@@ -39,8 +39,8 @@ Here are some configuration examples:
 
 ```toml
 [[plugin.prepend_previewers]]
-name = "*.tar*"
-run  = 'piper --format=url -- tar tf "$1"'
+url = "*.tar*"
+run = 'piper --format=url -- tar tf "$1"'
 ```
 
 In this example, `--format=url` tells `piper` to parse the `tar` output as file URLs, so you'll be able to get a list of files with icons.
@@ -49,8 +49,8 @@ In this example, `--format=url` tells `piper` to parse the `tar` output as file 
 
 ```toml
 [[plugin.prepend_previewers]]
-name = "*.csv"
-run  = 'piper -- bat -p --color=always "$1"'
+url = "*.csv"
+run = 'piper -- bat -p --color=always "$1"'
 ```
 
 Note that certain distributions might use a different name for `bat`, like Debian and Ubuntu uses `batcat` instead, so please adjust accordingly.
@@ -59,8 +59,8 @@ Note that certain distributions might use a different name for `bat`, like Debia
 
 ```toml
 [[plugin.prepend_previewers]]
-name = "*.md"
-run  = 'piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark "$1"'
+url = "*.md"
+run = 'piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark "$1"'
 ```
 
 Note that there's [a bug in Glow v2.0](https://github.com/charmbracelet/glow/issues/440#issuecomment-2307992634) that causes slight color differences between tty and non-tty environments.
@@ -69,8 +69,8 @@ Note that there's [a bug in Glow v2.0](https://github.com/charmbracelet/glow/iss
 
 ```toml
 [[plugin.prepend_previewers]]
-name = "*/"
-run  = 'piper -- eza -TL=3 --color=always --icons=always --group-directories-first --no-quotes "$1"'
+url = "*/"
+run = 'piper -- eza -TL=3 --color=always --icons=always --group-directories-first --no-quotes "$1"'
 ```
 
 ### Use [`hexyl`](https://github.com/sharkdp/hexyl) as fallback previewer
@@ -81,8 +81,8 @@ This example uses `hexyl` as a fallback previewer instead of `file`.
 
 ```toml
 [[plugin.append_previewers]]
-name = "*"
-run  = 'piper -- hexyl --border=none --terminal-width=$w "$1"'
+url = "*"
+run = 'piper -- hexyl --border=none --terminal-width=$w "$1"'
 ```
 
 ## License

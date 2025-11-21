@@ -5,14 +5,14 @@
 *)
 tell application "iTerm2"
     tell current session of current window
-        set background color to {65535, 35980, 55769}
+        set background color to {65535, 31354, 54227}
         set foreground color to {47545, 45489, 47288}
 
         -- Set ANSI Colors
         set ANSI black color to {3084, 3084, 3084}
         set ANSI red color to {43176, 3855, 8224}
         set ANSI green color to {47802, 64764, 35723}
-        set ANSI yellow color to {0, 29812, 60138}
+        set ANSI yellow color to {61166, 57311, 19275}
         set ANSI blue color to {5140, 24415, 52685}
         set ANSI magenta color to {65535, 13878, 41634}
         set ANSI cyan color to {27499, 53456, 48316}

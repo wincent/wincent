@@ -12,7 +12,7 @@ Expect ledger:
     Cash
 
 Execute (align buffer on commodity):
-  let g:ledger_align_commodity = 1
+  let b:ledger_align_commodity = 1
   LedgerAlignBuffer
 
 Expect ledger:
@@ -21,8 +21,8 @@ Expect ledger:
     Cash
 
 Execute (change default alignment):
-  let g:ledger_align_commodity = 0
-  let g:ledger_align_at = 40
+  let b:ledger_align_commodity = 0
+  let b:ledger_align_at = 40
   LedgerAlignBuffer
 
 Expect ledger:

@@ -3,9 +3,9 @@
 	"name": "Monokai Vivid",
 	"foreground": "#dfdfdf",
 	"background": "#121212",
-	"black": "#121212",
+	"black": "#323232",
 	"blue": "#0442fe",
-	"brightBlack": "#828282",
+	"brightBlack": "#424242",
 	"brightBlue": "#0442fe",
 	"brightCyan": "#50cdfe",
 	"brightGreen": "#b0e05e",
@@ -17,6 +17,6 @@
 	"green": "#97e123",
 	"purple": "#f800f8",
 	"red": "#fa2834",
-	"white": "#fffefe",
-	"yellow": "#fef20a"
+	"white": "#f1f1f1",
+	"yellow": "#fec50a"
 },

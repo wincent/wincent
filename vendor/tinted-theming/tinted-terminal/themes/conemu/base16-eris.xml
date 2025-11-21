@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
     base16 eris
-    Scheme author: ed (https://codeberg.org/ed)
+    Scheme author: ed (https://codeberg.org/ed), Tinted Theming (https://github.com/tinted-theming)
     Template author: Tinted Theming (https://github.com/tinted-theming)
     semanticClass: theme.base16.eris
 -->
@@ -15,22 +15,22 @@
     <value name="PopBackColorIdx" type="hex" data="10"/>
     <value name="ColorTable00" type="dword" data="003a1313"/> <!-- base01 - Black -->
     <value name="ColorTable01" type="dword" data="00a368f7"/> <!-- base08 - Red -->
-    <value name="ColorTable02" type="dword" data="00a2aefa"/> <!-- base0B - Green -->
-    <value name="ColorTable03" type="dword" data="00a2aefa"/> <!-- base0A - Yellow -->
+    <value name="ColorTable02" type="dword" data="00a8faa2"/> <!-- base0B - Green -->
+    <value name="ColorTable03" type="dword" data="0068d6f7"/> <!-- base0A - Yellow -->
     <value name="ColorTable04" type="dword" data="00c48f25"/> <!-- base0D - Blue -->
-    <value name="ColorTable05" type="dword" data="00a368f7"/> <!-- base0E - Magenta -->
-    <value name="ColorTable06" type="dword" data="00c48f25"/> <!-- base0C - Cyan -->
+    <value name="ColorTable05" type="dword" data="00f768c3"/> <!-- base0E - Magenta -->
+    <value name="ColorTable06" type="dword" data="00f0faa2"/> <!-- base0C - Cyan -->
     <value name="ColorTable07" type="dword" data="00c58679"/> <!-- base06 - White -->
     <value name="ColorTable08" type="dword" data="005a2523"/> <!-- base02 - Bright Black -->
     <value name="ColorTable09" type="dword" data="00a368f7"/> <!-- base08 - Bright Red -->
-    <value name="ColorTable10" type="dword" data="00a2aefa"/> <!-- base0B - Bright Green -->
-    <value name="ColorTable11" type="dword" data="00a2aefa"/> <!-- base0A - Bright Yellow -->
+    <value name="ColorTable10" type="dword" data="00a8faa2"/> <!-- base0B - Bright Green -->
+    <value name="ColorTable11" type="dword" data="0068d6f7"/> <!-- base0A - Bright Yellow -->
     <value name="ColorTable12" type="dword" data="00c48f25"/> <!-- base0D - Bright Blue -->
-    <value name="ColorTable13" type="dword" data="00a368f7"/> <!-- base0E - Bright Magenta -->
-    <value name="ColorTable14" type="dword" data="00c48f25"/> <!-- base0C - Bright Cyan -->
+    <value name="ColorTable13" type="dword" data="00f768c3"/> <!-- base0E - Bright Magenta -->
+    <value name="ColorTable14" type="dword" data="00f0faa2"/> <!-- base0C - Bright Cyan -->
     <value name="ColorTable15" type="dword" data="00e5aa9a"/> <!-- base07 - Bright White -->
-    <value name="ColorTable16" type="dword" data="00a368f7"/> <!-- base09 -->
-    <value name="ColorTable17" type="dword" data="00a368f7"/> <!-- base0F -->
+    <value name="ColorTable16" type="dword" data="006889f7"/> <!-- base09 -->
+    <value name="ColorTable17" type="dword" data="000056b8"/> <!-- base0F -->
     <value name="ColorTable18" type="dword" data="003a1313"/> <!-- base01 -->
     <value name="ColorTable19" type="dword" data="005a2523"/> <!-- base02 -->
     <value name="ColorTable20" type="dword" data="0093524a"/> <!-- base04 -->

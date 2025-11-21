@@ -16,7 +16,7 @@ cursor = '0x5e646f'
 black = '0x7c9f4b'
 red = '0xdb7070'
 green = '0x7c9f4b'
-yellow = '0xd69822'
+yellow = '0xebcc1a'
 blue = '0x6587bf'
 magenta = '0xb870ce'
 cyan = '0x509c93'
@@ -27,7 +27,7 @@ white = '0xb870ce'
 black = '0xd69822'
 red = '0xdb7070'
 green = '0x7c9f4b'
-yellow = '0xd69822'
+yellow = '0xebcc1a'
 blue = '0x6587bf'
 magenta = '0xb870ce'
 cyan = '0x509c93'
@@ -35,7 +35,7 @@ white = '0x5e646f'
 
 [[colors.indexed_colors]]
 index = 16
-color = "0xdb7070"
+color = "0xeba31a"
 
 [[colors.indexed_colors]]
 index = 17

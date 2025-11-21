@@ -1,0 +1,58 @@
+# base16 Ascendancy 256 - alacritty color config
+# EmergentMind (https://github.com/emergentmind/ascendancy-scheme)
+
+# Default colors
+[colors.primary]
+background = '0x282828'
+foreground = '0xd5c7a1'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x282828'
+cursor = '0xd5c7a1'
+
+# Normal colors
+[colors.normal]
+black = '0x212f3d'
+red = '0xc03900'
+green = '0xb8bb26'
+yellow = '0xffcc1b'
+blue = '0x458588'
+magenta = '0xfabd2f'
+cyan = '0x8f3f71'
+white = '0xebdbb2'
+
+# Bright colors
+[colors.bright]
+black = '0x504945'
+red = '0xc03900'
+green = '0xb8bb26'
+yellow = '0xffcc1b'
+blue = '0x458588'
+magenta = '0xfabd2f'
+cyan = '0x8f3f71'
+white = '0xfbf1c7'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xfe8019"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xb59b4d"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x212f3d"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x504945"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0xbdae93"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xebdbb2"

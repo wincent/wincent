@@ -1,0 +1,10 @@
+# Scheme name: Ascendancy
+# Scheme author: EmergentMind (https://github.com/emergentmind/ascendancy-scheme)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-ascendancy
+ColorForeground=#d5c7a1
+ColorBackground=#282828
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#212f3d;#c03900;#b8bb26;#ffcc1b;#458588;#fabd2f;#8f3f71;#ebdbb2;#504945;#c03900;#b8bb26;#ffcc1b;#458588;#fabd2f;#8f3f71;#fbf1c7
