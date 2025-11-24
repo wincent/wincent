@@ -3,6 +3,22 @@
 # <%= variables.figManaged %>
 
 [aliases]
+gr = ["log", "-r", "::@ & no_description_set()", "-T", '''
+  commit_id.short() ++
+  " " ++
+  description.first_line() ++
+  if(bookmarks, " (" ++ bookmarks ++ ")") ++
+  " (" ++
+  committer.timestamp().ago() ++
+  ")" ++
+  " <" ++
+  author.name() ++
+  ">" ++
+  "\n"
+''']
+o = ["oneline"]
+oneline = ["gr", "--no-graph"]
+oo = ["oneline", "--limit", "10"]
 tug = ["util", "exec", "--", "sh", "-c", """
 source ~/.config/jj/helpers.sh
 
@@ -24,8 +40,9 @@ fi
 "diff added token" = { underline = false }
 
 [revset-aliases]
+'no_description_set()' = '~description(exact:"")'
 'closest_bookmark(to)' = 'heads(::to & bookmarks())'
-'closest_pushable(to)' = 'heads(::to & mutable() & ~description(exact:"") & (~empty() | merges()))'
+'closest_pushable(to)' = 'heads(::to & mutable() & no_description_set() & (~empty() | merges()))'
 
 [signing]
 <%- if (variables.vcsGpgSign) { -%>
