@@ -36,8 +36,12 @@ backends.gpg.program = "<%= variables.home %>/.zsh/bin/vcs-gpg"
 
 [template-aliases]
 'format_short_change_id(id)' = 'id.shortest()'
+'format_change_id_trailer(commit)' = '"Change-Id: " ++ commit.change_id() ++ "\n"'
 
 [templates]
+commit_trailers = '''
+if(!trailers.contains_key("Change-Id"), format_change_id_trailer(self))
+'''
 draft_commit_description = '''
 concat(
   coalesce(description, default_commit_description, "\n"),
