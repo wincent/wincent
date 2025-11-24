@@ -1,7 +1,7 @@
 import {relative, sep} from 'node:path';
 import * as url from 'node:url';
 
-import {default as root} from './dsl/root.ts';
+import root from './dsl/root.ts';
 import {assertAspect} from './types/Project.ts';
 
 import type {Aspect} from './types/Project.ts';
