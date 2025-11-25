@@ -248,7 +248,9 @@ mkdir -p ~/.config/age
 chmod 0700 !$
 ```
 
-To decrypt, I run `bin/decrypt`, which relies on the `age` executable (ie. it won't work until after the first Homebrew run, or a `brew install age`).
+To decrypt, I run `bin/decrypt`, which relies on the `age` executable (ie. it won't work until after the first Homebrew run, or a `brew install age`). The plaintext versions corresponding to these encrypted files are listed in `.gitignore`.
+
+In my Neovim config, I have an autocmd that runs `bin/encrypt` automatically anytime I save a new version of the plaintext corresponding to an encrypted file. Committing the changes to the repo is done manually, as it would be for any other file.
 
 ### Running Neovim nightly
 
