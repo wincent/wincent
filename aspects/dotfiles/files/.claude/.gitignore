@@ -1,5 +1,6 @@
 __store.db
 /local
+/plans
 /projects
 /shell-snapshots
 /statsig
