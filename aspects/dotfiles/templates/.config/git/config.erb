@@ -24,6 +24,9 @@
 		git diff \"$@\" | delta; \
 	}; f"
 
+	# "difftastic" (uses difftastic for formatting patches).
+	difft = -c diff.external=difft diff
+
 	# http://stackoverflow.com/questions/224687/git-find-duplicate-blobs-files-in-this-tree/8408640#8408640
 	dupes = !"f() { \
 		git ls-tree -r HEAD --format='%(objecttype)%x09%(path)%x09%(objectname)' | \
@@ -75,6 +78,9 @@
 		fi; \
 	}; f"
 
+	# "logtastic" (uses difftastic for formatting patches).
+	logt = -c diff.external=difft log --ext-diff
+
 	# Counterpart to `abbrev`.
 	long = !bash -c 'git rev-parse ${1-`echo HEAD`}' -
 
@@ -119,6 +125,9 @@
 
 	# Requires Git 1.6.2 or later.
 	rollback = !bash -c 'git reset --merge HEAD~${1-1}' -
+
+	# "showtastic" (uses difftastic for formatting patches).
+	showt = -c diff.external=difft show --ext-diff
 
 	# "smartlog", although it's not that smart.
 	# Equivalent to `git graph --all --simplify-by-decoration`.
