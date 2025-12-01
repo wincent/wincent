@@ -732,7 +732,6 @@ mouse_map <%= variables.kittyAlt %>+shift+left press grabbed discard_event
 
 #: Performance tuning {{{
 
-repaint_delay 2
 # repaint_delay 10
 
 #: Delay between screen updates (in milliseconds). Decreasing it,
@@ -743,7 +742,6 @@ repaint_delay 2
 #: refresh rate. Also, to minimize latency when there is pending input
 #: to be processed, this option is ignored.
 
-input_delay 0
 # input_delay 3
 
 #: Delay before input from the program running in the terminal is
@@ -753,7 +751,7 @@ input_delay 0
 #: because kitty is so fast that partial screen updates will be drawn.
 #: This setting is ignored when the input buffer is almost full.
 
-sync_to_monitor no
+# sync_to_monitor yes
 
 #: Sync screen updates to the refresh rate of the monitor. This
 #: prevents screen tearing
