@@ -56,6 +56,7 @@
       ".config/git/config.erb",
       ".config/jj/config.toml.erb",
       ".config/kitty/kitty.conf.erb",
+      ".docker/config.json.erb",
       ".fehbg",
       ".gnupg/gpg-agent.conf.erb",
       ".zsh/bin/asdf.erb",

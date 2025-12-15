@@ -3,12 +3,14 @@ import getAspectFromCallers from '../getAspectFromCallers.ts';
 import getCallers from '../getCallers.ts';
 import {assertAspect} from '../types/Project.ts';
 
+import type {VariablesCallback} from '../VariableRegistry.ts';
+
 /**
  * Register a callback to dynamically contribute variables when an aspect is
  * running (useful for values that cannot be determined statically ahead of time
  * and stored in JSON).
  */
-export default function variables(callback: (v: Variables) => Variables) {
+export default function variables(callback: VariablesCallback): void {
   const aspect = getAspectFromCallers(getCallers());
   assertAspect(aspect);
   Context.variables.registerVariablesCallback(aspect, callback);

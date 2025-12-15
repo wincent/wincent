@@ -14,8 +14,10 @@
 /aspects/dotfiles/files/.config/git/host/latina
 /aspects/dotfiles/files/.config/jj/config.toml
 /aspects/dotfiles/files/.config/kitty/kitty.conf
-/aspects/dotfiles/files/.docker
-!/aspects/dotfiles/files/.docker/config.json
+/aspects/dotfiles/files/.docker/*
+!/aspects/dotfiles/files/.docker/config-base.json
+!/aspects/dotfiles/files/.docker/host
+/aspects/dotfiles/files/.docker/host/comp-ktw7q4c5jh.json
 /aspects/dotfiles/files/.irssi/config
 /aspects/dotfiles/files/.npmrc
 /aspects/dotfiles/files/.pypirc

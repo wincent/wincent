@@ -1,3 +1,6 @@
+import * as fs from 'fig/fs.ts';
+import merge from 'fig/merge.ts';
+
 import {
   backup,
   command,
@@ -16,8 +19,35 @@ import {
 
 const {when} = helpers;
 
-variables(({hostHandle, identity, platform, profile}) => {
+variables(async ({hostHandle, identity, platform, profile}) => {
+  // Docker doesn't support "include" files, so roll our own by
+  // merging host-specific config (if present) into base config.
+  const dockerBase = JSON.parse(
+    await fs.promises.readFile(
+      resource.file('.docker/config-base.json'),
+      'utf8',
+    ),
+  );
+  const dockerHostSpecific = resource.file(
+    '.docker/host',
+    `${hostHandle}.json`,
+  );
+  const dockerConfig = fs.existsSync(dockerHostSpecific)
+    ? JSON.stringify(
+      merge(
+        dockerBase,
+        JSON.parse(
+          await fs.promises.readFile(dockerHostSpecific, 'utf8'),
+        ),
+      ),
+      null,
+      2,
+    )
+    : dockerBase;
+
   return {
+    dockerConfig,
+
     // This one is because Kitty defines these names to be the same:
     //
     // - "alt", "opt", "option", "⌥" (ie. the small modifier key next to Control)

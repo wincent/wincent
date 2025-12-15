@@ -213,7 +213,7 @@ async function main() {
 
         const variables = merge(
           mergedVariables,
-          Context.variables.getVariablesCallback(aspect)(mergedVariables),
+          await Context.variables.getVariablesCallback(aspect)(mergedVariables),
         );
 
         await log.debug(`Variables:\n\n${stringify(variables)}\n`);

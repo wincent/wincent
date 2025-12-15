@@ -2,7 +2,9 @@ import * as assert from 'node:assert';
 
 import type {Aspect} from './types/Project.ts';
 
-type Callback = (variables: Variables) => Variables;
+export type VariablesCallback = (
+  variables: Variables,
+) => Variables | Promise<Variables>;
 
 /**
  * Manages variables within the precedence system laid out in "fig/README.md";
@@ -35,7 +37,7 @@ type Callback = (variables: Variables) => Variables;
  *   of all variables with a simple `Context.currentVariables` access.
  */
 export default class VariableRegistry {
-  #callbacks: Map<Aspect, Callback>;
+  #callbacks: Map<Aspect, VariablesCallback>;
   #globals?: Variables;
   #variables: Map<Aspect, Variables>;
 
@@ -66,7 +68,7 @@ export default class VariableRegistry {
    * Returns the optional `variables()` callback registered for this aspect, or
    * a no-op fallback if one was not provided.
    */
-  getVariablesCallback(aspect: Aspect): Callback {
+  getVariablesCallback(aspect: Aspect): VariablesCallback {
     return this.#callbacks.get(aspect) || (() => ({}));
   }
 
@@ -94,7 +96,7 @@ export default class VariableRegistry {
    * Registers the provided `variables()` callback for the given aspect, used to
    * derive additional or final values prior to task execution.
    */
-  registerVariablesCallback(aspect: Aspect, callback: Callback) {
+  registerVariablesCallback(aspect: Aspect, callback: VariablesCallback) {
     if (this.#callbacks.has(aspect)) {
       // We throw here because `variables()` is supposed to be called at most
       // once per aspect.

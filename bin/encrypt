@@ -26,13 +26,14 @@ ITEMS[3]=aspects/dotfiles/files/.claude/host/comp-ktw7q4c5jh.md
 ITEMS[4]=aspects/dotfiles/files/.config/git/handles.jsonc
 ITEMS[5]=aspects/dotfiles/files/.config/git/host/comp-ktw7q4c5jh
 ITEMS[6]=aspects/dotfiles/files/.config/git/host/latina
-ITEMS[7]=aspects/dotfiles/files/.irssi/config
-ITEMS[8]=aspects/dotfiles/files/.npmrc
-ITEMS[9]=aspects/dotfiles/files/.pypirc
-ITEMS[10]=aspects/dotfiles/files/.zsh/exports.private
-ITEMS[11]=aspects/dotfiles/files/.zsh/hash.private
-ITEMS[12]=aspects/dotfiles/files/.zsh/host/comp-ktw7q4c5jh
-ITEMS[13]=aspects/ssh/templates/.ssh/config.erb
+ITEMS[7]=aspects/dotfiles/files/.docker/host/comp-ktw7q4c5jh.json
+ITEMS[8]=aspects/dotfiles/files/.irssi/config
+ITEMS[9]=aspects/dotfiles/files/.npmrc
+ITEMS[10]=aspects/dotfiles/files/.pypirc
+ITEMS[11]=aspects/dotfiles/files/.zsh/exports.private
+ITEMS[12]=aspects/dotfiles/files/.zsh/hash.private
+ITEMS[13]=aspects/dotfiles/files/.zsh/host/comp-ktw7q4c5jh
+ITEMS[14]=aspects/ssh/templates/.ssh/config.erb
 
 decrypt() {
   local PLAINTEXT=$1
