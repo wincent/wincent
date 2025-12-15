@@ -203,7 +203,7 @@ At the time of writing, these are the aspects, which you can expect to change ov
 - On both macOS and Linux:
   - **dotfiles**: Creates symlinks in \$HOME to the dotfiles in this repo
   - **meta**: Tests the configuration framework
-  - **shell**: Sets the use shell to zsh
+  - **shell**: Sets the user shell to zsh
   - **nvim**: Configures Neovim and Vim
 
 #### Examples
