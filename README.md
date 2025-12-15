@@ -252,6 +252,13 @@ To decrypt, I run `bin/decrypt`, which relies on the `age` executable (ie. it wo
 
 In my Neovim config, I have an autocmd that runs `bin/encrypt` automatically anytime I save a new version of the plaintext corresponding to an encrypted file. Committing the changes to the repo is done manually, as it would be for any other file.
 
+To add a new encrypted file:
+
+1. Add the path to the plain-text (unencrypted) file to the list of files in `bin/encrypt`
+2. Run `bin/encrypt`.
+3. Verify that the path to the plain-text (unencrypted) file got added to the top-level `.gitignore`, and a new ciphertext (encrypted) file exists in the worktree.
+4. Commit the ciphertext file.
+
 ### Running Neovim nightly
 
 Occasionally I need to switch to [a nightly release of Neovim](https://github.com/neovim/neovim/releases) in order to get access to unreleased features. I do this by installing a copy of the nightly under `vendor/`; for example, on macOS:
