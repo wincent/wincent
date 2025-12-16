@@ -54,5 +54,6 @@
       }
     ]
   },
-  "alwaysThinkingEnabled": true
+  "alwaysThinkingEnabled": true,
+  "cleanupPeriodDays": 99999
 }
