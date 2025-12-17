@@ -1,0 +1,10 @@
+# Scheme name: Tokyo Night Moon
+# Scheme author: Michaël Ball, based on Tokyo Night by enkia (https://github.com/enkia/tokyo-night-vscode-theme)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-tokyo-night-moon
+ColorForeground=#c8d3f5
+ColorBackground=#222436
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#1e2030;#c099ff;#c3e88d;#ffc777;#82aaff;#fca7ea;#86e1fc;#b4c2f0;#2f334d;#ff757f;#c3e88d;#ffd793;#82aaff;#fca7ea;#86e1fc;#c8d3f5

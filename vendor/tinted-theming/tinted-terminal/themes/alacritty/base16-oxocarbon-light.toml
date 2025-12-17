@@ -1,37 +1,37 @@
 # base16 Oxocarbon Light 256 - alacritty color config
-# shaunsingh/IBM
+# shaunsingh/IBM, Tinted Theming (https://github.com/tinted-theming)
 
 # Default colors
 [colors.primary]
 background = '0xf2f4f8'
-foreground = '0x393939'
+foreground = '0x525f70'
 
 # Colors the cursor will use if `custom_cursor_colors` is true
 [colors.cursor]
 text = '0xf2f4f8'
-cursor = '0x393939'
+cursor = '0x525f70'
 
 # Normal colors
 [colors.normal]
 black = '0xdde1e6'
 red = '0xff7eb6'
-green = '0x0f62fe'
+green = '0x42be65'
 yellow = '0xff6f00'
-blue = '0x42be65'
+blue = '0x0f62fe'
 magenta = '0xbe95ff'
 cyan = '0x673ab7'
-white = '0x525252'
+white = '0x3d4652'
 
 # Bright colors
 [colors.bright]
-black = '0x525252'
+black = '0xbec6cf'
 red = '0xff7eb6'
-green = '0x0f62fe'
+green = '0x42be65'
 yellow = '0xff6f00'
-blue = '0x42be65'
+blue = '0x0f62fe'
 magenta = '0xbe95ff'
 cyan = '0x673ab7'
-white = '0x08bdba'
+white = '0x272d35'
 
 [[colors.indexed_colors]]
 index = 16
@@ -39,7 +39,7 @@ color = "0xee5396"
 
 [[colors.indexed_colors]]
 index = 17
-color = "0x37474f"
+color = "0x803800"
 
 [[colors.indexed_colors]]
 index = 18
@@ -47,12 +47,12 @@ color = "0xdde1e6"
 
 [[colors.indexed_colors]]
 index = 19
-color = "0x525252"
+color = "0xbec6cf"
 
 [[colors.indexed_colors]]
 index = 20
-color = "0x262626"
+color = "0x68788d"
 
 [[colors.indexed_colors]]
 index = 21
-color = "0x525252"
+color = "0x3d4652"

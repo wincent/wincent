@@ -21,22 +21,22 @@ EOF
 
 
 ghostty_palette_color_0="#161616"
-ghostty_palette_color_1="#3ddbd9"
-ghostty_palette_color_2="#33b1ff"
-ghostty_palette_color_3="#ee5396"
-ghostty_palette_color_4="#42be65"
+ghostty_palette_color_1="#ee5396"
+ghostty_palette_color_2="#42be65"
+ghostty_palette_color_3="#ff6f00"
+ghostty_palette_color_4="#33b1ff"
 ghostty_palette_color_5="#be95ff"
-ghostty_palette_color_6="#ff7eb6"
+ghostty_palette_color_6="#3ddbd9"
 ghostty_palette_color_7="#f2f4f8"
 ghostty_palette_color_8="#393939"
-ghostty_palette_color_9="#3ddbd9"
-ghostty_palette_color_10="#33b1ff"
-ghostty_palette_color_11="#ee5396"
-ghostty_palette_color_12="#42be65"
+ghostty_palette_color_9="#ee5396"
+ghostty_palette_color_10="#42be65"
+ghostty_palette_color_11="#ff6f00"
+ghostty_palette_color_12="#33b1ff"
 ghostty_palette_color_13="#be95ff"
-ghostty_palette_color_14="#ff7eb6"
+ghostty_palette_color_14="#3ddbd9"
 ghostty_palette_color_15="#08bdba"
-ghostty_palette_color_16="#78a9ff"
+ghostty_palette_color_16="#ff7eb6"
 ghostty_palette_color_17="#82cfff"
 ghostty_palette_color_18="#262626"
 ghostty_palette_color_19="#393939"
@@ -47,7 +47,7 @@ _theme_file() {
 cat <<EOF
 # vim: ft=ghostty
 # Oxocarbon Dark theme for Ghostty
-# Scheme Author: shaunsingh/IBM
+# Scheme Author: shaunsingh/IBM, Tinted Theming (https://github.com/tinted-theming)
 # Scheme System: base16
 # Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
 

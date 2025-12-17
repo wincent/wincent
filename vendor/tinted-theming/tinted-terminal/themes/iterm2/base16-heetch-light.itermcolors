@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
     base16 Heetch Light
-    Scheme author: Geoffrey Teale (tealeg@gmail.com)
+    Scheme author: Geoffrey Teale (tealeg@gmail.com), Tinted Theming (https://github.com/tinted-theming)
     Template author: Tinted Theming (https://github.com/tinted-theming)
     semanticClass: theme.base16.heetch-light
 -->
@@ -13,46 +13,68 @@
 		<key>Color Space</key>
 		<string>sRGB</string>
 		<key>Blue Component</key>
-		<real>0.31764706</real>
+		<real>0.88627451</real>
 		<key>Green Component</key>
-		<real>0.14509804</real>
+		<real>0.85490196</real>
 		<key>Red Component</key>
-		<real>0.22352941</real>
+		<real>0.87058824</real>
 	</dict>
 	<key>Ansi 1 Color</key>
 	<dict>
 		<key>Color Space</key>
 		<string>sRGB</string>
 		<key>Blue Component</key>
-		<real>0.83529412</real>
+		<real>0.34901961</real>
 		<key>Green Component</key>
-		<real>0.85098039</real>
+		<real>0.00000000</real>
 		<key>Red Component</key>
-		<real>0.15294118</real>
+		<real>0.97254902</real>
 	</dict>
 	<key>Ansi 2 Color</key>
 	<dict>
 		<key>Color Space</key>
 		<string>sRGB</string>
 		<key>Blue Component</key>
-		<real>0.34901961</real>
+		<real>0.41568627</real>
 		<key>Green Component</key>
-		<real>0.00000000</real>
+		<real>0.71372549</real>
 		<key>Red Component</key>
-		<real>0.97254902</real>
+		<real>0.35686275</real>
 	</dict>
 	<key>Ansi 3 Color</key>
 	<dict>
 		<key>Color Space</key>
 		<string>sRGB</string>
 		<key>Blue Component</key>
+		<real>0.00392157</real>
+		<key>Green Component</key>
+		<real>0.59215686</real>
+		<key>Red Component</key>
+		<real>0.74117647</real>
+	</dict>
+	<key>Ansi 4 Color</key>
+	<dict>
+		<key>Color Space</key>
+		<string>sRGB</string>
+		<key>Blue Component</key>
 		<real>0.71372549</real>
 		<key>Green Component</key>
 		<real>0.63529412</real>
 		<key>Red Component</key>
 		<real>0.35686275</real>
 	</dict>
-	<key>Ansi 4 Color</key>
+	<key>Ansi 5 Color</key>
+	<dict>
+		<key>Color Space</key>
+		<string>sRGB</string>
+		<key>Blue Component</key>
+		<real>0.59215686</real>
+		<key>Green Component</key>
+		<real>0.42352941</real>
+		<key>Red Component</key>
+		<real>0.56078431</real>
+	</dict>
+	<key>Ansi 6 Color</key>
 	<dict>
 		<key>Color Space</key>
 		<string>sRGB</string>
@@ -63,62 +85,29 @@
 		<key>Red Component</key>
 		<real>0.27843137</real>
 	</dict>
-	<key>Ansi 5 Color</key>
-	<dict>
-		<key>Color Space</key>
-		<string>sRGB</string>
-		<key>Blue Component</key>
-		<real>0.32156863</real>
-		<key>Green Component</key>
-		<real>0.00392157</real>
-		<key>Red Component</key>
-		<real>0.74117647</real>
-	</dict>
-	<key>Ansi 6 Color</key>
-	<dict>
-		<key>Color Space</key>
-		<string>sRGB</string>
-		<key>Blue Component</key>
-		<real>0.47058824</real>
-		<key>Green Component</key>
-		<real>0.21176471</real>
-		<key>Red Component</key>
-		<real>0.76470588</real>
-	</dict>
 	<key>Ansi 7 Color</key>
 	<dict>
 		<key>Color Space</key>
 		<string>sRGB</string>
 		<key>Blue Component</key>
-		<real>0.27450980</real>
+		<real>0.31764706</real>
 		<key>Green Component</key>
-		<real>0.01960784</real>
+		<real>0.14509804</real>
 		<key>Red Component</key>
-		<real>0.27843137</real>
+		<real>0.22352941</real>
 	</dict>
 	<key>Ansi 8 Color</key>
 	<dict>
 		<key>Color Space</key>
 		<string>sRGB</string>
 		<key>Blue Component</key>
-		<real>0.54509804</real>
+		<real>0.77254902</real>
 		<key>Green Component</key>
-		<real>0.42745098</real>
+		<real>0.71372549</real>
 		<key>Red Component</key>
-		<real>0.48235294</real>
+		<real>0.74117647</real>
 	</dict>
 	<key>Ansi 9 Color</key>
-	<dict>
-		<key>Color Space</key>
-		<string>sRGB</string>
-		<key>Blue Component</key>
-		<real>0.83529412</real>
-		<key>Green Component</key>
-		<real>0.85098039</real>
-		<key>Red Component</key>
-		<real>0.15294118</real>
-	</dict>
-	<key>Ansi 10 Color</key>
 	<dict>
 		<key>Color Space</key>
 		<string>sRGB</string>
@@ -129,7 +118,29 @@
 		<key>Red Component</key>
 		<real>0.97254902</real>
 	</dict>
+	<key>Ansi 10 Color</key>
+	<dict>
+		<key>Color Space</key>
+		<string>sRGB</string>
+		<key>Blue Component</key>
+		<real>0.41568627</real>
+		<key>Green Component</key>
+		<real>0.71372549</real>
+		<key>Red Component</key>
+		<real>0.35686275</real>
+	</dict>
 	<key>Ansi 11 Color</key>
+	<dict>
+		<key>Color Space</key>
+		<string>sRGB</string>
+		<key>Blue Component</key>
+		<real>0.00392157</real>
+		<key>Green Component</key>
+		<real>0.59215686</real>
+		<key>Red Component</key>
+		<real>0.74117647</real>
+	</dict>
+	<key>Ansi 12 Color</key>
 	<dict>
 		<key>Color Space</key>
 		<string>sRGB</string>
@@ -140,7 +151,18 @@
 		<key>Red Component</key>
 		<real>0.35686275</real>
 	</dict>
-	<key>Ansi 12 Color</key>
+	<key>Ansi 13 Color</key>
+	<dict>
+		<key>Color Space</key>
+		<string>sRGB</string>
+		<key>Blue Component</key>
+		<real>0.59215686</real>
+		<key>Green Component</key>
+		<real>0.42352941</real>
+		<key>Red Component</key>
+		<real>0.56078431</real>
+	</dict>
+	<key>Ansi 14 Color</key>
 	<dict>
 		<key>Color Space</key>
 		<string>sRGB</string>
@@ -150,28 +172,6 @@
 		<real>0.97647059</real>
 		<key>Red Component</key>
 		<real>0.27843137</real>
-	</dict>
-	<key>Ansi 13 Color</key>
-	<dict>
-		<key>Color Space</key>
-		<string>sRGB</string>
-		<key>Blue Component</key>
-		<real>0.32156863</real>
-		<key>Green Component</key>
-		<real>0.00392157</real>
-		<key>Red Component</key>
-		<real>0.74117647</real>
-	</dict>
-	<key>Ansi 14 Color</key>
-	<dict>
-		<key>Color Space</key>
-		<string>sRGB</string>
-		<key>Blue Component</key>
-		<real>0.47058824</real>
-		<key>Green Component</key>
-		<real>0.21176471</real>
-		<key>Red Component</key>
-		<real>0.76470588</real>
 	</dict>
 	<key>Ansi 15 Color</key>
 	<dict>
@@ -255,11 +255,11 @@
 		<key>Color Space</key>
 		<string>sRGB</string>
 		<key>Blue Component</key>
-		<real>0.54509804</real>
+		<real>0.77254902</real>
 		<key>Green Component</key>
-		<real>0.42745098</real>
+		<real>0.71372549</real>
 		<key>Red Component</key>
-		<real>0.48235294</real>
+		<real>0.74117647</real>
 	</dict>
 </dict>
 </plist>

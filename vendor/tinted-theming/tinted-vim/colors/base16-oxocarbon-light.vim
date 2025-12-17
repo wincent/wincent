@@ -2,7 +2,7 @@
 
 " tinted-vim (https://github.com/tinted-theming/tinted-vim)
 " Scheme name: Oxocarbon Light
-" Scheme author: shaunsingh/IBM
+" Scheme author: shaunsingh/IBM, Tinted Theming (https://github.com/tinted-theming)
 " Template author: Tinted Theming (https://github.com/tinted-theming)
 
 " This enables the coresponding base16-shell script to run so that
@@ -18,27 +18,27 @@ endif
 " GUI colors
 let s:gui00        = 'f2f4f8'
 let s:gui01        = 'dde1e6'
-let s:gui02        = '525252'
-let s:gui03        = '161616'
-let s:gui04        = '262626'
-let s:gui05        = '393939'
-let s:gui06        = '525252'
-let s:gui07        = '08bdba'
+let s:gui02        = 'bec6cf'
+let s:gui03        = 'a1acba'
+let s:gui04        = '68788d'
+let s:gui05        = '525f70'
+let s:gui06        = '3d4652'
+let s:gui07        = '272d35'
 let s:gui08        = 'ff7eb6'
 let s:gui09        = 'ee5396'
 let s:gui0A        = 'ff6f00'
-let s:gui0B        = '0f62fe'
+let s:gui0B        = '42be65'
 let s:gui0C        = '673ab7'
-let s:gui0D        = '42be65'
+let s:gui0D        = '0f62fe'
 let s:gui0E        = 'be95ff'
-let s:gui0F        = '37474f'
+let s:gui0F        = '803800'
 let s:gui10        = 'f2f4f8'
 let s:gui11        = 'f2f4f8'
 let s:gui12        = 'ff7eb6'
 let s:gui13        = 'ff6f00'
-let s:gui14        = '0f62fe'
+let s:gui14        = '42be65'
 let s:gui15        = '673ab7'
-let s:gui16        = '42be65'
+let s:gui16        = '0f62fe'
 let s:gui17        = 'be95ff'
 
 " Terminal colors
@@ -97,20 +97,20 @@ call s:create_color_globals()
 let s:colors = [
   \ '#f2f4f8',
   \ '#ff7eb6',
-  \ '#0f62fe',
-  \ '#ff6f00',
   \ '#42be65',
+  \ '#ff6f00',
+  \ '#0f62fe',
   \ '#be95ff',
   \ '#673ab7',
-  \ '#393939',
-  \ '#161616',
+  \ '#525f70',
+  \ '#a1acba',
   \ '#ff7eb6',
-  \ '#0f62fe',
-  \ '#ff6f00',
   \ '#42be65',
+  \ '#ff6f00',
+  \ '#0f62fe',
   \ '#be95ff',
   \ '#673ab7',
-  \ '#08bdba'
+  \ '#272d35'
 \]
 
 if has('nvim')

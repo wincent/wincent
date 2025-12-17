@@ -27,27 +27,27 @@ ghostty_palette_color_3="#ebcc1a"
 ghostty_palette_color_4="#6587bf"
 ghostty_palette_color_5="#b870ce"
 ghostty_palette_color_6="#509c93"
-ghostty_palette_color_7="#5e646f"
-ghostty_palette_color_8="#d69822"
+ghostty_palette_color_7="#474752"
+ghostty_palette_color_8="#acb1b9"
 ghostty_palette_color_9="#db7070"
 ghostty_palette_color_10="#7c9f4b"
 ghostty_palette_color_11="#ebcc1a"
 ghostty_palette_color_12="#6587bf"
 ghostty_palette_color_13="#b870ce"
 ghostty_palette_color_14="#509c93"
-ghostty_palette_color_15="#5e646f"
+ghostty_palette_color_15="#2e2e38"
 ghostty_palette_color_16="#eba31a"
 ghostty_palette_color_17="#509c93"
-ghostty_palette_color_18="#7c9f4b"
-ghostty_palette_color_19="#d69822"
-ghostty_palette_color_20="#6587bf"
-ghostty_palette_color_21="#b870ce"
+ghostty_palette_color_18="#e3e5e8"
+ghostty_palette_color_19="#acb1b9"
+ghostty_palette_color_20="#5e646f"
+ghostty_palette_color_21="#3a3a46"
 
 _theme_file() {
 cat <<EOF
 # vim: ft=ghostty
 # Edge Light theme for Ghostty
-# Scheme Author: cjayross (https://github.com/cjayross)
+# Scheme Author: cjayross (https://github.com/cjayross), Tinted Theming (https://github.com/tinted-theming)
 # Scheme System: base16
 # Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
 

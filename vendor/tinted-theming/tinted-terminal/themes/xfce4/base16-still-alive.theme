@@ -1,10 +1,10 @@
 # Scheme name: Still Alive
-# Scheme author: Derrick McKee (derrick.mckee@gmail.com)
+# Scheme author: Derrick McKee (derrick.mckee@gmail.com), Tinted Theming (https://github.com/tinted-theming)
 # Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
 [Scheme]
 Name=base16-still-alive
-ColorForeground=#d80000
+ColorForeground=#4c383b
 ColorBackground=#f0f0f0
 ColorCursor=x
 ColorBoldIsBright=FALSE
-ColorPalette=#f0d848;#487830;#5c5c6a;#426395;#001878;#900000;#2c3c57;#489000;#fff018;#487830;#5c5c6a;#426395;#001878;#900000;#2c3c57;#30a860
+ColorPalette=#d6d6d6;#d80000;#30a860;#fff018;#365eff;#9036ff;#36d3ff;#331f21;#bdbdbd;#d80000;#30a860;#fff018;#365eff;#9036ff;#36d3ff;#140c0d

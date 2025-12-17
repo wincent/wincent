@@ -3,7 +3,7 @@ Windows Registry Editor Version 5.00
 ; Scheme name: Heetch Light
 ; Scheme system: base16
 ; Scheme description: 
-; Scheme author: Geoffrey Teale (tealeg@gmail.com)
+; Scheme author: Geoffrey Teale (tealeg@gmail.com), Tinted Theming (https://github.com/tinted-theming)
 ; Template author: Tinted Theming (https://github.com/tinted-theming)
 [HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base16-heetch-light]
 
@@ -33,78 +33,78 @@ Windows Registry Editor Version 5.00
 
 ; ANSI Black
 ; 30m
-; base01 #392551
-"Colour6"="57,37,81"
+; base01 #dedae2
+"Colour6"="222,218,226"
 
 ; ANSI Black Bright
 ; 1;30m
-; base02 #7b6d8b
-"Colour7"="123,109,139"
+; base02 #bdb6c5
+"Colour7"="189,182,197"
 
 ; ANSI Red
 ; 31m
-; base08 #27d9d5
-"Colour8"="39,217,213"
+; base08 #f80059
+"Colour8"="248,0,89"
 
 ; ANSI Red Bright
 ; 1;31m
-; base08 #27d9d5
-"Colour9"="39,217,213"
+; base08 #f80059
+"Colour9"="248,0,89"
 
 ; ANSI Green
 ; 32m
-; base0B #f80059
-"Colour10"="248,0,89"
+; base0B #5bb66a
+"Colour10"="91,182,106"
 
 ; ANSI Green Bright
 ; 1;32m
-; base0B #f80059
-"Colour11"="248,0,89"
+; base0B #5bb66a
+"Colour11"="91,182,106"
 
 ; ANSI Yellow
 ; 33m
-; base0A #5ba2b6
-"Colour12"="91,162,182"
+; base0A #bd9701
+"Colour12"="189,151,1"
 
 ; ANSI Yellow Bright
 ; 1;33m
-; base0A #5ba2b6
-"Colour13"="91,162,182"
+; base0A #bd9701
+"Colour13"="189,151,1"
 
 ; ANSI Blue
 ; 34m
-; base0D #47f9f5
-"Colour14"="71,249,245"
+; base0D #5ba2b6
+"Colour14"="91,162,182"
 
 ; ANSI Blue Bright
 ; 1;34m
-; base0D #47f9f5
-"Colour15"="71,249,245"
+; base0D #5ba2b6
+"Colour15"="91,162,182"
 
 ; ANSI Magenta
 ; 35m
-; base0E #bd0152
-"Colour16"="189,1,82"
+; base0E #8f6c97
+"Colour16"="143,108,151"
 
 ; ANSI Magenta Bright
 ; 1;35m
-; base0E #bd0152
-"Colour17"="189,1,82"
+; base0E #8f6c97
+"Colour17"="143,108,151"
 
 ; ANSI Cyan
 ; 36m
-; base0C #c33678
-"Colour18"="195,54,120"
+; base0C #47f9f5
+"Colour18"="71,249,245"
 
 ; ANSI Cyan Bright
 ; 1;36m
-; base0C #c33678
-"Colour19"="195,54,120"
+; base0C #47f9f5
+"Colour19"="71,249,245"
 
 ; ANSI White
 ; 37m
-; base06 #470546
-"Colour20"="71,5,70"
+; base06 #392551
+"Colour20"="57,37,81"
 
 ; ANSI White Bright
 ; 1;37m

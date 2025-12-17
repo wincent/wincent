@@ -1,0 +1,58 @@
+# base24 Tokyo Night Light 256 - alacritty color config
+# Michaël Ball, based on Tokyo Night by enkia (https://github.com/enkia/tokyo-night-vscode-theme)
+
+# Default colors
+[colors.primary]
+background = '0xd5d6db'
+foreground = '0x343b59'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0xd5d6db'
+cursor = '0x343b59'
+
+# Normal colors
+[colors.normal]
+black = '0xcbccd1'
+red = '0x343b59'
+green = '0x485e30'
+yellow = '0x166775'
+blue = '0x34548a'
+magenta = '0x5a4a78'
+cyan = '0x3e6968'
+white = '0x1a1b26'
+
+# Bright colors
+[colors.bright]
+black = '0xdfe0e5'
+red = '0x8c4351'
+green = '0x485e30'
+yellow = '0x965027'
+blue = '0x34548a'
+magenta = '0x5a4a78'
+cyan = '0x3e6968'
+white = '0x1a1b26'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0x965027"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x8c4351"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0xcbccd1"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0xdfe0e5"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x4c505e"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0x1a1b26"

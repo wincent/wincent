@@ -1,0 +1,29 @@
+system: "base24"
+name: "PaperColor Dark"
+author: "Nguyen Nguyen (https://github.com/NLKNguyen/papercolor-theme)"
+variant: "dark"
+palette:
+  base00: "#1c1c1c" # Default Background
+  base01: "#303030" # Lighter Background (CursorLine)
+  base02: "#3a3a3a" # Selection Background (StatusLineNC)
+  base03: "#808080" # Comments
+  base04: "#585858" # Dark Foreground (LineNumbers)
+  base05: "#d0d0d0" # Default Foreground
+  base06: "#bcbcbc" # Light Foreground
+  base07: "#c6c6c6" # Lightest Foreground (Cursor)
+  base08: "#af005f" # Red - Variables, Errors
+  base09: "#5faf5f" # Bright Green - Numbers, Constants
+  base0A: "#d7af5f" # Olive/Yellow - Classes
+  base0B: "#5faf00" # Green - Strings, Diff Add
+  base0C: "#ffaf00" # Orange - Regex, Support
+  base0D: "#5fafd7" # Blue - Functions
+  base0E: "#af87d7" # Purple - Keywords
+  base0F: "#ff5faf" # Magenta - Deprecated, Special
+  base10: "#121212" # Darker background variant
+  base11: "#080808" # Darkest background
+  base12: "#d7005f" # Bright Red
+  base13: "#87d75f" # Brighter Green
+  base14: "#ffd75f" # Bright Yellow
+  base15: "#87d700" # Bright Green variant
+  base16: "#ffd700" # Bright Orange/Yellow
+  base17: "#87d7ff" # Bright Cyan/Blue

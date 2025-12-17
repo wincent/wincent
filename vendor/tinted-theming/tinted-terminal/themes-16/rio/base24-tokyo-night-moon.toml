@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Tokyo Night Moon by Michaël Ball, based on Tokyo Night by enkia (https://github.com/enkia/tokyo-night-vscode-theme)
+
+[colors]
+selection-background = '#2f334d' # base02
+selection-foreground = '#c8d3f5' # base05
+
+cursor         = '#c8d3f5' # base05
+tabs           = '#1e2030' # base01
+tabs-active    = '#2f334d' # base02
+
+background     = '#222436' # base00
+foreground     = '#c8d3f5' # base05
+black          = '#1e2030' # base01
+red            = '#c099ff' # base08
+yellow         = '#ffc777' # base0A
+green          = '#c3e88d' # base0B
+cyan           = '#86e1fc' # base0C
+blue           = '#82aaff' # base0D
+magenta        = '#fca7ea' # base0E
+white          = '#b4c2f0' # base06
+
+dim-foreground   = '#c8d3f5' # base05
+dim-black        = '#1e2030' # base01
+dim-red          = '#c099ff' # base08
+dim-yellow       = '#ffc777' # base0A
+dim-green        = '#c3e88d' # base0B
+dim-cyan         = '#86e1fc' # base0C
+dim-blue         = '#82aaff' # base0D
+dim-magenta      = '#fca7ea' # base0E
+dim-white        = '#828bb8' # base04
+
+light-foreground = '#c8d3f5' # base05
+light-black      = '#2f334d' # base02
+light-red        = '#ff757f' # base12
+light-yellow     = '#ffd793' # base13
+light-green      = '#c3e88d' # base14
+light-cyan       = '#86e1fc' # base15
+light-blue       = '#82aaff' # base16
+light-magenta    = '#fca7ea' # base17
+light-white      = '#c8d3f5' # base07

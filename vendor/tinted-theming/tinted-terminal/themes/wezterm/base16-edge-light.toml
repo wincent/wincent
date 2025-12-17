@@ -1,17 +1,17 @@
 # base16 Edge Light
-# Scheme author: cjayross (https://github.com/cjayross)
+# Scheme author: cjayross (https://github.com/cjayross), Tinted Theming (https://github.com/tinted-theming)
 # Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
 
 [colors]
 background = "#fafafa"
-foreground = "#5e646f"
+foreground = "#474752"
 
-cursor_bg = "#5e646f"
-cursor_border = "#5e646f"
+cursor_bg = "#474752"
+cursor_border = "#474752"
 cursor_fg = "#fafafa"
 
-selection_bg = "#5e646f"
-selection_fg = "#d69822"
+selection_bg = "#474752"
+selection_fg = "#acb1b9"
 
 ansi = [
   "#fafafa",
@@ -21,23 +21,23 @@ ansi = [
   "#6587bf",
   "#b870ce",
   "#509c93",
-  "#b870ce"
+  "#3a3a46"
 ]
 brights = [
-  "#d69822",
+  "#acb1b9",
   "#db7070",
   "#7c9f4b",
   "#ebcc1a",
   "#6587bf",
   "#b870ce",
   "#509c93",
-  "#5e646f"
+  "#2e2e38"
 ]
 
 [colors.indexed]
 16 = "#eba31a"
 17 = "#509c93"
-18 = "#7c9f4b"
-19 = "#d69822"
-20 = "#6587bf"
-21 = "#5e646f"
+18 = "#e3e5e8"
+19 = "#acb1b9"
+20 = "#5e646f"
+21 = "#474752"

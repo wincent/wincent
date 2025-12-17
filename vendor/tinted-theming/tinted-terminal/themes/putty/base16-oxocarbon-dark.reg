@@ -3,7 +3,7 @@ Windows Registry Editor Version 5.00
 ; Scheme name: Oxocarbon Dark
 ; Scheme system: base16
 ; Scheme description: 
-; Scheme author: shaunsingh/IBM
+; Scheme author: shaunsingh/IBM, Tinted Theming (https://github.com/tinted-theming)
 ; Template author: Tinted Theming (https://github.com/tinted-theming)
 [HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base16-oxocarbon-dark]
 
@@ -43,43 +43,43 @@ Windows Registry Editor Version 5.00
 
 ; ANSI Red
 ; 31m
-; base08 #3ddbd9
-"Colour8"="61,219,217"
+; base08 #ee5396
+"Colour8"="238,83,150"
 
 ; ANSI Red Bright
 ; 1;31m
-; base08 #3ddbd9
-"Colour9"="61,219,217"
+; base08 #ee5396
+"Colour9"="238,83,150"
 
 ; ANSI Green
 ; 32m
-; base0B #33b1ff
-"Colour10"="51,177,255"
+; base0B #42be65
+"Colour10"="66,190,101"
 
 ; ANSI Green Bright
 ; 1;32m
-; base0B #33b1ff
-"Colour11"="51,177,255"
+; base0B #42be65
+"Colour11"="66,190,101"
 
 ; ANSI Yellow
 ; 33m
-; base0A #ee5396
-"Colour12"="238,83,150"
+; base0A #ff6f00
+"Colour12"="255,111,0"
 
 ; ANSI Yellow Bright
 ; 1;33m
-; base0A #ee5396
-"Colour13"="238,83,150"
+; base0A #ff6f00
+"Colour13"="255,111,0"
 
 ; ANSI Blue
 ; 34m
-; base0D #42be65
-"Colour14"="66,190,101"
+; base0D #33b1ff
+"Colour14"="51,177,255"
 
 ; ANSI Blue Bright
 ; 1;34m
-; base0D #42be65
-"Colour15"="66,190,101"
+; base0D #33b1ff
+"Colour15"="51,177,255"
 
 ; ANSI Magenta
 ; 35m
@@ -93,13 +93,13 @@ Windows Registry Editor Version 5.00
 
 ; ANSI Cyan
 ; 36m
-; base0C #ff7eb6
-"Colour18"="255,126,182"
+; base0C #3ddbd9
+"Colour18"="61,219,217"
 
 ; ANSI Cyan Bright
 ; 1;36m
-; base0C #ff7eb6
-"Colour19"="255,126,182"
+; base0C #3ddbd9
+"Colour19"="61,219,217"
 
 ; ANSI White
 ; 37m

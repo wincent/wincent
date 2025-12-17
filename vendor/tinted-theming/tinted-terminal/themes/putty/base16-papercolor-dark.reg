@@ -3,17 +3,17 @@ Windows Registry Editor Version 5.00
 ; Scheme name: PaperColor Dark
 ; Scheme system: base16
 ; Scheme description: 
-; Scheme author: Jon Leopard (http://github.com/jonleopard), based on PaperColor Theme (https://github.com/NLKNguyen/papercolor-theme)
+; Scheme author: Jon Leopard (http://github.com/jonleopard), Tinted Theming (https://github.com/tinted-theming), based on PaperColor Theme (https://github.com/NLKNguyen/papercolor-theme)
 ; Template author: Tinted Theming (https://github.com/tinted-theming)
 [HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base16-papercolor-dark]
 
 ; Default Foreground
-; base05 #808080
-"Colour0"="128,128,128"
+; base05 #9e9e9e
+"Colour0"="158,158,158"
 
 ; Default Bold Foreground  -- equals to non-bold
-; base05 #808080
-"Colour1"="128,128,128"
+; base05 #9e9e9e
+"Colour1"="158,158,158"
 
 ; Default Background
 ; base00 #1c1c1c
@@ -28,83 +28,83 @@ Windows Registry Editor Version 5.00
 "Colour4"="28,28,28"
 
 ; Cursor Colour -- equals to default foreground
-; base05 #808080
-"Colour5"="128,128,128"
+; base05 #9e9e9e
+"Colour5"="158,158,158"
 
 ; ANSI Black
 ; 30m
-; base01 #af005f
-"Colour6"="175,0,95"
+; base01 #363636
+"Colour6"="54,54,54"
 
 ; ANSI Black Bright
 ; 1;30m
-; base02 #5faf00
-"Colour7"="95,175,0"
+; base02 #424242
+"Colour7"="66,66,66"
 
 ; ANSI Red
 ; 31m
-; base08 #585858
-"Colour8"="88,88,88"
+; base08 #ff5faf
+"Colour8"="255,95,175"
 
 ; ANSI Red Bright
 ; 1;31m
-; base08 #585858
-"Colour9"="88,88,88"
+; base08 #ff5faf
+"Colour9"="255,95,175"
 
 ; ANSI Green
 ; 32m
-; base0B #af87d7
-"Colour10"="175,135,215"
+; base0B #5faf5f
+"Colour10"="95,175,95"
 
 ; ANSI Green Bright
 ; 1;32m
-; base0B #af87d7
-"Colour11"="175,135,215"
+; base0B #5faf5f
+"Colour11"="95,175,95"
 
 ; ANSI Yellow
 ; 33m
-; base0A #afd700
-"Colour12"="175,215,0"
+; base0A #ffaf00
+"Colour12"="255,175,0"
 
 ; ANSI Yellow Bright
 ; 1;33m
-; base0A #afd700
-"Colour13"="175,215,0"
+; base0A #ffaf00
+"Colour13"="255,175,0"
 
 ; ANSI Blue
 ; 34m
-; base0D #ff5faf
-"Colour14"="255,95,175"
+; base0D #5fafd7
+"Colour14"="95,175,215"
 
 ; ANSI Blue Bright
 ; 1;34m
-; base0D #ff5faf
-"Colour15"="255,95,175"
+; base0D #5fafd7
+"Colour15"="95,175,215"
 
 ; ANSI Magenta
 ; 35m
-; base0E #00afaf
-"Colour16"="0,175,175"
+; base0E #af87d7
+"Colour16"="175,135,215"
 
 ; ANSI Magenta Bright
 ; 1;35m
-; base0E #00afaf
-"Colour17"="0,175,175"
+; base0E #af87d7
+"Colour17"="175,135,215"
 
 ; ANSI Cyan
 ; 36m
-; base0C #ffaf00
-"Colour18"="255,175,0"
+; base0C #00afaf
+"Colour18"="0,175,175"
 
 ; ANSI Cyan Bright
 ; 1;36m
-; base0C #ffaf00
-"Colour19"="255,175,0"
+; base0C #00afaf
+"Colour19"="0,175,175"
 
 ; ANSI White
 ; 37m
-; base06 #d7875f
-"Colour20"="215,135,95"
+; base06 #b8b8b8
+"Colour20"="184,184,184"
 
 ; ANSI White Bright
 ; 1;37m

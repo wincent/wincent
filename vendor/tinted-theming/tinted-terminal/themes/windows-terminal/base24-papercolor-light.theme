@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "PaperColor Light",
+	"foreground": "#444444",
+	"background": "#eeeeee",
+	"black": "#e4e4e4",
+	"blue": "#0087af",
+	"brightBlack": "#d0d0d0",
+	"brightBlue": "#ff8700",
+	"brightCyan": "#00af00",
+	"brightGreen": "#87af00",
+	"brightPurple": "#5fafff",
+	"brightRed": "#d70000",
+	"brightWhite": "#0087af",
+	"brightYellow": "#ff00af",
+	"cyan": "#d75f00",
+	"green": "#008700",
+	"purple": "#8700af",
+	"red": "#af0000",
+	"white": "#005f87",
+	"yellow": "#d70087"
+},

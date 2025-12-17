@@ -1,41 +1,41 @@
 # Rio Terminal base16 color theme (https://github.com/tinted-theming)
-# Color scheme: Still Alive by Derrick McKee (derrick.mckee@gmail.com)
+# Color scheme: Still Alive by Derrick McKee (derrick.mckee@gmail.com), Tinted Theming (https://github.com/tinted-theming)
 
 [colors]
-selection-background = '#fff018' # base02
-selection-foreground = '#d80000' # base05
+selection-background = '#bdbdbd' # base02
+selection-foreground = '#4c383b' # base05
 
-cursor         = '#d80000' # base05
-tabs           = '#f0d848' # base01
-tabs-active    = '#fff018' # base02
+cursor         = '#4c383b' # base05
+tabs           = '#d6d6d6' # base01
+tabs-active    = '#bdbdbd' # base02
 
 background     = '#f0f0f0' # base00
-foreground     = '#d80000' # base05
-black          = '#f0d848' # base01
-red            = '#487830' # base08
-yellow         = '#426395' # base0A
-green          = '#5c5c6a' # base0B
-cyan           = '#2c3c57' # base0C
-blue           = '#001878' # base0D
-magenta        = '#900000' # base0E
-white          = '#489000' # base06
+foreground     = '#4c383b' # base05
+black          = '#d6d6d6' # base01
+red            = '#d80000' # base08
+yellow         = '#fff018' # base0A
+green          = '#30a860' # base0B
+cyan           = '#36d3ff' # base0C
+blue           = '#365eff' # base0D
+magenta        = '#9036ff' # base0E
+white          = '#331f21' # base06
 
-dim-foreground   = '#d80000' # base05
-dim-black        = '#f0d848' # base01
-dim-red          = '#487830' # base08
-dim-yellow       = '#426395' # base0A
-dim-green        = '#5c5c6a' # base0B
-dim-cyan         = '#2c3c57' # base0C
-dim-blue         = '#001878' # base0D
-dim-magenta      = '#900000' # base0E
-dim-white        = '#f00000' # base04
+dim-foreground   = '#4c383b' # base05
+dim-black        = '#d6d6d6' # base01
+dim-red          = '#d80000' # base08
+dim-yellow       = '#fff018' # base0A
+dim-green        = '#30a860' # base0B
+dim-cyan         = '#36d3ff' # base0C
+dim-blue         = '#365eff' # base0D
+dim-magenta      = '#9036ff' # base0E
+dim-white        = '#605758' # base04
 
-light-foreground = '#d80000' # base05
-light-black      = '#fff018' # base02
-light-red        = '#487830' # base08
-light-yellow     = '#426395' # base0A
-light-green      = '#5c5c6a' # base0B
-light-cyan       = '#2c3c57' # base0C
-light-blue       = '#001878' # base0D
-light-magenta    = '#900000' # base0E
-light-white      = '#30a860' # base07
+light-foreground = '#4c383b' # base05
+light-black      = '#bdbdbd' # base02
+light-red        = '#d80000' # base08
+light-yellow     = '#fff018' # base0A
+light-green      = '#30a860' # base0B
+light-cyan       = '#36d3ff' # base0C
+light-blue       = '#365eff' # base0D
+light-magenta    = '#9036ff' # base0E
+light-white      = '#140c0d' # base07

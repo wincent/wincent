@@ -1,17 +1,17 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
 # Scheme name: Oxocarbon Dark
-# Scheme author: shaunsingh/IBM
+# Scheme author: shaunsingh/IBM, Tinted Theming (https://github.com/tinted-theming)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE16_THEME=oxocarbon-dark
 
 color00="16/16/16" # Base 00 - Black
-color01="3d/db/d9" # Base 08 - Red
-color02="33/b1/ff" # Base 0B - Green
-color03="ee/53/96" # Base 0A - Yellow
-color04="42/be/65" # Base 0D - Blue
+color01="ee/53/96" # Base 08 - Red
+color02="42/be/65" # Base 0B - Green
+color03="ff/6f/00" # Base 0A - Yellow
+color04="33/b1/ff" # Base 0D - Blue
 color05="be/95/ff" # Base 0E - Magenta
-color06="ff/7e/b6" # Base 0C - Cyan
+color06="3d/db/d9" # Base 0C - Cyan
 color07="f2/f4/f8" # Base 05 - White
 color08="52/52/52" # Base 03 - Bright Black
 color09="$color01" # Base 08 - Bright Red
@@ -21,7 +21,7 @@ color12="$color04" # Base 0D - Bright Blue
 color13="$color05" # Base 0E - Bright Magenta
 color14="$color06" # Base 0C - Bright Cyan
 color15="08/bd/ba" # Base 07 - Bright White
-color16="78/a9/ff" # Base 09
+color16="ff/7e/b6" # Base 09
 color17="82/cf/ff" # Base 0F
 color18="26/26/26" # Base 01
 color19="39/39/39" # Base 02
@@ -141,12 +141,12 @@ if [ -n "$TINTED_SHELL_ENABLE_BASE16_VARS" ] || [ -n "$BASE16_SHELL_ENABLE_VARS"
   export BASE16_COLOR_05_HEX="f2f4f8"
   export BASE16_COLOR_06_HEX="ffffff"
   export BASE16_COLOR_07_HEX="08bdba"
-  export BASE16_COLOR_08_HEX="3ddbd9"
-  export BASE16_COLOR_09_HEX="78a9ff"
-  export BASE16_COLOR_0A_HEX="ee5396"
-  export BASE16_COLOR_0B_HEX="33b1ff"
-  export BASE16_COLOR_0C_HEX="ff7eb6"
-  export BASE16_COLOR_0D_HEX="42be65"
+  export BASE16_COLOR_08_HEX="ee5396"
+  export BASE16_COLOR_09_HEX="ff7eb6"
+  export BASE16_COLOR_0A_HEX="ff6f00"
+  export BASE16_COLOR_0B_HEX="42be65"
+  export BASE16_COLOR_0C_HEX="3ddbd9"
+  export BASE16_COLOR_0D_HEX="33b1ff"
   export BASE16_COLOR_0E_HEX="be95ff"
   export BASE16_COLOR_0F_HEX="82cfff"
 fi

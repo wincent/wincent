@@ -2,7 +2,7 @@
 
 " tinted-vim (https://github.com/tinted-theming/tinted-vim)
 " Scheme name: PaperColor Dark
-" Scheme author: Jon Leopard (http://github.com/jonleopard), based on PaperColor Theme (https://github.com/NLKNguyen/papercolor-theme)
+" Scheme author: Jon Leopard (http://github.com/jonleopard), Tinted Theming (https://github.com/tinted-theming), based on PaperColor Theme (https://github.com/NLKNguyen/papercolor-theme)
 " Template author: Tinted Theming (https://github.com/tinted-theming)
 
 " This enables the coresponding base16-shell script to run so that
@@ -17,29 +17,29 @@ endif
 
 " GUI colors
 let s:gui00        = '1c1c1c'
-let s:gui01        = 'af005f'
-let s:gui02        = '5faf00'
-let s:gui03        = 'd7af5f'
-let s:gui04        = '5fafd7'
-let s:gui05        = '808080'
-let s:gui06        = 'd7875f'
+let s:gui01        = '363636'
+let s:gui02        = '424242'
+let s:gui03        = '585858'
+let s:gui04        = '808080'
+let s:gui05        = '9e9e9e'
+let s:gui06        = 'b8b8b8'
 let s:gui07        = 'd0d0d0'
-let s:gui08        = '585858'
-let s:gui09        = '5faf5f'
-let s:gui0A        = 'afd700'
-let s:gui0B        = 'af87d7'
-let s:gui0C        = 'ffaf00'
-let s:gui0D        = 'ff5faf'
-let s:gui0E        = '00afaf'
-let s:gui0F        = '5f8787'
+let s:gui08        = 'ff5faf'
+let s:gui09        = 'd7af5f'
+let s:gui0A        = 'ffaf00'
+let s:gui0B        = '5faf5f'
+let s:gui0C        = '00afaf'
+let s:gui0D        = '5fafd7'
+let s:gui0E        = 'af87d7'
+let s:gui0F        = 'af005f'
 let s:gui10        = '1c1c1c'
 let s:gui11        = '1c1c1c'
-let s:gui12        = '585858'
-let s:gui13        = 'afd700'
-let s:gui14        = 'af87d7'
-let s:gui15        = 'ffaf00'
-let s:gui16        = 'ff5faf'
-let s:gui17        = '00afaf'
+let s:gui12        = 'ff5faf'
+let s:gui13        = 'ffaf00'
+let s:gui14        = '5faf5f'
+let s:gui15        = '00afaf'
+let s:gui16        = '5fafd7'
+let s:gui17        = 'af87d7'
 
 " Terminal colors
 let s:cterm00  = '00'
@@ -96,20 +96,20 @@ call s:create_color_globals()
 " Integrated Terminal colors
 let s:colors = [
   \ '#1c1c1c',
-  \ '#585858',
-  \ '#af87d7',
-  \ '#afd700',
   \ '#ff5faf',
-  \ '#00afaf',
+  \ '#5faf5f',
   \ '#ffaf00',
-  \ '#808080',
-  \ '#d7af5f',
-  \ '#585858',
+  \ '#5fafd7',
   \ '#af87d7',
-  \ '#afd700',
-  \ '#ff5faf',
   \ '#00afaf',
+  \ '#9e9e9e',
+  \ '#585858',
+  \ '#ff5faf',
+  \ '#5faf5f',
   \ '#ffaf00',
+  \ '#5fafd7',
+  \ '#af87d7',
+  \ '#00afaf',
   \ '#d0d0d0'
 \]
 

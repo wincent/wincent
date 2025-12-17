@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Tokyo Night Moon
+; Scheme system: base24
+; Scheme description: 
+; Scheme author: Michaël Ball, based on Tokyo Night by enkia (https://github.com/enkia/tokyo-night-vscode-theme)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base24-tokyo-night-moon]
+
+; Default Foreground
+; base05 #c8d3f5
+"Colour0"="200,211,245"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #c8d3f5
+"Colour1"="200,211,245"
+
+; Default Background
+; base00 #222436
+"Colour2"="34,36,54"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #222436
+"Colour3"="34,36,54"
+
+; Cursor Text -- equals to default background
+; base00 #222436
+"Colour4"="34,36,54"
+
+; Cursor Colour -- equals to default foreground
+; base05 #c8d3f5
+"Colour5"="200,211,245"
+
+; ANSI Black
+; 30m
+; base01 #1e2030
+"Colour6"="30,32,48"
+
+; ANSI Black Bright
+; 1;30m
+; base02 #2f334d
+"Colour7"="47,51,77"
+
+; ANSI Red
+; 31m
+; base08 #c099ff
+"Colour8"="192,153,255"
+
+; ANSI Red Bright
+; 1;31m
+; base12 #ff757f
+"Colour9"="255,117,127"
+
+; ANSI Green
+; 32m
+; base0B #c3e88d
+"Colour10"="195,232,141"
+
+; ANSI Green Bright
+; 1;32m
+; base14 #c3e88d
+"Colour11"="195,232,141"
+
+; ANSI Yellow
+; 33m
+; base0A #ffc777
+"Colour12"="255,199,119"
+
+; ANSI Yellow Bright
+; 1;33m
+; base13 #ffd793
+"Colour13"="255,215,147"
+
+; ANSI Blue
+; 34m
+; base0D #82aaff
+"Colour14"="130,170,255"
+
+; ANSI Blue Bright
+; 1;34m
+; base16 #82aaff
+"Colour15"="130,170,255"
+
+; ANSI Magenta
+; 35m
+; base0E #fca7ea
+"Colour16"="252,167,234"
+
+; ANSI Magenta Bright
+; 1;35m
+; base17 #fca7ea
+"Colour17"="252,167,234"
+
+; ANSI Cyan
+; 36m
+; base0C #86e1fc
+"Colour18"="134,225,252"
+
+; ANSI Cyan Bright
+; 1;36m
+; base15 #86e1fc
+"Colour19"="134,225,252"
+
+; ANSI White
+; 37m
+; base06 #b4c2f0
+"Colour20"="180,194,240"
+
+; ANSI White Bright
+; 1;37m
+; base07 c8d3f5
+"Colour21"="200,211,245"

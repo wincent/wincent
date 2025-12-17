@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Tokyo Night Moon",
+	"foreground": "#c8d3f5",
+	"background": "#222436",
+	"black": "#1e2030",
+	"blue": "#82aaff",
+	"brightBlack": "#2f334d",
+	"brightBlue": "#82aaff",
+	"brightCyan": "#86e1fc",
+	"brightGreen": "#c3e88d",
+	"brightPurple": "#fca7ea",
+	"brightRed": "#ff757f",
+	"brightWhite": "#c8d3f5",
+	"brightYellow": "#ffd793",
+	"cyan": "#86e1fc",
+	"green": "#c3e88d",
+	"purple": "#fca7ea",
+	"red": "#c099ff",
+	"white": "#b4c2f0",
+	"yellow": "#ffc777"
+},

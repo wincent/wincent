@@ -1,33 +1,33 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
 # Scheme name: Still Alive
-# Scheme author: Derrick McKee (derrick.mckee@gmail.com)
+# Scheme author: Derrick McKee (derrick.mckee@gmail.com), Tinted Theming (https://github.com/tinted-theming)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE16_THEME=still-alive
 
 color00="f0/f0/f0" # Base 00 - Black
-color01="48/78/30" # Base 08 - Red
-color02="5c/5c/6a" # Base 0B - Green
-color03="42/63/95" # Base 0A - Yellow
-color04="00/18/78" # Base 0D - Blue
-color05="90/00/00" # Base 0E - Magenta
-color06="2c/3c/57" # Base 0C - Cyan
-color07="d8/00/00" # Base 05 - White
-color08="f0/18/18" # Base 03 - Bright Black
+color01="d8/00/00" # Base 08 - Red
+color02="30/a8/60" # Base 0B - Green
+color03="ff/f0/18" # Base 0A - Yellow
+color04="36/5e/ff" # Base 0D - Blue
+color05="90/36/ff" # Base 0E - Magenta
+color06="36/d3/ff" # Base 0C - Cyan
+color07="4c/38/3b" # Base 05 - White
+color08="a3/a3/a3" # Base 03 - Bright Black
 color09="$color01" # Base 08 - Bright Red
 color10="$color02" # Base 0B - Bright Green
 color11="$color03" # Base 0A - Bright Yellow
 color12="$color04" # Base 0D - Bright Blue
 color13="$color05" # Base 0E - Bright Magenta
 color14="$color06" # Base 0C - Bright Cyan
-color15="30/a8/60" # Base 07 - Bright White
-color16="18/30/48" # Base 09
+color15="14/0c/0d" # Base 07 - Bright White
+color16="f0/d8/48" # Base 09
 color17="14/0c/0d" # Base 0F
-color18="f0/d8/48" # Base 01
-color19="ff/f0/18" # Base 02
-color20="f0/00/00" # Base 04
-color21="48/90/00" # Base 06
-color_foreground="d8/00/00" # Base 05
+color18="d6/d6/d6" # Base 01
+color19="bd/bd/bd" # Base 02
+color20="60/57/58" # Base 04
+color21="33/1f/21" # Base 06
+color_foreground="4c/38/3b" # Base 05
 color_background="f0/f0/f0" # Base 00
 
 if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
@@ -84,12 +84,12 @@ put_template 21 "$color21"
 # foreground / background / cursor color
 if [ -n "$ITERM_SESSION_ID" ]; then
   # iTerm2 proprietary escape codes
-  put_template_custom Pg d80000 # foreground
+  put_template_custom Pg 4c383b # foreground
   put_template_custom Ph f0f0f0 # background
-  put_template_custom Pi d80000 # bold color
-  put_template_custom Pj fff018 # selection color
-  put_template_custom Pk d80000 # selected text color
-  put_template_custom Pl d80000 # cursor
+  put_template_custom Pi 4c383b # bold color
+  put_template_custom Pj bdbdbd # selection color
+  put_template_custom Pk 4c383b # selected text color
+  put_template_custom Pl 4c383b # cursor
   put_template_custom Pm f0f0f0 # cursor text
 else
   put_template_var 10 "$color_foreground"
@@ -134,19 +134,19 @@ unset color_background
 # Optionally export variables
 if [ -n "$TINTED_SHELL_ENABLE_BASE16_VARS" ] || [ -n "$BASE16_SHELL_ENABLE_VARS" ]; then
   export BASE16_COLOR_00_HEX="f0f0f0"
-  export BASE16_COLOR_01_HEX="f0d848"
-  export BASE16_COLOR_02_HEX="fff018"
-  export BASE16_COLOR_03_HEX="f01818"
-  export BASE16_COLOR_04_HEX="f00000"
-  export BASE16_COLOR_05_HEX="d80000"
-  export BASE16_COLOR_06_HEX="489000"
-  export BASE16_COLOR_07_HEX="30a860"
-  export BASE16_COLOR_08_HEX="487830"
-  export BASE16_COLOR_09_HEX="183048"
-  export BASE16_COLOR_0A_HEX="426395"
-  export BASE16_COLOR_0B_HEX="5c5c6a"
-  export BASE16_COLOR_0C_HEX="2c3c57"
-  export BASE16_COLOR_0D_HEX="001878"
-  export BASE16_COLOR_0E_HEX="900000"
+  export BASE16_COLOR_01_HEX="d6d6d6"
+  export BASE16_COLOR_02_HEX="bdbdbd"
+  export BASE16_COLOR_03_HEX="a3a3a3"
+  export BASE16_COLOR_04_HEX="605758"
+  export BASE16_COLOR_05_HEX="4c383b"
+  export BASE16_COLOR_06_HEX="331f21"
+  export BASE16_COLOR_07_HEX="140c0d"
+  export BASE16_COLOR_08_HEX="d80000"
+  export BASE16_COLOR_09_HEX="f0d848"
+  export BASE16_COLOR_0A_HEX="fff018"
+  export BASE16_COLOR_0B_HEX="30a860"
+  export BASE16_COLOR_0C_HEX="36d3ff"
+  export BASE16_COLOR_0D_HEX="365eff"
+  export BASE16_COLOR_0E_HEX="9036ff"
   export BASE16_COLOR_0F_HEX="140c0d"
 fi

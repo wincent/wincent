@@ -21,33 +21,33 @@ EOF
 
 
 ghostty_palette_color_0="#eeeeee"
-ghostty_palette_color_1="#bcbcbc"
-ghostty_palette_color_2="#8700af"
-ghostty_palette_color_3="#d70087"
-ghostty_palette_color_4="#d75f00"
-ghostty_palette_color_5="#005faf"
-ghostty_palette_color_6="#d75f00"
-ghostty_palette_color_7="#444444"
-ghostty_palette_color_8="#008700"
-ghostty_palette_color_9="#bcbcbc"
-ghostty_palette_color_10="#8700af"
-ghostty_palette_color_11="#d70087"
-ghostty_palette_color_12="#d75f00"
-ghostty_palette_color_13="#005faf"
-ghostty_palette_color_14="#d75f00"
-ghostty_palette_color_15="#878787"
-ghostty_palette_color_16="#d70000"
-ghostty_palette_color_17="#005f87"
-ghostty_palette_color_18="#af0000"
-ghostty_palette_color_19="#008700"
-ghostty_palette_color_20="#0087af"
-ghostty_palette_color_21="#005f87"
+ghostty_palette_color_1="#d70000"
+ghostty_palette_color_2="#008700"
+ghostty_palette_color_3="#d75f00"
+ghostty_palette_color_4="#005f87"
+ghostty_palette_color_5="#8700af"
+ghostty_palette_color_6="#0087af"
+ghostty_palette_color_7="#5e5e5e"
+ghostty_palette_color_8="#9e9e9e"
+ghostty_palette_color_9="#d70000"
+ghostty_palette_color_10="#008700"
+ghostty_palette_color_11="#d75f00"
+ghostty_palette_color_12="#005f87"
+ghostty_palette_color_13="#8700af"
+ghostty_palette_color_14="#0087af"
+ghostty_palette_color_15="#444444"
+ghostty_palette_color_16="#d75f00"
+ghostty_palette_color_17="#af0000"
+ghostty_palette_color_18="#c4c4c4"
+ghostty_palette_color_19="#9e9e9e"
+ghostty_palette_color_20="#6b6b6b"
+ghostty_palette_color_21="#525252"
 
 _theme_file() {
 cat <<EOF
 # vim: ft=ghostty
 # PaperColor Light theme for Ghostty
-# Scheme Author: Jon Leopard (http://github.com/jonleopard), based on PaperColor Theme (https://github.com/NLKNguyen/papercolor-theme)
+# Scheme Author: Jon Leopard (http://github.com/jonleopard), Tinted Theming (https://github.com/tinted-theming), based on PaperColor Theme (https://github.com/NLKNguyen/papercolor-theme)
 # Scheme System: base16
 # Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
 

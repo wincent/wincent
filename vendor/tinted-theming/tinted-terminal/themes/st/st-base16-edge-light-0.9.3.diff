@@ -7,7 +7,7 @@ diff '--color=auto' -u -N st-0.9.3/config.def.h st-0.9.3-mod/config.def.h
  /* Terminal colors (16 first used in escape sequence) */
 +/*
 + * Scheme name: Edge Light
-+ * Scheme author: cjayross (https://github.com/cjayross)
++ * Scheme author: cjayross (https://github.com/cjayross), Tinted Theming (https://github.com/tinted-theming)
 + * Template author: Tinted Theming (https://github.com/tinted-theming)
 + */
  static const char *colorname[] = {
@@ -20,14 +20,14 @@ diff '--color=auto' -u -N st-0.9.3/config.def.h st-0.9.3-mod/config.def.h
 -	"magenta3",
 -	"cyan3",
 -	"gray90",
-+	[0] = "#7c9f4b",   /* black  */
++	[0] = "#e3e5e8",   /* black  */
 +	[1] = "#db7070",   /* red    */
 +	[2] = "#7c9f4b",   /* green  */
 +	[3] = "#ebcc1a",   /* yellow */
 +	[4] = "#6587bf",   /* blue   */
 +	[5] = "#b870ce",   /* magenta*/
 +	[6] = "#509c93",   /* cyan   */
-+	[7] = "#b870ce",   /* white  */
++	[7] = "#3a3a46",   /* white  */
 
  	/* 8 bright colors */
 -	"gray50",
@@ -38,14 +38,14 @@ diff '--color=auto' -u -N st-0.9.3/config.def.h st-0.9.3-mod/config.def.h
 -	"magenta",
 -	"cyan",
 -	"white",
-+	[8] = "#d69822",   /* black  */
++	[8] = "#acb1b9",   /* black  */
 +	[9] = "#db7070",   /* red    */
 +	[10] = "#7c9f4b",  /* green  */
 +	[11] = "#ebcc1a",  /* yellow */
 +	[12] = "#6587bf",  /* blue   */
 +	[13] = "#b870ce",  /* magenta*/
 +	[14] = "#509c93",  /* cyan   */
-+	[15] = "#5e646f",  /* white  */
++	[15] = "#2e2e38",  /* white  */
 
  	[255] = 0,
 
@@ -54,7 +54,7 @@ diff '--color=auto' -u -N st-0.9.3/config.def.h st-0.9.3-mod/config.def.h
 -	"#555555",
 -	"gray90", /* default foreground colour */
 -	"black", /* default background colour */
-+	[256] = "#5e646f",  /* foreground */
++	[256] = "#474752",  /* foreground */
 +	[257] = "#fafafa",  /* background */
  };
 

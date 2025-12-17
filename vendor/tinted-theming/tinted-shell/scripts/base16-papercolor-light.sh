@@ -1,33 +1,33 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
 # Scheme name: PaperColor Light
-# Scheme author: Jon Leopard (http://github.com/jonleopard), based on PaperColor Theme (https://github.com/NLKNguyen/papercolor-theme)
+# Scheme author: Jon Leopard (http://github.com/jonleopard), Tinted Theming (https://github.com/tinted-theming), based on PaperColor Theme (https://github.com/NLKNguyen/papercolor-theme)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE16_THEME=papercolor-light
 
 color00="ee/ee/ee" # Base 00 - Black
-color01="bc/bc/bc" # Base 08 - Red
-color02="87/00/af" # Base 0B - Green
-color03="d7/00/87" # Base 0A - Yellow
-color04="d7/5f/00" # Base 0D - Blue
-color05="00/5f/af" # Base 0E - Magenta
-color06="d7/5f/00" # Base 0C - Cyan
-color07="44/44/44" # Base 05 - White
-color08="5f/87/00" # Base 03 - Bright Black
+color01="d7/00/00" # Base 08 - Red
+color02="00/87/00" # Base 0B - Green
+color03="d7/5f/00" # Base 0A - Yellow
+color04="00/5f/87" # Base 0D - Blue
+color05="87/00/af" # Base 0E - Magenta
+color06="00/87/af" # Base 0C - Cyan
+color07="5e/5e/5e" # Base 05 - White
+color08="85/85/85" # Base 03 - Bright Black
 color09="$color01" # Base 08 - Bright Red
 color10="$color02" # Base 0B - Bright Green
 color11="$color03" # Base 0A - Bright Yellow
 color12="$color04" # Base 0D - Bright Blue
 color13="$color05" # Base 0E - Bright Magenta
 color14="$color06" # Base 0C - Bright Cyan
-color15="87/87/87" # Base 07 - Bright White
-color16="d7/00/00" # Base 09
-color17="00/5f/87" # Base 0F
-color18="af/00/00" # Base 01
-color19="00/87/00" # Base 02
-color20="00/87/af" # Base 04
-color21="00/5f/87" # Base 06
-color_foreground="44/44/44" # Base 05
+color15="44/44/44" # Base 07 - Bright White
+color16="d7/5f/00" # Base 09
+color17="af/00/00" # Base 0F
+color18="c4/c4/c4" # Base 01
+color19="9e/9e/9e" # Base 02
+color20="6b/6b/6b" # Base 04
+color21="52/52/52" # Base 06
+color_foreground="5e/5e/5e" # Base 05
 color_background="ee/ee/ee" # Base 00
 
 if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
@@ -84,12 +84,12 @@ put_template 21 "$color21"
 # foreground / background / cursor color
 if [ -n "$ITERM_SESSION_ID" ]; then
   # iTerm2 proprietary escape codes
-  put_template_custom Pg 444444 # foreground
+  put_template_custom Pg 5e5e5e # foreground
   put_template_custom Ph eeeeee # background
-  put_template_custom Pi 444444 # bold color
-  put_template_custom Pj 008700 # selection color
-  put_template_custom Pk 444444 # selected text color
-  put_template_custom Pl 444444 # cursor
+  put_template_custom Pi 5e5e5e # bold color
+  put_template_custom Pj 9e9e9e # selection color
+  put_template_custom Pk 5e5e5e # selected text color
+  put_template_custom Pl 5e5e5e # cursor
   put_template_custom Pm eeeeee # cursor text
 else
   put_template_var 10 "$color_foreground"
@@ -134,19 +134,19 @@ unset color_background
 # Optionally export variables
 if [ -n "$TINTED_SHELL_ENABLE_BASE16_VARS" ] || [ -n "$BASE16_SHELL_ENABLE_VARS" ]; then
   export BASE16_COLOR_00_HEX="eeeeee"
-  export BASE16_COLOR_01_HEX="af0000"
-  export BASE16_COLOR_02_HEX="008700"
-  export BASE16_COLOR_03_HEX="5f8700"
-  export BASE16_COLOR_04_HEX="0087af"
-  export BASE16_COLOR_05_HEX="444444"
-  export BASE16_COLOR_06_HEX="005f87"
-  export BASE16_COLOR_07_HEX="878787"
-  export BASE16_COLOR_08_HEX="bcbcbc"
-  export BASE16_COLOR_09_HEX="d70000"
-  export BASE16_COLOR_0A_HEX="d70087"
-  export BASE16_COLOR_0B_HEX="8700af"
-  export BASE16_COLOR_0C_HEX="d75f00"
-  export BASE16_COLOR_0D_HEX="d75f00"
-  export BASE16_COLOR_0E_HEX="005faf"
-  export BASE16_COLOR_0F_HEX="005f87"
+  export BASE16_COLOR_01_HEX="c4c4c4"
+  export BASE16_COLOR_02_HEX="9e9e9e"
+  export BASE16_COLOR_03_HEX="858585"
+  export BASE16_COLOR_04_HEX="6b6b6b"
+  export BASE16_COLOR_05_HEX="5e5e5e"
+  export BASE16_COLOR_06_HEX="525252"
+  export BASE16_COLOR_07_HEX="444444"
+  export BASE16_COLOR_08_HEX="d70000"
+  export BASE16_COLOR_09_HEX="d75f00"
+  export BASE16_COLOR_0A_HEX="d75f00"
+  export BASE16_COLOR_0B_HEX="008700"
+  export BASE16_COLOR_0C_HEX="0087af"
+  export BASE16_COLOR_0D_HEX="005f87"
+  export BASE16_COLOR_0E_HEX="8700af"
+  export BASE16_COLOR_0F_HEX="af0000"
 fi

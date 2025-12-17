@@ -7,7 +7,7 @@ diff '--color=auto' -u -N st-0.9.3/config.def.h st-0.9.3-mod/config.def.h
  /* Terminal colors (16 first used in escape sequence) */
 +/*
 + * Scheme name: Still Alive
-+ * Scheme author: Derrick McKee (derrick.mckee@gmail.com)
++ * Scheme author: Derrick McKee (derrick.mckee@gmail.com), Tinted Theming (https://github.com/tinted-theming)
 + * Template author: Tinted Theming (https://github.com/tinted-theming)
 + */
  static const char *colorname[] = {
@@ -20,14 +20,14 @@ diff '--color=auto' -u -N st-0.9.3/config.def.h st-0.9.3-mod/config.def.h
 -	"magenta3",
 -	"cyan3",
 -	"gray90",
-+	[0] = "#f0d848",   /* black  */
-+	[1] = "#487830",   /* red    */
-+	[2] = "#5c5c6a",   /* green  */
-+	[3] = "#426395",   /* yellow */
-+	[4] = "#001878",   /* blue   */
-+	[5] = "#900000",   /* magenta*/
-+	[6] = "#2c3c57",   /* cyan   */
-+	[7] = "#489000",   /* white  */
++	[0] = "#d6d6d6",   /* black  */
++	[1] = "#d80000",   /* red    */
++	[2] = "#30a860",   /* green  */
++	[3] = "#fff018",   /* yellow */
++	[4] = "#365eff",   /* blue   */
++	[5] = "#9036ff",   /* magenta*/
++	[6] = "#36d3ff",   /* cyan   */
++	[7] = "#331f21",   /* white  */
 
  	/* 8 bright colors */
 -	"gray50",
@@ -38,14 +38,14 @@ diff '--color=auto' -u -N st-0.9.3/config.def.h st-0.9.3-mod/config.def.h
 -	"magenta",
 -	"cyan",
 -	"white",
-+	[8] = "#fff018",   /* black  */
-+	[9] = "#487830",   /* red    */
-+	[10] = "#5c5c6a",  /* green  */
-+	[11] = "#426395",  /* yellow */
-+	[12] = "#001878",  /* blue   */
-+	[13] = "#900000",  /* magenta*/
-+	[14] = "#2c3c57",  /* cyan   */
-+	[15] = "#30a860",  /* white  */
++	[8] = "#bdbdbd",   /* black  */
++	[9] = "#d80000",   /* red    */
++	[10] = "#30a860",  /* green  */
++	[11] = "#fff018",  /* yellow */
++	[12] = "#365eff",  /* blue   */
++	[13] = "#9036ff",  /* magenta*/
++	[14] = "#36d3ff",  /* cyan   */
++	[15] = "#140c0d",  /* white  */
 
  	[255] = 0,
 
@@ -54,7 +54,7 @@ diff '--color=auto' -u -N st-0.9.3/config.def.h st-0.9.3-mod/config.def.h
 -	"#555555",
 -	"gray90", /* default foreground colour */
 -	"black", /* default background colour */
-+	[256] = "#d80000",  /* foreground */
++	[256] = "#4c383b",  /* foreground */
 +	[257] = "#f0f0f0",  /* background */
  };
 

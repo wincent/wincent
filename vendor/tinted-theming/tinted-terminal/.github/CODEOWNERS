@@ -39,6 +39,11 @@ README.md @tinted-theming/terminal
 /themes/kitty/* @tinted-theming/kitty-terminal
 /assets/kitty-icon.svg @tinted-theming/kitty-terminal
 
+# Konsole
+/templates/konsole-* @tinted-theming/konsole-terminal
+/themes/konsole/* @tinted-theming/konsole-terminal
+/assets/konsole-icon.svg @tinted-theming/konsole-terminal
+
 # PuTTY
 /templates/putty-* @tinted-theming/putty-terminal
 /themes/putty/* @tinted-theming/putty-terminal

@@ -1,0 +1,29 @@
+system: "base24"
+name: "Tokyo Night Moon"
+author: "Michaël Ball, based on Tokyo Night by enkia (https://github.com/enkia/tokyo-night-vscode-theme)"
+variant: "dark"
+palette:
+  base00: "#222436" # Background
+  base01: "#1e2030" # Lighter background
+  base02: "#2f334d" # Selection background
+  base03: "#444a73" # Comments, invisibles
+  base04: "#828bb8" # Dark foreground
+  base05: "#c8d3f5" # Default foreground
+  base06: "#b4c2f0" # Light foreground
+  base07: "#c8d3f5" # Lightest foreground
+  base08: "#c099ff" # Variables, XML tags
+  base09: "#ffc777" # Integers, booleans
+  base0A: "#ffc777" # Classes, search text bg
+  base0B: "#c3e88d" # Strings
+  base0C: "#86e1fc" # Regex, escape chars
+  base0D: "#82aaff" # Functions, methods
+  base0E: "#fca7ea" # Keywords, storage
+  base0F: "#c53b53" # Deprecated, special
+  base10: "#1e2030" # Darker background
+  base11: "#1a1b2a" # Darkest background
+  base12: "#ff757f" # Bright red
+  base13: "#ffd793" # Bright orange/yellow
+  base14: "#c3e88d" # Bright green
+  base15: "#86e1fc" # Bright cyan
+  base16: "#82aaff" # Bright blue
+  base17: "#fca7ea" # Bright magenta

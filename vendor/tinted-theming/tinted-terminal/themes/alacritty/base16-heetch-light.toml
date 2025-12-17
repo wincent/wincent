@@ -1,5 +1,5 @@
 # base16 Heetch Light 256 - alacritty color config
-# Geoffrey Teale (tealeg@gmail.com)
+# Geoffrey Teale (tealeg@gmail.com), Tinted Theming (https://github.com/tinted-theming)
 
 # Default colors
 [colors.primary]
@@ -13,46 +13,46 @@ cursor = '0x5a496e'
 
 # Normal colors
 [colors.normal]
-black = '0x392551'
-red = '0x27d9d5'
-green = '0xf80059'
-yellow = '0x5ba2b6'
-blue = '0x47f9f5'
-magenta = '0xbd0152'
-cyan = '0xc33678'
-white = '0x470546'
+black = '0xdedae2'
+red = '0xf80059'
+green = '0x5bb66a'
+yellow = '0xbd9701'
+blue = '0x5ba2b6'
+magenta = '0x8f6c97'
+cyan = '0x47f9f5'
+white = '0x392551'
 
 # Bright colors
 [colors.bright]
-black = '0x7b6d8b'
-red = '0x27d9d5'
-green = '0xf80059'
-yellow = '0x5ba2b6'
-blue = '0x47f9f5'
-magenta = '0xbd0152'
-cyan = '0xc33678'
+black = '0xbdb6c5'
+red = '0xf80059'
+green = '0x5bb66a'
+yellow = '0xbd9701'
+blue = '0x5ba2b6'
+magenta = '0x8f6c97'
+cyan = '0x47f9f5'
 white = '0x190134'
 
 [[colors.indexed_colors]]
 index = 16
-color = "0xbdb6c5"
+color = "0xbd0152"
 
 [[colors.indexed_colors]]
 index = 17
-color = "0xdedae2"
+color = "0x58425d"
 
 [[colors.indexed_colors]]
 index = 18
-color = "0x392551"
+color = "0xdedae2"
 
 [[colors.indexed_colors]]
 index = 19
-color = "0x7b6d8b"
+color = "0xbdb6c5"
 
 [[colors.indexed_colors]]
 index = 20
-color = "0xddd6e5"
+color = "0x7b6d8b"
 
 [[colors.indexed_colors]]
 index = 21
-color = "0x470546"
+color = "0x392551"

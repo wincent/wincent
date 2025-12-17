@@ -1,37 +1,37 @@
 # base16 Edge Light 256 - alacritty color config
-# cjayross (https://github.com/cjayross)
+# cjayross (https://github.com/cjayross), Tinted Theming (https://github.com/tinted-theming)
 
 # Default colors
 [colors.primary]
 background = '0xfafafa'
-foreground = '0x5e646f'
+foreground = '0x474752'
 
 # Colors the cursor will use if `custom_cursor_colors` is true
 [colors.cursor]
 text = '0xfafafa'
-cursor = '0x5e646f'
+cursor = '0x474752'
 
 # Normal colors
 [colors.normal]
-black = '0x7c9f4b'
+black = '0xe3e5e8'
 red = '0xdb7070'
 green = '0x7c9f4b'
 yellow = '0xebcc1a'
 blue = '0x6587bf'
 magenta = '0xb870ce'
 cyan = '0x509c93'
-white = '0xb870ce'
+white = '0x3a3a46'
 
 # Bright colors
 [colors.bright]
-black = '0xd69822'
+black = '0xacb1b9'
 red = '0xdb7070'
 green = '0x7c9f4b'
 yellow = '0xebcc1a'
 blue = '0x6587bf'
 magenta = '0xb870ce'
 cyan = '0x509c93'
-white = '0x5e646f'
+white = '0x2e2e38'
 
 [[colors.indexed_colors]]
 index = 16
@@ -43,16 +43,16 @@ color = "0x509c93"
 
 [[colors.indexed_colors]]
 index = 18
-color = "0x7c9f4b"
+color = "0xe3e5e8"
 
 [[colors.indexed_colors]]
 index = 19
-color = "0xd69822"
+color = "0xacb1b9"
 
 [[colors.indexed_colors]]
 index = 20
-color = "0x6587bf"
+color = "0x5e646f"
 
 [[colors.indexed_colors]]
 index = 21
-color = "0xb870ce"
+color = "0x3a3a46"

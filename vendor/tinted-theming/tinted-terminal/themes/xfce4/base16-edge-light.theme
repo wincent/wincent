@@ -1,10 +1,10 @@
 # Scheme name: Edge Light
-# Scheme author: cjayross (https://github.com/cjayross)
+# Scheme author: cjayross (https://github.com/cjayross), Tinted Theming (https://github.com/tinted-theming)
 # Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
 [Scheme]
 Name=base16-edge-light
-ColorForeground=#5e646f
+ColorForeground=#474752
 ColorBackground=#fafafa
 ColorCursor=x
 ColorBoldIsBright=FALSE
-ColorPalette=#7c9f4b;#db7070;#7c9f4b;#ebcc1a;#6587bf;#b870ce;#509c93;#b870ce;#d69822;#db7070;#7c9f4b;#ebcc1a;#6587bf;#b870ce;#509c93;#5e646f
+ColorPalette=#e3e5e8;#db7070;#7c9f4b;#ebcc1a;#6587bf;#b870ce;#509c93;#3a3a46;#acb1b9;#db7070;#7c9f4b;#ebcc1a;#6587bf;#b870ce;#509c93;#2e2e38

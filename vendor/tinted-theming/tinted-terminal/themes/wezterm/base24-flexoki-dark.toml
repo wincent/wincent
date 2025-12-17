@@ -1,0 +1,43 @@
+# base24 Flexoki Dark
+# Scheme author: Steph Ango (https://github.com/kepano/flexoki)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#100f0f"
+foreground = "#cecdc3"
+
+cursor_bg = "#1c1b1a"
+cursor_border = "#cecdc3"
+cursor_fg = "#e6e4d9"
+
+selection_bg = "#cecdc3"
+selection_fg = "#282726"
+
+ansi = [
+  "#100f0f",
+  "#d14d41",
+  "#879a39",
+  "#d0a215",
+  "#4385be",
+  "#8b7ec8",
+  "#3aa99f",
+  "#e6e4d9"
+]
+brights = [
+  "#282726",
+  "#af3029",
+  "#ad8301",
+  "#bc5215",
+  "#24837b",
+  "#205ea6",
+  "#66800b",
+  "#fffcf0"
+]
+
+[colors.indexed]
+16 = "#da702c"
+17 = "#ce5d97"
+18 = "#1c1b1a"
+19 = "#282726"
+20 = "#878580"
+21 = "#cecdc3"

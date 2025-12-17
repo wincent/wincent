@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Flexoki Dark",
+	"foreground": "#cecdc3",
+	"background": "#100f0f",
+	"black": "#1c1b1a",
+	"blue": "#4385be",
+	"brightBlack": "#282726",
+	"brightBlue": "#24837b",
+	"brightCyan": "#66800b",
+	"brightGreen": "#ad8301",
+	"brightPurple": "#205ea6",
+	"brightRed": "#af3029",
+	"brightWhite": "#fffcf0",
+	"brightYellow": "#bc5215",
+	"cyan": "#3aa99f",
+	"green": "#879a39",
+	"purple": "#8b7ec8",
+	"red": "#d14d41",
+	"white": "#e6e4d9",
+	"yellow": "#da702c"
+},

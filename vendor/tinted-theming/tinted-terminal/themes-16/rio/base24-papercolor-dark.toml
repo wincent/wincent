@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: PaperColor Dark by Nguyen Nguyen (https://github.com/NLKNguyen/papercolor-theme)
+
+[colors]
+selection-background = '#3a3a3a' # base02
+selection-foreground = '#d0d0d0' # base05
+
+cursor         = '#d0d0d0' # base05
+tabs           = '#303030' # base01
+tabs-active    = '#3a3a3a' # base02
+
+background     = '#1c1c1c' # base00
+foreground     = '#d0d0d0' # base05
+black          = '#303030' # base01
+red            = '#af005f' # base08
+yellow         = '#d7af5f' # base0A
+green          = '#5faf00' # base0B
+cyan           = '#ffaf00' # base0C
+blue           = '#5fafd7' # base0D
+magenta        = '#af87d7' # base0E
+white          = '#bcbcbc' # base06
+
+dim-foreground   = '#d0d0d0' # base05
+dim-black        = '#303030' # base01
+dim-red          = '#af005f' # base08
+dim-yellow       = '#d7af5f' # base0A
+dim-green        = '#5faf00' # base0B
+dim-cyan         = '#ffaf00' # base0C
+dim-blue         = '#5fafd7' # base0D
+dim-magenta      = '#af87d7' # base0E
+dim-white        = '#585858' # base04
+
+light-foreground = '#d0d0d0' # base05
+light-black      = '#3a3a3a' # base02
+light-red        = '#d7005f' # base12
+light-yellow     = '#87d75f' # base13
+light-green      = '#ffd75f' # base14
+light-cyan       = '#87d700' # base15
+light-blue       = '#ffd700' # base16
+light-magenta    = '#87d7ff' # base17
+light-white      = '#c6c6c6' # base07

@@ -124,7 +124,7 @@ it can be useful to rely on bracketed-paste
 (https://cirw.in/blog/bracketed-paste). Luckily, some targets (https://github.com/jpalardy/vim-slime#targets) know how to handle
 that.
 
-You can enable bracketed-paste using eiter
+You can enable bracketed-paste using either
 >
     g:slime_bracketed_paste
 <

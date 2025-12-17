@@ -1,43 +1,43 @@
 # vim: ft=ghostty
 # PaperColor Light theme for Ghostty
-# Scheme Author: Jon Leopard (http://github.com/jonleopard), based on PaperColor Theme (https://github.com/NLKNguyen/papercolor-theme)
+# Scheme Author: Jon Leopard (http://github.com/jonleopard), Tinted Theming (https://github.com/tinted-theming), based on PaperColor Theme (https://github.com/NLKNguyen/papercolor-theme)
 # Scheme System: base16
 # Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
 
 # Color palette
 palette = 0=#eeeeee
-palette = 1=#bcbcbc
-palette = 2=#8700af
-palette = 3=#d70087
-palette = 4=#d75f00
-palette = 5=#005faf
-palette = 6=#d75f00
-palette = 7=#444444
-palette = 8=#008700
-palette = 9=#bcbcbc
-palette = 10=#8700af
-palette = 11=#d70087
-palette = 12=#d75f00
-palette = 13=#005faf
-palette = 14=#d75f00
-palette = 15=#878787
-palette = 16=#d70000
-palette = 17=#005f87
-palette = 18=#af0000
-palette = 19=#008700
-palette = 20=#0087af
-palette = 21=#005f87
+palette = 1=#d70000
+palette = 2=#008700
+palette = 3=#d75f00
+palette = 4=#005f87
+palette = 5=#8700af
+palette = 6=#0087af
+palette = 7=#5e5e5e
+palette = 8=#9e9e9e
+palette = 9=#d70000
+palette = 10=#008700
+palette = 11=#d75f00
+palette = 12=#005f87
+palette = 13=#8700af
+palette = 14=#0087af
+palette = 15=#444444
+palette = 16=#d75f00
+palette = 17=#af0000
+palette = 18=#c4c4c4
+palette = 19=#9e9e9e
+palette = 20=#6b6b6b
+palette = 21=#525252
 
 # Foreground & background colors
 background = #eeeeee
-foreground = #444444
-cursor-color = #444444
-selection-background = #008700
-selection-foreground = #444444
+foreground = #5e5e5e
+cursor-color = #5e5e5e
+selection-background = #9e9e9e
+selection-foreground = #5e5e5e
 
 # Set `macos-icon = custom-style` in your main configuration file to enable theming of the app icon.
 #
 # Set the ghost color to the lightest foreground:
-macos-icon-ghost-color = #878787
+macos-icon-ghost-color = #444444
 # Replace the official icon's blue background with the designated bright blue color:
-macos-icon-screen-color = #d75f00
+macos-icon-screen-color = #005f87

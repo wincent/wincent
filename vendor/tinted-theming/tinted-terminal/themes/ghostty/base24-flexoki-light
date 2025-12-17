@@ -1,0 +1,43 @@
+# vim: ft=ghostty
+# Flexoki Light theme for Ghostty
+# Scheme Author: Steph Ango (https://github.com/kepano/flexoki)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# Color palette
+palette = 0=#fffcf0
+palette = 1=#af3029
+palette = 2=#66800b
+palette = 3=#ad8301
+palette = 4=#205ea6
+palette = 5=#5e409d
+palette = 6=#24837b
+palette = 7=#282726
+palette = 8=#e6e4d9
+palette = 9=#d14d41
+palette = 10=#d0a215
+palette = 11=#da702c
+palette = 12=#3aa99f
+palette = 13=#4385be
+palette = 14=#879a39
+palette = 15=#100f0f
+palette = 16=#bc5215
+palette = 17=#a02f6f
+palette = 18=#f2f0e5
+palette = 19=#e6e4d9
+palette = 20=#9f9d96
+palette = 21=#282726
+
+# Foreground & background colors
+background = #fffcf0
+foreground = #403e3c
+cursor-color = #403e3c
+selection-background = #e6e4d9
+selection-foreground = #403e3c
+
+# Set `macos-icon = custom-style` in your main configuration file to enable theming of the app icon.
+#
+# Set the ghost color to the lightest foreground:
+macos-icon-ghost-color = #100f0f
+# Replace the official icon's blue background with the designated bright blue color:
+macos-icon-screen-color = #3aa99f

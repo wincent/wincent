@@ -1,0 +1,10 @@
+# Scheme name: PaperColor Dark
+# Scheme author: Nguyen Nguyen (https://github.com/NLKNguyen/papercolor-theme)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-papercolor-dark
+ColorForeground=#d0d0d0
+ColorBackground=#1c1c1c
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#303030;#af005f;#5faf00;#d7af5f;#5fafd7;#af87d7;#ffaf00;#bcbcbc;#3a3a3a;#d7005f;#ffd75f;#87d75f;#ffd700;#87d7ff;#87d700;#c6c6c6

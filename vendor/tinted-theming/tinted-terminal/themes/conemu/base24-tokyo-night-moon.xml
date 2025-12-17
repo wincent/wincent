@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    base24 Tokyo Night Moon
+    Scheme author: Michaël Ball, based on Tokyo Night by enkia (https://github.com/enkia/tokyo-night-vscode-theme)
+    Template author: Tinted Theming (https://github.com/tinted-theming)
+    semanticClass: theme.base24.tokyo-night-moon
+-->
+<key name="Palette1">
+    <value name="Name" type="string" data="base24-tokyo-night-moon"/>
+    <value name="ExtendColors" type="hex" data="00"/>
+    <value name="ExtendColorIdx" type="hex" data="0e"/>
+    <value name="TextColorIdx" type="hex" data="10"/>
+    <value name="BackColorIdx" type="hex" data="10"/>
+    <value name="PopTextColorIdx" type="hex" data="10"/>
+    <value name="PopBackColorIdx" type="hex" data="10"/>
+    <value name="ColorTable00" type="dword" data="0030201e"/> <!-- base01 - Black -->
+    <value name="ColorTable01" type="dword" data="00ff99c0"/> <!-- base08 - Red -->
+    <value name="ColorTable02" type="dword" data="008de8c3"/> <!-- base0B - Green -->
+    <value name="ColorTable03" type="dword" data="0077c7ff"/> <!-- base0A - Yellow -->
+    <value name="ColorTable04" type="dword" data="00ffaa82"/> <!-- base0D - Blue -->
+    <value name="ColorTable05" type="dword" data="00eaa7fc"/> <!-- base0E - Magenta -->
+    <value name="ColorTable06" type="dword" data="00fce186"/> <!-- base0C - Cyan -->
+    <value name="ColorTable07" type="dword" data="00f0c2b4"/> <!-- base06 - White -->
+    <value name="ColorTable08" type="dword" data="004d332f"/> <!-- base02 - Bright Black -->
+    <value name="ColorTable09" type="dword" data="007f75ff"/> <!-- base12 - Bright Red -->
+    <value name="ColorTable10" type="dword" data="008de8c3"/> <!-- base14 - Bright Green -->
+    <value name="ColorTable11" type="dword" data="0093d7ff"/> <!-- base13 - Bright Yellow -->
+    <value name="ColorTable12" type="dword" data="00ffaa82"/> <!-- base16 - Bright Blue -->
+    <value name="ColorTable13" type="dword" data="00eaa7fc"/> <!-- base17 - Bright Magenta -->
+    <value name="ColorTable14" type="dword" data="00fce186"/> <!-- base15 - Bright Cyan -->
+    <value name="ColorTable15" type="dword" data="00f5d3c8"/> <!-- base07 - Bright White -->
+    <value name="ColorTable16" type="dword" data="0077c7ff"/> <!-- base09 -->
+    <value name="ColorTable17" type="dword" data="00533bc5"/> <!-- base0F -->
+    <value name="ColorTable18" type="dword" data="0030201e"/> <!-- base01 -->
+    <value name="ColorTable19" type="dword" data="004d332f"/> <!-- base02 -->
+    <value name="ColorTable20" type="dword" data="00b88b82"/> <!-- base04 -->
+    <value name="ColorTable21" type="dword" data="00f0c2b4"/> <!-- base06 -->
+</key>

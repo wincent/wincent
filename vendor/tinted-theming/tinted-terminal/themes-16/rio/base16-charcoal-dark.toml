@@ -2,40 +2,40 @@
 # Color scheme: Charcoal Dark by Mubin Muhammad (https://github.com/mubin6th)
 
 [colors]
-selection-background = '#35291d' # base02
-selection-foreground = '#c0a179' # base05
+selection-background = '#2a2012' # base02
+selection-foreground = '#c3a983' # base05
 
-cursor         = '#c0a179' # base05
-tabs           = '#1e1812' # base01
-tabs-active    = '#35291d' # base02
+cursor         = '#c3a983' # base05
+tabs           = '#231b0e' # base01
+tabs-active    = '#2a2012' # base02
 
-background     = '#120f09' # base00
-foreground     = '#c0a179' # base05
-black          = '#1e1812' # base01
-red            = '#887254' # base08
-yellow         = '#c0a179' # base0A
-green          = '#927a60' # base0B
-cyan           = '#a28662' # base0C
-blue           = '#d6b891' # base0D
-magenta        = '#a28662' # base0E
-white          = '#d6b891' # base06
+background     = '#0f0b05' # base00
+foreground     = '#c3a983' # base05
+black          = '#231b0e' # base01
+red            = '#a88c62' # base08
+yellow         = '#dec8a7' # base0A
+green          = '#dec8a7' # base0B
+cyan           = '#dec8a7' # base0C
+blue           = '#c3a983' # base0D
+magenta        = '#a88c62' # base0E
+white          = '#dec8a7' # base06
 
-dim-foreground   = '#c0a179' # base05
-dim-black        = '#1e1812' # base01
-dim-red          = '#887254' # base08
-dim-yellow       = '#c0a179' # base0A
-dim-green        = '#927a60' # base0B
-dim-cyan         = '#a28662' # base0C
-dim-blue         = '#d6b891' # base0D
-dim-magenta      = '#a28662' # base0E
-dim-white        = '#a28662' # base04
+dim-foreground   = '#c3a983' # base05
+dim-black        = '#231b0e' # base01
+dim-red          = '#a88c62' # base08
+dim-yellow       = '#dec8a7' # base0A
+dim-green        = '#dec8a7' # base0B
+dim-cyan         = '#dec8a7' # base0C
+dim-blue         = '#c3a983' # base0D
+dim-magenta      = '#a88c62' # base0E
+dim-white        = '#a88c62' # base04
 
-light-foreground = '#c0a179' # base05
-light-black      = '#35291d' # base02
-light-red        = '#887254' # base08
-light-yellow     = '#c0a179' # base0A
-light-green      = '#927a60' # base0B
-light-cyan       = '#a28662' # base0C
-light-blue       = '#d6b891' # base0D
-light-magenta    = '#a28662' # base0E
-light-white      = '#292016' # base07
+light-foreground = '#c3a983' # base05
+light-black      = '#2a2012' # base02
+light-red        = '#a88c62' # base08
+light-yellow     = '#dec8a7' # base0A
+light-green      = '#dec8a7' # base0B
+light-cyan       = '#dec8a7' # base0C
+light-blue       = '#c3a983' # base0D
+light-magenta    = '#a88c62' # base0E
+light-white      = '#231b0e' # base07

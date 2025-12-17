@@ -1,0 +1,29 @@
+system: "base24"
+name: "PaperColor Light"
+author: "Nguyen Nguyen (https://github.com/NLKNguyen/papercolor-theme)"
+variant: "light"
+palette:
+  base00: "#eeeeee" # Default Background
+  base01: "#e4e4e4" # Lighter Background (CursorLine)
+  base02: "#d0d0d0" # Selection Background (StatusLineNC)
+  base03: "#878787" # Comments, LineNumbers
+  base04: "#b2b2b2" # Dark Foreground
+  base05: "#444444" # Default Foreground
+  base06: "#005f87" # Light Foreground (Cursor bg, emphasis)
+  base07: "#0087af" # Lightest Foreground
+  base08: "#af0000" # Red - Variables, Errors
+  base09: "#d70087" # Pink - Constants, Numbers
+  base0A: "#5f8700" # Olive/Yellow - Classes, Strings
+  base0B: "#008700" # Green - Strings, Diff Add
+  base0C: "#d75f00" # Orange - Regex, Support
+  base0D: "#0087af" # Blue - Functions
+  base0E: "#8700af" # Purple - Keywords
+  base0F: "#005faf" # Navy Blue - Deprecated, Special
+  base10: "#f4f4f4" # Lighter background variant
+  base11: "#ffffff" # Lightest background
+  base12: "#d70000" # Bright Red
+  base13: "#ff00af" # Bright Pink
+  base14: "#87af00" # Bright Olive
+  base15: "#00af00" # Bright Green
+  base16: "#ff8700" # Bright Orange
+  base17: "#5fafff" # Bright Blue

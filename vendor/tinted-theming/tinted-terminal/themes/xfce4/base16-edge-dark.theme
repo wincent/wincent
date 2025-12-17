@@ -1,10 +1,10 @@
 # Scheme name: Edge Dark
-# Scheme author: cjayross (https://github.com/cjayross)
+# Scheme author: cjayross (https://github.com/cjayross), Tinted Theming (https://github.com/tinted-theming)
 # Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
 [Scheme]
 Name=base16-edge-dark
-ColorForeground=#b7bec9
+ColorForeground=#afb2b5
 ColorBackground=#262729
 ColorCursor=x
 ColorBoldIsBright=FALSE
-ColorPalette=#88909f;#e77171;#a1bf78;#dbb774;#73b3e7;#d390e7;#5ebaa5;#d390e7;#b7bec9;#e77171;#a1bf78;#dbb774;#73b3e7;#d390e7;#5ebaa5;#3e4249
+ColorPalette=#313235;#e77171;#a1bf78;#dbb774;#73b3e7;#d390e7;#5ebaa5;#caccce;#3d3f42;#e77171;#a1bf78;#dbb774;#73b3e7;#d390e7;#5ebaa5;#e4e5e6

@@ -1,17 +1,17 @@
 # base16 Edge Dark
-# Scheme author: cjayross (https://github.com/cjayross)
+# Scheme author: cjayross (https://github.com/cjayross), Tinted Theming (https://github.com/tinted-theming)
 # Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
 
 [colors]
 background = "#262729"
-foreground = "#b7bec9"
+foreground = "#afb2b5"
 
-cursor_bg = "#b7bec9"
-cursor_border = "#b7bec9"
+cursor_bg = "#afb2b5"
+cursor_border = "#afb2b5"
 cursor_fg = "#262729"
 
-selection_bg = "#b7bec9"
-selection_fg = "#b7bec9"
+selection_bg = "#afb2b5"
+selection_fg = "#3d3f42"
 
 ansi = [
   "#262729",
@@ -21,23 +21,23 @@ ansi = [
   "#73b3e7",
   "#d390e7",
   "#5ebaa5",
-  "#d390e7"
+  "#caccce"
 ]
 brights = [
-  "#b7bec9",
+  "#3d3f42",
   "#e77171",
   "#a1bf78",
   "#dbb774",
   "#73b3e7",
   "#d390e7",
   "#5ebaa5",
-  "#3e4249"
+  "#e4e5e6"
 ]
 
 [colors.indexed]
-16 = "#e77171"
+16 = "#eba31a"
 17 = "#5ebaa5"
-18 = "#88909f"
-19 = "#b7bec9"
-20 = "#73b3e7"
-21 = "#b7bec9"
+18 = "#313235"
+19 = "#3d3f42"
+20 = "#95989d"
+21 = "#afb2b5"

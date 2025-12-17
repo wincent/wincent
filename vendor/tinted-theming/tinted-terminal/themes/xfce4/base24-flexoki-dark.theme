@@ -1,0 +1,10 @@
+# Scheme name: Flexoki Dark
+# Scheme author: Steph Ango (https://github.com/kepano/flexoki)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-flexoki-dark
+ColorForeground=#cecdc3
+ColorBackground=#100f0f
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#1c1b1a;#d14d41;#879a39;#d0a215;#4385be;#8b7ec8;#3aa99f;#e6e4d9;#282726;#af3029;#ad8301;#bc5215;#24837b;#205ea6;#66800b;#fffcf0

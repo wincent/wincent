@@ -3,17 +3,17 @@ Windows Registry Editor Version 5.00
 ; Scheme name: Edge Dark
 ; Scheme system: base16
 ; Scheme description: 
-; Scheme author: cjayross (https://github.com/cjayross)
+; Scheme author: cjayross (https://github.com/cjayross), Tinted Theming (https://github.com/tinted-theming)
 ; Template author: Tinted Theming (https://github.com/tinted-theming)
 [HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base16-edge-dark]
 
 ; Default Foreground
-; base05 #b7bec9
-"Colour0"="183,190,201"
+; base05 #afb2b5
+"Colour0"="175,178,181"
 
 ; Default Bold Foreground  -- equals to non-bold
-; base05 #b7bec9
-"Colour1"="183,190,201"
+; base05 #afb2b5
+"Colour1"="175,178,181"
 
 ; Default Background
 ; base00 #262729
@@ -28,18 +28,18 @@ Windows Registry Editor Version 5.00
 "Colour4"="38,39,41"
 
 ; Cursor Colour -- equals to default foreground
-; base05 #b7bec9
-"Colour5"="183,190,201"
+; base05 #afb2b5
+"Colour5"="175,178,181"
 
 ; ANSI Black
 ; 30m
-; base01 #88909f
-"Colour6"="136,144,159"
+; base01 #313235
+"Colour6"="49,50,53"
 
 ; ANSI Black Bright
 ; 1;30m
-; base02 #b7bec9
-"Colour7"="183,190,201"
+; base02 #3d3f42
+"Colour7"="61,63,66"
 
 ; ANSI Red
 ; 31m
@@ -103,10 +103,10 @@ Windows Registry Editor Version 5.00
 
 ; ANSI White
 ; 37m
-; base06 #d390e7
-"Colour20"="211,144,231"
+; base06 #caccce
+"Colour20"="202,204,206"
 
 ; ANSI White Bright
 ; 1;37m
-; base07 3e4249
-"Colour21"="62,66,73"
+; base07 e4e5e6
+"Colour21"="228,229,230"

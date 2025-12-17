@@ -1,43 +1,43 @@
 # vim: ft=ghostty
 # Still Alive theme for Ghostty
-# Scheme Author: Derrick McKee (derrick.mckee@gmail.com)
+# Scheme Author: Derrick McKee (derrick.mckee@gmail.com), Tinted Theming (https://github.com/tinted-theming)
 # Scheme System: base16
 # Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
 
 # Color palette
 palette = 0=#f0f0f0
-palette = 1=#487830
-palette = 2=#5c5c6a
-palette = 3=#426395
-palette = 4=#001878
-palette = 5=#900000
-palette = 6=#2c3c57
-palette = 7=#d80000
-palette = 8=#fff018
-palette = 9=#487830
-palette = 10=#5c5c6a
-palette = 11=#426395
-palette = 12=#001878
-palette = 13=#900000
-palette = 14=#2c3c57
-palette = 15=#30a860
-palette = 16=#183048
+palette = 1=#d80000
+palette = 2=#30a860
+palette = 3=#fff018
+palette = 4=#365eff
+palette = 5=#9036ff
+palette = 6=#36d3ff
+palette = 7=#4c383b
+palette = 8=#bdbdbd
+palette = 9=#d80000
+palette = 10=#30a860
+palette = 11=#fff018
+palette = 12=#365eff
+palette = 13=#9036ff
+palette = 14=#36d3ff
+palette = 15=#140c0d
+palette = 16=#f0d848
 palette = 17=#140c0d
-palette = 18=#f0d848
-palette = 19=#fff018
-palette = 20=#f00000
-palette = 21=#489000
+palette = 18=#d6d6d6
+palette = 19=#bdbdbd
+palette = 20=#605758
+palette = 21=#331f21
 
 # Foreground & background colors
 background = #f0f0f0
-foreground = #d80000
-cursor-color = #d80000
-selection-background = #fff018
-selection-foreground = #d80000
+foreground = #4c383b
+cursor-color = #4c383b
+selection-background = #bdbdbd
+selection-foreground = #4c383b
 
 # Set `macos-icon = custom-style` in your main configuration file to enable theming of the app icon.
 #
 # Set the ghost color to the lightest foreground:
-macos-icon-ghost-color = #30a860
+macos-icon-ghost-color = #140c0d
 # Replace the official icon's blue background with the designated bright blue color:
-macos-icon-screen-color = #001878
+macos-icon-screen-color = #365eff

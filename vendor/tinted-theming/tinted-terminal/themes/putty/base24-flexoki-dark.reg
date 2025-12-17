@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Flexoki Dark
+; Scheme system: base24
+; Scheme description: Inky color scheme for prose and code
+; Scheme author: Steph Ango (https://github.com/kepano/flexoki)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base24-flexoki-dark]
+
+; Default Foreground
+; base05 #cecdc3
+"Colour0"="206,205,195"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #cecdc3
+"Colour1"="206,205,195"
+
+; Default Background
+; base00 #100f0f
+"Colour2"="16,15,15"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #100f0f
+"Colour3"="16,15,15"
+
+; Cursor Text -- equals to default background
+; base00 #100f0f
+"Colour4"="16,15,15"
+
+; Cursor Colour -- equals to default foreground
+; base05 #cecdc3
+"Colour5"="206,205,195"
+
+; ANSI Black
+; 30m
+; base01 #1c1b1a
+"Colour6"="28,27,26"
+
+; ANSI Black Bright
+; 1;30m
+; base02 #282726
+"Colour7"="40,39,38"
+
+; ANSI Red
+; 31m
+; base08 #d14d41
+"Colour8"="209,77,65"
+
+; ANSI Red Bright
+; 1;31m
+; base12 #af3029
+"Colour9"="175,48,41"
+
+; ANSI Green
+; 32m
+; base0B #879a39
+"Colour10"="135,154,57"
+
+; ANSI Green Bright
+; 1;32m
+; base14 #ad8301
+"Colour11"="173,131,1"
+
+; ANSI Yellow
+; 33m
+; base0A #d0a215
+"Colour12"="208,162,21"
+
+; ANSI Yellow Bright
+; 1;33m
+; base13 #bc5215
+"Colour13"="188,82,21"
+
+; ANSI Blue
+; 34m
+; base0D #4385be
+"Colour14"="67,133,190"
+
+; ANSI Blue Bright
+; 1;34m
+; base16 #24837b
+"Colour15"="36,131,123"
+
+; ANSI Magenta
+; 35m
+; base0E #8b7ec8
+"Colour16"="139,126,200"
+
+; ANSI Magenta Bright
+; 1;35m
+; base17 #205ea6
+"Colour17"="32,94,166"
+
+; ANSI Cyan
+; 36m
+; base0C #3aa99f
+"Colour18"="58,169,159"
+
+; ANSI Cyan Bright
+; 1;36m
+; base15 #66800b
+"Colour19"="102,128,11"
+
+; ANSI White
+; 37m
+; base06 #e6e4d9
+"Colour20"="230,228,217"
+
+; ANSI White Bright
+; 1;37m
+; base07 fffcf0
+"Colour21"="255,252,240"

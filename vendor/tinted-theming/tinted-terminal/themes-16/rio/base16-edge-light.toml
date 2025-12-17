@@ -1,41 +1,41 @@
 # Rio Terminal base16 color theme (https://github.com/tinted-theming)
-# Color scheme: Edge Light by cjayross (https://github.com/cjayross)
+# Color scheme: Edge Light by cjayross (https://github.com/cjayross), Tinted Theming (https://github.com/tinted-theming)
 
 [colors]
-selection-background = '#d69822' # base02
-selection-foreground = '#5e646f' # base05
+selection-background = '#acb1b9' # base02
+selection-foreground = '#474752' # base05
 
-cursor         = '#5e646f' # base05
-tabs           = '#7c9f4b' # base01
-tabs-active    = '#d69822' # base02
+cursor         = '#474752' # base05
+tabs           = '#e3e5e8' # base01
+tabs-active    = '#acb1b9' # base02
 
 background     = '#fafafa' # base00
-foreground     = '#5e646f' # base05
-black          = '#7c9f4b' # base01
+foreground     = '#474752' # base05
+black          = '#e3e5e8' # base01
 red            = '#db7070' # base08
 yellow         = '#ebcc1a' # base0A
 green          = '#7c9f4b' # base0B
 cyan           = '#509c93' # base0C
 blue           = '#6587bf' # base0D
 magenta        = '#b870ce' # base0E
-white          = '#b870ce' # base06
+white          = '#3a3a46' # base06
 
-dim-foreground   = '#5e646f' # base05
-dim-black        = '#7c9f4b' # base01
+dim-foreground   = '#474752' # base05
+dim-black        = '#e3e5e8' # base01
 dim-red          = '#db7070' # base08
 dim-yellow       = '#ebcc1a' # base0A
 dim-green        = '#7c9f4b' # base0B
 dim-cyan         = '#509c93' # base0C
 dim-blue         = '#6587bf' # base0D
 dim-magenta      = '#b870ce' # base0E
-dim-white        = '#6587bf' # base04
+dim-white        = '#5e646f' # base04
 
-light-foreground = '#5e646f' # base05
-light-black      = '#d69822' # base02
+light-foreground = '#474752' # base05
+light-black      = '#acb1b9' # base02
 light-red        = '#db7070' # base08
 light-yellow     = '#ebcc1a' # base0A
 light-green      = '#7c9f4b' # base0B
 light-cyan       = '#509c93' # base0C
 light-blue       = '#6587bf' # base0D
 light-magenta    = '#b870ce' # base0E
-light-white      = '#5e646f' # base07
+light-white      = '#2e2e38' # base07

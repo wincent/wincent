@@ -7,7 +7,7 @@ diff '--color=auto' -u -N st-0.9.3/config.def.h st-0.9.3-mod/config.def.h
  /* Terminal colors (16 first used in escape sequence) */
 +/*
 + * Scheme name: Heetch Light
-+ * Scheme author: Geoffrey Teale (tealeg@gmail.com)
++ * Scheme author: Geoffrey Teale (tealeg@gmail.com), Tinted Theming (https://github.com/tinted-theming)
 + * Template author: Tinted Theming (https://github.com/tinted-theming)
 + */
  static const char *colorname[] = {
@@ -20,14 +20,14 @@ diff '--color=auto' -u -N st-0.9.3/config.def.h st-0.9.3-mod/config.def.h
 -	"magenta3",
 -	"cyan3",
 -	"gray90",
-+	[0] = "#392551",   /* black  */
-+	[1] = "#27d9d5",   /* red    */
-+	[2] = "#f80059",   /* green  */
-+	[3] = "#5ba2b6",   /* yellow */
-+	[4] = "#47f9f5",   /* blue   */
-+	[5] = "#bd0152",   /* magenta*/
-+	[6] = "#c33678",   /* cyan   */
-+	[7] = "#470546",   /* white  */
++	[0] = "#dedae2",   /* black  */
++	[1] = "#f80059",   /* red    */
++	[2] = "#5bb66a",   /* green  */
++	[3] = "#bd9701",   /* yellow */
++	[4] = "#5ba2b6",   /* blue   */
++	[5] = "#8f6c97",   /* magenta*/
++	[6] = "#47f9f5",   /* cyan   */
++	[7] = "#392551",   /* white  */
 
  	/* 8 bright colors */
 -	"gray50",
@@ -38,13 +38,13 @@ diff '--color=auto' -u -N st-0.9.3/config.def.h st-0.9.3-mod/config.def.h
 -	"magenta",
 -	"cyan",
 -	"white",
-+	[8] = "#7b6d8b",   /* black  */
-+	[9] = "#27d9d5",   /* red    */
-+	[10] = "#f80059",  /* green  */
-+	[11] = "#5ba2b6",  /* yellow */
-+	[12] = "#47f9f5",  /* blue   */
-+	[13] = "#bd0152",  /* magenta*/
-+	[14] = "#c33678",  /* cyan   */
++	[8] = "#bdb6c5",   /* black  */
++	[9] = "#f80059",   /* red    */
++	[10] = "#5bb66a",  /* green  */
++	[11] = "#bd9701",  /* yellow */
++	[12] = "#5ba2b6",  /* blue   */
++	[13] = "#8f6c97",  /* magenta*/
++	[14] = "#47f9f5",  /* cyan   */
 +	[15] = "#190134",  /* white  */
 
  	[255] = 0,

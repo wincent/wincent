@@ -1,0 +1,22 @@
+system: "base16"
+name: "Flexoki Light"
+author: "Steph Ango (https://github.com/kepano/flexoki)"
+description: "Inky color scheme for prose and code"
+variant: "light"
+palette:
+  base00: "#FFFCF0" # paper - background
+  base01: "#F2F0E5" # base-50 - lighter background
+  base02: "#E6E4D9" # base-100 - selection background
+  base03: "#CECDC3" # base-200 - comments, invisibles
+  base04: "#9F9D96" # base-400 - dark foreground
+  base05: "#403E3C" # base-800 - default foreground
+  base06: "#282726" # base-900 - light foreground
+  base07: "#100F0F" # black - lightest foreground
+  base08: "#AF3029" # red-600 - variables, XML tags
+  base09: "#BC5215" # orange-600 - integers, booleans
+  base0A: "#AD8301" # yellow-600 - classes, search text bg
+  base0B: "#66800B" # green-600 - strings, inherited class
+  base0C: "#24837B" # cyan-600 - support, regular expressions
+  base0D: "#205EA6" # blue-600 - functions, methods
+  base0E: "#5E409D" # purple-600 - keywords, storage
+  base0F: "#A02F6F" # magenta-600 - deprecated, embedded

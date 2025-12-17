@@ -1,0 +1,58 @@
+# base24 PaperColor Dark 256 - alacritty color config
+# Nguyen Nguyen (https://github.com/NLKNguyen/papercolor-theme)
+
+# Default colors
+[colors.primary]
+background = '0x1c1c1c'
+foreground = '0xd0d0d0'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x1c1c1c'
+cursor = '0xd0d0d0'
+
+# Normal colors
+[colors.normal]
+black = '0x303030'
+red = '0xaf005f'
+green = '0x5faf00'
+yellow = '0xd7af5f'
+blue = '0x5fafd7'
+magenta = '0xaf87d7'
+cyan = '0xffaf00'
+white = '0xbcbcbc'
+
+# Bright colors
+[colors.bright]
+black = '0x3a3a3a'
+red = '0xd7005f'
+green = '0xffd75f'
+yellow = '0x87d75f'
+blue = '0xffd700'
+magenta = '0x87d7ff'
+cyan = '0x87d700'
+white = '0xc6c6c6'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0x5faf5f"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xff5faf"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x303030"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x3a3a3a"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x585858"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xbcbcbc"

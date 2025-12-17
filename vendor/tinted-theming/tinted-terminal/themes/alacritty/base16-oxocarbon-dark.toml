@@ -1,5 +1,5 @@
 # base16 Oxocarbon Dark 256 - alacritty color config
-# shaunsingh/IBM
+# shaunsingh/IBM, Tinted Theming (https://github.com/tinted-theming)
 
 # Default colors
 [colors.primary]
@@ -14,28 +14,28 @@ cursor = '0xf2f4f8'
 # Normal colors
 [colors.normal]
 black = '0x262626'
-red = '0x3ddbd9'
-green = '0x33b1ff'
-yellow = '0xee5396'
-blue = '0x42be65'
+red = '0xee5396'
+green = '0x42be65'
+yellow = '0xff6f00'
+blue = '0x33b1ff'
 magenta = '0xbe95ff'
-cyan = '0xff7eb6'
+cyan = '0x3ddbd9'
 white = '0xffffff'
 
 # Bright colors
 [colors.bright]
 black = '0x393939'
-red = '0x3ddbd9'
-green = '0x33b1ff'
-yellow = '0xee5396'
-blue = '0x42be65'
+red = '0xee5396'
+green = '0x42be65'
+yellow = '0xff6f00'
+blue = '0x33b1ff'
 magenta = '0xbe95ff'
-cyan = '0xff7eb6'
+cyan = '0x3ddbd9'
 white = '0x08bdba'
 
 [[colors.indexed_colors]]
 index = 16
-color = "0x78a9ff"
+color = "0xff7eb6"
 
 [[colors.indexed_colors]]
 index = 17

@@ -8,105 +8,105 @@ Windows Registry Editor Version 5.00
 [HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base16-charcoal-light]
 
 ; Default Foreground
-; base05 #35291d
-"Colour0"="53,41,29"
+; base05 #382e1b
+"Colour0"="56,46,27"
 
 ; Default Bold Foreground  -- equals to non-bold
-; base05 #35291d
-"Colour1"="53,41,29"
+; base05 #382e1b
+"Colour1"="56,46,27"
 
 ; Default Background
-; base00 #d6b891
-"Colour2"="214,184,145"
+; base00 #cabda0
+"Colour2"="202,189,160"
 
 ; Default Bold Background  -- equals to non-bold
-; base00 #d6b891
-"Colour3"="214,184,145"
+; base00 #cabda0
+"Colour3"="202,189,160"
 
 ; Cursor Text -- equals to default background
-; base00 #d6b891
-"Colour4"="214,184,145"
+; base00 #cabda0
+"Colour4"="202,189,160"
 
 ; Cursor Colour -- equals to default foreground
-; base05 #35291d
-"Colour5"="53,41,29"
+; base05 #382e1b
+"Colour5"="56,46,27"
 
 ; ANSI Black
 ; 30m
-; base01 #c0a179
-"Colour6"="192,161,121"
+; base01 #bcad8c
+"Colour6"="188,173,140"
 
 ; ANSI Black Bright
 ; 1;30m
-; base02 #a28662
-"Colour7"="162,134,98"
+; base02 #af9f7d
+"Colour7"="175,159,125"
 
 ; ANSI Red
 ; 31m
-; base08 #413325
-"Colour8"="65,51,37"
+; base08 #382e1b
+"Colour8"="56,46,27"
 
 ; ANSI Red Bright
 ; 1;31m
-; base08 #413325
-"Colour9"="65,51,37"
+; base08 #382e1b
+"Colour9"="56,46,27"
 
 ; ANSI Green
 ; 32m
-; base0B #120f09
-"Colour10"="18,15,9"
+; base0B #110e06
+"Colour10"="17,14,6"
 
 ; ANSI Green Bright
 ; 1;32m
-; base0B #120f09
-"Colour11"="18,15,9"
+; base0B #110e06
+"Colour11"="17,14,6"
 
 ; ANSI Yellow
 ; 33m
-; base0A #292016
-"Colour12"="41,32,22"
+; base0A #110e06
+"Colour12"="17,14,6"
 
 ; ANSI Yellow Bright
 ; 1;33m
-; base0A #292016
-"Colour13"="41,32,22"
+; base0A #110e06
+"Colour13"="17,14,6"
 
 ; ANSI Blue
 ; 34m
-; base0D #120f09
-"Colour14"="18,15,9"
+; base0D #251e0f
+"Colour14"="37,30,15"
 
 ; ANSI Blue Bright
 ; 1;34m
-; base0D #120f09
-"Colour15"="18,15,9"
+; base0D #251e0f
+"Colour15"="37,30,15"
 
 ; ANSI Magenta
 ; 35m
-; base0E #292016
-"Colour16"="41,32,22"
+; base0E #382e1b
+"Colour16"="56,46,27"
 
 ; ANSI Magenta Bright
 ; 1;35m
-; base0E #292016
-"Colour17"="41,32,22"
+; base0E #382e1b
+"Colour17"="56,46,27"
 
 ; ANSI Cyan
 ; 36m
-; base0C #413325
-"Colour18"="65,51,37"
+; base0C #110e06
+"Colour18"="17,14,6"
 
 ; ANSI Cyan Bright
 ; 1;36m
-; base0C #413325
-"Colour19"="65,51,37"
+; base0C #110e06
+"Colour19"="17,14,6"
 
 ; ANSI White
 ; 37m
-; base06 #413325
-"Colour20"="65,51,37"
+; base06 #4b3e26
+"Colour20"="75,62,38"
 
 ; ANSI White Bright
 ; 1;37m
-; base07 d6b891
-"Colour21"="214,184,145"
+; base07 bcad8c
+"Colour21"="188,173,140"

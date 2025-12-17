@@ -7,7 +7,7 @@ diff '--color=auto' -u -N st-0.9.3/config.def.h st-0.9.3-mod/config.def.h
  /* Terminal colors (16 first used in escape sequence) */
 +/*
 + * Scheme name: Oxocarbon Dark
-+ * Scheme author: shaunsingh/IBM
++ * Scheme author: shaunsingh/IBM, Tinted Theming (https://github.com/tinted-theming)
 + * Template author: Tinted Theming (https://github.com/tinted-theming)
 + */
  static const char *colorname[] = {
@@ -21,12 +21,12 @@ diff '--color=auto' -u -N st-0.9.3/config.def.h st-0.9.3-mod/config.def.h
 -	"cyan3",
 -	"gray90",
 +	[0] = "#262626",   /* black  */
-+	[1] = "#3ddbd9",   /* red    */
-+	[2] = "#33b1ff",   /* green  */
-+	[3] = "#ee5396",   /* yellow */
-+	[4] = "#42be65",   /* blue   */
++	[1] = "#ee5396",   /* red    */
++	[2] = "#42be65",   /* green  */
++	[3] = "#ff6f00",   /* yellow */
++	[4] = "#33b1ff",   /* blue   */
 +	[5] = "#be95ff",   /* magenta*/
-+	[6] = "#ff7eb6",   /* cyan   */
++	[6] = "#3ddbd9",   /* cyan   */
 +	[7] = "#ffffff",   /* white  */
 
  	/* 8 bright colors */
@@ -39,12 +39,12 @@ diff '--color=auto' -u -N st-0.9.3/config.def.h st-0.9.3-mod/config.def.h
 -	"cyan",
 -	"white",
 +	[8] = "#393939",   /* black  */
-+	[9] = "#3ddbd9",   /* red    */
-+	[10] = "#33b1ff",  /* green  */
-+	[11] = "#ee5396",  /* yellow */
-+	[12] = "#42be65",  /* blue   */
++	[9] = "#ee5396",   /* red    */
++	[10] = "#42be65",  /* green  */
++	[11] = "#ff6f00",  /* yellow */
++	[12] = "#33b1ff",  /* blue   */
 +	[13] = "#be95ff",  /* magenta*/
-+	[14] = "#ff7eb6",  /* cyan   */
++	[14] = "#3ddbd9",  /* cyan   */
 +	[15] = "#08bdba",  /* white  */
 
  	[255] = 0,

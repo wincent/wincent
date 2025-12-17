@@ -1,0 +1,43 @@
+# base24 Tokyo Night Dark
+# Scheme author: Michaël Ball, based on Tokyo Night by enkia (https://github.com/enkia/tokyo-night-vscode-theme)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#1a1b26"
+foreground = "#a9b1d6"
+
+cursor_bg = "#16161e"
+cursor_border = "#a9b1d6"
+cursor_fg = "#cbccd1"
+
+selection_bg = "#a9b1d6"
+selection_fg = "#2f3549"
+
+ansi = [
+  "#1a1b26",
+  "#c0caf5",
+  "#9ece6a",
+  "#0db9d7",
+  "#2ac3de",
+  "#bb9af7",
+  "#b4f9f8",
+  "#cbccd1"
+]
+brights = [
+  "#2f3549",
+  "#ff7a93",
+  "#73daca",
+  "#ff9e64",
+  "#89ddff",
+  "#bb9af7",
+  "#7dcfff",
+  "#d5d6db"
+]
+
+[colors.indexed]
+16 = "#a9b1d6"
+17 = "#f7768e"
+18 = "#16161e"
+19 = "#2f3549"
+20 = "#787c99"
+21 = "#a9b1d6"

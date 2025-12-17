@@ -1,43 +1,43 @@
 # base16 PaperColor Dark
-# Scheme author: Jon Leopard (http://github.com/jonleopard), based on PaperColor Theme (https://github.com/NLKNguyen/papercolor-theme)
+# Scheme author: Jon Leopard (http://github.com/jonleopard), Tinted Theming (https://github.com/tinted-theming), based on PaperColor Theme (https://github.com/NLKNguyen/papercolor-theme)
 # Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
 
 [colors]
 background = "#1c1c1c"
-foreground = "#808080"
+foreground = "#9e9e9e"
 
-cursor_bg = "#808080"
-cursor_border = "#808080"
+cursor_bg = "#9e9e9e"
+cursor_border = "#9e9e9e"
 cursor_fg = "#1c1c1c"
 
-selection_bg = "#808080"
-selection_fg = "#5faf00"
+selection_bg = "#9e9e9e"
+selection_fg = "#424242"
 
 ansi = [
   "#1c1c1c",
-  "#585858",
-  "#af87d7",
-  "#afd700",
   "#ff5faf",
-  "#00afaf",
+  "#5faf5f",
   "#ffaf00",
-  "#d7875f"
+  "#5fafd7",
+  "#af87d7",
+  "#00afaf",
+  "#b8b8b8"
 ]
 brights = [
-  "#5faf00",
-  "#585858",
-  "#af87d7",
-  "#afd700",
+  "#424242",
   "#ff5faf",
-  "#00afaf",
+  "#5faf5f",
   "#ffaf00",
+  "#5fafd7",
+  "#af87d7",
+  "#00afaf",
   "#d0d0d0"
 ]
 
 [colors.indexed]
-16 = "#5faf5f"
-17 = "#5f8787"
-18 = "#af005f"
-19 = "#5faf00"
-20 = "#5fafd7"
-21 = "#808080"
+16 = "#d7af5f"
+17 = "#af005f"
+18 = "#363636"
+19 = "#424242"
+20 = "#808080"
+21 = "#9e9e9e"

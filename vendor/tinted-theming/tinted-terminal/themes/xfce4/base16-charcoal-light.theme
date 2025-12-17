@@ -3,8 +3,8 @@
 # Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
 [Scheme]
 Name=base16-charcoal-light
-ColorForeground=#35291d
-ColorBackground=#d6b891
+ColorForeground=#382e1b
+ColorBackground=#cabda0
 ColorCursor=x
 ColorBoldIsBright=FALSE
-ColorPalette=#c0a179;#413325;#120f09;#292016;#120f09;#292016;#413325;#413325;#a28662;#413325;#120f09;#292016;#120f09;#292016;#413325;#d6b891
+ColorPalette=#bcad8c;#382e1b;#110e06;#110e06;#251e0f;#382e1b;#110e06;#4b3e26;#af9f7d;#382e1b;#110e06;#110e06;#251e0f;#382e1b;#110e06;#bcad8c

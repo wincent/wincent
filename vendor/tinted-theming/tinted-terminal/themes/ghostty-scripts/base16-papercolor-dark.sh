@@ -21,33 +21,33 @@ EOF
 
 
 ghostty_palette_color_0="#1c1c1c"
-ghostty_palette_color_1="#585858"
-ghostty_palette_color_2="#af87d7"
-ghostty_palette_color_3="#afd700"
-ghostty_palette_color_4="#ff5faf"
-ghostty_palette_color_5="#00afaf"
-ghostty_palette_color_6="#ffaf00"
-ghostty_palette_color_7="#808080"
-ghostty_palette_color_8="#5faf00"
-ghostty_palette_color_9="#585858"
-ghostty_palette_color_10="#af87d7"
-ghostty_palette_color_11="#afd700"
-ghostty_palette_color_12="#ff5faf"
-ghostty_palette_color_13="#00afaf"
-ghostty_palette_color_14="#ffaf00"
+ghostty_palette_color_1="#ff5faf"
+ghostty_palette_color_2="#5faf5f"
+ghostty_palette_color_3="#ffaf00"
+ghostty_palette_color_4="#5fafd7"
+ghostty_palette_color_5="#af87d7"
+ghostty_palette_color_6="#00afaf"
+ghostty_palette_color_7="#9e9e9e"
+ghostty_palette_color_8="#424242"
+ghostty_palette_color_9="#ff5faf"
+ghostty_palette_color_10="#5faf5f"
+ghostty_palette_color_11="#ffaf00"
+ghostty_palette_color_12="#5fafd7"
+ghostty_palette_color_13="#af87d7"
+ghostty_palette_color_14="#00afaf"
 ghostty_palette_color_15="#d0d0d0"
-ghostty_palette_color_16="#5faf5f"
-ghostty_palette_color_17="#5f8787"
-ghostty_palette_color_18="#af005f"
-ghostty_palette_color_19="#5faf00"
-ghostty_palette_color_20="#5fafd7"
-ghostty_palette_color_21="#d7875f"
+ghostty_palette_color_16="#d7af5f"
+ghostty_palette_color_17="#af005f"
+ghostty_palette_color_18="#363636"
+ghostty_palette_color_19="#424242"
+ghostty_palette_color_20="#808080"
+ghostty_palette_color_21="#b8b8b8"
 
 _theme_file() {
 cat <<EOF
 # vim: ft=ghostty
 # PaperColor Dark theme for Ghostty
-# Scheme Author: Jon Leopard (http://github.com/jonleopard), based on PaperColor Theme (https://github.com/NLKNguyen/papercolor-theme)
+# Scheme Author: Jon Leopard (http://github.com/jonleopard), Tinted Theming (https://github.com/tinted-theming), based on PaperColor Theme (https://github.com/NLKNguyen/papercolor-theme)
 # Scheme System: base16
 # Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
 

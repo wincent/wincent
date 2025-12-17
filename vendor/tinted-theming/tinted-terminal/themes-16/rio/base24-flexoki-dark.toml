@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Flexoki Dark by Steph Ango (https://github.com/kepano/flexoki)
+
+[colors]
+selection-background = '#282726' # base02
+selection-foreground = '#cecdc3' # base05
+
+cursor         = '#cecdc3' # base05
+tabs           = '#1c1b1a' # base01
+tabs-active    = '#282726' # base02
+
+background     = '#100f0f' # base00
+foreground     = '#cecdc3' # base05
+black          = '#1c1b1a' # base01
+red            = '#d14d41' # base08
+yellow         = '#d0a215' # base0A
+green          = '#879a39' # base0B
+cyan           = '#3aa99f' # base0C
+blue           = '#4385be' # base0D
+magenta        = '#8b7ec8' # base0E
+white          = '#e6e4d9' # base06
+
+dim-foreground   = '#cecdc3' # base05
+dim-black        = '#1c1b1a' # base01
+dim-red          = '#d14d41' # base08
+dim-yellow       = '#d0a215' # base0A
+dim-green        = '#879a39' # base0B
+dim-cyan         = '#3aa99f' # base0C
+dim-blue         = '#4385be' # base0D
+dim-magenta      = '#8b7ec8' # base0E
+dim-white        = '#878580' # base04
+
+light-foreground = '#cecdc3' # base05
+light-black      = '#282726' # base02
+light-red        = '#af3029' # base12
+light-yellow     = '#bc5215' # base13
+light-green      = '#ad8301' # base14
+light-cyan       = '#66800b' # base15
+light-blue       = '#24837b' # base16
+light-magenta    = '#205ea6' # base17
+light-white      = '#fffcf0' # base07

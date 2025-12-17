@@ -1,0 +1,10 @@
+# Scheme name: Tokyo Night Storm
+# Scheme author: Michaël Ball, based on Tokyo Night by enkia (https://github.com/enkia/tokyo-night-vscode-theme)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-tokyo-night-storm
+ColorForeground=#a9b1d6
+ColorBackground=#24283b
+ColorCursor=x
+ColorBoldIsBright=FALSE
+ColorPalette=#16161e;#c0caf5;#9ece6a;#0db9d7;#2ac3de;#bb9af7;#b4f9f8;#cbccd1;#343a52;#ff7a93;#73daca;#ff9e64;#89ddff;#bb9af7;#7dcfff;#d5d6db

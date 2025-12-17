@@ -1,0 +1,43 @@
+# vim: ft=ghostty
+# Tokyo Night Light theme for Ghostty
+# Scheme Author: Michaël Ball, based on Tokyo Night by enkia (https://github.com/enkia/tokyo-night-vscode-theme)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# Color palette
+palette = 0=#d5d6db
+palette = 1=#343b59
+palette = 2=#485e30
+palette = 3=#166775
+palette = 4=#34548a
+palette = 5=#5a4a78
+palette = 6=#3e6968
+palette = 7=#1a1b26
+palette = 8=#dfe0e5
+palette = 9=#8c4351
+palette = 10=#485e30
+palette = 11=#965027
+palette = 12=#34548a
+palette = 13=#5a4a78
+palette = 14=#3e6968
+palette = 15=#1a1b26
+palette = 16=#965027
+palette = 17=#8c4351
+palette = 18=#cbccd1
+palette = 19=#dfe0e5
+palette = 20=#4c505e
+palette = 21=#1a1b26
+
+# Foreground & background colors
+background = #d5d6db
+foreground = #343b59
+cursor-color = #343b59
+selection-background = #dfe0e5
+selection-foreground = #343b59
+
+# Set `macos-icon = custom-style` in your main configuration file to enable theming of the app icon.
+#
+# Set the ghost color to the lightest foreground:
+macos-icon-ghost-color = #1a1b26
+# Replace the official icon's blue background with the designated bright blue color:
+macos-icon-screen-color = #34548a

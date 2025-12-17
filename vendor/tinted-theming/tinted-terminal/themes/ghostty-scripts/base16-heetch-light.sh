@@ -21,33 +21,33 @@ EOF
 
 
 ghostty_palette_color_0="#feffff"
-ghostty_palette_color_1="#27d9d5"
-ghostty_palette_color_2="#f80059"
-ghostty_palette_color_3="#5ba2b6"
-ghostty_palette_color_4="#47f9f5"
-ghostty_palette_color_5="#bd0152"
-ghostty_palette_color_6="#c33678"
+ghostty_palette_color_1="#f80059"
+ghostty_palette_color_2="#5bb66a"
+ghostty_palette_color_3="#bd9701"
+ghostty_palette_color_4="#5ba2b6"
+ghostty_palette_color_5="#8f6c97"
+ghostty_palette_color_6="#47f9f5"
 ghostty_palette_color_7="#5a496e"
-ghostty_palette_color_8="#7b6d8b"
-ghostty_palette_color_9="#27d9d5"
-ghostty_palette_color_10="#f80059"
-ghostty_palette_color_11="#5ba2b6"
-ghostty_palette_color_12="#47f9f5"
-ghostty_palette_color_13="#bd0152"
-ghostty_palette_color_14="#c33678"
+ghostty_palette_color_8="#bdb6c5"
+ghostty_palette_color_9="#f80059"
+ghostty_palette_color_10="#5bb66a"
+ghostty_palette_color_11="#bd9701"
+ghostty_palette_color_12="#5ba2b6"
+ghostty_palette_color_13="#8f6c97"
+ghostty_palette_color_14="#47f9f5"
 ghostty_palette_color_15="#190134"
-ghostty_palette_color_16="#bdb6c5"
-ghostty_palette_color_17="#dedae2"
-ghostty_palette_color_18="#392551"
-ghostty_palette_color_19="#7b6d8b"
-ghostty_palette_color_20="#ddd6e5"
-ghostty_palette_color_21="#470546"
+ghostty_palette_color_16="#bd0152"
+ghostty_palette_color_17="#58425d"
+ghostty_palette_color_18="#dedae2"
+ghostty_palette_color_19="#bdb6c5"
+ghostty_palette_color_20="#7b6d8b"
+ghostty_palette_color_21="#392551"
 
 _theme_file() {
 cat <<EOF
 # vim: ft=ghostty
 # Heetch Light theme for Ghostty
-# Scheme Author: Geoffrey Teale (tealeg@gmail.com)
+# Scheme Author: Geoffrey Teale (tealeg@gmail.com), Tinted Theming (https://github.com/tinted-theming)
 # Scheme System: base16
 # Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
 

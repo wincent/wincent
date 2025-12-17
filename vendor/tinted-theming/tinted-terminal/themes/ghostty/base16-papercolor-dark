@@ -1,43 +1,43 @@
 # vim: ft=ghostty
 # PaperColor Dark theme for Ghostty
-# Scheme Author: Jon Leopard (http://github.com/jonleopard), based on PaperColor Theme (https://github.com/NLKNguyen/papercolor-theme)
+# Scheme Author: Jon Leopard (http://github.com/jonleopard), Tinted Theming (https://github.com/tinted-theming), based on PaperColor Theme (https://github.com/NLKNguyen/papercolor-theme)
 # Scheme System: base16
 # Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
 
 # Color palette
 palette = 0=#1c1c1c
-palette = 1=#585858
-palette = 2=#af87d7
-palette = 3=#afd700
-palette = 4=#ff5faf
-palette = 5=#00afaf
-palette = 6=#ffaf00
-palette = 7=#808080
-palette = 8=#5faf00
-palette = 9=#585858
-palette = 10=#af87d7
-palette = 11=#afd700
-palette = 12=#ff5faf
-palette = 13=#00afaf
-palette = 14=#ffaf00
+palette = 1=#ff5faf
+palette = 2=#5faf5f
+palette = 3=#ffaf00
+palette = 4=#5fafd7
+palette = 5=#af87d7
+palette = 6=#00afaf
+palette = 7=#9e9e9e
+palette = 8=#424242
+palette = 9=#ff5faf
+palette = 10=#5faf5f
+palette = 11=#ffaf00
+palette = 12=#5fafd7
+palette = 13=#af87d7
+palette = 14=#00afaf
 palette = 15=#d0d0d0
-palette = 16=#5faf5f
-palette = 17=#5f8787
-palette = 18=#af005f
-palette = 19=#5faf00
-palette = 20=#5fafd7
-palette = 21=#d7875f
+palette = 16=#d7af5f
+palette = 17=#af005f
+palette = 18=#363636
+palette = 19=#424242
+palette = 20=#808080
+palette = 21=#b8b8b8
 
 # Foreground & background colors
 background = #1c1c1c
-foreground = #808080
-cursor-color = #808080
-selection-background = #5faf00
-selection-foreground = #808080
+foreground = #9e9e9e
+cursor-color = #9e9e9e
+selection-background = #424242
+selection-foreground = #9e9e9e
 
 # Set `macos-icon = custom-style` in your main configuration file to enable theming of the app icon.
 #
 # Set the ghost color to the lightest foreground:
 macos-icon-ghost-color = #d0d0d0
 # Replace the official icon's blue background with the designated bright blue color:
-macos-icon-screen-color = #ff5faf
+macos-icon-screen-color = #5fafd7

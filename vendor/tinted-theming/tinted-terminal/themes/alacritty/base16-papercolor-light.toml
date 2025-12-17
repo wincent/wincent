@@ -1,58 +1,58 @@
 # base16 PaperColor Light 256 - alacritty color config
-# Jon Leopard (http://github.com/jonleopard), based on PaperColor Theme (https://github.com/NLKNguyen/papercolor-theme)
+# Jon Leopard (http://github.com/jonleopard), Tinted Theming (https://github.com/tinted-theming), based on PaperColor Theme (https://github.com/NLKNguyen/papercolor-theme)
 
 # Default colors
 [colors.primary]
 background = '0xeeeeee'
-foreground = '0x444444'
+foreground = '0x5e5e5e'
 
 # Colors the cursor will use if `custom_cursor_colors` is true
 [colors.cursor]
 text = '0xeeeeee'
-cursor = '0x444444'
+cursor = '0x5e5e5e'
 
 # Normal colors
 [colors.normal]
-black = '0xaf0000'
-red = '0xbcbcbc'
-green = '0x8700af'
-yellow = '0xd70087'
-blue = '0xd75f00'
-magenta = '0x005faf'
-cyan = '0xd75f00'
-white = '0x005f87'
+black = '0xc4c4c4'
+red = '0xd70000'
+green = '0x008700'
+yellow = '0xd75f00'
+blue = '0x005f87'
+magenta = '0x8700af'
+cyan = '0x0087af'
+white = '0x525252'
 
 # Bright colors
 [colors.bright]
-black = '0x008700'
-red = '0xbcbcbc'
-green = '0x8700af'
-yellow = '0xd70087'
-blue = '0xd75f00'
-magenta = '0x005faf'
-cyan = '0xd75f00'
-white = '0x878787'
+black = '0x9e9e9e'
+red = '0xd70000'
+green = '0x008700'
+yellow = '0xd75f00'
+blue = '0x005f87'
+magenta = '0x8700af'
+cyan = '0x0087af'
+white = '0x444444'
 
 [[colors.indexed_colors]]
 index = 16
-color = "0xd70000"
+color = "0xd75f00"
 
 [[colors.indexed_colors]]
 index = 17
-color = "0x005f87"
-
-[[colors.indexed_colors]]
-index = 18
 color = "0xaf0000"
 
 [[colors.indexed_colors]]
+index = 18
+color = "0xc4c4c4"
+
+[[colors.indexed_colors]]
 index = 19
-color = "0x008700"
+color = "0x9e9e9e"
 
 [[colors.indexed_colors]]
 index = 20
-color = "0x0087af"
+color = "0x6b6b6b"
 
 [[colors.indexed_colors]]
 index = 21
-color = "0x005f87"
+color = "0x525252"

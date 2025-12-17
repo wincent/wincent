@@ -88,6 +88,16 @@ kitty-base24:
   filename: themes/kitty/{{ scheme-system }}-{{ scheme-slug }}.conf
   supported-systems: [base24]
 
+# Konsole
+# ----------------------------------------------------------------------
+konsole-base16:
+  filename: themes/konsole/{{ scheme-system }}-{{ scheme-slug }}.colorscheme
+  supported-systems: [base16]
+
+konsole-base24:
+  filename: themes/konsole/{{ scheme-system }}-{{ scheme-slug }}.colorscheme
+  supported-systems: [base24]
+
 # Putty
 # ----------------------------------------------------------------------
 putty-base16:

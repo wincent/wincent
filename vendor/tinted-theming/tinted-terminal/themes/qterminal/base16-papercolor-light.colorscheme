@@ -2,61 +2,61 @@
 Color=238,238,238
 
 [BackgroundIntense]
-Color=95,135,0
+Color=133,133,133
 
 [Color0]
 Color=238,238,238
 
 [Color0Intense]
-Color=95,135,0
+Color=133,133,133
 
 [Color1]
-Color=188,188,188
+Color=215,0,0
 
 [Color1Intense]
-Color=188,188,188
+Color=215,0,0
 
 [Color2]
-Color=135,0,175
+Color=0,135,0
 
 [Color2Intense]
-Color=135,0,175
+Color=0,135,0
 
 [Color3]
-Color=215,0,135
+Color=215,95,0
 
 [Color3Intense]
-Color=215,0,135
+Color=215,95,0
 
 [Color4]
-Color=215,95,0
+Color=0,95,135
 
 [Color4Intense]
-Color=215,95,0
+Color=0,95,135
 
 [Color5]
-Color=0,95,175
+Color=135,0,175
 
 [Color5Intense]
-Color=0,95,175
+Color=135,0,175
 
 [Color6]
-Color=215,95,0
+Color=0,135,175
 
 [Color6Intense]
-Color=215,95,0
+Color=0,135,175
 
 [Color7]
-Color=68,68,68
+Color=94,94,94
 
 [Color7Intense]
-Color=135,135,135
-
-[Foreground]
 Color=68,68,68
 
+[Foreground]
+Color=94,94,94
+
 [ForegroundIntense]
-Color=135,135,135
+Color=68,68,68
 
 [General]
 Blur=true

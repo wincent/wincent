@@ -3,17 +3,17 @@ Windows Registry Editor Version 5.00
 ; Scheme name: Still Alive
 ; Scheme system: base16
 ; Scheme description: 
-; Scheme author: Derrick McKee (derrick.mckee@gmail.com)
+; Scheme author: Derrick McKee (derrick.mckee@gmail.com), Tinted Theming (https://github.com/tinted-theming)
 ; Template author: Tinted Theming (https://github.com/tinted-theming)
 [HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base16-still-alive]
 
 ; Default Foreground
-; base05 #d80000
-"Colour0"="216,0,0"
+; base05 #4c383b
+"Colour0"="76,56,59"
 
 ; Default Bold Foreground  -- equals to non-bold
-; base05 #d80000
-"Colour1"="216,0,0"
+; base05 #4c383b
+"Colour1"="76,56,59"
 
 ; Default Background
 ; base00 #f0f0f0
@@ -28,85 +28,85 @@ Windows Registry Editor Version 5.00
 "Colour4"="240,240,240"
 
 ; Cursor Colour -- equals to default foreground
-; base05 #d80000
-"Colour5"="216,0,0"
+; base05 #4c383b
+"Colour5"="76,56,59"
 
 ; ANSI Black
 ; 30m
-; base01 #f0d848
-"Colour6"="240,216,72"
+; base01 #d6d6d6
+"Colour6"="214,214,214"
 
 ; ANSI Black Bright
 ; 1;30m
-; base02 #fff018
-"Colour7"="255,240,24"
+; base02 #bdbdbd
+"Colour7"="189,189,189"
 
 ; ANSI Red
 ; 31m
-; base08 #487830
-"Colour8"="72,120,48"
+; base08 #d80000
+"Colour8"="216,0,0"
 
 ; ANSI Red Bright
 ; 1;31m
-; base08 #487830
-"Colour9"="72,120,48"
+; base08 #d80000
+"Colour9"="216,0,0"
 
 ; ANSI Green
 ; 32m
-; base0B #5c5c6a
-"Colour10"="92,92,106"
+; base0B #30a860
+"Colour10"="48,168,96"
 
 ; ANSI Green Bright
 ; 1;32m
-; base0B #5c5c6a
-"Colour11"="92,92,106"
+; base0B #30a860
+"Colour11"="48,168,96"
 
 ; ANSI Yellow
 ; 33m
-; base0A #426395
-"Colour12"="66,99,149"
+; base0A #fff018
+"Colour12"="255,240,24"
 
 ; ANSI Yellow Bright
 ; 1;33m
-; base0A #426395
-"Colour13"="66,99,149"
+; base0A #fff018
+"Colour13"="255,240,24"
 
 ; ANSI Blue
 ; 34m
-; base0D #001878
-"Colour14"="0,24,120"
+; base0D #365eff
+"Colour14"="54,94,255"
 
 ; ANSI Blue Bright
 ; 1;34m
-; base0D #001878
-"Colour15"="0,24,120"
+; base0D #365eff
+"Colour15"="54,94,255"
 
 ; ANSI Magenta
 ; 35m
-; base0E #900000
-"Colour16"="144,0,0"
+; base0E #9036ff
+"Colour16"="144,54,255"
 
 ; ANSI Magenta Bright
 ; 1;35m
-; base0E #900000
-"Colour17"="144,0,0"
+; base0E #9036ff
+"Colour17"="144,54,255"
 
 ; ANSI Cyan
 ; 36m
-; base0C #2c3c57
-"Colour18"="44,60,87"
+; base0C #36d3ff
+"Colour18"="54,211,255"
 
 ; ANSI Cyan Bright
 ; 1;36m
-; base0C #2c3c57
-"Colour19"="44,60,87"
+; base0C #36d3ff
+"Colour19"="54,211,255"
 
 ; ANSI White
 ; 37m
-; base06 #489000
-"Colour20"="72,144,0"
+; base06 #331f21
+"Colour20"="51,31,33"
 
 ; ANSI White Bright
 ; 1;37m
-; base07 30a860
-"Colour21"="48,168,96"
+; base07 140c0d
+"Colour21"="20,12,13"

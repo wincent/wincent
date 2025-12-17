@@ -1,5 +1,5 @@
 # Scheme name: Oxocarbon Dark
-# Scheme author: shaunsingh/IBM
+# Scheme author: shaunsingh/IBM, Tinted Theming (https://github.com/tinted-theming)
 # Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
 [Scheme]
 Name=base16-oxocarbon-dark
@@ -7,4 +7,4 @@ ColorForeground=#f2f4f8
 ColorBackground=#161616
 ColorCursor=x
 ColorBoldIsBright=FALSE
-ColorPalette=#262626;#3ddbd9;#33b1ff;#ee5396;#42be65;#be95ff;#ff7eb6;#ffffff;#393939;#3ddbd9;#33b1ff;#ee5396;#42be65;#be95ff;#ff7eb6;#08bdba
+ColorPalette=#262626;#ee5396;#42be65;#ff6f00;#33b1ff;#be95ff;#3ddbd9;#ffffff;#393939;#ee5396;#42be65;#ff6f00;#33b1ff;#be95ff;#3ddbd9;#08bdba

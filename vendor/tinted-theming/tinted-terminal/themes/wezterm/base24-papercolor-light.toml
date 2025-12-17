@@ -1,0 +1,43 @@
+# base24 PaperColor Light
+# Scheme author: Nguyen Nguyen (https://github.com/NLKNguyen/papercolor-theme)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#eeeeee"
+foreground = "#444444"
+
+cursor_bg = "#e4e4e4"
+cursor_border = "#444444"
+cursor_fg = "#005f87"
+
+selection_bg = "#444444"
+selection_fg = "#d0d0d0"
+
+ansi = [
+  "#eeeeee",
+  "#af0000",
+  "#008700",
+  "#5f8700",
+  "#0087af",
+  "#8700af",
+  "#d75f00",
+  "#005f87"
+]
+brights = [
+  "#d0d0d0",
+  "#d70000",
+  "#87af00",
+  "#ff00af",
+  "#ff8700",
+  "#5fafff",
+  "#00af00",
+  "#0087af"
+]
+
+[colors.indexed]
+16 = "#d70087"
+17 = "#005faf"
+18 = "#e4e4e4"
+19 = "#d0d0d0"
+20 = "#b2b2b2"
+21 = "#444444"

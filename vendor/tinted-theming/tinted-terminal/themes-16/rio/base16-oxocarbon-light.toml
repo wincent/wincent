@@ -1,41 +1,41 @@
 # Rio Terminal base16 color theme (https://github.com/tinted-theming)
-# Color scheme: Oxocarbon Light by shaunsingh/IBM
+# Color scheme: Oxocarbon Light by shaunsingh/IBM, Tinted Theming (https://github.com/tinted-theming)
 
 [colors]
-selection-background = '#525252' # base02
-selection-foreground = '#393939' # base05
+selection-background = '#bec6cf' # base02
+selection-foreground = '#525f70' # base05
 
-cursor         = '#393939' # base05
+cursor         = '#525f70' # base05
 tabs           = '#dde1e6' # base01
-tabs-active    = '#525252' # base02
+tabs-active    = '#bec6cf' # base02
 
 background     = '#f2f4f8' # base00
-foreground     = '#393939' # base05
+foreground     = '#525f70' # base05
 black          = '#dde1e6' # base01
 red            = '#ff7eb6' # base08
 yellow         = '#ff6f00' # base0A
-green          = '#0f62fe' # base0B
+green          = '#42be65' # base0B
 cyan           = '#673ab7' # base0C
-blue           = '#42be65' # base0D
+blue           = '#0f62fe' # base0D
 magenta        = '#be95ff' # base0E
-white          = '#525252' # base06
+white          = '#3d4652' # base06
 
-dim-foreground   = '#393939' # base05
+dim-foreground   = '#525f70' # base05
 dim-black        = '#dde1e6' # base01
 dim-red          = '#ff7eb6' # base08
 dim-yellow       = '#ff6f00' # base0A
-dim-green        = '#0f62fe' # base0B
+dim-green        = '#42be65' # base0B
 dim-cyan         = '#673ab7' # base0C
-dim-blue         = '#42be65' # base0D
+dim-blue         = '#0f62fe' # base0D
 dim-magenta      = '#be95ff' # base0E
-dim-white        = '#262626' # base04
+dim-white        = '#68788d' # base04
 
-light-foreground = '#393939' # base05
-light-black      = '#525252' # base02
+light-foreground = '#525f70' # base05
+light-black      = '#bec6cf' # base02
 light-red        = '#ff7eb6' # base08
 light-yellow     = '#ff6f00' # base0A
-light-green      = '#0f62fe' # base0B
+light-green      = '#42be65' # base0B
 light-cyan       = '#673ab7' # base0C
-light-blue       = '#42be65' # base0D
+light-blue       = '#0f62fe' # base0D
 light-magenta    = '#be95ff' # base0E
-light-white      = '#08bdba' # base07
+light-white      = '#272d35' # base07

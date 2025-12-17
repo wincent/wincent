@@ -1,27 +1,27 @@
 # vim: ft=ghostty
 # Oxocarbon Dark theme for Ghostty
-# Scheme Author: shaunsingh/IBM
+# Scheme Author: shaunsingh/IBM, Tinted Theming (https://github.com/tinted-theming)
 # Scheme System: base16
 # Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
 
 # Color palette
 palette = 0=#161616
-palette = 1=#3ddbd9
-palette = 2=#33b1ff
-palette = 3=#ee5396
-palette = 4=#42be65
+palette = 1=#ee5396
+palette = 2=#42be65
+palette = 3=#ff6f00
+palette = 4=#33b1ff
 palette = 5=#be95ff
-palette = 6=#ff7eb6
+palette = 6=#3ddbd9
 palette = 7=#f2f4f8
 palette = 8=#393939
-palette = 9=#3ddbd9
-palette = 10=#33b1ff
-palette = 11=#ee5396
-palette = 12=#42be65
+palette = 9=#ee5396
+palette = 10=#42be65
+palette = 11=#ff6f00
+palette = 12=#33b1ff
 palette = 13=#be95ff
-palette = 14=#ff7eb6
+palette = 14=#3ddbd9
 palette = 15=#08bdba
-palette = 16=#78a9ff
+palette = 16=#ff7eb6
 palette = 17=#82cfff
 palette = 18=#262626
 palette = 19=#393939
@@ -40,4 +40,4 @@ selection-foreground = #f2f4f8
 # Set the ghost color to the lightest foreground:
 macos-icon-ghost-color = #08bdba
 # Replace the official icon's blue background with the designated bright blue color:
-macos-icon-screen-color = #42be65
+macos-icon-screen-color = #33b1ff

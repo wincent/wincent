@@ -1,5 +1,5 @@
 # base16 Oxocarbon Dark
-# Scheme author: shaunsingh/IBM
+# Scheme author: shaunsingh/IBM, Tinted Theming (https://github.com/tinted-theming)
 # Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
 
 [colors]
@@ -15,27 +15,27 @@ selection_fg = "#393939"
 
 ansi = [
   "#161616",
-  "#3ddbd9",
-  "#33b1ff",
   "#ee5396",
   "#42be65",
+  "#ff6f00",
+  "#33b1ff",
   "#be95ff",
-  "#ff7eb6",
+  "#3ddbd9",
   "#ffffff"
 ]
 brights = [
   "#393939",
-  "#3ddbd9",
-  "#33b1ff",
   "#ee5396",
   "#42be65",
+  "#ff6f00",
+  "#33b1ff",
   "#be95ff",
-  "#ff7eb6",
+  "#3ddbd9",
   "#08bdba"
 ]
 
 [colors.indexed]
-16 = "#78a9ff"
+16 = "#ff7eb6"
 17 = "#82cfff"
 18 = "#262626"
 19 = "#393939"
