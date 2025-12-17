@@ -64,7 +64,7 @@ function getRepoHead(repoPath) {
 // Get commit log between two refs
 function getCommitLog(repoPath, fromRef, toRef) {
   try {
-    return execSync(`git log --oneline ${fromRef}..${toRef}`, {
+    return execSync(`git log --oneline --no-decorate ${fromRef}..${toRef}`, {
       cwd: repoPath,
       encoding: 'utf8',
     }).trim();
