@@ -2,7 +2,7 @@
 
 " tinted-vim (https://github.com/tinted-theming/tinted-vim)
 " Scheme name: Edge Dark
-" Scheme author: cjayross (https://github.com/cjayross)
+" Scheme author: cjayross (https://github.com/cjayross), Tinted Theming (https://github.com/tinted-theming)
 " Template author: Tinted Theming (https://github.com/tinted-theming)
 
 " This enables the coresponding base16-shell script to run so that
@@ -17,15 +17,15 @@ endif
 
 " GUI colors
 let s:gui00        = '262729'
-let s:gui01        = '88909f'
-let s:gui02        = 'b7bec9'
-let s:gui03        = '3e4249'
-let s:gui04        = '73b3e7'
-let s:gui05        = 'b7bec9'
-let s:gui06        = 'd390e7'
-let s:gui07        = '3e4249'
+let s:gui01        = '313235'
+let s:gui02        = '3d3f42'
+let s:gui03        = '4a4c4f'
+let s:gui04        = '95989d'
+let s:gui05        = 'afb2b5'
+let s:gui06        = 'caccce'
+let s:gui07        = 'e4e5e6'
 let s:gui08        = 'e77171'
-let s:gui09        = 'e77171'
+let s:gui09        = 'eba31a'
 let s:gui0A        = 'dbb774'
 let s:gui0B        = 'a1bf78'
 let s:gui0C        = '5ebaa5'
@@ -102,15 +102,15 @@ let s:colors = [
   \ '#73b3e7',
   \ '#d390e7',
   \ '#5ebaa5',
-  \ '#b7bec9',
-  \ '#3e4249',
+  \ '#afb2b5',
+  \ '#4a4c4f',
   \ '#e77171',
   \ '#a1bf78',
   \ '#dbb774',
   \ '#73b3e7',
   \ '#d390e7',
   \ '#5ebaa5',
-  \ '#3e4249'
+  \ '#e4e5e6'
 \]
 
 if has('nvim')

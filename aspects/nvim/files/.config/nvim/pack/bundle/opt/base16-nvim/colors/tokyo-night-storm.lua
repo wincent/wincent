@@ -1,4 +1,4 @@
--- Tokyo Night Storm scheme by Michaël Ball
+-- Tokyo Night Storm scheme by Michaël Ball, based on Tokyo Night by enkia (https://github.com/enkia/tokyo-night-vscode-theme)
 --
 -- Generated from this template:
 --
@@ -13,32 +13,32 @@
 --   by the Tinted Theming contributors.
 
 -- Base16 colors.
-local gui00 = "#24283B"
-local gui01 = "#16161E"
-local gui02 = "#343A52"
-local gui03 = "#444B6A"
-local gui04 = "#787C99"
-local gui05 = "#A9B1D6"
-local gui06 = "#CBCCD1"
-local gui07 = "#D5D6DB"
-local gui08 = "#C0CAF5"
-local gui09 = "#A9B1D6"
-local gui0A = "#0DB9D7"
-local gui0B = "#9ECE6A"
-local gui0C = "#B4F9F8"
-local gui0D = "#2AC3DE"
-local gui0E = "#BB9AF7"
-local gui0F = "#F7768E"
+local gui00 = "#24283b"
+local gui01 = "#16161e"
+local gui02 = "#343a52"
+local gui03 = "#444b6a"
+local gui04 = "#787c99"
+local gui05 = "#a9b1d6"
+local gui06 = "#cbccd1"
+local gui07 = "#d5d6db"
+local gui08 = "#c0caf5"
+local gui09 = "#a9b1d6"
+local gui0A = "#0db9d7"
+local gui0B = "#9ece6a"
+local gui0C = "#b4f9f8"
+local gui0D = "#2ac3de"
+local gui0E = "#bb9af7"
+local gui0F = "#f7768e"
 
 -- Base24 colors.
-local gui10 = "#24283B"
-local gui11 = "#24283B"
-local gui12 = "#C0CAF5"
-local gui13 = "#0DB9D7"
-local gui14 = "#9ECE6A"
-local gui15 = "#B4F9F8"
-local gui16 = "#2AC3DE"
-local gui17 = "#BB9AF7"
+local gui10 = "#1f2335"
+local gui11 = "#1a1b26"
+local gui12 = "#ff7a93"
+local gui13 = "#ff9e64"
+local gui14 = "#73daca"
+local gui15 = "#7dcfff"
+local gui16 = "#89ddff"
+local gui17 = "#bb9af7"
 
 -- Base16 colors.
 local cterm00 = 0

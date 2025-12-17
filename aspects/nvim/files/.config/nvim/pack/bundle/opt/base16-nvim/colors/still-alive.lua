@@ -1,4 +1,4 @@
--- Still Alive scheme by Derrick McKee (derrick.mckee@gmail.com)
+-- Still Alive scheme by Derrick McKee (derrick.mckee@gmail.com), Tinted Theming (https://github.com/tinted-theming)
 --
 -- Generated from this template:
 --
@@ -13,32 +13,32 @@
 --   by the Tinted Theming contributors.
 
 -- Base16 colors.
-local gui00 = "#F0F0F0"
-local gui01 = "#F0D848"
-local gui02 = "#FFF018"
-local gui03 = "#F01818"
-local gui04 = "#F00000"
-local gui05 = "#D80000"
-local gui06 = "#489000"
-local gui07 = "#30A860"
-local gui08 = "#487830"
-local gui09 = "#183048"
-local gui0A = "#426395"
-local gui0B = "#5C5C6A"
-local gui0C = "#2C3C57"
-local gui0D = "#001878"
-local gui0E = "#900000"
-local gui0F = "#140C0D"
+local gui00 = "#f0f0f0"
+local gui01 = "#d6d6d6"
+local gui02 = "#bdbdbd"
+local gui03 = "#a3a3a3"
+local gui04 = "#605758"
+local gui05 = "#4c383b"
+local gui06 = "#331f21"
+local gui07 = "#140c0d"
+local gui08 = "#d80000"
+local gui09 = "#f0d848"
+local gui0A = "#fff018"
+local gui0B = "#30a860"
+local gui0C = "#36d3ff"
+local gui0D = "#365eff"
+local gui0E = "#9036ff"
+local gui0F = "#140c0d"
 
 -- Base24 colors.
-local gui10 = "#F0F0F0"
-local gui11 = "#F0F0F0"
-local gui12 = "#487830"
-local gui13 = "#426395"
-local gui14 = "#5C5C6A"
-local gui15 = "#2C3C57"
-local gui16 = "#001878"
-local gui17 = "#900000"
+local gui10 = "#f0f0f0"
+local gui11 = "#f0f0f0"
+local gui12 = "#d80000"
+local gui13 = "#fff018"
+local gui14 = "#30a860"
+local gui15 = "#36d3ff"
+local gui16 = "#365eff"
+local gui17 = "#9036ff"
 
 -- Base16 colors.
 local cterm00 = 0

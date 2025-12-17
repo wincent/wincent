@@ -2,7 +2,7 @@
 
 " tinted-vim (https://github.com/tinted-theming/tinted-vim)
 " Scheme name: Tokyo Night Light
-" Scheme author: Michaël Ball
+" Scheme author: Michaël Ball, based on Tokyo Night by enkia (https://github.com/enkia/tokyo-night-vscode-theme)
 " Template author: Tinted Theming (https://github.com/tinted-theming)
 
 " This enables the coresponding base16-shell script to run so that
@@ -11,35 +11,35 @@
 "   let g:tinted_shell_path=path/to/shell/scripts
 if !has('gui_running')
   if exists('g:tinted_shell_path')
-    execute 'silent !/bin/sh '.g:tinted_shell_path.'/base16/tokyo-night-light.sh'
+    execute 'silent !/bin/sh '.g:tinted_shell_path.'/base24/tokyo-night-light.sh'
   endif
 endif
 
 " GUI colors
-let s:gui00        = 'D5D6DB'
-let s:gui01        = 'CBCCD1'
-let s:gui02        = 'DFE0E5'
-let s:gui03        = '9699A3'
-let s:gui04        = '4C505E'
-let s:gui05        = '343B59'
-let s:gui06        = '1A1B26'
-let s:gui07        = '1A1B26'
-let s:gui08        = '343B58'
+let s:gui00        = 'd5d6db'
+let s:gui01        = 'cbccd1'
+let s:gui02        = 'dfe0e5'
+let s:gui03        = '9699a3'
+let s:gui04        = '4c505e'
+let s:gui05        = '343b59'
+let s:gui06        = '1a1b26'
+let s:gui07        = '1a1b26'
+let s:gui08        = '343b59'
 let s:gui09        = '965027'
 let s:gui0A        = '166775'
-let s:gui0B        = '485E30'
-let s:gui0C        = '3E6968'
-let s:gui0D        = '34548A'
-let s:gui0E        = '5A4A78'
-let s:gui0F        = '8C4351'
-let s:gui10        = 'D5D6DB'
-let s:gui11        = 'D5D6DB'
-let s:gui12        = '343B58'
-let s:gui13        = '166775'
-let s:gui14        = '485E30'
-let s:gui15        = '3E6968'
-let s:gui16        = '34548A'
-let s:gui17        = '5A4A78'
+let s:gui0B        = '485e30'
+let s:gui0C        = '3e6968'
+let s:gui0D        = '34548a'
+let s:gui0E        = '5a4a78'
+let s:gui0F        = '8c4351'
+let s:gui10        = 'e9e9ed'
+let s:gui11        = 'f7f7f9'
+let s:gui12        = '8c4351'
+let s:gui13        = '965027'
+let s:gui14        = '485e30'
+let s:gui15        = '3e6968'
+let s:gui16        = '34548a'
+let s:gui17        = '5a4a78'
 
 " Terminal colors
 let s:cterm00  = '00'
@@ -95,22 +95,22 @@ call s:create_color_globals()
 
 " Integrated Terminal colors
 let s:colors = [
-  \ '#D5D6DB',
-  \ '#343B58',
-  \ '#485E30',
+  \ '#d5d6db',
+  \ '#343b59',
+  \ '#485e30',
   \ '#166775',
-  \ '#34548A',
-  \ '#5A4A78',
-  \ '#3E6968',
-  \ '#343B59',
-  \ '#9699A3',
-  \ '#343B58',
-  \ '#485E30',
-  \ '#166775',
-  \ '#34548A',
-  \ '#5A4A78',
-  \ '#3E6968',
-  \ '#1A1B26'
+  \ '#34548a',
+  \ '#5a4a78',
+  \ '#3e6968',
+  \ '#343b59',
+  \ '#9699a3',
+  \ '#8c4351',
+  \ '#485e30',
+  \ '#965027',
+  \ '#34548a',
+  \ '#5a4a78',
+  \ '#3e6968',
+  \ '#1a1b26'
 \]
 
 if has('nvim')
@@ -160,7 +160,7 @@ let s:attrs = {
       \}
 
 " Theme setup
-let g:colors_name = 'base16-tokyo-night-light'
+let g:colors_name = 'base24-tokyo-night-light'
 
 " Highlighting function
 " Optional variables are attributes and guisp

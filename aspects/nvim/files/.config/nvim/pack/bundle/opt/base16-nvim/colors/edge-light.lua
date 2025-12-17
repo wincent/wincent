@@ -1,4 +1,4 @@
--- Edge Light scheme by cjayross (https://github.com/cjayross)
+-- Edge Light scheme by cjayross (https://github.com/cjayross), Tinted Theming (https://github.com/tinted-theming)
 --
 -- Generated from this template:
 --
@@ -14,13 +14,13 @@
 
 -- Base16 colors.
 local gui00 = "#fafafa"
-local gui01 = "#7c9f4b"
-local gui02 = "#d69822"
-local gui03 = "#5e646f"
-local gui04 = "#6587bf"
-local gui05 = "#5e646f"
-local gui06 = "#b870ce"
-local gui07 = "#5e646f"
+local gui01 = "#e3e5e8"
+local gui02 = "#acb1b9"
+local gui03 = "#9197a1"
+local gui04 = "#5e646f"
+local gui05 = "#474752"
+local gui06 = "#3a3a46"
+local gui07 = "#2e2e38"
 local gui08 = "#db7070"
 local gui09 = "#eba31a"
 local gui0A = "#ebcc1a"

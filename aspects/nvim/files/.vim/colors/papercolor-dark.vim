@@ -2,7 +2,7 @@
 
 " tinted-vim (https://github.com/tinted-theming/tinted-vim)
 " Scheme name: PaperColor Dark
-" Scheme author: Jon Leopard (http://github.com/jonleopard), based on PaperColor Theme (https://github.com/NLKNguyen/papercolor-theme)
+" Scheme author: Nguyen Nguyen (https://github.com/NLKNguyen/papercolor-theme)
 " Template author: Tinted Theming (https://github.com/tinted-theming)
 
 " This enables the coresponding base16-shell script to run so that
@@ -11,35 +11,35 @@
 "   let g:tinted_shell_path=path/to/shell/scripts
 if !has('gui_running')
   if exists('g:tinted_shell_path')
-    execute 'silent !/bin/sh '.g:tinted_shell_path.'/base16/papercolor-dark.sh'
+    execute 'silent !/bin/sh '.g:tinted_shell_path.'/base24/papercolor-dark.sh'
   endif
 endif
 
 " GUI colors
 let s:gui00        = '1c1c1c'
-let s:gui01        = 'af005f'
-let s:gui02        = '5faf00'
-let s:gui03        = 'd7af5f'
-let s:gui04        = '5fafd7'
-let s:gui05        = '808080'
-let s:gui06        = 'd7875f'
-let s:gui07        = 'd0d0d0'
-let s:gui08        = '585858'
+let s:gui01        = '303030'
+let s:gui02        = '3a3a3a'
+let s:gui03        = '808080'
+let s:gui04        = '585858'
+let s:gui05        = 'd0d0d0'
+let s:gui06        = 'bcbcbc'
+let s:gui07        = 'c6c6c6'
+let s:gui08        = 'af005f'
 let s:gui09        = '5faf5f'
-let s:gui0A        = 'afd700'
-let s:gui0B        = 'af87d7'
+let s:gui0A        = 'd7af5f'
+let s:gui0B        = '5faf00'
 let s:gui0C        = 'ffaf00'
-let s:gui0D        = 'ff5faf'
-let s:gui0E        = '00afaf'
-let s:gui0F        = '5f8787'
-let s:gui10        = '1c1c1c'
-let s:gui11        = '1c1c1c'
-let s:gui12        = '585858'
-let s:gui13        = 'afd700'
-let s:gui14        = 'af87d7'
-let s:gui15        = 'ffaf00'
-let s:gui16        = 'ff5faf'
-let s:gui17        = '00afaf'
+let s:gui0D        = '5fafd7'
+let s:gui0E        = 'af87d7'
+let s:gui0F        = 'ff5faf'
+let s:gui10        = '121212'
+let s:gui11        = '080808'
+let s:gui12        = 'd7005f'
+let s:gui13        = '87d75f'
+let s:gui14        = 'ffd75f'
+let s:gui15        = '87d700'
+let s:gui16        = 'ffd700'
+let s:gui17        = '87d7ff'
 
 " Terminal colors
 let s:cterm00  = '00'
@@ -96,21 +96,21 @@ call s:create_color_globals()
 " Integrated Terminal colors
 let s:colors = [
   \ '#1c1c1c',
-  \ '#585858',
-  \ '#af87d7',
-  \ '#afd700',
-  \ '#ff5faf',
-  \ '#00afaf',
-  \ '#ffaf00',
-  \ '#808080',
+  \ '#af005f',
+  \ '#5faf00',
   \ '#d7af5f',
-  \ '#585858',
+  \ '#5fafd7',
   \ '#af87d7',
-  \ '#afd700',
-  \ '#ff5faf',
-  \ '#00afaf',
   \ '#ffaf00',
-  \ '#d0d0d0'
+  \ '#d0d0d0',
+  \ '#808080',
+  \ '#d7005f',
+  \ '#ffd75f',
+  \ '#87d75f',
+  \ '#ffd700',
+  \ '#87d7ff',
+  \ '#87d700',
+  \ '#c6c6c6'
 \]
 
 if has('nvim')
@@ -160,7 +160,7 @@ let s:attrs = {
       \}
 
 " Theme setup
-let g:colors_name = 'base16-papercolor-dark'
+let g:colors_name = 'base24-papercolor-dark'
 
 " Highlighting function
 " Optional variables are attributes and guisp

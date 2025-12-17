@@ -1,4 +1,4 @@
--- Tokyo Night Light scheme by Michaël Ball
+-- Tokyo Night Light scheme by Michaël Ball, based on Tokyo Night by enkia (https://github.com/enkia/tokyo-night-vscode-theme)
 --
 -- Generated from this template:
 --
@@ -13,32 +13,32 @@
 --   by the Tinted Theming contributors.
 
 -- Base16 colors.
-local gui00 = "#D5D6DB"
-local gui01 = "#CBCCD1"
-local gui02 = "#DFE0E5"
-local gui03 = "#9699A3"
-local gui04 = "#4C505E"
-local gui05 = "#343B59"
-local gui06 = "#1A1B26"
-local gui07 = "#1A1B26"
-local gui08 = "#343B58"
+local gui00 = "#d5d6db"
+local gui01 = "#cbccd1"
+local gui02 = "#dfe0e5"
+local gui03 = "#9699a3"
+local gui04 = "#4c505e"
+local gui05 = "#343b59"
+local gui06 = "#1a1b26"
+local gui07 = "#1a1b26"
+local gui08 = "#343b59"
 local gui09 = "#965027"
 local gui0A = "#166775"
-local gui0B = "#485E30"
-local gui0C = "#3E6968"
-local gui0D = "#34548A"
-local gui0E = "#5A4A78"
-local gui0F = "#8C4351"
+local gui0B = "#485e30"
+local gui0C = "#3e6968"
+local gui0D = "#34548a"
+local gui0E = "#5a4a78"
+local gui0F = "#8c4351"
 
 -- Base24 colors.
-local gui10 = "#D5D6DB"
-local gui11 = "#D5D6DB"
-local gui12 = "#343B58"
-local gui13 = "#166775"
-local gui14 = "#485E30"
-local gui15 = "#3E6968"
-local gui16 = "#34548A"
-local gui17 = "#5A4A78"
+local gui10 = "#e9e9ed"
+local gui11 = "#f7f7f9"
+local gui12 = "#8c4351"
+local gui13 = "#965027"
+local gui14 = "#485e30"
+local gui15 = "#3e6968"
+local gui16 = "#34548a"
+local gui17 = "#5a4a78"
 
 -- Base16 colors.
 local cterm00 = 0

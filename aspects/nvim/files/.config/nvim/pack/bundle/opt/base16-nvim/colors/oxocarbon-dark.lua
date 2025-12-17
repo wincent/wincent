@@ -1,4 +1,4 @@
--- Oxocarbon Dark scheme by shaunsingh/IBM
+-- Oxocarbon Dark scheme by shaunsingh/IBM, Tinted Theming (https://github.com/tinted-theming)
 --
 -- Generated from this template:
 --
@@ -21,23 +21,23 @@ local gui04 = "#dde1e6"
 local gui05 = "#f2f4f8"
 local gui06 = "#ffffff"
 local gui07 = "#08bdba"
-local gui08 = "#3ddbd9"
-local gui09 = "#78a9ff"
-local gui0A = "#ee5396"
-local gui0B = "#33b1ff"
-local gui0C = "#ff7eb6"
-local gui0D = "#42be65"
+local gui08 = "#ee5396"
+local gui09 = "#ff7eb6"
+local gui0A = "#ff6f00"
+local gui0B = "#42be65"
+local gui0C = "#3ddbd9"
+local gui0D = "#33b1ff"
 local gui0E = "#be95ff"
 local gui0F = "#82cfff"
 
 -- Base24 colors.
 local gui10 = "#161616"
 local gui11 = "#161616"
-local gui12 = "#3ddbd9"
-local gui13 = "#ee5396"
-local gui14 = "#33b1ff"
-local gui15 = "#ff7eb6"
-local gui16 = "#42be65"
+local gui12 = "#ee5396"
+local gui13 = "#ff6f00"
+local gui14 = "#42be65"
+local gui15 = "#3ddbd9"
+local gui16 = "#33b1ff"
 local gui17 = "#be95ff"
 
 -- Base16 colors.

@@ -1,4 +1,4 @@
--- Oxocarbon Light scheme by shaunsingh/IBM, Tinted Theming (https://github.com/tinted-theming)
+-- Flexoki Light scheme by Steph Ango (https://github.com/kepano/flexoki)
 --
 -- Generated from this template:
 --
@@ -13,32 +13,32 @@
 --   by the Tinted Theming contributors.
 
 -- Base16 colors.
-local gui00 = "#f2f4f8"
-local gui01 = "#dde1e6"
-local gui02 = "#bec6cf"
-local gui03 = "#a1acba"
-local gui04 = "#68788d"
-local gui05 = "#525f70"
-local gui06 = "#3d4652"
-local gui07 = "#272d35"
-local gui08 = "#ff7eb6"
-local gui09 = "#ee5396"
-local gui0A = "#ff6f00"
-local gui0B = "#42be65"
-local gui0C = "#673ab7"
-local gui0D = "#0f62fe"
-local gui0E = "#be95ff"
-local gui0F = "#803800"
+local gui00 = "#FFFCF0"
+local gui01 = "#F2F0E5"
+local gui02 = "#E6E4D9"
+local gui03 = "#CECDC3"
+local gui04 = "#9F9D96"
+local gui05 = "#403E3C"
+local gui06 = "#282726"
+local gui07 = "#100F0F"
+local gui08 = "#AF3029"
+local gui09 = "#BC5215"
+local gui0A = "#AD8301"
+local gui0B = "#66800B"
+local gui0C = "#24837B"
+local gui0D = "#205EA6"
+local gui0E = "#5E409D"
+local gui0F = "#A02F6F"
 
 -- Base24 colors.
-local gui10 = "#f2f4f8"
-local gui11 = "#f2f4f8"
-local gui12 = "#ff7eb6"
-local gui13 = "#ff6f00"
-local gui14 = "#42be65"
-local gui15 = "#673ab7"
-local gui16 = "#0f62fe"
-local gui17 = "#be95ff"
+local gui10 = "#F2F0E5"
+local gui11 = "#FFFFFF"
+local gui12 = "#D14D41"
+local gui13 = "#DA702C"
+local gui14 = "#D0A215"
+local gui15 = "#879A39"
+local gui16 = "#3AA99F"
+local gui17 = "#4385BE"
 
 -- Base16 colors.
 local cterm00 = 0
@@ -72,7 +72,7 @@ vim.cmd [[
   highlight clear
   syntax reset
 ]]
-vim.g.colors_name = "oxocarbon-light"
+vim.g.colors_name = "flexoki-light"
 
 -- Vim editor colors
 vim.api.nvim_set_hl(0, 'Normal', { fg = gui05, bg = gui00, ctermfg = cterm05, ctermbg = cterm00 })

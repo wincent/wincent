@@ -1,4 +1,4 @@
--- Edge Dark scheme by cjayross (https://github.com/cjayross)
+-- Edge Dark scheme by cjayross (https://github.com/cjayross), Tinted Theming (https://github.com/tinted-theming)
 --
 -- Generated from this template:
 --
@@ -14,15 +14,15 @@
 
 -- Base16 colors.
 local gui00 = "#262729"
-local gui01 = "#88909f"
-local gui02 = "#b7bec9"
-local gui03 = "#3e4249"
-local gui04 = "#73b3e7"
-local gui05 = "#b7bec9"
-local gui06 = "#d390e7"
-local gui07 = "#3e4249"
+local gui01 = "#313235"
+local gui02 = "#3d3f42"
+local gui03 = "#4a4c4f"
+local gui04 = "#95989d"
+local gui05 = "#afb2b5"
+local gui06 = "#caccce"
+local gui07 = "#e4e5e6"
 local gui08 = "#e77171"
-local gui09 = "#e77171"
+local gui09 = "#eba31a"
 local gui0A = "#dbb774"
 local gui0B = "#a1bf78"
 local gui0C = "#5ebaa5"

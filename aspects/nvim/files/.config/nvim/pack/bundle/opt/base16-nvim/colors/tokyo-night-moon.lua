@@ -1,4 +1,4 @@
--- Tokyo Night Moon scheme by Ólafur Bjarki Bogason
+-- Tokyo Night Moon scheme by Michaël Ball, based on Tokyo Night by enkia (https://github.com/enkia/tokyo-night-vscode-theme)
 --
 -- Generated from this template:
 --
@@ -15,15 +15,15 @@
 -- Base16 colors.
 local gui00 = "#222436"
 local gui01 = "#1e2030"
-local gui02 = "#2d3f76"
-local gui03 = "#3b4261"
-local gui04 = "#636da6"
-local gui05 = "#828bb8"
-local gui06 = "#aeb4d1"
+local gui02 = "#2f334d"
+local gui03 = "#444a73"
+local gui04 = "#828bb8"
+local gui05 = "#c8d3f5"
+local gui06 = "#b4c2f0"
 local gui07 = "#c8d3f5"
-local gui08 = "#ff757f"
+local gui08 = "#c099ff"
 local gui09 = "#ffc777"
-local gui0A = "#ffdf77"
+local gui0A = "#ffc777"
 local gui0B = "#c3e88d"
 local gui0C = "#86e1fc"
 local gui0D = "#82aaff"
@@ -31,10 +31,10 @@ local gui0E = "#fca7ea"
 local gui0F = "#c53b53"
 
 -- Base24 colors.
-local gui10 = "#222436"
-local gui11 = "#222436"
+local gui10 = "#1e2030"
+local gui11 = "#1a1b2a"
 local gui12 = "#ff757f"
-local gui13 = "#ffdf77"
+local gui13 = "#ffd793"
 local gui14 = "#c3e88d"
 local gui15 = "#86e1fc"
 local gui16 = "#82aaff"

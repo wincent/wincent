@@ -1,32 +1,32 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
 # Scheme name: Heetch Light
-# Scheme author: Geoffrey Teale (tealeg@gmail.com)
+# Scheme author: Geoffrey Teale (tealeg@gmail.com), Tinted Theming (https://github.com/tinted-theming)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="heetch-light"
 
 color00="fe/ff/ff" # Base 00 - Black
-color01="27/d9/d5" # Base 08 - Red
-color02="f8/00/59" # Base 0B - Green
-color03="5b/a2/b6" # Base 0A - Yellow
-color04="47/f9/f5" # Base 0D - Blue
-color05="bd/01/52" # Base 0E - Magenta
-color06="c3/36/78" # Base 0C - Cyan
+color01="f8/00/59" # Base 08 - Red
+color02="5b/b6/6a" # Base 0B - Green
+color03="bd/97/01" # Base 0A - Yellow
+color04="5b/a2/b6" # Base 0D - Blue
+color05="8f/6c/97" # Base 0E - Magenta
+color06="47/f9/f5" # Base 0C - Cyan
 color07="5a/49/6e" # Base 05 - White
 color08="9c/92/a8" # Base 03 - Bright Black
-color09="27/d9/d5" # Base 12 - Bright Red
-color10="f8/00/59" # Base 14 - Bright Green
-color11="5b/a2/b6" # Base 13 - Bright Yellow
-color12="47/f9/f5" # Base 16 - Bright Blue
-color13="bd/01/52" # Base 17 - Bright Magenta
-color14="c3/36/78" # Base 15 - Bright Cyan
+color09="f8/00/59" # Base 12 - Bright Red
+color10="5b/b6/6a" # Base 14 - Bright Green
+color11="bd/97/01" # Base 13 - Bright Yellow
+color12="5b/a2/b6" # Base 16 - Bright Blue
+color13="8f/6c/97" # Base 17 - Bright Magenta
+color14="47/f9/f5" # Base 15 - Bright Cyan
 color15="19/01/34" # Base 07 - Bright White
-color16="bd/b6/c5" # Base 09
-color17="de/da/e2" # Base 0F
-color18="39/25/51" # Base 01
-color19="7b/6d/8b" # Base 02
-color20="dd/d6/e5" # Base 04
-color21="47/05/46" # Base 06
+color16="bd/01/52" # Base 09
+color17="58/42/5d" # Base 0F
+color18="de/da/e2" # Base 01
+color19="bd/b6/c5" # Base 02
+color20="7b/6d/8b" # Base 04
+color21="39/25/51" # Base 06
 color_foreground="5a/49/6e" # Base 05
 color_background="fe/ff/ff" # Base 00
 
@@ -80,7 +80,7 @@ if [ -n "$ITERM_SESSION_ID" ]; then
   put_template_custom Pg 5a496e # foreground
   put_template_custom Ph feffff # background
   put_template_custom Pi 5a496e # bold color
-  put_template_custom Pj 7b6d8b # selection color
+  put_template_custom Pj bdb6c5 # selection color
   put_template_custom Pk 5a496e # selected text color
   put_template_custom Pl 5a496e # cursor
   put_template_custom Pm feffff # cursor text
@@ -127,27 +127,27 @@ unset color_background
 # Optionally export variables
 if [ -n "$TINTED_SHELL_ENABLE_BASE24_VARS" ]; then
   export BASE24_COLOR_00_HEX="feffff"
-  export BASE24_COLOR_01_HEX="392551"
-  export BASE24_COLOR_02_HEX="7b6d8b"
+  export BASE24_COLOR_01_HEX="dedae2"
+  export BASE24_COLOR_02_HEX="bdb6c5"
   export BASE24_COLOR_03_HEX="9c92a8"
-  export BASE24_COLOR_04_HEX="ddd6e5"
+  export BASE24_COLOR_04_HEX="7b6d8b"
   export BASE24_COLOR_05_HEX="5a496e"
-  export BASE24_COLOR_06_HEX="470546"
+  export BASE24_COLOR_06_HEX="392551"
   export BASE24_COLOR_07_HEX="190134"
-  export BASE24_COLOR_08_HEX="27d9d5"
-  export BASE24_COLOR_09_HEX="bdb6c5"
-  export BASE24_COLOR_0A_HEX="5ba2b6"
-  export BASE24_COLOR_0B_HEX="f80059"
-  export BASE24_COLOR_0C_HEX="c33678"
-  export BASE24_COLOR_0D_HEX="47f9f5"
-  export BASE24_COLOR_0E_HEX="bd0152"
-  export BASE24_COLOR_0F_HEX="dedae2"
+  export BASE24_COLOR_08_HEX="f80059"
+  export BASE24_COLOR_09_HEX="bd0152"
+  export BASE24_COLOR_0A_HEX="bd9701"
+  export BASE24_COLOR_0B_HEX="5bb66a"
+  export BASE24_COLOR_0C_HEX="47f9f5"
+  export BASE24_COLOR_0D_HEX="5ba2b6"
+  export BASE24_COLOR_0E_HEX="8f6c97"
+  export BASE24_COLOR_0F_HEX="58425d"
   export BASE24_COLOR_10_HEX="feffff"
   export BASE24_COLOR_11_HEX="feffff"
-  export BASE24_COLOR_12_HEX="27d9d5"
-  export BASE24_COLOR_13_HEX="5ba2b6"
-  export BASE24_COLOR_14_HEX="f80059"
-  export BASE24_COLOR_15_HEX="c33678"
-  export BASE24_COLOR_16_HEX="47f9f5"
-  export BASE24_COLOR_17_HEX="bd0152"
+  export BASE24_COLOR_12_HEX="f80059"
+  export BASE24_COLOR_13_HEX="bd9701"
+  export BASE24_COLOR_14_HEX="5bb66a"
+  export BASE24_COLOR_15_HEX="47f9f5"
+  export BASE24_COLOR_16_HEX="5ba2b6"
+  export BASE24_COLOR_17_HEX="8f6c97"
 fi

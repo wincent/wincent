@@ -1,4 +1,4 @@
--- PaperColor Light scheme by Jon Leopard (http://github.com/jonleopard), based on PaperColor Theme (https://github.com/NLKNguyen/papercolor-theme)
+-- PaperColor Light scheme by Nguyen Nguyen (https://github.com/NLKNguyen/papercolor-theme)
 --
 -- Generated from this template:
 --
@@ -14,31 +14,31 @@
 
 -- Base16 colors.
 local gui00 = "#eeeeee"
-local gui01 = "#af0000"
-local gui02 = "#008700"
-local gui03 = "#5f8700"
-local gui04 = "#0087af"
+local gui01 = "#e4e4e4"
+local gui02 = "#d0d0d0"
+local gui03 = "#878787"
+local gui04 = "#b2b2b2"
 local gui05 = "#444444"
 local gui06 = "#005f87"
-local gui07 = "#878787"
-local gui08 = "#bcbcbc"
-local gui09 = "#d70000"
-local gui0A = "#d70087"
-local gui0B = "#8700af"
+local gui07 = "#0087af"
+local gui08 = "#af0000"
+local gui09 = "#d70087"
+local gui0A = "#5f8700"
+local gui0B = "#008700"
 local gui0C = "#d75f00"
-local gui0D = "#d75f00"
-local gui0E = "#005faf"
-local gui0F = "#005f87"
+local gui0D = "#0087af"
+local gui0E = "#8700af"
+local gui0F = "#005faf"
 
 -- Base24 colors.
-local gui10 = "#eeeeee"
-local gui11 = "#eeeeee"
-local gui12 = "#bcbcbc"
-local gui13 = "#d70087"
-local gui14 = "#8700af"
-local gui15 = "#d75f00"
-local gui16 = "#d75f00"
-local gui17 = "#005faf"
+local gui10 = "#f4f4f4"
+local gui11 = "#ffffff"
+local gui12 = "#d70000"
+local gui13 = "#ff00af"
+local gui14 = "#87af00"
+local gui15 = "#00af00"
+local gui16 = "#ff8700"
+local gui17 = "#5fafff"
 
 -- Base16 colors.
 local cterm00 = 0

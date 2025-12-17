@@ -1,4 +1,4 @@
--- Heetch Light scheme by Geoffrey Teale (tealeg@gmail.com)
+-- Heetch Light scheme by Geoffrey Teale (tealeg@gmail.com), Tinted Theming (https://github.com/tinted-theming)
 --
 -- Generated from this template:
 --
@@ -14,31 +14,31 @@
 
 -- Base16 colors.
 local gui00 = "#feffff"
-local gui01 = "#392551"
-local gui02 = "#7b6d8b"
+local gui01 = "#dedae2"
+local gui02 = "#bdb6c5"
 local gui03 = "#9c92a8"
-local gui04 = "#ddd6e5"
+local gui04 = "#7b6d8b"
 local gui05 = "#5a496e"
-local gui06 = "#470546"
+local gui06 = "#392551"
 local gui07 = "#190134"
-local gui08 = "#27d9d5"
-local gui09 = "#bdb6c5"
-local gui0A = "#5ba2b6"
-local gui0B = "#f80059"
-local gui0C = "#c33678"
-local gui0D = "#47f9f5"
-local gui0E = "#bd0152"
-local gui0F = "#dedae2"
+local gui08 = "#f80059"
+local gui09 = "#bd0152"
+local gui0A = "#bd9701"
+local gui0B = "#5bb66a"
+local gui0C = "#47f9f5"
+local gui0D = "#5ba2b6"
+local gui0E = "#8f6c97"
+local gui0F = "#58425d"
 
 -- Base24 colors.
 local gui10 = "#feffff"
 local gui11 = "#feffff"
-local gui12 = "#27d9d5"
-local gui13 = "#5ba2b6"
-local gui14 = "#f80059"
-local gui15 = "#c33678"
-local gui16 = "#47f9f5"
-local gui17 = "#bd0152"
+local gui12 = "#f80059"
+local gui13 = "#bd9701"
+local gui14 = "#5bb66a"
+local gui15 = "#47f9f5"
+local gui16 = "#5ba2b6"
+local gui17 = "#8f6c97"
 
 -- Base16 colors.
 local cterm00 = 0

@@ -2,7 +2,7 @@
 
 " tinted-vim (https://github.com/tinted-theming/tinted-vim)
 " Scheme name: Heetch Light
-" Scheme author: Geoffrey Teale (tealeg@gmail.com)
+" Scheme author: Geoffrey Teale (tealeg@gmail.com), Tinted Theming (https://github.com/tinted-theming)
 " Template author: Tinted Theming (https://github.com/tinted-theming)
 
 " This enables the coresponding base16-shell script to run so that
@@ -17,29 +17,29 @@ endif
 
 " GUI colors
 let s:gui00        = 'feffff'
-let s:gui01        = '392551'
-let s:gui02        = '7b6d8b'
+let s:gui01        = 'dedae2'
+let s:gui02        = 'bdb6c5'
 let s:gui03        = '9c92a8'
-let s:gui04        = 'ddd6e5'
+let s:gui04        = '7b6d8b'
 let s:gui05        = '5a496e'
-let s:gui06        = '470546'
+let s:gui06        = '392551'
 let s:gui07        = '190134'
-let s:gui08        = '27d9d5'
-let s:gui09        = 'bdb6c5'
-let s:gui0A        = '5ba2b6'
-let s:gui0B        = 'f80059'
-let s:gui0C        = 'c33678'
-let s:gui0D        = '47f9f5'
-let s:gui0E        = 'bd0152'
-let s:gui0F        = 'dedae2'
+let s:gui08        = 'f80059'
+let s:gui09        = 'bd0152'
+let s:gui0A        = 'bd9701'
+let s:gui0B        = '5bb66a'
+let s:gui0C        = '47f9f5'
+let s:gui0D        = '5ba2b6'
+let s:gui0E        = '8f6c97'
+let s:gui0F        = '58425d'
 let s:gui10        = 'feffff'
 let s:gui11        = 'feffff'
-let s:gui12        = '27d9d5'
-let s:gui13        = '5ba2b6'
-let s:gui14        = 'f80059'
-let s:gui15        = 'c33678'
-let s:gui16        = '47f9f5'
-let s:gui17        = 'bd0152'
+let s:gui12        = 'f80059'
+let s:gui13        = 'bd9701'
+let s:gui14        = '5bb66a'
+let s:gui15        = '47f9f5'
+let s:gui16        = '5ba2b6'
+let s:gui17        = '8f6c97'
 
 " Terminal colors
 let s:cterm00  = '00'
@@ -96,20 +96,20 @@ call s:create_color_globals()
 " Integrated Terminal colors
 let s:colors = [
   \ '#feffff',
-  \ '#27d9d5',
   \ '#f80059',
+  \ '#5bb66a',
+  \ '#bd9701',
   \ '#5ba2b6',
+  \ '#8f6c97',
   \ '#47f9f5',
-  \ '#bd0152',
-  \ '#c33678',
   \ '#5a496e',
   \ '#9c92a8',
-  \ '#27d9d5',
   \ '#f80059',
+  \ '#5bb66a',
+  \ '#bd9701',
   \ '#5ba2b6',
+  \ '#8f6c97',
   \ '#47f9f5',
-  \ '#bd0152',
-  \ '#c33678',
   \ '#190134'
 \]
 
