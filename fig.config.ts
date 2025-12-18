@@ -14,7 +14,7 @@ export default {
         'ruby',
         'shell',
         'ssh',
-        'violentmonkey',
+        'userscripts',
         'nvim',
         'cron',
         'automount',

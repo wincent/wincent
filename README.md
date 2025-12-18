@@ -191,7 +191,7 @@ At the time of writing, these are the aspects, which you can expect to change ov
   - **node**: Installs Node.js
   - **ruby**: Installs Ruby gems
   - **ssh**: Manages local SSH config
-  - **violentmonkey**: Sets up UserScripts
+  - **userscripts**: Sets up userscripts for [Violentmonkey](https://violentmonkey.github.io), [ScriptCat](https://github.com/scriptscat/scriptcat), or [Tampermonkey](https://www.tampermonkey.net).
 - On Linux only:
   - **aur**: Installs packages from the Arch User Repository.
   - **avahi**: Manages the Avahi zeroconf ("Bonjour") networking daemon.

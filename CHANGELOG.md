@@ -2,6 +2,12 @@
 
 Noteworthy changes, as selected from `git changelog --since $LAST_DATE`.
 
+## 2025-12-18
+
+- Rename "violentmonkey" aspect to "userscripts" because [Chrome broke Violentmonkey](https://wincent.dev/wiki/Violentmonkey); the most viable option is to switch to (closed-source) [Tampermonkey](https://www.tampermonkey.net) or (open-source-but-Chinese[^chinese]) [ScriptCat](https://github.com/scriptscat/scriptcat) instead.
+
+[^chinese]: [English docs](https://docs.scriptcat.org/en/) are available, but auditing the activity in the repo is a bit harder because so much of it — that is, commit messages, PR and issue comments etc — is in Chinese.
+
 ## 2025-07-16
 
 - Added new `--pretty` formats to Git: `default` and `changelog`.
