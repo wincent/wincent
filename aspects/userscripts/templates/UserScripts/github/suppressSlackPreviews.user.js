@@ -12,11 +12,11 @@
 
 (function () {
   function suppress() {
-      if (/^\/[-\w]+\/[-\w]+\/pull\/\d+$/.test(location.pathname)) {
-          const url = new URL(window.location);
-          url.pathname += '/s';
-          history.replaceState(null, undefined, url.toString());
-      }
+    if (/^\/[-\w]+\/[-\w]+\/pull\/\d+$/.test(location.pathname)) {
+      const url = new URL(window.location);
+      url.pathname += '/s';
+      history.replaceState(null, undefined, url.toString());
+    }
   }
 
   // Run on initial load...
