@@ -16,6 +16,7 @@ gr = ["log", "-r", "::@ & no_description_set()", "-T", '''
   ">" ++
   "\n"
 ''']
+last = ["show", "-r", "last"]
 o = ["oneline"]
 oneline = ["gr", "--no-graph"]
 oo = ["oneline", "--limit", "10"]
@@ -43,6 +44,7 @@ fi
 'no_description_set()' = '~description(exact:"")'
 'closest_bookmark(to)' = 'heads(::to & bookmarks())'
 'closest_pushable(to)' = 'heads(::to & mutable() & no_description_set() & (~empty() | merges()))'
+'last' = 'latest(ancestors(@) & ~empty() & no_description_set())'
 
 [signing]
 <%- if (variables.vcsGpgSign) { -%>
