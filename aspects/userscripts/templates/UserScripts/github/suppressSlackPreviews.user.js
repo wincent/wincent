@@ -11,8 +11,11 @@
 // ==/UserScript==
 
 (function () {
+  // Only operate on "/<owner>/<repo>/pull/<n>" URLs.
+  const PR_PATH_PATTERN = /^\/[-\w]+\/[-\w]+\/pull\/\d+$/;
+
   function suppress() {
-    if (!location.hash && /^\/[-\w]+\/[-\w]+\/pull\/\d+$/.test(location.pathname)) {
+    if (!location.hash && PR_PATH_PATTERN.test(location.pathname)) {
       const url = new URL(window.location);
       url.pathname += '/s';
       history.replaceState(null, undefined, url.toString());
