@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Suppress Slack previews for GitHub URLs
 // @namespace    https://wincent.dev/
-// @version      0.3
+// @version      0.4
 // @description  Stops Slack from showing huge previews for GitHub URLs by appending an "/s" to the end
 // @author       Greg Hurrell <greg@hurrell.net>
 // @match        https://github.com/*
