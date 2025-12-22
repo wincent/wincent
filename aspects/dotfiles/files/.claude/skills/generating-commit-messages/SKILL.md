@@ -9,8 +9,9 @@ description: Generates clear commit messages from Git diffs. Use when writing co
 
 1. Run `command git diff` to see changes that will be committed (or `command git diff --staged` if they have already been staged).
 2. Suggest a commit message with:
-  - A subject of 72 characters or less in Conventional Commits format (eg. "docs: add migration notes" or "fix: avoid double-render in list component").
-  - A detailed description, wrapped to 72 characters, using basic Markdown syntax.
+
+- A subject of 72 characters or less in Conventional Commits format (eg. "docs: add migration notes" or "fix: avoid double-render in list component").
+- A detailed description, wrapped to 72 characters, using basic Markdown syntax.
 
 ## Best practices
 
