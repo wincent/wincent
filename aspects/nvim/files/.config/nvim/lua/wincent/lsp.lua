@@ -2,8 +2,6 @@ local augroup = require('wincent.nvim.augroup')
 
 local lsp = {}
 
-local open_floating_preview = vim.lsp.util.open_floating_preview
-
 local signs = {
   ERROR = '✖',
   WARN = '⚐',
