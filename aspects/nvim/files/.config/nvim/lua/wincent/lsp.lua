@@ -185,11 +185,7 @@ lsp.init = function()
     })
 
     vim.lsp.config('clangd', {
-      settings = {
-        clangd = {
-          cmd = { 'clangd', '--background-index' },
-        },
-      },
+      cmd = { 'clangd', '--background-index' },
     })
     vim.lsp.enable('clangd', vim.fn.executable('clangd') == 1)
 
