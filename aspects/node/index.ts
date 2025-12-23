@@ -38,6 +38,7 @@ task('install global packages', async () => {
   };
 
   const packages = [
+    '@typescript/native-preview',
     'typescript-language-server',
     'neovim',
     'source-map-explorer',
