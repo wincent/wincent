@@ -10,6 +10,14 @@ local signs = {
   UNKNOWN = '•',
 }
 
+local function exists(path)
+  if vim.uv.fs_stat(path) then
+    return true
+  else
+    return false
+  end
+end
+
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function()
     -- Mnemonic: k = "kill (toggle) line diagnostics"
@@ -251,7 +259,7 @@ lsp.init = function()
           if client.workspace_folders then
             -- Found a root marker.
             local path = client.workspace_folders[1].name
-            if vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc') then
+            if exists(path .. '/.luarc.json') or exists(path .. '/.luarc.jsonc') then
               -- We have a ".luarc.json" (or ".luarc.jsonc"); defer to that.
               return
             end
@@ -313,14 +321,50 @@ lsp.init = function()
     vim.lsp.enable('ocamlls', vim.fn.executable('ocaml-language-server') == 1)
     vim.lsp.enable('rust_analyzer', vim.fn.executable('rust-analyzer') == 1)
     vim.lsp.enable('taplo', vim.fn.executable('taplo') == 1)
-    if vim.fn.executable('tsgo') == 1 and false then
-      vim.lsp.config('ts_ls', {
-        cmd = { 'tsgo', '--lsp', '--stdio' },
-      })
-      vim.lsp.enable('ts_ls')
-    elseif vim.fn.executable('typescript-language-server') == 1 then
-      vim.lsp.enable('ts_ls')
+
+    -- `tsgo` doesn't support Yarn PnP (yet), so enable `ts_ls`
+    -- (`typescript-language-server`) for projects that use PnP:
+    --
+    -- - https://github.com/microsoft/typescript-go/pull/1966
+    -- - https://stackoverflow.com/questions/74958055/why-yarn-creates-a-pnp-loader-mjs-and-pnp-cjs-files
+    --
+    local has_tsgo = vim.fn.executable('tsgo') == 1
+    local uses_pnp = function(root)
+      if root then
+        return exists(root .. '/.pnp.cjs') or exists(root .. '/.pnp.loader.mjs')
+      else
+        return false
+      end
     end
+
+    local original_ts_ls_root_dir = vim.lsp.config['ts_ls'].root_dir
+    vim.lsp.config('ts_ls', {
+      root_dir = function(bufnr, on_dir)
+        if original_ts_ls_root_dir then
+          original_ts_ls_root_dir(bufnr, function(root)
+            if not has_tsgo or uses_pnp(root) then
+              on_dir(root)
+            end
+          end)
+        end
+      end,
+    })
+    vim.lsp.enable('ts_ls', vim.fn.executable('typescript-language-server') == 1)
+
+    local original_tsgo_root_dir = vim.lsp.config['tsgo'].root_dir
+    vim.lsp.config('tsgo', {
+      root_dir = function(bufnr, on_dir)
+        if original_tsgo_root_dir then
+          original_tsgo_root_dir(bufnr, function(root)
+            if has_tsgo and not uses_pnp(root) then
+              on_dir(root)
+            end
+          end)
+        end
+      end,
+    })
+    vim.lsp.enable('tsgo', has_tsgo)
+
     vim.lsp.enable('vimls', vim.fn.executable('vim-language-server') == 1)
   end
 
