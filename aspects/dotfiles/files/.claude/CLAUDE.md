@@ -6,6 +6,14 @@ In the same directory as this file, there is a subdirectory called "host". If th
 
 When working in a repo, check to see whether there are any files under `.cursor/rules` in the repo root. These files have an ".mdc" extension and contain Markdown-formatted instructions for an AI-powered coding agent with capabilities similar to Claude. Use the contents of these files to guide your suggestions.
 
+# Always use skills when available
+
+Before performing any action, check if there's a relevant skill available and use it immediately:
+
+- When committing: Use the "generating-commit-messages" skill first.
+
+**NEVER** manually perform an action that has a dedicated skill without using the skill first.
+
 # Beware of aliases, such as `git` and `claude`
 
 If you try to run a Git command like `git show`, you may see this error:
