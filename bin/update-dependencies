@@ -149,7 +149,7 @@ async function updateDependency({prefix, repo, branch}) {
   console.log(`  [${prefix}] Syncing from cache...`);
   mkdirSync(dirname(targetPath), {recursive: true});
   execSync(
-    `rsync -av --delete --exclude='.git' "${cachePath}/" "${targetPath}/"`,
+    `rsync -av --delete --delete-excluded --exclude=.git --exclude=.gitmodules "${cachePath}/" "${targetPath}/"`,
     {
       stdio: 'inherit',
     },
