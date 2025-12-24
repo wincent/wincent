@@ -159,6 +159,16 @@ return {
       if root_dir then
         cb(root_dir)
       end
+    else
+      -- Decompiled code (example: "/tmp/MetadataAsSource/f2bfba/DecompilationMetadataAsSourceFileProvider/d5782a/Console.cs")
+      local prev_buf = vim.fn.bufnr('#')
+      local client = vim.lsp.get_clients({
+        name = 'roslyn_ls',
+        bufnr = prev_buf ~= 1 and prev_buf or nil,
+      })[1]
+      if client then
+        cb(client.config.root_dir)
+      end
     end
   end,
   on_init = {

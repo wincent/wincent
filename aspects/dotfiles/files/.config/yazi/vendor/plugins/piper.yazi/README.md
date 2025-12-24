@@ -73,6 +73,14 @@ url = "*/"
 run = 'piper -- eza -TL=3 --color=always --icons=always --group-directories-first --no-quotes "$1"'
 ```
 
+### Preview the schema of a SQLite database
+
+```toml
+[[plugin.prepend_previewers]]
+mime = "application/sqlite3"
+run  = 'piper -- sqlite3 "$1" ".schema --indent"'
+```
+
 ### Use [`hexyl`](https://github.com/sharkdp/hexyl) as fallback previewer
 
 Yazi defaults to using [`file -bL "$1"`](https://github.com/sxyazi/yazi/blob/main/yazi-plugin/preset/plugins/file.lua) if there's no matched previewer.

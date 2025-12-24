@@ -47,12 +47,12 @@ And register it as fetchers in your `~/.config/yazi/yazi.toml`:
 ```toml
 [[plugin.prepend_fetchers]]
 id   = "mactag"
-name = "*"
+name = "*"  # use `url` if you're using the nightly version of Yazi
 run  = "mactag"
 
 [[plugin.prepend_fetchers]]
 id   = "mactag"
-name = "*/"
+name = "*/"  # use `url` if you're using the nightly version of Yazi
 run  = "mactag"
 ```
 

@@ -23,18 +23,18 @@ And register it as fetchers in your `~/.config/yazi/yazi.toml`:
 ```toml
 [[plugin.prepend_fetchers]]
 id   = "git"
-name = "*"
+name = "*"  # use `url` if you're using the nightly version of Yazi
 run  = "git"
 
 [[plugin.prepend_fetchers]]
 id   = "git"
-name = "*/"
+name = "*/"  # use `url` if you're using the nightly version of Yazi
 run  = "git"
 ```
 
 ## Advanced
 
-> [!NOTE]  
+> [!NOTE]
 > The following configuration must be put before `require("git"):setup()`
 
 You can customize the [Style](https://yazi-rs.github.io/docs/plugins/layout#style) of the status sign with:

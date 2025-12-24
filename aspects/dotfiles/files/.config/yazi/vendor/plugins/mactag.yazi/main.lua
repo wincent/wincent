@@ -32,7 +32,9 @@ local function setup(st, opts)
 		local url = tostring(self._file.url)
 		local spans = {}
 		for _, tag in ipairs(st.tags[url] or {}) do
-			if self._file.is_hovered then
+			-- TODO: use `not self._file.in_current` instead
+			if self._file.in_current == false then
+			elseif self._file.is_hovered then
 				spans[#spans + 1] = ui.Span(" ●"):bg(st.colors[tag] or "reset")
 			else
 				spans[#spans + 1] = ui.Span(" ●"):fg(st.colors[tag] or "reset")

@@ -145,6 +145,7 @@ Nvim by running `:help lspconfig-all`.
 - [hie](#hie)
 - [hlasm](#hlasm)
 - [hls](#hls)
+- [home_assistant](#home_assistant)
 - [hoon_ls](#hoon_ls)
 - [html](#html)
 - [htmx](#htmx)
@@ -316,6 +317,7 @@ Nvim by running `:help lspconfig-all`.
 - [swift_mesonls](#swift_mesonls)
 - [syntax_tree](#syntax_tree)
 - [systemd_ls](#systemd_ls)
+- [systemd_lsp](#systemd_lsp)
 - [tabby_ml](#tabby_ml)
 - [tailwindcss](#tailwindcss)
 - [taplo](#taplo)
@@ -911,7 +913,7 @@ Default config:
   ```
 - `filetypes` :
   ```lua
-  { "bash", "c", "cpp", "csharp", "css", "elixir", "go", "haskell", "html", "java", "javascript", "javascriptreact", "javascript.jsx", "json", "kotlin", "lua", "nix", "php", "python", "ruby", "rust", "scala", "solidity", "swift", "typescript", "typescriptreact", "typescript.tsx", "yaml" }
+  { "bash", "c", "cpp", "cs", "css", "elixir", "go", "haskell", "html", "java", "javascript", "javascriptreact", "json", "kotlin", "lua", "nix", "php", "python", "ruby", "rust", "scala", "solidity", "swift", "typescript", "typescriptreact", "yaml" }
   ```
 - `reuse_client`: [../lsp/ast_grep.lua:12](../lsp/ast_grep.lua#L12)
 - `root_markers` :
@@ -1858,9 +1860,9 @@ Default config:
 
 https://github.com/bufbuild/buf
 
-buf beta lsp included in the cli itself
+buf lsp included in the cli itself
 
-buf beta lsp is a Protobuf language server compatible with Buf modules and workspaces
+buf lsp is a Protobuf language server compatible with Buf modules and workspaces
 
 Snippet to enable the language server:
 ```lua
@@ -1870,7 +1872,7 @@ vim.lsp.enable('buf_ls')
 Default config:
 - `cmd` :
   ```lua
-  { "buf", "lsp", "serve", "--timeout=0", "--log-format=text" }
+  { "buf", "lsp", "serve", "--log-format=text" }
   ```
 - `filetypes` :
   ```lua
@@ -2434,11 +2436,11 @@ Default config:
   {
     editorInfo = {
       name = "Neovim",
-      version = "0.12.0-dev+g0197f13ed4"
+      version = "0.12.0-dev+gc374d78095"
     },
     editorPluginInfo = {
       name = "Neovim",
-      version = "0.12.0-dev+g0197f13ed4"
+      version = "0.12.0-dev+gc374d78095"
     }
   }
   ```
@@ -4871,20 +4873,20 @@ Default config:
   {
     editorInfo = {
       name = "Neovim",
-      version = "0.12.0-dev+g0197f13ed4"
+      version = "0.12.0-dev+gc374d78095"
     },
     editorPluginInfo = {
       name = "Neovim LSP",
-      version = "0.12.0-dev+g0197f13ed4"
+      version = "0.12.0-dev+gc374d78095"
     },
     extension = {
       name = "Neovim LSP Client",
-      version = "0.12.0-dev+g0197f13ed4"
+      version = "0.12.0-dev+gc374d78095"
     },
     ide = {
       name = "Neovim",
       vendor = "Neovim",
-      version = "0.12.0-dev+g0197f13ed4"
+      version = "0.12.0-dev+gc374d78095"
     }
   }
   ```
@@ -5690,6 +5692,36 @@ Default config:
       formattingProvider = "ormolu"
     }
   }
+  ```
+
+---
+
+## home_assistant
+
+https://github.com/keesschollaart81/vscode-home-assistant
+
+`vscode-home-assistant` can be installed via from source or by downloading
+and extracting the VSCode "Home Assistant Config Helper" extension
+
+`vscode-home-assistant` is a language server for Home Assistant ported from the VSCode "Home Assistant Config Helper" extension.
+
+Snippet to enable the language server:
+```lua
+vim.lsp.enable('home_assistant')
+```
+
+Default config:
+- `cmd` :
+  ```lua
+  { "vscode-home-assistant", "--stdio" }
+  ```
+- `filetypes` :
+  ```lua
+  { "yaml" }
+  ```
+- `root_markers` :
+  ```lua
+  { "configuration.yaml", "configuration.yml" }
   ```
 
 ---
@@ -11977,6 +12009,38 @@ Default config:
 
 ---
 
+## systemd_lsp
+
+https://github.com/JFryy/systemd-lsp
+
+A Language Server Protocol (LSP) implementation for Systemd unit files,
+providing editing support with syntax highlighting,
+diagnostics, autocompletion, and documentation.
+
+`systemd-lsp` can be installed via `cargo`:
+```sh
+cargo install systemd-lsp
+```
+
+A language server implementation for Systemd unit files made in Rust.
+
+Snippet to enable the language server:
+```lua
+vim.lsp.enable('systemd_lsp')
+```
+
+Default config:
+- `cmd` :
+  ```lua
+  { "systemd-lsp" }
+  ```
+- `filetypes` :
+  ```lua
+  { "systemd" }
+  ```
+
+---
+
 ## tabby_ml
 
 https://tabby.tabbyml.com/blog/running-tabby-as-a-language-server
@@ -12853,10 +12917,7 @@ vim.lsp.enable('tsgo')
 ```
 
 Default config:
-- `cmd` :
-  ```lua
-  { "tsgo", "--lsp", "--stdio" }
-  ```
+- `cmd`: [../lsp/tsgo.lua:18](../lsp/tsgo.lua#L18)
 - `filetypes` :
   ```lua
   { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" }

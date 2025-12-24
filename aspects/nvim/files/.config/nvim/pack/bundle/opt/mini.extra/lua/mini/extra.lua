@@ -767,14 +767,14 @@ MiniExtra.pickers.git_files = function(local_opts, opts)
   -- Define source
   local show = H.pick_get_config().source.show or H.show_with_icons
 
-  --stylua: ignore
-  local command = ({
-    tracked   = { 'git', '-C', path_dir, 'ls-files', '--cached' },
-    modified  = { 'git', '-C', path_dir, 'ls-files', '--modified' },
-    untracked = { 'git', '-C', path_dir, 'ls-files', '--others' },
-    ignored   = { 'git', '-C', path_dir, 'ls-files', '--others', '--ignored', '--exclude-standard' },
-    deleted   = { 'git', '-C', path_dir, 'ls-files', '--deleted' },
+  local args = ({
+    tracked = { '--cached' },
+    modified = { '--modified' },
+    untracked = { '--others' },
+    ignored = { '--others', '--ignored', '--exclude-standard' },
+    deleted = { '--deleted' },
   })[local_opts.scope]
+  local command = vim.list_extend({ 'git', '-C', path_dir, '-c', 'core.quotepath=false', 'ls-files' }, args)
 
   local name = string.format('Git files (%s)', local_opts.scope)
   local default_source = { name = name, cwd = path_dir, show = show }
