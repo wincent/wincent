@@ -177,17 +177,13 @@ if (changelog.length > 0) {
   console.log('='.repeat(80) + '\n');
 
   for (const entry of changelog) {
-    console.log(`${entry.prefix}`);
-    console.log(
-      `  ${entry.previousHead.substring(0, 7)}..${
-        entry.currentHead.substring(0, 7)
-      }`,
-    );
+    const from = entry.previousHead.substring(0, 7);
+    const to = entry.currentHead.substring(0, 7);
+    const lines = entry.log.split('\n');
+    console.log(`* ${entry.prefix} ${from}..${to} (${lines.length}):`);
     console.log();
     // Indent each line of the log
-    const indentedLog = entry.log.split('\n').map((line) => `  ${line}`).join(
-      '\n',
-    );
+    const indentedLog = lines.map((line) => `  ${line}`).join('\n');
     console.log(indentedLog);
     console.log();
   }
