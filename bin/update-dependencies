@@ -116,17 +116,16 @@ async function updateDependency({prefix, repo, branch}) {
   // Get new HEAD
   const currentHead = getRepoHead(cachePath);
 
-  // Update state (preserve config fields)
-  dependenciesState[cacheName] = {
-    prefix,
-    repo,
-    branch,
-    previous: previousHead,
-    current: currentHead,
-  };
-
-  // Generate changelog entry if there were changes
   if (previousHead && currentHead && previousHead !== currentHead) {
+    // Record new state and emit changelog entry.
+    dependenciesState[cacheName] = {
+      prefix,
+      repo,
+      branch,
+      previous: previousHead,
+      current: currentHead,
+    };
+
     const log = getCommitLog(cachePath, previousHead, currentHead);
     if (log) {
       changelog.push({
@@ -137,6 +136,9 @@ async function updateDependency({prefix, repo, branch}) {
         log,
       });
     }
+  } else {
+    // No change. Preserve previous state.
+    dependenciesState[cacheName] = previousState;
   }
 
   // Sync from cache to target using rsync
