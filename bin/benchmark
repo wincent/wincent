@@ -1,6 +1,6 @@
 #!/usr/bin/expect -f
 
-# Prints microseconds between shell spawn and full interactivity (ie. working
+# Prints milliseconds between shell spawn and full interactivity (ie. working
 # dir being shown in RPROMPT). Technically, the shell might be interactive
 # before this, but for us it's an indication of the shell being "fully" ready.
 
