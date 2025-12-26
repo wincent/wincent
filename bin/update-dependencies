@@ -35,7 +35,7 @@ function loadDependenciesState() {
 
 // Extract dependencies list from the state file
 function getDependenciesList(dependenciesState) {
-  return Object.entries(dependenciesState).map(([cacheName, config]) => ({
+  return Object.values(dependenciesState).map((config) => ({
     prefix: config.prefix,
     repo: config.repo,
     branch: config.branch,
