@@ -205,7 +205,19 @@ undercurl_style thick-sparse
 #: form (thin|thick)-(sparse|dense). Thin and thick control the
 #: thickness of the undercurl. Sparse and dense control how often the
 #: curl oscillates. With sparse the curl will peak once per character,
-#: with dense twice.
+#: with dense twice. Changing this option dynamically via reloading
+#: the config or remote control is undefined.
+
+# underline_exclusion 1
+
+#: By default kitty renders gaps in underlines when they overlap with
+#: descenders (the parts of letters below the baseline, such as for y,
+#: q, p etc.). This option controls the thickness of the gaps. It can
+#: be either a unitless number in which case it is a fraction of the
+#: underline thickness as specified in the font or it can have a
+#: suffix of px for pixels or pt for points. Set to zero to disable
+#: the gaps. Changing this option dynamically via reloading the config
+#: or remote control is undefined.
 
 # text_composition_strategy platform
 
@@ -244,23 +256,38 @@ undercurl_style thick-sparse
 
 # text_fg_override_threshold 0
 
-#: The minimum accepted difference in luminance between the foreground
-#: and background color, below which kitty will override the
-#: foreground color. It is percentage ranging from 0 to 100. If the
-#: difference in luminance of the foreground and background is below
-#: this threshold, the foreground color will be set to white if the
-#: background is dark or black if the background is light. The default
-#: value is 0, which means no overriding is performed. Useful when
-#: working with applications that use colors that do not contrast well
-#: with your preferred color scheme.
+#: A setting to prevent low contrast between foreground and background
+#: colors. Useful when working with applications that use colors that
+#: do not contrast well with your preferred color scheme. The default
+#: value is 0, which means no color overriding is performed. There are
+#: two modes of operation:
+
+#: A value with the suffix ratio represents the minimum accepted
+#: contrast ratio between the foreground and background color.
+#: Possible values range from 0.0 ratio to 21.0 ratio. For example, to
+#: meet WCAG level AA
+#: <https://en.wikipedia.org/wiki/Web_Content_Accessibility_Guidelines>
+#: a value of 4.5 ratio can be provided. The algorithm is implemented
+#: using HSLuv <https://www.hsluv.org/> which enables it to change the
+#: perceived lightness of a color just as much as needed without
+#: really changing its hue and saturation.
+
+#: A value with the suffix % represents the minimum accepted
+#: difference in luminance between the foreground and background
+#: color, below which kitty will override the foreground color. It is
+#: percentage ranging from 0 % to 100 %. If the difference in
+#: luminance of the foreground and background is below this threshold,
+#: the foreground color will be set to white if the background is dark
+#: or black if the background is light.
 
 #: WARNING: Some programs use characters (such as block characters)
 #: for graphics display and may expect to be able to set the
-#: foreground and background to the same color (or similar colors).
-#: If you see unexpected stripes, dots, lines, incorrect color, no
-#: color where you expect color, or any kind of graphic display
-#: problem try setting text_fg_override_threshold to 0 to see if this
-#: is the cause of the problem.
+#: foreground and background to the same color (or similar colors). If
+#: you see unexpected stripes, dots, lines, incorrect color, no color
+#: where you expect color, or any kind of graphic display problem try
+#: setting text_fg_override_threshold to 0 to see if this is the cause
+#: of the problem or consider using the ratio mode of operation
+#: described above instead of the % mode of operation.
 
 #: }}}
 
@@ -326,12 +353,61 @@ undercurl_style thick-sparse
 #: the CSS easing functions <https://developer.mozilla.org/en-
 #: US/docs/Web/CSS/easing-function>. Note that turning on animations
 #: uses extra power as it means the screen is redrawn multiple times
-#: per blink interval. See also, cursor_stop_blinking_after.
+#: per blink interval. See also, cursor_stop_blinking_after. This
+#: setting also controls blinking text, which blinks in exact rhythm
+#: with the cursor.
 
 # cursor_stop_blinking_after 15.0
 
 #: Stop blinking cursor after the specified number of seconds of
-#: keyboard inactivity. Set to zero to never stop blinking.
+#: keyboard inactivity. Set to zero to never stop blinking. This
+#: setting also controls blinking text, which blinks in exact rhythm
+#: with the cursor.
+
+# cursor_trail 0
+
+#: Set this to a value larger than zero to enable a "cursor trail"
+#: animation. This is an animation that shows a "trail" following the
+#: movement of the text cursor. It makes it easy to follow large
+#: cursor jumps and makes for a cool visual effect of the cursor
+#: zooming around the screen. The actual value of this option controls
+#: when the animation is triggered. It is a number of milliseconds.
+#: The trail animation only follows cursors that have stayed in their
+#: position for longer than the specified number of milliseconds. This
+#: prevents trails from appearing for cursors that rapidly change
+#: their positions during UI updates in complex applications. See
+#: cursor_trail_decay to control the animation speed and
+#: cursor_trail_start_threshold to control when a cursor trail is
+#: started.
+
+# cursor_trail_decay 0.1 0.4
+
+#: Controls the decay times for the cursor trail effect when the
+#: cursor_trail is enabled. This option accepts two positive float
+#: values specifying the fastest and slowest decay times in seconds.
+#: The first value corresponds to the fastest decay time (minimum),
+#: and the second value corresponds to the slowest decay time
+#: (maximum). The second value must be equal to or greater than the
+#: first value. Smaller values result in a faster decay of the cursor
+#: trail. Adjust these values to control how quickly the cursor trail
+#: fades away.
+
+# cursor_trail_start_threshold 2
+
+#: Set the distance threshold for starting the cursor trail. This
+#: option accepts a positive integer value that represents the minimum
+#: number of cells the cursor must move before the trail is started.
+#: When the cursor moves less than this threshold, the trail is
+#: skipped, reducing unnecessary cursor trail animation.
+
+# cursor_trail_color none
+
+#: Set the color of the cursor trail when cursor_trail is enabled. If
+#: set to 'none' (the default), the cursor trail will use the cursor's
+#: background color. Otherwise, specify a color value (e.g., #ff0000
+#: for red, or a named color like 'red'). This allows you to customize
+#: the appearance of the cursor trail independently of the cursor
+#: color.
 
 #: }}}
 
@@ -348,13 +424,93 @@ undercurl_style thick-sparse
 #: is changed it will only affect newly created windows, not existing
 #: ones.
 
-# scrollback_indicator_opacity 1.0
+# scrollbar scrolled
 
-#: The opacity of the scrollback indicator which is a small colored
-#: rectangle that moves along the right hand side of the window as you
-#: scroll, indicating what fraction you have scrolled. The default is
-#: one which means fully opaque, aka visible. Set to a value between
-#: zero and one to make the indicator less visible.
+#: Control when the scrollbar is displayed.
+
+#: scrolled
+#:     means when the scrolling backwards has started.
+#: hovered
+#:     means when the mouse is hovering on the right edge of the window.
+#: scrolled-and-hovered
+#:     means when the mouse is over the scrollbar region *and* scrolling backwards has started.
+#: always
+#:     means whenever any scrollback is present
+#: never
+#:     means disable the scrollbar.
+
+# scrollbar_interactive yes
+
+#: If disabled, the scrollbar will not be controllable via th emouse
+#: and all mouse events will pass through the scrollbar.
+
+# scrollbar_jump_on_click yes
+
+#: When enabled clicking in the scrollbar track will cause the scroll
+#: position to jump to the clicked location, otherwise the scroll
+#: position will only move towards the position by a single screenful,
+#: which is how traditional scrollbars behave.
+
+# scrollbar_width 0.5
+
+#: The width of the scroll bar in units of cell width.
+
+# scrollbar_hover_width 1
+
+#: The width of the scroll bar when the mouse is hovering over it, in
+#: units of cell width.
+
+# scrollbar_handle_opacity 0.5
+
+#: The opacity of the scrollbar handle, 0 being fully transparent and
+#: 1 being full opaque.
+
+# scrollbar_radius 0.3
+
+#: The radius (curvature) of the scrollbar handle in units of cell
+#: width. Should be less than scrollbar_width.
+
+# scrollbar_gap 0.1
+
+#: The gap between the scrollbar and the window edge in units of cell
+#: width.
+
+# scrollbar_min_handle_height 1
+
+#: The minimum height of the scrollbar handle in units of cell height.
+#: Prevents the handle from becoming too small when there is a lot of
+#: scrollback.
+
+# scrollbar_hitbox_expansion 0.25
+
+#: The extra area around the handle to allow easier grabbing of the
+#: scollbar in units of cell width.
+
+# scrollbar_track_opacity 0
+
+#: The opacity of the scrollbar track, 0 being fully transparent and 1
+#: being full opaque.
+
+# scrollbar_track_hover_opacity 0.1
+
+#: The opacity of the scrollbar track when the mouse is over the
+#: scrollbar, 0 being fully transparent and 1 being full opaque.
+
+# scrollbar_handle_color foreground
+
+#: The color of the scrollbar handle. A value of foreground means to
+#: use the current foreground text color, a value of
+#: selection_background means to use the current selection background
+#: color. Also, you can use an arbitrary color, such as #12af59 or
+#: red.
+
+# scrollbar_track_color foreground
+
+#: The color of the scrollbar track. A value of foreground means to
+#: use the current foreground text color, a value of
+#: selection_background means to use the current selection background
+#: color. Also, you can use an arbitrary color, such as #12af59 or
+#: red.
 
 # scrollback_pager less --chop-long-lines --RAW-CONTROL-CHARS +INPUT_LINE_NUMBER
 
@@ -367,6 +523,16 @@ undercurl_style thick-sparse
 #: CURSOR_COLUMN will be replaced by the current cursor position or
 #: set to 0 if there is no cursor, for example, when showing the last
 #: command output.
+
+#: If you would rather use neovim to view the scrollback, use
+#: something like this::
+
+#:     scrollback_pager nvim --cmd 'set eventignore=FileType' +'nnoremap q ZQ' +'call nvim_open_term(0, {})' +'set nomodified nolist' +'$' -
+
+#: The above works for neovim 0.12 and newer. There is also a
+#: dedicated plugin kitty-scrollback.nvim
+#: <https://github.com/mikesmithgh/kitty-scrollback.nvim> you can use
+#: with more features that works with older neovim as well.
 
 # scrollback_pager_history_size 0
 
@@ -423,6 +589,43 @@ undercurl_style thick-sparse
 #: robustly with the ever-changing sea of bugs that is Cocoa is too
 #: much effort.
 
+#: By default, once the cursor is hidden, it is immediately unhidden
+#: on any further mouse events.
+
+#: Two formats are supported:
+#:  - <hide-wait>
+#:  - <hide-wait> <unhide-wait> <unhide-threshold> <scroll-unhide>
+
+#: To change the unhide behavior, the optional parameters <unhide-
+#: wait>, <unhide-threshold>, and <scroll-unhide> may be set.
+
+#: <unhide-wait>
+#:     Waits for the specified number of seconds after mouse events before unhiding the
+#:     mouse cursor. Set to zero to unhide mouse cursor immediately on mouse activity.
+#:     This is useful to prevent the mouse cursor from unhiding on accidental swipes on
+#:     the trackpad.
+
+#: <unhide-threshold>
+#:     Sets the threshold of mouse activity required to unhide the mouse cursor, when
+#:     the <unhide-wait> option is non-zero. When <unhide-wait> is zero, this has no
+#:     effect.
+
+#:     For example, if <unhide-threshold> is 40 and <unhide-wait> is 2.5, when kitty
+#:     detects a mouse event, it records the number of mouse events in the next 2.5
+#:     seconds, and checks if that exceeds 40 * 2.5 = 100. If it does, then the mouse
+#:     cursor is unhidden, otherwise nothing happens.
+
+#: <scroll-unhide>
+#:     Controls what mouse events may unhide the mouse cursor. If enabled, both scroll
+#:     and movement events may unhide the cursor. If disabled, only mouse movements can
+#:     unhide the cursor.
+
+#: Examples of valid values:
+#:  - 0.0
+#:  - 1.0
+#:  - -1.0
+#:  - 0.1 3.0 40 yes
+
 # url_color #0087bd
 url_style double
 # url_style curly
@@ -472,9 +675,11 @@ url_style double
 #: Control how hyperlinks are underlined. They can either be
 #: underlined on mouse hover, always (i.e. permanently underlined) or
 #: never which means that kitty will not apply any underline styling
-#: to hyperlinks. Uses the url_style and url_color settings for the
-#: underline style. Note that reloading the config and changing this
-#: value to/from always will only affect text subsequently received by
+#: to hyperlinks. Note that the value of always only applies to real
+#: (OSC 8) hyperlinks not text that is detected to be a URL on mouse
+#: hover. Uses the url_style and url_color settings for the underline
+#: style. Note that reloading the config and changing this value
+#: to/from always will only affect text subsequently received by
 #: kitty.
 
 # copy_on_select no
@@ -493,6 +698,19 @@ url_style double
 #: Note that copying to the clipboard is a security risk, as all
 #: programs, including websites open in your browser can read the
 #: contents of the system clipboard.
+
+# clear_selection_on_clipboard_loss no
+
+#: When the contents of the clipboard no longer reflect the current
+#: selection, clear it. This is primarily useful on platforms such as
+#: Linux where selecting text automatically copies it to a special
+#: "primary selection" clipboard or if you have copy_on_select set to
+#: clipboard.
+
+#: Note that on macOS the system does not provide notifications when
+#: the clipboard owner is changed, so there, copying to clipboard in a
+#: non-kitty application will not clear selections even if
+#: copy_on_select is enabled.
 
 # paste_actions quote-urls-at-prompt,confirm
 
@@ -563,9 +781,11 @@ url_style double
 
 #: The default shape of the mouse pointer.
 
-# pointer_shape_when_dragging beam
+# pointer_shape_when_dragging beam crosshair
 
 #: The default shape of the mouse pointer when dragging across text.
+#: The optional second value sets the shape when dragging in
+#: rectangular selection mode.
 
 #: Mouse actions {{{
 
@@ -817,12 +1037,18 @@ enable_audio_bell no
 #: Path to a sound file to play as the bell sound. If set to none, the
 #: system default bell sound is used. Must be in a format supported by
 #: the operating systems sound API, such as WAV or OGA on Linux
-#: (libcanberra) or AIFF, MP3 or WAV on macOS (NSSound).
+#: (libcanberra) or AIFF, MP3 or WAV on macOS (NSSound). Relative
+#: paths are resolved with respect to the kitty config directory.
 
 # linux_bell_theme __custom
 
-#: The XDG Sound Theme kitty will use to play the bell sound. Defaults
-#: to the custom theme name specified in the XDG Sound theme
+#: The XDG Sound Theme kitty will use to play the bell sound. On
+#: Wayland, when the compositor supports it, it is asked to play the
+#: system default bell sound, and this setting has no effect. Note
+#: that Hyprland claims to support this protocol, but does not
+#: actually play a sound
+#: <https://github.com/hyprwm/Hyprland/issues/10488>. This setting
+#: defaults to the custom theme name specified in the XDG Sound theme
 #: specification <https://specifications.freedesktop.org/sound-theme-
 #: spec/latest/sound_lookup.html>, falling back to the default
 #: freedesktop theme if it does not exist. To change your sound theme
@@ -852,6 +1078,16 @@ enable_audio_bell no
 #: configured by initial_window_width/height, in pixels. You can use a
 #: suffix of "c" on the width/height values to have them interpreted
 #: as number of cells instead of pixels.
+
+# remember_window_position no
+
+#: If enabled, the OS Window position will be remembered so that new
+#: instances of kitty will have the same position as the previous
+#: instance. If disabled, the OS Window will be placed by the window
+#: manager. Note that remembering of position only works if the
+#: underlying desktop environment/window manager supports it. It never
+#: works on Wayland. See also kitty --position to specify the position
+#: when launching kitty.
 
 # enabled_layouts *
 
@@ -883,6 +1119,18 @@ enable_audio_bell no
 #: borders that separate the window from a neighbor are drawn. Note
 #: that setting a non-zero window_margin_width overrides this and
 #: causes all borders to be drawn.
+
+# draw_window_borders_for_single_window no
+
+#: Draw borders around a window even when there is only a single
+#: window visible. When enabled and there is only a single window,
+#: full borders are drawn around it (as if draw_minimal_borders is
+#: false). The border will show in the active color when the window is
+#: focused and the OS window has focus, and in the inactive color when
+#: the OS window loses focus. This provides a clear visual indicator
+#: of whether the kitty window is focused. When there are multiple
+#: windows visible, this option has no effect and normal border
+#: drawing rules apply.
 
 # window_margin_width 0
 
@@ -982,8 +1230,8 @@ hide_window_decorations yes
 
 #: The percentage (0-100] of the window size to which the logo should
 #: scale. Using a single number means the logo is scaled to that
-#: percentage of the shortest window dimension, while preseving aspect
-#: ratio of the logo image.
+#: percentage of the shortest window dimension, while preserving
+#: aspect ratio of the logo image.
 
 #: Using two numbers means the width and height of the logo are scaled
 #: to the respective percentage of the window's width and height.
@@ -1032,7 +1280,9 @@ hide_window_decorations yes
 #: quit action). Negative values are converted to positive ones,
 #: however, with shell_integration enabled, using negative values
 #: means windows sitting at a shell prompt are not counted, only
-#: windows where some command is currently running. Note that if you
+#: windows where some command is currently running. You can also have
+#: backgrounded jobs prevent closing, by adding count-background to
+#: the setting, for example: -1 count-background. Note that if you
 #: want confirmation when closing individual windows, you can map the
 #: close_window_with_confirmation action.
 
@@ -1082,6 +1332,21 @@ tab_bar_style powerline
 #:     The tab bar is hidden. If you use this, you might want to create
 #:     a mapping for the select_tab action which presents you with a list of
 #:     tabs and allows for easy switching to a tab.
+
+# tab_bar_filter
+
+#: A search expression <https://sw.kovidgoyal.net/kitty/remote-
+#: control/#search-syntax>. Only tabs that match this expression will
+#: be shown in the tab bar. The currently active tab is always shown,
+#: regardless of whether it matches or not. When using this option,
+#: the tab bar may be displayed with less tabs than specified in
+#: tab_bar_min_tabs, as evaluating the filter is expensive and is done
+#: only at display time. This is most useful when using sessions
+#: <https://sw.kovidgoyal.net/kitty/sessions/>. An expression of
+#: session:~ or session:^$ will show only tabs that belong to the
+#: current session or no session. The various tab navigation actions
+#: such as goto_tab, next_tab, previous_tab, etc. are automatically
+#: restricted to work only on matching tabs.
 
 # tab_bar_align left
 
@@ -1134,8 +1399,8 @@ tab_separator "│"
 #: The maximum number of cells that can be used to render the text in
 #: a tab. A value of zero means that no limit is applied.
 
-tab_title_template "  {fmt.fg.red}{bell_symbol}{activity_symbol}{fmt.fg.tab}{title}  "
-# tab_title_template "{fmt.fg.red}{bell_symbol}{activity_symbol}{fmt.fg.tab}{title}"
+tab_title_template "  {fmt.fg.red}{bell_symbol}{activity_symbol}{fmt.fg.tab}{tab.last_focused_progress_percent}{title}  "
+# tab_title_template "{fmt.fg.red}{bell_symbol}{activity_symbol}{fmt.fg.tab}{tab.last_focused_progress_percent}{title}"
 
 #: A template to render the tab title. The default just renders the
 #: title with optional symbols for bell and activity. If you wish to
@@ -1150,22 +1415,40 @@ tab_title_template "  {fmt.fg.red}{bell_symbol}{activity_symbol}{fmt.fg.tab}{tit
 #:     The tab index usable with goto_tab N goto_tab shortcuts.
 #: layout_name
 #:     The current layout name.
+#: session_name
+#:     The name of the kitty session file from which this tab was created, if any.
+#: active_session_name
+#:     The name of the kitty session file from which the active window in this tab was created, if any.
 #: num_windows
 #:     The number of windows in the tab.
 #: num_window_groups
 #:     The number of window groups (a window group is a window and all of its overlay windows) in the tab.
 #: tab.active_wd
 #:     The working directory of the currently active window in the tab
-#:     (expensive, requires syscall). Use active_oldest_wd to get
+#:     (expensive, requires syscall). Use tab.active_oldest_wd to get
 #:     the directory of the oldest foreground process rather than the newest.
 #: tab.active_exe
 #:     The name of the executable running in the foreground of the currently
 #:     active window in the tab (expensive, requires syscall). Use
-#:     active_oldest_exe for the oldest foreground process.
+#:     tab.active_oldest_exe for the oldest foreground process.
 #: max_title_length
 #:     The maximum title length available.
 #: keyboard_mode
 #:     The name of the current keyboard mode <https://sw.kovidgoyal.net/kitty/mapping/#modal-mappings> or the empty string if no keyboard mode is active.
+#: tab.last_focused_progress_percent
+#:     If a command running in a window reports the progress for a task, show this progress as a percentage
+#:     from the most recently focused window in the tab. Empty string if no progress is reported.
+#: tab.progress_percent
+#:     If a command running in a window reports the progress for a task, show this progress as a percentage
+#:     from all windows in the tab, averaged. Empty string is no progress is reported.
+#: custom
+#:     This will call a function named draw_title(data) from the file tab_bar.py placed in
+#:     the kitty config directory. The function will be passed a dictionary of data, the same data that
+#:     can be used in this template. It can then perform arbitrarily complex processing and return a string.
+#:     For example: tab_title_template "{custom}" will use the output of the function as the tab title.
+#:     Any print statements in the draw_title() will print to the STDOUT of the kitty process, useful
+#:     for debugging.
+
 
 #: Note that formatting is done by Python's string formatting
 #: machinery, so you can use, for instance, {layout_name[:2].upper()}
@@ -1175,11 +1458,12 @@ tab_title_template "  {fmt.fg.red}{bell_symbol}{activity_symbol}{fmt.fg.tab}{tit
 #: `{fmt.fg.red}red{fmt.fg.tab}normal{fmt.bg._00FF00}greenbg{fmt.bg.tab}`.
 #: Similarly, for bold and italic:
 #: `{fmt.bold}bold{fmt.nobold}normal{fmt.italic}italic{fmt.noitalic}`.
-#: Note that for backward compatibility, if {bell_symbol} or
-#: {activity_symbol} are not present in the template, they are
-#: prepended to it.
+#: The 256 eight terminal colors can be used as `fmt.fg.color0`
+#: through `fmt.fg.color255`. Note that for backward compatibility, if
+#: {bell_symbol} or {activity_symbol} are not present in the template,
+#: they are prepended to it.
 
-active_tab_title_template  "  {fmt.bold}{title}{fmt.nobold}  "
+active_tab_title_template "  {fmt.bold}{fmt.fg.red}{bell_symbol}{activity_symbol}{fmt.fg.tab}{tab.last_focused_progress_percent}{title}{fmt.nobold}  "
 # active_tab_title_template none
 
 #: Template to use for active tabs. If not specified falls back to
@@ -1218,24 +1502,29 @@ inactive_tab_font_style italic
 
 # background_opacity 1.0
 
-#: The opacity of the background. A number between zero and one, where
-#: one is opaque and zero is fully transparent. This will only work if
-#: supported by the OS (for instance, when using a compositor under
-#: X11). Note that it only sets the background color's opacity in
-#: cells that have the same background color as the default terminal
-#: background, so that things like the status bar in vim, powerline
-#: prompts, etc. still look good. But it means that if you use a color
-#: theme with a background color in your editor, it will not be
-#: rendered as transparent. Instead you should change the default
-#: background color in your kitty config and not use a background
-#: color in the editor color scheme. Or use the escape codes to set
-#: the terminals default colors in a shell script to launch your
-#: editor. See also transparent_background_colors. Be aware that using
-#: a value less than 1.0 is a (possibly significant) performance hit.
-#: When using a low value for this setting, it is desirable that you
-#: set the background color to a color the matches the general color
-#: of the desktop background, for best text rendering.  If you want to
-#: dynamically change transparency of windows, set
+#: The opacity of the terminal background color. A number between zero
+#: and one, where one is opaque and zero is fully transparent. This
+#: will only work if supported by the OS (for instance, when using a
+#: compositor under X11). Note that it only sets the background
+#: color's opacity in cells that have the same background color as the
+#: default terminal background, so that things like the status bar in
+#: vim, powerline prompts, etc. still look good. But it means that if
+#: you use a color theme with a background color in your editor, it
+#: will not be rendered as transparent. Instead you should change the
+#: default background color in your kitty config and not use a
+#: background color in the editor color scheme. Or use the escape
+#: codes to set the terminals default colors in a shell script to
+#: launch your editor. See also transparent_background_colors. Be
+#: aware that using a value less than 1.0 is a (possibly significant)
+#: performance hit. When using a low value for this setting, it is
+#: desirable that you set the background color to a color the matches
+#: the general color of the desktop background, for best text
+#: rendering. Note also, that this setting does not apply to the
+#: background_image, if any. The background image can itself have
+#: transparency via its alpha channel if desired, and that will be
+#: respected.
+
+#: If you want to dynamically change transparency of windows, set
 #: dynamic_background_opacity to yes (this is off by default as it has
 #: a performance cost). Changing this option when reloading the config
 #: will only work if dynamic_background_opacity was enabled in the
@@ -1253,23 +1542,6 @@ inactive_tab_font_style italic
 #: platform implements it, so use with care. Currently supported on
 #: macOS and KDE.
 
-# background_image none
-
-#: Path to a background image. Must be in PNG/JPEG/WEBP/TIFF/GIF/BMP
-#: format.
-
-# background_image_layout tiled
-
-#: Whether to tile, scale or clamp the background image. The value can
-#: be one of tiled, mirror-tiled, scaled, clamped, centered or
-#: cscaled. The scaled and cscaled values scale the image to the
-#: window size, with cscaled preserving the image aspect ratio.
-
-# background_image_linear no
-
-#: When background image is scaled, whether linear interpolation
-#: should be used.
-
 # transparent_background_colors
 
 #: A space separated list of upto 7 colors, with opacity. When the
@@ -1283,11 +1555,14 @@ inactive_tab_font_style italic
 #: color control <https://sw.kovidgoyal.net/kitty/color-stack/#color-
 #: control> escape code.
 
-#: The syntax for specifiying colors is: color@opacity, where the
+#: The syntax for specifying colors is: color@opacity, where the
 #: @opacity part is optional. When unspecified, the value of
 #: background_opacity is used. For example::
 
 #:     transparent_background_colors red@0.5 #00ff00@0.3
+
+#: Note that you must also set background_opacity to something less
+#: than 1 for this setting to work properly.
 
 # dynamic_background_opacity no
 
@@ -1296,20 +1571,53 @@ inactive_tab_font_style italic
 #: decrease_background_opacity) or the remote control facility.
 #: Changing this option by reloading the config is not supported.
 
+# background_image none
+
+#: Path to a background image. Must be in PNG/JPEG/WEBP/TIFF/GIF/BMP
+#: format. Note that when using auto_color_scheme
+#: <https://sw.kovidgoyal.net/kitty/kittens/themes/#auto-color-scheme>
+#: this option is overridden by the color scheme file and must be set
+#: inside it to take effect.
+
+# background_image_layout tiled
+
+#: Whether to tile, scale or clamp the background image. The value can
+#: be one of tiled, mirror-tiled, scaled, clamped, centered or
+#: cscaled. The scaled and cscaled values scale the image to the
+#: window size, with cscaled preserving the image aspect ratio. Note
+#: that when using auto_color_scheme
+#: <https://sw.kovidgoyal.net/kitty/kittens/themes/#auto-color-scheme>
+#: this option is overridden by the color scheme file and must be set
+#: inside it to take effect.
+
+# background_image_linear no
+
+#: When background image is scaled, whether linear interpolation
+#: should be used. Note that when using auto_color_scheme
+#: <https://sw.kovidgoyal.net/kitty/kittens/themes/#auto-color-scheme>
+#: this option is overridden by the color scheme file and must be set
+#: inside it to take effect.
+
 # background_tint 0.0
 
 #: How much to tint the background image by the background color. This
 #: option makes it easier to read the text. Tinting is done using the
 #: current background color for each window. This option applies only
-#: if background_opacity is set and transparent windows are supported
-#: or background_image is set.
+#: if background_image is set. Note that when using auto_color_scheme
+#: <https://sw.kovidgoyal.net/kitty/kittens/themes/#auto-color-scheme>
+#: this option is overridden by the color scheme file and must be set
+#: inside it to take effect.
 
 # background_tint_gaps 1.0
 
 #: How much to tint the background image at the window gaps by the
 #: background color, after applying background_tint. Since this is
 #: multiplicative with background_tint, it can be used to lighten the
-#: tint over the window gaps for a *separated* look.
+#: tint over the window gaps for a *separated* look. Note that when
+#: using auto_color_scheme
+#: <https://sw.kovidgoyal.net/kitty/kittens/themes/#auto-color-scheme>
+#: this option is overridden by the color scheme file and must be set
+#: inside it to take effect.
 
 # dim_opacity 0.4
 
@@ -1532,6 +1840,17 @@ listen_on unix:~/.config/kitty/kitty.sock
 
 #: The value of VAR2 will be <path to home directory>/a/b.
 
+#: Use the special value read_from_shell to have kitty read the
+#: specified variables from your login shell shell configuration.
+#: Useful if your shell startup files setup a bunch of environment
+#: variables that you want available to kitty and in kitty session
+#: files. Each variable name is treated as a glob pattern to match.
+#: For example: env read_from_shell=PATH LANG LC_* XDG_* EDITOR
+#: VISUAL. Note that these variables are only read after the
+#: configuration is fully processed, thus they are not available for
+#: recursive expansion and they will override any variables set by
+#: other env directives.
+
 # filter_notification
 
 #: Specify rules to filter out notifications sent by applications
@@ -1544,7 +1863,7 @@ listen_on unix:~/.config/kitty/kitty.sock
 
 #:     filter_notification title:hello or body:"abc.*def"
 #:     # filter out notification from vim except for ones about updates, (?i)
-#:     # makes matching case insesitive.
+#:     # makes matching case insensitive.
 #:     filter_notification app:"[ng]?vim" and not body:"(?i)update"
 #:     # filter out all notifications
 #:     filter_notification all
@@ -1601,7 +1920,7 @@ listen_on unix:~/.config/kitty/kitty.sock
 #: Path to a session file to use for all kitty instances. Can be
 #: overridden by using the kitty --session =none command line option
 #: for individual instances. See sessions
-#: <https://sw.kovidgoyal.net/kitty/overview/#sessions> in the kitty
+#: <https://sw.kovidgoyal.net/kitty/sessions/> in the kitty
 #: documentation for details. Note that relative paths are interpreted
 #: with respect to the kitty config directory. Environment variables
 #: in the path are expanded. Changing this option by reloading the
@@ -1703,7 +2022,8 @@ shell_integration disabled
 #: invisible
 #:     Only send a notification when the window both is unfocused and not visible
 #:     to the user, for example, because it is in an inactive tab or its OS window
-#:     is not currently active.
+#:     is not currently visible (on platforms that support OS window visibility querying
+#:     this considers an OS Window visible iff it is active).
 
 #: always
 #:     Always send a notification, regardless of window state.
@@ -1720,10 +2040,20 @@ shell_integration disabled
 #: values are:
 
 #: notify
-#:     Send a desktop notification.
+#:     Send a desktop notification. The subsequent arguments are optional and specify when
+#:     the notification is automatically cleared. The set of possible events when the notification is
+#:     cleared are: focus and next. focus means that when the notification
+#:     policy is unfocused or invisible the notification is automatically cleared
+#:     when the window regains focus. The value of next means that the previous notification
+#:     is cleared when the next notification is shown. The default when no arguments are specified
+#:     is: focus next.
 
 #: bell
 #:     Ring the terminal bell.
+
+#: notify-bell
+#:     Send a desktop notification and ring the terminal bell.
+#:     The arguments are the same as for `notify`.
 
 #: command
 #:     Run a custom command. All subsequent arguments are the cmdline to run.
@@ -1739,6 +2069,8 @@ shell_integration disabled
 #:     # Run 'notify-send' when a command takes more than 10 seconds in a invisible window
 #:     # Here %c is replaced by the current command line and %s by the job exit code
 #:     notify_on_cmd_finish invisible 10.0 command notify-send "job finished with status: %s" %c
+#:     # Do not clear previous notification when next command finishes or window regains focus
+#:     notify_on_cmd_finish invisible 5.0 notify
 
 # term xterm-kitty
 
@@ -1766,13 +2098,14 @@ shell_integration disabled
 
 # forward_stdio no
 
-#: Forward STDOUT and STDERR of the kitty process to child processes
-#: as file descriptors 3 and 4. This is useful for debugging as it
-#: allows child processes to print to kitty's STDOUT directly. For
-#: example, echo hello world >&3 in a shell will print to the parent
-#: kitty's STDOUT. When enabled, this also sets the
-#: KITTY_STDIO_FORWARDED=3 environment variable so child processes
-#: know about the forwarding.
+#: Forward STDOUT and STDERR of the kitty process to child processes.
+#: This is useful for debugging as it allows child processes to print
+#: to kitty's STDOUT directly. For example, echo hello world
+#: >&$KITTY_STDIO_FORWARDED in a shell will print to the parent
+#: kitty's STDOUT. Sets the KITTY_STDIO_FORWARDED=fdnum environment
+#: variable so child processes know about the forwarding. Note that on
+#: macOS this prevents the shell from being run via the login utility
+#: so getlogin() will not work in programs run in this session.
 
 # menu_map
 
@@ -1803,13 +2136,7 @@ shell_integration disabled
 #: system means to use the default system color, light or dark can
 #: also be used to set it explicitly. A value of background means to
 #: use the background color of the currently active window and finally
-#: you can use an arbitrary color, such as #12af59 or red. WARNING:
-#: This option works by using a hack when arbitrary color (or
-#: background) is configured, as there is no proper Cocoa API for it.
-#: It sets the background color of the entire window and makes the
-#: titlebar transparent. As such it is incompatible with
-#: background_opacity. If you want to use both, you are probably
-#: better off just hiding the titlebar with hide_window_decorations.
+#: you can use an arbitrary color, such as #12af59 or red.
 
 # macos_option_as_alt no
 
@@ -1982,13 +2309,19 @@ shell_integration disabled
 #: Copy to clipboard
 
 # map kitty_mod+c copy_to_clipboard
-# map cmd+c       copy_to_clipboard
 
 #::  There is also a copy_or_interrupt action that can be optionally
 #::  mapped to Ctrl+C. It will copy only if there is a selection and
 #::  send an interrupt otherwise. Similarly,
 #::  copy_and_clear_or_interrupt will copy and clear the selection or
-#::  send an interrupt if there is no selection.
+#::  send an interrupt if there is no selection. The copy_or_noop
+#::  action will copy if there is a selection and pass the key through
+#::  to the application running in the terminal if there is no
+#::  selection.
+
+#: Copy to clipboard or pass through
+
+# map cmd+c copy_or_noop
 
 #: Paste from clipboard
 
@@ -2108,6 +2441,22 @@ shell_integration disabled
 
 #::  Requires shell integration
 #::  <https://sw.kovidgoyal.net/kitty/shell-integration/> to work.
+
+#: Search the scrollback within a pager
+
+# map kitty_mod+/ search_scrollback
+# map cmd+f       search_scrollback
+
+#::  Search for currently selected text in the scrollback using the
+#::  configured scrollback_pager. Assumes that pressing the / key
+#::  triggers search mode in the pager. If you want to create a manual
+#::  mapping with a special pager for this, you can use something
+#::  like:
+
+#::      map f1 combine : launch --stdin-source=@screen_scrollback --stdin-add-formatting --type=overlay mypager : send_key /
+
+#::  For more sophisticated control, such as using the current
+#::  selection, use remote_control_script.
 
 #: }}}
 
@@ -2373,6 +2722,11 @@ map cmd+enter
 #: size::
 
 #:     map kitty_mod+f6 change_font_size current 10.0
+
+#: To setup shortcuts to multiply/divide the font size::
+
+#:     map kitty_mod+f6 change_font_size all *2.0
+#:     map kitty_mod+f6 change_font_size all /2.0
 #: }}}
 
 #: Select and act on visible text {{{
@@ -2401,6 +2755,22 @@ map cmd+enter
 # map kitty_mod+p>shift+f kitten hints --type path
 
 #::  Select a path/filename and open it with the default open program.
+
+#: Insert chosen file
+
+# map kitty_mod+p>c kitten choose-files
+
+#::  Select a file using the choose-files
+#::  <https://sw.kovidgoyal.net/kitty/kittens/choose-files/> kitten
+#::  and insert it into the terminal.
+
+#: Insert chosen directory
+
+# map kitty_mod+p>d kitten choose-files --mode=dir
+
+#::  Select a directory using the choose-files
+#::  <https://sw.kovidgoyal.net/kitty/kittens/choose-files/> kitten
+#::  and insert it into the terminal.
 
 #: Insert selected line
 
@@ -2462,6 +2832,14 @@ map cmd+enter
 
 # map opt+cmd+s toggle_macos_secure_keyboard_entry
 
+#: macOS Cycle through OS Windows
+
+# map cmd+` macos_cycle_through_os_windows
+
+#: macOS Cycle through OS Windows backwards
+
+# map cmd+shift+` macos_cycle_through_os_windows_backwards
+
 #: Unicode input
 
 # map kitty_mod+u    kitten unicode_input
@@ -2518,6 +2896,8 @@ map cmd+,
 #::      map f1 clear_terminal to_cursor active
 #::      # Same as above except cleared lines are moved into scrollback
 #::      map f1 clear_terminal to_cursor_scroll active
+#::      # Erase the last command and its output (needs shell integration to work)
+#::      map f1 clear_terminal last_command active
 
 #::  If you want to operate on all kitty windows instead of just the
 #::  current one, use all instead of active.
@@ -2557,11 +2937,23 @@ map cmd+,
 #::  Alternatively, you can just add map ctrl+l clear_terminal
 #::  to_cursor_scroll active to kitty.conf which works with no changes
 #::  to the shell rc files, but only clears up to the prompt, it does
-#::  not clear anytext at the prompt itself.
+#::  not clear any text at the prompt itself.
 
-#: Clear up to cursor line
+#: Clear to start
 
 # map cmd+k clear_terminal to_cursor active
+
+#: Clear scrollback
+
+# map option+cmd+k clear_terminal scrollback active
+
+#: Clear the last command
+
+# map cmd+l clear_terminal last_command active
+
+#: Clear screen
+
+# map cmd+ctrl+l clear_terminal to_cursor_scroll active
 
 #: Reload kitty.conf
 
