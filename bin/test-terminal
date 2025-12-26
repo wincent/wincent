@@ -3,6 +3,13 @@
 # Based on:
 # - https://github.com/termstandard/colors
 # - https://hellricer.github.io/2019/10/05/test-drive-your-terminal.html
+#
+# Some notes:
+#
+# > kitty does not support invisible, overlined and blinking text. They
+# > are not considered worth the overhead.
+#
+# - https://github.com/kovidgoyal/kitty/issues/8770#issuecomment-3026220182
 
 echo "# 24-bit (true-color)"
 awk 'BEGIN{
