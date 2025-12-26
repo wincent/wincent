@@ -1,3 +1,0 @@
-[submodule "testing.vim"]
-	path = testing.vim
-	url = https://github.com/arp242/testing.vim.git
