@@ -18,7 +18,7 @@ const REPO_ROOT = join(__dirname, '..');
 const CACHE_DIR = join(REPO_ROOT, '.cache', 'repos');
 const DEPENDENCIES_FILE = join(REPO_ROOT, 'dependencies.json');
 
-// Load dependencies config and state
+// Load dependencies config and state.
 function loadDependenciesState() {
   if (existsSync(DEPENDENCIES_FILE)) {
     try {
@@ -33,7 +33,7 @@ function loadDependenciesState() {
   return {};
 }
 
-// Extract dependencies list from the state file
+// Extract dependencies list from the state file.
 function getDependenciesList(dependenciesState) {
   return Object.values(dependenciesState).map((config) => ({
     prefix: config.prefix,
@@ -42,12 +42,12 @@ function getDependenciesList(dependenciesState) {
   }));
 }
 
-// Save dependencies tracking
+// Save dependencies tracking.
 function saveDependenciesState(state) {
   writeFileSync(DEPENDENCIES_FILE, JSON.stringify(state, null, 2) + '\n');
 }
 
-// Get current HEAD hash for a repo
+// Get current HEAD hash for a repo.
 function getRepoHead(repoPath) {
   try {
     return execSync('git rev-parse HEAD', {
@@ -59,7 +59,7 @@ function getRepoHead(repoPath) {
   }
 }
 
-// Get commit log between two refs
+// Get commit log between two refs.
 function getCommitLog(repoPath, fromRef, toRef) {
   try {
     return execSync(`git log --oneline --no-decorate ${fromRef}..${toRef}`, {
@@ -71,7 +71,7 @@ function getCommitLog(repoPath, fromRef, toRef) {
   }
 }
 
-// Ensure cache directory exists
+// Ensure cache directory exists.
 mkdirSync(CACHE_DIR, {recursive: true});
 
 // Load previous state
@@ -79,7 +79,7 @@ const dependenciesState = loadDependenciesState();
 const DEPENDENCIES = getDependenciesList(dependenciesState);
 const changelog = [];
 
-// Process dependencies in parallel
+// Process dependencies in parallel.
 async function updateDependency({prefix, repo, branch}) {
   // Derive cache name from repo URL (e.g., github/wincent/command-t)
   const url = new URL(repo);
@@ -92,11 +92,11 @@ async function updateDependency({prefix, repo, branch}) {
 
   console.log(`Processing ${prefix}...`);
 
-  // Get previous HEAD if it exists
+  // Get previous HEAD if it exists.
   const previousState = dependenciesState[cacheName] || {};
   const previousHead = previousState.current || null;
 
-  // Clone or update cached repo
+  // Clone or update cached repo.
   if (existsSync(join(cachePath, '.git'))) {
     console.log(`  [${prefix}] Updating cached repo...`);
     execSync(
@@ -113,7 +113,6 @@ async function updateDependency({prefix, repo, branch}) {
     });
   }
 
-  // Get new HEAD
   const currentHead = getRepoHead(cachePath);
 
   if (previousHead && currentHead && previousHead !== currentHead) {
@@ -141,7 +140,7 @@ async function updateDependency({prefix, repo, branch}) {
     dependenciesState[cacheName] = previousState;
   }
 
-  // Sync from cache to target using rsync
+  // Sync from cache to target using rsync.
   // Note: Build artifacts for subprojects like Command-T and Shellbot should
   // be built in the `.cache` directory so they get synced over and not deleted
   // due to `--delete`.
@@ -158,19 +157,19 @@ async function updateDependency({prefix, repo, branch}) {
   console.log(`  [${prefix}] Done.\n`);
 }
 
-// Run updates in batches of 5
+// Run updates in batches of 5.
 const BATCH_SIZE = 5;
 for (let i = 0; i < DEPENDENCIES.length; i += BATCH_SIZE) {
   const batch = DEPENDENCIES.slice(i, i + BATCH_SIZE);
   await Promise.all(batch.map(updateDependency));
 }
 
-// Save updated state
+// Save updated state.
 saveDependenciesState(dependenciesState);
 
 console.log('All dependencies updated successfully.');
 
-// Print changelog
+// Print changelog.
 if (changelog.length > 0) {
   console.log('\n' + '='.repeat(80));
   console.log('CHANGELOG');
