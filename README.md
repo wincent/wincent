@@ -254,7 +254,7 @@ In my Neovim config, I have an autocmd that runs `bin/encrypt` automatically any
 
 To add a new encrypted file:
 
-1. Add the path to the plain-text (unencrypted) file to the list of files in `bin/encrypt`
+1. Add the path to the plain-text (unencrypted) file to the list of files in `bin/encrypt`.
 2. Run `bin/encrypt`.
 3. Verify that the path to the plain-text (unencrypted) file got added to the top-level `.gitignore`, and a new ciphertext (encrypted) file exists in the worktree.
 4. Commit the ciphertext file.
