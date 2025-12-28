@@ -6,7 +6,6 @@ export default {
         'backup',
         'dotfiles',
         'fonts',
-        'nix',
         'homebrew',
         'node',
         'karabiner',
