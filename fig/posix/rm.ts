@@ -10,6 +10,10 @@ type Options = {
   sudo?: boolean;
 };
 
+/**
+ * Alternative to `fs.rm()` with superpowers (like the ability to run with
+ * `sudo`).
+ */
 export default async function rm(
   path: string,
   options: Options = {},

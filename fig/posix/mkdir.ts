@@ -11,6 +11,10 @@ type Options = {
   sudo?: boolean;
 };
 
+/**
+ * Alternative to `fs.mkdir()` with superpowers (like the ability to run with
+ * `sudo`).
+ */
 export default async function mkdir(
   path: string,
   options: Options = {},
