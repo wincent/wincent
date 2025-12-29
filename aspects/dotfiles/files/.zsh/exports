@@ -166,6 +166,21 @@ export SHELLBOT="$HOME/.config/nvim/pack/bundle/opt/shellbot/target/release/shel
 export ANTHROPIC_MODEL=claude-sonnet-4-5-20250929
 export OPENAI_MODEL=gpt-5
 
+# Claude.
+#
+# Make Claude execute MCP tools via token-friendly calls to `mcp-cli` instead of
+# loading thousands of tokens into context upfront for MCP tools you might not
+# actually use in the session:
+#
+# - https://gist.github.com/GGPrompts/50e82596b345557656df2fc8d2d54e2c
+# - https://github.com/anthropics/claude-code/issues/12836#issuecomment-3629052941
+#
+# To disable for a single session, do:
+#
+#     env -u ENABLE_EXPERIMENTAL_MCP_CLI ~/.claude/local/claude
+#
+export ENABLE_EXPERIMENTAL_MCP_CLI=true
+
 () {
   # Source if decrypted.
   local PRIVATE="$HOME/.zsh/exports.private"
