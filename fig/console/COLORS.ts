@@ -1,14 +1,4 @@
-/**
- * https://en.wikipedia.org/wiki/ANSI_escape_code#Colors
- * https://stackoverflow.com/a/41407246/2103996
- */
-const BOLD = '\x1b[1m';
-const GREEN = '\x1b[32m';
-const PURPLE = '\x1b[35m';
-const RED = '\x1b[31m';
-const RESET = '\x1b[0m';
-const REVERSE = '\x1b[7m';
-const YELLOW = '\x1b[33m';
+import {styleText} from 'node:util';
 
 /**
  * Regular function.
@@ -32,9 +22,9 @@ function bold(
   ...interpolations: unknown[]
 ) {
   if (typeof input === 'string') {
-    return style(input, BOLD);
+    return styleText('bold', input);
   } else {
-    return style(interpolate(input, interpolations), BOLD);
+    return styleText('bold', interpolate(input, interpolations));
   }
 }
 
@@ -60,9 +50,9 @@ function green(
   ...interpolations: unknown[]
 ) {
   if (typeof input === 'string') {
-    return style(input, GREEN);
+    return styleText('green', input);
   } else {
-    return style(interpolate(input, interpolations), GREEN);
+    return styleText('green', interpolate(input, interpolations));
   }
 }
 
@@ -71,26 +61,26 @@ function green(
  *
  * @overload
  */
-function purple(input: string): string;
+function magenta(input: string): string;
 
 /**
  * Tagged template literal.
  *
  * @overload
  */
-function purple(
+function magenta(
   input: TemplateStringsArray,
   ...interpolations: unknown[]
 ): string;
 
-function purple(
+function magenta(
   input: string | TemplateStringsArray,
   ...interpolations: unknown[]
 ) {
   if (typeof input === 'string') {
-    return style(input, PURPLE);
+    return styleText('magenta', input);
   } else {
-    return style(interpolate(input, interpolations), PURPLE);
+    return styleText('magenta', interpolate(input, interpolations));
   }
 }
 
@@ -113,9 +103,9 @@ function red(
   ...interpolations: unknown[]
 ) {
   if (typeof input === 'string') {
-    return style(input, RED);
+    return styleText('red', input);
   } else {
-    return style(interpolate(input, interpolations), RED);
+    return styleText('red', interpolate(input, interpolations));
   }
 }
 
@@ -124,26 +114,26 @@ function red(
  *
  * @overload
  */
-function reverse(input: string): string;
+function inverse(input: string): string;
 
 /**
  * Tagged template literal.
  *
  * @overload
  */
-function reverse(
+function inverse(
   input: TemplateStringsArray,
   ...interpolations: unknown[]
 ): string;
 
-function reverse(
+function inverse(
   input: string | TemplateStringsArray,
   ...interpolations: unknown[]
 ) {
   if (typeof input === 'string') {
-    return style(input, REVERSE);
+    return styleText('inverse', input);
   } else {
-    return style(interpolate(input, interpolations), REVERSE);
+    return styleText('inverse', interpolate(input, interpolations));
   }
 }
 
@@ -169,14 +159,10 @@ function yellow(
   ...interpolations: unknown[]
 ) {
   if (typeof input === 'string') {
-    return style(input, YELLOW);
+    return styleText('yellow', input);
   } else {
-    return style(interpolate(input, interpolations), YELLOW);
+    return styleText('yellow', interpolate(input, interpolations));
   }
-}
-
-function style(text: string, escape: string) {
-  return `${escape}${text}${RESET}`;
 }
 
 function interpolate(strings: TemplateStringsArray, interpolations: unknown[]) {
@@ -222,14 +208,14 @@ const COLORS = {
     }
   },
 
-  purple(
+  magenta(
     this: unknown,
     strings: string | TemplateStringsArray,
     ...interpolations: unknown[]
   ): string {
     const result = typeof strings === 'string'
-      ? purple(strings)
-      : purple(strings, ...interpolations);
+      ? magenta(strings)
+      : magenta(strings, ...interpolations);
 
     if (typeof this === 'function') {
       return this.call(null, result);
@@ -254,14 +240,14 @@ const COLORS = {
     }
   },
 
-  reverse(
+  inverse(
     this: unknown,
     strings: string | TemplateStringsArray,
     ...interpolations: unknown[]
   ): string {
     const result = typeof strings === 'string'
-      ? reverse(strings)
-      : reverse(strings, ...interpolations);
+      ? inverse(strings)
+      : inverse(strings, ...interpolations);
 
     if (typeof this === 'function') {
       return this.call(null, result);
@@ -290,8 +276,8 @@ const COLORS = {
 export default {
   bold: Object.assign(COLORS.bold, COLORS),
   green: Object.assign(COLORS.green, COLORS),
-  purple: Object.assign(COLORS.purple, COLORS),
+  magenta: Object.assign(COLORS.magenta, COLORS),
   red: Object.assign(COLORS.red, COLORS),
-  reverse: Object.assign(COLORS.reverse, COLORS),
+  inverse: Object.assign(COLORS.inverse, COLORS),
   yellow: Object.assign(COLORS.yellow, COLORS),
 };

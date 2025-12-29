@@ -11,7 +11,7 @@ type ValueOf<T> = T[keyof T];
 
 export type LogLevel = ValueOf<typeof LOG_LEVEL>;
 
-const {bold, green, purple, red, yellow} = COLORS;
+const {bold, green, magenta, red, yellow} = COLORS;
 
 let logLevel: LogLevel = 6;
 
@@ -84,7 +84,7 @@ export async function log(...args: Array<unknown>) {
 
 log.debug = async function debug(message: string) {
   if (logLevel >= LOG_LEVEL.DEBUG) {
-    await log(purple.bold`${PREFIX_MAP.debug}` + message);
+    await log(magenta.bold`${PREFIX_MAP.debug}` + message);
   }
 };
 
