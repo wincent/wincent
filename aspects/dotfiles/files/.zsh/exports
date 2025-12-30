@@ -179,7 +179,13 @@ export OPENAI_MODEL=gpt-5
 #
 #     env -u ENABLE_EXPERIMENTAL_MCP_CLI ~/.claude/local/claude
 #
-export ENABLE_EXPERIMENTAL_MCP_CLI=true
+# export ENABLE_EXPERIMENTAL_MCP_CLI=true
+
+# Alternatively, can use Advanced Tool Search:
+#
+# - https://github.com/anthropics/claude-code/issues/12836#issuecomment-3667047439
+#
+export ENABLE_TOOL_SEARCH=true
 
 () {
   # Source if decrypted.
