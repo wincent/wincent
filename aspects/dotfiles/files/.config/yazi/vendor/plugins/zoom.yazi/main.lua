@@ -1,4 +1,4 @@
---- @since 25.6.11
+--- @since 25.12.29
 
 local get = ya.sync(function(st, url) return st.last == url and st.level end)
 

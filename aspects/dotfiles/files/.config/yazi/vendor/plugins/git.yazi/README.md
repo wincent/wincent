@@ -22,14 +22,14 @@ And register it as fetchers in your `~/.config/yazi/yazi.toml`:
 
 ```toml
 [[plugin.prepend_fetchers]]
-id   = "git"
-name = "*"  # use `url` if you're using the nightly version of Yazi
-run  = "git"
+id  = "git"
+url = "*"
+run = "git"
 
 [[plugin.prepend_fetchers]]
-id   = "git"
-name = "*/"  # use `url` if you're using the nightly version of Yazi
-run  = "git"
+id  = "git"
+url = "*/"
+run = "git"
 ```
 
 ## Advanced

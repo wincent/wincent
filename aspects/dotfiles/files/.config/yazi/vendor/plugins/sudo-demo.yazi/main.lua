@@ -1,4 +1,4 @@
---- @since 25.5.31
+--- @since 25.12.29
 
 --- Verify if `sudo` is already authenticated
 --- @return boolean
@@ -21,7 +21,7 @@ local function run_with_sudo(program, args)
 		return cmd:output()
 	end
 
-	local permit = ui.hide and ui.hide() or ya.hide() -- TODO: remove this
+	local permit = ui.hide()
 	print(string.format("Sudo password required to run: `%s %s`", program, table.concat(args)))
 	local output = cmd:output()
 	permit:drop()

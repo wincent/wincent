@@ -1,4 +1,4 @@
---- @since 25.5.31
+--- @since 25.12.29
 
 local WINDOWS = ya.target_family() == "windows"
 
@@ -125,12 +125,7 @@ local add = ya.sync(function(st, cwd, repo, changed)
 			st.repos[repo][path] = code
 		end
 	end
-	-- TODO: remove this
-	if ui.render then
-		ui.render()
-	else
-		ya.render()
-	end
+	ui.render()
 end)
 
 ---@param cwd string
@@ -142,12 +137,7 @@ local remove = ya.sync(function(st, cwd)
 		return
 	end
 
-	-- TODO: remove this
-	if ui.render then
-		ui.render()
-	else
-		ya.render()
-	end
+	ui.render()
 	st.dirs[cwd] = nil
 	if not st.repos[repo] then
 		return
@@ -189,8 +179,7 @@ local function setup(st, opts)
 	}
 
 	Linemode:children_add(function(self)
-		-- TODO: use `not self._file.in_current` instead
-		if self._file.in_current == false then
+		if not self._file.in_current then
 			return ""
 		end
 

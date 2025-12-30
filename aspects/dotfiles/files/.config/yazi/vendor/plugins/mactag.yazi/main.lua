@@ -1,15 +1,10 @@
---- @since 25.5.31
+--- @since 25.12.29
 
 local update = ya.sync(function(st, tags)
 	for path, tag in pairs(tags) do
 		st.tags[path] = #tag > 0 and tag or nil
 	end
-	-- TODO: remove this
-	if ui.render then
-		ui.render()
-	else
-		ya.render()
-	end
+	ui.render()
 end)
 
 local selected_or_hovered = ya.sync(function()
@@ -32,8 +27,7 @@ local function setup(st, opts)
 		local url = tostring(self._file.url)
 		local spans = {}
 		for _, tag in ipairs(st.tags[url] or {}) do
-			-- TODO: use `not self._file.in_current` instead
-			if self._file.in_current == false then
+			if not self._file.in_current then
 			elseif self._file.is_hovered then
 				spans[#spans + 1] = ui.Span(" ●"):bg(st.colors[tag] or "reset")
 			else

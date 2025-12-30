@@ -4,7 +4,7 @@
     "repo": "https://github.com/yazi-rs/plugins.git",
     "branch": "main",
     "previous": "7ca66b4103d76038a5d21c9b83766967f5028116",
-    "current": "7ca66b4103d76038a5d21c9b83766967f5028116"
+    "current": "da5b69563c67717c4bb422c9c72cc0cb9baa0632"
   },
   "github/mafredri/zsh-async": {
     "prefix": "aspects/dotfiles/files/.zsh/zsh-async",
@@ -25,7 +25,7 @@
     "repo": "https://github.com/zsh-users/zsh-completions.git",
     "branch": "master",
     "previous": "d20ceda628561e0ff576a64c0cb7d4b9ac81a7f5",
-    "current": "d20ceda628561e0ff576a64c0cb7d4b9ac81a7f5"
+    "current": "2733ff9818686886352f581620d1ee3b9c8c8072"
   },
   "github/zsh-users/zsh-history-substring-search": {
     "prefix": "aspects/dotfiles/files/.zsh/zsh-history-substring-search",
@@ -116,7 +116,7 @@
     "repo": "https://github.com/wincent/command-t.git",
     "branch": "main",
     "previous": "dddab8a97fd4a4b58d008e0c15303e1a2c9d8a5e",
-    "current": "dddab8a97fd4a4b58d008e0c15303e1a2c9d8a5e"
+    "current": "a2dd6ab57f4570f72435a2ef1a47f6301b4ffebf"
   },
   "github/wincent/corpus": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/corpus",
@@ -172,14 +172,14 @@
     "repo": "https://github.com/nvim-mini/mini.icons.git",
     "branch": "main",
     "previous": "ff2e4f1d29f659cc2bad0f9256f2f6195c6b2428",
-    "current": "ff2e4f1d29f659cc2bad0f9256f2f6195c6b2428"
+    "current": "efc85e42262cd0c9e1fdbf806c25cb0be6de115c"
   },
   "github/nvim-mini/mini.surround": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.surround",
     "repo": "https://github.com/nvim-mini/mini.surround.git",
     "branch": "main",
     "previous": "88c52297ed3e69ecf9f8652837888ecc727a28ee",
-    "current": "88c52297ed3e69ecf9f8652837888ecc727a28ee"
+    "current": "cc7b9d0a056b5fa6915ffac1cb91f29bf7c96f69"
   },
   "github/eagletmt/neco-ghc": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/neco-ghc",
@@ -206,8 +206,8 @@
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-lspconfig",
     "repo": "https://github.com/neovim/nvim-lspconfig.git",
     "branch": "master",
-    "previous": "8973916a3d015d65a8c4614e141f4270a713cf33",
-    "current": "d696e36d5792daf828f8c8e8d4b9aa90c1a10c2a"
+    "previous": "d696e36d5792daf828f8c8e8d4b9aa90c1a10c2a",
+    "current": "41ceb6bba3a40128b7841f5b7f5a9dae7201e823"
   },
   "github/kyazdani42/nvim-tree.lua": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-tree.lua",
@@ -221,21 +221,21 @@
     "repo": "https://github.com/nvim-treesitter/nvim-treesitter.git",
     "branch": "main",
     "previous": "6e42d823ce0a5a76180c473c119c7677738a09d1",
-    "current": "6e42d823ce0a5a76180c473c119c7677738a09d1"
+    "current": "7efc1b58a8061d29786860006c7257c90a5196dc"
   },
   "github/nvim-treesitter/nvim-treesitter-textobjects": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-treesitter-textobjects",
     "repo": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git",
     "branch": "main",
     "previous": "f7122acf1bd2c9e4626651ad33bf5944be9d9392",
-    "current": "f7122acf1bd2c9e4626651ad33bf5944be9d9392"
+    "current": "ecd03f5811eb5c66d2fa420b79121b866feecd82"
   },
   "github/stevearc/oil.nvim": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/oil.nvim",
     "repo": "https://github.com/stevearc/oil.nvim.git",
     "branch": "master",
     "previous": "756dec855b4811f2d27f067a3aca477f368d99f5",
-    "current": "756dec855b4811f2d27f067a3aca477f368d99f5"
+    "current": "963c8d2c5538c4a896a31f396b8a5a2683e254dc"
   },
   "github/wincent/pinnacle": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/pinnacle",
@@ -284,7 +284,7 @@
     "repo": "https://github.com/mbbill/undotree.git",
     "branch": "master",
     "previous": "0f1c9816975b5d7f87d5003a19c53c6fd2ff6f7f",
-    "current": "0f1c9816975b5d7f87d5003a19c53c6fd2ff6f7f"
+    "current": "178d19e00a643f825ea11d581b1684745d0c4eda"
   },
   "github/wincent/vcs-jump": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/vcs-jump",

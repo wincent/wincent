@@ -1,6 +1,3 @@
-> [!NOTE]
-> The latest Yazi nightly build is required to use this plugin at the moment.
-
 # zoom.yazi
 
 Enlarge or shrink the preview image of a file, which is useful for magnifying small files for viewing.
