@@ -66,7 +66,9 @@ When writing code comments, describe "why" not "what".
 
 ```ts
 // Check if this record type is supported by the data store.
-const isDataStoreSupported = isRecordTypeSupportedByDataStore(record.recordType);
+const isDataStoreSupported = isRecordTypeSupportedByDataStore(
+  record.recordType,
+);
 ```
 
 # Avoid using anthropomorphizing language
