@@ -9,6 +9,7 @@
 /aspects/dotfiles/files/.claude/paste-cache
 /aspects/dotfiles/files/.claude/plugins
 /aspects/dotfiles/files/.claude/tasks
+/aspects/dotfiles/files/.claude/usage-data
 /aspects/dotfiles/files/.config/Raycast/Script Commands/github-commits.sh
 /aspects/dotfiles/files/.config/Raycast/Script Commands/github-pulls.sh
 /aspects/dotfiles/files/.config/Raycast/Script Commands/github-repo.sh
