@@ -38,8 +38,16 @@ async_export() {
 }
 
 # Stop (eg.) `git push github` from triggering:
-# zsh: correct 'github' to '.github' [yes, no, edit, abort]?
-export CORRECT_IGNORE_FILE='.*'
+#
+#     zsh: correct 'github' to '.github' [yes, no, edit, abort]?
+#
+# Stop `git co prod` from triggering:
+#
+#     zsh: correct 'co' to 'ci' [yes, no, edit, abort]?
+#
+# in repos with a "ci" directory.
+#
+export CORRECT_IGNORE_FILE='.*|ci'
 
 export PAGER=less
 
