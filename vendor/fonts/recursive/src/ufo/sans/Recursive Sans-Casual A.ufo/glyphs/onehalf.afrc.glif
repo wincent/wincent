@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="onehalf.afrc" format="2">
+	<advance width="800"/>
+	<outline>
+		<contour>
+			<point x="441" y="413" type="curve"/>
+			<point x="448" y="408"/>
+			<point x="456" y="405"/>
+			<point x="466" y="405" type="curve" smooth="yes"/>
+			<point x="479" y="405"/>
+			<point x="491" y="411"/>
+			<point x="499" y="420" type="curve" smooth="yes"/>
+			<point x="559" y="483"/>
+			<point x="617" y="610"/>
+			<point x="622" y="678" type="curve" smooth="yes"/>
+			<point x="623" y="694"/>
+			<point x="614" y="706"/>
+			<point x="595" y="706" type="curve" smooth="yes"/>
+			<point x="584" y="706"/>
+			<point x="578" y="704"/>
+			<point x="570" y="700" type="curve"/>
+			<point x="553" y="591"/>
+			<point x="515" y="507"/>
+		</contour>
+		<contour>
+			<point x="360" y="287" type="curve"/>
+			<point x="352" y="292"/>
+			<point x="344" y="295"/>
+			<point x="335" y="295" type="curve" smooth="yes"/>
+			<point x="322" y="295"/>
+			<point x="310" y="289"/>
+			<point x="302" y="280" type="curve" smooth="yes"/>
+			<point x="241" y="217"/>
+			<point x="184" y="90"/>
+			<point x="179" y="22" type="curve" smooth="yes"/>
+			<point x="178" y="6"/>
+			<point x="186" y="-6"/>
+			<point x="205" y="-6" type="curve" smooth="yes"/>
+			<point x="216" y="-6"/>
+			<point x="222" y="-4"/>
+			<point x="231" y="0" type="curve"/>
+			<point x="248" y="109"/>
+			<point x="286" y="194"/>
+		</contour>
+		<component base="onesuperior.afrc"/>
+		<component base="twoinferior.afrc" xOffset="400"/>
+	</outline>
+	<lib>
+		<dict>
+			<key>public.markColor</key>
+			<string>0,0,1,0.5</string>
+		</dict>
+	</lib>
+</glyph>

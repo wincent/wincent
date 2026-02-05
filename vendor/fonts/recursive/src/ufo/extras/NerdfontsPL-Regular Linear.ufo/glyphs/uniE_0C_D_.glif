@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="uniE0CD" format="2">
+	<unicode hex="E0CD"/>
+	<advance width="600"/>
+	<outline>
+		<contour>
+			<point x="366" y="91" type="line"/>
+			<point x="516" y="91" type="line"/>
+			<point x="600" y="342" type="line"/>
+			<point x="516" y="592" type="line"/>
+			<point x="366" y="592" type="line"/>
+			<point x="282" y="342" type="line"/>
+		</contour>
+		<contour>
+			<point x="0" y="-250" type="line"/>
+			<point x="123" y="-250" type="line"/>
+			<point x="207" y="1" type="line"/>
+			<point x="123" y="251" type="line"/>
+			<point x="0" y="251" type="line"/>
+		</contour>
+		<contour>
+			<point x="23" y="-226" type="line"/>
+			<point x="23" y="227" type="line"/>
+			<point x="106" y="227" type="line"/>
+			<point x="183" y="1" type="line"/>
+			<point x="106" y="-226" type="line"/>
+		</contour>
+		<contour>
+			<point x="384" y="115" type="line"/>
+			<point x="308" y="342" type="line"/>
+			<point x="384" y="568" type="line"/>
+			<point x="498" y="568" type="line"/>
+			<point x="575" y="342" type="line"/>
+			<point x="498" y="115" type="line"/>
+		</contour>
+		<contour>
+			<point x="0" y="449" type="line"/>
+			<point x="123" y="449" type="line"/>
+			<point x="207" y="699" type="line"/>
+			<point x="123" y="950" type="line"/>
+			<point x="0" y="950" type="line"/>
+		</contour>
+		<contour>
+			<point x="23" y="473" type="line"/>
+			<point x="23" y="926" type="line"/>
+			<point x="106" y="926" type="line"/>
+			<point x="183" y="699" type="line"/>
+			<point x="106" y="473" type="line"/>
+		</contour>
+	</outline>
+	<lib>
+		<dict>
+			<key>com.schriftgestaltung.Glyphs.lastChange</key>
+			<string>2020-09-26 05:07:00 +0000</string>
+			<key>public.markColor</key>
+			<string>0.99,0.62,0.11,1</string>
+		</dict>
+	</lib>
+	<note>
+		uniE0CD
+	</note>
+</glyph>

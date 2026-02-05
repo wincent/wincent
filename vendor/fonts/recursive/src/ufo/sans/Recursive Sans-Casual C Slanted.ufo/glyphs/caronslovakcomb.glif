@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="caronslovakcomb" format="2">
+	<outline>
+		<contour>
+			<point x="39" y="538" type="curve"/>
+			<point x="61" y="538"/>
+			<point x="77" y="541"/>
+			<point x="99" y="561" type="curve" smooth="yes"/>
+			<point x="136" y="596"/>
+			<point x="163" y="647"/>
+			<point x="173" y="705" type="curve" smooth="yes"/>
+			<point x="180" y="745"/>
+			<point x="161" y="761"/>
+			<point x="115" y="761" type="curve" smooth="yes"/>
+			<point x="99" y="761"/>
+			<point x="75" y="758"/>
+			<point x="58" y="750" type="curve"/>
+			<point x="45" y="661"/>
+			<point x="27" y="607"/>
+			<point x="0" y="545" type="curve"/>
+			<point x="12" y="539"/>
+			<point x="24" y="538"/>
+		</contour>
+	</outline>
+	<anchor name="_caronslovak" x="109" y="711"/>
+</glyph>

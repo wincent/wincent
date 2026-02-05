@@ -440,6 +440,16 @@
     "previous": "8564ce6d29ec7554eb9df578efa882d33b3c23a7",
     "current": "8564ce6d29ec7554eb9df578efa882d33b3c23a7"
   },
+  "github/arrowtype/recursive-code-config": {
+    "prefix": "vendor/fonts/recursive-code-config",
+    "repo": "https://github.com/arrowtype/recursive-code-config.git",
+    "branch": "main"
+  },
+  "github/arrowtype/recursive": {
+    "prefix": "vendor/fonts/recursive",
+    "repo": "https://github.com/arrowtype/recursive.git",
+    "branch": "main"
+  },
   "github/adobe-fonts/source-code-pro": {
     "prefix": "vendor/fonts/source-code-pro",
     "repo": "https://github.com/adobe-fonts/source-code-pro.git",

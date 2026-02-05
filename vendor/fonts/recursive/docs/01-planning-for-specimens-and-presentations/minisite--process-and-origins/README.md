@@ -1,0 +1,1 @@
+Moved to https://github.com/thundernixon/recursive-specimen-content/tree/master/process-writing

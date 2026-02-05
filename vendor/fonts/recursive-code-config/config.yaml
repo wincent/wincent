@@ -1,0 +1,113 @@
+# Configure your own custom Rec Mono for Code font
+
+#                                                                              
+#                                             /$$$$$$     /$$                  
+#                                            /$$    /    /  /             $$$  
+#    /$$$$$$$    /$$$$$$$    /$$ $$$$$    /$$$$$$$$$   /$$$$$      /$$$$$$$ /  
+#   /$$_____/   /$$____ $$  | $$$___ $$  |___ $$__/   |___ $$     /$$     $$   
+#  | $$        | $$   | $$  | $$   | $$     | $$         | $$    \  $$$$$$$    
+#  | $$        | $$   | $$  | $$   | $$     | $$         | $$     \  $$   /    
+#  \  $$$$$$$  \  $$$$$$$   | $$   | $$   /$$$$$$$$$  /$$$$$$$$$  / $$$$$$$$   
+#   \_______/   \_______/   |__/   |__/  |_________/ |_________/ | $$      $$  
+#                                                                \  $$$$$$$$   
+#                                                                 \_______/    
+#                                                                              
+
+# -----------------------------------------------------------------------------
+# Family Name
+
+# The name you want after "Rec Mono" in your custom fonts. 
+# Example: "Custom" will yield the family "Rec Mono Custom". 
+# Keep under 13 characters in length to avoid potential OS bugs.
+
+Family Name: Custom 
+
+# -----------------------------------------------------------------------------
+# Font Styles
+
+# The variable axis values for the Regular, Italic, Bold, & Bold Italic fonts.
+# See https://recursive.design for more information on these.
+
+# MONO: 0 for Sans, 1 for Mono (or anything in-between)
+# CASL: 0 for Linear, 1 for Casual (or anything in-between)
+# wght: 300–1000 (realistically, about 400 for Regular & Italic and about 700 for Bold & Bold Italic)
+# slnt: 0 to -15 (negative numbers are more slanted, and approximately equal to degrees of slope)
+# CRSV: 0 (0 for Roman, 1 for Cursive)
+
+Fonts:
+
+  Regular:
+    MONO: 1
+    CASL: 0
+    wght: 425
+    slnt: 0
+    CRSV: 0
+
+  Italic:
+    MONO: 1
+    CASL: 1
+    wght: 425
+    slnt: -10
+    CRSV: 1
+
+  Bold:
+    MONO: 1
+    CASL: 0
+    wght: 750
+    slnt: 0
+    CRSV: 0
+
+  Bold Italic:
+    MONO: 1
+    CASL: 1
+    wght: 750
+    slnt: -10
+    CRSV: 1
+
+# -----------------------------------------------------------------------------
+# Font Features
+
+# Freeze in code ligatures? True or False
+Code Ligatures: True
+
+# Include font features to freeze in stylistic options. Copy them below to use. 
+# See README for details.
+
+# These options only have an affect at CRSV<=0.5 (Roman/normal styles)
+# ss01 # Single-story a
+# ss02 # Single-story g
+# ss03 # Simplified f
+# ss04 # Simplified i ### NOT CURRENTLY WORKING, see issue #4
+# ss05 # Simplified l
+# ss06 # Simplified r
+
+# These options affect both Roman & Cursive styles
+# ss07 # Simplified italic diagonals (kwxyz) ### NOT CURRENTLY WORKING, see issue #4
+# ss08 # No-serif L and Z
+# ss09 # Simplified 6 and 9
+# ss10 # Dotted 0
+# ss11 # Simplified 1
+# ss12 # Simplified @
+
+# NOTE: 
+# Only Sylistic Set features are recommended below. 
+# Some features (especially "case") will disrupt code ligatures.
+# See Issue #20 for more details.
+
+# If you want to turn off all features, you can specify an empty array in YAML like this:
+# Features: []
+
+# (Keep the hyphen before each list item)
+Features:
+- ss01 # Single-story a
+- ss02 # Single-story g
+- ss03 # Simplified f
+- ss05 # Simplified l
+- ss06 # Simplified r
+- ss08 # Serifless L and Z
+- ss09 # Simplified 6 and 9
+- ss10 # Dotted 0
+- ss11 # Simplified 1
+- ss12 # Simplified @
+
+# That’s it! See README for next steps.
