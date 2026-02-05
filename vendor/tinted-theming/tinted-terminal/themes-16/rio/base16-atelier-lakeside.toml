@@ -2,8 +2,8 @@
 # Color scheme: Atelier Lakeside by Bram de Haan (http://atelierbramdehaan.nl)
 
 [colors]
-selection-background = '#516d7b' # base02
-selection-foreground = '#7ea2b4' # base05
+selection-background = '#7ea2b4' # base05
+selection-foreground = '#516d7b' # base02
 
 cursor         = '#7ea2b4' # base05
 tabs           = '#1f292e' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#516d7b' # base02
 
 background     = '#161b1d' # base00
 foreground     = '#7ea2b4' # base05
-black          = '#1f292e' # base01
+black          = '#161b1d' # base00
 red            = '#d22d72' # base08
 yellow         = '#8a8a0f' # base0A
 green          = '#568c3b' # base0B
 cyan           = '#2d8f6f' # base0C
 blue           = '#257fad' # base0D
 magenta        = '#6b6bb8' # base0E
-white          = '#c1e4f6' # base06
+white          = '#7ea2b4' # base05
 
 dim-foreground   = '#7ea2b4' # base05
 dim-black        = '#1f292e' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#6b6bb8' # base0E
 dim-white        = '#7195a8' # base04
 
 light-foreground = '#7ea2b4' # base05
-light-black      = '#516d7b' # base02
+light-black      = '#5a7b8c' # base03
 light-red        = '#d22d72' # base08
 light-yellow     = '#8a8a0f' # base0A
 light-green      = '#568c3b' # base0B

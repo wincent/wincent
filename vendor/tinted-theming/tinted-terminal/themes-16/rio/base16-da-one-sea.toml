@@ -2,8 +2,8 @@
 # Color scheme: Da One Sea by NNB (https://github.com/NNBnh)
 
 [colors]
-selection-background = '#525866' # base02
-selection-foreground = '#ffffff' # base05
+selection-background = '#ffffff' # base05
+selection-foreground = '#525866' # base02
 
 cursor         = '#ffffff' # base05
 tabs           = '#374059' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#525866' # base02
 
 background     = '#22273d' # base00
 foreground     = '#ffffff' # base05
-black          = '#374059' # base01
+black          = '#22273d' # base00
 red            = '#fa7883' # base08
 yellow         = '#ff9470' # base0A
 green          = '#98c379' # base0B
 cyan           = '#8af5ff' # base0C
 blue           = '#6bb8ff' # base0D
 magenta        = '#e799ff' # base0E
-white          = '#ffffff' # base06
+white          = '#ffffff' # base05
 
 dim-foreground   = '#ffffff' # base05
 dim-black        = '#374059' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#e799ff' # base0E
 dim-white        = '#c8c8c8' # base04
 
 light-foreground = '#ffffff' # base05
-light-black      = '#525866' # base02
+light-black      = '#878d96' # base03
 light-red        = '#fa7883' # base08
 light-yellow     = '#ff9470' # base0A
 light-green      = '#98c379' # base0B

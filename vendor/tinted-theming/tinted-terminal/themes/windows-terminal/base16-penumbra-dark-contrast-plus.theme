@@ -3,9 +3,9 @@
 	"name": "Penumbra Dark Contrast Plus",
 	"foreground": "#cecece",
 	"background": "#181b1f",
-	"black": "#24272b",
+	"black": "#181b1f",
 	"blue": "#61a3e6",
-	"brightBlack": "#3e4044",
+	"brightBlack": "#636363",
 	"brightBlue": "#61a3e6",
 	"brightCyan": "#00b3c2",
 	"brightGreen": "#50b584",
@@ -17,6 +17,6 @@
 	"green": "#50b584",
 	"purple": "#a48fe1",
 	"red": "#df7f78",
-	"white": "#fff7ed",
-	"yellow": "#ce9042"
+	"white": "#cecece",
+	"yellow": "#9ca748"
 },

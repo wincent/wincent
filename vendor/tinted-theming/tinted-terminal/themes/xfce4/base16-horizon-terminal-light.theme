@@ -5,6 +5,6 @@
 Name=base16-horizon-terminal-light
 ColorForeground=#403c3d
 ColorBackground=#fdf0ed
-ColorCursor=x
+ColorCursor=#403c3d
 ColorBoldIsBright=FALSE
-ColorPalette=#fadad1;#e95678;#29d398;#fadad1;#26bbd9;#ee64ac;#59e1e3;#302c2d;#f9cbbe;#e95678;#29d398;#fadad1;#26bbd9;#ee64ac;#59e1e3;#201c1d
+ColorPalette=#fdf0ed;#e95678;#29d398;#fadad1;#26bbd9;#ee64ac;#59e1e3;#403c3d;#bdb3b1;#e95678;#29d398;#fadad1;#26bbd9;#ee64ac;#59e1e3;#201c1d

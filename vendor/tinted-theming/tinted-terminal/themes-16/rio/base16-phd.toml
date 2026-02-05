@@ -2,8 +2,8 @@
 # Color scheme: PhD by Hennig Hasemann (http://leetless.de/vim.html)
 
 [colors]
-selection-background = '#4d5666' # base02
-selection-foreground = '#b8bbc2' # base05
+selection-background = '#b8bbc2' # base05
+selection-foreground = '#4d5666' # base02
 
 cursor         = '#b8bbc2' # base05
 tabs           = '#2a3448' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#4d5666' # base02
 
 background     = '#061229' # base00
 foreground     = '#b8bbc2' # base05
-black          = '#2a3448' # base01
+black          = '#061229' # base00
 red            = '#d07346' # base08
 yellow         = '#fbd461' # base0A
 green          = '#99bf52' # base0B
 cyan           = '#72b9bf' # base0C
 blue           = '#5299bf' # base0D
 magenta        = '#9989cc' # base0E
-white          = '#dbdde0' # base06
+white          = '#b8bbc2' # base05
 
 dim-foreground   = '#b8bbc2' # base05
 dim-black        = '#2a3448' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#9989cc' # base0E
 dim-white        = '#9a99a3' # base04
 
 light-foreground = '#b8bbc2' # base05
-light-black      = '#4d5666' # base02
+light-black      = '#717885' # base03
 light-red        = '#d07346' # base08
 light-yellow     = '#fbd461' # base0A
 light-green      = '#99bf52' # base0B

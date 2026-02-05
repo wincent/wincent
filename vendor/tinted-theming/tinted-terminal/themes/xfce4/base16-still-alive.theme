@@ -5,6 +5,6 @@
 Name=base16-still-alive
 ColorForeground=#4c383b
 ColorBackground=#f0f0f0
-ColorCursor=x
+ColorCursor=#4c383b
 ColorBoldIsBright=FALSE
-ColorPalette=#d6d6d6;#d80000;#30a860;#fff018;#365eff;#9036ff;#36d3ff;#331f21;#bdbdbd;#d80000;#30a860;#fff018;#365eff;#9036ff;#36d3ff;#140c0d
+ColorPalette=#f0f0f0;#d80000;#30a860;#fff018;#365eff;#9036ff;#36d3ff;#4c383b;#a3a3a3;#d80000;#30a860;#fff018;#365eff;#9036ff;#36d3ff;#140c0d

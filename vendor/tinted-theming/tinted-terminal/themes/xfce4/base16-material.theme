@@ -5,6 +5,6 @@
 Name=base16-material
 ColorForeground=#eeffff
 ColorBackground=#263238
-ColorCursor=x
+ColorCursor=#eeffff
 ColorBoldIsBright=FALSE
-ColorPalette=#2e3c43;#f07178;#c3e88d;#ffcb6b;#82aaff;#c792ea;#89ddff;#eeffff;#314549;#f07178;#c3e88d;#ffcb6b;#82aaff;#c792ea;#89ddff;#ffffff
+ColorPalette=#263238;#f07178;#c3e88d;#ffcb6b;#82aaff;#c792ea;#89ddff;#eeffff;#546e7a;#f07178;#c3e88d;#ffcb6b;#82aaff;#c792ea;#89ddff;#ffffff

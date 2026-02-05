@@ -2,8 +2,8 @@
 # Color scheme: ShadeSmear Light by Kyle Giammarco (http://kyle.giammar.co)
 
 [colors]
-selection-background = '#c0c0c0' # base02
-selection-foreground = '#232323' # base05
+selection-background = '#232323' # base05
+selection-foreground = '#c0c0c0' # base02
 
 cursor         = '#232323' # base05
 tabs           = '#e4e4e4' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#c0c0c0' # base02
 
 background     = '#dbdbdb' # base00
 foreground     = '#232323' # base05
-black          = '#e4e4e4' # base01
+black          = '#dbdbdb' # base00
 red            = '#cc5450' # base08
 yellow         = '#307878' # base0A
 green          = '#71983b' # base0B
 cyan           = '#c57d42' # base0C
 blue           = '#376388' # base0D
 magenta        = '#d7ab54' # base0E
-white          = '#1c1c1c' # base06
+white          = '#232323' # base05
 
 dim-foreground   = '#232323' # base05
 dim-black        = '#e4e4e4' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#d7ab54' # base0E
 dim-white        = '#1c1c1c' # base04
 
 light-foreground = '#232323' # base05
-light-black      = '#c0c0c0' # base02
+light-black      = '#4e4e4e' # base03
 light-red        = '#cc5450' # base08
 light-yellow     = '#307878' # base0A
 light-green      = '#71983b' # base0B

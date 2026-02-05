@@ -3,9 +3,9 @@
 	"name": "Red Sands",
 	"foreground": "#a1a1a1",
 	"background": "#79241e",
-	"black": "#000000",
+	"black": "#79241e",
 	"blue": "#0071ff",
-	"brightBlack": "#555555",
+	"brightBlack": "#6e6e6e",
 	"brightBlue": "#0071ae",
 	"brightCyan": "#55ffff",
 	"brightGreen": "#00bb00",
@@ -17,6 +17,6 @@
 	"green": "#00bb00",
 	"purple": "#bb00bb",
 	"red": "#ff3f00",
-	"white": "#bbbbbb",
-	"yellow": "#e7b000"
+	"white": "#a1a1a1",
+	"yellow": "#0071ae"
 },

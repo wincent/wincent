@@ -3,9 +3,9 @@
 	"name": "Red Planet",
 	"foreground": "#a4998c",
 	"background": "#222222",
-	"black": "#201f1f",
+	"black": "#222222",
 	"blue": "#69809e",
-	"brightBlack": "#676767",
+	"brightBlack": "#7b7773",
 	"brightBlue": "#60827e",
 	"brightCyan": "#38add8",
 	"brightGreen": "#869985",
@@ -17,6 +17,6 @@
 	"green": "#728271",
 	"purple": "#896492",
 	"red": "#8c3432",
-	"white": "#b9aa99",
-	"yellow": "#e8bf6a"
+	"white": "#a4998c",
+	"yellow": "#60827e"
 },

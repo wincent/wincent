@@ -3,9 +3,9 @@
 	"name": "Spacemacs",
 	"foreground": "#a3a3a3",
 	"background": "#1f2022",
-	"black": "#282828",
+	"black": "#1f2022",
 	"blue": "#4f97d7",
-	"brightBlack": "#444155",
+	"brightBlack": "#585858",
 	"brightBlue": "#4f97d7",
 	"brightCyan": "#2d9574",
 	"brightGreen": "#67b11d",
@@ -17,6 +17,6 @@
 	"green": "#67b11d",
 	"purple": "#a31db1",
 	"red": "#f2241f",
-	"white": "#e8e8e8",
-	"yellow": "#ffa500"
+	"white": "#a3a3a3",
+	"yellow": "#b1951d"
 },

@@ -3,9 +3,9 @@
 	"name": "Pop",
 	"foreground": "#d0d0d0",
 	"background": "#000000",
-	"black": "#202020",
+	"black": "#000000",
 	"blue": "#0e5a94",
-	"brightBlack": "#303030",
+	"brightBlack": "#505050",
 	"brightBlue": "#0e5a94",
 	"brightCyan": "#00aabb",
 	"brightGreen": "#37b349",
@@ -17,6 +17,6 @@
 	"green": "#37b349",
 	"purple": "#b31e8d",
 	"red": "#eb008a",
-	"white": "#e0e0e0",
-	"yellow": "#f29333"
+	"white": "#d0d0d0",
+	"yellow": "#f8ca12"
 },

@@ -2,8 +2,8 @@
 # Color scheme: Zenbones by mcchrish
 
 [colors]
-selection-background = '#819b69' # base02
-selection-foreground = '#b279a7' # base05
+selection-background = '#b279a7' # base05
+selection-foreground = '#819b69' # base02
 
 cursor         = '#b279a7' # base05
 tabs           = '#de6e7c' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#819b69' # base02
 
 background     = '#191919' # base00
 foreground     = '#b279a7' # base05
-black          = '#de6e7c' # base01
+black          = '#191919' # base00
 red            = '#3d3839' # base08
 yellow         = '#8bae68' # base0A
 green          = '#d68c67' # base0B
 cyan           = '#61abda' # base0C
 blue           = '#cf86c1' # base0D
 magenta        = '#65b8c1' # base0E
-white          = '#66a5ad' # base06
+white          = '#b279a7' # base05
 
 dim-foreground   = '#b279a7' # base05
 dim-black        = '#de6e7c' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#65b8c1' # base0E
 dim-white        = '#6099c0' # base04
 
 light-foreground = '#b279a7' # base05
-light-black      = '#819b69' # base02
+light-black      = '#b77e64' # base03
 light-red        = '#3d3839' # base08
 light-yellow     = '#8bae68' # base0A
 light-green      = '#d68c67' # base0B

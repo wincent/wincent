@@ -2,8 +2,8 @@
 # Color scheme: Pro Light by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#dcdcdc' # base02
-selection-foreground = '#4f4f4f' # base05
+selection-background = '#4f4f4f' # base05
+selection-foreground = '#dcdcdc' # base02
 
 cursor         = '#4f4f4f' # base05
 tabs           = '#f1f1f1' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#dcdcdc' # base02
 
 background     = '#feffff' # base00
 foreground     = '#4f4f4f' # base05
-black          = '#f1f1f1' # base01
+black          = '#feffff' # base00
 red            = '#e4492b' # base08
 yellow         = '#c5c340' # base0A
 green          = '#50d048' # base0B
 cyan           = '#4ed1dd' # base0C
 blue           = '#3a75ff' # base0D
 magenta        = '#ec65e7' # base0E
-white          = '#323232' # base06
+white          = '#4f4f4f' # base05
 
 dim-foreground   = '#4f4f4f' # base05
 dim-black        = '#f1f1f1' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#ec65e7' # base0E
 dim-white        = '#757575' # base04
 
 light-foreground = '#4f4f4f' # base05
-light-black      = '#dcdcdc' # base02
+light-black      = '#cccccc' # base03
 light-red        = '#ff6640' # base12
 light-yellow     = '#f2f055' # base13
 light-green      = '#61ee56' # base14

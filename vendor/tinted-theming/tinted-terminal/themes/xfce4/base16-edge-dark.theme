@@ -5,6 +5,6 @@
 Name=base16-edge-dark
 ColorForeground=#afb2b5
 ColorBackground=#262729
-ColorCursor=x
+ColorCursor=#afb2b5
 ColorBoldIsBright=FALSE
-ColorPalette=#313235;#e77171;#a1bf78;#dbb774;#73b3e7;#d390e7;#5ebaa5;#caccce;#3d3f42;#e77171;#a1bf78;#dbb774;#73b3e7;#d390e7;#5ebaa5;#e4e5e6
+ColorPalette=#262729;#e77171;#a1bf78;#dbb774;#73b3e7;#d390e7;#5ebaa5;#afb2b5;#4a4c4f;#e77171;#a1bf78;#dbb774;#73b3e7;#d390e7;#5ebaa5;#e4e5e6

@@ -5,6 +5,6 @@
 Name=base24-one-light
 ColorForeground=#383a42
 ColorBackground=#e7e7e9
-ColorCursor=x
+ColorCursor=#383a42
 ColorBoldIsBright=FALSE
-ColorPalette=#dfdfe1;#ca1243;#50a14f;#febb2a;#4078f2;#a626a4;#0184bc;#202227;#cacace;#ec2258;#6db76c;#f4a701;#709af5;#d02fcd;#01a7ef;#090a0b
+ColorPalette=#e7e7e9;#ca1243;#50a14f;#febb2a;#4078f2;#a626a4;#0184bc;#383a42;#a0a1a7;#ec2258;#6db76c;#f4a701;#709af5;#d02fcd;#01a7ef;#090a0b

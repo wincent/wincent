@@ -2,8 +2,8 @@
 # Color scheme: Material Vivid by joshyrobot
 
 [colors]
-selection-background = '#323639' # base02
-selection-foreground = '#80868b' # base05
+selection-background = '#80868b' # base05
+selection-foreground = '#323639' # base02
 
 cursor         = '#80868b' # base05
 tabs           = '#27292c' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#323639' # base02
 
 background     = '#202124' # base00
 foreground     = '#80868b' # base05
-black          = '#27292c' # base01
+black          = '#202124' # base00
 red            = '#f44336' # base08
 yellow         = '#ffeb3b' # base0A
 green          = '#00e676' # base0B
 cyan           = '#00bcd4' # base0C
 blue           = '#2196f3' # base0D
 magenta        = '#673ab7' # base0E
-white          = '#9e9e9e' # base06
+white          = '#80868b' # base05
 
 dim-foreground   = '#80868b' # base05
 dim-black        = '#27292c' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#673ab7' # base0E
 dim-white        = '#676c71' # base04
 
 light-foreground = '#80868b' # base05
-light-black      = '#323639' # base02
+light-black      = '#44464d' # base03
 light-red        = '#f44336' # base08
 light-yellow     = '#ffeb3b' # base0A
 light-green      = '#00e676' # base0B

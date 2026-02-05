@@ -3,9 +3,9 @@
 	"name": "Marrakesh",
 	"foreground": "#948e48",
 	"background": "#201602",
-	"black": "#302e00",
+	"black": "#201602",
 	"blue": "#477ca1",
-	"brightBlack": "#5f5b17",
+	"brightBlack": "#6c6823",
 	"brightBlue": "#477ca1",
 	"brightCyan": "#75a738",
 	"brightGreen": "#18974e",
@@ -17,6 +17,6 @@
 	"green": "#18974e",
 	"purple": "#8868b3",
 	"red": "#c35359",
-	"white": "#ccc37a",
-	"yellow": "#b36144"
+	"white": "#948e48",
+	"yellow": "#a88339"
 },

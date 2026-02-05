@@ -3,9 +3,9 @@
 	"name": "Digital Rain",
 	"foreground": "#00ff00",
 	"background": "#000000",
-	"black": "#4a806c",
+	"black": "#000000",
 	"blue": "#5482af",
-	"brightBlack": "#4a8d7e",
+	"brightBlack": "#7c8d7c",
 	"brightBlue": "#5482af",
 	"brightCyan": "#468c78",
 	"brightGreen": "#64c83c",
@@ -17,6 +17,6 @@
 	"green": "#64c83c",
 	"purple": "#9472b4",
 	"red": "#c85a46",
-	"white": "#c4cec4",
-	"yellow": "#c86428"
+	"white": "#00ff00",
+	"yellow": "#a67a50"
 },

@@ -3,9 +3,9 @@
 	"name": "Wombat",
 	"foreground": "#b2afa6",
 	"background": "#171717",
-	"black": "#000000",
+	"black": "#171717",
 	"blue": "#5da9f6",
-	"brightBlack": "#313131",
+	"brightBlack": "#5c5b58",
 	"brightBlue": "#a5c7ff",
 	"brightCyan": "#b6fff9",
 	"brightGreen": "#dcf88f",
@@ -17,6 +17,6 @@
 	"green": "#b1e869",
 	"purple": "#e86aff",
 	"red": "#ff605a",
-	"white": "#ded9ce",
-	"yellow": "#ead89c"
+	"white": "#b2afa6",
+	"yellow": "#a5c7ff"
 },

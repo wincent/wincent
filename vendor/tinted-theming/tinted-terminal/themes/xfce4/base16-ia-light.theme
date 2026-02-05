@@ -5,6 +5,6 @@
 Name=base16-ia-light
 ColorForeground=#181818
 ColorBackground=#f6f6f6
-ColorCursor=x
+ColorCursor=#181818
 ColorBoldIsBright=FALSE
-ColorPalette=#dedede;#9c5a02;#38781c;#c48218;#48bac2;#a94598;#2d6bb1;#e8e8e8;#bde5f2;#9c5a02;#38781c;#c48218;#48bac2;#a94598;#2d6bb1;#f8f8f8
+ColorPalette=#f6f6f6;#9c5a02;#38781c;#c48218;#48bac2;#a94598;#2d6bb1;#181818;#898989;#9c5a02;#38781c;#c48218;#48bac2;#a94598;#2d6bb1;#f8f8f8

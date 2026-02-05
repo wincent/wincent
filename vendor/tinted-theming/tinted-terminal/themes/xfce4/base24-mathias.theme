@@ -5,6 +5,6 @@
 Name=base24-mathias
 ColorForeground=#cacaca
 ColorBackground=#000000
-ColorCursor=x
+ColorCursor=#cacaca
 ColorBoldIsBright=FALSE
-ColorPalette=#000000;#e52222;#a6e32d;#5555ff;#c48dff;#fa2573;#67d9f0;#f2f2f2;#555555;#ff5555;#55ff55;#ffff55;#5555ff;#ff55ff;#55ffff;#ffffff
+ColorPalette=#000000;#e52222;#a6e32d;#5555ff;#c48dff;#fa2573;#67d9f0;#cacaca;#7c7c7c;#ff5555;#55ff55;#ffff55;#5555ff;#ff55ff;#55ffff;#ffffff

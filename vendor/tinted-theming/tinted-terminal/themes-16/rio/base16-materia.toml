@@ -2,8 +2,8 @@
 # Color scheme: Materia by Defman21
 
 [colors]
-selection-background = '#37474f' # base02
-selection-foreground = '#cdd3de' # base05
+selection-background = '#cdd3de' # base05
+selection-foreground = '#37474f' # base02
 
 cursor         = '#cdd3de' # base05
 tabs           = '#2c393f' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#37474f' # base02
 
 background     = '#263238' # base00
 foreground     = '#cdd3de' # base05
-black          = '#2c393f' # base01
+black          = '#263238' # base00
 red            = '#ec5f67' # base08
 yellow         = '#ffcc00' # base0A
 green          = '#8bd649' # base0B
 cyan           = '#80cbc4' # base0C
 blue           = '#89ddff' # base0D
 magenta        = '#82aaff' # base0E
-white          = '#d5dbe5' # base06
+white          = '#cdd3de' # base05
 
 dim-foreground   = '#cdd3de' # base05
 dim-black        = '#2c393f' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#82aaff' # base0E
 dim-white        = '#c9ccd3' # base04
 
 light-foreground = '#cdd3de' # base05
-light-black      = '#37474f' # base02
+light-black      = '#707880' # base03
 light-red        = '#ec5f67' # base08
 light-yellow     = '#ffcc00' # base0A
 light-green      = '#8bd649' # base0B

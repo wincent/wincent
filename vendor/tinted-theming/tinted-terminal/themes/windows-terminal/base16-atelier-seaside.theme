@@ -3,9 +3,9 @@
 	"name": "Atelier Seaside",
 	"foreground": "#8ca68c",
 	"background": "#131513",
-	"black": "#242924",
+	"black": "#131513",
 	"blue": "#3d62f5",
-	"brightBlack": "#5e6e5e",
+	"brightBlack": "#687d68",
 	"brightBlue": "#3d62f5",
 	"brightCyan": "#1999b3",
 	"brightGreen": "#29a329",
@@ -17,6 +17,6 @@
 	"green": "#29a329",
 	"purple": "#ad2bee",
 	"red": "#e6193c",
-	"white": "#cfe8cf",
-	"yellow": "#87711d"
+	"white": "#8ca68c",
+	"yellow": "#98981b"
 },

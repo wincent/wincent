@@ -2,8 +2,8 @@
 # Color scheme: Flat by Chris Kempson (http://chriskempson.com)
 
 [colors]
-selection-background = '#7f8c8d' # base02
-selection-foreground = '#e0e0e0' # base05
+selection-background = '#e0e0e0' # base05
+selection-foreground = '#7f8c8d' # base02
 
 cursor         = '#e0e0e0' # base05
 tabs           = '#34495e' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#7f8c8d' # base02
 
 background     = '#2c3e50' # base00
 foreground     = '#e0e0e0' # base05
-black          = '#34495e' # base01
+black          = '#2c3e50' # base00
 red            = '#e74c3c' # base08
 yellow         = '#f1c40f' # base0A
 green          = '#2ecc71' # base0B
 cyan           = '#1abc9c' # base0C
 blue           = '#3498db' # base0D
 magenta        = '#9b59b6' # base0E
-white          = '#f5f5f5' # base06
+white          = '#e0e0e0' # base05
 
 dim-foreground   = '#e0e0e0' # base05
 dim-black        = '#34495e' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#9b59b6' # base0E
 dim-white        = '#bdc3c7' # base04
 
 light-foreground = '#e0e0e0' # base05
-light-black      = '#7f8c8d' # base02
+light-black      = '#95a5a6' # base03
 light-red        = '#e74c3c' # base08
 light-yellow     = '#f1c40f' # base0A
 light-green      = '#2ecc71' # base0B

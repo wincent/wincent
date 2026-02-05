@@ -336,7 +336,7 @@ theme = base16-ayu-dark
    name = "tinted-terminal"
    themes-dir = "themes/ghostty"
    # With `theme` set to "tinted-theming", this will be where Ghostty looks for the theme file:
-   hook = "command cp -f %f ~/.config/ghostty/themes/tinted-theming" && killall -SIGUSR2 ghostty"
+   hook = "command cp -f %f ~/.config/ghostty/themes/tinted-theming && killall -SIGUSR2 ghostty"
    supported-systems = ["base16", "base24"]
    ```
 

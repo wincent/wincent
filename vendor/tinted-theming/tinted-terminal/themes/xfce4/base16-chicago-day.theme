@@ -5,6 +5,6 @@
 Name=base16-chicago-day
 ColorForeground=#364c40
 ColorBackground=#e8f0ea
-ColorCursor=x
+ColorCursor=#364c40
 ColorBoldIsBright=FALSE
-ColorPalette=#d1e0d7;#c60c30;#009b3a;#968400;#522398;#e27ea6;#00a1de;#2a3b32;#b9d0c3;#c60c30;#009b3a;#968400;#522398;#e27ea6;#00a1de;#1e2a24
+ColorPalette=#e8f0ea;#c60c30;#009b3a;#968400;#522398;#e27ea6;#00a1de;#364c40;#8a9a91;#c60c30;#009b3a;#968400;#522398;#e27ea6;#00a1de;#1e2a24

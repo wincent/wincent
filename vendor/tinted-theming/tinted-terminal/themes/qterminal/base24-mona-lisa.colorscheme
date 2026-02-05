@@ -8,13 +8,13 @@ Color=90,44,26
 Color=17,11,13
 
 [Color0]
-Color=52,26,13
+Color=17,11,13
 
 [Color0Faint]
 Color=17,11,13
 
 [Color0Intense]
-Color=135,66,39
+Color=162,103,52
 
 [Color1]
 Color=155,40,27
@@ -35,10 +35,10 @@ Color=98,97,50
 Color=179,177,99
 
 [Color3]
-Color=194,110,39
+Color=158,178,179
 
 [Color3Faint]
-Color=194,110,39
+Color=158,178,179
 
 [Color3Intense]
 Color=255,149,101
@@ -71,7 +71,7 @@ Color=88,128,86
 Color=137,204,142
 
 [Color7]
-Color=246,215,92
+Color=218,177,78
 
 [Color7Faint]
 Color=218,177,78
@@ -92,4 +92,3 @@ Color=246,215,92
 Blur=true
 Description=Mona Lisa
 Opacity=0.95
-

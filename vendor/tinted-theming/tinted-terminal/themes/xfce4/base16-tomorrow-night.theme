@@ -5,6 +5,6 @@
 Name=base16-tomorrow-night
 ColorForeground=#c5c8c6
 ColorBackground=#1d1f21
-ColorCursor=x
+ColorCursor=#c5c8c6
 ColorBoldIsBright=FALSE
-ColorPalette=#282a2e;#cc6666;#b5bd68;#f0c674;#81a2be;#b294bb;#8abeb7;#e0e0e0;#373b41;#cc6666;#b5bd68;#f0c674;#81a2be;#b294bb;#8abeb7;#ffffff
+ColorPalette=#1d1f21;#cc6666;#b5bd68;#f0c674;#81a2be;#b294bb;#8abeb7;#c5c8c6;#969896;#cc6666;#b5bd68;#f0c674;#81a2be;#b294bb;#8abeb7;#ffffff

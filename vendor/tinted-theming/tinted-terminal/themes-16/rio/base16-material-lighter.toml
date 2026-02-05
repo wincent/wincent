@@ -2,8 +2,8 @@
 # Color scheme: Material Lighter by Nate Peterson
 
 [colors]
-selection-background = '#cceae7' # base02
-selection-foreground = '#80cbc4' # base05
+selection-background = '#80cbc4' # base05
+selection-foreground = '#cceae7' # base02
 
 cursor         = '#80cbc4' # base05
 tabs           = '#e7eaec' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#cceae7' # base02
 
 background     = '#fafafa' # base00
 foreground     = '#80cbc4' # base05
-black          = '#e7eaec' # base01
+black          = '#fafafa' # base00
 red            = '#ff5370' # base08
 yellow         = '#ffb62c' # base0A
 green          = '#91b859' # base0B
 cyan           = '#39adb5' # base0C
 blue           = '#6182b8' # base0D
 magenta        = '#7c4dff' # base0E
-white          = '#43a39a' # base06
+white          = '#80cbc4' # base05
 
 dim-foreground   = '#80cbc4' # base05
 dim-black        = '#e7eaec' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#7c4dff' # base0E
 dim-white        = '#8796b0' # base04
 
 light-foreground = '#80cbc4' # base05
-light-black      = '#cceae7' # base02
+light-black      = '#ccd7da' # base03
 light-red        = '#ff5370' # base08
 light-yellow     = '#ffb62c' # base0A
 light-green      = '#91b859' # base0B

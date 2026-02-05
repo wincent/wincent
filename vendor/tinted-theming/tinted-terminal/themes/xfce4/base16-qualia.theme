@@ -5,6 +5,6 @@
 Name=base16-qualia
 ColorForeground=#c0c0c0
 ColorBackground=#101010
-ColorCursor=x
+ColorCursor=#c0c0c0
 ColorBoldIsBright=FALSE
-ColorPalette=#454545;#efa6a2;#80c990;#e6a3dc;#50cacd;#e0af85;#c8c874;#c0c0c0;#454545;#efa6a2;#80c990;#e6a3dc;#50cacd;#e0af85;#c8c874;#454545
+ColorPalette=#101010;#efa6a2;#80c990;#e6a3dc;#50cacd;#e0af85;#c8c874;#c0c0c0;#454545;#efa6a2;#80c990;#e6a3dc;#50cacd;#e0af85;#c8c874;#454545

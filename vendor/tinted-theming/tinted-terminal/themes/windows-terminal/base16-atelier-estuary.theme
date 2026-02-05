@@ -3,9 +3,9 @@
 	"name": "Atelier Estuary",
 	"foreground": "#929181",
 	"background": "#22221b",
-	"black": "#302f27",
+	"black": "#22221b",
 	"blue": "#36a166",
-	"brightBlack": "#5f5e4e",
+	"brightBlack": "#6c6b5a",
 	"brightBlue": "#36a166",
 	"brightCyan": "#5b9d48",
 	"brightGreen": "#7d9726",
@@ -17,6 +17,6 @@
 	"green": "#7d9726",
 	"purple": "#5f9182",
 	"red": "#ba6236",
-	"white": "#e7e6df",
-	"yellow": "#ae7313"
+	"white": "#929181",
+	"yellow": "#a5980d"
 },

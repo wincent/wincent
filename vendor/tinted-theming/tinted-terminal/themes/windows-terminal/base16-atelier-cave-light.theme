@@ -3,9 +3,9 @@
 	"name": "Atelier Cave Light",
 	"foreground": "#585260",
 	"background": "#efecf4",
-	"black": "#e2dfe7",
+	"black": "#efecf4",
 	"blue": "#576ddb",
-	"brightBlack": "#8b8792",
+	"brightBlack": "#7e7887",
 	"brightBlue": "#576ddb",
 	"brightCyan": "#398bc6",
 	"brightGreen": "#2a9292",
@@ -17,6 +17,6 @@
 	"green": "#2a9292",
 	"purple": "#955ae7",
 	"red": "#be4678",
-	"white": "#26232a",
-	"yellow": "#aa573c"
+	"white": "#585260",
+	"yellow": "#a06e3b"
 },

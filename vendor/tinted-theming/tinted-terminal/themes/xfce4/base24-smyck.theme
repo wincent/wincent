@@ -5,6 +5,6 @@
 Name=base24-smyck
 ColorForeground=#969696
 ColorBackground=#1b1b1b
-ColorCursor=x
+ColorCursor=#969696
 ColorBoldIsBright=FALSE
-ColorPalette=#000000;#b74131;#7da900;#8dcff0;#62a3c4;#b98acc;#207383;#a0a0a0;#7a7a7a;#d6837b;#c4f036;#fee14d;#8dcff0;#f799ff;#69d9cf;#f7f7f7
+ColorPalette=#1b1b1b;#b74131;#7da900;#8dcff0;#62a3c4;#b98acc;#207383;#969696;#838383;#d6837b;#c4f036;#fee14d;#8dcff0;#f799ff;#69d9cf;#f7f7f7

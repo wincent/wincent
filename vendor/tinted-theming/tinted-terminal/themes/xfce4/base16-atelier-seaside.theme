@@ -5,6 +5,6 @@
 Name=base16-atelier-seaside
 ColorForeground=#8ca68c
 ColorBackground=#131513
-ColorCursor=x
+ColorCursor=#8ca68c
 ColorBoldIsBright=FALSE
-ColorPalette=#242924;#e6193c;#29a329;#98981b;#3d62f5;#ad2bee;#1999b3;#cfe8cf;#5e6e5e;#e6193c;#29a329;#98981b;#3d62f5;#ad2bee;#1999b3;#f4fbf4
+ColorPalette=#131513;#e6193c;#29a329;#98981b;#3d62f5;#ad2bee;#1999b3;#8ca68c;#687d68;#e6193c;#29a329;#98981b;#3d62f5;#ad2bee;#1999b3;#f4fbf4

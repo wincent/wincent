@@ -2,8 +2,8 @@
 # Color scheme: Kanagawa by Tommaso Laurenzi (https://github.com/rebelot)
 
 [colors]
-selection-background = '#223249' # base02
-selection-foreground = '#dcd7ba' # base05
+selection-background = '#dcd7ba' # base05
+selection-foreground = '#223249' # base02
 
 cursor         = '#dcd7ba' # base05
 tabs           = '#16161d' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#223249' # base02
 
 background     = '#1f1f28' # base00
 foreground     = '#dcd7ba' # base05
-black          = '#16161d' # base01
+black          = '#1f1f28' # base00
 red            = '#c34043' # base08
 yellow         = '#c0a36e' # base0A
 green          = '#76946a' # base0B
 cyan           = '#6a9589' # base0C
 blue           = '#7e9cd8' # base0D
 magenta        = '#957fb8' # base0E
-white          = '#c8c093' # base06
+white          = '#dcd7ba' # base05
 
 dim-foreground   = '#dcd7ba' # base05
 dim-black        = '#16161d' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#957fb8' # base0E
 dim-white        = '#727169' # base04
 
 light-foreground = '#dcd7ba' # base05
-light-black      = '#223249' # base02
+light-black      = '#54546d' # base03
 light-red        = '#c34043' # base08
 light-yellow     = '#c0a36e' # base0A
 light-green      = '#76946a' # base0B

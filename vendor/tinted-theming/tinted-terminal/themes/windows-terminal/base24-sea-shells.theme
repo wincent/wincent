@@ -3,9 +3,9 @@
 	"name": "Sea Shells",
 	"foreground": "#b79c7e",
 	"background": "#08131a",
-	"black": "#17384c",
+	"black": "#08131a",
 	"blue": "#1e4950",
-	"brightBlack": "#424b52",
+	"brightBlack": "#696660",
 	"brightBlue": "#1bbcdd",
 	"brightCyan": "#86abb3",
 	"brightGreen": "#618c98",
@@ -17,6 +17,6 @@
 	"green": "#027c9b",
 	"purple": "#68d3f1",
 	"red": "#d15023",
-	"white": "#deb88d",
-	"yellow": "#fca02f"
+	"white": "#b79c7e",
+	"yellow": "#1bbcdd"
 },

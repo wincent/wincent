@@ -2,8 +2,8 @@
 # Color scheme: Hurtado by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#252525' # base02
-selection-foreground = '#a1a1a1' # base05
+selection-background = '#a1a1a1' # base05
+selection-foreground = '#252525' # base02
 
 cursor         = '#a1a1a1' # base05
 tabs           = '#575757' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#252525' # base02
 
 background     = '#000000' # base00
 foreground     = '#a1a1a1' # base05
-black          = '#575757' # base01
+black          = '#000000' # base00
 red            = '#ff1b00' # base08
 yellow         = '#89bdff' # base0A
 green          = '#a5df55' # base0B
 cyan           = '#85e9fe' # base0C
 blue           = '#486387' # base0D
 magenta        = '#fc5ef0' # base0E
-white          = '#cbcbcb' # base06
+white          = '#a1a1a1' # base05
 
 dim-foreground   = '#a1a1a1' # base05
 dim-black        = '#575757' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#fc5ef0' # base0E
 dim-white        = '#787878' # base04
 
 light-foreground = '#a1a1a1' # base05
-light-black      = '#252525' # base02
+light-black      = '#4e4e4e' # base03
 light-red        = '#d41c00' # base12
 light-yellow     = '#fbe749' # base13
 light-green      = '#a5df55' # base14

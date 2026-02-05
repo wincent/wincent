@@ -5,6 +5,6 @@
 Name=base16-gruvbox-material-dark-medium
 ColorForeground=#ddc7a1
 ColorBackground=#292828
-ColorCursor=x
+ColorCursor=#ddc7a1
 ColorBoldIsBright=FALSE
-ColorPalette=#32302f;#ea6962;#a9b665;#d8a657;#7daea3;#d3869b;#89b482;#ebdbb2;#504945;#ea6962;#a9b665;#d8a657;#7daea3;#d3869b;#89b482;#fbf1c7
+ColorPalette=#292828;#ea6962;#a9b665;#d8a657;#7daea3;#d3869b;#89b482;#ddc7a1;#665c54;#ea6962;#a9b665;#d8a657;#7daea3;#d3869b;#89b482;#fbf1c7

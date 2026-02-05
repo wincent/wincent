@@ -2,8 +2,8 @@
 # Color scheme: Seti UI by 
 
 [colors]
-selection-background = '#3b758c' # base02
-selection-foreground = '#d6d6d6' # base05
+selection-background = '#d6d6d6' # base05
+selection-foreground = '#3b758c' # base02
 
 cursor         = '#d6d6d6' # base05
 tabs           = '#282a2b' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#3b758c' # base02
 
 background     = '#151718' # base00
 foreground     = '#d6d6d6' # base05
-black          = '#282a2b' # base01
+black          = '#151718' # base00
 red            = '#cd3f45' # base08
 yellow         = '#e6cd69' # base0A
 green          = '#9fca56' # base0B
 cyan           = '#55dbbe' # base0C
 blue           = '#55b5db' # base0D
 magenta        = '#a074c4' # base0E
-white          = '#eeeeee' # base06
+white          = '#d6d6d6' # base05
 
 dim-foreground   = '#d6d6d6' # base05
 dim-black        = '#282a2b' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#a074c4' # base0E
 dim-white        = '#43a5d5' # base04
 
 light-foreground = '#d6d6d6' # base05
-light-black      = '#3b758c' # base02
+light-black      = '#41535b' # base03
 light-red        = '#cd3f45' # base08
 light-yellow     = '#e6cd69' # base0A
 light-green      = '#9fca56' # base0B

@@ -5,6 +5,6 @@
 Name=base24-piatto-light
 ColorForeground=#515151
 ColorBackground=#ffffff
-ColorCursor=x
+ColorCursor=#515151
 ColorBoldIsBright=FALSE
-ColorPalette=#f1f1f1;#b23771;#66781e;#cda434;#3c5ea8;#a454b2;#1e7878;#414141;#e1e1e1;#db3365;#829429;#cd6f34;#3c5ea8;#a454b2;#175e5e;#212121
+ColorPalette=#ffffff;#b23771;#66781e;#cda434;#3c5ea8;#a454b2;#1e7878;#515151;#c1c1c1;#db3365;#829429;#cd6f34;#3c5ea8;#a454b2;#175e5e;#212121

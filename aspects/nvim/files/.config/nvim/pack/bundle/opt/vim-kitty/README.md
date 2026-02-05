@@ -5,12 +5,21 @@
         session files. </i>
 </p>
 
+## Deprecation Notice
+
+> [!NOTE]
+> Neovim v0.12+ now includes [native Kitty syntax highlighting](https://github.com/neovim/neovim/pull/35809).
+>
+> If you still find this plugin useful (e.g., for Vim support or keyword validation), [let me know](https://github.com/fladson/vim-kitty/issues/new)—I'll keep it updated. Otherwise, consider this project in maintenance mode and direct contributions to the Neovim project instead.
+
+---
+
 Keywords based on `v0.44.0`.
 
 See [screenshot](https://github.com/fladson/vim-kitty/wiki) for a visual
 explanation of what this plugin does.
 
-## 📜 Filetype detection
+## Filetype detection
 
 Any `*.conf` or `*.session` files in kitty's configuration directory is
 considered.
@@ -18,7 +27,7 @@ considered.
 You can always add `# vim:ft=kitty` at the beginning of any file to make sure
 the syntax is loaded, or you can set it temporarily with `:set ft=kitty`.
 
-## 🚀 Installation
+## Installation
 
 ### [lazy.nvim](https://lazy.folke.io/)
 

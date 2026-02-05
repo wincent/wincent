@@ -5,6 +5,6 @@
 Name=base24-fun-forrest
 ColorForeground=#c5ab60
 ColorBackground=#241200
-ColorCursor=x
+ColorCursor=#c5ab60
 ColorBoldIsBright=FALSE
-ColorPalette=#000000;#d5252b;#909b00;#7cc9ce;#4698a2;#8c4231;#d98112;#ddc165;#7e6954;#e4591b;#bfc659;#ffca1b;#7cc9ce;#d16349;#e6a96b;#ffe9a3
+ColorPalette=#241200;#d5252b;#909b00;#7cc9ce;#4698a2;#8c4231;#d98112;#c5ab60;#957f58;#e4591b;#bfc659;#ffca1b;#7cc9ce;#d16349;#e6a96b;#ffe9a3

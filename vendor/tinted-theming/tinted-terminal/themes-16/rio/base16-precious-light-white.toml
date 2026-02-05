@@ -2,8 +2,8 @@
 # Color scheme: Precious Light White by 4lex4 &lt;4lex49@zoho.com&gt;
 
 [colors]
-selection-background = '#dbdbdb' # base02
-selection-foreground = '#555555' # base05
+selection-background = '#555555' # base05
+selection-foreground = '#dbdbdb' # base02
 
 cursor         = '#555555' # base05
 tabs           = '#ededed' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#dbdbdb' # base02
 
 background     = '#ffffff' # base00
 foreground     = '#555555' # base05
-black          = '#ededed' # base01
+black          = '#ffffff' # base00
 red            = '#af4947' # base08
 yellow         = '#876500' # base0A
 green          = '#557301' # base0B
 cyan           = '#087767' # base0C
 blue           = '#186daa' # base0D
 magenta        = '#7b4ecb' # base0E
-white          = '#555555' # base06
+white          = '#555555' # base05
 
 dim-foreground   = '#555555' # base05
 dim-black        = '#ededed' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#7b4ecb' # base0E
 dim-white        = '#636363' # base04
 
 light-foreground = '#555555' # base05
-light-black      = '#dbdbdb' # base02
+light-black      = '#848484' # base03
 light-red        = '#af4947' # base08
 light-yellow     = '#876500' # base0A
 light-green      = '#557301' # base0B

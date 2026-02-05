@@ -2,8 +2,8 @@
 # Color scheme: Oceanic Material by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#767676' # base02
-selection-foreground = '#989898' # base05
+selection-background = '#989898' # base05
+selection-foreground = '#767676' # base02
 
 cursor         = '#989898' # base05
 tabs           = '#000000' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#767676' # base02
 
 background     = '#1c262b' # base00
 foreground     = '#989898' # base05
-black          = '#000000' # base01
+black          = '#1c262b' # base00
 red            = '#ee2a29' # base08
 yellow         = '#53a4f3' # base0A
 green          = '#3fa33f' # base0B
 cyan           = '#16aec9' # base0C
 blue           = '#1d80ef' # base0D
 magenta        = '#8800a0' # base0E
-white          = '#a4a4a4' # base06
+white          = '#989898' # base05
 
 dim-foreground   = '#989898' # base05
 dim-black        = '#000000' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#8800a0' # base0E
 dim-white        = '#8d8d8d' # base04
 
 light-foreground = '#989898' # base05
-light-black      = '#767676' # base02
+light-black      = '#818181' # base03
 light-red        = '#dc5b60' # base12
 light-yellow     = '#fef063' # base13
 light-green      = '#70be71' # base14

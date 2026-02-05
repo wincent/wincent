@@ -5,6 +5,6 @@
 Name=base16-synth-midnight-light
 ColorForeground=#28292a
 ColorBackground=#dddfe0
-ColorCursor=x
+ColorCursor=#28292a
 ColorBoldIsBright=FALSE
-ColorPalette=#cfd1d2;#b53b50;#06ea61;#c9d364;#03aeff;#ea5ce2;#42fff9;#1a1b1c;#c1c3c4;#b53b50;#06ea61;#c9d364;#03aeff;#ea5ce2;#42fff9;#050608
+ColorPalette=#dddfe0;#b53b50;#06ea61;#c9d364;#03aeff;#ea5ce2;#42fff9;#28292a;#a3a5a6;#b53b50;#06ea61;#c9d364;#03aeff;#ea5ce2;#42fff9;#050608

@@ -2,8 +2,8 @@
 # Color scheme: Everforest Dark Medium by Sainnhe Park (https://github.com/sainnhe)
 
 [colors]
-selection-background = '#3d484d' # base02
-selection-foreground = '#859289' # base05
+selection-background = '#859289' # base05
+selection-foreground = '#3d484d' # base02
 
 cursor         = '#859289' # base05
 tabs           = '#343f44' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#3d484d' # base02
 
 background     = '#2d353b' # base00
 foreground     = '#859289' # base05
-black          = '#343f44' # base01
+black          = '#2d353b' # base00
 red            = '#e67e80' # base08
 yellow         = '#dbbc7f' # base0A
 green          = '#a7c080' # base0B
 cyan           = '#83c092' # base0C
 blue           = '#7fbbb3' # base0D
 magenta        = '#d699b6' # base0E
-white          = '#9da9a0' # base06
+white          = '#859289' # base05
 
 dim-foreground   = '#859289' # base05
 dim-black        = '#343f44' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#d699b6' # base0E
 dim-white        = '#7a8478' # base04
 
 light-foreground = '#859289' # base05
-light-black      = '#3d484d' # base02
+light-black      = '#475258' # base03
 light-red        = '#e67e80' # base08
 light-yellow     = '#dbbc7f' # base0A
 light-green      = '#a7c080' # base0B

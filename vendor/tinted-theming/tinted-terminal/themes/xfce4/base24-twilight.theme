@@ -5,6 +5,6 @@
 Name=base24-twilight
 ColorForeground=#c8c8a7
 ColorBackground=#141414
-ColorCursor=x
+ColorCursor=#c8c8a7
 ColorBoldIsBright=FALSE
-ColorPalette=#141414;#c06c43;#afb979;#5a5d61;#444649;#b4be7b;#778284;#feffd3;#262626;#dd7c4c;#cbd88c;#e1c47d;#5a5d61;#d0db8e;#8a989a;#feffd3
+ColorPalette=#141414;#c06c43;#afb979;#5a5d61;#444649;#b4be7b;#778284;#c8c8a7;#5c5c51;#dd7c4c;#cbd88c;#e1c47d;#5a5d61;#d0db8e;#8a989a;#feffd3

@@ -2,8 +2,8 @@
 # Color scheme: Windows 95 by Fergus Collins (https://github.com/ferguscollins)
 
 [colors]
-selection-background = '#383838' # base02
-selection-foreground = '#a8a8a8' # base05
+selection-background = '#a8a8a8' # base05
+selection-foreground = '#383838' # base02
 
 cursor         = '#a8a8a8' # base05
 tabs           = '#1c1c1c' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#383838' # base02
 
 background     = '#000000' # base00
 foreground     = '#a8a8a8' # base05
-black          = '#1c1c1c' # base01
+black          = '#000000' # base00
 red            = '#fc5454' # base08
 yellow         = '#fcfc54' # base0A
 green          = '#54fc54' # base0B
 cyan           = '#54fcfc' # base0C
 blue           = '#5454fc' # base0D
 magenta        = '#fc54fc' # base0E
-white          = '#d2d2d2' # base06
+white          = '#a8a8a8' # base05
 
 dim-foreground   = '#a8a8a8' # base05
 dim-black        = '#1c1c1c' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#fc54fc' # base0E
 dim-white        = '#7e7e7e' # base04
 
 light-foreground = '#a8a8a8' # base05
-light-black      = '#383838' # base02
+light-black      = '#545454' # base03
 light-red        = '#fc5454' # base08
 light-yellow     = '#fcfc54' # base0A
 light-green      = '#54fc54' # base0B

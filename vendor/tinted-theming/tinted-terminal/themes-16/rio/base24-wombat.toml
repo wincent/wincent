@@ -2,8 +2,8 @@
 # Color scheme: Wombat by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#313131' # base02
-selection-foreground = '#b2afa6' # base05
+selection-background = '#b2afa6' # base05
+selection-foreground = '#313131' # base02
 
 cursor         = '#b2afa6' # base05
 tabs           = '#000000' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#313131' # base02
 
 background     = '#171717' # base00
 foreground     = '#b2afa6' # base05
-black          = '#000000' # base01
+black          = '#171717' # base00
 red            = '#ff605a' # base08
 yellow         = '#a5c7ff' # base0A
 green          = '#b1e869' # base0B
 cyan           = '#82fff6' # base0C
 blue           = '#5da9f6' # base0D
 magenta        = '#e86aff' # base0E
-white          = '#ded9ce' # base06
+white          = '#b2afa6' # base05
 
 dim-foreground   = '#b2afa6' # base05
 dim-black        = '#000000' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#e86aff' # base0E
 dim-white        = '#87857f' # base04
 
 light-foreground = '#b2afa6' # base05
-light-black      = '#313131' # base02
+light-black      = '#5c5b58' # base03
 light-red        = '#f58b7f' # base12
 light-yellow     = '#eee5b2' # base13
 light-green      = '#dcf88f' # base14

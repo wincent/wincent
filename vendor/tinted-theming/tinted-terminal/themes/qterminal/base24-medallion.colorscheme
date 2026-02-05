@@ -8,13 +8,13 @@ Color=62,54,16
 Color=29,24,8
 
 [Color0]
-Color=0,0,0
+Color=29,24,8
 
 [Color0Faint]
 Color=29,24,8
 
 [Color0Intense]
-Color=94,81,24
+Color=120,109,56
 
 [Color1]
 Color=181,76,0
@@ -35,10 +35,10 @@ Color=124,138,22
 Color=177,201,58
 
 [Color3]
-Color=210,189,37
+Color=171,184,255
 
 [Color3Faint]
-Color=210,189,37
+Color=171,184,255
 
 [Color3Intense]
 Color=255,228,73
@@ -71,7 +71,7 @@ Color=144,107,37
 Color=255,187,81
 
 [Color7]
-Color=201,193,153
+Color=174,165,120
 
 [Color7Faint]
 Color=174,165,120
@@ -92,4 +92,3 @@ Color=201,193,153
 Blur=true
 Description=Medallion
 Opacity=0.95
-

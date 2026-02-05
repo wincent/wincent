@@ -1,0 +1,58 @@
+# base16 Cyberpunk 256 - alacritty color config
+# benjujo
+
+# Default colors
+[colors.primary]
+background = '0x000000'
+foreground = '0xdcdccc'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x000000'
+cursor = '0xdcdccc'
+
+# Normal colors
+[colors.normal]
+black = '0x000000'
+red = '0xff0000'
+green = '0x61ce3c'
+yellow = '0xffff00'
+blue = '0x4c83ff'
+magenta = '0xff1493'
+cyan = '0x93e0e3'
+white = '0xdcdccc'
+
+# Bright colors
+[colors.bright]
+black = '0x4f4f4f'
+red = '0xff0000'
+green = '0x61ce3c'
+yellow = '0xffff00'
+blue = '0x4c83ff'
+magenta = '0xff1493'
+cyan = '0x93e0e3'
+white = '0xffffff'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xffa500"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xff8c00"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x2b2b2b"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x383838"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x8b8989"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xf8f8f8"

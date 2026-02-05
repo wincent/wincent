@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Yesterday Night",
+	"foreground": "#dfe1e8",
+	"background": "#343d46",
+	"black": "#343d46",
+	"blue": "#81a2be",
+	"brightBlack": "#a7adba",
+	"brightBlue": "#81a2be",
+	"brightCyan": "#8abeb7",
+	"brightGreen": "#b5bd68",
+	"brightPurple": "#b294bb",
+	"brightRed": "#cc6666",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#f0c674",
+	"cyan": "#8abeb7",
+	"green": "#b5bd68",
+	"purple": "#b294bb",
+	"red": "#cc6666",
+	"white": "#dfe1e8",
+	"yellow": "#f0c674"
+},

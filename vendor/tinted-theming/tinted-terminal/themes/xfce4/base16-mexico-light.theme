@@ -5,6 +5,6 @@
 Name=base16-mexico-light
 ColorForeground=#383838
 ColorBackground=#f8f8f8
-ColorCursor=x
+ColorCursor=#383838
 ColorBoldIsBright=FALSE
-ColorPalette=#e8e8e8;#ab4642;#538947;#f79a0e;#7cafc2;#96609e;#4b8093;#282828;#d8d8d8;#ab4642;#538947;#f79a0e;#7cafc2;#96609e;#4b8093;#181818
+ColorPalette=#f8f8f8;#ab4642;#538947;#f79a0e;#7cafc2;#96609e;#4b8093;#383838;#b8b8b8;#ab4642;#538947;#f79a0e;#7cafc2;#96609e;#4b8093;#181818

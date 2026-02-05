@@ -2,8 +2,8 @@
 # Color scheme: Idea by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#fffefe' # base02
-selection-foreground = '#515151' # base05
+selection-background = '#515151' # base05
+selection-foreground = '#fffefe' # base02
 
 cursor         = '#515151' # base05
 tabs           = '#acacac' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#fffefe' # base02
 
 background     = '#202020' # base00
 foreground     = '#515151' # base05
-black          = '#acacac' # base01
+black          = '#202020' # base00
 red            = '#fb5255' # base08
 yellow         = '#6c9bed' # base0A
 green          = '#98b61b' # base0B
 cyan           = '#248886' # base0C
 blue           = '#437ee6' # base0D
 magenta        = '#9d73b0' # base0E
-white          = '#171717' # base06
+white          = '#515151' # base05
 
 dim-foreground   = '#515151' # base05
 dim-black        = '#acacac' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#9d73b0' # base0E
 dim-white        = '#8b8b8b' # base04
 
 light-foreground = '#515151' # base05
-light-black      = '#fffefe' # base02
+light-black      = '#c5c5c5' # base03
 light-red        = '#fc6f72' # base12
 light-yellow     = '#ffff0a' # base13
 light-green      = '#98b61b' # base14

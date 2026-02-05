@@ -27,8 +27,8 @@ ghostty_palette_color_3="#1085d9"
 ghostty_palette_color_4="#1d44dd"
 ghostty_palette_color_5="#6d1bed"
 ghostty_palette_color_6="#1e4d7a"
-ghostty_palette_color_7="#000000"
-ghostty_palette_color_8="#dddee8"
+ghostty_palette_color_7="#38383a"
+ghostty_palette_color_8="#a6a7ae"
 ghostty_palette_color_9="#fb496d"
 ghostty_palette_color_10="#34b253"
 ghostty_palette_color_11="#b79326"
@@ -79,8 +79,8 @@ palette = 21=$ghostty_palette_color_21
 background = $ghostty_palette_color_0
 foreground = $ghostty_palette_color_7
 cursor-color = $ghostty_palette_color_7
-selection-background = $ghostty_palette_color_8
-selection-foreground = $ghostty_palette_color_7
+selection-background = $ghostty_palette_color_7
+selection-foreground = $ghostty_palette_color_19
 
 # Set \`macos-icon\` = custom-style in your main configuration file to enable theming of the app icon.
 EOF

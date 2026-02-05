@@ -5,6 +5,6 @@
 Name=base16-chicago-night
 ColorForeground=#a7b8af
 ColorBackground=#1e2a24
-ColorCursor=x
+ColorCursor=#a7b8af
 ColorBoldIsBright=FALSE
-ColorPalette=#2a3b32;#c60c30;#009b3a;#f9e300;#522398;#e27ea6;#00a1de;#c1cdc7;#364c40;#c60c30;#009b3a;#f9e300;#522398;#e27ea6;#00a1de;#dbe3de
+ColorPalette=#1e2a24;#c60c30;#009b3a;#f9e300;#522398;#e27ea6;#00a1de;#a7b8af;#5f7368;#c60c30;#009b3a;#f9e300;#522398;#e27ea6;#00a1de;#dbe3de

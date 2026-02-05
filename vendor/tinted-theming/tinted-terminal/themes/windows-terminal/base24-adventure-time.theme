@@ -3,9 +3,9 @@
 	"name": "Adventure Time",
 	"foreground": "#cdc3bf",
 	"background": "#1e1c44",
-	"black": "#050404",
+	"black": "#1e1c44",
 	"blue": "#0f49c6",
-	"brightBlack": "#4e7bbf",
+	"brightBlack": "#7893bf",
 	"brightBlue": "#1896c6",
 	"brightCyan": "#c8f9f3",
 	"brightGreen": "#9dff6e",
@@ -17,6 +17,6 @@
 	"green": "#49b117",
 	"purple": "#665992",
 	"red": "#bc0013",
-	"white": "#f8dbc0",
-	"yellow": "#e6741d"
+	"white": "#cdc3bf",
+	"yellow": "#1896c6"
 },

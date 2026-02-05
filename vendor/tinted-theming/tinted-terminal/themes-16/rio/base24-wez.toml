@@ -2,8 +2,8 @@
 # Color scheme: Wez by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#555555' # base02
-selection-foreground = '#aeaeae' # base05
+selection-background = '#aeaeae' # base05
+selection-foreground = '#555555' # base02
 
 cursor         = '#aeaeae' # base05
 tabs           = '#000000' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#555555' # base02
 
 background     = '#000000' # base00
 foreground     = '#aeaeae' # base05
-black          = '#000000' # base01
+black          = '#000000' # base00
 red            = '#cc5555' # base08
 yellow         = '#5555ff' # base0A
 green          = '#55cc55' # base0B
 cyan           = '#7acaca' # base0C
 blue           = '#5455cb' # base0D
 magenta        = '#cc55cc' # base0E
-white          = '#cccccc' # base06
+white          = '#aeaeae' # base05
 
 dim-foreground   = '#aeaeae' # base05
 dim-black        = '#000000' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#cc55cc' # base0E
 dim-white        = '#909090' # base04
 
 light-foreground = '#aeaeae' # base05
-light-black      = '#555555' # base02
+light-black      = '#727272' # base03
 light-red        = '#ff5555' # base12
 light-yellow     = '#ffff55' # base13
 light-green      = '#55ff55' # base14

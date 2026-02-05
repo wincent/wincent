@@ -2,8 +2,8 @@
 # Color scheme: Twilight by David Hart (https://github.com/hartbit)
 
 [colors]
-selection-background = '#464b50' # base02
-selection-foreground = '#a7a7a7' # base05
+selection-background = '#a7a7a7' # base05
+selection-foreground = '#464b50' # base02
 
 cursor         = '#a7a7a7' # base05
 tabs           = '#323537' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#464b50' # base02
 
 background     = '#1e1e1e' # base00
 foreground     = '#a7a7a7' # base05
-black          = '#323537' # base01
+black          = '#1e1e1e' # base00
 red            = '#cf6a4c' # base08
 yellow         = '#f9ee98' # base0A
 green          = '#8f9d6a' # base0B
 cyan           = '#afc4db' # base0C
 blue           = '#7587a6' # base0D
 magenta        = '#9b859d' # base0E
-white          = '#c3c3c3' # base06
+white          = '#a7a7a7' # base05
 
 dim-foreground   = '#a7a7a7' # base05
 dim-black        = '#323537' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#9b859d' # base0E
 dim-white        = '#838184' # base04
 
 light-foreground = '#a7a7a7' # base05
-light-black      = '#464b50' # base02
+light-black      = '#5f5a60' # base03
 light-red        = '#cf6a4c' # base08
 light-yellow     = '#f9ee98' # base0A
 light-green      = '#8f9d6a' # base0B

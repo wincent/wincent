@@ -5,6 +5,6 @@
 Name=base16-chinoiserie-morandi
 ColorForeground=#c4cbcf
 ColorBackground=#1d1d1d
-ColorCursor=x
+ColorCursor=#c4cbcf
 ColorBoldIsBright=FALSE
-ColorPalette=#282828;#c06061;#8ca07b;#e5bc84;#839ec9;#98a1d8;#5e8c9b;#eee7f2;#373737;#c06061;#8ca07b;#e5bc84;#839ec9;#98a1d8;#5e8c9b;#fffef9
+ColorPalette=#1d1d1d;#c06061;#8ca07b;#e5bc84;#839ec9;#98a1d8;#5e8c9b;#c4cbcf;#918072;#c06061;#8ca07b;#e5bc84;#839ec9;#98a1d8;#5e8c9b;#fffef9

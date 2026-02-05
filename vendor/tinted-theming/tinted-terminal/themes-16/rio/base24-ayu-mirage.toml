@@ -2,8 +2,8 @@
 # Color scheme: Ayu Mirage by Tinted Theming (https://github.com/tinted-theming), Ayu Theme (https://github.com/ayu-theme)
 
 [colors]
-selection-background = '#323844' # base02
-selection-foreground = '#cccac2' # base05
+selection-background = '#cccac2' # base05
+selection-foreground = '#323844' # base02
 
 cursor         = '#cccac2' # base05
 tabs           = '#242936' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#323844' # base02
 
 background     = '#1f2430' # base00
 foreground     = '#cccac2' # base05
-black          = '#242936' # base01
+black          = '#1f2430' # base00
 red            = '#f28779' # base08
 yellow         = '#ffd173' # base0A
 green          = '#d5ff80' # base0B
 cyan           = '#95e6cb' # base0C
 blue           = '#73d0ff' # base0D
 magenta        = '#d4bfff' # base0E
-white          = '#d9d7ce' # base06
+white          = '#cccac2' # base05
 
 dim-foreground   = '#cccac2' # base05
 dim-black        = '#242936' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#d4bfff' # base0E
 dim-white        = '#707a8c' # base04
 
 light-foreground = '#cccac2' # base05
-light-black      = '#323844' # base02
+light-black      = '#4a5059' # base03
 light-red        = '#ff6666' # base12
 light-yellow     = '#ffcc66' # base13
 light-green      = '#87d963' # base14

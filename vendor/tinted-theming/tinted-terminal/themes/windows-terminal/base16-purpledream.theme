@@ -3,9 +3,9 @@
 	"name": "Purpledream",
 	"foreground": "#ddd0dd",
 	"background": "#100510",
-	"black": "#302030",
+	"black": "#100510",
 	"blue": "#00a0f0",
-	"brightBlack": "#403040",
+	"brightBlack": "#605060",
 	"brightBlue": "#00a0f0",
 	"brightCyan": "#0075b0",
 	"brightGreen": "#14cc64",
@@ -17,6 +17,6 @@
 	"green": "#14cc64",
 	"purple": "#b000d0",
 	"red": "#ff1d0d",
-	"white": "#eee0ee",
-	"yellow": "#ccae14"
+	"white": "#ddd0dd",
+	"yellow": "#f000a0"
 },

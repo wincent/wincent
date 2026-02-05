@@ -2,8 +2,8 @@
 # Color scheme: Oxocarbon Light by shaunsingh/IBM, Tinted Theming (https://github.com/tinted-theming)
 
 [colors]
-selection-background = '#bec6cf' # base02
-selection-foreground = '#525f70' # base05
+selection-background = '#525f70' # base05
+selection-foreground = '#bec6cf' # base02
 
 cursor         = '#525f70' # base05
 tabs           = '#dde1e6' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#bec6cf' # base02
 
 background     = '#f2f4f8' # base00
 foreground     = '#525f70' # base05
-black          = '#dde1e6' # base01
+black          = '#f2f4f8' # base00
 red            = '#ff7eb6' # base08
 yellow         = '#ff6f00' # base0A
 green          = '#42be65' # base0B
 cyan           = '#673ab7' # base0C
 blue           = '#0f62fe' # base0D
 magenta        = '#be95ff' # base0E
-white          = '#3d4652' # base06
+white          = '#525f70' # base05
 
 dim-foreground   = '#525f70' # base05
 dim-black        = '#dde1e6' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#be95ff' # base0E
 dim-white        = '#68788d' # base04
 
 light-foreground = '#525f70' # base05
-light-black      = '#bec6cf' # base02
+light-black      = '#a1acba' # base03
 light-red        = '#ff7eb6' # base08
 light-yellow     = '#ff6f00' # base0A
 light-green      = '#42be65' # base0B

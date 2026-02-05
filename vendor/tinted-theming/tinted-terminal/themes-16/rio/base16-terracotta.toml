@@ -2,8 +2,8 @@
 # Color scheme: Terracotta by Alexander Rossell Hayes (https://github.com/rossellhayes)
 
 [colors]
-selection-background = '#d0c1bb' # base02
-selection-foreground = '#473731' # base05
+selection-background = '#473731' # base05
+selection-foreground = '#d0c1bb' # base02
 
 cursor         = '#473731' # base05
 tabs           = '#dfd6d1' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#d0c1bb' # base02
 
 background     = '#efeae8' # base00
 foreground     = '#473731' # base05
-black          = '#dfd6d1' # base01
+black          = '#efeae8' # base00
 red            = '#a75045' # base08
 yellow         = '#ce943e' # base0A
 green          = '#7a894a' # base0B
 cyan           = '#847f9e' # base0C
 blue           = '#625574' # base0D
 magenta        = '#8d5968' # base0E
-white          = '#352a25' # base06
+white          = '#473731' # base05
 
 dim-foreground   = '#473731' # base05
 dim-black        = '#dfd6d1' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#8d5968' # base0E
 dim-white        = '#59453d' # base04
 
 light-foreground = '#473731' # base05
-light-black      = '#d0c1bb' # base02
+light-black      = '#c0aca4' # base03
 light-red        = '#a75045' # base08
 light-yellow     = '#ce943e' # base0A
 light-green      = '#7a894a' # base0B

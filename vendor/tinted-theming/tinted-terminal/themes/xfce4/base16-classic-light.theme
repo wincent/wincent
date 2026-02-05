@@ -5,6 +5,6 @@
 Name=base16-classic-light
 ColorForeground=#303030
 ColorBackground=#f5f5f5
-ColorCursor=x
+ColorCursor=#303030
 ColorBoldIsBright=FALSE
-ColorPalette=#e0e0e0;#ac4142;#90a959;#f4bf75;#6a9fb5;#aa759f;#75b5aa;#202020;#d0d0d0;#ac4142;#90a959;#f4bf75;#6a9fb5;#aa759f;#75b5aa;#151515
+ColorPalette=#f5f5f5;#ac4142;#90a959;#f4bf75;#6a9fb5;#aa759f;#75b5aa;#303030;#b0b0b0;#ac4142;#90a959;#f4bf75;#6a9fb5;#aa759f;#75b5aa;#151515

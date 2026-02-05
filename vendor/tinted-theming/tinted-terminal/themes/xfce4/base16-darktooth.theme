@@ -5,6 +5,6 @@
 Name=base16-darktooth
 ColorForeground=#a89984
 ColorBackground=#1d2021
-ColorCursor=x
+ColorCursor=#a89984
 ColorBoldIsBright=FALSE
-ColorPalette=#32302f;#fb543f;#95c085;#fac03b;#0d6678;#8f4673;#8ba59b;#d5c4a1;#504945;#fb543f;#95c085;#fac03b;#0d6678;#8f4673;#8ba59b;#fdf4c1
+ColorPalette=#1d2021;#fb543f;#95c085;#fac03b;#0d6678;#8f4673;#8ba59b;#a89984;#665c54;#fb543f;#95c085;#fac03b;#0d6678;#8f4673;#8ba59b;#fdf4c1

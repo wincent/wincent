@@ -2,8 +2,8 @@
 # Color scheme: Rosé Pine by Emilia Dunfelt &lt;edun@dunfelt.se&gt;
 
 [colors]
-selection-background = '#26233a' # base02
-selection-foreground = '#e0def4' # base05
+selection-background = '#e0def4' # base05
+selection-foreground = '#26233a' # base02
 
 cursor         = '#e0def4' # base05
 tabs           = '#1f1d2e' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#26233a' # base02
 
 background     = '#191724' # base00
 foreground     = '#e0def4' # base05
-black          = '#1f1d2e' # base01
+black          = '#191724' # base00
 red            = '#eb6f92' # base08
 yellow         = '#ebbcba' # base0A
 green          = '#31748f' # base0B
 cyan           = '#9ccfd8' # base0C
 blue           = '#c4a7e7' # base0D
 magenta        = '#f6c177' # base0E
-white          = '#e0def4' # base06
+white          = '#e0def4' # base05
 
 dim-foreground   = '#e0def4' # base05
 dim-black        = '#1f1d2e' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#f6c177' # base0E
 dim-white        = '#908caa' # base04
 
 light-foreground = '#e0def4' # base05
-light-black      = '#26233a' # base02
+light-black      = '#6e6a86' # base03
 light-red        = '#eb6f92' # base08
 light-yellow     = '#ebbcba' # base0A
 light-green      = '#31748f' # base0B

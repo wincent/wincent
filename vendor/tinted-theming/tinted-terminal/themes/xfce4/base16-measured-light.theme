@@ -5,6 +5,6 @@
 Name=base16-measured-light
 ColorForeground=#292929
 ColorBackground=#fdf9f5
-ColorCursor=x
+ColorCursor=#292929
 ColorBoldIsBright=FALSE
-ColorPalette=#f9f5f1;#ac1f35;#0c680c;#645a00;#0158ad;#6645c2;#01716f;#181818;#ffeada;#ac1f35;#0c680c;#645a00;#0158ad;#6645c2;#01716f;#000000
+ColorPalette=#fdf9f5;#ac1f35;#0c680c;#645a00;#0158ad;#6645c2;#01716f;#292929;#5a5a5a;#ac1f35;#0c680c;#645a00;#0158ad;#6645c2;#01716f;#000000

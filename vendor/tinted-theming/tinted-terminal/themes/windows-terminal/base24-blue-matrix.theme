@@ -3,9 +3,9 @@
 	"name": "Blue Matrix",
 	"foreground": "#afafaf",
 	"background": "#0f1115",
-	"black": "#101116",
+	"black": "#0f1115",
 	"blue": "#00b0fe",
-	"brightBlack": "#676767",
+	"brightBlack": "#7f7f7f",
 	"brightBlue": "#6871ff",
 	"brightCyan": "#5ffdff",
 	"brightGreen": "#5ff967",
@@ -17,6 +17,6 @@
 	"green": "#00ff9b",
 	"purple": "#d47bfe",
 	"red": "#ff567f",
-	"white": "#c7c7c7",
-	"yellow": "#fefc57"
+	"white": "#afafaf",
+	"yellow": "#6871ff"
 },

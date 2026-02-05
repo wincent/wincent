@@ -23,7 +23,7 @@ mime = "application/{,g}zip"
 run  = "lsar"
 
 [[plugin.prepend_previewers]]
-mime = "application/x-{tar,bzip*,7z-compressed,xz,rar}"
+mime = "application/{tar,bzip*,7z*,xz,rar}"
 run  = "lsar"
 ```
 

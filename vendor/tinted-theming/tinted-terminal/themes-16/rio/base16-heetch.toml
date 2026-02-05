@@ -2,8 +2,8 @@
 # Color scheme: Heetch Dark by Geoffrey Teale (tealeg@gmail.com)
 
 [colors]
-selection-background = '#5a496e' # base02
-selection-foreground = '#bdb6c5' # base05
+selection-background = '#bdb6c5' # base05
+selection-foreground = '#5a496e' # base02
 
 cursor         = '#bdb6c5' # base05
 tabs           = '#392551' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#5a496e' # base02
 
 background     = '#190134' # base00
 foreground     = '#bdb6c5' # base05
-black          = '#392551' # base01
+black          = '#190134' # base00
 red            = '#27d9d5' # base08
 yellow         = '#8f6c97' # base0A
 green          = '#c33678' # base0B
 cyan           = '#f80059' # base0C
 blue           = '#bd0152' # base0D
 magenta        = '#82034c' # base0E
-white          = '#dedae2' # base06
+white          = '#bdb6c5' # base05
 
 dim-foreground   = '#bdb6c5' # base05
 dim-black        = '#392551' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#82034c' # base0E
 dim-white        = '#9c92a8' # base04
 
 light-foreground = '#bdb6c5' # base05
-light-black      = '#5a496e' # base02
+light-black      = '#7b6d8b' # base03
 light-red        = '#27d9d5' # base08
 light-yellow     = '#8f6c97' # base0A
 light-green      = '#c33678' # base0B

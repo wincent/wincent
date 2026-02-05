@@ -5,6 +5,6 @@
 Name=base16-materia
 ColorForeground=#cdd3de
 ColorBackground=#263238
-ColorCursor=x
+ColorCursor=#cdd3de
 ColorBoldIsBright=FALSE
-ColorPalette=#2c393f;#ec5f67;#8bd649;#ffcc00;#89ddff;#82aaff;#80cbc4;#d5dbe5;#37474f;#ec5f67;#8bd649;#ffcc00;#89ddff;#82aaff;#80cbc4;#ffffff
+ColorPalette=#263238;#ec5f67;#8bd649;#ffcc00;#89ddff;#82aaff;#80cbc4;#cdd3de;#707880;#ec5f67;#8bd649;#ffcc00;#89ddff;#82aaff;#80cbc4;#ffffff

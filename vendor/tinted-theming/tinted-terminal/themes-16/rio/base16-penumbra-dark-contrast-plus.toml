@@ -2,8 +2,8 @@
 # Color scheme: Penumbra Dark Contrast Plus by Zachary Weiss (https://github.com/zacharyweiss)
 
 [colors]
-selection-background = '#3e4044' # base02
-selection-foreground = '#cecece' # base05
+selection-background = '#cecece' # base05
+selection-foreground = '#3e4044' # base02
 
 cursor         = '#cecece' # base05
 tabs           = '#24272b' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#3e4044' # base02
 
 background     = '#181b1f' # base00
 foreground     = '#cecece' # base05
-black          = '#24272b' # base01
+black          = '#181b1f' # base00
 red            = '#df7f78' # base08
 yellow         = '#9ca748' # base0A
 green          = '#50b584' # base0B
 cyan           = '#00b3c2' # base0C
 blue           = '#61a3e6' # base0D
 magenta        = '#a48fe1' # base0E
-white          = '#fff7ed' # base06
+white          = '#cecece' # base05
 
 dim-foreground   = '#cecece' # base05
 dim-black        = '#24272b' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#a48fe1' # base0E
 dim-white        = '#9e9e9e' # base04
 
 light-foreground = '#cecece' # base05
-light-black      = '#3e4044' # base02
+light-black      = '#636363' # base03
 light-red        = '#df7f78' # base08
 light-yellow     = '#9ca748' # base0A
 light-green      = '#50b584' # base0B

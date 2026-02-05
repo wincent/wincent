@@ -5,6 +5,6 @@
 Name=base16-sakura
 ColorForeground=#564448
 ColorBackground=#feedf3
-ColorCursor=x
+ColorCursor=#564448
 ColorBoldIsBright=FALSE
-ColorPalette=#f8e2e7;#df2d52;#2e916d;#c29461;#006e93;#5e2180;#1d8991;#42383a;#e0ccd1;#df2d52;#2e916d;#c29461;#006e93;#5e2180;#1d8991;#33292b
+ColorPalette=#feedf3;#df2d52;#2e916d;#c29461;#006e93;#5e2180;#1d8991;#564448;#755f64;#df2d52;#2e916d;#c29461;#006e93;#5e2180;#1d8991;#33292b

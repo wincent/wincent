@@ -3,9 +3,9 @@
 	"name": "Eighties",
 	"foreground": "#d3d0c8",
 	"background": "#2d2d2d",
-	"black": "#393939",
+	"black": "#2d2d2d",
 	"blue": "#6699cc",
-	"brightBlack": "#515151",
+	"brightBlack": "#747369",
 	"brightBlue": "#6699cc",
 	"brightCyan": "#66cccc",
 	"brightGreen": "#99cc99",
@@ -17,6 +17,6 @@
 	"green": "#99cc99",
 	"purple": "#cc99cc",
 	"red": "#f2777a",
-	"white": "#e8e6df",
-	"yellow": "#f99157"
+	"white": "#d3d0c8",
+	"yellow": "#ffcc66"
 },

@@ -651,6 +651,24 @@ Return ~
 `(nil)` Nothing is returned.
 
 ------------------------------------------------------------------------------
+                                                  *MiniExtra.pickers.manpages()*
+               `MiniExtra.pickers.manpages`({local_opts}, {opts})
+Manual pages
+
+Pick manual page (like described in |ft-man-plugin|).
+Notes:
+- Depends on |:Man| command to preview and choose items.
+- Shows page in the target window. Use |MiniPick-actions-choose| to split.
+
+Parameters ~
+{local_opts} `(table|nil)` Options defining behavior of this particular picker.
+  Not used at the moment.
+{opts} `(table|nil)` Options forwarded to |MiniPick.start()|.
+
+Return ~
+`(any)` Output of the called picker.
+
+------------------------------------------------------------------------------
                                                      *MiniExtra.pickers.marks()*
                 `MiniExtra.pickers.marks`({local_opts}, {opts})
 Neovim marks picker

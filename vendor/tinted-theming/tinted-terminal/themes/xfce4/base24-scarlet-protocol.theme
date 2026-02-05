@@ -5,6 +5,6 @@
 Name=base24-scarlet-protocol
 ColorForeground=#afafaf
 ColorBackground=#1b153c
-ColorCursor=x
+ColorCursor=#afafaf
 ColorBoldIsBright=FALSE
-ColorPalette=#101116;#ff0051;#00dc84;#6871ff;#0271b6;#c930c7;#00c5c7;#c7c7c7;#676767;#ff6d67;#5ff967;#fefb67;#6871ff;#bc35eb;#5ffdff;#feffff
+ColorPalette=#1b153c;#ff0051;#00dc84;#6871ff;#0271b6;#c930c7;#00c5c7;#afafaf;#7f7f7f;#ff6d67;#5ff967;#fefb67;#6871ff;#bc35eb;#5ffdff;#feffff

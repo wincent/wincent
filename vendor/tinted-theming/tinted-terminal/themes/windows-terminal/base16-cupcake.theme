@@ -3,9 +3,9 @@
 	"name": "Cupcake",
 	"foreground": "#8b8198",
 	"background": "#fbf1f2",
-	"black": "#f2f1f4",
+	"black": "#fbf1f2",
 	"blue": "#7297b9",
-	"brightBlack": "#d8d5dd",
+	"brightBlack": "#bfb9c6",
 	"brightBlue": "#7297b9",
 	"brightCyan": "#69a9a7",
 	"brightGreen": "#a3b367",
@@ -17,6 +17,6 @@
 	"green": "#a3b367",
 	"purple": "#bb99b4",
 	"red": "#d57e85",
-	"white": "#72677e",
-	"yellow": "#ebb790"
+	"white": "#8b8198",
+	"yellow": "#dcb16c"
 },

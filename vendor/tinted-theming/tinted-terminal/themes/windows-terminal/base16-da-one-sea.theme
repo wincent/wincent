@@ -3,9 +3,9 @@
 	"name": "Da One Sea",
 	"foreground": "#ffffff",
 	"background": "#22273d",
-	"black": "#374059",
+	"black": "#22273d",
 	"blue": "#6bb8ff",
-	"brightBlack": "#525866",
+	"brightBlack": "#878d96",
 	"brightBlue": "#6bb8ff",
 	"brightCyan": "#8af5ff",
 	"brightGreen": "#98c379",
@@ -18,5 +18,5 @@
 	"purple": "#e799ff",
 	"red": "#fa7883",
 	"white": "#ffffff",
-	"yellow": "#ffc387"
+	"yellow": "#ff9470"
 },

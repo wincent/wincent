@@ -2,8 +2,8 @@
 # Color scheme: dirtysea by Kahlil (Kal) Hodgson
 
 [colors]
-selection-background = '#d0d0d0' # base02
-selection-foreground = '#000000' # base05
+selection-background = '#000000' # base05
+selection-foreground = '#d0d0d0' # base02
 
 cursor         = '#000000' # base05
 tabs           = '#d0dad0' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#d0d0d0' # base02
 
 background     = '#e0e0e0' # base00
 foreground     = '#000000' # base05
-black          = '#d0dad0' # base01
+black          = '#e0e0e0' # base00
 red            = '#840000' # base08
 yellow         = '#755b00' # base0A
 green          = '#730073' # base0B
 cyan           = '#755b00' # base0C
 blue           = '#007300' # base0D
 magenta        = '#000090' # base0E
-white          = '#f8f8f8' # base06
+white          = '#000000' # base05
 
 dim-foreground   = '#000000' # base05
 dim-black        = '#d0dad0' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#000090' # base0E
 dim-white        = '#202020' # base04
 
 light-foreground = '#000000' # base05
-light-black      = '#d0d0d0' # base02
+light-black      = '#707070' # base03
 light-red        = '#840000' # base08
 light-yellow     = '#755b00' # base0A
 light-green      = '#730073' # base0B

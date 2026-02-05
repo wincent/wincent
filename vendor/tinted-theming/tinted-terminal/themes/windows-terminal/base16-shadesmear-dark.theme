@@ -3,9 +3,9 @@
 	"name": "ShadeSmear Dark",
 	"foreground": "#dbdbdb",
 	"background": "#232323",
-	"black": "#1c1c1c",
+	"black": "#232323",
 	"blue": "#376388",
-	"brightBlack": "#4e4e4e",
+	"brightBlack": "#c0c0c0",
 	"brightBlue": "#376388",
 	"brightCyan": "#c57d42",
 	"brightGreen": "#71983b",
@@ -17,6 +17,6 @@
 	"green": "#71983b",
 	"purple": "#d7ab54",
 	"red": "#cc5450",
-	"white": "#e4e4e4",
-	"yellow": "#a64270"
+	"white": "#dbdbdb",
+	"yellow": "#307878"
 },

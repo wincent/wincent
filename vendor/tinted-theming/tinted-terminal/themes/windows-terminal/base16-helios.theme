@@ -3,9 +3,9 @@
 	"name": "Helios",
 	"foreground": "#d5d5d5",
 	"background": "#1d2021",
-	"black": "#383c3e",
+	"black": "#1d2021",
 	"blue": "#1e8bac",
-	"brightBlack": "#53585b",
+	"brightBlack": "#6f7579",
 	"brightBlue": "#1e8bac",
 	"brightCyan": "#1ba595",
 	"brightGreen": "#88b92d",
@@ -17,6 +17,6 @@
 	"green": "#88b92d",
 	"purple": "#be4264",
 	"red": "#d72638",
-	"white": "#dddddd",
-	"yellow": "#eb8413"
+	"white": "#d5d5d5",
+	"yellow": "#f19d1a"
 },

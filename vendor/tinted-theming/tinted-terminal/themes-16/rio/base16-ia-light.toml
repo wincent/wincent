@@ -2,8 +2,8 @@
 # Color scheme: iA Light by iA Inc. (modified by aramisgithub)
 
 [colors]
-selection-background = '#bde5f2' # base02
-selection-foreground = '#181818' # base05
+selection-background = '#181818' # base05
+selection-foreground = '#bde5f2' # base02
 
 cursor         = '#181818' # base05
 tabs           = '#dedede' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#bde5f2' # base02
 
 background     = '#f6f6f6' # base00
 foreground     = '#181818' # base05
-black          = '#dedede' # base01
+black          = '#f6f6f6' # base00
 red            = '#9c5a02' # base08
 yellow         = '#c48218' # base0A
 green          = '#38781c' # base0B
 cyan           = '#2d6bb1' # base0C
 blue           = '#48bac2' # base0D
 magenta        = '#a94598' # base0E
-white          = '#e8e8e8' # base06
+white          = '#181818' # base05
 
 dim-foreground   = '#181818' # base05
 dim-black        = '#dedede' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#a94598' # base0E
 dim-white        = '#767676' # base04
 
 light-foreground = '#181818' # base05
-light-black      = '#bde5f2' # base02
+light-black      = '#898989' # base03
 light-red        = '#9c5a02' # base08
 light-yellow     = '#c48218' # base0A
 light-green      = '#38781c' # base0B

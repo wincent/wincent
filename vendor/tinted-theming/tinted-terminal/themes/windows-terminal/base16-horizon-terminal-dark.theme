@@ -3,9 +3,9 @@
 	"name": "Horizon Terminal Dark",
 	"foreground": "#cbced0",
 	"background": "#1c1e26",
-	"black": "#232530",
+	"black": "#1c1e26",
 	"blue": "#26bbd9",
-	"brightBlack": "#2e303e",
+	"brightBlack": "#6f6f70",
 	"brightBlue": "#26bbd9",
 	"brightCyan": "#59e1e3",
 	"brightGreen": "#29d398",
@@ -17,6 +17,6 @@
 	"green": "#29d398",
 	"purple": "#ee64ac",
 	"red": "#e95678",
-	"white": "#dcdfe4",
-	"yellow": "#fab795"
+	"white": "#cbced0",
+	"yellow": "#fac29a"
 },

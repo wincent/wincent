@@ -5,6 +5,6 @@
 Name=base24-jet-brains-darcula
 ColorForeground=#979797
 ColorBackground=#202020
-ColorCursor=x
+ColorCursor=#979797
 ColorBoldIsBright=FALSE
-ColorPalette=#000000;#fa5355;#126e00;#6d9df1;#4581eb;#fa54ff;#33c2c1;#adadad;#555555;#fb7172;#67ff4f;#ffff00;#6d9df1;#fb82ff;#60d3d1;#eeeeee
+ColorPalette=#202020;#fa5355;#126e00;#6d9df1;#4581eb;#fa54ff;#33c2c1;#979797;#6b6b6b;#fb7172;#67ff4f;#ffff00;#6d9df1;#fb82ff;#60d3d1;#eeeeee

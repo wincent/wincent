@@ -2,8 +2,8 @@
 # Color scheme: Bright by Chris Kempson (http://chriskempson.com)
 
 [colors]
-selection-background = '#505050' # base02
-selection-foreground = '#e0e0e0' # base05
+selection-background = '#e0e0e0' # base05
+selection-foreground = '#505050' # base02
 
 cursor         = '#e0e0e0' # base05
 tabs           = '#303030' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#505050' # base02
 
 background     = '#000000' # base00
 foreground     = '#e0e0e0' # base05
-black          = '#303030' # base01
+black          = '#000000' # base00
 red            = '#fb0120' # base08
 yellow         = '#fda331' # base0A
 green          = '#a1c659' # base0B
 cyan           = '#76c7b7' # base0C
 blue           = '#6fb3d2' # base0D
 magenta        = '#d381c3' # base0E
-white          = '#f5f5f5' # base06
+white          = '#e0e0e0' # base05
 
 dim-foreground   = '#e0e0e0' # base05
 dim-black        = '#303030' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#d381c3' # base0E
 dim-white        = '#d0d0d0' # base04
 
 light-foreground = '#e0e0e0' # base05
-light-black      = '#505050' # base02
+light-black      = '#b0b0b0' # base03
 light-red        = '#fb0120' # base08
 light-yellow     = '#fda331' # base0A
 light-green      = '#a1c659' # base0B

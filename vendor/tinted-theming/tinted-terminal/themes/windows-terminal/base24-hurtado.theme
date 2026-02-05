@@ -3,9 +3,9 @@
 	"name": "Hurtado",
 	"foreground": "#a1a1a1",
 	"background": "#000000",
-	"black": "#575757",
+	"black": "#000000",
 	"blue": "#486387",
-	"brightBlack": "#252525",
+	"brightBlack": "#4e4e4e",
 	"brightBlue": "#89bdff",
 	"brightCyan": "#85e9fe",
 	"brightGreen": "#a5df55",
@@ -17,6 +17,6 @@
 	"green": "#a5df55",
 	"purple": "#fc5ef0",
 	"red": "#ff1b00",
-	"white": "#cbcbcb",
-	"yellow": "#fbe74a"
+	"white": "#a1a1a1",
+	"yellow": "#89bdff"
 },

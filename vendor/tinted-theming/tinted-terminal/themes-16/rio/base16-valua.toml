@@ -2,8 +2,8 @@
 # Color scheme: Valua by Nonetrix (https://github.com/nonetrix)
 
 [colors]
-selection-background = '#273d3c' # base02
-selection-foreground = '#98c1a3' # base05
+selection-background = '#98c1a3' # base05
+selection-foreground = '#273d3c' # base02
 
 cursor         = '#98c1a3' # base05
 tabs           = '#213132' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#273d3c' # base02
 
 background     = '#131f1f' # base00
 foreground     = '#98c1a3' # base05
-black          = '#213132' # base01
+black          = '#131f1f' # base00
 red            = '#d7586e' # base08
 yellow         = '#dfe754' # base0A
 green          = '#59d678' # base0B
 cyan           = '#76dbd2' # base0C
 blue           = '#4ed2d2' # base0D
 magenta        = '#a874e0' # base0E
-white          = '#a5cbb9' # base06
+white          = '#98c1a3' # base05
 
 dim-foreground   = '#98c1a3' # base05
 dim-black        = '#213132' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#a874e0' # base0E
 dim-white        = '#6d9877' # base04
 
 light-foreground = '#98c1a3' # base05
-light-black      = '#273d3c' # base02
+light-black      = '#3e5c53' # base03
 light-red        = '#d7586e' # base08
 light-yellow     = '#dfe754' # base0A
 light-green      = '#59d678' # base0B

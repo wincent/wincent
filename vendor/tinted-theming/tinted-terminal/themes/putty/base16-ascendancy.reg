@@ -37,13 +37,13 @@ washed out overexposure.
 
 ; ANSI Black
 ; 30m
-; base01 #212f3d
-"Colour6"="33,47,61"
+; base00 #282828
+"Colour6"="40,40,40"
 
 ; ANSI Black Bright
 ; 1;30m
-; base02 #504945
-"Colour7"="80,73,69"
+; base03 #928374
+"Colour7"="146,131,116"
 
 ; ANSI Red
 ; 31m
@@ -107,8 +107,8 @@ washed out overexposure.
 
 ; ANSI White
 ; 37m
-; base06 #ebdbb2
-"Colour20"="235,219,178"
+; base05 #d5c7a1
+"Colour20"="213,199,161"
 
 ; ANSI White Bright
 ; 1;37m

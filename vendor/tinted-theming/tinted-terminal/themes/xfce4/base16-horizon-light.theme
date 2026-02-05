@@ -5,6 +5,6 @@
 Name=base16-horizon-light
 ColorForeground=#403c3d
 ColorBackground=#fdf0ed
-ColorCursor=x
+ColorCursor=#403c3d
 ColorBoldIsBright=FALSE
-ColorPalette=#fadad1;#f7939b;#94e1b0;#fbe0d9;#da103f;#1d8991;#dc3318;#302c2d;#f9cbbe;#f7939b;#94e1b0;#fbe0d9;#da103f;#1d8991;#dc3318;#201c1d
+ColorPalette=#fdf0ed;#f7939b;#94e1b0;#fbe0d9;#da103f;#1d8991;#dc3318;#403c3d;#bdb3b1;#f7939b;#94e1b0;#fbe0d9;#da103f;#1d8991;#dc3318;#201c1d

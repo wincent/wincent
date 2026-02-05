@@ -5,6 +5,6 @@
 Name=base16-moonlight
 ColorForeground=#a3ace1
 ColorBackground=#212337
-ColorCursor=x
+ColorCursor=#a3ace1
 ColorBoldIsBright=FALSE
-ColorPalette=#403c64;#ff5370;#2df4c0;#ffc777;#40ffff;#b994f1;#04d1f9;#b4a4f4;#596399;#ff5370;#2df4c0;#ffc777;#40ffff;#b994f1;#04d1f9;#ef43fa
+ColorPalette=#212337;#ff5370;#2df4c0;#ffc777;#40ffff;#b994f1;#04d1f9;#a3ace1;#748cd6;#ff5370;#2df4c0;#ffc777;#40ffff;#b994f1;#04d1f9;#ef43fa

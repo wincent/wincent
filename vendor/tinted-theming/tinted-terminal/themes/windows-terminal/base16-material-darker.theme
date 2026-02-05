@@ -3,9 +3,9 @@
 	"name": "Material Darker",
 	"foreground": "#eeffff",
 	"background": "#212121",
-	"black": "#303030",
+	"black": "#212121",
 	"blue": "#82aaff",
-	"brightBlack": "#353535",
+	"brightBlack": "#4a4a4a",
 	"brightBlue": "#82aaff",
 	"brightCyan": "#89ddff",
 	"brightGreen": "#c3e88d",
@@ -18,5 +18,5 @@
 	"purple": "#c792ea",
 	"red": "#f07178",
 	"white": "#eeffff",
-	"yellow": "#f78c6c"
+	"yellow": "#ffcb6b"
 },

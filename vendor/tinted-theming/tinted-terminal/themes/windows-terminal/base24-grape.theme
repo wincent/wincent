@@ -3,9 +3,9 @@
 	"name": "Grape",
 	"foreground": "#8c8a92",
 	"background": "#161423",
-	"black": "#2d283e",
+	"black": "#161423",
 	"blue": "#487cf4",
-	"brightBlack": "#58506a",
+	"brightBlack": "#696377",
 	"brightBlue": "#a9bbeb",
 	"brightCyan": "#9ce3ea",
 	"brightGreen": "#52a95d",
@@ -17,6 +17,6 @@
 	"green": "#1fa91b",
 	"purple": "#8c35c8",
 	"red": "#ec2160",
-	"white": "#9e9ea0",
-	"yellow": "#8ddc1f"
+	"white": "#8c8a92",
+	"yellow": "#a9bbeb"
 },

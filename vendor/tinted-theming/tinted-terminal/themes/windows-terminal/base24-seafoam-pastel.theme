@@ -3,9 +3,9 @@
 	"name": "Seafoam Pastel",
 	"foreground": "#cacaca",
 	"background": "#243434",
-	"black": "#757575",
+	"black": "#243434",
 	"blue": "#4d7b82",
-	"brightBlack": "#8a8a8a",
+	"brightBlack": "#9f9f9f",
 	"brightBlue": "#79c3cf",
 	"brightCyan": "#ade0e0",
 	"brightGreen": "#98d9aa",
@@ -17,6 +17,6 @@
 	"green": "#718c61",
 	"purple": "#8a7167",
 	"red": "#825d4d",
-	"white": "#e0e0e0",
-	"yellow": "#ada16d"
+	"white": "#cacaca",
+	"yellow": "#79c3cf"
 },

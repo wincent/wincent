@@ -3,9 +3,9 @@
 	"name": "Space Gray Eighties",
 	"foreground": "#c7c6c2",
 	"background": "#212121",
-	"black": "#15171c",
+	"black": "#212121",
 	"blue": "#5485c0",
-	"brightBlack": "#555555",
+	"brightBlack": "#7b7a79",
 	"brightBlue": "#4d83d0",
 	"brightCyan": "#83e8e4",
 	"brightGreen": "#93d393",
@@ -17,6 +17,6 @@
 	"green": "#80a763",
 	"purple": "#bf83c0",
 	"red": "#ec5f67",
-	"white": "#eeece7",
-	"yellow": "#fdc253"
+	"white": "#c7c6c2",
+	"yellow": "#4d83d0"
 },

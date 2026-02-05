@@ -5,6 +5,6 @@
 Name=base24-ubuntu
 ColorForeground=#b3b7b0
 ColorBackground=#300a24
-ColorCursor=x
+ColorCursor=#b3b7b0
 ColorBoldIsBright=FALSE
-ColorPalette=#2e3436;#cc0000;#4e9a06;#729fcf;#3465a4;#75507b;#06989a;#d3d7cf;#555753;#ef2929;#8ae234;#fce94f;#729fcf;#ad7fa8;#34e2e2;#eeeeec
+ColorPalette=#300a24;#cc0000;#4e9a06;#729fcf;#3465a4;#75507b;#06989a;#b3b7b0;#747772;#ef2929;#8ae234;#fce94f;#729fcf;#ad7fa8;#34e2e2;#eeeeec

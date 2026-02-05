@@ -3,9 +3,9 @@
 	"name": "Purple Rain",
 	"foreground": "#d3d4d4",
 	"background": "#20084a",
-	"black": "#000000",
+	"black": "#20084a",
 	"blue": "#00a1f9",
-	"brightBlack": "#555555",
+	"brightBlack": "#7f7f7f",
 	"brightBlue": "#00a5ff",
 	"brightCyan": "#74fcf3",
 	"brightGreen": "#b8e36d",
@@ -17,6 +17,6 @@
 	"green": "#9ae204",
 	"purple": "#805bb5",
 	"red": "#ff260d",
-	"white": "#feffff",
-	"yellow": "#ffc400"
+	"white": "#d3d4d4",
+	"yellow": "#00a5ff"
 },

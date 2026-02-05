@@ -3,9 +3,9 @@
 	"name": "Atelier Heath",
 	"foreground": "#ab9bab",
 	"background": "#1b181b",
-	"black": "#292329",
+	"black": "#1b181b",
 	"blue": "#516aec",
-	"brightBlack": "#695d69",
+	"brightBlack": "#776977",
 	"brightBlue": "#516aec",
 	"brightCyan": "#159393",
 	"brightGreen": "#918b3b",
@@ -17,6 +17,6 @@
 	"green": "#918b3b",
 	"purple": "#7b59c0",
 	"red": "#ca402b",
-	"white": "#d8cad8",
-	"yellow": "#a65926"
+	"white": "#ab9bab",
+	"yellow": "#bb8a35"
 },

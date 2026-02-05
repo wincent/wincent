@@ -3,9 +3,9 @@
 	"name": "Moonlight",
 	"foreground": "#a3ace1",
 	"background": "#212337",
-	"black": "#403c64",
+	"black": "#212337",
 	"blue": "#40ffff",
-	"brightBlack": "#596399",
+	"brightBlack": "#748cd6",
 	"brightBlue": "#40ffff",
 	"brightCyan": "#04d1f9",
 	"brightGreen": "#2df4c0",
@@ -17,6 +17,6 @@
 	"green": "#2df4c0",
 	"purple": "#b994f1",
 	"red": "#ff5370",
-	"white": "#b4a4f4",
-	"yellow": "#f67f81"
+	"white": "#a3ace1",
+	"yellow": "#ffc777"
 },

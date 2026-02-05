@@ -2,8 +2,8 @@
 # Color scheme: Fun Forrest by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#7e6954' # base02
-selection-foreground = '#c5ab60' # base05
+selection-background = '#c5ab60' # base05
+selection-foreground = '#7e6954' # base02
 
 cursor         = '#c5ab60' # base05
 tabs           = '#000000' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#7e6954' # base02
 
 background     = '#241200' # base00
 foreground     = '#c5ab60' # base05
-black          = '#000000' # base01
+black          = '#241200' # base00
 red            = '#d5252b' # base08
 yellow         = '#7cc9ce' # base0A
 green          = '#909b00' # base0B
 cyan           = '#d98112' # base0C
 blue           = '#4698a2' # base0D
 magenta        = '#8c4231' # base0E
-white          = '#ddc165' # base06
+white          = '#c5ab60' # base05
 
 dim-foreground   = '#c5ab60' # base05
 dim-black        = '#000000' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#8c4231' # base0E
 dim-white        = '#ad955c' # base04
 
 light-foreground = '#c5ab60' # base05
-light-black      = '#7e6954' # base02
+light-black      = '#957f58' # base03
 light-red        = '#e4591b' # base12
 light-yellow     = '#ffca1b' # base13
 light-green      = '#bfc659' # base14

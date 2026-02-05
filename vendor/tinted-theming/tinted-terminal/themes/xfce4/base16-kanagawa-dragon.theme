@@ -1,10 +1,10 @@
 # Scheme name: Kanagawa Dragon
-# Scheme author: Tommaso Laurenzi (https://github.com/rebelot)
+# Scheme author: Stefan Weigl-Bosker (https://github.com/sweiglbosker), Tommaso Laurenzi (https://github.com/rebelot/kanagawa.nvim)
 # Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
 [Scheme]
 Name=base16-kanagawa-dragon
 ColorForeground=#c5c9c5
-ColorBackground=#0d0c0c
-ColorCursor=x
+ColorBackground=#181616
+ColorCursor=#c5c9c5
 ColorBoldIsBright=FALSE
-ColorPalette=#1d1c19;#c4746e;#87a987;#c4b28a;#8ba4b0;#8992a7;#8ea4a2;#7a8382;#282727;#c4746e;#87a987;#c4b28a;#8ba4b0;#8992a7;#8ea4a2;#c5c9c5
+ColorPalette=#181616;#c4746e;#8a9a7b;#c4b28a;#8ba4b0;#a292a3;#8ea4a2;#c5c9c5;#625e5a;#c4746e;#8a9a7b;#c4b28a;#8ba4b0;#a292a3;#8ea4a2;#c5c9c5

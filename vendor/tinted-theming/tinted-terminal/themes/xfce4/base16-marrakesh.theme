@@ -5,6 +5,6 @@
 Name=base16-marrakesh
 ColorForeground=#948e48
 ColorBackground=#201602
-ColorCursor=x
+ColorCursor=#948e48
 ColorBoldIsBright=FALSE
-ColorPalette=#302e00;#c35359;#18974e;#a88339;#477ca1;#8868b3;#75a738;#ccc37a;#5f5b17;#c35359;#18974e;#a88339;#477ca1;#8868b3;#75a738;#faf0a5
+ColorPalette=#201602;#c35359;#18974e;#a88339;#477ca1;#8868b3;#75a738;#948e48;#6c6823;#c35359;#18974e;#a88339;#477ca1;#8868b3;#75a738;#faf0a5

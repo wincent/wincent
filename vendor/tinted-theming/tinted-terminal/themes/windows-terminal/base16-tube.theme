@@ -3,9 +3,9 @@
 	"name": "London Tube",
 	"foreground": "#d9d8d8",
 	"background": "#231f20",
-	"black": "#1c3f95",
+	"black": "#231f20",
 	"blue": "#009ddc",
-	"brightBlack": "#5a5758",
+	"brightBlack": "#737171",
 	"brightBlue": "#009ddc",
 	"brightCyan": "#85cebc",
 	"brightGreen": "#00853e",
@@ -17,6 +17,6 @@
 	"green": "#00853e",
 	"purple": "#98005d",
 	"red": "#ee2e24",
-	"white": "#e7e7e8",
-	"yellow": "#f386a1"
+	"white": "#d9d8d8",
+	"yellow": "#ffd204"
 },

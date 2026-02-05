@@ -5,6 +5,6 @@
 Name=base24-flat
 ColorForeground=#8c939a
 ColorBackground=#082845
-ColorCursor=x
+ColorCursor=#8c939a
 ColorBoldIsBright=FALSE
-ColorPalette=#1d2845;#a82320;#2d9440;#3c7dd2;#3167ac;#781aa0;#2c9370;#b0b6ba;#2e2e45;#d4312e;#32a548;#e5be0c;#3c7dd2;#8230a7;#35b387;#e7eced
+ColorPalette=#082845;#a82320;#2d9440;#3c7dd2;#3167ac;#781aa0;#2c9370;#8c939a;#444e5b;#d4312e;#32a548;#e5be0c;#3c7dd2;#8230a7;#35b387;#e7eced

@@ -3,9 +3,9 @@
 	"name": "Tokyodark Terminal",
 	"foreground": "#a0a8cd",
 	"background": "#11121d",
-	"black": "#1a1b2a",
+	"black": "#11121d",
 	"blue": "#7199ee",
-	"brightBlack": "#212234",
+	"brightBlack": "#282c34",
 	"brightBlue": "#7199ee",
 	"brightCyan": "#38a89d",
 	"brightGreen": "#95c561",
@@ -18,5 +18,5 @@
 	"purple": "#a485dd",
 	"red": "#ee6d85",
 	"white": "#a0a8cd",
-	"yellow": "#f6955b"
+	"yellow": "#d7a65f"
 },

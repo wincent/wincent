@@ -3,9 +3,9 @@
 	"name": "Silk Dark",
 	"foreground": "#c7dbdd",
 	"background": "#0e3c46",
-	"black": "#1d494e",
+	"black": "#0e3c46",
 	"blue": "#46bddd",
-	"brightBlack": "#2a5054",
+	"brightBlack": "#587073",
 	"brightBlue": "#46bddd",
 	"brightCyan": "#3fb2b9",
 	"brightGreen": "#73d8ad",
@@ -17,6 +17,6 @@
 	"green": "#73d8ad",
 	"purple": "#756b8a",
 	"red": "#fb6953",
-	"white": "#cbf2f7",
-	"yellow": "#fcab74"
+	"white": "#c7dbdd",
+	"yellow": "#fce380"
 },

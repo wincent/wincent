@@ -3,9 +3,9 @@
 	"name": "Precious Dark Fifteen",
 	"foreground": "#bab9b6",
 	"background": "#23262b",
-	"black": "#303337",
+	"black": "#23262b",
 	"blue": "#66b0ef",
-	"brightBlack": "#3e4044",
+	"brightBlack": "#898989",
 	"brightBlue": "#66b0ef",
 	"brightCyan": "#42bda7",
 	"brightGreen": "#95b659",
@@ -18,5 +18,5 @@
 	"purple": "#b799ff",
 	"red": "#ff8782",
 	"white": "#bab9b6",
-	"yellow": "#e99857"
+	"yellow": "#cfa546"
 },

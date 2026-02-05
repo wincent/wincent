@@ -2,8 +2,8 @@
 # Color scheme: Tango Adapted by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#dcdcdc' # base02
-selection-foreground = '#4f4f4f' # base05
+selection-background = '#4f4f4f' # base05
+selection-foreground = '#dcdcdc' # base02
 
 cursor         = '#4f4f4f' # base05
 tabs           = '#f1f1f1' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#dcdcdc' # base02
 
 background     = '#feffff' # base00
 foreground     = '#4f4f4f' # base05
-black          = '#f1f1f1' # base01
+black          = '#feffff' # base00
 red            = '#ff0000' # base08
 yellow         = '#efca00' # base0A
 green          = '#59d500' # base0B
 cyan           = '#00d0d6' # base0C
 blue           = '#00a1ff' # base0D
 magenta        = '#c17ecb' # base0E
-white          = '#323232' # base06
+white          = '#4f4f4f' # base05
 
 dim-foreground   = '#4f4f4f' # base05
 dim-black        = '#f1f1f1' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#c17ecb' # base0E
 dim-white        = '#757575' # base04
 
 light-foreground = '#4f4f4f' # base05
-light-black      = '#dcdcdc' # base02
+light-black      = '#cccccc' # base03
 light-red        = '#ff0012' # base12
 light-yellow     = '#fff021' # base13
 light-green      = '#93fe00' # base14

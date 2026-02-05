@@ -5,6 +5,6 @@
 Name=base16-tokyo-night-terminal-storm
 ColorForeground=#787c99
 ColorBackground=#24283b
-ColorCursor=x
+ColorCursor=#787c99
 ColorBoldIsBright=FALSE
-ColorPalette=#1a1b26;#f7768e;#41a6b5;#e0af68;#7aa2f7;#bb9af7;#7dcfff;#cbccd1;#343a52;#f7768e;#41a6b5;#e0af68;#7aa2f7;#bb9af7;#7dcfff;#d5d6db
+ColorPalette=#24283b;#f7768e;#41a6b5;#e0af68;#7aa2f7;#bb9af7;#7dcfff;#787c99;#444b6a;#f7768e;#41a6b5;#e0af68;#7aa2f7;#bb9af7;#7dcfff;#d5d6db

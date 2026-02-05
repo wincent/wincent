@@ -2,8 +2,8 @@
 # Color scheme: OceanicNext by https://github.com/voronianski/oceanic-next-color-scheme
 
 [colors]
-selection-background = '#4f5b66' # base02
-selection-foreground = '#c0c5ce' # base05
+selection-background = '#c0c5ce' # base05
+selection-foreground = '#4f5b66' # base02
 
 cursor         = '#c0c5ce' # base05
 tabs           = '#343d46' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#4f5b66' # base02
 
 background     = '#1b2b34' # base00
 foreground     = '#c0c5ce' # base05
-black          = '#343d46' # base01
+black          = '#1b2b34' # base00
 red            = '#ec5f67' # base08
 yellow         = '#fac863' # base0A
 green          = '#99c794' # base0B
 cyan           = '#5fb3b3' # base0C
 blue           = '#6699cc' # base0D
 magenta        = '#c594c5' # base0E
-white          = '#cdd3de' # base06
+white          = '#c0c5ce' # base05
 
 dim-foreground   = '#c0c5ce' # base05
 dim-black        = '#343d46' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#c594c5' # base0E
 dim-white        = '#a7adba' # base04
 
 light-foreground = '#c0c5ce' # base05
-light-black      = '#4f5b66' # base02
+light-black      = '#65737e' # base03
 light-red        = '#ec5f67' # base08
 light-yellow     = '#fac863' # base0A
 light-green      = '#99c794' # base0B

@@ -5,6 +5,6 @@
 Name=base16-gruvbox-material-light-soft
 ColorForeground=#654735
 ColorBackground=#f2e5bc
-ColorCursor=x
+ColorCursor=#654735
 ColorBoldIsBright=FALSE
-ColorPalette=#ebdbb2;#c14a4a;#6c782e;#b47109;#45707a;#945e80;#4c7a5d;#3c3836;#c9b99a;#c14a4a;#6c782e;#b47109;#45707a;#945e80;#4c7a5d;#282828
+ColorPalette=#f2e5bc;#c14a4a;#6c782e;#b47109;#45707a;#945e80;#4c7a5d;#654735;#a89984;#c14a4a;#6c782e;#b47109;#45707a;#945e80;#4c7a5d;#282828

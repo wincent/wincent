@@ -2,8 +2,8 @@
 # Color scheme: Gruvbox Material Light, Medium by Mayush Kumar (https://github.com/MayushKumar), sainnhe (https://github.com/sainnhe/gruvbox-material-vscode)
 
 [colors]
-selection-background = '#d5c4a1' # base02
-selection-foreground = '#654735' # base05
+selection-background = '#654735' # base05
+selection-foreground = '#d5c4a1' # base02
 
 cursor         = '#654735' # base05
 tabs           = '#f2e5bc' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#d5c4a1' # base02
 
 background     = '#fbf1c7' # base00
 foreground     = '#654735' # base05
-black          = '#f2e5bc' # base01
+black          = '#fbf1c7' # base00
 red            = '#c14a4a' # base08
 yellow         = '#b47109' # base0A
 green          = '#6c782e' # base0B
 cyan           = '#4c7a5d' # base0C
 blue           = '#45707a' # base0D
 magenta        = '#945e80' # base0E
-white          = '#3c3836' # base06
+white          = '#654735' # base05
 
 dim-foreground   = '#654735' # base05
 dim-black        = '#f2e5bc' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#945e80' # base0E
 dim-white        = '#665c54' # base04
 
 light-foreground = '#654735' # base05
-light-black      = '#d5c4a1' # base02
+light-black      = '#bdae93' # base03
 light-red        = '#c14a4a' # base08
 light-yellow     = '#b47109' # base0A
 light-green      = '#6c782e' # base0B

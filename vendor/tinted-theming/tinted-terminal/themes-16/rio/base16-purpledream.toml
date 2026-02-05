@@ -2,8 +2,8 @@
 # Color scheme: Purpledream by malet
 
 [colors]
-selection-background = '#403040' # base02
-selection-foreground = '#ddd0dd' # base05
+selection-background = '#ddd0dd' # base05
+selection-foreground = '#403040' # base02
 
 cursor         = '#ddd0dd' # base05
 tabs           = '#302030' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#403040' # base02
 
 background     = '#100510' # base00
 foreground     = '#ddd0dd' # base05
-black          = '#302030' # base01
+black          = '#100510' # base00
 red            = '#ff1d0d' # base08
 yellow         = '#f000a0' # base0A
 green          = '#14cc64' # base0B
 cyan           = '#0075b0' # base0C
 blue           = '#00a0f0' # base0D
 magenta        = '#b000d0' # base0E
-white          = '#eee0ee' # base06
+white          = '#ddd0dd' # base05
 
 dim-foreground   = '#ddd0dd' # base05
 dim-black        = '#302030' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#b000d0' # base0E
 dim-white        = '#bbb0bb' # base04
 
 light-foreground = '#ddd0dd' # base05
-light-black      = '#403040' # base02
+light-black      = '#605060' # base03
 light-red        = '#ff1d0d' # base08
 light-yellow     = '#f000a0' # base0A
 light-green      = '#14cc64' # base0B

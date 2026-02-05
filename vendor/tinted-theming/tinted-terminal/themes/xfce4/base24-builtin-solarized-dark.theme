@@ -5,6 +5,6 @@
 Name=base24-builtin-solarized-dark
 ColorForeground=#b2b8ad
 ColorBackground=#002b36
-ColorCursor=x
+ColorCursor=#b2b8ad
 ColorBoldIsBright=FALSE
-ColorPalette=#073642;#dc322f;#859900;#839496;#268bd2;#d33682;#2aa198;#eee8d5;#002b36;#cb4b16;#586e75;#657b83;#839496;#6c71c4;#93a1a1;#fdf6e3
+ColorPalette=#002b36;#dc322f;#859900;#839496;#268bd2;#d33682;#2aa198;#b2b8ad;#3b5a5d;#cb4b16;#586e75;#657b83;#839496;#6c71c4;#93a1a1;#fdf6e3

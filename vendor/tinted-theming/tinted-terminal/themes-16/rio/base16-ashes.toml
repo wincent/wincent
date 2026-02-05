@@ -2,8 +2,8 @@
 # Color scheme: Ashes by Jannik Siebert (https://github.com/janniks)
 
 [colors]
-selection-background = '#565e65' # base02
-selection-foreground = '#c7ccd1' # base05
+selection-background = '#c7ccd1' # base05
+selection-foreground = '#565e65' # base02
 
 cursor         = '#c7ccd1' # base05
 tabs           = '#393f45' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#565e65' # base02
 
 background     = '#1c2023' # base00
 foreground     = '#c7ccd1' # base05
-black          = '#393f45' # base01
+black          = '#1c2023' # base00
 red            = '#c7ae95' # base08
 yellow         = '#aec795' # base0A
 green          = '#95c7ae' # base0B
 cyan           = '#95aec7' # base0C
 blue           = '#ae95c7' # base0D
 magenta        = '#c795ae' # base0E
-white          = '#dfe2e5' # base06
+white          = '#c7ccd1' # base05
 
 dim-foreground   = '#c7ccd1' # base05
 dim-black        = '#393f45' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#c795ae' # base0E
 dim-white        = '#adb3ba' # base04
 
 light-foreground = '#c7ccd1' # base05
-light-black      = '#565e65' # base02
+light-black      = '#747c84' # base03
 light-red        = '#c7ae95' # base08
 light-yellow     = '#aec795' # base0A
 light-green      = '#95c7ae' # base0B

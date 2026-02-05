@@ -8,13 +8,13 @@ Color=56,56,56
 Color=33,33,33
 
 [Color0]
-Color=21,23,28
+Color=33,33,33
 
 [Color0Faint]
 Color=33,33,33
 
 [Color0Intense]
-Color=85,85,85
+Color=108,109,112
 
 [Color1]
 Color=177,73,86
@@ -35,10 +35,10 @@ Color=145,179,119
 Color=136,233,133
 
 [Color3]
-Color=198,114,90
+Color=84,133,192
 
 [Color3Faint]
-Color=198,114,90
+Color=84,133,192
 
 [Color3Intense]
 Color=253,194,83
@@ -71,7 +71,7 @@ Color=127,204,203
 Color=88,194,192
 
 [Color7]
-Color=178,184,194
+Color=154,159,166
 
 [Color7Faint]
 Color=154,159,166
@@ -92,4 +92,3 @@ Color=178,184,194
 Blur=true
 Description=Space Gray Eighties Dull
 Opacity=0.95
-

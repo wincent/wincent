@@ -3,9 +3,9 @@
 	"name": "Atelier Lakeside Light",
 	"foreground": "#516d7b",
 	"background": "#ebf8ff",
-	"black": "#c1e4f6",
+	"black": "#ebf8ff",
 	"blue": "#257fad",
-	"brightBlack": "#7ea2b4",
+	"brightBlack": "#7195a8",
 	"brightBlue": "#257fad",
 	"brightCyan": "#2d8f6f",
 	"brightGreen": "#568c3b",
@@ -17,6 +17,6 @@
 	"green": "#568c3b",
 	"purple": "#6b6bb8",
 	"red": "#d22d72",
-	"white": "#1f292e",
-	"yellow": "#935c25"
+	"white": "#516d7b",
+	"yellow": "#8a8a0f"
 },

@@ -3,9 +3,9 @@
 	"name": "OceanicNext",
 	"foreground": "#c0c5ce",
 	"background": "#1b2b34",
-	"black": "#343d46",
+	"black": "#1b2b34",
 	"blue": "#6699cc",
-	"brightBlack": "#4f5b66",
+	"brightBlack": "#65737e",
 	"brightBlue": "#6699cc",
 	"brightCyan": "#5fb3b3",
 	"brightGreen": "#99c794",
@@ -17,6 +17,6 @@
 	"green": "#99c794",
 	"purple": "#c594c5",
 	"red": "#ec5f67",
-	"white": "#cdd3de",
-	"yellow": "#f99157"
+	"white": "#c0c5ce",
+	"yellow": "#fac863"
 },

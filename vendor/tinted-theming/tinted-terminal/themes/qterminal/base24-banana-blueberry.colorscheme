@@ -8,13 +8,13 @@ Color=48,54,64
 Color=25,19,34
 
 [Color0]
-Color=22,20,30
+Color=25,19,34
 
 [Color0Faint]
 Color=25,19,34
 
 [Color0Intense]
-Color=72,81,97
+Color=114,121,133
 
 [Color1]
 Color=255,106,126
@@ -35,10 +35,10 @@ Color=0,188,155
 Color=151,195,120
 
 [Color3]
-Color=229,198,47
+Color=145,255,243
 
 [Color3Faint]
-Color=229,198,47
+Color=145,255,243
 
 [Color3Intense]
 Color=249,228,106
@@ -71,7 +71,7 @@ Color=85,182,193
 Color=188,242,254
 
 [Color7]
-Color=241,241,241
+Color=198,201,205
 
 [Color7Faint]
 Color=198,201,205
@@ -92,4 +92,3 @@ Color=241,241,241
 Blur=true
 Description=Banana Blueberry
 Opacity=0.95
-

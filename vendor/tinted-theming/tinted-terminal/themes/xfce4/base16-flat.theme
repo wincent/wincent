@@ -5,6 +5,6 @@
 Name=base16-flat
 ColorForeground=#e0e0e0
 ColorBackground=#2c3e50
-ColorCursor=x
+ColorCursor=#e0e0e0
 ColorBoldIsBright=FALSE
-ColorPalette=#34495e;#e74c3c;#2ecc71;#f1c40f;#3498db;#9b59b6;#1abc9c;#f5f5f5;#7f8c8d;#e74c3c;#2ecc71;#f1c40f;#3498db;#9b59b6;#1abc9c;#ecf0f1
+ColorPalette=#2c3e50;#e74c3c;#2ecc71;#f1c40f;#3498db;#9b59b6;#1abc9c;#e0e0e0;#95a5a6;#e74c3c;#2ecc71;#f1c40f;#3498db;#9b59b6;#1abc9c;#ecf0f1

@@ -5,6 +5,6 @@
 Name=base24-mission-brogue
 ColorForeground=#93a5b4
 ColorBackground=#283139
-ColorCursor=x
+ColorCursor=#93a5b4
 ColorBoldIsBright=FALSE
-ColorPalette=#3b4954;#efa9a9;#8cd4b0;#e0b88a;#a2c5fd;#ccb7db;#93dfec;#abb9c4;#4d606f;#f6bfbf;#b5e090;#fff0b2;#c3d9fd;#e3c3e6;#b2f0fd;#e7ebee
+ColorPalette=#283139;#efa9a9;#8cd4b0;#e0b88a;#a2c5fd;#ccb7db;#93dfec;#93a5b4;#60778a;#f6bfbf;#b5e090;#fff0b2;#c3d9fd;#e3c3e6;#b2f0fd;#e7ebee

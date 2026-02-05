@@ -5,6 +5,6 @@
 Name=base16-spaceduck
 ColorForeground=#ecf0c1
 ColorBackground=#16172d
-ColorCursor=x
+ColorCursor=#ecf0c1
 ColorBoldIsBright=FALSE
-ColorPalette=#1b1c36;#e33400;#5ccc96;#f2ce00;#7a5ccc;#b3a1e6;#00a3cc;#c1c3cc;#30365f;#e33400;#5ccc96;#f2ce00;#7a5ccc;#b3a1e6;#00a3cc;#ffffff
+ColorPalette=#16172d;#e33400;#5ccc96;#f2ce00;#7a5ccc;#b3a1e6;#00a3cc;#ecf0c1;#686f9a;#e33400;#5ccc96;#f2ce00;#7a5ccc;#b3a1e6;#00a3cc;#ffffff

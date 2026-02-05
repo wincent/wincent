@@ -5,6 +5,6 @@
 Name=base16-decaf
 ColorForeground=#cccccc
 ColorBackground=#2d2d2d
-ColorCursor=x
+ColorCursor=#cccccc
 ColorBoldIsBright=FALSE
-ColorPalette=#393939;#ff7f7b;#beda78;#ffd67c;#90bee1;#efb3f7;#bed6ff;#e0e0e0;#515151;#ff7f7b;#beda78;#ffd67c;#90bee1;#efb3f7;#bed6ff;#ffffff
+ColorPalette=#2d2d2d;#ff7f7b;#beda78;#ffd67c;#90bee1;#efb3f7;#bed6ff;#cccccc;#777777;#ff7f7b;#beda78;#ffd67c;#90bee1;#efb3f7;#bed6ff;#ffffff

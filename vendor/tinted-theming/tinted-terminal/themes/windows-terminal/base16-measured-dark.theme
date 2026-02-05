@@ -3,9 +3,9 @@
 	"name": "Measured Dark",
 	"foreground": "#dcdcdc",
 	"background": "#00211f",
-	"black": "#003a38",
+	"black": "#00211f",
 	"blue": "#88b0da",
-	"brightBlack": "#005453",
+	"brightBlack": "#ababab",
 	"brightBlue": "#88b0da",
 	"brightCyan": "#62c0be",
 	"brightGreen": "#56c16f",
@@ -17,6 +17,6 @@
 	"green": "#56c16f",
 	"purple": "#b39be0",
 	"red": "#ce7e8e",
-	"white": "#efefef",
-	"yellow": "#dca37c"
+	"white": "#dcdcdc",
+	"yellow": "#bfac4e"
 },

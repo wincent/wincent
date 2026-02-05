@@ -8,13 +8,13 @@ Color=56,56,56
 Color=0,0,0
 
 [Color0]
-Color=135,135,135
+Color=0,0,0
 
 [Color0Faint]
 Color=0,0,0
 
 [Color0Intense]
-Color=85,85,85
+Color=125,125,125
 
 [Color1]
 Color=255,102,0
@@ -35,10 +35,10 @@ Color=204,255,4
 Color=0,255,0
 
 [Color3]
-Color=255,204,0
+Color=0,0,255
 
 [Color3Faint]
-Color=255,204,0
+Color=0,0,255
 
 [Color3Intense]
 Color=255,255,0
@@ -71,7 +71,7 @@ Color=68,179,204
 Color=0,255,255
 
 [Color7]
-Color=245,245,245
+Color=205,205,205
 
 [Color7Faint]
 Color=205,205,205
@@ -92,4 +92,3 @@ Color=245,245,245
 Blur=true
 Description=Vibrant Ink
 Opacity=0.95
-

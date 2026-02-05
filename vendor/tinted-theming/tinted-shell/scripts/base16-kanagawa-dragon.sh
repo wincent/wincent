@@ -1,19 +1,19 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
 # Scheme name: Kanagawa Dragon
-# Scheme author: Tommaso Laurenzi (https://github.com/rebelot)
+# Scheme author: Stefan Weigl-Bosker (https://github.com/sweiglbosker), Tommaso Laurenzi (https://github.com/rebelot/kanagawa.nvim)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE16_THEME=kanagawa-dragon
 
-color00="0d/0c/0c" # Base 00 - Black
+color00="18/16/16" # Base 00 - Black
 color01="c4/74/6e" # Base 08 - Red
-color02="87/a9/87" # Base 0B - Green
+color02="8a/9a/7b" # Base 0B - Green
 color03="c4/b2/8a" # Base 0A - Yellow
 color04="8b/a4/b0" # Base 0D - Blue
-color05="89/92/a7" # Base 0E - Magenta
+color05="a2/92/a3" # Base 0E - Magenta
 color06="8e/a4/a2" # Base 0C - Cyan
 color07="c5/c9/c5" # Base 05 - White
-color08="73/7c/73" # Base 03 - Bright Black
+color08="62/5e/5a" # Base 03 - Bright Black
 color09="$color01" # Base 08 - Bright Red
 color10="$color02" # Base 0B - Bright Green
 color11="$color03" # Base 0A - Bright Yellow
@@ -21,14 +21,14 @@ color12="$color04" # Base 0D - Bright Blue
 color13="$color05" # Base 0E - Bright Magenta
 color14="$color06" # Base 0C - Bright Cyan
 color15="c5/c9/c5" # Base 07 - Bright White
-color16="b9/8d/7b" # Base 09
-color17="a2/92/a3" # Base 0F
-color18="1d/1c/19" # Base 01
-color19="28/27/27" # Base 02
-color20="a6/a6/9c" # Base 04
-color21="7a/83/82" # Base 06
+color16="b6/92/7b" # Base 09
+color17="b9/8d/7b" # Base 0F
+color18="28/27/27" # Base 01
+color19="39/38/36" # Base 02
+color20="73/7c/73" # Base 04
+color21="c8/c0/93" # Base 06
 color_foreground="c5/c9/c5" # Base 05
-color_background="0d/0c/0c" # Base 00
+color_background="18/16/16" # Base 00
 
 if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
@@ -85,12 +85,12 @@ put_template 21 "$color21"
 if [ -n "$ITERM_SESSION_ID" ]; then
   # iTerm2 proprietary escape codes
   put_template_custom Pg c5c9c5 # foreground
-  put_template_custom Ph 0d0c0c # background
+  put_template_custom Ph 181616 # background
   put_template_custom Pi c5c9c5 # bold color
-  put_template_custom Pj 282727 # selection color
+  put_template_custom Pj 393836 # selection color
   put_template_custom Pk c5c9c5 # selected text color
   put_template_custom Pl c5c9c5 # cursor
-  put_template_custom Pm 0d0c0c # cursor text
+  put_template_custom Pm 181616 # cursor text
 else
   put_template_var 10 "$color_foreground"
   if [ "$BASE16_SHELL_SET_BACKGROUND" != false ]; then
@@ -133,20 +133,20 @@ unset color_background
 
 # Optionally export variables
 if [ -n "$TINTED_SHELL_ENABLE_BASE16_VARS" ] || [ -n "$BASE16_SHELL_ENABLE_VARS" ]; then
-  export BASE16_COLOR_00_HEX="0d0c0c"
-  export BASE16_COLOR_01_HEX="1d1c19"
-  export BASE16_COLOR_02_HEX="282727"
-  export BASE16_COLOR_03_HEX="737c73"
-  export BASE16_COLOR_04_HEX="a6a69c"
+  export BASE16_COLOR_00_HEX="181616"
+  export BASE16_COLOR_01_HEX="282727"
+  export BASE16_COLOR_02_HEX="393836"
+  export BASE16_COLOR_03_HEX="625e5a"
+  export BASE16_COLOR_04_HEX="737c73"
   export BASE16_COLOR_05_HEX="c5c9c5"
-  export BASE16_COLOR_06_HEX="7a8382"
+  export BASE16_COLOR_06_HEX="c8c093"
   export BASE16_COLOR_07_HEX="c5c9c5"
   export BASE16_COLOR_08_HEX="c4746e"
-  export BASE16_COLOR_09_HEX="b98d7b"
+  export BASE16_COLOR_09_HEX="b6927b"
   export BASE16_COLOR_0A_HEX="c4b28a"
-  export BASE16_COLOR_0B_HEX="87a987"
+  export BASE16_COLOR_0B_HEX="8a9a7b"
   export BASE16_COLOR_0C_HEX="8ea4a2"
   export BASE16_COLOR_0D_HEX="8ba4b0"
-  export BASE16_COLOR_0E_HEX="8992a7"
-  export BASE16_COLOR_0F_HEX="a292a3"
+  export BASE16_COLOR_0E_HEX="a292a3"
+  export BASE16_COLOR_0F_HEX="b98d7b"
 fi

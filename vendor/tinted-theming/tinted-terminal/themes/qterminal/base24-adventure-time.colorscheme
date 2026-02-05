@@ -8,13 +8,13 @@ Color=52,82,127
 Color=30,28,68
 
 [Color0]
-Color=5,4,4
+Color=30,28,68
 
 [Color0Faint]
 Color=30,28,68
 
 [Color0Intense]
-Color=78,123,191
+Color=120,147,191
 
 [Color1]
 Color=188,0,19
@@ -35,10 +35,10 @@ Color=73,177,23
 Color=157,255,110
 
 [Color3]
-Color=230,116,29
+Color=24,150,198
 
 [Color3Faint]
-Color=230,116,29
+Color=24,150,198
 
 [Color3Intense]
 Color=239,193,26
@@ -71,7 +71,7 @@ Color=111,164,151
 Color=200,249,243
 
 [Color7]
-Color=248,219,192
+Color=205,195,191
 
 [Color7Faint]
 Color=205,195,191
@@ -92,4 +92,3 @@ Color=248,219,192
 Blur=true
 Description=Adventure Time
 Opacity=0.95
-

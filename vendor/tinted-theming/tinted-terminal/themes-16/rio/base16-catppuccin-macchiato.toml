@@ -2,36 +2,36 @@
 # Color scheme: Catppuccin Macchiato by https://github.com/catppuccin/catppuccin
 
 [colors]
-selection-background = '#363a4f' # base02
-selection-foreground = '#cad3f5' # base05
+selection-background = '#cad3f5' # base05
+selection-foreground = '#494d64' # base02
 
 cursor         = '#cad3f5' # base05
-tabs           = '#1e2030' # base01
-tabs-active    = '#363a4f' # base02
+tabs           = '#363a4f' # base01
+tabs-active    = '#494d64' # base02
 
 background     = '#24273a' # base00
 foreground     = '#cad3f5' # base05
-black          = '#1e2030' # base01
+black          = '#24273a' # base00
 red            = '#ed8796' # base08
 yellow         = '#eed49f' # base0A
 green          = '#a6da95' # base0B
 cyan           = '#8bd5ca' # base0C
 blue           = '#8aadf4' # base0D
 magenta        = '#c6a0f6' # base0E
-white          = '#f4dbd6' # base06
+white          = '#cad3f5' # base05
 
 dim-foreground   = '#cad3f5' # base05
-dim-black        = '#1e2030' # base01
+dim-black        = '#363a4f' # base01
 dim-red          = '#ed8796' # base08
 dim-yellow       = '#eed49f' # base0A
 dim-green        = '#a6da95' # base0B
 dim-cyan         = '#8bd5ca' # base0C
 dim-blue         = '#8aadf4' # base0D
 dim-magenta      = '#c6a0f6' # base0E
-dim-white        = '#5b6078' # base04
+dim-white        = '#a5adcb' # base04
 
 light-foreground = '#cad3f5' # base05
-light-black      = '#363a4f' # base02
+light-black      = '#6e738d' # base03
 light-red        = '#ed8796' # base08
 light-yellow     = '#eed49f' # base0A
 light-green      = '#a6da95' # base0B

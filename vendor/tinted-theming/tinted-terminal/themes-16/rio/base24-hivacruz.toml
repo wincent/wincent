@@ -2,8 +2,8 @@
 # Color scheme: Hivacruz by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#6b7394' # base02
-selection-foreground = '#8c92ac' # base05
+selection-background = '#8c92ac' # base05
+selection-foreground = '#6b7394' # base02
 
 cursor         = '#8c92ac' # base05
 tabs           = '#202746' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#6b7394' # base02
 
 background     = '#132537' # base00
 foreground     = '#8c92ac' # base05
-black          = '#202746' # base01
+black          = '#132537' # base00
 red            = '#c94922' # base08
 yellow         = '#898ea4' # base0A
 green          = '#ac9739' # base0B
 cyan           = '#22a2c9' # base0C
 blue           = '#3d8fd1' # base0D
 magenta        = '#6679cc' # base0E
-white          = '#979db4' # base06
+white          = '#8c92ac' # base05
 
 dim-foreground   = '#8c92ac' # base05
 dim-black        = '#202746' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#6679cc' # base0E
 dim-white        = '#8188a4' # base04
 
 light-foreground = '#8c92ac' # base05
-light-black      = '#6b7394' # base02
+light-black      = '#767d9c' # base03
 light-red        = '#c76b29' # base12
 light-yellow     = '#5e6687' # base13
 light-green      = '#73ad43' # base14

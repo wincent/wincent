@@ -3,9 +3,9 @@
 	"name": "Man Page",
 	"foreground": "#b2b2b2",
 	"background": "#fef49c",
-	"black": "#000000",
+	"black": "#fef49c",
 	"blue": "#0000b2",
-	"brightBlack": "#666666",
+	"brightBlack": "#7f7f7f",
 	"brightBlue": "#0000ff",
 	"brightCyan": "#00e5e5",
 	"brightGreen": "#00d900",
@@ -17,6 +17,6 @@
 	"green": "#00a600",
 	"purple": "#b200b2",
 	"red": "#cc0000",
-	"white": "#cccccc",
-	"yellow": "#999900"
+	"white": "#b2b2b2",
+	"yellow": "#0000ff"
 },

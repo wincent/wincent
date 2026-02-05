@@ -3,9 +3,9 @@
 	"name": "Github Dark",
 	"foreground": "#c9d1d9",
 	"background": "#161b22",
-	"black": "#30363d",
+	"black": "#161b22",
 	"blue": "#388bfd",
-	"brightBlack": "#484f58",
+	"brightBlack": "#6e7681",
 	"brightBlue": "#388bfd",
 	"brightCyan": "#2a9d9a",
 	"brightGreen": "#2ea043",
@@ -17,6 +17,6 @@
 	"green": "#2ea043",
 	"purple": "#a371f7",
 	"red": "#f85149",
-	"white": "#f0f6fc",
-	"yellow": "#db6d28"
+	"white": "#c9d1d9",
+	"yellow": "#bb8009"
 },

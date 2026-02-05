@@ -6,7 +6,7 @@ Given ledger (comment tags):
     b
 
 Before:
-  let b:ledger_is_hledger = v:true
+  let g:ledger_is_hledger = v:true
 
 Execute (hledger tags):
   " AssertNotEqual SyntaxAt(2, 16), 'ledgerTag'
@@ -20,7 +20,7 @@ Execute (hledger tags):
   " AssertEqual SyntaxAt(3, 30), 'ledgerTagValue'
 
 Before:
-  let b:ledger_is_hledger = v:false
+  let g:ledger_is_hledger = v:false
 
 Execute (hledger tags):
   " AssertEqual SyntaxAt(2, 14), 'ledgerTag'
@@ -30,7 +30,7 @@ Execute (hledger tags):
 
 
 Before:
-  let b:ledger_is_hledger = v:true
+  let g:ledger_is_hledger = v:true
   edit spec/hledger-cheatsheet.ledger
 
 Execute (Hledger cheatsheet syntax):

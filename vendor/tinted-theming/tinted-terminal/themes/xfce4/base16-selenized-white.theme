@@ -5,6 +5,6 @@
 Name=base16-selenized-white
 ColorForeground=#474747
 ColorBackground=#ffffff
-ColorCursor=x
+ColorCursor=#474747
 ColorBoldIsBright=FALSE
-ColorPalette=#ebebeb;#bf0000;#008400;#af8500;#0054cf;#6b40c3;#009a8a;#282828;#cdcdcd;#bf0000;#008400;#af8500;#0054cf;#6b40c3;#009a8a;#282828
+ColorPalette=#ffffff;#bf0000;#008400;#af8500;#0054cf;#6b40c3;#009a8a;#474747;#878787;#bf0000;#008400;#af8500;#0054cf;#6b40c3;#009a8a;#282828

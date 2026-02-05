@@ -2,8 +2,8 @@
 # Color scheme: Mocha by Chris Kempson (http://chriskempson.com)
 
 [colors]
-selection-background = '#645240' # base02
-selection-foreground = '#d0c8c6' # base05
+selection-background = '#d0c8c6' # base05
+selection-foreground = '#645240' # base02
 
 cursor         = '#d0c8c6' # base05
 tabs           = '#534636' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#645240' # base02
 
 background     = '#3b3228' # base00
 foreground     = '#d0c8c6' # base05
-black          = '#534636' # base01
+black          = '#3b3228' # base00
 red            = '#cb6077' # base08
 yellow         = '#f4bc87' # base0A
 green          = '#beb55b' # base0B
 cyan           = '#7bbda4' # base0C
 blue           = '#8ab3b5' # base0D
 magenta        = '#a89bb9' # base0E
-white          = '#e9e1dd' # base06
+white          = '#d0c8c6' # base05
 
 dim-foreground   = '#d0c8c6' # base05
 dim-black        = '#534636' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#a89bb9' # base0E
 dim-white        = '#b8afad' # base04
 
 light-foreground = '#d0c8c6' # base05
-light-black      = '#645240' # base02
+light-black      = '#7e705a' # base03
 light-red        = '#cb6077' # base08
 light-yellow     = '#f4bc87' # base0A
 light-green      = '#beb55b' # base0B

@@ -3,9 +3,9 @@
 	"name": "Still Alive",
 	"foreground": "#4c383b",
 	"background": "#f0f0f0",
-	"black": "#d6d6d6",
+	"black": "#f0f0f0",
 	"blue": "#365eff",
-	"brightBlack": "#bdbdbd",
+	"brightBlack": "#a3a3a3",
 	"brightBlue": "#365eff",
 	"brightCyan": "#36d3ff",
 	"brightGreen": "#30a860",
@@ -17,6 +17,6 @@
 	"green": "#30a860",
 	"purple": "#9036ff",
 	"red": "#d80000",
-	"white": "#331f21",
-	"yellow": "#f0d848"
+	"white": "#4c383b",
+	"yellow": "#fff018"
 },

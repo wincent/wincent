@@ -2,8 +2,8 @@
 # Color scheme: Soft Server by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#3f3951' # base02
-selection-foreground = '#e4dee9' # base05
+selection-background = '#e4dee9' # base05
+selection-foreground = '#3f3951' # base02
 
 cursor         = '#e4dee9' # base05
 tabs           = '#2c2737' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#3f3951' # base02
 
 background     = '#211e2a' # base00
 foreground     = '#e4dee9' # base05
-black          = '#2c2737' # base01
+black          = '#211e2a' # base00
 red            = '#e965a5' # base08
 yellow         = '#ebde76' # base0A
 green          = '#b1f2a7' # base0B
 cyan           = '#b3f4f3' # base0C
 blue           = '#95a6f4' # base0D
 magenta        = '#ff79c6' # base0E
-white          = '#f2e8f0' # base06
+white          = '#e4dee9' # base05
 
 dim-foreground   = '#e4dee9' # base05
 dim-black        = '#2c2737' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#ff79c6' # base0E
 dim-white        = '#8a829e' # base04
 
 light-foreground = '#e4dee9' # base05
-light-black      = '#3f3951' # base02
+light-black      = '#6e6780' # base03
 light-red        = '#e965a5' # base08
 light-yellow     = '#ebde76' # base0A
 light-green      = '#b1f2a7' # base0B

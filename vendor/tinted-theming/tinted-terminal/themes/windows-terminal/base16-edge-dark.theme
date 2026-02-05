@@ -3,9 +3,9 @@
 	"name": "Edge Dark",
 	"foreground": "#afb2b5",
 	"background": "#262729",
-	"black": "#313235",
+	"black": "#262729",
 	"blue": "#73b3e7",
-	"brightBlack": "#3d3f42",
+	"brightBlack": "#4a4c4f",
 	"brightBlue": "#73b3e7",
 	"brightCyan": "#5ebaa5",
 	"brightGreen": "#a1bf78",
@@ -17,6 +17,6 @@
 	"green": "#a1bf78",
 	"purple": "#d390e7",
 	"red": "#e77171",
-	"white": "#caccce",
-	"yellow": "#eba31a"
+	"white": "#afb2b5",
+	"yellow": "#dbb774"
 },

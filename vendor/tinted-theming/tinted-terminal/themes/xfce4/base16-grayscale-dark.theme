@@ -5,6 +5,6 @@
 Name=base16-grayscale-dark
 ColorForeground=#b9b9b9
 ColorBackground=#101010
-ColorCursor=x
+ColorCursor=#b9b9b9
 ColorBoldIsBright=FALSE
-ColorPalette=#252525;#7c7c7c;#8e8e8e;#a0a0a0;#686868;#747474;#868686;#e3e3e3;#464646;#7c7c7c;#8e8e8e;#a0a0a0;#686868;#747474;#868686;#f7f7f7
+ColorPalette=#101010;#7c7c7c;#8e8e8e;#a0a0a0;#686868;#747474;#868686;#b9b9b9;#525252;#7c7c7c;#8e8e8e;#a0a0a0;#686868;#747474;#868686;#f7f7f7

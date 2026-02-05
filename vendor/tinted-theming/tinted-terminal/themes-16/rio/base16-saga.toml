@@ -2,8 +2,8 @@
 # Color scheme: SAGA by https://github.com/SAGAtheme/SAGA
 
 [colors]
-selection-background = '#0f181e' # base02
-selection-foreground = '#dce2f7' # base05
+selection-background = '#dce2f7' # base05
+selection-foreground = '#0f181e' # base02
 
 cursor         = '#dce2f7' # base05
 tabs           = '#0a1014' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#0f181e' # base02
 
 background     = '#05080a' # base00
 foreground     = '#dce2f7' # base05
-black          = '#0a1014' # base01
+black          = '#05080a' # base00
 red            = '#ffd4e9' # base08
 yellow         = '#fbebc8' # base0A
 green          = '#f7ddff' # base0B
 cyan           = '#c5edc1' # base0C
 blue           = '#c9fff7' # base0D
 magenta        = '#dcc3f9' # base0E
-white          = '#f8eae7' # base06
+white          = '#dce2f7' # base05
 
 dim-foreground   = '#dce2f7' # base05
 dim-black        = '#0a1014' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#dcc3f9' # base0E
 dim-white        = '#192630' # base04
 
 light-foreground = '#dce2f7' # base05
-light-black      = '#0f181e' # base02
+light-black      = '#141f27' # base03
 light-red        = '#ffd4e9' # base08
 light-yellow     = '#fbebc8' # base0A
 light-green      = '#f7ddff' # base0B

@@ -5,6 +5,6 @@
 Name=base16-atelier-plateau
 ColorForeground=#8a8585
 ColorBackground=#1b1818
-ColorCursor=x
+ColorCursor=#8a8585
 ColorBoldIsBright=FALSE
-ColorPalette=#292424;#ca4949;#4b8b8b;#a06e3b;#7272ca;#8464c4;#5485b6;#e7dfdf;#585050;#ca4949;#4b8b8b;#a06e3b;#7272ca;#8464c4;#5485b6;#f4ecec
+ColorPalette=#1b1818;#ca4949;#4b8b8b;#a06e3b;#7272ca;#8464c4;#5485b6;#8a8585;#655d5d;#ca4949;#4b8b8b;#a06e3b;#7272ca;#8464c4;#5485b6;#f4ecec

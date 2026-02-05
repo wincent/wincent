@@ -2,8 +2,8 @@
 # Color scheme: Silk Dark by Gabriel Fontes (https://github.com/Misterio77)
 
 [colors]
-selection-background = '#2a5054' # base02
-selection-foreground = '#c7dbdd' # base05
+selection-background = '#c7dbdd' # base05
+selection-foreground = '#2a5054' # base02
 
 cursor         = '#c7dbdd' # base05
 tabs           = '#1d494e' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#2a5054' # base02
 
 background     = '#0e3c46' # base00
 foreground     = '#c7dbdd' # base05
-black          = '#1d494e' # base01
+black          = '#0e3c46' # base00
 red            = '#fb6953' # base08
 yellow         = '#fce380' # base0A
 green          = '#73d8ad' # base0B
 cyan           = '#3fb2b9' # base0C
 blue           = '#46bddd' # base0D
 magenta        = '#756b8a' # base0E
-white          = '#cbf2f7' # base06
+white          = '#c7dbdd' # base05
 
 dim-foreground   = '#c7dbdd' # base05
 dim-black        = '#1d494e' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#756b8a' # base0E
 dim-white        = '#9dc8cd' # base04
 
 light-foreground = '#c7dbdd' # base05
-light-black      = '#2a5054' # base02
+light-black      = '#587073' # base03
 light-red        = '#fb6953' # base08
 light-yellow     = '#fce380' # base0A
 light-green      = '#73d8ad' # base0B

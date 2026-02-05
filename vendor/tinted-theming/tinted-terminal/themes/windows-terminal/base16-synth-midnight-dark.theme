@@ -3,9 +3,9 @@
 	"name": "Synth Midnight Terminal Dark",
 	"foreground": "#c1c3c4",
 	"background": "#050608",
-	"black": "#1a1b1c",
+	"black": "#050608",
 	"blue": "#03aeff",
-	"brightBlack": "#28292a",
+	"brightBlack": "#474849",
 	"brightBlue": "#03aeff",
 	"brightCyan": "#42fff9",
 	"brightGreen": "#06ea61",
@@ -17,6 +17,6 @@
 	"green": "#06ea61",
 	"purple": "#ea5ce2",
 	"red": "#b53b50",
-	"white": "#cfd1d2",
-	"yellow": "#ea770d"
+	"white": "#c1c3c4",
+	"yellow": "#c9d364"
 },

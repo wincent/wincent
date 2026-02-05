@@ -5,6 +5,6 @@
 Name=base16-chinoiserie-midnight
 ColorForeground=#c4cbcf
 ColorBackground=#1d1d1d
-ColorCursor=x
+ColorCursor=#c4cbcf
 ColorBoldIsBright=FALSE
-ColorPalette=#282828;#ed5a56;#aeb831;#fbb957;#81a2a2;#cf8997;#88b68d;#eee7f2;#373737;#ed5a56;#aeb831;#fbb957;#81a2a2;#cf8997;#88b68d;#fffef9
+ColorPalette=#1d1d1d;#ed5a56;#aeb831;#fbb957;#81a2a2;#cf8997;#88b68d;#c4cbcf;#918072;#ed5a56;#aeb831;#fbb957;#81a2a2;#cf8997;#88b68d;#fffef9

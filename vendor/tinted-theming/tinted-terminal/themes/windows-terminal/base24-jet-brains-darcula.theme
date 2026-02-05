@@ -3,9 +3,9 @@
 	"name": "Jet Brains Darcula",
 	"foreground": "#979797",
 	"background": "#202020",
-	"black": "#000000",
+	"black": "#202020",
 	"blue": "#4581eb",
-	"brightBlack": "#555555",
+	"brightBlack": "#6b6b6b",
 	"brightBlue": "#6d9df1",
 	"brightCyan": "#60d3d1",
 	"brightGreen": "#67ff4f",
@@ -17,6 +17,6 @@
 	"green": "#126e00",
 	"purple": "#fa54ff",
 	"red": "#fa5355",
-	"white": "#adadad",
-	"yellow": "#c2c300"
+	"white": "#979797",
+	"yellow": "#6d9df1"
 },

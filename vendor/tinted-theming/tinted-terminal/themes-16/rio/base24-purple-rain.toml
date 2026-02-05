@@ -2,8 +2,8 @@
 # Color scheme: Purple Rain by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#555555' # base02
-selection-foreground = '#d3d4d4' # base05
+selection-background = '#d3d4d4' # base05
+selection-foreground = '#555555' # base02
 
 cursor         = '#d3d4d4' # base05
 tabs           = '#000000' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#555555' # base02
 
 background     = '#20084a' # base00
 foreground     = '#d3d4d4' # base05
-black          = '#000000' # base01
+black          = '#20084a' # base00
 red            = '#ff260d' # base08
 yellow         = '#00a5ff' # base0A
 green          = '#9ae204' # base0B
 cyan           = '#00ddef' # base0C
 blue           = '#00a1f9' # base0D
 magenta        = '#805bb5' # base0E
-white          = '#feffff' # base06
+white          = '#d3d4d4' # base05
 
 dim-foreground   = '#d3d4d4' # base05
 dim-black        = '#000000' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#805bb5' # base0E
 dim-white        = '#a9aaaa' # base04
 
 light-foreground = '#d3d4d4' # base05
-light-black      = '#555555' # base02
+light-black      = '#7f7f7f' # base03
 light-red        = '#ff4250' # base12
 light-yellow     = '#ffd852' # base13
 light-green      = '#b8e36d' # base14

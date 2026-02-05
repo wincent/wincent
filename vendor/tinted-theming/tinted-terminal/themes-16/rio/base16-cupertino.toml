@@ -2,8 +2,8 @@
 # Color scheme: Cupertino by Defman21
 
 [colors]
-selection-background = '#c0c0c0' # base02
-selection-foreground = '#404040' # base05
+selection-background = '#404040' # base05
+selection-foreground = '#c0c0c0' # base02
 
 cursor         = '#404040' # base05
 tabs           = '#c0c0c0' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#c0c0c0' # base02
 
 background     = '#ffffff' # base00
 foreground     = '#404040' # base05
-black          = '#c0c0c0' # base01
+black          = '#ffffff' # base00
 red            = '#c41a15' # base08
 yellow         = '#826b28' # base0A
 green          = '#007400' # base0B
 cyan           = '#318495' # base0C
 blue           = '#0000ff' # base0D
 magenta        = '#a90d91' # base0E
-white          = '#404040' # base06
+white          = '#404040' # base05
 
 dim-foreground   = '#404040' # base05
 dim-black        = '#c0c0c0' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#a90d91' # base0E
 dim-white        = '#808080' # base04
 
 light-foreground = '#404040' # base05
-light-black      = '#c0c0c0' # base02
+light-black      = '#808080' # base03
 light-red        = '#c41a15' # base08
 light-yellow     = '#826b28' # base0A
 light-green      = '#007400' # base0B

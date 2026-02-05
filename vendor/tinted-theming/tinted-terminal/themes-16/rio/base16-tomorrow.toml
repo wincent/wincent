@@ -2,8 +2,8 @@
 # Color scheme: Tomorrow by Chris Kempson (http://chriskempson.com)
 
 [colors]
-selection-background = '#c5c8c6' # base02
-selection-foreground = '#373b41' # base05
+selection-background = '#373b41' # base05
+selection-foreground = '#c5c8c6' # base02
 
 cursor         = '#373b41' # base05
 tabs           = '#e0e0e0' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#c5c8c6' # base02
 
 background     = '#ffffff' # base00
 foreground     = '#373b41' # base05
-black          = '#e0e0e0' # base01
+black          = '#ffffff' # base00
 red            = '#c82829' # base08
 yellow         = '#eab700' # base0A
 green          = '#718c00' # base0B
 cyan           = '#3e999f' # base0C
 blue           = '#4271ae' # base0D
 magenta        = '#8959a8' # base0E
-white          = '#282a2e' # base06
+white          = '#373b41' # base05
 
 dim-foreground   = '#373b41' # base05
 dim-black        = '#e0e0e0' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#8959a8' # base0E
 dim-white        = '#969896' # base04
 
 light-foreground = '#373b41' # base05
-light-black      = '#c5c8c6' # base02
+light-black      = '#b4b7b4' # base03
 light-red        = '#c82829' # base08
 light-yellow     = '#eab700' # base0A
 light-green      = '#718c00' # base0B

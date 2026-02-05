@@ -3,9 +3,9 @@
 	"name": "Lavandula",
 	"foreground": "#645d6f",
 	"background": "#050014",
-	"black": "#230045",
+	"black": "#050014",
 	"blue": "#4f4a7f",
-	"brightBlack": "#372c46",
+	"brightBlack": "#463c53",
 	"brightBlue": "#8e86df",
 	"brightCyan": "#9ad3df",
 	"brightGreen": "#52e0c4",
@@ -17,6 +17,6 @@
 	"green": "#337e6f",
 	"purple": "#593f7e",
 	"red": "#7c1525",
-	"white": "#736e7d",
-	"yellow": "#7f6f49"
+	"white": "#645d6f",
+	"yellow": "#8e86df"
 },

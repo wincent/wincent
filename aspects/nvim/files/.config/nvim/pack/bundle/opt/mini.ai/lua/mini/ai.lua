@@ -2005,26 +2005,17 @@ H.user_textobject_id = function(ai_type)
 end
 
 H.user_input = function(prompt, text)
-  -- Register temporary keystroke listener to distinguish between cancel with
-  -- `<Esc>` and immediate `<CR>`.
-  local on_key = vim.on_key or vim.register_keystroke_callback
+  -- Use `on_key` to distinguish cancel with `<Esc>` and immediate `<CR>`
   local was_cancelled = false
-  on_key(function(key)
-    if key == '27' then was_cancelled = true end
-  end, H.ns_id.input)
+  vim.on_key(function(key) was_cancelled = was_cancelled or key == '\27' end, H.ns_id.input)
 
-  -- Ask for input
-  local opts = { prompt = '(mini.ai) ' .. prompt .. ': ', default = text or '' }
+  -- Ask for input. Use `pcall` to allow `<C-c>` to cancel user input
   vim.cmd('echohl Question')
-  -- Use `pcall` to allow `<C-c>` to cancel user input
-  local ok, res = pcall(vim.fn.input, opts)
-  vim.cmd([[echohl None | echo '' | redraw]])
+  local ok, res = pcall(vim.fn.input, { prompt = '(mini.ai) ' .. prompt .. ': ', default = text or '' })
+  vim.cmd('echohl None | echo "" | redraw')
 
-  -- Stop key listening
-  on_key(nil, H.ns_id.input)
-
-  if not ok or was_cancelled then return end
-  return res
+  vim.on_key(nil, H.ns_id.input)
+  return (ok and not was_cancelled) and res or nil
 end
 
 -- Work with Visual mode ------------------------------------------------------

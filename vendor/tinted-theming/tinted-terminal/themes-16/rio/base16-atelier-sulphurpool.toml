@@ -2,8 +2,8 @@
 # Color scheme: Atelier Sulphurpool by Bram de Haan (http://atelierbramdehaan.nl)
 
 [colors]
-selection-background = '#5e6687' # base02
-selection-foreground = '#979db4' # base05
+selection-background = '#979db4' # base05
+selection-foreground = '#5e6687' # base02
 
 cursor         = '#979db4' # base05
 tabs           = '#293256' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#5e6687' # base02
 
 background     = '#202746' # base00
 foreground     = '#979db4' # base05
-black          = '#293256' # base01
+black          = '#202746' # base00
 red            = '#c94922' # base08
 yellow         = '#c08b30' # base0A
 green          = '#ac9739' # base0B
 cyan           = '#22a2c9' # base0C
 blue           = '#3d8fd1' # base0D
 magenta        = '#6679cc' # base0E
-white          = '#dfe2f1' # base06
+white          = '#979db4' # base05
 
 dim-foreground   = '#979db4' # base05
 dim-black        = '#293256' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#6679cc' # base0E
 dim-white        = '#898ea4' # base04
 
 light-foreground = '#979db4' # base05
-light-black      = '#5e6687' # base02
+light-black      = '#6b7394' # base03
 light-red        = '#c94922' # base08
 light-yellow     = '#c08b30' # base0A
 light-green      = '#ac9739' # base0B

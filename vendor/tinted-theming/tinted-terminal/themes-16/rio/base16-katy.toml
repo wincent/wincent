@@ -2,8 +2,8 @@
 # Color scheme: Katy by George Essig (https://github.com/gessig)
 
 [colors]
-selection-background = '#5c598b' # base02
-selection-foreground = '#959dcb' # base05
+selection-background = '#959dcb' # base05
+selection-foreground = '#5c598b' # base02
 
 cursor         = '#959dcb' # base05
 tabs           = '#444267' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#5c598b' # base02
 
 background     = '#292d3e' # base00
 foreground     = '#959dcb' # base05
-black          = '#444267' # base01
+black          = '#292d3e' # base00
 red            = '#6e98e1' # base08
 yellow         = '#e0a557' # base0A
 green          = '#78c06e' # base0B
 cyan           = '#83b7e5' # base0C
 blue           = '#82aaff' # base0D
 magenta        = '#c792ea' # base0E
-white          = '#959dcb' # base06
+white          = '#959dcb' # base05
 
 dim-foreground   = '#959dcb' # base05
 dim-black        = '#444267' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#c792ea' # base0E
 dim-white        = '#8796b0' # base04
 
 light-foreground = '#959dcb' # base05
-light-black      = '#5c598b' # base02
+light-black      = '#676e95' # base03
 light-red        = '#6e98e1' # base08
 light-yellow     = '#e0a557' # base0A
 light-green      = '#78c06e' # base0B

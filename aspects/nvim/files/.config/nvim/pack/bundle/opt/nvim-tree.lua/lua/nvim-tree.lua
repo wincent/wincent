@@ -11,6 +11,17 @@ local M = {
   init_root = "",
 }
 
+--- Helper function to execute some explorer method safely
+---@param fn string # key of explorer
+---@param ... any|nil
+---@return function|nil
+local function explorer_fn(fn, ...)
+  local explorer = core.get_explorer()
+  if explorer then
+    return explorer[fn](explorer, ...)
+  end
+end
+
 --- Update the tree root to a directory or the directory containing
 ---@param path string relative or absolute
 ---@param bufnr number|nil
@@ -47,7 +58,7 @@ function M.change_root(path, bufnr)
   -- test if in vim_cwd
   if utils.path_relative(path, vim_cwd) ~= path then
     if vim_cwd ~= cwd then
-      actions.root.change_dir.fn(vim_cwd)
+      explorer_fn("change_dir", vim_cwd)
     end
     return
   end
@@ -58,19 +69,19 @@ function M.change_root(path, bufnr)
 
   -- otherwise test M.init_root
   if _config.prefer_startup_root and utils.path_relative(path, M.init_root) ~= path then
-    actions.root.change_dir.fn(M.init_root)
+    explorer_fn("change_dir", M.init_root)
     return
   end
   -- otherwise root_dirs
   for _, dir in pairs(_config.root_dirs) do
     dir = vim.fn.fnamemodify(dir, ":p")
     if utils.path_relative(path, dir) ~= path then
-      actions.root.change_dir.fn(dir)
+      explorer_fn("change_dir", dir)
       return
     end
   end
   -- finally fall back to the folder containing the file
-  actions.root.change_dir.fn(vim.fn.fnamemodify(path, ":p:h"))
+  explorer_fn("change_dir", vim.fn.fnamemodify(path, ":p:h"))
 end
 
 function M.tab_enter()
@@ -110,7 +121,13 @@ function M.open_on_directory()
     return
   end
 
-  actions.root.change_dir.force_dirchange(bufname, true)
+
+  local explorer = core.get_explorer()
+  if not explorer then
+    core.init(bufname)
+  end
+
+  explorer_fn("force_dirchange", bufname, true, false)
 end
 
 ---@return table
@@ -134,7 +151,7 @@ end
 ---@param name string|nil
 function M.change_dir(name)
   if name then
-    actions.root.change_dir.fn(name)
+    explorer_fn("change_dir", name)
   end
 
   if _config.update_focused_file.update_root.enable then
@@ -252,7 +269,8 @@ local function setup_autocommands(opts)
   })
 end
 
-local DEFAULT_OPTS = { -- BEGIN_DEFAULT_OPTS
+---@type nvim_tree.config
+local DEFAULT_OPTS = { -- default-config-start
   on_attach = "default",
   hijack_cursor = false,
   auto_reload_on_write = true,
@@ -444,6 +462,7 @@ local DEFAULT_OPTS = { -- BEGIN_DEFAULT_OPTS
   filesystem_watchers = {
     enable = true,
     debounce_delay = 50,
+    max_events = 100,
     ignore_dirs = {
       "/.ccls-cache",
       "/build",
@@ -514,6 +533,9 @@ local DEFAULT_OPTS = { -- BEGIN_DEFAULT_OPTS
       default_yes = false,
     },
   },
+  bookmarks = {
+    persist = false,
+  },
   experimental = {
   },
   log = {
@@ -530,7 +552,7 @@ local DEFAULT_OPTS = { -- BEGIN_DEFAULT_OPTS
       watcher = false,
     },
   },
-} -- END_DEFAULT_OPTS
+} -- default-config-end
 
 local function merge_options(conf)
   return vim.tbl_deep_extend("force", DEFAULT_OPTS, conf or {})
@@ -581,6 +603,9 @@ local ACCEPTED_TYPES = {
       },
     },
   },
+  bookmarks = {
+    persist = { "boolean", "string" },
+  },
 }
 
 local ACCEPTED_STRINGS = {
@@ -621,7 +646,7 @@ local ACCEPTED_ENUMS = {
   },
 }
 
----@param conf table|nil
+---@param conf? nvim_tree.config
 local function validate_options(conf)
   local msg
 
@@ -726,7 +751,7 @@ function M.purge_all_state()
   require("nvim-tree.watcher").purge_watchers()
 end
 
----@param conf table|nil
+---@param conf? nvim_tree.config
 function M.setup(conf)
   if vim.fn.has("nvim-0.9") == 0 then
     notify.warn("nvim-tree.lua requires Neovim 0.9 or higher")

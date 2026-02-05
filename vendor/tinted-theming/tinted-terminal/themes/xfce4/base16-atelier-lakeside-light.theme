@@ -5,6 +5,6 @@
 Name=base16-atelier-lakeside-light
 ColorForeground=#516d7b
 ColorBackground=#ebf8ff
-ColorCursor=x
+ColorCursor=#516d7b
 ColorBoldIsBright=FALSE
-ColorPalette=#c1e4f6;#d22d72;#568c3b;#8a8a0f;#257fad;#6b6bb8;#2d8f6f;#1f292e;#7ea2b4;#d22d72;#568c3b;#8a8a0f;#257fad;#6b6bb8;#2d8f6f;#161b1d
+ColorPalette=#ebf8ff;#d22d72;#568c3b;#8a8a0f;#257fad;#6b6bb8;#2d8f6f;#516d7b;#7195a8;#d22d72;#568c3b;#8a8a0f;#257fad;#6b6bb8;#2d8f6f;#161b1d

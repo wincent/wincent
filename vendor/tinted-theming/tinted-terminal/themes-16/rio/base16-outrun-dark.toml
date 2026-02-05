@@ -2,8 +2,8 @@
 # Color scheme: Outrun Dark by Hugo Delahousse (http://github.com/hugodelahousse/)
 
 [colors]
-selection-background = '#30305a' # base02
-selection-foreground = '#d0d0fa' # base05
+selection-background = '#d0d0fa' # base05
+selection-foreground = '#30305a' # base02
 
 cursor         = '#d0d0fa' # base05
 tabs           = '#20204a' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#30305a' # base02
 
 background     = '#00002a' # base00
 foreground     = '#d0d0fa' # base05
-black          = '#20204a' # base01
+black          = '#00002a' # base00
 red            = '#ff4242' # base08
 yellow         = '#f3e877' # base0A
 green          = '#59f176' # base0B
 cyan           = '#0ef0f0' # base0C
 blue           = '#66b0ff' # base0D
 magenta        = '#f10596' # base0E
-white          = '#e0e0ff' # base06
+white          = '#d0d0fa' # base05
 
 dim-foreground   = '#d0d0fa' # base05
 dim-black        = '#20204a' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#f10596' # base0E
 dim-white        = '#b0b0da' # base04
 
 light-foreground = '#d0d0fa' # base05
-light-black      = '#30305a' # base02
+light-black      = '#50507a' # base03
 light-red        = '#ff4242' # base08
 light-yellow     = '#f3e877' # base0A
 light-green      = '#59f176' # base0B

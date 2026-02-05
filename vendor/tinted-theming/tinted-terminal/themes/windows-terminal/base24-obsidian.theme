@@ -3,9 +3,9 @@
 	"name": "Obsidian",
 	"foreground": "#a1a1a1",
 	"background": "#273032",
-	"black": "#000000",
+	"black": "#273032",
 	"blue": "#399bda",
-	"brightBlack": "#555555",
+	"brightBlack": "#6e6e6e",
 	"brightBlue": "#a0d6ff",
 	"brightCyan": "#55ffff",
 	"brightGreen": "#92c763",
@@ -17,6 +17,6 @@
 	"green": "#00bb00",
 	"purple": "#bb00bb",
 	"red": "#a50001",
-	"white": "#bbbbbb",
-	"yellow": "#fecc22"
+	"white": "#a1a1a1",
+	"yellow": "#a0d6ff"
 },

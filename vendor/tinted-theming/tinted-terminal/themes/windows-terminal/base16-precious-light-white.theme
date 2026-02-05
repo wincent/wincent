@@ -3,9 +3,9 @@
 	"name": "Precious Light White",
 	"foreground": "#555555",
 	"background": "#ffffff",
-	"black": "#ededed",
+	"black": "#ffffff",
 	"blue": "#186daa",
-	"brightBlack": "#dbdbdb",
+	"brightBlack": "#848484",
 	"brightBlue": "#186daa",
 	"brightCyan": "#087767",
 	"brightGreen": "#557301",
@@ -18,5 +18,5 @@
 	"purple": "#7b4ecb",
 	"red": "#af4947",
 	"white": "#555555",
-	"yellow": "#a0570d"
+	"yellow": "#876500"
 },

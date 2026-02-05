@@ -3,9 +3,9 @@
 	"name": "Rosé Pine",
 	"foreground": "#e0def4",
 	"background": "#191724",
-	"black": "#1f1d2e",
+	"black": "#191724",
 	"blue": "#c4a7e7",
-	"brightBlack": "#26233a",
+	"brightBlack": "#6e6a86",
 	"brightBlue": "#c4a7e7",
 	"brightCyan": "#9ccfd8",
 	"brightGreen": "#31748f",
@@ -18,5 +18,5 @@
 	"purple": "#f6c177",
 	"red": "#eb6f92",
 	"white": "#e0def4",
-	"yellow": "#f6c177"
+	"yellow": "#ebbcba"
 },

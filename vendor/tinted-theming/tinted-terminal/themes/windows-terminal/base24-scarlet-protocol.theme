@@ -3,9 +3,9 @@
 	"name": "Scarlet Protocol",
 	"foreground": "#afafaf",
 	"background": "#1b153c",
-	"black": "#101116",
+	"black": "#1b153c",
 	"blue": "#0271b6",
-	"brightBlack": "#676767",
+	"brightBlack": "#7f7f7f",
 	"brightBlue": "#6871ff",
 	"brightCyan": "#5ffdff",
 	"brightGreen": "#5ff967",
@@ -17,6 +17,6 @@
 	"green": "#00dc84",
 	"purple": "#c930c7",
 	"red": "#ff0051",
-	"white": "#c7c7c7",
-	"yellow": "#faf945"
+	"white": "#afafaf",
+	"yellow": "#6871ff"
 },

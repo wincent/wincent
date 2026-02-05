@@ -2,8 +2,8 @@
 # Color scheme: Darktooth by Jason Milkins (https://github.com/jasonm23)
 
 [colors]
-selection-background = '#504945' # base02
-selection-foreground = '#a89984' # base05
+selection-background = '#a89984' # base05
+selection-foreground = '#504945' # base02
 
 cursor         = '#a89984' # base05
 tabs           = '#32302f' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#504945' # base02
 
 background     = '#1d2021' # base00
 foreground     = '#a89984' # base05
-black          = '#32302f' # base01
+black          = '#1d2021' # base00
 red            = '#fb543f' # base08
 yellow         = '#fac03b' # base0A
 green          = '#95c085' # base0B
 cyan           = '#8ba59b' # base0C
 blue           = '#0d6678' # base0D
 magenta        = '#8f4673' # base0E
-white          = '#d5c4a1' # base06
+white          = '#a89984' # base05
 
 dim-foreground   = '#a89984' # base05
 dim-black        = '#32302f' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#8f4673' # base0E
 dim-white        = '#928374' # base04
 
 light-foreground = '#a89984' # base05
-light-black      = '#504945' # base02
+light-black      = '#665c54' # base03
 light-red        = '#fb543f' # base08
 light-yellow     = '#fac03b' # base0A
 light-green      = '#95c085' # base0B

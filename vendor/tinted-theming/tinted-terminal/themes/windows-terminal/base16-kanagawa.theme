@@ -3,9 +3,9 @@
 	"name": "Kanagawa",
 	"foreground": "#dcd7ba",
 	"background": "#1f1f28",
-	"black": "#16161d",
+	"black": "#1f1f28",
 	"blue": "#7e9cd8",
-	"brightBlack": "#223249",
+	"brightBlack": "#54546d",
 	"brightBlue": "#7e9cd8",
 	"brightCyan": "#6a9589",
 	"brightGreen": "#76946a",
@@ -17,6 +17,6 @@
 	"green": "#76946a",
 	"purple": "#957fb8",
 	"red": "#c34043",
-	"white": "#c8c093",
-	"yellow": "#ffa066"
+	"white": "#dcd7ba",
+	"yellow": "#c0a36e"
 },

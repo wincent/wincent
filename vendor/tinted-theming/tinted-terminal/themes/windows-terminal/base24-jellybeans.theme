@@ -3,9 +3,9 @@
 	"name": "Jellybeans",
 	"foreground": "#d5d5d5",
 	"background": "#121212",
-	"black": "#929292",
+	"black": "#121212",
 	"blue": "#97bedc",
-	"brightBlack": "#bdbdbd",
+	"brightBlack": "#c5c5c5",
 	"brightBlue": "#b1d8f6",
 	"brightCyan": "#1ab2a8",
 	"brightGreen": "#bddeab",
@@ -17,6 +17,6 @@
 	"green": "#93b979",
 	"purple": "#e1c0fa",
 	"red": "#e27373",
-	"white": "#dedede",
-	"yellow": "#ffba7b"
+	"white": "#d5d5d5",
+	"yellow": "#b1d8f6"
 },

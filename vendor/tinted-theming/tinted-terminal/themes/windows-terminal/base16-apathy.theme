@@ -3,9 +3,9 @@
 	"name": "Apathy",
 	"foreground": "#81b5ac",
 	"background": "#031a16",
-	"black": "#0b342d",
+	"black": "#031a16",
 	"blue": "#96883e",
-	"brightBlack": "#184e45",
+	"brightBlack": "#2b685e",
 	"brightBlue": "#96883e",
 	"brightCyan": "#963e4c",
 	"brightGreen": "#883e96",
@@ -17,6 +17,6 @@
 	"green": "#883e96",
 	"purple": "#4c963e",
 	"red": "#3e9688",
-	"white": "#a7cec8",
-	"yellow": "#3e7996"
+	"white": "#81b5ac",
+	"yellow": "#3e4c96"
 },

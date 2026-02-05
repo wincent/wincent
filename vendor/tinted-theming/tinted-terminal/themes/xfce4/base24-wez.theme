@@ -5,6 +5,6 @@
 Name=base24-wez
 ColorForeground=#aeaeae
 ColorBackground=#000000
-ColorCursor=x
+ColorCursor=#aeaeae
 ColorBoldIsBright=FALSE
-ColorPalette=#000000;#cc5555;#55cc55;#5555ff;#5455cb;#cc55cc;#7acaca;#cccccc;#555555;#ff5555;#55ff55;#ffff55;#5555ff;#ff55ff;#55ffff;#ffffff
+ColorPalette=#000000;#cc5555;#55cc55;#5555ff;#5455cb;#cc55cc;#7acaca;#aeaeae;#727272;#ff5555;#55ff55;#ffff55;#5555ff;#ff55ff;#55ffff;#ffffff

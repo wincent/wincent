@@ -2,8 +2,8 @@
 # Color scheme: Eva Dim by kjakapat (https://github.com/kjakapat)
 
 [colors]
-selection-background = '#4b6988' # base02
-selection-foreground = '#9fa2a6' # base05
+selection-background = '#9fa2a6' # base05
+selection-foreground = '#4b6988' # base02
 
 cursor         = '#9fa2a6' # base05
 tabs           = '#3d566f' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#4b6988' # base02
 
 background     = '#2a3b4d' # base00
 foreground     = '#9fa2a6' # base05
-black          = '#3d566f' # base01
+black          = '#2a3b4d' # base00
 red            = '#c4676c' # base08
 yellow         = '#cfd05d' # base0A
 green          = '#5de561' # base0B
 cyan           = '#4b8f77' # base0C
 blue           = '#1ae1dc' # base0D
 magenta        = '#9c6cd3' # base0E
-white          = '#d6d7d9' # base06
+white          = '#9fa2a6' # base05
 
 dim-foreground   = '#9fa2a6' # base05
 dim-black        = '#3d566f' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#9c6cd3' # base0E
 dim-white        = '#7e90a3' # base04
 
 light-foreground = '#9fa2a6' # base05
-light-black      = '#4b6988' # base02
+light-black      = '#55799c' # base03
 light-red        = '#c4676c' # base08
 light-yellow     = '#cfd05d' # base0A
 light-green      = '#5de561' # base0B

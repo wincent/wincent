@@ -3,9 +3,9 @@
 	"name": "Nebula",
 	"foreground": "#a4a6a9",
 	"background": "#22273b",
-	"black": "#414f60",
+	"black": "#22273b",
 	"blue": "#4d6bb6",
-	"brightBlack": "#5a8380",
+	"brightBlack": "#6e6f72",
 	"brightBlue": "#4d6bb6",
 	"brightCyan": "#226f68",
 	"brightGreen": "#6562a8",
@@ -17,6 +17,6 @@
 	"green": "#6562a8",
 	"purple": "#716cae",
 	"red": "#777abc",
-	"white": "#c7c9cd",
-	"yellow": "#94929e"
+	"white": "#a4a6a9",
+	"yellow": "#4f9062"
 },

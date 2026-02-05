@@ -8,13 +8,13 @@ Color=23,27,36
 Color=31,36,48
 
 [Color0]
-Color=36,41,54
+Color=31,36,48
 
 [Color0Faint]
 Color=31,36,48
 
 [Color0Intense]
-Color=50,56,68
+Color=74,80,89
 
 [Color1]
 Color=242,135,121
@@ -35,10 +35,10 @@ Color=213,255,128
 Color=135,217,99
 
 [Color3]
-Color=255,173,102
+Color=255,209,115
 
 [Color3Faint]
-Color=255,173,102
+Color=255,209,115
 
 [Color3Intense]
 Color=255,204,102
@@ -71,7 +71,7 @@ Color=149,230,203
 Color=92,207,230
 
 [Color7]
-Color=217,215,206
+Color=204,202,194
 
 [Color7Faint]
 Color=204,202,194
@@ -92,4 +92,3 @@ Color=217,215,206
 Blur=true
 Description=Ayu Mirage
 Opacity=0.95
-

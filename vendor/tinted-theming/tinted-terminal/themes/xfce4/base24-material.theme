@@ -5,6 +5,6 @@
 Name=base24-material
 ColorForeground=#c3c3c3
 ColorBackground=#eaeaea
-ColorCursor=x
+ColorCursor=#c3c3c3
 ColorBoldIsBright=FALSE
-ColorPalette=#212121;#b7141e;#457b23;#53a4f3;#134eb2;#550087;#0e707c;#eeeeee;#424242;#e83a3f;#7aba39;#fee92e;#53a4f3;#a94dbb;#26bad1;#d8d8d8
+ColorPalette=#eaeaea;#b7141e;#457b23;#53a4f3;#134eb2;#550087;#0e707c;#c3c3c3;#6d6d6d;#e83a3f;#7aba39;#fee92e;#53a4f3;#a94dbb;#26bad1;#d8d8d8

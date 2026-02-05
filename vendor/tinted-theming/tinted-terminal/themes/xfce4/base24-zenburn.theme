@@ -5,6 +5,6 @@
 Name=base24-zenburn
 ColorForeground=#c1c9b9
 ColorBackground=#3f3f3f
-ColorCursor=x
+ColorCursor=#c1c9b9
 ColorBoldIsBright=FALSE
-ColorPalette=#4d4d4d;#705050;#60b48a;#94bff3;#506070;#dc8cc3;#8cd0d3;#dcdccc;#709080;#dca3a3;#c3bf9f;#e0cf9f;#94bff3;#ec93d3;#93e0e3;#ffffff
+ColorPalette=#3f3f3f;#705050;#60b48a;#94bff3;#506070;#dc8cc3;#8cd0d3;#c1c9b9;#8ba393;#dca3a3;#c3bf9f;#e0cf9f;#94bff3;#ec93d3;#93e0e3;#ffffff

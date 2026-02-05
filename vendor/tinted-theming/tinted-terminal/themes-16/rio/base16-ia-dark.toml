@@ -2,8 +2,8 @@
 # Color scheme: iA Dark by iA Inc. (modified by aramisgithub)
 
 [colors]
-selection-background = '#1d414d' # base02
-selection-foreground = '#cccccc' # base05
+selection-background = '#cccccc' # base05
+selection-foreground = '#1d414d' # base02
 
 cursor         = '#cccccc' # base05
 tabs           = '#222222' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#1d414d' # base02
 
 background     = '#1a1a1a' # base00
 foreground     = '#cccccc' # base05
-black          = '#222222' # base01
+black          = '#1a1a1a' # base00
 red            = '#d88568' # base08
 yellow         = '#b99353' # base0A
 green          = '#83a471' # base0B
 cyan           = '#7c9cae' # base0C
 blue           = '#8eccdd' # base0D
 magenta        = '#b98eb2' # base0E
-white          = '#e8e8e8' # base06
+white          = '#cccccc' # base05
 
 dim-foreground   = '#cccccc' # base05
 dim-black        = '#222222' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#b98eb2' # base0E
 dim-white        = '#b8b8b8' # base04
 
 light-foreground = '#cccccc' # base05
-light-black      = '#1d414d' # base02
+light-black      = '#767676' # base03
 light-red        = '#d88568' # base08
 light-yellow     = '#b99353' # base0A
 light-green      = '#83a471' # base0B

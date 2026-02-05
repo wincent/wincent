@@ -5,6 +5,6 @@
 Name=base16-charcoal-light
 ColorForeground=#382e1b
 ColorBackground=#cabda0
-ColorCursor=x
+ColorCursor=#382e1b
 ColorBoldIsBright=FALSE
-ColorPalette=#bcad8c;#382e1b;#110e06;#110e06;#251e0f;#382e1b;#110e06;#4b3e26;#af9f7d;#382e1b;#110e06;#110e06;#251e0f;#382e1b;#110e06;#bcad8c
+ColorPalette=#cabda0;#382e1b;#110e06;#110e06;#251e0f;#382e1b;#110e06;#382e1b;#645538;#382e1b;#110e06;#110e06;#251e0f;#382e1b;#110e06;#bcad8c

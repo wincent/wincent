@@ -5,6 +5,6 @@
 Name=base16-vice
 ColorForeground=#8b9cbe
 ColorBackground=#17191e
-ColorCursor=x
+ColorCursor=#8b9cbe
 ColorBoldIsBright=FALSE
-ColorPalette=#22262d;#ff29a8;#0badff;#f0ffaa;#00eaff;#00f6d9;#8265ff;#b2bfd9;#3c3f4c;#ff29a8;#0badff;#f0ffaa;#00eaff;#00f6d9;#8265ff;#f4f4f7
+ColorPalette=#17191e;#ff29a8;#0badff;#f0ffaa;#00eaff;#00f6d9;#8265ff;#8b9cbe;#383a47;#ff29a8;#0badff;#f0ffaa;#00eaff;#00f6d9;#8265ff;#f4f4f7

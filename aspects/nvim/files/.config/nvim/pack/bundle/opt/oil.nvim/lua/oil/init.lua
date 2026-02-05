@@ -342,11 +342,16 @@ end
 
 ---Open oil browser in a floating window, or close it if open
 ---@param dir nil|string When nil, open the parent of the current buffer, or the cwd if current buffer is not a file
-M.toggle_float = function(dir)
+---@param opts? oil.OpenOpts
+---@param cb? fun() Called after the oil buffer is ready
+M.toggle_float = function(dir, opts, cb)
   if vim.w.is_oil_win then
     M.close()
+    if cb then
+      cb()
+    end
   else
-    M.open_float(dir)
+    M.open_float(dir, opts, cb)
   end
 end
 
@@ -543,6 +548,8 @@ M.open_preview = function(opts, callback)
   end
 
   util.get_edit_path(bufnr, entry, function(normalized_url)
+    local mc = package.loaded["multicursor-nvim"]
+    local has_multicursors = mc and mc.hasCursors()
     local is_visual_mode = util.is_visual_mode()
     if preview_win then
       if is_visual_mode then
@@ -601,7 +608,10 @@ M.open_preview = function(opts, callback)
     end
     vim.w.oil_entry_id = entry.id
     vim.w.oil_source_win = prev_win
-    if is_visual_mode then
+    if has_multicursors then
+      hack_set_win(prev_win)
+      mc.restoreCursors()
+    elseif is_visual_mode then
       hack_set_win(prev_win)
       -- Restore the visual selection
       vim.cmd.normal({ args = { "gv" }, bang = true })

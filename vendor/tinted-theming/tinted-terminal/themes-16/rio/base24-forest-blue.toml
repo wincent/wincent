@@ -2,8 +2,8 @@
 # Color scheme: Forest Blue by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#3d3d3d' # base02
-selection-foreground = '#b8b1a9' # base05
+selection-background = '#b8b1a9' # base05
+selection-foreground = '#3d3d3d' # base02
 
 cursor         = '#b8b1a9' # base05
 tabs           = '#333333' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#3d3d3d' # base02
 
 background     = '#051519' # base00
 foreground     = '#b8b1a9' # base05
-black          = '#333333' # base01
+black          = '#051519' # base00
 red            = '#f8818e' # base08
 yellow         = '#39a7a2' # base0A
 green          = '#92d3a2' # base0B
 cyan           = '#31658c' # base0C
 blue           = '#8ed0ce' # base0D
 magenta        = '#5e468c' # base0E
-white          = '#e2d8cd' # base06
+white          = '#b8b1a9' # base05
 
 dim-foreground   = '#b8b1a9' # base05
 dim-black        = '#333333' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#5e468c' # base0E
 dim-white        = '#8f8a85' # base04
 
 light-foreground = '#b8b1a9' # base05
-light-black      = '#3d3d3d' # base02
+light-black      = '#666361' # base03
 light-red        = '#fb3d66' # base12
 light-yellow     = '#2fc859' # base13
 light-green      = '#6bb48d' # base14

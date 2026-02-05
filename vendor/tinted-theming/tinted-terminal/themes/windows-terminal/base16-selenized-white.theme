@@ -3,9 +3,9 @@
 	"name": "selenized-white",
 	"foreground": "#474747",
 	"background": "#ffffff",
-	"black": "#ebebeb",
+	"black": "#ffffff",
 	"blue": "#0054cf",
-	"brightBlack": "#cdcdcd",
+	"brightBlack": "#878787",
 	"brightBlue": "#0054cf",
 	"brightCyan": "#009a8a",
 	"brightGreen": "#008400",
@@ -17,6 +17,6 @@
 	"green": "#008400",
 	"purple": "#6b40c3",
 	"red": "#bf0000",
-	"white": "#282828",
-	"yellow": "#ba3700"
+	"white": "#474747",
+	"yellow": "#af8500"
 },

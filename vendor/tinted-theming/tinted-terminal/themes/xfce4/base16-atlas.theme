@@ -5,6 +5,6 @@
 Name=base16-atlas
 ColorForeground=#a1a19a
 ColorBackground=#002635
-ColorCursor=x
+ColorCursor=#a1a19a
 ColorBoldIsBright=FALSE
-ColorPalette=#00384d;#ff5a67;#7fc06e;#ffcc1b;#14747e;#9a70a4;#5dd7b9;#e6e6dc;#517f8d;#ff5a67;#7fc06e;#ffcc1b;#14747e;#9a70a4;#5dd7b9;#fafaf8
+ColorPalette=#002635;#ff5a67;#7fc06e;#ffcc1b;#14747e;#9a70a4;#5dd7b9;#a1a19a;#6c8b91;#ff5a67;#7fc06e;#ffcc1b;#14747e;#9a70a4;#5dd7b9;#fafaf8

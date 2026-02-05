@@ -8,13 +8,13 @@ Color=0,20,25
 Color=14,16,17
 
 [Color0]
-Color=0,39,49
+Color=14,16,17
 
 [Color0Faint]
 Color=14,16,17
 
 [Color0Intense]
-Color=0,30,38
+Color=55,77,83
 
 [Color1]
 Color=230,56,83
@@ -35,10 +35,10 @@ Color=94,184,60
 Color=29,144,0
 
 [Color3]
-Color=165,119,5
+Color=0,111,192
 
 [Color3Faint]
-Color=165,119,5
+Color=0,111,192
 
 [Color3Intense]
 Color=204,147,8
@@ -71,7 +71,7 @@ Color=75,115,162
 Color=0,87,148
 
 [Color7]
-Color=220,220,220
+Color=165,172,174
 
 [Color7Faint]
 Color=165,172,174
@@ -92,4 +92,3 @@ Color=220,220,220
 Blur=true
 Description=Firefox Dev
 Opacity=0.95
-

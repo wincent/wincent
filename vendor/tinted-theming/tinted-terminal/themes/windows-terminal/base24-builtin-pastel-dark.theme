@@ -3,9 +3,9 @@
 	"name": "Builtin Pastel Dark",
 	"foreground": "#d1d1d1",
 	"background": "#000000",
-	"black": "#4e4e4e",
+	"black": "#000000",
 	"blue": "#96cafd",
-	"brightBlack": "#7c7c7c",
+	"brightBlack": "#989898",
 	"brightBlue": "#b5dcfe",
 	"brightCyan": "#dfdffe",
 	"brightGreen": "#ceffab",
@@ -17,6 +17,6 @@
 	"green": "#a7ff60",
 	"purple": "#ff73fd",
 	"red": "#ff6b60",
-	"white": "#eeeeee",
-	"yellow": "#ffffb6"
+	"white": "#d1d1d1",
+	"yellow": "#b5dcfe"
 },

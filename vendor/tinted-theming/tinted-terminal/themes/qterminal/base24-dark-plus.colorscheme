@@ -8,13 +8,13 @@ Color=68,68,68
 Color=14,14,14
 
 [Color0]
-Color=0,0,0
+Color=14,14,14
 
 [Color0Faint]
 Color=14,14,14
 
 [Color0Intense]
-Color=102,102,102
+Color=133,133,133
 
 [Color1]
 Color=205,49,49
@@ -35,10 +35,10 @@ Color=13,188,121
 Color=35,209,139
 
 [Color3]
-Color=229,229,16
+Color=59,142,234
 
 [Color3Faint]
-Color=229,229,16
+Color=59,142,234
 
 [Color3Intense]
 Color=245,245,67
@@ -71,7 +71,7 @@ Color=17,168,205
 Color=41,184,219
 
 [Color7]
-Color=229,229,229
+Color=197,197,197
 
 [Color7Faint]
 Color=197,197,197
@@ -92,4 +92,3 @@ Color=229,229,229
 Blur=true
 Description=Dark Plus
 Opacity=0.95
-

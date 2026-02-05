@@ -5,6 +5,6 @@
 Name=base24-desert
 ColorForeground=#cdbb9b
 ColorBackground=#333333
-ColorCursor=x
+ColorCursor=#cdbb9b
 ColorBoldIsBright=FALSE
-ColorPalette=#4d4d4d;#ff2b2b;#98fb98;#87ceff;#cd853f;#ffdead;#ffa0a0;#f5deb3;#555555;#ff5555;#55ff55;#ffff55;#87ceff;#ff55ff;#ffd700;#ffffff
+ColorPalette=#333333;#ff2b2b;#98fb98;#87ceff;#cd853f;#ffdead;#ffa0a0;#cdbb9b;#7d776c;#ff5555;#55ff55;#ffff55;#87ceff;#ff55ff;#ffd700;#ffffff

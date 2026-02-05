@@ -5,6 +5,6 @@
 Name=base16-windows-nt-light
 ColorForeground=#808080
 ColorBackground=#ffffff
-ColorCursor=x
+ColorCursor=#808080
 ColorBoldIsBright=FALSE
-ColorPalette=#eaeaea;#800000;#008000;#808000;#000080;#800080;#008080;#404040;#d5d5d5;#800000;#008000;#808000;#000080;#800080;#008080;#000000
+ColorPalette=#ffffff;#800000;#008000;#808000;#000080;#800080;#008080;#808080;#c0c0c0;#800000;#008000;#808000;#000080;#800080;#008080;#000000

@@ -14,7 +14,7 @@ Color=33,33,33
 Color=33,33,33
 
 [Color0Intense]
-Color=66,66,66
+Color=103,103,103
 
 [Color1]
 Color=195,7,113
@@ -35,10 +35,10 @@ Color=16,167,120
 Color=95,215,175
 
 [Color3]
-Color=168,156,20
+Color=32,187,252
 
 [Color3Faint]
-Color=168,156,20
+Color=32,187,252
 
 [Color3Intense]
 Color=243,228,48
@@ -71,7 +71,7 @@ Color=32,165,186
 Color=79,184,204
 
 [Color7]
-Color=217,217,217
+Color=179,179,179
 
 [Color7Faint]
 Color=179,179,179
@@ -92,4 +92,3 @@ Color=217,217,217
 Blur=true
 Description=Pencil Dark
 Opacity=0.95
-

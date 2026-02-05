@@ -14,7 +14,7 @@ Color=46,46,46
 Color=46,46,46
 
 [Color0Intense]
-Color=69,69,69
+Color=115,115,115
 
 [Color1]
 Color=252,109,38
@@ -35,10 +35,10 @@ Color=62,179,131
 Color=82,233,168
 
 [Color3]
-Color=252,161,33
+Color=219,80,31
 
 [Color3Faint]
-Color=252,161,33
+Color=219,80,31
 
 [Color3Intense]
 Color=252,160,18
@@ -71,7 +71,7 @@ Color=110,73,203
 Color=125,83,231
 
 [Color7]
-Color=254,255,255
+Color=207,208,208
 
 [Color7Faint]
 Color=207,208,208
@@ -92,4 +92,3 @@ Color=254,255,255
 Blur=true
 Description=Lab Fox
 Opacity=0.95
-

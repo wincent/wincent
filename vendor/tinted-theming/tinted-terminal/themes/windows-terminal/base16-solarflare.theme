@@ -3,9 +3,9 @@
 	"name": "Solar Flare",
 	"foreground": "#a6afb8",
 	"background": "#18262f",
-	"black": "#222e38",
+	"black": "#18262f",
 	"blue": "#33b5e1",
-	"brightBlack": "#586875",
+	"brightBlack": "#667581",
 	"brightBlue": "#33b5e1",
 	"brightCyan": "#52cbb0",
 	"brightGreen": "#7cc844",
@@ -17,6 +17,6 @@
 	"green": "#7cc844",
 	"purple": "#a363d5",
 	"red": "#ef5253",
-	"white": "#e8e9ed",
-	"yellow": "#e66b2b"
+	"white": "#a6afb8",
+	"yellow": "#e4b51c"
 },

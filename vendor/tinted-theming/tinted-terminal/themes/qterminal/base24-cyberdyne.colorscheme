@@ -8,13 +8,13 @@ Color=30,30,30
 Color=21,17,68
 
 [Color0]
-Color=8,8,8
+Color=21,17,68
 
 [Color0Faint]
 Color=21,17,68
 
 [Color0Intense]
-Color=45,45,45
+Color=94,94,94
 
 [Color1]
 Color=255,130,114
@@ -35,10 +35,10 @@ Color=0,193,114
 Color=214,252,185
 
 [Color3]
-Color=210,167,0
+Color=193,227,254
 
 [Color3Faint]
-Color=210,167,0
+Color=193,227,254
 
 [Color3Intense]
 Color=254,253,213
@@ -71,7 +71,7 @@ Color=107,255,220
 Color=229,230,254
 
 [Color7]
-Color=241,241,241
+Color=192,192,192
 
 [Color7Faint]
 Color=192,192,192
@@ -92,4 +92,3 @@ Color=241,241,241
 Blur=true
 Description=Cyberdyne
 Opacity=0.95
-

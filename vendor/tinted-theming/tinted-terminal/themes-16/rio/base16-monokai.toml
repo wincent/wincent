@@ -2,8 +2,8 @@
 # Color scheme: Monokai by Wimer Hazenberg (http://www.monokai.nl)
 
 [colors]
-selection-background = '#49483e' # base02
-selection-foreground = '#f8f8f2' # base05
+selection-background = '#f8f8f2' # base05
+selection-foreground = '#49483e' # base02
 
 cursor         = '#f8f8f2' # base05
 tabs           = '#383830' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#49483e' # base02
 
 background     = '#272822' # base00
 foreground     = '#f8f8f2' # base05
-black          = '#383830' # base01
+black          = '#272822' # base00
 red            = '#f92672' # base08
 yellow         = '#f4bf75' # base0A
 green          = '#a6e22e' # base0B
 cyan           = '#a1efe4' # base0C
 blue           = '#66d9ef' # base0D
 magenta        = '#ae81ff' # base0E
-white          = '#f5f4f1' # base06
+white          = '#f8f8f2' # base05
 
 dim-foreground   = '#f8f8f2' # base05
 dim-black        = '#383830' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#ae81ff' # base0E
 dim-white        = '#a59f85' # base04
 
 light-foreground = '#f8f8f2' # base05
-light-black      = '#49483e' # base02
+light-black      = '#75715e' # base03
 light-red        = '#f92672' # base08
 light-yellow     = '#f4bf75' # base0A
 light-green      = '#a6e22e' # base0B

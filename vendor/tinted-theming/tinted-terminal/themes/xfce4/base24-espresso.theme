@@ -5,6 +5,6 @@
 Name=base24-espresso
 ColorForeground=#c7c7c5
 ColorBackground=#262626
-ColorCursor=x
+ColorCursor=#c7c7c5
 ColorBoldIsBright=FALSE
-ColorPalette=#343434;#d25151;#a5c261;#8ab7d9;#6c99bb;#d197d9;#bed6ff;#eeeeec;#535353;#f00c0c;#c2e075;#e1e38b;#8ab7d9;#efb5f7;#dcf3ff;#ffffff
+ColorPalette=#262626;#d25151;#a5c261;#8ab7d9;#6c99bb;#d197d9;#bed6ff;#c7c7c5;#797979;#f00c0c;#c2e075;#e1e38b;#8ab7d9;#efb5f7;#dcf3ff;#ffffff

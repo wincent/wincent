@@ -8,13 +8,13 @@ Color=56,56,56
 Color=51,51,51
 
 [Color0]
-Color=77,77,77
+Color=51,51,51
 
 [Color0Faint]
 Color=51,51,51
 
 [Color0Intense]
-Color=85,85,85
+Color=125,119,108
 
 [Color1]
 Color=255,43,43
@@ -35,10 +35,10 @@ Color=152,251,152
 Color=85,255,85
 
 [Color3]
-Color=240,230,140
+Color=135,206,255
 
 [Color3Faint]
-Color=240,230,140
+Color=135,206,255
 
 [Color3Intense]
 Color=255,255,85
@@ -71,7 +71,7 @@ Color=255,160,160
 Color=255,215,0
 
 [Color7]
-Color=245,222,179
+Color=205,187,155
 
 [Color7Faint]
 Color=205,187,155
@@ -92,4 +92,3 @@ Color=245,222,179
 Blur=true
 Description=Desert
 Opacity=0.95
-

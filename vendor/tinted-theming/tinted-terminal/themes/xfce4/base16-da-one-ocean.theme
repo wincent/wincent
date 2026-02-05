@@ -5,6 +5,6 @@
 Name=base16-da-one-ocean
 ColorForeground=#ffffff
 ColorBackground=#171726
-ColorCursor=x
+ColorCursor=#ffffff
 ColorBoldIsBright=FALSE
-ColorPalette=#22273d;#fa7883;#98c379;#ff9470;#6bb8ff;#e799ff;#8af5ff;#ffffff;#525866;#fa7883;#98c379;#ff9470;#6bb8ff;#e799ff;#8af5ff;#ffffff
+ColorPalette=#171726;#fa7883;#98c379;#ff9470;#6bb8ff;#e799ff;#8af5ff;#ffffff;#878d96;#fa7883;#98c379;#ff9470;#6bb8ff;#e799ff;#8af5ff;#ffffff

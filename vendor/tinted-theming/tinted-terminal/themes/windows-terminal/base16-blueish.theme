@@ -3,9 +3,9 @@
 	"name": "Blueish",
 	"foreground": "#c8e1f8",
 	"background": "#182430",
-	"black": "#243c54",
+	"black": "#182430",
 	"blue": "#82aaff",
-	"brightBlack": "#46290a",
+	"brightBlack": "#616d78",
 	"brightBlue": "#82aaff",
 	"brightCyan": "#5fd1ff",
 	"brightGreen": "#c3e88d",
@@ -17,6 +17,6 @@
 	"green": "#c3e88d",
 	"purple": "#ff84dd",
 	"red": "#4ce587",
-	"white": "#ddeaf6",
-	"yellow": "#f6a85c"
+	"white": "#c8e1f8",
+	"yellow": "#f6cd5c"
 },

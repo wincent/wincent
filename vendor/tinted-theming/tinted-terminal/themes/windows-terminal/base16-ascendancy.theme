@@ -3,9 +3,9 @@
 	"name": "Ascendancy",
 	"foreground": "#d5c7a1",
 	"background": "#282828",
-	"black": "#212f3d",
+	"black": "#282828",
 	"blue": "#458588",
-	"brightBlack": "#504945",
+	"brightBlack": "#928374",
 	"brightBlue": "#458588",
 	"brightCyan": "#8f3f71",
 	"brightGreen": "#b8bb26",
@@ -17,6 +17,6 @@
 	"green": "#b8bb26",
 	"purple": "#fabd2f",
 	"red": "#c03900",
-	"white": "#ebdbb2",
-	"yellow": "#fe8019"
+	"white": "#d5c7a1",
+	"yellow": "#ffcc1b"
 },

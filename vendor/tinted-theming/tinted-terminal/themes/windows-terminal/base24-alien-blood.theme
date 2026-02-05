@@ -3,9 +3,9 @@
 	"name": "Alien Blood",
 	"foreground": "#5a6f5c",
 	"background": "#0f160f",
-	"black": "#112615",
+	"black": "#0f160f",
 	"blue": "#2f697f",
-	"brightBlack": "#3c4711",
+	"brightBlack": "#46542a",
 	"brightBlue": "#00a9df",
 	"brightCyan": "#00dfc3",
 	"brightGreen": "#18e000",
@@ -17,6 +17,6 @@
 	"green": "#2f7e25",
 	"purple": "#47577e",
 	"red": "#7f2b26",
-	"white": "#647d75",
-	"yellow": "#707f23"
+	"white": "#5a6f5c",
+	"yellow": "#00a9df"
 },

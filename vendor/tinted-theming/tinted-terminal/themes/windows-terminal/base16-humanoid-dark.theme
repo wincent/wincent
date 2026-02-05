@@ -3,9 +3,9 @@
 	"name": "Humanoid dark",
 	"foreground": "#f8f8f2",
 	"background": "#232629",
-	"black": "#333b3d",
+	"black": "#232629",
 	"blue": "#00a6fb",
-	"brightBlack": "#484e54",
+	"brightBlack": "#60615d",
 	"brightBlue": "#00a6fb",
 	"brightCyan": "#0dd9d6",
 	"brightGreen": "#02d849",
@@ -17,6 +17,6 @@
 	"green": "#02d849",
 	"purple": "#f15ee3",
 	"red": "#f11235",
-	"white": "#fcfcf6",
-	"yellow": "#ff9505"
+	"white": "#f8f8f2",
+	"yellow": "#ffb627"
 },

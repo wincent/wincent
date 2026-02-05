@@ -2,8 +2,8 @@
 # Color scheme: Nord by arcticicestudio
 
 [colors]
-selection-background = '#434c5e' # base02
-selection-foreground = '#e5e9f0' # base05
+selection-background = '#e5e9f0' # base05
+selection-foreground = '#434c5e' # base02
 
 cursor         = '#e5e9f0' # base05
 tabs           = '#3b4252' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#434c5e' # base02
 
 background     = '#2e3440' # base00
 foreground     = '#e5e9f0' # base05
-black          = '#3b4252' # base01
+black          = '#2e3440' # base00
 red            = '#bf616a' # base08
 yellow         = '#ebcb8b' # base0A
 green          = '#a3be8c' # base0B
 cyan           = '#88c0d0' # base0C
 blue           = '#81a1c1' # base0D
 magenta        = '#b48ead' # base0E
-white          = '#eceff4' # base06
+white          = '#e5e9f0' # base05
 
 dim-foreground   = '#e5e9f0' # base05
 dim-black        = '#3b4252' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#b48ead' # base0E
 dim-white        = '#d8dee9' # base04
 
 light-foreground = '#e5e9f0' # base05
-light-black      = '#434c5e' # base02
+light-black      = '#4c566a' # base03
 light-red        = '#bf616a' # base08
 light-yellow     = '#ebcb8b' # base0A
 light-green      = '#a3be8c' # base0B

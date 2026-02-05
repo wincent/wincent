@@ -8,13 +8,13 @@ Color=84,70,56
 Color=36,18,0
 
 [Color0]
-Color=0,0,0
+Color=36,18,0
 
 [Color0Faint]
 Color=36,18,0
 
 [Color0Intense]
-Color=126,105,84
+Color=149,127,88
 
 [Color1]
 Color=213,37,43
@@ -35,10 +35,10 @@ Color=144,155,0
 Color=191,198,89
 
 [Color3]
-Color=189,138,19
+Color=124,201,206
 
 [Color3Faint]
-Color=189,138,19
+Color=124,201,206
 
 [Color3Intense]
 Color=255,202,27
@@ -71,7 +71,7 @@ Color=217,129,18
 Color=230,169,107
 
 [Color7]
-Color=221,193,101
+Color=197,171,96
 
 [Color7Faint]
 Color=197,171,96
@@ -92,4 +92,3 @@ Color=221,193,101
 Blur=true
 Description=Fun Forrest
 Opacity=0.95
-

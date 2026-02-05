@@ -3,9 +3,9 @@
 	"name": "Desert",
 	"foreground": "#cdbb9b",
 	"background": "#333333",
-	"black": "#4d4d4d",
+	"black": "#333333",
 	"blue": "#cd853f",
-	"brightBlack": "#555555",
+	"brightBlack": "#7d776c",
 	"brightBlue": "#87ceff",
 	"brightCyan": "#ffd700",
 	"brightGreen": "#55ff55",
@@ -17,6 +17,6 @@
 	"green": "#98fb98",
 	"purple": "#ffdead",
 	"red": "#ff2b2b",
-	"white": "#f5deb3",
-	"yellow": "#f0e68c"
+	"white": "#cdbb9b",
+	"yellow": "#87ceff"
 },

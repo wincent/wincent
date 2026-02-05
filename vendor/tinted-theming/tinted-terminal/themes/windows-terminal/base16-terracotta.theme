@@ -3,9 +3,9 @@
 	"name": "Terracotta",
 	"foreground": "#473731",
 	"background": "#efeae8",
-	"black": "#dfd6d1",
+	"black": "#efeae8",
 	"blue": "#625574",
-	"brightBlack": "#d0c1bb",
+	"brightBlack": "#c0aca4",
 	"brightBlue": "#625574",
 	"brightCyan": "#847f9e",
 	"brightGreen": "#7a894a",
@@ -17,6 +17,6 @@
 	"green": "#7a894a",
 	"purple": "#8d5968",
 	"red": "#a75045",
-	"white": "#352a25",
-	"yellow": "#bd6942"
+	"white": "#473731",
+	"yellow": "#ce943e"
 },

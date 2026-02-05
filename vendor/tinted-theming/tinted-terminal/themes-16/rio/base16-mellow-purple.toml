@@ -2,8 +2,8 @@
 # Color scheme: Mellow Purple by gidsi
 
 [colors]
-selection-background = '#331354' # base02
-selection-foreground = '#ffeeff' # base05
+selection-background = '#ffeeff' # base05
+selection-foreground = '#331354' # base02
 
 cursor         = '#ffeeff' # base05
 tabs           = '#1a092d' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#331354' # base02
 
 background     = '#1e0528' # base00
 foreground     = '#ffeeff' # base05
-black          = '#1a092d' # base01
+black          = '#1e0528' # base00
 red            = '#00d9e9' # base08
 yellow         = '#955ae7' # base0A
 green          = '#05cb0d' # base0B
 cyan           = '#b900b1' # base0C
 blue           = '#550068' # base0D
 magenta        = '#8991bb' # base0E
-white          = '#ffeeff' # base06
+white          = '#ffeeff' # base05
 
 dim-foreground   = '#ffeeff' # base05
 dim-black        = '#1a092d' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#8991bb' # base0E
 dim-white        = '#873582' # base04
 
 light-foreground = '#ffeeff' # base05
-light-black      = '#331354' # base02
+light-black      = '#320f55' # base03
 light-red        = '#00d9e9' # base08
 light-yellow     = '#955ae7' # base0A
 light-green      = '#05cb0d' # base0B

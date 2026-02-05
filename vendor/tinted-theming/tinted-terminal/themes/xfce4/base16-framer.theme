@@ -5,6 +5,6 @@
 Name=base16-framer
 ColorForeground=#d0d0d0
 ColorBackground=#181818
-ColorCursor=x
+ColorCursor=#d0d0d0
 ColorBoldIsBright=FALSE
-ColorPalette=#151515;#fd886b;#32ccdc;#fecb6e;#20bcfc;#ba8cfc;#acddfd;#e8e8e8;#464646;#fd886b;#32ccdc;#fecb6e;#20bcfc;#ba8cfc;#acddfd;#eeeeee
+ColorPalette=#181818;#fd886b;#32ccdc;#fecb6e;#20bcfc;#ba8cfc;#acddfd;#d0d0d0;#747474;#fd886b;#32ccdc;#fecb6e;#20bcfc;#ba8cfc;#acddfd;#eeeeee

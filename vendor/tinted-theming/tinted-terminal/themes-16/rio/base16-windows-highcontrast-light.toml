@@ -2,8 +2,8 @@
 # Color scheme: Windows High Contrast Light by Fergus Collins (https://github.com/ferguscollins)
 
 [colors]
-selection-background = '#d4d4d4' # base02
-selection-foreground = '#545454' # base05
+selection-background = '#545454' # base05
+selection-foreground = '#d4d4d4' # base02
 
 cursor         = '#545454' # base05
 tabs           = '#e8e8e8' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#d4d4d4' # base02
 
 background     = '#fcfcfc' # base00
 foreground     = '#545454' # base05
-black          = '#e8e8e8' # base01
+black          = '#fcfcfc' # base00
 red            = '#800000' # base08
 yellow         = '#808000' # base0A
 green          = '#008000' # base0B
 cyan           = '#008080' # base0C
 blue           = '#000080' # base0D
 magenta        = '#800080' # base0E
-white          = '#2a2a2a' # base06
+white          = '#545454' # base05
 
 dim-foreground   = '#545454' # base05
 dim-black        = '#e8e8e8' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#800080' # base0E
 dim-white        = '#7e7e7e' # base04
 
 light-foreground = '#545454' # base05
-light-black      = '#d4d4d4' # base02
+light-black      = '#c0c0c0' # base03
 light-red        = '#800000' # base08
 light-yellow     = '#808000' # base0A
 light-green      = '#008000' # base0B

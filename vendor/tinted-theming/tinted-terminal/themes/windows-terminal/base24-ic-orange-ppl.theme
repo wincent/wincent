@@ -3,9 +3,9 @@
 	"name": "IC-Orange-PPL",
 	"foreground": "#d9a971",
 	"background": "#262626",
-	"black": "#000000",
+	"black": "#262626",
 	"blue": "#bd6c00",
-	"brightBlack": "#6a4e29",
+	"brightBlack": "#8f6c41",
 	"brightBlue": "#ffbd54",
 	"brightCyan": "#c59752",
 	"brightGreen": "#f6ff3f",
@@ -17,6 +17,6 @@
 	"green": "#a3a900",
 	"purple": "#fb5d00",
 	"red": "#c03900",
-	"white": "#ffc88a",
-	"yellow": "#caae00"
+	"white": "#d9a971",
+	"yellow": "#ffbd54"
 },

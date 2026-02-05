@@ -2,8 +2,8 @@
 # Color scheme: Cupcake by Chris Kempson (http://chriskempson.com)
 
 [colors]
-selection-background = '#d8d5dd' # base02
-selection-foreground = '#8b8198' # base05
+selection-background = '#8b8198' # base05
+selection-foreground = '#d8d5dd' # base02
 
 cursor         = '#8b8198' # base05
 tabs           = '#f2f1f4' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#d8d5dd' # base02
 
 background     = '#fbf1f2' # base00
 foreground     = '#8b8198' # base05
-black          = '#f2f1f4' # base01
+black          = '#fbf1f2' # base00
 red            = '#d57e85' # base08
 yellow         = '#dcb16c' # base0A
 green          = '#a3b367' # base0B
 cyan           = '#69a9a7' # base0C
 blue           = '#7297b9' # base0D
 magenta        = '#bb99b4' # base0E
-white          = '#72677e' # base06
+white          = '#8b8198' # base05
 
 dim-foreground   = '#8b8198' # base05
 dim-black        = '#f2f1f4' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#bb99b4' # base0E
 dim-white        = '#a59daf' # base04
 
 light-foreground = '#8b8198' # base05
-light-black      = '#d8d5dd' # base02
+light-black      = '#bfb9c6' # base03
 light-red        = '#d57e85' # base08
 light-yellow     = '#dcb16c' # base0A
 light-green      = '#a3b367' # base0B

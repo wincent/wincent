@@ -2,8 +2,8 @@
 # Color scheme: Idle Toes by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#535353' # base02
-selection-foreground = '#c7c7c5' # base05
+selection-background = '#c7c7c5' # base05
+selection-foreground = '#535353' # base02
 
 cursor         = '#c7c7c5' # base05
 tabs           = '#323232' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#535353' # base02
 
 background     = '#323232' # base00
 foreground     = '#c7c7c5' # base05
-black          = '#323232' # base01
+black          = '#323232' # base00
 red            = '#d25252' # base08
 yellow         = '#5eb7f7' # base0A
 green          = '#7fe173' # base0B
 cyan           = '#bed6ff' # base0C
 blue           = '#4098ff' # base0D
 magenta        = '#f57fff' # base0E
-white          = '#eeeeec' # base06
+white          = '#c7c7c5' # base05
 
 dim-foreground   = '#c7c7c5' # base05
 dim-black        = '#323232' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#f57fff' # base0E
 dim-white        = '#a0a09f' # base04
 
 light-foreground = '#c7c7c5' # base05
-light-black      = '#535353' # base02
+light-black      = '#797979' # base03
 light-red        = '#f07070' # base12
 light-yellow     = '#ffe48b' # base13
 light-green      = '#9dff90' # base14

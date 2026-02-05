@@ -14,7 +14,7 @@ Color=9,3,0
 Color=9,3,0
 
 [Color0Intense]
-Color=92,88,85
+Color=110,106,104
 
 [Color1]
 Color=219,45,32
@@ -35,10 +35,10 @@ Color=1,162,82
 Color=58,52,50
 
 [Color3]
-Color=253,237,2
+Color=128,125,124
 
 [Color3Faint]
-Color=253,237,2
+Color=128,125,124
 
 [Color3Intense]
 Color=74,69,67
@@ -71,7 +71,7 @@ Color=181,228,244
 Color=205,171,83
 
 [Color7]
-Color=165,162,162
+Color=146,143,142
 
 [Color7Faint]
 Color=146,143,142
@@ -92,4 +92,3 @@ Color=165,162,162
 Blur=true
 Description=3024 Night
 Opacity=0.95
-

@@ -5,6 +5,6 @@
 Name=base16-woodland
 ColorForeground=#cabcb1
 ColorBackground=#231e18
-ColorCursor=x
+ColorCursor=#cabcb1
 ColorBoldIsBright=FALSE
-ColorPalette=#302b25;#d35c5c;#b7ba53;#e0ac16;#88a4d3;#bb90e2;#6eb958;#d7c8bc;#48413a;#d35c5c;#b7ba53;#e0ac16;#88a4d3;#bb90e2;#6eb958;#e4d4c8
+ColorPalette=#231e18;#d35c5c;#b7ba53;#e0ac16;#88a4d3;#bb90e2;#6eb958;#cabcb1;#9d8b70;#d35c5c;#b7ba53;#e0ac16;#88a4d3;#bb90e2;#6eb958;#e4d4c8

@@ -2,8 +2,8 @@
 # Color scheme: Brogrammer by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#2a3141' # base02
-selection-foreground = '#c1c8d7' # base05
+selection-background = '#c1c8d7' # base05
+selection-foreground = '#2a3141' # base02
 
 cursor         = '#c1c8d7' # base05
 tabs           = '#1f1f1f' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#2a3141' # base02
 
 background     = '#131313' # base00
 foreground     = '#c1c8d7' # base05
-black          = '#1f1f1f' # base01
+black          = '#131313' # base00
 red            = '#f71118' # base08
 yellow         = '#0f80d5' # base0A
 green          = '#2cc55d' # base0B
 cyan           = '#0f80d5' # base0C
 blue           = '#2a84d2' # base0D
 magenta        = '#4e59b7' # base0E
-white          = '#e3e6ed' # base06
+white          = '#c1c8d7' # base05
 
 dim-foreground   = '#c1c8d7' # base05
 dim-black        = '#1f1f1f' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#4e59b7' # base0E
 dim-white        = '#d6dae4' # base04
 
 light-foreground = '#c1c8d7' # base05
-light-black      = '#2a3141' # base02
+light-black      = '#343d50' # base03
 light-red        = '#de342e' # base12
 light-yellow     = '#f2bd09' # base13
 light-green      = '#1dd260' # base14

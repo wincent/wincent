@@ -5,6 +5,6 @@
 Name=base16-one-light
 ColorForeground=#383a42
 ColorBackground=#fafafa
-ColorCursor=x
+ColorCursor=#383a42
 ColorBoldIsBright=FALSE
-ColorPalette=#f0f0f1;#ca1243;#50a14f;#c18401;#4078f2;#a626a4;#0184bc;#202227;#e5e5e6;#ca1243;#50a14f;#c18401;#4078f2;#a626a4;#0184bc;#090a0b
+ColorPalette=#fafafa;#ca1243;#50a14f;#c18401;#4078f2;#a626a4;#0184bc;#383a42;#a0a1a7;#ca1243;#50a14f;#c18401;#4078f2;#a626a4;#0184bc;#090a0b

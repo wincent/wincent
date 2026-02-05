@@ -2,8 +2,8 @@
 # Color scheme: Spaceduck by Guillermo Rodriguez (https://github.com/pineapplegiant), packaged by Gabriel Fontes (https://github.com/Misterio77)
 
 [colors]
-selection-background = '#30365f' # base02
-selection-foreground = '#ecf0c1' # base05
+selection-background = '#ecf0c1' # base05
+selection-foreground = '#30365f' # base02
 
 cursor         = '#ecf0c1' # base05
 tabs           = '#1b1c36' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#30365f' # base02
 
 background     = '#16172d' # base00
 foreground     = '#ecf0c1' # base05
-black          = '#1b1c36' # base01
+black          = '#16172d' # base00
 red            = '#e33400' # base08
 yellow         = '#f2ce00' # base0A
 green          = '#5ccc96' # base0B
 cyan           = '#00a3cc' # base0C
 blue           = '#7a5ccc' # base0D
 magenta        = '#b3a1e6' # base0E
-white          = '#c1c3cc' # base06
+white          = '#ecf0c1' # base05
 
 dim-foreground   = '#ecf0c1' # base05
 dim-black        = '#1b1c36' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#b3a1e6' # base0E
 dim-white        = '#818596' # base04
 
 light-foreground = '#ecf0c1' # base05
-light-black      = '#30365f' # base02
+light-black      = '#686f9a' # base03
 light-red        = '#e33400' # base08
 light-yellow     = '#f2ce00' # base0A
 light-green      = '#5ccc96' # base0B

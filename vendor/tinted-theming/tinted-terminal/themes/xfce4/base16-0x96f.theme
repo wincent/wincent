@@ -5,6 +5,6 @@
 Name=base16-0x96f
 ColorForeground=#fcfcfc
 ColorBackground=#262427
-ColorCursor=x
+ColorCursor=#fcfcfc
 ColorBoldIsBright=FALSE
-ColorPalette=#3b393c;#ff7272;#bcdf59;#ffca58;#49cae4;#a093e2;#aee8f4;#eae9eb;#514f52;#ff7272;#bcdf59;#ffca58;#49cae4;#a093e2;#aee8f4;#fcfcfc
+ColorPalette=#262427;#ff7272;#bcdf59;#ffca58;#49cae4;#a093e2;#aee8f4;#fcfcfc;#676567;#ff7272;#bcdf59;#ffca58;#49cae4;#a093e2;#aee8f4;#fcfcfc

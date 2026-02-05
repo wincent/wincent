@@ -5,6 +5,6 @@
 Name=base24-cyberdyne
 ColorForeground=#c0c0c0
 ColorBackground=#151144
-ColorCursor=x
+ColorCursor=#c0c0c0
 ColorBoldIsBright=FALSE
-ColorPalette=#080808;#ff8272;#00c172;#c1e3fe;#0071cf;#ff8ffd;#6bffdc;#f1f1f1;#2d2d2d;#ffc4bd;#d6fcb9;#fefdd5;#c1e3fe;#ffb1fe;#e5e6fe;#feffff
+ColorPalette=#151144;#ff8272;#00c172;#c1e3fe;#0071cf;#ff8ffd;#6bffdc;#c0c0c0;#5e5e5e;#ffc4bd;#d6fcb9;#fefdd5;#c1e3fe;#ffb1fe;#e5e6fe;#feffff

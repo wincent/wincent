@@ -3,9 +3,9 @@
 	"name": "Blue Berry Pie",
 	"foreground": "#bbb2ad",
 	"background": "#1c0b28",
-	"black": "#0a4b61",
+	"black": "#1c0b28",
 	"blue": "#90a5bc",
-	"brightBlack": "#1f1637",
+	"brightBlack": "#534a5e",
 	"brightBlue": "#38163d",
 	"brightCyan": "#5d5f71",
 	"brightGreen": "#0a6b7e",
@@ -17,6 +17,6 @@
 	"green": "#5bb0b2",
 	"purple": "#9d53a7",
 	"red": "#99236d",
-	"white": "#f0e7d5",
-	"yellow": "#e9b8a7"
+	"white": "#bbb2ad",
+	"yellow": "#38163d"
 },

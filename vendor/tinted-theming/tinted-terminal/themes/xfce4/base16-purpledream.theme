@@ -5,6 +5,6 @@
 Name=base16-purpledream
 ColorForeground=#ddd0dd
 ColorBackground=#100510
-ColorCursor=x
+ColorCursor=#ddd0dd
 ColorBoldIsBright=FALSE
-ColorPalette=#302030;#ff1d0d;#14cc64;#f000a0;#00a0f0;#b000d0;#0075b0;#eee0ee;#403040;#ff1d0d;#14cc64;#f000a0;#00a0f0;#b000d0;#0075b0;#fff0ff
+ColorPalette=#100510;#ff1d0d;#14cc64;#f000a0;#00a0f0;#b000d0;#0075b0;#ddd0dd;#605060;#ff1d0d;#14cc64;#f000a0;#00a0f0;#b000d0;#0075b0;#fff0ff

@@ -3,9 +3,9 @@
 	"name": "PaperColor Light",
 	"foreground": "#444444",
 	"background": "#eeeeee",
-	"black": "#e4e4e4",
+	"black": "#eeeeee",
 	"blue": "#0087af",
-	"brightBlack": "#d0d0d0",
+	"brightBlack": "#878787",
 	"brightBlue": "#ff8700",
 	"brightCyan": "#00af00",
 	"brightGreen": "#87af00",
@@ -17,6 +17,6 @@
 	"green": "#008700",
 	"purple": "#8700af",
 	"red": "#af0000",
-	"white": "#005f87",
-	"yellow": "#d70087"
+	"white": "#444444",
+	"yellow": "#5f8700"
 },

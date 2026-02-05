@@ -2,8 +2,8 @@
 # Color scheme: Bluloco Dark by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#60697a' # base02
-selection-foreground = '#b1bac9' # base05
+selection-background = '#b1bac9' # base05
+selection-foreground = '#60697a' # base02
 
 cursor         = '#b1bac9' # base05
 tabs           = '#494f5c' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#60697a' # base02
 
 background     = '#1e2027' # base00
 foreground     = '#b1bac9' # base05
-black          = '#494f5c' # base01
+black          = '#1e2027' # base00
 red            = '#f71041' # base08
 yellow         = '#189ffd' # base0A
 green          = '#23974a' # base0B
 cyan           = '#366f99' # base0C
 blue           = '#285afe' # base0D
 magenta        = '#8c62fd' # base0E
-white          = '#ccd5e4' # base06
+white          = '#b1bac9' # base05
 
 dim-foreground   = '#b1bac9' # base05
 dim-black        = '#494f5c' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#8c62fd' # base0E
 dim-white        = '#969faf' # base04
 
 light-foreground = '#b1bac9' # base05
-light-black      = '#60697a' # base02
+light-black      = '#7b8494' # base03
 light-red        = '#fb496d' # base12
 light-yellow     = '#f6bd47' # base13
 light-green      = '#37bc58' # base14

@@ -2,8 +2,8 @@
 # Color scheme: Colors by mrmrs (http://clrs.cc)
 
 [colors]
-selection-background = '#555555' # base02
-selection-foreground = '#bbbbbb' # base05
+selection-background = '#bbbbbb' # base05
+selection-foreground = '#555555' # base02
 
 cursor         = '#bbbbbb' # base05
 tabs           = '#333333' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#555555' # base02
 
 background     = '#111111' # base00
 foreground     = '#bbbbbb' # base05
-black          = '#333333' # base01
+black          = '#111111' # base00
 red            = '#ff4136' # base08
 yellow         = '#ffdc00' # base0A
 green          = '#2ecc40' # base0B
 cyan           = '#7fdbff' # base0C
 blue           = '#0074d9' # base0D
 magenta        = '#b10dc9' # base0E
-white          = '#dddddd' # base06
+white          = '#bbbbbb' # base05
 
 dim-foreground   = '#bbbbbb' # base05
 dim-black        = '#333333' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#b10dc9' # base0E
 dim-white        = '#999999' # base04
 
 light-foreground = '#bbbbbb' # base05
-light-black      = '#555555' # base02
+light-black      = '#777777' # base03
 light-red        = '#ff4136' # base08
 light-yellow     = '#ffdc00' # base0A
 light-green      = '#2ecc40' # base0B

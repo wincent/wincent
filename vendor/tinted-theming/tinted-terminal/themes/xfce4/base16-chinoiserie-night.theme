@@ -5,6 +5,6 @@
 Name=base16-chinoiserie-night
 ColorForeground=#c4cbcf
 ColorBackground=#1d1d1d
-ColorCursor=x
+ColorCursor=#c4cbcf
 ColorBoldIsBright=FALSE
-ColorPalette=#282828;#f07c82;#b2cf87;#f4ce69;#8fb2c9;#be9db9;#b0d5df;#eee7f2;#373737;#f07c82;#b2cf87;#f4ce69;#8fb2c9;#be9db9;#b0d5df;#fffef9
+ColorPalette=#1d1d1d;#f07c82;#b2cf87;#f4ce69;#8fb2c9;#be9db9;#b0d5df;#c4cbcf;#918072;#f07c82;#b2cf87;#f4ce69;#8fb2c9;#be9db9;#b0d5df;#fffef9

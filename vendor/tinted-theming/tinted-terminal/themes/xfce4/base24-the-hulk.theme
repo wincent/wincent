@@ -5,6 +5,6 @@
 Name=base24-the-hulk
 ColorForeground=#b6b6b1
 ColorBackground=#1b1d1e
-ColorCursor=x
+ColorCursor=#b6b6b1
 ColorBoldIsBright=FALSE
-ColorPalette=#1b1d1e;#259d1a;#13ce2f;#4f6a95;#2424f4;#641e73;#378ca9;#d8d8d0;#505354;#8dff2a;#48ff76;#3afe15;#4f6a95;#72579d;#3f85a5;#e5e5e0
+ColorPalette=#1b1d1e;#259d1a;#13ce2f;#4f6a95;#2424f4;#641e73;#378ca9;#b6b6b1;#727473;#8dff2a;#48ff76;#3afe15;#4f6a95;#72579d;#3f85a5;#e5e5e0

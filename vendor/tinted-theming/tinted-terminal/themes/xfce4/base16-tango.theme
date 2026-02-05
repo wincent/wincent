@@ -5,6 +5,6 @@
 Name=base16-tango
 ColorForeground=#d3d7cf
 ColorBackground=#2e3436
-ColorCursor=x
+ColorCursor=#d3d7cf
 ColorBoldIsBright=FALSE
-ColorPalette=#8ae234;#cc0000;#4e9a06;#c4a000;#3465a4;#75507b;#06989a;#ad7fa8;#fce94f;#cc0000;#4e9a06;#c4a000;#3465a4;#75507b;#06989a;#eeeeec
+ColorPalette=#2e3436;#cc0000;#4e9a06;#c4a000;#3465a4;#75507b;#06989a;#d3d7cf;#555753;#cc0000;#4e9a06;#c4a000;#3465a4;#75507b;#06989a;#eeeeec

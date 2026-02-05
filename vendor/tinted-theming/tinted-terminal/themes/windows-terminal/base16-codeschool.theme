@@ -3,9 +3,9 @@
 	"name": "Codeschool",
 	"foreground": "#9ea7a6",
 	"background": "#232c31",
-	"black": "#1c3657",
+	"black": "#232c31",
 	"blue": "#484d79",
-	"brightBlack": "#2a343a",
+	"brightBlack": "#3f4944",
 	"brightBlue": "#484d79",
 	"brightCyan": "#b02f30",
 	"brightGreen": "#237986",
@@ -17,6 +17,6 @@
 	"green": "#237986",
 	"purple": "#c59820",
 	"red": "#2a5491",
-	"white": "#a7cfa3",
-	"yellow": "#43820d"
+	"white": "#9ea7a6",
+	"yellow": "#a03b1e"
 },

@@ -1,4 +1,4 @@
---- @since 25.12.29
+--- @since 26.1.22
 
 local get = ya.sync(function(st, url) return st.last == url and st.level end)
 
@@ -79,7 +79,7 @@ local function peek(_, job)
 	local tmp = os.tmpname()
 	-- stylua: ignore
 	local status, err = Command("magick"):arg {
-		tostring(url),
+		tostring(job.file.path),
 		"-auto-orient", "-strip",
 		"-sample", string.format("%dx%d", new_w, new_h),
 		"-quality", rt.preview.image_quality,

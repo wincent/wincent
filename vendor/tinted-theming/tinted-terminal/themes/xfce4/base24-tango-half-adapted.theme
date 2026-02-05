@@ -5,6 +5,6 @@
 Name=base24-tango-half-adapted
 ColorForeground=#4f4f4f
 ColorBackground=#feffff
-ColorCursor=x
+ColorCursor=#4f4f4f
 ColorBoldIsBright=FALSE
-ColorPalette=#f1f1f1;#ff0000;#4cc300;#e2bf00;#008df5;#a86bb2;#00bdc3;#323232;#dcdcdc;#ff0012;#8af600;#ffeb00;#75beff;#d798d0;#00f6fa;#000000
+ColorPalette=#feffff;#ff0000;#4cc300;#e2bf00;#008df5;#a86bb2;#00bdc3;#4f4f4f;#cccccc;#ff0012;#8af600;#ffeb00;#75beff;#d798d0;#00f6fa;#000000

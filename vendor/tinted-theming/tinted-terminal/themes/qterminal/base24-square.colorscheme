@@ -8,13 +8,13 @@ Color=13,13,13
 Color=26,26,26
 
 [Color0]
-Color=5,5,5
+Color=26,26,26
 
 [Color0Faint]
 Color=26,26,26
 
 [Color0Intense]
-Color=20,20,20
+Color=75,75,75
 
 [Color1]
 Color=233,137,124
@@ -35,10 +35,10 @@ Color=182,55,125
 Color=195,247,134
 
 [Color3]
-Color=236,235,190
+Color=182,222,251
 
 [Color3Faint]
-Color=236,235,190
+Color=182,222,251
 
 [Color3Intense]
 Color=252,251,204
@@ -71,7 +71,7 @@ Color=201,202,236
 Color=215,217,252
 
 [Color7]
-Color=242,242,242
+Color=186,186,186
 
 [Color7Faint]
 Color=186,186,186
@@ -92,4 +92,3 @@ Color=242,242,242
 Blur=true
 Description=Square
 Opacity=0.95
-

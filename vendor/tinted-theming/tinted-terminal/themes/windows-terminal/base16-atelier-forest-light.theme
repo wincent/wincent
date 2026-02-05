@@ -3,9 +3,9 @@
 	"name": "Atelier Forest Light",
 	"foreground": "#68615e",
 	"background": "#f1efee",
-	"black": "#e6e2e0",
+	"black": "#f1efee",
 	"blue": "#407ee7",
-	"brightBlack": "#a8a19f",
+	"brightBlack": "#9c9491",
 	"brightBlue": "#407ee7",
 	"brightCyan": "#3d97b8",
 	"brightGreen": "#7b9726",
@@ -17,6 +17,6 @@
 	"green": "#7b9726",
 	"purple": "#6666ea",
 	"red": "#f22c40",
-	"white": "#2c2421",
-	"yellow": "#df5320"
+	"white": "#68615e",
+	"yellow": "#c38418"
 },

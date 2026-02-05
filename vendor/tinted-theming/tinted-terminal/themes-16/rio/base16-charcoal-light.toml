@@ -2,8 +2,8 @@
 # Color scheme: Charcoal Light by Mubin Muhammad (https://github.com/mubin6th)
 
 [colors]
-selection-background = '#af9f7d' # base02
-selection-foreground = '#382e1b' # base05
+selection-background = '#382e1b' # base05
+selection-foreground = '#af9f7d' # base02
 
 cursor         = '#382e1b' # base05
 tabs           = '#bcad8c' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#af9f7d' # base02
 
 background     = '#cabda0' # base00
 foreground     = '#382e1b' # base05
-black          = '#bcad8c' # base01
+black          = '#cabda0' # base00
 red            = '#382e1b' # base08
 yellow         = '#110e06' # base0A
 green          = '#110e06' # base0B
 cyan           = '#110e06' # base0C
 blue           = '#251e0f' # base0D
 magenta        = '#382e1b' # base0E
-white          = '#4b3e26' # base06
+white          = '#382e1b' # base05
 
 dim-foreground   = '#382e1b' # base05
 dim-black        = '#bcad8c' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#382e1b' # base0E
 dim-white        = '#110e06' # base04
 
 light-foreground = '#382e1b' # base05
-light-black      = '#af9f7d' # base02
+light-black      = '#645538' # base03
 light-red        = '#382e1b' # base08
 light-yellow     = '#110e06' # base0A
 light-green      = '#110e06' # base0B

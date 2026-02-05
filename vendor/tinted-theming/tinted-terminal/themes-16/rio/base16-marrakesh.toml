@@ -2,8 +2,8 @@
 # Color scheme: Marrakesh by Alexandre Gavioli (http://github.com/Alexx2/)
 
 [colors]
-selection-background = '#5f5b17' # base02
-selection-foreground = '#948e48' # base05
+selection-background = '#948e48' # base05
+selection-foreground = '#5f5b17' # base02
 
 cursor         = '#948e48' # base05
 tabs           = '#302e00' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#5f5b17' # base02
 
 background     = '#201602' # base00
 foreground     = '#948e48' # base05
-black          = '#302e00' # base01
+black          = '#201602' # base00
 red            = '#c35359' # base08
 yellow         = '#a88339' # base0A
 green          = '#18974e' # base0B
 cyan           = '#75a738' # base0C
 blue           = '#477ca1' # base0D
 magenta        = '#8868b3' # base0E
-white          = '#ccc37a' # base06
+white          = '#948e48' # base05
 
 dim-foreground   = '#948e48' # base05
 dim-black        = '#302e00' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#8868b3' # base0E
 dim-white        = '#86813b' # base04
 
 light-foreground = '#948e48' # base05
-light-black      = '#5f5b17' # base02
+light-black      = '#6c6823' # base03
 light-red        = '#c35359' # base08
 light-yellow     = '#a88339' # base0A
 light-green      = '#18974e' # base0B

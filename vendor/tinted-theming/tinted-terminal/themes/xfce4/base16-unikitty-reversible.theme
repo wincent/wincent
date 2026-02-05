@@ -5,6 +5,6 @@
 Name=base16-unikitty-reversible
 ColorForeground=#c3c2c4
 ColorBackground=#2e2a31
-ColorCursor=x
+ColorCursor=#c3c2c4
 ColorBoldIsBright=FALSE
-ColorPalette=#4b484e;#d8137f;#17ad98;#dc8a0e;#7864fa;#b33ce8;#149bda;#e1e0e1;#69666b;#d8137f;#17ad98;#dc8a0e;#7864fa;#b33ce8;#149bda;#ffffff
+ColorPalette=#2e2a31;#d8137f;#17ad98;#dc8a0e;#7864fa;#b33ce8;#149bda;#c3c2c4;#878589;#d8137f;#17ad98;#dc8a0e;#7864fa;#b33ce8;#149bda;#ffffff

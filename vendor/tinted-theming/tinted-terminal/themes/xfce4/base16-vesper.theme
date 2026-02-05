@@ -5,6 +5,6 @@
 Name=base16-vesper
 ColorForeground=#b7b7b7
 ColorBackground=#101010
-ColorCursor=x
+ColorCursor=#b7b7b7
 ColorBoldIsBright=FALSE
-ColorPalette=#232323;#de6e6e;#5f8787;#ffc799;#8eaaaa;#d69094;#60a592;#c1c1c1;#222222;#de6e6e;#5f8787;#ffc799;#8eaaaa;#d69094;#60a592;#d5d5d5
+ColorPalette=#101010;#de6e6e;#5f8787;#ffc799;#8eaaaa;#d69094;#60a592;#b7b7b7;#333333;#de6e6e;#5f8787;#ffc799;#8eaaaa;#d69094;#60a592;#d5d5d5

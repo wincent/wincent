@@ -3,9 +3,9 @@
 	"name": "Synth Midnight Terminal Light",
 	"foreground": "#28292a",
 	"background": "#dddfe0",
-	"black": "#cfd1d2",
+	"black": "#dddfe0",
 	"blue": "#03aeff",
-	"brightBlack": "#c1c3c4",
+	"brightBlack": "#a3a5a6",
 	"brightBlue": "#03aeff",
 	"brightCyan": "#42fff9",
 	"brightGreen": "#06ea61",
@@ -17,6 +17,6 @@
 	"green": "#06ea61",
 	"purple": "#ea5ce2",
 	"red": "#b53b50",
-	"white": "#1a1b1c",
-	"yellow": "#ea770d"
+	"white": "#28292a",
+	"yellow": "#c9d364"
 },

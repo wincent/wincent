@@ -8,13 +8,13 @@ Color=68,68,102
 Color=41,42,68
 
 [Color0]
-Color=18,19,29
+Color=41,42,68
 
 [Color0Faint]
 Color=41,42,68
 
 [Color0Intense]
-Color=102,102,153
+Color=133,133,172
 
 [Color1]
 Color=221,118,85
@@ -35,10 +35,10 @@ Color=4,219,180
 Color=0,233,192
 
 [Color3]
-Color=242,231,183
+Color=105,191,250
 
 [Color3Faint]
-Color=242,231,183
+Color=105,191,250
 
 [Color3Intense]
 Color=254,252,168
@@ -71,7 +71,7 @@ Color=86,211,193
 Color=139,252,225
 
 [Color7]
-Color=227,226,232
+Color=195,195,212
 
 [Color7Faint]
 Color=195,195,212
@@ -92,4 +92,3 @@ Color=227,226,232
 Blur=true
 Description=Rebecca
 Opacity=0.95
-

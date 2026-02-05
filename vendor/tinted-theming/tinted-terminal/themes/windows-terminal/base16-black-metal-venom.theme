@@ -3,9 +3,9 @@
 	"name": "Black Metal (Venom)",
 	"foreground": "#c1c1c1",
 	"background": "#000000",
-	"black": "#121212",
+	"black": "#000000",
 	"blue": "#888888",
-	"brightBlack": "#222222",
+	"brightBlack": "#333333",
 	"brightBlue": "#888888",
 	"brightCyan": "#aaaaaa",
 	"brightGreen": "#f8f7f2",
@@ -17,6 +17,6 @@
 	"green": "#f8f7f2",
 	"purple": "#999999",
 	"red": "#5f8787",
-	"white": "#999999",
-	"yellow": "#aaaaaa"
+	"white": "#c1c1c1",
+	"yellow": "#79241f"
 },

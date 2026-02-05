@@ -3,9 +3,9 @@
 	"name": "PhD",
 	"foreground": "#b8bbc2",
 	"background": "#061229",
-	"black": "#2a3448",
+	"black": "#061229",
 	"blue": "#5299bf",
-	"brightBlack": "#4d5666",
+	"brightBlack": "#717885",
 	"brightBlue": "#5299bf",
 	"brightCyan": "#72b9bf",
 	"brightGreen": "#99bf52",
@@ -17,6 +17,6 @@
 	"green": "#99bf52",
 	"purple": "#9989cc",
 	"red": "#d07346",
-	"white": "#dbdde0",
-	"yellow": "#f0a000"
+	"white": "#b8bbc2",
+	"yellow": "#fbd461"
 },

@@ -2,8 +2,8 @@
 # Color scheme: Primer Dark Dimmed by Jimmy Lin
 
 [colors]
-selection-background = '#444c56' # base02
-selection-foreground = '#909dab' # base05
+selection-background = '#909dab' # base05
+selection-foreground = '#444c56' # base02
 
 cursor         = '#909dab' # base05
 tabs           = '#373e47' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#444c56' # base02
 
 background     = '#1c2128' # base00
 foreground     = '#909dab' # base05
-black          = '#373e47' # base01
+black          = '#1c2128' # base00
 red            = '#f47067' # base08
 yellow         = '#c69026' # base0A
 green          = '#57ab5a' # base0B
 cyan           = '#96d0ff' # base0C
 blue           = '#539bf5' # base0D
 magenta        = '#e275ad' # base0E
-white          = '#adbac7' # base06
+white          = '#909dab' # base05
 
 dim-foreground   = '#909dab' # base05
 dim-black        = '#373e47' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#e275ad' # base0E
 dim-white        = '#768390' # base04
 
 light-foreground = '#909dab' # base05
-light-black      = '#444c56' # base02
+light-black      = '#545d68' # base03
 light-red        = '#f47067' # base08
 light-yellow     = '#c69026' # base0A
 light-green      = '#57ab5a' # base0B

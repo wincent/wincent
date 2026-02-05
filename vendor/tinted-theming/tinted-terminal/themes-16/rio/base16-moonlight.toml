@@ -2,8 +2,8 @@
 # Color scheme: Moonlight by Jeremy Swinarton (https://github.com/jswinarton)
 
 [colors]
-selection-background = '#596399' # base02
-selection-foreground = '#a3ace1' # base05
+selection-background = '#a3ace1' # base05
+selection-foreground = '#596399' # base02
 
 cursor         = '#a3ace1' # base05
 tabs           = '#403c64' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#596399' # base02
 
 background     = '#212337' # base00
 foreground     = '#a3ace1' # base05
-black          = '#403c64' # base01
+black          = '#212337' # base00
 red            = '#ff5370' # base08
 yellow         = '#ffc777' # base0A
 green          = '#2df4c0' # base0B
 cyan           = '#04d1f9' # base0C
 blue           = '#40ffff' # base0D
 magenta        = '#b994f1' # base0E
-white          = '#b4a4f4' # base06
+white          = '#a3ace1' # base05
 
 dim-foreground   = '#a3ace1' # base05
 dim-black        = '#403c64' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#b994f1' # base0E
 dim-white        = '#a1abe0' # base04
 
 light-foreground = '#a3ace1' # base05
-light-black      = '#596399' # base02
+light-black      = '#748cd6' # base03
 light-red        = '#ff5370' # base08
 light-yellow     = '#ffc777' # base0A
 light-green      = '#2df4c0' # base0B

@@ -5,6 +5,6 @@
 Name=base24-violet-dark
 ColorForeground=#a7a59f
 ColorBackground=#1b1d1f
-ColorCursor=x
+ColorCursor=#a7a59f
 ColorBoldIsBright=FALSE
-ColorPalette=#56595c;#c94c22;#85981c;#2075c7;#2e8bce;#d13a82;#32a198;#c8c5bc;#45484b;#bd3612;#728903;#a57704;#2075c7;#c61b6e;#259185;#c8c5bd
+ColorPalette=#1b1d1f;#c94c22;#85981c;#2075c7;#2e8bce;#d13a82;#32a198;#a7a59f;#656767;#bd3612;#728903;#a57704;#2075c7;#c61b6e;#259185;#c8c5bd

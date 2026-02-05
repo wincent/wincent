@@ -5,6 +5,6 @@
 Name=base24-brogrammer
 ColorForeground=#c1c8d7
 ColorBackground=#131313
-ColorCursor=x
+ColorCursor=#c1c8d7
 ColorBoldIsBright=FALSE
-ColorPalette=#1f1f1f;#f71118;#2cc55d;#0f80d5;#2a84d2;#4e59b7;#0f80d5;#e3e6ed;#2a3141;#de342e;#1dd260;#f2bd09;#509bdc;#524fb9;#289af0;#ffffff
+ColorPalette=#131313;#f71118;#2cc55d;#0f80d5;#2a84d2;#4e59b7;#0f80d5;#c1c8d7;#343d50;#de342e;#1dd260;#f2bd09;#509bdc;#524fb9;#289af0;#ffffff

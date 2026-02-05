@@ -2,8 +2,8 @@
 # Color scheme: Equilibrium Light by Carlo Abelli
 
 [colors]
-selection-background = '#d8d4cb' # base02
-selection-foreground = '#43474e' # base05
+selection-background = '#43474e' # base05
+selection-foreground = '#d8d4cb' # base02
 
 cursor         = '#43474e' # base05
 tabs           = '#e7e2d9' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#d8d4cb' # base02
 
 background     = '#f5f0e7' # base00
 foreground     = '#43474e' # base05
-black          = '#e7e2d9' # base01
+black          = '#f5f0e7' # base00
 red            = '#d02023' # base08
 yellow         = '#9d6f00' # base0A
 green          = '#637200' # base0B
 cyan           = '#007a72' # base0C
 blue           = '#0073b5' # base0D
 magenta        = '#4e66b6' # base0E
-white          = '#2c3138' # base06
+white          = '#43474e' # base05
 
 dim-foreground   = '#43474e' # base05
 dim-black        = '#e7e2d9' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#4e66b6' # base0E
 dim-white        = '#5a5f66' # base04
 
 light-foreground = '#43474e' # base05
-light-black      = '#d8d4cb' # base02
+light-black      = '#73777f' # base03
 light-red        = '#d02023' # base08
 light-yellow     = '#9d6f00' # base0A
 light-green      = '#637200' # base0B

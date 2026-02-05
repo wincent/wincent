@@ -2,8 +2,8 @@
 # Color scheme: Brewer by Timothée Poisot (http://github.com/tpoisot)
 
 [colors]
-selection-background = '#515253' # base02
-selection-foreground = '#b7b8b9' # base05
+selection-background = '#b7b8b9' # base05
+selection-foreground = '#515253' # base02
 
 cursor         = '#b7b8b9' # base05
 tabs           = '#2e2f30' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#515253' # base02
 
 background     = '#0c0d0e' # base00
 foreground     = '#b7b8b9' # base05
-black          = '#2e2f30' # base01
+black          = '#0c0d0e' # base00
 red            = '#e31a1c' # base08
 yellow         = '#dca060' # base0A
 green          = '#31a354' # base0B
 cyan           = '#80b1d3' # base0C
 blue           = '#3182bd' # base0D
 magenta        = '#756bb1' # base0E
-white          = '#dadbdc' # base06
+white          = '#b7b8b9' # base05
 
 dim-foreground   = '#b7b8b9' # base05
 dim-black        = '#2e2f30' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#756bb1' # base0E
 dim-white        = '#959697' # base04
 
 light-foreground = '#b7b8b9' # base05
-light-black      = '#515253' # base02
+light-black      = '#737475' # base03
 light-red        = '#e31a1c' # base08
 light-yellow     = '#dca060' # base0A
 light-green      = '#31a354' # base0B

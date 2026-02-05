@@ -5,6 +5,6 @@
 Name=base24-solarized-dark-patched
 ColorForeground=#c0c0b0
 ColorBackground=#001e26
-ColorCursor=x
+ColorCursor=#c0c0b0
 ColorBoldIsBright=FALSE
-ColorPalette=#002731;#d01b24;#728905;#708183;#2075c7;#c61b6e;#259185;#e9e2cb;#465a61;#bd3612;#465a61;#52676f;#708183;#5856b9;#81908f;#fcf4dc
+ColorPalette=#001e26;#d01b24;#728905;#708183;#2075c7;#c61b6e;#259185;#c0c0b0;#6e7c7b;#bd3612;#465a61;#52676f;#708183;#5856b9;#81908f;#fcf4dc

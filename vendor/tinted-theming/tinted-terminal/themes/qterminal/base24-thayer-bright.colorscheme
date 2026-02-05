@@ -14,7 +14,7 @@ Color=27,29,30
 Color=27,29,30
 
 [Color0Intense]
-Color=80,83,84
+Color=111,113,112
 
 [Color1]
 Color=249,38,114
@@ -35,10 +35,10 @@ Color=77,247,64
 Color=182,227,84
 
 [Color3]
-Color=243,253,33
+Color=63,120,255
 
 [Color3Faint]
-Color=243,253,33
+Color=63,120,255
 
 [Color3Intense]
 Color=254,237,108
@@ -71,7 +71,7 @@ Color=55,200,180
 Color=35,206,212
 
 [Color7]
-Color=204,204,198
+Color=173,173,169
 
 [Color7Faint]
 Color=173,173,169
@@ -92,4 +92,3 @@ Color=204,204,198
 Blur=true
 Description=Thayer Bright
 Opacity=0.95
-

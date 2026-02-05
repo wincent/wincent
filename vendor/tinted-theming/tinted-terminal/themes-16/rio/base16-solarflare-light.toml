@@ -2,8 +2,8 @@
 # Color scheme: Solar Flare Light by Chuck Harmston (https://chuck.harmston.ch)
 
 [colors]
-selection-background = '#a6afb8' # base02
-selection-foreground = '#586875' # base05
+selection-background = '#586875' # base05
+selection-foreground = '#a6afb8' # base02
 
 cursor         = '#586875' # base05
 tabs           = '#e8e9ed' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#a6afb8' # base02
 
 background     = '#f5f7fa' # base00
 foreground     = '#586875' # base05
-black          = '#e8e9ed' # base01
+black          = '#f5f7fa' # base00
 red            = '#ef5253' # base08
 yellow         = '#e4b51c' # base0A
 green          = '#7cc844' # base0B
 cyan           = '#52cbb0' # base0C
 blue           = '#33b5e1' # base0D
 magenta        = '#a363d5' # base0E
-white          = '#222e38' # base06
+white          = '#586875' # base05
 
 dim-foreground   = '#586875' # base05
 dim-black        = '#e8e9ed' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#a363d5' # base0E
 dim-white        = '#667581' # base04
 
 light-foreground = '#586875' # base05
-light-black      = '#a6afb8' # base02
+light-black      = '#85939e' # base03
 light-red        = '#ef5253' # base08
 light-yellow     = '#e4b51c' # base0A
 light-green      = '#7cc844' # base0B

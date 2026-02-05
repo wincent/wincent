@@ -8,13 +8,13 @@ Color=147,148,154
 Color=247,247,247
 
 [Color0]
-Color=203,204,212
+Color=247,247,247
 
 [Color0Faint]
 Color=247,247,247
 
 [Color0Intense]
-Color=221,222,232
+Color=166,167,174
 
 [Color1]
 Color=200,13,65
@@ -35,10 +35,10 @@ Color=32,136,57
 Color=52,178,83
 
 [Color3]
-Color=212,77,22
+Color=16,133,217
 
 [Color3Faint]
-Color=212,77,22
+Color=16,133,217
 
 [Color3Intense]
 Color=183,147,38
@@ -71,7 +71,7 @@ Color=30,77,122
 Color=90,127,172
 
 [Color7]
-Color=0,0,0
+Color=56,56,58
 
 [Color7Faint]
 Color=56,56,58
@@ -92,4 +92,3 @@ Color=0,0,0
 Blur=true
 Description=Bluloco Light
 Opacity=0.95
-

@@ -2,8 +2,8 @@
 # Color scheme: Desert by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#555555' # base02
-selection-foreground = '#cdbb9b' # base05
+selection-background = '#cdbb9b' # base05
+selection-foreground = '#555555' # base02
 
 cursor         = '#cdbb9b' # base05
 tabs           = '#4d4d4d' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#555555' # base02
 
 background     = '#333333' # base00
 foreground     = '#cdbb9b' # base05
-black          = '#4d4d4d' # base01
+black          = '#333333' # base00
 red            = '#ff2b2b' # base08
 yellow         = '#87ceff' # base0A
 green          = '#98fb98' # base0B
 cyan           = '#ffa0a0' # base0C
 blue           = '#cd853f' # base0D
 magenta        = '#ffdead' # base0E
-white          = '#f5deb3' # base06
+white          = '#cdbb9b' # base05
 
 dim-foreground   = '#cdbb9b' # base05
 dim-black        = '#4d4d4d' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#ffdead' # base0E
 dim-white        = '#a59984' # base04
 
 light-foreground = '#cdbb9b' # base05
-light-black      = '#555555' # base02
+light-black      = '#7d776c' # base03
 light-red        = '#ff5555' # base12
 light-yellow     = '#ffff55' # base13
 light-green      = '#55ff55' # base14

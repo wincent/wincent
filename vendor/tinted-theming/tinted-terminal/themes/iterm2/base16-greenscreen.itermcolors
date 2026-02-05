@@ -15,7 +15,7 @@
 		<key>Blue Component</key>
 		<real>0.00000000</real>
 		<key>Green Component</key>
-		<real>0.20000000</real>
+		<real>0.06666667</real>
 		<key>Red Component</key>
 		<real>0.00000000</real>
 	</dict>
@@ -92,7 +92,7 @@
 		<key>Blue Component</key>
 		<real>0.00000000</real>
 		<key>Green Component</key>
-		<real>0.86666667</real>
+		<real>0.73333333</real>
 		<key>Red Component</key>
 		<real>0.00000000</real>
 	</dict>
@@ -103,7 +103,7 @@
 		<key>Blue Component</key>
 		<real>0.00000000</real>
 		<key>Green Component</key>
-		<real>0.33333333</real>
+		<real>0.46666667</real>
 		<key>Red Component</key>
 		<real>0.00000000</real>
 	</dict>
@@ -246,7 +246,7 @@
 		<key>Blue Component</key>
 		<real>0.00000000</real>
 		<key>Green Component</key>
-		<real>0.73333333</real>
+		<real>0.33333333</real>
 		<key>Red Component</key>
 		<real>0.00000000</real>
 	</dict>
@@ -257,7 +257,7 @@
 		<key>Blue Component</key>
 		<real>0.00000000</real>
 		<key>Green Component</key>
-		<real>0.33333333</real>
+		<real>0.73333333</real>
 		<key>Red Component</key>
 		<real>0.00000000</real>
 	</dict>

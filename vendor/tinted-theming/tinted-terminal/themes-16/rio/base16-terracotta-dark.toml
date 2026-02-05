@@ -2,8 +2,8 @@
 # Color scheme: Terracotta Dark by Alexander Rossell Hayes (https://github.com/rossellhayes)
 
 [colors]
-selection-background = '#473933' # base02
-selection-foreground = '#b8a59d' # base05
+selection-background = '#b8a59d' # base05
+selection-foreground = '#473933' # base02
 
 cursor         = '#b8a59d' # base05
 tabs           = '#362b27' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#473933' # base02
 
 background     = '#241d1a' # base00
 foreground     = '#b8a59d' # base05
-black          = '#362b27' # base01
+black          = '#241d1a' # base00
 red            = '#f6998f' # base08
 yellow         = '#ffc37a' # base0A
 green          = '#b6c68a' # base0B
 cyan           = '#c0bcdb' # base0C
 blue           = '#b0a4c3' # base0D
 magenta        = '#d8a2b0' # base0E
-white          = '#cabbb5' # base06
+white          = '#b8a59d' # base05
 
 dim-foreground   = '#b8a59d' # base05
 dim-black        = '#362b27' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#d8a2b0' # base0E
 dim-white        = '#a78e84' # base04
 
 light-foreground = '#b8a59d' # base05
-light-black      = '#473933' # base02
+light-black      = '#594740' # base03
 light-red        = '#f6998f' # base08
 light-yellow     = '#ffc37a' # base0A
 light-green      = '#b6c68a' # base0B

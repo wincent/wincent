@@ -2,8 +2,8 @@
 # Color scheme: Evenok Dark by Mekeor Melire
 
 [colors]
-selection-background = '#303030' # base02
-selection-foreground = '#d0d0d0' # base05
+selection-background = '#d0d0d0' # base05
+selection-foreground = '#303030' # base02
 
 cursor         = '#d0d0d0' # base05
 tabs           = '#202020' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#303030' # base02
 
 background     = '#000000' # base00
 foreground     = '#d0d0d0' # base05
-black          = '#202020' # base01
+black          = '#000000' # base00
 red            = '#f5708a' # base08
 yellow         = '#b8a300' # base0A
 green          = '#54bc5c' # base0B
 cyan           = '#00bab3' # base0C
 blue           = '#00aff2' # base0D
 magenta        = '#9095ff' # base0E
-white          = '#e0e0e0' # base06
+white          = '#d0d0d0' # base05
 
 dim-foreground   = '#d0d0d0' # base05
 dim-black        = '#202020' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#9095ff' # base0E
 dim-white        = '#b0b0b0' # base04
 
 light-foreground = '#d0d0d0' # base05
-light-black      = '#303030' # base02
+light-black      = '#505050' # base03
 light-red        = '#f5708a' # base08
 light-yellow     = '#b8a300' # base0A
 light-green      = '#54bc5c' # base0B

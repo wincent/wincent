@@ -3,9 +3,9 @@
 	"name": "Sparky",
 	"foreground": "#f4f5f0",
 	"background": "#072b31",
-	"black": "#00313c",
+	"black": "#072b31",
 	"blue": "#4698cb",
-	"brightBlack": "#003c46",
+	"brightBlack": "#003b49",
 	"brightBlue": "#4698cb",
 	"brightCyan": "#2dccd3",
 	"brightGreen": "#78d64b",
@@ -17,6 +17,6 @@
 	"green": "#78d64b",
 	"purple": "#d59ed7",
 	"red": "#ff585d",
-	"white": "#f5f5f1",
-	"yellow": "#ff8f1c"
+	"white": "#f4f5f0",
+	"yellow": "#fbdd40"
 },

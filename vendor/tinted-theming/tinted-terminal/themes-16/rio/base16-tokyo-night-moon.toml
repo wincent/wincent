@@ -2,8 +2,8 @@
 # Color scheme: Tokyo Night Moon by Ólafur Bjarki Bogason
 
 [colors]
-selection-background = '#2d3f76' # base02
-selection-foreground = '#828bb8' # base05
+selection-background = '#828bb8' # base05
+selection-foreground = '#2d3f76' # base02
 
 cursor         = '#828bb8' # base05
 tabs           = '#1e2030' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#2d3f76' # base02
 
 background     = '#222436' # base00
 foreground     = '#828bb8' # base05
-black          = '#1e2030' # base01
+black          = '#222436' # base00
 red            = '#ff757f' # base08
 yellow         = '#ffdf77' # base0A
 green          = '#c3e88d' # base0B
 cyan           = '#86e1fc' # base0C
 blue           = '#82aaff' # base0D
 magenta        = '#fca7ea' # base0E
-white          = '#aeb4d1' # base06
+white          = '#828bb8' # base05
 
 dim-foreground   = '#828bb8' # base05
 dim-black        = '#1e2030' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#fca7ea' # base0E
 dim-white        = '#636da6' # base04
 
 light-foreground = '#828bb8' # base05
-light-black      = '#2d3f76' # base02
+light-black      = '#3b4261' # base03
 light-red        = '#ff757f' # base08
 light-yellow     = '#ffdf77' # base0A
 light-green      = '#c3e88d' # base0B

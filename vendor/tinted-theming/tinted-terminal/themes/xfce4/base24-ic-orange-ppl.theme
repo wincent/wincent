@@ -5,6 +5,6 @@
 Name=base24-ic-orange-ppl
 ColorForeground=#d9a971
 ColorBackground=#262626
-ColorCursor=x
+ColorCursor=#d9a971
 ColorBoldIsBright=FALSE
-ColorPalette=#000000;#c03900;#a3a900;#ffbd54;#bd6c00;#fb5d00;#f79400;#ffc88a;#6a4e29;#ff8b67;#f6ff3f;#ffe36e;#ffbd54;#fc874f;#c59752;#f9f9fe
+ColorPalette=#262626;#c03900;#a3a900;#ffbd54;#bd6c00;#fb5d00;#f79400;#d9a971;#8f6c41;#ff8b67;#f6ff3f;#ffe36e;#ffbd54;#fc874f;#c59752;#f9f9fe

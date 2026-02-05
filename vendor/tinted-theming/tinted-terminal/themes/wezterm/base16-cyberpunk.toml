@@ -1,0 +1,43 @@
+# base16 Cyberpunk
+# Scheme author: benjujo
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#000000"
+foreground = "#dcdccc"
+
+cursor_bg = "#dcdccc"
+cursor_border = "#dcdccc"
+cursor_fg = "#000000"
+
+selection_bg = "#dcdccc"
+selection_fg = "#383838"
+
+ansi = [
+  "#000000",
+  "#ff0000",
+  "#61ce3c",
+  "#ffff00",
+  "#4c83ff",
+  "#ff1493",
+  "#93e0e3",
+  "#dcdccc"
+]
+brights = [
+  "#4f4f4f",
+  "#ff0000",
+  "#61ce3c",
+  "#ffff00",
+  "#4c83ff",
+  "#ff1493",
+  "#93e0e3",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#ffa500"
+17 = "#ff8c00"
+18 = "#2b2b2b"
+19 = "#383838"
+20 = "#8b8989"
+21 = "#f8f8f8"

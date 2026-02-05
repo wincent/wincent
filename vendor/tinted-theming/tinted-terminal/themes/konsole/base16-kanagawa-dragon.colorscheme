@@ -1,20 +1,20 @@
 [Background]
-Color=13,12,12
+Color=24,22,22
 
 [BackgroundFaint]
-Color=13,12,12
+Color=24,22,22
 
 [BackgroundIntense]
-Color=13,12,12
+Color=24,22,22
 
 [Color0]
-Color=13,12,12
+Color=24,22,22
 
 [Color0Faint]
-Color=115,124,115
+Color=24,22,22
 
 [Color0Intense]
-Color=115,124,115
+Color=98,94,90
 
 [Color1]
 Color=196,116,110
@@ -26,13 +26,13 @@ Color=196,116,110
 Color=196,116,110
 
 [Color2]
-Color=135,169,135
+Color=138,154,123
 
 [Color2Faint]
-Color=135,169,135
+Color=138,154,123
 
 [Color2Intense]
-Color=135,169,135
+Color=138,154,123
 
 [Color3]
 Color=196,178,138
@@ -53,13 +53,13 @@ Color=139,164,176
 Color=139,164,176
 
 [Color5]
-Color=137,146,167
+Color=162,146,163
 
 [Color5Faint]
-Color=137,146,167
+Color=162,146,163
 
 [Color5Intense]
-Color=137,146,167
+Color=162,146,163
 
 [Color6]
 Color=142,164,162

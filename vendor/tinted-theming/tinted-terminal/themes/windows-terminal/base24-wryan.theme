@@ -3,9 +3,9 @@
 	"name": "Wryan",
 	"foreground": "#768488",
 	"background": "#101010",
-	"black": "#333333",
+	"black": "#101010",
 	"blue": "#395573",
-	"brightBlack": "#3d3d3d",
+	"brightBlack": "#505456",
 	"brightBlue": "#477ab3",
 	"brightCyan": "#6096bf",
 	"brightGreen": "#53a6a6",
@@ -17,6 +17,6 @@
 	"green": "#287373",
 	"purple": "#5e468c",
 	"red": "#8c4665",
-	"white": "#899ca1",
-	"yellow": "#7c7c99"
+	"white": "#768488",
+	"yellow": "#477ab3"
 },

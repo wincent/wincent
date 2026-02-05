@@ -3,9 +3,9 @@
 	"name": "Atlas",
 	"foreground": "#a1a19a",
 	"background": "#002635",
-	"black": "#00384d",
+	"black": "#002635",
 	"blue": "#14747e",
-	"brightBlack": "#517f8d",
+	"brightBlack": "#6c8b91",
 	"brightBlue": "#14747e",
 	"brightCyan": "#5dd7b9",
 	"brightGreen": "#7fc06e",
@@ -17,6 +17,6 @@
 	"green": "#7fc06e",
 	"purple": "#9a70a4",
 	"red": "#ff5a67",
-	"white": "#e6e6dc",
-	"yellow": "#f08e48"
+	"white": "#a1a19a",
+	"yellow": "#ffcc1b"
 },

@@ -2,8 +2,8 @@
 # Color scheme: Japanesque by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#585a58' # base02
-selection-foreground = '#d0d2ce' # base05
+selection-background = '#d0d2ce' # base05
+selection-foreground = '#585a58' # base02
 
 cursor         = '#d0d2ce' # base05
 tabs           = '#343835' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#585a58' # base02
 
 background     = '#1d1d1d' # base00
 foreground     = '#d0d2ce' # base05
-black          = '#343835' # base01
+black          = '#1d1d1d' # base00
 red            = '#ce3e60' # base08
 yellow         = '#135879' # base0A
 green          = '#7bb75b' # base0B
 cyan           = '#389aac' # base0C
 blue           = '#4c99d3' # base0D
 magenta        = '#a57fc4' # base0E
-white          = '#f9faf6' # base06
+white          = '#d0d2ce' # base05
 
 dim-foreground   = '#d0d2ce' # base05
 dim-black        = '#343835' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#a57fc4' # base0E
 dim-white        = '#a8aaa7' # base04
 
 light-foreground = '#d0d2ce' # base05
-light-black      = '#585a58' # base02
+light-black      = '#80827f' # base03
 light-red        = '#d18ea6' # base12
 light-yellow     = '#77592e' # base13
 light-green      = '#767e2b' # base14

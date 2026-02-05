@@ -3,9 +3,9 @@
 	"name": "Penumbra Dark",
 	"foreground": "#bebebe",
 	"background": "#24272b",
-	"black": "#303338",
+	"black": "#24272b",
 	"blue": "#5794d0",
-	"brightBlack": "#3e4044",
+	"brightBlack": "#636363",
 	"brightBlue": "#5794d0",
 	"brightCyan": "#00a2af",
 	"brightGreen": "#47a477",
@@ -17,6 +17,6 @@
 	"green": "#47a477",
 	"purple": "#9481cc",
 	"red": "#ca736c",
-	"white": "#fff7ed",
-	"yellow": "#ba823a"
+	"white": "#bebebe",
+	"yellow": "#8d9741"
 },

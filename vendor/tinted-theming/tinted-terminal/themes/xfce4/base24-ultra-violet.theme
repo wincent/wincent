@@ -5,6 +5,6 @@
 Name=base24-ultra-violet
 ColorForeground=#c1c2c2
 ColorBackground=#242728
-ColorCursor=x
+ColorCursor=#c1c2c2
 ColorBoldIsBright=FALSE
-ColorPalette=#232628;#ff0090;#b5ff00;#7febff;#47dffb;#d630ff;#0effbb;#e1e1e1;#626566;#fb57b4;#deff8b;#ebdf86;#7febff;#e681ff;#68fcd2;#f9f9f4
+ColorPalette=#242728;#ff0090;#b5ff00;#7febff;#47dffb;#d630ff;#0effbb;#c1c2c2;#818484;#fb57b4;#deff8b;#ebdf86;#7febff;#e681ff;#68fcd2;#f9f9f4

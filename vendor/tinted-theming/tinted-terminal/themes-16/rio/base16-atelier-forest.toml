@@ -2,8 +2,8 @@
 # Color scheme: Atelier Forest by Bram de Haan (http://atelierbramdehaan.nl)
 
 [colors]
-selection-background = '#68615e' # base02
-selection-foreground = '#a8a19f' # base05
+selection-background = '#a8a19f' # base05
+selection-foreground = '#68615e' # base02
 
 cursor         = '#a8a19f' # base05
 tabs           = '#2c2421' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#68615e' # base02
 
 background     = '#1b1918' # base00
 foreground     = '#a8a19f' # base05
-black          = '#2c2421' # base01
+black          = '#1b1918' # base00
 red            = '#f22c40' # base08
 yellow         = '#c38418' # base0A
 green          = '#7b9726' # base0B
 cyan           = '#3d97b8' # base0C
 blue           = '#407ee7' # base0D
 magenta        = '#6666ea' # base0E
-white          = '#e6e2e0' # base06
+white          = '#a8a19f' # base05
 
 dim-foreground   = '#a8a19f' # base05
 dim-black        = '#2c2421' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#6666ea' # base0E
 dim-white        = '#9c9491' # base04
 
 light-foreground = '#a8a19f' # base05
-light-black      = '#68615e' # base02
+light-black      = '#766e6b' # base03
 light-red        = '#f22c40' # base08
 light-yellow     = '#c38418' # base0A
 light-green      = '#7b9726' # base0B

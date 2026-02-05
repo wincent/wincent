@@ -5,6 +5,6 @@
 Name=base16-terracotta
 ColorForeground=#473731
 ColorBackground=#efeae8
-ColorCursor=x
+ColorCursor=#473731
 ColorBoldIsBright=FALSE
-ColorPalette=#dfd6d1;#a75045;#7a894a;#ce943e;#625574;#8d5968;#847f9e;#352a25;#d0c1bb;#a75045;#7a894a;#ce943e;#625574;#8d5968;#847f9e;#241c19
+ColorPalette=#efeae8;#a75045;#7a894a;#ce943e;#625574;#8d5968;#847f9e;#473731;#c0aca4;#a75045;#7a894a;#ce943e;#625574;#8d5968;#847f9e;#241c19

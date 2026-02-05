@@ -8,13 +8,13 @@ Color=62,114,72
 Color=27,27,29
 
 [Color0]
-Color=36,36,38
+Color=27,27,29
 
 [Color0Faint]
 Color=27,27,29
 
 [Color0Intense]
-Color=94,172,108
+Color=113,172,124
 
 [Color1]
 Color=248,80,26
@@ -35,10 +35,10 @@ Color=86,87,70
 Color=116,235,76
 
 [Color3]
-Color=249,118,29
+Color=51,147,201
 
 [Color3Faint]
-Color=249,118,29
+Color=51,147,201
 
 [Color3Intense]
 Color=252,194,36
@@ -71,7 +71,7 @@ Color=59,160,165
 Color=78,188,229
 
 [Color7]
-Color=172,172,172
+Color=152,172,156
 
 [Color7Faint]
 Color=152,172,156
@@ -92,4 +92,3 @@ Color=172,172,172
 Blur=true
 Description=Front End Delight
 Opacity=0.95
-

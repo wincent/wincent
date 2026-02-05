@@ -2,8 +2,8 @@
 # Color scheme: caroline by ed (https://codeberg.org/ed)
 
 [colors]
-selection-background = '#563837' # base02
-selection-foreground = '#a87569' # base05
+selection-background = '#a87569' # base05
+selection-foreground = '#563837' # base02
 
 cursor         = '#a87569' # base05
 tabs           = '#3a2425' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#563837' # base02
 
 background     = '#1c1213' # base00
 foreground     = '#a87569' # base05
-black          = '#3a2425' # base01
+black          = '#1c1213' # base00
 red            = '#c24f57' # base08
 yellow         = '#f28171' # base0A
 green          = '#806c61' # base0B
 cyan           = '#6b6566' # base0C
 blue           = '#684c59' # base0D
 magenta        = '#a63650' # base0E
-white          = '#c58d7b' # base06
+white          = '#a87569' # base05
 
 dim-foreground   = '#a87569' # base05
 dim-black        = '#3a2425' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#a63650' # base0E
 dim-white        = '#8b5d57' # base04
 
 light-foreground = '#a87569' # base05
-light-black      = '#563837' # base02
+light-black      = '#6d4745' # base03
 light-red        = '#c24f57' # base08
 light-yellow     = '#f28171' # base0A
 light-green      = '#806c61' # base0B

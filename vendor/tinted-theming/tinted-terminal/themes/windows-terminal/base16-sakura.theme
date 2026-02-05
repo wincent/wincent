@@ -3,9 +3,9 @@
 	"name": "Sakura",
 	"foreground": "#564448",
 	"background": "#feedf3",
-	"black": "#f8e2e7",
+	"black": "#feedf3",
 	"blue": "#006e93",
-	"brightBlack": "#e0ccd1",
+	"brightBlack": "#755f64",
 	"brightBlue": "#006e93",
 	"brightCyan": "#1d8991",
 	"brightGreen": "#2e916d",
@@ -17,6 +17,6 @@
 	"green": "#2e916d",
 	"purple": "#5e2180",
 	"red": "#df2d52",
-	"white": "#42383a",
-	"yellow": "#f6661e"
+	"white": "#564448",
+	"yellow": "#c29461"
 },

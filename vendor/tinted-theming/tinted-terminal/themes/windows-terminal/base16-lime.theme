@@ -3,9 +3,9 @@
 	"name": "lime",
 	"foreground": "#818175",
 	"background": "#1a1a2f",
-	"black": "#202030",
+	"black": "#1a1a2f",
 	"blue": "#2b926f",
-	"brightBlack": "#2a2a3f",
+	"brightBlack": "#313140",
 	"brightBlue": "#2b926f",
 	"brightCyan": "#4cad83",
 	"brightGreen": "#8cd97c",
@@ -17,6 +17,6 @@
 	"green": "#8cd97c",
 	"purple": "#1b825f",
 	"red": "#ff662a",
-	"white": "#fff2d1",
-	"yellow": "#ff773a"
+	"white": "#818175",
+	"yellow": "#ffd15e"
 },

@@ -5,6 +5,6 @@
 Name=base24-rebecca
 ColorForeground=#c3c3d4
 ColorBackground=#292a44
-ColorCursor=x
+ColorCursor=#c3c3d4
 ColorBoldIsBright=FALSE
-ColorPalette=#12131d;#dd7655;#04dbb4;#69bffa;#7aa5ff;#be9bf8;#56d3c1;#e3e2e8;#666699;#ff91cd;#00e9c0;#fefca8;#69bffa;#c07ff8;#8bfce1;#f3f2f8
+ColorPalette=#292a44;#dd7655;#04dbb4;#69bffa;#7aa5ff;#be9bf8;#56d3c1;#c3c3d4;#8585ac;#ff91cd;#00e9c0;#fefca8;#69bffa;#c07ff8;#8bfce1;#f3f2f8

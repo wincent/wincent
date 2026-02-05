@@ -3,9 +3,9 @@
 	"name": "Tokyo Night Storm",
 	"foreground": "#a9b1d6",
 	"background": "#24283b",
-	"black": "#16161e",
+	"black": "#24283b",
 	"blue": "#2ac3de",
-	"brightBlack": "#343a52",
+	"brightBlack": "#444b6a",
 	"brightBlue": "#89ddff",
 	"brightCyan": "#7dcfff",
 	"brightGreen": "#73daca",
@@ -17,6 +17,6 @@
 	"green": "#9ece6a",
 	"purple": "#bb9af7",
 	"red": "#c0caf5",
-	"white": "#cbccd1",
-	"yellow": "#a9b1d6"
+	"white": "#a9b1d6",
+	"yellow": "#0db9d7"
 },

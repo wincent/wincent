@@ -2,8 +2,8 @@
 # Color scheme: Porple by Niek den Breeje (https://github.com/AuditeMarlow)
 
 [colors]
-selection-background = '#474160' # base02
-selection-foreground = '#d8d8d8' # base05
+selection-background = '#d8d8d8' # base05
+selection-foreground = '#474160' # base02
 
 cursor         = '#d8d8d8' # base05
 tabs           = '#333344' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#474160' # base02
 
 background     = '#292c36' # base00
 foreground     = '#d8d8d8' # base05
-black          = '#333344' # base01
+black          = '#292c36' # base00
 red            = '#f84547' # base08
 yellow         = '#efa16b' # base0A
 green          = '#95c76f' # base0B
 cyan           = '#64878f' # base0C
 blue           = '#8485ce' # base0D
 magenta        = '#b74989' # base0E
-white          = '#e8e8e8' # base06
+white          = '#d8d8d8' # base05
 
 dim-foreground   = '#d8d8d8' # base05
 dim-black        = '#333344' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#b74989' # base0E
 dim-white        = '#b8b8b8' # base04
 
 light-foreground = '#d8d8d8' # base05
-light-black      = '#474160' # base02
+light-black      = '#65568a' # base03
 light-red        = '#f84547' # base08
 light-yellow     = '#efa16b' # base0A
 light-green      = '#95c76f' # base0B

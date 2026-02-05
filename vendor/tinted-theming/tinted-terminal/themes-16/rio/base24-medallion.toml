@@ -2,8 +2,8 @@
 # Color scheme: Medallion by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#5e5118' # base02
-selection-foreground = '#aea578' # base05
+selection-background = '#aea578' # base05
+selection-foreground = '#5e5118' # base02
 
 cursor         = '#aea578' # base05
 tabs           = '#000000' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#5e5118' # base02
 
 background     = '#1d1808' # base00
 foreground     = '#aea578' # base05
-black          = '#000000' # base01
+black          = '#1d1808' # base00
 red            = '#b54c00' # base08
 yellow         = '#abb8ff' # base0A
 green          = '#7c8a16' # base0B
 cyan           = '#906b25' # base0C
 blue           = '#606baf' # base0D
 magenta        = '#8b5990' # base0E
-white          = '#c9c199' # base06
+white          = '#aea578' # base05
 
 dim-foreground   = '#aea578' # base05
 dim-black        = '#000000' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#8b5990' # base0E
 dim-white        = '#938958' # base04
 
 light-foreground = '#aea578' # base05
-light-black      = '#5e5118' # base02
+light-black      = '#786d38' # base03
 light-red        = '#ff9148' # base12
 light-yellow     = '#ffe449' # base13
 light-green      = '#b1c93a' # base14

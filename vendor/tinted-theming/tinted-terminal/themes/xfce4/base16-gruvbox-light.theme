@@ -5,6 +5,6 @@
 Name=base16-gruvbox-light
 ColorForeground=#3c3836
 ColorBackground=#fbf1c7
-ColorCursor=x
+ColorCursor=#3c3836
 ColorBoldIsBright=FALSE
-ColorPalette=#ebdbb2;#cc241d;#98971a;#d79921;#458588;#b16286;#689d6a;#282828;#d5c4a1;#cc241d;#98971a;#d79921;#458588;#b16286;#689d6a;#1d2021
+ColorPalette=#fbf1c7;#cc241d;#98971a;#d79921;#458588;#b16286;#689d6a;#3c3836;#bdae93;#cc241d;#98971a;#d79921;#458588;#b16286;#689d6a;#1d2021

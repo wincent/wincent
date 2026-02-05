@@ -8,13 +8,13 @@ Color=36,29,46
 Color=5,0,20
 
 [Color0]
-Color=35,0,69
+Color=5,0,20
 
 [Color0Faint]
 Color=5,0,20
 
 [Color0Intense]
-Color=55,44,70
+Color=70,60,83
 
 [Color1]
 Color=124,21,37
@@ -35,10 +35,10 @@ Color=51,126,111
 Color=82,224,196
 
 [Color3]
-Color=127,111,73
+Color=142,134,223
 
 [Color3Faint]
-Color=127,111,73
+Color=142,134,223
 
 [Color3Intense]
 Color=224,194,134
@@ -71,7 +71,7 @@ Color=87,118,127
 Color=154,211,223
 
 [Color7]
-Color=115,110,125
+Color=100,93,111
 
 [Color7Faint]
 Color=100,93,111
@@ -92,4 +92,3 @@ Color=115,110,125
 Blur=true
 Description=Lavandula
 Opacity=0.95
-

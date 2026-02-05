@@ -5,6 +5,6 @@
 Name=base16-standardized-dark
 ColorForeground=#c0c0c0
 ColorBackground=#222222
-ColorCursor=x
+ColorCursor=#c0c0c0
 ColorBoldIsBright=FALSE
-ColorPalette=#303030;#e15d67;#5db129;#e1b31a;#00a3f2;#b46ee0;#21c992;#e0e0e0;#555555;#e15d67;#5db129;#e1b31a;#00a3f2;#b46ee0;#21c992;#ffffff
+ColorPalette=#222222;#e15d67;#5db129;#e1b31a;#00a3f2;#b46ee0;#21c992;#c0c0c0;#898989;#e15d67;#5db129;#e1b31a;#00a3f2;#b46ee0;#21c992;#ffffff

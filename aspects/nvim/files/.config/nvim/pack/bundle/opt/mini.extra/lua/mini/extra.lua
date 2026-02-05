@@ -1229,6 +1229,63 @@ MiniExtra.pickers.lsp = function(local_opts, opts)
   vim.lsp.buf[scope](buf_lsp_opts)
 end
 
+--- Manual pages
+---
+--- Pick manual page (like described in |ft-man-plugin|).
+--- Notes:
+--- - Depends on |:Man| command to preview and choose items.
+--- - Shows page in the target window. Use |MiniPick-actions-choose| to split.
+---
+---@param local_opts __extra_pickers_local_opts
+---   Not used at the moment.
+---@param opts __extra_pickers_opts
+---
+---@return __extra_pickers_return
+MiniExtra.pickers.manpages = function(local_opts, opts)
+  local pick = H.validate_pick('manpages')
+  if vim.fn.exists(':Man') ~= 2 then H.error('`manpages` picker needs `:Man` command') end
+
+  local latest_man_buf_id
+  local show_man = function(win_id, item, is_preview)
+    -- table.insert(_G.log, { item, name, section })
+    local name, section = (item or ''):match('^(.-)%s-%((.-)%)')
+    if name == nil or section == nil then return end
+    -- - Use first command
+    name = name:gsub(',.*$', '')
+    -- - Extract first valid section. NOTE: using only digits is not enough
+    --   (for example, `man 1 man` and `man 1p man` are different).
+    section = section:match('%w+') or ''
+
+    -- Show man page directly in the target window
+    vim.api.nvim_win_call(win_id, function() vim.cmd('hide Man ' .. section .. ' ' .. name) end)
+
+    -- Ensure proper choose. Possibly undo `buflisted=false` from preview.
+    if not is_preview then
+      vim.bo.buflisted = true
+      return
+    end
+
+    -- Ensure proper preview buffer
+    vim.bo.buflisted, vim.bo.bufhidden, vim.bo.matchpairs = false, 'wipe', ''
+    vim.b.minicursorword_disable = true
+    vim.b.miniindentscope_disable = true
+    -- - Modify after `:Man` to not have "Buffer with this name already exists"
+    vim.api.nvim_buf_set_name(0, 'minipick://' .. vim.api.nvim_get_current_buf() .. '/preview')
+  end
+
+  local preview = function(buf_id, item) show_man(vim.fn.win_findbuf(buf_id)[1], item, true) end
+  local choose = function(item) show_man(MiniPick.get_picker_state().windows.target, item) end
+
+  -- Set necessary environment variables for `vim.loop.spawn` (as it doesn't
+  -- inherit environment variables)
+  local env = { 'MANWIDTH=999' }
+  table.insert(env, vim.env.PATH ~= nil and ('PATH=' .. vim.env.PATH) or nil)
+  table.insert(env, vim.env.MANPATH ~= nil and ('MANPATH=' .. vim.env.MANPATH) or nil)
+  local source = { name = 'Manpages', choose = choose, preview = preview }
+  opts = vim.tbl_deep_extend('force', { source = source }, opts or {})
+  return pick.builtin.cli({ command = { 'man', '-k', '.' }, spawn_opts = { env = env } }, opts)
+end
+
 --- Neovim marks picker
 ---
 --- Pick and preview position of Neovim |mark|s.

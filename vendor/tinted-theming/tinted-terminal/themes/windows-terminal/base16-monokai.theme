@@ -3,9 +3,9 @@
 	"name": "Monokai",
 	"foreground": "#f8f8f2",
 	"background": "#272822",
-	"black": "#383830",
+	"black": "#272822",
 	"blue": "#66d9ef",
-	"brightBlack": "#49483e",
+	"brightBlack": "#75715e",
 	"brightBlue": "#66d9ef",
 	"brightCyan": "#a1efe4",
 	"brightGreen": "#a6e22e",
@@ -17,6 +17,6 @@
 	"green": "#a6e22e",
 	"purple": "#ae81ff",
 	"red": "#f92672",
-	"white": "#f5f4f1",
-	"yellow": "#fd971f"
+	"white": "#f8f8f2",
+	"yellow": "#f4bf75"
 },

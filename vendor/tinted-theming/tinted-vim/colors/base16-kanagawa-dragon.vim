@@ -2,7 +2,7 @@
 
 " tinted-vim (https://github.com/tinted-theming/tinted-vim)
 " Scheme name: Kanagawa Dragon
-" Scheme author: Tommaso Laurenzi (https://github.com/rebelot)
+" Scheme author: Stefan Weigl-Bosker (https://github.com/sweiglbosker), Tommaso Laurenzi (https://github.com/rebelot/kanagawa.nvim)
 " Template author: Tinted Theming (https://github.com/tinted-theming)
 
 " This enables the coresponding base16-shell script to run so that
@@ -16,30 +16,30 @@ if !has('gui_running')
 endif
 
 " GUI colors
-let s:gui00        = '0d0c0c'
-let s:gui01        = '1d1c19'
-let s:gui02        = '282727'
-let s:gui03        = '737c73'
-let s:gui04        = 'a6a69c'
+let s:gui00        = '181616'
+let s:gui01        = '282727'
+let s:gui02        = '393836'
+let s:gui03        = '625e5a'
+let s:gui04        = '737c73'
 let s:gui05        = 'c5c9c5'
-let s:gui06        = '7a8382'
+let s:gui06        = 'c8c093'
 let s:gui07        = 'c5c9c5'
 let s:gui08        = 'c4746e'
-let s:gui09        = 'b98d7b'
+let s:gui09        = 'b6927b'
 let s:gui0A        = 'c4b28a'
-let s:gui0B        = '87a987'
+let s:gui0B        = '8a9a7b'
 let s:gui0C        = '8ea4a2'
 let s:gui0D        = '8ba4b0'
-let s:gui0E        = '8992a7'
-let s:gui0F        = 'a292a3'
-let s:gui10        = '0d0c0c'
-let s:gui11        = '0d0c0c'
+let s:gui0E        = 'a292a3'
+let s:gui0F        = 'b98d7b'
+let s:gui10        = '181616'
+let s:gui11        = '181616'
 let s:gui12        = 'c4746e'
 let s:gui13        = 'c4b28a'
-let s:gui14        = '87a987'
+let s:gui14        = '8a9a7b'
 let s:gui15        = '8ea4a2'
 let s:gui16        = '8ba4b0'
-let s:gui17        = '8992a7'
+let s:gui17        = 'a292a3'
 
 " Terminal colors
 let s:cterm00  = '00'
@@ -95,20 +95,20 @@ call s:create_color_globals()
 
 " Integrated Terminal colors
 let s:colors = [
-  \ '#0d0c0c',
+  \ '#181616',
   \ '#c4746e',
-  \ '#87a987',
+  \ '#8a9a7b',
   \ '#c4b28a',
   \ '#8ba4b0',
-  \ '#8992a7',
+  \ '#a292a3',
   \ '#8ea4a2',
   \ '#c5c9c5',
-  \ '#737c73',
+  \ '#625e5a',
   \ '#c4746e',
-  \ '#87a987',
+  \ '#8a9a7b',
   \ '#c4b28a',
   \ '#8ba4b0',
-  \ '#8992a7',
+  \ '#a292a3',
   \ '#8ea4a2',
   \ '#c5c9c5'
 \]

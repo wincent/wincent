@@ -3,9 +3,9 @@
 	"name": "Mexico Light",
 	"foreground": "#383838",
 	"background": "#f8f8f8",
-	"black": "#e8e8e8",
+	"black": "#f8f8f8",
 	"blue": "#7cafc2",
-	"brightBlack": "#d8d8d8",
+	"brightBlack": "#b8b8b8",
 	"brightBlue": "#7cafc2",
 	"brightCyan": "#4b8093",
 	"brightGreen": "#538947",
@@ -17,6 +17,6 @@
 	"green": "#538947",
 	"purple": "#96609e",
 	"red": "#ab4642",
-	"white": "#282828",
-	"yellow": "#dc9656"
+	"white": "#383838",
+	"yellow": "#f79a0e"
 },

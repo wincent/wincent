@@ -3,9 +3,9 @@
 	"name": "Ubuntu",
 	"foreground": "#b3b7b0",
 	"background": "#300a24",
-	"black": "#2e3436",
+	"black": "#300a24",
 	"blue": "#3465a4",
-	"brightBlack": "#555753",
+	"brightBlack": "#747772",
 	"brightBlue": "#729fcf",
 	"brightCyan": "#34e2e2",
 	"brightGreen": "#8ae234",
@@ -17,6 +17,6 @@
 	"green": "#4e9a06",
 	"purple": "#75507b",
 	"red": "#cc0000",
-	"white": "#d3d7cf",
-	"yellow": "#c4a000"
+	"white": "#b3b7b0",
+	"yellow": "#729fcf"
 },

@@ -5,6 +5,6 @@
 Name=base16-darkmoss
 ColorForeground=#c7c7a5
 ColorBackground=#171e1f
-ColorCursor=x
+ColorCursor=#c7c7a5
 ColorBoldIsBright=FALSE
-ColorPalette=#252c2d;#ff4658;#499180;#fdb11f;#498091;#9bc0c8;#66d9ef;#e3e3c8;#373c3d;#ff4658;#499180;#fdb11f;#498091;#9bc0c8;#66d9ef;#e1eaef
+ColorPalette=#171e1f;#ff4658;#499180;#fdb11f;#498091;#9bc0c8;#66d9ef;#c7c7a5;#555e5f;#ff4658;#499180;#fdb11f;#498091;#9bc0c8;#66d9ef;#e1eaef

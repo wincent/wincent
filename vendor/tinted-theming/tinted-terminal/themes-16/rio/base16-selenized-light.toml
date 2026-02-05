@@ -2,8 +2,8 @@
 # Color scheme: selenized-light by Jan Warchol (https://github.com/jan-warchol/selenized) / adapted to base16 by ali
 
 [colors]
-selection-background = '#d5cdb6' # base02
-selection-foreground = '#53676d' # base05
+selection-background = '#53676d' # base05
+selection-foreground = '#d5cdb6' # base02
 
 cursor         = '#53676d' # base05
 tabs           = '#ece3cc' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#d5cdb6' # base02
 
 background     = '#fbf3db' # base00
 foreground     = '#53676d' # base05
-black          = '#ece3cc' # base01
+black          = '#fbf3db' # base00
 red            = '#cc1729' # base08
 yellow         = '#a78300' # base0A
 green          = '#428b00' # base0B
 cyan           = '#00978a' # base0C
 blue           = '#006dce' # base0D
 magenta        = '#825dc0' # base0E
-white          = '#3a4d53' # base06
+white          = '#53676d' # base05
 
 dim-foreground   = '#53676d' # base05
 dim-black        = '#ece3cc' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#825dc0' # base0E
 dim-white        = '#909995' # base04
 
 light-foreground = '#53676d' # base05
-light-black      = '#d5cdb6' # base02
+light-black      = '#909995' # base03
 light-red        = '#cc1729' # base08
 light-yellow     = '#a78300' # base0A
 light-green      = '#428b00' # base0B

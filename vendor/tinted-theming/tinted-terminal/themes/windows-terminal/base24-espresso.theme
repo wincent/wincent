@@ -3,9 +3,9 @@
 	"name": "Espresso",
 	"foreground": "#c7c7c5",
 	"background": "#262626",
-	"black": "#343434",
+	"black": "#262626",
 	"blue": "#6c99bb",
-	"brightBlack": "#535353",
+	"brightBlack": "#797979",
 	"brightBlue": "#8ab7d9",
 	"brightCyan": "#dcf3ff",
 	"brightGreen": "#c2e075",
@@ -17,6 +17,6 @@
 	"green": "#a5c261",
 	"purple": "#d197d9",
 	"red": "#d25151",
-	"white": "#eeeeec",
-	"yellow": "#ffc66d"
+	"white": "#c7c7c5",
+	"yellow": "#8ab7d9"
 },

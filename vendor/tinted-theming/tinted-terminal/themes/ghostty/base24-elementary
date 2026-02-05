@@ -12,8 +12,8 @@ palette = 3=#0855fe
 palette = 4=#053a8c
 palette = 5=#e40038
 palette = 6=#2594e0
-palette = 7=#eeeeee
-palette = 8=#4a4a4a
+palette = 7=#c5c5c5
+palette = 8=#737373
 palette = 9=#fb1b18
 palette = 10=#6ac118
 palette = 11=#fdc70e
@@ -32,8 +32,8 @@ palette = 21=#eeeeee
 background = #181818
 foreground = #c5c5c5
 cursor-color = #c5c5c5
-selection-background = #4a4a4a
-selection-foreground = #c5c5c5
+selection-background = #c5c5c5
+selection-foreground = #4a4a4a
 
 # Set `macos-icon = custom-style` in your main configuration file to enable theming of the app icon.
 #

@@ -5,6 +5,6 @@
 Name=base16-railscasts
 ColorForeground=#e6e1dc
 ColorBackground=#2b2b2b
-ColorCursor=x
+ColorCursor=#e6e1dc
 ColorBoldIsBright=FALSE
-ColorPalette=#272935;#da4939;#a5c261;#ffc66d;#6d9cbe;#b6b3eb;#519f50;#f4f1ed;#3a4055;#da4939;#a5c261;#ffc66d;#6d9cbe;#b6b3eb;#519f50;#f9f7f3
+ColorPalette=#2b2b2b;#da4939;#a5c261;#ffc66d;#6d9cbe;#b6b3eb;#519f50;#e6e1dc;#5a647e;#da4939;#a5c261;#ffc66d;#6d9cbe;#b6b3eb;#519f50;#f9f7f3

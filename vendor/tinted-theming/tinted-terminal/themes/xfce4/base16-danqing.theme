@@ -5,6 +5,6 @@
 Name=base16-danqing
 ColorForeground=#e0f0ef
 ColorBackground=#2d302f
-ColorCursor=x
+ColorCursor=#e0f0ef
 ColorBoldIsBright=FALSE
-ColorPalette=#434846;#f9906f;#8ab361;#f0c239;#b0a4e3;#cca4e3;#30dff3;#ecf6f2;#5a605d;#f9906f;#8ab361;#f0c239;#b0a4e3;#cca4e3;#30dff3;#fcfefd
+ColorPalette=#2d302f;#f9906f;#8ab361;#f0c239;#b0a4e3;#cca4e3;#30dff3;#e0f0ef;#9da8a3;#f9906f;#8ab361;#f0c239;#b0a4e3;#cca4e3;#30dff3;#fcfefd

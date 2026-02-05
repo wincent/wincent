@@ -2,8 +2,8 @@
 # Color scheme: Argonaut by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#444444' # base02
-selection-foreground = '#d0d0d0' # base05
+selection-background = '#d0d0d0' # base05
+selection-foreground = '#444444' # base02
 
 cursor         = '#d0d0d0' # base05
 tabs           = '#222222' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#444444' # base02
 
 background     = '#0d0f18' # base00
 foreground     = '#d0d0d0' # base05
-black          = '#222222' # base01
+black          = '#0d0f18' # base00
 red            = '#ff000f' # base08
 yellow         = '#0092ff' # base0A
 green          = '#8ce00a' # base0B
 cyan           = '#00d7eb' # base0C
 blue           = '#008df8' # base0D
 magenta        = '#6c43a5' # base0E
-white          = '#ffffff' # base06
+white          = '#d0d0d0' # base05
 
 dim-foreground   = '#d0d0d0' # base05
 dim-black        = '#222222' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#6c43a5' # base0E
 dim-white        = '#a1a1a1' # base04
 
 light-foreground = '#d0d0d0' # base05
-light-black      = '#444444' # base02
+light-black      = '#727272' # base03
 light-red        = '#ff273f' # base12
 light-yellow     = '#ffd141' # base13
 light-green      = '#abe05a' # base14

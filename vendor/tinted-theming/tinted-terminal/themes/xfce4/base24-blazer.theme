@@ -5,6 +5,6 @@
 Name=base24-blazer
 ColorForeground=#acacac
 ColorBackground=#0d1926
-ColorCursor=x
+ColorCursor=#acacac
 ColorBoldIsBright=FALSE
-ColorPalette=#000000;#b87a7a;#7ab87a;#bdbddb;#7a7ab8;#b87ab8;#7ab8b8;#d9d9d9;#262626;#dbbdbd;#bddbbd;#dbdbbd;#bdbddb;#dbbddb;#bddbdb;#ffffff
+ColorPalette=#0d1926;#b87a7a;#7ab87a;#bdbddb;#7a7ab8;#b87ab8;#7ab8b8;#acacac;#525252;#dbbdbd;#bddbbd;#dbdbbd;#bdbddb;#dbbddb;#bddbdb;#ffffff

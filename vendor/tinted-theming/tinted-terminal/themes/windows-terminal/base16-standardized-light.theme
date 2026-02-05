@@ -3,9 +3,9 @@
 	"name": "standardized-light",
 	"foreground": "#444444",
 	"background": "#ffffff",
-	"black": "#eeeeee",
+	"black": "#ffffff",
 	"blue": "#3173c5",
-	"brightBlack": "#cccccc",
+	"brightBlack": "#767676",
 	"brightBlue": "#3173c5",
 	"brightCyan": "#00998f",
 	"brightGreen": "#31861f",
@@ -17,6 +17,6 @@
 	"green": "#31861f",
 	"purple": "#9e57c2",
 	"red": "#d03e3e",
-	"white": "#333333",
-	"yellow": "#d7691d"
+	"white": "#444444",
+	"yellow": "#ad8200"
 },

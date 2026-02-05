@@ -5,6 +5,6 @@
 Name=base16-brushtrees
 ColorForeground=#6d828e
 ColorBackground=#e3efef
-ColorCursor=x
+ColorCursor=#6d828e
 ColorBoldIsBright=FALSE
-ColorPalette=#c9dbdc;#b38686;#87b386;#aab386;#868cb3;#b386b2;#86b3b3;#5a6d7a;#b0c5c8;#b38686;#87b386;#aab386;#868cb3;#b386b2;#86b3b3;#485867
+ColorPalette=#e3efef;#b38686;#87b386;#aab386;#868cb3;#b386b2;#86b3b3;#6d828e;#98afb5;#b38686;#87b386;#aab386;#868cb3;#b386b2;#86b3b3;#485867

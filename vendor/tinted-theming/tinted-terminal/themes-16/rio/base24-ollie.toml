@@ -2,8 +2,8 @@
 # Color scheme: Ollie by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#5a3625' # base02
-selection-foreground = '#7e7789' # base05
+selection-background = '#7e7789' # base05
+selection-foreground = '#5a3625' # base02
 
 cursor         = '#7e7789' # base05
 tabs           = '#000000' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#5a3625' # base02
 
 background     = '#212024' # base00
 foreground     = '#7e7789' # base05
-black          = '#000000' # base01
+black          = '#212024' # base00
 red            = '#ab2e30' # base08
 yellow         = '#4487ff' # base0A
 green          = '#31ab60' # base0B
 cyan           = '#1fa5ab' # base0C
 blue           = '#2c56ab' # base0D
 magenta        = '#af8427' # base0E
-white          = '#8a8dab' # base06
+white          = '#7e7789' # base05
 
 dim-foreground   = '#7e7789' # base05
 dim-black        = '#000000' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#af8427' # base0E
 dim-white        = '#726168' # base04
 
 light-foreground = '#7e7789' # base05
-light-black      = '#5a3625' # base02
+light-black      = '#664b46' # base03
 light-red        = '#ff3d48' # base12
 light-yellow     = '#ff5e1e' # base13
 light-green      = '#3bff99' # base14

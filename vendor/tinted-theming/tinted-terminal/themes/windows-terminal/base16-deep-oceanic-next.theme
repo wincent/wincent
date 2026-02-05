@@ -3,9 +3,9 @@
 	"name": "Deep Oceanic Next",
 	"foreground": "#d4e1e8",
 	"background": "#001c1f",
-	"black": "#002931",
+	"black": "#001c1f",
 	"blue": "#568ccf",
-	"brightBlack": "#003640",
+	"brightBlack": "#004852",
 	"brightBlue": "#568ccf",
 	"brightCyan": "#4fb7ae",
 	"brightGreen": "#63b784",
@@ -17,6 +17,6 @@
 	"green": "#63b784",
 	"purple": "#8b66d6",
 	"red": "#d3464d",
-	"white": "#e0e9ef",
-	"yellow": "#e37552"
+	"white": "#d4e1e8",
+	"yellow": "#f3b863"
 },

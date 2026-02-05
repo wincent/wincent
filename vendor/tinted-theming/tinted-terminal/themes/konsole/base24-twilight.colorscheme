@@ -14,7 +14,7 @@ Color=20,20,20
 Color=20,20,20
 
 [Color0Intense]
-Color=38,38,38
+Color=92,92,81
 
 [Color1]
 Color=192,108,67
@@ -35,10 +35,10 @@ Color=175,185,121
 Color=203,216,140
 
 [Color3]
-Color=194,168,108
+Color=90,93,97
 
 [Color3Faint]
-Color=194,168,108
+Color=90,93,97
 
 [Color3Intense]
 Color=225,196,125
@@ -71,7 +71,7 @@ Color=119,130,132
 Color=138,152,154
 
 [Color7]
-Color=254,255,211
+Color=200,200,167
 
 [Color7Faint]
 Color=200,200,167

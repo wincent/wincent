@@ -5,6 +5,6 @@
 Name=base16-irblack
 ColorForeground=#b5b3aa
 ColorBackground=#000000
-ColorCursor=x
+ColorCursor=#b5b3aa
 ColorBoldIsBright=FALSE
-ColorPalette=#242422;#ff6c60;#a8ff60;#ffffb6;#96cbfe;#ff73fd;#c6c5fe;#d9d7cc;#484844;#ff6c60;#a8ff60;#ffffb6;#96cbfe;#ff73fd;#c6c5fe;#fdfbee
+ColorPalette=#000000;#ff6c60;#a8ff60;#ffffb6;#96cbfe;#ff73fd;#c6c5fe;#b5b3aa;#6c6c66;#ff6c60;#a8ff60;#ffffb6;#96cbfe;#ff73fd;#c6c5fe;#fdfbee

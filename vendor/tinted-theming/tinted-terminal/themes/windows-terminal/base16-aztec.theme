@@ -3,9 +3,9 @@
 	"name": "Aztec",
 	"foreground": "#ffda51",
 	"background": "#101600",
-	"black": "#1a1e01",
+	"black": "#101600",
 	"blue": "#5b4a9f",
-	"brightBlack": "#242604",
+	"brightBlack": "#2e2e05",
 	"brightBlue": "#5b4a9f",
 	"brightCyan": "#3d94a5",
 	"brightGreen": "#63d932",
@@ -17,6 +17,6 @@
 	"green": "#63d932",
 	"purple": "#883e9f",
 	"red": "#ee2e00",
-	"white": "#ffe178",
-	"yellow": "#ee8800"
+	"white": "#ffda51",
+	"yellow": "#eebb00"
 },

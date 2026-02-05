@@ -2,8 +2,8 @@
 # Color scheme: Pop by Chris Kempson (http://chriskempson.com)
 
 [colors]
-selection-background = '#303030' # base02
-selection-foreground = '#d0d0d0' # base05
+selection-background = '#d0d0d0' # base05
+selection-foreground = '#303030' # base02
 
 cursor         = '#d0d0d0' # base05
 tabs           = '#202020' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#303030' # base02
 
 background     = '#000000' # base00
 foreground     = '#d0d0d0' # base05
-black          = '#202020' # base01
+black          = '#000000' # base00
 red            = '#eb008a' # base08
 yellow         = '#f8ca12' # base0A
 green          = '#37b349' # base0B
 cyan           = '#00aabb' # base0C
 blue           = '#0e5a94' # base0D
 magenta        = '#b31e8d' # base0E
-white          = '#e0e0e0' # base06
+white          = '#d0d0d0' # base05
 
 dim-foreground   = '#d0d0d0' # base05
 dim-black        = '#202020' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#b31e8d' # base0E
 dim-white        = '#b0b0b0' # base04
 
 light-foreground = '#d0d0d0' # base05
-light-black      = '#303030' # base02
+light-black      = '#505050' # base03
 light-red        = '#eb008a' # base08
 light-yellow     = '#f8ca12' # base0A
 light-green      = '#37b349' # base0B

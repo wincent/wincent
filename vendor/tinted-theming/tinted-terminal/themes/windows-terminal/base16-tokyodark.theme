@@ -3,9 +3,9 @@
 	"name": "Tokyodark",
 	"foreground": "#a0a8cd",
 	"background": "#11121d",
-	"black": "#212234",
+	"black": "#11121d",
 	"blue": "#7199ee",
-	"brightBlack": "#212234",
+	"brightBlack": "#353945",
 	"brightBlue": "#7199ee",
 	"brightCyan": "#9fbbf3",
 	"brightGreen": "#95c561",
@@ -17,6 +17,6 @@
 	"green": "#95c561",
 	"purple": "#a485dd",
 	"red": "#ee6d85",
-	"white": "#abb2bf",
-	"yellow": "#f6955b"
+	"white": "#a0a8cd",
+	"yellow": "#d7a65f"
 },

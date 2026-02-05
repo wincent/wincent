@@ -2,8 +2,8 @@
 # Color scheme: Atelier Cave by Bram de Haan (http://atelierbramdehaan.nl)
 
 [colors]
-selection-background = '#585260' # base02
-selection-foreground = '#8b8792' # base05
+selection-background = '#8b8792' # base05
+selection-foreground = '#585260' # base02
 
 cursor         = '#8b8792' # base05
 tabs           = '#26232a' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#585260' # base02
 
 background     = '#19171c' # base00
 foreground     = '#8b8792' # base05
-black          = '#26232a' # base01
+black          = '#19171c' # base00
 red            = '#be4678' # base08
 yellow         = '#a06e3b' # base0A
 green          = '#2a9292' # base0B
 cyan           = '#398bc6' # base0C
 blue           = '#576ddb' # base0D
 magenta        = '#955ae7' # base0E
-white          = '#e2dfe7' # base06
+white          = '#8b8792' # base05
 
 dim-foreground   = '#8b8792' # base05
 dim-black        = '#26232a' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#955ae7' # base0E
 dim-white        = '#7e7887' # base04
 
 light-foreground = '#8b8792' # base05
-light-black      = '#585260' # base02
+light-black      = '#655f6d' # base03
 light-red        = '#be4678' # base08
 light-yellow     = '#a06e3b' # base0A
 light-green      = '#2a9292' # base0B

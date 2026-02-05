@@ -5,6 +5,6 @@
 Name=base16-material-lighter
 ColorForeground=#80cbc4
 ColorBackground=#fafafa
-ColorCursor=x
+ColorCursor=#80cbc4
 ColorBoldIsBright=FALSE
-ColorPalette=#e7eaec;#ff5370;#91b859;#ffb62c;#6182b8;#7c4dff;#39adb5;#43a39a;#cceae7;#ff5370;#91b859;#ffb62c;#6182b8;#7c4dff;#39adb5;#000000
+ColorPalette=#fafafa;#ff5370;#91b859;#ffb62c;#6182b8;#7c4dff;#39adb5;#80cbc4;#ccd7da;#ff5370;#91b859;#ffb62c;#6182b8;#7c4dff;#39adb5;#000000

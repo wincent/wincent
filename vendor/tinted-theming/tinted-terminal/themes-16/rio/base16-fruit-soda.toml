@@ -2,8 +2,8 @@
 # Color scheme: Fruit Soda by jozip
 
 [colors]
-selection-background = '#d8d5d5' # base02
-selection-foreground = '#515151' # base05
+selection-background = '#515151' # base05
+selection-foreground = '#d8d5d5' # base02
 
 cursor         = '#515151' # base05
 tabs           = '#e0dee0' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#d8d5d5' # base02
 
 background     = '#f1ecf1' # base00
 foreground     = '#515151' # base05
-black          = '#e0dee0' # base01
+black          = '#f1ecf1' # base00
 red            = '#fe3e31' # base08
 yellow         = '#f7e203' # base0A
 green          = '#47f74c' # base0B
 cyan           = '#0f9cfd' # base0C
 blue           = '#2931df' # base0D
 magenta        = '#611fce' # base0E
-white          = '#474545' # base06
+white          = '#515151' # base05
 
 dim-foreground   = '#515151' # base05
 dim-black        = '#e0dee0' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#611fce' # base0E
 dim-white        = '#979598' # base04
 
 light-foreground = '#515151' # base05
-light-black      = '#d8d5d5' # base02
+light-black      = '#b5b4b6' # base03
 light-red        = '#fe3e31' # base08
 light-yellow     = '#f7e203' # base0A
 light-green      = '#47f74c' # base0B

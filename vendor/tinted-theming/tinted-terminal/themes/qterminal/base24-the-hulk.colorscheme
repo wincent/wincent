@@ -14,7 +14,7 @@ Color=27,29,30
 Color=27,29,30
 
 [Color0Intense]
-Color=80,83,84
+Color=114,116,115
 
 [Color1]
 Color=37,157,26
@@ -35,10 +35,10 @@ Color=19,206,47
 Color=72,255,118
 
 [Color3]
-Color=98,228,86
+Color=79,106,149
 
 [Color3Faint]
-Color=98,228,86
+Color=79,106,149
 
 [Color3Intense]
 Color=58,254,21
@@ -71,7 +71,7 @@ Color=55,140,169
 Color=63,133,165
 
 [Color7]
-Color=216,216,208
+Color=182,182,177
 
 [Color7Faint]
 Color=182,182,177
@@ -92,4 +92,3 @@ Color=216,216,208
 Blur=true
 Description=The Hulk
 Opacity=0.95
-

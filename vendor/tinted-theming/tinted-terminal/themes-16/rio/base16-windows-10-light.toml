@@ -2,8 +2,8 @@
 # Color scheme: Windows 10 Light by Fergus Collins (https://github.com/ferguscollins)
 
 [colors]
-selection-background = '#d9d9d9' # base02
-selection-foreground = '#767676' # base05
+selection-background = '#767676' # base05
+selection-foreground = '#d9d9d9' # base02
 
 cursor         = '#767676' # base05
 tabs           = '#e5e5e5' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#d9d9d9' # base02
 
 background     = '#f2f2f2' # base00
 foreground     = '#767676' # base05
-black          = '#e5e5e5' # base01
+black          = '#f2f2f2' # base00
 red            = '#c50f1f' # base08
 yellow         = '#c19c00' # base0A
 green          = '#13a10e' # base0B
 cyan           = '#3a96dd' # base0C
 blue           = '#0037da' # base0D
 magenta        = '#881798' # base0E
-white          = '#414141' # base06
+white          = '#767676' # base05
 
 dim-foreground   = '#767676' # base05
 dim-black        = '#e5e5e5' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#881798' # base0E
 dim-white        = '#ababab' # base04
 
 light-foreground = '#767676' # base05
-light-black      = '#d9d9d9' # base02
+light-black      = '#cccccc' # base03
 light-red        = '#c50f1f' # base08
 light-yellow     = '#c19c00' # base0A
 light-green      = '#13a10e' # base0B

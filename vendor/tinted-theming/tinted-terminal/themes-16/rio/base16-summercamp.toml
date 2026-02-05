@@ -2,8 +2,8 @@
 # Color scheme: summercamp by zoe firi (zoefiri.github.io)
 
 [colors]
-selection-background = '#3a3527' # base02
-selection-foreground = '#736e55' # base05
+selection-background = '#736e55' # base05
+selection-foreground = '#3a3527' # base02
 
 cursor         = '#736e55' # base05
 tabs           = '#2a261c' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#3a3527' # base02
 
 background     = '#1c1810' # base00
 foreground     = '#736e55' # base05
-black          = '#2a261c' # base01
+black          = '#1c1810' # base00
 red            = '#e35142' # base08
 yellow         = '#f2ff27' # base0A
 green          = '#5ceb5a' # base0B
 cyan           = '#5aebbc' # base0C
 blue           = '#489bf0' # base0D
 magenta        = '#ff8080' # base0E
-white          = '#bab696' # base06
+white          = '#736e55' # base05
 
 dim-foreground   = '#736e55' # base05
 dim-black        = '#2a261c' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#ff8080' # base0E
 dim-white        = '#5f5b45' # base04
 
 light-foreground = '#736e55' # base05
-light-black      = '#3a3527' # base02
+light-black      = '#504b38' # base03
 light-red        = '#e35142' # base08
 light-yellow     = '#f2ff27' # base0A
 light-green      = '#5ceb5a' # base0B

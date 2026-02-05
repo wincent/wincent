@@ -8,13 +8,13 @@ Color=40,47,11
 Color=15,22,15
 
 [Color0]
-Color=17,38,21
+Color=15,22,15
 
 [Color0Faint]
 Color=15,22,15
 
 [Color0Intense]
-Color=60,71,17
+Color=70,84,42
 
 [Color1]
 Color=127,43,38
@@ -35,10 +35,10 @@ Color=47,126,37
 Color=24,224,0
 
 [Color3]
-Color=112,127,35
+Color=0,169,223
 
 [Color3Faint]
-Color=112,127,35
+Color=0,169,223
 
 [Color3Intense]
 Color=189,224,0
@@ -71,7 +71,7 @@ Color=49,127,118
 Color=0,223,195
 
 [Color7]
-Color=100,125,117
+Color=90,111,92
 
 [Color7Faint]
 Color=90,111,92
@@ -92,4 +92,3 @@ Color=100,125,117
 Blur=true
 Description=Alien Blood
 Opacity=0.95
-

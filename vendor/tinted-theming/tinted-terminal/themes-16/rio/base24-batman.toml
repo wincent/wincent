@@ -2,8 +2,8 @@
 # Color scheme: Batman by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#505354' # base02
-selection-foreground = '#a7a8a3' # base05
+selection-background = '#a7a8a3' # base05
+selection-foreground = '#505354' # base02
 
 cursor         = '#a7a8a3' # base05
 tabs           = '#1b1d1e' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#505354' # base02
 
 background     = '#1b1d1e' # base00
 foreground     = '#a7a8a3' # base05
-black          = '#1b1d1e' # base01
+black          = '#1b1d1e' # base00
 red            = '#e6db43' # base08
 yellow         = '#909495' # base0A
 green          = '#c8be46' # base0B
 cyan           = '#615f5e' # base0C
 blue           = '#737074' # base0D
 magenta        = '#737271' # base0E
-white          = '#c5c5be' # base06
+white          = '#a7a8a3' # base05
 
 dim-foreground   = '#a7a8a3' # base05
 dim-black        = '#1b1d1e' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#737271' # base0E
 dim-white        = '#8a8c89' # base04
 
 light-foreground = '#a7a8a3' # base05
-light-black      = '#505354' # base02
+light-black      = '#6d6f6e' # base03
 light-red        = '#fff68d' # base12
 light-yellow     = '#feed6c' # base13
 light-green      = '#fff27c' # base14

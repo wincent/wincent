@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Eldritch by https://github.com/eldritch-theme
+
+[colors]
+selection-background = '#ebfafa' # base05
+selection-foreground = '#3b4261' # base02
+
+cursor         = '#ebfafa' # base05
+tabs           = '#323449' # base01
+tabs-active    = '#3b4261' # base02
+
+background     = '#212337' # base00
+foreground     = '#ebfafa' # base05
+black          = '#212337' # base00
+red            = '#f16c75' # base08
+yellow         = '#f1fc79' # base0A
+green          = '#37f499' # base0B
+cyan           = '#04d1f9' # base0C
+blue           = '#39ddfd' # base0D
+magenta        = '#a48cf2' # base0E
+white          = '#ebfafa' # base05
+
+dim-foreground   = '#ebfafa' # base05
+dim-black        = '#323449' # base01
+dim-red          = '#f16c75' # base08
+dim-yellow       = '#f1fc79' # base0A
+dim-green        = '#37f499' # base0B
+dim-cyan         = '#04d1f9' # base0C
+dim-blue         = '#39ddfd' # base0D
+dim-magenta      = '#a48cf2' # base0E
+dim-white        = '#a1abe0' # base04
+
+light-foreground = '#ebfafa' # base05
+light-black      = '#7081d0' # base03
+light-red        = '#f89a9d' # base12
+light-yellow     = '#f9e9a1' # base13
+light-green      = '#6fffc1' # base14
+light-cyan       = '#6ce9ff' # base15
+light-blue       = '#7ae9ff' # base16
+light-magenta    = '#d4b3ff' # base17
+light-white      = '#ffffff' # base07

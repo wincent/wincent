@@ -5,6 +5,6 @@
 Name=base24-treehouse
 ColorForeground=#695d47
 ColorBackground=#191919
-ColorCursor=x
+ColorCursor=#695d47
 ColorBoldIsBright=FALSE
-ColorPalette=#321200;#b1270e;#44a900;#85cfec;#578499;#96363c;#b2591d;#776b53;#423625;#ed5c20;#55f237;#f1b731;#85cfec;#e04b5a;#f07d14;#ffc800
+ColorPalette=#191919;#b1270e;#44a900;#85cfec;#578499;#96363c;#b2591d;#695d47;#4f4330;#ed5c20;#55f237;#f1b731;#85cfec;#e04b5a;#f07d14;#ffc800

@@ -5,6 +5,6 @@
 Name=base24-japanesque
 ColorForeground=#d0d2ce
 ColorBackground=#1d1d1d
-ColorCursor=x
+ColorCursor=#d0d2ce
 ColorBoldIsBright=FALSE
-ColorPalette=#343835;#ce3e60;#7bb75b;#135879;#4c99d3;#a57fc4;#389aac;#f9faf6;#585a58;#d18ea6;#767e2b;#77592e;#135879;#5f4190;#76bbca;#b1b5ae
+ColorPalette=#1d1d1d;#ce3e60;#7bb75b;#135879;#4c99d3;#a57fc4;#389aac;#d0d2ce;#80827f;#d18ea6;#767e2b;#77592e;#135879;#5f4190;#76bbca;#b1b5ae

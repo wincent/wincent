@@ -3,9 +3,9 @@
 	"name": "Cupertino",
 	"foreground": "#404040",
 	"background": "#ffffff",
-	"black": "#c0c0c0",
+	"black": "#ffffff",
 	"blue": "#0000ff",
-	"brightBlack": "#c0c0c0",
+	"brightBlack": "#808080",
 	"brightBlue": "#0000ff",
 	"brightCyan": "#318495",
 	"brightGreen": "#007400",
@@ -18,5 +18,5 @@
 	"purple": "#a90d91",
 	"red": "#c41a15",
 	"white": "#404040",
-	"yellow": "#eb8500"
+	"yellow": "#826b28"
 },

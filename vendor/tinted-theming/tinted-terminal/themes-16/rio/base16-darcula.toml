@@ -2,8 +2,8 @@
 # Color scheme: Darcula by jetbrains
 
 [colors]
-selection-background = '#323232' # base02
-selection-foreground = '#a9b7c6' # base05
+selection-background = '#a9b7c6' # base05
+selection-foreground = '#323232' # base02
 
 cursor         = '#a9b7c6' # base05
 tabs           = '#323232' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#323232' # base02
 
 background     = '#2b2b2b' # base00
 foreground     = '#a9b7c6' # base05
-black          = '#323232' # base01
+black          = '#2b2b2b' # base00
 red            = '#4eade5' # base08
 yellow         = '#bbb529' # base0A
 green          = '#6a8759' # base0B
 cyan           = '#629755' # base0C
 blue           = '#9876aa' # base0D
 magenta        = '#cc7832' # base0E
-white          = '#ffc66d' # base06
+white          = '#a9b7c6' # base05
 
 dim-foreground   = '#a9b7c6' # base05
 dim-black        = '#323232' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#cc7832' # base0E
 dim-white        = '#a4a3a3' # base04
 
 light-foreground = '#a9b7c6' # base05
-light-black      = '#323232' # base02
+light-black      = '#606366' # base03
 light-red        = '#4eade5' # base08
 light-yellow     = '#bbb529' # base0A
 light-green      = '#6a8759' # base0B

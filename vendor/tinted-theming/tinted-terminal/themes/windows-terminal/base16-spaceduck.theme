@@ -3,9 +3,9 @@
 	"name": "Spaceduck",
 	"foreground": "#ecf0c1",
 	"background": "#16172d",
-	"black": "#1b1c36",
+	"black": "#16172d",
 	"blue": "#7a5ccc",
-	"brightBlack": "#30365f",
+	"brightBlack": "#686f9a",
 	"brightBlue": "#7a5ccc",
 	"brightCyan": "#00a3cc",
 	"brightGreen": "#5ccc96",
@@ -17,6 +17,6 @@
 	"green": "#5ccc96",
 	"purple": "#b3a1e6",
 	"red": "#e33400",
-	"white": "#c1c3cc",
-	"yellow": "#e39400"
+	"white": "#ecf0c1",
+	"yellow": "#f2ce00"
 },

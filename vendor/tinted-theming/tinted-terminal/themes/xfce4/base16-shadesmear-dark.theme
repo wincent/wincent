@@ -5,6 +5,6 @@
 Name=base16-shadesmear-dark
 ColorForeground=#dbdbdb
 ColorBackground=#232323
-ColorCursor=x
+ColorCursor=#dbdbdb
 ColorBoldIsBright=FALSE
-ColorPalette=#1c1c1c;#cc5450;#71983b;#307878;#376388;#d7ab54;#c57d42;#e4e4e4;#4e4e4e;#cc5450;#71983b;#307878;#376388;#d7ab54;#c57d42;#1c1c1c
+ColorPalette=#232323;#cc5450;#71983b;#307878;#376388;#d7ab54;#c57d42;#dbdbdb;#c0c0c0;#cc5450;#71983b;#307878;#376388;#d7ab54;#c57d42;#1c1c1c

@@ -5,6 +5,6 @@
 Name=base16-nova
 ColorForeground=#c5d4dd
 ColorBackground=#3c4c55
-ColorCursor=x
+ColorCursor=#c5d4dd
 ColorBoldIsBright=FALSE
-ColorPalette=#556873;#83afe5;#7fc1ca;#a8ce93;#83afe5;#9a93e1;#f2c38f;#899ba6;#6a7d89;#83afe5;#7fc1ca;#a8ce93;#83afe5;#9a93e1;#f2c38f;#556873
+ColorPalette=#3c4c55;#83afe5;#7fc1ca;#a8ce93;#83afe5;#9a93e1;#f2c38f;#c5d4dd;#899ba6;#83afe5;#7fc1ca;#a8ce93;#83afe5;#9a93e1;#f2c38f;#556873

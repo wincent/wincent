@@ -8,13 +8,13 @@ Color=20,14,36
 Color=28,11,40
 
 [Color0]
-Color=10,75,97
+Color=28,11,40
 
 [Color0Faint]
 Color=28,11,40
 
 [Color0Intense]
-Color=31,22,55
+Color=83,74,94
 
 [Color1]
 Color=153,35,109
@@ -35,10 +35,10 @@ Color=91,176,178
 Color=10,107,126
 
 [Color3]
-Color=233,184,167
+Color=56,22,61
 
 [Color3Faint]
-Color=233,184,167
+Color=56,22,61
 
 [Color3Intense]
 Color=121,49,136
@@ -71,7 +71,7 @@ Color=126,130,204
 Color=93,95,113
 
 [Color7]
-Color=240,231,213
+Color=187,178,173
 
 [Color7Faint]
 Color=187,178,173
@@ -92,4 +92,3 @@ Color=240,231,213
 Blur=true
 Description=Blue Berry Pie
 Opacity=0.95
-

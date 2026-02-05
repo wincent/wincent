@@ -5,6 +5,6 @@
 Name=base16-hardhacker
 ColorForeground=#e4dee9
 ColorBackground=#211e2a
-ColorCursor=x
+ColorCursor=#e4dee9
 ColorBoldIsBright=FALSE
-ColorPalette=#2c2737;#e965a5;#b1f2a7;#ebde76;#95a6f4;#ff79c6;#b3f4f3;#f2e8f0;#3f3951;#e965a5;#b1f2a7;#ebde76;#95a6f4;#ff79c6;#b3f4f3;#ffffff
+ColorPalette=#211e2a;#e965a5;#b1f2a7;#ebde76;#95a6f4;#ff79c6;#b3f4f3;#e4dee9;#6e6780;#e965a5;#b1f2a7;#ebde76;#95a6f4;#ff79c6;#b3f4f3;#ffffff

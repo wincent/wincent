@@ -2,8 +2,8 @@
 # Color scheme: Linux VT by j-c-m (https://github.com/j-c-m/)
 
 [colors]
-selection-background = '#444444' # base02
-selection-foreground = '#aaaaaa' # base05
+selection-background = '#aaaaaa' # base05
+selection-foreground = '#444444' # base02
 
 cursor         = '#aaaaaa' # base05
 tabs           = '#333333' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#444444' # base02
 
 background     = '#000000' # base00
 foreground     = '#aaaaaa' # base05
-black          = '#333333' # base01
+black          = '#000000' # base00
 red            = '#aa0000' # base08
 yellow         = '#ffff55' # base0A
 green          = '#00aa00' # base0B
 cyan           = '#00aaaa' # base0C
 blue           = '#5555ff' # base0D
 magenta        = '#ff55ff' # base0E
-white          = '#cccccc' # base06
+white          = '#aaaaaa' # base05
 
 dim-foreground   = '#aaaaaa' # base05
 dim-black        = '#333333' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#ff55ff' # base0E
 dim-white        = '#888888' # base04
 
 light-foreground = '#aaaaaa' # base05
-light-black      = '#444444' # base02
+light-black      = '#555555' # base03
 light-red        = '#aa0000' # base08
 light-yellow     = '#ffff55' # base0A
 light-green      = '#00aa00' # base0B

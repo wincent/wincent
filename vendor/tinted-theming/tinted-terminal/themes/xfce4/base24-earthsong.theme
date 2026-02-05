@@ -5,6 +5,6 @@
 Name=base24-earthsong
 ColorForeground=#c5ab93
 ColorBackground=#282420
-ColorCursor=x
+ColorCursor=#c5ab93
 ColorBoldIsBright=FALSE
-ColorPalette=#111417;#c84134;#84c44b;#5ed9ff;#1397b9;#d0623c;#4f9452;#e5c5a9;#665e54;#ff6459;#97e035;#dfd561;#5ed9ff;#ff9168;#83ef88;#f6f6ec
+ColorPalette=#282420;#c84134;#84c44b;#5ed9ff;#1397b9;#d0623c;#4f9452;#c5ab93;#857769;#ff6459;#97e035;#dfd561;#5ed9ff;#ff9168;#83ef88;#f6f6ec

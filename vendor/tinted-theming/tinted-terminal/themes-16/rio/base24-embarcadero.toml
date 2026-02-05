@@ -2,8 +2,8 @@
 # Color scheme: Embarcadero by Thomas Leon Highbaugh
 
 [colors]
-selection-background = '#616568' # base02
-selection-foreground = '#bcbdc0' # base05
+selection-background = '#bcbdc0' # base05
+selection-foreground = '#616568' # base02
 
 cursor         = '#bcbdc0' # base05
 tabs           = '#43474c' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#616568' # base02
 
 background     = '#252a2f' # base00
 foreground     = '#bcbdc0' # base05
-black          = '#43474c' # base01
+black          = '#252a2f' # base00
 red            = '#ed5d86' # base08
 yellow         = '#eb824d' # base0A
 green          = '#20c290' # base0B
 cyan           = '#02efef' # base0C
 blue           = '#4080d0' # base0D
 magenta        = '#a070d0' # base0E
-white          = '#dadbdb' # base06
+white          = '#bcbdc0' # base05
 
 dim-foreground   = '#bcbdc0' # base05
 dim-black        = '#43474c' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#a070d0' # base0E
 dim-white        = '#9ea0a2' # base04
 
 light-foreground = '#bcbdc0' # base05
-light-black      = '#616568' # base02
+light-black      = '#7f8285' # base03
 light-red        = '#f57d9a' # base12
 light-yellow     = '#ffe089' # base13
 light-green      = '#a0d0a0' # base14

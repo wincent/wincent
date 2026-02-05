@@ -5,6 +5,6 @@
 Name=base16-zenburn
 ColorForeground=#dcdccc
 ColorBackground=#383838
-ColorCursor=x
+ColorCursor=#dcdccc
 ColorBoldIsBright=FALSE
-ColorPalette=#404040;#dca3a3;#5f7f5f;#e0cf9f;#7cb8bb;#dc8cc3;#93e0e3;#c0c0c0;#606060;#dca3a3;#5f7f5f;#e0cf9f;#7cb8bb;#dc8cc3;#93e0e3;#ffffff
+ColorPalette=#383838;#dca3a3;#5f7f5f;#e0cf9f;#7cb8bb;#dc8cc3;#93e0e3;#dcdccc;#6f6f6f;#dca3a3;#5f7f5f;#e0cf9f;#7cb8bb;#dc8cc3;#93e0e3;#ffffff

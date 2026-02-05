@@ -8,13 +8,13 @@ Color=33,69,91
 Color=35,54,74
 
 [Color0]
-Color=44,63,87
+Color=35,54,74
 
 [Color0Faint]
 Color=35,54,74
 
 [Color0Intense]
-Color=50,104,137
+Color=47,130,136
 
 [Color1]
 Color=190,45,38
@@ -35,10 +35,10 @@ Color=25,145,113
 Color=48,207,123
 
 [Color3]
-Color=218,142,38
+Color=51,165,217
 
 [Color3Faint]
-Color=218,142,38
+Color=51,165,217
 
 [Color3Intense]
 Color=231,215,75
@@ -71,7 +71,7 @@ Color=53,160,143
 Color=65,195,173
 
 [Color7]
-Color=35,208,130
+Color=39,182,132
 
 [Color7Faint]
 Color=39,182,132
@@ -92,4 +92,3 @@ Color=35,208,130
 Blur=true
 Description=Toy Chest
 Opacity=0.95
-

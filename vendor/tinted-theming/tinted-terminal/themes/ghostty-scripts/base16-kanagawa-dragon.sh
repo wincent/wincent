@@ -20,34 +20,34 @@ EOF
 }
 
 
-ghostty_palette_color_0="#0d0c0c"
+ghostty_palette_color_0="#181616"
 ghostty_palette_color_1="#c4746e"
-ghostty_palette_color_2="#87a987"
+ghostty_palette_color_2="#8a9a7b"
 ghostty_palette_color_3="#c4b28a"
 ghostty_palette_color_4="#8ba4b0"
-ghostty_palette_color_5="#8992a7"
+ghostty_palette_color_5="#a292a3"
 ghostty_palette_color_6="#8ea4a2"
 ghostty_palette_color_7="#c5c9c5"
-ghostty_palette_color_8="#282727"
+ghostty_palette_color_8="#625e5a"
 ghostty_palette_color_9="#c4746e"
-ghostty_palette_color_10="#87a987"
+ghostty_palette_color_10="#8a9a7b"
 ghostty_palette_color_11="#c4b28a"
 ghostty_palette_color_12="#8ba4b0"
-ghostty_palette_color_13="#8992a7"
+ghostty_palette_color_13="#a292a3"
 ghostty_palette_color_14="#8ea4a2"
 ghostty_palette_color_15="#c5c9c5"
-ghostty_palette_color_16="#b98d7b"
-ghostty_palette_color_17="#a292a3"
-ghostty_palette_color_18="#1d1c19"
-ghostty_palette_color_19="#282727"
-ghostty_palette_color_20="#a6a69c"
-ghostty_palette_color_21="#7a8382"
+ghostty_palette_color_16="#b6927b"
+ghostty_palette_color_17="#b98d7b"
+ghostty_palette_color_18="#282727"
+ghostty_palette_color_19="#393836"
+ghostty_palette_color_20="#737c73"
+ghostty_palette_color_21="#c8c093"
 
 _theme_file() {
 cat <<EOF
 # vim: ft=ghostty
 # Kanagawa Dragon theme for Ghostty
-# Scheme Author: Tommaso Laurenzi (https://github.com/rebelot)
+# Scheme Author: Stefan Weigl-Bosker (https://github.com/sweiglbosker), Tommaso Laurenzi (https://github.com/rebelot/kanagawa.nvim)
 # Scheme System: base16
 # Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
 
@@ -79,8 +79,8 @@ palette = 21=$ghostty_palette_color_21
 background = $ghostty_palette_color_0
 foreground = $ghostty_palette_color_7
 cursor-color = $ghostty_palette_color_7
-selection-background = $ghostty_palette_color_8
-selection-foreground = $ghostty_palette_color_7
+selection-background = $ghostty_palette_color_7
+selection-foreground = $ghostty_palette_color_19
 
 # Set \`macos-icon\` = custom-style in your main configuration file to enable theming of the app icon.
 EOF

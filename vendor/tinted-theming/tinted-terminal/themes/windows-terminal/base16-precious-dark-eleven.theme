@@ -3,9 +3,9 @@
 	"name": "Precious Dark Eleven",
 	"foreground": "#b8b7b6",
 	"background": "#1c1e20",
-	"black": "#292b2d",
+	"black": "#1c1e20",
 	"blue": "#68b0ee",
-	"brightBlack": "#37393a",
+	"brightBlack": "#858585",
 	"brightBlue": "#68b0ee",
 	"brightCyan": "#42bda7",
 	"brightGreen": "#95b658",
@@ -18,5 +18,5 @@
 	"purple": "#b799fe",
 	"red": "#ff8782",
 	"white": "#b8b7b6",
-	"yellow": "#ea9755"
+	"yellow": "#d0a543"
 },

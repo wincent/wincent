@@ -3,9 +3,9 @@
 	"name": "Primer Dark Dimmed",
 	"foreground": "#909dab",
 	"background": "#1c2128",
-	"black": "#373e47",
+	"black": "#1c2128",
 	"blue": "#539bf5",
-	"brightBlack": "#444c56",
+	"brightBlack": "#545d68",
 	"brightBlue": "#539bf5",
 	"brightCyan": "#96d0ff",
 	"brightGreen": "#57ab5a",
@@ -17,6 +17,6 @@
 	"green": "#57ab5a",
 	"purple": "#e275ad",
 	"red": "#f47067",
-	"white": "#adbac7",
-	"yellow": "#e0823d"
+	"white": "#909dab",
+	"yellow": "#c69026"
 },

@@ -5,6 +5,6 @@
 Name=base16-penumbra-dark-contrast-plus-plus
 ColorForeground=#dedede
 ColorBackground=#0d0f13
-ColorCursor=x
+ColorCursor=#dedede
 ColorBoldIsBright=FALSE
-ColorPalette=#181b1f;#f58c81;#54c794;#a9b852;#6eb2fd;#b69cf6;#00c4d7;#fff7ed;#3e4044;#f58c81;#54c794;#a9b852;#6eb2fd;#b69cf6;#00c4d7;#fffdfb
+ColorPalette=#0d0f13;#f58c81;#54c794;#a9b852;#6eb2fd;#b69cf6;#00c4d7;#dedede;#636363;#f58c81;#54c794;#a9b852;#6eb2fd;#b69cf6;#00c4d7;#fffdfb

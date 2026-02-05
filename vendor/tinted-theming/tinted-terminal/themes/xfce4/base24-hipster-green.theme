@@ -5,6 +5,6 @@
 Name=base24-hipster-green
 ColorForeground=#a8a8a8
 ColorBackground=#0f0a05
-ColorCursor=x
+ColorCursor=#a8a8a8
 ColorBoldIsBright=FALSE
-ColorPalette=#000000;#b6204a;#00a600;#0000ff;#246db2;#b200b2;#00a6b2;#bfbfbf;#666666;#e50000;#86a83e;#e5e500;#0000ff;#e500e5;#00e5e5;#e5e5e5
+ColorPalette=#0f0a05;#b6204a;#00a600;#0000ff;#246db2;#b200b2;#00a6b2;#a8a8a8;#7c7c7c;#e50000;#86a83e;#e5e500;#0000ff;#e500e5;#00e5e5;#e5e5e5

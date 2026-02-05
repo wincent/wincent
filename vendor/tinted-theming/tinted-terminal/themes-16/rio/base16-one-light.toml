@@ -2,8 +2,8 @@
 # Color scheme: One Light by Daniel Pfeifer (http://github.com/purpleKarrot)
 
 [colors]
-selection-background = '#e5e5e6' # base02
-selection-foreground = '#383a42' # base05
+selection-background = '#383a42' # base05
+selection-foreground = '#e5e5e6' # base02
 
 cursor         = '#383a42' # base05
 tabs           = '#f0f0f1' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#e5e5e6' # base02
 
 background     = '#fafafa' # base00
 foreground     = '#383a42' # base05
-black          = '#f0f0f1' # base01
+black          = '#fafafa' # base00
 red            = '#ca1243' # base08
 yellow         = '#c18401' # base0A
 green          = '#50a14f' # base0B
 cyan           = '#0184bc' # base0C
 blue           = '#4078f2' # base0D
 magenta        = '#a626a4' # base0E
-white          = '#202227' # base06
+white          = '#383a42' # base05
 
 dim-foreground   = '#383a42' # base05
 dim-black        = '#f0f0f1' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#a626a4' # base0E
 dim-white        = '#696c77' # base04
 
 light-foreground = '#383a42' # base05
-light-black      = '#e5e5e6' # base02
+light-black      = '#a0a1a7' # base03
 light-red        = '#ca1243' # base08
 light-yellow     = '#c18401' # base0A
 light-green      = '#50a14f' # base0B

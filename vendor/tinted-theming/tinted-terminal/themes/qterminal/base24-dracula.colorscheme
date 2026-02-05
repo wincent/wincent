@@ -8,13 +8,13 @@ Color=30,32,41
 Color=40,42,54
 
 [Color0]
-Color=54,52,71
+Color=40,42,54
 
 [Color0Faint]
 Color=40,42,54
 
 [Color0Intense]
-Color=68,71,90
+Color=98,114,164
 
 [Color1]
 Color=255,85,85
@@ -35,10 +35,10 @@ Color=80,250,123
 Color=163,245,184
 
 [Color3]
-Color=255,184,108
+Color=241,250,140
 
 [Color3Faint]
-Color=255,184,108
+Color=241,250,140
 
 [Color3Intense]
 Color=238,245,163
@@ -71,7 +71,7 @@ Color=139,233,253
 Color=186,237,247
 
 [Color7]
-Color=240,241,244
+Color=248,248,242
 
 [Color7Faint]
 Color=248,248,242
@@ -92,4 +92,3 @@ Color=240,241,244
 Blur=true
 Description=Dracula
 Opacity=0.95
-

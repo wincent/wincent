@@ -3,9 +3,9 @@
 	"name": "Ayu Light",
 	"foreground": "#5c6166",
 	"background": "#f8f9fa",
-	"black": "#edeff1",
+	"black": "#f8f9fa",
 	"blue": "#399ee6",
-	"brightBlack": "#d2d4d8",
+	"brightBlack": "#a0a6ac",
 	"brightBlue": "#478acc",
 	"brightCyan": "#55b4d4",
 	"brightGreen": "#86b300",
@@ -17,6 +17,6 @@
 	"green": "#6cbf49",
 	"purple": "#a37acc",
 	"red": "#f07171",
-	"white": "#4e5257",
-	"yellow": "#fa8d3e"
+	"white": "#5c6166",
+	"yellow": "#f2ae49"
 },

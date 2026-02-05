@@ -8,13 +8,13 @@ Color=94,97,92
 Color=254,255,255
 
 [Color0]
-Color=241,241,241
+Color=254,255,255
 
 [Color0Faint]
 Color=254,255,255
 
 [Color0Intense]
-Color=220,220,220
+Color=204,204,204
 
 [Color1]
 Color=255,0,0
@@ -35,10 +35,10 @@ Color=89,213,0
 Color=147,254,0
 
 [Color3]
-Color=239,155,0
+Color=239,202,0
 
 [Color3Faint]
-Color=239,155,0
+Color=239,202,0
 
 [Color3Intense]
 Color=255,240,33
@@ -71,7 +71,7 @@ Color=0,208,214
 Color=0,253,255
 
 [Color7]
-Color=50,50,50
+Color=79,79,79
 
 [Color7Faint]
 Color=79,79,79
@@ -92,4 +92,3 @@ Color=50,50,50
 Blur=true
 Description=Tango Adapted
 Opacity=0.95
-

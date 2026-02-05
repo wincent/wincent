@@ -5,6 +5,6 @@
 Name=base16-codeschool
 ColorForeground=#9ea7a6
 ColorBackground=#232c31
-ColorCursor=x
+ColorCursor=#9ea7a6
 ColorBoldIsBright=FALSE
-ColorPalette=#1c3657;#2a5491;#237986;#a03b1e;#484d79;#c59820;#b02f30;#a7cfa3;#2a343a;#2a5491;#237986;#a03b1e;#484d79;#c59820;#b02f30;#b5d8f6
+ColorPalette=#232c31;#2a5491;#237986;#a03b1e;#484d79;#c59820;#b02f30;#9ea7a6;#3f4944;#2a5491;#237986;#a03b1e;#484d79;#c59820;#b02f30;#b5d8f6

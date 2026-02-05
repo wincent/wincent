@@ -8,13 +8,13 @@ Color=0,66,90
 Color=0,30,38
 
 [Color0]
-Color=0,39,49
+Color=0,30,38
 
 [Color0Faint]
 Color=0,30,38
 
 [Color0Intense]
-Color=0,99,136
+Color=58,130,152
 
 [Color1]
 Color=208,27,36
@@ -35,10 +35,10 @@ Color=107,190,108
 Color=80,238,132
 
 [Color3]
-Color=165,119,5
+Color=23,141,199
 
 [Color3Faint]
-Color=165,119,5
+Color=23,141,199
 
 [Color3Intense]
 Color=177,126,40
@@ -71,7 +71,7 @@ Color=37,145,133
 Color=0,178,158
 
 [Color7]
-Color=233,226,203
+Color=174,194,186
 
 [Color7Faint]
 Color=174,194,186
@@ -92,4 +92,3 @@ Color=233,226,203
 Blur=true
 Description=Solarized Dark Higher Contrast
 Opacity=0.95
-

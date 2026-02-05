@@ -3,9 +3,9 @@
 	"name": "XCode Dusk",
 	"foreground": "#939599",
 	"background": "#282b35",
-	"black": "#3d4048",
+	"black": "#282b35",
 	"blue": "#790ead",
-	"brightBlack": "#53555d",
+	"brightBlack": "#686a71",
 	"brightBlue": "#790ead",
 	"brightCyan": "#00a0be",
 	"brightGreen": "#df0002",
@@ -17,6 +17,6 @@
 	"green": "#df0002",
 	"purple": "#b21889",
 	"red": "#b21889",
-	"white": "#a9aaae",
-	"yellow": "#786dc5"
+	"white": "#939599",
+	"yellow": "#438288"
 },

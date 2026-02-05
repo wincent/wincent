@@ -2,8 +2,8 @@
 # Color scheme: Black Metal (Immortal) by metalelf0 (https://github.com/metalelf0)
 
 [colors]
-selection-background = '#222222' # base02
-selection-foreground = '#c1c1c1' # base05
+selection-background = '#c1c1c1' # base05
+selection-foreground = '#222222' # base02
 
 cursor         = '#c1c1c1' # base05
 tabs           = '#121212' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#222222' # base02
 
 background     = '#000000' # base00
 foreground     = '#c1c1c1' # base05
-black          = '#121212' # base01
+black          = '#000000' # base00
 red            = '#5f8787' # base08
 yellow         = '#556677' # base0A
 green          = '#7799bb' # base0B
 cyan           = '#aaaaaa' # base0C
 blue           = '#888888' # base0D
 magenta        = '#999999' # base0E
-white          = '#999999' # base06
+white          = '#c1c1c1' # base05
 
 dim-foreground   = '#c1c1c1' # base05
 dim-black        = '#121212' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#999999' # base0E
 dim-white        = '#999999' # base04
 
 light-foreground = '#c1c1c1' # base05
-light-black      = '#222222' # base02
+light-black      = '#333333' # base03
 light-red        = '#5f8787' # base08
 light-yellow     = '#556677' # base0A
 light-green      = '#7799bb' # base0B

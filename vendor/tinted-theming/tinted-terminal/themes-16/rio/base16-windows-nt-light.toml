@@ -2,8 +2,8 @@
 # Color scheme: Windows NT Light by Fergus Collins (https://github.com/ferguscollins)
 
 [colors]
-selection-background = '#d5d5d5' # base02
-selection-foreground = '#808080' # base05
+selection-background = '#808080' # base05
+selection-foreground = '#d5d5d5' # base02
 
 cursor         = '#808080' # base05
 tabs           = '#eaeaea' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#d5d5d5' # base02
 
 background     = '#ffffff' # base00
 foreground     = '#808080' # base05
-black          = '#eaeaea' # base01
+black          = '#ffffff' # base00
 red            = '#800000' # base08
 yellow         = '#808000' # base0A
 green          = '#008000' # base0B
 cyan           = '#008080' # base0C
 blue           = '#000080' # base0D
 magenta        = '#800080' # base0E
-white          = '#404040' # base06
+white          = '#808080' # base05
 
 dim-foreground   = '#808080' # base05
 dim-black        = '#eaeaea' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#800080' # base0E
 dim-white        = '#a0a0a0' # base04
 
 light-foreground = '#808080' # base05
-light-black      = '#d5d5d5' # base02
+light-black      = '#c0c0c0' # base03
 light-red        = '#800000' # base08
 light-yellow     = '#808000' # base0A
 light-green      = '#008000' # base0B

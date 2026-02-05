@@ -3,9 +3,9 @@
 	"name": "Sundried",
 	"foreground": "#a9a9a7",
 	"background": "#1a1818",
-	"black": "#302b2a",
+	"black": "#1a1818",
 	"blue": "#485a98",
-	"brightBlack": "#4d4d47",
+	"brightBlack": "#6b6b67",
 	"brightBlue": "#7898f7",
 	"brightCyan": "#fad384",
 	"brightGreen": "#128c20",
@@ -17,6 +17,6 @@
 	"green": "#577644",
 	"purple": "#854551",
 	"red": "#a6463d",
-	"white": "#c8c8c8",
-	"yellow": "#9c5f2a"
+	"white": "#a9a9a7",
+	"yellow": "#7898f7"
 },

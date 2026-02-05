@@ -3,9 +3,9 @@
 	"name": "darkmoss",
 	"foreground": "#c7c7a5",
 	"background": "#171e1f",
-	"black": "#252c2d",
+	"black": "#171e1f",
 	"blue": "#498091",
-	"brightBlack": "#373c3d",
+	"brightBlack": "#555e5f",
 	"brightBlue": "#498091",
 	"brightCyan": "#66d9ef",
 	"brightGreen": "#499180",
@@ -17,6 +17,6 @@
 	"green": "#499180",
 	"purple": "#9bc0c8",
 	"red": "#ff4658",
-	"white": "#e3e3c8",
-	"yellow": "#e6db74"
+	"white": "#c7c7a5",
+	"yellow": "#fdb11f"
 },

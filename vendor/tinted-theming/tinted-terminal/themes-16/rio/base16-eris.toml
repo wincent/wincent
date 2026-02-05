@@ -2,8 +2,8 @@
 # Color scheme: eris by ed (https://codeberg.org/ed), Tinted Theming (https://github.com/tinted-theming)
 
 [colors]
-selection-background = '#23255a' # base02
-selection-foreground = '#606bac' # base05
+selection-background = '#606bac' # base05
+selection-foreground = '#23255a' # base02
 
 cursor         = '#606bac' # base05
 tabs           = '#13133a' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#23255a' # base02
 
 background     = '#0a0920' # base00
 foreground     = '#606bac' # base05
-black          = '#13133a' # base01
+black          = '#0a0920' # base00
 red            = '#f768a3' # base08
 yellow         = '#f7d668' # base0A
 green          = '#a2faa8' # base0B
 cyan           = '#a2faf0' # base0C
 blue           = '#258fc4' # base0D
 magenta        = '#c368f7' # base0E
-white          = '#7986c5' # base06
+white          = '#606bac' # base05
 
 dim-foreground   = '#606bac' # base05
 dim-black        = '#13133a' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#c368f7' # base0E
 dim-white        = '#4a5293' # base04
 
 light-foreground = '#606bac' # base05
-light-black      = '#23255a' # base02
+light-black      = '#333773' # base03
 light-red        = '#f768a3' # base08
 light-yellow     = '#f7d668' # base0A
 light-green      = '#a2faa8' # base0B

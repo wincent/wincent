@@ -3,9 +3,9 @@
 	"name": "Tokyo City Terminal Light",
 	"foreground": "#28323a",
 	"background": "#fbfbfd",
-	"black": "#f6f6f8",
+	"black": "#fbfbfd",
 	"blue": "#34548a",
-	"brightBlack": "#d8e2ec",
+	"brightBlack": "#b7c5d3",
 	"brightBlue": "#34548a",
 	"brightCyan": "#0f4b6e",
 	"brightGreen": "#33635c",
@@ -17,6 +17,6 @@
 	"green": "#33635c",
 	"purple": "#5a4a78",
 	"red": "#8c4351",
-	"white": "#1d252c",
-	"yellow": "#965027"
+	"white": "#28323a",
+	"yellow": "#8f5e15"
 },

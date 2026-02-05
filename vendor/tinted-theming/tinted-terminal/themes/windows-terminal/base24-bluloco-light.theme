@@ -3,9 +3,9 @@
 	"name": "Bluloco Light",
 	"foreground": "#38383a",
 	"background": "#f7f7f7",
-	"black": "#cbccd4",
+	"black": "#f7f7f7",
 	"blue": "#1d44dd",
-	"brightBlack": "#dddee8",
+	"brightBlack": "#a6a7ae",
 	"brightBlue": "#1085d9",
 	"brightCyan": "#5a7fac",
 	"brightGreen": "#34b253",
@@ -17,6 +17,6 @@
 	"green": "#208839",
 	"purple": "#6d1bed",
 	"red": "#c80d41",
-	"white": "#000000",
-	"yellow": "#d44d16"
+	"white": "#38383a",
+	"yellow": "#1085d9"
 },

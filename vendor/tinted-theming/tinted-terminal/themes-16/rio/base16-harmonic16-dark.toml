@@ -2,8 +2,8 @@
 # Color scheme: Harmonic16 Dark by Jannik Siebert (https://github.com/janniks)
 
 [colors]
-selection-background = '#405c79' # base02
-selection-foreground = '#cbd6e2' # base05
+selection-background = '#cbd6e2' # base05
+selection-foreground = '#405c79' # base02
 
 cursor         = '#cbd6e2' # base05
 tabs           = '#223b54' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#405c79' # base02
 
 background     = '#0b1c2c' # base00
 foreground     = '#cbd6e2' # base05
-black          = '#223b54' # base01
+black          = '#0b1c2c' # base00
 red            = '#bf8b56' # base08
 yellow         = '#8bbf56' # base0A
 green          = '#56bf8b' # base0B
 cyan           = '#568bbf' # base0C
 blue           = '#8b56bf' # base0D
 magenta        = '#bf568b' # base0E
-white          = '#e5ebf1' # base06
+white          = '#cbd6e2' # base05
 
 dim-foreground   = '#cbd6e2' # base05
 dim-black        = '#223b54' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#bf568b' # base0E
 dim-white        = '#aabcce' # base04
 
 light-foreground = '#cbd6e2' # base05
-light-black      = '#405c79' # base02
+light-black      = '#627e99' # base03
 light-red        = '#bf8b56' # base08
 light-yellow     = '#8bbf56' # base0A
 light-green      = '#56bf8b' # base0B

@@ -3,9 +3,9 @@
 	"name": "tender",
 	"foreground": "#eeeeee",
 	"background": "#282828",
-	"black": "#383838",
+	"black": "#282828",
 	"blue": "#b3deef",
-	"brightBlack": "#484848",
+	"brightBlack": "#4c4c4c",
 	"brightBlue": "#b3deef",
 	"brightCyan": "#73cef4",
 	"brightGreen": "#c9d05c",
@@ -17,6 +17,6 @@
 	"green": "#c9d05c",
 	"purple": "#d3b987",
 	"red": "#f43753",
-	"white": "#e8e8e8",
-	"yellow": "#dc9656"
+	"white": "#eeeeee",
+	"yellow": "#ffc24b"
 },

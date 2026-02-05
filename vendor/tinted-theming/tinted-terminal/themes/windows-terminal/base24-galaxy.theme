@@ -3,9 +3,9 @@
 	"name": "Galaxy",
 	"foreground": "#a1a1a1",
 	"background": "#1c2836",
-	"black": "#000000",
+	"black": "#1c2836",
 	"blue": "#589cf5",
-	"brightBlack": "#555555",
+	"brightBlack": "#6e6e6e",
 	"brightBlue": "#589cf5",
 	"brightCyan": "#3978bb",
 	"brightGreen": "#34bb99",
@@ -17,6 +17,6 @@
 	"green": "#20af89",
 	"purple": "#934d95",
 	"red": "#f9555f",
-	"white": "#bbbbbb",
-	"yellow": "#fdba29"
+	"white": "#a1a1a1",
+	"yellow": "#fdf029"
 },

@@ -2,8 +2,8 @@
 # Color scheme: Brush Trees Dark by Abraham White &lt;abelincoln.white@gmail.com&gt;
 
 [colors]
-selection-background = '#6d828e' # base02
-selection-foreground = '#b0c5c8' # base05
+selection-background = '#b0c5c8' # base05
+selection-foreground = '#6d828e' # base02
 
 cursor         = '#b0c5c8' # base05
 tabs           = '#5a6d7a' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#6d828e' # base02
 
 background     = '#485867' # base00
 foreground     = '#b0c5c8' # base05
-black          = '#5a6d7a' # base01
+black          = '#485867' # base00
 red            = '#b38686' # base08
 yellow         = '#aab386' # base0A
 green          = '#87b386' # base0B
 cyan           = '#86b3b3' # base0C
 blue           = '#868cb3' # base0D
 magenta        = '#b386b2' # base0E
-white          = '#c9dbdc' # base06
+white          = '#b0c5c8' # base05
 
 dim-foreground   = '#b0c5c8' # base05
 dim-black        = '#5a6d7a' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#b386b2' # base0E
 dim-white        = '#98afb5' # base04
 
 light-foreground = '#b0c5c8' # base05
-light-black      = '#6d828e' # base02
+light-black      = '#8299a1' # base03
 light-red        = '#b38686' # base08
 light-yellow     = '#aab386' # base0A
 light-green      = '#87b386' # base0B

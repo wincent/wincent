@@ -3,9 +3,9 @@
 	"name": "Ayu Dark",
 	"foreground": "#e6e1cf",
 	"background": "#0b0e14",
-	"black": "#131721",
+	"black": "#0b0e14",
 	"blue": "#59c2ff",
-	"brightBlack": "#202229",
+	"brightBlack": "#3e4b59",
 	"brightBlue": "#59c2ff",
 	"brightCyan": "#95e6cb",
 	"brightGreen": "#aad94c",
@@ -17,6 +17,6 @@
 	"green": "#aad94c",
 	"purple": "#d2a6ff",
 	"red": "#f07178",
-	"white": "#ece8db",
-	"yellow": "#ff8f40"
+	"white": "#e6e1cf",
+	"yellow": "#ffb454"
 },

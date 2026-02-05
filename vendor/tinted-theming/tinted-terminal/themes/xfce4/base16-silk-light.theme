@@ -5,6 +5,6 @@
 Name=base16-silk-light
 ColorForeground=#385156
 ColorBackground=#e9f1ef
-ColorCursor=x
+ColorCursor=#385156
 ColorBoldIsBright=FALSE
-ColorPalette=#ccd4d3;#cf432e;#6ca38c;#cfad25;#39aac9;#6e6582;#329ca2;#0e3c46;#90b7b6;#cf432e;#6ca38c;#cfad25;#39aac9;#6e6582;#329ca2;#d2faff
+ColorPalette=#e9f1ef;#cf432e;#6ca38c;#cfad25;#39aac9;#6e6582;#329ca2;#385156;#5c787b;#cf432e;#6ca38c;#cfad25;#39aac9;#6e6582;#329ca2;#d2faff

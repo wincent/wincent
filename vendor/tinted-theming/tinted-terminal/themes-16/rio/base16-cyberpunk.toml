@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Cyberpunk by benjujo
+
+[colors]
+selection-background = '#dcdccc' # base05
+selection-foreground = '#383838' # base02
+
+cursor         = '#dcdccc' # base05
+tabs           = '#2b2b2b' # base01
+tabs-active    = '#383838' # base02
+
+background     = '#000000' # base00
+foreground     = '#dcdccc' # base05
+black          = '#000000' # base00
+red            = '#ff0000' # base08
+yellow         = '#ffff00' # base0A
+green          = '#61ce3c' # base0B
+cyan           = '#93e0e3' # base0C
+blue           = '#4c83ff' # base0D
+magenta        = '#ff1493' # base0E
+white          = '#dcdccc' # base05
+
+dim-foreground   = '#dcdccc' # base05
+dim-black        = '#2b2b2b' # base01
+dim-red          = '#ff0000' # base08
+dim-yellow       = '#ffff00' # base0A
+dim-green        = '#61ce3c' # base0B
+dim-cyan         = '#93e0e3' # base0C
+dim-blue         = '#4c83ff' # base0D
+dim-magenta      = '#ff1493' # base0E
+dim-white        = '#8b8989' # base04
+
+light-foreground = '#dcdccc' # base05
+light-black      = '#4f4f4f' # base03
+light-red        = '#ff0000' # base08
+light-yellow     = '#ffff00' # base0A
+light-green      = '#61ce3c' # base0B
+light-cyan       = '#93e0e3' # base0C
+light-blue       = '#4c83ff' # base0D
+light-magenta    = '#ff1493' # base0E
+light-white      = '#ffffff' # base07

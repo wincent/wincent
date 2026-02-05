@@ -5,6 +5,6 @@
 Name=base16-aztec
 ColorForeground=#ffda51
 ColorBackground=#101600
-ColorCursor=x
+ColorCursor=#ffda51
 ColorBoldIsBright=FALSE
-ColorPalette=#1a1e01;#ee2e00;#63d932;#eebb00;#5b4a9f;#883e9f;#3d94a5;#ffe178;#242604;#ee2e00;#63d932;#eebb00;#5b4a9f;#883e9f;#3d94a5;#ffeba0
+ColorPalette=#101600;#ee2e00;#63d932;#eebb00;#5b4a9f;#883e9f;#3d94a5;#ffda51;#2e2e05;#ee2e00;#63d932;#eebb00;#5b4a9f;#883e9f;#3d94a5;#ffeba0

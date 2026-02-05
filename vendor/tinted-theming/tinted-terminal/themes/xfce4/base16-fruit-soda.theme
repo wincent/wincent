@@ -5,6 +5,6 @@
 Name=base16-fruit-soda
 ColorForeground=#515151
 ColorBackground=#f1ecf1
-ColorCursor=x
+ColorCursor=#515151
 ColorBoldIsBright=FALSE
-ColorPalette=#e0dee0;#fe3e31;#47f74c;#f7e203;#2931df;#611fce;#0f9cfd;#474545;#d8d5d5;#fe3e31;#47f74c;#f7e203;#2931df;#611fce;#0f9cfd;#2d2c2c
+ColorPalette=#f1ecf1;#fe3e31;#47f74c;#f7e203;#2931df;#611fce;#0f9cfd;#515151;#b5b4b6;#fe3e31;#47f74c;#f7e203;#2931df;#611fce;#0f9cfd;#2d2c2c

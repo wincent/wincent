@@ -8,13 +8,13 @@ Color=45,47,47
 Color=33,33,33
 
 [Color0]
-Color=49,49,49
+Color=33,33,33
 
 [Color0Faint]
 Color=33,33,33
 
 [Color0Intense]
-Color=79,79,79
+Color=111,111,111
 
 [Color1]
 Color=211,90,95
@@ -35,10 +35,10 @@ Color=175,186,102
 Color=170,187,57
 
 [Color3]
-Color=229,175,137
+Color=229,210,137
 
 [Color3Faint]
-Color=229,175,137
+Color=229,210,137
 
 [Color3Intense]
 Color=228,189,57
@@ -71,7 +71,7 @@ Color=145,190,182
 Color=95,191,173
 
 [Color7]
-Color=191,191,191
+Color=166,166,166
 
 [Color7Faint]
 Color=166,166,166
@@ -92,4 +92,3 @@ Color=191,191,191
 Blur=true
 Description=Later This Evening
 Opacity=0.95
-

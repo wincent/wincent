@@ -5,6 +5,6 @@
 Name=base16-gruvbox-dark-pale
 ColorForeground=#dab997
 ColorBackground=#262626
-ColorCursor=x
+ColorCursor=#dab997
 ColorBoldIsBright=FALSE
-ColorPalette=#3a3a3a;#d75f5f;#afaf00;#ffaf00;#83adad;#d485ad;#85ad85;#d5c4a1;#4e4e4e;#d75f5f;#afaf00;#ffaf00;#83adad;#d485ad;#85ad85;#ebdbb2
+ColorPalette=#262626;#d75f5f;#afaf00;#ffaf00;#83adad;#d485ad;#85ad85;#dab997;#8a8a8a;#d75f5f;#afaf00;#ffaf00;#83adad;#d485ad;#85ad85;#ebdbb2

@@ -3,9 +3,9 @@
 	"name": "Forest Blue",
 	"foreground": "#b8b1a9",
 	"background": "#051519",
-	"black": "#333333",
+	"black": "#051519",
 	"blue": "#8ed0ce",
-	"brightBlack": "#3d3d3d",
+	"brightBlack": "#666361",
 	"brightBlue": "#39a7a2",
 	"brightCyan": "#6096bf",
 	"brightGreen": "#6bb48d",
@@ -17,6 +17,6 @@
 	"green": "#92d3a2",
 	"purple": "#5e468c",
 	"red": "#f8818e",
-	"white": "#e2d8cd",
-	"yellow": "#1a8d63"
+	"white": "#b8b1a9",
+	"yellow": "#39a7a2"
 },

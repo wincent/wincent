@@ -2,8 +2,8 @@
 # Color scheme: Vesper by FormalSnake (https://github.com/formalsnake)
 
 [colors]
-selection-background = '#222222' # base02
-selection-foreground = '#b7b7b7' # base05
+selection-background = '#b7b7b7' # base05
+selection-foreground = '#222222' # base02
 
 cursor         = '#b7b7b7' # base05
 tabs           = '#232323' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#222222' # base02
 
 background     = '#101010' # base00
 foreground     = '#b7b7b7' # base05
-black          = '#232323' # base01
+black          = '#101010' # base00
 red            = '#de6e6e' # base08
 yellow         = '#ffc799' # base0A
 green          = '#5f8787' # base0B
 cyan           = '#60a592' # base0C
 blue           = '#8eaaaa' # base0D
 magenta        = '#d69094' # base0E
-white          = '#c1c1c1' # base06
+white          = '#b7b7b7' # base05
 
 dim-foreground   = '#b7b7b7' # base05
 dim-black        = '#232323' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#d69094' # base0E
 dim-white        = '#999999' # base04
 
 light-foreground = '#b7b7b7' # base05
-light-black      = '#222222' # base02
+light-black      = '#333333' # base03
 light-red        = '#de6e6e' # base08
 light-yellow     = '#ffc799' # base0A
 light-green      = '#5f8787' # base0B

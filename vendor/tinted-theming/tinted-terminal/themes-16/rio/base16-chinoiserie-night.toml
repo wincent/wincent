@@ -2,8 +2,8 @@
 # Color scheme: Chinoiserie Night by Di Wang (https://cs.cmu.edu/~diw3)
 
 [colors]
-selection-background = '#373737' # base02
-selection-foreground = '#c4cbcf' # base05
+selection-background = '#c4cbcf' # base05
+selection-foreground = '#373737' # base02
 
 cursor         = '#c4cbcf' # base05
 tabs           = '#282828' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#373737' # base02
 
 background     = '#1d1d1d' # base00
 foreground     = '#c4cbcf' # base05
-black          = '#282828' # base01
+black          = '#1d1d1d' # base00
 red            = '#f07c82' # base08
 yellow         = '#f4ce69' # base0A
 green          = '#b2cf87' # base0B
 cyan           = '#b0d5df' # base0C
 blue           = '#8fb2c9' # base0D
 magenta        = '#be9db9' # base0E
-white          = '#eee7f2' # base06
+white          = '#c4cbcf' # base05
 
 dim-foreground   = '#c4cbcf' # base05
 dim-black        = '#282828' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#be9db9' # base0E
 dim-white        = '#bdaead' # base04
 
 light-foreground = '#c4cbcf' # base05
-light-black      = '#373737' # base02
+light-black      = '#918072' # base03
 light-red        = '#f07c82' # base08
 light-yellow     = '#f4ce69' # base0A
 light-green      = '#b2cf87' # base0B

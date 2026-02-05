@@ -3,9 +3,9 @@
 	"name": "Blue Forest",
 	"foreground": "#ffcc33",
 	"background": "#141f2e",
-	"black": "#1e5c1e",
+	"black": "#141f2e",
 	"blue": "#a2cff5",
-	"brightBlack": "#273e5c",
+	"brightBlack": "#a0ffa0",
 	"brightBlue": "#a2cff5",
 	"brightCyan": "#80ff80",
 	"brightGreen": "#80ff80",
@@ -17,6 +17,6 @@
 	"green": "#80ff80",
 	"purple": "#0099ff",
 	"red": "#fffab1",
-	"white": "#91ccff",
-	"yellow": "#ff8080"
+	"white": "#ffcc33",
+	"yellow": "#91ccff"
 },

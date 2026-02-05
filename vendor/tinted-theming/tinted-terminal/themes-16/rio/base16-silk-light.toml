@@ -2,8 +2,8 @@
 # Color scheme: Silk Light by Gabriel Fontes (https://github.com/Misterio77)
 
 [colors]
-selection-background = '#90b7b6' # base02
-selection-foreground = '#385156' # base05
+selection-background = '#385156' # base05
+selection-foreground = '#90b7b6' # base02
 
 cursor         = '#385156' # base05
 tabs           = '#ccd4d3' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#90b7b6' # base02
 
 background     = '#e9f1ef' # base00
 foreground     = '#385156' # base05
-black          = '#ccd4d3' # base01
+black          = '#e9f1ef' # base00
 red            = '#cf432e' # base08
 yellow         = '#cfad25' # base0A
 green          = '#6ca38c' # base0B
 cyan           = '#329ca2' # base0C
 blue           = '#39aac9' # base0D
 magenta        = '#6e6582' # base0E
-white          = '#0e3c46' # base06
+white          = '#385156' # base05
 
 dim-foreground   = '#385156' # base05
 dim-black        = '#ccd4d3' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#6e6582' # base0E
 dim-white        = '#4b5b5f' # base04
 
 light-foreground = '#385156' # base05
-light-black      = '#90b7b6' # base02
+light-black      = '#5c787b' # base03
 light-red        = '#cf432e' # base08
 light-yellow     = '#cfad25' # base0A
 light-green      = '#6ca38c' # base0B

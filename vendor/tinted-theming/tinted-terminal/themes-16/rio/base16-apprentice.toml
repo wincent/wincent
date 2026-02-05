@@ -2,8 +2,8 @@
 # Color scheme: Apprentice by romainl
 
 [colors]
-selection-background = '#5f875f' # base02
-selection-foreground = '#5f5f87' # base05
+selection-background = '#5f5f87' # base05
+selection-foreground = '#5f875f' # base02
 
 cursor         = '#5f5f87' # base05
 tabs           = '#af5f5f' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#5f875f' # base02
 
 background     = '#262626' # base00
 foreground     = '#5f5f87' # base05
-black          = '#af5f5f' # base01
+black          = '#262626' # base00
 red            = '#444444' # base08
 yellow         = '#87af87' # base0A
 green          = '#ffffaf' # base0B
 cyan           = '#87afd7' # base0C
 blue           = '#8787af' # base0D
 magenta        = '#5fafaf' # base0E
-white          = '#5f8787' # base06
+white          = '#5f5f87' # base05
 
 dim-foreground   = '#5f5f87' # base05
 dim-black        = '#af5f5f' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#5fafaf' # base0E
 dim-white        = '#5f87af' # base04
 
 light-foreground = '#5f5f87' # base05
-light-black      = '#5f875f' # base02
+light-black      = '#87875f' # base03
 light-red        = '#444444' # base08
 light-yellow     = '#87af87' # base0A
 light-green      = '#ffffaf' # base0B

@@ -20,11 +20,11 @@ yellow = '0x3daee9'
 blue = '0x1d99f3'
 magenta = '0x9b59b6'
 cyan = '0x1abc9c'
-white = '0xeff0f1'
+white = '0xd3d7d8'
 
 # Bright colors
 [colors.bright]
-black = '0x7f8c8d'
+black = '0x9ba5a6'
 red = '0xc0392b'
 green = '0x1cdc9a'
 yellow = '0xfdbc4b'

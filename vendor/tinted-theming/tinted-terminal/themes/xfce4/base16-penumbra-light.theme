@@ -5,6 +5,6 @@
 Name=base16-penumbra-light
 ColorForeground=#636363
 ColorBackground=#fffdfb
-ColorCursor=x
+ColorCursor=#636363
 ColorBoldIsBright=FALSE
-ColorPalette=#fff7ed;#ca736c;#47a477;#8d9741;#5794d0;#9481cc;#00a2af;#303338;#f2e6d4;#ca736c;#47a477;#8d9741;#5794d0;#9481cc;#00a2af;#24272b
+ColorPalette=#fffdfb;#ca736c;#47a477;#8d9741;#5794d0;#9481cc;#00a2af;#636363;#bebebe;#ca736c;#47a477;#8d9741;#5794d0;#9481cc;#00a2af;#24272b

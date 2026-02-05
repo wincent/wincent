@@ -3,9 +3,9 @@
 	"name": "Mocha",
 	"foreground": "#d0c8c6",
 	"background": "#3b3228",
-	"black": "#534636",
+	"black": "#3b3228",
 	"blue": "#8ab3b5",
-	"brightBlack": "#645240",
+	"brightBlack": "#7e705a",
 	"brightBlue": "#8ab3b5",
 	"brightCyan": "#7bbda4",
 	"brightGreen": "#beb55b",
@@ -17,6 +17,6 @@
 	"green": "#beb55b",
 	"purple": "#a89bb9",
 	"red": "#cb6077",
-	"white": "#e9e1dd",
-	"yellow": "#d28b71"
+	"white": "#d0c8c6",
+	"yellow": "#f4bc87"
 },

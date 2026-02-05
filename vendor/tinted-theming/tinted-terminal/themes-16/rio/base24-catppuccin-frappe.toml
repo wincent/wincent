@@ -2,36 +2,36 @@
 # Color scheme: Catppuccin Frappe by https://github.com/catppuccin/catppuccin
 
 [colors]
-selection-background = '#414559' # base02
-selection-foreground = '#c6d0f5' # base05
+selection-background = '#c6d0f5' # base05
+selection-foreground = '#51576d' # base02
 
 cursor         = '#c6d0f5' # base05
-tabs           = '#292c3c' # base01
-tabs-active    = '#414559' # base02
+tabs           = '#414559' # base01
+tabs-active    = '#51576d' # base02
 
 background     = '#303446' # base00
 foreground     = '#c6d0f5' # base05
-black          = '#292c3c' # base01
+black          = '#303446' # base00
 red            = '#e78284' # base08
 yellow         = '#e5c890' # base0A
 green          = '#a6d189' # base0B
 cyan           = '#81c8be' # base0C
 blue           = '#8caaee' # base0D
 magenta        = '#ca9ee6' # base0E
-white          = '#f2d5cf' # base06
+white          = '#c6d0f5' # base05
 
 dim-foreground   = '#c6d0f5' # base05
-dim-black        = '#292c3c' # base01
+dim-black        = '#414559' # base01
 dim-red          = '#e78284' # base08
 dim-yellow       = '#e5c890' # base0A
 dim-green        = '#a6d189' # base0B
 dim-cyan         = '#81c8be' # base0C
 dim-blue         = '#8caaee' # base0D
 dim-magenta      = '#ca9ee6' # base0E
-dim-white        = '#626880' # base04
+dim-white        = '#a5adce' # base04
 
 light-foreground = '#c6d0f5' # base05
-light-black      = '#414559' # base02
+light-black      = '#737994' # base03
 light-red        = '#ea999c' # base12
 light-yellow     = '#f2d5cf' # base13
 light-green      = '#a6d189' # base14

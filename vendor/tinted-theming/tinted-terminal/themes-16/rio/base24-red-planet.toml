@@ -2,8 +2,8 @@
 # Color scheme: Red Planet by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#676767' # base02
-selection-foreground = '#a4998c' # base05
+selection-background = '#a4998c' # base05
+selection-foreground = '#676767' # base02
 
 cursor         = '#a4998c' # base05
 tabs           = '#201f1f' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#676767' # base02
 
 background     = '#222222' # base00
 foreground     = '#a4998c' # base05
-black          = '#201f1f' # base01
+black          = '#222222' # base00
 red            = '#8c3432' # base08
 yellow         = '#60827e' # base0A
 green          = '#728271' # base0B
 cyan           = '#5b8390' # base0C
 blue           = '#69809e' # base0D
 magenta        = '#896492' # base0E
-white          = '#b9aa99' # base06
+white          = '#a4998c' # base05
 
 dim-foreground   = '#a4998c' # base05
 dim-black        = '#201f1f' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#896492' # base0E
 dim-white        = '#908880' # base04
 
 light-foreground = '#a4998c' # base05
-light-black      = '#676767' # base02
+light-black      = '#7b7773' # base03
 light-red        = '#b55242' # base12
 light-yellow     = '#ebeb91' # base13
 light-green      = '#869985' # base14

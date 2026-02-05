@@ -3,9 +3,9 @@
 	"name": "CLRS",
 	"foreground": "#9a9b9a",
 	"background": "#ffffff",
-	"black": "#000000",
+	"black": "#ffffff",
 	"blue": "#125ccf",
-	"brightBlack": "#545753",
+	"brightBlack": "#6b6d6a",
 	"brightBlue": "#156ffe",
 	"brightCyan": "#39d5ce",
 	"brightGreen": "#2cc631",
@@ -17,6 +17,6 @@
 	"green": "#32895c",
 	"purple": "#9f00bc",
 	"red": "#f72729",
-	"white": "#b2b2b2",
-	"yellow": "#f96f1c"
+	"white": "#9a9b9a",
+	"yellow": "#156ffe"
 },

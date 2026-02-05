@@ -2,8 +2,8 @@
 # Color scheme: Gruvbox Light by Tinted Theming (https://github.com/tinted-theming), morhetz (https://github.com/morhetz/gruvbox)
 
 [colors]
-selection-background = '#d5c4a1' # base02
-selection-foreground = '#3c3836' # base05
+selection-background = '#3c3836' # base05
+selection-foreground = '#d5c4a1' # base02
 
 cursor         = '#3c3836' # base05
 tabs           = '#ebdbb2' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#d5c4a1' # base02
 
 background     = '#fbf1c7' # base00
 foreground     = '#3c3836' # base05
-black          = '#ebdbb2' # base01
+black          = '#fbf1c7' # base00
 red            = '#cc241d' # base08
 yellow         = '#d79921' # base0A
 green          = '#98971a' # base0B
 cyan           = '#689d6a' # base0C
 blue           = '#458588' # base0D
 magenta        = '#b16286' # base0E
-white          = '#282828' # base06
+white          = '#3c3836' # base05
 
 dim-foreground   = '#3c3836' # base05
 dim-black        = '#ebdbb2' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#b16286' # base0E
 dim-white        = '#7c6f64' # base04
 
 light-foreground = '#3c3836' # base05
-light-black      = '#d5c4a1' # base02
+light-black      = '#bdae93' # base03
 light-red        = '#9d0006' # base12
 light-yellow     = '#b57614' # base13
 light-green      = '#79740e' # base14

@@ -5,6 +5,6 @@
 Name=base16-icy
 ColorForeground=#095b67
 ColorBackground=#021012
-ColorCursor=x
+ColorCursor=#095b67
 ColorBoldIsBright=FALSE
-ColorPalette=#031619;#16c1d9;#4dd0e1;#80deea;#00bcd4;#00acc1;#26c6da;#0c7c8c;#041f23;#16c1d9;#4dd0e1;#80deea;#00bcd4;#00acc1;#26c6da;#109cb0
+ColorPalette=#021012;#16c1d9;#4dd0e1;#80deea;#00bcd4;#00acc1;#26c6da;#095b67;#052e34;#16c1d9;#4dd0e1;#80deea;#00bcd4;#00acc1;#26c6da;#109cb0

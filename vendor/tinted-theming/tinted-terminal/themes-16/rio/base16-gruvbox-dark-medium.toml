@@ -2,8 +2,8 @@
 # Color scheme: Gruvbox dark, medium by Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
 
 [colors]
-selection-background = '#504945' # base02
-selection-foreground = '#d5c4a1' # base05
+selection-background = '#d5c4a1' # base05
+selection-foreground = '#504945' # base02
 
 cursor         = '#d5c4a1' # base05
 tabs           = '#3c3836' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#504945' # base02
 
 background     = '#282828' # base00
 foreground     = '#d5c4a1' # base05
-black          = '#3c3836' # base01
+black          = '#282828' # base00
 red            = '#fb4934' # base08
 yellow         = '#fabd2f' # base0A
 green          = '#b8bb26' # base0B
 cyan           = '#8ec07c' # base0C
 blue           = '#83a598' # base0D
 magenta        = '#d3869b' # base0E
-white          = '#ebdbb2' # base06
+white          = '#d5c4a1' # base05
 
 dim-foreground   = '#d5c4a1' # base05
 dim-black        = '#3c3836' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#d3869b' # base0E
 dim-white        = '#bdae93' # base04
 
 light-foreground = '#d5c4a1' # base05
-light-black      = '#504945' # base02
+light-black      = '#665c54' # base03
 light-red        = '#fb4934' # base08
 light-yellow     = '#fabd2f' # base0A
 light-green      = '#b8bb26' # base0B

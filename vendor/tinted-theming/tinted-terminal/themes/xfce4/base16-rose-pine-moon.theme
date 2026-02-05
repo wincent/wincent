@@ -5,6 +5,6 @@
 Name=base16-rose-pine-moon
 ColorForeground=#e0def4
 ColorBackground=#232136
-ColorCursor=x
+ColorCursor=#e0def4
 ColorBoldIsBright=FALSE
-ColorPalette=#2a273f;#eb6f92;#3e8fb0;#ea9a97;#c4a7e7;#f6c177;#9ccfd8;#e0def4;#393552;#eb6f92;#3e8fb0;#ea9a97;#c4a7e7;#f6c177;#9ccfd8;#56526e
+ColorPalette=#232136;#eb6f92;#3e8fb0;#ea9a97;#c4a7e7;#f6c177;#9ccfd8;#e0def4;#6e6a86;#eb6f92;#3e8fb0;#ea9a97;#c4a7e7;#f6c177;#9ccfd8;#56526e

@@ -5,6 +5,6 @@
 Name=base16-papercolor-dark
 ColorForeground=#9e9e9e
 ColorBackground=#1c1c1c
-ColorCursor=x
+ColorCursor=#9e9e9e
 ColorBoldIsBright=FALSE
-ColorPalette=#363636;#ff5faf;#5faf5f;#ffaf00;#5fafd7;#af87d7;#00afaf;#b8b8b8;#424242;#ff5faf;#5faf5f;#ffaf00;#5fafd7;#af87d7;#00afaf;#d0d0d0
+ColorPalette=#1c1c1c;#ff5faf;#5faf5f;#ffaf00;#5fafd7;#af87d7;#00afaf;#9e9e9e;#585858;#ff5faf;#5faf5f;#ffaf00;#5fafd7;#af87d7;#00afaf;#d0d0d0

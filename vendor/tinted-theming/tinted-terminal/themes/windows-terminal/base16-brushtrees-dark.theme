@@ -3,9 +3,9 @@
 	"name": "Brush Trees Dark",
 	"foreground": "#b0c5c8",
 	"background": "#485867",
-	"black": "#5a6d7a",
+	"black": "#485867",
 	"blue": "#868cb3",
-	"brightBlack": "#6d828e",
+	"brightBlack": "#8299a1",
 	"brightBlue": "#868cb3",
 	"brightCyan": "#86b3b3",
 	"brightGreen": "#87b386",
@@ -17,6 +17,6 @@
 	"green": "#87b386",
 	"purple": "#b386b2",
 	"red": "#b38686",
-	"white": "#c9dbdc",
-	"yellow": "#d8bba2"
+	"white": "#b0c5c8",
+	"yellow": "#aab386"
 },

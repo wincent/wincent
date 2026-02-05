@@ -13,18 +13,18 @@ cursor = '0x979db4'
 
 # Normal colors
 [colors.normal]
-black = '0x293256'
+black = '0x202746'
 red = '0xc94922'
 green = '0xac9739'
 yellow = '0xc08b30'
 blue = '0x3d8fd1'
 magenta = '0x6679cc'
 cyan = '0x22a2c9'
-white = '0xdfe2f1'
+white = '0x979db4'
 
 # Bright colors
 [colors.bright]
-black = '0x5e6687'
+black = '0x6b7394'
 red = '0xc94922'
 green = '0xac9739'
 yellow = '0xc08b30'

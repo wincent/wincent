@@ -5,6 +5,6 @@
 Name=base16-mellow-purple
 ColorForeground=#ffeeff
 ColorBackground=#1e0528
-ColorCursor=x
+ColorCursor=#ffeeff
 ColorBoldIsBright=FALSE
-ColorPalette=#1a092d;#00d9e9;#05cb0d;#955ae7;#550068;#8991bb;#b900b1;#ffeeff;#331354;#00d9e9;#05cb0d;#955ae7;#550068;#8991bb;#b900b1;#f8c0ff
+ColorPalette=#1e0528;#00d9e9;#05cb0d;#955ae7;#550068;#8991bb;#b900b1;#ffeeff;#320f55;#00d9e9;#05cb0d;#955ae7;#550068;#8991bb;#b900b1;#f8c0ff

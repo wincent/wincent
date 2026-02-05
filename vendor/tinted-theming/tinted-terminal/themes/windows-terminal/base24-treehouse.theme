@@ -3,9 +3,9 @@
 	"name": "Treehouse",
 	"foreground": "#695d47",
 	"background": "#191919",
-	"black": "#321200",
+	"black": "#191919",
 	"blue": "#578499",
-	"brightBlack": "#423625",
+	"brightBlack": "#4f4330",
 	"brightBlue": "#85cfec",
 	"brightCyan": "#f07d14",
 	"brightGreen": "#55f237",
@@ -17,6 +17,6 @@
 	"green": "#44a900",
 	"purple": "#96363c",
 	"red": "#b1270e",
-	"white": "#776b53",
-	"yellow": "#a9810b"
+	"white": "#695d47",
+	"yellow": "#85cfec"
 },

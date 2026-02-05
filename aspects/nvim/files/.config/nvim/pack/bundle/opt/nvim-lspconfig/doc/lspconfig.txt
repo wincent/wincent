@@ -64,6 +64,24 @@ nvim-lspconfig interface:
 - `on_new_config` is currently missing, see https://github.com/neovim/neovim/issues/32287
   - However, defining `root_dir` as a function is very flexible and may fit
     your use-case instead. https://github.com/neovim/neovim/issues/32037#issuecomment-2825599872
+- `root_dir` usages akin to >lua
+
+      root_dir  = require'lspconfig.util'.root_pattern(...)
+<
+
+  should be updated:
+  - If the patterns passed to `root_pattern` contain no wildcards, then 
+    `root_markers` (see |lsp-root_markers|) is likely sufficient.
+  - Otherwise, `root_pattern` can still be employed (for the time being,
+    see https://github.com/neovim/nvim-lspconfig/issues/3768), but the usage
+    should be as follows (see |lsp-root_dir|): >lua
+
+        root_dir = function(bufnr, on_dir)
+            local fname = vim.api.nvim_buf_get_name(bufnr)
+            on_dir(require'lspconfig.util'.root_pattern(...)(fname))
+        end
+<
+
 
 ==============================================================================
 COMMANDS                                                    *lspconfig-commands*
@@ -91,22 +109,21 @@ Launches the requested (configured) client, but only if it successfully
 resolves a root directory. Note: Defaults to all configured servers matching
 the current buffer filetype.
 
-:LspStop [client_id] or [config_name]                            *:LspStop*
+:LspStop [config_name]                                              *:LspStop*
 
 Note: Use `:lsp disable` with Nvim 0.12+. |:lsp-disable|
 
-Stops the server with the given client-id or config name. Defaults to
-stopping all servers active on the current buffer. To force stop language
-servers: >vim
+Stops the server with the given config name. Defaults to stopping all servers
+active on the current buffer. To force stop language servers: >vim
     :LspStop!
 
-:LspRestart [client_id] or [config_name]                         *:LspRestart*
+:LspRestart [config_name]                                        *:LspRestart*
 
 Note: Use `:lsp restart` with Nvim 0.12+. |:lsp-restart|
 
-Restarts the client with the given client-id or config name, and attempts
-to reattach to all previously attached buffers. Defaults to restarting all
-active servers. To force stop language servers when restarting: >vim
+Restarts the client with the given config name, and attempts to reattach to
+all previously attached buffers. Defaults to restarting all active servers. To
+force stop language servers when restarting: >vim
     :LspRestart!
 
 ==============================================================================

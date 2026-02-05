@@ -1,0 +1,43 @@
+# base24 Eldritch
+# Scheme author: https://github.com/eldritch-theme
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#212337"
+foreground = "#ebfafa"
+
+cursor_bg = "#ebfafa"
+cursor_border = "#ebfafa"
+cursor_fg = "#212337"
+
+selection_bg = "#ebfafa"
+selection_fg = "#3b4261"
+
+ansi = [
+  "#212337",
+  "#f16c75",
+  "#37f499",
+  "#f1fc79",
+  "#39ddfd",
+  "#a48cf2",
+  "#04d1f9",
+  "#ebfafa"
+]
+brights = [
+  "#7081d0",
+  "#f89a9d",
+  "#6fffc1",
+  "#f9e9a1",
+  "#7ae9ff",
+  "#d4b3ff",
+  "#6ce9ff",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#f7c67f"
+17 = "#f265b5"
+18 = "#323449"
+19 = "#3b4261"
+20 = "#a1abe0"
+21 = "#f0f2f4"

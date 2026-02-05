@@ -3,9 +3,9 @@
 	"name": "Hardcore",
 	"foreground": "#cdcdcd",
 	"background": "#212121",
-	"black": "#303030",
+	"black": "#212121",
 	"blue": "#66d9ef",
-	"brightBlack": "#353535",
+	"brightBlack": "#4a4a4a",
 	"brightBlue": "#66d9ef",
 	"brightCyan": "#708387",
 	"brightGreen": "#a6e22e",
@@ -17,6 +17,6 @@
 	"green": "#a6e22e",
 	"purple": "#9e6ffe",
 	"red": "#f92672",
-	"white": "#e5e5e5",
-	"yellow": "#fd971f"
+	"white": "#cdcdcd",
+	"yellow": "#e6db74"
 },

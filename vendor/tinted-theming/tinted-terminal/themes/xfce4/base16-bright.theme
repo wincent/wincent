@@ -5,6 +5,6 @@
 Name=base16-bright
 ColorForeground=#e0e0e0
 ColorBackground=#000000
-ColorCursor=x
+ColorCursor=#e0e0e0
 ColorBoldIsBright=FALSE
-ColorPalette=#303030;#fb0120;#a1c659;#fda331;#6fb3d2;#d381c3;#76c7b7;#f5f5f5;#505050;#fb0120;#a1c659;#fda331;#6fb3d2;#d381c3;#76c7b7;#ffffff
+ColorPalette=#000000;#fb0120;#a1c659;#fda331;#6fb3d2;#d381c3;#76c7b7;#e0e0e0;#b0b0b0;#fb0120;#a1c659;#fda331;#6fb3d2;#d381c3;#76c7b7;#ffffff

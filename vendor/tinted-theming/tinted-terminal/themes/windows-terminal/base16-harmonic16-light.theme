@@ -3,9 +3,9 @@
 	"name": "Harmonic16 Light",
 	"foreground": "#405c79",
 	"background": "#f7f9fb",
-	"black": "#e5ebf1",
+	"black": "#f7f9fb",
 	"blue": "#8b56bf",
-	"brightBlack": "#cbd6e2",
+	"brightBlack": "#aabcce",
 	"brightBlue": "#8b56bf",
 	"brightCyan": "#568bbf",
 	"brightGreen": "#56bf8b",
@@ -17,6 +17,6 @@
 	"green": "#56bf8b",
 	"purple": "#bf568b",
 	"red": "#bf8b56",
-	"white": "#223b54",
-	"yellow": "#bfbf56"
+	"white": "#405c79",
+	"yellow": "#8bbf56"
 },

@@ -2,8 +2,8 @@
 # Color scheme: Hardcore by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#414141' # base02
-selection-foreground = '#a9a9a9' # base05
+selection-background = '#a9a9a9' # base05
+selection-foreground = '#414141' # base02
 
 cursor         = '#a9a9a9' # base05
 tabs           = '#141414' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#414141' # base02
 
 background     = '#111111' # base00
 foreground     = '#a9a9a9' # base05
-black          = '#141414' # base01
+black          = '#111111' # base00
 red            = '#ff5555' # base08
 yellow         = '#33bbff' # base0A
 green          = '#98ec65' # base0B
 cyan           = '#88ddff' # base0C
 blue           = '#00aaff' # base0D
 magenta        = '#aa88ff' # base0E
-white          = '#cccccc' # base06
+white          = '#a9a9a9' # base05
 
 dim-foreground   = '#a9a9a9' # base05
 dim-black        = '#141414' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#aa88ff' # base0E
 dim-white        = '#868686' # base04
 
 light-foreground = '#a9a9a9' # base05
-light-black      = '#414141' # base02
+light-black      = '#636363' # base03
 light-red        = '#ff8888' # base12
 light-yellow     = '#ffd966' # base13
 light-green      = '#b6f292' # base14

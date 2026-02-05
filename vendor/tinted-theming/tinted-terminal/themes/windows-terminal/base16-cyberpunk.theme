@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Cyberpunk",
+	"foreground": "#dcdccc",
+	"background": "#000000",
+	"black": "#000000",
+	"blue": "#4c83ff",
+	"brightBlack": "#4f4f4f",
+	"brightBlue": "#4c83ff",
+	"brightCyan": "#93e0e3",
+	"brightGreen": "#61ce3c",
+	"brightPurple": "#ff1493",
+	"brightRed": "#ff0000",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#ffff00",
+	"cyan": "#93e0e3",
+	"green": "#61ce3c",
+	"purple": "#ff1493",
+	"red": "#ff0000",
+	"white": "#dcdccc",
+	"yellow": "#ffff00"
+},

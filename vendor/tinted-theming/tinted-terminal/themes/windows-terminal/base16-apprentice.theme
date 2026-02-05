@@ -3,9 +3,9 @@
 	"name": "Apprentice",
 	"foreground": "#5f5f87",
 	"background": "#262626",
-	"black": "#af5f5f",
+	"black": "#262626",
 	"blue": "#8787af",
-	"brightBlack": "#5f875f",
+	"brightBlack": "#87875f",
 	"brightBlue": "#8787af",
 	"brightCyan": "#87afd7",
 	"brightGreen": "#ffffaf",
@@ -17,6 +17,6 @@
 	"green": "#ffffaf",
 	"purple": "#5fafaf",
 	"red": "#444444",
-	"white": "#5f8787",
-	"yellow": "#ff8700"
+	"white": "#5f5f87",
+	"yellow": "#87af87"
 },

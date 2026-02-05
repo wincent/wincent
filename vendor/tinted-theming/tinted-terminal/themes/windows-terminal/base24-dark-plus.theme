@@ -3,9 +3,9 @@
 	"name": "Dark Plus",
 	"foreground": "#c5c5c5",
 	"background": "#0e0e0e",
-	"black": "#000000",
+	"black": "#0e0e0e",
 	"blue": "#2472c8",
-	"brightBlack": "#666666",
+	"brightBlack": "#858585",
 	"brightBlue": "#3b8eea",
 	"brightCyan": "#29b8db",
 	"brightGreen": "#23d18b",
@@ -17,6 +17,6 @@
 	"green": "#0dbc79",
 	"purple": "#bc3fbc",
 	"red": "#cd3131",
-	"white": "#e5e5e5",
-	"yellow": "#e5e510"
+	"white": "#c5c5c5",
+	"yellow": "#3b8eea"
 },

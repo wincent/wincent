@@ -2,8 +2,8 @@
 # Color scheme: Rebecca by Victor Borja (http://github.com/vic) based on Rebecca Theme (http://github.com/vic/rebecca-theme)
 
 [colors]
-selection-background = '#383a62' # base02
-selection-foreground = '#f1eff8' # base05
+selection-background = '#f1eff8' # base05
+selection-foreground = '#383a62' # base02
 
 cursor         = '#f1eff8' # base05
 tabs           = '#663399' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#383a62' # base02
 
 background     = '#292a44' # base00
 foreground     = '#f1eff8' # base05
-black          = '#663399' # base01
+black          = '#292a44' # base00
 red            = '#a0a0c5' # base08
 yellow         = '#ae81ff' # base0A
 green          = '#6dfedf' # base0B
 cyan           = '#8eaee0' # base0C
 blue           = '#2de0a7' # base0D
 magenta        = '#7aa5ff' # base0E
-white          = '#ccccff' # base06
+white          = '#f1eff8' # base05
 
 dim-foreground   = '#f1eff8' # base05
 dim-black        = '#663399' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#7aa5ff' # base0E
 dim-white        = '#a0a0c5' # base04
 
 light-foreground = '#f1eff8' # base05
-light-black      = '#383a62' # base02
+light-black      = '#666699' # base03
 light-red        = '#a0a0c5' # base08
 light-yellow     = '#ae81ff' # base0A
 light-green      = '#6dfedf' # base0B

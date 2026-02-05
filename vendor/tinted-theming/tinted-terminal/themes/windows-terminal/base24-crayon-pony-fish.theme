@@ -3,9 +3,9 @@
 	"name": "Crayon Pony Fish",
 	"foreground": "#5d484e",
 	"background": "#140607",
-	"black": "#2a1a1c",
+	"black": "#140607",
 	"blue": "#8b87af",
-	"brightBlack": "#3c2a2e",
+	"brightBlack": "#473438",
 	"brightBlue": "#cfc9ff",
 	"brightCyan": "#ffceae",
 	"brightGreen": "#8dff56",
@@ -17,6 +17,6 @@
 	"green": "#579523",
 	"purple": "#682e50",
 	"red": "#90002a",
-	"white": "#685259",
-	"yellow": "#aa301b"
+	"white": "#5d484e",
+	"yellow": "#cfc9ff"
 },

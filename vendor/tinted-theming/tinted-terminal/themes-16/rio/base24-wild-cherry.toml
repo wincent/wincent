@@ -2,8 +2,8 @@
 # Color scheme: Wild Cherry by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#009cc9' # base02
-selection-foreground = '#bfe1d8' # base05
+selection-background = '#bfe1d8' # base05
+selection-foreground = '#009cc9' # base02
 
 cursor         = '#bfe1d8' # base05
 tabs           = '#000506' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#009cc9' # base02
 
 background     = '#1f1626' # base00
 foreground     = '#bfe1d8' # base05
-black          = '#000506' # base01
+black          = '#1f1626' # base00
 red            = '#d94085' # base08
 yellow         = '#2f8bb9' # base0A
 green          = '#2ab250' # base0B
 cyan           = '#c1b8b7' # base0C
 blue           = '#883cdc' # base0D
 magenta        = '#ececec' # base0E
-white          = '#fff8dd' # base06
+white          = '#bfe1d8' # base05
 
 dim-foreground   = '#bfe1d8' # base05
 dim-black        = '#000506' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#ececec' # base0E
 dim-white        = '#7fcad3' # base04
 
 light-foreground = '#bfe1d8' # base05
-light-black      = '#009cc9' # base02
+light-black      = '#3fb3ce' # base03
 light-red        = '#da6bab' # base12
 light-yellow     = '#eac066' # base13
 light-green      = '#f4dba5' # base14

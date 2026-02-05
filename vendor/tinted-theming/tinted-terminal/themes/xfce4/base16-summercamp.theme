@@ -5,6 +5,6 @@
 Name=base16-summercamp
 ColorForeground=#736e55
 ColorBackground=#1c1810
-ColorCursor=x
+ColorCursor=#736e55
 ColorBoldIsBright=FALSE
-ColorPalette=#2a261c;#e35142;#5ceb5a;#f2ff27;#489bf0;#ff8080;#5aebbc;#bab696;#3a3527;#e35142;#5ceb5a;#f2ff27;#489bf0;#ff8080;#5aebbc;#f8f5de
+ColorPalette=#1c1810;#e35142;#5ceb5a;#f2ff27;#489bf0;#ff8080;#5aebbc;#736e55;#504b38;#e35142;#5ceb5a;#f2ff27;#489bf0;#ff8080;#5aebbc;#f8f5de

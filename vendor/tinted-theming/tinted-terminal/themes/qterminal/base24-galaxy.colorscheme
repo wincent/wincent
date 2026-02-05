@@ -8,13 +8,13 @@ Color=56,56,56
 Color=28,40,54
 
 [Color0]
-Color=0,0,0
+Color=28,40,54
 
 [Color0Faint]
 Color=28,40,54
 
 [Color0Intense]
-Color=85,85,85
+Color=110,110,110
 
 [Color1]
 Color=249,85,95
@@ -35,10 +35,10 @@ Color=32,175,137
 Color=52,187,153
 
 [Color3]
-Color=253,186,41
+Color=253,240,41
 
 [Color3Faint]
-Color=253,186,41
+Color=253,240,41
 
 [Color3Intense]
 Color=255,255,85
@@ -71,7 +71,7 @@ Color=30,158,230
 Color=57,120,187
 
 [Color7]
-Color=187,187,187
+Color=161,161,161
 
 [Color7Faint]
 Color=161,161,161
@@ -92,4 +92,3 @@ Color=187,187,187
 Blur=true
 Description=Galaxy
 Opacity=0.95
-

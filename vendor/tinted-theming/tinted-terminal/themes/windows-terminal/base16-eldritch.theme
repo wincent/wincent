@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Eldritch",
+	"foreground": "#ebfafa",
+	"background": "#212337",
+	"black": "#212337",
+	"blue": "#39ddfd",
+	"brightBlack": "#7081d0",
+	"brightBlue": "#39ddfd",
+	"brightCyan": "#04d1f9",
+	"brightGreen": "#37f499",
+	"brightPurple": "#a48cf2",
+	"brightRed": "#f16c75",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#f1fc79",
+	"cyan": "#04d1f9",
+	"green": "#37f499",
+	"purple": "#a48cf2",
+	"red": "#f16c75",
+	"white": "#ebfafa",
+	"yellow": "#f1fc79"
+},

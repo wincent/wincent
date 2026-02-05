@@ -129,11 +129,11 @@ function M:entry(job)
 			if run == "quit" then
 				break
 			elseif run == "mount" then
-				self.operate("mount")
+				require(".cross").operate("mount", active_partition())
 			elseif run == "unmount" then
-				self.operate("unmount")
+				require(".cross").operate("unmount", active_partition())
 			elseif run == "eject" then
-				self.operate("eject")
+				require(".cross").operate("eject", active_partition())
 			end
 		until not run
 	end
@@ -248,39 +248,6 @@ function M.fillin(tbl)
 	end
 	return tbl
 end
-
-function M.operate(type)
-	local active = active_partition()
-	if not active then
-		return
-	elseif not active.sub then
-		return -- TODO: mount/unmount main disk
-	end
-
-	local output, err
-	if ya.target_os() == "macos" then
-		output, err = Command("diskutil"):arg({ type, active.src }):output()
-	end
-	if ya.target_os() == "linux" then
-		if type == "eject" and active.src:match("^/dev/sr%d+") then
-			Command("udisksctl"):arg({ "unmount", "-b", active.src }):status()
-			output, err = Command("eject"):arg({ "--traytoggle", active.src }):output()
-		elseif type == "eject" then
-			Command("udisksctl"):arg({ "unmount", "-b", active.src }):status()
-			output, err = Command("udisksctl"):arg({ "power-off", "-b", active.src }):output()
-		else
-			output, err = Command("udisksctl"):arg({ type, "-b", active.src }):output()
-		end
-	end
-
-	if not output then
-		M.fail("Failed to %s `%s`: %s", type, active.src, err)
-	elseif not output.status.success then
-		M.fail("Failed to %s `%s`: %s", type, active.src, output.stderr)
-	end
-end
-
-function M.fail(...) ya.notify { title = "Mount", content = string.format(...), timeout = 10, level = "error" } end
 
 function M:click() end
 

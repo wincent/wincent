@@ -3,9 +3,9 @@
 	"name": "Purplepeter",
 	"foreground": "#c38e69",
 	"background": "#2a1a4a",
-	"black": "#0a041f",
+	"black": "#2a1a4a",
 	"blue": "#66d9ef",
-	"brightBlack": "#100b22",
+	"brightBlack": "#4b3639",
 	"brightBlue": "#79daed",
 	"brightCyan": "#a0a0d6",
 	"brightGreen": "#b4bd8e",
@@ -17,6 +17,6 @@
 	"green": "#98b481",
 	"purple": "#e68ecd",
 	"red": "#ff786c",
-	"white": "#ffba81",
-	"yellow": "#efdeab"
+	"white": "#c38e69",
+	"yellow": "#79daed"
 },

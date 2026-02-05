@@ -2,8 +2,8 @@
 # Color scheme: Flatland by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#1c1d19' # base02
-selection-foreground = '#c5c6c4' # base05
+selection-background = '#c5c6c4' # base05
+selection-foreground = '#1c1d19' # base02
 
 cursor         = '#c5c6c4' # base05
 tabs           = '#1c1d19' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#1c1d19' # base02
 
 background     = '#1c1e20' # base00
 foreground     = '#c5c6c4' # base05
-black          = '#1c1d19' # base01
+black          = '#1c1e20' # base00
 red            = '#f18238' # base08
 yellow         = '#61b8d0' # base0A
 green          = '#9ed264' # base0B
 cyan           = '#d53864' # base0C
 blue           = '#4f96be' # base0D
 magenta        = '#695abb' # base0E
-white          = '#fefffe' # base06
+white          = '#c5c6c4' # base05
 
 dim-foreground   = '#c5c6c4' # base05
 dim-black        = '#1c1d19' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#695abb' # base0E
 dim-white        = '#8d8e8b' # base04
 
 light-foreground = '#c5c6c4' # base05
-light-black      = '#1c1d19' # base02
+light-black      = '#545552' # base03
 light-red        = '#d12a24' # base12
 light-yellow     = '#ff8948' # base13
 light-green      = '#a7d32c' # base14

@@ -3,9 +3,9 @@
 	"name": "Classic Dark",
 	"foreground": "#d0d0d0",
 	"background": "#151515",
-	"black": "#202020",
+	"black": "#151515",
 	"blue": "#6a9fb5",
-	"brightBlack": "#303030",
+	"brightBlack": "#505050",
 	"brightBlue": "#6a9fb5",
 	"brightCyan": "#75b5aa",
 	"brightGreen": "#90a959",
@@ -17,6 +17,6 @@
 	"green": "#90a959",
 	"purple": "#aa759f",
 	"red": "#ac4142",
-	"white": "#e0e0e0",
-	"yellow": "#d28445"
+	"white": "#d0d0d0",
+	"yellow": "#f4bf75"
 },

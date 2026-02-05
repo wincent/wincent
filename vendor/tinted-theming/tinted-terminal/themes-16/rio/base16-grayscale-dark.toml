@@ -2,8 +2,8 @@
 # Color scheme: Grayscale Dark by Alexandre Gavioli (https://github.com/Alexx2/)
 
 [colors]
-selection-background = '#464646' # base02
-selection-foreground = '#b9b9b9' # base05
+selection-background = '#b9b9b9' # base05
+selection-foreground = '#464646' # base02
 
 cursor         = '#b9b9b9' # base05
 tabs           = '#252525' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#464646' # base02
 
 background     = '#101010' # base00
 foreground     = '#b9b9b9' # base05
-black          = '#252525' # base01
+black          = '#101010' # base00
 red            = '#7c7c7c' # base08
 yellow         = '#a0a0a0' # base0A
 green          = '#8e8e8e' # base0B
 cyan           = '#868686' # base0C
 blue           = '#686868' # base0D
 magenta        = '#747474' # base0E
-white          = '#e3e3e3' # base06
+white          = '#b9b9b9' # base05
 
 dim-foreground   = '#b9b9b9' # base05
 dim-black        = '#252525' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#747474' # base0E
 dim-white        = '#ababab' # base04
 
 light-foreground = '#b9b9b9' # base05
-light-black      = '#464646' # base02
+light-black      = '#525252' # base03
 light-red        = '#7c7c7c' # base08
 light-yellow     = '#a0a0a0' # base0A
 light-green      = '#8e8e8e' # base0B

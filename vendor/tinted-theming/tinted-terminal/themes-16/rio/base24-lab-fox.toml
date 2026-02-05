@@ -2,8 +2,8 @@
 # Color scheme: Lab Fox by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#454545' # base02
-selection-foreground = '#cfd0d0' # base05
+selection-background = '#cfd0d0' # base05
+selection-foreground = '#454545' # base02
 
 cursor         = '#cfd0d0' # base05
 tabs           = '#2e2e2e' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#454545' # base02
 
 background     = '#2e2e2e' # base00
 foreground     = '#cfd0d0' # base05
-black          = '#2e2e2e' # base01
+black          = '#2e2e2e' # base00
 red            = '#fc6d26' # base08
 yellow         = '#db501f' # base0A
 green          = '#3eb383' # base0B
 cyan           = '#6e49cb' # base0C
 blue           = '#db3b21' # base0D
 magenta        = '#380d75' # base0E
-white          = '#feffff' # base06
+white          = '#cfd0d0' # base05
 
 dim-foreground   = '#cfd0d0' # base05
 dim-black        = '#2e2e2e' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#380d75' # base0E
 dim-white        = '#a1a2a2' # base04
 
 light-foreground = '#cfd0d0' # base05
-light-black      = '#454545' # base02
+light-black      = '#737373' # base03
 light-red        = '#ff6517' # base12
 light-yellow     = '#fca012' # base13
 light-green      = '#52e9a8' # base14

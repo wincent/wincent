@@ -8,13 +8,13 @@ Color=1,61,1
 Color=44,44,44
 
 [Color0]
-Color=1,68,1
+Color=44,44,44
 
 [Color0Faint]
 Color=44,44,44
 
 [Color0Intense]
-Color=2,92,2
+Color=59,132,62
 
 [Color1]
 Color=254,38,53
@@ -35,10 +35,10 @@ Color=65,166,56
 Color=174,250,134
 
 [Color3]
-Color=118,168,48
+Color=46,250,235
 
 [Color3Faint]
-Color=118,168,48
+Color=46,250,235
 
 [Color3Intense]
 Color=218,250,135
@@ -71,7 +71,7 @@ Color=60,160,120
 Color=60,250,200
 
 [Color7]
-Color=230,254,242
+Color=173,213,182
 
 [Color7Faint]
 Color=173,213,182
@@ -92,4 +92,3 @@ Color=230,254,242
 Blur=true
 Description=IC-Green-PPL
 Opacity=0.95
-

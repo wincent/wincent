@@ -5,6 +5,6 @@
 Name=base24-lovelace
 ColorForeground=#ceced3
 ColorBackground=#1d1f28
-ColorCursor=x
+ColorCursor=#ceced3
 ColorBoldIsBright=FALSE
-ColorPalette=#282a36;#f37f97;#5adecd;#556fff;#8897f4;#c574dd;#79e6f3;#fdfdfd;#414458;#ff4971;#18e3c8;#ff8037;#556fff;#b043d1;#3fdcee;#bebec1
+ColorPalette=#1d1f28;#f37f97;#5adecd;#556fff;#8897f4;#c574dd;#79e6f3;#ceced3;#707281;#ff4971;#18e3c8;#ff8037;#556fff;#b043d1;#3fdcee;#bebec1

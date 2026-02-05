@@ -2,8 +2,8 @@
 # Color scheme: Blueish by Ben Mayoras
 
 [colors]
-selection-background = '#46290a' # base02
-selection-foreground = '#c8e1f8' # base05
+selection-background = '#c8e1f8' # base05
+selection-foreground = '#46290a' # base02
 
 cursor         = '#c8e1f8' # base05
 tabs           = '#243c54' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#46290a' # base02
 
 background     = '#182430' # base00
 foreground     = '#c8e1f8' # base05
-black          = '#243c54' # base01
+black          = '#182430' # base00
 red            = '#4ce587' # base08
 yellow         = '#f6cd5c' # base0A
 green          = '#c3e88d' # base0B
 cyan           = '#5fd1ff' # base0C
 blue           = '#82aaff' # base0D
 magenta        = '#ff84dd' # base0E
-white          = '#ddeaf6' # base06
+white          = '#c8e1f8' # base05
 
 dim-foreground   = '#c8e1f8' # base05
 dim-black        = '#243c54' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#ff84dd' # base0E
 dim-white        = '#74afe7' # base04
 
 light-foreground = '#c8e1f8' # base05
-light-black      = '#46290a' # base02
+light-black      = '#616d78' # base03
 light-red        = '#4ce587' # base08
 light-yellow     = '#f6cd5c' # base0A
 light-green      = '#c3e88d' # base0B

@@ -1,0 +1,10 @@
+# Scheme name: Yesterday Bright
+# Scheme author: FroZnShiva (https://github.com/FroZnShiva)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-yesterday-bright
+ColorForeground=#dfe1e8
+ColorBackground=#343d46
+ColorCursor=#dfe1e8
+ColorBoldIsBright=FALSE
+ColorPalette=#343d46;#d54e53;#b9ca4a;#e7c547;#7aa6da;#c397d8;#70c0b1;#dfe1e8;#a7adba;#d54e53;#b9ca4a;#e7c547;#7aa6da;#c397d8;#70c0b1;#ffffff

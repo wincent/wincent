@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Yesterday Night by FroZnShiva (https://github.com/FroZnShiva)
+
+[colors]
+selection-background = '#dfe1e8' # base05
+selection-foreground = '#65737e' # base02
+
+cursor         = '#dfe1e8' # base05
+tabs           = '#4f5b66' # base01
+tabs-active    = '#65737e' # base02
+
+background     = '#343d46' # base00
+foreground     = '#dfe1e8' # base05
+black          = '#343d46' # base00
+red            = '#cc6666' # base08
+yellow         = '#f0c674' # base0A
+green          = '#b5bd68' # base0B
+cyan           = '#8abeb7' # base0C
+blue           = '#81a2be' # base0D
+magenta        = '#b294bb' # base0E
+white          = '#dfe1e8' # base05
+
+dim-foreground   = '#dfe1e8' # base05
+dim-black        = '#4f5b66' # base01
+dim-red          = '#cc6666' # base08
+dim-yellow       = '#f0c674' # base0A
+dim-green        = '#b5bd68' # base0B
+dim-cyan         = '#8abeb7' # base0C
+dim-blue         = '#81a2be' # base0D
+dim-magenta      = '#b294bb' # base0E
+dim-white        = '#c0c5ce' # base04
+
+light-foreground = '#dfe1e8' # base05
+light-black      = '#a7adba' # base03
+light-red        = '#cc6666' # base08
+light-yellow     = '#f0c674' # base0A
+light-green      = '#b5bd68' # base0B
+light-cyan       = '#8abeb7' # base0C
+light-blue       = '#81a2be' # base0D
+light-magenta    = '#b294bb' # base0E
+light-white      = '#ffffff' # base07

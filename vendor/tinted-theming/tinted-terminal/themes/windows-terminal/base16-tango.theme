@@ -3,9 +3,9 @@
 	"name": "Tango",
 	"foreground": "#d3d7cf",
 	"background": "#2e3436",
-	"black": "#8ae234",
+	"black": "#2e3436",
 	"blue": "#3465a4",
-	"brightBlack": "#fce94f",
+	"brightBlack": "#555753",
 	"brightBlue": "#3465a4",
 	"brightCyan": "#06989a",
 	"brightGreen": "#4e9a06",
@@ -17,6 +17,6 @@
 	"green": "#4e9a06",
 	"purple": "#75507b",
 	"red": "#cc0000",
-	"white": "#ad7fa8",
-	"yellow": "#ef2929"
+	"white": "#d3d7cf",
+	"yellow": "#c4a000"
 },

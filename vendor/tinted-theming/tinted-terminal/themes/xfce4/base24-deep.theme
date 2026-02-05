@@ -5,6 +5,6 @@
 Name=base24-deep
 ColorForeground=#bcbcbc
 ColorBackground=#080808
-ColorCursor=x
+ColorCursor=#bcbcbc
 ColorBoldIsBright=FALSE
-ColorPalette=#000000;#d60005;#1cd815;#9fa8fe;#5665fe;#af51d9;#4fd2d9;#dfdfdf;#535353;#fb0006;#21fe17;#fedc2b;#9fa8fe;#e099fe;#8cf9fe;#fffefe
+ColorPalette=#080808;#d60005;#1cd815;#9fa8fe;#5665fe;#af51d9;#4fd2d9;#bcbcbc;#767676;#fb0006;#21fe17;#fedc2b;#9fa8fe;#e099fe;#8cf9fe;#fffefe

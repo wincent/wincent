@@ -2,8 +2,8 @@
 # Color scheme: Night Lion V2 by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#555555' # base02
-selection-foreground = '#a1a1a1' # base05
+selection-background = '#a1a1a1' # base05
+selection-foreground = '#555555' # base02
 
 cursor         = '#a1a1a1' # base05
 tabs           = '#4c4c4c' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#555555' # base02
 
 background     = '#171717' # base00
 foreground     = '#a1a1a1' # base05
-black          = '#4c4c4c' # base01
+black          = '#171717' # base00
 red            = '#bb0000' # base08
 yellow         = '#62cae7' # base0A
 green          = '#03f622' # base0B
 cyan           = '#00d9df' # base0C
 blue           = '#63d0f0' # base0D
 magenta        = '#ce6fda' # base0E
-white          = '#bbbbbb' # base06
+white          = '#a1a1a1' # base05
 
 dim-foreground   = '#a1a1a1' # base05
 dim-black        = '#4c4c4c' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#ce6fda' # base0E
 dim-white        = '#888888' # base04
 
 light-foreground = '#a1a1a1' # base05
-light-black      = '#555555' # base02
+light-black      = '#6e6e6e' # base03
 light-red        = '#ff5555' # base12
 light-yellow     = '#ffff55' # base13
 light-green      = '#7df61c' # base14

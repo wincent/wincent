@@ -3,9 +3,9 @@
 	"name": "Blazer",
 	"foreground": "#acacac",
 	"background": "#0d1926",
-	"black": "#000000",
+	"black": "#0d1926",
 	"blue": "#7a7ab8",
-	"brightBlack": "#262626",
+	"brightBlack": "#525252",
 	"brightBlue": "#bdbddb",
 	"brightCyan": "#bddbdb",
 	"brightGreen": "#bddbbd",
@@ -17,6 +17,6 @@
 	"green": "#7ab87a",
 	"purple": "#b87ab8",
 	"red": "#b87a7a",
-	"white": "#d9d9d9",
-	"yellow": "#b8b87a"
+	"white": "#acacac",
+	"yellow": "#bdbddb"
 },

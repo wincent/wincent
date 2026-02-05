@@ -5,6 +5,6 @@
 Name=base16-atelier-heath
 ColorForeground=#ab9bab
 ColorBackground=#1b181b
-ColorCursor=x
+ColorCursor=#ab9bab
 ColorBoldIsBright=FALSE
-ColorPalette=#292329;#ca402b;#918b3b;#bb8a35;#516aec;#7b59c0;#159393;#d8cad8;#695d69;#ca402b;#918b3b;#bb8a35;#516aec;#7b59c0;#159393;#f7f3f7
+ColorPalette=#1b181b;#ca402b;#918b3b;#bb8a35;#516aec;#7b59c0;#159393;#ab9bab;#776977;#ca402b;#918b3b;#bb8a35;#516aec;#7b59c0;#159393;#f7f3f7

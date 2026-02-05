@@ -5,6 +5,6 @@
 Name=base16-eighties
 ColorForeground=#d3d0c8
 ColorBackground=#2d2d2d
-ColorCursor=x
+ColorCursor=#d3d0c8
 ColorBoldIsBright=FALSE
-ColorPalette=#393939;#f2777a;#99cc99;#ffcc66;#6699cc;#cc99cc;#66cccc;#e8e6df;#515151;#f2777a;#99cc99;#ffcc66;#6699cc;#cc99cc;#66cccc;#f2f0ec
+ColorPalette=#2d2d2d;#f2777a;#99cc99;#ffcc66;#6699cc;#cc99cc;#66cccc;#d3d0c8;#747369;#f2777a;#99cc99;#ffcc66;#6699cc;#cc99cc;#66cccc;#f2f0ec

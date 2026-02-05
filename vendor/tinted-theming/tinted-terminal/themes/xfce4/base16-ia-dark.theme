@@ -5,6 +5,6 @@
 Name=base16-ia-dark
 ColorForeground=#cccccc
 ColorBackground=#1a1a1a
-ColorCursor=x
+ColorCursor=#cccccc
 ColorBoldIsBright=FALSE
-ColorPalette=#222222;#d88568;#83a471;#b99353;#8eccdd;#b98eb2;#7c9cae;#e8e8e8;#1d414d;#d88568;#83a471;#b99353;#8eccdd;#b98eb2;#7c9cae;#f8f8f8
+ColorPalette=#1a1a1a;#d88568;#83a471;#b99353;#8eccdd;#b98eb2;#7c9cae;#cccccc;#767676;#d88568;#83a471;#b99353;#8eccdd;#b98eb2;#7c9cae;#f8f8f8

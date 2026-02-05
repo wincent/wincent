@@ -2,8 +2,8 @@
 # Color scheme: Tokyodark by Jamy Golden (https://github.com/JamyGolden), Based on Tokyodark.nvim (https://github.com/tiagovla/tokyodark.nvim)
 
 [colors]
-selection-background = '#212234' # base02
-selection-foreground = '#a0a8cd' # base05
+selection-background = '#a0a8cd' # base05
+selection-foreground = '#212234' # base02
 
 cursor         = '#a0a8cd' # base05
 tabs           = '#212234' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#212234' # base02
 
 background     = '#11121d' # base00
 foreground     = '#a0a8cd' # base05
-black          = '#212234' # base01
+black          = '#11121d' # base00
 red            = '#ee6d85' # base08
 yellow         = '#d7a65f' # base0A
 green          = '#95c561' # base0B
 cyan           = '#9fbbf3' # base0C
 blue           = '#7199ee' # base0D
 magenta        = '#a485dd' # base0E
-white          = '#abb2bf' # base06
+white          = '#a0a8cd' # base05
 
 dim-foreground   = '#a0a8cd' # base05
 dim-black        = '#212234' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#a485dd' # base0E
 dim-white        = '#4a5057' # base04
 
 light-foreground = '#a0a8cd' # base05
-light-black      = '#212234' # base02
+light-black      = '#353945' # base03
 light-red        = '#ee6d85' # base08
 light-yellow     = '#d7a65f' # base0A
 light-green      = '#95c561' # base0B

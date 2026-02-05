@@ -2,8 +2,8 @@
 # Color scheme: Galaxy by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#555555' # base02
-selection-foreground = '#a1a1a1' # base05
+selection-background = '#a1a1a1' # base05
+selection-foreground = '#555555' # base02
 
 cursor         = '#a1a1a1' # base05
 tabs           = '#000000' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#555555' # base02
 
 background     = '#1c2836' # base00
 foreground     = '#a1a1a1' # base05
-black          = '#000000' # base01
+black          = '#1c2836' # base00
 red            = '#f9555f' # base08
 yellow         = '#fdf029' # base0A
 green          = '#20af89' # base0B
 cyan           = '#1e9ee6' # base0C
 blue           = '#589cf5' # base0D
 magenta        = '#934d95' # base0E
-white          = '#bbbbbb' # base06
+white          = '#a1a1a1' # base05
 
 dim-foreground   = '#a1a1a1' # base05
 dim-black        = '#000000' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#934d95' # base0E
 dim-white        = '#888888' # base04
 
 light-foreground = '#a1a1a1' # base05
-light-black      = '#555555' # base02
+light-black      = '#6e6e6e' # base03
 light-red        = '#fa8b8e' # base12
 light-yellow     = '#ffff55' # base13
 light-green      = '#34bb99' # base14

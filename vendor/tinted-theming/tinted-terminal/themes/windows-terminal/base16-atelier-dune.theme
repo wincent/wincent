@@ -3,9 +3,9 @@
 	"name": "Atelier Dune",
 	"foreground": "#a6a28c",
 	"background": "#20201d",
-	"black": "#292824",
+	"black": "#20201d",
 	"blue": "#6684e1",
-	"brightBlack": "#6e6b5e",
+	"brightBlack": "#7d7a68",
 	"brightBlue": "#6684e1",
 	"brightCyan": "#1fad83",
 	"brightGreen": "#60ac39",
@@ -17,6 +17,6 @@
 	"green": "#60ac39",
 	"purple": "#b854d4",
 	"red": "#d73737",
-	"white": "#e8e4cf",
-	"yellow": "#b65611"
+	"white": "#a6a28c",
+	"yellow": "#ae9513"
 },

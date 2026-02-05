@@ -8,13 +8,13 @@ Color=249,249,249
 Color=248,249,250
 
 [Color0]
-Color=237,239,241
+Color=248,249,250
 
 [Color0Faint]
 Color=248,249,250
 
 [Color0Intense]
-Color=210,212,216
+Color=160,166,172
 
 [Color1]
 Color=240,113,113
@@ -35,10 +35,10 @@ Color=108,191,73
 Color=134,179,0
 
 [Color3]
-Color=250,141,62
+Color=242,174,73
 
 [Color3Faint]
-Color=250,141,62
+Color=242,174,73
 
 [Color3Intense]
 Color=255,170,51
@@ -71,7 +71,7 @@ Color=76,191,153
 Color=85,180,212
 
 [Color7]
-Color=78,82,87
+Color=92,97,102
 
 [Color7Faint]
 Color=92,97,102
@@ -92,4 +92,3 @@ Color=78,82,87
 Blur=true
 Description=Ayu Light
 Opacity=0.95
-

@@ -2,8 +2,8 @@
 # Color scheme: tender by Jacobo Tabernero (https://github/com/jacoborus/tender.vim)
 
 [colors]
-selection-background = '#484848' # base02
-selection-foreground = '#eeeeee' # base05
+selection-background = '#eeeeee' # base05
+selection-foreground = '#484848' # base02
 
 cursor         = '#eeeeee' # base05
 tabs           = '#383838' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#484848' # base02
 
 background     = '#282828' # base00
 foreground     = '#eeeeee' # base05
-black          = '#383838' # base01
+black          = '#282828' # base00
 red            = '#f43753' # base08
 yellow         = '#ffc24b' # base0A
 green          = '#c9d05c' # base0B
 cyan           = '#73cef4' # base0C
 blue           = '#b3deef' # base0D
 magenta        = '#d3b987' # base0E
-white          = '#e8e8e8' # base06
+white          = '#eeeeee' # base05
 
 dim-foreground   = '#eeeeee' # base05
 dim-black        = '#383838' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#d3b987' # base0E
 dim-white        = '#b8b8b8' # base04
 
 light-foreground = '#eeeeee' # base05
-light-black      = '#484848' # base02
+light-black      = '#4c4c4c' # base03
 light-red        = '#f43753' # base08
 light-yellow     = '#ffc24b' # base0A
 light-green      = '#c9d05c' # base0B

@@ -5,6 +5,6 @@
 Name=base24-alien-blood
 ColorForeground=#5a6f5c
 ColorBackground=#0f160f
-ColorCursor=x
+ColorCursor=#5a6f5c
 ColorBoldIsBright=FALSE
-ColorPalette=#112615;#7f2b26;#2f7e25;#00a9df;#2f697f;#47577e;#317f76;#647d75;#3c4711;#df8008;#18e000;#bde000;#00a9df;#0058df;#00dfc3;#73f990
+ColorPalette=#0f160f;#7f2b26;#2f7e25;#00a9df;#2f697f;#47577e;#317f76;#5a6f5c;#46542a;#df8008;#18e000;#bde000;#00a9df;#0058df;#00dfc3;#73f990

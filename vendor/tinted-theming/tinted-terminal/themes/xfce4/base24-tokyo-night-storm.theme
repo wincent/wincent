@@ -5,6 +5,6 @@
 Name=base24-tokyo-night-storm
 ColorForeground=#a9b1d6
 ColorBackground=#24283b
-ColorCursor=x
+ColorCursor=#a9b1d6
 ColorBoldIsBright=FALSE
-ColorPalette=#16161e;#c0caf5;#9ece6a;#0db9d7;#2ac3de;#bb9af7;#b4f9f8;#cbccd1;#343a52;#ff7a93;#73daca;#ff9e64;#89ddff;#bb9af7;#7dcfff;#d5d6db
+ColorPalette=#24283b;#c0caf5;#9ece6a;#0db9d7;#2ac3de;#bb9af7;#b4f9f8;#a9b1d6;#444b6a;#ff7a93;#73daca;#ff9e64;#89ddff;#bb9af7;#7dcfff;#d5d6db

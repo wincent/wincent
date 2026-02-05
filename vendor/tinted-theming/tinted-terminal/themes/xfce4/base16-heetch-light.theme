@@ -5,6 +5,6 @@
 Name=base16-heetch-light
 ColorForeground=#5a496e
 ColorBackground=#feffff
-ColorCursor=x
+ColorCursor=#5a496e
 ColorBoldIsBright=FALSE
-ColorPalette=#dedae2;#f80059;#5bb66a;#bd9701;#5ba2b6;#8f6c97;#47f9f5;#392551;#bdb6c5;#f80059;#5bb66a;#bd9701;#5ba2b6;#8f6c97;#47f9f5;#190134
+ColorPalette=#feffff;#f80059;#5bb66a;#bd9701;#5ba2b6;#8f6c97;#47f9f5;#5a496e;#9c92a8;#f80059;#5bb66a;#bd9701;#5ba2b6;#8f6c97;#47f9f5;#190134

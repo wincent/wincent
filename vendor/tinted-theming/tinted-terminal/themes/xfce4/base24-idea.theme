@@ -5,6 +5,6 @@
 Name=base24-idea
 ColorForeground=#515151
 ColorBackground=#202020
-ColorCursor=x
+ColorCursor=#515151
 ColorBoldIsBright=FALSE
-ColorPalette=#acacac;#fb5255;#98b61b;#6c9bed;#437ee6;#9d73b0;#248886;#171717;#fffefe;#fc6f72;#98b61b;#ffff0a;#6c9bed;#fc7efe;#248886;#171717
+ColorPalette=#202020;#fb5255;#98b61b;#6c9bed;#437ee6;#9d73b0;#248886;#515151;#c5c5c5;#fc6f72;#98b61b;#ffff0a;#6c9bed;#fc7efe;#248886;#171717

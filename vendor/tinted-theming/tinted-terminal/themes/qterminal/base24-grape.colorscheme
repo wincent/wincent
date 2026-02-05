@@ -8,13 +8,13 @@ Color=58,53,70
 Color=22,20,35
 
 [Color0]
-Color=45,40,62
+Color=22,20,35
 
 [Color0Faint]
 Color=22,20,35
 
 [Color0Intense]
-Color=88,80,106
+Color=105,99,119
 
 [Color1]
 Color=236,33,96
@@ -35,10 +35,10 @@ Color=31,169,27
 Color=82,169,93
 
 [Color3]
-Color=141,220,31
+Color=169,187,235
 
 [Color3Faint]
-Color=141,220,31
+Color=169,187,235
 
 [Color3Intense]
 Color=178,220,135
@@ -71,7 +71,7 @@ Color=58,221,237
 Color=156,227,234
 
 [Color7]
-Color=158,158,160
+Color=140,138,146
 
 [Color7Faint]
 Color=140,138,146
@@ -92,4 +92,3 @@ Color=158,158,160
 Blur=true
 Description=Grape
 Opacity=0.95
-

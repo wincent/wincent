@@ -5,6 +5,6 @@
 Name=base16-atelier-sulphurpool-light
 ColorForeground=#5e6687
 ColorBackground=#f5f7ff
-ColorCursor=x
+ColorCursor=#5e6687
 ColorBoldIsBright=FALSE
-ColorPalette=#dfe2f1;#c94922;#ac9739;#c08b30;#3d8fd1;#6679cc;#22a2c9;#293256;#979db4;#c94922;#ac9739;#c08b30;#3d8fd1;#6679cc;#22a2c9;#202746
+ColorPalette=#f5f7ff;#c94922;#ac9739;#c08b30;#3d8fd1;#6679cc;#22a2c9;#5e6687;#898ea4;#c94922;#ac9739;#c08b30;#3d8fd1;#6679cc;#22a2c9;#202746

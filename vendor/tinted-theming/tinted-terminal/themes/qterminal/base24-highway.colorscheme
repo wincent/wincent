@@ -8,13 +8,13 @@ Color=61,52,48
 Color=33,34,36
 
 [Color0]
-Color=0,0,0
+Color=33,34,36
 
 [Color0Faint]
 Color=33,34,36
 
 [Color0Intense]
-Color=92,79,73
+Color=128,118,114
 
 [Color1]
 Color=207,13,23
@@ -35,10 +35,10 @@ Color=18,128,51
 Color=177,209,48
 
 [Color3]
-Color=255,202,61
+Color=79,194,253
 
 [Color3Faint]
-Color=255,202,61
+Color=79,194,253
 
 [Color3Intense]
 Color=255,241,31
@@ -71,7 +71,7 @@ Color=56,69,99
 Color=92,79,73
 
 [Color7]
-Color=237,237,237
+Color=200,197,196
 
 [Color7Faint]
 Color=200,197,196
@@ -92,4 +92,3 @@ Color=237,237,237
 Blur=true
 Description=Highway
 Opacity=0.95
-

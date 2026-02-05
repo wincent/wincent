@@ -8,13 +8,13 @@ Color=44,50,54
 Color=8,19,26
 
 [Color0]
-Color=23,56,76
+Color=8,19,26
 
 [Color0Faint]
 Color=8,19,26
 
 [Color0Intense]
-Color=66,75,82
+Color=105,102,96
 
 [Color1]
 Color=209,80,35
@@ -35,10 +35,10 @@ Color=2,124,155
 Color=97,140,152
 
 [Color3]
-Color=252,160,47
+Color=27,188,221
 
 [Color3Faint]
-Color=252,160,47
+Color=27,188,221
 
 [Color3Intense]
 Color=253,210,158
@@ -71,7 +71,7 @@ Color=80,163,181
 Color=134,171,179
 
 [Color7]
-Color=222,184,141
+Color=183,156,126
 
 [Color7Faint]
 Color=183,156,126
@@ -92,4 +92,3 @@ Color=222,184,141
 Blur=true
 Description=Sea Shells
 Opacity=0.95
-

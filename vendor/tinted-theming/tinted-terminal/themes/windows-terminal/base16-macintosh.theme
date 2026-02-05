@@ -3,9 +3,9 @@
 	"name": "Macintosh",
 	"foreground": "#c0c0c0",
 	"background": "#000000",
-	"black": "#404040",
+	"black": "#000000",
 	"blue": "#0000d3",
-	"brightBlack": "#404040",
+	"brightBlack": "#808080",
 	"brightBlue": "#0000d3",
 	"brightCyan": "#02abea",
 	"brightGreen": "#1fb714",
@@ -18,5 +18,5 @@
 	"purple": "#4700a5",
 	"red": "#dd0907",
 	"white": "#c0c0c0",
-	"yellow": "#ff6403"
+	"yellow": "#fbf305"
 },

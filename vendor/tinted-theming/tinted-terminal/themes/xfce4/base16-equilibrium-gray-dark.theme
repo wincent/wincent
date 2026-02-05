@@ -5,6 +5,6 @@
 Name=base16-equilibrium-gray-dark
 ColorForeground=#ababab
 ColorBackground=#111111
-ColorCursor=x
+ColorCursor=#ababab
 ColorBoldIsBright=FALSE
-ColorPalette=#1b1b1b;#f04339;#7f8b00;#bb8801;#008dd1;#6a7fd2;#00948b;#c6c6c6;#262626;#f04339;#7f8b00;#bb8801;#008dd1;#6a7fd2;#00948b;#e2e2e2
+ColorPalette=#111111;#f04339;#7f8b00;#bb8801;#008dd1;#6a7fd2;#00948b;#ababab;#777777;#f04339;#7f8b00;#bb8801;#008dd1;#6a7fd2;#00948b;#e2e2e2

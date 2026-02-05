@@ -5,6 +5,6 @@
 Name=base16-mocha
 ColorForeground=#d0c8c6
 ColorBackground=#3b3228
-ColorCursor=x
+ColorCursor=#d0c8c6
 ColorBoldIsBright=FALSE
-ColorPalette=#534636;#cb6077;#beb55b;#f4bc87;#8ab3b5;#a89bb9;#7bbda4;#e9e1dd;#645240;#cb6077;#beb55b;#f4bc87;#8ab3b5;#a89bb9;#7bbda4;#f5eeeb
+ColorPalette=#3b3228;#cb6077;#beb55b;#f4bc87;#8ab3b5;#a89bb9;#7bbda4;#d0c8c6;#7e705a;#cb6077;#beb55b;#f4bc87;#8ab3b5;#a89bb9;#7bbda4;#f5eeeb

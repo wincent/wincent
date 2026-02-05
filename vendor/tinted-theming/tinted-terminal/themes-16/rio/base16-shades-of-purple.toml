@@ -2,8 +2,8 @@
 # Color scheme: Shades of Purple by Iolar Demartini Junior (http://github.com/demartini), based on Shades of Purple Theme (https://github.com/ahmadawais/shades-of-purple-vscode)
 
 [colors]
-selection-background = '#f1d000' # base02
-selection-foreground = '#c7c7c7' # base05
+selection-background = '#c7c7c7' # base05
+selection-foreground = '#f1d000' # base02
 
 cursor         = '#c7c7c7' # base05
 tabs           = '#43d426' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#f1d000' # base02
 
 background     = '#1e1e3f' # base00
 foreground     = '#c7c7c7' # base05
-black          = '#43d426' # base01
+black          = '#1e1e3f' # base00
 red            = '#d90429' # base08
 yellow         = '#ffe700' # base0A
 green          = '#3ad900' # base0B
 cyan           = '#00c5c7' # base0C
 blue           = '#6943ff' # base0D
 magenta        = '#ff2c70' # base0E
-white          = '#ff77ff' # base06
+white          = '#c7c7c7' # base05
 
 dim-foreground   = '#c7c7c7' # base05
 dim-black        = '#43d426' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#ff2c70' # base0E
 dim-white        = '#6871ff' # base04
 
 light-foreground = '#c7c7c7' # base05
-light-black      = '#f1d000' # base02
+light-black      = '#808080' # base03
 light-red        = '#d90429' # base08
 light-yellow     = '#ffe700' # base0A
 light-green      = '#3ad900' # base0B

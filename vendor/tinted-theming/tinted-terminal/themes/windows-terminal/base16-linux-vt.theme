@@ -3,9 +3,9 @@
 	"name": "Linux VT",
 	"foreground": "#aaaaaa",
 	"background": "#000000",
-	"black": "#333333",
+	"black": "#000000",
 	"blue": "#5555ff",
-	"brightBlack": "#444444",
+	"brightBlack": "#555555",
 	"brightBlue": "#5555ff",
 	"brightCyan": "#00aaaa",
 	"brightGreen": "#00aa00",
@@ -17,6 +17,6 @@
 	"green": "#00aa00",
 	"purple": "#ff55ff",
 	"red": "#aa0000",
-	"white": "#cccccc",
-	"yellow": "#ff5555"
+	"white": "#aaaaaa",
+	"yellow": "#ffff55"
 },

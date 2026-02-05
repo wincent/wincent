@@ -2,8 +2,8 @@
 # Color scheme: DanQing by Wenhan Zhu (Cosmos) (zhuwenhan950913@gmail.com)
 
 [colors]
-selection-background = '#5a605d' # base02
-selection-foreground = '#e0f0ef' # base05
+selection-background = '#e0f0ef' # base05
+selection-foreground = '#5a605d' # base02
 
 cursor         = '#e0f0ef' # base05
 tabs           = '#434846' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#5a605d' # base02
 
 background     = '#2d302f' # base00
 foreground     = '#e0f0ef' # base05
-black          = '#434846' # base01
+black          = '#2d302f' # base00
 red            = '#f9906f' # base08
 yellow         = '#f0c239' # base0A
 green          = '#8ab361' # base0B
 cyan           = '#30dff3' # base0C
 blue           = '#b0a4e3' # base0D
 magenta        = '#cca4e3' # base0E
-white          = '#ecf6f2' # base06
+white          = '#e0f0ef' # base05
 
 dim-foreground   = '#e0f0ef' # base05
 dim-black        = '#434846' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#cca4e3' # base0E
 dim-white        = '#cad8d2' # base04
 
 light-foreground = '#e0f0ef' # base05
-light-black      = '#5a605d' # base02
+light-black      = '#9da8a3' # base03
 light-red        = '#f9906f' # base08
 light-yellow     = '#f0c239' # base0A
 light-green      = '#8ab361' # base0B

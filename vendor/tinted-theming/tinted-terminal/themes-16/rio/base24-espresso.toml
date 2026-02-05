@@ -2,8 +2,8 @@
 # Color scheme: Espresso by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#535353' # base02
-selection-foreground = '#c7c7c5' # base05
+selection-background = '#c7c7c5' # base05
+selection-foreground = '#535353' # base02
 
 cursor         = '#c7c7c5' # base05
 tabs           = '#343434' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#535353' # base02
 
 background     = '#262626' # base00
 foreground     = '#c7c7c5' # base05
-black          = '#343434' # base01
+black          = '#262626' # base00
 red            = '#d25151' # base08
 yellow         = '#8ab7d9' # base0A
 green          = '#a5c261' # base0B
 cyan           = '#bed6ff' # base0C
 blue           = '#6c99bb' # base0D
 magenta        = '#d197d9' # base0E
-white          = '#eeeeec' # base06
+white          = '#c7c7c5' # base05
 
 dim-foreground   = '#c7c7c5' # base05
 dim-black        = '#343434' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#d197d9' # base0E
 dim-white        = '#a0a09f' # base04
 
 light-foreground = '#c7c7c5' # base05
-light-black      = '#535353' # base02
+light-black      = '#797979' # base03
 light-red        = '#f00c0c' # base12
 light-yellow     = '#e1e38b' # base13
 light-green      = '#c2e075' # base14

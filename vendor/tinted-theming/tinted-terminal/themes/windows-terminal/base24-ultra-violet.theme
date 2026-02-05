@@ -3,9 +3,9 @@
 	"name": "Ultra Violet",
 	"foreground": "#c1c2c2",
 	"background": "#242728",
-	"black": "#232628",
+	"black": "#242728",
 	"blue": "#47dffb",
-	"brightBlack": "#626566",
+	"brightBlack": "#818484",
 	"brightBlue": "#7febff",
 	"brightCyan": "#68fcd2",
 	"brightGreen": "#deff8b",
@@ -17,6 +17,6 @@
 	"green": "#b5ff00",
 	"purple": "#d630ff",
 	"red": "#ff0090",
-	"white": "#e1e1e1",
-	"yellow": "#fff727"
+	"white": "#c1c2c2",
+	"yellow": "#7febff"
 },

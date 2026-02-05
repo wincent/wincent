@@ -5,6 +5,6 @@
 Name=base16-primer-light
 ColorForeground=#2f363d
 ColorBackground=#fafbfc
-ColorCursor=x
+ColorCursor=#2f363d
 ColorBoldIsBright=FALSE
-ColorPalette=#e1e4e8;#d73a49;#28a745;#ffd33d;#0366d6;#ea4aaa;#79b8ff;#24292e;#d1d5da;#d73a49;#28a745;#ffd33d;#0366d6;#ea4aaa;#79b8ff;#1b1f23
+ColorPalette=#fafbfc;#d73a49;#28a745;#ffd33d;#0366d6;#ea4aaa;#79b8ff;#2f363d;#959da5;#d73a49;#28a745;#ffd33d;#0366d6;#ea4aaa;#79b8ff;#1b1f23

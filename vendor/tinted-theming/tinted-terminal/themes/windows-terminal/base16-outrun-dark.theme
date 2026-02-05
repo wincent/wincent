@@ -3,9 +3,9 @@
 	"name": "Outrun Dark",
 	"foreground": "#d0d0fa",
 	"background": "#00002a",
-	"black": "#20204a",
+	"black": "#00002a",
 	"blue": "#66b0ff",
-	"brightBlack": "#30305a",
+	"brightBlack": "#50507a",
 	"brightBlue": "#66b0ff",
 	"brightCyan": "#0ef0f0",
 	"brightGreen": "#59f176",
@@ -17,6 +17,6 @@
 	"green": "#59f176",
 	"purple": "#f10596",
 	"red": "#ff4242",
-	"white": "#e0e0ff",
-	"yellow": "#fc8d28"
+	"white": "#d0d0fa",
+	"yellow": "#f3e877"
 },

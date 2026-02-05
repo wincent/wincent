@@ -5,6 +5,6 @@
 Name=base16-seti
 ColorForeground=#d6d6d6
 ColorBackground=#151718
-ColorCursor=x
+ColorCursor=#d6d6d6
 ColorBoldIsBright=FALSE
-ColorPalette=#282a2b;#cd3f45;#9fca56;#e6cd69;#55b5db;#a074c4;#55dbbe;#eeeeee;#3b758c;#cd3f45;#9fca56;#e6cd69;#55b5db;#a074c4;#55dbbe;#ffffff
+ColorPalette=#151718;#cd3f45;#9fca56;#e6cd69;#55b5db;#a074c4;#55dbbe;#d6d6d6;#41535b;#cd3f45;#9fca56;#e6cd69;#55b5db;#a074c4;#55dbbe;#ffffff

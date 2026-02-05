@@ -2,8 +2,8 @@
 # Color scheme: Zenburn by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#709080' # base02
-selection-foreground = '#c1c9b9' # base05
+selection-background = '#c1c9b9' # base05
+selection-foreground = '#709080' # base02
 
 cursor         = '#c1c9b9' # base05
 tabs           = '#4d4d4d' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#709080' # base02
 
 background     = '#3f3f3f' # base00
 foreground     = '#c1c9b9' # base05
-black          = '#4d4d4d' # base01
+black          = '#3f3f3f' # base00
 red            = '#705050' # base08
 yellow         = '#94bff3' # base0A
 green          = '#60b48a' # base0B
 cyan           = '#8cd0d3' # base0C
 blue           = '#506070' # base0D
 magenta        = '#dc8cc3' # base0E
-white          = '#dcdccc' # base06
+white          = '#c1c9b9' # base05
 
 dim-foreground   = '#c1c9b9' # base05
 dim-black        = '#4d4d4d' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#dc8cc3' # base0E
 dim-white        = '#a6b6a6' # base04
 
 light-foreground = '#c1c9b9' # base05
-light-black      = '#709080' # base02
+light-black      = '#8ba393' # base03
 light-red        = '#dca3a3' # base12
 light-yellow     = '#e0cf9f' # base13
 light-green      = '#c3bf9f' # base14

@@ -5,6 +5,6 @@
 Name=base24-argonaut
 ColorForeground=#d0d0d0
 ColorBackground=#0d0f18
-ColorCursor=x
+ColorCursor=#d0d0d0
 ColorBoldIsBright=FALSE
-ColorPalette=#222222;#ff000f;#8ce00a;#0092ff;#008df8;#6c43a5;#00d7eb;#ffffff;#444444;#ff273f;#abe05a;#ffd141;#0092ff;#9a5feb;#67ffef;#ffffff
+ColorPalette=#0d0f18;#ff000f;#8ce00a;#0092ff;#008df8;#6c43a5;#00d7eb;#d0d0d0;#727272;#ff273f;#abe05a;#ffd141;#0092ff;#9a5feb;#67ffef;#ffffff

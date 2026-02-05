@@ -2,8 +2,8 @@
 # Color scheme: Chalkboard by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#323232' # base02
-selection-foreground = '#afafaf' # base05
+selection-background = '#afafaf' # base05
+selection-foreground = '#323232' # base02
 
 cursor         = '#afafaf' # base05
 tabs           = '#000000' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#323232' # base02
 
 background     = '#29262f' # base00
 foreground     = '#afafaf' # base05
-black          = '#000000' # base01
+black          = '#29262f' # base00
 red            = '#c37372' # base08
 yellow         = '#aaaadb' # base0A
 green          = '#72c373' # base0B
 cyan           = '#72c2c3' # base0C
 blue           = '#7372c3' # base0D
 magenta        = '#c372c2' # base0E
-white          = '#d9d9d9' # base06
+white          = '#afafaf' # base05
 
 dim-foreground   = '#afafaf' # base05
 dim-black        = '#000000' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#c372c2' # base0E
 dim-white        = '#858585' # base04
 
 light-foreground = '#afafaf' # base05
-light-black      = '#323232' # base02
+light-black      = '#5b5b5b' # base03
 light-red        = '#dbaaaa' # base12
 light-yellow     = '#dadbaa' # base13
 light-green      = '#aadbaa' # base14

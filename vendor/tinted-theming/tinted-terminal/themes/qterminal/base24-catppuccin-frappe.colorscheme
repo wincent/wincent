@@ -8,13 +8,13 @@ Color=41,44,60
 Color=48,52,70
 
 [Color0]
-Color=41,44,60
+Color=48,52,70
 
 [Color0Faint]
 Color=48,52,70
 
 [Color0Intense]
-Color=65,69,89
+Color=115,121,148
 
 [Color1]
 Color=231,130,132
@@ -35,10 +35,10 @@ Color=166,209,137
 Color=166,209,137
 
 [Color3]
-Color=239,159,118
+Color=229,200,144
 
 [Color3Faint]
-Color=239,159,118
+Color=229,200,144
 
 [Color3Intense]
 Color=242,213,207
@@ -71,7 +71,7 @@ Color=129,200,190
 Color=153,209,219
 
 [Color7]
-Color=242,213,207
+Color=198,208,245
 
 [Color7Faint]
 Color=198,208,245
@@ -83,7 +83,7 @@ Color=186,187,241
 Color=198,208,245
 
 [ForegroundFaint]
-Color=98,104,128
+Color=165,173,206
 
 [ForegroundIntense]
 Color=242,213,207
@@ -92,4 +92,3 @@ Color=242,213,207
 Blur=true
 Description=Catppuccin Frappe
 Opacity=0.95
-

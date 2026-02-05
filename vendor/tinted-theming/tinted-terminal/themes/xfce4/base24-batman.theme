@@ -5,6 +5,6 @@
 Name=base24-batman
 ColorForeground=#a7a8a3
 ColorBackground=#1b1d1e
-ColorCursor=x
+ColorCursor=#a7a8a3
 ColorBoldIsBright=FALSE
-ColorPalette=#1b1d1e;#e6db43;#c8be46;#909495;#737074;#737271;#615f5e;#c5c5be;#505354;#fff68d;#fff27c;#feed6c;#909495;#9a999d;#a2a2a5;#dadad5
+ColorPalette=#1b1d1e;#e6db43;#c8be46;#909495;#737074;#737271;#615f5e;#a7a8a3;#6d6f6e;#fff68d;#fff27c;#feed6c;#909495;#9a999d;#a2a2a5;#dadad5

@@ -2,8 +2,8 @@
 # Color scheme: Embers by Jannik Siebert (https://github.com/janniks)
 
 [colors]
-selection-background = '#433b32' # base02
-selection-foreground = '#a39a90' # base05
+selection-background = '#a39a90' # base05
+selection-foreground = '#433b32' # base02
 
 cursor         = '#a39a90' # base05
 tabs           = '#2c2620' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#433b32' # base02
 
 background     = '#16130f' # base00
 foreground     = '#a39a90' # base05
-black          = '#2c2620' # base01
+black          = '#16130f' # base00
 red            = '#826d57' # base08
 yellow         = '#6d8257' # base0A
 green          = '#57826d' # base0B
 cyan           = '#576d82' # base0C
 blue           = '#6d5782' # base0D
 magenta        = '#82576d' # base0E
-white          = '#beb6ae' # base06
+white          = '#a39a90' # base05
 
 dim-foreground   = '#a39a90' # base05
 dim-black        = '#2c2620' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#82576d' # base0E
 dim-white        = '#8a8075' # base04
 
 light-foreground = '#a39a90' # base05
-light-black      = '#433b32' # base02
+light-black      = '#5a5047' # base03
 light-red        = '#826d57' # base08
 light-yellow     = '#6d8257' # base0A
 light-green      = '#57826d' # base0B

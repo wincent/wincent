@@ -2,8 +2,8 @@
 # Color scheme: Tomorrow Night Eighties by Chris Kempson (http://chriskempson.com)
 
 [colors]
-selection-background = '#515151' # base02
-selection-foreground = '#cccccc' # base05
+selection-background = '#cccccc' # base05
+selection-foreground = '#515151' # base02
 
 cursor         = '#cccccc' # base05
 tabs           = '#393939' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#515151' # base02
 
 background     = '#2d2d2d' # base00
 foreground     = '#cccccc' # base05
-black          = '#393939' # base01
+black          = '#2d2d2d' # base00
 red            = '#f2777a' # base08
 yellow         = '#ffcc66' # base0A
 green          = '#99cc99' # base0B
 cyan           = '#66cccc' # base0C
 blue           = '#6699cc' # base0D
 magenta        = '#cc99cc' # base0E
-white          = '#e0e0e0' # base06
+white          = '#cccccc' # base05
 
 dim-foreground   = '#cccccc' # base05
 dim-black        = '#393939' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#cc99cc' # base0E
 dim-white        = '#b4b7b4' # base04
 
 light-foreground = '#cccccc' # base05
-light-black      = '#515151' # base02
+light-black      = '#999999' # base03
 light-red        = '#f2777a' # base08
 light-yellow     = '#ffcc66' # base0A
 light-green      = '#99cc99' # base0B

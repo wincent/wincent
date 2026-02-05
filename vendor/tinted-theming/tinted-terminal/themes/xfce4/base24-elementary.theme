@@ -5,6 +5,6 @@
 Name=base24-elementary
 ColorForeground=#c5c5c5
 ColorBackground=#181818
-ColorCursor=x
+ColorCursor=#c5c5c5
 ColorBoldIsBright=FALSE
-ColorPalette=#242424;#d61b15;#59a413;#0855fe;#053a8c;#e40038;#2594e0;#eeeeee;#4a4a4a;#fb1b18;#6ac118;#fdc70e;#0855fe;#fb004f;#3ea7fc;#8c00eb
+ColorPalette=#181818;#d61b15;#59a413;#0855fe;#053a8c;#e40038;#2594e0;#c5c5c5;#737373;#fb1b18;#6ac118;#fdc70e;#0855fe;#fb004f;#3ea7fc;#8c00eb

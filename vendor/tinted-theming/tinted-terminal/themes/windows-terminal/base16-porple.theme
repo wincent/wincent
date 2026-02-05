@@ -3,9 +3,9 @@
 	"name": "Porple",
 	"foreground": "#d8d8d8",
 	"background": "#292c36",
-	"black": "#333344",
+	"black": "#292c36",
 	"blue": "#8485ce",
-	"brightBlack": "#474160",
+	"brightBlack": "#65568a",
 	"brightBlue": "#8485ce",
 	"brightCyan": "#64878f",
 	"brightGreen": "#95c76f",
@@ -17,6 +17,6 @@
 	"green": "#95c76f",
 	"purple": "#b74989",
 	"red": "#f84547",
-	"white": "#e8e8e8",
-	"yellow": "#d28e5d"
+	"white": "#d8d8d8",
+	"yellow": "#efa16b"
 },

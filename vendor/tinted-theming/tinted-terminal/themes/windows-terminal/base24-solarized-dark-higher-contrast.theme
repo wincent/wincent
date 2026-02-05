@@ -3,9 +3,9 @@
 	"name": "Solarized Dark Higher Contrast",
 	"foreground": "#aec2ba",
 	"background": "#001e26",
-	"black": "#002731",
+	"black": "#001e26",
 	"blue": "#2075c7",
-	"brightBlack": "#006388",
+	"brightBlack": "#3a8298",
 	"brightBlue": "#178dc7",
 	"brightCyan": "#00b29e",
 	"brightGreen": "#50ee84",
@@ -17,6 +17,6 @@
 	"green": "#6bbe6c",
 	"purple": "#c61b6e",
 	"red": "#d01b24",
-	"white": "#e9e2cb",
-	"yellow": "#a57705"
+	"white": "#aec2ba",
+	"yellow": "#178dc7"
 },

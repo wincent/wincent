@@ -2,8 +2,8 @@
 # Color scheme: Horizon Terminal Dark by Michaël Ball (http://github.com/michael-ball/)
 
 [colors]
-selection-background = '#2e303e' # base02
-selection-foreground = '#cbced0' # base05
+selection-background = '#cbced0' # base05
+selection-foreground = '#2e303e' # base02
 
 cursor         = '#cbced0' # base05
 tabs           = '#232530' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#2e303e' # base02
 
 background     = '#1c1e26' # base00
 foreground     = '#cbced0' # base05
-black          = '#232530' # base01
+black          = '#1c1e26' # base00
 red            = '#e95678' # base08
 yellow         = '#fac29a' # base0A
 green          = '#29d398' # base0B
 cyan           = '#59e1e3' # base0C
 blue           = '#26bbd9' # base0D
 magenta        = '#ee64ac' # base0E
-white          = '#dcdfe4' # base06
+white          = '#cbced0' # base05
 
 dim-foreground   = '#cbced0' # base05
 dim-black        = '#232530' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#ee64ac' # base0E
 dim-white        = '#9da0a2' # base04
 
 light-foreground = '#cbced0' # base05
-light-black      = '#2e303e' # base02
+light-black      = '#6f6f70' # base03
 light-red        = '#e95678' # base08
 light-yellow     = '#fac29a' # base0A
 light-green      = '#29d398' # base0B

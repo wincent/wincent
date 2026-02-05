@@ -2,8 +2,8 @@
 # Color scheme: Hardcore by Chris Caller
 
 [colors]
-selection-background = '#353535' # base02
-selection-foreground = '#cdcdcd' # base05
+selection-background = '#cdcdcd' # base05
+selection-foreground = '#353535' # base02
 
 cursor         = '#cdcdcd' # base05
 tabs           = '#303030' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#353535' # base02
 
 background     = '#212121' # base00
 foreground     = '#cdcdcd' # base05
-black          = '#303030' # base01
+black          = '#212121' # base00
 red            = '#f92672' # base08
 yellow         = '#e6db74' # base0A
 green          = '#a6e22e' # base0B
 cyan           = '#708387' # base0C
 blue           = '#66d9ef' # base0D
 magenta        = '#9e6ffe' # base0E
-white          = '#e5e5e5' # base06
+white          = '#cdcdcd' # base05
 
 dim-foreground   = '#cdcdcd' # base05
 dim-black        = '#303030' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#9e6ffe' # base0E
 dim-white        = '#707070' # base04
 
 light-foreground = '#cdcdcd' # base05
-light-black      = '#353535' # base02
+light-black      = '#4a4a4a' # base03
 light-red        = '#f92672' # base08
 light-yellow     = '#e6db74' # base0A
 light-green      = '#a6e22e' # base0B

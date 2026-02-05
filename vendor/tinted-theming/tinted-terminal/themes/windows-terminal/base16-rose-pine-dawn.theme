@@ -3,9 +3,9 @@
 	"name": "Rosé Pine Dawn",
 	"foreground": "#575279",
 	"background": "#faf4ed",
-	"black": "#fffaf3",
+	"black": "#faf4ed",
 	"blue": "#907aa9",
-	"brightBlack": "#f2e9de",
+	"brightBlack": "#9893a5",
 	"brightBlue": "#907aa9",
 	"brightCyan": "#56949f",
 	"brightGreen": "#286983",
@@ -18,5 +18,5 @@
 	"purple": "#ea9d34",
 	"red": "#b4637a",
 	"white": "#575279",
-	"yellow": "#ea9d34"
+	"yellow": "#d7827e"
 },

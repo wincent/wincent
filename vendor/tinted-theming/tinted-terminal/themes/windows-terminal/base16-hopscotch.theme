@@ -3,9 +3,9 @@
 	"name": "Hopscotch",
 	"foreground": "#b9b5b8",
 	"background": "#322931",
-	"black": "#433b42",
+	"black": "#322931",
 	"blue": "#1290bf",
-	"brightBlack": "#5c545b",
+	"brightBlack": "#797379",
 	"brightBlue": "#1290bf",
 	"brightCyan": "#149b93",
 	"brightGreen": "#8fc13e",
@@ -17,6 +17,6 @@
 	"green": "#8fc13e",
 	"purple": "#c85e7c",
 	"red": "#dd464c",
-	"white": "#d5d3d5",
-	"yellow": "#fd8b19"
+	"white": "#b9b5b8",
+	"yellow": "#fdcc59"
 },

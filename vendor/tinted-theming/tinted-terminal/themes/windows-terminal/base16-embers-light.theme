@@ -3,9 +3,9 @@
 	"name": "Embers Light",
 	"foreground": "#323b43",
 	"background": "#d1d6db",
-	"black": "#aeb6be",
+	"black": "#d1d6db",
 	"blue": "#82576d",
-	"brightBlack": "#909aa3",
+	"brightBlack": "#75808a",
 	"brightBlue": "#82576d",
 	"brightCyan": "#826d57",
 	"brightGreen": "#6d8257",
@@ -17,6 +17,6 @@
 	"green": "#6d8257",
 	"purple": "#6d5782",
 	"red": "#576d82",
-	"white": "#20262c",
-	"yellow": "#578282"
+	"white": "#323b43",
+	"yellow": "#57826d"
 },

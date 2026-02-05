@@ -5,6 +5,6 @@
 Name=base24-forest-blue
 ColorForeground=#b8b1a9
 ColorBackground=#051519
-ColorCursor=x
+ColorCursor=#b8b1a9
 ColorBoldIsBright=FALSE
-ColorPalette=#333333;#f8818e;#92d3a2;#39a7a2;#8ed0ce;#5e468c;#31658c;#e2d8cd;#3d3d3d;#fb3d66;#6bb48d;#2fc859;#39a7a2;#7e62b3;#6096bf;#e2d8cd
+ColorPalette=#051519;#f8818e;#92d3a2;#39a7a2;#8ed0ce;#5e468c;#31658c;#b8b1a9;#666361;#fb3d66;#6bb48d;#2fc859;#39a7a2;#7e62b3;#6096bf;#e2d8cd

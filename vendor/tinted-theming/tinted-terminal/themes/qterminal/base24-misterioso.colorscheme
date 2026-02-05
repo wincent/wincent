@@ -8,13 +8,13 @@ Color=56,56,56
 Color=45,55,67
 
 [Color0]
-Color=0,0,0
+Color=45,55,67
 
 [Color0Faint]
 Color=45,55,67
 
 [Color0Intense]
-Color=85,85,85
+Color=120,120,119
 
 [Color1]
 Color=255,66,66
@@ -35,10 +35,10 @@ Color=116,175,104
 Color=116,205,104
 
 [Color3]
-Color=255,173,41
+Color=35,215,215
 
 [Color3Faint]
-Color=255,173,41
+Color=35,215,215
 
 [Color3Intense]
 Color=255,185,41
@@ -71,7 +71,7 @@ Color=35,215,215
 Color=0,237,225
 
 [Color7]
-Color=225,225,224
+Color=190,190,189
 
 [Color7Faint]
 Color=190,190,189
@@ -92,4 +92,3 @@ Color=225,225,224
 Blur=true
 Description=Misterioso
 Opacity=0.95
-

@@ -3,9 +3,9 @@
 	"name": "Chicago Night",
 	"foreground": "#a7b8af",
 	"background": "#1e2a24",
-	"black": "#2a3b32",
+	"black": "#1e2a24",
 	"blue": "#522398",
-	"brightBlack": "#364c40",
+	"brightBlack": "#5f7368",
 	"brightBlue": "#522398",
 	"brightCyan": "#00a1de",
 	"brightGreen": "#009b3a",
@@ -17,6 +17,6 @@
 	"green": "#009b3a",
 	"purple": "#e27ea6",
 	"red": "#c60c30",
-	"white": "#c1cdc7",
-	"yellow": "#f9461c"
+	"white": "#a7b8af",
+	"yellow": "#f9e300"
 },

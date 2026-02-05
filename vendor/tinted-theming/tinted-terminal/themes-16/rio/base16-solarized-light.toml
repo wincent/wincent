@@ -2,8 +2,8 @@
 # Color scheme: Solarized Light by Ethan Schoonover (modified by aramisgithub)
 
 [colors]
-selection-background = '#93a1a1' # base02
-selection-foreground = '#586e75' # base05
+selection-background = '#586e75' # base05
+selection-foreground = '#93a1a1' # base02
 
 cursor         = '#586e75' # base05
 tabs           = '#eee8d5' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#93a1a1' # base02
 
 background     = '#fdf6e3' # base00
 foreground     = '#586e75' # base05
-black          = '#eee8d5' # base01
+black          = '#fdf6e3' # base00
 red            = '#dc322f' # base08
 yellow         = '#b58900' # base0A
 green          = '#859900' # base0B
 cyan           = '#2aa198' # base0C
 blue           = '#268bd2' # base0D
 magenta        = '#6c71c4' # base0E
-white          = '#073642' # base06
+white          = '#586e75' # base05
 
 dim-foreground   = '#586e75' # base05
 dim-black        = '#eee8d5' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#6c71c4' # base0E
 dim-white        = '#657b83' # base04
 
 light-foreground = '#586e75' # base05
-light-black      = '#93a1a1' # base02
+light-black      = '#839496' # base03
 light-red        = '#dc322f' # base08
 light-yellow     = '#b58900' # base0A
 light-green      = '#859900' # base0B

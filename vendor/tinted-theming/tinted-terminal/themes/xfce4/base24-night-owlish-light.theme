@@ -5,6 +5,6 @@
 Name=base24-night-owlish-light
 ColorForeground=#585b5b
 ColorBackground=#ffffff
-ColorCursor=x
+ColorCursor=#585b5b
 ColorBoldIsBright=FALSE
-ColorPalette=#e5e6e6;#d3423e;#2aa298;#dac801;#4876d6;#403f53;#08916a;#3f4141;#cbcdcd;#f76e6e;#49d0c5;#dac26b;#5ca7e4;#697098;#00c990;#011627
+ColorPalette=#ffffff;#d3423e;#2aa298;#dac801;#4876d6;#403f53;#08916a;#585b5b;#b1b4b4;#f76e6e;#49d0c5;#dac26b;#5ca7e4;#697098;#00c990;#011627

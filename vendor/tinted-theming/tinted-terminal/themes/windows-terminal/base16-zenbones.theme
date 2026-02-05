@@ -3,9 +3,9 @@
 	"name": "Zenbones",
 	"foreground": "#b279a7",
 	"background": "#191919",
-	"black": "#de6e7c",
+	"black": "#191919",
 	"blue": "#cf86c1",
-	"brightBlack": "#819b69",
+	"brightBlack": "#b77e64",
 	"brightBlue": "#cf86c1",
 	"brightCyan": "#61abda",
 	"brightGreen": "#d68c67",
@@ -17,6 +17,6 @@
 	"green": "#d68c67",
 	"purple": "#65b8c1",
 	"red": "#3d3839",
-	"white": "#66a5ad",
-	"yellow": "#e8838f"
+	"white": "#b279a7",
+	"yellow": "#8bae68"
 },

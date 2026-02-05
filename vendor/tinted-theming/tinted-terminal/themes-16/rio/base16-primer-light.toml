@@ -2,8 +2,8 @@
 # Color scheme: Primer Light by Jimmy Lin
 
 [colors]
-selection-background = '#d1d5da' # base02
-selection-foreground = '#2f363d' # base05
+selection-background = '#2f363d' # base05
+selection-foreground = '#d1d5da' # base02
 
 cursor         = '#2f363d' # base05
 tabs           = '#e1e4e8' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#d1d5da' # base02
 
 background     = '#fafbfc' # base00
 foreground     = '#2f363d' # base05
-black          = '#e1e4e8' # base01
+black          = '#fafbfc' # base00
 red            = '#d73a49' # base08
 yellow         = '#ffd33d' # base0A
 green          = '#28a745' # base0B
 cyan           = '#79b8ff' # base0C
 blue           = '#0366d6' # base0D
 magenta        = '#ea4aaa' # base0E
-white          = '#24292e' # base06
+white          = '#2f363d' # base05
 
 dim-foreground   = '#2f363d' # base05
 dim-black        = '#e1e4e8' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#ea4aaa' # base0E
 dim-white        = '#444d56' # base04
 
 light-foreground = '#2f363d' # base05
-light-black      = '#d1d5da' # base02
+light-black      = '#959da5' # base03
 light-red        = '#d73a49' # base08
 light-yellow     = '#ffd33d' # base0A
 light-green      = '#28a745' # base0B

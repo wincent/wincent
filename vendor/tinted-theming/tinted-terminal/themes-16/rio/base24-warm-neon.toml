@@ -2,8 +2,8 @@
 # Color scheme: Warm Neon by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#fdfcfc' # base02
-selection-foreground = '#dcc9ba' # base05
+selection-background = '#dcc9ba' # base05
+selection-foreground = '#fdfcfc' # base02
 
 cursor         = '#dcc9ba' # base05
 tabs           = '#000000' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#fdfcfc' # base02
 
 background     = '#3f3f3f' # base00
 foreground     = '#dcc9ba' # base05
-black          = '#000000' # base01
+black          = '#3f3f3f' # base00
 red            = '#e24345' # base08
 yellow         = '#7a90d5' # base0A
 green          = '#38b139' # base0B
 cyan           = '#29bad3' # base0C
 blue           = '#4260c5' # base0D
 magenta        = '#f81ffb' # base0E
-white          = '#d0b8a3' # base06
+white          = '#dcc9ba' # base05
 
 dim-foreground   = '#dcc9ba' # base05
 dim-black        = '#000000' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#f81ffb' # base0E
 dim-white        = '#e7dad0' # base04
 
 light-foreground = '#dcc9ba' # base05
-light-black      = '#fdfcfc' # base02
+light-black      = '#f2ebe6' # base03
 light-red        = '#e86f71' # base12
 light-yellow     = '#ddd979' # base13
 light-green      = '#9bc08f' # base14

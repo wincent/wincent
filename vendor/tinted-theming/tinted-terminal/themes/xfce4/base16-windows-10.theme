@@ -5,6 +5,6 @@
 Name=base16-windows-10
 ColorForeground=#cccccc
 ColorBackground=#0c0c0c
-ColorCursor=x
+ColorCursor=#cccccc
 ColorBoldIsBright=FALSE
-ColorPalette=#2f2f2f;#e74856;#16c60c;#f9f1a5;#3b78ff;#b4009e;#61d6d6;#dfdfdf;#535353;#e74856;#16c60c;#f9f1a5;#3b78ff;#b4009e;#61d6d6;#f2f2f2
+ColorPalette=#0c0c0c;#e74856;#16c60c;#f9f1a5;#3b78ff;#b4009e;#61d6d6;#cccccc;#767676;#e74856;#16c60c;#f9f1a5;#3b78ff;#b4009e;#61d6d6;#f2f2f2

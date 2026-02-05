@@ -5,6 +5,6 @@
 Name=base24-3024-day
 ColorForeground=#928f8e
 ColorBackground=#f7f7f7
-ColorCursor=x
+ColorCursor=#928f8e
 ColorBoldIsBright=FALSE
-ColorPalette=#090300;#db2d20;#01a252;#807d7c;#01a0e4;#a16a94;#b5e4f4;#a5a2a2;#5c5855;#e8bbd0;#3a3432;#4a4543;#807d7c;#d6d5d4;#cdab53;#f7f7f7
+ColorPalette=#f7f7f7;#db2d20;#01a252;#807d7c;#01a0e4;#a16a94;#b5e4f4;#928f8e;#6e6a68;#e8bbd0;#3a3432;#4a4543;#807d7c;#d6d5d4;#cdab53;#f7f7f7

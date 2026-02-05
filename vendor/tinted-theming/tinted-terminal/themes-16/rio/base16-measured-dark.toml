@@ -2,8 +2,8 @@
 # Color scheme: Measured Dark by Measured (https://measured.co)
 
 [colors]
-selection-background = '#005453' # base02
-selection-foreground = '#dcdcdc' # base05
+selection-background = '#dcdcdc' # base05
+selection-foreground = '#005453' # base02
 
 cursor         = '#dcdcdc' # base05
 tabs           = '#003a38' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#005453' # base02
 
 background     = '#00211f' # base00
 foreground     = '#dcdcdc' # base05
-black          = '#003a38' # base01
+black          = '#00211f' # base00
 red            = '#ce7e8e' # base08
 yellow         = '#bfac4e' # base0A
 green          = '#56c16f' # base0B
 cyan           = '#62c0be' # base0C
 blue           = '#88b0da' # base0D
 magenta        = '#b39be0' # base0E
-white          = '#efefef' # base06
+white          = '#dcdcdc' # base05
 
 dim-foreground   = '#dcdcdc' # base05
 dim-black        = '#003a38' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#b39be0' # base0E
 dim-white        = '#c3c3c3' # base04
 
 light-foreground = '#dcdcdc' # base05
-light-black      = '#005453' # base02
+light-black      = '#ababab' # base03
 light-red        = '#ce7e8e' # base08
 light-yellow     = '#bfac4e' # base0A
 light-green      = '#56c16f' # base0B

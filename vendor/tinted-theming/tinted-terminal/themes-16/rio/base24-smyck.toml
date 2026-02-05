@@ -2,8 +2,8 @@
 # Color scheme: Smyck by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#7a7a7a' # base02
-selection-foreground = '#969696' # base05
+selection-background = '#969696' # base05
+selection-foreground = '#7a7a7a' # base02
 
 cursor         = '#969696' # base05
 tabs           = '#000000' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#7a7a7a' # base02
 
 background     = '#1b1b1b' # base00
 foreground     = '#969696' # base05
-black          = '#000000' # base01
+black          = '#1b1b1b' # base00
 red            = '#b74131' # base08
 yellow         = '#8dcff0' # base0A
 green          = '#7da900' # base0B
 cyan           = '#207383' # base0C
 blue           = '#62a3c4' # base0D
 magenta        = '#b98acc' # base0E
-white          = '#a0a0a0' # base06
+white          = '#969696' # base05
 
 dim-foreground   = '#969696' # base05
 dim-black        = '#000000' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#b98acc' # base0E
 dim-white        = '#8d8d8d' # base04
 
 light-foreground = '#969696' # base05
-light-black      = '#7a7a7a' # base02
+light-black      = '#838383' # base03
 light-red        = '#d6837b' # base12
 light-yellow     = '#fee14d' # base13
 light-green      = '#c4f036' # base14

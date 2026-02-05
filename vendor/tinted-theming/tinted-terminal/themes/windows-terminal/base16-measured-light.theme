@@ -3,9 +3,9 @@
 	"name": "Measured Light",
 	"foreground": "#292929",
 	"background": "#fdf9f5",
-	"black": "#f9f5f1",
+	"black": "#fdf9f5",
 	"blue": "#0158ad",
-	"brightBlack": "#ffeada",
+	"brightBlack": "#5a5a5a",
 	"brightBlue": "#0158ad",
 	"brightCyan": "#01716f",
 	"brightGreen": "#0c680c",
@@ -17,6 +17,6 @@
 	"green": "#0c680c",
 	"purple": "#6645c2",
 	"red": "#ac1f35",
-	"white": "#181818",
-	"yellow": "#ad5601"
+	"white": "#292929",
+	"yellow": "#645a00"
 },

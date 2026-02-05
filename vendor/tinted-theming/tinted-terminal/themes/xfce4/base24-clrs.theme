@@ -5,6 +5,6 @@
 Name=base24-clrs
 ColorForeground=#9a9b9a
 ColorBackground=#ffffff
-ColorCursor=x
+ColorCursor=#9a9b9a
 ColorBoldIsBright=FALSE
-ColorPalette=#000000;#f72729;#32895c;#156ffe;#125ccf;#9f00bc;#32c2c0;#b2b2b2;#545753;#fb0416;#2cc631;#fcd627;#156ffe;#e800b0;#39d5ce;#ededec
+ColorPalette=#ffffff;#f72729;#32895c;#156ffe;#125ccf;#9f00bc;#32c2c0;#9a9b9a;#6b6d6a;#fb0416;#2cc631;#fcd627;#156ffe;#e800b0;#39d5ce;#ededec

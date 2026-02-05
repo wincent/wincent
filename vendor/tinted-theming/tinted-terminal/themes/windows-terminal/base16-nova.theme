@@ -3,9 +3,9 @@
 	"name": "Nova",
 	"foreground": "#c5d4dd",
 	"background": "#3c4c55",
-	"black": "#556873",
+	"black": "#3c4c55",
 	"blue": "#83afe5",
-	"brightBlack": "#6a7d89",
+	"brightBlack": "#899ba6",
 	"brightBlue": "#83afe5",
 	"brightCyan": "#f2c38f",
 	"brightGreen": "#7fc1ca",
@@ -17,6 +17,6 @@
 	"green": "#7fc1ca",
 	"purple": "#9a93e1",
 	"red": "#83afe5",
-	"white": "#899ba6",
-	"yellow": "#7fc1ca"
+	"white": "#c5d4dd",
+	"yellow": "#a8ce93"
 },

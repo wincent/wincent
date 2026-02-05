@@ -3,9 +3,9 @@
 	"name": "Firefox Dev",
 	"foreground": "#a5acae",
 	"background": "#0e1011",
-	"black": "#002731",
+	"black": "#0e1011",
 	"blue": "#359ddf",
-	"brightBlack": "#001e26",
+	"brightBlack": "#374d53",
 	"brightBlue": "#006fc0",
 	"brightCyan": "#005794",
 	"brightGreen": "#1d9000",
@@ -17,6 +17,6 @@
 	"green": "#5eb83c",
 	"purple": "#d75cff",
 	"red": "#e63853",
-	"white": "#dcdcdc",
-	"yellow": "#a57705"
+	"white": "#a5acae",
+	"yellow": "#006fc0"
 },

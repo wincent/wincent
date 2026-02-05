@@ -5,6 +5,6 @@
 Name=base24-floraverse
 ColorForeground=#c3af9d
 ColorBackground=#0e0c15
-ColorCursor=x
+ColorCursor=#c3af9d
 ColorBoldIsBright=FALSE
-ColorPalette=#08002e;#64002c;#5d731a;#40a4cf;#1d6da1;#b7077e;#42a38c;#f3e0b8;#331e4d;#d02063;#b4ce59;#fac357;#40a4cf;#f12aae;#62caa8;#fff5db
+ColorPalette=#0e0c15;#64002c;#5d731a;#40a4cf;#1d6da1;#b7077e;#42a38c;#c3af9d;#634e67;#d02063;#b4ce59;#fac357;#40a4cf;#f12aae;#62caa8;#fff5db

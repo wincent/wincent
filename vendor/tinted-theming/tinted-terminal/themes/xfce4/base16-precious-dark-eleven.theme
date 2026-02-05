@@ -5,6 +5,6 @@
 Name=base16-precious-dark-eleven
 ColorForeground=#b8b7b6
 ColorBackground=#1c1e20
-ColorCursor=x
+ColorCursor=#b8b7b6
 ColorBoldIsBright=FALSE
-ColorPalette=#292b2d;#ff8782;#95b658;#d0a543;#68b0ee;#b799fe;#42bda7;#b8b7b6;#37393a;#ff8782;#95b658;#d0a543;#68b0ee;#b799fe;#42bda7;#b8b7b6
+ColorPalette=#1c1e20;#ff8782;#95b658;#d0a543;#68b0ee;#b799fe;#42bda7;#b8b7b6;#858585;#ff8782;#95b658;#d0a543;#68b0ee;#b799fe;#42bda7;#b8b7b6

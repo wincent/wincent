@@ -3,9 +3,9 @@
 	"name": "Summerfruit Dark",
 	"foreground": "#d0d0d0",
 	"background": "#151515",
-	"black": "#202020",
+	"black": "#151515",
 	"blue": "#3777e6",
-	"brightBlack": "#303030",
+	"brightBlack": "#505050",
 	"brightBlue": "#3777e6",
 	"brightCyan": "#1faaaa",
 	"brightGreen": "#00c918",
@@ -17,6 +17,6 @@
 	"green": "#00c918",
 	"purple": "#ad00a1",
 	"red": "#ff0086",
-	"white": "#e0e0e0",
-	"yellow": "#fd8900"
+	"white": "#d0d0d0",
+	"yellow": "#aba800"
 },

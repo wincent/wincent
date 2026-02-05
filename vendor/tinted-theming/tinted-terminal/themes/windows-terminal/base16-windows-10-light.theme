@@ -3,9 +3,9 @@
 	"name": "Windows 10 Light",
 	"foreground": "#767676",
 	"background": "#f2f2f2",
-	"black": "#e5e5e5",
+	"black": "#f2f2f2",
 	"blue": "#0037da",
-	"brightBlack": "#d9d9d9",
+	"brightBlack": "#cccccc",
 	"brightBlue": "#0037da",
 	"brightCyan": "#3a96dd",
 	"brightGreen": "#13a10e",
@@ -17,6 +17,6 @@
 	"green": "#13a10e",
 	"purple": "#881798",
 	"red": "#c50f1f",
-	"white": "#414141",
-	"yellow": "#f9f1a5"
+	"white": "#767676",
+	"yellow": "#c19c00"
 },

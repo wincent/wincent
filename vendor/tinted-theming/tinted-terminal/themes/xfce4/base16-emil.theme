@@ -5,6 +5,6 @@
 Name=base16-emil
 ColorForeground=#313145
 ColorBackground=#efefef
-ColorCursor=x
+ColorCursor=#313145
 ColorBoldIsBright=FALSE
-ColorPalette=#bebed2;#f43979;#0073a8;#ff669b;#471397;#6916b6;#2155d6;#22223a;#9e9eaf;#f43979;#0073a8;#ff669b;#471397;#6916b6;#2155d6;#1a1a2f
+ColorPalette=#efefef;#f43979;#0073a8;#ff669b;#471397;#6916b6;#2155d6;#313145;#7c7c98;#f43979;#0073a8;#ff669b;#471397;#6916b6;#2155d6;#1a1a2f

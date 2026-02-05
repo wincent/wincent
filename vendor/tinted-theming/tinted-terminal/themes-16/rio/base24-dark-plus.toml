@@ -2,8 +2,8 @@
 # Color scheme: Dark Plus by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#666666' # base02
-selection-foreground = '#c5c5c5' # base05
+selection-background = '#c5c5c5' # base05
+selection-foreground = '#666666' # base02
 
 cursor         = '#c5c5c5' # base05
 tabs           = '#000000' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#666666' # base02
 
 background     = '#0e0e0e' # base00
 foreground     = '#c5c5c5' # base05
-black          = '#000000' # base01
+black          = '#0e0e0e' # base00
 red            = '#cd3131' # base08
 yellow         = '#3b8eea' # base0A
 green          = '#0dbc79' # base0B
 cyan           = '#11a8cd' # base0C
 blue           = '#2472c8' # base0D
 magenta        = '#bc3fbc' # base0E
-white          = '#e5e5e5' # base06
+white          = '#c5c5c5' # base05
 
 dim-foreground   = '#c5c5c5' # base05
 dim-black        = '#000000' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#bc3fbc' # base0E
 dim-white        = '#a5a5a5' # base04
 
 light-foreground = '#c5c5c5' # base05
-light-black      = '#666666' # base02
+light-black      = '#858585' # base03
 light-red        = '#f14c4c' # base12
 light-yellow     = '#f5f543' # base13
 light-green      = '#23d18b' # base14

@@ -5,6 +5,6 @@
 Name=base16-summerfruit-light
 ColorForeground=#101010
 ColorBackground=#ffffff
-ColorCursor=x
+ColorCursor=#101010
 ColorBoldIsBright=FALSE
-ColorPalette=#e0e0e0;#ff0086;#00c918;#aba800;#3777e6;#ad00a1;#1faaaa;#151515;#d0d0d0;#ff0086;#00c918;#aba800;#3777e6;#ad00a1;#1faaaa;#202020
+ColorPalette=#ffffff;#ff0086;#00c918;#aba800;#3777e6;#ad00a1;#1faaaa;#101010;#b0b0b0;#ff0086;#00c918;#aba800;#3777e6;#ad00a1;#1faaaa;#202020

@@ -5,6 +5,6 @@
 Name=base16-isotope
 ColorForeground=#d0d0d0
 ColorBackground=#000000
-ColorCursor=x
+ColorCursor=#d0d0d0
 ColorBoldIsBright=FALSE
-ColorPalette=#404040;#ff0000;#33ff00;#ff0099;#0066ff;#cc00ff;#00ffff;#e0e0e0;#606060;#ff0000;#33ff00;#ff0099;#0066ff;#cc00ff;#00ffff;#ffffff
+ColorPalette=#000000;#ff0000;#33ff00;#ff0099;#0066ff;#cc00ff;#00ffff;#d0d0d0;#808080;#ff0000;#33ff00;#ff0099;#0066ff;#cc00ff;#00ffff;#ffffff

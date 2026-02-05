@@ -3,9 +3,9 @@
 	"name": "Stella",
 	"foreground": "#998bad",
 	"background": "#2b213c",
-	"black": "#362b48",
+	"black": "#2b213c",
 	"blue": "#a5aad4",
-	"brightBlack": "#4d4160",
+	"brightBlack": "#655978",
 	"brightBlue": "#a5aad4",
 	"brightCyan": "#9bc7bf",
 	"brightGreen": "#acc79b",
@@ -17,6 +17,6 @@
 	"green": "#acc79b",
 	"purple": "#c594ff",
 	"red": "#c79987",
-	"white": "#b4a5c8",
-	"yellow": "#8865c6"
+	"white": "#998bad",
+	"yellow": "#c7c691"
 },

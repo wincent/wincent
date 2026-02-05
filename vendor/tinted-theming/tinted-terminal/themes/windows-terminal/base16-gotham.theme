@@ -3,9 +3,9 @@
 	"name": "Gotham",
 	"foreground": "#599cab",
 	"background": "#0c1014",
-	"black": "#11151c",
+	"black": "#0c1014",
 	"blue": "#195466",
-	"brightBlack": "#091f2e",
+	"brightBlack": "#0a3749",
 	"brightBlue": "#195466",
 	"brightCyan": "#2aa889",
 	"brightGreen": "#33859e",
@@ -17,6 +17,6 @@
 	"green": "#33859e",
 	"purple": "#888ca6",
 	"red": "#c23127",
-	"white": "#99d1ce",
-	"yellow": "#d26937"
+	"white": "#599cab",
+	"yellow": "#edb443"
 },

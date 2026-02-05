@@ -3,9 +3,9 @@
 	"name": "OneDark Dark",
 	"foreground": "#abb2bf",
 	"background": "#000000",
-	"black": "#1c1f24",
+	"black": "#000000",
 	"blue": "#61afef",
-	"brightBlack": "#2c313a",
+	"brightBlack": "#434852",
 	"brightBlue": "#61afef",
 	"brightCyan": "#2bbac5",
 	"brightGreen": "#89ca78",
@@ -17,6 +17,6 @@
 	"green": "#89ca78",
 	"purple": "#d55fde",
 	"red": "#ef596f",
-	"white": "#b6bdca",
-	"yellow": "#d19a66"
+	"white": "#abb2bf",
+	"yellow": "#e5c07b"
 },

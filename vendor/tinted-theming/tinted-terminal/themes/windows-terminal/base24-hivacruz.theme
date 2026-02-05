@@ -3,9 +3,9 @@
 	"name": "Hivacruz",
 	"foreground": "#8c92ac",
 	"background": "#132537",
-	"black": "#202746",
+	"black": "#132537",
 	"blue": "#3d8fd1",
-	"brightBlack": "#6b7394",
+	"brightBlack": "#767d9c",
 	"brightBlue": "#898ea4",
 	"brightCyan": "#9c637a",
 	"brightGreen": "#73ad43",
@@ -17,6 +17,6 @@
 	"green": "#ac9739",
 	"purple": "#6679cc",
 	"red": "#c94922",
-	"white": "#979db4",
-	"yellow": "#c08b30"
+	"white": "#8c92ac",
+	"yellow": "#898ea4"
 },

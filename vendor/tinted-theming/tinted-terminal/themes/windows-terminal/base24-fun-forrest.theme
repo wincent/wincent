@@ -3,9 +3,9 @@
 	"name": "Fun Forrest",
 	"foreground": "#c5ab60",
 	"background": "#241200",
-	"black": "#000000",
+	"black": "#241200",
 	"blue": "#4698a2",
-	"brightBlack": "#7e6954",
+	"brightBlack": "#957f58",
 	"brightBlue": "#7cc9ce",
 	"brightCyan": "#e6a96b",
 	"brightGreen": "#bfc659",
@@ -17,6 +17,6 @@
 	"green": "#909b00",
 	"purple": "#8c4231",
 	"red": "#d5252b",
-	"white": "#ddc165",
-	"yellow": "#bd8a13"
+	"white": "#c5ab60",
+	"yellow": "#7cc9ce"
 },

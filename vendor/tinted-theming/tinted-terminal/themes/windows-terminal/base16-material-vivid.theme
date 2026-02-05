@@ -3,9 +3,9 @@
 	"name": "Material Vivid",
 	"foreground": "#80868b",
 	"background": "#202124",
-	"black": "#27292c",
+	"black": "#202124",
 	"blue": "#2196f3",
-	"brightBlack": "#323639",
+	"brightBlack": "#44464d",
 	"brightBlue": "#2196f3",
 	"brightCyan": "#00bcd4",
 	"brightGreen": "#00e676",
@@ -17,6 +17,6 @@
 	"green": "#00e676",
 	"purple": "#673ab7",
 	"red": "#f44336",
-	"white": "#9e9e9e",
-	"yellow": "#ff9800"
+	"white": "#80868b",
+	"yellow": "#ffeb3b"
 },

@@ -8,13 +8,13 @@ Color=24,24,24
 Color=0,0,0
 
 [Color0]
-Color=87,87,87
+Color=0,0,0
 
 [Color0Faint]
 Color=0,0,0
 
 [Color0Intense]
-Color=37,37,37
+Color=78,78,78
 
 [Color1]
 Color=255,27,0
@@ -35,10 +35,10 @@ Color=165,223,85
 Color=165,223,85
 
 [Color3]
-Color=251,231,74
+Color=137,189,255
 
 [Color3Faint]
-Color=251,231,74
+Color=137,189,255
 
 [Color3Intense]
 Color=251,231,73
@@ -71,7 +71,7 @@ Color=133,233,254
 Color=133,233,254
 
 [Color7]
-Color=203,203,203
+Color=161,161,161
 
 [Color7Faint]
 Color=161,161,161
@@ -92,4 +92,3 @@ Color=203,203,203
 Blur=true
 Description=Hurtado
 Opacity=0.95
-

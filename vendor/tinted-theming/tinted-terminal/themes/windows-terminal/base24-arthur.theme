@@ -3,9 +3,9 @@
 	"name": "Arthur",
 	"foreground": "#a19083",
 	"background": "#1c1c1c",
-	"black": "#3d352a",
+	"black": "#1c1c1c",
 	"blue": "#6495ed",
-	"brightBlack": "#554444",
+	"brightBlack": "#6e5d59",
 	"brightBlue": "#87ceeb",
 	"brightCyan": "#b0c4de",
 	"brightGreen": "#88aa22",
@@ -17,6 +17,6 @@
 	"green": "#86af80",
 	"purple": "#deb887",
 	"red": "#cd5c5c",
-	"white": "#bbaa99",
-	"yellow": "#e8ae5b"
+	"white": "#a19083",
+	"yellow": "#87ceeb"
 },

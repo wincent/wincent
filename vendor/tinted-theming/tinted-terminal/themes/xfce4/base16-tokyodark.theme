@@ -5,6 +5,6 @@
 Name=base16-tokyodark
 ColorForeground=#a0a8cd
 ColorBackground=#11121d
-ColorCursor=x
+ColorCursor=#a0a8cd
 ColorBoldIsBright=FALSE
-ColorPalette=#212234;#ee6d85;#95c561;#d7a65f;#7199ee;#a485dd;#9fbbf3;#abb2bf;#212234;#ee6d85;#95c561;#d7a65f;#7199ee;#a485dd;#9fbbf3;#bcc2dc
+ColorPalette=#11121d;#ee6d85;#95c561;#d7a65f;#7199ee;#a485dd;#9fbbf3;#a0a8cd;#353945;#ee6d85;#95c561;#d7a65f;#7199ee;#a485dd;#9fbbf3;#bcc2dc

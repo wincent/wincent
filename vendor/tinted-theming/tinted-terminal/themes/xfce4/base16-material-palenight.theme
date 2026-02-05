@@ -5,6 +5,6 @@
 Name=base16-material-palenight
 ColorForeground=#959dcb
 ColorBackground=#292d3e
-ColorCursor=x
+ColorCursor=#959dcb
 ColorBoldIsBright=FALSE
-ColorPalette=#444267;#f07178;#c3e88d;#ffcb6b;#82aaff;#c792ea;#89ddff;#959dcb;#32374d;#f07178;#c3e88d;#ffcb6b;#82aaff;#c792ea;#89ddff;#ffffff
+ColorPalette=#292d3e;#f07178;#c3e88d;#ffcb6b;#82aaff;#c792ea;#89ddff;#959dcb;#676e95;#f07178;#c3e88d;#ffcb6b;#82aaff;#c792ea;#89ddff;#ffffff

@@ -5,6 +5,6 @@
 Name=base16-oceanicnext
 ColorForeground=#c0c5ce
 ColorBackground=#1b2b34
-ColorCursor=x
+ColorCursor=#c0c5ce
 ColorBoldIsBright=FALSE
-ColorPalette=#343d46;#ec5f67;#99c794;#fac863;#6699cc;#c594c5;#5fb3b3;#cdd3de;#4f5b66;#ec5f67;#99c794;#fac863;#6699cc;#c594c5;#5fb3b3;#d8dee9
+ColorPalette=#1b2b34;#ec5f67;#99c794;#fac863;#6699cc;#c594c5;#5fb3b3;#c0c5ce;#65737e;#ec5f67;#99c794;#fac863;#6699cc;#c594c5;#5fb3b3;#d8dee9

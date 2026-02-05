@@ -8,13 +8,13 @@ Color=65,67,68
 Color=36,39,40
 
 [Color0]
-Color=35,38,40
+Color=36,39,40
 
 [Color0Faint]
 Color=36,39,40
 
 [Color0Intense]
-Color=98,101,102
+Color=129,132,132
 
 [Color1]
 Color=255,0,144
@@ -35,10 +35,10 @@ Color=181,255,0
 Color=222,255,139
 
 [Color3]
-Color=255,247,39
+Color=127,235,255
 
 [Color3Faint]
-Color=255,247,39
+Color=127,235,255
 
 [Color3Intense]
 Color=235,223,134
@@ -71,7 +71,7 @@ Color=14,255,187
 Color=104,252,210
 
 [Color7]
-Color=225,225,225
+Color=193,194,194
 
 [Color7Faint]
 Color=193,194,194

@@ -1,0 +1,58 @@
+# base24 Kanagawa Dragon 256 - alacritty color config
+# Stefan Weigl-Bosker (https://github.com/sweiglbosker), Tommaso Laurenzi (https://github.com/rebelot/kanagawa.nvim)
+
+# Default colors
+[colors.primary]
+background = '0x181616'
+foreground = '0xc5c9c5'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x181616'
+cursor = '0xc5c9c5'
+
+# Normal colors
+[colors.normal]
+black = '0x181616'
+red = '0xc4746e'
+green = '0x8a9a7b'
+yellow = '0xc4b28a'
+blue = '0x8ba4b0'
+magenta = '0xa292a3'
+cyan = '0x8ea4a2'
+white = '0xc5c9c5'
+
+# Bright colors
+[colors.bright]
+black = '0x625e5a'
+red = '0xe46876'
+green = '0x87a987'
+yellow = '0xe6c384'
+blue = '0x7fb4ca'
+magenta = '0x938aa9'
+cyan = '0x7aa89f'
+white = '0xc5c9c5'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xb6927b"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xb98d7b"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x282727"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x393836"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x737c73"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xc8c093"

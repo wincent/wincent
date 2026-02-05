@@ -2,8 +2,8 @@
 # Color scheme: Jet Brains Darcula by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#555555' # base02
-selection-foreground = '#979797' # base05
+selection-background = '#979797' # base05
+selection-foreground = '#555555' # base02
 
 cursor         = '#979797' # base05
 tabs           = '#000000' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#555555' # base02
 
 background     = '#202020' # base00
 foreground     = '#979797' # base05
-black          = '#000000' # base01
+black          = '#202020' # base00
 red            = '#fa5355' # base08
 yellow         = '#6d9df1' # base0A
 green          = '#126e00' # base0B
 cyan           = '#33c2c1' # base0C
 blue           = '#4581eb' # base0D
 magenta        = '#fa54ff' # base0E
-white          = '#adadad' # base06
+white          = '#979797' # base05
 
 dim-foreground   = '#979797' # base05
 dim-black        = '#000000' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#fa54ff' # base0E
 dim-white        = '#818181' # base04
 
 light-foreground = '#979797' # base05
-light-black      = '#555555' # base02
+light-black      = '#6b6b6b' # base03
 light-red        = '#fb7172' # base12
 light-yellow     = '#ffff00' # base13
 light-green      = '#67ff4f' # base14

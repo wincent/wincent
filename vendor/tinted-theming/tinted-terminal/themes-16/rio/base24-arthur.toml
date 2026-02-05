@@ -2,8 +2,8 @@
 # Color scheme: Arthur by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#554444' # base02
-selection-foreground = '#a19083' # base05
+selection-background = '#a19083' # base05
+selection-foreground = '#554444' # base02
 
 cursor         = '#a19083' # base05
 tabs           = '#3d352a' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#554444' # base02
 
 background     = '#1c1c1c' # base00
 foreground     = '#a19083' # base05
-black          = '#3d352a' # base01
+black          = '#1c1c1c' # base00
 red            = '#cd5c5c' # base08
 yellow         = '#87ceeb' # base0A
 green          = '#86af80' # base0B
 cyan           = '#b0c4de' # base0C
 blue           = '#6495ed' # base0D
 magenta        = '#deb887' # base0E
-white          = '#bbaa99' # base06
+white          = '#a19083' # base05
 
 dim-foreground   = '#a19083' # base05
 dim-black        = '#3d352a' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#deb887' # base0E
 dim-white        = '#88776e' # base04
 
 light-foreground = '#a19083' # base05
-light-black      = '#554444' # base02
+light-black      = '#6e5d59' # base03
 light-red        = '#cc5533' # base12
 light-yellow     = '#ffa75d' # base13
 light-green      = '#88aa22' # base14

@@ -2,8 +2,8 @@
 # Color scheme: Material by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#424242' # base02
-selection-foreground = '#c3c3c3' # base05
+selection-background = '#c3c3c3' # base05
+selection-foreground = '#424242' # base02
 
 cursor         = '#c3c3c3' # base05
 tabs           = '#212121' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#424242' # base02
 
 background     = '#eaeaea' # base00
 foreground     = '#c3c3c3' # base05
-black          = '#212121' # base01
+black          = '#eaeaea' # base00
 red            = '#b7141e' # base08
 yellow         = '#53a4f3' # base0A
 green          = '#457b23' # base0B
 cyan           = '#0e707c' # base0C
 blue           = '#134eb2' # base0D
 magenta        = '#550087' # base0E
-white          = '#eeeeee' # base06
+white          = '#c3c3c3' # base05
 
 dim-foreground   = '#c3c3c3' # base05
 dim-black        = '#212121' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#550087' # base0E
 dim-white        = '#989898' # base04
 
 light-foreground = '#c3c3c3' # base05
-light-black      = '#424242' # base02
+light-black      = '#6d6d6d' # base03
 light-red        = '#e83a3f' # base12
 light-yellow     = '#fee92e' # base13
 light-green      = '#7aba39' # base14

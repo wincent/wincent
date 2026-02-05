@@ -2,8 +2,8 @@
 # Color scheme: Tokyo Night Dark by Michaël Ball, based on Tokyo Night by enkia (https://github.com/enkia/tokyo-night-vscode-theme)
 
 [colors]
-selection-background = '#2f3549' # base02
-selection-foreground = '#a9b1d6' # base05
+selection-background = '#a9b1d6' # base05
+selection-foreground = '#2f3549' # base02
 
 cursor         = '#a9b1d6' # base05
 tabs           = '#16161e' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#2f3549' # base02
 
 background     = '#1a1b26' # base00
 foreground     = '#a9b1d6' # base05
-black          = '#16161e' # base01
+black          = '#1a1b26' # base00
 red            = '#c0caf5' # base08
 yellow         = '#0db9d7' # base0A
 green          = '#9ece6a' # base0B
 cyan           = '#b4f9f8' # base0C
 blue           = '#2ac3de' # base0D
 magenta        = '#bb9af7' # base0E
-white          = '#cbccd1' # base06
+white          = '#a9b1d6' # base05
 
 dim-foreground   = '#a9b1d6' # base05
 dim-black        = '#16161e' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#bb9af7' # base0E
 dim-white        = '#787c99' # base04
 
 light-foreground = '#a9b1d6' # base05
-light-black      = '#2f3549' # base02
+light-black      = '#444b6a' # base03
 light-red        = '#ff7a93' # base12
 light-yellow     = '#ff9e64' # base13
 light-green      = '#73daca' # base14

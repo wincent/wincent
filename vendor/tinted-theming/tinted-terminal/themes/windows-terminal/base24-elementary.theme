@@ -3,9 +3,9 @@
 	"name": "Elementary",
 	"foreground": "#c5c5c5",
 	"background": "#181818",
-	"black": "#242424",
+	"black": "#181818",
 	"blue": "#053a8c",
-	"brightBlack": "#4a4a4a",
+	"brightBlack": "#737373",
 	"brightBlue": "#0855fe",
 	"brightCyan": "#3ea7fc",
 	"brightGreen": "#6ac118",
@@ -17,6 +17,6 @@
 	"green": "#59a413",
 	"purple": "#e40038",
 	"red": "#d61b15",
-	"white": "#eeeeee",
-	"yellow": "#fdb40b"
+	"white": "#c5c5c5",
+	"yellow": "#0855fe"
 },

@@ -3,9 +3,9 @@
 	"name": "Unikitty Light",
 	"foreground": "#6c696e",
 	"background": "#ffffff",
-	"black": "#e1e1e2",
+	"black": "#ffffff",
 	"blue": "#775dff",
-	"brightBlack": "#c4c3c5",
+	"brightBlack": "#a7a5a8",
 	"brightBlue": "#775dff",
 	"brightCyan": "#149bda",
 	"brightGreen": "#17ad98",
@@ -17,6 +17,6 @@
 	"green": "#17ad98",
 	"purple": "#aa17e6",
 	"red": "#d8137f",
-	"white": "#4f4b51",
-	"yellow": "#d65407"
+	"white": "#6c696e",
+	"yellow": "#dc8a0e"
 },

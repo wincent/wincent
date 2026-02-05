@@ -5,6 +5,6 @@
 Name=base16-ayu-light
 ColorForeground=#5c6166
 ColorBackground=#f8f9fa
-ColorCursor=x
+ColorCursor=#5c6166
 ColorBoldIsBright=FALSE
-ColorPalette=#edeff1;#f07171;#6cbf49;#f2ae49;#399ee6;#a37acc;#4cbf99;#4e5257;#d2d4d8;#f07171;#6cbf49;#f2ae49;#399ee6;#a37acc;#4cbf99;#404447
+ColorPalette=#f8f9fa;#f07171;#6cbf49;#f2ae49;#399ee6;#a37acc;#4cbf99;#5c6166;#a0a6ac;#f07171;#6cbf49;#f2ae49;#399ee6;#a37acc;#4cbf99;#404447

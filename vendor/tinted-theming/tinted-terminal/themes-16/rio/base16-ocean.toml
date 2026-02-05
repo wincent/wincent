@@ -2,8 +2,8 @@
 # Color scheme: Ocean by Chris Kempson (http://chriskempson.com)
 
 [colors]
-selection-background = '#4f5b66' # base02
-selection-foreground = '#c0c5ce' # base05
+selection-background = '#c0c5ce' # base05
+selection-foreground = '#4f5b66' # base02
 
 cursor         = '#c0c5ce' # base05
 tabs           = '#343d46' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#4f5b66' # base02
 
 background     = '#2b303b' # base00
 foreground     = '#c0c5ce' # base05
-black          = '#343d46' # base01
+black          = '#2b303b' # base00
 red            = '#bf616a' # base08
 yellow         = '#ebcb8b' # base0A
 green          = '#a3be8c' # base0B
 cyan           = '#96b5b4' # base0C
 blue           = '#8fa1b3' # base0D
 magenta        = '#b48ead' # base0E
-white          = '#dfe1e8' # base06
+white          = '#c0c5ce' # base05
 
 dim-foreground   = '#c0c5ce' # base05
 dim-black        = '#343d46' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#b48ead' # base0E
 dim-white        = '#a7adba' # base04
 
 light-foreground = '#c0c5ce' # base05
-light-black      = '#4f5b66' # base02
+light-black      = '#65737e' # base03
 light-red        = '#bf616a' # base08
 light-yellow     = '#ebcb8b' # base0A
 light-green      = '#a3be8c' # base0B

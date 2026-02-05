@@ -5,6 +5,6 @@
 Name=base16-saga
 ColorForeground=#dce2f7
 ColorBackground=#05080a
-ColorCursor=x
+ColorCursor=#dce2f7
 ColorBoldIsBright=FALSE
-ColorPalette=#0a1014;#ffd4e9;#f7ddff;#fbebc8;#c9fff7;#dcc3f9;#c5edc1;#f8eae7;#0f181e;#ffd4e9;#f7ddff;#fbebc8;#c9fff7;#dcc3f9;#c5edc1;#ccd3fe
+ColorPalette=#05080a;#ffd4e9;#f7ddff;#fbebc8;#c9fff7;#dcc3f9;#c5edc1;#dce2f7;#141f27;#ffd4e9;#f7ddff;#fbebc8;#c9fff7;#dcc3f9;#c5edc1;#ccd3fe

@@ -5,6 +5,6 @@
 Name=base24-banana-blueberry
 ColorForeground=#c6c9cd
 ColorBackground=#191322
-ColorCursor=x
+ColorCursor=#c6c9cd
 ColorBoldIsBright=FALSE
-ColorPalette=#16141e;#ff6a7e;#00bc9b;#91fff3;#22e8df;#dc3969;#55b6c1;#f1f1f1;#485161;#fd9ea1;#97c378;#f9e46a;#91fff3;#da70d5;#bcf2fe;#feffff
+ColorPalette=#191322;#ff6a7e;#00bc9b;#91fff3;#22e8df;#dc3969;#55b6c1;#c6c9cd;#727985;#fd9ea1;#97c378;#f9e46a;#91fff3;#da70d5;#bcf2fe;#feffff

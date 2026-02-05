@@ -3,9 +3,9 @@
 	"name": "Gigavolt",
 	"foreground": "#e9e7e1",
 	"background": "#202126",
-	"black": "#2d303d",
+	"black": "#202126",
 	"blue": "#40bfff",
-	"brightBlack": "#5a576e",
+	"brightBlack": "#a1d2e6",
 	"brightBlue": "#40bfff",
 	"brightCyan": "#fb6acb",
 	"brightGreen": "#f2e6a9",
@@ -17,6 +17,6 @@
 	"green": "#f2e6a9",
 	"purple": "#ae94f9",
 	"red": "#ff661a",
-	"white": "#eff0f9",
-	"yellow": "#19f988"
+	"white": "#e9e7e1",
+	"yellow": "#ffdc2d"
 },

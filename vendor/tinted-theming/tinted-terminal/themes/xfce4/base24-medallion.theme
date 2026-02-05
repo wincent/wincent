@@ -5,6 +5,6 @@
 Name=base24-medallion
 ColorForeground=#aea578
 ColorBackground=#1d1808
-ColorCursor=x
+ColorCursor=#aea578
 ColorBoldIsBright=FALSE
-ColorPalette=#000000;#b54c00;#7c8a16;#abb8ff;#606baf;#8b5990;#906b25;#c9c199;#5e5118;#ff9148;#b1c93a;#ffe449;#abb8ff;#fe9fff;#ffbb51;#fed597
+ColorPalette=#1d1808;#b54c00;#7c8a16;#abb8ff;#606baf;#8b5990;#906b25;#aea578;#786d38;#ff9148;#b1c93a;#ffe449;#abb8ff;#fe9fff;#ffbb51;#fed597

@@ -5,6 +5,6 @@
 Name=base24-bluloco-dark
 ColorForeground=#b1bac9
 ColorBackground=#1e2027
-ColorCursor=x
+ColorCursor=#b1bac9
 ColorBoldIsBright=FALSE
-ColorPalette=#494f5c;#f71041;#23974a;#189ffd;#285afe;#8c62fd;#366f99;#ccd5e4;#60697a;#fb496d;#37bc58;#f6bd47;#189ffd;#fb57f6;#4fabad;#fefefe
+ColorPalette=#1e2027;#f71041;#23974a;#189ffd;#285afe;#8c62fd;#366f99;#b1bac9;#7b8494;#fb496d;#37bc58;#f6bd47;#189ffd;#fb57f6;#4fabad;#fefefe

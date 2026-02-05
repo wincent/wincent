@@ -3,9 +3,9 @@
 	"name": "Google Dark",
 	"foreground": "#c5c8c6",
 	"background": "#1d1f21",
-	"black": "#282a2e",
+	"black": "#1d1f21",
 	"blue": "#3971ed",
-	"brightBlack": "#373b41",
+	"brightBlack": "#969896",
 	"brightBlue": "#3971ed",
 	"brightCyan": "#3971ed",
 	"brightGreen": "#198844",
@@ -17,6 +17,6 @@
 	"green": "#198844",
 	"purple": "#a36ac7",
 	"red": "#cc342b",
-	"white": "#e0e0e0",
-	"yellow": "#f96a38"
+	"white": "#c5c8c6",
+	"yellow": "#fba922"
 },

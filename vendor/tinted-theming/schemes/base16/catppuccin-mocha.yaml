@@ -4,10 +4,10 @@ author: "https://github.com/catppuccin/catppuccin"
 variant: "dark"
 palette:
   base00: "#1e1e2e" # base
-  base01: "#181825" # mantle
-  base02: "#313244" # surface0
-  base03: "#45475a" # surface1
-  base04: "#585b70" # surface2
+  base01: "#313244" # surface0
+  base02: "#45475a" # surface1
+  base03: "#6c7086" # overlay0
+  base04: "#a6adc8" # subtext0
   base05: "#cdd6f4" # text
   base06: "#f5e0dc" # rosewater
   base07: "#b4befe" # lavender

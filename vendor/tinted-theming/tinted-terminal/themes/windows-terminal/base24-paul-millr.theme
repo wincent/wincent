@@ -3,9 +3,9 @@
 	"name": "Paul Millr",
 	"foreground": "#a5a5a5",
 	"background": "#000000",
-	"black": "#2a2a2a",
+	"black": "#000000",
 	"blue": "#386bd7",
-	"brightBlack": "#666666",
+	"brightBlack": "#7b7b7b",
 	"brightBlue": "#709aed",
 	"brightCyan": "#79dff2",
 	"brightGreen": "#66ff66",
@@ -17,6 +17,6 @@
 	"green": "#79ff0f",
 	"purple": "#b349be",
 	"red": "#ff0000",
-	"white": "#bbbbbb",
-	"yellow": "#e7bf00"
+	"white": "#a5a5a5",
+	"yellow": "#709aed"
 },

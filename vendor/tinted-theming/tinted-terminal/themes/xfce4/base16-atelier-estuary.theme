@@ -5,6 +5,6 @@
 Name=base16-atelier-estuary
 ColorForeground=#929181
 ColorBackground=#22221b
-ColorCursor=x
+ColorCursor=#929181
 ColorBoldIsBright=FALSE
-ColorPalette=#302f27;#ba6236;#7d9726;#a5980d;#36a166;#5f9182;#5b9d48;#e7e6df;#5f5e4e;#ba6236;#7d9726;#a5980d;#36a166;#5f9182;#5b9d48;#f4f3ec
+ColorPalette=#22221b;#ba6236;#7d9726;#a5980d;#36a166;#5f9182;#5b9d48;#929181;#6c6b5a;#ba6236;#7d9726;#a5980d;#36a166;#5f9182;#5b9d48;#f4f3ec

@@ -5,6 +5,6 @@
 Name=base24-night-lion-v2
 ColorForeground=#a1a1a1
 ColorBackground=#171717
-ColorCursor=x
+ColorCursor=#a1a1a1
 ColorBoldIsBright=FALSE
-ColorPalette=#4c4c4c;#bb0000;#03f622;#62cae7;#63d0f0;#ce6fda;#00d9df;#bbbbbb;#555555;#ff5555;#7df61c;#ffff55;#62cae7;#ff9af5;#00ccd7;#ffffff
+ColorPalette=#171717;#bb0000;#03f622;#62cae7;#63d0f0;#ce6fda;#00d9df;#a1a1a1;#6e6e6e;#ff5555;#7df61c;#ffff55;#62cae7;#ff9af5;#00ccd7;#ffffff

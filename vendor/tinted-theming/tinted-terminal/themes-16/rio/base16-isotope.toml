@@ -2,8 +2,8 @@
 # Color scheme: Isotope by Jan T. Sott
 
 [colors]
-selection-background = '#606060' # base02
-selection-foreground = '#d0d0d0' # base05
+selection-background = '#d0d0d0' # base05
+selection-foreground = '#606060' # base02
 
 cursor         = '#d0d0d0' # base05
 tabs           = '#404040' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#606060' # base02
 
 background     = '#000000' # base00
 foreground     = '#d0d0d0' # base05
-black          = '#404040' # base01
+black          = '#000000' # base00
 red            = '#ff0000' # base08
 yellow         = '#ff0099' # base0A
 green          = '#33ff00' # base0B
 cyan           = '#00ffff' # base0C
 blue           = '#0066ff' # base0D
 magenta        = '#cc00ff' # base0E
-white          = '#e0e0e0' # base06
+white          = '#d0d0d0' # base05
 
 dim-foreground   = '#d0d0d0' # base05
 dim-black        = '#404040' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#cc00ff' # base0E
 dim-white        = '#c0c0c0' # base04
 
 light-foreground = '#d0d0d0' # base05
-light-black      = '#606060' # base02
+light-black      = '#808080' # base03
 light-red        = '#ff0000' # base08
 light-yellow     = '#ff0099' # base0A
 light-green      = '#33ff00' # base0B

@@ -5,6 +5,6 @@
 Name=base24-oceanic-material
 ColorForeground=#989898
 ColorBackground=#1c262b
-ColorCursor=x
+ColorCursor=#989898
 ColorBoldIsBright=FALSE
-ColorPalette=#000000;#ee2a29;#3fa33f;#53a4f3;#1d80ef;#8800a0;#16aec9;#a4a4a4;#767676;#dc5b60;#70be71;#fef063;#53a4f3;#a94dbb;#42c6d9;#fffefe
+ColorPalette=#1c262b;#ee2a29;#3fa33f;#53a4f3;#1d80ef;#8800a0;#16aec9;#989898;#818181;#dc5b60;#70be71;#fef063;#53a4f3;#a94dbb;#42c6d9;#fffefe

@@ -3,9 +3,9 @@
 	"name": "Silk Light",
 	"foreground": "#385156",
 	"background": "#e9f1ef",
-	"black": "#ccd4d3",
+	"black": "#e9f1ef",
 	"blue": "#39aac9",
-	"brightBlack": "#90b7b6",
+	"brightBlack": "#5c787b",
 	"brightBlue": "#39aac9",
 	"brightCyan": "#329ca2",
 	"brightGreen": "#6ca38c",
@@ -17,6 +17,6 @@
 	"green": "#6ca38c",
 	"purple": "#6e6582",
 	"red": "#cf432e",
-	"white": "#0e3c46",
-	"yellow": "#d27f46"
+	"white": "#385156",
+	"yellow": "#cfad25"
 },

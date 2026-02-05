@@ -2,8 +2,8 @@
 # Color scheme: lime by limelier
 
 [colors]
-selection-background = '#2a2a3f' # base02
-selection-foreground = '#818175' # base05
+selection-background = '#818175' # base05
+selection-foreground = '#2a2a3f' # base02
 
 cursor         = '#818175' # base05
 tabs           = '#202030' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#2a2a3f' # base02
 
 background     = '#1a1a2f' # base00
 foreground     = '#818175' # base05
-black          = '#202030' # base01
+black          = '#1a1a2f' # base00
 red            = '#ff662a' # base08
 yellow         = '#ffd15e' # base0A
 green          = '#8cd97c' # base0B
 cyan           = '#4cad83' # base0C
 blue           = '#2b926f' # base0D
 magenta        = '#1b825f' # base0E
-white          = '#fff2d1' # base06
+white          = '#818175' # base05
 
 dim-foreground   = '#818175' # base05
 dim-black        = '#202030' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#1b825f' # base0E
 dim-white        = '#515155' # base04
 
 light-foreground = '#818175' # base05
-light-black      = '#2a2a3f' # base02
+light-black      = '#313140' # base03
 light-red        = '#ff662a' # base08
 light-yellow     = '#ffd15e' # base0A
 light-green      = '#8cd97c' # base0B

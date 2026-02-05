@@ -8,13 +8,13 @@ Color=32,32,32
 Color=23,23,23
 
 [Color0]
-Color=0,0,0
+Color=23,23,23
 
 [Color0Faint]
 Color=23,23,23
 
 [Color0Intense]
-Color=49,49,49
+Color=92,91,88
 
 [Color1]
 Color=255,96,90
@@ -35,10 +35,10 @@ Color=177,232,105
 Color=220,248,143
 
 [Color3]
-Color=234,216,156
+Color=165,199,255
 
 [Color3Faint]
-Color=234,216,156
+Color=165,199,255
 
 [Color3Intense]
 Color=238,229,178
@@ -71,7 +71,7 @@ Color=130,255,246
 Color=182,255,249
 
 [Color7]
-Color=222,217,206
+Color=178,175,166
 
 [Color7Faint]
 Color=178,175,166
@@ -92,4 +92,3 @@ Color=222,217,206
 Blur=true
 Description=Wombat
 Opacity=0.95
-

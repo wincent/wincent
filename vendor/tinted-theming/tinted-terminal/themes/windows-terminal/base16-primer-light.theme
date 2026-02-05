@@ -3,9 +3,9 @@
 	"name": "Primer Light",
 	"foreground": "#2f363d",
 	"background": "#fafbfc",
-	"black": "#e1e4e8",
+	"black": "#fafbfc",
 	"blue": "#0366d6",
-	"brightBlack": "#d1d5da",
+	"brightBlack": "#959da5",
 	"brightBlue": "#0366d6",
 	"brightCyan": "#79b8ff",
 	"brightGreen": "#28a745",
@@ -17,6 +17,6 @@
 	"green": "#28a745",
 	"purple": "#ea4aaa",
 	"red": "#d73a49",
-	"white": "#24292e",
-	"yellow": "#f66a0a"
+	"white": "#2f363d",
+	"yellow": "#ffd33d"
 },

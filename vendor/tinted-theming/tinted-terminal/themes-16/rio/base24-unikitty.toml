@@ -2,8 +2,8 @@
 # Color scheme: Unikitty by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#424242' # base02
-selection-foreground = '#b9b1b8' # base05
+selection-background = '#b9b1b8' # base05
+selection-foreground = '#424242' # base02
 
 cursor         = '#b9b1b8' # base05
 tabs           = '#0c0c0c' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#424242' # base02
 
 background     = '#ff7ad3' # base00
 foreground     = '#b9b1b8' # base05
-black          = '#0c0c0c' # base01
+black          = '#ff7ad3' # base00
 red            = '#a80f20' # base08
 yellow         = '#eedf4b' # base0A
 green          = '#bafc8b' # base0B
 cyan           = '#6bd0bc' # base0C
 blue           = '#145fcd' # base0D
 magenta        = '#ff36a2' # base0E
-white          = '#e1d6e0' # base06
+white          = '#b9b1b8' # base05
 
 dim-foreground   = '#b9b1b8' # base05
 dim-black        = '#0c0c0c' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#ff36a2' # base0E
 dim-white        = '#918c91' # base04
 
 light-foreground = '#b9b1b8' # base05
-light-black      = '#424242' # base02
+light-black      = '#696769' # base03
 light-red        = '#d81329' # base12
 light-yellow     = '#ffee50' # base13
 light-green      = '#d2ffaf' # base14

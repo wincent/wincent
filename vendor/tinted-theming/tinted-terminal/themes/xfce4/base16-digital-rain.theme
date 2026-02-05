@@ -5,6 +5,6 @@
 Name=base16-digital-rain
 ColorForeground=#00ff00
 ColorBackground=#000000
-ColorCursor=x
+ColorCursor=#00ff00
 ColorBoldIsBright=FALSE
-ColorPalette=#4a806c;#c85a46;#64c83c;#a67a50;#5482af;#9472b4;#468c78;#c4cec4;#4a8d7e;#c85a46;#64c83c;#a67a50;#5482af;#9472b4;#468c78;#d8e2dc
+ColorPalette=#000000;#c85a46;#64c83c;#a67a50;#5482af;#9472b4;#468c78;#00ff00;#7c8d7c;#c85a46;#64c83c;#a67a50;#5482af;#9472b4;#468c78;#d8e2dc

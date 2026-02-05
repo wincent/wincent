@@ -2,8 +2,8 @@
 # Color scheme: The Hulk by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#505354' # base02
-selection-foreground = '#b6b6b1' # base05
+selection-background = '#b6b6b1' # base05
+selection-foreground = '#505354' # base02
 
 cursor         = '#b6b6b1' # base05
 tabs           = '#1b1d1e' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#505354' # base02
 
 background     = '#1b1d1e' # base00
 foreground     = '#b6b6b1' # base05
-black          = '#1b1d1e' # base01
+black          = '#1b1d1e' # base00
 red            = '#259d1a' # base08
 yellow         = '#4f6a95' # base0A
 green          = '#13ce2f' # base0B
 cyan           = '#378ca9' # base0C
 blue           = '#2424f4' # base0D
 magenta        = '#641e73' # base0E
-white          = '#d8d8d0' # base06
+white          = '#b6b6b1' # base05
 
 dim-foreground   = '#b6b6b1' # base05
 dim-black        = '#1b1d1e' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#641e73' # base0E
 dim-white        = '#949592' # base04
 
 light-foreground = '#b6b6b1' # base05
-light-black      = '#505354' # base02
+light-black      = '#727473' # base03
 light-red        = '#8dff2a' # base12
 light-yellow     = '#3afe15' # base13
 light-green      = '#48ff76' # base14

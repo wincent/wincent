@@ -5,6 +5,6 @@
 Name=base16-apprentice
 ColorForeground=#5f5f87
 ColorBackground=#262626
-ColorCursor=x
+ColorCursor=#5f5f87
 ColorBoldIsBright=FALSE
-ColorPalette=#af5f5f;#444444;#ffffaf;#87af87;#8787af;#5fafaf;#87afd7;#5f8787;#5f875f;#444444;#ffffaf;#87af87;#8787af;#5fafaf;#87afd7;#6c6c6c
+ColorPalette=#262626;#444444;#ffffaf;#87af87;#8787af;#5fafaf;#87afd7;#5f5f87;#87875f;#444444;#ffffaf;#87af87;#8787af;#5fafaf;#87afd7;#6c6c6c

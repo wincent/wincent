@@ -3,9 +3,9 @@
 	"name": "Mellow Purple",
 	"foreground": "#ffeeff",
 	"background": "#1e0528",
-	"black": "#1a092d",
+	"black": "#1e0528",
 	"blue": "#550068",
-	"brightBlack": "#331354",
+	"brightBlack": "#320f55",
 	"brightBlue": "#550068",
 	"brightCyan": "#b900b1",
 	"brightGreen": "#05cb0d",
@@ -18,5 +18,5 @@
 	"purple": "#8991bb",
 	"red": "#00d9e9",
 	"white": "#ffeeff",
-	"yellow": "#aa00a3"
+	"yellow": "#955ae7"
 },

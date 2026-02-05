@@ -5,7 +5,7 @@
 	"background": "#000000",
 	"black": "#000000",
 	"blue": "#0000bb",
-	"brightBlack": "#555555",
+	"brightBlack": "#6e6e6e",
 	"brightBlue": "#5555ff",
 	"brightCyan": "#55ffff",
 	"brightGreen": "#55ff55",
@@ -17,6 +17,6 @@
 	"green": "#00bb00",
 	"purple": "#bb00bb",
 	"red": "#bb0000",
-	"white": "#bbbbbb",
-	"yellow": "#bbbb00"
+	"white": "#a1a1a1",
+	"yellow": "#5555ff"
 },

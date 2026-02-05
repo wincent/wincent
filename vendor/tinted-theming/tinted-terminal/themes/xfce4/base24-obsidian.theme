@@ -5,6 +5,6 @@
 Name=base24-obsidian
 ColorForeground=#a1a1a1
 ColorBackground=#273032
-ColorCursor=x
+ColorCursor=#a1a1a1
 ColorBoldIsBright=FALSE
-ColorPalette=#000000;#a50001;#00bb00;#a0d6ff;#399bda;#bb00bb;#00bbbb;#bbbbbb;#555555;#ff0003;#92c763;#fef773;#a0d6ff;#ff55ff;#55ffff;#ffffff
+ColorPalette=#273032;#a50001;#00bb00;#a0d6ff;#399bda;#bb00bb;#00bbbb;#a1a1a1;#6e6e6e;#ff0003;#92c763;#fef773;#a0d6ff;#ff55ff;#55ffff;#ffffff

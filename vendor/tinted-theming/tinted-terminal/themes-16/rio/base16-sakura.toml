@@ -2,8 +2,8 @@
 # Color scheme: Sakura by Misterio77 (http://github.com/Misterio77)
 
 [colors]
-selection-background = '#e0ccd1' # base02
-selection-foreground = '#564448' # base05
+selection-background = '#564448' # base05
+selection-foreground = '#e0ccd1' # base02
 
 cursor         = '#564448' # base05
 tabs           = '#f8e2e7' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#e0ccd1' # base02
 
 background     = '#feedf3' # base00
 foreground     = '#564448' # base05
-black          = '#f8e2e7' # base01
+black          = '#feedf3' # base00
 red            = '#df2d52' # base08
 yellow         = '#c29461' # base0A
 green          = '#2e916d' # base0B
 cyan           = '#1d8991' # base0C
 blue           = '#006e93' # base0D
 magenta        = '#5e2180' # base0E
-white          = '#42383a' # base06
+white          = '#564448' # base05
 
 dim-foreground   = '#564448' # base05
 dim-black        = '#f8e2e7' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#5e2180' # base0E
 dim-white        = '#665055' # base04
 
 light-foreground = '#564448' # base05
-light-black      = '#e0ccd1' # base02
+light-black      = '#755f64' # base03
 light-red        = '#df2d52' # base08
 light-yellow     = '#c29461' # base0A
 light-green      = '#2e916d' # base0B

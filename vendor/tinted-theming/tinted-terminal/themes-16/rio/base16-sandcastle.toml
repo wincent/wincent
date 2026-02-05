@@ -2,8 +2,8 @@
 # Color scheme: Sandcastle by George Essig (https://github.com/gessig)
 
 [colors]
-selection-background = '#3e4451' # base02
-selection-foreground = '#a89984' # base05
+selection-background = '#a89984' # base05
+selection-foreground = '#3e4451' # base02
 
 cursor         = '#a89984' # base05
 tabs           = '#2c323b' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#3e4451' # base02
 
 background     = '#282c34' # base00
 foreground     = '#a89984' # base05
-black          = '#2c323b' # base01
+black          = '#282c34' # base00
 red            = '#83a598' # base08
 yellow         = '#a07e3b' # base0A
 green          = '#528b8b' # base0B
 cyan           = '#83a598' # base0C
 blue           = '#83a598' # base0D
 magenta        = '#d75f5f' # base0E
-white          = '#d5c4a1' # base06
+white          = '#a89984' # base05
 
 dim-foreground   = '#a89984' # base05
 dim-black        = '#2c323b' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#d75f5f' # base0E
 dim-white        = '#928374' # base04
 
 light-foreground = '#a89984' # base05
-light-black      = '#3e4451' # base02
+light-black      = '#665c54' # base03
 light-red        = '#83a598' # base08
 light-yellow     = '#a07e3b' # base0A
 light-green      = '#528b8b' # base0B

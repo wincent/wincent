@@ -2,8 +2,8 @@
 # Color scheme: Flat by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#2e2e45' # base02
-selection-foreground = '#8c939a' # base05
+selection-background = '#8c939a' # base05
+selection-foreground = '#2e2e45' # base02
 
 cursor         = '#8c939a' # base05
 tabs           = '#1d2845' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#2e2e45' # base02
 
 background     = '#082845' # base00
 foreground     = '#8c939a' # base05
-black          = '#1d2845' # base01
+black          = '#082845' # base00
 red            = '#a82320' # base08
 yellow         = '#3c7dd2' # base0A
 green          = '#2d9440' # base0B
 cyan           = '#2c9370' # base0C
 blue           = '#3167ac' # base0D
 magenta        = '#781aa0' # base0E
-white          = '#b0b6ba' # base06
+white          = '#8c939a' # base05
 
 dim-foreground   = '#8c939a' # base05
 dim-black        = '#1d2845' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#781aa0' # base0E
 dim-white        = '#68717b' # base04
 
 light-foreground = '#8c939a' # base05
-light-black      = '#2e2e45' # base02
+light-black      = '#444e5b' # base03
 light-red        = '#d4312e' # base12
 light-yellow     = '#e5be0c' # base13
 light-green      = '#32a548' # base14

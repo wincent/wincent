@@ -2,8 +2,8 @@
 # Color scheme: Sea Shells by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#424b52' # base02
-selection-foreground = '#b79c7e' # base05
+selection-background = '#b79c7e' # base05
+selection-foreground = '#424b52' # base02
 
 cursor         = '#b79c7e' # base05
 tabs           = '#17384c' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#424b52' # base02
 
 background     = '#08131a' # base00
 foreground     = '#b79c7e' # base05
-black          = '#17384c' # base01
+black          = '#08131a' # base00
 red            = '#d15023' # base08
 yellow         = '#1bbcdd' # base0A
 green          = '#027c9b' # base0B
 cyan           = '#50a3b5' # base0C
 blue           = '#1e4950' # base0D
 magenta        = '#68d3f1' # base0E
-white          = '#deb88d' # base06
+white          = '#b79c7e' # base05
 
 dim-foreground   = '#b79c7e' # base05
 dim-black        = '#17384c' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#68d3f1' # base0E
 dim-white        = '#90816f' # base04
 
 light-foreground = '#b79c7e' # base05
-light-black      = '#424b52' # base02
+light-black      = '#696660' # base03
 light-red        = '#d38677' # base12
 light-yellow     = '#fdd29e' # base13
 light-green      = '#618c98' # base14

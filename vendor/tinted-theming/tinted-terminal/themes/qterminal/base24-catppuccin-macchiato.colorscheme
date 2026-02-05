@@ -8,13 +8,13 @@ Color=30,32,48
 Color=36,39,58
 
 [Color0]
-Color=30,32,48
+Color=36,39,58
 
 [Color0Faint]
 Color=36,39,58
 
 [Color0Intense]
-Color=54,58,79
+Color=110,115,141
 
 [Color1]
 Color=237,135,150
@@ -35,10 +35,10 @@ Color=166,218,149
 Color=166,218,149
 
 [Color3]
-Color=245,169,127
+Color=238,212,159
 
 [Color3Faint]
-Color=245,169,127
+Color=238,212,159
 
 [Color3Intense]
 Color=244,219,214
@@ -71,7 +71,7 @@ Color=139,213,202
 Color=145,215,227
 
 [Color7]
-Color=244,219,214
+Color=202,211,245
 
 [Color7Faint]
 Color=202,211,245
@@ -83,7 +83,7 @@ Color=183,189,248
 Color=202,211,245
 
 [ForegroundFaint]
-Color=91,96,120
+Color=165,173,203
 
 [ForegroundIntense]
 Color=244,219,214
@@ -92,4 +92,3 @@ Color=244,219,214
 Blur=true
 Description=Catppuccin Macchiato
 Opacity=0.95
-

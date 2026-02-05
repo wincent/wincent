@@ -1,0 +1,43 @@
+# base16 Yesterday
+# Scheme author: FroZnShiva (https://github.com/FroZnShiva)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#1d1f21"
+foreground = "#d6d6d6"
+
+cursor_bg = "#d6d6d6"
+cursor_border = "#d6d6d6"
+cursor_fg = "#1d1f21"
+
+selection_bg = "#d6d6d6"
+selection_fg = "#4d4d4c"
+
+ansi = [
+  "#1d1f21",
+  "#c82829",
+  "#718c00",
+  "#eab700",
+  "#4271ae",
+  "#8959a8",
+  "#3e999f",
+  "#d6d6d6"
+]
+brights = [
+  "#969896",
+  "#c82829",
+  "#718c00",
+  "#eab700",
+  "#4271ae",
+  "#8959a8",
+  "#3e999f",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#f5871f"
+17 = "#7f2a1d"
+18 = "#282a2e"
+19 = "#4d4d4c"
+20 = "#8e908c"
+21 = "#efefef"

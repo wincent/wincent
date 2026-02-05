@@ -3,9 +3,9 @@
 	"name": "Everforest",
 	"foreground": "#d3c6aa",
 	"background": "#2d353b",
-	"black": "#343f44",
+	"black": "#2d353b",
 	"blue": "#7fbbb3",
-	"brightBlack": "#475258",
+	"brightBlack": "#859289",
 	"brightBlue": "#7fbbb3",
 	"brightCyan": "#83c092",
 	"brightGreen": "#a7c080",
@@ -17,6 +17,6 @@
 	"green": "#a7c080",
 	"purple": "#d699b6",
 	"red": "#e67e80",
-	"white": "#e6e2cc",
-	"yellow": "#e69875"
+	"white": "#d3c6aa",
+	"yellow": "#dbbc7f"
 },

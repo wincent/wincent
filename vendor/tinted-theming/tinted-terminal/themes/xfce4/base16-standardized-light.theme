@@ -5,6 +5,6 @@
 Name=base16-standardized-light
 ColorForeground=#444444
 ColorBackground=#ffffff
-ColorCursor=x
+ColorCursor=#444444
 ColorBoldIsBright=FALSE
-ColorPalette=#eeeeee;#d03e3e;#31861f;#ad8200;#3173c5;#9e57c2;#00998f;#333333;#cccccc;#d03e3e;#31861f;#ad8200;#3173c5;#9e57c2;#00998f;#222222
+ColorPalette=#ffffff;#d03e3e;#31861f;#ad8200;#3173c5;#9e57c2;#00998f;#444444;#767676;#d03e3e;#31861f;#ad8200;#3173c5;#9e57c2;#00998f;#222222

@@ -5,6 +5,6 @@
 Name=base16-kimber
 ColorForeground=#dedee7
 ColorBackground=#222222
-ColorCursor=x
+ColorCursor=#dedee7
 ColorBoldIsBright=FALSE
-ColorPalette=#313131;#c88c8c;#99c899;#d8b56d;#537c9c;#86cacd;#78b4b4;#c3c3b4;#555d55;#c88c8c;#99c899;#d8b56d;#537c9c;#86cacd;#78b4b4;#ffffe6
+ColorPalette=#222222;#c88c8c;#99c899;#d8b56d;#537c9c;#86cacd;#78b4b4;#dedee7;#644646;#c88c8c;#99c899;#d8b56d;#537c9c;#86cacd;#78b4b4;#ffffe6

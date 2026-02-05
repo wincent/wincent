@@ -3,9 +3,9 @@
 	"name": "Hybrid",
 	"foreground": "#8f9190",
 	"background": "#161718",
-	"black": "#2a2e33",
+	"black": "#161718",
 	"blue": "#6d90b0",
-	"brightBlack": "#1d1e21",
+	"brightBlack": "#434446",
 	"brightBlue": "#4b6b88",
 	"brightCyan": "#4d7b73",
 	"brightGreen": "#788331",
@@ -17,6 +17,6 @@
 	"green": "#b3be5a",
 	"purple": "#a07eab",
 	"red": "#b74d50",
-	"white": "#b5b8b6",
-	"yellow": "#e3b55e"
+	"white": "#8f9190",
+	"yellow": "#4b6b88"
 },

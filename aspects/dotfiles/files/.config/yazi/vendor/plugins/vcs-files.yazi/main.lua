@@ -1,4 +1,4 @@
---- @since 25.9.15
+--- @since 26.1.22
 
 local root = ya.sync(function() return cx.active.current.cwd end)
 

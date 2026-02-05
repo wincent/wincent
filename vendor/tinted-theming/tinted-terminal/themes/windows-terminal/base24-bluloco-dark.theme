@@ -3,9 +3,9 @@
 	"name": "Bluloco Dark",
 	"foreground": "#b1bac9",
 	"background": "#1e2027",
-	"black": "#494f5c",
+	"black": "#1e2027",
 	"blue": "#285afe",
-	"brightBlack": "#60697a",
+	"brightBlack": "#7b8494",
 	"brightBlue": "#189ffd",
 	"brightCyan": "#4fabad",
 	"brightGreen": "#37bc58",
@@ -17,6 +17,6 @@
 	"green": "#23974a",
 	"purple": "#8c62fd",
 	"red": "#f71041",
-	"white": "#ccd5e4",
-	"yellow": "#fc7e57"
+	"white": "#b1bac9",
+	"yellow": "#189ffd"
 },

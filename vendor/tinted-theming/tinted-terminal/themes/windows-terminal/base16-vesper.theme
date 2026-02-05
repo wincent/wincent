@@ -3,9 +3,9 @@
 	"name": "Vesper",
 	"foreground": "#b7b7b7",
 	"background": "#101010",
-	"black": "#232323",
+	"black": "#101010",
 	"blue": "#8eaaaa",
-	"brightBlack": "#222222",
+	"brightBlack": "#333333",
 	"brightBlue": "#8eaaaa",
 	"brightCyan": "#60a592",
 	"brightGreen": "#5f8787",
@@ -17,6 +17,6 @@
 	"green": "#5f8787",
 	"purple": "#d69094",
 	"red": "#de6e6e",
-	"white": "#c1c1c1",
-	"yellow": "#dab083"
+	"white": "#b7b7b7",
+	"yellow": "#ffc799"
 },

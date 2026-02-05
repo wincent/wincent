@@ -2,8 +2,8 @@
 # Color scheme: Tango by @Schnouki, based on the Tango Desktop Project
 
 [colors]
-selection-background = '#fce94f' # base02
-selection-foreground = '#d3d7cf' # base05
+selection-background = '#d3d7cf' # base05
+selection-foreground = '#fce94f' # base02
 
 cursor         = '#d3d7cf' # base05
 tabs           = '#8ae234' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#fce94f' # base02
 
 background     = '#2e3436' # base00
 foreground     = '#d3d7cf' # base05
-black          = '#8ae234' # base01
+black          = '#2e3436' # base00
 red            = '#cc0000' # base08
 yellow         = '#c4a000' # base0A
 green          = '#4e9a06' # base0B
 cyan           = '#06989a' # base0C
 blue           = '#3465a4' # base0D
 magenta        = '#75507b' # base0E
-white          = '#ad7fa8' # base06
+white          = '#d3d7cf' # base05
 
 dim-foreground   = '#d3d7cf' # base05
 dim-black        = '#8ae234' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#75507b' # base0E
 dim-white        = '#729fcf' # base04
 
 light-foreground = '#d3d7cf' # base05
-light-black      = '#fce94f' # base02
+light-black      = '#555753' # base03
 light-red        = '#cc0000' # base08
 light-yellow     = '#c4a000' # base0A
 light-green      = '#4e9a06' # base0B

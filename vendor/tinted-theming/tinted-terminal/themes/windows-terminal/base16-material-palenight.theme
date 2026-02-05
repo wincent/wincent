@@ -3,9 +3,9 @@
 	"name": "Material Palenight",
 	"foreground": "#959dcb",
 	"background": "#292d3e",
-	"black": "#444267",
+	"black": "#292d3e",
 	"blue": "#82aaff",
-	"brightBlack": "#32374d",
+	"brightBlack": "#676e95",
 	"brightBlue": "#82aaff",
 	"brightCyan": "#89ddff",
 	"brightGreen": "#c3e88d",
@@ -18,5 +18,5 @@
 	"purple": "#c792ea",
 	"red": "#f07178",
 	"white": "#959dcb",
-	"yellow": "#f78c6c"
+	"yellow": "#ffcb6b"
 },

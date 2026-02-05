@@ -3,9 +3,9 @@
 	"name": "Harmonic16 Dark",
 	"foreground": "#cbd6e2",
 	"background": "#0b1c2c",
-	"black": "#223b54",
+	"black": "#0b1c2c",
 	"blue": "#8b56bf",
-	"brightBlack": "#405c79",
+	"brightBlack": "#627e99",
 	"brightBlue": "#8b56bf",
 	"brightCyan": "#568bbf",
 	"brightGreen": "#56bf8b",
@@ -17,6 +17,6 @@
 	"green": "#56bf8b",
 	"purple": "#bf568b",
 	"red": "#bf8b56",
-	"white": "#e5ebf1",
-	"yellow": "#bfbf56"
+	"white": "#cbd6e2",
+	"yellow": "#8bbf56"
 },

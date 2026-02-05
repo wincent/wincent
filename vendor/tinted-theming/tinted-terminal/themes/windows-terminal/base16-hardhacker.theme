@@ -3,9 +3,9 @@
 	"name": "Hardhacker",
 	"foreground": "#e4dee9",
 	"background": "#211e2a",
-	"black": "#2c2737",
+	"black": "#211e2a",
 	"blue": "#95a6f4",
-	"brightBlack": "#3f3951",
+	"brightBlack": "#6e6780",
 	"brightBlue": "#95a6f4",
 	"brightCyan": "#b3f4f3",
 	"brightGreen": "#b1f2a7",
@@ -17,6 +17,6 @@
 	"green": "#b1f2a7",
 	"purple": "#ff79c6",
 	"red": "#e965a5",
-	"white": "#f2e8f0",
-	"yellow": "#f4b870"
+	"white": "#e4dee9",
+	"yellow": "#ebde76"
 },

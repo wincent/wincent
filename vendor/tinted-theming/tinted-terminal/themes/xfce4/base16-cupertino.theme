@@ -5,6 +5,6 @@
 Name=base16-cupertino
 ColorForeground=#404040
 ColorBackground=#ffffff
-ColorCursor=x
+ColorCursor=#404040
 ColorBoldIsBright=FALSE
-ColorPalette=#c0c0c0;#c41a15;#007400;#826b28;#0000ff;#a90d91;#318495;#404040;#c0c0c0;#c41a15;#007400;#826b28;#0000ff;#a90d91;#318495;#5e5e5e
+ColorPalette=#ffffff;#c41a15;#007400;#826b28;#0000ff;#a90d91;#318495;#404040;#808080;#c41a15;#007400;#826b28;#0000ff;#a90d91;#318495;#5e5e5e

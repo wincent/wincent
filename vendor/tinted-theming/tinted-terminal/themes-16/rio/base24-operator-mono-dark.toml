@@ -2,8 +2,8 @@
 # Color scheme: Operator Mono Dark by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#9a9a99' # base02
-selection-foreground = '#c0c4c0' # base05
+selection-background = '#c0c4c0' # base05
+selection-foreground = '#9a9a99' # base02
 
 cursor         = '#c0c4c0' # base05
 tabs           = '#5a5a5a' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#9a9a99' # base02
 
 background     = '#191919' # base00
 foreground     = '#c0c4c0' # base05
-black          = '#5a5a5a' # base01
+black          = '#191919' # base00
 red            = '#ca372d' # base08
 yellow         = '#89d3f6' # base0A
 green          = '#4d7b3a' # base0B
 cyan           = '#72d4c6' # base0C
 blue           = '#4387cf' # base0D
 magenta        = '#b86cb4' # base0E
-white          = '#cdd3cd' # base06
+white          = '#c0c4c0' # base05
 
 dim-foreground   = '#c0c4c0' # base05
 dim-black        = '#5a5a5a' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#b86cb4' # base0E
 dim-white        = '#b3b6b3' # base04
 
 light-foreground = '#c0c4c0' # base05
-light-black      = '#9a9a99' # base02
+light-black      = '#a6a8a6' # base03
 light-red        = '#c37d62' # base12
 light-yellow     = '#fdfdc5' # base13
 light-green      = '#83d0a2' # base14

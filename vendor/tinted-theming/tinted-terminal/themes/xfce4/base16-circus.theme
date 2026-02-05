@@ -5,6 +5,6 @@
 Name=base16-circus
 ColorForeground=#a7a7a7
 ColorBackground=#191919
-ColorCursor=x
+ColorCursor=#a7a7a7
 ColorBoldIsBright=FALSE
-ColorPalette=#202020;#dc657d;#84b97c;#c3ba63;#639ee4;#b888e2;#4bb1a7;#808080;#303030;#dc657d;#84b97c;#c3ba63;#639ee4;#b888e2;#4bb1a7;#ffffff
+ColorPalette=#191919;#dc657d;#84b97c;#c3ba63;#639ee4;#b888e2;#4bb1a7;#a7a7a7;#5f5a60;#dc657d;#84b97c;#c3ba63;#639ee4;#b888e2;#4bb1a7;#ffffff

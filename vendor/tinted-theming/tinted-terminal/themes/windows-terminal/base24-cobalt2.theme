@@ -3,9 +3,9 @@
 	"name": "Cobalt2",
 	"foreground": "#a1a1a1",
 	"background": "#122637",
-	"black": "#000000",
+	"black": "#122637",
 	"blue": "#1460d2",
-	"brightBlack": "#555555",
+	"brightBlack": "#6e6e6e",
 	"brightBlue": "#5555ff",
 	"brightCyan": "#6ae3f9",
 	"brightGreen": "#3bcf1d",
@@ -17,6 +17,6 @@
 	"green": "#37dd21",
 	"purple": "#ff005d",
 	"red": "#ff0000",
-	"white": "#bbbbbb",
-	"yellow": "#fee409"
+	"white": "#a1a1a1",
+	"yellow": "#5555ff"
 },

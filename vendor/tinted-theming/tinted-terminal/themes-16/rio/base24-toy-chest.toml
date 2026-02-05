@@ -2,8 +2,8 @@
 # Color scheme: Toy Chest by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#326889' # base02
-selection-foreground = '#27b684' # base05
+selection-background = '#27b684' # base05
+selection-foreground = '#326889' # base02
 
 cursor         = '#27b684' # base05
 tabs           = '#2c3f57' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#326889' # base02
 
 background     = '#23364a' # base00
 foreground     = '#27b684' # base05
-black          = '#2c3f57' # base01
+black          = '#23364a' # base00
 red            = '#be2d26' # base08
 yellow         = '#33a5d9' # base0A
 green          = '#199171' # base0B
 cyan           = '#35a08f' # base0C
 blue           = '#325d96' # base0D
 magenta        = '#8a5ddb' # base0E
-white          = '#23d082' # base06
+white          = '#27b684' # base05
 
 dim-foreground   = '#27b684' # base05
 dim-black        = '#2c3f57' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#8a5ddb' # base0E
 dim-white        = '#2b9c86' # base04
 
 light-foreground = '#27b684' # base05
-light-black      = '#326889' # base02
+light-black      = '#2f8288' # base03
 light-red        = '#dd5943' # base12
 light-yellow     = '#e7d74b' # base13
 light-green      = '#30cf7b' # base14

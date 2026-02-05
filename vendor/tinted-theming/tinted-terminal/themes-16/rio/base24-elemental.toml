@@ -2,8 +2,8 @@
 # Color scheme: Elemental by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#545444' # base02
-selection-foreground = '#756f68' # base05
+selection-background = '#756f68' # base05
+selection-foreground = '#545444' # base02
 
 cursor         = '#756f68' # base05
 tabs           = '#3c3b30' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#545444' # base02
 
 background     = '#21211c' # base00
 foreground     = '#756f68' # base05
-black          = '#3c3b30' # base01
+black          = '#21211c' # base00
 red            = '#97280f' # base08
 yellow         = '#78d8d8' # base0A
 green          = '#479942' # base0B
 cyan           = '#387f58' # base0C
 blue           = '#497f7d' # base0D
 magenta        = '#7e4e2e' # base0E
-white          = '#807974' # base06
+white          = '#756f68' # base05
 
 dim-foreground   = '#756f68' # base05
 dim-black        = '#3c3b30' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#7e4e2e' # base0E
 dim-white        = '#6a665c' # base04
 
 light-foreground = '#756f68' # base05
-light-black      = '#545444' # base02
+light-black      = '#5f5d50' # base03
 light-red        = '#df502a' # base12
 light-yellow     = '#d69827' # base13
 light-green      = '#60e06f' # base14

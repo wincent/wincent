@@ -5,6 +5,6 @@
 Name=base16-unikitty-dark
 ColorForeground=#bcbabe
 ColorBackground=#2e2a31
-ColorCursor=x
+ColorCursor=#bcbabe
 ColorBoldIsBright=FALSE
-ColorPalette=#4a464d;#d8137f;#17ad98;#dc8a0e;#796af5;#bb60ea;#149bda;#d8d7da;#666369;#d8137f;#17ad98;#dc8a0e;#796af5;#bb60ea;#149bda;#f5f4f7
+ColorPalette=#2e2a31;#d8137f;#17ad98;#dc8a0e;#796af5;#bb60ea;#149bda;#bcbabe;#838085;#d8137f;#17ad98;#dc8a0e;#796af5;#bb60ea;#149bda;#f5f4f7

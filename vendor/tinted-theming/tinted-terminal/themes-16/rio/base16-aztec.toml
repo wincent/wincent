@@ -2,8 +2,8 @@
 # Color scheme: Aztec by TheNeverMan (github.com/TheNeverMan)
 
 [colors]
-selection-background = '#242604' # base02
-selection-foreground = '#ffda51' # base05
+selection-background = '#ffda51' # base05
+selection-foreground = '#242604' # base02
 
 cursor         = '#ffda51' # base05
 tabs           = '#1a1e01' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#242604' # base02
 
 background     = '#101600' # base00
 foreground     = '#ffda51' # base05
-black          = '#1a1e01' # base01
+black          = '#101600' # base00
 red            = '#ee2e00' # base08
 yellow         = '#eebb00' # base0A
 green          = '#63d932' # base0B
 cyan           = '#3d94a5' # base0C
 blue           = '#5b4a9f' # base0D
 magenta        = '#883e9f' # base0E
-white          = '#ffe178' # base06
+white          = '#ffda51' # base05
 
 dim-foreground   = '#ffda51' # base05
 dim-black        = '#1a1e01' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#883e9f' # base0E
 dim-white        = '#ffd129' # base04
 
 light-foreground = '#ffda51' # base05
-light-black      = '#242604' # base02
+light-black      = '#2e2e05' # base03
 light-red        = '#ee2e00' # base08
 light-yellow     = '#eebb00' # base0A
 light-green      = '#63d932' # base0B

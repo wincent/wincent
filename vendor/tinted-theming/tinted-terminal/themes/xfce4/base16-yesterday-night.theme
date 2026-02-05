@@ -1,0 +1,10 @@
+# Scheme name: Yesterday Night
+# Scheme author: FroZnShiva (https://github.com/FroZnShiva)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-yesterday-night
+ColorForeground=#dfe1e8
+ColorBackground=#343d46
+ColorCursor=#dfe1e8
+ColorBoldIsBright=FALSE
+ColorPalette=#343d46;#cc6666;#b5bd68;#f0c674;#81a2be;#b294bb;#8abeb7;#dfe1e8;#a7adba;#cc6666;#b5bd68;#f0c674;#81a2be;#b294bb;#8abeb7;#ffffff

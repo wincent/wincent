@@ -5,6 +5,6 @@
 Name=base24-wild-cherry
 ColorForeground=#bfe1d8
 ColorBackground=#1f1626
-ColorCursor=x
+ColorCursor=#bfe1d8
 ColorBoldIsBright=FALSE
-ColorPalette=#000506;#d94085;#2ab250;#2f8bb9;#883cdc;#ececec;#c1b8b7;#fff8dd;#009cc9;#da6bab;#f4dba5;#eac066;#2f8bb9;#ae636b;#ff919d;#e4838d
+ColorPalette=#1f1626;#d94085;#2ab250;#2f8bb9;#883cdc;#ececec;#c1b8b7;#bfe1d8;#3fb3ce;#da6bab;#f4dba5;#eac066;#2f8bb9;#ae636b;#ff919d;#e4838d

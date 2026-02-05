@@ -3,9 +3,9 @@
 	"name": "Windows 95",
 	"foreground": "#a8a8a8",
 	"background": "#000000",
-	"black": "#1c1c1c",
+	"black": "#000000",
 	"blue": "#5454fc",
-	"brightBlack": "#383838",
+	"brightBlack": "#545454",
 	"brightBlue": "#5454fc",
 	"brightCyan": "#54fcfc",
 	"brightGreen": "#54fc54",
@@ -17,6 +17,6 @@
 	"green": "#54fc54",
 	"purple": "#fc54fc",
 	"red": "#fc5454",
-	"white": "#d2d2d2",
-	"yellow": "#a85400"
+	"white": "#a8a8a8",
+	"yellow": "#fcfc54"
 },

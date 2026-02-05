@@ -5,6 +5,6 @@
 Name=base24-galaxy
 ColorForeground=#a1a1a1
 ColorBackground=#1c2836
-ColorCursor=x
+ColorCursor=#a1a1a1
 ColorBoldIsBright=FALSE
-ColorPalette=#000000;#f9555f;#20af89;#fdf029;#589cf5;#934d95;#1e9ee6;#bbbbbb;#555555;#fa8b8e;#34bb99;#ffff55;#589cf5;#e75598;#3978bb;#ffffff
+ColorPalette=#1c2836;#f9555f;#20af89;#fdf029;#589cf5;#934d95;#1e9ee6;#a1a1a1;#6e6e6e;#fa8b8e;#34bb99;#ffff55;#589cf5;#e75598;#3978bb;#ffffff

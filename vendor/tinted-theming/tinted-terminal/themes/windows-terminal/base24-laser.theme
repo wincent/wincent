@@ -3,9 +3,9 @@
 	"name": "Laser",
 	"foreground": "#d8d8d8",
 	"background": "#030d18",
-	"black": "#616161",
+	"black": "#030d18",
 	"blue": "#fed300",
-	"brightBlack": "#8e8e8e",
+	"brightBlack": "#a6a6a6",
 	"brightBlue": "#f92883",
 	"brightCyan": "#e5e6fe",
 	"brightGreen": "#d6fcb9",
@@ -17,6 +17,6 @@
 	"green": "#b4fa72",
 	"purple": "#ff8ffd",
 	"red": "#ff8272",
-	"white": "#f1f1f1",
-	"yellow": "#09b4bd"
+	"white": "#d8d8d8",
+	"yellow": "#f92883"
 },

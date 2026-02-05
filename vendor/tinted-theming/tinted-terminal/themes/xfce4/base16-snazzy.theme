@@ -5,6 +5,6 @@
 Name=base16-snazzy
 ColorForeground=#e2e4e5
 ColorBackground=#282a36
-ColorCursor=x
+ColorCursor=#e2e4e5
 ColorBoldIsBright=FALSE
-ColorPalette=#34353e;#ff5c57;#5af78e;#f3f99d;#57c7ff;#ff6ac1;#9aedfe;#eff0eb;#43454f;#ff5c57;#5af78e;#f3f99d;#57c7ff;#ff6ac1;#9aedfe;#f1f1f0
+ColorPalette=#282a36;#ff5c57;#5af78e;#f3f99d;#57c7ff;#ff6ac1;#9aedfe;#e2e4e5;#78787e;#ff5c57;#5af78e;#f3f99d;#57c7ff;#ff6ac1;#9aedfe;#f1f1f0

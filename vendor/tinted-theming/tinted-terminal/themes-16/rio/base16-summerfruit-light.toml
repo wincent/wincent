@@ -2,8 +2,8 @@
 # Color scheme: Summerfruit Light by Christopher Corley (http://christop.club/)
 
 [colors]
-selection-background = '#d0d0d0' # base02
-selection-foreground = '#101010' # base05
+selection-background = '#101010' # base05
+selection-foreground = '#d0d0d0' # base02
 
 cursor         = '#101010' # base05
 tabs           = '#e0e0e0' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#d0d0d0' # base02
 
 background     = '#ffffff' # base00
 foreground     = '#101010' # base05
-black          = '#e0e0e0' # base01
+black          = '#ffffff' # base00
 red            = '#ff0086' # base08
 yellow         = '#aba800' # base0A
 green          = '#00c918' # base0B
 cyan           = '#1faaaa' # base0C
 blue           = '#3777e6' # base0D
 magenta        = '#ad00a1' # base0E
-white          = '#151515' # base06
+white          = '#101010' # base05
 
 dim-foreground   = '#101010' # base05
 dim-black        = '#e0e0e0' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#ad00a1' # base0E
 dim-white        = '#000000' # base04
 
 light-foreground = '#101010' # base05
-light-black      = '#d0d0d0' # base02
+light-black      = '#b0b0b0' # base03
 light-red        = '#ff0086' # base08
 light-yellow     = '#aba800' # base0A
 light-green      = '#00c918' # base0B

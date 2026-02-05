@@ -5,6 +5,6 @@
 Name=base24-chalk
 ColorForeground=#d0d0d0
 ColorBackground=#151515
-ColorCursor=x
+ColorCursor=#d0d0d0
 ColorBoldIsBright=FALSE
-ColorPalette=#202020;#fa859c;#a1bb54;#ddb26f;#5ab9ed;#db8fea;#10bcad;#e0e0e0;#303030;#fb9fb1;#acc267;#eda987;#6fc2ef;#e1a3ee;#12cfc0;#f5f5f5
+ColorPalette=#151515;#fa859c;#a1bb54;#ddb26f;#5ab9ed;#db8fea;#10bcad;#d0d0d0;#505050;#fb9fb1;#acc267;#eda987;#6fc2ef;#e1a3ee;#12cfc0;#f5f5f5

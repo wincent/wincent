@@ -3,9 +3,9 @@
 	"name": "Equilibrium Dark",
 	"foreground": "#afaba2",
 	"background": "#0c1118",
-	"black": "#181c22",
+	"black": "#0c1118",
 	"blue": "#008dd1",
-	"brightBlack": "#22262d",
+	"brightBlack": "#7b776e",
 	"brightBlue": "#008dd1",
 	"brightCyan": "#00948b",
 	"brightGreen": "#7f8b00",
@@ -17,6 +17,6 @@
 	"green": "#7f8b00",
 	"purple": "#6a7fd2",
 	"red": "#f04339",
-	"white": "#cac6bd",
-	"yellow": "#df5923"
+	"white": "#afaba2",
+	"yellow": "#bb8801"
 },

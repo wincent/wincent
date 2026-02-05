@@ -5,6 +5,6 @@
 Name=base24-chalkboard
 ColorForeground=#afafaf
 ColorBackground=#29262f
-ColorCursor=x
+ColorCursor=#afafaf
 ColorBoldIsBright=FALSE
-ColorPalette=#000000;#c37372;#72c373;#aaaadb;#7372c3;#c372c2;#72c2c3;#d9d9d9;#323232;#dbaaaa;#aadbaa;#dadbaa;#aaaadb;#dbaada;#aadadb;#ffffff
+ColorPalette=#29262f;#c37372;#72c373;#aaaadb;#7372c3;#c372c2;#72c2c3;#afafaf;#5b5b5b;#dbaaaa;#aadbaa;#dadbaa;#aaaadb;#dbaada;#aadadb;#ffffff

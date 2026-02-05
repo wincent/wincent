@@ -5,6 +5,6 @@
 Name=base16-everforest
 ColorForeground=#d3c6aa
 ColorBackground=#2d353b
-ColorCursor=x
+ColorCursor=#d3c6aa
 ColorBoldIsBright=FALSE
-ColorPalette=#343f44;#e67e80;#a7c080;#dbbc7f;#7fbbb3;#d699b6;#83c092;#e6e2cc;#475258;#e67e80;#a7c080;#dbbc7f;#7fbbb3;#d699b6;#83c092;#fdf6e3
+ColorPalette=#2d353b;#e67e80;#a7c080;#dbbc7f;#7fbbb3;#d699b6;#83c092;#d3c6aa;#859289;#e67e80;#a7c080;#dbbc7f;#7fbbb3;#d699b6;#83c092;#fdf6e3

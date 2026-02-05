@@ -3,9 +3,9 @@
 	"name": "Catppuccin Frappe",
 	"foreground": "#c6d0f5",
 	"background": "#303446",
-	"black": "#292c3c",
+	"black": "#303446",
 	"blue": "#8caaee",
-	"brightBlack": "#414559",
+	"brightBlack": "#737994",
 	"brightBlue": "#85c1dc",
 	"brightCyan": "#99d1db",
 	"brightGreen": "#a6d189",
@@ -17,6 +17,6 @@
 	"green": "#a6d189",
 	"purple": "#ca9ee6",
 	"red": "#e78284",
-	"white": "#f2d5cf",
-	"yellow": "#ef9f76"
+	"white": "#c6d0f5",
+	"yellow": "#e5c890"
 },

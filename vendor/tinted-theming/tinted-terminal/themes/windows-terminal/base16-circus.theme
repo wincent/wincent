@@ -3,9 +3,9 @@
 	"name": "Circus",
 	"foreground": "#a7a7a7",
 	"background": "#191919",
-	"black": "#202020",
+	"black": "#191919",
 	"blue": "#639ee4",
-	"brightBlack": "#303030",
+	"brightBlack": "#5f5a60",
 	"brightBlue": "#639ee4",
 	"brightCyan": "#4bb1a7",
 	"brightGreen": "#84b97c",
@@ -17,6 +17,6 @@
 	"green": "#84b97c",
 	"purple": "#b888e2",
 	"red": "#dc657d",
-	"white": "#808080",
-	"yellow": "#4bb1a7"
+	"white": "#a7a7a7",
+	"yellow": "#c3ba63"
 },

@@ -5,6 +5,6 @@
 Name=base16-eris
 ColorForeground=#606bac
 ColorBackground=#0a0920
-ColorCursor=x
+ColorCursor=#606bac
 ColorBoldIsBright=FALSE
-ColorPalette=#13133a;#f768a3;#a2faa8;#f7d668;#258fc4;#c368f7;#a2faf0;#7986c5;#23255a;#f768a3;#a2faa8;#f7d668;#258fc4;#c368f7;#a2faf0;#9aaae5
+ColorPalette=#0a0920;#f768a3;#a2faa8;#f7d668;#258fc4;#c368f7;#a2faf0;#606bac;#333773;#f768a3;#a2faa8;#f7d668;#258fc4;#c368f7;#a2faf0;#9aaae5

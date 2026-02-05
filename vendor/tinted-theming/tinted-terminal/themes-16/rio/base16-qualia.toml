@@ -2,8 +2,8 @@
 # Color scheme: Qualia by isaacwhanson
 
 [colors]
-selection-background = '#454545' # base02
-selection-foreground = '#c0c0c0' # base05
+selection-background = '#c0c0c0' # base05
+selection-foreground = '#454545' # base02
 
 cursor         = '#c0c0c0' # base05
 tabs           = '#454545' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#454545' # base02
 
 background     = '#101010' # base00
 foreground     = '#c0c0c0' # base05
-black          = '#454545' # base01
+black          = '#101010' # base00
 red            = '#efa6a2' # base08
 yellow         = '#e6a3dc' # base0A
 green          = '#80c990' # base0B
 cyan           = '#c8c874' # base0C
 blue           = '#50cacd' # base0D
 magenta        = '#e0af85' # base0E
-white          = '#c0c0c0' # base06
+white          = '#c0c0c0' # base05
 
 dim-foreground   = '#c0c0c0' # base05
 dim-black        = '#454545' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#e0af85' # base0E
 dim-white        = '#808080' # base04
 
 light-foreground = '#c0c0c0' # base05
-light-black      = '#454545' # base02
+light-black      = '#454545' # base03
 light-red        = '#efa6a2' # base08
 light-yellow     = '#e6a3dc' # base0A
 light-green      = '#80c990' # base0B

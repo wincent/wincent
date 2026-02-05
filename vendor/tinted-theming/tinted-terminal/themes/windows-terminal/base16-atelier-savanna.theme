@@ -3,9 +3,9 @@
 	"name": "Atelier Savanna",
 	"foreground": "#87928a",
 	"background": "#171c19",
-	"black": "#232a25",
+	"black": "#171c19",
 	"blue": "#478c90",
-	"brightBlack": "#526057",
+	"brightBlack": "#5f6d64",
 	"brightBlue": "#478c90",
 	"brightCyan": "#1c9aa0",
 	"brightGreen": "#489963",
@@ -17,6 +17,6 @@
 	"green": "#489963",
 	"purple": "#55859b",
 	"red": "#b16139",
-	"white": "#dfe7e2",
-	"yellow": "#9f713c"
+	"white": "#87928a",
+	"yellow": "#a07e3b"
 },

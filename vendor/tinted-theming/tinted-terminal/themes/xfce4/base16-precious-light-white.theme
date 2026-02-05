@@ -5,6 +5,6 @@
 Name=base16-precious-light-white
 ColorForeground=#555555
 ColorBackground=#ffffff
-ColorCursor=x
+ColorCursor=#555555
 ColorBoldIsBright=FALSE
-ColorPalette=#ededed;#af4947;#557301;#876500;#186daa;#7b4ecb;#087767;#555555;#dbdbdb;#af4947;#557301;#876500;#186daa;#7b4ecb;#087767;#555555
+ColorPalette=#ffffff;#af4947;#557301;#876500;#186daa;#7b4ecb;#087767;#555555;#848484;#af4947;#557301;#876500;#186daa;#7b4ecb;#087767;#555555

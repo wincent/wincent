@@ -3,9 +3,9 @@
 	"name": "One Light",
 	"foreground": "#383a42",
 	"background": "#fafafa",
-	"black": "#f0f0f1",
+	"black": "#fafafa",
 	"blue": "#4078f2",
-	"brightBlack": "#e5e5e6",
+	"brightBlack": "#a0a1a7",
 	"brightBlue": "#4078f2",
 	"brightCyan": "#0184bc",
 	"brightGreen": "#50a14f",
@@ -17,6 +17,6 @@
 	"green": "#50a14f",
 	"purple": "#a626a4",
 	"red": "#ca1243",
-	"white": "#202227",
-	"yellow": "#d75f00"
+	"white": "#383a42",
+	"yellow": "#c18401"
 },

@@ -5,6 +5,6 @@
 Name=base16-windows-10-light
 ColorForeground=#767676
 ColorBackground=#f2f2f2
-ColorCursor=x
+ColorCursor=#767676
 ColorBoldIsBright=FALSE
-ColorPalette=#e5e5e5;#c50f1f;#13a10e;#c19c00;#0037da;#881798;#3a96dd;#414141;#d9d9d9;#c50f1f;#13a10e;#c19c00;#0037da;#881798;#3a96dd;#0c0c0c
+ColorPalette=#f2f2f2;#c50f1f;#13a10e;#c19c00;#0037da;#881798;#3a96dd;#767676;#cccccc;#c50f1f;#13a10e;#c19c00;#0037da;#881798;#3a96dd;#0c0c0c

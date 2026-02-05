@@ -8,13 +8,13 @@ Color=170,164,90
 Color=20,40,56
 
 [Color0]
-Color=20,38,48
+Color=20,40,56
 
 [Color0Faint]
 Color=20,40,56
 
 [Color0Intense]
-Color=255,246,136
+Color=238,202,146
 
 [Color1]
 Color=255,35,32
@@ -35,10 +35,10 @@ Color=58,165,255
 Color=143,245,134
 
 [Color3]
-Color=233,231,92
+Color=60,125,210
 
 [Color3Faint]
-Color=233,231,92
+Color=60,125,210
 
 [Color3Intense]
 Color=233,240,109
@@ -71,7 +71,7 @@ Color=143,245,134
 Color=108,188,103
 
 [Color7]
-Color=186,69,177
+Color=204,114,166
 
 [Color7Faint]
 Color=204,114,166
@@ -92,4 +92,3 @@ Color=186,69,177
 Blur=true
 Description=Cobalt Neon
 Opacity=0.95
-

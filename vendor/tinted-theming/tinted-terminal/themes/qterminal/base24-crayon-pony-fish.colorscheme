@@ -8,13 +8,13 @@ Color=40,28,30
 Color=20,6,7
 
 [Color0]
-Color=42,26,28
+Color=20,6,7
 
 [Color0Faint]
 Color=20,6,7
 
 [Color0Intense]
-Color=60,42,46
+Color=71,52,56
 
 [Color1]
 Color=144,0,42
@@ -35,10 +35,10 @@ Color=87,149,35
 Color=141,255,86
 
 [Color3]
-Color=170,48,27
+Color=207,201,255
 
 [Color3Faint]
-Color=170,48,27
+Color=207,201,255
 
 [Color3Intense]
 Color=199,55,29
@@ -71,7 +71,7 @@ Color=232,167,102
 Color=255,206,174
 
 [Color7]
-Color=104,82,89
+Color=93,72,78
 
 [Color7Faint]
 Color=93,72,78
@@ -92,4 +92,3 @@ Color=104,82,89
 Blur=true
 Description=Crayon Pony Fish
 Opacity=0.95
-

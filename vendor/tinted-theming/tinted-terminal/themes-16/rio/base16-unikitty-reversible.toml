@@ -2,8 +2,8 @@
 # Color scheme: Unikitty Reversible by Josh W Lewis (@joshwlewis)
 
 [colors]
-selection-background = '#69666b' # base02
-selection-foreground = '#c3c2c4' # base05
+selection-background = '#c3c2c4' # base05
+selection-foreground = '#69666b' # base02
 
 cursor         = '#c3c2c4' # base05
 tabs           = '#4b484e' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#69666b' # base02
 
 background     = '#2e2a31' # base00
 foreground     = '#c3c2c4' # base05
-black          = '#4b484e' # base01
+black          = '#2e2a31' # base00
 red            = '#d8137f' # base08
 yellow         = '#dc8a0e' # base0A
 green          = '#17ad98' # base0B
 cyan           = '#149bda' # base0C
 blue           = '#7864fa' # base0D
 magenta        = '#b33ce8' # base0E
-white          = '#e1e0e1' # base06
+white          = '#c3c2c4' # base05
 
 dim-foreground   = '#c3c2c4' # base05
 dim-black        = '#4b484e' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#b33ce8' # base0E
 dim-white        = '#a5a3a6' # base04
 
 light-foreground = '#c3c2c4' # base05
-light-black      = '#69666b' # base02
+light-black      = '#878589' # base03
 light-red        = '#d8137f' # base08
 light-yellow     = '#dc8a0e' # base0A
 light-green      = '#17ad98' # base0B

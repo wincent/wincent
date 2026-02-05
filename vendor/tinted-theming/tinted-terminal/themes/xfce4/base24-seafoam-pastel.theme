@@ -5,6 +5,6 @@
 Name=base24-seafoam-pastel
 ColorForeground=#cacaca
 ColorBackground=#243434
-ColorCursor=x
+ColorCursor=#cacaca
 ColorBoldIsBright=FALSE
-ColorPalette=#757575;#825d4d;#718c61;#79c3cf;#4d7b82;#8a7167;#719393;#e0e0e0;#8a8a8a;#cf9379;#98d9aa;#fae79d;#79c3cf;#d6b2a1;#ade0e0;#e0e0e0
+ColorPalette=#243434;#825d4d;#718c61;#79c3cf;#4d7b82;#8a7167;#719393;#cacaca;#9f9f9f;#cf9379;#98d9aa;#fae79d;#79c3cf;#d6b2a1;#ade0e0;#e0e0e0

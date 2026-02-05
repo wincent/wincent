@@ -5,6 +5,6 @@
 Name=base24-sleepy-hollow
 ColorForeground=#968684
 ColorBackground=#121213
-ColorCursor=x
+ColorCursor=#968684
 ColorBoldIsBright=FALSE
-ColorPalette=#572000;#b93934;#90773e;#8085ef;#5e62b4;#a07c7b;#8eaea9;#af9a91;#4e4b60;#d9443e;#d6b04e;#f66713;#8085ef;#e1c2ba;#a4dbe7;#d1c7a9
+ColorPalette=#121213;#b93934;#90773e;#8085ef;#5e62b4;#a07c7b;#8eaea9;#968684;#665e6c;#d9443e;#d6b04e;#f66713;#8085ef;#e1c2ba;#a4dbe7;#d1c7a9

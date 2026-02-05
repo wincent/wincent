@@ -3,9 +3,9 @@
 	"name": "Embers",
 	"foreground": "#a39a90",
 	"background": "#16130f",
-	"black": "#2c2620",
+	"black": "#16130f",
 	"blue": "#6d5782",
-	"brightBlack": "#433b32",
+	"brightBlack": "#5a5047",
 	"brightBlue": "#6d5782",
 	"brightCyan": "#576d82",
 	"brightGreen": "#57826d",
@@ -17,6 +17,6 @@
 	"green": "#57826d",
 	"purple": "#82576d",
 	"red": "#826d57",
-	"white": "#beb6ae",
-	"yellow": "#828257"
+	"white": "#a39a90",
+	"yellow": "#6d8257"
 },

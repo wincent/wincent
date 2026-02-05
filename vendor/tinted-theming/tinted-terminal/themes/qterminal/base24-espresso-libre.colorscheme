@@ -8,13 +8,13 @@ Color=56,58,55
 Color=42,33,28
 
 [Color0]
-Color=0,0,0
+Color=42,33,28
 
 [Color0Faint]
 Color=42,33,28
 
 [Color0Intense]
-Color=84,87,83
+Color=115,119,114
 
 [Color1]
 Color=204,0,0
@@ -35,10 +35,10 @@ Color=26,146,28
 Color=154,255,135
 
 [Color3]
-Color=239,228,58
+Color=67,168,237
 
 [Color3Faint]
-Color=239,228,58
+Color=67,168,237
 
 [Color3Intense]
 Color=255,250,92
@@ -71,7 +71,7 @@ Color=5,152,154
 Color=52,226,226
 
 [Color7]
-Color=211,215,207
+Color=179,183,176
 
 [Color7Faint]
 Color=179,183,176
@@ -92,4 +92,3 @@ Color=211,215,207
 Blur=true
 Description=Espresso Libre
 Opacity=0.95
-

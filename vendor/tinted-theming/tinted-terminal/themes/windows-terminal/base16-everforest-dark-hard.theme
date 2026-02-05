@@ -3,9 +3,9 @@
 	"name": "Everforest Dark Hard",
 	"foreground": "#d3c6aa",
 	"background": "#272e33",
-	"black": "#2e383c",
+	"black": "#272e33",
 	"blue": "#7fbbb3",
-	"brightBlack": "#414b50",
+	"brightBlack": "#859289",
 	"brightBlue": "#7fbbb3",
 	"brightCyan": "#83c092",
 	"brightGreen": "#a7c080",
@@ -17,6 +17,6 @@
 	"green": "#a7c080",
 	"purple": "#d699b6",
 	"red": "#e67e80",
-	"white": "#edeada",
-	"yellow": "#e69875"
+	"white": "#d3c6aa",
+	"yellow": "#dbbc7f"
 },

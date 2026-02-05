@@ -3,9 +3,9 @@
 	"name": "Zenburn",
 	"foreground": "#c1c9b9",
 	"background": "#3f3f3f",
-	"black": "#4d4d4d",
+	"black": "#3f3f3f",
 	"blue": "#506070",
-	"brightBlack": "#709080",
+	"brightBlack": "#8ba393",
 	"brightBlue": "#94bff3",
 	"brightCyan": "#93e0e3",
 	"brightGreen": "#c3bf9f",
@@ -17,6 +17,6 @@
 	"green": "#60b48a",
 	"purple": "#dc8cc3",
 	"red": "#705050",
-	"white": "#dcdccc",
-	"yellow": "#f0dfaf"
+	"white": "#c1c9b9",
+	"yellow": "#94bff3"
 },

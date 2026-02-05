@@ -2,8 +2,8 @@
 # Color scheme: Sleepy Hollow by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#4e4b60' # base02
-selection-foreground = '#968684' # base05
+selection-background = '#968684' # base05
+selection-foreground = '#4e4b60' # base02
 
 cursor         = '#968684' # base05
 tabs           = '#572000' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#4e4b60' # base02
 
 background     = '#121213' # base00
 foreground     = '#968684' # base05
-black          = '#572000' # base01
+black          = '#121213' # base00
 red            = '#b93934' # base08
 yellow         = '#8085ef' # base0A
 green          = '#90773e' # base0B
 cyan           = '#8eaea9' # base0C
 blue           = '#5e62b4' # base0D
 magenta        = '#a07c7b' # base0E
-white          = '#af9a91' # base06
+white          = '#968684' # base05
 
 dim-foreground   = '#968684' # base05
 dim-black        = '#572000' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#a07c7b' # base0E
 dim-white        = '#7e7278' # base04
 
 light-foreground = '#968684' # base05
-light-black      = '#4e4b60' # base02
+light-black      = '#665e6c' # base03
 light-red        = '#d9443e' # base12
 light-yellow     = '#f66713' # base13
 light-green      = '#d6b04e' # base14

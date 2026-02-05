@@ -3,9 +3,9 @@
 	"name": "Toy Chest",
 	"foreground": "#27b684",
 	"background": "#23364a",
-	"black": "#2c3f57",
+	"black": "#23364a",
 	"blue": "#325d96",
-	"brightBlack": "#326889",
+	"brightBlack": "#2f8288",
 	"brightBlue": "#33a5d9",
 	"brightCyan": "#41c3ad",
 	"brightGreen": "#30cf7b",
@@ -17,6 +17,6 @@
 	"green": "#199171",
 	"purple": "#8a5ddb",
 	"red": "#be2d26",
-	"white": "#23d082",
-	"yellow": "#da8e26"
+	"white": "#27b684",
+	"yellow": "#33a5d9"
 },

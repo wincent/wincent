@@ -2,8 +2,8 @@
 # Color scheme: UwUnicorn by Fernando Marques (https://github.com/RakkiUwU) and Gabriel Fontes (https://github.com/Misterio77)
 
 [colors]
-selection-background = '#46354a' # base02
-selection-foreground = '#eed5d9' # base05
+selection-background = '#eed5d9' # base05
+selection-foreground = '#46354a' # base02
 
 cursor         = '#eed5d9' # base05
 tabs           = '#2f2a3f' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#46354a' # base02
 
 background     = '#241b26' # base00
 foreground     = '#eed5d9' # base05
-black          = '#2f2a3f' # base01
+black          = '#241b26' # base00
 red            = '#877bb6' # base08
 yellow         = '#a84a73' # base0A
 green          = '#c965bf' # base0B
 cyan           = '#9c5fce' # base0C
 blue           = '#6a9eb5' # base0D
 magenta        = '#78a38f' # base0E
-white          = '#d9c2c6' # base06
+white          = '#eed5d9' # base05
 
 dim-foreground   = '#eed5d9' # base05
 dim-black        = '#2f2a3f' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#78a38f' # base0E
 dim-white        = '#7e5f83' # base04
 
 light-foreground = '#eed5d9' # base05
-light-black      = '#46354a' # base02
+light-black      = '#6c3cb2' # base03
 light-red        = '#877bb6' # base08
 light-yellow     = '#a84a73' # base0A
 light-green      = '#c965bf' # base0B

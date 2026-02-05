@@ -2,8 +2,8 @@
 # Color scheme: Lovelace by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#414458' # base02
-selection-foreground = '#ceced3' # base05
+selection-background = '#ceced3' # base05
+selection-foreground = '#414458' # base02
 
 cursor         = '#ceced3' # base05
 tabs           = '#282a36' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#414458' # base02
 
 background     = '#1d1f28' # base00
 foreground     = '#ceced3' # base05
-black          = '#282a36' # base01
+black          = '#1d1f28' # base00
 red            = '#f37f97' # base08
 yellow         = '#556fff' # base0A
 green          = '#5adecd' # base0B
 cyan           = '#79e6f3' # base0C
 blue           = '#8897f4' # base0D
 magenta        = '#c574dd' # base0E
-white          = '#fdfdfd' # base06
+white          = '#ceced3' # base05
 
 dim-foreground   = '#ceced3' # base05
 dim-black        = '#282a36' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#c574dd' # base0E
 dim-white        = '#9fa0aa' # base04
 
 light-foreground = '#ceced3' # base05
-light-black      = '#414458' # base02
+light-black      = '#707281' # base03
 light-red        = '#ff4971' # base12
 light-yellow     = '#ff8037' # base13
 light-green      = '#18e3c8' # base14

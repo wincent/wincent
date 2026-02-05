@@ -2,8 +2,8 @@
 # Color scheme: Elementary by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#4a4a4a' # base02
-selection-foreground = '#c5c5c5' # base05
+selection-background = '#c5c5c5' # base05
+selection-foreground = '#4a4a4a' # base02
 
 cursor         = '#c5c5c5' # base05
 tabs           = '#242424' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#4a4a4a' # base02
 
 background     = '#181818' # base00
 foreground     = '#c5c5c5' # base05
-black          = '#242424' # base01
+black          = '#181818' # base00
 red            = '#d61b15' # base08
 yellow         = '#0855fe' # base0A
 green          = '#59a413' # base0B
 cyan           = '#2594e0' # base0C
 blue           = '#053a8c' # base0D
 magenta        = '#e40038' # base0E
-white          = '#eeeeee' # base06
+white          = '#c5c5c5' # base05
 
 dim-foreground   = '#c5c5c5' # base05
 dim-black        = '#242424' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#e40038' # base0E
 dim-white        = '#9c9c9c' # base04
 
 light-foreground = '#c5c5c5' # base05
-light-black      = '#4a4a4a' # base02
+light-black      = '#737373' # base03
 light-red        = '#fb1b18' # base12
 light-yellow     = '#fdc70e' # base13
 light-green      = '#6ac118' # base14

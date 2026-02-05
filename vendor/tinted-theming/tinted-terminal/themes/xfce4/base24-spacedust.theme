@@ -5,6 +5,6 @@
 Name=base24-spacedust
 ColorForeground=#cdc7a6
 ColorBackground=#0a1e24
-ColorCursor=x
+ColorCursor=#cdc7a6
 ColorBoldIsBright=FALSE
-ColorPalette=#6e5246;#e35a00;#5cab96;#67a0cd;#0e548b;#e35a00;#06afc7;#f0f1ce;#674c31;#ff8a39;#adcab8;#ffc777;#67a0cd;#ff8a39;#83a6b3;#fefff0
+ColorPalette=#0a1e24;#e35a00;#5cab96;#67a0cd;#0e548b;#e35a00;#06afc7;#cdc7a6;#897558;#ff8a39;#adcab8;#ffc777;#67a0cd;#ff8a39;#83a6b3;#fefff0

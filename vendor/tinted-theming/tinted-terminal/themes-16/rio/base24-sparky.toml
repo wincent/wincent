@@ -2,8 +2,8 @@
 # Color scheme: Sparky by Leila Sother (https://github.com/mixcoac)
 
 [colors]
-selection-background = '#003c46' # base02
-selection-foreground = '#f4f5f0' # base05
+selection-background = '#f4f5f0' # base05
+selection-foreground = '#003c46' # base02
 
 cursor         = '#f4f5f0' # base05
 tabs           = '#00313c' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#003c46' # base02
 
 background     = '#072b31' # base00
 foreground     = '#f4f5f0' # base05
-black          = '#00313c' # base01
+black          = '#072b31' # base00
 red            = '#ff585d' # base08
 yellow         = '#fbdd40' # base0A
 green          = '#78d64b' # base0B
 cyan           = '#2dccd3' # base0C
 blue           = '#4698cb' # base0D
 magenta        = '#d59ed7' # base0E
-white          = '#f5f5f1' # base06
+white          = '#f4f5f0' # base05
 
 dim-foreground   = '#f4f5f0' # base05
 dim-black        = '#00313c' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#d59ed7' # base0E
 dim-white        = '#00778b' # base04
 
 light-foreground = '#f4f5f0' # base05
-light-black      = '#003c46' # base02
+light-black      = '#003b49' # base03
 light-red        = '#ff7276' # base12
 light-yellow     = '#f6eb61' # base13
 light-green      = '#8edd65' # base14

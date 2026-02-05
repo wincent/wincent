@@ -7,7 +7,7 @@ diff '--color=auto' -u -N st-0.9.3/config.def.h st-0.9.3-mod/config.def.h
  /* Terminal colors (16 first used in escape sequence) */
 +/*
 + * Scheme name: Kanagawa Dragon
-+ * Scheme author: Tommaso Laurenzi (https://github.com/rebelot)
++ * Scheme author: Stefan Weigl-Bosker (https://github.com/sweiglbosker), Tommaso Laurenzi (https://github.com/rebelot/kanagawa.nvim)
 + * Template author: Tinted Theming (https://github.com/tinted-theming)
 + */
  static const char *colorname[] = {
@@ -20,14 +20,14 @@ diff '--color=auto' -u -N st-0.9.3/config.def.h st-0.9.3-mod/config.def.h
 -	"magenta3",
 -	"cyan3",
 -	"gray90",
-+	[0] = "#1d1c19",   /* black  */
++	[0] = "#181616",   /* black  */
 +	[1] = "#c4746e",   /* red    */
-+	[2] = "#87a987",   /* green  */
++	[2] = "#8a9a7b",   /* green  */
 +	[3] = "#c4b28a",   /* yellow */
 +	[4] = "#8ba4b0",   /* blue   */
-+	[5] = "#8992a7",   /* magenta*/
++	[5] = "#a292a3",   /* magenta*/
 +	[6] = "#8ea4a2",   /* cyan   */
-+	[7] = "#7a8382",   /* white  */
++	[7] = "#c5c9c5",   /* white  */
 
  	/* 8 bright colors */
 -	"gray50",
@@ -38,12 +38,12 @@ diff '--color=auto' -u -N st-0.9.3/config.def.h st-0.9.3-mod/config.def.h
 -	"magenta",
 -	"cyan",
 -	"white",
-+	[8] = "#282727",   /* black  */
++	[8] = "#625e5a",   /* black  */
 +	[9] = "#c4746e",   /* red    */
-+	[10] = "#87a987",  /* green  */
++	[10] = "#8a9a7b",  /* green  */
 +	[11] = "#c4b28a",  /* yellow */
 +	[12] = "#8ba4b0",  /* blue   */
-+	[13] = "#8992a7",  /* magenta*/
++	[13] = "#a292a3",  /* magenta*/
 +	[14] = "#8ea4a2",  /* cyan   */
 +	[15] = "#c5c9c5",  /* white  */
 
@@ -55,7 +55,7 @@ diff '--color=auto' -u -N st-0.9.3/config.def.h st-0.9.3-mod/config.def.h
 -	"gray90", /* default foreground colour */
 -	"black", /* default background colour */
 +	[256] = "#c5c9c5",  /* foreground */
-+	[257] = "#0d0c0c",  /* background */
++	[257] = "#181616",  /* background */
  };
 
 

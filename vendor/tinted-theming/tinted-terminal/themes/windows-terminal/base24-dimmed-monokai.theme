@@ -3,9 +3,9 @@
 	"name": "Dimmed Monokai",
 	"foreground": "#acafac",
 	"background": "#1e1e1e",
-	"black": "#3a3c43",
+	"black": "#1e1e1e",
 	"blue": "#4e76a1",
-	"brightBlack": "#888987",
+	"brightBlack": "#949593",
 	"brightBlue": "#176ce3",
 	"brightCyan": "#2d6f6c",
 	"brightGreen": "#0e712e",
@@ -17,6 +17,6 @@
 	"green": "#869a3a",
 	"purple": "#855b8d",
 	"red": "#be3e48",
-	"white": "#b8bcb9",
-	"yellow": "#c4a535"
+	"white": "#acafac",
+	"yellow": "#176ce3"
 },

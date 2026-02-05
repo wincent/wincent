@@ -3,9 +3,9 @@
 	"name": "Darcula",
 	"foreground": "#a9b7c6",
 	"background": "#2b2b2b",
-	"black": "#323232",
+	"black": "#2b2b2b",
 	"blue": "#9876aa",
-	"brightBlack": "#323232",
+	"brightBlack": "#606366",
 	"brightBlue": "#9876aa",
 	"brightCyan": "#629755",
 	"brightGreen": "#6a8759",
@@ -17,6 +17,6 @@
 	"green": "#6a8759",
 	"purple": "#cc7832",
 	"red": "#4eade5",
-	"white": "#ffc66d",
-	"yellow": "#689757"
+	"white": "#a9b7c6",
+	"yellow": "#bbb529"
 },

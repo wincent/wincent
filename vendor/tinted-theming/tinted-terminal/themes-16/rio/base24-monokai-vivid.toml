@@ -2,8 +2,8 @@
 # Color scheme: Monokai Vivid by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#424242' # base02
-selection-foreground = '#dfdfdf' # base05
+selection-background = '#dfdfdf' # base05
+selection-foreground = '#424242' # base02
 
 cursor         = '#dfdfdf' # base05
 tabs           = '#323232' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#424242' # base02
 
 background     = '#121212' # base00
 foreground     = '#dfdfdf' # base05
-black          = '#323232' # base01
+black          = '#121212' # base00
 red            = '#fa2834' # base08
 yellow         = '#fef20a' # base0A
 green          = '#97e123' # base0B
 cyan           = '#01b6ed' # base0C
 blue           = '#0442fe' # base0D
 magenta        = '#f800f8' # base0E
-white          = '#f1f1f1' # base06
+white          = '#dfdfdf' # base05
 
 dim-foreground   = '#dfdfdf' # base05
 dim-black        = '#323232' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#f800f8' # base0E
 dim-white        = '#c0c0c0' # base04
 
 light-foreground = '#dfdfdf' # base05
-light-black      = '#424242' # base02
+light-black      = '#525252' # base03
 light-red        = '#f5669c' # base12
 light-yellow     = '#fef26c' # base13
 light-green      = '#b0e05e' # base14

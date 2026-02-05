@@ -5,6 +5,6 @@
 Name=base16-chinoiserie
 ColorForeground=#4a4035
 ColorBackground=#ffffff
-ColorCursor=x
+ColorCursor=#4a4035
 ColorBoldIsBright=FALSE
-ColorPalette=#e0e0e0;#c04851;#428675;#d6a01d;#815c94;#c08eaf;#2b73af;#2f2f35;#d6d6d6;#c04851;#428675;#d6a01d;#815c94;#c08eaf;#2b73af;#131124
+ColorPalette=#ffffff;#c04851;#428675;#d6a01d;#815c94;#c08eaf;#2b73af;#4a4035;#80766e;#c04851;#428675;#d6a01d;#815c94;#c08eaf;#2b73af;#131124

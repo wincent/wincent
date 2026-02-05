@@ -2,8 +2,8 @@
 # Color scheme: Gotham by Andrea Leopardi (arranged by Brett Jones)
 
 [colors]
-selection-background = '#091f2e' # base02
-selection-foreground = '#599cab' # base05
+selection-background = '#599cab' # base05
+selection-foreground = '#091f2e' # base02
 
 cursor         = '#599cab' # base05
 tabs           = '#11151c' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#091f2e' # base02
 
 background     = '#0c1014' # base00
 foreground     = '#599cab' # base05
-black          = '#11151c' # base01
+black          = '#0c1014' # base00
 red            = '#c23127' # base08
 yellow         = '#edb443' # base0A
 green          = '#33859e' # base0B
 cyan           = '#2aa889' # base0C
 blue           = '#195466' # base0D
 magenta        = '#888ca6' # base0E
-white          = '#99d1ce' # base06
+white          = '#599cab' # base05
 
 dim-foreground   = '#599cab' # base05
 dim-black        = '#11151c' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#888ca6' # base0E
 dim-white        = '#245361' # base04
 
 light-foreground = '#599cab' # base05
-light-black      = '#091f2e' # base02
+light-black      = '#0a3749' # base03
 light-red        = '#c23127' # base08
 light-yellow     = '#edb443' # base0A
 light-green      = '#33859e' # base0B

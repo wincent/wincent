@@ -2,8 +2,8 @@
 # Color scheme: Atelier Savanna Light by Bram de Haan (http://atelierbramdehaan.nl)
 
 [colors]
-selection-background = '#87928a' # base02
-selection-foreground = '#526057' # base05
+selection-background = '#526057' # base05
+selection-foreground = '#87928a' # base02
 
 cursor         = '#526057' # base05
 tabs           = '#dfe7e2' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#87928a' # base02
 
 background     = '#ecf4ee' # base00
 foreground     = '#526057' # base05
-black          = '#dfe7e2' # base01
+black          = '#ecf4ee' # base00
 red            = '#b16139' # base08
 yellow         = '#a07e3b' # base0A
 green          = '#489963' # base0B
 cyan           = '#1c9aa0' # base0C
 blue           = '#478c90' # base0D
 magenta        = '#55859b' # base0E
-white          = '#232a25' # base06
+white          = '#526057' # base05
 
 dim-foreground   = '#526057' # base05
 dim-black        = '#dfe7e2' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#55859b' # base0E
 dim-white        = '#5f6d64' # base04
 
 light-foreground = '#526057' # base05
-light-black      = '#87928a' # base02
+light-black      = '#78877d' # base03
 light-red        = '#b16139' # base08
 light-yellow     = '#a07e3b' # base0A
 light-green      = '#489963' # base0B

@@ -3,9 +3,9 @@
 	"name": "Gruvbox dark, pale",
 	"foreground": "#dab997",
 	"background": "#262626",
-	"black": "#3a3a3a",
+	"black": "#262626",
 	"blue": "#83adad",
-	"brightBlack": "#4e4e4e",
+	"brightBlack": "#8a8a8a",
 	"brightBlue": "#83adad",
 	"brightCyan": "#85ad85",
 	"brightGreen": "#afaf00",
@@ -17,6 +17,6 @@
 	"green": "#afaf00",
 	"purple": "#d485ad",
 	"red": "#d75f5f",
-	"white": "#d5c4a1",
-	"yellow": "#ff8700"
+	"white": "#dab997",
+	"yellow": "#ffaf00"
 },

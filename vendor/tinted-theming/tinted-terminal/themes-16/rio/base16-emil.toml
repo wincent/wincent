@@ -2,8 +2,8 @@
 # Color scheme: emil by limelier
 
 [colors]
-selection-background = '#9e9eaf' # base02
-selection-foreground = '#313145' # base05
+selection-background = '#313145' # base05
+selection-foreground = '#9e9eaf' # base02
 
 cursor         = '#313145' # base05
 tabs           = '#bebed2' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#9e9eaf' # base02
 
 background     = '#efefef' # base00
 foreground     = '#313145' # base05
-black          = '#bebed2' # base01
+black          = '#efefef' # base00
 red            = '#f43979' # base08
 yellow         = '#ff669b' # base0A
 green          = '#0073a8' # base0B
 cyan           = '#2155d6' # base0C
 blue           = '#471397' # base0D
 magenta        = '#6916b6' # base0E
-white          = '#22223a' # base06
+white          = '#313145' # base05
 
 dim-foreground   = '#313145' # base05
 dim-black        = '#bebed2' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#6916b6' # base0E
 dim-white        = '#505063' # base04
 
 light-foreground = '#313145' # base05
-light-black      = '#9e9eaf' # base02
+light-black      = '#7c7c98' # base03
 light-red        = '#f43979' # base08
 light-yellow     = '#ff669b' # base0A
 light-green      = '#0073a8' # base0B

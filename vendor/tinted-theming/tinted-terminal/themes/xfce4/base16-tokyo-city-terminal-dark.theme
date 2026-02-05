@@ -5,6 +5,6 @@
 Name=base16-tokyo-city-terminal-dark
 ColorForeground=#d8e2ec
 ColorBackground=#171d23
-ColorCursor=x
+ColorCursor=#d8e2ec
 ColorBoldIsBright=FALSE
-ColorPalette=#1d252c;#d95468;#8bd49c;#ebbf83;#539afc;#b62d65;#70e1e8;#f6f6f8;#28323a;#d95468;#8bd49c;#ebbf83;#539afc;#b62d65;#70e1e8;#fbfbfd
+ColorPalette=#171d23;#d95468;#8bd49c;#ebbf83;#539afc;#b62d65;#70e1e8;#d8e2ec;#526270;#d95468;#8bd49c;#ebbf83;#539afc;#b62d65;#70e1e8;#fbfbfd

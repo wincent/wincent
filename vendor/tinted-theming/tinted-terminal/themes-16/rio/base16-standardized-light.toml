@@ -2,8 +2,8 @@
 # Color scheme: standardized-light by ali (https://github.com/ali-githb/base16-standardized-scheme)
 
 [colors]
-selection-background = '#cccccc' # base02
-selection-foreground = '#444444' # base05
+selection-background = '#444444' # base05
+selection-foreground = '#cccccc' # base02
 
 cursor         = '#444444' # base05
 tabs           = '#eeeeee' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#cccccc' # base02
 
 background     = '#ffffff' # base00
 foreground     = '#444444' # base05
-black          = '#eeeeee' # base01
+black          = '#ffffff' # base00
 red            = '#d03e3e' # base08
 yellow         = '#ad8200' # base0A
 green          = '#31861f' # base0B
 cyan           = '#00998f' # base0C
 blue           = '#3173c5' # base0D
 magenta        = '#9e57c2' # base0E
-white          = '#333333' # base06
+white          = '#444444' # base05
 
 dim-foreground   = '#444444' # base05
 dim-black        = '#eeeeee' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#9e57c2' # base0E
 dim-white        = '#767676' # base04
 
 light-foreground = '#444444' # base05
-light-black      = '#cccccc' # base02
+light-black      = '#767676' # base03
 light-red        = '#d03e3e' # base08
 light-yellow     = '#ad8200' # base0A
 light-green      = '#31861f' # base0B

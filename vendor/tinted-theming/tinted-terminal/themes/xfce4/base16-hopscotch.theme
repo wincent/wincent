@@ -5,6 +5,6 @@
 Name=base16-hopscotch
 ColorForeground=#b9b5b8
 ColorBackground=#322931
-ColorCursor=x
+ColorCursor=#b9b5b8
 ColorBoldIsBright=FALSE
-ColorPalette=#433b42;#dd464c;#8fc13e;#fdcc59;#1290bf;#c85e7c;#149b93;#d5d3d5;#5c545b;#dd464c;#8fc13e;#fdcc59;#1290bf;#c85e7c;#149b93;#ffffff
+ColorPalette=#322931;#dd464c;#8fc13e;#fdcc59;#1290bf;#c85e7c;#149b93;#b9b5b8;#797379;#dd464c;#8fc13e;#fdcc59;#1290bf;#c85e7c;#149b93;#ffffff

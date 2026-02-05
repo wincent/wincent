@@ -3,9 +3,9 @@
 	"name": "Hacktober",
 	"foreground": "#bfbdb7",
 	"background": "#141414",
-	"black": "#191918",
+	"black": "#141414",
 	"blue": "#206ec5",
-	"brightBlack": "#2c2b2a",
+	"brightBlack": "#5d5b59",
 	"brightBlue": "#5389c5",
 	"brightCyan": "#ebc587",
 	"brightGreen": "#42824a",
@@ -17,6 +17,6 @@
 	"green": "#587744",
 	"purple": "#864651",
 	"red": "#b34538",
-	"white": "#f1eee7",
-	"yellow": "#d08949"
+	"white": "#bfbdb7",
+	"yellow": "#5389c5"
 },

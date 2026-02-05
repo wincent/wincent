@@ -8,13 +8,13 @@ Color=68,68,68
 Color=0,0,0
 
 [Color0]
-Color=42,42,42
+Color=0,0,0
 
 [Color0Faint]
 Color=0,0,0
 
 [Color0Intense]
-Color=102,102,102
+Color=123,123,123
 
 [Color1]
 Color=255,0,0
@@ -35,10 +35,10 @@ Color=121,255,15
 Color=102,255,102
 
 [Color3]
-Color=231,191,0
+Color=112,154,237
 
 [Color3Faint]
-Color=231,191,0
+Color=112,154,237
 
 [Color3Intense]
 Color=243,214,78
@@ -71,7 +71,7 @@ Color=102,204,255
 Color=121,223,242
 
 [Color7]
-Color=187,187,187
+Color=165,165,165
 
 [Color7Faint]
 Color=165,165,165
@@ -92,4 +92,3 @@ Color=187,187,187
 Blur=true
 Description=Paul Millr
 Opacity=0.95
-

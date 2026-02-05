@@ -5,6 +5,6 @@
 Name=base16-ocean
 ColorForeground=#c0c5ce
 ColorBackground=#2b303b
-ColorCursor=x
+ColorCursor=#c0c5ce
 ColorBoldIsBright=FALSE
-ColorPalette=#343d46;#bf616a;#a3be8c;#ebcb8b;#8fa1b3;#b48ead;#96b5b4;#dfe1e8;#4f5b66;#bf616a;#a3be8c;#ebcb8b;#8fa1b3;#b48ead;#96b5b4;#eff1f5
+ColorPalette=#2b303b;#bf616a;#a3be8c;#ebcb8b;#8fa1b3;#b48ead;#96b5b4;#c0c5ce;#65737e;#bf616a;#a3be8c;#ebcb8b;#8fa1b3;#b48ead;#96b5b4;#eff1f5

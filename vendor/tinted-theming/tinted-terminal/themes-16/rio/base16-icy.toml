@@ -2,8 +2,8 @@
 # Color scheme: Icy Dark by icyphox (https://icyphox.ga)
 
 [colors]
-selection-background = '#041f23' # base02
-selection-foreground = '#095b67' # base05
+selection-background = '#095b67' # base05
+selection-foreground = '#041f23' # base02
 
 cursor         = '#095b67' # base05
 tabs           = '#031619' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#041f23' # base02
 
 background     = '#021012' # base00
 foreground     = '#095b67' # base05
-black          = '#031619' # base01
+black          = '#021012' # base00
 red            = '#16c1d9' # base08
 yellow         = '#80deea' # base0A
 green          = '#4dd0e1' # base0B
 cyan           = '#26c6da' # base0C
 blue           = '#00bcd4' # base0D
 magenta        = '#00acc1' # base0E
-white          = '#0c7c8c' # base06
+white          = '#095b67' # base05
 
 dim-foreground   = '#095b67' # base05
 dim-black        = '#031619' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#00acc1' # base0E
 dim-white        = '#064048' # base04
 
 light-foreground = '#095b67' # base05
-light-black      = '#041f23' # base02
+light-black      = '#052e34' # base03
 light-red        = '#16c1d9' # base08
 light-yellow     = '#80deea' # base0A
 light-green      = '#4dd0e1' # base0B

@@ -2,8 +2,8 @@
 # Color scheme: Chalk by Chris Kempson (http://chriskempson.com)
 
 [colors]
-selection-background = '#303030' # base02
-selection-foreground = '#d0d0d0' # base05
+selection-background = '#d0d0d0' # base05
+selection-foreground = '#303030' # base02
 
 cursor         = '#d0d0d0' # base05
 tabs           = '#202020' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#303030' # base02
 
 background     = '#151515' # base00
 foreground     = '#d0d0d0' # base05
-black          = '#202020' # base01
+black          = '#151515' # base00
 red            = '#fb9fb1' # base08
 yellow         = '#ddb26f' # base0A
 green          = '#acc267' # base0B
 cyan           = '#12cfc0' # base0C
 blue           = '#6fc2ef' # base0D
 magenta        = '#e1a3ee' # base0E
-white          = '#e0e0e0' # base06
+white          = '#d0d0d0' # base05
 
 dim-foreground   = '#d0d0d0' # base05
 dim-black        = '#202020' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#e1a3ee' # base0E
 dim-white        = '#b0b0b0' # base04
 
 light-foreground = '#d0d0d0' # base05
-light-black      = '#303030' # base02
+light-black      = '#505050' # base03
 light-red        = '#fb9fb1' # base08
 light-yellow     = '#ddb26f' # base0A
 light-green      = '#acc267' # base0B

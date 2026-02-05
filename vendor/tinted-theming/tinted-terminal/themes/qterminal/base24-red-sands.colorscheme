@@ -8,13 +8,13 @@ Color=56,56,56
 Color=121,36,30
 
 [Color0]
-Color=0,0,0
+Color=121,36,30
 
 [Color0Faint]
 Color=121,36,30
 
 [Color0Intense]
-Color=85,85,85
+Color=110,110,110
 
 [Color1]
 Color=255,63,0
@@ -35,10 +35,10 @@ Color=0,187,0
 Color=0,187,0
 
 [Color3]
-Color=231,176,0
+Color=0,113,174
 
 [Color3Faint]
-Color=231,176,0
+Color=0,113,174
 
 [Color3Intense]
 Color=231,176,0
@@ -71,7 +71,7 @@ Color=0,187,187
 Color=85,255,255
 
 [Color7]
-Color=187,187,187
+Color=161,161,161
 
 [Color7Faint]
 Color=161,161,161
@@ -92,4 +92,3 @@ Color=187,187,187
 Blur=true
 Description=Red Sands
 Opacity=0.95
-

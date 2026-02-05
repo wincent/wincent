@@ -2,8 +2,8 @@
 # Color scheme: Solarized Dark by Ethan Schoonover (modified by aramisgithub)
 
 [colors]
-selection-background = '#586e75' # base02
-selection-foreground = '#93a1a1' # base05
+selection-background = '#93a1a1' # base05
+selection-foreground = '#586e75' # base02
 
 cursor         = '#93a1a1' # base05
 tabs           = '#073642' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#586e75' # base02
 
 background     = '#002b36' # base00
 foreground     = '#93a1a1' # base05
-black          = '#073642' # base01
+black          = '#002b36' # base00
 red            = '#dc322f' # base08
 yellow         = '#b58900' # base0A
 green          = '#859900' # base0B
 cyan           = '#2aa198' # base0C
 blue           = '#268bd2' # base0D
 magenta        = '#6c71c4' # base0E
-white          = '#eee8d5' # base06
+white          = '#93a1a1' # base05
 
 dim-foreground   = '#93a1a1' # base05
 dim-black        = '#073642' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#6c71c4' # base0E
 dim-white        = '#839496' # base04
 
 light-foreground = '#93a1a1' # base05
-light-black      = '#586e75' # base02
+light-black      = '#657b83' # base03
 light-red        = '#dc322f' # base08
 light-yellow     = '#b58900' # base0A
 light-green      = '#859900' # base0B

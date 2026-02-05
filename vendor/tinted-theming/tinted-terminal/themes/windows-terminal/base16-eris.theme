@@ -3,9 +3,9 @@
 	"name": "eris",
 	"foreground": "#606bac",
 	"background": "#0a0920",
-	"black": "#13133a",
+	"black": "#0a0920",
 	"blue": "#258fc4",
-	"brightBlack": "#23255a",
+	"brightBlack": "#333773",
 	"brightBlue": "#258fc4",
 	"brightCyan": "#a2faf0",
 	"brightGreen": "#a2faa8",
@@ -17,6 +17,6 @@
 	"green": "#a2faa8",
 	"purple": "#c368f7",
 	"red": "#f768a3",
-	"white": "#7986c5",
-	"yellow": "#f78968"
+	"white": "#606bac",
+	"yellow": "#f7d668"
 },

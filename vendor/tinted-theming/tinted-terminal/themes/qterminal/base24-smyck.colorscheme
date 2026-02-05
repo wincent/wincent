@@ -8,13 +8,13 @@ Color=81,81,81
 Color=27,27,27
 
 [Color0]
-Color=0,0,0
+Color=27,27,27
 
 [Color0Faint]
 Color=27,27,27
 
 [Color0Intense]
-Color=122,122,122
+Color=131,131,131
 
 [Color1]
 Color=183,65,49
@@ -35,10 +35,10 @@ Color=125,169,0
 Color=196,240,54
 
 [Color3]
-Color=196,164,0
+Color=141,207,240
 
 [Color3Faint]
-Color=196,164,0
+Color=141,207,240
 
 [Color3Intense]
 Color=254,225,77
@@ -71,7 +71,7 @@ Color=32,115,131
 Color=105,217,207
 
 [Color7]
-Color=160,160,160
+Color=150,150,150
 
 [Color7Faint]
 Color=150,150,150
@@ -92,4 +92,3 @@ Color=160,160,160
 Blur=true
 Description=Smyck
 Opacity=0.95
-

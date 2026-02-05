@@ -2,8 +2,8 @@
 # Color scheme: Ayu Dark by Tinted Theming (https://github.com/tinted-theming), Ayu Theme (https://github.com/ayu-theme)
 
 [colors]
-selection-background = '#202229' # base02
-selection-foreground = '#e6e1cf' # base05
+selection-background = '#e6e1cf' # base05
+selection-foreground = '#202229' # base02
 
 cursor         = '#e6e1cf' # base05
 tabs           = '#131721' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#202229' # base02
 
 background     = '#0b0e14' # base00
 foreground     = '#e6e1cf' # base05
-black          = '#131721' # base01
+black          = '#0b0e14' # base00
 red            = '#f07178' # base08
 yellow         = '#ffb454' # base0A
 green          = '#aad94c' # base0B
 cyan           = '#95e6cb' # base0C
 blue           = '#59c2ff' # base0D
 magenta        = '#d2a6ff' # base0E
-white          = '#ece8db' # base06
+white          = '#e6e1cf' # base05
 
 dim-foreground   = '#e6e1cf' # base05
 dim-black        = '#131721' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#d2a6ff' # base0E
 dim-white        = '#bfbdb6' # base04
 
 light-foreground = '#e6e1cf' # base05
-light-black      = '#202229' # base02
+light-black      = '#3e4b59' # base03
 light-red        = '#f26d78' # base12
 light-yellow     = '#e6b673' # base13
 light-green      = '#7fd962' # base14

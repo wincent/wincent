@@ -2,8 +2,8 @@
 # Color scheme: London Tube by Jan T. Sott
 
 [colors]
-selection-background = '#5a5758' # base02
-selection-foreground = '#d9d8d8' # base05
+selection-background = '#d9d8d8' # base05
+selection-foreground = '#5a5758' # base02
 
 cursor         = '#d9d8d8' # base05
 tabs           = '#1c3f95' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#5a5758' # base02
 
 background     = '#231f20' # base00
 foreground     = '#d9d8d8' # base05
-black          = '#1c3f95' # base01
+black          = '#231f20' # base00
 red            = '#ee2e24' # base08
 yellow         = '#ffd204' # base0A
 green          = '#00853e' # base0B
 cyan           = '#85cebc' # base0C
 blue           = '#009ddc' # base0D
 magenta        = '#98005d' # base0E
-white          = '#e7e7e8' # base06
+white          = '#d9d8d8' # base05
 
 dim-foreground   = '#d9d8d8' # base05
 dim-black        = '#1c3f95' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#98005d' # base0E
 dim-white        = '#959ca1' # base04
 
 light-foreground = '#d9d8d8' # base05
-light-black      = '#5a5758' # base02
+light-black      = '#737171' # base03
 light-red        = '#ee2e24' # base08
 light-yellow     = '#ffd204' # base0A
 light-green      = '#00853e' # base0B

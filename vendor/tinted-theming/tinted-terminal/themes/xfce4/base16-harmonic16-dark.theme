@@ -5,6 +5,6 @@
 Name=base16-harmonic16-dark
 ColorForeground=#cbd6e2
 ColorBackground=#0b1c2c
-ColorCursor=x
+ColorCursor=#cbd6e2
 ColorBoldIsBright=FALSE
-ColorPalette=#223b54;#bf8b56;#56bf8b;#8bbf56;#8b56bf;#bf568b;#568bbf;#e5ebf1;#405c79;#bf8b56;#56bf8b;#8bbf56;#8b56bf;#bf568b;#568bbf;#f7f9fb
+ColorPalette=#0b1c2c;#bf8b56;#56bf8b;#8bbf56;#8b56bf;#bf568b;#568bbf;#cbd6e2;#627e99;#bf8b56;#56bf8b;#8bbf56;#8b56bf;#bf568b;#568bbf;#f7f9fb

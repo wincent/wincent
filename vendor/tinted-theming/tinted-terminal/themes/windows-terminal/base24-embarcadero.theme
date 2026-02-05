@@ -3,9 +3,9 @@
 	"name": "Embarcadero",
 	"foreground": "#bcbdc0",
 	"background": "#252a2f",
-	"black": "#43474c",
+	"black": "#252a2f",
 	"blue": "#4080d0",
-	"brightBlack": "#616568",
+	"brightBlack": "#7f8285",
 	"brightBlue": "#80b0f0",
 	"brightCyan": "#40c0c0",
 	"brightGreen": "#a0d0a0",
@@ -17,6 +17,6 @@
 	"green": "#20c290",
 	"purple": "#a070d0",
 	"red": "#ed5d86",
-	"white": "#dadbdb",
-	"yellow": "#ffcb3d"
+	"white": "#bcbdc0",
+	"yellow": "#eb824d"
 },

@@ -3,9 +3,9 @@
 	"name": "Atelier Seaside Light",
 	"foreground": "#5e6e5e",
 	"background": "#f4fbf4",
-	"black": "#cfe8cf",
+	"black": "#f4fbf4",
 	"blue": "#3d62f5",
-	"brightBlack": "#8ca68c",
+	"brightBlack": "#809980",
 	"brightBlue": "#3d62f5",
 	"brightCyan": "#1999b3",
 	"brightGreen": "#29a329",
@@ -17,6 +17,6 @@
 	"green": "#29a329",
 	"purple": "#ad2bee",
 	"red": "#e6193c",
-	"white": "#242924",
-	"yellow": "#87711d"
+	"white": "#5e6e5e",
+	"yellow": "#98981b"
 },

@@ -3,9 +3,9 @@
 	"name": "Pandora",
 	"foreground": "#b8beba",
 	"background": "#131d42",
-	"black": "#000000",
+	"black": "#131d42",
 	"blue": "#338f86",
-	"brightBlack": "#3e5548",
+	"brightBlack": "#66786e",
 	"brightBlue": "#23d7d7",
 	"brightCyan": "#00ede1",
 	"brightGreen": "#74cd68",
@@ -17,6 +17,6 @@
 	"green": "#74af68",
 	"purple": "#9413e5",
 	"red": "#ff4242",
-	"white": "#e1e1e1",
-	"yellow": "#ffad29"
+	"white": "#b8beba",
+	"yellow": "#23d7d7"
 },

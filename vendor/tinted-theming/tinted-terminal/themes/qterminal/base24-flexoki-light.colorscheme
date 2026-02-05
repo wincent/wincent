@@ -8,13 +8,13 @@ Color=242,240,229
 Color=255,252,240
 
 [Color0]
-Color=242,240,229
+Color=255,252,240
 
 [Color0Faint]
 Color=255,252,240
 
 [Color0Intense]
-Color=230,228,217
+Color=206,205,195
 
 [Color1]
 Color=175,48,41
@@ -35,10 +35,10 @@ Color=102,128,11
 Color=208,162,21
 
 [Color3]
-Color=188,82,21
+Color=173,131,1
 
 [Color3Faint]
-Color=188,82,21
+Color=173,131,1
 
 [Color3Intense]
 Color=218,112,44
@@ -71,7 +71,7 @@ Color=36,131,123
 Color=135,154,57
 
 [Color7]
-Color=40,39,38
+Color=64,62,60
 
 [Color7Faint]
 Color=64,62,60
@@ -92,4 +92,3 @@ Color=40,39,38
 Blur=true
 Description=Flexoki Light
 Opacity=0.95
-

@@ -5,6 +5,6 @@
 Name=base24-bluloco-light
 ColorForeground=#38383a
 ColorBackground=#f7f7f7
-ColorCursor=x
+ColorCursor=#38383a
 ColorBoldIsBright=FALSE
-ColorPalette=#cbccd4;#c80d41;#208839;#1085d9;#1d44dd;#6d1bed;#1e4d7a;#000000;#dddee8;#fb496d;#34b253;#b79326;#1085d9;#c00cb2;#5a7fac;#1c1d21
+ColorPalette=#f7f7f7;#c80d41;#208839;#1085d9;#1d44dd;#6d1bed;#1e4d7a;#38383a;#a6a7ae;#fb496d;#34b253;#b79326;#1085d9;#c00cb2;#5a7fac;#1c1d21

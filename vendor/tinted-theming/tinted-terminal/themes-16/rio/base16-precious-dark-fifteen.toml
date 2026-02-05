@@ -2,8 +2,8 @@
 # Color scheme: Precious Dark Fifteen by 4lex4 &lt;4lex49@zoho.com&gt;
 
 [colors]
-selection-background = '#3e4044' # base02
-selection-foreground = '#bab9b6' # base05
+selection-background = '#bab9b6' # base05
+selection-foreground = '#3e4044' # base02
 
 cursor         = '#bab9b6' # base05
 tabs           = '#303337' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#3e4044' # base02
 
 background     = '#23262b' # base00
 foreground     = '#bab9b6' # base05
-black          = '#303337' # base01
+black          = '#23262b' # base00
 red            = '#ff8782' # base08
 yellow         = '#cfa546' # base0A
 green          = '#95b659' # base0B
 cyan           = '#42bda7' # base0C
 blue           = '#66b0ef' # base0D
 magenta        = '#b799ff' # base0E
-white          = '#bab9b6' # base06
+white          = '#bab9b6' # base05
 
 dim-foreground   = '#bab9b6' # base05
 dim-black        = '#303337' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#b799ff' # base0E
 dim-white        = '#abaaa8' # base04
 
 light-foreground = '#bab9b6' # base05
-light-black      = '#3e4044' # base02
+light-black      = '#898989' # base03
 light-red        = '#ff8782' # base08
 light-yellow     = '#cfa546' # base0A
 light-green      = '#95b659' # base0B

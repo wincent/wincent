@@ -5,6 +5,6 @@
 Name=base24-grape
 ColorForeground=#8c8a92
 ColorBackground=#161423
-ColorCursor=x
+ColorCursor=#8c8a92
 ColorBoldIsBright=FALSE
-ColorPalette=#2d283e;#ec2160;#1fa91b;#a9bbeb;#487cf4;#8c35c8;#3added;#9e9ea0;#58506a;#f0719a;#52a95d;#b2dc87;#a9bbeb;#ac81c1;#9ce3ea;#a188f7
+ColorPalette=#161423;#ec2160;#1fa91b;#a9bbeb;#487cf4;#8c35c8;#3added;#8c8a92;#696377;#f0719a;#52a95d;#b2dc87;#a9bbeb;#ac81c1;#9ce3ea;#a188f7

@@ -5,6 +5,6 @@
 Name=base16-pasque
 ColorForeground=#dedcdf
 ColorBackground=#271c3a
-ColorCursor=x
+ColorCursor=#dedcdf
 ColorBoldIsBright=FALSE
-ColorPalette=#100323;#a92258;#c6914b;#804ead;#8e7dc6;#953b9d;#7263aa;#edeaef;#3e2d5c;#a92258;#c6914b;#804ead;#8e7dc6;#953b9d;#7263aa;#bbaadd
+ColorPalette=#271c3a;#a92258;#c6914b;#804ead;#8e7dc6;#953b9d;#7263aa;#dedcdf;#5d5766;#a92258;#c6914b;#804ead;#8e7dc6;#953b9d;#7263aa;#bbaadd

@@ -5,6 +5,6 @@
 Name=base24-borland
 ColorForeground=#d1d1d1
 ColorBackground=#0000a4
-ColorCursor=x
+ColorCursor=#d1d1d1
 ColorBoldIsBright=FALSE
-ColorPalette=#4e4e4e;#ff6b60;#a7ff60;#b5dcfe;#96cafd;#ff73fd;#c6c4fd;#eeeeee;#7c7c7c;#ffb6b0;#ceffab;#ffffcb;#b5dcfe;#ff9cfe;#dfdffe;#ffffff
+ColorPalette=#0000a4;#ff6b60;#a7ff60;#b5dcfe;#96cafd;#ff73fd;#c6c4fd;#d1d1d1;#989898;#ffb6b0;#ceffab;#ffffcb;#b5dcfe;#ff9cfe;#dfdffe;#ffffff

@@ -5,6 +5,6 @@
 Name=base24-rippedcasts
 ColorForeground=#a8a8a8
 ColorBackground=#2b2b2b
-ColorCursor=x
+ColorCursor=#a8a8a8
 ColorBoldIsBright=FALSE
-ColorPalette=#000000;#cdaf95;#a7ff60;#86bdc9;#75a5b0;#ff73fd;#59647e;#bfbfbf;#666666;#eecbad;#bcee68;#e5e500;#86bdc9;#e500e5;#8c9bc3;#e5e5e5
+ColorPalette=#2b2b2b;#cdaf95;#a7ff60;#86bdc9;#75a5b0;#ff73fd;#59647e;#a8a8a8;#7c7c7c;#eecbad;#bcee68;#e5e500;#86bdc9;#e500e5;#8c9bc3;#e5e5e5

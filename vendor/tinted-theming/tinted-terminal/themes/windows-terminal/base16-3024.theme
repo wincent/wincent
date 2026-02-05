@@ -3,9 +3,9 @@
 	"name": "3024",
 	"foreground": "#a5a2a2",
 	"background": "#090300",
-	"black": "#3a3432",
+	"black": "#090300",
 	"blue": "#01a0e4",
-	"brightBlack": "#4a4543",
+	"brightBlack": "#5c5855",
 	"brightBlue": "#01a0e4",
 	"brightCyan": "#b5e4f4",
 	"brightGreen": "#01a252",
@@ -17,6 +17,6 @@
 	"green": "#01a252",
 	"purple": "#a16a94",
 	"red": "#db2d20",
-	"white": "#d6d5d4",
-	"yellow": "#e8bbd0"
+	"white": "#a5a2a2",
+	"yellow": "#fded02"
 },

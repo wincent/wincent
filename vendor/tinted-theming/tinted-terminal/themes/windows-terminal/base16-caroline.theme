@@ -3,9 +3,9 @@
 	"name": "caroline",
 	"foreground": "#a87569",
 	"background": "#1c1213",
-	"black": "#3a2425",
+	"black": "#1c1213",
 	"blue": "#684c59",
-	"brightBlack": "#563837",
+	"brightBlack": "#6d4745",
 	"brightBlue": "#684c59",
 	"brightCyan": "#6b6566",
 	"brightGreen": "#806c61",
@@ -17,6 +17,6 @@
 	"green": "#806c61",
 	"purple": "#a63650",
 	"red": "#c24f57",
-	"white": "#c58d7b",
-	"yellow": "#a63650"
+	"white": "#a87569",
+	"yellow": "#f28171"
 },

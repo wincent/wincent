@@ -8,13 +8,13 @@ Color=43,45,58
 Color=29,31,40
 
 [Color0]
-Color=40,42,54
+Color=29,31,40
 
 [Color0Faint]
 Color=29,31,40
 
 [Color0Intense]
-Color=65,68,88
+Color=112,114,129
 
 [Color1]
 Color=243,127,151
@@ -35,10 +35,10 @@ Color=90,222,205
 Color=24,227,200
 
 [Color3]
-Color=242,162,114
+Color=85,111,255
 
 [Color3Faint]
-Color=242,162,114
+Color=85,111,255
 
 [Color3Intense]
 Color=255,128,55
@@ -71,7 +71,7 @@ Color=121,230,243
 Color=63,220,238
 
 [Color7]
-Color=253,253,253
+Color=206,206,211
 
 [Color7Faint]
 Color=206,206,211
@@ -92,4 +92,3 @@ Color=253,253,253
 Blur=true
 Description=Lovelace
 Opacity=0.95
-

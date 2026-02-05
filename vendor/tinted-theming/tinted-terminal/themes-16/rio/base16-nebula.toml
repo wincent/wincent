@@ -2,8 +2,8 @@
 # Color scheme: Nebula by Gabriel Fontes (https://github.com/Misterio77)
 
 [colors]
-selection-background = '#5a8380' # base02
-selection-foreground = '#a4a6a9' # base05
+selection-background = '#a4a6a9' # base05
+selection-foreground = '#5a8380' # base02
 
 cursor         = '#a4a6a9' # base05
 tabs           = '#414f60' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#5a8380' # base02
 
 background     = '#22273b' # base00
 foreground     = '#a4a6a9' # base05
-black          = '#414f60' # base01
+black          = '#22273b' # base00
 red            = '#777abc' # base08
 yellow         = '#4f9062' # base0A
 green          = '#6562a8' # base0B
 cyan           = '#226f68' # base0C
 blue           = '#4d6bb6' # base0D
 magenta        = '#716cae' # base0E
-white          = '#c7c9cd' # base06
+white          = '#a4a6a9' # base05
 
 dim-foreground   = '#a4a6a9' # base05
 dim-black        = '#414f60' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#716cae' # base0E
 dim-white        = '#87888b' # base04
 
 light-foreground = '#a4a6a9' # base05
-light-black      = '#5a8380' # base02
+light-black      = '#6e6f72' # base03
 light-red        = '#777abc' # base08
 light-yellow     = '#4f9062' # base0A
 light-green      = '#6562a8' # base0B

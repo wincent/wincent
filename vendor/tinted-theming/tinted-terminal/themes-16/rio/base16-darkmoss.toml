@@ -2,8 +2,8 @@
 # Color scheme: darkmoss by Gabriel Avanzi (https://github.com/avanzzzi)
 
 [colors]
-selection-background = '#373c3d' # base02
-selection-foreground = '#c7c7a5' # base05
+selection-background = '#c7c7a5' # base05
+selection-foreground = '#373c3d' # base02
 
 cursor         = '#c7c7a5' # base05
 tabs           = '#252c2d' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#373c3d' # base02
 
 background     = '#171e1f' # base00
 foreground     = '#c7c7a5' # base05
-black          = '#252c2d' # base01
+black          = '#171e1f' # base00
 red            = '#ff4658' # base08
 yellow         = '#fdb11f' # base0A
 green          = '#499180' # base0B
 cyan           = '#66d9ef' # base0C
 blue           = '#498091' # base0D
 magenta        = '#9bc0c8' # base0E
-white          = '#e3e3c8' # base06
+white          = '#c7c7a5' # base05
 
 dim-foreground   = '#c7c7a5' # base05
 dim-black        = '#252c2d' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#9bc0c8' # base0E
 dim-white        = '#818f80' # base04
 
 light-foreground = '#c7c7a5' # base05
-light-black      = '#373c3d' # base02
+light-black      = '#555e5f' # base03
 light-red        = '#ff4658' # base08
 light-yellow     = '#fdb11f' # base0A
 light-green      = '#499180' # base0B

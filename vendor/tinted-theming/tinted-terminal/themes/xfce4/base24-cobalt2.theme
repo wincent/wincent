@@ -5,6 +5,6 @@
 Name=base24-cobalt2
 ColorForeground=#a1a1a1
 ColorBackground=#122637
-ColorCursor=x
+ColorCursor=#a1a1a1
 ColorBoldIsBright=FALSE
-ColorPalette=#000000;#ff0000;#37dd21;#5555ff;#1460d2;#ff005d;#00bbbb;#bbbbbb;#555555;#f40d17;#3bcf1d;#ecc809;#5555ff;#ff55ff;#6ae3f9;#ffffff
+ColorPalette=#122637;#ff0000;#37dd21;#5555ff;#1460d2;#ff005d;#00bbbb;#a1a1a1;#6e6e6e;#f40d17;#3bcf1d;#ecc809;#5555ff;#ff55ff;#6ae3f9;#ffffff

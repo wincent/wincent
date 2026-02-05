@@ -3,9 +3,9 @@
 	"name": "Banana Blueberry",
 	"foreground": "#c6c9cd",
 	"background": "#191322",
-	"black": "#16141e",
+	"black": "#191322",
 	"blue": "#22e8df",
-	"brightBlack": "#485161",
+	"brightBlack": "#727985",
 	"brightBlue": "#91fff3",
 	"brightCyan": "#bcf2fe",
 	"brightGreen": "#97c378",
@@ -17,6 +17,6 @@
 	"green": "#00bc9b",
 	"purple": "#dc3969",
 	"red": "#ff6a7e",
-	"white": "#f1f1f1",
-	"yellow": "#e5c62f"
+	"white": "#c6c9cd",
+	"yellow": "#91fff3"
 },

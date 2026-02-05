@@ -3,9 +3,9 @@
 	"name": "Atelier Cave",
 	"foreground": "#8b8792",
 	"background": "#19171c",
-	"black": "#26232a",
+	"black": "#19171c",
 	"blue": "#576ddb",
-	"brightBlack": "#585260",
+	"brightBlack": "#655f6d",
 	"brightBlue": "#576ddb",
 	"brightCyan": "#398bc6",
 	"brightGreen": "#2a9292",
@@ -17,6 +17,6 @@
 	"green": "#2a9292",
 	"purple": "#955ae7",
 	"red": "#be4678",
-	"white": "#e2dfe7",
-	"yellow": "#aa573c"
+	"white": "#8b8792",
+	"yellow": "#a06e3b"
 },

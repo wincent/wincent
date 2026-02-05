@@ -5,6 +5,6 @@
 Name=base16-katy
 ColorForeground=#959dcb
 ColorBackground=#292d3e
-ColorCursor=x
+ColorCursor=#959dcb
 ColorBoldIsBright=FALSE
-ColorPalette=#444267;#6e98e1;#78c06e;#e0a557;#82aaff;#c792ea;#83b7e5;#959dcb;#5c598b;#6e98e1;#78c06e;#e0a557;#82aaff;#c792ea;#83b7e5;#ffffff
+ColorPalette=#292d3e;#6e98e1;#78c06e;#e0a557;#82aaff;#c792ea;#83b7e5;#959dcb;#676e95;#6e98e1;#78c06e;#e0a557;#82aaff;#c792ea;#83b7e5;#ffffff

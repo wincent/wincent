@@ -5,6 +5,6 @@
 Name=base16-tomorrow-night-eighties
 ColorForeground=#cccccc
 ColorBackground=#2d2d2d
-ColorCursor=x
+ColorCursor=#cccccc
 ColorBoldIsBright=FALSE
-ColorPalette=#393939;#f2777a;#99cc99;#ffcc66;#6699cc;#cc99cc;#66cccc;#e0e0e0;#515151;#f2777a;#99cc99;#ffcc66;#6699cc;#cc99cc;#66cccc;#ffffff
+ColorPalette=#2d2d2d;#f2777a;#99cc99;#ffcc66;#6699cc;#cc99cc;#66cccc;#cccccc;#999999;#f2777a;#99cc99;#ffcc66;#6699cc;#cc99cc;#66cccc;#ffffff

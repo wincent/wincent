@@ -5,6 +5,6 @@
 Name=base16-tokyo-city-dark
 ColorForeground=#d8e2ec
 ColorBackground=#171d23
-ColorCursor=x
+ColorCursor=#d8e2ec
 ColorBoldIsBright=FALSE
-ColorPalette=#1d252c;#f7768e;#9ece6a;#b7c5d3;#7aa2f7;#bb9af7;#89ddff;#f6f6f8;#28323a;#f7768e;#9ece6a;#b7c5d3;#7aa2f7;#bb9af7;#89ddff;#fbfbfd
+ColorPalette=#171d23;#f7768e;#9ece6a;#b7c5d3;#7aa2f7;#bb9af7;#89ddff;#d8e2ec;#526270;#f7768e;#9ece6a;#b7c5d3;#7aa2f7;#bb9af7;#89ddff;#fbfbfd

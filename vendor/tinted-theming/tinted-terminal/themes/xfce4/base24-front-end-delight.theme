@@ -5,6 +5,6 @@
 Name=base24-front-end-delight
 ColorForeground=#98ac9c
 ColorBackground=#1b1b1d
-ColorCursor=x
+ColorCursor=#98ac9c
 ColorBoldIsBright=FALSE
-ColorPalette=#242426;#f8501a;#565746;#3393c9;#2c70b7;#f02d4e;#3ba0a5;#acacac;#5eac6c;#f64319;#74eb4c;#fcc224;#3393c9;#e75e4e;#4ebce5;#8b735a
+ColorPalette=#1b1b1d;#f8501a;#565746;#3393c9;#2c70b7;#f02d4e;#3ba0a5;#98ac9c;#71ac7c;#f64319;#74eb4c;#fcc224;#3393c9;#e75e4e;#4ebce5;#8b735a

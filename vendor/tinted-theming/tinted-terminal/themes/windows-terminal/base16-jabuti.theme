@@ -3,9 +3,9 @@
 	"name": "Jabuti",
 	"foreground": "#c0cbe3",
 	"background": "#292a37",
-	"black": "#343545",
+	"black": "#292a37",
 	"blue": "#3fc6de",
-	"brightBlack": "#3c3e51",
+	"brightBlack": "#45475d",
 	"brightBlue": "#3fc6de",
 	"brightCyan": "#ff7eb6",
 	"brightGreen": "#3fdaa4",
@@ -17,6 +17,6 @@
 	"green": "#3fdaa4",
 	"purple": "#be95ff",
 	"red": "#ec6a88",
-	"white": "#d9e0ee",
-	"yellow": "#efb993"
+	"white": "#c0cbe3",
+	"yellow": "#e1c697"
 },

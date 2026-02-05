@@ -3,7 +3,7 @@
 	"name": "Qualia",
 	"foreground": "#c0c0c0",
 	"background": "#101010",
-	"black": "#454545",
+	"black": "#101010",
 	"blue": "#50cacd",
 	"brightBlack": "#454545",
 	"brightBlue": "#50cacd",
@@ -18,5 +18,5 @@
 	"purple": "#e0af85",
 	"red": "#efa6a2",
 	"white": "#c0c0c0",
-	"yellow": "#a3b8ef"
+	"yellow": "#e6a3dc"
 },

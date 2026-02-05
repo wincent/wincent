@@ -3,7 +3,7 @@ Windows Registry Editor Version 5.00
 ; Scheme name: Kanagawa Dragon
 ; Scheme system: base16
 ; Scheme description: 
-; Scheme author: Tommaso Laurenzi (https://github.com/rebelot)
+; Scheme author: Stefan Weigl-Bosker (https://github.com/sweiglbosker), Tommaso Laurenzi (https://github.com/rebelot/kanagawa.nvim)
 ; Template author: Tinted Theming (https://github.com/tinted-theming)
 [HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base16-kanagawa-dragon]
 
@@ -16,16 +16,16 @@ Windows Registry Editor Version 5.00
 "Colour1"="197,201,197"
 
 ; Default Background
-; base00 #0d0c0c
-"Colour2"="13,12,12"
+; base00 #181616
+"Colour2"="24,22,22"
 
 ; Default Bold Background  -- equals to non-bold
-; base00 #0d0c0c
-"Colour3"="13,12,12"
+; base00 #181616
+"Colour3"="24,22,22"
 
 ; Cursor Text -- equals to default background
-; base00 #0d0c0c
-"Colour4"="13,12,12"
+; base00 #181616
+"Colour4"="24,22,22"
 
 ; Cursor Colour -- equals to default foreground
 ; base05 #c5c9c5
@@ -33,13 +33,13 @@ Windows Registry Editor Version 5.00
 
 ; ANSI Black
 ; 30m
-; base01 #1d1c19
-"Colour6"="29,28,25"
+; base00 #181616
+"Colour6"="24,22,22"
 
 ; ANSI Black Bright
 ; 1;30m
-; base02 #282727
-"Colour7"="40,39,39"
+; base03 #625e5a
+"Colour7"="98,94,90"
 
 ; ANSI Red
 ; 31m
@@ -53,13 +53,13 @@ Windows Registry Editor Version 5.00
 
 ; ANSI Green
 ; 32m
-; base0B #87a987
-"Colour10"="135,169,135"
+; base0B #8a9a7b
+"Colour10"="138,154,123"
 
 ; ANSI Green Bright
 ; 1;32m
-; base0B #87a987
-"Colour11"="135,169,135"
+; base0B #8a9a7b
+"Colour11"="138,154,123"
 
 ; ANSI Yellow
 ; 33m
@@ -83,13 +83,13 @@ Windows Registry Editor Version 5.00
 
 ; ANSI Magenta
 ; 35m
-; base0E #8992a7
-"Colour16"="137,146,167"
+; base0E #a292a3
+"Colour16"="162,146,163"
 
 ; ANSI Magenta Bright
 ; 1;35m
-; base0E #8992a7
-"Colour17"="137,146,167"
+; base0E #a292a3
+"Colour17"="162,146,163"
 
 ; ANSI Cyan
 ; 36m
@@ -103,8 +103,8 @@ Windows Registry Editor Version 5.00
 
 ; ANSI White
 ; 37m
-; base06 #7a8382
-"Colour20"="122,131,130"
+; base05 #c5c9c5
+"Colour20"="197,201,197"
 
 ; ANSI White Bright
 ; 1;37m

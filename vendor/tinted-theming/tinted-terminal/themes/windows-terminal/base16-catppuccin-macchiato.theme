@@ -3,9 +3,9 @@
 	"name": "Catppuccin Macchiato",
 	"foreground": "#cad3f5",
 	"background": "#24273a",
-	"black": "#1e2030",
+	"black": "#24273a",
 	"blue": "#8aadf4",
-	"brightBlack": "#363a4f",
+	"brightBlack": "#6e738d",
 	"brightBlue": "#8aadf4",
 	"brightCyan": "#8bd5ca",
 	"brightGreen": "#a6da95",
@@ -17,6 +17,6 @@
 	"green": "#a6da95",
 	"purple": "#c6a0f6",
 	"red": "#ed8796",
-	"white": "#f4dbd6",
-	"yellow": "#f5a97f"
+	"white": "#cad3f5",
+	"yellow": "#eed49f"
 },

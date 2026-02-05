@@ -3,9 +3,9 @@
 	"name": "Gruvbox Material Dark, Hard",
 	"foreground": "#ddc7a1",
 	"background": "#202020",
-	"black": "#2a2827",
+	"black": "#202020",
 	"blue": "#7daea3",
-	"brightBlack": "#504945",
+	"brightBlack": "#5a524c",
 	"brightBlue": "#7daea3",
 	"brightCyan": "#89b482",
 	"brightGreen": "#a9b665",
@@ -17,6 +17,6 @@
 	"green": "#a9b665",
 	"purple": "#d3869b",
 	"red": "#ea6962",
-	"white": "#ebdbb2",
-	"yellow": "#e78a4e"
+	"white": "#ddc7a1",
+	"yellow": "#d8a657"
 },

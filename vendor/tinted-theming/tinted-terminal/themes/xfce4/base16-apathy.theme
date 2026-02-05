@@ -5,6 +5,6 @@
 Name=base16-apathy
 ColorForeground=#81b5ac
 ColorBackground=#031a16
-ColorCursor=x
+ColorCursor=#81b5ac
 ColorBoldIsBright=FALSE
-ColorPalette=#0b342d;#3e9688;#883e96;#3e4c96;#96883e;#4c963e;#963e4c;#a7cec8;#184e45;#3e9688;#883e96;#3e4c96;#96883e;#4c963e;#963e4c;#d2e7e4
+ColorPalette=#031a16;#3e9688;#883e96;#3e4c96;#96883e;#4c963e;#963e4c;#81b5ac;#2b685e;#3e9688;#883e96;#3e4c96;#96883e;#4c963e;#963e4c;#d2e7e4

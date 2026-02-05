@@ -5,6 +5,6 @@
 Name=base16-windows-95-light
 ColorForeground=#545454
 ColorBackground=#fcfcfc
-ColorCursor=x
+ColorCursor=#545454
 ColorBoldIsBright=FALSE
-ColorPalette=#e0e0e0;#a80000;#00a800;#a85400;#0000a8;#a800a8;#00a8a8;#2a2a2a;#c4c4c4;#a80000;#00a800;#a85400;#0000a8;#a800a8;#00a8a8;#000000
+ColorPalette=#fcfcfc;#a80000;#00a800;#a85400;#0000a8;#a800a8;#00a8a8;#545454;#a8a8a8;#a80000;#00a800;#a85400;#0000a8;#a800a8;#00a8a8;#000000

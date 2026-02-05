@@ -2,8 +2,8 @@
 # Color scheme: Dark Violet by ruler501 (https://github.com/ruler501/base16-darkviolet)
 
 [colors]
-selection-background = '#432d59' # base02
-selection-foreground = '#b08ae6' # base05
+selection-background = '#b08ae6' # base05
+selection-foreground = '#432d59' # base02
 
 cursor         = '#b08ae6' # base05
 tabs           = '#231a40' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#432d59' # base02
 
 background     = '#000000' # base00
 foreground     = '#b08ae6' # base05
-black          = '#231a40' # base01
+black          = '#000000' # base00
 red            = '#a82ee6' # base08
 yellow         = '#f29df2' # base0A
 green          = '#4595e6' # base0B
 cyan           = '#40dfff' # base0C
 blue           = '#4136d9' # base0D
 magenta        = '#7e5ce6' # base0E
-white          = '#9045e6' # base06
+white          = '#b08ae6' # base05
 
 dim-foreground   = '#b08ae6' # base05
 dim-black        = '#231a40' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#7e5ce6' # base0E
 dim-white        = '#00ff00' # base04
 
 light-foreground = '#b08ae6' # base05
-light-black      = '#432d59' # base02
+light-black      = '#593380' # base03
 light-red        = '#a82ee6' # base08
 light-yellow     = '#f29df2' # base0A
 light-green      = '#4595e6' # base0B

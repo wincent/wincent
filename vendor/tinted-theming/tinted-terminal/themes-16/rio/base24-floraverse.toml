@@ -2,8 +2,8 @@
 # Color scheme: Floraverse by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#331e4d' # base02
-selection-foreground = '#c3af9d' # base05
+selection-background = '#c3af9d' # base05
+selection-foreground = '#331e4d' # base02
 
 cursor         = '#c3af9d' # base05
 tabs           = '#08002e' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#331e4d' # base02
 
 background     = '#0e0c15' # base00
 foreground     = '#c3af9d' # base05
-black          = '#08002e' # base01
+black          = '#0e0c15' # base00
 red            = '#64002c' # base08
 yellow         = '#40a4cf' # base0A
 green          = '#5d731a' # base0B
 cyan           = '#42a38c' # base0C
 blue           = '#1d6da1' # base0D
 magenta        = '#b7077e' # base0E
-white          = '#f3e0b8' # base06
+white          = '#c3af9d' # base05
 
 dim-foreground   = '#c3af9d' # base05
 dim-black        = '#08002e' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#b7077e' # base0E
 dim-white        = '#937f82' # base04
 
 light-foreground = '#c3af9d' # base05
-light-black      = '#331e4d' # base02
+light-black      = '#634e67' # base03
 light-red        = '#d02063' # base12
 light-yellow     = '#fac357' # base13
 light-green      = '#b4ce59' # base14

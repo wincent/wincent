@@ -9,19 +9,19 @@
     <value name="Name" type="string" data="base24-espresso"/>
     <value name="ExtendColors" type="hex" data="00"/>
     <value name="ExtendColorIdx" type="hex" data="0e"/>
-    <value name="TextColorIdx" type="hex" data="10"/>
-    <value name="BackColorIdx" type="hex" data="10"/>
-    <value name="PopTextColorIdx" type="hex" data="10"/>
-    <value name="PopBackColorIdx" type="hex" data="10"/>
-    <value name="ColorTable00" type="dword" data="00343434"/> <!-- base01 - Black -->
+    <value name="TextColorIdx" type="hex" data="07"/>
+    <value name="BackColorIdx" type="hex" data="00"/>
+    <value name="PopTextColorIdx" type="hex" data="07"/>
+    <value name="PopBackColorIdx" type="hex" data="00"/>
+    <value name="ColorTable00" type="dword" data="00262626"/> <!-- base00 - Black -->
     <value name="ColorTable01" type="dword" data="005151d2"/> <!-- base08 - Red -->
     <value name="ColorTable02" type="dword" data="0061c2a5"/> <!-- base0B - Green -->
     <value name="ColorTable03" type="dword" data="00d9b78a"/> <!-- base0A - Yellow -->
     <value name="ColorTable04" type="dword" data="00bb996c"/> <!-- base0D - Blue -->
     <value name="ColorTable05" type="dword" data="00d997d1"/> <!-- base0E - Magenta -->
     <value name="ColorTable06" type="dword" data="00ffd6be"/> <!-- base0C - Cyan -->
-    <value name="ColorTable07" type="dword" data="00eceeee"/> <!-- base06 - White -->
-    <value name="ColorTable08" type="dword" data="00535353"/> <!-- base02 - Bright Black -->
+    <value name="ColorTable07" type="dword" data="00c5c7c7"/> <!-- base05 - White -->
+    <value name="ColorTable08" type="dword" data="00797979"/> <!-- base03 - Bright Black -->
     <value name="ColorTable09" type="dword" data="000c0cf0"/> <!-- base12 - Bright Red -->
     <value name="ColorTable10" type="dword" data="0075e0c2"/> <!-- base14 - Bright Green -->
     <value name="ColorTable11" type="dword" data="008be3e1"/> <!-- base13 - Bright Yellow -->

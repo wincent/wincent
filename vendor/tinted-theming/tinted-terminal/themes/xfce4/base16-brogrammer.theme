@@ -5,6 +5,6 @@
 Name=base16-brogrammer
 ColorForeground=#4e5ab7
 ColorBackground=#1f1f1f
-ColorCursor=x
+ColorCursor=#4e5ab7
 ColorBoldIsBright=FALSE
-ColorPalette=#f81118;#d6dbe5;#f3bd09;#1dd361;#5350b9;#0f7ddb;#1081d6;#1081d6;#2dc55e;#d6dbe5;#f3bd09;#1dd361;#5350b9;#0f7ddb;#1081d6;#d6dbe5
+ColorPalette=#1f1f1f;#d6dbe5;#f3bd09;#1dd361;#5350b9;#0f7ddb;#1081d6;#4e5ab7;#ecba0f;#d6dbe5;#f3bd09;#1dd361;#5350b9;#0f7ddb;#1081d6;#d6dbe5

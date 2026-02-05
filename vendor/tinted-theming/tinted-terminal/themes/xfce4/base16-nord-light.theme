@@ -5,6 +5,6 @@
 Name=base16-nord-light
 ColorForeground=#2e3440
 ColorBackground=#e5e9f0
-ColorCursor=x
+ColorCursor=#2e3440
 ColorBoldIsBright=FALSE
-ColorPalette=#c2d0e7;#99324b;#4f894c;#9a7500;#3b6ea8;#97365b;#398eac;#3b4252;#b8c5db;#99324b;#4f894c;#9a7500;#3b6ea8;#97365b;#398eac;#29838d
+ColorPalette=#e5e9f0;#99324b;#4f894c;#9a7500;#3b6ea8;#97365b;#398eac;#2e3440;#aebacf;#99324b;#4f894c;#9a7500;#3b6ea8;#97365b;#398eac;#29838d

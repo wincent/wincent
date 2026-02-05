@@ -3,9 +3,9 @@
 	"name": "Ocean",
 	"foreground": "#c0c5ce",
 	"background": "#2b303b",
-	"black": "#343d46",
+	"black": "#2b303b",
 	"blue": "#8fa1b3",
-	"brightBlack": "#4f5b66",
+	"brightBlack": "#65737e",
 	"brightBlue": "#8fa1b3",
 	"brightCyan": "#96b5b4",
 	"brightGreen": "#a3be8c",
@@ -17,6 +17,6 @@
 	"green": "#a3be8c",
 	"purple": "#b48ead",
 	"red": "#bf616a",
-	"white": "#dfe1e8",
-	"yellow": "#d08770"
+	"white": "#c0c5ce",
+	"yellow": "#ebcb8b"
 },

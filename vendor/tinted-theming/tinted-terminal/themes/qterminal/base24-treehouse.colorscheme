@@ -8,13 +8,13 @@ Color=44,36,24
 Color=25,25,25
 
 [Color0]
-Color=50,18,0
+Color=25,25,25
 
 [Color0Faint]
 Color=25,25,25
 
 [Color0Intense]
-Color=66,54,37
+Color=79,67,48
 
 [Color1]
 Color=177,39,14
@@ -35,10 +35,10 @@ Color=68,169,0
 Color=85,242,55
 
 [Color3]
-Color=169,129,11
+Color=133,207,236
 
 [Color3Faint]
-Color=169,129,11
+Color=133,207,236
 
 [Color3Intense]
 Color=241,183,49
@@ -71,7 +71,7 @@ Color=178,89,29
 Color=240,125,20
 
 [Color7]
-Color=119,107,83
+Color=105,93,71
 
 [Color7Faint]
 Color=105,93,71
@@ -92,4 +92,3 @@ Color=119,107,83
 Blur=true
 Description=Treehouse
 Opacity=0.95
-

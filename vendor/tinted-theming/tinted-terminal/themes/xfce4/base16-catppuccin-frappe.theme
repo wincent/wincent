@@ -5,6 +5,6 @@
 Name=base16-catppuccin-frappe
 ColorForeground=#c6d0f5
 ColorBackground=#303446
-ColorCursor=x
+ColorCursor=#c6d0f5
 ColorBoldIsBright=FALSE
-ColorPalette=#292c3c;#e78284;#a6d189;#e5c890;#8caaee;#ca9ee6;#81c8be;#f2d5cf;#414559;#e78284;#a6d189;#e5c890;#8caaee;#ca9ee6;#81c8be;#babbf1
+ColorPalette=#303446;#e78284;#a6d189;#e5c890;#8caaee;#ca9ee6;#81c8be;#c6d0f5;#737994;#e78284;#a6d189;#e5c890;#8caaee;#ca9ee6;#81c8be;#babbf1

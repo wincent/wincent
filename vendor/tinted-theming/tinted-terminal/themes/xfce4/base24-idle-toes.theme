@@ -5,6 +5,6 @@
 Name=base24-idle-toes
 ColorForeground=#c7c7c5
 ColorBackground=#323232
-ColorCursor=x
+ColorCursor=#c7c7c5
 ColorBoldIsBright=FALSE
-ColorPalette=#323232;#d25252;#7fe173;#5eb7f7;#4098ff;#f57fff;#bed6ff;#eeeeec;#535353;#f07070;#9dff90;#ffe48b;#5eb7f7;#ff9dff;#dcf4ff;#ffffff
+ColorPalette=#323232;#d25252;#7fe173;#5eb7f7;#4098ff;#f57fff;#bed6ff;#c7c7c5;#797979;#f07070;#9dff90;#ffe48b;#5eb7f7;#ff9dff;#dcf4ff;#ffffff

@@ -5,6 +5,6 @@
 Name=base16-atelier-forest
 ColorForeground=#a8a19f
 ColorBackground=#1b1918
-ColorCursor=x
+ColorCursor=#a8a19f
 ColorBoldIsBright=FALSE
-ColorPalette=#2c2421;#f22c40;#7b9726;#c38418;#407ee7;#6666ea;#3d97b8;#e6e2e0;#68615e;#f22c40;#7b9726;#c38418;#407ee7;#6666ea;#3d97b8;#f1efee
+ColorPalette=#1b1918;#f22c40;#7b9726;#c38418;#407ee7;#6666ea;#3d97b8;#a8a19f;#766e6b;#f22c40;#7b9726;#c38418;#407ee7;#6666ea;#3d97b8;#f1efee

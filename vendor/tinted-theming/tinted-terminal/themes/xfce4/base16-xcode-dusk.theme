@@ -5,6 +5,6 @@
 Name=base16-xcode-dusk
 ColorForeground=#939599
 ColorBackground=#282b35
-ColorCursor=x
+ColorCursor=#939599
 ColorBoldIsBright=FALSE
-ColorPalette=#3d4048;#b21889;#df0002;#438288;#790ead;#b21889;#00a0be;#a9aaae;#53555d;#b21889;#df0002;#438288;#790ead;#b21889;#00a0be;#bebfc2
+ColorPalette=#282b35;#b21889;#df0002;#438288;#790ead;#b21889;#00a0be;#939599;#686a71;#b21889;#df0002;#438288;#790ead;#b21889;#00a0be;#bebfc2

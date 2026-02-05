@@ -2,8 +2,8 @@
 # Color scheme: Flexoki Dark by Steph Ango (https://github.com/kepano/flexoki)
 
 [colors]
-selection-background = '#282726' # base02
-selection-foreground = '#cecdc3' # base05
+selection-background = '#cecdc3' # base05
+selection-foreground = '#282726' # base02
 
 cursor         = '#cecdc3' # base05
 tabs           = '#1c1b1a' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#282726' # base02
 
 background     = '#100f0f' # base00
 foreground     = '#cecdc3' # base05
-black          = '#1c1b1a' # base01
+black          = '#100f0f' # base00
 red            = '#d14d41' # base08
 yellow         = '#d0a215' # base0A
 green          = '#879a39' # base0B
 cyan           = '#3aa99f' # base0C
 blue           = '#4385be' # base0D
 magenta        = '#8b7ec8' # base0E
-white          = '#e6e4d9' # base06
+white          = '#cecdc3' # base05
 
 dim-foreground   = '#cecdc3' # base05
 dim-black        = '#1c1b1a' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#8b7ec8' # base0E
 dim-white        = '#878580' # base04
 
 light-foreground = '#cecdc3' # base05
-light-black      = '#282726' # base02
+light-black      = '#575653' # base03
 light-red        = '#af3029' # base12
 light-yellow     = '#bc5215' # base13
 light-green      = '#ad8301' # base14

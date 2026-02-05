@@ -3,9 +3,9 @@
 	"name": "Humanoid light",
 	"foreground": "#232629",
 	"background": "#f8f8f2",
-	"black": "#efefe9",
+	"black": "#f8f8f2",
 	"blue": "#0082c9",
-	"brightBlack": "#deded8",
+	"brightBlack": "#c0c0bd",
 	"brightBlue": "#0082c9",
 	"brightCyan": "#008e8e",
 	"brightGreen": "#388e3c",
@@ -17,6 +17,6 @@
 	"green": "#388e3c",
 	"purple": "#700f98",
 	"red": "#b0151a",
-	"white": "#2f3337",
-	"yellow": "#ff3d00"
+	"white": "#232629",
+	"yellow": "#ffb627"
 },

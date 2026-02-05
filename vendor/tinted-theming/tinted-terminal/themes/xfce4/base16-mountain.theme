@@ -5,6 +5,6 @@
 Name=base16-mountain
 ColorForeground=#cacaca
 ColorBackground=#0f0f0f
-ColorCursor=x
+ColorCursor=#cacaca
 ColorBoldIsBright=FALSE
-ColorPalette=#191919;#ac8a8c;#8aac8b;#aca98a;#8f8aac;#ac8aac;#8aabac;#e7e7e7;#262626;#ac8a8c;#8aac8b;#aca98a;#8f8aac;#ac8aac;#8aabac;#f0f0f0
+ColorPalette=#0f0f0f;#ac8a8c;#8aac8b;#aca98a;#8f8aac;#ac8aac;#8aabac;#cacaca;#393939;#ac8a8c;#8aac8b;#aca98a;#8f8aac;#ac8aac;#8aabac;#f0f0f0

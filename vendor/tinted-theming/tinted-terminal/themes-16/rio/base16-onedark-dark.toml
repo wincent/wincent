@@ -2,8 +2,8 @@
 # Color scheme: OneDark Dark by olimorris (https://github.com/olimorris)
 
 [colors]
-selection-background = '#2c313a' # base02
-selection-foreground = '#abb2bf' # base05
+selection-background = '#abb2bf' # base05
+selection-foreground = '#2c313a' # base02
 
 cursor         = '#abb2bf' # base05
 tabs           = '#1c1f24' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#2c313a' # base02
 
 background     = '#000000' # base00
 foreground     = '#abb2bf' # base05
-black          = '#1c1f24' # base01
+black          = '#000000' # base00
 red            = '#ef596f' # base08
 yellow         = '#e5c07b' # base0A
 green          = '#89ca78' # base0B
 cyan           = '#2bbac5' # base0C
 blue           = '#61afef' # base0D
 magenta        = '#d55fde' # base0E
-white          = '#b6bdca' # base06
+white          = '#abb2bf' # base05
 
 dim-foreground   = '#abb2bf' # base05
 dim-black        = '#1c1f24' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#d55fde' # base0E
 dim-white        = '#565c64' # base04
 
 light-foreground = '#abb2bf' # base05
-light-black      = '#2c313a' # base02
+light-black      = '#434852' # base03
 light-red        = '#ef596f' # base08
 light-yellow     = '#e5c07b' # base0A
 light-green      = '#89ca78' # base0B

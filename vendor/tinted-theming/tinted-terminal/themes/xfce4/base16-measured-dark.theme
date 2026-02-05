@@ -5,6 +5,6 @@
 Name=base16-measured-dark
 ColorForeground=#dcdcdc
 ColorBackground=#00211f
-ColorCursor=x
+ColorCursor=#dcdcdc
 ColorBoldIsBright=FALSE
-ColorPalette=#003a38;#ce7e8e;#56c16f;#bfac4e;#88b0da;#b39be0;#62c0be;#efefef;#005453;#ce7e8e;#56c16f;#bfac4e;#88b0da;#b39be0;#62c0be;#f5f5f5
+ColorPalette=#00211f;#ce7e8e;#56c16f;#bfac4e;#88b0da;#b39be0;#62c0be;#dcdcdc;#ababab;#ce7e8e;#56c16f;#bfac4e;#88b0da;#b39be0;#62c0be;#f5f5f5

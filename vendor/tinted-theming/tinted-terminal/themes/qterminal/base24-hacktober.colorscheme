@@ -8,13 +8,13 @@ Color=29,28,28
 Color=20,20,20
 
 [Color0]
-Color=25,25,24
+Color=20,20,20
 
 [Color0Faint]
 Color=20,20,20
 
 [Color0Intense]
-Color=44,43,42
+Color=93,91,89
 
 [Color1]
 Color=179,69,56
@@ -35,10 +35,10 @@ Color=88,119,68
 Color=66,130,74
 
 [Color3]
-Color=208,137,73
+Color=83,137,197
 
 [Color3Faint]
-Color=208,137,73
+Color=83,137,197
 
 [Color3Intense]
 Color=199,90,34
@@ -71,7 +71,7 @@ Color=172,145,102
 Color=235,197,135
 
 [Color7]
-Color=241,238,231
+Color=191,189,183
 
 [Color7Faint]
 Color=191,189,183
@@ -92,4 +92,3 @@ Color=241,238,231
 Blur=true
 Description=Hacktober
 Opacity=0.95
-

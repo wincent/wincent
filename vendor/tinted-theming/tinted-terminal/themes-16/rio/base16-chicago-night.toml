@@ -2,8 +2,8 @@
 # Color scheme: Chicago Night by Wendell, Ryan &lt;ryanjwendell@gmail.com&gt;
 
 [colors]
-selection-background = '#364c40' # base02
-selection-foreground = '#a7b8af' # base05
+selection-background = '#a7b8af' # base05
+selection-foreground = '#364c40' # base02
 
 cursor         = '#a7b8af' # base05
 tabs           = '#2a3b32' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#364c40' # base02
 
 background     = '#1e2a24' # base00
 foreground     = '#a7b8af' # base05
-black          = '#2a3b32' # base01
+black          = '#1e2a24' # base00
 red            = '#c60c30' # base08
 yellow         = '#f9e300' # base0A
 green          = '#009b3a' # base0B
 cyan           = '#00a1de' # base0C
 blue           = '#522398' # base0D
 magenta        = '#e27ea6' # base0E
-white          = '#c1cdc7' # base06
+white          = '#a7b8af' # base05
 
 dim-foreground   = '#a7b8af' # base05
 dim-black        = '#2a3b32' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#e27ea6' # base0E
 dim-white        = '#8a9a91' # base04
 
 light-foreground = '#a7b8af' # base05
-light-black      = '#364c40' # base02
+light-black      = '#5f7368' # base03
 light-red        = '#c60c30' # base08
 light-yellow     = '#f9e300' # base0A
 light-green      = '#009b3a' # base0B

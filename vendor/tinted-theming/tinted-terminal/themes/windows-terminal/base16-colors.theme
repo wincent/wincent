@@ -3,9 +3,9 @@
 	"name": "Colors",
 	"foreground": "#bbbbbb",
 	"background": "#111111",
-	"black": "#333333",
+	"black": "#111111",
 	"blue": "#0074d9",
-	"brightBlack": "#555555",
+	"brightBlack": "#777777",
 	"brightBlue": "#0074d9",
 	"brightCyan": "#7fdbff",
 	"brightGreen": "#2ecc40",
@@ -17,6 +17,6 @@
 	"green": "#2ecc40",
 	"purple": "#b10dc9",
 	"red": "#ff4136",
-	"white": "#dddddd",
-	"yellow": "#ff851b"
+	"white": "#bbbbbb",
+	"yellow": "#ffdc00"
 },

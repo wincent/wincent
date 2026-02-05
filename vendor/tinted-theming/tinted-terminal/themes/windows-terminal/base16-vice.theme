@@ -3,9 +3,9 @@
 	"name": "vice",
 	"foreground": "#8b9cbe",
 	"background": "#17191e",
-	"black": "#22262d",
+	"black": "#17191e",
 	"blue": "#00eaff",
-	"brightBlack": "#3c3f4c",
+	"brightBlack": "#383a47",
 	"brightBlue": "#00eaff",
 	"brightCyan": "#8265ff",
 	"brightGreen": "#0badff",
@@ -17,6 +17,6 @@
 	"green": "#0badff",
 	"purple": "#00f6d9",
 	"red": "#ff29a8",
-	"white": "#b2bfd9",
-	"yellow": "#85ffe0"
+	"white": "#8b9cbe",
+	"yellow": "#f0ffaa"
 },

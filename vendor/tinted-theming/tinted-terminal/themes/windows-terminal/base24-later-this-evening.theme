@@ -3,9 +3,9 @@
 	"name": "Later This Evening",
 	"foreground": "#a6a6a6",
 	"background": "#212121",
-	"black": "#313131",
+	"black": "#212121",
 	"blue": "#a0b9d5",
-	"brightBlack": "#4f4f4f",
+	"brightBlack": "#6f6f6f",
 	"brightBlue": "#6599d5",
 	"brightCyan": "#5fbfad",
 	"brightGreen": "#aabb39",
@@ -17,6 +17,6 @@
 	"green": "#afba66",
 	"purple": "#bf92d5",
 	"red": "#d35a5f",
-	"white": "#bfbfbf",
-	"yellow": "#e5af89"
+	"white": "#a6a6a6",
+	"yellow": "#e5d289"
 },

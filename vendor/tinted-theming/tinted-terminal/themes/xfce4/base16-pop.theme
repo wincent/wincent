@@ -5,6 +5,6 @@
 Name=base16-pop
 ColorForeground=#d0d0d0
 ColorBackground=#000000
-ColorCursor=x
+ColorCursor=#d0d0d0
 ColorBoldIsBright=FALSE
-ColorPalette=#202020;#eb008a;#37b349;#f8ca12;#0e5a94;#b31e8d;#00aabb;#e0e0e0;#303030;#eb008a;#37b349;#f8ca12;#0e5a94;#b31e8d;#00aabb;#ffffff
+ColorPalette=#000000;#eb008a;#37b349;#f8ca12;#0e5a94;#b31e8d;#00aabb;#d0d0d0;#505050;#eb008a;#37b349;#f8ca12;#0e5a94;#b31e8d;#00aabb;#ffffff

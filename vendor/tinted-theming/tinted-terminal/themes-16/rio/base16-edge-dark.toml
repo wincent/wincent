@@ -2,8 +2,8 @@
 # Color scheme: Edge Dark by cjayross (https://github.com/cjayross), Tinted Theming (https://github.com/tinted-theming)
 
 [colors]
-selection-background = '#3d3f42' # base02
-selection-foreground = '#afb2b5' # base05
+selection-background = '#afb2b5' # base05
+selection-foreground = '#3d3f42' # base02
 
 cursor         = '#afb2b5' # base05
 tabs           = '#313235' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#3d3f42' # base02
 
 background     = '#262729' # base00
 foreground     = '#afb2b5' # base05
-black          = '#313235' # base01
+black          = '#262729' # base00
 red            = '#e77171' # base08
 yellow         = '#dbb774' # base0A
 green          = '#a1bf78' # base0B
 cyan           = '#5ebaa5' # base0C
 blue           = '#73b3e7' # base0D
 magenta        = '#d390e7' # base0E
-white          = '#caccce' # base06
+white          = '#afb2b5' # base05
 
 dim-foreground   = '#afb2b5' # base05
 dim-black        = '#313235' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#d390e7' # base0E
 dim-white        = '#95989d' # base04
 
 light-foreground = '#afb2b5' # base05
-light-black      = '#3d3f42' # base02
+light-black      = '#4a4c4f' # base03
 light-red        = '#e77171' # base08
 light-yellow     = '#dbb774' # base0A
 light-green      = '#a1bf78' # base0B

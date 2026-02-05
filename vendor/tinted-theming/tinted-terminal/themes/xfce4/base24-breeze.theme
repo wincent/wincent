@@ -5,6 +5,6 @@
 Name=base24-breeze
 ColorForeground=#d3d7d8
 ColorBackground=#31363b
-ColorCursor=x
+ColorCursor=#d3d7d8
 ColorBoldIsBright=FALSE
-ColorPalette=#31363b;#ed1515;#11d116;#3daee9;#1d99f3;#9b59b6;#1abc9c;#eff0f1;#7f8c8d;#c0392b;#1cdc9a;#fdbc4b;#3daee9;#8e44ad;#16a085;#fcfcfc
+ColorPalette=#31363b;#ed1515;#11d116;#3daee9;#1d99f3;#9b59b6;#1abc9c;#d3d7d8;#9ba5a6;#c0392b;#1cdc9a;#fdbc4b;#3daee9;#8e44ad;#16a085;#fcfcfc

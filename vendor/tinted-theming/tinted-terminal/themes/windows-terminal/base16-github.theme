@@ -3,9 +3,9 @@
 	"name": "Github",
 	"foreground": "#424a53",
 	"background": "#eaeef2",
-	"black": "#d0d7de",
+	"black": "#eaeef2",
 	"blue": "#218bff",
-	"brightBlack": "#afb8c1",
+	"brightBlack": "#8c959f",
 	"brightBlue": "#218bff",
 	"brightCyan": "#339d9b",
 	"brightGreen": "#2da44e",
@@ -17,6 +17,6 @@
 	"green": "#2da44e",
 	"purple": "#a475f9",
 	"red": "#fa4549",
-	"white": "#32383f",
-	"yellow": "#e16f24"
+	"white": "#424a53",
+	"yellow": "#bf8700"
 },

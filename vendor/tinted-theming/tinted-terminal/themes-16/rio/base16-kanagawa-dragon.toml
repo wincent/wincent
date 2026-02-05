@@ -1,41 +1,41 @@
 # Rio Terminal base16 color theme (https://github.com/tinted-theming)
-# Color scheme: Kanagawa Dragon by Tommaso Laurenzi (https://github.com/rebelot)
+# Color scheme: Kanagawa Dragon by Stefan Weigl-Bosker (https://github.com/sweiglbosker), Tommaso Laurenzi (https://github.com/rebelot/kanagawa.nvim)
 
 [colors]
-selection-background = '#282727' # base02
-selection-foreground = '#c5c9c5' # base05
+selection-background = '#c5c9c5' # base05
+selection-foreground = '#393836' # base02
 
 cursor         = '#c5c9c5' # base05
-tabs           = '#1d1c19' # base01
-tabs-active    = '#282727' # base02
+tabs           = '#282727' # base01
+tabs-active    = '#393836' # base02
 
-background     = '#0d0c0c' # base00
+background     = '#181616' # base00
 foreground     = '#c5c9c5' # base05
-black          = '#1d1c19' # base01
+black          = '#181616' # base00
 red            = '#c4746e' # base08
 yellow         = '#c4b28a' # base0A
-green          = '#87a987' # base0B
+green          = '#8a9a7b' # base0B
 cyan           = '#8ea4a2' # base0C
 blue           = '#8ba4b0' # base0D
-magenta        = '#8992a7' # base0E
-white          = '#7a8382' # base06
+magenta        = '#a292a3' # base0E
+white          = '#c5c9c5' # base05
 
 dim-foreground   = '#c5c9c5' # base05
-dim-black        = '#1d1c19' # base01
+dim-black        = '#282727' # base01
 dim-red          = '#c4746e' # base08
 dim-yellow       = '#c4b28a' # base0A
-dim-green        = '#87a987' # base0B
+dim-green        = '#8a9a7b' # base0B
 dim-cyan         = '#8ea4a2' # base0C
 dim-blue         = '#8ba4b0' # base0D
-dim-magenta      = '#8992a7' # base0E
-dim-white        = '#a6a69c' # base04
+dim-magenta      = '#a292a3' # base0E
+dim-white        = '#737c73' # base04
 
 light-foreground = '#c5c9c5' # base05
-light-black      = '#282727' # base02
+light-black      = '#625e5a' # base03
 light-red        = '#c4746e' # base08
 light-yellow     = '#c4b28a' # base0A
-light-green      = '#87a987' # base0B
+light-green      = '#8a9a7b' # base0B
 light-cyan       = '#8ea4a2' # base0C
 light-blue       = '#8ba4b0' # base0D
-light-magenta    = '#8992a7' # base0E
+light-magenta    = '#a292a3' # base0E
 light-white      = '#c5c9c5' # base07

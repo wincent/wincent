@@ -3,9 +3,9 @@
 	"name": "Penumbra Light",
 	"foreground": "#636363",
 	"background": "#fffdfb",
-	"black": "#fff7ed",
+	"black": "#fffdfb",
 	"blue": "#5794d0",
-	"brightBlack": "#f2e6d4",
+	"brightBlack": "#bebebe",
 	"brightBlue": "#5794d0",
 	"brightCyan": "#00a2af",
 	"brightGreen": "#47a477",
@@ -17,6 +17,6 @@
 	"green": "#47a477",
 	"purple": "#9481cc",
 	"red": "#ca736c",
-	"white": "#303338",
-	"yellow": "#ba823a"
+	"white": "#636363",
+	"yellow": "#8d9741"
 },

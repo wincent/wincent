@@ -5,6 +5,6 @@
 Name=base24-embarcadero
 ColorForeground=#bcbdc0
 ColorBackground=#252a2f
-ColorCursor=x
+ColorCursor=#bcbdc0
 ColorBoldIsBright=FALSE
-ColorPalette=#43474c;#ed5d86;#20c290;#eb824d;#4080d0;#a070d0;#02efef;#dadbdb;#616568;#f57d9a;#a0d0a0;#ffe089;#80b0f0;#c090f0;#40c0c0;#f8f8f8
+ColorPalette=#252a2f;#ed5d86;#20c290;#eb824d;#4080d0;#a070d0;#02efef;#bcbdc0;#7f8285;#f57d9a;#a0d0a0;#ffe089;#80b0f0;#c090f0;#40c0c0;#f8f8f8

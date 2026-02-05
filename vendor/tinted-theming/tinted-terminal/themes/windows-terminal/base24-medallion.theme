@@ -3,9 +3,9 @@
 	"name": "Medallion",
 	"foreground": "#aea578",
 	"background": "#1d1808",
-	"black": "#000000",
+	"black": "#1d1808",
 	"blue": "#606baf",
-	"brightBlack": "#5e5118",
+	"brightBlack": "#786d38",
 	"brightBlue": "#abb8ff",
 	"brightCyan": "#ffbb51",
 	"brightGreen": "#b1c93a",
@@ -17,6 +17,6 @@
 	"green": "#7c8a16",
 	"purple": "#8b5990",
 	"red": "#b54c00",
-	"white": "#c9c199",
-	"yellow": "#d2bd25"
+	"white": "#aea578",
+	"yellow": "#abb8ff"
 },

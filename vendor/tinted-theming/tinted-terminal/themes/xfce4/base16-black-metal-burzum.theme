@@ -5,6 +5,6 @@
 Name=base16-black-metal-burzum
 ColorForeground=#c1c1c1
 ColorBackground=#000000
-ColorCursor=x
+ColorCursor=#c1c1c1
 ColorBoldIsBright=FALSE
-ColorPalette=#121212;#5f8787;#ddeecc;#99bbaa;#888888;#999999;#aaaaaa;#999999;#222222;#5f8787;#ddeecc;#99bbaa;#888888;#999999;#aaaaaa;#c1c1c1
+ColorPalette=#000000;#5f8787;#ddeecc;#99bbaa;#888888;#999999;#aaaaaa;#c1c1c1;#333333;#5f8787;#ddeecc;#99bbaa;#888888;#999999;#aaaaaa;#c1c1c1

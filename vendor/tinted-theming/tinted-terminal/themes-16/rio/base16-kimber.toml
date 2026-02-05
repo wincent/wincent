@@ -2,8 +2,8 @@
 # Color scheme: Kimber by Mishka Nguyen (https://github.com/akhsiM)
 
 [colors]
-selection-background = '#555d55' # base02
-selection-foreground = '#dedee7' # base05
+selection-background = '#dedee7' # base05
+selection-foreground = '#555d55' # base02
 
 cursor         = '#dedee7' # base05
 tabs           = '#313131' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#555d55' # base02
 
 background     = '#222222' # base00
 foreground     = '#dedee7' # base05
-black          = '#313131' # base01
+black          = '#222222' # base00
 red            = '#c88c8c' # base08
 yellow         = '#d8b56d' # base0A
 green          = '#99c899' # base0B
 cyan           = '#78b4b4' # base0C
 blue           = '#537c9c' # base0D
 magenta        = '#86cacd' # base0E
-white          = '#c3c3b4' # base06
+white          = '#dedee7' # base05
 
 dim-foreground   = '#dedee7' # base05
 dim-black        = '#313131' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#86cacd' # base0E
 dim-white        = '#5a5a5a' # base04
 
 light-foreground = '#dedee7' # base05
-light-black      = '#555d55' # base02
+light-black      = '#644646' # base03
 light-red        = '#c88c8c' # base08
 light-yellow     = '#d8b56d' # base0A
 light-green      = '#99c899' # base0B

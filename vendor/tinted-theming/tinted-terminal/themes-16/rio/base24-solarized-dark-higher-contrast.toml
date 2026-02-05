@@ -2,8 +2,8 @@
 # Color scheme: Solarized Dark Higher Contrast by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#006388' # base02
-selection-foreground = '#aec2ba' # base05
+selection-background = '#aec2ba' # base05
+selection-foreground = '#006388' # base02
 
 cursor         = '#aec2ba' # base05
 tabs           = '#002731' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#006388' # base02
 
 background     = '#001e26' # base00
 foreground     = '#aec2ba' # base05
-black          = '#002731' # base01
+black          = '#001e26' # base00
 red            = '#d01b24' # base08
 yellow         = '#178dc7' # base0A
 green          = '#6bbe6c' # base0B
 cyan           = '#259185' # base0C
 blue           = '#2075c7' # base0D
 magenta        = '#c61b6e' # base0E
-white          = '#e9e2cb' # base06
+white          = '#aec2ba' # base05
 
 dim-foreground   = '#aec2ba' # base05
 dim-black        = '#002731' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#c61b6e' # base0E
 dim-white        = '#74a2a9' # base04
 
 light-foreground = '#aec2ba' # base05
-light-black      = '#006388' # base02
+light-black      = '#3a8298' # base03
 light-red        = '#f4153b' # base12
 light-yellow     = '#b17e28' # base13
 light-green      = '#50ee84' # base14

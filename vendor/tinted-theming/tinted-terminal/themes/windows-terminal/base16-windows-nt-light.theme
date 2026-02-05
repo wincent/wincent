@@ -3,9 +3,9 @@
 	"name": "Windows NT Light",
 	"foreground": "#808080",
 	"background": "#ffffff",
-	"black": "#eaeaea",
+	"black": "#ffffff",
 	"blue": "#000080",
-	"brightBlack": "#d5d5d5",
+	"brightBlack": "#c0c0c0",
 	"brightBlue": "#000080",
 	"brightCyan": "#008080",
 	"brightGreen": "#008000",
@@ -17,6 +17,6 @@
 	"green": "#008000",
 	"purple": "#800080",
 	"red": "#800000",
-	"white": "#404040",
-	"yellow": "#ffff00"
+	"white": "#808080",
+	"yellow": "#808000"
 },

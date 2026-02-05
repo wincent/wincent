@@ -3,9 +3,9 @@
 	"name": "Highway",
 	"foreground": "#c8c5c4",
 	"background": "#212224",
-	"black": "#000000",
+	"black": "#212224",
 	"blue": "#006ab3",
-	"brightBlack": "#5c4f49",
+	"brightBlack": "#807672",
 	"brightBlue": "#4fc2fd",
 	"brightCyan": "#5c4f49",
 	"brightGreen": "#b1d130",
@@ -17,6 +17,6 @@
 	"green": "#128033",
 	"purple": "#6a2674",
 	"red": "#cf0d17",
-	"white": "#ededed",
-	"yellow": "#ffca3d"
+	"white": "#c8c5c4",
+	"yellow": "#4fc2fd"
 },

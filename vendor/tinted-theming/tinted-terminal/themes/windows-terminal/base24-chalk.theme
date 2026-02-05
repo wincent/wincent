@@ -3,9 +3,9 @@
 	"name": "Chalk",
 	"foreground": "#d0d0d0",
 	"background": "#151515",
-	"black": "#202020",
+	"black": "#151515",
 	"blue": "#5ab9ed",
-	"brightBlack": "#303030",
+	"brightBlack": "#505050",
 	"brightBlue": "#6fc2ef",
 	"brightCyan": "#12cfc0",
 	"brightGreen": "#acc267",
@@ -17,6 +17,6 @@
 	"green": "#a1bb54",
 	"purple": "#db8fea",
 	"red": "#fa859c",
-	"white": "#e0e0e0",
-	"yellow": "#ea9971"
+	"white": "#d0d0d0",
+	"yellow": "#ddb26f"
 },

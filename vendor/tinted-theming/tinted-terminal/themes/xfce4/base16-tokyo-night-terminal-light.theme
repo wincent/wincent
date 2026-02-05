@@ -5,6 +5,6 @@
 Name=base16-tokyo-night-terminal-light
 ColorForeground=#4c505e
 ColorBackground=#d5d6db
-ColorCursor=x
+ColorCursor=#4c505e
 ColorBoldIsBright=FALSE
-ColorPalette=#cbccd1;#8c4351;#33635c;#8f5e15;#34548a;#5a4a78;#0f4b6e;#1a1b26;#dfe0e5;#8c4351;#33635c;#8f5e15;#34548a;#5a4a78;#0f4b6e;#1a1b26
+ColorPalette=#d5d6db;#8c4351;#33635c;#8f5e15;#34548a;#5a4a78;#0f4b6e;#4c505e;#9699a3;#8c4351;#33635c;#8f5e15;#34548a;#5a4a78;#0f4b6e;#1a1b26

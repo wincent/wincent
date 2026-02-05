@@ -3,9 +3,9 @@
 	"name": "Seti UI",
 	"foreground": "#d6d6d6",
 	"background": "#151718",
-	"black": "#282a2b",
+	"black": "#151718",
 	"blue": "#55b5db",
-	"brightBlack": "#3b758c",
+	"brightBlack": "#41535b",
 	"brightBlue": "#55b5db",
 	"brightCyan": "#55dbbe",
 	"brightGreen": "#9fca56",
@@ -17,6 +17,6 @@
 	"green": "#9fca56",
 	"purple": "#a074c4",
 	"red": "#cd3f45",
-	"white": "#eeeeee",
-	"yellow": "#db7b55"
+	"white": "#d6d6d6",
+	"yellow": "#e6cd69"
 },

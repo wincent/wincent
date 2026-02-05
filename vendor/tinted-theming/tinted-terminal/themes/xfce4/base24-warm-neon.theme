@@ -5,6 +5,6 @@
 Name=base24-warm-neon
 ColorForeground=#dcc9ba
 ColorBackground=#3f3f3f
-ColorCursor=x
+ColorCursor=#dcc9ba
 ColorBoldIsBright=FALSE
-ColorPalette=#000000;#e24345;#38b139;#7a90d5;#4260c5;#f81ffb;#29bad3;#d0b8a3;#fdfcfc;#e86f71;#9bc08f;#ddd979;#7a90d5;#f674b9;#5ed1e4;#d8c8bb
+ColorPalette=#3f3f3f;#e24345;#38b139;#7a90d5;#4260c5;#f81ffb;#29bad3;#dcc9ba;#f2ebe6;#e86f71;#9bc08f;#ddd979;#7a90d5;#f674b9;#5ed1e4;#d8c8bb

@@ -5,6 +5,6 @@
 Name=base16-phd
 ColorForeground=#b8bbc2
 ColorBackground=#061229
-ColorCursor=x
+ColorCursor=#b8bbc2
 ColorBoldIsBright=FALSE
-ColorPalette=#2a3448;#d07346;#99bf52;#fbd461;#5299bf;#9989cc;#72b9bf;#dbdde0;#4d5666;#d07346;#99bf52;#fbd461;#5299bf;#9989cc;#72b9bf;#ffffff
+ColorPalette=#061229;#d07346;#99bf52;#fbd461;#5299bf;#9989cc;#72b9bf;#b8bbc2;#717885;#d07346;#99bf52;#fbd461;#5299bf;#9989cc;#72b9bf;#ffffff

@@ -5,6 +5,6 @@
 Name=base24-hardcore
 ColorForeground=#a9a9a9
 ColorBackground=#111111
-ColorCursor=x
+ColorCursor=#a9a9a9
 ColorBoldIsBright=FALSE
-ColorPalette=#141414;#ff5555;#98ec65;#33bbff;#00aaff;#aa88ff;#88ddff;#cccccc;#414141;#ff8888;#b6f292;#ffd966;#33bbff;#cebbff;#bbecff;#ffffff
+ColorPalette=#111111;#ff5555;#98ec65;#33bbff;#00aaff;#aa88ff;#88ddff;#a9a9a9;#636363;#ff8888;#b6f292;#ffd966;#33bbff;#cebbff;#bbecff;#ffffff

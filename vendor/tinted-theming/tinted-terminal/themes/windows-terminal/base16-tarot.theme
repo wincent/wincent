@@ -3,9 +3,9 @@
 	"name": "tarot",
 	"foreground": "#aa556f",
 	"background": "#0e091d",
-	"black": "#2a153c",
+	"black": "#0e091d",
 	"blue": "#6e6080",
-	"brightBlack": "#4b2054",
+	"brightBlack": "#74316b",
 	"brightBlue": "#6e6080",
 	"brightCyan": "#8c9785",
 	"brightGreen": "#a68e5a",
@@ -17,6 +17,6 @@
 	"green": "#a68e5a",
 	"purple": "#a45782",
 	"red": "#c53253",
-	"white": "#c4686d",
-	"yellow": "#ea4d60"
+	"white": "#aa556f",
+	"yellow": "#ff6565"
 },

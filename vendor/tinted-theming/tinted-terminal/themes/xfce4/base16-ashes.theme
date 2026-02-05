@@ -5,6 +5,6 @@
 Name=base16-ashes
 ColorForeground=#c7ccd1
 ColorBackground=#1c2023
-ColorCursor=x
+ColorCursor=#c7ccd1
 ColorBoldIsBright=FALSE
-ColorPalette=#393f45;#c7ae95;#95c7ae;#aec795;#ae95c7;#c795ae;#95aec7;#dfe2e5;#565e65;#c7ae95;#95c7ae;#aec795;#ae95c7;#c795ae;#95aec7;#f3f4f5
+ColorPalette=#1c2023;#c7ae95;#95c7ae;#aec795;#ae95c7;#c795ae;#95aec7;#c7ccd1;#747c84;#c7ae95;#95c7ae;#aec795;#ae95c7;#c795ae;#95aec7;#f3f4f5

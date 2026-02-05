@@ -3,9 +3,9 @@
 	"name": "Japanesque",
 	"foreground": "#d0d2ce",
 	"background": "#1d1d1d",
-	"black": "#343835",
+	"black": "#1d1d1d",
 	"blue": "#4c99d3",
-	"brightBlack": "#585a58",
+	"brightBlack": "#80827f",
 	"brightBlue": "#135879",
 	"brightCyan": "#76bbca",
 	"brightGreen": "#767e2b",
@@ -17,6 +17,6 @@
 	"green": "#7bb75b",
 	"purple": "#a57fc4",
 	"red": "#ce3e60",
-	"white": "#f9faf6",
-	"yellow": "#e8b32a"
+	"white": "#d0d2ce",
+	"yellow": "#135879"
 },

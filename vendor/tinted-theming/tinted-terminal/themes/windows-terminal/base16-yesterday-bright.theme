@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Yesterday Bright",
+	"foreground": "#dfe1e8",
+	"background": "#343d46",
+	"black": "#343d46",
+	"blue": "#7aa6da",
+	"brightBlack": "#a7adba",
+	"brightBlue": "#7aa6da",
+	"brightCyan": "#70c0b1",
+	"brightGreen": "#b9ca4a",
+	"brightPurple": "#c397d8",
+	"brightRed": "#d54e53",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#e7c547",
+	"cyan": "#70c0b1",
+	"green": "#b9ca4a",
+	"purple": "#c397d8",
+	"red": "#d54e53",
+	"white": "#dfe1e8",
+	"yellow": "#e7c547"
+},

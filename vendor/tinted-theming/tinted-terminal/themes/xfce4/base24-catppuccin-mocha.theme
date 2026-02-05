@@ -5,6 +5,6 @@
 Name=base24-catppuccin-mocha
 ColorForeground=#cdd6f4
 ColorBackground=#1e1e2e
-ColorCursor=x
+ColorCursor=#cdd6f4
 ColorBoldIsBright=FALSE
-ColorPalette=#181825;#f38ba8;#a6e3a1;#f9e2af;#89b4fa;#cba6f7;#94e2d5;#f5e0dc;#313244;#eba0ac;#a6e3a1;#f5e0dc;#74c7ec;#f5c2e7;#89dceb;#b4befe
+ColorPalette=#1e1e2e;#f38ba8;#a6e3a1;#f9e2af;#89b4fa;#cba6f7;#94e2d5;#cdd6f4;#6c7086;#eba0ac;#a6e3a1;#f5e0dc;#74c7ec;#f5c2e7;#89dceb;#b4befe

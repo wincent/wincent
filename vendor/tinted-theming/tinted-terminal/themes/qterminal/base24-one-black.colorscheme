@@ -14,7 +14,7 @@ Color=0,0,0
 Color=0,0,0
 
 [Color0Intense]
-Color=79,86,102
+Color=84,88,98
 
 [Color1]
 Color=224,85,97
@@ -35,10 +35,10 @@ Color=140,194,101
 Color=165,224,117
 
 [Color3]
-Color=209,143,82
+Color=230,185,101
 
 [Color3Faint]
-Color=209,143,82
+Color=230,185,101
 
 [Color3Intense]
 Color=240,164,93
@@ -71,7 +71,7 @@ Color=66,179,194
 Color=76,209,224
 
 [Color7]
-Color=230,230,230
+Color=171,178,191
 
 [Color7Faint]
 Color=171,178,191
@@ -92,4 +92,3 @@ Color=230,230,230
 Blur=true
 Description=One Black
 Opacity=0.95
-

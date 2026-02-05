@@ -2,8 +2,8 @@
 # Color scheme: Highway by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#5c4f49' # base02
-selection-foreground = '#c8c5c4' # base05
+selection-background = '#c8c5c4' # base05
+selection-foreground = '#5c4f49' # base02
 
 cursor         = '#c8c5c4' # base05
 tabs           = '#000000' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#5c4f49' # base02
 
 background     = '#212224' # base00
 foreground     = '#c8c5c4' # base05
-black          = '#000000' # base01
+black          = '#212224' # base00
 red            = '#cf0d17' # base08
 yellow         = '#4fc2fd' # base0A
 green          = '#128033' # base0B
 cyan           = '#384563' # base0C
 blue           = '#006ab3' # base0D
 magenta        = '#6a2674' # base0E
-white          = '#ededed' # base06
+white          = '#c8c5c4' # base05
 
 dim-foreground   = '#c8c5c4' # base05
 dim-black        = '#000000' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#6a2674' # base0E
 dim-white        = '#a49e9b' # base04
 
 light-foreground = '#c8c5c4' # base05
-light-black      = '#5c4f49' # base02
+light-black      = '#807672' # base03
 light-red        = '#ef7d17' # base12
 light-yellow     = '#fff11f' # base13
 light-green      = '#b1d130' # base14

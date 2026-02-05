@@ -2,8 +2,8 @@
 # Color scheme: Atelier Heath by Bram de Haan (http://atelierbramdehaan.nl)
 
 [colors]
-selection-background = '#695d69' # base02
-selection-foreground = '#ab9bab' # base05
+selection-background = '#ab9bab' # base05
+selection-foreground = '#695d69' # base02
 
 cursor         = '#ab9bab' # base05
 tabs           = '#292329' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#695d69' # base02
 
 background     = '#1b181b' # base00
 foreground     = '#ab9bab' # base05
-black          = '#292329' # base01
+black          = '#1b181b' # base00
 red            = '#ca402b' # base08
 yellow         = '#bb8a35' # base0A
 green          = '#918b3b' # base0B
 cyan           = '#159393' # base0C
 blue           = '#516aec' # base0D
 magenta        = '#7b59c0' # base0E
-white          = '#d8cad8' # base06
+white          = '#ab9bab' # base05
 
 dim-foreground   = '#ab9bab' # base05
 dim-black        = '#292329' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#7b59c0' # base0E
 dim-white        = '#9e8f9e' # base04
 
 light-foreground = '#ab9bab' # base05
-light-black      = '#695d69' # base02
+light-black      = '#776977' # base03
 light-red        = '#ca402b' # base08
 light-yellow     = '#bb8a35' # base0A
 light-green      = '#918b3b' # base0B

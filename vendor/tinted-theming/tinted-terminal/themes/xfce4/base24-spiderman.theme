@@ -5,6 +5,6 @@
 Name=base24-spiderman
 ColorForeground=#d3d3cd
 ColorBackground=#1b1d1e
-ColorCursor=x
+ColorCursor=#d3d3cd
 ColorBoldIsBright=FALSE
-ColorPalette=#1b1d1e;#e60712;#e22828;#1d4fff;#2b3fff;#2435db;#3255ff;#fffef6;#505354;#ff0325;#ff3238;#fe3935;#1d4fff;#737bff;#6083ff;#fefff9
+ColorPalette=#1b1d1e;#e60712;#e22828;#1d4fff;#2b3fff;#2435db;#3255ff;#d3d3cd;#7b7d7c;#ff0325;#ff3238;#fe3935;#1d4fff;#737bff;#6083ff;#fefff9

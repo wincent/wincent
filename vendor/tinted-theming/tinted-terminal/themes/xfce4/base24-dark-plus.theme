@@ -5,6 +5,6 @@
 Name=base24-dark-plus
 ColorForeground=#c5c5c5
 ColorBackground=#0e0e0e
-ColorCursor=x
+ColorCursor=#c5c5c5
 ColorBoldIsBright=FALSE
-ColorPalette=#000000;#cd3131;#0dbc79;#3b8eea;#2472c8;#bc3fbc;#11a8cd;#e5e5e5;#666666;#f14c4c;#23d18b;#f5f543;#3b8eea;#d670d6;#29b8db;#e5e5e5
+ColorPalette=#0e0e0e;#cd3131;#0dbc79;#3b8eea;#2472c8;#bc3fbc;#11a8cd;#c5c5c5;#858585;#f14c4c;#23d18b;#f5f543;#3b8eea;#d670d6;#29b8db;#e5e5e5

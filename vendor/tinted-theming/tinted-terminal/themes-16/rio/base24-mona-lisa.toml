@@ -2,8 +2,8 @@
 # Color scheme: Mona Lisa by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#874227' # base02
-selection-foreground = '#dab14e' # base05
+selection-background = '#dab14e' # base05
+selection-foreground = '#874227' # base02
 
 cursor         = '#dab14e' # base05
 tabs           = '#341a0d' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#874227' # base02
 
 background     = '#110b0d' # base00
 foreground     = '#dab14e' # base05
-black          = '#341a0d' # base01
+black          = '#110b0d' # base00
 red            = '#9b281b' # base08
 yellow         = '#9eb2b3' # base0A
 green          = '#626132' # base0B
 cyan           = '#588056' # base0C
 blue           = '#515b5c' # base0D
 magenta        = '#9b1d29' # base0E
-white          = '#f6d75c' # base06
+white          = '#dab14e' # base05
 
 dim-foreground   = '#dab14e' # base05
 dim-black        = '#341a0d' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#9b1d29' # base0E
 dim-white        = '#be8c41' # base04
 
 light-foreground = '#dab14e' # base05
-light-black      = '#874227' # base02
+light-black      = '#a26734' # base03
 light-red        = '#ff4230' # base12
 light-yellow     = '#ff9565' # base13
 light-green      = '#b3b163' # base14

@@ -5,6 +5,6 @@
 Name=base16-cupcake
 ColorForeground=#8b8198
 ColorBackground=#fbf1f2
-ColorCursor=x
+ColorCursor=#8b8198
 ColorBoldIsBright=FALSE
-ColorPalette=#f2f1f4;#d57e85;#a3b367;#dcb16c;#7297b9;#bb99b4;#69a9a7;#72677e;#d8d5dd;#d57e85;#a3b367;#dcb16c;#7297b9;#bb99b4;#69a9a7;#585062
+ColorPalette=#fbf1f2;#d57e85;#a3b367;#dcb16c;#7297b9;#bb99b4;#69a9a7;#8b8198;#bfb9c6;#d57e85;#a3b367;#dcb16c;#7297b9;#bb99b4;#69a9a7;#585062

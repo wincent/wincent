@@ -2,8 +2,8 @@
 # Color scheme: Thayer Bright by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#505354' # base02
-selection-foreground = '#adada9' # base05
+selection-background = '#adada9' # base05
+selection-foreground = '#505354' # base02
 
 cursor         = '#adada9' # base05
 tabs           = '#1b1d1e' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#505354' # base02
 
 background     = '#1b1d1e' # base00
 foreground     = '#adada9' # base05
-black          = '#1b1d1e' # base01
+black          = '#1b1d1e' # base00
 red            = '#f92672' # base08
 yellow         = '#3f78ff' # base0A
 green          = '#4df740' # base0B
 cyan           = '#37c8b4' # base0C
 blue           = '#2656d6' # base0D
 magenta        = '#8c54fe' # base0E
-white          = '#ccccc6' # base06
+white          = '#adada9' # base05
 
 dim-foreground   = '#adada9' # base05
 dim-black        = '#1b1d1e' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#8c54fe' # base0E
 dim-white        = '#8e8f8d' # base04
 
 light-foreground = '#adada9' # base05
-light-black      = '#505354' # base02
+light-black      = '#6f7170' # base03
 light-red        = '#ff5995' # base12
 light-yellow     = '#feed6c' # base13
 light-green      = '#b6e354' # base14

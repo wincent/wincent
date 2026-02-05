@@ -13,7 +13,7 @@ endif
 let g:loaded_ledger = 1
 
 if exists('g:ledger_no_bin') && g:ledger_no_bin
-	unlet! g:ledger_bin
+  unlet! g:ledger_bin
 elseif !exists('g:ledger_bin') || empty(g:ledger_bin)
   if executable('hledger')
     let g:ledger_bin = 'hledger'
@@ -26,10 +26,10 @@ elseif !exists('g:ledger_bin') || empty(g:ledger_bin)
     echohl None
   endif
 elseif !executable(g:ledger_bin)
-	unlet! g:ledger_bin
-	echohl WarningMsg
-	echomsg 'Command set in g:ledger_bin is not executable, fix to to enable more vim-ledger features.'
-	echohl None
+  unlet! g:ledger_bin
+  echohl WarningMsg
+  echomsg 'Command set in g:ledger_bin is not executable, fix to to enable more vim-ledger features.'
+  echohl None
 endif
 
 if exists('g:ledger_bin') && !exists('g:ledger_is_hledger')
@@ -56,7 +56,11 @@ endif
 
 if !exists('g:ledger_accounts_cmd')
   if exists('g:ledger_bin')
-    let g:ledger_accounts_cmd = g:ledger_bin . ' -f ' . shellescape(expand(g:ledger_main)) . ' accounts'
+    if g:ledger_is_hledger
+      let g:ledger_accounts_cmd = g:ledger_bin . ' -f ' . shellescape(expand(g:ledger_main)) . ' accounts --forecast'
+    else
+      let g:ledger_accounts_cmd = g:ledger_bin . ' -f ' . shellescape(expand(g:ledger_main)) . ' accounts --add-budget'
+    endif
   endif
 endif
 
@@ -141,16 +145,16 @@ endif
 " Settings for the quickfix window
 if !exists('g:ledger_qf_register_format')
   let g:ledger_qf_register_format =
-				\ '%(date) %(justify(payee, 50)) '.
-				\	'%(justify(account, 30)) %(justify(amount, 15, -1, true)) '.
-				\	'%(justify(total, 15, -1, true))\n'
+        \ '%(date) %(justify(payee, 50)) '.
+        \  '%(justify(account, 30)) %(justify(amount, 15, -1, true)) '.
+        \  '%(justify(total, 15, -1, true))\n'
 endif
 
 if !exists('g:ledger_qf_reconcile_format')
   let g:ledger_qf_reconcile_format =
-				\ '%(date) %(justify(code, 4)) '.
-				\ '%(justify(payee, 50)) %(justify(account, 30)) '.
-				\ '%(justify(amount, 15, -1, true))\n'
+        \ '%(date) %(justify(code, 4)) '.
+        \ '%(justify(payee, 50)) %(justify(account, 30)) '.
+        \ '%(justify(amount, 15, -1, true))\n'
 endif
 
 if !exists('g:ledger_qf_size')
@@ -164,7 +168,7 @@ endif
 function! ledger#init() abort
 
   if !exists('b:ledger_bin')
-    let b:ledger_bin = get(g:, 'ledger_bin', 0)
+    let b:ledger_bin = get(g:, 'ledger_bin', v:false)
   endif
 
   let settings = [
@@ -474,11 +478,11 @@ function! s:transaction.parse_body(...) abort dict
     return []
   endif
 
-  let lnum = head
+  let line_number = head
   let tags = {}
   let postings = []
-  while lnum <= tail
-    let line = split(getline(lnum), '\s*\%(\t\|  \);', 1)
+  while line_number <= tail
+    let line = split(getline(line_number), '\s*\%(\t\|  \);', 1)
 
     if line[0] =~# '^\s\+[^[:blank:];]'
       " posting
@@ -507,18 +511,18 @@ function! s:transaction.parse_body(...) abort dict
     let comment = join(line[1:], '  ;')
     if comment =~# '^\s*:'
       " tags without values
-      for t in s:findall(comment, ':\zs[^:[:blank:]]\([^:]*[^:[:blank:]]\)\?\ze:')
-        let tag_container[t] = ''
+      for tag in s:findall(comment, ':\zs[^:[:blank:]]\([^:]*[^:[:blank:]]\)\?\ze:')
+        let tag_container[tag] = ''
       endfor
     elseif comment =~# '^\s*[^:[:blank:]][^:]\+:'
       " tag with value
       let key = matchstr(comment, '^\s*\zs[^:]\+\ze:')
       if ! empty(key)
-        let val = matchstr(comment, ':\s*\zs.*\ze\s*$')
-        let tag_container[key] = val
+        let value = matchstr(comment, ':\s*\zs.*\ze\s*$')
+        let tag_container[key] = value
       endif
     endif
-    let lnum += 1
+    let line_number += 1
   endwhile
   return [tags, postings]
 endfunction
@@ -663,19 +667,19 @@ function! s:goto_col(pos, min_spaces) abort
 endfunction
 
 " Return character position of decimal separator (multibyte safe)
-function! s:decimalpos(expr) abort
+function! s:decimal_position(expression) abort
   " Remove trailing comments
-  let l:expr = substitute(a:expr, '\v +;.*$', '', '')
+  let l:expr = substitute(a:expression, '\v +;.*$', '', '')
   " Find first or last possible decimal separator candidate
   if b:ledger_align_last
     let pos = matchend(l:expr, '\v.*[' . b:ledger_decimal_sep . ']')
     if pos > 0
-      let pos = strchars(a:expr[:pos]) + 1
+      let pos = strchars(a:expression[:pos]) + 1
     endif
   else
     let pos = match(l:expr, '\v[' . b:ledger_decimal_sep . ']')
     if pos > 0
-      let pos = strchars(a:expr[:pos]) - 1
+      let pos = strchars(a:expression[:pos]) - 1
     endif
   endif
   return pos
@@ -712,7 +716,7 @@ function! ledger#align_commodity() abort
       let pos = 0
     elseif b:ledger_decimal_sep !=# ''
       " Find the position of the first decimal separator:
-      let pos = s:decimalpos(rhs)
+      let pos = s:decimal_position(rhs)
     endif
     if pos < 0
       " Find the position after the first digits
@@ -749,7 +753,7 @@ function! ledger#align_amount_at_cursor() abort
   " Select and cut text:
   normal! viWd
   " Find the position of the decimal separator
-  let pos = s:decimalpos(@") " Returns zero when the separator is the empty string
+  let pos = s:decimal_position(@") " Returns zero when the separator is the empty string
   if pos <= 0
     let pos = len(@")
   endif
@@ -975,10 +979,10 @@ function! ledger#reconcile(file, account, target_amount) abort
   if s:quickfix_toggle('Reconcile ' . a:account, 'Nothing to reconcile')
     let s:ledger_target_amount = a:target_amount
     " Show updated account balance upon saving, as long as the quickfix window is open
-    augroup reconcile
+    augroup ledger_reconcile
       autocmd!
       execute "autocmd BufWritePost *.ldg,*.ledger call ledger#show_balance('" . l:file . "','" . a:account . "')"
-      autocmd BufWipeout <buffer> call <sid>finish_reconciling()
+      autocmd WinClosed <buffer> call <SID>finish_reconciling()
     augroup END
     " Add refresh shortcut
     execute "nnoremap <silent> <buffer> <c-l> :<c-u>call ledger#reconcile('"
@@ -989,10 +993,10 @@ endfunction
 
 function! s:finish_reconciling() abort
   unlet s:ledger_target_amount
-  augroup reconcile
+  augroup ledger_reconcile
     autocmd!
   augroup END
-  augroup! reconcile
+  augroup! ledger_reconcile
 endfunction
 
 " Show the pending/cleared balance of an account.

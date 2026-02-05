@@ -3,9 +3,9 @@
 	"name": "Cobalt Neon",
 	"foreground": "#cc72a6",
 	"background": "#142838",
-	"black": "#142630",
+	"black": "#142838",
 	"blue": "#8ff586",
-	"brightBlack": "#fff688",
+	"brightBlack": "#eeca92",
 	"brightBlue": "#3c7dd2",
 	"brightCyan": "#6cbc67",
 	"brightGreen": "#8ff586",
@@ -17,6 +17,6 @@
 	"green": "#3aa5ff",
 	"purple": "#781aa0",
 	"red": "#ff2320",
-	"white": "#ba45b1",
-	"yellow": "#e9e75c"
+	"white": "#cc72a6",
+	"yellow": "#3c7dd2"
 },

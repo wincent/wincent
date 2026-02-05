@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Eldritch
+; Scheme system: base24
+; Scheme description: 
+; Scheme author: https://github.com/eldritch-theme
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base24-eldritch]
+
+; Default Foreground
+; base05 #ebfafa
+"Colour0"="235,250,250"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #ebfafa
+"Colour1"="235,250,250"
+
+; Default Background
+; base00 #212337
+"Colour2"="33,35,55"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #212337
+"Colour3"="33,35,55"
+
+; Cursor Text -- equals to default background
+; base00 #212337
+"Colour4"="33,35,55"
+
+; Cursor Colour -- equals to default foreground
+; base05 #ebfafa
+"Colour5"="235,250,250"
+
+; ANSI Black
+; 30m
+; base00 #212337
+"Colour6"="33,35,55"
+
+; ANSI Black Bright
+; 1;30m
+; base03 #7081d0
+"Colour7"="112,129,208"
+
+; ANSI Red
+; 31m
+; base08 #f16c75
+"Colour8"="241,108,117"
+
+; ANSI Red Bright
+; 1;31m
+; base12 #f89a9d
+"Colour9"="248,154,157"
+
+; ANSI Green
+; 32m
+; base0B #37f499
+"Colour10"="55,244,153"
+
+; ANSI Green Bright
+; 1;32m
+; base14 #6fffc1
+"Colour11"="111,255,193"
+
+; ANSI Yellow
+; 33m
+; base0A #f1fc79
+"Colour12"="241,252,121"
+
+; ANSI Yellow Bright
+; 1;33m
+; base13 #f9e9a1
+"Colour13"="249,233,161"
+
+; ANSI Blue
+; 34m
+; base0D #39ddfd
+"Colour14"="57,221,253"
+
+; ANSI Blue Bright
+; 1;34m
+; base16 #7ae9ff
+"Colour15"="122,233,255"
+
+; ANSI Magenta
+; 35m
+; base0E #a48cf2
+"Colour16"="164,140,242"
+
+; ANSI Magenta Bright
+; 1;35m
+; base17 #d4b3ff
+"Colour17"="212,179,255"
+
+; ANSI Cyan
+; 36m
+; base0C #04d1f9
+"Colour18"="4,209,249"
+
+; ANSI Cyan Bright
+; 1;36m
+; base15 #6ce9ff
+"Colour19"="108,233,255"
+
+; ANSI White
+; 37m
+; base05 #ebfafa
+"Colour20"="235,250,250"
+
+; ANSI White Bright
+; 1;37m
+; base07 ffffff
+"Colour21"="255,255,255"

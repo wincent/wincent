@@ -2,8 +2,8 @@
 # Color scheme: Hacktober by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#2c2b2a' # base02
-selection-foreground = '#bfbdb7' # base05
+selection-background = '#bfbdb7' # base05
+selection-foreground = '#2c2b2a' # base02
 
 cursor         = '#bfbdb7' # base05
 tabs           = '#191918' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#2c2b2a' # base02
 
 background     = '#141414' # base00
 foreground     = '#bfbdb7' # base05
-black          = '#191918' # base01
+black          = '#141414' # base00
 red            = '#b34538' # base08
 yellow         = '#5389c5' # base0A
 green          = '#587744' # base0B
 cyan           = '#ac9166' # base0C
 blue           = '#206ec5' # base0D
 magenta        = '#864651' # base0E
-white          = '#f1eee7' # base06
+white          = '#bfbdb7' # base05
 
 dim-foreground   = '#bfbdb7' # base05
 dim-black        = '#191918' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#864651' # base0E
 dim-white        = '#8e8c88' # base04
 
 light-foreground = '#bfbdb7' # base05
-light-black      = '#2c2b2a' # base02
+light-black      = '#5d5b59' # base03
 light-red        = '#b33323' # base12
 light-yellow     = '#c75a22' # base13
 light-green      = '#42824a' # base14

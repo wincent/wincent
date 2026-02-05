@@ -6,9 +6,9 @@
 background = "#000000"
 foreground = "#a8a8a8"
 
-cursor_bg = "#000000"
+cursor_bg = "#a8a8a8"
 cursor_border = "#a8a8a8"
-cursor_fg = "#bfbfbf"
+cursor_fg = "#000000"
 
 selection_bg = "#a8a8a8"
 selection_fg = "#666666"
@@ -21,10 +21,10 @@ ansi = [
   "#0000b2",
   "#b200b2",
   "#00a6b2",
-  "#bfbfbf"
+  "#a8a8a8"
 ]
 brights = [
-  "#666666",
+  "#7c7c7c",
   "#e50000",
   "#00d900",
   "#e5e500",
@@ -40,4 +40,4 @@ brights = [
 18 = "#000000"
 19 = "#666666"
 20 = "#929292"
-21 = "#a8a8a8"
+21 = "#bfbfbf"

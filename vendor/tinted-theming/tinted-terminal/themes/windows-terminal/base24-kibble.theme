@@ -3,9 +3,9 @@
 	"name": "Kibble",
 	"foreground": "#c0b3c0",
 	"background": "#0e100a",
-	"black": "#4d4d4d",
+	"black": "#0e100a",
 	"blue": "#3449d1",
-	"brightBlack": "#5a5a5a",
+	"brightBlack": "#7c777c",
 	"brightBlue": "#97a4f7",
 	"brightCyan": "#68f2e0",
 	"brightGreen": "#6ce05c",
@@ -17,6 +17,6 @@
 	"green": "#29cf13",
 	"purple": "#8400ff",
 	"red": "#c70031",
-	"white": "#e2d1e3",
-	"yellow": "#d8e30e"
+	"white": "#c0b3c0",
+	"yellow": "#97a4f7"
 },

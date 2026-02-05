@@ -3,9 +3,9 @@
 	"name": "Grayscale Light",
 	"foreground": "#464646",
 	"background": "#f7f7f7",
-	"black": "#e3e3e3",
+	"black": "#f7f7f7",
 	"blue": "#686868",
-	"brightBlack": "#b9b9b9",
+	"brightBlack": "#ababab",
 	"brightBlue": "#686868",
 	"brightCyan": "#868686",
 	"brightGreen": "#8e8e8e",
@@ -17,6 +17,6 @@
 	"green": "#8e8e8e",
 	"purple": "#747474",
 	"red": "#7c7c7c",
-	"white": "#252525",
-	"yellow": "#999999"
+	"white": "#464646",
+	"yellow": "#a0a0a0"
 },

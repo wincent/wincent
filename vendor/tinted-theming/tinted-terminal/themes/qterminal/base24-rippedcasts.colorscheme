@@ -8,13 +8,13 @@ Color=68,68,68
 Color=43,43,43
 
 [Color0]
-Color=0,0,0
+Color=43,43,43
 
 [Color0Faint]
 Color=43,43,43
 
 [Color0Intense]
-Color=102,102,102
+Color=124,124,124
 
 [Color1]
 Color=205,175,149
@@ -35,10 +35,10 @@ Color=167,255,96
 Color=188,238,104
 
 [Color3]
-Color=191,187,31
+Color=134,189,201
 
 [Color3Faint]
-Color=191,187,31
+Color=134,189,201
 
 [Color3Intense]
 Color=229,229,0
@@ -71,7 +71,7 @@ Color=89,100,126
 Color=140,155,195
 
 [Color7]
-Color=191,191,191
+Color=168,168,168
 
 [Color7Faint]
 Color=168,168,168
@@ -92,4 +92,3 @@ Color=191,191,191
 Blur=true
 Description=Rippedcasts
 Opacity=0.95
-

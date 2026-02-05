@@ -3,9 +3,9 @@
 	"name": "dirtysea",
 	"foreground": "#000000",
 	"background": "#e0e0e0",
-	"black": "#d0dad0",
+	"black": "#e0e0e0",
 	"blue": "#007300",
-	"brightBlack": "#d0d0d0",
+	"brightBlack": "#707070",
 	"brightBlue": "#007300",
 	"brightCyan": "#755b00",
 	"brightGreen": "#730073",
@@ -17,6 +17,6 @@
 	"green": "#730073",
 	"purple": "#000090",
 	"red": "#840000",
-	"white": "#f8f8f8",
-	"yellow": "#006565"
+	"white": "#000000",
+	"yellow": "#755b00"
 },

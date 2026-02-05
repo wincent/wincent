@@ -2,8 +2,8 @@
 # Color scheme: IR Black by Timothée Poisot (http://timotheepoisot.fr)
 
 [colors]
-selection-background = '#484844' # base02
-selection-foreground = '#b5b3aa' # base05
+selection-background = '#b5b3aa' # base05
+selection-foreground = '#484844' # base02
 
 cursor         = '#b5b3aa' # base05
 tabs           = '#242422' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#484844' # base02
 
 background     = '#000000' # base00
 foreground     = '#b5b3aa' # base05
-black          = '#242422' # base01
+black          = '#000000' # base00
 red            = '#ff6c60' # base08
 yellow         = '#ffffb6' # base0A
 green          = '#a8ff60' # base0B
 cyan           = '#c6c5fe' # base0C
 blue           = '#96cbfe' # base0D
 magenta        = '#ff73fd' # base0E
-white          = '#d9d7cc' # base06
+white          = '#b5b3aa' # base05
 
 dim-foreground   = '#b5b3aa' # base05
 dim-black        = '#242422' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#ff73fd' # base0E
 dim-white        = '#918f88' # base04
 
 light-foreground = '#b5b3aa' # base05
-light-black      = '#484844' # base02
+light-black      = '#6c6c66' # base03
 light-red        = '#ff6c60' # base08
 light-yellow     = '#ffffb6' # base0A
 light-green      = '#a8ff60' # base0B

@@ -5,6 +5,6 @@
 Name=base24-paul-millr
 ColorForeground=#a5a5a5
 ColorBackground=#000000
-ColorCursor=x
+ColorCursor=#a5a5a5
 ColorBoldIsBright=FALSE
-ColorPalette=#2a2a2a;#ff0000;#79ff0f;#709aed;#386bd7;#b349be;#66ccff;#bbbbbb;#666666;#ff0080;#66ff66;#f3d64e;#709aed;#db67e6;#79dff2;#ffffff
+ColorPalette=#000000;#ff0000;#79ff0f;#709aed;#386bd7;#b349be;#66ccff;#a5a5a5;#7b7b7b;#ff0080;#66ff66;#f3d64e;#709aed;#db67e6;#79dff2;#ffffff

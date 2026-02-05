@@ -2,8 +2,8 @@
 # Color scheme: Slate by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#ffffff' # base02
-selection-foreground = '#42d3e8' # base05
+selection-background = '#42d3e8' # base05
+selection-foreground = '#ffffff' # base02
 
 cursor         = '#42d3e8' # base05
 tabs           = '#212121' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#ffffff' # base02
 
 background     = '#212121' # base00
 foreground     = '#42d3e8' # base05
-black          = '#212121' # base01
+black          = '#212121' # base00
 red            = '#e1a7bf' # base08
 yellow         = '#79afd2' # base0A
 green          = '#80d778' # base0B
 cyan           = '#14ab9c' # base0C
 blue           = '#254a49' # base0D
 magenta        = '#a380d3' # base0E
-white          = '#02c4e0' # base06
+white          = '#42d3e8' # base05
 
 dim-foreground   = '#42d3e8' # base05
 dim-black        = '#212121' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#a380d3' # base0E
 dim-white        = '#81e2f0' # base04
 
 light-foreground = '#42d3e8' # base05
-light-black      = '#ffffff' # base02
+light-black      = '#c0f1f8' # base03
 light-red        = '#ffccd8' # base12
 light-yellow     = '#d0cbc9' # base13
 light-green      = '#bdffa8' # base14

@@ -3,9 +3,9 @@
 	"name": "Horizon Dark",
 	"foreground": "#cbced0",
 	"background": "#1c1e26",
-	"black": "#232530",
+	"black": "#1c1e26",
 	"blue": "#df5273",
-	"brightBlack": "#2e303e",
+	"brightBlack": "#6f6f70",
 	"brightBlue": "#df5273",
 	"brightCyan": "#24a8b4",
 	"brightGreen": "#efaf8e",
@@ -17,6 +17,6 @@
 	"green": "#efaf8e",
 	"purple": "#b072d1",
 	"red": "#e93c58",
-	"white": "#dcdfe4",
-	"yellow": "#e58d7d"
+	"white": "#cbced0",
+	"yellow": "#efb993"
 },

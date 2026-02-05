@@ -3,9 +3,9 @@
 	"name": "Rebecca",
 	"foreground": "#c3c3d4",
 	"background": "#292a44",
-	"black": "#12131d",
+	"black": "#292a44",
 	"blue": "#7aa5ff",
-	"brightBlack": "#666699",
+	"brightBlack": "#8585ac",
 	"brightBlue": "#69bffa",
 	"brightCyan": "#8bfce1",
 	"brightGreen": "#00e9c0",
@@ -17,6 +17,6 @@
 	"green": "#04dbb4",
 	"purple": "#be9bf8",
 	"red": "#dd7655",
-	"white": "#e3e2e8",
-	"yellow": "#f2e7b7"
+	"white": "#c3c3d4",
+	"yellow": "#69bffa"
 },

@@ -5,6 +5,6 @@
 Name=base16-gotham
 ColorForeground=#599cab
 ColorBackground=#0c1014
-ColorCursor=x
+ColorCursor=#599cab
 ColorBoldIsBright=FALSE
-ColorPalette=#11151c;#c23127;#33859e;#edb443;#195466;#888ca6;#2aa889;#99d1ce;#091f2e;#c23127;#33859e;#edb443;#195466;#888ca6;#2aa889;#d3ebe9
+ColorPalette=#0c1014;#c23127;#33859e;#edb443;#195466;#888ca6;#2aa889;#599cab;#0a3749;#c23127;#33859e;#edb443;#195466;#888ca6;#2aa889;#d3ebe9

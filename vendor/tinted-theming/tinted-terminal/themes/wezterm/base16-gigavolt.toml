@@ -21,10 +21,10 @@ ansi = [
   "#40bfff",
   "#ae94f9",
   "#fb6acb",
-  "#eff0f9"
+  "#e9e7e1"
 ]
 brights = [
-  "#5a576e",
+  "#a1d2e6",
   "#ff661a",
   "#f2e6a9",
   "#ffdc2d",
@@ -40,4 +40,4 @@ brights = [
 18 = "#2d303d"
 19 = "#5a576e"
 20 = "#cad3ff"
-21 = "#e9e7e1"
+21 = "#eff0f9"

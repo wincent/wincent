@@ -2,8 +2,8 @@
 # Color scheme: Purplepeter by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#100b22' # base02
-selection-foreground = '#c38e69' # base05
+selection-background = '#c38e69' # base05
+selection-foreground = '#100b22' # base02
 
 cursor         = '#c38e69' # base05
 tabs           = '#0a041f' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#100b22' # base02
 
 background     = '#2a1a4a' # base00
 foreground     = '#c38e69' # base05
-black          = '#0a041f' # base01
+black          = '#2a1a4a' # base00
 red            = '#ff786c' # base08
 yellow         = '#79daed' # base0A
 green          = '#98b481' # base0B
 cyan           = '#b98cff' # base0C
 blue           = '#66d9ef' # base0D
 magenta        = '#e68ecd' # base0E
-white          = '#ffba81' # base06
+white          = '#c38e69' # base05
 
 dim-foreground   = '#c38e69' # base05
 dim-black        = '#0a041f' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#e68ecd' # base0E
 dim-white        = '#876251' # base04
 
 light-foreground = '#c38e69' # base05
-light-black      = '#100b22' # base02
+light-black      = '#4b3639' # base03
 light-red        = '#f89f92' # base12
 light-yellow     = '#f1e9bf' # base13
 light-green      = '#b4bd8e' # base14

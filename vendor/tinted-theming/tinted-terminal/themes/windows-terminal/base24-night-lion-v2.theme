@@ -3,9 +3,9 @@
 	"name": "Night Lion V2",
 	"foreground": "#a1a1a1",
 	"background": "#171717",
-	"black": "#4c4c4c",
+	"black": "#171717",
 	"blue": "#63d0f0",
-	"brightBlack": "#555555",
+	"brightBlack": "#6e6e6e",
 	"brightBlue": "#62cae7",
 	"brightCyan": "#00ccd7",
 	"brightGreen": "#7df61c",
@@ -17,6 +17,6 @@
 	"green": "#03f622",
 	"purple": "#ce6fda",
 	"red": "#bb0000",
-	"white": "#bbbbbb",
-	"yellow": "#f2f067"
+	"white": "#a1a1a1",
+	"yellow": "#62cae7"
 },

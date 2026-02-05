@@ -2,8 +2,8 @@
 # Color scheme: Horizon Dark by Michaël Ball (http://github.com/michael-ball/)
 
 [colors]
-selection-background = '#2e303e' # base02
-selection-foreground = '#cbced0' # base05
+selection-background = '#cbced0' # base05
+selection-foreground = '#2e303e' # base02
 
 cursor         = '#cbced0' # base05
 tabs           = '#232530' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#2e303e' # base02
 
 background     = '#1c1e26' # base00
 foreground     = '#cbced0' # base05
-black          = '#232530' # base01
+black          = '#1c1e26' # base00
 red            = '#e93c58' # base08
 yellow         = '#efb993' # base0A
 green          = '#efaf8e' # base0B
 cyan           = '#24a8b4' # base0C
 blue           = '#df5273' # base0D
 magenta        = '#b072d1' # base0E
-white          = '#dcdfe4' # base06
+white          = '#cbced0' # base05
 
 dim-foreground   = '#cbced0' # base05
 dim-black        = '#232530' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#b072d1' # base0E
 dim-white        = '#9da0a2' # base04
 
 light-foreground = '#cbced0' # base05
-light-black      = '#2e303e' # base02
+light-black      = '#6f6f70' # base03
 light-red        = '#e93c58' # base08
 light-yellow     = '#efb993' # base0A
 light-green      = '#efaf8e' # base0B

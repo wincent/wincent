@@ -8,13 +8,13 @@ Color=30,32,48
 Color=34,36,54
 
 [Color0]
-Color=30,32,48
+Color=34,36,54
 
 [Color0Faint]
 Color=34,36,54
 
 [Color0Intense]
-Color=47,51,77
+Color=68,74,115
 
 [Color1]
 Color=192,153,255
@@ -71,7 +71,7 @@ Color=134,225,252
 Color=134,225,252
 
 [Color7]
-Color=180,194,240
+Color=200,211,245
 
 [Color7Faint]
 Color=200,211,245
@@ -92,4 +92,3 @@ Color=180,194,240
 Blur=true
 Description=Tokyo Night Moon
 Opacity=0.95
-

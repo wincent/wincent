@@ -5,6 +5,6 @@
 Name=base16-monokai
 ColorForeground=#f8f8f2
 ColorBackground=#272822
-ColorCursor=x
+ColorCursor=#f8f8f2
 ColorBoldIsBright=FALSE
-ColorPalette=#383830;#f92672;#a6e22e;#f4bf75;#66d9ef;#ae81ff;#a1efe4;#f5f4f1;#49483e;#f92672;#a6e22e;#f4bf75;#66d9ef;#ae81ff;#a1efe4;#f9f8f5
+ColorPalette=#272822;#f92672;#a6e22e;#f4bf75;#66d9ef;#ae81ff;#a1efe4;#f8f8f2;#75715e;#f92672;#a6e22e;#f4bf75;#66d9ef;#ae81ff;#a1efe4;#f9f8f5

@@ -3,9 +3,9 @@
 	"name": "pinky",
 	"foreground": "#f5f5f5",
 	"background": "#171517",
-	"black": "#1b181b",
+	"black": "#171517",
 	"blue": "#00ffff",
-	"brightBlack": "#1d1b1d",
+	"brightBlack": "#383338",
 	"brightBlue": "#00ffff",
 	"brightCyan": "#6600ff",
 	"brightGreen": "#ff0066",
@@ -17,6 +17,6 @@
 	"green": "#ff0066",
 	"purple": "#007fff",
 	"red": "#ffa600",
-	"white": "#ffffff",
-	"yellow": "#00ff66"
+	"white": "#f5f5f5",
+	"yellow": "#20df6c"
 },

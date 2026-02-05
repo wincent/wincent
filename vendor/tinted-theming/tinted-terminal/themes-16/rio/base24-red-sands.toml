@@ -2,8 +2,8 @@
 # Color scheme: Red Sands by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#555555' # base02
-selection-foreground = '#a1a1a1' # base05
+selection-background = '#a1a1a1' # base05
+selection-foreground = '#555555' # base02
 
 cursor         = '#a1a1a1' # base05
 tabs           = '#000000' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#555555' # base02
 
 background     = '#79241e' # base00
 foreground     = '#a1a1a1' # base05
-black          = '#000000' # base01
+black          = '#79241e' # base00
 red            = '#ff3f00' # base08
 yellow         = '#0071ae' # base0A
 green          = '#00bb00' # base0B
 cyan           = '#00bbbb' # base0C
 blue           = '#0071ff' # base0D
 magenta        = '#bb00bb' # base0E
-white          = '#bbbbbb' # base06
+white          = '#a1a1a1' # base05
 
 dim-foreground   = '#a1a1a1' # base05
 dim-black        = '#000000' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#bb00bb' # base0E
 dim-white        = '#888888' # base04
 
 light-foreground = '#a1a1a1' # base05
-light-black      = '#555555' # base02
+light-black      = '#6e6e6e' # base03
 light-red        = '#bb0000' # base12
 light-yellow     = '#e7b000' # base13
 light-green      = '#00bb00' # base14

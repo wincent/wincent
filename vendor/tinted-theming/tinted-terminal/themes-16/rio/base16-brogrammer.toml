@@ -2,8 +2,8 @@
 # Color scheme: Brogrammer by Vik Ramanujam (http://github.com/piggyslasher)
 
 [colors]
-selection-background = '#2dc55e' # base02
-selection-foreground = '#4e5ab7' # base05
+selection-background = '#4e5ab7' # base05
+selection-foreground = '#2dc55e' # base02
 
 cursor         = '#4e5ab7' # base05
 tabs           = '#f81118' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#2dc55e' # base02
 
 background     = '#1f1f1f' # base00
 foreground     = '#4e5ab7' # base05
-black          = '#f81118' # base01
+black          = '#1f1f1f' # base00
 red            = '#d6dbe5' # base08
 yellow         = '#1dd361' # base0A
 green          = '#f3bd09' # base0B
 cyan           = '#1081d6' # base0C
 blue           = '#5350b9' # base0D
 magenta        = '#0f7ddb' # base0E
-white          = '#1081d6' # base06
+white          = '#4e5ab7' # base05
 
 dim-foreground   = '#4e5ab7' # base05
 dim-black        = '#f81118' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#0f7ddb' # base0E
 dim-white        = '#2a84d2' # base04
 
 light-foreground = '#4e5ab7' # base05
-light-black      = '#2dc55e' # base02
+light-black      = '#ecba0f' # base03
 light-red        = '#d6dbe5' # base08
 light-yellow     = '#1dd361' # base0A
 light-green      = '#f3bd09' # base0B

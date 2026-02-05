@@ -3,9 +3,9 @@
 	"name": "Kimber",
 	"foreground": "#dedee7",
 	"background": "#222222",
-	"black": "#313131",
+	"black": "#222222",
 	"blue": "#537c9c",
-	"brightBlack": "#555d55",
+	"brightBlack": "#644646",
 	"brightBlue": "#537c9c",
 	"brightCyan": "#78b4b4",
 	"brightGreen": "#99c899",
@@ -17,6 +17,6 @@
 	"green": "#99c899",
 	"purple": "#86cacd",
 	"red": "#c88c8c",
-	"white": "#c3c3b4",
-	"yellow": "#476c88"
+	"white": "#dedee7",
+	"yellow": "#d8b56d"
 },

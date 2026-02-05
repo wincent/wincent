@@ -2,8 +2,8 @@
 # Color scheme: Fish Tank by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#6c5a30' # base02
-selection-foreground = '#ccc9c9' # base05
+selection-background = '#ccc9c9' # base05
+selection-foreground = '#6c5a30' # base02
 
 cursor         = '#ccc9c9' # base05
 tabs           = '#03063c' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#6c5a30' # base02
 
 background     = '#222436' # base00
 foreground     = '#ccc9c9' # base05
-black          = '#03063c' # base01
+black          = '#222436' # base00
 red            = '#c60049' # base08
 yellow         = '#b1bdf9' # base0A
 green          = '#abf157' # base0B
 cyan           = '#968662' # base0C
 blue           = '#525fb8' # base0D
 magenta        = '#976f81' # base0E
-white          = '#eceffc' # base06
+white          = '#ccc9c9' # base05
 
 dim-foreground   = '#ccc9c9' # base05
 dim-black        = '#03063c' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#976f81' # base0E
 dim-white        = '#aca496' # base04
 
 light-foreground = '#ccc9c9' # base05
-light-black      = '#6c5a30' # base02
+light-black      = '#8c7f63' # base03
 light-red        = '#d94a8a' # base12
 light-yellow     = '#fee6a8' # base13
 light-green      = '#daffa8' # base14

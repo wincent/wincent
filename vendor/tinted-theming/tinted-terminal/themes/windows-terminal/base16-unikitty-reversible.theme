@@ -3,9 +3,9 @@
 	"name": "Unikitty Reversible",
 	"foreground": "#c3c2c4",
 	"background": "#2e2a31",
-	"black": "#4b484e",
+	"black": "#2e2a31",
 	"blue": "#7864fa",
-	"brightBlack": "#69666b",
+	"brightBlack": "#878589",
 	"brightBlue": "#7864fa",
 	"brightCyan": "#149bda",
 	"brightGreen": "#17ad98",
@@ -17,6 +17,6 @@
 	"green": "#17ad98",
 	"purple": "#b33ce8",
 	"red": "#d8137f",
-	"white": "#e1e0e1",
-	"yellow": "#d65407"
+	"white": "#c3c2c4",
+	"yellow": "#dc8a0e"
 },

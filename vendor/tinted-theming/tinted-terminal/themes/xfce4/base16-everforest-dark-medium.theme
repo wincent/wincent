@@ -5,6 +5,6 @@
 Name=base16-everforest-dark-medium
 ColorForeground=#859289
 ColorBackground=#2d353b
-ColorCursor=x
+ColorCursor=#859289
 ColorBoldIsBright=FALSE
-ColorPalette=#343f44;#e67e80;#a7c080;#dbbc7f;#7fbbb3;#d699b6;#83c092;#9da9a0;#3d484d;#e67e80;#a7c080;#dbbc7f;#7fbbb3;#d699b6;#83c092;#d3c6aa
+ColorPalette=#2d353b;#e67e80;#a7c080;#dbbc7f;#7fbbb3;#d699b6;#83c092;#859289;#475258;#e67e80;#a7c080;#dbbc7f;#7fbbb3;#d699b6;#83c092;#d3c6aa

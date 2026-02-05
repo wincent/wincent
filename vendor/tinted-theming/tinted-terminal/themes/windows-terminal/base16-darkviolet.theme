@@ -3,9 +3,9 @@
 	"name": "Dark Violet",
 	"foreground": "#b08ae6",
 	"background": "#000000",
-	"black": "#231a40",
+	"black": "#000000",
 	"blue": "#4136d9",
-	"brightBlack": "#432d59",
+	"brightBlack": "#593380",
 	"brightBlue": "#4136d9",
 	"brightCyan": "#40dfff",
 	"brightGreen": "#4595e6",
@@ -17,6 +17,6 @@
 	"green": "#4595e6",
 	"purple": "#7e5ce6",
 	"red": "#a82ee6",
-	"white": "#9045e6",
-	"yellow": "#bb66cc"
+	"white": "#b08ae6",
+	"yellow": "#f29df2"
 },

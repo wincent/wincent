@@ -14,7 +14,7 @@ Color=0,0,0
 Color=0,0,0
 
 [Color0Intense]
-Color=84,87,83
+Color=115,119,114
 
 [Color1]
 Color=204,0,0
@@ -35,10 +35,10 @@ Color=78,154,5
 Color=138,226,52
 
 [Color3]
-Color=196,160,0
+Color=113,158,207
 
 [Color3Faint]
-Color=196,160,0
+Color=113,158,207
 
 [Color3Intense]
 Color=252,233,78
@@ -71,7 +71,7 @@ Color=5,152,154
 Color=52,226,226
 
 [Color7]
-Color=211,215,207
+Color=179,183,176
 
 [Color7Faint]
 Color=179,183,176
@@ -92,4 +92,3 @@ Color=211,215,207
 Blur=true
 Description=Builtin Tango Dark
 Opacity=0.95
-

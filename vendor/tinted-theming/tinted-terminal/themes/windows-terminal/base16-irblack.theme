@@ -3,9 +3,9 @@
 	"name": "IR Black",
 	"foreground": "#b5b3aa",
 	"background": "#000000",
-	"black": "#242422",
+	"black": "#000000",
 	"blue": "#96cbfe",
-	"brightBlack": "#484844",
+	"brightBlack": "#6c6c66",
 	"brightBlue": "#96cbfe",
 	"brightCyan": "#c6c5fe",
 	"brightGreen": "#a8ff60",
@@ -17,6 +17,6 @@
 	"green": "#a8ff60",
 	"purple": "#ff73fd",
 	"red": "#ff6c60",
-	"white": "#d9d7cc",
-	"yellow": "#e9c062"
+	"white": "#b5b3aa",
+	"yellow": "#ffffb6"
 },

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
     base16 Kanagawa Dragon
-    Scheme author: Tommaso Laurenzi (https://github.com/rebelot)
+    Scheme author: Stefan Weigl-Bosker (https://github.com/sweiglbosker), Tommaso Laurenzi (https://github.com/rebelot/kanagawa.nvim)
     Template author: Tinted Theming (https://github.com/tinted-theming)
     semanticClass: theme.base16.kanagawa-dragon
 -->
@@ -9,30 +9,30 @@
     <value name="Name" type="string" data="base16-kanagawa-dragon"/>
     <value name="ExtendColors" type="hex" data="00"/>
     <value name="ExtendColorIdx" type="hex" data="0e"/>
-    <value name="TextColorIdx" type="hex" data="10"/>
-    <value name="BackColorIdx" type="hex" data="10"/>
-    <value name="PopTextColorIdx" type="hex" data="10"/>
-    <value name="PopBackColorIdx" type="hex" data="10"/>
-    <value name="ColorTable00" type="dword" data="00191c1d"/> <!-- base01 - Black -->
+    <value name="TextColorIdx" type="hex" data="07"/>
+    <value name="BackColorIdx" type="hex" data="00"/>
+    <value name="PopTextColorIdx" type="hex" data="07"/>
+    <value name="PopBackColorIdx" type="hex" data="00"/>
+    <value name="ColorTable00" type="dword" data="00161618"/> <!-- base00 - Black -->
     <value name="ColorTable01" type="dword" data="006e74c4"/> <!-- base08 - Red -->
-    <value name="ColorTable02" type="dword" data="0087a987"/> <!-- base0B - Green -->
+    <value name="ColorTable02" type="dword" data="007b9a8a"/> <!-- base0B - Green -->
     <value name="ColorTable03" type="dword" data="008ab2c4"/> <!-- base0A - Yellow -->
     <value name="ColorTable04" type="dword" data="00b0a48b"/> <!-- base0D - Blue -->
-    <value name="ColorTable05" type="dword" data="00a79289"/> <!-- base0E - Magenta -->
+    <value name="ColorTable05" type="dword" data="00a392a2"/> <!-- base0E - Magenta -->
     <value name="ColorTable06" type="dword" data="00a2a48e"/> <!-- base0C - Cyan -->
-    <value name="ColorTable07" type="dword" data="0082837a"/> <!-- base06 - White -->
-    <value name="ColorTable08" type="dword" data="00272728"/> <!-- base02 - Bright Black -->
+    <value name="ColorTable07" type="dword" data="00c5c9c5"/> <!-- base05 - White -->
+    <value name="ColorTable08" type="dword" data="005a5e62"/> <!-- base03 - Bright Black -->
     <value name="ColorTable09" type="dword" data="006e74c4"/> <!-- base08 - Bright Red -->
-    <value name="ColorTable10" type="dword" data="0087a987"/> <!-- base0B - Bright Green -->
+    <value name="ColorTable10" type="dword" data="007b9a8a"/> <!-- base0B - Bright Green -->
     <value name="ColorTable11" type="dword" data="008ab2c4"/> <!-- base0A - Bright Yellow -->
     <value name="ColorTable12" type="dword" data="00b0a48b"/> <!-- base0D - Bright Blue -->
-    <value name="ColorTable13" type="dword" data="00a79289"/> <!-- base0E - Bright Magenta -->
+    <value name="ColorTable13" type="dword" data="00a392a2"/> <!-- base0E - Bright Magenta -->
     <value name="ColorTable14" type="dword" data="00a2a48e"/> <!-- base0C - Bright Cyan -->
     <value name="ColorTable15" type="dword" data="00c5c9c5"/> <!-- base07 - Bright White -->
-    <value name="ColorTable16" type="dword" data="007b8db9"/> <!-- base09 -->
-    <value name="ColorTable17" type="dword" data="00a392a2"/> <!-- base0F -->
-    <value name="ColorTable18" type="dword" data="00191c1d"/> <!-- base01 -->
-    <value name="ColorTable19" type="dword" data="00272728"/> <!-- base02 -->
-    <value name="ColorTable20" type="dword" data="009ca6a6"/> <!-- base04 -->
-    <value name="ColorTable21" type="dword" data="0082837a"/> <!-- base06 -->
+    <value name="ColorTable16" type="dword" data="007b92b6"/> <!-- base09 -->
+    <value name="ColorTable17" type="dword" data="007b8db9"/> <!-- base0F -->
+    <value name="ColorTable18" type="dword" data="00272728"/> <!-- base01 -->
+    <value name="ColorTable19" type="dword" data="00363839"/> <!-- base02 -->
+    <value name="ColorTable20" type="dword" data="00737c73"/> <!-- base04 -->
+    <value name="ColorTable21" type="dword" data="0093c0c8"/> <!-- base06 -->
 </key>

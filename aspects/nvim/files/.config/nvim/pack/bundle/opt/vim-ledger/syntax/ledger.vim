@@ -72,6 +72,9 @@ syntax region ledgerBlockComment start=/^comment/ end=/^end comment/
 syntax region ledgerBlockTest start=/^test/ end=/^end test/
 execute 'syntax match ledgerComment /^['.s:line_comment_chars.'].*$/'
 
+" Allow manual fold markers in comments
+execute 'syntax region ledgerManualFold start=/^['.s:line_comment_chars.']\s*{{{/ end=/^['.s:line_comment_chars.']\s*}}}/ fold transparent'
+
 " Tags (metadata) are handled a bit differently in ledger-cli vs. hledger even
 " though they both nested in comments the same way.
 if b:ledger_is_hledger

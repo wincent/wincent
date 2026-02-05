@@ -2,8 +2,8 @@
 # Color scheme: Atelier Dune by Bram de Haan (http://atelierbramdehaan.nl)
 
 [colors]
-selection-background = '#6e6b5e' # base02
-selection-foreground = '#a6a28c' # base05
+selection-background = '#a6a28c' # base05
+selection-foreground = '#6e6b5e' # base02
 
 cursor         = '#a6a28c' # base05
 tabs           = '#292824' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#6e6b5e' # base02
 
 background     = '#20201d' # base00
 foreground     = '#a6a28c' # base05
-black          = '#292824' # base01
+black          = '#20201d' # base00
 red            = '#d73737' # base08
 yellow         = '#ae9513' # base0A
 green          = '#60ac39' # base0B
 cyan           = '#1fad83' # base0C
 blue           = '#6684e1' # base0D
 magenta        = '#b854d4' # base0E
-white          = '#e8e4cf' # base06
+white          = '#a6a28c' # base05
 
 dim-foreground   = '#a6a28c' # base05
 dim-black        = '#292824' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#b854d4' # base0E
 dim-white        = '#999580' # base04
 
 light-foreground = '#a6a28c' # base05
-light-black      = '#6e6b5e' # base02
+light-black      = '#7d7a68' # base03
 light-red        = '#d73737' # base08
 light-yellow     = '#ae9513' # base0A
 light-green      = '#60ac39' # base0B

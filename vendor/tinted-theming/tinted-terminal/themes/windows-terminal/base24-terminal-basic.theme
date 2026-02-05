@@ -3,9 +3,9 @@
 	"name": "Terminal Basic",
 	"foreground": "#a8a8a8",
 	"background": "#ffffff",
-	"black": "#000000",
+	"black": "#ffffff",
 	"blue": "#0000b2",
-	"brightBlack": "#666666",
+	"brightBlack": "#7c7c7c",
 	"brightBlue": "#0000ff",
 	"brightCyan": "#00e5e5",
 	"brightGreen": "#00d900",
@@ -17,6 +17,6 @@
 	"green": "#00a600",
 	"purple": "#b200b2",
 	"red": "#990000",
-	"white": "#bfbfbf",
-	"yellow": "#999900"
+	"white": "#a8a8a8",
+	"yellow": "#0000ff"
 },

@@ -3,9 +3,9 @@
 	"name": "Atelier Plateau Light",
 	"foreground": "#585050",
 	"background": "#f4ecec",
-	"black": "#e7dfdf",
+	"black": "#f4ecec",
 	"blue": "#7272ca",
-	"brightBlack": "#8a8585",
+	"brightBlack": "#7e7777",
 	"brightBlue": "#7272ca",
 	"brightCyan": "#5485b6",
 	"brightGreen": "#4b8b8b",
@@ -17,6 +17,6 @@
 	"green": "#4b8b8b",
 	"purple": "#8464c4",
 	"red": "#ca4949",
-	"white": "#292424",
-	"yellow": "#b45a3c"
+	"white": "#585050",
+	"yellow": "#a06e3b"
 },

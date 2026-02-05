@@ -2,8 +2,8 @@
 # Color scheme: pandora by Cassandra Fox
 
 [colors]
-selection-background = '#472234' # base02
-selection-foreground = '#f15c99' # base05
+selection-background = '#f15c99' # base05
+selection-foreground = '#472234' # base02
 
 cursor         = '#f15c99' # base05
 tabs           = '#2f1823' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#472234' # base02
 
 background     = '#131213' # base00
 foreground     = '#f15c99' # base05
-black          = '#2f1823' # base01
+black          = '#131213' # base00
 red            = '#b00b69' # base08
 yellow         = '#ffcc00' # base0A
 green          = '#9ddf69' # base0B
 cyan           = '#714ca6' # base0C
 blue           = '#008080' # base0D
 magenta        = '#a24030' # base0E
-white          = '#81506a' # base06
+white          = '#f15c99' # base05
 
 dim-foreground   = '#f15c99' # base05
 dim-black        = '#2f1823' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#a24030' # base0E
 dim-white        = '#9b2a46' # base04
 
 light-foreground = '#f15c99' # base05
-light-black      = '#472234' # base02
+light-black      = '#ffbee3' # base03
 light-red        = '#b00b69' # base08
 light-yellow     = '#ffcc00' # base0A
 light-green      = '#9ddf69' # base0B

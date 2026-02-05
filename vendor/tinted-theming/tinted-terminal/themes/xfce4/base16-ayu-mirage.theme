@@ -5,6 +5,6 @@
 Name=base16-ayu-mirage
 ColorForeground=#cccac2
 ColorBackground=#1f2430
-ColorCursor=x
+ColorCursor=#cccac2
 ColorBoldIsBright=FALSE
-ColorPalette=#242936;#f28779;#d5ff80;#ffd173;#73d0ff;#d4bfff;#95e6cb;#d9d7ce;#323844;#f28779;#d5ff80;#ffd173;#73d0ff;#d4bfff;#95e6cb;#f3f4f5
+ColorPalette=#1f2430;#f28779;#d5ff80;#ffd173;#73d0ff;#d4bfff;#95e6cb;#cccac2;#4a5059;#f28779;#d5ff80;#ffd173;#73d0ff;#d4bfff;#95e6cb;#f3f4f5

@@ -2,8 +2,8 @@
 # Color scheme: Grape by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#58506a' # base02
-selection-foreground = '#8c8a92' # base05
+selection-background = '#8c8a92' # base05
+selection-foreground = '#58506a' # base02
 
 cursor         = '#8c8a92' # base05
 tabs           = '#2d283e' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#58506a' # base02
 
 background     = '#161423' # base00
 foreground     = '#8c8a92' # base05
-black          = '#2d283e' # base01
+black          = '#161423' # base00
 red            = '#ec2160' # base08
 yellow         = '#a9bbeb' # base0A
 green          = '#1fa91b' # base0B
 cyan           = '#3added' # base0C
 blue           = '#487cf4' # base0D
 magenta        = '#8c35c8' # base0E
-white          = '#9e9ea0' # base06
+white          = '#8c8a92' # base05
 
 dim-foreground   = '#8c8a92' # base05
 dim-black        = '#2d283e' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#8c35c8' # base0E
 dim-white        = '#7b7785' # base04
 
 light-foreground = '#8c8a92' # base05
-light-black      = '#58506a' # base02
+light-black      = '#696377' # base03
 light-red        = '#f0719a' # base12
 light-yellow     = '#b2dc87' # base13
 light-green      = '#52a95d' # base14

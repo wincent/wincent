@@ -1,43 +1,43 @@
 # base16 Kanagawa Dragon
-# Scheme author: Tommaso Laurenzi (https://github.com/rebelot)
+# Scheme author: Stefan Weigl-Bosker (https://github.com/sweiglbosker), Tommaso Laurenzi (https://github.com/rebelot/kanagawa.nvim)
 # Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
 
 [colors]
-background = "#0d0c0c"
+background = "#181616"
 foreground = "#c5c9c5"
 
 cursor_bg = "#c5c9c5"
 cursor_border = "#c5c9c5"
-cursor_fg = "#0d0c0c"
+cursor_fg = "#181616"
 
 selection_bg = "#c5c9c5"
-selection_fg = "#282727"
+selection_fg = "#393836"
 
 ansi = [
-  "#0d0c0c",
+  "#181616",
   "#c4746e",
-  "#87a987",
+  "#8a9a7b",
   "#c4b28a",
   "#8ba4b0",
-  "#8992a7",
+  "#a292a3",
   "#8ea4a2",
-  "#7a8382"
+  "#c5c9c5"
 ]
 brights = [
-  "#282727",
+  "#625e5a",
   "#c4746e",
-  "#87a987",
+  "#8a9a7b",
   "#c4b28a",
   "#8ba4b0",
-  "#8992a7",
+  "#a292a3",
   "#8ea4a2",
   "#c5c9c5"
 ]
 
 [colors.indexed]
-16 = "#b98d7b"
-17 = "#a292a3"
-18 = "#1d1c19"
-19 = "#282727"
-20 = "#a6a69c"
-21 = "#c5c9c5"
+16 = "#b6927b"
+17 = "#b98d7b"
+18 = "#282727"
+19 = "#393836"
+20 = "#737c73"
+21 = "#c8c093"

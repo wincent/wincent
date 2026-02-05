@@ -5,6 +5,6 @@
 Name=base24-solarized-dark-higher-contrast
 ColorForeground=#aec2ba
 ColorBackground=#001e26
-ColorCursor=x
+ColorCursor=#aec2ba
 ColorBoldIsBright=FALSE
-ColorPalette=#002731;#d01b24;#6bbe6c;#178dc7;#2075c7;#c61b6e;#259185;#e9e2cb;#006388;#f4153b;#50ee84;#b17e28;#178dc7;#e14d8e;#00b29e;#fcf4dc
+ColorPalette=#001e26;#d01b24;#6bbe6c;#178dc7;#2075c7;#c61b6e;#259185;#aec2ba;#3a8298;#f4153b;#50ee84;#b17e28;#178dc7;#e14d8e;#00b29e;#fcf4dc

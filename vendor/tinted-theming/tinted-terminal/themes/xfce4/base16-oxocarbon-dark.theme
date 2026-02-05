@@ -5,6 +5,6 @@
 Name=base16-oxocarbon-dark
 ColorForeground=#f2f4f8
 ColorBackground=#161616
-ColorCursor=x
+ColorCursor=#f2f4f8
 ColorBoldIsBright=FALSE
-ColorPalette=#262626;#ee5396;#42be65;#ff6f00;#33b1ff;#be95ff;#3ddbd9;#ffffff;#393939;#ee5396;#42be65;#ff6f00;#33b1ff;#be95ff;#3ddbd9;#08bdba
+ColorPalette=#161616;#ee5396;#42be65;#ff6f00;#33b1ff;#be95ff;#3ddbd9;#f2f4f8;#525252;#ee5396;#42be65;#ff6f00;#33b1ff;#be95ff;#3ddbd9;#08bdba

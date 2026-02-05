@@ -5,6 +5,6 @@
 Name=base24-ayu-dark
 ColorForeground=#e6e1cf
 ColorBackground=#0b0e14
-ColorCursor=x
+ColorCursor=#e6e1cf
 ColorBoldIsBright=FALSE
-ColorPalette=#131721;#f07178;#aad94c;#ffb454;#59c2ff;#d2a6ff;#95e6cb;#ece8db;#202229;#f26d78;#7fd962;#e6b673;#73b8ff;#ddbcff;#39bae6;#f2f0e7
+ColorPalette=#0b0e14;#f07178;#aad94c;#ffb454;#59c2ff;#d2a6ff;#95e6cb;#e6e1cf;#3e4b59;#f26d78;#7fd962;#e6b673;#73b8ff;#ddbcff;#39bae6;#f2f0e7

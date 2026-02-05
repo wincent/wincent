@@ -5,6 +5,6 @@
 Name=base16-evenok-dark
 ColorForeground=#d0d0d0
 ColorBackground=#000000
-ColorCursor=x
+ColorCursor=#d0d0d0
 ColorBoldIsBright=FALSE
-ColorPalette=#202020;#f5708a;#54bc5c;#b8a300;#00aff2;#9095ff;#00bab3;#e0e0e0;#303030;#f5708a;#54bc5c;#b8a300;#00aff2;#9095ff;#00bab3;#ffffff
+ColorPalette=#000000;#f5708a;#54bc5c;#b8a300;#00aff2;#9095ff;#00bab3;#d0d0d0;#505050;#f5708a;#54bc5c;#b8a300;#00aff2;#9095ff;#00bab3;#ffffff

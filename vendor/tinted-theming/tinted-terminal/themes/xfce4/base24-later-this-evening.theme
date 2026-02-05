@@ -5,6 +5,6 @@
 Name=base24-later-this-evening
 ColorForeground=#a6a6a6
 ColorBackground=#212121
-ColorCursor=x
+ColorCursor=#a6a6a6
 ColorBoldIsBright=FALSE
-ColorPalette=#313131;#d35a5f;#afba66;#e5d289;#a0b9d5;#bf92d5;#91beb6;#bfbfbf;#4f4f4f;#d3222e;#aabb39;#e4bd39;#6599d5;#aa52d5;#5fbfad;#d9d9d9
+ColorPalette=#212121;#d35a5f;#afba66;#e5d289;#a0b9d5;#bf92d5;#91beb6;#a6a6a6;#6f6f6f;#d3222e;#aabb39;#e4bd39;#6599d5;#aa52d5;#5fbfad;#d9d9d9

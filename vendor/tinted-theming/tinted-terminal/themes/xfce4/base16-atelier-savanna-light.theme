@@ -5,6 +5,6 @@
 Name=base16-atelier-savanna-light
 ColorForeground=#526057
 ColorBackground=#ecf4ee
-ColorCursor=x
+ColorCursor=#526057
 ColorBoldIsBright=FALSE
-ColorPalette=#dfe7e2;#b16139;#489963;#a07e3b;#478c90;#55859b;#1c9aa0;#232a25;#87928a;#b16139;#489963;#a07e3b;#478c90;#55859b;#1c9aa0;#171c19
+ColorPalette=#ecf4ee;#b16139;#489963;#a07e3b;#478c90;#55859b;#1c9aa0;#526057;#78877d;#b16139;#489963;#a07e3b;#478c90;#55859b;#1c9aa0;#171c19

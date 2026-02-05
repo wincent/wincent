@@ -8,13 +8,13 @@ Color=68,68,68
 Color=27,21,60
 
 [Color0]
-Color=16,17,22
+Color=27,21,60
 
 [Color0Faint]
 Color=27,21,60
 
 [Color0Intense]
-Color=103,103,103
+Color=127,127,127
 
 [Color1]
 Color=255,0,81
@@ -35,10 +35,10 @@ Color=0,220,132
 Color=95,249,103
 
 [Color3]
-Color=250,249,69
+Color=104,113,255
 
 [Color3Faint]
-Color=250,249,69
+Color=104,113,255
 
 [Color3Intense]
 Color=254,251,103
@@ -71,7 +71,7 @@ Color=0,197,199
 Color=95,253,255
 
 [Color7]
-Color=199,199,199
+Color=175,175,175
 
 [Color7Faint]
 Color=175,175,175
@@ -92,4 +92,3 @@ Color=199,199,199
 Blur=true
 Description=Scarlet Protocol
 Opacity=0.95
-

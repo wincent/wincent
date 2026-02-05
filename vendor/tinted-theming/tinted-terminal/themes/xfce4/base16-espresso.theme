@@ -5,6 +5,6 @@
 Name=base16-espresso
 ColorForeground=#cccccc
 ColorBackground=#2d2d2d
-ColorCursor=x
+ColorCursor=#cccccc
 ColorBoldIsBright=FALSE
-ColorPalette=#393939;#d25252;#a5c261;#ffc66d;#6c99bb;#d197d9;#bed6ff;#e0e0e0;#515151;#d25252;#a5c261;#ffc66d;#6c99bb;#d197d9;#bed6ff;#ffffff
+ColorPalette=#2d2d2d;#d25252;#a5c261;#ffc66d;#6c99bb;#d197d9;#bed6ff;#cccccc;#777777;#d25252;#a5c261;#ffc66d;#6c99bb;#d197d9;#bed6ff;#ffffff

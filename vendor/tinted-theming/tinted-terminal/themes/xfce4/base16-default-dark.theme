@@ -5,6 +5,6 @@
 Name=base16-default-dark
 ColorForeground=#d8d8d8
 ColorBackground=#181818
-ColorCursor=x
+ColorCursor=#d8d8d8
 ColorBoldIsBright=FALSE
-ColorPalette=#282828;#ab4642;#a1b56c;#f7ca88;#7cafc2;#ba8baf;#86c1b9;#e8e8e8;#383838;#ab4642;#a1b56c;#f7ca88;#7cafc2;#ba8baf;#86c1b9;#f8f8f8
+ColorPalette=#181818;#ab4642;#a1b56c;#f7ca88;#7cafc2;#ba8baf;#86c1b9;#d8d8d8;#585858;#ab4642;#a1b56c;#f7ca88;#7cafc2;#ba8baf;#86c1b9;#f8f8f8

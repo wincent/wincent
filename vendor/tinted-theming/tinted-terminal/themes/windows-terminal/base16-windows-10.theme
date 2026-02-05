@@ -3,9 +3,9 @@
 	"name": "Windows 10",
 	"foreground": "#cccccc",
 	"background": "#0c0c0c",
-	"black": "#2f2f2f",
+	"black": "#0c0c0c",
 	"blue": "#3b78ff",
-	"brightBlack": "#535353",
+	"brightBlack": "#767676",
 	"brightBlue": "#3b78ff",
 	"brightCyan": "#61d6d6",
 	"brightGreen": "#16c60c",
@@ -17,6 +17,6 @@
 	"green": "#16c60c",
 	"purple": "#b4009e",
 	"red": "#e74856",
-	"white": "#dfdfdf",
-	"yellow": "#c19c00"
+	"white": "#cccccc",
+	"yellow": "#f9f1a5"
 },

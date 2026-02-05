@@ -3,9 +3,9 @@
 	"name": "Shades of Purple",
 	"foreground": "#c7c7c7",
 	"background": "#1e1e3f",
-	"black": "#43d426",
+	"black": "#1e1e3f",
 	"blue": "#6943ff",
-	"brightBlack": "#f1d000",
+	"brightBlack": "#808080",
 	"brightBlue": "#6943ff",
 	"brightCyan": "#00c5c7",
 	"brightGreen": "#3ad900",
@@ -17,6 +17,6 @@
 	"green": "#3ad900",
 	"purple": "#ff2c70",
 	"red": "#d90429",
-	"white": "#ff77ff",
-	"yellow": "#f92a1c"
+	"white": "#c7c7c7",
+	"yellow": "#ffe700"
 },

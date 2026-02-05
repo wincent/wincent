@@ -2,8 +2,8 @@
 # Color scheme: Lavandula by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#372c46' # base02
-selection-foreground = '#645d6f' # base05
+selection-background = '#645d6f' # base05
+selection-foreground = '#372c46' # base02
 
 cursor         = '#645d6f' # base05
 tabs           = '#230045' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#372c46' # base02
 
 background     = '#050014' # base00
 foreground     = '#645d6f' # base05
-black          = '#230045' # base01
+black          = '#050014' # base00
 red            = '#7c1525' # base08
 yellow         = '#8e86df' # base0A
 green          = '#337e6f' # base0B
 cyan           = '#57767f' # base0C
 blue           = '#4f4a7f' # base0D
 magenta        = '#593f7e' # base0E
-white          = '#736e7d' # base06
+white          = '#645d6f' # base05
 
 dim-foreground   = '#645d6f' # base05
 dim-black        = '#230045' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#593f7e' # base0E
 dim-white        = '#554d61' # base04
 
 light-foreground = '#645d6f' # base05
-light-black      = '#372c46' # base02
+light-black      = '#463c53' # base03
 light-red        = '#df5066' # base12
 light-yellow     = '#e0c286' # base13
 light-green      = '#52e0c4' # base14

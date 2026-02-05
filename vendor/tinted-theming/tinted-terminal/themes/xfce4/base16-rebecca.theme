@@ -5,6 +5,6 @@
 Name=base16-rebecca
 ColorForeground=#f1eff8
 ColorBackground=#292a44
-ColorCursor=x
+ColorCursor=#f1eff8
 ColorBoldIsBright=FALSE
-ColorPalette=#663399;#a0a0c5;#6dfedf;#ae81ff;#2de0a7;#7aa5ff;#8eaee0;#ccccff;#383a62;#a0a0c5;#6dfedf;#ae81ff;#2de0a7;#7aa5ff;#8eaee0;#53495d
+ColorPalette=#292a44;#a0a0c5;#6dfedf;#ae81ff;#2de0a7;#7aa5ff;#8eaee0;#f1eff8;#666699;#a0a0c5;#6dfedf;#ae81ff;#2de0a7;#7aa5ff;#8eaee0;#53495d

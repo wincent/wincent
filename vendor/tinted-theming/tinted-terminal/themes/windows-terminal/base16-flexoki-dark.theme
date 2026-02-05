@@ -3,9 +3,9 @@
 	"name": "Flexoki Dark",
 	"foreground": "#cecdc3",
 	"background": "#100f0f",
-	"black": "#1c1b1a",
+	"black": "#100f0f",
 	"blue": "#4385be",
-	"brightBlack": "#282726",
+	"brightBlack": "#575653",
 	"brightBlue": "#4385be",
 	"brightCyan": "#3aa99f",
 	"brightGreen": "#879a39",
@@ -17,6 +17,6 @@
 	"green": "#879a39",
 	"purple": "#8b7ec8",
 	"red": "#d14d41",
-	"white": "#e6e4d9",
-	"yellow": "#da702c"
+	"white": "#cecdc3",
+	"yellow": "#d0a215"
 },

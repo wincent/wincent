@@ -5,6 +5,6 @@
 Name=base16-atelier-cave-light
 ColorForeground=#585260
 ColorBackground=#efecf4
-ColorCursor=x
+ColorCursor=#585260
 ColorBoldIsBright=FALSE
-ColorPalette=#e2dfe7;#be4678;#2a9292;#a06e3b;#576ddb;#955ae7;#398bc6;#26232a;#8b8792;#be4678;#2a9292;#a06e3b;#576ddb;#955ae7;#398bc6;#19171c
+ColorPalette=#efecf4;#be4678;#2a9292;#a06e3b;#576ddb;#955ae7;#398bc6;#585260;#7e7887;#be4678;#2a9292;#a06e3b;#576ddb;#955ae7;#398bc6;#19171c

@@ -2,8 +2,8 @@
 # Color scheme: Atelier Seaside Light by Bram de Haan (http://atelierbramdehaan.nl)
 
 [colors]
-selection-background = '#8ca68c' # base02
-selection-foreground = '#5e6e5e' # base05
+selection-background = '#5e6e5e' # base05
+selection-foreground = '#8ca68c' # base02
 
 cursor         = '#5e6e5e' # base05
 tabs           = '#cfe8cf' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#8ca68c' # base02
 
 background     = '#f4fbf4' # base00
 foreground     = '#5e6e5e' # base05
-black          = '#cfe8cf' # base01
+black          = '#f4fbf4' # base00
 red            = '#e6193c' # base08
 yellow         = '#98981b' # base0A
 green          = '#29a329' # base0B
 cyan           = '#1999b3' # base0C
 blue           = '#3d62f5' # base0D
 magenta        = '#ad2bee' # base0E
-white          = '#242924' # base06
+white          = '#5e6e5e' # base05
 
 dim-foreground   = '#5e6e5e' # base05
 dim-black        = '#cfe8cf' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#ad2bee' # base0E
 dim-white        = '#687d68' # base04
 
 light-foreground = '#5e6e5e' # base05
-light-black      = '#8ca68c' # base02
+light-black      = '#809980' # base03
 light-red        = '#e6193c' # base08
 light-yellow     = '#98981b' # base0A
 light-green      = '#29a329' # base0B

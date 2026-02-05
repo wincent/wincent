@@ -5,6 +5,6 @@
 Name=base16-tube
 ColorForeground=#d9d8d8
 ColorBackground=#231f20
-ColorCursor=x
+ColorCursor=#d9d8d8
 ColorBoldIsBright=FALSE
-ColorPalette=#1c3f95;#ee2e24;#00853e;#ffd204;#009ddc;#98005d;#85cebc;#e7e7e8;#5a5758;#ee2e24;#00853e;#ffd204;#009ddc;#98005d;#85cebc;#ffffff
+ColorPalette=#231f20;#ee2e24;#00853e;#ffd204;#009ddc;#98005d;#85cebc;#d9d8d8;#737171;#ee2e24;#00853e;#ffd204;#009ddc;#98005d;#85cebc;#ffffff

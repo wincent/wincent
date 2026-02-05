@@ -8,13 +8,13 @@ Color=56,56,56
 Color=18,38,55
 
 [Color0]
-Color=0,0,0
+Color=18,38,55
 
 [Color0Faint]
 Color=18,38,55
 
 [Color0Intense]
-Color=85,85,85
+Color=110,110,110
 
 [Color1]
 Color=255,0,0
@@ -35,10 +35,10 @@ Color=55,221,33
 Color=59,207,29
 
 [Color3]
-Color=254,228,9
+Color=85,85,255
 
 [Color3Faint]
-Color=254,228,9
+Color=85,85,255
 
 [Color3Intense]
 Color=236,200,9
@@ -71,7 +71,7 @@ Color=0,187,187
 Color=106,227,249
 
 [Color7]
-Color=187,187,187
+Color=161,161,161
 
 [Color7Faint]
 Color=161,161,161
@@ -92,4 +92,3 @@ Color=187,187,187
 Blur=true
 Description=Cobalt2
 Opacity=0.95
-

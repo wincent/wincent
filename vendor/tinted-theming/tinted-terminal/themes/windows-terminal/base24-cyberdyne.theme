@@ -3,9 +3,9 @@
 	"name": "Cyberdyne",
 	"foreground": "#c0c0c0",
 	"background": "#151144",
-	"black": "#080808",
+	"black": "#151144",
 	"blue": "#0071cf",
-	"brightBlack": "#2d2d2d",
+	"brightBlack": "#5e5e5e",
 	"brightBlue": "#c1e3fe",
 	"brightCyan": "#e5e6fe",
 	"brightGreen": "#d6fcb9",
@@ -17,6 +17,6 @@
 	"green": "#00c172",
 	"purple": "#ff8ffd",
 	"red": "#ff8272",
-	"white": "#f1f1f1",
-	"yellow": "#d2a700"
+	"white": "#c0c0c0",
+	"yellow": "#c1e3fe"
 },

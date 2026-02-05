@@ -5,6 +5,6 @@
 Name=base24-flexoki-light
 ColorForeground=#403e3c
 ColorBackground=#fffcf0
-ColorCursor=x
+ColorCursor=#403e3c
 ColorBoldIsBright=FALSE
-ColorPalette=#f2f0e5;#af3029;#66800b;#ad8301;#205ea6;#5e409d;#24837b;#282726;#e6e4d9;#d14d41;#d0a215;#da702c;#3aa99f;#4385be;#879a39;#100f0f
+ColorPalette=#fffcf0;#af3029;#66800b;#ad8301;#205ea6;#5e409d;#24837b;#403e3c;#cecdc3;#d14d41;#d0a215;#da702c;#3aa99f;#4385be;#879a39;#100f0f

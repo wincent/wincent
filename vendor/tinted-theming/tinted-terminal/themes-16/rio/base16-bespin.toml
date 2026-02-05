@@ -2,8 +2,8 @@
 # Color scheme: Bespin by Jan T. Sott
 
 [colors]
-selection-background = '#5e5d5c' # base02
-selection-foreground = '#8a8986' # base05
+selection-background = '#8a8986' # base05
+selection-foreground = '#5e5d5c' # base02
 
 cursor         = '#8a8986' # base05
 tabs           = '#36312e' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#5e5d5c' # base02
 
 background     = '#28211c' # base00
 foreground     = '#8a8986' # base05
-black          = '#36312e' # base01
+black          = '#28211c' # base00
 red            = '#cf6a4c' # base08
 yellow         = '#f9ee98' # base0A
 green          = '#54be0d' # base0B
 cyan           = '#afc4db' # base0C
 blue           = '#5ea6ea' # base0D
 magenta        = '#9b859d' # base0E
-white          = '#9d9b97' # base06
+white          = '#8a8986' # base05
 
 dim-foreground   = '#8a8986' # base05
 dim-black        = '#36312e' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#9b859d' # base0E
 dim-white        = '#797977' # base04
 
 light-foreground = '#8a8986' # base05
-light-black      = '#5e5d5c' # base02
+light-black      = '#666666' # base03
 light-red        = '#cf6a4c' # base08
 light-yellow     = '#f9ee98' # base0A
 light-green      = '#54be0d' # base0B

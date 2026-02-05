@@ -5,6 +5,6 @@
 Name=base16-twilight
 ColorForeground=#a7a7a7
 ColorBackground=#1e1e1e
-ColorCursor=x
+ColorCursor=#a7a7a7
 ColorBoldIsBright=FALSE
-ColorPalette=#323537;#cf6a4c;#8f9d6a;#f9ee98;#7587a6;#9b859d;#afc4db;#c3c3c3;#464b50;#cf6a4c;#8f9d6a;#f9ee98;#7587a6;#9b859d;#afc4db;#ffffff
+ColorPalette=#1e1e1e;#cf6a4c;#8f9d6a;#f9ee98;#7587a6;#9b859d;#afc4db;#a7a7a7;#5f5a60;#cf6a4c;#8f9d6a;#f9ee98;#7587a6;#9b859d;#afc4db;#ffffff

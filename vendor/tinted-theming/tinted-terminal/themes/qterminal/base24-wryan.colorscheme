@@ -8,13 +8,13 @@ Color=40,40,40
 Color=16,16,16
 
 [Color0]
-Color=51,51,51
+Color=16,16,16
 
 [Color0Faint]
 Color=16,16,16
 
 [Color0Intense]
-Color=61,61,61
+Color=80,84,86
 
 [Color1]
 Color=140,70,101
@@ -35,10 +35,10 @@ Color=40,115,115
 Color=83,166,166
 
 [Color3]
-Color=124,124,153
+Color=71,122,179
 
 [Color3Faint]
-Color=124,124,153
+Color=71,122,179
 
 [Color3Intense]
 Color=158,158,203
@@ -71,7 +71,7 @@ Color=49,101,140
 Color=96,150,191
 
 [Color7]
-Color=137,156,161
+Color=118,132,136
 
 [Color7Faint]
 Color=118,132,136
@@ -92,4 +92,3 @@ Color=137,156,161
 Blur=true
 Description=Wryan
 Opacity=0.95
-

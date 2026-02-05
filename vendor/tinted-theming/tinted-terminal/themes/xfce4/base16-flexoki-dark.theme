@@ -5,6 +5,6 @@
 Name=base16-flexoki-dark
 ColorForeground=#cecdc3
 ColorBackground=#100f0f
-ColorCursor=x
+ColorCursor=#cecdc3
 ColorBoldIsBright=FALSE
-ColorPalette=#1c1b1a;#d14d41;#879a39;#d0a215;#4385be;#8b7ec8;#3aa99f;#e6e4d9;#282726;#d14d41;#879a39;#d0a215;#4385be;#8b7ec8;#3aa99f;#fffcf0
+ColorPalette=#100f0f;#d14d41;#879a39;#d0a215;#4385be;#8b7ec8;#3aa99f;#cecdc3;#575653;#d14d41;#879a39;#d0a215;#4385be;#8b7ec8;#3aa99f;#fffcf0

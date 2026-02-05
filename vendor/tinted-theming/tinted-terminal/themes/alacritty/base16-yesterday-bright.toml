@@ -1,0 +1,58 @@
+# base16 Yesterday Bright 256 - alacritty color config
+# FroZnShiva (https://github.com/FroZnShiva)
+
+# Default colors
+[colors.primary]
+background = '0x343d46'
+foreground = '0xdfe1e8'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x343d46'
+cursor = '0xdfe1e8'
+
+# Normal colors
+[colors.normal]
+black = '0x343d46'
+red = '0xd54e53'
+green = '0xb9ca4a'
+yellow = '0xe7c547'
+blue = '0x7aa6da'
+magenta = '0xc397d8'
+cyan = '0x70c0b1'
+white = '0xdfe1e8'
+
+# Bright colors
+[colors.bright]
+black = '0xa7adba'
+red = '0xd54e53'
+green = '0xb9ca4a'
+yellow = '0xe7c547'
+blue = '0x7aa6da'
+magenta = '0xc397d8'
+cyan = '0x70c0b1'
+white = '0xffffff'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xe78c45"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x9a806d"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x4f5b66"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x65737e"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0xc0c5ce"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xeff1f5"

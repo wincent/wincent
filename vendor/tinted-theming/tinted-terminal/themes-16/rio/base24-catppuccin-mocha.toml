@@ -2,36 +2,36 @@
 # Color scheme: Catppuccin Mocha by https://github.com/catppuccin/catppuccin
 
 [colors]
-selection-background = '#313244' # base02
-selection-foreground = '#cdd6f4' # base05
+selection-background = '#cdd6f4' # base05
+selection-foreground = '#45475a' # base02
 
 cursor         = '#cdd6f4' # base05
-tabs           = '#181825' # base01
-tabs-active    = '#313244' # base02
+tabs           = '#313244' # base01
+tabs-active    = '#45475a' # base02
 
 background     = '#1e1e2e' # base00
 foreground     = '#cdd6f4' # base05
-black          = '#181825' # base01
+black          = '#1e1e2e' # base00
 red            = '#f38ba8' # base08
 yellow         = '#f9e2af' # base0A
 green          = '#a6e3a1' # base0B
 cyan           = '#94e2d5' # base0C
 blue           = '#89b4fa' # base0D
 magenta        = '#cba6f7' # base0E
-white          = '#f5e0dc' # base06
+white          = '#cdd6f4' # base05
 
 dim-foreground   = '#cdd6f4' # base05
-dim-black        = '#181825' # base01
+dim-black        = '#313244' # base01
 dim-red          = '#f38ba8' # base08
 dim-yellow       = '#f9e2af' # base0A
 dim-green        = '#a6e3a1' # base0B
 dim-cyan         = '#94e2d5' # base0C
 dim-blue         = '#89b4fa' # base0D
 dim-magenta      = '#cba6f7' # base0E
-dim-white        = '#585b70' # base04
+dim-white        = '#a6adc8' # base04
 
 light-foreground = '#cdd6f4' # base05
-light-black      = '#313244' # base02
+light-black      = '#6c7086' # base03
 light-red        = '#eba0ac' # base12
 light-yellow     = '#f5e0dc' # base13
 light-green      = '#a6e3a1' # base14

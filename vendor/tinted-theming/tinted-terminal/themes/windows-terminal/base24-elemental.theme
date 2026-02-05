@@ -3,9 +3,9 @@
 	"name": "Elemental",
 	"foreground": "#756f68",
 	"background": "#21211c",
-	"black": "#3c3b30",
+	"black": "#21211c",
 	"blue": "#497f7d",
-	"brightBlack": "#545444",
+	"brightBlack": "#5f5d50",
 	"brightBlue": "#78d8d8",
 	"brightCyan": "#58d598",
 	"brightGreen": "#60e06f",
@@ -17,6 +17,6 @@
 	"green": "#479942",
 	"purple": "#7e4e2e",
 	"red": "#97280f",
-	"white": "#807974",
-	"yellow": "#7f7110"
+	"white": "#756f68",
+	"yellow": "#78d8d8"
 },

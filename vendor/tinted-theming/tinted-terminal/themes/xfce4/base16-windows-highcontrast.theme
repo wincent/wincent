@@ -5,6 +5,6 @@
 Name=base16-windows-highcontrast
 ColorForeground=#c0c0c0
 ColorBackground=#000000
-ColorCursor=x
+ColorCursor=#c0c0c0
 ColorBoldIsBright=FALSE
-ColorPalette=#1c1c1c;#fc5454;#54fc54;#fcfc54;#5454fc;#fc54fc;#54fcfc;#dedede;#383838;#fc5454;#54fc54;#fcfc54;#5454fc;#fc54fc;#54fcfc;#fcfcfc
+ColorPalette=#000000;#fc5454;#54fc54;#fcfc54;#5454fc;#fc54fc;#54fcfc;#c0c0c0;#545454;#fc5454;#54fc54;#fcfc54;#5454fc;#fc54fc;#54fcfc;#fcfcfc

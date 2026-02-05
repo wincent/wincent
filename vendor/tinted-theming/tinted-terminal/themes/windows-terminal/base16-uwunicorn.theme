@@ -3,9 +3,9 @@
 	"name": "UwUnicorn",
 	"foreground": "#eed5d9",
 	"background": "#241b26",
-	"black": "#2f2a3f",
+	"black": "#241b26",
 	"blue": "#6a9eb5",
-	"brightBlack": "#46354a",
+	"brightBlack": "#6c3cb2",
 	"brightBlue": "#6a9eb5",
 	"brightCyan": "#9c5fce",
 	"brightGreen": "#c965bf",
@@ -17,6 +17,6 @@
 	"green": "#c965bf",
 	"purple": "#78a38f",
 	"red": "#877bb6",
-	"white": "#d9c2c6",
-	"yellow": "#de5b44"
+	"white": "#eed5d9",
+	"yellow": "#a84a73"
 },

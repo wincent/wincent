@@ -2,8 +2,8 @@
 # Color scheme: Ciapre by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#555555' # base02
-selection-foreground = '#978f73' # base05
+selection-background = '#978f73' # base05
+selection-foreground = '#555555' # base02
 
 cursor         = '#978f73' # base05
 tabs           = '#181818' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#555555' # base02
 
 background     = '#181c27' # base00
 foreground     = '#978f73' # base05
-black          = '#181818' # base01
+black          = '#181c27' # base00
 red            = '#800009' # base08
 yellow         = '#2f97c6' # base0A
 green          = '#48513b' # base0B
 cyan           = '#5b4f4a' # base0C
 blue           = '#566d8c' # base0D
 magenta        = '#724c7c' # base0E
-white          = '#ada37e' # base06
+white          = '#978f73' # base05
 
 dim-foreground   = '#978f73' # base05
 dim-black        = '#181818' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#724c7c' # base0E
 dim-white        = '#817c69' # base04
 
 light-foreground = '#978f73' # base05
-light-black      = '#555555' # base02
+light-black      = '#6b685f' # base03
 light-red        = '#ab3834' # base12
 light-yellow     = '#dcde7b' # base13
 light-green      = '#a6a65d' # base14

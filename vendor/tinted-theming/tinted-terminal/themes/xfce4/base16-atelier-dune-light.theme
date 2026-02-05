@@ -5,6 +5,6 @@
 Name=base16-atelier-dune-light
 ColorForeground=#6e6b5e
 ColorBackground=#fefbec
-ColorCursor=x
+ColorCursor=#6e6b5e
 ColorBoldIsBright=FALSE
-ColorPalette=#e8e4cf;#d73737;#60ac39;#ae9513;#6684e1;#b854d4;#1fad83;#292824;#a6a28c;#d73737;#60ac39;#ae9513;#6684e1;#b854d4;#1fad83;#20201d
+ColorPalette=#fefbec;#d73737;#60ac39;#ae9513;#6684e1;#b854d4;#1fad83;#6e6b5e;#999580;#d73737;#60ac39;#ae9513;#6684e1;#b854d4;#1fad83;#20201d

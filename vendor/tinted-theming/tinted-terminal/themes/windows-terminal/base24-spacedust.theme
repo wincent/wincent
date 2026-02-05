@@ -3,9 +3,9 @@
 	"name": "Spacedust",
 	"foreground": "#cdc7a6",
 	"background": "#0a1e24",
-	"black": "#6e5246",
+	"black": "#0a1e24",
 	"blue": "#0e548b",
-	"brightBlack": "#674c31",
+	"brightBlack": "#897558",
 	"brightBlue": "#67a0cd",
 	"brightCyan": "#83a6b3",
 	"brightGreen": "#adcab8",
@@ -17,6 +17,6 @@
 	"green": "#5cab96",
 	"purple": "#e35a00",
 	"red": "#e35a00",
-	"white": "#f0f1ce",
-	"yellow": "#e3cd7b"
+	"white": "#cdc7a6",
+	"yellow": "#67a0cd"
 },

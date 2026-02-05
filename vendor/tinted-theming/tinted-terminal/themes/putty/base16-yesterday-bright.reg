@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Yesterday Bright
+; Scheme system: base16
+; Scheme description: 
+; Scheme author: FroZnShiva (https://github.com/FroZnShiva)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base16-yesterday-bright]
+
+; Default Foreground
+; base05 #dfe1e8
+"Colour0"="223,225,232"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #dfe1e8
+"Colour1"="223,225,232"
+
+; Default Background
+; base00 #343d46
+"Colour2"="52,61,70"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #343d46
+"Colour3"="52,61,70"
+
+; Cursor Text -- equals to default background
+; base00 #343d46
+"Colour4"="52,61,70"
+
+; Cursor Colour -- equals to default foreground
+; base05 #dfe1e8
+"Colour5"="223,225,232"
+
+; ANSI Black
+; 30m
+; base00 #343d46
+"Colour6"="52,61,70"
+
+; ANSI Black Bright
+; 1;30m
+; base03 #a7adba
+"Colour7"="167,173,186"
+
+; ANSI Red
+; 31m
+; base08 #d54e53
+"Colour8"="213,78,83"
+
+; ANSI Red Bright
+; 1;31m
+; base08 #d54e53
+"Colour9"="213,78,83"
+
+; ANSI Green
+; 32m
+; base0B #b9ca4a
+"Colour10"="185,202,74"
+
+; ANSI Green Bright
+; 1;32m
+; base0B #b9ca4a
+"Colour11"="185,202,74"
+
+; ANSI Yellow
+; 33m
+; base0A #e7c547
+"Colour12"="231,197,71"
+
+; ANSI Yellow Bright
+; 1;33m
+; base0A #e7c547
+"Colour13"="231,197,71"
+
+; ANSI Blue
+; 34m
+; base0D #7aa6da
+"Colour14"="122,166,218"
+
+; ANSI Blue Bright
+; 1;34m
+; base0D #7aa6da
+"Colour15"="122,166,218"
+
+; ANSI Magenta
+; 35m
+; base0E #c397d8
+"Colour16"="195,151,216"
+
+; ANSI Magenta Bright
+; 1;35m
+; base0E #c397d8
+"Colour17"="195,151,216"
+
+; ANSI Cyan
+; 36m
+; base0C #70c0b1
+"Colour18"="112,192,177"
+
+; ANSI Cyan Bright
+; 1;36m
+; base0C #70c0b1
+"Colour19"="112,192,177"
+
+; ANSI White
+; 37m
+; base05 #dfe1e8
+"Colour20"="223,225,232"
+
+; ANSI White Bright
+; 1;37m
+; base07 ffffff
+"Colour21"="255,255,255"

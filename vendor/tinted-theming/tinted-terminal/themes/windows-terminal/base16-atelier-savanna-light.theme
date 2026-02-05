@@ -3,9 +3,9 @@
 	"name": "Atelier Savanna Light",
 	"foreground": "#526057",
 	"background": "#ecf4ee",
-	"black": "#dfe7e2",
+	"black": "#ecf4ee",
 	"blue": "#478c90",
-	"brightBlack": "#87928a",
+	"brightBlack": "#78877d",
 	"brightBlue": "#478c90",
 	"brightCyan": "#1c9aa0",
 	"brightGreen": "#489963",
@@ -17,6 +17,6 @@
 	"green": "#489963",
 	"purple": "#55859b",
 	"red": "#b16139",
-	"white": "#232a25",
-	"yellow": "#9f713c"
+	"white": "#526057",
+	"yellow": "#a07e3b"
 },

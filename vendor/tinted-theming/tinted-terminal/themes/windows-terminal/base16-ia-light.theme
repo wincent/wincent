@@ -3,9 +3,9 @@
 	"name": "iA Light",
 	"foreground": "#181818",
 	"background": "#f6f6f6",
-	"black": "#dedede",
+	"black": "#f6f6f6",
 	"blue": "#48bac2",
-	"brightBlack": "#bde5f2",
+	"brightBlack": "#898989",
 	"brightBlue": "#48bac2",
 	"brightCyan": "#2d6bb1",
 	"brightGreen": "#38781c",
@@ -17,6 +17,6 @@
 	"green": "#38781c",
 	"purple": "#a94598",
 	"red": "#9c5a02",
-	"white": "#e8e8e8",
-	"yellow": "#c43e18"
+	"white": "#181818",
+	"yellow": "#c48218"
 },

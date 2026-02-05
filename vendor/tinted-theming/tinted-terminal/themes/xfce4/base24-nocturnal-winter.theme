@@ -5,6 +5,6 @@
 Name=base24-nocturnal-winter
 ColorForeground=#dcdcdc
 ColorBackground=#0d0d17
-ColorCursor=x
+ColorCursor=#dcdcdc
 ColorBoldIsBright=FALSE
-ColorPalette=#4c4c4c;#f12d52;#08cd7d;#6095fe;#3081df;#fe2a6c;#09c87a;#fbfbfb;#7f7f7f;#f16c85;#0ae78d;#fefb67;#6095fe;#ff78a2;#0ae78d;#ffffff
+ColorPalette=#0d0d17;#f12d52;#08cd7d;#6095fe;#3081df;#fe2a6c;#09c87a;#dcdcdc;#9e9e9e;#f16c85;#0ae78d;#fefb67;#6095fe;#ff78a2;#0ae78d;#ffffff

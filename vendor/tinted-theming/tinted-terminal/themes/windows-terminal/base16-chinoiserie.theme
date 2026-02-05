@@ -3,9 +3,9 @@
 	"name": "Chinoiserie",
 	"foreground": "#4a4035",
 	"background": "#ffffff",
-	"black": "#e0e0e0",
+	"black": "#ffffff",
 	"blue": "#815c94",
-	"brightBlack": "#d6d6d6",
+	"brightBlack": "#80766e",
 	"brightBlue": "#815c94",
 	"brightCyan": "#2b73af",
 	"brightGreen": "#428675",
@@ -17,6 +17,6 @@
 	"green": "#428675",
 	"purple": "#c08eaf",
 	"red": "#c04851",
-	"white": "#2f2f35",
-	"yellow": "#fb8b05"
+	"white": "#4a4035",
+	"yellow": "#d6a01d"
 },

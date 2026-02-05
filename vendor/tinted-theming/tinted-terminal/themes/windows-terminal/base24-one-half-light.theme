@@ -3,9 +3,9 @@
 	"name": "One Half Light",
 	"foreground": "#cfd0d2",
 	"background": "#2a2b32",
-	"black": "#373942",
+	"black": "#2a2b32",
 	"blue": "#0084bc",
-	"brightBlack": "#4f525d",
+	"brightBlack": "#797c84",
 	"brightBlue": "#61afef",
 	"brightCyan": "#56b5c1",
 	"brightGreen": "#98c379",
@@ -17,6 +17,6 @@
 	"green": "#4fa14f",
 	"purple": "#a625a4",
 	"red": "#e45649",
-	"white": "#fafafa",
-	"yellow": "#c08400"
+	"white": "#cfd0d2",
+	"yellow": "#c0aa00"
 },

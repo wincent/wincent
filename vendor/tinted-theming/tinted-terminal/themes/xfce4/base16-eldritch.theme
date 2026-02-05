@@ -1,0 +1,10 @@
+# Scheme name: Eldritch
+# Scheme author: https://github.com/eldritch-theme
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-eldritch
+ColorForeground=#ebfafa
+ColorBackground=#212337
+ColorCursor=#ebfafa
+ColorBoldIsBright=FALSE
+ColorPalette=#212337;#f16c75;#37f499;#f1fc79;#39ddfd;#a48cf2;#04d1f9;#ebfafa;#7081d0;#f16c75;#37f499;#f1fc79;#39ddfd;#a48cf2;#04d1f9;#ffffff

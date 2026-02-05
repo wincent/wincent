@@ -3,9 +3,9 @@
 	"name": "Jackie Brown",
 	"foreground": "#a8a8a8",
 	"background": "#2c1c15",
-	"black": "#2c1d16",
+	"black": "#2c1c15",
 	"blue": "#246db2",
-	"brightBlack": "#666666",
+	"brightBlack": "#7c7c7c",
 	"brightBlue": "#0000ff",
 	"brightCyan": "#00e5e5",
 	"brightGreen": "#86a83e",
@@ -17,6 +17,6 @@
 	"green": "#2baf2b",
 	"purple": "#cf5ec0",
 	"red": "#ef5734",
-	"white": "#bfbfbf",
-	"yellow": "#bdbe00"
+	"white": "#a8a8a8",
+	"yellow": "#0000ff"
 },

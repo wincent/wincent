@@ -5,6 +5,6 @@
 Name=base16-da-one-gray
 ColorForeground=#ffffff
 ColorBackground=#181818
-ColorCursor=x
+ColorCursor=#ffffff
 ColorBoldIsBright=FALSE
-ColorPalette=#282828;#fa7883;#98c379;#ff9470;#6bb8ff;#e799ff;#8af5ff;#ffffff;#585858;#fa7883;#98c379;#ff9470;#6bb8ff;#e799ff;#8af5ff;#ffffff
+ColorPalette=#181818;#fa7883;#98c379;#ff9470;#6bb8ff;#e799ff;#8af5ff;#ffffff;#888888;#fa7883;#98c379;#ff9470;#6bb8ff;#e799ff;#8af5ff;#ffffff

@@ -8,13 +8,13 @@ Color=46,48,50
 Color=27,29,31
 
 [Color0]
-Color=86,89,92
+Color=27,29,31
 
 [Color0Faint]
 Color=27,29,31
 
 [Color0Intense]
-Color=69,72,75
+Color=101,103,103
 
 [Color1]
 Color=201,76,34
@@ -35,10 +35,10 @@ Color=133,152,28
 Color=114,137,3
 
 [Color3]
-Color=180,136,29
+Color=32,117,199
 
 [Color3Faint]
-Color=180,136,29
+Color=32,117,199
 
 [Color3Intense]
 Color=165,119,4
@@ -71,7 +71,7 @@ Color=50,161,152
 Color=37,145,133
 
 [Color7]
-Color=200,197,188
+Color=167,165,159
 
 [Color7Faint]
 Color=167,165,159
@@ -92,4 +92,3 @@ Color=200,197,188
 Blur=true
 Description=Violet Dark
 Opacity=0.95
-

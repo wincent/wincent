@@ -2,8 +2,8 @@
 # Color scheme: Night Owlish Light by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#cbcdcd' # base02
-selection-foreground = '#585b5b' # base05
+selection-background = '#585b5b' # base05
+selection-foreground = '#cbcdcd' # base02
 
 cursor         = '#585b5b' # base05
 tabs           = '#e5e6e6' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#cbcdcd' # base02
 
 background     = '#ffffff' # base00
 foreground     = '#585b5b' # base05
-black          = '#e5e6e6' # base01
+black          = '#ffffff' # base00
 red            = '#d3423e' # base08
 yellow         = '#dac801' # base0A
 green          = '#2aa298' # base0B
 cyan           = '#08916a' # base0C
 blue           = '#4876d6' # base0D
 magenta        = '#403f53' # base0E
-white          = '#3f4141' # base06
+white          = '#585b5b' # base05
 
 dim-foreground   = '#585b5b' # base05
 dim-black        = '#e5e6e6' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#403f53' # base0E
 dim-white        = '#717575' # base04
 
 light-foreground = '#585b5b' # base05
-light-black      = '#cbcdcd' # base02
+light-black      = '#b1b4b4' # base03
 light-red        = '#f76e6e' # base12
 light-yellow     = '#dac26b' # base13
 light-green      = '#49d0c5' # base14

@@ -3,9 +3,9 @@
 	"name": "Operator Mono Dark",
 	"foreground": "#c0c4c0",
 	"background": "#191919",
-	"black": "#5a5a5a",
+	"black": "#191919",
 	"blue": "#4387cf",
-	"brightBlack": "#9a9a99",
+	"brightBlack": "#a6a8a6",
 	"brightBlue": "#89d3f6",
 	"brightCyan": "#82e9da",
 	"brightGreen": "#83d0a2",
@@ -17,6 +17,6 @@
 	"green": "#4d7b3a",
 	"purple": "#b86cb4",
 	"red": "#ca372d",
-	"white": "#cdd3cd",
-	"yellow": "#d4d697"
+	"white": "#c0c4c0",
+	"yellow": "#89d3f6"
 },

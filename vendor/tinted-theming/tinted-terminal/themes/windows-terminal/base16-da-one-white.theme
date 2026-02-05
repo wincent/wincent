@@ -3,9 +3,9 @@
 	"name": "Da One White",
 	"foreground": "#181818",
 	"background": "#ffffff",
-	"black": "#c8c8c8",
+	"black": "#ffffff",
 	"blue": "#5890f8",
-	"brightBlack": "#888888",
+	"brightBlack": "#585858",
 	"brightBlue": "#5890f8",
 	"brightCyan": "#64b5a7",
 	"brightGreen": "#76a85d",
@@ -17,6 +17,6 @@
 	"green": "#76a85d",
 	"purple": "#c173d1",
 	"red": "#de5d6e",
-	"white": "#000000",
-	"yellow": "#ff9470"
+	"white": "#181818",
+	"yellow": "#b3684f"
 },

@@ -3,9 +3,9 @@
 	"name": "Square",
 	"foreground": "#bababa",
 	"background": "#1a1a1a",
-	"black": "#050505",
+	"black": "#1a1a1a",
 	"blue": "#a9cdeb",
-	"brightBlack": "#141414",
+	"brightBlack": "#4b4b4b",
 	"brightBlue": "#b6defb",
 	"brightCyan": "#d7d9fc",
 	"brightGreen": "#c3f786",
@@ -17,6 +17,6 @@
 	"green": "#b6377d",
 	"purple": "#75507b",
 	"red": "#e9897c",
-	"white": "#f2f2f2",
-	"yellow": "#ecebbe"
+	"white": "#bababa",
+	"yellow": "#b6defb"
 },

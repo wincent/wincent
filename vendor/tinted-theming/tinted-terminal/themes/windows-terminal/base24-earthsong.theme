@@ -3,9 +3,9 @@
 	"name": "Earthsong",
 	"foreground": "#c5ab93",
 	"background": "#282420",
-	"black": "#111417",
+	"black": "#282420",
 	"blue": "#1397b9",
-	"brightBlack": "#665e54",
+	"brightBlack": "#857769",
 	"brightBlue": "#5ed9ff",
 	"brightCyan": "#83ef88",
 	"brightGreen": "#97e035",
@@ -17,6 +17,6 @@
 	"green": "#84c44b",
 	"purple": "#d0623c",
 	"red": "#c84134",
-	"white": "#e5c5a9",
-	"yellow": "#f4ae2e"
+	"white": "#c5ab93",
+	"yellow": "#5ed9ff"
 },

@@ -1,0 +1,43 @@
+# base16 Yesterday Night
+# Scheme author: FroZnShiva (https://github.com/FroZnShiva)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#343d46"
+foreground = "#dfe1e8"
+
+cursor_bg = "#dfe1e8"
+cursor_border = "#dfe1e8"
+cursor_fg = "#343d46"
+
+selection_bg = "#dfe1e8"
+selection_fg = "#65737e"
+
+ansi = [
+  "#343d46",
+  "#cc6666",
+  "#b5bd68",
+  "#f0c674",
+  "#81a2be",
+  "#b294bb",
+  "#8abeb7",
+  "#dfe1e8"
+]
+brights = [
+  "#a7adba",
+  "#cc6666",
+  "#b5bd68",
+  "#f0c674",
+  "#81a2be",
+  "#b294bb",
+  "#8abeb7",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#de935f"
+17 = "#a3685a"
+18 = "#4f5b66"
+19 = "#65737e"
+20 = "#c0c5ce"
+21 = "#eff1f5"

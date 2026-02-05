@@ -2,8 +2,8 @@
 # Color scheme: Humanoid dark by Thomas (tasmo) Friese
 
 [colors]
-selection-background = '#484e54' # base02
-selection-foreground = '#f8f8f2' # base05
+selection-background = '#f8f8f2' # base05
+selection-foreground = '#484e54' # base02
 
 cursor         = '#f8f8f2' # base05
 tabs           = '#333b3d' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#484e54' # base02
 
 background     = '#232629' # base00
 foreground     = '#f8f8f2' # base05
-black          = '#333b3d' # base01
+black          = '#232629' # base00
 red            = '#f11235' # base08
 yellow         = '#ffb627' # base0A
 green          = '#02d849' # base0B
 cyan           = '#0dd9d6' # base0C
 blue           = '#00a6fb' # base0D
 magenta        = '#f15ee3' # base0E
-white          = '#fcfcf6' # base06
+white          = '#f8f8f2' # base05
 
 dim-foreground   = '#f8f8f2' # base05
 dim-black        = '#333b3d' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#f15ee3' # base0E
 dim-white        = '#c0c0bd' # base04
 
 light-foreground = '#f8f8f2' # base05
-light-black      = '#484e54' # base02
+light-black      = '#60615d' # base03
 light-red        = '#f11235' # base08
 light-yellow     = '#ffb627' # base0A
 light-green      = '#02d849' # base0B

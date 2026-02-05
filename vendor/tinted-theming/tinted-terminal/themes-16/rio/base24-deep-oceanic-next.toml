@@ -2,8 +2,8 @@
 # Color scheme: Deep Oceanic Next by spearkkk (https://github.com/spearkkk)
 
 [colors]
-selection-background = '#003640' # base02
-selection-foreground = '#d4e1e8' # base05
+selection-background = '#d4e1e8' # base05
+selection-foreground = '#003640' # base02
 
 cursor         = '#d4e1e8' # base05
 tabs           = '#002931' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#003640' # base02
 
 background     = '#001c1f' # base00
 foreground     = '#d4e1e8' # base05
-black          = '#002931' # base01
+black          = '#001c1f' # base00
 red            = '#d3464d' # base08
 yellow         = '#f3b863' # base0A
 green          = '#63b784' # base0B
 cyan           = '#4fb7ae' # base0C
 blue           = '#568ccf' # base0D
 magenta        = '#8b66d6' # base0E
-white          = '#e0e9ef' # base06
+white          = '#d4e1e8' # base05
 
 dim-foreground   = '#d4e1e8' # base05
 dim-black        = '#002931' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#8b66d6' # base0E
 dim-white        = '#0093a3' # base04
 
 light-foreground = '#d4e1e8' # base05
-light-black      = '#003640' # base02
+light-black      = '#004852' # base03
 light-red        = '#ff6670' # base12
 light-yellow     = '#ffe08a' # base13
 light-green      = '#72e1a6' # base14

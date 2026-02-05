@@ -5,6 +5,6 @@
 Name=base16-darkviolet
 ColorForeground=#b08ae6
 ColorBackground=#000000
-ColorCursor=x
+ColorCursor=#b08ae6
 ColorBoldIsBright=FALSE
-ColorPalette=#231a40;#a82ee6;#4595e6;#f29df2;#4136d9;#7e5ce6;#40dfff;#9045e6;#432d59;#a82ee6;#4595e6;#f29df2;#4136d9;#7e5ce6;#40dfff;#a366ff
+ColorPalette=#000000;#a82ee6;#4595e6;#f29df2;#4136d9;#7e5ce6;#40dfff;#b08ae6;#593380;#a82ee6;#4595e6;#f29df2;#4136d9;#7e5ce6;#40dfff;#a366ff

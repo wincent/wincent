@@ -3,9 +3,9 @@
 	"name": "Sleepy Hollow",
 	"foreground": "#968684",
 	"background": "#121213",
-	"black": "#572000",
+	"black": "#121213",
 	"blue": "#5e62b4",
-	"brightBlack": "#4e4b60",
+	"brightBlack": "#665e6c",
 	"brightBlue": "#8085ef",
 	"brightCyan": "#a4dbe7",
 	"brightGreen": "#d6b04e",
@@ -17,6 +17,6 @@
 	"green": "#90773e",
 	"purple": "#a07c7b",
 	"red": "#b93934",
-	"white": "#af9a91",
-	"yellow": "#b45600"
+	"white": "#968684",
+	"yellow": "#8085ef"
 },

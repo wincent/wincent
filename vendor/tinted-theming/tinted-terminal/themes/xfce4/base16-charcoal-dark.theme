@@ -5,6 +5,6 @@
 Name=base16-charcoal-dark
 ColorForeground=#c3a983
 ColorBackground=#0f0b05
-ColorCursor=x
+ColorCursor=#c3a983
 ColorBoldIsBright=FALSE
-ColorPalette=#231b0e;#a88c62;#dec8a7;#dec8a7;#c3a983;#a88c62;#dec8a7;#dec8a7;#2a2012;#a88c62;#dec8a7;#dec8a7;#c3a983;#a88c62;#dec8a7;#231b0e
+ColorPalette=#0f0b05;#a88c62;#dec8a7;#dec8a7;#c3a983;#a88c62;#dec8a7;#c3a983;#57462c;#a88c62;#dec8a7;#dec8a7;#c3a983;#a88c62;#dec8a7;#231b0e

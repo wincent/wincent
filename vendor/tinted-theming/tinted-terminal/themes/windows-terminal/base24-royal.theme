@@ -3,9 +3,9 @@
 	"name": "Royal",
 	"foreground": "#49425a",
 	"background": "#100814",
-	"black": "#241f2a",
+	"black": "#100814",
 	"blue": "#6480af",
-	"brightBlack": "#312d3c",
+	"brightBlack": "#393446",
 	"brightBlue": "#8fb9f9",
 	"brightCyan": "#abd3eb",
 	"brightGreen": "#2cd845",
@@ -17,6 +17,6 @@
 	"green": "#23801c",
 	"purple": "#664d96",
 	"red": "#90274b",
-	"white": "#514965",
-	"yellow": "#b49d27"
+	"white": "#49425a",
+	"yellow": "#8fb9f9"
 },

@@ -2,8 +2,8 @@
 # Color scheme: Atelier Plateau Light by Bram de Haan (http://atelierbramdehaan.nl)
 
 [colors]
-selection-background = '#8a8585' # base02
-selection-foreground = '#585050' # base05
+selection-background = '#585050' # base05
+selection-foreground = '#8a8585' # base02
 
 cursor         = '#585050' # base05
 tabs           = '#e7dfdf' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#8a8585' # base02
 
 background     = '#f4ecec' # base00
 foreground     = '#585050' # base05
-black          = '#e7dfdf' # base01
+black          = '#f4ecec' # base00
 red            = '#ca4949' # base08
 yellow         = '#a06e3b' # base0A
 green          = '#4b8b8b' # base0B
 cyan           = '#5485b6' # base0C
 blue           = '#7272ca' # base0D
 magenta        = '#8464c4' # base0E
-white          = '#292424' # base06
+white          = '#585050' # base05
 
 dim-foreground   = '#585050' # base05
 dim-black        = '#e7dfdf' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#8464c4' # base0E
 dim-white        = '#655d5d' # base04
 
 light-foreground = '#585050' # base05
-light-black      = '#8a8585' # base02
+light-black      = '#7e7777' # base03
 light-red        = '#ca4949' # base08
 light-yellow     = '#a06e3b' # base0A
 light-green      = '#4b8b8b' # base0B

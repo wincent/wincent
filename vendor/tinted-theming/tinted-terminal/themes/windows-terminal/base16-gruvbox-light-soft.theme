@@ -3,9 +3,9 @@
 	"name": "Gruvbox light, soft",
 	"foreground": "#504945",
 	"background": "#f2e5bc",
-	"black": "#ebdbb2",
+	"black": "#f2e5bc",
 	"blue": "#076678",
-	"brightBlack": "#d5c4a1",
+	"brightBlack": "#bdae93",
 	"brightBlue": "#076678",
 	"brightCyan": "#427b58",
 	"brightGreen": "#79740e",
@@ -17,6 +17,6 @@
 	"green": "#79740e",
 	"purple": "#8f3f71",
 	"red": "#9d0006",
-	"white": "#3c3836",
-	"yellow": "#af3a03"
+	"white": "#504945",
+	"yellow": "#b57614"
 },

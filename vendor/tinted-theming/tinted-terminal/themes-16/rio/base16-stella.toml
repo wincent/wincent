@@ -2,8 +2,8 @@
 # Color scheme: Stella by Shrimpram
 
 [colors]
-selection-background = '#4d4160' # base02
-selection-foreground = '#998bad' # base05
+selection-background = '#998bad' # base05
+selection-foreground = '#4d4160' # base02
 
 cursor         = '#998bad' # base05
 tabs           = '#362b48' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#4d4160' # base02
 
 background     = '#2b213c' # base00
 foreground     = '#998bad' # base05
-black          = '#362b48' # base01
+black          = '#2b213c' # base00
 red            = '#c79987' # base08
 yellow         = '#c7c691' # base0A
 green          = '#acc79b' # base0B
 cyan           = '#9bc7bf' # base0C
 blue           = '#a5aad4' # base0D
 magenta        = '#c594ff' # base0E
-white          = '#b4a5c8' # base06
+white          = '#998bad' # base05
 
 dim-foreground   = '#998bad' # base05
 dim-black        = '#362b48' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#c594ff' # base0E
 dim-white        = '#7f7192' # base04
 
 light-foreground = '#998bad' # base05
-light-black      = '#4d4160' # base02
+light-black      = '#655978' # base03
 light-red        = '#c79987' # base08
 light-yellow     = '#c7c691' # base0A
 light-green      = '#acc79b' # base0B

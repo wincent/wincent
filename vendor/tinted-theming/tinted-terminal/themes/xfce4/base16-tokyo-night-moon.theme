@@ -5,6 +5,6 @@
 Name=base16-tokyo-night-moon
 ColorForeground=#828bb8
 ColorBackground=#222436
-ColorCursor=x
+ColorCursor=#828bb8
 ColorBoldIsBright=FALSE
-ColorPalette=#1e2030;#ff757f;#c3e88d;#ffdf77;#82aaff;#fca7ea;#86e1fc;#aeb4d1;#2d3f76;#ff757f;#c3e88d;#ffdf77;#82aaff;#fca7ea;#86e1fc;#c8d3f5
+ColorPalette=#222436;#ff757f;#c3e88d;#ffdf77;#82aaff;#fca7ea;#86e1fc;#828bb8;#3b4261;#ff757f;#c3e88d;#ffdf77;#82aaff;#fca7ea;#86e1fc;#c8d3f5

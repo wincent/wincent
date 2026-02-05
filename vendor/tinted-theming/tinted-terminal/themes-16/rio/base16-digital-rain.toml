@@ -2,8 +2,8 @@
 # Color scheme: Digital Rain by Nathan Byrd (https://github.com/cognitivegears)
 
 [colors]
-selection-background = '#4a8d7e' # base02
-selection-foreground = '#00ff00' # base05
+selection-background = '#00ff00' # base05
+selection-foreground = '#4a8d7e' # base02
 
 cursor         = '#00ff00' # base05
 tabs           = '#4a806c' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#4a8d7e' # base02
 
 background     = '#000000' # base00
 foreground     = '#00ff00' # base05
-black          = '#4a806c' # base01
+black          = '#000000' # base00
 red            = '#c85a46' # base08
 yellow         = '#a67a50' # base0A
 green          = '#64c83c' # base0B
 cyan           = '#468c78' # base0C
 blue           = '#5482af' # base0D
 magenta        = '#9472b4' # base0E
-white          = '#c4cec4' # base06
+white          = '#00ff00' # base05
 
 dim-foreground   = '#00ff00' # base05
 dim-black        = '#4a806c' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#9472b4' # base0E
 dim-white        = '#919893' # base04
 
 light-foreground = '#00ff00' # base05
-light-black      = '#4a8d7e' # base02
+light-black      = '#7c8d7c' # base03
 light-red        = '#c85a46' # base08
 light-yellow     = '#a67a50' # base0A
 light-green      = '#64c83c' # base0B

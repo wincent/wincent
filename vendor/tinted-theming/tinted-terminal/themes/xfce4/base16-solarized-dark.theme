@@ -5,6 +5,6 @@
 Name=base16-solarized-dark
 ColorForeground=#93a1a1
 ColorBackground=#002b36
-ColorCursor=x
+ColorCursor=#93a1a1
 ColorBoldIsBright=FALSE
-ColorPalette=#073642;#dc322f;#859900;#b58900;#268bd2;#6c71c4;#2aa198;#eee8d5;#586e75;#dc322f;#859900;#b58900;#268bd2;#6c71c4;#2aa198;#fdf6e3
+ColorPalette=#002b36;#dc322f;#859900;#b58900;#268bd2;#6c71c4;#2aa198;#93a1a1;#657b83;#dc322f;#859900;#b58900;#268bd2;#6c71c4;#2aa198;#fdf6e3

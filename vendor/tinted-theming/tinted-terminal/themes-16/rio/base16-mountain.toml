@@ -2,8 +2,8 @@
 # Color scheme: Mountain by gnsfujiwara (https://github.com/gnsfujiwara)
 
 [colors]
-selection-background = '#262626' # base02
-selection-foreground = '#cacaca' # base05
+selection-background = '#cacaca' # base05
+selection-foreground = '#262626' # base02
 
 cursor         = '#cacaca' # base05
 tabs           = '#191919' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#262626' # base02
 
 background     = '#0f0f0f' # base00
 foreground     = '#cacaca' # base05
-black          = '#191919' # base01
+black          = '#0f0f0f' # base00
 red            = '#ac8a8c' # base08
 yellow         = '#aca98a' # base0A
 green          = '#8aac8b' # base0B
 cyan           = '#8aabac' # base0C
 blue           = '#8f8aac' # base0D
 magenta        = '#ac8aac' # base0E
-white          = '#e7e7e7' # base06
+white          = '#cacaca' # base05
 
 dim-foreground   = '#cacaca' # base05
 dim-black        = '#191919' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#ac8aac' # base0E
 dim-white        = '#4c4c4c' # base04
 
 light-foreground = '#cacaca' # base05
-light-black      = '#262626' # base02
+light-black      = '#393939' # base03
 light-red        = '#ac8a8c' # base08
 light-yellow     = '#aca98a' # base0A
 light-green      = '#8aac8b' # base0B

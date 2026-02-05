@@ -2,8 +2,8 @@
 # Color scheme: Nocturnal Winter by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#7f7f7f' # base02
-selection-foreground = '#dcdcdc' # base05
+selection-background = '#dcdcdc' # base05
+selection-foreground = '#7f7f7f' # base02
 
 cursor         = '#dcdcdc' # base05
 tabs           = '#4c4c4c' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#7f7f7f' # base02
 
 background     = '#0d0d17' # base00
 foreground     = '#dcdcdc' # base05
-black          = '#4c4c4c' # base01
+black          = '#0d0d17' # base00
 red            = '#f12d52' # base08
 yellow         = '#6095fe' # base0A
 green          = '#08cd7d' # base0B
 cyan           = '#09c87a' # base0C
 blue           = '#3081df' # base0D
 magenta        = '#fe2a6c' # base0E
-white          = '#fbfbfb' # base06
+white          = '#dcdcdc' # base05
 
 dim-foreground   = '#dcdcdc' # base05
 dim-black        = '#4c4c4c' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#fe2a6c' # base0E
 dim-white        = '#bdbdbd' # base04
 
 light-foreground = '#dcdcdc' # base05
-light-black      = '#7f7f7f' # base02
+light-black      = '#9e9e9e' # base03
 light-red        = '#f16c85' # base12
 light-yellow     = '#fefb67' # base13
 light-green      = '#0ae78d' # base14

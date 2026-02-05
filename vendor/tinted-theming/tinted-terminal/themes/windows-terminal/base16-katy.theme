@@ -3,9 +3,9 @@
 	"name": "Katy",
 	"foreground": "#959dcb",
 	"background": "#292d3e",
-	"black": "#444267",
+	"black": "#292d3e",
 	"blue": "#82aaff",
-	"brightBlack": "#5c598b",
+	"brightBlack": "#676e95",
 	"brightBlue": "#82aaff",
 	"brightCyan": "#83b7e5",
 	"brightGreen": "#78c06e",
@@ -18,5 +18,5 @@
 	"purple": "#c792ea",
 	"red": "#6e98e1",
 	"white": "#959dcb",
-	"yellow": "#f78c6c"
+	"yellow": "#e0a557"
 },

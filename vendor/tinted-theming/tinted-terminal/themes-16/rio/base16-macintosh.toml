@@ -2,8 +2,8 @@
 # Color scheme: Macintosh by Rebecca Bettencourt (http://www.kreativekorp.com)
 
 [colors]
-selection-background = '#404040' # base02
-selection-foreground = '#c0c0c0' # base05
+selection-background = '#c0c0c0' # base05
+selection-foreground = '#404040' # base02
 
 cursor         = '#c0c0c0' # base05
 tabs           = '#404040' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#404040' # base02
 
 background     = '#000000' # base00
 foreground     = '#c0c0c0' # base05
-black          = '#404040' # base01
+black          = '#000000' # base00
 red            = '#dd0907' # base08
 yellow         = '#fbf305' # base0A
 green          = '#1fb714' # base0B
 cyan           = '#02abea' # base0C
 blue           = '#0000d3' # base0D
 magenta        = '#4700a5' # base0E
-white          = '#c0c0c0' # base06
+white          = '#c0c0c0' # base05
 
 dim-foreground   = '#c0c0c0' # base05
 dim-black        = '#404040' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#4700a5' # base0E
 dim-white        = '#808080' # base04
 
 light-foreground = '#c0c0c0' # base05
-light-black      = '#404040' # base02
+light-black      = '#808080' # base03
 light-red        = '#dd0907' # base08
 light-yellow     = '#fbf305' # base0A
 light-green      = '#1fb714' # base0B

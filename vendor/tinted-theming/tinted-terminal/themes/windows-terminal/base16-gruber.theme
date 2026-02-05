@@ -3,9 +3,9 @@
 	"name": "Gruber",
 	"foreground": "#f4f4ff",
 	"background": "#181818",
-	"black": "#453d41",
+	"black": "#181818",
 	"blue": "#96a6c8",
-	"brightBlack": "#484848",
+	"brightBlack": "#52494e",
 	"brightBlue": "#96a6c8",
 	"brightCyan": "#95a99f",
 	"brightGreen": "#73c936",
@@ -17,6 +17,6 @@
 	"green": "#73c936",
 	"purple": "#9e95c7",
 	"red": "#f43841",
-	"white": "#f5f5f5",
-	"yellow": "#c73c3f"
+	"white": "#f4f4ff",
+	"yellow": "#ffdd33"
 },

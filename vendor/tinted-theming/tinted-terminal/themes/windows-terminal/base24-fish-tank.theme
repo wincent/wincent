@@ -3,9 +3,9 @@
 	"name": "Fish Tank",
 	"foreground": "#ccc9c9",
 	"background": "#222436",
-	"black": "#03063c",
+	"black": "#222436",
 	"blue": "#525fb8",
-	"brightBlack": "#6c5a30",
+	"brightBlack": "#8c7f63",
 	"brightBlue": "#b1bdf9",
 	"brightCyan": "#a4bc86",
 	"brightGreen": "#daffa8",
@@ -17,6 +17,6 @@
 	"green": "#abf157",
 	"purple": "#976f81",
 	"red": "#c60049",
-	"white": "#eceffc",
-	"yellow": "#fdcd5e"
+	"white": "#ccc9c9",
+	"yellow": "#b1bdf9"
 },

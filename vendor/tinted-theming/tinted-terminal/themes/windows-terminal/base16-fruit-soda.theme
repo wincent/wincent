@@ -3,9 +3,9 @@
 	"name": "Fruit Soda",
 	"foreground": "#515151",
 	"background": "#f1ecf1",
-	"black": "#e0dee0",
+	"black": "#f1ecf1",
 	"blue": "#2931df",
-	"brightBlack": "#d8d5d5",
+	"brightBlack": "#b5b4b6",
 	"brightBlue": "#2931df",
 	"brightCyan": "#0f9cfd",
 	"brightGreen": "#47f74c",
@@ -17,6 +17,6 @@
 	"green": "#47f74c",
 	"purple": "#611fce",
 	"red": "#fe3e31",
-	"white": "#474545",
-	"yellow": "#fe6d08"
+	"white": "#515151",
+	"yellow": "#f7e203"
 },

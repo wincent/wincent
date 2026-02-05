@@ -5,6 +5,6 @@
 Name=base24-hopscotch
 ColorForeground=#a9a4a8
 ColorBackground=#322931
-ColorCursor=x
+ColorCursor=#a9a4a8
 ColorBoldIsBright=FALSE
-ColorPalette=#322931;#dd464c;#8fc13e;#989498;#1290bf;#c85e7c;#149b93;#b9b5b8;#797379;#fd8b19;#433b42;#5c545b;#989498;#d5d3d5;#b33508;#ffffff
+ColorPalette=#322931;#dd464c;#8fc13e;#989498;#1290bf;#c85e7c;#149b93;#a9a4a8;#898388;#fd8b19;#433b42;#5c545b;#989498;#d5d3d5;#b33508;#ffffff

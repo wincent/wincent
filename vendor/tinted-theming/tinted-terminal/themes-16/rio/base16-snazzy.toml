@@ -2,8 +2,8 @@
 # Color scheme: Snazzy by Chawye Hsu (https://github.com/chawyehsu), based on Hyper Snazzy Theme (https://github.com/sindresorhus/hyper-snazzy)
 
 [colors]
-selection-background = '#43454f' # base02
-selection-foreground = '#e2e4e5' # base05
+selection-background = '#e2e4e5' # base05
+selection-foreground = '#43454f' # base02
 
 cursor         = '#e2e4e5' # base05
 tabs           = '#34353e' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#43454f' # base02
 
 background     = '#282a36' # base00
 foreground     = '#e2e4e5' # base05
-black          = '#34353e' # base01
+black          = '#282a36' # base00
 red            = '#ff5c57' # base08
 yellow         = '#f3f99d' # base0A
 green          = '#5af78e' # base0B
 cyan           = '#9aedfe' # base0C
 blue           = '#57c7ff' # base0D
 magenta        = '#ff6ac1' # base0E
-white          = '#eff0eb' # base06
+white          = '#e2e4e5' # base05
 
 dim-foreground   = '#e2e4e5' # base05
 dim-black        = '#34353e' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#ff6ac1' # base0E
 dim-white        = '#a5a5a9' # base04
 
 light-foreground = '#e2e4e5' # base05
-light-black      = '#43454f' # base02
+light-black      = '#78787e' # base03
 light-red        = '#ff5c57' # base08
 light-yellow     = '#f3f99d' # base0A
 light-green      = '#5af78e' # base0B

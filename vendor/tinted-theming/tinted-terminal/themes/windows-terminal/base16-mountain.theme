@@ -3,9 +3,9 @@
 	"name": "Mountain",
 	"foreground": "#cacaca",
 	"background": "#0f0f0f",
-	"black": "#191919",
+	"black": "#0f0f0f",
 	"blue": "#8f8aac",
-	"brightBlack": "#262626",
+	"brightBlack": "#393939",
 	"brightBlue": "#8f8aac",
 	"brightCyan": "#8aabac",
 	"brightGreen": "#8aac8b",
@@ -17,6 +17,6 @@
 	"green": "#8aac8b",
 	"purple": "#ac8aac",
 	"red": "#ac8a8c",
-	"white": "#e7e7e7",
-	"yellow": "#ceb188"
+	"white": "#cacaca",
+	"yellow": "#aca98a"
 },

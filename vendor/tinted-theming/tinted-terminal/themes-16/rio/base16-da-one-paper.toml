@@ -2,8 +2,8 @@
 # Color scheme: Da One Paper by NNB (https://github.com/NNBnh)
 
 [colors]
-selection-background = '#888888' # base02
-selection-foreground = '#181818' # base05
+selection-background = '#181818' # base05
+selection-foreground = '#888888' # base02
 
 cursor         = '#181818' # base05
 tabs           = '#c8c8c8' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#888888' # base02
 
 background     = '#faf0dc' # base00
 foreground     = '#181818' # base05
-black          = '#c8c8c8' # base01
+black          = '#faf0dc' # base00
 red            = '#de5d6e' # base08
 yellow         = '#b3684f' # base0A
 green          = '#76a85d' # base0B
 cyan           = '#64b5a7' # base0C
 blue           = '#5890f8' # base0D
 magenta        = '#c173d1' # base0E
-white          = '#000000' # base06
+white          = '#181818' # base05
 
 dim-foreground   = '#181818' # base05
 dim-black        = '#c8c8c8' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#c173d1' # base0E
 dim-white        = '#282828' # base04
 
 light-foreground = '#181818' # base05
-light-black      = '#888888' # base02
+light-black      = '#585858' # base03
 light-red        = '#de5d6e' # base08
 light-yellow     = '#b3684f' # base0A
 light-green      = '#76a85d' # base0B

@@ -5,6 +5,6 @@
 Name=base24-papercolor-light
 ColorForeground=#444444
 ColorBackground=#eeeeee
-ColorCursor=x
+ColorCursor=#444444
 ColorBoldIsBright=FALSE
-ColorPalette=#e4e4e4;#af0000;#008700;#5f8700;#0087af;#8700af;#d75f00;#005f87;#d0d0d0;#d70000;#87af00;#ff00af;#ff8700;#5fafff;#00af00;#0087af
+ColorPalette=#eeeeee;#af0000;#008700;#5f8700;#0087af;#8700af;#d75f00;#444444;#878787;#d70000;#87af00;#ff00af;#ff8700;#5fafff;#00af00;#0087af

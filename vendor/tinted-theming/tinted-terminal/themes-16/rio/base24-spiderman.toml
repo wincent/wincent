@@ -2,8 +2,8 @@
 # Color scheme: Spiderman by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#505354' # base02
-selection-foreground = '#d3d3cd' # base05
+selection-background = '#d3d3cd' # base05
+selection-foreground = '#505354' # base02
 
 cursor         = '#d3d3cd' # base05
 tabs           = '#1b1d1e' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#505354' # base02
 
 background     = '#1b1d1e' # base00
 foreground     = '#d3d3cd' # base05
-black          = '#1b1d1e' # base01
+black          = '#1b1d1e' # base00
 red            = '#e60712' # base08
 yellow         = '#1d4fff' # base0A
 green          = '#e22828' # base0B
 cyan           = '#3255ff' # base0C
 blue           = '#2b3fff' # base0D
 magenta        = '#2435db' # base0E
-white          = '#fffef6' # base06
+white          = '#d3d3cd' # base05
 
 dim-foreground   = '#d3d3cd' # base05
 dim-black        = '#1b1d1e' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#2435db' # base0E
 dim-white        = '#a7a8a5' # base04
 
 light-foreground = '#d3d3cd' # base05
-light-black      = '#505354' # base02
+light-black      = '#7b7d7c' # base03
 light-red        = '#ff0325' # base12
 light-yellow     = '#fe3935' # base13
 light-green      = '#ff3238' # base14

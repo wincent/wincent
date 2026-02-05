@@ -5,6 +5,6 @@
 Name=base24-jellybeans
 ColorForeground=#d5d5d5
 ColorBackground=#121212
-ColorCursor=x
+ColorCursor=#d5d5d5
 ColorBoldIsBright=FALSE
-ColorPalette=#929292;#e27373;#93b979;#b1d8f6;#97bedc;#e1c0fa;#00988e;#dedede;#bdbdbd;#ffa1a1;#bddeab;#ffdca0;#b1d8f6;#fbdaff;#1ab2a8;#ffffff
+ColorPalette=#121212;#e27373;#93b979;#b1d8f6;#97bedc;#e1c0fa;#00988e;#d5d5d5;#c5c5c5;#ffa1a1;#bddeab;#ffdca0;#b1d8f6;#fbdaff;#1ab2a8;#ffffff

@@ -2,8 +2,8 @@
 # Color scheme: Synth Midnight Terminal Dark by Michaël Ball (http://github.com/michael-ball/)
 
 [colors]
-selection-background = '#28292a' # base02
-selection-foreground = '#c1c3c4' # base05
+selection-background = '#c1c3c4' # base05
+selection-foreground = '#28292a' # base02
 
 cursor         = '#c1c3c4' # base05
 tabs           = '#1a1b1c' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#28292a' # base02
 
 background     = '#050608' # base00
 foreground     = '#c1c3c4' # base05
-black          = '#1a1b1c' # base01
+black          = '#050608' # base00
 red            = '#b53b50' # base08
 yellow         = '#c9d364' # base0A
 green          = '#06ea61' # base0B
 cyan           = '#42fff9' # base0C
 blue           = '#03aeff' # base0D
 magenta        = '#ea5ce2' # base0E
-white          = '#cfd1d2' # base06
+white          = '#c1c3c4' # base05
 
 dim-foreground   = '#c1c3c4' # base05
 dim-black        = '#1a1b1c' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#ea5ce2' # base0E
 dim-white        = '#a3a5a6' # base04
 
 light-foreground = '#c1c3c4' # base05
-light-black      = '#28292a' # base02
+light-black      = '#474849' # base03
 light-red        = '#b53b50' # base08
 light-yellow     = '#c9d364' # base0A
 light-green      = '#06ea61' # base0B

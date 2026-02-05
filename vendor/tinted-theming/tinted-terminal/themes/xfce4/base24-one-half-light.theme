@@ -5,6 +5,6 @@
 Name=base24-one-half-light
 ColorForeground=#cfd0d2
 ColorBackground=#2a2b32
-ColorCursor=x
+ColorCursor=#cfd0d2
 ColorBoldIsBright=FALSE
-ColorPalette=#373942;#e45649;#4fa14f;#c0aa00;#0084bc;#a625a4;#0996b3;#fafafa;#4f525d;#df6c75;#98c379;#e4c07a;#61afef;#c577dd;#56b5c1;#ffffff
+ColorPalette=#2a2b32;#e45649;#4fa14f;#c0aa00;#0084bc;#a625a4;#0996b3;#cfd0d2;#797c84;#df6c75;#98c379;#e4c07a;#61afef;#c577dd;#56b5c1;#ffffff

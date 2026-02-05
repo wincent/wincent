@@ -3,9 +3,9 @@
 	"name": "Tokyo City Dark",
 	"foreground": "#d8e2ec",
 	"background": "#171d23",
-	"black": "#1d252c",
+	"black": "#171d23",
 	"blue": "#7aa2f7",
-	"brightBlack": "#28323a",
+	"brightBlack": "#526270",
 	"brightBlue": "#7aa2f7",
 	"brightCyan": "#89ddff",
 	"brightGreen": "#9ece6a",
@@ -17,6 +17,6 @@
 	"green": "#9ece6a",
 	"purple": "#bb9af7",
 	"red": "#f7768e",
-	"white": "#f6f6f8",
-	"yellow": "#ff9e64"
+	"white": "#d8e2ec",
+	"yellow": "#b7c5d3"
 },

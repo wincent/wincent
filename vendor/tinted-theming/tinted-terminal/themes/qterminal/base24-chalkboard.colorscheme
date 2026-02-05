@@ -8,13 +8,13 @@ Color=33,33,33
 Color=41,38,47
 
 [Color0]
-Color=0,0,0
+Color=41,38,47
 
 [Color0Faint]
 Color=41,38,47
 
 [Color0Intense]
-Color=50,50,50
+Color=91,91,91
 
 [Color1]
 Color=195,115,114
@@ -35,10 +35,10 @@ Color=114,195,115
 Color=170,219,170
 
 [Color3]
-Color=194,195,114
+Color=170,170,219
 
 [Color3Faint]
-Color=194,195,114
+Color=170,170,219
 
 [Color3Intense]
 Color=218,219,170
@@ -71,7 +71,7 @@ Color=114,194,195
 Color=170,218,219
 
 [Color7]
-Color=217,217,217
+Color=175,175,175
 
 [Color7Faint]
 Color=175,175,175
@@ -92,4 +92,3 @@ Color=217,217,217
 Blur=true
 Description=Chalkboard
 Opacity=0.95
-

@@ -5,6 +5,6 @@
 Name=base24-under-the-sea
 ColorForeground=#3d5053
 ColorBackground=#001015
-ColorCursor=x
+ColorCursor=#3d5053
 ColorBoldIsBright=FALSE
-ColorPalette=#022026;#b12f2c;#00a940;#61d4b9;#449985;#00599c;#5c7e19;#405554;#374350;#ff4242;#2aea5e;#8dd3fd;#61d4b9;#1298ff;#98cf28;#58fad6
+ColorPalette=#001015;#b12f2c;#00a940;#61d4b9;#449985;#00599c;#5c7e19;#3d5053;#394751;#ff4242;#2aea5e;#8dd3fd;#61d4b9;#1298ff;#98cf28;#58fad6

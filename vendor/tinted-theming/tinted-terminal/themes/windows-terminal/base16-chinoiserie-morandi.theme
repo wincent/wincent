@@ -3,9 +3,9 @@
 	"name": "Chinoiserie Morandi",
 	"foreground": "#c4cbcf",
 	"background": "#1d1d1d",
-	"black": "#282828",
+	"black": "#1d1d1d",
 	"blue": "#839ec9",
-	"brightBlack": "#373737",
+	"brightBlack": "#918072",
 	"brightBlue": "#839ec9",
 	"brightCyan": "#5e8c9b",
 	"brightGreen": "#8ca07b",
@@ -17,6 +17,6 @@
 	"green": "#8ca07b",
 	"purple": "#98a1d8",
 	"red": "#c06061",
-	"white": "#eee7f2",
-	"yellow": "#ff937f"
+	"white": "#c4cbcf",
+	"yellow": "#e5bc84"
 },

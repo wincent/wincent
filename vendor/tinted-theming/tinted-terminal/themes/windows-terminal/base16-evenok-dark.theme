@@ -3,9 +3,9 @@
 	"name": "Evenok Dark",
 	"foreground": "#d0d0d0",
 	"background": "#000000",
-	"black": "#202020",
+	"black": "#000000",
 	"blue": "#00aff2",
-	"brightBlack": "#303030",
+	"brightBlack": "#505050",
 	"brightBlue": "#00aff2",
 	"brightCyan": "#00bab3",
 	"brightGreen": "#54bc5c",
@@ -17,6 +17,6 @@
 	"green": "#54bc5c",
 	"purple": "#9095ff",
 	"red": "#f5708a",
-	"white": "#e0e0e0",
-	"yellow": "#ee8122"
+	"white": "#d0d0d0",
+	"yellow": "#b8a300"
 },

@@ -2,8 +2,8 @@
 # Color scheme: Blue Forest by alonsodomin (https://github.com/alonsodomin)
 
 [colors]
-selection-background = '#273e5c' # base02
-selection-foreground = '#ffcc33' # base05
+selection-background = '#ffcc33' # base05
+selection-foreground = '#273e5c' # base02
 
 cursor         = '#ffcc33' # base05
 tabs           = '#1e5c1e' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#273e5c' # base02
 
 background     = '#141f2e' # base00
 foreground     = '#ffcc33' # base05
-black          = '#1e5c1e' # base01
+black          = '#141f2e' # base00
 red            = '#fffab1' # base08
 yellow         = '#91ccff' # base0A
 green          = '#80ff80' # base0B
 cyan           = '#80ff80' # base0C
 blue           = '#a2cff5' # base0D
 magenta        = '#0099ff' # base0E
-white          = '#91ccff' # base06
+white          = '#ffcc33' # base05
 
 dim-foreground   = '#ffcc33' # base05
 dim-black        = '#1e5c1e' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#0099ff' # base0E
 dim-white        = '#1e5c1e' # base04
 
 light-foreground = '#ffcc33' # base05
-light-black      = '#273e5c' # base02
+light-black      = '#a0ffa0' # base03
 light-red        = '#fffab1' # base08
 light-yellow     = '#91ccff' # base0A
 light-green      = '#80ff80' # base0B

@@ -5,6 +5,6 @@
 Name=base24-hurtado
 ColorForeground=#a1a1a1
 ColorBackground=#000000
-ColorCursor=x
+ColorCursor=#a1a1a1
 ColorBoldIsBright=FALSE
-ColorPalette=#575757;#ff1b00;#a5df55;#89bdff;#486387;#fc5ef0;#85e9fe;#cbcbcb;#252525;#d41c00;#a5df55;#fbe749;#89bdff;#bf00c0;#85e9fe;#dbdbdb
+ColorPalette=#000000;#ff1b00;#a5df55;#89bdff;#486387;#fc5ef0;#85e9fe;#a1a1a1;#4e4e4e;#d41c00;#a5df55;#fbe749;#89bdff;#bf00c0;#85e9fe;#dbdbdb

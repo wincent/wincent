@@ -2,8 +2,8 @@
 # Color scheme: Banana Blueberry by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#485161' # base02
-selection-foreground = '#c6c9cd' # base05
+selection-background = '#c6c9cd' # base05
+selection-foreground = '#485161' # base02
 
 cursor         = '#c6c9cd' # base05
 tabs           = '#16141e' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#485161' # base02
 
 background     = '#191322' # base00
 foreground     = '#c6c9cd' # base05
-black          = '#16141e' # base01
+black          = '#191322' # base00
 red            = '#ff6a7e' # base08
 yellow         = '#91fff3' # base0A
 green          = '#00bc9b' # base0B
 cyan           = '#55b6c1' # base0C
 blue           = '#22e8df' # base0D
 magenta        = '#dc3969' # base0E
-white          = '#f1f1f1' # base06
+white          = '#c6c9cd' # base05
 
 dim-foreground   = '#c6c9cd' # base05
 dim-black        = '#16141e' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#dc3969' # base0E
 dim-white        = '#9ca1a9' # base04
 
 light-foreground = '#c6c9cd' # base05
-light-black      = '#485161' # base02
+light-black      = '#727985' # base03
 light-red        = '#fd9ea1' # base12
 light-yellow     = '#f9e46a' # base13
 light-green      = '#97c378' # base14

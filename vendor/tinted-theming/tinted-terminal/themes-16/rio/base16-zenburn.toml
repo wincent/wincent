@@ -2,8 +2,8 @@
 # Color scheme: Zenburn by elnawe
 
 [colors]
-selection-background = '#606060' # base02
-selection-foreground = '#dcdccc' # base05
+selection-background = '#dcdccc' # base05
+selection-foreground = '#606060' # base02
 
 cursor         = '#dcdccc' # base05
 tabs           = '#404040' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#606060' # base02
 
 background     = '#383838' # base00
 foreground     = '#dcdccc' # base05
-black          = '#404040' # base01
+black          = '#383838' # base00
 red            = '#dca3a3' # base08
 yellow         = '#e0cf9f' # base0A
 green          = '#5f7f5f' # base0B
 cyan           = '#93e0e3' # base0C
 blue           = '#7cb8bb' # base0D
 magenta        = '#dc8cc3' # base0E
-white          = '#c0c0c0' # base06
+white          = '#dcdccc' # base05
 
 dim-foreground   = '#dcdccc' # base05
 dim-black        = '#404040' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#dc8cc3' # base0E
 dim-white        = '#808080' # base04
 
 light-foreground = '#dcdccc' # base05
-light-black      = '#606060' # base02
+light-black      = '#6f6f6f' # base03
 light-red        = '#dca3a3' # base08
 light-yellow     = '#e0cf9f' # base0A
 light-green      = '#5f7f5f' # base0B

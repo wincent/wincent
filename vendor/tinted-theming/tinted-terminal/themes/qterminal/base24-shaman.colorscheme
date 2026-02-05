@@ -8,13 +8,13 @@ Color=36,44,53
 Color=0,16,20
 
 [Color0]
-Color=1,32,38
+Color=0,16,20
 
 [Color0Faint]
 Color=0,16,20
 
 [Color0Intense]
-Color=55,67,80
+Color=57,71,81
 
 [Color1]
 Color=177,47,44
@@ -35,10 +35,10 @@ Color=0,169,64
 Color=42,234,94
 
 [Color3]
-Color=93,138,169
+Color=97,212,185
 
 [Color3Faint]
-Color=93,138,169
+Color=97,212,185
 
 [Color3Intense]
 Color=141,211,253
@@ -71,7 +71,7 @@ Color=92,126,25
 Color=152,207,40
 
 [Color7]
-Color=64,85,84
+Color=61,80,83
 
 [Color7Faint]
 Color=61,80,83
@@ -92,4 +92,3 @@ Color=64,85,84
 Blur=true
 Description=Shaman
 Opacity=0.95
-

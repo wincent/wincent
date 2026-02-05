@@ -2,8 +2,8 @@
 # Color scheme: Gruber by Patel, Nimai &lt;nimai.m.patel@gmail.com&gt;, colors from www.github.com/rexim/gruber-darker-theme
 
 [colors]
-selection-background = '#484848' # base02
-selection-foreground = '#f4f4ff' # base05
+selection-background = '#f4f4ff' # base05
+selection-foreground = '#484848' # base02
 
 cursor         = '#f4f4ff' # base05
 tabs           = '#453d41' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#484848' # base02
 
 background     = '#181818' # base00
 foreground     = '#f4f4ff' # base05
-black          = '#453d41' # base01
+black          = '#181818' # base00
 red            = '#f43841' # base08
 yellow         = '#ffdd33' # base0A
 green          = '#73c936' # base0B
 cyan           = '#95a99f' # base0C
 blue           = '#96a6c8' # base0D
 magenta        = '#9e95c7' # base0E
-white          = '#f5f5f5' # base06
+white          = '#f4f4ff' # base05
 
 dim-foreground   = '#f4f4ff' # base05
 dim-black        = '#453d41' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#9e95c7' # base0E
 dim-white        = '#e4e4ef' # base04
 
 light-foreground = '#f4f4ff' # base05
-light-black      = '#484848' # base02
+light-black      = '#52494e' # base03
 light-red        = '#f43841' # base08
 light-yellow     = '#ffdd33' # base0A
 light-green      = '#73c936' # base0B

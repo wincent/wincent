@@ -3,9 +3,9 @@
 	"name": "Twilight",
 	"foreground": "#a7a7a7",
 	"background": "#1e1e1e",
-	"black": "#323537",
+	"black": "#1e1e1e",
 	"blue": "#7587a6",
-	"brightBlack": "#464b50",
+	"brightBlack": "#5f5a60",
 	"brightBlue": "#7587a6",
 	"brightCyan": "#afc4db",
 	"brightGreen": "#8f9d6a",
@@ -17,6 +17,6 @@
 	"green": "#8f9d6a",
 	"purple": "#9b859d",
 	"red": "#cf6a4c",
-	"white": "#c3c3c3",
-	"yellow": "#cda869"
+	"white": "#a7a7a7",
+	"yellow": "#f9ee98"
 },

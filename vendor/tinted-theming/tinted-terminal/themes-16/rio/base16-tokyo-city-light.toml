@@ -2,8 +2,8 @@
 # Color scheme: Tokyo City Light by Michaël Ball
 
 [colors]
-selection-background = '#edeff6' # base02
-selection-foreground = '#343b59' # base05
+selection-background = '#343b59' # base05
+selection-foreground = '#edeff6' # base02
 
 cursor         = '#343b59' # base05
 tabs           = '#f6f6f8' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#edeff6' # base02
 
 background     = '#fbfbfd' # base00
 foreground     = '#343b59' # base05
-black          = '#f6f6f8' # base01
+black          = '#fbfbfd' # base00
 red            = '#8c4351' # base08
 yellow         = '#4c505e' # base0A
 green          = '#485e30' # base0B
 cyan           = '#4c505e' # base0C
 blue           = '#34548a' # base0D
 magenta        = '#5a4a78' # base0E
-white          = '#1d252c' # base06
+white          = '#343b59' # base05
 
 dim-foreground   = '#343b59' # base05
 dim-black        = '#f6f6f8' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#5a4a78' # base0E
 dim-white        = '#4c505e' # base04
 
 light-foreground = '#343b59' # base05
-light-black      = '#edeff6' # base02
+light-black      = '#9699a3' # base03
 light-red        = '#8c4351' # base08
 light-yellow     = '#4c505e' # base0A
 light-green      = '#485e30' # base0B

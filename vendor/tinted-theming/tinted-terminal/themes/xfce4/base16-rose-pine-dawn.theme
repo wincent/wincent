@@ -5,6 +5,6 @@
 Name=base16-rose-pine-dawn
 ColorForeground=#575279
 ColorBackground=#faf4ed
-ColorCursor=x
+ColorCursor=#575279
 ColorBoldIsBright=FALSE
-ColorPalette=#fffaf3;#b4637a;#286983;#d7827e;#907aa9;#ea9d34;#56949f;#575279;#f2e9de;#b4637a;#286983;#d7827e;#907aa9;#ea9d34;#56949f;#cecacd
+ColorPalette=#faf4ed;#b4637a;#286983;#d7827e;#907aa9;#ea9d34;#56949f;#575279;#9893a5;#b4637a;#286983;#d7827e;#907aa9;#ea9d34;#56949f;#cecacd

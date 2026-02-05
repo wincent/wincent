@@ -2,8 +2,8 @@
 # Color scheme: Tokyo Night Terminal Light by Michaël Ball
 
 [colors]
-selection-background = '#dfe0e5' # base02
-selection-foreground = '#4c505e' # base05
+selection-background = '#4c505e' # base05
+selection-foreground = '#dfe0e5' # base02
 
 cursor         = '#4c505e' # base05
 tabs           = '#cbccd1' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#dfe0e5' # base02
 
 background     = '#d5d6db' # base00
 foreground     = '#4c505e' # base05
-black          = '#cbccd1' # base01
+black          = '#d5d6db' # base00
 red            = '#8c4351' # base08
 yellow         = '#8f5e15' # base0A
 green          = '#33635c' # base0B
 cyan           = '#0f4b6e' # base0C
 blue           = '#34548a' # base0D
 magenta        = '#5a4a78' # base0E
-white          = '#1a1b26' # base06
+white          = '#4c505e' # base05
 
 dim-foreground   = '#4c505e' # base05
 dim-black        = '#cbccd1' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#5a4a78' # base0E
 dim-white        = '#4c505e' # base04
 
 light-foreground = '#4c505e' # base05
-light-black      = '#dfe0e5' # base02
+light-black      = '#9699a3' # base03
 light-red        = '#8c4351' # base08
 light-yellow     = '#8f5e15' # base0A
 light-green      = '#33635c' # base0B

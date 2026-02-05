@@ -2,8 +2,8 @@
 # Color scheme: Paraiso by Jan T. Sott
 
 [colors]
-selection-background = '#4f424c' # base02
-selection-foreground = '#a39e9b' # base05
+selection-background = '#a39e9b' # base05
+selection-foreground = '#4f424c' # base02
 
 cursor         = '#a39e9b' # base05
 tabs           = '#41323f' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#4f424c' # base02
 
 background     = '#2f1e2e' # base00
 foreground     = '#a39e9b' # base05
-black          = '#41323f' # base01
+black          = '#2f1e2e' # base00
 red            = '#ef6155' # base08
 yellow         = '#fec418' # base0A
 green          = '#48b685' # base0B
 cyan           = '#5bc4bf' # base0C
 blue           = '#06b6ef' # base0D
 magenta        = '#815ba4' # base0E
-white          = '#b9b6b0' # base06
+white          = '#a39e9b' # base05
 
 dim-foreground   = '#a39e9b' # base05
 dim-black        = '#41323f' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#815ba4' # base0E
 dim-white        = '#8d8687' # base04
 
 light-foreground = '#a39e9b' # base05
-light-black      = '#4f424c' # base02
+light-black      = '#776e71' # base03
 light-red        = '#ef6155' # base08
 light-yellow     = '#fec418' # base0A
 light-green      = '#48b685' # base0B

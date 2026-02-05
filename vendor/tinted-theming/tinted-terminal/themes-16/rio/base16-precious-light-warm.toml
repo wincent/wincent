@@ -2,8 +2,8 @@
 # Color scheme: Precious Light Warm by 4lex4 &lt;4lex49@zoho.com&gt;
 
 [colors]
-selection-background = '#d9d3c8' # base02
-selection-foreground = '#4e5359' # base05
+selection-background = '#4e5359' # base05
+selection-foreground = '#d9d3c8' # base02
 
 cursor         = '#4e5359' # base05
 tabs           = '#ece4d6' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#d9d3c8' # base02
 
 background     = '#fff5e5' # base00
 foreground     = '#4e5359' # base05
-black          = '#ece4d6' # base01
+black          = '#fff5e5' # base00
 red            = '#b14745' # base08
 yellow         = '#876500' # base0A
 green          = '#557300' # base0B
 cyan           = '#0e7767' # base0C
 blue           = '#246da5' # base0D
 magenta        = '#7a50c6' # base0E
-white          = '#4e5359' # base06
+white          = '#4e5359' # base05
 
 dim-foreground   = '#4e5359' # base05
 dim-black        = '#ece4d6' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#7a50c6' # base0E
 dim-white        = '#5d6065' # base04
 
 light-foreground = '#4e5359' # base05
-light-black      = '#d9d3c8' # base02
+light-black      = '#7f8080' # base03
 light-red        = '#b14745' # base08
 light-yellow     = '#876500' # base0A
 light-green      = '#557300' # base0B

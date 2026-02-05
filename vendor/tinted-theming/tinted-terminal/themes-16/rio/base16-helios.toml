@@ -2,8 +2,8 @@
 # Color scheme: Helios by Alex Meyer (https://github.com/reyemxela)
 
 [colors]
-selection-background = '#53585b' # base02
-selection-foreground = '#d5d5d5' # base05
+selection-background = '#d5d5d5' # base05
+selection-foreground = '#53585b' # base02
 
 cursor         = '#d5d5d5' # base05
 tabs           = '#383c3e' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#53585b' # base02
 
 background     = '#1d2021' # base00
 foreground     = '#d5d5d5' # base05
-black          = '#383c3e' # base01
+black          = '#1d2021' # base00
 red            = '#d72638' # base08
 yellow         = '#f19d1a' # base0A
 green          = '#88b92d' # base0B
 cyan           = '#1ba595' # base0C
 blue           = '#1e8bac' # base0D
 magenta        = '#be4264' # base0E
-white          = '#dddddd' # base06
+white          = '#d5d5d5' # base05
 
 dim-foreground   = '#d5d5d5' # base05
 dim-black        = '#383c3e' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#be4264' # base0E
 dim-white        = '#cdcdcd' # base04
 
 light-foreground = '#d5d5d5' # base05
-light-black      = '#53585b' # base02
+light-black      = '#6f7579' # base03
 light-red        = '#d72638' # base08
 light-yellow     = '#f19d1a' # base0A
 light-green      = '#88b92d' # base0B

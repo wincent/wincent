@@ -5,6 +5,6 @@
 Name=base24-pnevma
 ColorForeground=#aeaead
 ColorBackground=#1c1c1c
-ColorCursor=x
+ColorCursor=#aeaead
 ColorBoldIsBright=FALSE
-ColorPalette=#2f2e2d;#a36666;#90a57d;#a1bdce;#7fa5bd;#c79ec4;#8adbb4;#d0d0d0;#4a4845;#d78787;#afbea2;#e4c9af;#a1bdce;#d7beda;#b1e7dd;#efefef
+ColorPalette=#1c1c1c;#a36666;#90a57d;#a1bdce;#7fa5bd;#c79ec4;#8adbb4;#aeaead;#6b6a67;#d78787;#afbea2;#e4c9af;#a1bdce;#d7beda;#b1e7dd;#efefef

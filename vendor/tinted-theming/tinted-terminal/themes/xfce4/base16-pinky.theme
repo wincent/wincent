@@ -5,6 +5,6 @@
 Name=base16-pinky
 ColorForeground=#f5f5f5
 ColorBackground=#171517
-ColorCursor=x
+ColorCursor=#f5f5f5
 ColorBoldIsBright=FALSE
-ColorPalette=#1b181b;#ffa600;#ff0066;#20df6c;#00ffff;#007fff;#6600ff;#ffffff;#1d1b1d;#ffa600;#ff0066;#20df6c;#00ffff;#007fff;#6600ff;#f7f3f7
+ColorPalette=#171517;#ffa600;#ff0066;#20df6c;#00ffff;#007fff;#6600ff;#f5f5f5;#383338;#ffa600;#ff0066;#20df6c;#00ffff;#007fff;#6600ff;#f7f3f7

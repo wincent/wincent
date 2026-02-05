@@ -3,9 +3,9 @@
 	"name": "summercamp",
 	"foreground": "#736e55",
 	"background": "#1c1810",
-	"black": "#2a261c",
+	"black": "#1c1810",
 	"blue": "#489bf0",
-	"brightBlack": "#3a3527",
+	"brightBlack": "#504b38",
 	"brightBlue": "#489bf0",
 	"brightCyan": "#5aebbc",
 	"brightGreen": "#5ceb5a",
@@ -17,6 +17,6 @@
 	"green": "#5ceb5a",
 	"purple": "#ff8080",
 	"red": "#e35142",
-	"white": "#bab696",
-	"yellow": "#fba11b"
+	"white": "#736e55",
+	"yellow": "#f2ff27"
 },

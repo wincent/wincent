@@ -2,8 +2,8 @@
 # Color scheme: Atelier Estuary Light by Bram de Haan (http://atelierbramdehaan.nl)
 
 [colors]
-selection-background = '#929181' # base02
-selection-foreground = '#5f5e4e' # base05
+selection-background = '#5f5e4e' # base05
+selection-foreground = '#929181' # base02
 
 cursor         = '#5f5e4e' # base05
 tabs           = '#e7e6df' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#929181' # base02
 
 background     = '#f4f3ec' # base00
 foreground     = '#5f5e4e' # base05
-black          = '#e7e6df' # base01
+black          = '#f4f3ec' # base00
 red            = '#ba6236' # base08
 yellow         = '#a5980d' # base0A
 green          = '#7d9726' # base0B
 cyan           = '#5b9d48' # base0C
 blue           = '#36a166' # base0D
 magenta        = '#5f9182' # base0E
-white          = '#302f27' # base06
+white          = '#5f5e4e' # base05
 
 dim-foreground   = '#5f5e4e' # base05
 dim-black        = '#e7e6df' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#5f9182' # base0E
 dim-white        = '#6c6b5a' # base04
 
 light-foreground = '#5f5e4e' # base05
-light-black      = '#929181' # base02
+light-black      = '#878573' # base03
 light-red        = '#ba6236' # base08
 light-yellow     = '#a5980d' # base0A
 light-green      = '#7d9726' # base0B

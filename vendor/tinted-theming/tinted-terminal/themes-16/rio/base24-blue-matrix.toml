@@ -2,8 +2,8 @@
 # Color scheme: Blue Matrix by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#676767' # base02
-selection-foreground = '#afafaf' # base05
+selection-background = '#afafaf' # base05
+selection-foreground = '#676767' # base02
 
 cursor         = '#afafaf' # base05
 tabs           = '#101116' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#676767' # base02
 
 background     = '#0f1115' # base00
 foreground     = '#afafaf' # base05
-black          = '#101116' # base01
+black          = '#0f1115' # base00
 red            = '#ff567f' # base08
 yellow         = '#6871ff' # base0A
 green          = '#00ff9b' # base0B
 cyan           = '#75c1fe' # base0C
 blue           = '#00b0fe' # base0D
 magenta        = '#d47bfe' # base0E
-white          = '#c7c7c7' # base06
+white          = '#afafaf' # base05
 
 dim-foreground   = '#afafaf' # base05
 dim-black        = '#101116' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#d47bfe' # base0E
 dim-white        = '#979797' # base04
 
 light-foreground = '#afafaf' # base05
-light-black      = '#676767' # base02
+light-black      = '#7f7f7f' # base03
 light-red        = '#ff6d67' # base12
 light-yellow     = '#fefb67' # base13
 light-green      = '#5ff967' # base14

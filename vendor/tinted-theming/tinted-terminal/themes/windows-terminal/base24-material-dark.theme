@@ -3,9 +3,9 @@
 	"name": "Material Dark",
 	"foreground": "#c3c3c3",
 	"background": "#222221",
-	"black": "#212121",
+	"black": "#222221",
 	"blue": "#134eb2",
-	"brightBlack": "#424242",
+	"brightBlack": "#6d6d6d",
 	"brightBlue": "#53a4f3",
 	"brightCyan": "#26bad1",
 	"brightGreen": "#7aba39",
@@ -17,6 +17,6 @@
 	"green": "#457b23",
 	"purple": "#550087",
 	"red": "#b7141e",
-	"white": "#eeeeee",
-	"yellow": "#f5971d"
+	"white": "#c3c3c3",
+	"yellow": "#53a4f3"
 },

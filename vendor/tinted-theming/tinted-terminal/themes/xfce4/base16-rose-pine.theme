@@ -5,6 +5,6 @@
 Name=base16-rose-pine
 ColorForeground=#e0def4
 ColorBackground=#191724
-ColorCursor=x
+ColorCursor=#e0def4
 ColorBoldIsBright=FALSE
-ColorPalette=#1f1d2e;#eb6f92;#31748f;#ebbcba;#c4a7e7;#f6c177;#9ccfd8;#e0def4;#26233a;#eb6f92;#31748f;#ebbcba;#c4a7e7;#f6c177;#9ccfd8;#524f67
+ColorPalette=#191724;#eb6f92;#31748f;#ebbcba;#c4a7e7;#f6c177;#9ccfd8;#e0def4;#6e6a86;#eb6f92;#31748f;#ebbcba;#c4a7e7;#f6c177;#9ccfd8;#524f67

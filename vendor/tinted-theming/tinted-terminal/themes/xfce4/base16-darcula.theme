@@ -5,6 +5,6 @@
 Name=base16-darcula
 ColorForeground=#a9b7c6
 ColorBackground=#2b2b2b
-ColorCursor=x
+ColorCursor=#a9b7c6
 ColorBoldIsBright=FALSE
-ColorPalette=#323232;#4eade5;#6a8759;#bbb529;#9876aa;#cc7832;#629755;#ffc66d;#323232;#4eade5;#6a8759;#bbb529;#9876aa;#cc7832;#629755;#ffffff
+ColorPalette=#2b2b2b;#4eade5;#6a8759;#bbb529;#9876aa;#cc7832;#629755;#a9b7c6;#606366;#4eade5;#6a8759;#bbb529;#9876aa;#cc7832;#629755;#ffffff

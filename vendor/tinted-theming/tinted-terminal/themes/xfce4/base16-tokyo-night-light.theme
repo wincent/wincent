@@ -5,6 +5,6 @@
 Name=base16-tokyo-night-light
 ColorForeground=#343b59
 ColorBackground=#d5d6db
-ColorCursor=x
+ColorCursor=#343b59
 ColorBoldIsBright=FALSE
-ColorPalette=#cbccd1;#343b58;#485e30;#166775;#34548a;#5a4a78;#3e6968;#1a1b26;#dfe0e5;#343b58;#485e30;#166775;#34548a;#5a4a78;#3e6968;#1a1b26
+ColorPalette=#d5d6db;#343b58;#485e30;#166775;#34548a;#5a4a78;#3e6968;#343b59;#9699a3;#343b58;#485e30;#166775;#34548a;#5a4a78;#3e6968;#1a1b26

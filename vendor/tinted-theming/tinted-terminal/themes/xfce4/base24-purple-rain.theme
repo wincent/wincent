@@ -5,6 +5,6 @@
 Name=base24-purple-rain
 ColorForeground=#d3d4d4
 ColorBackground=#20084a
-ColorCursor=x
+ColorCursor=#d3d4d4
 ColorBoldIsBright=FALSE
-ColorPalette=#000000;#ff260d;#9ae204;#00a5ff;#00a1f9;#805bb5;#00ddef;#feffff;#555555;#ff4250;#b8e36d;#ffd852;#00a5ff;#ab7aef;#74fcf3;#feffff
+ColorPalette=#20084a;#ff260d;#9ae204;#00a5ff;#00a1f9;#805bb5;#00ddef;#d3d4d4;#7f7f7f;#ff4250;#b8e36d;#ffd852;#00a5ff;#ab7aef;#74fcf3;#feffff

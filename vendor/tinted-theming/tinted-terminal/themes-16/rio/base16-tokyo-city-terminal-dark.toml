@@ -2,8 +2,8 @@
 # Color scheme: Tokyo City Terminal Dark by Michaël Ball
 
 [colors]
-selection-background = '#28323a' # base02
-selection-foreground = '#d8e2ec' # base05
+selection-background = '#d8e2ec' # base05
+selection-foreground = '#28323a' # base02
 
 cursor         = '#d8e2ec' # base05
 tabs           = '#1d252c' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#28323a' # base02
 
 background     = '#171d23' # base00
 foreground     = '#d8e2ec' # base05
-black          = '#1d252c' # base01
+black          = '#171d23' # base00
 red            = '#d95468' # base08
 yellow         = '#ebbf83' # base0A
 green          = '#8bd49c' # base0B
 cyan           = '#70e1e8' # base0C
 blue           = '#539afc' # base0D
 magenta        = '#b62d65' # base0E
-white          = '#f6f6f8' # base06
+white          = '#d8e2ec' # base05
 
 dim-foreground   = '#d8e2ec' # base05
 dim-black        = '#1d252c' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#b62d65' # base0E
 dim-white        = '#b7c5d3' # base04
 
 light-foreground = '#d8e2ec' # base05
-light-black      = '#28323a' # base02
+light-black      = '#526270' # base03
 light-red        = '#d95468' # base08
 light-yellow     = '#ebbf83' # base0A
 light-green      = '#8bd49c' # base0B

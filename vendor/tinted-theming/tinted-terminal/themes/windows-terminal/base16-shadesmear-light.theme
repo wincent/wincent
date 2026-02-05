@@ -3,9 +3,9 @@
 	"name": "ShadeSmear Light",
 	"foreground": "#232323",
 	"background": "#dbdbdb",
-	"black": "#e4e4e4",
+	"black": "#dbdbdb",
 	"blue": "#376388",
-	"brightBlack": "#c0c0c0",
+	"brightBlack": "#4e4e4e",
 	"brightBlue": "#376388",
 	"brightCyan": "#c57d42",
 	"brightGreen": "#71983b",
@@ -17,6 +17,6 @@
 	"green": "#71983b",
 	"purple": "#d7ab54",
 	"red": "#cc5450",
-	"white": "#1c1c1c",
-	"yellow": "#a64270"
+	"white": "#232323",
+	"yellow": "#307878"
 },

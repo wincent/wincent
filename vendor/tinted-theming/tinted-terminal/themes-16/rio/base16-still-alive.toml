@@ -2,8 +2,8 @@
 # Color scheme: Still Alive by Derrick McKee (derrick.mckee@gmail.com), Tinted Theming (https://github.com/tinted-theming)
 
 [colors]
-selection-background = '#bdbdbd' # base02
-selection-foreground = '#4c383b' # base05
+selection-background = '#4c383b' # base05
+selection-foreground = '#bdbdbd' # base02
 
 cursor         = '#4c383b' # base05
 tabs           = '#d6d6d6' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#bdbdbd' # base02
 
 background     = '#f0f0f0' # base00
 foreground     = '#4c383b' # base05
-black          = '#d6d6d6' # base01
+black          = '#f0f0f0' # base00
 red            = '#d80000' # base08
 yellow         = '#fff018' # base0A
 green          = '#30a860' # base0B
 cyan           = '#36d3ff' # base0C
 blue           = '#365eff' # base0D
 magenta        = '#9036ff' # base0E
-white          = '#331f21' # base06
+white          = '#4c383b' # base05
 
 dim-foreground   = '#4c383b' # base05
 dim-black        = '#d6d6d6' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#9036ff' # base0E
 dim-white        = '#605758' # base04
 
 light-foreground = '#4c383b' # base05
-light-black      = '#bdbdbd' # base02
+light-black      = '#a3a3a3' # base03
 light-red        = '#d80000' # base08
 light-yellow     = '#fff018' # base0A
 light-green      = '#30a860' # base0B

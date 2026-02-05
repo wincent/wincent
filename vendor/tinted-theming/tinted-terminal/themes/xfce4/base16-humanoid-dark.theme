@@ -5,6 +5,6 @@
 Name=base16-humanoid-dark
 ColorForeground=#f8f8f2
 ColorBackground=#232629
-ColorCursor=x
+ColorCursor=#f8f8f2
 ColorBoldIsBright=FALSE
-ColorPalette=#333b3d;#f11235;#02d849;#ffb627;#00a6fb;#f15ee3;#0dd9d6;#fcfcf6;#484e54;#f11235;#02d849;#ffb627;#00a6fb;#f15ee3;#0dd9d6;#fcfcfc
+ColorPalette=#232629;#f11235;#02d849;#ffb627;#00a6fb;#f15ee3;#0dd9d6;#f8f8f2;#60615d;#f11235;#02d849;#ffb627;#00a6fb;#f15ee3;#0dd9d6;#fcfcfc

@@ -2,8 +2,8 @@
 # Color scheme: Gigavolt by Aidan Swope (http://github.com/Whillikers)
 
 [colors]
-selection-background = '#5a576e' # base02
-selection-foreground = '#e9e7e1' # base05
+selection-background = '#e9e7e1' # base05
+selection-foreground = '#5a576e' # base02
 
 cursor         = '#e9e7e1' # base05
 tabs           = '#2d303d' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#5a576e' # base02
 
 background     = '#202126' # base00
 foreground     = '#e9e7e1' # base05
-black          = '#2d303d' # base01
+black          = '#202126' # base00
 red            = '#ff661a' # base08
 yellow         = '#ffdc2d' # base0A
 green          = '#f2e6a9' # base0B
 cyan           = '#fb6acb' # base0C
 blue           = '#40bfff' # base0D
 magenta        = '#ae94f9' # base0E
-white          = '#eff0f9' # base06
+white          = '#e9e7e1' # base05
 
 dim-foreground   = '#e9e7e1' # base05
 dim-black        = '#2d303d' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#ae94f9' # base0E
 dim-white        = '#cad3ff' # base04
 
 light-foreground = '#e9e7e1' # base05
-light-black      = '#5a576e' # base02
+light-black      = '#a1d2e6' # base03
 light-red        = '#ff661a' # base08
 light-yellow     = '#ffdc2d' # base0A
 light-green      = '#f2e6a9' # base0B

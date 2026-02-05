@@ -5,6 +5,6 @@
 Name=base16-gruber
 ColorForeground=#f4f4ff
 ColorBackground=#181818
-ColorCursor=x
+ColorCursor=#f4f4ff
 ColorBoldIsBright=FALSE
-ColorPalette=#453d41;#f43841;#73c936;#ffdd33;#96a6c8;#9e95c7;#95a99f;#f5f5f5;#484848;#f43841;#73c936;#ffdd33;#96a6c8;#9e95c7;#95a99f;#e4e4ef
+ColorPalette=#181818;#f43841;#73c936;#ffdd33;#96a6c8;#9e95c7;#95a99f;#f4f4ff;#52494e;#f43841;#73c936;#ffdd33;#96a6c8;#9e95c7;#95a99f;#e4e4ef

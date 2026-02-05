@@ -3,9 +3,9 @@
 	"name": "Wild Cherry",
 	"foreground": "#bfe1d8",
 	"background": "#1f1626",
-	"black": "#000506",
+	"black": "#1f1626",
 	"blue": "#883cdc",
-	"brightBlack": "#009cc9",
+	"brightBlack": "#3fb3ce",
 	"brightBlue": "#2f8bb9",
 	"brightCyan": "#ff919d",
 	"brightGreen": "#f4dba5",
@@ -17,6 +17,6 @@
 	"green": "#2ab250",
 	"purple": "#ececec",
 	"red": "#d94085",
-	"white": "#fff8dd",
-	"yellow": "#ffd16f"
+	"white": "#bfe1d8",
+	"yellow": "#2f8bb9"
 },

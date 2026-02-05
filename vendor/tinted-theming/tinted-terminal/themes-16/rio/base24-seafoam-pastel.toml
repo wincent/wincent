@@ -2,8 +2,8 @@
 # Color scheme: Seafoam Pastel by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#8a8a8a' # base02
-selection-foreground = '#cacaca' # base05
+selection-background = '#cacaca' # base05
+selection-foreground = '#8a8a8a' # base02
 
 cursor         = '#cacaca' # base05
 tabs           = '#757575' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#8a8a8a' # base02
 
 background     = '#243434' # base00
 foreground     = '#cacaca' # base05
-black          = '#757575' # base01
+black          = '#243434' # base00
 red            = '#825d4d' # base08
 yellow         = '#79c3cf' # base0A
 green          = '#718c61' # base0B
 cyan           = '#719393' # base0C
 blue           = '#4d7b82' # base0D
 magenta        = '#8a7167' # base0E
-white          = '#e0e0e0' # base06
+white          = '#cacaca' # base05
 
 dim-foreground   = '#cacaca' # base05
 dim-black        = '#757575' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#8a7167' # base0E
 dim-white        = '#b5b5b5' # base04
 
 light-foreground = '#cacaca' # base05
-light-black      = '#8a8a8a' # base02
+light-black      = '#9f9f9f' # base03
 light-red        = '#cf9379' # base12
 light-yellow     = '#fae79d' # base13
 light-green      = '#98d9aa' # base14

@@ -3,9 +3,9 @@
 	"name": "Framer",
 	"foreground": "#d0d0d0",
 	"background": "#181818",
-	"black": "#151515",
+	"black": "#181818",
 	"blue": "#20bcfc",
-	"brightBlack": "#464646",
+	"brightBlack": "#747474",
 	"brightBlue": "#20bcfc",
 	"brightCyan": "#acddfd",
 	"brightGreen": "#32ccdc",
@@ -17,6 +17,6 @@
 	"green": "#32ccdc",
 	"purple": "#ba8cfc",
 	"red": "#fd886b",
-	"white": "#e8e8e8",
-	"yellow": "#fc4769"
+	"white": "#d0d0d0",
+	"yellow": "#fecb6e"
 },

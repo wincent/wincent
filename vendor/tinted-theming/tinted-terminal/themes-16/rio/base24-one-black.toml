@@ -2,8 +2,8 @@
 # Color scheme: One Black by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#4f5666' # base02
-selection-foreground = '#abb2bf' # base05
+selection-background = '#abb2bf' # base05
+selection-foreground = '#4f5666' # base02
 
 cursor         = '#abb2bf' # base05
 tabs           = '#000000' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#4f5666' # base02
 
 background     = '#000000' # base00
 foreground     = '#abb2bf' # base05
-black          = '#000000' # base01
+black          = '#000000' # base00
 red            = '#e05561' # base08
 yellow         = '#e6b965' # base0A
 green          = '#8cc265' # base0B
 cyan           = '#42b3c2' # base0C
 blue           = '#4aa5f0' # base0D
 magenta        = '#c162de' # base0E
-white          = '#e6e6e6' # base06
+white          = '#abb2bf' # base05
 
 dim-foreground   = '#abb2bf' # base05
 dim-black        = '#000000' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#c162de' # base0E
 dim-white        = '#9196a1' # base04
 
 light-foreground = '#abb2bf' # base05
-light-black      = '#4f5666' # base02
+light-black      = '#545862' # base03
 light-red        = '#ff616e' # base12
 light-yellow     = '#f0a45d' # base13
 light-green      = '#a5e075' # base14

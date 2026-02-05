@@ -3,9 +3,9 @@
 	"name": "Solar Flare Light",
 	"foreground": "#586875",
 	"background": "#f5f7fa",
-	"black": "#e8e9ed",
+	"black": "#f5f7fa",
 	"blue": "#33b5e1",
-	"brightBlack": "#a6afb8",
+	"brightBlack": "#85939e",
 	"brightBlue": "#33b5e1",
 	"brightCyan": "#52cbb0",
 	"brightGreen": "#7cc844",
@@ -17,6 +17,6 @@
 	"green": "#7cc844",
 	"purple": "#a363d5",
 	"red": "#ef5253",
-	"white": "#222e38",
-	"yellow": "#e66b2b"
+	"white": "#586875",
+	"yellow": "#e4b51c"
 },

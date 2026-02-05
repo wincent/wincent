@@ -3,9 +3,9 @@
 	"name": "Challenger Deep",
 	"foreground": "#929bb6",
 	"background": "#1e1c31",
-	"black": "#141127",
+	"black": "#1e1c31",
 	"blue": "#65b2ff",
-	"brightBlack": "#565575",
+	"brightBlack": "#6a6c8a",
 	"brightBlue": "#91ddff",
 	"brightCyan": "#aaffe4",
 	"brightGreen": "#95ffa4",
@@ -17,6 +17,6 @@
 	"green": "#62d196",
 	"purple": "#906cff",
 	"red": "#ff5458",
-	"white": "#a6b3cc",
-	"yellow": "#ffb378"
+	"white": "#929bb6",
+	"yellow": "#91ddff"
 },

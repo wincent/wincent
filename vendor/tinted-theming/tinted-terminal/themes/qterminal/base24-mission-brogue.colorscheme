@@ -8,13 +8,13 @@ Color=62,62,59
 Color=40,49,57
 
 [Color0]
-Color=59,73,84
+Color=40,49,57
 
 [Color0Faint]
 Color=40,49,57
 
 [Color0Intense]
-Color=77,96,111
+Color=96,119,138
 
 [Color1]
 Color=239,169,169
@@ -35,10 +35,10 @@ Color=140,212,176
 Color=181,224,144
 
 [Color3]
-Color=242,219,120
+Color=224,184,138
 
 [Color3Faint]
-Color=242,219,120
+Color=224,184,138
 
 [Color3Intense]
 Color=255,240,178
@@ -71,7 +71,7 @@ Color=147,223,236
 Color=178,240,253
 
 [Color7]
-Color=171,185,196
+Color=147,165,180
 
 [Color7Faint]
 Color=147,165,180
@@ -92,4 +92,3 @@ Color=171,185,196
 Blur=true
 Description=Mission Brogue
 Opacity=0.95
-

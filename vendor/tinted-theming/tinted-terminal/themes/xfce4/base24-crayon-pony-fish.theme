@@ -5,6 +5,6 @@
 Name=base24-crayon-pony-fish
 ColorForeground=#5d484e
 ColorBackground=#140607
-ColorCursor=x
+ColorCursor=#5d484e
 ColorBoldIsBright=FALSE
-ColorPalette=#2a1a1c;#90002a;#579523;#cfc9ff;#8b87af;#682e50;#e8a766;#685259;#3c2a2e;#c5245c;#8dff56;#c7371d;#cfc9ff;#fb6cb9;#ffceae;#af949d
+ColorPalette=#140607;#90002a;#579523;#cfc9ff;#8b87af;#682e50;#e8a766;#5d484e;#473438;#c5245c;#8dff56;#c7371d;#cfc9ff;#fb6cb9;#ffceae;#af949d

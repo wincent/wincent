@@ -5,6 +5,6 @@
 Name=base24-adventure-time
 ColorForeground=#cdc3bf
 ColorBackground=#1e1c44
-ColorCursor=x
+ColorCursor=#cdc3bf
 ColorBoldIsBright=FALSE
-ColorPalette=#050404;#bc0013;#49b117;#1896c6;#0f49c6;#665992;#6fa497;#f8dbc0;#4e7bbf;#fc5e59;#9dff6e;#efc11a;#1896c6;#9a5952;#c8f9f3;#f5f4fb
+ColorPalette=#1e1c44;#bc0013;#49b117;#1896c6;#0f49c6;#665992;#6fa497;#cdc3bf;#7893bf;#fc5e59;#9dff6e;#efc11a;#1896c6;#9a5952;#c8f9f3;#f5f4fb

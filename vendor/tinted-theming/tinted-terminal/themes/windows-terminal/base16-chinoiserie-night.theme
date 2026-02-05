@@ -3,9 +3,9 @@
 	"name": "Chinoiserie Night",
 	"foreground": "#c4cbcf",
 	"background": "#1d1d1d",
-	"black": "#282828",
+	"black": "#1d1d1d",
 	"blue": "#8fb2c9",
-	"brightBlack": "#373737",
+	"brightBlack": "#918072",
 	"brightBlue": "#8fb2c9",
 	"brightCyan": "#b0d5df",
 	"brightGreen": "#b2cf87",
@@ -17,6 +17,6 @@
 	"green": "#b2cf87",
 	"purple": "#be9db9",
 	"red": "#f07c82",
-	"white": "#eee7f2",
-	"yellow": "#f4a83a"
+	"white": "#c4cbcf",
+	"yellow": "#f4ce69"
 },

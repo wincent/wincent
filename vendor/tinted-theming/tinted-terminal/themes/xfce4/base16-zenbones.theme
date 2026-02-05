@@ -5,6 +5,6 @@
 Name=base16-zenbones
 ColorForeground=#b279a7
 ColorBackground=#191919
-ColorCursor=x
+ColorCursor=#b279a7
 ColorBoldIsBright=FALSE
-ColorPalette=#de6e7c;#3d3839;#d68c67;#8bae68;#cf86c1;#65b8c1;#61abda;#66a5ad;#819b69;#3d3839;#d68c67;#8bae68;#cf86c1;#65b8c1;#61abda;#bbbbbb
+ColorPalette=#191919;#3d3839;#d68c67;#8bae68;#cf86c1;#65b8c1;#61abda;#b279a7;#b77e64;#3d3839;#d68c67;#8bae68;#cf86c1;#65b8c1;#61abda;#bbbbbb

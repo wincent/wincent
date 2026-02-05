@@ -3,9 +3,9 @@
 	"name": "Pro Light",
 	"foreground": "#4f4f4f",
 	"background": "#feffff",
-	"black": "#f1f1f1",
+	"black": "#feffff",
 	"blue": "#3a75ff",
-	"brightBlack": "#dcdcdc",
+	"brightBlack": "#cccccc",
 	"brightBlue": "#0081ff",
 	"brightCyan": "#60f6f8",
 	"brightGreen": "#61ee56",
@@ -17,6 +17,6 @@
 	"green": "#50d048",
 	"purple": "#ec65e7",
 	"red": "#e4492b",
-	"white": "#323232",
-	"yellow": "#c58e40"
+	"white": "#4f4f4f",
+	"yellow": "#c5c340"
 },

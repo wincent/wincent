@@ -5,6 +5,6 @@
 Name=base24-hybrid
 ColorForeground=#8f9190
 ColorBackground=#161718
-ColorCursor=x
+ColorCursor=#8f9190
 ColorBoldIsBright=FALSE
-ColorPalette=#2a2e33;#b74d50;#b3be5a;#4b6b88;#6d90b0;#a07eab;#7fbeb3;#b5b8b6;#1d1e21;#8c2d32;#788331;#e5894f;#4b6b88;#6e4f79;#4d7b73;#5a6169
+ColorPalette=#161718;#b74d50;#b3be5a;#4b6b88;#6d90b0;#a07eab;#7fbeb3;#8f9190;#434446;#8c2d32;#788331;#e5894f;#4b6b88;#6e4f79;#4d7b73;#5a6169

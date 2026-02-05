@@ -3,9 +3,9 @@
 	"name": "SAGA",
 	"foreground": "#dce2f7",
 	"background": "#05080a",
-	"black": "#0a1014",
+	"black": "#05080a",
 	"blue": "#c9fff7",
-	"brightBlack": "#0f181e",
+	"brightBlack": "#141f27",
 	"brightBlue": "#c9fff7",
 	"brightCyan": "#c5edc1",
 	"brightGreen": "#f7ddff",
@@ -17,6 +17,6 @@
 	"green": "#f7ddff",
 	"purple": "#dcc3f9",
 	"red": "#ffd4e9",
-	"white": "#f8eae7",
-	"yellow": "#fbcbae"
+	"white": "#dce2f7",
+	"yellow": "#fbebc8"
 },

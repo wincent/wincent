@@ -3,9 +3,9 @@
 	"name": "Black Metal (Dark Funeral)",
 	"foreground": "#c1c1c1",
 	"background": "#000000",
-	"black": "#121212",
+	"black": "#000000",
 	"blue": "#888888",
-	"brightBlack": "#222222",
+	"brightBlack": "#333333",
 	"brightBlue": "#888888",
 	"brightCyan": "#aaaaaa",
 	"brightGreen": "#d0dfee",
@@ -17,6 +17,6 @@
 	"green": "#d0dfee",
 	"purple": "#999999",
 	"red": "#5f8787",
-	"white": "#999999",
-	"yellow": "#aaaaaa"
+	"white": "#c1c1c1",
+	"yellow": "#5f81a5"
 },

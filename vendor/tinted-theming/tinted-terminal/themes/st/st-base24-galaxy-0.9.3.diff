@@ -20,14 +20,14 @@ diff '--color=auto' -u -N st-0.9.3/config.def.h st-0.9.3-mod/config.def.h
 -	"magenta3",
 -	"cyan3",
 -	"gray90",
-+	[0] = "#000000",   /* black  */
++	[0] = "#1c2836",   /* black  */
 +	[1] = "#f9555f",   /* red    */
 +	[2] = "#20af89",   /* green  */
 +	[3] = "#fdf029",   /* yellow */
 +	[4] = "#589cf5",   /* blue   */
 +	[5] = "#934d95",   /* magenta*/
 +	[6] = "#1e9ee6",   /* cyan   */
-+	[7] = "#bbbbbb",   /* white  */
++	[7] = "#a1a1a1",   /* white  */
 
  	/* 8 bright colors */
 -	"gray50",
@@ -38,7 +38,7 @@ diff '--color=auto' -u -N st-0.9.3/config.def.h st-0.9.3-mod/config.def.h
 -	"magenta",
 -	"cyan",
 -	"white",
-+	[8] = "#555555",   /* black  */
++	[8] = "#6e6e6e",   /* black  */
 +	[9] = "#fa8b8e",   /* red    */
 +	[10] = "#34bb99",  /* green  */
 +	[11] = "#ffff55",  /* yellow */

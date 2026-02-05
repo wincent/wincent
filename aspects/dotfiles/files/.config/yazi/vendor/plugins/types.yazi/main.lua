@@ -1,4 +1,4 @@
--- luacheck: globals Command Url cx fs ps rt th ui ya
+-- luacheck: globals Command Url Path cx fs ps rt th ui ya
 
 ---@alias Stdio integer
 
@@ -9,6 +9,8 @@
 Command = Command
 ---@type Url
 Url = Url
+---@type Path
+Path = Path
 ---@type cx
 cx = cx
 ---@type fs
@@ -65,15 +67,21 @@ ya = ya
 -- | Alias | `"black"` \| `"white"` \| `"red"` \| `"lightred"` \| `"green"` \| `"lightgreen"` \| `"yellow"` \| `"lightyellow"` \| `"blue"` \| `"lightblue"` \| `"magenta"` \| `"lightmagenta"` \| `"cyan"` \| `"lightcyan"` \| `"gray"` \| `"darkgray"` \| `"reset"` \| `string` |
 ---@alias AsColor "black"|"white"|"red"|"lightred"|"green"|"lightgreen"|"yellow"|"lightyellow"|"blue"|"lightblue"|"magenta"|"lightmagenta"|"cyan"|"lightcyan"|"gray"|"darkgray"|"reset"|string
 
--- Create a Url:
+-- Create a URL:
 -- ```lua
 -- -- regular file
 -- local url = Url("/root/Downloads/logo.png")
--- -- `bgm.mp3` from the archive `ost.zip`
--- local url = Url("archive:///root/ost.zip#bgm.mp3")
+-- -- `/root/dog.jpg` on `my-server` via SFTP
+-- local url = Url("sftp://my-server//root/dog.jpg")
 -- ```
 ---@class (exact) Url
--- Filename of the url.
+-- [`Path`](#path) portion of the URL.
+-- For the URL `sftp://my-server//path/to/file`, the path is `/path/to/file`.
+-- |      |        |
+-- | ---- | ------ |
+-- | Type | `Path` |
+---@field path Path
+-- Filename of the URL.
 -- |      |           |
 -- | ---- | --------- |
 -- | Type | `string?` |
@@ -83,86 +91,163 @@ ya = ya
 -- | ---- | --------- |
 -- | Type | `string?` |
 ---@field stem string?
--- Url fragment.
--- Let's say the url `archive:///root/my-archive.zip#1.jpg`, the fragment `1.jpg`.
+-- Extension of the file.
 -- |      |           |
 -- | ---- | --------- |
 -- | Type | `string?` |
----@field frag string?
+---@field ext string?
 -- Parent directory.
 -- |      |         |
 -- | ---- | ------- |
 -- | Type | `Self?` |
 ---@field parent self?
--- Whether the file represented by the url is a regular file.
+-- Domain of the URL.
+-- For the URL `sftp://my-server//root/dog.jpg`, the domain is `my-server`.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `string?` |
+---@field domain string?
+-- Whether the file represented by the URL is a regular file.
 -- |      |           |
 -- | ---- | --------- |
 -- | Type | `boolean` |
 ---@field is_regular boolean
--- Whether the file represented by the url is from an archive.
+-- Whether the file represented by the URL is from an archive.
 -- |      |           |
 -- | ---- | --------- |
 -- | Type | `boolean` |
 ---@field is_archive boolean
--- Whether the path represented by the url has a root.
+-- Whether the path represented by the URL has a root.
 -- |      |           |
 -- | ---- | --------- |
 -- | Type | `boolean` |
 ---@field has_root boolean
--- Join with `another` to create a new url.
--- | In/Out    | Type               |
--- | --------- | ------------------ |
--- | `self`    | `Self`             |
--- | `another` | `Self` \| `string` |
--- | Return    | `Self`             |
----@field join fun(self: self, another: self|string): self
--- Whether the url starts with `another`.
--- | In/Out    | Type               |
--- | --------- | ------------------ |
--- | `self`    | `Self`             |
--- | `another` | `Self` \| `string` |
--- | Return    | `boolean`          |
----@field starts_with fun(self: self, another: self|string): boolean
--- Whether the url ends with `another`.
--- | In/Out    | Type               |
--- | --------- | ------------------ |
--- | `self`    | `Self`             |
--- | `another` | `Self` \| `string` |
--- | Return    | `boolean`          |
----@field ends_with fun(self: self, another: self|string): boolean
--- Strips the prefix of `another`.
--- | In/Out    | Type               |
--- | --------- | ------------------ |
--- | `self`    | `Self`             |
--- | `another` | `Self` \| `string` |
--- | Return    | `Self`             |
----@field strip_prefix fun(self: self, another: self|string): self
--- Whether the url is equal to `another`.
--- | In/Out    | Type      |
--- | --------- | --------- |
--- | `self`    | `Self`    |
--- | `another` | `Self`    |
--- | Return    | `boolean` |
----@field __eq fun(self: self, another: self): boolean
--- Convert the url to string.
+-- Join with `other` to create a new URL.
+-- | In/Out  | Type               |
+-- | ------- | ------------------ |
+-- | `self`  | `Self`             |
+-- | `other` | `Self` \| `string` |
+-- | Return  | `Self`             |
+---@field join fun(self: self, other: self|string): self
+-- Whether the URL starts with `base`.
+-- | In/Out | Type               |
+-- | ------ | ------------------ |
+-- | `self` | `Self`             |
+-- | `base` | `Self` \| `string` |
+-- | Return | `boolean`          |
+---@field starts_with fun(self: self, base: self|string): boolean
+-- Whether the URL ends with `base`.
+-- | In/Out | Type               |
+-- | ------ | ------------------ |
+-- | `self` | `Self`             |
+-- | `base` | `Self` \| `string` |
+-- | Return | `boolean`          |
+---@field ends_with fun(self: self, base: self|string): boolean
+-- Strips the prefix of `base`.
+-- | In/Out | Type               |
+-- | ------ | ------------------ |
+-- | `self` | `Self`             |
+-- | `base` | `Self` \| `string` |
+-- | Return | `Path`             |
+---@field strip_prefix fun(self: self, base: self|string): Path
+-- Whether the URL is equal to `other`.
+-- | In/Out  | Type      |
+-- | ------- | --------- |
+-- | `self`  | `Self`    |
+-- | `other` | `Self`    |
+-- | Return  | `boolean` |
+---@field __eq fun(self: self, other: self): boolean
+-- Convert the URL to string.
 -- | In/Out | Type     |
 -- | ------ | -------- |
 -- | `self` | `Self`   |
 -- | Return | `string` |
 ---@field __tostring fun(self: self): string
--- Concatenate the url with `another`.
--- | In/Out    | Type     |
--- | --------- | -------- |
--- | `self`    | `Self`   |
--- | `another` | `string` |
--- | Return    | `Self`   |
----@field __concat fun(self: self, another: string): self
--- Make a new url.
+-- Concatenate the URL with `other`.
+-- | In/Out  | Type     |
+-- | ------- | -------- |
+-- | `self`  | `Self`   |
+-- | `other` | `string` |
+-- | Return  | `Self`   |
+---@field __concat fun(self: self, other: string): self
+-- Make a new URL.
 -- | In/Out  | Type               |
 -- | ------- | ------------------ |
 -- | `value` | `string` \| `Self` |
 -- | Return  | `Self`             |
 ---@overload fun(value: string|self): Url
+
+-- `Path` is the path portion of a [`Url`](#url).
+-- For the URL `sftp://my-server//path/to/file`, the path is `/path/to/file`.
+---@class (exact) Path
+-- Filename of the path.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `string?` |
+---@field name string?
+-- Filename without the extension.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `string?` |
+---@field stem string?
+-- Parent directory.
+-- |      |         |
+-- | ---- | ------- |
+-- | Type | `Self?` |
+---@field parent self?
+-- Whether the path has a root.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `boolean` |
+---@field has_root boolean
+-- Join with `other` to create a new path.
+-- | In/Out  | Type               |
+-- | ------- | ------------------ |
+-- | `self`  | `Self`             |
+-- | `other` | `Self` \| `string` |
+-- | Return  | `Self`             |
+---@field join fun(self: self, other: self|string): self
+-- Whether the path starts with `base`.
+-- | In/Out | Type               |
+-- | ------ | ------------------ |
+-- | `self` | `Self`             |
+-- | `base` | `Self` \| `string` |
+-- | Return | `boolean`          |
+---@field starts_with fun(self: self, base: self|string): boolean
+-- Whether the path ends with `base`.
+-- | In/Out | Type               |
+-- | ------ | ------------------ |
+-- | `self` | `Self`             |
+-- | `base` | `Self` \| `string` |
+-- | Return | `boolean`          |
+---@field ends_with fun(self: self, base: self|string): boolean
+-- Strips the prefix of `base`.
+-- | In/Out | Type               |
+-- | ------ | ------------------ |
+-- | `self` | `Self`             |
+-- | `base` | `Self` \| `string` |
+-- | Return | `Self`             |
+---@field strip_prefix fun(self: self, base: self|string): self
+-- Whether the path is equal to `other`.
+-- | In/Out  | Type      |
+-- | ------- | --------- |
+-- | `self`  | `Self`    |
+-- | `other` | `Self`    |
+-- | Return  | `boolean` |
+---@field __eq fun(self: self, other: self): boolean
+-- Convert the path to string.
+-- | In/Out | Type     |
+-- | ------ | -------- |
+-- | `self` | `Self`   |
+-- | Return | `string` |
+---@field __tostring fun(self: self): string
+-- Concatenate the path with `other`.
+-- | In/Out  | Type     |
+-- | ------- | -------- |
+-- | `self`  | `Self`   |
+-- | `other` | `string` |
+-- | Return  | `Self`   |
+---@field __concat fun(self: self, other: string): self
 
 -- One file's characteristics.
 ---@class (exact) Cha
@@ -186,7 +271,7 @@ ya = ya
 -- | ---- | --------- |
 -- | Type | `boolean` |
 ---@field is_orphan boolean
--- Whether the file is dummy, which fails to load complete metadata, possibly the filesystem doesn't support it, such as FUSE.
+-- Whether the file is dummy, which fails to load complete metadata. It could be due to the file system not supporting it, such as FUSE.
 -- |      |           |
 -- | ---- | --------- |
 -- | Type | `boolean` |
@@ -269,7 +354,7 @@ ya = ya
 
 -- A bare file without any context information. See also [`fs::File`](/docs/plugins/context#fs-file).
 ---@class (exact) File
--- Url of the file.
+-- URL of the file.
 -- |      |       |
 -- | ---- | ----- |
 -- | Type | `Url` |
@@ -279,11 +364,11 @@ ya = ya
 -- | ---- | ----- |
 -- | Type | `Cha` |
 ---@field cha Cha
--- Url of the file points to, if it's a symlink.
--- |      |        |
--- | ---- | ------ |
--- | Type | `Url?` |
----@field link_to Url?
+-- Path of the file points to, if it's a symlink.
+-- |      |         |
+-- | ---- | ------- |
+-- | Type | `Path?` |
+---@field link_to Path?
 -- Name of the file.
 -- |      |          |
 -- | ---- | -------- |
@@ -316,13 +401,13 @@ ya = ya
 -- | `self` | `Self`   |
 -- | Return | `string` |
 ---@field __tostring fun(self: self): string
--- Concatenate the error with `another`.
--- | In/Out    | Type     |
--- | --------- | -------- |
--- | `self`    | `Self`   |
--- | `another` | `string` |
--- | Return    | `Error`  |
----@field __concat fun(self: self, another: string): Error
+-- Concatenate the error with `other`.
+-- | In/Out  | Type     |
+-- | ------- | -------- |
+-- | `self`  | `Self`   |
+-- | `other` | `string` |
+-- | Return  | `Error`  |
+---@field __concat fun(self: self, other: string): Error
 
 -- 
 ---@class (exact) Window
@@ -621,9 +706,9 @@ ya = ya
 -- | Private   | This method can't be inherited. |
 ---@field patch fun(self: self, another: self): self
 -- Make a new style.
--- | In/Out | Type   |
--- | ------ | ------ |
--- | Return | `Self` |
+-- | In/Out  | Type    |
+-- | ------- | ------- |
+-- | Return  | `Self`  |
 ---@overload fun(): ui.Style
 
 -- `ui.Span` is the smallest unit of text, yet a component of `ui.Line`. Create a span:
@@ -1645,7 +1730,7 @@ ya = ya
 -- | ---- | --------- |
 -- | Type | `boolean` |
 ---@field is_hovered boolean
--- Url of the file.
+-- URL of the file.
 -- |      |       |
 -- | ---- | ----- |
 -- | Type | `Url` |
@@ -1655,11 +1740,11 @@ ya = ya
 -- | ---- | ----- |
 -- | Type | `Cha` |
 ---@field cha Cha
--- Url of the file points to, if it's a symlink.
--- |      |        |
--- | ---- | ------ |
--- | Type | `Url?` |
----@field link_to Url?
+-- Path of the file points to, if it's a symlink.
+-- |      |         |
+-- | ---- | ------- |
+-- | Type | `Path?` |
+---@field link_to Path?
 -- Name of the file.
 -- |      |          |
 -- | ---- | -------- |
@@ -1935,26 +2020,12 @@ ya = ya
 
 -- 
 ---@class (exact) ya
--- Hide Yazi to the secondary screen by returning to the terminal, completely controlled by the requested plugin.
--- ```lua
--- local permit = ya.hide()
--- ```
--- This method returns a `permit` for this resource. When it's necessary to restore the TUI display, call its `drop()` method:
--- ```lua
--- permit:drop()
--- ```
--- Note that since there's always only one available terminal control resource, `ya.hide()` cannot be called again before the previous `permit` is dropped, otherwise an error will be thrown, effectively avoiding deadlocks.
--- | In/Out    | Type               |
--- | --------- | ------------------ |
--- | Return    | `Permit`           |
--- | Available | Async context only |
----@field hide fun(): Permit
 -- Calculate the cached [Url](/docs/plugins/types#url) corresponding to the given file.
 -- ```lua
 -- ya.file_cache {
 --   -- File to be cached.
 --   file = file,
---   -- Number of units to skip. It's units largely depend on your previewer,
+--   -- Number of units to skip. Its units largely depend on your previewer,
 --   -- such as lines for code, and percentages for videos.
 --   skip = 1,
 -- }
@@ -1965,18 +2036,6 @@ ya = ya
 -- | `opts` | `{ file: File, skip: integer }` |
 -- | Return | `Url?`                          |
 ---@field file_cache fun(opts: { file: File, skip: integer }): Url?
--- Re-render the UI:
--- ```lua
--- local update_state = ya.sync(function(self, new_state)
---   self.state = new_state
---   ya.render()
--- end)
--- ```
--- | In/Out    | Type              |
--- | --------- | ----------------- |
--- | Return    | `unknown`         |
--- | Available | Sync context only |
----@field render fun(): unknown
 -- Send a command to the [`[mgr]`](/docs/configuration/keymap#mgr) without waiting for the executor to execute:
 -- ```lua
 -- ya.emit("my-cmd", { "hello", 123, foo = true, bar_baz = "world" })
@@ -2032,14 +2091,14 @@ ya = ya
 -- Request user input:
 -- ```lua
 -- local value, event = ya.input {
+--   -- Position
+--   pos = { "top-center", y = 3, w = 40 },
 --   -- Title
 --   title = "Archive name:",
 --   -- Default value
 --   value = "",
 --   -- Whether to obscure the input.
 --   obscure = false,
---   -- Position
---   position = { "top-center", y = 3, w = 40 },
 --   -- Whether to report user input in real time.
 --   realtime = false,
 --   -- Number of seconds to wait for the user to stop typing, available if `realtime = true`.
@@ -2056,8 +2115,8 @@ ya = ya
 -- When `realtime = true` specified, `ya.input()` returns a receiver, which has a `recv()` method that can be called multiple times to receive events:
 -- ```lua
 -- local input = ya.input {
+--   pos = { "center", w = 50 },
 --   title = "Input in realtime:",
---   position = { "center", w = 50 },
 --   realtime = true,
 -- }
 -- while true do
@@ -2068,12 +2127,12 @@ ya = ya
 --   ya.dbg(value)
 -- end
 -- ```
--- | In/Out    | Type                                                                                                           |
--- | --------- | -------------------------------------------------------------------------------------------------------------- |
--- | `opts`    | `{ title: string, value: string?, obscure: boolean?, position: AsPos, realtime: boolean?, debounce: number? }` |
--- | Return    | `(string?, integer)` \| `Recv`                                                                                 |
--- | Available | Async context only                                                                                             |
----@field input fun(opts: { title: string, value: string?, obscure: boolean?, position: AsPos, realtime: boolean?, debounce: number? }): (string?, integer)|Recv
+-- | In/Out    | Type                                                                                                      |
+-- | --------- | --------------------------------------------------------------------------------------------------------- |
+-- | `opts`    | `{ pos: AsPos, title: string, value: string?, obscure: boolean?, realtime: boolean?, debounce: number? }` |
+-- | Return    | `(string?, integer)` \| `Recv`                                                                            |
+-- | Available | Async context only                                                                                        |
+---@field input fun(opts: { pos: AsPos, title: string, value: string?, obscure: boolean?, realtime: boolean?, debounce: number? }): (string?, integer)|Recv
 -- Send a foreground notification to the user:
 -- ```lua
 -- ya.notify {
@@ -2181,12 +2240,35 @@ ya = ya
 -- | Return    | `unknown`                                                 |
 -- | Available | Async context only                                        |
 ---@field preview_widget fun(opts: { area: ui.Rect, file: File, mime: string, skip: integer }, widget: Renderable|Renderable[]): unknown
+-- Make a function synchronous.
 -- See [Async context](/docs/plugins/overview#async-context).
 -- | In/Out | Type                 |
 -- | ------ | -------------------- |
 -- | `fn`   | `fun(...: any): any` |
 -- | Return | `fun(...: any): any` |
 ---@field sync fun(fn: fun(...: any): any): fun(...: any): any
+-- :::warning
+-- This API is highly experimental at the moment, and its behavior may change in the future.
+-- :::
+-- Run a function asynchronously on the main thread.
+-- `fn` should contain only async I/O operations, i.g., calls to other async APIs, and should not include any sync I/O, or blocking tasks, such as Lua's `io.open()`, `os.system()`.
+-- `fn` runs in an asynchronous context but can access any [Sendable values](/docs/plugins/overview#sendable) from the outer synchronous context, for example:
+-- ```lua
+-- --- @sync entry
+-- local function entry()
+--   local cwd = cx.active.current.cwd
+--   ya.async(function ()
+--     ya.dbg(cwd)    -- `cwd` is a Url, which is sendable
+--   end)
+-- end
+-- return { entry }
+-- ```
+-- See [Async context](/docs/plugins/overview#async-context).
+-- | In/Out | Type                 |
+-- | ------ | -------------------- |
+-- | `fn`   | `fun(...: any): any` |
+-- | Return | `any`                |
+---@field async fun(fn: fun(...: any): any): any
 -- Returns a string describing the specific operating system in use.
 -- | In/Out | Type                                                                                                                                                    |
 -- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -2218,21 +2300,6 @@ ya = ya
 -- | `str`  | `string` |
 -- | Return | `string` |
 ---@field quote fun(str: string): string
--- Truncate the `text` to the specified width and return the truncated result:
--- ```lua
--- ya.truncate("Hello, World!", {
---   -- Maximum width of the text.
---   max = 5,
---   -- Whether to truncate the text from right-to-left.
---   rtl = false
--- })
--- ```
--- | In/Out | Type                              |
--- | ------ | --------------------------------- |
--- | `text` | `string`                          |
--- | `opts` | `{ max: integer, rtl: boolean? }` |
--- | Return | `string`                          |
----@field truncate fun(text: string, opts: { max: integer, rtl: boolean? }): string
 -- Get or set the content of the system clipboard:
 -- ```lua
 -- -- Get contents from the clipboard if no argument is provided
@@ -2306,6 +2373,213 @@ ya = ya
 -- | Available | Unix-like systems only |
 ---@field host_name fun(): string?
 
+-- The following functions can only be used within an async context.
+---@class (exact) fs
+-- Get the current working directory (CWD) of the process.
+-- This API was added to compensate for the lack of a [`getcwd`][getcwd] in Lua; it is used to retrieve the directory of the last [`chdir`][chdir] call:
+-- ```lua
+-- local url, err = fs.cwd()
+-- ```
+-- You probably will never need it, and more likely, you'll need [`cx.active.current.cwd`][folder-cwd], which is the current directory where the user is working.
+-- Specifically, when the user changes the directory, `cx.active.current.cwd` gets updated immediately, while synchronizing this update with the file system via `chdir` involves I/O operations, such as checking if the directory is valid.
+-- So, there may be some delay, which is particularly noticeable on slow devices. For example, when an HDD wakes up from sleep, it typically takes 3~4 seconds.
+-- It is useful if you just need a valid directory as the CWD of a process to start some work that doesn't depend on the CWD.
+-- | In/Out    | Type               |
+-- | --------- | ------------------ |
+-- | Return    | `Url?, Error?`     |
+-- | Available | Async context only |
+-- [getcwd]: https://man7.org/linux/man-pages/man3/getcwd.3.html
+-- [chdir]: https://man7.org/linux/man-pages/man2/chdir.2.html
+-- [folder-cwd]: /docs/plugins/context#tab-folder.cwd
+---@field cwd fun(): Url?, Error?
+-- Get the [Cha][cha] of the specified `url`:
+-- ```lua
+-- -- Not following symbolic links
+-- local cha, err = fs.cha(url)
+-- -- Follow symbolic links
+-- local cha, err = fs.cha(url, true)
+-- ```
+-- Returns `(cha, err)`:
+-- - `cha`: The [Cha][cha] of the specified `url` if the operation succeeds.
+-- - `err`: [`Error`][error] of the failure.
+-- | In/Out    | Type               |
+-- | --------- | ------------------ |
+-- | `url`     | `Url`              |
+-- | `follow`  | `boolean?`         |
+-- | Return    | `Cha?, Error?`     |
+-- | Available | Async context only |
+---@field cha fun(url: Url, follow: boolean?): Cha?, Error?
+-- Write `data` to the specified `url`:
+-- ```lua
+-- local ok, err = fs.write(url, "hello world")
+-- ```
+-- | In/Out    | Type               |
+-- | --------- | ------------------ |
+-- | `url`     | `Url`              |
+-- | `data`    | `string`           |
+-- | Return    | `boolean, Error?`  |
+-- | Available | Async context only |
+---@field write fun(url: Url, data: string): boolean, Error?
+-- Create file(s) at the `url` of the file system:
+-- ```lua
+-- local ok, err = fs.create("dir_all", Url("/tmp/test/nest/nested"))
+-- ```
+-- Where `type` can be one of the following:
+-- - `"dir"`: Creates a new, empty directory.
+-- - `"dir_all"`: Recursively create a directory and all of its parents if they are missing.
+-- Returns `(ok, err)`:
+-- - `ok`: Whether the operation succeeds, which is a `boolean`.
+-- - `err`: [`Error`][error] of the failure.
+-- | In/Out    | Type                               |
+-- | --------- | ---------------------------------- |
+-- | `type`    | `string` \| `"dir"` \| `"dir_all"` |
+-- | `url`     | `Url`                              |
+-- | Return    | `boolean, Error?`                  |
+-- | Available | Async context only                 |
+---@field create fun(type: string|"dir"|"dir_all", url: Url): boolean, Error?
+-- Remove file(s) at the `url` of the file system:
+-- ```lua
+-- local ok, err = fs.remove("file", Url("/tmp/test.txt"))
+-- ```
+-- Where `type` can be one of the following:
+-- - `"file"`: Removes a file from the file system.
+-- - `"dir"`: Removes an existing, empty directory.
+-- - `"dir_all"`: Removes a directory at this url, after removing all its contents. Use carefully!
+-- - `"dir_clean"`: Remove all empty directories under it, and if the directory itself is empty afterward, remove it as well.
+-- Returns `(ok, err)`:
+-- - `ok`: Whether the operation succeeds, which is a `boolean`.
+-- - `err`: [`Error`][error] of the failure.
+-- | In/Out    | Type                                                            |
+-- | --------- | --------------------------------------------------------------- |
+-- | `type`    | `string` \| `"file"` \| `"dir"` \| `"dir_all"` \| `"dir_clean"` |
+-- | `url`     | `Url`                                                           |
+-- | Return    | `boolean, Error?`                                               |
+-- | Available | Async context only                                              |
+---@field remove fun(type: string|"file"|"dir"|"dir_all"|"dir_clean", url: Url): boolean, Error?
+-- Reads the directory contents of `url`:
+-- ```lua
+-- local files, err = fs.read_dir(url, {
+--   -- Glob pattern to filter files out if provided.
+--   glob = nil,
+--   -- Maximum number of files to read, defaults to unlimited.
+--   limit = 10,
+--   -- Whether to resolve symbolic links, defaults to `false`.
+--   resolve = false,
+-- })
+-- ```
+-- | In/Out    | Type                                                    |
+-- | --------- | ------------------------------------------------------- |
+-- | `url`     | `Url`                                                   |
+-- | `options` | `{ glob: string?, limit: integer?, resolve: boolean? }` |
+-- | Return    | `File[]?, Error?`                                       |
+-- | Available | Async context only                                      |
+---@field read_dir fun(url: Url, options: { glob: string?, limit: integer?, resolve: boolean? }): File[]?, Error?
+-- Copy a file from the source `from`, to the destination `to`:
+-- ```lua
+-- local len, err = fs.copy(Url("/tmp/src.txt"), Url("/tmp/dest.txt"))
+-- ```
+-- Returns `(len, err)`:
+-- - `len`: Length of the copied content, which is an `integer`, or `nil` if the operation fails.
+-- - `err`: [`Error`][error] of the failure.
+-- Note that:
+-- - This function will overwrite the destination file.
+-- - This function follows symbolic links for both `from` and `to`.
+-- - If `from` and `to` are the same file, the file will likely be truncated by this operation.
+-- | In/Out    | Type               |
+-- | --------- | ------------------ |
+-- | `from`    | `Url`              |
+-- | `to`      | `Url`              |
+-- | Return    | `integer?, Error?` |
+-- | Available | Async context only |
+---@field copy fun(from: Url, to: Url): integer?, Error?
+-- Rename a file from the source `from`, to the destination `to`.
+-- ```lua
+-- local ok, err = fs.rename(Url("/tmp/old.txt"), Url("/tmp/new.txt"))
+-- ```
+-- Returns `(ok, err)`:
+-- - `ok`: Whether the operation succeeds, which is a `boolean`.
+-- - `err`: [`Error`][error] of the failure.
+-- Note that:
+-- - This function will overwrite the destination file.
+-- - This function does not work if `from` and `to` are on different file systems.
+-- To move files across file systems, use a combination of [`fs.copy()`](#fs.copy) and [`fs.remove()`](#fs.remove):
+-- ```lua
+-- local from = Url("/mnt/dev1/a")
+-- local to = Url("/mnt/dev2/b")
+-- local ok, err = fs.rename(from, to)
+-- if not ok and err.kind == "CrossesDevices" then
+--   local len, err = fs.copy(from, to)
+--   if len and not err then
+--     fs.remove("file", from)
+--   end
+-- end
+-- ```
+-- | In/Out    | Type               |
+-- | --------- | ------------------ |
+-- | `from`    | `Url`              |
+-- | `to`      | `Url`              |
+-- | Return    | `boolean, Error?`  |
+-- | Available | Async context only |
+---@field rename fun(from: Url, to: Url): boolean, Error?
+-- Get a unique name from the given `url` to ensure it's unique in the file system:
+-- ```lua
+-- local url, err = fs.unique_name(Url("/tmp/test.txt"))
+-- ```
+-- If the file already exists, it will append `_n` to the filename, where `n` is a number, and keep incrementing until the first available name is found.
+-- Returns `(url, err)`:
+-- - `url`: The [`Url`][url] with the unique filename.
+-- - `err`: [`Error`][error] of the failure.
+-- | In/Out    | Type               |
+-- | --------- | ------------------ |
+-- | `url`     | `Url`              |
+-- | Return    | `Url?, Error?`     |
+-- | Available | Async context only |
+---@field unique_name fun(url: Url): Url?, Error?
+
+-- APIs related to the user interface.
+---@class (exact) ui
+-- Hide Yazi to the secondary screen by returning to the terminal, completely controlled by the requested plugin.
+-- ```lua
+-- local permit = ui.hide()
+-- ```
+-- This method returns a `permit` for this resource. When it's necessary to restore the TUI display, call its `drop()` method:
+-- ```lua
+-- permit:drop()
+-- ```
+-- Note that since there's always only one available terminal control resource, `ui.hide()` cannot be called again before the previous `permit` is dropped, otherwise an error will be thrown, effectively avoiding deadlocks.
+-- | In/Out    | Type               |
+-- | --------- | ------------------ |
+-- | Return    | `Permit`           |
+-- | Available | Async context only |
+---@field hide fun(): Permit
+-- Re-render the UI:
+-- ```lua
+-- local update_state = ya.sync(function(self, new_state)
+--   self.state = new_state
+--   ui.render()
+-- end)
+-- ```
+-- | In/Out    | Type              |
+-- | --------- | ----------------- |
+-- | Return    | `unknown`         |
+-- | Available | Sync context only |
+---@field render fun(): unknown
+-- Truncate the `text` to the specified width and return the truncated result:
+-- ```lua
+-- ui.truncate("Hello, World!", {
+--   -- Maximum width of the text.
+--   max = 5,
+--   -- Whether to truncate the text from right-to-left.
+--   rtl = false
+-- })
+-- ```
+-- | In/Out | Type                              |
+-- | ------ | --------------------------------- |
+-- | `text` | `string`                          |
+-- | `opts` | `{ max: integer, rtl: boolean? }` |
+-- | Return | `string`                          |
+---@field truncate fun(text: string, opts: { max: integer, rtl: boolean? }): string
+
 -- Yazi's DDS (Data Distribution Service) uses a Lua-based publish-subscribe model as its carrier. That is, you can achieve cross-instance communication and state persistence through the `ps` API. See [DDS](/docs/dds) for details.
 -- The following functions can only be used within a sync context.
 ---@class (exact) ps
@@ -2377,120 +2651,31 @@ ya = ya
 -- | Return | `unknown` | -                 |
 ---@field unsub_remote fun(kind: string): unknown
 
--- The following functions can only be used within an async context.
----@class (exact) fs
--- Get the current working directory (CWD) of the process.
--- This API was added to compensate for the lack of a [`getcwd`][getcwd] in Lua; it is used to retrieve the directory of the last [`chdir`][chdir] call:
--- ```lua
--- local url, err = fs.cwd()
--- ```
--- You probably will never need it, and more likely, you'll need [`cx.active.current.cwd`][folder-cwd], which is the current directory where the user is working.
--- Specifically, when the user changes the directory, `cx.active.current.cwd` gets updated immediately, while synchronizing this update with the filesystem via `chdir` involves I/O operations, such as checking if the directory is valid.
--- So, there may be some delay, which is particularly noticeable on slow devices. For example, when an HDD wakes up from sleep, it typically takes 3~4 seconds.
--- It is useful if you just need a valid directory as the CWD of a process to start some work that doesn't depend on the CWD.
--- | In/Out    | Type               |
--- | --------- | ------------------ |
--- | Return    | `Url?, Error?`     |
--- | Available | Async context only |
--- [getcwd]: https://man7.org/linux/man-pages/man3/getcwd.3.html
--- [chdir]: https://man7.org/linux/man-pages/man2/chdir.2.html
--- [folder-cwd]: /docs/plugins/context#tab-folder.cwd
----@field cwd fun(): Url?, Error?
--- Get the [Cha](/docs/plugins/types#cha) of the specified `url`:
--- ```lua
--- -- Not following symbolic links
--- local cha, err = fs.cha(url)
--- -- Follow symbolic links
--- local cha, err = fs.cha(url, true)
--- ```
--- | In/Out    | Type               |
--- | --------- | ------------------ |
--- | `url`     | `Url`              |
--- | `follow`  | `boolean?`         |
--- | Return    | `Cha?, Error?`     |
--- | Available | Async context only |
----@field cha fun(url: Url, follow: boolean?): Cha?, Error?
--- Write `data` to the specified `url`:
--- ```lua
--- local ok, err = fs.write(url, "hello world")
--- ```
--- | In/Out    | Type               |
--- | --------- | ------------------ |
--- | `url`     | `Url`              |
--- | `data`    | `string`           |
--- | Return    | `boolean, Error?`  |
--- | Available | Async context only |
----@field write fun(url: Url, data: string): boolean, Error?
--- Create file(s) at the `url` of the file system:
--- ```lua
--- local ok, err = fs.create("dir_all", Url("/tmp/test/nest/nested"))
--- ```
--- Where `type` can be one of the following:
--- - `"dir"`: Creates a new, empty directory.
--- - `"dir_all"`: Recursively create a directory and all of its parents if they are missing.
--- | In/Out    | Type                               |
--- | --------- | ---------------------------------- |
--- | `type`    | `string` \| `"dir"` \| `"dir_all"` |
--- | `url`     | `Url`                              |
--- | Return    | `boolean, Error?`                  |
--- | Available | Async context only                 |
----@field create fun(type: string|"dir"|"dir_all", url: Url): boolean, Error?
--- Remove file(s) at the `url` of the file system:
--- ```lua
--- local ok, err = fs.remove("file", Url("/tmp/test.txt"))
--- ```
--- Where `type` can be one of the following:
--- - `"file"`: Removes a file from the filesystem.
--- - `"dir"`: Removes an existing, empty directory.
--- - `"dir_all"`: Removes a directory at this url, after removing all its contents. Use carefully!
--- - `"dir_clean"`: Remove all empty directories under it, and if the directory itself is empty afterward, remove it as well.
--- | In/Out    | Type                                                            |
--- | --------- | --------------------------------------------------------------- |
--- | `type`    | `string` \| `"file"` \| `"dir"` \| `"dir_all"` \| `"dir_clean"` |
--- | `url`     | `Url`                                                           |
--- | Return    | `boolean, Error?`                                               |
--- | Available | Async context only                                              |
----@field remove fun(type: string|"file"|"dir"|"dir_all"|"dir_clean", url: Url): boolean, Error?
--- Reads the directory contents of `url`:
--- ```lua
--- local files, err = fs.read_dir(url, {
---   -- Glob pattern to filter files out if provided.
---   glob = nil,
---   -- Maximum number of files to read, defaults to unlimited.
---   limit = 10,
---   -- Whether to resolve symbolic links, defaults to `false`.
---   resolve = false,
--- })
--- ```
--- | In/Out    | Type                                                    |
--- | --------- | ------------------------------------------------------- |
--- | `url`     | `Url`                                                   |
--- | `options` | `{ glob: string?, limit: integer?, resolve: boolean? }` |
--- | Return    | `File[]?, Error?`                                       |
--- | Available | Async context only                                      |
----@field read_dir fun(url: Url, options: { glob: string?, limit: integer?, resolve: boolean? }): File[]?, Error?
--- Get a unique name from the given `url` to ensure it's unique in the filesystem:
--- ```lua
--- local url, err = fs.unique_name(Url("/tmp/test.txt"))
--- ```
--- If the file already exists, it will append `_n` to the filename, where `n` is a number, and keep incrementing until the first available name is found.
--- | In/Out    | Type               |
--- | --------- | ------------------ |
--- | `url`     | `Url`              |
--- | Return    | `Url?, Error?`     |
--- | Available | Async context only |
----@field unique_name fun(url: Url): Url?, Error?
-
 -- You can invoke external programs through:
 -- ```lua
 -- local child, err = Command("ls")
---   :args({ "-a", "-l" })
+--   :arg { "-a", "-l" }
 --   :stdout(Command.PIPED)
 --   :spawn()
 -- ```
 -- Compared to Lua's `os.execute`, it provides many comprehensive and convenient methods, and the entire process is async.
 -- It takes better advantage of the benefits of concurrent scheduling. However, it can only be used in async contexts, such as preloaders, previewers, and async functional plugins.
 ---@class (exact) Command
+-- A `Stdio` indicating that the stream will be ignored, which is the equivalent of attaching the stream to `/dev/null`.
+-- |      |         |
+-- | ---- | ------- |
+-- | Type | `Stdio` |
+---@field NULL Stdio
+-- A `Stdio` indicating that a new pipe should be arranged to connect the parent and child processes.
+-- |      |         |
+-- | ---- | ------- |
+-- | Type | `Stdio` |
+---@field PIPED Stdio
+-- A `Stdio` indicating that the child inherits from the corresponding parent descriptor.
+-- |      |         |
+-- | ---- | ------- |
+-- | Type | `Stdio` |
+---@field INHERIT Stdio
 -- Append one or more arguments to the command:
 -- ```lua
 -- local cmd = Command("ls"):arg("-a"):arg("-l")
@@ -2575,10 +2760,11 @@ ya = ya
 -- | `self` | `Self`           |
 -- | Return | `Child?, Error?` |
 ---@field spawn fun(self: self): Child?, Error?
--- Spawn the command and wait for it to finish:
+-- Executes the command as a child process, waiting for it to finish and collecting all of its output:
 -- ```lua
 -- local output, err = Command("ls"):output()
 -- ```
+-- This method sets both stdout and stderr to `Command.PIPED` and closes the stdin stream.
 -- | In/Out | Type              |
 -- | ------ | ----------------- |
 -- | `self` | `Self`            |
@@ -2588,6 +2774,7 @@ ya = ya
 -- ```lua
 -- local status, err = Command("ls"):status()
 -- ```
+-- This method closes the stdin, stdout, and stderr streams if they were set to `Command.PIPED`.
 -- | In/Out | Type              |
 -- | ------ | ----------------- |
 -- | `self` | `Self`            |
@@ -2611,21 +2798,21 @@ ya = ya
 -- - Data comes from stdout, if event is 0.
 -- - Data comes from stderr, if event is 1.
 -- - No data to read from both stdout and stderr, if event is 2.
--- | In/Out | Type              |
--- | ------ | ----------------- |
--- | `self` | `Self`            |
--- | `len`  | `integer`         |
--- | Return | `string, integer` |
----@field read fun(self: self, len: integer): string, integer
+-- | In/Out | Type               |
+-- | ------ | ------------------ |
+-- | `self` | `Self`             |
+-- | `len`  | `integer`          |
+-- | Return | `string?, integer` |
+---@field read fun(self: self, len: integer): string?, integer
 -- Same as [`read()`](#Child.read), except it reads data line by line:
 -- ```lua
 -- local line, event = child:read_line()
 -- ```
--- | In/Out | Type              |
--- | ------ | ----------------- |
--- | `self` | `Self`            |
--- | Return | `string, integer` |
----@field read_line fun(self: self): string, integer
+-- | In/Out | Type               |
+-- | ------ | ------------------ |
+-- | `self` | `Self`             |
+-- | Return | `string?, integer` |
+---@field read_line fun(self: self): string?, integer
 -- Same as [`read_line()`](#Child.read_line), except it accepts a table of options:
 -- ```lua
 -- local line, event = child:read_line_with {
@@ -2639,8 +2826,8 @@ ya = ya
 -- | ------ | ---------------------- |
 -- | `self` | `Self`                 |
 -- | `opts` | `{ timeout: integer }` |
--- | Return | `string, integer`      |
----@field read_line_with fun(self: self, opts: { timeout: integer }): string, integer
+-- | Return | `string?, integer`     |
+---@field read_line_with fun(self: self, opts: { timeout: integer }): string?, integer
 -- Writes all `src` to the stdin of the child process:
 -- ```lua
 -- local ok, err = child:write_all(src)
@@ -2755,6 +2942,9 @@ ya = ya
 -- <!-- Links -->
 -- [sendable]: /docs/plugins/overview#sendable
 -- [ownership]: /docs/plugins/overview#ownership
+-- [url]: /docs/plugins/types#url
+-- [cha]: /docs/plugins/types#cha
+-- [error]: /docs/plugins/types#error
 ---@field code integer?
 
 

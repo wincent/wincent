@@ -2,8 +2,8 @@
 # Color scheme: Penumbra Dark by Zachary Weiss (https://github.com/zacharyweiss)
 
 [colors]
-selection-background = '#3e4044' # base02
-selection-foreground = '#bebebe' # base05
+selection-background = '#bebebe' # base05
+selection-foreground = '#3e4044' # base02
 
 cursor         = '#bebebe' # base05
 tabs           = '#303338' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#3e4044' # base02
 
 background     = '#24272b' # base00
 foreground     = '#bebebe' # base05
-black          = '#303338' # base01
+black          = '#24272b' # base00
 red            = '#ca736c' # base08
 yellow         = '#8d9741' # base0A
 green          = '#47a477' # base0B
 cyan           = '#00a2af' # base0C
 blue           = '#5794d0' # base0D
 magenta        = '#9481cc' # base0E
-white          = '#fff7ed' # base06
+white          = '#bebebe' # base05
 
 dim-foreground   = '#bebebe' # base05
 dim-black        = '#303338' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#9481cc' # base0E
 dim-white        = '#8f8f8f' # base04
 
 light-foreground = '#bebebe' # base05
-light-black      = '#3e4044' # base02
+light-black      = '#636363' # base03
 light-red        = '#ca736c' # base08
 light-yellow     = '#8d9741' # base0A
 light-green      = '#47a477' # base0B

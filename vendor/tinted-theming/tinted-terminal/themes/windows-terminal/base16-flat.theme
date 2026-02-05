@@ -3,9 +3,9 @@
 	"name": "Flat",
 	"foreground": "#e0e0e0",
 	"background": "#2c3e50",
-	"black": "#34495e",
+	"black": "#2c3e50",
 	"blue": "#3498db",
-	"brightBlack": "#7f8c8d",
+	"brightBlack": "#95a5a6",
 	"brightBlue": "#3498db",
 	"brightCyan": "#1abc9c",
 	"brightGreen": "#2ecc71",
@@ -17,6 +17,6 @@
 	"green": "#2ecc71",
 	"purple": "#9b59b6",
 	"red": "#e74c3c",
-	"white": "#f5f5f5",
-	"yellow": "#e67e22"
+	"white": "#e0e0e0",
+	"yellow": "#f1c40f"
 },

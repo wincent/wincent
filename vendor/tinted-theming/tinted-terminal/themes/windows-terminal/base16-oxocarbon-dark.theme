@@ -3,9 +3,9 @@
 	"name": "Oxocarbon Dark",
 	"foreground": "#f2f4f8",
 	"background": "#161616",
-	"black": "#262626",
+	"black": "#161616",
 	"blue": "#33b1ff",
-	"brightBlack": "#393939",
+	"brightBlack": "#525252",
 	"brightBlue": "#33b1ff",
 	"brightCyan": "#3ddbd9",
 	"brightGreen": "#42be65",
@@ -17,6 +17,6 @@
 	"green": "#42be65",
 	"purple": "#be95ff",
 	"red": "#ee5396",
-	"white": "#ffffff",
-	"yellow": "#ff7eb6"
+	"white": "#f2f4f8",
+	"yellow": "#ff6f00"
 },

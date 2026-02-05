@@ -3,9 +3,9 @@
 	"name": "Shaman",
 	"foreground": "#3d5053",
 	"background": "#001014",
-	"black": "#012026",
+	"black": "#001014",
 	"blue": "#449985",
-	"brightBlack": "#374350",
+	"brightBlack": "#394751",
 	"brightBlue": "#61d4b9",
 	"brightCyan": "#98cf28",
 	"brightGreen": "#2aea5e",
@@ -17,6 +17,6 @@
 	"green": "#00a940",
 	"purple": "#00599c",
 	"red": "#b12f2c",
-	"white": "#405554",
-	"yellow": "#5d8aa9"
+	"white": "#3d5053",
+	"yellow": "#61d4b9"
 },

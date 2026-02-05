@@ -2,8 +2,8 @@
 # Color scheme: Earthsong by FredHappyface (https://github.com/fredHappyface)
 
 [colors]
-selection-background = '#665e54' # base02
-selection-foreground = '#c5ab93' # base05
+selection-background = '#c5ab93' # base05
+selection-foreground = '#665e54' # base02
 
 cursor         = '#c5ab93' # base05
 tabs           = '#111417' # base01
@@ -11,14 +11,14 @@ tabs-active    = '#665e54' # base02
 
 background     = '#282420' # base00
 foreground     = '#c5ab93' # base05
-black          = '#111417' # base01
+black          = '#282420' # base00
 red            = '#c84134' # base08
 yellow         = '#5ed9ff' # base0A
 green          = '#84c44b' # base0B
 cyan           = '#4f9452' # base0C
 blue           = '#1397b9' # base0D
 magenta        = '#d0623c' # base0E
-white          = '#e5c5a9' # base06
+white          = '#c5ab93' # base05
 
 dim-foreground   = '#c5ab93' # base05
 dim-black        = '#111417' # base01
@@ -31,7 +31,7 @@ dim-magenta      = '#d0623c' # base0E
 dim-white        = '#a5917e' # base04
 
 light-foreground = '#c5ab93' # base05
-light-black      = '#665e54' # base02
+light-black      = '#857769' # base03
 light-red        = '#ff6459' # base12
 light-yellow     = '#dfd561' # base13
 light-green      = '#97e035' # base14
