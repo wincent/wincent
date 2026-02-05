@@ -8,6 +8,18 @@ task('create ~/Library/Fonts', async () => {
   });
 });
 
+task('install Rec Mono Custom', async () => {
+  const files = resource.files('RecMonoCustom/*.ttf');
+
+  const target = path.home.join('Library/Fonts');
+
+  for (const ttf of files) {
+    await command('cp', [ttf, target], {
+      creates: target.join(ttf.basename),
+    });
+  }
+});
+
 task('install Source Code Pro', async () => {
   // Check to see whether submodule is present.
   const contents = 'vendor/fonts/source-code-pro/TTF';

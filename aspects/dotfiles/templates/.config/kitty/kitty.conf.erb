@@ -22,25 +22,10 @@
 #: <https://sw.kovidgoyal.net/kitty/kittens/choose-fonts/#font-spec-
 #: syntax>.
 
-# Available Source Code Pro weights (see also `kitten choose-fonts`, select
-# "Source Code Pro", hit Enter, hit "r", then click on individual styles to see
-# features list and `family` plus `style` values):
-#
-# - ExtraLight (also: ExtraLight Italic)
-# - Light (also: Light Italic)
-# - Regular (also: Italic)
-# - Medium (also: Medium Italic)
-# - Semibold (also: Semibold Italic)
-# - Bold (also: Bold Italic)
-# - Black (also: Black Italic)
-#
-# Features:
-# - zero = slashed zero
-#
-font_family      family='Source Code Pro' style=Light features='+zero'
-bold_font        family='Source Code Pro' style=Medium features='+zero'
-italic_font      family='Source Code Pro' style='ExtraLight Italic' features='+zero'
-bold_italic_font family='Source Code Pro' style=Italic features='+zero'
+font_family      family='Rec Mono Custom' style=Regular
+bold_font        family='Rec Mono Custom' style=Bold
+italic_font      family='Rec Mono Custom' style=Italic
+bold_italic_font family='Rec Mono Custom' style='Bold Italic'
 
 font_size 14.0
 # font_size 11.0
@@ -183,6 +168,7 @@ modify_font underline_position 2
 
 #:     modify_font cell_width 80%
 #:     modify_font cell_height -2px
+modify_font cell_height 2px
 #:     modify_font baseline 3
 
 #: Note that modifying the baseline will automatically adjust the
