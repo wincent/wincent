@@ -1,4 +1,4 @@
--- Kanagawa Dragon scheme by Tommaso Laurenzi (https://github.com/rebelot)
+-- Kanagawa Dragon scheme by Stefan Weigl-Bosker (https://github.com/sweiglbosker), Tommaso Laurenzi (https://github.com/rebelot/kanagawa.nvim)
 --
 -- Generated from this template:
 --
@@ -13,32 +13,32 @@
 --   by the Tinted Theming contributors.
 
 -- Base16 colors.
-local gui00 = "#0d0c0c"
-local gui01 = "#1D1C19"
-local gui02 = "#282727"
-local gui03 = "#737c73"
-local gui04 = "#a6a69c"
+local gui00 = "#181616"
+local gui01 = "#282727"
+local gui02 = "#393836"
+local gui03 = "#625e5a"
+local gui04 = "#737c73"
 local gui05 = "#c5c9c5"
-local gui06 = "#7a8382"
+local gui06 = "#c8c093"
 local gui07 = "#c5c9c5"
 local gui08 = "#c4746e"
-local gui09 = "#b98d7b"
+local gui09 = "#b6927b"
 local gui0A = "#c4b28a"
-local gui0B = "#87a987"
+local gui0B = "#8a9a7b"
 local gui0C = "#8ea4a2"
 local gui0D = "#8ba4b0"
-local gui0E = "#8992a7"
-local gui0F = "#a292a3"
+local gui0E = "#a292a3"
+local gui0F = "#b98d7b"
 
 -- Base24 colors.
-local gui10 = "#0d0c0c"
+local gui10 = "#12120f"
 local gui11 = "#0d0c0c"
-local gui12 = "#c4746e"
-local gui13 = "#c4b28a"
+local gui12 = "#e46876"
+local gui13 = "#e6c384"
 local gui14 = "#87a987"
-local gui15 = "#8ea4a2"
-local gui16 = "#8ba4b0"
-local gui17 = "#8992a7"
+local gui15 = "#7aa89f"
+local gui16 = "#7fb4ca"
+local gui17 = "#938aa9"
 
 -- Base16 colors.
 local cterm00 = 0
