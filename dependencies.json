@@ -443,12 +443,14 @@
   "github/arrowtype/recursive-code-config": {
     "prefix": "vendor/fonts/recursive-code-config",
     "repo": "https://github.com/arrowtype/recursive-code-config.git",
-    "branch": "main"
+    "branch": "main",
+    "previous": "b6075af2603818dee5b0a71ea1780d039b42d4e2"
   },
   "github/arrowtype/recursive": {
     "prefix": "vendor/fonts/recursive",
     "repo": "https://github.com/arrowtype/recursive.git",
-    "branch": "main"
+    "branch": "main",
+    "previous": "6d491202cea5cf6a493ef710cbef2527b9b08939"
   },
   "github/adobe-fonts/source-code-pro": {
     "prefix": "vendor/fonts/source-code-pro",
