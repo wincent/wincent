@@ -1,0 +1,40 @@
+# Configuration for Rec Mono Duotone
+# Here as an example, or to tweak & use if you wish to
+# See README for details.
+
+Family Name: Duotone 
+
+Fonts:
+  Regular:
+    MONO: 1
+    CASL: 0
+    wght: 400
+    slnt: 0
+    CRSV: 0
+  Italic:
+    MONO: 1
+    CASL: 1
+    wght: 400
+    slnt: -10
+    CRSV: 1
+  Bold:
+    MONO: 1
+    CASL: 1
+    wght: 750
+    slnt: 0
+    CRSV: 0
+  Bold Italic:
+    MONO: 1
+    CASL: 1
+    wght: 750
+    slnt: -10
+    CRSV: 1
+
+Code Ligatures: True
+
+Features:
+- ss03 # Simplified f
+- ss05 # Simplified l
+- ss08 # Serifless L and Z
+- ss09 # Simplified 6 and 9
+- ss12 # Simplified @

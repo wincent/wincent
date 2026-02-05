@@ -446,13 +446,6 @@
     "branch": "main",
     "previous": "b6075af2603818dee5b0a71ea1780d039b42d4e2"
   },
-  "github/adobe-fonts/source-code-pro": {
-    "prefix": "vendor/fonts/source-code-pro",
-    "repo": "https://github.com/adobe-fonts/source-code-pro.git",
-    "branch": "release",
-    "previous": "803b7e23ec97ae58b6232ea76519a76d428ba268",
-    "current": "803b7e23ec97ae58b6232ea76519a76d428ba268"
-  },
   "github/tj/n": {
     "prefix": "vendor/n",
     "repo": "https://github.com/tj/n.git",
