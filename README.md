@@ -13,7 +13,7 @@
 - Target platforms: macOS and Linux (see [Platform status](#platform-status) below).
 - Set-up method: ~~Beautiful and intricate snowflake~~ an incredibly over-engineered custom configuration framework called [Fig](./fig/README.md).
 - Visible in the screenshot:
-  - [The "classic-dark"](https://github.com/tinted-theming/schemes/blob/spec-0.11/base16/classic-dark.yaml) color scheme (see [screenshots of other colorschemes](https://github.com/wincent/wincent/blob/media/colorschemes/README.md)).
+  - [The "bright"](https://github.com/tinted-theming/schemes/blob/spec-0.11/base16/bright.yaml) color scheme (see [screenshots of other colorschemes](https://github.com/wincent/wincent/blob/media/colorschemes/README.md)).
   - [Recursive Mono](https://www.recursive.design/) font.
   - [Neovim](https://neovim.io), running inside [tmux](https://github.com/tmux/tmux), inside [kitty](https://sw.kovidgoyal.net/kitty/), on macOS "Tahoe".
 
