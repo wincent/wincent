@@ -2,6 +2,10 @@
 
 Noteworthy changes, as selected from `git changelog --since $LAST_DATE`.
 
+## 2026-02-05
+
+- Switch to [Recursive Mono](https://www.recursive.design/) font.
+
 ## 2025-12-18
 
 - Rename "violentmonkey" aspect to "userscripts" because [Chrome broke Violentmonkey](https://wincent.dev/wiki/Violentmonkey); the most viable option is to switch to (closed-source) [Tampermonkey](https://www.tampermonkey.net) or (open-source-but-Chinese[^chinese]) [ScriptCat](https://github.com/scriptscat/scriptcat) instead.

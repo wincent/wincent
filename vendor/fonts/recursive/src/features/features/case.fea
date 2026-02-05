@@ -1,3 +1,0 @@
-feature case {
-    sub @lowercasePunc by @uppercasePunc;
-} case;

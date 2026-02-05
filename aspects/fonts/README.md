@@ -1,1 +1,1 @@
-# Installs Source Code Pro font files
+# Installs font files

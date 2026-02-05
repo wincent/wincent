@@ -14,8 +14,8 @@
 - Set-up method: ~~Beautiful and intricate snowflake~~ an incredibly over-engineered custom configuration framework called [Fig](./fig/README.md).
 - Visible in the screenshot:
   - [The "classic-dark"](https://github.com/tinted-theming/schemes/blob/spec-0.11/base16/classic-dark.yaml) color scheme (see [screenshots of other colorschemes](https://github.com/wincent/wincent/blob/media/colorschemes/README.md)).
-  - [Adobe Source Code Pro](https://github.com/adobe-fonts/source-code-pro) (Light) font.
-  - [Neovim](https://neovim.io), running inside [tmux](https://github.com/tmux/tmux), inside [kitty](https://sw.kovidgoyal.net/kitty/), on macOS "Sequoia".
+  - [Recursive Mono](https://www.recursive.design/) font.
+  - [Neovim](https://neovim.io), running inside [tmux](https://github.com/tmux/tmux), inside [kitty](https://sw.kovidgoyal.net/kitty/), on macOS "Tahoe".
 
 ## Features
 
@@ -133,7 +133,7 @@ If there are background processes, a yellow asterisk is shown:
 - [Clipper](https://github.com/wincent/clipper) for transparent access to the local system clipboard.
 - [Kitty](https://sw.kovidgoyal.net/kitty/).
 - [Ruby](https://www.ruby-lang.org/).
-- [Adobe Source Code Pro](https://github.com/adobe-fonts/source-code-pro) or any other fixed-width font that includes the [Powerline glyphs](http://powerline.readthedocs.io/en/master/installation.html#fonts-installation).
+- [Recursive Mono](https://www.recursive.design/) or any other fixed-width font that includes the [Powerline glyphs](http://powerline.readthedocs.io/en/master/installation.html#fonts-installation).
 
 ## Platform status
 
@@ -183,7 +183,7 @@ At the time of writing, these are the aspects, which you can expect to change ov
   - **backup**: Backup scripts
   - **cron**: Sets up cron files
   - **defaults**: Sets up defaults (ie. preferences) on macOS
-  - **fonts**: Installs Source Code Pro font files
+  - **fonts**: Installs font files
   - **homebrew**: Installs and updates Homebrew
   - **karabiner**: Configures Karabiner-Elements (keyboard customization).
   - **launchd**: Configures launchd

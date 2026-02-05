@@ -1,7 +1,7 @@
-font-family = Source Code Pro Light
-font-style-bold = Source Code Pro Medium
-font-style-italic = Source Code Pro ExtraLight Italic
-font-style-bold-italic = Source Code Pro Italic
+font-family = "Rec Mono Custom"
+font-style-bold = "Bold"
+font-style-italic = "Italic"
+font-style-bold-italic = "Bold Italic"
 
 # Enable slashed zero.
 font-feature = zero
