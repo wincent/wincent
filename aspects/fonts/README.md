@@ -111,13 +111,12 @@ The `wght` values were initially chosen to get us as close as possible to the vi
 
 [^italics]: Otherwise, italic looks too bold relative to the regular font, which is a problem because italics are used in code comments, which are supposed to be subtle.
 
-| Variant    | Rec Mono Linear weight | Weight to approximate Source Code Pro  | Rec Mono Custom weight |
-| ---------- | ---------------------- | -------------------------------------- | ---------------------- |
-| Regular    | 400                    | 300                                    | 350                    |
-| Italic     | 400                    | 300                                    | 300                    |
-| Bold       | 700                    | 400                                    | 500                    |
-| BoldItalic | 700                    | 400                                    | 500                    |
-
+| Variant    | Rec Mono Linear weight | Weight to approximate Source Code Pro | Rec Mono Custom weight |
+| ---------- | ---------------------- | ------------------------------------- | ---------------------- |
+| Regular    | 400                    | 300                                   | 350                    |
+| Italic     | 400                    | 300                                   | 300                    |
+| Bold       | 700                    | 400                                   | 500                    |
+| BoldItalic | 700                    | 400                                   | 500                    |
 
 Then build:
 
