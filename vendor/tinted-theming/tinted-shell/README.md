@@ -36,7 +36,7 @@ If you are using tinted-shell for point number 2, we suggest using
 
 ## Usage
 
-Clone the repo locally and execute the script with your posix compliant
+Clone the repo locally and execute the script with your Bourne-like
 shell (sh, bash, zsh, etc).
 
 ```sh

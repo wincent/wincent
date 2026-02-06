@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 # ----------------------------------------------------------------------
 # Setup config variables and env
@@ -17,13 +17,18 @@ fi
 
 TINTED_JQP_CONFIG_FILE="${TINTED_JQP_CONFIG_FILE:-$BASE16_CONFIG_PATH/jqp_theme.yaml}"
 
-if [[ -d "$TINTED_JQP_CONFIG_FILE" ]]; then
-  2>&1 echo "${TINTED_JQP_CONFIG_FILE} exists but is a directory. It should either be non-existent, or a file."
+if [ -d "$TINTED_JQP_CONFIG_FILE" ]; then
+  printf "%s exists but is a directory. It should either be non-existent, or a file.\n" "$TINTED_JQP_CONFIG_FILE" >&2
   return 1
 fi
 
+if [ ! -e "$TINTED_JQP_CONFIG_FILE" ]; then
+  touch "$TINTED_JQP_CONFIG_FILE"
+  : > "$TINTED_JQP_CONFIG_FILE"
+fi
+
 # Set current theme name
-read current_theme_name < "$BASE16_SHELL_THEME_NAME_PATH"
+read -r current_theme_name < "$BASE16_SHELL_THEME_NAME_PATH"
 
 jqp_theme_path="$TINTED_JQP_PATH/themes/base16-$current_theme_name.yaml"
 

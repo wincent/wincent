@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 # ----------------------------------------------------------------------
 # Setup config variables and env
@@ -7,18 +7,18 @@
 BASE16_SHELL_VIM_PATH="$BASE16_CONFIG_PATH/set_theme.vim"
 BASE16_SHELL_NVIM_PATH="$BASE16_CONFIG_PATH/set_theme.lua"
 
-if ! [ -e "$BASE16_SHELL_VIM_PATH" ]; then
-  touch "$BASE16_SHELL_VIM_PATH"
+if [ ! -e "$BASE16_SHELL_VIM_PATH" ]; then
+  : > "$BASE16_SHELL_VIM_PATH";
 fi
 
-if ! [ -e "$BASE16_SHELL_NVIM_PATH" ]; then
-  touch "$BASE16_SHELL_NVIM_PATH"
+if [ ! -e "$BASE16_SHELL_NVIM_PATH" ]; then
+  : > "$BASE16_SHELL_NVIM_PATH";
 fi
 
 # ----------------------------------------------------------------------
 # Execution
 # ----------------------------------------------------------------------
-read current_theme_name < "$BASE16_SHELL_THEME_NAME_PATH"
+read -r current_theme_name < "$BASE16_SHELL_THEME_NAME_PATH"
 
 cat >| "$BASE16_SHELL_VIM_PATH" << EOF
 function! ColorschemeExists(theme)

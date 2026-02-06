@@ -3,45 +3,45 @@
 # Template author: Tinted Theming: (https://github.com/tinted-theming)
 
 # default statusbar colors
-set-option -g status-style "fg=#{{base04-hex}},bg=#{{base01-hex}}"
+set-option -g status-style "fg=#{{base05-hex}},bg=#{{base00-hex}}"
 
 # default window title colors
-set-window-option -g window-status-style "fg=#{{base04-hex}},bg=#{{base01-hex}}"
+set-window-option -g window-status-style "fg=#{{base05-hex}},bg=#{{base00-hex}}"
 
 # active window title colors
-set-window-option -g window-status-current-style "fg=#{{base0A-hex}},bg=#{{base01-hex}}"
+set-window-option -g window-status-current-style "fg=#{{base0A-hex}},bg=#{{base00-hex}}"
 
 # pane border
-set-option -g pane-border-style "fg=#{{base01-hex}}"
+set-option -g pane-border-style "fg=#{{base00-hex}}"
 set-option -g pane-active-border-style "fg=#{{base04-hex}}"
 
 # message text
-set-option -g message-style "fg=#{{base06-hex}},bg=#{{base02-hex}}"
+set-option -g message-style "fg=#{{base06-hex}},bg=#{{base01-hex}}"
 
 # pane number display
 set-option -g display-panes-active-colour "#{{base04-hex}}"
-set-option -g display-panes-colour "#{{base01-hex}}"
+set-option -g display-panes-colour "#{{base00-hex}}"
 
 # clock
 set-window-option -g clock-mode-colour "#{{base0D-hex}}"
 
 # copy mode highlight
-set-window-option -g mode-style "fg=#{{base04-hex}},bg=#{{base02-hex}}"
+set-window-option -g mode-style "fg=#{{base04-hex}},bg=#{{base01-hex}}"
 
 # bell
 set-window-option -g window-status-bell-style "fg=#{{base00-hex}},bg=#{{base08-hex}}"
 
 # style for window titles with activity
-set-window-option -g window-status-activity-style "fg=#{{base05-hex}},bg=#{{base01-hex}}"
+set-window-option -g window-status-activity-style "fg=#{{base05-hex}},bg=#{{base00-hex}}"
 
 # style for command messages
-set-option -g message-command-style "fg=#{{base06-hex}},bg=#{{base02-hex}}"
+set-option -g message-command-style "fg=#{{base06-hex}},bg=#{{base01-hex}}"
 
 # Optional active/inactive pane state
 # BASE16_TMUX_OPTION_ACTIVE is a legacy variable
 if-shell '[ "$TINTED_TMUX_OPTION_ACTIVE" = "1" ] || [ "$BASE16_TMUX_OPTION_ACTIVE" = "1" ]' {
   set-window-option -g window-active-style "fg=#{{base05-hex}},bg=#{{base00-hex}}"
-  set-window-option -g window-style "fg=#{{base05-hex}},bg=#{{base01-hex}}"
+  set-window-option -g window-style "fg=#{{base05-hex}},bg=#{{base00-hex}}"
 }
 
 # Optional statusbar
@@ -49,14 +49,14 @@ if-shell '[ "$TINTED_TMUX_OPTION_ACTIVE" = "1" ] || [ "$BASE16_TMUX_OPTION_ACTIV
 if-shell '[ "$TINTED_TMUX_OPTION_STATUSBAR" = "1" ] || [ "$BASE16_TMUX_OPTION_STATUSBAR" = "1" ]' {
   set-option -g status "on"
   set-option -g status-justify "left"
-  set-option -g status-left "#[fg=#{{base05-hex}},bg=#{{base03-hex}}] #S #[fg=#{{base03-hex}},bg=#{{base01-hex}},nobold,noitalics,nounderscore]"
+  set-option -g status-left "#[fg=#{{base05-hex}},bg=#{{base02-hex}}] #S #[fg=#{{base02-hex}},bg=#{{base00-hex}},nobold,noitalics,nounderscore]"
   set-option -g status-left-length "80"
   set-option -g status-left-style none
-  set-option -g status-right "#[fg=#{{base02-hex}},bg=#{{base01-hex}} nobold, nounderscore, noitalics]#[fg=#{{base04-hex}},bg=#{{base02-hex}}] %Y-%m-%d  %H:%M #[fg=#{{base05-hex}},bg=#{{base02-hex}},nobold,noitalics,nounderscore]#[fg=#{{base01-hex}},bg=#{{base05-hex}}] #h "
+  set-option -g status-right "#[fg=#{{base01-hex}},bg=#{{base00-hex}} nobold, nounderscore, noitalics]#[fg=#{{base04-hex}},bg=#{{base01-hex}}] %Y-%m-%d  %H:%M #[fg=#{{base05-hex}},bg=#{{base01-hex}},nobold,noitalics,nounderscore]#[fg=#{{base00-hex}},bg=#{{base05-hex}}] #h "
   set-option -g status-right-length "80"
   set-option -g status-right-style none
-  set-window-option -g window-status-current-format "#[fg=#{{base01-hex}},bg=#{{base0A-hex}},nobold,noitalics,nounderscore]#[fg=#{{base02-hex}},bg=#{{base0A-hex}}] #I #[fg=#{{base02-hex}},bg=#{{base0A-hex}},bold] #W#{?window_zoomed_flag,*Z,} #[fg=#{{base0A-hex}},bg=#{{base01-hex}},nobold,noitalics,nounderscore]"
-  set-window-option -g window-status-format "#[fg=#{{base01-hex}},bg=#{{base02-hex}},noitalics]#[fg=#{{base06-hex}},bg=#{{base02-hex}}] #I #[fg=#{{base06-hex}},bg=#{{base02-hex}}] #W#{?window_zoomed_flag,*Z,} #[fg=#{{base02-hex}},bg=#{{base01-hex}},noitalics]"
+  set-window-option -g window-status-current-format "#[fg=#{{base00-hex}},bg=#{{base0A-hex}},nobold,noitalics,nounderscore]#[fg=#{{base01-hex}},bg=#{{base0A-hex}}] #I #[fg=#{{base01-hex}},bg=#{{base0A-hex}},bold] #W#{?window_zoomed_flag,*Z,} #[fg=#{{base0A-hex}},bg=#{{base00-hex}},nobold,noitalics,nounderscore]"
+  set-window-option -g window-status-format "#[fg=#{{base00-hex}},bg=#{{base01-hex}},noitalics]#[fg=#{{base06-hex}},bg=#{{base01-hex}}] #I #[fg=#{{base06-hex}},bg=#{{base01-hex}}] #W#{?window_zoomed_flag,*Z,} #[fg=#{{base01-hex}},bg=#{{base00-hex}},noitalics]"
   set-window-option -g window-status-separator ""
 }
 

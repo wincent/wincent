@@ -19,6 +19,7 @@ instructions:
 - [st](#st)
 - [Rio](#rio)
 - [Termite](#termite)
+- [WezTerm](#wezterm)
 - [xfce4](#xfce4)
 
 Have a look at the [Tinted Theming Gallery] for examples of theme
@@ -336,7 +337,11 @@ theme = base16-ayu-dark
    name = "tinted-terminal"
    themes-dir = "themes/ghostty"
    # With `theme` set to "tinted-theming", this will be where Ghostty looks for the theme file:
-   hook = "command cp -f %f ~/.config/ghostty/themes/tinted-theming && killall -SIGUSR2 ghostty"
+   hook = """
+   mkdir -p ~/.config/ghostty/themes
+   command cp -f "$TINTY_THEME_FILE_PATH" ~/.config/ghostty/themes/tinted-theming
+   killall -SIGUSR2 ghostty 2>/dev/null || true
+   """
    supported-systems = ["base16", "base24"]
    ```
 
@@ -505,7 +510,7 @@ kitty -o allow_remote_control=yes
    path = "https://github.com/tinted-theming/tinted-terminal"
    name = "tinted-terminal"
    themes-dir = "themes/kitty"
-   hook = "kitten @ load-config"
+   hook = "[ -n \"$KITTY_PID\" ] && kill -USR1 \"$KITTY_PID\""
    supported-systems = ["base16", "base24"]
    ```
 
@@ -745,6 +750,49 @@ Tinted Theming template for [WezTerm terminal emulator].
 
 **Theme directory**: [themes/wezterm/]
 
+### Tinty
+
+1. Add the following to `~/.config/tinted-theming/tinty/config.toml`:
+
+   ```toml
+   [[items]]
+   path = "https://github.com/tinted-theming/tinted-terminal"
+   name = "tinted-wezterm"
+   themes-dir = "themes/wezterm"
+   supported-systems = ["base16", "base24"]
+   # Touch wezterm.lua to trigger config auto-reload.
+   hook = """
+   SRC=$HOME/.local/share/tinted-theming/tinty/repos/tinted-wezterm/themes/wezterm
+   WEZTERM_DIR="$HOME/.config/wezterm"
+   if [ -d "$SRC" ]; then
+       mkdir -p "$WEZTERM_DIR"
+       ln -sfn "$SRC" "$WEZTERM_DIR/colors"
+       touch -c "$WEZTERM_DIR/wezterm.lua"
+   fi
+   """
+   ```
+
+2. Add theme-selection logic to your `~/.config/wezterm/wezterm.lua`.
+   WezTerm needs to read Tinty's current scheme and set
+   `config.color_scheme` from it:
+
+   ```lua
+   local function read_file(path)
+     local f = io.open(path, "r")
+     if not f then return nil end
+     local s = f:read("*l")
+     f:close()
+     return s
+   end
+
+   local scheme = read_file(os.getenv("HOME") .. "/.local/share/tinted-theming/tinty/artifacts/current_scheme")
+   -- The config for wezterm
+   config.color_scheme = scheme or "base16-ayu-dark"
+   ```
+
+3. `tinty apply base16-ayu-dark` to change the theme to
+   `base16-ayu-dark`
+
 ### Manual
 
 1. Clone this repo locally
@@ -834,6 +882,7 @@ terminal template decisions.
 [themes/foot/]: ./themes/foot/
 [themes/ghostty/]: ./themes/ghostty/
 [themes/iterm2/]: ./themes/iterm2/
+[themes-16/iterm2-applescripts/]: ./themes-16/iterm2-applescripts/
 [themes-16/iterm2-scripts/]: ./themes-16/iterm2-scripts/
 [themes-16/kermit/]: ./themes-16/kermit/
 [themes/kitty/]: ./themes/kitty/

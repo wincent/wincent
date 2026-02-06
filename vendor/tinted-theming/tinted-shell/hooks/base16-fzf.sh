@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 # ----------------------------------------------------------------------
 # Setup config variables and env
@@ -21,15 +21,12 @@ fi
 # Execution
 # ----------------------------------------------------------------------
 
-read current_theme_name < "$BASE16_SHELL_THEME_NAME_PATH"
+read -r current_theme_name < "$BASE16_SHELL_THEME_NAME_PATH"
 
 # If base16-fzf is used, provide a file for base16-fzf to source
-if [ -e "$BASE16_FZF_PATH/bash/base16-$current_theme_name.config" ]; then 
-  source "$BASE16_FZF_PATH/bash/base16-$current_theme_name.config"
+if [ -e "$BASE16_FZF_PATH/sh/base16-$current_theme_name.config" ]; then 
+  . "$BASE16_FZF_PATH/sh/base16-$current_theme_name.config"
 else
-  output="'$current_theme_name' theme could not be found. "
-  output+="Make sure '$BASE16_FZF_PATH' is running the most up-to-date "
-  output+="version by doing a 'git pull' in the repository directory."
-
-  echo $output
+  printf "'%s' theme could not be found. Make sure '%s' is up to date (git pull in that repo).\n" \
+    "$current_theme_name" "$BASE16_FZF_PATH"
 fi

@@ -372,6 +372,7 @@ _zsh_highlight_highlighter_main_paint()
     'grc' :se # grc - a "generic colouriser" (that's their spelling, not mine)
     'cpulimit' elp:ivz # cpulimit 0.2
     'ktrace' fgpt:aBCcdiT
+    'caffeinate' tw:dimsu # as of macOS's caffeinate(8) dated November 9, 2012
   )
   # Commands that would need to skip one positional argument:
   #    flock

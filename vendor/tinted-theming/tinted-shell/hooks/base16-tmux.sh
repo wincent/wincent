@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 # ----------------------------------------------------------------------
 # Setup config variables and env
@@ -21,7 +21,7 @@ if [ -z "$BASE16_TMUX_PLUGIN_PATH" ]; then
 fi
 
 # If base16-tmux path directory doesn't exist, stop hook
-if [ ! -d $BASE16_TMUX_PLUGIN_PATH ]; then
+if [ ! -d "$BASE16_TMUX_PLUGIN_PATH" ]; then
   return 2
 fi
 
@@ -30,15 +30,16 @@ fi
 # ----------------------------------------------------------------------
 
 # If base16-tmux is used, provide a file for base16-tmux to source
-if [[ -d "$BASE16_TMUX_PLUGIN_PATH" && "$(command -v 'tmux')" ]]; then
+if [ -d "$BASE16_TMUX_PLUGIN_PATH" ] && command -v tmux >/dev/null 2>&1; then
   # Set current theme name
-  read current_theme_name < "$BASE16_SHELL_THEME_NAME_PATH"
+  read -r current_theme_name < "$BASE16_SHELL_THEME_NAME_PATH"
 
-  echo -e "set -g \0100colors-base16 '$current_theme_name'" >| \
+  # Write tmux config (use literal '@')
+  printf "set -g @100colors-base16 '%s'\n" "$current_theme_name" >| \
     "$BASE16_SHELL_TMUXCONF_PATH"
 
   # Source tmux config if tmux is running
   if [ -n "$TMUX" ]; then
-    tmux source-file $(tmux display-message -p "#{config_files}")
+    tmux source-file "$(tmux display-message -p "#{config_files}")"
   fi
 fi

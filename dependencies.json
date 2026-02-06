@@ -3,8 +3,8 @@
     "prefix": "aspects/dotfiles/files/.config/yazi/vendor/plugins",
     "repo": "https://github.com/yazi-rs/plugins.git",
     "branch": "main",
-    "previous": "da5b69563c67717c4bb422c9c72cc0cb9baa0632",
-    "current": "230b9c6055a3144f6974fef297ad1a91b46a6aac"
+    "previous": "230b9c6055a3144f6974fef297ad1a91b46a6aac",
+    "current": "88990a6cf1d31afd9d8db1a0d74bf37ef50d6786"
   },
   "github/mafredri/zsh-async": {
     "prefix": "aspects/dotfiles/files/.zsh/zsh-async",
@@ -39,7 +39,7 @@
     "repo": "https://github.com/zsh-users/zsh-syntax-highlighting.git",
     "branch": "master",
     "previous": "5eb677bb0fa9a3e60f0eff031dc13926e093df92",
-    "current": "5eb677bb0fa9a3e60f0eff031dc13926e093df92"
+    "current": "1d85c692615a25fe2293bdd44b34c217d5d2bf04"
   },
   "github/L3MON4D3/LuaSnip": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/LuaSnip",
@@ -206,8 +206,8 @@
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-lspconfig",
     "repo": "https://github.com/neovim/nvim-lspconfig.git",
     "branch": "master",
-    "previous": "41ceb6bba3a40128b7841f5b7f5a9dae7201e823",
-    "current": "0480b120318ec8bab27b530ffab6ee76a8c4d806"
+    "previous": "0480b120318ec8bab27b530ffab6ee76a8c4d806",
+    "current": "66fd02ad1c7ea31616d3ca678fa04e6d0b360824"
   },
   "github/kyazdani42/nvim-tree.lua": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-tree.lua",
@@ -220,8 +220,8 @@
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-treesitter",
     "repo": "https://github.com/nvim-treesitter/nvim-treesitter.git",
     "branch": "main",
-    "previous": "7efc1b58a8061d29786860006c7257c90a5196dc",
-    "current": "70a9fecaf5aeae70c765d4c51a8038165a91aa06"
+    "previous": "70a9fecaf5aeae70c765d4c51a8038165a91aa06",
+    "current": "45a07f869b0cffba342276f2c77ba7c116d35db8"
   },
   "github/nvim-treesitter/nvim-treesitter-textobjects": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-treesitter-textobjects",
@@ -458,22 +458,22 @@
     "prefix": "vendor/tinted-theming/tinted-shell",
     "repo": "https://github.com/tinted-theming/tinted-shell.git",
     "branch": "main",
-    "previous": "4b8579d356de78b4e7af5ea0b6a06a4cb464a016",
-    "current": "0264ab4e40599bb69dcf271388e52d1f15bcb7aa"
+    "previous": "0264ab4e40599bb69dcf271388e52d1f15bcb7aa",
+    "current": "736dbaa9475f83cf89ad45b29200e47dd8c454b4"
   },
   "github/tinted-theming/tinted-terminal": {
     "prefix": "vendor/tinted-theming/tinted-terminal",
     "repo": "https://github.com/tinted-theming/tinted-terminal.git",
     "branch": "main",
-    "previous": "d34c828c037ebaa7e871994376ed049f39075686",
-    "current": "2b842ca88b0e2b209e10c465d407ae227baab7fa"
+    "previous": "2b842ca88b0e2b209e10c465d407ae227baab7fa",
+    "current": "7bb988a240721636fd34f88b20c743a0f93f8e8f"
   },
   "github/tinted-theming/tinted-tmux": {
     "prefix": "vendor/tinted-theming/tinted-tmux",
     "repo": "https://github.com/tinted-theming/tinted-tmux.git",
     "branch": "main",
-    "previous": "94056e4e11bca02a8dc029724dddd545ccfe68c3",
-    "current": "f8ca8735cff140ba51239f18177e7f43f9733826"
+    "previous": "f8ca8735cff140ba51239f18177e7f43f9733826",
+    "current": "20cd84156c3be5ebf97057f77d5af088da8d1dcf"
   },
   "github/tinted-theming/tinted-vim": {
     "prefix": "vendor/tinted-theming/tinted-vim",

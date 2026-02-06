@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 # ----------------------------------------------------------------------
 # Setup config variables and env
@@ -6,7 +6,7 @@
 
 # Allow users to optionally configure where their tinted-shell config is
 # stored by specifying BASE16_CONFIG_PATH before loading this script
-if [ -z $BASE16_CONFIG_PATH ]; then
+if [ -z "$BASE16_CONFIG_PATH" ]; then
   BASE16_CONFIG_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/tinted-theming"
 fi
 BASE16_SHELL_COLORSCHEME_PATH="$BASE16_CONFIG_PATH/base16_shell_theme"
@@ -19,12 +19,19 @@ BASE16_SHELL_THEME_NAME_PATH="$BASE16_CONFIG_PATH/theme_name"
 # the value if one doesn't exist
 if [ -z "$BASE16_SHELL_PATH" ]; then
   if [ -n "$BASH_VERSION" ]; then
-    script_path=${BASH_SOURCE[0]}
+    script_path="${BASH_SOURCE[0]}"
   elif [ -n "$ZSH_VERSION" ]; then
-    script_path=${(%):-%x}
+    script_path="${(%):-%x}"
+  else
+    script_path="$0"
   fi
 
-  BASE16_SHELL_PATH=${script_path%/*}
+  case "$script_path" in
+    */*) dir=${script_path%/*} ;;
+    *) dir=. ;;
+  esac
+
+  BASE16_SHELL_PATH=$(cd -P -- "$dir" 2>/dev/null && pwd -P || printf '%s' "$dir")
 fi
 
 # If the user hasn't specified a hooks dir path or it is invalid, use
@@ -44,7 +51,7 @@ create_config_files()
 
   # Create a file containing the current theme name
   if [ ! -f "$BASE16_SHELL_THEME_NAME_PATH" ]; then
-    touch "$BASE16_SHELL_THEME_NAME_PATH";
+    : > "$BASE16_SHELL_THEME_NAME_PATH";
   fi
 }
 
@@ -56,29 +63,28 @@ create_config_files
 
 set_theme()
 {
-  local theme_name="$1"
-  local force_load="$2"
-  local script_path="$BASE16_SHELL_PATH/scripts/base16-$theme_name.sh"
-  local current_theme_name
+  theme_name="$1"
+  force_load="$2"
+  script_path="$BASE16_SHELL_PATH/scripts/base16-$theme_name.sh"
+  current_theme_name=""
 
   # Only read from file if it exists
   if [ -s "$BASE16_SHELL_THEME_NAME_PATH" ]; then
-    read current_theme_name < "$BASE16_SHELL_THEME_NAME_PATH"
+    read -r current_theme_name < "$BASE16_SHELL_THEME_NAME_PATH"
   fi
 
   # Set force_load if one of the required config files don't exist
-  if [[ \
-       ! -d "$BASE16_CONFIG_PATH" \
-    ||   -z "$current_theme_name" \
-    || ! -h "$BASE16_SHELL_COLORSCHEME_PATH" \
-  ]]; then
+  if [ ! -d "$BASE16_CONFIG_PATH" ] || \
+     [ -z "$current_theme_name" ] || \
+     [ ! -h "$BASE16_SHELL_COLORSCHEME_PATH" ] \
+  ; then
     create_config_files
     force_load="true"
   fi
 
   # If theme is already sourced, don't rerun the script and hooks, 
   # unless $force_load is set
-  if [[ "$theme_name" == "$current_theme_name" && -z $force_load ]]; then
+  if [ "$theme_name" = "$current_theme_name" ] && [ -z "$force_load" ]; then
     return 0
   fi
 
@@ -101,8 +107,9 @@ set_theme()
   fi
 
   # Source newly symlinked file
-  [ -f "$BASE16_SHELL_COLORSCHEME_PATH" ] \
-    && . "$BASE16_SHELL_COLORSCHEME_PATH"
+  if [ -f "$BASE16_SHELL_COLORSCHEME_PATH" ]; then
+    . "$BASE16_SHELL_COLORSCHEME_PATH"
+  fi
 
   if [ -d "${BASE16_SHELL_HOOKS_PATH}" ]; then
     for hook in $BASE16_SHELL_HOOKS_PATH/*.sh; do
@@ -112,6 +119,7 @@ set_theme()
   fi
 
   unset theme_name
+  unset force_load
   unset script_path
   unset current_theme_name
 }
@@ -122,8 +130,8 @@ set_theme()
 
 # Reload the $BASE16_SHELL_COLORSCHEME_PATH when the shell is reset
 alias reset="command reset \
-  && [ -f $BASE16_SHELL_COLORSCHEME_PATH ] \
-  && . $BASE16_SHELL_COLORSCHEME_PATH"
+  && [ -f \"$BASE16_SHELL_COLORSCHEME_PATH\" ] \
+  && . \"$BASE16_SHELL_COLORSCHEME_PATH\""
 
 # Set base16_* aliases
 for script_path in "$BASE16_SHELL_PATH"/scripts/base16*.sh; do
@@ -132,7 +140,7 @@ for script_path in "$BASE16_SHELL_PATH"/scripts/base16*.sh; do
   theme_name=${script_name#base16-} # eg: solarized-light
   function_name="base16_${theme_name}"
 
-  alias $function_name="set_theme \"${theme_name}\""
+  alias "$function_name"="set_theme \"${theme_name}\""
 done;
 
 # unset loop variables to not leak to user's shell
@@ -146,7 +154,7 @@ fi
 
 # Load the active theme
 # If the theme name can be easily retrieved
-read current_theme_name < "$BASE16_SHELL_THEME_NAME_PATH"
+read -r current_theme_name < "$BASE16_SHELL_THEME_NAME_PATH"
 if [ -n "$current_theme_name" ]; then
   set_theme "$current_theme_name" "true"
 # Else extract from the colorscheme file
