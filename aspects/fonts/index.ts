@@ -18,3 +18,15 @@ task('install Rec Mono Custom', async () => {
     });
   }
 });
+
+task('install Rec Mono Light', async () => {
+  const files = resource.files('RecMonoLight/*.ttf');
+
+  const target = path.home.join('Library/Fonts');
+
+  for (const ttf of files) {
+    await command('cp', [ttf, target], {
+      creates: target.join(ttf.basename),
+    });
+  }
+});
