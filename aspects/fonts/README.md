@@ -83,4 +83,3 @@ The config files are based on "RecMonoLinear" (defined in `.cache/repos/github/a
 | Italic     | 400             | 300             | 300            | 300 (ideally, would be lighter)       |
 | Bold       | 700             | 500             | 500            | 400                                   |
 | BoldItalic | 700             | 500             | 500            | 400                                   |
-
