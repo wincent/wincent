@@ -26,16 +26,6 @@ if has_shellbot then
     end
   end, {})
 
-  vim.api.nvim_create_user_command('ChatGPTX', function()
-    local executable = get_executable()
-    if executable then
-      shellbot.chatbot({
-        OPENAI_API_KEY = vim.env.OPENAI_API_KEY,
-        OPENAI_MODEL = 'o1-mini',
-      })
-    end
-  end, {})
-
   vim.api.nvim_create_user_command('Claude', function()
     local executable = get_executable()
     if executable then
@@ -50,7 +40,17 @@ if has_shellbot then
     if executable then
       shellbot.chatbot({
         ANTHROPIC_API_KEY = vim.env.ANTHROPIC_API_KEY,
-        ANTHROPIC_MODEL = 'claude-opus-4-20250514',
+        ANTHROPIC_MODEL = 'claude-opus-4-6'
+      })
+    end
+  end, {})
+
+  vim.api.nvim_create_user_command('Sonnet', function()
+    local executable = get_executable()
+    if executable then
+      shellbot.chatbot({
+        ANTHROPIC_API_KEY = vim.env.ANTHROPIC_API_KEY,
+        ANTHROPIC_MODEL = 'claude-sonnet-4-5'
       })
     end
   end, {})
