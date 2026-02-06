@@ -19,9 +19,9 @@ The Rust program can be built with `cargo build`. It expects an `OPENAI_API_KEY`
 
 If a transcript does not start with a System section, then the default System prompt is used. The default prompt can be customized with contents from a file passed as a first argument to the executable.
 
-To override the default Anthropic model (`claude-3-7-sonnet-20250219`), specify the desired model via the `ANTHROPIC_MODEL` environment variable.
+To override the default Anthropic model (`claude-opus-4-6`), specify the desired model via the `ANTHROPIC_MODEL` environment variable.
 
-To override the default OpenAI model (`gpt-4o`), set the `OPENAPI_MODEL` environment variable to the desired value.
+To override the default OpenAI model (`gpt-5`), set the `OPENAI_MODEL` environment variable to the desired value.
 
 ## Installation
 

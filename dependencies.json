@@ -270,7 +270,7 @@
     "repo": "https://github.com/wincent/shellbot.git",
     "branch": "wincent",
     "previous": "f8470e5718188078fef50a48846e85fc50b3c3cf",
-    "current": "f8470e5718188078fef50a48846e85fc50b3c3cf"
+    "current": "9164ff438ae48d024d7680b5503ed001bcf59686"
   },
   "github/wincent/terminus": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/terminus",
