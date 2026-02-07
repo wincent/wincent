@@ -1,6 +1,7 @@
-font-family = "Rec Mono Custom"
+font-family = "JetBrains Mono"
+font-style = "Thin"
 font-style-bold = "Bold"
-font-style-italic = "Italic"
+font-style-italic = "Thin Italic"
 font-style-bold-italic = "Bold Italic"
 
 # Enable slashed zero.
