@@ -8,7 +8,7 @@ task('create ~/Library/Fonts', async () => {
 });
 
 task('install Rec Mono Custom', async () => {
-  const files = resource.files('RecMonoCustom/*.ttf');
+  const files = resource.files('RecMonoCustom-*.ttf');
 
   const target = path.home.join('Library/Fonts');
 
@@ -20,7 +20,7 @@ task('install Rec Mono Custom', async () => {
 });
 
 task('install Rec Mono Light', async () => {
-  const files = resource.files('RecMonoLight/*.ttf');
+  const files = resource.files('RecMonoLight-*.ttf');
 
   const target = path.home.join('Library/Fonts');
 
