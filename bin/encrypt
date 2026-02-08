@@ -33,7 +33,25 @@ ITEMS[10]=aspects/dotfiles/files/.pypirc
 ITEMS[11]=aspects/dotfiles/files/.zsh/exports.private
 ITEMS[12]=aspects/dotfiles/files/.zsh/hash.private
 ITEMS[13]=aspects/dotfiles/files/.zsh/host/comp-ktw7q4c5jh
-ITEMS[14]=aspects/ssh/templates/.ssh/config.erb
+ITEMS[14]=aspects/fonts/files/MonoLisa-Black.ttf
+ITEMS[15]=aspects/fonts/files/MonoLisa-BlackItalic.ttf
+ITEMS[16]=aspects/fonts/files/MonoLisa-Bold.ttf
+ITEMS[17]=aspects/fonts/files/MonoLisa-BoldItalic.ttf
+ITEMS[18]=aspects/fonts/files/MonoLisa-ExtraBold.ttf
+ITEMS[19]=aspects/fonts/files/MonoLisa-ExtraBoldItalic.ttf
+ITEMS[20]=aspects/fonts/files/MonoLisa-ExtraLight.ttf
+ITEMS[21]=aspects/fonts/files/MonoLisa-ExtraLightItalic.ttf
+ITEMS[22]=aspects/fonts/files/MonoLisa-Light.ttf
+ITEMS[23]=aspects/fonts/files/MonoLisa-LightItalic.ttf
+ITEMS[24]=aspects/fonts/files/MonoLisa-Medium.ttf
+ITEMS[25]=aspects/fonts/files/MonoLisa-MediumItalic.ttf
+ITEMS[26]=aspects/fonts/files/MonoLisa-Regular.ttf
+ITEMS[27]=aspects/fonts/files/MonoLisa-RegularItalic.ttf
+ITEMS[28]=aspects/fonts/files/MonoLisa-SemiBold.ttf
+ITEMS[29]=aspects/fonts/files/MonoLisa-SemiBoldItalic.ttf
+ITEMS[30]=aspects/fonts/files/MonoLisa-Thin.ttf
+ITEMS[31]=aspects/fonts/files/MonoLisa-ThinItalic.ttf
+ITEMS[32]=aspects/ssh/templates/.ssh/config.erb
 
 decrypt() {
   local PLAINTEXT=$1

@@ -133,7 +133,7 @@ If there are background processes, a yellow asterisk is shown:
 - [Clipper](https://github.com/wincent/clipper) for transparent access to the local system clipboard.
 - [Kitty](https://sw.kovidgoyal.net/kitty/).
 - [Ruby](https://www.ruby-lang.org/).
-- [Recursive Mono](https://www.recursive.design/) or any other fixed-width font that includes the [Powerline glyphs](http://powerline.readthedocs.io/en/master/installation.html#fonts-installation).
+- [MonoLisa font](https://www.monolisa.dev) or any other fixed-width font that includes the [Powerline glyphs](http://powerline.readthedocs.io/en/master/installation.html#fonts-installation).
 
 ## Platform status
 

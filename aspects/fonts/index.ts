@@ -7,20 +7,8 @@ task('create ~/Library/Fonts', async () => {
   });
 });
 
-task('install Rec Mono Custom', async () => {
-  const files = resource.files('RecMonoCustom-*.ttf');
-
-  const target = path.home.join('Library/Fonts');
-
-  for (const ttf of files) {
-    await command('cp', [ttf, target], {
-      creates: target.join(ttf.basename),
-    });
-  }
-});
-
-task('install Rec Mono Light', async () => {
-  const files = resource.files('RecMonoLight-*.ttf');
+task('install MonoLisa', async () => {
+  const files = resource.files('*.ttf');
 
   const target = path.home.join('Library/Fonts');
 
