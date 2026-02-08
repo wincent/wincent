@@ -17,7 +17,7 @@
       "*": ["./*"]
     },
     "strict": true,
-    "target": "ES2024",
+    "target": "esnext",
     "verbatimModuleSyntax": true
   },
   "exclude": [

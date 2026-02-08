@@ -5,7 +5,6 @@ import ErrorWithMetadata from './ErrorWithMetadata.ts';
 import {COLORS, LOG_LEVEL, log, nextLogLevel} from './console.ts';
 import dedent from './dedent.ts';
 import root from './dsl/root.ts';
-import escapeRegExpPattern from './escapeRegExpPattern.ts';
 import {promises as fs} from './fs.ts';
 import readAspect from './readAspect.ts';
 import stringify from './stringify.ts';
@@ -168,7 +167,7 @@ export default async function getOptions(
  */
 function fuzz(value: string) {
   return new RegExp(
-    ['', ...value.split(/\s+/).map(escapeRegExpPattern), ''].join('.*'),
+    ['', ...value.split(/\s+/).map((str) => RegExp.escape(str)), ''].join('.*'),
     'i',
   );
 }
