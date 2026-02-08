@@ -14,7 +14,7 @@
 - Set-up method: ~~Beautiful and intricate snowflake~~ an incredibly over-engineered custom configuration framework called [Fig](./fig/README.md).
 - Visible in the screenshot:
   - [The "bright"](https://github.com/tinted-theming/schemes/blob/spec-0.11/base16/bright.yaml) color scheme (see [screenshots of other colorschemes](https://github.com/wincent/wincent/blob/media/colorschemes/README.md)).
-  - [Recursive Mono](https://www.recursive.design/) font.
+  - [MonoLisa](https://www.monolisa.dev) font.
   - [Neovim](https://neovim.io), running inside [tmux](https://github.com/tmux/tmux), inside [kitty](https://sw.kovidgoyal.net/kitty/), on macOS "Tahoe".
 
 ## Features
@@ -133,7 +133,7 @@ If there are background processes, a yellow asterisk is shown:
 - [Clipper](https://github.com/wincent/clipper) for transparent access to the local system clipboard.
 - [Kitty](https://sw.kovidgoyal.net/kitty/).
 - [Ruby](https://www.ruby-lang.org/).
-- [MonoLisa font](https://www.monolisa.dev) or any other fixed-width font that includes the [Powerline glyphs](http://powerline.readthedocs.io/en/master/installation.html#fonts-installation).
+- [MonoLisa](https://www.monolisa.dev) font or any other fixed-width font that includes the [Powerline glyphs](http://powerline.readthedocs.io/en/master/installation.html#fonts-installation).
 
 ## Platform status
 
