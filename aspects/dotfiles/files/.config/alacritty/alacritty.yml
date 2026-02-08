@@ -108,7 +108,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux) monospace
     #   - (Windows) Consolas
-    family: Rec Mono Custom
+    family: MonoLisa ExtraLight Regular
 
     # The `style` can be specified to pick a specific face.
     #style: Regular
@@ -119,7 +119,7 @@ font:
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: Rec Mono Custom Bold
+    family: MonoLisa Bold
 
     # The `style` can be specified to pick a specific face.
     #style: Bold
@@ -130,7 +130,7 @@ font:
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: Rec Mono Custom Italic
+    family: MonoLisa Thin Italic
 
     # The `style` can be specified to pick a specific face.
     #style: Italic
