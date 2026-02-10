@@ -67,14 +67,13 @@ function getDependenciesList(state: State): Array<{
   repo: string;
   branch: string;
 }> {
-  return Object.values(state).map((config) => ({
-    prefix: config.prefix,
-    repo: config.repo,
-    branch: config.branch,
+  return Object.values(state).map(({prefix, repo, branch}) => ({
+    prefix,
+    repo,
+    branch,
   }));
 }
 
-// Save dependencies tracking.
 function save(state: State): void {
   writeFileSync(DEPENDENCIES_FILE, JSON.stringify(state, null, 2) + '\n');
 }
