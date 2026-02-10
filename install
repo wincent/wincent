@@ -12,4 +12,4 @@ bin/typegen
 
 log_info "Running Fig"
 
-node fig/main.mts "$@"
+bin/node fig/main.mts "$@"
