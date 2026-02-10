@@ -6,7 +6,7 @@ import {fileURLToPath} from 'url';
 type State = {
   [name: string]: {
     prefix: string;
-    repo: string;
+    url: string;
     branch: string;
     previous: string;
     current: string;
@@ -20,6 +20,74 @@ const REPO_ROOT = join(__dirname, '..');
 const CACHE_DIR = join(REPO_ROOT, '.cache', 'repos');
 const DEPENDENCIES_FILE = join(REPO_ROOT, 'dependencies.json');
 
+class Repo {
+  _path: string;
+
+  constructor(path: string) {
+    this._path = path;
+  }
+
+  get HEAD() {
+    return this._capture('rev-parse', ['HEAD']);
+  }
+
+  get exists() {
+    return existsSync(join(this._path, '.git'));
+  }
+
+  checkout(commitish: string): void {
+    this._exec('checkout', [commitish]);
+  }
+
+  clone(url: string, branch: string): void {
+    execSync(`git clone --branch ${branch} ${url} ${this._path}`, {
+      stdio: 'inherit',
+    });
+  }
+
+  fetch(refspec: string): void {
+    this._exec('fetch', [refspec]);
+  }
+
+  log(fromRef: string, toRef: string): string | null {
+    return this._capture('log', [
+      '--oneline',
+      '--no-decorate',
+      `${fromRef}..${toRef}`,
+    ]);
+  }
+
+  merge(commit: string): void {
+    return this._exec('merge', [commit]);
+  }
+
+  /**
+   * `args` is trusted input, assumed to not contain any characters that would
+   * require escaping.
+   */
+  _capture(command: string, args: Array<string>): string | null {
+    try {
+      return execSync(`git ${command} ${args.join(' ')}`, {
+        cwd: this._path,
+        encoding: 'utf8',
+      }).trim();
+    } catch (error) {
+      return null;
+    }
+  }
+
+  /**
+   * `args` is trusted input, assumed to not contain any characters that would
+   * require escaping.
+   */
+  _exec(command: string, args: Array<string>): void {
+    execSync(`git ${command} ${args.join(' ')}`, {
+      cwd: this._path,
+      stdio: 'inherit',
+    });
+  }
+}
+
 function isObject(value: unknown): value is {} {
   return !!(value && typeof value === 'object');
 }
@@ -32,8 +100,8 @@ function validate(state: unknown): asserts state is State {
         isObject(value) &&
         ('prefix' in value) &&
         typeof value.prefix === 'string' &&
-        ('repo' in value) &&
-        typeof value.repo === 'string' &&
+        ('url' in value) &&
+        typeof value.url === 'string' &&
         ('branch' in value) &&
         typeof value.branch === 'string' &&
         ('previous' in value) &&
@@ -64,46 +132,18 @@ function load(): State {
 // Extract dependencies list from the state file.
 function getDependenciesList(state: State): Array<{
   prefix: string;
-  repo: string;
+  url: string;
   branch: string;
 }> {
-  return Object.values(state).map(({prefix, repo, branch}) => ({
+  return Object.values(state).map(({prefix, url, branch}) => ({
     prefix,
-    repo,
+    url,
     branch,
   }));
 }
 
 function save(state: State): void {
   writeFileSync(DEPENDENCIES_FILE, JSON.stringify(state, null, 2) + '\n');
-}
-
-// Get current HEAD hash for a repo.
-function getRepoHead(repoPath: string): string | null {
-  try {
-    return execSync('git rev-parse HEAD', {
-      cwd: repoPath,
-      encoding: 'utf8',
-    }).trim();
-  } catch (error) {
-    return null;
-  }
-}
-
-// Get commit log between two refs.
-function getCommitLog(
-  repoPath: string,
-  fromRef: string,
-  toRef: string,
-): string | null {
-  try {
-    return execSync(`git log --oneline --no-decorate ${fromRef}..${toRef}`, {
-      cwd: repoPath,
-      encoding: 'utf8',
-    }).trim();
-  } catch (error) {
-    return null;
-  }
 }
 
 // Ensure cache directory exists.
@@ -121,19 +161,20 @@ const changelog: Array<{
 }> = [];
 
 // Process dependencies in parallel.
-async function updateDependency({prefix, repo, branch}: {
+async function updateDependency({prefix, url, branch}: {
   prefix: string;
-  repo: string;
+  url: string;
   branch: string;
 }) {
   // Derive cache name from repo URL (e.g., github/wincent/command-t)
-  const url = new URL(repo);
-  const pathParts = url.pathname.replace(/\.git$/, '').split('/').filter(
+  const parsedUrl = new URL(url);
+  const pathParts = parsedUrl.pathname.replace(/\.git$/, '').split('/').filter(
     Boolean,
   );
-  const host = url.hostname.split('.')[0]; // e.g., github.com -> github
+  const host = parsedUrl.hostname.split('.')[0]; // e.g., github.com -> github
   const cacheName = join(host, ...pathParts);
   const cachePath = join(CACHE_DIR, cacheName);
+  const repo = new Repo(cachePath);
 
   console.log(`Processing ${prefix}...`);
 
@@ -142,35 +183,29 @@ async function updateDependency({prefix, repo, branch}: {
   const previousHead = previousState.current || null;
 
   // Clone or update cached repo.
-  if (existsSync(join(cachePath, '.git'))) {
+  if (repo.exists) {
     console.log(`  [${prefix}] Updating cached repo...`);
-    execSync(
-      `git fetch origin && git checkout ${branch} && git merge origin/${branch}`,
-      {
-        cwd: cachePath,
-        stdio: 'inherit',
-      },
-    );
+    repo.fetch('origin');
+    repo.checkout(branch);
+    repo.merge(`origin/${branch}`);
   } else {
     console.log(`  [${prefix}] Cloning to cache...`);
-    execSync(`git clone --branch ${branch} ${repo} ${cachePath}`, {
-      stdio: 'inherit',
-    });
+    repo.clone(url, branch);
   }
 
-  const currentHead = getRepoHead(cachePath);
+  const currentHead = repo.HEAD;
 
   if (previousHead && currentHead && previousHead !== currentHead) {
     // Record new state and emit changelog entry.
     state[cacheName] = {
       prefix,
-      repo,
+      url,
       branch,
       previous: previousHead,
       current: currentHead,
     };
 
-    const log = getCommitLog(cachePath, previousHead, currentHead);
+    const log = repo.log(previousHead, currentHead);
     if (log) {
       changelog.push({
         prefix,
