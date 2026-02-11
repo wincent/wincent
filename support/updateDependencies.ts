@@ -23,6 +23,22 @@ const DEPENDENCIES_FILE = join(REPO_ROOT, 'dependencies.json');
 class Repo {
   _path: string;
 
+  static clone(url: string, branch: string, path: string): Repo {
+    const repo = new Repo(path);
+
+    if (repo.exists) {
+      throw new Error(
+        `Cannot clone on top of existing repository at path: ${path}`,
+      );
+    }
+
+    execSync(`git clone --branch ${branch} ${url} ${path}`, {
+      stdio: 'inherit',
+    });
+
+    return repo;
+  }
+
   constructor(path: string) {
     this._path = path;
   }
@@ -37,12 +53,6 @@ class Repo {
 
   checkout(commitish: string): void {
     this._exec('checkout', [commitish]);
-  }
-
-  clone(url: string, branch: string): void {
-    execSync(`git clone --branch ${branch} ${url} ${this._path}`, {
-      stdio: 'inherit',
-    });
   }
 
   fetch(refspec: string): void {
@@ -174,7 +184,7 @@ async function updateDependency({prefix, url, branch}: {
   const host = parsedUrl.hostname.split('.')[0]; // e.g., github.com -> github
   const cacheName = join(host, ...pathParts);
   const cachePath = join(CACHE_DIR, cacheName);
-  const repo = new Repo(cachePath);
+  let repo = new Repo(cachePath);
 
   console.log(`Processing ${prefix}...`);
 
@@ -190,7 +200,7 @@ async function updateDependency({prefix, url, branch}: {
     repo.merge(`origin/${branch}`);
   } else {
     console.log(`  [${prefix}] Cloning to cache...`);
-    repo.clone(url, branch);
+    repo = Repo.clone(url, branch, cachePath);
   }
 
   const currentHead = repo.HEAD;
