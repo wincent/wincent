@@ -1,4 +1,4 @@
 #!/bin/bash
 
 # https://docs.claude.com/en/docs/claude-code/hooks#notification
-jq -r .message | terminal-notifier -title Claude -subtitle "Notification hook"
+jq -r .message | terminal-notifier -title Claude -subtitle "Notification hook" -activate net.kovidgoyal.kitty
