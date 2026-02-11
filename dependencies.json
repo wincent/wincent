@@ -220,8 +220,8 @@
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-treesitter",
     "url": "https://github.com/nvim-treesitter/nvim-treesitter.git",
     "branch": "main",
-    "previous": "70a9fecaf5aeae70c765d4c51a8038165a91aa06",
-    "current": "45a07f869b0cffba342276f2c77ba7c116d35db8"
+    "previous": "45a07f869b0cffba342276f2c77ba7c116d35db8",
+    "current": "9f2dad22ef8bb14fd1e0a3aa8859cdc88170668b"
   },
   "github/nvim-treesitter/nvim-treesitter-textobjects": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-treesitter-textobjects",
