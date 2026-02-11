@@ -529,7 +529,6 @@ require('wincent.treesitter.setup')({
     'java',
     'javascript',
     'json',
-    'jsonc',
     'make',
     'nginx',
     'ninja',
