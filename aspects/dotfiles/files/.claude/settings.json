@@ -1,4 +1,5 @@
 {
+  "cleanupPeriodDays": 99999,
   "permissions": {
     "allow": [
       "Bash(command git diff:*)",
@@ -56,5 +57,9 @@
     ]
   },
   "alwaysThinkingEnabled": true,
-  "cleanupPeriodDays": 99999
+  "statusLine": {
+    "type": "command",
+    "command": "~/.zsh/bin/claude-statusline",
+    "padding": 0
+  }
 }
