@@ -9,6 +9,7 @@ import dedent from './dedent.ts';
 import root from './dsl/root.ts';
 import getOptions from './getOptions.ts';
 import merge from './merge.ts';
+import msToHumanReadable from './msToHumanReadable.ts';
 import path from './path.ts';
 import prompt from './prompt.ts';
 import readAspect from './readAspect.ts';
@@ -379,27 +380,6 @@ async function main() {
 
     await log.notice(`Summary: ${counts} elapsed=${elapsed}`);
   }
-}
-
-/**
- * Turns `ms` into a human readble string like "1m2s" or "33.2s".
- *
- * Doesn't deal with timescales beyond "minutes" because we don't expect to see
- * those. If we did, it would just return (something like) "125m20s".
- */
-function msToHumanReadable(ms: number): string {
-  let seconds = ms / 1000;
-  const minutes = Math.floor(seconds / 60);
-  if (minutes) {
-    seconds = Math.floor(seconds - minutes * 60);
-  }
-
-  let result = minutes ? `${minutes}m` : '';
-  result += seconds
-    ? seconds.toFixed(2).toString().replace(/0+$/, '').replace(/\.$/, '') + 's'
-    : '';
-
-  return result;
 }
 
 async function loadAspect(aspect: Aspect): Promise<void> {
