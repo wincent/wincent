@@ -39,7 +39,7 @@ export default class Attributes {
         // As noted here[1], `arch` (and `uname -m`, etc) inherit architectural
         // preference from the parent. So, if Node was not compiled for Apple
         // Silicon, you'll get "i386" if you run `arch` from inside Node.
-        // Similarly, you"ll get "x86_64' if you run `uname -m` from inside.
+        // Similarly, you'll get "x86_64" if you run `uname -m` from inside.
         // In both cases, you get "arm64" outside.
         //
         // Now, /bin/zsh ships as a universal binary with "x86_64" and "arm64e"

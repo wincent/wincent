@@ -31,7 +31,7 @@ function isValidTypeKey(key: string): key is keyof typeof TYPE_MAP {
  * Wrapper for "stat" command.
  *
  * Ideally, we'd just use `fs.stat`, but the trouble with that is we can't rely
- * on it to stat root-owned files; we need to be able to run a separate too,
+ * on it to stat root-owned files; we need to be able to run a separate tool,
  * with `sudo` if necessary.
  */
 export default async function stat(

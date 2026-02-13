@@ -18,7 +18,7 @@ export type Result = {
 };
 
 /**
- * Run a command and return the result, escalating with `sudo` if a `passhprase`
+ * Run a command and return the result, escalating with `sudo` if a `passphrase`
  * is supplied via the `options` parameter.
  */
 export default async function run(
