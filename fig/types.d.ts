@@ -37,8 +37,3 @@ type Variables = {
 };
 
 type OperationResult = 'changed' | 'failed' | 'ok' | 'skipped';
-
-// TODO: remove once TS updates its bundled type definitions.
-declare interface RegExpConstructor {
-  escape(str: string): string;
-}
