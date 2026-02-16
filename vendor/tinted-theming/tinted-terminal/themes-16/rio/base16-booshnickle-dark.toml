@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: booshnickle dark by Honey D (@honeydbeatz)
+
+[colors]
+selection-background = '#bdbd97' # base05
+selection-foreground = '#5b5b49' # base02
+
+cursor         = '#bdbd97' # base05
+tabs           = '#3a3a2e' # base01
+tabs-active    = '#5b5b49' # base02
+
+background     = '#191914' # base00
+foreground     = '#bdbd97' # base05
+black          = '#191914' # base00
+red            = '#ffbfa5' # base08
+yellow         = '#fff299' # base0A
+green          = '#e7ff99' # base0B
+cyan           = '#bfffc5' # base0C
+blue           = '#ccbfd9' # base0D
+magenta        = '#f2bfd9' # base0E
+white          = '#bdbd97' # base05
+
+dim-foreground   = '#bdbd97' # base05
+dim-black        = '#3a3a2e' # base01
+dim-red          = '#ffbfa5' # base08
+dim-yellow       = '#fff299' # base0A
+dim-green        = '#e7ff99' # base0B
+dim-cyan         = '#bfffc5' # base0C
+dim-blue         = '#ccbfd9' # base0D
+dim-magenta      = '#f2bfd9' # base0E
+dim-white        = '#9c9c7d' # base04
+
+light-foreground = '#bdbd97' # base05
+light-black      = '#7c7c63' # base03
+light-red        = '#ffbfa5' # base08
+light-yellow     = '#fff299' # base0A
+light-green      = '#e7ff99' # base0B
+light-cyan       = '#bfffc5' # base0C
+light-blue       = '#ccbfd9' # base0D
+light-magenta    = '#f2bfd9' # base0E
+light-white      = '#ffffcc' # base07

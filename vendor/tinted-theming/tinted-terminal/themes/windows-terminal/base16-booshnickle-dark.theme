@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "booshnickle dark",
+	"foreground": "#bdbd97",
+	"background": "#191914",
+	"black": "#191914",
+	"blue": "#ccbfd9",
+	"brightBlack": "#7c7c63",
+	"brightBlue": "#ccbfd9",
+	"brightCyan": "#bfffc5",
+	"brightGreen": "#e7ff99",
+	"brightPurple": "#f2bfd9",
+	"brightRed": "#ffbfa5",
+	"brightWhite": "#ffffcc",
+	"brightYellow": "#fff299",
+	"cyan": "#bfffc5",
+	"green": "#e7ff99",
+	"purple": "#f2bfd9",
+	"red": "#ffbfa5",
+	"white": "#bdbd97",
+	"yellow": "#fff299"
+},

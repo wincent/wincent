@@ -410,7 +410,7 @@ function! s:undotree.ActionEnter() abort
         return
     endif
     if seq == 0
-        call self.ActionInTarget('norm 9999u')
+        call self.ActionInTarget('norm! 9999u')
         return
     endif
     call self.ActionInTarget('u '.self.asciimeta[index].seq)

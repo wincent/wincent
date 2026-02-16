@@ -1,0 +1,43 @@
+# base16 booshnickle dark
+# Scheme author: Honey D (@honeydbeatz)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#191914"
+foreground = "#bdbd97"
+
+cursor_bg = "#bdbd97"
+cursor_border = "#bdbd97"
+cursor_fg = "#191914"
+
+selection_bg = "#bdbd97"
+selection_fg = "#5b5b49"
+
+ansi = [
+  "#191914",
+  "#ffbfa5",
+  "#e7ff99",
+  "#fff299",
+  "#ccbfd9",
+  "#f2bfd9",
+  "#bfffc5",
+  "#bdbd97"
+]
+brights = [
+  "#7c7c63",
+  "#ffbfa5",
+  "#e7ff99",
+  "#fff299",
+  "#ccbfd9",
+  "#f2bfd9",
+  "#bfffc5",
+  "#ffffcc"
+]
+
+[colors.indexed]
+16 = "#ffdc99"
+17 = "#e5d6a6"
+18 = "#3a3a2e"
+19 = "#5b5b49"
+20 = "#9c9c7d"
+21 = "#dedeb2"

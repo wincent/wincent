@@ -110,6 +110,7 @@ Nvim by running `:help lspconfig-all`.
 - [flow](#flow)
 - [flux_lsp](#flux_lsp)
 - [foam_ls](#foam_ls)
+- [fortitude](#fortitude)
 - [fortls](#fortls)
 - [fsautocomplete](#fsautocomplete)
 - [fsharp_language_server](#fsharp_language_server)
@@ -2474,11 +2475,11 @@ Default config:
   {
     editorInfo = {
       name = "Neovim",
-      version = "0.12.0-dev+gdb133879b2"
+      version = "0.12.0-dev+g6b4ec2264e"
     },
     editorPluginInfo = {
       name = "Neovim",
-      version = "0.12.0-dev+gdb133879b2"
+      version = "0.12.0-dev+g6b4ec2264e"
     }
   }
   ```
@@ -3086,6 +3087,37 @@ vim.g.markdown_fenced_languages = {
 }
 ```
 
+Some care must be taken here to correctly infer whether a file is part of a Deno program, or a TS program that
+expects to run in Node or Web Browsers. This supports having a Deno module that is a part of a mostly-not-Deno
+monorepo. We do this by finding the nearest package manager lock file, and the nearest deno.json or deno.jsonc.
+Note that this means that without a deno.json, deno.jsonc, or deno.lock file, this LSP client will not attach.
+
+Example:
+
+```
+project-root
++-- node_modules/...
++-- package-lock.json
++-- package.json
++-- packages
+    +-- deno-module
+    |   +-- deno.json
+    |   +-- package.json <-- It's normal for Deno projects to have package.json files!
+    |   +-- src
+    |       +-- index.ts <-- this is a Deno file
+    +-- node-module
+        +-- package.json
+        +-- src
+            +-- index.ts <-- a non-Deno file (ie, should use ts_ls or tsgo)
+```
+
+From the file being edited, we walk up to find the nearest package manager lockfile. This is PROJECT ROOT.
+From the file being edited, find the nearest deno.json or deno.jsonc. This is DENO ROOT.
+From the file being edited, find the nearest deno.lock. This is DENO LOCK ROOT
+If DENO LOCK ROOT is found, and PROJECT ROOT is missing or shorter, then this is a deno file, and we attach.
+If DENO ROOT is found, and it's longer than or equal to PROJECT ROOT, then this is a Deno file, and we attach.
+Otherwise, we abort, because this is a non-Deno TS file.
+
 Snippet to enable the language server:
 ```lua
 vim.lsp.enable('denols')
@@ -3114,8 +3146,8 @@ Default config:
     ["textDocument/typeDefinition"] = <function 1>
   }
   ```
-- `on_attach`: [../lsp/denols.lua:67](../lsp/denols.lua#L67)
-- `root_dir`: [../lsp/denols.lua:67](../lsp/denols.lua#L67)
+- `on_attach`: [../lsp/denols.lua:98](../lsp/denols.lua#L98)
+- `root_dir`: [../lsp/denols.lua:98](../lsp/denols.lua#L98)
 - `settings` :
   ```lua
   {
@@ -4367,6 +4399,49 @@ Default config:
 
 ---
 
+## fortitude
+
+https://fortitude.readthedocs.io/en/stable/
+
+Fortitude is a Fortran linter built in Rust and inspired by (and build upon) Ruff
+
+```sh
+# Install With uv:
+uv tool install fortitude-lint@latest
+
+# Install with pip:
+pip install fortitude-lint
+```
+
+**LSP is available in Fortitude `v0.8.0`.**
+
+Refer to the [documentation](https://fortitude.readthedocs.io/en/stable/editors/) for more details.
+
+Snippet to enable the language server:
+```lua
+vim.lsp.enable('fortitude')
+```
+
+Default config:
+- `cmd` :
+  ```lua
+  { "fortitude", "server" }
+  ```
+- `filetypes` :
+  ```lua
+  { "fortran" }
+  ```
+- `root_markers` :
+  ```lua
+  { "fpm.toml", "fortitude.toml", ".fortitude.toml", ".git" }
+  ```
+- `settings` :
+  ```lua
+  {}
+  ```
+
+---
+
 ## fortls
 
 https://fortls.fortran-lang.org/index.html
@@ -4397,7 +4472,7 @@ Default config:
   ```
 - `root_markers` :
   ```lua
-  { ".fortls", ".git" }
+  { ".fortls", ".fortlsrc", ".fortls.json", ".git" }
   ```
 - `settings` :
   ```lua
@@ -4876,20 +4951,20 @@ Default config:
   {
     editorInfo = {
       name = "Neovim",
-      version = "0.12.0-dev+gdb133879b2"
+      version = "0.12.0-dev+g6b4ec2264e"
     },
     editorPluginInfo = {
       name = "Neovim LSP",
-      version = "0.12.0-dev+gdb133879b2"
+      version = "0.12.0-dev+g6b4ec2264e"
     },
     extension = {
       name = "Neovim LSP Client",
-      version = "0.12.0-dev+gdb133879b2"
+      version = "0.12.0-dev+g6b4ec2264e"
     },
     ide = {
       name = "Neovim",
       vendor = "Neovim",
-      version = "0.12.0-dev+gdb133879b2"
+      version = "0.12.0-dev+g6b4ec2264e"
     }
   }
   ```
@@ -7827,7 +7902,7 @@ Default config:
   ```
 - `root_markers` :
   ```lua
-  { ".git", "build", "cmake" }
+  { ".neocmake.toml", ".git", "build", "cmake" }
   ```
 
 ---
@@ -8545,28 +8620,37 @@ It can be installed via `npm`:
 npm i -g oxlint
 ```
 
+Type-aware linting will automatically be enabled if `tsgolint` exists in your
+path and your `.oxlintrc.json` contains the string "typescript".
+
+The default `on_attach` function provides an `:LspOxlintFixAll` command which
+can be used to fix all fixable diagnostics. See the `eslint` config entry for
+an example of how to use this to automatically fix all errors on write.
+
 Snippet to enable the language server:
 ```lua
 vim.lsp.enable('oxlint')
 ```
 
 Default config:
+- `before_init`: [../lsp/oxlint.lua:32](../lsp/oxlint.lua#L32)
 - `cmd` :
   ```lua
   { "oxlint", "--lsp" }
   ```
 - `filetypes` :
   ```lua
-  { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx", "vue", "svelte", "astro" }
+  { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte", "astro" }
   ```
-- `init_options` :
+- `on_attach`: [../lsp/oxlint.lua:32](../lsp/oxlint.lua#L32)
+- `root_markers` :
   ```lua
-  {
-    settings = {}
-  }
+  { ".oxlintrc.json" }
   ```
-- `on_attach`: [../lsp/oxlint.lua:17](../lsp/oxlint.lua#L17)
-- `root_dir`: [../lsp/oxlint.lua:17](../lsp/oxlint.lua#L17)
+- `settings` :
+  ```lua
+  {}
+  ```
 - `workspace_required` : `true`
 
 ---
@@ -11141,7 +11225,7 @@ Default config:
     activateSnykIac = "true",
     activateSnykOpenSource = "true",
     integrationName = "Neovim",
-    integrationVersion = "0.12.0-dev+gdb133879b2",
+    integrationVersion = "0.12.0-dev+g6b4ec2264e",
     token = vim.NIL,
     trustedFolders = {}
   }
@@ -12998,6 +13082,37 @@ This works without the need of spawning multiple instances of `ts_ls`, saving me
 
 It is recommended to use the same version of TypeScript in all packages, and therefore have it available in your workspace root. The location of the TypeScript binary will be determined automatically, but only once.
 
+Some care must be taken here to correctly infer whether a file is part of a Deno program, or a TS program that
+expects to run in Node or Web Browsers. This supports having a Deno module using the denols LSP as a part of a
+mostly-not-Deno monorepo. We do this by finding the nearest package manager lock file, and the nearest deno.json
+or deno.jsonc.
+
+Example:
+
+```
+project-root
++-- node_modules/...
++-- package-lock.json
++-- package.json
++-- packages
+    +-- deno-module
+    |   +-- deno.json
+    |   +-- package.json <-- It's normal for Deno projects to have package.json files!
+    |   +-- src
+    |       +-- index.ts <-- this is a Deno file
+    +-- node-module
+        +-- package.json
+        +-- src
+            +-- index.ts <-- a non-Deno file (ie, should use ts_ls or tsgols)
+```
+
+From the file being edited, we walk up to find the nearest package manager lockfile. This is PROJECT ROOT.
+From the file being edited, find the nearest deno.json or deno.jsonc. This is DENO ROOT.
+From the file being edited, find the nearest deno.lock. This is DENO LOCK ROOT
+If DENO LOCK ROOT is found, and PROJECT ROOT is missing or shorter, then this is a deno file, and we abort.
+If DENO ROOT is found, and it's longer than or equal to PROJECT ROOT, then this is a Deno file, and we abort.
+Otherwise, attach at PROJECT ROOT, or the cwd if not found.
+
 Snippet to enable the language server:
 ```lua
 vim.lsp.enable('ts_ls')
@@ -13033,8 +13148,8 @@ Default config:
     hostInfo = "neovim"
   }
   ```
-- `on_attach`: [../lsp/ts_ls.lua:47](../lsp/ts_ls.lua#L47)
-- `root_dir`: [../lsp/ts_ls.lua:47](../lsp/ts_ls.lua#L47)
+- `on_attach`: [../lsp/ts_ls.lua:77](../lsp/ts_ls.lua#L77)
+- `root_dir`: [../lsp/ts_ls.lua:77](../lsp/ts_ls.lua#L77)
 
 ---
 
@@ -13106,18 +13221,49 @@ This works without the need of spawning multiple instances of `tsgo`, saving mem
 
 It is recommended to use the same version of TypeScript in all packages, and therefore have it available in your workspace root. The location of the TypeScript binary will be determined automatically, but only once.
 
+Some care must be taken here to correctly infer whether a file is part of a Deno program, or a TS program that
+expects to run in Node or Web Browsers. This supports having a Deno module using the denols LSP as a part of a
+mostly-not-Deno monorepo. We do this by finding the nearest package manager lock file, and the nearest deno.json
+or deno.jsonc.
+
+Example:
+
+```
+project-root
++-- node_modules/...
++-- package-lock.json
++-- package.json
++-- packages
+    +-- deno-module
+    |   +-- deno.json
+    |   +-- package.json <-- It's normal for Deno projects to have package.json files!
+    |   +-- src
+    |       +-- index.ts <-- this is a Deno file
+    +-- node-module
+        +-- package.json
+        +-- src
+            +-- index.ts <-- a non-Deno file (ie, should use ts_ls or tsgols)
+```
+
+From the file being edited, we walk up to find the nearest package manager lockfile. This is PROJECT ROOT.
+From the file being edited, find the nearest deno.json or deno.jsonc. This is DENO ROOT.
+From the file being edited, find the nearest deno.lock. This is DENO LOCK ROOT
+If DENO LOCK ROOT is found, and PROJECT ROOT is missing or shorter, then this is a deno file, and we abort.
+If DENO ROOT is found, and it's longer than or equal to PROJECT ROOT, then this is a Deno file, and we abort.
+Otherwise, attach at PROJECT ROOT, or the cwd if not found.
+
 Snippet to enable the language server:
 ```lua
 vim.lsp.enable('tsgo')
 ```
 
 Default config:
-- `cmd`: [../lsp/tsgo.lua:18](../lsp/tsgo.lua#L18)
+- `cmd`: [../lsp/tsgo.lua:48](../lsp/tsgo.lua#L48)
 - `filetypes` :
   ```lua
   { "javascript", "javascriptreact", "typescript", "typescriptreact" }
   ```
-- `root_dir`: [../lsp/tsgo.lua:18](../lsp/tsgo.lua#L18)
+- `root_dir`: [../lsp/tsgo.lua:48](../lsp/tsgo.lua#L48)
 
 ---
 
@@ -14209,6 +14355,8 @@ This works without the need of spawning multiple instances of `vtsls`, saving me
 
 It is recommended to use the same version of TypeScript in all packages, and therefore have it available in your workspace root. The location of the TypeScript binary will be determined automatically, but only once.
 
+This includes the same Deno-excluding logic from `ts_ls`. It is not recommended to enable both `vtsls` and `ts_ls` at the same time!
+
 Snippet to enable the language server:
 ```lua
 vim.lsp.enable('vtsls')
@@ -14229,7 +14377,7 @@ Default config:
     hostInfo = "neovim"
   }
   ```
-- `root_dir`: [../lsp/vtsls.lua:69](../lsp/vtsls.lua#L69)
+- `root_dir`: [../lsp/vtsls.lua:71](../lsp/vtsls.lua#L71)
 
 ---
 
