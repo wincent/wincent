@@ -115,8 +115,8 @@
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/command-t",
     "url": "https://github.com/wincent/command-t.git",
     "branch": "main",
-    "previous": "a2dd6ab57f4570f72435a2ef1a47f6301b4ffebf",
-    "current": "3c6d19f91e1cd7da977263f7c1cba83ecfb3de29"
+    "previous": "3c6d19f91e1cd7da977263f7c1cba83ecfb3de29",
+    "current": "c0c712e2d8b5f89e38cc3c4aa1af03aec57c606e"
   },
   "github/wincent/corpus": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/corpus",
@@ -144,7 +144,7 @@
     "url": "https://github.com/lukas-reineke/indent-blankline.nvim.git",
     "branch": "master",
     "previous": "005b56001b2cb30bfa61b7986bc50657816ba4ba",
-    "current": "005b56001b2cb30bfa61b7986bc50657816ba4ba"
+    "current": "d28a3f70721c79e3c5f6693057ae929f3d9c0a03"
   },
   "github/wincent/loupe": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/loupe",
