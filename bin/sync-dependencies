@@ -1,0 +1,5 @@
+#!/bin/bash
+
+SUPPORT=$(cd $(dirname "$BASH_SOURCE")/..; echo "$(pwd)/support")
+
+exec node "$SUPPORT/syncDependencies.ts"
