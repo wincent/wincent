@@ -56,10 +56,13 @@
       }
     ]
   },
-  "alwaysThinkingEnabled": true,
   "statusLine": {
     "type": "command",
     "command": "~/.zsh/bin/claude-statusline",
     "padding": 0
-  }
+  },
+  "enabledPlugins": {
+    "typescript-lsp@claude-plugins-official": true
+  },
+  "alwaysThinkingEnabled": true
 }
