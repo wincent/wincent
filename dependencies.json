@@ -3,8 +3,8 @@
     "prefix": "aspects/dotfiles/files/.config/yazi/vendor/plugins",
     "url": "https://github.com/yazi-rs/plugins.git",
     "branch": "main",
-    "previous": "230b9c6055a3144f6974fef297ad1a91b46a6aac",
-    "current": "88990a6cf1d31afd9d8db1a0d74bf37ef50d6786"
+    "previous": "88990a6cf1d31afd9d8db1a0d74bf37ef50d6786",
+    "current": "25918dcde97f11ac37f80620cc264680aedc4df8"
   },
   "github/mafredri/zsh-async": {
     "prefix": "aspects/dotfiles/files/.zsh/zsh-async",
@@ -115,8 +115,8 @@
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/command-t",
     "url": "https://github.com/wincent/command-t.git",
     "branch": "main",
-    "previous": "dddab8a97fd4a4b58d008e0c15303e1a2c9d8a5e",
-    "current": "a2dd6ab57f4570f72435a2ef1a47f6301b4ffebf"
+    "previous": "a2dd6ab57f4570f72435a2ef1a47f6301b4ffebf",
+    "current": "3c6d19f91e1cd7da977263f7c1cba83ecfb3de29"
   },
   "github/wincent/corpus": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/corpus",

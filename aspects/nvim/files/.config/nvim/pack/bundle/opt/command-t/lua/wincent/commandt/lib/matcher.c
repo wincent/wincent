@@ -125,7 +125,7 @@ result_t *commandt_matcher_run(matcher_t *matcher, const char *needle) {
         size_t src = 0;
         size_t dest = 0;
         while (src < needle_length) {
-            char c = needle[src];
+            char c = needle_copy[src];
             if (c != ' ') {
                 if (dest == src) {
                     dest++;
@@ -277,7 +277,7 @@ static int cmp_alpha(const void *a, const void *b) {
     size_t b_len = b_str->length;
     int order = strncmp(a_ptr, b_ptr, b_len);
     if (order == 0) {
-        return a_len - b_len; // Shorter string wins.
+        return (long)a_len - (long)b_len; // Shorter string wins.
     } else {
         return order;
     }

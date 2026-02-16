@@ -922,6 +922,12 @@ describe('matcher.c', function()
       })
     end)
 
+    it('sorts a shorter string before a longer one that shares the same prefix', function()
+      -- Regression test: `cmp_alpha()` was doing sketchy unsigned subtraction.
+      local matcher = get_matcher({ 'foobar', 'foo', 'foobarb', 'foob' })
+      expect(matcher.match('')).to_equal({ 'foo', 'foob', 'foobar', 'foobarb' })
+    end)
+
     describe('the `ignore_spaces` option', function()
       local paths = { 'path_no_space', 'path with/space' }
 
@@ -934,6 +940,16 @@ describe('matcher.c', function()
         it('ignores the space character', function()
           local matcher = get_matcher(paths, { ignore_spaces = true })
           expect(matcher.match('path space')).to_equal(paths)
+        end)
+
+        -- Regression test: `ignore_spaces` was undoing case conversion.
+        it('does not undo case conversion', function()
+          local matcher = get_matcher({ 'foobar' }, {
+            ignore_case = true,
+            ignore_spaces = true,
+            smart_case = false,
+          })
+          expect(matcher.match('FOO BAR')).to_equal({ 'foobar' })
         end)
       end)
 
