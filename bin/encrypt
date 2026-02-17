@@ -52,6 +52,7 @@ ITEMS[29]=aspects/fonts/files/MonoLisa-SemiBoldItalic.ttf
 ITEMS[30]=aspects/fonts/files/MonoLisa-Thin.ttf
 ITEMS[31]=aspects/fonts/files/MonoLisa-ThinItalic.ttf
 ITEMS[32]=aspects/ssh/templates/.ssh/config.erb
+ITEMS[33]=aspects/ssh/files/.ssh/config.d/pre/comp-ktw7q4c5jh
 
 decrypt() {
   local PLAINTEXT=$1
