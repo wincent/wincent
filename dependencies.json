@@ -115,8 +115,8 @@
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/command-t",
     "url": "https://github.com/wincent/command-t.git",
     "branch": "main",
-    "previous": "3c6d19f91e1cd7da977263f7c1cba83ecfb3de29",
-    "current": "c0c712e2d8b5f89e38cc3c4aa1af03aec57c606e"
+    "previous": "c0c712e2d8b5f89e38cc3c4aa1af03aec57c606e",
+    "current": "34b309f09b3bf4b9bed81db41e0abe127a2c91e9"
   },
   "github/wincent/corpus": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/corpus",
@@ -157,8 +157,8 @@
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.ai",
     "url": "https://github.com/nvim-mini/mini.ai.git",
     "branch": "main",
-    "previous": "bfb26d9072670c3aaefab0f53024b2f3729c8083",
-    "current": "9eae720f2b20f6ad28cbfa0ddc524e10dc2c3201"
+    "previous": "9eae720f2b20f6ad28cbfa0ddc524e10dc2c3201",
+    "current": "b0247752cf629ce7c6bd0a1efd82fb58ff60f9d6"
   },
   "github/nvim-mini/mini.extra": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.extra",
@@ -178,8 +178,8 @@
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.surround",
     "url": "https://github.com/nvim-mini/mini.surround.git",
     "branch": "main",
-    "previous": "cc7b9d0a056b5fa6915ffac1cb91f29bf7c96f69",
-    "current": "d648a5601e1c48f175b07d10eba141da338a0a2a"
+    "previous": "d648a5601e1c48f175b07d10eba141da338a0a2a",
+    "current": "01dd2620e50ebc0f28f7d4ea2db6f846f1540c95"
   },
   "github/eagletmt/neco-ghc": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/neco-ghc",
@@ -220,8 +220,8 @@
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-treesitter",
     "url": "https://github.com/nvim-treesitter/nvim-treesitter.git",
     "branch": "main",
-    "previous": "9f2dad22ef8bb14fd1e0a3aa8859cdc88170668b",
-    "current": "4d9466677a5ceadef104eaa0fe08d60d91c4e9a7"
+    "previous": "4d9466677a5ceadef104eaa0fe08d60d91c4e9a7",
+    "current": "2bd9b9b4f12eed175fba35ca2db8e8584546a4ec"
   },
   "github/nvim-treesitter/nvim-treesitter-textobjects": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-treesitter-textobjects",
@@ -451,8 +451,8 @@
     "prefix": "vendor/tinted-theming/schemes",
     "url": "https://github.com/tinted-theming/schemes.git",
     "branch": "spec-0.11",
-    "previous": "43dd14f6466a782bd57419fdfb5f398c74d6ac53",
-    "current": "b9f335ad6a0b7d85b9c2eb932c3215f7429f7d11"
+    "previous": "b9f335ad6a0b7d85b9c2eb932c3215f7429f7d11",
+    "current": "7725e097895102ca2949c7a553b54dca0b2e2667"
   },
   "github/tinted-theming/tinted-shell": {
     "prefix": "vendor/tinted-theming/tinted-shell",
