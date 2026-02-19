@@ -1,6 +1,7 @@
 **/doc/tags
 *.zwc
 /.cache
+/aspects/dotfiles/files/.claude/backups
 /aspects/dotfiles/files/.claude/cache
 /aspects/dotfiles/files/.claude/debug
 /aspects/dotfiles/files/.claude/file-history
