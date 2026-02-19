@@ -2,5 +2,6 @@
 *.temp
 *~
 .DS_Store
+.claude/notes
 .claude/settings.local.json
 \#*\#
