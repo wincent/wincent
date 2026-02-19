@@ -36,6 +36,12 @@ To avoid this error, whenever you run a Claude command (such as `claude mcp`), y
 
 For example, commands of the form `git show $SOME_COMMIT` or `git diff $SOME_REV`, which only read data, can be run without asking first.
 
+# Do not remove untracked files in Git
+
+When preparing commits, use `git add` to prepare the index before running `git commit`, including only the files that are relevant to the commit.
+
+**DO NOT** remove untracked files from the repository.
+
 # Prefer `rg` over `grep`
 
 In general, if you're thinking of using `grep`, you should use `rg` instead, because it is faster.
