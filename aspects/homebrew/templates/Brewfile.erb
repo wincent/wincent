@@ -12,6 +12,7 @@ tap "oven-sh/bun"
 
 # Work-only taps.
 tap "withgraphite/tap"
+tap "atlassian-labs/acli" # https://github.com/atlassian/homebrew-acli
 <%- } -%>
 
 # General packages.
@@ -193,6 +194,7 @@ brew "s3cmd" # "Command-line tool for the Amazon S3 service"
 <%- if (variables.profile === 'work') { -%>
 
 # Work-only packages.
+brew "acli" # "Software to interact with Atlassian Cloud from the terminal"
 brew "aws-vault" # "Securely store and access AWS credentials in development environments"
 brew "git-lfs" # "Git extension for versioning large files"
 brew "graphite" # "Allows you to manage your stacked changes and submit them for review on GitHub"
