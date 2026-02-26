@@ -4,6 +4,8 @@ Dotfiles and system configuration repo, managed by a custom configuration framew
 
 Uses TypeScript (with `@typescript/native-preview` ie. `tsgo`).
 
+This repository uses the Jujutsu version control system (see the `/jujutsu` skill for details).
+
 ## Running scripts
 
 Use the scripts under `bin/` for pre-commit checks:

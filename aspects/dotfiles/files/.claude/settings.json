@@ -5,7 +5,20 @@
       "Bash(command git diff:*)",
       "Bash(command git log:*)",
       "Bash(command git show:*)",
-      "Bash(command git status:*)"
+      "Bash(command git status:*)",
+      "Bash(jj diff:*)",
+      "Bash(jj evolog:*)",
+      "Bash(jj gr:*)",
+      "Bash(jj last:*)",
+      "Bash(jj log:*)",
+      "Bash(jj o:*)",
+      "Bash(jj oo:*)",
+      "Bash(jj op log:*)",
+      "Bash(jj st:*)",
+      "Bash(jj status:*)",
+      "Bash(jj show:*)",
+      "Skill(commit)",
+      "Skill(jujutsu)"
     ],
     "deny": []
   },
