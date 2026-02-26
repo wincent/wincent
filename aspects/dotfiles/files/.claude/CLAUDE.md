@@ -10,7 +10,7 @@ When working in a repo, check to see whether there are any files under `.cursor/
 
 Before performing any action, check if there's a relevant skill available and use it immediately:
 
-- When committing: Use the "generating-commit-messages" skill first.
+- When committing: Use the `/commit skill first.
 
 **NEVER** manually perform an action that has a dedicated skill without using the skill first.
 
