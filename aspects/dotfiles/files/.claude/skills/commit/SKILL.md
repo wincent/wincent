@@ -5,11 +5,19 @@ description: Create a commit in a repository
 
 # Create a commit in a repository
 
+## Creating Git commits
+
 The most common case will be creating a commit in a Git repository. Usually, you will include all changes in the working directory in the commit (that is, you should run `command git diff` to see what the changes are, and/or `command git diff --staged` to see what has already been staged). Generally, if your user wants you to commit only a subset of the changes in the working directory, he will instruct you to do so.
 
-Less frequently, you will find yourself in a Jujutsu repository (which you can determine via the presence of a `.jj` directory in the repository root). Jujutsu does not have a concept of a staging area like Git, and running any `jj` command will cause a snapshot of the working directory (including untracked files) to be made; you should therefore interactively prompt your user to indicate which changed files should be included in the change. In the most common case, you can use `jj st` to see which files are in the current snapshot, and `jj show` to see the diff, then `jj split <file>...` to indicate which specific files to be included in the commit (passing your commit message using the `-m` option. For more information on Jujutsu, see the `/jujutsu` skill.
+## Creating Jujutsu commits
 
-## Instructions
+Less frequently, you will find yourself in a Jujutsu repository (which you can determine via the presence of a `.jj` directory in the repository root). Jujutsu does not have a concept of a staging area like Git, and running any `jj` command will cause a snapshot of the working directory (including untracked files) to be made; you should therefore interactively prompt your user to indicate which changed files should be included in the change. In the most common case, you can use `jj st` to see which files are in the current snapshot, and `jj show` to see the diff, then `jj split <file>...` to indicate which specific files to be included in the commit (passing your commit message using the `-m` option.
+
+In general, because of the lack of staging area, you should be careful with _any_ `jj` command that creates or modifies a change. For example, if you user asks you to squash some changes into the last commit using `jj squash`, you should prompt the user to indicate _which_ files' changes they want squashed (and invoke `jj squash <file>...` accordingly).
+
+For more information on Jujutsu, see the `/jujutsu` skill.
+
+## Common instructions
 
 1.  Run the appropriate Git-specific or Jujutsu-specific commands to see what should be included in the commit.
 2.  Create a commit message with:
