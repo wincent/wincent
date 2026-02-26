@@ -1,19 +1,22 @@
 ---
 name: commit
-description: Create a Git commit
+description: Create a commit in a repository
 ---
 
-# Create a Git commit
+# Create a commit in a repository
+
+The most common case will be creating a commit in a Git repository. Usually, you will include all changes in the working directory in the commit (that is, you should run `command git diff` to see what the changes are, and/or `command git diff --staged` to see what has already been staged). Generally, if your user wants you to commit only a subset of the changes in the working directory, he will instruct you to do so.
+
+Less frequently, you will find yourself in a Jujutsu repository, which you can determine by the presence of a `.jj` directory in the repository root. Jujutsu does not have a concept of a staging area like Git, and running any `jj` command will cause a snapshot of the working directory (including untracked files) to be made; you should therefore interactively prompt your user to indicate which changed files should be included in the change. In the most common case, you can use `jj st` to see which files are in the current snapshot, and `jj show` to see the diff, then `jj split <file>...` to indicate which specific files to be included in the commit (passing your commit message using the `-m` option; additionally, pass the `--editor` switch to give the user an opportunity to edit your suggested message. For more information on Jujutsu, see the `/jujutsu` skill.
 
 ## Instructions
 
-1. Run `command git diff` to see changes that will be committed (or `command git diff --staged` if they have already been staged).
-2. Create a commit message with:
-
-- A subject of 72 characters or less in Conventional Commits format (eg. "docs: add migration notes" or "fix: avoid double-render in list component").
-- A blank line.
-- A detailed description, wrapped to 72 characters, using basic Markdown syntax.
-- At the bottom, include the full text of **all** prompts that were used while preparing the changes that led to the commit; **never** omit any prompts.
+1.  Run the appropriate Git-specific or Jujutsu-specific commands to see what should be included in the commit.
+2.  Create a commit message with:
+    - A subject of 72 characters or less in Conventional Commits format (eg. "docs: add migration notes" or "fix: avoid double-render in list component").
+    - A blank line.
+    - A detailed description, wrapped to 72 characters, using basic Markdown syntax.
+    - At the bottom, include the full text of **all** prompts that were used while preparing the changes that led to the commit; **never** omit any prompts.
 
 ## Best practices
 
