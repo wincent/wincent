@@ -41,10 +41,10 @@ fi
 "diff added token" = { underline = false }
 
 [revset-aliases]
-'no_description_set()' = '~description(exact:"")'
+'empty_description()' = 'description(exact:"")'
 'closest_bookmark(to)' = 'heads(::to & bookmarks())'
-'closest_pushable(to)' = 'heads(::to & mutable() & no_description_set() & (~empty() | merges()))'
-'last' = 'latest(ancestors(@) & ~empty() & no_description_set())'
+'closest_pushable(to)' = 'heads(::to & mutable() & ~empty_description() & (~empty() | merges()))'
+'last' = 'latest(ancestors(@) & ~empty() & ~empty_description())'
 
 [signing]
 <%- if (variables.vcsGpgSign) { -%>
