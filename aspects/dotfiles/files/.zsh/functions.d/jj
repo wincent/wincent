@@ -1,0 +1,48 @@
+# `jj` wrapper:
+#
+#     - `jj` with no arguments = `jj` (equivalent to `jj log`, due to
+#       `ui.default-command` config).
+#     - `jj root` = `cd` to repo root.
+#     - `ROOT=$(jj root)` = no args and stdout is not a tty; prints the root.
+#     - `jj root ARG...` = evals `ARG...` from the root (eg. `jj root ls`).
+#     - `jj ARG...` = behaves just like normal `jj` command.
+#
+function jj() {
+  if [ $# -eq 0 ]; then
+    command jj
+  elif [ "$1" = root ]; then
+    shift
+    local ROOT
+    if [ "$(command git rev-parse --is-inside-git-dir 2> /dev/null)" = true ]; then
+      if [ "$(command git rev-parse --is-bare-repository)" = true ]; then
+        ROOT="$(command git rev-parse --absolute-git-dir)"
+      else
+        # Note: This is a good-enough, rough heuristic, which ignores
+        # the possibility that GIT_DIR might be outside of the worktree;
+        # see:
+        # https://stackoverflow.com/a/38852055/2103996
+        ROOT="$(command git rev-parse --git-dir)/.."
+      fi
+    else
+      # Git 2.13.0 and above:
+      ROOT="$(command git rev-parse --show-superproject-working-tree 2> /dev/null)"
+      if [ -z "$ROOT" ]; then
+        ROOT="$(command git rev-parse --show-toplevel 2> /dev/null)"
+      fi
+    fi
+    if [ -z "$ROOT" ]; then
+      ROOT="$PWD"
+    fi
+    if [ $# -eq 0 ]; then
+      if [ -t 1 ]; then
+        cd "$ROOT"
+      else
+        echo "$ROOT"
+      fi
+    else
+      (cd "$ROOT" && eval "$@")
+    fi
+  else
+    command jj "$@"
+  fi
+}
