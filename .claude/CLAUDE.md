@@ -24,7 +24,7 @@ This repo uses [Jujutsu](https://jj-vcs.github.io/) (`jj`) instead of `git` for 
 Use [Conventional Commits](https://www.conventionalcommits.org/) formatting:
 
 - Start the subject line with a type prefix: `docs:`, `fix:`, `chore:`, `test:`, `refactor:`, `feat:`, etc.
-- Optionally scope the prefix (e.g., `refactor(fig):`, `fix(nvim):`).
+- Optionally scope the prefix (e.g., `refactor(fig):`, `fix(nvim):`); if the changes affect a single aspect, use the aspect name as the scope.
 - The rest of the subject line should start with a verb in the imperative form; ie. "add", "teach", "fix" etc.
 - Keep subject lines under 72 columns.
 - In the commit body, hard-wrap to 80 columns.

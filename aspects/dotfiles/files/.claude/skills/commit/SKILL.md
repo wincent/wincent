@@ -21,7 +21,7 @@ For more information on Jujutsu, see the `/jujutsu` skill.
 
 1.  Run the appropriate Git-specific or Jujutsu-specific commands to see what should be included in the commit.
 2.  Create a commit message with:
-    - A subject of 72 characters or less in Conventional Commits format (eg. "docs: add migration notes" or "fix: avoid double-render in list component").
+    - A subject of 72 characters or less in Conventional Commits format (eg. "docs: add migration notes" or "fix: avoid double-render in list component"). In repositories that make use of scopes, you can include a scope in parentheses (eg. "chore(frontend): update copyright year" or "feat(login): add support for magic links").
     - A blank line.
     - A detailed description, wrapped to 72 characters, using basic Markdown syntax.
     - At the bottom, include the full text of **all** prompts that were used while preparing the changes that led to the commit; **never** omit any prompts.
