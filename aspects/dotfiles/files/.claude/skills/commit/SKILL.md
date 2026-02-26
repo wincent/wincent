@@ -7,7 +7,7 @@ description: Create a commit in a repository
 
 The most common case will be creating a commit in a Git repository. Usually, you will include all changes in the working directory in the commit (that is, you should run `command git diff` to see what the changes are, and/or `command git diff --staged` to see what has already been staged). Generally, if your user wants you to commit only a subset of the changes in the working directory, he will instruct you to do so.
 
-Less frequently, you will find yourself in a Jujutsu repository, which you can determine by the presence of a `.jj` directory in the repository root. Jujutsu does not have a concept of a staging area like Git, and running any `jj` command will cause a snapshot of the working directory (including untracked files) to be made; you should therefore interactively prompt your user to indicate which changed files should be included in the change. In the most common case, you can use `jj st` to see which files are in the current snapshot, and `jj show` to see the diff, then `jj split <file>...` to indicate which specific files to be included in the commit (passing your commit message using the `-m` option; additionally, pass the `--editor` switch to give the user an opportunity to edit your suggested message. For more information on Jujutsu, see the `/jujutsu` skill.
+Less frequently, you will find yourself in a Jujutsu repository (which you can determine via the presence of a `.jj` directory in the repository root). Jujutsu does not have a concept of a staging area like Git, and running any `jj` command will cause a snapshot of the working directory (including untracked files) to be made; you should therefore interactively prompt your user to indicate which changed files should be included in the change. In the most common case, you can use `jj st` to see which files are in the current snapshot, and `jj show` to see the diff, then `jj split <file>...` to indicate which specific files to be included in the commit (passing your commit message using the `-m` option. For more information on Jujutsu, see the `/jujutsu` skill.
 
 ## Instructions
 
@@ -17,6 +17,7 @@ Less frequently, you will find yourself in a Jujutsu repository, which you can d
     - A blank line.
     - A detailed description, wrapped to 72 characters, using basic Markdown syntax.
     - At the bottom, include the full text of **all** prompts that were used while preparing the changes that led to the commit; **never** omit any prompts.
+    - If you were involved in the preparation of the changes, include a commit trailer of the form: "Co-Authored-By: Claude <noreply@anthropic.com>" (after "Claude", include the actual model name and version if it is available to you from the system prompt).
 
 ## Best practices
 
