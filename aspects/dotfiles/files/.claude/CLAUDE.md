@@ -14,24 +14,6 @@ Before performing any action, check if there's a relevant skill available and us
 
 **NEVER** manually perform an action that has a dedicated skill without using the skill first.
 
-# Beware of aliases, such as `git` and `claude`
-
-If you try to run a Git command like `git show`, you may see this error:
-
-```
-(eval):1: git: function definition file not found
-```
-
-That's because I have `git` defined as a function in my shell. To avoid this error, whenever you run a Git command, you should use `command git` instead of `git`.
-
-Likewise, if you try to run `claude`, you may see it trying to open Neovim instead. This is because I have `claude` alias defined that looks like this:
-
-```
-claude='env -u OPENAI_API_KEY nvim -c ChatGPT -c only'
-```
-
-To avoid this error, whenever you run a Claude command (such as `claude mcp`), you should run `command claude` (eg. `command claude mcp`) instead.
-
 # Don't ask for confirmation before running harmless, read-only commands
 
 For example, commands of the form `git show $SOME_COMMIT` or `git diff $SOME_REV`, which only read data, can be run without asking first.

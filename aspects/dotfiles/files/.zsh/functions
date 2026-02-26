@@ -15,25 +15,27 @@ function bounce() {
 # Anything that isn't needed for shell startup should go in ~/zsh/functions.d/
 # and be autoloaded.
 
-autoload -Uz ag
-autoload -Uz fd
-autoload -Uz fh
-autoload -Uz files
-autoload -Uz gaps
-autoload -Uz git
-autoload -Uz headers
-autoload -Uz history
-autoload -Uz jump
-autoload -Uz regmv
-autoload -Uz scratch
-autoload -Uz serve
-autoload -Uz ssh
-autoload -Uz ssl
-autoload -Uz subtree
-autoload -Uz swallow
-autoload -Uz tick
-autoload -Uz tmux
-autoload -Uz tw
+if [[ -o interactive ]]; then
+  autoload -Uz ag
+  autoload -Uz fd
+  autoload -Uz fh
+  autoload -Uz files
+  autoload -Uz gaps
+  autoload -Uz git
+  autoload -Uz headers
+  autoload -Uz history
+  autoload -Uz jump
+  autoload -Uz regmv
+  autoload -Uz scratch
+  autoload -Uz serve
+  autoload -Uz ssh
+  autoload -Uz ssl
+  autoload -Uz subtree
+  autoload -Uz swallow
+  autoload -Uz tick
+  autoload -Uz tmux
+  autoload -Uz tw
+fi
 
 function _jump_complete() {
   emulate -L zsh

@@ -1,80 +1,82 @@
-#
-# Command aliases
-#
+if [[ -o interactive ]]; then
+  #
+  # Command aliases
+  #
 
-alias ....='cd ../..'
-alias :e=vim
-alias :qa=exit
-alias :sp='test -n "$TMUX" && tmux split-window'
-alias :vs='test -n "$TMUX" && tmux split-window -h'
-alias :wq=exit
-alias a=ag
-alias b=bundle
-alias be='bundle exec'
-alias cd..='cd ..'
-alias chatgpt='nvim -c ChatGPT -c only'
-alias chatgptx='nvim -c ChatGPTX -c only'
-alias claude='nvim -c Claude -c only'
-alias code="env ANTHROPIC_API_KEY= $HOME/.local/bin/claude"
-alias opus='nvim -c Opus -c only'
-alias d='hash -d'
-alias e=exit
-alias f='find . -name'
-alias g=git
-alias h=history
-alias j=jump
-alias l='ls -F'
-alias ll='ls -laF'
-alias lock='xautolock -locknow'
-alias nlua='rlwrap ~/code/neovim/.deps/usr/bin/luajit'
-alias o='git oneline'
-alias p='git patch'
-alias json='python3 -m json.tool'
-alias oo='git oneline -10'
-alias s=ssh
-alias sudo='sudo '
-alias t=tmux
-alias v=vim
+  alias ....='cd ../..'
+  alias :e=vim
+  alias :qa=exit
+  alias :sp='test -n "$TMUX" && tmux split-window'
+  alias :vs='test -n "$TMUX" && tmux split-window -h'
+  alias :wq=exit
+  alias a=ag
+  alias b=bundle
+  alias be='bundle exec'
+  alias cd..='cd ..'
+  alias chatgpt='nvim -c ChatGPT -c only'
+  alias chatgptx='nvim -c ChatGPTX -c only'
+  alias claude='nvim -c Claude -c only'
+  alias code="env ANTHROPIC_API_KEY= $HOME/.local/bin/claude"
+  alias opus='nvim -c Opus -c only'
+  alias d='hash -d'
+  alias e=exit
+  alias f='find . -name'
+  alias g=git
+  alias h=history
+  alias j=jump
+  alias l='ls -F'
+  alias ll='ls -laF'
+  alias lock='xautolock -locknow'
+  alias nlua='rlwrap ~/code/neovim/.deps/usr/bin/luajit'
+  alias o='git oneline'
+  alias p='git patch'
+  alias json='python3 -m json.tool'
+  alias oo='git oneline -10'
+  alias s=ssh
+  alias sudo='sudo '
+  alias t=tmux
+  alias v=vim
 
-if command -v nvim &> /dev/null; then
-  alias vim=nvim # Use `\vim` or `command vim` to get the real vim.
+  if command -v nvim &> /dev/null; then
+    alias vim=nvim # Use `\vim` or `command vim` to get the real vim.
+  fi
+
+  alias word='shuf -n1 /usr/share/dict/words'
+  alias y=yazi
+
+  #
+  # Suffix aliases
+  # (eg. "foo.md" to open Markdown files in glow)
+  #
+  alias -s md=glow
+
+  #
+  # Global aliases
+  # (work at any position within the command line)
+  #
+
+  # Mnemonic: "[C]lip"
+  alias -g C="|clip"
+  #
+  # Mnemonic: "[D]lip"
+  alias -g D="|delta"
+
+  # Mnemonic: "[G]rep"
+  alias -g G="|grep"
+
+  # Mnemonic: "[H]ead"
+  alias -g H="|head"
+
+  # Pretty-print JSON.
+  # Mnemonic: "[J]SON"
+  alias -g J="|python3 -m json.tool"
+
+  # Mnemonic: "[L]ess"
+  alias -g L="|less"
+
+  # Mnemonic: "[R]eset"
+  alias -g R=";clear;test -n "$TMUX" && tmux clear-history;"
+
+  # Mnemonic: "[W]c"
+  alias -g W="|wc -l"
 fi
-
-alias word='shuf -n1 /usr/share/dict/words'
-alias y=yazi
-
-#
-# Suffix aliases
-# (eg. "foo.md" to open Markdown files in glow)
-#
-alias -s md=glow
-
-#
-# Global aliases
-# (work at any position within the command line)
-#
-
-# Mnemonic: "[C]lip"
-alias -g C="|clip"
-#
-# Mnemonic: "[D]lip"
-alias -g D="|delta"
-
-# Mnemonic: "[G]rep"
-alias -g G="|grep"
-
-# Mnemonic: "[H]ead"
-alias -g H="|head"
-
-# Pretty-print JSON.
-# Mnemonic: "[J]SON"
-alias -g J="|python3 -m json.tool"
-
-# Mnemonic: "[L]ess"
-alias -g L="|less"
-
-# Mnemonic: "[R]eset"
-alias -g R=";clear;test -n "$TMUX" && tmux clear-history;"
-
-# Mnemonic: "[W]c"
-alias -g W="|wc -l"
