@@ -89,7 +89,7 @@
 
 	# Show "my" branches (ie. those starting with "$USER/") in order of recency.
 	# See also `recent`.
-	mine = branch --list --sort=-committerdate '<%= variables.gitHubUsername %>/*'
+	mine = branch --list --sort=-committerdate '<%= variables.gitHubUsername %>/*' '<%= variables.username %>/*'
 
 	msg = message
 
