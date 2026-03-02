@@ -3,7 +3,7 @@
 # <%= variables.figManaged %>
 
 [aliases]
-gr = ["log", "-r", "::@ & no_description_set()", "-T", '''
+gr = ["log", "-r", "::@ & ~empty_description()", "-T", '''
   commit_id.short() ++
   " " ++
   description.first_line() ++
