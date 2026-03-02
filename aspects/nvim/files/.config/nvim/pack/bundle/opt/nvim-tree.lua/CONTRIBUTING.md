@@ -15,7 +15,9 @@ markdown-toc --maxdepth=2 -i CONTRIBUTING.md
 - [Quality](#quality)
   * [lint](#lint)
   * [style](#style)
+  * [format-fix](#format-fix)
   * [check](#check)
+  * [format-check](#format-check)
 - [Diagnostics](#diagnostics)
 - [Backwards Compatibility](#backwards-compatibility)
 - [:help Documentation](#help-documentation)
@@ -25,6 +27,10 @@ markdown-toc --maxdepth=2 -i CONTRIBUTING.md
 - [Windows](#windows)
 - [Pull Request](#pull-request)
   * [Subject](#subject)
+- [AI Usage Policy: Highly Discouraged](#ai-usage-policy-highly-discouraged)
+  * [nvim-tree Is A Community Project](#nvim-tree-is-a-community-project)
+  * [The Burden Of Review Must Not Increase](#the-burden-of-review-must-not-increase)
+  * [AI Generated PR Rules](#ai-generated-pr-rules)
 
 <!-- tocstop -->
 
@@ -36,9 +42,9 @@ Language server: [luals](https://luals.github.io)
 
 Lint: [luacheck](https://github.com/lunarmodules/luacheck/)
 
-Style Fixing: [EmmyLuaCodeStyle](https://github.com/CppCXY/EmmyLuaCodeStyle): `CodeCheck`
+nvim-tree migrated from stylua to EmmyLuaCodeStyle ~2024/10. `vim.lsp.buf.format()` may be used as it is the default formatter for luals, using an embedded [EmmyLuaCodeStyle](https://github.com/CppCXY/EmmyLuaCodeStyle)
 
-nvim-tree.lua migrated from stylua to EmmyLuaCodeStyle ~2024/10. `vim.lsp.buf.format()` may be used as it is the default formatter for luals, using an embedded [EmmyLuaCodeStyle](https://github.com/CppCXY/EmmyLuaCodeStyle)
+Formatting: [EmmyLuaCodeStyle](https://github.com/CppCXY/EmmyLuaCodeStyle): `CodeFormat` executable
 
 You can install them via you OS package manager e.g. `pacman`, `brew` or other via other package managers such as `cargo` or `luarocks`
 
@@ -67,10 +73,12 @@ make lint
 make style
 ```
 
-You can automatically fix style issues using `CodeCheck`:
+## format-fix
+
+You can automatically fix most style issues using `CodeFormat`:
 
 ```sh
-make style-fix
+make format-fix
 ```
 
 ## check
@@ -95,6 +103,17 @@ curl -L "https://github.com/LuaLS/lua-language-server/releases/download/3.15.0/l
 
 PATH="luals/bin:${PATH}" make check
 ```
+
+## format-check
+
+This is run in CI. Commit or stage your changes and run:
+
+```sh
+make format-check
+```
+
+- Re-runs `make format-fix`
+- Checks that `git diff` is empty, to ensure that all content has been generated. This is why a stage or commit is necessary.
 
 # Diagnostics
 
@@ -142,7 +161,7 @@ Please add or update documentation when you make changes, see `:help dev-lua-doc
 
 Help is updated for:
 - Default keymap at `keymap.on_attach_default`
-- Default config at `--- default-config-start`
+- Default config at `--- config-default-start`
 
 ## Updating And Generating
 
@@ -191,6 +210,8 @@ Please reference any issues in the description e.g. "resolves #1234", which will
 
 Please check "allow edits by maintainers" to allow nvim-tree developers to make small changes such as documentation tweaks.
 
+Do not enable or use any AI review tools (e.g. Copilot) on the Pull Request.
+
 ## Subject
 
 The merge commit message will be the subject of the PR.
@@ -215,3 +236,45 @@ Available types:
 If in doubt, look at previous commits.
 
 See also [The Conventional Commits ultimate cheatsheet](https://gist.github.com/gabrielecanepa/fa6cca1a8ae96f77896fe70ddee65527)
+
+# AI Usage Policy: Highly Discouraged
+
+## nvim-tree Is A Community Project
+
+nvim-tree is a work of passion, building a community of free thinking individuals who contribute highly polished, elegant and maintainable code. Community members range from novices to professionals and all are welcome. Teaching, encouraging and celebrating the growth of less experienced developers is of great importance.
+
+AI generated code is discouraged as this doesn't match these nvim-tree values.
+
+Human PR reviews will always be prioritised over AI generated PRs.
+
+## The Burden Of Review Must Not Increase
+
+There must be a human in the loop at all times. The contributor is the author of and is fully accountable for AI generated contributions.
+
+AI generated PRs have low, or even non-existent entry level. Human generated PRs require you to be motivated, do research, familiarise yourself with code, make effort to write the code and test it.
+
+Low effort or unqualified code increases the burden of review and testing on maintainers, who are limited in time.
+
+Contributors must:
+
+- Read and review all generated code and documentation before raising a PR
+- Fully understand all code and documentation
+- Be able to answer any questions during review
+
+## AI Generated PR Rules
+
+The PR description and comments must be written by the contributor, with no AI assistance beyond grammar or English translations.
+
+The description must:
+
+- Describe the solution design, justifying all decisions
+- Clearly state which AI was used
+- List which code and documentation was written by a human and which was written by AI
+- Detail all testing performed
+
+There must be far greater than usual number of detailed, explicit comments:
+
+- File level: overview of the changes made
+- Line level: 1-2 comments per function/method
+
+Do not enable or use any AI review tools (e.g. Copilot) on the Pull Request.

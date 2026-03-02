@@ -38,17 +38,20 @@ nmap <c-c>v     <Plug>SlimeConfig
 Example of how to set vim-style mappings:
 
 ```vim
-"disables default bindings
+" disables default bindings
 let g:slime_no_mappings = 1
 
-"send visual selection
+" send visual selection
 xmap <leader>s <Plug>SlimeRegionSend
 
-"send based on motion or text object
+" send based on motion or text object
 nmap <leader>s <Plug>SlimeMotionSend
 
-"send line
+" send line
 nmap <leader>ss <Plug>SlimeLineSend
+
+" send the whole file
+nmap <silent> <leader>sf :%SlimeSend<CR>
 ```
 
 Of course these mappings are just examples; you can set them according to your preference.

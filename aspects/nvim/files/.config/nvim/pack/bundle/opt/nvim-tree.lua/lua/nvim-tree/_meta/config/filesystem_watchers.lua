@@ -27,9 +27,10 @@ error("Cannot require a meta file")
 ---@field debounce_delay? integer
 ---
 ---Disable for specific directories.
----(default: `{ "/.ccls-cache", "/build", "/node_modules", "/target", }`)
+---(default: `{ "/.ccls-cache", "/build", "/node_modules", "/target", "/.zig-cache"}`)
 ---@field ignore_dirs? string[]|(fun(path: string): boolean)
 ---
 ---Disable for a single directory after {max_events} consecutive events with an interval < {debounce_delay}.
----(default: `1000`)
+---Set to 0 to allow unlimited consecutive events.
+---(default: `0` or `1000` on windows)
 ---@field max_events? integer

@@ -3,11 +3,11 @@
 
 [colors]
 selection-background = '#4c4f69' # base05
-selection-foreground = '#bcc0cc' # base02
+selection-foreground = '#ccd0da' # base02
 
 cursor         = '#4c4f69' # base05
-tabs           = '#ccd0da' # base01
-tabs-active    = '#bcc0cc' # base02
+tabs           = '#e6e9ef' # base01
+tabs-active    = '#ccd0da' # base02
 
 background     = '#eff1f5' # base00
 foreground     = '#4c4f69' # base05
@@ -21,17 +21,17 @@ magenta        = '#8839ef' # base0E
 white          = '#4c4f69' # base05
 
 dim-foreground   = '#4c4f69' # base05
-dim-black        = '#ccd0da' # base01
+dim-black        = '#e6e9ef' # base01
 dim-red          = '#d20f39' # base08
 dim-yellow       = '#df8e1d' # base0A
 dim-green        = '#40a02b' # base0B
 dim-cyan         = '#179299' # base0C
 dim-blue         = '#1e66f5' # base0D
 dim-magenta      = '#8839ef' # base0E
-dim-white        = '#6c6f85' # base04
+dim-white        = '#acb0be' # base04
 
 light-foreground = '#4c4f69' # base05
-light-black      = '#9ca0b0' # base03
+light-black      = '#bcc0cc' # base03
 light-red        = '#d20f39' # base08
 light-yellow     = '#df8e1d' # base0A
 light-green      = '#40a02b' # base0B

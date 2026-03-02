@@ -13,7 +13,7 @@ color04="89/b4/fa" # Base 0D - Blue
 color05="cb/a6/f7" # Base 0E - Magenta
 color06="94/e2/d5" # Base 0C - Cyan
 color07="cd/d6/f4" # Base 05 - White
-color08="6c/70/86" # Base 03 - Bright Black
+color08="45/47/5a" # Base 03 - Bright Black
 color09="$color01" # Base 08 - Bright Red
 color10="$color02" # Base 0B - Bright Green
 color11="$color03" # Base 0A - Bright Yellow
@@ -23,9 +23,9 @@ color14="$color06" # Base 0C - Bright Cyan
 color15="b4/be/fe" # Base 07 - Bright White
 color16="fa/b3/87" # Base 09
 color17="f2/cd/cd" # Base 0F
-color18="31/32/44" # Base 01
-color19="45/47/5a" # Base 02
-color20="a6/ad/c8" # Base 04
+color18="18/18/25" # Base 01
+color19="31/32/44" # Base 02
+color20="58/5b/70" # Base 04
 color21="f5/e0/dc" # Base 06
 color_foreground="cd/d6/f4" # Base 05
 color_background="1e/1e/2e" # Base 00
@@ -87,7 +87,7 @@ if [ -n "$ITERM_SESSION_ID" ]; then
   put_template_custom Pg cdd6f4 # foreground
   put_template_custom Ph 1e1e2e # background
   put_template_custom Pi cdd6f4 # bold color
-  put_template_custom Pj 45475a # selection color
+  put_template_custom Pj 313244 # selection color
   put_template_custom Pk cdd6f4 # selected text color
   put_template_custom Pl cdd6f4 # cursor
   put_template_custom Pm 1e1e2e # cursor text
@@ -134,10 +134,10 @@ unset color_background
 # Optionally export variables
 if [ -n "$TINTED_SHELL_ENABLE_BASE16_VARS" ] || [ -n "$BASE16_SHELL_ENABLE_VARS" ]; then
   export BASE16_COLOR_00_HEX="1e1e2e"
-  export BASE16_COLOR_01_HEX="313244"
-  export BASE16_COLOR_02_HEX="45475a"
-  export BASE16_COLOR_03_HEX="6c7086"
-  export BASE16_COLOR_04_HEX="a6adc8"
+  export BASE16_COLOR_01_HEX="181825"
+  export BASE16_COLOR_02_HEX="313244"
+  export BASE16_COLOR_03_HEX="45475a"
+  export BASE16_COLOR_04_HEX="585b70"
   export BASE16_COLOR_05_HEX="cdd6f4"
   export BASE16_COLOR_06_HEX="f5e0dc"
   export BASE16_COLOR_07_HEX="b4befe"

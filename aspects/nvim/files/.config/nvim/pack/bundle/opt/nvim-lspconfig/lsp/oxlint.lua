@@ -30,7 +30,14 @@ end
 
 ---@type vim.lsp.Config
 return {
-  cmd = { 'oxlint', '--lsp' },
+  cmd = function(dispatchers, config)
+    local cmd = 'oxlint'
+    local local_cmd = (config or {}).root_dir and config.root_dir .. '/node_modules/.bin/oxlint'
+    if local_cmd and vim.fn.executable(local_cmd) == 1 then
+      cmd = local_cmd
+    end
+    return vim.lsp.rpc.start({ cmd, '--lsp' }, dispatchers)
+  end,
   filetypes = {
     'javascript',
     'javascriptreact',
@@ -40,7 +47,7 @@ return {
     'svelte',
     'astro',
   },
-  root_markers = { '.oxlintrc.json' },
+  root_markers = { '.oxlintrc.json', 'oxlint.config.ts' },
   workspace_required = true,
   on_attach = function(client, bufnr)
     vim.api.nvim_buf_create_user_command(bufnr, 'LspOxlintFixAll', function()

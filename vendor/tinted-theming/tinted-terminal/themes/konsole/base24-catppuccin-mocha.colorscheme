@@ -14,7 +14,7 @@ Color=30,30,46
 Color=30,30,46
 
 [Color0Intense]
-Color=108,112,134
+Color=69,71,90
 
 [Color1]
 Color=243,139,168
@@ -83,7 +83,7 @@ Color=180,190,254
 Color=205,214,244
 
 [ForegroundFaint]
-Color=166,173,200
+Color=88,91,112
 
 [ForegroundIntense]
 Color=245,224,220

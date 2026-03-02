@@ -44,6 +44,10 @@ local function is_folder_ignored(path)
 
   if type(M.config.filesystem_watchers.ignore_dirs) == "table" then
     for _, ignore_dir in ipairs(M.config.filesystem_watchers.ignore_dirs) do
+      if utils.is_windows then
+        ignore_dir = ignore_dir:gsub("/", "\\\\") or ignore_dir
+      end
+
       if vim.fn.match(path, ignore_dir) ~= -1 then
         return true
       end
@@ -75,12 +79,12 @@ function M.create_watcher(node)
     watcher.data.outstanding_events = watcher.data.outstanding_events + 1
 
     -- disable watcher when outstanding exceeds max
-    if watcher.data.outstanding_events > M.config.filesystem_watchers.max_events then
+    if M.config.filesystem_watchers.max_events > 0 and watcher.data.outstanding_events > M.config.filesystem_watchers.max_events then
       notify.error(string.format(
         "Observed %d consecutive file system events with interval < %dms, exceeding filesystem_watchers.max_events=%s. Disabling watcher for directory '%s'. Consider adding this directory to filesystem_watchers.ignore_dirs",
         watcher.data.outstanding_events,
-        M.config.filesystem_watchers.max_events,
         M.config.filesystem_watchers.debounce_delay,
+        M.config.filesystem_watchers.max_events,
         node.absolute_path
       ))
       node:destroy_watcher()

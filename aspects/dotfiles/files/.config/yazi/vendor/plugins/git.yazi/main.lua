@@ -1,4 +1,4 @@
---- @since 25.12.29
+--- @since 26.1.22
 
 local WINDOWS = ya.target_family() == "windows"
 
@@ -224,7 +224,6 @@ local function fetch(_, job)
 		:cwd(tostring(cwd))
 		:arg({ "--no-optional-locks", "-c", "core.quotePath=", "status", "--porcelain", "-unormal", "--no-renames", "--ignored=matching" })
 		:arg(paths)
-		:stdout(Command.PIPED)
 		:output()
 	if not output then
 		return true, Err("Cannot spawn `git` command, error: %s", err)

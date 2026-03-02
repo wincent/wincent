@@ -165,6 +165,7 @@ Nvim by running `:help lspconfig-all`.
 - [jsonnet_ls](#jsonnet_ls)
 - [julials](#julials)
 - [just](#just)
+- [kakehashi](#kakehashi)
 - [kcl](#kcl)
 - [koka](#koka)
 - [kotlin_language_server](#kotlin_language_server)
@@ -237,6 +238,7 @@ Nvim by running `:help lspconfig-all`.
 - [please](#please)
 - [pli](#pli)
 - [pony_language_server](#pony_language_server)
+- [pony_lsp](#pony_lsp)
 - [poryscript_pls](#poryscript_pls)
 - [postgres_lsp](#postgres_lsp)
 - [powershell_es](#powershell_es)
@@ -618,7 +620,7 @@ Default config:
 - `cmd`: [../lsp/angularls.lua:93](../lsp/angularls.lua#L93)
 - `filetypes` :
   ```lua
-  { "typescript", "html", "typescriptreact", "typescript.tsx", "htmlangular" }
+  { "typescript", "html", "typescriptreact", "htmlangular" }
   ```
 - `root_markers` :
   ```lua
@@ -2205,6 +2207,7 @@ Default config:
   ```lua
   { "c", "cpp", "objc", "objcpp", "cuda" }
   ```
+- `get_language_id`: [../lsp/clangd.lua:65](../lsp/clangd.lua#L65)
 - `on_attach`: [../lsp/clangd.lua:65](../lsp/clangd.lua#L65)
 - `on_init`: [../lsp/clangd.lua:65](../lsp/clangd.lua#L65)
 - `root_markers` :
@@ -2475,11 +2478,11 @@ Default config:
   {
     editorInfo = {
       name = "Neovim",
-      version = "0.12.0-dev+g6b4ec2264e"
+      version = "0.12.0-dev+g18c5f06c9f"
     },
     editorPluginInfo = {
       name = "Neovim",
-      version = "0.12.0-dev+g6b4ec2264e"
+      version = "0.12.0-dev+g18c5f06c9f"
     }
   }
   ```
@@ -3136,7 +3139,7 @@ Default config:
   ```
 - `filetypes` :
   ```lua
-  { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" }
+  { "javascript", "javascriptreact", "typescript", "typescriptreact" }
   ```
 - `handlers` :
   ```lua
@@ -4090,20 +4093,38 @@ You can use a different version of ESLint in each package, but it is recommended
 
 /!\ When using flat config files, you need to use them across all your packages in your monorepo, as it's a global setting for the server.
 
+### Flat config in ESLint versions prior to 10.0
+
+If you're using a ESLint version that supports both flat config and eslintrc (>= 8.21, < 10.0) and want to change
+the [default behavior](https://eslint.org/blog/2023/10/flat-config-rollout-plans/), you'll need to set
+`experimental.useFlatConfig` accordingly:
+```lua
+vim.lsp.config("eslint", {
+  settings = {
+    experimental = {
+      -- If you want to use flat config on >= 8.21, < 9.0
+      useFlatConfig = true,
+      -- Or if you want to use eslintrc on 9.*
+      -- useFlatConfig = false,
+    }
+  }
+})
+```
+
 Snippet to enable the language server:
 ```lua
 vim.lsp.enable('eslint')
 ```
 
 Default config:
-- `before_init`: [../lsp/eslint.lua:61](../lsp/eslint.lua#L61)
+- `before_init`: [../lsp/eslint.lua:79](../lsp/eslint.lua#L79)
 - `cmd` :
   ```lua
   { "vscode-eslint-language-server", "--stdio" }
   ```
 - `filetypes` :
   ```lua
-  { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx", "vue", "svelte", "astro", "htmlangular" }
+  { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte", "astro", "htmlangular" }
   ```
 - `handlers` :
   ```lua
@@ -4114,8 +4135,8 @@ Default config:
     ["eslint/probeFailed"] = <function 4>
   }
   ```
-- `on_attach`: [../lsp/eslint.lua:61](../lsp/eslint.lua#L61)
-- `root_dir`: [../lsp/eslint.lua:61](../lsp/eslint.lua#L61)
+- `on_attach`: [../lsp/eslint.lua:79](../lsp/eslint.lua#L79)
+- `root_dir`: [../lsp/eslint.lua:79](../lsp/eslint.lua#L79)
 - `settings` :
   ```lua
   {
@@ -4132,9 +4153,7 @@ Default config:
       enable = false,
       mode = "all"
     },
-    experimental = {
-      useFlatConfig = false
-    },
+    experimental = {},
     format = true,
     nodePath = "",
     onIgnoredFiles = "off",
@@ -4334,7 +4353,7 @@ Default config:
 - `cmd`: [../lsp/flow.lua:16](../lsp/flow.lua#L16)
 - `filetypes` :
   ```lua
-  { "javascript", "javascriptreact", "javascript.jsx" }
+  { "javascript", "javascriptreact" }
   ```
 - `root_markers` :
   ```lua
@@ -4951,20 +4970,20 @@ Default config:
   {
     editorInfo = {
       name = "Neovim",
-      version = "0.12.0-dev+g6b4ec2264e"
+      version = "0.12.0-dev+g18c5f06c9f"
     },
     editorPluginInfo = {
       name = "Neovim LSP",
-      version = "0.12.0-dev+g6b4ec2264e"
+      version = "0.12.0-dev+g18c5f06c9f"
     },
     extension = {
       name = "Neovim LSP Client",
-      version = "0.12.0-dev+g6b4ec2264e"
+      version = "0.12.0-dev+g18c5f06c9f"
     },
     ide = {
       name = "Neovim",
       vendor = "Neovim",
-      version = "0.12.0-dev+g6b4ec2264e"
+      version = "0.12.0-dev+g18c5f06c9f"
     }
   }
   ```
@@ -6526,6 +6545,59 @@ Default config:
 - `root_markers` :
   ```lua
   { ".git" }
+  ```
+
+---
+
+## kakehashi
+
+https://github.com/atusy/kakehashi
+
+Tree-sitter-based language server that provides semantic tokens, selection ranges,
+and LSP bridging for embedded languages (e.g., code blocks in Markdown).
+
+kakehashi works with any language that has a Tree-sitter grammar.
+Parsers and queries are automatically installed on first use
+when `autoInstall` is enabled (the default). This requires the
+`tree-sitter` CLI, a C compiler, and Git.
+
+**You must specify `filetypes` in your call to `vim.lsp.config`** to
+restrict which files activate the server:
+
+```lua
+vim.lsp.config('kakehashi', {
+  filetypes = { 'markdown', 'lua', 'rust', 'python' },
+  init_options = {
+    autoInstall = true,
+    -- Optional: bridge LSP requests in injection regions
+    languageServers = {
+      ['lua_ls'] = {
+        cmd = { 'lua-language-server' },
+        languages = { 'lua' },
+      },
+    },
+    languages = {
+      markdown = {
+        bridge = { lua_ls = { enabled = true } },
+      },
+    },
+  },
+})
+```
+
+Snippet to enable the language server:
+```lua
+vim.lsp.enable('kakehashi')
+```
+
+Default config:
+- `cmd` :
+  ```lua
+  { "kakehashi" }
+  ```
+- `root_markers` :
+  ```lua
+  { "kakehashi.toml", ".git" }
   ```
 
 ---
@@ -8594,13 +8666,10 @@ vim.lsp.enable('oxfmt')
 ```
 
 Default config:
-- `cmd` :
-  ```lua
-  { "oxfmt", "--lsp" }
-  ```
+- `cmd`: [../lsp/oxfmt.lua:17](../lsp/oxfmt.lua#L17)
 - `filetypes` :
   ```lua
-  { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx", "toml", "json", "jsonc", "json5", "yaml", "html", "vue", "handlebars", "hbs", "css", "scss", "less", "graphql", "markdown", "mdx" }
+  { "javascript", "javascriptreact", "typescript", "typescriptreact", "toml", "json", "jsonc", "json5", "yaml", "html", "vue", "handlebars", "css", "scss", "less", "graphql", "markdown" }
   ```
 - `root_dir`: [../lsp/oxfmt.lua:17](../lsp/oxfmt.lua#L17)
 - `workspace_required` : `true`
@@ -8634,10 +8703,7 @@ vim.lsp.enable('oxlint')
 
 Default config:
 - `before_init`: [../lsp/oxlint.lua:32](../lsp/oxlint.lua#L32)
-- `cmd` :
-  ```lua
-  { "oxlint", "--lsp" }
-  ```
+- `cmd`: [../lsp/oxlint.lua:32](../lsp/oxlint.lua#L32)
 - `filetypes` :
   ```lua
   { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte", "astro" }
@@ -8645,7 +8711,7 @@ Default config:
 - `on_attach`: [../lsp/oxlint.lua:32](../lsp/oxlint.lua#L32)
 - `root_markers` :
   ```lua
-  { ".oxlintrc.json" }
+  { ".oxlintrc.json", "oxlint.config.ts" }
   ```
 - `settings` :
   ```lua
@@ -9086,9 +9152,7 @@ Default config:
 
 ## pony_language_server
 
-https://github.com/ponylang/pony-language-server
-
-Language server for the Pony programming language
+Renamed to [pony_lsp](#pony_lsp)
 
 Snippet to enable the language server:
 ```lua
@@ -9104,9 +9168,59 @@ Default config:
   ```lua
   { "pony" }
   ```
+- `name` :
+  ```lua
+  "pony_lsp"
+  ```
+- `on_init`: [../lsp/pony_language_server.lua:6](../lsp/pony_language_server.lua#L6)
 - `root_markers` :
   ```lua
   { "corral.json", ".git" }
+  ```
+- `settings` :
+  ```lua
+  {
+    ["pony-lsp"] = {
+      defines = {},
+      ponypath = {}
+    }
+  }
+  ```
+
+---
+
+## pony_lsp
+
+https://github.com/ponylang/ponyc/tree/main/tools/pony-lsp
+
+Language server for the Pony programming language
+
+Snippet to enable the language server:
+```lua
+vim.lsp.enable('pony_lsp')
+```
+
+Default config:
+- `cmd` :
+  ```lua
+  { "pony-lsp" }
+  ```
+- `filetypes` :
+  ```lua
+  { "pony" }
+  ```
+- `root_markers` :
+  ```lua
+  { "corral.json", ".git" }
+  ```
+- `settings` :
+  ```lua
+  {
+    ["pony-lsp"] = {
+      defines = {},
+      ponypath = {}
+    }
+  }
   ```
 
 ---
@@ -10251,7 +10365,7 @@ Default config:
   ```
 - `filetypes` :
   ```lua
-  { "javascript", "javascriptreact", "json", "typescript", "typescript.tsx", "typescriptreact" }
+  { "javascript", "javascriptreact", "json", "typescript", "typescriptreact" }
   ```
 - `root_markers` :
   ```lua
@@ -11225,7 +11339,7 @@ Default config:
     activateSnykIac = "true",
     activateSnykOpenSource = "true",
     integrationName = "Neovim",
-    integrationVersion = "0.12.0-dev+g6b4ec2264e",
+    integrationVersion = "0.12.0-dev+g18c5f06c9f",
     token = vim.NIL,
     trustedFolders = {}
   }
@@ -13134,7 +13248,7 @@ Default config:
   ```
 - `filetypes` :
   ```lua
-  { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" }
+  { "javascript", "javascriptreact", "typescript", "typescriptreact" }
   ```
 - `handlers` :
   ```lua
@@ -14369,7 +14483,7 @@ Default config:
   ```
 - `filetypes` :
   ```lua
-  { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" }
+  { "javascript", "javascriptreact", "typescript", "typescriptreact" }
   ```
 - `init_options` :
   ```lua

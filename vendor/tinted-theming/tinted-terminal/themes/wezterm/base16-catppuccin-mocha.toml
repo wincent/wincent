@@ -11,7 +11,7 @@ cursor_border = "#cdd6f4"
 cursor_fg = "#1e1e2e"
 
 selection_bg = "#cdd6f4"
-selection_fg = "#45475a"
+selection_fg = "#313244"
 
 ansi = [
   "#1e1e2e",
@@ -24,7 +24,7 @@ ansi = [
   "#cdd6f4"
 ]
 brights = [
-  "#6c7086",
+  "#45475a",
   "#f38ba8",
   "#a6e3a1",
   "#f9e2af",
@@ -37,7 +37,7 @@ brights = [
 [colors.indexed]
 16 = "#fab387"
 17 = "#f2cdcd"
-18 = "#313244"
-19 = "#45475a"
-20 = "#a6adc8"
+18 = "#181825"
+19 = "#313244"
+20 = "#585b70"
 21 = "#f5e0dc"

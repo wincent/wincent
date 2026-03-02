@@ -42,7 +42,7 @@ desc = "Maximize or restore the preview pane"
 
 You can replace `preview` with `current` or `parent` to toggle the other panes.
 
-Note that, the keybindings above are just examples, please tune them up as needed to ensure they don't conflict with your other commands/plugins.
+Note that, the keybindings above are just examples, please tune them up as needed to ensure they don't conflict with your other actions/plugins.
 
 ## Advanced
 

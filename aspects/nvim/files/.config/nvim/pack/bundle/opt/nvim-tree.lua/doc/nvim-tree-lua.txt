@@ -1707,11 +1707,13 @@ Config: filesystem_watchers             *nvim-tree-config-filesystem-watchers*
       • {enable}?          (`boolean`) (default: `true`)
       • {debounce_delay}?  (`integer`, default: `50`) Idle milliseconds
                            between filesystem change and tree update.
-      • {ignore_dirs}?     (`string[]|(fun(path: string): boolean)`, default: `{ "/.ccls-cache", "/build", "/node_modules", "/target", }`)
+      • {ignore_dirs}?     (`string[]|(fun(path: string): boolean)`, default: `{ "/.ccls-cache", "/build", "/node_modules", "/target", "/.zig-cache"}`)
                            Disable for specific directories.
-      • {max_events}?      (`integer`, default: `1000`) Disable for a single
-                           directory after {max_events} consecutive events
-                           with an interval < {debounce_delay}.
+      • {max_events}?      (`integer`, default: `0` or `1000` on windows)
+                           Disable for a single directory after {max_events}
+                           consecutive events with an interval <
+                           {debounce_delay}. Set to 0 to allow unlimited
+                           consecutive events.
 
 
 
@@ -2182,12 +2184,13 @@ Following is the default configuration, see |nvim_tree.config| for details. >lua
       filesystem_watchers = {
         enable = true,
         debounce_delay = 50,
-        max_events = 1000,
+        max_events = 0,
         ignore_dirs = {
           "/.ccls-cache",
           "/build",
           "/node_modules",
           "/target",
+          "/.zig-cache",
         },
       },
       actions = {
@@ -2380,6 +2383,28 @@ get()                                           *nvim_tree.api.commands.get()*
           (`fun(args: vim.api.keyset.create_user_command.command_args)`)
           function that the command will execute
         • {opts} (`vim.api.keyset.user_command`) |command-attributes|
+
+
+==============================================================================
+API: config                                             *nvim-tree-api-config*
+
+default()                                     *nvim_tree.api.config.default()*
+    Default nvim-tree config.
+
+    Return: ~
+        (`nvim_tree.config`) immutable deep clone
+
+global()                                       *nvim_tree.api.config.global()*
+    Global current nvim-tree config.
+
+    Return: ~
+        (`nvim_tree.config`) immutable deep clone
+
+user()                                           *nvim_tree.api.config.user()*
+    Reference to config passed to |nvim-tree-setup|
+
+    Return: ~
+        (`nvim_tree.config?`) nil when no config passed to setup
 
 
 ==============================================================================

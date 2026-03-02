@@ -21,7 +21,7 @@ run  = "plugin smart-paste"
 desc = "Paste into the hovered directory or CWD"
 ```
 
-Note that, the keybindings above are just examples, please tune them up as needed to ensure they don't conflict with your other commands/plugins.
+Note that, the keybindings above are just examples, please tune them up as needed to ensure they don't conflict with your other actions/plugins.
 
 ## License
 

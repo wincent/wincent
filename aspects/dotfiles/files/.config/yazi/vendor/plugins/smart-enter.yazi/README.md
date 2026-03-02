@@ -21,7 +21,7 @@ desc = "Enter the child directory, or open the file"
 
 ## Advanced
 
-By default, `--hovered` is passed to the [`open`][open] command, make the behavior consistent with [`enter`][enter] avoiding accidental triggers,
+By default, `--hovered` is passed to the [`open`][open] action, make the behavior consistent with [`enter`][enter] avoiding accidental triggers,
 which means both will only target the currently hovered file.
 
 If you still want `open` to target multiple selected files, add this to your `~/.config/yazi/init.lua`:

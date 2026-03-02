@@ -359,7 +359,7 @@ ya = ya
 -- | ---- | ----- |
 -- | Type | `Url` |
 ---@field url Url
--- Cha of the file.
+-- [`Cha`](#cha) of the file.
 -- |      |       |
 -- | ---- | ----- |
 -- | Type | `Cha` |
@@ -1735,7 +1735,7 @@ ya = ya
 -- | ---- | ----- |
 -- | Type | `Url` |
 ---@field url Url
--- Cha of the file.
+-- [`Cha`](#cha) of the file.
 -- |      |       |
 -- | ---- | ----- |
 -- | Type | `Cha` |
@@ -2036,18 +2036,18 @@ ya = ya
 -- | `opts` | `{ file: File, skip: integer }` |
 -- | Return | `Url?`                          |
 ---@field file_cache fun(opts: { file: File, skip: integer }): Url?
--- Send a command to the [`[mgr]`](/docs/configuration/keymap#mgr) without waiting for the executor to execute:
+-- Send an action to the [`[mgr]`](/docs/configuration/keymap#mgr) without waiting for the executor to execute:
 -- ```lua
--- ya.emit("my-cmd", { "hello", 123, foo = true, bar_baz = "world" })
+-- ya.emit("action", { "hello", 123, foo = true, bar_baz = "world" })
 -- -- Equivalent to:
--- -- my-cmd "hello" "123" --foo --bar-baz="world"
+-- -- action "hello" "123" --foo --bar-baz="world"
 -- ```
--- | In/Out | Type                              | Note                                                                                    |
--- | ------ | --------------------------------- | --------------------------------------------------------------------------------------- |
--- | `cmd`  | `string`                          | -                                                                                       |
--- | `args` | `{ [integer\|string]: Sendable }` | Table values are [Sendable][sendable] that follow [Ownership transfer rules][ownership] |
--- | Return | `unknown`                         | -                                                                                       |
----@field emit fun(cmd: string, args: { [integer|string]: Sendable }): unknown
+-- | In/Out   | Type                              | Note                                                                                    |
+-- | -------- | --------------------------------- | --------------------------------------------------------------------------------------- |
+-- | `action` | `string`                          | -                                                                                       |
+-- | `args`   | `{ [integer\|string]: Sendable }` | Table values are [Sendable][sendable] that follow [Ownership transfer rules][ownership] |
+-- | Return   | `unknown`                         | -                                                                                       |
+---@field emit fun(action: string, args: { [integer|string]: Sendable }): unknown
 -- Display the image of `url` within the `rect`, and the image will downscale to fit the area automatically:
 -- | In/Out    | Type               |
 -- | --------- | ------------------ |
