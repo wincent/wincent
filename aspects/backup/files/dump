@@ -68,7 +68,7 @@ FOLDER=$(date '+%Y-%m-%d')
 mkdir -p "$FOLDER"
 cd "$FOLDER" || exit 1
 
-for ACCOUNT in vault.1password.com my.1password.eu; do
+for ACCOUNT in my.1password.eu; do
   mkdir $ACCOUNT
   pushd $ACCOUNT
   echo 'Dumping to:'
