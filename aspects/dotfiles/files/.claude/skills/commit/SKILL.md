@@ -20,7 +20,8 @@ For more information on Jujutsu, see the `/jujutsu` skill.
 ## Common instructions
 
 1. Run the appropriate Git-specific or Jujutsu-specific commands to see what should be included in the commit.
-2. Create a commit message with:
+2. Note that your user may have asked you to create or update "plan" files under `.claude-notes/`, a directory which is ignored via the global `~/.config/git/ignore` file: these plan files should never be included in a commit as they are intended to be local-only aids to development.
+3. Create a commit message with:
    - A subject of 72 characters or less in Conventional Commits format (eg. "docs: add migration notes" or "fix: avoid double-render in list component"). In repositories that make use of scopes, you can include a scope in parentheses (eg. "chore(frontend): update copyright year" or "feat(login): add support for magic links").
    - A blank line.
    - A detailed description, wrapped to 72 characters, using basic Markdown syntax.
