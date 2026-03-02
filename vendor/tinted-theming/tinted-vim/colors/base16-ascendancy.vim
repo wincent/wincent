@@ -24,7 +24,7 @@ let s:gui04        = 'bdae93'
 let s:gui05        = 'd5c7a1'
 let s:gui06        = 'ebdbb2'
 let s:gui07        = 'fbf1c7'
-let s:gui08        = 'c03900'
+let s:gui08        = 'd05000'
 let s:gui09        = 'fe8019'
 let s:gui0A        = 'ffcc1b'
 let s:gui0B        = 'b8bb26'
@@ -34,7 +34,7 @@ let s:gui0E        = 'fabd2f'
 let s:gui0F        = 'b59b4d'
 let s:gui10        = '282828'
 let s:gui11        = '282828'
-let s:gui12        = 'c03900'
+let s:gui12        = 'd05000'
 let s:gui13        = 'ffcc1b'
 let s:gui14        = 'b8bb26'
 let s:gui15        = '8f3f71'
@@ -96,7 +96,7 @@ call s:create_color_globals()
 " Integrated Terminal colors
 let s:colors = [
   \ '#282828',
-  \ '#c03900',
+  \ '#d05000',
   \ '#b8bb26',
   \ '#ffcc1b',
   \ '#458588',
@@ -104,7 +104,7 @@ let s:colors = [
   \ '#8f3f71',
   \ '#d5c7a1',
   \ '#928374',
-  \ '#c03900',
+  \ '#d05000',
   \ '#b8bb26',
   \ '#ffcc1b',
   \ '#458588',
