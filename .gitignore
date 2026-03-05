@@ -1,53 +1,63 @@
 **/doc/tags
 *.zwc
+!/aspects/dotfiles/files/.docker/config-base.json
+!/aspects/dotfiles/files/.docker/host
 /.cache
+/aspects/dotfiles/files/.claude/.credentials.json
+/aspects/dotfiles/files/.claude/__store.db
 /aspects/dotfiles/files/.claude/backups
 /aspects/dotfiles/files/.claude/cache
 /aspects/dotfiles/files/.claude/debug
 /aspects/dotfiles/files/.claude/file-history
 /aspects/dotfiles/files/.claude/history.jsonl
-/aspects/dotfiles/files/.claude/host/comp-ktw7q4c5jh.md
+/aspects/dotfiles/files/.claude/local
 /aspects/dotfiles/files/.claude/mcp-needs-auth-cache.json
 /aspects/dotfiles/files/.claude/paste-cache
+/aspects/dotfiles/files/.claude/plans
 /aspects/dotfiles/files/.claude/plugins
 /aspects/dotfiles/files/.claude/policy-limits.json
+/aspects/dotfiles/files/.claude/projects
+/aspects/dotfiles/files/.claude/shell-snapshots
+/aspects/dotfiles/files/.claude/stats-cache.json
+/aspects/dotfiles/files/.claude/statsig
 /aspects/dotfiles/files/.claude/tasks
 /aspects/dotfiles/files/.claude/telemetry
+/aspects/dotfiles/files/.claude/todos
 /aspects/dotfiles/files/.claude/usage-data
-/aspects/dotfiles/files/.config/Raycast/Script Commands/github-commits.sh
-/aspects/dotfiles/files/.config/Raycast/Script Commands/github-pulls.sh
-/aspects/dotfiles/files/.config/Raycast/Script Commands/github-repo.sh
-/aspects/dotfiles/files/.config/git/handles.jsonc
-/aspects/dotfiles/files/.config/git/host/comp-ktw7q4c5jh
-/aspects/dotfiles/files/.config/git/host/latina
 /aspects/dotfiles/files/.config/jj/config.toml
 /aspects/dotfiles/files/.config/jj/repos
 /aspects/dotfiles/files/.config/kitty/kitty.conf
 /aspects/dotfiles/files/.docker/*
-!/aspects/dotfiles/files/.docker/config-base.json
-!/aspects/dotfiles/files/.docker/host
-/aspects/dotfiles/files/.docker/host/comp-ktw7q4c5jh.json
-/aspects/dotfiles/files/.irssi/config
-/aspects/dotfiles/files/.npmrc
-/aspects/dotfiles/files/.pypirc
 /aspects/dotfiles/files/.zsh/.tinted
 /aspects/dotfiles/files/.zsh/.tinted.previous
-/aspects/dotfiles/files/.zsh/exports.private
-/aspects/dotfiles/files/.zsh/hash.private
-/aspects/dotfiles/files/.zsh/host/comp-ktw7q4c5jh
 /aspects/nvim/files/.config/nvim/after/plugin/command-t.private.vim
 /aspects/nvim/files/.config/nvim/plugin/private.vim
 /aspects/nvim/files/.config/nvim/shada
 /aspects/nvim/files/.config/nvim/shada.tmp.*
 /aspects/nvim/files/.config/nvim/spell/en.utf-8.add.spl
 /aspects/nvim/files/.vim/viminfo
-/aspects/ssh/templates/.ssh/config.erb
 /media
 /node_modules
 /tsconfig.tsbuildinfo
 /vendor/nvim-macos-arm64
 /vendor/skim
 /vendor/yay
+
+# Plaintext versions of encrypted files.
+/aspects/dotfiles/files/.config/Raycast/Script Commands/github-commits.sh
+/aspects/dotfiles/files/.config/Raycast/Script Commands/github-pulls.sh
+/aspects/dotfiles/files/.config/Raycast/Script Commands/github-repo.sh
+/aspects/dotfiles/files/.claude/host/comp-ktw7q4c5jh.md
+/aspects/dotfiles/files/.config/git/handles.jsonc
+/aspects/dotfiles/files/.config/git/host/comp-ktw7q4c5jh
+/aspects/dotfiles/files/.config/git/host/latina
+/aspects/dotfiles/files/.docker/host/comp-ktw7q4c5jh.json
+/aspects/dotfiles/files/.irssi/config
+/aspects/dotfiles/files/.npmrc
+/aspects/dotfiles/files/.pypirc
+/aspects/dotfiles/files/.zsh/exports.private
+/aspects/dotfiles/files/.zsh/hash.private
+/aspects/dotfiles/files/.zsh/host/comp-ktw7q4c5jh
 /aspects/fonts/files/MonoLisa-Black.ttf
 /aspects/fonts/files/MonoLisa-BlackItalic.ttf
 /aspects/fonts/files/MonoLisa-Bold.ttf
@@ -67,3 +77,4 @@
 /aspects/fonts/files/MonoLisa-Thin.ttf
 /aspects/fonts/files/MonoLisa-ThinItalic.ttf
 /aspects/ssh/files/.ssh/config.d/pre/comp-ktw7q4c5jh
+/aspects/ssh/templates/.ssh/config.erb
