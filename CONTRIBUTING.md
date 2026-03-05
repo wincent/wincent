@@ -53,3 +53,44 @@ As an illustration, consider working on Command-T:
 4. Run `bin/update-dependencies`. Note that this will "update" the local cache repo (ie. it will update the metadata about what is available on the remote, and it will "merge" those changes in to the cache, which will be a no-op because they were already present), then "sync" the changes into the worktree (again a no-op because they were previously copied over by `bin/sync-dependencies`), and finally update the metadata in `dependencies.json`. Note that this produces the desired changelog entry, because we show the log from the hash that was recorded in `dependencies.json` the _previous_ time `bin/update-dependencies` was run to the new hash.
 
 Note that you don't have to go through steps "1" through 4" for every commit; you can produce several commits (ie. do "1" and "2" repeatedly as many times as you like, and optionally "3" if you want to see the changes run in CI on GitHub) before doing the final sync ("4").
+
+## Working with encrypted files
+
+### Adding a new encrypted file
+
+1. Add the path to the plain-text (unencrypted) file to the list of files in `bin/encrypt`.
+2. Run `bin/encrypt`.
+3. Verify that the path to the plain-text (unencrypted) file got added to the top-level `.gitignore`, and a new ciphertext (encrypted) file exists in the worktree.
+4. Commit the ciphertext file.
+
+### Rotating encryption keys
+
+I don't expect to do this very often, but there may be legitimate reasons for doing it, such as switching to a post-quantum encryption key (possible as of [age v1.3.0](https://github.com/FiloSottile/age/releases/tag/v1.3.0)):
+
+```
+# Before starting, confirm we have a copy of the plaintext files.
+# (If everything is decrypted, this command prints nothing.)
+bin/crypt-status
+
+# Proceed to replace the key.
+cd ~/.config/age
+
+# Remove old key; this is safe because we have a backup in 1Password.
+rm key.txt
+
+# Create a new "post-quantum" key (`-pq`).
+age-keygen -pq -o ~/.config/age/key.txt
+
+# Confirm permissions are correctly set (ie. 0600).
+ls -laF
+
+# Grab public key (recipient), so we can update `RECIPIENT` in `bin/encrypt`.
+age-keygen -y key.txt
+
+# Re-encrypt files with new key; this is ok only because we have the plaintext on disk already.
+cd -
+bin/encrypt
+
+# Verify metadata for a sample file.
+age-inspect aspects/ssh/templates/.ssh/config.erb.encrypted
+```

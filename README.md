@@ -240,7 +240,7 @@ There are some encrypted files in the repo. If you run `./install dotfiles` you 
 Continue anyway? [y/n]:
 ```
 
-To decrypt these I use my age key, stored in 1Password, and placed in:
+To decrypt these I use my [age](https://github.com/FiloSottile/age) key, stored in 1Password, and placed in:
 
 ```
 mkdir -p ~/.config/age
@@ -251,12 +251,7 @@ To decrypt, I run `bin/decrypt`, which relies on the `age` executable (ie. it wo
 
 In my Neovim config, I have an autocmd that runs `bin/encrypt` automatically anytime I save a new version of the plaintext corresponding to an encrypted file. Committing the changes to the repo is done manually, as it would be for any other file.
 
-To add a new encrypted file:
-
-1. Add the path to the plain-text (unencrypted) file to the list of files in `bin/encrypt`.
-2. Run `bin/encrypt`.
-3. Verify that the path to the plain-text (unencrypted) file got added to the top-level `.gitignore`, and a new ciphertext (encrypted) file exists in the worktree.
-4. Commit the ciphertext file.
+See [CONTRIBUTING](./CONTRIBUTING.md) for notes on adding new encrypted files, or rotating encryption keys.
 
 ### Running Neovim nightly
 
