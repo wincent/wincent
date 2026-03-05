@@ -2,10 +2,10 @@
   "cleanupPeriodDays": 99999,
   "permissions": {
     "allow": [
-      "Bash(command git diff:*)",
-      "Bash(command git log:*)",
-      "Bash(command git show:*)",
-      "Bash(command git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git show:*)",
+      "Bash(git status:*)",
       "Bash(jj diff:*)",
       "Bash(jj evolog:*)",
       "Bash(jj gr:*)",
