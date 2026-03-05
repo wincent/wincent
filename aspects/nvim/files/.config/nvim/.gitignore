@@ -1,2 +1,6 @@
+**/doc/tags
 /.netrwhist
 /init-local.lua
+/shada
+/shada.tmp.*
+/spell/en.utf-8.add.spl

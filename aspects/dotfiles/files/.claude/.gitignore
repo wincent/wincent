@@ -1,0 +1,22 @@
+# Claude turds.
+/.credentials.json
+/__store.db
+/backups
+/cache
+/debug
+/file-history
+/history.jsonl
+/local
+/mcp-needs-auth-cache.json
+/paste-cache
+/plans
+/plugins
+/policy-limits.json
+/projects
+/shell-snapshots
+/stats-cache.json
+/statsig
+/tasks
+/telemetry
+/todos
+/usage-data
