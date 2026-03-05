@@ -6,7 +6,7 @@
 export BASE24_THEME="ascendancy"
 
 color00="28/28/28" # Base 00 - Black
-color01="C0/39/00" # Base 08 - Red
+color01="D0/50/00" # Base 08 - Red
 color02="B8/BB/26" # Base 0B - Green
 color03="FF/CC/1B" # Base 0A - Yellow
 color04="45/85/88" # Base 0D - Blue
@@ -14,7 +14,7 @@ color05="FA/BD/2F" # Base 0E - Magenta
 color06="8F/3F/71" # Base 0C - Cyan
 color07="D5/C7/A1" # Base 05 - White
 color08="92/83/74" # Base 03 - Bright Black
-color09="C0/39/00" # Base 12 - Bright Red
+color09="D0/50/00" # Base 12 - Bright Red
 color10="B8/BB/26" # Base 14 - Bright Green
 color11="FF/CC/1B" # Base 13 - Bright Yellow
 color12="45/85/88" # Base 16 - Bright Blue
@@ -134,7 +134,7 @@ if [ -n "$TINTED_SHELL_ENABLE_BASE24_VARS" ]; then
   export BASE24_COLOR_05_HEX="D5C7A1"
   export BASE24_COLOR_06_HEX="EBDBB2"
   export BASE24_COLOR_07_HEX="fbf1c7"
-  export BASE24_COLOR_08_HEX="C03900"
+  export BASE24_COLOR_08_HEX="D05000"
   export BASE24_COLOR_09_HEX="FE8019"
   export BASE24_COLOR_0A_HEX="FFCC1B"
   export BASE24_COLOR_0B_HEX="B8BB26"
@@ -144,7 +144,7 @@ if [ -n "$TINTED_SHELL_ENABLE_BASE24_VARS" ]; then
   export BASE24_COLOR_0F_HEX="B59B4D"
   export BASE24_COLOR_10_HEX="282828"
   export BASE24_COLOR_11_HEX="282828"
-  export BASE24_COLOR_12_HEX="C03900"
+  export BASE24_COLOR_12_HEX="D05000"
   export BASE24_COLOR_13_HEX="FFCC1B"
   export BASE24_COLOR_14_HEX="B8BB26"
   export BASE24_COLOR_15_HEX="8F3F71"
