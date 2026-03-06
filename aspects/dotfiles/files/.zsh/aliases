@@ -13,11 +13,7 @@ if [[ -o interactive ]]; then
   alias b=bundle
   alias be='bundle exec'
   alias cd..='cd ..'
-  alias chatgpt='nvim -c ChatGPT -c only'
-  alias chatgptx='nvim -c ChatGPTX -c only'
-  alias claude='nvim -c Claude -c only'
-  alias code="env ANTHROPIC_API_KEY= $HOME/.local/bin/claude"
-  alias opus='nvim -c Opus -c only'
+  alias shellbot='nvim -c Claude -c only'
   alias d='hash -d'
   alias e=exit
   alias f='find . -name'
