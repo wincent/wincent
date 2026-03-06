@@ -20,19 +20,7 @@ last = ["show", "-r", "last"]
 o = ["oneline"]
 oneline = ["gr", "--no-graph"]
 oo = ["oneline", "--limit", "10"]
-tug = ["util", "exec", "--", "sh", "-c", """
-source ~/.config/jj/helpers.sh
-
-if [ "$#" -gt 1 ]; then
-  jj_error "jj tug: expected 0 or 1 arguments, got: $*"
-  jj_hint "Target multiple branches with ``|`` or ``&`` or ``~``)"
-  exit 1
-elif [ -n "$1" ]; then
-  jj bookmark move --to "closest_pushable(@)" "$@"
-else
-  jj bookmark move --from "closest_bookmark(@)" --to "closest_pushable(@)"
-fi
-""", ""]
+tug = ["bookmark", "advance"]
 
 [colors]
 # See also overrides in ~/.config/jj/conf.d/colors.toml (maintained by `color`
@@ -42,9 +30,11 @@ fi
 
 [revset-aliases]
 'empty_description()' = 'description(exact:"")'
-'closest_bookmark(to)' = 'heads(::to & bookmarks())'
 'closest_pushable(to)' = 'heads(::to & mutable() & ~empty_description() & (~empty() | merges()))'
 'last' = 'latest(ancestors(@) & ~empty() & ~empty_description())'
+
+[revsets]
+bookmark-advance-to = 'closest_pushable(@)'
 
 [signing]
 <%- if (variables.vcsGpgSign) { -%>
