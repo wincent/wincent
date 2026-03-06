@@ -84,7 +84,7 @@ commits.setup = function()
       end
 
       -- Get commit info using git command
-      local cmd = string.format("command git show --no-patch --format='%%H%%x00%%s%%x00%%as' %s 2>/dev/null", hash)
+      local cmd = string.format("git show --no-patch --format='%%H%%x00%%s%%x00%%as' %s 2>/dev/null", hash)
       local handle = io.popen(cmd)
       if handle then
         local result = handle:read('*a')

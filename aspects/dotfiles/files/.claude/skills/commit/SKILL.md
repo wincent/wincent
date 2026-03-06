@@ -7,7 +7,7 @@ description: Create a commit in a repository
 
 ## Creating Git commits
 
-The most common case will be creating a commit in a Git repository. Usually, you will include all changes in the working directory in the commit (that is, you should run `command git diff` to see what the changes are, and/or `command git diff --staged` to see what has already been staged). Generally, if your user wants you to commit only a subset of the changes in the working directory, he will instruct you to do so.
+The most common case will be creating a commit in a Git repository. Usually, you will include all changes in the working directory in the commit (that is, you should run `git diff` to see what the changes are, and/or `git diff --staged` to see what has already been staged). Generally, if your user wants you to commit only a subset of the changes in the working directory, he will instruct you to do so.
 
 ## Creating Jujutsu commits
 
