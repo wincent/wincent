@@ -3,9 +3,9 @@ function tw() {
   emulate -L zsh
   zmodload zsh/datetime # For strftime.
 
-  local TS=$(ts "$@" 2> /dev/null)
-  local TZ=$(date +%z)
-  local HUMAN=$(strftime %c $(($TS $TZ * 36)))
-  echo "Spawning subshell with timestamp: $TS $TZ ($HUMAN $TZ)"
-  env GIT_AUTHOR_DATE="$TS $TZ" GIT_COMMITTER_DATE="$TS $TZ" TW="$*" zsh
+  local TIMESTAMP=$(ts "$@" 2> /dev/null)
+  local OFFSET=$(date +%z)
+  local HUMAN=$(strftime '%a %d %b %Y %H:%M:%S %Z' $TIMESTAMP)
+  echo "Spawning subshell with timestamp: $TIMESTAMP $OFFSET ($HUMAN $OFFSET)"
+  env GIT_AUTHOR_DATE="$TIMESTAMP $OFFSET" GIT_COMMITTER_DATE="$TIMESTAMP $OFFSET" TW="$*" zsh
 }

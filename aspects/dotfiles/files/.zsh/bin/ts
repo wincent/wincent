@@ -3,9 +3,9 @@
 zmodload zsh/datetime # For strftime.
 
 # Print a UNIX timestamp, optionally adjusted via a param (+1h, -55m etc).
-TS=$(($(date +%s) $(parseoffset "$@")))
+TIMESTAMP=$(($(date +%s) $(parseoffset "$@")))
 
-echo $TS
+echo $TIMESTAMP
 
 # Bonus, print human-readable form on stderr.
-strftime %c $TS 1>&2
+strftime '%a %d %b %Y %H:%M:%S %Z' $TIMESTAMP 1>&2
