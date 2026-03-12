@@ -26,9 +26,9 @@
 		<key>Blue Component</key>
 		<real>0.00000000</real>
 		<key>Green Component</key>
-		<real>0.22352941</real>
+		<real>0.31372549</real>
 		<key>Red Component</key>
-		<real>0.75294118</real>
+		<real>0.81568627</real>
 	</dict>
 	<key>Ansi 2 Color</key>
 	<dict>
@@ -114,9 +114,9 @@
 		<key>Blue Component</key>
 		<real>0.00000000</real>
 		<key>Green Component</key>
-		<real>0.22352941</real>
+		<real>0.31372549</real>
 		<key>Red Component</key>
-		<real>0.75294118</real>
+		<real>0.81568627</real>
 	</dict>
 	<key>Ansi 10 Color</key>
 	<dict>

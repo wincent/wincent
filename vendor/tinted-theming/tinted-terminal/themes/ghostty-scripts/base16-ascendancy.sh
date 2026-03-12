@@ -21,7 +21,7 @@ EOF
 
 
 ghostty_palette_color_0="#282828"
-ghostty_palette_color_1="#c03900"
+ghostty_palette_color_1="#d05000"
 ghostty_palette_color_2="#b8bb26"
 ghostty_palette_color_3="#ffcc1b"
 ghostty_palette_color_4="#458588"
@@ -29,7 +29,7 @@ ghostty_palette_color_5="#fabd2f"
 ghostty_palette_color_6="#8f3f71"
 ghostty_palette_color_7="#d5c7a1"
 ghostty_palette_color_8="#928374"
-ghostty_palette_color_9="#c03900"
+ghostty_palette_color_9="#d05000"
 ghostty_palette_color_10="#b8bb26"
 ghostty_palette_color_11="#ffcc1b"
 ghostty_palette_color_12="#458588"

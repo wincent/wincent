@@ -2950,7 +2950,7 @@ function! s:StatusRender(stat) abort
       endfor
     else
       try
-        let merge_msg = get(readfile(fugitive#Find('.git/MERGE_MSG', dir)), 0, '')
+        let merge_msg = get(readfile(fugitive#Find('.git/MERGE_MSG', dir), '', 1), 0, '')
       catch
       endtry
     endif
@@ -4106,7 +4106,7 @@ function! s:CompletableSubcommands(dir) abort
   let c_exec_path = s:cpath(s:VimExecPath())
   if !has_key(s:path_subcommands, c_exec_path)
     if fugitive#GitVersion(2, 18)
-      let [lines, exec_error] = s:LinesError([a:dir, '--list-cmds=list-mainporcelain,nohelpers,list-complete'])
+      let [lines, exec_error] = s:LinesError([a:dir, '--list-cmds=list-mainporcelain,nohelpers,list-complete,others'])
       call filter(lines, 'v:val =~# "^\\S\\+$"')
       if !exec_error && len(lines)
         let s:path_subcommands[c_exec_path] = lines
@@ -4120,16 +4120,6 @@ function! s:CompletableSubcommands(dir) abort
     endif
   endif
   let commands = copy(s:path_subcommands[c_exec_path])
-  for path in split($PATH, has('win32') ? ';' : ':')
-    if path !~# '^/\|^\a:[\\/]'
-      continue
-    endif
-    let cpath = s:cpath(path)
-    if !has_key(s:path_subcommands, cpath)
-      let s:path_subcommands[cpath] = filter(map(s:GlobComplete(path.'/git-', '*', 1),'substitute(v:val,"\\.exe$","","")'), 'v:val !~# "--\\|/"')
-    endif
-    call extend(commands, s:path_subcommands[cpath])
-  endfor
   call extend(commands, keys(fugitive#ConfigGetRegexp('^alias\.\zs[^.]\+$', a:dir)))
   let configured = split(FugitiveConfigGet('completion.commands', a:dir), '\s\+')
   let rejected = {}

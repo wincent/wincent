@@ -6,7 +6,7 @@
 
 # Color palette
 palette = 0=#282828
-palette = 1=#c03900
+palette = 1=#d05000
 palette = 2=#b8bb26
 palette = 3=#ffcc1b
 palette = 4=#458588
@@ -14,7 +14,7 @@ palette = 5=#fabd2f
 palette = 6=#8f3f71
 palette = 7=#d5c7a1
 palette = 8=#928374
-palette = 9=#c03900
+palette = 9=#d05000
 palette = 10=#b8bb26
 palette = 11=#ffcc1b
 palette = 12=#458588

@@ -198,6 +198,7 @@ Nvim by running `:help lspconfig-all`.
 - [mojo](#mojo)
 - [motoko_lsp](#motoko_lsp)
 - [move_analyzer](#move_analyzer)
+- [mpls](#mpls)
 - [msbuild_project_tools_server](#msbuild_project_tools_server)
 - [muon](#muon)
 - [mutt_ls](#mutt_ls)
@@ -2478,11 +2479,11 @@ Default config:
   {
     editorInfo = {
       name = "Neovim",
-      version = "0.12.0-dev+g18c5f06c9f"
+      version = "0.12.0-dev+gb897e81b30"
     },
     editorPluginInfo = {
       name = "Neovim",
-      version = "0.12.0-dev+g18c5f06c9f"
+      version = "0.12.0-dev+gb897e81b30"
     }
   }
   ```
@@ -4970,20 +4971,20 @@ Default config:
   {
     editorInfo = {
       name = "Neovim",
-      version = "0.12.0-dev+g18c5f06c9f"
+      version = "0.12.0-dev+gb897e81b30"
     },
     editorPluginInfo = {
       name = "Neovim LSP",
-      version = "0.12.0-dev+g18c5f06c9f"
+      version = "0.12.0-dev+gb897e81b30"
     },
     extension = {
       name = "Neovim LSP Client",
-      version = "0.12.0-dev+g18c5f06c9f"
+      version = "0.12.0-dev+gb897e81b30"
     },
     ide = {
       name = "Neovim",
       vendor = "Neovim",
-      version = "0.12.0-dev+g18c5f06c9f"
+      version = "0.12.0-dev+gb897e81b30"
     }
   }
   ```
@@ -6497,6 +6498,11 @@ Julia project, you must make sure that the project is instantiated:
 julia --project=/path/to/my/project -e 'using Pkg; Pkg.instantiate()'
 ```
 
+To activate a Julia environment, use the `:LspJuliaActivateEnv` command. A prompt will ask you to select a Julia
+environment from the list of environments found in the current working directory and the `environments/` folder of
+`$JULIA_DEPOT_PATH` entries. You can also provide a path to a Julia environment directly.
+Example: `:LspJuliaActivateEnv /path/to/my/project`.
+
 Note: The julia programming language searches for global environments within the `environments/`
 folder of `$JULIA_DEPOT_PATH` entries. By default this simply `~/.julia/environments`
 
@@ -6514,7 +6520,7 @@ Default config:
   ```lua
   { "julia" }
   ```
-- `on_attach`: [../lsp/julials.lua:121](../lsp/julials.lua#L121)
+- `on_attach`: [../lsp/julials.lua:127](../lsp/julials.lua#L127)
 - `root_markers` :
   ```lua
   { "Project.toml", "JuliaProject.toml" }
@@ -7780,6 +7786,34 @@ Default config:
 - `root_markers` :
   ```lua
   { "Move.toml" }
+  ```
+
+---
+
+## mpls
+
+https://github.com/mhersson/mpls
+
+Markdown Preview Language Server
+
+Snippet to enable the language server:
+```lua
+vim.lsp.enable('mpls')
+```
+
+Default config:
+- `cmd` :
+  ```lua
+  { "mpls", "--theme", "dark", "--enable-emoji", "--enable-footnotes", "--no-auto" }
+  ```
+- `filetypes` :
+  ```lua
+  { "markdown" }
+  ```
+- `on_attach`: [../lsp/mpls.lua:8](../lsp/mpls.lua#L8)
+- `root_markers` :
+  ```lua
+  { ".marksman.toml", ".git" }
   ```
 
 ---
@@ -10418,7 +10452,7 @@ Default config:
   ```
 - `cmd` :
   ```lua
-  { "Microsoft.CodeAnalysis.LanguageServer", "--logLevel", "Information", "--extensionLogDirectory", "/tmp/roslyn_ls/logs", "--stdio" }
+  { "roslyn-language-server", "--logLevel", "Information", "--extensionLogDirectory", "/tmp/roslyn_ls/logs", "--stdio" }
   ```
 - `commands` :
   ```lua
@@ -10775,7 +10809,7 @@ vim.lsp.enable('rust_analyzer')
 ```
 
 Default config:
-- `before_init`: [../lsp/rust_analyzer.lua:56](../lsp/rust_analyzer.lua#L56)
+- `before_init`: [../lsp/rust_analyzer.lua:85](../lsp/rust_analyzer.lua#L85)
 - `capabilities` :
   ```lua
   {
@@ -10795,8 +10829,8 @@ Default config:
   ```lua
   { "rust" }
   ```
-- `on_attach`: [../lsp/rust_analyzer.lua:56](../lsp/rust_analyzer.lua#L56)
-- `root_dir`: [../lsp/rust_analyzer.lua:56](../lsp/rust_analyzer.lua#L56)
+- `on_attach`: [../lsp/rust_analyzer.lua:85](../lsp/rust_analyzer.lua#L85)
+- `root_dir`: [../lsp/rust_analyzer.lua:85](../lsp/rust_analyzer.lua#L85)
 - `settings` :
   ```lua
   {
@@ -11089,7 +11123,7 @@ Default config:
   ```
 - `root_markers` :
   ```lua
-  { ".git" }
+  { "slangdconfig.json", ".clang-format", ".git" }
   ```
 
 ---
@@ -11339,7 +11373,7 @@ Default config:
     activateSnykIac = "true",
     activateSnykOpenSource = "true",
     integrationName = "Neovim",
-    integrationVersion = "0.12.0-dev+g18c5f06c9f",
+    integrationVersion = "0.12.0-dev+gb897e81b30",
     token = vim.NIL,
     trustedFolders = {}
   }

@@ -6,7 +6,7 @@
 export BASE16_THEME=ascendancy
 
 color00="28/28/28" # Base 00 - Black
-color01="c0/39/00" # Base 08 - Red
+color01="d0/50/00" # Base 08 - Red
 color02="b8/bb/26" # Base 0B - Green
 color03="ff/cc/1b" # Base 0A - Yellow
 color04="45/85/88" # Base 0D - Blue
@@ -141,7 +141,7 @@ if [ -n "$TINTED_SHELL_ENABLE_BASE16_VARS" ] || [ -n "$BASE16_SHELL_ENABLE_VARS"
   export BASE16_COLOR_05_HEX="d5c7a1"
   export BASE16_COLOR_06_HEX="ebdbb2"
   export BASE16_COLOR_07_HEX="fbf1c7"
-  export BASE16_COLOR_08_HEX="c03900"
+  export BASE16_COLOR_08_HEX="d05000"
   export BASE16_COLOR_09_HEX="fe8019"
   export BASE16_COLOR_0A_HEX="ffcc1b"
   export BASE16_COLOR_0B_HEX="b8bb26"

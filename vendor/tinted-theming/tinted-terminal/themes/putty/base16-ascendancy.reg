@@ -47,13 +47,13 @@ washed out overexposure.
 
 ; ANSI Red
 ; 31m
-; base08 #c03900
-"Colour8"="192,57,0"
+; base08 #d05000
+"Colour8"="208,80,0"
 
 ; ANSI Red Bright
 ; 1;31m
-; base08 #c03900
-"Colour9"="192,57,0"
+; base08 #d05000
+"Colour9"="208,80,0"
 
 ; ANSI Green
 ; 32m
