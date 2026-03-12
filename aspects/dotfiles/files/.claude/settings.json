@@ -23,6 +23,9 @@
     "deny": []
   },
   "model": "opus",
+  "env": {
+    "CLAUDE_CODE_EFFORT_LEVEL": "max"
+  },
   "hooks": {
     "Notification": [
       {
