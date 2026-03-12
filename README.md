@@ -292,6 +292,44 @@ If running on a brand new OS install where you have never used `sudo` before, `.
 
 To avoid this, one time only, run `sudo -v` before running `./install`.
 
+#### Neovim reports treesitter errors
+
+Sometimes you will see treesitter errors after an update. For example, trying to open a Lua file might yield an error like the following (formatted for readability):
+
+```
+Error executing vim.schedule lua callback:
+  ...m/0.11.6/share/nvim/runtime/lua/vim/treesitter/query.lua:373:
+  Query error at 74:3. Invalid field name "operator":
+  operator: _ @operator)
+  ^
+```
+
+`:checkhealth` may report something like:
+
+```
+The following errors have been detected in query files: ~
+- ❌ ERROR editorconfig(highlights): /Users/wincent/.local/share/nvim/site/queries/editorconfig/highlights.scm
+- ❌ ERROR lua(highlights): /Users/wincent/.local/share/nvim/site/queries/lua/highlights.scm
+- ❌ ERROR make(highlights): /Users/wincent/.local/share/nvim/site/queries/make/highlights.scm
+- ❌ ERROR php(highlights): /Users/wincent/.local/share/nvim/site/queries/php_only/highlights.scm/Users/wincent/.local/share/nvim/site/      ↳ queries/php/highlights.scm
+- ❌ ERROR php_only(highlights): /Users/wincent/.local/share/nvim/site/queries/php_only/highlights.scm
+- ❌ ERROR sql(highlights): /Users/wincent/.local/share/nvim/site/queries/sql/highlights.scm
+- ❌ ERROR tmux(highlights): /Users/wincent/.local/share/nvim/site/queries/tmux/highlights.scm
+- ❌ ERROR vim(highlights): /Users/wincent/.local/share/nvim/site/queries/vim/highlights.scm
+```
+
+A fix for this it to remove all stale files:
+
+```bash
+rm -rf ~/.local/share/nvim/site/queries
+```
+
+and re-run the install (from Neovim):
+
+```
+:lua require('wincent.treesitter.install')()
+```
+
 ## License
 
 Unless otherwise noted, the contents of this repo are in the public domain. See the [LICENSES](./LICENSES) for details.
