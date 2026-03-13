@@ -91,6 +91,9 @@ fpath=($HOME/.zsh/zsh-completions/src $fpath)
 # Local/custom completion sources:
 fpath=($HOME/.zsh/completions $fpath)
 
+# Work-specific completions:
+test -d $HOME/dd/wincent/.zsh/completions && fpath=($HOME/dd/wincent/.zsh/completions $fpath)
+
 autoload -U compinit
 compinit -u
 
