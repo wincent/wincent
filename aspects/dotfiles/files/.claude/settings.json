@@ -1,5 +1,8 @@
 {
   "cleanupPeriodDays": 99999,
+  "env": {
+    "CLAUDE_CODE_EFFORT_LEVEL": "max"
+  },
   "permissions": {
     "allow": [
       "Bash(git diff:*)",
@@ -23,9 +26,6 @@
     "deny": []
   },
   "model": "opus",
-  "env": {
-    "CLAUDE_CODE_EFFORT_LEVEL": "max"
-  },
   "hooks": {
     "Notification": [
       {
@@ -85,7 +85,8 @@
     "ralph-loop@claude-plugins-official": true,
     "skill-creator@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true,
-    "rust-analyzer-lsp@claude-plugins-official": true
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "lua-lsp@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {},
   "spinnerTipsEnabled": false,
