@@ -12,6 +12,7 @@ case "$state" in
     local commands; commands=(
       "go:Go to (or start) tmux session"
       "help:Show help"
+      "test-loop:Run test(s) in a loop"
     )
     _describe -t commands 'command' commands && ret=0
     ;;
