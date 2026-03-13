@@ -330,6 +330,44 @@ and re-run the install (from Neovim):
 :lua require('wincent.treesitter.install')()
 ```
 
+#### Computer forgets hostname after macOS update
+
+Fig uses [the `hostname()` function from the `node:os` module](https://nodejs.org/docs/latest/api/os.html#oshostname) to determine the machine's hostname, and these dotfiles [use a normalized version of the hostname](https://github.com/wincent/wincent/blob/79459993a09fd219ed3127945794daabb225bd35/variables.ts#L14-L35)[^normalized] to produce a simple "handle" that is then used to gate a bunch of machine-specific configuration.
+
+[^normalized]: Normalization converts to lowercase, and takes everything only up to the first dot, in case the hostname has random junk appended to it, like ".lan"
+
+You can see the current values for the computer name with:
+
+```sh
+hostname # What the BSD layer thinks the hostname is.
+uname -n # POSIX analog of `hostname`.
+node -e 'console.log(require("os").hostname())' # What Node.js thinks host name is.
+scutil --get HostName # What macOS system configuration tool thinks the hostname is.
+scutil --get LocalHostName # Bonjour (".local") name.
+scutil --get ComputerName # Human-readable display name (eg. "MacBook Pro")
+```
+
+For example, after a system update on my `latina` machine, I found that Node.js suddenly started reporting the machine's hostname to be `mac.lan`, and the `HostName` value reported by `scutil` had become unset, although the Bonjour name (`LocalHostName`) was still intact:
+
+```console
+$ hostname
+mac.lan
+$ node -e 'console.log(require("os").hostname())'
+mac.lan
+$ scutil --get ComputerName
+MacBook Pro
+$ scutil --get LocalHostName
+latina
+$ scutil --get HostName
+HostName: not set
+```
+
+The remedy is to re-set the `HostName`:
+
+```sh
+sudo scutil --set HostName latina
+```
+
 ## License
 
 Unless otherwise noted, the contents of this repo are in the public domain. See the [LICENSES](./LICENSES) for details.
