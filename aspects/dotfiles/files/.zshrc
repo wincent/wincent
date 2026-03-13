@@ -91,12 +91,6 @@ fpath=($HOME/.zsh/zsh-completions/src $fpath)
 # Local/custom completion sources:
 fpath=($HOME/.zsh/completions $fpath)
 
-# Work-specific completions:
-test -d $HOME/dd/wincent/.zsh/completions && fpath=($HOME/dd/wincent/.zsh/completions $fpath)
-
-autoload -U compinit
-compinit -u
-
 # Make completion:
 # - Try exact (case-sensitive) match first.
 # - Then fall back to case-insensitive.
@@ -661,6 +655,11 @@ test -f $LOCAL_RC && source $LOCAL_RC
 #   sudo scutil --set HostName $desired-host-name
 HOST_RC=$HOME/.zsh/host/$(hostname -s | tr '[:upper:]' '[:lower:]')
 test -f $HOST_RC && source $HOST_RC
+
+# Initialize completion after all files have been source (gives host-specific
+# files a chance to modify fpath).
+autoload -U compinit
+compinit -u
 
 #
 # /etc/motd
