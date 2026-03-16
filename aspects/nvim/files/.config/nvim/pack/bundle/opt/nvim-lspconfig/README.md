@@ -71,6 +71,13 @@ vim.lsp.config('jdtls', {
 })
 ```
 
+## Commands
+
+* `:LspInfo` (alias to `:checkhealth vim.lsp`) shows the status of active and configured language servers.
+* `:lsp enable [<config_name>]` (`:LspStart` for Nvim 0.11 or older) Start the requested server name. Will only successfully start if the command detects a root directory matching the current config.
+* `:lsp disable [<config_name>]` (`:LspStop` for Nvim 0.11 or older) Stops the given server. Defaults to stopping all servers active on the current buffer. To force stop use `:LspStop!`
+* `:lsp restart [<client_name>]` (`:LspRestart` for Nvim 0.11 or older) Restarts the given client, and attempts to reattach to all previously attached buffers. Defaults to restarting all active servers.
+
 ## Configuration
 
 Nvim sets default options and mappings when LSP is active in a buffer:
@@ -134,6 +141,36 @@ If you install nvim-lspconfig or similar plugins, the order that configs are app
    ```
 5. Run `:checkhealth vim.lsp`, the new config is listed under "Enabled Configurations". 🌈
 
+## LSP Settings Type Annotations
+
+`nvim-lspconfig` generates Lua type definitions for each supported LSP server.
+By manually adding annotations (e.g., `---@type lspconfig.settings.server_name`),
+you enable auto-completion and diagnostics for your server settings.
+
+**Example:**
+
+```lua
+---@type vim.lsp.Config
+local config = {
+  ---@type lspconfig.settings.lua_ls
+  settings = {
+    Lua = {
+      runtime = {
+        version = 'LuaJIT',
+      },
+      workspace = {
+        preloadFileSize = 10000,
+        library = {
+          vim.env.VIMRUNTIME,
+        }
+      },
+    },
+  },
+}
+
+vim.lsp.config('lua_ls', config)
+```
+
 ## Troubleshooting
 
 Start with `:checkhealth vim.lsp` to troubleshoot. The most common reasons a language server does not start or attach are:
@@ -162,13 +199,6 @@ vim.lsp.set_log_level("debug")
 
 Attempt to run the language server, then run `:LspLog` to open the log.
 Most of the time, the reason for failure is present in the logs.
-
-## Commands
-
-* `:LspInfo` (alias to `:checkhealth vim.lsp`) shows the status of active and configured language servers.
-* `:lsp enable [<config_name>]` (`:LspStart` for Nvim 0.11 or older) Start the requested server name. Will only successfully start if the command detects a root directory matching the current config.
-* `:lsp disable [<config_name>]` (`:LspStop` for Nvim 0.11 or older) Stops the given server. Defaults to stopping all servers active on the current buffer. To force stop use `:LspStop!`
-* `:lsp restart [<client_name>]` (`:LspRestart` for Nvim 0.11 or older) Restarts the given client, and attempts to reattach to all previously attached buffers. Defaults to restarting all active servers.
 
 ## Contributions
 

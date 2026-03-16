@@ -308,6 +308,7 @@ Nvim by running `:help lspconfig-all`.
 - [sqlls](#sqlls)
 - [sqls](#sqls)
 - [sqruff](#sqruff)
+- [stan_ls](#stan_ls)
 - [standardrb](#standardrb)
 - [starlark_rust](#starlark_rust)
 - [starpls](#starpls)
@@ -2479,11 +2480,11 @@ Default config:
   {
     editorInfo = {
       name = "Neovim",
-      version = "0.12.0-dev+gb897e81b30"
+      version = "0.12.0-dev+g9084483715"
     },
     editorPluginInfo = {
       name = "Neovim",
-      version = "0.12.0-dev+gb897e81b30"
+      version = "0.12.0-dev+g9084483715"
     }
   }
   ```
@@ -4971,20 +4972,20 @@ Default config:
   {
     editorInfo = {
       name = "Neovim",
-      version = "0.12.0-dev+gb897e81b30"
+      version = "0.12.0-dev+g9084483715"
     },
     editorPluginInfo = {
       name = "Neovim LSP",
-      version = "0.12.0-dev+gb897e81b30"
+      version = "0.12.0-dev+g9084483715"
     },
     extension = {
       name = "Neovim LSP Client",
-      version = "0.12.0-dev+gb897e81b30"
+      version = "0.12.0-dev+g9084483715"
     },
     ide = {
       name = "Neovim",
       vendor = "Neovim",
-      version = "0.12.0-dev+gb897e81b30"
+      version = "0.12.0-dev+g9084483715"
     }
   }
   ```
@@ -11373,7 +11374,7 @@ Default config:
     activateSnykIac = "true",
     activateSnykOpenSource = "true",
     integrationName = "Neovim",
-    integrationVersion = "0.12.0-dev+gb897e81b30",
+    integrationVersion = "0.12.0-dev+g9084483715",
     token = vim.NIL,
     trustedFolders = {}
   }
@@ -11925,6 +11926,39 @@ Default config:
 
 ---
 
+## stan_ls
+
+https://github.com/tomatitito/stan-language-server
+
+ Language server for the Stan probabilistic programming language.
+
+@type vim.lsp.Config
+
+Snippet to enable the language server:
+```lua
+vim.lsp.enable('stan_ls')
+```
+
+Default config:
+- `cmd` :
+  ```lua
+  { "stan-language-server", "--stdio" }
+  ```
+- `filetypes` :
+  ```lua
+  { "stan" }
+  ```
+- `root_markers` :
+  ```lua
+  { ".git" }
+  ```
+- `settings` :
+  ```lua
+  {}
+  ```
+
+---
+
 ## standardrb
 
 https://github.com/testdouble/standard
@@ -12270,6 +12304,34 @@ Default config:
   ```
 - `on_attach`: [../lsp/svelte.lua:13](../lsp/svelte.lua#L13)
 - `root_dir`: [../lsp/svelte.lua:13](../lsp/svelte.lua#L13)
+- `settings` :
+  ```lua
+  {
+    typescript = {
+      inlayHints = {
+        enumMemberValues = {
+          enabled = true
+        },
+        functionLikeReturnTypes = {
+          enabled = true
+        },
+        parameterNames = {
+          enabled = "literals",
+          suppressWhenArgumentMatchesName = true
+        },
+        parameterTypes = {
+          enabled = true
+        },
+        propertyDeclarationTypes = {
+          enabled = true
+        },
+        variableTypes = {
+          enabled = true
+        }
+      }
+    }
+  }
+  ```
 
 ---
 
