@@ -6,6 +6,9 @@
 #   create-gitlab-snippet.sh <file> [title]
 #   pbpaste | create-gitlab-snippet.sh - [title]
 #
+# If SUMMARY_FILE is set and points to a readable file, its content is
+# prepended as a Markdown summary before the fenced session transcript.
+#
 # Requires GITLAB_TOKEN and GITLAB_HOST to be set.
 
 set -e
@@ -41,7 +44,7 @@ else
 fi
 
 PAYLOAD=$(python3 -c "
-import json, re, sys
+import json, os, re, sys
 with open(sys.argv[1]) as f:
     content = f.read()
 max_run = 0
@@ -49,10 +52,17 @@ for m in re.finditer(r'\`{3,}', content):
     max_run = max(max_run, len(m.group()))
 fence = '\`' * max(max_run + 1, 3)
 wrapped = fence + '\n' + content + '\n' + fence + '\n'
+summary_file = os.environ.get('SUMMARY_FILE', '')
+if summary_file:
+    with open(summary_file) as f:
+        summary = f.read().rstrip('\n')
+    body = summary + '\n\n---\n\n## Full Session Transcript\n\n' + wrapped
+else:
+    body = wrapped
 payload = {
     'title': sys.argv[2],
     'visibility': 'internal',
-    'files': [{'file_path': 'session.md', 'content': wrapped}]
+    'files': [{'file_path': 'session.md', 'content': body}]
 }
 print(json.dumps(payload))
 " "$FILE" "$TITLE")
