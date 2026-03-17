@@ -63,6 +63,7 @@ nvim --server <addr> --remote-expr 'luaeval("vim.api.nvim_buf_set_extmark(0, vim
 ```
 
 Use highlight groups to convey meaning:
+
 - `DiagnosticInfo` — informational annotations (blue)
 - `DiagnosticWarn` — warnings (yellow)
 - `DiagnosticError` — errors/issues (red)
