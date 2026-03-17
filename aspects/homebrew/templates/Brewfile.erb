@@ -1,6 +1,7 @@
 # <%= variables.figManaged %>
 #
-# Based on the output of `brew bundle dump` (which must be run outside of tmux)
+# Based on the output of `brew bundle dump --file=-`
+# (which must be run outside of tmux)
 # plus `brew info --json ${formula} | jq '.[].desc'`.
 
 cask_args appdir: "/Applications"
