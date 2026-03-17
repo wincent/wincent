@@ -174,11 +174,14 @@ function M.send(context, text)
     context_line = string.format('Context: %s', location)
   end
 
+  local servername = vim.v.servername
+  local footer = string.format('(Shannon prompt via Neovim server %s)', servername)
+
   local prompt
   if text:match('^/btw') then
-    prompt = string.format('%s\n\n%s', text, context_line)
+    prompt = string.format('%s\n\n%s\n\n%s', text, context_line, footer)
   else
-    prompt = string.format('%s\n\n%s', context_line, text)
+    prompt = string.format('%s\n\n%s\n\n%s', context_line, text, footer)
   end
 
   local tmpfile = os.tmpname()
