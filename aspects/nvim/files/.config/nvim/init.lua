@@ -246,6 +246,7 @@ if vim.o.loadplugins then
     'replay',
     'rust.vim',
     'scalpel',
+    'shannon',
     'shellbot',
     'terminus',
     'vcs-jump',
