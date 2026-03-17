@@ -6,6 +6,7 @@
 /debug
 /file-history
 /history.jsonl
+/image-cache
 /local
 /mcp-needs-auth-cache.json
 /paste-cache
