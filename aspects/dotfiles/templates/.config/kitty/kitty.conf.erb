@@ -160,6 +160,7 @@ disable_ligatures always
 modify_font underline_position 2
 #:     modify_font underline_position -2
 #:     modify_font underline_thickness 150%
+#:     modify_font strikethrough_thickness 200%
 #:     modify_font strikethrough_position 2px
 
 #: Additionally, you can modify the size of the cell in which each
@@ -167,8 +168,8 @@ modify_font underline_position 2
 #: placed in the cell. For example::
 
 #:     modify_font cell_width 80%
-#:     modify_font cell_height -2px
 modify_font cell_height 2px
+#:     modify_font cell_height -2px
 #:     modify_font baseline 3
 
 #: Note that modifying the baseline will automatically adjust the
@@ -427,7 +428,7 @@ undercurl_style thick-sparse
 
 # scrollbar_interactive yes
 
-#: If disabled, the scrollbar will not be controllable via th emouse
+#: If disabled, the scrollbar will not be controllable via the mouse
 #: and all mouse events will pass through the scrollbar.
 
 # scrollbar_jump_on_click yes
@@ -561,6 +562,26 @@ undercurl_style thick-sparse
 #: that this is only used for high precision scrolling devices on
 #: platforms such as macOS and Wayland. Use negative numbers to change
 #: scroll direction.
+
+# pixel_scroll yes
+
+#: Enable per-pixel scrolling, in the kitty scrollback buffer, when
+#: using high precision input devices (for example touchpads). When
+#: enabled, kitty's own scrollback will move by sub-line increments
+#: instead of only whole lines. This does not affect applications
+#: running inside the terminal (for example full-screen TUIs) that
+#: handle scrolling themselves.
+
+# momentum_scroll 0.96
+
+#: The amount of friction to apply to slow down momentum (inertial)
+#: scrolling. A number from 0 to 1, with 0 meaning no momentum
+#: scrolling and 1 meaning infinite scrolling. Note that this setting
+#: only applies on platforms such as Wayland, that do not provide
+#: native momentum scrolling. On macOS, the native OS based momentum
+#: scrolling is used. Also, momentum scrolling only applies to
+#: "finger" based devices such as touchpads and touchscreens. Changes
+#: to this setting only take effect after a kitty restart.
 
 #: }}}
 
@@ -700,8 +721,8 @@ url_style double
 
 # paste_actions quote-urls-at-prompt,confirm
 
-#: A comma separated list of actions to take when pasting text into
-#: the terminal. The supported paste actions are:
+#: A comma separated list of actions to take when pasting or dropping
+#: text into the terminal. The supported paste actions are:
 
 #: quote-urls-at-prompt:
 #:     If the text being pasted is a URL and the cursor is at a shell prompt,
@@ -891,6 +912,13 @@ mouse_map <%= variables.kittyAlt %>+shift+left press grabbed discard_event
 #::  If you want only the end of the selection to be moved instead of
 #::  the nearest boundary, use move-end instead of extend.
 
+#: Extend the current selection with shift
+
+# mouse_map shift+left press ungrabbed mouse_selection extend
+
+#::  If you want only the end of the selection to be moved instead of
+#::  the nearest boundary, use move-end instead of extend.
+
 #: Paste from the primary selection even when grabbed
 
 # mouse_map shift+middle release ungrabbed,grabbed paste_selection
@@ -898,7 +926,7 @@ mouse_map <%= variables.kittyAlt %>+shift+left press grabbed discard_event
 
 #: Start selecting text even when grabbed
 
-# mouse_map shift+left press ungrabbed,grabbed mouse_selection normal
+# mouse_map shift+left press grabbed mouse_selection normal
 
 #: Start selecting text in a rectangle even when grabbed
 
@@ -1017,6 +1045,12 @@ enable_audio_bell no
 #: Program to run when a bell occurs. The environment variable
 #: KITTY_CHILD_CMDLINE can be used to get the program running in the
 #: window in which the bell occurred.
+
+# macos_dock_badge_on_bell yes
+
+#: Show a badge on kitty's dock icon when a bell occurs and kitty is
+#: not the active application (macOS only). The badge is automatically
+#: cleared when kitty regains focus.
 
 # bell_path none
 
@@ -1149,6 +1183,7 @@ enable_audio_bell no
 #: horizontal and bottom. Four values set top, right, bottom and left.
 
 placement_strategy top
+# placement_strategy center
 
 #: When the window size is not an exact multiple of the cell size, the
 #: cell area of the terminal window will have some extra padding on
@@ -1183,13 +1218,19 @@ hide_window_decorations yes
 
 #: Hide the window decorations (title-bar and window borders) with
 #: yes. On macOS, titlebar-only and titlebar-and-corners can be used
-#: to only hide the titlebar and the rounded corners. Whether this
-#: works and exactly what effect it has depends on the window
-#: manager/operating system. Note that the effects of changing this
-#: option when reloading config are undefined. When using titlebar-
-#: only, it is useful to also set window_margin_width and
-#: placement_strategy to prevent the rounded corners from clipping
-#: text. Or use titlebar-and-corners.
+#: to only hide the titlebar and the rounded corners.
+
+#: On Wayland, titlebar-only can be used to hide the titlebar while
+#: keeping the window shadow for resizing. On compositors that have
+#: server-side decorations (such as anything but GNOME), both yes and
+#: titlebar-only force client-side decoration mode.
+
+#: Whether this works and exactly what effect it has depends on the
+#: window manager/operating system. Note that the effects of changing
+#: this option when reloading config are undefined. When using
+#: titlebar-only on macOS, it is useful to also set
+#: window_margin_width and placement_strategy to prevent the rounded
+#: corners from clipping text. Or use titlebar-and-corners.
 
 # window_logo_path none
 
@@ -1272,6 +1313,73 @@ hide_window_decorations yes
 #: want confirmation when closing individual windows, you can map the
 #: close_window_with_confirmation action.
 
+# window_drag_tolerance 2
+
+#: Control dragging window borders to resize kitty windows. This is
+#: the tolerance in pts for the region around window borders where
+#: pressing the left mouse button will start the dragging of window
+#: borders. Use a large negative value such as -200 to disable
+#: dragging of borders. Note that because kitty uses layouts, dragging
+#: borders does not actually resize the window itself, but instead,
+#: the layout row/column/slot, which can result in multiple windows
+#: getting resized.
+
+# window_title_bar top
+
+#: Control the position of the window title bar relative to the window
+#: content. Use window_title_bar_min_windows to control when title
+#: bars are shown. Use window_title_template to format the displayed
+#: window title.
+
+# window_title_bar_min_windows 0
+
+#: The minimum number of visible windows in a tab before window title
+#: bars are shown. A value of 0 means never show. 1 means always show.
+#: 2 or more means show only when at least that many windows are
+#: visible. Similar to tab_bar_min_tabs for the tab bar.
+
+# window_title_template "{fmt.fg.red}{bell_symbol}{activity_symbol}{fmt.fg.window}{progress_percent}{title}"
+
+#: A template to render the window title bar text. Uses the same
+#: template syntax as tab_title_template. Available variables include:
+#: {title}, {bell_symbol}, {activity_symbol}, {progress_percent},
+#: {custom}, {fmt}, {is_active}. You can also provide a custom
+#: draw_window_title(data) function in window_title_bar.py in the
+#: kitty config directory, exposed as {custom}.
+
+# active_window_title_template none
+
+#: Template to use for the active window title bar. If not set (the
+#: value none), the window_title_template is used.
+
+# window_title_bar_active_foreground none
+
+#: Foreground color for the active window title bar. Defaults to the
+#: corresponding tab bar color (active_tab_foreground) when set to
+#: none.
+
+# window_title_bar_active_background none
+
+#: Background color for the active window title bar. Defaults to the
+#: corresponding tab bar color (active_tab_background) when set to
+#: none.
+
+# window_title_bar_inactive_foreground none
+
+#: Foreground color for inactive window title bars. Defaults to the
+#: corresponding tab bar color (inactive_tab_foreground) when set to
+#: none.
+
+# window_title_bar_inactive_background none
+
+#: Background color for inactive window title bars. Defaults to the
+#: corresponding tab bar color (inactive_tab_background) when set to
+#: none.
+
+# window_title_bar_align center
+
+#: Horizontal alignment of the text in window title bars.
+
 #: }}}
 
 #: Tab bar {{{
@@ -1286,6 +1394,7 @@ tab_bar_edge top
 #: The margin to the left and right of the tab bar (in pts).
 
 tab_bar_margin_height 0.0 1.0
+# tab_bar_margin_height 0.0 0.0
 
 #: The margin above and below the tab bar (in pts). The first number
 #: is the margin between the edge of the OS Window and the tab bar.
@@ -1474,7 +1583,23 @@ inactive_tab_font_style italic
 #: Color for the tab bar margin area. Defaults to using the terminal
 #: background color for margins above and below the tab bar. For side
 #: margins the default color is chosen to match the background color
-#: of the neighboring tab.
+#: of the neighboring tab, unless the window is translucent, in which
+#: case the default background is used as it looks better.
+
+# tab_bar_drag_threshold 5
+
+#: Control when dragging of tabs to re-order them happens. The value
+#: is the drag threshold in pixels, the distance the mouse must move
+#: before a drag begins. A value of zero disables tab dragging
+#: entirely. Dragging a tab to another kitty window moves it there,
+#: while dragging outside any kitty window detaches it into a new OS
+#: window.
+
+#: Note that on Wayland, because of poor design
+#: <https://gitlab.freedesktop.org/wayland/wayland/-/issues/140>
+#: cancelling a drag will detach the tab. This is worked around for
+#: compositors that support xdg-toplevel-drag
+#: <https://wayland.app/protocols/xdg-toplevel-drag-v1>.
 
 #: }}}
 
@@ -1525,7 +1650,8 @@ inactive_tab_font_style italic
 #: and/or rendering artifacts. Usually, values up to 64 work well.
 #: Note that this might cause performance issues, depending on how the
 #: platform implements it, so use with care. Currently supported on
-#: macOS and KDE.
+#: macOS and Wayland, when the compositor supports the background blur
+#: extension.
 
 # transparent_background_colors
 
@@ -1689,6 +1815,19 @@ inactive_tab_font_style italic
 # mark3_background #f274bc
 
 #: Color for marks of type 3 (violet)
+
+#: }}}
+
+#: Wide gamut color formats {{{
+
+#: kitty supports modern wide gamut color formats including OKLCH and
+#: CIE LAB for precise color specification. These formats can be used
+#: anywhere a color value is accepted (foreground, background,
+#: color0-color255, etc.).
+
+#: For detailed documentation on wide gamut color formats, syntax, and
+#: examples, see /wide-gamut-colors
+#: <https://sw.kovidgoyal.net/kitty/wide-gamut-colors/>.
 
 #: }}}
 
@@ -1951,6 +2090,7 @@ listen_on unix:~/.config/kitty/kitty.sock
 #: link when clicked.
 
 shell_integration disabled
+# shell_integration enabled
 
 #: Enable shell integration on supported shells. This enables features
 #: such as jumping to previous prompts, browsing the output of the
@@ -2247,8 +2387,10 @@ shell_integration disabled
 #:     # multi-key shortcuts
 #:     map ctrl+x>ctrl+y>z action
 
-#: The full list of actions that can be mapped to key presses is
-#: available here <https://sw.kovidgoyal.net/kitty/actions/>.
+#: You can browse and trigger these actions by pressing
+#: command_palette to run the command palette. The full list of
+#: actions that can be mapped to key presses is available here
+#: <https://sw.kovidgoyal.net/kitty/actions/>.
 
 # kitty_mod ctrl+shift
 
@@ -2260,6 +2402,22 @@ shell_integration disabled
 
 #: Remove all shortcut definitions up to this point. Useful, for
 #: instance, to remove the default shortcuts.
+
+# map_timeout 0.0
+
+#: The default timeout (in seconds) for multi-key mappings and modal
+#: keyboard modes. If you press the first key(s) of a multi-key
+#: mapping and don't press the next key within this timeout, the
+#: mapping is cancelled and the mode is exited. A value of zero
+#: disables the timeout. This can be overridden for specific modes
+#: using the --timeout option when creating a keyboard mode with
+#: --new-mode. For example::
+
+#:     # 2 second timeout for all mappings
+#:     map_timeout 2.0
+
+#:     # This mode will have a 5 second timeout (overrides the global 2 second timeout)
+#:     map --new-mode resize --timeout 5.0 kitty_mod+r
 
 # action_alias
 
@@ -2454,7 +2612,6 @@ shell_integration disabled
 
 # Disable the above because I keep hitting it by accident.
 map cmd+enter
-
 
 #::  You can open a new kitty window running an arbitrary program, for
 #::  example::
@@ -2803,6 +2960,10 @@ map cmd+enter
 #: Show documentation
 
 # map kitty_mod+f1 show_kitty_doc overview
+
+#: Command palette
+
+# map kitty_mod+f3 command_palette
 
 #: Toggle fullscreen
 
