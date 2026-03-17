@@ -92,13 +92,6 @@ color() {
       echo "$BACKGROUND" >> "$__WINCENT[TINTED_CONFIG]"
       sh "$FILE"
 
-      # Kitty overwrites go in ~/.config/kitty/colors-extras.conf
-      # (saves us from having to fork the third-party templates).
-      (
-        cd ~/.config/kitty &&
-        echo "tab_bar_margin_color #$FG" > colors-extras.conf
-      )
-
       # When running a `.tmux` script we may have a race where multiple `ln -sf`
       # are running at the same time (because the script may open multiple
       # splits), producing "ln: colors.conf: File exists" or similar; so,
@@ -115,7 +108,6 @@ color() {
         if [ -r ~/.config/kitty/kitty.sock ]; then
           if command -v kitten &> /dev/null; then
             kitten @ set-colors --all --configured ~/.config/kitty/colors.conf
-            kitten @ set-colors --all --configured ~/.config/kitty/colors-extras.conf
           fi
         fi
       fi
