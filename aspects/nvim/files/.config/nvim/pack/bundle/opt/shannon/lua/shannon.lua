@@ -158,9 +158,9 @@ function M.send(context, text)
   local context_line
   if context.lines then
     local snippet = table.concat(context.lines, '\n')
-    context_line = string.format('Context: `%s`: `%s`', location, snippet)
+    context_line = string.format('Context: %s: %s', location, snippet)
   else
-    context_line = string.format('Context: `%s`', location)
+    context_line = string.format('Context: %s', location)
   end
 
   local prompt
