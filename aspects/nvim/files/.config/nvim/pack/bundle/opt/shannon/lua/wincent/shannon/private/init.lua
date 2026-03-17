@@ -54,8 +54,19 @@ function M.open(context)
   local parent_win = vim.api.nvim_get_current_win()
 
   local height = 8
-  local width = math.floor(vim.o.columns * 0.6)
-  local float_col = math.floor((vim.o.columns - width) / 2)
+  local editor_width = vim.o.columns
+  local min_width = math.min(math.max(80, math.floor(editor_width * 0.6)), editor_width - 2)
+  local cursor_col = vim.fn.screencol() - 1
+
+  local width, float_col
+  local space_right = editor_width - cursor_col - 2
+  if space_right >= min_width then
+    width = space_right
+    float_col = cursor_col
+  else
+    width = min_width
+    float_col = math.max(0, editor_width - width - 2)
+  end
 
   local screen_pos = vim.fn.screenpos(0, context.line_end, 1)
   local float_row
@@ -181,8 +192,7 @@ function M.send(context, text)
 
   local pane = M.get_pane()
   if not pane then
-    vim.api.nvim_err_writeln('shannon: no Claude session found in tmux')
-    os.remove(tmpfile)
+    vim.api.nvim_err_writeln('shannon: no Claude session found in tmux (prompt saved to ' .. tmpfile .. ')')
     return
   end
   vim.fn.system({ 'tmux', 'load-buffer', tmpfile })

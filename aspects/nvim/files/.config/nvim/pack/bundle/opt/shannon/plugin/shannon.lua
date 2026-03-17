@@ -1,5 +1,3 @@
-local shannon = require('shannon')
-
 vim.api.nvim_create_user_command('Shannon', function(opts)
   local file = vim.fn.expand('%:.')
   local line_start, line_end
@@ -45,7 +43,7 @@ vim.api.nvim_create_user_command('Shannon', function(opts)
     context.col_end = end_col
   end
 
-  shannon.open(context)
+  require('wincent.shannon.private').open(context)
 end, { range = true })
 
 vim.keymap.set('n', '<LocalLeader>s', ':Shannon<CR>', { silent = true })
