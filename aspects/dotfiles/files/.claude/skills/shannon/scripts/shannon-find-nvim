@@ -1,0 +1,72 @@
+#!/bin/sh
+#
+# Find the Neovim server socket for an nvim instance running in a sibling
+# tmux pane. Prints the socket path on success, exits non-zero on failure.
+
+set -eu
+
+current_pane="${TMUX_PANE:-}"
+
+if [ -z "$current_pane" ]; then
+  echo "error: not running inside tmux" >&2
+  exit 1
+fi
+
+# Collect pane PIDs for all sibling panes (excluding current).
+pane_pids=""
+while read -r pane_id pane_pid; do
+  if [ "$pane_id" != "$current_pane" ]; then
+    pane_pids="$pane_pids $pane_pid"
+  fi
+done <<EOF
+$(tmux list-panes -F '#{pane_id} #{pane_pid}')
+EOF
+
+is_pane_pid() {
+  for p in $pane_pids; do
+    if [ "$p" = "$1" ]; then
+      return 0
+    fi
+  done
+  return 1
+}
+
+# Walk up from each nvim process to see if an ancestor is a sibling pane shell.
+find_nvim_in_panes() {
+  for nvim_pid in $(pgrep nvim 2>/dev/null); do
+    pid="$nvim_pid"
+    i=0
+    while [ "$i" -lt 10 ]; do
+      ppid=$(ps -p "$pid" -o ppid= 2>/dev/null | tr -d ' ')
+      if [ -z "$ppid" ] || [ "$ppid" = "1" ]; then
+        break
+      fi
+      if is_pane_pid "$ppid"; then
+        echo "$nvim_pid"
+        return 0
+      fi
+      pid="$ppid"
+      i=$((i + 1))
+    done
+  done
+  return 1
+}
+
+nvim_pid=$(find_nvim_in_panes) || {
+  echo "error: no nvim found in sibling tmux panes" >&2
+  exit 1
+}
+
+# The server socket may belong to a child process of nvim.
+# Check the nvim pid itself and its children.
+for pid in $nvim_pid $(pgrep -P "$nvim_pid" 2>/dev/null); do
+  for sock in /var/folders/*/*/T/nvim.*/*/nvim."$pid".0; do
+    if [ -S "$sock" ]; then
+      echo "$sock"
+      exit 0
+    fi
+  done
+done
+
+echo "error: found nvim (pid $nvim_pid) but no server socket" >&2
+exit 1
