@@ -112,7 +112,7 @@ function M.open(context)
     end,
   })
 
-  vim.keymap.set('n', '<C-y>', function()
+  vim.keymap.set({ 'n', 'i' }, '<C-y>', function()
     local view = vim.api.nvim_win_call(parent_win, function()
       return vim.fn.winsaveview()
     end)
@@ -124,7 +124,7 @@ function M.open(context)
     end
   end, { buffer = buf })
 
-  vim.keymap.set('n', '<C-e>', function()
+  vim.keymap.set({ 'n', 'i' }, '<C-e>', function()
     local view = vim.api.nvim_win_call(parent_win, function()
       return vim.fn.winsaveview()
     end)
