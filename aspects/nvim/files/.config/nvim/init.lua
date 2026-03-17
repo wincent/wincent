@@ -201,8 +201,8 @@ end
 vim.api.nvim_set_keymap('n', '<Leader>f', '<Plug>(FerretAckWord)', {})
 
 -- Normally <Leader>r (mnemonic: "[r]eplace");
--- use <Leader>s (mnemonic: "[s]ubstitute") instead.
-vim.api.nvim_set_keymap('n', '<Leader>s', '<Plug>(FerretAcks)', {})
+-- use <LocalLeader>s (mnemonic: "[s]ubstitute") instead.
+vim.api.nvim_set_keymap('n', '<LocalLeader>s', '<Plug>(FerretAcks)', {})
 
 -------------------------------------------------------------------------------
 -- Plugins {{{1 ---------------------------------------------------------------
