@@ -48,5 +48,5 @@ vim.api.nvim_create_user_command('Shannon', function(opts)
   shannon.open(context)
 end, { range = true })
 
-vim.keymap.set('n', '<LocalLeader>g', ':Shannon<CR>', { silent = true })
-vim.keymap.set('v', '<LocalLeader>g', ':Shannon<CR>', { silent = true })
+vim.keymap.set('n', '<LocalLeader>s', ':Shannon<CR>', { silent = true })
+vim.keymap.set('v', '<LocalLeader>s', ':Shannon<CR>', { silent = true })
