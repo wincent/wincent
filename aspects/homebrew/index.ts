@@ -2,13 +2,15 @@ import {
   command,
   fail,
   fetch,
+  helpers,
   log,
   prompt,
   resource,
   skip,
   task,
-  template,
 } from 'fig';
+
+const {isDecrypted, when} = helpers;
 
 task('download installation script', async () => {
   await fetch({
@@ -65,17 +67,27 @@ task('tap "homebrew/bundle"', async () => {
   await command('brew', ['tap', 'homebrew/bundle']);
 });
 
-task('prepare Brewfile', async () => {
-  await template({
-    path: '~/Library/Preferences/Brewfile',
-    src: resource.template('Brewfile.erb'),
-  });
+task('run `brew bundle` with common Brewfile', async () => {
+  await command('brew', ['bundle', `--file=${resource.file('Brewfile')}`]);
 });
 
-task('run "brew bundle"', async () => {
-  await command('brew', ['bundle'], {
-    chdir: '~/Library/Preferences',
-  });
+task('run `brew bundle` with personal Brewfile', when('personal'), async () => {
+  await command('brew', [
+    'bundle',
+    `--file=${resource.file('Brewfile.personal')}`,
+  ]);
+});
+
+task('run `brew bundle` with work Brewfile', when('work'), async () => {
+  const src = resource.file('Brewfile.work');
+  const decrypted = await isDecrypted(src);
+
+  if (!decrypted) {
+    await log.warn(`"${src}" does not exist; run "bin/decrypt"`);
+    return;
+  }
+
+  await command('brew', ['bundle', `--file=${src}`]);
 });
 
 task('clean up old versions', async () => {
