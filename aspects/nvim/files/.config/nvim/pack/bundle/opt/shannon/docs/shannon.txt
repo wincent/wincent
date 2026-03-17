@@ -1,0 +1,40 @@
+*shannon.txt*  Send prompts from Neovim to Claude Code via tmux
+
+INTRODUCTION                                            *shannon*
+
+Shannon is a Neovim plugin for sending prompts to a running Claude Code
+session in an adjacent tmux pane. It opens a floating window where you
+type a prompt; when you save the prompt (with |:w|) or save and close the
+window (with |:x|) it delivers it to Claude along with file and line context.
+To close the window without sending to Claude, use |:fclo| or |:q!|.
+
+REQUIREMENTS                                            *shannon-requirements*
+
+- Neovim 0.9+
+- tmux (Shannon locates Claude Code by walking the process tree of
+  sibling panes)
+
+SETUP                                                   *shannon-setup*
+
+Shannon does not create any mappings by default. Add your own: >lua
+
+    vim.keymap.set({ 'n', 'v' }, '<Leader>s', ':Shannon<CR>', { silent = true })
+<
+USAGE                                                   *shannon-usage*
+
+                                                        *:Shannon*
+:[range]Shannon      Open a floating prompt window. Write the buffer
+                     (|:w| or |:x|) to send the prompt to the Claude Code pane.
+
+In normal mode, the current file and cursor line are sent as context.
+In visual mode, the selected range and text are included.
+
+While the floating window is open, |CTRL-Y| and |CTRL-E| scroll the
+parent window so you can review surrounding code without leaving the
+prompt.
+
+If the prompt starts with `/btw`, the prompt text is placed before the
+context line (useful for getting Claude to immediately respond to the
+new prompt even if it is already processing another).
+
+ vim:tw=78:ft=help:norl:
