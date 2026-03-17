@@ -61,10 +61,6 @@ vim.keymap.set('n', '<Leader>.', function()
   require('wincent.mappings.leader.jump_in_file')()
 end, { silent = true })
 
--- <LocalLeader>s -- Fix (most) syntax highlighting problems in current buffer
--- (mnemonic: syntax).
-vim.keymap.set('n', '<LocalLeader>s', ':syntax sync fromstart<CR>', { silent = true })
-
 -- <LocalLeader>d... -- Diff mode bindings:
 -- - <LocalLeader>dd: show diff view (mnemonic: [d]iff)
 -- - <LocalLeader>dh: choose hunk from left (mnemonic: [h] = left)
