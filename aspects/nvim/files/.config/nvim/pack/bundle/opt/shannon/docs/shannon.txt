@@ -18,7 +18,10 @@ SETUP                                                   *shannon-setup*
 
 Shannon does not create any mappings by default. Add your own: >lua
 
-    vim.keymap.set({ 'n', 'v' }, '<Leader>s', ':Shannon<CR>', { silent = true })
+    vim.keymap.set({ 'n', 'v' }, '<Leader>ss', ':Shannon<CR>', { silent = true })
+    vim.keymap.set('n', '<Leader>sn', ':ShannonNextMark<CR>', { silent = true })
+    vim.keymap.set('n', '<Leader>sp', ':ShannonPreviousMark<CR>', { silent = true })
+    vim.keymap.set('n', '<Leader>sc', ':ShannonClearMarks<CR>', { silent = true })
 <
 USAGE                                                   *shannon-usage*
 
@@ -36,5 +39,21 @@ prompt.
 If the prompt starts with `/btw`, the prompt text is placed before the
 context line (useful for getting Claude to immediately respond to the
 new prompt even if it is already processing another).
+
+NAVIGATION                                          *shannon-navigation*
+
+                                                    *:ShannonNextMark*
+:ShannonNextMark     Jump to the next Shannon annotation (extmark) in
+                     the current buffer. Wraps around to the first mark
+                     when past the last one.
+
+                                                    *:ShannonPreviousMark*
+:ShannonPreviousMark Jump to the previous Shannon annotation (extmark)
+                     in the current buffer. Wraps around to the last
+                     mark when before the first one.
+
+                                                    *:ShannonClearMarks*
+:ShannonClearMarks   Clear all Shannon annotations (extmarks) in the
+                     current buffer.
 
  vim:tw=78:ft=help:norl:

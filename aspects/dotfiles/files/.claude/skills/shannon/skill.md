@@ -36,43 +36,42 @@ There are two ways to obtain the Neovim server address:
 
 Use `nvim --server <addr> --remote-expr '<expr>'` to execute Vimscript or Lua in the user's Neovim. For Lua, wrap with `luaeval("...")`.
 
-### Examples
+The Shannon plugin exposes private helper functions as individual modules for use by this skill. Each returns a single function. Prefer these over raw Neovim API calls.
 
-**Open a file:**
+### Private functions
 
-```bash
-nvim --server <addr> --remote-expr 'luaeval("vim.cmd.edit(\"path/to/file\")")'
-```
-
-**Jump to a line:**
+**Open a file** (with optional 1-indexed line number):
 
 ```bash
-nvim --server <addr> --remote-expr 'luaeval("vim.api.nvim_win_set_cursor(0, {LINE, 0})")'
+nvim --server <addr> --remote-expr 'luaeval("require(\"wincent.shannon.private.open\")(\"path/to/file\")")'
+nvim --server <addr> --remote-expr 'luaeval("require(\"wincent.shannon.private.open\")(\"path/to/file\", 42)")'
 ```
 
-**Open a file and jump to a line (combined):**
+**Jump to a line** (1-indexed) in the current buffer:
 
 ```bash
-nvim --server <addr> --remote-expr 'luaeval("vim.cmd.edit(\"path/to/file\") or vim.api.nvim_win_set_cursor(0, {LINE, 0})")'
+nvim --server <addr> --remote-expr 'luaeval("require(\"wincent.shannon.private.jump\")(42)")'
 ```
 
-**Add virtual text annotation below a line:**
+**Add virtual text annotation below a line** (1-indexed):
 
 ```bash
-nvim --server <addr> --remote-expr 'luaeval("vim.api.nvim_buf_set_extmark(0, vim.api.nvim_create_namespace(\"shannon\"), LINE_0IDX, 0, {virt_lines = {{  {\"text here\", \"DiagnosticInfo\"} }}})")'
+nvim --server <addr> --remote-expr 'luaeval("require(\"wincent.shannon.private.annotate\")(42, \"text here\", \"DiagnosticInfo\")")'
 ```
 
-Use highlight groups to convey meaning:
+The third argument is a highlight group. Use these to convey meaning:
 
 - `DiagnosticInfo` — informational annotations (blue)
 - `DiagnosticWarn` — warnings (yellow)
 - `DiagnosticError` — errors/issues (red)
 - `DiagnosticHint` — hints/suggestions (green)
 
+If omitted, defaults to `DiagnosticInfo`.
+
 **Clear all Shannon annotations in current buffer:**
 
 ```bash
-nvim --server <addr> --remote-expr 'luaeval("vim.api.nvim_buf_clear_namespace(0, vim.api.nvim_create_namespace(\"shannon\"), 0, -1)")'
+nvim --server <addr> --remote-expr 'luaeval("vim.cmd.ShannonClearMarks()")'
 ```
 
 **Show a message in Neovim's command area:**
@@ -93,11 +92,24 @@ Use RPC when:
   - **Highlighting results**: after a search or analysis, navigate to the most relevant location.
   - **Error markers**: annotate lines with diagnostic-style warnings or errors.
 
+## Shannon commands
+
+The Shannon plugin provides the following commands, which can be invoked via RPC:
+
+- `:ShannonNextMark` — jump to the next Shannon extmark in the current buffer (wraps around).
+- `:ShannonPreviousMark` — jump to the previous Shannon extmark (wraps around).
+- `:ShannonClearMarks` — clear all Shannon extmarks in the current buffer.
+
+After adding annotations, tell the user they can navigate between marks with `:ShannonNextMark` / `:ShannonPreviousMark` (or their configured mappings). When you are done with an annotation session and the user has finished reviewing, clear the marks via RPC:
+
+```bash
+nvim --server <addr> --remote-expr 'luaeval("vim.cmd.ShannonClearMarks()")'
+```
+
 ## Important notes
 
-- Always use the `shannon` namespace for extmarks so they can be cleared as a group.
-- Line numbers in `nvim_buf_set_extmark` and `nvim_buf_get_lines` are 0-indexed; `nvim_win_set_cursor` uses 1-indexed lines.
-- When annotating a file that isn't currently open, open it first with `vim.cmd.edit()`.
+- All line numbers passed to private functions are 1-indexed.
+- When annotating a file that isn't currently open, use `private.open` first.
 - When doing a walkthrough across multiple files, pause between files and ask the user to let you know when they are ready to continue. Do not proceed to the next file until the user responds.
 - Escape double quotes in Lua strings passed through the shell (nested quoting).
 - The `--remote-expr` call is synchronous and blocks until Neovim processes it.
