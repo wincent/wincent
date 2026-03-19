@@ -56,4 +56,31 @@ NAVIGATION                                          *shannon-navigation*
 :ShannonClearMarks   Clear all Shannon annotations (extmarks) in the
                      current buffer.
 
+BIDIRECTIONAL COMMUNICATION                     *shannon-bidirectional*
+
+By default, Shannon provides one-way communication: you send prompts
+from Neovim to Claude Code. With the companion `/shannon` skill
+installed in Claude Code, the reverse direction is also available.
+
+The skill teaches Claude Code how to interact with your Neovim session
+via RPC. This enables workflows such as:
+
+- Annotated code review: Claude adds virtual text annotations below
+  lines with issues, using diagnostic highlight groups to convey
+  severity (info, warning, error, hint).
+- Guided walkthroughs: Claude opens files and jumps to relevant lines
+  as it explains code.
+- Error markers: Claude annotates lines with diagnostic-style warnings
+  after analyzing your code.
+
+When Claude adds annotations, you can navigate between them with
+|:ShannonNextMark| and |:ShannonPreviousMark|. Claude will clear marks
+via RPC when the review session is finished, or you can clear them
+manually with |:ShannonClearMarks|.
+
+The skill auto-discovers your Neovim instance by walking the tmux
+process tree (the same mechanism Shannon itself uses to find Claude
+Code), so no manual configuration is needed beyond installing the
+skill.
+
  vim:tw=78:ft=help:norl:
