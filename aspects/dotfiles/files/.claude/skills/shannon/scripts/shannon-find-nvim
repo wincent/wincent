@@ -60,7 +60,7 @@ nvim_pid=$(find_nvim_in_panes) || {
 # The server socket may belong to a child process of nvim.
 # Check the nvim pid itself and its children.
 for pid in $nvim_pid $(pgrep -P "$nvim_pid" 2>/dev/null); do
-  for sock in /var/folders/*/*/T/nvim.*/*/nvim."$pid".0; do
+  for sock in "${TMPDIR:-/tmp}"/nvim."${USER}"/*/nvim."${pid}".0; do
     if [ -S "$sock" ]; then
       echo "$sock"
       exit 0
