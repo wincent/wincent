@@ -115,8 +115,8 @@
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/command-t",
     "url": "https://github.com/wincent/command-t.git",
     "branch": "main",
-    "previous": "cfe3eaabf32bd3e11ab529b3c9a293e00d6d023c",
-    "current": "37781c1bfeaaa264f0840395fbc8dc4be5b3cdf6"
+    "previous": "37781c1bfeaaa264f0840395fbc8dc4be5b3cdf6",
+    "current": "301e52a47fc887bb57914387efc656449d17c66a"
   },
   "github/wincent/corpus": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/corpus",
@@ -206,29 +206,29 @@
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-lspconfig",
     "url": "https://github.com/neovim/nvim-lspconfig.git",
     "branch": "master",
-    "previous": "0203a9608d63eda57679b01e69f33a7b4c34b0d1",
-    "current": "dd261ad5266ab5bbec249d21efeceda98ff3e1a6"
+    "previous": "dd261ad5266ab5bbec249d21efeceda98ff3e1a6",
+    "current": "702f69fb167e9119f14adc4dfd4fcadf4d1b07a0"
   },
   "github/kyazdani42/nvim-tree.lua": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-tree.lua",
     "url": "https://github.com/kyazdani42/nvim-tree.lua.git",
     "branch": "master",
-    "previous": "e1ad8b96834779b4c2674ef83be3f1a4ed007358",
-    "current": "b3772adec8db61ba9098c5624a0823a77be3a23d"
+    "previous": "b3772adec8db61ba9098c5624a0823a77be3a23d",
+    "current": "e16cd38962bc40c22a51ee004aa4f43726d74a16"
   },
   "github/nvim-treesitter/nvim-treesitter": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-treesitter",
     "url": "https://github.com/nvim-treesitter/nvim-treesitter.git",
     "branch": "main",
-    "previous": "493890b87a81dfe6a7e577dbc364ae33fa482da9",
-    "current": "ebc3201290b8372df2b3a1c23b71b9f007d972ff"
+    "previous": "ebc3201290b8372df2b3a1c23b71b9f007d972ff",
+    "current": "2b50ab5ccbcd9e5708deb351308edd738adbf84c"
   },
   "github/nvim-treesitter/nvim-treesitter-textobjects": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-treesitter-textobjects",
     "url": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git",
     "branch": "main",
-    "previous": "0bc4ef0a34d80fd6e67b59bd71fcbb0ef9ef4756",
-    "current": "4e91b5d0394329a229725b021a8ea217099826ef"
+    "previous": "4e91b5d0394329a229725b021a8ea217099826ef",
+    "current": "7359dfcefa38db632541e1f9b5b5f291626a1d47"
   },
   "github/stevearc/oil.nvim": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/oil.nvim",

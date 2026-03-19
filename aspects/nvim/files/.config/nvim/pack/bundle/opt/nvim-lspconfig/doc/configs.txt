@@ -1626,11 +1626,11 @@ Default config:
   {
     editorInfo = {
       name = "Neovim",
-      version = "0.12.0-dev+g9084483715"
+      version = "0.12.0-dev+g9ab6c607cc"
     },
     editorPluginInfo = {
       name = "Neovim",
-      version = "0.12.0-dev+g9084483715"
+      version = "0.12.0-dev+g9ab6c607cc"
     }
   }
 - on_attach (use "gF" to view): ../lsp/copilot.lua:106
@@ -3542,20 +3542,20 @@ Default config:
   {
     editorInfo = {
       name = "Neovim",
-      version = "0.12.0-dev+g9084483715"
+      version = "0.12.0-dev+g9ab6c607cc"
     },
     editorPluginInfo = {
       name = "Neovim LSP",
-      version = "0.12.0-dev+g9084483715"
+      version = "0.12.0-dev+g9ab6c607cc"
     },
     extension = {
       name = "Neovim LSP Client",
-      version = "0.12.0-dev+g9084483715"
+      version = "0.12.0-dev+g9ab6c607cc"
     },
     ide = {
       name = "Neovim",
       vendor = "Neovim",
-      version = "0.12.0-dev+g9084483715"
+      version = "0.12.0-dev+g9ab6c607cc"
     }
   }
 - on_attach (use "gF" to view): ../lsp/gitlab_duo.lua:317
@@ -5889,7 +5889,7 @@ Requirements:
 If you have installed nextflow language server, you can set the `cmd` custom path as follow:
 >lua
   vim.lsp.config('nextflow_ls', {
-      cmd = { 'java', '-jar', 'nextflow-language-server-all.jar' },
+      cmd = { 'nextflow-language-server' },
       filetypes = { 'nextflow' },
       settings = {
         nextflow = {
@@ -5906,7 +5906,7 @@ Snippet to enable the language server: >lua
 
 Default config:
 - cmd: >lua
-  { "java", "-jar", "nextflow-language-server-all.jar" }
+  { "nextflow-language-server" }
 - filetypes: >lua
   { "nextflow" }
 - root_markers: >lua
@@ -7735,6 +7735,7 @@ Snippet to enable the language server: >lua
 
 Commands:
 - roslyn.client.completionComplexEdit
+- roslyn.client.nestedCodeAction
 
 Default config:
 - capabilities: >lua
@@ -7747,9 +7748,12 @@ Default config:
   }
 - cmd: >lua
   { "roslyn-language-server", "--logLevel", "Information", "--extensionLogDirectory", "/tmp/roslyn_ls/logs", "--stdio" }
+- cmd_env: >lua
+  {}
 - commands: >lua
   {
-    ["roslyn.client.completionComplexEdit"] = <function 1>
+    ["roslyn.client.completionComplexEdit"] = <function 1>,
+    ["roslyn.client.nestedCodeAction"] = <function 2>
   }
 - filetypes: >lua
   { "cs" }
@@ -8460,7 +8464,7 @@ Default config:
     activateSnykIac = "true",
     activateSnykOpenSource = "true",
     integrationName = "Neovim",
-    integrationVersion = "0.12.0-dev+g9084483715",
+    integrationVersion = "0.12.0-dev+g9ab6c607cc",
     token = vim.NIL,
     trustedFolders = {}
   }
@@ -10089,6 +10093,32 @@ Default config:
 - filetypes: >lua
   { "javascript", "javascriptreact", "typescript", "typescriptreact" }
 - root_dir (use "gF" to view): ../lsp/tsgo.lua:48
+- settings: >lua
+  {
+    typescript = {
+      inlayHints = {
+        enumMemberValues = {
+          enabled = true
+        },
+        functionLikeReturnTypes = {
+          enabled = true
+        },
+        parameterNames = {
+          enabled = "literals",
+          suppressWhenArgumentMatchesName = true
+        },
+        parameterTypes = {
+          enabled = true
+        },
+        propertyDeclarationTypes = {
+          enabled = true
+        },
+        variableTypes = {
+          enabled = true
+        }
+      }
+    }
+  }
 <
 
 ------------------------------------------------------------------------------
