@@ -548,6 +548,7 @@ require('wincent.treesitter.setup')({
     'toml',
     'typescript',
     'yaml',
+    'zsh',
   },
 })
 
