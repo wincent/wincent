@@ -430,8 +430,8 @@ function -update-ps1() {
   #
   # tmux only cares about $PROMPT_START, but we emit other escapes just for
   # completeness (see also, `-mark-output()`, further down).
-  local PROMPT_START=$'\e]133;A\e\\'
-  local PROMPT_END=$'\e]133;B\e\\'
+  local PROMPT_START=$'\e]133;A\a'
+  local PROMPT_END=$'\e]133;B\a'
 
   # %F{green}, %F{blue}, %F{yellow} etc... = change foreground color
   # %f = turn off foreground color
@@ -488,7 +488,7 @@ add-zsh-hook precmd -update-ps1
 
 function -mark-output() {
   # Emit OSC 133;C (mark beginning of command output).
-  builtin print -n '\e]133;C\e\\'
+  builtin print -n '\e]133;C\a'
 }
 add-zsh-hook preexec -mark-output
 
