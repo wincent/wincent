@@ -115,8 +115,8 @@
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/command-t",
     "url": "https://github.com/wincent/command-t.git",
     "branch": "main",
-    "previous": "301e52a47fc887bb57914387efc656449d17c66a",
-    "current": "e853fd860ee11291d25d0c04dbb57cd1fc8e3d87"
+    "previous": "e853fd860ee11291d25d0c04dbb57cd1fc8e3d87",
+    "current": "c148d0cdd7f807927193cd9c05329607a4e8cbc0"
   },
   "github/wincent/corpus": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/corpus",
@@ -206,22 +206,22 @@
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-lspconfig",
     "url": "https://github.com/neovim/nvim-lspconfig.git",
     "branch": "master",
-    "previous": "dd261ad5266ab5bbec249d21efeceda98ff3e1a6",
-    "current": "702f69fb167e9119f14adc4dfd4fcadf4d1b07a0"
+    "previous": "702f69fb167e9119f14adc4dfd4fcadf4d1b07a0",
+    "current": "841c6d4139aedb8a3f2baf30cef5327371385b93"
   },
   "github/kyazdani42/nvim-tree.lua": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-tree.lua",
     "url": "https://github.com/kyazdani42/nvim-tree.lua.git",
     "branch": "master",
-    "previous": "b3772adec8db61ba9098c5624a0823a77be3a23d",
-    "current": "e16cd38962bc40c22a51ee004aa4f43726d74a16"
+    "previous": "e16cd38962bc40c22a51ee004aa4f43726d74a16",
+    "current": "dfeeb12aaae37f23285101cf875416c29052b22a"
   },
   "github/nvim-treesitter/nvim-treesitter": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-treesitter",
     "url": "https://github.com/nvim-treesitter/nvim-treesitter.git",
     "branch": "main",
-    "previous": "ebc3201290b8372df2b3a1c23b71b9f007d972ff",
-    "current": "2b50ab5ccbcd9e5708deb351308edd738adbf84c"
+    "previous": "2b50ab5ccbcd9e5708deb351308edd738adbf84c",
+    "current": "53f6ce29df5841ce26e5a9f06fb371088b8d8031"
   },
   "github/nvim-treesitter/nvim-treesitter-textobjects": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-treesitter-textobjects",
