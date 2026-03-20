@@ -88,7 +88,9 @@
     "rust-analyzer-lsp@claude-plugins-official": true,
     "lua-lsp@claude-plugins-official": true,
     "meme@wincent-claude-plugins": true,
-    "session@wincent-claude-plugins": true
+    "session@wincent-claude-plugins": true,
+    "git@wincent-claude-plugins": true,
+    "jj@wincent-claude-plugins": true
   },
   "extraKnownMarketplaces": {
     "wincent-claude-plugins": {
