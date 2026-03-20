@@ -2,6 +2,10 @@
 
 set -e
 
+REPO_ROOT="${BASH_SOURCE%/*}/.."
+STATUS_EXIT=0
+VERBOSE=0
+
 SCRIPT_NAME=$(basename "$0")
 if [[ "$SCRIPT_NAME" == "decrypt" ]]; then
   OPERATION="decrypt"
@@ -108,15 +112,33 @@ ignore() {
 status() {
   local PLAINTEXT=$1
 
-  if [ ! -f "$PLAINTEXT" ]; then
-    echo "$PLAINTEXT"
+  if [ "$VERBOSE" -eq 1 ]; then
+    if [ -f "$PLAINTEXT" ]; then
+      echo "${PLAINTEXT}: decrypted"
+    else
+      echo "${PLAINTEXT}: encrypted"
+      STATUS_EXIT=1
+    fi
+  else
+    if [ ! -f "$PLAINTEXT" ]; then
+      echo "$PLAINTEXT"
+      STATUS_EXIT=1
+    fi
   fi
 }
 
-REPO_ROOT="${BASH_SOURCE%/*}/.."
 cd "$REPO_ROOT"
 
-# If specific files are provided as arguments, filter ITEMS to only those files
+# Parse flags and filter file arguments
+ARGS=()
+for ARG in "$@"; do
+  if [[ "$ARG" == "--verbose" ]]; then
+    VERBOSE=1
+  else
+    ARGS+=("$ARG")
+  fi
+done
+set -- "${ARGS[@]}"
 if [ $# -gt 0 ]; then
   FILTERED_ITEMS=()
   for ARG in "$@"; do
@@ -148,3 +170,7 @@ for ITEM in "${ITEMS[@]}"; do
     exit 1
   fi
 done
+
+if [[ "$OPERATION" == "status" ]]; then
+  exit $STATUS_EXIT
+fi
