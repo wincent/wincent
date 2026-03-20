@@ -1,1 +1,3 @@
-encrypt
+#!/bin/bash
+
+exec "${BASH_SOURCE%/*}/../aspects/dotfiles/files/.zsh/bin/wage" decrypt "$@"

@@ -1,0 +1,191 @@
+#!/bin/bash
+
+set -e
+
+CONFIG_FILE=".wage.config"
+IDENTITY="$HOME/.config/age/key.txt"
+STATUS_EXIT=0
+VERBOSE=0
+
+BOLD=$(tput bold)
+GREEN=$(tput setaf 2)
+RED=$(tput setaf 1)
+RESET=$(tput sgr0)
+
+usage() {
+  echo "Usage: wage <encrypt|decrypt|status> [--verbose] [file ...]"
+  exit 1
+}
+
+find_repo_root() {
+  local DIR="$PWD"
+  while [ "$DIR" != "/" ]; do
+    if [ -f "$DIR/$CONFIG_FILE" ]; then
+      echo "$DIR"
+      return
+    fi
+    DIR=$(dirname "$DIR")
+  done
+  echo "${BOLD}${RED}Could not find ${CONFIG_FILE} in any parent directory${RESET}" >&2
+  exit 1
+}
+
+read_config() {
+  local CONFIG="$1"
+  RECIPIENT=""
+  ITEMS=()
+
+  while IFS= read -r LINE; do
+    # Skip blank lines and comments
+    [[ -z "$LINE" || "$LINE" == \#* ]] && continue
+
+    if [[ "$LINE" == RECIPIENT=* ]]; then
+      RECIPIENT="${LINE#RECIPIENT=}"
+    else
+      ITEMS+=("$LINE")
+    fi
+  done < "$CONFIG"
+
+  if [ -z "$RECIPIENT" ]; then
+    echo "${BOLD}${RED}No RECIPIENT found in ${CONFIG}${RESET}" >&2
+    exit 1
+  fi
+
+  if [ ${#ITEMS[@]} -eq 0 ]; then
+    echo "${BOLD}${RED}No files listed in ${CONFIG}${RESET}" >&2
+    exit 1
+  fi
+}
+
+decrypt() {
+  local PLAINTEXT=$1
+  local CIPHERTEXT="${PLAINTEXT}.encrypted"
+
+  if [ ! -f "$IDENTITY" ]; then
+    echo "💥 ${BOLD}${RED}Cannot decrypt without identity:${RESET} ${IDENTITY}"
+    exit 1
+  fi
+
+  if [ -f "$CIPHERTEXT" ]; then
+    echo "🔓 ${BOLD}${GREEN}Decrypting:${RESET} ${PLAINTEXT}"
+    age --decrypt -i "$IDENTITY" -o "$PLAINTEXT" "$CIPHERTEXT"
+    if [[ "$PLAINTEXT" == *.sh ]]; then
+      chmod +x "$PLAINTEXT"
+    fi
+  else
+    echo "💥 ${BOLD}${RED}Not decrypting (non-file):${RESET} ${CIPHERTEXT}"
+  fi
+}
+
+encrypt() {
+  local PLAINTEXT=$1
+  local CIPHERTEXT="${PLAINTEXT}.encrypted"
+
+  if [ -f "$PLAINTEXT" ]; then
+    if [ -f "$CIPHERTEXT" -a -f "$IDENTITY" ]; then
+      local DECRYPTED=$(age --decrypt -i "$IDENTITY" "$CIPHERTEXT")
+      if [[ "$DECRYPTED" == "$(cat "$PLAINTEXT")" ]]; then
+        echo "⏩ ${BOLD}Skipping (already up-to-date):${RESET} ${PLAINTEXT}"
+        return
+      fi
+    fi
+    echo "🔑 ${BOLD}${GREEN}Encrypting:${RESET} ${PLAINTEXT}"
+    age --encrypt -r $RECIPIENT --armor -o "${CIPHERTEXT}" "$PLAINTEXT"
+  else
+    echo "💥 ${BOLD}${RED}Not encrypting (non-file):${RESET} ${PLAINTEXT}"
+  fi
+}
+
+ignore() {
+  local PLAINTEXT=$1
+
+  if ! grep -qxF "/$PLAINTEXT" .gitignore 2> /dev/null; then
+    echo "✅ ${BOLD}${GREEN}Ignoring:${RESET} ${PLAINTEXT}"
+    echo "/$PLAINTEXT" >> .gitignore
+  else
+    echo "🙈 ${BOLD}Already ignored:${RESET} ${PLAINTEXT}"
+  fi
+}
+
+status() {
+  local PLAINTEXT=$1
+
+  if [ "$VERBOSE" -eq 1 ]; then
+    if [ -f "$PLAINTEXT" ]; then
+      echo "${PLAINTEXT}: ${GREEN}decrypted${RESET}"
+    else
+      echo "${PLAINTEXT}: ${RED}encrypted${RESET}"
+      STATUS_EXIT=1
+    fi
+  else
+    if [ ! -f "$PLAINTEXT" ]; then
+      echo "$PLAINTEXT"
+      STATUS_EXIT=1
+    fi
+  fi
+}
+
+# Parse subcommand
+if [ $# -eq 0 ]; then
+  usage
+fi
+
+OPERATION="$1"
+shift
+
+case "$OPERATION" in
+  encrypt|decrypt|status) ;;
+  *) usage ;;
+esac
+
+# Find repo root and read config
+REPO_ROOT=$(find_repo_root)
+cd "$REPO_ROOT"
+read_config "$CONFIG_FILE"
+
+# Parse flags and filter file arguments
+ARGS=()
+for ARG in "$@"; do
+  if [[ "$ARG" == "--verbose" ]]; then
+    VERBOSE=1
+  else
+    ARGS+=("$ARG")
+  fi
+done
+set -- "${ARGS[@]}"
+if [ $# -gt 0 ]; then
+  FILTERED_ITEMS=()
+  for ARG in "$@"; do
+    # Make path relative to repo root if it's absolute
+    if [[ "$ARG" == "$REPO_ROOT"/* ]]; then
+      ARG="${ARG#$REPO_ROOT/}"
+    fi
+    # Check if this argument matches any item in ITEMS
+    for ITEM in "${ITEMS[@]}"; do
+      if [[ "$ITEM" == "$ARG" ]]; then
+        FILTERED_ITEMS+=("$ITEM")
+        break
+      fi
+    done
+  done
+  ITEMS=("${FILTERED_ITEMS[@]}")
+fi
+
+for ITEM in "${ITEMS[@]}"; do
+  case "$OPERATION" in
+    encrypt)
+      encrypt "$ITEM"
+      ignore "$ITEM"
+      ;;
+    decrypt)
+      decrypt "$ITEM"
+      ;;
+    status)
+      status "$ITEM"
+      ;;
+  esac
+done
+
+if [[ "$OPERATION" == "status" ]]; then
+  exit $STATUS_EXIT
+fi
