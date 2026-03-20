@@ -1,4 +1,10 @@
 #!/bin/bash
+#
+# Wrapper script around `age` that reads files-to-encrypt and a `RECIPIENT` to
+# encrypt for from a ".wage.config" file.
+#
+# Note that I use this script from several other repos, so, when making changes,
+# care should be taken to preserve forwards/backwards compatibility.
 
 set -e
 
