@@ -1,5 +1,6 @@
 -- Map from parsers to filetypes.
 local filetypes = {
+  bash = 'sh',
   git_config = 'gitconfig',
   markdown_inline = 'markdown',
   query = 'scheme',
