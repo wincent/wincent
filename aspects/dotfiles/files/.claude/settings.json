@@ -86,9 +86,18 @@
     "skill-creator@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true,
     "rust-analyzer-lsp@claude-plugins-official": true,
-    "lua-lsp@claude-plugins-official": true
+    "lua-lsp@claude-plugins-official": true,
+    "meme@wincent-claude-plugins": true
   },
-  "extraKnownMarketplaces": {},
+  "extraKnownMarketplaces": {
+    "wincent-claude-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "wincent/wincent-claude-plugins"
+      },
+      "autoUpdate": true
+    }
+  },
   "spinnerTipsEnabled": false,
   "spinnerVerbs": {
     "mode": "replace",
