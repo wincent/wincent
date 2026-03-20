@@ -43,7 +43,7 @@ if [ "$(uname)" = "Darwin" ]; then
 
   # Set 60 fps key repeat rate
   #
-  # Equivalent to the fatest rate acheivable with:
+  # Equivalent to the fastest rate achievable with:
   #
   #     defaults write NSGlobalDomain KeyRepeat -int 1
   #
