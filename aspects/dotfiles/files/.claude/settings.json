@@ -87,7 +87,8 @@
     "typescript-lsp@claude-plugins-official": true,
     "rust-analyzer-lsp@claude-plugins-official": true,
     "lua-lsp@claude-plugins-official": true,
-    "meme@wincent-claude-plugins": true
+    "meme@wincent-claude-plugins": true,
+    "session@wincent-claude-plugins": true
   },
   "extraKnownMarketplaces": {
     "wincent-claude-plugins": {
