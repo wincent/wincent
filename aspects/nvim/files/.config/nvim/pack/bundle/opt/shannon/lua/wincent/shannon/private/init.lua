@@ -1,15 +1,5 @@
 local M = {}
 
-local config = {
-  tmux_pane = nil,
-}
-
-function M.setup(opts)
-  if opts then
-    config = vim.tbl_extend('force', config, opts)
-  end
-end
-
 local function find_claude_pane()
   local current_pane = vim.env.TMUX_PANE
   if not current_pane then
@@ -44,9 +34,6 @@ local function find_claude_pane()
 end
 
 function M.get_pane()
-  if config.tmux_pane then
-    return config.tmux_pane
-  end
   return find_claude_pane()
 end
 

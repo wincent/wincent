@@ -153,6 +153,13 @@
     "previous": "9189e7fa2d9dd54f4f0211c5edfdd6260252fe4b",
     "current": "9189e7fa2d9dd54f4f0211c5edfdd6260252fe4b"
   },
+  "github/wincent/shannon": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/shannon",
+    "url": "https://github.com/wincent/shannon.git",
+    "branch": "main",
+    "previous": "26e7b5ac9e248e7237ccebbd6918c3d9f61080d1",
+    "current": "26e7b5ac9e248e7237ccebbd6918c3d9f61080d1"
+  },
   "github/nvim-mini/mini.ai": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.ai",
     "url": "https://github.com/nvim-mini/mini.ai.git",
@@ -220,8 +227,8 @@
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-treesitter",
     "url": "https://github.com/nvim-treesitter/nvim-treesitter.git",
     "branch": "main",
-    "previous": "2b50ab5ccbcd9e5708deb351308edd738adbf84c",
-    "current": "53f6ce29df5841ce26e5a9f06fb371088b8d8031"
+    "previous": "53f6ce29df5841ce26e5a9f06fb371088b8d8031",
+    "current": "877f724846f2202a16e311bd19efb954bd1c430e"
   },
   "github/nvim-treesitter/nvim-treesitter-textobjects": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-treesitter-textobjects",

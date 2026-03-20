@@ -14,14 +14,59 @@ REQUIREMENTS                                            *shannon-requirements*
 - tmux (Shannon locates Claude Code by walking the process tree of
   sibling panes)
 
+INSTALLATION                                            *shannon-installation*
+
+With lazy.nvim: >lua
+
+    { 'wincent/shannon', config = true }
+<
+With packer.nvim: >lua
+
+    use {
+      'wincent/shannon',
+      config = function()
+        require('wincent.shannon').setup()
+      end,
+    }
+<
+With mini.deps: >lua
+
+    add('wincent/shannon')
+    require('wincent.shannon').setup()
+<
+Manual: clone into `pack/bundle/opt/shannon` (or similar), then
+`packadd shannon` and call `require('wincent.shannon').setup()`.
+
 SETUP                                                   *shannon-setup*
 
-Shannon does not create any mappings by default. Add your own: >lua
+Call `setup()` to create default keymaps: >lua
 
-    vim.keymap.set({ 'n', 'v' }, '<Leader>ss', ':Shannon<CR>', { silent = true })
-    vim.keymap.set('n', '<Leader>sn', ':ShannonNextMark<CR>', { silent = true })
-    vim.keymap.set('n', '<Leader>sp', ':ShannonPreviousMark<CR>', { silent = true })
-    vim.keymap.set('n', '<Leader>sc', ':ShannonClearMarks<CR>', { silent = true })
+    require('wincent.shannon').setup()
+<
+                                                        *shannon-setup-options*
+`setup()` accepts an optional table with the following keys:
+
+  `keymaps`   (boolean, default `true`)
+              When `true`, create the default keymaps listed below.
+              Set to `false` to suppress keymap creation.
+
+  `prefix`    (string, default `"<Leader>s"`)
+              Keymap prefix used for all default mappings.
+
+Default keymaps (with the default `<Leader>s` prefix):
+
+  `{prefix}s` |:Shannon|           (normal and visual)
+  `{prefix}n` |:ShannonNextMark|   (normal)
+  `{prefix}p` |:ShannonPreviousMark| (normal)
+  `{prefix}c` |:ShannonClearMarks| (normal)
+
+To use a different prefix: >lua
+
+    require('wincent.shannon').setup({ prefix = '<Leader>x' })
+<
+To manage keymaps yourself: >lua
+
+    require('wincent.shannon').setup({ keymaps = false })
 <
 USAGE                                                   *shannon-usage*
 

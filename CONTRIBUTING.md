@@ -43,6 +43,22 @@ On the bright side:
 - Commits which update dependencies now show diffs representing what actually changed (ie. the real contents of the changes) rather than metadata about what changed (ie. merely the commit hashes of the "before" and "after" versions).
 - If a dependency ever goes offline and there is no clear fork to switch to, I have a full snapshot of it.
 
+## Adding new dependencies
+
+1. Add the dependency to `dependencies.json`. Note that all values are required, so use the dependency's current `HEAD` as the value for the `"previous"` and `"current"` fields:
+
+   ```
+   "github/wincent/shannon": {
+     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/shannon",
+     "url": "https://github.com/wincent/shannon.git",
+     "branch": "main",
+     "previous": "26e7b5ac9e248e7237ccebbd6918c3d9f61080d1",
+     "current": "26e7b5ac9e248e7237ccebbd6918c3d9f61080d1"
+   },
+   ```
+
+2. Run `bin/update-dependencies`.
+
 ## Working on subprojects
 
 As an illustration, consider working on Command-T:
