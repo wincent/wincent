@@ -92,7 +92,8 @@
     "git@wincent-claude-plugins": true,
     "jj@wincent-claude-plugins": true,
     "shannon@wincent-claude-plugins": true,
-    "pr@wincent-claude-plugins": true
+    "pr@wincent-claude-plugins": true,
+    "swift-lsp@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "wincent-claude-plugins": {
