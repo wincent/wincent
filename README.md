@@ -242,7 +242,7 @@ Continue anyway? [y/n]:
 
 To decrypt these I use my [age](https://github.com/FiloSottile/age) key, stored in 1Password, and placed in:
 
-```
+```sh
 mkdir -p ~/.config/age
 chmod 0700 !$
 ```
@@ -320,7 +320,7 @@ The following errors have been detected in query files: ~
 
 A fix for this it to remove all stale files:
 
-```bash
+```sh
 rm -rf ~/.local/share/nvim/site/queries
 ```
 
@@ -409,7 +409,7 @@ Note that the key fingerprint that you see in the commit is usually a subkey, si
 
 You can obtain the latest and full versions of the public keys with the following:
 
-```
+```sh
 # Either, download directly given the key fingerprint as shown by Git:
 gpg --keyserver pgp.mit.edu --recv-key 4282ED4A05CC894D53A541C3F962DC1A1941CCC4 # greg@hurrell.net
 gpg --keyserver pgp.mit.edu --recv-key CA35A4528D888CDF264D0A2A4838AEDCA8CE883C # greg.hurrell@datadoghq.com
@@ -433,7 +433,7 @@ gpg --keyserver keyserver.ubuntu.com --search-keys wincent@github.com
 
 You can also grab the keys from GitHub, if you trust GitHub:
 
-```
+```sh
 # Merely inspect:
 curl https://github.com/wincent.gpg | gpg --show-keys
 
