@@ -22,6 +22,7 @@ brew "openjdk@21" # "Development kit for the Java programming language"
 brew "redis", restart_service: true # "Persistent key-value database, with built-in net interface"
 brew "rsync" # "Utility that provides fast incremental file transfer"
 brew "s3cmd" # "Command-line tool for the Amazon S3 service"
+brew "swift-format" # "Formatting technology for Swift source code"
 brew "universal-ctags" # "Maintained ctags implementation"
 
 # Casks.
