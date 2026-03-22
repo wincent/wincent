@@ -43,7 +43,7 @@ variables(async ({hostHandle, identity, platform, profile}) => {
       null,
       2,
     )
-    : dockerBase;
+    : JSON.stringify(dockerBase, null, 2);
 
   return {
     dockerConfig,
