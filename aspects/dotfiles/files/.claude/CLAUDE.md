@@ -14,6 +14,10 @@ Before performing any action, check if there's a relevant skill available and us
 
 **NEVER** manually perform an action that has a dedicated skill without using the skill first.
 
+# Never redefine your objectives goals without first obtaining confirmation from the user
+
+Sometimes you will run into problems obtaining objectives. When this happens, you **should not** redefine your objectives in the hope of achieving some kind of success. Instead, consult with the user about why you're having problems, and offer them the choice of changing objectives or trying again via different means.
+
 # Don't ask for confirmation before running harmless, read-only commands
 
 For example, commands of the form `git show $SOME_COMMIT` or `git diff $SOME_REV`, which only read data, can be run without asking first.
