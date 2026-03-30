@@ -379,12 +379,19 @@ if vim.o.loadplugins then
   })
 
   -- Lazy because you don't need it until you need it.
+  -- Note that there is a builtin undotree now (`:packadd nvim.undotree`, then
+  -- `:Undotree`), but I like this one better.
   lazy('undotree', {
     beforeload = function()
       vim.g.undotree_HighlightChangedText = 0
       vim.g.undotree_SetFocusWhenToggle = 1
       vim.g.undotree_WindowLayout = 2
       vim.g.undotree_DiffCommand = 'diff -u'
+      vim.g.undotree_ShortIndicators = 1
+      vim.g.undotree_TreeNodeShape = '◆' -- (U+25C6)
+      vim.g.undotree_TreeReturnShape = '╲' -- (U+2572)
+      vim.g.undotree_TreeVertShape = '│' -- (U+2571)
+      vim.g.undotree_TreeSplitShape = '╱' -- (U+2571)
 
       -- Mappings to emulate Gundo behavior.
       vim.g.Undotree_CustomMap = require('wincent.plugins.undotree').custom_map
