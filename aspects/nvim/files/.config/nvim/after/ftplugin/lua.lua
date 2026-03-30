@@ -6,6 +6,12 @@ if require('wincent.nvim.is_large_buffer')() then
   -- `$VIMRUNTIME/ftplugin/lua.lua`.
   vim.treesitter.stop()
 
+  -- Get rid of nvim-treesitter-textobjects mappings in this buffer only.
+  for _, entry in ipairs(require('wincent.treesitter.textobjects')) do
+    local mapping = entry.mapping
+    vim.keymap.set({ 'x', 'o' }, mapping, '<Nop>', { buffer = 0 })
+  end
+
   -- Likewise we need this. We have to delay the operation because the order of
   -- events is actually this:
   --

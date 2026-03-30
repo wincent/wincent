@@ -58,37 +58,12 @@ local function setup(config)
       },
     })
 
-    -- See: https://github.com/nvim-treesitter/nvim-treesitter-textobjects/blob/main/BUILTIN_TEXTOBJECTS.md
-    vim.keymap.set({ 'x', 'o' }, 'ac', function()
-      require('nvim-treesitter-textobjects.select').select_textobject('@comment.outer', 'textobjects')
-    end, { desc = 'Select outer part of a comment region' })
-    vim.keymap.set({ 'x', 'o' }, 'ic', function()
-      require('nvim-treesitter-textobjects.select').select_textobject('@comment.inner', 'textobjects')
-    end, { desc = 'Select inner part of a comment region' })
-    vim.keymap.set({ 'x', 'o' }, 'af', function()
-      require('nvim-treesitter-textobjects.select').select_textobject('@function.outer', 'textobjects')
-    end, { desc = 'Select outer part of a function region' })
-    vim.keymap.set({ 'x', 'o' }, 'if', function()
-      require('nvim-treesitter-textobjects.select').select_textobject('@function.inner', 'textobjects')
-    end, { desc = 'Select inner part of a function region' })
-    vim.keymap.set({ 'x', 'o' }, 'ak', function()
-      require('nvim-treesitter-textobjects.select').select_textobject('@class.outer', 'textobjects')
-    end, { desc = 'Select outer part of a class region' })
-    vim.keymap.set({ 'x', 'o' }, 'ik', function()
-      require('nvim-treesitter-textobjects.select').select_textobject('@class.inner', 'textobjects')
-    end, { desc = 'Select inner part of a class region' })
-    vim.keymap.set({ 'x', 'o' }, 'al', function()
-      require('nvim-treesitter-textobjects.select').select_textobject('@loop.outer', 'textobjects')
-    end, { desc = 'Select outer part of a loop region' })
-    vim.keymap.set({ 'x', 'o' }, 'il', function()
-      require('nvim-treesitter-textobjects.select').select_textobject('@loop.inner', 'textobjects')
-    end, { desc = 'Select inner part of a loop region' })
-    vim.keymap.set({ 'x', 'o' }, 'ar', function()
-      require('nvim-treesitter-textobjects.select').select_textobject('@blook.outer', 'textobjects')
-    end, { desc = 'Select outer part of a block region' })
-    vim.keymap.set({ 'x', 'o' }, 'ir', function()
-      require('nvim-treesitter-textobjects.select').select_textobject('@block.inner', 'textobjects')
-    end, { desc = 'Select inner part of a block region' })
+    for _, entry in ipairs(require('wincent.treesitter.textobjects')) do
+      local mapping, textobject, desc = entry.mapping, entry.textobject, entry.desc
+      vim.keymap.set({ 'x', 'o' }, mapping, function()
+        require('nvim-treesitter-textobjects.select').select_textobject(textobject, 'textobjects')
+      end, { desc = desc })
+    end
   end
 end
 
