@@ -1,0 +1,27 @@
+# tender theme for Mintty
+# Scheme Author: Jacobo Tabernero (https://github/com/jacoborus/tender.vim)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #282828
+Red         = #f43753
+Green       = #c9d05c
+Yellow      = #ffc24b
+Blue        = #b3deef
+Magenta     = #d3b987
+Cyan        = #73cef4
+White       = #eeeeee
+BoldBlack   = #4c4c4c
+BoldRed     = #f43753
+BoldGreen   = #c9d05c
+BoldYellow  = #ffc24b
+BoldBlue    = #b3deef
+BoldMagenta = #d3b987
+BoldCyan    = #73cef4
+BoldWhite   = #feffff
+
+# Background & foreground colors
+BackgroundColour = #282828
+ForegroundColour = #eeeeee
+CursorColour     = #eeeeee

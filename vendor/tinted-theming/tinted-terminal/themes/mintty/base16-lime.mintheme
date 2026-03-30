@@ -1,0 +1,27 @@
+# lime theme for Mintty
+# Scheme Author: limelier
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1a1a2f
+Red         = #ff662a
+Green       = #8cd97c
+Yellow      = #ffd15e
+Blue        = #2b926f
+Magenta     = #1b825f
+Cyan        = #4cad83
+White       = #818175
+BoldBlack   = #313140
+BoldRed     = #ff662a
+BoldGreen   = #8cd97c
+BoldYellow  = #ffd15e
+BoldBlue    = #2b926f
+BoldMagenta = #1b825f
+BoldCyan    = #4cad83
+BoldWhite   = #fff8e1
+
+# Background & foreground colors
+BackgroundColour = #1a1a2f
+ForegroundColour = #818175
+CursorColour     = #818175

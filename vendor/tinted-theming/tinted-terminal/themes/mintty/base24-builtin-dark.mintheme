@@ -1,0 +1,27 @@
+# Builtin Dark theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #000000
+Red         = #bb0000
+Green       = #00bb00
+Yellow      = #5555ff
+Blue        = #0000bb
+Magenta     = #bb00bb
+Cyan        = #00bbbb
+White       = #a1a1a1
+BoldBlack   = #6e6e6e
+BoldRed     = #ff5555
+BoldGreen   = #55ff55
+BoldYellow  = #ffff55
+BoldBlue    = #5555ff
+BoldMagenta = #ff55ff
+BoldCyan    = #55ffff
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #000000
+ForegroundColour = #a1a1a1
+CursorColour     = #a1a1a1

@@ -1,0 +1,27 @@
+# XCode Dusk theme for Mintty
+# Scheme Author: Elsa Gonsiorowski (https://github.com/gonsie)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #282b35
+Red         = #b21889
+Green       = #df0002
+Yellow      = #438288
+Blue        = #790ead
+Magenta     = #b21889
+Cyan        = #00a0be
+White       = #939599
+BoldBlack   = #686a71
+BoldRed     = #b21889
+BoldGreen   = #df0002
+BoldYellow  = #438288
+BoldBlue    = #790ead
+BoldMagenta = #b21889
+BoldCyan    = #00a0be
+BoldWhite   = #bebfc2
+
+# Background & foreground colors
+BackgroundColour = #282b35
+ForegroundColour = #939599
+CursorColour     = #939599

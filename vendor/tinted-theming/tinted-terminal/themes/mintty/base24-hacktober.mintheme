@@ -1,0 +1,27 @@
+# Hacktober theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #141414
+Red         = #b34538
+Green       = #587744
+Yellow      = #5389c5
+Blue        = #206ec5
+Magenta     = #864651
+Cyan        = #ac9166
+White       = #bfbdb7
+BoldBlack   = #5d5b59
+BoldRed     = #b33323
+BoldGreen   = #42824a
+BoldYellow  = #c75a22
+BoldBlue    = #5389c5
+BoldMagenta = #e795a5
+BoldCyan    = #ebc587
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #141414
+ForegroundColour = #bfbdb7
+CursorColour     = #bfbdb7

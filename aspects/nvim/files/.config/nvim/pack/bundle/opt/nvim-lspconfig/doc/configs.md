@@ -373,6 +373,7 @@ Nvim by running `:help lspconfig-all`.
 - [veryl_ls](#veryl_ls)
 - [vespa_ls](#vespa_ls)
 - [vhdl_ls](#vhdl_ls)
+- [vimdoc_ls](#vimdoc_ls)
 - [vimls](#vimls)
 - [visualforce_ls](#visualforce_ls)
 - [vls](#vls)
@@ -2480,11 +2481,11 @@ Default config:
   {
     editorInfo = {
       name = "Neovim",
-      version = "0.12.0-dev+g238d4fa71a"
+      version = "0.12.0"
     },
     editorPluginInfo = {
       name = "Neovim",
-      version = "0.12.0-dev+g238d4fa71a"
+      version = "0.12.0"
     }
   }
   ```
@@ -4972,20 +4973,20 @@ Default config:
   {
     editorInfo = {
       name = "Neovim",
-      version = "0.12.0-dev+g238d4fa71a"
+      version = "0.12.0"
     },
     editorPluginInfo = {
       name = "Neovim LSP",
-      version = "0.12.0-dev+g238d4fa71a"
+      version = "0.12.0"
     },
     extension = {
       name = "Neovim LSP Client",
-      version = "0.12.0-dev+g238d4fa71a"
+      version = "0.12.0"
     },
     ide = {
       name = "Neovim",
       vendor = "Neovim",
-      version = "0.12.0-dev+g238d4fa71a"
+      version = "0.12.0"
     }
   }
   ```
@@ -10439,6 +10440,7 @@ vim.lsp.enable('roslyn_ls')
 
 Commands:
 - roslyn.client.completionComplexEdit
+- roslyn.client.fixAllCodeAction
 - roslyn.client.nestedCodeAction
 
 Default config:
@@ -10464,7 +10466,8 @@ Default config:
   ```lua
   {
     ["roslyn.client.completionComplexEdit"] = <function 1>,
-    ["roslyn.client.nestedCodeAction"] = <function 2>
+    ["roslyn.client.fixAllCodeAction"] = <function 2>,
+    ["roslyn.client.nestedCodeAction"] = <function 3>
   }
   ```
 - `filetypes` :
@@ -10483,12 +10486,12 @@ Default config:
   ```lua
   "roslyn_ls"
   ```
-- `on_attach`: [../lsp/roslyn_ls.lua:112](../lsp/roslyn_ls.lua#L112)
+- `on_attach`: [../lsp/roslyn_ls.lua:165](../lsp/roslyn_ls.lua#L165)
 - `on_init` :
   ```lua
   { <function 1> }
   ```
-- `root_dir`: [../lsp/roslyn_ls.lua:112](../lsp/roslyn_ls.lua#L112)
+- `root_dir`: [../lsp/roslyn_ls.lua:165](../lsp/roslyn_ls.lua#L165)
 - `settings` :
   ```lua
   {
@@ -11376,7 +11379,7 @@ Default config:
     activateSnykIac = "true",
     activateSnykOpenSource = "true",
     integrationName = "Neovim",
-    integrationVersion = "0.12.0-dev+g238d4fa71a",
+    integrationVersion = "0.12.0",
     token = vim.NIL,
     trustedFolders = {}
   }
@@ -12141,24 +12144,9 @@ Default config:
 
 ## stylelint_lsp
 
-https://github.com/bmatcuk/stylelint-lsp
+https://github.com/stylelint/vscode-stylelint/tree/main/packages/language-server
 
-`stylelint-lsp` can be installed via `npm`:
-
-```sh
-npm i -g stylelint-lsp
-```
-
-Can be configured by passing a `settings.stylelintplus` object to vim.lsp.config('stylelint_lsp'):
-
-```lua
-vim.lsp.config('stylelint_lsp', {
-  settings = {
-    stylelintplus = {
-      -- see available options in stylelint-lsp documentation
-    }
-  }
-})
+`stylelint-language-server` can be installed via npm `npm install -g @stylelint/language-server`.
 ```
 
 Snippet to enable the language server:
@@ -12169,19 +12157,22 @@ vim.lsp.enable('stylelint_lsp')
 Default config:
 - `cmd` :
   ```lua
-  { "stylelint-lsp", "--stdio" }
+  { "stylelint-language-server", "--stdio" }
   ```
 - `filetypes` :
   ```lua
-  { "astro", "css", "html", "less", "scss", "sugarss", "vue", "wxss" }
+  { "astro", "css", "html", "less", "scss", "vue" }
   ```
-- `root_markers` :
-  ```lua
-  { ".stylelintrc", ".stylelintrc.mjs", ".stylelintrc.cjs", ".stylelintrc.js", ".stylelintrc.json", ".stylelintrc.yaml", ".stylelintrc.yml", "stylelint.config.mjs", "stylelint.config.cjs", "stylelint.config.js" }
-  ```
+- `on_attach`: [../lsp/stylelint_lsp.lua:25](../lsp/stylelint_lsp.lua#L25)
+- `root_dir`: [../lsp/stylelint_lsp.lua:25](../lsp/stylelint_lsp.lua#L25)
 - `settings` :
   ```lua
-  {}
+  {
+    stylelint = {
+      snippet = { "css", "postcss" },
+      validate = { "css", "postcss" }
+    }
+  }
   ```
 
 ---
@@ -14313,6 +14304,39 @@ Default config:
   ```lua
   { "vhdl_ls.toml", ".vhdl_ls.toml" }
   ```
+
+---
+
+## vimdoc_ls
+
+https://github.com/barrettruth/vimdoc-language-server
+
+Language server for vim help files (vimdoc).
+
+`vimdoc-language-server` can be installed via `cargo`:
+```sh
+cargo install vimdoc-language-server
+```
+
+Snippet to enable the language server:
+```lua
+vim.lsp.enable('vimdoc_ls')
+```
+
+Default config:
+- `cmd` :
+  ```lua
+  { "vimdoc-language-server" }
+  ```
+- `filetypes` :
+  ```lua
+  { "help" }
+  ```
+- `root_markers` :
+  ```lua
+  { "doc", ".git" }
+  ```
+- `workspace_required` : `false`
 
 ---
 

@@ -1,0 +1,27 @@
+# booshnickle dark theme for Mintty
+# Scheme Author: Honey D (@honeydbeatz)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #191914
+Red         = #ffbfa5
+Green       = #e7ff99
+Yellow      = #fff299
+Blue        = #ccbfd9
+Magenta     = #f2bfd9
+Cyan        = #bfffc5
+White       = #bdbd97
+BoldBlack   = #7c7c63
+BoldRed     = #ffbfa5
+BoldGreen   = #e7ff99
+BoldYellow  = #fff299
+BoldBlue    = #ccbfd9
+BoldMagenta = #f2bfd9
+BoldCyan    = #bfffc5
+BoldWhite   = #ffffcc
+
+# Background & foreground colors
+BackgroundColour = #191914
+ForegroundColour = #bdbd97
+CursorColour     = #bdbd97

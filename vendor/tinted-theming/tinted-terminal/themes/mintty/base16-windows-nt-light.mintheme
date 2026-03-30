@@ -1,0 +1,27 @@
+# Windows NT Light theme for Mintty
+# Scheme Author: Fergus Collins (https://github.com/ferguscollins)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #ffffff
+Red         = #800000
+Green       = #008000
+Yellow      = #808000
+Blue        = #000080
+Magenta     = #800080
+Cyan        = #008080
+White       = #808080
+BoldBlack   = #c0c0c0
+BoldRed     = #800000
+BoldGreen   = #008000
+BoldYellow  = #808000
+BoldBlue    = #000080
+BoldMagenta = #800080
+BoldCyan    = #008080
+BoldWhite   = #000000
+
+# Background & foreground colors
+BackgroundColour = #ffffff
+ForegroundColour = #808080
+CursorColour     = #808080

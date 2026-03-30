@@ -1,0 +1,27 @@
+# One Half Light theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #2a2b32
+Red         = #e45649
+Green       = #4fa14f
+Yellow      = #c0aa00
+Blue        = #0084bc
+Magenta     = #a625a4
+Cyan        = #0996b3
+White       = #cfd0d2
+BoldBlack   = #797c84
+BoldRed     = #df6c75
+BoldGreen   = #98c379
+BoldYellow  = #e4c07a
+BoldBlue    = #61afef
+BoldMagenta = #c577dd
+BoldCyan    = #56b5c1
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #2a2b32
+ForegroundColour = #cfd0d2
+CursorColour     = #cfd0d2

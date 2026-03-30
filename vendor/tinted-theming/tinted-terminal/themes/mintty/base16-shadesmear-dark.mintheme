@@ -1,0 +1,27 @@
+# ShadeSmear Dark theme for Mintty
+# Scheme Author: Kyle Giammarco (http://kyle.giammar.co)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #232323
+Red         = #cc5450
+Green       = #71983b
+Yellow      = #307878
+Blue        = #376388
+Magenta     = #d7ab54
+Cyan        = #c57d42
+White       = #dbdbdb
+BoldBlack   = #c0c0c0
+BoldRed     = #cc5450
+BoldGreen   = #71983b
+BoldYellow  = #307878
+BoldBlue    = #376388
+BoldMagenta = #d7ab54
+BoldCyan    = #c57d42
+BoldWhite   = #1c1c1c
+
+# Background & foreground colors
+BackgroundColour = #232323
+ForegroundColour = #dbdbdb
+CursorColour     = #dbdbdb

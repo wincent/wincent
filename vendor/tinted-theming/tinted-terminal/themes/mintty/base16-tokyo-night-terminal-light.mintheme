@@ -1,0 +1,27 @@
+# Tokyo Night Terminal Light theme for Mintty
+# Scheme Author: Michaël Ball
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #d5d6db
+Red         = #8c4351
+Green       = #33635c
+Yellow      = #8f5e15
+Blue        = #34548a
+Magenta     = #5a4a78
+Cyan        = #0f4b6e
+White       = #4c505e
+BoldBlack   = #9699a3
+BoldRed     = #8c4351
+BoldGreen   = #33635c
+BoldYellow  = #8f5e15
+BoldBlue    = #34548a
+BoldMagenta = #5a4a78
+BoldCyan    = #0f4b6e
+BoldWhite   = #1a1b26
+
+# Background & foreground colors
+BackgroundColour = #d5d6db
+ForegroundColour = #4c505e
+CursorColour     = #4c505e

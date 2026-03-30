@@ -1,0 +1,27 @@
+# Pico theme for Mintty
+# Scheme Author: PICO-8 (http://www.lexaloffle.com/pico-8.php)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #000000
+Red         = #ff004d
+Green       = #00e756
+Yellow      = #fff024
+Blue        = #83769c
+Magenta     = #ff77a8
+Cyan        = #29adff
+White       = #5f574f
+BoldBlack   = #008751
+BoldRed     = #ff004d
+BoldGreen   = #00e756
+BoldYellow  = #fff024
+BoldBlue    = #83769c
+BoldMagenta = #ff77a8
+BoldCyan    = #29adff
+BoldWhite   = #fff1e8
+
+# Background & foreground colors
+BackgroundColour = #000000
+ForegroundColour = #5f574f
+CursorColour     = #5f574f

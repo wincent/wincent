@@ -1,0 +1,27 @@
+# Front End Delight theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1b1b1d
+Red         = #f8501a
+Green       = #565746
+Yellow      = #3393c9
+Blue        = #2c70b7
+Magenta     = #f02d4e
+Cyan        = #3ba0a5
+White       = #98ac9c
+BoldBlack   = #71ac7c
+BoldRed     = #f64319
+BoldGreen   = #74eb4c
+BoldYellow  = #fcc224
+BoldBlue    = #3393c9
+BoldMagenta = #e75e4e
+BoldCyan    = #4ebce5
+BoldWhite   = #8b735a
+
+# Background & foreground colors
+BackgroundColour = #1b1b1d
+ForegroundColour = #98ac9c
+CursorColour     = #98ac9c

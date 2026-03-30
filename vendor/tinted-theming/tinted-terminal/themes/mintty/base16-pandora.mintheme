@@ -1,0 +1,27 @@
+# pandora theme for Mintty
+# Scheme Author: Cassandra Fox
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #131213
+Red         = #b00b69
+Green       = #9ddf69
+Yellow      = #ffcc00
+Blue        = #008080
+Magenta     = #a24030
+Cyan        = #714ca6
+White       = #f15c99
+BoldBlack   = #ffbee3
+BoldRed     = #b00b69
+BoldGreen   = #9ddf69
+BoldYellow  = #ffcc00
+BoldBlue    = #008080
+BoldMagenta = #a24030
+BoldCyan    = #714ca6
+BoldWhite   = #632227
+
+# Background & foreground colors
+BackgroundColour = #131213
+ForegroundColour = #f15c99
+CursorColour     = #f15c99

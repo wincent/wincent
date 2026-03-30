@@ -242,12 +242,21 @@ local function make_lsp_sections(is_markdown)
         end,
       })
 
+      -- HACK: Avoid noisy "0.12.0-dev+…" version string (which changes often).
+      local v = vim.version()
+      local old_version = vim.version
+      local stable_v = old_version.parse(('%d.%d.%d'):format(v.major, v.minor, v.patch))
+      vim.version = function()
+        return stable_v
+      end
+
       make_lsp_section(config_sections, config_name, config_file, is_markdown)
 
       -- Reset.
       -- vim.env.HOME = old_home
       -- vim.env.XDG_CACHE_HOME = old_cache_home
       vim.fn = old_fn
+      vim.version = old_version
     end
   end
 

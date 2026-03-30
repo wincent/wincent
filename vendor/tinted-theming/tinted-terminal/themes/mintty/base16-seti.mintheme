@@ -1,0 +1,27 @@
+# Seti UI theme for Mintty
+# Scheme Author: 
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #151718
+Red         = #cd3f45
+Green       = #9fca56
+Yellow      = #e6cd69
+Blue        = #55b5db
+Magenta     = #a074c4
+Cyan        = #55dbbe
+White       = #d6d6d6
+BoldBlack   = #41535b
+BoldRed     = #cd3f45
+BoldGreen   = #9fca56
+BoldYellow  = #e6cd69
+BoldBlue    = #55b5db
+BoldMagenta = #a074c4
+BoldCyan    = #55dbbe
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #151718
+ForegroundColour = #d6d6d6
+CursorColour     = #d6d6d6

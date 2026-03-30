@@ -1,0 +1,27 @@
+# Misterioso theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #2d3743
+Red         = #ff4242
+Green       = #74af68
+Yellow      = #23d7d7
+Blue        = #338f86
+Magenta     = #9413e5
+Cyan        = #23d7d7
+White       = #bebebd
+BoldBlack   = #787877
+BoldRed     = #ff3242
+BoldGreen   = #74cd68
+BoldYellow  = #ffb929
+BoldBlue    = #23d7d7
+BoldMagenta = #ff37ff
+BoldCyan    = #00ede1
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #2d3743
+ForegroundColour = #bebebd
+CursorColour     = #bebebd

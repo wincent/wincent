@@ -1,0 +1,27 @@
+# Later This Evening theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #212121
+Red         = #d35a5f
+Green       = #afba66
+Yellow      = #e5d289
+Blue        = #a0b9d5
+Magenta     = #bf92d5
+Cyan        = #91beb6
+White       = #a6a6a6
+BoldBlack   = #6f6f6f
+BoldRed     = #d3222e
+BoldGreen   = #aabb39
+BoldYellow  = #e4bd39
+BoldBlue    = #6599d5
+BoldMagenta = #aa52d5
+BoldCyan    = #5fbfad
+BoldWhite   = #d9d9d9
+
+# Background & foreground colors
+BackgroundColour = #212121
+ForegroundColour = #a6a6a6
+CursorColour     = #a6a6a6

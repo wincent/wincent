@@ -1,0 +1,27 @@
+# Rebecca theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #292a44
+Red         = #dd7655
+Green       = #04dbb4
+Yellow      = #69bffa
+Blue        = #7aa5ff
+Magenta     = #be9bf8
+Cyan        = #56d3c1
+White       = #c3c3d4
+BoldBlack   = #8585ac
+BoldRed     = #ff91cd
+BoldGreen   = #00e9c0
+BoldYellow  = #fefca8
+BoldBlue    = #69bffa
+BoldMagenta = #c07ff8
+BoldCyan    = #8bfce1
+BoldWhite   = #f3f2f8
+
+# Background & foreground colors
+BackgroundColour = #292a44
+ForegroundColour = #c3c3d4
+CursorColour     = #c3c3d4

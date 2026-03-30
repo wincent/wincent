@@ -1,0 +1,27 @@
+# Solar Flare Light theme for Mintty
+# Scheme Author: Chuck Harmston (https://chuck.harmston.ch)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #f5f7fa
+Red         = #ef5253
+Green       = #7cc844
+Yellow      = #e4b51c
+Blue        = #33b5e1
+Magenta     = #a363d5
+Cyan        = #52cbb0
+White       = #586875
+BoldBlack   = #85939e
+BoldRed     = #ef5253
+BoldGreen   = #7cc844
+BoldYellow  = #e4b51c
+BoldBlue    = #33b5e1
+BoldMagenta = #a363d5
+BoldCyan    = #52cbb0
+BoldWhite   = #18262f
+
+# Background & foreground colors
+BackgroundColour = #f5f7fa
+ForegroundColour = #586875
+CursorColour     = #586875

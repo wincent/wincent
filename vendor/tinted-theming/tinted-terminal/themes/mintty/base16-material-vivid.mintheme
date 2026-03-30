@@ -1,0 +1,27 @@
+# Material Vivid theme for Mintty
+# Scheme Author: joshyrobot
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #202124
+Red         = #f44336
+Green       = #00e676
+Yellow      = #ffeb3b
+Blue        = #2196f3
+Magenta     = #673ab7
+Cyan        = #00bcd4
+White       = #80868b
+BoldBlack   = #44464d
+BoldRed     = #f44336
+BoldGreen   = #00e676
+BoldYellow  = #ffeb3b
+BoldBlue    = #2196f3
+BoldMagenta = #673ab7
+BoldCyan    = #00bcd4
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #202124
+ForegroundColour = #80868b
+CursorColour     = #80868b

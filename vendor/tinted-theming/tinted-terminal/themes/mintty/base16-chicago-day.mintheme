@@ -1,0 +1,27 @@
+# Chicago Day theme for Mintty
+# Scheme Author: Wendell, Ryan &lt;ryanjwendell@gmail.com&gt;
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #e8f0ea
+Red         = #c60c30
+Green       = #009b3a
+Yellow      = #968400
+Blue        = #522398
+Magenta     = #e27ea6
+Cyan        = #00a1de
+White       = #364c40
+BoldBlack   = #8a9a91
+BoldRed     = #c60c30
+BoldGreen   = #009b3a
+BoldYellow  = #968400
+BoldBlue    = #522398
+BoldMagenta = #e27ea6
+BoldCyan    = #00a1de
+BoldWhite   = #1e2a24
+
+# Background & foreground colors
+BackgroundColour = #e8f0ea
+ForegroundColour = #364c40
+CursorColour     = #364c40

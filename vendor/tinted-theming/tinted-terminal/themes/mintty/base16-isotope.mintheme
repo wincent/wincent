@@ -1,0 +1,27 @@
+# Isotope theme for Mintty
+# Scheme Author: Jan T. Sott
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #000000
+Red         = #ff0000
+Green       = #33ff00
+Yellow      = #ff0099
+Blue        = #0066ff
+Magenta     = #cc00ff
+Cyan        = #00ffff
+White       = #d0d0d0
+BoldBlack   = #808080
+BoldRed     = #ff0000
+BoldGreen   = #33ff00
+BoldYellow  = #ff0099
+BoldBlue    = #0066ff
+BoldMagenta = #cc00ff
+BoldCyan    = #00ffff
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #000000
+ForegroundColour = #d0d0d0
+CursorColour     = #d0d0d0

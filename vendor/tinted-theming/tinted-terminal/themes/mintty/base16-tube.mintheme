@@ -1,0 +1,27 @@
+# London Tube theme for Mintty
+# Scheme Author: Jan T. Sott
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #231f20
+Red         = #ee2e24
+Green       = #00853e
+Yellow      = #ffd204
+Blue        = #009ddc
+Magenta     = #98005d
+Cyan        = #85cebc
+White       = #d9d8d8
+BoldBlack   = #737171
+BoldRed     = #ee2e24
+BoldGreen   = #00853e
+BoldYellow  = #ffd204
+BoldBlue    = #009ddc
+BoldMagenta = #98005d
+BoldCyan    = #85cebc
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #231f20
+ForegroundColour = #d9d8d8
+CursorColour     = #d9d8d8

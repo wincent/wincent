@@ -1,0 +1,27 @@
+# IC-Green-PPL theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #2c2c2c
+Red         = #fe2635
+Green       = #41a638
+Yellow      = #2efaeb
+Blue        = #2ec3b9
+Magenta     = #50a096
+Cyan        = #3ca078
+White       = #add5b6
+BoldBlack   = #3b843e
+BoldRed     = #b4fa5c
+BoldGreen   = #aefa86
+BoldYellow  = #dafa87
+BoldBlue    = #2efaeb
+BoldMagenta = #50fafa
+BoldCyan    = #3cfac8
+BoldWhite   = #e0f1dc
+
+# Background & foreground colors
+BackgroundColour = #2c2c2c
+ForegroundColour = #add5b6
+CursorColour     = #add5b6

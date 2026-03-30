@@ -1,0 +1,27 @@
+# Blazer theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #0d1926
+Red         = #b87a7a
+Green       = #7ab87a
+Yellow      = #bdbddb
+Blue        = #7a7ab8
+Magenta     = #b87ab8
+Cyan        = #7ab8b8
+White       = #acacac
+BoldBlack   = #525252
+BoldRed     = #dbbdbd
+BoldGreen   = #bddbbd
+BoldYellow  = #dbdbbd
+BoldBlue    = #bdbddb
+BoldMagenta = #dbbddb
+BoldCyan    = #bddbdb
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #0d1926
+ForegroundColour = #acacac
+CursorColour     = #acacac

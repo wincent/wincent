@@ -1,6 +1,7 @@
 local notify = require("nvim-tree.notify")
 local log = require("nvim-tree.log")
 local utils = require("nvim-tree.utils")
+local config = require("nvim-tree.config")
 
 local Class = require("nvim-tree.classic")
 
@@ -13,9 +14,7 @@ local FS_EVENT_FLAGS = {
   recursive = false,
 }
 
-local M = {
-  config = {},
-}
+local M = {}
 
 ---Registry of all events
 ---@type Event[]
@@ -79,7 +78,7 @@ function Event:start()
       log.line("watcher", "event_cb '%s' '%s' FAIL : %s", self.path, filename, err)
 
       -- do nothing if watchers have already been disabled
-      if not M.config.filesystem_watchers.enable then
+      if not config.g.filesystem_watchers.enable then
         return
       end
 
@@ -90,7 +89,7 @@ function Event:start()
       end
 
       local message = string.format("File system watcher failed (%s) for path %s, halting watcher.", err, self.path)
-      if err == "EPERM" and (utils.is_windows or utils.is_wsl) then
+      if err == "EPERM" and (config.os.windows or config.os.wsl) then
         -- on directory removal windows will cascade the filesystem events out of order
         log.line("watcher", message)
         self:destroy()
@@ -238,7 +237,7 @@ M.Watcher = Watcher
 ---@param msg string
 function M.disable_watchers(msg)
   notify.warn(string.format("Disabling watchers: %s", msg))
-  M.config.filesystem_watchers.enable = false
+  config.g.filesystem_watchers.enable = false
   require("nvim-tree").purge_all_state()
 end
 
@@ -259,7 +258,7 @@ end
 ---@param path string
 ---@return boolean
 function M.is_fs_event_capable(path)
-  if not utils.is_windows then
+  if not config.os.windows then
     return true
   end
 
@@ -277,10 +276,6 @@ function M.is_fs_event_capable(path)
   end
 
   return true
-end
-
-function M.setup(opts)
-  M.config.filesystem_watchers = opts.filesystem_watchers
 end
 
 return M

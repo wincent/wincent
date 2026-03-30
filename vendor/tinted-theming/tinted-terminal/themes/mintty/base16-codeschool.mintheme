@@ -1,0 +1,27 @@
+# Codeschool theme for Mintty
+# Scheme Author: blockloop
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #232c31
+Red         = #2a5491
+Green       = #237986
+Yellow      = #a03b1e
+Blue        = #484d79
+Magenta     = #c59820
+Cyan        = #b02f30
+White       = #9ea7a6
+BoldBlack   = #3f4944
+BoldRed     = #2a5491
+BoldGreen   = #237986
+BoldYellow  = #a03b1e
+BoldBlue    = #484d79
+BoldMagenta = #c59820
+BoldCyan    = #b02f30
+BoldWhite   = #b5d8f6
+
+# Background & foreground colors
+BackgroundColour = #232c31
+ForegroundColour = #9ea7a6
+CursorColour     = #9ea7a6

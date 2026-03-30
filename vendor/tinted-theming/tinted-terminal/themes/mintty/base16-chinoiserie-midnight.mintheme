@@ -1,0 +1,27 @@
+# Chinoiserie Midnight theme for Mintty
+# Scheme Author: Di Wang (https://cs.cmu.edu/~diw3)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1d1d1d
+Red         = #ed5a56
+Green       = #aeb831
+Yellow      = #fbb957
+Blue        = #81a2a2
+Magenta     = #cf8997
+Cyan        = #88b68d
+White       = #c4cbcf
+BoldBlack   = #918072
+BoldRed     = #ed5a56
+BoldGreen   = #aeb831
+BoldYellow  = #fbb957
+BoldBlue    = #81a2a2
+BoldMagenta = #cf8997
+BoldCyan    = #88b68d
+BoldWhite   = #fffef9
+
+# Background & foreground colors
+BackgroundColour = #1d1d1d
+ForegroundColour = #c4cbcf
+CursorColour     = #c4cbcf

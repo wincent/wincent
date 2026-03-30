@@ -1,0 +1,27 @@
+# Wild Cherry theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1f1626
+Red         = #d94085
+Green       = #2ab250
+Yellow      = #2f8bb9
+Blue        = #883cdc
+Magenta     = #ececec
+Cyan        = #c1b8b7
+White       = #bfe1d8
+BoldBlack   = #3fb3ce
+BoldRed     = #da6bab
+BoldGreen   = #f4dba5
+BoldYellow  = #eac066
+BoldBlue    = #2f8bb9
+BoldMagenta = #ae636b
+BoldCyan    = #ff919d
+BoldWhite   = #e4838d
+
+# Background & foreground colors
+BackgroundColour = #1f1626
+ForegroundColour = #bfe1d8
+CursorColour     = #bfe1d8

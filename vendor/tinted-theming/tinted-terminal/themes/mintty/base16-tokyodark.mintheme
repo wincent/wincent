@@ -1,0 +1,27 @@
+# Tokyodark theme for Mintty
+# Scheme Author: Jamy Golden (https://github.com/JamyGolden), Based on Tokyodark.nvim (https://github.com/tiagovla/tokyodark.nvim)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #11121d
+Red         = #ee6d85
+Green       = #95c561
+Yellow      = #d7a65f
+Blue        = #7199ee
+Magenta     = #a485dd
+Cyan        = #9fbbf3
+White       = #a0a8cd
+BoldBlack   = #353945
+BoldRed     = #ee6d85
+BoldGreen   = #95c561
+BoldYellow  = #d7a65f
+BoldBlue    = #7199ee
+BoldMagenta = #a485dd
+BoldCyan    = #9fbbf3
+BoldWhite   = #bcc2dc
+
+# Background & foreground colors
+BackgroundColour = #11121d
+ForegroundColour = #a0a8cd
+CursorColour     = #a0a8cd

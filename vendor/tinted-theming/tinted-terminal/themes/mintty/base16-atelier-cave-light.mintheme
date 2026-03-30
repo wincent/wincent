@@ -1,0 +1,27 @@
+# Atelier Cave Light theme for Mintty
+# Scheme Author: Bram de Haan (http://atelierbramdehaan.nl)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #efecf4
+Red         = #be4678
+Green       = #2a9292
+Yellow      = #a06e3b
+Blue        = #576ddb
+Magenta     = #955ae7
+Cyan        = #398bc6
+White       = #585260
+BoldBlack   = #7e7887
+BoldRed     = #be4678
+BoldGreen   = #2a9292
+BoldYellow  = #a06e3b
+BoldBlue    = #576ddb
+BoldMagenta = #955ae7
+BoldCyan    = #398bc6
+BoldWhite   = #19171c
+
+# Background & foreground colors
+BackgroundColour = #efecf4
+ForegroundColour = #585260
+CursorColour     = #585260

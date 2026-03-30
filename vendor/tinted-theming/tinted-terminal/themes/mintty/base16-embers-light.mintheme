@@ -1,0 +1,27 @@
+# Embers Light theme for Mintty
+# Scheme Author: Jannik Siebert (https://github.com/janniks)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #d1d6db
+Red         = #576d82
+Green       = #6d8257
+Yellow      = #57826d
+Blue        = #82576d
+Magenta     = #6d5782
+Cyan        = #826d57
+White       = #323b43
+BoldBlack   = #75808a
+BoldRed     = #576d82
+BoldGreen   = #6d8257
+BoldYellow  = #57826d
+BoldBlue    = #82576d
+BoldMagenta = #6d5782
+BoldCyan    = #826d57
+BoldWhite   = #0f1316
+
+# Background & foreground colors
+BackgroundColour = #d1d6db
+ForegroundColour = #323b43
+CursorColour     = #323b43

@@ -1,0 +1,27 @@
+# PaperColor Dark theme for Mintty
+# Scheme Author: Nguyen Nguyen (https://github.com/NLKNguyen/papercolor-theme)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1c1c1c
+Red         = #af005f
+Green       = #5faf00
+Yellow      = #d7af5f
+Blue        = #5fafd7
+Magenta     = #af87d7
+Cyan        = #ffaf00
+White       = #d0d0d0
+BoldBlack   = #808080
+BoldRed     = #d7005f
+BoldGreen   = #ffd75f
+BoldYellow  = #87d75f
+BoldBlue    = #ffd700
+BoldMagenta = #87d7ff
+BoldCyan    = #87d700
+BoldWhite   = #c6c6c6
+
+# Background & foreground colors
+BackgroundColour = #1c1c1c
+ForegroundColour = #d0d0d0
+CursorColour     = #d0d0d0

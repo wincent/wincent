@@ -1,0 +1,27 @@
+# Measured Light theme for Mintty
+# Scheme Author: Measured (https://measured.co)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #fdf9f5
+Red         = #ac1f35
+Green       = #0c680c
+Yellow      = #645a00
+Blue        = #0158ad
+Magenta     = #6645c2
+Cyan        = #01716f
+White       = #292929
+BoldBlack   = #5a5a5a
+BoldRed     = #ac1f35
+BoldGreen   = #0c680c
+BoldYellow  = #645a00
+BoldBlue    = #0158ad
+BoldMagenta = #6645c2
+BoldCyan    = #01716f
+BoldWhite   = #000000
+
+# Background & foreground colors
+BackgroundColour = #fdf9f5
+ForegroundColour = #292929
+CursorColour     = #292929

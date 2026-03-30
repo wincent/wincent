@@ -1,0 +1,27 @@
+# Mountain theme for Mintty
+# Scheme Author: Stefan Weigl-Bosker (https://github.com/sweiglbosker), based on Mountain Theme (https://github.com/mountain-theme/Mountain)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #0f0f0f
+Red         = #ac8a8c
+Green       = #8aac8b
+Yellow      = #aca98a
+Blue        = #8f8aac
+Magenta     = #ac8aac
+Cyan        = #8aabac
+White       = #cacaca
+BoldBlack   = #393939
+BoldRed     = #c49ea0
+BoldGreen   = #9ec49f
+BoldYellow  = #c4c19e
+BoldBlue    = #a39ec4
+BoldMagenta = #c49ec4
+BoldCyan    = #9ec3c4
+BoldWhite   = #f0f0f0
+
+# Background & foreground colors
+BackgroundColour = #0f0f0f
+ForegroundColour = #cacaca
+CursorColour     = #cacaca

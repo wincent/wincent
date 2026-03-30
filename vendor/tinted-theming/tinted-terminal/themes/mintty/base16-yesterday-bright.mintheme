@@ -1,0 +1,27 @@
+# Yesterday Bright theme for Mintty
+# Scheme Author: FroZnShiva (https://github.com/FroZnShiva)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #343d46
+Red         = #d54e53
+Green       = #b9ca4a
+Yellow      = #e7c547
+Blue        = #7aa6da
+Magenta     = #c397d8
+Cyan        = #70c0b1
+White       = #dfe1e8
+BoldBlack   = #a7adba
+BoldRed     = #d54e53
+BoldGreen   = #b9ca4a
+BoldYellow  = #e7c547
+BoldBlue    = #7aa6da
+BoldMagenta = #c397d8
+BoldCyan    = #70c0b1
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #343d46
+ForegroundColour = #dfe1e8
+CursorColour     = #dfe1e8

@@ -1,0 +1,27 @@
+# Lavandula theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #050014
+Red         = #7c1525
+Green       = #337e6f
+Yellow      = #8e86df
+Blue        = #4f4a7f
+Magenta     = #593f7e
+Cyan        = #57767f
+White       = #645d6f
+BoldBlack   = #463c53
+BoldRed     = #df5066
+BoldGreen   = #52e0c4
+BoldYellow  = #e0c286
+BoldBlue    = #8e86df
+BoldMagenta = #a675df
+BoldCyan    = #9ad3df
+BoldWhite   = #8c91fa
+
+# Background & foreground colors
+BackgroundColour = #050014
+ForegroundColour = #645d6f
+CursorColour     = #645d6f

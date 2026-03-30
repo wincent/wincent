@@ -1,0 +1,27 @@
+# Brogrammer theme for Mintty
+# Scheme Author: Vik Ramanujam (http://github.com/piggyslasher)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1f1f1f
+Red         = #d6dbe5
+Green       = #f3bd09
+Yellow      = #1dd361
+Blue        = #5350b9
+Magenta     = #0f7ddb
+Cyan        = #1081d6
+White       = #4e5ab7
+BoldBlack   = #ecba0f
+BoldRed     = #d6dbe5
+BoldGreen   = #f3bd09
+BoldYellow  = #1dd361
+BoldBlue    = #5350b9
+BoldMagenta = #0f7ddb
+BoldCyan    = #1081d6
+BoldWhite   = #d6dbe5
+
+# Background & foreground colors
+BackgroundColour = #1f1f1f
+ForegroundColour = #4e5ab7
+CursorColour     = #4e5ab7

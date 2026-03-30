@@ -1,0 +1,27 @@
+# Da One Black theme for Mintty
+# Scheme Author: NNB (https://github.com/NNBnh)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #000000
+Red         = #fa7883
+Green       = #98c379
+Yellow      = #ff9470
+Blue        = #6bb8ff
+Magenta     = #e799ff
+Cyan        = #8af5ff
+White       = #ffffff
+BoldBlack   = #888888
+BoldRed     = #fa7883
+BoldGreen   = #98c379
+BoldYellow  = #ff9470
+BoldBlue    = #6bb8ff
+BoldMagenta = #e799ff
+BoldCyan    = #8af5ff
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #000000
+ForegroundColour = #ffffff
+CursorColour     = #ffffff

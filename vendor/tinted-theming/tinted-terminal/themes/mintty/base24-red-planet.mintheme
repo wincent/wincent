@@ -1,0 +1,27 @@
+# Red Planet theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #222222
+Red         = #8c3432
+Green       = #728271
+Yellow      = #60827e
+Blue        = #69809e
+Magenta     = #896492
+Cyan        = #5b8390
+White       = #a4998c
+BoldBlack   = #7b7773
+BoldRed     = #b55242
+BoldGreen   = #869985
+BoldYellow  = #ebeb91
+BoldBlue    = #60827e
+BoldMagenta = #de4873
+BoldCyan    = #38add8
+BoldWhite   = #d6bfb8
+
+# Background & foreground colors
+BackgroundColour = #222222
+ForegroundColour = #a4998c
+CursorColour     = #a4998c

@@ -1,0 +1,27 @@
+# Atelier Lakeside Light theme for Mintty
+# Scheme Author: Bram de Haan (http://atelierbramdehaan.nl)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #ebf8ff
+Red         = #d22d72
+Green       = #568c3b
+Yellow      = #8a8a0f
+Blue        = #257fad
+Magenta     = #6b6bb8
+Cyan        = #2d8f6f
+White       = #516d7b
+BoldBlack   = #7195a8
+BoldRed     = #d22d72
+BoldGreen   = #568c3b
+BoldYellow  = #8a8a0f
+BoldBlue    = #257fad
+BoldMagenta = #6b6bb8
+BoldCyan    = #2d8f6f
+BoldWhite   = #161b1d
+
+# Background & foreground colors
+BackgroundColour = #ebf8ff
+ForegroundColour = #516d7b
+CursorColour     = #516d7b

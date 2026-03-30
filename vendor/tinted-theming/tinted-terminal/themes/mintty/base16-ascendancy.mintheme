@@ -1,0 +1,27 @@
+# Ascendancy theme for Mintty
+# Scheme Author: EmergentMind (https://github.com/emergentmind/ascendancy-scheme)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #282828
+Red         = #d05000
+Green       = #b8bb26
+Yellow      = #ffcc1b
+Blue        = #458588
+Magenta     = #fabd2f
+Cyan        = #8f3f71
+White       = #d5c7a1
+BoldBlack   = #928374
+BoldRed     = #d05000
+BoldGreen   = #b8bb26
+BoldYellow  = #ffcc1b
+BoldBlue    = #458588
+BoldMagenta = #fabd2f
+BoldCyan    = #8f3f71
+BoldWhite   = #fbf1c7
+
+# Background & foreground colors
+BackgroundColour = #282828
+ForegroundColour = #d5c7a1
+CursorColour     = #d5c7a1

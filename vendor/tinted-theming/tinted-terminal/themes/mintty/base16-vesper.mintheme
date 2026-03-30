@@ -1,0 +1,27 @@
+# Vesper theme for Mintty
+# Scheme Author: FormalSnake (https://github.com/formalsnake)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #101010
+Red         = #de6e6e
+Green       = #5f8787
+Yellow      = #ffc799
+Blue        = #8eaaaa
+Magenta     = #d69094
+Cyan        = #60a592
+White       = #b7b7b7
+BoldBlack   = #333333
+BoldRed     = #de6e6e
+BoldGreen   = #5f8787
+BoldYellow  = #ffc799
+BoldBlue    = #8eaaaa
+BoldMagenta = #d69094
+BoldCyan    = #60a592
+BoldWhite   = #d5d5d5
+
+# Background & foreground colors
+BackgroundColour = #101010
+ForegroundColour = #b7b7b7
+CursorColour     = #b7b7b7

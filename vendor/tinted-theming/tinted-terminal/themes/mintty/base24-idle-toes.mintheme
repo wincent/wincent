@@ -1,0 +1,27 @@
+# Idle Toes theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #323232
+Red         = #d25252
+Green       = #7fe173
+Yellow      = #5eb7f7
+Blue        = #4098ff
+Magenta     = #f57fff
+Cyan        = #bed6ff
+White       = #c7c7c5
+BoldBlack   = #797979
+BoldRed     = #f07070
+BoldGreen   = #9dff90
+BoldYellow  = #ffe48b
+BoldBlue    = #5eb7f7
+BoldMagenta = #ff9dff
+BoldCyan    = #dcf4ff
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #323232
+ForegroundColour = #c7c7c5
+CursorColour     = #c7c7c5

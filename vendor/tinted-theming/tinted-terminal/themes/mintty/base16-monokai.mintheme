@@ -1,0 +1,27 @@
+# Monokai theme for Mintty
+# Scheme Author: Wimer Hazenberg (http://www.monokai.nl)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #272822
+Red         = #f92672
+Green       = #a6e22e
+Yellow      = #f4bf75
+Blue        = #66d9ef
+Magenta     = #ae81ff
+Cyan        = #a1efe4
+White       = #f8f8f2
+BoldBlack   = #75715e
+BoldRed     = #f92672
+BoldGreen   = #a6e22e
+BoldYellow  = #f4bf75
+BoldBlue    = #66d9ef
+BoldMagenta = #ae81ff
+BoldCyan    = #a1efe4
+BoldWhite   = #f9f8f5
+
+# Background & foreground colors
+BackgroundColour = #272822
+ForegroundColour = #f8f8f2
+CursorColour     = #f8f8f2

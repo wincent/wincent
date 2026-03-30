@@ -30,11 +30,18 @@ jobs:
       - name: Commit generated files
         env:
           COMMIT_MSG: |
-            chore: update generated annotations
+            docs: update generated annotations
             skip-checks: true
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add README.md
           git add -A lua/lspconfig/types
-          git diff --quiet && git diff --staged --quiet || (git commit -m "${COMMIT_MSG}"; git push)
+          git diff --quiet && git diff --staged --quiet || (
+            git commit -m "${COMMIT_MSG}"
+            for i in 1 2 3; do
+              git pull --rebase && git push && break
+              echo "Push failed (attempt $i), retrying..."
+              sleep 5
+            done
+          )

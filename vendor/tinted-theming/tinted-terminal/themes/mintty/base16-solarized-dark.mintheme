@@ -1,0 +1,27 @@
+# Solarized Dark theme for Mintty
+# Scheme Author: Ethan Schoonover (modified by aramisgithub)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #002b36
+Red         = #dc322f
+Green       = #859900
+Yellow      = #b58900
+Blue        = #268bd2
+Magenta     = #6c71c4
+Cyan        = #2aa198
+White       = #93a1a1
+BoldBlack   = #657b83
+BoldRed     = #dc322f
+BoldGreen   = #859900
+BoldYellow  = #b58900
+BoldBlue    = #268bd2
+BoldMagenta = #6c71c4
+BoldCyan    = #2aa198
+BoldWhite   = #fdf6e3
+
+# Background & foreground colors
+BackgroundColour = #002b36
+ForegroundColour = #93a1a1
+CursorColour     = #93a1a1

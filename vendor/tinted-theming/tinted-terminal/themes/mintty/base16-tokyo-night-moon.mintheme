@@ -1,0 +1,27 @@
+# Tokyo Night Moon theme for Mintty
+# Scheme Author: Ólafur Bjarki Bogason
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #222436
+Red         = #ff757f
+Green       = #c3e88d
+Yellow      = #ffdf77
+Blue        = #82aaff
+Magenta     = #fca7ea
+Cyan        = #86e1fc
+White       = #828bb8
+BoldBlack   = #3b4261
+BoldRed     = #ff757f
+BoldGreen   = #c3e88d
+BoldYellow  = #ffdf77
+BoldBlue    = #82aaff
+BoldMagenta = #fca7ea
+BoldCyan    = #86e1fc
+BoldWhite   = #c8d3f5
+
+# Background & foreground colors
+BackgroundColour = #222436
+ForegroundColour = #828bb8
+CursorColour     = #828bb8

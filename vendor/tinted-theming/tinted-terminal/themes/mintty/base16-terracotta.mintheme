@@ -1,0 +1,27 @@
+# Terracotta theme for Mintty
+# Scheme Author: Alexander Rossell Hayes (https://github.com/rossellhayes)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #efeae8
+Red         = #a75045
+Green       = #7a894a
+Yellow      = #ce943e
+Blue        = #625574
+Magenta     = #8d5968
+Cyan        = #847f9e
+White       = #473731
+BoldBlack   = #c0aca4
+BoldRed     = #a75045
+BoldGreen   = #7a894a
+BoldYellow  = #ce943e
+BoldBlue    = #625574
+BoldMagenta = #8d5968
+BoldCyan    = #847f9e
+BoldWhite   = #241c19
+
+# Background & foreground colors
+BackgroundColour = #efeae8
+ForegroundColour = #473731
+CursorColour     = #473731

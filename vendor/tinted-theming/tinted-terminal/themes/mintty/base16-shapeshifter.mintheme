@@ -1,0 +1,27 @@
+# Shapeshifter theme for Mintty
+# Scheme Author: Tyler Benziger (http://tybenz.com)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #f9f9f9
+Red         = #e92f2f
+Green       = #0ed839
+Yellow      = #dddd13
+Blue        = #3b48e3
+Magenta     = #f996e2
+Cyan        = #23edda
+White       = #102015
+BoldBlack   = #555555
+BoldRed     = #e92f2f
+BoldGreen   = #0ed839
+BoldYellow  = #dddd13
+BoldBlue    = #3b48e3
+BoldMagenta = #f996e2
+BoldCyan    = #23edda
+BoldWhite   = #000000
+
+# Background & foreground colors
+BackgroundColour = #f9f9f9
+ForegroundColour = #102015
+CursorColour     = #102015

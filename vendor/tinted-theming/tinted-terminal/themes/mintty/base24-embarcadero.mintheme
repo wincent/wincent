@@ -1,0 +1,27 @@
+# Embarcadero theme for Mintty
+# Scheme Author: Thomas Leon Highbaugh
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #252a2f
+Red         = #ed5d86
+Green       = #20c290
+Yellow      = #eb824d
+Blue        = #4080d0
+Magenta     = #a070d0
+Cyan        = #02efef
+White       = #bcbdc0
+BoldBlack   = #7f8285
+BoldRed     = #f57d9a
+BoldGreen   = #a0d0a0
+BoldYellow  = #ffe089
+BoldBlue    = #80b0f0
+BoldMagenta = #c090f0
+BoldCyan    = #40c0c0
+BoldWhite   = #f8f8f8
+
+# Background & foreground colors
+BackgroundColour = #252a2f
+ForegroundColour = #bcbdc0
+CursorColour     = #bcbdc0

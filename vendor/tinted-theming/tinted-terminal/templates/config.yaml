@@ -98,6 +98,16 @@ konsole-base24:
   filename: themes/konsole/{{ scheme-system }}-{{ scheme-slug }}.colorscheme
   supported-systems: [base24]
 
+# Mintty
+# ----------------------------------------------------------------------
+mintty-base16:
+  filename: themes/mintty/{{ scheme-system }}-{{ scheme-slug }}.mintheme
+  supported-systems: [base16]
+
+mintty-base24:
+  filename: themes/mintty/{{ scheme-system }}-{{ scheme-slug }}.mintheme
+  supported-systems: [base24]
+
 # Putty
 # ----------------------------------------------------------------------
 putty-base16:

@@ -1,0 +1,27 @@
+# Shades of Purple theme for Mintty
+# Scheme Author: Iolar Demartini Junior (http://github.com/demartini), based on Shades of Purple Theme (https://github.com/ahmadawais/shades-of-purple-vscode)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1e1e3f
+Red         = #d90429
+Green       = #3ad900
+Yellow      = #ffe700
+Blue        = #6943ff
+Magenta     = #ff2c70
+Cyan        = #00c5c7
+White       = #c7c7c7
+BoldBlack   = #808080
+BoldRed     = #d90429
+BoldGreen   = #3ad900
+BoldYellow  = #ffe700
+BoldBlue    = #6943ff
+BoldMagenta = #ff2c70
+BoldCyan    = #00c5c7
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #1e1e3f
+ForegroundColour = #c7c7c7
+CursorColour     = #c7c7c7

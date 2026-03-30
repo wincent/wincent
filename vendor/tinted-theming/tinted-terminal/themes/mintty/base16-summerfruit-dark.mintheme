@@ -1,0 +1,27 @@
+# Summerfruit Dark theme for Mintty
+# Scheme Author: Christopher Corley (http://christop.club/)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #151515
+Red         = #ff0086
+Green       = #00c918
+Yellow      = #aba800
+Blue        = #3777e6
+Magenta     = #ad00a1
+Cyan        = #1faaaa
+White       = #d0d0d0
+BoldBlack   = #505050
+BoldRed     = #ff0086
+BoldGreen   = #00c918
+BoldYellow  = #aba800
+BoldBlue    = #3777e6
+BoldMagenta = #ad00a1
+BoldCyan    = #1faaaa
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #151515
+ForegroundColour = #d0d0d0
+CursorColour     = #d0d0d0

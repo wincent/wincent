@@ -1,0 +1,27 @@
+# Builtin Tango Dark theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #000000
+Red         = #cc0000
+Green       = #4e9a05
+Yellow      = #719ecf
+Blue        = #3464a4
+Magenta     = #74507a
+Cyan        = #05989a
+White       = #b3b7b0
+BoldBlack   = #737772
+BoldRed     = #ef2828
+BoldGreen   = #8ae234
+BoldYellow  = #fce94e
+BoldBlue    = #719ecf
+BoldMagenta = #ad7ea7
+BoldCyan    = #34e2e2
+BoldWhite   = #ededec
+
+# Background & foreground colors
+BackgroundColour = #000000
+ForegroundColour = #b3b7b0
+CursorColour     = #b3b7b0

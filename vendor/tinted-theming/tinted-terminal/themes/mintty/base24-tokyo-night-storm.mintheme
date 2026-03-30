@@ -1,0 +1,27 @@
+# Tokyo Night Storm theme for Mintty
+# Scheme Author: Michaël Ball, based on Tokyo Night by enkia (https://github.com/enkia/tokyo-night-vscode-theme)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #24283b
+Red         = #c0caf5
+Green       = #9ece6a
+Yellow      = #0db9d7
+Blue        = #2ac3de
+Magenta     = #bb9af7
+Cyan        = #b4f9f8
+White       = #a9b1d6
+BoldBlack   = #444b6a
+BoldRed     = #ff7a93
+BoldGreen   = #73daca
+BoldYellow  = #ff9e64
+BoldBlue    = #89ddff
+BoldMagenta = #bb9af7
+BoldCyan    = #7dcfff
+BoldWhite   = #d5d6db
+
+# Background & foreground colors
+BackgroundColour = #24283b
+ForegroundColour = #a9b1d6
+CursorColour     = #a9b1d6

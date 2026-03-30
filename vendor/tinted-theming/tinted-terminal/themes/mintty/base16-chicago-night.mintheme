@@ -1,0 +1,27 @@
+# Chicago Night theme for Mintty
+# Scheme Author: Wendell, Ryan &lt;ryanjwendell@gmail.com&gt;
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1e2a24
+Red         = #c60c30
+Green       = #009b3a
+Yellow      = #f9e300
+Blue        = #522398
+Magenta     = #e27ea6
+Cyan        = #00a1de
+White       = #a7b8af
+BoldBlack   = #5f7368
+BoldRed     = #c60c30
+BoldGreen   = #009b3a
+BoldYellow  = #f9e300
+BoldBlue    = #522398
+BoldMagenta = #e27ea6
+BoldCyan    = #00a1de
+BoldWhite   = #dbe3de
+
+# Background & foreground colors
+BackgroundColour = #1e2a24
+ForegroundColour = #a7b8af
+CursorColour     = #a7b8af

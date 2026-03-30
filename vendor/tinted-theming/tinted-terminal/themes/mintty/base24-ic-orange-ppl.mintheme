@@ -1,0 +1,27 @@
+# IC-Orange-PPL theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #262626
+Red         = #c03900
+Green       = #a3a900
+Yellow      = #ffbd54
+Blue        = #bd6c00
+Magenta     = #fb5d00
+Cyan        = #f79400
+White       = #d9a971
+BoldBlack   = #8f6c41
+BoldRed     = #ff8b67
+BoldGreen   = #f6ff3f
+BoldYellow  = #ffe36e
+BoldBlue    = #ffbd54
+BoldMagenta = #fc874f
+BoldCyan    = #c59752
+BoldWhite   = #f9f9fe
+
+# Background & foreground colors
+BackgroundColour = #262626
+ForegroundColour = #d9a971
+CursorColour     = #d9a971

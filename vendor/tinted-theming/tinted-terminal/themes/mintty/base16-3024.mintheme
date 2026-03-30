@@ -1,0 +1,27 @@
+# 3024 theme for Mintty
+# Scheme Author: Jan T. Sott (http://github.com/idleberg)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #090300
+Red         = #db2d20
+Green       = #01a252
+Yellow      = #fded02
+Blue        = #01a0e4
+Magenta     = #a16a94
+Cyan        = #b5e4f4
+White       = #a5a2a2
+BoldBlack   = #5c5855
+BoldRed     = #db2d20
+BoldGreen   = #01a252
+BoldYellow  = #fded02
+BoldBlue    = #01a0e4
+BoldMagenta = #a16a94
+BoldCyan    = #b5e4f4
+BoldWhite   = #f7f7f7
+
+# Background & foreground colors
+BackgroundColour = #090300
+ForegroundColour = #a5a2a2
+CursorColour     = #a5a2a2

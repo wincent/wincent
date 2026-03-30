@@ -1,0 +1,27 @@
+# Dracula theme for Mintty
+# Scheme Author: Jamy Golden (http://github.com/JamyGolden), based on Dracula Theme (http://github.com/dracula)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #282a36
+Red         = #ff5555
+Green       = #50fa7b
+Yellow      = #f1fa8c
+Blue        = #80bfff
+Magenta     = #ff79c6
+Cyan        = #8be9fd
+White       = #f8f8f2
+BoldBlack   = #6272a4
+BoldRed     = #ff5555
+BoldGreen   = #50fa7b
+BoldYellow  = #f1fa8c
+BoldBlue    = #80bfff
+BoldMagenta = #ff79c6
+BoldCyan    = #8be9fd
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #282a36
+ForegroundColour = #f8f8f2
+CursorColour     = #f8f8f2

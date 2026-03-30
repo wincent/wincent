@@ -1,0 +1,27 @@
+# Ubuntu theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #300a24
+Red         = #cc0000
+Green       = #4e9a06
+Yellow      = #729fcf
+Blue        = #3465a4
+Magenta     = #75507b
+Cyan        = #06989a
+White       = #b3b7b0
+BoldBlack   = #747772
+BoldRed     = #ef2929
+BoldGreen   = #8ae234
+BoldYellow  = #fce94f
+BoldBlue    = #729fcf
+BoldMagenta = #ad7fa8
+BoldCyan    = #34e2e2
+BoldWhite   = #eeeeec
+
+# Background & foreground colors
+BackgroundColour = #300a24
+ForegroundColour = #b3b7b0
+CursorColour     = #b3b7b0

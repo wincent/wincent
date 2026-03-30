@@ -1,0 +1,27 @@
+# Blue Forest theme for Mintty
+# Scheme Author: alonsodomin (https://github.com/alonsodomin)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #141f2e
+Red         = #fffab1
+Green       = #80ff80
+Yellow      = #91ccff
+Blue        = #a2cff5
+Magenta     = #0099ff
+Cyan        = #80ff80
+White       = #ffcc33
+BoldBlack   = #a0ffa0
+BoldRed     = #fffab1
+BoldGreen   = #80ff80
+BoldYellow  = #91ccff
+BoldBlue    = #a2cff5
+BoldMagenta = #0099ff
+BoldCyan    = #80ff80
+BoldWhite   = #375780
+
+# Background & foreground colors
+BackgroundColour = #141f2e
+ForegroundColour = #ffcc33
+CursorColour     = #ffcc33

@@ -1,0 +1,27 @@
+# Windows 10 Light theme for Mintty
+# Scheme Author: Fergus Collins (https://github.com/ferguscollins)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #f2f2f2
+Red         = #c50f1f
+Green       = #13a10e
+Yellow      = #c19c00
+Blue        = #0037da
+Magenta     = #881798
+Cyan        = #3a96dd
+White       = #767676
+BoldBlack   = #cccccc
+BoldRed     = #c50f1f
+BoldGreen   = #13a10e
+BoldYellow  = #c19c00
+BoldBlue    = #0037da
+BoldMagenta = #881798
+BoldCyan    = #3a96dd
+BoldWhite   = #0c0c0c
+
+# Background & foreground colors
+BackgroundColour = #f2f2f2
+ForegroundColour = #767676
+CursorColour     = #767676

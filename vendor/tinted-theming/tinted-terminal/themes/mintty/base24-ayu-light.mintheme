@@ -1,0 +1,27 @@
+# Ayu Light theme for Mintty
+# Scheme Author: Tinted Theming (https://github.com/tinted-theming), Ayu Theme (https://github.com/ayu-theme)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #f8f9fa
+Red         = #f07171
+Green       = #6cbf49
+Yellow      = #f2ae49
+Blue        = #399ee6
+Magenta     = #a37acc
+Cyan        = #4cbf99
+White       = #5c6166
+BoldBlack   = #a0a6ac
+BoldRed     = #ff7383
+BoldGreen   = #86b300
+BoldYellow  = #ffaa33
+BoldBlue    = #478acc
+BoldMagenta = #b595d6
+BoldCyan    = #55b4d4
+BoldWhite   = #404447
+
+# Background & foreground colors
+BackgroundColour = #f8f9fa
+ForegroundColour = #5c6166
+CursorColour     = #5c6166

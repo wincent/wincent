@@ -1,0 +1,27 @@
+# Lovelace theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1d1f28
+Red         = #f37f97
+Green       = #5adecd
+Yellow      = #556fff
+Blue        = #8897f4
+Magenta     = #c574dd
+Cyan        = #79e6f3
+White       = #ceced3
+BoldBlack   = #707281
+BoldRed     = #ff4971
+BoldGreen   = #18e3c8
+BoldYellow  = #ff8037
+BoldBlue    = #556fff
+BoldMagenta = #b043d1
+BoldCyan    = #3fdcee
+BoldWhite   = #bebec1
+
+# Background & foreground colors
+BackgroundColour = #1d1f28
+ForegroundColour = #ceced3
+CursorColour     = #ceced3

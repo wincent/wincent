@@ -1,0 +1,27 @@
+# Stella theme for Mintty
+# Scheme Author: Shrimpram
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #2b213c
+Red         = #c79987
+Green       = #acc79b
+Yellow      = #c7c691
+Blue        = #a5aad4
+Magenta     = #c594ff
+Cyan        = #9bc7bf
+White       = #998bad
+BoldBlack   = #655978
+BoldRed     = #c79987
+BoldGreen   = #acc79b
+BoldYellow  = #c7c691
+BoldBlue    = #a5aad4
+BoldMagenta = #c594ff
+BoldCyan    = #9bc7bf
+BoldWhite   = #ebdcff
+
+# Background & foreground colors
+BackgroundColour = #2b213c
+ForegroundColour = #998bad
+CursorColour     = #998bad

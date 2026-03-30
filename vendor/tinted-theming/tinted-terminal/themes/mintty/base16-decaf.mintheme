@@ -1,0 +1,27 @@
+# Decaf theme for Mintty
+# Scheme Author: Alex Mirrington (https://github.com/alexmirrington)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #2d2d2d
+Red         = #ff7f7b
+Green       = #beda78
+Yellow      = #ffd67c
+Blue        = #90bee1
+Magenta     = #efb3f7
+Cyan        = #bed6ff
+White       = #cccccc
+BoldBlack   = #777777
+BoldRed     = #ff7f7b
+BoldGreen   = #beda78
+BoldYellow  = #ffd67c
+BoldBlue    = #90bee1
+BoldMagenta = #efb3f7
+BoldCyan    = #bed6ff
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #2d2d2d
+ForegroundColour = #cccccc
+CursorColour     = #cccccc

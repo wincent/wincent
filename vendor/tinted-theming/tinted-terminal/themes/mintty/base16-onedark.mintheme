@@ -1,0 +1,27 @@
+# OneDark theme for Mintty
+# Scheme Author: Lalit Magant (http://github.com/tilal6991)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #282c34
+Red         = #e06c75
+Green       = #98c379
+Yellow      = #e5c07b
+Blue        = #61afef
+Magenta     = #c678dd
+Cyan        = #56b6c2
+White       = #abb2bf
+BoldBlack   = #545862
+BoldRed     = #e06c75
+BoldGreen   = #98c379
+BoldYellow  = #e5c07b
+BoldBlue    = #61afef
+BoldMagenta = #c678dd
+BoldCyan    = #56b6c2
+BoldWhite   = #c8ccd4
+
+# Background & foreground colors
+BackgroundColour = #282c34
+ForegroundColour = #abb2bf
+CursorColour     = #abb2bf

@@ -1,0 +1,27 @@
+# Precious Light White theme for Mintty
+# Scheme Author: 4lex4 &lt;4lex49@zoho.com&gt;
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #ffffff
+Red         = #af4947
+Green       = #557301
+Yellow      = #876500
+Blue        = #186daa
+Magenta     = #7b4ecb
+Cyan        = #087767
+White       = #555555
+BoldBlack   = #848484
+BoldRed     = #af4947
+BoldGreen   = #557301
+BoldYellow  = #876500
+BoldBlue    = #186daa
+BoldMagenta = #7b4ecb
+BoldCyan    = #087767
+BoldWhite   = #555555
+
+# Background & foreground colors
+BackgroundColour = #ffffff
+ForegroundColour = #555555
+CursorColour     = #555555

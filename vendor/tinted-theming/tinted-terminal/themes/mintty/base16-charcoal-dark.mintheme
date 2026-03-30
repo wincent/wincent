@@ -1,0 +1,27 @@
+# Charcoal Dark theme for Mintty
+# Scheme Author: Mubin Muhammad (https://github.com/mubin6th)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #0f0b05
+Red         = #a88c62
+Green       = #dec8a7
+Yellow      = #dec8a7
+Blue        = #c3a983
+Magenta     = #a88c62
+Cyan        = #dec8a7
+White       = #c3a983
+BoldBlack   = #57462c
+BoldRed     = #a88c62
+BoldGreen   = #dec8a7
+BoldYellow  = #dec8a7
+BoldBlue    = #c3a983
+BoldMagenta = #a88c62
+BoldCyan    = #dec8a7
+BoldWhite   = #231b0e
+
+# Background & foreground colors
+BackgroundColour = #0f0b05
+ForegroundColour = #c3a983
+CursorColour     = #c3a983

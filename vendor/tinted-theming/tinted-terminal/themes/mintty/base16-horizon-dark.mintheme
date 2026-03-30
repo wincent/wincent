@@ -1,0 +1,27 @@
+# Horizon Dark theme for Mintty
+# Scheme Author: Michaël Ball (http://github.com/michael-ball/)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1c1e26
+Red         = #e93c58
+Green       = #efaf8e
+Yellow      = #efb993
+Blue        = #df5273
+Magenta     = #b072d1
+Cyan        = #24a8b4
+White       = #cbced0
+BoldBlack   = #6f6f70
+BoldRed     = #e93c58
+BoldGreen   = #efaf8e
+BoldYellow  = #efb993
+BoldBlue    = #df5273
+BoldMagenta = #b072d1
+BoldCyan    = #24a8b4
+BoldWhite   = #e3e6ee
+
+# Background & foreground colors
+BackgroundColour = #1c1e26
+ForegroundColour = #cbced0
+CursorColour     = #cbced0

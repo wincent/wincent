@@ -1,0 +1,27 @@
+# Monokai Vivid theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #121212
+Red         = #fa2834
+Green       = #97e123
+Yellow      = #fef20a
+Blue        = #0442fe
+Magenta     = #f800f8
+Cyan        = #01b6ed
+White       = #dfdfdf
+BoldBlack   = #525252
+BoldRed     = #f5669c
+BoldGreen   = #b0e05e
+BoldYellow  = #fef26c
+BoldBlue    = #0442fe
+BoldMagenta = #f200f5
+BoldCyan    = #50cdfe
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #121212
+ForegroundColour = #dfdfdf
+CursorColour     = #dfdfdf

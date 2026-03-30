@@ -1,0 +1,27 @@
+# Nord Light theme for Mintty
+# Scheme Author: threddast, based on fuxialexander&#39;s doom-nord-light-theme (Doom Emacs)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #e5e9f0
+Red         = #99324b
+Green       = #4f894c
+Yellow      = #9a7500
+Blue        = #3b6ea8
+Magenta     = #97365b
+Cyan        = #398eac
+White       = #2e3440
+BoldBlack   = #aebacf
+BoldRed     = #99324b
+BoldGreen   = #4f894c
+BoldYellow  = #9a7500
+BoldBlue    = #3b6ea8
+BoldMagenta = #97365b
+BoldCyan    = #398eac
+BoldWhite   = #29838d
+
+# Background & foreground colors
+BackgroundColour = #e5e9f0
+ForegroundColour = #2e3440
+CursorColour     = #2e3440

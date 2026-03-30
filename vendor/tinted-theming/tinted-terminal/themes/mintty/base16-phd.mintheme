@@ -1,0 +1,27 @@
+# PhD theme for Mintty
+# Scheme Author: Hennig Hasemann (http://leetless.de/vim.html)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #061229
+Red         = #d07346
+Green       = #99bf52
+Yellow      = #fbd461
+Blue        = #5299bf
+Magenta     = #9989cc
+Cyan        = #72b9bf
+White       = #b8bbc2
+BoldBlack   = #717885
+BoldRed     = #d07346
+BoldGreen   = #99bf52
+BoldYellow  = #fbd461
+BoldBlue    = #5299bf
+BoldMagenta = #9989cc
+BoldCyan    = #72b9bf
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #061229
+ForegroundColour = #b8bbc2
+CursorColour     = #b8bbc2

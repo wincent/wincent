@@ -1,0 +1,27 @@
+# Cupcake theme for Mintty
+# Scheme Author: Chris Kempson (http://chriskempson.com)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #fbf1f2
+Red         = #d57e85
+Green       = #a3b367
+Yellow      = #dcb16c
+Blue        = #7297b9
+Magenta     = #bb99b4
+Cyan        = #69a9a7
+White       = #8b8198
+BoldBlack   = #bfb9c6
+BoldRed     = #d57e85
+BoldGreen   = #a3b367
+BoldYellow  = #dcb16c
+BoldBlue    = #7297b9
+BoldMagenta = #bb99b4
+BoldCyan    = #69a9a7
+BoldWhite   = #585062
+
+# Background & foreground colors
+BackgroundColour = #fbf1f2
+ForegroundColour = #8b8198
+CursorColour     = #8b8198

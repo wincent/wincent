@@ -1,0 +1,27 @@
+# Paul Millr theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #000000
+Red         = #ff0000
+Green       = #79ff0f
+Yellow      = #709aed
+Blue        = #386bd7
+Magenta     = #b349be
+Cyan        = #66ccff
+White       = #a5a5a5
+BoldBlack   = #7b7b7b
+BoldRed     = #ff0080
+BoldGreen   = #66ff66
+BoldYellow  = #f3d64e
+BoldBlue    = #709aed
+BoldMagenta = #db67e6
+BoldCyan    = #79dff2
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #000000
+ForegroundColour = #a5a5a5
+CursorColour     = #a5a5a5

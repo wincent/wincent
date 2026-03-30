@@ -1,0 +1,27 @@
+# Bluloco Light theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #f7f7f7
+Red         = #c80d41
+Green       = #208839
+Yellow      = #1085d9
+Blue        = #1d44dd
+Magenta     = #6d1bed
+Cyan        = #1e4d7a
+White       = #38383a
+BoldBlack   = #a6a7ae
+BoldRed     = #fb496d
+BoldGreen   = #34b253
+BoldYellow  = #b79326
+BoldBlue    = #1085d9
+BoldMagenta = #c00cb2
+BoldCyan    = #5a7fac
+BoldWhite   = #1c1d21
+
+# Background & foreground colors
+BackgroundColour = #f7f7f7
+ForegroundColour = #38383a
+CursorColour     = #38383a

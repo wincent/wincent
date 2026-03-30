@@ -1,0 +1,27 @@
+# Blue Matrix theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #0f1115
+Red         = #ff567f
+Green       = #00ff9b
+Yellow      = #6871ff
+Blue        = #00b0fe
+Magenta     = #d47bfe
+Cyan        = #75c1fe
+White       = #afafaf
+BoldBlack   = #7f7f7f
+BoldRed     = #ff6d67
+BoldGreen   = #5ff967
+BoldYellow  = #fefb67
+BoldBlue    = #6871ff
+BoldMagenta = #d582eb
+BoldCyan    = #5ffdff
+BoldWhite   = #feffff
+
+# Background & foreground colors
+BackgroundColour = #0f1115
+ForegroundColour = #afafaf
+CursorColour     = #afafaf

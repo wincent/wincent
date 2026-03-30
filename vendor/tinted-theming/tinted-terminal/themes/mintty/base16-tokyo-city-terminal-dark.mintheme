@@ -1,0 +1,27 @@
+# Tokyo City Terminal Dark theme for Mintty
+# Scheme Author: Michaël Ball
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #171d23
+Red         = #d95468
+Green       = #8bd49c
+Yellow      = #ebbf83
+Blue        = #539afc
+Magenta     = #b62d65
+Cyan        = #70e1e8
+White       = #d8e2ec
+BoldBlack   = #526270
+BoldRed     = #d95468
+BoldGreen   = #8bd49c
+BoldYellow  = #ebbf83
+BoldBlue    = #539afc
+BoldMagenta = #b62d65
+BoldCyan    = #70e1e8
+BoldWhite   = #fbfbfd
+
+# Background & foreground colors
+BackgroundColour = #171d23
+ForegroundColour = #d8e2ec
+CursorColour     = #d8e2ec

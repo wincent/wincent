@@ -1,0 +1,27 @@
+# Highway theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #212224
+Red         = #cf0d17
+Green       = #128033
+Yellow      = #4fc2fd
+Blue        = #006ab3
+Magenta     = #6a2674
+Cyan        = #384563
+White       = #c8c5c4
+BoldBlack   = #807672
+BoldRed     = #ef7d17
+BoldGreen   = #b1d130
+BoldYellow  = #fff11f
+BoldBlue    = #4fc2fd
+BoldMagenta = #de0070
+BoldCyan    = #5c4f49
+BoldWhite   = #fefffe
+
+# Background & foreground colors
+BackgroundColour = #212224
+ForegroundColour = #c8c5c4
+CursorColour     = #c8c5c4

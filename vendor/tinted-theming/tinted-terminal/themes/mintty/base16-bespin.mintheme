@@ -1,0 +1,27 @@
+# Bespin theme for Mintty
+# Scheme Author: Jan T. Sott
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #28211c
+Red         = #cf6a4c
+Green       = #54be0d
+Yellow      = #f9ee98
+Blue        = #5ea6ea
+Magenta     = #9b859d
+Cyan        = #afc4db
+White       = #8a8986
+BoldBlack   = #666666
+BoldRed     = #cf6a4c
+BoldGreen   = #54be0d
+BoldYellow  = #f9ee98
+BoldBlue    = #5ea6ea
+BoldMagenta = #9b859d
+BoldCyan    = #afc4db
+BoldWhite   = #baae9e
+
+# Background & foreground colors
+BackgroundColour = #28211c
+ForegroundColour = #8a8986
+CursorColour     = #8a8986

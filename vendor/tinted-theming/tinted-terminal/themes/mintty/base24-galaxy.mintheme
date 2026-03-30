@@ -1,0 +1,27 @@
+# Galaxy theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1c2836
+Red         = #f9555f
+Green       = #20af89
+Yellow      = #fdf029
+Blue        = #589cf5
+Magenta     = #934d95
+Cyan        = #1e9ee6
+White       = #a1a1a1
+BoldBlack   = #6e6e6e
+BoldRed     = #fa8b8e
+BoldGreen   = #34bb99
+BoldYellow  = #ffff55
+BoldBlue    = #589cf5
+BoldMagenta = #e75598
+BoldCyan    = #3978bb
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #1c2836
+ForegroundColour = #a1a1a1
+CursorColour     = #a1a1a1

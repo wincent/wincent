@@ -1,0 +1,27 @@
+# Mona Lisa theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #110b0d
+Red         = #9b281b
+Green       = #626132
+Yellow      = #9eb2b3
+Blue        = #515b5c
+Magenta     = #9b1d29
+Cyan        = #588056
+White       = #dab14e
+BoldBlack   = #a26734
+BoldRed     = #ff4230
+BoldGreen   = #b3b163
+BoldYellow  = #ff9565
+BoldBlue    = #9eb2b3
+BoldMagenta = #ff5b6a
+BoldCyan    = #89cc8e
+BoldWhite   = #ffe597
+
+# Background & foreground colors
+BackgroundColour = #110b0d
+ForegroundColour = #dab14e
+CursorColour     = #dab14e

@@ -1,0 +1,27 @@
+# Mission Brogue theme for Mintty
+# Scheme Author: Thomas Leon Highbaugh
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #283139
+Red         = #efa9a9
+Green       = #8cd4b0
+Yellow      = #e0b88a
+Blue        = #a2c5fd
+Magenta     = #ccb7db
+Cyan        = #93dfec
+White       = #93a5b4
+BoldBlack   = #60778a
+BoldRed     = #f6bfbf
+BoldGreen   = #b5e090
+BoldYellow  = #fff0b2
+BoldBlue    = #c3d9fd
+BoldMagenta = #e3c3e6
+BoldCyan    = #b2f0fd
+BoldWhite   = #e7ebee
+
+# Background & foreground colors
+BackgroundColour = #283139
+ForegroundColour = #93a5b4
+CursorColour     = #93a5b4

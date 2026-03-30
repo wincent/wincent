@@ -1,0 +1,27 @@
+# Unikitty Light theme for Mintty
+# Scheme Author: Josh W Lewis (@joshwlewis)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #ffffff
+Red         = #d8137f
+Green       = #17ad98
+Yellow      = #dc8a0e
+Blue        = #775dff
+Magenta     = #aa17e6
+Cyan        = #149bda
+White       = #6c696e
+BoldBlack   = #a7a5a8
+BoldRed     = #d8137f
+BoldGreen   = #17ad98
+BoldYellow  = #dc8a0e
+BoldBlue    = #775dff
+BoldMagenta = #aa17e6
+BoldCyan    = #149bda
+BoldWhite   = #322d34
+
+# Background & foreground colors
+BackgroundColour = #ffffff
+ForegroundColour = #6c696e
+CursorColour     = #6c696e

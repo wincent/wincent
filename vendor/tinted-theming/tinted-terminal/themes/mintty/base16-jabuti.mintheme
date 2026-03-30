@@ -1,0 +1,27 @@
+# Jabuti theme for Mintty
+# Scheme Author: https://github.com/notusknot
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #292a37
+Red         = #ec6a88
+Green       = #3fdaa4
+Yellow      = #e1c697
+Blue        = #3fc6de
+Magenta     = #be95ff
+Cyan        = #ff7eb6
+White       = #c0cbe3
+BoldBlack   = #45475d
+BoldRed     = #ec6a88
+BoldGreen   = #3fdaa4
+BoldYellow  = #e1c697
+BoldBlue    = #3fc6de
+BoldMagenta = #be95ff
+BoldCyan    = #ff7eb6
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #292a37
+ForegroundColour = #c0cbe3
+CursorColour     = #c0cbe3

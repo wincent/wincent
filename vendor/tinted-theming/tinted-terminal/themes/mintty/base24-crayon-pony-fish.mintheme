@@ -1,0 +1,27 @@
+# Crayon Pony Fish theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #140607
+Red         = #90002a
+Green       = #579523
+Yellow      = #cfc9ff
+Blue        = #8b87af
+Magenta     = #682e50
+Cyan        = #e8a766
+White       = #5d484e
+BoldBlack   = #473438
+BoldRed     = #c5245c
+BoldGreen   = #8dff56
+BoldYellow  = #c7371d
+BoldBlue    = #cfc9ff
+BoldMagenta = #fb6cb9
+BoldCyan    = #ffceae
+BoldWhite   = #af949d
+
+# Background & foreground colors
+BackgroundColour = #140607
+ForegroundColour = #5d484e
+CursorColour     = #5d484e

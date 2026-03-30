@@ -1,0 +1,27 @@
+# Earthsong theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #282420
+Red         = #c84134
+Green       = #84c44b
+Yellow      = #5ed9ff
+Blue        = #1397b9
+Magenta     = #d0623c
+Cyan        = #4f9452
+White       = #c5ab93
+BoldBlack   = #857769
+BoldRed     = #ff6459
+BoldGreen   = #97e035
+BoldYellow  = #dfd561
+BoldBlue    = #5ed9ff
+BoldMagenta = #ff9168
+BoldCyan    = #83ef88
+BoldWhite   = #f6f6ec
+
+# Background & foreground colors
+BackgroundColour = #282420
+ForegroundColour = #c5ab93
+CursorColour     = #c5ab93

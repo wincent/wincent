@@ -1,0 +1,27 @@
+# Night Owlish Light theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #ffffff
+Red         = #d3423e
+Green       = #2aa298
+Yellow      = #dac801
+Blue        = #4876d6
+Magenta     = #403f53
+Cyan        = #08916a
+White       = #585b5b
+BoldBlack   = #b1b4b4
+BoldRed     = #f76e6e
+BoldGreen   = #49d0c5
+BoldYellow  = #dac26b
+BoldBlue    = #5ca7e4
+BoldMagenta = #697098
+BoldCyan    = #00c990
+BoldWhite   = #011627
+
+# Background & foreground colors
+BackgroundColour = #ffffff
+ForegroundColour = #585b5b
+CursorColour     = #585b5b

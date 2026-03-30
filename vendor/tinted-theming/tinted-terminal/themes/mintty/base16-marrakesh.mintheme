@@ -1,0 +1,27 @@
+# Marrakesh theme for Mintty
+# Scheme Author: Alexandre Gavioli (http://github.com/Alexx2/)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #201602
+Red         = #c35359
+Green       = #18974e
+Yellow      = #a88339
+Blue        = #477ca1
+Magenta     = #8868b3
+Cyan        = #75a738
+White       = #948e48
+BoldBlack   = #6c6823
+BoldRed     = #c35359
+BoldGreen   = #18974e
+BoldYellow  = #a88339
+BoldBlue    = #477ca1
+BoldMagenta = #8868b3
+BoldCyan    = #75a738
+BoldWhite   = #faf0a5
+
+# Background & foreground colors
+BackgroundColour = #201602
+ForegroundColour = #948e48
+CursorColour     = #948e48

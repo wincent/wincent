@@ -1,0 +1,27 @@
+# Black Metal (Bathory) theme for Mintty
+# Scheme Author: metalelf0 (https://github.com/metalelf0)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #000000
+Red         = #5f8787
+Green       = #fbcb97
+Yellow      = #e78a53
+Blue        = #888888
+Magenta     = #999999
+Cyan        = #aaaaaa
+White       = #c1c1c1
+BoldBlack   = #333333
+BoldRed     = #5f8787
+BoldGreen   = #fbcb97
+BoldYellow  = #e78a53
+BoldBlue    = #888888
+BoldMagenta = #999999
+BoldCyan    = #aaaaaa
+BoldWhite   = #c1c1c1
+
+# Background & foreground colors
+BackgroundColour = #000000
+ForegroundColour = #c1c1c1
+CursorColour     = #c1c1c1

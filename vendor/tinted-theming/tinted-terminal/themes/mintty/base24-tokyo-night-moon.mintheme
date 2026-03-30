@@ -1,0 +1,27 @@
+# Tokyo Night Moon theme for Mintty
+# Scheme Author: Michaël Ball, based on Tokyo Night by enkia (https://github.com/enkia/tokyo-night-vscode-theme)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #222436
+Red         = #c099ff
+Green       = #c3e88d
+Yellow      = #ffc777
+Blue        = #82aaff
+Magenta     = #fca7ea
+Cyan        = #86e1fc
+White       = #c8d3f5
+BoldBlack   = #444a73
+BoldRed     = #ff757f
+BoldGreen   = #c3e88d
+BoldYellow  = #ffd793
+BoldBlue    = #82aaff
+BoldMagenta = #fca7ea
+BoldCyan    = #86e1fc
+BoldWhite   = #c8d3f5
+
+# Background & foreground colors
+BackgroundColour = #222436
+ForegroundColour = #c8d3f5
+CursorColour     = #c8d3f5

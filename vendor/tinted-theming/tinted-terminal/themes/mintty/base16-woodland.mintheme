@@ -1,0 +1,27 @@
+# Woodland theme for Mintty
+# Scheme Author: Jay Cornwall (https://jcornwall.com)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #231e18
+Red         = #d35c5c
+Green       = #b7ba53
+Yellow      = #e0ac16
+Blue        = #88a4d3
+Magenta     = #bb90e2
+Cyan        = #6eb958
+White       = #cabcb1
+BoldBlack   = #9d8b70
+BoldRed     = #d35c5c
+BoldGreen   = #b7ba53
+BoldYellow  = #e0ac16
+BoldBlue    = #88a4d3
+BoldMagenta = #bb90e2
+BoldCyan    = #6eb958
+BoldWhite   = #e4d4c8
+
+# Background & foreground colors
+BackgroundColour = #231e18
+ForegroundColour = #cabcb1
+CursorColour     = #cabcb1

@@ -1,0 +1,27 @@
+# Digital Rain theme for Mintty
+# Scheme Author: Nathan Byrd (https://github.com/cognitivegears)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #000000
+Red         = #c85a46
+Green       = #64c83c
+Yellow      = #a67a50
+Blue        = #5482af
+Magenta     = #9472b4
+Cyan        = #468c78
+White       = #00ff00
+BoldBlack   = #7c8d7c
+BoldRed     = #c85a46
+BoldGreen   = #64c83c
+BoldYellow  = #a67a50
+BoldBlue    = #5482af
+BoldMagenta = #9472b4
+BoldCyan    = #468c78
+BoldWhite   = #d8e2dc
+
+# Background & foreground colors
+BackgroundColour = #000000
+ForegroundColour = #00ff00
+CursorColour     = #00ff00

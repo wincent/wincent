@@ -1,0 +1,27 @@
+# Hivacruz theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #132537
+Red         = #c94922
+Green       = #ac9739
+Yellow      = #898ea4
+Blue        = #3d8fd1
+Magenta     = #6679cc
+Cyan        = #22a2c9
+White       = #8c92ac
+BoldBlack   = #767d9c
+BoldRed     = #c76b29
+BoldGreen   = #73ad43
+BoldYellow  = #5e6687
+BoldBlue    = #898ea4
+BoldMagenta = #dfe2f1
+BoldCyan    = #9c637a
+BoldWhite   = #f5f7ff
+
+# Background & foreground colors
+BackgroundColour = #132537
+ForegroundColour = #8c92ac
+CursorColour     = #8c92ac

@@ -1,0 +1,27 @@
+# Sleepy Hollow theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #121213
+Red         = #b93934
+Green       = #90773e
+Yellow      = #8085ef
+Blue        = #5e62b4
+Magenta     = #a07c7b
+Cyan        = #8eaea9
+White       = #968684
+BoldBlack   = #665e6c
+BoldRed     = #d9443e
+BoldGreen   = #d6b04e
+BoldYellow  = #f66713
+BoldBlue    = #8085ef
+BoldMagenta = #e1c2ba
+BoldCyan    = #a4dbe7
+BoldWhite   = #d1c7a9
+
+# Background & foreground colors
+BackgroundColour = #121213
+ForegroundColour = #968684
+CursorColour     = #968684

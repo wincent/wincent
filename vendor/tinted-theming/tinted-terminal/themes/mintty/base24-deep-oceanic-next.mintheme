@@ -1,0 +1,27 @@
+# Deep Oceanic Next theme for Mintty
+# Scheme Author: spearkkk (https://github.com/spearkkk)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #001c1f
+Red         = #d3464d
+Green       = #63b784
+Yellow      = #f3b863
+Blue        = #568ccf
+Magenta     = #8b66d6
+Cyan        = #4fb7ae
+White       = #d4e1e8
+BoldBlack   = #004852
+BoldRed     = #ff6670
+BoldGreen   = #72e1a6
+BoldYellow  = #ffe08a
+BoldBlue    = #5caeff
+BoldMagenta = #b788ff
+BoldCyan    = #4de3e3
+BoldWhite   = #f2f7f9
+
+# Background & foreground colors
+BackgroundColour = #001c1f
+ForegroundColour = #d4e1e8
+CursorColour     = #d4e1e8

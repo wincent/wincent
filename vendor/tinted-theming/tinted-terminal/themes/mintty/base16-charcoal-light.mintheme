@@ -1,0 +1,27 @@
+# Charcoal Light theme for Mintty
+# Scheme Author: Mubin Muhammad (https://github.com/mubin6th)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #cabda0
+Red         = #382e1b
+Green       = #110e06
+Yellow      = #110e06
+Blue        = #251e0f
+Magenta     = #382e1b
+Cyan        = #110e06
+White       = #382e1b
+BoldBlack   = #645538
+BoldRed     = #382e1b
+BoldGreen   = #110e06
+BoldYellow  = #110e06
+BoldBlue    = #251e0f
+BoldMagenta = #382e1b
+BoldCyan    = #110e06
+BoldWhite   = #bcad8c
+
+# Background & foreground colors
+BackgroundColour = #cabda0
+ForegroundColour = #382e1b
+CursorColour     = #382e1b

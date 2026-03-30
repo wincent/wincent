@@ -1,0 +1,27 @@
+# Hurtado theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #000000
+Red         = #ff1b00
+Green       = #a5df55
+Yellow      = #89bdff
+Blue        = #486387
+Magenta     = #fc5ef0
+Cyan        = #85e9fe
+White       = #a1a1a1
+BoldBlack   = #4e4e4e
+BoldRed     = #d41c00
+BoldGreen   = #a5df55
+BoldYellow  = #fbe749
+BoldBlue    = #89bdff
+BoldMagenta = #bf00c0
+BoldCyan    = #85e9fe
+BoldWhite   = #dbdbdb
+
+# Background & foreground colors
+BackgroundColour = #000000
+ForegroundColour = #a1a1a1
+CursorColour     = #a1a1a1

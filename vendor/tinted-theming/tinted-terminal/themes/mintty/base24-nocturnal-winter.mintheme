@@ -1,0 +1,27 @@
+# Nocturnal Winter theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #0d0d17
+Red         = #f12d52
+Green       = #08cd7d
+Yellow      = #6095fe
+Blue        = #3081df
+Magenta     = #fe2a6c
+Cyan        = #09c87a
+White       = #dcdcdc
+BoldBlack   = #9e9e9e
+BoldRed     = #f16c85
+BoldGreen   = #0ae78d
+BoldYellow  = #fefb67
+BoldBlue    = #6095fe
+BoldMagenta = #ff78a2
+BoldCyan    = #0ae78d
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #0d0d17
+ForegroundColour = #dcdcdc
+CursorColour     = #dcdcdc

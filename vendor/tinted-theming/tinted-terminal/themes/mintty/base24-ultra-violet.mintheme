@@ -1,0 +1,27 @@
+# Ultra Violet theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #242728
+Red         = #ff0090
+Green       = #b5ff00
+Yellow      = #7febff
+Blue        = #47dffb
+Magenta     = #d630ff
+Cyan        = #0effbb
+White       = #c1c2c2
+BoldBlack   = #818484
+BoldRed     = #fb57b4
+BoldGreen   = #deff8b
+BoldYellow  = #ebdf86
+BoldBlue    = #7febff
+BoldMagenta = #e681ff
+BoldCyan    = #68fcd2
+BoldWhite   = #f9f9f4
+
+# Background & foreground colors
+BackgroundColour = #242728
+ForegroundColour = #c1c2c2
+CursorColour     = #c1c2c2

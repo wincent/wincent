@@ -1,0 +1,27 @@
+# Equilibrium Gray Light theme for Mintty
+# Scheme Author: Carlo Abelli
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #f1f1f1
+Red         = #d02023
+Green       = #637200
+Yellow      = #9d6f00
+Blue        = #0073b5
+Magenta     = #4e66b6
+Cyan        = #007a72
+White       = #474747
+BoldBlack   = #777777
+BoldRed     = #d02023
+BoldGreen   = #637200
+BoldYellow  = #9d6f00
+BoldBlue    = #0073b5
+BoldMagenta = #4e66b6
+BoldCyan    = #007a72
+BoldWhite   = #1b1b1b
+
+# Background & foreground colors
+BackgroundColour = #f1f1f1
+ForegroundColour = #474747
+CursorColour     = #474747

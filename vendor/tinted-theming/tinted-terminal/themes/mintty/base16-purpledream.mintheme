@@ -1,0 +1,27 @@
+# Purpledream theme for Mintty
+# Scheme Author: malet
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #100510
+Red         = #ff1d0d
+Green       = #14cc64
+Yellow      = #f000a0
+Blue        = #00a0f0
+Magenta     = #b000d0
+Cyan        = #0075b0
+White       = #ddd0dd
+BoldBlack   = #605060
+BoldRed     = #ff1d0d
+BoldGreen   = #14cc64
+BoldYellow  = #f000a0
+BoldBlue    = #00a0f0
+BoldMagenta = #b000d0
+BoldCyan    = #0075b0
+BoldWhite   = #fff0ff
+
+# Background & foreground colors
+BackgroundColour = #100510
+ForegroundColour = #ddd0dd
+CursorColour     = #ddd0dd

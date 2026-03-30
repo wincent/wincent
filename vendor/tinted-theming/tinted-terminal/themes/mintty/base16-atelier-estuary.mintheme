@@ -1,0 +1,27 @@
+# Atelier Estuary theme for Mintty
+# Scheme Author: Bram de Haan (http://atelierbramdehaan.nl)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #22221b
+Red         = #ba6236
+Green       = #7d9726
+Yellow      = #a5980d
+Blue        = #36a166
+Magenta     = #5f9182
+Cyan        = #5b9d48
+White       = #929181
+BoldBlack   = #6c6b5a
+BoldRed     = #ba6236
+BoldGreen   = #7d9726
+BoldYellow  = #a5980d
+BoldBlue    = #36a166
+BoldMagenta = #5f9182
+BoldCyan    = #5b9d48
+BoldWhite   = #f4f3ec
+
+# Background & foreground colors
+BackgroundColour = #22221b
+ForegroundColour = #929181
+CursorColour     = #929181

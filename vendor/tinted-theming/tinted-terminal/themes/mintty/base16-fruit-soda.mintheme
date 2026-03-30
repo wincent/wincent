@@ -1,0 +1,27 @@
+# Fruit Soda theme for Mintty
+# Scheme Author: jozip
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #f1ecf1
+Red         = #fe3e31
+Green       = #47f74c
+Yellow      = #f7e203
+Blue        = #2931df
+Magenta     = #611fce
+Cyan        = #0f9cfd
+White       = #515151
+BoldBlack   = #b5b4b6
+BoldRed     = #fe3e31
+BoldGreen   = #47f74c
+BoldYellow  = #f7e203
+BoldBlue    = #2931df
+BoldMagenta = #611fce
+BoldCyan    = #0f9cfd
+BoldWhite   = #2d2c2c
+
+# Background & foreground colors
+BackgroundColour = #f1ecf1
+ForegroundColour = #515151
+CursorColour     = #515151

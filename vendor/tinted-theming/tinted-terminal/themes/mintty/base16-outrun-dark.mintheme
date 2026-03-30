@@ -1,0 +1,27 @@
+# Outrun Dark theme for Mintty
+# Scheme Author: Hugo Delahousse (http://github.com/hugodelahousse/)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #00002a
+Red         = #ff4242
+Green       = #59f176
+Yellow      = #f3e877
+Blue        = #66b0ff
+Magenta     = #f10596
+Cyan        = #0ef0f0
+White       = #d0d0fa
+BoldBlack   = #50507a
+BoldRed     = #ff4242
+BoldGreen   = #59f176
+BoldYellow  = #f3e877
+BoldBlue    = #66b0ff
+BoldMagenta = #f10596
+BoldCyan    = #0ef0f0
+BoldWhite   = #f5f5ff
+
+# Background & foreground colors
+BackgroundColour = #00002a
+ForegroundColour = #d0d0fa
+CursorColour     = #d0d0fa

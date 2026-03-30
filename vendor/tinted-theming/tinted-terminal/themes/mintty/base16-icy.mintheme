@@ -1,0 +1,27 @@
+# Icy Dark theme for Mintty
+# Scheme Author: icyphox (https://icyphox.ga)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #021012
+Red         = #16c1d9
+Green       = #4dd0e1
+Yellow      = #80deea
+Blue        = #00bcd4
+Magenta     = #00acc1
+Cyan        = #26c6da
+White       = #095b67
+BoldBlack   = #052e34
+BoldRed     = #16c1d9
+BoldGreen   = #4dd0e1
+BoldYellow  = #80deea
+BoldBlue    = #00bcd4
+BoldMagenta = #00acc1
+BoldCyan    = #26c6da
+BoldWhite   = #109cb0
+
+# Background & foreground colors
+BackgroundColour = #021012
+ForegroundColour = #095b67
+CursorColour     = #095b67

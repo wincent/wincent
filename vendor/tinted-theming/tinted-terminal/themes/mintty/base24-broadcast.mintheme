@@ -1,0 +1,27 @@
+# Broadcast theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #2b2b2b
+Red         = #da4939
+Green       = #519f50
+Yellow      = #9fcef0
+Blue        = #6d9cbe
+Magenta     = #d0d0ff
+Cyan        = #6e9cbe
+White       = #cbcbcb
+BoldBlack   = #656565
+BoldRed     = #ff7b6b
+BoldGreen   = #83d182
+BoldYellow  = #ffff7c
+BoldBlue    = #9fcef0
+BoldMagenta = #ffffff
+BoldCyan    = #a0cef0
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #2b2b2b
+ForegroundColour = #cbcbcb
+CursorColour     = #cbcbcb

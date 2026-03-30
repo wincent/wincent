@@ -1,0 +1,27 @@
+# Violet Light theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #fcf4dc
+Red         = #c94c22
+Green       = #85981c
+Yellow      = #2075c7
+Blue        = #2e8bce
+Magenta     = #d13a82
+Cyan        = #32a198
+White       = #afaea9
+BoldBlack   = #686a6a
+BoldRed     = #bd3612
+BoldGreen   = #728903
+BoldYellow  = #a57704
+BoldBlue    = #2075c7
+BoldMagenta = #c61b6e
+BoldCyan    = #259185
+BoldWhite   = #c8c5bd
+
+# Background & foreground colors
+BackgroundColour = #fcf4dc
+ForegroundColour = #afaea9
+CursorColour     = #afaea9

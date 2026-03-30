@@ -1,0 +1,27 @@
+# Blueish theme for Mintty
+# Scheme Author: Ben Mayoras
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #182430
+Red         = #4ce587
+Green       = #c3e88d
+Yellow      = #f6cd5c
+Blue        = #82aaff
+Magenta     = #ff84dd
+Cyan        = #5fd1ff
+White       = #c8e1f8
+BoldBlack   = #616d78
+BoldRed     = #4ce587
+BoldGreen   = #c3e88d
+BoldYellow  = #f6cd5c
+BoldBlue    = #82aaff
+BoldMagenta = #ff84dd
+BoldCyan    = #5fd1ff
+BoldWhite   = #8f98a0
+
+# Background & foreground colors
+BackgroundColour = #182430
+ForegroundColour = #c8e1f8
+CursorColour     = #c8e1f8

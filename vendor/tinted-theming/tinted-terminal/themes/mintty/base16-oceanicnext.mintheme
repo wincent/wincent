@@ -1,0 +1,27 @@
+# OceanicNext theme for Mintty
+# Scheme Author: https://github.com/voronianski/oceanic-next-color-scheme
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1b2b34
+Red         = #ec5f67
+Green       = #99c794
+Yellow      = #fac863
+Blue        = #6699cc
+Magenta     = #c594c5
+Cyan        = #5fb3b3
+White       = #c0c5ce
+BoldBlack   = #65737e
+BoldRed     = #ec5f67
+BoldGreen   = #99c794
+BoldYellow  = #fac863
+BoldBlue    = #6699cc
+BoldMagenta = #c594c5
+BoldCyan    = #5fb3b3
+BoldWhite   = #d8dee9
+
+# Background & foreground colors
+BackgroundColour = #1b2b34
+ForegroundColour = #c0c5ce
+CursorColour     = #c0c5ce

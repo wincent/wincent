@@ -1,0 +1,27 @@
+# Royal theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #100814
+Red         = #90274b
+Green       = #23801c
+Yellow      = #8fb9f9
+Blue        = #6480af
+Magenta     = #664d96
+Cyan        = #8aaabd
+White       = #49425a
+BoldBlack   = #393446
+BoldRed     = #d4346c
+BoldGreen   = #2cd845
+BoldYellow  = #fde83a
+BoldBlue    = #8fb9f9
+BoldMagenta = #a479e2
+BoldCyan    = #abd3eb
+BoldWhite   = #9d8bbd
+
+# Background & foreground colors
+BackgroundColour = #100814
+ForegroundColour = #49425a
+CursorColour     = #49425a

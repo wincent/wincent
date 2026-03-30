@@ -1,0 +1,27 @@
+# Mellow Purple theme for Mintty
+# Scheme Author: gidsi
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1e0528
+Red         = #00d9e9
+Green       = #05cb0d
+Yellow      = #955ae7
+Blue        = #550068
+Magenta     = #8991bb
+Cyan        = #b900b1
+White       = #ffeeff
+BoldBlack   = #320f55
+BoldRed     = #00d9e9
+BoldGreen   = #05cb0d
+BoldYellow  = #955ae7
+BoldBlue    = #550068
+BoldMagenta = #8991bb
+BoldCyan    = #b900b1
+BoldWhite   = #f8c0ff
+
+# Background & foreground colors
+BackgroundColour = #1e0528
+ForegroundColour = #ffeeff
+CursorColour     = #ffeeff

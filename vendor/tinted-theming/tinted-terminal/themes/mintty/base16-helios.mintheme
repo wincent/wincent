@@ -1,0 +1,27 @@
+# Helios theme for Mintty
+# Scheme Author: Alex Meyer (https://github.com/reyemxela)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1d2021
+Red         = #d72638
+Green       = #88b92d
+Yellow      = #f19d1a
+Blue        = #1e8bac
+Magenta     = #be4264
+Cyan        = #1ba595
+White       = #d5d5d5
+BoldBlack   = #6f7579
+BoldRed     = #d72638
+BoldGreen   = #88b92d
+BoldYellow  = #f19d1a
+BoldBlue    = #1e8bac
+BoldMagenta = #be4264
+BoldCyan    = #1ba595
+BoldWhite   = #e5e5e5
+
+# Background & foreground colors
+BackgroundColour = #1d2021
+ForegroundColour = #d5d5d5
+CursorColour     = #d5d5d5

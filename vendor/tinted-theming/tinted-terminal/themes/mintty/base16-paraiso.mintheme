@@ -1,0 +1,27 @@
+# Paraiso theme for Mintty
+# Scheme Author: Jan T. Sott
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #2f1e2e
+Red         = #ef6155
+Green       = #48b685
+Yellow      = #fec418
+Blue        = #06b6ef
+Magenta     = #815ba4
+Cyan        = #5bc4bf
+White       = #a39e9b
+BoldBlack   = #776e71
+BoldRed     = #ef6155
+BoldGreen   = #48b685
+BoldYellow  = #fec418
+BoldBlue    = #06b6ef
+BoldMagenta = #815ba4
+BoldCyan    = #5bc4bf
+BoldWhite   = #e7e9db
+
+# Background & foreground colors
+BackgroundColour = #2f1e2e
+ForegroundColour = #a39e9b
+CursorColour     = #a39e9b

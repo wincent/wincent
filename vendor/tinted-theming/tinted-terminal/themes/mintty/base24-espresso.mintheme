@@ -1,0 +1,27 @@
+# Espresso theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #262626
+Red         = #d25151
+Green       = #a5c261
+Yellow      = #8ab7d9
+Blue        = #6c99bb
+Magenta     = #d197d9
+Cyan        = #bed6ff
+White       = #c7c7c5
+BoldBlack   = #797979
+BoldRed     = #f00c0c
+BoldGreen   = #c2e075
+BoldYellow  = #e1e38b
+BoldBlue    = #8ab7d9
+BoldMagenta = #efb5f7
+BoldCyan    = #dcf3ff
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #262626
+ForegroundColour = #c7c7c5
+CursorColour     = #c7c7c5

@@ -1,0 +1,27 @@
+# Oceanic Material theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1c262b
+Red         = #ee2a29
+Green       = #3fa33f
+Yellow      = #53a4f3
+Blue        = #1d80ef
+Magenta     = #8800a0
+Cyan        = #16aec9
+White       = #989898
+BoldBlack   = #818181
+BoldRed     = #dc5b60
+BoldGreen   = #70be71
+BoldYellow  = #fef063
+BoldBlue    = #53a4f3
+BoldMagenta = #a94dbb
+BoldCyan    = #42c6d9
+BoldWhite   = #fffefe
+
+# Background & foreground colors
+BackgroundColour = #1c262b
+ForegroundColour = #989898
+CursorColour     = #989898

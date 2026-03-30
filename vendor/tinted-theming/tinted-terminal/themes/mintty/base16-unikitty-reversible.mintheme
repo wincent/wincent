@@ -1,0 +1,27 @@
+# Unikitty Reversible theme for Mintty
+# Scheme Author: Josh W Lewis (@joshwlewis)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #2e2a31
+Red         = #d8137f
+Green       = #17ad98
+Yellow      = #dc8a0e
+Blue        = #7864fa
+Magenta     = #b33ce8
+Cyan        = #149bda
+White       = #c3c2c4
+BoldBlack   = #878589
+BoldRed     = #d8137f
+BoldGreen   = #17ad98
+BoldYellow  = #dc8a0e
+BoldBlue    = #7864fa
+BoldMagenta = #b33ce8
+BoldCyan    = #149bda
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #2e2a31
+ForegroundColour = #c3c2c4
+CursorColour     = #c3c2c4

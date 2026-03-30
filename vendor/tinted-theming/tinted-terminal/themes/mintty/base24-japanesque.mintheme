@@ -1,0 +1,27 @@
+# Japanesque theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1d1d1d
+Red         = #ce3e60
+Green       = #7bb75b
+Yellow      = #135879
+Blue        = #4c99d3
+Magenta     = #a57fc4
+Cyan        = #389aac
+White       = #d0d2ce
+BoldBlack   = #80827f
+BoldRed     = #d18ea6
+BoldGreen   = #767e2b
+BoldYellow  = #77592e
+BoldBlue    = #135879
+BoldMagenta = #5f4190
+BoldCyan    = #76bbca
+BoldWhite   = #b1b5ae
+
+# Background & foreground colors
+BackgroundColour = #1d1d1d
+ForegroundColour = #d0d2ce
+CursorColour     = #d0d2ce

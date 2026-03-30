@@ -1,0 +1,27 @@
+# Ocean theme for Mintty
+# Scheme Author: Chris Kempson (http://chriskempson.com)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #2b303b
+Red         = #bf616a
+Green       = #a3be8c
+Yellow      = #ebcb8b
+Blue        = #8fa1b3
+Magenta     = #b48ead
+Cyan        = #96b5b4
+White       = #c0c5ce
+BoldBlack   = #65737e
+BoldRed     = #bf616a
+BoldGreen   = #a3be8c
+BoldYellow  = #ebcb8b
+BoldBlue    = #8fa1b3
+BoldMagenta = #b48ead
+BoldCyan    = #96b5b4
+BoldWhite   = #eff1f5
+
+# Background & foreground colors
+BackgroundColour = #2b303b
+ForegroundColour = #c0c5ce
+CursorColour     = #c0c5ce

@@ -1,0 +1,27 @@
+# Cupertino theme for Mintty
+# Scheme Author: Defman21
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #ffffff
+Red         = #c41a15
+Green       = #007400
+Yellow      = #826b28
+Blue        = #0000ff
+Magenta     = #a90d91
+Cyan        = #318495
+White       = #404040
+BoldBlack   = #808080
+BoldRed     = #c41a15
+BoldGreen   = #007400
+BoldYellow  = #826b28
+BoldBlue    = #0000ff
+BoldMagenta = #a90d91
+BoldCyan    = #318495
+BoldWhite   = #5e5e5e
+
+# Background & foreground colors
+BackgroundColour = #ffffff
+ForegroundColour = #404040
+CursorColour     = #404040

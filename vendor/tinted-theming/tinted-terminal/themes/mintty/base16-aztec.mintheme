@@ -1,0 +1,27 @@
+# Aztec theme for Mintty
+# Scheme Author: TheNeverMan (github.com/TheNeverMan)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #101600
+Red         = #ee2e00
+Green       = #63d932
+Yellow      = #eebb00
+Blue        = #5b4a9f
+Magenta     = #883e9f
+Cyan        = #3d94a5
+White       = #ffda51
+BoldBlack   = #2e2e05
+BoldRed     = #ee2e00
+BoldGreen   = #63d932
+BoldYellow  = #eebb00
+BoldBlue    = #5b4a9f
+BoldMagenta = #883e9f
+BoldCyan    = #3d94a5
+BoldWhite   = #ffeba0
+
+# Background & foreground colors
+BackgroundColour = #101600
+ForegroundColour = #ffda51
+CursorColour     = #ffda51

@@ -1,0 +1,27 @@
+# Nebula theme for Mintty
+# Scheme Author: Gabriel Fontes (https://github.com/Misterio77)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #22273b
+Red         = #777abc
+Green       = #6562a8
+Yellow      = #4f9062
+Blue        = #4d6bb6
+Magenta     = #716cae
+Cyan        = #226f68
+White       = #a4a6a9
+BoldBlack   = #6e6f72
+BoldRed     = #777abc
+BoldGreen   = #6562a8
+BoldYellow  = #4f9062
+BoldBlue    = #4d6bb6
+BoldMagenta = #716cae
+BoldCyan    = #226f68
+BoldWhite   = #8dbdaa
+
+# Background & foreground colors
+BackgroundColour = #22273b
+ForegroundColour = #a4a6a9
+CursorColour     = #a4a6a9

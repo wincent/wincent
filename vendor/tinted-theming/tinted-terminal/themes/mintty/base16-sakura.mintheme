@@ -1,0 +1,27 @@
+# Sakura theme for Mintty
+# Scheme Author: Misterio77 (http://github.com/Misterio77)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #feedf3
+Red         = #df2d52
+Green       = #2e916d
+Yellow      = #c29461
+Blue        = #006e93
+Magenta     = #5e2180
+Cyan        = #1d8991
+White       = #564448
+BoldBlack   = #755f64
+BoldRed     = #df2d52
+BoldGreen   = #2e916d
+BoldYellow  = #c29461
+BoldBlue    = #006e93
+BoldMagenta = #5e2180
+BoldCyan    = #1d8991
+BoldWhite   = #33292b
+
+# Background & foreground colors
+BackgroundColour = #feedf3
+ForegroundColour = #564448
+CursorColour     = #564448

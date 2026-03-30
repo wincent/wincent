@@ -1,0 +1,27 @@
+# Windows High Contrast theme for Mintty
+# Scheme Author: Fergus Collins (https://github.com/ferguscollins)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #000000
+Red         = #fc5454
+Green       = #54fc54
+Yellow      = #fcfc54
+Blue        = #5454fc
+Magenta     = #fc54fc
+Cyan        = #54fcfc
+White       = #c0c0c0
+BoldBlack   = #545454
+BoldRed     = #fc5454
+BoldGreen   = #54fc54
+BoldYellow  = #fcfc54
+BoldBlue    = #5454fc
+BoldMagenta = #fc54fc
+BoldCyan    = #54fcfc
+BoldWhite   = #fcfcfc
+
+# Background & foreground colors
+BackgroundColour = #000000
+ForegroundColour = #c0c0c0
+CursorColour     = #c0c0c0

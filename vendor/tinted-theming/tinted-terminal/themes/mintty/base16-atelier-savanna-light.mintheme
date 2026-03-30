@@ -1,0 +1,27 @@
+# Atelier Savanna Light theme for Mintty
+# Scheme Author: Bram de Haan (http://atelierbramdehaan.nl)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #ecf4ee
+Red         = #b16139
+Green       = #489963
+Yellow      = #a07e3b
+Blue        = #478c90
+Magenta     = #55859b
+Cyan        = #1c9aa0
+White       = #526057
+BoldBlack   = #78877d
+BoldRed     = #b16139
+BoldGreen   = #489963
+BoldYellow  = #a07e3b
+BoldBlue    = #478c90
+BoldMagenta = #55859b
+BoldCyan    = #1c9aa0
+BoldWhite   = #171c19
+
+# Background & foreground colors
+BackgroundColour = #ecf4ee
+ForegroundColour = #526057
+CursorColour     = #526057

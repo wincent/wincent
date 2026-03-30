@@ -1,0 +1,27 @@
+# Grayscale Light theme for Mintty
+# Scheme Author: Alexandre Gavioli (https://github.com/Alexx2/)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #f7f7f7
+Red         = #7c7c7c
+Green       = #8e8e8e
+Yellow      = #a0a0a0
+Blue        = #686868
+Magenta     = #747474
+Cyan        = #868686
+White       = #464646
+BoldBlack   = #ababab
+BoldRed     = #7c7c7c
+BoldGreen   = #8e8e8e
+BoldYellow  = #a0a0a0
+BoldBlue    = #686868
+BoldMagenta = #747474
+BoldCyan    = #868686
+BoldWhite   = #101010
+
+# Background & foreground colors
+BackgroundColour = #f7f7f7
+ForegroundColour = #464646
+CursorColour     = #464646

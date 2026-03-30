@@ -1,0 +1,27 @@
+# Flatland theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1c1e20
+Red         = #f18238
+Green       = #9ed264
+Yellow      = #61b8d0
+Blue        = #4f96be
+Magenta     = #695abb
+Cyan        = #d53864
+White       = #c5c6c4
+BoldBlack   = #545552
+BoldRed     = #d12a24
+BoldGreen   = #a7d32c
+BoldYellow  = #ff8948
+BoldBlue    = #61b8d0
+BoldMagenta = #695abb
+BoldCyan    = #d53864
+BoldWhite   = #fefffe
+
+# Background & foreground colors
+BackgroundColour = #1c1e20
+ForegroundColour = #c5c6c4
+CursorColour     = #c5c6c4

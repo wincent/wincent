@@ -1,0 +1,27 @@
+# Apathy theme for Mintty
+# Scheme Author: Jannik Siebert (https://github.com/janniks)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #031a16
+Red         = #3e9688
+Green       = #883e96
+Yellow      = #3e4c96
+Blue        = #96883e
+Magenta     = #4c963e
+Cyan        = #963e4c
+White       = #81b5ac
+BoldBlack   = #2b685e
+BoldRed     = #3e9688
+BoldGreen   = #883e96
+BoldYellow  = #3e4c96
+BoldBlue    = #96883e
+BoldMagenta = #4c963e
+BoldCyan    = #963e4c
+BoldWhite   = #d2e7e4
+
+# Background & foreground colors
+BackgroundColour = #031a16
+ForegroundColour = #81b5ac
+CursorColour     = #81b5ac

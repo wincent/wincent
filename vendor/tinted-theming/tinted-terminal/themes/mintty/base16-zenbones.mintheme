@@ -1,0 +1,27 @@
+# Zenbones theme for Mintty
+# Scheme Author: mcchrish
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #191919
+Red         = #3d3839
+Green       = #d68c67
+Yellow      = #8bae68
+Blue        = #cf86c1
+Magenta     = #65b8c1
+Cyan        = #61abda
+White       = #b279a7
+BoldBlack   = #b77e64
+BoldRed     = #3d3839
+BoldGreen   = #d68c67
+BoldYellow  = #8bae68
+BoldBlue    = #cf86c1
+BoldMagenta = #65b8c1
+BoldCyan    = #61abda
+BoldWhite   = #bbbbbb
+
+# Background & foreground colors
+BackgroundColour = #191919
+ForegroundColour = #b279a7
+CursorColour     = #b279a7

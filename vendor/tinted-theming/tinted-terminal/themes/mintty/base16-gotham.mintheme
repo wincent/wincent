@@ -1,0 +1,27 @@
+# Gotham theme for Mintty
+# Scheme Author: Andrea Leopardi (arranged by Brett Jones)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #0c1014
+Red         = #c23127
+Green       = #33859e
+Yellow      = #edb443
+Blue        = #195466
+Magenta     = #888ca6
+Cyan        = #2aa889
+White       = #599cab
+BoldBlack   = #0a3749
+BoldRed     = #c23127
+BoldGreen   = #33859e
+BoldYellow  = #edb443
+BoldBlue    = #195466
+BoldMagenta = #888ca6
+BoldCyan    = #2aa889
+BoldWhite   = #d3ebe9
+
+# Background & foreground colors
+BackgroundColour = #0c1014
+ForegroundColour = #599cab
+CursorColour     = #599cab

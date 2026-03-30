@@ -1,0 +1,27 @@
+# Synth Midnight Terminal Dark theme for Mintty
+# Scheme Author: Michaël Ball (http://github.com/michael-ball/)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #050608
+Red         = #b53b50
+Green       = #06ea61
+Yellow      = #c9d364
+Blue        = #03aeff
+Magenta     = #ea5ce2
+Cyan        = #42fff9
+White       = #c1c3c4
+BoldBlack   = #474849
+BoldRed     = #b53b50
+BoldGreen   = #06ea61
+BoldYellow  = #c9d364
+BoldBlue    = #03aeff
+BoldMagenta = #ea5ce2
+BoldCyan    = #42fff9
+BoldWhite   = #dddfe0
+
+# Background & foreground colors
+BackgroundColour = #050608
+ForegroundColour = #c1c3c4
+CursorColour     = #c1c3c4

@@ -1,0 +1,27 @@
+# Penumbra Dark Contrast Plus theme for Mintty
+# Scheme Author: Zachary Weiss (https://github.com/zacharyweiss)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #181b1f
+Red         = #df7f78
+Green       = #50b584
+Yellow      = #9ca748
+Blue        = #61a3e6
+Magenta     = #a48fe1
+Cyan        = #00b3c2
+White       = #cecece
+BoldBlack   = #636363
+BoldRed     = #df7f78
+BoldGreen   = #50b584
+BoldYellow  = #9ca748
+BoldBlue    = #61a3e6
+BoldMagenta = #a48fe1
+BoldCyan    = #00b3c2
+BoldWhite   = #fffdfb
+
+# Background & foreground colors
+BackgroundColour = #181b1f
+ForegroundColour = #cecece
+CursorColour     = #cecece

@@ -1,0 +1,27 @@
+# Spaceduck theme for Mintty
+# Scheme Author: Guillermo Rodriguez (https://github.com/pineapplegiant), packaged by Gabriel Fontes (https://github.com/Misterio77)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #16172d
+Red         = #e33400
+Green       = #5ccc96
+Yellow      = #f2ce00
+Blue        = #7a5ccc
+Magenta     = #b3a1e6
+Cyan        = #00a3cc
+White       = #ecf0c1
+BoldBlack   = #686f9a
+BoldRed     = #e33400
+BoldGreen   = #5ccc96
+BoldYellow  = #f2ce00
+BoldBlue    = #7a5ccc
+BoldMagenta = #b3a1e6
+BoldCyan    = #00a3cc
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #16172d
+ForegroundColour = #ecf0c1
+CursorColour     = #ecf0c1

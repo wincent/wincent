@@ -1,0 +1,27 @@
+# Harmonic16 Light theme for Mintty
+# Scheme Author: Jannik Siebert (https://github.com/janniks)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #f7f9fb
+Red         = #bf8b56
+Green       = #56bf8b
+Yellow      = #8bbf56
+Blue        = #8b56bf
+Magenta     = #bf568b
+Cyan        = #568bbf
+White       = #405c79
+BoldBlack   = #aabcce
+BoldRed     = #bf8b56
+BoldGreen   = #56bf8b
+BoldYellow  = #8bbf56
+BoldBlue    = #8b56bf
+BoldMagenta = #bf568b
+BoldCyan    = #568bbf
+BoldWhite   = #0b1c2c
+
+# Background & foreground colors
+BackgroundColour = #f7f9fb
+ForegroundColour = #405c79
+CursorColour     = #405c79

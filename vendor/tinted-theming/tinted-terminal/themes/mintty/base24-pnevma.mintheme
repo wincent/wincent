@@ -1,0 +1,27 @@
+# Pnevma theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1c1c1c
+Red         = #a36666
+Green       = #90a57d
+Yellow      = #a1bdce
+Blue        = #7fa5bd
+Magenta     = #c79ec4
+Cyan        = #8adbb4
+White       = #aeaead
+BoldBlack   = #6b6a67
+BoldRed     = #d78787
+BoldGreen   = #afbea2
+BoldYellow  = #e4c9af
+BoldBlue    = #a1bdce
+BoldMagenta = #d7beda
+BoldCyan    = #b1e7dd
+BoldWhite   = #efefef
+
+# Background & foreground colors
+BackgroundColour = #1c1c1c
+ForegroundColour = #aeaead
+CursorColour     = #aeaead

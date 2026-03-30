@@ -1,0 +1,27 @@
+# Wombat theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #171717
+Red         = #ff605a
+Green       = #b1e869
+Yellow      = #a5c7ff
+Blue        = #5da9f6
+Magenta     = #e86aff
+Cyan        = #82fff6
+White       = #b2afa6
+BoldBlack   = #5c5b58
+BoldRed     = #f58b7f
+BoldGreen   = #dcf88f
+BoldYellow  = #eee5b2
+BoldBlue    = #a5c7ff
+BoldMagenta = #ddaaff
+BoldCyan    = #b6fff9
+BoldWhite   = #fefffe
+
+# Background & foreground colors
+BackgroundColour = #171717
+ForegroundColour = #b2afa6
+CursorColour     = #b2afa6

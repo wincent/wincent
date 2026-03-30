@@ -1,0 +1,27 @@
+# Dark Violet theme for Mintty
+# Scheme Author: ruler501 (https://github.com/ruler501/base16-darkviolet)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #000000
+Red         = #a82ee6
+Green       = #4595e6
+Yellow      = #f29df2
+Blue        = #4136d9
+Magenta     = #7e5ce6
+Cyan        = #40dfff
+White       = #b08ae6
+BoldBlack   = #593380
+BoldRed     = #a82ee6
+BoldGreen   = #4595e6
+BoldYellow  = #f29df2
+BoldBlue    = #4136d9
+BoldMagenta = #7e5ce6
+BoldCyan    = #40dfff
+BoldWhite   = #a366ff
+
+# Background & foreground colors
+BackgroundColour = #000000
+ForegroundColour = #b08ae6
+CursorColour     = #b08ae6

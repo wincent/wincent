@@ -1,0 +1,27 @@
+# Qualia theme for Mintty
+# Scheme Author: isaacwhanson
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #101010
+Red         = #efa6a2
+Green       = #80c990
+Yellow      = #e6a3dc
+Blue        = #50cacd
+Magenta     = #e0af85
+Cyan        = #c8c874
+White       = #c0c0c0
+BoldBlack   = #454545
+BoldRed     = #efa6a2
+BoldGreen   = #80c990
+BoldYellow  = #e6a3dc
+BoldBlue    = #50cacd
+BoldMagenta = #e0af85
+BoldCyan    = #c8c874
+BoldWhite   = #454545
+
+# Background & foreground colors
+BackgroundColour = #101010
+ForegroundColour = #c0c0c0
+CursorColour     = #c0c0c0

@@ -1,0 +1,27 @@
+# Floraverse theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #0e0c15
+Red         = #64002c
+Green       = #5d731a
+Yellow      = #40a4cf
+Blue        = #1d6da1
+Magenta     = #b7077e
+Cyan        = #42a38c
+White       = #c3af9d
+BoldBlack   = #634e67
+BoldRed     = #d02063
+BoldGreen   = #b4ce59
+BoldYellow  = #fac357
+BoldBlue    = #40a4cf
+BoldMagenta = #f12aae
+BoldCyan    = #62caa8
+BoldWhite   = #fff5db
+
+# Background & foreground colors
+BackgroundColour = #0e0c15
+ForegroundColour = #c3af9d
+CursorColour     = #c3af9d

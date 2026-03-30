@@ -1,0 +1,27 @@
+# Atelier Dune Light theme for Mintty
+# Scheme Author: Bram de Haan (http://atelierbramdehaan.nl)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #fefbec
+Red         = #d73737
+Green       = #60ac39
+Yellow      = #ae9513
+Blue        = #6684e1
+Magenta     = #b854d4
+Cyan        = #1fad83
+White       = #6e6b5e
+BoldBlack   = #999580
+BoldRed     = #d73737
+BoldGreen   = #60ac39
+BoldYellow  = #ae9513
+BoldBlue    = #6684e1
+BoldMagenta = #b854d4
+BoldCyan    = #1fad83
+BoldWhite   = #20201d
+
+# Background & foreground colors
+BackgroundColour = #fefbec
+ForegroundColour = #6e6b5e
+CursorColour     = #6e6b5e

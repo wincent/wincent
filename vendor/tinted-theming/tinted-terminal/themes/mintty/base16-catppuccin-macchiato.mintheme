@@ -1,0 +1,27 @@
+# Catppuccin Macchiato theme for Mintty
+# Scheme Author: https://github.com/catppuccin/catppuccin
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #24273a
+Red         = #ed8796
+Green       = #a6da95
+Yellow      = #eed49f
+Blue        = #8aadf4
+Magenta     = #c6a0f6
+Cyan        = #8bd5ca
+White       = #cad3f5
+BoldBlack   = #494d64
+BoldRed     = #ed8796
+BoldGreen   = #a6da95
+BoldYellow  = #eed49f
+BoldBlue    = #8aadf4
+BoldMagenta = #c6a0f6
+BoldCyan    = #8bd5ca
+BoldWhite   = #b7bdf8
+
+# Background & foreground colors
+BackgroundColour = #24273a
+ForegroundColour = #cad3f5
+CursorColour     = #cad3f5

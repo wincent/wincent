@@ -1,0 +1,27 @@
+# UwUnicorn theme for Mintty
+# Scheme Author: Fernando Marques (https://github.com/RakkiUwU) and Gabriel Fontes (https://github.com/Misterio77)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #241b26
+Red         = #877bb6
+Green       = #c965bf
+Yellow      = #a84a73
+Blue        = #6a9eb5
+Magenta     = #78a38f
+Cyan        = #9c5fce
+White       = #eed5d9
+BoldBlack   = #6c3cb2
+BoldRed     = #877bb6
+BoldGreen   = #c965bf
+BoldYellow  = #a84a73
+BoldBlue    = #6a9eb5
+BoldMagenta = #78a38f
+BoldCyan    = #9c5fce
+BoldWhite   = #e4ccd0
+
+# Background & foreground colors
+BackgroundColour = #241b26
+ForegroundColour = #eed5d9
+CursorColour     = #eed5d9

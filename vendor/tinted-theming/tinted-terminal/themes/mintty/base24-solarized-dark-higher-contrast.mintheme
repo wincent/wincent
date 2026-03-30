@@ -1,0 +1,27 @@
+# Solarized Dark Higher Contrast theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #001e26
+Red         = #d01b24
+Green       = #6bbe6c
+Yellow      = #178dc7
+Blue        = #2075c7
+Magenta     = #c61b6e
+Cyan        = #259185
+White       = #aec2ba
+BoldBlack   = #3a8298
+BoldRed     = #f4153b
+BoldGreen   = #50ee84
+BoldYellow  = #b17e28
+BoldBlue    = #178dc7
+BoldMagenta = #e14d8e
+BoldCyan    = #00b29e
+BoldWhite   = #fcf4dc
+
+# Background & foreground colors
+BackgroundColour = #001e26
+ForegroundColour = #aec2ba
+CursorColour     = #aec2ba

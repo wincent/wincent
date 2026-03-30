@@ -1,0 +1,27 @@
+# Treehouse theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #191919
+Red         = #b1270e
+Green       = #44a900
+Yellow      = #85cfec
+Blue        = #578499
+Magenta     = #96363c
+Cyan        = #b2591d
+White       = #695d47
+BoldBlack   = #4f4330
+BoldRed     = #ed5c20
+BoldGreen   = #55f237
+BoldYellow  = #f1b731
+BoldBlue    = #85cfec
+BoldMagenta = #e04b5a
+BoldCyan    = #f07d14
+BoldWhite   = #ffc800
+
+# Background & foreground colors
+BackgroundColour = #191919
+ForegroundColour = #695d47
+CursorColour     = #695d47

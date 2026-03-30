@@ -1,0 +1,27 @@
+# Material Lighter theme for Mintty
+# Scheme Author: Nate Peterson
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #fafafa
+Red         = #ff5370
+Green       = #91b859
+Yellow      = #ffb62c
+Blue        = #6182b8
+Magenta     = #7c4dff
+Cyan        = #39adb5
+White       = #80cbc4
+BoldBlack   = #ccd7da
+BoldRed     = #ff5370
+BoldGreen   = #91b859
+BoldYellow  = #ffb62c
+BoldBlue    = #6182b8
+BoldMagenta = #7c4dff
+BoldCyan    = #39adb5
+BoldWhite   = #000000
+
+# Background & foreground colors
+BackgroundColour = #fafafa
+ForegroundColour = #80cbc4
+CursorColour     = #80cbc4

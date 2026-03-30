@@ -1,0 +1,27 @@
+# Atelier Forest Light theme for Mintty
+# Scheme Author: Bram de Haan (http://atelierbramdehaan.nl)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #f1efee
+Red         = #f22c40
+Green       = #7b9726
+Yellow      = #c38418
+Blue        = #407ee7
+Magenta     = #6666ea
+Cyan        = #3d97b8
+White       = #68615e
+BoldBlack   = #9c9491
+BoldRed     = #f22c40
+BoldGreen   = #7b9726
+BoldYellow  = #c38418
+BoldBlue    = #407ee7
+BoldMagenta = #6666ea
+BoldCyan    = #3d97b8
+BoldWhite   = #1b1918
+
+# Background & foreground colors
+BackgroundColour = #f1efee
+ForegroundColour = #68615e
+CursorColour     = #68615e

@@ -1,0 +1,27 @@
+# Everforest Dark Hard theme for Mintty
+# Scheme Author: Sainnhe Park (https://github.com/sainnhe)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #272e33
+Red         = #e67e80
+Green       = #a7c080
+Yellow      = #dbbc7f
+Blue        = #7fbbb3
+Magenta     = #d699b6
+Cyan        = #83c092
+White       = #d3c6aa
+BoldBlack   = #859289
+BoldRed     = #e67e80
+BoldGreen   = #a7c080
+BoldYellow  = #dbbc7f
+BoldBlue    = #7fbbb3
+BoldMagenta = #d699b6
+BoldCyan    = #83c092
+BoldWhite   = #fffbef
+
+# Background & foreground colors
+BackgroundColour = #272e33
+ForegroundColour = #d3c6aa
+CursorColour     = #d3c6aa

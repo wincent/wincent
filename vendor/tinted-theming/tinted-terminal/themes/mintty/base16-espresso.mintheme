@@ -1,0 +1,27 @@
+# Espresso theme for Mintty
+# Scheme Author: Unknown. Maintained by Alex Mirrington (https://github.com/alexmirrington)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #2d2d2d
+Red         = #d25252
+Green       = #a5c261
+Yellow      = #ffc66d
+Blue        = #6c99bb
+Magenta     = #d197d9
+Cyan        = #bed6ff
+White       = #cccccc
+BoldBlack   = #777777
+BoldRed     = #d25252
+BoldGreen   = #a5c261
+BoldYellow  = #ffc66d
+BoldBlue    = #6c99bb
+BoldMagenta = #d197d9
+BoldCyan    = #bed6ff
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #2d2d2d
+ForegroundColour = #cccccc
+CursorColour     = #cccccc

@@ -1,0 +1,27 @@
+# Classic Light theme for Mintty
+# Scheme Author: Jason Heeris (http://heeris.id.au)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #f5f5f5
+Red         = #ac4142
+Green       = #90a959
+Yellow      = #f4bf75
+Blue        = #6a9fb5
+Magenta     = #aa759f
+Cyan        = #75b5aa
+White       = #303030
+BoldBlack   = #b0b0b0
+BoldRed     = #ac4142
+BoldGreen   = #90a959
+BoldYellow  = #f4bf75
+BoldBlue    = #6a9fb5
+BoldMagenta = #aa759f
+BoldCyan    = #75b5aa
+BoldWhite   = #151515
+
+# Background & foreground colors
+BackgroundColour = #f5f5f5
+ForegroundColour = #303030
+CursorColour     = #303030

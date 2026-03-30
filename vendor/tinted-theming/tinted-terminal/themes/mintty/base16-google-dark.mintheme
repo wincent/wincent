@@ -1,0 +1,27 @@
+# Google Dark theme for Mintty
+# Scheme Author: Seth Wright (http://sethawright.com)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1d1f21
+Red         = #cc342b
+Green       = #198844
+Yellow      = #fba922
+Blue        = #3971ed
+Magenta     = #a36ac7
+Cyan        = #3971ed
+White       = #c5c8c6
+BoldBlack   = #969896
+BoldRed     = #cc342b
+BoldGreen   = #198844
+BoldYellow  = #fba922
+BoldBlue    = #3971ed
+BoldMagenta = #a36ac7
+BoldCyan    = #3971ed
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #1d1f21
+ForegroundColour = #c5c8c6
+CursorColour     = #c5c8c6

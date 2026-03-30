@@ -1,0 +1,27 @@
+# Breeze theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #31363b
+Red         = #ed1515
+Green       = #11d116
+Yellow      = #3daee9
+Blue        = #1d99f3
+Magenta     = #9b59b6
+Cyan        = #1abc9c
+White       = #d3d7d8
+BoldBlack   = #9ba5a6
+BoldRed     = #c0392b
+BoldGreen   = #1cdc9a
+BoldYellow  = #fdbc4b
+BoldBlue    = #3daee9
+BoldMagenta = #8e44ad
+BoldCyan    = #16a085
+BoldWhite   = #fcfcfc
+
+# Background & foreground colors
+BackgroundColour = #31363b
+ForegroundColour = #d3d7d8
+CursorColour     = #d3d7d8

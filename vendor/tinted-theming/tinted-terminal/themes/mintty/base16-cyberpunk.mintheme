@@ -1,0 +1,27 @@
+# Cyberpunk theme for Mintty
+# Scheme Author: benjujo
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #000000
+Red         = #ff0000
+Green       = #61ce3c
+Yellow      = #ffff00
+Blue        = #4c83ff
+Magenta     = #ff1493
+Cyan        = #93e0e3
+White       = #dcdccc
+BoldBlack   = #4f4f4f
+BoldRed     = #ff0000
+BoldGreen   = #61ce3c
+BoldYellow  = #ffff00
+BoldBlue    = #4c83ff
+BoldMagenta = #ff1493
+BoldCyan    = #93e0e3
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #000000
+ForegroundColour = #dcdccc
+CursorColour     = #dcdccc

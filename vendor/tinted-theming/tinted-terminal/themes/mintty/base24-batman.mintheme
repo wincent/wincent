@@ -1,0 +1,27 @@
+# Batman theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1b1d1e
+Red         = #e6db43
+Green       = #c8be46
+Yellow      = #909495
+Blue        = #737074
+Magenta     = #737271
+Cyan        = #615f5e
+White       = #a7a8a3
+BoldBlack   = #6d6f6e
+BoldRed     = #fff68d
+BoldGreen   = #fff27c
+BoldYellow  = #feed6c
+BoldBlue    = #909495
+BoldMagenta = #9a999d
+BoldCyan    = #a2a2a5
+BoldWhite   = #dadad5
+
+# Background & foreground colors
+BackgroundColour = #1b1d1e
+ForegroundColour = #a7a8a3
+CursorColour     = #a7a8a3

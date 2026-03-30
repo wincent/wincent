@@ -1,0 +1,27 @@
+# Square theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1a1a1a
+Red         = #e9897c
+Green       = #b6377d
+Yellow      = #b6defb
+Blue        = #a9cdeb
+Magenta     = #75507b
+Cyan        = #c9caec
+White       = #bababa
+BoldBlack   = #4b4b4b
+BoldRed     = #f99286
+BoldGreen   = #c3f786
+BoldYellow  = #fcfbcc
+BoldBlue    = #b6defb
+BoldMagenta = #ad7fa8
+BoldCyan    = #d7d9fc
+BoldWhite   = #e2e2e2
+
+# Background & foreground colors
+BackgroundColour = #1a1a1a
+ForegroundColour = #bababa
+CursorColour     = #bababa

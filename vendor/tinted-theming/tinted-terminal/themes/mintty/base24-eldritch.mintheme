@@ -1,0 +1,27 @@
+# Eldritch theme for Mintty
+# Scheme Author: https://github.com/eldritch-theme
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #212337
+Red         = #f16c75
+Green       = #37f499
+Yellow      = #f1fc79
+Blue        = #39ddfd
+Magenta     = #a48cf2
+Cyan        = #04d1f9
+White       = #ebfafa
+BoldBlack   = #7081d0
+BoldRed     = #f89a9d
+BoldGreen   = #6fffc1
+BoldYellow  = #f9e9a1
+BoldBlue    = #7ae9ff
+BoldMagenta = #d4b3ff
+BoldCyan    = #6ce9ff
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #212337
+ForegroundColour = #ebfafa
+CursorColour     = #ebfafa

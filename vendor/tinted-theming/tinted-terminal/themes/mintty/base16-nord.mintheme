@@ -1,0 +1,27 @@
+# Nord theme for Mintty
+# Scheme Author: arcticicestudio
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #2e3440
+Red         = #bf616a
+Green       = #a3be8c
+Yellow      = #ebcb8b
+Blue        = #81a1c1
+Magenta     = #b48ead
+Cyan        = #88c0d0
+White       = #e5e9f0
+BoldBlack   = #4c566a
+BoldRed     = #bf616a
+BoldGreen   = #a3be8c
+BoldYellow  = #ebcb8b
+BoldBlue    = #81a1c1
+BoldMagenta = #b48ead
+BoldCyan    = #88c0d0
+BoldWhite   = #8fbcbb
+
+# Background & foreground colors
+BackgroundColour = #2e3440
+ForegroundColour = #e5e9f0
+CursorColour     = #e5e9f0

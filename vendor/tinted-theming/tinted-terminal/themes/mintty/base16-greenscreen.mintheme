@@ -1,0 +1,27 @@
+# Green Screen theme for Mintty
+# Scheme Author: Chris Kempson (http://chriskempson.com)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #001100
+Red         = #007700
+Green       = #00bb00
+Yellow      = #007700
+Blue        = #009900
+Magenta     = #00bb00
+Cyan        = #005500
+White       = #00bb00
+BoldBlack   = #007700
+BoldRed     = #007700
+BoldGreen   = #00bb00
+BoldYellow  = #007700
+BoldBlue    = #009900
+BoldMagenta = #00bb00
+BoldCyan    = #005500
+BoldWhite   = #00ff00
+
+# Background & foreground colors
+BackgroundColour = #001100
+ForegroundColour = #00bb00
+CursorColour     = #00bb00

@@ -1,0 +1,27 @@
+# Circus theme for Mintty
+# Scheme Author: Stephan Boyer (https://github.com/stepchowfun) and Esther Wang (https://github.com/ewang12)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #191919
+Red         = #dc657d
+Green       = #84b97c
+Yellow      = #c3ba63
+Blue        = #639ee4
+Magenta     = #b888e2
+Cyan        = #4bb1a7
+White       = #a7a7a7
+BoldBlack   = #5f5a60
+BoldRed     = #dc657d
+BoldGreen   = #84b97c
+BoldYellow  = #c3ba63
+BoldBlue    = #639ee4
+BoldMagenta = #b888e2
+BoldCyan    = #4bb1a7
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #191919
+ForegroundColour = #a7a7a7
+CursorColour     = #a7a7a7

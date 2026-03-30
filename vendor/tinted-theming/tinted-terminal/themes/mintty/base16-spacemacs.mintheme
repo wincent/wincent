@@ -1,0 +1,27 @@
+# Spacemacs theme for Mintty
+# Scheme Author: Nasser Alshammari (https://github.com/nashamri/spacemacs-theme)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1f2022
+Red         = #f2241f
+Green       = #67b11d
+Yellow      = #b1951d
+Blue        = #4f97d7
+Magenta     = #a31db1
+Cyan        = #2d9574
+White       = #a3a3a3
+BoldBlack   = #585858
+BoldRed     = #f2241f
+BoldGreen   = #67b11d
+BoldYellow  = #b1951d
+BoldBlue    = #4f97d7
+BoldMagenta = #a31db1
+BoldCyan    = #2d9574
+BoldWhite   = #f8f8f8
+
+# Background & foreground colors
+BackgroundColour = #1f2022
+ForegroundColour = #a3a3a3
+CursorColour     = #a3a3a3

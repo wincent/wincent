@@ -1,0 +1,27 @@
+# Kibble theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #0e100a
+Red         = #c70031
+Green       = #29cf13
+Yellow      = #97a4f7
+Blue        = #3449d1
+Magenta     = #8400ff
+Cyan        = #0798ab
+White       = #c0b3c0
+BoldBlack   = #7c777c
+BoldRed     = #f01578
+BoldGreen   = #6ce05c
+BoldYellow  = #f3f79e
+BoldBlue    = #97a4f7
+BoldMagenta = #c495f0
+BoldCyan    = #68f2e0
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #0e100a
+ForegroundColour = #c0b3c0
+CursorColour     = #c0b3c0

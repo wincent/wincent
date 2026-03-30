@@ -1,0 +1,27 @@
+# Flexoki Light theme for Mintty
+# Scheme Author: Steph Ango (https://github.com/kepano/flexoki)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #fffcf0
+Red         = #af3029
+Green       = #66800b
+Yellow      = #ad8301
+Blue        = #205ea6
+Magenta     = #5e409d
+Cyan        = #24837b
+White       = #403e3c
+BoldBlack   = #cecdc3
+BoldRed     = #af3029
+BoldGreen   = #66800b
+BoldYellow  = #ad8301
+BoldBlue    = #205ea6
+BoldMagenta = #5e409d
+BoldCyan    = #24837b
+BoldWhite   = #100f0f
+
+# Background & foreground colors
+BackgroundColour = #fffcf0
+ForegroundColour = #403e3c
+CursorColour     = #403e3c

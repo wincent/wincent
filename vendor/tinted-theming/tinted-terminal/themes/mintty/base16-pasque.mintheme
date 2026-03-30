@@ -1,0 +1,27 @@
+# Pasque theme for Mintty
+# Scheme Author: Gabriel Fontes (https://github.com/Misterio77)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #271c3a
+Red         = #a92258
+Green       = #c6914b
+Yellow      = #804ead
+Blue        = #8e7dc6
+Magenta     = #953b9d
+Cyan        = #7263aa
+White       = #dedcdf
+BoldBlack   = #5d5766
+BoldRed     = #a92258
+BoldGreen   = #c6914b
+BoldYellow  = #804ead
+BoldBlue    = #8e7dc6
+BoldMagenta = #953b9d
+BoldCyan    = #7263aa
+BoldWhite   = #bbaadd
+
+# Background & foreground colors
+BackgroundColour = #271c3a
+ForegroundColour = #dedcdf
+CursorColour     = #dedcdf

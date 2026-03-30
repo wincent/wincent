@@ -1,0 +1,27 @@
+# Silk Light theme for Mintty
+# Scheme Author: Gabriel Fontes (https://github.com/Misterio77)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #e9f1ef
+Red         = #cf432e
+Green       = #6ca38c
+Yellow      = #cfad25
+Blue        = #39aac9
+Magenta     = #6e6582
+Cyan        = #329ca2
+White       = #385156
+BoldBlack   = #5c787b
+BoldRed     = #cf432e
+BoldGreen   = #6ca38c
+BoldYellow  = #cfad25
+BoldBlue    = #39aac9
+BoldMagenta = #6e6582
+BoldCyan    = #329ca2
+BoldWhite   = #d2faff
+
+# Background & foreground colors
+BackgroundColour = #e9f1ef
+ForegroundColour = #385156
+CursorColour     = #385156

@@ -1,0 +1,27 @@
+# Jet Brains Darcula theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #202020
+Red         = #fa5355
+Green       = #126e00
+Yellow      = #6d9df1
+Blue        = #4581eb
+Magenta     = #fa54ff
+Cyan        = #33c2c1
+White       = #979797
+BoldBlack   = #6b6b6b
+BoldRed     = #fb7172
+BoldGreen   = #67ff4f
+BoldYellow  = #ffff00
+BoldBlue    = #6d9df1
+BoldMagenta = #fb82ff
+BoldCyan    = #60d3d1
+BoldWhite   = #eeeeee
+
+# Background & foreground colors
+BackgroundColour = #202020
+ForegroundColour = #979797
+CursorColour     = #979797

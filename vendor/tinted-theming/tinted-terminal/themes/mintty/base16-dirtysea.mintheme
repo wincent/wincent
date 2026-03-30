@@ -1,0 +1,27 @@
+# dirtysea theme for Mintty
+# Scheme Author: Kahlil (Kal) Hodgson
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #e0e0e0
+Red         = #840000
+Green       = #730073
+Yellow      = #755b00
+Blue        = #007300
+Magenta     = #000090
+Cyan        = #755b00
+White       = #000000
+BoldBlack   = #707070
+BoldRed     = #840000
+BoldGreen   = #730073
+BoldYellow  = #755b00
+BoldBlue    = #007300
+BoldMagenta = #000090
+BoldCyan    = #755b00
+BoldWhite   = #c4d9c4
+
+# Background & foreground colors
+BackgroundColour = #e0e0e0
+ForegroundColour = #000000
+CursorColour     = #000000

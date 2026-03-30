@@ -1,0 +1,27 @@
+# Google Light theme for Mintty
+# Scheme Author: Seth Wright (http://sethawright.com)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #ffffff
+Red         = #cc342b
+Green       = #198844
+Yellow      = #fba922
+Blue        = #3971ed
+Magenta     = #a36ac7
+Cyan        = #3971ed
+White       = #373b41
+BoldBlack   = #b4b7b4
+BoldRed     = #cc342b
+BoldGreen   = #198844
+BoldYellow  = #fba922
+BoldBlue    = #3971ed
+BoldMagenta = #a36ac7
+BoldCyan    = #3971ed
+BoldWhite   = #1d1f21
+
+# Background & foreground colors
+BackgroundColour = #ffffff
+ForegroundColour = #373b41
+CursorColour     = #373b41

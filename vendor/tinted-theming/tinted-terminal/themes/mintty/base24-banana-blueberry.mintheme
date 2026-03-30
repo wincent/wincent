@@ -1,0 +1,27 @@
+# Banana Blueberry theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #191322
+Red         = #ff6a7e
+Green       = #00bc9b
+Yellow      = #91fff3
+Blue        = #22e8df
+Magenta     = #dc3969
+Cyan        = #55b6c1
+White       = #c6c9cd
+BoldBlack   = #727985
+BoldRed     = #fd9ea1
+BoldGreen   = #97c378
+BoldYellow  = #f9e46a
+BoldBlue    = #91fff3
+BoldMagenta = #da70d5
+BoldCyan    = #bcf2fe
+BoldWhite   = #feffff
+
+# Background & foreground colors
+BackgroundColour = #191322
+ForegroundColour = #c6c9cd
+CursorColour     = #c6c9cd

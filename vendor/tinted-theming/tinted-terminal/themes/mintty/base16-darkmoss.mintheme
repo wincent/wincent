@@ -1,0 +1,27 @@
+# darkmoss theme for Mintty
+# Scheme Author: Gabriel Avanzi (https://github.com/avanzzzi)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #171e1f
+Red         = #ff4658
+Green       = #499180
+Yellow      = #fdb11f
+Blue        = #498091
+Magenta     = #9bc0c8
+Cyan        = #66d9ef
+White       = #c7c7a5
+BoldBlack   = #555e5f
+BoldRed     = #ff4658
+BoldGreen   = #499180
+BoldYellow  = #fdb11f
+BoldBlue    = #498091
+BoldMagenta = #9bc0c8
+BoldCyan    = #66d9ef
+BoldWhite   = #e1eaef
+
+# Background & foreground colors
+BackgroundColour = #171e1f
+ForegroundColour = #c7c7a5
+CursorColour     = #c7c7a5

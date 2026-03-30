@@ -1,0 +1,27 @@
+# Rosé Pine Moon theme for Mintty
+# Scheme Author: Emilia Dunfelt &lt;edun@dunfelt.se&gt;
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #232136
+Red         = #eb6f92
+Green       = #3e8fb0
+Yellow      = #ea9a97
+Blue        = #c4a7e7
+Magenta     = #f6c177
+Cyan        = #9ccfd8
+White       = #e0def4
+BoldBlack   = #6e6a86
+BoldRed     = #eb6f92
+BoldGreen   = #3e8fb0
+BoldYellow  = #ea9a97
+BoldBlue    = #c4a7e7
+BoldMagenta = #f6c177
+BoldCyan    = #9ccfd8
+BoldWhite   = #56526e
+
+# Background & foreground colors
+BackgroundColour = #232136
+ForegroundColour = #e0def4
+CursorColour     = #e0def4

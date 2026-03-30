@@ -1,0 +1,27 @@
+# Rosé Pine Dawn theme for Mintty
+# Scheme Author: Emilia Dunfelt &lt;edun@dunfelt.se&gt;
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #faf4ed
+Red         = #b4637a
+Green       = #286983
+Yellow      = #d7827e
+Blue        = #907aa9
+Magenta     = #ea9d34
+Cyan        = #56949f
+White       = #575279
+BoldBlack   = #9893a5
+BoldRed     = #b4637a
+BoldGreen   = #286983
+BoldYellow  = #d7827e
+BoldBlue    = #907aa9
+BoldMagenta = #ea9d34
+BoldCyan    = #56949f
+BoldWhite   = #cecacd
+
+# Background & foreground colors
+BackgroundColour = #faf4ed
+ForegroundColour = #575279
+CursorColour     = #575279

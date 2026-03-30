@@ -1,0 +1,27 @@
+# Kanagawa theme for Mintty
+# Scheme Author: Tommaso Laurenzi (https://github.com/rebelot)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1f1f28
+Red         = #c34043
+Green       = #76946a
+Yellow      = #c0a36e
+Blue        = #7e9cd8
+Magenta     = #957fb8
+Cyan        = #6a9589
+White       = #dcd7ba
+BoldBlack   = #54546d
+BoldRed     = #c34043
+BoldGreen   = #76946a
+BoldYellow  = #c0a36e
+BoldBlue    = #7e9cd8
+BoldMagenta = #957fb8
+BoldCyan    = #6a9589
+BoldWhite   = #717c7c
+
+# Background & foreground colors
+BackgroundColour = #1f1f28
+ForegroundColour = #dcd7ba
+CursorColour     = #dcd7ba

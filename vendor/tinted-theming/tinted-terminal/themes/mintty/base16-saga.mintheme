@@ -1,0 +1,27 @@
+# SAGA theme for Mintty
+# Scheme Author: https://github.com/SAGAtheme/SAGA
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #05080a
+Red         = #ffd4e9
+Green       = #f7ddff
+Yellow      = #fbebc8
+Blue        = #c9fff7
+Magenta     = #dcc3f9
+Cyan        = #c5edc1
+White       = #dce2f7
+BoldBlack   = #141f27
+BoldRed     = #ffd4e9
+BoldGreen   = #f7ddff
+BoldYellow  = #fbebc8
+BoldBlue    = #c9fff7
+BoldMagenta = #dcc3f9
+BoldCyan    = #c5edc1
+BoldWhite   = #ccd3fe
+
+# Background & foreground colors
+BackgroundColour = #05080a
+ForegroundColour = #dce2f7
+CursorColour     = #dce2f7

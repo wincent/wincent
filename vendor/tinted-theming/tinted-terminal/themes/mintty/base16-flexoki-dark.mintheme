@@ -1,0 +1,27 @@
+# Flexoki Dark theme for Mintty
+# Scheme Author: Steph Ango (https://github.com/kepano/flexoki)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #100f0f
+Red         = #d14d41
+Green       = #879a39
+Yellow      = #d0a215
+Blue        = #4385be
+Magenta     = #8b7ec8
+Cyan        = #3aa99f
+White       = #cecdc3
+BoldBlack   = #575653
+BoldRed     = #d14d41
+BoldGreen   = #879a39
+BoldYellow  = #d0a215
+BoldBlue    = #4385be
+BoldMagenta = #8b7ec8
+BoldCyan    = #3aa99f
+BoldWhite   = #fffcf0
+
+# Background & foreground colors
+BackgroundColour = #100f0f
+ForegroundColour = #cecdc3
+CursorColour     = #cecdc3

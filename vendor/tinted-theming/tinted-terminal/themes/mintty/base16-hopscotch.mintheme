@@ -1,0 +1,27 @@
+# Hopscotch theme for Mintty
+# Scheme Author: Jan T. Sott
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #322931
+Red         = #dd464c
+Green       = #8fc13e
+Yellow      = #fdcc59
+Blue        = #1290bf
+Magenta     = #c85e7c
+Cyan        = #149b93
+White       = #b9b5b8
+BoldBlack   = #797379
+BoldRed     = #dd464c
+BoldGreen   = #8fc13e
+BoldYellow  = #fdcc59
+BoldBlue    = #1290bf
+BoldMagenta = #c85e7c
+BoldCyan    = #149b93
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #322931
+ForegroundColour = #b9b5b8
+CursorColour     = #b9b5b8

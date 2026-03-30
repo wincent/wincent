@@ -1,0 +1,27 @@
+# Porple theme for Mintty
+# Scheme Author: Niek den Breeje (https://github.com/AuditeMarlow)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #292c36
+Red         = #f84547
+Green       = #95c76f
+Yellow      = #efa16b
+Blue        = #8485ce
+Magenta     = #b74989
+Cyan        = #64878f
+White       = #d8d8d8
+BoldBlack   = #65568a
+BoldRed     = #f84547
+BoldGreen   = #95c76f
+BoldYellow  = #efa16b
+BoldBlue    = #8485ce
+BoldMagenta = #b74989
+BoldCyan    = #64878f
+BoldWhite   = #f8f8f8
+
+# Background & foreground colors
+BackgroundColour = #292c36
+ForegroundColour = #d8d8d8
+CursorColour     = #d8d8d8

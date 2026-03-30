@@ -1,0 +1,27 @@
+# Gruvbox Light theme for Mintty
+# Scheme Author: Tinted Theming (https://github.com/tinted-theming), morhetz (https://github.com/morhetz/gruvbox)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #fbf1c7
+Red         = #cc241d
+Green       = #98971a
+Yellow      = #d79921
+Blue        = #458588
+Magenta     = #b16286
+Cyan        = #689d6a
+White       = #3c3836
+BoldBlack   = #bdae93
+BoldRed     = #cc241d
+BoldGreen   = #98971a
+BoldYellow  = #d79921
+BoldBlue    = #458588
+BoldMagenta = #b16286
+BoldCyan    = #689d6a
+BoldWhite   = #1d2021
+
+# Background & foreground colors
+BackgroundColour = #fbf1c7
+ForegroundColour = #3c3836
+CursorColour     = #3c3836

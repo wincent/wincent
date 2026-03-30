@@ -1,0 +1,27 @@
+# Precious Dark Fifteen theme for Mintty
+# Scheme Author: 4lex4 &lt;4lex49@zoho.com&gt;
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #23262b
+Red         = #ff8782
+Green       = #95b659
+Yellow      = #cfa546
+Blue        = #66b0ef
+Magenta     = #b799ff
+Cyan        = #42bda7
+White       = #bab9b6
+BoldBlack   = #898989
+BoldRed     = #ff8782
+BoldGreen   = #95b659
+BoldYellow  = #cfa546
+BoldBlue    = #66b0ef
+BoldMagenta = #b799ff
+BoldCyan    = #42bda7
+BoldWhite   = #bab9b6
+
+# Background & foreground colors
+BackgroundColour = #23262b
+ForegroundColour = #bab9b6
+CursorColour     = #bab9b6

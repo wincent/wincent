@@ -1,0 +1,27 @@
+# Unikitty theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #ff7ad3
+Red         = #a80f20
+Green       = #bafc8b
+Yellow      = #eedf4b
+Blue        = #145fcd
+Magenta     = #ff36a2
+Cyan        = #6bd0bc
+White       = #b9b1b8
+BoldBlack   = #696769
+BoldRed     = #d81329
+BoldGreen   = #d2ffaf
+BoldYellow  = #ffee50
+BoldBlue    = #0074ea
+BoldMagenta = #fdd5e5
+BoldCyan    = #79ebd5
+BoldWhite   = #fff2fd
+
+# Background & foreground colors
+BackgroundColour = #ff7ad3
+ForegroundColour = #b9b1b8
+CursorColour     = #b9b1b8

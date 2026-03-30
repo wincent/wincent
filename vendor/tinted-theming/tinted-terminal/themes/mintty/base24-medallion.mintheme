@@ -1,0 +1,27 @@
+# Medallion theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1d1808
+Red         = #b54c00
+Green       = #7c8a16
+Yellow      = #abb8ff
+Blue        = #606baf
+Magenta     = #8b5990
+Cyan        = #906b25
+White       = #aea578
+BoldBlack   = #786d38
+BoldRed     = #ff9148
+BoldGreen   = #b1c93a
+BoldYellow  = #ffe449
+BoldBlue    = #abb8ff
+BoldMagenta = #fe9fff
+BoldCyan    = #ffbb51
+BoldWhite   = #fed597
+
+# Background & foreground colors
+BackgroundColour = #1d1808
+ForegroundColour = #aea578
+CursorColour     = #aea578

@@ -1,0 +1,27 @@
+# Birds Of Paradise theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #2a1e1d
+Red         = #be2d26
+Green       = #6ba08a
+Yellow      = #b8d3ed
+Blue        = #5a86ac
+Magenta     = #ab80a6
+Cyan        = #74a5ac
+White       = #cdbe9b
+BoldBlack   = #ab8664
+BoldRed     = #e84526
+BoldGreen   = #94d7ba
+BoldYellow  = #d0d04f
+BoldBlue    = #b8d3ed
+BoldMagenta = #d09dca
+BoldCyan    = #92ced6
+BoldWhite   = #fff9d4
+
+# Background & foreground colors
+BackgroundColour = #2a1e1d
+ForegroundColour = #cdbe9b
+CursorColour     = #cdbe9b

@@ -1,0 +1,27 @@
+# Kanagawa Dragon theme for Mintty
+# Scheme Author: Stefan Weigl-Bosker (https://github.com/sweiglbosker), Tommaso Laurenzi (https://github.com/rebelot/kanagawa.nvim)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #181616
+Red         = #c4746e
+Green       = #8a9a7b
+Yellow      = #c4b28a
+Blue        = #8ba4b0
+Magenta     = #a292a3
+Cyan        = #8ea4a2
+White       = #c5c9c5
+BoldBlack   = #625e5a
+BoldRed     = #e46876
+BoldGreen   = #87a987
+BoldYellow  = #e6c384
+BoldBlue    = #7fb4ca
+BoldMagenta = #938aa9
+BoldCyan    = #7aa89f
+BoldWhite   = #c5c9c5
+
+# Background & foreground colors
+BackgroundColour = #181616
+ForegroundColour = #c5c9c5
+CursorColour     = #c5c9c5

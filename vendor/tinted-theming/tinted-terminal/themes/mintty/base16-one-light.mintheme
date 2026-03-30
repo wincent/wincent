@@ -1,0 +1,27 @@
+# One Light theme for Mintty
+# Scheme Author: Daniel Pfeifer (http://github.com/purpleKarrot)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #fafafa
+Red         = #ca1243
+Green       = #50a14f
+Yellow      = #c18401
+Blue        = #4078f2
+Magenta     = #a626a4
+Cyan        = #0184bc
+White       = #383a42
+BoldBlack   = #a0a1a7
+BoldRed     = #ca1243
+BoldGreen   = #50a14f
+BoldYellow  = #c18401
+BoldBlue    = #4078f2
+BoldMagenta = #a626a4
+BoldCyan    = #0184bc
+BoldWhite   = #090a0b
+
+# Background & foreground colors
+BackgroundColour = #fafafa
+ForegroundColour = #383a42
+CursorColour     = #383a42

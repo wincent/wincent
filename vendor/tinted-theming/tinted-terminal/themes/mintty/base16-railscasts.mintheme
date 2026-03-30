@@ -1,0 +1,27 @@
+# Railscasts theme for Mintty
+# Scheme Author: Ryan Bates (http://railscasts.com)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #2b2b2b
+Red         = #da4939
+Green       = #a5c261
+Yellow      = #ffc66d
+Blue        = #6d9cbe
+Magenta     = #b6b3eb
+Cyan        = #519f50
+White       = #e6e1dc
+BoldBlack   = #5a647e
+BoldRed     = #da4939
+BoldGreen   = #a5c261
+BoldYellow  = #ffc66d
+BoldBlue    = #6d9cbe
+BoldMagenta = #b6b3eb
+BoldCyan    = #519f50
+BoldWhite   = #f9f7f3
+
+# Background & foreground colors
+BackgroundColour = #2b2b2b
+ForegroundColour = #e6e1dc
+CursorColour     = #e6e1dc

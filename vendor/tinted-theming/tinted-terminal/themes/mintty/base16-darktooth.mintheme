@@ -1,0 +1,27 @@
+# Darktooth theme for Mintty
+# Scheme Author: Jason Milkins (https://github.com/jasonm23)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1d2021
+Red         = #fb543f
+Green       = #95c085
+Yellow      = #fac03b
+Blue        = #0d6678
+Magenta     = #8f4673
+Cyan        = #8ba59b
+White       = #a89984
+BoldBlack   = #665c54
+BoldRed     = #fb543f
+BoldGreen   = #95c085
+BoldYellow  = #fac03b
+BoldBlue    = #0d6678
+BoldMagenta = #8f4673
+BoldCyan    = #8ba59b
+BoldWhite   = #fdf4c1
+
+# Background & foreground colors
+BackgroundColour = #1d2021
+ForegroundColour = #a89984
+CursorColour     = #a89984

@@ -1,0 +1,27 @@
+# Red Sands theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #79241e
+Red         = #ff3f00
+Green       = #00bb00
+Yellow      = #0071ae
+Blue        = #0071ff
+Magenta     = #bb00bb
+Cyan        = #00bbbb
+White       = #a1a1a1
+BoldBlack   = #6e6e6e
+BoldRed     = #bb0000
+BoldGreen   = #00bb00
+BoldYellow  = #e7b000
+BoldBlue    = #0071ae
+BoldMagenta = #ff55ff
+BoldCyan    = #55ffff
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #79241e
+ForegroundColour = #a1a1a1
+CursorColour     = #a1a1a1

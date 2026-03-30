@@ -1,0 +1,27 @@
+# Spacedust theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #0a1e24
+Red         = #e35a00
+Green       = #5cab96
+Yellow      = #67a0cd
+Blue        = #0e548b
+Magenta     = #e35a00
+Cyan        = #06afc7
+White       = #cdc7a6
+BoldBlack   = #897558
+BoldRed     = #ff8a39
+BoldGreen   = #adcab8
+BoldYellow  = #ffc777
+BoldBlue    = #67a0cd
+BoldMagenta = #ff8a39
+BoldCyan    = #83a6b3
+BoldWhite   = #fefff0
+
+# Background & foreground colors
+BackgroundColour = #0a1e24
+ForegroundColour = #cdc7a6
+CursorColour     = #cdc7a6

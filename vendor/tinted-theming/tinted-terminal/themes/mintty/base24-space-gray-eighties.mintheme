@@ -1,0 +1,27 @@
+# Space Gray Eighties theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #212121
+Red         = #ec5f67
+Green       = #80a763
+Yellow      = #4d83d0
+Blue        = #5485c0
+Magenta     = #bf83c0
+Cyan        = #57c2c0
+White       = #c7c6c2
+BoldBlack   = #7b7a79
+BoldRed     = #ff6973
+BoldGreen   = #93d393
+BoldYellow  = #ffd156
+BoldBlue    = #4d83d0
+BoldMagenta = #ff55ff
+BoldCyan    = #83e8e4
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #212121
+ForegroundColour = #c7c6c2
+CursorColour     = #c7c6c2

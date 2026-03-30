@@ -1,0 +1,27 @@
+# Hardcore theme for Mintty
+# Scheme Author: Chris Caller
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #212121
+Red         = #f92672
+Green       = #a6e22e
+Yellow      = #e6db74
+Blue        = #66d9ef
+Magenta     = #9e6ffe
+Cyan        = #708387
+White       = #cdcdcd
+BoldBlack   = #4a4a4a
+BoldRed     = #f92672
+BoldGreen   = #a6e22e
+BoldYellow  = #e6db74
+BoldBlue    = #66d9ef
+BoldMagenta = #9e6ffe
+BoldCyan    = #708387
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #212121
+ForegroundColour = #cdcdcd
+CursorColour     = #cdcdcd

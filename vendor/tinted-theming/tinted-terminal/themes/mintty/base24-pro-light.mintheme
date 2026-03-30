@@ -1,0 +1,27 @@
+# Pro Light theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #feffff
+Red         = #e4492b
+Green       = #50d048
+Yellow      = #c5c340
+Blue        = #3a75ff
+Magenta     = #ec65e7
+Cyan        = #4ed1dd
+White       = #4f4f4f
+BoldBlack   = #cccccc
+BoldRed     = #ff6640
+BoldGreen   = #61ee56
+BoldYellow  = #f2f055
+BoldBlue    = #0081ff
+BoldMagenta = #ff7dfe
+BoldCyan    = #60f6f8
+BoldWhite   = #000000
+
+# Background & foreground colors
+BackgroundColour = #feffff
+ForegroundColour = #4f4f4f
+CursorColour     = #4f4f4f

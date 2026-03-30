@@ -1,0 +1,27 @@
+# Cobalt Neon theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #142838
+Red         = #ff2320
+Green       = #3aa5ff
+Yellow      = #3c7dd2
+Blue        = #8ff586
+Magenta     = #781aa0
+Cyan        = #8ff586
+White       = #cc72a6
+BoldBlack   = #eeca92
+BoldRed     = #d4312e
+BoldGreen   = #8ff586
+BoldYellow  = #e9f06d
+BoldBlue    = #3c7dd2
+BoldMagenta = #8230a7
+BoldCyan    = #6cbc67
+BoldWhite   = #8ff586
+
+# Background & foreground colors
+BackgroundColour = #142838
+ForegroundColour = #cc72a6
+CursorColour     = #cc72a6

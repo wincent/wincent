@@ -1,0 +1,27 @@
+# Penumbra Dark theme for Mintty
+# Scheme Author: Zachary Weiss (https://github.com/zacharyweiss)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #24272b
+Red         = #ca736c
+Green       = #47a477
+Yellow      = #8d9741
+Blue        = #5794d0
+Magenta     = #9481cc
+Cyan        = #00a2af
+White       = #bebebe
+BoldBlack   = #636363
+BoldRed     = #ca736c
+BoldGreen   = #47a477
+BoldYellow  = #8d9741
+BoldBlue    = #5794d0
+BoldMagenta = #9481cc
+BoldCyan    = #00a2af
+BoldWhite   = #fffdfb
+
+# Background & foreground colors
+BackgroundColour = #24272b
+ForegroundColour = #bebebe
+CursorColour     = #bebebe

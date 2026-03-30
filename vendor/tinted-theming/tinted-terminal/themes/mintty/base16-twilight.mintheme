@@ -1,0 +1,27 @@
+# Twilight theme for Mintty
+# Scheme Author: David Hart (https://github.com/hartbit)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1e1e1e
+Red         = #cf6a4c
+Green       = #8f9d6a
+Yellow      = #f9ee98
+Blue        = #7587a6
+Magenta     = #9b859d
+Cyan        = #afc4db
+White       = #a7a7a7
+BoldBlack   = #5f5a60
+BoldRed     = #cf6a4c
+BoldGreen   = #8f9d6a
+BoldYellow  = #f9ee98
+BoldBlue    = #7587a6
+BoldMagenta = #9b859d
+BoldCyan    = #afc4db
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #1e1e1e
+ForegroundColour = #a7a7a7
+CursorColour     = #a7a7a7

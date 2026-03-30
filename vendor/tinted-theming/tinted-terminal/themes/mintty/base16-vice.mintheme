@@ -1,0 +1,27 @@
+# vice theme for Mintty
+# Scheme Author: Thomas Leon Highbaugh thighbaugh@zoho.com
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #17191e
+Red         = #ff29a8
+Green       = #0badff
+Yellow      = #f0ffaa
+Blue        = #00eaff
+Magenta     = #00f6d9
+Cyan        = #8265ff
+White       = #8b9cbe
+BoldBlack   = #383a47
+BoldRed     = #ff29a8
+BoldGreen   = #0badff
+BoldYellow  = #f0ffaa
+BoldBlue    = #00eaff
+BoldMagenta = #00f6d9
+BoldCyan    = #8265ff
+BoldWhite   = #f4f4f7
+
+# Background & foreground colors
+BackgroundColour = #17191e
+ForegroundColour = #8b9cbe
+CursorColour     = #8b9cbe

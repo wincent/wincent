@@ -1,0 +1,27 @@
+# iA Dark theme for Mintty
+# Scheme Author: iA Inc. (modified by aramisgithub)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1a1a1a
+Red         = #d88568
+Green       = #83a471
+Yellow      = #b99353
+Blue        = #8eccdd
+Magenta     = #b98eb2
+Cyan        = #7c9cae
+White       = #cccccc
+BoldBlack   = #767676
+BoldRed     = #d88568
+BoldGreen   = #83a471
+BoldYellow  = #b99353
+BoldBlue    = #8eccdd
+BoldMagenta = #b98eb2
+BoldCyan    = #7c9cae
+BoldWhite   = #f8f8f8
+
+# Background & foreground colors
+BackgroundColour = #1a1a1a
+ForegroundColour = #cccccc
+CursorColour     = #cccccc

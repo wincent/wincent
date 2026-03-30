@@ -1,0 +1,27 @@
+# Chinoiserie Morandi theme for Mintty
+# Scheme Author: Di Wang (https://cs.cmu.edu/~diw3)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1d1d1d
+Red         = #c06061
+Green       = #8ca07b
+Yellow      = #e5bc84
+Blue        = #839ec9
+Magenta     = #98a1d8
+Cyan        = #5e8c9b
+White       = #c4cbcf
+BoldBlack   = #918072
+BoldRed     = #c06061
+BoldGreen   = #8ca07b
+BoldYellow  = #e5bc84
+BoldBlue    = #839ec9
+BoldMagenta = #98a1d8
+BoldCyan    = #5e8c9b
+BoldWhite   = #fffef9
+
+# Background & foreground colors
+BackgroundColour = #1d1d1d
+ForegroundColour = #c4cbcf
+CursorColour     = #c4cbcf

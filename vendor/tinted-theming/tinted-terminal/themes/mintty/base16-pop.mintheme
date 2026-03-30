@@ -1,0 +1,27 @@
+# Pop theme for Mintty
+# Scheme Author: Chris Kempson (http://chriskempson.com)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #000000
+Red         = #eb008a
+Green       = #37b349
+Yellow      = #f8ca12
+Blue        = #0e5a94
+Magenta     = #b31e8d
+Cyan        = #00aabb
+White       = #d0d0d0
+BoldBlack   = #505050
+BoldRed     = #eb008a
+BoldGreen   = #37b349
+BoldYellow  = #f8ca12
+BoldBlue    = #0e5a94
+BoldMagenta = #b31e8d
+BoldCyan    = #00aabb
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #000000
+ForegroundColour = #d0d0d0
+CursorColour     = #d0d0d0

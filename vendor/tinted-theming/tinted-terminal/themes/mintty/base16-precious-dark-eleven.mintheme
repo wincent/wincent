@@ -1,0 +1,27 @@
+# Precious Dark Eleven theme for Mintty
+# Scheme Author: 4lex4 &lt;4lex49@zoho.com&gt;
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1c1e20
+Red         = #ff8782
+Green       = #95b658
+Yellow      = #d0a543
+Blue        = #68b0ee
+Magenta     = #b799fe
+Cyan        = #42bda7
+White       = #b8b7b6
+BoldBlack   = #858585
+BoldRed     = #ff8782
+BoldGreen   = #95b658
+BoldYellow  = #d0a543
+BoldBlue    = #68b0ee
+BoldMagenta = #b799fe
+BoldCyan    = #42bda7
+BoldWhite   = #b8b7b6
+
+# Background & foreground colors
+BackgroundColour = #1c1e20
+ForegroundColour = #b8b7b6
+CursorColour     = #b8b7b6

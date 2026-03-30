@@ -1,0 +1,27 @@
+# 0x96f theme for Mintty
+# Scheme Author: Filip Janevski (https://0x96f.dev/theme)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #262427
+Red         = #ff7272
+Green       = #bcdf59
+Yellow      = #ffca58
+Blue        = #49cae4
+Magenta     = #a093e2
+Cyan        = #aee8f4
+White       = #fcfcfc
+BoldBlack   = #676567
+BoldRed     = #ff8787
+BoldGreen   = #c6e472
+BoldYellow  = #ffd271
+BoldBlue    = #64d2e8
+BoldMagenta = #aea3e6
+BoldCyan    = #baebf6
+BoldWhite   = #fcfcfc
+
+# Background & foreground colors
+BackgroundColour = #262427
+ForegroundColour = #fcfcfc
+CursorColour     = #fcfcfc

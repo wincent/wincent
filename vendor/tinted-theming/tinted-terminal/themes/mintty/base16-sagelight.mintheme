@@ -1,0 +1,27 @@
+# Sagelight theme for Mintty
+# Scheme Author: Carter Veldhuizen
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #f8f8f8
+Red         = #fa8480
+Green       = #a0d2c8
+Yellow      = #ffdc61
+Blue        = #a0a7d2
+Magenta     = #c8a0d2
+Cyan        = #a2d6f5
+White       = #383838
+BoldBlack   = #b8b8b8
+BoldRed     = #fa8480
+BoldGreen   = #a0d2c8
+BoldYellow  = #ffdc61
+BoldBlue    = #a0a7d2
+BoldMagenta = #c8a0d2
+BoldCyan    = #a2d6f5
+BoldWhite   = #181818
+
+# Background & foreground colors
+BackgroundColour = #f8f8f8
+ForegroundColour = #383838
+CursorColour     = #383838

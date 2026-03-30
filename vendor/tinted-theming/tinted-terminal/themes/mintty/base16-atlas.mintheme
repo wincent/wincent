@@ -1,0 +1,27 @@
+# Atlas theme for Mintty
+# Scheme Author: Alex Lende (https://ajlende.com)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #002635
+Red         = #ff5a67
+Green       = #7fc06e
+Yellow      = #ffcc1b
+Blue        = #14747e
+Magenta     = #9a70a4
+Cyan        = #5dd7b9
+White       = #a1a19a
+BoldBlack   = #6c8b91
+BoldRed     = #ff5a67
+BoldGreen   = #7fc06e
+BoldYellow  = #ffcc1b
+BoldBlue    = #14747e
+BoldMagenta = #9a70a4
+BoldCyan    = #5dd7b9
+BoldWhite   = #fafaf8
+
+# Background & foreground colors
+BackgroundColour = #002635
+ForegroundColour = #a1a19a
+CursorColour     = #a1a19a

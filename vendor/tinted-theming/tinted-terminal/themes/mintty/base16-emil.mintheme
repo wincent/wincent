@@ -1,0 +1,27 @@
+# emil theme for Mintty
+# Scheme Author: limelier
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #efefef
+Red         = #f43979
+Green       = #0073a8
+Yellow      = #ff669b
+Blue        = #471397
+Magenta     = #6916b6
+Cyan        = #2155d6
+White       = #313145
+BoldBlack   = #7c7c98
+BoldRed     = #f43979
+BoldGreen   = #0073a8
+BoldYellow  = #ff669b
+BoldBlue    = #471397
+BoldMagenta = #6916b6
+BoldCyan    = #2155d6
+BoldWhite   = #1a1a2f
+
+# Background & foreground colors
+BackgroundColour = #efefef
+ForegroundColour = #313145
+CursorColour     = #313145

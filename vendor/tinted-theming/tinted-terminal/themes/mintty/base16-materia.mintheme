@@ -1,0 +1,27 @@
+# Materia theme for Mintty
+# Scheme Author: Defman21
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #263238
+Red         = #ec5f67
+Green       = #8bd649
+Yellow      = #ffcc00
+Blue        = #89ddff
+Magenta     = #82aaff
+Cyan        = #80cbc4
+White       = #cdd3de
+BoldBlack   = #707880
+BoldRed     = #ec5f67
+BoldGreen   = #8bd649
+BoldYellow  = #ffcc00
+BoldBlue    = #89ddff
+BoldMagenta = #82aaff
+BoldCyan    = #80cbc4
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #263238
+ForegroundColour = #cdd3de
+CursorColour     = #cdd3de

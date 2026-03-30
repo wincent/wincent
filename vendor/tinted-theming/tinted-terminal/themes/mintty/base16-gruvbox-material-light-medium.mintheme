@@ -1,0 +1,27 @@
+# Gruvbox Material Light, Medium theme for Mintty
+# Scheme Author: Mayush Kumar (https://github.com/MayushKumar), sainnhe (https://github.com/sainnhe/gruvbox-material-vscode)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #fbf1c7
+Red         = #c14a4a
+Green       = #6c782e
+Yellow      = #b47109
+Blue        = #45707a
+Magenta     = #945e80
+Cyan        = #4c7a5d
+White       = #654735
+BoldBlack   = #bdae93
+BoldRed     = #c14a4a
+BoldGreen   = #6c782e
+BoldYellow  = #b47109
+BoldBlue    = #45707a
+BoldMagenta = #945e80
+BoldCyan    = #4c7a5d
+BoldWhite   = #282828
+
+# Background & foreground colors
+BackgroundColour = #fbf1c7
+ForegroundColour = #654735
+CursorColour     = #654735

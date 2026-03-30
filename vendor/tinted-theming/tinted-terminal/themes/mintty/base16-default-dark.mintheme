@@ -1,0 +1,27 @@
+# Default Dark theme for Mintty
+# Scheme Author: Chris Kempson (http://chriskempson.com)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #181818
+Red         = #ab4642
+Green       = #a1b56c
+Yellow      = #f7ca88
+Blue        = #7cafc2
+Magenta     = #ba8baf
+Cyan        = #86c1b9
+White       = #d8d8d8
+BoldBlack   = #585858
+BoldRed     = #ab4642
+BoldGreen   = #a1b56c
+BoldYellow  = #f7ca88
+BoldBlue    = #7cafc2
+BoldMagenta = #ba8baf
+BoldCyan    = #86c1b9
+BoldWhite   = #f8f8f8
+
+# Background & foreground colors
+BackgroundColour = #181818
+ForegroundColour = #d8d8d8
+CursorColour     = #d8d8d8

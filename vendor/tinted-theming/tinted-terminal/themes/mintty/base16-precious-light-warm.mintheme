@@ -1,0 +1,27 @@
+# Precious Light Warm theme for Mintty
+# Scheme Author: 4lex4 &lt;4lex49@zoho.com&gt;
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #fff5e5
+Red         = #b14745
+Green       = #557300
+Yellow      = #876500
+Blue        = #246da5
+Magenta     = #7a50c6
+Cyan        = #0e7767
+White       = #4e5359
+BoldBlack   = #7f8080
+BoldRed     = #b14745
+BoldGreen   = #557300
+BoldYellow  = #876500
+BoldBlue    = #246da5
+BoldMagenta = #7a50c6
+BoldCyan    = #0e7767
+BoldWhite   = #4e5359
+
+# Background & foreground colors
+BackgroundColour = #fff5e5
+ForegroundColour = #4e5359
+CursorColour     = #4e5359

@@ -1,0 +1,27 @@
+# DanQing theme for Mintty
+# Scheme Author: Wenhan Zhu (Cosmos) (zhuwenhan950913@gmail.com)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #2d302f
+Red         = #f9906f
+Green       = #8ab361
+Yellow      = #f0c239
+Blue        = #b0a4e3
+Magenta     = #cca4e3
+Cyan        = #30dff3
+White       = #e0f0ef
+BoldBlack   = #9da8a3
+BoldRed     = #f9906f
+BoldGreen   = #8ab361
+BoldYellow  = #f0c239
+BoldBlue    = #b0a4e3
+BoldMagenta = #cca4e3
+BoldCyan    = #30dff3
+BoldWhite   = #fcfefd
+
+# Background & foreground colors
+BackgroundColour = #2d302f
+ForegroundColour = #e0f0ef
+CursorColour     = #e0f0ef

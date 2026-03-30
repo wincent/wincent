@@ -1,0 +1,27 @@
+# IR Black theme for Mintty
+# Scheme Author: Timothée Poisot (http://timotheepoisot.fr)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #000000
+Red         = #ff6c60
+Green       = #a8ff60
+Yellow      = #ffffb6
+Blue        = #96cbfe
+Magenta     = #ff73fd
+Cyan        = #c6c5fe
+White       = #b5b3aa
+BoldBlack   = #6c6c66
+BoldRed     = #ff6c60
+BoldGreen   = #a8ff60
+BoldYellow  = #ffffb6
+BoldBlue    = #96cbfe
+BoldMagenta = #ff73fd
+BoldCyan    = #c6c5fe
+BoldWhite   = #fdfbee
+
+# Background & foreground colors
+BackgroundColour = #000000
+ForegroundColour = #b5b3aa
+CursorColour     = #b5b3aa

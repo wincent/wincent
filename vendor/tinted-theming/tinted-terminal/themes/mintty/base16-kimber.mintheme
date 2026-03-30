@@ -1,0 +1,27 @@
+# Kimber theme for Mintty
+# Scheme Author: Mishka Nguyen (https://github.com/akhsiM)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #222222
+Red         = #c88c8c
+Green       = #99c899
+Yellow      = #d8b56d
+Blue        = #537c9c
+Magenta     = #86cacd
+Cyan        = #78b4b4
+White       = #dedee7
+BoldBlack   = #644646
+BoldRed     = #c88c8c
+BoldGreen   = #99c899
+BoldYellow  = #d8b56d
+BoldBlue    = #537c9c
+BoldMagenta = #86cacd
+BoldCyan    = #78b4b4
+BoldWhite   = #ffffe6
+
+# Background & foreground colors
+BackgroundColour = #222222
+ForegroundColour = #dedee7
+CursorColour     = #dedee7

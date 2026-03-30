@@ -1,0 +1,27 @@
+# Gruber theme for Mintty
+# Scheme Author: Patel, Nimai &lt;nimai.m.patel@gmail.com&gt;, colors from www.github.com/rexim/gruber-darker-theme
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #181818
+Red         = #f43841
+Green       = #73c936
+Yellow      = #ffdd33
+Blue        = #96a6c8
+Magenta     = #9e95c7
+Cyan        = #95a99f
+White       = #f4f4ff
+BoldBlack   = #52494e
+BoldRed     = #f43841
+BoldGreen   = #73c936
+BoldYellow  = #ffdd33
+BoldBlue    = #96a6c8
+BoldMagenta = #9e95c7
+BoldCyan    = #95a99f
+BoldWhite   = #e4e4ef
+
+# Background & foreground colors
+BackgroundColour = #181818
+ForegroundColour = #f4f4ff
+CursorColour     = #f4f4ff

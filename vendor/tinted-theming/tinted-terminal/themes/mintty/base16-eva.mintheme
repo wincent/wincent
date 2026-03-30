@@ -1,0 +1,27 @@
+# Eva theme for Mintty
+# Scheme Author: kjakapat (https://github.com/kjakapat)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #2a3b4d
+Red         = #c4676c
+Green       = #66ff66
+Yellow      = #ffff66
+Blue        = #15f4ee
+Magenta     = #9c6cd3
+Cyan        = #4b8f77
+White       = #9fa2a6
+BoldBlack   = #55799c
+BoldRed     = #c4676c
+BoldGreen   = #66ff66
+BoldYellow  = #ffff66
+BoldBlue    = #15f4ee
+BoldMagenta = #9c6cd3
+BoldCyan    = #4b8f77
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #2a3b4d
+ForegroundColour = #9fa2a6
+CursorColour     = #9fa2a6

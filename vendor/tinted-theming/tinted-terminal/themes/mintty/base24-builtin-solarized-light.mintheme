@@ -1,0 +1,27 @@
+# Builtin Solarized Light theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #fdf6e3
+Red         = #dc322f
+Green       = #859900
+Yellow      = #839496
+Blue        = #268bd2
+Magenta     = #d33682
+Cyan        = #2aa198
+White       = #b2b8ad
+BoldBlack   = #3b5a5d
+BoldRed     = #cb4b16
+BoldGreen   = #586e75
+BoldYellow  = #657b83
+BoldBlue    = #839496
+BoldMagenta = #6c71c4
+BoldCyan    = #93a1a1
+BoldWhite   = #fdf6e3
+
+# Background & foreground colors
+BackgroundColour = #fdf6e3
+ForegroundColour = #b2b8ad
+CursorColour     = #b2b8ad

@@ -1,0 +1,27 @@
+# Snazzy theme for Mintty
+# Scheme Author: Chawye Hsu (https://github.com/chawyehsu), based on Hyper Snazzy Theme (https://github.com/sindresorhus/hyper-snazzy)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #282a36
+Red         = #ff5c57
+Green       = #5af78e
+Yellow      = #f3f99d
+Blue        = #57c7ff
+Magenta     = #ff6ac1
+Cyan        = #9aedfe
+White       = #e2e4e5
+BoldBlack   = #78787e
+BoldRed     = #ff5c57
+BoldGreen   = #5af78e
+BoldYellow  = #f3f99d
+BoldBlue    = #57c7ff
+BoldMagenta = #ff6ac1
+BoldCyan    = #9aedfe
+BoldWhite   = #f1f1f0
+
+# Background & foreground colors
+BackgroundColour = #282a36
+ForegroundColour = #e2e4e5
+CursorColour     = #e2e4e5

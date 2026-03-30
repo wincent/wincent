@@ -1,0 +1,27 @@
+# Mocha theme for Mintty
+# Scheme Author: Chris Kempson (http://chriskempson.com)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #3b3228
+Red         = #cb6077
+Green       = #beb55b
+Yellow      = #f4bc87
+Blue        = #8ab3b5
+Magenta     = #a89bb9
+Cyan        = #7bbda4
+White       = #d0c8c6
+BoldBlack   = #7e705a
+BoldRed     = #cb6077
+BoldGreen   = #beb55b
+BoldYellow  = #f4bc87
+BoldBlue    = #8ab3b5
+BoldMagenta = #a89bb9
+BoldCyan    = #7bbda4
+BoldWhite   = #f5eeeb
+
+# Background & foreground colors
+BackgroundColour = #3b3228
+ForegroundColour = #d0c8c6
+CursorColour     = #d0c8c6

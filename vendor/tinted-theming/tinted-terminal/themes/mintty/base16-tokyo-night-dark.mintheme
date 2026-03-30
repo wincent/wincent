@@ -1,0 +1,27 @@
+# Tokyo Night Dark theme for Mintty
+# Scheme Author: Michaël Ball
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1a1b26
+Red         = #c0caf5
+Green       = #9ece6a
+Yellow      = #0db9d7
+Blue        = #2ac3de
+Magenta     = #bb9af7
+Cyan        = #b4f9f8
+White       = #a9b1d6
+BoldBlack   = #444b6a
+BoldRed     = #c0caf5
+BoldGreen   = #9ece6a
+BoldYellow  = #0db9d7
+BoldBlue    = #2ac3de
+BoldMagenta = #bb9af7
+BoldCyan    = #b4f9f8
+BoldWhite   = #d5d6db
+
+# Background & foreground colors
+BackgroundColour = #1a1b26
+ForegroundColour = #a9b1d6
+CursorColour     = #a9b1d6

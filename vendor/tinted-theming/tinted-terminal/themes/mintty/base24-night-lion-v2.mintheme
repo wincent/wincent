@@ -1,0 +1,27 @@
+# Night Lion V2 theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #171717
+Red         = #bb0000
+Green       = #03f622
+Yellow      = #62cae7
+Blue        = #63d0f0
+Magenta     = #ce6fda
+Cyan        = #00d9df
+White       = #a1a1a1
+BoldBlack   = #6e6e6e
+BoldRed     = #ff5555
+BoldGreen   = #7df61c
+BoldYellow  = #ffff55
+BoldBlue    = #62cae7
+BoldMagenta = #ff9af5
+BoldCyan    = #00ccd7
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #171717
+ForegroundColour = #a1a1a1
+CursorColour     = #a1a1a1

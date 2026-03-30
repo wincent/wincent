@@ -1,0 +1,27 @@
+# Rebecca theme for Mintty
+# Scheme Author: Victor Borja (http://github.com/vic) based on Rebecca Theme (http://github.com/vic/rebecca-theme)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #292a44
+Red         = #a0a0c5
+Green       = #6dfedf
+Yellow      = #ae81ff
+Blue        = #2de0a7
+Magenta     = #7aa5ff
+Cyan        = #8eaee0
+White       = #f1eff8
+BoldBlack   = #666699
+BoldRed     = #a0a0c5
+BoldGreen   = #6dfedf
+BoldYellow  = #ae81ff
+BoldBlue    = #2de0a7
+BoldMagenta = #7aa5ff
+BoldCyan    = #8eaee0
+BoldWhite   = #53495d
+
+# Background & foreground colors
+BackgroundColour = #292a44
+ForegroundColour = #f1eff8
+CursorColour     = #f1eff8

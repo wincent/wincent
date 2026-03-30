@@ -1,0 +1,27 @@
+# Elementary theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #181818
+Red         = #d61b15
+Green       = #59a413
+Yellow      = #0855fe
+Blue        = #053a8c
+Magenta     = #e40038
+Cyan        = #2594e0
+White       = #c5c5c5
+BoldBlack   = #737373
+BoldRed     = #fb1b18
+BoldGreen   = #6ac118
+BoldYellow  = #fdc70e
+BoldBlue    = #0855fe
+BoldMagenta = #fb004f
+BoldCyan    = #3ea7fc
+BoldWhite   = #8c00eb
+
+# Background & foreground colors
+BackgroundColour = #181818
+ForegroundColour = #c5c5c5
+CursorColour     = #c5c5c5

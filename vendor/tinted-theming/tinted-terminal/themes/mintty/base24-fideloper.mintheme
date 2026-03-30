@@ -1,0 +1,27 @@
+# Fideloper theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #282f32
+Red         = #ca1d2c
+Green       = #edb7ab
+Yellow      = #7c84c4
+Blue        = #2e78c1
+Magenta     = #c0226e
+Cyan        = #309185
+White       = #b1b1a3
+BoldBlack   = #415050
+BoldRed     = #d35f5a
+BoldGreen   = #d35f5a
+BoldYellow  = #a86571
+BoldBlue    = #7c84c4
+BoldMagenta = #5b5db2
+BoldCyan    = #81908f
+BoldWhite   = #fcf4de
+
+# Background & foreground colors
+BackgroundColour = #282f32
+ForegroundColour = #b1b1a3
+CursorColour     = #b1b1a3

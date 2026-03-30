@@ -1,0 +1,27 @@
+# Molokai theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #121212
+Red         = #fa2573
+Green       = #97e123
+Yellow      = #00afff
+Blue        = #0f7fcf
+Magenta     = #8700ff
+Cyan        = #42a7cf
+White       = #a1a1a1
+BoldBlack   = #6e6e6e
+BoldRed     = #f5669c
+BoldGreen   = #b0e05e
+BoldYellow  = #fef26c
+BoldBlue    = #00afff
+BoldMagenta = #af87ff
+BoldCyan    = #50cdfe
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #121212
+ForegroundColour = #a1a1a1
+CursorColour     = #a1a1a1

@@ -1,0 +1,27 @@
+# Tango theme for Mintty
+# Scheme Author: @Schnouki, based on the Tango Desktop Project
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #2e3436
+Red         = #cc0000
+Green       = #4e9a06
+Yellow      = #c4a000
+Blue        = #3465a4
+Magenta     = #75507b
+Cyan        = #06989a
+White       = #d3d7cf
+BoldBlack   = #555753
+BoldRed     = #cc0000
+BoldGreen   = #4e9a06
+BoldYellow  = #c4a000
+BoldBlue    = #3465a4
+BoldMagenta = #75507b
+BoldCyan    = #06989a
+BoldWhite   = #eeeeec
+
+# Background & foreground colors
+BackgroundColour = #2e3436
+ForegroundColour = #d3d7cf
+CursorColour     = #d3d7cf

@@ -1,0 +1,27 @@
+# Catppuccin Frappe theme for Mintty
+# Scheme Author: https://github.com/catppuccin/catppuccin
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #303446
+Red         = #e78284
+Green       = #a6d189
+Yellow      = #e5c890
+Blue        = #8caaee
+Magenta     = #ca9ee6
+Cyan        = #81c8be
+White       = #c6d0f5
+BoldBlack   = #51576d
+BoldRed     = #ea999c
+BoldGreen   = #a6d189
+BoldYellow  = #f2d5cf
+BoldBlue    = #85c1dc
+BoldMagenta = #f4b8e4
+BoldCyan    = #99d1db
+BoldWhite   = #babbf1
+
+# Background & foreground colors
+BackgroundColour = #303446
+ForegroundColour = #c6d0f5
+CursorColour     = #c6d0f5

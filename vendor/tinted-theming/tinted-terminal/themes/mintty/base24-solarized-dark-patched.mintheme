@@ -1,0 +1,27 @@
+# Solarized Dark Patched theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #001e26
+Red         = #d01b24
+Green       = #728905
+Yellow      = #708183
+Blue        = #2075c7
+Magenta     = #c61b6e
+Cyan        = #259185
+White       = #c0c0b0
+BoldBlack   = #6e7c7b
+BoldRed     = #bd3612
+BoldGreen   = #465a61
+BoldYellow  = #52676f
+BoldBlue    = #708183
+BoldMagenta = #5856b9
+BoldCyan    = #81908f
+BoldWhite   = #fcf4dc
+
+# Background & foreground colors
+BackgroundColour = #001e26
+ForegroundColour = #c0c0b0
+CursorColour     = #c0c0b0

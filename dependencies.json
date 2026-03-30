@@ -24,8 +24,8 @@
     "prefix": "aspects/dotfiles/files/.zsh/zsh-completions",
     "url": "https://github.com/zsh-users/zsh-completions.git",
     "branch": "master",
-    "previous": "28c5bdcaf81bb89e56d0df8267d822c3b8aed9e0",
-    "current": "bce05f9352a7389a04afa00c6cc5a9c1a8829921"
+    "previous": "bce05f9352a7389a04afa00c6cc5a9c1a8829921",
+    "current": "f0b1a348a15d9ce710c9487725e103ab8239b828"
   },
   "github/zsh-users/zsh-history-substring-search": {
     "prefix": "aspects/dotfiles/files/.zsh/zsh-history-substring-search",
@@ -45,8 +45,8 @@
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/LuaSnip",
     "url": "https://github.com/L3MON4D3/LuaSnip.git",
     "branch": "master",
-    "previous": "3732756842a2f7e0e76a7b0487e9692072857277",
-    "current": "dae4f5aaa3574bd0c2b9dd20fb9542a02c10471c"
+    "previous": "dae4f5aaa3574bd0c2b9dd20fb9542a02c10471c",
+    "current": "642b0c595e11608b4c18219e93b88d7637af27bc"
   },
   "github/vim-scripts/applescript.vim": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/applescript.vim",
@@ -206,36 +206,36 @@
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-cmp",
     "url": "https://github.com/hrsh7th/nvim-cmp.git",
     "branch": "main",
-    "previous": "d97d85e01339f01b842e6ec1502f639b080cb0fc",
-    "current": "da88697d7f45d16852c6b2769dc52387d1ddc45f"
+    "previous": "da88697d7f45d16852c6b2769dc52387d1ddc45f",
+    "current": "a1d504892f2bc56c2e79b65c6faded2fd21f3eca"
   },
   "github/neovim/nvim-lspconfig": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-lspconfig",
     "url": "https://github.com/neovim/nvim-lspconfig.git",
     "branch": "master",
-    "previous": "702f69fb167e9119f14adc4dfd4fcadf4d1b07a0",
-    "current": "841c6d4139aedb8a3f2baf30cef5327371385b93"
+    "previous": "841c6d4139aedb8a3f2baf30cef5327371385b93",
+    "current": "16812abf0e8d8175155f26143a8504e8253e92b0"
   },
   "github/kyazdani42/nvim-tree.lua": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-tree.lua",
     "url": "https://github.com/kyazdani42/nvim-tree.lua.git",
     "branch": "master",
-    "previous": "e16cd38962bc40c22a51ee004aa4f43726d74a16",
-    "current": "dfeeb12aaae37f23285101cf875416c29052b22a"
+    "previous": "dfeeb12aaae37f23285101cf875416c29052b22a",
+    "current": "4cbe79526f8bc0bdb1a500d261dc5cc1be4e77d5"
   },
   "github/nvim-treesitter/nvim-treesitter": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-treesitter",
     "url": "https://github.com/nvim-treesitter/nvim-treesitter.git",
     "branch": "main",
-    "previous": "53f6ce29df5841ce26e5a9f06fb371088b8d8031",
-    "current": "877f724846f2202a16e311bd19efb954bd1c430e"
+    "previous": "877f724846f2202a16e311bd19efb954bd1c430e",
+    "current": "7caec274fd19c12b55902a5b795100d21531391f"
   },
   "github/nvim-treesitter/nvim-treesitter-textobjects": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-treesitter-textobjects",
     "url": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git",
     "branch": "main",
-    "previous": "4e91b5d0394329a229725b021a8ea217099826ef",
-    "current": "7359dfcefa38db632541e1f9b5b5f291626a1d47"
+    "previous": "7359dfcefa38db632541e1f9b5b5f291626a1d47",
+    "current": "93d60a475f0b08a8eceb99255863977d3a25f310"
   },
   "github/stevearc/oil.nvim": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/oil.nvim",
@@ -472,8 +472,8 @@
     "prefix": "vendor/tinted-theming/tinted-terminal",
     "url": "https://github.com/tinted-theming/tinted-terminal.git",
     "branch": "main",
-    "previous": "baf5a8d86c1f7d94ff8b9a1bf4e0b7eeef6203a9",
-    "current": "9d5b0a3e66039e4b359cffe0e5f33e73abe8a169"
+    "previous": "9d5b0a3e66039e4b359cffe0e5f33e73abe8a169",
+    "current": "e4871f050dbebae40c22c77ed629d85bfc621692"
   },
   "github/tinted-theming/tinted-tmux": {
     "prefix": "vendor/tinted-theming/tinted-tmux",

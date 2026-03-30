@@ -1,0 +1,27 @@
+# caroline theme for Mintty
+# Scheme Author: ed (https://codeberg.org/ed)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1c1213
+Red         = #c24f57
+Green       = #806c61
+Yellow      = #f28171
+Blue        = #684c59
+Magenta     = #a63650
+Cyan        = #6b6566
+White       = #a87569
+BoldBlack   = #6d4745
+BoldRed     = #c24f57
+BoldGreen   = #806c61
+BoldYellow  = #f28171
+BoldBlue    = #684c59
+BoldMagenta = #a63650
+BoldCyan    = #6b6566
+BoldWhite   = #e3a68c
+
+# Background & foreground colors
+BackgroundColour = #1c1213
+ForegroundColour = #a87569
+CursorColour     = #a87569

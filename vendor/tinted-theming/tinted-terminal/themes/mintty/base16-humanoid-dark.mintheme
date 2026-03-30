@@ -1,0 +1,27 @@
+# Humanoid dark theme for Mintty
+# Scheme Author: Thomas (tasmo) Friese
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #232629
+Red         = #f11235
+Green       = #02d849
+Yellow      = #ffb627
+Blue        = #00a6fb
+Magenta     = #f15ee3
+Cyan        = #0dd9d6
+White       = #f8f8f2
+BoldBlack   = #60615d
+BoldRed     = #f11235
+BoldGreen   = #02d849
+BoldYellow  = #ffb627
+BoldBlue    = #00a6fb
+BoldMagenta = #f15ee3
+BoldCyan    = #0dd9d6
+BoldWhite   = #fcfcfc
+
+# Background & foreground colors
+BackgroundColour = #232629
+ForegroundColour = #f8f8f2
+CursorColour     = #f8f8f2

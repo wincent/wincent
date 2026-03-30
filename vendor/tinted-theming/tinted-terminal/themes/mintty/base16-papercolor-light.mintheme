@@ -1,0 +1,27 @@
+# PaperColor Light theme for Mintty
+# Scheme Author: Jon Leopard (http://github.com/jonleopard), Tinted Theming (https://github.com/tinted-theming), based on PaperColor Theme (https://github.com/NLKNguyen/papercolor-theme)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #eeeeee
+Red         = #d70000
+Green       = #008700
+Yellow      = #d75f00
+Blue        = #005f87
+Magenta     = #8700af
+Cyan        = #0087af
+White       = #5e5e5e
+BoldBlack   = #858585
+BoldRed     = #d70000
+BoldGreen   = #008700
+BoldYellow  = #d75f00
+BoldBlue    = #005f87
+BoldMagenta = #8700af
+BoldCyan    = #0087af
+BoldWhite   = #444444
+
+# Background & foreground colors
+BackgroundColour = #eeeeee
+ForegroundColour = #5e5e5e
+CursorColour     = #5e5e5e

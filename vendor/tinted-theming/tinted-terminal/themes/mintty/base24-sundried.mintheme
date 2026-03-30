@@ -1,0 +1,27 @@
+# Sundried theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1a1818
+Red         = #a6463d
+Green       = #577644
+Yellow      = #7898f7
+Blue        = #485a98
+Magenta     = #854551
+Cyan        = #9c814e
+White       = #a9a9a7
+BoldBlack   = #6b6b67
+BoldRed     = #aa000c
+BoldGreen   = #128c20
+BoldYellow  = #fc6a20
+BoldBlue    = #7898f7
+BoldMagenta = #fc89a0
+BoldCyan    = #fad384
+BoldWhite   = #fffefe
+
+# Background & foreground colors
+BackgroundColour = #1a1818
+ForegroundColour = #a9a9a7
+CursorColour     = #a9a9a7

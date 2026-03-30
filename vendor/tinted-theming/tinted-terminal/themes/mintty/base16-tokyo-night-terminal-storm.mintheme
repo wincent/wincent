@@ -1,0 +1,27 @@
+# Tokyo Night Terminal Storm theme for Mintty
+# Scheme Author: Michaël Ball
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #24283b
+Red         = #f7768e
+Green       = #41a6b5
+Yellow      = #e0af68
+Blue        = #7aa2f7
+Magenta     = #bb9af7
+Cyan        = #7dcfff
+White       = #787c99
+BoldBlack   = #444b6a
+BoldRed     = #f7768e
+BoldGreen   = #41a6b5
+BoldYellow  = #e0af68
+BoldBlue    = #7aa2f7
+BoldMagenta = #bb9af7
+BoldCyan    = #7dcfff
+BoldWhite   = #d5d6db
+
+# Background & foreground colors
+BackgroundColour = #24283b
+ForegroundColour = #787c99
+CursorColour     = #787c99

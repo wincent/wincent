@@ -1,0 +1,27 @@
+# Vibrant Ink theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #000000
+Red         = #ff6600
+Green       = #ccff04
+Yellow      = #0000ff
+Blue        = #44b3cc
+Magenta     = #9933cc
+Cyan        = #44b3cc
+White       = #cdcdcd
+BoldBlack   = #7d7d7d
+BoldRed     = #ff0000
+BoldGreen   = #00ff00
+BoldYellow  = #ffff00
+BoldBlue    = #0000ff
+BoldMagenta = #ff00ff
+BoldCyan    = #00ffff
+BoldWhite   = #e5e5e5
+
+# Background & foreground colors
+BackgroundColour = #000000
+ForegroundColour = #cdcdcd
+CursorColour     = #cdcdcd

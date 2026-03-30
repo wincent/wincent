@@ -1,0 +1,27 @@
+# Spiderman theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1b1d1e
+Red         = #e60712
+Green       = #e22828
+Yellow      = #1d4fff
+Blue        = #2b3fff
+Magenta     = #2435db
+Cyan        = #3255ff
+White       = #d3d3cd
+BoldBlack   = #7b7d7c
+BoldRed     = #ff0325
+BoldGreen   = #ff3238
+BoldYellow  = #fe3935
+BoldBlue    = #1d4fff
+BoldMagenta = #737bff
+BoldCyan    = #6083ff
+BoldWhite   = #fefff9
+
+# Background & foreground colors
+BackgroundColour = #1b1d1e
+ForegroundColour = #d3d3cd
+CursorColour     = #d3d3cd

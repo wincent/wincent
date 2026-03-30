@@ -1,0 +1,27 @@
+# Linux VT theme for Mintty
+# Scheme Author: j-c-m (https://github.com/j-c-m/)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #000000
+Red         = #aa0000
+Green       = #00aa00
+Yellow      = #ffff55
+Blue        = #5555ff
+Magenta     = #ff55ff
+Cyan        = #00aaaa
+White       = #aaaaaa
+BoldBlack   = #555555
+BoldRed     = #aa0000
+BoldGreen   = #00aa00
+BoldYellow  = #ffff55
+BoldBlue    = #5555ff
+BoldMagenta = #ff55ff
+BoldCyan    = #00aaaa
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #000000
+ForegroundColour = #aaaaaa
+CursorColour     = #aaaaaa

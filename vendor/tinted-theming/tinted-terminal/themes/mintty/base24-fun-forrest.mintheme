@@ -1,0 +1,27 @@
+# Fun Forrest theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #241200
+Red         = #d5252b
+Green       = #909b00
+Yellow      = #7cc9ce
+Blue        = #4698a2
+Magenta     = #8c4231
+Cyan        = #d98112
+White       = #c5ab60
+BoldBlack   = #957f58
+BoldRed     = #e4591b
+BoldGreen   = #bfc659
+BoldYellow  = #ffca1b
+BoldBlue    = #7cc9ce
+BoldMagenta = #d16349
+BoldCyan    = #e6a96b
+BoldWhite   = #ffe9a3
+
+# Background & foreground colors
+BackgroundColour = #241200
+ForegroundColour = #c5ab60
+CursorColour     = #c5ab60

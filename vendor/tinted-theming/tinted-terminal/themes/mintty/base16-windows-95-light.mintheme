@@ -1,0 +1,27 @@
+# Windows 95 Light theme for Mintty
+# Scheme Author: Fergus Collins (https://github.com/ferguscollins)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #fcfcfc
+Red         = #a80000
+Green       = #00a800
+Yellow      = #a85400
+Blue        = #0000a8
+Magenta     = #a800a8
+Cyan        = #00a8a8
+White       = #545454
+BoldBlack   = #a8a8a8
+BoldRed     = #a80000
+BoldGreen   = #00a800
+BoldYellow  = #a85400
+BoldBlue    = #0000a8
+BoldMagenta = #a800a8
+BoldCyan    = #00a8a8
+BoldWhite   = #000000
+
+# Background & foreground colors
+BackgroundColour = #fcfcfc
+ForegroundColour = #545454
+CursorColour     = #545454

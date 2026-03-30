@@ -1,0 +1,27 @@
+# Primer Dark theme for Mintty
+# Scheme Author: Jimmy Lin
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #010409
+Red         = #ff7b72
+Green       = #3fb950
+Yellow      = #d29922
+Blue        = #58a6ff
+Magenta     = #f778ba
+Cyan        = #a5d6ff
+White       = #b1bac4
+BoldBlack   = #484f58
+BoldRed     = #ff7b72
+BoldGreen   = #3fb950
+BoldYellow  = #d29922
+BoldBlue    = #58a6ff
+BoldMagenta = #f778ba
+BoldCyan    = #a5d6ff
+BoldWhite   = #f0f6fc
+
+# Background & foreground colors
+BackgroundColour = #010409
+ForegroundColour = #b1bac4
+CursorColour     = #b1bac4

@@ -1,0 +1,27 @@
+# Atelier Plateau Light theme for Mintty
+# Scheme Author: Bram de Haan (http://atelierbramdehaan.nl)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #f4ecec
+Red         = #ca4949
+Green       = #4b8b8b
+Yellow      = #a06e3b
+Blue        = #7272ca
+Magenta     = #8464c4
+Cyan        = #5485b6
+White       = #585050
+BoldBlack   = #7e7777
+BoldRed     = #ca4949
+BoldGreen   = #4b8b8b
+BoldYellow  = #a06e3b
+BoldBlue    = #7272ca
+BoldMagenta = #8464c4
+BoldCyan    = #5485b6
+BoldWhite   = #1b1818
+
+# Background & foreground colors
+BackgroundColour = #f4ecec
+ForegroundColour = #585050
+CursorColour     = #585050

@@ -1,0 +1,27 @@
+# Chalk theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #151515
+Red         = #fa859c
+Green       = #a1bb54
+Yellow      = #ddb26f
+Blue        = #5ab9ed
+Magenta     = #db8fea
+Cyan        = #10bcad
+White       = #d0d0d0
+BoldBlack   = #505050
+BoldRed     = #fb9fb1
+BoldGreen   = #acc267
+BoldYellow  = #eda987
+BoldBlue    = #6fc2ef
+BoldMagenta = #e1a3ee
+BoldCyan    = #12cfc0
+BoldWhite   = #f5f5f5
+
+# Background & foreground colors
+BackgroundColour = #151515
+ForegroundColour = #d0d0d0
+CursorColour     = #d0d0d0

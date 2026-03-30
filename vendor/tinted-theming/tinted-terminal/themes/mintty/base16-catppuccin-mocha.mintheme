@@ -1,0 +1,27 @@
+# Catppuccin Mocha theme for Mintty
+# Scheme Author: https://github.com/catppuccin/catppuccin
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1e1e2e
+Red         = #f38ba8
+Green       = #a6e3a1
+Yellow      = #f9e2af
+Blue        = #89b4fa
+Magenta     = #cba6f7
+Cyan        = #94e2d5
+White       = #cdd6f4
+BoldBlack   = #45475a
+BoldRed     = #f38ba8
+BoldGreen   = #a6e3a1
+BoldYellow  = #f9e2af
+BoldBlue    = #89b4fa
+BoldMagenta = #cba6f7
+BoldCyan    = #94e2d5
+BoldWhite   = #b4befe
+
+# Background & foreground colors
+BackgroundColour = #1e1e2e
+ForegroundColour = #cdd6f4
+CursorColour     = #cdd6f4

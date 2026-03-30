@@ -1,0 +1,27 @@
+# Evenok Dark theme for Mintty
+# Scheme Author: Mekeor Melire
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #000000
+Red         = #f5708a
+Green       = #54bc5c
+Yellow      = #b8a300
+Blue        = #00aff2
+Magenta     = #9095ff
+Cyan        = #00bab3
+White       = #d0d0d0
+BoldBlack   = #505050
+BoldRed     = #f5708a
+BoldGreen   = #54bc5c
+BoldYellow  = #b8a300
+BoldBlue    = #00aff2
+BoldMagenta = #9095ff
+BoldCyan    = #00bab3
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #000000
+ForegroundColour = #d0d0d0
+CursorColour     = #d0d0d0

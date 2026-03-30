@@ -1,0 +1,27 @@
+# Toy Chest theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #23364a
+Red         = #be2d26
+Green       = #199171
+Yellow      = #33a5d9
+Blue        = #325d96
+Magenta     = #8a5ddb
+Cyan        = #35a08f
+White       = #27b684
+BoldBlack   = #2f8288
+BoldRed     = #dd5943
+BoldGreen   = #30cf7b
+BoldYellow  = #e7d74b
+BoldBlue    = #33a5d9
+BoldMagenta = #ad6bdc
+BoldCyan    = #41c3ad
+BoldWhite   = #d4d4d4
+
+# Background & foreground colors
+BackgroundColour = #23364a
+ForegroundColour = #27b684
+CursorColour     = #27b684

@@ -1,0 +1,27 @@
+# vulcan theme for Mintty
+# Scheme Author: Andrey Varfolomeev
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #041523
+Red         = #818591
+Green       = #977d7c
+Yellow      = #adb4b9
+Blue        = #977d7c
+Magenta     = #9198a3
+Cyan        = #977d7c
+White       = #5b778c
+BoldBlack   = #7a5759
+BoldRed     = #818591
+BoldGreen   = #977d7c
+BoldYellow  = #adb4b9
+BoldBlue    = #977d7c
+BoldMagenta = #9198a3
+BoldCyan    = #977d7c
+BoldWhite   = #214d68
+
+# Background & foreground colors
+BackgroundColour = #041523
+ForegroundColour = #5b778c
+CursorColour     = #5b778c

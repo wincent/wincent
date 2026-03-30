@@ -1,0 +1,27 @@
+# Cyberdyne theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #151144
+Red         = #ff8272
+Green       = #00c172
+Yellow      = #c1e3fe
+Blue        = #0071cf
+Magenta     = #ff8ffd
+Cyan        = #6bffdc
+White       = #c0c0c0
+BoldBlack   = #5e5e5e
+BoldRed     = #ffc4bd
+BoldGreen   = #d6fcb9
+BoldYellow  = #fefdd5
+BoldBlue    = #c1e3fe
+BoldMagenta = #ffb1fe
+BoldCyan    = #e5e6fe
+BoldWhite   = #feffff
+
+# Background & foreground colors
+BackgroundColour = #151144
+ForegroundColour = #c0c0c0
+CursorColour     = #c0c0c0

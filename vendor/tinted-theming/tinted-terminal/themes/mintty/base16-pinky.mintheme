@@ -1,0 +1,27 @@
+# pinky theme for Mintty
+# Scheme Author: Benjamin (https://github.com/b3nj5m1n)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #171517
+Red         = #ffa600
+Green       = #ff0066
+Yellow      = #20df6c
+Blue        = #00ffff
+Magenta     = #007fff
+Cyan        = #6600ff
+White       = #f5f5f5
+BoldBlack   = #383338
+BoldRed     = #ffa600
+BoldGreen   = #ff0066
+BoldYellow  = #20df6c
+BoldBlue    = #00ffff
+BoldMagenta = #007fff
+BoldCyan    = #6600ff
+BoldWhite   = #f7f3f7
+
+# Background & foreground colors
+BackgroundColour = #171517
+ForegroundColour = #f5f5f5
+CursorColour     = #f5f5f5

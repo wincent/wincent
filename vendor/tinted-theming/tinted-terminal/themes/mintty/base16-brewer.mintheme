@@ -1,0 +1,27 @@
+# Brewer theme for Mintty
+# Scheme Author: Timothée Poisot (http://github.com/tpoisot)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #0c0d0e
+Red         = #e31a1c
+Green       = #31a354
+Yellow      = #dca060
+Blue        = #3182bd
+Magenta     = #756bb1
+Cyan        = #80b1d3
+White       = #b7b8b9
+BoldBlack   = #737475
+BoldRed     = #e31a1c
+BoldGreen   = #31a354
+BoldYellow  = #dca060
+BoldBlue    = #3182bd
+BoldMagenta = #756bb1
+BoldCyan    = #80b1d3
+BoldWhite   = #fcfdfe
+
+# Background & foreground colors
+BackgroundColour = #0c0d0e
+ForegroundColour = #b7b8b9
+CursorColour     = #b7b8b9

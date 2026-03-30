@@ -1,0 +1,27 @@
+# Sparky theme for Mintty
+# Scheme Author: Leila Sother (https://github.com/mixcoac)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #072b31
+Red         = #ff585d
+Green       = #78d64b
+Yellow      = #fbdd40
+Blue        = #4698cb
+Magenta     = #d59ed7
+Cyan        = #2dccd3
+White       = #f4f5f0
+BoldBlack   = #003b49
+BoldRed     = #ff585d
+BoldGreen   = #78d64b
+BoldYellow  = #fbdd40
+BoldBlue    = #4698cb
+BoldMagenta = #d59ed7
+BoldCyan    = #2dccd3
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #072b31
+ForegroundColour = #f4f5f0
+CursorColour     = #f4f5f0

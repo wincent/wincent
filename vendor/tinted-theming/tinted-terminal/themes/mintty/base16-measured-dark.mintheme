@@ -1,0 +1,27 @@
+# Measured Dark theme for Mintty
+# Scheme Author: Measured (https://measured.co)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #00211f
+Red         = #ce7e8e
+Green       = #56c16f
+Yellow      = #bfac4e
+Blue        = #88b0da
+Magenta     = #b39be0
+Cyan        = #62c0be
+White       = #dcdcdc
+BoldBlack   = #ababab
+BoldRed     = #ce7e8e
+BoldGreen   = #56c16f
+BoldYellow  = #bfac4e
+BoldBlue    = #88b0da
+BoldMagenta = #b39be0
+BoldCyan    = #62c0be
+BoldWhite   = #f5f5f5
+
+# Background & foreground colors
+BackgroundColour = #00211f
+ForegroundColour = #dcdcdc
+CursorColour     = #dcdcdc

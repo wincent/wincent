@@ -1,0 +1,27 @@
+# Dimmed Monokai theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1e1e1e
+Red         = #be3e48
+Green       = #869a3a
+Yellow      = #176ce3
+Blue        = #4e76a1
+Magenta     = #855b8d
+Cyan        = #568ea3
+White       = #acafac
+BoldBlack   = #949593
+BoldRed     = #fb001e
+BoldGreen   = #0e712e
+BoldYellow  = #c37033
+BoldBlue    = #176ce3
+BoldMagenta = #fb0067
+BoldCyan    = #2d6f6c
+BoldWhite   = #fcffb8
+
+# Background & foreground colors
+BackgroundColour = #1e1e1e
+ForegroundColour = #acafac
+CursorColour     = #acafac

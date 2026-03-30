@@ -1,0 +1,27 @@
+# Katy theme for Mintty
+# Scheme Author: George Essig (https://github.com/gessig)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #292d3e
+Red         = #6e98e1
+Green       = #78c06e
+Yellow      = #e0a557
+Blue        = #82aaff
+Magenta     = #c792ea
+Cyan        = #83b7e5
+White       = #959dcb
+BoldBlack   = #676e95
+BoldRed     = #6e98e1
+BoldGreen   = #78c06e
+BoldYellow  = #e0a557
+BoldBlue    = #82aaff
+BoldMagenta = #c792ea
+BoldCyan    = #83b7e5
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #292d3e
+ForegroundColour = #959dcb
+CursorColour     = #959dcb

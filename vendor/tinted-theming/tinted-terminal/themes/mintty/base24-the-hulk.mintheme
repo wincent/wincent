@@ -1,0 +1,27 @@
+# The Hulk theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1b1d1e
+Red         = #259d1a
+Green       = #13ce2f
+Yellow      = #4f6a95
+Blue        = #2424f4
+Magenta     = #641e73
+Cyan        = #378ca9
+White       = #b6b6b1
+BoldBlack   = #727473
+BoldRed     = #8dff2a
+BoldGreen   = #48ff76
+BoldYellow  = #3afe15
+BoldBlue    = #4f6a95
+BoldMagenta = #72579d
+BoldCyan    = #3f85a5
+BoldWhite   = #e5e5e0
+
+# Background & foreground colors
+BackgroundColour = #1b1d1e
+ForegroundColour = #b6b6b1
+CursorColour     = #b6b6b1

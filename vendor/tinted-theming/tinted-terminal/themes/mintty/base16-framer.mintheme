@@ -1,0 +1,27 @@
+# Framer theme for Mintty
+# Scheme Author: Framer (Maintained by Jesse Hoyos)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #181818
+Red         = #fd886b
+Green       = #32ccdc
+Yellow      = #fecb6e
+Blue        = #20bcfc
+Magenta     = #ba8cfc
+Cyan        = #acddfd
+White       = #d0d0d0
+BoldBlack   = #747474
+BoldRed     = #fd886b
+BoldGreen   = #32ccdc
+BoldYellow  = #fecb6e
+BoldBlue    = #20bcfc
+BoldMagenta = #ba8cfc
+BoldCyan    = #acddfd
+BoldWhite   = #eeeeee
+
+# Background & foreground colors
+BackgroundColour = #181818
+ForegroundColour = #d0d0d0
+CursorColour     = #d0d0d0

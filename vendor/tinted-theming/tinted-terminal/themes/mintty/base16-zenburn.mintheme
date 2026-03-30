@@ -1,0 +1,27 @@
+# Zenburn theme for Mintty
+# Scheme Author: elnawe
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #383838
+Red         = #dca3a3
+Green       = #5f7f5f
+Yellow      = #e0cf9f
+Blue        = #7cb8bb
+Magenta     = #dc8cc3
+Cyan        = #93e0e3
+White       = #dcdccc
+BoldBlack   = #6f6f6f
+BoldRed     = #dca3a3
+BoldGreen   = #5f7f5f
+BoldYellow  = #e0cf9f
+BoldBlue    = #7cb8bb
+BoldMagenta = #dc8cc3
+BoldCyan    = #93e0e3
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #383838
+ForegroundColour = #dcdccc
+CursorColour     = #dcdccc

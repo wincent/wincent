@@ -1,0 +1,27 @@
+# Macintosh theme for Mintty
+# Scheme Author: Rebecca Bettencourt (http://www.kreativekorp.com)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #000000
+Red         = #dd0907
+Green       = #1fb714
+Yellow      = #fbf305
+Blue        = #0000d3
+Magenta     = #4700a5
+Cyan        = #02abea
+White       = #c0c0c0
+BoldBlack   = #808080
+BoldRed     = #dd0907
+BoldGreen   = #1fb714
+BoldYellow  = #fbf305
+BoldBlue    = #0000d3
+BoldMagenta = #4700a5
+BoldCyan    = #02abea
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #000000
+ForegroundColour = #c0c0c0
+CursorColour     = #c0c0c0

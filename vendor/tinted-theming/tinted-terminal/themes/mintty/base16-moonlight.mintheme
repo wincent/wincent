@@ -1,0 +1,27 @@
+# Moonlight theme for Mintty
+# Scheme Author: Jeremy Swinarton (https://github.com/jswinarton)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #212337
+Red         = #ff5370
+Green       = #2df4c0
+Yellow      = #ffc777
+Blue        = #40ffff
+Magenta     = #b994f1
+Cyan        = #04d1f9
+White       = #a3ace1
+BoldBlack   = #748cd6
+BoldRed     = #ff5370
+BoldGreen   = #2df4c0
+BoldYellow  = #ffc777
+BoldBlue    = #40ffff
+BoldMagenta = #b994f1
+BoldCyan    = #04d1f9
+BoldWhite   = #ef43fa
+
+# Background & foreground colors
+BackgroundColour = #212337
+ForegroundColour = #a3ace1
+CursorColour     = #a3ace1

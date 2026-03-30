@@ -1,0 +1,27 @@
+# Soft Server theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #211e2a
+Red         = #e965a5
+Green       = #b1f2a7
+Yellow      = #ebde76
+Blue        = #95a6f4
+Magenta     = #ff79c6
+Cyan        = #b3f4f3
+White       = #e4dee9
+BoldBlack   = #6e6780
+BoldRed     = #e965a5
+BoldGreen   = #b1f2a7
+BoldYellow  = #ebde76
+BoldBlue    = #95a6f4
+BoldMagenta = #ff79c6
+BoldCyan    = #b3f4f3
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #211e2a
+ForegroundColour = #e4dee9
+CursorColour     = #e4dee9

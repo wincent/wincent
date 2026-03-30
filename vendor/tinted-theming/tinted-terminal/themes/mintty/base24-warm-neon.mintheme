@@ -1,0 +1,27 @@
+# Warm Neon theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #3f3f3f
+Red         = #e24345
+Green       = #38b139
+Yellow      = #7a90d5
+Blue        = #4260c5
+Magenta     = #f81ffb
+Cyan        = #29bad3
+White       = #dcc9ba
+BoldBlack   = #f2ebe6
+BoldRed     = #e86f71
+BoldGreen   = #9bc08f
+BoldYellow  = #ddd979
+BoldBlue    = #7a90d5
+BoldMagenta = #f674b9
+BoldCyan    = #5ed1e4
+BoldWhite   = #d8c8bb
+
+# Background & foreground colors
+BackgroundColour = #3f3f3f
+ForegroundColour = #dcc9ba
+CursorColour     = #dcc9ba

@@ -1,0 +1,27 @@
+# Alien Blood theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #0f160f
+Red         = #7f2b26
+Green       = #2f7e25
+Yellow      = #00a9df
+Blue        = #2f697f
+Magenta     = #47577e
+Cyan        = #317f76
+White       = #5a6f5c
+BoldBlack   = #46542a
+BoldRed     = #df8008
+BoldGreen   = #18e000
+BoldYellow  = #bde000
+BoldBlue    = #00a9df
+BoldMagenta = #0058df
+BoldCyan    = #00dfc3
+BoldWhite   = #73f990
+
+# Background & foreground colors
+BackgroundColour = #0f160f
+ForegroundColour = #5a6f5c
+CursorColour     = #5a6f5c

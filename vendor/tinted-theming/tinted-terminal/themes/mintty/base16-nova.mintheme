@@ -1,0 +1,27 @@
+# Nova theme for Mintty
+# Scheme Author: George Essig (https://github.com/gessig), Trevor D. Miller (https://trevordmiller.com)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #3c4c55
+Red         = #83afe5
+Green       = #7fc1ca
+Yellow      = #a8ce93
+Blue        = #83afe5
+Magenta     = #9a93e1
+Cyan        = #f2c38f
+White       = #c5d4dd
+BoldBlack   = #899ba6
+BoldRed     = #83afe5
+BoldGreen   = #7fc1ca
+BoldYellow  = #a8ce93
+BoldBlue    = #83afe5
+BoldMagenta = #9a93e1
+BoldCyan    = #f2c38f
+BoldWhite   = #556873
+
+# Background & foreground colors
+BackgroundColour = #3c4c55
+ForegroundColour = #c5d4dd
+CursorColour     = #c5d4dd

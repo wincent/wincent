@@ -1,0 +1,27 @@
+# Thayer Bright theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1b1d1e
+Red         = #f92672
+Green       = #4df740
+Yellow      = #3f78ff
+Blue        = #2656d6
+Magenta     = #8c54fe
+Cyan        = #37c8b4
+White       = #adada9
+BoldBlack   = #6f7170
+BoldRed     = #ff5995
+BoldGreen   = #b6e354
+BoldYellow  = #feed6c
+BoldBlue    = #3f78ff
+BoldMagenta = #9e6ffe
+BoldCyan    = #23ced4
+BoldWhite   = #f8f8f2
+
+# Background & foreground colors
+BackgroundColour = #1b1d1e
+ForegroundColour = #adada9
+CursorColour     = #adada9

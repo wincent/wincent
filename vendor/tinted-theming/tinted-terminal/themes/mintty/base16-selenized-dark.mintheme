@@ -1,0 +1,27 @@
+# selenized-dark theme for Mintty
+# Scheme Author: Jan Warchol (https://github.com/jan-warchol/selenized) / adapted to base16 by ali
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #103c48
+Red         = #fa5750
+Green       = #75b938
+Yellow      = #dbb32d
+Blue        = #4695f7
+Magenta     = #af88eb
+Cyan        = #41c7b9
+White       = #adbcbc
+BoldBlack   = #72898f
+BoldRed     = #fa5750
+BoldGreen   = #75b938
+BoldYellow  = #dbb32d
+BoldBlue    = #4695f7
+BoldMagenta = #af88eb
+BoldCyan    = #41c7b9
+BoldWhite   = #cad8d9
+
+# Background & foreground colors
+BackgroundColour = #103c48
+ForegroundColour = #adbcbc
+CursorColour     = #adbcbc

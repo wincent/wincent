@@ -1,0 +1,27 @@
+# summercamp theme for Mintty
+# Scheme Author: zoe firi (zoefiri.github.io)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1c1810
+Red         = #e35142
+Green       = #5ceb5a
+Yellow      = #f2ff27
+Blue        = #489bf0
+Magenta     = #ff8080
+Cyan        = #5aebbc
+White       = #736e55
+BoldBlack   = #504b38
+BoldRed     = #e35142
+BoldGreen   = #5ceb5a
+BoldYellow  = #f2ff27
+BoldBlue    = #489bf0
+BoldMagenta = #ff8080
+BoldCyan    = #5aebbc
+BoldWhite   = #f8f5de
+
+# Background & foreground colors
+BackgroundColour = #1c1810
+ForegroundColour = #736e55
+CursorColour     = #736e55

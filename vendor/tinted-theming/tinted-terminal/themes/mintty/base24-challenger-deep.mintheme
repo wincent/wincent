@@ -1,0 +1,27 @@
+# Challenger Deep theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1e1c31
+Red         = #ff5458
+Green       = #62d196
+Yellow      = #91ddff
+Blue        = #65b2ff
+Magenta     = #906cff
+Cyan        = #63f2f1
+White       = #929bb6
+BoldBlack   = #6a6c8a
+BoldRed     = #ff8080
+BoldGreen   = #95ffa4
+BoldYellow  = #ffe9aa
+BoldBlue    = #91ddff
+BoldMagenta = #c991e1
+BoldCyan    = #aaffe4
+BoldWhite   = #cbe3e7
+
+# Background & foreground colors
+BackgroundColour = #1e1c31
+ForegroundColour = #929bb6
+CursorColour     = #929bb6

@@ -1,0 +1,27 @@
+# Sandcastle theme for Mintty
+# Scheme Author: George Essig (https://github.com/gessig)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #282c34
+Red         = #83a598
+Green       = #528b8b
+Yellow      = #a07e3b
+Blue        = #83a598
+Magenta     = #d75f5f
+Cyan        = #83a598
+White       = #a89984
+BoldBlack   = #665c54
+BoldRed     = #83a598
+BoldGreen   = #528b8b
+BoldYellow  = #a07e3b
+BoldBlue    = #83a598
+BoldMagenta = #d75f5f
+BoldCyan    = #83a598
+BoldWhite   = #fdf4c1
+
+# Background & foreground colors
+BackgroundColour = #282c34
+ForegroundColour = #a89984
+CursorColour     = #a89984

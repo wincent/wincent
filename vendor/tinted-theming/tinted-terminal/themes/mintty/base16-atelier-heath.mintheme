@@ -1,0 +1,27 @@
+# Atelier Heath theme for Mintty
+# Scheme Author: Bram de Haan (http://atelierbramdehaan.nl)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1b181b
+Red         = #ca402b
+Green       = #918b3b
+Yellow      = #bb8a35
+Blue        = #516aec
+Magenta     = #7b59c0
+Cyan        = #159393
+White       = #ab9bab
+BoldBlack   = #776977
+BoldRed     = #ca402b
+BoldGreen   = #918b3b
+BoldYellow  = #bb8a35
+BoldBlue    = #516aec
+BoldMagenta = #7b59c0
+BoldCyan    = #159393
+BoldWhite   = #f7f3f7
+
+# Background & foreground colors
+BackgroundColour = #1b181b
+ForegroundColour = #ab9bab
+CursorColour     = #ab9bab

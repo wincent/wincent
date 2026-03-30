@@ -1,0 +1,27 @@
+# Atelier Sulphurpool Light theme for Mintty
+# Scheme Author: Bram de Haan (http://atelierbramdehaan.nl)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #f5f7ff
+Red         = #c94922
+Green       = #ac9739
+Yellow      = #c08b30
+Blue        = #3d8fd1
+Magenta     = #6679cc
+Cyan        = #22a2c9
+White       = #5e6687
+BoldBlack   = #898ea4
+BoldRed     = #c94922
+BoldGreen   = #ac9739
+BoldYellow  = #c08b30
+BoldBlue    = #3d8fd1
+BoldMagenta = #6679cc
+BoldCyan    = #22a2c9
+BoldWhite   = #202746
+
+# Background & foreground colors
+BackgroundColour = #f5f7ff
+ForegroundColour = #5e6687
+CursorColour     = #5e6687

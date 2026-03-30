@@ -1,0 +1,27 @@
+# tarot theme for Mintty
+# Scheme Author: ed (https://codeberg.org/ed)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #0e091d
+Red         = #c53253
+Green       = #a68e5a
+Yellow      = #ff6565
+Blue        = #6e6080
+Magenta     = #a45782
+Cyan        = #8c9785
+White       = #aa556f
+BoldBlack   = #74316b
+BoldRed     = #c53253
+BoldGreen   = #a68e5a
+BoldYellow  = #ff6565
+BoldBlue    = #6e6080
+BoldMagenta = #a45782
+BoldCyan    = #8c9785
+BoldWhite   = #dc8f7c
+
+# Background & foreground colors
+BackgroundColour = #0e091d
+ForegroundColour = #aa556f
+CursorColour     = #aa556f

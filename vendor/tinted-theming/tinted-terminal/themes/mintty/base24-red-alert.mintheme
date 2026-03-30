@@ -1,0 +1,27 @@
+# Red Alert theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #762423
+Red         = #d52e4d
+Green       = #71be6b
+Yellow      = #65a9f0
+Blue        = #479bed
+Magenta     = #e878d6
+Cyan        = #6bbeb8
+White       = #aaaaaa
+BoldBlack   = #525252
+BoldRed     = #e02453
+BoldGreen   = #aff08b
+BoldYellow  = #dfddb7
+BoldBlue    = #65a9f0
+BoldMagenta = #ddb7df
+BoldCyan    = #b7dfdd
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #762423
+ForegroundColour = #aaaaaa
+CursorColour     = #aaaaaa

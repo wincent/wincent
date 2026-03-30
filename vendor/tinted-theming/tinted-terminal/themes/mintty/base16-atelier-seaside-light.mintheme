@@ -1,0 +1,27 @@
+# Atelier Seaside Light theme for Mintty
+# Scheme Author: Bram de Haan (http://atelierbramdehaan.nl)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #f4fbf4
+Red         = #e6193c
+Green       = #29a329
+Yellow      = #98981b
+Blue        = #3d62f5
+Magenta     = #ad2bee
+Cyan        = #1999b3
+White       = #5e6e5e
+BoldBlack   = #809980
+BoldRed     = #e6193c
+BoldGreen   = #29a329
+BoldYellow  = #98981b
+BoldBlue    = #3d62f5
+BoldMagenta = #ad2bee
+BoldCyan    = #1999b3
+BoldWhite   = #131513
+
+# Background & foreground colors
+BackgroundColour = #f4fbf4
+ForegroundColour = #5e6e5e
+CursorColour     = #5e6e5e

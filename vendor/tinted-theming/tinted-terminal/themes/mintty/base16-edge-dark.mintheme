@@ -1,0 +1,27 @@
+# Edge Dark theme for Mintty
+# Scheme Author: cjayross (https://github.com/cjayross), Tinted Theming (https://github.com/tinted-theming)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #262729
+Red         = #e77171
+Green       = #a1bf78
+Yellow      = #dbb774
+Blue        = #73b3e7
+Magenta     = #d390e7
+Cyan        = #5ebaa5
+White       = #afb2b5
+BoldBlack   = #4a4c4f
+BoldRed     = #e77171
+BoldGreen   = #a1bf78
+BoldYellow  = #dbb774
+BoldBlue    = #73b3e7
+BoldMagenta = #d390e7
+BoldCyan    = #5ebaa5
+BoldWhite   = #e4e5e6
+
+# Background & foreground colors
+BackgroundColour = #262729
+ForegroundColour = #afb2b5
+CursorColour     = #afb2b5

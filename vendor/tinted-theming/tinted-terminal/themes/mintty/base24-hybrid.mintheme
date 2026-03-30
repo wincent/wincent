@@ -1,0 +1,27 @@
+# Hybrid theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #161718
+Red         = #b74d50
+Green       = #b3be5a
+Yellow      = #4b6b88
+Blue        = #6d90b0
+Magenta     = #a07eab
+Cyan        = #7fbeb3
+White       = #8f9190
+BoldBlack   = #434446
+BoldRed     = #8c2d32
+BoldGreen   = #788331
+BoldYellow  = #e5894f
+BoldBlue    = #4b6b88
+BoldMagenta = #6e4f79
+BoldCyan    = #4d7b73
+BoldWhite   = #5a6169
+
+# Background & foreground colors
+BackgroundColour = #161718
+ForegroundColour = #8f9190
+CursorColour     = #8f9190

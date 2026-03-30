@@ -1,0 +1,27 @@
+# Smyck theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1b1b1b
+Red         = #b74131
+Green       = #7da900
+Yellow      = #8dcff0
+Blue        = #62a3c4
+Magenta     = #b98acc
+Cyan        = #207383
+White       = #969696
+BoldBlack   = #838383
+BoldRed     = #d6837b
+BoldGreen   = #c4f036
+BoldYellow  = #fee14d
+BoldBlue    = #8dcff0
+BoldMagenta = #f799ff
+BoldCyan    = #69d9cf
+BoldWhite   = #f7f7f7
+
+# Background & foreground colors
+BackgroundColour = #1b1b1b
+ForegroundColour = #969696
+CursorColour     = #969696

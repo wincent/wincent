@@ -1,0 +1,27 @@
+# Ashes theme for Mintty
+# Scheme Author: Jannik Siebert (https://github.com/janniks)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1c2023
+Red         = #c7ae95
+Green       = #95c7ae
+Yellow      = #aec795
+Blue        = #ae95c7
+Magenta     = #c795ae
+Cyan        = #95aec7
+White       = #c7ccd1
+BoldBlack   = #747c84
+BoldRed     = #c7ae95
+BoldGreen   = #95c7ae
+BoldYellow  = #aec795
+BoldBlue    = #ae95c7
+BoldMagenta = #c795ae
+BoldCyan    = #95aec7
+BoldWhite   = #f3f4f5
+
+# Background & foreground colors
+BackgroundColour = #1c2023
+ForegroundColour = #c7ccd1
+CursorColour     = #c7ccd1

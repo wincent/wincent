@@ -1,0 +1,27 @@
+# CLRS theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #ffffff
+Red         = #f72729
+Green       = #32895c
+Yellow      = #156ffe
+Blue        = #125ccf
+Magenta     = #9f00bc
+Cyan        = #32c2c0
+White       = #9a9b9a
+BoldBlack   = #6b6d6a
+BoldRed     = #fb0416
+BoldGreen   = #2cc631
+BoldYellow  = #fcd627
+BoldBlue    = #156ffe
+BoldMagenta = #e800b0
+BoldCyan    = #39d5ce
+BoldWhite   = #ededec
+
+# Background & foreground colors
+BackgroundColour = #ffffff
+ForegroundColour = #9a9b9a
+CursorColour     = #9a9b9a

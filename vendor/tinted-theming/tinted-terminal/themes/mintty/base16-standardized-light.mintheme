@@ -1,0 +1,27 @@
+# standardized-light theme for Mintty
+# Scheme Author: ali (https://github.com/ali-githb/base16-standardized-scheme)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #ffffff
+Red         = #d03e3e
+Green       = #31861f
+Yellow      = #ad8200
+Blue        = #3173c5
+Magenta     = #9e57c2
+Cyan        = #00998f
+White       = #444444
+BoldBlack   = #767676
+BoldRed     = #d03e3e
+BoldGreen   = #31861f
+BoldYellow  = #ad8200
+BoldBlue    = #3173c5
+BoldMagenta = #9e57c2
+BoldCyan    = #00998f
+BoldWhite   = #222222
+
+# Background & foreground colors
+BackgroundColour = #ffffff
+ForegroundColour = #444444
+CursorColour     = #444444

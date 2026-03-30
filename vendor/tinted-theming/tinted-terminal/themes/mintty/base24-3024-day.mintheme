@@ -1,0 +1,27 @@
+# 3024 Day theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #f7f7f7
+Red         = #db2d20
+Green       = #01a252
+Yellow      = #807d7c
+Blue        = #01a0e4
+Magenta     = #a16a94
+Cyan        = #b5e4f4
+White       = #928f8e
+BoldBlack   = #6e6a68
+BoldRed     = #e8bbd0
+BoldGreen   = #3a3432
+BoldYellow  = #4a4543
+BoldBlue    = #807d7c
+BoldMagenta = #d6d5d4
+BoldCyan    = #cdab53
+BoldWhite   = #f7f7f7
+
+# Background & foreground colors
+BackgroundColour = #f7f7f7
+ForegroundColour = #928f8e
+CursorColour     = #928f8e

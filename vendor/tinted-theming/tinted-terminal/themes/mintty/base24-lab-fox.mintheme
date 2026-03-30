@@ -1,0 +1,27 @@
+# Lab Fox theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #2e2e2e
+Red         = #fc6d26
+Green       = #3eb383
+Yellow      = #db501f
+Blue        = #db3b21
+Magenta     = #380d75
+Cyan        = #6e49cb
+White       = #cfd0d0
+BoldBlack   = #737373
+BoldRed     = #ff6517
+BoldGreen   = #52e9a8
+BoldYellow  = #fca012
+BoldBlue    = #db501f
+BoldMagenta = #441090
+BoldCyan    = #7d53e7
+BoldWhite   = #feffff
+
+# Background & foreground colors
+BackgroundColour = #2e2e2e
+ForegroundColour = #cfd0d0
+CursorColour     = #cfd0d0

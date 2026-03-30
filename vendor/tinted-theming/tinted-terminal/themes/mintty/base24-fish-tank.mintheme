@@ -1,0 +1,27 @@
+# Fish Tank theme for Mintty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #222436
+Red         = #c60049
+Green       = #abf157
+Yellow      = #b1bdf9
+Blue        = #525fb8
+Magenta     = #976f81
+Cyan        = #968662
+White       = #ccc9c9
+BoldBlack   = #8c7f63
+BoldRed     = #d94a8a
+BoldGreen   = #daffa8
+BoldYellow  = #fee6a8
+BoldBlue    = #b1bdf9
+BoldMagenta = #fda4cc
+BoldCyan    = #a4bc86
+BoldWhite   = #f6ffec
+
+# Background & foreground colors
+BackgroundColour = #222436
+ForegroundColour = #ccc9c9
+CursorColour     = #ccc9c9

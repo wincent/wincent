@@ -1,0 +1,27 @@
+# Tomorrow theme for Mintty
+# Scheme Author: Chris Kempson (http://chriskempson.com)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #ffffff
+Red         = #c82829
+Green       = #718c00
+Yellow      = #eab700
+Blue        = #4271ae
+Magenta     = #8959a8
+Cyan        = #3e999f
+White       = #373b41
+BoldBlack   = #b4b7b4
+BoldRed     = #c82829
+BoldGreen   = #718c00
+BoldYellow  = #eab700
+BoldBlue    = #4271ae
+BoldMagenta = #8959a8
+BoldCyan    = #3e999f
+BoldWhite   = #1d1f21
+
+# Background & foreground colors
+BackgroundColour = #ffffff
+ForegroundColour = #373b41
+CursorColour     = #373b41

@@ -1,0 +1,27 @@
+# Valua theme for Mintty
+# Scheme Author: Nonetrix (https://github.com/nonetrix)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #131f1f
+Red         = #d7586e
+Green       = #59d678
+Yellow      = #dfe754
+Blue        = #4ed2d2
+Magenta     = #a874e0
+Cyan        = #76dbd2
+White       = #98c1a3
+BoldBlack   = #3e5c53
+BoldRed     = #d7586e
+BoldGreen   = #59d678
+BoldYellow  = #dfe754
+BoldBlue    = #4ed2d2
+BoldMagenta = #a874e0
+BoldCyan    = #76dbd2
+BoldWhite   = #aacbcb
+
+# Background & foreground colors
+BackgroundColour = #131f1f
+ForegroundColour = #98c1a3
+CursorColour     = #98c1a3

@@ -1,0 +1,27 @@
+# Horizon Light theme for Mintty
+# Scheme Author: Michaël Ball (http://github.com/michael-ball/)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #fdf0ed
+Red         = #f7939b
+Green       = #94e1b0
+Yellow      = #fbe0d9
+Blue        = #da103f
+Magenta     = #1d8991
+Cyan        = #dc3318
+White       = #403c3d
+BoldBlack   = #bdb3b1
+BoldRed     = #f7939b
+BoldGreen   = #94e1b0
+BoldYellow  = #fbe0d9
+BoldBlue    = #da103f
+BoldMagenta = #1d8991
+BoldCyan    = #dc3318
+BoldWhite   = #201c1d
+
+# Background & foreground colors
+BackgroundColour = #fdf0ed
+ForegroundColour = #403c3d
+CursorColour     = #403c3d

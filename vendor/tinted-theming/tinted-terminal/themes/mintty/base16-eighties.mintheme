@@ -1,0 +1,27 @@
+# Eighties theme for Mintty
+# Scheme Author: Chris Kempson (http://chriskempson.com)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #2d2d2d
+Red         = #f2777a
+Green       = #99cc99
+Yellow      = #ffcc66
+Blue        = #6699cc
+Magenta     = #cc99cc
+Cyan        = #66cccc
+White       = #d3d0c8
+BoldBlack   = #747369
+BoldRed     = #f2777a
+BoldGreen   = #99cc99
+BoldYellow  = #ffcc66
+BoldBlue    = #6699cc
+BoldMagenta = #cc99cc
+BoldCyan    = #66cccc
+BoldWhite   = #f2f0ec
+
+# Background & foreground colors
+BackgroundColour = #2d2d2d
+ForegroundColour = #d3d0c8
+CursorColour     = #d3d0c8

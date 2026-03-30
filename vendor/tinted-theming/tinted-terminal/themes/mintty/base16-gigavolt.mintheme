@@ -1,0 +1,27 @@
+# Gigavolt theme for Mintty
+# Scheme Author: Aidan Swope (http://github.com/Whillikers)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #202126
+Red         = #ff661a
+Green       = #f2e6a9
+Yellow      = #ffdc2d
+Blue        = #40bfff
+Magenta     = #ae94f9
+Cyan        = #fb6acb
+White       = #e9e7e1
+BoldBlack   = #a1d2e6
+BoldRed     = #ff661a
+BoldGreen   = #f2e6a9
+BoldYellow  = #ffdc2d
+BoldBlue    = #40bfff
+BoldMagenta = #ae94f9
+BoldCyan    = #fb6acb
+BoldWhite   = #f2fbff
+
+# Background & foreground colors
+BackgroundColour = #202126
+ForegroundColour = #e9e7e1
+CursorColour     = #e9e7e1

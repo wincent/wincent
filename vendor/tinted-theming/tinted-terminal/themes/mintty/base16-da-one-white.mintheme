@@ -1,0 +1,27 @@
+# Da One White theme for Mintty
+# Scheme Author: NNB (https://github.com/NNBnh)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #ffffff
+Red         = #de5d6e
+Green       = #76a85d
+Yellow      = #b3684f
+Blue        = #5890f8
+Magenta     = #c173d1
+Cyan        = #64b5a7
+White       = #181818
+BoldBlack   = #585858
+BoldRed     = #de5d6e
+BoldGreen   = #76a85d
+BoldYellow  = #b3684f
+BoldBlue    = #5890f8
+BoldMagenta = #c173d1
+BoldCyan    = #64b5a7
+BoldWhite   = #000000
+
+# Background & foreground colors
+BackgroundColour = #ffffff
+ForegroundColour = #181818
+CursorColour     = #181818

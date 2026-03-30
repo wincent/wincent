@@ -1,0 +1,27 @@
+# Brush Trees Dark theme for Mintty
+# Scheme Author: Abraham White &lt;abelincoln.white@gmail.com&gt;
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #485867
+Red         = #b38686
+Green       = #87b386
+Yellow      = #aab386
+Blue        = #868cb3
+Magenta     = #b386b2
+Cyan        = #86b3b3
+White       = #b0c5c8
+BoldBlack   = #8299a1
+BoldRed     = #b38686
+BoldGreen   = #87b386
+BoldYellow  = #aab386
+BoldBlue    = #868cb3
+BoldMagenta = #b386b2
+BoldCyan    = #86b3b3
+BoldWhite   = #e3efef
+
+# Background & foreground colors
+BackgroundColour = #485867
+ForegroundColour = #b0c5c8
+CursorColour     = #b0c5c8
