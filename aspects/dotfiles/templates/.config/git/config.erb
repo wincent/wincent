@@ -206,6 +206,9 @@
 [difftool]
 	prompt = false
 
+[difftool "nvim"]
+	cmd = nvim -c \"packadd nvim.difftool\" -c \"DiffTool $LOCAL $REMOTE\"
+
 [feature]
 	# See caveats in `man git-config` about using this before Git 2.40 (2023-03-13).
 	manyFiles = true
