@@ -5,6 +5,7 @@ let g:html_font=['Source Code Pro', 'Consolas', 'Monaco']
 function! wincent#functions#keynote() abort
   setlocal nonumber
   setlocal norelativenumber
+  packadd nvim.tohtml
   TOhtml
   let l:tempfile=trim(system('mktemp')) . '.html'
   echomsg l:tempfile
