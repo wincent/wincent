@@ -240,7 +240,7 @@ if vim.o.loadplugins then
     'nvim-cmp',
     'nvim-lspconfig',
     'nvim-treesitter',
-    -- 'nvim-treesitter-textobjects',
+    'nvim-treesitter-textobjects',
     'oil.nvim',
     'pinnacle',
     'replay',
