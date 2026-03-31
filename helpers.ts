@@ -13,6 +13,7 @@ type Condition =
   | 'debian'
   | 'linux'
   | 'personal'
+  | 'vm'
   | 'wincent'
   | 'work';
 
@@ -111,6 +112,8 @@ function checkCondition(condition: Condition): boolean {
       return attributes.platform === 'linux';
     case 'personal':
       return variable('profile') === 'personal';
+    case 'vm':
+      return attributes.distribution === 'debian';
     case 'wincent':
       return variable('identity') === 'wincent';
     case 'work':

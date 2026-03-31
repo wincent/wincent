@@ -17,7 +17,7 @@ import {
   variables,
 } from 'fig';
 
-const {when} = helpers;
+const {is, when} = helpers;
 
 variables(async ({hostHandle, identity, platform, profile}) => {
   // Docker doesn't support "include" files, so roll our own by
@@ -95,6 +95,10 @@ variables(async ({hostHandle, identity, platform, profile}) => {
 });
 
 task('check for decrypted files', when('wincent'), async () => {
+  if (is('vm')) {
+    return;
+  }
+
   const result = await command('bin/crypt-status', [], {
     failedWhen: () => false,
   });
