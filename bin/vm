@@ -109,7 +109,13 @@ cmd_push() {
 }
 
 cmd_run() {
-  tart run "$VM_BASE" --no-graphics
+  if [ "${1:-}" = "--background" ]; then
+    tart run "$VM_BASE" --no-graphics &
+    disown
+    log_info "VM started in background (PID $!)"
+  else
+    tart run "$VM_BASE" --no-graphics
+  fi
 }
 
 cmd_ssh() {
