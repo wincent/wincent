@@ -113,7 +113,10 @@ cmd_push() {
 
 cmd_pull() {
   log_info "Pulling $REGISTRY"
-  tart pull "$REGISTRY"
+  if ! tart pull "$REGISTRY"; then
+    log_error "Pull failed; you may need to run: \`tart login ghcr.io\` (use a GitHub PAT with \`read:packages\` scope as the password)"
+    exit 1
+  fi
 
   log_info "Pulled successfully"
   log_info "Clone it with: bin/vm clone <name>"
