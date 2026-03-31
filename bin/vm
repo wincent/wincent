@@ -131,6 +131,10 @@ cmd_ssh() {
   sshpass -p "$VM_PASS" ssh $SSH_OPTIONS "$VM_USER@$VM_IP"
 }
 
+cmd_stop() {
+  tart stop "$VM_BASE"
+}
+
 case "${1:-}" in
   create)
     shift
@@ -156,8 +160,12 @@ case "${1:-}" in
     shift
     cmd_ssh "$@"
     ;;
+  stop)
+    shift
+    cmd_stop "$@"
+    ;;
   *)
-    log_error "Usage: bin/vm <create|clone|pull|push|run|ssh>"
+    log_error "Usage: bin/vm <clone|create|pull|push|run|ssh|stop>"
     exit 1
     ;;
 esac
