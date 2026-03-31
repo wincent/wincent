@@ -70,6 +70,55 @@ As an illustration, consider working on Command-T:
 
 Note that you don't have to go through steps "1" through 4" for every commit; you can produce several commits (ie. do "1" and "2" repeatedly as many times as you like, and optionally "3" if you want to see the changes run in CI on GitHub) before doing the final sync ("4").
 
+## Working with VMs
+
+[Tart](https://tart.run/) is used to run Ubuntu 24.04 VMs on Apple Silicon. The `bin/vm` script manages the VM lifecycle:
+
+### Creating a base image
+
+```
+bin/vm create
+```
+
+This clones the Cirrus Labs Ubuntu OCI image, pushes the dotfiles repo into the VM from the local host, and runs `./install` to provision it via Fig. The result is a `wincent-base` VM that can be cloned for daily use.
+
+### Cloning the base image
+
+```
+bin/vm clone <name>
+```
+
+Creates a new VM from `wincent-base` using copy-on-write (fast, space-efficient).
+
+### Pushing the base image to a registry
+
+```
+bin/vm push
+```
+
+Pushes `wincent-base` to `ghcr.io/wincent/wincent-base:latest`. Requires `tart login ghcr.io` first.
+
+### Connecting to a VM
+
+```
+tart run <name> --no-graphics &
+ssh admin@$(tart ip <name>)
+```
+
+Default credentials are `admin`/`admin`.
+
+### Updating dotfiles in a VM
+
+Inside the VM, `~/code/wincent` is a Git checkout with `origin` pointing at GitHub. To update:
+
+```
+cd ~/code/wincent
+git pull
+SUDO_ASKPASS=echo ./install
+```
+
+The `SUDO_ASKPASS=echo` is needed because the Cirrus Labs image has passwordless sudo, and Fig would otherwise prompt for a password.
+
 ## Working with encrypted files
 
 ### Adding a new encrypted file

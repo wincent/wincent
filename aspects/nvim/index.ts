@@ -12,10 +12,49 @@ import {
 
 const {when} = helpers;
 
+const NEOVIM_VERSION = '0.12.0';
+
 task('make directories', async () => {
   // Some overlap with "dotfiles" aspect here.
   await file({path: '~/.backups', state: 'directory'});
   await file({path: '~/.config', state: 'directory'});
+});
+
+task('clone neovim', when('debian'), async () => {
+  await file({path: '~/code', state: 'directory'});
+
+  await command(
+    'git',
+    [
+      'clone',
+      '--branch',
+      `v${NEOVIM_VERSION}`,
+      '--depth',
+      '1',
+      'https://github.com/neovim/neovim.git',
+    ],
+    {
+      chdir: '~/code',
+      creates: '~/code/neovim',
+      raw: true,
+    },
+  );
+});
+
+task('build neovim', when('debian'), async () => {
+  await command('make', [
+    'CMAKE_BUILD_TYPE=Release',
+    'CMAKE_INSTALL_PREFIX=/usr/local',
+  ], {
+    chdir: '~/code/neovim',
+    creates: '~/code/neovim/build/bin/nvim',
+  });
+
+  await command('make', ['install'], {
+    chdir: '~/code/neovim',
+    creates: '/usr/local/bin/nvim',
+    sudo: true,
+  });
 });
 
 task('move originals to ~/.backups', async () => {
@@ -82,7 +121,7 @@ task('create spell file', async () => {
 
   await command(
     'nvim',
-    ['-u', 'NONE', '-N', '-c', `mkspell! ${spellfile} | quit`],
+    ['--headless', '-u', 'NONE', '-N', '-c', `mkspell! ${spellfile} | quit`],
     {
       creates: `${spellfile}.spl`,
     },
@@ -91,14 +130,6 @@ task('create spell file', async () => {
 
 task('update help tags', async () => {
   await command(resource.support('update-help-tags'), []);
-});
-
-task('install gems', async () => {
-  const gems = ['neovim'];
-
-  await command('gem', ['install', ...gems], {
-    sudo: true,
-  });
 });
 
 // On my work machine, I divide my Corpus notes into two folders: one is

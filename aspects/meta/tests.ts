@@ -248,7 +248,7 @@ task('manage a symbolic link', async () => {
   assert.ok(stats && !(stats instanceof Error));
 
   expect.equal(stats.type, 'link');
-  expect.equal(stats.target, toPath(src).resolve);
+  expect.equal(stats.target, toPath(src).resolve.toString());
 
   expect.equal(Context.counts.changed, changed + 1);
   expect.equal(Context.counts.failed, failed);

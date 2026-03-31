@@ -10,6 +10,8 @@ source bin/common
 
 bin/typegen
 
+bin/seed-dependencies
+
 log_info "Running Fig"
 
 bin/node fig/main.mts "$@"

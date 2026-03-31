@@ -1,6 +1,6 @@
 export default {
   platforms: {
-    darwin: {
+    'darwin': {
       aspects: [
         'meta',
         'backup',
@@ -23,7 +23,7 @@ export default {
         pinentryProgram: '/opt/homebrew/bin/pinentry-curses',
       },
     },
-    linux: {
+    'linux': {
       aspects: [
         'meta',
         'dotfiles',
@@ -39,6 +39,10 @@ export default {
         'node',
         'nvim',
       ],
+      variables: {},
+    },
+    'linux.debian': {
+      aspects: ['meta', 'apt', 'dotfiles', 'shell', 'nvim'],
       variables: {},
     },
   },

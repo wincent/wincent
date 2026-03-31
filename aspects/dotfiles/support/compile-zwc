@@ -1,5 +1,8 @@
 #!/usr/bin/env zsh
 
+# Some paths below (eg. Homebrew) may not exist on all platforms.
+setopt NULL_GLOB
+
 # Everything in $fpath, regardless of extension.
 FILES_TO_COMPILE=()
 FILES_TO_COMPILE+=($HOME/.zsh/completions/*)

@@ -1,0 +1,128 @@
+#!/bin/bash
+
+set -e
+
+REPO_ROOT="${BASH_SOURCE%/*}/.."
+
+source "$REPO_ROOT/bin/common"
+
+VM_BASE="wincent-base"
+VM_USER="admin"
+VM_PASS="admin"
+VM_REPO_PATH="/home/$VM_USER/code/wincent"
+OCI_IMAGE="ghcr.io/cirruslabs/ubuntu:latest"
+REGISTRY="ghcr.io/wincent/wincent-base:latest"
+
+SSH_OPTIONS="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR"
+
+vm_ssh() {
+  sshpass -p "$VM_PASS" ssh $SSH_OPTIONS "$VM_USER@$VM_IP" "$@"
+}
+
+wait_for_ssh() {
+  log_info "Waiting for SSH..."
+  local retries=30
+  while [ $retries -gt 0 ]; do
+    if vm_ssh true 2>/dev/null; then
+      log_info "SSH is available"
+      return 0
+    fi
+    retries=$((retries - 1))
+    sleep 2
+  done
+  log_error "Timed out waiting for SSH"
+  exit 1
+}
+
+cmd_create() {
+  if tart list | grep -q "^Local[[:space:]]*$VM_BASE "; then
+    log_error "VM '$VM_BASE' already exists; delete it first with: tart delete $VM_BASE"
+    exit 1
+  fi
+
+  log_info "Cloning $OCI_IMAGE -> $VM_BASE"
+  tart clone "$OCI_IMAGE" "$VM_BASE"
+
+  log_info "Configuring VM resources"
+  tart set "$VM_BASE" --disk-size 50 --cpu 4 --memory 8192
+
+  log_info "Starting VM (headless)"
+  tart run "$VM_BASE" --no-graphics &
+  TART_PID=$!
+
+  trap 'log_info "Stopping VM"; tart stop "$VM_BASE" 2>/dev/null; wait $TART_PID 2>/dev/null' EXIT
+
+  VM_IP=$(tart ip "$VM_BASE" --wait 30)
+  log_info "VM IP: $VM_IP"
+
+  wait_for_ssh
+
+  log_info "Installing prerequisites"
+  vm_ssh "sudo apt-get update && sudo apt-get install -y git curl"
+
+  log_info "Initializing repo on VM"
+  vm_ssh "mkdir -p $VM_REPO_PATH && cd $VM_REPO_PATH && git init -b main && git config receive.denyCurrentBranch updateInstead"
+
+  log_info "Pushing repo to VM"
+  GIT_SSH_COMMAND="sshpass -p $VM_PASS ssh $SSH_OPTIONS" \
+    git -C "$REPO_ROOT" push "ssh://$VM_USER@$VM_IP$VM_REPO_PATH" HEAD:refs/heads/main
+
+  log_info "Checking out and running install"
+  vm_ssh "cd $VM_REPO_PATH && git checkout main && SUDO_ASKPASS=echo ./install"
+
+  log_info "Base image '$VM_BASE' is ready"
+  log_info "Clone it with: bin/vm clone <name>"
+}
+
+cmd_clone() {
+  if [ -z "$1" ]; then
+    log_error "Usage: bin/vm clone <vm-name>"
+    exit 1
+  fi
+
+  local vm_name="$1"
+
+  if ! tart list | grep -q "^Local[[:space:]]*$VM_BASE "; then
+    log_error "Base image '$VM_BASE' not found; create it first with: bin/vm create"
+    exit 1
+  fi
+
+  log_info "Cloning $VM_BASE -> $vm_name"
+  tart clone "$VM_BASE" "$vm_name"
+
+  log_info "VM '$vm_name' is ready"
+  log_info "Start it with: tart run $vm_name --no-graphics"
+  log_info "Connect with:  ssh admin@\$(tart ip $vm_name)"
+}
+
+cmd_push() {
+  if ! tart list | grep -q "^Local[[:space:]]*$VM_BASE "; then
+    log_error "VM '$VM_BASE' not found; create it first with: bin/vm create"
+    exit 1
+  fi
+
+  log_info "Pushing $VM_BASE -> $REGISTRY"
+  tart push "$VM_BASE" "$REGISTRY"
+
+  log_info "Pushed successfully"
+  log_info "Pull with: tart pull $REGISTRY"
+}
+
+case "${1:-}" in
+  create)
+    shift
+    cmd_create "$@"
+    ;;
+  clone)
+    shift
+    cmd_clone "$@"
+    ;;
+  push)
+    shift
+    cmd_push "$@"
+    ;;
+  *)
+    log_error "Usage: bin/vm <create|clone|push>"
+    exit 1
+    ;;
+esac
