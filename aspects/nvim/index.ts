@@ -90,12 +90,40 @@ task('compile Command-T (Lua)', async () => {
   });
 });
 
+task('install Command-T (Lua)', async () => {
+  const src = CACHE.join(
+    'github/wincent/command-t/lua/wincent/commandt/lib/commandt.so',
+  );
+  const dest = path.aspect.join(
+    'files/.config/nvim/pack/bundle/opt/command-t/lua/wincent/commandt/lib/commandt.so',
+  );
+
+  await file({
+    path: dest,
+    src,
+    state: 'file',
+  });
+});
+
 task('build shellbot', async () => {
   const base = CACHE.join('github/wincent/shellbot');
 
   await command('cargo', ['build', '--release'], {
     chdir: base,
     creates: base.join('target/release/shellbot'),
+  });
+});
+
+task('install shellbot', async () => {
+  const src = CACHE.join('github/wincent/shellbot/target/release/shellbot');
+  const dest = path.aspect.join(
+    'files/.config/nvim/pack/bundle/opt/shellbot/target/release/shellbot',
+  );
+
+  await file({
+    path: dest,
+    src,
+    state: 'file',
   });
 });
 

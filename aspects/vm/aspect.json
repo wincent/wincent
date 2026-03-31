@@ -1,0 +1,8 @@
+{
+  "description": "Custom tweaks for Tart VMs",
+  "variables": {
+    "templates": [
+      ".zshenv.d/fig.zsh.erb"
+    ]
+  }
+}

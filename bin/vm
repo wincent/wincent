@@ -68,7 +68,7 @@ cmd_create() {
     git -C "$REPO_ROOT" push "ssh://$VM_USER@$VM_IP$VM_REPO_PATH" HEAD:refs/heads/main
 
   log_info "Checking out and running install"
-  vm_ssh "cd $VM_REPO_PATH && git checkout main && SUDO_ASKPASS=echo ./install"
+  vm_ssh "cd $VM_REPO_PATH && git checkout main && FIG_IDENTITY=wincent SUDO_ASKPASS=echo ./install"
 
   log_info "Base image '$VM_BASE' is ready"
   log_info "Clone it with: bin/vm clone <name>"
