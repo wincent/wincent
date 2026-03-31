@@ -96,7 +96,13 @@ Creates a new VM from `wincent-base` using copy-on-write (fast, space-efficient)
 bin/vm push
 ```
 
-Pushes `wincent-base` to `ghcr.io/wincent/wincent-base:latest`. Requires `tart login ghcr.io` first.
+Pushes `wincent-base` to `ghcr.io/wincent/wincent-base:latest`. Requires authentication:
+
+```
+tart login ghcr.io
+```
+
+Use your GitHub username and a [Personal Access Token](https://github.com/settings/tokens/new) with `write:packages` scope as the password.
 
 ### Running and connecting to a VM
 

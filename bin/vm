@@ -103,7 +103,7 @@ cmd_push() {
 
   log_info "Pushing $VM_BASE -> $REGISTRY"
   if ! tart push "$VM_BASE" "$REGISTRY"; then
-    log_error "Push failed; you may need to run: \`tart login ghcr.io\`"
+    log_error "Push failed; you may need to run: \`tart login ghcr.io\` (use a GitHub PAT with \`write:packages\` scope as the password)"
     exit 1
   fi
 
