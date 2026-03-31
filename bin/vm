@@ -102,7 +102,10 @@ cmd_push() {
   fi
 
   log_info "Pushing $VM_BASE -> $REGISTRY"
-  tart push "$VM_BASE" "$REGISTRY"
+  if ! tart push "$VM_BASE" "$REGISTRY"; then
+    log_error "Push failed; you may need to run: \`tart login ghcr.io\`"
+    exit 1
+  fi
 
   log_info "Pushed successfully"
   log_info "Pull with: bin/vm pull"
