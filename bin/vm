@@ -105,7 +105,15 @@ cmd_push() {
   tart push "$VM_BASE" "$REGISTRY"
 
   log_info "Pushed successfully"
-  log_info "Pull with: tart pull $REGISTRY"
+  log_info "Pull with: bin/vm pull"
+}
+
+cmd_pull() {
+  log_info "Pulling $REGISTRY"
+  tart pull "$REGISTRY"
+
+  log_info "Pulled successfully"
+  log_info "Clone it with: bin/vm clone <name>"
 }
 
 cmd_run() {
@@ -132,6 +140,10 @@ case "${1:-}" in
     shift
     cmd_clone "$@"
     ;;
+  pull)
+    shift
+    cmd_pull "$@"
+    ;;
   push)
     shift
     cmd_push "$@"
@@ -145,7 +157,7 @@ case "${1:-}" in
     cmd_ssh "$@"
     ;;
   *)
-    log_error "Usage: bin/vm <create|clone|push|run|ssh>"
+    log_error "Usage: bin/vm <create|clone|pull|push|run|ssh>"
     exit 1
     ;;
 esac
