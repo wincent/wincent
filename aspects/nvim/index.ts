@@ -117,11 +117,13 @@ task('build shellbot', async () => {
 task('install shellbot', async () => {
   const src = CACHE.join('github/wincent/shellbot/target/release/shellbot');
   const dest = path.aspect.join(
-    'files/.config/nvim/pack/bundle/opt/shellbot/target/release/shellbot',
+    'files/.config/nvim/pack/bundle/opt/shellbot/target/release',
   );
 
+  await file({path: dest, recurse: true, state: 'directory'});
+
   await file({
-    path: dest,
+    path: dest.join('shellbot'),
     src,
     state: 'file',
   });
