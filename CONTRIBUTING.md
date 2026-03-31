@@ -98,11 +98,12 @@ bin/vm push
 
 Pushes `wincent-base` to `ghcr.io/wincent/wincent-base:latest`. Requires `tart login ghcr.io` first.
 
-### Connecting to a VM
+### Running and connecting to a VM
 
 ```
-tart run <name> --no-graphics &
-ssh admin@$(tart ip <name>)
+bin/vm run               # run in foreground
+bin/vm run --background  # run in background (survives shell exit)
+bin/vm ssh               # connect via SSH
 ```
 
 Default credentials are `admin`/`admin`.
