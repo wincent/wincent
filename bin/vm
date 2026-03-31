@@ -35,7 +35,7 @@ wait_for_ssh() {
 }
 
 cmd_create() {
-  if tart list | grep -q "^Local[[:space:]]*$VM_BASE "; then
+  if tart list | grep -q "^local[[:space:]]*$VM_BASE "; then
     log_error "VM '$VM_BASE' already exists; delete it first with: tart delete $VM_BASE"
     exit 1
   fi
@@ -82,7 +82,7 @@ cmd_clone() {
 
   local vm_name="$1"
 
-  if ! tart list | grep -q "^Local[[:space:]]*$VM_BASE "; then
+  if ! tart list | grep -q "^local[[:space:]]*$VM_BASE "; then
     log_error "Base image '$VM_BASE' not found; create it first with: bin/vm create"
     exit 1
   fi
@@ -96,7 +96,7 @@ cmd_clone() {
 }
 
 cmd_push() {
-  if ! tart list | grep -q "^Local[[:space:]]*$VM_BASE "; then
+  if ! tart list | grep -q "^local[[:space:]]*$VM_BASE "; then
     log_error "VM '$VM_BASE' not found; create it first with: bin/vm create"
     exit 1
   fi
