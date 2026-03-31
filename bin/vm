@@ -36,7 +36,7 @@ wait_for_ssh() {
 
 cmd_create() {
   if tart list | grep -q "^local[[:space:]]*$VM_BASE "; then
-    log_error "VM '$VM_BASE' already exists; delete it first with: tart delete $VM_BASE"
+    log_error "VM '$VM_BASE' already exists; delete it first with: bin/vm delete"
     exit 1
   fi
 
@@ -81,18 +81,23 @@ cmd_clone() {
   fi
 
   local vm_name="$1"
+  local clone_source
 
-  if ! tart list | grep -q "^local[[:space:]]*$VM_BASE "; then
-    log_error "Base image '$VM_BASE' not found; create it first with: bin/vm create"
+  if tart list | grep -q "^local[[:space:]]*$VM_BASE "; then
+    clone_source="$VM_BASE"
+  elif tart list | grep -q "^OCI[[:space:]]*$REGISTRY "; then
+    clone_source="$REGISTRY"
+  else
+    log_error "Base image '$VM_BASE' not found; create it with: bin/vm create (or pull it with: bin/vm pull)"
     exit 1
   fi
 
-  log_info "Cloning $VM_BASE -> $vm_name"
-  tart clone "$VM_BASE" "$vm_name"
+  log_info "Cloning $clone_source -> $vm_name"
+  tart clone "$clone_source" "$vm_name"
 
   log_info "VM '$vm_name' is ready"
-  log_info "Start it with: tart run $vm_name --no-graphics"
-  log_info "Connect with:  ssh admin@\$(tart ip $vm_name)"
+  log_info "Start it with:  bin/vm run $vm_name"
+  log_info "Connect with:   bin/vm ssh $vm_name"
 }
 
 cmd_push() {
@@ -122,23 +127,36 @@ cmd_pull() {
   log_info "Clone it with: bin/vm clone <name>"
 }
 
+cmd_delete() {
+  local vm_name="${1:-$VM_BASE}"
+  tart delete "$vm_name"
+}
+
 cmd_run() {
-  if [ "${1:-}" = "--background" ]; then
-    tart run "$VM_BASE" --no-graphics &
+  local vm_name="${1:-$VM_BASE}"
+  if [ "$vm_name" = "--background" ]; then
+    vm_name="$VM_BASE"
+    tart run "$vm_name" --no-graphics &
+    disown
+    log_info "VM started in background (PID $!)"
+  elif [ "${2:-}" = "--background" ]; then
+    tart run "$vm_name" --no-graphics &
     disown
     log_info "VM started in background (PID $!)"
   else
-    tart run "$VM_BASE" --no-graphics
+    tart run "$vm_name" --no-graphics
   fi
 }
 
 cmd_ssh() {
-  VM_IP=$(tart ip "$VM_BASE" --wait 30)
+  local vm_name="${1:-$VM_BASE}"
+  VM_IP=$(tart ip "$vm_name" --wait 30)
   sshpass -p "$VM_PASS" ssh $SSH_OPTIONS "$VM_USER@$VM_IP"
 }
 
 cmd_stop() {
-  tart stop "$VM_BASE"
+  local vm_name="${1:-$VM_BASE}"
+  tart stop "$vm_name"
 }
 
 case "${1:-}" in
@@ -149,6 +167,10 @@ case "${1:-}" in
   clone)
     shift
     cmd_clone "$@"
+    ;;
+  delete)
+    shift
+    cmd_delete "$@"
     ;;
   pull)
     shift
@@ -171,7 +193,7 @@ case "${1:-}" in
     cmd_stop "$@"
     ;;
   *)
-    log_error "Usage: bin/vm <clone|create|pull|push|run|ssh|stop>"
+    log_error "Usage: bin/vm <clone|create|delete|pull|push|run|ssh|stop>"
     exit 1
     ;;
 esac
