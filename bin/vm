@@ -144,6 +144,7 @@ cmd_run() {
     disown
     log_info "VM started in background (PID $!)"
   else
+    log_info "Running in foreground (pass \`--background\` to run in the background)"
     tart run "$vm_name" --no-graphics
   fi
 }
