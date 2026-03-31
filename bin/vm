@@ -108,6 +108,15 @@ cmd_push() {
   log_info "Pull with: tart pull $REGISTRY"
 }
 
+cmd_run() {
+  tart run "$VM_BASE" --no-graphics
+}
+
+cmd_ssh() {
+  VM_IP=$(tart ip "$VM_BASE" --wait 30)
+  sshpass -p "$VM_PASS" ssh $SSH_OPTIONS "$VM_USER@$VM_IP"
+}
+
 case "${1:-}" in
   create)
     shift
@@ -121,8 +130,16 @@ case "${1:-}" in
     shift
     cmd_push "$@"
     ;;
+  run)
+    shift
+    cmd_run "$@"
+    ;;
+  ssh)
+    shift
+    cmd_ssh "$@"
+    ;;
   *)
-    log_error "Usage: bin/vm <create|clone|push>"
+    log_error "Usage: bin/vm <create|clone|push|run|ssh>"
     exit 1
     ;;
 esac
