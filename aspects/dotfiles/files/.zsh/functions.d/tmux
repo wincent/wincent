@@ -8,6 +8,7 @@ function tmux() {
   if [ -r "$SSH_AUTH_SOCK" -a ! -L "$SSH_AUTH_SOCK" ]; then
     ln -sf "$SSH_AUTH_SOCK" "$HOME/.ssh/ssh_auth_sock"
     ENV_OVERRIDES+=(SSH_AUTH_SOCK="$HOME/.ssh/ssh_auth_sock")
+    command tmux set-environment -g SSH_AUTH_SOCK "$HOME/.ssh/ssh_auth_sock" 2>/dev/null
   fi
 
   # Same for KITTY_LISTEN_ON (although note, "unix:" prefix must be stripped).
@@ -15,6 +16,7 @@ function tmux() {
   if [ -r "$KITTY_SOCK" -a ! -L "$KITTY_SOCK" ]; then
     ln -sf "$KITTY_SOCK" "$HOME/.config/kitty/kitty.sock"
     ENV_OVERRIDES+=(KITTY_LISTEN_ON="unix:$HOME/.config/kitty/kitty.sock")
+    command tmux set-environment -g KITTY_LISTEN_ON "unix:$HOME/.config/kitty/kitty.sock" 2>/dev/null
   fi
 
   # If provided with args, pass them through.
