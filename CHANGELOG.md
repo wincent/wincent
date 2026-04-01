@@ -2,6 +2,10 @@
 
 Noteworthy changes, as selected from `git changelog --since $LAST_DATE`.
 
+## 2026-04-01
+
+- Switched default color scheme to "bright".
+
 ## 2026-02-08
 
 - Switch to [MonoLisa](https://www.monolisa.dev) font.

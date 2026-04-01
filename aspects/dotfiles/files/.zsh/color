@@ -232,7 +232,7 @@ function () {
       color "$SCHEME"
     else
       # Default.
-      color classic-dark
+      color bright
     fi
   fi
 }
