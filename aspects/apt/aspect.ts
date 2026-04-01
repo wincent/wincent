@@ -12,6 +12,8 @@ export default {
       'ninja-build', // Build tool (for Neovim).
       'pkg-config', // Build tool (for shellbot).
       'ripgrep', // Grep replacement.
+      'ruby', // Object-oriented scripting language.
+      'tree', // Displays an indented directory tree.
       'unzip', // Archive extraction (for Neovim).
       'zsh', // Shell.
     ],
