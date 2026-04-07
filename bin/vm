@@ -129,6 +129,7 @@ cmd_pull() {
 
 cmd_delete() {
   local vm_name="${1:-$VM_BASE}"
+  tart stop "$vm_name" 2>/dev/null || true
   tart delete "$vm_name"
 }
 

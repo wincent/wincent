@@ -1,0 +1,499 @@
+#!/bin/bash
+# <%= variables.figManaged %>
+
+set -euo pipefail
+
+# --- Find project root ---
+
+find_root() {
+    local dir="$PWD"
+    while [ "$dir" != "/" ]; do
+        if [ -f "$dir/.sandboxrc" ]; then
+            echo "$dir"
+            return
+        fi
+        dir="$(dirname "$dir")"
+    done
+    git rev-parse --show-toplevel 2>/dev/null && return
+    jj root 2>/dev/null && return
+    echo "$PWD"
+}
+
+PROJECT_ROOT="$(find_root)"
+PROJECT_NAME="$(basename "$PROJECT_ROOT")"
+
+# --- Defaults ---
+
+SB_BRANCHES=(main)
+SB_WORKTREES=()
+SB_PORTS=()
+SB_SSH_EXEC=""
+SB_VM_CPU=4
+SB_VM_MEMORY=8192
+SB_VM_IMAGE="<%= variables.sbVmImage %>"
+
+VM_USER="admin"
+VM_PASS="admin"
+SSH_OPTS=(-o StrictHostKeyChecking=no -o ConnectTimeout=5)
+
+# --- Helpers (available to .sandboxrc) ---
+
+sb_ssh() {
+    sshpass -p "$VM_PASS" ssh "${SSH_OPTS[@]}" "$VM_USER@$1" "${@:2}"
+}
+
+sb_scp() {
+    sshpass -p "$VM_PASS" scp "${SSH_OPTS[@]}" "$@"
+}
+
+# --- Source config ---
+
+if [ -f "$PROJECT_ROOT/.sandboxrc" ]; then
+    # shellcheck disable=SC1091
+    source "$PROJECT_ROOT/.sandboxrc"
+fi
+
+# --- Derived ---
+
+VM_NAME="${PROJECT_NAME}-sandbox"
+VM_REPO_PATH="/home/$VM_USER/$PROJECT_NAME"
+
+# --- Internal helpers ---
+
+vm_exists() {
+    tart list | grep -qw "$VM_NAME"
+}
+
+vm_ip() {
+    tart ip "$VM_NAME"
+}
+
+wait_for_ip() {
+    echo "Waiting for VM IP..." >&2
+    local attempts=0
+    while ! tart ip "$VM_NAME" &>/dev/null; do
+        attempts=$((attempts + 1))
+        if [ "$attempts" -ge 60 ]; then
+            echo "Error: timed out waiting for VM IP" >&2
+            exit 1
+        fi
+        sleep 2
+    done
+    tart ip "$VM_NAME"
+}
+
+wait_for_ssh() {
+    local ip="$1"
+    echo "Waiting for SSH..." >&2
+    local attempts=0
+    while ! sb_ssh "$ip" true &>/dev/null; do
+        attempts=$((attempts + 1))
+        if [ "$attempts" -ge 30 ]; then
+            echo "Error: timed out waiting for SSH" >&2
+            exit 1
+        fi
+        sleep 2
+    done
+}
+
+provision() {
+    local ip="$1"
+
+    echo "Configuring SSH environment forwarding..."
+    sb_ssh "$ip" "echo 'AcceptEnv ANTHROPIC_API_KEY CLAUDE_CODE_OAUTH_TOKEN' | sudo tee -a /etc/ssh/sshd_config >/dev/null && sudo systemctl restart ssh"
+
+    echo "Configuring git identity..."
+    local host_name host_email vm_hostname
+    host_name="$(git config user.name)"
+    host_email="$(git config user.email)"
+    vm_hostname="$(sb_ssh "$ip" hostname)"
+    sb_ssh "$ip" "git config --file ~/.config/git/host/$vm_hostname user.name $(printf '%q' "$host_name") && git config --file ~/.config/git/host/$vm_hostname user.email $(printf '%q' "$host_email")"
+
+    if type sb_provision &>/dev/null; then
+        echo "Running project-specific provisioning..."
+        sb_provision "$ip"
+    fi
+}
+
+init_repo() {
+    local ip="$1"
+    echo "Initializing repo in VM..."
+    sb_ssh "$ip" "git init ~/$PROJECT_NAME && cd ~/$PROJECT_NAME && git config receive.denyCurrentBranch updateInstead"
+}
+
+configure_auth() {
+    local ip="$1"
+
+    echo "Configuring Claude Code auth..."
+    sb_ssh "$ip" 'mkdir -p ~/.claude && cat > ~/.claude.json <<EOF
+{"hasCompletedOnboarding": true}
+EOF'
+
+    sb_ssh "$ip" 'chmod 600 ~/.bashrc'
+
+    if [ -n "${CLAUDE_CODE_OAUTH_TOKEN:-}" ]; then
+        echo "  Writing CLAUDE_CODE_OAUTH_TOKEN to VM..."
+        printf 'export CLAUDE_CODE_OAUTH_TOKEN=%s\n' "$CLAUDE_CODE_OAUTH_TOKEN" | sb_ssh "$ip" "cat >> ~/.bashrc"
+    elif [ -n "${ANTHROPIC_API_KEY:-}" ]; then
+        echo "  Writing ANTHROPIC_API_KEY to VM..."
+        printf 'export ANTHROPIC_API_KEY=%s\n' "$ANTHROPIC_API_KEY" | sb_ssh "$ip" "cat >> ~/.bashrc"
+    else
+        echo "  Warning: no auth token found. Set CLAUDE_CODE_OAUTH_TOKEN or ANTHROPIC_API_KEY."
+    fi
+}
+
+setup_git_remote() {
+    local ip="$1"
+    export GIT_SSH_COMMAND="sshpass -p $VM_PASS ssh ${SSH_OPTS[*]}"
+    git -C "$PROJECT_ROOT" remote remove vm 2>/dev/null || true
+    git -C "$PROJECT_ROOT" remote add vm "ssh://${VM_USER}@${ip}${VM_REPO_PATH}"
+}
+
+# --- Commands ---
+
+cmd_create() {
+    if vm_exists; then
+        echo "Error: VM '$VM_NAME' already exists."
+        echo "Use 'sb destroy' first, or 'sb reset' to recreate."
+        exit 1
+    fi
+
+    echo "Cloning VM image..."
+    tart clone "$SB_VM_IMAGE" "$VM_NAME"
+
+    echo "Configuring VM resources..."
+    tart set "$VM_NAME" --cpu "$SB_VM_CPU" --memory "$SB_VM_MEMORY"
+
+    echo "Starting VM..."
+    tart run --no-graphics "$VM_NAME" &
+
+    local ip
+    ip="$(wait_for_ip)"
+    echo "VM IP: $ip"
+
+    wait_for_ssh "$ip"
+
+    provision "$ip"
+    init_repo "$ip"
+    configure_auth "$ip"
+
+    echo "Injecting code..."
+    cmd_inject
+
+    echo ""
+    echo "VM '$VM_NAME' is ready."
+    echo "Connect with: sb ssh"
+}
+
+cmd_ssh() {
+    local ip
+    ip="$(vm_ip)"
+    local port_args=()
+    for port in "${SB_PORTS[@]+"${SB_PORTS[@]}"}"; do
+        local host_port="${port%%:*}"
+        local vm_port="${port##*:}"
+        port_args+=(-L "$host_port:localhost:$vm_port")
+    done
+    local cmd_args=()
+    if [ -n "$SB_SSH_EXEC" ]; then
+        cmd_args=(-t "$SB_SSH_EXEC")
+    fi
+    exec sshpass -p "$VM_PASS" ssh "${SSH_OPTS[@]}" \
+        "${port_args[@]+"${port_args[@]}"}" \
+        "$VM_USER@$ip" "${cmd_args[@]+"${cmd_args[@]}"}"
+}
+
+cmd_destroy() {
+    tart stop "$VM_NAME" 2>/dev/null || true
+    tart delete "$VM_NAME" 2>/dev/null || true
+    git -C "$PROJECT_ROOT" remote remove vm 2>/dev/null || true
+    echo "VM '$VM_NAME' destroyed."
+}
+
+cmd_reset() {
+    cmd_destroy
+    cmd_create
+}
+
+cmd_restart() {
+    echo "Stopping VM..."
+    tart stop "$VM_NAME" 2>/dev/null || true
+
+    echo "Starting VM..."
+    tart run --no-graphics "$VM_NAME" &
+
+    local ip
+    ip="$(wait_for_ip)"
+    echo "VM IP: $ip"
+
+    wait_for_ssh "$ip"
+    echo "VM '$VM_NAME' is ready."
+}
+
+cmd_status() {
+    if ! vm_exists; then
+        echo "VM '$VM_NAME' does not exist."
+        echo "Create with: sb create"
+        return
+    fi
+
+    local ip
+    if ip="$(vm_ip 2>/dev/null)"; then
+        echo "VM '$VM_NAME' is running."
+        echo "IP: $ip"
+    else
+        echo "VM '$VM_NAME' exists but is not running."
+        echo "Start with: sb restart"
+    fi
+}
+
+cmd_ip() {
+    vm_ip
+}
+
+cmd_inject() {
+    local force=false
+    local branches=()
+    for arg in "$@"; do
+        if [ "$arg" = "--force" ] || [ "$arg" = "-f" ]; then
+            force=true
+        else
+            branches+=("$arg")
+        fi
+    done
+    if [ ${#branches[@]} -eq 0 ]; then
+        branches=("${SB_BRANCHES[@]}")
+    fi
+
+    local ip
+    ip="$(vm_ip)" || {
+        echo "Error: VM is not running."
+        exit 1
+    }
+
+    setup_git_remote "$ip"
+
+    local has_commits
+    has_commits=$(sb_ssh "$ip" "cd $VM_REPO_PATH && git rev-parse HEAD >/dev/null 2>&1 && echo yes || echo no")
+
+    if [ "$has_commits" = "yes" ]; then
+        echo "Checking for uncommitted changes in VM..."
+        if ! sb_ssh "$ip" "cd $VM_REPO_PATH && git diff --quiet HEAD && git diff --quiet --cached" 2>/dev/null; then
+            echo "Warning: VM repo has uncommitted changes."
+            read -r -p "Continue anyway? [y/N] " answer
+            if [[ ! "$answer" =~ ^[Yy]$ ]]; then
+                exit 1
+            fi
+        fi
+    fi
+
+    echo "Pushing ${branches[*]} to VM..."
+    if [ "$force" = true ]; then
+        git -C "$PROJECT_ROOT" push --force vm "${branches[@]}"
+    else
+        if ! git -C "$PROJECT_ROOT" push vm "${branches[@]}"; then
+            echo ""
+            echo "Push failed. Use 'sb inject --force' to overwrite,"
+            echo "or 'sb extract' to pull VM changes first."
+            exit 1
+        fi
+    fi
+
+    if [ ${#SB_WORKTREES[@]} -gt 0 ]; then
+        echo "Updating worktrees in VM..."
+        local wt_script="cd ~/$PROJECT_NAME"
+        for wt in "${SB_WORKTREES[@]}"; do
+            wt_script+=$'\n'"if [ -d \"$wt\" ] && git -C \"$wt\" rev-parse --git-dir &>/dev/null; then"
+            wt_script+=$'\n'"    git -C \"$wt\" reset --hard \"refs/heads/$wt\""
+            wt_script+=$'\n'"else"
+            wt_script+=$'\n'"    git worktree add \"$wt\" \"$wt\" 2>/dev/null || true"
+            wt_script+=$'\n'"fi"
+        done
+        sb_ssh "$ip" bash <<< "$wt_script"
+    fi
+
+    echo ""
+    echo "Pushed: ${branches[*]}"
+}
+
+cmd_extract() {
+    local branches=("${SB_BRANCHES[@]}")
+
+    local ip
+    ip="$(vm_ip)" || {
+        echo "Error: VM is not running."
+        exit 1
+    }
+
+    setup_git_remote "$ip"
+
+    echo "Fetching from VM..."
+    git -C "$PROJECT_ROOT" fetch vm "${branches[@]}"
+
+    local has_changes=false
+    for branch in "${branches[@]}"; do
+        local log
+        log="$(git -C "$PROJECT_ROOT" log --oneline "$branch..vm/$branch" 2>/dev/null || true)"
+        echo "$branch:"
+        if [ -n "$log" ]; then
+            echo "$log"
+            has_changes=true
+        else
+            echo "  (no changes)"
+        fi
+        echo ""
+    done
+
+    if [ "$has_changes" = false ]; then
+        echo "No changes in VM."
+        return
+    fi
+
+    echo "To apply: sb apply"
+}
+
+cmd_apply() {
+    local branches=("${SB_BRANCHES[@]}")
+    local primary="${branches[0]}"
+
+    local ip
+    ip="$(vm_ip)" || {
+        echo "Error: VM is not running."
+        exit 1
+    }
+
+    setup_git_remote "$ip"
+
+    echo "Fetching from VM..."
+    git -C "$PROJECT_ROOT" fetch vm "${branches[@]}"
+
+    cd "$PROJECT_ROOT"
+
+    local applied=false
+    for branch in "${branches[@]}"; do
+        local log
+        log="$(git log --oneline "$branch..vm/$branch" 2>/dev/null || true)"
+        if [ -z "$log" ]; then
+            continue
+        fi
+
+        echo "Rebasing and signing $branch..."
+
+        local is_worktree=false
+        for wt in "${SB_WORKTREES[@]+"${SB_WORKTREES[@]}"}"; do
+            if [ "$wt" = "$branch" ]; then
+                is_worktree=true
+                break
+            fi
+        done
+
+        if [ "$is_worktree" = true ]; then
+            if ! git -C "$branch" rebase --gpg-sign "vm/$branch"; then
+                echo "Error: rebase failed for $branch."
+                echo "Resolve conflicts in the $branch worktree, then: git rebase --continue"
+                exit 1
+            fi
+        else
+            git checkout "$branch"
+            if ! git rebase --gpg-sign "vm/$branch"; then
+                echo "Error: rebase failed for $branch."
+                echo "Resolve conflicts, then: git rebase --continue"
+                exit 1
+            fi
+        fi
+        applied=true
+    done
+
+    if [ "$applied" = true ]; then
+        echo ""
+        echo "Branches updated. Review with 'git log'."
+    else
+        echo "No changes to apply."
+    fi
+}
+
+cmd_help() {
+    cat <<EOF
+Usage: sb <command> [args]
+
+Manage sandbox VMs for isolated development with coding agents.
+
+Commands:
+  create       Create and provision a sandbox VM
+  ssh          SSH into the VM (default if VM exists)
+  destroy      Stop and delete the VM
+  reset        Destroy, recreate, and re-inject code
+  restart      Stop and restart the VM (preserves state)
+  status       Show VM state and IP
+  ip           Print VM IP address
+  inject       Push branches from host into VM [--force] [branch...]
+  extract      Show changes made in VM
+  apply        Fetch and rebase VM changes with GPG signing
+  help         Show this help
+
+Configuration (.sandboxrc in project root):
+  SB_BRANCHES      Branches to sync (default: main)
+  SB_WORKTREES     Branches to check out as worktrees (default: none)
+  SB_PORTS         Port forwards as host:vm pairs (default: none)
+  SB_SSH_EXEC      Command to exec on SSH (default: login shell)
+  SB_VM_CPU        CPU cores (default: 4)
+  SB_VM_MEMORY     Memory in MB (default: 8192)
+  SB_VM_IMAGE      Base OCI image
+  sb_provision()   Custom provisioning function; receives VM IP as \$1
+
+VM: $VM_NAME
+Project: $PROJECT_ROOT
+EOF
+}
+
+# --- Dispatch ---
+
+case "${1:-}" in
+    create)
+        cmd_create
+        ;;
+    ssh)
+        cmd_ssh
+        ;;
+    destroy)
+        cmd_destroy
+        ;;
+    reset)
+        cmd_reset
+        ;;
+    restart)
+        cmd_restart
+        ;;
+    status)
+        cmd_status
+        ;;
+    ip)
+        cmd_ip
+        ;;
+    inject)
+        shift
+        cmd_inject "$@"
+        ;;
+    extract)
+        cmd_extract
+        ;;
+    apply)
+        cmd_apply
+        ;;
+    help|--help|-h)
+        cmd_help
+        ;;
+    "")
+        if vm_exists; then
+            cmd_ssh
+        else
+            echo "No VM '$VM_NAME' found. Run 'sb create' to get started."
+            exit 1
+        fi
+        ;;
+    *)
+        echo "Unknown command: $1"
+        echo "Run 'sb help' for usage."
+        exit 1
+        ;;
+esac

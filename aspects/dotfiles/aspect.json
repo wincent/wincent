@@ -61,7 +61,8 @@
       ".fehbg",
       ".gnupg/gpg-agent.conf.erb",
       ".zsh/bin/asdf.erb",
-      ".zsh/bin/asdf-wrapper.erb"
+      ".zsh/bin/asdf-wrapper.erb",
+      ".zsh/bin/sb.erb"
     ]
   }
 }

@@ -88,7 +88,12 @@ variables(async ({hostHandle, identity, platform, profile}) => {
     // "wincent" GitHub handle if identity is "wincent".
     gitHubUsername: identity === 'wincent' ? 'wincent' : '',
 
+    sbVmImage: identity === 'wincent'
+      ? 'ghcr.io/wincent/wincent-base:latest'
+      : 'ghcr.io/cirruslabs/ubuntu:latest',
+
     vcsGpgSign: identity === 'wincent' && !is('vm'),
+
     vcsUserEmail: identity === 'wincent'
       ? profile === 'work' ? 'greg.hurrell@datadoghq.com' : 'greg@hurrell.net'
       : '',
