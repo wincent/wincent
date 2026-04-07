@@ -1,0 +1,9 @@
+{
+  "root_files": [
+    ".git",
+    ".hg",
+    ".jj",
+    ".svn",
+    ".watchmanconfig"
+  ]
+}

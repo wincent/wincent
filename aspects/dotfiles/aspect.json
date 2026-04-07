@@ -30,6 +30,7 @@
       ".config/shellbot",
       ".config/sxhkd",
       ".config/tmux",
+      ".config/watchman",
       ".config/xkeysnail.py",
       ".config/yazi",
       ".docker",
