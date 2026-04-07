@@ -84,9 +84,11 @@ variables(async ({hostHandle, identity, platform, profile}) => {
 
     gitHostSpecificInclude: `host/${hostHandle}`,
 
+    // These are the personal dotfiles of Greg Hurrell, so only set up
+    // "wincent" GitHub handle if identity is "wincent".
     gitHubUsername: identity === 'wincent' ? 'wincent' : '',
 
-    vcsGpgSign: identity === 'wincent',
+    vcsGpgSign: identity === 'wincent' && !is('vm'),
     vcsUserEmail: identity === 'wincent'
       ? profile === 'work' ? 'greg.hurrell@datadoghq.com' : 'greg@hurrell.net'
       : '',
