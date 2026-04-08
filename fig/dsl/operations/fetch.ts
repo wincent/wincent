@@ -60,6 +60,7 @@ export default async function fetch({
     return new Promise((resolve, reject) => {
       get(url, (response) => {
         if (response.statusCode === 301 || response.statusCode === 302) {
+          response.resume();
           if (requestedURLs.length > 10) {
             reject(
               new Error(

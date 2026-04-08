@@ -388,6 +388,11 @@ async function loadAspect(aspect: Aspect): Promise<void> {
 
 try {
   await main();
+
+  // Exit explicitly: the global HTTPS agent keeps sockets alive in its
+  // pool, which prevents the event loop from draining for ~30s after `fetch()`
+  // operations complete.
+  process.exit(0);
 } catch (error) {
   if (error instanceof ErrorWithMetadata) {
     if (error.metadata) {
