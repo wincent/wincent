@@ -27,7 +27,7 @@ PROJECT_NAME="$(basename "$PROJECT_ROOT")"
 SB_BRANCHES=(main)
 SB_WORKTREES=()
 SB_PORTS=()
-SB_SSH_EXEC=""
+SB_SSH_EXEC="cd code/$PROJECT_NAME && exec zsh -l"
 SB_VM_CPU=4
 SB_VM_MEMORY=8192
 SB_VM_IMAGE="<%= variables.sbVmImage %>"
