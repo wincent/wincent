@@ -72,37 +72,21 @@ Note that you don't have to go through steps "1" through 4" for every commit; yo
 
 ## Working with VMs
 
-[Tart](https://tart.run/) is used to run Ubuntu 24.04 VMs on Apple Silicon. The `bin/vm` script manages the VM lifecycle:
+[Tart](https://tart.run/) is used to run Ubuntu 24.04 VMs on Apple Silicon. The `bin/vm` script manages the VM lifecycle. Run `bin/vm help` (or `bin/vm --help`) for a summary of available commands.
 
-### Creating a base image
+### Creating and cloning a base image
 
-```
-bin/vm create
-```
+`bin/vm create` clones the Cirrus Labs Ubuntu OCI image, pushes the dotfiles repo into the VM from the local host, and runs `./install` to provision it via Fig. The result is a `wincent-base` VM that can be cloned for daily use with `bin/vm clone <name>` (copy-on-write, fast and space-efficient).
 
-This clones the Cirrus Labs Ubuntu OCI image, pushes the dotfiles repo into the VM from the local host, and runs `./install` to provision it via Fig. The result is a `wincent-base` VM that can be cloned for daily use.
+### Pushing and pulling the base image
 
-### Cloning the base image
-
-```
-bin/vm clone <name>
-```
-
-Creates a new VM from `wincent-base` using copy-on-write (fast, space-efficient).
-
-### Pushing the base image to a registry
-
-```
-bin/vm push
-```
-
-Pushes `wincent-base` to `ghcr.io/wincent/wincent-base:latest`. Requires authentication:
+`bin/vm push` pushes `wincent-base` to `ghcr.io/wincent/wincent-base:latest`. `bin/vm pull` fetches it. Both require authentication:
 
 ```
 tart login ghcr.io
 ```
 
-Use your GitHub username and a [Personal Access Token](https://github.com/settings/tokens/new) with `write:packages` scope as the password.
+Use your GitHub username and a [Personal Access Token](https://github.com/settings/tokens/new) with `write:packages` (push) or `read:packages` (pull) scope as the password.
 
 ### Running and connecting to a VM
 

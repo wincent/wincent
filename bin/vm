@@ -161,18 +161,39 @@ cmd_stop() {
   tart stop "$vm_name"
 }
 
+cmd_help() {
+  cat <<'EOF'
+Usage: bin/vm <command> [options]
+
+Commands:
+  clone <name>            Clone the base image to create a new VM
+  create                  Create a base image from the OCI image
+  delete [name]           Stop and delete a VM (default: wincent-base)
+  help                    Show this help message
+  pull                    Pull the base image from the registry
+  push                    Push the base image to the registry
+  run [name] [--background]
+                          Run a VM (default: wincent-base)
+  ssh [name]              Connect to a running VM via SSH (default: wincent-base)
+  stop [name]             Stop a running VM (default: wincent-base)
+EOF
+}
+
 case "${1:-}" in
-  create)
-    shift
-    cmd_create "$@"
-    ;;
   clone)
     shift
     cmd_clone "$@"
     ;;
+  create)
+    shift
+    cmd_create "$@"
+    ;;
   delete)
     shift
     cmd_delete "$@"
+    ;;
+  help|--help)
+    cmd_help
     ;;
   pull)
     shift
@@ -195,7 +216,7 @@ case "${1:-}" in
     cmd_stop "$@"
     ;;
   *)
-    log_error "Usage: bin/vm <clone|create|delete|pull|push|run|ssh|stop>"
+    cmd_help
     exit 1
     ;;
 esac
