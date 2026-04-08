@@ -88,12 +88,12 @@ tart login ghcr.io
 
 Use your GitHub username and a [Personal Access Token](https://github.com/settings/tokens/new) with `write:packages` (push) or `read:packages` (pull) scope as the password.
 
-### Running and connecting to a VM
+### Starting and connecting to a VM
 
 ```
-bin/vm run               # run in foreground
-bin/vm run --background  # run in background (survives shell exit)
-bin/vm ssh               # connect via SSH
+bin/vm start               # start in foreground
+bin/vm start --background  # start in background (survives shell exit)
+bin/vm ssh                 # connect via SSH
 ```
 
 Default credentials are `admin`/`admin`.

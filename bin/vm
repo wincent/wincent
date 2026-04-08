@@ -96,7 +96,7 @@ cmd_clone() {
   tart clone "$clone_source" "$vm_name"
 
   log_info "VM '$vm_name' is ready"
-  log_info "Start it with:  bin/vm run $vm_name"
+  log_info "Start it with:  bin/vm start $vm_name"
   log_info "Connect with:   bin/vm ssh $vm_name"
 }
 
@@ -133,7 +133,7 @@ cmd_delete() {
   tart delete "$vm_name"
 }
 
-cmd_run() {
+cmd_start() {
   local vm_name="${1:-$VM_BASE}"
   if [ "$vm_name" = "--background" ]; then
     vm_name="$VM_BASE"
@@ -172,8 +172,8 @@ Commands:
   help                    Show this help message
   pull                    Pull the base image from the registry
   push                    Push the base image to the registry
-  run [name] [--background]
-                          Run a VM (default: wincent-base)
+  start [name] [--background]
+                          Start a VM (default: wincent-base)
   ssh [name]              Connect to a running VM via SSH (default: wincent-base)
   stop [name]             Stop a running VM (default: wincent-base)
 EOF
@@ -203,9 +203,9 @@ case "${1:-}" in
     shift
     cmd_push "$@"
     ;;
-  run)
+  start)
     shift
-    cmd_run "$@"
+    cmd_start "$@"
     ;;
   ssh)
     shift
