@@ -101,8 +101,13 @@ cmd_clone() {
 }
 
 cmd_push() {
-  if ! tart list | grep -q "^local[[:space:]]*$VM_BASE "; then
+  if ! tart list --format json | jq -e --arg name "$VM_BASE" '.[] | select(.Name == $name)' &>/dev/null; then
     log_error "VM '$VM_BASE' not found; create it first with: bin/vm create"
+    exit 1
+  fi
+
+  if tart list --format json | jq -e --arg name "$VM_BASE" '.[] | select(.Name == $name and .State == "running")' &>/dev/null; then
+    log_error "VM '$VM_BASE' is running; stop it first with: bin/vm stop"
     exit 1
   fi
 
