@@ -78,6 +78,8 @@ Note that you don't have to go through steps "1" through 4" for every commit; yo
 
 `bin/vm create` clones the Cirrus Labs Ubuntu OCI image, pushes the dotfiles repo into the VM from the local host, and runs `./install` to provision it via Fig. The result is a `wincent-base` VM that can be cloned for daily use with `bin/vm clone <name>` (copy-on-write, fast and space-efficient).
 
+On an M3 Max with 64 GB of RAM, this takes about 11 minutes.
+
 ### Pushing and pulling the base image
 
 `bin/vm push` pushes `wincent-base` to `ghcr.io/wincent/wincent-base:latest`. `bin/vm pull` fetches it. Both require authentication:
