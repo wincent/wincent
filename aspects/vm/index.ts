@@ -1,5 +1,12 @@
 import {command, fetch, file, path, task, template, variable} from 'fig';
 
+function prependPath(dir: string) {
+  const expanded = path(dir).expand.toString();
+  if (!process.env.PATH?.includes(expanded)) {
+    process.env.PATH = `${expanded}:${process.env.PATH}`;
+  }
+}
+
 task('create directories', async () => {
   await file({path: '~/.zshenv.d', state: 'directory'});
 });
@@ -27,6 +34,7 @@ task('install Rust via rustup', async () => {
   await command('vendor/vm/rustup-init.sh', ['-y', '--no-modify-path'], {
     creates: '~/.cargo/bin/rustup',
   });
+  prependPath('~/.cargo/bin');
 });
 
 task('download dprint installer', async () => {
@@ -41,6 +49,7 @@ task('install dprint', async () => {
   await command('vendor/vm/install-fmt.sh', [], {
     creates: '~/.dprint/bin/dprint',
   });
+  prependPath('~/.dprint/bin');
 });
 
 task('download Claude Code installer', async () => {
@@ -55,4 +64,5 @@ task('install Claude Code', async () => {
   await command('vendor/vm/claude-install.sh', [], {
     creates: '~/.claude/local/bin/claude',
   });
+  prependPath('~/.claude/local/bin');
 });
