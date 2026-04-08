@@ -400,7 +400,7 @@ cmd_apply() {
             continue
         fi
 
-        echo "Rebasing and signing $branch..."
+        echo "Cherry-picking and signing $branch..."
 
         local is_worktree=false
         for wt in "${SB_WORKTREES[@]+"${SB_WORKTREES[@]}"}"; do
@@ -411,16 +411,16 @@ cmd_apply() {
         done
 
         if [ "$is_worktree" = true ]; then
-            if ! git -C "$branch" rebase --gpg-sign "vm/$branch"; then
-                echo "Error: rebase failed for $branch."
-                echo "Resolve conflicts in the $branch worktree, then: git rebase --continue"
+            if ! git -C "$branch" cherry-pick "${branch}..vm/${branch}"; then
+                echo "Error: cherry-pick failed for $branch."
+                echo "Resolve conflicts in the $branch worktree, then: git cherry-pick --continue"
                 exit 1
             fi
         else
             git checkout "$branch"
-            if ! git rebase --gpg-sign "vm/$branch"; then
-                echo "Error: rebase failed for $branch."
-                echo "Resolve conflicts, then: git rebase --continue"
+            if ! git cherry-pick "${branch}..vm/${branch}"; then
+                echo "Error: cherry-pick failed for $branch."
+                echo "Resolve conflicts, then: git cherry-pick --continue"
                 exit 1
             fi
         fi
@@ -453,7 +453,7 @@ Commands:
   ip           Print VM IP address
   inject       Push branches from host into VM [--force] [branch...]
   extract      Show changes made in VM
-  apply        Fetch and rebase VM changes with GPG signing
+  apply        Fetch and sign VM changes via cherry-pick
   pull         Pull latest base image from registry
   help         Show this help
 
