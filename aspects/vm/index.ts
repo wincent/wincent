@@ -31,14 +31,14 @@ task('install Rust via rustup', async () => {
 
 task('download dprint installer', async () => {
   await fetch({
-    dest: 'vendor/vm/dprint-install.sh',
+    dest: 'vendor/vm/install-fmt.sh',
     mode: '0755',
     url: 'https://dprint.dev/install.sh',
   });
 });
 
 task('install dprint', async () => {
-  await command('vendor/vm/dprint-install.sh', [], {
+  await command('vendor/vm/install-fmt.sh', [], {
     creates: '~/.dprint/bin/dprint',
   });
 });
