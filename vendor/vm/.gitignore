@@ -1,3 +1,2 @@
-/rustup-init.sh
-/install-fmt.sh
-/claude-install.sh
+*
+!.gitignore

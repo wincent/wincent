@@ -10,9 +10,10 @@ import {
   variable,
 } from 'fig';
 
-const {when} = helpers;
+const {is, when} = helpers;
 
 const NEOVIM_VERSION = '0.12.1';
+const TREE_SITTER_VERSION = '0.26.8';
 
 task('make directories', async () => {
   // Some overlap with "dotfiles" aspect here.
@@ -54,6 +55,30 @@ task('build neovim', when('debian'), async () => {
     chdir: '~/code/neovim',
     creates: '/usr/local/bin/nvim',
     sudo: true,
+  });
+});
+
+task('install tree-sitter CLI', when('debian'), async () => {
+  const arch = is('arm64') ? 'arm64' : 'x64';
+  const url =
+    `https://github.com/tree-sitter/tree-sitter/releases/download/v${TREE_SITTER_VERSION}/tree-sitter-linux-${arch}.gz`;
+
+  await fetch({
+    dest: path.root.join('vendor/vm/tree-sitter.gz'),
+    encoding: null,
+    url,
+  });
+
+  await command('gunzip', ['-f', path.root.join('vendor/vm/tree-sitter.gz')], {
+    creates: path.root.join('vendor/vm/tree-sitter'),
+  });
+
+  await file({
+    path: '/usr/local/bin/tree-sitter',
+    src: path.root.join('vendor/vm/tree-sitter'),
+    state: 'file',
+    sudo: true,
+    mode: '0755',
   });
 });
 
