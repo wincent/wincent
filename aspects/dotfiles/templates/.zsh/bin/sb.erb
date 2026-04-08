@@ -215,10 +215,11 @@ cmd_reset() {
     cmd_create
 }
 
-cmd_restart() {
-    echo "Stopping VM..."
-    tart stop "$VM_NAME" 2>/dev/null || true
+cmd_stop() {
+    tart stop "$VM_NAME"
+}
 
+cmd_start() {
     echo "Starting VM..."
     tart run --no-graphics "$VM_NAME" &
 
@@ -228,6 +229,11 @@ cmd_restart() {
 
     wait_for_ssh "$ip"
     echo "VM '$VM_NAME' is ready."
+}
+
+cmd_restart() {
+    cmd_stop 2>/dev/null || true
+    cmd_start
 }
 
 cmd_status() {
@@ -243,7 +249,7 @@ cmd_status() {
         echo "IP: $ip"
     else
         echo "VM '$VM_NAME' exists but is not running."
-        echo "Start with: sb restart"
+        echo "Start with: sb start"
     fi
 }
 
@@ -421,9 +427,11 @@ Manage sandbox VMs for isolated development with coding agents.
 Commands:
   create       Create and provision a sandbox VM
   ssh          SSH into the VM (default if VM exists)
+  start        Start a stopped VM
+  stop         Stop the VM (preserves state)
   destroy      Stop and delete the VM
   reset        Destroy, recreate, and re-inject code
-  restart      Stop and restart the VM (preserves state)
+  restart      Stop and restart the VM
   status       Show VM state and IP
   ip           Print VM IP address
   inject       Push branches from host into VM [--force] [branch...]
@@ -454,6 +462,12 @@ case "${1:-}" in
         ;;
     ssh)
         cmd_ssh
+        ;;
+    start)
+        cmd_start
+        ;;
+    stop)
+        cmd_stop
         ;;
     destroy)
         cmd_destroy
