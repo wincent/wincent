@@ -3,7 +3,6 @@ export default {
   variables: {
     packages: [
       'build-essential', // C compiler toolchain (for Command-T, treesitter parsers, Neovim).
-      'cargo', // Rust package manager (for shellbot).
       'cmake', // Build tool (for Neovim).
       'curl', // URL fetcher.
       'gettext', // Internationalization tools (for Neovim).
