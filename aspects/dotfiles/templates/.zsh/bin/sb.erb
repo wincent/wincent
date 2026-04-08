@@ -27,6 +27,7 @@ PROJECT_NAME="$(basename "$PROJECT_ROOT")"
 SB_BRANCHES=(main)
 SB_WORKTREES=()
 SB_PORTS=()
+SB_SOCKETS=("$HOME/.clipper.sock:/home/admin/.clipper.sock")
 SB_SSH_EXEC="cd code/$PROJECT_NAME && exec zsh -l"
 SB_VM_CPU=4
 SB_VM_MEMORY=8192
@@ -100,7 +101,7 @@ provision() {
     local ip="$1"
 
     echo "Configuring SSH environment forwarding..."
-    sb_ssh "$ip" "echo 'AcceptEnv ANTHROPIC_API_KEY CLAUDE_CODE_OAUTH_TOKEN' | sudo tee -a /etc/ssh/sshd_config >/dev/null && sudo systemctl restart ssh"
+    sb_ssh "$ip" "printf '%s\n' 'AcceptEnv ANTHROPIC_API_KEY CLAUDE_CODE_OAUTH_TOKEN' 'StreamLocalBindUnlink yes' | sudo tee -a /etc/ssh/sshd_config >/dev/null && sudo systemctl restart ssh"
 
     echo "Configuring git identity..."
     local host_name host_email vm_hostname
@@ -197,12 +198,19 @@ cmd_ssh() {
         local vm_port="${port##*:}"
         port_args+=(-L "$host_port:localhost:$vm_port")
     done
+    local socket_args=()
+    for sock in "${SB_SOCKETS[@]+"${SB_SOCKETS[@]}"}"; do
+        local host_sock="${sock%%:*}"
+        local vm_sock="${sock##*:}"
+        socket_args+=(-R "$vm_sock:$host_sock")
+    done
     local cmd_args=()
     if [ -n "$SB_SSH_EXEC" ]; then
         cmd_args=(-t "$SB_SSH_EXEC")
     fi
     exec sshpass -p "$VM_PASS" ssh "${SSH_OPTS[@]}" \
         "${port_args[@]+"${port_args[@]}"}" \
+        "${socket_args[@]+"${socket_args[@]}"}" \
         "$VM_USER@$ip" "${cmd_args[@]+"${cmd_args[@]}"}"
 }
 
@@ -461,6 +469,7 @@ Configuration (.sandboxrc in project root):
   SB_BRANCHES      Branches to sync (default: main)
   SB_WORKTREES     Branches to check out as worktrees (default: none)
   SB_PORTS         Port forwards as host:vm pairs (default: none)
+  SB_SOCKETS       Socket forwards as host:vm pairs (default: clipper)
   SB_SSH_EXEC      Command to exec on SSH (default: login shell)
   SB_VM_CPU        CPU cores (default: 4)
   SB_VM_MEMORY     Memory in MB (default: 8192)
