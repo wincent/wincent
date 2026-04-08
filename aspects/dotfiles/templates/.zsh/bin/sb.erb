@@ -56,12 +56,16 @@ fi
 # --- Derived ---
 
 VM_NAME="${PROJECT_NAME}-sandbox"
-VM_REPO_PATH="/home/$VM_USER/$PROJECT_NAME"
+VM_REPO_PATH="/home/$VM_USER/code/$PROJECT_NAME"
 
 # --- Internal helpers ---
 
 vm_exists() {
-    tart list | grep -qw "$VM_NAME"
+    tart list --format json | jq -e --arg name "$VM_NAME" '.[] | select(.Name == $name)' &>/dev/null
+}
+
+vm_running() {
+    tart list --format json | jq -e --arg name "$VM_NAME" '.[] | select(.Name == $name and .State == "running")' &>/dev/null
 }
 
 vm_ip() {
@@ -70,16 +74,12 @@ vm_ip() {
 
 wait_for_ip() {
     echo "Waiting for VM IP..." >&2
-    local attempts=0
-    while ! tart ip "$VM_NAME" &>/dev/null; do
-        attempts=$((attempts + 1))
-        if [ "$attempts" -ge 60 ]; then
-            echo "Error: timed out waiting for VM IP" >&2
-            exit 1
-        fi
-        sleep 2
-    done
-    tart ip "$VM_NAME"
+    local ip
+    if ! ip="$(tart ip "$VM_NAME" --wait 120)"; then
+        echo "Error: timed out waiting for VM IP" >&2
+        exit 1
+    fi
+    echo "$ip"
 }
 
 wait_for_ssh() {
@@ -117,8 +117,11 @@ provision() {
 
 init_repo() {
     local ip="$1"
+    local primary="${SB_BRANCHES[0]}"
+    local parent
+    parent="$(dirname "$VM_REPO_PATH")"
     echo "Initializing repo in VM..."
-    sb_ssh "$ip" "git init ~/$PROJECT_NAME && cd ~/$PROJECT_NAME && git config receive.denyCurrentBranch updateInstead"
+    sb_ssh "$ip" "mkdir -p $parent && git init --initial-branch=$primary $VM_REPO_PATH && cd $VM_REPO_PATH && git config receive.denyCurrentBranch updateInstead"
 }
 
 configure_auth() {
@@ -220,6 +223,11 @@ cmd_stop() {
 }
 
 cmd_start() {
+    if vm_running; then
+        echo "VM '$VM_NAME' is already running."
+        return
+    fi
+
     echo "Starting VM..."
     tart run --no-graphics "$VM_NAME" &
 
@@ -243,10 +251,14 @@ cmd_status() {
         return
     fi
 
-    local ip
-    if ip="$(vm_ip 2>/dev/null)"; then
+    if vm_running; then
         echo "VM '$VM_NAME' is running."
-        echo "IP: $ip"
+        local ip
+        if ip="$(vm_ip 2>/dev/null)"; then
+            echo "IP: $ip"
+        else
+            echo "IP: (not yet available)"
+        fi
     else
         echo "VM '$VM_NAME' exists but is not running."
         echo "Start with: sb start"
@@ -307,7 +319,7 @@ cmd_inject() {
 
     if [ ${#SB_WORKTREES[@]} -gt 0 ]; then
         echo "Updating worktrees in VM..."
-        local wt_script="cd ~/$PROJECT_NAME"
+        local wt_script="cd $VM_REPO_PATH"
         for wt in "${SB_WORKTREES[@]}"; do
             wt_script+=$'\n'"if [ -d \"$wt\" ] && git -C \"$wt\" rev-parse --git-dir &>/dev/null; then"
             wt_script+=$'\n'"    git -C \"$wt\" reset --hard \"refs/heads/$wt\""
