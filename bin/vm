@@ -36,7 +36,7 @@ wait_for_ssh() {
 
 cmd_create() {
   if tart list | grep -q "^local[[:space:]]*$VM_BASE "; then
-    log_error "VM '$VM_BASE' already exists; delete it first with: bin/vm delete"
+    log_error "VM '$VM_BASE' already exists; destroy it first with: bin/vm destroy"
     exit 1
   fi
 
@@ -132,7 +132,7 @@ cmd_pull() {
   log_info "Clone it with: bin/vm clone <name>"
 }
 
-cmd_delete() {
+cmd_destroy() {
   local vm_name="${1:-$VM_BASE}"
   tart stop "$vm_name" 2>/dev/null || true
   tart delete "$vm_name"
@@ -174,7 +174,7 @@ Commands:
   clone <name>            Clone the base image to create a new VM
   create                  Create a new base image from
                           ${OCI_IMAGE}
-  delete [name]           Stop and delete a VM (default: wincent-base)
+  destroy [name]          Stop and delete a VM (default: wincent-base)
   help                    Show this help message
   pull                    Pull the base image from the registry
   push                    Push the base image to the registry
@@ -194,9 +194,9 @@ case "${1:-}" in
     shift
     cmd_create "$@"
     ;;
-  delete)
+  destroy)
     shift
-    cmd_delete "$@"
+    cmd_destroy "$@"
     ;;
   help|--help)
     cmd_help
