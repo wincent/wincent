@@ -167,12 +167,13 @@ cmd_stop() {
 }
 
 cmd_help() {
-  cat <<'EOF'
+  cat <<EOF
 Usage: bin/vm <command> [options]
 
 Commands:
   clone <name>            Clone the base image to create a new VM
-  create                  Create a base image from the OCI image
+  create                  Create a new base image from
+                          ${OCI_IMAGE}
   delete [name]           Stop and delete a VM (default: wincent-base)
   help                    Show this help message
   pull                    Pull the base image from the registry
