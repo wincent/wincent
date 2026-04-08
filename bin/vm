@@ -58,7 +58,7 @@ cmd_create() {
   wait_for_ssh
 
   log_info "Installing prerequisites"
-  vm_ssh "sudo apt-get update && sudo apt-get install -y git curl"
+  vm_ssh "sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install -y git curl"
 
   log_info "Initializing repo on VM"
   vm_ssh "mkdir -p $VM_REPO_PATH && cd $VM_REPO_PATH && git init -b main && git config receive.denyCurrentBranch updateInstead"
