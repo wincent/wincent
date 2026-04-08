@@ -70,6 +70,15 @@ cmd_create() {
   log_info "Checking out and running install"
   vm_ssh "cd $VM_REPO_PATH && git checkout main && FIG_IDENTITY=wincent SUDO_ASKPASS=echo ./install"
 
+  log_info "Cleaning up to reduce image size"
+  vm_ssh "sudo apt-get clean \
+    && rm -rf ~/.rustup/toolchains/*/share/doc \
+    && rm -rf $VM_REPO_PATH/.cache/repos/github/wincent/shellbot/target \
+    && rm -rf ~/.cargo/registry"
+
+  log_info "Zero-filling free space for better compression"
+  vm_ssh "sudo dd if=/dev/zero of=/zero bs=1M 2>/dev/null; sudo rm -f /zero"
+
   log_info "Base image '$VM_BASE' is ready"
   log_info "Clone it with: bin/vm clone <name>"
 }
