@@ -1,6 +1,10 @@
 {
-  "description": "Sets up /etc/locale.conf",
+  "description": "Generates and configures system locales",
   "variables": {
+    "locales": [
+      "en_AU.UTF-8 UTF-8",
+      "en_US.UTF-8 UTF-8"
+    ],
     "lines": [
       "LANG=en_US.UTF-8",
       "LC_ADDRESS=\"en_US.UTF-8\"",

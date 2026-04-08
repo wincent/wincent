@@ -42,7 +42,7 @@ export default {
       variables: {},
     },
     'linux.debian': {
-      aspects: ['meta', 'apt', 'vm', 'dotfiles', 'shell', 'nvim'],
+      aspects: ['meta', 'apt', 'locale', 'vm', 'dotfiles', 'shell', 'nvim'],
       variables: {},
     },
   },
