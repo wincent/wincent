@@ -244,6 +244,11 @@ cmd_restart() {
     cmd_start
 }
 
+cmd_pull() {
+    echo "Pulling $SB_VM_IMAGE..."
+    tart pull "$SB_VM_IMAGE"
+}
+
 cmd_status() {
     if ! vm_exists; then
         echo "VM '$VM_NAME' does not exist."
@@ -449,6 +454,7 @@ Commands:
   inject       Push branches from host into VM [--force] [branch...]
   extract      Show changes made in VM
   apply        Fetch and rebase VM changes with GPG signing
+  pull         Pull latest base image from registry
   help         Show this help
 
 Configuration (.sandboxrc in project root):
@@ -505,6 +511,9 @@ case "${1:-}" in
         ;;
     apply)
         cmd_apply
+        ;;
+    pull)
+        cmd_pull
         ;;
     help|--help|-h)
         cmd_help
