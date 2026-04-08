@@ -12,7 +12,7 @@ import {
 
 const {when} = helpers;
 
-const NEOVIM_VERSION = '0.12.0';
+const NEOVIM_VERSION = '0.12.1';
 
 task('make directories', async () => {
   // Some overlap with "dotfiles" aspect here.
