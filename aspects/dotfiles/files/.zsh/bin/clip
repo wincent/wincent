@@ -11,6 +11,8 @@ if [ -e /etc/arch-release ]; then
   elif [ -S "$HOME/.clipper-remote.sock" ]; then
     socat - UNIX-CLIENT:$HOME/.clipper-remote.sock
   fi
-else
+elif [ "$(uname)" = "Darwin" ]; then
   nc -U ~/.clipper.sock
+else
+  nc -q 0 -U ~/.clipper.sock
 fi
