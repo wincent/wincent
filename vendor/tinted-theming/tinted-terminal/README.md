@@ -270,7 +270,7 @@ update your theme when running `tinty apply base16-ayu-dark` (where
 2. Add the following to `$HOME/.config/foot/foot.ini`:
 
    ```ini
-   include=~/.local/share/tinted-theming/tinty/tinted-foot-colors-file.ini
+   include=~/.local/share/tinted-theming/tinty/tinted-terminal-themes-foot-file.ini
    ```
 
 3. `tinty apply base16-ayu-dark` to change the theme to
@@ -281,10 +281,10 @@ GitHub page.
 
 ### Manual
 
-Clone base16-foot to be able to reference the colorschemes.
+Clone this repo to reference the colorschemes.
 
 ```sh
-git clone https://github.com/tinted-theming/tinted-foot.git "$HOME/.config/tinted-theming/tinted-foot"
+git clone https://github.com/tinted-theming/tinted-terminal.git "/path/to/tinted-terminal"
 ```
 
 Include the following in your theme in your `foot.ini` (usually stored at
@@ -292,7 +292,7 @@ Include the following in your theme in your `foot.ini` (usually stored at
 at the beginning of the file.
 
 ```ini
-include=~/.config/tinted-theming/tinted-foot/colors/base16-ayu-dark.ini
+include=/path/to/tinted-terminal/themes/foot/base16-ayu-dark.ini
 ```
 
 ## Ghostty

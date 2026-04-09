@@ -74,14 +74,14 @@ function M.rename(node, to)
 
     if idx == num_nodes then
       events._dispatch_will_rename_node(node.absolute_path, to)
-      local success, err = vim.loop.fs_rename(node.absolute_path, to)
+      local success, err = vim.uv.fs_rename(node.absolute_path, to)
 
       if not success then
         notify.warn(err_fmt(notify_from, notify_to, err))
         return
       end
     elseif not rename_file_exists(notify_from, path_to_create) then
-      local success = vim.loop.fs_mkdir(path_to_create, 493)
+      local success = vim.uv.fs_mkdir(path_to_create, 493)
       if not success then
         notify.error("Could not create folder " .. notify.render_path(path_to_create))
         is_error = true
@@ -190,10 +190,6 @@ end
 ---@param node Node
 function M.rename_full(node)
   prompt_to_rename(node, ":p")
-end
-
-function M.setup(opts)
-  config.g.filesystem_watchers = opts.filesystem_watchers
 end
 
 return M

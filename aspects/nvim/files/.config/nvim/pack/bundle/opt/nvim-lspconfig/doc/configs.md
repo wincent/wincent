@@ -63,6 +63,7 @@ Nvim by running `:help lspconfig-all`.
 - [csharp_ls](#csharp_ls)
 - [cspell_ls](#cspell_ls)
 - [css_variables](#css_variables)
+- [csskit](#csskit)
 - [cssls](#cssls)
 - [cssmodules_ls](#cssmodules_ls)
 - [cucumber_language_server](#cucumber_language_server)
@@ -2481,11 +2482,11 @@ Default config:
   {
     editorInfo = {
       name = "Neovim",
-      version = "0.12.0"
+      version = "0.13.0"
     },
     editorPluginInfo = {
       name = "Neovim",
-      version = "0.12.0"
+      version = "0.13.0"
     }
   }
   ```
@@ -2645,6 +2646,39 @@ Default config:
       lookupFiles = { "**/*.less", "**/*.scss", "**/*.sass", "**/*.css" }
     }
   }
+  ```
+
+---
+
+## csskit
+
+https://github.com/csskit/csskit
+
+Beautiful, fast, and powerful CSS tooling with zero configuration
+
+`csskit` can be installed via `npm`:
+
+```sh
+npm i -g csskit
+```
+
+Snippet to enable the language server:
+```lua
+vim.lsp.enable('csskit')
+```
+
+Default config:
+- `cmd` :
+  ```lua
+  { "csskit", "lsp" }
+  ```
+- `filetypes` :
+  ```lua
+  { "css" }
+  ```
+- `root_markers` :
+  ```lua
+  { "package.json", ".git" }
   ```
 
 ---
@@ -4935,19 +4969,17 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
       -- Tab to accept suggestion
       vim.keymap.set('i', '<Tab>', function()
-        if vim.lsp.inline_completion.is_visible() then
-          return vim.lsp.inline_completion.accept()
-        else
+        if not vim.lsp.inline_completion.get() then
           return '<Tab>'
         end
       end, { expr = true, buffer = bufnr, desc = 'GitLab Duo: Accept suggestion' })
 
       -- Alt/Option+[ for previous suggestion
-      vim.keymap.set('i', '<M-[>', vim.lsp.inline_completion.select_prev,
+      vim.keymap.set('i', '<M-[>', function() vim.lsp.inline_completion.select({ count = -1 }) end,
         { buffer = bufnr, desc = 'GitLab Duo: Previous suggestion' })
 
       -- Alt/Option+] for next suggestion
-      vim.keymap.set('i', '<M-]>', vim.lsp.inline_completion.select_next,
+      vim.keymap.set('i', '<M-]>', function() vim.lsp.inline_completion.select({ count = 1 }) end,
         { buffer = bufnr, desc = 'GitLab Duo: Next suggestion' })
     end
   end
@@ -4973,25 +5005,25 @@ Default config:
   {
     editorInfo = {
       name = "Neovim",
-      version = "0.12.0"
+      version = "0.13.0"
     },
     editorPluginInfo = {
       name = "Neovim LSP",
-      version = "0.12.0"
+      version = "0.13.0"
     },
     extension = {
       name = "Neovim LSP Client",
-      version = "0.12.0"
+      version = "0.13.0"
     },
     ide = {
       name = "Neovim",
       vendor = "Neovim",
-      version = "0.12.0"
+      version = "0.13.0"
     }
   }
   ```
-- `on_attach`: [../lsp/gitlab_duo.lua:317](../lsp/gitlab_duo.lua#L317)
-- `on_init`: [../lsp/gitlab_duo.lua:317](../lsp/gitlab_duo.lua#L317)
+- `on_attach`: [../lsp/gitlab_duo.lua:315](../lsp/gitlab_duo.lua#L315)
+- `on_init`: [../lsp/gitlab_duo.lua:315](../lsp/gitlab_duo.lua#L315)
 - `root_markers` :
   ```lua
   { ".git" }
@@ -8747,7 +8779,7 @@ Default config:
 - `on_attach`: [../lsp/oxlint.lua:32](../lsp/oxlint.lua#L32)
 - `root_markers` :
   ```lua
-  { ".oxlintrc.json", "oxlint.config.ts" }
+  { ".oxlintrc.json", ".oxlintrc.jsonc", "oxlint.config.ts" }
   ```
 - `settings` :
   ```lua
@@ -10314,7 +10346,7 @@ Default config:
   ```lua
   { "robot", "resource" }
   ```
-- `get_language_id`: [../lsp/robotcode.lua:8](../lsp/robotcode.lua#L8)
+- `get_language_id`: [../lsp/robotcode.lua:10](../lsp/robotcode.lua#L10)
 - `root_markers` :
   ```lua
   { "robot.toml", "pyproject.toml", "Pipfile", ".git" }
@@ -11379,7 +11411,7 @@ Default config:
     activateSnykIac = "true",
     activateSnykOpenSource = "true",
     integrationName = "Neovim",
-    integrationVersion = "0.12.0",
+    integrationVersion = "0.13.0",
     token = vim.NIL,
     trustedFolders = {}
   }
@@ -12564,13 +12596,16 @@ Tailwind CSS Language Server can be installed via npm:
 
 npm install -g @tailwindcss/language-server
 
+To manually set the config file or CSS entry-point, see:
+https://github.com/tailwindlabs/tailwindcss-intellisense#tailwindcssexperimentalconfigfile
+
 Snippet to enable the language server:
 ```lua
 vim.lsp.enable('tailwindcss')
 ```
 
 Default config:
-- `before_init`: [../lsp/tailwindcss.lua:10](../lsp/tailwindcss.lua#L10)
+- `before_init`: [../lsp/tailwindcss.lua:14](../lsp/tailwindcss.lua#L14)
 - `capabilities` :
   ```lua
   {
@@ -12589,7 +12624,7 @@ Default config:
   ```lua
   { "aspnetcorerazor", "astro", "astro-markdown", "blade", "clojure", "django-html", "htmldjango", "edge", "eelixir", "elixir", "ejs", "erb", "eruby", "gohtml", "gohtmltmpl", "haml", "handlebars", "hbs", "html", "htmlangular", "html-eex", "heex", "jade", "leaf", "liquid", "markdown", "mdx", "mustache", "njk", "nunjucks", "php", "razor", "slim", "twig", "css", "less", "postcss", "sass", "scss", "stylus", "sugarss", "javascript", "javascriptreact", "reason", "rescript", "typescript", "typescriptreact", "vue", "svelte", "templ" }
   ```
-- `root_dir`: [../lsp/tailwindcss.lua:10](../lsp/tailwindcss.lua#L10)
+- `root_dir`: [../lsp/tailwindcss.lua:14](../lsp/tailwindcss.lua#L14)
 - `settings` :
   ```lua
   {

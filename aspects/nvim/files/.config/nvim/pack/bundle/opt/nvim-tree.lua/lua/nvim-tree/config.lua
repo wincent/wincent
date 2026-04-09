@@ -17,7 +17,11 @@ local M = {
 
   ---Immutable OS, detected once on first require
   ---@type table<"unix"|"macos"|"wsl"|"windows", boolean>
-  os = nil
+  os = nil,
+
+  ---Nvim cwd at setup time
+  ---@type string
+  init_root = "",
 }
 
 M.os = {
@@ -168,10 +172,6 @@ M.d = { -- config-default-start
       ignore_list = {},
     },
     exclude = false,
-  },
-  system_open = {
-    cmd = "",
-    args = {},
   },
   git = {
     enable = true,
@@ -511,6 +511,34 @@ local function process_config(g)
   -- Open
   --
   g.actions.open_file.window_picker.chars = tostring(g.actions.open_file.window_picker.chars):upper()
+
+  --
+  -- Padding
+  --
+  if g.renderer.indent_width < 1 then
+    g.renderer.indent_width = 1
+  end
+  for k, v in pairs(g.renderer.indent_markers.icons) do
+    if #v == 0 then
+      g.renderer.indent_markers.icons[k] = " "
+    else
+      -- return the first character from the UTF-8 encoded string; we may use utf8.codes from Lua 5.3 when available
+      g.renderer.indent_markers.icons[k] = v:match("[%z\1-\127\194-\244][\128-\191]*")
+    end
+  end
+end
+
+---Hijack and disable netrw if (globally) configured
+---@param g nvim_tree.config
+local function manage_netrw(g)
+  if g.hijack_netrw then
+    vim.cmd("silent! autocmd! FileExplorer *")
+    vim.cmd("autocmd VimEnter * ++once silent! autocmd! FileExplorer *")
+  end
+  if g.disable_netrw then
+    vim.g.loaded_netrw = 1
+    vim.g.loaded_netrwPlugin = 1
+  end
 end
 
 ---Validate user config and migrate legacy.
@@ -539,6 +567,12 @@ function M.setup(u)
 
   -- process merged config
   process_config(M.g)
+
+  -- deal with netrw
+  manage_netrw(M.g)
+
+  -- store cwd
+  M.init_root = vim.fn.getcwd()
 end
 
 ---Deep clone defaults

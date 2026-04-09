@@ -74,6 +74,14 @@ put_template 13 "$color13"
 put_template 14 "$color14"
 put_template 15 "$color15"
 
+# 256 color space
+put_template 16 "$color16"
+put_template 17 "$color17"
+put_template 18 "$color18"
+put_template 19 "$color19"
+put_template 20 "$color20"
+put_template 21 "$color21"
+
 # foreground / background / cursor color
 if [ -n "$ITERM_SESSION_ID" ]; then
   # iTerm2 proprietary escape codes
@@ -114,13 +122,13 @@ unset color11
 unset color12
 unset color13
 unset color14
+unset color15
 unset color16
 unset color17
 unset color18
 unset color19
 unset color20
 unset color21
-unset color15
 unset color_foreground
 unset color_background
 

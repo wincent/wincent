@@ -4,7 +4,11 @@
 --- Tailwind CSS Language Server can be installed via npm:
 ---
 --- npm install -g @tailwindcss/language-server
-local util = require 'lspconfig.util'
+---
+--- To manually set the config file or CSS entry-point, see:
+--- https://github.com/tailwindlabs/tailwindcss-intellisense#tailwindcssexperimentalconfigfile
+
+local util = require('lspconfig.util')
 
 ---@type vim.lsp.Config
 return {
@@ -104,15 +108,9 @@ return {
     },
   },
   before_init = function(_, config)
-    if not config.settings then
-      config.settings = {}
-    end
-    if not config.settings.editor then
-      config.settings.editor = {}
-    end
-    if not config.settings.editor.tabSize then
-      config.settings.editor.tabSize = vim.lsp.util.get_effective_tabstop()
-    end
+    config.settings = vim.tbl_deep_extend('keep', config.settings, {
+      editor = { tabSize = vim.lsp.util.get_effective_tabstop() },
+    })
   end,
   workspace_required = true,
   root_dir = function(bufnr, on_dir)

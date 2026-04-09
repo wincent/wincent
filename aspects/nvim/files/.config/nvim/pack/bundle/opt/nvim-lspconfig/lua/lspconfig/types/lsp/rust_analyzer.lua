@@ -143,6 +143,13 @@
 ---default = {}
 ---```
 ---@field features? "all"|string[]
+---Extra arguments passed only to `cargo metadata`, not to other cargo invocations.
+---Useful for flags like `--config` that `cargo metadata` supports.
+---
+---```lua
+---default = {}
+---```
+---@field metadataExtraArgs? string[]
 ---Whether to pass `--no-default-features` to cargo.
 ---@field noDefaultFeatures? boolean
 ---Whether to skip fetching dependencies. If set to "true", the analysis is performed
@@ -1017,6 +1024,12 @@
 ---@field hideInferredTypes? boolean
 ---Hide inlay type hints for constructors.
 ---@field hideNamedConstructor? boolean
+---Where to render type hints relative to their binding pattern.
+---
+---```lua
+---default = "inline"
+---```
+---@field location? "inline" | "end_of_line"
 
 ---@class _.lspconfig.settings.rust_analyzer.RustAnalyzer.InlayHints
 ---@field bindingModeHints? _.lspconfig.settings.rust_analyzer.RustAnalyzer.InlayHints.BindingModeHints
@@ -1723,6 +1736,10 @@
 ---@field completion? _.lspconfig.settings.rust_analyzer.RustAnalyzer.Completion
 ---@field debug? _.lspconfig.settings.rust_analyzer.RustAnalyzer.Debug
 ---@field diagnostics? _.lspconfig.settings.rust_analyzer.RustAnalyzer.Diagnostics
+---Disable support for `#[rust_analyzer::rust_fixture]` snippets.
+---
+---If you are not working on rust-analyzer itself, you should ignore this config.
+---@field disableFixtureSupport? boolean
 ---@field document? _.lspconfig.settings.rust_analyzer.RustAnalyzer.Document
 ---@field files? _.lspconfig.settings.rust_analyzer.RustAnalyzer.Files
 ---@field gotoImplementations? _.lspconfig.settings.rust_analyzer.RustAnalyzer.GotoImplementations

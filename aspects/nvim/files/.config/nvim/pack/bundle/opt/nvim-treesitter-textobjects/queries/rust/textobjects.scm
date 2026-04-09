@@ -261,6 +261,26 @@
   .
   "," @parameter.outer .)
 
+(enum_variant
+  body: (ordered_field_declaration_list
+    "," @parameter.outer
+    .
+    (_) @parameter.inner @parameter.outer))
+
+(enum_variant
+  body: (ordered_field_declaration_list
+    .
+    (_) @parameter.inner @parameter.outer
+    .
+    ","? @parameter.outer))
+
+; last element, with trailing comma
+(enum_variant
+  body: (ordered_field_declaration_list
+    (_) @parameter.outer
+    .
+    "," @parameter.outer .))
+
 (struct_item
   body: (field_declaration_list
     "," @parameter.outer
