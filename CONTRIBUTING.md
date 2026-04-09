@@ -159,6 +159,18 @@ SUDO_ASKPASS=echo ./install
 
 The `SUDO_ASKPASS=echo` is needed because the Cirrus Labs image has passwordless sudo, and Fig would otherwise prompt for a password.
 
+## Troubleshooting
+
+### Sandbox VM not getting an IP address
+
+If `sb start` times out waiting for a VM IP address, the macOS `bootpd` DHCP service may be stuck. Restart it with:
+
+```
+sudo launchctl kickstart -k system/com.apple.bootpd
+```
+
+Then try `sb restart`.
+
 ## Working with encrypted files
 
 ### Adding a new encrypted file
