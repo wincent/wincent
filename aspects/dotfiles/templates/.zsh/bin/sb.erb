@@ -35,7 +35,7 @@ SB_VM_IMAGE="<%= variables.sbVmImage %>"
 
 VM_USER="admin"
 VM_PASS="admin"
-SSH_OPTS=(-o StrictHostKeyChecking=no -o ConnectTimeout=5)
+SSH_OPTS=(-o StrictHostKeyChecking=no -o ConnectTimeout=5 -o ControlPath=none)
 
 # --- Helpers (available to .sandboxrc) ---
 
