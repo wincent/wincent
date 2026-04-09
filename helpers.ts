@@ -103,7 +103,7 @@ function checkCondition(condition: Condition): boolean {
     case 'arch':
       return attributes.distribution === 'arch';
     case 'arm64':
-      return attributes.arch === 'arm64';
+      return attributes.arch === 'arm64' || attributes.arch === 'aarch64';
     case 'darwin':
       return attributes.platform === 'darwin';
     case 'debian':
