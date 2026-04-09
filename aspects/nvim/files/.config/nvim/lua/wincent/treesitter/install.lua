@@ -3,10 +3,16 @@
 --
 -- Run with: `:lua require('wincent.treesitter.install')()`
 --
-local function install()
+-- Pass `{wait = true}` to block until all parsers are installed:
+--
+--     :lua require('wincent.treesitter.install')({wait = true})
+--
+local function install(opts)
+  opts = opts or {}
   local parsers = require('wincent.treesitter.config').get().parsers
-  for _, parser in ipairs(parsers) do
-    require('nvim-treesitter').install(parser)
+  local task = require('nvim-treesitter').install(parsers)
+  if opts.wait then
+    task:wait()
   end
 end
 

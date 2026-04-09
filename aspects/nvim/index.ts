@@ -187,6 +187,10 @@ task('update help tags', async () => {
   await command(resource.support('update-help-tags'), []);
 });
 
+task('install treesitter parsers', async () => {
+  await command(resource.support('install-treesitter-parsers'), []);
+});
+
 // On my work machine, I divide my Corpus notes into two folders: one is
 // work-specific, synced via Google Drive, and the other has personal notes
 // in it and is not synced. Because Google Drive isn't good at handling Git
