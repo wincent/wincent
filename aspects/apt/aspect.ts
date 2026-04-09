@@ -5,6 +5,7 @@ export default {
       'build-essential', // C compiler toolchain (for Command-T, treesitter parsers, Neovim).
       'cmake', // Build tool (for Neovim).
       'curl', // URL fetcher.
+      'fd-find', // Fast file finder (binary: fdfind; symlinked to fd).
       'gettext', // Internationalization tools (for Neovim).
       'luajit', // Lua interpreter (for Neovim).
       'libssl-dev', // OpenSSL headers (for shellbot).

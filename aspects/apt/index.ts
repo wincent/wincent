@@ -1,12 +1,10 @@
-import {command, fail, helpers, skip, task, variable} from 'fig';
+import {command, fail, file, skip, task, variable} from 'fig';
 
-const {when} = helpers;
-
-task('update package index', when('debian'), async () => {
+task('update package index', async () => {
   await command('apt-get', ['update'], {sudo: true});
 });
 
-task('install packages', when('debian'), async () => {
+task('install packages', async () => {
   for (const pkg of variable.strings('packages')) {
     const result = await command(
       'dpkg-query',
@@ -22,4 +20,19 @@ task('install packages', when('debian'), async () => {
       fail(`cannot determine installation status for ${pkg}`);
     }
   }
+});
+
+task('symlink fdfind to fd', async () => {
+  // Command-T uses `fd`.
+  //
+  // On Debian, `fd` is installed as `fdfind` to avoid a conflict with `fdclone`
+  // package (which also wants to install `fd`), but we don't use that, so we
+  // can just create a symlink.
+  await file({
+    force: true,
+    path: '/usr/local/bin/fd',
+    src: '/usr/bin/fdfind',
+    state: 'link',
+    sudo: true,
+  });
 });
