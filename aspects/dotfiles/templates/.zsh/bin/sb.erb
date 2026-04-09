@@ -100,9 +100,6 @@ wait_for_ssh() {
 provision() {
     local ip="$1"
 
-    echo "Configuring SSH environment forwarding..."
-    sb_ssh "$ip" "printf '%s\n' 'AcceptEnv ANTHROPIC_API_KEY CLAUDE_CODE_OAUTH_TOKEN' 'StreamLocalBindUnlink yes' | sudo tee -a /etc/ssh/sshd_config >/dev/null && sudo systemctl restart ssh"
-
     echo "Configuring git identity..."
     local host_name host_email vm_hostname
     host_name="$(git config user.name)"

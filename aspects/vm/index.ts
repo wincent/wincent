@@ -1,4 +1,4 @@
-import {command, fetch, file, path, task, template, variable} from 'fig';
+import {command, fetch, file, handler, path, resource, task, template, variable} from 'fig';
 
 function prependPath(dir: string) {
   const expanded = path(dir).expand.toString();
@@ -20,6 +20,20 @@ task('fill templates', async () => {
       src: path.aspect.join('templates', src),
     });
   }
+});
+
+task('configure sshd', async () => {
+  await file({
+    notify: 'restart ssh',
+    path: '/etc/ssh/sshd_config.d/sandbox.conf',
+    src: resource.file('etc/ssh/sshd_config.d/sandbox.conf'),
+    state: 'file',
+    sudo: true,
+  });
+});
+
+handler('restart ssh', async () => {
+  await command('systemctl', ['restart', 'ssh'], {sudo: true});
 });
 
 task('download rustup installer', async () => {
