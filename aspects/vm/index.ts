@@ -1,4 +1,14 @@
-import {command, fetch, file, handler, path, resource, task, template, variable} from 'fig';
+import {
+  command,
+  fetch,
+  file,
+  handler,
+  path,
+  resource,
+  task,
+  template,
+  variable,
+} from 'fig';
 
 function prependPath(dir: string) {
   const expanded = path(dir).expand.toString();
