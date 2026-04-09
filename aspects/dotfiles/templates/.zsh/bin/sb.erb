@@ -213,13 +213,34 @@ cmd_ssh() {
         socket_args+=(-R "$vm_sock:$host_sock")
     done
     local cmd_args=()
-    if [ -n "$SB_SSH_EXEC" ]; then
+    if [ $# -gt 0 ]; then
+        cmd_args=("$@")
+    elif [ -n "$SB_SSH_EXEC" ]; then
         cmd_args=(-t "$SB_SSH_EXEC")
     fi
     exec sshpass -p "$VM_PASS" ssh "${SSH_OPTS[@]}" \
         "${port_args[@]+"${port_args[@]}"}" \
         "${socket_args[@]+"${socket_args[@]}"}" \
         "$VM_USER@$ip" "${cmd_args[@]+"${cmd_args[@]}"}"
+}
+
+cmd_scp() {
+    local ip
+    ip="$(vm_ip)" || {
+        echo "Error: VM is not running."
+        exit 1
+    }
+
+    local args=()
+    for arg in "$@"; do
+        if [[ "$arg" == vm:* ]]; then
+            args+=("$VM_USER@$ip:${arg#vm:}")
+        else
+            args+=("$arg")
+        fi
+    done
+
+    sb_scp "${args[@]}"
 }
 
 cmd_destroy() {
@@ -459,7 +480,8 @@ Manage sandbox VMs for isolated development with coding agents.
 
 Commands:
   create       Create and provision a sandbox VM [--use-registry]
-  ssh          SSH into the VM (default if VM exists)
+  ssh [cmd]    SSH into the VM; with args, runs command non-interactively
+  scp          Copy files to/from VM (use vm: prefix for VM paths)
   start        Start a stopped VM
   stop         Stop the VM (preserves state)
   destroy      Stop and delete the VM
@@ -506,7 +528,12 @@ case "${1:-}" in
         cmd_create
         ;;
     ssh)
-        cmd_ssh
+        shift
+        cmd_ssh "$@"
+        ;;
+    scp)
+        shift
+        cmd_scp "$@"
         ;;
     start)
         cmd_start

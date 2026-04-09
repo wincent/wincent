@@ -70,6 +70,53 @@ As an illustration, consider working on Command-T:
 
 Note that you don't have to go through steps "1" through 4" for every commit; you can produce several commits (ie. do "1" and "2" repeatedly as many times as you like, and optionally "3" if you want to see the changes run in CI on GitHub) before doing the final sync ("4").
 
+### Working on subprojects in a VM
+
+When using a sandbox VM (eg. to run a coding agent in "yolo" mode), there is no SSH agent inside the VM, so you can't push plugin changes directly to GitHub. Instead, use `git format-patch` inside the VM and `sb scp` to extract the patches to the host.
+
+As an illustration, consider working on Command-T:
+
+1. SSH into the VM and make changes (or have an agent do so):
+
+   ```
+   sb ssh
+   cd ~/code/wincent/.cache/repos/github/wincent/command-t
+   # ... make changes, commit them ...
+   ```
+
+2. Still inside the VM, generate patch files:
+
+   ```
+   cd ~/code/wincent/.cache/repos/github/wincent/command-t
+   mkdir -p ~/patches/command-t
+   git format-patch origin/main -o ~/patches/command-t
+   ```
+
+3. On the host, copy the patches out:
+
+   ```
+   mkdir -p ~/patches/command-t
+   sb scp 'vm:patches/command-t/*' ~/patches/command-t/
+   ```
+
+4. On the host, apply the patches to the local cache repo and push:
+
+   ```
+   cd ~/code/wincent/.cache/repos/github/wincent/command-t
+   git am ~/patches/command-t/*.patch
+   git push
+   ```
+
+5. Run `bin/update-dependencies` to update the snapshot and metadata in the main repo.
+
+6. Clean up patches and reset the VM so it can receive the final state via `sb inject`:
+
+   ```
+   rm -r ~/patches/command-t
+   sb ssh rm -r patches/command-t
+   sb inject
+   ```
+
 ## Working with VMs
 
 [Tart](https://tart.run/) is used to run Ubuntu 24.04 VMs on Apple Silicon. The `bin/vm` script manages the VM lifecycle. Run `bin/vm help` (or `bin/vm --help`) for a summary of available commands.
