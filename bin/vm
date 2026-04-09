@@ -86,10 +86,12 @@ cmd_clone() {
   local vm_name="$1"
   local clone_source
 
-  if tart list | grep -q "^local[[:space:]]*$VM_BASE "; then
+  if [ "$USE_REGISTRY" = false ] && tart list | grep -q "^local[[:space:]]*$VM_BASE "; then
     clone_source="$VM_BASE"
+    log_info "Using local $VM_BASE image; run with --use-registry to use remote $REGISTRY image"
   elif tart list | grep -q "^OCI[[:space:]]*$REGISTRY "; then
     clone_source="$REGISTRY"
+    log_info "Using image previously fetched from $REGISTRY; use \`bin/vm pull\` to obtain a newer image if desired"
   else
     log_error "Base image '$VM_BASE' not found; create it with: bin/vm create (or pull it with: bin/vm pull)"
     exit 1
@@ -174,7 +176,8 @@ cmd_help() {
 Usage: bin/vm <command> [options]
 
 Commands:
-  clone <name>            Clone the base image to create a new VM
+  clone <name> [--use-registry]
+                          Clone the base image to create a new VM
   create                  Create a new base image from
                           ${OCI_IMAGE}
   destroy [name]          Stop and delete a VM (default: wincent-base)
@@ -187,6 +190,16 @@ Commands:
   stop [name]             Stop a running VM (default: wincent-base)
 EOF
 }
+
+USE_REGISTRY=false
+args=()
+for arg in "$@"; do
+  case "$arg" in
+    --use-registry) USE_REGISTRY=true ;;
+    *) args+=("$arg") ;;
+  esac
+done
+set -- "${args[@]+"${args[@]}"}"
 
 case "${1:-}" in
   clone)

@@ -159,8 +159,19 @@ cmd_create() {
         exit 1
     fi
 
+    local clone_source="$SB_VM_IMAGE"
+    local local_base="${SB_VM_IMAGE##*/}"
+    local_base="${local_base%%:*}"
+
+    if [ "$USE_REGISTRY" = false ] && tart list | grep -q "^local[[:space:]]*${local_base} "; then
+        clone_source="$local_base"
+        echo "Using local $local_base image; run with --use-registry to use remote $SB_VM_IMAGE image"
+    else
+        echo "Using image previously fetched from $SB_VM_IMAGE; use \`sb pull\` to obtain a newer image if desired"
+    fi
+
     echo "Cloning VM image..."
-    tart clone "$SB_VM_IMAGE" "$VM_NAME"
+    tart clone "$clone_source" "$VM_NAME"
 
     echo "Configuring VM resources..."
     tart set "$VM_NAME" --cpu "$SB_VM_CPU" --memory "$SB_VM_MEMORY"
@@ -447,12 +458,12 @@ Usage: sb <command> [args]
 Manage sandbox VMs for isolated development with coding agents.
 
 Commands:
-  create       Create and provision a sandbox VM
+  create       Create and provision a sandbox VM [--use-registry]
   ssh          SSH into the VM (default if VM exists)
   start        Start a stopped VM
   stop         Stop the VM (preserves state)
   destroy      Stop and delete the VM
-  reset        Destroy, recreate, and re-inject code
+  reset        Destroy, recreate, and re-inject code [--use-registry]
   restart      Stop and restart the VM
   status       Show VM state and IP
   ip           Print VM IP address
@@ -479,6 +490,16 @@ EOF
 }
 
 # --- Dispatch ---
+
+USE_REGISTRY=false
+args=()
+for arg in "$@"; do
+    case "$arg" in
+        --use-registry) USE_REGISTRY=true ;;
+        *) args+=("$arg") ;;
+    esac
+done
+set -- "${args[@]+"${args[@]}"}"
 
 case "${1:-}" in
     create)
