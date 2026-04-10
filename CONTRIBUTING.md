@@ -59,6 +59,79 @@ On the bright side:
 
 2. Run `bin/update-dependencies`.
 
+## Working with VMs
+
+To increase the safety of working with coding agents and not-fully-trusted dependencies, we use [Tart](https://tart.run/) to run Ubuntu 24.04 VMs on Apple Silicon, and carry out development tasks inside them. The `bin/vm` script is used for maintaining the base VM image, and the `sb` script is used to maintain per-project VMs derived from the base VM.
+
+Run `bin/vm help` (or `bin/vm --help`) and `sb help` (or `sb --help`) for summaries of available commands.
+
+### Creating and cloning a base image
+
+`bin/vm create` clones the Cirrus Labs Ubuntu OCI image, pushes the dotfiles repo into the VM from the local host, and runs `./install` to provision it via Fig. The result is a `wincent-base` VM that can be cloned for daily use with `bin/vm clone <name>` (copy-on-write, fast and space-efficient).
+
+On an M3 Max with 64 GB of RAM, this takes about 11 minutes.
+
+### Pushing and pulling the base image
+
+`bin/vm push` pushes `wincent-base` to `ghcr.io/wincent/wincent-base:latest`. `bin/vm pull` fetches it. Both require authentication:
+
+```
+tart login ghcr.io
+```
+
+Use your GitHub username and a [Personal Access Token](https://github.com/settings/tokens/new) with `write:packages` (push) or `read:packages` (pull) scope as the password.
+
+### Starting and connecting to the base VM
+
+```
+bin/vm start               # start in foreground
+bin/vm start --background  # start in background (survives shell exit)
+bin/vm ssh                 # connect via SSH
+```
+
+Default credentials are `admin`/`admin`.
+
+### Creating and connecting to a project-specific VM
+
+```
+sb create # One-time.
+sb status # Check whether sandbox is running and its IP.
+sb ssh # Connect to the VM.
+```
+
+### Updating dotfiles in a VM
+
+Inside the VM, `~/code/wincent` is a Git checkout but no `origin` pointing at GitHub is configured.
+
+When working in the "wincent-sandbox", push the latest changes from outside the VM into the sandbox with `sb inject`.
+
+When working in another project sandbox, you can either recreate it from an update base image, or add the GitHub remote and `git pull` the new updates.
+
+In both cases, once you have the new files, you can install as you normally would with `./install dotfiles`.
+
+### Updating "wincent" files in the sandbox
+
+These dotfiles are unique in being the only repo where I am currently using Jujutsu. The `sb inject`/`sb extract` workflow is intended for use with Git only (for now). So, the workflow is:
+
+- Make Git commits in the sandbox with `git`.
+- Extract Git commits with `sb extract`.
+- Import the commits into Jujutsu with `jj git import`.
+- If you want the Jujutsu change IDs reflected in the commit messages, use `jj desc`.
+
+I will probably add something Jujutsu-specific to reduce this friction in the future.
+
+### Troubleshooting
+
+#### Sandbox VM not getting an IP address
+
+If `sb start` times out waiting for a VM IP address, the macOS `bootpd` DHCP service may be stuck. Restart it with:
+
+```
+sudo launchctl kickstart -k system/com.apple.bootpd
+```
+
+Then try `sb restart`.
+
 ## Working on subprojects
 
 As an illustration, consider working on Command-T:
@@ -116,60 +189,6 @@ As an illustration, consider working on Command-T:
    sb ssh rm -r patches/command-t
    sb inject
    ```
-
-## Working with VMs
-
-[Tart](https://tart.run/) is used to run Ubuntu 24.04 VMs on Apple Silicon. The `bin/vm` script manages the VM lifecycle. Run `bin/vm help` (or `bin/vm --help`) for a summary of available commands.
-
-### Creating and cloning a base image
-
-`bin/vm create` clones the Cirrus Labs Ubuntu OCI image, pushes the dotfiles repo into the VM from the local host, and runs `./install` to provision it via Fig. The result is a `wincent-base` VM that can be cloned for daily use with `bin/vm clone <name>` (copy-on-write, fast and space-efficient).
-
-On an M3 Max with 64 GB of RAM, this takes about 11 minutes.
-
-### Pushing and pulling the base image
-
-`bin/vm push` pushes `wincent-base` to `ghcr.io/wincent/wincent-base:latest`. `bin/vm pull` fetches it. Both require authentication:
-
-```
-tart login ghcr.io
-```
-
-Use your GitHub username and a [Personal Access Token](https://github.com/settings/tokens/new) with `write:packages` (push) or `read:packages` (pull) scope as the password.
-
-### Starting and connecting to a VM
-
-```
-bin/vm start               # start in foreground
-bin/vm start --background  # start in background (survives shell exit)
-bin/vm ssh                 # connect via SSH
-```
-
-Default credentials are `admin`/`admin`.
-
-### Updating dotfiles in a VM
-
-Inside the VM, `~/code/wincent` is a Git checkout with `origin` pointing at GitHub. To update:
-
-```
-cd ~/code/wincent
-git pull
-SUDO_ASKPASS=echo ./install
-```
-
-The `SUDO_ASKPASS=echo` is needed because the Cirrus Labs image has passwordless sudo, and Fig would otherwise prompt for a password.
-
-## Troubleshooting
-
-### Sandbox VM not getting an IP address
-
-If `sb start` times out waiting for a VM IP address, the macOS `bootpd` DHCP service may be stuck. Restart it with:
-
-```
-sudo launchctl kickstart -k system/com.apple.bootpd
-```
-
-Then try `sb restart`.
 
 ## Working with encrypted files
 
