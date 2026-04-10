@@ -414,7 +414,6 @@ cmd_extract() {
 
 cmd_apply() {
     local branches=("${SB_BRANCHES[@]}")
-    local primary="${branches[0]}"
 
     local ip
     ip="$(vm_ip)" || {
@@ -428,6 +427,51 @@ cmd_apply() {
     git -C "$PROJECT_ROOT" fetch vm "${branches[@]}"
 
     cd "$PROJECT_ROOT"
+
+    if [ -d "$PROJECT_ROOT/.jj" ]; then
+        apply_jj "${branches[@]}"
+    else
+        apply_git "${branches[@]}"
+    fi
+}
+
+apply_jj() {
+    local branches=("$@")
+
+    jj git import
+
+    local applied=false
+    for branch in "${branches[@]}"; do
+        local incoming="::${branch}@vm ~ ::${branch}"
+
+        if [ -z "$(jj log -r "$incoming" --no-graph -T 'change_id' 2>/dev/null)" ]; then
+            continue
+        fi
+
+        echo "Rebasing and signing $branch..."
+
+        local tip
+        tip=$(jj log -r "heads($incoming)" --no-graph --limit 1 -T 'change_id.shortest(8)')
+
+        if ! jj rebase -s "roots($incoming)" -d "$branch"; then
+            echo "Error: rebase failed for $branch."
+            exit 1
+        fi
+
+        jj bookmark set "$branch" -r "$tip"
+        applied=true
+    done
+
+    if [ "$applied" = true ]; then
+        echo ""
+        echo "Bookmarks updated. Review with 'jj log'."
+    else
+        echo "No changes to apply."
+    fi
+}
+
+apply_git() {
+    local branches=("$@")
 
     local applied=false
     for branch in "${branches[@]}"; do
@@ -490,8 +534,8 @@ Commands:
   status       Show VM state and IP
   ip           Print VM IP address
   inject       Push branches from host into VM [--force] [branch...]
-  extract      Show changes made in VM
-  apply        Fetch and sign VM changes via cherry-pick
+  extract      Fetch and show VM changes
+  apply        Fetch and apply VM changes to host repository
   pull         Pull latest base image from registry
   help         Show this help
 
