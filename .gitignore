@@ -1,4 +1,16 @@
-# Cache for local clones of dependency Git repos (see bin/update-dependencies).
+# Top-level .gitignore for this repo.
+#
+# This file contains ignore entries for:
+#
+# - Items in the repo root directory.
+# - Plaintext versions of encrypted files (this list gets appended to by the
+#   `wage` tool).
+#
+# For all other ignored items, prefer recording them in directory-local
+# .gitignore files.
+
+# Cache for local clones of dependency Git repos (see
+# `bin/update-dependencies`).
 /.cache
 
 # Git worktrees (ie. `git worktree add media media`).
@@ -9,12 +21,6 @@
 
 # Third-party.
 /node_modules
-/vendor/nvim-macos-arm64
-/vendor/yay
-
-# Generated files.
-/aspects/dotfiles/files/.config/jj/config.toml
-/aspects/dotfiles/files/.config/kitty/kitty.conf
 
 # Plaintext versions of encrypted files.
 /aspects/dotfiles/files/.config/Raycast/Script Commands/github-commits.sh

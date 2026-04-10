@@ -1,2 +1,6 @@
+# Generated files (from templates).
+/kitty.conf
+
+# Other dynamic files.
 /colors.conf
 /kitty.sock*
