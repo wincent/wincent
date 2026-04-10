@@ -7,6 +7,7 @@ export default {
       'curl', // URL fetcher.
       'fd-find', // Fast file finder (binary: fdfind; symlinked to fd).
       'gettext', // Internationalization tools (for Neovim).
+      'kitty-terminfo', // Terminfo for the Kitty terminal emulator.
       'luajit', // Lua interpreter (for Neovim).
       'libssl-dev', // OpenSSL headers (for shellbot).
       'ninja-build', // Build tool (for Neovim).
