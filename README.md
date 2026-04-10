@@ -137,11 +137,12 @@ If there are background processes, a yellow asterisk is shown:
 
 ## Platform status
 
-| Platform                               | Status                                                                                                                                            |
-| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| macOS                                  | :1st_place_medal: Currently the most tested platform, as well as the one with most aspects (because my daily driver is macOS 26 "Tahoe")          |
-| Arch Linux                             | :2nd_place_medal: Less tested, fewer aspects involved, but likely to evolve in the future as I'm using Arch Linux on my "leisure" desktop machine |
-| Red Hat Linux and related (eg. CentOS) | :skull: Abandoned, but in the past (2011-2018) this was the distro I used full-time at work                                                       |
+| Platform                               | Status                                                                                                                                                     |
+| -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| macOS                                  | :1st_place_medal: Currently the most tested platform, as well as the one with most aspects (because my daily driver is macOS 26 "Tahoe")                   |
+| Debian/Ubuntu                          | :2nd_place_medal: Less tested, fewer aspects involved; I use this for running coding agents in VMs for isolation, so it's a somewhat artificial "flavor"   |
+| Arch Linux                             | :3rd_place_medal: Not actively tested, fewer aspects involved; I was using Arch Linux on my "leisure" desktop machine, but installed Windows to play games |
+| Red Hat Linux and related (eg. CentOS) | :skull: Abandoned, but in the past (2011-2018) this was the distro I used full-time at work                                                                |
 
 ## Installation
 
@@ -178,32 +179,34 @@ git clone https://github.com/wincent/wincent.git
 
 At the time of writing, these are the aspects, which you can expect to change over time (see [the `aspects/` directory](./aspects) for an up-to-date listing):
 
-- On macOS only:
-  - **automount**: Sets up macOS's automount facility
-  - **backup**: Backup scripts
-  - **cron**: Sets up cron files
-  - **defaults**: Sets up defaults (ie. preferences) on macOS
-  - **fonts**: Installs font files
-  - **homebrew**: Installs and updates Homebrew
-  - **karabiner**: Configures Karabiner-Elements (keyboard customization).
-  - **launchd**: Configures launchd
-  - **node**: Installs Node.js
-  - **ruby**: Installs Ruby gems
-  - **ssh**: Manages local SSH config
-  - **userscripts**: Sets up userscripts for [Violentmonkey](https://violentmonkey.github.io), [ScriptCat](https://github.com/scriptscat/scriptcat), or [Tampermonkey](https://www.tampermonkey.net).
-- On Linux only:
-  - **aur**: Installs packages from the Arch User Repository.
-  - **avahi**: Manages the Avahi zeroconf ("Bonjour") networking daemon.
-  - **interception**: Sets up Interceptions Tools (keyboard customization).
-  - **locale**: Sets up /etc/locale.conf
-  - **pacman**: Installs packages via the Pacman package manager
-  - **sshd**: Manages sshd.
-  - **systemd**: Set up services that run from systemd
-- On both macOS and Linux:
-  - **dotfiles**: Creates symlinks in \$HOME to the dotfiles in this repo
-  - **meta**: Tests the configuration framework
-  - **shell**: Sets the user shell to zsh
-  - **nvim**: Configures Neovim and Vim
+| Aspect           | Description                                                                                                                                                                      | macOS | Arch | Debian |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- | ---- | ------ |
+| **apt**          | Installs packages with `apt-get`.                                                                                                                                                | -     | -    | ✅     |
+| **aur**          | Installs packages from the Arch User Repository.                                                                                                                                 | -     | ✅   | -      |
+| **automount**    | Sets up macOS's automount facility                                                                                                                                               | ✅    | -    | -      |
+| **avahi**        | Manages the Avahi zeroconf ("Bonjour") networking daemon.                                                                                                                        | -     | ✅   | -      |
+| **backup**       | Backup scripts                                                                                                                                                                   | ✅    | -    | -      |
+| **bitcoin**      |                                                                                                                                                                                  | -     | ✅   | -      |
+| **cron**         | Sets up cron files                                                                                                                                                               | ✅    | -    | -      |
+| **defaults**     | Sets up defaults (ie. preferences) on macOS                                                                                                                                      | ✅    | -    | -      |
+| **dotfiles**     | Creates symlinks in \$HOME to the dotfiles in this repo                                                                                                                          | ✅    | ✅   | ✅     |
+| **fonts**        | Installs font files                                                                                                                                                              | ✅    | -    | -      |
+| **homebrew**     | Installs and updates Homebrew                                                                                                                                                    | ✅    | -    | -      |
+| **interception** | Sets up Interceptions Tools (keyboard customization).                                                                                                                            | -     | ✅   | -      |
+| **karabiner**    | Configures Karabiner-Elements (keyboard customization).                                                                                                                          | ✅    | -    | -      |
+| **launchd**      | Configures launchd                                                                                                                                                               | ✅    | -    | -      |
+| **locale**       | Sets up /etc/locale.conf                                                                                                                                                         | -     | ✅   | ✅     |
+| **meta**         | Tests the configuration framework                                                                                                                                                | ✅    | ✅   | ✅     |
+| **node**         | Installs Node.js                                                                                                                                                                 | ✅    | ✅   | -      |
+| **nvim**         | Configures Neovim and Vim                                                                                                                                                        | ✅    | ✅   | ✅     |
+| **pacman**       | Installs packages via the Pacman package manager                                                                                                                                 | -     | ✅   | -      |
+| **ruby**         | Installs Ruby gems                                                                                                                                                               | ✅    | -    | -      |
+| **shell**        | Sets the user shell to zsh                                                                                                                                                       | ✅    | ✅   | ✅     |
+| **ssh**          | Manages local SSH config                                                                                                                                                         | ✅    | -    | -      |
+| **sshd**         | Manages sshd.                                                                                                                                                                    | -     | ✅   | -      |
+| **systemd**      | Set up services that run from systemd                                                                                                                                            | -     | ✅   | -      |
+| **userscripts**  | Sets up userscripts for [Violentmonkey](https://violentmonkey.github.io), [ScriptCat](https://github.com/scriptscat/scriptcat), or [Tampermonkey](https://www.tampermonkey.net). | ✅    | -    | -      |
+| **vm**           | VM-specific set-up                                                                                                                                                               | -     | -    | ✅     |
 
 #### Examples
 
