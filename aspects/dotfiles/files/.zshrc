@@ -218,9 +218,9 @@ if tput cbt &> /dev/null; then
   bindkey "$(tput cbt)" reverse-menu-complete # make Shift-tab go to previous completion
 fi
 
-if [[ $(uname -a) =~ "Ubuntu" ]]; then
-  bindkey "$key[Up]" history-substring-search-up
-  bindkey "$key[Down]" history-substring-search-down
+if [[ -n "${key[Up]}" ]]; then
+  bindkey "${key[Up]}" history-substring-search-up
+  bindkey "${key[Down]}" history-substring-search-down
 else
   bindkey '^[[A' history-substring-search-up
   bindkey '^[[B' history-substring-search-down
