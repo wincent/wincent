@@ -437,6 +437,7 @@ cmd_apply() {
 
 apply_jj() {
     local branches=("$@")
+    local jj_config='revset-aliases."immutable_heads()"="builtin_immutable_heads() ~ untracked_remote_bookmarks(remote=vm)"'
 
     jj git import
 
@@ -453,10 +454,21 @@ apply_jj() {
         local tip
         tip=$(jj log -r "heads($incoming)" --no-graph --limit 1 -T 'change_id.shortest(8)')
 
-        if ! jj rebase -s "roots($incoming)" -d "$branch"; then
+        local change_ids=()
+        while IFS= read -r cid; do
+            [ -z "$cid" ] && continue
+            change_ids+=("$cid")
+        done < <(jj log -r "$incoming" --no-graph -T 'change_id.shortest(8) ++ "\n"')
+
+        if ! jj rebase --config "$jj_config" -s "roots($incoming)" -d "$branch"; then
             echo "Error: rebase failed for $branch."
             exit 1
         fi
+
+        for cid in "${change_ids[@]}"; do
+            jj log -r "$cid" --no-graph -T description | \
+                jj describe --stdin --config "$jj_config" -r "$cid"
+        done
 
         jj bookmark set "$branch" -r "$tip"
         applied=true
