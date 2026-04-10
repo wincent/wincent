@@ -22,7 +22,9 @@ for i in {1..5}; do
   fi
 done
 
-tmux send-keys -t dot:vim.right "jj log --ignore-working-copy" Enter
+if command -v jj > /dev/null 2>&1; then
+  tmux send-keys -t dot:vim.right "jj log --ignore-working-copy" Enter
+fi
 
 # BUG: Not sure when this started (maybe around my update to macOS Sequoia), we
 # need a delay here otherwise the right pane winds up with some garbage escape
