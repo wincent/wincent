@@ -120,6 +120,16 @@ These dotfiles are unique in being the only repo where I am currently using Juju
 
 I will probably add something Jujutsu-specific to reduce this friction in the future.
 
+### Fetching from remotes
+
+The `sb` tool creates a `vm` Git remote pointing at the sandbox VM. This remote is unreachable whenever the VM is stopped or its IP has changed, which causes `jj git fetch --all-remotes` to fail with a timeout. To avoid this, configure `git.fetch` in the repo config to list only the remotes you want to fetch from by default; for example:
+
+```
+jj config set --repo git.fetch '["bitbucket", "codeberg", "github", "gitlab", "origin", "sourcehut"]'
+```
+
+Then `jj git fetch` (without `--all-remotes`) fetches from all of those, skipping `vm`.
+
 ### Troubleshooting
 
 #### Sandbox VM not getting an IP address
