@@ -38,6 +38,7 @@ task('install global packages', async () => {
   };
 
   const packages = [
+    '@mariozechner/pi-coding-agent',
     '@typescript/native-preview',
     'typescript-language-server',
     'neovim',
