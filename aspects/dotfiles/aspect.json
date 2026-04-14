@@ -42,6 +42,7 @@
       ".irssi/config",
       ".lbdbrc",
       ".npmrc",
+      ".pi",
       ".pypirc",
       ".rdebugrc",
       ".rgrc",

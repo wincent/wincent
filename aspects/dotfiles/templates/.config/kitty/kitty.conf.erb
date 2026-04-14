@@ -3189,6 +3189,10 @@ map cmd+,
 # Send <F6> for Ctrl-i in Neovim (code via `kitty +kitten show_key`).
 map ctrl+i send_text application \x1b[17~
 
+# Send CSI u codes for modified enter, for pi-coding-agent.
+map shift+enter send_text all \x1b[13;2u
+map alt+enter send_text all \x1b[13;3u
+
 # Default color scheme: bright.
 include themes/bright.conf
 
