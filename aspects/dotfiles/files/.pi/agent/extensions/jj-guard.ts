@@ -10,7 +10,14 @@ import { isToolCallEventType } from "@mariozechner/pi-coding-agent";
 import { existsSync } from "node:fs";
 import { join } from "node:path";
 
-const BLOCKED_PATTERNS = [/\bgit\s+add\b/, /\bgit\s+commit\b/];
+// Not a security boundary — just a heuristic to catch the most common
+// forms of `git add` and `git commit` that an LLM agent is likely to
+// produce. Won't catch every possible invocation (eg. `env A=1 git
+// commit`) but covers the reasonable cases.
+const BLOCKED_PATTERNS = [
+	/(?:^|[;&|]\s*)git\b.+\badd\b/,
+	/(?:^|[;&|]\s*)git\b.+\bcommit\b/,
+];
 
 async function isJujutsuRepo(pi: ExtensionAPI): Promise<boolean> {
 	const { stdout, code } = await pi.exec("git", ["rev-parse", "--show-toplevel"]);
