@@ -35,7 +35,7 @@ SB_VM_IMAGE="<%= variables.sbVmImage %>"
 
 VM_USER="admin"
 VM_PASS="admin"
-SSH_OPTS=(-o StrictHostKeyChecking=no -o ConnectTimeout=5 -o ControlPath=none -o SendEnv=ANTHROPIC_API_KEY -o SendEnv=CLAUDE_CODE_OAUTH_TOKEN)
+SSH_OPTS=(-o StrictHostKeyChecking=no -o ConnectTimeout=5 -o ControlPath=none -o SendEnv=ANTHROPIC_API_KEY -o SendEnv=CLAUDE_CODE_OAUTH_TOKEN -o SendEnv=KAGI_API_TOKEN)
 
 # --- Helpers (available to .sandboxrc) ---
 
