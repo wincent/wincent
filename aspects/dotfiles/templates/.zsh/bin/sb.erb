@@ -122,25 +122,13 @@ init_repo() {
     sb_ssh "$ip" "mkdir -p $parent && git init --initial-branch=$primary $VM_REPO_PATH && cd $VM_REPO_PATH && git config receive.denyCurrentBranch updateInstead"
 }
 
-configure_auth() {
+configure_claude() {
     local ip="$1"
 
-    echo "Configuring Claude Code auth..."
+    echo "Configuring Claude..."
     sb_ssh "$ip" 'mkdir -p ~/.claude && cat > ~/.claude.json <<EOF
 {"hasCompletedOnboarding": true}
 EOF'
-
-    sb_ssh "$ip" 'chmod 600 ~/.bashrc'
-
-    if [ -n "${CLAUDE_CODE_OAUTH_TOKEN:-}" ]; then
-        echo "  Writing CLAUDE_CODE_OAUTH_TOKEN to VM..."
-        printf 'export CLAUDE_CODE_OAUTH_TOKEN=%s\n' "$CLAUDE_CODE_OAUTH_TOKEN" | sb_ssh "$ip" "cat >> ~/.bashrc"
-    elif [ -n "${ANTHROPIC_API_KEY:-}" ]; then
-        echo "  Writing ANTHROPIC_API_KEY to VM..."
-        printf 'export ANTHROPIC_API_KEY=%s\n' "$ANTHROPIC_API_KEY" | sb_ssh "$ip" "cat >> ~/.bashrc"
-    else
-        echo "  Warning: no auth token found. Set CLAUDE_CODE_OAUTH_TOKEN or ANTHROPIC_API_KEY."
-    fi
 }
 
 setup_git_remote() {
@@ -187,7 +175,7 @@ cmd_create() {
 
     provision "$ip"
     init_repo "$ip"
-    configure_auth "$ip"
+    configure_claude "$ip"
 
     echo "Injecting code..."
     cmd_inject
