@@ -1,7 +1,8 @@
 {
   "cleanupPeriodDays": 99999,
   "env": {
-    "CLAUDE_CODE_EFFORT_LEVEL": "max"
+    "CLAUDE_CODE_EFFORT_LEVEL": "max",
+    "CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING": "1"
   },
   "permissions": {
     "allow": [
