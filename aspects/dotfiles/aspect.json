@@ -8,7 +8,6 @@
       ".ackrc",
       ".agignore",
       ".claude",
-      ".clipper.json",
       ".config/Raycast",
       ".config/alacritty",
       ".config/big-sur.jpg",
@@ -55,6 +54,7 @@
       ".zshrc"
     ],
     "templates": [
+      ".config/clipper/clipper.json.erb",
       ".config/git/config.erb",
       ".config/jj/config.toml.erb",
       ".config/kitty/kitty.conf.erb",
