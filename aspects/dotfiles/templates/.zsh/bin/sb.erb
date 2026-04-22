@@ -8,14 +8,12 @@ set -euo pipefail
 find_root() {
     local dir="$PWD"
     while [ "$dir" != "/" ]; do
-        if [ -f "$dir/.sandboxrc" ]; then
+        if [ -f "$dir/.sandboxrc" ] || [ -e "$dir/.git" ] || [ -d "$dir/.jj" ]; then
             echo "$dir"
             return
         fi
         dir="$(dirname "$dir")"
     done
-    git rev-parse --show-toplevel 2>/dev/null && return
-    jj root 2>/dev/null && return
     echo "$PWD"
 }
 
@@ -28,7 +26,7 @@ SB_BRANCHES=(main)
 SB_WORKTREES=()
 SB_PORTS=()
 SB_SOCKETS=("$HOME/.clipper.sock:/home/admin/.clipper.sock")
-SB_SSH_EXEC="cd code/$PROJECT_NAME && exec zsh -l"
+SB_REPO_SUBDIR="code"
 SB_VM_CPU=4
 SB_VM_MEMORY=8192
 SB_VM_IMAGE="<%= variables.sbVmImage %>"
@@ -49,15 +47,36 @@ sb_scp() {
 
 # --- Source config ---
 
-if [ -f "$PROJECT_ROOT/.sandboxrc" ]; then
+find_sandboxrc() {
+    if [ -f "$PROJECT_ROOT/.sandboxrc" ]; then
+        echo "$PROJECT_ROOT/.sandboxrc"
+        return
+    fi
+    if [ -n "${SB_CONFIG_PATH:-}" ]; then
+        local rel="${PROJECT_ROOT#"$HOME"/}"
+        rel="${rel#/}"
+        local IFS=':'
+        local dir
+        for dir in $SB_CONFIG_PATH; do
+            if [ -f "$dir/$rel/sandboxrc" ]; then
+                echo "$dir/$rel/sandboxrc"
+                return
+            fi
+        done
+    fi
+}
+
+sandboxrc="$(find_sandboxrc)"
+if [ -n "$sandboxrc" ]; then
     # shellcheck disable=SC1091
-    source "$PROJECT_ROOT/.sandboxrc"
+    source "$sandboxrc"
 fi
 
 # --- Derived ---
 
 VM_NAME="${PROJECT_NAME}-sandbox"
-VM_REPO_PATH="/home/$VM_USER/code/$PROJECT_NAME"
+VM_REPO_PATH="/home/$VM_USER/$SB_REPO_SUBDIR/$PROJECT_NAME"
+SB_SSH_EXEC="${SB_SSH_EXEC-cd $SB_REPO_SUBDIR/$PROJECT_NAME && exec zsh -l}"
 
 # --- Internal helpers ---
 
@@ -544,16 +563,23 @@ Commands:
   pull         Pull latest base image from registry
   help         Show this help
 
-Configuration (.sandboxrc in project root):
+Configuration (.sandboxrc in project root, or sandboxrc under \$SB_CONFIG_PATH):
   SB_BRANCHES      Branches to sync (default: main)
   SB_WORKTREES     Branches to check out as worktrees (default: none)
   SB_PORTS         Port forwards as host:vm pairs (default: none)
   SB_SOCKETS       Socket forwards as host:vm pairs (default: clipper)
-  SB_SSH_EXEC      Command to exec on SSH (default: login shell)
+  SB_SSH_EXEC      Command to exec on SSH (default: cd into repo + login shell)
+  SB_REPO_SUBDIR   VM home subdirectory holding the repo (default: code)
   SB_VM_CPU        CPU cores (default: 4)
   SB_VM_MEMORY     Memory in MB (default: 8192)
   SB_VM_IMAGE      Base OCI image
   sb_provision()   Custom provisioning function; receives VM IP as \$1
+
+Environment:
+  SB_CONFIG_PATH   Colon-separated directories searched for sandboxrc
+                   mirroring the project path relative to \$HOME (e.g.
+                   for ~/foo/bar, \$dir/foo/bar/sandboxrc). Used when
+                   the repo has no local .sandboxrc.
 
 VM: $VM_NAME
 Project: $PROJECT_ROOT
