@@ -50,6 +50,10 @@ if (true) {
 }
 ```
 
+# Markdown formatting
+
+**NEVER** hard-wrap Markdown. That is, a paragraph or a list item should be a single long line rather than many 80-character lines broken with newlines.
+
 # Comments
 
 **NEVER** make descriptive comments that redundantly encode what can trivially be understood by reading well-named variables and functions. For example, the following is an example of a bad comment that has no value and should not exist:
