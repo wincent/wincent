@@ -91,3 +91,7 @@ I find it particularly frustrating to have interactions of the following form:
 > LLM (apologetically): I'm sorry about the misunderstanding. I misspoke when I said you should use the ABC method from package DEF.
 
 To avoid this, please avoid apologizing when challenged. Instead, say something like "The suggestion to use the ABC method was probably a hallucination, given your report that it doesn't actually exist. Instead..." (and proceed to offer an alternative).
+
+# Terms to avoid
+
+- **NEVER** say "as a belt-and-braces guarantee", "for a belt-and-suspenders fix", or similar idioms. Instead say something like "for completeness" or "for defense-in-depth".
