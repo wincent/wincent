@@ -42,6 +42,7 @@
     "/aspects/dotfiles/files/.config/git/handles.json",
     "/aspects/dotfiles/files/.config/screenkey.json",
     "/aspects/dotfiles/files/.config/yazi/vendor",
+    "/aspects/dotfiles/files/.pi/agent/settings.json",
     "/aspects/dotfiles/files/.zsh/skim",
     "/aspects/dotfiles/files/.zsh/zsh-async",
     "/aspects/dotfiles/files/.zsh/zsh-autosuggestions",
