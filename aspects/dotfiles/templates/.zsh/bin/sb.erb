@@ -299,6 +299,10 @@ cmd_ip() {
     vm_ip
 }
 
+cmd_list() {
+    tart list
+}
+
 cmd_inject() {
     local force=false
     local branches=()
@@ -533,6 +537,7 @@ Commands:
   restart      Stop and restart the VM
   status       Show VM state and IP
   ip           Print VM IP address
+  list         List all Tart VMs
   inject       Push branches from host into VM [--force] [branch...]
   extract      Fetch and show VM changes
   apply        Fetch and apply VM changes to host repository
@@ -599,6 +604,9 @@ case "${1:-}" in
         ;;
     ip)
         cmd_ip
+        ;;
+    list)
+        cmd_list
         ;;
     inject)
         shift
