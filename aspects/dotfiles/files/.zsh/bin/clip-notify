@@ -1,0 +1,200 @@
+#!/bin/sh
+#
+# clip-notify — reference client for Clipper notification frames.
+#
+# Usage:
+#   clip-notify --title TITLE [--subtitle SUBTITLE] [--message MESSAGE]
+#
+# Sends a structured notification request to Clipper. Set $CLIPPER_ADDRESS
+# to target a UNIX domain socket, or $CLIPPER_HOST and/or $CLIPPER_PORT for
+# a TCP endpoint (defaults: localhost:8377); $CLIPPER_ADDRESS wins if both
+# are set. Requires only `nc` and `awk` beyond a POSIX shell.
+#
+# Notifications are dropped silently on the server unless a handler has been
+# configured via ~/.clipper.json; see the Clipper README for details.
+
+set -eu
+
+print_usage() {
+    cat <<EOF
+usage: clip-notify --title TITLE [--subtitle SUBTITLE] [--message MESSAGE]
+
+environment:
+    CLIPPER_ADDRESS   path to UNIX domain socket (overrides CLIPPER_HOST/PORT)
+    CLIPPER_HOST      hostname for TCP connection (default: localhost)
+    CLIPPER_PORT      port for TCP connection (default: 8377)
+EOF
+}
+
+die() {
+    printf >&2 'clip-notify: %s\n' "$1"
+    print_usage >&2
+    exit 64
+}
+
+# json_escape STRING
+#
+# Validates that STRING is valid UTF-8 and prints its JSON-escaped form
+# (suitable for embedding between "..." in a JSON string literal) on stdout.
+# Exits non-zero without producing partial output if STRING contains any
+# byte sequence that is not valid UTF-8 — including standalone continuation
+# bytes, overlong encodings, UTF-16 surrogate halves, codepoints above
+# U+10FFFF, and truncated sequences at end of input.
+#
+# All control bytes (0x00-0x1F) are emitted as either their short escape
+# (\b \t \n \f \r) or the generic \u00XX form; quote and backslash are
+# escaped; every other byte (including the upper half of valid multi-byte
+# UTF-8 sequences) passes through unchanged.
+#
+# LC_ALL=C forces byte-oriented semantics; otherwise awk's length/substr/<
+# may honour the user's locale and reinterpret the bytes we're trying to
+# validate.
+json_escape() {
+    printf '%s' "$1" | LC_ALL=C awk '
+        BEGIN {
+            RS = "\0"; ORS = ""
+            # NUL (byte 0) is skipped: some awks treat sprintf("%c", 0) as
+            # an empty string, which would collide with the default empty
+            # key and corrupt the lookup tables. Shell arguments cannot
+            # contain NUL bytes anyway, so the input we see here never
+            # exercises the NUL case.
+            for (i = 1; i < 256; i++) {
+                c = sprintf("%c", i)
+                ord[c] = i
+                if      (i == 8)  esc[c] = "\\b"
+                else if (i == 9)  esc[c] = "\\t"
+                else if (i == 10) esc[c] = "\\n"
+                else if (i == 12) esc[c] = "\\f"
+                else if (i == 13) esc[c] = "\\r"
+                else if (i < 32)  esc[c] = sprintf("\\u%04x", i)
+                else if (i == 34) esc[c] = "\\\""
+                else if (i == 92) esc[c] = "\\\\"
+                else              esc[c] = c
+            }
+        }
+        {
+            # Pass 1: validate the whole record as UTF-8. Emit nothing yet,
+            # so that an invalid byte near the end does not leave partial
+            # output on stdout.
+            n = length($0)
+            i = 1
+            while (i <= n) {
+                b = ord[substr($0, i, 1)]
+                if (b < 128) {
+                    # ASCII: 1-byte sequence.
+                    len = 1; lo = 0; hi = 255
+                } else if (b < 194) {
+                    # Stray continuation byte (0x80-0xBF) or overlong
+                    # 2-byte start (0xC0-0xC1).
+                    exit 1
+                } else if (b < 224) {
+                    # 2-byte sequence: next byte in 0x80-0xBF.
+                    len = 2; lo = 128; hi = 191
+                } else if (b == 224) {
+                    # 3-byte starting 0xE0: tighten first continuation to
+                    # 0xA0-0xBF (excludes overlong encodings of U+0000-07FF).
+                    len = 3; lo = 160; hi = 191
+                } else if (b < 237) {
+                    # 0xE1-0xEC: ordinary 3-byte sequence.
+                    len = 3; lo = 128; hi = 191
+                } else if (b == 237) {
+                    # 0xED: tighten first continuation to 0x80-0x9F
+                    # (excludes UTF-16 surrogate halves U+D800-DFFF).
+                    len = 3; lo = 128; hi = 159
+                } else if (b < 240) {
+                    # 0xEE-0xEF: ordinary 3-byte sequence.
+                    len = 3; lo = 128; hi = 191
+                } else if (b == 240) {
+                    # 0xF0: tighten first continuation to 0x90-0xBF
+                    # (excludes overlong encodings of U+0000-FFFF).
+                    len = 4; lo = 144; hi = 191
+                } else if (b < 244) {
+                    # 0xF1-0xF3: ordinary 4-byte sequence.
+                    len = 4; lo = 128; hi = 191
+                } else if (b == 244) {
+                    # 0xF4: tighten first continuation to 0x80-0x8F
+                    # (caps at U+10FFFF, the top of the Unicode range).
+                    len = 4; lo = 128; hi = 143
+                } else {
+                    # 0xF5-0xFF: unassigned, never valid.
+                    exit 1
+                }
+
+                if (i + len - 1 > n) exit 1  # truncated sequence.
+
+                if (len >= 2) {
+                    b2 = ord[substr($0, i + 1, 1)]
+                    if (b2 < lo || b2 > hi) exit 1
+                }
+                # Any further continuation bytes are plain 0x80-0xBF.
+                for (j = 3; j <= len; j++) {
+                    bj = ord[substr($0, i + j - 1, 1)]
+                    if (bj < 128 || bj > 191) exit 1
+                }
+
+                i += len
+            }
+
+            # Pass 2: emit escaped form.
+            for (i = 1; i <= n; i++) {
+                printf "%s", esc[substr($0, i, 1)]
+            }
+        }
+    '
+}
+
+title=
+subtitle=
+message=
+
+while [ $# -gt 0 ]; do
+    case "$1" in
+        --title|--subtitle|--message)
+            [ $# -ge 2 ] || die "$1 requires a value"
+            case "$1" in
+                --title)    title=$2 ;;
+                --subtitle) subtitle=$2 ;;
+                --message)  message=$2 ;;
+            esac
+            shift 2
+            ;;
+        -h|--help)
+            print_usage
+            exit 0
+            ;;
+        *)
+            die "unknown argument: $1"
+            ;;
+    esac
+done
+
+if [ -z "$title" ]; then
+    die "--title is required"
+fi
+
+# Validate and escape each field separately so that invalid input can be
+# reported against the specific flag that carried it.
+title_esc=$(json_escape "$title")       || die "--title contains invalid UTF-8"
+subtitle_esc=$(json_escape "$subtitle") || die "--subtitle contains invalid UTF-8"
+message_esc=$(json_escape "$message")   || die "--message contains invalid UTF-8"
+
+# Assemble the frame. Optional fields are only included when non-empty,
+# matching the shape documented in the Clipper README.
+frame='{"type":"notification","title":"'$title_esc'"'
+if [ -n "$subtitle" ]; then
+    frame=$frame',"subtitle":"'$subtitle_esc'"'
+fi
+if [ -n "$message" ]; then
+    frame=$frame',"message":"'$message_esc'"'
+fi
+frame=$frame'}'
+
+payload="dev.wincent.clipper:magic:v1
+$frame
+"
+
+if [ -n "${CLIPPER_ADDRESS:-}" ]; then
+    printf '%s' "$payload" | nc -U "$CLIPPER_ADDRESS"
+else
+    printf '%s' "$payload" | nc "${CLIPPER_HOST:-localhost}" "${CLIPPER_PORT:-8377}"
+fi

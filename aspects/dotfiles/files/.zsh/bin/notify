@@ -1,0 +1,82 @@
+#!/bin/sh
+#
+# notify — raise a desktop notification via the most appropriate backend.
+#
+# Usage:
+#   notify --title TITLE [--subtitle SUBTITLE] [--message MESSAGE]
+#
+# Selection order (first match wins):
+#
+#   1. clip-notify        if $CLIPPER_ADDRESS (or, failing that,
+#                         $HOME/.clipper.sock) is a reachable UNIX socket
+#                         and clip-notify is on $PATH.
+#   2. terminal-notifier  on macOS when the binary is on $PATH; clicks
+#                         activate kitty.
+#   3. notify-send        Linux-desktop fallback.
+#   4. otherwise          silently exit 0.
+
+set -eu
+
+print_usage() {
+    sed -n '3,16p' "$0" | sed 's/^# \{0,1\}//'
+}
+
+die() {
+    printf >&2 'notify: %s\n' "$1"
+    exit 64
+}
+
+title=
+subtitle=
+message=
+
+while [ $# -gt 0 ]; do
+    case $1 in
+        --title|--subtitle|--message)
+            [ $# -ge 2 ] || die "$1 requires a value"
+            case $1 in
+                --title)    title=$2 ;;
+                --subtitle) subtitle=$2 ;;
+                --message)  message=$2 ;;
+            esac
+            shift 2
+            ;;
+        -h|--help)
+            print_usage
+            exit 0
+            ;;
+        *)
+            die "unknown argument: $1"
+            ;;
+    esac
+done
+
+[ -n "$title" ] || die "--title is required"
+
+sock=${CLIPPER_ADDRESS:-$HOME/.clipper.sock}
+if [ -S "$sock" ] && command -v clip-notify >/dev/null 2>&1; then
+    set -- --title "$title"
+    [ -n "$subtitle" ] && set -- "$@" --subtitle "$subtitle"
+    [ -n "$message"  ] && set -- "$@" --message  "$message"
+    exec env CLIPPER_ADDRESS="$sock" clip-notify "$@"
+fi
+
+if [ "$(uname)" = Darwin ] && command -v terminal-notifier >/dev/null 2>&1; then
+    set -- -title "$title"
+    [ -n "$subtitle" ] && set -- "$@" -subtitle "$subtitle"
+    [ -n "$message"  ] && set -- "$@" -message  "$message"
+    set -- "$@" -activate net.kovidgoyal.kitty
+    exec terminal-notifier "$@"
+fi
+
+if command -v notify-send >/dev/null 2>&1; then
+    # notify-send has no notion of a subtitle separate from the body, and
+    # any attempt to merge them (say, "$subtitle — $message") produces
+    # awkward-looking popups, so we drop the subtitle silently on this
+    # backend.
+    set -- "$title"
+    [ -n "$message" ] && set -- "$@" "$message"
+    exec notify-send "$@"
+fi
+
+exit 0
