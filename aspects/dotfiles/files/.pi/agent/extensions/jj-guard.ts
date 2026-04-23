@@ -1,8 +1,9 @@
 /**
  * Jujutsu Guard Extension
  *
- * Blocks raw `git add` and `git commit` commands when running inside a
- * Jujutsu repository. These operations should go through `jj` instead.
+ * Blocks raw `git add`, `git stage`, and `git commit` commands when
+ * running inside a Jujutsu repository. These operations should go
+ * through `jj` instead.
  */
 
 import type {ExtensionAPI} from '@mariozechner/pi-coding-agent';
@@ -11,11 +12,12 @@ import {existsSync} from 'node:fs';
 import {join} from 'node:path';
 
 // Not a security boundary — just a heuristic to catch the most common
-// forms of `git add` and `git commit` that an LLM agent is likely to
-// produce. Won't catch every possible invocation (eg. `env A=1 git
-// commit`) but covers the reasonable cases.
+// forms of `git add`, `git stage`, and `git commit` that an LLM agent
+// is likely to produce. Won't catch every possible invocation (eg.
+// `env A=1 git commit`) but covers the reasonable cases.
 const BLOCKED_PATTERNS = [
   /(?:^|[;&|]\s*)git\b.+\badd\b/,
+  /(?:^|[;&|]\s*)git\b.+\bstage\b/,
   /(?:^|[;&|]\s*)git\b.+\bcommit\b/,
 ];
 
@@ -37,7 +39,7 @@ export default function (pi: ExtensionAPI) {
     return {
       block: true,
       reason:
-        'This is a Jujutsu repository. Use `jj` commands instead of raw git add/commit.',
+        'This is a Jujutsu repository. Use `jj` commands instead of raw git add/stage/commit.',
     };
   });
 }
