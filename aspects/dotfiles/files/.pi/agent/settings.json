@@ -4,7 +4,7 @@
     "~/.claude/plugins/marketplaces/wincent-claude-plugins/pi"
   ],
   "defaultThinkingLevel": "xhigh",
-  "lastChangelogVersion": "0.68.1",
+  "lastChangelogVersion": "0.69.0",
   "defaultProvider": "anthropic",
   "defaultModel": "claude-opus-4-7"
 }
