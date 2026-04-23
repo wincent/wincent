@@ -22,13 +22,13 @@ Generally, "gandalf" will work in the top-level of a repository, while the other
 
 # Coordination between agents
 
-In general, the whole idea of running multiple agents is to make similar, repetitive changes in parallel. That is, all of the agents involved in a task will be performing the same kinds of actions in different parts of the codebase. Typically, "gandalf" will be used to create a plan that all of the agents can follow, which will be stored under `.claude-notes` at the top level of the main repository. For example, imagine we have a project to update an API calling convention across hundreds of files: the user would work interactively with "gandalf" to develop a plan at `.claude-notes/api-update-plan.md`, and "gandalf" would create tasks lists, one per agent, in files like `.claude-notes/api-update-tasklist-aragorn.md`.
+In general, the whole idea of running multiple agents is to make similar, repetitive changes in parallel. That is, all of the agents involved in a task will be performing the same kinds of actions in different parts of the codebase. Typically, "gandalf" will be used to create a plan that all of the agents can follow, which will be stored under `.agent-notes` at the top level of the main repository. For example, imagine we have a project to update an API calling convention across hundreds of files: the user would work interactively with "gandalf" to develop a plan at `.agent-notes/api-update-plan.md`, and "gandalf" would create tasks lists, one per agent, in files like `.agent-notes/api-update-tasklist-aragorn.md`.
 
 The agents will each read from the overall plan to understand the overall goal, related procedures, and how the work is to be divided up among agents and verified. Each agent will then work through its tasklist, updating it to reflect progress as it goes.
 
 # Sharing learnings among agents
 
-In addition to updating their own task lists, agents will maintain a record of their learnings in `.claude-notes/${project-name}-learnings-${agent-alias}.md` (eg. `.claude-notes/api-update-learnings-aragorn.md`). Gandalf will periodically read these learnings and use them to update to top-level plan document
+In addition to updating their own task lists, agents will maintain a record of their learnings in `.agent-notes/${project-name}-learnings-${agent-alias}.md` (eg. `.agent-notes/api-update-learnings-aragorn.md`). Gandalf will periodically read these learnings and use them to update to top-level plan document
 
 Therefore, it is very important that all agents operate in a loop so as to benefit from these learnings. The general pattern is:
 
