@@ -252,7 +252,7 @@ function M.send(context, text)
   -- Use a unique, named buffer so concurrent Shannon invocations can't race
   -- on tmux's anonymous-buffer stack (paste-buffer without -b always targets
   -- the most-recently-created buffer, not the one we just loaded).
-  local buffer_name = string.format('shannon-%d-%d', vim.fn.getpid(), vim.loop.hrtime())
+  local buffer_name = string.format('shannon-%d-%d', vim.fn.getpid(), vim.uv.hrtime())
   vim.fn.system({ 'tmux', 'load-buffer', '-b', buffer_name, tmpfile })
   -- Use bracketed paste (-p) so agent TUIs (pi, claude) treat embedded
   -- newlines as literal newlines (like Shift+Enter) instead of submitting
