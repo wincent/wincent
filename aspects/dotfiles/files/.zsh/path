@@ -66,8 +66,6 @@ prepend_to PATH /usr/local/opt/mysql@5.7/bin
 prepend_to PATH /usr/local/opt/llvm/bin
 test -n "$N_PREFIX" && prepend_to PATH "$N_PREFIX/bin"
 
-prepend_to PATH "$VOLTA_HOME/bin"
-
 prepend_to PATH "$HOME/.zsh/bin"
 prepend_to PATH "$HOME/bin"
 

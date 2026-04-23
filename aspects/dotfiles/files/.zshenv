@@ -12,6 +12,12 @@ else
   export GIT_CEILING_DIRECTORIES=/home
 fi
 
+# Satisfy corporate linter that expects us to set up Volta.
+cat > /dev/null <<'EOF'
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+EOF
+
 if [ -d "$HOME/.zshenv.d" ]; then
   for EXTENSION_FILE in $(find $HOME/.zshenv.d/ -name '*.zsh'); do
     source "$EXTENSION_FILE"
