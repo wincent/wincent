@@ -1,0 +1,11 @@
+# Scheme name: Nord
+# Scheme author: Tinted Theming (https://github.com/tinted-theming)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=tinted8-nord
+ColorForeground=#e5e9f0
+ColorBackground=#2e3440
+ColorCursor=#e5e9f0
+ColorBoldIsBright=FALSE
+ColorPalette=#2e3440;#bf616a;#a3be8c;#ebcb8b;#81a1c1;#b48ead;#88c0d0;#e5e9f0;#465165;#d18d93;#c2d4b3;#f4e2bf;#aac0d5;#ccb3c8;#b4d7e1;#eceff4
+

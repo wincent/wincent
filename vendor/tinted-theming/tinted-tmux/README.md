@@ -2,8 +2,8 @@
 
 [![Matrix Chat](https://img.shields.io/matrix/tinted-theming:matrix.org)](https://matrix.to/#/#tinted-theming:matrix.org)
 
-Tinted Tmux provides all the [Base16] and [Base24] theme variants for tmux.
-Easily swap between over 250 themes.
+Tinted Tmux provides all the [Base16], [Base24] and [Tinted8] theme variants
+for tmux. Easily swap between over 250 themes.
 
 See [Tinted Theming] for more information.
 
@@ -87,6 +87,7 @@ Based on the work of [tmux-colors-solarized].
 [Tinted Theming]: https://github.com/tinted-theming/home
 [Base16]: https://github.com/tinted-theming/home/blob/main/styling.md
 [Base24]: https://github.com/tinted-theming/base24/blob/master/styling.md
+[Tinted8]: https://github.com/tinted-theming/home/blob/main/specs/tinted8/styling.md
 [TPM]: https://github.com/tmux-plugins/tpm
 [tmux-colors-solarized]: https://github.com/seebi/tmux-colors-solarized
 [CONTRIBUTING.md]: CONTRIBUTING.md

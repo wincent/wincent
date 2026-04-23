@@ -1,0 +1,24 @@
+# tinted-terminal - foot
+# Scheme name: Catppuccin Mocha
+# Scheme author: https://github.com/catppuccin/catppuccin
+# Template author: Tinted Theming (https://github.com/tinted-theming)
+
+[colors]
+foreground=
+background=
+regular0=1e1e2e # black
+regular1=f38ba8 # red
+regular2=a6e3a1 # green
+regular3=f9e2af # yellow
+regular4=89b4fa # blue
+regular5=cba6f7 # magenta
+regular6=94e2d5 # cyan
+regular7=cdd6f4 # white
+bright0=353554 # bright black
+bright1=f9c2d2 # bright red
+bright2=d3f1d0 # bright green
+bright3=fcf6e9 # bright yellow
+bright4=c4d9fc # bright blue
+bright5=ece0fb # bright magenta
+bright6=c4efe8 # bright cyan
+bright7=ffffff # bright white

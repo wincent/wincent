@@ -479,8 +479,7 @@ Snippet to enable the language server: >lua
 
 Default config:
 - before_init (use "gF" to view): ../lsp/astro.lua:49
-- cmd: >lua
-  { "astro-ls", "--stdio" }
+- cmd (use "gF" to view): ../lsp/astro.lua:49
 - filetypes: >lua
   { "astro" }
 - init_options: >lua
@@ -1187,6 +1186,22 @@ buf lsp included in the cli itself
 
 buf lsp is a Protobuf language server compatible with Buf modules and workspaces
 
+buf lsp also supports Buf configuration files. The `buf-config` filetype is not
+detected automatically; register it manually (see below) or override the filetypes:
+>lua
+  vim.filetype.add({
+    filename = {
+      ['buf.yaml'] = 'buf-config',
+      ['buf.gen.yaml'] = 'buf-config',
+      ['buf.policy.yaml'] = 'buf-config',
+      ['buf.lock'] = 'buf-config',
+    },
+  })
+
+Optionally, tell treesitter to treat buf config files as YAML for syntax highlighting:
+>lua
+  vim.treesitter.language.register('yaml', 'buf-config')
+
 Snippet to enable the language server: >lua
   vim.lsp.enable('buf_ls')
 
@@ -1195,8 +1210,8 @@ Default config:
 - cmd: >lua
   { "buf", "lsp", "serve", "--log-format=text" }
 - filetypes: >lua
-  { "proto" }
-- reuse_client (use "gF" to view): ../lsp/buf_ls.lua:9
+  { "proto", "buf-config" }
+- reuse_client (use "gF" to view): ../lsp/buf_ls.lua:29
 - root_markers: >lua
   { "buf.yaml", ".git" }
 <
@@ -1803,8 +1818,7 @@ Snippet to enable the language server: >lua
 
 
 Default config:
-- cmd: >lua
-  { "vscode-css-language-server", "--stdio" }
+- cmd (use "gF" to view): ../lsp/cssls.lua:24
 - filetypes: >lua
   { "css", "scss", "less" }
 - init_options: >lua
@@ -2901,8 +2915,7 @@ Snippet to enable the language server: >lua
 
 Default config:
 - before_init (use "gF" to view): ../lsp/eslint.lua:79
-- cmd: >lua
-  { "vscode-eslint-language-server", "--stdio" }
+- cmd (use "gF" to view): ../lsp/eslint.lua:79
 - filetypes: >lua
   { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte", "astro", "htmlangular" }
 - handlers: >lua
@@ -3339,7 +3352,7 @@ Snippet to enable the language server: >lua
 Default config:
 - cmd (use "gF" to view): ../lsp/gdscript.lua:11
 - filetypes: >lua
-  { "gd", "gdscript", "gdscript3" }
+  { "gdscript" }
 - root_markers: >lua
   { "project.godot", ".git" }
 <
@@ -3964,7 +3977,7 @@ Snippet to enable the language server: >lua
 
 Default config:
 - cmd: >lua
-  { "java", "-jar", "groovy-language-server-all.jar" }
+  { "groovy-language-server" }
 - filetypes: >lua
   { "groovy" }
 - root_markers: >lua
@@ -4293,8 +4306,7 @@ Snippet to enable the language server: >lua
 
 
 Default config:
-- cmd: >lua
-  { "vscode-html-language-server", "--stdio" }
+- cmd (use "gF" to view): ../lsp/html.lua:26
 - filetypes: >lua
   { "html" }
 - init_options: >lua
@@ -4679,8 +4691,7 @@ Snippet to enable the language server: >lua
 
 
 Default config:
-- cmd: >lua
-  { "vscode-json-language-server", "--stdio" }
+- cmd (use "gF" to view): ../lsp/jsonls.lua:25
 - filetypes: >lua
   { "json", "jsonc" }
 - init_options: >lua
@@ -5208,6 +5219,8 @@ settings.
           checkThirdParty = false,
           library = {
             vim.env.VIMRUNTIME,
+            -- For LSP Settings Type Annotations: https://github.com/neovim/nvim-lspconfig#lsp-settings-type-annotations
+            vim.api.nvim_get_runtime_file("lua/lspconfig", false)[1],
             -- Depending on the usage, you might want to add additional paths
             -- here.
             -- '${3rd}/luv/library',
@@ -6700,6 +6713,26 @@ Default config:
 <
 
 ------------------------------------------------------------------------------
+phpantom_lsp
+
+https://github.com/AJenbo/phpantom_lsp
+
+Installation: https://github.com/AJenbo/phpantom_lsp/blob/main/docs/SETUP.md
+
+Snippet to enable the language server: >lua
+  vim.lsp.enable('phpantom_lsp')
+
+
+Default config:
+- cmd: >lua
+  { "phpantom_lsp" }
+- filetypes: >lua
+  { "php" }
+- root_markers: >lua
+  { ".phpantom.toml", ".git", "composer.json" }
+<
+
+------------------------------------------------------------------------------
 phptools
 
 https://www.devsense.com/
@@ -7719,8 +7752,7 @@ Snippet to enable the language server: >lua
 
 
 Default config:
-- cmd: >lua
-  { "rome", "lsp-proxy" }
+- cmd (use "gF" to view): ../lsp/rome.lua:14
 - filetypes: >lua
   { "javascript", "javascriptreact", "json", "typescript", "typescriptreact" }
 - root_markers: >lua
@@ -8361,10 +8393,11 @@ https://github.com/awslabs/smithy-language-server
 
 "Smithy Language Server", a Language server for the Smithy IDL.
 
-smithy-language-server has no docs that say how to actually install it(?), so look at:
-https://github.com/smithy-lang/smithy-vscode/blob/600cfcf0db65edce85f02e6d50f5fa2b0862bc8d/src/extension.ts#L78
+Based off the official maven artifacts setup
+https://github.com/smithy-lang/smithy-language-server?tab=readme-ov-file#maven-artifacts
 
 Maven package: https://central.sonatype.com/artifact/software.amazon.smithy/smithy-language-server
+Adjusting jvm opts: https://get-coursier.io/docs/cli-launch#java-options
 
 Installation:
 1. Install coursier, or any tool that can install maven packages.
@@ -8373,7 +8406,7 @@ Installation:
    ```
 2. The LS is auto-installed and launched by:
    ```
-   coursier launch software.amazon.smithy:smithy-language-server:0.7.0
+   cs launch --contrib smithy-language-server:0.8.0
    ```
 
 Snippet to enable the language server: >lua
@@ -8382,7 +8415,7 @@ Snippet to enable the language server: >lua
 
 Default config:
 - cmd: >lua
-  { "coursier", "launch", "software.amazon.smithy:smithy-language-server:0.7.0", "-M", "software.amazon.smithy.lsp.Main", "--", "0" }
+  { "cs", "launch", "--contrib", "smithy-language-server:0.8.0" }
 - filetypes: >lua
   { "smithy" }
 - init_options: >lua
@@ -9398,8 +9431,7 @@ Default config:
       }
     }
   }
-- cmd: >lua
-  { "tailwindcss-language-server", "--stdio" }
+- cmd (use "gF" to view): ../lsp/tailwindcss.lua:14
 - filetypes: >lua
   { "aspnetcorerazor", "astro", "astro-markdown", "blade", "clojure", "django-html", "htmldjango", "edge", "eelixir", "elixir", "ejs", "erb", "eruby", "gohtml", "gohtmltmpl", "haml", "handlebars", "hbs", "html", "htmlangular", "html-eex", "heex", "jade", "leaf", "liquid", "markdown", "mdx", "mustache", "njk", "nunjucks", "php", "razor", "slim", "twig", "css", "less", "postcss", "sass", "scss", "stylus", "sugarss", "javascript", "javascriptreact", "reason", "rescript", "typescript", "typescriptreact", "vue", "svelte", "templ" }
 - root_dir (use "gF" to view): ../lsp/tailwindcss.lua:14
@@ -9996,8 +10028,7 @@ Commands:
 - editor.action.showReferences
 
 Default config:
-- cmd: >lua
-  { "typescript-language-server", "--stdio" }
+- cmd (use "gF" to view): ../lsp/ts_ls.lua:77
 - commands: >lua
   {
     ["editor.action.showReferences"] = <function 1>
@@ -11219,8 +11250,7 @@ Snippet to enable the language server: >lua
 
 
 Default config:
-- cmd: >lua
-  { "yaml-language-server", "--stdio" }
+- cmd (use "gF" to view): ../lsp/yamlls.lua:63
 - filetypes: >lua
   { "yaml", "yaml.docker-compose", "yaml.gitlab", "yaml.helm-values" }
 - on_init (use "gF" to view): ../lsp/yamlls.lua:63
@@ -11323,6 +11353,41 @@ Default config:
   { "ziggy_schema" }
 - root_markers: >lua
   { ".git" }
+<
+
+------------------------------------------------------------------------------
+zizmor
+
+https://github.com/zizmorcore/zizmor
+
+Zizmor language server.
+
+`zizmor` can be installed by following the instructions [here](https://docs.zizmor.sh/installation/).
+
+The default `cmd` assumes that the `zizmor` binary can be found in `$PATH`.
+
+See `zizmor`'s [documentation](https://docs.zizmor.sh/) for additional documentation.
+
+Snippet to enable the language server: >lua
+  vim.lsp.enable('zizmor')
+
+
+Default config:
+- capabilities: >lua
+  {
+    workspace = {
+      didChangeWorkspaceFolders = {
+        dynamicRegistration = true
+      }
+    }
+  }
+- cmd: >lua
+  { "zizmor", "--lsp" }
+- filetypes: >lua
+  { "yaml" }
+- init_options: >lua
+  {}
+- root_dir (use "gF" to view): ../lsp/zizmor.lua:14
 <
 
 ------------------------------------------------------------------------------

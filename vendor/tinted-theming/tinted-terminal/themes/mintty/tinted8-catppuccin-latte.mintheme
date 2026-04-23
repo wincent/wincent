@@ -1,0 +1,27 @@
+# Catppuccin Latte theme for Mintty
+# Scheme Author: https://github.com/catppuccin/catppuccin
+# Scheme System: tinted8
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #4c4f69
+Red         = #d20f39
+Green       = #40a02b
+Yellow      = #df8e1d
+Blue        = #1e66f5
+Magenta     = #8839ef
+Cyan        = #179299
+White       = #dce0e8
+BoldBlack   = #6c6f85
+BoldRed     = #f82653
+BoldGreen   = #53d138
+BoldYellow  = #eeaa4b
+BoldBlue    = #598ef8
+BoldMagenta = #aa72f4
+BoldCyan    = #18cbd5
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #dce0e8
+ForegroundColour = #4c4f69
+CursorColour     = #4c4f69

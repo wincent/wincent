@@ -1,0 +1,27 @@
+# Swamp Light theme for Mintty
+# Scheme Author: Masroof Maindak (https://github.com/masroof-maindak)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #f1e3d1
+Red         = #d09700
+Green       = #908d6a
+Yellow      = #993333
+Blue        = #bf7979
+Magenta     = #9e5581
+Cyan        = #d09700
+White       = #64513e
+BoldBlack   = #b5a492
+BoldRed     = #d09700
+BoldGreen   = #908d6a
+BoldYellow  = #993333
+BoldBlue    = #bf7979
+BoldMagenta = #9e5581
+BoldCyan    = #d09700
+BoldWhite   = #8c7b68
+
+# Background & foreground colors
+BackgroundColour = #f1e3d1
+ForegroundColour = #64513e
+CursorColour     = #64513e

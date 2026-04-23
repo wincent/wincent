@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Swamp Light
+; Scheme system: base16
+; Scheme description: 
+; Scheme author: Masroof Maindak (https://github.com/masroof-maindak)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base16-swamp-light]
+
+; Default Foreground
+; base05 #64513e
+"Colour0"="100,81,62"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #64513e
+"Colour1"="100,81,62"
+
+; Default Background
+; base00 #f1e3d1
+"Colour2"="241,227,209"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #f1e3d1
+"Colour3"="241,227,209"
+
+; Cursor Text -- equals to default background
+; base00 #f1e3d1
+"Colour4"="241,227,209"
+
+; Cursor Colour -- equals to default foreground
+; base05 #64513e
+"Colour5"="100,81,62"
+
+; ANSI Black
+; 30m
+; base00 #f1e3d1
+"Colour6"="241,227,209"
+
+; ANSI Black Bright
+; 1;30m
+; base03 #b5a492
+"Colour7"="181,164,146"
+
+; ANSI Red
+; 31m
+; base08 #d09700
+"Colour8"="208,151,0"
+
+; ANSI Red Bright
+; 1;31m
+; base08 #d09700
+"Colour9"="208,151,0"
+
+; ANSI Green
+; 32m
+; base0B #908d6a
+"Colour10"="144,141,106"
+
+; ANSI Green Bright
+; 1;32m
+; base0B #908d6a
+"Colour11"="144,141,106"
+
+; ANSI Yellow
+; 33m
+; base0A #993333
+"Colour12"="153,51,51"
+
+; ANSI Yellow Bright
+; 1;33m
+; base0A #993333
+"Colour13"="153,51,51"
+
+; ANSI Blue
+; 34m
+; base0D #bf7979
+"Colour14"="191,121,121"
+
+; ANSI Blue Bright
+; 1;34m
+; base0D #bf7979
+"Colour15"="191,121,121"
+
+; ANSI Magenta
+; 35m
+; base0E #9e5581
+"Colour16"="158,85,129"
+
+; ANSI Magenta Bright
+; 1;35m
+; base0E #9e5581
+"Colour17"="158,85,129"
+
+; ANSI Cyan
+; 36m
+; base0C #d09700
+"Colour18"="208,151,0"
+
+; ANSI Cyan Bright
+; 1;36m
+; base0C #d09700
+"Colour19"="208,151,0"
+
+; ANSI White
+; 37m
+; base05 #64513e
+"Colour20"="100,81,62"
+
+; ANSI White Bright
+; 1;37m
+; base07 8c7b68
+"Colour21"="140,123,104"

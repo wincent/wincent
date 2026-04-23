@@ -1,0 +1,31 @@
+scheme:
+  system: "tinted8"
+  supports:
+    styling-spec: "0.2.0"
+  author: "https://github.com/catppuccin/catppuccin"
+  theme-author: "https://catppuccin.com"
+  family: "Catppuccin"
+  style: "Latte"
+variant: "light"
+palette:
+  black: "#4c4f69" # crust
+  white: "#dce0e8" # text
+  red: "#d20f39" # red
+  yellow: "#df8e1d" # yellow
+  green: "#40a02b" # green
+  cyan: "#179299" # teal
+  blue: "#1e66f5" # blue
+  magenta: "#8839ef" # mauve
+  orange: "#fe640b" # peach
+  gray: "#9ca0b0" # overlay 0
+  black-bright: "#6c6f85" # mantle
+  cyan-dim: "#04a5e5" # sky
+syntax:
+  entity.name.namespace: "#df8e1d"
+  entity.name.type: "#df8e1d"
+  keyword.operator: "#179299"
+  meta.annotation: "#df8e1d"
+  meta.function: "#1e66f5"
+  punctuation.brackets.angle: "#179299"
+  punctuation.brackets: "#e64553" # maroon
+  variable.language: "#d20f39"

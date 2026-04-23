@@ -1,0 +1,41 @@
+# Rio Terminal tinted8 color theme (https://github.com/tinted-theming)
+# Color scheme: Catppuccin Latte by 
+
+[colors]
+selection-background = '#b6bfd1'
+selection-foreground = '#4c4f69'
+
+cursor         = '#4c4f69'
+tabs           = '#6c6f85'
+tabs-active    = '#797f96'
+
+background     = '#dce0e8'
+foreground     = '#4c4f69'
+black          = '#4c4f69'
+red            = '#d20f39'
+yellow         = '#df8e1d'
+green          = '#40a02b'
+cyan           = '#179299'
+blue           = '#1e66f5'
+magenta        = '#8839ef'
+white          = '#dce0e8'
+
+dim-foreground   = '#b6bfd1'
+dim-black        = '#323446'
+dim-red          = '#9e0627'
+dim-yellow       = '#ae6c11'
+dim-green        = '#2c711c'
+dim-cyan         = '#04a5e5'
+dim-blue         = '#0248d4'
+dim-magenta      = '#670be0'
+dim-white        = '#b6bfd1'
+
+light-foreground = '#ffffff'
+light-black      = '#6c6f85'
+light-red        = '#f82653'
+light-yellow     = '#eeaa4b'
+light-green      = '#53d138'
+light-cyan       = '#18cbd5'
+light-blue       = '#598ef8'
+light-magenta    = '#aa72f4'
+light-white      = '#ffffff'

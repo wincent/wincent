@@ -1,6 +1,6 @@
 (*
     base24 Dracula
-    Scheme author: FredHappyface (https://github.com/fredHappyface)
+    Scheme author: clach04 (https://github.com/clach04)
     Template author: Tinted Theming (https://github.com/tinted-theming)
 *)
 tell application "iTerm2"
@@ -13,19 +13,19 @@ tell application "iTerm2"
         set ANSI red color to {65535, 21845, 21845}
         set ANSI green color to {20560, 64250, 31611}
         set ANSI yellow color to {61937, 64250, 35980}
-        set ANSI blue color to {32896, 49087, 65535}
+        set ANSI blue color to {48573, 37779, 63993}
         set ANSI magenta color to {65535, 31097, 50886}
         set ANSI cyan color to {35723, 59881, 65021}
         set ANSI white color to {63736, 63736, 62194}
 
         -- Set Bright ANSI Colors
         set ANSI bright black color to {25186, 29298, 42148}
-        set ANSI bright red color to {62194, 35980, 35980}
-        set ANSI bright green color to {41891, 62965, 47288}
-        set ANSI bright yellow color to {61166, 62965, 41891}
-        set ANSI bright blue color to {41891, 52428, 62965}
-        set ANSI bright magenta color to {62965, 41891, 53970}
-        set ANSI bright cyan color to {47802, 60909, 63479}
+        set ANSI bright red color to {65535, 28270, 28270}
+        set ANSI bright green color to {26985, 65535, 38036}
+        set ANSI bright yellow color to {65535, 65535, 42405}
+        set ANSI bright blue color to {54998, 44204, 65535}
+        set ANSI bright magenta color to {65535, 37522, 57311}
+        set ANSI bright cyan color to {42148, 65535, 65535}
         set ANSI bright white color to {65535, 65535, 65535}
     end tell
 end tell

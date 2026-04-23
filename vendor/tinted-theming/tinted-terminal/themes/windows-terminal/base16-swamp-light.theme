@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Swamp Light",
+	"foreground": "#64513e",
+	"background": "#f1e3d1",
+	"black": "#f1e3d1",
+	"blue": "#bf7979",
+	"brightBlack": "#b5a492",
+	"brightBlue": "#bf7979",
+	"brightCyan": "#d09700",
+	"brightGreen": "#908d6a",
+	"brightPurple": "#9e5581",
+	"brightRed": "#d09700",
+	"brightWhite": "#8c7b68",
+	"brightYellow": "#993333",
+	"cyan": "#d09700",
+	"green": "#908d6a",
+	"purple": "#9e5581",
+	"red": "#d09700",
+	"white": "#64513e",
+	"yellow": "#993333"
+},

@@ -1,0 +1,41 @@
+# Rio Terminal tinted8 color theme (https://github.com/tinted-theming)
+# Color scheme: Gruvbox Dark by 
+
+[colors]
+selection-background = '#3c3836'
+selection-foreground = '#ebdbb2'
+
+cursor         = '#ebdbb2'
+tabs           = '#3c3836'
+tabs-active    = '#716457'
+
+background     = '#282828'
+foreground     = '#ebdbb2'
+black          = '#282828'
+red            = '#cc241d'
+yellow         = '#d79921'
+green          = '#98971a'
+cyan           = '#689d6a'
+blue           = '#458588'
+magenta        = '#b16286'
+white          = '#ebdbb2'
+
+dim-foreground   = '#e3c67d'
+dim-black        = '#1d2021'
+dim-red          = '#9b1611'
+dim-yellow       = '#a77514'
+dim-green        = '#65650f'
+dim-cyan         = '#4d7b4f'
+dim-blue         = '#2f5f61'
+dim-magenta      = '#914467'
+dim-white        = '#e3c67d'
+
+light-foreground = '#fbf1c7'
+light-black      = '#3c3836'
+light-red        = '#fb4934'
+light-yellow     = '#fabd2f'
+light-green      = '#b8bb26'
+light-cyan       = '#8ec07c'
+light-blue       = '#83a598'
+light-magenta    = '#d3869b'
+light-white      = '#fbf1c7'

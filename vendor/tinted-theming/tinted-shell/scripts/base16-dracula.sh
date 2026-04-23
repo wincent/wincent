@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 # tinted-shell (https://github.com/tinted-theming/tinted-shell)
 # Scheme name: Dracula
-# Scheme author: Jamy Golden (http://github.com/JamyGolden), based on Dracula Theme (http://github.com/dracula)
+# Scheme author: clach04 (https://github.com/clach04)
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE16_THEME=dracula
 
@@ -9,7 +9,7 @@ color00="28/2a/36" # Base 00 - Black
 color01="ff/55/55" # Base 08 - Red
 color02="50/fa/7b" # Base 0B - Green
 color03="f1/fa/8c" # Base 0A - Yellow
-color04="80/bf/ff" # Base 0D - Blue
+color04="bd/93/f9" # Base 0D - Blue
 color05="ff/79/c6" # Base 0E - Magenta
 color06="8b/e9/fd" # Base 0C - Cyan
 color07="f8/f8/f2" # Base 05 - White
@@ -22,11 +22,11 @@ color13="$color05" # Base 0E - Bright Magenta
 color14="$color06" # Base 0C - Bright Cyan
 color15="ff/ff/ff" # Base 07 - Bright White
 color16="ff/b8/6c" # Base 09
-color17="bd/93/f9" # Base 0F
-color18="36/34/47" # Base 01
+color17="99/33/33" # Base 0F
+color18="21/22/2c" # Base 01
 color19="44/47/5a" # Base 02
 color20="9e/a8/c7" # Base 04
-color21="f0/f1/f4" # Base 06
+color21="f8/f8/f2" # Base 06
 color_foreground="f8/f8/f2" # Base 05
 color_background="28/2a/36" # Base 00
 
@@ -134,19 +134,19 @@ unset color_background
 # Optionally export variables
 if [ -n "$TINTED_SHELL_ENABLE_BASE16_VARS" ] || [ -n "$BASE16_SHELL_ENABLE_VARS" ]; then
   export BASE16_COLOR_00_HEX="282a36"
-  export BASE16_COLOR_01_HEX="363447"
+  export BASE16_COLOR_01_HEX="21222c"
   export BASE16_COLOR_02_HEX="44475a"
   export BASE16_COLOR_03_HEX="6272a4"
   export BASE16_COLOR_04_HEX="9ea8c7"
   export BASE16_COLOR_05_HEX="f8f8f2"
-  export BASE16_COLOR_06_HEX="f0f1f4"
+  export BASE16_COLOR_06_HEX="f8f8f2"
   export BASE16_COLOR_07_HEX="ffffff"
   export BASE16_COLOR_08_HEX="ff5555"
   export BASE16_COLOR_09_HEX="ffb86c"
   export BASE16_COLOR_0A_HEX="f1fa8c"
   export BASE16_COLOR_0B_HEX="50fa7b"
   export BASE16_COLOR_0C_HEX="8be9fd"
-  export BASE16_COLOR_0D_HEX="80bfff"
+  export BASE16_COLOR_0D_HEX="bd93f9"
   export BASE16_COLOR_0E_HEX="ff79c6"
-  export BASE16_COLOR_0F_HEX="bd93f9"
+  export BASE16_COLOR_0F_HEX="993333"
 fi

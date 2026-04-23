@@ -2209,7 +2209,8 @@ H.filetype_match = function(filename)
   -- (needed because the function in many ambiguous cases prefers to return
   -- nothing if there is no buffer supplied)
   local buf_id = H.scratch_buf_id
-  if buf_id == nil or not vim.api.nvim_buf_is_valid(buf_id) then
+  if buf_id == nil or not vim.api.nvim_buf_is_loaded(buf_id) then
+    pcall(vim.api.nvim_buf_delete, buf_id, { force = true })
     buf_id = vim.api.nvim_create_buf(false, true)
     H.set_buf_name(buf_id, 'filetype-match-scratch')
     H.scratch_buf_id = buf_id

@@ -1,10 +1,9 @@
 # Tinted Terminal
 
-Tinted terminal is a [Tinted Theming] terminal template repository
-containing Base16 and Base24 terminal theme files for various terminal
-emulators. Below is a table of contents, which includes a list of
-supported terminal emulators with links to their installation
-instructions:
+Tinted terminal is a [Tinted Theming] terminal template repository containing
+[Base16], [Base24] and [Tinted8] terminal theme files for various terminal
+emulators. Below is a table of contents, which includes a list of supported
+terminal emulators with links to their installation instructions:
 
 - [Alacritty](#alacritty)
 - [ConEmu](#conemu)
@@ -898,6 +897,7 @@ terminal template decisions.
 [Tinted Theming Gallery]: https://tinted-theming.github.io/tinted-gallery/
 [Base16]: https://github.com/tinted-theming/home/blob/main/styling.md
 [Base24]: https://github.com/tinted-theming/base24/blob/main/styling.md
+[Tinted8]: https://github.com/tinted-theming/home/blob/specs/tinted8/styling.md
 [Tinted Theming]: https://github.com/tinted-theming/home
 [Tinty]: https://github.com/tinted-theming/tinty
 [tinted-shell]: https://github.com/tinted-theming/tinted-shell

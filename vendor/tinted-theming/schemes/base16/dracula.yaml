@@ -1,21 +1,29 @@
 system: "base16"
 name: "Dracula"
-author: "Jamy Golden (http://github.com/JamyGolden), based on Dracula Theme (http://github.com/dracula)"
+author: "clach04 (https://github.com/clach04)"
+description: "based on https://github.com/dracula/draculatheme.com/blob/main/content/spec.mdx"
 variant: "dark"
+# Subset of base24 Dracula
+# https://github.com/tinted-theming/base24/blob/main/styling.md
+# https://github.com/tinted-theming/home/blob/main/styling.md
+# https://github.com/chriskempson/base16/blob/main/styling.md
+# Typically expect order of base00-base07 (dark to light versus light to dark) to differ depending on variant
+# based on https://github.com/dracula/draculatheme.com/blob/main/content/spec.mdx
 palette:
-  base00: "#282a36"
-  base01: "#363447"
-  base02: "#44475a"
-  base03: "#6272a4"
-  base04: "#9ea8c7"
-  base05: "#f8f8f2"
-  base06: "#f0f1f4"
-  base07: "#ffffff"
-  base08: "#ff5555"
-  base09: "#ffb86c"
-  base0A: "#f1fa8c"
-  base0B: "#50fa7b"
-  base0C: "#8be9fd"
-  base0D: "#80bfff"
-  base0E: "#ff79c6"
-  base0F: "#bd93f9"
+  base00: "#282a36"  # Default Background  # Dracula Background
+  base01: "#21222c"  # Darker Background (Darkest Gray) (Used for status bars, line number and folding marks) # Dracula Background Dark / AnsiBlack
+  base02: "#44475A"  # Selection Background (Bright Black) # Dracula Selection
+  base03: "#6272a4"  # Comments, Invisibles, Line Highlighting (Grey) # Dracula Current Line / Comment / AnsiBrightBlack
+  base04: "#9ea8c7"  # Dark/Light Foreground (Used for status bars) (Light Grey) # NOT a Dracula color!
+  base05: "#f8f8f2"  # Default Foreground, Caret, Delimiters, Operators (Foreground) # Dracula Foreground / AnsiWhite
+  base06: "#f8f8f2"  # Dark Foreground (Not often used) (White)  # TODO review, currently same as above base05
+  base07: "#ffffff"  # Dark Background (Not often used) (Bright White) # Dracula AnsiBrightWhite
+  # ANSI8 (without Black/White) + 2 (Orange + Dark Red/Brown)
+  base08: "#ff5555"  # Red
+  base09: "#FFB86C"  # Orange
+  base0A: "#f1fa8c"  # Yellow
+  base0B: "#50fa7b"  # Green
+  base0C: "#8be9fd"  # Aqua / Cyan
+  base0D: "#bd93f9"  # Blue
+  base0E: "#ff79c6"  # Purple / Magenta
+  base0F: "#993333"  # Dark Red or Brown, derive dark red from base08 - derived via https://www.color-hex.com/color/ff5555

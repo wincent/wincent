@@ -1,0 +1,36 @@
+# Catppuccin Latte theme for Mintty
+# Scheme Author: https://github.com/catppuccin/catppuccin
+# Scheme System: tinted8
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# Default colors
+[colors.primary]
+background = '0xdce0e8'
+foreground = '0x4c4f69'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0xdce0e8'
+cursor = '0x4c4f69'
+
+# Normal colors
+[colors.normal]
+black = '0x4c4f69'
+red = '0xd20f39'
+green = '0x40a02b'
+yellow = '0xdf8e1d'
+blue = '0x1e66f5'
+magenta = '0x8839ef'
+cyan = '0x179299'
+white = '0xdce0e8'
+
+# Bright colors
+[colors.bright]
+black = '0x6c6f85'
+red = '0xf82653'
+green = '0x53d138'
+yellow = '0xeeaa4b'
+blue = '0x598ef8'
+magenta = '0xaa72f4'
+cyan = '0x18cbd5'
+white = '0xffffff'

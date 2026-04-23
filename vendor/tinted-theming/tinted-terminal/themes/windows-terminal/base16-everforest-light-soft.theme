@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Everforest Light (Soft)",
+	"foreground": "#5c6a72",
+	"background": "#f3ead3",
+	"black": "#f3ead3",
+	"blue": "#3a94c5",
+	"brightBlack": "#939f91",
+	"brightBlue": "#3a94c5",
+	"brightCyan": "#35a77c",
+	"brightGreen": "#8da101",
+	"brightPurple": "#df69ba",
+	"brightRed": "#f85552",
+	"brightWhite": "#333c43",
+	"brightYellow": "#dfa000",
+	"cyan": "#35a77c",
+	"green": "#8da101",
+	"purple": "#df69ba",
+	"red": "#f85552",
+	"white": "#5c6a72",
+	"yellow": "#dfa000"
+},

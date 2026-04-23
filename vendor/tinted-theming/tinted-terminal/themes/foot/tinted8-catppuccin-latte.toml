@@ -1,0 +1,24 @@
+# tinted-terminal - foot
+# Scheme name: Catppuccin Latte
+# Scheme author: https://github.com/catppuccin/catppuccin
+# Template author: Tinted Theming (https://github.com/tinted-theming)
+
+[colors]
+foreground=
+background=
+regular0=4c4f69 # black
+regular1=d20f39 # red
+regular2=40a02b # green
+regular3=df8e1d # yellow
+regular4=1e66f5 # blue
+regular5=8839ef # magenta
+regular6=179299 # cyan
+regular7=dce0e8 # white
+bright0=6c6f85 # bright black
+bright1=f82653 # bright red
+bright2=53d138 # bright green
+bright3=eeaa4b # bright yellow
+bright4=598ef8 # bright blue
+bright5=aa72f4 # bright magenta
+bright6=18cbd5 # bright cyan
+bright7=ffffff # bright white

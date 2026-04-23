@@ -1,0 +1,37 @@
+# vim: ft=ghostty
+# {{ scheme.name }} theme for Ghostty
+# Scheme Author: {{ scheme.author }}
+# Scheme System: {{ scheme.system }}
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# Color palette
+palette = 0=#{{ palette.black.normal.hex }}
+palette = 1=#{{ palette.red.normal.hex }}
+palette = 2=#{{ palette.green.normal.hex }}
+palette = 3=#{{ palette.yellow.normal.hex }}
+palette = 4=#{{ palette.blue.normal.hex }}
+palette = 5=#{{ palette.magenta.normal.hex }}
+palette = 6=#{{ palette.cyan.normal.hex }}
+palette = 7=#{{ palette.white.normal.hex }}
+palette = 8=#{{ palette.black.bright.hex }}
+palette = 9=#{{ palette.red.bright.hex }}
+palette = 10=#{{ palette.green.bright.hex }}
+palette = 11=#{{ palette.yellow.bright.hex }}
+palette = 12=#{{ palette.blue.bright.hex }}
+palette = 13=#{{ palette.magenta.bright.hex }}
+palette = 14=#{{ palette.cyan.bright.hex }}
+palette = 15=#{{ palette.white.bright.hex }}
+
+# Foreground & background colors
+background = #{{ ui.global.background.normal.hex }}
+foreground = #{{ ui.global.foreground.normal.hex }}
+cursor-color = #{{ palette.white.normal.hex }}
+selection-background = #{{ ui.selection.background.hex }}
+selection-foreground = #{{ ui.selection.foreground.hex }}
+
+# Set `macos-icon = custom-style` in your main configuration file to enable theming of the app icon.
+#
+# Set the ghost color to the lightest foreground:
+macos-icon-ghost-color = #{{ palette.white.bright.hex}}
+# Replace the official icon's blue background with the designated bright blue color:
+macos-icon-screen-color = #{{ palette.blue.bright.hex }}

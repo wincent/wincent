@@ -1,0 +1,10 @@
+# Scheme name: Everforest Light (Hard)
+# Scheme author: Márcio Sobel (https://github.com/marciosobel)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-everforest-light-hard
+ColorForeground=#5c6a72
+ColorBackground=#fffbef
+ColorCursor=#5c6a72
+ColorBoldIsBright=FALSE
+ColorPalette=#fffbef;#f85552;#8da101;#dfa000;#3a94c5;#df69ba;#35a77c;#5c6a72;#939f91;#f85552;#8da101;#dfa000;#3a94c5;#df69ba;#35a77c;#272e33

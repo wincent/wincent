@@ -2,7 +2,7 @@
 
 " tinted-vim (https://github.com/tinted-theming/tinted-vim)
 " Scheme name: Dracula
-" Scheme author: FredHappyface (https://github.com/fredHappyface)
+" Scheme author: clach04 (https://github.com/clach04)
 " Template author: Tinted Theming (https://github.com/tinted-theming)
 
 " This enables the coresponding base16-shell script to run so that
@@ -17,29 +17,29 @@ endif
 
 " GUI colors
 let s:gui00        = '282a36'
-let s:gui01        = '363447'
-let s:gui02        = '44475a'
+let s:gui01        = '21222c'
+let s:gui02        = '44475A'
 let s:gui03        = '6272a4'
 let s:gui04        = '9ea8c7'
 let s:gui05        = 'f8f8f2'
-let s:gui06        = 'f0f1f4'
+let s:gui06        = 'f8f8f2'
 let s:gui07        = 'ffffff'
 let s:gui08        = 'ff5555'
-let s:gui09        = 'ffb86c'
+let s:gui09        = 'FFB86C'
 let s:gui0A        = 'f1fa8c'
 let s:gui0B        = '50fa7b'
 let s:gui0C        = '8be9fd'
-let s:gui0D        = '80bfff'
+let s:gui0D        = 'bd93f9'
 let s:gui0E        = 'ff79c6'
-let s:gui0F        = 'bd93f9'
+let s:gui0F        = '993333'
 let s:gui10        = '1e2029'
 let s:gui11        = '16171d'
-let s:gui12        = 'f28c8c'
-let s:gui13        = 'eef5a3'
-let s:gui14        = 'a3f5b8'
-let s:gui15        = 'baedf7'
-let s:gui16        = 'a3ccf5'
-let s:gui17        = 'f5a3d2'
+let s:gui12        = 'ff6e6e'
+let s:gui13        = 'ffffa5'
+let s:gui14        = '69ff94'
+let s:gui15        = 'a4ffff'
+let s:gui16        = 'd6acff'
+let s:gui17        = 'ff92df'
 
 " Terminal colors
 let s:cterm00  = '00'
@@ -99,17 +99,17 @@ let s:colors = [
   \ '#ff5555',
   \ '#50fa7b',
   \ '#f1fa8c',
-  \ '#80bfff',
+  \ '#bd93f9',
   \ '#ff79c6',
   \ '#8be9fd',
   \ '#f8f8f2',
   \ '#6272a4',
-  \ '#f28c8c',
-  \ '#a3f5b8',
-  \ '#eef5a3',
-  \ '#a3ccf5',
-  \ '#f5a3d2',
-  \ '#baedf7',
+  \ '#ff6e6e',
+  \ '#69ff94',
+  \ '#ffffa5',
+  \ '#d6acff',
+  \ '#ff92df',
+  \ '#a4ffff',
   \ '#ffffff'
 \]
 

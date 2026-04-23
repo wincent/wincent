@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Swamp Light by Masroof Maindak (https://github.com/masroof-maindak)
+
+[colors]
+selection-background = '#64513e' # base05
+selection-foreground = '#c9b9a7' # base02
+
+cursor         = '#64513e' # base05
+tabs           = '#ddcebc' # base01
+tabs-active    = '#c9b9a7' # base02
+
+background     = '#f1e3d1' # base00
+foreground     = '#64513e' # base05
+black          = '#f1e3d1' # base00
+red            = '#d09700' # base08
+yellow         = '#993333' # base0A
+green          = '#908d6a' # base0B
+cyan           = '#d09700' # base0C
+blue           = '#bf7979' # base0D
+magenta        = '#9e5581' # base0E
+white          = '#64513e' # base05
+
+dim-foreground   = '#64513e' # base05
+dim-black        = '#ddcebc' # base01
+dim-red          = '#d09700' # base08
+dim-yellow       = '#993333' # base0A
+dim-green        = '#908d6a' # base0B
+dim-cyan         = '#d09700' # base0C
+dim-blue         = '#bf7979' # base0D
+dim-magenta      = '#9e5581' # base0E
+dim-white        = '#a0907d' # base04
+
+light-foreground = '#64513e' # base05
+light-black      = '#b5a492' # base03
+light-red        = '#d09700' # base08
+light-yellow     = '#993333' # base0A
+light-green      = '#908d6a' # base0B
+light-cyan       = '#d09700' # base0C
+light-blue       = '#bf7979' # base0D
+light-magenta    = '#9e5581' # base0E
+light-white      = '#8c7b68' # base07

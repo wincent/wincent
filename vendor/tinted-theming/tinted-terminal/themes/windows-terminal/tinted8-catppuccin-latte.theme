@@ -1,0 +1,23 @@
+// Add custom color schemes to the "schemes" array
+{
+    "name": "Catppuccin Latte",
+    "foreground": "#4c4f69",
+    "background": "#dce0e8",
+    "black": "#4c4f69",
+    "blue": "#1e66f5",
+    "brightBlack": "#6c6f85",
+    "brightBlue": "#598ef8",
+    "brightCyan": "#18cbd5",
+    "brightGreen": "#53d138",
+    "brightPurple": "#aa72f4",
+    "brightRed": "#f82653",
+    "brightWhite": "#ffffff",
+    "brightYellow": "#eeaa4b",
+    "cyan": "#179299",
+    "green": "#40a02b",
+    "purple": "#8839ef",
+    "red": "#d20f39",
+    "white": "#dce0e8",
+    "yellow": "#df8e1d"
+},
+

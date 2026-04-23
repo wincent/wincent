@@ -1,92 +1,92 @@
 [Background]
-Color=209,214,219
+Color=219,214,209
 
 [BackgroundFaint]
-Color=209,214,219
+Color=219,214,209
 
 [BackgroundIntense]
-Color=209,214,219
+Color=219,214,209
 
 [Color0]
-Color=209,214,219
+Color=219,214,209
 
 [Color0Faint]
-Color=209,214,219
+Color=219,214,209
 
 [Color0Intense]
-Color=117,128,138
+Color=138,128,117
 
 [Color1]
-Color=87,109,130
+Color=130,109,87
 
 [Color1Faint]
-Color=87,109,130
+Color=130,109,87
 
 [Color1Intense]
-Color=87,109,130
+Color=130,109,87
 
 [Color2]
-Color=109,130,87
+Color=87,130,109
 
 [Color2Faint]
-Color=109,130,87
+Color=87,130,109
 
 [Color2Intense]
-Color=109,130,87
+Color=87,130,109
 
 [Color3]
-Color=87,130,109
+Color=109,130,87
 
 [Color3Faint]
-Color=87,130,109
+Color=109,130,87
 
 [Color3Intense]
-Color=87,130,109
+Color=109,130,87
 
 [Color4]
-Color=130,87,109
+Color=109,87,130
 
 [Color4Faint]
-Color=130,87,109
+Color=109,87,130
 
 [Color4Intense]
-Color=130,87,109
+Color=109,87,130
 
 [Color5]
-Color=109,87,130
+Color=130,87,109
 
 [Color5Faint]
-Color=109,87,130
+Color=130,87,109
 
 [Color5Intense]
-Color=109,87,130
+Color=130,87,109
 
 [Color6]
-Color=130,109,87
+Color=87,109,130
 
 [Color6Faint]
-Color=130,109,87
+Color=87,109,130
 
 [Color6Intense]
-Color=130,109,87
+Color=87,109,130
 
 [Color7]
-Color=50,59,67
+Color=67,59,50
 
 [Color7Faint]
-Color=50,59,67
+Color=67,59,50
 
 [Color7Intense]
-Color=15,19,22
+Color=22,19,15
 
 [Foreground]
-Color=50,59,67
+Color=67,59,50
 
 [ForegroundFaint]
-Color=50,59,67
+Color=67,59,50
 
 [ForegroundIntense]
-Color=15,19,22
+Color=22,19,15
 
 [General]
 Description=Embers Light

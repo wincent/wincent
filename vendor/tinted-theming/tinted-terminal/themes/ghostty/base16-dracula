@@ -1,6 +1,6 @@
 # vim: ft=ghostty
 # Dracula theme for Ghostty
-# Scheme Author: Jamy Golden (http://github.com/JamyGolden), based on Dracula Theme (http://github.com/dracula)
+# Scheme Author: clach04 (https://github.com/clach04)
 # Scheme System: base16
 # Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
 
@@ -9,7 +9,7 @@ palette = 0=#282a36
 palette = 1=#ff5555
 palette = 2=#50fa7b
 palette = 3=#f1fa8c
-palette = 4=#80bfff
+palette = 4=#bd93f9
 palette = 5=#ff79c6
 palette = 6=#8be9fd
 palette = 7=#f8f8f2
@@ -17,16 +17,16 @@ palette = 8=#6272a4
 palette = 9=#ff5555
 palette = 10=#50fa7b
 palette = 11=#f1fa8c
-palette = 12=#80bfff
+palette = 12=#bd93f9
 palette = 13=#ff79c6
 palette = 14=#8be9fd
 palette = 15=#ffffff
 palette = 16=#ffb86c
-palette = 17=#bd93f9
-palette = 18=#363447
+palette = 17=#993333
+palette = 18=#21222c
 palette = 19=#44475a
 palette = 20=#9ea8c7
-palette = 21=#f0f1f4
+palette = 21=#f8f8f2
 
 # Foreground & background colors
 background = #282a36
@@ -40,4 +40,4 @@ selection-foreground = #44475a
 # Set the ghost color to the lightest foreground:
 macos-icon-ghost-color = #ffffff
 # Replace the official icon's blue background with the designated bright blue color:
-macos-icon-screen-color = #80bfff
+macos-icon-screen-color = #bd93f9

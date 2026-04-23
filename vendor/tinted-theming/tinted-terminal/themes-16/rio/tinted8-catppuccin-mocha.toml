@@ -1,0 +1,41 @@
+# Rio Terminal tinted8 color theme (https://github.com/tinted-theming)
+# Color scheme: Catppuccin Mocha by 
+
+[colors]
+selection-background = '#353554'
+selection-foreground = '#cdd6f4'
+
+cursor         = '#cdd6f4'
+tabs           = '#353554'
+tabs-active    = '#505365'
+
+background     = '#1e1e2e'
+foreground     = '#cdd6f4'
+black          = '#1e1e2e'
+red            = '#f38ba8'
+yellow         = '#f9e2af'
+green          = '#a6e3a1'
+cyan           = '#94e2d5'
+blue           = '#89b4fa'
+magenta        = '#cba6f7'
+white          = '#cdd6f4'
+
+dim-foreground   = '#97abed'
+dim-black        = '#181825'
+dim-red          = '#f54c7b'
+dim-yellow       = '#fbd070'
+dim-green        = '#75da6d'
+dim-cyan         = '#89dceb'
+dim-blue         = '#478dff'
+dim-magenta      = '#aa67f9'
+dim-white        = '#97abed'
+
+light-foreground = '#ffffff'
+light-black      = '#353554'
+light-red        = '#f9c2d2'
+light-yellow     = '#fcf6e9'
+light-green      = '#d3f1d0'
+light-cyan       = '#c4efe8'
+light-blue       = '#c4d9fc'
+light-magenta    = '#ece0fb'
+light-white      = '#ffffff'

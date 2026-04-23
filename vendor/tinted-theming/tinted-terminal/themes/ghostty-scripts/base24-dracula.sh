@@ -24,30 +24,30 @@ ghostty_palette_color_0="#282a36"
 ghostty_palette_color_1="#ff5555"
 ghostty_palette_color_2="#50fa7b"
 ghostty_palette_color_3="#f1fa8c"
-ghostty_palette_color_4="#80bfff"
+ghostty_palette_color_4="#bd93f9"
 ghostty_palette_color_5="#ff79c6"
 ghostty_palette_color_6="#8be9fd"
 ghostty_palette_color_7="#f8f8f2"
 ghostty_palette_color_8="#6272a4"
-ghostty_palette_color_9="#f28c8c"
-ghostty_palette_color_10="#a3f5b8"
-ghostty_palette_color_11="#eef5a3"
-ghostty_palette_color_12="#a3ccf5"
-ghostty_palette_color_13="#f5a3d2"
-ghostty_palette_color_14="#baedf7"
+ghostty_palette_color_9="#ff6e6e"
+ghostty_palette_color_10="#69ff94"
+ghostty_palette_color_11="#ffffa5"
+ghostty_palette_color_12="#d6acff"
+ghostty_palette_color_13="#ff92df"
+ghostty_palette_color_14="#a4ffff"
 ghostty_palette_color_15="#ffffff"
 ghostty_palette_color_16="#ffb86c"
-ghostty_palette_color_17="#bd93f9"
-ghostty_palette_color_18="#363447"
+ghostty_palette_color_17="#993333"
+ghostty_palette_color_18="#21222c"
 ghostty_palette_color_19="#44475a"
 ghostty_palette_color_20="#9ea8c7"
-ghostty_palette_color_21="#f0f1f4"
+ghostty_palette_color_21="#f8f8f2"
 
 _theme_file() {
 cat <<EOF
 # vim: ft=ghostty
 # Dracula theme for Ghostty
-# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme Author: clach04 (https://github.com/clach04)
 # Scheme System: base24
 # Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
 

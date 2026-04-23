@@ -1,0 +1,72 @@
+diff '--color=auto' -u -N st-0.9.3/config.def.h st-0.9.3-mod/config.def.h
+--- st-0.9.3/config.def.h	2025-08-09 15:00:58.350298234 +0200
++++ st-0.9.3-mod/config.def.h	2025-09-01 00:13:44.845756640 +0200
+@@ -94,34 +94,36 @@
+ unsigned int tabspaces = 8;
+
+ /* Terminal colors (16 first used in escape sequence) */
++/*
++ * Scheme name: {{scheme.name}}
++ * Scheme author: {{scheme.author}}
++ * Template author: Tinted Theming (https://github.com/tinted-theming)
++ */
+ static const char *colorname[] = {
+ 	/* 8 normal colors */
+-	"black",
+-	"red3",
+-	"green3",
+-	"yellow3",
+-	"blue2",
+-	"magenta3",
+-	"cyan3",
+-	"gray90",
++	[0] = "#{{palette.black.normal.hex}}",   /* black  */
++	[1] = "#{{palette.red.normal.hex}}",     /* red    */
++	[2] = "#{{palette.green.normal.hex}}",   /* green  */
++	[3] = "#{{palette.yellow.normal.hex}}",  /* yellow */
++	[4] = "#{{palette.blue.normal.hex}}",    /* blue   */
++	[5] = "#{{palette.magenta.normal.hex}}", /* magenta*/
++	[6] = "#{{palette.cyan.normal.hex}}",    /* cyan   */
++	[7] = "#{{palette.white.normal.hex}}",   /* white  */
+
+ 	/* 8 bright colors */
+-	"gray50",
+-	"red",
+-	"green",
+-	"yellow",
+-	"#5c5cff",
+-	"magenta",
+-	"cyan",
+-	"white",
++	[8]  = "#{{palette.black.bright.hex}}",   /* black  */
++	[9]  = "#{{palette.red.bright.hex}}",     /* red    */
++	[10] = "#{{palette.green.bright.hex}}",   /* green  */
++	[11] = "#{{palette.yellow.bright.hex}}",  /* yellow */
++	[12] = "#{{palette.blue.bright.hex}}",    /* blue   */
++	[13] = "#{{palette.magenta.bright.hex}}", /* magenta*/
++	[14] = "#{{palette.cyan.bright.hex}}",    /* cyan   */
++	[15] = "#{{palette.white.bright.hex}}",   /* white  */
+
+ 	[255] = 0,
+
+-	/* more colors can be added after 255 to use with DefaultXX */
+-	"#cccccc",
+-	"#555555",
+-	"gray90", /* default foreground colour */
+-	"black", /* default background colour */
++	[256] = "#{{ui.global.foreground.normal.hex}}",  /* foreground */
++	[257] = "#{{ui.global.background.normal.hex}}",  /* background */
+ };
+
+
+@@ -129,8 +131,8 @@
+  * Default colors (colorname index)
+  * foreground, background, cursor, reverse cursor
+  */
+-unsigned int defaultfg = 258;
+-unsigned int defaultbg = 259;
++unsigned int defaultfg = 256;
++unsigned int defaultbg = 257;
+ unsigned int defaultcs = 256;
+ static unsigned int defaultrcs = 257;
+

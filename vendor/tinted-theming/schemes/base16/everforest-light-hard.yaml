@@ -1,0 +1,21 @@
+system: "base16"
+name: "Everforest Light (Hard)"
+author: "Márcio Sobel (https://github.com/marciosobel)"
+variant: "light"
+palette:
+  base00: "#fffbef" # bg0,       palette1 light
+  base01: "#f8f5e4" # bg1,       palette1 light
+  base02: "#edeada" # bg3,       palette1 light
+  base03: "#939f91" # grey1,     palette2 light
+  base04: "#829181" # grey2,     palette2 light
+  base05: "#5c6a72" # fg,        palette2 light
+  base06: "#414b50" # bg3,       palette1 dark
+  base07: "#272e33" # bg0,       palette1 dark
+  base08: "#f85552" # red,       palette2 light
+  base09: "#f57d26" # orange,    palette2 light
+  base0A: "#dfa000" # yellow,    palette2 light
+  base0B: "#8da101" # green,     palette2 light
+  base0C: "#35a77c" # aqua,      palette2 light
+  base0D: "#3a94c5" # blue,      palette2 light
+  base0E: "#df69ba" # purple,    palette2 light
+  base0F: "#829181" # grey2,     palette2 light

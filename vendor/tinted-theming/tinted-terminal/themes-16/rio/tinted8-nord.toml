@@ -1,0 +1,41 @@
+# Rio Terminal tinted8 color theme (https://github.com/tinted-theming)
+# Color scheme: Nord by 
+
+[colors]
+selection-background = '#465165'
+selection-foreground = '#e5e9f0'
+
+cursor         = '#e5e9f0'
+tabs           = '#465165'
+tabs-active    = '#475165'
+
+background     = '#2e3440'
+foreground     = '#e5e9f0'
+black          = '#2e3440'
+red            = '#bf616a'
+yellow         = '#ebcb8b'
+green          = '#a3be8c'
+cyan           = '#88c0d0'
+blue           = '#81a1c1'
+magenta        = '#b48ead'
+white          = '#e5e9f0'
+
+dim-foreground   = '#d8dee9'
+dim-black        = '#14171d'
+dim-red          = '#a53e48'
+dim-yellow       = '#e9b650'
+dim-green        = '#84aa63'
+dim-cyan         = '#59abc2'
+dim-blue         = '#5e81ac'
+dim-magenta      = '#9d6793'
+dim-white        = '#d8dee9'
+
+light-foreground = '#eceff4'
+light-black      = '#465165'
+light-red        = '#d18d93'
+light-yellow     = '#f4e2bf'
+light-green      = '#c2d4b3'
+light-cyan       = '#b4d7e1'
+light-blue       = '#aac0d5'
+light-magenta    = '#ccb3c8'
+light-white      = '#eceff4'

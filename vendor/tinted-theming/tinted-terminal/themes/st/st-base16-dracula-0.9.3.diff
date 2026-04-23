@@ -7,7 +7,7 @@ diff '--color=auto' -u -N st-0.9.3/config.def.h st-0.9.3-mod/config.def.h
  /* Terminal colors (16 first used in escape sequence) */
 +/*
 + * Scheme name: Dracula
-+ * Scheme author: Jamy Golden (http://github.com/JamyGolden), based on Dracula Theme (http://github.com/dracula)
++ * Scheme author: clach04 (https://github.com/clach04)
 + * Template author: Tinted Theming (https://github.com/tinted-theming)
 + */
  static const char *colorname[] = {
@@ -24,7 +24,7 @@ diff '--color=auto' -u -N st-0.9.3/config.def.h st-0.9.3-mod/config.def.h
 +	[1] = "#ff5555",   /* red    */
 +	[2] = "#50fa7b",   /* green  */
 +	[3] = "#f1fa8c",   /* yellow */
-+	[4] = "#80bfff",   /* blue   */
++	[4] = "#bd93f9",   /* blue   */
 +	[5] = "#ff79c6",   /* magenta*/
 +	[6] = "#8be9fd",   /* cyan   */
 +	[7] = "#f8f8f2",   /* white  */
@@ -42,7 +42,7 @@ diff '--color=auto' -u -N st-0.9.3/config.def.h st-0.9.3-mod/config.def.h
 +	[9] = "#ff5555",   /* red    */
 +	[10] = "#50fa7b",  /* green  */
 +	[11] = "#f1fa8c",  /* yellow */
-+	[12] = "#80bfff",  /* blue   */
++	[12] = "#bd93f9",  /* blue   */
 +	[13] = "#ff79c6",  /* magenta*/
 +	[14] = "#8be9fd",  /* cyan   */
 +	[15] = "#ffffff",  /* white  */

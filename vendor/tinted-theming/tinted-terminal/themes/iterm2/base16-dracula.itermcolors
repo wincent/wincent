@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
     base16 Dracula
-    Scheme author: Jamy Golden (http://github.com/JamyGolden), based on Dracula Theme (http://github.com/dracula)
+    Scheme author: clach04 (https://github.com/clach04)
     Template author: Tinted Theming (https://github.com/tinted-theming)
     semanticClass: theme.base16.dracula
 -->
@@ -57,11 +57,11 @@
 		<key>Color Space</key>
 		<string>sRGB</string>
 		<key>Blue Component</key>
-		<real>1.00000000</real>
+		<real>0.97647059</real>
 		<key>Green Component</key>
-		<real>0.74901961</real>
+		<real>0.57647059</real>
 		<key>Red Component</key>
-		<real>0.50196078</real>
+		<real>0.74117647</real>
 	</dict>
 	<key>Ansi 5 Color</key>
 	<dict>
@@ -145,11 +145,11 @@
 		<key>Color Space</key>
 		<string>sRGB</string>
 		<key>Blue Component</key>
-		<real>1.00000000</real>
+		<real>0.97647059</real>
 		<key>Green Component</key>
-		<real>0.74901961</real>
+		<real>0.57647059</real>
 		<key>Red Component</key>
-		<real>0.50196078</real>
+		<real>0.74117647</real>
 	</dict>
 	<key>Ansi 13 Color</key>
 	<dict>

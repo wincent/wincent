@@ -1,0 +1,32 @@
+{{=<% %>=}}
+(*
+    <%scheme.system%> <%scheme.name%>
+    Scheme author: <%scheme.author%>
+    Template author: Tinted Theming (https://github.com/tinted-theming)
+*)
+tell application "iTerm2"
+    tell current session of current window
+        set background color to {<%ui.global.background.normal.rgb16.r%>, <%ui.global.background.normal.rgb16.b%>, <%ui.global.background.normal.rgb16.b%>}
+        set foreground color to {<%ui.global.foreground.normal.rgb16.r%>, <%ui.global.foreground.normal.rgb16.b%>, <%ui.global.foreground.normal.rgb16.b%>}
+
+        -- Set ANSI Colors
+        set ANSI black color to {<%palette.black.normal.rgb16.r%>, <%palette.black.normal.rgb16.b%>, <%palette.black.normal.rgb16.b%>}
+        set ANSI red color to {<%palette.red.normal.rgb16.r%>, <%palette.red.normal.rgb16.b%>, <%palette.red.normal.rgb16.b%>}
+        set ANSI green color to {<%palette.green.normal.rgb16.r%>, <%palette.green.normal.rgb16.b%>, <%palette.green.normal.rgb16.b%>}
+        set ANSI yellow color to {<%palette.yellow.normal.rgb16.r%>, <%palette.yellow.normal.rgb16.b%>, <%palette.yellow.normal.rgb16.b%>}
+        set ANSI blue color to {<%palette.blue.normal.rgb16.r%>, <%palette.blue.normal.rgb16.b%>, <%palette.blue.normal.rgb16.b%>}
+        set ANSI magenta color to {<%palette.magenta.normal.rgb16.r%>, <%palette.magenta.normal.rgb16.b%>, <%palette.magenta.normal.rgb16.b%>}
+        set ANSI cyan color to {<%palette.cyan.normal.rgb16.r%>, <%palette.cyan.normal.rgb16.b%>, <%palette.cyan.normal.rgb16.b%>}
+        set ANSI white color to {<%palette.white.normal.rgb16.r%>, <%palette.white.normal.rgb16.b%>, <%palette.white.normal.rgb16.b%>}
+
+        -- Set Bright ANSI Colors
+        set ANSI bright black color to {<%palette.black.bright.rgb16.r%>, <%palette.black.bright.rgb16.b%>, <%palette.black.bright.rgb16.b%>}
+        set ANSI bright red color to {<%palette.red.bright.rgb16.r%>, <%palette.red.bright.rgb16.b%>, <%palette.red.bright.rgb16.b%>}
+        set ANSI bright green color to {<%palette.green.bright.rgb16.r%>, <%palette.green.bright.rgb16.b%>, <%palette.green.bright.rgb16.b%>}
+        set ANSI bright yellow color to {<%palette.yellow.bright.rgb16.r%>, <%palette.yellow.bright.rgb16.b%>, <%palette.yellow.bright.rgb16.b%>}
+        set ANSI bright blue color to {<%palette.blue.bright.rgb16.r%>, <%palette.blue.bright.rgb16.b%>, <%palette.blue.bright.rgb16.b%>}
+        set ANSI bright magenta color to {<%palette.magenta.bright.rgb16.r%>, <%palette.magenta.bright.rgb16.b%>, <%palette.magenta.bright.rgb16.b%>}
+        set ANSI bright cyan color to {<%palette.cyan.bright.rgb16.r%>, <%palette.cyan.bright.rgb16.b%>, <%palette.cyan.bright.rgb16.b%>}
+        set ANSI bright white color to {<%palette.white.bright.rgb16.r%>, <%palette.white.bright.rgb16.b%>, <%palette.white.bright.rgb16.b%>}
+    end tell
+end tell

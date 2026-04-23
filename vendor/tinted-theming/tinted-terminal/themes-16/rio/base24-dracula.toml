@@ -1,12 +1,12 @@
 # Rio Terminal base24 color theme (https://github.com/tinted-theming)
-# Color scheme: Dracula by FredHappyface (https://github.com/fredHappyface)
+# Color scheme: Dracula by clach04 (https://github.com/clach04)
 
 [colors]
 selection-background = '#f8f8f2' # base05
 selection-foreground = '#44475a' # base02
 
 cursor         = '#f8f8f2' # base05
-tabs           = '#363447' # base01
+tabs           = '#21222c' # base01
 tabs-active    = '#44475a' # base02
 
 background     = '#282a36' # base00
@@ -16,26 +16,26 @@ red            = '#ff5555' # base08
 yellow         = '#f1fa8c' # base0A
 green          = '#50fa7b' # base0B
 cyan           = '#8be9fd' # base0C
-blue           = '#80bfff' # base0D
+blue           = '#bd93f9' # base0D
 magenta        = '#ff79c6' # base0E
 white          = '#f8f8f2' # base05
 
 dim-foreground   = '#f8f8f2' # base05
-dim-black        = '#363447' # base01
+dim-black        = '#21222c' # base01
 dim-red          = '#ff5555' # base08
 dim-yellow       = '#f1fa8c' # base0A
 dim-green        = '#50fa7b' # base0B
 dim-cyan         = '#8be9fd' # base0C
-dim-blue         = '#80bfff' # base0D
+dim-blue         = '#bd93f9' # base0D
 dim-magenta      = '#ff79c6' # base0E
 dim-white        = '#9ea8c7' # base04
 
 light-foreground = '#f8f8f2' # base05
 light-black      = '#6272a4' # base03
-light-red        = '#f28c8c' # base12
-light-yellow     = '#eef5a3' # base13
-light-green      = '#a3f5b8' # base14
-light-cyan       = '#baedf7' # base15
-light-blue       = '#a3ccf5' # base16
-light-magenta    = '#f5a3d2' # base17
+light-red        = '#ff6e6e' # base12
+light-yellow     = '#ffffa5' # base13
+light-green      = '#69ff94' # base14
+light-cyan       = '#a4ffff' # base15
+light-blue       = '#d6acff' # base16
+light-magenta    = '#ff92df' # base17
 light-white      = '#ffffff' # base07

@@ -1,6 +1,17 @@
 local M = {}
 
-local function find_claude_pane()
+local default_agents = { 'pi', 'claude' }
+local agents = default_agents
+
+function M.set_agents(list)
+  if type(list) == 'table' and #list > 0 then
+    agents = list
+  else
+    agents = default_agents
+  end
+end
+
+local function find_agent_pane()
   local current_pane = vim.env.TMUX_PANE
   if not current_pane then
     return nil
@@ -14,19 +25,21 @@ local function find_claude_pane()
     end
   end
 
-  local claude_pids = vim.fn.system('pgrep claude')
-  for pid_str in claude_pids:gmatch('%d+') do
-    local pid = pid_str
-    for _ = 1, 10 do
-      local ppid = vim.trim(vim.fn.system('ps -p ' .. pid .. ' -o ppid='))
-      if ppid == '' or ppid == '1' then
-        break
+  for _, agent in ipairs(agents) do
+    local agent_pids = vim.fn.system({ 'pgrep', '-x', agent })
+    for pid_str in agent_pids:gmatch('%d+') do
+      local pid = pid_str
+      for _ = 1, 10 do
+        local ppid = vim.trim(vim.fn.system({ 'ps', '-p', pid, '-o', 'ppid=' }))
+        if ppid == '' or ppid == '1' then
+          break
+        end
+        local ppid_num = tonumber(ppid)
+        if ppid_num and pane_pids[ppid_num] then
+          return pane_pids[ppid_num]
+        end
+        pid = ppid
       end
-      local ppid_num = tonumber(ppid)
-      if ppid_num and pane_pids[ppid_num] then
-        return pane_pids[ppid_num]
-      end
-      pid = ppid
     end
   end
 
@@ -34,7 +47,7 @@ local function find_claude_pane()
 end
 
 function M.get_pane()
-  return find_claude_pane()
+  return find_agent_pane()
 end
 
 function M.prompt(opts)
@@ -230,11 +243,25 @@ function M.send(context, text)
 
   local pane = M.get_pane()
   if not pane then
-    vim.api.nvim_err_writeln('shannon: no Claude session found in tmux (prompt saved to ' .. tmpfile .. ')')
+    vim.api.nvim_err_writeln(
+      'shannon: no agent session (' .. table.concat(agents, ', ')
+        .. ') found in tmux (prompt saved to ' .. tmpfile .. ')'
+    )
     return
   end
-  vim.fn.system({ 'tmux', 'load-buffer', tmpfile })
-  vim.fn.system({ 'tmux', 'paste-buffer', '-t', pane })
+  -- Use a unique, named buffer so concurrent Shannon invocations can't race
+  -- on tmux's anonymous-buffer stack (paste-buffer without -b always targets
+  -- the most-recently-created buffer, not the one we just loaded).
+  local buffer_name = string.format('shannon-%d-%d', vim.fn.getpid(), vim.loop.hrtime())
+  vim.fn.system({ 'tmux', 'load-buffer', '-b', buffer_name, tmpfile })
+  -- Use bracketed paste (-p) so agent TUIs (pi, claude) treat embedded
+  -- newlines as literal newlines (like Shift+Enter) instead of submitting
+  -- on the first LF. -r disables tmux's default LF->CR replacement so real
+  -- newlines reach the application. -d deletes our named buffer afterwards
+  -- so we don't leak onto the stack and eventually evict the user's own
+  -- buffers when buffer-limit (default 50) is hit. The trailing send-keys
+  -- Enter is sent outside the bracketed paste and triggers the actual submit.
+  vim.fn.system({ 'tmux', 'paste-buffer', '-d', '-p', '-r', '-b', buffer_name, '-t', pane })
   vim.fn.system({ 'tmux', 'send-keys', '-t', pane, 'Enter' })
   os.remove(tmpfile)
 end

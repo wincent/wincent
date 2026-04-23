@@ -1,0 +1,27 @@
+# Everforest Light (Soft) theme for Mintty
+# Scheme Author: Márcio Sobel (https://github.com/marciosobel)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #f3ead3
+Red         = #f85552
+Green       = #8da101
+Yellow      = #dfa000
+Blue        = #3a94c5
+Magenta     = #df69ba
+Cyan        = #35a77c
+White       = #5c6a72
+BoldBlack   = #939f91
+BoldRed     = #f85552
+BoldGreen   = #8da101
+BoldYellow  = #dfa000
+BoldBlue    = #3a94c5
+BoldMagenta = #df69ba
+BoldCyan    = #35a77c
+BoldWhite   = #333c43
+
+# Background & foreground colors
+BackgroundColour = #f3ead3
+ForegroundColour = #5c6a72
+CursorColour     = #5c6a72

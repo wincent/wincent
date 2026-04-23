@@ -1,0 +1,36 @@
+# Nord theme for Mintty
+# Scheme Author: Tinted Theming (https://github.com/tinted-theming)
+# Scheme System: tinted8
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# Default colors
+[colors.primary]
+background = '0x2e3440'
+foreground = '0xe5e9f0'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x2e3440'
+cursor = '0xe5e9f0'
+
+# Normal colors
+[colors.normal]
+black = '0x2e3440'
+red = '0xbf616a'
+green = '0xa3be8c'
+yellow = '0xebcb8b'
+blue = '0x81a1c1'
+magenta = '0xb48ead'
+cyan = '0x88c0d0'
+white = '0xe5e9f0'
+
+# Bright colors
+[colors.bright]
+black = '0x465165'
+red = '0xd18d93'
+green = '0xc2d4b3'
+yellow = '0xf4e2bf'
+blue = '0xaac0d5'
+magenta = '0xccb3c8'
+cyan = '0xb4d7e1'
+white = '0xeceff4'

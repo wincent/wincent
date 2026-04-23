@@ -1,5 +1,8 @@
 name: Update with the latest tinted-theming colorschemes
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
   schedule:
     - cron: "0 0 * * 0" # https://crontab.guru/every-week

@@ -1,18 +1,20 @@
-*shannon.txt*  Send prompts from Neovim to Claude Code via tmux
+*shannon.txt*  Send prompts from Neovim to a terminal coding agent via tmux
 
 INTRODUCTION                                            *shannon*
 
-Shannon is a Neovim plugin for sending prompts to a running Claude Code
-session in an adjacent tmux pane. It opens a floating window where you
-type a prompt; when you save the prompt (with |:w|) or save and close the
-window (with |:x|) it delivers it to Claude along with file and line context.
-To close the window without sending to Claude, use |:fclo| or |:q!|.
+Shannon is a Neovim plugin for sending prompts to a running terminal
+coding agent (pi or Claude Code) in an adjacent tmux pane. It opens a
+floating window where you type a prompt; when you save the prompt (with
+|:w|) or save and close the window (with |:x|) it delivers it to the
+agent along with file and line context. To close the window without
+sending, use |:fclo| or |:q!|.
 
 REQUIREMENTS                                            *shannon-requirements*
 
 - Neovim 0.9+
-- tmux (Shannon locates Claude Code by walking the process tree of
+- tmux (Shannon locates the agent by walking the process tree of
   sibling panes)
+- A supported agent (pi or Claude Code) running in a sibling tmux pane
 
 INSTALLATION                                            *shannon-installation*
 
@@ -53,6 +55,30 @@ Call `setup()` to create default keymaps: >lua
   `prefix`    (string, default `"<Leader>s"`)
               Keymap prefix used for all default mappings.
 
+  `agents`    (string[], default `{ "pi", "claude" }`)
+              Ordered list of process names to search for when
+              locating the target tmux pane. Shannon runs
+              `pgrep -x <name>` for each entry and walks up the
+              process tree until it reaches a sibling pane's shell;
+              the first match wins, so order the list by preference.
+              Examples: >lua
+
+                  -- pi only
+                  require('wincent.shannon').setup({
+                    agents = { 'pi' },
+                  })
+
+                  -- prefer claude over pi
+                  require('wincent.shannon').setup({
+                    agents = { 'claude', 'pi' },
+                  })
+
+                  -- add a custom agent
+                  require('wincent.shannon').setup({
+                    agents = { 'pi', 'claude', 'aider' },
+                  })
+<
+
 Default keymaps (with the default `<Leader>s` prefix):
 
   `{prefix}s` |:Shannon|           (normal and visual)
@@ -72,7 +98,7 @@ USAGE                                                   *shannon-usage*
 
                                                         *:Shannon*
 :[range]Shannon      Open a floating prompt window. Write the buffer
-                     (|:w| or |:x|) to send the prompt to the Claude Code pane.
+                     (|:w| or |:x|) to send the prompt to the agent pane.
 
 In normal mode, the current file and cursor line are sent as context.
 In visual mode, the selected range and text are included.
@@ -82,8 +108,8 @@ parent window so you can review surrounding code without leaving the
 prompt.
 
 If the prompt starts with `/btw`, the prompt text is placed before the
-context line (useful for getting Claude to immediately respond to the
-new prompt even if it is already processing another).
+context line (useful for getting the agent to immediately respond to
+the new prompt even if it is already processing another).
 
 NAVIGATION                                          *shannon-navigation*
 
@@ -104,37 +130,43 @@ NAVIGATION                                          *shannon-navigation*
 BIDIRECTIONAL COMMUNICATION                     *shannon-bidirectional*
 
 By default, Shannon provides one-way communication: you send prompts
-from Neovim to Claude Code. With the companion `shannon` Claude plugin
-installed from the `wincent-claude-plugins` marketplace, the reverse
-direction is also available.
+from Neovim to the agent. With a companion component installed, the
+reverse direction is also available:
 
-The `shannon` Claude plugin teaches Claude Code how to interact with your
-Neovim session via RPC. This enables workflows such as:
+- For Claude Code: install the `shannon` plugin from the
+  `wincent-claude-plugins` marketplace.
+- For pi: install the `neovim` skill from the same marketplace repo
+  (`pi/skills/neovim/`).
 
-- Annotated code review: Claude adds virtual text annotations below
-  lines with issues, using diagnostic highlight groups to convey
-  severity (info, warning, error, hint).
-- Guided walkthroughs: Claude opens files and jumps to relevant lines
-  as it explains code.
-- Error markers: Claude annotates lines with diagnostic-style warnings
-  after analyzing your code.
+Either component teaches the agent how to interact with your Neovim
+session via RPC. This enables workflows such as:
 
-When Claude adds annotations, you can navigate between them with
-|:ShannonNextMark| and |:ShannonPreviousMark|. Claude will clear marks
-via RPC when the review session is finished, or you can clear them
-manually with |:ShannonClearMarks|.
+- Annotated code review: the agent adds virtual text annotations
+  below lines with issues, using diagnostic highlight groups to
+  convey severity (info, warning, error, hint).
+- Guided walkthroughs: the agent opens files and jumps to relevant
+  lines as it explains code.
+- Error markers: the agent annotates lines with diagnostic-style
+  warnings after analyzing your code.
 
-The `shannon` Claude plugin auto-discovers your Neovim instance by
-walking the tmux process tree (the same mechanism Shannon itself uses
-to find Claude Code), so no manual configuration is needed beyond
-installing the plugin.
+When the agent adds annotations, you can navigate between them with
+|:ShannonNextMark| and |:ShannonPreviousMark|. The agent will clear
+marks via RPC when the review session is finished, or you can clear
+them manually with |:ShannonClearMarks|.
 
-INSTALLING THE CLAUDE PLUGIN           *shannon-claude-plugin-install*
+The companion component auto-discovers your Neovim instance by walking
+the tmux process tree (the same mechanism Shannon itself uses to find
+the agent), so no manual configuration is needed beyond installing it.
 
-Register the marketplace and install the `shannon` Claude plugin: >sh
+INSTALLING THE COMPANION COMPONENT     *shannon-companion-install*
+
+For Claude Code, register the marketplace and install the `shannon`
+plugin: >sh
 
     claude plugin marketplace add wincent/wincent-claude-plugins
     claude plugin install shannon
 <
+For pi, install the `neovim` skill from the same marketplace repo
+(`pi/skills/neovim/`).
 
  vim:tw=78:ft=help:norl:

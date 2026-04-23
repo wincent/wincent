@@ -1,0 +1,23 @@
+// Add custom color schemes to the "schemes" array
+{
+    "name": "Nord",
+    "foreground": "#e5e9f0",
+    "background": "#2e3440",
+    "black": "#2e3440",
+    "blue": "#81a1c1",
+    "brightBlack": "#465165",
+    "brightBlue": "#aac0d5",
+    "brightCyan": "#b4d7e1",
+    "brightGreen": "#c2d4b3",
+    "brightPurple": "#ccb3c8",
+    "brightRed": "#d18d93",
+    "brightWhite": "#eceff4",
+    "brightYellow": "#f4e2bf",
+    "cyan": "#88c0d0",
+    "green": "#a3be8c",
+    "purple": "#b48ead",
+    "red": "#bf616a",
+    "white": "#e5e9f0",
+    "yellow": "#ebcb8b"
+},
+

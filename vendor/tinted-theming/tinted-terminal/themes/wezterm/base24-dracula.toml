@@ -1,5 +1,5 @@
 # base24 Dracula
-# Scheme author: FredHappyface (https://github.com/fredHappyface)
+# Scheme author: clach04 (https://github.com/clach04)
 # Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
 
 [colors]
@@ -18,26 +18,26 @@ ansi = [
   "#ff5555",
   "#50fa7b",
   "#f1fa8c",
-  "#80bfff",
+  "#bd93f9",
   "#ff79c6",
   "#8be9fd",
   "#f8f8f2"
 ]
 brights = [
   "#6272a4",
-  "#f28c8c",
-  "#a3f5b8",
-  "#eef5a3",
-  "#a3ccf5",
-  "#f5a3d2",
-  "#baedf7",
+  "#ff6e6e",
+  "#69ff94",
+  "#ffffa5",
+  "#d6acff",
+  "#ff92df",
+  "#a4ffff",
   "#ffffff"
 ]
 
 [colors.indexed]
 16 = "#ffb86c"
-17 = "#bd93f9"
-18 = "#363447"
+17 = "#993333"
+18 = "#21222c"
 19 = "#44475a"
 20 = "#9ea8c7"
-21 = "#f0f1f4"
+21 = "#f8f8f2"

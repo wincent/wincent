@@ -1,0 +1,50 @@
+scheme:
+  system: "tinted8"
+  supports:
+    styling-spec: "0.2.0"
+  name: "Nord"
+  author: "Tinted Theming (https://github.com/tinted-theming)"
+  theme-author: "Arctic Ice Studio (https://www.nordtheme.com)"
+variant: "dark"
+palette:
+  black: "#2e3440"
+  red: "#bf616a"
+  yellow: "#ebcb8b"
+  green: "#a3be8c"
+  cyan: "#88c0d0"
+  blue: "#81a1c1"
+  magenta: "#b48ead"
+  white: "#e5e9f0"
+  orange: "#d08770"
+  gray: "#616E88"
+  white-dim: "#d8dee9"
+  white-bright: "#eceff4"
+  blue-dim: "#5e81ac"
+syntax:
+  comment: "#616E88"
+  constant: "#88c0d0"
+  constant.numeric: "#b48ead"
+  entity.name: "#81a1c1"
+  entity.name.function: "#88c0d0"
+  entity.name.type: "#e5e9f0"
+  keyword: "#81a1c1"
+  storage: "#81a1c1"
+  variable.language: "#81a1c1"
+  string: "#a3be8c"
+  punctuation.definition.string: "#e5e9f0"
+  punctuation.definition.comment: "#616E88"
+  punctuation.section: "#88c0d0"
+  meta.annotation: "#e5e9f0"
+  meta.object: "#e5e9f0"
+ui:
+  indent-guide:
+    background: "#434c5e"
+    active-background: "#616E88"
+  highlight:
+    line:
+      background: "#434c5e"
+  border.normal: "#3b4252"
+  gutter:
+    foreground: "#434c5e"
+  status.info: "#ebcb8b"
+  accent.normal: "#88c0d0"

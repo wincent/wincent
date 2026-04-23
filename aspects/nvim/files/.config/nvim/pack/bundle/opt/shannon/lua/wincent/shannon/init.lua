@@ -5,6 +5,8 @@ function M.setup(opts)
   local keymaps = opts.keymaps == nil or opts.keymaps
   local prefix = opts.prefix or '<Leader>s'
 
+  require('wincent.shannon.private').set_agents(opts.agents)
+
   if keymaps then
     vim.keymap.set({ 'n', 'v' }, prefix .. 's', ':Shannon<CR>', { silent = true })
     vim.keymap.set('n', prefix .. 'n', ':ShannonNextMark<CR>', { silent = true })

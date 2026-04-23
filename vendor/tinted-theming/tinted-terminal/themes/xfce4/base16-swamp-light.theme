@@ -1,0 +1,10 @@
+# Scheme name: Swamp Light
+# Scheme author: Masroof Maindak (https://github.com/masroof-maindak)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-swamp-light
+ColorForeground=#64513e
+ColorBackground=#f1e3d1
+ColorCursor=#64513e
+ColorBoldIsBright=FALSE
+ColorPalette=#f1e3d1;#d09700;#908d6a;#993333;#bf7979;#9e5581;#d09700;#64513e;#b5a492;#d09700;#908d6a;#993333;#bf7979;#9e5581;#d09700;#8c7b68

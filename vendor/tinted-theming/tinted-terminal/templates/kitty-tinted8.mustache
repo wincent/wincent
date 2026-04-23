@@ -1,0 +1,55 @@
+# vim:ft=kitty
+
+## name:     {{scheme.system}} {{scheme.name}}
+## author:   {{scheme.author}}
+## upstream: https://github.com/tinted-theming/tinted-terminal
+## blurb:    {{scheme.description}}
+
+# The basic colors
+background #{{ui.global.background.normal.hex}}
+foreground #{{ui.global.foreground.normal.hex}}
+selection_background #{{ui.selection.foreground.hex}}
+selection_foreground #{{ui.selection.foreground.hex}}
+
+# Cursor colors
+cursor #{{ui.global.foreground.normal.hex}}
+cursor_text_color #{{ui.global.background.normal.hex}}
+
+# URL underline color when hovering with mouse
+url_color #{{palette.gray.normal.hex}}
+
+# Kitty window border colors
+active_border_color #{{palette.gray.dim.hex}}
+inactive_border_color #{{ui.global.background.bright.hex}}
+
+# OS Window titlebar colors
+wayland_titlebar_color #{{ui.global.background.normal.hex}}
+macos_titlebar_color #{{ui.global.background.normal.hex}}
+
+# Tab bar colors
+active_tab_background #{{ui.global.background.normal.hex}}
+active_tab_foreground #{{ui.global.foreground.normal.hex}}
+inactive_tab_background #{{ui.global.background.bright.hex}}
+inactive_tab_foreground #{{palette.gray.normal.hex}}
+tab_bar_background #{{ui.global.background.bright.hex}}
+
+# The 16 terminal colors
+# normal
+color0 #{{palette.black.normal.hex}}
+color1 #{{palette.red.normal.hex}}
+color2 #{{palette.green.normal.hex}}
+color3 #{{palette.yellow.normal.hex}}
+color4 #{{palette.blue.normal.hex}}
+color5 #{{palette.magenta.normal.hex}}
+color6 #{{palette.cyan.normal.hex}}
+color7 #{{palette.white.normal.hex}}
+
+# bright
+color8 #{{palette.black.bright.hex}}
+color9 #{{palette.red.bright.hex}}
+color10 #{{palette.green.bright.hex}}
+color11 #{{palette.yellow.bright.hex}}
+color12 #{{palette.blue.bright.hex}}
+color13 #{{palette.magenta.bright.hex}}
+color14 #{{palette.cyan.bright.hex}}
+color15 #{{palette.white.bright.hex}}

@@ -99,4 +99,3 @@ local function entry(self, job)
 end
 
 return { setup = setup, fetch = fetch, entry = entry }
-

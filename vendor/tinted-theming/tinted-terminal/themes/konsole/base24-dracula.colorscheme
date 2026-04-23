@@ -23,7 +23,7 @@ Color=255,85,85
 Color=255,85,85
 
 [Color1Intense]
-Color=242,140,140
+Color=255,110,110
 
 [Color2]
 Color=80,250,123
@@ -32,7 +32,7 @@ Color=80,250,123
 Color=80,250,123
 
 [Color2Intense]
-Color=163,245,184
+Color=105,255,148
 
 [Color3]
 Color=241,250,140
@@ -41,16 +41,16 @@ Color=241,250,140
 Color=241,250,140
 
 [Color3Intense]
-Color=238,245,163
+Color=255,255,165
 
 [Color4]
-Color=128,191,255
+Color=189,147,249
 
 [Color4Faint]
-Color=128,191,255
+Color=189,147,249
 
 [Color4Intense]
-Color=163,204,245
+Color=214,172,255
 
 [Color5]
 Color=255,121,198
@@ -59,7 +59,7 @@ Color=255,121,198
 Color=255,121,198
 
 [Color5Intense]
-Color=245,163,210
+Color=255,146,223
 
 [Color6]
 Color=139,233,253
@@ -68,7 +68,7 @@ Color=139,233,253
 Color=139,233,253
 
 [Color6Intense]
-Color=186,237,247
+Color=164,255,255
 
 [Color7]
 Color=248,248,242
@@ -86,7 +86,7 @@ Color=248,248,242
 Color=158,168,199
 
 [ForegroundIntense]
-Color=240,241,244
+Color=248,248,242
 
 [General]
 Description=Dracula

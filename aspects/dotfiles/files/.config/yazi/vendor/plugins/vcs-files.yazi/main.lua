@@ -15,7 +15,7 @@ local function entry()
 
 	local id = ya.id("ft")
 	local cwd = root:into_search("Git changes")
-	ya.emit("cd", { Url(cwd) })
+	ya.emit("cd", { Url(cwd), source = "search" })
 	ya.emit("update_files", { op = fs.op("part", { id = id, url = Url(cwd), files = {} }) })
 
 	local files = {}

@@ -3,8 +3,8 @@
 # Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
 [Scheme]
 Name=base16-embers-light
-ColorForeground=#323b43
-ColorBackground=#d1d6db
-ColorCursor=#323b43
+ColorForeground=#433b32
+ColorBackground=#dbd6d1
+ColorCursor=#433b32
 ColorBoldIsBright=FALSE
-ColorPalette=#d1d6db;#576d82;#6d8257;#57826d;#82576d;#6d5782;#826d57;#323b43;#75808a;#576d82;#6d8257;#57826d;#82576d;#6d5782;#826d57;#0f1316
+ColorPalette=#dbd6d1;#826d57;#57826d;#6d8257;#6d5782;#82576d;#576d82;#433b32;#8a8075;#826d57;#57826d;#6d8257;#6d5782;#82576d;#576d82;#16130f

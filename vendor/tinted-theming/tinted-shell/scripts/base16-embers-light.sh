@@ -5,30 +5,30 @@
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE16_THEME=embers-light
 
-color00="d1/d6/db" # Base 00 - Black
-color01="57/6d/82" # Base 08 - Red
-color02="6d/82/57" # Base 0B - Green
-color03="57/82/6d" # Base 0A - Yellow
-color04="82/57/6d" # Base 0D - Blue
-color05="6d/57/82" # Base 0E - Magenta
-color06="82/6d/57" # Base 0C - Cyan
-color07="32/3b/43" # Base 05 - White
-color08="75/80/8a" # Base 03 - Bright Black
+color00="db/d6/d1" # Base 00 - Black
+color01="82/6d/57" # Base 08 - Red
+color02="57/82/6d" # Base 0B - Green
+color03="6d/82/57" # Base 0A - Yellow
+color04="6d/57/82" # Base 0D - Blue
+color05="82/57/6d" # Base 0E - Magenta
+color06="57/6d/82" # Base 0C - Cyan
+color07="43/3b/32" # Base 05 - White
+color08="8a/80/75" # Base 03 - Bright Black
 color09="$color01" # Base 08 - Bright Red
 color10="$color02" # Base 0B - Bright Green
 color11="$color03" # Base 0A - Bright Yellow
 color12="$color04" # Base 0D - Bright Blue
 color13="$color05" # Base 0E - Bright Magenta
 color14="$color06" # Base 0C - Bright Cyan
-color15="0f/13/16" # Base 07 - Bright White
-color16="57/82/82" # Base 09
-color17="57/57/82" # Base 0F
-color18="ae/b6/be" # Base 01
-color19="90/9a/a3" # Base 02
-color20="47/50/5a" # Base 04
-color21="20/26/2c" # Base 06
-color_foreground="32/3b/43" # Base 05
-color_background="d1/d6/db" # Base 00
+color15="16/13/0f" # Base 07 - Bright White
+color16="82/82/57" # Base 09
+color17="82/57/57" # Base 0F
+color18="be/b6/ae" # Base 01
+color19="a3/9a/90" # Base 02
+color20="5a/50/47" # Base 04
+color21="2c/26/20" # Base 06
+color_foreground="43/3b/32" # Base 05
+color_background="db/d6/d1" # Base 00
 
 if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
   put_template() { true; }
@@ -84,13 +84,13 @@ put_template 21 "$color21"
 # foreground / background / cursor color
 if [ -n "$ITERM_SESSION_ID" ]; then
   # iTerm2 proprietary escape codes
-  put_template_custom Pg 323b43 # foreground
-  put_template_custom Ph d1d6db # background
-  put_template_custom Pi 323b43 # bold color
-  put_template_custom Pj 909aa3 # selection color
-  put_template_custom Pk 323b43 # selected text color
-  put_template_custom Pl 323b43 # cursor
-  put_template_custom Pm d1d6db # cursor text
+  put_template_custom Pg 433b32 # foreground
+  put_template_custom Ph dbd6d1 # background
+  put_template_custom Pi 433b32 # bold color
+  put_template_custom Pj a39a90 # selection color
+  put_template_custom Pk 433b32 # selected text color
+  put_template_custom Pl 433b32 # cursor
+  put_template_custom Pm dbd6d1 # cursor text
 else
   put_template_var 10 "$color_foreground"
   if [ "$BASE16_SHELL_SET_BACKGROUND" != false ]; then
@@ -133,20 +133,20 @@ unset color_background
 
 # Optionally export variables
 if [ -n "$TINTED_SHELL_ENABLE_BASE16_VARS" ] || [ -n "$BASE16_SHELL_ENABLE_VARS" ]; then
-  export BASE16_COLOR_00_HEX="d1d6db"
-  export BASE16_COLOR_01_HEX="aeb6be"
-  export BASE16_COLOR_02_HEX="909aa3"
-  export BASE16_COLOR_03_HEX="75808a"
-  export BASE16_COLOR_04_HEX="47505a"
-  export BASE16_COLOR_05_HEX="323b43"
-  export BASE16_COLOR_06_HEX="20262c"
-  export BASE16_COLOR_07_HEX="0f1316"
-  export BASE16_COLOR_08_HEX="576d82"
-  export BASE16_COLOR_09_HEX="578282"
-  export BASE16_COLOR_0A_HEX="57826d"
-  export BASE16_COLOR_0B_HEX="6d8257"
-  export BASE16_COLOR_0C_HEX="826d57"
-  export BASE16_COLOR_0D_HEX="82576d"
-  export BASE16_COLOR_0E_HEX="6d5782"
-  export BASE16_COLOR_0F_HEX="575782"
+  export BASE16_COLOR_00_HEX="dbd6d1"
+  export BASE16_COLOR_01_HEX="beb6ae"
+  export BASE16_COLOR_02_HEX="a39a90"
+  export BASE16_COLOR_03_HEX="8a8075"
+  export BASE16_COLOR_04_HEX="5a5047"
+  export BASE16_COLOR_05_HEX="433b32"
+  export BASE16_COLOR_06_HEX="2c2620"
+  export BASE16_COLOR_07_HEX="16130f"
+  export BASE16_COLOR_08_HEX="826d57"
+  export BASE16_COLOR_09_HEX="828257"
+  export BASE16_COLOR_0A_HEX="6d8257"
+  export BASE16_COLOR_0B_HEX="57826d"
+  export BASE16_COLOR_0C_HEX="576d82"
+  export BASE16_COLOR_0D_HEX="6d5782"
+  export BASE16_COLOR_0E_HEX="82576d"
+  export BASE16_COLOR_0F_HEX="825757"
 fi

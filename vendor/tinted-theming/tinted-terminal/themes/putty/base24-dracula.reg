@@ -2,8 +2,8 @@ Windows Registry Editor Version 5.00
 
 ; Scheme name: Dracula
 ; Scheme system: base24
-; Scheme description: 
-; Scheme author: FredHappyface (https://github.com/fredHappyface)
+; Scheme description: based on https://github.com/dracula/draculatheme.com/blob/main/content/spec.mdx
+; Scheme author: clach04 (https://github.com/clach04)
 ; Template author: Tinted Theming (https://github.com/tinted-theming)
 [HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base24-dracula]
 
@@ -48,8 +48,8 @@ Windows Registry Editor Version 5.00
 
 ; ANSI Red Bright
 ; 1;31m
-; base12 #f28c8c
-"Colour9"="242,140,140"
+; base12 #ff6e6e
+"Colour9"="255,110,110"
 
 ; ANSI Green
 ; 32m
@@ -58,8 +58,8 @@ Windows Registry Editor Version 5.00
 
 ; ANSI Green Bright
 ; 1;32m
-; base14 #a3f5b8
-"Colour11"="163,245,184"
+; base14 #69ff94
+"Colour11"="105,255,148"
 
 ; ANSI Yellow
 ; 33m
@@ -68,18 +68,18 @@ Windows Registry Editor Version 5.00
 
 ; ANSI Yellow Bright
 ; 1;33m
-; base13 #eef5a3
-"Colour13"="238,245,163"
+; base13 #ffffa5
+"Colour13"="255,255,165"
 
 ; ANSI Blue
 ; 34m
-; base0D #80bfff
-"Colour14"="128,191,255"
+; base0D #bd93f9
+"Colour14"="189,147,249"
 
 ; ANSI Blue Bright
 ; 1;34m
-; base16 #a3ccf5
-"Colour15"="163,204,245"
+; base16 #d6acff
+"Colour15"="214,172,255"
 
 ; ANSI Magenta
 ; 35m
@@ -88,8 +88,8 @@ Windows Registry Editor Version 5.00
 
 ; ANSI Magenta Bright
 ; 1;35m
-; base17 #f5a3d2
-"Colour17"="245,163,210"
+; base17 #ff92df
+"Colour17"="255,146,223"
 
 ; ANSI Cyan
 ; 36m
@@ -98,8 +98,8 @@ Windows Registry Editor Version 5.00
 
 ; ANSI Cyan Bright
 ; 1;36m
-; base15 #baedf7
-"Colour19"="186,237,247"
+; base15 #a4ffff
+"Colour19"="164,255,255"
 
 ; ANSI White
 ; 37m

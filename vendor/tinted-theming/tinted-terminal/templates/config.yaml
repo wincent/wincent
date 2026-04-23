@@ -8,6 +8,13 @@ alacritty-base24:
   filename: themes/alacritty/{{ scheme-system }}-{{ scheme-slug }}.toml
   supported-systems: [base24]
 
+alacritty-tinted8:
+  filename: themes/alacritty/{{ scheme-system }}-{{ scheme-slug }}.toml
+  supported-systems: [tinted8]
+  supports:
+    tinted8-builder: ~0.2.0
+    tinted8-styling: ~0.2.0
+
 # ConEmu
 # ----------------------------------------------------------------------
 conemu-base16:
@@ -17,6 +24,12 @@ conemu-base16:
 conemu-base24:
   filename: themes/conemu/{{ scheme-system }}-{{ scheme-slug }}.xml
   supported-systems: [base24]
+conemu-tinted8:
+  filename: themes/conemu/{{ scheme-system }}-{{ scheme-slug }}.toml
+  supported-systems: [tinted8]
+  supports:
+    tinted8-builder: ~0.2.0
+    tinted8-styling: ~0.2.0
 
 # Foot
 # ----------------------------------------------------------------------
@@ -27,6 +40,12 @@ foot-base16:
 foot-base24:
   filename: themes/foot/{{ scheme-system }}-{{ scheme-slug }}.ini
   supported-systems: [base24]
+foot-tinted8:
+  filename: themes/foot/{{ scheme-system }}-{{ scheme-slug }}.toml
+  supported-systems: [tinted8]
+  supports:
+    tinted8-builder: ~0.2.0
+    tinted8-styling: ~0.2.0
 
 # Ghostty
 # ----------------------------------------------------------------------
@@ -38,6 +57,13 @@ ghostty-base24:
   filename: themes/ghostty/{{ scheme-system }}-{{ scheme-slug }}
   supported-systems: [base24]
 
+ghostty-tinted8:
+  filename: themes/ghostty/{{ scheme-system }}-{{ scheme-slug }}
+  supported-systems: [tinted8]
+  supports:
+    tinted8-builder: ~0.2.0
+    tinted8-styling: ~0.2.0
+
 ghostty-script-base16:
   filename: themes/ghostty-scripts/{{ scheme-system }}-{{ scheme-slug }}.sh
   supported-systems: [base16]
@@ -45,6 +71,13 @@ ghostty-script-base16:
 ghostty-script-base24:
   filename: themes/ghostty-scripts/{{ scheme-system }}-{{ scheme-slug }}.sh
   supported-systems: [base24]
+
+ghostty-script-tinted8:
+  filename: themes/ghostty-scripts/{{ scheme-system }}-{{ scheme-slug }}.sh
+  supported-systems: [tinted8]
+  supports:
+    tinted8-builder: ~0.2.0
+    tinted8-styling: ~0.2.0
 
 # iTerm2
 # ----------------------------------------------------------------------
@@ -55,6 +88,13 @@ iterm2-base16:
 iterm2-base24:
   filename: themes/iterm2/{{ scheme-system }}-{{ scheme-slug }}.itermcolors
   supported-systems: [base24]
+
+iterm2-tinted8:
+  filename: themes/iterm2/{{ scheme-system }}-{{ scheme-slug }}.itermcolors
+  supported-systems: [tinted8]
+  supports:
+    tinted8-builder: ~0.2.0
+    tinted8-styling: ~0.2.0
 
 iterm2-scripts-migration-notice:
   filename: themes-16/iterm2-scripts/{{ scheme-system }}-{{ scheme-slug }}.sh
@@ -68,6 +108,13 @@ iterm2-applescript-base24-16:
   filename: themes-16/iterm2-applescripts/{{ scheme-system }}-{{ scheme-slug }}.scpt
   supported-systems: [base24]
 
+iterm2-applescript-tinted8-16:
+  filename: themes-16/iterm2-applescripts/{{ scheme-system }}-{{ scheme-slug }}.scpt
+  supported-systems: [tinted8]
+  supports:
+    tinted8-builder: ~0.2.0
+    tinted8-styling: ~0.2.0
+
 # Kermit
 # ----------------------------------------------------------------------
 kermit-base16-16:
@@ -77,6 +124,13 @@ kermit-base16-16:
 kermit-base24-16:
   filename: themes-16/kermit/{{ scheme-system }}-{{ scheme-slug }}.config
   supported-systems: [base24]
+
+kermit-tinted8-16:
+  filename: themes-16/kermit/{{ scheme-system }}-{{ scheme-slug }}.config
+  supported-systems: [tinted8]
+  supports:
+    tinted8-builder: ~0.2.0
+    tinted8-styling: ~0.2.0
 
 # Kitty
 # ----------------------------------------------------------------------
@@ -88,6 +142,13 @@ kitty-base24:
   filename: themes/kitty/{{ scheme-system }}-{{ scheme-slug }}.conf
   supported-systems: [base24]
 
+kitty-tinted8:
+  filename: themes/kitty/{{ scheme-system }}-{{ scheme-slug }}.conf
+  supported-systems: [tinted8]
+  supports:
+    tinted8-builder: ~0.2.0
+    tinted8-styling: ~0.2.0
+
 # Konsole
 # ----------------------------------------------------------------------
 konsole-base16:
@@ -98,6 +159,13 @@ konsole-base24:
   filename: themes/konsole/{{ scheme-system }}-{{ scheme-slug }}.colorscheme
   supported-systems: [base24]
 
+konsole-tinted8:
+  filename: themes/konsole/{{ scheme-system }}-{{ scheme-slug }}.colorscheme
+  supported-systems: [tinted8]
+  supports:
+    tinted8-builder: ~0.2.0
+    tinted8-styling: ~0.2.0
+
 # Mintty
 # ----------------------------------------------------------------------
 mintty-base16:
@@ -107,6 +175,13 @@ mintty-base16:
 mintty-base24:
   filename: themes/mintty/{{ scheme-system }}-{{ scheme-slug }}.mintheme
   supported-systems: [base24]
+
+mintty-tinted8:
+  filename: themes/mintty/{{ scheme-system }}-{{ scheme-slug }}.mintheme
+  supported-systems: [tinted8]
+  supports:
+    tinted8-builder: ~0.2.0
+    tinted8-styling: ~0.2.0
 
 # Putty
 # ----------------------------------------------------------------------
@@ -138,6 +213,13 @@ rio-base24-16:
   filename: themes-16/rio/{{ scheme-system }}-{{ scheme-slug }}.toml
   supported-systems: [base24]
 
+rio-tinted8-16:
+  filename: themes-16/rio/{{ scheme-system }}-{{ scheme-slug }}.toml
+  supported-systems: [tinted8]
+  supports:
+    tinted8-builder: ~0.2.0
+    tinted8-styling: ~0.2.0
+
 # st
 # ----------------------------------------------------------------------
 st-base16:
@@ -147,6 +229,13 @@ st-base16:
 st-base24:
   filename: themes/st/st-{{ scheme-system }}-{{ scheme-slug }}-0.9.3.diff
   supported-systems: [base24]
+
+st-tinted8:
+  filename: themes/st/st-{{ scheme-system }}-{{ scheme-slug }}-0.9.3.diff
+  supported-systems: [tinted8]
+  supports:
+    tinted8-builder: ~0.2.0
+    tinted8-styling: ~0.2.0
 
 # Termite
 # ----------------------------------------------------------------------
@@ -158,6 +247,13 @@ termite-base24:
   filename: themes/termite/{{ scheme-system }}-{{ scheme-slug }}.config
   supported-systems: [base24]
 
+termite-tinted8:
+  filename: themes/termite/{{ scheme-system }}-{{ scheme-slug }}.config
+  supported-systems: [tinted8]
+  supports:
+    tinted8-builder: ~0.2.0
+    tinted8-styling: ~0.2.0
+
 # Windows Terminal
 # ----------------------------------------------------------------------
 windows-terminal-base16:
@@ -167,6 +263,13 @@ windows-terminal-base16:
 windows-terminal-base24:
   filename: themes/windows-terminal/{{ scheme-system }}-{{ scheme-slug }}.theme
   supported-systems: [base24]
+
+windows-terminal-tinted8:
+  filename: themes/windows-terminal/{{ scheme-system }}-{{ scheme-slug }}.theme
+  supported-systems: [tinted8]
+  supports:
+    tinted8-builder: ~0.2.0
+    tinted8-styling: ~0.2.0
 
 # xfce4
 # ----------------------------------------------------------------------
@@ -178,6 +281,13 @@ xfce4-base24:
   filename: themes/xfce4/{{ scheme-system }}-{{ scheme-slug }}.theme
   supported-systems: [base24]
 
+xfce4-tinted8:
+  filename: themes/xfce4/{{ scheme-system }}-{{ scheme-slug }}.theme
+  supported-systems: [tinted8]
+  supports:
+    tinted8-builder: ~0.2.0
+    tinted8-styling: ~0.2.0
+
 # weterm
 # ----------------------------------------------------------------------
 
@@ -188,3 +298,10 @@ wezterm-base16:
 wezterm-base24:
   filename: themes/wezterm/{{ scheme-system }}-{{ scheme-slug }}.toml
   supported-systems: [base24]
+
+wezterm-tinted8:
+  filename: themes/wezterm/{{ scheme-system }}-{{ scheme-slug }}.toml
+  supported-systems: [tinted8]
+  supports:
+    tinted8-builder: ~0.2.0
+    tinted8-styling: ~0.2.0

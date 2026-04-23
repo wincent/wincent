@@ -1,0 +1,10 @@
+# Scheme name: Swamp Dark
+# Scheme author: Masroof Maindak (https://github.com/masroof-maindak)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-swamp-dark
+ColorForeground=#d2c3a4
+ColorBackground=#242015
+ColorCursor=#d2c3a4
+ColorBoldIsBright=FALSE
+ColorPalette=#242015;#db930d;#7a7653;#a82d56;#c1666b;#91506c;#db930d;#d2c3a4;#5f4e41;#db930d;#7a7653;#a82d56;#c1666b;#91506c;#db930d;#f1e9d0

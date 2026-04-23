@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Everforest Light (Medium) by Márcio Sobel (https://github.com/marciosobel)
+
+[colors]
+selection-background = '#5c6a72' # base05
+selection-foreground = '#e6e2cc' # base02
+
+cursor         = '#5c6a72' # base05
+tabs           = '#f4f0d9' # base01
+tabs-active    = '#e6e2cc' # base02
+
+background     = '#fdf6e3' # base00
+foreground     = '#5c6a72' # base05
+black          = '#fdf6e3' # base00
+red            = '#f85552' # base08
+yellow         = '#dfa000' # base0A
+green          = '#8da101' # base0B
+cyan           = '#35a77c' # base0C
+blue           = '#3a94c5' # base0D
+magenta        = '#df69ba' # base0E
+white          = '#5c6a72' # base05
+
+dim-foreground   = '#5c6a72' # base05
+dim-black        = '#f4f0d9' # base01
+dim-red          = '#f85552' # base08
+dim-yellow       = '#dfa000' # base0A
+dim-green        = '#8da101' # base0B
+dim-cyan         = '#35a77c' # base0C
+dim-blue         = '#3a94c5' # base0D
+dim-magenta      = '#df69ba' # base0E
+dim-white        = '#829181' # base04
+
+light-foreground = '#5c6a72' # base05
+light-black      = '#939f91' # base03
+light-red        = '#f85552' # base08
+light-yellow     = '#dfa000' # base0A
+light-green      = '#8da101' # base0B
+light-cyan       = '#35a77c' # base0C
+light-blue       = '#3a94c5' # base0D
+light-magenta    = '#df69ba' # base0E
+light-white      = '#2d353b' # base07

@@ -1,0 +1,24 @@
+# tinted-terminal - foot
+# Scheme name: Nord
+# Scheme author: Tinted Theming (https://github.com/tinted-theming)
+# Template author: Tinted Theming (https://github.com/tinted-theming)
+
+[colors]
+foreground=
+background=
+regular0=2e3440 # black
+regular1=bf616a # red
+regular2=a3be8c # green
+regular3=ebcb8b # yellow
+regular4=81a1c1 # blue
+regular5=b48ead # magenta
+regular6=88c0d0 # cyan
+regular7=e5e9f0 # white
+bright0=465165 # bright black
+bright1=d18d93 # bright red
+bright2=c2d4b3 # bright green
+bright3=f4e2bf # bright yellow
+bright4=aac0d5 # bright blue
+bright5=ccb3c8 # bright magenta
+bright6=b4d7e1 # bright cyan
+bright7=eceff4 # bright white

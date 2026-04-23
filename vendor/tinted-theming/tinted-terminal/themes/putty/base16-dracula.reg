@@ -2,8 +2,8 @@ Windows Registry Editor Version 5.00
 
 ; Scheme name: Dracula
 ; Scheme system: base16
-; Scheme description: 
-; Scheme author: Jamy Golden (http://github.com/JamyGolden), based on Dracula Theme (http://github.com/dracula)
+; Scheme description: based on https://github.com/dracula/draculatheme.com/blob/main/content/spec.mdx
+; Scheme author: clach04 (https://github.com/clach04)
 ; Template author: Tinted Theming (https://github.com/tinted-theming)
 [HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base16-dracula]
 
@@ -73,13 +73,13 @@ Windows Registry Editor Version 5.00
 
 ; ANSI Blue
 ; 34m
-; base0D #80bfff
-"Colour14"="128,191,255"
+; base0D #bd93f9
+"Colour14"="189,147,249"
 
 ; ANSI Blue Bright
 ; 1;34m
-; base0D #80bfff
-"Colour15"="128,191,255"
+; base0D #bd93f9
+"Colour15"="189,147,249"
 
 ; ANSI Magenta
 ; 35m

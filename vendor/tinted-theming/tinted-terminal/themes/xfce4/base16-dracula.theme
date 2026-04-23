@@ -1,5 +1,5 @@
 # Scheme name: Dracula
-# Scheme author: Jamy Golden (http://github.com/JamyGolden), based on Dracula Theme (http://github.com/dracula)
+# Scheme author: clach04 (https://github.com/clach04)
 # Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
 [Scheme]
 Name=base16-dracula
@@ -7,4 +7,4 @@ ColorForeground=#f8f8f2
 ColorBackground=#282a36
 ColorCursor=#f8f8f2
 ColorBoldIsBright=FALSE
-ColorPalette=#282a36;#ff5555;#50fa7b;#f1fa8c;#80bfff;#ff79c6;#8be9fd;#f8f8f2;#6272a4;#ff5555;#50fa7b;#f1fa8c;#80bfff;#ff79c6;#8be9fd;#ffffff
+ColorPalette=#282a36;#ff5555;#50fa7b;#f1fa8c;#bd93f9;#ff79c6;#8be9fd;#f8f8f2;#6272a4;#ff5555;#50fa7b;#f1fa8c;#bd93f9;#ff79c6;#8be9fd;#ffffff

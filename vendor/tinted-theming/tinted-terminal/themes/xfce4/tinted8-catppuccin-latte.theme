@@ -1,0 +1,11 @@
+# Scheme name: Catppuccin Latte
+# Scheme author: https://github.com/catppuccin/catppuccin
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=tinted8-catppuccin-latte
+ColorForeground=#4c4f69
+ColorBackground=#dce0e8
+ColorCursor=#4c4f69
+ColorBoldIsBright=FALSE
+ColorPalette=#4c4f69;#d20f39;#40a02b;#df8e1d;#1e66f5;#8839ef;#179299;#dce0e8;#6c6f85;#f82653;#53d138;#eeaa4b;#598ef8;#aa72f4;#18cbd5;#ffffff
+

@@ -1,4 +1,4 @@
--- Dracula scheme by FredHappyface (https://github.com/fredHappyface)
+-- Dracula scheme by clach04 (https://github.com/clach04)
 --
 -- Generated from this template:
 --
@@ -14,31 +14,31 @@
 
 -- Base16 colors.
 local gui00 = "#282a36"
-local gui01 = "#363447"
-local gui02 = "#44475a"
+local gui01 = "#21222c"
+local gui02 = "#44475A"
 local gui03 = "#6272a4"
 local gui04 = "#9ea8c7"
 local gui05 = "#f8f8f2"
-local gui06 = "#f0f1f4"
+local gui06 = "#f8f8f2"
 local gui07 = "#ffffff"
 local gui08 = "#ff5555"
-local gui09 = "#ffb86c"
+local gui09 = "#FFB86C"
 local gui0A = "#f1fa8c"
 local gui0B = "#50fa7b"
 local gui0C = "#8be9fd"
-local gui0D = "#80bfff"
+local gui0D = "#bd93f9"
 local gui0E = "#ff79c6"
-local gui0F = "#bd93f9"
+local gui0F = "#993333"
 
 -- Base24 colors.
 local gui10 = "#1e2029"
 local gui11 = "#16171d"
-local gui12 = "#f28c8c"
-local gui13 = "#eef5a3"
-local gui14 = "#a3f5b8"
-local gui15 = "#baedf7"
-local gui16 = "#a3ccf5"
-local gui17 = "#f5a3d2"
+local gui12 = "#ff6e6e"
+local gui13 = "#ffffa5"
+local gui14 = "#69ff94"
+local gui15 = "#a4ffff"
+local gui16 = "#d6acff"
+local gui17 = "#ff92df"
 
 -- Base16 colors.
 local cterm00 = 0

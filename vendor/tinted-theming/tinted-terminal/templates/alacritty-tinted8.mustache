@@ -1,0 +1,36 @@
+# {{ scheme.name }} theme for Mintty
+# Scheme Author: {{ scheme.author }}
+# Scheme System: {{ scheme.system }}
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# Default colors
+[colors.primary]
+background = '0x{{ui.global.background.normal.hex}}'
+foreground = '0x{{ui.global.foreground.normal.hex}}'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x{{ui.global.background.normal.hex}}'
+cursor = '0x{{ui.global.foreground.normal.hex}}'
+
+# Normal colors
+[colors.normal]
+black = '0x{{palette.black.normal.hex}}'
+red = '0x{{palette.red.normal.hex}}'
+green = '0x{{palette.green.normal.hex}}'
+yellow = '0x{{palette.yellow.normal.hex}}'
+blue = '0x{{palette.blue.normal.hex}}'
+magenta = '0x{{palette.magenta.normal.hex}}'
+cyan = '0x{{palette.cyan.normal.hex}}'
+white = '0x{{palette.white.normal.hex}}'
+
+# Bright colors
+[colors.bright]
+black = '0x{{palette.black.bright.hex}}'
+red = '0x{{palette.red.bright.hex}}'
+green = '0x{{palette.green.bright.hex}}'
+yellow = '0x{{palette.yellow.bright.hex}}'
+blue = '0x{{palette.blue.bright.hex}}'
+magenta = '0x{{palette.magenta.bright.hex}}'
+cyan = '0x{{palette.cyan.bright.hex}}'
+white = '0x{{palette.white.bright.hex}}'

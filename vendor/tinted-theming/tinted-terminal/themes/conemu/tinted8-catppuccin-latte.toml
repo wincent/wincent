@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    tinted8 Catppuccin Latte
+    Scheme author: https://github.com/catppuccin/catppuccin
+    Template author: Tinted Theming (https://github.com/tinted-theming)
+    semanticClass: theme.tinted8.catppuccin-latte
+-->
+<key name="Palette1">
+    <value name="Name" type="string" data="tinted8-catppuccin-latte"/>
+    <value name="ExtendColors" type="hex" data="00"/>
+    <value name="ExtendColorIdx" type="hex" data="0e"/>
+    <value name="TextColorIdx" type="hex" data="07"/>
+    <value name="BackColorIdx" type="hex" data="00"/>
+    <value name="PopTextColorIdx" type="hex" data="07"/>
+    <value name="PopBackColorIdx" type="hex" data="00"/>
+    <value name="ColorTable00" type="dword" data="00694f4c"/>
+    <value name="ColorTable01" type="dword" data="00390fd2"/>
+    <value name="ColorTable02" type="dword" data="002ba040"/>
+    <value name="ColorTable03" type="dword" data="001d8edf"/>
+    <value name="ColorTable04" type="dword" data="00f5661e"/>
+    <value name="ColorTable05" type="dword" data="00ef3988"/>
+    <value name="ColorTable06" type="dword" data="00999217"/>
+    <value name="ColorTable07" type="dword" data="00e8e0dc"/>
+    <value name="ColorTable08" type="dword" data="00856f6c"/>
+    <value name="ColorTable09" type="dword" data="005326f8"/>
+    <value name="ColorTable10" type="dword" data="0038d153"/>
+    <value name="ColorTable11" type="dword" data="004baaee"/>
+    <value name="ColorTable12" type="dword" data="00f88e59"/>
+    <value name="ColorTable13" type="dword" data="00f472aa"/>
+    <value name="ColorTable14" type="dword" data="00d5cb18"/>
+    <value name="ColorTable15" type="dword" data="00ffffff"/>
+</key>

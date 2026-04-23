@@ -1,0 +1,36 @@
+# Catppuccin Mocha theme for Mintty
+# Scheme Author: https://github.com/catppuccin/catppuccin
+# Scheme System: tinted8
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# Default colors
+[colors.primary]
+background = '0x1e1e2e'
+foreground = '0xcdd6f4'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x1e1e2e'
+cursor = '0xcdd6f4'
+
+# Normal colors
+[colors.normal]
+black = '0x1e1e2e'
+red = '0xf38ba8'
+green = '0xa6e3a1'
+yellow = '0xf9e2af'
+blue = '0x89b4fa'
+magenta = '0xcba6f7'
+cyan = '0x94e2d5'
+white = '0xcdd6f4'
+
+# Bright colors
+[colors.bright]
+black = '0x353554'
+red = '0xf9c2d2'
+green = '0xd3f1d0'
+yellow = '0xfcf6e9'
+blue = '0xc4d9fc'
+magenta = '0xece0fb'
+cyan = '0xc4efe8'
+white = '0xffffff'
