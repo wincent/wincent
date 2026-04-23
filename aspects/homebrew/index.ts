@@ -6,7 +6,6 @@ import {
   log,
   prompt,
   resource,
-  skip,
   task,
 } from 'fig';
 
@@ -55,16 +54,6 @@ task('install Homebrew', async () => {
 
 task('update Homebrew', async () => {
   await command('brew', ['update']);
-});
-
-task('tap "homebrew/bundle"', async () => {
-  const result = await command('brew', ['tap']);
-
-  if (/^homebrew\/bundle$/m.test(result!.stdout)) {
-    return await skip('already tapped');
-  }
-
-  await command('brew', ['tap', 'homebrew/bundle']);
 });
 
 task('run `brew bundle` with common Brewfile', async () => {
