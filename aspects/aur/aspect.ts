@@ -14,6 +14,6 @@ export default {
       'par', // Paragraph formatter.
       'ttf-symbola', // Font with lots of Unicode glyphs (eg. u276f, for prompt).
       'watchman-bin', // Fast filesystem index (speeds up Command-T).
-    ],
+    ] as const,
   },
 };

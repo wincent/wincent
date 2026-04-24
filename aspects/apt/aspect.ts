@@ -17,6 +17,6 @@ export default {
       'tree', // Displays an indented directory tree.
       'unzip', // Archive extraction (for Neovim).
       'zsh', // Shell.
-    ],
+    ] as const,
   },
 };

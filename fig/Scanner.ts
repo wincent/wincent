@@ -52,7 +52,7 @@ export default class Scanner {
     }
   }
 
-  reset(index: number) {
+  reset(index: number): void {
     if (index < 0 || index > this.string.length) {
       throw new Error(`Index ${index} is out of bounds`);
     }

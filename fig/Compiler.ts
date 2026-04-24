@@ -3,17 +3,21 @@ import {compile, fill} from './template.ts';
 
 import type {Scope} from './template.ts';
 
+export type Template = {
+  fill: (scope: Scope) => string;
+};
+
 /**
  * Template compiler that manages a cache of compiled templates.
  */
 export default class Compiler {
-  #compiled: Map<string, {fill: (scope: Scope) => string}>;
+  #compiled: Map<string, Template>;
 
   constructor() {
     this.#compiled = new Map();
   }
 
-  async compile(path: string): Promise<{fill: (scope: Scope) => string}> {
+  async compile(path: string): Promise<Template> {
     // Convert potential Path string-like back to primitive.
     path = path.toString();
 

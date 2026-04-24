@@ -6,6 +6,6 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 /**
  * The repo root directory.
  */
-const root = join(__dirname, '../..');
+const root: string = join(__dirname, '../..');
 
 export default root;

@@ -8,7 +8,7 @@ export type Scope = {
  * Returns a "compiled" template (a string containing a function body that can
  * be evaluated to produce the template output).
  */
-export function compile(source: string) {
+export function compile(source: string): string {
   let output = 'let __buffer__ = "";\n';
 
   let context = 'TemplateText';
@@ -41,7 +41,7 @@ export function compile(source: string) {
  * `scope` that provides variables and any other material that maybe needed,
  * producing the final string result.
  */
-export function fill(compiled: string, scope: Scope = {}) {
+export function fill(compiled: string, scope: Scope = {}): string {
   const context = Object.entries(scope).map(
     // Not using `stringify()` here because that is only for human-readable
     // use cases.

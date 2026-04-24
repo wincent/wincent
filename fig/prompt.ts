@@ -11,9 +11,17 @@ type Options = {
   private?: boolean;
 };
 
+interface Prompt {
+  (text: string, options?: Options): Promise<string>;
+  confirm(text: string): Promise<boolean>;
+}
+
 // TODO: consider making a mutex that will ensure only one thing actually
 // prompts at a time (or that nothing else prints while prompting)
-async function prompt(text: string, options: Options = {}): Promise<string> {
+async function promptImpl(
+  text: string,
+  options: Options = {},
+): Promise<string> {
   if (process.env.NON_INTERACTIVE) {
     throw new Error('prompt(): called, but NON_INTERACTIVE is set');
   }
@@ -60,7 +68,7 @@ async function prompt(text: string, options: Options = {}): Promise<string> {
   }
 }
 
-prompt.confirm = async (text: string): Promise<boolean> => {
+async function confirm(text: string): Promise<boolean> {
   if (process.env.NON_INTERACTIVE) {
     await log.info(
       `${text}? [y/n]: (assuming "y" because NON_INTERACTIVE is set)`,
@@ -71,6 +79,8 @@ prompt.confirm = async (text: string): Promise<boolean> => {
   const reply = (await prompt(`${text}? [y/n]: `)).toLowerCase().trim();
 
   return 'yes'.startsWith(reply);
-};
+}
+
+const prompt: Prompt = Object.assign(promptImpl, {confirm});
 
 export default prompt;

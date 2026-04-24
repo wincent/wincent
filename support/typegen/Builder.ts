@@ -7,13 +7,13 @@ export default class Builder {
   output: string;
   tabWidth: number;
 
-  constructor({tabWidth = 2} = {}) {
+  constructor({tabWidth = 2}: {tabWidth?: number} = {}) {
     this.indentLevel = 0;
     this.output = '';
     this.tabWidth = tabWidth;
   }
 
-  arrow(params: string, value: Callback | string) {
+  arrow(params: string, value: Callback | string): this {
     this.printIndent().print(`${params} => `);
 
     if (typeof value === 'function') {
@@ -23,7 +23,7 @@ export default class Builder {
     }
   }
 
-  assert(condition: string, message = null) {
+  assert(condition: string, message: string | null = null): this {
     if (message) {
       return this.line(`assert.ok(${condition}, ${message});`);
     } else {
@@ -31,11 +31,11 @@ export default class Builder {
     }
   }
 
-  blank() {
+  blank(): this {
     return this.print('\n');
   }
 
-  block(callback: Callback) {
+  block(callback: Callback): this {
     this.indent();
 
     callback();
@@ -43,7 +43,7 @@ export default class Builder {
     return this.dedent();
   }
 
-  call(name: string, args: Callback | string) {
+  call(name: string, args: Callback | string): this {
     this.print(`.${name}`);
 
     if (typeof args === 'function') {
@@ -53,7 +53,7 @@ export default class Builder {
     }
   }
 
-  dedent() {
+  dedent(): this {
     this.indentLevel--;
 
     assert.ok(this.indentLevel >= 0, 'Indent level must be non-negative');
@@ -61,7 +61,7 @@ export default class Builder {
     return this;
   }
 
-  forOf(binding: string, collection: string, callback: Callback) {
+  forOf(binding: string, collection: string, callback: Callback): this {
     return this.line(`for (const ${binding} of ${collection}) {`)
       .block(callback)
       .line('}');
@@ -70,7 +70,7 @@ export default class Builder {
   ['function'](
     open: string,
     ...rest: [Callback] | [{export?: boolean}, Callback]
-  ) {
+  ): this {
     let callback: Callback | undefined;
     let options = {export: true};
 
@@ -91,13 +91,17 @@ export default class Builder {
     return this;
   }
 
-  getIndent() {
+  getIndent(): string {
     return ' '.repeat(this.indentLevel * this.tabWidth);
   }
 
   // `rest`, if supplied, is an `else` callback.
   // TODO: make it handle `else if` too
-  ['if'](condition: string, callback: Callback, ...rest: [Callback] | []) {
+  ['if'](
+    condition: string,
+    callback: Callback,
+    ...rest: [Callback] | []
+  ): this {
     if (rest.length) {
       return this.line(`if (${condition}) {`)
         .block(callback)
@@ -109,17 +113,17 @@ export default class Builder {
     }
   }
 
-  indent() {
+  indent(): this {
     this.indentLevel++;
 
     return this;
   }
 
-  interface(name: string, callback = () => {}) {
+  interface(name: string, callback: () => void = () => {}): this {
     return this.line(`export interface ${name} {`).block(callback).line(`}`);
   }
 
-  docblock(...lines: Array<string>) {
+  docblock(...lines: Array<string>): this {
     this.line('/**');
 
     lines.forEach((line) => {
@@ -133,13 +137,13 @@ export default class Builder {
     return this.line(' */');
   }
 
-  print(text: string) {
+  print(text: string): this {
     this.output += text;
 
     return this;
   }
 
-  last() {
+  last(): string | null {
     const length = this.output.length;
 
     if (length) {
@@ -149,11 +153,11 @@ export default class Builder {
     }
   }
 
-  line(line: string) {
+  line(line: string): this {
     return this.printIndent().print(`${line}\n`);
   }
 
-  property(key: string, value: Callback | string) {
+  property(key: string, value: Callback | string): this {
     this.printIndent().print(`${key}: `);
 
     if (typeof value === 'function') {
@@ -165,7 +169,7 @@ export default class Builder {
     return this;
   }
 
-  printIndent() {
+  printIndent(): this {
     const length = this.output.length;
 
     if (!length || this.last() === '\n') {

@@ -3,7 +3,10 @@ import getAspectFromCallers from '../getAspectFromCallers.ts';
 import getCallers from '../getCallers.ts';
 import {assertAspect} from '../types/Project.ts';
 
-export default function handler(name: string, callback: () => Promise<void>) {
+export default function handler(
+  name: string,
+  callback: () => Promise<void>,
+): void {
   const aspect = getAspectFromCallers(getCallers());
   assertAspect(aspect);
   Context.handlers.register(aspect, callback, `${aspect} | ${name}`);

@@ -17,7 +17,7 @@ const variables = {
    * a variable as a convenient shorthand containing a normalized host
    * "handle" (eg. "huertas", "latina").
    */
-  get hostHandle() {
+  get hostHandle(): string {
     const hostname = Context.attributes.hostname;
     const handle = hostname.toLowerCase().split(/\./)[0];
 
@@ -34,7 +34,7 @@ const variables = {
     return handle;
   },
 
-  get identity() {
+  get identity(): string {
     if (process.env.FIG_IDENTITY) {
       return process.env.FIG_IDENTITY;
     } else if (

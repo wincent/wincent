@@ -76,7 +76,7 @@ export default class VariableRegistry {
    * Registers the final composition of variables from all sources for the given
    * aspect.
    */
-  registerFinalVariables(aspect: Aspect, variables: Variables) {
+  registerFinalVariables(aspect: Aspect, variables: Variables): void {
     // No throw here because this will be called once per task execution.
     this.#variables.set(aspect, variables);
   }
@@ -85,7 +85,7 @@ export default class VariableRegistry {
    * Registers "global" variables that are not specific to any individual
    * aspect.
    */
-  registerGlobalVariables(variables: Variables) {
+  registerGlobalVariables(variables: Variables): void {
     if (this.#globals) {
       throw new Error('Global variables have already been registered');
     }
@@ -96,7 +96,7 @@ export default class VariableRegistry {
    * Registers the provided `variables()` callback for the given aspect, used to
    * derive additional or final values prior to task execution.
    */
-  registerVariablesCallback(aspect: Aspect, callback: VariablesCallback) {
+  registerVariablesCallback(aspect: Aspect, callback: VariablesCallback): void {
     if (this.#callbacks.has(aspect)) {
       // We throw here because `variables()` is supposed to be called at most
       // once per aspect.

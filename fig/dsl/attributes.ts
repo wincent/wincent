@@ -1,3 +1,7 @@
 import Context from '../Context.ts';
 
-export default Context.attributes;
+import type Attributes from '../Attributes.ts';
+
+const attributes: Attributes = Context.attributes;
+
+export default attributes;

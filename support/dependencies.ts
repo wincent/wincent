@@ -16,9 +16,9 @@ export type State = {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-export const REPO_ROOT = join(__dirname, '..');
-export const CACHE_DIR = join(REPO_ROOT, '.cache', 'repos');
-export const DEPENDENCIES_FILE = join(REPO_ROOT, 'dependencies.json');
+export const REPO_ROOT: string = join(__dirname, '..');
+export const CACHE_DIR: string = join(REPO_ROOT, '.cache', 'repos');
+export const DEPENDENCIES_FILE: string = join(REPO_ROOT, 'dependencies.json');
 
 export class Repo {
   _path: string;
@@ -43,11 +43,11 @@ export class Repo {
     this._path = path;
   }
 
-  get HEAD() {
+  get HEAD(): string | null {
     return this._capture('rev-parse', ['HEAD']);
   }
 
-  get exists() {
+  get exists(): boolean {
     return existsSync(join(this._path, '.git'));
   }
 

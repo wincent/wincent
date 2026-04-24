@@ -6,44 +6,54 @@ import path from '../path.ts';
 
 import type {Path} from '../path.ts';
 
-export default function variable(
-  name: string,
-  fallback?: JSONValue,
-): JSONValue {
+interface Variable {
+  (name: string, fallback?: JSONValue): JSONValue;
+  array(name: string, fallback?: Array<JSONValue>): Array<JSONValue>;
+  object(
+    name: string,
+    fallback?: {[key: string]: JSONValue},
+  ): {[key: string]: JSONValue};
+  path(name: string, fallback?: string): Path;
+  paths(name: string, fallback?: Array<string>): Array<Path>;
+  string(name: string, fallback?: string): string;
+  strings(name: string, fallback?: Array<string>): Array<string>;
+}
+
+function variableImpl(name: string, fallback?: JSONValue): JSONValue {
   const variables = Context.currentVariables;
 
   return variables.hasOwnProperty(name) ? variables[name] : fallback || null;
 }
 
-variable.array = (
+function array(
   name: string,
   fallback?: Array<JSONValue>,
-): Array<JSONValue> => {
+): Array<JSONValue> {
   const value = variable(name, fallback);
 
   assertJSONArray(value, `Expected variable ${name} to be an array`);
 
   return value;
-};
+}
 
-variable.object = (
+function object(
   name: string,
   fallback?: {[key: string]: JSONValue},
-): {[key: string]: JSONValue} => {
+): {[key: string]: JSONValue} {
   const value = variable(name, fallback);
 
   assertJSONObject(value, `Expected variable ${name} to be an object`);
 
   return value;
-};
+}
 
-variable.path = (name: string, fallback?: string): Path => {
+function pathVar(name: string, fallback?: string): Path {
   const value = variable.string(name, fallback);
 
   return path(value);
-};
+}
 
-variable.paths = (name: string, fallback?: Array<string>): Array<Path> => {
+function paths(name: string, fallback?: Array<string>): Array<Path> {
   const value = variable.array(name, fallback);
 
   return value.map((v) => {
@@ -53,9 +63,9 @@ variable.paths = (name: string, fallback?: Array<string>): Array<Path> => {
     );
     return path(v);
   });
-};
+}
 
-variable.string = (name: string, fallback?: string): string => {
+function string(name: string, fallback?: string): string {
   const value = variable(name, fallback);
 
   assert.ok(
@@ -64,13 +74,13 @@ variable.string = (name: string, fallback?: string): string => {
   );
 
   return value;
-};
+}
 
 function strings(array: Array<unknown>): array is Array<string> {
   return array.every((v) => typeof v === 'string');
 }
 
-variable.strings = (name: string, fallback?: Array<string>): Array<string> => {
+function stringsFn(name: string, fallback?: Array<string>): Array<string> {
   const value = variable.array(name, fallback);
 
   assert.ok(
@@ -79,4 +89,15 @@ variable.strings = (name: string, fallback?: Array<string>): Array<string> => {
   );
 
   return value;
-};
+}
+
+const variable: Variable = Object.assign(variableImpl, {
+  array,
+  object,
+  path: pathVar,
+  paths,
+  string,
+  strings: stringsFn,
+});
+
+export default variable;

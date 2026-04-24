@@ -12,9 +12,9 @@ import {
 import Context from './Context.ts';
 import root from './dsl/root.ts';
 
-const INSPECT = Symbol.for('nodejs.util.inspect.custom');
+const INSPECT: symbol = Symbol.for('nodejs.util.inspect.custom');
 const TAG_NAME = 'fig.Path';
-const TAG = Symbol(TAG_NAME);
+const TAG: unique symbol = Symbol(TAG_NAME);
 
 // TODO: export path module wrappers as well, then I can just use it as a
 // drop-in replacement

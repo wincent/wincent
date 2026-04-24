@@ -22,7 +22,7 @@ bin/node support/typegen/index.ts
 
 log_info "Checking TypeScript source"
 
-bin/tsgo
+bin/tsgo --isolatedDeclarations
 
 # Hack so that local files can import from 'fig':
 ln -fns ../fig node_modules/fig

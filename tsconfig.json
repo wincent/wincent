@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
     "allowImportingTsExtensions": true,
+    "declaration": true,
+    "declarationDir": "./types",
     "erasableSyntaxOnly": true,
     "incremental": true,
     "module": "nodenext",

@@ -9,7 +9,7 @@ export default class TaskRegistry {
     this.#callbacks = new Map();
   }
 
-  register(aspect: Aspect, callback: Callback, name: string) {
+  register(aspect: Aspect, callback: Callback, name: string): void {
     if (!this.#callbacks.has(aspect)) {
       this.#callbacks.set(aspect, []);
     }

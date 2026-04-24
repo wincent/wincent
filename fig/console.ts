@@ -52,7 +52,7 @@ export const LOG_LEVEL = {
   DEBUG: 7,
 } as const;
 
-export function clear() {
+export function clear(): Promise<unknown> {
   return lock('console', async () => {
     return new Promise<void>((resolve) => {
       clearLine(process.stderr, 0, () => {
@@ -78,41 +78,55 @@ export function getLogLevel(): LogLevel {
   return logLevel;
 }
 
-export async function log(...args: Array<unknown>) {
+interface Log {
+  (...args: Array<unknown>): Promise<void>;
+  clear(): Promise<unknown>;
+  debug(message: string): Promise<void>;
+  error(message: string): Promise<void>;
+  info(message: string): Promise<void>;
+  notice(message: string): Promise<void>;
+  warn(message: string): Promise<void>;
+}
+
+interface Print {
+  (...args: Array<unknown>): Promise<void>;
+  clear(): Promise<unknown>;
+}
+
+async function logImpl(...args: Array<unknown>): Promise<void> {
   await print(...args, '\n');
 }
 
-log.debug = async function debug(message: string) {
-  if (logLevel >= LOG_LEVEL.DEBUG) {
-    await log(magenta.bold`${PREFIX_MAP.debug}` + message);
-  }
-};
+export const log: Log = Object.assign(logImpl, {
+  clear,
+  async debug(message: string): Promise<void> {
+    if (logLevel >= LOG_LEVEL.DEBUG) {
+      await log(magenta.bold`${PREFIX_MAP.debug}` + message);
+    }
+  },
+  async error(message: string): Promise<void> {
+    if (logLevel >= LOG_LEVEL.ERROR) {
+      await log(red.bold`${PREFIX_MAP.error}` + message);
+    }
+  },
+  async info(message: string): Promise<void> {
+    if (logLevel >= LOG_LEVEL.INFO) {
+      await log(bold`${PREFIX_MAP.info}` + message);
+    }
+  },
+  async notice(message: string): Promise<void> {
+    if (logLevel >= LOG_LEVEL.NOTICE) {
+      await log(green.bold`${PREFIX_MAP.notice}` + message);
+    }
+  },
+  async warn(message: string): Promise<void> {
+    if (logLevel >= LOG_LEVEL.WARNING) {
+      await log(yellow.bold`${PREFIX_MAP.warning}` + message);
+    }
+  },
+});
 
-log.error = async function error(message: string) {
-  if (logLevel >= LOG_LEVEL.ERROR) {
-    await log(red.bold`${PREFIX_MAP.error}` + message);
-  }
-};
-
-log.info = async function info(message: string) {
-  if (logLevel >= LOG_LEVEL.INFO) {
-    await log(bold`${PREFIX_MAP.info}` + message);
-  }
-};
-
-log.notice = async function notice(message: string) {
-  if (logLevel >= LOG_LEVEL.NOTICE) {
-    await log(green.bold`${PREFIX_MAP.notice}` + message);
-  }
-};
-
-log.warn = async function warn(message: string) {
-  if (logLevel >= LOG_LEVEL.WARNING) {
-    await log(yellow.bold`${PREFIX_MAP.warning}` + message);
-  }
-};
-
-export async function print(...args: Array<unknown>) {
+async function printImpl(...args: Array<unknown>): Promise<void> {
   await lock('console', async () => {
     process.stderr.write(
       args
@@ -127,6 +141,8 @@ export async function print(...args: Array<unknown>) {
     );
   });
 }
+
+export const print: Print = Object.assign(printImpl, {clear});
 
 export function nextLogLevel(level: LogLevel): LogLevel {
   const nextLevel = level + 1;
@@ -146,10 +162,6 @@ function isLogLevel(level: number): level is LogLevel {
   );
 }
 
-export function setLogLevel(level: LogLevel) {
+export function setLogLevel(level: LogLevel): void {
   logLevel = level;
 }
-
-log.clear = clear;
-
-print.clear = clear;

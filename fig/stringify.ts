@@ -10,7 +10,7 @@ const CIRCULAR = `${LAQUO}circular${RAQUO}`;
  * Basically `JSON.stringify()` but does a better job of printing some value
  * types (eg. a `RegExp` is printed as "/pattern/" instead of "{}" etc).
  */
-export default function stringify(value: unknown) {
+export default function stringify(value: unknown): string {
   let indent = '';
 
   const seen = new Set<unknown>();

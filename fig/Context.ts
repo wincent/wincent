@@ -14,6 +14,7 @@ import run from './run.ts';
 import * as status from './status.ts';
 import {assertAspect} from './types/Project.ts';
 
+import type {Template} from './Compiler.ts';
 import type {Metadata} from './ErrorWithMetadata.ts';
 import type {Options} from './getOptions.ts';
 import type {Aspect} from './types/Project.ts';
@@ -60,7 +61,7 @@ class Context {
     this.#variables = new VariableRegistry();
   }
 
-  compile(path: string) {
+  compile(path: string): Promise<Template> {
     return this.#compiler.compile(path);
   }
 
@@ -140,7 +141,7 @@ class Context {
       variables: Variables;
     },
     callback: () => Promise<void>,
-  ) {
+  ): Promise<void> {
     this.#variables.registerFinalVariables(aspect, variables);
     this.#currentTask.set(aspect, task);
     await callback();
@@ -150,7 +151,7 @@ class Context {
     return this.#attributes;
   }
 
-  get counts() {
+  get counts(): Counts {
     return this.#counts;
   }
 
@@ -234,4 +235,6 @@ class Context {
   }
 }
 
-export default new Context();
+const context: Context = new Context();
+
+export default context;

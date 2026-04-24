@@ -273,7 +273,30 @@ const COLORS = {
   },
 };
 
-export default {
+type ColorFn = (
+  strings: string | TemplateStringsArray,
+  ...interpolations: unknown[]
+) => string;
+
+type Color = ColorFn & {
+  bold: ColorFn;
+  green: ColorFn;
+  magenta: ColorFn;
+  red: ColorFn;
+  inverse: ColorFn;
+  yellow: ColorFn;
+};
+
+type Palette = {
+  bold: Color;
+  green: Color;
+  magenta: Color;
+  red: Color;
+  inverse: Color;
+  yellow: Color;
+};
+
+const palette: Palette = {
   bold: Object.assign(COLORS.bold, COLORS),
   green: Object.assign(COLORS.green, COLORS),
   magenta: Object.assign(COLORS.magenta, COLORS),
@@ -281,3 +304,5 @@ export default {
   inverse: Object.assign(COLORS.inverse, COLORS),
   yellow: Object.assign(COLORS.yellow, COLORS),
 };
+
+export default palette;

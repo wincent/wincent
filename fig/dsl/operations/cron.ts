@@ -206,7 +206,7 @@ const WEEKDAYS = new Set(['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']);
 export function validate(
   field: 'day' | 'hour' | 'minute' | 'month' | 'weekday',
   value: string,
-) {
+): void {
   if (
     (field === 'month' && MONTHS.has(value.toLowerCase())) ||
     (field === 'weekday' && WEEKDAYS.has(value.toLowerCase()))

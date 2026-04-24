@@ -18,7 +18,7 @@ export default {
         'cron',
         'automount',
         'defaults',
-      ],
+      ] as const,
       variables: {
         pinentryProgram: '/opt/homebrew/bin/pinentry-curses',
       },
@@ -38,7 +38,7 @@ export default {
         'interception',
         'node',
         'nvim',
-      ],
+      ] as const,
       variables: {},
     },
     'linux.debian': {
@@ -51,7 +51,7 @@ export default {
         'node',
         'shell',
         'nvim',
-      ],
+      ] as const,
       variables: {},
     },
   },

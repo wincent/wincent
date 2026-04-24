@@ -12,7 +12,7 @@ export default class HandlerRegistry {
     this.#notifications = new Map();
   }
 
-  notify(aspect: Aspect, name: string) {
+  notify(aspect: Aspect, name: string): void {
     if (!this.#notifications.has(aspect)) {
       this.#notifications.set(aspect, new Set());
     }
@@ -20,7 +20,7 @@ export default class HandlerRegistry {
     this.#notifications.get(aspect)!.add(name);
   }
 
-  register(aspect: Aspect, callback: Callback, name: string) {
+  register(aspect: Aspect, callback: Callback, name: string): void {
     if (!this.#callbacks.has(aspect)) {
       this.#callbacks.set(aspect, new Map());
     }

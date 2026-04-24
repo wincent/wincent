@@ -6,7 +6,7 @@ const COUNTERS: {[prefix: string]: number} = {};
 
 const TMP_DIR = tmpdir();
 
-export default function tempname(prefix: string) {
+export default function tempname(prefix: string): string {
   COUNTERS[prefix] = Number(COUNTERS[prefix] || 0) + 1;
 
   const name = `${prefix}-${

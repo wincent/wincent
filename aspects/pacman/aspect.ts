@@ -78,6 +78,6 @@ export default {
       'xorg-xinit', // X initializer.
       'xsecurelock', // Secure screen lock from Google.
       'zsh', // Shell.
-    ],
+    ] as const,
   },
 };

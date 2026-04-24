@@ -17,7 +17,10 @@ const queues = new Map<string, Queue>();
  * is to make sure that we (mostly) don't intermix prompts and other console
  * output in confusing ways when `--parallel` is in effect.
  */
-export default function lock(name: string, callback: () => Promise<unknown>) {
+export default function lock(
+  name: string,
+  callback: () => Promise<unknown>,
+): Promise<unknown> {
   if (!queues.has(name)) {
     queues.set(name, {items: [], tickScheduled: false});
   }
