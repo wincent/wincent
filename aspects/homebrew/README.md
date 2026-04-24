@@ -1,6 +1,27 @@
 Configures [Homebrew](https://brew.sh).
 
-## Regenerating the package lists
+## Adding a formula, cask, or tap
+
+You can run `brew install` as normal and later regenerate the task lists as described in the section below or you can do an incremental update as follows; for example, adding the "orion" cask:
+
+```shell
+# Confirm the cask exists and copy its description.
+brew info orion
+
+# Add the cask to the appropriate manifest.
+vim aspects/homebrew/support/common.json
+
+# Update generated files; running with no options updates the ".ts" task lists from the ".json" manifests.
+bin/brew-bundle-dump
+
+# Check the resulting diff.
+jj diff
+
+# Confirm the task works by running it.
+./install homebrew --start orion --step
+```
+
+## Regenerating the common, personal, and work task lists
 
 The per-profile task modules (`common.ts`, `personal.ts`, `work.ts`) and their corresponding metadata files (`support/common.json`, `support/personal.json`, `support/work.json`) are generated from `brew bundle dump` output.
 
@@ -20,7 +41,7 @@ To regenerate after installing/removing packages:
 5. If `work.ts` or `support/work.json` changed, re-run `bin/encrypt`.
 6. `bin/format` (to catch any formatter drift).
 
-If you only want to regenerate the `.ts` files from the current JSON metadata (eg. after hand-editing a `note`), run `bin/brew-bundle-dump` with no arguments.
+If you only want to regenerate the `.ts` files from the current JSON metadata (eg. after hand-editing a `note` or adding a package as described previously), run `bin/brew-bundle-dump` with no arguments.
 
 ## Annotations
 

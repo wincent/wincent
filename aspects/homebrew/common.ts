@@ -1256,6 +1256,13 @@ task('install omnidisksweeper cask', async () => {
   });
 });
 
+// WebKit based web browser.
+task('install orion cask', async () => {
+  await command('brew', ['install', '--cask', 'orion'], {
+    creates: '/opt/homebrew/Caskroom/orion',
+  });
+});
+
 // Control your tools with a few keystrokes.
 task('install raycast cask', async () => {
   await command('brew', ['install', '--cask', 'raycast'], {

@@ -1386,6 +1386,12 @@
       "note": null
     },
     {
+      "name": "orion",
+      "tap": "homebrew/cask",
+      "description": "WebKit based web browser",
+      "note": null
+    },
+    {
       "name": "raycast",
       "tap": "homebrew/cask",
       "description": "Control your tools with a few keystrokes",
