@@ -17,7 +17,6 @@
       "fig/*": ["./fig/*"],
       "*": ["./*"]
     },
-    "strict": true,
     "target": "esnext",
     "verbatimModuleSyntax": true
   },
