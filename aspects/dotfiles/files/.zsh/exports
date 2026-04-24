@@ -148,7 +148,8 @@ export FTP_PASSIVE=1
 # colour ls listings
 export CLICOLOR=true
 
-export DO_NOT_TRACK=true
+# https://github.com/muescha/consoledonottrack.com
+export DO_NOT_TRACK=1
 
 if [ -n "$TTY" ]; then
   export GPG_TTY=$TTY
