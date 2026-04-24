@@ -1,13 +1,4 @@
-import {
-  command,
-  fail,
-  fetch,
-  helpers,
-  log,
-  prompt,
-  resource,
-  task,
-} from 'fig';
+import {command, fail, fetch, helpers, log, prompt, resource, task} from 'fig';
 
 const {isDecrypted, when} = helpers;
 
