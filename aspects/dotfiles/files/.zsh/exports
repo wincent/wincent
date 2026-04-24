@@ -148,11 +148,16 @@ export FTP_PASSIVE=1
 # colour ls listings
 export CLICOLOR=true
 
+export DO_NOT_TRACK=true
+
 if [ -n "$TTY" ]; then
   export GPG_TTY=$TTY
 else
   export GPG_TTY=$(tty)
 fi
+
+# See: https://cli.github.com/telemetry
+export GH_TELEMETRY=false
 
 export GOPATH=~/code/go
 
