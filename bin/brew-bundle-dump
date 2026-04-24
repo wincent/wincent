@@ -111,19 +111,17 @@ for type in taps brew cask cargo go; do
   comm -13 "$SCRATCH/work_${type}" "$SCRATCH/personal_${type}" > "$SCRATCH/personal_only_${type}"
 done
 
-# Always include these common taps.
+# Strip obsolete taps that were merged into Homebrew/brew in 4.5.0
+# (https://brew.sh/2025/04/29/homebrew-4.5.0/). These may still appear
+# in older `brew bundle dump` output.
 for tap in "homebrew/bundle" "homebrew/services"; do
-  if ! grep -qx "$tap" "$SCRATCH/common_taps" 2>/dev/null; then
-    echo "$tap" >> "$SCRATCH/common_taps"
-  fi
-  for set in work_only personal_only; do
+  for set in common work_only personal_only; do
     if grep -qx "$tap" "$SCRATCH/${set}_taps" 2>/dev/null; then
       grep -vx "$tap" "$SCRATCH/${set}_taps" > "$SCRATCH/${set}_taps.tmp"
       mv "$SCRATCH/${set}_taps.tmp" "$SCRATCH/${set}_taps"
     fi
   done
 done
-LC_ALL=C sort -u "$SCRATCH/common_taps" -o "$SCRATCH/common_taps"
 
 # Fetch descriptions for formulae and casks.
 cat "$SCRATCH/common_brew" "$SCRATCH/work_only_brew" "$SCRATCH/personal_only_brew" \

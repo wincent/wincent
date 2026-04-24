@@ -8,8 +8,6 @@ cask_args appdir: "/Applications"
 
 tap "cirruslabs/cli"
 tap "dart-lang/dart"
-tap "homebrew/bundle"
-tap "homebrew/services"
 tap "oven-sh/bun"
 tap "sass/sass"
 
