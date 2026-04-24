@@ -1,6 +1,22 @@
-import {command, fail, fetch, helpers, log, prompt, resource, task} from 'fig';
+import {existsSync} from 'node:fs';
+import {dirname, join} from 'node:path';
+import {fileURLToPath, pathToFileURL} from 'node:url';
 
-const {isDecrypted, when} = helpers;
+import {command, fail, fetch, helpers, log, prompt, task} from 'fig';
+
+const {when} = helpers;
+
+// `work.ts` contains potentially sensitive corp details (tap URLs, internal
+// formula/cask names) so it is encrypted; only imported when its plaintext is
+// available on disk.
+const workPath = join(dirname(fileURLToPath(import.meta.url)), 'work.ts');
+const workDecrypted = existsSync(workPath);
+
+//
+// Tasks are executed in registration order, so the bootstrap tasks below must
+// be registered _before_ we import the per-profile modules (each of which
+// registers one `task()` per item to install).
+//
 
 task('download installation script', async () => {
   await fetch({
@@ -47,28 +63,30 @@ task('update Homebrew', async () => {
   await command('brew', ['update']);
 });
 
-task('run `brew bundle` with common Brewfile', async () => {
-  await command('brew', ['bundle', `--file=${resource.file('Brewfile')}`]);
-});
-
-task('run `brew bundle` with personal Brewfile', when('personal'), async () => {
-  await command('brew', [
-    'bundle',
-    `--file=${resource.file('Brewfile.personal')}`,
-  ]);
-});
-
-task('run `brew bundle` with work Brewfile', when('work'), async () => {
-  const src = resource.file('Brewfile.work');
-  const decrypted = await isDecrypted(src);
-
-  if (!decrypted) {
-    await log.warn(`"${src}" does not exist; run "bin/decrypt"`);
-    return;
+task('warn if work tasks are encrypted', when('work'), async () => {
+  if (!workDecrypted) {
+    await log.warn(
+      `"${workPath}" does not exist; run "bin/decrypt" to populate`,
+    );
   }
-
-  await command('brew', ['bundle', `--file=${src}`]);
 });
+
+//
+// Per-profile package installation tasks.
+//
+
+await import('./common.ts');
+await import('./personal.ts');
+
+if (workDecrypted) {
+  // Import by computed URL so TypeScript doesn't attempt to resolve the
+  // specifier at compile time (the file may not exist on fresh checkouts).
+  await import(pathToFileURL(workPath).href);
+}
+
+//
+// Cleanup runs after everything has been installed.
+//
 
 task('clean up old versions', async () => {
   await command('brew', ['cleanup']);

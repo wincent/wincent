@@ -1,0 +1,214 @@
+{
+  "taps": [],
+  "formulae": [
+    {
+      "name": "boost",
+      "tap": "homebrew/core",
+      "description": "Collection of portable C++ source libraries",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "closure-compiler",
+      "tap": "homebrew/core",
+      "description": "JavaScript optimizing compiler",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "ctpv",
+      "tap": "homebrew/core",
+      "description": "Image previews for lf file manager",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "edencommon",
+      "tap": "homebrew/core",
+      "description": "Shared library for Watchman and Eden projects",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "ghostscript",
+      "tap": "homebrew/core",
+      "description": "Interpreter for PostScript and PDF",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "libass",
+      "tap": "homebrew/core",
+      "description": "Subtitle renderer for the ASS/SSA subtitle format",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "llvm",
+      "tap": "homebrew/core",
+      "description": "Next-gen compiler infrastructure",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "mariadb",
+      "tap": "homebrew/core",
+      "description": "Drop-in replacement for MySQL",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "memcached",
+      "tap": "homebrew/core",
+      "description": "High performance, distributed memory object caching system",
+      "args": [],
+      "restartService": true,
+      "note": null
+    },
+    {
+      "name": "openjdk@21",
+      "tap": "homebrew/core",
+      "description": "Development kit for the Java programming language",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "redis",
+      "tap": "homebrew/core",
+      "description": "Persistent key-value database, with built-in net interface",
+      "args": [],
+      "restartService": true,
+      "note": null
+    },
+    {
+      "name": "rsync",
+      "tap": "homebrew/core",
+      "description": "Utility that provides fast incremental file transfer",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "s3cmd",
+      "tap": "homebrew/core",
+      "description": "Command-line tool for the Amazon S3 service",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "swift-format",
+      "tap": "homebrew/core",
+      "description": "Formatting technology for Swift source code",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "universal-ctags",
+      "tap": "homebrew/core",
+      "description": "Maintained ctags implementation",
+      "args": [],
+      "restartService": false,
+      "note": null
+    }
+  ],
+  "casks": [
+    {
+      "name": "1password",
+      "tap": "homebrew/cask",
+      "description": "Password manager that keeps all passwords secure behind one password",
+      "note": null
+    },
+    {
+      "name": "arq",
+      "tap": "homebrew/cask",
+      "description": "Multi-cloud backup application",
+      "note": null
+    },
+    {
+      "name": "google-chrome",
+      "tap": "homebrew/cask",
+      "description": "Web browser",
+      "note": null
+    },
+    {
+      "name": "microsoft-edge",
+      "tap": "homebrew/cask",
+      "description": "Multi-platform web browser",
+      "note": null
+    },
+    {
+      "name": "omnifocus",
+      "tap": "homebrew/cask",
+      "description": "Scheduling application focusing on organisation",
+      "note": null
+    },
+    {
+      "name": "resilio-sync",
+      "tap": "homebrew/cask",
+      "description": "File sync and share software",
+      "note": null
+    },
+    {
+      "name": "signal",
+      "tap": "homebrew/cask",
+      "description": "Instant messaging application focusing on security",
+      "note": null
+    },
+    {
+      "name": "steam",
+      "tap": "homebrew/cask",
+      "description": "Video game digital distribution service",
+      "note": null
+    },
+    {
+      "name": "superduper",
+      "tap": "homebrew/cask",
+      "description": "Backup, recovery and cloning software",
+      "note": null
+    }
+  ],
+  "crates": [
+    {
+      "name": "cargo-machete",
+      "binary": "cargo-machete",
+      "description": null,
+      "note": null
+    },
+    {
+      "name": "cargo-outdated",
+      "binary": "cargo-outdated",
+      "description": null,
+      "note": null
+    },
+    {
+      "name": "cargo-udeps",
+      "binary": "cargo-udeps",
+      "description": null,
+      "note": null
+    },
+    {
+      "name": "cargo-upgrades",
+      "binary": "cargo-upgrades",
+      "description": null,
+      "note": null
+    },
+    {
+      "name": "diesel_cli",
+      "binary": "diesel",
+      "description": null,
+      "note": null
+    }
+  ],
+  "goPackages": []
+}

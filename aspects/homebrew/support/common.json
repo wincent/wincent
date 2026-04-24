@@ -1,0 +1,1427 @@
+{
+  "taps": [
+    {
+      "name": "cirruslabs/cli",
+      "url": null,
+      "note": null
+    },
+    {
+      "name": "oven-sh/bun",
+      "url": null,
+      "note": null
+    },
+    {
+      "name": "sass/sass",
+      "url": null,
+      "note": null
+    }
+  ],
+  "formulae": [
+    {
+      "name": "ack",
+      "tap": "homebrew/core",
+      "description": "Search tool like grep, but optimized for programmers",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "age",
+      "tap": "homebrew/core",
+      "description": "Simple, modern, secure file encryption",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "autoconf",
+      "tap": "homebrew/core",
+      "description": "Automatic configure script builder",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "automake",
+      "tap": "homebrew/core",
+      "description": "Tool for generating GNU Standards-compliant Makefiles",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "awscli",
+      "tap": "homebrew/core",
+      "description": "Official Amazon AWS command-line interface",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "bdw-gc",
+      "tap": "homebrew/core",
+      "description": "Garbage collector for C and C++",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "bfs",
+      "tap": "homebrew/core",
+      "description": "Breadth-first version of find",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "broot",
+      "tap": "homebrew/core",
+      "description": "New way to see and navigate directory trees",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "bun",
+      "tap": "oven-sh/bun",
+      "description": "Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "cabal-install",
+      "tap": "homebrew/core",
+      "description": "Command-line interface for Cabal and Hackage",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "cairo",
+      "tap": "homebrew/core",
+      "description": "Vector graphics library with cross-device output support",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "catimg",
+      "tap": "homebrew/core",
+      "description": "Insanely fast image printing in your terminal",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "chroma",
+      "tap": "homebrew/core",
+      "description": "General purpose syntax highlighter in pure Go",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "clang-format",
+      "tap": "homebrew/core",
+      "description": "Formatting tools for C, C++, Obj-C, Java, JavaScript, TypeScript",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "clingo",
+      "tap": "homebrew/core",
+      "description": "ASP system to ground and solve logic programs",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "clipper",
+      "tap": "homebrew/core",
+      "description": "Share macOS clipboard with tmux and other local and remote apps",
+      "args": [
+        "HEAD"
+      ],
+      "restartService": true,
+      "note": null
+    },
+    {
+      "name": "cloc",
+      "tap": "homebrew/core",
+      "description": "Statistics utility to count lines of code",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "cloog",
+      "tap": "homebrew/core",
+      "description": "Generate code for scanning Z-polyhedra",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "cmake",
+      "tap": "homebrew/core",
+      "description": "Cross-platform make",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "colima",
+      "tap": "homebrew/core",
+      "description": "Container runtimes on MacOS (and Linux) with minimal setup",
+      "args": [],
+      "restartService": true,
+      "note": null
+    },
+    {
+      "name": "coreutils",
+      "tap": "homebrew/core",
+      "description": "GNU File, Shell, and Text utilities",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "difftastic",
+      "tap": "homebrew/core",
+      "description": "Diff that understands syntax",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "docker",
+      "tap": "homebrew/core",
+      "description": "Pack, ship and run any application as a lightweight container",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "docker-buildx",
+      "tap": "homebrew/core",
+      "description": "Docker CLI plugin for extended build capabilities with BuildKit",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "docker-compose",
+      "tap": "homebrew/core",
+      "description": "Isolated development environments using Docker",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "dprint",
+      "tap": "homebrew/core",
+      "description": "Pluggable and configurable code formatting platform written in Rust",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "duti",
+      "tap": "homebrew/core",
+      "description": "Select default apps for documents and URL schemes on macOS",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "fd",
+      "tap": "homebrew/core",
+      "description": "Simple, fast and user-friendly alternative to find",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "felinks",
+      "tap": "homebrew/core",
+      "description": "Text mode browser and Gemini, NNTP, FTP, Gopher, Finger, and BitTorrent client",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "ffmpeg",
+      "tap": "homebrew/core",
+      "description": "Play, record, convert, and stream select audio and video codecs",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "findutils",
+      "tap": "homebrew/core",
+      "description": "Collection of GNU find, xargs, and locate",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "fontconfig",
+      "tap": "homebrew/core",
+      "description": "XML-based font configuration API for X Windows",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "freetype",
+      "tap": "homebrew/core",
+      "description": "Software library to render fonts",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "fswatch",
+      "tap": "homebrew/core",
+      "description": "Monitor a directory for changes and run a shell command",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "fx",
+      "tap": "homebrew/core",
+      "description": "Terminal JSON viewer",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "gcc",
+      "tap": "homebrew/core",
+      "description": "GNU compiler collection",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "gd",
+      "tap": "homebrew/core",
+      "description": "Graphics library to dynamically manipulate images",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "gdbm",
+      "tap": "homebrew/core",
+      "description": "GNU database manager",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "gdk-pixbuf",
+      "tap": "homebrew/core",
+      "description": "Toolkit for image loading and pixel buffer manipulation",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "gettext",
+      "tap": "homebrew/core",
+      "description": "GNU internationalization (i18n) and localization (l10n) library",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "ghc",
+      "tap": "homebrew/core",
+      "description": "Glorious Glasgow Haskell Compilation System",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "gifsicle",
+      "tap": "homebrew/core",
+      "description": "GIF image/animation creator/editor",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "git",
+      "tap": "homebrew/core",
+      "description": "Distributed revision control system",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "git-delta",
+      "tap": "homebrew/core",
+      "description": "Syntax-highlighting pager for git and diff output",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "gitui",
+      "tap": "homebrew/core",
+      "description": "Blazing fast terminal-ui for git written in rust",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "glib",
+      "tap": "homebrew/core",
+      "description": "Core application library for C",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "glow",
+      "tap": "homebrew/core",
+      "description": "Render markdown on the CLI",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "gmime",
+      "tap": "homebrew/core",
+      "description": "MIME mail utilities",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "gmp",
+      "tap": "homebrew/core",
+      "description": "GNU multiple precision arithmetic library",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "gnu-sed",
+      "tap": "homebrew/core",
+      "description": "GNU implementation of the famous stream editor",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "gnupg",
+      "tap": "homebrew/core",
+      "description": "GNU Privacy Guard (OpenPGP)",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "gnutls",
+      "tap": "homebrew/core",
+      "description": "GNU Transport Layer Security (TLS) Library",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "go",
+      "tap": "homebrew/core",
+      "description": "Open source programming language to build simple/reliable/efficient software",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "graphviz",
+      "tap": "homebrew/core",
+      "description": "Graph visualization software from AT&T and Bell Labs",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "grep",
+      "tap": "homebrew/core",
+      "description": "GNU grep, egrep and fgrep",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "highlight",
+      "tap": "homebrew/core",
+      "description": "Convert source code to formatted text with syntax highlighting",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "htop",
+      "tap": "homebrew/core",
+      "description": "Improved top (interactive process viewer)",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "httping",
+      "tap": "homebrew/core",
+      "description": "Ping-like tool for HTTP requests",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "httrack",
+      "tap": "homebrew/core",
+      "description": "Website copier/offline browser",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "hub",
+      "tap": "homebrew/core",
+      "description": "Add GitHub support to git on the command-line",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "iftop",
+      "tap": "homebrew/core",
+      "description": "Display an interface's bandwidth usage",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "imagemagick",
+      "tap": "homebrew/core",
+      "description": "Tools and libraries to manipulate images in select formats",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "isl",
+      "tap": "homebrew/core",
+      "description": "Integer Set Library for the polyhedral model",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "jemalloc",
+      "tap": "homebrew/core",
+      "description": "Implementation of malloc emphasizing fragmentation avoidance",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "jj",
+      "tap": "homebrew/core",
+      "description": "Git-compatible distributed version control system",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "jpeg",
+      "tap": "homebrew/core",
+      "description": "Image manipulation library",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "jq",
+      "tap": "homebrew/core",
+      "description": "Lightweight and flexible command-line JSON processor",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "lame",
+      "tap": "homebrew/core",
+      "description": "High quality MPEG Audio Layer III (MP3) encoder",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "less",
+      "tap": "homebrew/core",
+      "description": "Pager program similar to more",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "libassuan",
+      "tap": "homebrew/core",
+      "description": "Assuan IPC Library",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "libevent",
+      "tap": "homebrew/core",
+      "description": "Asynchronous event library",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "libffi",
+      "tap": "homebrew/core",
+      "description": "Portable Foreign Function Interface library",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "libgcrypt",
+      "tap": "homebrew/core",
+      "description": "Cryptographic library based on the code from GnuPG",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "libgpg-error",
+      "tap": "homebrew/core",
+      "description": "Common error values for all GnuPG components",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "libksba",
+      "tap": "homebrew/core",
+      "description": "X.509 and CMS library",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "libmpc",
+      "tap": "homebrew/core",
+      "description": "C library for the arithmetic of high precision complex numbers",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "libpng",
+      "tap": "homebrew/core",
+      "description": "Library for manipulating PNG images",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "librsvg",
+      "tap": "homebrew/core",
+      "description": "Library to render SVG files using Cairo",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "libtasn1",
+      "tap": "homebrew/core",
+      "description": "ASN.1 structure parser library",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "libtermkey",
+      "tap": "homebrew/core",
+      "description": "Library for processing keyboard entry from the terminal",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "libtiff",
+      "tap": "homebrew/core",
+      "description": "TIFF library and utilities",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "libtool",
+      "tap": "homebrew/core",
+      "description": "Generic library support script",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "libusb",
+      "tap": "homebrew/core",
+      "description": "Library for USB device access",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "libusb-compat",
+      "tap": "homebrew/core",
+      "description": "Library for USB device access",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "libuv",
+      "tap": "homebrew/core",
+      "description": "Multi-platform support library with a focus on asynchronous I/O",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "libvo-aacenc",
+      "tap": "homebrew/core",
+      "description": "VisualOn AAC encoder library",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "libvterm",
+      "tap": "homebrew/core",
+      "description": "C99 library which implements a VT220 or xterm terminal emulator",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "libyaml",
+      "tap": "homebrew/core",
+      "description": "YAML Parser",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "links",
+      "tap": "homebrew/core",
+      "description": "Lynx-like WWW browser that supports tables, menus, etc.",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "lockrun",
+      "tap": "homebrew/core",
+      "description": "Run cron jobs with overrun protection",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "lua",
+      "tap": "homebrew/core",
+      "description": "Powerful, lightweight programming language",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "lua-language-server",
+      "tap": "homebrew/core",
+      "description": "Language Server for the Lua language",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "makedepend",
+      "tap": "homebrew/core",
+      "description": "Creates dependencies in makefiles",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "mpfr",
+      "tap": "homebrew/core",
+      "description": "C library for multiple-precision floating-point computations",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "msgpack",
+      "tap": "homebrew/core",
+      "description": "Library for a binary-based efficient data interchange format",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "mtr",
+      "tap": "homebrew/core",
+      "description": "'traceroute' and 'ping' in a single tool",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "n",
+      "tap": "homebrew/core",
+      "description": "Node version management",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "neovim",
+      "tap": "homebrew/core",
+      "description": "Ambitious Vim-fork focused on extensibility and agility",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "nettle",
+      "tap": "homebrew/core",
+      "description": "Low-level cryptographic library",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "ninja",
+      "tap": "homebrew/core",
+      "description": "Small build system for use with gyp or CMake",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "openssl@3",
+      "tap": "homebrew/core",
+      "description": "Cryptography and SSL/TLS Toolkit",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "optipng",
+      "tap": "homebrew/core",
+      "description": "PNG file optimizer",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "ossp-uuid",
+      "tap": "homebrew/core",
+      "description": "ISO-C API and CLI for generating UUIDs",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "pandoc",
+      "tap": "homebrew/core",
+      "description": "Swiss-army knife of markup format conversion",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "par",
+      "tap": "homebrew/core",
+      "description": "Paragraph reflow for email",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "parallel",
+      "tap": "homebrew/core",
+      "description": "Shell command parallelization utility",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "perl",
+      "tap": "homebrew/core",
+      "description": "Highly capable, feature-rich programming language",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "pinentry",
+      "tap": "homebrew/core",
+      "description": "Passphrase entry dialog utilizing the Assuan protocol",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "pixman",
+      "tap": "homebrew/core",
+      "description": "Low-level library for pixel manipulation",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "pkgconf",
+      "tap": "homebrew/core",
+      "description": "Package compiler and linker metadata toolkit",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "pngcrush",
+      "tap": "homebrew/core",
+      "description": "Optimizer for PNG files",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "pngquant",
+      "tap": "homebrew/core",
+      "description": "PNG image optimizing utility",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "potrace",
+      "tap": "homebrew/core",
+      "description": "Convert bitmaps to vector graphics",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "protobuf",
+      "tap": "homebrew/core",
+      "description": "Protocol buffers (Google's data interchange format)",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "pstree",
+      "tap": "homebrew/core",
+      "description": "Show ps output as a tree",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "pth",
+      "tap": "homebrew/core",
+      "description": "GNU Portable THreads",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "pwgen",
+      "tap": "homebrew/core",
+      "description": "Password generator",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "python@3.11",
+      "tap": "homebrew/core",
+      "description": "Interpreted, interactive, object-oriented programming language",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "python@3.12",
+      "tap": "homebrew/core",
+      "description": "Interpreted, interactive, object-oriented programming language",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "qemu",
+      "tap": "homebrew/core",
+      "description": "Generic machine emulator and virtualizer",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "qt",
+      "tap": "homebrew/core",
+      "description": "Cross-platform application and UI framework",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "readline",
+      "tap": "homebrew/core",
+      "description": "Library for command-line editing",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "rhino",
+      "tap": "homebrew/core",
+      "description": "JavaScript engine",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "ripgrep",
+      "tap": "homebrew/core",
+      "description": "Search tool like grep and The Silver Searcher",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "rlwrap",
+      "tap": "homebrew/core",
+      "description": "Readline wrapper: adds readline support to tools that lack it",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "rust",
+      "tap": "homebrew/core",
+      "description": "Safe, concurrent, practical language",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "rust-analyzer",
+      "tap": "homebrew/core",
+      "description": "Experimental Rust compiler front-end for IDEs",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "shared-mime-info",
+      "tap": "homebrew/core",
+      "description": "Database of common MIME types",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "shellcheck",
+      "tap": "homebrew/core",
+      "description": "Static analysis and lint tool, for (ba)sh scripts",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "sk",
+      "tap": "homebrew/core",
+      "description": "Fuzzy Finder in rust!",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "sqlite",
+      "tap": "homebrew/core",
+      "description": "Command-line interface for SQLite",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "sshpass",
+      "tap": "homebrew/core",
+      "description": "Non-interactive SSH password auth",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "stylua",
+      "tap": "homebrew/core",
+      "description": "Opinionated Lua code formatter",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "talloc",
+      "tap": "homebrew/core",
+      "description": "Hierarchical, reference-counted memory pool with destructors",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "tart",
+      "tap": "cirruslabs/cli",
+      "description": "Run macOS and Linux VMs on Apple Hardware",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "telnet",
+      "tap": "homebrew/core",
+      "description": "User interface to the TELNET protocol",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "terminal-notifier",
+      "tap": "homebrew/core",
+      "description": "Send macOS User Notifications from the command-line",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "the_silver_searcher",
+      "tap": "homebrew/core",
+      "description": "Code-search similar to ack",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "tig",
+      "tap": "homebrew/core",
+      "description": "Text interface for Git repositories",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "tmux",
+      "tap": "homebrew/core",
+      "description": "Terminal multiplexer",
+      "args": [
+        "HEAD"
+      ],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "tokyo-cabinet",
+      "tap": "homebrew/core",
+      "description": "Lightweight database library",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "tree",
+      "tap": "homebrew/core",
+      "description": "Display directories as trees (with optional color/HTML output)",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "tree-sitter",
+      "tap": "homebrew/core",
+      "description": "Incremental parsing library",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "tree-sitter-cli",
+      "tap": "homebrew/core",
+      "description": "Parser generator tool",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "unar",
+      "tap": "homebrew/core",
+      "description": "Command-line unarchiving tools supporting multiple formats",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "unibilium",
+      "tap": "homebrew/core",
+      "description": "Very basic terminfo library",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "utf8proc",
+      "tap": "homebrew/core",
+      "description": "Clean C library for processing UTF-8 Unicode data",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "v8",
+      "tap": "homebrew/core",
+      "description": "Google's JavaScript engine",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "vim",
+      "tap": "homebrew/core",
+      "description": "Vi 'workalike' with many additional features",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "watch",
+      "tap": "homebrew/core",
+      "description": "Executes a program periodically, showing output fullscreen",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "watchman",
+      "tap": "homebrew/core",
+      "description": "Watch files and take action when they change",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "webp",
+      "tap": "homebrew/core",
+      "description": "Image format providing lossless and lossy compression for web images",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "wget",
+      "tap": "homebrew/core",
+      "description": "Internet file retriever",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "x264",
+      "tap": "homebrew/core",
+      "description": "H.264/AVC encoder",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "xapian",
+      "tap": "homebrew/core",
+      "description": "C++ search engine library",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "xvid",
+      "tap": "homebrew/core",
+      "description": "High-performance, high-quality MPEG-4 video library",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "xz",
+      "tap": "homebrew/core",
+      "description": "General-purpose data compression with high compression ratio",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "yazi",
+      "tap": "homebrew/core",
+      "description": "Blazing fast terminal file manager written in Rust, based on async I/O",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "zsh",
+      "tap": "homebrew/core",
+      "description": "UNIX shell (command interpreter)",
+      "args": [],
+      "restartService": false,
+      "note": null
+    }
+  ],
+  "casks": [
+    {
+      "name": "1password-cli",
+      "tap": "homebrew/cask",
+      "description": "Command-line interface for 1Password",
+      "note": null
+    },
+    {
+      "name": "blurred",
+      "tap": "homebrew/cask",
+      "description": "Utility to dim background/inactive content in the screen",
+      "note": null
+    },
+    {
+      "name": "cleanshot",
+      "tap": "homebrew/cask",
+      "description": "Screen capturing tool",
+      "note": null
+    },
+    {
+      "name": "firefox",
+      "tap": "homebrew/cask",
+      "description": "Web browser",
+      "note": null
+    },
+    {
+      "name": "ghostty",
+      "tap": "homebrew/cask",
+      "description": "Terminal emulator that uses platform-native UI and GPU acceleration",
+      "note": null
+    },
+    {
+      "name": "gimp",
+      "tap": "homebrew/cask",
+      "description": "Free and open-source image editor",
+      "note": null
+    },
+    {
+      "name": "godspeed",
+      "tap": "homebrew/cask",
+      "description": "Keyboard-focused todo manager",
+      "note": null
+    },
+    {
+      "name": "hammerspoon",
+      "tap": "homebrew/cask",
+      "description": "Desktop automation application",
+      "note": null
+    },
+    {
+      "name": "hex-fiend",
+      "tap": "homebrew/cask",
+      "description": "Hex editor focussing on speed",
+      "note": null
+    },
+    {
+      "name": "istat-menus",
+      "tap": "homebrew/cask",
+      "description": "System monitoring app",
+      "note": null
+    },
+    {
+      "name": "jordanbaird-ice",
+      "tap": "homebrew/cask",
+      "description": "Menu bar manager",
+      "note": null
+    },
+    {
+      "name": "karabiner-elements",
+      "tap": "homebrew/cask",
+      "description": "Keyboard customiser",
+      "note": null
+    },
+    {
+      "name": "keycastr",
+      "tap": "homebrew/cask",
+      "description": "Open-source keystroke visualiser",
+      "note": null
+    },
+    {
+      "name": "kitty",
+      "tap": "homebrew/cask",
+      "description": "GPU-based terminal emulator",
+      "note": null
+    },
+    {
+      "name": "omnidisksweeper",
+      "tap": "homebrew/cask",
+      "description": "Finds large, unwanted files and deletes them",
+      "note": null
+    },
+    {
+      "name": "raycast",
+      "tap": "homebrew/cask",
+      "description": "Control your tools with a few keystrokes",
+      "note": null
+    },
+    {
+      "name": "screenflow",
+      "tap": "homebrew/cask",
+      "description": "Screen recording and video editing software",
+      "note": null
+    },
+    {
+      "name": "spotify",
+      "tap": "homebrew/cask",
+      "description": "Music streaming service",
+      "note": null
+    },
+    {
+      "name": "vlc",
+      "tap": "homebrew/cask",
+      "description": "Multimedia player",
+      "note": null
+    },
+    {
+      "name": "xquartz",
+      "tap": "homebrew/cask",
+      "description": "Open-source version of the X.Org X Window System",
+      "note": null
+    },
+    {
+      "name": "xscope",
+      "tap": "homebrew/cask",
+      "description": "Tools for measuring, inspecting & testing on-screen graphics and layouts",
+      "note": null
+    }
+  ],
+  "crates": [],
+  "goPackages": []
+}
