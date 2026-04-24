@@ -166,6 +166,12 @@ if [ -d /opt/homebrew ]; then
   export HOMEBREW_REPOSITORY="/opt/homebrew"
 fi
 
+# Pi releases multiple times per week, but given that we use min-release-age=7,
+# we're pretty much never on the latest release, and it is bothersome to be
+# pestered by endless prompts to update at the start of every session. We just
+# run the `pi-update` skill manually from time to time.
+export PI_SKIP_VERSION_CHECK=1
+
 export RESTIC_REPOSITORY=/opt/restic/repo
 
 export RIPGREP_CONFIG_PATH=$HOME/.rgrc
