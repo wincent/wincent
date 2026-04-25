@@ -139,7 +139,7 @@ task('install clingo formula', async () => {
 
 // Share macOS clipboard with tmux and other local and remote apps.
 task('install clipper formula', async () => {
-  await command('brew', ['install', '--HEAD', 'clipper'], {
+  await command('brew', ['install', 'clipper'], {
     creates: '/opt/homebrew/Cellar/clipper',
     notify: 'restart clipper service',
   });

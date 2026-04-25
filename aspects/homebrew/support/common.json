@@ -141,9 +141,7 @@
       "name": "clipper",
       "tap": "homebrew/core",
       "description": "Share macOS clipboard with tmux and other local and remote apps",
-      "args": [
-        "HEAD"
-      ],
+      "args": [],
       "restartService": true,
       "note": null
     },
