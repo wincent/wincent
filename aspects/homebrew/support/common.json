@@ -82,6 +82,14 @@
       "note": null
     },
     {
+      "name": "btop",
+      "tap": "homebrew/core",
+      "description": "Resource monitor. C++ version and continuation of bashtop and bpytop",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
       "name": "bun",
       "tap": "oven-sh/bun",
       "description": "Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.",

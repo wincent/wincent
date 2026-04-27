@@ -88,6 +88,13 @@ task('install broot formula', async () => {
   });
 });
 
+// Resource monitor. C++ version and continuation of bashtop and bpytop.
+task('install btop formula', async () => {
+  await command('brew', ['install', 'btop'], {
+    creates: '/opt/homebrew/Cellar/btop',
+  });
+});
+
 // Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
 task('install bun formula', async () => {
   await command('brew', ['install', 'oven-sh/bun/bun'], {
