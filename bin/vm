@@ -127,11 +127,24 @@ cmd_push() {
 }
 
 cmd_pull() {
+  if tart list --format json | jq -e --arg name "$VM_BASE" '.[] | select(.Name == $name and .State == "running")' &>/dev/null; then
+    log_error "Local '$VM_BASE' is running; stop it first with: bin/vm stop"
+    exit 1
+  fi
+
   log_info "Pulling $REGISTRY"
   if ! tart pull "$REGISTRY"; then
     log_error "Pull failed; you may need to run: \`tart login ghcr.io\` (use a GitHub PAT with \`read:packages\` scope as the password)"
     exit 1
   fi
+
+  if tart list | grep -q "^local[[:space:]]*$VM_BASE "; then
+    log_info "Deleting local $VM_BASE to replace with pulled image"
+    tart delete "$VM_BASE"
+  fi
+
+  log_info "Cloning $REGISTRY -> $VM_BASE"
+  tart clone "$REGISTRY" "$VM_BASE"
 
   log_info "Pulled successfully"
   log_info "Clone it with: bin/vm clone <name>"

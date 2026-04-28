@@ -290,8 +290,24 @@ cmd_restart() {
 }
 
 cmd_pull() {
+    local local_base="${SB_VM_IMAGE##*/}"
+    local_base="${local_base%%:*}"
+
+    if tart list --format json | jq -e --arg name "$local_base" '.[] | select(.Name == $name and .State == "running")' &>/dev/null; then
+        echo "Error: local '$local_base' is running; stop it first."
+        exit 1
+    fi
+
     echo "Pulling $SB_VM_IMAGE..."
     tart pull "$SB_VM_IMAGE"
+
+    if tart list | grep -q "^local[[:space:]]*${local_base} "; then
+        echo "Deleting local $local_base to replace with pulled image..."
+        tart delete "$local_base"
+    fi
+
+    echo "Cloning $SB_VM_IMAGE -> $local_base..."
+    tart clone "$SB_VM_IMAGE" "$local_base"
 }
 
 cmd_status() {
