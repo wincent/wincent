@@ -16,8 +16,8 @@
 # (it ships in shannon's pack, which lives on the nvim runtimepath of every
 # machine you use). All routing decisions are local; no per-VM config required.
 #
-# Set NVIM_OPEN_DEBUG=1 to enable verbose tracing.
-# Log path: ${XDG_STATE_HOME:-$HOME/.local/state}/nvim-open/log
+# Logging is opt-in: set NVIM_OPEN_DEBUG=1 to capture trace output to
+# ${XDG_STATE_HOME:-$HOME/.local/state}/nvim-open/log.
 
 set -u
 
@@ -25,27 +25,18 @@ set -u
 # so neither nvim nor tmux is found. Prepend common Mac tool locations.
 export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
 
-LOG_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/nvim-open"
-LOG="$LOG_DIR/log"
-LOG_MAX=262144   # 256 KiB — truncate above this
-LOG_KEEP=131072  # keep the last 128 KiB after truncation
-
-mkdir -p "$LOG_DIR" 2>/dev/null || true
-
-# Self-rotate if the log grew past the limit. Silent; failures here mustn't
-# block the click.
-if [ -f "$LOG" ]; then
-	size=$(wc -c < "$LOG" 2>/dev/null | tr -d ' ')
-	if [ -n "$size" ] && [ "$size" -gt "$LOG_MAX" ]; then
-		tail -c "$LOG_KEEP" "$LOG" > "$LOG.rot" 2>/dev/null && mv "$LOG.rot" "$LOG"
-	fi
+if [ -n "${NVIM_OPEN_DEBUG:-}" ]; then
+	LOG_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/nvim-open"
+	LOG="$LOG_DIR/log"
+	mkdir -p "$LOG_DIR" 2>/dev/null || true
+	log() { printf '[%s %d] %s\n' "$(date '+%H:%M:%S')" "$$" "$*" >>"$LOG"; }
+else
+	LOG=/dev/null
+	log() { :; }
 fi
 
-log()  { printf '[%s %d] %s\n' "$(date '+%H:%M:%S')" "$$" "$*" >>"$LOG"; }
-dlog() { [ -n "${NVIM_OPEN_DEBUG:-}" ] && log "$@"; :; }
-
-log  "click: argv=$*"
-dlog "env: SSH_CONNECTION='${SSH_CONNECTION:-}' KITTY_WINDOW_ID='${KITTY_WINDOW_ID:-}' TMUX='${TMUX:-}'"
+log "click: argv=$*"
+log "env: SSH_CONNECTION='${SSH_CONNECTION:-}' KITTY_WINDOW_ID='${KITTY_WINDOW_ID:-}' TMUX='${TMUX:-}'"
 
 url="${1:?url required}"
 
@@ -57,9 +48,8 @@ case "$url" in
 esac
 
 rest="${url#file://}"
-url_host="${rest%%/*}"
-rest="/${rest#*/}"
-url_path="${rest%%#*}"
+rest="/${rest#*/}"  # drop host component, keep leading slash
+url_path_encoded="${rest%%#*}"
 url_fragment=""
 case "$rest" in
 	*\#*) url_fragment="${rest#*#}" ;;
@@ -67,14 +57,15 @@ esac
 
 # Percent-decode path. Bash's `printf %b` consumes \xNN escapes, so we map
 # percent-encoding into that form. Safe-enough for typical paths; weird Unicode
-# might warrant a Python fallback later.
-url_path=$(printf '%b' "${url_path//%/\\x}")
+# might warrant a Python fallback later. Keep the encoded form around so we
+# can forward it verbatim over ssh without lossy round-tripping.
+url_path=$(printf '%b' "${url_path_encoded//%/\\x}")
 
 # Fragment is "line" or "line:col"; we use line, defaulting to 1.
 line="${url_fragment%%:*}"
 case "$line" in ''|*[!0-9]*) line=1 ;; esac
 
-dlog "parsed: url_host='$url_host' url_path='$url_path' line=$line"
+log "parsed: url_path='$url_path' line=$line"
 
 # --- Detect ssh in the active tmux pane ------------------------------------
 
@@ -84,7 +75,7 @@ dlog "parsed: url_host='$url_host' url_path='$url_path' line=$line"
 ssh_target=""
 if [ -z "${SSH_CONNECTION:-}" ]; then
 	pane_tty=$(tmux display-message -p '#{pane_tty}' 2>/dev/null) || pane_tty=""
-	dlog "pane_tty='$pane_tty'"
+	log "pane_tty='$pane_tty'"
 
 	if [ -n "$pane_tty" ]; then
 		tty_arg="${pane_tty#/dev/}"
@@ -112,7 +103,7 @@ if [ -z "${SSH_CONNECTION:-}" ]; then
 				if (d != "") { print d; exit }
 			}
 		')
-		dlog "ssh_target='$ssh_target'"
+		log "ssh_target='$ssh_target'"
 	fi
 fi
 
@@ -122,7 +113,12 @@ if [ -n "$ssh_target" ]; then
 	# Re-emit URL with empty host so the remote skips its own detection and
 	# goes straight to local routing. The remote's nvim-open lives at the same
 	# pack path, since shannon is deployed identically.
-	remote_url="file://${url_path}"
+	#
+	# Use the still-encoded path so a literal `%` in the original path (which
+	# arrived here as `%25`) is not silently corrupted: rebuilding from the
+	# decoded `url_path` would ship `file:///foo%off` to the remote, where
+	# `%of` would then be mis-parsed as a hex escape.
+	remote_url="file://${url_path_encoded}"
 	[ -n "$url_fragment" ] && remote_url="${remote_url}#${url_fragment}"
 	log "→ forwarded to $ssh_target via ssh"
 	exec ssh "$ssh_target" "\$HOME/.config/nvim/pack/bundle/opt/shannon/bin/nvim-open" "$remote_url"
@@ -163,14 +159,17 @@ sock=$("$script_dir/find-nvim-socket" 2>>"$LOG") || {
 	log "→ nvim discovery failed (see preceding stderr lines)"
 	exit 1
 }
-dlog "sock='$sock'"
+log "sock='$sock'"
 
 # --- Dispatch via shannon's RPC --------------------------------------------
 
-# Use shannon's private.open helper. Path is single-quoted in the Lua
-# expression; double any single quotes it contains.
-lua_path="${url_path//\'/\'\'}"
-expr="luaeval(\"require('wincent.shannon.private.open')('${lua_path}', ${line})\")"
+# Use shannon's private.open helper. Path is wrapped in a Lua long-bracket
+# string literal, which has no escape rules: only the literal terminator
+# `]==]` would need escaping, and that sequence cannot appear in a POSIX
+# filesystem path. This sidesteps the layered shell + Vimscript + Lua
+# quoting that would otherwise be required for paths containing quotes
+# or backslashes.
+expr="luaeval(\"require('wincent.shannon.private.open')([==[${url_path}]==], ${line})\")"
 
 if nvim --server "$sock" --remote-expr "$expr" >/dev/null 2>>"$LOG"; then
 	log "→ opened in nvim (sock=$sock, line=$line)"

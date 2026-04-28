@@ -157,8 +157,8 @@
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/shannon",
     "url": "https://github.com/wincent/shannon.git",
     "branch": "main",
-    "previous": "85de697e80254c7a100682990e83b95ce0064862",
-    "current": "c11c2b919f8bcc911797a7670c8fd361588bbd38"
+    "previous": "c11c2b919f8bcc911797a7670c8fd361588bbd38",
+    "current": "17872563edb59b65f0ba409ae3392b294edc88b3"
   },
   "github/nvim-mini/mini.ai": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.ai",
