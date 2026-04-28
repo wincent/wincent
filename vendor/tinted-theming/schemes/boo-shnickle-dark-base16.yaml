@@ -1,6 +1,6 @@
 system: "base16"
-name: "booshnickle dark"
-author: "Honey D (@honeydbeatz)"
+name: "boo-shnickle"
+author: "boo-shnickle (@boo_shnickle)"
 variant: "dark"
 palette:
   base00: "#191914" # ----
@@ -16,6 +16,6 @@ palette:
   base0A: "#fff299" # yellow
   base0B: "#e7ff99" # green
   base0C: "#bfffc5" # aqua/cyan
-  base0D: "#ccbfd9" # blue
+  base0D: "#bfbfd9" # blue
   base0E: "#f2bfd9" # purple
-  base0F: "#e5d6a6" # brown
+  base0F: "#e5d6a6" # brown/special

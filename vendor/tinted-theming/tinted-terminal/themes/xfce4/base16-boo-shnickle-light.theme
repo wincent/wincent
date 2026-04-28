@@ -1,0 +1,10 @@
+# Scheme name: boo-shnickle-light
+# Scheme author: boo-shnickle (@boo_shnickle)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-boo-shnickle-light
+ColorForeground=#5b5b49
+ColorBackground=#ffffcc
+ColorCursor=#5b5b49
+ColorBoldIsBright=FALSE
+ColorPalette=#ffffcc;#ffbfa5;#e7ff99;#fff299;#bfbfd9;#f2bfd9;#bfffc5;#5b5b49;#9c9c7d;#ffbfa5;#e7ff99;#fff299;#bfbfd9;#f2bfd9;#bfffc5;#191914

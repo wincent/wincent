@@ -24,8 +24,8 @@
     "prefix": "aspects/dotfiles/files/.zsh/zsh-completions",
     "url": "https://github.com/zsh-users/zsh-completions.git",
     "branch": "master",
-    "previous": "8b97eaf521ba04e6fef021f144a2650b0d6aa0da",
-    "current": "dbaeafd96c3fd9d84c8540f6d87c6b37c4c9173d"
+    "previous": "dbaeafd96c3fd9d84c8540f6d87c6b37c4c9173d",
+    "current": "d3578edb5f2728c2b3c8d82501ca81d3e0ab575e"
   },
   "github/zsh-users/zsh-history-substring-search": {
     "prefix": "aspects/dotfiles/files/.zsh/zsh-history-substring-search",
@@ -59,8 +59,8 @@
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/base16-nvim",
     "url": "https://github.com/wincent/base16-nvim.git",
     "branch": "main",
-    "previous": "9339f82d6ff6e6ba423a2a0a6a1c42a2a696f5f5",
-    "current": "40f30ee07bdfe51f1764473a9ca45ba25af52452"
+    "previous": "40f30ee07bdfe51f1764473a9ca45ba25af52452",
+    "current": "5722c93caf4035076983c29e65cb5f844802a1f7"
   },
   "github/hrsh7th/cmp-buffer": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-buffer",
@@ -157,8 +157,8 @@
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/shannon",
     "url": "https://github.com/wincent/shannon.git",
     "branch": "main",
-    "previous": "7bef4a65d9240b937b4b09b21107a1b081f6e688",
-    "current": "85de697e80254c7a100682990e83b95ce0064862"
+    "previous": "85de697e80254c7a100682990e83b95ce0064862",
+    "current": "c11c2b919f8bcc911797a7670c8fd361588bbd38"
   },
   "github/nvim-mini/mini.ai": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.ai",
@@ -213,15 +213,15 @@
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-lspconfig",
     "url": "https://github.com/neovim/nvim-lspconfig.git",
     "branch": "master",
-    "previous": "c588db330592fa477a70d2fee6ba20a57194bdc3",
-    "current": "e146efacbafed3789ac568abcc5a981c5decaa58"
+    "previous": "e146efacbafed3789ac568abcc5a981c5decaa58",
+    "current": "bf5abe69c1874531f359a822d0cff4d73e26113f"
   },
   "github/kyazdani42/nvim-tree.lua": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-tree.lua",
     "url": "https://github.com/kyazdani42/nvim-tree.lua.git",
     "branch": "master",
-    "previous": "509962f21ab7289d8dcd28568af539be39a8c01e",
-    "current": "d277467fc0d1d0e2bca88165a1de6b526f9f6fe8"
+    "previous": "d277467fc0d1d0e2bca88165a1de6b526f9f6fe8",
+    "current": "24cfcc94372e526fd9e1c2803ede9e0f1715e33f"
   },
   "github/nvim-treesitter/nvim-treesitter": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-treesitter",
@@ -458,35 +458,35 @@
     "prefix": "vendor/tinted-theming/schemes",
     "url": "https://github.com/tinted-theming/schemes.git",
     "branch": "spec-0.11",
-    "previous": "9ad98294952222722e5fb7f22c66162abf08c174",
-    "current": "d5ddce0697a91203fd3eccc40140890a69fc279e"
+    "previous": "d5ddce0697a91203fd3eccc40140890a69fc279e",
+    "current": "5f868b3a338b6904c47f3833b9c411be641983a8"
   },
   "github/tinted-theming/tinted-shell": {
     "prefix": "vendor/tinted-theming/tinted-shell",
     "url": "https://github.com/tinted-theming/tinted-shell.git",
     "branch": "main",
-    "previous": "ad5959fd20503f39f671c6d88c82db9ca3fd860f",
-    "current": "bf599cfa5449eda945d0ba4f60191de09491b601"
+    "previous": "bf599cfa5449eda945d0ba4f60191de09491b601",
+    "current": "5b3a380fe8553d096e272d69b4f32ad26aab6355"
   },
   "github/tinted-theming/tinted-terminal": {
     "prefix": "vendor/tinted-theming/tinted-terminal",
     "url": "https://github.com/tinted-theming/tinted-terminal.git",
     "branch": "main",
-    "previous": "70f53f746245d44411bb89dbb28a0ff3f196f40e",
-    "current": "344bc6c10a2bf61a591ae38ff5a502ed9c54737e"
+    "previous": "344bc6c10a2bf61a591ae38ff5a502ed9c54737e",
+    "current": "e345f17c140bfd64937dd964849e4ff184a74a27"
   },
   "github/tinted-theming/tinted-tmux": {
     "prefix": "vendor/tinted-theming/tinted-tmux",
     "url": "https://github.com/tinted-theming/tinted-tmux.git",
     "branch": "main",
-    "previous": "c3529673a5ab6e1b6830f618c45d9ce1bcdd829d",
-    "current": "1046007521d8ddab6e4d51907982e382d8a1b1d9"
+    "previous": "1046007521d8ddab6e4d51907982e382d8a1b1d9",
+    "current": "f798c2dce44ef815bb6b8f05a82135c7942d35ac"
   },
   "github/tinted-theming/tinted-vim": {
     "prefix": "vendor/tinted-theming/tinted-vim",
     "url": "https://github.com/tinted-theming/tinted-vim.git",
     "branch": "main",
-    "previous": "bb35b65b01406af738b078f5734ea5063b8a7e1b",
-    "current": "3b6128ba023812420defc3e870714e2131a564dd"
+    "previous": "3b6128ba023812420defc3e870714e2131a564dd",
+    "current": "122dba414a17b87af85aa981c580385b26af5e81"
   }
 }

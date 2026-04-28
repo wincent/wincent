@@ -66,6 +66,7 @@ Nvim by running `:help lspconfig-all`.
 - [csskit](#csskit)
 - [cssls](#cssls)
 - [cssmodules_ls](#cssmodules_ls)
+- [ctags_lsp](#ctags_lsp)
 - [cucumber_language_server](#cucumber_language_server)
 - [cue](#cue)
 - [custom_elements_ls](#custom_elements_ls)
@@ -305,6 +306,7 @@ Nvim by running `:help lspconfig-all`.
 - [somesass_ls](#somesass_ls)
 - [sorbet](#sorbet)
 - [sourcekit](#sourcekit)
+- [spade_ls](#spade_ls)
 - [spectral](#spectral)
 - [spyglassmc_language_server](#spyglassmc_language_server)
 - [sqlls](#sqlls)
@@ -2794,6 +2796,46 @@ Default config:
 
 ---
 
+## ctags_lsp
+
+https://github.com/netmute/ctags-lsp
+
+A simple LSP server wrapping universal-ctags. Provides completion,
+go-to-definition, and document/workspace symbols. Useful as a generic
+symbol provider for languages without a dedicated language server, or
+as a fallback alongside other LSPs.
+
+Requires `universal-ctags` to be installed and available in `$PATH`.
+Pre-built binaries are at https://github.com/netmute/ctags-lsp/releases
+(Homebrew: `brew install netmute/tap/ctags-lsp`).
+
+The server is generic and does not declare default `filetypes`. Configure
+the languages you want it to attach to:
+
+```lua
+vim.lsp.config('ctags_lsp', {
+  filetypes = { 'lua', 'ruby', 'go' },
+})
+vim.lsp.enable('ctags_lsp')
+```
+
+Snippet to enable the language server:
+```lua
+vim.lsp.enable('ctags_lsp')
+```
+
+Default config:
+- `cmd` :
+  ```lua
+  { "ctags-lsp" }
+  ```
+- `root_markers` :
+  ```lua
+  { "tags", ".tags", ".git" }
+  ```
+
+---
+
 ## cucumber_language_server
 
 https://cucumber.io
@@ -4226,7 +4268,7 @@ Default config:
 
 ## expert
 
-https://github.com/elixir-lang/expert
+https://github.com/expert-lsp/expert
 
 Expert is the official language server implementation for the Elixir programming language.
 
@@ -11820,6 +11862,39 @@ Default config:
   ```
 - `get_language_id`: [../lsp/sourcekit.lua:10](../lsp/sourcekit.lua#L10)
 - `root_dir`: [../lsp/sourcekit.lua:10](../lsp/sourcekit.lua#L10)
+
+---
+
+## spade_ls
+
+https://gitlab.com/spade-lang/spade/-/tree/main/spade-language-server
+
+Spade language server.
+
+`spade-language-server` can be installed by following the instructions
+[here](https://docs.spade-lang.org/typst/editor_setup.html)
+
+The default `cmd` assumes that `spade-language-server` binary can be
+found in `$PATH`.
+
+Snippet to enable the language server:
+```lua
+vim.lsp.enable('spade_ls')
+```
+
+Default config:
+- `cmd` :
+  ```lua
+  { "spade-language-server" }
+  ```
+- `filetypes` :
+  ```lua
+  { "spade" }
+  ```
+- `root_markers` :
+  ```lua
+  { "swim.toml" }
+  ```
 
 ---
 

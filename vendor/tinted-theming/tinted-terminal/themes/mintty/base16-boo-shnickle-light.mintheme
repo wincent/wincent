@@ -1,0 +1,27 @@
+# boo-shnickle-light theme for Mintty
+# Scheme Author: boo-shnickle (@boo_shnickle)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #ffffcc
+Red         = #ffbfa5
+Green       = #e7ff99
+Yellow      = #fff299
+Blue        = #bfbfd9
+Magenta     = #f2bfd9
+Cyan        = #bfffc5
+White       = #5b5b49
+BoldBlack   = #9c9c7d
+BoldRed     = #ffbfa5
+BoldGreen   = #e7ff99
+BoldYellow  = #fff299
+BoldBlue    = #bfbfd9
+BoldMagenta = #f2bfd9
+BoldCyan    = #bfffc5
+BoldWhite   = #191914
+
+# Background & foreground colors
+BackgroundColour = #ffffcc
+ForegroundColour = #5b5b49
+CursorColour     = #5b5b49

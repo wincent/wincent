@@ -1,0 +1,21 @@
+system: "base16"
+name: "boo-shnickle-light"
+author: "boo-shnickle (@boo_shnickle)"
+variant: "light"
+palette:
+  base00: "#ffffcc" # ++++
+  base01: "#dedeb2" # +++
+  base02: "#bdbd97" # ++
+  base03: "#9c9c7d" # +
+  base04: "#7c7c63" # -
+  base05: "#5b5b49" # --
+  base06: "#3a3a2e" # ---
+  base07: "#191914" # ----
+  base08: "#ffbfa5" # red
+  base09: "#ffdc99" # orange
+  base0A: "#fff299" # yellow
+  base0B: "#e7ff99" # green
+  base0C: "#bfffc5" # aqua/cyan
+  base0D: "#bfbfd9" # blue
+  base0E: "#f2bfd9" # purple
+  base0F: "#e5d6a6" # brown/special

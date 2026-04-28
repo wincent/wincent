@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "boo-shnickle-light",
+	"foreground": "#5b5b49",
+	"background": "#ffffcc",
+	"black": "#ffffcc",
+	"blue": "#bfbfd9",
+	"brightBlack": "#9c9c7d",
+	"brightBlue": "#bfbfd9",
+	"brightCyan": "#bfffc5",
+	"brightGreen": "#e7ff99",
+	"brightPurple": "#f2bfd9",
+	"brightRed": "#ffbfa5",
+	"brightWhite": "#191914",
+	"brightYellow": "#fff299",
+	"cyan": "#bfffc5",
+	"green": "#e7ff99",
+	"purple": "#f2bfd9",
+	"red": "#ffbfa5",
+	"white": "#5b5b49",
+	"yellow": "#fff299"
+},

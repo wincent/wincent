@@ -1,0 +1,43 @@
+# base16 boo-shnickle-light
+# Scheme author: boo-shnickle (@boo_shnickle)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#ffffcc"
+foreground = "#5b5b49"
+
+cursor_bg = "#5b5b49"
+cursor_border = "#5b5b49"
+cursor_fg = "#ffffcc"
+
+selection_bg = "#5b5b49"
+selection_fg = "#bdbd97"
+
+ansi = [
+  "#ffffcc",
+  "#ffbfa5",
+  "#e7ff99",
+  "#fff299",
+  "#bfbfd9",
+  "#f2bfd9",
+  "#bfffc5",
+  "#5b5b49"
+]
+brights = [
+  "#9c9c7d",
+  "#ffbfa5",
+  "#e7ff99",
+  "#fff299",
+  "#bfbfd9",
+  "#f2bfd9",
+  "#bfffc5",
+  "#191914"
+]
+
+[colors.indexed]
+16 = "#ffdc99"
+17 = "#e5d6a6"
+18 = "#dedeb2"
+19 = "#bdbd97"
+20 = "#7c7c63"
+21 = "#3a3a2e"

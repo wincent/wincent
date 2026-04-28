@@ -27,7 +27,7 @@ jobs:
         uses: actions/checkout@v6
 
       - name: install lua ${{ matrix.lua_version }}
-        uses: leafo/gh-actions-lua@v12
+        uses: leafo/gh-actions-lua@v13
         with:
           luaVersion: ${{ matrix.lua_version }}
 
@@ -92,6 +92,5 @@ jobs:
           curl -L "https://github.com/neovim/neovim/archive/refs/tags/${{ matrix.nvim_version }}.tar.gz" | tar zx --directory "${DIR_NVIM_SRC}/.."
           cd "${DIR_NVIM_SRC}"
           make doc
-          make lintdoc
 
       - run: make help-check
