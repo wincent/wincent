@@ -105,6 +105,10 @@ const SCHEMAS: {[name: string]: Type} = {
   Aspect: {
     definitions: DEFINITIONS,
     properties: {
+      aliases: {
+        type: 'array',
+        items: {type: 'string'},
+      },
       description: {
         type: 'string',
       },

@@ -239,6 +239,17 @@ function genAssertFunction(
                         b.line(`assert${target}(item);`);
                       },
                     );
+                  } else if (
+                    'items' in propertySchema &&
+                    propertySchema.items &&
+                    'type' in propertySchema.items &&
+                    (propertySchema.items.type === 'string' ||
+                      propertySchema.items.type === 'number' ||
+                      propertySchema.items.type === 'boolean')
+                  ) {
+                    b.assert(
+                      `typeof item === '${propertySchema.items.type}'`,
+                    );
                   }
                 });
               } else if (

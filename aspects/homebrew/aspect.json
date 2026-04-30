@@ -1,3 +1,4 @@
 {
+  "aliases": ["brew"],
   "description": "Installs and updates Homebrew"
 }

@@ -2,6 +2,7 @@ import * as assert from 'node:assert';
 import * as path from 'node:path';
 
 import ErrorWithMetadata from './ErrorWithMetadata.ts';
+import buildAspectAliasMap from './buildAspectAliasMap.ts';
 import {COLORS, LOG_LEVEL, log, nextLogLevel} from './console.ts';
 import dedent from './dedent.ts';
 import root from './dsl/root.ts';
@@ -49,17 +50,25 @@ export default async function getOptions(
 
   const entries = await fs.readdir(directory, {withFileTypes: true});
 
-  const aspects: Array<[string, string]> = [];
+  const aspects: Array<{
+    name: string;
+    description: string;
+    aliases: ReadonlyArray<string>;
+  }> = [];
 
   for (const entry of entries) {
     if (entry.isDirectory()) {
       const name = entry.name;
 
-      const {description} = await readAspect(path.join(directory, name));
+      const {description, aliases = []} = await readAspect(
+        path.join(directory, name),
+      );
 
-      aspects.push([name, description]);
+      aspects.push({name, description, aliases});
     }
   }
+
+  const aliasMap = buildAspectAliasMap(aspects);
 
   // Explode "-qt" (etc) to "-q", "-t".
   const explodedArgs = args.flatMap((arg) => {
@@ -129,9 +138,10 @@ export default async function getOptions(
       );
     } else if (arg.startsWith('^') || arg.startsWith('!')) {
       const sliced = arg.slice(1);
+      const resolved = aliasMap.get(sliced) ?? sliced;
       try {
-        assertAspect(sliced);
-        options.excluded.add(sliced);
+        assertAspect(resolved);
+        options.excluded.add(resolved);
       } catch {
         throw new ErrorWithMetadata(
           `unrecognized aspect ${
@@ -142,9 +152,10 @@ export default async function getOptions(
         );
       }
     } else {
+      const resolved = aliasMap.get(arg) ?? arg;
       try {
-        assertAspect(arg);
-        options.focused.add(arg);
+        assertAspect(resolved);
+        options.focused.add(resolved);
       } catch {
         throw new ErrorWithMetadata(
           `unrecognized aspect ${
@@ -172,7 +183,11 @@ function fuzz(value: string) {
   );
 }
 
-async function printUsage(aspects: Array<[string, string]>) {
+async function printUsage(
+  aspects: Array<
+    {name: string; description: string; aliases: ReadonlyArray<string>}
+  >,
+) {
   // TODO: actually implement all the switches mentioned here
   await log(
     dedent`
@@ -196,8 +211,14 @@ async function printUsage(aspects: Array<[string, string]>) {
     `,
   );
 
-  for (const [aspect, description] of aspects) {
-    await log(`  ${aspect}`);
+  for (const {name, description, aliases} of aspects) {
+    if (aliases.length === 0) {
+      await log(`  ${name}`);
+    } else if (aliases.length === 1) {
+      await log(`  ${name} (alias: ${aliases[0]})`);
+    } else {
+      await log(`  ${name} (aliases: ${aliases.join(', ')})`);
+    }
     await log(`    ${description}`);
   }
 
