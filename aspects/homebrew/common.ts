@@ -1214,6 +1214,13 @@ task('install hammerspoon cask', async () => {
   });
 });
 
+// Speech to text application.
+task('install handy cask', async () => {
+  await command('brew', ['install', '--cask', 'handy'], {
+    creates: '/opt/homebrew/Caskroom/handy',
+  });
+});
+
 // Hex editor focussing on speed.
 task('install hex-fiend cask', async () => {
   await command('brew', ['install', '--cask', 'hex-fiend'], {

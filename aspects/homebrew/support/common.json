@@ -1350,6 +1350,12 @@
       "note": null
     },
     {
+      "name": "handy",
+      "tap": "homebrew/cask",
+      "description": "Speech to text application",
+      "note": null
+    },
+    {
       "name": "hex-fiend",
       "tap": "homebrew/cask",
       "description": "Hex editor focussing on speed",
