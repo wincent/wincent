@@ -15,7 +15,7 @@ export default function stringify(value: unknown): string {
 
   const seen = new Set<unknown>();
 
-  function traverse(value: unknown) {
+  function traverse(value: unknown): string {
     if (
       value == null ||
       typeof value === 'boolean' ||
@@ -27,7 +27,27 @@ export default function stringify(value: unknown): string {
     } else if (typeof value === 'string' || value instanceof String) {
       return JSON.stringify(value);
     } else if (value instanceof Error) {
-      return JSON.stringify(value.toString());
+      if (seen.has(value)) {
+        return CIRCULAR;
+      }
+      seen.add(value);
+      const base = JSON.stringify(value.toString());
+      const related: Array<[string, unknown]> = [];
+      if (value instanceof AggregateError) {
+        related.push(['errors', value.errors]);
+      }
+      if ('cause' in value && value.cause !== undefined) {
+        related.push(['cause', value.cause]);
+      }
+      if (related.length === 0) {
+        return base;
+      }
+      indent += '  ';
+      const body = related
+        .map(([k, v]) => `${indent}${JSON.stringify(k)}: ${traverse(v)},`)
+        .join('\n');
+      indent = indent.slice(0, -2);
+      return `${base} {\n${body}\n${indent}}`;
     } else if (Array.isArray(value)) {
       if (seen.has(value)) {
         return CIRCULAR;

@@ -43,6 +43,49 @@ test('stringify() an Error', () => {
   );
 });
 
+test('stringify() an AggregateError', () => {
+  const error = new AggregateError(
+    [new Error('a'), new Error('b')],
+    'all failed',
+  );
+  assert.strictEqual(
+    stringify(error),
+    dedent`
+            "AggregateError: all failed" {
+              "errors": [
+                "Error: a",
+                "Error: b",
+              ],
+            }
+        `.trimEnd(),
+  );
+});
+
+test('stringify() an Error with a cause', () => {
+  const error = new Error('outer', {cause: new Error('inner')});
+  assert.strictEqual(
+    stringify(error),
+    dedent`
+            "Error: outer" {
+              "cause": "Error: inner",
+            }
+        `.trimEnd(),
+  );
+});
+
+test('stringify() an Error with a circular cause', () => {
+  const error: Error & {cause?: unknown} = new Error('outer');
+  error.cause = error;
+  assert.strictEqual(
+    stringify(error),
+    dedent`
+            "Error: outer" {
+              "cause": «circular»,
+            }
+        `.trimEnd(),
+  );
+});
+
 test('stringify() a RegExp', () => {
   assert.strictEqual(stringify(/stuff \w+/i), '/stuff \\w+/i');
 });
