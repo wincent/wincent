@@ -144,7 +144,27 @@ class Context {
   ): Promise<void> {
     this.#variables.registerFinalVariables(aspect, variables);
     this.#currentTask.set(aspect, task);
-    await callback();
+    // Centralize failure bookkeeping here so the `failed` count in the final
+    // summary is accurate regardless of which DSL operation (or raw `throw`)
+    // produced the error. Operations that want a friendly headline
+    // (e.g. `command \`...\` failed`, `fetch \`<url>\` failed`) wrap the
+    // underlying cause in an `ErrorWithMetadata` and re-throw; we use that
+    // verbatim. Anything else gets a generic `task \`<name>\` failed`
+    // wrapper, with the original error preserved as `cause` so that
+    // `stringify()` can render it (see `fig/stringify.ts`).
+    try {
+      await callback();
+    } catch (error) {
+      if (error instanceof ErrorWithMetadata) {
+        await this.informFailed(error);
+      } else {
+        await this.informFailed(
+          new ErrorWithMetadata(`task \`${task}\` failed`, undefined, {
+            cause: error,
+          }),
+        );
+      }
+    }
   }
 
   get attributes(): Attributes {

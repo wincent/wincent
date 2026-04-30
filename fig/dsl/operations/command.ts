@@ -75,12 +75,13 @@ export default async function command(
     }
   } catch (error) {
     if (error instanceof ErrorWithMetadata) {
-      Context.informFailed(error);
-    } else {
-      await log.debug(String(error));
-      Context.informFailed(`command \`${description}\` failed`);
+      throw error;
     }
+    await log.debug(String(error));
+    throw new ErrorWithMetadata(
+      `command \`${description}\` failed`,
+      undefined,
+      {cause: error},
+    );
   }
-
-  return null;
 }

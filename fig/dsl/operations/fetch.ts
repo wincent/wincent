@@ -3,6 +3,7 @@ import * as http from 'node:http';
 import * as https from 'node:https';
 import {join} from 'node:path';
 
+import ErrorWithMetadata from '../../ErrorWithMetadata.ts';
 import {log} from '../../console.ts';
 import {createWriteStream, promises} from '../../fs.ts';
 import tempdir from '../../fs/tempdir.ts';
@@ -120,5 +121,18 @@ export default async function fetch({
     });
   }
 
-  return go(url);
+  // Wrap any rejection in an `ErrorWithMetadata` so the surrounding task's
+  // failure surfaces with a friendly headline (`fetch \`<url>\` failed`)
+  // and the underlying error — typically a Node `AggregateError` from
+  // happy-eyeballs DNS/connect retries — preserved as `cause`.
+  try {
+    return await go(url);
+  } catch (error) {
+    if (error instanceof ErrorWithMetadata) {
+      throw error;
+    }
+    throw new ErrorWithMetadata(`fetch \`${url}\` failed`, undefined, {
+      cause: error,
+    });
+  }
 }
