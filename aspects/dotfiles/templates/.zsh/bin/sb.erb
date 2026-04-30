@@ -38,12 +38,28 @@ SSH_OPTS=(-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLeve
 
 # --- Helpers (available to .sandboxrc) ---
 
+# Run a command on the VM. Uses key-based auth, which `install_ssh_key` (in
+# `provision()`) sets up on the first `sb create`/`sb reset`. Keeping the
+# foreground process clean (no `sshpass` wrapper) matters for tooling that
+# inspects the kitty window's foreground process to discover the ssh
+# destination — e.g. shannon's `nvim-open` click-to-open handler walks the
+# argv looking for `ssh <destination>`, which `sshpass -p PWD ssh ...`
+# obscures.
 sb_ssh() {
-    sshpass -p "$VM_PASS" ssh "${SSH_OPTS[@]}" "$VM_USER@$1" "${@:2}"
+    ssh "${SSH_OPTS[@]}" "$VM_USER@$1" "${@:2}"
 }
 
 sb_scp() {
-    sshpass -p "$VM_PASS" scp "${SSH_OPTS[@]}" "$@"
+    scp "${SSH_OPTS[@]}" "$@"
+}
+
+# Bootstrap helper for the small set of operations that have to run *before*
+# the host's public key has been installed on the VM (initial `wait_for_ssh`,
+# the `install_ssh_key` step itself). Uses sshpass for password auth so
+# `sb create` works on a freshly-cloned VM that has only the default
+# `admin/admin` credentials.
+sb_ssh_password() {
+    sshpass -p "$VM_PASS" ssh "${SSH_OPTS[@]}" "$VM_USER@$1" "${@:2}"
 }
 
 # --- Source config ---
@@ -107,7 +123,9 @@ wait_for_ssh() {
     local ip="$1"
     echo "Waiting for SSH..." >&2
     local attempts=0
-    while ! sb_ssh "$ip" true &>/dev/null; do
+    # Bootstrap path: use password auth, since the host pubkey hasn't been
+    # installed on the VM yet (`install_ssh_key` runs later, in `provision`).
+    while ! sb_ssh_password "$ip" true &>/dev/null; do
         attempts=$((attempts + 1))
         if [ "$attempts" -ge 30 ]; then
             echo "Error: timed out waiting for SSH" >&2
@@ -148,10 +166,14 @@ install_ssh_key() {
     pubkey="$(<"$key")"
     local quoted
     quoted="$(printf '%q' "$pubkey")"
-    sb_ssh "$ip" "mkdir -p ~/.ssh && chmod 700 ~/.ssh && \
-                  touch ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys && \
-                  grep -qxF $quoted ~/.ssh/authorized_keys \
-                  || echo $quoted >> ~/.ssh/authorized_keys"
+    # Bootstrap: this is the operation that *installs* the key, so we use
+    # password auth here. After this succeeds, every subsequent `sb_ssh` call
+    # — here in `provision`, in `init_repo`, `configure_claude`,
+    # `setup_git_remote`, runtime `sb ssh`, etc. — uses key-based auth.
+    sb_ssh_password "$ip" "mkdir -p ~/.ssh && chmod 700 ~/.ssh && \
+                           touch ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys && \
+                           grep -qxF $quoted ~/.ssh/authorized_keys \
+                           || echo $quoted >> ~/.ssh/authorized_keys"
 }
 
 init_repo() {
@@ -174,7 +196,7 @@ EOF'
 
 setup_git_remote() {
     local ip="$1"
-    export GIT_SSH_COMMAND="sshpass -p $VM_PASS ssh ${SSH_OPTS[*]}"
+    export GIT_SSH_COMMAND="ssh ${SSH_OPTS[*]}"
     git -C "$PROJECT_ROOT" remote remove vm 2>/dev/null || true
     git -C "$PROJECT_ROOT" remote add vm "ssh://${VM_USER}@${ip}${VM_REPO_PATH}"
 }
@@ -247,7 +269,7 @@ cmd_ssh() {
     elif [ -n "$SB_SSH_EXEC" ]; then
         cmd_args=(-t "$SB_SSH_EXEC")
     fi
-    exec sshpass -p "$VM_PASS" ssh "${SSH_OPTS[@]}" \
+    exec ssh "${SSH_OPTS[@]}" \
         "${port_args[@]+"${port_args[@]}"}" \
         "${socket_args[@]+"${socket_args[@]}"}" \
         "$VM_USER@$ip" "${cmd_args[@]+"${cmd_args[@]}"}"
