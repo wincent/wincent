@@ -67,43 +67,77 @@ case "$line" in ''|*[!0-9]*) line=1 ;; esac
 
 log "parsed: url_path='$url_path' line=$line"
 
-# --- Detect ssh in the active tmux pane ------------------------------------
-
-# Skip detection when *we* were invoked over ssh: that means we're already on
-# the remote side of a previous dispatch, and any tmux+ssh found here would
+# --- Detect ssh upstream of this click -------------------------------------
+#
+# We need to know whether the kitty window where the click happened is hosting
+# an ssh process, and if so where to. Two possible sources of truth, tried in
+# order:
+#
+#   1. Local tmux pane: covers `kitty → tmux → ssh`. Ask tmux for the active
+#      pane's tty, then ps-walk for ssh.
+#   2. Kitty source window: covers `kitty → ssh` directly (no local tmux).
+#      Ask kitty's remote-control to enumerate foreground processes of the
+#      window the click came from, then walk those.
+#
+# Skip both when *we* were invoked over ssh: that means we're already on the
+# remote side of a previous dispatch, and any ssh we found here would
 # (incorrectly) re-forward elsewhere.
+
+# Walk each line of stdin (one process's argv, joined by spaces, in
+# `ps -o args=` format), find the first whose argv[0] looks like ssh, and
+# print its destination (first non-flag positional). Argv tokens containing
+# embedded spaces would be lossily split, but that's fine for typical ssh
+# invocations. Skipped flags include those that take a value: -p PORT,
+# -i KEY, -o opt=val, -J jumphost, -l user, -F config, -L/-R/-D/-W forwards,
+# -B/-b/-c/-E/-e/-I/-m/-O/-Q/-S/-w.
+extract_ssh_dest() {
+	awk '
+		function dest(    n, i, tok) {
+			n = NF
+			i = 2
+			while (i <= n) {
+				tok = $i
+				if (tok ~ /^-[bcDEeFIiJLlmOopQRSWw]./) { i++; continue }
+				if (tok ~ /^-[bcDEeFIiJLlmOopQRSWw]$/) { i += 2; continue }
+				if (tok ~ /^-/) { i++; continue }
+				return tok
+			}
+			return ""
+		}
+		$1 ~ /(^|\/)ssh$/ {
+			d = dest()
+			if (d != "") { print d; exit }
+		}
+	'
+}
+
 ssh_target=""
 if [ -z "${SSH_CONNECTION:-}" ]; then
+	# Path 1: local tmux pane.
 	pane_tty=$(tmux display-message -p '#{pane_tty}' 2>/dev/null) || pane_tty=""
 	log "pane_tty='$pane_tty'"
-
 	if [ -n "$pane_tty" ]; then
 		tty_arg="${pane_tty#/dev/}"
+		ssh_target=$(ps -t "$tty_arg" -o args= 2>/dev/null | extract_ssh_dest)
+		log "tmux ssh_target='$ssh_target'"
+	fi
 
-		# Look for ssh in the pane's processes; extract destination from argv.
-		# Skip flag args, including those that take a value (-p PORT, -i KEY,
-		# -o opt=val, -J jumphost, -l user, -F config, -L/-R/-D/-W forwards,
-		# -B/-b/-c/-E/-e/-I/-m/-O/-Q/-S/-w). The first non-flag positional is
-		# the destination.
-		ssh_target=$(ps -t "$tty_arg" -o args= 2>/dev/null | awk '
-			function dest(    n, i, tok) {
-				n = NF
-				i = 2
-				while (i <= n) {
-					tok = $i
-					if (tok ~ /^-[bcDEeFIiJLlmOopQRSWw]./) { i++; continue }
-					if (tok ~ /^-[bcDEeFIiJLlmOopQRSWw]$/) { i += 2; continue }
-					if (tok ~ /^-/) { i++; continue }
-					return tok
-				}
-				return ""
-			}
-			$1 ~ /(^|\/)ssh$/ {
-				d = dest()
-				if (d != "") { print d; exit }
-			}
-		')
-		log "ssh_target='$ssh_target'"
+	# Path 2: kitty source window. Only consulted when tmux didn't yield an
+	# ssh, so the existing tmux-based path is unaffected for users without
+	# kitten/jq installed.
+	if [ -z "$ssh_target" ] && command -v kitten >/dev/null 2>&1 \
+	   && command -v jq >/dev/null 2>&1; then
+		# `launch --type=background` invocations get a bare launchd-style env
+		# (no KITTY_LISTEN_ON, no KITTY_WINDOW_ID), so we can't rely on either
+		# being inherited. Fall back to the canonical socket path from
+		# kitty.conf's `listen_on`, and to a recency-based window match.
+		kitty_socket="${KITTY_LISTEN_ON:-unix:$HOME/.config/kitty/kitty.sock}"
+		kitty_match="${KITTY_WINDOW_ID:+id:$KITTY_WINDOW_ID}"
+		kitty_match="${kitty_match:-recent:0}"
+		ssh_target=$(kitten @ --to="$kitty_socket" ls --match "$kitty_match" 2>/dev/null \
+			| jq -r '.[].tabs[].windows[].foreground_processes[].cmdline | join(" ")' \
+			| extract_ssh_dest)
+		log "kitty ssh_target='$ssh_target' (match=$kitty_match socket=$kitty_socket)"
 	fi
 fi
 
@@ -120,8 +154,25 @@ if [ -n "$ssh_target" ]; then
 	# `%of` would then be mis-parsed as a hex escape.
 	remote_url="file://${url_path_encoded}"
 	[ -n "$url_fragment" ] && remote_url="${remote_url}#${url_fragment}"
-	log "→ forwarded to $ssh_target via ssh"
-	exec ssh "$ssh_target" "\$HOME/.config/nvim/pack/bundle/opt/shannon/bin/nvim-open" "$remote_url"
+
+	# Default ssh options match the trust-on-first-use posture used by
+	# wincent's `bin/sb` for ephemeral VMs: don't prompt on a changed/missing
+	# host key (we have no tty for a prompt), and don't pollute known_hosts
+	# with throwaway VM fingerprints. Override via SHANNON_SSH_OPTS, or set
+	# it to an empty string to opt out entirely.
+	#
+	# We default-when-unset rather than relying on kitty's `env` config
+	# directive because that directive isn't reliably propagated to
+	# `launch --type=background` invocations on macOS.
+	default_ssh_opts="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR"
+	opts_str="${SHANNON_SSH_OPTS-$default_ssh_opts}"
+	ssh_opts=()
+	if [ -n "$opts_str" ]; then
+		read -ra ssh_opts <<<"$opts_str"
+	fi
+
+	log "→ forwarded to $ssh_target via ssh (opts='$opts_str')"
+	exec ssh ${ssh_opts[@]+"${ssh_opts[@]}"} "$ssh_target" "\$HOME/.config/nvim/pack/bundle/opt/shannon/bin/nvim-open" "$remote_url"
 fi
 
 # --- Local routing: find sibling-pane nvim ---------------------------------

@@ -120,6 +120,8 @@ wait_for_ssh() {
 provision() {
     local ip="$1"
 
+    install_ssh_key "$ip"
+
     echo "Configuring git identity..."
     local host_name host_email vm_hostname
     host_name="$(git config user.name)"
@@ -131,6 +133,25 @@ provision() {
         echo "Running project-specific provisioning..."
         sb_provision "$ip"
     fi
+}
+
+# Allow public-key access for other tools such as nvim-open.
+install_ssh_key() {
+    local ip="$1"
+    local key="$HOME/.ssh/id_ed25519.pub"
+    if [ ! -f "$key" ]; then
+        echo "Warning: $key not found; nvim-open click-to-open will not work over ssh" >&2
+        return 0
+    fi
+    echo "Installing SSH public key for passwordless auth..."
+    local pubkey
+    pubkey="$(<"$key")"
+    local quoted
+    quoted="$(printf '%q' "$pubkey")"
+    sb_ssh "$ip" "mkdir -p ~/.ssh && chmod 700 ~/.ssh && \
+                  touch ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys && \
+                  grep -qxF $quoted ~/.ssh/authorized_keys \
+                  || echo $quoted >> ~/.ssh/authorized_keys"
 }
 
 init_repo() {
