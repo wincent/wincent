@@ -4,7 +4,7 @@
  * @see https://ruby-doc.org/stdlib-2.7.1/libdoc/strscan/rdoc/StringScanner.html
  */
 export default class Scanner {
-  captures: Array<string | undefined> | undefined;
+  captures: ReadonlyArray<string | undefined> | undefined;
   index: number;
   remaining: string;
   string: string;

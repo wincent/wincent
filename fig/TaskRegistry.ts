@@ -17,7 +17,7 @@ export default class TaskRegistry {
     this.#callbacks.get(aspect)!.push([callback, name]);
   }
 
-  get(aspect: Aspect): Array<[Callback, string]> {
+  get(aspect: Aspect): ReadonlyArray<[Callback, string]> {
     return this.#callbacks.get(aspect) || [];
   }
 }

@@ -14,7 +14,7 @@ export default class Attributes {
   #arch?: string;
   #distribution?: 'arch' | 'debian' | '';
   #gid?: number;
-  #groupNames?: Array<string>;
+  #groupNames?: ReadonlyArray<string>;
   #home?: string;
   #hostname?: string;
   #platform?: 'darwin' | 'linux';
@@ -109,7 +109,7 @@ export default class Attributes {
     return this.groupNames[0];
   }
 
-  get groupNames(): Array<string> {
+  get groupNames(): ReadonlyArray<string> {
     if (!this.#groupNames) {
       this.#groupNames = id();
     }

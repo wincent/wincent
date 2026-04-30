@@ -56,7 +56,7 @@ type Formula = {
   tap: string;
   description: string | null;
   /** Eg. `["HEAD"]`, passed as `--HEAD`. */
-  args: Array<string>;
+  args: ReadonlyArray<string>;
   restartService: boolean;
   note: string | null;
 };
@@ -87,11 +87,11 @@ type GoPackage = {
 };
 
 type Metadata = {
-  taps: Array<Tap>;
-  formulae: Array<Formula>;
-  casks: Array<Cask>;
-  crates: Array<Crate>;
-  goPackages: Array<GoPackage>;
+  taps: ReadonlyArray<Tap>;
+  formulae: ReadonlyArray<Formula>;
+  casks: ReadonlyArray<Cask>;
+  crates: ReadonlyArray<Crate>;
+  goPackages: ReadonlyArray<GoPackage>;
 };
 
 type RawItems = {

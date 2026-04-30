@@ -13,7 +13,7 @@ import {spawnSync} from '../child_process.ts';
  * all group names, but by convention returns the principal group as the
  * first.
  */
-export default function id(): Array<string> {
+export default function id(): ReadonlyArray<string> {
   const groups = run('-Gn').split(/\s+/);
 
   const group = run('-rgn');
