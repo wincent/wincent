@@ -157,8 +157,8 @@ task('install shellbot', async () => {
 task('download spell files', async () => {
   for (
     const url of [
-      'https://ftp.nluug.nl/pub/vim/runtime/spell/es.utf-8.spl',
-      'https://ftp.nluug.nl/pub/vim/runtime/spell/es.utf-8.sug',
+      'https://ftp.icm.edu.pl/packages/vim/runtime/spell/es.utf-8.spl',
+      'https://ftp.icm.edu.pl/packages/vim/runtime/spell/es.utf-8.sug',
     ]
   ) {
     const dest = path('~/.config/nvim/spell').join(path(url).basename);
