@@ -10,6 +10,8 @@ import {
   variable,
 } from 'fig';
 
+const TMUX_VERSION = '3.6a';
+
 function prependPath(dir: string) {
   const expanded = path(dir).expand.toString();
   if (!process.env.PATH?.includes(expanded)) {
@@ -89,4 +91,50 @@ task('install Claude Code', async () => {
     creates: '~/.claude/local/bin/claude',
   });
   prependPath('~/.claude/local/bin');
+});
+
+task('clone tmux', async () => {
+  await file({path: '~/code', state: 'directory'});
+
+  await command(
+    'git',
+    [
+      'clone',
+      '--branch',
+      TMUX_VERSION,
+      '--depth',
+      '1',
+      'https://github.com/tmux/tmux.git',
+    ],
+    {
+      chdir: '~/code',
+      creates: '~/code/tmux',
+      raw: true,
+    },
+  );
+});
+
+task('build tmux', async () => {
+  await command('sh', ['autogen.sh'], {
+    chdir: '~/code/tmux',
+    creates: '~/code/tmux/configure',
+  });
+
+  // Don't pass "./configure" here because it will get noramlized to
+  // "configure" and fail; pass an absolute path instead.
+  await command('~/code/tmux/configure', [], {
+    chdir: '~/code/tmux',
+    creates: '~/code/tmux/Makefile',
+  });
+
+  await command('make', [], {
+    chdir: '~/code/tmux',
+    creates: '~/code/tmux/tmux',
+  });
+
+  await command('make', ['install'], {
+    chdir: '~/code/tmux',
+    creates: '/usr/local/bin/tmux',
+    sudo: true,
+  });
 });
