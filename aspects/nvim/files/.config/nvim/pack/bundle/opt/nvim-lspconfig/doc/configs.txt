@@ -2857,7 +2857,7 @@ is picked up, you can either launch `nvim` with the correct environment activate
 Or you can modify the default `cmd` to include the full path to the Python interpreter.
 >lua
   vim.lsp.config('esbonio', {
-    cmd = { '/path/to/virtualenv/bin/python', '-m', 'esbonio' }
+    cmd = { '/path/to/virtualenv/bin/python', '-m', 'esbonio.server' }
   })
 
 Esbonio supports a number of config values passed as `init_options` on startup, for example.
@@ -2881,7 +2881,7 @@ Snippet to enable the language server: >lua
 
 Default config:
 - cmd: >lua
-  { "python3", "-m", "esbonio" }
+  { "python3", "-m", "esbonio.server" }
 - filetypes: >lua
   { "rst" }
 - root_markers: >lua
@@ -4949,7 +4949,7 @@ Snippet to enable the language server: >lua
 
 Default config:
 - cmd: >lua
-  { "kotlin-lsp", "--stdio" }
+  { "intellij-server", "--stdio" }
 - filetypes: >lua
   { "kotlin" }
 - root_markers: >lua

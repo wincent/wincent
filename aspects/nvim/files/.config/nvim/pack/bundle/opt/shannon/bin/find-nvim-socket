@@ -69,14 +69,33 @@ nvim_pid=$(find_nvim_in_panes) || {
   exit 1
 }
 
-# The server socket may belong to a child process of nvim.
-# Check the nvim pid itself and its children.
+# Look for nvim's listen socket. Two complications:
+#
+# - The pid in the socket name (`nvim.<pid>.0`) isn't always the same as the
+#   pid we identified as nvim: nvim's main process can fork the server, and
+#   the socket is named after the child. So we also check children via
+#   `pgrep -P`.
+#
+# - The directory layout differs by platform. On Linux, nvim writes the
+#   socket directly under `$XDG_RUNTIME_DIR` (which is per-user already,
+#   typically `/run/user/<UID>`) as `nvim.<pid>.0`. On macOS,
+#   `$XDG_RUNTIME_DIR` is unset, so nvim falls back to `$TMPDIR` (also
+#   per-user there) but adds a `$USER` namespace and a random subdir, giving
+#   `<TMPDIR>/nvim.<USER>/<random>/nvim.<pid>.0`. We try both shapes under
+#   any of nvim's candidate temp dirs, in the same precedence order nvim
+#   itself uses.
 for pid in $nvim_pid $(pgrep -P "$nvim_pid" 2>/dev/null); do
-  for sock in "${TMPDIR:-/tmp}"/nvim."${USER}"/*/nvim."${pid}".0; do
-    if [ -S "$sock" ]; then
-      echo "$sock"
-      exit 0
-    fi
+  for base in "${XDG_RUNTIME_DIR:-}" "${TMPDIR:-}" /tmp; do
+    [ -z "$base" ] && continue
+    for sock in \
+      "$base/nvim.${pid}.0" \
+      "$base"/nvim."${USER}"/*/nvim."${pid}".0
+    do
+      if [ -S "$sock" ]; then
+        echo "$sock"
+        exit 0
+      fi
+    done
   done
 done
 

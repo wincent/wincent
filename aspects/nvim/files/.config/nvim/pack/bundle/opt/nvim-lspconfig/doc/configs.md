@@ -4105,7 +4105,7 @@ Or you can modify the default `cmd` to include the full path to the Python inter
 
 ```lua
 vim.lsp.config('esbonio', {
-  cmd = { '/path/to/virtualenv/bin/python', '-m', 'esbonio' }
+  cmd = { '/path/to/virtualenv/bin/python', '-m', 'esbonio.server' }
 })
 ```
 
@@ -4134,7 +4134,7 @@ vim.lsp.enable('esbonio')
 Default config:
 - `cmd` :
   ```lua
-  { "python3", "-m", "esbonio" }
+  { "python3", "-m", "esbonio.server" }
   ```
 - `filetypes` :
   ```lua
@@ -6801,7 +6801,7 @@ vim.lsp.enable('kotlin_lsp')
 Default config:
 - `cmd` :
   ```lua
-  { "kotlin-lsp", "--stdio" }
+  { "intellij-server", "--stdio" }
   ```
 - `filetypes` :
   ```lua

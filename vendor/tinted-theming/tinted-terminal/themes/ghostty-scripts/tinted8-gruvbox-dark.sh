@@ -38,9 +38,9 @@ ghostty_palette_color_15="#fbf1c7"
 
 ghostty_ui_background_color="#282828"
 ghostty_ui_foreground_color="#ebdbb2"
-ghostty_ui_cursorcolor_color="#ebdbb2"
+ghostty_ui_cursorcolor_color="#282828"
 ghostty_ui_selectionbackground_color="#3c3836"
-ghostty_ui_selectionforeground_color="#"
+ghostty_ui_selectionforeground_color="#ebdbb2"
 
 _theme_file() {
 cat <<EOF

@@ -157,8 +157,8 @@
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/shannon",
     "url": "https://github.com/wincent/shannon.git",
     "branch": "main",
-    "previous": "c11c2b919f8bcc911797a7670c8fd361588bbd38",
-    "current": "17872563edb59b65f0ba409ae3392b294edc88b3"
+    "previous": "17872563edb59b65f0ba409ae3392b294edc88b3",
+    "current": "d8f0cc4b0fef50c2ea1d83e585517caf39929d8c"
   },
   "github/nvim-mini/mini.ai": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.ai",
@@ -213,8 +213,8 @@
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-lspconfig",
     "url": "https://github.com/neovim/nvim-lspconfig.git",
     "branch": "master",
-    "previous": "e146efacbafed3789ac568abcc5a981c5decaa58",
-    "current": "bf5abe69c1874531f359a822d0cff4d73e26113f"
+    "previous": "bf5abe69c1874531f359a822d0cff4d73e26113f",
+    "current": "f7e89f3d19fb436e1fbeff3bf4291eef35da94e3"
   },
   "github/kyazdani42/nvim-tree.lua": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-tree.lua",
@@ -472,8 +472,8 @@
     "prefix": "vendor/tinted-theming/tinted-terminal",
     "url": "https://github.com/tinted-theming/tinted-terminal.git",
     "branch": "main",
-    "previous": "344bc6c10a2bf61a591ae38ff5a502ed9c54737e",
-    "current": "e345f17c140bfd64937dd964849e4ff184a74a27"
+    "previous": "e345f17c140bfd64937dd964849e4ff184a74a27",
+    "current": "b4d40a26eac54635800bf6e971ac84074afcb7ff"
   },
   "github/tinted-theming/tinted-tmux": {
     "prefix": "vendor/tinted-theming/tinted-tmux",
