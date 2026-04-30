@@ -111,8 +111,10 @@ export default async function defaults({
     // as missing values.
     if (!/does not exist/.test(result.stderr)) {
       throw new ErrorWithMetadata(`Unable to read type of ${description}`, {
-        ...result,
-        error: result.error?.toString() ?? null,
+        metadata: {
+          ...result,
+          error: result.error?.toString() ?? null,
+        },
       });
     }
   } else {
@@ -153,8 +155,10 @@ export default async function defaults({
     if (result.status !== 0) {
       // Unlikely to get here (able to read type but not value).
       throw new ErrorWithMetadata(`Unable to read ${description}`, {
-        ...result,
-        error: result.error?.toString() ?? null,
+        metadata: {
+          ...result,
+          error: result.error?.toString() ?? null,
+        },
       });
     }
 
@@ -191,8 +195,10 @@ export default async function defaults({
 
       if (result.status !== 0) {
         throw new ErrorWithMetadata(`Unable to delete ${description}`, {
-          ...result,
-          error: result.error?.toString() ?? null,
+          metadata: {
+            ...result,
+            error: result.error?.toString() ?? null,
+          },
         });
       }
 
@@ -241,8 +247,10 @@ export default async function defaults({
 
       if (result.status !== 0) {
         throw new ErrorWithMetadata(`Unable to set ${description}`, {
-          ...result,
-          error: result.error?.toString() ?? null,
+          metadata: {
+            ...result,
+            error: result.error?.toString() ?? null,
+          },
         });
       }
 

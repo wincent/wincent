@@ -46,8 +46,10 @@ export default async function cron({
   if (result.status !== 0) {
     if (!result.stderr.includes('no crontab')) {
       throw new ErrorWithMetadata('Unable to read crontab', {
-        ...result,
-        error: result.error?.toString() ?? null,
+        metadata: {
+          ...result,
+          error: result.error?.toString() ?? null,
+        },
       });
     }
   }
@@ -113,8 +115,10 @@ export default async function cron({
 
       if (result.status !== 0) {
         throw new ErrorWithMetadata('Unable to write crontab', {
-          ...result,
-          error: result.error?.toString() ?? null,
+          metadata: {
+            ...result,
+            error: result.error?.toString() ?? null,
+          },
         });
       }
 

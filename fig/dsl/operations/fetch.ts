@@ -131,7 +131,7 @@ export default async function fetch({
     if (error instanceof ErrorWithMetadata) {
       throw error;
     }
-    throw new ErrorWithMetadata(`fetch \`${url}\` failed`, undefined, {
+    throw new ErrorWithMetadata(`fetch \`${url}\` failed`, {
       cause: error,
     });
   }

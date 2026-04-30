@@ -64,8 +64,10 @@ export default async function command(
         options.failedWhen ? options.failedWhen(result) : result.status !== 0
       ) {
         throw new ErrorWithMetadata(`command \`${description}\` failed`, {
-          ...result,
-          error: result.error?.toString() ?? null,
+          metadata: {
+            ...result,
+            error: result.error?.toString() ?? null,
+          },
         });
       }
 
@@ -78,10 +80,8 @@ export default async function command(
       throw error;
     }
     await log.debug(String(error));
-    throw new ErrorWithMetadata(
-      `command \`${description}\` failed`,
-      undefined,
-      {cause: error},
-    );
+    throw new ErrorWithMetadata(`command \`${description}\` failed`, {
+      cause: error,
+    });
   }
 }

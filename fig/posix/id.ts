@@ -32,10 +32,12 @@ function run(...args: Array<string>): string {
   }
 
   throw new ErrorWithMetadata(`Failed to run \`id ${args.join(' ')}\``, {
-    error: error?.toString() ?? null,
-    signal,
-    status,
-    stderr,
-    stdout,
+    metadata: {
+      error: error?.toString() ?? null,
+      signal,
+      status,
+      stderr,
+      stdout,
+    },
   });
 }

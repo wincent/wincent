@@ -102,7 +102,7 @@ class Context {
     let error: ErrorWithMetadata;
 
     if (typeof errorOrMessage === 'string') {
-      error = new ErrorWithMetadata(errorOrMessage, metadata);
+      error = new ErrorWithMetadata(errorOrMessage, {metadata});
     } else {
       error = errorOrMessage;
     }
@@ -159,9 +159,7 @@ class Context {
         await this.informFailed(error);
       } else {
         await this.informFailed(
-          new ErrorWithMetadata(`task \`${task}\` failed`, undefined, {
-            cause: error,
-          }),
+          new ErrorWithMetadata(`task \`${task}\` failed`, {cause: error}),
         );
       }
     }
