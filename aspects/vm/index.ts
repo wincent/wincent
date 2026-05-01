@@ -44,6 +44,14 @@ task('configure sshd', async () => {
   });
 });
 
+task('install ~/.npmrc', async () => {
+  await file({
+    path: '~/.npmrc',
+    src: resource.file('.npmrc'),
+    state: 'file',
+  });
+});
+
 handler('restart ssh', async () => {
   await command('systemctl', ['restart', 'ssh'], {sudo: true});
 });
