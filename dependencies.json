@@ -157,8 +157,8 @@
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/shannon",
     "url": "https://github.com/wincent/shannon.git",
     "branch": "main",
-    "previous": "17872563edb59b65f0ba409ae3392b294edc88b3",
-    "current": "d8f0cc4b0fef50c2ea1d83e585517caf39929d8c"
+    "previous": "d8f0cc4b0fef50c2ea1d83e585517caf39929d8c",
+    "current": "0c0019758acb879bde8910c738a6e1019ada0ba2"
   },
   "github/nvim-mini/mini.ai": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.ai",
@@ -213,15 +213,15 @@
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-lspconfig",
     "url": "https://github.com/neovim/nvim-lspconfig.git",
     "branch": "master",
-    "previous": "bf5abe69c1874531f359a822d0cff4d73e26113f",
-    "current": "f7e89f3d19fb436e1fbeff3bf4291eef35da94e3"
+    "previous": "f7e89f3d19fb436e1fbeff3bf4291eef35da94e3",
+    "current": "31026a13eefb20681124706a79fc1df6bf11ab27"
   },
   "github/kyazdani42/nvim-tree.lua": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-tree.lua",
     "url": "https://github.com/kyazdani42/nvim-tree.lua.git",
     "branch": "master",
-    "previous": "d277467fc0d1d0e2bca88165a1de6b526f9f6fe8",
-    "current": "24cfcc94372e526fd9e1c2803ede9e0f1715e33f"
+    "previous": "24cfcc94372e526fd9e1c2803ede9e0f1715e33f",
+    "current": "f9bfc0059eca24546b69a7006110463da4808f8f"
   },
   "github/nvim-treesitter/nvim-treesitter": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-treesitter",

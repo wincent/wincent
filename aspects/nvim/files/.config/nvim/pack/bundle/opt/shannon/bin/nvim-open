@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 # nvim-open: kitty open-actions handler for file:// hyperlinks.
 #
-# Usage: nvim-open <url>
+# Usage: nvim-open <url> [kitty-window-id]
+#
+# The optional second argument is the @active-kitty-window-id placeholder
+# substituted by kitty open-actions; when present and numeric it pins the
+# click-source window deterministically. Empty or non-numeric values fall
+# back to the focus / sole-ssh heuristics.
 #
 # Routes a click on a file:// URL to nvim:
 #
@@ -23,28 +28,30 @@ set -u
 
 # kitty open-actions invoke us with a minimal PATH (launchd-style on macOS),
 # so neither nvim nor tmux is found. Prepend common Mac tool locations.
-export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
+# `/usr/sbin` is in there for `lsof`, used by `discover_kitty_socket`.
+export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/sbin:$PATH"
 
 if [ -n "${NVIM_OPEN_DEBUG:-}" ]; then
-	LOG_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/nvim-open"
-	LOG="$LOG_DIR/log"
-	mkdir -p "$LOG_DIR" 2>/dev/null || true
-	log() { printf '[%s %d] %s\n' "$(date '+%H:%M:%S')" "$$" "$*" >>"$LOG"; }
+  LOG_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/nvim-open"
+  LOG="$LOG_DIR/log"
+  mkdir -p "$LOG_DIR" 2>/dev/null || true
+  log() { printf '[%s %d] %s\n' "$(date '+%H:%M:%S')" "$$" "$*" >>"$LOG"; }
 else
-	LOG=/dev/null
-	log() { :; }
+  LOG=/dev/null
+  log() { :; }
 fi
 
 log "click: argv=$*"
 log "env: SSH_CONNECTION='${SSH_CONNECTION:-}' KITTY_WINDOW_ID='${KITTY_WINDOW_ID:-}' TMUX='${TMUX:-}'"
 
 url="${1:?url required}"
+kitty_window_id="${2:-}"
 
 # --- Parse file://[host]/path[#fragment] -----------------------------------
 
 case "$url" in
-	file://*) ;;
-	*) log "→ not a file:// URL, ignoring"; exit 1 ;;
+  file://*) ;;
+  *) log "→ not a file:// URL, ignoring"; exit 1 ;;
 esac
 
 rest="${url#file://}"
@@ -52,7 +59,7 @@ rest="/${rest#*/}"  # drop host component, keep leading slash
 url_path_encoded="${rest%%#*}"
 url_fragment=""
 case "$rest" in
-	*\#*) url_fragment="${rest#*#}" ;;
+  *\#*) url_fragment="${rest#*#}" ;;
 esac
 
 # Percent-decode path. Bash's `printf %b` consumes \xNN escapes, so we map
@@ -77,7 +84,11 @@ log "parsed: url_path='$url_path' line=$line"
 #      pane's tty, then ps-walk for ssh.
 #   2. Kitty source window: covers `kitty → ssh` directly (no local tmux).
 #      Ask kitty's remote-control to enumerate foreground processes of the
-#      window the click came from, then walk those.
+#      click-source window, then walk those. The window id arrives as our
+#      $2 via the @active-kitty-window-id placeholder; if absent or
+#      non-numeric (older open-actions.conf, or kitty had no active
+#      window), we fall back to a `state:focused` query plus a sole-ssh
+#      heuristic.
 #
 # Skip both when *we* were invoked over ssh: that means we're already on the
 # remote side of a previous dispatch, and any ssh we found here would
@@ -91,137 +102,236 @@ log "parsed: url_path='$url_path' line=$line"
 # -i KEY, -o opt=val, -J jumphost, -l user, -F config, -L/-R/-D/-W forwards,
 # -B/-b/-c/-E/-e/-I/-m/-O/-Q/-S/-w.
 extract_ssh_dest() {
-	awk '
-		function dest(    n, i, tok) {
-			n = NF
-			i = 2
-			while (i <= n) {
-				tok = $i
-				if (tok ~ /^-[bcDEeFIiJLlmOopQRSWw]./) { i++; continue }
-				if (tok ~ /^-[bcDEeFIiJLlmOopQRSWw]$/) { i += 2; continue }
-				if (tok ~ /^-/) { i++; continue }
-				return tok
-			}
-			return ""
-		}
-		$1 ~ /(^|\/)ssh$/ {
-			d = dest()
-			if (d != "") { print d; exit }
-		}
-	'
+  awk '
+    function dest(    n, i, tok) {
+      n = NF
+      i = 2
+      while (i <= n) {
+        tok = $i
+        if (tok ~ /^-[bcDEeFIiJLlmOopQRSWw]./) { i++; continue }
+        if (tok ~ /^-[bcDEeFIiJLlmOopQRSWw]$/) { i += 2; continue }
+        if (tok ~ /^-/) { i++; continue }
+        return tok
+      }
+      return ""
+    }
+    $1 ~ /(^|\/)ssh$/ {
+      d = dest()
+      if (d != "") { print d; exit }
+    }
+  '
+}
+
+# Echo a `kitten @ --to=` argument (e.g. `unix:/path/to/kitty.sock-1234`)
+# for the kitty instance hosting this process; return 1 if no socket can
+# be located.
+#
+# Strategies, tried in order:
+#
+#   1. $KITTY_LISTEN_ON. Set automatically in shell sessions when kitty's
+#      remote control is enabled, but typically *not* propagated to
+#      `launch --type=background` children on macOS, where kitty itself
+#      was started by launchd with a bare env. Cheap to check, so we try
+#      it first.
+#
+#   2. Argv of the kitty process that owns us. Found by walking $PPID up
+#      to a `kitty` ancestor (open-actions makes us a direct child) and
+#      otherwise falling back to a sole-instance `pgrep` match. Catches
+#      `--listen-on=...` passed on kitty's command line.
+#
+#   3. The same kitty's open unix sockets, via `lsof`. Catches everything
+#      else: `listen_on` set in kitty.conf (with or without a
+#      `{kitty_pid}` placeholder), the auto-PID-suffix kitty appends to
+#      the configured path, etc. This is the strategy that makes the
+#      script portable across machines without per-host symlink tricks
+#      or hardcoded paths.
+discover_kitty_socket() {
+  if [ -n "${KITTY_LISTEN_ON:-}" ]; then
+    printf '%s\n' "$KITTY_LISTEN_ON"
+    return 0
+  fi
+
+  local pid kitty_pid="" comm matches
+  pid=$$
+  while [ -n "$pid" ] && [ "$pid" != 1 ]; do
+    comm=$(ps -p "$pid" -o comm= 2>/dev/null)
+    case "${comm##*/}" in
+      kitty) kitty_pid="$pid"; break ;;
+    esac
+    pid=$(ps -p "$pid" -o ppid= 2>/dev/null | tr -d ' ')
+  done
+  if [ -z "$kitty_pid" ]; then
+    matches=$(pgrep -U "$(id -u)" -x kitty 2>/dev/null)
+    if [ -n "$matches" ] \
+       && [ "$(printf '%s\n' "$matches" | wc -l | tr -d ' ')" = 1 ]; then
+      kitty_pid="$matches"
+    fi
+  fi
+  [ -z "$kitty_pid" ] && return 1
+
+  local argv listen_on=""
+  argv=$(ps -ww -p "$kitty_pid" -o args= 2>/dev/null) || argv=""
+  listen_on=$(printf '%s\n' "$argv" \
+    | awk 'BEGIN{RS=" "} /^--listen-on=/ { sub(/^--listen-on=/,""); print; exit }')
+  if [ -n "$listen_on" ]; then
+    printf '%s\n' "$listen_on"
+    return 0
+  fi
+
+  # `lsof -a -p PID -U -F n` emits, for each unix socket FD, an `n`-prefixed
+  # name field: `n->ADDR` for connected sockets (skipped) and `n/path` or
+  # `n@name` for listening ones (filesystem and Linux abstract namespaces
+  # respectively). Either is a valid `unix:` argument for `kitten @`.
+  if command -v lsof >/dev/null 2>&1; then
+    local sock
+    sock=$(lsof -a -p "$kitty_pid" -U -F n 2>/dev/null \
+      | awk '/^n[\/@]/ { sub(/^n/, ""); print; exit }')
+    if [ -n "$sock" ]; then
+      printf 'unix:%s\n' "$sock"
+      return 0
+    fi
+  fi
+
+  return 1
 }
 
 ssh_target=""
 if [ -z "${SSH_CONNECTION:-}" ]; then
-	# Path 1: local tmux pane.
-	pane_tty=$(tmux display-message -p '#{pane_tty}' 2>/dev/null) || pane_tty=""
-	log "pane_tty='$pane_tty'"
-	if [ -n "$pane_tty" ]; then
-		tty_arg="${pane_tty#/dev/}"
-		ssh_target=$(ps -t "$tty_arg" -o args= 2>/dev/null | extract_ssh_dest)
-		log "tmux ssh_target='$ssh_target'"
-	fi
+  # Path 1: local tmux pane.
+  pane_tty=$(tmux display-message -p '#{pane_tty}' 2>/dev/null) || pane_tty=""
+  log "pane_tty='$pane_tty'"
+  if [ -n "$pane_tty" ]; then
+    tty_arg="${pane_tty#/dev/}"
+    ssh_target=$(ps -t "$tty_arg" -o args= 2>/dev/null | extract_ssh_dest)
+    log "tmux ssh_target='$ssh_target'"
+  fi
 
-	# Path 2: kitty source window. Only consulted when tmux didn't yield an
-	# ssh, so the existing tmux-based path is unaffected for users without
-	# kitten/jq installed.
-	if [ -z "$ssh_target" ] && command -v kitten >/dev/null 2>&1 \
-	   && command -v jq >/dev/null 2>&1; then
-		# Two reasons we go through `ps -ww` rather than feeding kitten's own
-		# `cmdline` field directly to `extract_ssh_dest`:
-		#
-		# 1. Kitten truncates `cmdline` (observed cutoff around 280 chars).
-		#    Long ssh invocations — e.g. those generated by wincent's `bin/sb`
-		#    sandbox-VM tooling — push the destination past that cutoff.
-		# 2. `ps -ww` disables width truncation entirely, giving us the full
-		#    argv as the kernel sees it.
-		#
-		# `launch --type=background` invocations inherit kitty's launchd-style
-		# env (no KITTY_LISTEN_ON, no KITTY_WINDOW_ID), so we fall back to
-		# the canonical socket path from kitty.conf's `listen_on`.
-		kitty_socket="${KITTY_LISTEN_ON:-unix:$HOME/.config/kitty/kitty.sock}"
+  # Path 2: kitty source window. Only consulted when tmux didn't yield an
+  # ssh, so the existing tmux-based path is unaffected for users without
+  # kitten/jq installed.
+  if [ -z "$ssh_target" ] && command -v kitten >/dev/null 2>&1 \
+     && command -v jq >/dev/null 2>&1; then
+    # Two reasons we go through `ps -ww` rather than feeding kitten's own
+    # `cmdline` field directly to `extract_ssh_dest`:
+    #
+    # 1. Kitten truncates `cmdline` (observed cutoff around 280 chars).
+    #    Long ssh invocations — e.g. those generated by wincent's `bin/sb`
+    #    sandbox-VM tooling — push the destination past that cutoff.
+    # 2. `ps -ww` disables width truncation entirely, giving us the full
+    #    argv as the kernel sees it.
+    #
+    # `launch --type=background` invocations inherit kitty's launchd-style
+    # env on macOS (no KITTY_LISTEN_ON, no KITTY_WINDOW_ID), so we can't
+    # rely on the env var alone — `discover_kitty_socket` falls back to
+    # process-tree walking and `lsof` to find the real socket path,
+    # whatever the user's `listen_on` config happens to be.
+    kitty_socket=$(discover_kitty_socket)
 
-		# Find an ssh process among the foreground_processes of the matched
-		# kitty windows. Sets `$ssh_target` and returns 0 on success;
-		# returns non-zero on miss.
-		find_ssh_in_match() {
-			local match="$1" pids pid result
-			pids=$(kitten @ --to="$kitty_socket" ls --match "$match" 2>/dev/null \
-				| jq -r '.[].tabs[].windows[].foreground_processes[].pid' 2>/dev/null)
-			for pid in $pids; do
-				result=$(ps -ww -p "$pid" -o args= 2>/dev/null | extract_ssh_dest)
-				if [ -n "$result" ]; then
-					ssh_target="$result"
-					return 0
-				fi
-			done
-			return 1
-		}
+    if [ -z "$kitty_socket" ]; then
+      log "kitty socket discovery failed; skipping kitty source-window check"
+    fi
 
-		# Best signal: the keyboard-focused window. The click had to land
-		# there (the OS focuses on click), but kitty's focus update may not
-		# yet be reflected in `kitten @ ls` by the time the open-action's
-		# launch wakes us up — a race we can lose either way.
-		find_ssh_in_match "state:focused" || true
-		log "kitty (focused) ssh_target='$ssh_target'"
+    # Find an ssh process among the foreground_processes of the matched
+    # kitty windows. Sets `$ssh_target` and returns 0 on success;
+    # returns non-zero on miss.
+    find_ssh_in_match() {
+      local match="$1" pids pid result
+      pids=$(kitten @ --to="$kitty_socket" ls --match "$match" 2>/dev/null \
+        | jq -r '.[].tabs[].windows[].foreground_processes[].pid' 2>/dev/null)
+      for pid in $pids; do
+        result=$(ps -ww -p "$pid" -o args= 2>/dev/null | extract_ssh_dest)
+        if [ -n "$result" ]; then
+          ssh_target="$result"
+          return 0
+        fi
+      done
+      return 1
+    }
 
-		# Fallback: walk every kitty window. If exactly one of them is
-		# running ssh, the click must have come from there — use it. If
-		# multiple, refuse to guess; better to fall through to local routing
-		# (which will at least give a clear `path does not exist locally`
-		# error in the log) than dispatch to the wrong VM.
-		if [ -z "$ssh_target" ]; then
-			all_pids=$(kitten @ --to="$kitty_socket" ls 2>/dev/null \
-				| jq -r '.[].tabs[].windows[].foreground_processes[].pid' 2>/dev/null)
-			matches=()
-			for pid in $all_pids; do
-				result=$(ps -ww -p "$pid" -o args= 2>/dev/null | extract_ssh_dest)
-				[ -n "$result" ] && matches+=("$result")
-			done
-			case "${#matches[@]}" in
-				0) log "kitty (all-windows) ssh_target='' (no ssh windows)" ;;
-				1)
-					ssh_target="${matches[0]}"
-					log "kitty (sole ssh window) ssh_target='$ssh_target'"
-					;;
-				*) log "kitty (all-windows) ambiguous: ${matches[*]}" ;;
-			esac
-		fi
-	fi
+    # Authoritative: the window id passed in via @active-kitty-window-id.
+    # Kitty substitutes that synchronously at click-dispatch time, inside
+    # its own event loop, so it pins the click-source window before any
+    # focus-race can mutate state. When this is set we trust it absolutely
+    # and skip the heuristic fallbacks below — if the foreground-processes
+    # walk doesn't find ssh in *that* window, the click really did come
+    # from a non-ssh window and local routing is correct.
+    if [ -z "$kitty_socket" ]; then
+      :  # already logged above; skip the whole branch
+    elif [[ "$kitty_window_id" =~ ^[0-9]+$ ]]; then
+      find_ssh_in_match "id:$kitty_window_id" || true
+      log "kitty (id:$kitty_window_id) ssh_target='$ssh_target'"
+    else
+      # Fallback path: open-actions.conf doesn't pass the placeholder
+      # (older deployment), or kitty couldn't substitute it (no active
+      # window — rare). Heuristics from here on.
+
+      # Best signal: the keyboard-focused window. The click had to
+      # land there (the OS focuses on click), but kitty's focus
+      # update may not yet be reflected in `kitten @ ls` by the time
+      # the open-action's launch wakes us up — a race we can lose
+      # either way.
+      find_ssh_in_match "state:focused" || true
+      log "kitty (focused) ssh_target='$ssh_target'"
+
+      # Fallback: walk every kitty window. If exactly one of them is
+      # running ssh, the click must have come from there — use it.
+      # If multiple, refuse to guess; better to fall through to
+      # local routing (which will at least give a clear `path does
+      # not exist locally` error in the log) than dispatch to the
+      # wrong VM.
+      if [ -z "$ssh_target" ]; then
+        all_pids=$(kitten @ --to="$kitty_socket" ls 2>/dev/null \
+          | jq -r '.[].tabs[].windows[].foreground_processes[].pid' 2>/dev/null)
+        matches=()
+        for pid in $all_pids; do
+          result=$(ps -ww -p "$pid" -o args= 2>/dev/null | extract_ssh_dest)
+          [ -n "$result" ] && matches+=("$result")
+        done
+        case "${#matches[@]}" in
+          0) log "kitty (all-windows) ssh_target='' (no ssh windows)" ;;
+          1)
+            ssh_target="${matches[0]}"
+            log "kitty (sole ssh window) ssh_target='$ssh_target'"
+            ;;
+          *) log "kitty (all-windows) ambiguous: ${matches[*]}" ;;
+        esac
+      fi
+    fi
+  fi
 fi
 
 # --- Remote dispatch -------------------------------------------------------
 
 if [ -n "$ssh_target" ]; then
-	# Re-emit URL with empty host so the remote skips its own detection and
-	# goes straight to local routing. The remote's nvim-open lives at the same
-	# pack path, since shannon is deployed identically.
-	#
-	# Use the still-encoded path so a literal `%` in the original path (which
-	# arrived here as `%25`) is not silently corrupted: rebuilding from the
-	# decoded `url_path` would ship `file:///foo%off` to the remote, where
-	# `%of` would then be mis-parsed as a hex escape.
-	remote_url="file://${url_path_encoded}"
-	[ -n "$url_fragment" ] && remote_url="${remote_url}#${url_fragment}"
+  # Re-emit URL with empty host so the remote skips its own detection and
+  # goes straight to local routing. The remote's nvim-open lives at the same
+  # pack path, since shannon is deployed identically.
+  #
+  # Use the still-encoded path so a literal `%` in the original path (which
+  # arrived here as `%25`) is not silently corrupted: rebuilding from the
+  # decoded `url_path` would ship `file:///foo%off` to the remote, where
+  # `%of` would then be mis-parsed as a hex escape.
+  remote_url="file://${url_path_encoded}"
+  [ -n "$url_fragment" ] && remote_url="${remote_url}#${url_fragment}"
 
-	# Default ssh options match the trust-on-first-use posture used by
-	# wincent's `bin/sb` for ephemeral VMs: don't prompt on a changed/missing
-	# host key (we have no tty for a prompt), and don't pollute known_hosts
-	# with throwaway VM fingerprints. Override via SHANNON_SSH_OPTS, or set
-	# it to an empty string to opt out entirely.
-	#
-	# We default-when-unset rather than relying on kitty's `env` config
-	# directive because that directive isn't reliably propagated to
-	# `launch --type=background` invocations on macOS.
-	default_ssh_opts="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR"
-	opts_str="${SHANNON_SSH_OPTS-$default_ssh_opts}"
-	ssh_opts=()
-	if [ -n "$opts_str" ]; then
-		read -ra ssh_opts <<<"$opts_str"
-	fi
+  # Default ssh options match the trust-on-first-use posture used by
+  # wincent's `bin/sb` for ephemeral VMs: don't prompt on a changed/missing
+  # host key (we have no tty for a prompt), and don't pollute known_hosts
+  # with throwaway VM fingerprints. Override via SHANNON_SSH_OPTS, or set
+  # it to an empty string to opt out entirely.
+  #
+  # We default-when-unset rather than relying on kitty's `env` config
+  # directive because that directive isn't reliably propagated to
+  # `launch --type=background` invocations on macOS.
+  default_ssh_opts="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR"
+  opts_str="${SHANNON_SSH_OPTS-$default_ssh_opts}"
+  ssh_opts=()
+  if [ -n "$opts_str" ]; then
+    read -ra ssh_opts <<<"$opts_str"
+  fi
 
-	log "→ forwarded to $ssh_target via ssh (opts='$opts_str')"
-	exec ssh ${ssh_opts[@]+"${ssh_opts[@]}"} "$ssh_target" "\$HOME/.config/nvim/pack/bundle/opt/shannon/bin/nvim-open" "$remote_url"
+  log "→ forwarded to $ssh_target via ssh (opts='$opts_str')"
+  exec ssh ${ssh_opts[@]+"${ssh_opts[@]}"} "$ssh_target" "\$HOME/.config/nvim/pack/bundle/opt/shannon/bin/nvim-open" "$remote_url"
 fi
 
 # --- Local routing: find sibling-pane nvim ---------------------------------
@@ -229,8 +339,8 @@ fi
 # Bail early if the path doesn't exist locally — better than dispatching to
 # nvim and creating a stray empty buffer.
 if [ ! -e "$url_path" ]; then
-	log "→ path does not exist locally: $url_path"
-	exit 1
+  log "→ path does not exist locally: $url_path"
+  exit 1
 fi
 
 # Skip nvim for binary files. `file --mime-encoding` returns one of utf-8,
@@ -243,12 +353,12 @@ fi
 # (no display), so we just log and exit; the user can scp the file manually.
 mime_encoding=$(file --brief --mime-encoding "$url_path" 2>/dev/null) || mime_encoding=""
 if [ "$mime_encoding" = "binary" ]; then
-	if [ -z "${SSH_CONNECTION:-}" ] && command -v open >/dev/null 2>&1; then
-		log "→ binary, handing to 'open': $url_path"
-		exec open "$url_path"
-	fi
-	log "→ binary, no graceful handler available: $url_path"
-	exit 1
+  if [ -z "${SSH_CONNECTION:-}" ] && command -v open >/dev/null 2>&1; then
+    log "→ binary, handing to 'open': $url_path"
+    exec open "$url_path"
+  fi
+  log "→ binary, no graceful handler available: $url_path"
+  exit 1
 fi
 
 # Discover the sibling-pane nvim's socket. find-nvim-socket is a sibling
@@ -256,8 +366,8 @@ fi
 # wincent-claude-plugins shannon skill.
 script_dir=$(cd "$(dirname "$0")" && pwd)
 sock=$("$script_dir/find-nvim-socket" 2>>"$LOG") || {
-	log "→ nvim discovery failed (see preceding stderr lines)"
-	exit 1
+  log "→ nvim discovery failed (see preceding stderr lines)"
+  exit 1
 }
 log "sock='$sock'"
 
@@ -272,9 +382,9 @@ log "sock='$sock'"
 expr="luaeval(\"require('wincent.shannon.private.open')([==[${url_path}]==], ${line})\")"
 
 if nvim --server "$sock" --remote-expr "$expr" >/dev/null 2>>"$LOG"; then
-	log "→ opened in nvim (sock=$sock, line=$line)"
-	exit 0
+  log "→ opened in nvim (sock=$sock, line=$line)"
+  exit 0
 else
-	log "→ RPC failed (sock=$sock)"
-	exit 1
+  log "→ RPC failed (sock=$sock)"
+  exit 1
 fi
