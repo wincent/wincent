@@ -67,9 +67,11 @@ Run `bin/vm help` (or `bin/vm --help`) and `sb help` (or `sb --help`) for summar
 
 ### Creating and cloning a base image
 
-`bin/vm create` clones the Cirrus Labs Ubuntu OCI image, pushes the dotfiles repo into the VM from the local host, and runs `./install` to provision it via Fig. The result is a `wincent-base` VM that can be cloned for daily use with `bin/vm clone <name>` (copy-on-write, fast and space-efficient).
+`bin/vm create` clones the Cirrus Labs Ubuntu OCI image[^clone], pushes the dotfiles repo into the VM from the local host, and runs `./install` to provision it via Fig. The result is a `wincent-base` VM that can be cloned for daily use with `bin/vm clone <name>` (copy-on-write, fast and space-efficient).
 
 On an M3 Max with 64 GB of RAM, this takes about 11 minutes.
+
+[^clone]: Note that `tart clone` will use a previously downloaded version if available. If you want to force a fresh download, run `tart delete ghcr.io/cirruslabs/ubuntu:latest` to clear cache before running `bin/vm create`.
 
 ### Pushing and pulling the base image
 
