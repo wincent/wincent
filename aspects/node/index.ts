@@ -37,9 +37,9 @@ task('install global packages', async () => {
     PATH: `${bin}:${process.env.PATH}`,
   };
 
-  const packages = [
+  const packages: Array<string | [string, string]> = [
     '@mariozechner/pi-coding-agent',
-    '@typescript/native-preview',
+    ['@typescript/native-preview', '^7.0.0-dev.0'],
     'typescript-language-server',
     'neovim',
     'source-map-explorer',
@@ -47,7 +47,11 @@ task('install global packages', async () => {
     'vim-language-server',
   ];
 
-  for (const name of packages) {
+  for (const entry of packages) {
+    const [name, spec] = typeof entry === 'string' ?
+      [entry, entry] :
+      [entry[0], entry.join('@')];
+
     const result = await command(npm, ['ls', '-g', '--json', name], {
       env,
       failedWhen: () => false,
@@ -56,7 +60,7 @@ task('install global packages', async () => {
     if (result && result.status === 0) {
       await skip(`package ${name} (already installed)`);
     } else {
-      await command(npm, ['install', '-g', name], {env});
+      await command(npm, ['install', '-g', spec], {env});
     }
   }
 });
