@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 #
 # find-nvim-socket: discover the listen socket of an nvim instance running in
 # a sibling tmux pane. Prints the socket path on success, exits non-zero with
@@ -14,77 +14,78 @@
 
 set -eu
 
-current_pane="${TMUX_PANE:-}"
-if [ -z "$current_pane" ]; then
-  current_pane=$(tmux display-message -p '#{pane_id}' 2>/dev/null) || current_pane=""
-fi
+# --- Helpers ---------------------------------------------------------------
 
-if [ -z "$current_pane" ]; then
-  echo "error: not running inside tmux and no active client to query" >&2
-  exit 1
-fi
-
-# Collect pane PIDs for all sibling panes (excluding current).
-pane_pids=""
-while read -r pane_id pane_pid; do
-  if [ "$pane_id" != "$current_pane" ]; then
-    pane_pids="$pane_pids $pane_pid"
+# Print the active tmux pane id (`%N`); return 1 if not in tmux and no
+# active client to query.
+current_pane_id() {
+  if [ -n "${TMUX_PANE:-}" ]; then
+    printf '%s\n' "$TMUX_PANE"
+    return 0
   fi
-done <<EOF
-$(tmux list-panes -F '#{pane_id} #{pane_pid}')
-EOF
+  tmux display-message -p '#{pane_id}' 2>/dev/null || return 1
+}
 
-is_pane_pid() {
-  for p in $pane_pids; do
-    if [ "$p" = "$1" ]; then
+# Populate the `pane_pids` associative array with PIDs of all tmux panes
+# *other than* `$current_pane`. Keys are PIDs; values are unused (just `1`).
+collect_sibling_pane_pids() {
+  local pane_id pane_pid
+  while read -r pane_id pane_pid; do
+    if [ "$pane_id" != "$current_pane" ]; then
+      pane_pids[$pane_pid]=1
+    fi
+  done < <(tmux list-panes -F '#{pane_id} #{pane_pid}')
+}
+
+# Return 0 if `$1` is reachable from any sibling-pane shell by walking up
+# the process tree. Capped at 10 hops to avoid pathological loops.
+descends_from_sibling_pane() {
+  local pid="$1" ppid i
+  for ((i = 0; i < 10; i++)); do
+    ppid=$(ps -p "$pid" -o ppid= 2>/dev/null | tr -d ' ')
+    if [ -z "$ppid" ] || [ "$ppid" = 1 ]; then
+      return 1
+    fi
+    if [ -n "${pane_pids[$ppid]:-}" ]; then
+      return 0
+    fi
+    pid="$ppid"
+  done
+  return 1
+}
+
+# Echo the pid of the first nvim process whose ancestry reaches a sibling
+# tmux pane shell. Returns 1 if none found.
+find_nvim_in_panes() {
+  local nvim_pid
+  for nvim_pid in $(pgrep nvim 2>/dev/null); do
+    if descends_from_sibling_pane "$nvim_pid"; then
+      printf '%s\n' "$nvim_pid"
       return 0
     fi
   done
   return 1
 }
 
-# Walk up from each nvim process to see if an ancestor is a sibling pane shell.
-find_nvim_in_panes() {
-  for nvim_pid in $(pgrep nvim 2>/dev/null); do
-    pid="$nvim_pid"
-    i=0
-    while [ "$i" -lt 10 ]; do
-      ppid=$(ps -p "$pid" -o ppid= 2>/dev/null | tr -d ' ')
-      if [ -z "$ppid" ] || [ "$ppid" = "1" ]; then
-        break
-      fi
-      if is_pane_pid "$ppid"; then
-        echo "$nvim_pid"
-        return 0
-      fi
-      pid="$ppid"
-      i=$((i + 1))
-    done
-  done
-  return 1
-}
-
-nvim_pid=$(find_nvim_in_panes) || {
-  echo "error: no nvim found in sibling tmux panes" >&2
-  exit 1
-}
-
-# Look for nvim's listen socket. Two complications:
+# Echo the path to nvim's listen socket for `$1`, or fail.
 #
-# - The pid in the socket name (`nvim.<pid>.0`) isn't always the same as the
-#   pid we identified as nvim: nvim's main process can fork the server, and
-#   the socket is named after the child. So we also check children via
-#   `pgrep -P`.
+# Two complications:
+#
+# - The pid in the socket name (`nvim.<pid>.0`) isn't always the same as
+#   the pid we identified as nvim: nvim's main process can fork the
+#   server, and the socket is named after the child. So the caller is
+#   expected to also try child pids via `pgrep -P`.
 #
 # - The directory layout differs by platform. On Linux, nvim writes the
 #   socket directly under `$XDG_RUNTIME_DIR` (which is per-user already,
 #   typically `/run/user/<UID>`) as `nvim.<pid>.0`. On macOS,
 #   `$XDG_RUNTIME_DIR` is unset, so nvim falls back to `$TMPDIR` (also
-#   per-user there) but adds a `$USER` namespace and a random subdir, giving
-#   `<TMPDIR>/nvim.<USER>/<random>/nvim.<pid>.0`. We try both shapes under
-#   any of nvim's candidate temp dirs, in the same precedence order nvim
-#   itself uses.
-for pid in $nvim_pid $(pgrep -P "$nvim_pid" 2>/dev/null); do
+#   per-user there) but adds a `$USER` namespace and a random subdir,
+#   giving `<TMPDIR>/nvim.<USER>/<random>/nvim.<pid>.0`. We try both
+#   shapes under any of nvim's candidate temp dirs, in the same
+#   precedence order nvim itself uses.
+socket_for_pid() {
+  local pid="$1" base sock
   for base in "${XDG_RUNTIME_DIR:-}" "${TMPDIR:-}" /tmp; do
     [ -z "$base" ] && continue
     for sock in \
@@ -92,12 +93,40 @@ for pid in $nvim_pid $(pgrep -P "$nvim_pid" 2>/dev/null); do
       "$base"/nvim."${USER}"/*/nvim."${pid}".0
     do
       if [ -S "$sock" ]; then
-        echo "$sock"
-        exit 0
+        printf '%s\n' "$sock"
+        return 0
       fi
     done
   done
-done
+  return 1
+}
 
-echo "error: found nvim (pid $nvim_pid) but no server socket" >&2
-exit 1
+# --- Main ------------------------------------------------------------------
+
+main() {
+  current_pane=$(current_pane_id) || {
+    echo "error: not running inside tmux and no active client to query" >&2
+    exit 1
+  }
+
+  declare -A pane_pids=()
+  collect_sibling_pane_pids
+
+  local nvim_pid pid sock
+  nvim_pid=$(find_nvim_in_panes) || {
+    echo "error: no nvim found in sibling tmux panes" >&2
+    exit 1
+  }
+
+  for pid in $nvim_pid $(pgrep -P "$nvim_pid" 2>/dev/null); do
+    if sock=$(socket_for_pid "$pid"); then
+      printf '%s\n' "$sock"
+      exit 0
+    fi
+  done
+
+  echo "error: found nvim (pid $nvim_pid) but no server socket" >&2
+  exit 1
+}
+
+main "$@"
