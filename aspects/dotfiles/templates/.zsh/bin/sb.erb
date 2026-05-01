@@ -260,6 +260,7 @@ setup_git_remote() {
     export GIT_SSH_COMMAND="ssh ${SSH_OPTS[*]}"
     git -C "$PROJECT_ROOT" remote remove vm 2>/dev/null || true
     git -C "$PROJECT_ROOT" remote add vm "ssh://${VM_USER}@${ip}${VM_REPO_PATH}"
+    git -C "$PROJECT_ROOT" config remote.vm.skipDefaultUpdate true
 }
 
 # --- Commands ---
