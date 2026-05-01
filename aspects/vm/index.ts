@@ -52,6 +52,16 @@ task('install ~/.npmrc', async () => {
   });
 });
 
+// Additional redundant copy here, so that things don't break when the
+// "dotfiles" aspect creates a symlink.
+task('install aspects/dotfiles/files/.npmrc', async () => {
+  await file({
+    path: path.root.join('aspects/dotfiles/files/.npmrc'),
+    src: resource.file('.npmrc'),
+    state: 'file',
+  });
+});
+
 handler('restart ssh', async () => {
   await command('systemctl', ['restart', 'ssh'], {sudo: true});
 });
