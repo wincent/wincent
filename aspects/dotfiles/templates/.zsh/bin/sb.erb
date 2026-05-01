@@ -182,7 +182,68 @@ init_repo() {
     local parent
     parent="$(dirname "$VM_REPO_PATH")"
     echo "Initializing repo in VM..."
-    sb_ssh "$ip" "mkdir -p $parent && git init --initial-branch=$primary $VM_REPO_PATH && cd $VM_REPO_PATH && git config receive.denyCurrentBranch updateInstead"
+    sb_ssh "$ip" "mkdir -p $parent && git init --initial-branch=$primary $VM_REPO_PATH && cd $VM_REPO_PATH && git config receive.denyCurrentBranch updateInstead && git config receive.advertisePushOptions true"
+    install_pre_receive_hook "$ip"
+}
+
+# Install a `pre-receive` hook in the VM repo. Lets `sb inject --force`
+# (which sends `--push-option=force` over the wire) clobber the VM's
+# uncommitted changes before the built-in
+# `receive.denyCurrentBranch=updateInstead` logic refuses on a dirty tree;
+# non-force pushes get a friendlier "use --force" message instead of git's
+# stock "Working directory has unstaged changes".
+#
+# We use `pre-receive` rather than `push-to-checkout` because git (at least
+# through 2.43) does not pass `GIT_PUSH_OPTION_*` to `push-to-checkout` --
+# only `pre-receive`/`update`/`post-receive` get them. Cleaning the working
+# tree from `pre-receive` lets the built-in updateInstead path do the
+# subsequent working-tree update with no further help from us.
+install_pre_receive_hook() {
+    local ip="$1"
+    local hook_path="$VM_REPO_PATH/.git/hooks/pre-receive"
+    # Remove any push-to-checkout hook left behind by an earlier sb that
+    # tried to do this work there; it would only get in the way now.
+    sb_ssh "$ip" "rm -f $VM_REPO_PATH/.git/hooks/push-to-checkout && cat > $hook_path && chmod +x $hook_path" <<'HOOK'
+#!/bin/sh
+# Managed by sb. Honours a `force` push option to clobber uncommitted
+# changes before receive.denyCurrentBranch=updateInstead's clean-tree
+# check runs.
+set -e
+
+# Drain ref-update commands from stdin (one '<old> <new> <ref>' line each).
+cat > /dev/null
+
+force=0
+i=0
+while [ "$i" -lt "${GIT_PUSH_OPTION_COUNT:-0}" ]; do
+    eval "opt=\$GIT_PUSH_OPTION_$i"
+    [ "$opt" = "force" ] && force=1
+    i=$((i + 1))
+done
+
+# Unborn HEAD: nothing to be dirty against; let updateInstead handle it.
+if ! git rev-parse --verify --quiet HEAD >/dev/null; then
+    exit 0
+fi
+
+if git diff-index --quiet HEAD -- \
+   && git diff-index --cached --quiet HEAD --; then
+    exit 0
+fi
+
+if [ "$force" = 1 ]; then
+    # Reset index + working tree to HEAD without touching any refs;
+    # `git reset --hard` would try to update ORIG_HEAD/HEAD, which is
+    # forbidden inside pre-receive's quarantine environment.
+    git read-tree --reset -u HEAD
+    git clean -fdx >/dev/null
+    exit 0
+fi
+
+echo "Working tree has uncommitted changes; refusing push." >&2
+echo "Use 'sb inject --force' to override." >&2
+exit 1
+HOOK
 }
 
 configure_claude() {
@@ -240,8 +301,11 @@ cmd_create() {
     init_repo "$ip"
     configure_claude "$ip"
 
+    # Bootstrap inject: the base image may already have a (stale) repo at
+    # $VM_REPO_PATH from a previous bake; force-clobber it with the host's
+    # branches.
     echo "Injecting code..."
-    cmd_inject
+    cmd_inject --force
 
     echo ""
     echo "VM '$VM_NAME' is ready."
@@ -404,23 +468,11 @@ cmd_inject() {
 
     setup_git_remote "$ip"
 
-    local has_commits
-    has_commits=$(sb_ssh "$ip" "cd $VM_REPO_PATH && git rev-parse HEAD >/dev/null 2>&1 && echo yes || echo no")
-
-    if [ "$has_commits" = "yes" ]; then
-        echo "Checking for uncommitted changes in VM..."
-        if ! sb_ssh "$ip" "cd $VM_REPO_PATH && git diff --quiet HEAD && git diff --quiet --cached" 2>/dev/null; then
-            echo "Warning: VM repo has uncommitted changes."
-            read -r -p "Continue anyway? [y/N] " answer
-            if [[ ! "$answer" =~ ^[Yy]$ ]]; then
-                exit 1
-            fi
-        fi
-    fi
-
+    # Dirty-tree gating happens VM-side via the push-to-checkout hook installed
+    # by `init_repo`; --force is signalled to the hook with a push option.
     echo "Pushing ${branches[*]} to VM..."
     if [ "$force" = true ]; then
-        git -C "$PROJECT_ROOT" push --force vm "${branches[@]}"
+        git -C "$PROJECT_ROOT" push --force --push-option=force vm "${branches[@]}"
     else
         if ! git -C "$PROJECT_ROOT" push vm "${branches[@]}"; then
             echo ""
