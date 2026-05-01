@@ -1263,6 +1263,13 @@ task('install kitty cask', async () => {
   });
 });
 
+// Previewer for Markdown, MultiMarkdown and other text markup languages.
+task('install marked-app cask', async () => {
+  await command('brew', ['install', '--cask', 'marked-app'], {
+    creates: '/opt/homebrew/Caskroom/marked-app',
+  });
+});
+
 // Finds large, unwanted files and deletes them.
 task('install omnidisksweeper cask', async () => {
   await command('brew', ['install', '--cask', 'omnidisksweeper'], {

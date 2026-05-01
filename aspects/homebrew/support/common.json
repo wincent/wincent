@@ -1392,6 +1392,12 @@
       "note": null
     },
     {
+      "name": "marked-app",
+      "tap": "homebrew/cask",
+      "description": "Previewer for Markdown, MultiMarkdown and other text markup languages",
+      "note": null
+    },
+    {
       "name": "omnidisksweeper",
       "tap": "homebrew/cask",
       "description": "Finds large, unwanted files and deletes them",
