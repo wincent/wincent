@@ -67,6 +67,13 @@ task('install awscli formula', async () => {
   });
 });
 
+// Bourne-Again SHell, a UNIX command interpreter.
+task('install bash formula', async () => {
+  await command('brew', ['install', 'bash'], {
+    creates: '/opt/homebrew/Cellar/bash',
+  });
+});
+
 // Garbage collector for C and C++.
 task('install bdw-gc formula', async () => {
   await command('brew', ['install', 'bdw-gc'], {

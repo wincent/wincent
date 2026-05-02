@@ -58,6 +58,14 @@
       "note": null
     },
     {
+      "name": "bash",
+      "tap": "homebrew/core",
+      "description": "Bourne-Again SHell, a UNIX command interpreter",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
       "name": "bdw-gc",
       "tap": "homebrew/core",
       "description": "Garbage collector for C and C++",
