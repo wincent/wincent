@@ -231,112 +231,7 @@ const VANILLA_PROFILE = {
   },
 };
 
-export function isObject(item) {
-  return (
-    item !== null && Object.prototype.toString.call(item) === '[object Object]'
-  );
-}
-
-export function deepCopy(item) {
-  if (Array.isArray(item)) {
-    return item.map(deepCopy);
-  } else if (isObject(item)) {
-    const copy = {};
-    Object.entries(item).forEach(([k, v]) => {
-      copy[k] = deepCopy(v);
-    });
-    return copy;
-  }
-  return item;
-}
-
-/**
- * Visit the data structure, `item`, navigating to `path` and passing the
- * value(s) at that location into the `updater` function, which may return a
- * substitute value or the original item (if no changes are made, the original
- * item is returned).
- *
- * `path` is a tiny JSONPath subset, and may contain:
- *
- * - `$`: selects the root object.
- * - `.child`: selects a child property.
- * - `[start:end]`: selects an array slice; `end` is optional.
- */
-export function visit(item, path, updater) {
-  const match = path.match(
-    /^(?<root>\$)|\.(?<child>\w+)|\[(?<slice>.+?)\]|(?<done>$)/,
-  );
-  const {
-    groups: {root, child, slice},
-  } = match;
-  const subpath = path.slice(match[0].length);
-  if (root) {
-    return visit(item, subpath, updater);
-  } else if (child) {
-    const next = visit(item[child], subpath, updater);
-    if (next !== undefined) {
-      return {
-        ...item,
-        [child]: next,
-      };
-    }
-  } else if (slice) {
-    const {
-      groups: {start, end},
-    } = slice.match(/^(?<start>\d+):(?<end>\d+)?$/);
-    let array;
-    for (let i = start, max = end == null ? item.length : end; i < max; i++) {
-      const next = visit(item[i], subpath, updater);
-      if (next !== undefined) {
-        if (!array) {
-          array = item.slice(0, i);
-        }
-        array[i] = next;
-      } else if (array) {
-        array[i] = item[i];
-      }
-    }
-    return array;
-  } else {
-    const next = updater(item);
-    return next === item ? undefined : next;
-  }
-}
-
-const EXEMPTIONS = [
-  'com.blizzard.worldofwarcraft',
-  'com.factorio',
-  'com.feralinteractive.dirtrally',
-  'org.ioquake.ioquake3',
-];
-
-function applyExemptions(profile) {
-  const exemptions = {
-    type: 'frontmost_application_unless',
-    bundle_identifiers: EXEMPTIONS.map(bundleIdentifier),
-  };
-
-  return visit(
-    profile,
-    '$.complex_modifications.rules[0:].manipulators[0:].conditions',
-    (conditions) => {
-      if (conditions) {
-        if (
-          conditions.some(
-            (condition) => condition.type === 'frontmost_application_if',
-          )
-        ) {
-          return conditions;
-        }
-        return [...deepCopy(conditions), exemptions];
-      } else {
-        return [exemptions];
-      }
-    },
-  );
-}
-
-const DEFAULT_PROFILE = applyExemptions({
+const DEFAULT_PROFILE = {
   ...VANILLA_PROFILE,
   complex_modifications: {
     parameters: {
@@ -344,6 +239,30 @@ const DEFAULT_PROFILE = applyExemptions({
       'basic.to_if_alone_timeout_milliseconds': 500, /* Default: 1000 */
     },
     rules: [
+      {
+        description: 'Disable complex modifications in selected apps',
+        manipulators: [{
+          type: 'basic',
+          from: {
+            any: 'key_code',
+            modifiers: {
+              optional: ['any'],
+            },
+          },
+          to: [{
+            from_event: true,
+          }],
+          conditions: [{
+            type: 'frontmost_application_if',
+            bundle_identifiers: [
+              bundleIdentifier('com.blizzard.worldofwarcraft'),
+              bundleIdentifier('com.factorio'),
+              bundleIdentifier('com.feralinteractive\\.dirtrally'),
+              bundleIdentifier('org.ioquake.ioquake3'),
+            ],
+          }],
+        }],
+      },
       // {
       //     description: 'Launcher',
       //     manipulators: [
@@ -547,7 +466,7 @@ const DEFAULT_PROFILE = applyExemptions({
   devices: [REALFORCE, APPLE_INTERNAL_US],
   name: 'Default',
   selected: true,
-});
+};
 
 const CONFIG = {
   global: {
