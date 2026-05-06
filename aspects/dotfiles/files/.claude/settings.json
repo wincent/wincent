@@ -88,22 +88,21 @@
     "typescript-lsp@claude-plugins-official": true,
     "rust-analyzer-lsp@claude-plugins-official": true,
     "lua-lsp@claude-plugins-official": true,
-    "meme@wincent-claude-plugins": true,
-    "session@wincent-claude-plugins": true,
-    "git@wincent-claude-plugins": true,
-    "jj@wincent-claude-plugins": true,
-    "shannon@wincent-claude-plugins": true,
-    "pr@wincent-claude-plugins": true,
     "swift-lsp@claude-plugins-official": true,
-    "atlassian@wincent-claude-plugins": true
+    "atlassian@wincent-agent-plugins": true,
+    "git@wincent-agent-plugins": true,
+    "jj@wincent-agent-plugins": true,
+    "meme@wincent-agent-plugins": true,
+    "pr@wincent-agent-plugins": true,
+    "session@wincent-agent-plugins": true,
+    "shannon@wincent-agent-plugins": true
   },
   "extraKnownMarketplaces": {
-    "wincent-claude-plugins": {
+    "wincent-agent-plugins": {
       "source": {
         "source": "github",
-        "repo": "wincent/wincent-claude-plugins"
-      },
-      "autoUpdate": true
+        "repo": "wincent/wincent-agent-plugins"
+      }
     }
   },
   "spinnerTipsEnabled": false,
