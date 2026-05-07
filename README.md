@@ -175,7 +175,7 @@ git clone https://github.com/wincent/wincent.git
 
 ### Install
 
-> ⚠️ **WARNING:** There are _lots_ of different things that can be installed or configured (see [the `aspects/` directory](./aspects)). Unless you want your machine to be exactly like mine — which is unlikely — you probably don't want to install _everything_. Maybe you don't even want everything in the ["dotfiles"](./aspects/dotfiles) and ["nvim"](./aspects/nvim) aspects. Please inspect the contents of each aspect before proceeding to install it; you may even be better off just looking at the configuration files and stealing the bits that you find interesting or useful (everything is [in the public domain, unless otherwise indicated](./LICENSES).
+> ⚠️ **WARNING:** There are _lots_ of different things that can be installed or configured (see [the `aspects/` directory](./aspects)). Unless you want your machine to be exactly like mine — which is unlikely — you probably don't want to install _everything_. Maybe you don't even want everything in the ["dotfiles"](./aspects/dotfiles) and ["nvim"](./aspects/nvim) aspects. Please inspect the contents of each aspect before proceeding to install it; you may even be better off just looking at the configuration files and stealing the bits that you find interesting or useful (everything is [in the public domain, unless otherwise indicated](./LICENSES)).
 
 At the time of writing, these are the aspects, which you can expect to change over time (see [the `aspects/` directory](./aspects) for an up-to-date listing):
 
