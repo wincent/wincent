@@ -8,13 +8,13 @@ desc = "Go back to the parent directory"
 [[mgr.prepend_keymap]]
 # Mnemonic: "[T]oggle preview"
 on   = "T"
-run  = "plugin hide-preview"
+run  = "plugin toggle-pane min-preview"
 desc = "Hide or show preview"
 
 [[mgr.prepend_keymap]]
 # Mnemonic: "[F]ull-size preview"
 on   = "F"
-run  = "plugin max-preview"
+run  = "plugin toggle-pane max-preview"
 desc = "Maximize or restore preview"
 
 [[mgr.prepend_keymap]]
