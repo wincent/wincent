@@ -14,28 +14,22 @@ const EXEMPT_LICENSES = new Set(['wincent-LICENSE.md']);
 // `bin/check-licenses` complains if an exemption becomes unnecessary (i.e., the
 // dependency starts shipping a license that we can symlink, or is removed from
 // `dependencies.json`) so stale exemptions get cleaned up rather than rotting.
-const EXEMPT_PREFIXES = new Map<string, string>([
-  [
-    'aspects/nvim/files/.config/nvim/pack/bundle/opt/applescript.vim',
-    'No license declared anywhere in the distribution.',
-  ],
-  [
-    'aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-calc',
-    'No license declared anywhere in the distribution. Probably MIT like other cmp plugins.',
-  ],
-  [
-    'aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-emoji',
-    'No license declared anywhere in the distribution. Probably MIT like other cmp plugins.',
-  ],
-  [
-    'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-ansible-yaml',
-    'No license declared anywhere in the distribution.',
-  ],
-  [
-    'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-git',
-    'No license declared anywhere in the distribution. Probably Vim-like licensed like other tpope plugins.',
-  ],
-]);
+const EXEMPT_PREFIXES = new Map<string, string>([[
+  'aspects/nvim/files/.config/nvim/pack/bundle/opt/applescript.vim',
+  'No license declared anywhere in the distribution.',
+], [
+  'aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-calc',
+  'No license declared anywhere in the distribution. Probably MIT like other cmp plugins.',
+], [
+  'aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-emoji',
+  'No license declared anywhere in the distribution. Probably MIT like other cmp plugins.',
+], [
+  'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-ansible-yaml',
+  'No license declared anywhere in the distribution.',
+], [
+  'aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-git',
+  'No license declared anywhere in the distribution. Probably Vim-like licensed like other tpope plugins.',
+]]);
 
 // Naming convention for symlinks in `LICENSES/`: each symlink's name must
 // equal `<identifier>` or start with `<identifier>-`, where `<identifier>` is
@@ -43,10 +37,10 @@ const EXEMPT_PREFIXES = new Map<string, string>([
 // in `NAMING_OVERRIDES`, the editorial replacement for that prefix. Add an
 // override only when the prefix's path basename is too generic to be a useful
 // identifier in `LICENSES/` on its own.
-const NAMING_OVERRIDES = new Map<string, string>([
-  ['vendor/tinted-theming/schemes', 'tinted-theming-schemes'],
-  ['aspects/dotfiles/files/.config/yazi/vendor/plugins', 'yazi-plugins'],
-]);
+const NAMING_OVERRIDES = new Map<string, string>([[
+  'vendor/tinted-theming/schemes',
+  'tinted-theming-schemes',
+], ['aspects/dotfiles/files/.config/yazi/vendor/plugins', 'yazi-plugins']]);
 
 type Issue = {name: string; detail: string};
 
@@ -90,8 +84,8 @@ for (const name of readdirSync(LICENSES_DIR).sort()) {
     // Naming check: the symlink name must start with an identifier derived
     // from the dependency it covers. Only run this when we found a matching
     // prefix; otherwise the orphan report above already covers the problem.
-    const identifier =
-      NAMING_OVERRIDES.get(matched) ?? matched.split('/').pop()!;
+    const identifier = NAMING_OVERRIDES.get(matched) ??
+      matched.split('/').pop()!;
     if (name !== identifier && !name.startsWith(identifier + '-')) {
       misnamed.push({
         name,
