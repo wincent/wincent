@@ -4,7 +4,7 @@
     "~/.claude/plugins/marketplaces/wincent-agent-plugins/pi"
   ],
   "defaultThinkingLevel": "xhigh",
-  "lastChangelogVersion": "0.70.6",
+  "lastChangelogVersion": "0.74.0",
   "defaultProvider": "anthropic",
   "defaultModel": "claude-opus-4-7"
 }

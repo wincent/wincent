@@ -2,7 +2,7 @@ import type {
   ExtensionAPI,
   ExtensionContext,
   SessionEntry,
-} from '@mariozechner/pi-coding-agent';
+} from '@earendil-works/pi-coding-agent';
 import {spawnSync} from 'node:child_process';
 import {mkdirSync, readFileSync, writeFileSync} from 'node:fs';
 import {tmpdir} from 'node:os';

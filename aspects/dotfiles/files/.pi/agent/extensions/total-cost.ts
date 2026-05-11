@@ -13,9 +13,9 @@
 import type {
   ExtensionAPI,
   ExtensionCommandContext,
-} from '@mariozechner/pi-coding-agent';
-import {DynamicBorder} from '@mariozechner/pi-coding-agent';
-import {Container, Text, matchesKey} from '@mariozechner/pi-tui';
+} from '@earendil-works/pi-coding-agent';
+import {DynamicBorder} from '@earendil-works/pi-coding-agent';
+import {Container, Text, matchesKey} from '@earendil-works/pi-tui';
 import {readFile, readdir, stat} from 'node:fs/promises';
 import {homedir} from 'node:os';
 import {join} from 'node:path';

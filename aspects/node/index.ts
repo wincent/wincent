@@ -38,7 +38,7 @@ task('install global packages', async () => {
   };
 
   const packages: Array<string | [string, string]> = [
-    '@mariozechner/pi-coding-agent',
+    '@earendil-works/pi-coding-agent',
     ['@typescript/native-preview', '^7.0.0-dev.0'],
     'typescript-language-server',
     'neovim',

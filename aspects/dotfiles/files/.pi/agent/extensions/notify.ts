@@ -9,7 +9,7 @@
  * Based on: https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/examples/extensions/notify.ts
  */
 
-import type {ExtensionAPI} from '@mariozechner/pi-coding-agent';
+import type {ExtensionAPI} from '@earendil-works/pi-coding-agent';
 import {execFile} from 'node:child_process';
 
 function notify(title: string, body: string): void {
