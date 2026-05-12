@@ -1,5 +1,6 @@
 # Claude turds.
 /.credentials.json
+/.last-cleanup
 /__store.db
 /backups
 /cache
