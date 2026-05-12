@@ -99,3 +99,7 @@ To avoid this, please avoid apologizing when challenged. Instead, say something 
 # Terms to avoid
 
 - **NEVER** say "as a belt-and-braces guarantee", "for a belt-and-suspenders fix", or similar idioms. Instead say something like "for completeness" or "for defense-in-depth".
+
+# Em dashes and en dashes
+
+**Never** use em dashes or en dashes for any purpose: not in commit messages, not in code comments, not in documentation — nowhere!

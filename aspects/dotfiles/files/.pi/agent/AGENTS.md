@@ -2,6 +2,10 @@
 
 **NEVER** hard-wrap Markdown in ".md" files. That is, a paragraph or a list item should be a single long line rather than many 80-character lines broken with newlines.
 
+# Em dashes and en dashes
+
+**Never** use em dashes or en dashes for any purpose: not in commit messages, not in code comments, not in documentation — nowhere!
+
 # Showing file paths
 
 **ALWAYS** render file paths as Markdown links when displaying them in chat output, so that pi's TUI emits OSC 8 hyperlink escape sequences and the user's terminal (kitty) renders them as clickable links. This applies to absolute paths, relative paths, and `path:line` / `path:line:col` references in prose, lists, tables, and inline code spans.
