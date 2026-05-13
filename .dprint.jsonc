@@ -20,6 +20,7 @@
     "importDeclaration.spaceSurroundingNamedImports": false,
     "module.sortExportDeclarations": "caseSensitive",
     "module.sortImportDeclarations": "caseSensitive",
+    "singleBodyPosition": "nextLine",
     "spaceSurroundingProperties": false,
     "quoteStyle": "preferSingle",
     "quoteProps": "consistent",

@@ -446,7 +446,9 @@ function fetchDescriptions(metadata: Record<Profile, Metadata>): void {
     };
     for (const f of parsed.formulae ?? []) {
       const desc = f.desc ?? null;
-      if (!desc) { continue; }
+      if (!desc) {
+        continue;
+      }
       const key = f.full_name ?? f.name;
       // Match either fully-qualified or bare name.
       for (const candidate of [key, f.name]) {

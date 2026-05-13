@@ -42,8 +42,12 @@ function formatKagiResults(data: KagiSearchResult[]): string {
   for (const item of data) {
     if (item.t === 0 && item.url) {
       let entry = `## ${item.title ?? '(no title)'}\n${item.url}`;
-      if (item.snippet) { entry += `\n${item.snippet}`; }
-      if (item.published) { entry += `\nPublished: ${item.published}`; }
+      if (item.snippet) {
+        entry += `\n${item.snippet}`;
+      }
+      if (item.published) {
+        entry += `\nPublished: ${item.published}`;
+      }
       parts.push(entry);
     } else if (item.t === 1 && item.list) {
       parts.push(`## Related searches\n${item.list.join(', ')}`);
@@ -60,7 +64,9 @@ async function searchKagi(
 ) {
   const url = new URL(KAGI_SEARCH_URL);
   url.searchParams.set('q', query);
-  if (limit) { url.searchParams.set('limit', String(limit)); }
+  if (limit) {
+    url.searchParams.set('limit', String(limit));
+  }
 
   const response = await fetch(url.toString(), {
     headers: {Authorization: `Bot ${token}`},
@@ -162,7 +168,9 @@ async function callExaMcp(
   const dataLines = body.split('\n').filter((l) => l.startsWith('data:'));
   for (const line of dataLines) {
     const payload = line.slice(5).trim();
-    if (!payload) { continue; }
+    if (!payload) {
+      continue;
+    }
     try {
       const candidate = JSON.parse(payload) as ExaMcpRpcResponse;
       if (candidate?.result || candidate?.error) {
@@ -175,11 +183,15 @@ async function callExaMcp(
   if (!parsed) {
     try {
       const candidate = JSON.parse(body) as ExaMcpRpcResponse;
-      if (candidate?.result || candidate?.error) { parsed = candidate; }
+      if (candidate?.result || candidate?.error) {
+        parsed = candidate;
+      }
     } catch {}
   }
 
-  if (!parsed) { throw new Error('Exa MCP returned an empty response'); }
+  if (!parsed) {
+    throw new Error('Exa MCP returned an empty response');
+  }
 
   if (parsed.error) {
     const code = typeof parsed.error.code === 'number'
@@ -203,7 +215,9 @@ async function callExaMcp(
       c.text.trim().length > 0,
   )?.text;
 
-  if (!text) { throw new Error('Exa MCP returned empty content'); }
+  if (!text) {
+    throw new Error('Exa MCP returned empty content');
+  }
 
   return text;
 }
@@ -235,7 +249,9 @@ function formatExaResults(results: ExaParsedResult[]): string {
   return results
     .map((r) => {
       let entry = `## ${r.title || '(no title)'}\n${r.url}`;
-      if (r.content) { entry += `\n${r.content}`; }
+      if (r.content) {
+        entry += `\n${r.content}`;
+      }
       return entry;
     })
     .join('\n\n');
