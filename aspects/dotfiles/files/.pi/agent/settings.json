@@ -1,10 +1,12 @@
 {
   "extensions": [
-    "~/.claude/plugins/marketplaces/wincent-agent-plugins/pi/extensions"
+    "~/.claude/plugins/marketplaces/wincent-agent-plugins/pi/extensions",
+    "~/dd/wincent/.pi/agent/extensions"
   ],
   "skills": [
     "~/.claude/skills",
-    "~/.claude/plugins/marketplaces/wincent-agent-plugins/pi/skills"
+    "~/.claude/plugins/marketplaces/wincent-agent-plugins/pi/skills",
+    "~/dd/wincent/.pi/agent/skills"
   ],
   "defaultThinkingLevel": "xhigh",
   "lastChangelogVersion": "0.74.0",
