@@ -30,7 +30,7 @@ echo
 # `node_modules/` itself is tracked (via a `.gitignore` that ignores all of
 # its contents except for the .gitignore file itself) so the directory stays
 # present in fresh checkouts.
-rm -rf "$DEST/@earendil-works" "$DEST/@types" "$DEST/typebox"
+rm -rf "$DEST/@earendil-works" "$DEST/@types" "$DEST/typebox" "$DEST/undici-types"
 mkdir -p "$DEST/@earendil-works" "$DEST/@types"
 
 copy_pkg() {
@@ -65,6 +65,7 @@ copy_pkg "$PI_ROOT/node_modules/@earendil-works/pi-tui"        "$DEST/@earendil-
 copy_pkg "$PI_ROOT/node_modules/@earendil-works/pi-agent-core" "$DEST/@earendil-works/pi-agent-core"
 copy_pkg "$PI_ROOT/node_modules/typebox"                       "$DEST/typebox"
 copy_pkg "$PI_ROOT/node_modules/@types/node"                   "$DEST/@types/node"
+copy_pkg "$PI_ROOT/node_modules/undici-types"                  "$DEST/undici-types"
 
 echo
 echo "Done.  Type-check with: bin/typecheck"
