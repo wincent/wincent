@@ -1,41 +1,49 @@
 /**
  * Web Search Extension
  *
- * Registers a `web_search` tool with two backends:
+ * Registers a `web_search` tool that uses the Kagi Search API
+ * (https://help.kagi.com/kagi/api/search.html) at a cost of $25 per 1,000
+ * queries (ie. 2.5 cents per query).
  *
- * 1. **Kagi Search API** (preferred): requires `KAGI_API_TOKEN` env var.
- *    High-quality results at 2.5¢/query.
- *
- * 2. **Exa MCP free tier** (fallback): no API key needed.
- *    Calls https://mcp.exa.ai/mcp with no auth. Free but no SLA.
- *
- * The tool is always active. When a Kagi token is available it is used;
- * otherwise queries fall through to Exa automatically.
+ * Requires `KAGI_API_TOKEN` in the environment.
  */
 
-import type {ExtensionAPI} from '@earendil-works/pi-coding-agent';
-import {Type} from 'typebox';
-
-// ---------------------------------------------------------------------------
-// Kagi
-// ---------------------------------------------------------------------------
+import type {
+  ExtensionAPI,
+  ExtensionContext,
+} from '@earendil-works/pi-coding-agent';
+import {type Static, Type} from 'typebox';
+import {Check, Errors} from 'typebox/value';
 
 const KAGI_SEARCH_URL = 'https://kagi.com/api/v0/search';
 
-interface KagiSearchResult {
-  t: number;
-  url?: string;
-  title?: string;
-  snippet?: string;
-  published?: string;
-  list?: string[];
-}
+const KagiSearchResultSchema = Type.Object({
+  t: Type.Number(),
+  url: Type.Optional(Type.String()),
+  title: Type.Optional(Type.String()),
+  snippet: Type.Optional(Type.String()),
+  published: Type.Optional(Type.String()),
+  list: Type.Optional(Type.Array(Type.String())),
+});
+type KagiSearchResult = Static<typeof KagiSearchResultSchema>;
 
-interface KagiResponse {
-  meta: {id: string; node: string; ms: number; api_balance?: number};
-  data: KagiSearchResult[];
-  error?: Array<{code: number; msg: string}>;
-}
+const KagiResponseSchema = Type.Object({
+  meta: Type.Object({
+    id: Type.String(),
+    node: Type.String(),
+    ms: Type.Number(),
+    api_balance: Type.Optional(Type.Number()),
+  }),
+  data: Type.Array(KagiSearchResultSchema),
+  error: Type.Optional(
+    Type.Array(
+      Type.Object({
+        code: Type.Number(),
+        msg: Type.String(),
+      }),
+    ),
+  ),
+});
 
 function formatKagiResults(data: KagiSearchResult[]): string {
   const parts: string[] = [];
@@ -58,15 +66,12 @@ function formatKagiResults(data: KagiSearchResult[]): string {
 
 async function searchKagi(
   query: string,
-  limit: number | undefined,
   token: string,
+  context: ExtensionContext,
   signal?: AbortSignal,
 ) {
   const url = new URL(KAGI_SEARCH_URL);
   url.searchParams.set('q', query);
-  if (limit) {
-    url.searchParams.set('limit', String(limit));
-  }
 
   const response = await fetch(url.toString(), {
     headers: {Authorization: `Bot ${token}`},
@@ -80,7 +85,18 @@ async function searchKagi(
     );
   }
 
-  const json = (await response.json()) as KagiResponse;
+  const raw: unknown = await response.json();
+
+  if (!Check(KagiResponseSchema, raw)) {
+    const issues = Errors(KagiResponseSchema, raw)
+      .slice(0, 3)
+      .map((e) => `${e.instancePath || '/'}: ${e.message}`)
+      .join('; ');
+    throw new Error(
+      `Kagi API returned an unexpected response shape: ${issues}`,
+    );
+  }
+  const json = raw;
 
   if (json.error?.length) {
     throw new Error(
@@ -91,206 +107,32 @@ async function searchKagi(
   const formatted = formatKagiResults(json.data);
   const resultCount = json.data.filter((d) => d.t === 0).length;
 
+  if (context.hasUI) {
+    // Show API request time and remaining balance as toast only
+    // (doesn't leak into session).
+    const parts = [`${json.meta.ms} ms`];
+    if (typeof json.meta.api_balance === 'number') {
+      parts.push(`balance $${json.meta.api_balance.toFixed(2)}`);
+    }
+    context.ui.notify(`Kagi: ${parts.join(', ')}`, 'info');
+  }
+
   return {
     content: [{type: 'text' as const, text: formatted || 'No results found.'}],
     details: {
       provider: 'kagi',
       query,
       resultCount,
-      apiTimeMs: json.meta.ms,
-      apiBalance: json.meta.api_balance,
     },
   };
 }
-
-// ---------------------------------------------------------------------------
-// Exa MCP (free tier fallback)
-// ---------------------------------------------------------------------------
-
-const EXA_MCP_URL = 'https://mcp.exa.ai/mcp';
-
-interface ExaMcpRpcResponse {
-  result?: {
-    content?: Array<{type?: string; text?: string}>;
-    isError?: boolean;
-  };
-  error?: {code?: number; message?: string};
-}
-
-interface ExaParsedResult {
-  title: string;
-  url: string;
-  content: string;
-}
-
-/** Send a JSON-RPC tool call to the Exa MCP endpoint. */
-async function callExaMcp(
-  query: string,
-  numResults: number,
-  signal?: AbortSignal,
-): Promise<string> {
-  const response = await fetch(EXA_MCP_URL, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json, text/event-stream',
-    },
-    body: JSON.stringify({
-      jsonrpc: '2.0',
-      id: 1,
-      method: 'tools/call',
-      params: {
-        name: 'web_search_exa',
-        arguments: {
-          query,
-          numResults,
-          livecrawl: 'fallback',
-          type: 'auto',
-          contextMaxCharacters: 3000,
-        },
-      },
-    }),
-    signal,
-  });
-
-  if (!response.ok) {
-    const text = await response.text().catch(() => '');
-    throw new Error(
-      `Exa MCP error (${response.status}): ${text.slice(0, 300)}`,
-    );
-  }
-
-  const body = await response.text();
-
-  // Response may be SSE (data: lines) or plain JSON.
-  let parsed: ExaMcpRpcResponse | null = null;
-
-  const dataLines = body.split('\n').filter((l) => l.startsWith('data:'));
-  for (const line of dataLines) {
-    const payload = line.slice(5).trim();
-    if (!payload) {
-      continue;
-    }
-    try {
-      const candidate = JSON.parse(payload) as ExaMcpRpcResponse;
-      if (candidate?.result || candidate?.error) {
-        parsed = candidate;
-        break;
-      }
-    } catch {}
-  }
-
-  if (!parsed) {
-    try {
-      const candidate = JSON.parse(body) as ExaMcpRpcResponse;
-      if (candidate?.result || candidate?.error) {
-        parsed = candidate;
-      }
-    } catch {}
-  }
-
-  if (!parsed) {
-    throw new Error('Exa MCP returned an empty response');
-  }
-
-  if (parsed.error) {
-    const code = typeof parsed.error.code === 'number'
-      ? ` ${parsed.error.code}`
-      : '';
-    throw new Error(
-      `Exa MCP error${code}: ${parsed.error.message || 'Unknown error'}`,
-    );
-  }
-
-  if (parsed.result?.isError) {
-    const msg = parsed.result.content?.find(
-      (c) => c.type === 'text' && c.text?.trim(),
-    )?.text?.trim();
-    throw new Error(msg || 'Exa MCP returned an error');
-  }
-
-  const text = parsed.result?.content?.find(
-    (c) =>
-      c.type === 'text' && typeof c.text === 'string' &&
-      c.text.trim().length > 0,
-  )?.text;
-
-  if (!text) {
-    throw new Error('Exa MCP returned empty content');
-  }
-
-  return text;
-}
-
-/** Parse the MCP text blob into structured results. */
-function parseExaResults(text: string): ExaParsedResult[] {
-  const blocks = text.split(/(?=^Title: )/m).filter((b) => b.trim().length > 0);
-  return blocks
-    .map((block) => {
-      const title = block.match(/^Title: (.+)/m)?.[1]?.trim() ?? '';
-      const url = block.match(/^URL: (.+)/m)?.[1]?.trim() ?? '';
-      let content = '';
-      const textStart = block.indexOf('\nText: ');
-      if (textStart >= 0) {
-        content = block.slice(textStart + 7).trim();
-      } else {
-        const hlMatch = block.match(/\nHighlights:\s*\n/);
-        if (hlMatch?.index != null) {
-          content = block.slice(hlMatch.index + hlMatch[0].length).trim();
-        }
-      }
-      content = content.replace(/\n---\s*$/, '').trim();
-      return {title, url, content};
-    })
-    .filter((r) => r.url.length > 0);
-}
-
-function formatExaResults(results: ExaParsedResult[]): string {
-  return results
-    .map((r) => {
-      let entry = `## ${r.title || '(no title)'}\n${r.url}`;
-      if (r.content) {
-        entry += `\n${r.content}`;
-      }
-      return entry;
-    })
-    .join('\n\n');
-}
-
-async function searchExa(
-  query: string,
-  limit: number | undefined,
-  signal?: AbortSignal,
-) {
-  const text = await callExaMcp(query, limit ?? 5, signal);
-  const results = parseExaResults(text);
-
-  return {
-    content: [{
-      type: 'text' as const,
-      text: results.length > 0
-        ? formatExaResults(results)
-        : 'No results found.',
-    }],
-    details: {
-      provider: 'exa-mcp',
-      query,
-      resultCount: results.length,
-    },
-  };
-}
-
-// ---------------------------------------------------------------------------
-// Extension
-// ---------------------------------------------------------------------------
 
 export default function webSearchExtension(pi: ExtensionAPI) {
   pi.registerTool({
     name: 'web_search',
     label: 'Web Search',
     description:
-      'Search the web. Returns a list of results with titles, URLs, and snippets. ' +
-      'Uses Kagi when KAGI_API_TOKEN is set, otherwise falls back to Exa free tier.',
+      'Search the web. Returns a list of results with titles, URLs, and snippets.',
     promptSnippet: 'Search the web for current information',
     promptGuidelines: [
       'Use web_search when the user asks for information that may require up-to-date web results.',
@@ -299,72 +141,22 @@ export default function webSearchExtension(pi: ExtensionAPI) {
     ],
     parameters: Type.Object({
       query: Type.String({description: 'Search query'}),
-      limit: Type.Optional(
-        Type.Number({
-          description:
-            'Max number of results (default: 5 for Exa, 10 for Kagi)',
-        }),
-      ),
     }),
 
-    async execute(_toolCallId, params, signal) {
-      // Pi's agent loop expects tools to signal failure by throwing. Thrown
-      // errors are caught by the runtime, turned into an error tool result
-      // (content = error message, details = {}), and have isError: true set
-      // on the ToolResultMessage. We must not encode errors in the returned
-      // AgentToolResult; that type has no isError field and requires details.
+    async execute(_toolCallId, params, signal, _onUpdate, context) {
       const kagiToken = process.env.KAGI_API_TOKEN;
-
-      // Try Kagi first if a token is available.
-      if (kagiToken) {
-        try {
-          return await searchKagi(
-            params.query,
-            params.limit,
-            kagiToken,
-            signal,
-          );
-        } catch (err) {
-          if (signal?.aborted) {
-            throw new Error('Search cancelled.');
-          }
-          // Kagi failed for a non-abort reason: fall through to Exa with a
-          // note about the Kagi failure.
-          const msg = err instanceof Error ? err.message : String(err);
-          try {
-            const exaResult = await searchExa(
-              params.query,
-              params.limit,
-              signal,
-            );
-            exaResult.content[0].text =
-              `(Kagi failed: ${msg}; fell back to Exa)\n\n` +
-              exaResult.content[0].text;
-            return exaResult;
-          } catch (exaErr) {
-            if (signal?.aborted) {
-              throw new Error('Search cancelled.');
-            }
-            const exaMsg = exaErr instanceof Error
-              ? exaErr.message
-              : String(exaErr);
-            throw new Error(
-              `Both search backends failed.\nKagi: ${msg}\nExa: ${exaMsg}`,
-            );
-          }
-        }
+      if (!kagiToken) {
+        throw new Error(
+          'web_search requires `KAGI_API_TOKEN` to be set in the environment.',
+        );
       }
 
-      // No Kagi token: use Exa directly.
-      try {
-        return await searchExa(params.query, params.limit, signal);
-      } catch (err) {
-        if (signal?.aborted) {
-          throw new Error('Search cancelled.');
-        }
-        const msg = err instanceof Error ? err.message : String(err);
-        throw new Error(`Exa search failed: ${msg}`);
-      }
+      return await searchKagi(
+        params.query,
+        kagiToken,
+        context,
+        signal,
+      );
     },
   });
 }

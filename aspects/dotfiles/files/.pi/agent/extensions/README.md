@@ -10,16 +10,9 @@ The general-purpose extensions (`edit-answer`, `jj-guard`, `model-info`, `slack-
 
 Sends a desktop notification when pi finishes and is waiting for input. Delegates to the `notify` shell dispatcher (see `~/.zsh/bin/notify` in this dotfiles repo), which picks an appropriate backend (`clip-notify`, `terminal-notifier`, or `notify-send`) based on the current environment.
 
-Kept out of `wincent-agent-plugins` because it depends on `notify` being on `$PATH`, which is currently arranged by these dotfiles rather than being portable.
-
 ### `web-search.ts`
 
-Registers a `web_search` tool with two backends:
-
-1. **Kagi Search API** (preferred): requires `KAGI_API_TOKEN` env var. High-quality results at 2.5¢/query.
-2. **Exa MCP free tier** (fallback): no API key needed. Calls `https://mcp.exa.ai/mcp` with no auth. Free, no SLA.
-
-Kept out of `wincent-agent-plugins` because the preferred backend requires an API key that most people will not have.
+Registers a `web_search` tool backed by the [Kagi Search API](https://help.kagi.com/kagi/api/search.html) at a cost of $25 per 1,000 queries (ie. 2.5 cents per query). Requires `KAGI_API_TOKEN` in the environment, and throws if unset.
 
 ## Type-checking
 
