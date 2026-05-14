@@ -1,0 +1,70 @@
+#!/bin/sh
+#
+# Populate `node_modules/` (next to this script's parent directory) with type
+# stubs from the globally-installed pi. These allow the TypeScript LSP server
+# to provide type assistance in Neovim, while minimizing the supply-chain risk
+# that would come with an actual `npm install` in this repo.
+#
+# Run after each Pi upgrade.
+
+set -e
+
+ROOT=$(cd "$(dirname "$0")/.." && pwd)
+DEST="$ROOT/node_modules"
+
+# Locate the globally-installed pi.
+GLOBAL_NM=$(npm root -g 2>/dev/null || true)
+PI_ROOT="$GLOBAL_NM/@earendil-works/pi-coding-agent"
+if [ -z "$GLOBAL_NM" ] || [ ! -f "$PI_ROOT/package.json" ]; then
+  echo "install-types: could not locate @earendil-works/pi-coding-agent." >&2
+  echo "  Looked under: $PI_ROOT" >&2
+  echo "  Install pi globally first, then rerun this script." >&2
+  exit 1
+fi
+
+echo "Source: $PI_ROOT"
+echo "Dest:   $DEST"
+echo
+
+# Start from a clean slate, but only wipe the package subtrees we manage:
+# `node_modules/` itself is tracked (via a `.gitignore` that ignores all of
+# its contents except for the .gitignore file itself) so the directory stays
+# present in fresh checkouts.
+rm -rf "$DEST/@earendil-works" "$DEST/@types" "$DEST/typebox"
+mkdir -p "$DEST/@earendil-works" "$DEST/@types"
+
+copy_pkg() {
+  src="$1"
+  dst="$2"
+
+  if [ ! -d "$src" ]; then
+    echo "  warning: source missing: $src" >&2
+    return 1
+  fi
+
+  mkdir -p "$dst"
+  cp "$src/package.json" "$dst/package.json"
+
+  # Copy all .d.ts/.d.mts/.d.cts files, but don't recurse into nested
+  # node_modules (we will visit individual packages that we care about with
+  # separate calls).
+  (cd "$src" && find . -type d -name node_modules -prune -o -type f \( -name '*.d.ts' -o -name '*.d.mts' -o -name '*.d.cts' \) -print) \
+    | while IFS= read -r f; do
+        mkdir -p "$dst/$(dirname "$f")"
+        cp "$src/$f" "$dst/$f"
+      done
+
+  count=$(find "$dst" -type f \( -name '*.d.ts' -o -name '*.d.mts' -o -name '*.d.cts' \) | wc -l | tr -d ' ')
+  size=$(du -sh "$dst" | awk '{print $1}')
+  printf '  %s  (%s files, %s)\n' "$dst" "$count" "$size"
+}
+
+copy_pkg "$PI_ROOT"                                            "$DEST/@earendil-works/pi-coding-agent"
+copy_pkg "$PI_ROOT/node_modules/@earendil-works/pi-ai"         "$DEST/@earendil-works/pi-ai"
+copy_pkg "$PI_ROOT/node_modules/@earendil-works/pi-tui"        "$DEST/@earendil-works/pi-tui"
+copy_pkg "$PI_ROOT/node_modules/@earendil-works/pi-agent-core" "$DEST/@earendil-works/pi-agent-core"
+copy_pkg "$PI_ROOT/node_modules/typebox"                       "$DEST/typebox"
+copy_pkg "$PI_ROOT/node_modules/@types/node"                   "$DEST/@types/node"
+
+echo
+echo "Done.  Type-check with: bin/typecheck"

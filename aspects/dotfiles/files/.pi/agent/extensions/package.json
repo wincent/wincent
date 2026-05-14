@@ -1,0 +1,12 @@
+{
+  "name": "@wincent/dotfiles-pi-extensions",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Not a real package; see README.md for details.",
+  "engines": {
+    "npm": "0.0.0"
+  },
+  "scripts": {
+    "preinstall": "printf '\\n`npm install` is not used in this directory.\\nRun `bin/install-types` from this directory to refresh type stubs.\\nSee README.md for the rationale.\\n\\n' >&2; exit 1"
+  }
+}

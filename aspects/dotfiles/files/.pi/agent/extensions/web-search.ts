@@ -3,10 +3,10 @@
  *
  * Registers a `web_search` tool with two backends:
  *
- * 1. **Kagi Search API** (preferred) — requires `KAGI_API_TOKEN` env var.
+ * 1. **Kagi Search API** (preferred): requires `KAGI_API_TOKEN` env var.
  *    High-quality results at 2.5¢/query.
  *
- * 2. **Exa MCP free tier** (fallback) — no API key needed.
+ * 2. **Exa MCP free tier** (fallback): no API key needed.
  *    Calls https://mcp.exa.ai/mcp with no auth. Free but no SLA.
  *
  * The tool is always active. When a Kagi token is available it is used;
@@ -308,6 +308,11 @@ export default function webSearchExtension(pi: ExtensionAPI) {
     }),
 
     async execute(_toolCallId, params, signal) {
+      // Pi's agent loop expects tools to signal failure by throwing. Thrown
+      // errors are caught by the runtime, turned into an error tool result
+      // (content = error message, details = {}), and have isError: true set
+      // on the ToolResultMessage. We must not encode errors in the returned
+      // AgentToolResult; that type has no isError field and requires details.
       const kagiToken = process.env.KAGI_API_TOKEN;
 
       // Try Kagi first if a token is available.
@@ -320,15 +325,12 @@ export default function webSearchExtension(pi: ExtensionAPI) {
             signal,
           );
         } catch (err) {
-          // If Kagi fails, fall through to Exa rather than erroring out.
-          const msg = err instanceof Error ? err.message : String(err);
           if (signal?.aborted) {
-            return {
-              content: [{type: 'text', text: 'Search cancelled.'}],
-              isError: true,
-            };
+            throw new Error('Search cancelled.');
           }
-          // Fall through with a note about the Kagi failure.
+          // Kagi failed for a non-abort reason: fall through to Exa with a
+          // note about the Kagi failure.
+          const msg = err instanceof Error ? err.message : String(err);
           try {
             const exaResult = await searchExa(
               params.query,
@@ -336,40 +338,32 @@ export default function webSearchExtension(pi: ExtensionAPI) {
               signal,
             );
             exaResult.content[0].text =
-              `(Kagi failed: ${msg} — fell back to Exa)\n\n` +
+              `(Kagi failed: ${msg}; fell back to Exa)\n\n` +
               exaResult.content[0].text;
             return exaResult;
           } catch (exaErr) {
+            if (signal?.aborted) {
+              throw new Error('Search cancelled.');
+            }
             const exaMsg = exaErr instanceof Error
               ? exaErr.message
               : String(exaErr);
-            return {
-              content: [{
-                type: 'text',
-                text:
-                  `Both search backends failed.\nKagi: ${msg}\nExa: ${exaMsg}`,
-              }],
-              isError: true,
-            };
+            throw new Error(
+              `Both search backends failed.\nKagi: ${msg}\nExa: ${exaMsg}`,
+            );
           }
         }
       }
 
-      // No Kagi token — use Exa directly.
+      // No Kagi token: use Exa directly.
       try {
         return await searchExa(params.query, params.limit, signal);
       } catch (err) {
         if (signal?.aborted) {
-          return {
-            content: [{type: 'text', text: 'Search cancelled.'}],
-            isError: true,
-          };
+          throw new Error('Search cancelled.');
         }
         const msg = err instanceof Error ? err.message : String(err);
-        return {
-          content: [{type: 'text', text: `Exa search failed: ${msg}`}],
-          isError: true,
-        };
+        throw new Error(`Exa search failed: ${msg}`);
       }
     },
   });

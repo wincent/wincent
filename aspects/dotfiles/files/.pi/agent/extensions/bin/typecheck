@@ -1,0 +1,29 @@
+#!/bin/sh
+# Type-check the pi extensions with TypeScript Go (`tsgo`).
+#
+# Pi loads these files at runtime via jiti, which aliases the platform
+# packages (@earendil-works/pi-*, typebox) to the globally-installed pi
+# bundle.  The `node_modules/` directory next to this script's parent is
+# just type stubs copied from that bundle so tsgo can resolve imports;
+# it has no runtime effect.  See ../README.md.
+#
+# The stub tree is gitignored.  If it is missing (fresh checkout, or
+# `rm -rf node_modules/@earendil-works`), we populate it transparently
+# by calling `bin/install-types`.  To refresh it after a pi upgrade,
+# run `bin/install-types` manually.
+
+set -e
+
+ROOT=$(cd "$(dirname "$0")/.." && pwd)
+PROJECT="$ROOT"
+
+# Marker: any file we know `bin/install-types` always writes.  Looking
+# at `node_modules/` itself is not enough because the directory is
+# tracked (it holds a `.gitignore`) and so is always present.
+if [ ! -f "$PROJECT/node_modules/@earendil-works/pi-coding-agent/package.json" ]; then
+  echo "typecheck: type stubs missing, running bin/install-types..." >&2
+  "$ROOT/bin/install-types"
+  echo >&2
+fi
+
+exec tsgo --noEmit -p "$PROJECT/tsconfig.json" "$@"
