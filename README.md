@@ -55,9 +55,10 @@ And these only on macOS:
 - Make the "application" key (extra modifier key on right-hand side) behave as "fn" on Realforce keyboard.
 - Map Control-I to F6 (only in the terminal) so that it can be mapped independently from Tab in Vim[^linux].
 - Make "pause" (at far-right of function key row) behave as "power" (effectively, sleep) on Realforce keyboard.
-- Adds a "SpaceFN" layer that can be activated by holding down Space while hitting other keys; I use this to make the cursor keys available on or near the home row in any app.
+- Adds a "SpaceFN" layer that can be activated by holding down Space while hitting other keys; I use this to make the cursor keys available on or near the home row in any app[^cpu].
 
 [^linux]: This isn't needed on Linux because we can achieve the same via a Kitty configuration.
+[^cpu]: Note that holding the Space bar may [increase the temperature of the CPU](https://xkcd.com/1172/).
 
 ### Zsh
 
