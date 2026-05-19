@@ -58,6 +58,7 @@ And these only on macOS:
 - Adds a "SpaceFN" layer that can be activated by holding down Space while hitting other keys; I use this to make the cursor keys available on or near the home row in any app[^cpu].
 
 [^linux]: This isn't needed on Linux because we can achieve the same via a Kitty configuration.
+
 [^cpu]: Note that holding the Space bar may [increase the temperature of the CPU](https://xkcd.com/1172/).
 
 ### Zsh
