@@ -1,9 +1,22 @@
 #!/usr/bin/env zsh
 
-# Runs `git rebase --continue`, `git cherry-pick --continue` as appropriate,
-# based on context.
+# Runs:
+#
+# - `git {rebase,cherry-pick,merge,revert} --continue`; or:
+# - `git {rebase,cherry-pick,merge,revert} --abort`
+#
+# as appropriate, based on context.
 #
 # Based on: https://stackoverflow.com/a/53370600
+
+case ${0:t} in
+    git-continue) ACTION=continue ;;
+    git-abort)    ACTION=abort ;;
+    *)
+        echo "error: unrecognized invocation name: ${0:t}"
+        exit 1
+        ;;
+esac
 
 GIT_DIR=$(git rev-parse --git-dir)
 STATUS=$?
@@ -13,17 +26,17 @@ if [ $STATUS -ne 0 ]; then
 fi
 
 if [ -d "${GIT_DIR}/rebase-merge" ]; then
-    exec git rebase --continue
+    exec git rebase "--$ACTION"
 elif [ -d "${GIT_DIR}/rebase-apply" ]; then
-    exec git rebase --continue
+    exec git rebase "--$ACTION"
 elif [ -f "${GIT_DIR}/MERGE_HEAD" ]; then
-    exec git merge --continue
+    exec git merge "--$ACTION"
 elif [ -f "${GIT_DIR}/CHERRY_PICK_HEAD" ]; then
-    exec git cherry-pick --continue
+    exec git cherry-pick "--$ACTION"
 elif [ -f "${GIT_DIR}/REVERT_HEAD" ]; then
-    exec git revert --continue
+    exec git revert "--$ACTION"
 else
-    echo "error: No operation to --continue"
+    echo "error: No operation to --$ACTION"
     exit 1
 fi
 
