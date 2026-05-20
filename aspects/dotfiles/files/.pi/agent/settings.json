@@ -8,6 +8,12 @@
     "~/.claude/plugins/marketplaces/wincent-agent-plugins/pi/skills",
     "~/dd/wincent/.pi/agent/skills"
   ],
+  "enabledModels": [
+    "anthropic/claude-opus-4-7",
+    "anthropic/claude-sonnet-4-6",
+    "anthropic/claude-haiku-4-5",
+    "openai-codex/gpt-5.5"
+  ],
   "defaultThinkingLevel": "xhigh",
   "lastChangelogVersion": "0.74.0",
   "defaultProvider": "anthropic",
