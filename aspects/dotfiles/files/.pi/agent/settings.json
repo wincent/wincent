@@ -3,6 +3,10 @@
     "~/.claude/plugins/marketplaces/wincent-agent-plugins/pi/extensions",
     "~/dd/wincent/.pi/agent/extensions"
   ],
+  "prompts": [
+    "~/.claude/plugins/marketplaces/wincent-agent-plugins/pi/prompts",
+    "~/dd/wincent/.pi/agent/prompts"
+  ],
   "skills": [
     "~/.claude/skills",
     "~/.claude/plugins/marketplaces/wincent-agent-plugins/pi/skills",
