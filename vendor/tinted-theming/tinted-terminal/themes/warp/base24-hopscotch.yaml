@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Hopscotch by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Hopscotch
+accent: "#1290bf" # base0D
+cursor: "#a9a4a8" # base05
+background: "#322931" # base00
+foreground: "#a9a4a8" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#322931" # base00
+    red: "#dd464c" # base08
+    yellow: "#989498" # base0A
+    green: "#8fc13e" # base0B
+    cyan: "#149b93" # base0C
+    blue: "#1290bf" # base0D
+    magenta: "#c85e7c" # base0E
+    white: "#a9a4a8" # base05
+
+  bright:
+    black: "#898388" # base03
+    red: "#fd8b19" # base12
+    yellow: "#5c545b" # base13
+    green: "#433b42" # base14
+    cyan: "#b33508" # base15
+    blue: "#989498" # base16
+    magenta: "#d5d3d5" # base17
+    white: "#ffffff" # base07

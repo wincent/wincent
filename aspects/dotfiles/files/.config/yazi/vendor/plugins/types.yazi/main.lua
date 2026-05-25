@@ -626,96 +626,95 @@ ya = ya
 -- | ------- | ------------------------------------------- |
 -- | `self`  | `Self`                                      |
 -- | `color` | [`AsColor`](/docs/plugins/aliases#as-color) |
--- | Return  | `self`                                      |
+-- | Return  | `Self`                                      |
 ---@field fg fun(self: self, color: AsColor): self
 -- Apply a background color.
 -- | In/Out  | Type                                        |
 -- | ------- | ------------------------------------------- |
 -- | `self`  | `Self`                                      |
 -- | `color` | [`AsColor`](/docs/plugins/aliases#as-color) |
--- | Return  | `self`                                      |
+-- | Return  | `Self`                                      |
 ---@field bg fun(self: self, color: AsColor): self
 -- Apply a bold style.
 -- | In/Out | Type   |
 -- | ------ | ------ |
 -- | `self` | `Self` |
--- | Return | `self` |
+-- | Return | `Self` |
 ---@field bold fun(self: self): self
 -- Apply a dim style.
 -- | In/Out | Type   |
 -- | ------ | ------ |
 -- | `self` | `Self` |
--- | Return | `self` |
+-- | Return | `Self` |
 ---@field dim fun(self: self): self
 -- Apply an italic style.
 -- | In/Out | Type   |
 -- | ------ | ------ |
 -- | `self` | `Self` |
--- | Return | `self` |
+-- | Return | `Self` |
 ---@field italic fun(self: self): self
 -- Apply an underline style.
 -- | In/Out | Type   |
 -- | ------ | ------ |
 -- | `self` | `Self` |
--- | Return | `self` |
+-- | Return | `Self` |
 ---@field underline fun(self: self): self
 -- Apply a blink style.
 -- Note that this style may not be supported by all terminals.
 -- | In/Out | Type   |
 -- | ------ | ------ |
 -- | `self` | `Self` |
--- | Return | `self` |
+-- | Return | `Self` |
 ---@field blink fun(self: self): self
--- Apply a rapid blink style.
--- Note that this style may not be supported by all terminals.
+-- Apply a rapid blink style. Not all terminals support this.
 -- | In/Out | Type   |
 -- | ------ | ------ |
 -- | `self` | `Self` |
--- | Return | `self` |
+-- | Return | `Self` |
 ---@field blink_rapid fun(self: self): self
 -- Apply a reverse style.
 -- | In/Out | Type   |
 -- | ------ | ------ |
 -- | `self` | `Self` |
--- | Return | `self` |
+-- | Return | `Self` |
 ---@field reverse fun(self: self): self
 -- Apply a hidden style.
 -- | In/Out | Type   |
 -- | ------ | ------ |
 -- | `self` | `Self` |
--- | Return | `self` |
+-- | Return | `Self` |
 ---@field hidden fun(self: self): self
 -- Apply a crossed style.
 -- | In/Out | Type   |
 -- | ------ | ------ |
 -- | `self` | `Self` |
--- | Return | `self` |
+-- | Return | `Self` |
 ---@field crossed fun(self: self): self
 -- Apply a reset style.
 -- | In/Out | Type   |
 -- | ------ | ------ |
 -- | `self` | `Self` |
--- | Return | `self` |
+-- | Return | `Self` |
 ---@field reset fun(self: self): self
--- Patch the style with `another`.
--- | In/Out    | Type                            |
--- | --------- | ------------------------------- |
--- | `self`    | `Self`                          |
--- | `another` | `Self`                          |
--- | Return    | `self`                          |
--- | Private   | This method can't be inherited. |
----@field patch fun(self: self, another: self): self
+-- Patch the style with `other`.
+-- | In/Out  | Type                            |
+-- | ------- | ------------------------------- |
+-- | `self`  | `Self`                          |
+-- | `other` | `Self`                          |
+-- | Return  | `Self`                          |
+-- | Private | This method can't be inherited. |
+---@field patch fun(self: self, another: ): self
 -- Make a new style.
--- | In/Out  | Type    |
--- | ------- | ------- |
--- | Return  | `Self`  |
+-- | In/Out | Type   |
+-- | ------ | ------ |
+-- | Return | `Self` |
 ---@overload fun(): ui.Style
 
 -- `ui.Span` is the smallest unit of text, yet a component of `ui.Line`. Create a span:
 -- ```lua
 -- ui.Span("foo")
 -- ```
--- For convenience, `ui.Span` can also accept itself as a argument:
+-- For convenience, `ui.Span` can also accept another `ui.Span` as an argument:
 -- ```lua
 -- ui.Span(ui.Span("bar"))
 -- ```
@@ -750,76 +749,75 @@ ya = ya
 -- | ------- | ------------------------------------------- |
 -- | `self`  | `Self`                                      |
 -- | `color` | [`AsColor`](/docs/plugins/aliases#as-color) |
--- | Return  | `self`                                      |
+-- | Return  | `Self`                                      |
 ---@field fg fun(self: self, color: AsColor): self
 -- Apply a background color.
 -- | In/Out  | Type                                        |
 -- | ------- | ------------------------------------------- |
 -- | `self`  | `Self`                                      |
 -- | `color` | [`AsColor`](/docs/plugins/aliases#as-color) |
--- | Return  | `self`                                      |
+-- | Return  | `Self`                                      |
 ---@field bg fun(self: self, color: AsColor): self
 -- Apply a bold style.
 -- | In/Out | Type   |
 -- | ------ | ------ |
 -- | `self` | `Self` |
--- | Return | `self` |
+-- | Return | `Self` |
 ---@field bold fun(self: self): self
 -- Apply a dim style.
 -- | In/Out | Type   |
 -- | ------ | ------ |
 -- | `self` | `Self` |
--- | Return | `self` |
+-- | Return | `Self` |
 ---@field dim fun(self: self): self
 -- Apply an italic style.
 -- | In/Out | Type   |
 -- | ------ | ------ |
 -- | `self` | `Self` |
--- | Return | `self` |
+-- | Return | `Self` |
 ---@field italic fun(self: self): self
 -- Apply an underline style.
 -- | In/Out | Type   |
 -- | ------ | ------ |
 -- | `self` | `Self` |
--- | Return | `self` |
+-- | Return | `Self` |
 ---@field underline fun(self: self): self
 -- Apply a blink style.
 -- Note that this style may not be supported by all terminals.
 -- | In/Out | Type   |
 -- | ------ | ------ |
 -- | `self` | `Self` |
--- | Return | `self` |
+-- | Return | `Self` |
 ---@field blink fun(self: self): self
--- Apply a rapid blink style.
--- Note that this style may not be supported by all terminals.
+-- Apply a rapid blink style. Not all terminals support this.
 -- | In/Out | Type   |
 -- | ------ | ------ |
 -- | `self` | `Self` |
--- | Return | `self` |
+-- | Return | `Self` |
 ---@field blink_rapid fun(self: self): self
 -- Apply a reverse style.
 -- | In/Out | Type   |
 -- | ------ | ------ |
 -- | `self` | `Self` |
--- | Return | `self` |
+-- | Return | `Self` |
 ---@field reverse fun(self: self): self
 -- Apply a hidden style.
 -- | In/Out | Type   |
 -- | ------ | ------ |
 -- | `self` | `Self` |
--- | Return | `self` |
+-- | Return | `Self` |
 ---@field hidden fun(self: self): self
 -- Apply a crossed style.
 -- | In/Out | Type   |
 -- | ------ | ------ |
 -- | `self` | `Self` |
--- | Return | `self` |
+-- | Return | `Self` |
 ---@field crossed fun(self: self): self
 -- Apply a reset style.
 -- | In/Out | Type   |
 -- | ------ | ------ |
 -- | `self` | `Self` |
--- | Return | `self` |
+-- | Return | `Self` |
 ---@field reset fun(self: self): self
 -- Make a new span.
 -- | In/Out  | Type                                      |
@@ -890,76 +888,75 @@ ya = ya
 -- | ------- | ------------------------------------------- |
 -- | `self`  | `Self`                                      |
 -- | `color` | [`AsColor`](/docs/plugins/aliases#as-color) |
--- | Return  | `self`                                      |
+-- | Return  | `Self`                                      |
 ---@field fg fun(self: self, color: AsColor): self
 -- Apply a background color.
 -- | In/Out  | Type                                        |
 -- | ------- | ------------------------------------------- |
 -- | `self`  | `Self`                                      |
 -- | `color` | [`AsColor`](/docs/plugins/aliases#as-color) |
--- | Return  | `self`                                      |
+-- | Return  | `Self`                                      |
 ---@field bg fun(self: self, color: AsColor): self
 -- Apply a bold style.
 -- | In/Out | Type   |
 -- | ------ | ------ |
 -- | `self` | `Self` |
--- | Return | `self` |
+-- | Return | `Self` |
 ---@field bold fun(self: self): self
 -- Apply a dim style.
 -- | In/Out | Type   |
 -- | ------ | ------ |
 -- | `self` | `Self` |
--- | Return | `self` |
+-- | Return | `Self` |
 ---@field dim fun(self: self): self
 -- Apply an italic style.
 -- | In/Out | Type   |
 -- | ------ | ------ |
 -- | `self` | `Self` |
--- | Return | `self` |
+-- | Return | `Self` |
 ---@field italic fun(self: self): self
 -- Apply an underline style.
 -- | In/Out | Type   |
 -- | ------ | ------ |
 -- | `self` | `Self` |
--- | Return | `self` |
+-- | Return | `Self` |
 ---@field underline fun(self: self): self
 -- Apply a blink style.
 -- Note that this style may not be supported by all terminals.
 -- | In/Out | Type   |
 -- | ------ | ------ |
 -- | `self` | `Self` |
--- | Return | `self` |
+-- | Return | `Self` |
 ---@field blink fun(self: self): self
--- Apply a rapid blink style.
--- Note that this style may not be supported by all terminals.
+-- Apply a rapid blink style. Not all terminals support this.
 -- | In/Out | Type   |
 -- | ------ | ------ |
 -- | `self` | `Self` |
--- | Return | `self` |
+-- | Return | `Self` |
 ---@field blink_rapid fun(self: self): self
 -- Apply a reverse style.
 -- | In/Out | Type   |
 -- | ------ | ------ |
 -- | `self` | `Self` |
--- | Return | `self` |
+-- | Return | `Self` |
 ---@field reverse fun(self: self): self
 -- Apply a hidden style.
 -- | In/Out | Type   |
 -- | ------ | ------ |
 -- | `self` | `Self` |
--- | Return | `self` |
+-- | Return | `Self` |
 ---@field hidden fun(self: self): self
 -- Apply a crossed style.
 -- | In/Out | Type   |
 -- | ------ | ------ |
 -- | `self` | `Self` |
--- | Return | `self` |
+-- | Return | `Self` |
 ---@field crossed fun(self: self): self
 -- Apply a reset style.
 -- | In/Out | Type   |
 -- | ------ | ------ |
 -- | `self` | `Self` |
--- | Return | `self` |
+-- | Return | `Self` |
 ---@field reset fun(self: self): self
 -- Make a new line.
 -- | In/Out  | Type                                      |
@@ -1032,76 +1029,75 @@ ya = ya
 -- | ------- | ------------------------------------------- |
 -- | `self`  | `Self`                                      |
 -- | `color` | [`AsColor`](/docs/plugins/aliases#as-color) |
--- | Return  | `self`                                      |
+-- | Return  | `Self`                                      |
 ---@field fg fun(self: self, color: AsColor): self
 -- Apply a background color.
 -- | In/Out  | Type                                        |
 -- | ------- | ------------------------------------------- |
 -- | `self`  | `Self`                                      |
 -- | `color` | [`AsColor`](/docs/plugins/aliases#as-color) |
--- | Return  | `self`                                      |
+-- | Return  | `Self`                                      |
 ---@field bg fun(self: self, color: AsColor): self
 -- Apply a bold style.
 -- | In/Out | Type   |
 -- | ------ | ------ |
 -- | `self` | `Self` |
--- | Return | `self` |
+-- | Return | `Self` |
 ---@field bold fun(self: self): self
 -- Apply a dim style.
 -- | In/Out | Type   |
 -- | ------ | ------ |
 -- | `self` | `Self` |
--- | Return | `self` |
+-- | Return | `Self` |
 ---@field dim fun(self: self): self
 -- Apply an italic style.
 -- | In/Out | Type   |
 -- | ------ | ------ |
 -- | `self` | `Self` |
--- | Return | `self` |
+-- | Return | `Self` |
 ---@field italic fun(self: self): self
 -- Apply an underline style.
 -- | In/Out | Type   |
 -- | ------ | ------ |
 -- | `self` | `Self` |
--- | Return | `self` |
+-- | Return | `Self` |
 ---@field underline fun(self: self): self
 -- Apply a blink style.
 -- Note that this style may not be supported by all terminals.
 -- | In/Out | Type   |
 -- | ------ | ------ |
 -- | `self` | `Self` |
--- | Return | `self` |
+-- | Return | `Self` |
 ---@field blink fun(self: self): self
--- Apply a rapid blink style.
--- Note that this style may not be supported by all terminals.
+-- Apply a rapid blink style. Not all terminals support this.
 -- | In/Out | Type   |
 -- | ------ | ------ |
 -- | `self` | `Self` |
--- | Return | `self` |
+-- | Return | `Self` |
 ---@field blink_rapid fun(self: self): self
 -- Apply a reverse style.
 -- | In/Out | Type   |
 -- | ------ | ------ |
 -- | `self` | `Self` |
--- | Return | `self` |
+-- | Return | `Self` |
 ---@field reverse fun(self: self): self
 -- Apply a hidden style.
 -- | In/Out | Type   |
 -- | ------ | ------ |
 -- | `self` | `Self` |
--- | Return | `self` |
+-- | Return | `Self` |
 ---@field hidden fun(self: self): self
 -- Apply a crossed style.
 -- | In/Out | Type   |
 -- | ------ | ------ |
 -- | `self` | `Self` |
--- | Return | `self` |
+-- | Return | `Self` |
 ---@field crossed fun(self: self): self
 -- Apply a reset style.
 -- | In/Out | Type   |
 -- | ------ | ------ |
 -- | `self` | `Self` |
--- | Return | `self` |
+-- | Return | `Self` |
 ---@field reset fun(self: self): self
 -- Make a new text.
 -- | In/Out  | Type                                      |
@@ -2258,7 +2254,7 @@ ya = ya
 -- local function entry()
 --   local cwd = cx.active.current.cwd
 --   ya.async(function ()
---     ya.dbg(cwd)    -- `cwd` is a Url, which is sendable
+--     ya.dbg(cwd)    -- `cwd` is a Url and is sendable
 --   end)
 -- end
 -- return { entry }
@@ -2420,7 +2416,16 @@ ya = ya
 -- | Return    | `boolean, Error?`  |
 -- | Available | Async context only |
 ---@field write fun(url: Url, data: string): boolean, Error?
--- Create file(s) at the `url` of the file system:
+-- Create an [`Access`](#access) with which to access the filesystem.
+-- ```lua
+-- local access = fs.access()
+-- ```
+-- | In/Out    | Type               |
+-- | --------- | ------------------ |
+-- | Return    | `Access`           |
+-- | Available | Async context only |
+---@field access fun(): Access
+-- Create directories at the given filesystem `url`:
 -- ```lua
 -- local ok, err = fs.create("dir_all", Url("/tmp/test/nest/nested"))
 -- ```
@@ -2521,20 +2526,24 @@ ya = ya
 -- | Return    | `boolean, Error?`  |
 -- | Available | Async context only |
 ---@field rename fun(from: Url, to: Url): boolean, Error?
--- Get a unique name from the given `url` to ensure it's unique in the file system:
+-- Create a file or a directory with the unique name from the given `url` to ensure it's unique in the file system:
 -- ```lua
--- local url, err = fs.unique_name(Url("/tmp/test.txt"))
+-- local url, err = fs.unique("file", Url("/tmp/test.txt"))
 -- ```
+-- Where `type` can be one of the following:
+-- - `"file"`: Creates a file with the unique name.
+-- - `"dir"`: Creates a directory with the unique name.
 -- If the file already exists, it will append `_n` to the filename, where `n` is a number, and keep incrementing until the first available name is found.
 -- Returns `(url, err)`:
 -- - `url`: The [`Url`][url] with the unique filename.
 -- - `err`: [`Error`][error] of the failure.
--- | In/Out    | Type               |
--- | --------- | ------------------ |
--- | `url`     | `Url`              |
--- | Return    | `Url?, Error?`     |
--- | Available | Async context only |
----@field unique_name fun(url: Url): Url?, Error?
+-- | In/Out    | Type                |
+-- | --------- | ------------------- |
+-- | `type`    | `"file"` \| `"dir"` |
+-- | `url`     | `Url`               |
+-- | Return    | `Url?, Error?`      |
+-- | Available | Async context only  |
+---@field unique fun(type: "file"|"dir", url: Url): Url?, Error?
 
 -- APIs related to the user interface.
 ---@class (exact) ui
@@ -2650,6 +2659,122 @@ ya = ya
 -- | `kind` | `string`  | Same as `unsub()` |
 -- | Return | `unknown` | -                 |
 ---@field unsub_remote fun(kind: string): unknown
+
+-- This object is created by [`fs.access()`](#fs.access) and represents the options for interacting with a file.
+---@class (exact) Access
+-- Sets the operation for read access.
+-- ```lua
+-- local access = fs.access():read(true)
+-- ```
+-- | In/Out | Type      |
+-- | ------ | --------- |
+-- | `self` | `Self`    |
+-- | `read` | `boolean` |
+-- | Return | `self`    |
+---@field read fun(self: self, read: boolean): self
+-- Sets the operation for write access.
+-- ```lua
+-- local access = fs.access():write(true)
+-- ```
+-- | In/Out  | Type      |
+-- | ------- | --------- |
+-- | `self`  | `Self`    |
+-- | `write` | `boolean` |
+-- | Return  | `self`    |
+---@field write fun(self: self, write: boolean): self
+-- Sets the operation for the append mode.
+-- ```lua
+-- local access = fs.access():append(true)
+-- ```
+-- | In/Out   | Type      |
+-- | -------- | --------- |
+-- | `self`   | `Self`    |
+-- | `append` | `boolean` |
+-- | Return   | `self`    |
+---@field append fun(self: self, append: boolean): self
+-- Sets the operation for truncating a previous file.
+-- ```lua
+-- local access = fs.access():truncate(true)
+-- ```
+-- | In/Out     | Type      |
+-- | ---------- | --------- |
+-- | `self`     | `Self`    |
+-- | `truncate` | `boolean` |
+-- | Return     | `self`    |
+---@field truncate fun(self: self, truncate: boolean): self
+-- Sets the operation to create a new file, or open it if it already exists.
+-- ```lua
+-- local access = fs.access():create(true)
+-- ```
+-- | In/Out   | Type      |
+-- | -------- | --------- |
+-- | `self`   | `Self`    |
+-- | `create` | `boolean` |
+-- | Return   | `self`    |
+---@field create fun(self: self, create: boolean): self
+-- Sets the operation to create a new file, failing if it already exists.
+-- ```lua
+-- local access = fs.access():create_new(true)
+-- ```
+-- | In/Out       | Type      |
+-- | ------------ | --------- |
+-- | `self`       | `Self`    |
+-- | `create_new` | `boolean` |
+-- | Return       | `self`    |
+---@field create_new fun(self: self, create_new: boolean): self
+-- Opens a file at `url` with the mode specified.
+-- ```lua
+-- local url = Url("/tmp/test.txt")
+-- local fd, err = fs.access():read(true):open(url)
+-- ```
+-- Returns `(fd, err)`:
+-- - `fd`: [Fd](#fd) (file descriptor) if the operation succeeds; otherwise, `nil`.
+-- - `err`: [`Error`][error] of the failure.
+-- | In/Out    | Type               |
+-- | --------- | ------------------ |
+-- | `self`    | `Self`             |
+-- | `url`     | `Url`              |
+-- | Return    | `Fd?, Error?`      |
+-- | Available | Async context only |
+---@field open fun(self: self, url: Url): Fd?, Error?
+
+-- This object is created by [`Access:open()`](#access.open) and contains the methods for working with the opened file.
+---@class (exact) Fd
+-- Writes all `bytes` to the file descriptor.
+-- ```lua
+-- local url = Url("/tmp/test.txt")
+-- local fd, err = fs.access():write(true):open(url)
+-- assert(fd, err)
+-- local ok, err = fd:write_all("Hello, World!")
+-- assert(ok, err)
+-- ```
+-- Returns `(ok, err)`:
+-- - `ok`: Whether the operation succeeds, which is a `boolean`.
+-- - `err`: [`Error`][error] of the failure.
+-- | In/Out    | Type               |
+-- | --------- | ------------------ |
+-- | `self`    | `Self`             |
+-- | `bytes`   | `string`           |
+-- | Return    | `boolean, Error?`  |
+-- | Available | Async context only |
+---@field write_all fun(self: self, bytes: string): boolean, Error?
+-- Flushes the file descriptor, making sure all data gets written to the underlying storage.
+-- ```lua
+-- local url = Url("/tmp/test.txt")
+-- local fd, err = fs.access():write(true):open(url)
+-- assert(fd, err)
+-- local ok, err = fd:flush()
+-- assert(ok, err)
+-- ```
+-- Returns `(ok, err)`:
+-- - `ok`: Whether the operation succeeds, which is a `boolean`.
+-- - `err`: [`Error`][error] of the failure.
+-- | In/Out    | Type               |
+-- | --------- | ------------------ |
+-- | `self`    | `Self`             |
+-- | Return    | `boolean, Error?`  |
+-- | Available | Async context only |
+---@field flush fun(self: self): boolean, Error?
 
 -- You can invoke external programs through:
 -- ```lua
@@ -2820,8 +2945,8 @@ ya = ya
 --   timeout = 500,
 -- }
 -- ```
--- It has a extra event:
--- - Timeout, if event is 3.
+-- It has an extra event:
+-- - Timeout, if `event` is 3.
 -- | In/Out | Type                   |
 -- | ------ | ---------------------- |
 -- | `self` | `Self`                 |
@@ -3009,7 +3134,7 @@ ya = ya
 -- ```lua
 -- ui.Span("foo")
 -- ```
--- For convenience, `ui.Span` can also accept itself as a argument:
+-- For convenience, `ui.Span` can also accept another `ui.Span` as an argument:
 -- ```lua
 -- ui.Span(ui.Span("bar"))
 -- ```

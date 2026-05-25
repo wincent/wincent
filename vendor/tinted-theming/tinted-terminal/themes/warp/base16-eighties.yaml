@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Eighties by Chris Kempson (http://chriskempson.com)
+
+name: Base16 Eighties
+accent: "#6699cc" # base0D
+cursor: "#d3d0c8" # base05
+background: "#2d2d2d" # base00
+foreground: "#d3d0c8" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#2d2d2d" # base00
+    red: "#f2777a" # base08
+    yellow: "#ffcc66" # base0A
+    green: "#99cc99" # base0B
+    cyan: "#66cccc" # base0C
+    blue: "#6699cc" # base0D
+    magenta: "#cc99cc" # base0E
+    white: "#d3d0c8" # base05
+
+  normal:
+    black: "#747369" # base03
+    red: "#f2777a" # base08
+    yellow: "#ffcc66" # base0A
+    green: "#99cc99" # base0B
+    cyan: "#66cccc" # base0C
+    blue: "#6699cc" # base0D
+    magenta: "#cc99cc" # base0E
+    white: "#f2f0ec" # base07

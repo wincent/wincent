@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Cupertino by Defman21
+
+name: Base16 Cupertino
+accent: "#0000ff" # base0D
+cursor: "#404040" # base05
+background: "#ffffff" # base00
+foreground: "#404040" # base05
+details: lighter
+
+terminal_colors:
+  bright:
+    black: "#ffffff" # base00
+    red: "#c41a15" # base08
+    yellow: "#826b28" # base0A
+    green: "#007400" # base0B
+    cyan: "#318495" # base0C
+    blue: "#0000ff" # base0D
+    magenta: "#a90d91" # base0E
+    white: "#404040" # base05
+
+  normal:
+    black: "#808080" # base03
+    red: "#c41a15" # base08
+    yellow: "#826b28" # base0A
+    green: "#007400" # base0B
+    cyan: "#318495" # base0C
+    blue: "#0000ff" # base0D
+    magenta: "#a90d91" # base0E
+    white: "#5e5e5e" # base07

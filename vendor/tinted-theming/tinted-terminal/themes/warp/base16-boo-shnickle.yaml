@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: boo-shnickle by boo-shnickle (@boo_shnickle)
+
+name: Base16 boo-shnickle
+accent: "#bfbfd9" # base0D
+cursor: "#bdbd97" # base05
+background: "#191914" # base00
+foreground: "#bdbd97" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#191914" # base00
+    red: "#ffbfa5" # base08
+    yellow: "#fff299" # base0A
+    green: "#e7ff99" # base0B
+    cyan: "#bfffc5" # base0C
+    blue: "#bfbfd9" # base0D
+    magenta: "#f2bfd9" # base0E
+    white: "#bdbd97" # base05
+
+  normal:
+    black: "#7c7c63" # base03
+    red: "#ffbfa5" # base08
+    yellow: "#fff299" # base0A
+    green: "#e7ff99" # base0B
+    cyan: "#bfffc5" # base0C
+    blue: "#bfbfd9" # base0D
+    magenta: "#f2bfd9" # base0E
+    white: "#ffffcc" # base07

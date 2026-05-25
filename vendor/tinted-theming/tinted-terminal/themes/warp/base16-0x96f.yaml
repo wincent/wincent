@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: 0x96f by Filip Janevski (https://0x96f.dev/theme)
+
+name: Base16 0x96f
+accent: "#49cae4" # base0D
+cursor: "#fcfcfc" # base05
+background: "#262427" # base00
+foreground: "#fcfcfc" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#262427" # base00
+    red: "#ff7272" # base08
+    yellow: "#ffca58" # base0A
+    green: "#bcdf59" # base0B
+    cyan: "#aee8f4" # base0C
+    blue: "#49cae4" # base0D
+    magenta: "#a093e2" # base0E
+    white: "#fcfcfc" # base05
+
+  normal:
+    black: "#676567" # base03
+    red: "#ff7272" # base08
+    yellow: "#ffca58" # base0A
+    green: "#bcdf59" # base0B
+    cyan: "#aee8f4" # base0C
+    blue: "#49cae4" # base0D
+    magenta: "#a093e2" # base0E
+    white: "#fcfcfc" # base07

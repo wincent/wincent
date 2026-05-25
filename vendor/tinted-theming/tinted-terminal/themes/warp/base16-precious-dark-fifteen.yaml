@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Precious Dark Fifteen by 4lex4 &lt;4lex49@zoho.com&gt;
+
+name: Base16 Precious Dark Fifteen
+accent: "#66b0ef" # base0D
+cursor: "#bab9b6" # base05
+background: "#23262b" # base00
+foreground: "#bab9b6" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#23262b" # base00
+    red: "#ff8782" # base08
+    yellow: "#cfa546" # base0A
+    green: "#95b659" # base0B
+    cyan: "#42bda7" # base0C
+    blue: "#66b0ef" # base0D
+    magenta: "#b799ff" # base0E
+    white: "#bab9b6" # base05
+
+  normal:
+    black: "#898989" # base03
+    red: "#ff8782" # base08
+    yellow: "#cfa546" # base0A
+    green: "#95b659" # base0B
+    cyan: "#42bda7" # base0C
+    blue: "#66b0ef" # base0D
+    magenta: "#b799ff" # base0E
+    white: "#bab9b6" # base07

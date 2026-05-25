@@ -1,6 +1,6 @@
 local ls_helpers = require("helpers")
-local exec_lua, feed, exec =
-	ls_helpers.exec_lua, ls_helpers.feed, ls_helpers.exec
+local exec_lua, feed, exec, assert =
+	ls_helpers.exec_lua, ls_helpers.feed, ls_helpers.exec, ls_helpers.assert
 
 describe("expand_conditions", function()
 	-- before_each(function()
@@ -19,7 +19,7 @@ describe("expand_conditions", function()
 			return c() == true
 			]])
 		end
-		assert.has_no.errors(foo)
+		assert.no_error(foo)
 		assert.is_true(foo())
 	end)
 	describe("logic ops", function()
@@ -51,7 +51,7 @@ describe("expand_conditions", function()
 						local test = function()
 							return foo(ele[1], ele[2])
 						end
-						assert.has_no.errors(test)
+						assert.no_error(test)
 						assert.is_true(test())
 					end
 				)
@@ -79,7 +79,7 @@ describe("expand_conditions", function()
 						local test = function()
 							return foo(ele[1], ele[2])
 						end
-						assert.has_no.errors(test)
+						assert.no_error(test)
 						assert.is_true(test())
 					end
 				)
@@ -113,7 +113,7 @@ describe("expand_conditions", function()
 						local test = function()
 							return foo(ele[1], ele[2])
 						end
-						assert.has_no.errors(test)
+						assert.no_error(test)
 						assert.is_true(test())
 					end
 				)
@@ -141,7 +141,7 @@ describe("expand_conditions", function()
 						local test = function()
 							return foo(ele[1], ele[2])
 						end
-						assert.has_no.errors(test)
+						assert.no_error(test)
 						assert.is_true(test())
 					end
 				)
@@ -162,7 +162,7 @@ describe("expand_conditions", function()
 					local test = function()
 						return foo(ele[1])
 					end
-					assert.has_no.errors(test)
+					assert.no_error(test)
 					assert.is_true(test())
 				end)
 			end
@@ -207,7 +207,7 @@ describe("expand_conditions", function()
 						local test = function()
 							return foo(ele[1], ele[2], ele[3])
 						end
-						assert.has_no.errors(test)
+						assert.no_error(test)
 						assert.is_true(test())
 					end
 				)
@@ -223,7 +223,7 @@ describe("expand_conditions", function()
 				return not c("hello world", "hello world") ~= true -- allow nil/object
 				]])
 			end
-			assert.has_no.errors(foo)
+			assert.no_error(foo)
 			assert.is_true(foo())
 		end)
 		it("is NOT at begin", function()
@@ -234,7 +234,7 @@ describe("expand_conditions", function()
 				return not c("hello world", "ld") ~= false -- allow nil/object
 				]])
 			end
-			assert.has_no.errors(foo)
+			assert.no_error(foo)
 			assert.is_true(foo())
 		end)
 	end)
@@ -254,7 +254,7 @@ describe("expand_conditions", function()
 					return ret
 				]])
 			end
-			assert.has_no.errors(foo)
+			assert.no_error(foo)
 			assert.is_true(foo())
 		end)
 		it("is NOT at begin", function()
@@ -272,7 +272,7 @@ describe("expand_conditions", function()
 					return ret
 				]])
 			end
-			assert.has_no.errors(foo)
+			assert.no_error(foo)
 			assert.is_true(foo())
 		end)
 	end)

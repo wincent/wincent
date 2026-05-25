@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: CLRS by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 CLRS
+accent: "#125ccf" # base0D
+cursor: "#9a9b9a" # base05
+background: "#ffffff" # base00
+foreground: "#9a9b9a" # base05
+details: lighter
+
+terminal_colors:
+  normal:
+    black: "#ffffff" # base00
+    red: "#f72729" # base08
+    yellow: "#156ffe" # base0A
+    green: "#32895c" # base0B
+    cyan: "#32c2c0" # base0C
+    blue: "#125ccf" # base0D
+    magenta: "#9f00bc" # base0E
+    white: "#9a9b9a" # base05
+
+  bright:
+    black: "#6b6d6a" # base03
+    red: "#fb0416" # base12
+    yellow: "#fcd627" # base13
+    green: "#2cc631" # base14
+    cyan: "#39d5ce" # base15
+    blue: "#156ffe" # base16
+    magenta: "#e800b0" # base17
+    white: "#ededec" # base07

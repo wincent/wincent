@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Blue Forest by alonsodomin (https://github.com/alonsodomin)
+
+name: Base16 Blue Forest
+accent: "#a2cff5" # base0D
+cursor: "#ffcc33" # base05
+background: "#141f2e" # base00
+foreground: "#ffcc33" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#141f2e" # base00
+    red: "#fffab1" # base08
+    yellow: "#91ccff" # base0A
+    green: "#80ff80" # base0B
+    cyan: "#80ff80" # base0C
+    blue: "#a2cff5" # base0D
+    magenta: "#0099ff" # base0E
+    white: "#ffcc33" # base05
+
+  normal:
+    black: "#a0ffa0" # base03
+    red: "#fffab1" # base08
+    yellow: "#91ccff" # base0A
+    green: "#80ff80" # base0B
+    cyan: "#80ff80" # base0C
+    blue: "#a2cff5" # base0D
+    magenta: "#0099ff" # base0E
+    white: "#375780" # base07

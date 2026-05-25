@@ -264,6 +264,10 @@ end
 --- @return integer[] | nil
 local function calc_constrained_cursor_pos(bufnr, adapter, mode, cur)
   local parser = require("oil.mutator.parser")
+  local line_count = vim.api.nvim_buf_line_count(bufnr)
+  if cur[1] < 1 or cur[1] > line_count then
+    return
+  end
   local line = vim.api.nvim_buf_get_lines(bufnr, cur[1] - 1, cur[1], true)[1]
   local column_defs = columns.get_supported_columns(adapter)
   local result = parser.parse_line(adapter, line, column_defs)
@@ -499,36 +503,39 @@ M.initialize = function(bufnr)
     local fs_event = assert(uv.new_fs_event())
     local bufname = vim.api.nvim_buf_get_name(bufnr)
     local _, dir = util.parse_url(bufname)
-    fs_event:start(
-      assert(dir),
-      {},
-      vim.schedule_wrap(function(err, filename, events)
-        if not vim.api.nvim_buf_is_valid(bufnr) then
-          local sess = session[bufnr]
-          if sess then
-            sess.fs_event = nil
-          end
-          fs_event:stop()
-          return
-        end
-        local mutator = require("oil.mutator")
-        if err or vim.bo[bufnr].modified or vim.b[bufnr].oil_dirty or mutator.is_mutating() then
-          return
-        end
-
-        -- If the buffer is currently visible, rerender
-        for _, winid in ipairs(vim.api.nvim_list_wins()) do
-          if vim.api.nvim_win_is_valid(winid) and vim.api.nvim_win_get_buf(winid) == bufnr then
-            M.render_buffer_async(bufnr)
+    if not (fs.is_windows and dir == "/") then
+      local os_path = fs.posix_to_os_path(assert(dir))
+      fs_event:start(
+        os_path,
+        {},
+        vim.schedule_wrap(function(err, filename, events)
+          if not vim.api.nvim_buf_is_valid(bufnr) then
+            local sess = session[bufnr]
+            if sess then
+              sess.fs_event = nil
+            end
+            fs_event:stop()
             return
           end
-        end
+          local mutator = require("oil.mutator")
+          if err or vim.bo[bufnr].modified or vim.b[bufnr].oil_dirty or mutator.is_mutating() then
+            return
+          end
 
-        -- If it is not currently visible, mark it as dirty
-        vim.b[bufnr].oil_dirty = {}
-      end)
-    )
-    session[bufnr].fs_event = fs_event
+          -- If the buffer is currently visible, rerender
+          for _, winid in ipairs(vim.api.nvim_list_wins()) do
+            if vim.api.nvim_win_is_valid(winid) and vim.api.nvim_win_get_buf(winid) == bufnr then
+              M.render_buffer_async(bufnr)
+              return
+            end
+          end
+
+          -- If it is not currently visible, mark it as dirty
+          vim.b[bufnr].oil_dirty = {}
+        end)
+      )
+      session[bufnr].fs_event = fs_event
+    end
   end
 
   -- Watch for TextChanged and update the trash original path extmarks

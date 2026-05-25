@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: PaperColor Light by Jon Leopard (http://github.com/jonleopard), Tinted Theming (https://github.com/tinted-theming), based on PaperColor Theme (https://github.com/NLKNguyen/papercolor-theme)
+
+name: Base16 PaperColor Light
+accent: "#005f87" # base0D
+cursor: "#5e5e5e" # base05
+background: "#eeeeee" # base00
+foreground: "#5e5e5e" # base05
+details: lighter
+
+terminal_colors:
+  bright:
+    black: "#eeeeee" # base00
+    red: "#d70000" # base08
+    yellow: "#d75f00" # base0A
+    green: "#008700" # base0B
+    cyan: "#0087af" # base0C
+    blue: "#005f87" # base0D
+    magenta: "#8700af" # base0E
+    white: "#5e5e5e" # base05
+
+  normal:
+    black: "#858585" # base03
+    red: "#d70000" # base08
+    yellow: "#d75f00" # base0A
+    green: "#008700" # base0B
+    cyan: "#0087af" # base0C
+    blue: "#005f87" # base0D
+    magenta: "#8700af" # base0E
+    white: "#444444" # base07

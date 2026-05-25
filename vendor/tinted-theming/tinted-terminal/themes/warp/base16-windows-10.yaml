@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Windows 10 by Fergus Collins (https://github.com/ferguscollins)
+
+name: Base16 Windows 10
+accent: "#3b78ff" # base0D
+cursor: "#cccccc" # base05
+background: "#0c0c0c" # base00
+foreground: "#cccccc" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#0c0c0c" # base00
+    red: "#e74856" # base08
+    yellow: "#f9f1a5" # base0A
+    green: "#16c60c" # base0B
+    cyan: "#61d6d6" # base0C
+    blue: "#3b78ff" # base0D
+    magenta: "#b4009e" # base0E
+    white: "#cccccc" # base05
+
+  normal:
+    black: "#767676" # base03
+    red: "#e74856" # base08
+    yellow: "#f9f1a5" # base0A
+    green: "#16c60c" # base0B
+    cyan: "#61d6d6" # base0C
+    blue: "#3b78ff" # base0D
+    magenta: "#b4009e" # base0E
+    white: "#f2f2f2" # base07

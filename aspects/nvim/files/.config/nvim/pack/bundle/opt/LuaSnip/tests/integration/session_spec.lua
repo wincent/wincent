@@ -4,6 +4,7 @@ local ls_helpers = require("helpers")
 local exec_lua, feed, exec =
 	ls_helpers.exec_lua, ls_helpers.feed, ls_helpers.exec
 local Screen = require("test.functional.ui.screen")
+local assert = ls_helpers.assert
 
 local function expand()
 	exec_lua("ls.expand()")
@@ -380,15 +381,8 @@ describe("session", function()
 		-- delete whole buffer.
 		feed("<Esc>ggVGd")
 		-- another jump should not cause an error.
-		-- for some reason this hangs indefinitely on nvim0.7, but not 0.9 or master.
-		-- I assume that something is just weird in the test-suite (why would
-		-- this fail only here specifically (IIRC there are enough tests that
-		-- do something similar)), and since it's fine on 0.9 and master (which
-		-- matter much more) there shouldn't be an issue in practice.
 		exec_lua([[
-			if require("luasnip.util.vimversion").ge(0,8,0) then
-				ls.jump(1)
-			end
+			ls.jump(1)
 		]])
 	end)
 	it("Deleting nested snippet only removes it.", function()
@@ -691,7 +685,7 @@ describe("session", function()
 				{2:-- SELECT --}                                      |]],
 				})
 			else
-				assert(err:match("No Snippet at that position"))
+				assert.non_nil(err:match("No Snippet at that position"))
 			end
 		end)
 	end
@@ -1827,7 +1821,7 @@ describe("session", function()
 		})
 
 		-- make sure the deleted snippet got disconnected properly.
-		assert.are.same(
+		assert.eq(
 			exec_lua(
 				[[return ls.session.current_nodes[1].parent.snippet.prev.prev and "Node before" or "No node before"]]
 			),
@@ -2053,8 +2047,12 @@ describe("session", function()
 
 			-- make sure the snippet-roots-list is still an array, and we did not
 			-- insert at 2 after the deletion of the first snippet.
-			assert(exec_lua("return ls.session.snippet_roots[1][1] ~= nil"))
-			assert(exec_lua("return ls.session.snippet_roots[1][2] == nil"))
+			assert.is_true(
+				exec_lua("return ls.session.snippet_roots[1][1] ~= nil")
+			)
+			assert.is_true(
+				exec_lua("return ls.session.snippet_roots[1][2] == nil")
+			)
 		end
 	)
 

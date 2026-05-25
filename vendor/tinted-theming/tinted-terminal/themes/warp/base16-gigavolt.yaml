@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Gigavolt by Aidan Swope (http://github.com/Whillikers)
+
+name: Base16 Gigavolt
+accent: "#40bfff" # base0D
+cursor: "#e9e7e1" # base05
+background: "#202126" # base00
+foreground: "#e9e7e1" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#202126" # base00
+    red: "#ff661a" # base08
+    yellow: "#ffdc2d" # base0A
+    green: "#f2e6a9" # base0B
+    cyan: "#fb6acb" # base0C
+    blue: "#40bfff" # base0D
+    magenta: "#ae94f9" # base0E
+    white: "#e9e7e1" # base05
+
+  normal:
+    black: "#a1d2e6" # base03
+    red: "#ff661a" # base08
+    yellow: "#ffdc2d" # base0A
+    green: "#f2e6a9" # base0B
+    cyan: "#fb6acb" # base0C
+    blue: "#40bfff" # base0D
+    magenta: "#ae94f9" # base0E
+    white: "#f2fbff" # base07

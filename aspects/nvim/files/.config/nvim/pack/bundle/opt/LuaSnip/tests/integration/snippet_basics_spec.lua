@@ -2,6 +2,7 @@ local ls_helpers = require("helpers")
 local exec_lua, feed, exec =
 	ls_helpers.exec_lua, ls_helpers.feed, ls_helpers.exec
 local Screen = require("test.functional.ui.screen")
+local assert = ls_helpers.assert
 
 describe("snippets_basic", function()
 	local screen
@@ -33,7 +34,7 @@ describe("snippets_basic", function()
 				t"the snippet expands"
 			})
 		]]
-		assert.are.same(
+		assert.eq(
 			exec_lua("return " .. snip .. ":get_static_text()"),
 			{ "the snippet expands" }
 		)
@@ -100,7 +101,7 @@ describe("snippets_basic", function()
 				t"text", i(1), t"text again", i(2), t"and again"
 			})
 		]]
-		assert.are.same(
+		assert.eq(
 			exec_lua("return " .. snip .. ":get_static_text()"),
 			{ "texttext againand again" }
 		)
@@ -184,7 +185,7 @@ describe("snippets_basic", function()
 				t"a[", i(1), t"]a", i(2), t"b"
 			})
 		]]
-		assert.are.same(
+		assert.eq(
 			exec_lua("return " .. snip .. ":get_static_text()"),
 			{ "a[]ab" }
 		)
@@ -642,7 +643,7 @@ describe("snippets_basic", function()
 			exec_lua([[
 			ls.snip_expand(s("", {i(1), sn(2, {t"this is skipped"}), i(3)}))
 		]])
-			assert.are.same(
+			assert.eq(
 				exec_lua(
 					[[return ls.jump_destination(1).absolute_insert_position]]
 				),
@@ -824,22 +825,22 @@ describe("snippets_basic", function()
 			}))
 		]])
 		exec_lua("snip = ls.session.current_nodes[1].parent.snippet")
-		assert.are.same(
+		assert.eq(
 			{ "a" },
 			exec_lua([[return snip:get_keyed_node("a"):get_text()]])
 		)
-		assert.are.same(
+		assert.eq(
 			{ "b" },
 			exec_lua([[return snip:get_keyed_node("b"):get_text()]])
 		)
-		assert.are.same(
+		assert.eq(
 			exec_lua([[return vim.NIL]]),
 			exec_lua([[return snip:get_keyed_node("c")]])
 		)
 
 		exec_lua("ls.jump(1) ls.change_choice(1)")
 
-		assert.are.same(
+		assert.eq(
 			{ "c" },
 			exec_lua([[return snip:get_keyed_node("c"):get_text()]])
 		)
@@ -1188,7 +1189,7 @@ describe("snippets_basic", function()
 		feed("𝔼sdfasdfasdf<Cr>")
 		feed("asdfasdfasdf<Cr>")
 		feed("<Esc>ggvjjll<Tab><Esc>u")
-		assert.are.same(
+		assert.eq(
 			exec_lua(
 				[[return vim.api.nvim_buf_get_var(0, "LUASNIP_SELECT_RAW")]]
 			),
@@ -1196,7 +1197,7 @@ describe("snippets_basic", function()
 		)
 
 		feed("ggll<C-V>lllljj<Tab><Esc>u")
-		assert.are.same(
+		assert.eq(
 			exec_lua(
 				[[return vim.api.nvim_buf_get_var(0, "LUASNIP_SELECT_RAW")]]
 			),
@@ -1206,7 +1207,7 @@ describe("snippets_basic", function()
 
 	it("Selection is yanked correctly with mutlibyte characters.", function()
 		feed("i𝔼f-𝔼abc<Esc>v^<Tab><Esc>u")
-		assert.are.same(
+		assert.eq(
 			exec_lua(
 				[[return vim.api.nvim_buf_get_var(0, "LUASNIP_SELECT_RAW")]]
 			),
@@ -1214,7 +1215,7 @@ describe("snippets_basic", function()
 		)
 
 		feed("^lvlll<Tab><Esc>u")
-		assert.are.same(
+		assert.eq(
 			exec_lua(
 				[[return vim.api.nvim_buf_get_var(0, "LUASNIP_SELECT_RAW")]]
 			),
@@ -1222,7 +1223,7 @@ describe("snippets_basic", function()
 		)
 
 		feed("^V<Tab><Esc>u")
-		assert.are.same(
+		assert.eq(
 			exec_lua(
 				[[return vim.api.nvim_buf_get_var(0, "LUASNIP_SELECT_RAW")]]
 			),
@@ -1527,11 +1528,11 @@ describe("snippets_basic", function()
 			end}}})
 		]])
 		exec_lua([[ls.snip_expand(snip)]])
-		assert.are.same(1, exec_lua("return counter"))
+		assert.eq(1, exec_lua("return counter"))
 
 		-- +1 for entering the exit-node of the second expansion.
 		exec_lua([[ls.snip_expand(snip)]])
-		assert.are.same(2, exec_lua("return counter"))
+		assert.eq(2, exec_lua("return counter"))
 	end)
 
 	it("node-callbacks are executed correctly.", function()
@@ -1550,8 +1551,8 @@ describe("snippets_basic", function()
 			ls.snip_expand(snip)
 		]])
 
-		assert.are.same(true, exec_lua("return enter_qwer"))
-		assert.are.same(true, exec_lua("return enter_qwer_via_parent"))
+		assert.eq(true, exec_lua("return enter_qwer"))
+		assert.eq(true, exec_lua("return enter_qwer_via_parent"))
 
 		exec_lua([[
 			enter_snode = false
@@ -1575,9 +1576,9 @@ describe("snippets_basic", function()
 			ls.snip_expand(snip)
 		]])
 
-		assert.are.same(true, exec_lua("return enter_snode"))
-		assert.are.same(true, exec_lua("return enter_snode_m1"))
-		assert.are.same(true, exec_lua("return enter_snode_via_parent"))
+		assert.eq(true, exec_lua("return enter_snode"))
+		assert.eq(true, exec_lua("return enter_snode_m1"))
+		assert.eq(true, exec_lua("return enter_snode_via_parent"))
 	end)
 
 	it("Correct filetype is recognized via treesitter.", function()
@@ -1676,10 +1677,7 @@ describe("snippets_basic", function()
 			local snipB = ls.s({trig="asdf"}, {i1})
 		]]
 		)
-		assert(not ok, "Throws error")
-		assert(
-			err:match("Node at position 1 is already initialized") ~= nil,
-			"Throws correct error"
-		)
+		assert.is_true(not ok)
+		assert.non_nil(err:match("Node at position 1 is already initialized"))
 	end)
 end)

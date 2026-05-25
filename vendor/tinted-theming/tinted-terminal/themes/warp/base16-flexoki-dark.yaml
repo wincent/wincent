@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Flexoki Dark by Steph Ango (https://github.com/kepano/flexoki)
+
+name: Base16 Flexoki Dark
+accent: "#4385be" # base0D
+cursor: "#cecdc3" # base05
+background: "#100f0f" # base00
+foreground: "#cecdc3" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#100f0f" # base00
+    red: "#d14d41" # base08
+    yellow: "#d0a215" # base0A
+    green: "#879a39" # base0B
+    cyan: "#3aa99f" # base0C
+    blue: "#4385be" # base0D
+    magenta: "#8b7ec8" # base0E
+    white: "#cecdc3" # base05
+
+  normal:
+    black: "#575653" # base03
+    red: "#d14d41" # base08
+    yellow: "#d0a215" # base0A
+    green: "#879a39" # base0B
+    cyan: "#3aa99f" # base0C
+    blue: "#4385be" # base0D
+    magenta: "#8b7ec8" # base0E
+    white: "#fffcf0" # base07

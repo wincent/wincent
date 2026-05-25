@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Kanagawa Dragon by Stefan Weigl-Bosker (https://github.com/sweiglbosker), Tommaso Laurenzi (https://github.com/rebelot/kanagawa.nvim)
+
+name: Base24 Kanagawa Dragon
+accent: "#8ba4b0" # base0D
+cursor: "#c5c9c5" # base05
+background: "#181616" # base00
+foreground: "#c5c9c5" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#181616" # base00
+    red: "#c4746e" # base08
+    yellow: "#c4b28a" # base0A
+    green: "#8a9a7b" # base0B
+    cyan: "#8ea4a2" # base0C
+    blue: "#8ba4b0" # base0D
+    magenta: "#a292a3" # base0E
+    white: "#c5c9c5" # base05
+
+  bright:
+    black: "#625e5a" # base03
+    red: "#e46876" # base12
+    yellow: "#e6c384" # base13
+    green: "#87a987" # base14
+    cyan: "#7aa89f" # base15
+    blue: "#7fb4ca" # base16
+    magenta: "#938aa9" # base17
+    white: "#c5c9c5" # base07

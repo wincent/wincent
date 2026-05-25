@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Thayer Bright by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Thayer Bright
+accent: "#2656d6" # base0D
+cursor: "#adada9" # base05
+background: "#1b1d1e" # base00
+foreground: "#adada9" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#1b1d1e" # base00
+    red: "#f92672" # base08
+    yellow: "#3f78ff" # base0A
+    green: "#4df740" # base0B
+    cyan: "#37c8b4" # base0C
+    blue: "#2656d6" # base0D
+    magenta: "#8c54fe" # base0E
+    white: "#adada9" # base05
+
+  bright:
+    black: "#6f7170" # base03
+    red: "#ff5995" # base12
+    yellow: "#feed6c" # base13
+    green: "#b6e354" # base14
+    cyan: "#23ced4" # base15
+    blue: "#3f78ff" # base16
+    magenta: "#9e6ffe" # base17
+    white: "#f8f8f2" # base07

@@ -1,0 +1,30 @@
+# Tinted Terminal tinted8 color theme (https://github.com/tinted-theming)
+# Color scheme: Nord by Tinted Theming (https://github.com/tinted-theming)
+
+name: Tinted8 Nord
+accent: "#88c0d0"
+cursor: "#e5e9f0"
+background: "#2e3440"
+foreground: "#e5e9f0"
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#2e3440"
+    red: "#bf616a"
+    yellow: "#ebcb8b"
+    green: "#a3be8c"
+    cyan: "#88c0d0"
+    blue: "#81a1c1"
+    magenta: "#b48ead"
+    white: "#e5e9f0"
+
+  bright:
+    black: "#465165"
+    red: "#d18d93"
+    yellow: "#f4e2bf"
+    green: "#c2d4b3"
+    cyan: "#b4d7e1"
+    blue: "#aac0d5"
+    magenta: "#ccb3c8"
+    white: "#eceff4"

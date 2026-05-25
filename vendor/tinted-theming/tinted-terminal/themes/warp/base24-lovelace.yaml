@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Lovelace by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Lovelace
+accent: "#8897f4" # base0D
+cursor: "#ceced3" # base05
+background: "#1d1f28" # base00
+foreground: "#ceced3" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#1d1f28" # base00
+    red: "#f37f97" # base08
+    yellow: "#556fff" # base0A
+    green: "#5adecd" # base0B
+    cyan: "#79e6f3" # base0C
+    blue: "#8897f4" # base0D
+    magenta: "#c574dd" # base0E
+    white: "#ceced3" # base05
+
+  bright:
+    black: "#707281" # base03
+    red: "#ff4971" # base12
+    yellow: "#ff8037" # base13
+    green: "#18e3c8" # base14
+    cyan: "#3fdcee" # base15
+    blue: "#556fff" # base16
+    magenta: "#b043d1" # base17
+    white: "#bebec1" # base07

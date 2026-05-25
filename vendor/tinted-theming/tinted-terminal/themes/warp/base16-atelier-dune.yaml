@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Atelier Dune by Bram de Haan (http://atelierbramdehaan.nl)
+
+name: Base16 Atelier Dune
+accent: "#6684e1" # base0D
+cursor: "#a6a28c" # base05
+background: "#20201d" # base00
+foreground: "#a6a28c" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#20201d" # base00
+    red: "#d73737" # base08
+    yellow: "#ae9513" # base0A
+    green: "#60ac39" # base0B
+    cyan: "#1fad83" # base0C
+    blue: "#6684e1" # base0D
+    magenta: "#b854d4" # base0E
+    white: "#a6a28c" # base05
+
+  normal:
+    black: "#7d7a68" # base03
+    red: "#d73737" # base08
+    yellow: "#ae9513" # base0A
+    green: "#60ac39" # base0B
+    cyan: "#1fad83" # base0C
+    blue: "#6684e1" # base0D
+    magenta: "#b854d4" # base0E
+    white: "#fefbec" # base07

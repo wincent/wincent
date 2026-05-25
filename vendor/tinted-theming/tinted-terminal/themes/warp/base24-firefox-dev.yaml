@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Firefox Dev by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Firefox Dev
+accent: "#359ddf" # base0D
+cursor: "#a5acae" # base05
+background: "#0e1011" # base00
+foreground: "#a5acae" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#0e1011" # base00
+    red: "#e63853" # base08
+    yellow: "#006fc0" # base0A
+    green: "#5eb83c" # base0B
+    cyan: "#4b73a2" # base0C
+    blue: "#359ddf" # base0D
+    magenta: "#d75cff" # base0E
+    white: "#a5acae" # base05
+
+  bright:
+    black: "#374d53" # base03
+    red: "#e1003f" # base12
+    yellow: "#cc9308" # base13
+    green: "#1d9000" # base14
+    cyan: "#005794" # base15
+    blue: "#006fc0" # base16
+    magenta: "#a200da" # base17
+    white: "#e2e2e2" # base07

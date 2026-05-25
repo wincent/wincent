@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Rosé Pine Dawn by Emilia Dunfelt &lt;edun@dunfelt.se&gt;
+
+name: Base16 Rosé Pine Dawn
+accent: "#907aa9" # base0D
+cursor: "#575279" # base05
+background: "#faf4ed" # base00
+foreground: "#575279" # base05
+details: lighter
+
+terminal_colors:
+  bright:
+    black: "#faf4ed" # base00
+    red: "#b4637a" # base08
+    yellow: "#d7827e" # base0A
+    green: "#286983" # base0B
+    cyan: "#56949f" # base0C
+    blue: "#907aa9" # base0D
+    magenta: "#ea9d34" # base0E
+    white: "#575279" # base05
+
+  normal:
+    black: "#9893a5" # base03
+    red: "#b4637a" # base08
+    yellow: "#d7827e" # base0A
+    green: "#286983" # base0B
+    cyan: "#56949f" # base0C
+    blue: "#907aa9" # base0D
+    magenta: "#ea9d34" # base0E
+    white: "#cecacd" # base07

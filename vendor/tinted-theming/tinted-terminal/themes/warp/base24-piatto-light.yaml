@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Piatto Light by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Piatto Light
+accent: "#3c5ea8" # base0D
+cursor: "#515151" # base05
+background: "#ffffff" # base00
+foreground: "#515151" # base05
+details: lighter
+
+terminal_colors:
+  normal:
+    black: "#ffffff" # base00
+    red: "#b23771" # base08
+    yellow: "#cda434" # base0A
+    green: "#66781e" # base0B
+    cyan: "#1e7878" # base0C
+    blue: "#3c5ea8" # base0D
+    magenta: "#a454b2" # base0E
+    white: "#515151" # base05
+
+  bright:
+    black: "#c1c1c1" # base03
+    red: "#db3365" # base12
+    yellow: "#cd6f34" # base13
+    green: "#829429" # base14
+    cyan: "#175e5e" # base15
+    blue: "#3c5ea8" # base16
+    magenta: "#a454b2" # base17
+    white: "#212121" # base07

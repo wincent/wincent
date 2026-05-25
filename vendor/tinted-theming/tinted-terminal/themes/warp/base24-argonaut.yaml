@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Argonaut by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Argonaut
+accent: "#008df8" # base0D
+cursor: "#d0d0d0" # base05
+background: "#0d0f18" # base00
+foreground: "#d0d0d0" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#0d0f18" # base00
+    red: "#ff000f" # base08
+    yellow: "#0092ff" # base0A
+    green: "#8ce00a" # base0B
+    cyan: "#00d7eb" # base0C
+    blue: "#008df8" # base0D
+    magenta: "#6c43a5" # base0E
+    white: "#d0d0d0" # base05
+
+  bright:
+    black: "#727272" # base03
+    red: "#ff273f" # base12
+    yellow: "#ffd141" # base13
+    green: "#abe05a" # base14
+    cyan: "#67ffef" # base15
+    blue: "#0092ff" # base16
+    magenta: "#9a5feb" # base17
+    white: "#ffffff" # base07

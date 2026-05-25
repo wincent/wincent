@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Twilight by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Twilight
+accent: "#444649" # base0D
+cursor: "#c8c8a7" # base05
+background: "#141414" # base00
+foreground: "#c8c8a7" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#141414" # base00
+    red: "#c06c43" # base08
+    yellow: "#5a5d61" # base0A
+    green: "#afb979" # base0B
+    cyan: "#778284" # base0C
+    blue: "#444649" # base0D
+    magenta: "#b4be7b" # base0E
+    white: "#c8c8a7" # base05
+
+  bright:
+    black: "#5c5c51" # base03
+    red: "#dd7c4c" # base12
+    yellow: "#e1c47d" # base13
+    green: "#cbd88c" # base14
+    cyan: "#8a989a" # base15
+    blue: "#5a5d61" # base16
+    magenta: "#d0db8e" # base17
+    white: "#feffd3" # base07

@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Everforest Dark Medium by Sainnhe Park (https://github.com/sainnhe)
+
+name: Base16 Everforest Dark Medium
+accent: "#7fbbb3" # base0D
+cursor: "#859289" # base05
+background: "#2d353b" # base00
+foreground: "#859289" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#2d353b" # base00
+    red: "#e67e80" # base08
+    yellow: "#dbbc7f" # base0A
+    green: "#a7c080" # base0B
+    cyan: "#83c092" # base0C
+    blue: "#7fbbb3" # base0D
+    magenta: "#d699b6" # base0E
+    white: "#859289" # base05
+
+  normal:
+    black: "#475258" # base03
+    red: "#e67e80" # base08
+    yellow: "#dbbc7f" # base0A
+    green: "#a7c080" # base0B
+    cyan: "#83c092" # base0C
+    blue: "#7fbbb3" # base0D
+    magenta: "#d699b6" # base0E
+    white: "#d3c6aa" # base07

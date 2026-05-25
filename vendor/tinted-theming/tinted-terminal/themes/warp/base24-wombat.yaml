@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Wombat by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Wombat
+accent: "#5da9f6" # base0D
+cursor: "#b2afa6" # base05
+background: "#171717" # base00
+foreground: "#b2afa6" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#171717" # base00
+    red: "#ff605a" # base08
+    yellow: "#a5c7ff" # base0A
+    green: "#b1e869" # base0B
+    cyan: "#82fff6" # base0C
+    blue: "#5da9f6" # base0D
+    magenta: "#e86aff" # base0E
+    white: "#b2afa6" # base05
+
+  bright:
+    black: "#5c5b58" # base03
+    red: "#f58b7f" # base12
+    yellow: "#eee5b2" # base13
+    green: "#dcf88f" # base14
+    cyan: "#b6fff9" # base15
+    blue: "#a5c7ff" # base16
+    magenta: "#ddaaff" # base17
+    white: "#fefffe" # base07

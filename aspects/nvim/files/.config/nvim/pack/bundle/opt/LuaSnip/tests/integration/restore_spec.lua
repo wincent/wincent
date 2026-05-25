@@ -1,6 +1,7 @@
 local ls_helpers = require("helpers")
 local exec_lua, feed = ls_helpers.exec_lua, ls_helpers.feed
 local Screen = require("test.functional.ui.screen")
+local assert = ls_helpers.assert
 
 describe("RestoreNode", function()
 	local screen
@@ -37,11 +38,11 @@ describe("RestoreNode", function()
 				})
 			})
 		]]
-		assert.are.same(
+		assert.eq(
 			exec_lua("return " .. snip .. ":get_static_text()"),
 			{ "aaaa" }
 		)
-		assert.are.same(
+		assert.eq(
 			exec_lua("return " .. snip .. ":get_docstring()"),
 			{ "${1:${${1:aaaa}}}$0" }
 		)
@@ -55,7 +56,7 @@ describe("RestoreNode", function()
 		})
 
 		-- can use get_docstring on inactive restoreNode.
-		assert.are.same(exec_lua("return ls.get_current_choices()"), {
+		assert.eq(exec_lua("return ls.get_current_choices()"), {
 			[[${${1:aaaa}}]],
 			[[${"${${1:aaaa}}"}]],
 			[[${'${${1:aaaa}}'}]],
@@ -99,14 +100,14 @@ describe("RestoreNode", function()
 				end, {1})
 			})
 		]]
-		assert.are.same(
+		assert.eq(
 			exec_lua("return " .. snip .. ":get_static_text()"),
 			{ "a -> a aaaa" }
 		)
 		exec_lua("ls.snip_expand(" .. snip .. ")")
 
 		-- next jump to "aaaa"-insertNode.
-		assert.are.same(
+		assert.eq(
 			exec_lua([[return ls.jump_destination(1).absolute_insert_position]]),
 			{ 2, 0, 1, 0, 1 }
 		)
@@ -154,12 +155,12 @@ describe("RestoreNode", function()
 				}
 			})
 		}) ]]
-		assert.are.same(
+		assert.eq(
 			exec_lua("return " .. snip .. ":get_static_text()"),
 			{ "aca" }
 		)
 		exec_lua("ls.snip_expand(" .. snip .. ")")
-		assert.are.same(
+		assert.eq(
 			exec_lua([[return ls.jump_destination(1).absolute_insert_position]]),
 			{ 1, 1, 2, 0, 1, 1 }
 		)
@@ -203,7 +204,7 @@ describe("RestoreNode", function()
 				})
 			})
 		]]
-		assert.are.same(
+		assert.eq(
 			exec_lua("return " .. snip .. ":get_static_text()"),
 			{ "aaa: bbb" }
 		)
@@ -251,7 +252,7 @@ describe("RestoreNode", function()
 				})
 			})
 		]]
-		assert.are.same(
+		assert.eq(
 			exec_lua("return " .. snip .. ":get_static_text()"),
 			{ "aaaaaa" }
 		)
@@ -322,7 +323,7 @@ describe("RestoreNode", function()
 		)
 		exec_lua("ls.snip_expand(" .. snip .. ")")
 
-		assert.are.same(
+		assert.eq(
 			exec_lua([[return ls.jump_destination(1).absolute_insert_position]]),
 			{ 1, 1, 0, 2, 0, 1 }
 		)

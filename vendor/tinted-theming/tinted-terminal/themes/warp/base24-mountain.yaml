@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Mountain by Stefan Weigl-Bosker (https://github.com/sweiglbosker), based on Mountain Theme (https://github.com/mountain-theme/Mountain)
+
+name: Base24 Mountain
+accent: "#8f8aac" # base0D
+cursor: "#cacaca" # base05
+background: "#0f0f0f" # base00
+foreground: "#cacaca" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#0f0f0f" # base00
+    red: "#ac8a8c" # base08
+    yellow: "#aca98a" # base0A
+    green: "#8aac8b" # base0B
+    cyan: "#8aabac" # base0C
+    blue: "#8f8aac" # base0D
+    magenta: "#ac8aac" # base0E
+    white: "#cacaca" # base05
+
+  bright:
+    black: "#393939" # base03
+    red: "#c49ea0" # base12
+    yellow: "#c4c19e" # base13
+    green: "#9ec49f" # base14
+    cyan: "#9ec3c4" # base15
+    blue: "#a39ec4" # base16
+    magenta: "#c49ec4" # base17
+    white: "#f0f0f0" # base07

@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Flat by Chris Kempson (http://chriskempson.com)
+
+name: Base16 Flat
+accent: "#3498db" # base0D
+cursor: "#e0e0e0" # base05
+background: "#2c3e50" # base00
+foreground: "#e0e0e0" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#2c3e50" # base00
+    red: "#e74c3c" # base08
+    yellow: "#f1c40f" # base0A
+    green: "#2ecc71" # base0B
+    cyan: "#1abc9c" # base0C
+    blue: "#3498db" # base0D
+    magenta: "#9b59b6" # base0E
+    white: "#e0e0e0" # base05
+
+  normal:
+    black: "#95a5a6" # base03
+    red: "#e74c3c" # base08
+    yellow: "#f1c40f" # base0A
+    green: "#2ecc71" # base0B
+    cyan: "#1abc9c" # base0C
+    blue: "#3498db" # base0D
+    magenta: "#9b59b6" # base0E
+    white: "#ecf0f1" # base07

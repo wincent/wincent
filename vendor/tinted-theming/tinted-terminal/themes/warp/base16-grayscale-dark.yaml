@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Grayscale Dark by Alexandre Gavioli (https://github.com/Alexx2/)
+
+name: Base16 Grayscale Dark
+accent: "#686868" # base0D
+cursor: "#b9b9b9" # base05
+background: "#101010" # base00
+foreground: "#b9b9b9" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#101010" # base00
+    red: "#7c7c7c" # base08
+    yellow: "#a0a0a0" # base0A
+    green: "#8e8e8e" # base0B
+    cyan: "#868686" # base0C
+    blue: "#686868" # base0D
+    magenta: "#747474" # base0E
+    white: "#b9b9b9" # base05
+
+  normal:
+    black: "#525252" # base03
+    red: "#7c7c7c" # base08
+    yellow: "#a0a0a0" # base0A
+    green: "#8e8e8e" # base0B
+    cyan: "#868686" # base0C
+    blue: "#686868" # base0D
+    magenta: "#747474" # base0E
+    white: "#f7f7f7" # base07

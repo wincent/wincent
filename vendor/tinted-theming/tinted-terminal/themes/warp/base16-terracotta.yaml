@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Terracotta by Alexander Rossell Hayes (https://github.com/rossellhayes)
+
+name: Base16 Terracotta
+accent: "#625574" # base0D
+cursor: "#473731" # base05
+background: "#efeae8" # base00
+foreground: "#473731" # base05
+details: lighter
+
+terminal_colors:
+  bright:
+    black: "#efeae8" # base00
+    red: "#a75045" # base08
+    yellow: "#ce943e" # base0A
+    green: "#7a894a" # base0B
+    cyan: "#847f9e" # base0C
+    blue: "#625574" # base0D
+    magenta: "#8d5968" # base0E
+    white: "#473731" # base05
+
+  normal:
+    black: "#c0aca4" # base03
+    red: "#a75045" # base08
+    yellow: "#ce943e" # base0A
+    green: "#7a894a" # base0B
+    cyan: "#847f9e" # base0C
+    blue: "#625574" # base0D
+    magenta: "#8d5968" # base0E
+    white: "#241c19" # base07

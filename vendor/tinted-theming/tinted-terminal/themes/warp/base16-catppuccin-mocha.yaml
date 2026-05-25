@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Catppuccin Mocha by https://github.com/catppuccin/catppuccin
+
+name: Base16 Catppuccin Mocha
+accent: "#89b4fa" # base0D
+cursor: "#cdd6f4" # base05
+background: "#1e1e2e" # base00
+foreground: "#cdd6f4" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#1e1e2e" # base00
+    red: "#f38ba8" # base08
+    yellow: "#f9e2af" # base0A
+    green: "#a6e3a1" # base0B
+    cyan: "#94e2d5" # base0C
+    blue: "#89b4fa" # base0D
+    magenta: "#cba6f7" # base0E
+    white: "#cdd6f4" # base05
+
+  normal:
+    black: "#45475a" # base03
+    red: "#f38ba8" # base08
+    yellow: "#f9e2af" # base0A
+    green: "#a6e3a1" # base0B
+    cyan: "#94e2d5" # base0C
+    blue: "#89b4fa" # base0D
+    magenta: "#cba6f7" # base0E
+    white: "#b4befe" # base07

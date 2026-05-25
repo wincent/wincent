@@ -1,0 +1,27 @@
+# Kissa Macchiato theme for Mintty
+# Scheme Author: rwendell (https://github.com/rwendell/kissa)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1f1c16
+Red         = #e87777
+Green       = #8cb870
+Yellow      = #eac67a
+Blue        = #7fa8d4
+Magenta     = #b094cc
+Cyan        = #6ab8b0
+White       = #faf0e6
+BoldBlack   = #b8a48c
+BoldRed     = #e87777
+BoldGreen   = #8cb870
+BoldYellow  = #eac67a
+BoldBlue    = #7fa8d4
+BoldMagenta = #b094cc
+BoldCyan    = #6ab8b0
+BoldWhite   = #fef4e4
+
+# Background & foreground colors
+BackgroundColour = #1f1c16
+ForegroundColour = #faf0e6
+CursorColour     = #faf0e6

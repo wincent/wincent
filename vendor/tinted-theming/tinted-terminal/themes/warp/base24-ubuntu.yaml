@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Ubuntu by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Ubuntu
+accent: "#3465a4" # base0D
+cursor: "#b3b7b0" # base05
+background: "#300a24" # base00
+foreground: "#b3b7b0" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#300a24" # base00
+    red: "#cc0000" # base08
+    yellow: "#729fcf" # base0A
+    green: "#4e9a06" # base0B
+    cyan: "#06989a" # base0C
+    blue: "#3465a4" # base0D
+    magenta: "#75507b" # base0E
+    white: "#b3b7b0" # base05
+
+  bright:
+    black: "#747772" # base03
+    red: "#ef2929" # base12
+    yellow: "#fce94f" # base13
+    green: "#8ae234" # base14
+    cyan: "#34e2e2" # base15
+    blue: "#729fcf" # base16
+    magenta: "#ad7fa8" # base17
+    white: "#eeeeec" # base07

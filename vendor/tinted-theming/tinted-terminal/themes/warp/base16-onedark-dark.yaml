@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: OneDark Dark by olimorris (https://github.com/olimorris)
+
+name: Base16 OneDark Dark
+accent: "#61afef" # base0D
+cursor: "#abb2bf" # base05
+background: "#000000" # base00
+foreground: "#abb2bf" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#000000" # base00
+    red: "#ef596f" # base08
+    yellow: "#e5c07b" # base0A
+    green: "#89ca78" # base0B
+    cyan: "#2bbac5" # base0C
+    blue: "#61afef" # base0D
+    magenta: "#d55fde" # base0E
+    white: "#abb2bf" # base05
+
+  normal:
+    black: "#434852" # base03
+    red: "#ef596f" # base08
+    yellow: "#e5c07b" # base0A
+    green: "#89ca78" # base0B
+    cyan: "#2bbac5" # base0C
+    blue: "#61afef" # base0D
+    magenta: "#d55fde" # base0E
+    white: "#c8ccd4" # base07

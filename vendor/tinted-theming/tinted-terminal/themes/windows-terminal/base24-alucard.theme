@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Alucard",
+	"foreground": "#1f1f1f",
+	"background": "#fffbeb",
+	"black": "#fffbeb",
+	"blue": "#644ac9",
+	"brightBlack": "#6c664b",
+	"brightBlue": "#7862d0",
+	"brightCyan": "#047fb4",
+	"brightGreen": "#198d0c",
+	"brightPurple": "#bf185a",
+	"brightRed": "#d74c3d",
+	"brightWhite": "#2c2b31",
+	"brightYellow": "#9e841a",
+	"cyan": "#036a96",
+	"green": "#14710a",
+	"purple": "#a3144d",
+	"red": "#cb3a2a",
+	"white": "#1f1f1f",
+	"yellow": "#846e15"
+},

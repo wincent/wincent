@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Da One Sea by NNB (https://github.com/NNBnh)
+
+name: Base16 Da One Sea
+accent: "#6bb8ff" # base0D
+cursor: "#ffffff" # base05
+background: "#22273d" # base00
+foreground: "#ffffff" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#22273d" # base00
+    red: "#fa7883" # base08
+    yellow: "#ff9470" # base0A
+    green: "#98c379" # base0B
+    cyan: "#8af5ff" # base0C
+    blue: "#6bb8ff" # base0D
+    magenta: "#e799ff" # base0E
+    white: "#ffffff" # base05
+
+  normal:
+    black: "#878d96" # base03
+    red: "#fa7883" # base08
+    yellow: "#ff9470" # base0A
+    green: "#98c379" # base0B
+    cyan: "#8af5ff" # base0C
+    blue: "#6bb8ff" # base0D
+    magenta: "#e799ff" # base0E
+    white: "#ffffff" # base07

@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Highway by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Highway
+accent: "#006ab3" # base0D
+cursor: "#c8c5c4" # base05
+background: "#212224" # base00
+foreground: "#c8c5c4" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#212224" # base00
+    red: "#cf0d17" # base08
+    yellow: "#4fc2fd" # base0A
+    green: "#128033" # base0B
+    cyan: "#384563" # base0C
+    blue: "#006ab3" # base0D
+    magenta: "#6a2674" # base0E
+    white: "#c8c5c4" # base05
+
+  bright:
+    black: "#807672" # base03
+    red: "#ef7d17" # base12
+    yellow: "#fff11f" # base13
+    green: "#b1d130" # base14
+    cyan: "#5c4f49" # base15
+    blue: "#4fc2fd" # base16
+    magenta: "#de0070" # base17
+    white: "#fefffe" # base07

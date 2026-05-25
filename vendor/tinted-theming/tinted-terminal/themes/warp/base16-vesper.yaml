@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Vesper by FormalSnake (https://github.com/formalsnake)
+
+name: Base16 Vesper
+accent: "#8eaaaa" # base0D
+cursor: "#b7b7b7" # base05
+background: "#101010" # base00
+foreground: "#b7b7b7" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#101010" # base00
+    red: "#de6e6e" # base08
+    yellow: "#ffc799" # base0A
+    green: "#5f8787" # base0B
+    cyan: "#60a592" # base0C
+    blue: "#8eaaaa" # base0D
+    magenta: "#d69094" # base0E
+    white: "#b7b7b7" # base05
+
+  normal:
+    black: "#333333" # base03
+    red: "#de6e6e" # base08
+    yellow: "#ffc799" # base0A
+    green: "#5f8787" # base0B
+    cyan: "#60a592" # base0C
+    blue: "#8eaaaa" # base0D
+    magenta: "#d69094" # base0E
+    white: "#d5d5d5" # base07

@@ -1,6 +1,6 @@
 local ls_helpers = require("helpers")
-local exec_lua, feed, exec =
-	ls_helpers.exec_lua, ls_helpers.feed, ls_helpers.exec
+local exec_lua, feed, exec, assert =
+	ls_helpers.exec_lua, ls_helpers.feed, ls_helpers.exec, ls_helpers.assert
 
 describe("split_lines", function()
 	local function check(test_name, filestring, lines)
@@ -8,7 +8,7 @@ describe("split_lines", function()
 		filestring = filestring:gsub("\r", "\\r")
 		filestring = filestring:gsub("\n", "\\n")
 		it(test_name, function()
-			assert.are.same(
+			assert.eq(
 				lines,
 				exec_lua(
 					'return require("luasnip.loaders.util").split_lines("'

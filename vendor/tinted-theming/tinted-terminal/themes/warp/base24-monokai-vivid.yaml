@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Monokai Vivid by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Monokai Vivid
+accent: "#0442fe" # base0D
+cursor: "#dfdfdf" # base05
+background: "#121212" # base00
+foreground: "#dfdfdf" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#121212" # base00
+    red: "#fa2834" # base08
+    yellow: "#fef20a" # base0A
+    green: "#97e123" # base0B
+    cyan: "#01b6ed" # base0C
+    blue: "#0442fe" # base0D
+    magenta: "#f800f8" # base0E
+    white: "#dfdfdf" # base05
+
+  bright:
+    black: "#525252" # base03
+    red: "#f5669c" # base12
+    yellow: "#fef26c" # base13
+    green: "#b0e05e" # base14
+    cyan: "#50cdfe" # base15
+    blue: "#0442fe" # base16
+    magenta: "#f200f5" # base17
+    white: "#ffffff" # base07

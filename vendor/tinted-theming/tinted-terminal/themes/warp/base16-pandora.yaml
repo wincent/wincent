@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: pandora by Cassandra Fox
+
+name: Base16 pandora
+accent: "#008080" # base0D
+cursor: "#f15c99" # base05
+background: "#131213" # base00
+foreground: "#f15c99" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#131213" # base00
+    red: "#b00b69" # base08
+    yellow: "#ffcc00" # base0A
+    green: "#9ddf69" # base0B
+    cyan: "#714ca6" # base0C
+    blue: "#008080" # base0D
+    magenta: "#a24030" # base0E
+    white: "#f15c99" # base05
+
+  normal:
+    black: "#ffbee3" # base03
+    red: "#b00b69" # base08
+    yellow: "#ffcc00" # base0A
+    green: "#9ddf69" # base0B
+    cyan: "#714ca6" # base0C
+    blue: "#008080" # base0D
+    magenta: "#a24030" # base0E
+    white: "#632227" # base07

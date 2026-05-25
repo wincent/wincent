@@ -50,7 +50,12 @@ function M.udisksctl(type, src)
 	if not output or err then
 		return nil, err
 	elseif output.stderr:find("org.freedesktop.UDisks2.Error.NotAuthorizedCanObtain", 1, true) then
-		return require(".sudo").run_with_sudo("udisksctl", args)
+		local tx, rx = table.unpack(require(".main").permit)
+		tx:send(true)
+		ya.emit("which:dismiss", {})
+		local output, err = require(".sudo").run_with_sudo("udisksctl", args)
+		rx:recv()
+		return output, err
 	else
 		return output
 	end

@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Dracula by clach04 (https://github.com/clach04)
+
+name: Base24 Dracula
+accent: "#bd93f9" # base0D
+cursor: "#f8f8f2" # base05
+background: "#282a36" # base00
+foreground: "#f8f8f2" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#282a36" # base00
+    red: "#ff5555" # base08
+    yellow: "#f1fa8c" # base0A
+    green: "#50fa7b" # base0B
+    cyan: "#8be9fd" # base0C
+    blue: "#bd93f9" # base0D
+    magenta: "#ff79c6" # base0E
+    white: "#f8f8f2" # base05
+
+  bright:
+    black: "#6272a4" # base03
+    red: "#ff6e6e" # base12
+    yellow: "#ffffa5" # base13
+    green: "#69ff94" # base14
+    cyan: "#a4ffff" # base15
+    blue: "#d6acff" # base16
+    magenta: "#ff92df" # base17
+    white: "#ffffff" # base07

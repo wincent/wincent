@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Alien Blood by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Alien Blood
+accent: "#2f697f" # base0D
+cursor: "#5a6f5c" # base05
+background: "#0f160f" # base00
+foreground: "#5a6f5c" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#0f160f" # base00
+    red: "#7f2b26" # base08
+    yellow: "#00a9df" # base0A
+    green: "#2f7e25" # base0B
+    cyan: "#317f76" # base0C
+    blue: "#2f697f" # base0D
+    magenta: "#47577e" # base0E
+    white: "#5a6f5c" # base05
+
+  bright:
+    black: "#46542a" # base03
+    red: "#df8008" # base12
+    yellow: "#bde000" # base13
+    green: "#18e000" # base14
+    cyan: "#00dfc3" # base15
+    blue: "#00a9df" # base16
+    magenta: "#0058df" # base17
+    white: "#73f990" # base07

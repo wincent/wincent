@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Chicago Day by Wendell, Ryan &lt;ryanjwendell@gmail.com&gt;
+
+name: Base16 Chicago Day
+accent: "#522398" # base0D
+cursor: "#364c40" # base05
+background: "#e8f0ea" # base00
+foreground: "#364c40" # base05
+details: lighter
+
+terminal_colors:
+  bright:
+    black: "#e8f0ea" # base00
+    red: "#c60c30" # base08
+    yellow: "#968400" # base0A
+    green: "#009b3a" # base0B
+    cyan: "#00a1de" # base0C
+    blue: "#522398" # base0D
+    magenta: "#e27ea6" # base0E
+    white: "#364c40" # base05
+
+  normal:
+    black: "#8a9a91" # base03
+    red: "#c60c30" # base08
+    yellow: "#968400" # base0A
+    green: "#009b3a" # base0B
+    cyan: "#00a1de" # base0C
+    blue: "#522398" # base0D
+    magenta: "#e27ea6" # base0E
+    white: "#1e2a24" # base07

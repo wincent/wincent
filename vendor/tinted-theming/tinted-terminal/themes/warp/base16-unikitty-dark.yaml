@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Unikitty Dark by Josh W Lewis (@joshwlewis)
+
+name: Base16 Unikitty Dark
+accent: "#796af5" # base0D
+cursor: "#bcbabe" # base05
+background: "#2e2a31" # base00
+foreground: "#bcbabe" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#2e2a31" # base00
+    red: "#d8137f" # base08
+    yellow: "#dc8a0e" # base0A
+    green: "#17ad98" # base0B
+    cyan: "#149bda" # base0C
+    blue: "#796af5" # base0D
+    magenta: "#bb60ea" # base0E
+    white: "#bcbabe" # base05
+
+  normal:
+    black: "#838085" # base03
+    red: "#d8137f" # base08
+    yellow: "#dc8a0e" # base0A
+    green: "#17ad98" # base0B
+    cyan: "#149bda" # base0C
+    blue: "#796af5" # base0D
+    magenta: "#bb60ea" # base0E
+    white: "#f5f4f7" # base07

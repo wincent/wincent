@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Spacemacs by Nasser Alshammari (https://github.com/nashamri/spacemacs-theme)
+
+name: Base16 Spacemacs
+accent: "#4f97d7" # base0D
+cursor: "#a3a3a3" # base05
+background: "#1f2022" # base00
+foreground: "#a3a3a3" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#1f2022" # base00
+    red: "#f2241f" # base08
+    yellow: "#b1951d" # base0A
+    green: "#67b11d" # base0B
+    cyan: "#2d9574" # base0C
+    blue: "#4f97d7" # base0D
+    magenta: "#a31db1" # base0E
+    white: "#a3a3a3" # base05
+
+  normal:
+    black: "#585858" # base03
+    red: "#f2241f" # base08
+    yellow: "#b1951d" # base0A
+    green: "#67b11d" # base0B
+    cyan: "#2d9574" # base0C
+    blue: "#4f97d7" # base0D
+    magenta: "#a31db1" # base0E
+    white: "#f8f8f8" # base07

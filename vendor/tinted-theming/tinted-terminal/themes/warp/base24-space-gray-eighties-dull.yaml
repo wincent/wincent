@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Space Gray Eighties Dull by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Space Gray Eighties Dull
+accent: "#7b8fa4" # base0D
+cursor: "#9a9fa6" # base05
+background: "#212121" # base00
+foreground: "#9a9fa6" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#212121" # base00
+    red: "#b14956" # base08
+    yellow: "#5485c0" # base0A
+    green: "#91b377" # base0B
+    cyan: "#7fcccb" # base0C
+    blue: "#7b8fa4" # base0D
+    magenta: "#a5779e" # base0E
+    white: "#9a9fa6" # base05
+
+  bright:
+    black: "#6c6d70" # base03
+    red: "#ec5f67" # base12
+    yellow: "#fdc253" # base13
+    green: "#88e985" # base14
+    cyan: "#58c2c0" # base15
+    blue: "#5485c0" # base16
+    magenta: "#bf83c0" # base17
+    white: "#ffffff" # base07

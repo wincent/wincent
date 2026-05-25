@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Primer Dark Dimmed by Jimmy Lin
+
+name: Base16 Primer Dark Dimmed
+accent: "#539bf5" # base0D
+cursor: "#909dab" # base05
+background: "#1c2128" # base00
+foreground: "#909dab" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#1c2128" # base00
+    red: "#f47067" # base08
+    yellow: "#c69026" # base0A
+    green: "#57ab5a" # base0B
+    cyan: "#96d0ff" # base0C
+    blue: "#539bf5" # base0D
+    magenta: "#e275ad" # base0E
+    white: "#909dab" # base05
+
+  normal:
+    black: "#545d68" # base03
+    red: "#f47067" # base08
+    yellow: "#c69026" # base0A
+    green: "#57ab5a" # base0B
+    cyan: "#96d0ff" # base0C
+    blue: "#539bf5" # base0D
+    magenta: "#e275ad" # base0E
+    white: "#cdd9e5" # base07

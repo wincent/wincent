@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: XCode Dusk by Elsa Gonsiorowski (https://github.com/gonsie)
+
+name: Base16 XCode Dusk
+accent: "#790ead" # base0D
+cursor: "#939599" # base05
+background: "#282b35" # base00
+foreground: "#939599" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#282b35" # base00
+    red: "#b21889" # base08
+    yellow: "#438288" # base0A
+    green: "#df0002" # base0B
+    cyan: "#00a0be" # base0C
+    blue: "#790ead" # base0D
+    magenta: "#b21889" # base0E
+    white: "#939599" # base05
+
+  normal:
+    black: "#686a71" # base03
+    red: "#b21889" # base08
+    yellow: "#438288" # base0A
+    green: "#df0002" # base0B
+    cyan: "#00a0be" # base0C
+    blue: "#790ead" # base0D
+    magenta: "#b21889" # base0E
+    white: "#bebfc2" # base07

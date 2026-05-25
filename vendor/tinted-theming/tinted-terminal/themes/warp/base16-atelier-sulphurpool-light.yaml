@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Atelier Sulphurpool Light by Bram de Haan (http://atelierbramdehaan.nl)
+
+name: Base16 Atelier Sulphurpool Light
+accent: "#3d8fd1" # base0D
+cursor: "#5e6687" # base05
+background: "#f5f7ff" # base00
+foreground: "#5e6687" # base05
+details: lighter
+
+terminal_colors:
+  bright:
+    black: "#f5f7ff" # base00
+    red: "#c94922" # base08
+    yellow: "#c08b30" # base0A
+    green: "#ac9739" # base0B
+    cyan: "#22a2c9" # base0C
+    blue: "#3d8fd1" # base0D
+    magenta: "#6679cc" # base0E
+    white: "#5e6687" # base05
+
+  normal:
+    black: "#898ea4" # base03
+    red: "#c94922" # base08
+    yellow: "#c08b30" # base0A
+    green: "#ac9739" # base0B
+    cyan: "#22a2c9" # base0C
+    blue: "#3d8fd1" # base0D
+    magenta: "#6679cc" # base0E
+    white: "#202746" # base07

@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Spiderman by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Spiderman
+accent: "#2b3fff" # base0D
+cursor: "#d3d3cd" # base05
+background: "#1b1d1e" # base00
+foreground: "#d3d3cd" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#1b1d1e" # base00
+    red: "#e60712" # base08
+    yellow: "#1d4fff" # base0A
+    green: "#e22828" # base0B
+    cyan: "#3255ff" # base0C
+    blue: "#2b3fff" # base0D
+    magenta: "#2435db" # base0E
+    white: "#d3d3cd" # base05
+
+  bright:
+    black: "#7b7d7c" # base03
+    red: "#ff0325" # base12
+    yellow: "#fe3935" # base13
+    green: "#ff3238" # base14
+    cyan: "#6083ff" # base15
+    blue: "#1d4fff" # base16
+    magenta: "#737bff" # base17
+    white: "#fefff9" # base07

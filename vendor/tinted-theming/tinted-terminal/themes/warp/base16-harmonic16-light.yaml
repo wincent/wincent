@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Harmonic16 Light by Jannik Siebert (https://github.com/janniks)
+
+name: Base16 Harmonic16 Light
+accent: "#8b56bf" # base0D
+cursor: "#405c79" # base05
+background: "#f7f9fb" # base00
+foreground: "#405c79" # base05
+details: lighter
+
+terminal_colors:
+  bright:
+    black: "#f7f9fb" # base00
+    red: "#bf8b56" # base08
+    yellow: "#8bbf56" # base0A
+    green: "#56bf8b" # base0B
+    cyan: "#568bbf" # base0C
+    blue: "#8b56bf" # base0D
+    magenta: "#bf568b" # base0E
+    white: "#405c79" # base05
+
+  normal:
+    black: "#aabcce" # base03
+    red: "#bf8b56" # base08
+    yellow: "#8bbf56" # base0A
+    green: "#56bf8b" # base0B
+    cyan: "#568bbf" # base0C
+    blue: "#8b56bf" # base0D
+    magenta: "#bf568b" # base0E
+    white: "#0b1c2c" # base07

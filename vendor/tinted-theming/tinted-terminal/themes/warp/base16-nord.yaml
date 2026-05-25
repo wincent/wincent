@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Nord by arcticicestudio
+
+name: Base16 Nord
+accent: "#81a1c1" # base0D
+cursor: "#e5e9f0" # base05
+background: "#2e3440" # base00
+foreground: "#e5e9f0" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#2e3440" # base00
+    red: "#bf616a" # base08
+    yellow: "#ebcb8b" # base0A
+    green: "#a3be8c" # base0B
+    cyan: "#88c0d0" # base0C
+    blue: "#81a1c1" # base0D
+    magenta: "#b48ead" # base0E
+    white: "#e5e9f0" # base05
+
+  normal:
+    black: "#4c566a" # base03
+    red: "#bf616a" # base08
+    yellow: "#ebcb8b" # base0A
+    green: "#a3be8c" # base0B
+    cyan: "#88c0d0" # base0C
+    blue: "#81a1c1" # base0D
+    magenta: "#b48ead" # base0E
+    white: "#8fbcbb" # base07

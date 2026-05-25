@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Kissa Latte
+; Scheme system: base16
+; Scheme description: 
+; Scheme author: rwendell (https://github.com/rwendell/kissa)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base16-kissa-latte]
+
+; Default Foreground
+; base05 #1f1c16
+"Colour0"="31,28,22"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #1f1c16
+"Colour1"="31,28,22"
+
+; Default Background
+; base00 #f5f4f0
+"Colour2"="245,244,240"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #f5f4f0
+"Colour3"="245,244,240"
+
+; Cursor Text -- equals to default background
+; base00 #f5f4f0
+"Colour4"="245,244,240"
+
+; Cursor Colour -- equals to default foreground
+; base05 #1f1c16
+"Colour5"="31,28,22"
+
+; ANSI Black
+; 30m
+; base00 #f5f4f0
+"Colour6"="245,244,240"
+
+; ANSI Black Bright
+; 1;30m
+; base03 #91887d
+"Colour7"="145,136,125"
+
+; ANSI Red
+; 31m
+; base08 #9e3e3e
+"Colour8"="158,62,62"
+
+; ANSI Red Bright
+; 1;31m
+; base08 #9e3e3e
+"Colour9"="158,62,62"
+
+; ANSI Green
+; 32m
+; base0B #387050
+"Colour10"="56,112,80"
+
+; ANSI Green Bright
+; 1;32m
+; base0B #387050
+"Colour11"="56,112,80"
+
+; ANSI Yellow
+; 33m
+; base0A #7d6820
+"Colour12"="125,104,32"
+
+; ANSI Yellow Bright
+; 1;33m
+; base0A #7d6820
+"Colour13"="125,104,32"
+
+; ANSI Blue
+; 34m
+; base0D #3468a8
+"Colour14"="52,104,168"
+
+; ANSI Blue Bright
+; 1;34m
+; base0D #3468a8
+"Colour15"="52,104,168"
+
+; ANSI Magenta
+; 35m
+; base0E #6438a0
+"Colour16"="100,56,160"
+
+; ANSI Magenta Bright
+; 1;35m
+; base0E #6438a0
+"Colour17"="100,56,160"
+
+; ANSI Cyan
+; 36m
+; base0C #287070
+"Colour18"="40,112,112"
+
+; ANSI Cyan Bright
+; 1;36m
+; base0C #287070
+"Colour19"="40,112,112"
+
+; ANSI White
+; 37m
+; base05 #1f1c16
+"Colour20"="31,28,22"
+
+; ANSI White Bright
+; 1;37m
+; base07 fefcfa
+"Colour21"="254,252,250"

@@ -233,16 +233,6 @@
 "
 " Loupe is written and maintained by Greg Hurrell <greg@hurrell.net>.
 "
-" The original idea for the |g:LoupeHighlightGroup| feature was taken from
-" Damian Conway's Vim set-up:
-"
-" - https://github.com/thoughtstream/Damian-Conway-s-Vim-Setup/blob/master/plugin/hlnext.vim
-"
-" Which he discussed in his "More Instantly Better Vim" presentation at OSCON
-" 2013:
-"
-" - https://www.youtube.com/watch?v=aHm36-na4-4
-"
 " # History
 "
 " ## main (not yet released)
@@ -253,6 +243,8 @@
 "   |:global|, |:substitute| and |:vglobal| commands.
 " - Treat `:g!` as equivalent to `:v`
 "   (https://github.com/wincent/loupe/issues/20).
+" - Removed `g:LoupeHighlightGroup` setting and |loupe#hlmatch()|; use
+"   |hl-CurSearch| instead (https://github.com/wincent/loupe/issues/22).
 "
 " ## 1.2.2 (7 August 2018)
 "
@@ -355,27 +347,7 @@ endif
 " - The mapping has been suppressed by setting |g:LoupeClearHighlightMap| to 1
 "   in your |.vimrc|.
 nnoremap <silent> <Plug>(LoupeClearHighlight)
-      \ :nohlsearch<bar>
-      \ call loupe#private#clear_highlight()<CR>
-
-function! s:Nohlsearch(command)
-  if getcmdtype() == ':' && getcmdpos() == len(a:command) + 1
-    call loupe#private#clear_highlight()
-    return a:command
-  else
-    return a:command
-  endif
-endfunction
-
-" Make `:nohlsearch` behave like <Plug>(LoupeClearHighlight).
-cnoreabbrev <expr> noh <SID>Nohlsearch('noh')
-cnoreabbrev <expr> nohl <SID>Nohlsearch('nohl')
-cnoreabbrev <expr> nohls <SID>Nohlsearch('nohls')
-cnoreabbrev <expr> nohlse <SID>Nohlsearch('nohlse')
-cnoreabbrev <expr> nohlsea <SID>Nohlsearch('nohlsea')
-cnoreabbrev <expr> nohlsear <SID>Nohlsearch('nohlsear')
-cnoreabbrev <expr> nohlsearc <SID>Nohlsearch('nohlsearc')
-cnoreabbrev <expr> nohlsearch <SID>Nohlsearch('nohlsearch')
+      \ :nohlsearch<CR>
 
 ""
 " @option g:LoupeVeryMagic boolean 1
@@ -391,10 +363,10 @@ function s:MagicString()
   return s:magic ? '\v' : ''
 endfunction
 
-nnoremap <expr> / loupe#private#prepare_highlight('/' . <SID>MagicString())
-nnoremap <expr> ? loupe#private#prepare_highlight('?' . <SID>MagicString())
-xnoremap <expr> / loupe#private#prepare_highlight('/' . <SID>MagicString())
-xnoremap <expr> ? loupe#private#prepare_highlight('?' . <SID>MagicString())
+nnoremap <expr> / '/' . <SID>MagicString()
+nnoremap <expr> ? '?' . <SID>MagicString()
+xnoremap <expr> / '/' . <SID>MagicString()
+xnoremap <expr> ? '?' . <SID>MagicString()
 if !empty(s:MagicString())
   " Any single-byte character may be used as a delimiter except \, ", | and
   " alphanumerics. See `:h E146`.
@@ -479,7 +451,7 @@ function! s:map(keys, name)
         \ l:action .
         \ 'zv' .
         \ l:center_string .
-        \ ':call loupe#hlmatch()<CR>'
+        \ '<CR>'
 endfunction
 
 ""
@@ -559,14 +531,6 @@ call s:map('g*', 'GStar')
 " nmap <Nop> <Plug>(Loupen)
 " ```
 call s:map('n', 'n')
-
-" Clean-up stray `matchadd()` vestiges.
-if has('autocmd') && has('extra_search')
-  augroup LoupeCleanUp
-    autocmd!
-    autocmd WinEnter * :call loupe#private#cleanup()
-  augroup END
-endif
 
 " Restore 'cpoptions' to its former value.
 let &cpoptions=s:cpoptions

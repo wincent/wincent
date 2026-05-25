@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Linux VT by j-c-m (https://github.com/j-c-m/)
+
+name: Base16 Linux VT
+accent: "#5555ff" # base0D
+cursor: "#aaaaaa" # base05
+background: "#000000" # base00
+foreground: "#aaaaaa" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#000000" # base00
+    red: "#aa0000" # base08
+    yellow: "#ffff55" # base0A
+    green: "#00aa00" # base0B
+    cyan: "#00aaaa" # base0C
+    blue: "#5555ff" # base0D
+    magenta: "#ff55ff" # base0E
+    white: "#aaaaaa" # base05
+
+  normal:
+    black: "#555555" # base03
+    red: "#aa0000" # base08
+    yellow: "#ffff55" # base0A
+    green: "#00aa00" # base0B
+    cyan: "#00aaaa" # base0C
+    blue: "#5555ff" # base0D
+    magenta: "#ff55ff" # base0E
+    white: "#ffffff" # base07

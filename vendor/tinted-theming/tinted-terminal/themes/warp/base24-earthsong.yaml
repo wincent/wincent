@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Earthsong by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Earthsong
+accent: "#1397b9" # base0D
+cursor: "#c5ab93" # base05
+background: "#282420" # base00
+foreground: "#c5ab93" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#282420" # base00
+    red: "#c84134" # base08
+    yellow: "#5ed9ff" # base0A
+    green: "#84c44b" # base0B
+    cyan: "#4f9452" # base0C
+    blue: "#1397b9" # base0D
+    magenta: "#d0623c" # base0E
+    white: "#c5ab93" # base05
+
+  bright:
+    black: "#857769" # base03
+    red: "#ff6459" # base12
+    yellow: "#dfd561" # base13
+    green: "#97e035" # base14
+    cyan: "#83ef88" # base15
+    blue: "#5ed9ff" # base16
+    magenta: "#ff9168" # base17
+    white: "#f6f6ec" # base07

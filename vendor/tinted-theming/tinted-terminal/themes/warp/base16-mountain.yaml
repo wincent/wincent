@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Mountain by gnsfujiwara (https://github.com/gnsfujiwara)
+
+name: Base16 Mountain
+accent: "#8f8aac" # base0D
+cursor: "#cacaca" # base05
+background: "#0f0f0f" # base00
+foreground: "#cacaca" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#0f0f0f" # base00
+    red: "#ac8a8c" # base08
+    yellow: "#aca98a" # base0A
+    green: "#8aac8b" # base0B
+    cyan: "#8aabac" # base0C
+    blue: "#8f8aac" # base0D
+    magenta: "#ac8aac" # base0E
+    white: "#cacaca" # base05
+
+  normal:
+    black: "#393939" # base03
+    red: "#ac8a8c" # base08
+    yellow: "#aca98a" # base0A
+    green: "#8aac8b" # base0B
+    cyan: "#8aabac" # base0C
+    blue: "#8f8aac" # base0D
+    magenta: "#ac8aac" # base0E
+    white: "#f0f0f0" # base07

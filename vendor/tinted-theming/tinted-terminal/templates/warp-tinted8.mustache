@@ -1,0 +1,30 @@
+# Tinted Terminal {{scheme.system}} color theme (https://github.com/tinted-theming)
+# Color scheme: {{scheme.name}} by {{scheme.author}}
+
+name: Tinted8 {{scheme.name}}
+accent: "#{{ui.accent.normal.hex}}"
+cursor: "#{{ui.cursor.normal.background.hex}}"
+background: "#{{ui.global.background.normal.hex}}"
+foreground: "#{{ui.global.foreground.normal.hex}}"
+details: {{#option.is-dark-variant}}darker{{/option.is-dark-variant}}{{^option.is-dark-variant}}lighter{{/option.is-dark-variant}}
+
+terminal_colors:
+  normal:
+    black: "#{{palette.black.normal.hex}}"
+    red: "#{{palette.red.normal.hex}}"
+    yellow: "#{{palette.yellow.normal.hex}}"
+    green: "#{{palette.green.normal.hex}}"
+    cyan: "#{{palette.cyan.normal.hex}}"
+    blue: "#{{palette.blue.normal.hex}}"
+    magenta: "#{{palette.magenta.normal.hex}}"
+    white: "#{{palette.white.normal.hex}}"
+
+  bright:
+    black: "#{{palette.black.bright.hex}}"
+    red: "#{{palette.red.bright.hex}}"
+    yellow: "#{{palette.yellow.bright.hex}}"
+    green: "#{{palette.green.bright.hex}}"
+    cyan: "#{{palette.cyan.bright.hex}}"
+    blue: "#{{palette.blue.bright.hex}}"
+    magenta: "#{{palette.magenta.bright.hex}}"
+    white: "#{{palette.white.bright.hex}}"

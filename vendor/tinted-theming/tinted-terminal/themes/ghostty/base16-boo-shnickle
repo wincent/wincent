@@ -34,6 +34,10 @@ foreground = #bdbd97
 cursor-color = #bdbd97
 selection-background = #bdbd97
 selection-foreground = #5b5b49
+search-background = #fff299
+search-foreground = #3a3a2e
+search-selected-background = #ffdc99
+search-selected-foreground = #3a3a2e
 
 # Set `macos-icon = custom-style` in your main configuration file to enable theming of the app icon.
 #

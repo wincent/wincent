@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Spacedust by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Spacedust
+accent: "#0e548b" # base0D
+cursor: "#cdc7a6" # base05
+background: "#0a1e24" # base00
+foreground: "#cdc7a6" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#0a1e24" # base00
+    red: "#e35a00" # base08
+    yellow: "#67a0cd" # base0A
+    green: "#5cab96" # base0B
+    cyan: "#06afc7" # base0C
+    blue: "#0e548b" # base0D
+    magenta: "#e35a00" # base0E
+    white: "#cdc7a6" # base05
+
+  bright:
+    black: "#897558" # base03
+    red: "#ff8a39" # base12
+    yellow: "#ffc777" # base13
+    green: "#adcab8" # base14
+    cyan: "#83a6b3" # base15
+    blue: "#67a0cd" # base16
+    magenta: "#ff8a39" # base17
+    white: "#fefff0" # base07

@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Gruvbox dark, pale by Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
+
+name: Base16 Gruvbox dark, pale
+accent: "#83adad" # base0D
+cursor: "#dab997" # base05
+background: "#262626" # base00
+foreground: "#dab997" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#262626" # base00
+    red: "#d75f5f" # base08
+    yellow: "#ffaf00" # base0A
+    green: "#afaf00" # base0B
+    cyan: "#85ad85" # base0C
+    blue: "#83adad" # base0D
+    magenta: "#d485ad" # base0E
+    white: "#dab997" # base05
+
+  normal:
+    black: "#8a8a8a" # base03
+    red: "#d75f5f" # base08
+    yellow: "#ffaf00" # base0A
+    green: "#afaf00" # base0B
+    cyan: "#85ad85" # base0C
+    blue: "#83adad" # base0D
+    magenta: "#d485ad" # base0E
+    white: "#ebdbb2" # base07

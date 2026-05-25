@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Chalk by Chris Kempson (http://chriskempson.com)
+
+name: Base16 Chalk
+accent: "#6fc2ef" # base0D
+cursor: "#d0d0d0" # base05
+background: "#151515" # base00
+foreground: "#d0d0d0" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#151515" # base00
+    red: "#fb9fb1" # base08
+    yellow: "#ddb26f" # base0A
+    green: "#acc267" # base0B
+    cyan: "#12cfc0" # base0C
+    blue: "#6fc2ef" # base0D
+    magenta: "#e1a3ee" # base0E
+    white: "#d0d0d0" # base05
+
+  normal:
+    black: "#505050" # base03
+    red: "#fb9fb1" # base08
+    yellow: "#ddb26f" # base0A
+    green: "#acc267" # base0B
+    cyan: "#12cfc0" # base0C
+    blue: "#6fc2ef" # base0D
+    magenta: "#e1a3ee" # base0E
+    white: "#f5f5f5" # base07

@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Ascendancy by EmergentMind (https://github.com/emergentmind/ascendancy-scheme)
+
+name: Base16 Ascendancy
+accent: "#458588" # base0D
+cursor: "#d5c7a1" # base05
+background: "#282828" # base00
+foreground: "#d5c7a1" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#282828" # base00
+    red: "#d05000" # base08
+    yellow: "#ffcc1b" # base0A
+    green: "#b8bb26" # base0B
+    cyan: "#8f3f71" # base0C
+    blue: "#458588" # base0D
+    magenta: "#fabd2f" # base0E
+    white: "#d5c7a1" # base05
+
+  normal:
+    black: "#928374" # base03
+    red: "#d05000" # base08
+    yellow: "#ffcc1b" # base0A
+    green: "#b8bb26" # base0B
+    cyan: "#8f3f71" # base0C
+    blue: "#458588" # base0D
+    magenta: "#fabd2f" # base0E
+    white: "#fbf1c7" # base07

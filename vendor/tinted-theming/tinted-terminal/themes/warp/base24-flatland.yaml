@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Flatland by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Flatland
+accent: "#4f96be" # base0D
+cursor: "#c5c6c4" # base05
+background: "#1c1e20" # base00
+foreground: "#c5c6c4" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#1c1e20" # base00
+    red: "#f18238" # base08
+    yellow: "#61b8d0" # base0A
+    green: "#9ed264" # base0B
+    cyan: "#d53864" # base0C
+    blue: "#4f96be" # base0D
+    magenta: "#695abb" # base0E
+    white: "#c5c6c4" # base05
+
+  bright:
+    black: "#545552" # base03
+    red: "#d12a24" # base12
+    yellow: "#ff8948" # base13
+    green: "#a7d32c" # base14
+    cyan: "#d53864" # base15
+    blue: "#61b8d0" # base16
+    magenta: "#695abb" # base17
+    white: "#fefffe" # base07

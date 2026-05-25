@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Fideloper by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Fideloper
+accent: "#2e78c1" # base0D
+cursor: "#b1b1a3" # base05
+background: "#282f32" # base00
+foreground: "#b1b1a3" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#282f32" # base00
+    red: "#ca1d2c" # base08
+    yellow: "#7c84c4" # base0A
+    green: "#edb7ab" # base0B
+    cyan: "#309185" # base0C
+    blue: "#2e78c1" # base0D
+    magenta: "#c0226e" # base0E
+    white: "#b1b1a3" # base05
+
+  bright:
+    black: "#415050" # base03
+    red: "#d35f5a" # base12
+    yellow: "#a86571" # base13
+    green: "#d35f5a" # base14
+    cyan: "#81908f" # base15
+    blue: "#7c84c4" # base16
+    magenta: "#5b5db2" # base17
+    white: "#fcf4de" # base07

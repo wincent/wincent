@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Ciapre by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Ciapre
+accent: "#566d8c" # base0D
+cursor: "#978f73" # base05
+background: "#181c27" # base00
+foreground: "#978f73" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#181c27" # base00
+    red: "#800009" # base08
+    yellow: "#2f97c6" # base0A
+    green: "#48513b" # base0B
+    cyan: "#5b4f4a" # base0C
+    blue: "#566d8c" # base0D
+    magenta: "#724c7c" # base0E
+    white: "#978f73" # base05
+
+  bright:
+    black: "#6b685f" # base03
+    red: "#ab3834" # base12
+    yellow: "#dcde7b" # base13
+    green: "#a6a65d" # base14
+    cyan: "#f3dab1" # base15
+    blue: "#2f97c6" # base16
+    magenta: "#d33060" # base17
+    white: "#f3f3f3" # base07

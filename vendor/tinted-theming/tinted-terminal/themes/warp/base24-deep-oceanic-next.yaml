@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Deep Oceanic Next by spearkkk (https://github.com/spearkkk)
+
+name: Base24 Deep Oceanic Next
+accent: "#568ccf" # base0D
+cursor: "#d4e1e8" # base05
+background: "#001c1f" # base00
+foreground: "#d4e1e8" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#001c1f" # base00
+    red: "#d3464d" # base08
+    yellow: "#f3b863" # base0A
+    green: "#63b784" # base0B
+    cyan: "#4fb7ae" # base0C
+    blue: "#568ccf" # base0D
+    magenta: "#8b66d6" # base0E
+    white: "#d4e1e8" # base05
+
+  bright:
+    black: "#004852" # base03
+    red: "#ff6670" # base12
+    yellow: "#ffe08a" # base13
+    green: "#72e1a6" # base14
+    cyan: "#4de3e3" # base15
+    blue: "#5caeff" # base16
+    magenta: "#b788ff" # base17
+    white: "#f2f7f9" # base07

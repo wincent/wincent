@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Zenburn by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Zenburn
+accent: "#506070" # base0D
+cursor: "#c1c9b9" # base05
+background: "#3f3f3f" # base00
+foreground: "#c1c9b9" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#3f3f3f" # base00
+    red: "#705050" # base08
+    yellow: "#94bff3" # base0A
+    green: "#60b48a" # base0B
+    cyan: "#8cd0d3" # base0C
+    blue: "#506070" # base0D
+    magenta: "#dc8cc3" # base0E
+    white: "#c1c9b9" # base05
+
+  bright:
+    black: "#8ba393" # base03
+    red: "#dca3a3" # base12
+    yellow: "#e0cf9f" # base13
+    green: "#c3bf9f" # base14
+    cyan: "#93e0e3" # base15
+    blue: "#94bff3" # base16
+    magenta: "#ec93d3" # base17
+    white: "#ffffff" # base07

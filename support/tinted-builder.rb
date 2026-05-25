@@ -91,7 +91,7 @@ banner "Updating output files from templates"
   [
     root.join('vendor/tinted-theming/tinted-shell'),
     root.join("aspects/dotfiles/files/.zsh/colors"),
-    nil,
+    'base24',
   ],
   [
     root.join('vendor/tinted-theming/tinted-tmux'),

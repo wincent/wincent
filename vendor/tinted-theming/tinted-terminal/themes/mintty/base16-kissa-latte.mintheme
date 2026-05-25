@@ -1,0 +1,27 @@
+# Kissa Latte theme for Mintty
+# Scheme Author: rwendell (https://github.com/rwendell/kissa)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #f5f4f0
+Red         = #9e3e3e
+Green       = #387050
+Yellow      = #7d6820
+Blue        = #3468a8
+Magenta     = #6438a0
+Cyan        = #287070
+White       = #1f1c16
+BoldBlack   = #91887d
+BoldRed     = #9e3e3e
+BoldGreen   = #387050
+BoldYellow  = #7d6820
+BoldBlue    = #3468a8
+BoldMagenta = #6438a0
+BoldCyan    = #287070
+BoldWhite   = #fefcfa
+
+# Background & foreground colors
+BackgroundColour = #f5f4f0
+ForegroundColour = #1f1c16
+CursorColour     = #1f1c16

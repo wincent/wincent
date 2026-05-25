@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Synth Midnight Terminal Light by Michaël Ball (http://github.com/michael-ball/)
+
+name: Base16 Synth Midnight Terminal Light
+accent: "#03aeff" # base0D
+cursor: "#28292a" # base05
+background: "#dddfe0" # base00
+foreground: "#28292a" # base05
+details: lighter
+
+terminal_colors:
+  bright:
+    black: "#dddfe0" # base00
+    red: "#b53b50" # base08
+    yellow: "#c9d364" # base0A
+    green: "#06ea61" # base0B
+    cyan: "#42fff9" # base0C
+    blue: "#03aeff" # base0D
+    magenta: "#ea5ce2" # base0E
+    white: "#28292a" # base05
+
+  normal:
+    black: "#a3a5a6" # base03
+    red: "#b53b50" # base08
+    yellow: "#c9d364" # base0A
+    green: "#06ea61" # base0B
+    cyan: "#42fff9" # base0C
+    blue: "#03aeff" # base0D
+    magenta: "#ea5ce2" # base0E
+    white: "#050608" # base07

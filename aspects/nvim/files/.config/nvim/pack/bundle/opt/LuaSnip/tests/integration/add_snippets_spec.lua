@@ -2,6 +2,7 @@ local ls_helpers = require("helpers")
 local exec_lua, feed, exec =
 	ls_helpers.exec_lua, ls_helpers.feed, ls_helpers.exec
 local Screen = require("test.functional.ui.screen")
+local assert = ls_helpers.assert
 
 describe("add_snippets", function()
 	local screen
@@ -127,7 +128,7 @@ describe("add_snippets", function()
 			{0:~                                                 }|
 			{2:-- INSERT --}                                      |]],
 			})
-			assert.are.same(
+			assert.eq(
 				1000,
 				exec_lua(
 					[[return ls.session.current_nodes[1].parent.snippet.effective_priority]]
@@ -149,7 +150,7 @@ describe("add_snippets", function()
 			{0:~                                                 }|
 			{2:-- INSERT --}                                      |]],
 			})
-			assert.are.same(
+			assert.eq(
 				1001,
 				exec_lua(
 					[[return ls.session.current_nodes[1].parent.snippet.effective_priority]]
@@ -173,7 +174,7 @@ describe("add_snippets", function()
 			{0:~                                                 }|
 			{2:-- INSERT --}                                      |]],
 			})
-			assert.are.same(
+			assert.eq(
 				1002,
 				exec_lua(
 					[[return ls.session.current_nodes[1].parent.snippet.effective_priority]]
@@ -202,7 +203,7 @@ describe("add_snippets", function()
 			{0:~                                                 }|
 			{2:-- INSERT --}                                      |]],
 			})
-			assert.are.same(
+			assert.eq(
 				1003,
 				exec_lua(
 					[[return ls.session.current_nodes[1].parent.snippet.effective_priority]]
@@ -218,7 +219,7 @@ describe("add_snippets", function()
 			{0:~                                                 }|
 			{2:-- INSERT --}                                      |]],
 			})
-			assert.are.same(
+			assert.eq(
 				1002,
 				exec_lua(
 					[[return ls.session.current_nodes[1].parent.snippet.effective_priority]]

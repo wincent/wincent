@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: IR Black by Timothée Poisot (http://timotheepoisot.fr)
+
+name: Base16 IR Black
+accent: "#96cbfe" # base0D
+cursor: "#b5b3aa" # base05
+background: "#000000" # base00
+foreground: "#b5b3aa" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#000000" # base00
+    red: "#ff6c60" # base08
+    yellow: "#ffffb6" # base0A
+    green: "#a8ff60" # base0B
+    cyan: "#c6c5fe" # base0C
+    blue: "#96cbfe" # base0D
+    magenta: "#ff73fd" # base0E
+    white: "#b5b3aa" # base05
+
+  normal:
+    black: "#6c6c66" # base03
+    red: "#ff6c60" # base08
+    yellow: "#ffffb6" # base0A
+    green: "#a8ff60" # base0B
+    cyan: "#c6c5fe" # base0C
+    blue: "#96cbfe" # base0D
+    magenta: "#ff73fd" # base0E
+    white: "#fdfbee" # base07

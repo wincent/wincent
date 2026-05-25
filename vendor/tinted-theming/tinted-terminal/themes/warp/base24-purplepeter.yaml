@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Purplepeter by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Purplepeter
+accent: "#66d9ef" # base0D
+cursor: "#c38e69" # base05
+background: "#2a1a4a" # base00
+foreground: "#c38e69" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#2a1a4a" # base00
+    red: "#ff786c" # base08
+    yellow: "#79daed" # base0A
+    green: "#98b481" # base0B
+    cyan: "#b98cff" # base0C
+    blue: "#66d9ef" # base0D
+    magenta: "#e68ecd" # base0E
+    white: "#c38e69" # base05
+
+  bright:
+    black: "#4b3639" # base03
+    red: "#f89f92" # base12
+    yellow: "#f1e9bf" # base13
+    green: "#b4bd8e" # base14
+    cyan: "#a0a0d6" # base15
+    blue: "#79daed" # base16
+    magenta: "#b991d4" # base17
+    white: "#b9aed3" # base07

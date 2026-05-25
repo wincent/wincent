@@ -9,7 +9,7 @@ colors are mapped correctly. (e.g. green is still green). Tinted Shell
 also provides additional colors to applications such as Vim and tmux.
 
 Have a look at our [Base16 Gallery] to see the various themes supported
-by Tinted Shell. For more information about [Base16] or [Base24], have a
+by Tinted Shell. For more information about [Base16], [Base24] or [Tinted8], have a
 look at the [Tinted Theming] Home repository.
 
 ![Shell image]
@@ -93,8 +93,17 @@ This feature enables env vars `BASE24_COLOR_01_HEX` to
 `BASE24_COLOR_0F_HEX`. Have a look at the [Base24 Styling Guidelines]
 for more styling information.
 
-This feature enables env vars `BASE16_COLOR_01_HEX` to
-`BASE16_COLOR_0F_HEX`.
+## Troubleshooting
+
+#### Tinted8
+
+Add `export TINTED_SHELL_ENABLE_TINTED8_VARS=1` to your `.*rc` file and make
+sure the variable is set before running the theme script to enable this
+feature.
+
+This feature enables env vars of the 16 ANSI colors
+`TINTED8_COLOR_BLACK_NORMAL_HEX` to `TINTED8_COLOR_WHITE_BRIGHT_HEX`. Have a
+look at the [Tinted8] Styling Guidelines for more styling information.
 
 ## Troubleshooting
 
@@ -120,6 +129,7 @@ instructions.
 [Shell image]: screenshots/tinted-shell.png
 [Base16]: https://github.com/tinted-theming/home/blob/main/styling.md
 [Base24]: https://github.com/tinted-theming/base24/blob/master/styling.md
+[Tinted8]: https://github.com/tinted-theming/home/blob/main/specs/tinted8/styling.md
 [setting 256 colourspace not supported]: screenshots/setting-256-colourspace-not-supported.png
 [Tinty]: https://github.com/tinted-theming/tinty
 [USAGE.md]: USAGE.md

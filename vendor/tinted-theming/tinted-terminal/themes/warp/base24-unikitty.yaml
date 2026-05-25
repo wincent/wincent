@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Unikitty by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Unikitty
+accent: "#145fcd" # base0D
+cursor: "#b9b1b8" # base05
+background: "#ff7ad3" # base00
+foreground: "#b9b1b8" # base05
+details: lighter
+
+terminal_colors:
+  normal:
+    black: "#ff7ad3" # base00
+    red: "#a80f20" # base08
+    yellow: "#eedf4b" # base0A
+    green: "#bafc8b" # base0B
+    cyan: "#6bd0bc" # base0C
+    blue: "#145fcd" # base0D
+    magenta: "#ff36a2" # base0E
+    white: "#b9b1b8" # base05
+
+  bright:
+    black: "#696769" # base03
+    red: "#d81329" # base12
+    yellow: "#ffee50" # base13
+    green: "#d2ffaf" # base14
+    cyan: "#79ebd5" # base15
+    blue: "#0074ea" # base16
+    magenta: "#fdd5e5" # base17
+    white: "#fff2fd" # base07

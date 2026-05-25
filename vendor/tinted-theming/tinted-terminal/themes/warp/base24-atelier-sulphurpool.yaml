@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Atelier Sulphurpool by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Atelier Sulphurpool
+accent: "#3d8fd1" # base0D
+cursor: "#8c92ac" # base05
+background: "#202746" # base00
+foreground: "#8c92ac" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#202746" # base00
+    red: "#c94922" # base08
+    yellow: "#898ea4" # base0A
+    green: "#ac9739" # base0B
+    cyan: "#22a2c9" # base0C
+    blue: "#3d8fd1" # base0D
+    magenta: "#6679cc" # base0E
+    white: "#8c92ac" # base05
+
+  bright:
+    black: "#767d9c" # base03
+    red: "#c76b29" # base12
+    yellow: "#5e6687" # base13
+    green: "#293256" # base14
+    cyan: "#9c637a" # base15
+    blue: "#898ea4" # base16
+    magenta: "#dfe2f1" # base17
+    white: "#f5f7ff" # base07

@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Heetch Dark by Geoffrey Teale (tealeg@gmail.com)
+
+name: Base16 Heetch Dark
+accent: "#bd0152" # base0D
+cursor: "#bdb6c5" # base05
+background: "#190134" # base00
+foreground: "#bdb6c5" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#190134" # base00
+    red: "#27d9d5" # base08
+    yellow: "#8f6c97" # base0A
+    green: "#c33678" # base0B
+    cyan: "#f80059" # base0C
+    blue: "#bd0152" # base0D
+    magenta: "#82034c" # base0E
+    white: "#bdb6c5" # base05
+
+  normal:
+    black: "#7b6d8b" # base03
+    red: "#27d9d5" # base08
+    yellow: "#8f6c97" # base0A
+    green: "#c33678" # base0B
+    cyan: "#f80059" # base0C
+    blue: "#bd0152" # base0D
+    magenta: "#82034c" # base0E
+    white: "#feffff" # base07

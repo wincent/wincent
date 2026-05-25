@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Kissa Macchiato by rwendell (https://github.com/rwendell/kissa)
+
+name: Base16 Kissa Macchiato
+accent: "#7fa8d4" # base0D
+cursor: "#faf0e6" # base05
+background: "#1f1c16" # base00
+foreground: "#faf0e6" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#1f1c16" # base00
+    red: "#e87777" # base08
+    yellow: "#eac67a" # base0A
+    green: "#8cb870" # base0B
+    cyan: "#6ab8b0" # base0C
+    blue: "#7fa8d4" # base0D
+    magenta: "#b094cc" # base0E
+    white: "#faf0e6" # base05
+
+  normal:
+    black: "#b8a48c" # base03
+    red: "#e87777" # base08
+    yellow: "#eac67a" # base0A
+    green: "#8cb870" # base0B
+    cyan: "#6ab8b0" # base0C
+    blue: "#7fa8d4" # base0D
+    magenta: "#b094cc" # base0E
+    white: "#fef4e4" # base07

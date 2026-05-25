@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Atelier Plateau Light by Bram de Haan (http://atelierbramdehaan.nl)
+
+name: Base16 Atelier Plateau Light
+accent: "#7272ca" # base0D
+cursor: "#585050" # base05
+background: "#f4ecec" # base00
+foreground: "#585050" # base05
+details: lighter
+
+terminal_colors:
+  bright:
+    black: "#f4ecec" # base00
+    red: "#ca4949" # base08
+    yellow: "#a06e3b" # base0A
+    green: "#4b8b8b" # base0B
+    cyan: "#5485b6" # base0C
+    blue: "#7272ca" # base0D
+    magenta: "#8464c4" # base0E
+    white: "#585050" # base05
+
+  normal:
+    black: "#7e7777" # base03
+    red: "#ca4949" # base08
+    yellow: "#a06e3b" # base0A
+    green: "#4b8b8b" # base0B
+    cyan: "#5485b6" # base0C
+    blue: "#7272ca" # base0D
+    magenta: "#8464c4" # base0E
+    white: "#1b1818" # base07

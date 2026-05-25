@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Brush Trees by Abraham White &lt;abelincoln.white@gmail.com&gt;
+
+name: Base16 Brush Trees
+accent: "#868cb3" # base0D
+cursor: "#6d828e" # base05
+background: "#e3efef" # base00
+foreground: "#6d828e" # base05
+details: lighter
+
+terminal_colors:
+  bright:
+    black: "#e3efef" # base00
+    red: "#b38686" # base08
+    yellow: "#aab386" # base0A
+    green: "#87b386" # base0B
+    cyan: "#86b3b3" # base0C
+    blue: "#868cb3" # base0D
+    magenta: "#b386b2" # base0E
+    white: "#6d828e" # base05
+
+  normal:
+    black: "#98afb5" # base03
+    red: "#b38686" # base08
+    yellow: "#aab386" # base0A
+    green: "#87b386" # base0B
+    cyan: "#86b3b3" # base0C
+    blue: "#868cb3" # base0D
+    magenta: "#b386b2" # base0E
+    white: "#485867" # base07

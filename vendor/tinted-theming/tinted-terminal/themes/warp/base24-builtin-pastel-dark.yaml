@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Builtin Pastel Dark by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Builtin Pastel Dark
+accent: "#96cafd" # base0D
+cursor: "#d1d1d1" # base05
+background: "#000000" # base00
+foreground: "#d1d1d1" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#000000" # base00
+    red: "#ff6b60" # base08
+    yellow: "#b5dcfe" # base0A
+    green: "#a7ff60" # base0B
+    cyan: "#c6c4fd" # base0C
+    blue: "#96cafd" # base0D
+    magenta: "#ff73fd" # base0E
+    white: "#d1d1d1" # base05
+
+  bright:
+    black: "#989898" # base03
+    red: "#ffb6b0" # base12
+    yellow: "#ffffcb" # base13
+    green: "#ceffab" # base14
+    cyan: "#dfdffe" # base15
+    blue: "#b5dcfe" # base16
+    magenta: "#ff9cfe" # base17
+    white: "#ffffff" # base07

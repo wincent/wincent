@@ -1,6 +1,6 @@
 local ls_helpers = require("helpers")
-local exec_lua, feed, exec =
-	ls_helpers.exec_lua, ls_helpers.feed, ls_helpers.exec
+local exec_lua, feed, exec, assert =
+	ls_helpers.exec_lua, ls_helpers.feed, ls_helpers.exec, ls_helpers.assert
 
 describe("luasnip.extra.otf", function()
 	ls_helpers.clear()
@@ -8,7 +8,7 @@ describe("luasnip.extra.otf", function()
 
 	local function check(test_name, input, output)
 		it(test_name, function()
-			assert.are.same(
+			assert.eq(
 				output,
 				exec_lua(
 					[=[

@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Nova by George Essig (https://github.com/gessig), Trevor D. Miller (https://trevordmiller.com)
+
+name: Base16 Nova
+accent: "#83afe5" # base0D
+cursor: "#c5d4dd" # base05
+background: "#3c4c55" # base00
+foreground: "#c5d4dd" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#3c4c55" # base00
+    red: "#83afe5" # base08
+    yellow: "#a8ce93" # base0A
+    green: "#7fc1ca" # base0B
+    cyan: "#f2c38f" # base0C
+    blue: "#83afe5" # base0D
+    magenta: "#9a93e1" # base0E
+    white: "#c5d4dd" # base05
+
+  normal:
+    black: "#899ba6" # base03
+    red: "#83afe5" # base08
+    yellow: "#a8ce93" # base0A
+    green: "#7fc1ca" # base0B
+    cyan: "#f2c38f" # base0C
+    blue: "#83afe5" # base0D
+    magenta: "#9a93e1" # base0E
+    white: "#556873" # base07

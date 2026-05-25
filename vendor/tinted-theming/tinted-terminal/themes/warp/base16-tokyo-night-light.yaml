@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Tokyo Night Light by Michaël Ball
+
+name: Base16 Tokyo Night Light
+accent: "#34548a" # base0D
+cursor: "#343b59" # base05
+background: "#d5d6db" # base00
+foreground: "#343b59" # base05
+details: lighter
+
+terminal_colors:
+  bright:
+    black: "#d5d6db" # base00
+    red: "#343b58" # base08
+    yellow: "#166775" # base0A
+    green: "#485e30" # base0B
+    cyan: "#3e6968" # base0C
+    blue: "#34548a" # base0D
+    magenta: "#5a4a78" # base0E
+    white: "#343b59" # base05
+
+  normal:
+    black: "#9699a3" # base03
+    red: "#343b58" # base08
+    yellow: "#166775" # base0A
+    green: "#485e30" # base0B
+    cyan: "#3e6968" # base0C
+    blue: "#34548a" # base0D
+    magenta: "#5a4a78" # base0E
+    white: "#1a1b26" # base07

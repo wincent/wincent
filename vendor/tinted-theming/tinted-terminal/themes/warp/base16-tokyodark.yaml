@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Tokyodark by Jamy Golden (https://github.com/JamyGolden), Based on Tokyodark.nvim (https://github.com/tiagovla/tokyodark.nvim)
+
+name: Base16 Tokyodark
+accent: "#7199ee" # base0D
+cursor: "#a0a8cd" # base05
+background: "#11121d" # base00
+foreground: "#a0a8cd" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#11121d" # base00
+    red: "#ee6d85" # base08
+    yellow: "#d7a65f" # base0A
+    green: "#95c561" # base0B
+    cyan: "#9fbbf3" # base0C
+    blue: "#7199ee" # base0D
+    magenta: "#a485dd" # base0E
+    white: "#a0a8cd" # base05
+
+  normal:
+    black: "#353945" # base03
+    red: "#ee6d85" # base08
+    yellow: "#d7a65f" # base0A
+    green: "#95c561" # base0B
+    cyan: "#9fbbf3" # base0C
+    blue: "#7199ee" # base0D
+    magenta: "#a485dd" # base0E
+    white: "#bcc2dc" # base07

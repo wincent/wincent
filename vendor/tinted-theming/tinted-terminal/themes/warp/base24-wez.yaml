@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Wez by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Wez
+accent: "#5455cb" # base0D
+cursor: "#aeaeae" # base05
+background: "#000000" # base00
+foreground: "#aeaeae" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#000000" # base00
+    red: "#cc5555" # base08
+    yellow: "#5555ff" # base0A
+    green: "#55cc55" # base0B
+    cyan: "#7acaca" # base0C
+    blue: "#5455cb" # base0D
+    magenta: "#cc55cc" # base0E
+    white: "#aeaeae" # base05
+
+  bright:
+    black: "#727272" # base03
+    red: "#ff5555" # base12
+    yellow: "#ffff55" # base13
+    green: "#55ff55" # base14
+    cyan: "#55ffff" # base15
+    blue: "#5555ff" # base16
+    magenta: "#ff55ff" # base17
+    white: "#ffffff" # base07

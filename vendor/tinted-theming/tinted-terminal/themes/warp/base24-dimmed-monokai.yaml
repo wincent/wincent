@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Dimmed Monokai by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Dimmed Monokai
+accent: "#4e76a1" # base0D
+cursor: "#acafac" # base05
+background: "#1e1e1e" # base00
+foreground: "#acafac" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#1e1e1e" # base00
+    red: "#be3e48" # base08
+    yellow: "#176ce3" # base0A
+    green: "#869a3a" # base0B
+    cyan: "#568ea3" # base0C
+    blue: "#4e76a1" # base0D
+    magenta: "#855b8d" # base0E
+    white: "#acafac" # base05
+
+  bright:
+    black: "#949593" # base03
+    red: "#fb001e" # base12
+    yellow: "#c37033" # base13
+    green: "#0e712e" # base14
+    cyan: "#2d6f6c" # base15
+    blue: "#176ce3" # base16
+    magenta: "#fb0067" # base17
+    white: "#fcffb8" # base07

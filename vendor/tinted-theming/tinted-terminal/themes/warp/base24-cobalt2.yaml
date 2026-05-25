@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Cobalt2 by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Cobalt2
+accent: "#1460d2" # base0D
+cursor: "#a1a1a1" # base05
+background: "#122637" # base00
+foreground: "#a1a1a1" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#122637" # base00
+    red: "#ff0000" # base08
+    yellow: "#5555ff" # base0A
+    green: "#37dd21" # base0B
+    cyan: "#00bbbb" # base0C
+    blue: "#1460d2" # base0D
+    magenta: "#ff005d" # base0E
+    white: "#a1a1a1" # base05
+
+  bright:
+    black: "#6e6e6e" # base03
+    red: "#f40d17" # base12
+    yellow: "#ecc809" # base13
+    green: "#3bcf1d" # base14
+    cyan: "#6ae3f9" # base15
+    blue: "#5555ff" # base16
+    magenta: "#ff55ff" # base17
+    white: "#ffffff" # base07

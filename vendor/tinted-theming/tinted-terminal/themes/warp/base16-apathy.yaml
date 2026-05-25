@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Apathy by Jannik Siebert (https://github.com/janniks)
+
+name: Base16 Apathy
+accent: "#96883e" # base0D
+cursor: "#81b5ac" # base05
+background: "#031a16" # base00
+foreground: "#81b5ac" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#031a16" # base00
+    red: "#3e9688" # base08
+    yellow: "#3e4c96" # base0A
+    green: "#883e96" # base0B
+    cyan: "#963e4c" # base0C
+    blue: "#96883e" # base0D
+    magenta: "#4c963e" # base0E
+    white: "#81b5ac" # base05
+
+  normal:
+    black: "#2b685e" # base03
+    red: "#3e9688" # base08
+    yellow: "#3e4c96" # base0A
+    green: "#883e96" # base0B
+    cyan: "#963e4c" # base0C
+    blue: "#96883e" # base0D
+    magenta: "#4c963e" # base0E
+    white: "#d2e7e4" # base07

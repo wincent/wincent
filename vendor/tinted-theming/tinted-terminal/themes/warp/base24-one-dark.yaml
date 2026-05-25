@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: One Dark by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 One Dark
+accent: "#4aa5f0" # base0D
+cursor: "#abb2bf" # base05
+background: "#282c34" # base00
+foreground: "#abb2bf" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#282c34" # base00
+    red: "#e05561" # base08
+    yellow: "#e6b965" # base0A
+    green: "#8cc265" # base0B
+    cyan: "#42b3c2" # base0C
+    blue: "#4aa5f0" # base0D
+    magenta: "#c162de" # base0E
+    white: "#abb2bf" # base05
+
+  bright:
+    black: "#545862" # base03
+    red: "#ff616e" # base12
+    yellow: "#f0a45d" # base13
+    green: "#a5e075" # base14
+    cyan: "#4cd1e0" # base15
+    blue: "#4dc4ff" # base16
+    magenta: "#de73ff" # base17
+    white: "#ffffff" # base07

@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Solar Flare Light by Chuck Harmston (https://chuck.harmston.ch)
+
+name: Base16 Solar Flare Light
+accent: "#33b5e1" # base0D
+cursor: "#586875" # base05
+background: "#f5f7fa" # base00
+foreground: "#586875" # base05
+details: lighter
+
+terminal_colors:
+  bright:
+    black: "#f5f7fa" # base00
+    red: "#ef5253" # base08
+    yellow: "#e4b51c" # base0A
+    green: "#7cc844" # base0B
+    cyan: "#52cbb0" # base0C
+    blue: "#33b5e1" # base0D
+    magenta: "#a363d5" # base0E
+    white: "#586875" # base05
+
+  normal:
+    black: "#85939e" # base03
+    red: "#ef5253" # base08
+    yellow: "#e4b51c" # base0A
+    green: "#7cc844" # base0B
+    cyan: "#52cbb0" # base0C
+    blue: "#33b5e1" # base0D
+    magenta: "#a363d5" # base0E
+    white: "#18262f" # base07

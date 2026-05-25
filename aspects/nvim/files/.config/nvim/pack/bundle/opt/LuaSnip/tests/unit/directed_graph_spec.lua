@@ -1,6 +1,6 @@
 local ls_helpers = require("helpers")
-local exec_lua, feed, exec =
-	ls_helpers.exec_lua, ls_helpers.feed, ls_helpers.exec
+local exec_lua, feed, exec, assert =
+	ls_helpers.exec_lua, ls_helpers.feed, ls_helpers.exec, ls_helpers.assert
 
 describe("luasnip.util.directed_graph:", function()
 	ls_helpers.clear()
@@ -43,7 +43,7 @@ describe("luasnip.util.directed_graph:", function()
 			)
 
 			-- error(res)
-			assert.are.same(out_expected, res)
+			assert.eq(out_expected, res)
 		end)
 	end
 

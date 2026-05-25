@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Hacktober by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Hacktober
+accent: "#206ec5" # base0D
+cursor: "#bfbdb7" # base05
+background: "#141414" # base00
+foreground: "#bfbdb7" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#141414" # base00
+    red: "#b34538" # base08
+    yellow: "#5389c5" # base0A
+    green: "#587744" # base0B
+    cyan: "#ac9166" # base0C
+    blue: "#206ec5" # base0D
+    magenta: "#864651" # base0E
+    white: "#bfbdb7" # base05
+
+  bright:
+    black: "#5d5b59" # base03
+    red: "#b33323" # base12
+    yellow: "#c75a22" # base13
+    green: "#42824a" # base14
+    cyan: "#ebc587" # base15
+    blue: "#5389c5" # base16
+    magenta: "#e795a5" # base17
+    white: "#ffffff" # base07

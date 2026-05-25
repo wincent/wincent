@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Grape by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Grape
+accent: "#487cf4" # base0D
+cursor: "#8c8a92" # base05
+background: "#161423" # base00
+foreground: "#8c8a92" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#161423" # base00
+    red: "#ec2160" # base08
+    yellow: "#a9bbeb" # base0A
+    green: "#1fa91b" # base0B
+    cyan: "#3added" # base0C
+    blue: "#487cf4" # base0D
+    magenta: "#8c35c8" # base0E
+    white: "#8c8a92" # base05
+
+  bright:
+    black: "#696377" # base03
+    red: "#f0719a" # base12
+    yellow: "#b2dc87" # base13
+    green: "#52a95d" # base14
+    cyan: "#9ce3ea" # base15
+    blue: "#a9bbeb" # base16
+    magenta: "#ac81c1" # base17
+    white: "#a188f7" # base07

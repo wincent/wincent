@@ -1,0 +1,148 @@
+#!/usr/bin/env sh
+# tinted-shell (https://github.com/tinted-theming/tinted-shell)
+# Scheme name: {{scheme.system}} {{scheme.name}}
+# Scheme author: {{scheme.author}}
+# Template author: Tinted Theming (https://github.com/tinted-theming)
+export TINTED8_THEME="{{scheme.slug}}"
+
+color00="{{palette.black.normal.hex-r}}/{{palette.black.normal.hex-g}}/{{palette.black.normal.hex-b}}"
+color01="{{palette.red.normal.hex-r}}/{{palette.red.normal.hex-g}}/{{palette.red.normal.hex-b}}"
+color02="{{palette.green.normal.hex-r}}/{{palette.green.normal.hex-g}}/{{palette.green.normal.hex-b}}"
+color03="{{palette.yellow.normal.hex-r}}/{{palette.yellow.normal.hex-g}}/{{palette.yellow.normal.hex-b}}"
+color04="{{palette.blue.normal.hex-r}}/{{palette.blue.normal.hex-g}}/{{palette.blue.normal.hex-b}}"
+color05="{{palette.magenta.normal.hex-r}}/{{palette.magenta.normal.hex-g}}/{{palette.magenta.normal.hex-b}}"
+color06="{{palette.cyan.normal.hex-r}}/{{palette.cyan.normal.hex-g}}/{{palette.cyan.normal.hex-b}}"
+color07="{{palette.white.normal.hex-r}}/{{palette.white.normal.hex-g}}/{{palette.white.normal.hex-b}}"
+color08="{{palette.black.bright.hex-r}}/{{palette.black.bright.hex-g}}/{{palette.black.bright.hex-b}}"
+color09="{{palette.red.bright.hex-r}}/{{palette.red.bright.hex-g}}/{{palette.red.bright.hex-b}}"
+color10="{{palette.green.bright.hex-r}}/{{palette.green.bright.hex-g}}/{{palette.green.bright.hex-b}}"
+color11="{{palette.yellow.bright.hex-r}}/{{palette.yellow.bright.hex-g}}/{{palette.yellow.bright.hex-b}}"
+color12="{{palette.blue.bright.hex-r}}/{{palette.blue.bright.hex-g}}/{{palette.blue.bright.hex-b}}"
+color13="{{palette.magenta.bright.hex-r}}/{{palette.magenta.bright.hex-g}}/{{palette.magenta.bright.hex-b}}"
+color14="{{palette.cyan.bright.hex-r}}/{{palette.cyan.bright.hex-g}}/{{palette.cyan.bright.hex-b}}"
+color15="{{palette.white.bright.hex-r}}/{{palette.white.bright.hex-g}}/{{palette.white.bright.hex-b}}"
+color_foreground="{{ui.global.foreground.normal.hex-r}}/{{ui.global.foreground.normal.hex-g}}/{{ui.global.foreground.normal.hex-b}}"
+color_background="{{ui.global.background.normal.hex-r}}/{{ui.global.background.normal.hex-g}}/{{ui.global.background.normal.hex-b}}"
+
+if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
+  put_template() { true; }
+  put_template_var() { true; }
+  put_template_custom() { true; }
+elif [ -n "$TMUX" ] || [ "${TERM%%[-.]*}" = "tmux" ]; then
+  # Tell tmux to pass the escape sequences through
+  # (Source: http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1324)
+  put_template() { printf '\033Ptmux;\033\033]4;%d;rgb:%s\033\033\\\033\\' "$@" > "$TTY"; }
+  put_template_var() { printf '\033Ptmux;\033\033]%d;rgb:%s\033\033\\\033\\' "$@" > "$TTY"; }
+  put_template_custom() { printf '\033Ptmux;\033\033]%s%s\033\033\\\033\\' "$@" > "$TTY"; }
+elif [ "${TERM%%[-.]*}" = "screen" ]; then
+  # GNU screen (screen, screen-256color, screen-256color-bce)
+  put_template() { printf '\033P\033]4;%d;rgb:%s\007\033\\' "$@" > "$TTY"; }
+  put_template_var() { printf '\033P\033]%d;rgb:%s\007\033\\' "$@" > "$TTY"; }
+  put_template_custom() { printf '\033P\033]%s%s\007\033\\' "$@" > "$TTY"; }
+elif [ "${TERM%%-*}" = "linux" ]; then
+  put_template() { [ "$1" -lt 16 ] && printf "\e]P%x%s" "$1" "$(echo "$2" | sed 's/\///g')" > "$TTY"; }
+  put_template_var() { true; }
+  put_template_custom() { true; }
+else
+  put_template() { printf '\033]4;%d;rgb:%s\033\\' "$@" > "$TTY"; }
+  put_template_var() { printf '\033]%d;rgb:%s\033\\' "$@" > "$TTY"; }
+  put_template_custom() { printf '\033]%s%s\033\\' "$@" > "$TTY"; }
+fi
+
+# 16 color space
+put_template 0  "$color00"
+put_template 1  "$color01"
+put_template 2  "$color02"
+put_template 3  "$color03"
+put_template 4  "$color04"
+put_template 5  "$color05"
+put_template 6  "$color06"
+put_template 7  "$color07"
+put_template 8  "$color08"
+put_template 9  "$color09"
+put_template 10 "$color10"
+put_template 11 "$color11"
+put_template 12 "$color12"
+put_template 13 "$color13"
+put_template 14 "$color14"
+put_template 15 "$color15"
+
+# foreground / background / cursor color
+if [ -n "$ITERM_SESSION_ID" ]; then
+  # iTerm2 proprietary escape codes
+  put_template_custom Pg {{ui.global.foreground.normal.hex}} # foreground
+  put_template_custom Ph {{ui.global.background.normal.hex}} # background
+  put_template_custom Pi {{ui.global.foreground.normal.hex}} # bold color
+  put_template_custom Pj {{ui.selection.background.hex}} # selection color
+  put_template_custom Pk {{ui.selection.foreground.hex}} # selected text color
+  put_template_custom Pl {{ui.cursor.normal.background.hex}} # cursor
+  put_template_custom Pm {{ui.cursor.normal.foreground.hex}} # cursor text
+else
+  put_template_var 10 "$color_foreground"
+  if [ "$TINTED8_SHELL_SET_BACKGROUND" != false ]; then
+    put_template_var 11 "$color_background"
+    if [ "${TERM%%-*}" = "rxvt" ]; then
+      put_template_var 708 "$color_background" # internal border (rxvt)
+    fi
+  fi
+  put_template_custom 12 ";7" # cursor (reverse video)
+fi
+
+# clean up
+unset put_template
+unset put_template_var
+unset put_template_custom
+unset color00
+unset color01
+unset color02
+unset color03
+unset color04
+unset color05
+unset color06
+unset color07
+unset color08
+unset color09
+unset color10
+unset color11
+unset color12
+unset color13
+unset color14
+unset color15
+unset color16
+unset color17
+unset color18
+unset color19
+unset color20
+unset color21
+unset color_foreground
+unset color_background
+
+# Optionally export variables
+if [ -n "$TINTED_SHELL_ENABLE_TINTED8_VARS" ]; then
+  export TINTED8_COLOR_BLACK_NORMAL_HEX="{{palette.black.normal.hex}}"
+  export TINTED8_COLOR_BLACK_RED_HEX="{{palette.red.normal.hex}}"
+  export TINTED8_COLOR_BLACK_GREEN_HEX="{{palette.green.normal.hex}}"
+  export TINTED8_COLOR_YELLOW_NORMAL_HEX="{{palette.yellow.normal.hex}}"
+  export TINTED8_COLOR_BLUE_NORMAL_HEX="{{palette.blue.normal.hex}}"
+  export TINTED8_COLOR_MAGENTA_NORMAL_HEX="{{palette.magenta.normal.hex}}"
+  export TINTED8_COLOR_CYAN_NORMAL_HEX="{{palette.cyan.normal.hex}}"
+  export TINTED8_COLOR_WHITE_NORMAL_HEX="{{palette.white.normal.hex}}"
+
+  export TINTED8_COLOR_BLACK_BRIGHT_HEX="{{palette.black.bright.hex}}"
+  export TINTED8_COLOR_RED_BRIGHT_HEX="{{palette.red.bright.hex}}"
+  export TINTED8_COLOR_GREEN_BRIGHT_HEX="{{palette.green.bright.hex}}"
+  export TINTED8_COLOR_YELLOW_BRIGHT_HEX="{{palette.yellow.bright.hex}}"
+  export TINTED8_COLOR_BLUE_BRIGHT_HEX="{{palette.blue.bright.hex}}"
+  export TINTED8_COLOR_MAGENTA_BRIGHT_HEX="{{palette.magenta.bright.hex}}"
+  export TINTED8_COLOR_CYAN_BRIGHT_HEX="{{palette.cyan.bright.hex}}"
+  export TINTED8_COLOR_WHITE_BRIGHT_HEX="{{palette.white.bright.hex}}"
+
+  export TINTED8_COLOR_BLACK_DIM_HEX="{{palette.black.dim.hex}}"
+  export TINTED8_COLOR_RED_DIM_HEX="{{palette.red.dim.hex}}"
+  export TINTED8_COLOR_GREEN_DIM_HEX="{{palette.green.dim.hex}}"
+  export TINTED8_COLOR_YELLOW_DIM_HEX="{{palette.yellow.dim.hex}}"
+  export TINTED8_COLOR_BLUE_DIM_HEX="{{palette.blue.dim.hex}}"
+  export TINTED8_COLOR_MAGENTA_DIM_HEX="{{palette.magenta.dim.hex}}"
+  export TINTED8_COLOR_CYAN_DIM_HEX="{{palette.cyan.dim.hex}}"
+  export TINTED8_COLOR_WHITE_DIM_HEX="{{palette.white.dim.hex}}"
+fi

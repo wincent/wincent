@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Blue Berry Pie by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Blue Berry Pie
+accent: "#90a5bc" # base0D
+cursor: "#bbb2ad" # base05
+background: "#1c0b28" # base00
+foreground: "#bbb2ad" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#1c0b28" # base00
+    red: "#99236d" # base08
+    yellow: "#38163d" # base0A
+    green: "#5bb0b2" # base0B
+    cyan: "#7e82cc" # base0C
+    blue: "#90a5bc" # base0D
+    magenta: "#9d53a7" # base0E
+    white: "#bbb2ad" # base05
+
+  bright:
+    black: "#534a5e" # base03
+    red: "#c77171" # base12
+    yellow: "#793188" # base13
+    green: "#0a6b7e" # base14
+    cyan: "#5d5f71" # base15
+    blue: "#38163d" # base16
+    magenta: "#bc93b6" # base17
+    white: "#0a6b7e" # base07

@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Google Dark by Seth Wright (http://sethawright.com)
+
+name: Base16 Google Dark
+accent: "#3971ed" # base0D
+cursor: "#c5c8c6" # base05
+background: "#1d1f21" # base00
+foreground: "#c5c8c6" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#1d1f21" # base00
+    red: "#cc342b" # base08
+    yellow: "#fba922" # base0A
+    green: "#198844" # base0B
+    cyan: "#3971ed" # base0C
+    blue: "#3971ed" # base0D
+    magenta: "#a36ac7" # base0E
+    white: "#c5c8c6" # base05
+
+  normal:
+    black: "#969896" # base03
+    red: "#cc342b" # base08
+    yellow: "#fba922" # base0A
+    green: "#198844" # base0B
+    cyan: "#3971ed" # base0C
+    blue: "#3971ed" # base0D
+    magenta: "#a36ac7" # base0E
+    white: "#ffffff" # base07

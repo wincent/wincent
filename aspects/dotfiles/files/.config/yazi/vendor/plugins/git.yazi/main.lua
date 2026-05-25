@@ -1,4 +1,4 @@
---- @since 26.1.22
+--- @since 26.5.6
 
 local WINDOWS = ya.target_family() == "windows"
 

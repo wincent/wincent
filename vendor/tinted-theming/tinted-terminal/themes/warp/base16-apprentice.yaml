@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Apprentice by romainl
+
+name: Base16 Apprentice
+accent: "#8787af" # base0D
+cursor: "#5f5f87" # base05
+background: "#262626" # base00
+foreground: "#5f5f87" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#262626" # base00
+    red: "#444444" # base08
+    yellow: "#87af87" # base0A
+    green: "#ffffaf" # base0B
+    cyan: "#87afd7" # base0C
+    blue: "#8787af" # base0D
+    magenta: "#5fafaf" # base0E
+    white: "#5f5f87" # base05
+
+  normal:
+    black: "#87875f" # base03
+    red: "#444444" # base08
+    yellow: "#87af87" # base0A
+    green: "#ffffaf" # base0B
+    cyan: "#87afd7" # base0C
+    blue: "#8787af" # base0D
+    magenta: "#5fafaf" # base0E
+    white: "#6c6c6c" # base07

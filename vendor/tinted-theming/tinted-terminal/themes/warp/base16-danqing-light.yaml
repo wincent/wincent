@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: DanQing Light by Wenhan Zhu (Cosmos) (zhuwenhan950913@gmail.com)
+
+name: Base16 DanQing Light
+accent: "#b0a4e3" # base0D
+cursor: "#5a605d" # base05
+background: "#fcfefd" # base00
+foreground: "#5a605d" # base05
+details: lighter
+
+terminal_colors:
+  bright:
+    black: "#fcfefd" # base00
+    red: "#f9906f" # base08
+    yellow: "#f0c239" # base0A
+    green: "#8ab361" # base0B
+    cyan: "#30dff3" # base0C
+    blue: "#b0a4e3" # base0D
+    magenta: "#cca4e3" # base0E
+    white: "#5a605d" # base05
+
+  normal:
+    black: "#cad8d2" # base03
+    red: "#f9906f" # base08
+    yellow: "#f0c239" # base0A
+    green: "#8ab361" # base0B
+    cyan: "#30dff3" # base0C
+    blue: "#b0a4e3" # base0D
+    magenta: "#cca4e3" # base0E
+    white: "#2d302f" # base07

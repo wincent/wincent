@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Chicago Night by Wendell, Ryan &lt;ryanjwendell@gmail.com&gt;
+
+name: Base16 Chicago Night
+accent: "#522398" # base0D
+cursor: "#a7b8af" # base05
+background: "#1e2a24" # base00
+foreground: "#a7b8af" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#1e2a24" # base00
+    red: "#c60c30" # base08
+    yellow: "#f9e300" # base0A
+    green: "#009b3a" # base0B
+    cyan: "#00a1de" # base0C
+    blue: "#522398" # base0D
+    magenta: "#e27ea6" # base0E
+    white: "#a7b8af" # base05
+
+  normal:
+    black: "#5f7368" # base03
+    red: "#c60c30" # base08
+    yellow: "#f9e300" # base0A
+    green: "#009b3a" # base0B
+    cyan: "#00a1de" # base0C
+    blue: "#522398" # base0D
+    magenta: "#e27ea6" # base0E
+    white: "#dbe3de" # base07

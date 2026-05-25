@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: One Light by Daniel Pfeifer (http://github.com/purpleKarrot)
+
+name: Base16 One Light
+accent: "#4078f2" # base0D
+cursor: "#383a42" # base05
+background: "#fafafa" # base00
+foreground: "#383a42" # base05
+details: lighter
+
+terminal_colors:
+  bright:
+    black: "#fafafa" # base00
+    red: "#ca1243" # base08
+    yellow: "#c18401" # base0A
+    green: "#50a14f" # base0B
+    cyan: "#0184bc" # base0C
+    blue: "#4078f2" # base0D
+    magenta: "#a626a4" # base0E
+    white: "#383a42" # base05
+
+  normal:
+    black: "#a0a1a7" # base03
+    red: "#ca1243" # base08
+    yellow: "#c18401" # base0A
+    green: "#50a14f" # base0B
+    cyan: "#0184bc" # base0C
+    blue: "#4078f2" # base0D
+    magenta: "#a626a4" # base0E
+    white: "#090a0b" # base07

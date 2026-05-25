@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: standardized-dark by ali (https://github.com/ali-githb/base16-standardized-scheme)
+
+name: Base16 standardized-dark
+accent: "#00a3f2" # base0D
+cursor: "#c0c0c0" # base05
+background: "#222222" # base00
+foreground: "#c0c0c0" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#222222" # base00
+    red: "#e15d67" # base08
+    yellow: "#e1b31a" # base0A
+    green: "#5db129" # base0B
+    cyan: "#21c992" # base0C
+    blue: "#00a3f2" # base0D
+    magenta: "#b46ee0" # base0E
+    white: "#c0c0c0" # base05
+
+  normal:
+    black: "#898989" # base03
+    red: "#e15d67" # base08
+    yellow: "#e1b31a" # base0A
+    green: "#5db129" # base0B
+    cyan: "#21c992" # base0C
+    blue: "#00a3f2" # base0D
+    magenta: "#b46ee0" # base0E
+    white: "#ffffff" # base07

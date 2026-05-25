@@ -155,19 +155,6 @@ To prevent this from happening, create an alternate mapping in your |.vimrc|:
 OPTIONS                                                          *loupe-options*
 
 
-                                                         *g:LoupeHighlightGroup*
-|g:LoupeHighlightGroup|                              string (default: IncSearch)
-
-Specifies the |:highlight| group used to emphasize the match currently under
-the cursor for the current search pattern. Defaults to "IncSearch" (ie.
-|hl-IncSearch|). For example:
->
-    let g:LoupeHighlightGroup='Error'
-<
-To prevent any special highlighting from being applied, set this option to
-"" (ie. the empty string).
-
-
                                                                  *g:LoupeLoaded*
 |g:LoupeLoaded|                                              any (default: none)
 
@@ -220,7 +207,7 @@ FUNCTIONS                                                      *loupe-functions*
                                                                *loupe#hlmatch()*
 loupe#hlmatch() ~
 
-Apply highlighting to the current search match.
+Deprecated (no-op). Use `:h hl-CurSearch` instead.
 
 OVERRIDES                                                      *loupe-overrides*
 
@@ -365,18 +352,6 @@ AUTHORS                                                          *loupe-authors*
 
 Loupe is written and maintained by Greg Hurrell <greg@hurrell.net>.
 
-The original idea for the |g:LoupeHighlightGroup| feature was taken from
-Damian Conway's Vim set-up:
-
--
-
-  https://github.com/thoughtstream/Damian-Conway-s-Vim-Setup/blob/master/plugin/hlnext.vim
-
-Which he discussed in his "More Instantly Better Vim" presentation at OSCON
-2013:
-
-- https://www.youtube.com/watch?v=aHm36-na4-4
-
 HISTORY                                                          *loupe-history*
 
 main (not yet released) ~
@@ -386,6 +361,8 @@ main (not yet released) ~
 - Ensure that |g:LoupeVeryMagic| takes effect with longer-forms of the
   |:global|, |:substitute| and |:vglobal| commands.
 - Treat `:g!` as equivalent to `:v` (https://github.com/wincent/loupe/issues/20).
+- Removed `g:LoupeHighlightGroup` setting and |loupe#hlmatch()|; use
+  |hl-CurSearch| instead (https://github.com/wincent/loupe/issues/22).
 
 1.2.2 (7 August 2018) ~
 

@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Kissa Macchiato",
+	"foreground": "#faf0e6",
+	"background": "#1f1c16",
+	"black": "#1f1c16",
+	"blue": "#7fa8d4",
+	"brightBlack": "#b8a48c",
+	"brightBlue": "#7fa8d4",
+	"brightCyan": "#6ab8b0",
+	"brightGreen": "#8cb870",
+	"brightPurple": "#b094cc",
+	"brightRed": "#e87777",
+	"brightWhite": "#fef4e4",
+	"brightYellow": "#eac67a",
+	"cyan": "#6ab8b0",
+	"green": "#8cb870",
+	"purple": "#b094cc",
+	"red": "#e87777",
+	"white": "#faf0e6",
+	"yellow": "#eac67a"
+},

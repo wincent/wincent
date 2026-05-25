@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Atelier Heath by Bram de Haan (http://atelierbramdehaan.nl)
+
+name: Base16 Atelier Heath
+accent: "#516aec" # base0D
+cursor: "#ab9bab" # base05
+background: "#1b181b" # base00
+foreground: "#ab9bab" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#1b181b" # base00
+    red: "#ca402b" # base08
+    yellow: "#bb8a35" # base0A
+    green: "#918b3b" # base0B
+    cyan: "#159393" # base0C
+    blue: "#516aec" # base0D
+    magenta: "#7b59c0" # base0E
+    white: "#ab9bab" # base05
+
+  normal:
+    black: "#776977" # base03
+    red: "#ca402b" # base08
+    yellow: "#bb8a35" # base0A
+    green: "#918b3b" # base0B
+    cyan: "#159393" # base0C
+    blue: "#516aec" # base0D
+    magenta: "#7b59c0" # base0E
+    white: "#f7f3f7" # base07

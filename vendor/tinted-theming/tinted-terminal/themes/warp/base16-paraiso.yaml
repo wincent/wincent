@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Paraiso by Jan T. Sott
+
+name: Base16 Paraiso
+accent: "#06b6ef" # base0D
+cursor: "#a39e9b" # base05
+background: "#2f1e2e" # base00
+foreground: "#a39e9b" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#2f1e2e" # base00
+    red: "#ef6155" # base08
+    yellow: "#fec418" # base0A
+    green: "#48b685" # base0B
+    cyan: "#5bc4bf" # base0C
+    blue: "#06b6ef" # base0D
+    magenta: "#815ba4" # base0E
+    white: "#a39e9b" # base05
+
+  normal:
+    black: "#776e71" # base03
+    red: "#ef6155" # base08
+    yellow: "#fec418" # base0A
+    green: "#48b685" # base0B
+    cyan: "#5bc4bf" # base0C
+    blue: "#06b6ef" # base0D
+    magenta: "#815ba4" # base0E
+    white: "#e7e9db" # base07

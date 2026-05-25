@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Measured Dark by Measured (https://measured.co)
+
+name: Base16 Measured Dark
+accent: "#88b0da" # base0D
+cursor: "#dcdcdc" # base05
+background: "#00211f" # base00
+foreground: "#dcdcdc" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#00211f" # base00
+    red: "#ce7e8e" # base08
+    yellow: "#bfac4e" # base0A
+    green: "#56c16f" # base0B
+    cyan: "#62c0be" # base0C
+    blue: "#88b0da" # base0D
+    magenta: "#b39be0" # base0E
+    white: "#dcdcdc" # base05
+
+  normal:
+    black: "#ababab" # base03
+    red: "#ce7e8e" # base08
+    yellow: "#bfac4e" # base0A
+    green: "#56c16f" # base0B
+    cyan: "#62c0be" # base0C
+    blue: "#88b0da" # base0D
+    magenta: "#b39be0" # base0E
+    white: "#f5f5f5" # base07

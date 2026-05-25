@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Rebecca by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Rebecca
+accent: "#7aa5ff" # base0D
+cursor: "#c3c3d4" # base05
+background: "#292a44" # base00
+foreground: "#c3c3d4" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#292a44" # base00
+    red: "#dd7655" # base08
+    yellow: "#69bffa" # base0A
+    green: "#04dbb4" # base0B
+    cyan: "#56d3c1" # base0C
+    blue: "#7aa5ff" # base0D
+    magenta: "#be9bf8" # base0E
+    white: "#c3c3d4" # base05
+
+  bright:
+    black: "#8585ac" # base03
+    red: "#ff91cd" # base12
+    yellow: "#fefca8" # base13
+    green: "#00e9c0" # base14
+    cyan: "#8bfce1" # base15
+    blue: "#69bffa" # base16
+    magenta: "#c07ff8" # base17
+    white: "#f3f2f8" # base07

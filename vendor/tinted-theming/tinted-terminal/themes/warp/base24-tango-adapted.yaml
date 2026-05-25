@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Tango Adapted by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Tango Adapted
+accent: "#00a1ff" # base0D
+cursor: "#4f4f4f" # base05
+background: "#feffff" # base00
+foreground: "#4f4f4f" # base05
+details: lighter
+
+terminal_colors:
+  normal:
+    black: "#feffff" # base00
+    red: "#ff0000" # base08
+    yellow: "#efca00" # base0A
+    green: "#59d500" # base0B
+    cyan: "#00d0d6" # base0C
+    blue: "#00a1ff" # base0D
+    magenta: "#c17ecb" # base0E
+    white: "#4f4f4f" # base05
+
+  bright:
+    black: "#cccccc" # base03
+    red: "#ff0012" # base12
+    yellow: "#fff021" # base13
+    green: "#93fe00" # base14
+    cyan: "#00fdff" # base15
+    blue: "#88c9ff" # base16
+    magenta: "#e8a6e1" # base17
+    white: "#000000" # base07

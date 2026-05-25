@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Shades of Purple by Iolar Demartini Junior (http://github.com/demartini), based on Shades of Purple Theme (https://github.com/ahmadawais/shades-of-purple-vscode)
+
+name: Base16 Shades of Purple
+accent: "#6943ff" # base0D
+cursor: "#c7c7c7" # base05
+background: "#1e1e3f" # base00
+foreground: "#c7c7c7" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#1e1e3f" # base00
+    red: "#d90429" # base08
+    yellow: "#ffe700" # base0A
+    green: "#3ad900" # base0B
+    cyan: "#00c5c7" # base0C
+    blue: "#6943ff" # base0D
+    magenta: "#ff2c70" # base0E
+    white: "#c7c7c7" # base05
+
+  normal:
+    black: "#808080" # base03
+    red: "#d90429" # base08
+    yellow: "#ffe700" # base0A
+    green: "#3ad900" # base0B
+    cyan: "#00c5c7" # base0C
+    blue: "#6943ff" # base0D
+    magenta: "#ff2c70" # base0E
+    white: "#ffffff" # base07

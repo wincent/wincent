@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Material Lighter by Nate Peterson
+
+name: Base16 Material Lighter
+accent: "#6182b8" # base0D
+cursor: "#80cbc4" # base05
+background: "#fafafa" # base00
+foreground: "#80cbc4" # base05
+details: lighter
+
+terminal_colors:
+  bright:
+    black: "#fafafa" # base00
+    red: "#ff5370" # base08
+    yellow: "#ffb62c" # base0A
+    green: "#91b859" # base0B
+    cyan: "#39adb5" # base0C
+    blue: "#6182b8" # base0D
+    magenta: "#7c4dff" # base0E
+    white: "#80cbc4" # base05
+
+  normal:
+    black: "#ccd7da" # base03
+    red: "#ff5370" # base08
+    yellow: "#ffb62c" # base0A
+    green: "#91b859" # base0B
+    cyan: "#39adb5" # base0C
+    blue: "#6182b8" # base0D
+    magenta: "#7c4dff" # base0E
+    white: "#000000" # base07

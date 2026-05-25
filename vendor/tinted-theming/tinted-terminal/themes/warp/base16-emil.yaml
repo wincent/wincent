@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: emil by limelier
+
+name: Base16 emil
+accent: "#471397" # base0D
+cursor: "#313145" # base05
+background: "#efefef" # base00
+foreground: "#313145" # base05
+details: lighter
+
+terminal_colors:
+  bright:
+    black: "#efefef" # base00
+    red: "#f43979" # base08
+    yellow: "#ff669b" # base0A
+    green: "#0073a8" # base0B
+    cyan: "#2155d6" # base0C
+    blue: "#471397" # base0D
+    magenta: "#6916b6" # base0E
+    white: "#313145" # base05
+
+  normal:
+    black: "#7c7c98" # base03
+    red: "#f43979" # base08
+    yellow: "#ff669b" # base0A
+    green: "#0073a8" # base0B
+    cyan: "#2155d6" # base0C
+    blue: "#471397" # base0D
+    magenta: "#6916b6" # base0E
+    white: "#1a1a2f" # base07

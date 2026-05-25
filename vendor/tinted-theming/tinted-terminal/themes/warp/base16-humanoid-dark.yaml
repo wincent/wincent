@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Humanoid dark by Thomas (tasmo) Friese
+
+name: Base16 Humanoid dark
+accent: "#00a6fb" # base0D
+cursor: "#f8f8f2" # base05
+background: "#232629" # base00
+foreground: "#f8f8f2" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#232629" # base00
+    red: "#f11235" # base08
+    yellow: "#ffb627" # base0A
+    green: "#02d849" # base0B
+    cyan: "#0dd9d6" # base0C
+    blue: "#00a6fb" # base0D
+    magenta: "#f15ee3" # base0E
+    white: "#f8f8f2" # base05
+
+  normal:
+    black: "#60615d" # base03
+    red: "#f11235" # base08
+    yellow: "#ffb627" # base0A
+    green: "#02d849" # base0B
+    cyan: "#0dd9d6" # base0C
+    blue: "#00a6fb" # base0D
+    magenta: "#f15ee3" # base0E
+    white: "#fcfcfc" # base07

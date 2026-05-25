@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Pop by Chris Kempson (http://chriskempson.com)
+
+name: Base16 Pop
+accent: "#0e5a94" # base0D
+cursor: "#d0d0d0" # base05
+background: "#000000" # base00
+foreground: "#d0d0d0" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#000000" # base00
+    red: "#eb008a" # base08
+    yellow: "#f8ca12" # base0A
+    green: "#37b349" # base0B
+    cyan: "#00aabb" # base0C
+    blue: "#0e5a94" # base0D
+    magenta: "#b31e8d" # base0E
+    white: "#d0d0d0" # base05
+
+  normal:
+    black: "#505050" # base03
+    red: "#eb008a" # base08
+    yellow: "#f8ca12" # base0A
+    green: "#37b349" # base0B
+    cyan: "#00aabb" # base0C
+    blue: "#0e5a94" # base0D
+    magenta: "#b31e8d" # base0E
+    white: "#ffffff" # base07

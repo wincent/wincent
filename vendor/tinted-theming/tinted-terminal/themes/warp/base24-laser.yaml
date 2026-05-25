@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Laser by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Laser
+accent: "#fed300" # base0D
+cursor: "#d8d8d8" # base05
+background: "#030d18" # base00
+foreground: "#d8d8d8" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#030d18" # base00
+    red: "#ff8272" # base08
+    yellow: "#f92883" # base0A
+    green: "#b4fa72" # base0B
+    cyan: "#d0d1fe" # base0C
+    blue: "#fed300" # base0D
+    magenta: "#ff8ffd" # base0E
+    white: "#d8d8d8" # base05
+
+  bright:
+    black: "#a6a6a6" # base03
+    red: "#ffc4bd" # base12
+    yellow: "#fefdd5" # base13
+    green: "#d6fcb9" # base14
+    cyan: "#e5e6fe" # base15
+    blue: "#f92883" # base16
+    magenta: "#ffb1fe" # base17
+    white: "#feffff" # base07

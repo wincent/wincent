@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Molokai by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Molokai
+accent: "#0f7fcf" # base0D
+cursor: "#a1a1a1" # base05
+background: "#121212" # base00
+foreground: "#a1a1a1" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#121212" # base00
+    red: "#fa2573" # base08
+    yellow: "#00afff" # base0A
+    green: "#97e123" # base0B
+    cyan: "#42a7cf" # base0C
+    blue: "#0f7fcf" # base0D
+    magenta: "#8700ff" # base0E
+    white: "#a1a1a1" # base05
+
+  bright:
+    black: "#6e6e6e" # base03
+    red: "#f5669c" # base12
+    yellow: "#fef26c" # base13
+    green: "#b0e05e" # base14
+    cyan: "#50cdfe" # base15
+    blue: "#00afff" # base16
+    magenta: "#af87ff" # base17
+    white: "#ffffff" # base07

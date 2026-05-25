@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Seti UI by 
+
+name: Base16 Seti UI
+accent: "#55b5db" # base0D
+cursor: "#d6d6d6" # base05
+background: "#151718" # base00
+foreground: "#d6d6d6" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#151718" # base00
+    red: "#cd3f45" # base08
+    yellow: "#e6cd69" # base0A
+    green: "#9fca56" # base0B
+    cyan: "#55dbbe" # base0C
+    blue: "#55b5db" # base0D
+    magenta: "#a074c4" # base0E
+    white: "#d6d6d6" # base05
+
+  normal:
+    black: "#41535b" # base03
+    red: "#cd3f45" # base08
+    yellow: "#e6cd69" # base0A
+    green: "#9fca56" # base0B
+    cyan: "#55dbbe" # base0C
+    blue: "#55b5db" # base0D
+    magenta: "#a074c4" # base0E
+    white: "#ffffff" # base07

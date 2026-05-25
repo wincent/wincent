@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Tokyo City Terminal Light by Michaël Ball
+
+name: Base16 Tokyo City Terminal Light
+accent: "#34548a" # base0D
+cursor: "#28323a" # base05
+background: "#fbfbfd" # base00
+foreground: "#28323a" # base05
+details: lighter
+
+terminal_colors:
+  bright:
+    black: "#fbfbfd" # base00
+    red: "#8c4351" # base08
+    yellow: "#8f5e15" # base0A
+    green: "#33635c" # base0B
+    cyan: "#0f4b6e" # base0C
+    blue: "#34548a" # base0D
+    magenta: "#5a4a78" # base0E
+    white: "#28323a" # base05
+
+  normal:
+    black: "#b7c5d3" # base03
+    red: "#8c4351" # base08
+    yellow: "#8f5e15" # base0A
+    green: "#33635c" # base0B
+    cyan: "#0f4b6e" # base0C
+    blue: "#34548a" # base0D
+    magenta: "#5a4a78" # base0E
+    white: "#171d23" # base07

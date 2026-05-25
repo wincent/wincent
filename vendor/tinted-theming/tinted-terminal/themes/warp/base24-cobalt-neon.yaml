@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Cobalt Neon by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Cobalt Neon
+accent: "#8ff586" # base0D
+cursor: "#cc72a6" # base05
+background: "#142838" # base00
+foreground: "#cc72a6" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#142838" # base00
+    red: "#ff2320" # base08
+    yellow: "#3c7dd2" # base0A
+    green: "#3aa5ff" # base0B
+    cyan: "#8ff586" # base0C
+    blue: "#8ff586" # base0D
+    magenta: "#781aa0" # base0E
+    white: "#cc72a6" # base05
+
+  bright:
+    black: "#eeca92" # base03
+    red: "#d4312e" # base12
+    yellow: "#e9f06d" # base13
+    green: "#8ff586" # base14
+    cyan: "#6cbc67" # base15
+    blue: "#3c7dd2" # base16
+    magenta: "#8230a7" # base17
+    white: "#8ff586" # base07

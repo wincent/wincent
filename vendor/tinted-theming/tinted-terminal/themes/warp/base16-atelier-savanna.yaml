@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Atelier Savanna by Bram de Haan (http://atelierbramdehaan.nl)
+
+name: Base16 Atelier Savanna
+accent: "#478c90" # base0D
+cursor: "#87928a" # base05
+background: "#171c19" # base00
+foreground: "#87928a" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#171c19" # base00
+    red: "#b16139" # base08
+    yellow: "#a07e3b" # base0A
+    green: "#489963" # base0B
+    cyan: "#1c9aa0" # base0C
+    blue: "#478c90" # base0D
+    magenta: "#55859b" # base0E
+    white: "#87928a" # base05
+
+  normal:
+    black: "#5f6d64" # base03
+    red: "#b16139" # base08
+    yellow: "#a07e3b" # base0A
+    green: "#489963" # base0B
+    cyan: "#1c9aa0" # base0C
+    blue: "#478c90" # base0D
+    magenta: "#55859b" # base0E
+    white: "#ecf4ee" # base07

@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Slate by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Slate
+accent: "#254a49" # base0D
+cursor: "#42d3e8" # base05
+background: "#212121" # base00
+foreground: "#42d3e8" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#212121" # base00
+    red: "#e1a7bf" # base08
+    yellow: "#79afd2" # base0A
+    green: "#80d778" # base0B
+    cyan: "#14ab9c" # base0C
+    blue: "#254a49" # base0D
+    magenta: "#a380d3" # base0E
+    white: "#42d3e8" # base05
+
+  bright:
+    black: "#c0f1f8" # base03
+    red: "#ffccd8" # base12
+    yellow: "#d0cbc9" # base13
+    green: "#bdffa8" # base14
+    cyan: "#8bdee0" # base15
+    blue: "#79afd2" # base16
+    magenta: "#c4a7d8" # base17
+    white: "#e0e0e0" # base07

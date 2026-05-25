@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Jellybeans by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Jellybeans
+accent: "#97bedc" # base0D
+cursor: "#d5d5d5" # base05
+background: "#121212" # base00
+foreground: "#d5d5d5" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#121212" # base00
+    red: "#e27373" # base08
+    yellow: "#b1d8f6" # base0A
+    green: "#93b979" # base0B
+    cyan: "#00988e" # base0C
+    blue: "#97bedc" # base0D
+    magenta: "#e1c0fa" # base0E
+    white: "#d5d5d5" # base05
+
+  bright:
+    black: "#c5c5c5" # base03
+    red: "#ffa1a1" # base12
+    yellow: "#ffdca0" # base13
+    green: "#bddeab" # base14
+    cyan: "#1ab2a8" # base15
+    blue: "#b1d8f6" # base16
+    magenta: "#fbdaff" # base17
+    white: "#ffffff" # base07

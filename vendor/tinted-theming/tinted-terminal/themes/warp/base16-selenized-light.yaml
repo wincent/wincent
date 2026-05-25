@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: selenized-light by Jan Warchol (https://github.com/jan-warchol/selenized) / adapted to base16 by ali
+
+name: Base16 selenized-light
+accent: "#006dce" # base0D
+cursor: "#53676d" # base05
+background: "#fbf3db" # base00
+foreground: "#53676d" # base05
+details: lighter
+
+terminal_colors:
+  bright:
+    black: "#fbf3db" # base00
+    red: "#cc1729" # base08
+    yellow: "#a78300" # base0A
+    green: "#428b00" # base0B
+    cyan: "#00978a" # base0C
+    blue: "#006dce" # base0D
+    magenta: "#825dc0" # base0E
+    white: "#53676d" # base05
+
+  normal:
+    black: "#909995" # base03
+    red: "#cc1729" # base08
+    yellow: "#a78300" # base0A
+    green: "#428b00" # base0B
+    cyan: "#00978a" # base0C
+    blue: "#006dce" # base0D
+    magenta: "#825dc0" # base0E
+    white: "#3a4d53" # base07

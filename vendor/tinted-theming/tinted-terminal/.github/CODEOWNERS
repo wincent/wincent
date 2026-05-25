@@ -62,6 +62,10 @@ README.md @tinted-theming/terminal
 /templates/termite-* @tinted-theming/termite-terminal
 /themes/termite/* @tinted-theming/termite-terminal
 
+# Warp
+/templates/warp-* @tinted-theming/warp-terminal
+/themes/warp/* @tinted-theming/warp-terminal
+
 # WezTerm
 /templates/wezterm-* @tinted-theming/wezterm-terminal
 /themes/wezterm/* @tinted-theming/wezterm-terminal

@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: iA Light by iA Inc. (modified by aramisgithub)
+
+name: Base16 iA Light
+accent: "#48bac2" # base0D
+cursor: "#181818" # base05
+background: "#f6f6f6" # base00
+foreground: "#181818" # base05
+details: lighter
+
+terminal_colors:
+  bright:
+    black: "#f6f6f6" # base00
+    red: "#9c5a02" # base08
+    yellow: "#c48218" # base0A
+    green: "#38781c" # base0B
+    cyan: "#2d6bb1" # base0C
+    blue: "#48bac2" # base0D
+    magenta: "#a94598" # base0E
+    white: "#181818" # base05
+
+  normal:
+    black: "#898989" # base03
+    red: "#9c5a02" # base08
+    yellow: "#c48218" # base0A
+    green: "#38781c" # base0B
+    cyan: "#2d6bb1" # base0C
+    blue: "#48bac2" # base0D
+    magenta: "#a94598" # base0E
+    white: "#f8f8f8" # base07

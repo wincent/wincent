@@ -1,0 +1,30 @@
+# Tinted Terminal tinted8 color theme (https://github.com/tinted-theming)
+# Color scheme: Catppuccin Latte by https://github.com/catppuccin/catppuccin
+
+name: Tinted8 Catppuccin Latte
+accent: "#179299"
+cursor: "#4c4f69"
+background: "#dce0e8"
+foreground: "#4c4f69"
+details: lighter
+
+terminal_colors:
+  normal:
+    black: "#4c4f69"
+    red: "#d20f39"
+    yellow: "#df8e1d"
+    green: "#40a02b"
+    cyan: "#179299"
+    blue: "#1e66f5"
+    magenta: "#8839ef"
+    white: "#dce0e8"
+
+  bright:
+    black: "#6c6f85"
+    red: "#f82653"
+    yellow: "#eeaa4b"
+    green: "#53d138"
+    cyan: "#18cbd5"
+    blue: "#598ef8"
+    magenta: "#aa72f4"
+    white: "#ffffff"

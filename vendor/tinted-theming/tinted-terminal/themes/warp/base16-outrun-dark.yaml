@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Outrun Dark by Hugo Delahousse (http://github.com/hugodelahousse/)
+
+name: Base16 Outrun Dark
+accent: "#66b0ff" # base0D
+cursor: "#d0d0fa" # base05
+background: "#00002a" # base00
+foreground: "#d0d0fa" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#00002a" # base00
+    red: "#ff4242" # base08
+    yellow: "#f3e877" # base0A
+    green: "#59f176" # base0B
+    cyan: "#0ef0f0" # base0C
+    blue: "#66b0ff" # base0D
+    magenta: "#f10596" # base0E
+    white: "#d0d0fa" # base05
+
+  normal:
+    black: "#50507a" # base03
+    red: "#ff4242" # base08
+    yellow: "#f3e877" # base0A
+    green: "#59f176" # base0B
+    cyan: "#0ef0f0" # base0C
+    blue: "#66b0ff" # base0D
+    magenta: "#f10596" # base0E
+    white: "#f5f5ff" # base07

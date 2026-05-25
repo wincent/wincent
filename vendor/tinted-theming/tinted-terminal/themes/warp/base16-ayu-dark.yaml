@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Ayu Dark by Tinted Theming (https://github.com/tinted-theming), Ayu Theme (https://github.com/ayu-theme)
+
+name: Base16 Ayu Dark
+accent: "#59c2ff" # base0D
+cursor: "#e6e1cf" # base05
+background: "#0b0e14" # base00
+foreground: "#e6e1cf" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#0b0e14" # base00
+    red: "#f07178" # base08
+    yellow: "#ffb454" # base0A
+    green: "#aad94c" # base0B
+    cyan: "#95e6cb" # base0C
+    blue: "#59c2ff" # base0D
+    magenta: "#d2a6ff" # base0E
+    white: "#e6e1cf" # base05
+
+  normal:
+    black: "#3e4b59" # base03
+    red: "#f07178" # base08
+    yellow: "#ffb454" # base0A
+    green: "#aad94c" # base0B
+    cyan: "#95e6cb" # base0C
+    blue: "#59c2ff" # base0D
+    magenta: "#d2a6ff" # base0E
+    white: "#f2f0e7" # base07

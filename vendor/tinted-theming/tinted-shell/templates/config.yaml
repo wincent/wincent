@@ -1,8 +1,29 @@
-base16: 
-    extension: .sh
-    output: scripts
+base16:
+  filename: scripts/{{ scheme-system }}-{{ scheme-slug }}.sh
+  supported-systems: [base16]
 
-base24: 
-    extension: .sh
-    output: scripts
-    supported-systems: [base24]
+base24:
+  filename: scripts/{{ scheme-system }}-{{ scheme-slug }}.sh
+  supported-systems: [base24]
+
+tinted8:
+  filename: scripts/{{ scheme.system }}-{{ scheme.slug }}.sh
+  supported-systems: [tinted8]
+  supports:
+    tinted8-builder: "~0.2.0"
+    tinted8-styling: "~0.2.0"
+
+base16-fish:
+  filename: fish/{{ scheme-system }}-{{ scheme-slug }}.fish
+  supported-systems: [base16]
+
+base24-fish:
+  filename: fish/{{ scheme-system }}-{{ scheme-slug }}.fish
+  supported-systems: [base24]
+
+tinted8-fish:
+  filename: fish/{{ scheme.system }}-{{ scheme.slug }}.fish
+  supported-systems: [tinted8]
+  supports:
+    tinted8-builder: "~0.2.0"
+    tinted8-styling: "~0.2.0"

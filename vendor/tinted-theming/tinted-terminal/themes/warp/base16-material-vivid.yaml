@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Material Vivid by joshyrobot
+
+name: Base16 Material Vivid
+accent: "#2196f3" # base0D
+cursor: "#80868b" # base05
+background: "#202124" # base00
+foreground: "#80868b" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#202124" # base00
+    red: "#f44336" # base08
+    yellow: "#ffeb3b" # base0A
+    green: "#00e676" # base0B
+    cyan: "#00bcd4" # base0C
+    blue: "#2196f3" # base0D
+    magenta: "#673ab7" # base0E
+    white: "#80868b" # base05
+
+  normal:
+    black: "#44464d" # base03
+    red: "#f44336" # base08
+    yellow: "#ffeb3b" # base0A
+    green: "#00e676" # base0B
+    cyan: "#00bcd4" # base0C
+    blue: "#2196f3" # base0D
+    magenta: "#673ab7" # base0E
+    white: "#ffffff" # base07

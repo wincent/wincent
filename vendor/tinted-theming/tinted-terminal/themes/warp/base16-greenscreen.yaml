@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Green Screen by Chris Kempson (http://chriskempson.com)
+
+name: Base16 Green Screen
+accent: "#009900" # base0D
+cursor: "#00bb00" # base05
+background: "#001100" # base00
+foreground: "#00bb00" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#001100" # base00
+    red: "#007700" # base08
+    yellow: "#007700" # base0A
+    green: "#00bb00" # base0B
+    cyan: "#005500" # base0C
+    blue: "#009900" # base0D
+    magenta: "#00bb00" # base0E
+    white: "#00bb00" # base05
+
+  normal:
+    black: "#007700" # base03
+    red: "#007700" # base08
+    yellow: "#007700" # base0A
+    green: "#00bb00" # base0B
+    cyan: "#005500" # base0C
+    blue: "#009900" # base0D
+    magenta: "#00bb00" # base0E
+    white: "#00ff00" # base07

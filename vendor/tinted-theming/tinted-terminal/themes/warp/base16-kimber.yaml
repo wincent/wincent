@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Kimber by Mishka Nguyen (https://github.com/akhsiM)
+
+name: Base16 Kimber
+accent: "#537c9c" # base0D
+cursor: "#dedee7" # base05
+background: "#222222" # base00
+foreground: "#dedee7" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#222222" # base00
+    red: "#c88c8c" # base08
+    yellow: "#d8b56d" # base0A
+    green: "#99c899" # base0B
+    cyan: "#78b4b4" # base0C
+    blue: "#537c9c" # base0D
+    magenta: "#86cacd" # base0E
+    white: "#dedee7" # base05
+
+  normal:
+    black: "#644646" # base03
+    red: "#c88c8c" # base08
+    yellow: "#d8b56d" # base0A
+    green: "#99c899" # base0B
+    cyan: "#78b4b4" # base0C
+    blue: "#537c9c" # base0D
+    magenta: "#86cacd" # base0E
+    white: "#ffffe6" # base07

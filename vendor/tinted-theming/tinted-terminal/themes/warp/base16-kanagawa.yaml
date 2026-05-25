@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Kanagawa by Tommaso Laurenzi (https://github.com/rebelot)
+
+name: Base16 Kanagawa
+accent: "#7e9cd8" # base0D
+cursor: "#dcd7ba" # base05
+background: "#1f1f28" # base00
+foreground: "#dcd7ba" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#1f1f28" # base00
+    red: "#c34043" # base08
+    yellow: "#c0a36e" # base0A
+    green: "#76946a" # base0B
+    cyan: "#6a9589" # base0C
+    blue: "#7e9cd8" # base0D
+    magenta: "#957fb8" # base0E
+    white: "#dcd7ba" # base05
+
+  normal:
+    black: "#54546d" # base03
+    red: "#c34043" # base08
+    yellow: "#c0a36e" # base0A
+    green: "#76946a" # base0B
+    cyan: "#6a9589" # base0C
+    blue: "#7e9cd8" # base0D
+    magenta: "#957fb8" # base0E
+    white: "#717c7c" # base07

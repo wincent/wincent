@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Broadcast by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Broadcast
+accent: "#6d9cbe" # base0D
+cursor: "#cbcbcb" # base05
+background: "#2b2b2b" # base00
+foreground: "#cbcbcb" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#2b2b2b" # base00
+    red: "#da4939" # base08
+    yellow: "#9fcef0" # base0A
+    green: "#519f50" # base0B
+    cyan: "#6e9cbe" # base0C
+    blue: "#6d9cbe" # base0D
+    magenta: "#d0d0ff" # base0E
+    white: "#cbcbcb" # base05
+
+  bright:
+    black: "#656565" # base03
+    red: "#ff7b6b" # base12
+    yellow: "#ffff7c" # base13
+    green: "#83d182" # base14
+    cyan: "#a0cef0" # base15
+    blue: "#9fcef0" # base16
+    magenta: "#ffffff" # base17
+    white: "#ffffff" # base07

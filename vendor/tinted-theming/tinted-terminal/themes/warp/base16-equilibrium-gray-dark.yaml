@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Equilibrium Gray Dark by Carlo Abelli
+
+name: Base16 Equilibrium Gray Dark
+accent: "#008dd1" # base0D
+cursor: "#ababab" # base05
+background: "#111111" # base00
+foreground: "#ababab" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#111111" # base00
+    red: "#f04339" # base08
+    yellow: "#bb8801" # base0A
+    green: "#7f8b00" # base0B
+    cyan: "#00948b" # base0C
+    blue: "#008dd1" # base0D
+    magenta: "#6a7fd2" # base0E
+    white: "#ababab" # base05
+
+  normal:
+    black: "#777777" # base03
+    red: "#f04339" # base08
+    yellow: "#bb8801" # base0A
+    green: "#7f8b00" # base0B
+    cyan: "#00948b" # base0C
+    blue: "#008dd1" # base0D
+    magenta: "#6a7fd2" # base0E
+    white: "#e2e2e2" # base07

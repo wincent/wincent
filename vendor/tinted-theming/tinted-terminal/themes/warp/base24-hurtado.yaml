@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Hurtado by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Hurtado
+accent: "#486387" # base0D
+cursor: "#a1a1a1" # base05
+background: "#000000" # base00
+foreground: "#a1a1a1" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#000000" # base00
+    red: "#ff1b00" # base08
+    yellow: "#89bdff" # base0A
+    green: "#a5df55" # base0B
+    cyan: "#85e9fe" # base0C
+    blue: "#486387" # base0D
+    magenta: "#fc5ef0" # base0E
+    white: "#a1a1a1" # base05
+
+  bright:
+    black: "#4e4e4e" # base03
+    red: "#d41c00" # base12
+    yellow: "#fbe749" # base13
+    green: "#a5df55" # base14
+    cyan: "#85e9fe" # base15
+    blue: "#89bdff" # base16
+    magenta: "#bf00c0" # base17
+    white: "#dbdbdb" # base07

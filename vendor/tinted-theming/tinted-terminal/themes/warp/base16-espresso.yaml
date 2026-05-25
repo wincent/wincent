@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Espresso by Unknown. Maintained by Alex Mirrington (https://github.com/alexmirrington)
+
+name: Base16 Espresso
+accent: "#6c99bb" # base0D
+cursor: "#cccccc" # base05
+background: "#2d2d2d" # base00
+foreground: "#cccccc" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#2d2d2d" # base00
+    red: "#d25252" # base08
+    yellow: "#ffc66d" # base0A
+    green: "#a5c261" # base0B
+    cyan: "#bed6ff" # base0C
+    blue: "#6c99bb" # base0D
+    magenta: "#d197d9" # base0E
+    white: "#cccccc" # base05
+
+  normal:
+    black: "#777777" # base03
+    red: "#d25252" # base08
+    yellow: "#ffc66d" # base0A
+    green: "#a5c261" # base0B
+    cyan: "#bed6ff" # base0C
+    blue: "#6c99bb" # base0D
+    magenta: "#d197d9" # base0E
+    white: "#ffffff" # base07

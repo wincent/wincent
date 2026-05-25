@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Chinoiserie Morandi by Di Wang (https://cs.cmu.edu/~diw3)
+
+name: Base16 Chinoiserie Morandi
+accent: "#839ec9" # base0D
+cursor: "#c4cbcf" # base05
+background: "#1d1d1d" # base00
+foreground: "#c4cbcf" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#1d1d1d" # base00
+    red: "#c06061" # base08
+    yellow: "#e5bc84" # base0A
+    green: "#8ca07b" # base0B
+    cyan: "#5e8c9b" # base0C
+    blue: "#839ec9" # base0D
+    magenta: "#98a1d8" # base0E
+    white: "#c4cbcf" # base05
+
+  normal:
+    black: "#918072" # base03
+    red: "#c06061" # base08
+    yellow: "#e5bc84" # base0A
+    green: "#8ca07b" # base0B
+    cyan: "#5e8c9b" # base0C
+    blue: "#839ec9" # base0D
+    magenta: "#98a1d8" # base0E
+    white: "#fffef9" # base07

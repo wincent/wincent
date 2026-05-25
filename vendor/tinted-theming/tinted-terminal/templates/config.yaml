@@ -288,9 +288,25 @@ xfce4-tinted8:
     tinted8-builder: ~0.2.0
     tinted8-styling: ~0.2.0
 
+# warp
+# ----------------------------------------------------------------------
+warp-base16:
+  filename: themes/warp/{{ scheme-system }}-{{ scheme-slug }}.yaml
+  supported-systems: [base16]
+
+warp-base24:
+  filename: themes/warp/{{ scheme-system }}-{{ scheme-slug }}.yaml
+  supported-systems: [base24]
+
+warp-tinted8:
+  filename: themes/warp/{{ scheme.system }}-{{ scheme.slug }}.yaml
+  supported-systems: [tinted8]
+  supports:
+    tinted8-builder: ~0.2.0
+    tinted8-styling: ~0.2.0
+
 # weterm
 # ----------------------------------------------------------------------
-
 wezterm-base16:
   filename: themes/wezterm/{{ scheme-system }}-{{ scheme-slug }}.toml
   supported-systems: [base16]

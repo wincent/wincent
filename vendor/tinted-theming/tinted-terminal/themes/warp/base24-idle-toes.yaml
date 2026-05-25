@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Idle Toes by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Idle Toes
+accent: "#4098ff" # base0D
+cursor: "#c7c7c5" # base05
+background: "#323232" # base00
+foreground: "#c7c7c5" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#323232" # base00
+    red: "#d25252" # base08
+    yellow: "#5eb7f7" # base0A
+    green: "#7fe173" # base0B
+    cyan: "#bed6ff" # base0C
+    blue: "#4098ff" # base0D
+    magenta: "#f57fff" # base0E
+    white: "#c7c7c5" # base05
+
+  bright:
+    black: "#797979" # base03
+    red: "#f07070" # base12
+    yellow: "#ffe48b" # base13
+    green: "#9dff90" # base14
+    cyan: "#dcf4ff" # base15
+    blue: "#5eb7f7" # base16
+    magenta: "#ff9dff" # base17
+    white: "#ffffff" # base07

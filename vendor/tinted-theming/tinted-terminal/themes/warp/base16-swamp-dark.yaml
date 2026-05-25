@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Swamp Dark by Masroof Maindak (https://github.com/masroof-maindak)
+
+name: Base16 Swamp Dark
+accent: "#c1666b" # base0D
+cursor: "#d2c3a4" # base05
+background: "#242015" # base00
+foreground: "#d2c3a4" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#242015" # base00
+    red: "#db930d" # base08
+    yellow: "#a82d56" # base0A
+    green: "#7a7653" # base0B
+    cyan: "#db930d" # base0C
+    blue: "#c1666b" # base0D
+    magenta: "#91506c" # base0E
+    white: "#d2c3a4" # base05
+
+  normal:
+    black: "#5f4e41" # base03
+    red: "#db930d" # base08
+    yellow: "#a82d56" # base0A
+    green: "#7a7653" # base0B
+    cyan: "#db930d" # base0C
+    blue: "#c1666b" # base0D
+    magenta: "#91506c" # base0E
+    white: "#f1e9d0" # base07

@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Catppuccin Macchiato by https://github.com/catppuccin/catppuccin
+
+name: Base16 Catppuccin Macchiato
+accent: "#8aadf4" # base0D
+cursor: "#cad3f5" # base05
+background: "#24273a" # base00
+foreground: "#cad3f5" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#24273a" # base00
+    red: "#ed8796" # base08
+    yellow: "#eed49f" # base0A
+    green: "#a6da95" # base0B
+    cyan: "#8bd5ca" # base0C
+    blue: "#8aadf4" # base0D
+    magenta: "#c6a0f6" # base0E
+    white: "#cad3f5" # base05
+
+  normal:
+    black: "#494d64" # base03
+    red: "#ed8796" # base08
+    yellow: "#eed49f" # base0A
+    green: "#a6da95" # base0B
+    cyan: "#8bd5ca" # base0C
+    blue: "#8aadf4" # base0D
+    magenta: "#c6a0f6" # base0E
+    white: "#b7bdf8" # base07

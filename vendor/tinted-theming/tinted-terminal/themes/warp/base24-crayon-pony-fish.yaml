@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Crayon Pony Fish by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Crayon Pony Fish
+accent: "#8b87af" # base0D
+cursor: "#5d484e" # base05
+background: "#140607" # base00
+foreground: "#5d484e" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#140607" # base00
+    red: "#90002a" # base08
+    yellow: "#cfc9ff" # base0A
+    green: "#579523" # base0B
+    cyan: "#e8a766" # base0C
+    blue: "#8b87af" # base0D
+    magenta: "#682e50" # base0E
+    white: "#5d484e" # base05
+
+  bright:
+    black: "#473438" # base03
+    red: "#c5245c" # base12
+    yellow: "#c7371d" # base13
+    green: "#8dff56" # base14
+    cyan: "#ffceae" # base15
+    blue: "#cfc9ff" # base16
+    magenta: "#fb6cb9" # base17
+    white: "#af949d" # base07

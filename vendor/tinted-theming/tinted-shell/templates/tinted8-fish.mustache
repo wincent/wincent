@@ -1,0 +1,185 @@
+#!/usr/bin/env fish
+# tinted-shell (https://github.com/tinted-theming/tinted-shell)
+# Scheme name: {{scheme-name}}
+# Scheme author: {{scheme-author}}
+# Template author: Tinted Theming (https://github.com/tinted-theming)
+
+set -l color00 "{{palette.black.normal.hex-r}}/{{palette.black.normal.hex-g}}/{{palette.black.normal.hex-b}}"
+set -l color01 "{{palette.red.normal.hex-r}}/{{palette.red.normal.hex-g}}/{{palette.red.normal.hex-b}}"
+set -l color02 "{{palette.green.normal.hex-r}}/{{palette.green.normal.hex-g}}/{{palette.green.normal.hex-b}}"
+set -l color03 "{{palette.yellow.normal.hex-r}}/{{palette.yellow.normal.hex-g}}/{{palette.yellow.normal.hex-b}}"
+set -l color04 "{{palette.blue.normal.hex-r}}/{{palette.blue.normal.hex-g}}/{{palette.blue.normal.hex-b}}"
+set -l color05 "{{palette.magenta.normal.hex-r}}/{{palette.magenta.normal.hex-g}}/{{palette.magenta.normal.hex-b}}"
+set -l color06 "{{palette.cyan.normal.hex-r}}/{{palette.cyan.normal.hex-g}}/{{palette.cyan.normal.hex-b}}"
+set -l color07 "{{palette.white.normal.hex-r}}/{{palette.white.normal.hex-g}}/{{palette.white.normal.hex-b}}"
+set -l color08 "{{palette.black.bright.hex-r}}/{{palette.black.bright.hex-g}}/{{palette.black.bright.hex-b}}"
+set -l color09 "{{palette.red.bright.hex-r}}/{{palette.red.bright.hex-g}}/{{palette.red.bright.hex-b}}"
+set -l color10 "{{palette.green.bright.hex-r}}/{{palette.green.bright.hex-g}}/{{palette.green.bright.hex-b}}"
+set -l color11 "{{palette.yellow.bright.hex-r}}/{{palette.yellow.bright.hex-g}}/{{palette.yellow.bright.hex-b}}"
+set -l color12 "{{palette.blue.bright.hex-r}}/{{palette.blue.bright.hex-g}}/{{palette.blue.bright.hex-b}}"
+set -l color13 "{{palette.magenta.bright.hex-r}}/{{palette.magenta.bright.hex-g}}/{{palette.magenta.bright.hex-b}}"
+set -l color14 "{{palette.cyan.bright.hex-r}}/{{palette.cyan.bright.hex-g}}/{{palette.cyan.bright.hex-b}}"
+set -l color15 "{{palette.white.bright.hex-r}}/{{palette.white.bright.hex-g}}/{{palette.white.bright.hex-b}}"
+set -l color_foreground "{{ui.global.foreground.normal.hex-r}}/{{ui.global.foreground.normal.hex-g}}/{{ui.global.foreground.normal.hex-b}}"
+set -l color_background "{{ui.global.background.normal.hex-r}}/{{ui.global.background.normal.hex-g}}/{{ui.global.background.normal.hex-b}}"
+
+if test -z "$TTY"
+  set -gx TTY (tty)
+end
+if test -z "$TTY"; or not test -w "$TTY"
+  function put_template; true; end
+  function put_template_var; true; end
+  function put_template_custom; true; end
+else if set -q TMUX; or string match -q 'tmux*' $TERM
+  # Tell tmux to pass the escape sequences through
+  # (Source: http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1324)
+  function put_template; printf '\033Ptmux;\033\033]4;%d;rgb:%s\033\033\\\033\\' $argv > "$TTY"; end
+  function put_template_var; printf '\033Ptmux;\033\033]%d;rgb:%s\033\033\\\033\\' $argv > "$TTY"; end
+  function put_template_custom; printf '\033Ptmux;\033\033]%s%s\033\033\\\033\\' $argv > "$TTY"; end
+else if string match -q 'screen*' $TERM
+  # GNU screen (screen, screen-256color, screen-256color-bce)
+  function put_template; printf '\033P\033]4;%d;rgb:%s\007\033\\' $argv > "$TTY"; end
+  function put_template_var; printf '\033P\033]%d;rgb:%s\007\033\\' $argv > "$TTY"; end
+  function put_template_custom; printf '\033P\033]%s%s\007\033\\' $argv > "$TTY"; end
+else if string match -q 'linux*' $TERM
+  function put_template; test $argv[1] -lt 16 && printf "\e]P%x%s" $argv[1] (echo $argv[2] | sed 's/\///g') > "$TTY"; end
+  function put_template_var; true; end
+  function put_template_custom; true; end
+else
+  function put_template; printf '\033]4;%d;rgb:%s\033\\' $argv > "$TTY"; end
+  function put_template_var; printf '\033]%d;rgb:%s\033\\' $argv > "$TTY"; end
+  function put_template_custom; printf '\033]%s%s\033\\' $argv > "$TTY"; end
+end
+
+# 16 color space
+put_template 0  $color00
+put_template 1  $color01
+put_template 2  $color02
+put_template 3  $color03
+put_template 4  $color04
+put_template 5  $color05
+put_template 6  $color06
+put_template 7  $color07
+put_template 8  $color08
+put_template 9  $color09
+put_template 10 $color10
+put_template 11 $color11
+put_template 12 $color12
+put_template 13 $color13
+put_template 14 $color14
+put_template 15 $color15
+put_template 21 $color21
+
+# foreground / background / cursor color
+if test -n "$ITERM_SESSION_ID"
+  put_template_custom Pg {{ui.global.foreground.normal.hex}} # foreground
+  put_template_custom Ph {{ui.global.background.normal.hex}} # background
+  put_template_custom Pi {{ui.global.foreground.normal.hex}} # bold color
+  put_template_custom Pj {{ui.selection.background.hex}} # selection color
+  put_template_custom Pk {{ui.selection.foreground.hex}} # selected text color
+  put_template_custom Pl {{ui.cursor.normal.background.hex}} # cursor
+  put_template_custom Pm {{ui.cursor.normal.foreground.hex}} # cursor text
+else
+  put_template_var 10 $color_foreground
+  if test "$TINTED8_SHELL_SET_BACKGROUND" != false
+    put_template_var 11 $color_background
+    if string match -q 'rxvt*' $TERM
+      put_template_var 708 $color_background # internal border (rxvt)
+    end
+  end
+  put_template_custom 12 ";7" # cursor (reverse video)
+end
+
+# Set fish highlight colors
+set -U fish_color_normal {{ui.global.foreground.normal.hex}}
+set -U fish_color_command {{syntax.support.function.hex}}
+set -U fish_color_keyword {{syntax.keyword.hex}}
+set -U fish_color_quote {{syntax.support.function.builtin.hex}}
+set -U fish_color_redirection {{syntax.keyword.other.hex}}
+set -U fish_color_end {{syntax.punctuation.separator.hex}}
+set -U fish_color_error {{syntax.invalid.hex}}
+set -U fish_color_param {{syntax.variable.parameter.hex}}
+set -U fish_color_valid_path --underline
+set -U fish_color_option {{syntax.variable.parameter.hex}} --italics
+set -U fish_color_comment {{syntax.comment.hex}}
+set -U fish_color_selection {{ui.selection.foreground.hex}} --background={{ui.selection.background.hex}}
+set -U fish_color_operator {{syntax.keyword.operator.hex}}
+set -U fish_color_escape {{syntax.constant.character.escape.hex}}
+set -U fish_color_autosuggestion {{syntax.comment.documentation.hex}}
+set -U fish_color_cwd green
+set -U fish_color_cwd_root red
+set -U fish_color_user brgreen
+set -U fish_color_host normal
+set -U fish_color_host_remote normal
+set -U fish_color_status {{ui.status.error.hex}}
+set -U fish_color_cancel -r
+set -U fish_color_search_match {{ui.highlight.search.foreground.hex}} --background={{ui.highlight.search.background.hex}}
+set -U fish_color_history_current --underline=curly
+set -U fish_pager_color_progress {{ui.chrome.background.normal.hex}} --background={{ui.chrome.foreground.normal.hex}}
+set -U fish_pager_color_background --background={{ui.selection.inactive-background}}
+set -U fish_pager_color_prefix --bold --italics
+set -U fish_pager_color_completion {{ui.highlight.text.foreground.hex}}
+set -U fish_pager_color_description {{syntax.markup.hex}}
+set -U fish_pager_color_selected_background --background={{ui.selection.background.hex}}
+set -U fish_pager_color_selected_prefix --bold --italics --background={{ui.selection.background.hex}}
+set -U fish_pager_color_selected_completion {{ui.highlight.text.foreground.hex}}
+set -U fish_pager_color_description {{syntax.markup.hex}}
+
+# clean up
+set -e color00
+set -e color01
+set -e color02
+set -e color03
+set -e color04
+set -e color05
+set -e color06
+set -e color07
+set -e color08
+set -e color09
+set -e color10
+set -e color11
+set -e color12
+set -e color13
+set -e color14
+set -e color15
+set -e color_foreground
+set -e color_background
+functions -e put_template put_template_var put_template_custom
+set -l legacy_env (string match -r '^(BASE16|BASE24|TINTED8)_(THEME|COLOR_).*' (set -xn))
+test -n "$legacy_env"; and set -e $legacy_env
+set -l legacy_env (string match -r '^(BASE16|BASE24|TINTED8)_THEME' (set -Uxn))
+test -n "$legacy_env"; and set -Ue $legacy_env
+set -e legacy_env
+
+# Set theme
+set -Ux TINTED8_THEME {{scheme.slug}}
+
+# Optionally export variables
+if test -n "$TINTED_SHELL_ENABLE_TINTED8_VARS"
+  set -gx TINTED8_COLOR_BLACK_NORMAL_HEX "{{palette.black.normal.hex}}"
+  set -gx TINTED8_COLOR_BLACK_RED_HEX "{{palette.red.normal.hex}}"
+  set -gx TINTED8_COLOR_BLACK_GREEN_HEX "{{palette.green.normal.hex}}"
+  set -gx TINTED8_COLOR_YELLOW_NORMAL_HEX "{{palette.yellow.normal.hex}}"
+  set -gx TINTED8_COLOR_BLUE_NORMAL_HEX "{{palette.blue.normal.hex}}"
+  set -gx TINTED8_COLOR_MAGENTA_NORMAL_HEX "{{palette.magenta.normal.hex}}"
+  set -gx TINTED8_COLOR_CYAN_NORMAL_HEX "{{palette.cyan.normal.hex}}"
+  set -gx TINTED8_COLOR_WHITE_NORMAL_HEX "{{palette.white.normal.hex}}"
+
+  set -gx TINTED8_COLOR_BLACK_BRIGHT_HEX "{{palette.black.bright.hex}}"
+  set -gx TINTED8_COLOR_RED_BRIGHT_HEX "{{palette.red.bright.hex}}"
+  set -gx TINTED8_COLOR_GREEN_BRIGHT_HEX "{{palette.green.bright.hex}}"
+  set -gx TINTED8_COLOR_YELLOW_BRIGHT_HEX "{{palette.yellow.bright.hex}}"
+  set -gx TINTED8_COLOR_BLUE_BRIGHT_HEX "{{palette.blue.bright.hex}}"
+  set -gx TINTED8_COLOR_MAGENTA_BRIGHT_HEX "{{palette.magenta.bright.hex}}"
+  set -gx TINTED8_COLOR_CYAN_BRIGHT_HEX "{{palette.cyan.bright.hex}}"
+  set -gx TINTED8_COLOR_WHITE_BRIGHT_HEX "{{palette.white.bright.hex}}"
+
+  set -gx TINTED8_COLOR_BLACK_DIM_HEX "{{palette.black.dim.hex}}"
+  set -gx TINTED8_COLOR_RED_DIM_HEX "{{palette.red.dim.hex}}"
+  set -gx TINTED8_COLOR_GREEN_DIM_HEX "{{palette.green.dim.hex}}"
+  set -gx TINTED8_COLOR_YELLOW_DIM_HEX "{{palette.yellow.dim.hex}}"
+  set -gx TINTED8_COLOR_BLUE_DIM_HEX "{{palette.blue.dim.hex}}"
+  set -gx TINTED8_COLOR_MAGENTA_DIM_HEX "{{palette.magenta.dim.hex}}"
+  set -gx TINTED8_COLOR_CYAN_DIM_HEX "{{palette.cyan.dim.hex}}"
+  set -gx TINTED8_COLOR_WHITE_DIM_HEX "{{palette.white.dim.hex}}"
+end

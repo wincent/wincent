@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Arthur by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Arthur
+accent: "#6495ed" # base0D
+cursor: "#a19083" # base05
+background: "#1c1c1c" # base00
+foreground: "#a19083" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#1c1c1c" # base00
+    red: "#cd5c5c" # base08
+    yellow: "#87ceeb" # base0A
+    green: "#86af80" # base0B
+    cyan: "#b0c4de" # base0C
+    blue: "#6495ed" # base0D
+    magenta: "#deb887" # base0E
+    white: "#a19083" # base05
+
+  bright:
+    black: "#6e5d59" # base03
+    red: "#cc5533" # base12
+    yellow: "#ffa75d" # base13
+    green: "#88aa22" # base14
+    cyan: "#b0c4de" # base15
+    blue: "#87ceeb" # base16
+    magenta: "#996600" # base17
+    white: "#ddccbb" # base07

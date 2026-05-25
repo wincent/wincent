@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: London Tube by Jan T. Sott
+
+name: Base16 London Tube
+accent: "#009ddc" # base0D
+cursor: "#d9d8d8" # base05
+background: "#231f20" # base00
+foreground: "#d9d8d8" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#231f20" # base00
+    red: "#ee2e24" # base08
+    yellow: "#ffd204" # base0A
+    green: "#00853e" # base0B
+    cyan: "#85cebc" # base0C
+    blue: "#009ddc" # base0D
+    magenta: "#98005d" # base0E
+    white: "#d9d8d8" # base05
+
+  normal:
+    black: "#737171" # base03
+    red: "#ee2e24" # base08
+    yellow: "#ffd204" # base0A
+    green: "#00853e" # base0B
+    cyan: "#85cebc" # base0C
+    blue: "#009ddc" # base0D
+    magenta: "#98005d" # base0E
+    white: "#ffffff" # base07

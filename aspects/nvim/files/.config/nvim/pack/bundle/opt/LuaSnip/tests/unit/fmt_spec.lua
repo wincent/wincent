@@ -1,6 +1,6 @@
 local ls_helpers = require("helpers")
-local exec_lua, feed, exec =
-	ls_helpers.exec_lua, ls_helpers.feed, ls_helpers.exec
+local exec_lua, feed, exec, assert =
+	ls_helpers.exec_lua, ls_helpers.feed, ls_helpers.exec, ls_helpers.assert
 
 ---@param params { msg: string, fmt: string, args: string, expected: string, opts: string, prolouge: string}
 local works = function(params)
@@ -40,7 +40,7 @@ local works = function(params)
 			params.fmt,
 			params.opts
 		))
-		assert.are.same(params.expected, result)
+		assert.eq(params.expected, result)
 	end)
 end
 

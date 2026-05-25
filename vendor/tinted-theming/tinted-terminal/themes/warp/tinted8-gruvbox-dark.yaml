@@ -1,0 +1,30 @@
+# Tinted Terminal tinted8 color theme (https://github.com/tinted-theming)
+# Color scheme: Gruvbox Dark by Tinted Theming (https://github.com/tinted-theming)
+
+name: Tinted8 Gruvbox Dark
+accent: "#689d6a"
+cursor: "#ebdbb2"
+background: "#282828"
+foreground: "#ebdbb2"
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#282828"
+    red: "#cc241d"
+    yellow: "#d79921"
+    green: "#98971a"
+    cyan: "#689d6a"
+    blue: "#458588"
+    magenta: "#b16286"
+    white: "#ebdbb2"
+
+  bright:
+    black: "#3c3836"
+    red: "#fb4934"
+    yellow: "#fabd2f"
+    green: "#b8bb26"
+    cyan: "#8ec07c"
+    blue: "#83a598"
+    magenta: "#d3869b"
+    white: "#fbf1c7"

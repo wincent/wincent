@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: darkmoss by Gabriel Avanzi (https://github.com/avanzzzi)
+
+name: Base16 darkmoss
+accent: "#498091" # base0D
+cursor: "#c7c7a5" # base05
+background: "#171e1f" # base00
+foreground: "#c7c7a5" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#171e1f" # base00
+    red: "#ff4658" # base08
+    yellow: "#fdb11f" # base0A
+    green: "#499180" # base0B
+    cyan: "#66d9ef" # base0C
+    blue: "#498091" # base0D
+    magenta: "#9bc0c8" # base0E
+    white: "#c7c7a5" # base05
+
+  normal:
+    black: "#555e5f" # base03
+    red: "#ff4658" # base08
+    yellow: "#fdb11f" # base0A
+    green: "#499180" # base0B
+    cyan: "#66d9ef" # base0C
+    blue: "#498091" # base0D
+    magenta: "#9bc0c8" # base0E
+    white: "#e1eaef" # base07

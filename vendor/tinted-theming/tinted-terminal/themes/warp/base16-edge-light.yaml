@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Edge Light by cjayross (https://github.com/cjayross), Tinted Theming (https://github.com/tinted-theming)
+
+name: Base16 Edge Light
+accent: "#6587bf" # base0D
+cursor: "#474752" # base05
+background: "#fafafa" # base00
+foreground: "#474752" # base05
+details: lighter
+
+terminal_colors:
+  bright:
+    black: "#fafafa" # base00
+    red: "#db7070" # base08
+    yellow: "#ebcc1a" # base0A
+    green: "#7c9f4b" # base0B
+    cyan: "#509c93" # base0C
+    blue: "#6587bf" # base0D
+    magenta: "#b870ce" # base0E
+    white: "#474752" # base05
+
+  normal:
+    black: "#9197a1" # base03
+    red: "#db7070" # base08
+    yellow: "#ebcc1a" # base0A
+    green: "#7c9f4b" # base0B
+    cyan: "#509c93" # base0C
+    blue: "#6587bf" # base0D
+    magenta: "#b870ce" # base0E
+    white: "#2e2e38" # base07

@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Windows 95 by Fergus Collins (https://github.com/ferguscollins)
+
+name: Base16 Windows 95
+accent: "#5454fc" # base0D
+cursor: "#a8a8a8" # base05
+background: "#000000" # base00
+foreground: "#a8a8a8" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#000000" # base00
+    red: "#fc5454" # base08
+    yellow: "#fcfc54" # base0A
+    green: "#54fc54" # base0B
+    cyan: "#54fcfc" # base0C
+    blue: "#5454fc" # base0D
+    magenta: "#fc54fc" # base0E
+    white: "#a8a8a8" # base05
+
+  normal:
+    black: "#545454" # base03
+    red: "#fc5454" # base08
+    yellow: "#fcfc54" # base0A
+    green: "#54fc54" # base0B
+    cyan: "#54fcfc" # base0C
+    blue: "#5454fc" # base0D
+    magenta: "#fc54fc" # base0E
+    white: "#fcfcfc" # base07

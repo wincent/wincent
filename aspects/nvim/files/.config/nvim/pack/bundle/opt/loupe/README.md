@@ -135,18 +135,6 @@ nmap <Nop> <Plug>(Loupen)
 
 ## Options<a name="loupe-options" href="#user-content-loupe-options"></a>
 
-<p align="right"><a name="gloupehighlightgroup" href="#user-content-gloupehighlightgroup"><code>g:LoupeHighlightGroup</code></a></p>
-
-### `g:LoupeHighlightGroup` (string, default: IncSearch)<a name="loupe-gloupehighlightgroup-string-default-incsearch" href="#user-content-loupe-gloupehighlightgroup-string-default-incsearch"></a>
-
-Specifies the <strong>`:highlight`</strong> group used to emphasize the match currently under the cursor for the current search pattern. Defaults to &quot;IncSearch&quot; (ie. <strong>`hl-IncSearch`</strong>). For example:
-
-```
-let g:LoupeHighlightGroup='Error'
-```
-
-To prevent any special highlighting from being applied, set this option to &quot;&quot; (ie. the empty string).
-
 <p align="right"><a name="gloupeloaded" href="#user-content-gloupeloaded"><code>g:LoupeLoaded</code></a></p>
 
 ### `g:LoupeLoaded` (any, default: none)<a name="loupe-gloupeloaded-any-default-none" href="#user-content-loupe-gloupeloaded-any-default-none"></a>
@@ -205,7 +193,7 @@ let g:LoupeCaseSettingsAlways=0
 
 ### `loupe#hlmatch()`<a name="loupe-loupehlmatch" href="#user-content-loupe-loupehlmatch"></a>
 
-Apply highlighting to the current search match.
+Deprecated (no-op). Use `:h hl-CurSearch` instead.
 
 ## Overrides<a name="loupe-overrides" href="#user-content-loupe-overrides"></a>
 
@@ -335,14 +323,6 @@ git archive -o loupe-$VERSION.zip HEAD -- .
 
 Loupe is written and maintained by Greg Hurrell &lt;greg@hurrell.net&gt;.
 
-The original idea for the <strong>[`g:LoupeHighlightGroup`](#user-content-gloupehighlightgroup)</strong> feature was taken from Damian Conway's Vim set-up:
-
-- https://github.com/thoughtstream/Damian-Conway-s-Vim-Setup/blob/master/plugin/hlnext.vim
-
-Which he discussed in his &quot;More Instantly Better Vim&quot; presentation at OSCON 2013:
-
-- https://www.youtube.com/watch?v=aHm36-na4-4
-
 ## History<a name="loupe-history" href="#user-content-loupe-history"></a>
 
 ### main (not yet released)<a name="loupe-main-not-yet-released" href="#user-content-loupe-main-not-yet-released"></a>
@@ -350,6 +330,7 @@ Which he discussed in his &quot;More Instantly Better Vim&quot; presentation at 
 - Add <strong>[`g:LoupeCaseSettingsAlways`](#user-content-gloupecasesettingsalways)</strong> to make Vim respect <strong>`'ignorecase'`</strong> and <strong>`'smartcase'`</strong> settings while using <strong>`star`</strong>, <strong>`gstar`</strong>, <strong>`#`</strong> and <strong>`g#`</strong>.
 - Ensure that <strong>[`g:LoupeVeryMagic`](#user-content-gloupeverymagic)</strong> takes effect with longer-forms of the <strong>`:global`</strong>, <strong>`:substitute`</strong> and <strong>`:vglobal`</strong> commands.
 - Treat `:g!` as equivalent to `:v` (https://github.com/wincent/loupe/issues/20).
+- Removed `g:LoupeHighlightGroup` setting and <strong>[`loupe#hlmatch()`](#user-content-loupehlmatch)</strong>; use <strong>`hl-CurSearch`</strong> instead (https://github.com/wincent/loupe/issues/22).
 
 ### 1.2.2 (7 August 2018)<a name="loupe-122-7-august-2018" href="#user-content-loupe-122-7-august-2018"></a>
 

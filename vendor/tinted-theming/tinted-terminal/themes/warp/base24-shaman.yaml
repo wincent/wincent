@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Shaman by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Shaman
+accent: "#449985" # base0D
+cursor: "#3d5053" # base05
+background: "#001014" # base00
+foreground: "#3d5053" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#001014" # base00
+    red: "#b12f2c" # base08
+    yellow: "#61d4b9" # base0A
+    green: "#00a940" # base0B
+    cyan: "#5c7e19" # base0C
+    blue: "#449985" # base0D
+    magenta: "#00599c" # base0E
+    white: "#3d5053" # base05
+
+  bright:
+    black: "#394751" # base03
+    red: "#ff4242" # base12
+    yellow: "#8dd3fd" # base13
+    green: "#2aea5e" # base14
+    cyan: "#98cf28" # base15
+    blue: "#61d4b9" # base16
+    magenta: "#1298ff" # base17
+    white: "#58fad6" # base07

@@ -1,0 +1,58 @@
+# base16 Kissa Latte 256 - alacritty color config
+# rwendell (https://github.com/rwendell/kissa)
+
+# Default colors
+[colors.primary]
+background = '0xf5f4f0'
+foreground = '0x1f1c16'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0xf5f4f0'
+cursor = '0x1f1c16'
+
+# Normal colors
+[colors.normal]
+black = '0xf5f4f0'
+red = '0x9e3e3e'
+green = '0x387050'
+yellow = '0x7d6820'
+blue = '0x3468a8'
+magenta = '0x6438a0'
+cyan = '0x287070'
+white = '0x1f1c16'
+
+# Bright colors
+[colors.bright]
+black = '0x91887d'
+red = '0x9e3e3e'
+green = '0x387050'
+yellow = '0x7d6820'
+blue = '0x3468a8'
+magenta = '0x6438a0'
+cyan = '0x287070'
+white = '0xfefcfa'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0x8f5d22"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x943a68"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0xe8e7e3"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0xd5d2cb"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x746c62"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0x6e6459"

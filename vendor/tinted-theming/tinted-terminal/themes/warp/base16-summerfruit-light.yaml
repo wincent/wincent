@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Summerfruit Light by Christopher Corley (http://christop.club/)
+
+name: Base16 Summerfruit Light
+accent: "#3777e6" # base0D
+cursor: "#101010" # base05
+background: "#ffffff" # base00
+foreground: "#101010" # base05
+details: lighter
+
+terminal_colors:
+  bright:
+    black: "#ffffff" # base00
+    red: "#ff0086" # base08
+    yellow: "#aba800" # base0A
+    green: "#00c918" # base0B
+    cyan: "#1faaaa" # base0C
+    blue: "#3777e6" # base0D
+    magenta: "#ad00a1" # base0E
+    white: "#101010" # base05
+
+  normal:
+    black: "#b0b0b0" # base03
+    red: "#ff0086" # base08
+    yellow: "#aba800" # base0A
+    green: "#00c918" # base0B
+    cyan: "#1faaaa" # base0C
+    blue: "#3777e6" # base0D
+    magenta: "#ad00a1" # base0E
+    white: "#202020" # base07

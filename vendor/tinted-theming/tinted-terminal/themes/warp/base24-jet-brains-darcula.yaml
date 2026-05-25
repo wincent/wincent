@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Jet Brains Darcula by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Jet Brains Darcula
+accent: "#4581eb" # base0D
+cursor: "#979797" # base05
+background: "#202020" # base00
+foreground: "#979797" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#202020" # base00
+    red: "#fa5355" # base08
+    yellow: "#6d9df1" # base0A
+    green: "#126e00" # base0B
+    cyan: "#33c2c1" # base0C
+    blue: "#4581eb" # base0D
+    magenta: "#fa54ff" # base0E
+    white: "#979797" # base05
+
+  bright:
+    black: "#6b6b6b" # base03
+    red: "#fb7172" # base12
+    yellow: "#ffff00" # base13
+    green: "#67ff4f" # base14
+    cyan: "#60d3d1" # base15
+    blue: "#6d9df1" # base16
+    magenta: "#fb82ff" # base17
+    white: "#eeeeee" # base07

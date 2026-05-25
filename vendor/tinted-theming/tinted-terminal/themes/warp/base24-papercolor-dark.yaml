@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: PaperColor Dark by Nguyen Nguyen (https://github.com/NLKNguyen/papercolor-theme)
+
+name: Base24 PaperColor Dark
+accent: "#5fafd7" # base0D
+cursor: "#d0d0d0" # base05
+background: "#1c1c1c" # base00
+foreground: "#d0d0d0" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#1c1c1c" # base00
+    red: "#af005f" # base08
+    yellow: "#d7af5f" # base0A
+    green: "#5faf00" # base0B
+    cyan: "#ffaf00" # base0C
+    blue: "#5fafd7" # base0D
+    magenta: "#af87d7" # base0E
+    white: "#d0d0d0" # base05
+
+  bright:
+    black: "#808080" # base03
+    red: "#d7005f" # base12
+    yellow: "#87d75f" # base13
+    green: "#ffd75f" # base14
+    cyan: "#87d700" # base15
+    blue: "#ffd700" # base16
+    magenta: "#87d7ff" # base17
+    white: "#c6c6c6" # base07

@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Builtin Solarized Light by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Builtin Solarized Light
+accent: "#268bd2" # base0D
+cursor: "#b2b8ad" # base05
+background: "#fdf6e3" # base00
+foreground: "#b2b8ad" # base05
+details: lighter
+
+terminal_colors:
+  normal:
+    black: "#fdf6e3" # base00
+    red: "#dc322f" # base08
+    yellow: "#839496" # base0A
+    green: "#859900" # base0B
+    cyan: "#2aa198" # base0C
+    blue: "#268bd2" # base0D
+    magenta: "#d33682" # base0E
+    white: "#b2b8ad" # base05
+
+  bright:
+    black: "#3b5a5d" # base03
+    red: "#cb4b16" # base12
+    yellow: "#657b83" # base13
+    green: "#586e75" # base14
+    cyan: "#93a1a1" # base15
+    blue: "#839496" # base16
+    magenta: "#6c71c4" # base17
+    white: "#fdf6e3" # base07

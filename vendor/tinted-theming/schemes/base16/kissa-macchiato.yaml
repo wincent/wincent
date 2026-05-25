@@ -1,0 +1,21 @@
+system: "base16"
+name: "Kissa Macchiato"
+author: "rwendell (https://github.com/rwendell/kissa)"
+variant: "dark"
+palette:
+  base00: "#1F1C16" # bg
+  base01: "#35322D" # bg_alt
+  base02: "#47443F" # surface0
+  base03: "#B8A48C" # fg_subtle (comments)
+  base04: "#D4C4A8" # fg_muted
+  base05: "#FAF0E6" # fg
+  base06: "#E8D5B7" # fg_dim
+  base07: "#FEF4E4" # bright white
+  base08: "#E87777" # red
+  base09: "#DA9050" # orange
+  base0A: "#EAC67A" # yellow
+  base0B: "#8CB870" # green
+  base0C: "#6AB8B0" # teal
+  base0D: "#7FA8D4" # blue
+  base0E: "#B094CC" # purple
+  base0F: "#CC88AA" # pink

@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Moonlight by Jeremy Swinarton (https://github.com/jswinarton)
+
+name: Base16 Moonlight
+accent: "#40ffff" # base0D
+cursor: "#a3ace1" # base05
+background: "#212337" # base00
+foreground: "#a3ace1" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#212337" # base00
+    red: "#ff5370" # base08
+    yellow: "#ffc777" # base0A
+    green: "#2df4c0" # base0B
+    cyan: "#04d1f9" # base0C
+    blue: "#40ffff" # base0D
+    magenta: "#b994f1" # base0E
+    white: "#a3ace1" # base05
+
+  normal:
+    black: "#748cd6" # base03
+    red: "#ff5370" # base08
+    yellow: "#ffc777" # base0A
+    green: "#2df4c0" # base0B
+    cyan: "#04d1f9" # base0C
+    blue: "#40ffff" # base0D
+    magenta: "#b994f1" # base0E
+    white: "#ef43fa" # base07

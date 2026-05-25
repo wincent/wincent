@@ -1,0 +1,10 @@
+# Scheme name: Alucard
+# Scheme author: clach04 (https://github.com/clach04)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-alucard
+ColorForeground=#1f1f1f
+ColorBackground=#fffbeb
+ColorCursor=#1f1f1f
+ColorBoldIsBright=FALSE
+ColorPalette=#fffbeb;#cb3a2a;#14710a;#846e15;#644ac9;#a3144d;#036a96;#1f1f1f;#6c664b;#d74c3d;#198d0c;#9e841a;#7862d0;#bf185a;#047fb4;#2c2b31

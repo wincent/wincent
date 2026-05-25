@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Sundried by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Sundried
+accent: "#485a98" # base0D
+cursor: "#a9a9a7" # base05
+background: "#1a1818" # base00
+foreground: "#a9a9a7" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#1a1818" # base00
+    red: "#a6463d" # base08
+    yellow: "#7898f7" # base0A
+    green: "#577644" # base0B
+    cyan: "#9c814e" # base0C
+    blue: "#485a98" # base0D
+    magenta: "#854551" # base0E
+    white: "#a9a9a7" # base05
+
+  bright:
+    black: "#6b6b67" # base03
+    red: "#aa000c" # base12
+    yellow: "#fc6a20" # base13
+    green: "#128c20" # base14
+    cyan: "#fad384" # base15
+    blue: "#7898f7" # base16
+    magenta: "#fc89a0" # base17
+    white: "#fffefe" # base07

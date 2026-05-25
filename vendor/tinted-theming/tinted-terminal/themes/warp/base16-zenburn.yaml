@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Zenburn by elnawe
+
+name: Base16 Zenburn
+accent: "#7cb8bb" # base0D
+cursor: "#dcdccc" # base05
+background: "#383838" # base00
+foreground: "#dcdccc" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#383838" # base00
+    red: "#dca3a3" # base08
+    yellow: "#e0cf9f" # base0A
+    green: "#5f7f5f" # base0B
+    cyan: "#93e0e3" # base0C
+    blue: "#7cb8bb" # base0D
+    magenta: "#dc8cc3" # base0E
+    white: "#dcdccc" # base05
+
+  normal:
+    black: "#6f6f6f" # base03
+    red: "#dca3a3" # base08
+    yellow: "#e0cf9f" # base0A
+    green: "#5f7f5f" # base0B
+    cyan: "#93e0e3" # base0C
+    blue: "#7cb8bb" # base0D
+    magenta: "#dc8cc3" # base0E
+    white: "#ffffff" # base07

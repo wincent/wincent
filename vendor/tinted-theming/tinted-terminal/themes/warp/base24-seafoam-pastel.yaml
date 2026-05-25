@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Seafoam Pastel by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Seafoam Pastel
+accent: "#4d7b82" # base0D
+cursor: "#cacaca" # base05
+background: "#243434" # base00
+foreground: "#cacaca" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#243434" # base00
+    red: "#825d4d" # base08
+    yellow: "#79c3cf" # base0A
+    green: "#718c61" # base0B
+    cyan: "#719393" # base0C
+    blue: "#4d7b82" # base0D
+    magenta: "#8a7167" # base0E
+    white: "#cacaca" # base05
+
+  bright:
+    black: "#9f9f9f" # base03
+    red: "#cf9379" # base12
+    yellow: "#fae79d" # base13
+    green: "#98d9aa" # base14
+    cyan: "#ade0e0" # base15
+    blue: "#79c3cf" # base16
+    magenta: "#d6b2a1" # base17
+    white: "#e0e0e0" # base07

@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Cyberpunk by benjujo
+
+name: Base16 Cyberpunk
+accent: "#4c83ff" # base0D
+cursor: "#dcdccc" # base05
+background: "#000000" # base00
+foreground: "#dcdccc" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#000000" # base00
+    red: "#ff0000" # base08
+    yellow: "#ffff00" # base0A
+    green: "#61ce3c" # base0B
+    cyan: "#93e0e3" # base0C
+    blue: "#4c83ff" # base0D
+    magenta: "#ff1493" # base0E
+    white: "#dcdccc" # base05
+
+  normal:
+    black: "#4f4f4f" # base03
+    red: "#ff0000" # base08
+    yellow: "#ffff00" # base0A
+    green: "#61ce3c" # base0B
+    cyan: "#93e0e3" # base0C
+    blue: "#4c83ff" # base0D
+    magenta: "#ff1493" # base0E
+    white: "#ffffff" # base07

@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: summercamp by zoe firi (zoefiri.github.io)
+
+name: Base16 summercamp
+accent: "#489bf0" # base0D
+cursor: "#736e55" # base05
+background: "#1c1810" # base00
+foreground: "#736e55" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#1c1810" # base00
+    red: "#e35142" # base08
+    yellow: "#f2ff27" # base0A
+    green: "#5ceb5a" # base0B
+    cyan: "#5aebbc" # base0C
+    blue: "#489bf0" # base0D
+    magenta: "#ff8080" # base0E
+    white: "#736e55" # base05
+
+  normal:
+    black: "#504b38" # base03
+    red: "#e35142" # base08
+    yellow: "#f2ff27" # base0A
+    green: "#5ceb5a" # base0B
+    cyan: "#5aebbc" # base0C
+    blue: "#489bf0" # base0D
+    magenta: "#ff8080" # base0E
+    white: "#f8f5de" # base07

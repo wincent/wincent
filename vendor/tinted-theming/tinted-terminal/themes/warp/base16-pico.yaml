@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Pico by PICO-8 (http://www.lexaloffle.com/pico-8.php)
+
+name: Base16 Pico
+accent: "#83769c" # base0D
+cursor: "#5f574f" # base05
+background: "#000000" # base00
+foreground: "#5f574f" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#000000" # base00
+    red: "#ff004d" # base08
+    yellow: "#fff024" # base0A
+    green: "#00e756" # base0B
+    cyan: "#29adff" # base0C
+    blue: "#83769c" # base0D
+    magenta: "#ff77a8" # base0E
+    white: "#5f574f" # base05
+
+  normal:
+    black: "#008751" # base03
+    red: "#ff004d" # base08
+    yellow: "#fff024" # base0A
+    green: "#00e756" # base0B
+    cyan: "#29adff" # base0C
+    blue: "#83769c" # base0D
+    magenta: "#ff77a8" # base0E
+    white: "#fff1e8" # base07

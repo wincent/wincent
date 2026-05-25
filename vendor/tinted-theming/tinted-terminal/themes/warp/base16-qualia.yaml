@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Qualia by isaacwhanson
+
+name: Base16 Qualia
+accent: "#50cacd" # base0D
+cursor: "#c0c0c0" # base05
+background: "#101010" # base00
+foreground: "#c0c0c0" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#101010" # base00
+    red: "#efa6a2" # base08
+    yellow: "#e6a3dc" # base0A
+    green: "#80c990" # base0B
+    cyan: "#c8c874" # base0C
+    blue: "#50cacd" # base0D
+    magenta: "#e0af85" # base0E
+    white: "#c0c0c0" # base05
+
+  normal:
+    black: "#454545" # base03
+    red: "#efa6a2" # base08
+    yellow: "#e6a3dc" # base0A
+    green: "#80c990" # base0B
+    cyan: "#c8c874" # base0C
+    blue: "#50cacd" # base0D
+    magenta: "#e0af85" # base0E
+    white: "#454545" # base07

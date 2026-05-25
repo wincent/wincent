@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: One Half Light by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 One Half Light
+accent: "#0084bc" # base0D
+cursor: "#cfd0d2" # base05
+background: "#2a2b32" # base00
+foreground: "#cfd0d2" # base05
+details: lighter
+
+terminal_colors:
+  normal:
+    black: "#2a2b32" # base00
+    red: "#e45649" # base08
+    yellow: "#c0aa00" # base0A
+    green: "#4fa14f" # base0B
+    cyan: "#0996b3" # base0C
+    blue: "#0084bc" # base0D
+    magenta: "#a625a4" # base0E
+    white: "#cfd0d2" # base05
+
+  bright:
+    black: "#797c84" # base03
+    red: "#df6c75" # base12
+    yellow: "#e4c07a" # base13
+    green: "#98c379" # base14
+    cyan: "#56b5c1" # base15
+    blue: "#61afef" # base16
+    magenta: "#c577dd" # base17
+    white: "#ffffff" # base07

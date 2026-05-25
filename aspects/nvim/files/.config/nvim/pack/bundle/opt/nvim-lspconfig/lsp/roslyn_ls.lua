@@ -2,7 +2,12 @@
 ---
 --- https://github.com/dotnet/roslyn
 --
--- To install the server, compile from source or download as nuget package.
+-- The server can be installed as a dotnet tool (see https://github.com/dotnet/roslyn/blob/main/src/LanguageServer/Microsoft.CodeAnalysis.LanguageServer/README.md).
+-- This command will install the server in ~/.dotnet/tools:
+-- ```bash
+-- dotnet tool install --global roslyn-language-server --prerelease
+-- ```
+-- Alternatively, compile from source or download as nuget package.
 -- Go to `https://dev.azure.com/azure-public/vside/_artifacts/feed/vs-impl/NuGet/Microsoft.CodeAnalysis.LanguageServer.<platform>/overview`
 -- replace `<platform>` with one of the following `linux-x64`, `osx-x64`, `win-x64`, `neutral` (for more info on the download location see https://github.com/dotnet/roslyn/issues/71474#issuecomment-2177303207).
 -- Download and extract it (nuget's are zip files).
@@ -11,10 +16,6 @@
 --   cmd = {
 --     'dotnet',
 --     '<my_folder>/Microsoft.CodeAnalysis.LanguageServer.dll',
---     '--logLevel', -- this property is required by the server
---     'Information',
---     '--extensionLogDirectory', -- this property is required by the server
---     fs.joinpath(uv.os_tmpdir(), 'roslyn_ls/logs'),
 --     '--stdio',
 --   },
 --   ```
@@ -70,26 +71,9 @@ local function roslyn_handlers()
       refresh_diagnostics(client)
       return vim.NIL
     end,
-    ['workspace/_roslyn_projectNeedsRestore'] = function(_, result, ctx)
-      local client = assert(vim.lsp.get_client_by_id(ctx.client_id))
-
-      ---@diagnostic disable-next-line: param-type-mismatch
-      client:request('workspace/_roslyn_restore', result, function(err, response)
-        if err then
-          vim.notify(err.message, vim.log.levels.ERROR, { title = 'roslyn_ls' })
-        end
-        if response then
-          for _, v in ipairs(response) do
-            vim.notify(v.message, vim.log.levels.INFO, { title = 'roslyn_ls' })
-          end
-        end
-      end)
-
-      return vim.NIL
-    end,
     ['razor/provideDynamicFileInfo'] = function(_, _, _)
       vim.notify(
-        'Razor is not supported.\nPlease use https://github.com/tris203/rzls.nvim',
+        'Razor is not supported.\nPlease use https://github.com/seblyng/roslyn.nvim',
         vim.log.levels.WARN,
         { title = 'roslyn_ls' }
       )
@@ -167,10 +151,6 @@ return {
   cmd = {
     vim.fn.executable('Microsoft.CodeAnalysis.LanguageServer') == 1 and 'Microsoft.CodeAnalysis.LanguageServer'
       or 'roslyn-language-server',
-    '--logLevel',
-    'Information',
-    '--extensionLogDirectory',
-    fs.joinpath(uv.os_tmpdir(), 'roslyn_ls/logs'),
     '--stdio',
   },
 

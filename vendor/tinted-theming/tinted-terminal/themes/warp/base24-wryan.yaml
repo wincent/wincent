@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Wryan by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Wryan
+accent: "#395573" # base0D
+cursor: "#768488" # base05
+background: "#101010" # base00
+foreground: "#768488" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#101010" # base00
+    red: "#8c4665" # base08
+    yellow: "#477ab3" # base0A
+    green: "#287373" # base0B
+    cyan: "#31658c" # base0C
+    blue: "#395573" # base0D
+    magenta: "#5e468c" # base0E
+    white: "#768488" # base05
+
+  bright:
+    black: "#505456" # base03
+    red: "#bf4d80" # base12
+    yellow: "#9e9ecb" # base13
+    green: "#53a6a6" # base14
+    cyan: "#6096bf" # base15
+    blue: "#477ab3" # base16
+    magenta: "#7e62b3" # base17
+    white: "#c0c0c0" # base07

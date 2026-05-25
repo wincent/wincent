@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Github by Tinted Theming (https://github.com/tinted-theming)
+
+name: Base16 Github
+accent: "#218bff" # base0D
+cursor: "#424a53" # base05
+background: "#eaeef2" # base00
+foreground: "#424a53" # base05
+details: lighter
+
+terminal_colors:
+  bright:
+    black: "#eaeef2" # base00
+    red: "#fa4549" # base08
+    yellow: "#bf8700" # base0A
+    green: "#2da44e" # base0B
+    cyan: "#339d9b" # base0C
+    blue: "#218bff" # base0D
+    magenta: "#a475f9" # base0E
+    white: "#424a53" # base05
+
+  normal:
+    black: "#8c959f" # base03
+    red: "#fa4549" # base08
+    yellow: "#bf8700" # base0A
+    green: "#2da44e" # base0B
+    cyan: "#339d9b" # base0C
+    blue: "#218bff" # base0D
+    magenta: "#a475f9" # base0E
+    white: "#1f2328" # base07

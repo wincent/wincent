@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Macintosh by Rebecca Bettencourt (http://www.kreativekorp.com)
+
+name: Base16 Macintosh
+accent: "#0000d3" # base0D
+cursor: "#c0c0c0" # base05
+background: "#000000" # base00
+foreground: "#c0c0c0" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#000000" # base00
+    red: "#dd0907" # base08
+    yellow: "#fbf305" # base0A
+    green: "#1fb714" # base0B
+    cyan: "#02abea" # base0C
+    blue: "#0000d3" # base0D
+    magenta: "#4700a5" # base0E
+    white: "#c0c0c0" # base05
+
+  normal:
+    black: "#808080" # base03
+    red: "#dd0907" # base08
+    yellow: "#fbf305" # base0A
+    green: "#1fb714" # base0B
+    cyan: "#02abea" # base0C
+    blue: "#0000d3" # base0D
+    magenta: "#4700a5" # base0E
+    white: "#ffffff" # base07

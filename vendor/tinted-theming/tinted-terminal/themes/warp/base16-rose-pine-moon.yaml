@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Rosé Pine Moon by Emilia Dunfelt &lt;edun@dunfelt.se&gt;
+
+name: Base16 Rosé Pine Moon
+accent: "#c4a7e7" # base0D
+cursor: "#e0def4" # base05
+background: "#232136" # base00
+foreground: "#e0def4" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#232136" # base00
+    red: "#eb6f92" # base08
+    yellow: "#ea9a97" # base0A
+    green: "#3e8fb0" # base0B
+    cyan: "#9ccfd8" # base0C
+    blue: "#c4a7e7" # base0D
+    magenta: "#f6c177" # base0E
+    white: "#e0def4" # base05
+
+  normal:
+    black: "#6e6a86" # base03
+    red: "#eb6f92" # base08
+    yellow: "#ea9a97" # base0A
+    green: "#3e8fb0" # base0B
+    cyan: "#9ccfd8" # base0C
+    blue: "#c4a7e7" # base0D
+    magenta: "#f6c177" # base0E
+    white: "#56526e" # base07

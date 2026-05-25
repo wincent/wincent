@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Birds Of Paradise by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Birds Of Paradise
+accent: "#5a86ac" # base0D
+cursor: "#cdbe9b" # base05
+background: "#2a1e1d" # base00
+foreground: "#cdbe9b" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#2a1e1d" # base00
+    red: "#be2d26" # base08
+    yellow: "#b8d3ed" # base0A
+    green: "#6ba08a" # base0B
+    cyan: "#74a5ac" # base0C
+    blue: "#5a86ac" # base0D
+    magenta: "#ab80a6" # base0E
+    white: "#cdbe9b" # base05
+
+  bright:
+    black: "#ab8664" # base03
+    red: "#e84526" # base12
+    yellow: "#d0d04f" # base13
+    green: "#94d7ba" # base14
+    cyan: "#92ced6" # base15
+    blue: "#b8d3ed" # base16
+    magenta: "#d09dca" # base17
+    white: "#fff9d4" # base07

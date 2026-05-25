@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Sparky by Leila Sother (https://github.com/mixcoac)
+
+name: Base24 Sparky
+accent: "#4698cb" # base0D
+cursor: "#f4f5f0" # base05
+background: "#072b31" # base00
+foreground: "#f4f5f0" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#072b31" # base00
+    red: "#ff585d" # base08
+    yellow: "#fbdd40" # base0A
+    green: "#78d64b" # base0B
+    cyan: "#2dccd3" # base0C
+    blue: "#4698cb" # base0D
+    magenta: "#d59ed7" # base0E
+    white: "#f4f5f0" # base05
+
+  bright:
+    black: "#003b49" # base03
+    red: "#ff7276" # base12
+    yellow: "#f6eb61" # base13
+    green: "#8edd65" # base14
+    cyan: "#00c1d5" # base15
+    blue: "#69b3e7" # base16
+    magenta: "#f99fc9" # base17
+    white: "#ffffff" # base07

@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Tomorrow by Chris Kempson (http://chriskempson.com)
+
+name: Base16 Tomorrow
+accent: "#4271ae" # base0D
+cursor: "#373b41" # base05
+background: "#ffffff" # base00
+foreground: "#373b41" # base05
+details: lighter
+
+terminal_colors:
+  bright:
+    black: "#ffffff" # base00
+    red: "#c82829" # base08
+    yellow: "#eab700" # base0A
+    green: "#718c00" # base0B
+    cyan: "#3e999f" # base0C
+    blue: "#4271ae" # base0D
+    magenta: "#8959a8" # base0E
+    white: "#373b41" # base05
+
+  normal:
+    black: "#b4b7b4" # base03
+    red: "#c82829" # base08
+    yellow: "#eab700" # base0A
+    green: "#718c00" # base0B
+    cyan: "#3e999f" # base0C
+    blue: "#4271ae" # base0D
+    magenta: "#8959a8" # base0E
+    white: "#1d1f21" # base07

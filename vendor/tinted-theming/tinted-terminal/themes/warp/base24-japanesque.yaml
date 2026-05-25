@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Japanesque by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Japanesque
+accent: "#4c99d3" # base0D
+cursor: "#d0d2ce" # base05
+background: "#1d1d1d" # base00
+foreground: "#d0d2ce" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#1d1d1d" # base00
+    red: "#ce3e60" # base08
+    yellow: "#135879" # base0A
+    green: "#7bb75b" # base0B
+    cyan: "#389aac" # base0C
+    blue: "#4c99d3" # base0D
+    magenta: "#a57fc4" # base0E
+    white: "#d0d2ce" # base05
+
+  bright:
+    black: "#80827f" # base03
+    red: "#d18ea6" # base12
+    yellow: "#77592e" # base13
+    green: "#767e2b" # base14
+    cyan: "#76bbca" # base15
+    blue: "#135879" # base16
+    magenta: "#5f4190" # base17
+    white: "#b1b5ae" # base07

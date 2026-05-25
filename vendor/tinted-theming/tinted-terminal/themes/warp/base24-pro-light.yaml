@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Pro Light by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Pro Light
+accent: "#3a75ff" # base0D
+cursor: "#4f4f4f" # base05
+background: "#feffff" # base00
+foreground: "#4f4f4f" # base05
+details: lighter
+
+terminal_colors:
+  normal:
+    black: "#feffff" # base00
+    red: "#e4492b" # base08
+    yellow: "#c5c340" # base0A
+    green: "#50d048" # base0B
+    cyan: "#4ed1dd" # base0C
+    blue: "#3a75ff" # base0D
+    magenta: "#ec65e7" # base0E
+    white: "#4f4f4f" # base05
+
+  bright:
+    black: "#cccccc" # base03
+    red: "#ff6640" # base12
+    yellow: "#f2f055" # base13
+    green: "#61ee56" # base14
+    cyan: "#60f6f8" # base15
+    blue: "#0081ff" # base16
+    magenta: "#ff7dfe" # base17
+    white: "#000000" # base07

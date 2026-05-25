@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Desert by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Desert
+accent: "#cd853f" # base0D
+cursor: "#cdbb9b" # base05
+background: "#333333" # base00
+foreground: "#cdbb9b" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#333333" # base00
+    red: "#ff2b2b" # base08
+    yellow: "#87ceff" # base0A
+    green: "#98fb98" # base0B
+    cyan: "#ffa0a0" # base0C
+    blue: "#cd853f" # base0D
+    magenta: "#ffdead" # base0E
+    white: "#cdbb9b" # base05
+
+  bright:
+    black: "#7d776c" # base03
+    red: "#ff5555" # base12
+    yellow: "#ffff55" # base13
+    green: "#55ff55" # base14
+    cyan: "#ffd700" # base15
+    blue: "#87ceff" # base16
+    magenta: "#ff55ff" # base17
+    white: "#ffffff" # base07

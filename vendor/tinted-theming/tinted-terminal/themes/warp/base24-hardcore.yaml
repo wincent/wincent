@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Hardcore by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Hardcore
+accent: "#00aaff" # base0D
+cursor: "#a9a9a9" # base05
+background: "#111111" # base00
+foreground: "#a9a9a9" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#111111" # base00
+    red: "#ff5555" # base08
+    yellow: "#33bbff" # base0A
+    green: "#98ec65" # base0B
+    cyan: "#88ddff" # base0C
+    blue: "#00aaff" # base0D
+    magenta: "#aa88ff" # base0E
+    white: "#a9a9a9" # base05
+
+  bright:
+    black: "#636363" # base03
+    red: "#ff8888" # base12
+    yellow: "#ffd966" # base13
+    green: "#b6f292" # base14
+    cyan: "#bbecff" # base15
+    blue: "#33bbff" # base16
+    magenta: "#cebbff" # base17
+    white: "#ffffff" # base07

@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Shapeshifter by Tyler Benziger (http://tybenz.com)
+
+name: Base16 Shapeshifter
+accent: "#3b48e3" # base0D
+cursor: "#102015" # base05
+background: "#f9f9f9" # base00
+foreground: "#102015" # base05
+details: lighter
+
+terminal_colors:
+  bright:
+    black: "#f9f9f9" # base00
+    red: "#e92f2f" # base08
+    yellow: "#dddd13" # base0A
+    green: "#0ed839" # base0B
+    cyan: "#23edda" # base0C
+    blue: "#3b48e3" # base0D
+    magenta: "#f996e2" # base0E
+    white: "#102015" # base05
+
+  normal:
+    black: "#555555" # base03
+    red: "#e92f2f" # base08
+    yellow: "#dddd13" # base0A
+    green: "#0ed839" # base0B
+    cyan: "#23edda" # base0C
+    blue: "#3b48e3" # base0D
+    magenta: "#f996e2" # base0E
+    white: "#000000" # base07

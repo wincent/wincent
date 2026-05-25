@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Tango by @Schnouki, based on the Tango Desktop Project
+
+name: Base16 Tango
+accent: "#3465a4" # base0D
+cursor: "#d3d7cf" # base05
+background: "#2e3436" # base00
+foreground: "#d3d7cf" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#2e3436" # base00
+    red: "#cc0000" # base08
+    yellow: "#c4a000" # base0A
+    green: "#4e9a06" # base0B
+    cyan: "#06989a" # base0C
+    blue: "#3465a4" # base0D
+    magenta: "#75507b" # base0E
+    white: "#d3d7cf" # base05
+
+  normal:
+    black: "#555753" # base03
+    red: "#cc0000" # base08
+    yellow: "#c4a000" # base0A
+    green: "#4e9a06" # base0B
+    cyan: "#06989a" # base0C
+    blue: "#3465a4" # base0D
+    magenta: "#75507b" # base0E
+    white: "#eeeeec" # base07

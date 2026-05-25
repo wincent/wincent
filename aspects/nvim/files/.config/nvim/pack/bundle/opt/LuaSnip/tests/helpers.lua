@@ -6,11 +6,41 @@ if not helpers_ok then
 	end
 end
 
+local test_assert_ok, test_assert = pcall(require, "test.assert")
+local assert = {}
+if not test_assert_ok then
+	local luassert = require("luassert")
+	assert.eq = luassert.are.same
+	assert.no_error = function(...)
+		return luassert.has_no.errors(...)
+	end
+	assert.has_error = function(...)
+		return luassert.has.errors(...)
+	end
+	assert.is_true = luassert.is_true
+	assert.is_false = luassert.is_false
+else
+	assert.eq = test_assert.eq
+	assert.no_error = function(fn)
+		local ok, _ = pcall(fn)
+		return ok
+	end
+	assert.has_error = function(fn)
+		local ok, _ = pcall(fn)
+		return not ok
+	end
+	assert.is_true = test_assert.is_true
+	assert.is_false = test_assert.is_false
+end
+
+assert.non_nil = function(val)
+	return val ~= nil
+end
+
 helpers = helpers()
 
 local exec_lua = helpers.exec_lua
 local exec = helpers.exec
-local assert = require("luassert")
 local Screen = require("test.functional.ui.screen")
 
 local M = {
@@ -18,6 +48,7 @@ local M = {
 	exec_lua = exec_lua,
 	clear = helpers.clear,
 	feed = helpers.feed,
+	assert = assert,
 }
 
 function M.jsregexp_it(it, setup, name, fn)
@@ -217,17 +248,11 @@ function M.session_setup_luasnip(opts)
 end
 
 function M.static_docstring_test(snip_str, static, docstring)
-	assert.are.same(
-		static,
-		exec_lua("return " .. snip_str .. ":get_static_text()")
-	)
-	assert.are.same(
-		docstring,
-		exec_lua("return " .. snip_str .. ":get_docstring()")
-	)
+	assert.eq(static, exec_lua("return " .. snip_str .. ":get_static_text()"))
+	assert.eq(docstring, exec_lua("return " .. snip_str .. ":get_docstring()"))
 end
 function M.lsp_static_test(snip_str, static)
-	assert.are.same(
+	assert.eq(
 		static,
 		exec_lua(
 			'return ls.parser.parse_snippet("trig", '

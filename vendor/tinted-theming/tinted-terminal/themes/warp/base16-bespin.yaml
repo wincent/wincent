@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Bespin by Jan T. Sott
+
+name: Base16 Bespin
+accent: "#5ea6ea" # base0D
+cursor: "#8a8986" # base05
+background: "#28211c" # base00
+foreground: "#8a8986" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#28211c" # base00
+    red: "#cf6a4c" # base08
+    yellow: "#f9ee98" # base0A
+    green: "#54be0d" # base0B
+    cyan: "#afc4db" # base0C
+    blue: "#5ea6ea" # base0D
+    magenta: "#9b859d" # base0E
+    white: "#8a8986" # base05
+
+  normal:
+    black: "#666666" # base03
+    red: "#cf6a4c" # base08
+    yellow: "#f9ee98" # base0A
+    green: "#54be0d" # base0B
+    cyan: "#afc4db" # base0C
+    blue: "#5ea6ea" # base0D
+    magenta: "#9b859d" # base0E
+    white: "#baae9e" # base07

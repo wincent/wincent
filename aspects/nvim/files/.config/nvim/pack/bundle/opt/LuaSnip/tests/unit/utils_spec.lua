@@ -1,5 +1,5 @@
 local ls_helpers = require("helpers")
-local exec_lua = ls_helpers.exec_lua
+local exec_lua, assert = ls_helpers.exec_lua, ls_helpers.assert
 
 describe("luasnip.util.str:dedent", function()
 	ls_helpers.clear()
@@ -7,7 +7,7 @@ describe("luasnip.util.str:dedent", function()
 
 	local function check(test_name, input, output)
 		it(test_name, function()
-			assert.are.same(
+			assert.eq(
 				output,
 				exec_lua(
 					'return require("luasnip.util.str").dedent([['
@@ -29,7 +29,7 @@ describe("luasnip.util.Path.parent", function()
 		for _, example in ipairs(examples) do
 			if example.expect then
 				it(example.path, function()
-					assert.are.same(
+					assert.eq(
 						example.expect,
 						exec_lua(
 							"__LUASNIP_TEST_SEP_OVERRIDE = [["

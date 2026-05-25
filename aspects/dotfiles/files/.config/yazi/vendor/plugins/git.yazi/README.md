@@ -39,49 +39,46 @@ group = "git"
 
 ## Advanced
 
-> [!NOTE]
-> The following configuration must be put before `require("git"):setup()`
+You can customize the [Style](https://yazi-rs.github.io/docs/configuration/theme#types.style) of the status sign with:
 
-You can customize the [Style](https://yazi-rs.github.io/docs/plugins/layout#style) of the status sign with:
-
-- `th.git.unknown` - status cannot/not yet determined
-- `th.git.modified` - modified file
-- `th.git.added` - added file
-- `th.git.untracked` - untracked file
-- `th.git.ignored` - ignored file
-- `th.git.deleted` - deleted file
-- `th.git.updated` - updated file
-- `th.git.clean` - clean file
+- `[git].unknown` - status cannot/not yet determined
+- `[git].modified` - modified file
+- `[git].added` - added file
+- `[git].untracked` - untracked file
+- `[git].ignored` - ignored file
+- `[git].deleted` - deleted file
+- `[git].updated` - updated file
+- `[git].clean` - clean file
 
 For example:
 
-```lua
--- ~/.config/yazi/init.lua
-th.git = th.git or {}
-th.git.modified = ui.Style():fg("blue")
-th.git.deleted = ui.Style():fg("red"):bold()
+```toml
+# theme.toml / flavor.toml
+[git]
+modified = { fg = "blue" }
+deleted  = { fg = "red", bold = true }
 ```
 
 You can also customize the text of the status sign with:
 
-- `th.git.unknown_sign` - status cannot/not yet determined
-- `th.git.modified_sign` - modified file
-- `th.git.added_sign` - added file
-- `th.git.untracked_sign` - untracked file
-- `th.git.ignored_sign` - ignored file
-- `th.git.deleted_sign` - deleted file
-- `th.git.updated_sign` - updated file
-- `th.git.clean_sign` - clean file
+- `[git].unknown_sign` - status cannot/not yet determined
+- `[git].modified_sign` - modified file
+- `[git].added_sign` - added file
+- `[git].untracked_sign` - untracked file
+- `[git].ignored_sign` - ignored file
+- `[git].deleted_sign` - deleted file
+- `[git].updated_sign` - updated file
+- `[git].clean_sign` - clean file
 
 For example:
 
-```lua
--- ~/.config/yazi/init.lua
-th.git = th.git or {}
-th.git.unknown_sign = " "
-th.git.modified_sign = "M"
-th.git.deleted_sign = "D"
-th.git.clean_sign = "✔"
+```toml
+# theme.toml / flavor.toml
+[git]
+unknown_sign  = " "
+modified_sign = "M"
+deleted_sign  = "D"
+clean_sign    = "✔"
 ```
 
 ## License

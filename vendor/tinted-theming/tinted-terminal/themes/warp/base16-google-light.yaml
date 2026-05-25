@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Google Light by Seth Wright (http://sethawright.com)
+
+name: Base16 Google Light
+accent: "#3971ed" # base0D
+cursor: "#373b41" # base05
+background: "#ffffff" # base00
+foreground: "#373b41" # base05
+details: lighter
+
+terminal_colors:
+  bright:
+    black: "#ffffff" # base00
+    red: "#cc342b" # base08
+    yellow: "#fba922" # base0A
+    green: "#198844" # base0B
+    cyan: "#3971ed" # base0C
+    blue: "#3971ed" # base0D
+    magenta: "#a36ac7" # base0E
+    white: "#373b41" # base05
+
+  normal:
+    black: "#b4b7b4" # base03
+    red: "#cc342b" # base08
+    yellow: "#fba922" # base0A
+    green: "#198844" # base0B
+    cyan: "#3971ed" # base0C
+    blue: "#3971ed" # base0D
+    magenta: "#a36ac7" # base0E
+    white: "#1d1f21" # base07

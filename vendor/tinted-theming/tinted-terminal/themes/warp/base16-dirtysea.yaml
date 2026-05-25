@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: dirtysea by Kahlil (Kal) Hodgson
+
+name: Base16 dirtysea
+accent: "#007300" # base0D
+cursor: "#000000" # base05
+background: "#e0e0e0" # base00
+foreground: "#000000" # base05
+details: lighter
+
+terminal_colors:
+  bright:
+    black: "#e0e0e0" # base00
+    red: "#840000" # base08
+    yellow: "#755b00" # base0A
+    green: "#730073" # base0B
+    cyan: "#755b00" # base0C
+    blue: "#007300" # base0D
+    magenta: "#000090" # base0E
+    white: "#000000" # base05
+
+  normal:
+    black: "#707070" # base03
+    red: "#840000" # base08
+    yellow: "#755b00" # base0A
+    green: "#730073" # base0B
+    cyan: "#755b00" # base0C
+    blue: "#007300" # base0D
+    magenta: "#000090" # base0E
+    white: "#c4d9c4" # base07

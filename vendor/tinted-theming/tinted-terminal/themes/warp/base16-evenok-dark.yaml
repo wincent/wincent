@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Evenok Dark by Mekeor Melire
+
+name: Base16 Evenok Dark
+accent: "#00aff2" # base0D
+cursor: "#d0d0d0" # base05
+background: "#000000" # base00
+foreground: "#d0d0d0" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#000000" # base00
+    red: "#f5708a" # base08
+    yellow: "#b8a300" # base0A
+    green: "#54bc5c" # base0B
+    cyan: "#00bab3" # base0C
+    blue: "#00aff2" # base0D
+    magenta: "#9095ff" # base0E
+    white: "#d0d0d0" # base05
+
+  normal:
+    black: "#505050" # base03
+    red: "#f5708a" # base08
+    yellow: "#b8a300" # base0A
+    green: "#54bc5c" # base0B
+    cyan: "#00bab3" # base0C
+    blue: "#00aff2" # base0D
+    magenta: "#9095ff" # base0E
+    white: "#ffffff" # base07

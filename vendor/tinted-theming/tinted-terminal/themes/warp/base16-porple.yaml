@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Porple by Niek den Breeje (https://github.com/AuditeMarlow)
+
+name: Base16 Porple
+accent: "#8485ce" # base0D
+cursor: "#d8d8d8" # base05
+background: "#292c36" # base00
+foreground: "#d8d8d8" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#292c36" # base00
+    red: "#f84547" # base08
+    yellow: "#efa16b" # base0A
+    green: "#95c76f" # base0B
+    cyan: "#64878f" # base0C
+    blue: "#8485ce" # base0D
+    magenta: "#b74989" # base0E
+    white: "#d8d8d8" # base05
+
+  normal:
+    black: "#65568a" # base03
+    red: "#f84547" # base08
+    yellow: "#efa16b" # base0A
+    green: "#95c76f" # base0B
+    cyan: "#64878f" # base0C
+    blue: "#8485ce" # base0D
+    magenta: "#b74989" # base0E
+    white: "#f8f8f8" # base07

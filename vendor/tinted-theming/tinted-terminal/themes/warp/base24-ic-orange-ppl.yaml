@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: IC-Orange-PPL by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 IC-Orange-PPL
+accent: "#bd6c00" # base0D
+cursor: "#d9a971" # base05
+background: "#262626" # base00
+foreground: "#d9a971" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#262626" # base00
+    red: "#c03900" # base08
+    yellow: "#ffbd54" # base0A
+    green: "#a3a900" # base0B
+    cyan: "#f79400" # base0C
+    blue: "#bd6c00" # base0D
+    magenta: "#fb5d00" # base0E
+    white: "#d9a971" # base05
+
+  bright:
+    black: "#8f6c41" # base03
+    red: "#ff8b67" # base12
+    yellow: "#ffe36e" # base13
+    green: "#f6ff3f" # base14
+    cyan: "#c59752" # base15
+    blue: "#ffbd54" # base16
+    magenta: "#fc874f" # base17
+    white: "#f9f9fe" # base07

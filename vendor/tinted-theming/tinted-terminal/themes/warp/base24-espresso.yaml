@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Espresso by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Espresso
+accent: "#6c99bb" # base0D
+cursor: "#c7c7c5" # base05
+background: "#262626" # base00
+foreground: "#c7c7c5" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#262626" # base00
+    red: "#d25151" # base08
+    yellow: "#8ab7d9" # base0A
+    green: "#a5c261" # base0B
+    cyan: "#bed6ff" # base0C
+    blue: "#6c99bb" # base0D
+    magenta: "#d197d9" # base0E
+    white: "#c7c7c5" # base05
+
+  bright:
+    black: "#797979" # base03
+    red: "#f00c0c" # base12
+    yellow: "#e1e38b" # base13
+    green: "#c2e075" # base14
+    cyan: "#dcf3ff" # base15
+    blue: "#8ab7d9" # base16
+    magenta: "#efb5f7" # base17
+    white: "#ffffff" # base07

@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Scarlet Protocol by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Scarlet Protocol
+accent: "#0271b6" # base0D
+cursor: "#afafaf" # base05
+background: "#1b153c" # base00
+foreground: "#afafaf" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#1b153c" # base00
+    red: "#ff0051" # base08
+    yellow: "#6871ff" # base0A
+    green: "#00dc84" # base0B
+    cyan: "#00c5c7" # base0C
+    blue: "#0271b6" # base0D
+    magenta: "#c930c7" # base0E
+    white: "#afafaf" # base05
+
+  bright:
+    black: "#7f7f7f" # base03
+    red: "#ff6d67" # base12
+    yellow: "#fefb67" # base13
+    green: "#5ff967" # base14
+    cyan: "#5ffdff" # base15
+    blue: "#6871ff" # base16
+    magenta: "#bc35eb" # base17
+    white: "#feffff" # base07

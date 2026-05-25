@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Chinoiserie Night by Di Wang (https://cs.cmu.edu/~diw3)
+
+name: Base16 Chinoiserie Night
+accent: "#8fb2c9" # base0D
+cursor: "#c4cbcf" # base05
+background: "#1d1d1d" # base00
+foreground: "#c4cbcf" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#1d1d1d" # base00
+    red: "#f07c82" # base08
+    yellow: "#f4ce69" # base0A
+    green: "#b2cf87" # base0B
+    cyan: "#b0d5df" # base0C
+    blue: "#8fb2c9" # base0D
+    magenta: "#be9db9" # base0E
+    white: "#c4cbcf" # base05
+
+  normal:
+    black: "#918072" # base03
+    red: "#f07c82" # base08
+    yellow: "#f4ce69" # base0A
+    green: "#b2cf87" # base0B
+    cyan: "#b0d5df" # base0C
+    blue: "#8fb2c9" # base0D
+    magenta: "#be9db9" # base0E
+    white: "#fffef9" # base07

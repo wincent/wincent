@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Catppuccin Latte by https://github.com/catppuccin/catppuccin
+
+name: Base16 Catppuccin Latte
+accent: "#1e66f5" # base0D
+cursor: "#4c4f69" # base05
+background: "#eff1f5" # base00
+foreground: "#4c4f69" # base05
+details: lighter
+
+terminal_colors:
+  bright:
+    black: "#eff1f5" # base00
+    red: "#d20f39" # base08
+    yellow: "#df8e1d" # base0A
+    green: "#40a02b" # base0B
+    cyan: "#179299" # base0C
+    blue: "#1e66f5" # base0D
+    magenta: "#8839ef" # base0E
+    white: "#4c4f69" # base05
+
+  normal:
+    black: "#bcc0cc" # base03
+    red: "#d20f39" # base08
+    yellow: "#df8e1d" # base0A
+    green: "#40a02b" # base0B
+    cyan: "#179299" # base0C
+    blue: "#1e66f5" # base0D
+    magenta: "#8839ef" # base0E
+    white: "#7287fd" # base07

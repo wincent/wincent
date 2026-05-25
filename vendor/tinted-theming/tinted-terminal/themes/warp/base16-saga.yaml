@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: SAGA by https://github.com/SAGAtheme/SAGA
+
+name: Base16 SAGA
+accent: "#c9fff7" # base0D
+cursor: "#dce2f7" # base05
+background: "#05080a" # base00
+foreground: "#dce2f7" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#05080a" # base00
+    red: "#ffd4e9" # base08
+    yellow: "#fbebc8" # base0A
+    green: "#f7ddff" # base0B
+    cyan: "#c5edc1" # base0C
+    blue: "#c9fff7" # base0D
+    magenta: "#dcc3f9" # base0E
+    white: "#dce2f7" # base05
+
+  normal:
+    black: "#141f27" # base03
+    red: "#ffd4e9" # base08
+    yellow: "#fbebc8" # base0A
+    green: "#f7ddff" # base0B
+    cyan: "#c5edc1" # base0C
+    blue: "#c9fff7" # base0D
+    magenta: "#dcc3f9" # base0E
+    white: "#ccd3fe" # base07

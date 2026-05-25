@@ -2,7 +2,7 @@ local ls_helpers = require("helpers")
 local exec_lua, feed, exec =
 	ls_helpers.exec_lua, ls_helpers.feed, ls_helpers.exec
 local Screen = require("test.functional.ui.screen")
-local assert = require("luassert")
+local assert = ls_helpers.assert
 
 local function for_all_loaders(message, fn)
 	for name, load in pairs(ls_helpers.loaders) do
@@ -103,7 +103,7 @@ describe("loaders:", function()
 		})
 
 		-- every loader has exactly one lua-autosnippet. Make sure it's loaded.
-		assert.are.same(
+		assert.eq(
 			1,
 			exec_lua(
 				[[return #ls.get_snippets("all", {type = "autosnippets"})]]
@@ -146,7 +146,7 @@ describe("loaders:", function()
 		-- wait a bit for async-operations to finish
 		exec('call wait(200, "0")')
 		-- one snippet from snipmate, one from vscode.
-		assert.are.same(3, exec_lua('return #ls.get_snippets("lua")'))
+		assert.eq(3, exec_lua('return #ls.get_snippets("lua")'))
 	end)
 
 	it("Can lazy-load from multiple snipmate-collections.", function()
@@ -157,7 +157,7 @@ describe("loaders:", function()
 		-- wait a bit for async-operations to finish
 		exec('call wait(200, "0")')
 		-- one snippet from snippets, another from snippets1.
-		assert.are.same(2, exec_lua('return #ls.get_snippets("lua")'))
+		assert.eq(2, exec_lua('return #ls.get_snippets("lua")'))
 	end)
 
 	it("Can load with extends (snipmate)", function()
@@ -167,7 +167,7 @@ describe("loaders:", function()
 		-- wait a bit for async-operations to finish
 		exec('call wait(200, "0")')
 		-- one snippet from vim.snippets, one from lua.snippets
-		assert.are.same(2, exec_lua('return #ls.get_snippets("vim")'))
+		assert.eq(2, exec_lua('return #ls.get_snippets("vim")'))
 	end)
 
 	it("separates snippets from different collection for `extends`", function()
@@ -183,7 +183,7 @@ describe("loaders:", function()
 			)
 		)
 
-		assert.are.same(3, exec_lua('return #ls.get_snippets("vim")'))
+		assert.eq(3, exec_lua('return #ls.get_snippets("vim")'))
 	end)
 
 	it("lua-loader respects include.", function()
@@ -318,7 +318,7 @@ describe("loaders:", function()
 			os.getenv("LUASNIP_SOURCE") .. "/tests/data/vscode-snippets" -- has 5 prio snippets
 		))
 
-		assert.are.same(5, exec_lua('return #ls.get_snippets("prio")'))
+		assert.eq(5, exec_lua('return #ls.get_snippets("prio")'))
 	end)
 
 	it("loads paths with invalid paths ditched (lua)", function()
@@ -329,7 +329,7 @@ describe("loaders:", function()
 				.. "/tests/data/lua-snippets/luasnippets" -- has 1 prio snippet
 		))
 
-		assert.are.same(1, exec_lua('return #ls.get_snippets("prio")'))
+		assert.eq(1, exec_lua('return #ls.get_snippets("prio")'))
 	end)
 
 	it("respects {override,default}_priority", function()
@@ -1050,7 +1050,7 @@ describe("loaders:", function()
 			-- unfortunately, I guess since the test-instance waits for input before
 			-- proceeding, but as soon as we give it, we can't check the options :( )
 			-- Anyway, this works too, for now.
-			assert.are.same(
+			assert.eq(
 				4,
 				exec_lua(
 					[[return #require("luasnip.util.table").set_to_list(require("luasnip.loaders.data").snipmate_ft_paths["A"]) ]]

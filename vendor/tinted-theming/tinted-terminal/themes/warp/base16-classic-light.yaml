@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Classic Light by Jason Heeris (http://heeris.id.au)
+
+name: Base16 Classic Light
+accent: "#6a9fb5" # base0D
+cursor: "#303030" # base05
+background: "#f5f5f5" # base00
+foreground: "#303030" # base05
+details: lighter
+
+terminal_colors:
+  bright:
+    black: "#f5f5f5" # base00
+    red: "#ac4142" # base08
+    yellow: "#f4bf75" # base0A
+    green: "#90a959" # base0B
+    cyan: "#75b5aa" # base0C
+    blue: "#6a9fb5" # base0D
+    magenta: "#aa759f" # base0E
+    white: "#303030" # base05
+
+  normal:
+    black: "#b0b0b0" # base03
+    red: "#ac4142" # base08
+    yellow: "#f4bf75" # base0A
+    green: "#90a959" # base0B
+    cyan: "#75b5aa" # base0C
+    blue: "#6a9fb5" # base0D
+    magenta: "#aa759f" # base0E
+    white: "#151515" # base07

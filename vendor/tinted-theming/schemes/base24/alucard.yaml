@@ -1,0 +1,37 @@
+system: "base24"
+name: "Alucard"
+author: "clach04 (https://github.com/clach04)"
+description: "Alucard Classic - Dracula light, based on https://github.com/dracula/draculatheme.com/blob/main/content/spec.mdx"
+variant: "light"
+# https://github.com/tinted-theming/base24/blob/main/styling.md
+# https://github.com/tinted-theming/home/blob/main/styling.md
+# https://github.com/chriskempson/base16/blob/main/styling.md
+# Typically expect order of base00-base07 (dark to light versus light to dark) to differ depending on variant
+# based on https://github.com/dracula/draculatheme.com/blob/main/content/spec.mdx
+palette:
+  base00: "#fffbeb"  # Default Background  # Alucard Background
+  base01: "#ceccc0"  # Darker Background (Darkest Gray) (Used for status bars, line number and folding marks)  # Alucard BackgroundBackground Dark
+  base02: "#cfcfde"  # Selection Background (Bright Black) - Alucard Classic Selection
+  base03: "#6c664b"  # Comments, Invisibles, Line Highlighting (Grey) - Alucard Classic Current Line / Comment
+  base04: "#4c4a3d"  # Dark/Light Foreground (Medium-dark gray for status bars)  # NOT a Alucard color!
+  base05: "#1f1f1f"  # Default Foreground, Caret, Delimiters, Operators (Foreground) - Alucard Classic Foreground
+  base06: "#1f1f1f"  # Dark Foreground (Not often used) (White)
+  base07: "#2c2b31"  # Dark Background (Not often used) (Bright White)
+  # ANSI8 (without Black/White) + 2 (Orange + Dark Red/Brown)
+  base08: "#cb3a2a"   # Red
+  base09: "#A34D14"  # Orange
+  base0A: "#846e15"  # Yellow
+  base0B: "#14710a"  # Green
+  base0C: "#036a96"  # Aqua / Cyan
+  base0D: "#644ac9"  # Blue
+  base0E: "#a3144d"  # Purple / Magenta
+  base0F: "#792219"  # Dark Red or Brown, derive dark red from base08 - derived via https://www.color-hex.com/color/cb3a2a
+  # ANSI16 Bright/Bold (without Black/White)
+  base10: "#fdf8e2"  # Darker Background (Slightly warmer/lighter than base00)  # NOT a Alucard color!
+  base11: "#f5f0da"  # Darkest Background (Slightly deeper cream than base10)  # NOT a Alucard color!
+  base12: "#d74c3d"  # Bright Red
+  base13: "#9e841a"  # Bright Yellow
+  base14: "#198d0c"  # Bright Green
+  base15: "#047fb4"  # Bright Cyan
+  base16: "#7862d0"  # Bright Blue
+  base17: "#bf185a"  # Bright Magenta / Bright Purple

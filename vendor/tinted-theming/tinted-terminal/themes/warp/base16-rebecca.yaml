@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Rebecca by Victor Borja (http://github.com/vic) based on Rebecca Theme (http://github.com/vic/rebecca-theme)
+
+name: Base16 Rebecca
+accent: "#2de0a7" # base0D
+cursor: "#f1eff8" # base05
+background: "#292a44" # base00
+foreground: "#f1eff8" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#292a44" # base00
+    red: "#a0a0c5" # base08
+    yellow: "#ae81ff" # base0A
+    green: "#6dfedf" # base0B
+    cyan: "#8eaee0" # base0C
+    blue: "#2de0a7" # base0D
+    magenta: "#7aa5ff" # base0E
+    white: "#f1eff8" # base05
+
+  normal:
+    black: "#666699" # base03
+    red: "#a0a0c5" # base08
+    yellow: "#ae81ff" # base0A
+    green: "#6dfedf" # base0B
+    cyan: "#8eaee0" # base0C
+    blue: "#2de0a7" # base0D
+    magenta: "#7aa5ff" # base0E
+    white: "#53495d" # base07

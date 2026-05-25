@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Alucard by clach04 (https://github.com/clach04)
+
+[colors]
+selection-background = '#1f1f1f' # base05
+selection-foreground = '#cfcfde' # base02
+
+cursor         = '#1f1f1f' # base05
+tabs           = '#ceccc0' # base01
+tabs-active    = '#cfcfde' # base02
+
+background     = '#fffbeb' # base00
+foreground     = '#1f1f1f' # base05
+black          = '#fffbeb' # base00
+red            = '#cb3a2a' # base08
+yellow         = '#846e15' # base0A
+green          = '#14710a' # base0B
+cyan           = '#036a96' # base0C
+blue           = '#644ac9' # base0D
+magenta        = '#a3144d' # base0E
+white          = '#1f1f1f' # base05
+
+dim-foreground   = '#1f1f1f' # base05
+dim-black        = '#ceccc0' # base01
+dim-red          = '#cb3a2a' # base08
+dim-yellow       = '#846e15' # base0A
+dim-green        = '#14710a' # base0B
+dim-cyan         = '#036a96' # base0C
+dim-blue         = '#644ac9' # base0D
+dim-magenta      = '#a3144d' # base0E
+dim-white        = '#4c4a3d' # base04
+
+light-foreground = '#1f1f1f' # base05
+light-black      = '#6c664b' # base03
+light-red        = '#d74c3d' # base12
+light-yellow     = '#9e841a' # base13
+light-green      = '#198d0c' # base14
+light-cyan       = '#047fb4' # base15
+light-blue       = '#7862d0' # base16
+light-magenta    = '#bf185a' # base17
+light-white      = '#2c2b31' # base07

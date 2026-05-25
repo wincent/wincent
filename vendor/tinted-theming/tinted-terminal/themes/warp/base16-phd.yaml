@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: PhD by Hennig Hasemann (http://leetless.de/vim.html)
+
+name: Base16 PhD
+accent: "#5299bf" # base0D
+cursor: "#b8bbc2" # base05
+background: "#061229" # base00
+foreground: "#b8bbc2" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#061229" # base00
+    red: "#d07346" # base08
+    yellow: "#fbd461" # base0A
+    green: "#99bf52" # base0B
+    cyan: "#72b9bf" # base0C
+    blue: "#5299bf" # base0D
+    magenta: "#9989cc" # base0E
+    white: "#b8bbc2" # base05
+
+  normal:
+    black: "#717885" # base03
+    red: "#d07346" # base08
+    yellow: "#fbd461" # base0A
+    green: "#99bf52" # base0B
+    cyan: "#72b9bf" # base0C
+    blue: "#5299bf" # base0D
+    magenta: "#9989cc" # base0E
+    white: "#ffffff" # base07

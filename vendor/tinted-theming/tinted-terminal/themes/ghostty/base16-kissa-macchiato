@@ -1,0 +1,47 @@
+# vim: ft=ghostty
+# Kissa Macchiato theme for Ghostty
+# Scheme Author: rwendell (https://github.com/rwendell/kissa)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# Color palette
+palette = 0=#1f1c16
+palette = 1=#e87777
+palette = 2=#8cb870
+palette = 3=#eac67a
+palette = 4=#7fa8d4
+palette = 5=#b094cc
+palette = 6=#6ab8b0
+palette = 7=#faf0e6
+palette = 8=#b8a48c
+palette = 9=#e87777
+palette = 10=#8cb870
+palette = 11=#eac67a
+palette = 12=#7fa8d4
+palette = 13=#b094cc
+palette = 14=#6ab8b0
+palette = 15=#fef4e4
+palette = 16=#da9050
+palette = 17=#cc88aa
+palette = 18=#35322d
+palette = 19=#47443f
+palette = 20=#d4c4a8
+palette = 21=#e8d5b7
+
+# Foreground & background colors
+background = #1f1c16
+foreground = #faf0e6
+cursor-color = #faf0e6
+selection-background = #faf0e6
+selection-foreground = #47443f
+search-background = #eac67a
+search-foreground = #35322d
+search-selected-background = #da9050
+search-selected-foreground = #35322d
+
+# Set `macos-icon = custom-style` in your main configuration file to enable theming of the app icon.
+#
+# Set the ghost color to the lightest foreground:
+macos-icon-ghost-color = #fef4e4
+# Replace the official icon's blue background with the designated bright blue color:
+macos-icon-screen-color = #7fa8d4

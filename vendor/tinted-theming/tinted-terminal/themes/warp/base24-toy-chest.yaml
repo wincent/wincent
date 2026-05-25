@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Toy Chest by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Toy Chest
+accent: "#325d96" # base0D
+cursor: "#27b684" # base05
+background: "#23364a" # base00
+foreground: "#27b684" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#23364a" # base00
+    red: "#be2d26" # base08
+    yellow: "#33a5d9" # base0A
+    green: "#199171" # base0B
+    cyan: "#35a08f" # base0C
+    blue: "#325d96" # base0D
+    magenta: "#8a5ddb" # base0E
+    white: "#27b684" # base05
+
+  bright:
+    black: "#2f8288" # base03
+    red: "#dd5943" # base12
+    yellow: "#e7d74b" # base13
+    green: "#30cf7b" # base14
+    cyan: "#41c3ad" # base15
+    blue: "#33a5d9" # base16
+    magenta: "#ad6bdc" # base17
+    white: "#d4d4d4" # base07

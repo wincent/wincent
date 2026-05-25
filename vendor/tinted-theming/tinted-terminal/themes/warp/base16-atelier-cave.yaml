@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Atelier Cave by Bram de Haan (http://atelierbramdehaan.nl)
+
+name: Base16 Atelier Cave
+accent: "#576ddb" # base0D
+cursor: "#8b8792" # base05
+background: "#19171c" # base00
+foreground: "#8b8792" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#19171c" # base00
+    red: "#be4678" # base08
+    yellow: "#a06e3b" # base0A
+    green: "#2a9292" # base0B
+    cyan: "#398bc6" # base0C
+    blue: "#576ddb" # base0D
+    magenta: "#955ae7" # base0E
+    white: "#8b8792" # base05
+
+  normal:
+    black: "#655f6d" # base03
+    red: "#be4678" # base08
+    yellow: "#a06e3b" # base0A
+    green: "#2a9292" # base0B
+    cyan: "#398bc6" # base0C
+    blue: "#576ddb" # base0D
+    magenta: "#955ae7" # base0E
+    white: "#efecf4" # base07

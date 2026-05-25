@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Stella by Shrimpram
+
+name: Base16 Stella
+accent: "#a5aad4" # base0D
+cursor: "#998bad" # base05
+background: "#2b213c" # base00
+foreground: "#998bad" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#2b213c" # base00
+    red: "#c79987" # base08
+    yellow: "#c7c691" # base0A
+    green: "#acc79b" # base0B
+    cyan: "#9bc7bf" # base0C
+    blue: "#a5aad4" # base0D
+    magenta: "#c594ff" # base0E
+    white: "#998bad" # base05
+
+  normal:
+    black: "#655978" # base03
+    red: "#c79987" # base08
+    yellow: "#c7c691" # base0A
+    green: "#acc79b" # base0B
+    cyan: "#9bc7bf" # base0C
+    blue: "#a5aad4" # base0D
+    magenta: "#c594ff" # base0E
+    white: "#ebdcff" # base07

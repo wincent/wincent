@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Pasque by Gabriel Fontes (https://github.com/Misterio77)
+
+name: Base16 Pasque
+accent: "#8e7dc6" # base0D
+cursor: "#dedcdf" # base05
+background: "#271c3a" # base00
+foreground: "#dedcdf" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#271c3a" # base00
+    red: "#a92258" # base08
+    yellow: "#804ead" # base0A
+    green: "#c6914b" # base0B
+    cyan: "#7263aa" # base0C
+    blue: "#8e7dc6" # base0D
+    magenta: "#953b9d" # base0E
+    white: "#dedcdf" # base05
+
+  normal:
+    black: "#5d5766" # base03
+    red: "#a92258" # base08
+    yellow: "#804ead" # base0A
+    green: "#c6914b" # base0B
+    cyan: "#7263aa" # base0C
+    blue: "#8e7dc6" # base0D
+    magenta: "#953b9d" # base0E
+    white: "#bbaadd" # base07

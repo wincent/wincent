@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Digital Rain by Nathan Byrd (https://github.com/cognitivegears)
+
+name: Base16 Digital Rain
+accent: "#5482af" # base0D
+cursor: "#00ff00" # base05
+background: "#000000" # base00
+foreground: "#00ff00" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#000000" # base00
+    red: "#c85a46" # base08
+    yellow: "#a67a50" # base0A
+    green: "#64c83c" # base0B
+    cyan: "#468c78" # base0C
+    blue: "#5482af" # base0D
+    magenta: "#9472b4" # base0E
+    white: "#00ff00" # base05
+
+  normal:
+    black: "#7c8d7c" # base03
+    red: "#c85a46" # base08
+    yellow: "#a67a50" # base0A
+    green: "#64c83c" # base0B
+    cyan: "#468c78" # base0C
+    blue: "#5482af" # base0D
+    magenta: "#9472b4" # base0E
+    white: "#d8e2dc" # base07

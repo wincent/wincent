@@ -1,0 +1,58 @@
+# base24 Alucard 256 - alacritty color config
+# clach04 (https://github.com/clach04)
+
+# Default colors
+[colors.primary]
+background = '0xfffbeb'
+foreground = '0x1f1f1f'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0xfffbeb'
+cursor = '0x1f1f1f'
+
+# Normal colors
+[colors.normal]
+black = '0xfffbeb'
+red = '0xcb3a2a'
+green = '0x14710a'
+yellow = '0x846e15'
+blue = '0x644ac9'
+magenta = '0xa3144d'
+cyan = '0x036a96'
+white = '0x1f1f1f'
+
+# Bright colors
+[colors.bright]
+black = '0x6c664b'
+red = '0xd74c3d'
+green = '0x198d0c'
+yellow = '0x9e841a'
+blue = '0x7862d0'
+magenta = '0xbf185a'
+cyan = '0x047fb4'
+white = '0x2c2b31'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xa34d14"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x792219"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0xceccc0"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0xcfcfde"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x4c4a3d"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0x1f1f1f"

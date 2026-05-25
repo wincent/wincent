@@ -2,6 +2,7 @@ local ls_helpers = require("helpers")
 local exec_lua, feed, exec =
 	ls_helpers.exec_lua, ls_helpers.feed, ls_helpers.exec
 local Screen = require("test.functional.ui.screen")
+local assert = ls_helpers.assert
 
 describe("Parser", function()
 	local screen
@@ -29,7 +30,7 @@ describe("Parser", function()
 	it("Expands text-only snippet with auto-generated $0.", function()
 		local snip = '"abcde"'
 
-		assert.are.same(
+		assert.eq(
 			exec_lua(
 				'return ls.parser.parse_snippet("", '
 					.. snip
@@ -50,7 +51,7 @@ describe("Parser", function()
 		-- ls_helpers.session_setup_luasnip()
 		local snip = '"adsf\\r\\nasdf"'
 
-		assert.are.same(
+		assert.eq(
 			exec_lua(
 				'return ls.parser.parse_snippet("", '
 					.. snip
@@ -71,7 +72,7 @@ describe("Parser", function()
 		-- ls_helpers.session_setup_luasnip()
 		local snip = '"a$2 $0b$1 c"'
 
-		assert.are.same(
+		assert.eq(
 			exec_lua(
 				'return ls.parser.parse_snippet("", '
 					.. snip
@@ -108,7 +109,7 @@ describe("Parser", function()
 		-- ls_helpers.session_setup_luasnip()
 		local snip = '"a$1 ${2:b} c"'
 
-		assert.are.same(
+		assert.eq(
 			exec_lua(
 				'return ls.parser.parse_snippet("", '
 					.. snip
@@ -156,7 +157,7 @@ describe("Parser", function()
 		-- ls_helpers.session_setup_luasnip()
 		local snip = '"${1: aaa $2 bbb}"'
 
-		assert.are.same(
+		assert.eq(
 			exec_lua(
 				'return ls.parser.parse_snippet("", '
 					.. snip

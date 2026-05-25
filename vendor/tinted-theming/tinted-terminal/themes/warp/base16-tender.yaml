@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: tender by Jacobo Tabernero (https://github/com/jacoborus/tender.vim)
+
+name: Base16 tender
+accent: "#b3deef" # base0D
+cursor: "#eeeeee" # base05
+background: "#282828" # base00
+foreground: "#eeeeee" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#282828" # base00
+    red: "#f43753" # base08
+    yellow: "#ffc24b" # base0A
+    green: "#c9d05c" # base0B
+    cyan: "#73cef4" # base0C
+    blue: "#b3deef" # base0D
+    magenta: "#d3b987" # base0E
+    white: "#eeeeee" # base05
+
+  normal:
+    black: "#4c4c4c" # base03
+    red: "#f43753" # base08
+    yellow: "#ffc24b" # base0A
+    green: "#c9d05c" # base0B
+    cyan: "#73cef4" # base0C
+    blue: "#b3deef" # base0D
+    magenta: "#d3b987" # base0E
+    white: "#feffff" # base07

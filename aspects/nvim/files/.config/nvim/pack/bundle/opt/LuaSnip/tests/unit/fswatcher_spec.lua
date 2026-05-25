@@ -5,6 +5,7 @@ local touch = ls_helpers.scratch_touch
 local edit = ls_helpers.scratch_edit
 local mv = ls_helpers.scratch_mv
 local mv_T = ls_helpers.scratch_mv_T
+local assert = ls_helpers.assert
 
 describe("fs_events", function()
 	before_each(function()
@@ -85,7 +86,7 @@ describe("fs_events", function()
 
 		exec_lua("vim.wait(10, function() end)")
 
-		assert.are.same({
+		assert.eq({
 			{
 				-- files
 				["a/1/a"] = 1,
@@ -181,7 +182,7 @@ describe("fs_events", function()
 
 		exec_lua("vim.wait(10, function() end)")
 
-		assert.are.same({
+		assert.eq({
 			{
 				["a/1/a"] = 1,
 				["a/1/b"] = 1,
@@ -246,7 +247,7 @@ describe("fs_events", function()
 		-- make sure a/d/e is seen.
 		mv_T("a/c", "a/d")
 
-		assert.are.same({
+		assert.eq({
 			{
 				["a/b"] = 1,
 				-- we don't handle file-removal, it's currently out of scope
@@ -294,7 +295,7 @@ describe("fs_events", function()
 		mkdir("a/a")
 		touch("a/a/a")
 
-		assert.are.same({
+		assert.eq({
 			{
 				["a/a/a"] = 1,
 			},
@@ -331,7 +332,7 @@ describe("fs_events", function()
 
 		edit("a/a/a")
 
-		assert.are.same({
+		assert.eq({
 			{
 				["a/a/a"] = 1,
 			},

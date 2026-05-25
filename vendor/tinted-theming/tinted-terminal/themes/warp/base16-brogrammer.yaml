@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Brogrammer by Vik Ramanujam (http://github.com/piggyslasher)
+
+name: Base16 Brogrammer
+accent: "#5350b9" # base0D
+cursor: "#4e5ab7" # base05
+background: "#1f1f1f" # base00
+foreground: "#4e5ab7" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#1f1f1f" # base00
+    red: "#d6dbe5" # base08
+    yellow: "#1dd361" # base0A
+    green: "#f3bd09" # base0B
+    cyan: "#1081d6" # base0C
+    blue: "#5350b9" # base0D
+    magenta: "#0f7ddb" # base0E
+    white: "#4e5ab7" # base05
+
+  normal:
+    black: "#ecba0f" # base03
+    red: "#d6dbe5" # base08
+    yellow: "#1dd361" # base0A
+    green: "#f3bd09" # base0B
+    cyan: "#1081d6" # base0C
+    blue: "#5350b9" # base0D
+    magenta: "#0f7ddb" # base0E
+    white: "#d6dbe5" # base07

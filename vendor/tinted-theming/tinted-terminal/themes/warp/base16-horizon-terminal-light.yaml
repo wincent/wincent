@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Horizon Terminal Light by Michaël Ball (http://github.com/michael-ball/)
+
+name: Base16 Horizon Terminal Light
+accent: "#26bbd9" # base0D
+cursor: "#403c3d" # base05
+background: "#fdf0ed" # base00
+foreground: "#403c3d" # base05
+details: lighter
+
+terminal_colors:
+  bright:
+    black: "#fdf0ed" # base00
+    red: "#e95678" # base08
+    yellow: "#fadad1" # base0A
+    green: "#29d398" # base0B
+    cyan: "#59e1e3" # base0C
+    blue: "#26bbd9" # base0D
+    magenta: "#ee64ac" # base0E
+    white: "#403c3d" # base05
+
+  normal:
+    black: "#bdb3b1" # base03
+    red: "#e95678" # base08
+    yellow: "#fadad1" # base0A
+    green: "#29d398" # base0B
+    cyan: "#59e1e3" # base0C
+    blue: "#26bbd9" # base0D
+    magenta: "#ee64ac" # base0E
+    white: "#201c1d" # base07

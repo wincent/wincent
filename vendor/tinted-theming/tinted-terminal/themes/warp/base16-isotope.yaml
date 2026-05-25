@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Isotope by Jan T. Sott
+
+name: Base16 Isotope
+accent: "#0066ff" # base0D
+cursor: "#d0d0d0" # base05
+background: "#000000" # base00
+foreground: "#d0d0d0" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#000000" # base00
+    red: "#ff0000" # base08
+    yellow: "#ff0099" # base0A
+    green: "#33ff00" # base0B
+    cyan: "#00ffff" # base0C
+    blue: "#0066ff" # base0D
+    magenta: "#cc00ff" # base0E
+    white: "#d0d0d0" # base05
+
+  normal:
+    black: "#808080" # base03
+    red: "#ff0000" # base08
+    yellow: "#ff0099" # base0A
+    green: "#33ff00" # base0B
+    cyan: "#00ffff" # base0C
+    blue: "#0066ff" # base0D
+    magenta: "#cc00ff" # base0E
+    white: "#ffffff" # base07

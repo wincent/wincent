@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Gruber by Patel, Nimai &lt;nimai.m.patel@gmail.com&gt;, colors from www.github.com/rexim/gruber-darker-theme
+
+name: Base16 Gruber
+accent: "#96a6c8" # base0D
+cursor: "#f4f4ff" # base05
+background: "#181818" # base00
+foreground: "#f4f4ff" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#181818" # base00
+    red: "#f43841" # base08
+    yellow: "#ffdd33" # base0A
+    green: "#73c936" # base0B
+    cyan: "#95a99f" # base0C
+    blue: "#96a6c8" # base0D
+    magenta: "#9e95c7" # base0E
+    white: "#f4f4ff" # base05
+
+  normal:
+    black: "#52494e" # base03
+    red: "#f43841" # base08
+    yellow: "#ffdd33" # base0A
+    green: "#73c936" # base0B
+    cyan: "#95a99f" # base0C
+    blue: "#96a6c8" # base0D
+    magenta: "#9e95c7" # base0E
+    white: "#e4e4ef" # base07

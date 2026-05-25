@@ -441,8 +441,8 @@ Defaults ~
       inside = 'i',
 
       -- Next/last textobjects
-      -- NOTE: These override built-in LSP selection mappings on Neovim>=0.12
-      -- Map LSP selection manually to use it (see `:h MiniAi.config`)
+      -- NOTE: This (deliberately) overrides Neovim>=0.12 built-in incremental
+      -- selection mappings. See `:h MiniAi-default-an-in` for more details.
       around_next = 'an',
       inside_next = 'in',
       around_last = 'al',
@@ -564,18 +564,65 @@ Here is an example of what `a)` textobject is based on a value of
 Mappings `around_next` / `inside_next` and `around_last` / `inside_last` are
 essentially `around` / `inside` but using search method `'next'` and `'prev'`.
 
-NOTE: with default config, built-in LSP mappings |v_an| and |v_in| on Neovim>=0.12
-are overridden. Either use different `around_next` / `inside_next` keys or
-map manually using |vim.lsp.buf.selection_range()|. For example: >lua
+## Overriding default `an` and `in` ~
+*MiniAi-default-an-in*
 
-  local map_lsp_selection = function(lhs, desc)
-    local s = vim.startswith(desc, 'Increase') and 1 or -1
-    local rhs = function() vim.lsp.buf.selection_range(s * vim.v.count1) end
-    vim.keymap.set('x', lhs, rhs, { desc = desc })
-  end
-  map_lsp_selection('<Leader>ls', 'Increase selection')
-  map_lsp_selection('<Leader>lS', 'Decrease selection')
+Default `around_next` / `inside_next` mappings override newly added in Neovim=0.12
+built-in mappings |v_an| and |v_in|. This is intentional for better usability
+and backwards compatibility. There are several ways to work around this:
+
+- Remap Neovim's `an` / `in` to something else before calling |MiniAi.setup()|: >lua
+
+    -- Use `<Leader>ls` and `<Leader>lS` for incremental selection
+    local copy_keymap = function(mode, from_lhs, to_lhs)
+      local keymap = vim.fn.maparg(from_lhs, mode, false, true)
+      local rhs = keymap.callback or keymap.rhs
+      vim.keymap.set(mode, to_lhs, rhs, { desc = keymap.desc })
+    end
+    copy_keymap('x', 'an', '<Leader>ls')
+    copy_keymap('x', 'in', '<Leader>lS')
+
+    -- ...
+    require('mini.ai').setup({...})
 <
+- Use |MiniAi.gen_spec.treesitter()| with one or many captures for versatile
+  tree-sitter based textobjects. It also allows consecutive application in
+  Visual mode: similar to incremental selection, with `next` / `last` variants,
+  but without "decrease selection".
+
+- Use other values for "next" / "last" variants. For example: >lua
+
+  require('mini.ai').setup({
+    mappings = {
+      around_next = 'aN',
+      inside_next = 'iN',
+      around_last = 'aL',
+      inside_last = 'iL',
+    }
+  })
+<
+## Overriding default `al` and `il` ~
+*MiniAi-default-al-il*
+
+Default `around_last` / `inside_last` mappings override newly added in Neovim=0.13
+built-in mappings |al| and |il|. This is intentional for better usability
+and backwards compatibility. There are several ways to work around this:
+
+- Use |MiniExtra.gen_ai_spec.buffer()| and |MiniExtra.gen_ai_spec.line()| to
+  create custom textobjects for buffer and line: >lua
+
+    require('mini.extra').setup()
+    require('mini.ai').setup({
+      custom_textobjects = {
+        -- Makes `aB` equivalent to built-in `al`
+        B = MiniExtra.gen_ai_spec.buffer(),
+        -- Makes `iL` equivalent to built-in `il`
+        L = MiniExtra.gen_ai_spec.line(),
+      },
+    })
+<
+- Use other values for "next" / "last" variants. See |MiniAi-default-an-in|.
+
 ------------------------------------------------------------------------------
                                                       *MiniAi.find_textobject()*
                `MiniAi.find_textobject`({ai_type}, {id}, {opts})

@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Nocturnal Winter by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Nocturnal Winter
+accent: "#3081df" # base0D
+cursor: "#dcdcdc" # base05
+background: "#0d0d17" # base00
+foreground: "#dcdcdc" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#0d0d17" # base00
+    red: "#f12d52" # base08
+    yellow: "#6095fe" # base0A
+    green: "#08cd7d" # base0B
+    cyan: "#09c87a" # base0C
+    blue: "#3081df" # base0D
+    magenta: "#fe2a6c" # base0E
+    white: "#dcdcdc" # base05
+
+  bright:
+    black: "#9e9e9e" # base03
+    red: "#f16c85" # base12
+    yellow: "#fefb67" # base13
+    green: "#0ae78d" # base14
+    cyan: "#0ae78d" # base15
+    blue: "#6095fe" # base16
+    magenta: "#ff78a2" # base17
+    white: "#ffffff" # base07

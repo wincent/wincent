@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Breeze by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Breeze
+accent: "#1d99f3" # base0D
+cursor: "#d3d7d8" # base05
+background: "#31363b" # base00
+foreground: "#d3d7d8" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#31363b" # base00
+    red: "#ed1515" # base08
+    yellow: "#3daee9" # base0A
+    green: "#11d116" # base0B
+    cyan: "#1abc9c" # base0C
+    blue: "#1d99f3" # base0D
+    magenta: "#9b59b6" # base0E
+    white: "#d3d7d8" # base05
+
+  bright:
+    black: "#9ba5a6" # base03
+    red: "#c0392b" # base12
+    yellow: "#fdbc4b" # base13
+    green: "#1cdc9a" # base14
+    cyan: "#16a085" # base15
+    blue: "#3daee9" # base16
+    magenta: "#8e44ad" # base17
+    white: "#fcfcfc" # base07

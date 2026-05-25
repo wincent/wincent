@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Treehouse by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Treehouse
+accent: "#578499" # base0D
+cursor: "#695d47" # base05
+background: "#191919" # base00
+foreground: "#695d47" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#191919" # base00
+    red: "#b1270e" # base08
+    yellow: "#85cfec" # base0A
+    green: "#44a900" # base0B
+    cyan: "#b2591d" # base0C
+    blue: "#578499" # base0D
+    magenta: "#96363c" # base0E
+    white: "#695d47" # base05
+
+  bright:
+    black: "#4f4330" # base03
+    red: "#ed5c20" # base12
+    yellow: "#f1b731" # base13
+    green: "#55f237" # base14
+    cyan: "#f07d14" # base15
+    blue: "#85cfec" # base16
+    magenta: "#e04b5a" # base17
+    white: "#ffc800" # base07

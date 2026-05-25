@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Forest Blue by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Forest Blue
+accent: "#8ed0ce" # base0D
+cursor: "#b8b1a9" # base05
+background: "#051519" # base00
+foreground: "#b8b1a9" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#051519" # base00
+    red: "#f8818e" # base08
+    yellow: "#39a7a2" # base0A
+    green: "#92d3a2" # base0B
+    cyan: "#31658c" # base0C
+    blue: "#8ed0ce" # base0D
+    magenta: "#5e468c" # base0E
+    white: "#b8b1a9" # base05
+
+  bright:
+    black: "#666361" # base03
+    red: "#fb3d66" # base12
+    yellow: "#2fc859" # base13
+    green: "#6bb48d" # base14
+    cyan: "#6096bf" # base15
+    blue: "#39a7a2" # base16
+    magenta: "#7e62b3" # base17
+    white: "#e2d8cd" # base07

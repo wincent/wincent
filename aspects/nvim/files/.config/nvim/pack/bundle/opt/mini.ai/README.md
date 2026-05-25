@@ -63,59 +63,73 @@ There are two branches to install from:
 Here are code snippets for some common installation methods (use only one):
 
 <details>
-<summary>With <a href="https://nvim-mini.org/mini.nvim/readmes/mini-deps">mini.deps</a></summary>
+<summary><b>(Recommended)</b> With <a href="https://neovim.io/doc/user/helptag.html?tag=vim.pack">vim.pack</a> (on Neovim 0.12 and newer)</summary>
 
-- 'mini.nvim' library:
+**Full library**
 
-    | Branch | Code snippet                                  |
-    |--------|-----------------------------------------------|
-    | Main   | *Follow recommended 'mini.deps' installation* |
-    | Stable | *Follow recommended 'mini.deps' installation* |
+Follow ['mini.nvim' installation](https://nvim-mini.org/mini.nvim#installation).
 
-- Standalone plugin:
+**Standalone plugin**
 
-    | Branch | Code snippet                                                 |
-    |--------|--------------------------------------------------------------|
-    | Main   | `add('nvim-mini/mini.ai')`                                   |
-    | Stable | `add({ source = 'nvim-mini/mini.ai', checkout = 'stable' })` |
+Main branch:
+
+```lua
+vim.pack.add({ 'https://github.com/nvim-mini/mini.ai' })
+```
+
+Stable branch:
+
+```lua
+vim.pack.add({
+  { src = 'https://github.com/nvim-mini/mini.ai', version = 'stable' },
+})
+```
+
+</details>
+
+<details>
+<summary>With <a href="https://nvim-mini.org/mini.nvim/readmes/mini-deps">mini.deps</a> (before Neovim 0.12)</summary>
+
+**Full library**
+
+Follow [recommended 'mini.deps' installation](https://nvim-mini.org/mini.nvim/readmes/mini-deps#installation).
+
+**Standalone plugin**:
+
+Main branch:
+
+```lua
+add('nvim-mini/mini.ai')
+```
+
+Stable branch:
+
+```lua
+add({ source = 'nvim-mini/mini.ai', checkout = 'stable' })
+```
 
 </details>
 
 <details>
 <summary>With <a href="https://github.com/folke/lazy.nvim">folke/lazy.nvim</a></summary>
 
-- 'mini.nvim' library:
+**Full library**
 
-    | Branch | Code snippet                                  |
-    |--------|-----------------------------------------------|
-    | Main   | `{ 'nvim-mini/mini.nvim', version = false },` |
-    | Stable | `{ 'nvim-mini/mini.nvim', version = '*' },`   |
+Follow ['mini.nvim' installation](https://nvim-mini.org/mini.nvim#installation).
 
-- Standalone plugin:
+**Standalone plugin**
 
-    | Branch | Code snippet                                |
-    |--------|---------------------------------------------|
-    | Main   | `{ 'nvim-mini/mini.ai', version = false },` |
-    | Stable | `{ 'nvim-mini/mini.ai', version = '*' },`   |
+Main branch:
 
-</details>
+```lua
+{ 'nvim-mini/mini.ai', version = false },
+```
 
-<details>
-<summary>With <a href="https://github.com/junegunn/vim-plug">junegunn/vim-plug</a></summary>
+Stable branch:
 
-- 'mini.nvim' library:
-
-    | Branch | Code snippet                                         |
-    |--------|------------------------------------------------------|
-    | Main   | `Plug 'nvim-mini/mini.nvim'`                         |
-    | Stable | `Plug 'nvim-mini/mini.nvim', { 'branch': 'stable' }` |
-
-- Standalone plugin:
-
-    | Branch | Code snippet                                       |
-    |--------|----------------------------------------------------|
-    | Main   | `Plug 'nvim-mini/mini.ai'`                         |
-    | Stable | `Plug 'nvim-mini/mini.ai', { 'branch': 'stable' }` |
+```lua
+{ 'nvim-mini/mini.ai', version = '*' },
+```
 
 </details>
 
@@ -142,8 +156,8 @@ Here are code snippets for some common installation methods (use only one):
     inside = 'i',
 
     -- Next/last variants
-    -- NOTE: These override built-in LSP selection mappings on Neovim>=0.12
-    -- Map LSP selection manually to use it (see `:h MiniAi.config`)
+    -- NOTE: This (deliberately) overrides Neovim>=0.12 built-in incremental
+    -- selection mappings. See `:h MiniAi-default-an-in` for more details.
     around_next = 'an',
     inside_next = 'in',
     around_last = 'al',

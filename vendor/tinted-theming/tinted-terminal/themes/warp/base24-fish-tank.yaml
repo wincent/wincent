@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Fish Tank by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Fish Tank
+accent: "#525fb8" # base0D
+cursor: "#ccc9c9" # base05
+background: "#222436" # base00
+foreground: "#ccc9c9" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#222436" # base00
+    red: "#c60049" # base08
+    yellow: "#b1bdf9" # base0A
+    green: "#abf157" # base0B
+    cyan: "#968662" # base0C
+    blue: "#525fb8" # base0D
+    magenta: "#976f81" # base0E
+    white: "#ccc9c9" # base05
+
+  bright:
+    black: "#8c7f63" # base03
+    red: "#d94a8a" # base12
+    yellow: "#fee6a8" # base13
+    green: "#daffa8" # base14
+    cyan: "#a4bc86" # base15
+    blue: "#b1bdf9" # base16
+    magenta: "#fda4cc" # base17
+    white: "#f6ffec" # base07

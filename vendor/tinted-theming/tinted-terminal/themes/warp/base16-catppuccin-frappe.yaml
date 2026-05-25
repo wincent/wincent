@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Catppuccin Frappe by https://github.com/catppuccin/catppuccin
+
+name: Base16 Catppuccin Frappe
+accent: "#8caaee" # base0D
+cursor: "#c6d0f5" # base05
+background: "#303446" # base00
+foreground: "#c6d0f5" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#303446" # base00
+    red: "#e78284" # base08
+    yellow: "#e5c890" # base0A
+    green: "#a6d189" # base0B
+    cyan: "#81c8be" # base0C
+    blue: "#8caaee" # base0D
+    magenta: "#ca9ee6" # base0E
+    white: "#c6d0f5" # base05
+
+  normal:
+    black: "#51576d" # base03
+    red: "#e78284" # base08
+    yellow: "#e5c890" # base0A
+    green: "#a6d189" # base0B
+    cyan: "#81c8be" # base0C
+    blue: "#8caaee" # base0D
+    magenta: "#ca9ee6" # base0E
+    white: "#babbf1" # base07

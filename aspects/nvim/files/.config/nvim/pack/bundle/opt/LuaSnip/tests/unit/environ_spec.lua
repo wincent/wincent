@@ -1,5 +1,6 @@
 local ls_helpers = require("helpers")
-local exec_lua, exec = ls_helpers.exec_lua, ls_helpers.exec
+local exec_lua, exec, assert =
+	ls_helpers.exec_lua, ls_helpers.exec, ls_helpers.assert
 
 describe("luasnip.util.environ", function()
 	ls_helpers.clear()
@@ -27,7 +28,7 @@ describe("luasnip.util.environ", function()
 
 	local function check_value(test_name, namespace_setup, var_name, val)
 		it(test_name, function()
-			assert.are.equal(
+			assert.eq(
 				exec_lua(
 					([=[
 					local Environ = require("luasnip.util.environ")
@@ -69,7 +70,7 @@ describe("luasnip.util.environ", function()
 		eager
 	)
 		it(test_name, function()
-			assert.are.equal(
+			assert.eq(
 				exec_lua(
 					([=[
 					local Environ = require("luasnip.util.environ")

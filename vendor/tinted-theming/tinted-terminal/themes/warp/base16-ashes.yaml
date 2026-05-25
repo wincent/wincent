@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Ashes by Jannik Siebert (https://github.com/janniks)
+
+name: Base16 Ashes
+accent: "#ae95c7" # base0D
+cursor: "#c7ccd1" # base05
+background: "#1c2023" # base00
+foreground: "#c7ccd1" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#1c2023" # base00
+    red: "#c7ae95" # base08
+    yellow: "#aec795" # base0A
+    green: "#95c7ae" # base0B
+    cyan: "#95aec7" # base0C
+    blue: "#ae95c7" # base0D
+    magenta: "#c795ae" # base0E
+    white: "#c7ccd1" # base05
+
+  normal:
+    black: "#747c84" # base03
+    red: "#c7ae95" # base08
+    yellow: "#aec795" # base0A
+    green: "#95c7ae" # base0B
+    cyan: "#95aec7" # base0C
+    blue: "#ae95c7" # base0D
+    magenta: "#c795ae" # base0E
+    white: "#f3f4f5" # base07

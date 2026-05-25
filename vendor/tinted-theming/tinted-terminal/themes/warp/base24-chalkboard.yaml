@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Chalkboard by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Chalkboard
+accent: "#7372c3" # base0D
+cursor: "#afafaf" # base05
+background: "#29262f" # base00
+foreground: "#afafaf" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#29262f" # base00
+    red: "#c37372" # base08
+    yellow: "#aaaadb" # base0A
+    green: "#72c373" # base0B
+    cyan: "#72c2c3" # base0C
+    blue: "#7372c3" # base0D
+    magenta: "#c372c2" # base0E
+    white: "#afafaf" # base05
+
+  bright:
+    black: "#5b5b5b" # base03
+    red: "#dbaaaa" # base12
+    yellow: "#dadbaa" # base13
+    green: "#aadbaa" # base14
+    cyan: "#aadadb" # base15
+    blue: "#aaaadb" # base16
+    magenta: "#dbaada" # base17
+    white: "#ffffff" # base07

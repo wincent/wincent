@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: ShadeSmear Light by Kyle Giammarco (http://kyle.giammar.co)
+
+name: Base16 ShadeSmear Light
+accent: "#376388" # base0D
+cursor: "#232323" # base05
+background: "#dbdbdb" # base00
+foreground: "#232323" # base05
+details: lighter
+
+terminal_colors:
+  bright:
+    black: "#dbdbdb" # base00
+    red: "#cc5450" # base08
+    yellow: "#307878" # base0A
+    green: "#71983b" # base0B
+    cyan: "#c57d42" # base0C
+    blue: "#376388" # base0D
+    magenta: "#d7ab54" # base0E
+    white: "#232323" # base05
+
+  normal:
+    black: "#4e4e4e" # base03
+    red: "#cc5450" # base08
+    yellow: "#307878" # base0A
+    green: "#71983b" # base0B
+    cyan: "#c57d42" # base0C
+    blue: "#376388" # base0D
+    magenta: "#d7ab54" # base0E
+    white: "#e4e4e4" # base07

@@ -1,0 +1,43 @@
+# base16 Kissa Macchiato
+# Scheme author: rwendell (https://github.com/rwendell/kissa)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#1f1c16"
+foreground = "#faf0e6"
+
+cursor_bg = "#faf0e6"
+cursor_border = "#faf0e6"
+cursor_fg = "#1f1c16"
+
+selection_bg = "#faf0e6"
+selection_fg = "#47443f"
+
+ansi = [
+  "#1f1c16",
+  "#e87777",
+  "#8cb870",
+  "#eac67a",
+  "#7fa8d4",
+  "#b094cc",
+  "#6ab8b0",
+  "#faf0e6"
+]
+brights = [
+  "#b8a48c",
+  "#e87777",
+  "#8cb870",
+  "#eac67a",
+  "#7fa8d4",
+  "#b094cc",
+  "#6ab8b0",
+  "#fef4e4"
+]
+
+[colors.indexed]
+16 = "#da9050"
+17 = "#cc88aa"
+18 = "#35322d"
+19 = "#47443f"
+20 = "#d4c4a8"
+21 = "#e8d5b7"

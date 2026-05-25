@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Purpledream by malet
+
+name: Base16 Purpledream
+accent: "#00a0f0" # base0D
+cursor: "#ddd0dd" # base05
+background: "#100510" # base00
+foreground: "#ddd0dd" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#100510" # base00
+    red: "#ff1d0d" # base08
+    yellow: "#f000a0" # base0A
+    green: "#14cc64" # base0B
+    cyan: "#0075b0" # base0C
+    blue: "#00a0f0" # base0D
+    magenta: "#b000d0" # base0E
+    white: "#ddd0dd" # base05
+
+  normal:
+    black: "#605060" # base03
+    red: "#ff1d0d" # base08
+    yellow: "#f000a0" # base0A
+    green: "#14cc64" # base0B
+    cyan: "#0075b0" # base0C
+    blue: "#00a0f0" # base0D
+    magenta: "#b000d0" # base0E
+    white: "#fff0ff" # base07

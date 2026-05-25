@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Atelier Lakeside Light by Bram de Haan (http://atelierbramdehaan.nl)
+
+name: Base16 Atelier Lakeside Light
+accent: "#257fad" # base0D
+cursor: "#516d7b" # base05
+background: "#ebf8ff" # base00
+foreground: "#516d7b" # base05
+details: lighter
+
+terminal_colors:
+  bright:
+    black: "#ebf8ff" # base00
+    red: "#d22d72" # base08
+    yellow: "#8a8a0f" # base0A
+    green: "#568c3b" # base0B
+    cyan: "#2d8f6f" # base0C
+    blue: "#257fad" # base0D
+    magenta: "#6b6bb8" # base0E
+    white: "#516d7b" # base05
+
+  normal:
+    black: "#7195a8" # base03
+    red: "#d22d72" # base08
+    yellow: "#8a8a0f" # base0A
+    green: "#568c3b" # base0B
+    cyan: "#2d8f6f" # base0C
+    blue: "#257fad" # base0D
+    magenta: "#6b6bb8" # base0E
+    white: "#161b1d" # base07

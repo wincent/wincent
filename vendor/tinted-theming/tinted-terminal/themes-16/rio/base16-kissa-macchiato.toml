@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Kissa Macchiato by rwendell (https://github.com/rwendell/kissa)
+
+[colors]
+selection-background = '#faf0e6' # base05
+selection-foreground = '#47443f' # base02
+
+cursor         = '#faf0e6' # base05
+tabs           = '#35322d' # base01
+tabs-active    = '#47443f' # base02
+
+background     = '#1f1c16' # base00
+foreground     = '#faf0e6' # base05
+black          = '#1f1c16' # base00
+red            = '#e87777' # base08
+yellow         = '#eac67a' # base0A
+green          = '#8cb870' # base0B
+cyan           = '#6ab8b0' # base0C
+blue           = '#7fa8d4' # base0D
+magenta        = '#b094cc' # base0E
+white          = '#faf0e6' # base05
+
+dim-foreground   = '#faf0e6' # base05
+dim-black        = '#35322d' # base01
+dim-red          = '#e87777' # base08
+dim-yellow       = '#eac67a' # base0A
+dim-green        = '#8cb870' # base0B
+dim-cyan         = '#6ab8b0' # base0C
+dim-blue         = '#7fa8d4' # base0D
+dim-magenta      = '#b094cc' # base0E
+dim-white        = '#d4c4a8' # base04
+
+light-foreground = '#faf0e6' # base05
+light-black      = '#b8a48c' # base03
+light-red        = '#e87777' # base08
+light-yellow     = '#eac67a' # base0A
+light-green      = '#8cb870' # base0B
+light-cyan       = '#6ab8b0' # base0C
+light-blue       = '#7fa8d4' # base0D
+light-magenta    = '#b094cc' # base0E
+light-white      = '#fef4e4' # base07

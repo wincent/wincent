@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Fruit Soda by jozip
+
+name: Base16 Fruit Soda
+accent: "#2931df" # base0D
+cursor: "#515151" # base05
+background: "#f1ecf1" # base00
+foreground: "#515151" # base05
+details: lighter
+
+terminal_colors:
+  bright:
+    black: "#f1ecf1" # base00
+    red: "#fe3e31" # base08
+    yellow: "#f7e203" # base0A
+    green: "#47f74c" # base0B
+    cyan: "#0f9cfd" # base0C
+    blue: "#2931df" # base0D
+    magenta: "#611fce" # base0E
+    white: "#515151" # base05
+
+  normal:
+    black: "#b5b4b6" # base03
+    red: "#fe3e31" # base08
+    yellow: "#f7e203" # base0A
+    green: "#47f74c" # base0B
+    cyan: "#0f9cfd" # base0C
+    blue: "#2931df" # base0D
+    magenta: "#611fce" # base0E
+    white: "#2d2c2c" # base07

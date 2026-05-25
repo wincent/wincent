@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Pnevma by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Pnevma
+accent: "#7fa5bd" # base0D
+cursor: "#aeaead" # base05
+background: "#1c1c1c" # base00
+foreground: "#aeaead" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#1c1c1c" # base00
+    red: "#a36666" # base08
+    yellow: "#a1bdce" # base0A
+    green: "#90a57d" # base0B
+    cyan: "#8adbb4" # base0C
+    blue: "#7fa5bd" # base0D
+    magenta: "#c79ec4" # base0E
+    white: "#aeaead" # base05
+
+  bright:
+    black: "#6b6a67" # base03
+    red: "#d78787" # base12
+    yellow: "#e4c9af" # base13
+    green: "#afbea2" # base14
+    cyan: "#b1e7dd" # base15
+    blue: "#a1bdce" # base16
+    magenta: "#d7beda" # base17
+    white: "#efefef" # base07

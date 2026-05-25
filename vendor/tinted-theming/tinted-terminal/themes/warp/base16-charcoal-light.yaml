@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Charcoal Light by Mubin Muhammad (https://github.com/mubin6th)
+
+name: Base16 Charcoal Light
+accent: "#251e0f" # base0D
+cursor: "#382e1b" # base05
+background: "#cabda0" # base00
+foreground: "#382e1b" # base05
+details: lighter
+
+terminal_colors:
+  bright:
+    black: "#cabda0" # base00
+    red: "#382e1b" # base08
+    yellow: "#110e06" # base0A
+    green: "#110e06" # base0B
+    cyan: "#110e06" # base0C
+    blue: "#251e0f" # base0D
+    magenta: "#382e1b" # base0E
+    white: "#382e1b" # base05
+
+  normal:
+    black: "#645538" # base03
+    red: "#382e1b" # base08
+    yellow: "#110e06" # base0A
+    green: "#110e06" # base0B
+    cyan: "#110e06" # base0C
+    blue: "#251e0f" # base0D
+    magenta: "#382e1b" # base0E
+    white: "#bcad8c" # base07

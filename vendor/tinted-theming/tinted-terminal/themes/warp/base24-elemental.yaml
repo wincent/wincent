@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Elemental by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Elemental
+accent: "#497f7d" # base0D
+cursor: "#756f68" # base05
+background: "#21211c" # base00
+foreground: "#756f68" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#21211c" # base00
+    red: "#97280f" # base08
+    yellow: "#78d8d8" # base0A
+    green: "#479942" # base0B
+    cyan: "#387f58" # base0C
+    blue: "#497f7d" # base0D
+    magenta: "#7e4e2e" # base0E
+    white: "#756f68" # base05
+
+  bright:
+    black: "#5f5d50" # base03
+    red: "#df502a" # base12
+    yellow: "#d69827" # base13
+    green: "#60e06f" # base14
+    cyan: "#58d598" # base15
+    blue: "#78d8d8" # base16
+    magenta: "#cd7c53" # base17
+    white: "#fff1e8" # base07

@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Material Palenight by Nate Peterson
+
+name: Base16 Material Palenight
+accent: "#82aaff" # base0D
+cursor: "#959dcb" # base05
+background: "#292d3e" # base00
+foreground: "#959dcb" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#292d3e" # base00
+    red: "#f07178" # base08
+    yellow: "#ffcb6b" # base0A
+    green: "#c3e88d" # base0B
+    cyan: "#89ddff" # base0C
+    blue: "#82aaff" # base0D
+    magenta: "#c792ea" # base0E
+    white: "#959dcb" # base05
+
+  normal:
+    black: "#676e95" # base03
+    red: "#f07178" # base08
+    yellow: "#ffcb6b" # base0A
+    green: "#c3e88d" # base0B
+    cyan: "#89ddff" # base0C
+    blue: "#82aaff" # base0D
+    magenta: "#c792ea" # base0E
+    white: "#ffffff" # base07

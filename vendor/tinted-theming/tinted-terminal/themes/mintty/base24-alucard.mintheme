@@ -1,0 +1,27 @@
+# Alucard theme for Mintty
+# Scheme Author: clach04 (https://github.com/clach04)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #fffbeb
+Red         = #cb3a2a
+Green       = #14710a
+Yellow      = #846e15
+Blue        = #644ac9
+Magenta     = #a3144d
+Cyan        = #036a96
+White       = #1f1f1f
+BoldBlack   = #6c664b
+BoldRed     = #d74c3d
+BoldGreen   = #198d0c
+BoldYellow  = #9e841a
+BoldBlue    = #7862d0
+BoldMagenta = #bf185a
+BoldCyan    = #047fb4
+BoldWhite   = #2c2b31
+
+# Background & foreground colors
+BackgroundColour = #fffbeb
+ForegroundColour = #1f1f1f
+CursorColour     = #1f1f1f

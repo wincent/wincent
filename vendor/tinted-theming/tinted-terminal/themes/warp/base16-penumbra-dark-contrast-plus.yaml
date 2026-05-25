@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Penumbra Dark Contrast Plus by Zachary Weiss (https://github.com/zacharyweiss)
+
+name: Base16 Penumbra Dark Contrast Plus
+accent: "#61a3e6" # base0D
+cursor: "#cecece" # base05
+background: "#181b1f" # base00
+foreground: "#cecece" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#181b1f" # base00
+    red: "#df7f78" # base08
+    yellow: "#9ca748" # base0A
+    green: "#50b584" # base0B
+    cyan: "#00b3c2" # base0C
+    blue: "#61a3e6" # base0D
+    magenta: "#a48fe1" # base0E
+    white: "#cecece" # base05
+
+  normal:
+    black: "#636363" # base03
+    red: "#df7f78" # base08
+    yellow: "#9ca748" # base0A
+    green: "#50b584" # base0B
+    cyan: "#00b3c2" # base0C
+    blue: "#61a3e6" # base0D
+    magenta: "#a48fe1" # base0E
+    white: "#fffdfb" # base07

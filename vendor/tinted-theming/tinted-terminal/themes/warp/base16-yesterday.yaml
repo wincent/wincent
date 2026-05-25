@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Yesterday by FroZnShiva (https://github.com/FroZnShiva)
+
+name: Base16 Yesterday
+accent: "#4271ae" # base0D
+cursor: "#d6d6d6" # base05
+background: "#1d1f21" # base00
+foreground: "#d6d6d6" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#1d1f21" # base00
+    red: "#c82829" # base08
+    yellow: "#eab700" # base0A
+    green: "#718c00" # base0B
+    cyan: "#3e999f" # base0C
+    blue: "#4271ae" # base0D
+    magenta: "#8959a8" # base0E
+    white: "#d6d6d6" # base05
+
+  normal:
+    black: "#969896" # base03
+    red: "#c82829" # base08
+    yellow: "#eab700" # base0A
+    green: "#718c00" # base0B
+    cyan: "#3e999f" # base0C
+    blue: "#4271ae" # base0D
+    magenta: "#8959a8" # base0E
+    white: "#ffffff" # base07

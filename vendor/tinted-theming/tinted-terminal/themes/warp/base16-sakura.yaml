@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Sakura by Misterio77 (http://github.com/Misterio77)
+
+name: Base16 Sakura
+accent: "#006e93" # base0D
+cursor: "#564448" # base05
+background: "#feedf3" # base00
+foreground: "#564448" # base05
+details: lighter
+
+terminal_colors:
+  bright:
+    black: "#feedf3" # base00
+    red: "#df2d52" # base08
+    yellow: "#c29461" # base0A
+    green: "#2e916d" # base0B
+    cyan: "#1d8991" # base0C
+    blue: "#006e93" # base0D
+    magenta: "#5e2180" # base0E
+    white: "#564448" # base05
+
+  normal:
+    black: "#755f64" # base03
+    red: "#df2d52" # base08
+    yellow: "#c29461" # base0A
+    green: "#2e916d" # base0B
+    cyan: "#1d8991" # base0C
+    blue: "#006e93" # base0D
+    magenta: "#5e2180" # base0E
+    white: "#33292b" # base07

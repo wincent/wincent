@@ -1,0 +1,43 @@
+# base16 Kissa Latte
+# Scheme author: rwendell (https://github.com/rwendell/kissa)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#f5f4f0"
+foreground = "#1f1c16"
+
+cursor_bg = "#1f1c16"
+cursor_border = "#1f1c16"
+cursor_fg = "#f5f4f0"
+
+selection_bg = "#1f1c16"
+selection_fg = "#d5d2cb"
+
+ansi = [
+  "#f5f4f0",
+  "#9e3e3e",
+  "#387050",
+  "#7d6820",
+  "#3468a8",
+  "#6438a0",
+  "#287070",
+  "#1f1c16"
+]
+brights = [
+  "#91887d",
+  "#9e3e3e",
+  "#387050",
+  "#7d6820",
+  "#3468a8",
+  "#6438a0",
+  "#287070",
+  "#fefcfa"
+]
+
+[colors.indexed]
+16 = "#8f5d22"
+17 = "#943a68"
+18 = "#e8e7e3"
+19 = "#d5d2cb"
+20 = "#746c62"
+21 = "#6e6459"

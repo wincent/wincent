@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Spaceduck by Guillermo Rodriguez (https://github.com/pineapplegiant), packaged by Gabriel Fontes (https://github.com/Misterio77)
+
+name: Base16 Spaceduck
+accent: "#7a5ccc" # base0D
+cursor: "#ecf0c1" # base05
+background: "#16172d" # base00
+foreground: "#ecf0c1" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#16172d" # base00
+    red: "#e33400" # base08
+    yellow: "#f2ce00" # base0A
+    green: "#5ccc96" # base0B
+    cyan: "#00a3cc" # base0C
+    blue: "#7a5ccc" # base0D
+    magenta: "#b3a1e6" # base0E
+    white: "#ecf0c1" # base05
+
+  normal:
+    black: "#686f9a" # base03
+    red: "#e33400" # base08
+    yellow: "#f2ce00" # base0A
+    green: "#5ccc96" # base0B
+    cyan: "#00a3cc" # base0C
+    blue: "#7a5ccc" # base0D
+    magenta: "#b3a1e6" # base0E
+    white: "#ffffff" # base07

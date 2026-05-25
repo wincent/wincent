@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Dark Violet by ruler501 (https://github.com/ruler501/base16-darkviolet)
+
+name: Base16 Dark Violet
+accent: "#4136d9" # base0D
+cursor: "#b08ae6" # base05
+background: "#000000" # base00
+foreground: "#b08ae6" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#000000" # base00
+    red: "#a82ee6" # base08
+    yellow: "#f29df2" # base0A
+    green: "#4595e6" # base0B
+    cyan: "#40dfff" # base0C
+    blue: "#4136d9" # base0D
+    magenta: "#7e5ce6" # base0E
+    white: "#b08ae6" # base05
+
+  normal:
+    black: "#593380" # base03
+    red: "#a82ee6" # base08
+    yellow: "#f29df2" # base0A
+    green: "#4595e6" # base0B
+    cyan: "#40dfff" # base0C
+    blue: "#4136d9" # base0D
+    magenta: "#7e5ce6" # base0E
+    white: "#a366ff" # base07

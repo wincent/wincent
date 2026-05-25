@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Brogrammer by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Brogrammer
+accent: "#2a84d2" # base0D
+cursor: "#c1c8d7" # base05
+background: "#131313" # base00
+foreground: "#c1c8d7" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#131313" # base00
+    red: "#f71118" # base08
+    yellow: "#0f80d5" # base0A
+    green: "#2cc55d" # base0B
+    cyan: "#0f80d5" # base0C
+    blue: "#2a84d2" # base0D
+    magenta: "#4e59b7" # base0E
+    white: "#c1c8d7" # base05
+
+  bright:
+    black: "#343d50" # base03
+    red: "#de342e" # base12
+    yellow: "#f2bd09" # base13
+    green: "#1dd260" # base14
+    cyan: "#289af0" # base15
+    blue: "#509bdc" # base16
+    magenta: "#524fb9" # base17
+    white: "#ffffff" # base07

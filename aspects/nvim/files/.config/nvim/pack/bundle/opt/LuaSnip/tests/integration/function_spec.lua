@@ -1,6 +1,7 @@
 local ls_helpers = require("helpers")
 local exec_lua, feed = ls_helpers.exec_lua, ls_helpers.feed
 local Screen = require("test.functional.ui.screen")
+local assert = ls_helpers.assert
 
 describe("FunctionNode", function()
 	local screen
@@ -30,7 +31,7 @@ describe("FunctionNode", function()
 				end, {})
 			})
 		]]
-		assert.are.same(
+		assert.eq(
 			exec_lua("return " .. snip .. ":get_static_text()"),
 			{ "it expands" }
 		)
@@ -50,7 +51,7 @@ describe("FunctionNode", function()
 				i(1, "a"), t" -> ", f(function(args) return args[1] end, 1), t" == ", f(function(args) return args[1] end, {1})
 			})
 		]]
-		assert.are.same(
+		assert.eq(
 			exec_lua("return " .. snip .. ":get_static_text()"),
 			{ "a -> a == a" }
 		)
@@ -178,7 +179,7 @@ describe("FunctionNode", function()
 				f(function(args) return args[1][1]..args[2][1] end, {_luasnip_test_resolve("first"), 1} )
 			})
 		]]
-			assert.are.same(
+			assert.eq(
 				{ "cccc aaaa" },
 				exec_lua("return " .. snip .. ":get_static_text()")
 			)
@@ -237,7 +238,7 @@ describe("FunctionNode", function()
 				}, "\t")
 			})
 		]]
-		assert.are.same(
+		assert.eq(
 			exec_lua("return " .. snip .. ":get_static_text()"),
 			{ "asdf", "\tasdf" }
 		)

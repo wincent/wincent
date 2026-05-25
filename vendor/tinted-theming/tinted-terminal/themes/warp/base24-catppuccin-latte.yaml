@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Catppuccin Latte by https://github.com/catppuccin/catppuccin
+
+name: Base24 Catppuccin Latte
+accent: "#1e66f5" # base0D
+cursor: "#4c4f69" # base05
+background: "#eff1f5" # base00
+foreground: "#4c4f69" # base05
+details: lighter
+
+terminal_colors:
+  normal:
+    black: "#eff1f5" # base00
+    red: "#d20f39" # base08
+    yellow: "#df8e1d" # base0A
+    green: "#40a02b" # base0B
+    cyan: "#179299" # base0C
+    blue: "#1e66f5" # base0D
+    magenta: "#8839ef" # base0E
+    white: "#4c4f69" # base05
+
+  bright:
+    black: "#bcc0cc" # base03
+    red: "#e64553" # base12
+    yellow: "#dc8a78" # base13
+    green: "#40a02b" # base14
+    cyan: "#04a5e5" # base15
+    blue: "#209fb5" # base16
+    magenta: "#ea76cb" # base17
+    white: "#7287fd" # base07

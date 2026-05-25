@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Wild Cherry by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Wild Cherry
+accent: "#883cdc" # base0D
+cursor: "#bfe1d8" # base05
+background: "#1f1626" # base00
+foreground: "#bfe1d8" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#1f1626" # base00
+    red: "#d94085" # base08
+    yellow: "#2f8bb9" # base0A
+    green: "#2ab250" # base0B
+    cyan: "#c1b8b7" # base0C
+    blue: "#883cdc" # base0D
+    magenta: "#ececec" # base0E
+    white: "#bfe1d8" # base05
+
+  bright:
+    black: "#3fb3ce" # base03
+    red: "#da6bab" # base12
+    yellow: "#eac066" # base13
+    green: "#f4dba5" # base14
+    cyan: "#ff919d" # base15
+    blue: "#2f8bb9" # base16
+    magenta: "#ae636b" # base17
+    white: "#e4838d" # base07

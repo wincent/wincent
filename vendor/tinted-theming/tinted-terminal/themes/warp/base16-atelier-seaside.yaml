@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Atelier Seaside by Bram de Haan (http://atelierbramdehaan.nl)
+
+name: Base16 Atelier Seaside
+accent: "#3d62f5" # base0D
+cursor: "#8ca68c" # base05
+background: "#131513" # base00
+foreground: "#8ca68c" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#131513" # base00
+    red: "#e6193c" # base08
+    yellow: "#98981b" # base0A
+    green: "#29a329" # base0B
+    cyan: "#1999b3" # base0C
+    blue: "#3d62f5" # base0D
+    magenta: "#ad2bee" # base0E
+    white: "#8ca68c" # base05
+
+  normal:
+    black: "#687d68" # base03
+    red: "#e6193c" # base08
+    yellow: "#98981b" # base0A
+    green: "#29a329" # base0B
+    cyan: "#1999b3" # base0C
+    blue: "#3d62f5" # base0D
+    magenta: "#ad2bee" # base0E
+    white: "#f4fbf4" # base07

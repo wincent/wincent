@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Codeschool by blockloop
+
+name: Base16 Codeschool
+accent: "#484d79" # base0D
+cursor: "#9ea7a6" # base05
+background: "#232c31" # base00
+foreground: "#9ea7a6" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#232c31" # base00
+    red: "#2a5491" # base08
+    yellow: "#a03b1e" # base0A
+    green: "#237986" # base0B
+    cyan: "#b02f30" # base0C
+    blue: "#484d79" # base0D
+    magenta: "#c59820" # base0E
+    white: "#9ea7a6" # base05
+
+  normal:
+    black: "#3f4944" # base03
+    red: "#2a5491" # base08
+    yellow: "#a03b1e" # base0A
+    green: "#237986" # base0B
+    cyan: "#b02f30" # base0C
+    blue: "#484d79" # base0D
+    magenta: "#c59820" # base0E
+    white: "#b5d8f6" # base07

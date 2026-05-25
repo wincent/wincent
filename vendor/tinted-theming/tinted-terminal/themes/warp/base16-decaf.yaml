@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Decaf by Alex Mirrington (https://github.com/alexmirrington)
+
+name: Base16 Decaf
+accent: "#90bee1" # base0D
+cursor: "#cccccc" # base05
+background: "#2d2d2d" # base00
+foreground: "#cccccc" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#2d2d2d" # base00
+    red: "#ff7f7b" # base08
+    yellow: "#ffd67c" # base0A
+    green: "#beda78" # base0B
+    cyan: "#bed6ff" # base0C
+    blue: "#90bee1" # base0D
+    magenta: "#efb3f7" # base0E
+    white: "#cccccc" # base05
+
+  normal:
+    black: "#777777" # base03
+    red: "#ff7f7b" # base08
+    yellow: "#ffd67c" # base0A
+    green: "#beda78" # base0B
+    cyan: "#bed6ff" # base0C
+    blue: "#90bee1" # base0D
+    magenta: "#efb3f7" # base0E
+    white: "#ffffff" # base07

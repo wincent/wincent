@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Purple Rain by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Purple Rain
+accent: "#00a1f9" # base0D
+cursor: "#d3d4d4" # base05
+background: "#20084a" # base00
+foreground: "#d3d4d4" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#20084a" # base00
+    red: "#ff260d" # base08
+    yellow: "#00a5ff" # base0A
+    green: "#9ae204" # base0B
+    cyan: "#00ddef" # base0C
+    blue: "#00a1f9" # base0D
+    magenta: "#805bb5" # base0E
+    white: "#d3d4d4" # base05
+
+  bright:
+    black: "#7f7f7f" # base03
+    red: "#ff4250" # base12
+    yellow: "#ffd852" # base13
+    green: "#b8e36d" # base14
+    cyan: "#74fcf3" # base15
+    blue: "#00a5ff" # base16
+    magenta: "#ab7aef" # base17
+    white: "#feffff" # base07

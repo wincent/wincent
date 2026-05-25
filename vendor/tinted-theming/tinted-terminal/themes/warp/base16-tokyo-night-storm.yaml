@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Tokyo Night Storm by Michaël Ball
+
+name: Base16 Tokyo Night Storm
+accent: "#2ac3de" # base0D
+cursor: "#a9b1d6" # base05
+background: "#24283b" # base00
+foreground: "#a9b1d6" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#24283b" # base00
+    red: "#c0caf5" # base08
+    yellow: "#0db9d7" # base0A
+    green: "#9ece6a" # base0B
+    cyan: "#b4f9f8" # base0C
+    blue: "#2ac3de" # base0D
+    magenta: "#bb9af7" # base0E
+    white: "#a9b1d6" # base05
+
+  normal:
+    black: "#444b6a" # base03
+    red: "#c0caf5" # base08
+    yellow: "#0db9d7" # base0A
+    green: "#9ece6a" # base0B
+    cyan: "#b4f9f8" # base0C
+    blue: "#2ac3de" # base0D
+    magenta: "#bb9af7" # base0E
+    white: "#d5d6db" # base07

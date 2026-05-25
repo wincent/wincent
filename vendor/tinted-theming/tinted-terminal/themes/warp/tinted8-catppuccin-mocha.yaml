@@ -1,0 +1,30 @@
+# Tinted Terminal tinted8 color theme (https://github.com/tinted-theming)
+# Color scheme: Catppuccin Mocha by https://github.com/catppuccin/catppuccin
+
+name: Tinted8 Catppuccin Mocha
+accent: "#94e2d5"
+cursor: "#cdd6f4"
+background: "#1e1e2e"
+foreground: "#cdd6f4"
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#1e1e2e"
+    red: "#f38ba8"
+    yellow: "#f9e2af"
+    green: "#a6e3a1"
+    cyan: "#94e2d5"
+    blue: "#89b4fa"
+    magenta: "#cba6f7"
+    white: "#cdd6f4"
+
+  bright:
+    black: "#353554"
+    red: "#f9c2d2"
+    yellow: "#fcf6e9"
+    green: "#d3f1d0"
+    cyan: "#c4efe8"
+    blue: "#c4d9fc"
+    magenta: "#ece0fb"
+    white: "#ffffff"

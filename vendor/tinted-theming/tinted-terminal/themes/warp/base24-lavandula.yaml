@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Lavandula by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Lavandula
+accent: "#4f4a7f" # base0D
+cursor: "#645d6f" # base05
+background: "#050014" # base00
+foreground: "#645d6f" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#050014" # base00
+    red: "#7c1525" # base08
+    yellow: "#8e86df" # base0A
+    green: "#337e6f" # base0B
+    cyan: "#57767f" # base0C
+    blue: "#4f4a7f" # base0D
+    magenta: "#593f7e" # base0E
+    white: "#645d6f" # base05
+
+  bright:
+    black: "#463c53" # base03
+    red: "#df5066" # base12
+    yellow: "#e0c286" # base13
+    green: "#52e0c4" # base14
+    cyan: "#9ad3df" # base15
+    blue: "#8e86df" # base16
+    magenta: "#a675df" # base17
+    white: "#8c91fa" # base07

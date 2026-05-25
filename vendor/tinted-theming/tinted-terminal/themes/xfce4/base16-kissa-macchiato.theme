@@ -1,0 +1,10 @@
+# Scheme name: Kissa Macchiato
+# Scheme author: rwendell (https://github.com/rwendell/kissa)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-kissa-macchiato
+ColorForeground=#faf0e6
+ColorBackground=#1f1c16
+ColorCursor=#faf0e6
+ColorBoldIsBright=FALSE
+ColorPalette=#1f1c16;#e87777;#8cb870;#eac67a;#7fa8d4;#b094cc;#6ab8b0;#faf0e6;#b8a48c;#e87777;#8cb870;#eac67a;#7fa8d4;#b094cc;#6ab8b0;#fef4e4

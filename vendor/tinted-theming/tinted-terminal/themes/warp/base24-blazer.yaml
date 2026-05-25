@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Blazer by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Blazer
+accent: "#7a7ab8" # base0D
+cursor: "#acacac" # base05
+background: "#0d1926" # base00
+foreground: "#acacac" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#0d1926" # base00
+    red: "#b87a7a" # base08
+    yellow: "#bdbddb" # base0A
+    green: "#7ab87a" # base0B
+    cyan: "#7ab8b8" # base0C
+    blue: "#7a7ab8" # base0D
+    magenta: "#b87ab8" # base0E
+    white: "#acacac" # base05
+
+  bright:
+    black: "#525252" # base03
+    red: "#dbbdbd" # base12
+    yellow: "#dbdbbd" # base13
+    green: "#bddbbd" # base14
+    cyan: "#bddbdb" # base15
+    blue: "#bdbddb" # base16
+    magenta: "#dbbddb" # base17
+    white: "#ffffff" # base07

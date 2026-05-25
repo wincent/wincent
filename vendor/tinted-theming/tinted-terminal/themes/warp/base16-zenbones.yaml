@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Zenbones by mcchrish
+
+name: Base16 Zenbones
+accent: "#cf86c1" # base0D
+cursor: "#b279a7" # base05
+background: "#191919" # base00
+foreground: "#b279a7" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#191919" # base00
+    red: "#3d3839" # base08
+    yellow: "#8bae68" # base0A
+    green: "#d68c67" # base0B
+    cyan: "#61abda" # base0C
+    blue: "#cf86c1" # base0D
+    magenta: "#65b8c1" # base0E
+    white: "#b279a7" # base05
+
+  normal:
+    black: "#b77e64" # base03
+    red: "#3d3839" # base08
+    yellow: "#8bae68" # base0A
+    green: "#d68c67" # base0B
+    cyan: "#61abda" # base0C
+    blue: "#cf86c1" # base0D
+    magenta: "#65b8c1" # base0E
+    white: "#bbbbbb" # base07

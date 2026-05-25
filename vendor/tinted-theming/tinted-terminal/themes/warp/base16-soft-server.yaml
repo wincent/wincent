@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Soft Server by FredHappyface (https://github.com/fredHappyface)
+
+name: Base16 Soft Server
+accent: "#95a6f4" # base0D
+cursor: "#e4dee9" # base05
+background: "#211e2a" # base00
+foreground: "#e4dee9" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#211e2a" # base00
+    red: "#e965a5" # base08
+    yellow: "#ebde76" # base0A
+    green: "#b1f2a7" # base0B
+    cyan: "#b3f4f3" # base0C
+    blue: "#95a6f4" # base0D
+    magenta: "#ff79c6" # base0E
+    white: "#e4dee9" # base05
+
+  normal:
+    black: "#6e6780" # base03
+    red: "#e965a5" # base08
+    yellow: "#ebde76" # base0A
+    green: "#b1f2a7" # base0B
+    cyan: "#b3f4f3" # base0C
+    blue: "#95a6f4" # base0D
+    magenta: "#ff79c6" # base0E
+    white: "#ffffff" # base07

@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Atelier Forest Light by Bram de Haan (http://atelierbramdehaan.nl)
+
+name: Base16 Atelier Forest Light
+accent: "#407ee7" # base0D
+cursor: "#68615e" # base05
+background: "#f1efee" # base00
+foreground: "#68615e" # base05
+details: lighter
+
+terminal_colors:
+  bright:
+    black: "#f1efee" # base00
+    red: "#f22c40" # base08
+    yellow: "#c38418" # base0A
+    green: "#7b9726" # base0B
+    cyan: "#3d97b8" # base0C
+    blue: "#407ee7" # base0D
+    magenta: "#6666ea" # base0E
+    white: "#68615e" # base05
+
+  normal:
+    black: "#9c9491" # base03
+    red: "#f22c40" # base08
+    yellow: "#c38418" # base0A
+    green: "#7b9726" # base0B
+    cyan: "#3d97b8" # base0C
+    blue: "#407ee7" # base0D
+    magenta: "#6666ea" # base0E
+    white: "#1b1918" # base07

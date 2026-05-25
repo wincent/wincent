@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Materia by Defman21
+
+name: Base16 Materia
+accent: "#89ddff" # base0D
+cursor: "#cdd3de" # base05
+background: "#263238" # base00
+foreground: "#cdd3de" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#263238" # base00
+    red: "#ec5f67" # base08
+    yellow: "#ffcc00" # base0A
+    green: "#8bd649" # base0B
+    cyan: "#80cbc4" # base0C
+    blue: "#89ddff" # base0D
+    magenta: "#82aaff" # base0E
+    white: "#cdd3de" # base05
+
+  normal:
+    black: "#707880" # base03
+    red: "#ec5f67" # base08
+    yellow: "#ffcc00" # base0A
+    green: "#8bd649" # base0B
+    cyan: "#80cbc4" # base0C
+    blue: "#89ddff" # base0D
+    magenta: "#82aaff" # base0E
+    white: "#ffffff" # base07

@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Red Planet by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Red Planet
+accent: "#69809e" # base0D
+cursor: "#a4998c" # base05
+background: "#222222" # base00
+foreground: "#a4998c" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#222222" # base00
+    red: "#8c3432" # base08
+    yellow: "#60827e" # base0A
+    green: "#728271" # base0B
+    cyan: "#5b8390" # base0C
+    blue: "#69809e" # base0D
+    magenta: "#896492" # base0E
+    white: "#a4998c" # base05
+
+  bright:
+    black: "#7b7773" # base03
+    red: "#b55242" # base12
+    yellow: "#ebeb91" # base13
+    green: "#869985" # base14
+    cyan: "#38add8" # base15
+    blue: "#60827e" # base16
+    magenta: "#de4873" # base17
+    white: "#d6bfb8" # base07

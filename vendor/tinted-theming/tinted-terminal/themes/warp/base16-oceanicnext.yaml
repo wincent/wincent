@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: OceanicNext by https://github.com/voronianski/oceanic-next-color-scheme
+
+name: Base16 OceanicNext
+accent: "#6699cc" # base0D
+cursor: "#c0c5ce" # base05
+background: "#1b2b34" # base00
+foreground: "#c0c5ce" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#1b2b34" # base00
+    red: "#ec5f67" # base08
+    yellow: "#fac863" # base0A
+    green: "#99c794" # base0B
+    cyan: "#5fb3b3" # base0C
+    blue: "#6699cc" # base0D
+    magenta: "#c594c5" # base0E
+    white: "#c0c5ce" # base05
+
+  normal:
+    black: "#65737e" # base03
+    red: "#ec5f67" # base08
+    yellow: "#fac863" # base0A
+    green: "#99c794" # base0B
+    cyan: "#5fb3b3" # base0C
+    blue: "#6699cc" # base0D
+    magenta: "#c594c5" # base0E
+    white: "#d8dee9" # base07

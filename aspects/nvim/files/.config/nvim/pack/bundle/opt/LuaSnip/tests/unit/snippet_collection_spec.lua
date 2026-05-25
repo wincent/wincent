@@ -1,6 +1,6 @@
 local ls_helpers = require("helpers")
-local exec_lua, feed, exec =
-	ls_helpers.exec_lua, ls_helpers.feed, ls_helpers.exec
+local exec_lua, feed, exec, assert =
+	ls_helpers.exec_lua, ls_helpers.feed, ls_helpers.exec, ls_helpers.assert
 
 describe("snippet_collection.add/get", function()
 	-- apparently clear() needs to run before anything else...
@@ -19,7 +19,7 @@ describe("snippet_collection.add/get", function()
 				return collection.get_id_snippet(s1.id) == s1
 				]])
 		end
-		assert.has_no.errors(foo)
+		assert.no_error(foo)
 		assert.is_true(foo())
 	end)
 
@@ -42,7 +42,7 @@ describe("snippet_collection.add/get", function()
 				return #r == 2 and ((r[1] == s1 and r[2] == s2) or (r[1] == s2 and r[2] == s1))
 				]])
 		end
-		assert.has_no.errors(foo)
+		assert.no_error(foo)
 		assert.is_true(foo())
 	end)
 end)
@@ -52,7 +52,7 @@ describe("add_snippets invalidation", function()
 	ls_helpers.clear()
 	exec("set rtp+=" .. os.getenv("LUASNIP_SOURCE"))
 
-	it("", function()
+	it("invalidation works", function()
 		local function foo()
 			return exec_lua([[
 					local s,t = require("luasnip").snippet, require("luasnip").text_node
@@ -65,6 +65,6 @@ describe("add_snippets invalidation", function()
 					local r = collection.get_snippets("nonExistantFT", "snippets")
 					]])
 		end
-		assert.has_no.errors(foo)
+		assert.no_error(foo)
 	end)
 end)

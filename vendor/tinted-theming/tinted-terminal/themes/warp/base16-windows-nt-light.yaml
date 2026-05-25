@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Windows NT Light by Fergus Collins (https://github.com/ferguscollins)
+
+name: Base16 Windows NT Light
+accent: "#000080" # base0D
+cursor: "#808080" # base05
+background: "#ffffff" # base00
+foreground: "#808080" # base05
+details: lighter
+
+terminal_colors:
+  bright:
+    black: "#ffffff" # base00
+    red: "#800000" # base08
+    yellow: "#808000" # base0A
+    green: "#008000" # base0B
+    cyan: "#008080" # base0C
+    blue: "#000080" # base0D
+    magenta: "#800080" # base0E
+    white: "#808080" # base05
+
+  normal:
+    black: "#c0c0c0" # base03
+    red: "#800000" # base08
+    yellow: "#808000" # base0A
+    green: "#008000" # base0B
+    cyan: "#008080" # base0C
+    blue: "#000080" # base0D
+    magenta: "#800080" # base0E
+    white: "#000000" # base07

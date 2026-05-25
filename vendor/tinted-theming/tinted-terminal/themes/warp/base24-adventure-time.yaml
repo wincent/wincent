@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Adventure Time by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Adventure Time
+accent: "#0f49c6" # base0D
+cursor: "#cdc3bf" # base05
+background: "#1e1c44" # base00
+foreground: "#cdc3bf" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#1e1c44" # base00
+    red: "#bc0013" # base08
+    yellow: "#1896c6" # base0A
+    green: "#49b117" # base0B
+    cyan: "#6fa497" # base0C
+    blue: "#0f49c6" # base0D
+    magenta: "#665992" # base0E
+    white: "#cdc3bf" # base05
+
+  bright:
+    black: "#7893bf" # base03
+    red: "#fc5e59" # base12
+    yellow: "#efc11a" # base13
+    green: "#9dff6e" # base14
+    cyan: "#c8f9f3" # base15
+    blue: "#1896c6" # base16
+    magenta: "#9a5952" # base17
+    white: "#f5f4fb" # base07

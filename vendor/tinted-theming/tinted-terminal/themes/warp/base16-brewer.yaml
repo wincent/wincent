@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Brewer by Timothée Poisot (http://github.com/tpoisot)
+
+name: Base16 Brewer
+accent: "#3182bd" # base0D
+cursor: "#b7b8b9" # base05
+background: "#0c0d0e" # base00
+foreground: "#b7b8b9" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#0c0d0e" # base00
+    red: "#e31a1c" # base08
+    yellow: "#dca060" # base0A
+    green: "#31a354" # base0B
+    cyan: "#80b1d3" # base0C
+    blue: "#3182bd" # base0D
+    magenta: "#756bb1" # base0E
+    white: "#b7b8b9" # base05
+
+  normal:
+    black: "#737475" # base03
+    red: "#e31a1c" # base08
+    yellow: "#dca060" # base0A
+    green: "#31a354" # base0B
+    cyan: "#80b1d3" # base0C
+    blue: "#3182bd" # base0D
+    magenta: "#756bb1" # base0E
+    white: "#fcfdfe" # base07

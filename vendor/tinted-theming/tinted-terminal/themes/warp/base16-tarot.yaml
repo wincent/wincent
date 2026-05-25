@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: tarot by ed (https://codeberg.org/ed)
+
+name: Base16 tarot
+accent: "#6e6080" # base0D
+cursor: "#aa556f" # base05
+background: "#0e091d" # base00
+foreground: "#aa556f" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#0e091d" # base00
+    red: "#c53253" # base08
+    yellow: "#ff6565" # base0A
+    green: "#a68e5a" # base0B
+    cyan: "#8c9785" # base0C
+    blue: "#6e6080" # base0D
+    magenta: "#a45782" # base0E
+    white: "#aa556f" # base05
+
+  normal:
+    black: "#74316b" # base03
+    red: "#c53253" # base08
+    yellow: "#ff6565" # base0A
+    green: "#a68e5a" # base0B
+    cyan: "#8c9785" # base0C
+    blue: "#6e6080" # base0D
+    magenta: "#a45782" # base0E
+    white: "#dc8f7c" # base07

@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Solarized Dark by Ethan Schoonover (modified by aramisgithub)
+
+name: Base16 Solarized Dark
+accent: "#268bd2" # base0D
+cursor: "#93a1a1" # base05
+background: "#002b36" # base00
+foreground: "#93a1a1" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#002b36" # base00
+    red: "#dc322f" # base08
+    yellow: "#b58900" # base0A
+    green: "#859900" # base0B
+    cyan: "#2aa198" # base0C
+    blue: "#268bd2" # base0D
+    magenta: "#6c71c4" # base0E
+    white: "#93a1a1" # base05
+
+  normal:
+    black: "#657b83" # base03
+    red: "#dc322f" # base08
+    yellow: "#b58900" # base0A
+    green: "#859900" # base0B
+    cyan: "#2aa198" # base0C
+    blue: "#268bd2" # base0D
+    magenta: "#6c71c4" # base0E
+    white: "#fdf6e3" # base07

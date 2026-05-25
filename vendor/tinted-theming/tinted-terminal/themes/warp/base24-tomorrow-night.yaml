@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Tomorrow Night by Cody Buell (https://github.com/codybuell)
+
+name: Base24 Tomorrow Night
+accent: "#81a2be" # base0D
+cursor: "#c5c8c6" # base05
+background: "#1d1f21" # base00
+foreground: "#c5c8c6" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#1d1f21" # base00
+    red: "#cc6666" # base08
+    yellow: "#f0c674" # base0A
+    green: "#b5bd68" # base0B
+    cyan: "#8abeb7" # base0C
+    blue: "#81a2be" # base0D
+    magenta: "#b294bb" # base0E
+    white: "#c5c8c6" # base05
+
+  bright:
+    black: "#969896" # base03
+    red: "#e74c3c" # base12
+    yellow: "#f7dc6f" # base13
+    green: "#b8d4b3" # base14
+    cyan: "#95d3ce" # base15
+    blue: "#85c1e9" # base16
+    magenta: "#d7a3ca" # base17
+    white: "#ffffff" # base07

@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: lime by limelier
+
+name: Base16 lime
+accent: "#2b926f" # base0D
+cursor: "#818175" # base05
+background: "#1a1a2f" # base00
+foreground: "#818175" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#1a1a2f" # base00
+    red: "#ff662a" # base08
+    yellow: "#ffd15e" # base0A
+    green: "#8cd97c" # base0B
+    cyan: "#4cad83" # base0C
+    blue: "#2b926f" # base0D
+    magenta: "#1b825f" # base0E
+    white: "#818175" # base05
+
+  normal:
+    black: "#313140" # base03
+    red: "#ff662a" # base08
+    yellow: "#ffd15e" # base0A
+    green: "#8cd97c" # base0B
+    cyan: "#4cad83" # base0C
+    blue: "#2b926f" # base0D
+    magenta: "#1b825f" # base0E
+    white: "#fff8e1" # base07

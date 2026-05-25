@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: ENCOM by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 ENCOM
+accent: "#0081ff" # base0D
+cursor: "#a1a1a1" # base05
+background: "#000000" # base00
+foreground: "#a1a1a1" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#000000" # base00
+    red: "#9f0000" # base08
+    yellow: "#0000ff" # base0A
+    green: "#008b00" # base0B
+    cyan: "#008b8b" # base0C
+    blue: "#0081ff" # base0D
+    magenta: "#bc00ca" # base0E
+    white: "#a1a1a1" # base05
+
+  bright:
+    black: "#6e6e6e" # base03
+    red: "#ff0000" # base12
+    yellow: "#ffff00" # base13
+    green: "#00ee00" # base14
+    cyan: "#00cdcd" # base15
+    blue: "#0000ff" # base16
+    magenta: "#ff00ff" # base17
+    white: "#ffffff" # base07

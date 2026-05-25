@@ -1,6 +1,6 @@
 local ls_helpers = require("helpers")
-local exec_lua, feed, exec =
-	ls_helpers.exec_lua, ls_helpers.feed, ls_helpers.exec
+local exec_lua, feed, exec, assert =
+	ls_helpers.exec_lua, ls_helpers.feed, ls_helpers.exec, ls_helpers.assert
 
 local works = function(msg, string, left, right, expected)
 	it(msg, function()
@@ -20,7 +20,7 @@ local works = function(msg, string, left, right, expected)
 			left,
 			right
 		))
-		assert.are.same(expected, result)
+		assert.eq(expected, result)
 	end)
 end
 
@@ -93,7 +93,7 @@ describe("str.dedent", function()
 
 		local result = get_dedent_result(input_string)
 
-		assert.are.same(expected, result)
+		assert.eq(expected, result)
 	end)
 	it("tabs at beginnig", function()
 		local input_table = {
@@ -113,7 +113,7 @@ describe("str.dedent", function()
 
 		local result = get_dedent_result(input_string)
 
-		assert.are.same(expected, result)
+		assert.eq(expected, result)
 	end)
 	it("tabs & spaces at beginnig", function()
 		local input_table = {
@@ -133,7 +133,7 @@ describe("str.dedent", function()
 
 		local result = get_dedent_result(input_string)
 
-		assert.are.same(expected, result)
+		assert.eq(expected, result)
 	end)
 end)
 
@@ -171,7 +171,7 @@ describe("str.convert_indent", function()
 
 		local result = get_convert_indent_result(input_string, indent_string)
 
-		assert.are.same(expected, result)
+		assert.eq(expected, result)
 	end)
 	it([[literal \t to tab]], function()
 		local input_table = {
@@ -192,7 +192,7 @@ describe("str.convert_indent", function()
 
 		local result = get_convert_indent_result(input_string, indent_string)
 
-		assert.are.same(expected, result)
+		assert.eq(expected, result)
 	end)
 end)
 
@@ -203,7 +203,7 @@ describe("str.multiline_substr", function()
 
 	local function check(dscr, str, from, to, expected)
 		it(dscr, function()
-			assert.are.same(
+			assert.eq(
 				expected,
 				exec_lua(
 					[[
@@ -256,7 +256,7 @@ describe("str.multiline_to_byte_offset", function()
 
 	local function check(dscr, str, multiline_pos, byte_pos)
 		it(dscr, function()
-			assert.are.same(
+			assert.eq(
 				byte_pos,
 				exec_lua(
 					[[
@@ -271,7 +271,7 @@ describe("str.multiline_to_byte_offset", function()
 	end
 	local function check_is_nil(dscr, str, multiline_pos, byte_pos)
 		it(dscr, function()
-			assert(exec_lua(
+			assert.is_true(exec_lua(
 				[[
 				local str, multiline_pos = ...
 				return require("luasnip.util.str").multiline_to_byte_offset(str, multiline_pos) == nil
@@ -310,7 +310,7 @@ describe("byte_to_multiline_offset", function()
 
 	local function check(dscr, str, byte_pos, multiline_pos)
 		it(dscr, function()
-			assert.are.same(
+			assert.eq(
 				multiline_pos,
 				exec_lua(
 					[[
@@ -325,7 +325,7 @@ describe("byte_to_multiline_offset", function()
 	end
 	local function check_is_nil(dscr, str, byte_pos, multiline_pos)
 		it(dscr, function()
-			assert(exec_lua(
+			assert.is_true(exec_lua(
 				[[
 				local str, byte_pos = ...
 				return require("luasnip.util.str").byte_to_multiline_offset(str, byte_pos) == nil

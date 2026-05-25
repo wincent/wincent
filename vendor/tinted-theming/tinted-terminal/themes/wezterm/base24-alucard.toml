@@ -1,0 +1,43 @@
+# base24 Alucard
+# Scheme author: clach04 (https://github.com/clach04)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#fffbeb"
+foreground = "#1f1f1f"
+
+cursor_bg = "#1f1f1f"
+cursor_border = "#1f1f1f"
+cursor_fg = "#fffbeb"
+
+selection_bg = "#1f1f1f"
+selection_fg = "#cfcfde"
+
+ansi = [
+  "#fffbeb",
+  "#cb3a2a",
+  "#14710a",
+  "#846e15",
+  "#644ac9",
+  "#a3144d",
+  "#036a96",
+  "#1f1f1f"
+]
+brights = [
+  "#6c664b",
+  "#d74c3d",
+  "#198d0c",
+  "#9e841a",
+  "#7862d0",
+  "#bf185a",
+  "#047fb4",
+  "#2c2b31"
+]
+
+[colors.indexed]
+16 = "#a34d14"
+17 = "#792219"
+18 = "#ceccc0"
+19 = "#cfcfde"
+20 = "#4c4a3d"
+21 = "#1f1f1f"

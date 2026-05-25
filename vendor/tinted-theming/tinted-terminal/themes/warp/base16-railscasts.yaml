@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Railscasts by Ryan Bates (http://railscasts.com)
+
+name: Base16 Railscasts
+accent: "#6d9cbe" # base0D
+cursor: "#e6e1dc" # base05
+background: "#2b2b2b" # base00
+foreground: "#e6e1dc" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#2b2b2b" # base00
+    red: "#da4939" # base08
+    yellow: "#ffc66d" # base0A
+    green: "#a5c261" # base0B
+    cyan: "#519f50" # base0C
+    blue: "#6d9cbe" # base0D
+    magenta: "#b6b3eb" # base0E
+    white: "#e6e1dc" # base05
+
+  normal:
+    black: "#5a647e" # base03
+    red: "#da4939" # base08
+    yellow: "#ffc66d" # base0A
+    green: "#a5c261" # base0B
+    cyan: "#519f50" # base0C
+    blue: "#6d9cbe" # base0D
+    magenta: "#b6b3eb" # base0E
+    white: "#f9f7f3" # base07

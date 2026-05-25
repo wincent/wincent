@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Eva Dim by kjakapat (https://github.com/kjakapat)
+
+name: Base16 Eva Dim
+accent: "#1ae1dc" # base0D
+cursor: "#9fa2a6" # base05
+background: "#2a3b4d" # base00
+foreground: "#9fa2a6" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#2a3b4d" # base00
+    red: "#c4676c" # base08
+    yellow: "#cfd05d" # base0A
+    green: "#5de561" # base0B
+    cyan: "#4b8f77" # base0C
+    blue: "#1ae1dc" # base0D
+    magenta: "#9c6cd3" # base0E
+    white: "#9fa2a6" # base05
+
+  normal:
+    black: "#55799c" # base03
+    red: "#c4676c" # base08
+    yellow: "#cfd05d" # base0A
+    green: "#5de561" # base0B
+    cyan: "#4b8f77" # base0C
+    blue: "#1ae1dc" # base0D
+    magenta: "#9c6cd3" # base0E
+    white: "#ffffff" # base07

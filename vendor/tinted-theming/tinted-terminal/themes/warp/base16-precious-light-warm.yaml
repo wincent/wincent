@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Precious Light Warm by 4lex4 &lt;4lex49@zoho.com&gt;
+
+name: Base16 Precious Light Warm
+accent: "#246da5" # base0D
+cursor: "#4e5359" # base05
+background: "#fff5e5" # base00
+foreground: "#4e5359" # base05
+details: lighter
+
+terminal_colors:
+  bright:
+    black: "#fff5e5" # base00
+    red: "#b14745" # base08
+    yellow: "#876500" # base0A
+    green: "#557300" # base0B
+    cyan: "#0e7767" # base0C
+    blue: "#246da5" # base0D
+    magenta: "#7a50c6" # base0E
+    white: "#4e5359" # base05
+
+  normal:
+    black: "#7f8080" # base03
+    red: "#b14745" # base08
+    yellow: "#876500" # base0A
+    green: "#557300" # base0B
+    cyan: "#0e7767" # base0C
+    blue: "#246da5" # base0D
+    magenta: "#7a50c6" # base0E
+    white: "#4e5359" # base07

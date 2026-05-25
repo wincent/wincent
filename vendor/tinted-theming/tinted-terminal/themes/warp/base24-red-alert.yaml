@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Red Alert by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Red Alert
+accent: "#479bed" # base0D
+cursor: "#aaaaaa" # base05
+background: "#762423" # base00
+foreground: "#aaaaaa" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#762423" # base00
+    red: "#d52e4d" # base08
+    yellow: "#65a9f0" # base0A
+    green: "#71be6b" # base0B
+    cyan: "#6bbeb8" # base0C
+    blue: "#479bed" # base0D
+    magenta: "#e878d6" # base0E
+    white: "#aaaaaa" # base05
+
+  bright:
+    black: "#525252" # base03
+    red: "#e02453" # base12
+    yellow: "#dfddb7" # base13
+    green: "#aff08b" # base14
+    cyan: "#b7dfdd" # base15
+    blue: "#65a9f0" # base16
+    magenta: "#ddb7df" # base17
+    white: "#ffffff" # base07

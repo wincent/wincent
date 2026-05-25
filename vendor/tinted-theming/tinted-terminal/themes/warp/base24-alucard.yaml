@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Alucard by clach04 (https://github.com/clach04)
+
+name: Base24 Alucard
+accent: "#644ac9" # base0D
+cursor: "#1f1f1f" # base05
+background: "#fffbeb" # base00
+foreground: "#1f1f1f" # base05
+details: lighter
+
+terminal_colors:
+  normal:
+    black: "#fffbeb" # base00
+    red: "#cb3a2a" # base08
+    yellow: "#846e15" # base0A
+    green: "#14710a" # base0B
+    cyan: "#036a96" # base0C
+    blue: "#644ac9" # base0D
+    magenta: "#a3144d" # base0E
+    white: "#1f1f1f" # base05
+
+  bright:
+    black: "#6c664b" # base03
+    red: "#d74c3d" # base12
+    yellow: "#9e841a" # base13
+    green: "#198d0c" # base14
+    cyan: "#047fb4" # base15
+    blue: "#7862d0" # base16
+    magenta: "#bf185a" # base17
+    white: "#2c2b31" # base07

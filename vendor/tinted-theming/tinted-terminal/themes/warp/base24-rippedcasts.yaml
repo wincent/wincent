@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Rippedcasts by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Rippedcasts
+accent: "#75a5b0" # base0D
+cursor: "#a8a8a8" # base05
+background: "#2b2b2b" # base00
+foreground: "#a8a8a8" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#2b2b2b" # base00
+    red: "#cdaf95" # base08
+    yellow: "#86bdc9" # base0A
+    green: "#a7ff60" # base0B
+    cyan: "#59647e" # base0C
+    blue: "#75a5b0" # base0D
+    magenta: "#ff73fd" # base0E
+    white: "#a8a8a8" # base05
+
+  bright:
+    black: "#7c7c7c" # base03
+    red: "#eecbad" # base12
+    yellow: "#e5e500" # base13
+    green: "#bcee68" # base14
+    cyan: "#8c9bc3" # base15
+    blue: "#86bdc9" # base16
+    magenta: "#e500e5" # base17
+    white: "#e5e5e5" # base07

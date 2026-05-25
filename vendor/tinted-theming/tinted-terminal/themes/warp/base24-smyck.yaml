@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Smyck by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Smyck
+accent: "#62a3c4" # base0D
+cursor: "#969696" # base05
+background: "#1b1b1b" # base00
+foreground: "#969696" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#1b1b1b" # base00
+    red: "#b74131" # base08
+    yellow: "#8dcff0" # base0A
+    green: "#7da900" # base0B
+    cyan: "#207383" # base0C
+    blue: "#62a3c4" # base0D
+    magenta: "#b98acc" # base0E
+    white: "#969696" # base05
+
+  bright:
+    black: "#838383" # base03
+    red: "#d6837b" # base12
+    yellow: "#fee14d" # base13
+    green: "#c4f036" # base14
+    cyan: "#69d9cf" # base15
+    blue: "#8dcff0" # base16
+    magenta: "#f799ff" # base17
+    white: "#f7f7f7" # base07

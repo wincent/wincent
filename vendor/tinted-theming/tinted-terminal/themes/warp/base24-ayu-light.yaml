@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Ayu Light by Tinted Theming (https://github.com/tinted-theming), Ayu Theme (https://github.com/ayu-theme)
+
+name: Base24 Ayu Light
+accent: "#399ee6" # base0D
+cursor: "#5c6166" # base05
+background: "#f8f9fa" # base00
+foreground: "#5c6166" # base05
+details: lighter
+
+terminal_colors:
+  normal:
+    black: "#f8f9fa" # base00
+    red: "#f07171" # base08
+    yellow: "#f2ae49" # base0A
+    green: "#6cbf49" # base0B
+    cyan: "#4cbf99" # base0C
+    blue: "#399ee6" # base0D
+    magenta: "#a37acc" # base0E
+    white: "#5c6166" # base05
+
+  bright:
+    black: "#a0a6ac" # base03
+    red: "#ff7383" # base12
+    yellow: "#ffaa33" # base13
+    green: "#86b300" # base14
+    cyan: "#55b4d4" # base15
+    blue: "#478acc" # base16
+    magenta: "#b595d6" # base17
+    white: "#404447" # base07

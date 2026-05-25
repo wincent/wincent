@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Solarized Dark Higher Contrast by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Solarized Dark Higher Contrast
+accent: "#2075c7" # base0D
+cursor: "#aec2ba" # base05
+background: "#001e26" # base00
+foreground: "#aec2ba" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#001e26" # base00
+    red: "#d01b24" # base08
+    yellow: "#178dc7" # base0A
+    green: "#6bbe6c" # base0B
+    cyan: "#259185" # base0C
+    blue: "#2075c7" # base0D
+    magenta: "#c61b6e" # base0E
+    white: "#aec2ba" # base05
+
+  bright:
+    black: "#3a8298" # base03
+    red: "#f4153b" # base12
+    yellow: "#b17e28" # base13
+    green: "#50ee84" # base14
+    cyan: "#00b29e" # base15
+    blue: "#178dc7" # base16
+    magenta: "#e14d8e" # base17
+    white: "#fcf4dc" # base07

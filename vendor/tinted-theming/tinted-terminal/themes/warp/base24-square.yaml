@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Square by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Square
+accent: "#a9cdeb" # base0D
+cursor: "#bababa" # base05
+background: "#1a1a1a" # base00
+foreground: "#bababa" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#1a1a1a" # base00
+    red: "#e9897c" # base08
+    yellow: "#b6defb" # base0A
+    green: "#b6377d" # base0B
+    cyan: "#c9caec" # base0C
+    blue: "#a9cdeb" # base0D
+    magenta: "#75507b" # base0E
+    white: "#bababa" # base05
+
+  bright:
+    black: "#4b4b4b" # base03
+    red: "#f99286" # base12
+    yellow: "#fcfbcc" # base13
+    green: "#c3f786" # base14
+    cyan: "#d7d9fc" # base15
+    blue: "#b6defb" # base16
+    magenta: "#ad7fa8" # base17
+    white: "#e2e2e2" # base07

@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Aztec by TheNeverMan (github.com/TheNeverMan)
+
+name: Base16 Aztec
+accent: "#5b4a9f" # base0D
+cursor: "#ffda51" # base05
+background: "#101600" # base00
+foreground: "#ffda51" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#101600" # base00
+    red: "#ee2e00" # base08
+    yellow: "#eebb00" # base0A
+    green: "#63d932" # base0B
+    cyan: "#3d94a5" # base0C
+    blue: "#5b4a9f" # base0D
+    magenta: "#883e9f" # base0E
+    white: "#ffda51" # base05
+
+  normal:
+    black: "#2e2e05" # base03
+    red: "#ee2e00" # base08
+    yellow: "#eebb00" # base0A
+    green: "#63d932" # base0B
+    cyan: "#3d94a5" # base0C
+    blue: "#5b4a9f" # base0D
+    magenta: "#883e9f" # base0E
+    white: "#ffeba0" # base07

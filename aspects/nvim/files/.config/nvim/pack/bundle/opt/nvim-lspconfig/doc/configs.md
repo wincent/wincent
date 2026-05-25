@@ -78,6 +78,7 @@ Nvim by running `:help lspconfig-all`.
 - [dcmls](#dcmls)
 - [debputy](#debputy)
 - [denols](#denols)
+- [dexter](#dexter)
 - [dhall_lsp_server](#dhall_lsp_server)
 - [diagnosticls](#diagnosticls)
 - [digestif](#digestif)
@@ -140,6 +141,7 @@ Nvim by running `:help lspconfig-all`.
 - [graphql](#graphql)
 - [groovyls](#groovyls)
 - [guile_ls](#guile_ls)
+- [hare_lsp](#hare_lsp)
 - [harper_ls](#harper_ls)
 - [hdl_checker](#hdl_checker)
 - [helm_ls](#helm_ls)
@@ -228,6 +230,7 @@ Nvim by running `:help lspconfig-all`.
 - [oxfmt](#oxfmt)
 - [oxlint](#oxlint)
 - [pact_ls](#pact_ls)
+- [panache](#panache)
 - [pasls](#pasls)
 - [pbls](#pbls)
 - [perlls](#perlls)
@@ -290,6 +293,7 @@ Nvim by running `:help lspconfig-all`.
 - [selene3p_ls](#selene3p_ls)
 - [serve_d](#serve_d)
 - [shopify_theme_ls](#shopify_theme_ls)
+- [shuck](#shuck)
 - [sixtyfps](#sixtyfps)
 - [slangd](#slangd)
 - [slint_lsp](#slint_lsp)
@@ -3264,6 +3268,78 @@ Default config:
 
 ---
 
+## dexter
+
+https://github.com/remoteoss/dexter
+
+`dexter` is a fast, full-featured Elixir LSP optimized for large codebases.
+
+`dexter` can be installed via Homebrew, mise, or asdf:
+
+Via Homebrew:
+```sh
+brew install remoteoss/tap/dexter
+```
+
+Via mise:
+```sh
+mise plugin add dexter https://github.com/remoteoss/dexter.git
+mise install dexter
+```
+
+Via asdf:
+```sh
+asdf plugin add dexter https://github.com/remoteoss/dexter.git
+asdf install dexter latest
+```
+
+`dexter` works without compilation by parsing source files directly, providing:
+- Fast indexing (cold index in ~11s on 57k-file codebases)
+- Go-to-definition with alias and delegate resolution
+- Find references across the codebase
+- Hover documentation and autocompletion
+- Rename functionality with automatic file renaming
+- Format on save via persistent Elixir process
+
+Configuration example:
+```lua
+vim.lsp.config('dexter', {
+  init_options = {
+    followDelegates = true,  -- jump through defdelegate to the target function
+    -- stdlibPath = "",      -- override Elixir stdlib path (auto-detected)
+    -- debug = false,        -- verbose logging to stderr (view with :LspLog)
+  },
+})
+vim.lsp.enable('dexter')
+```
+
+Snippet to enable the language server:
+```lua
+vim.lsp.enable('dexter')
+```
+
+Default config:
+- `cmd` :
+  ```lua
+  { "dexter", "lsp" }
+  ```
+- `filetypes` :
+  ```lua
+  { "elixir", "eelixir", "heex" }
+  ```
+- `init_options` :
+  ```lua
+  {
+    followDelegates = true
+  }
+  ```
+- `root_markers` :
+  ```lua
+  { ".dexter/dexter.db", ".dexter.db", ".git", "mix.exs" }
+  ```
+
+---
+
 ## dhall_lsp_server
 
 https://github.com/dhall-lang/dhall-haskell/tree/master/dhall-lsp-server
@@ -4017,13 +4093,54 @@ Default config:
 
 https://github.com/EmmyLuaLs/emmylua-analyzer-rust
 
-Emmylua Analyzer Rust. Language Server for Lua.
+EmmyluaLs, a language server for Lua.
 
-`emmylua_ls` can be installed using `cargo` by following the instructions[here]
-(https://github.com/EmmyLuaLs/emmylua-analyzer-rust?tab=readme-ov-file#install).
+`emmylua_ls` can be installed using `cargo` by following the [instructions](https://github.com/EmmyLuaLs/emmylua-analyzer-rust#install).
 
 The default `cmd` assumes that the `emmylua_ls` binary can be found in `$PATH`.
-It might require you to provide cargo binaries installation path in it.
+You may want to symlink to the cargo artifact:
+```
+ln -s $(pwd)/target/release/emmylua_ls ~/bin/emmylua_ls
+```
+
+See the emmylua_ls [configuration guide](https://github.com/EmmyLuaLs/emmylua-analyzer-rust/blob/main/docs/config/emmyrc_json_EN.md)
+for settings documentation.
+
+If you want completions and analysis for Neovim plugins on your runtime path, try this config:
+
+```lua
+vim.lsp.config('emmylua_ls', {
+  on_init = function(client)
+    -- If the workspace has its own emmylua_ls/lua_ls config file, defer to it.
+    if client.workspace_folders then
+      local path = client.workspace_folders[1].name
+      if
+        path ~= vim.fn.stdpath('config')
+        and (vim.uv.fs_stat(path .. '/.emmyrc.json') or vim.uv.fs_stat(path .. '/.luarc.json'))
+      then
+        client.config.settings = {}
+      end
+    end
+  end,
+  settings = {
+    emmylua = {
+      -- Tell the server which Lua you're using (usually LuaJIT, for Neovim).
+      runtime = { version = 'LuaJIT' },
+      diagnostics = { globals = { 'vim' } },
+      -- Make the server aware of Neovim runtime files.
+      workspace = {
+        library = {
+          vim.env.VIMRUNTIME,
+          -- For LSP Settings Type Annotations: https://github.com/neovim/nvim-lspconfig#lsp-settings-type-annotations
+          vim.api.nvim_get_runtime_file('lua/lspconfig', false)[1],
+        },
+        -- Or pull in all of 'runtimepath'. May be slower! https://github.com/neovim/nvim-lspconfig/issues/3189
+        -- library = vim.api.nvim_get_runtime_file('', true),
+      },
+    },
+  },
+})
+```
 
 Snippet to enable the language server:
 ```lua
@@ -4041,7 +4158,18 @@ Default config:
   ```
 - `root_markers` :
   ```lua
-  { ".luarc.json", ".emmyrc.json", ".luacheckrc", ".git" }
+  { { ".emmyrc.json", ".emmyrc.lua", ".luarc.json", ".luarc.jsonc" }, { ".luacheckrc", ".stylua.toml", "stylua.toml", "selene.toml", "selene.yml" }, { ".git" } }
+  ```
+- `settings` :
+  ```lua
+  {
+    codeLens = {
+      enable = true
+    },
+    hint = {
+      enable = true
+    }
+  }
   ```
 - `workspace_required` : `false`
 
@@ -5620,6 +5748,34 @@ Default config:
 
 ---
 
+## hare_lsp
+
+https://sr.ht/~whynothugo/hare-lsp/
+
+Language server for hare.
+
+Snippet to enable the language server:
+```lua
+vim.lsp.enable('hare_lsp')
+```
+
+Default config:
+- `cmd` :
+  ```lua
+  { "hare-lsp", "-S" }
+  ```
+- `filetypes` :
+  ```lua
+  { "hare" }
+  ```
+- `root_markers` :
+  ```lua
+  { ".git" }
+  ```
+- `workspace_required` : `false`
+
+---
+
 ## harper_ls
 
 https://github.com/automattic/harper
@@ -5651,7 +5807,7 @@ Default config:
   ```
 - `filetypes` :
   ```lua
-  { "asciidoc", "c", "cpp", "cs", "gitcommit", "go", "html", "java", "javascript", "lua", "markdown", "nix", "python", "ruby", "rust", "swift", "toml", "typescript", "typescriptreact", "haskell", "cmake", "typst", "php", "dart", "clojure", "sh" }
+  { "asciidoc", "c", "cpp", "cs", "gitcommit", "go", "html", "java", "javascript", "lua", "markdown", "nix", "python", "ruby", "rust", "swift", "tex", "toml", "typescript", "typescriptreact", "haskell", "cmake", "typst", "php", "dart", "clojure", "sh" }
   ```
 - `root_markers` :
   ```lua
@@ -7191,10 +7347,6 @@ vim.lsp.config('lua_ls', {
           vim.env.VIMRUNTIME,
           -- For LSP Settings Type Annotations: https://github.com/neovim/nvim-lspconfig#lsp-settings-type-annotations
           vim.api.nvim_get_runtime_file("lua/lspconfig", false)[1],
-          -- Depending on the usage, you might want to add additional paths
-          -- here.
-          -- '${3rd}/luv/library',
-          -- '${3rd}/busted/library',
         },
         -- Or pull in all of 'runtimepath'.
         -- NOTE: this is a lot slower and will cause issues when working on
@@ -8779,18 +8931,20 @@ It can be installed via `npm`:
 npm i -g oxfmt
 ```
 
+or used as a part of Vite+ through `fmt` field in `vite.config.ts`: https://github.com/oxc-project/oxc/pull/20197
+
 Snippet to enable the language server:
 ```lua
 vim.lsp.enable('oxfmt')
 ```
 
 Default config:
-- `cmd`: [../lsp/oxfmt.lua:17](../lsp/oxfmt.lua#L17)
+- `cmd`: [../lsp/oxfmt.lua:19](../lsp/oxfmt.lua#L19)
 - `filetypes` :
   ```lua
   { "javascript", "javascriptreact", "typescript", "typescriptreact", "toml", "json", "jsonc", "json5", "yaml", "html", "vue", "handlebars", "css", "scss", "less", "graphql", "markdown" }
   ```
-- `root_dir`: [../lsp/oxfmt.lua:17](../lsp/oxfmt.lua#L17)
+- `root_dir`: [../lsp/oxfmt.lua:19](../lsp/oxfmt.lua#L19)
 - `workspace_required` : `true`
 
 ---
@@ -8808,6 +8962,8 @@ It can be installed via `npm`:
 npm i -g oxlint
 ```
 
+or used as a part of Vite+ through `lint` field in vite.config.ts: https://github.com/oxc-project/oxc/pull/20214
+
 Type-aware linting will automatically be enabled if `tsgolint` exists in your
 path and your `.oxlintrc.json` contains the string "typescript".
 
@@ -8821,17 +8977,14 @@ vim.lsp.enable('oxlint')
 ```
 
 Default config:
-- `before_init`: [../lsp/oxlint.lua:32](../lsp/oxlint.lua#L32)
-- `cmd`: [../lsp/oxlint.lua:32](../lsp/oxlint.lua#L32)
+- `before_init`: [../lsp/oxlint.lua:35](../lsp/oxlint.lua#L35)
+- `cmd`: [../lsp/oxlint.lua:35](../lsp/oxlint.lua#L35)
 - `filetypes` :
   ```lua
   { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte", "astro" }
   ```
-- `on_attach`: [../lsp/oxlint.lua:32](../lsp/oxlint.lua#L32)
-- `root_markers` :
-  ```lua
-  { ".oxlintrc.json", ".oxlintrc.jsonc", "oxlint.config.ts" }
-  ```
+- `on_attach`: [../lsp/oxlint.lua:35](../lsp/oxlint.lua#L35)
+- `root_dir`: [../lsp/oxlint.lua:35](../lsp/oxlint.lua#L35)
 - `settings` :
   ```lua
   {}
@@ -8863,6 +9016,39 @@ Default config:
 - `root_markers` :
   ```lua
   { ".git" }
+  ```
+
+---
+
+## panache
+
+https://github.com/jolars/panache
+
+A language server, formatter, and linter for Markdown, Quarto, and R Markdown,
+built in Rust with a lossless CST parser and support for external formatters
+and linters on code blocks.
+
+Install via `cargo install panache`, from the [releases page](https://github.com/jolars/panache/releases),
+or via your system package manager (`nixpkgs`, AUR, `pipx install panache-cli`,
+`npm install -g @panache-cli/panache`).
+
+Snippet to enable the language server:
+```lua
+vim.lsp.enable('panache')
+```
+
+Default config:
+- `cmd` :
+  ```lua
+  { "panache", "lsp" }
+  ```
+- `filetypes` :
+  ```lua
+  { "markdown", "quarto", "rmd" }
+  ```
+- `root_markers` :
+  ```lua
+  { ".panache.toml", "panache.toml", "_quarto.yml", "_bookdown.yml", ".git" }
   ```
 
 ---
@@ -10521,7 +10707,12 @@ Default config:
 
 https://github.com/dotnet/roslyn
 
-To install the server, compile from source or download as nuget package.
+The server can be installed as a dotnet tool (see https://github.com/dotnet/roslyn/blob/main/src/LanguageServer/Microsoft.CodeAnalysis.LanguageServer/README.md).
+This command will install the server in ~/.dotnet/tools:
+```bash
+dotnet tool install --global roslyn-language-server --prerelease
+```
+Alternatively, compile from source or download as nuget package.
 Go to `https://dev.azure.com/azure-public/vside/_artifacts/feed/vs-impl/NuGet/Microsoft.CodeAnalysis.LanguageServer.<platform>/overview`
 replace `<platform>` with one of the following `linux-x64`, `osx-x64`, `win-x64`, `neutral` (for more info on the download location see https://github.com/dotnet/roslyn/issues/71474#issuecomment-2177303207).
 Download and extract it (nuget's are zip files).
@@ -10530,10 +10721,6 @@ Download and extract it (nuget's are zip files).
   cmd = {
     'dotnet',
     '<my_folder>/Microsoft.CodeAnalysis.LanguageServer.dll',
-    '--logLevel', -- this property is required by the server
-    'Information',
-    '--extensionLogDirectory', -- this property is required by the server
-    fs.joinpath(uv.os_tmpdir(), 'roslyn_ls/logs'),
     '--stdio',
   },
   ```
@@ -10563,7 +10750,7 @@ Default config:
   ```
 - `cmd` :
   ```lua
-  { "roslyn-language-server", "--logLevel", "Information", "--extensionLogDirectory", "/tmp/roslyn_ls/logs", "--stdio" }
+  { "roslyn-language-server", "--stdio" }
   ```
 - `cmd_env` :
   ```lua
@@ -10585,20 +10772,19 @@ Default config:
   ```lua
   {
     ["razor/provideDynamicFileInfo"] = <function 1>,
-    ["workspace/_roslyn_projectNeedsRestore"] = <function 2>,
-    ["workspace/projectInitializationComplete"] = <function 3>
+    ["workspace/projectInitializationComplete"] = <function 2>
   }
   ```
 - `name` :
   ```lua
   "roslyn_ls"
   ```
-- `on_attach`: [../lsp/roslyn_ls.lua:165](../lsp/roslyn_ls.lua#L165)
+- `on_attach`: [../lsp/roslyn_ls.lua:149](../lsp/roslyn_ls.lua#L149)
 - `on_init` :
   ```lua
   { <function 1> }
   ```
-- `root_dir`: [../lsp/roslyn_ls.lua:165](../lsp/roslyn_ls.lua#L165)
+- `root_dir`: [../lsp/roslyn_ls.lua:149](../lsp/roslyn_ls.lua#L149)
 - `settings` :
   ```lua
   {
@@ -11154,6 +11340,38 @@ Default config:
 - `settings` :
   ```lua
   {}
+  ```
+
+---
+
+## shuck
+
+https://github.com/ewhauser/shuck
+
+`shuck` can be installed via `cargo`:
+```sh
+cargo install shuck-cli
+```
+
+A lightning fast shell linter with LSP support for bash, zsh, posix, and mksh dialects.
+
+Snippet to enable the language server:
+```lua
+vim.lsp.enable('shuck')
+```
+
+Default config:
+- `cmd` :
+  ```lua
+  { "shuck", "server" }
+  ```
+- `filetypes` :
+  ```lua
+  { "bash", "sh", "zsh" }
+  ```
+- `root_markers` :
+  ```lua
+  { ".shuck.toml", ".git" }
   ```
 
 ---

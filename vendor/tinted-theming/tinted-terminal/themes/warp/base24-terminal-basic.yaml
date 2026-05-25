@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Terminal Basic by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Terminal Basic
+accent: "#0000b2" # base0D
+cursor: "#a8a8a8" # base05
+background: "#ffffff" # base00
+foreground: "#a8a8a8" # base05
+details: lighter
+
+terminal_colors:
+  normal:
+    black: "#ffffff" # base00
+    red: "#990000" # base08
+    yellow: "#0000ff" # base0A
+    green: "#00a600" # base0B
+    cyan: "#00a6b2" # base0C
+    blue: "#0000b2" # base0D
+    magenta: "#b200b2" # base0E
+    white: "#a8a8a8" # base05
+
+  bright:
+    black: "#7c7c7c" # base03
+    red: "#e50000" # base12
+    yellow: "#e5e500" # base13
+    green: "#00d900" # base14
+    cyan: "#00e5e5" # base15
+    blue: "#0000ff" # base16
+    magenta: "#e500e5" # base17
+    white: "#e5e5e5" # base07

@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Banana Blueberry by FredHappyface (https://github.com/fredHappyface)
+
+name: Base24 Banana Blueberry
+accent: "#22e8df" # base0D
+cursor: "#c6c9cd" # base05
+background: "#191322" # base00
+foreground: "#c6c9cd" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#191322" # base00
+    red: "#ff6a7e" # base08
+    yellow: "#91fff3" # base0A
+    green: "#00bc9b" # base0B
+    cyan: "#55b6c1" # base0C
+    blue: "#22e8df" # base0D
+    magenta: "#dc3969" # base0E
+    white: "#c6c9cd" # base05
+
+  bright:
+    black: "#727985" # base03
+    red: "#fd9ea1" # base12
+    yellow: "#f9e46a" # base13
+    green: "#97c378" # base14
+    cyan: "#bcf2fe" # base15
+    blue: "#91fff3" # base16
+    magenta: "#da70d5" # base17
+    white: "#feffff" # base07

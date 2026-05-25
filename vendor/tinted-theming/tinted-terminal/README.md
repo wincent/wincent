@@ -769,6 +769,34 @@ mkdir -p ~/.config/termite
 curl https://raw.githubusercontent.com/tinted-theming/tinted-terminal/main/termite/base16-default-dark.config >> ~/.config/termite/config
 ```
 
+## Warp
+
+<img src="./assets/warp-icon.svg" alt="Warp logo" width="50"/>
+
+Tinted Theming template for [Warp terminal emulator].
+
+**Theme directory**: [themes/warp/]
+
+Config directory:
+
+- Linux: `${XDG_DATA_HOME:-$HOME/.local/share}/warp-terminal/`
+- Mac: `$HOME/.warp/`
+- Windows: `$env:APPDATA\warp\Warp\data\`
+
+### Manual
+
+```sh
+git clone https://github.com/tinted-theming/tinted-terminal.git "/path/to/tinted-terminal"
+
+# Create the themes directory if it doesn't exist:
+mkdir -p $config_theme_dir # Look at config dir for your operating system
+ln -s /path/to/tinted-terminal/themes/warp $config_dir/themes
+```
+
+Open Warp, press `Cmd`+`Shift`+`P`, navigate to Settings → Appearance, and
+select "Current Theme" and search for "Base16 Ayu Dark" from the available
+themes.
+
 ## WezTerm
 
 <img src="./assets/wezterm-icon.svg" alt="WezTerm icon" width="50"/>
@@ -937,6 +965,7 @@ terminal template decisions.
 [st terminal emulator]: https://st.suckless.org/
 [Termite terminal emulator]: https://github.com/thestinger/termite
 [iTerm2 terminal emulator]: https://github.com/gnachman/iTerm2
+[Warp terminal emulator]: https://www.warp.dev/
 [WezTerm terminal emulator]: https://wezterm.org/index.html
 [xfce4 terminal emulator]: https://docs.xfce.org/apps/terminal/start
 
