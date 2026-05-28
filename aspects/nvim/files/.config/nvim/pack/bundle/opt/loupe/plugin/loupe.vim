@@ -450,8 +450,7 @@ function! s:map(keys, name)
         \ ' ' .
         \ l:action .
         \ 'zv' .
-        \ l:center_string .
-        \ '<CR>'
+        \ l:center_string
 endfunction
 
 ""

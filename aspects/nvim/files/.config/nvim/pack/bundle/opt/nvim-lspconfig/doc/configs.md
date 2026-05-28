@@ -164,6 +164,7 @@ Nvim by running `:help lspconfig-all`.
 - [jdtls](#jdtls)
 - [jedi_language_server](#jedi_language_server)
 - [jinja_lsp](#jinja_lsp)
+- [jls](#jls)
 - [jqls](#jqls)
 - [jsonls](#jsonls)
 - [jsonnet_ls](#jsonnet_ls)
@@ -295,6 +296,7 @@ Nvim by running `:help lspconfig-all`.
 - [shopify_theme_ls](#shopify_theme_ls)
 - [shuck](#shuck)
 - [sixtyfps](#sixtyfps)
+- [slang_server](#slang_server)
 - [slangd](#slangd)
 - [slint_lsp](#slint_lsp)
 - [smarty_ls](#smarty_ls)
@@ -6597,6 +6599,45 @@ Default config:
 
 ---
 
+## jls
+
+https://github.com/idelice/jls
+
+A Java language server built on the Java compiler API, optimized for Neovim.
+Supports diagnostics, completion, go-to-definition, hover, find references,
+document highlights, inlay hints, code actions, rename, and Lombok.
+
+Install via mason.nvim (recommended):
+  :MasonInstall jls
+
+Or using the nvim-jls plugin which provides a managed installer:
+  https://github.com/idelice/nvim-jls
+
+Snippet to enable the language server:
+```lua
+vim.lsp.enable('jls')
+```
+
+Default config:
+- `cmd` :
+  ```lua
+  { "jls" }
+  ```
+- `filetypes` :
+  ```lua
+  { "java" }
+  ```
+- `root_markers` :
+  ```lua
+  { "pom.xml", "build.gradle", "build.gradle.kts", "settings.gradle", "settings.gradle.kts", "WORKSPACE", "WORKSPACE.bazel", ".java-version" }
+  ```
+- `settings` :
+  ```lua
+  {}
+  ```
+
+---
+
 ## jqls
 
 https://github.com/wader/jq-lsp
@@ -10485,7 +10526,7 @@ Default config:
       codeLens = true,
       incrementalTypechecking = {
         acrossFiles = true,
-        enabled = true
+        enable = true
       },
       inlayHints = {
         enable = true
@@ -11409,6 +11450,38 @@ Default config:
 - `filetypes` :
   ```lua
   { "sixtyfps" }
+  ```
+
+---
+
+## slang_server
+
+https://github.com/hudson-trading/slang-server
+
+A SystemVerilog language server based on the Slang library.
+
+Release binaries can be downloaded from [here](https://github.com/hudson-trading/slang-server/releases)
+and placed in a directory on PATH.
+
+See [the docs](https://hudson-trading.github.io/slang-server/start/config/) for options.
+
+Snippet to enable the language server:
+```lua
+vim.lsp.enable('slang_server')
+```
+
+Default config:
+- `cmd` :
+  ```lua
+  { "slang-server" }
+  ```
+- `filetypes` :
+  ```lua
+  { "systemverilog", "verilog" }
+  ```
+- `root_markers` :
+  ```lua
+  { ".git", ".slang" }
   ```
 
 ---

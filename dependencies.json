@@ -3,8 +3,8 @@
     "prefix": "aspects/dotfiles/files/.config/yazi/vendor/plugins",
     "url": "https://github.com/yazi-rs/plugins.git",
     "branch": "main",
-    "previous": "ac82af3e10f9a32cecd9f87ac64b3f9de7c7aea7",
-    "current": "be524fb140206cc59b3e51037ba6148935263975"
+    "previous": "be524fb140206cc59b3e51037ba6148935263975",
+    "current": "c2c16c83dd6c754c38893030848a162bb2422ca2"
   },
   "github/mafredri/zsh-async": {
     "prefix": "aspects/dotfiles/files/.zsh/zsh-async",
@@ -150,8 +150,8 @@
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/loupe",
     "url": "https://github.com/wincent/loupe.git",
     "branch": "main",
-    "previous": "9189e7fa2d9dd54f4f0211c5edfdd6260252fe4b",
-    "current": "beccd3d37061be014721c63fe8a578c17e6d450f"
+    "previous": "beccd3d37061be014721c63fe8a578c17e6d450f",
+    "current": "100a80de4ece5d2e8cae4a9bf8881c8e31e18e6f"
   },
   "github/wincent/shannon": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/shannon",
@@ -213,8 +213,8 @@
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-lspconfig",
     "url": "https://github.com/neovim/nvim-lspconfig.git",
     "branch": "master",
-    "previous": "31026a13eefb20681124706a79fc1df6bf11ab27",
-    "current": "a4ed4e761c400849e8c9f8bda33e5083f890268c"
+    "previous": "a4ed4e761c400849e8c9f8bda33e5083f890268c",
+    "current": "9573948c38bfabeec353ae7dd7d3ffec4c506a6b"
   },
   "github/kyazdani42/nvim-tree.lua": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-tree.lua",
