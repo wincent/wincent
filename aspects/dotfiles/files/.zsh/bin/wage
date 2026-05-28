@@ -74,9 +74,11 @@ decrypt() {
 
   if [ -f "$CIPHERTEXT" ]; then
     echo "🔓 ${BOLD}${GREEN}Decrypting:${RESET} ${PLAINTEXT}"
-    age --decrypt -i "$IDENTITY" -o "$PLAINTEXT" "$CIPHERTEXT"
+    (umask 077 && age --decrypt -i "$IDENTITY" -o "$PLAINTEXT" "$CIPHERTEXT")
     if [[ "$PLAINTEXT" == *.sh ]]; then
-      chmod +x "$PLAINTEXT"
+      chmod 700 "$PLAINTEXT"
+    else
+      chmod 600 "$PLAINTEXT"
     fi
   else
     echo "💥 ${BOLD}${RED}Not decrypting (non-file):${RESET} ${CIPHERTEXT}"
