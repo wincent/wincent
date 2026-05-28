@@ -21,7 +21,7 @@
     "openai-codex/gpt-5.5"
   ],
   "defaultThinkingLevel": "xhigh",
-  "lastChangelogVersion": "0.74.0",
+  "lastChangelogVersion": "0.75.4",
   "defaultProvider": "anthropic",
   "defaultModel": "claude-opus-4-7"
 }
