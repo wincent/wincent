@@ -13,7 +13,7 @@
     "~/dd/wincent/.pi/agent/skills"
   ],
   "enabledModels": [
-    "anthropic/claude-opus-4-7",
+    "anthropic/claude-opus-4-8",
     "anthropic/claude-sonnet-4-6",
     "anthropic/claude-haiku-4-5",
     "google/gemini-3.1-pro-preview",
@@ -21,7 +21,7 @@
     "openai-codex/gpt-5.5"
   ],
   "defaultThinkingLevel": "xhigh",
-  "lastChangelogVersion": "0.75.4",
+  "lastChangelogVersion": "0.77.0",
   "defaultProvider": "anthropic",
-  "defaultModel": "claude-opus-4-7"
+  "defaultModel": "claude-opus-4-8"
 }
