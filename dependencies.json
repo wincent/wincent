@@ -251,13 +251,6 @@
     "previous": "6849357c9cf1138894e26d87b6721946fb193406",
     "current": "6849357c9cf1138894e26d87b6721946fb193406"
   },
-  "github/wincent/replay": {
-    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/replay",
-    "url": "https://github.com/wincent/replay.git",
-    "branch": "main",
-    "previous": "34ad3247a2bec4218af9ea9881ffc269bbf775cf",
-    "current": "34ad3247a2bec4218af9ea9881ffc269bbf775cf"
-  },
   "github/rust-lang/rust.vim": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/rust.vim",
     "url": "https://github.com/rust-lang/rust.vim.git",

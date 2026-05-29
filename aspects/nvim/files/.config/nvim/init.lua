@@ -240,7 +240,6 @@ if vim.o.loadplugins then
     'nvim-treesitter-textobjects',
     'oil.nvim',
     'pinnacle',
-    'replay',
     'rust.vim',
     'scalpel',
     'shannon',

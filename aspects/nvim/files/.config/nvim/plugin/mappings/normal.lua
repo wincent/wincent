@@ -29,9 +29,6 @@ vim.keymap.set('n', '>>', wrap_mapping('>>'), { silent = true })
 -- collision between <Tab> and <C-i> (have it send F6 instead for <C-i>).
 vim.keymap.set('n', '<F6>', '<C-i>')
 
--- Avoid unintentional switches to Ex mode.
-vim.keymap.set('n', 'Q', '<Nop>')
-
 -- Note this one is a rare multi-mode mapping (Normal, Operating-pending, Visual modes).
 vim.keymap.set({ 'n', 'o', 'v' }, 'Y', 'y$')
 
