@@ -1,6 +1,6 @@
 # "dotfiles" and system configuration
 
-![CI status badge](https://github.com/wincent/wincent/workflows/ci/badge.svg)
+[![CI status badge](https://github.com/wincent/wincent/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/wincent/wincent/actions/workflows/ci.yml)
 
 > These dotfiles are affectionately dedicated to the vi editor originally created by Bill Joy, with whom I have spent many pleasant evenings[^1]
 
