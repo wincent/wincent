@@ -59,3 +59,4 @@
 /aspects/homebrew/work.ts
 /aspects/ssh/files/.ssh/config.d/pre/comp-ktw7q4c5jh
 /aspects/ssh/templates/.ssh/config.erb
+/aspects/dotfiles/files/.zshenv.d/host/comp-ktw7q4c5jh.zsh

@@ -19,7 +19,10 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 EOF
 
 if [ -d "$HOME/.zshenv.d" ]; then
-  for EXTENSION_FILE in $(find $HOME/.zshenv.d/ -name '*.zsh'); do
+  for EXTENSION_FILE in $(find $HOME/.zshenv.d/ -maxdepth 1 -name '*.zsh'); do
     source "$EXTENSION_FILE"
   done
 fi
+
+HOST_ENV="$HOME/.zshenv.d/host/$(hostname -s | tr '[:upper:]' '[:lower:]').zsh"
+test -f $HOST_ENV && source $HOST_ENV
