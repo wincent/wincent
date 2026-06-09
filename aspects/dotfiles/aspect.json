@@ -51,6 +51,7 @@
       ".xinitrc",
       ".zsh",
       ".zshenv",
+      ".zshenv.d",
       ".zshrc"
     ],
     "templates": [
