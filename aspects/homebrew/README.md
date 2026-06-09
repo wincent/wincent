@@ -38,8 +38,8 @@ To regenerate after installing/removing packages:
    ```
 
 4. Review the regenerated files (any human-supplied `note` annotations and `binary` overrides in the `support/*.json` files are preserved).
-5. If `work.ts` or `support/work.json` changed, re-run `bin/encrypt`.
-6. `bin/format` (to catch any formatter drift).
+5. `bin/format` (the generator emits unwrapped source; this fixes any formatter drift).
+6. If `work.ts` or `support/work.json` changed, re-run `bin/encrypt` (do this _after_ formatting, or the ciphertext will lag the formatted plaintext).
 
 If you only want to regenerate the `.ts` files from the current JSON metadata (eg. after hand-editing a `note` or adding a package as described previously), run `bin/brew-bundle-dump` with no arguments.
 
@@ -52,6 +52,17 @@ The `support/*.json` files are the source of truth. Each item may carry an optio
   "name": "dart-lang/dart",
   "url": null,
   "note": "Dependency of the `sass` formula"
+}
+```
+
+For non-official taps (anything other than `homebrew/core`/`homebrew/cask`), the generator also emits an idempotent `brew trust` task next to each `brew tap` task, so that Homebrew keeps loading the tap's formulae and casks once tap trust becomes mandatory (see [Tap Trust](https://docs.brew.sh/Tap-Trust)). By default it trusts at the formula/cask level (the recommended granularity) for every item we install from the tap, falling back to whole-tap trust for taps that use a custom remote (Homebrew ignores per-item trust for those). When a tap is only present as a transitive dependency, or when its formula lives in a different profile, there is nothing to derive a target from; in that case add an explicit `trust` array. Each entry is either `"tap"` (whole-tap trust) or `"<type>:<name>"` where `<type>` is `formula`, `cask`, or `command`:
+
+```json
+{
+  "name": "dart-lang/dart",
+  "url": null,
+  "note": "needed by sass/sass/sass",
+  "trust": ["formula:dart"]
 }
 ```
 

@@ -48,7 +48,19 @@ type Tap = {
   name: string;
   url: string | null;
   note: string | null;
+  /**
+   * Optional override controlling how `brew trust` is invoked for this tap.
+   *
+   * Each entry is either `"tap"` (whole-tap trust) or `"<type>:<name>"` where
+   * `<type>` is `formula`, `cask` or `command`. When omitted, the trust
+   * target is derived automatically (see `trustTargetsForTap`).
+   */
+  trust: ReadonlyArray<string> | null;
 };
+
+type TrustTarget =
+  | {type: 'tap'}
+  | {type: 'formula' | 'cask' | 'command'; name: string};
 
 type Formula = {
   name: string;
@@ -141,6 +153,7 @@ function parseDump(content: string): RawItems {
         name: name!,
         url: url ?? null,
         note: null,
+        trust: null,
       });
       continue;
     }
@@ -322,6 +335,7 @@ function merge(raw: RawItems, existing: Metadata): Metadata {
           name: t.name,
           url: t.url ?? prior?.url ?? null,
           note: prior?.note ?? null,
+          trust: prior?.trust ?? null,
         };
       }),
     ),
@@ -568,6 +582,73 @@ function formatComment(desc: string | null, note: string | null): string {
 }
 
 /**
+ * Parses a single `trust` annotation entry into a `TrustTarget`.
+ */
+function parseTrustEntry(entry: string): TrustTarget | null {
+  if (entry === 'tap') {
+    return {type: 'tap'};
+  }
+  const match = entry.match(/^(formula|cask|command):(.+)$/);
+  if (!match) {
+    console.error(`warning: ignoring malformed trust entry: ${entry}`);
+    return null;
+  }
+  return {type: match[1] as 'formula' | 'cask' | 'command', name: match[2]!};
+}
+
+/**
+ * Computes the `brew trust` targets for a (non-official) tap.
+ *
+ * Resolution order:
+ *
+ *   1. An explicit `trust` annotation in the JSON always wins.
+ *   2. Custom-remote taps (those tapped from an explicit git URL) can only be
+ *      trusted wholesale: Homebrew ignores per-item trust when deciding
+ *      whether to load a formula/cask from a tap that uses a custom remote.
+ *   3. Otherwise, trust every formula/cask we install from this tap in this
+ *      profile. Trusting any one item is enough to silence `brew doctor`, but
+ *      trusting all of them also keeps per-formula checks (eg. `brew bundle`
+ *      outdated detection) happy.
+ */
+function trustTargetsForTap(
+  tap: Tap,
+  metadata: Metadata,
+  profile: Profile,
+): Array<TrustTarget> {
+  if (tap.trust && tap.trust.length) {
+    return tap.trust
+      .map(parseTrustEntry)
+      .filter((target): target is TrustTarget => target !== null);
+  }
+
+  if (tap.url) {
+    return [{type: 'tap'}];
+  }
+
+  const targets: Array<TrustTarget> = [];
+  for (const formula of metadata.formulae) {
+    if (formula.tap === tap.name) {
+      targets.push({type: 'formula', name: formula.name});
+    }
+  }
+  for (const cask of metadata.casks) {
+    if (cask.tap === tap.name) {
+      targets.push({type: 'cask', name: cask.name});
+    }
+  }
+
+  if (targets.length === 0) {
+    console.error(
+      `warning: non-official tap "${tap.name}" in ${profile} has nothing to ` +
+        `trust; add a "trust" annotation (eg. ["formula:NAME"]) to ` +
+        `support/${profile}.json`,
+    );
+  }
+
+  return targets;
+}
+
+/**
  * Renders a generated `.ts` module for the given profile.
  */
 function render(profile: Profile, metadata: Metadata): string {
@@ -637,6 +718,36 @@ function render(profile: Profile, metadata: Metadata): string {
       body.push(`  });`);
       body.push(`});`);
       body.push('');
+
+      // Trust the tap (or specific items from it) so that Homebrew will load
+      // its formulae/casks once tap trust becomes mandatory. `brew trust` is
+      // idempotent, so these run unconditionally (no `creates:` guard).
+      for (const target of trustTargetsForTap(tap, metadata, profile)) {
+        if (target.type === 'tap') {
+          body.push(
+            `task('trust ${escapeJS(tap.name)} tap', ${guardArg}async () => {`,
+          );
+          body.push(
+            `  await command('brew', ['trust', '${escapeJS(tap.name)}']);`,
+          );
+          body.push(`});`);
+          body.push('');
+        } else {
+          const qualified = `${tap.name}/${target.name}`;
+          body.push(
+            `task('trust ${
+              escapeJS(qualified)
+            } ${target.type}', ${guardArg}async () => {`,
+          );
+          body.push(
+            `  await command('brew', ['trust', '--${target.type}', '${
+              escapeJS(qualified)
+            }']);`,
+          );
+          body.push(`});`);
+          body.push('');
+        }
+      }
     }
   }
 

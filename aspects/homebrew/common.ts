@@ -16,16 +16,18 @@ task('tap cirruslabs/cli', async () => {
   });
 });
 
+task('trust cirruslabs/cli/tart formula', async () => {
+  await command('brew', ['trust', '--formula', 'cirruslabs/cli/tart']);
+});
+
 task('tap oven-sh/bun', async () => {
   await command('brew', ['tap', 'oven-sh/bun'], {
     creates: '/opt/homebrew/Library/Taps/oven-sh/homebrew-bun',
   });
 });
 
-task('tap sass/sass', async () => {
-  await command('brew', ['tap', 'sass/sass'], {
-    creates: '/opt/homebrew/Library/Taps/sass/homebrew-sass',
-  });
+task('trust oven-sh/bun/bun formula', async () => {
+  await command('brew', ['trust', '--formula', 'oven-sh/bun/bun']);
 });
 
 //
