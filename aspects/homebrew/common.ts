@@ -10,14 +10,15 @@ import {command, handler, task} from 'fig';
 // Taps.
 //
 
+// tart pulls in cirruslabs/cli/softnet, so trust the whole tap.
 task('tap cirruslabs/cli', async () => {
   await command('brew', ['tap', 'cirruslabs/cli'], {
     creates: '/opt/homebrew/Library/Taps/cirruslabs/homebrew-cli',
   });
 });
 
-task('trust cirruslabs/cli/tart formula', async () => {
-  await command('brew', ['trust', '--formula', 'cirruslabs/cli/tart']);
+task('trust cirruslabs/cli tap', async () => {
+  await command('brew', ['trust', 'cirruslabs/cli']);
 });
 
 task('tap oven-sh/bun', async () => {

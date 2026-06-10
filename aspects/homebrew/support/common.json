@@ -3,7 +3,8 @@
     {
       "name": "cirruslabs/cli",
       "url": null,
-      "note": null
+      "note": "tart pulls in cirruslabs/cli/softnet, so trust the whole tap",
+      "trust": ["tap"]
     },
     {
       "name": "oven-sh/bun",
