@@ -147,13 +147,6 @@ task('install clang-format formula', async () => {
   });
 });
 
-// ASP system to ground and solve logic programs.
-task('install clingo formula', async () => {
-  await command('brew', ['install', 'clingo'], {
-    creates: '/opt/homebrew/Cellar/clingo',
-  });
-});
-
 // Share macOS clipboard with tmux and other local and remote apps.
 task('install clipper formula', async () => {
   await command('brew', ['install', 'clipper'], {
@@ -867,20 +860,6 @@ task('install pth formula', async () => {
 task('install pwgen formula', async () => {
   await command('brew', ['install', 'pwgen'], {
     creates: '/opt/homebrew/Cellar/pwgen',
-  });
-});
-
-// Interpreted, interactive, object-oriented programming language.
-task('install python@3.11 formula', async () => {
-  await command('brew', ['install', 'python@3.11'], {
-    creates: '/opt/homebrew/Cellar/python@3.11',
-  });
-});
-
-// Interpreted, interactive, object-oriented programming language.
-task('install python@3.12 formula', async () => {
-  await command('brew', ['install', 'python@3.12'], {
-    creates: '/opt/homebrew/Cellar/python@3.12',
   });
 });
 

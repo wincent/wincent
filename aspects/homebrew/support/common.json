@@ -142,14 +142,6 @@
       "note": null
     },
     {
-      "name": "clingo",
-      "tap": "homebrew/core",
-      "description": "ASP system to ground and solve logic programs",
-      "args": [],
-      "restartService": false,
-      "note": null
-    },
-    {
       "name": "clipper",
       "tap": "homebrew/core",
       "description": "Share macOS clipboard with tmux and other local and remote apps",
@@ -961,22 +953,6 @@
       "name": "pwgen",
       "tap": "homebrew/core",
       "description": "Password generator",
-      "args": [],
-      "restartService": false,
-      "note": null
-    },
-    {
-      "name": "python@3.11",
-      "tap": "homebrew/core",
-      "description": "Interpreted, interactive, object-oriented programming language",
-      "args": [],
-      "restartService": false,
-      "note": null
-    },
-    {
-      "name": "python@3.12",
-      "tap": "homebrew/core",
-      "description": "Interpreted, interactive, object-oriented programming language",
       "args": [],
       "restartService": false,
       "note": null
