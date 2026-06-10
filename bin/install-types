@@ -1,0 +1,5 @@
+#!/bin/bash
+
+REPO_ROOT=$(cd "$(dirname "$BASH_SOURCE")/.."; pwd)
+
+exec "$REPO_ROOT/aspects/dotfiles/files/.pi/agent/extensions/bin/install-types" "$@"
