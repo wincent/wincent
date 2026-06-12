@@ -1,0 +1,45 @@
+#autoload
+
+# Bash-completion-style completion for `git wt` (the git-wt helper; see
+# ~/.zsh/bin/git-wt).
+#
+# The active `_git` driver here is git's bundled completion (git-completion.zsh
+# sourcing git-completion.bash). Its dispatcher (__git_complete_command) routes
+# `git wt ...` to a function named `_git_wt` (underscores, bash style) and runs
+# it under `emulate ksh`. This is a different mechanism from the zsh-native
+# `_git`, which would instead dispatch to `_git-wt` (dash). The companion file
+# `_git-wt` handles the bare `git-wt ...` command and the zsh-native driver;
+# this file handles `git wt ...` under git's own driver.
+#
+# Modelled on git's own `_git_worktree`.
+
+local subcommands="list add clone migrate remove move prune repair lock unlock help"
+local subcommand subcommand_idx
+
+subcommand="$(__git_find_on_cmdline --show-idx "$subcommands")"
+subcommand_idx="${subcommand% *}"
+subcommand="${subcommand#* }"
+
+case "$subcommand,$cur" in
+,*)
+	__gitcomp "$subcommands"
+	;;
+*,--*)
+	# Option completion for the subcommands that pass through to
+	# `git worktree`; our own subcommands (clone, migrate) take no options.
+	case "$subcommand" in
+	add|list|lock|move|prune|remove|repair|unlock)
+		__gitcomp_builtin worktree_$subcommand
+		;;
+	esac
+	;;
+add,*)
+	# `git wt add <branch>`: complete branch / ref names.
+	__git_complete_refs
+	;;
+remove,*|move,*|lock,*|unlock,*|repair,*)
+	__git_complete_worktree_paths
+	;;
+esac
+
+# vim: set filetype=zsh

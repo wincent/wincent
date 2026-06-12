@@ -1,0 +1,190 @@
+#!/usr/bin/env zsh
+
+# git-wt: a small helper for the "bare repository + worktrees" layout, similar
+# to the one described in: https://gabri.me/blog/git-worktrees-done-right
+#
+# Layout (note: the bare git data lives directly in `.git`, with no `.bare`
+# directory and no `.git` gitlink file):
+#
+#     project/
+#     ├── .git/      <- the bare repository (core.bare = true)
+#     ├── main/      <- a worktree
+#     └── feature/   <- another worktree
+#
+# Subcommands that mirror `git worktree` (list, remove, move, prune, repair,
+# lock, unlock, ...) are passed straight through. The value-add commands are:
+#
+#     git wt                      list worktrees (alias for `git wt list`)
+#     git wt clone <url> [<dir>]  clone <url> into <dir> as a bare repo whose
+#                                 data lives in <dir>/.git, set up remote
+#                                 tracking, and check out the default branch
+#     git wt add <branch>         add a worktree for <branch> as a sibling
+#                                 directory, creating/tracking it as needed
+#     git wt migrate              convert the current normal clone, in place,
+#                                 to the bare-in-.git layout, carrying over
+#                                 untracked and ignored files
+#     git wt <anything-else> ...  forwarded to `git worktree`
+
+emulate -L zsh
+setopt no_unset pipe_fail
+
+die() {
+  print -ru2 -- "error: $*"
+  exit 1
+}
+
+usage() {
+  print -r -- "Usage:
+  git wt                      list worktrees (alias for: git wt list)
+  git wt clone <url> [<dir>]  clone as a bare repo (data in <dir>/.git)
+  git wt add <branch>         add a worktree for <branch> as a sibling dir
+  git wt migrate              convert the current clone to the bare layout
+  git wt <other> ...          passed through to git worktree"
+}
+
+# Default branch of `origin`, e.g. "main"; empty + non-zero if undetectable.
+origin_default_branch() {
+  local ref
+  ref=$(git symbolic-ref --short refs/remotes/origin/HEAD 2>/dev/null) || return 1
+  print -r -- "${ref#origin/}"
+}
+
+# Absolute path of the worktree container: the parent of the common git dir.
+container_dir() {
+  local common
+  common=$(git rev-parse --path-format=absolute --git-common-dir 2>/dev/null) || return 1
+  print -r -- "${common:h}"
+}
+
+cmd_clone() {
+  local url=${1-}
+  [[ -n $url ]] || die "usage: git wt clone <url> [<dir>]"
+
+  local dir=${2-}
+  [[ -n $dir ]] || dir=${${url:t}%.git}
+  [[ -n $dir ]] || die "could not infer a destination directory from '$url'"
+  [[ ! -e $dir ]] || die "destination '$dir' already exists"
+
+  mkdir -p -- "$dir" || die "could not create '$dir'"
+  dir=${dir:A}
+
+  git init -q --bare -- "$dir/.git" || die "git init --bare failed"
+  git -C "$dir" remote add origin "$url" || die "git remote add failed"
+  # A plain `--bare` clone would leave an empty/unhelpful fetch refspec and no
+  # origin/* refs; configure the standard one so worktrees can track upstreams.
+  git -C "$dir" config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
+
+  print -r -- "Fetching from $url ..."
+  git -C "$dir" fetch -q origin || die "git fetch failed"
+  git -C "$dir" remote set-head origin -a >/dev/null 2>&1
+
+  local def
+  def=$(git -C "$dir" symbolic-ref --short refs/remotes/origin/HEAD 2>/dev/null)
+  def=${def#origin/}
+  if [[ -z $def ]]; then
+    print -ru2 -- "warning: could not detect default branch; created bare repo only"
+    print -r -- "Bare repository created at: $dir/.git"
+    return 0
+  fi
+
+  # No local heads exist yet, so this DWIMs a local branch tracking origin/$def.
+  git -C "$dir" worktree add -q -- "$dir/$def" "$def" \
+    || die "could not create worktree for '$def'"
+  print -r -- "Created worktree: $dir/$def (tracking origin/$def)"
+}
+
+cmd_add() {
+  local branch=${1-}
+  [[ -n $branch ]] || die "usage: git wt add <branch>"
+  # Anything that looks like raw `git worktree add` usage is forwarded as-is.
+  if [[ $branch == -* ]] || (( $# > 1 )); then
+    exec git worktree add "$@"
+  fi
+
+  local container
+  container=$(container_dir) || die "not inside a git repository"
+  # NB: do not name this `path`; in zsh that is bound to $PATH.
+  local dest=$container/$branch
+  [[ ! -e $dest ]] || die "'$dest' already exists"
+
+  if git show-ref --verify --quiet "refs/heads/$branch" \
+     || git rev-parse --verify --quiet "refs/remotes/origin/$branch" >/dev/null 2>&1
+  then
+    # Existing local branch, or DWIM a local branch tracking origin/$branch.
+    git worktree add -- "$dest" "$branch" || die "git worktree add failed"
+  else
+    # Brand-new branch, forked from the current HEAD.
+    git worktree add -b "$branch" -- "$dest" || die "git worktree add failed"
+  fi
+  print -r -- "Created worktree: $dest"
+}
+
+cmd_migrate() {
+  (( $# == 0 )) || die "usage: git wt migrate"
+
+  [[ $(git rev-parse --is-bare-repository 2>/dev/null) == false ]] \
+    || die "this is already a bare repository"
+  local root
+  root=$(git rev-parse --show-toplevel 2>/dev/null) \
+    || die "not inside a git work tree"
+
+  # Only changes to *tracked* files are unsafe: the new worktree is a fresh
+  # checkout of HEAD, so tracked content is reproduced exactly. Untracked and
+  # ignored files are carried over below, so they need not block migration.
+  [[ -z $(git -C "$root" status --porcelain --untracked-files=no) ]] \
+    || die "commit or stash changes to tracked files first"
+
+  local branch
+  branch=$(git -C "$root" symbolic-ref --short HEAD 2>/dev/null) \
+    || die "detached HEAD; check out a branch before migrating"
+
+  [[ ! -f $root/.gitmodules ]] \
+    || print -ru2 -- "warning: submodule contents are not carried over; run 'git submodule update --init' in the new worktree"
+
+  # Everything not in the index (untracked + ignored). --directory collapses a
+  # wholly-untracked directory (e.g. node_modules/) into one entry so it moves
+  # in a single rename; -z keeps pathological filenames intact.
+  local -a others
+  others=("${(0)$(git -C "$root" ls-files -z --others --directory)}")
+
+  local parent=${root:h}
+  local name=${root:t}
+  local staging=$parent/.${name}.git-wt-migrating
+  [[ ! -e $staging ]] || die "staging path '$staging' already exists; remove it and retry"
+
+  local container=$root
+  local wt=$container/$branch
+
+  print -r -- "Migrating '$root' to the bare layout (branch: $branch) ..."
+  mv -- "$root" "$staging" || die "could not move repository aside"
+  mkdir -- "$container" || die "could not recreate '$container'"
+  mv -- "$staging/.git" "$container/.git" || die "could not relocate .git"
+  git -C "$container" config core.bare true
+  git -C "$container" worktree add -q -- "$wt" "$branch" \
+    || die "could not create worktree for '$branch'"
+
+  local entry rel
+  for entry in $others; do
+    [[ -z $entry ]] && continue
+    rel=${entry%/}
+    mkdir -p -- "$wt/${rel:h}"
+    mv -- "$staging/$rel" "$wt/$rel"
+  done
+  rm -rf -- "$staging"
+
+  print -r -- "Done. Worktree created at: $wt"
+  print -r -- "Your shell is still in the old (now-removed) directory; run:"
+  print -r -- "  cd ${(q)wt}"
+}
+
+(( $# == 0 )) && exec git worktree list
+
+case $1 in
+  clone)          shift; cmd_clone "$@" ;;
+  add)            shift; cmd_add "$@" ;;
+  migrate)        shift; cmd_migrate "$@" ;;
+  help|-h|--help) usage ;;
+  *)              exec git worktree "$@" ;;
+esac
+
+# vim: set filetype=zsh

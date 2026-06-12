@@ -1,0 +1,59 @@
+#compdef git-wt
+
+# Completion for the `git-wt` helper (see ~/.zsh/bin/git-wt).
+
+local curcontext="$curcontext" state line
+typeset -A opt_args
+
+local -a subcommands=(
+  'list:list worktrees'
+  'add:add a worktree for a branch as a sibling directory'
+  'clone:clone a repository into the bare-in-.git layout'
+  'migrate:convert the current normal clone to the bare layout'
+  'remove:remove a worktree'
+  'move:move a worktree'
+  'prune:prune worktree administrative files'
+  'repair:repair worktree administrative files'
+  'lock:lock a worktree'
+  'unlock:unlock a worktree'
+  'help:show usage'
+)
+
+_arguments -C \
+  '1: :->subcommand' \
+  '*:: :->args'
+
+case $state in
+  subcommand)
+    _describe -t commands 'git wt subcommand' subcommands
+    ;;
+  args)
+    case $words[1] in
+      add)
+        # Local branch names, plus remote branch names with their remote
+        # prefix stripped (so `add` can DWIM a new tracking worktree).
+        local -a locals remotes branches
+        locals=(${(f)"$(git for-each-ref --format='%(refname:short)' refs/heads 2>/dev/null)"})
+        # Use full ref names so the symbolic refs/remotes/<remote>/HEAD (whose
+        # short form collapses to just "<remote>") can be filtered cleanly.
+        remotes=(${(f)"$(git for-each-ref --format='%(refname)' refs/remotes 2>/dev/null)"})
+        remotes=(${remotes:#*/HEAD})            # drop refs/remotes/<remote>/HEAD
+        remotes=(${remotes#refs/remotes/*/})    # strip the refs/remotes/<remote>/ prefix
+        branches=($locals $remotes)
+        branches=(${(u)branches})
+        _describe -t branches 'branch' branches
+        ;;
+      remove|move|lock|unlock|repair)
+        local -a worktrees
+        worktrees=(${(f)"$(git worktree list --porcelain 2>/dev/null | sed -n 's/^worktree //p')"})
+        _describe -t worktrees 'worktree' worktrees
+        ;;
+      clone)
+        # 1st positional is the URL (left free); 2nd is the destination dir.
+        (( CURRENT >= 3 )) && _files -/
+        ;;
+    esac
+    ;;
+esac
+
+# vim: set filetype=zsh
