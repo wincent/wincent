@@ -34,3 +34,13 @@ Do **not** attempt to emit raw OSC 8 escape sequences (`\x1b]8;…\x1b\\`) direc
 ## Rationale
 
 The user's terminal (kitty inside tmux, with `*:hyperlinks` enabled in tmux's `terminal-features`) renders OSC 8 sequences as clickable links, routed to a custom handler that opens files in the right Neovim instance. Pi-tui's Markdown renderer is the bridge: it converts Markdown links to OSC 8 at the rendering stage. Using Markdown link syntax consistently makes every path the assistant mentions directly actionable.
+
+# Git worktree layout
+
+Some repositories here use a "bare-in-.git" worktree layout: the container directory holds a *bare* `.git` (`core.bare=true`) plus sibling worktree directories (`main/`, `feature/`, and so on). There is deliberately no `.bare` directory and no `.git` gitlink file. **Do not try to "repair" this.** Running git from the container root reports a bare repository, and `git status` there fails with "must be run in a work tree": that is expected, not a problem. Operate inside a worktree directory.
+
+The canonical tool for this layout is `git wt` (run `git wt help` for the authoritative usage). Its subcommand names mirror `git worktree`, with `clone` and `migrate` added, and any unrecognized subcommand passes straight through to `git worktree`. When asked to set up a repository in this layout, use `git wt clone`; **never** hand-roll `git clone --bare`, which leaves local branches with no upstream and configures no `origin/*` refs, so worktrees cannot track upstream.
+
+Worktrees are siblings, so to move to another worktree just `cd ../<name>`. There is **no** `git wt switch`; do not invent one or build an interactive picker.
+
+The `subagent` extension's `worker` worktrees are a separate, automatic mechanism: the harness provisions them with plain `git worktree` under a `<repo>-subagent-worktrees/` directory and prunes them afterward. They are unrelated to `git wt`; do not manage them with `git wt`.
