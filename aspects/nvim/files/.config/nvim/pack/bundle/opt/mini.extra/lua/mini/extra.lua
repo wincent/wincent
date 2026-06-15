@@ -738,7 +738,7 @@ end
 
 --- Git files picker
 ---
---- Pick from Git files using `git ls-files`.
+--- Pick from Git files using `git ls-files` using standard ignore rules.
 --- __extra_pickers_git_notes
 ---
 --- Examples:
@@ -746,12 +746,12 @@ end
 --- - `MiniExtra.pickers.git_files({ scope = 'ignored' })` - ignored files from
 ---   parent Git repository of |current-directory|.
 --- - `:Pick git_files path='subdir' scope='modified'` - files from 'subdir'
----   subdirectory which are ignored by Git.
+---   subdirectory which differ from Git index.
 ---
 ---@param local_opts __extra_pickers_local_opts
 ---   Possible fields:
 ---   __extra_pickers_git_path
----   - <scope> `(string)` - files scope to show. One of
+---   - <scope> `(string)` - files scope to show. One of:
 ---       - "tracked"   (`--cached`   Git flag).
 ---       - "modified"  (`--modified` Git flag).
 ---       - "untracked" (`--others`   Git flag).
@@ -779,11 +779,11 @@ MiniExtra.pickers.git_files = function(local_opts, opts)
   local show = H.pick_get_config().source.show or H.show_with_icons
 
   local args = ({
-    tracked = { '--cached' },
-    modified = { '--modified' },
-    untracked = { '--others' },
+    tracked = { '--cached', '--exclude-standard' },
+    modified = { '--modified', '--exclude-standard' },
+    untracked = { '--others', '--exclude-standard' },
     ignored = { '--others', '--ignored', '--exclude-standard' },
-    deleted = { '--deleted' },
+    deleted = { '--deleted', '--exclude-standard' },
   })[local_opts.scope]
   local command = vim.list_extend({ 'git', '-C', path_dir, '-c', 'core.quotepath=false', 'ls-files' }, args)
 
@@ -1809,9 +1809,9 @@ H.pick_start = function(items, default_opts, opts)
   return pick.start(opts_final)
 end
 
-H.pick_highlight_line = function(buf_id, line, hl_group, priority)
+H.pick_highlight_line = function(buf_id, line, hl_group, priority, start_col)
   local opts = { end_row = line, end_col = 0, hl_mode = 'blend', hl_group = hl_group, priority = priority }
-  vim.api.nvim_buf_set_extmark(buf_id, H.ns_id.pickers, line - 1, 0, opts)
+  vim.api.nvim_buf_set_extmark(buf_id, H.ns_id.pickers, line - 1, start_col or 0, opts)
 end
 
 H.pick_prepend_position = function(item)
@@ -1828,6 +1828,7 @@ H.pick_prepend_position = function(item)
   local text = item.text or ''
   local suffix = text == '' and '' or ('│ ' .. text)
   item.text = string.format('%s│%s│%s%s', path, item.lnum or 1, item.col or 1, suffix)
+  item.text_start_col = text ~= '' and (item.text:len() - text:len()) or nil
   return item
 end
 
@@ -2037,7 +2038,8 @@ H.lsp_make_opts = function(source, opts)
       add_decor_data(item)
       item.kind_orig = nil
     end
-    table.sort(items, H.lsp_items_compare)
+    -- Preserve order for queried methods as server can return deliberate order
+    if not vim.startswith(source, 'workspace_symbol') then table.sort(items, H.lsp_items_compare) end
     return items
   end
 
@@ -2055,7 +2057,8 @@ H.lsp_make_opts = function(source, opts)
 
     H.pick_clear_namespace(buf_id, H.ns_id.pickers)
     for i, item in ipairs(items_to_show) do
-      H.pick_highlight_line(buf_id, i, item.hl, 199)
+      -- Highlight only after position text to emphasize symbol data
+      H.pick_highlight_line(buf_id, i, item.hl, 199, item.text_start_col)
     end
   end
 

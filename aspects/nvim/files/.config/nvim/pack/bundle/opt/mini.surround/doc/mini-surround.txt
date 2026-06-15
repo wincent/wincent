@@ -558,8 +558,8 @@ General recommendations:
   `output`). Other fields will be taken from builtin surroundings.
 - Function returning surround info at <input> or <output> fields of
   specification is helpful when user input is needed (like asking for
-  function name). Use |input()| or |MiniSurround.user_input()|. Return
-  `nil` to stop any current surround operation.
+  function name). Use |MiniSurround.user_input()| or |MiniInput.get()|.
+  Return `nil` to stop any current surround operation.
 - Keys should use character representation which can be |getcharstr()| output.
   For example, `'\r'` and not `'<CR>'`.
 
@@ -824,6 +824,11 @@ Notes:
   Verify with `:=vim.treesitter.query.get('lang', 'textobjects')` and see
   if the target capture is recognized as one.
 - It uses buffer's |filetype| to determine query language.
+- It first searches the language under cursor for matches. If no matches are
+  found, it falls back to searching parent languages (up to the buffer's root
+  language). If no matches are found again, it falls back to recursively
+  searching all children languages (from the language under cursor). If no
+  matches again - report no matches.
 - On large files it is slower than pattern-based textobjects. Still very
   fast though (one search should be magnitude of milliseconds or tens of
   milliseconds on really large file).

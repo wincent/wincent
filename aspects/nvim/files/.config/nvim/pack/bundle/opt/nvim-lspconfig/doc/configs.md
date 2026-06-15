@@ -59,6 +59,7 @@ Nvim by running `:help lspconfig-all`.
 - [contextive](#contextive)
 - [copilot](#copilot)
 - [coq_lsp](#coq_lsp)
+- [cqlls](#cqlls)
 - [crystalline](#crystalline)
 - [csharp_ls](#csharp_ls)
 - [cspell_ls](#cspell_ls)
@@ -107,6 +108,7 @@ Nvim by running `:help lspconfig-all`.
 - [eslint](#eslint)
 - [expert](#expert)
 - [facility_language_server](#facility_language_server)
+- [fallow](#fallow)
 - [fennel_language_server](#fennel_language_server)
 - [fennel_ls](#fennel_ls)
 - [fish_lsp](#fish_lsp)
@@ -2558,6 +2560,40 @@ Default config:
 
 ---
 
+## cqlls
+
+https://github.com/Akzestia/cqlls
+
+Install via cargo:
+```sh
+cargo install cqlls
+```
+
+Snippet to enable the language server:
+```lua
+vim.lsp.enable('cqlls')
+```
+
+Default config:
+- `cmd` :
+  ```lua
+  { "cqlls" }
+  ```
+- `filetypes` :
+  ```lua
+  { "cql", "cqlang" }
+  ```
+- `root_markers` :
+  ```lua
+  { ".cqlls", ".git" }
+  ```
+- `settings` :
+  ```lua
+  {}
+  ```
+
+---
+
 ## crystalline
 
 https://github.com/elbywan/crystalline
@@ -4165,11 +4201,13 @@ Default config:
 - `settings` :
   ```lua
   {
-    codeLens = {
-      enable = true
-    },
-    hint = {
-      enable = true
+    emmylua = {
+      codeLens = {
+        enable = true
+      },
+      hint = {
+        enable = true
+      }
     }
   }
   ```
@@ -4448,6 +4486,34 @@ Default config:
 - `root_markers` :
   ```lua
   { ".git" }
+  ```
+
+---
+
+## fallow
+
+https://github.com/fallow-rs/fallow
+
+Codebase intelligence for TypeScript and JavaScript.
+
+Snippet to enable the language server:
+```lua
+vim.lsp.enable('fallow')
+```
+
+Default config:
+- `cmd`: [../lsp/fallow.lua:8](../lsp/fallow.lua#L8)
+- `filetypes` :
+  ```lua
+  { "javascript", "typescript", "javascriptreact", "typescriptreact" }
+  ```
+- `init_options` :
+  ```lua
+  {}
+  ```
+- `root_markers` :
+  ```lua
+  { ".fallowrc.json", ".git" }
   ```
 
 ---
@@ -5179,7 +5245,7 @@ vim.lsp.enable('gitlab_duo')
 Default config:
 - `cmd` :
   ```lua
-  { "npx", "--registry=https://gitlab.com/api/v4/packages/npm/", "@gitlab-org/gitlab-lsp", "--stdio" }
+  { "npx", "--@gitlab-org:registry=https://gitlab.com/api/v4/packages/npm/", "@gitlab-org/gitlab-lsp", "--stdio" }
   ```
 - `filetypes` :
   ```lua
@@ -5545,6 +5611,22 @@ https://github.com/golang/tools/tree/master/gopls
 
 Google's lsp server for golang.
 
+[Settings documentation](https://go.dev/gopls/settings)
+
+NOTE: since v0.22.0 gopls no longer advertises semantic tokens to clients
+by default. To maintain previous behavior, semantic tokens are enabled on client side.
+To disable this feature, set `semanticTokens` option to `false`.
+
+```lua
+  vim.lsp.config('gopls', {
+    settings = {
+      gopls = {
+        semanticTokens = false
+      }
+    }
+  })
+```
+
 Snippet to enable the language server:
 ```lua
 vim.lsp.enable('gopls')
@@ -5559,7 +5641,15 @@ Default config:
   ```lua
   { "go", "gomod", "gowork", "gotmpl" }
   ```
-- `root_dir`: [../lsp/gopls.lua:89](../lsp/gopls.lua#L89)
+- `root_dir`: [../lsp/gopls.lua:105](../lsp/gopls.lua#L105)
+- `settings` :
+  ```lua
+  {
+    gopls = {
+      semanticTokens = true
+    }
+  }
+  ```
 
 ---
 
@@ -8815,7 +8905,7 @@ Default config:
 
 https://github.com/Galarius/opencl-language-server
 
-Build instructions can be found [here](https://github.com/Galarius/opencl-language-server/blob/main/_dev/build.md).
+Build instructions can be found [here](https://github.com/Galarius/opencl-language-server/blob/main/DEV.md).
 
 Prebuilt binaries are available for Linux, macOS and Windows [here](https://github.com/Galarius/opencl-language-server/releases).
 

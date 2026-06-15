@@ -415,7 +415,7 @@ Return ~
               `MiniExtra.pickers.git_files`({local_opts}, {opts})
 Git files picker
 
-Pick from Git files using `git ls-files`.
+Pick from Git files using `git ls-files` using standard ignore rules.
 Notes:
 - Requires executable `git`.
 - Requires target path to be part of git repository.
@@ -427,7 +427,7 @@ Examples:
 - `MiniExtra.pickers.git_files({ scope = 'ignored' })` - ignored files from
   parent Git repository of |current-directory|.
 - `:Pick git_files path='subdir' scope='modified'` - files from 'subdir'
-  subdirectory which are ignored by Git.
+  subdirectory which differ from Git index.
 
 Parameters ~
 {local_opts} `(table|nil)` Options defining behavior of this particular picker.
@@ -435,7 +435,7 @@ Parameters ~
   - <path> `(string|nil)` - target path for Git operation (if required). Also
     used to find Git repository inside which to construct items.
     Default: `nil` for root of Git repository containing |current-directory|.
-  - <scope> `(string)` - files scope to show. One of
+  - <scope> `(string)` - files scope to show. One of:
       - "tracked"   (`--cached`   Git flag).
       - "modified"  (`--modified` Git flag).
       - "untracked" (`--others`   Git flag).

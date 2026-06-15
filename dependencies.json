@@ -3,8 +3,8 @@
     "prefix": "aspects/dotfiles/files/.config/yazi/vendor/plugins",
     "url": "https://github.com/yazi-rs/plugins.git",
     "branch": "main",
-    "previous": "be524fb140206cc59b3e51037ba6148935263975",
-    "current": "c2c16c83dd6c754c38893030848a162bb2422ca2"
+    "previous": "c2c16c83dd6c754c38893030848a162bb2422ca2",
+    "current": "598cdb671401574ac27aeee257e2f3b0c80610a1"
   },
   "github/mafredri/zsh-async": {
     "prefix": "aspects/dotfiles/files/.zsh/zsh-async",
@@ -24,8 +24,8 @@
     "prefix": "aspects/dotfiles/files/.zsh/zsh-completions",
     "url": "https://github.com/zsh-users/zsh-completions.git",
     "branch": "master",
-    "previous": "d3578edb5f2728c2b3c8d82501ca81d3e0ab575e",
-    "current": "6d21c2a1de9cb88479a0e67df492da3f3bbdb054"
+    "previous": "6d21c2a1de9cb88479a0e67df492da3f3bbdb054",
+    "current": "4b23ecd62a9ad79ddf2ac03c0bd8a7b43266508c"
   },
   "github/zsh-users/zsh-history-substring-search": {
     "prefix": "aspects/dotfiles/files/.zsh/zsh-history-substring-search",
@@ -115,8 +115,8 @@
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/command-t",
     "url": "https://github.com/wincent/command-t.git",
     "branch": "main",
-    "previous": "2be0daccedee86c0e2b148f1a7b5b159b388fa14",
-    "current": "63aad032b04dc9d4ad590f0585105e835217f4ec"
+    "previous": "63aad032b04dc9d4ad590f0585105e835217f4ec",
+    "current": "8e8e6c374f43c24685d21c54770241d71dd43fe7"
   },
   "github/wincent/corpus": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/corpus",
@@ -164,29 +164,29 @@
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.ai",
     "url": "https://github.com/nvim-mini/mini.ai.git",
     "branch": "main",
-    "previous": "43eb2074843950a3a25aae56a5f41362ec043bfa",
-    "current": "4ce4c35e411ea329a15d4b15e9c89c2a3089e437"
+    "previous": "4ce4c35e411ea329a15d4b15e9c89c2a3089e437",
+    "current": "4511b3481707c1d021485475d34f2ed2a50bf47b"
   },
   "github/nvim-mini/mini.extra": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.extra",
     "url": "https://github.com/nvim-mini/mini.extra.git",
     "branch": "main",
-    "previous": "bc4e872500fd6d2ce252604e0ffa100f64f02280",
-    "current": "5b0acf09d7f7958946973367c66bf5aafe4209dd"
+    "previous": "5b0acf09d7f7958946973367c66bf5aafe4209dd",
+    "current": "eb21c1117207d3aa1ae532c666c692e94909087e"
   },
   "github/nvim-mini/mini.icons": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.icons",
     "url": "https://github.com/nvim-mini/mini.icons.git",
     "branch": "main",
-    "previous": "bac6317300e205335df425296570d84322730067",
-    "current": "520995f1d75da0e4cc901ee95080b1ff2bc46b94"
+    "previous": "520995f1d75da0e4cc901ee95080b1ff2bc46b94",
+    "current": "d48ad47359218d2b019034f95f601b3861180885"
   },
   "github/nvim-mini/mini.surround": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.surround",
     "url": "https://github.com/nvim-mini/mini.surround.git",
     "branch": "main",
-    "previous": "2715e04bea3ec9244f15b421dc5b18c0fe326210",
-    "current": "1e37ade260e2b655c3a9b8407ba7e6b0fb995b28"
+    "previous": "1e37ade260e2b655c3a9b8407ba7e6b0fb995b28",
+    "current": "9fd5ebef2b34cc4ac3c0f1811a6726ea6d92fa91"
   },
   "github/eagletmt/neco-ghc": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/neco-ghc",
@@ -213,15 +213,15 @@
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-lspconfig",
     "url": "https://github.com/neovim/nvim-lspconfig.git",
     "branch": "master",
-    "previous": "a4ed4e761c400849e8c9f8bda33e5083f890268c",
-    "current": "9573948c38bfabeec353ae7dd7d3ffec4c506a6b"
+    "previous": "9573948c38bfabeec353ae7dd7d3ffec4c506a6b",
+    "current": "a683e0ddf0cf64c6cd689e18ffb480ade3c162b7"
   },
   "github/kyazdani42/nvim-tree.lua": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-tree.lua",
     "url": "https://github.com/kyazdani42/nvim-tree.lua.git",
     "branch": "master",
-    "previous": "f9bfc0059eca24546b69a7006110463da4808f8f",
-    "current": "07f541fcaa4a5ae019598240362449ab7e9812b3"
+    "previous": "07f541fcaa4a5ae019598240362449ab7e9812b3",
+    "current": "fb343438d49fba8c35ecc4829d66fca7a1f0ed3d"
   },
   "github/nvim-treesitter/nvim-treesitter": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-treesitter",
@@ -241,8 +241,8 @@
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/oil.nvim",
     "url": "https://github.com/stevearc/oil.nvim.git",
     "branch": "master",
-    "previous": "0fcc83805ad11cf714a949c98c605ed717e0b83e",
-    "current": "b91ee5a77a6a9605d9c1aaf4fda74b66082c8297"
+    "previous": "b91ee5a77a6a9605d9c1aaf4fda74b66082c8297",
+    "current": "b73018b75affd13fa38e2fc94ef753b465f770d7"
   },
   "github/wincent/pinnacle": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/pinnacle",

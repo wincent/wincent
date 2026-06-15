@@ -30,16 +30,8 @@
 ---   built-in in each category (see |MiniIcons.get()|).
 ---   The main supported category is "filetype".
 ---
---- Recommendations for plugin authors using 'mini.icons' as a dependency:
----
---- - Check if `_G.MiniIcons` table is present (which means that user explicitly
----   enabled 'mini.icons') and provide icons only if it is.
----
---- - Use |MiniIcons.get()| function to get icon string and more data about it.
----
---- - For file icons prefer using full path instead of relative or only basename.
----   It makes a difference if path matches pattern that uses parent directories.
----   The |MiniIcons.config| has an example of that.
+--- Sources with more details:
+--- - |MiniIcons-in-other-plugins| (for plugin authors)
 ---
 --- # Dependencies ~
 ---
@@ -161,6 +153,18 @@
 --- - `MiniIconsYellow` - yellow.
 ---
 --- To change any highlight group, set it directly with |nvim_set_hl()|.
+---
+--- # Using in other plugins ~
+--- *MiniIcons-in-other-plugins*
+---
+--- - Perform a `_G.MiniIcons ~= nil` check before using any feature. This ensures
+---   that user explicitly set up the module.
+---
+--- - Use |MiniIcons.get()| function to get icon string and more data about it.
+---
+--- - For file icons prefer using full path instead of relative or only basename.
+---   It makes a difference if path matches pattern that uses parent directories.
+---   The |MiniIcons.config| has an example of that.
 ---@tag MiniIcons
 
 ---@diagnostic disable:undefined-field
@@ -248,7 +252,7 @@ end
 ---       file = { glyph = '󰈤' },
 ---     },
 ---     extension = {
----       -- Override highlight group (not necessary from 'mini.icons')
+---       -- Override highlight group (not necessarily from 'mini.icons')
 ---       lua = { hl = 'Special' },
 ---
 ---       -- Add icons for custom extension. This will also be used in
@@ -279,10 +283,10 @@ end
 ---
 --- The primary use case for this setting is to ensure that some extensions are
 --- ignored in order for resolution to reach |vim.filetype.match()| stage. This
---- is needed if there is a set up filetype detection for files with recognizable
+--- is needed if filetype detection has been setup for files with recognizable
 --- extension and conflicting icons (which you want to use). Note: if problematic
---- filetype detection involves only known in advance file names, prefer using
---- `config.file` customization.
+--- filetype detection only involves file names that are known in advance, prefer
+--- using `config.file` customization.
 ---
 --- Example: >lua
 ---
@@ -295,7 +299,7 @@ end
 ---     use_file_extension = function(ext) return ext:sub(-3) ~= 'scm' end
 ---   })
 ---
----   -- Another common choices for extensions to ignore: "yml", "json", "txt".
+---   -- Other common choices for extensions to ignore: "yml", "json", "txt".
 --- <
 MiniIcons.config = {
   -- Icon style: 'glyph' or 'ascii'
@@ -2216,7 +2220,12 @@ H.filetype_match = function(filename)
     H.set_buf_name(buf_id, 'filetype-match-scratch')
     H.scratch_buf_id = buf_id
   end
-  return vim.filetype.match({ filename = filename, buf = H.scratch_buf_id })
+
+  -- `vim.filetype.match` can error for relative path when cwd does not exist
+  local ok, ft = pcall(vim.filetype.match, { filename = filename, buf = H.scratch_buf_id })
+  if ok then return ft end
+  ok, ft = pcall(vim.filetype.match, { filename = '~/' .. filename, buf = H.scratch_buf_id })
+  return ok and ft or nil
 end
 
 -- Utilities ------------------------------------------------------------------

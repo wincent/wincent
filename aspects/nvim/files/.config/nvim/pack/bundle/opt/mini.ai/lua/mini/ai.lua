@@ -444,8 +444,8 @@ end
 ---
 --- User can define own textobjects by supplying `config.custom_textobjects`.
 --- It should be a table with keys being single character textobject identifier
---- (supported by |getcharstr()|) and values - textobject specification
---- (see |MiniAi-textobject-specification|).
+--- (supported by |getcharstr()|, except <Esc> and <C-c> which are used to cancel)
+--- and values - textobject specification (see |MiniAi-textobject-specification|).
 ---
 --- General recommendations:
 --- - This can be used to override builtin ones (|MiniAi-builtin-textobjects|).
@@ -1014,6 +1014,11 @@ end
 ---   Verify with `:=vim.treesitter.query.get('lang', 'textobjects')` and see
 ---   if the target capture is recognized as one.
 --- - It uses buffer's |filetype| to determine query language.
+--- - It first searches the language under cursor for matches. If no matches are
+---   found, it falls back to searching parent languages (up to the buffer's root
+---   language). If no matches are found again, it falls back to recursively
+---   searching all children languages (from the language under cursor). If no
+---   matches again - report no matches.
 --- - On large files it is slower than pattern-based textobjects. Still very
 ---   fast though (one search should be magnitude of milliseconds or tens of
 ---   milliseconds on really large file).
@@ -1078,6 +1083,7 @@ end
 --- Specification from user prompt
 ---
 --- - Ask user for left and right textobject edges as raw strings (no pattern).
+---   It uses |MiniInput.get()| (if enabled) or |input().
 --- - Construct specification for a textobject that matches from left edge string
 ---   to right edge string: `a` includes both strings, `i` only insides.
 ---
@@ -1629,21 +1635,29 @@ H.get_matched_ranges_builtin = function(captures)
   -- Get parser (LanguageTree) at cursor (important for injected languages)
   local pos = vim.api.nvim_win_get_cursor(0)
   local lang_tree = parser:language_for_range({ pos[1] - 1, pos[2], pos[1] - 1, pos[2] })
+  local init_lang_tree = lang_tree
 
   local missing_query_langs = {}
   local res = {}
-  -- Maybe go up parent trees to work with injected languages
+  -- Go up parent trees to work with injected languages
   while vim.tbl_isempty(res) and lang_tree ~= nil do
-    local lang = lang_tree:lang()
-    -- Get query file depending on the local language
-    local query = vim.treesitter.query.get(lang, 'textobjects')
+    H.append_lang_ranges(res, missing_query_langs, buf_id, captures, lang_tree)
 
-    if query ~= nil then H.append_ranges(res, buf_id, query, captures, lang_tree) end
-    if query == nil then missing_query_langs[lang] = true end
-
-    -- `LanguageTree:parent()` was added in Neovim<0.10
+    -- `LanguageTree:parent()` was added in Neovim=0.10
     -- TODO: Drop extra check after compatibility with Neovim=0.9 is dropped
     lang_tree = lang_tree.parent and lang_tree:parent() or nil
+  end
+
+  -- Fall back to children trees for injected languages
+  if vim.tbl_isempty(res) then
+    local check_children
+    check_children = function(l_tree)
+      for _, child in pairs(l_tree:children()) do
+        H.append_lang_ranges(res, missing_query_langs, buf_id, captures, child)
+        check_children(child)
+      end
+    end
+    check_children(init_lang_tree)
   end
 
   if vim.tbl_isempty(res) and not vim.tbl_isempty(missing_query_langs) then
@@ -1651,6 +1665,14 @@ H.get_matched_ranges_builtin = function(captures)
   end
 
   return res
+end
+
+H.append_lang_ranges = function(res, missing_query_langs, buf_id, captures, lang_tree)
+  local lang = lang_tree:lang()
+  local query = vim.treesitter.query.get(lang, 'textobjects')
+
+  if query ~= nil then H.append_ranges(res, buf_id, query, captures, lang_tree) end
+  if query == nil then missing_query_langs[lang] = true end
 end
 
 H.append_ranges = function(res, buf_id, query, captures, lang_tree)
@@ -2054,19 +2076,22 @@ H.user_textobject_id = function(ai_type)
   needs_reminder = false
   H.unecho()
 
-  -- Terminate if couldn't get input (like with <C-c>) or it is `<Esc>`
-  if not ok or char == '\27' then return nil end
+  -- Terminate if couldn't get input (like with <C-c>) or on `<Esc>`
+  if not ok or char == '' or char == '\3' or char == '\27' then return nil end
   return char
 end
 
 H.user_input = function(prompt, text)
+  prompt = '(mini.ai) ' .. prompt
+  if _G.MiniInput ~= nil then return MiniInput.get({ prompt = prompt, scope = 'cursor', init_keys = { text } }) end
+
   -- Use `on_key` to distinguish cancel with `<Esc>` and immediate `<CR>`
   local was_cancelled = false
   vim.on_key(function(key) was_cancelled = was_cancelled or key == '\27' end, H.ns_id.input)
 
   -- Ask for input. Use `pcall` to allow `<C-c>` to cancel user input
   vim.cmd('echohl Question')
-  local ok, res = pcall(vim.fn.input, { prompt = '(mini.ai) ' .. prompt .. ': ', default = text or '' })
+  local ok, res = pcall(vim.fn.input, { prompt = prompt .. ': ', default = text or '' })
   vim.cmd('echohl None | echo "" | redraw')
 
   vim.on_key(nil, H.ns_id.input)

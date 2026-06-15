@@ -51,6 +51,12 @@
 ---default = ""
 ---```
 ---@field excludeIndexing? string
+---Show custom file icons for Verilog/SystemVerilog file types in the Explorer and editor tabs. Disable to fall back to your file icon theme's default icons. Changing this rewrites the extension manifest and requires a window reload.
+---
+---```lua
+---default = true
+---```
+---@field fileIcons? boolean
 ---Force indexing to use fast regular expression parsing.
 ---@field forceFastIndexing? boolean
 ---Launch command for running the formatter.
@@ -92,12 +98,6 @@
 ---default = 2000
 ---```
 ---@field maxLineCountIndexing? integer
----The number of files the extension should attempt to process in parallel. Processing consist of opening found files and perform matching to find symbols.
----
----```lua
----default = 10
----```
----@field parallelProcessing? integer
 ---@field trace? _.lspconfig.settings.svlangserver.Systemverilog.Trace
 ---Run ANTLR verification on all files when opened.
 ---@field verifyOnOpen? boolean

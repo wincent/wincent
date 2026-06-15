@@ -471,8 +471,8 @@ Defaults ~
 
 User can define own textobjects by supplying `config.custom_textobjects`.
 It should be a table with keys being single character textobject identifier
-(supported by |getcharstr()|) and values - textobject specification
-(see |MiniAi-textobject-specification|).
+(supported by |getcharstr()|, except <Esc> and <C-c> which are used to cancel)
+and values - textobject specification (see |MiniAi-textobject-specification|).
 
 General recommendations:
 - This can be used to override builtin ones (|MiniAi-builtin-textobjects|).
@@ -820,6 +820,11 @@ Notes:
   Verify with `:=vim.treesitter.query.get('lang', 'textobjects')` and see
   if the target capture is recognized as one.
 - It uses buffer's |filetype| to determine query language.
+- It first searches the language under cursor for matches. If no matches are
+  found, it falls back to searching parent languages (up to the buffer's root
+  language). If no matches are found again, it falls back to recursively
+  searching all children languages (from the language under cursor). If no
+  matches again - report no matches.
 - On large files it is slower than pattern-based textobjects. Still very
   fast though (one search should be magnitude of milliseconds or tens of
   milliseconds on really large file).
@@ -855,6 +860,7 @@ See also ~
 Specification from user prompt
 
 - Ask user for left and right textobject edges as raw strings (no pattern).
+  It uses |MiniInput.get()| (if enabled) or |input().
 - Construct specification for a textobject that matches from left edge string
   to right edge string: `a` includes both strings, `i` only insides.
 
