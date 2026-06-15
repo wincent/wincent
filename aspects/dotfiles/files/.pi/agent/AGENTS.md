@@ -35,6 +35,12 @@ Do **not** attempt to emit raw OSC 8 escape sequences (`\x1b]8;…\x1b\\`) direc
 
 The user's terminal (kitty inside tmux, with `*:hyperlinks` enabled in tmux's `terminal-features`) renders OSC 8 sequences as clickable links, routed to a custom handler that opens files in the right Neovim instance. Pi-tui's Markdown renderer is the bridge: it converts Markdown links to OSC 8 at the rendering stage. Using Markdown link syntax consistently makes every path the assistant mentions directly actionable.
 
+# Searching and finding files
+
+**Prefer `rg` (ripgrep) over `grep`** for searching file contents. It is faster, respects `.gitignore` by default, and has better defaults for code search.
+
+`rg` can also replace many uses of `find`. To list files, use `rg --files` (optionally with `-g '<glob>'` to filter by name or path pattern) instead of `find . -name '...'`. Reach for `find` only when you need predicates `rg` does not cover, such as filtering by mtime, size, or file type beyond simple globs.
+
 # Git worktree layout
 
 Some repositories here use a "bare-in-.git" worktree layout: the container directory holds a _bare_ `.git` (`core.bare=true`) plus sibling worktree directories (`main/`, `feature/`, and so on). There is deliberately no `.bare` directory and no `.git` gitlink file. **Do not try to "repair" this.** Running git from the container root reports a bare repository, and `git status` there fails with "must be run in a work tree": that is expected, not a problem. Operate inside a worktree directory.
