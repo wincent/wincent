@@ -143,9 +143,9 @@ export SPROMPT="zsh: correct %F{red}'%R'%f to %F{red}'%r'%f [%B%Uy%u%bes, %B%Un%
 # History
 #
 
-export HISTSIZE=100000
+export HISTSIZE=200000
 export HISTFILE="$HOME/.history"
-export SAVEHIST=$HISTSIZE
+export SAVEHIST=100000
 
 #
 # Options
@@ -158,8 +158,10 @@ setopt AUTO_RESUME             # allow simple commands to resume backgrounded jo
 setopt CLOBBER                 # allow clobbering with >, no need to use >!
 setopt CORRECT                 # [default] command auto-correction
 setopt CORRECT_ALL             # [default] argument auto-correction
+setopt EXTENDED_HISTORY        # store timestamps and durations in $HISTFILE
 setopt NO_FLOW_CONTROL         # disable start (C-s) and stop (C-q) characters
 setopt NO_HIST_IGNORE_ALL_DUPS # don't filter non-contiguous duplicates from history
+setopt HIST_EXPIRE_DUPS_FIRST  # remove dupes if necessary to keep history file under size
 setopt HIST_FIND_NO_DUPS       # don't show dupes when searching
 setopt HIST_IGNORE_DUPS        # do filter contiguous duplicates from history
 setopt HIST_IGNORE_SPACE       # [default] don't record commands starting with a space
