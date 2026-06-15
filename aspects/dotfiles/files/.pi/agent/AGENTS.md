@@ -37,7 +37,7 @@ The user's terminal (kitty inside tmux, with `*:hyperlinks` enabled in tmux's `t
 
 # Git worktree layout
 
-Some repositories here use a "bare-in-.git" worktree layout: the container directory holds a *bare* `.git` (`core.bare=true`) plus sibling worktree directories (`main/`, `feature/`, and so on). There is deliberately no `.bare` directory and no `.git` gitlink file. **Do not try to "repair" this.** Running git from the container root reports a bare repository, and `git status` there fails with "must be run in a work tree": that is expected, not a problem. Operate inside a worktree directory.
+Some repositories here use a "bare-in-.git" worktree layout: the container directory holds a _bare_ `.git` (`core.bare=true`) plus sibling worktree directories (`main/`, `feature/`, and so on). There is deliberately no `.bare` directory and no `.git` gitlink file. **Do not try to "repair" this.** Running git from the container root reports a bare repository, and `git status` there fails with "must be run in a work tree": that is expected, not a problem. Operate inside a worktree directory.
 
 The canonical tool for this layout is `git wt` (run `git wt help` for the authoritative usage). Its subcommand names mirror `git worktree`, with `clone` and `migrate` added, and any unrecognized subcommand passes straight through to `git worktree`. When asked to set up a repository in this layout, use `git wt clone`; **never** hand-roll `git clone --bare`, which leaves local branches with no upstream and configures no `origin/*` refs, so worktrees cannot track upstream.
 
