@@ -2,7 +2,7 @@
 
 Dotfiles and system configuration repo, managed by a custom configuration framework called "Fig" (under `fig/`). Configuration is organized into "aspects" (under `aspects/`), each of which manages a specific concern (e.g., `dotfiles`, `nvim`, `shell`, `homebrew`).
 
-Uses TypeScript (with `@typescript/native-preview` ie. `tsgo`).
+Uses TypeScript.
 
 This repository uses the Jujutsu version control system (see the `/jujutsu` skill for details).
 
@@ -13,7 +13,7 @@ Use the scripts under `bin/` for pre-commit checks:
 - `bin/check-format` — check formatting (dprint)
 - `bin/format` — fix formatting problems
 - `bin/test` — run tests
-- `bin/tsgo` — run the TypeScript type check
+- `bin/tsc` — run the TypeScript type check
 
 ## Making commits
 

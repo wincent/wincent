@@ -1,10 +1,10 @@
 #!/bin/sh
-# Type-check the pi extensions with TypeScript Go (`tsgo`).
+# Type-check the pi extensions with TypeScript (`tsc`).
 #
 # Pi loads these files at runtime via jiti, which aliases the platform
 # packages (@earendil-works/pi-*, typebox) to the globally-installed pi
 # bundle.  The `node_modules/` directory next to this script's parent is
-# just type stubs copied from that bundle so tsgo can resolve imports;
+# just type stubs copied from that bundle so tsc can resolve imports;
 # it has no runtime effect.  See ../README.md.
 #
 # The stub tree is gitignored.  If it is missing (fresh checkout, or
@@ -26,4 +26,4 @@ if [ ! -f "$PROJECT/node_modules/@earendil-works/pi-coding-agent/package.json" ]
   echo >&2
 fi
 
-exec tsgo --noEmit -p "$PROJECT/tsconfig.json" "$@"
+exec tsc --noEmit -p "$PROJECT/tsconfig.json" "$@"

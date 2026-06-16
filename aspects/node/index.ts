@@ -39,11 +39,10 @@ task('install global packages', async () => {
 
   const packages: Array<string | [string, string]> = [
     '@earendil-works/pi-coding-agent',
-    ['@typescript/native-preview', '^7.0.0-dev.0'],
+    ['typescript', 'rc'],
     'typescript-language-server',
     'neovim',
     'source-map-explorer',
-    'typescript',
     'vim-language-server',
   ];
 

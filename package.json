@@ -21,6 +21,6 @@
     "node": ">=24.14.1"
   },
   "dependencies": {
-    "@typescript/native-preview": "^7.0.0-dev.20251117.1"
+    "typescript": "7.0.1-rc"
   }
 }
