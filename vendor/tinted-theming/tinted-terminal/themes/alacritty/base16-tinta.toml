@@ -1,0 +1,58 @@
+# base16 Tinta 256 - alacritty color config
+# Teshre
+
+# Default colors
+[colors.primary]
+background = '0x101012'
+foreground = '0xd8d6d0'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x101012'
+cursor = '0xd8d6d0'
+
+# Normal colors
+[colors.normal]
+black = '0x101012'
+red = '0xd0726a'
+green = '0x9aa890'
+yellow = '0xc8b86a'
+blue = '0x8a9ab0'
+magenta = '0xb0a0b8'
+cyan = '0x80b8b4'
+white = '0xd8d6d0'
+
+# Bright colors
+[colors.bright]
+black = '0x62626a'
+red = '0xd0726a'
+green = '0x9aa890'
+yellow = '0xc8b86a'
+blue = '0x8a9ab0'
+magenta = '0xb0a0b8'
+cyan = '0x80b8b4'
+white = '0xeeece6'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xe8843a"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x4a4a50"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x202023"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x2c2c30"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x9d9c9d"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xe3e1db"

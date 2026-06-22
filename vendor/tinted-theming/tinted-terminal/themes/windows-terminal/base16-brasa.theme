@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Brasa",
+	"foreground": "#f0d8c0",
+	"background": "#1a0f0a",
+	"black": "#1a0f0a",
+	"blue": "#9aa6e0",
+	"brightBlack": "#7a6150",
+	"brightBlue": "#9aa6e0",
+	"brightCyan": "#6bc8b8",
+	"brightGreen": "#b8c24a",
+	"brightPurple": "#e68aa2",
+	"brightRed": "#f2685a",
+	"brightWhite": "#fbead8",
+	"brightYellow": "#f0b23a",
+	"cyan": "#6bc8b8",
+	"green": "#b8c24a",
+	"purple": "#e68aa2",
+	"red": "#f2685a",
+	"white": "#f0d8c0",
+	"yellow": "#f0b23a"
+},

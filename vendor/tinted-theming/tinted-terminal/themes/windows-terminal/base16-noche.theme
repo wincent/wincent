@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Noche",
+	"foreground": "#cbd4ec",
+	"background": "#0c0e16",
+	"black": "#0c0e16",
+	"blue": "#7aa0e8",
+	"brightBlack": "#5a6178",
+	"brightBlue": "#7aa0e8",
+	"brightCyan": "#6dd8d0",
+	"brightGreen": "#7cc596",
+	"brightPurple": "#b79ae0",
+	"brightRed": "#e2727e",
+	"brightWhite": "#e6ecfa",
+	"brightYellow": "#d8c062",
+	"cyan": "#6dd8d0",
+	"green": "#7cc596",
+	"purple": "#b79ae0",
+	"red": "#e2727e",
+	"white": "#cbd4ec",
+	"yellow": "#d8c062"
+},

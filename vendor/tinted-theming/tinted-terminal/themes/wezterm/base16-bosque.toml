@@ -1,0 +1,43 @@
+# base16 Bosque
+# Scheme author: Teshre
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#0e1410"
+foreground = "#cfe5d2"
+
+cursor_bg = "#cfe5d2"
+cursor_border = "#cfe5d2"
+cursor_fg = "#0e1410"
+
+selection_bg = "#cfe5d2"
+selection_fg = "#1e3023"
+
+ansi = [
+  "#0e1410",
+  "#e2706a",
+  "#6fc56e",
+  "#c8b84a",
+  "#6dae9e",
+  "#b894d0",
+  "#5fd0b8",
+  "#cfe5d2"
+]
+brights = [
+  "#5c6e5e",
+  "#e2706a",
+  "#6fc56e",
+  "#c8b84a",
+  "#6dae9e",
+  "#b894d0",
+  "#5fd0b8",
+  "#e4f0e2"
+]
+
+[colors.indexed]
+16 = "#7dc97a"
+17 = "#35503e"
+18 = "#16211a"
+19 = "#1e3023"
+20 = "#96aa98"
+21 = "#daebda"

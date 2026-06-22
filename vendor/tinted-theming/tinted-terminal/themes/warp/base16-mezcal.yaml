@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Mezcal by Teshre
+
+name: Base16 Mezcal
+accent: "#8aa6c0" # base0D
+cursor: "#e0d8c8" # base05
+background: "#13110e" # base00
+foreground: "#e0d8c8" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#13110e" # base00
+    red: "#da6e54" # base08
+    yellow: "#d9a441" # base0A
+    green: "#a8b84a" # base0B
+    cyan: "#6fc8ae" # base0C
+    blue: "#8aa6c0" # base0D
+    magenta: "#c28aa8" # base0E
+    white: "#e0d8c8" # base05
+
+  normal:
+    black: "#6e6450" # base03
+    red: "#da6e54" # base08
+    yellow: "#d9a441" # base0A
+    green: "#a8b84a" # base0B
+    cyan: "#6fc8ae" # base0C
+    blue: "#8aa6c0" # base0D
+    magenta: "#c28aa8" # base0E
+    white: "#f2ead6" # base07

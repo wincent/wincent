@@ -1,0 +1,27 @@
+# Mezcal theme for Mintty
+# Scheme Author: Teshre
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #13110e
+Red         = #da6e54
+Green       = #a8b84a
+Yellow      = #d9a441
+Blue        = #8aa6c0
+Magenta     = #c28aa8
+Cyan        = #6fc8ae
+White       = #e0d8c8
+BoldBlack   = #6e6450
+BoldRed     = #da6e54
+BoldGreen   = #a8b84a
+BoldYellow  = #d9a441
+BoldBlue    = #8aa6c0
+BoldMagenta = #c28aa8
+BoldCyan    = #6fc8ae
+BoldWhite   = #f2ead6
+
+# Background & foreground colors
+BackgroundColour = #13110e
+ForegroundColour = #e0d8c8
+CursorColour     = #e0d8c8

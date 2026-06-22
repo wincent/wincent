@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Cacao by Teshre
+
+name: Base16 Cacao
+accent: "#a89ad0" # base0D
+cursor: "#e8d6c4" # base05
+background: "#160f0c" # base00
+foreground: "#e8d6c4" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#160f0c" # base00
+    red: "#e0705c" # base08
+    yellow: "#e8a84a" # base0A
+    green: "#9ac97a" # base0B
+    cyan: "#74c8b0" # base0C
+    blue: "#a89ad0" # base0D
+    magenta: "#ce8ab0" # base0E
+    white: "#e8d6c4" # base05
+
+  normal:
+    black: "#766052" # base03
+    red: "#e0705c" # base08
+    yellow: "#e8a84a" # base0A
+    green: "#9ac97a" # base0B
+    cyan: "#74c8b0" # base0C
+    blue: "#a89ad0" # base0D
+    magenta: "#ce8ab0" # base0E
+    white: "#f4e6d6" # base07

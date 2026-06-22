@@ -3,24 +3,24 @@
 # Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
 
 [colors]
-background = "#eaeef2"
+background = "#ffffff"
 foreground = "#424a53"
 
 cursor_bg = "#424a53"
 cursor_border = "#424a53"
-cursor_fg = "#eaeef2"
+cursor_fg = "#ffffff"
 
 selection_bg = "#424a53"
 selection_fg = "#afb8c1"
 
 ansi = [
-  "#eaeef2",
-  "#fa4549",
-  "#2da44e",
+  "#ffffff",
+  "#953800",
+  "#0a3069",
   "#bf8700",
-  "#218bff",
-  "#a475f9",
-  "#339d9b",
+  "#8250df",
+  "#cf222e",
+  "#116329",
   "#424a53"
 ]
 brights = [
@@ -35,9 +35,9 @@ brights = [
 ]
 
 [colors.indexed]
-16 = "#e16f24"
-17 = "#4d2d00"
-18 = "#d0d7de"
+16 = "#0550ae"
+17 = "#82071e"
+18 = "#f6f8fa"
 19 = "#afb8c1"
 20 = "#6e7781"
 21 = "#32383f"

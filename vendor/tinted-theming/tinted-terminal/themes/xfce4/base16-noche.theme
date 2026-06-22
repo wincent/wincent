@@ -1,0 +1,10 @@
+# Scheme name: Noche
+# Scheme author: Teshre
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-noche
+ColorForeground=#cbd4ec
+ColorBackground=#0c0e16
+ColorCursor=#cbd4ec
+ColorBoldIsBright=FALSE
+ColorPalette=#0c0e16;#e2727e;#7cc596;#d8c062;#7aa0e8;#b79ae0;#6dd8d0;#cbd4ec;#5a6178;#e2727e;#7cc596;#d8c062;#7aa0e8;#b79ae0;#6dd8d0;#e6ecfa

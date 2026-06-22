@@ -1,0 +1,43 @@
+# base16 Github Dark Dimmed
+# Scheme author: Tinted Theming (https://github.com/tinted-theming)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#22272e"
+foreground = "#adbac7"
+
+cursor_bg = "#adbac7"
+cursor_border = "#adbac7"
+cursor_fg = "#22272e"
+
+selection_bg = "#adbac7"
+selection_fg = "#545d68"
+
+ansi = [
+  "#22272e",
+  "#f69d50",
+  "#96d0ff",
+  "#ae7c14",
+  "#dcbdfb",
+  "#f47067",
+  "#8ddb8c",
+  "#adbac7"
+]
+brights = [
+  "#636e7b",
+  "#f69d50",
+  "#96d0ff",
+  "#ae7c14",
+  "#dcbdfb",
+  "#f47067",
+  "#8ddb8c",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#6cb6ff"
+17 = "#ff938a"
+18 = "#2d333b"
+19 = "#545d68"
+20 = "#768390"
+21 = "#cdd9e5"

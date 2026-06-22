@@ -1,0 +1,43 @@
+# base16 Noche
+# Scheme author: Teshre
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#0c0e16"
+foreground = "#cbd4ec"
+
+cursor_bg = "#cbd4ec"
+cursor_border = "#cbd4ec"
+cursor_fg = "#0c0e16"
+
+selection_bg = "#cbd4ec"
+selection_fg = "#232a40"
+
+ansi = [
+  "#0c0e16",
+  "#e2727e",
+  "#7cc596",
+  "#d8c062",
+  "#7aa0e8",
+  "#b79ae0",
+  "#6dd8d0",
+  "#cbd4ec"
+]
+brights = [
+  "#5a6178",
+  "#e2727e",
+  "#7cc596",
+  "#d8c062",
+  "#7aa0e8",
+  "#b79ae0",
+  "#6dd8d0",
+  "#e6ecfa"
+]
+
+[colors.indexed]
+16 = "#82a6e0"
+17 = "#3a4260"
+18 = "#181c2c"
+19 = "#232a40"
+20 = "#939bb2"
+21 = "#d9e0f3"

@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Tinta",
+	"foreground": "#d8d6d0",
+	"background": "#101012",
+	"black": "#101012",
+	"blue": "#8a9ab0",
+	"brightBlack": "#62626a",
+	"brightBlue": "#8a9ab0",
+	"brightCyan": "#80b8b4",
+	"brightGreen": "#9aa890",
+	"brightPurple": "#b0a0b8",
+	"brightRed": "#d0726a",
+	"brightWhite": "#eeece6",
+	"brightYellow": "#c8b86a",
+	"cyan": "#80b8b4",
+	"green": "#9aa890",
+	"purple": "#b0a0b8",
+	"red": "#d0726a",
+	"white": "#d8d6d0",
+	"yellow": "#c8b86a"
+},

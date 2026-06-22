@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Ocote",
+	"foreground": "#e7dcc6",
+	"background": "#14100c",
+	"black": "#14100c",
+	"blue": "#82a6e0",
+	"brightBlack": "#6b6253",
+	"brightBlue": "#82a6e0",
+	"brightCyan": "#6dd8c8",
+	"brightGreen": "#7dc97a",
+	"brightPurple": "#c58ae0",
+	"brightRed": "#e8635a",
+	"brightWhite": "#faf6ec",
+	"brightYellow": "#e8b43a",
+	"cyan": "#6dd8c8",
+	"green": "#7dc97a",
+	"purple": "#c58ae0",
+	"red": "#e8635a",
+	"white": "#e7dcc6",
+	"yellow": "#e8b43a"
+},

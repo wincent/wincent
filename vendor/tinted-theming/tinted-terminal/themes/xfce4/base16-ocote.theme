@@ -1,0 +1,10 @@
+# Scheme name: Ocote
+# Scheme author: Teshre
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-ocote
+ColorForeground=#e7dcc6
+ColorBackground=#14100c
+ColorCursor=#e7dcc6
+ColorBoldIsBright=FALSE
+ColorPalette=#14100c;#e8635a;#7dc97a;#e8b43a;#82a6e0;#c58ae0;#6dd8c8;#e7dcc6;#6b6253;#e8635a;#7dc97a;#e8b43a;#82a6e0;#c58ae0;#6dd8c8;#faf6ec

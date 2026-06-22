@@ -1,0 +1,27 @@
+# Cacao theme for Mintty
+# Scheme Author: Teshre
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #160f0c
+Red         = #e0705c
+Green       = #9ac97a
+Yellow      = #e8a84a
+Blue        = #a89ad0
+Magenta     = #ce8ab0
+Cyan        = #74c8b0
+White       = #e8d6c4
+BoldBlack   = #766052
+BoldRed     = #e0705c
+BoldGreen   = #9ac97a
+BoldYellow  = #e8a84a
+BoldBlue    = #a89ad0
+BoldMagenta = #ce8ab0
+BoldCyan    = #74c8b0
+BoldWhite   = #f4e6d6
+
+# Background & foreground colors
+BackgroundColour = #160f0c
+ForegroundColour = #e8d6c4
+CursorColour     = #e8d6c4

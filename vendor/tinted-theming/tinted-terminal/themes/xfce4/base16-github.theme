@@ -4,7 +4,7 @@
 [Scheme]
 Name=base16-github
 ColorForeground=#424a53
-ColorBackground=#eaeef2
+ColorBackground=#ffffff
 ColorCursor=#424a53
 ColorBoldIsBright=FALSE
-ColorPalette=#eaeef2;#fa4549;#2da44e;#bf8700;#218bff;#a475f9;#339d9b;#424a53;#8c959f;#fa4549;#2da44e;#bf8700;#218bff;#a475f9;#339d9b;#1f2328
+ColorPalette=#ffffff;#953800;#0a3069;#bf8700;#8250df;#cf222e;#116329;#424a53;#8c959f;#953800;#0a3069;#bf8700;#8250df;#cf222e;#116329;#1f2328

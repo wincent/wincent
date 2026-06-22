@@ -1,0 +1,10 @@
+# Scheme name: Tinta
+# Scheme author: Teshre
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-tinta
+ColorForeground=#d8d6d0
+ColorBackground=#101012
+ColorCursor=#d8d6d0
+ColorBoldIsBright=FALSE
+ColorPalette=#101012;#d0726a;#9aa890;#c8b86a;#8a9ab0;#b0a0b8;#80b8b4;#d8d6d0;#62626a;#d0726a;#9aa890;#c8b86a;#8a9ab0;#b0a0b8;#80b8b4;#eeece6

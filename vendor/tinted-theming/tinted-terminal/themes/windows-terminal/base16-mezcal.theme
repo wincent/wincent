@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Mezcal",
+	"foreground": "#e0d8c8",
+	"background": "#13110e",
+	"black": "#13110e",
+	"blue": "#8aa6c0",
+	"brightBlack": "#6e6450",
+	"brightBlue": "#8aa6c0",
+	"brightCyan": "#6fc8ae",
+	"brightGreen": "#a8b84a",
+	"brightPurple": "#c28aa8",
+	"brightRed": "#da6e54",
+	"brightWhite": "#f2ead6",
+	"brightYellow": "#d9a441",
+	"cyan": "#6fc8ae",
+	"green": "#a8b84a",
+	"purple": "#c28aa8",
+	"red": "#da6e54",
+	"white": "#e0d8c8",
+	"yellow": "#d9a441"
+},

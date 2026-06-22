@@ -1,0 +1,27 @@
+# Bosque theme for Mintty
+# Scheme Author: Teshre
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #0e1410
+Red         = #e2706a
+Green       = #6fc56e
+Yellow      = #c8b84a
+Blue        = #6dae9e
+Magenta     = #b894d0
+Cyan        = #5fd0b8
+White       = #cfe5d2
+BoldBlack   = #5c6e5e
+BoldRed     = #e2706a
+BoldGreen   = #6fc56e
+BoldYellow  = #c8b84a
+BoldBlue    = #6dae9e
+BoldMagenta = #b894d0
+BoldCyan    = #5fd0b8
+BoldWhite   = #e4f0e2
+
+# Background & foreground colors
+BackgroundColour = #0e1410
+ForegroundColour = #cfe5d2
+CursorColour     = #cfe5d2

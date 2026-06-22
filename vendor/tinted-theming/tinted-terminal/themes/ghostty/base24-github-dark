@@ -5,13 +5,13 @@
 # Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
 
 # Color palette
-palette = 0=#161b22
-palette = 1=#f85149
-palette = 2=#2ea043
+palette = 0=#0d1117
+palette = 1=#ffa657
+palette = 2=#a5d6ff
 palette = 3=#bb8009
-palette = 4=#388bfd
-palette = 5=#a371f7
-palette = 6=#2a9d9a
+palette = 4=#d2a8ff
+palette = 5=#ff7b72
+palette = 6=#7ee787
 palette = 7=#c9d1d9
 palette = 8=#6e7681
 palette = 9=#ff7b72
@@ -21,23 +21,23 @@ palette = 12=#58a6ff
 palette = 13=#bc8cff
 palette = 14=#33b3ae
 palette = 15=#ffffff
-palette = 16=#db6d28
-palette = 17=#3d2f00
-palette = 18=#30363d
+palette = 16=#79c0ff
+palette = 17=#ffa198
+palette = 18=#161b22
 palette = 19=#484f58
 palette = 20=#8b949e
 palette = 21=#f0f6fc
 
 # Foreground & background colors
-background = #161b22
+background = #0d1117
 foreground = #c9d1d9
 cursor-color = #c9d1d9
 selection-background = #c9d1d9
 selection-foreground = #484f58
 search-background = #bb8009
-search-foreground = #30363d
-search-selected-background = #db6d28
-search-selected-foreground = #30363d
+search-foreground = #161b22
+search-selected-background = #79c0ff
+search-selected-foreground = #161b22
 
 # Set `macos-icon = custom-style` in your main configuration file to enable theming of the app icon.
 #

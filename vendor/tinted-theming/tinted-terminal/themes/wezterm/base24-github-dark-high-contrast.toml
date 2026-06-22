@@ -1,0 +1,43 @@
+# base24 Github Dark High Contrast
+# Scheme author: Tinted Theming (https://github.com/tinted-theming)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#0a0c10"
+foreground = "#f0f3f6"
+
+cursor_bg = "#f0f3f6"
+cursor_border = "#f0f3f6"
+cursor_fg = "#0a0c10"
+
+selection_bg = "#f0f3f6"
+selection_fg = "#7a828e"
+
+ansi = [
+  "#0a0c10",
+  "#ffb757",
+  "#addcff",
+  "#e09b13",
+  "#dbb7ff",
+  "#ff9492",
+  "#72f088",
+  "#f0f3f6"
+]
+brights = [
+  "#9ea7b3",
+  "#ff9492",
+  "#26cd4d",
+  "#f0b72f",
+  "#71b7ff",
+  "#cb9eff",
+  "#33b3ae",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#91cbff"
+17 = "#ffb1af"
+18 = "#272b33"
+19 = "#7a828e"
+20 = "#bdc4cc"
+21 = "#ffffff"

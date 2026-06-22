@@ -1,0 +1,10 @@
+# Scheme name: Mezcal
+# Scheme author: Teshre
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-mezcal
+ColorForeground=#e0d8c8
+ColorBackground=#13110e
+ColorCursor=#e0d8c8
+ColorBoldIsBright=FALSE
+ColorPalette=#13110e;#da6e54;#a8b84a;#d9a441;#8aa6c0;#c28aa8;#6fc8ae;#e0d8c8;#6e6450;#da6e54;#a8b84a;#d9a441;#8aa6c0;#c28aa8;#6fc8ae;#f2ead6

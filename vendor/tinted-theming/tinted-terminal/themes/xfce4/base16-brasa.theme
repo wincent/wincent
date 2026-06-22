@@ -1,0 +1,10 @@
+# Scheme name: Brasa
+# Scheme author: Teshre
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-brasa
+ColorForeground=#f0d8c0
+ColorBackground=#1a0f0a
+ColorCursor=#f0d8c0
+ColorBoldIsBright=FALSE
+ColorPalette=#1a0f0a;#f2685a;#b8c24a;#f0b23a;#9aa6e0;#e68aa2;#6bc8b8;#f0d8c0;#7a6150;#f2685a;#b8c24a;#f0b23a;#9aa6e0;#e68aa2;#6bc8b8;#fbead8

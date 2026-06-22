@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Cacao by Teshre
+
+[colors]
+selection-background = '#e8d6c4' # base05
+selection-foreground = '#3a281e' # base02
+
+cursor         = '#e8d6c4' # base05
+tabs           = '#241913' # base01
+tabs-active    = '#3a281e' # base02
+
+background     = '#160f0c' # base00
+foreground     = '#e8d6c4' # base05
+black          = '#160f0c' # base00
+red            = '#e0705c' # base08
+yellow         = '#e8a84a' # base0A
+green          = '#9ac97a' # base0B
+cyan           = '#74c8b0' # base0C
+blue           = '#a89ad0' # base0D
+magenta        = '#ce8ab0' # base0E
+white          = '#e8d6c4' # base05
+
+dim-foreground   = '#e8d6c4' # base05
+dim-black        = '#241913' # base01
+dim-red          = '#e0705c' # base08
+dim-yellow       = '#e8a84a' # base0A
+dim-green        = '#9ac97a' # base0B
+dim-cyan         = '#74c8b0' # base0C
+dim-blue         = '#a89ad0' # base0D
+dim-magenta      = '#ce8ab0' # base0E
+dim-white        = '#af9b8b' # base04
+
+light-foreground = '#e8d6c4' # base05
+light-black      = '#766052' # base03
+light-red        = '#e0705c' # base08
+light-yellow     = '#e8a84a' # base0A
+light-green      = '#9ac97a' # base0B
+light-cyan       = '#74c8b0' # base0C
+light-blue       = '#a89ad0' # base0D
+light-magenta    = '#ce8ab0' # base0E
+light-white      = '#f4e6d6' # base07

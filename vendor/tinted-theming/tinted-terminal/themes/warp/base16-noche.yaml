@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Noche by Teshre
+
+name: Base16 Noche
+accent: "#7aa0e8" # base0D
+cursor: "#cbd4ec" # base05
+background: "#0c0e16" # base00
+foreground: "#cbd4ec" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#0c0e16" # base00
+    red: "#e2727e" # base08
+    yellow: "#d8c062" # base0A
+    green: "#7cc596" # base0B
+    cyan: "#6dd8d0" # base0C
+    blue: "#7aa0e8" # base0D
+    magenta: "#b79ae0" # base0E
+    white: "#cbd4ec" # base05
+
+  normal:
+    black: "#5a6178" # base03
+    red: "#e2727e" # base08
+    yellow: "#d8c062" # base0A
+    green: "#7cc596" # base0B
+    cyan: "#6dd8d0" # base0C
+    blue: "#7aa0e8" # base0D
+    magenta: "#b79ae0" # base0E
+    white: "#e6ecfa" # base07

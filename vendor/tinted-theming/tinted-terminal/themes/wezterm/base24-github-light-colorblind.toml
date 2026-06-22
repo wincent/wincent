@@ -1,0 +1,43 @@
+# base24 Github Light Colorblind
+# Scheme author: Tinted Theming (https://github.com/tinted-theming)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#ffffff"
+foreground = "#424a53"
+
+cursor_bg = "#424a53"
+cursor_border = "#424a53"
+cursor_fg = "#ffffff"
+
+selection_bg = "#424a53"
+selection_fg = "#afb8c1"
+
+ansi = [
+  "#ffffff",
+  "#8a4600",
+  "#0a3069",
+  "#bf8700",
+  "#8250df",
+  "#b35900",
+  "#0550ae",
+  "#424a53"
+]
+brights = [
+  "#8c959f",
+  "#f79939",
+  "#54aeff",
+  "#d4a72c",
+  "#54aeff",
+  "#c297ff",
+  "#49bcb7",
+  "#24292f"
+]
+
+[colors.indexed]
+16 = "#0550ae"
+17 = "#6f3800"
+18 = "#f6f8fa"
+19 = "#afb8c1"
+20 = "#6e7781"
+21 = "#32383f"

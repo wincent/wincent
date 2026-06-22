@@ -1,0 +1,43 @@
+# base16 Cacao
+# Scheme author: Teshre
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#160f0c"
+foreground = "#e8d6c4"
+
+cursor_bg = "#e8d6c4"
+cursor_border = "#e8d6c4"
+cursor_fg = "#160f0c"
+
+selection_bg = "#e8d6c4"
+selection_fg = "#3a281e"
+
+ansi = [
+  "#160f0c",
+  "#e0705c",
+  "#9ac97a",
+  "#e8a84a",
+  "#a89ad0",
+  "#ce8ab0",
+  "#74c8b0",
+  "#e8d6c4"
+]
+brights = [
+  "#766052",
+  "#e0705c",
+  "#9ac97a",
+  "#e8a84a",
+  "#a89ad0",
+  "#ce8ab0",
+  "#74c8b0",
+  "#f4e6d6"
+]
+
+[colors.indexed]
+16 = "#c77b4a"
+17 = "#4e382a"
+18 = "#241913"
+19 = "#3a281e"
+20 = "#af9b8b"
+21 = "#eedecd"

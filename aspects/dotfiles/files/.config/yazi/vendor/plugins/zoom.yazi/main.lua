@@ -83,7 +83,7 @@ local function peek(_, job)
 		"-auto-orient", "-strip",
 		"-sample", string.format("%dx%d", new_w, new_h),
 		"-quality", rt.preview.image_quality,
-		string.format("JPG:%s", tmp),
+		string.format("WEBP:%s", tmp),
 	}:output()
 
 	if not output then

@@ -1,0 +1,10 @@
+# Scheme name: Bosque
+# Scheme author: Teshre
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-bosque
+ColorForeground=#cfe5d2
+ColorBackground=#0e1410
+ColorCursor=#cfe5d2
+ColorBoldIsBright=FALSE
+ColorPalette=#0e1410;#e2706a;#6fc56e;#c8b84a;#6dae9e;#b894d0;#5fd0b8;#cfe5d2;#5c6e5e;#e2706a;#6fc56e;#c8b84a;#6dae9e;#b894d0;#5fd0b8;#e4f0e2

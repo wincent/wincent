@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Github Dark High Contrast by Tinted Theming (https://github.com/tinted-theming)
+
+name: Base24 Github Dark High Contrast
+accent: "#dbb7ff" # base0D
+cursor: "#f0f3f6" # base05
+background: "#0a0c10" # base00
+foreground: "#f0f3f6" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#0a0c10" # base00
+    red: "#ffb757" # base08
+    yellow: "#e09b13" # base0A
+    green: "#addcff" # base0B
+    cyan: "#72f088" # base0C
+    blue: "#dbb7ff" # base0D
+    magenta: "#ff9492" # base0E
+    white: "#f0f3f6" # base05
+
+  bright:
+    black: "#9ea7b3" # base03
+    red: "#ff9492" # base12
+    yellow: "#f0b72f" # base13
+    green: "#26cd4d" # base14
+    cyan: "#33b3ae" # base15
+    blue: "#71b7ff" # base16
+    magenta: "#cb9eff" # base17
+    white: "#ffffff" # base07

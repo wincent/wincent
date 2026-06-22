@@ -1,0 +1,27 @@
+# Brasa theme for Mintty
+# Scheme Author: Teshre
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1a0f0a
+Red         = #f2685a
+Green       = #b8c24a
+Yellow      = #f0b23a
+Blue        = #9aa6e0
+Magenta     = #e68aa2
+Cyan        = #6bc8b8
+White       = #f0d8c0
+BoldBlack   = #7a6150
+BoldRed     = #f2685a
+BoldGreen   = #b8c24a
+BoldYellow  = #f0b23a
+BoldBlue    = #9aa6e0
+BoldMagenta = #e68aa2
+BoldCyan    = #6bc8b8
+BoldWhite   = #fbead8
+
+# Background & foreground colors
+BackgroundColour = #1a0f0a
+ForegroundColour = #f0d8c0
+CursorColour     = #f0d8c0

@@ -1,0 +1,43 @@
+# base16 Mezcal
+# Scheme author: Teshre
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#13110e"
+foreground = "#e0d8c8"
+
+cursor_bg = "#e0d8c8"
+cursor_border = "#e0d8c8"
+cursor_fg = "#13110e"
+
+selection_bg = "#e0d8c8"
+selection_fg = "#36301e"
+
+ansi = [
+  "#13110e",
+  "#da6e54",
+  "#a8b84a",
+  "#d9a441",
+  "#8aa6c0",
+  "#c28aa8",
+  "#6fc8ae",
+  "#e0d8c8"
+]
+brights = [
+  "#6e6450",
+  "#da6e54",
+  "#a8b84a",
+  "#d9a441",
+  "#8aa6c0",
+  "#c28aa8",
+  "#6fc8ae",
+  "#f2ead6"
+]
+
+[colors.indexed]
+16 = "#d9a441"
+17 = "#4e462c"
+18 = "#221f14"
+19 = "#36301e"
+20 = "#a79e8c"
+21 = "#e9e1cf"

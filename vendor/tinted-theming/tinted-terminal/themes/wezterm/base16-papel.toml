@@ -1,0 +1,43 @@
+# base16 Papel
+# Scheme author: Teshre
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#f5efe2"
+foreground = "#3a2e20"
+
+cursor_bg = "#3a2e20"
+cursor_border = "#3a2e20"
+cursor_fg = "#f5efe2"
+
+selection_bg = "#3a2e20"
+selection_fg = "#e0d0ac"
+
+ansi = [
+  "#f5efe2",
+  "#c0392b",
+  "#5e7a28",
+  "#a8761a",
+  "#2c6ca0",
+  "#9b4d8e",
+  "#2a8a7a",
+  "#3a2e20"
+]
+brights = [
+  "#9a8c76",
+  "#c0392b",
+  "#5e7a28",
+  "#a8761a",
+  "#2c6ca0",
+  "#9b4d8e",
+  "#2a8a7a",
+  "#efe8d8"
+]
+
+[colors.indexed]
+16 = "#c25c1f"
+17 = "#6e6353"
+18 = "#8e8576"
+19 = "#e0d0ac"
+20 = "#6a5d4b"
+21 = "#958b7c"

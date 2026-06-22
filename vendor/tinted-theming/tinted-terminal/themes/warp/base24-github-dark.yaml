@@ -2,21 +2,21 @@
 # Color scheme: Github Dark by Tinted Theming (https://github.com/tinted-theming)
 
 name: Base24 Github Dark
-accent: "#388bfd" # base0D
+accent: "#d2a8ff" # base0D
 cursor: "#c9d1d9" # base05
-background: "#161b22" # base00
+background: "#0d1117" # base00
 foreground: "#c9d1d9" # base05
 details: darker
 
 terminal_colors:
   normal:
-    black: "#161b22" # base00
-    red: "#f85149" # base08
+    black: "#0d1117" # base00
+    red: "#ffa657" # base08
     yellow: "#bb8009" # base0A
-    green: "#2ea043" # base0B
-    cyan: "#2a9d9a" # base0C
-    blue: "#388bfd" # base0D
-    magenta: "#a371f7" # base0E
+    green: "#a5d6ff" # base0B
+    cyan: "#7ee787" # base0C
+    blue: "#d2a8ff" # base0D
+    magenta: "#ff7b72" # base0E
     white: "#c9d1d9" # base05
 
   bright:

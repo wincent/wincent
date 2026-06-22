@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Github Dark Colorblind by Tinted Theming (https://github.com/tinted-theming)
+
+name: Base24 Github Dark Colorblind
+accent: "#d2a8ff" # base0D
+cursor: "#c9d1d9" # base05
+background: "#0d1117" # base00
+foreground: "#c9d1d9" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#0d1117" # base00
+    red: "#fdac54" # base08
+    yellow: "#bb8009" # base0A
+    green: "#a5d6ff" # base0B
+    cyan: "#a5d6ff" # base0C
+    blue: "#d2a8ff" # base0D
+    magenta: "#ec8e2c" # base0E
+    white: "#c9d1d9" # base05
+
+  bright:
+    black: "#6e7681" # base03
+    red: "#ec8e2c" # base12
+    yellow: "#d29922" # base13
+    green: "#58a6ff" # base14
+    cyan: "#33b3ae" # base15
+    blue: "#58a6ff" # base16
+    magenta: "#bc8cff" # base17
+    white: "#ffffff" # base07

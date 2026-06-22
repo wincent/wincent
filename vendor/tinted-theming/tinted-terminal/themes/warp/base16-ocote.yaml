@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Ocote by Teshre
+
+name: Base16 Ocote
+accent: "#82a6e0" # base0D
+cursor: "#e7dcc6" # base05
+background: "#14100c" # base00
+foreground: "#e7dcc6" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#14100c" # base00
+    red: "#e8635a" # base08
+    yellow: "#e8b43a" # base0A
+    green: "#7dc97a" # base0B
+    cyan: "#6dd8c8" # base0C
+    blue: "#82a6e0" # base0D
+    magenta: "#c58ae0" # base0E
+    white: "#e7dcc6" # base05
+
+  normal:
+    black: "#6b6253" # base03
+    red: "#e8635a" # base08
+    yellow: "#e8b43a" # base0A
+    green: "#7dc97a" # base0B
+    cyan: "#6dd8c8" # base0C
+    blue: "#82a6e0" # base0D
+    magenta: "#c58ae0" # base0E
+    white: "#faf6ec" # base07

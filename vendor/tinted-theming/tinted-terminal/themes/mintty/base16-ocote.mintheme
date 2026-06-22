@@ -1,0 +1,27 @@
+# Ocote theme for Mintty
+# Scheme Author: Teshre
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #14100c
+Red         = #e8635a
+Green       = #7dc97a
+Yellow      = #e8b43a
+Blue        = #82a6e0
+Magenta     = #c58ae0
+Cyan        = #6dd8c8
+White       = #e7dcc6
+BoldBlack   = #6b6253
+BoldRed     = #e8635a
+BoldGreen   = #7dc97a
+BoldYellow  = #e8b43a
+BoldBlue    = #82a6e0
+BoldMagenta = #c58ae0
+BoldCyan    = #6dd8c8
+BoldWhite   = #faf6ec
+
+# Background & foreground colors
+BackgroundColour = #14100c
+ForegroundColour = #e7dcc6
+CursorColour     = #e7dcc6

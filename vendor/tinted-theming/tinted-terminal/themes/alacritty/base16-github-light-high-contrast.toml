@@ -1,0 +1,58 @@
+# base16 Github Light High Contrast 256 - alacritty color config
+# Tinted Theming (https://github.com/tinted-theming)
+
+# Default colors
+[colors.primary]
+background = '0xffffff'
+foreground = '0x343b43'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0xffffff'
+cursor = '0x343b43'
+
+# Normal colors
+[colors.normal]
+black = '0xffffff'
+red = '0x702c00'
+green = '0x032563'
+yellow = '0x956400'
+blue = '0x622cbc'
+magenta = '0xa0111f'
+cyan = '0x024c1a'
+white = '0x343b43'
+
+# Bright colors
+[colors.bright]
+black = '0x88929d'
+red = '0x702c00'
+green = '0x032563'
+yellow = '0x956400'
+blue = '0x622cbc'
+magenta = '0xa0111f'
+cyan = '0x024c1a'
+white = '0x0e1116'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0x023b95"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x6e011a"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0xe7ecf0"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0xacb6c0"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x66707b"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0x20252c"

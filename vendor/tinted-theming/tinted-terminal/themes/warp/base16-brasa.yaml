@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Brasa by Teshre
+
+name: Base16 Brasa
+accent: "#9aa6e0" # base0D
+cursor: "#f0d8c0" # base05
+background: "#1a0f0a" # base00
+foreground: "#f0d8c0" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#1a0f0a" # base00
+    red: "#f2685a" # base08
+    yellow: "#f0b23a" # base0A
+    green: "#b8c24a" # base0B
+    cyan: "#6bc8b8" # base0C
+    blue: "#9aa6e0" # base0D
+    magenta: "#e68aa2" # base0E
+    white: "#f0d8c0" # base05
+
+  normal:
+    black: "#7a6150" # base03
+    red: "#f2685a" # base08
+    yellow: "#f0b23a" # base0A
+    green: "#b8c24a" # base0B
+    cyan: "#6bc8b8" # base0C
+    blue: "#9aa6e0" # base0D
+    magenta: "#e68aa2" # base0E
+    white: "#fbead8" # base07

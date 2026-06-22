@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Bosque",
+	"foreground": "#cfe5d2",
+	"background": "#0e1410",
+	"black": "#0e1410",
+	"blue": "#6dae9e",
+	"brightBlack": "#5c6e5e",
+	"brightBlue": "#6dae9e",
+	"brightCyan": "#5fd0b8",
+	"brightGreen": "#6fc56e",
+	"brightPurple": "#b894d0",
+	"brightRed": "#e2706a",
+	"brightWhite": "#e4f0e2",
+	"brightYellow": "#c8b84a",
+	"cyan": "#5fd0b8",
+	"green": "#6fc56e",
+	"purple": "#b894d0",
+	"red": "#e2706a",
+	"white": "#cfe5d2",
+	"yellow": "#c8b84a"
+},

@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Papel",
+	"foreground": "#3a2e20",
+	"background": "#f5efe2",
+	"black": "#f5efe2",
+	"blue": "#2c6ca0",
+	"brightBlack": "#9a8c76",
+	"brightBlue": "#2c6ca0",
+	"brightCyan": "#2a8a7a",
+	"brightGreen": "#5e7a28",
+	"brightPurple": "#9b4d8e",
+	"brightRed": "#c0392b",
+	"brightWhite": "#efe8d8",
+	"brightYellow": "#a8761a",
+	"cyan": "#2a8a7a",
+	"green": "#5e7a28",
+	"purple": "#9b4d8e",
+	"red": "#c0392b",
+	"white": "#3a2e20",
+	"yellow": "#a8761a"
+},

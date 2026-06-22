@@ -5,13 +5,13 @@
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 export BASE24_THEME="github-light"
 
-color00="ea/ee/f2" # Base 00 - Black
-color01="fa/45/49" # Base 08 - Red
-color02="2d/a4/4e" # Base 0B - Green
+color00="ff/ff/ff" # Base 00 - Black
+color01="95/38/00" # Base 08 - Red
+color02="0a/30/69" # Base 0B - Green
 color03="bf/87/00" # Base 0A - Yellow
-color04="21/8b/ff" # Base 0D - Blue
-color05="a4/75/f9" # Base 0E - Magenta
-color06="33/9d/9b" # Base 0C - Cyan
+color04="82/50/df" # Base 0D - Blue
+color05="cf/22/2e" # Base 0E - Magenta
+color06="11/63/29" # Base 0C - Cyan
 color07="42/4a/53" # Base 05 - White
 color08="8c/95/9f" # Base 03 - Bright Black
 color09="ff/81/82" # Base 12 - Bright Red
@@ -21,14 +21,14 @@ color12="54/ae/ff" # Base 16 - Bright Blue
 color13="c2/97/ff" # Base 17 - Bright Magenta
 color14="49/bc/b7" # Base 15 - Bright Cyan
 color15="1f/23/28" # Base 07 - Bright White
-color16="e1/6f/24" # Base 09
-color17="4d/2d/00" # Base 0F
-color18="d0/d7/de" # Base 01
+color16="05/50/ae" # Base 09
+color17="82/07/1e" # Base 0F
+color18="f6/f8/fa" # Base 01
 color19="af/b8/c1" # Base 02
 color20="6e/77/81" # Base 04
 color21="32/38/3f" # Base 06
 color_foreground="42/4a/53" # Base 05
-color_background="ea/ee/f2" # Base 00
+color_background="ff/ff/ff" # Base 00
 
 
 if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
@@ -86,12 +86,12 @@ put_template 21 "$color21"
 if [ -n "$ITERM_SESSION_ID" ]; then
   # iTerm2 proprietary escape codes
   put_template_custom Pg 424a53 # foreground
-  put_template_custom Ph eaeef2 # background
+  put_template_custom Ph ffffff # background
   put_template_custom Pi 424a53 # bold color
   put_template_custom Pj afb8c1 # selection color
   put_template_custom Pk 424a53 # selected text color
   put_template_custom Pl 424a53 # cursor
-  put_template_custom Pm eaeef2 # cursor text
+  put_template_custom Pm ffffff # cursor text
 else
   put_template_var 10 "$color_foreground"
   if [ "$BASE24_SHELL_SET_BACKGROUND" != false ]; then
@@ -134,22 +134,22 @@ unset color_background
 
 # Optionally export variables
 if [ -n "$TINTED_SHELL_ENABLE_BASE24_VARS" ]; then
-  export BASE24_COLOR_00_HEX="eaeef2"
-  export BASE24_COLOR_01_HEX="d0d7de"
+  export BASE24_COLOR_00_HEX="ffffff"
+  export BASE24_COLOR_01_HEX="f6f8fa"
   export BASE24_COLOR_02_HEX="afb8c1"
   export BASE24_COLOR_03_HEX="8c959f"
   export BASE24_COLOR_04_HEX="6e7781"
   export BASE24_COLOR_05_HEX="424a53"
   export BASE24_COLOR_06_HEX="32383f"
   export BASE24_COLOR_07_HEX="1f2328"
-  export BASE24_COLOR_08_HEX="fa4549"
-  export BASE24_COLOR_09_HEX="e16f24"
+  export BASE24_COLOR_08_HEX="953800"
+  export BASE24_COLOR_09_HEX="0550ae"
   export BASE24_COLOR_0A_HEX="bf8700"
-  export BASE24_COLOR_0B_HEX="2da44e"
-  export BASE24_COLOR_0C_HEX="339d9b"
-  export BASE24_COLOR_0D_HEX="218bff"
-  export BASE24_COLOR_0E_HEX="a475f9"
-  export BASE24_COLOR_0F_HEX="4d2d00"
+  export BASE24_COLOR_0B_HEX="0a3069"
+  export BASE24_COLOR_0C_HEX="116329"
+  export BASE24_COLOR_0D_HEX="8250df"
+  export BASE24_COLOR_0E_HEX="cf222e"
+  export BASE24_COLOR_0F_HEX="82071e"
   export BASE24_COLOR_10_HEX="1f2328"
   export BASE24_COLOR_11_HEX="000000"
   export BASE24_COLOR_12_HEX="ff8182"

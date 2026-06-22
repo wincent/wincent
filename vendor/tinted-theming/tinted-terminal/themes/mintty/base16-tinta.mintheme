@@ -1,0 +1,27 @@
+# Tinta theme for Mintty
+# Scheme Author: Teshre
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #101012
+Red         = #d0726a
+Green       = #9aa890
+Yellow      = #c8b86a
+Blue        = #8a9ab0
+Magenta     = #b0a0b8
+Cyan        = #80b8b4
+White       = #d8d6d0
+BoldBlack   = #62626a
+BoldRed     = #d0726a
+BoldGreen   = #9aa890
+BoldYellow  = #c8b86a
+BoldBlue    = #8a9ab0
+BoldMagenta = #b0a0b8
+BoldCyan    = #80b8b4
+BoldWhite   = #eeece6
+
+# Background & foreground colors
+BackgroundColour = #101012
+ForegroundColour = #d8d6d0
+CursorColour     = #d8d6d0

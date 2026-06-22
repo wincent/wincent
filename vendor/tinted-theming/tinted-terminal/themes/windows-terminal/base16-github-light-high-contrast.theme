@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Github Light High Contrast",
+	"foreground": "#343b43",
+	"background": "#ffffff",
+	"black": "#ffffff",
+	"blue": "#622cbc",
+	"brightBlack": "#88929d",
+	"brightBlue": "#622cbc",
+	"brightCyan": "#024c1a",
+	"brightGreen": "#032563",
+	"brightPurple": "#a0111f",
+	"brightRed": "#702c00",
+	"brightWhite": "#0e1116",
+	"brightYellow": "#956400",
+	"cyan": "#024c1a",
+	"green": "#032563",
+	"purple": "#a0111f",
+	"red": "#702c00",
+	"white": "#343b43",
+	"yellow": "#956400"
+},

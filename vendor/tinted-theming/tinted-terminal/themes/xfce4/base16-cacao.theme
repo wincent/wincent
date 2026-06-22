@@ -1,0 +1,10 @@
+# Scheme name: Cacao
+# Scheme author: Teshre
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-cacao
+ColorForeground=#e8d6c4
+ColorBackground=#160f0c
+ColorCursor=#e8d6c4
+ColorBoldIsBright=FALSE
+ColorPalette=#160f0c;#e0705c;#9ac97a;#e8a84a;#a89ad0;#ce8ab0;#74c8b0;#e8d6c4;#766052;#e0705c;#9ac97a;#e8a84a;#a89ad0;#ce8ab0;#74c8b0;#f4e6d6

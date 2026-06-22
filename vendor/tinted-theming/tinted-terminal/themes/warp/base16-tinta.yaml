@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Tinta by Teshre
+
+name: Base16 Tinta
+accent: "#8a9ab0" # base0D
+cursor: "#d8d6d0" # base05
+background: "#101012" # base00
+foreground: "#d8d6d0" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#101012" # base00
+    red: "#d0726a" # base08
+    yellow: "#c8b86a" # base0A
+    green: "#9aa890" # base0B
+    cyan: "#80b8b4" # base0C
+    blue: "#8a9ab0" # base0D
+    magenta: "#b0a0b8" # base0E
+    white: "#d8d6d0" # base05
+
+  normal:
+    black: "#62626a" # base03
+    red: "#d0726a" # base08
+    yellow: "#c8b86a" # base0A
+    green: "#9aa890" # base0B
+    cyan: "#80b8b4" # base0C
+    blue: "#8a9ab0" # base0D
+    magenta: "#b0a0b8" # base0E
+    white: "#eeece6" # base07

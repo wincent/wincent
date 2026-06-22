@@ -1,0 +1,10 @@
+# Scheme name: Github Dark Colorblind
+# Scheme author: Tinted Theming (https://github.com/tinted-theming)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-github-dark-colorblind
+ColorForeground=#c9d1d9
+ColorBackground=#0d1117
+ColorCursor=#c9d1d9
+ColorBoldIsBright=FALSE
+ColorPalette=#0d1117;#fdac54;#a5d6ff;#bb8009;#d2a8ff;#ec8e2c;#a5d6ff;#c9d1d9;#6e7681;#ec8e2c;#58a6ff;#d29922;#58a6ff;#bc8cff;#33b3ae;#ffffff

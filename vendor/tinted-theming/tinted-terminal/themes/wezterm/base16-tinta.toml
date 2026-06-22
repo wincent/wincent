@@ -1,0 +1,43 @@
+# base16 Tinta
+# Scheme author: Teshre
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#101012"
+foreground = "#d8d6d0"
+
+cursor_bg = "#d8d6d0"
+cursor_border = "#d8d6d0"
+cursor_fg = "#101012"
+
+selection_bg = "#d8d6d0"
+selection_fg = "#2c2c30"
+
+ansi = [
+  "#101012",
+  "#d0726a",
+  "#9aa890",
+  "#c8b86a",
+  "#8a9ab0",
+  "#b0a0b8",
+  "#80b8b4",
+  "#d8d6d0"
+]
+brights = [
+  "#62626a",
+  "#d0726a",
+  "#9aa890",
+  "#c8b86a",
+  "#8a9ab0",
+  "#b0a0b8",
+  "#80b8b4",
+  "#eeece6"
+]
+
+[colors.indexed]
+16 = "#e8843a"
+17 = "#4a4a50"
+18 = "#202023"
+19 = "#2c2c30"
+20 = "#9d9c9d"
+21 = "#e3e1db"

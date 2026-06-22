@@ -197,6 +197,7 @@ Nvim by running `:help lspconfig-all`.
 - [mdx_analyzer](#mdx_analyzer)
 - [mesonlsp](#mesonlsp)
 - [metals](#metals)
+- [microcad_lsp](#microcad_lsp)
 - [millet](#millet)
 - [mint](#mint)
 - [mlir_lsp_server](#mlir_lsp_server)
@@ -6036,10 +6037,7 @@ vim.lsp.enable('hhvm')
 ```
 
 Default config:
-- `cmd` :
-  ```lua
-  { "hh_client", "lsp" }
-  ```
+- `cmd`: [../lsp/hhvm.lua:10](../lsp/hhvm.lua#L10)
 - `filetypes` :
   ```lua
   { "php", "hack" }
@@ -7907,6 +7905,51 @@ Default config:
 - `root_markers` :
   ```lua
   { "build.sbt", "build.sc", { "build.gradle", "build.gradle.kts" }, "pom.xml" }
+  ```
+
+---
+
+## microcad_lsp
+
+https://codeberg.org/microcad/microcad/src/branch/main/crates/lsp
+
+An LSP for the µcad model description language
+
+Install with
+```sh
+cargo install microcad-lsp
+```
+Neovim does not detect µcad filetype automatically, so you will need to add the following to your
+
+```lua
+vim.filetype.add {
+  extension = {
+    µcad = 'microcad',
+  },
+}
+```
+
+Snippet to enable the language server:
+```lua
+vim.lsp.enable('microcad_lsp')
+```
+
+Default config:
+- `cmd` :
+  ```lua
+  { "microcad-lsp", "--stdio" }
+  ```
+- `filetypes` :
+  ```lua
+  { "microcad" }
+  ```
+- `name` :
+  ```lua
+  "microcad_lsp"
+  ```
+- `root_markers` :
+  ```lua
+  { ".git" }
   ```
 
 ---
@@ -13413,6 +13456,14 @@ vim.lsp.enable('terraformls')
 ```
 
 Default config:
+- `capabilities` :
+  ```lua
+  {
+    experimental = {
+      showReferencesCommandId = "client.showReferences"
+    }
+  }
+  ```
 - `cmd` :
   ```lua
   { "terraform-ls", "serve" }
@@ -13421,6 +13472,7 @@ Default config:
   ```lua
   { "terraform", "terraform-vars" }
   ```
+- `on_attach`: [../lsp/terraformls.lua:36](../lsp/terraformls.lua#L36)
 - `root_markers` :
   ```lua
   { ".terraform", ".git" }

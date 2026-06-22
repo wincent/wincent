@@ -1,0 +1,10 @@
+# Scheme name: Github Light High Contrast
+# Scheme author: Tinted Theming (https://github.com/tinted-theming)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-github-light-high-contrast
+ColorForeground=#343b43
+ColorBackground=#ffffff
+ColorCursor=#343b43
+ColorBoldIsBright=FALSE
+ColorPalette=#ffffff;#702c00;#032563;#956400;#622cbc;#a0111f;#024c1a;#343b43;#88929d;#ee5a5d;#26a148;#b58407;#368cf9;#a371f7;#49bcb7;#0e1116

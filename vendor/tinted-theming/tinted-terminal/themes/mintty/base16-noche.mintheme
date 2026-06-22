@@ -1,0 +1,27 @@
+# Noche theme for Mintty
+# Scheme Author: Teshre
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #0c0e16
+Red         = #e2727e
+Green       = #7cc596
+Yellow      = #d8c062
+Blue        = #7aa0e8
+Magenta     = #b79ae0
+Cyan        = #6dd8d0
+White       = #cbd4ec
+BoldBlack   = #5a6178
+BoldRed     = #e2727e
+BoldGreen   = #7cc596
+BoldYellow  = #d8c062
+BoldBlue    = #7aa0e8
+BoldMagenta = #b79ae0
+BoldCyan    = #6dd8d0
+BoldWhite   = #e6ecfa
+
+# Background & foreground colors
+BackgroundColour = #0c0e16
+ForegroundColour = #cbd4ec
+CursorColour     = #cbd4ec

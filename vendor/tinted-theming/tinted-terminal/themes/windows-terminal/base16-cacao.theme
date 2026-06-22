@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Cacao",
+	"foreground": "#e8d6c4",
+	"background": "#160f0c",
+	"black": "#160f0c",
+	"blue": "#a89ad0",
+	"brightBlack": "#766052",
+	"brightBlue": "#a89ad0",
+	"brightCyan": "#74c8b0",
+	"brightGreen": "#9ac97a",
+	"brightPurple": "#ce8ab0",
+	"brightRed": "#e0705c",
+	"brightWhite": "#f4e6d6",
+	"brightYellow": "#e8a84a",
+	"cyan": "#74c8b0",
+	"green": "#9ac97a",
+	"purple": "#ce8ab0",
+	"red": "#e0705c",
+	"white": "#e8d6c4",
+	"yellow": "#e8a84a"
+},
