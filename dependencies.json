@@ -59,8 +59,8 @@
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/base16-nvim",
     "url": "https://github.com/wincent/base16-nvim.git",
     "branch": "main",
-    "previous": "5722c93caf4035076983c29e65cb5f844802a1f7",
-    "current": "ebee297b217eb1ae6e4fe81e39f195cf6d7d5c5c"
+    "previous": "ebee297b217eb1ae6e4fe81e39f195cf6d7d5c5c",
+    "current": "2179207fd9283986e8443558b4e4fe8fe58b0b24"
   },
   "github/hrsh7th/cmp-buffer": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-buffer",

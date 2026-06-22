@@ -16,23 +16,23 @@ if !has('gui_running')
 endif
 
 " GUI colors
-let s:gui00        = '161b22'
-let s:gui01        = '30363d'
+let s:gui00        = '0d1117'
+let s:gui01        = '161b22'
 let s:gui02        = '484f58'
 let s:gui03        = '6e7681'
 let s:gui04        = '8b949e'
 let s:gui05        = 'c9d1d9'
 let s:gui06        = 'f0f6fc'
 let s:gui07        = 'ffffff'
-let s:gui08        = 'f85149'
-let s:gui09        = 'db6d28'
+let s:gui08        = 'ffa657'
+let s:gui09        = '79c0ff'
 let s:gui0A        = 'bb8009'
-let s:gui0B        = '2ea043'
-let s:gui0C        = '2A9D9A'
-let s:gui0D        = '388bfd'
-let s:gui0E        = 'a371f7'
-let s:gui0F        = '3D2F00'
-let s:gui10        = '1f2328'
+let s:gui0B        = 'a5d6ff'
+let s:gui0C        = '7ee787'
+let s:gui0D        = 'd2a8ff'
+let s:gui0E        = 'ff7b72'
+let s:gui0F        = 'ffa198'
+let s:gui10        = '010409'
 let s:gui11        = '000000'
 let s:gui12        = 'ff7b72'
 let s:gui13        = 'd29922'
@@ -47,8 +47,8 @@ let s:cterm01  = '18'
 let s:cterm02  = '19'
 let s:cterm03  = '08'
 let s:cterm04  = '20'
-let s:cterm05  = '21'
-let s:cterm06  = '07'
+let s:cterm05  = '07'
+let s:cterm06  = '21'
 let s:cterm07  = '15'
 let s:cterm08  = '01'
 let s:cterm09  = '16'
@@ -95,13 +95,13 @@ call s:create_color_globals()
 
 " Integrated Terminal colors
 let s:colors = [
-  \ '#161b22',
-  \ '#f85149',
-  \ '#2ea043',
+  \ '#0d1117',
+  \ '#ffa657',
+  \ '#a5d6ff',
   \ '#bb8009',
-  \ '#388bfd',
-  \ '#a371f7',
-  \ '#2A9D9A',
+  \ '#d2a8ff',
+  \ '#ff7b72',
+  \ '#7ee787',
   \ '#c9d1d9',
   \ '#6e7681',
   \ '#ff7b72',
