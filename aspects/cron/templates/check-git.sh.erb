@@ -30,13 +30,10 @@ if [ -e "$KILL_FILE" ]; then
   exit
 fi
 
-/opt/homebrew/bin/gtimeout 600 \
-  /opt/homebrew/bin/lockrun \
-    --lockfile "$LOCK_FILE" \
-    --quiet \
-    -- \
-      git clone \
-        --bare --depth 1 --quiet --single-branch "$REPO" || \
-        /opt/homebrew/bin/terminal-notifier \
-          -title 'git.wincent.dev clone test failed' \
-          -message "Unable to complete clone of $REPO"
+/opt/homebrew/bin/gtimeout --kill-after=10 600 \
+  /opt/homebrew/bin/flock --nonblock --conflict-exit-code 0 "$LOCK_FILE" \
+    git clone \
+      --bare --depth 1 --quiet --single-branch "$REPO" || \
+      /opt/homebrew/bin/terminal-notifier \
+        -title 'git.wincent.dev clone test failed' \
+        -message "Unable to complete clone of $REPO"

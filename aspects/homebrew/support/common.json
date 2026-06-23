@@ -734,14 +734,6 @@
       "note": null
     },
     {
-      "name": "lockrun",
-      "tap": "homebrew/core",
-      "description": "Run cron jobs with overrun protection",
-      "args": [],
-      "restartService": false,
-      "note": null
-    },
-    {
       "name": "lua",
       "tap": "homebrew/core",
       "description": "Powerful, lightweight programming language",

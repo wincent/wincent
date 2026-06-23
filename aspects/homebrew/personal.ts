@@ -40,6 +40,13 @@ task('install edencommon formula', when('personal'), async () => {
   });
 });
 
+// Lock file during command.
+task('install flock formula', when('personal'), async () => {
+  await command('brew', ['install', 'flock'], {
+    creates: '/opt/homebrew/Cellar/flock',
+  });
+});
+
 // Interpreter for PostScript and PDF.
 task('install ghostscript formula', when('personal'), async () => {
   await command('brew', ['install', 'ghostscript'], {

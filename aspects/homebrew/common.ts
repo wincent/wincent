@@ -667,13 +667,6 @@ task('install links formula', async () => {
   });
 });
 
-// Run cron jobs with overrun protection.
-task('install lockrun formula', async () => {
-  await command('brew', ['install', 'lockrun'], {
-    creates: '/opt/homebrew/Cellar/lockrun',
-  });
-});
-
 // Powerful, lightweight programming language.
 task('install lua formula', async () => {
   await command('brew', ['install', 'lua'], {

@@ -34,6 +34,14 @@
       "note": null
     },
     {
+      "name": "flock",
+      "tap": "homebrew/core",
+      "description": "Lock file during command",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
       "name": "ghostscript",
       "tap": "homebrew/core",
       "description": "Interpreter for PostScript and PDF",
