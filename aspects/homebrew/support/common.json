@@ -1113,9 +1113,7 @@
       "name": "tmux",
       "tap": "homebrew/core",
       "description": "Terminal multiplexer",
-      "args": [
-        "HEAD"
-      ],
+      "args": [],
       "restartService": false,
       "note": null
     },

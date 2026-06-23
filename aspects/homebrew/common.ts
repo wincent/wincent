@@ -998,7 +998,7 @@ task('install tig formula', async () => {
 
 // Terminal multiplexer.
 task('install tmux formula', async () => {
-  await command('brew', ['install', '--HEAD', 'tmux'], {
+  await command('brew', ['install', 'tmux'], {
     creates: '/opt/homebrew/Cellar/tmux',
   });
 });
