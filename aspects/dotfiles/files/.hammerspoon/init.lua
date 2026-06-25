@@ -157,8 +157,7 @@ local bundle_identifiers = {
 }
 
 local layoutConfig = {
-  _before_ = function()
-  end,
+  _before_ = function() end,
 
   _after_ = function() end,
 
