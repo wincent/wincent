@@ -1287,13 +1287,6 @@ task('install screenflow cask', async () => {
   });
 });
 
-// Music streaming service.
-task('install spotify cask', async () => {
-  await command('brew', ['install', '--cask', 'spotify'], {
-    creates: '/opt/homebrew/Caskroom/spotify',
-  });
-});
-
 // Multimedia player.
 task('install vlc cask', async () => {
   await command('brew', ['install', '--cask', 'vlc'], {

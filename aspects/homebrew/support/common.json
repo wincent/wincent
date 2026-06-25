@@ -1402,12 +1402,6 @@
       "note": null
     },
     {
-      "name": "spotify",
-      "tap": "homebrew/cask",
-      "description": "Music streaming service",
-      "note": null
-    },
-    {
       "name": "vlc",
       "tap": "homebrew/cask",
       "description": "Multimedia player",

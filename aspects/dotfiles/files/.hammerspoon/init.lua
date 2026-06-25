@@ -153,13 +153,11 @@ local bundle_identifiers = {
   Edge = 'com.microsoft.edgemac',
   Orion = 'com.kagi.kagimacOS',
   Slack = 'com.tinyspeck.slackmacgap',
-  Spotify = 'com.spotify.client',
   kitty = 'net.kovidgoyal.kitty',
 }
 
 local layoutConfig = {
   _before_ = function()
-    hide(bundle_identifiers.Spotify)
   end,
 
   _after_ = function() end,
