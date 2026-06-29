@@ -1278,12 +1278,6 @@
       "note": null
     },
     {
-      "name": "blurred",
-      "tap": "homebrew/cask",
-      "description": "Utility to dim background/inactive content in the screen",
-      "note": null
-    },
-    {
       "name": "cleanshot",
       "tap": "homebrew/cask",
       "description": "Screen capturing tool",
@@ -1323,6 +1317,12 @@
       "name": "handy",
       "tap": "homebrew/cask",
       "description": "Speech to text application",
+      "note": null
+    },
+    {
+      "name": "hazeover",
+      "tap": "homebrew/cask",
+      "description": "Windows manager and desktop organiser",
       "note": null
     },
     {

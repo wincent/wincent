@@ -1147,13 +1147,6 @@ task('install 1password-cli cask', async () => {
   });
 });
 
-// Utility to dim background/inactive content in the screen.
-task('install blurred cask', async () => {
-  await command('brew', ['install', '--cask', 'blurred'], {
-    creates: '/opt/homebrew/Caskroom/blurred',
-  });
-});
-
 // Screen capturing tool.
 task('install cleanshot cask', async () => {
   await command('brew', ['install', '--cask', 'cleanshot'], {
@@ -1200,6 +1193,13 @@ task('install hammerspoon cask', async () => {
 task('install handy cask', async () => {
   await command('brew', ['install', '--cask', 'handy'], {
     creates: '/opt/homebrew/Caskroom/handy',
+  });
+});
+
+// Windows manager and desktop organiser.
+task('install hazeover cask', async () => {
+  await command('brew', ['install', '--cask', 'hazeover'], {
+    creates: '/opt/homebrew/Caskroom/hazeover',
   });
 });
 
