@@ -1,8 +1,21 @@
 {
+  "defaultModel": "claude-opus-4-8",
+  "defaultProvider": "anthropic",
+  "defaultThinkingLevel": "xhigh",
+  "enabledModels": [
+    "anthropic/claude-fable-5",
+    "anthropic/claude-opus-4-8",
+    "anthropic/claude-sonnet-5",
+    "anthropic/claude-haiku-4-5",
+    "google/gemini-3.1-pro-preview",
+    "google/gemini-flash-latest",
+    "openai-codex/gpt-5.5"
+  ],
   "extensions": [
     "~/.claude/plugins/marketplaces/wincent-agent-plugins/pi/extensions",
     "~/dd/wincent/.pi/agent/extensions"
   ],
+  "lastChangelogVersion": "0.80.3",
   "prompts": [
     "~/.claude/plugins/marketplaces/wincent-agent-plugins/pi/prompts",
     "~/dd/wincent/.pi/agent/prompts"
@@ -12,18 +25,5 @@
     "~/.claude/plugins/marketplaces/wincent-agent-plugins/pi/skills",
     "~/dd/wincent/.pi/agent/skills"
   ],
-  "enabledModels": [
-    "anthropic/claude-fable-5",
-    "anthropic/claude-opus-4-8",
-    "anthropic/claude-sonnet-4-6",
-    "anthropic/claude-haiku-4-5",
-    "google/gemini-3.1-pro-preview",
-    "google/gemini-flash-latest",
-    "openai-codex/gpt-5.5"
-  ],
-  "defaultThinkingLevel": "xhigh",
-  "lastChangelogVersion": "0.80.2",
-  "defaultProvider": "anthropic",
-  "defaultModel": "claude-opus-4-8",
   "theme": "dark"
 }
