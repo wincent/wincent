@@ -530,15 +530,15 @@ task(
   },
 );
 
-// Last tested: [10.11.5]
+// Last tested: [26.5]
 task(
-  'System Preferences -> Mission Control -> Displays have separate Spaces',
+  'System Settings -> Desktop & Dock -> Mission Control -> Displays have separate Spaces',
   async () => {
     await defaults({
       domain: 'com.apple.spaces',
       key: 'spans-displays',
       type: 'bool',
-      value: true,
+      value: false,
     });
   },
 );
