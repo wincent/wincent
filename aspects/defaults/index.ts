@@ -449,6 +449,19 @@ task(
   },
 );
 
+// Last tested: [26.5]
+task(
+  '(Undocumented) Show application switcher on all displays',
+  async () => {
+    await defaults({
+      domain: 'com.apple.dock',
+      key: 'appswitcher-all-displays',
+      type: 'bool',
+      value: true,
+    });
+  },
+);
+
 // Last tested: 10.11
 task(
   'System Preferences -> General -> Appearance -> Automatically hide and show the menu bar',
