@@ -58,26 +58,6 @@
 	# Requires Git 1.6.3 or later.
 	graph = !git --paginate log --graph --pretty=default
 
-	# Wrapper for vcs-jump that provides sensible default behavior when invoked
-	# without args:
-	# - If there are merge conflits, runs `vcs-jump merge`.
-	# - If there are changed files, runs `vcs-jump diff`.
-	# - Otherwise, runs `vcs-jump` alone (which shows help).
-	# - If there are arguments, passes them to `vcs-jump`.
-	jump = "!f() { \
-		if [ \"$#\" -eq 0 ]; then \
-			if [ -n \"$(git diff --name-only --diff-filter=U)\" ]; then \
-				vcs-jump merge; \
-			elif ! git diff --quiet; then \
-				vcs-jump diff; \
-			else \
-				vcs-jump; \
-			fi; \
-		else \
-			vcs-jump \"$@\"; \
-		fi; \
-	}; f"
-
 	# "logtastic" (uses difftastic for formatting patches).
 	logt = -c diff.external=difft log --ext-diff
 
