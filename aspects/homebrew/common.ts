@@ -35,13 +35,6 @@ task('trust oven-sh/bun/bun formula', async () => {
 // Formulae.
 //
 
-// Search tool like grep, but optimized for programmers.
-task('install ack formula', async () => {
-  await command('brew', ['install', 'ack'], {
-    creates: '/opt/homebrew/Cellar/ack',
-  });
-});
-
 // Simple, modern, secure file encryption.
 task('install age formula', async () => {
   await command('brew', ['install', 'age'], {
@@ -979,13 +972,6 @@ task('install telnet formula', async () => {
 task('install terminal-notifier formula', async () => {
   await command('brew', ['install', 'terminal-notifier'], {
     creates: '/opt/homebrew/Cellar/terminal-notifier',
-  });
-});
-
-// Code-search similar to ack.
-task('install the_silver_searcher formula', async () => {
-  await command('brew', ['install', 'the_silver_searcher'], {
-    creates: '/opt/homebrew/Cellar/the_silver_searcher',
   });
 });
 

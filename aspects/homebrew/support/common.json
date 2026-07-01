@@ -14,14 +14,6 @@
   ],
   "formulae": [
     {
-      "name": "ack",
-      "tap": "homebrew/core",
-      "description": "Search tool like grep, but optimized for programmers",
-      "args": [],
-      "restartService": false,
-      "note": null
-    },
-    {
       "name": "age",
       "tap": "homebrew/core",
       "description": "Simple, modern, secure file encryption",
@@ -1089,14 +1081,6 @@
       "name": "terminal-notifier",
       "tap": "homebrew/core",
       "description": "Send macOS User Notifications from the command-line",
-      "args": [],
-      "restartService": false,
-      "note": null
-    },
-    {
-      "name": "the_silver_searcher",
-      "tap": "homebrew/core",
-      "description": "Code-search similar to ack",
       "args": [],
       "restartService": false,
       "note": null

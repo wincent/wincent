@@ -422,30 +422,10 @@ end
 
 local has_commandt, commandt = pcall(require, 'wincent.commandt')
 if has_commandt then
-  local get_directory = require('wincent.commandt.get_directory')
-  local on_open = require('wincent.commandt.on_open')
-  local popd = require('wincent.commandt.popd')
-  local pushd = require('wincent.commandt.pushd')
-
   commandt.setup({
     height = 1000, -- Default is 15.
 
     finders = {
-      -- Demo: showing how to set up arbitrary command scanner that runs
-      -- `ack -f --print0`. See accompanying `:CommandTAck` definition below.
-      ack = {
-        command = function(directory)
-          pushd(directory)
-          local command = 'ack -f --print0'
-          local drop = 0
-          return command, drop
-        end,
-        max_files = 100000,
-        on_close = popd,
-        on_directory = get_directory,
-        open = on_open,
-      },
-
       -- Choose from a list of :Shellbot sessions.
       shellbot = {
         candidates = function()
@@ -488,13 +468,6 @@ if has_commandt then
         include_filenames = true,
       },
     },
-  })
-
-  vim.api.nvim_create_user_command('CommandTAck', function(options)
-    require('wincent.commandt.finder')('ack', options.args)
-  end, {
-    complete = 'dir',
-    nargs = '?',
   })
 
   vim.api.nvim_create_user_command('CommandTShellbot', function(options)
