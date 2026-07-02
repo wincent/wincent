@@ -57,10 +57,18 @@ function M.format(job, lines)
 	for i = 1, #lines do
 		lines[i] = lines[i]:gsub("[\r\n]+$", "")
 
-		local icon = File({
-			url = Url(lines[i]),
-			cha = Cha { mode = tonumber(lines[i]:sub(-1) == "/" and "40700" or "100644", 8) },
-		}):icon()
+		local icon
+		if th.icon then
+			icon = th.icon:match(File {
+				url = Url(lines[i]),
+				cha = Cha { mode = tonumber(lines[i]:sub(-1) == "/" and "40700" or "100644", 8) },
+			})
+		else -- TODO: remove
+			icon = File({
+				url = Url(lines[i]),
+				cha = Cha { mode = tonumber(lines[i]:sub(-1) == "/" and "40700" or "100644", 8) },
+			}):icon()
+		end
 
 		if icon then
 			lines[i] = ui.Line { ui.Span(" " .. icon.text .. " "):style(icon.style), lines[i] }
