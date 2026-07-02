@@ -10,6 +10,7 @@ export type State = {
     branch: string;
     previous: string;
     current: string;
+    build?: string;
   };
 };
 
@@ -71,6 +72,22 @@ export class Repo {
     return this._exec('merge', [commit]);
   }
 
+  hasCommit(commitish: string): boolean {
+    return this._test('rev-parse', [
+      '--verify',
+      '--quiet',
+      `${commitish}^{commit}`,
+    ]);
+  }
+
+  isAncestor(ancestor: string, descendant: string): boolean {
+    return this._test('merge-base', ['--is-ancestor', ancestor, descendant]);
+  }
+
+  isDirty(): boolean {
+    return !!this._capture('status', ['--porcelain', '--untracked-files=no']);
+  }
+
   /**
    * `args` is trusted input, assumed to not contain any characters that would
    * require escaping.
@@ -96,6 +113,22 @@ export class Repo {
       stdio: 'inherit',
     });
   }
+
+  /**
+   * Runs a command purely for its exit status. `args` is trusted input,
+   * assumed to not contain any characters that would require escaping.
+   */
+  _test(command: string, args: Array<string>): boolean {
+    try {
+      execSync(`git ${command} ${args.join(' ')}`, {
+        cwd: this._path,
+        stdio: 'ignore',
+      });
+      return true;
+    } catch {
+      return false;
+    }
+  }
 }
 
 function isObject(value: unknown): value is {} {
@@ -117,7 +150,8 @@ function validate(state: unknown): asserts state is State {
         ('previous' in value) &&
         typeof value.previous === 'string' &&
         ('current' in value) &&
-        typeof value.current === 'string'
+        typeof value.current === 'string' &&
+        (!('build' in value) || typeof value.build === 'string')
       );
     })
   ) {
@@ -143,11 +177,13 @@ export function getDependenciesList(state: State): Array<{
   prefix: string;
   url: string;
   branch: string;
+  build?: string;
 }> {
-  return Object.values(state).map(({prefix, url, branch}) => ({
+  return Object.values(state).map(({prefix, url, branch, build}) => ({
     prefix,
     url,
     branch,
+    build,
   }));
 }
 
@@ -166,4 +202,17 @@ export function sync(cacheName: string, prefix: string): void {
       stdio: 'inherit',
     },
   );
+}
+
+export function build(
+  cacheName: string,
+  prefix: string,
+  command: string,
+): void {
+  const cachePath = join(CACHE_DIR, cacheName);
+  console.log(`  [${prefix}] Building (${command})...`);
+  execSync(command, {
+    cwd: cachePath,
+    stdio: 'inherit',
+  });
 }

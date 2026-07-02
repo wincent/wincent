@@ -33,6 +33,7 @@ This works okay, but there are some wrinkles:
   5. Create a final commit with the two changelogs produced by steps "1" and 4".
 - I have to make sure build artifacts get written [in a cache directory where Jujutsu and rsync can't see them](https://github.com/wincent/wincent/blob/537bd6017b8e66ca0cf100025c7178e4b915ebad/bin/update-dependencies#L145-L156) so that they don't get accidentally committed or blown away by the update process.
 - Developing my own Neovim plug-ins in-place is a bit more complicated now (previously, I could just edit them in the submodules, test them, then commit; now I have to edit them in the corresponding `.cache/repos/` and sync the changes over; see "Working on subprojects" below for more details).
+- After updating dependencies and pushing, you need to fetch _and_ run `bin/sync-dependencies --with-lockfile` on any other machines in order to keep their caches in sync as well.
 
 [^all]: This assumes an `all` remote has been [configured](https://wincent.dev/wiki/Pushing_to_multiple_Git_remotes_at_once) that has two `pushurl` entries, one for github.com and one for git.wincent.dev.
 
@@ -57,7 +58,16 @@ On the bright side:
    },
    ```
 
+   Optionally, en entry can include a `"build"` command that is run after checkout to compile native artifacts (for example, Command-T uses `"build": "make build"`); see "Syncing dependencies" below. 
+
 2. Run `bin/update-dependencies`.
+
+## Syncing dependencies
+
+[`bin/sync-dependencies`](./bin/sync-dependencies) copies each cached repo from `.cache/repos/` into the worktree, and has two modes:
+
+- **Mirror (default):** `bin/sync-dependencies` rsyncs each cached repo into the worktree exactly as it is currently checked out, with no fetch, checkout, or build. Use this while iterating on a dependency locally (see "Working on subprojects"): edit and build under `.cache/repos/`, sync, then test.
+- **Reconcile:** `bin/sync-dependencies --with-lockfile` checks out the commit pinned in `dependencies.json` for each dependency (fetching only if it is missing), runs its `"build"` hook, then rsyncs. Use this to reproduce the pinned state on a machine, for example after pulling changes made elsewhere. Cached repos that are ahead of or have diverged from the lockfile are skipped with a warning so local work is not clobbered; pass `--force` to check them out anyway.
 
 ## Working with VMs
 
@@ -151,7 +161,7 @@ As an illustration, consider working on Command-T:
 1. Make changes in `.cache/repos/github/wincent/command-t/`
 2. Test them locally by running `bin/sync-dependencies`
 3. When it comes time to officially update, push the changes.
-4. Run `bin/update-dependencies`. Note that this will "update" the local cache repo (ie. it will update the metadata about what is available on the remote, and it will "merge" those changes in to the cache, which will be a no-op because they were already present), then "sync" the changes into the worktree (again a no-op because they were previously copied over by `bin/sync-dependencies`), and finally update the metadata in `dependencies.json`. Note that this produces the desired changelog entry, because we show the log from the hash that was recorded in `dependencies.json` the _previous_ time `bin/update-dependencies` was run to the new hash.
+4. Run `bin/update-dependencies`. This will update the local cache repos (ie. it will update the metadata about what is available on the remote, and it will "merge" those changes in to the cache, which will be a no-op because they were already present), then "sync" the changes into the worktree (again a no-op because they were previously copied over by `bin/sync-dependencies`), and finally update the metadata in `dependencies.json`. Note that this produces the desired changelog entry, because we show the log from the hash that was recorded in `dependencies.json` the _previous_ time `bin/update-dependencies` was run to the new hash.
 
 Note that you don't have to go through steps "1" through 4" for every commit; you can produce several commits (ie. do "1" and "2" repeatedly as many times as you like, and optionally "3" if you want to see the changes run in CI on GitHub) before doing the final sync ("4").
 

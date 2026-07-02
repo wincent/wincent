@@ -4,6 +4,7 @@ import {join} from 'path';
 import {
   CACHE_DIR,
   Repo,
+  build as runBuild,
   getDependenciesList,
   load,
   save,
@@ -22,10 +23,11 @@ const changelog: Array<{
   log: string;
 }> = [];
 
-async function updateDependency({prefix, url, branch}: {
+async function updateDependency({prefix, url, branch, build}: {
   prefix: string;
   url: string;
   branch: string;
+  build?: string;
 }) {
   const parsedUrl = new URL(url);
   const pathParts = parsedUrl.pathname.replace(/\.git$/, '').split('/').filter(
@@ -60,6 +62,7 @@ async function updateDependency({prefix, url, branch}: {
       branch,
       previous: previousHead,
       current: currentHead,
+      build,
     };
 
     const log = repo.log(previousHead, currentHead);
@@ -74,6 +77,10 @@ async function updateDependency({prefix, url, branch}: {
     }
   } else {
     state[cacheName] = previousState;
+  }
+
+  if (build) {
+    runBuild(cacheName, prefix, build);
   }
 
   sync(cacheName, prefix);
