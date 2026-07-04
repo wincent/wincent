@@ -10,6 +10,7 @@
 #include <stdio.h> /* for fprintf, stdout, snprintf */
 #endif
 #include <stdlib.h> /* for NULL */
+#include <string.h> /* for memset() */
 
 // Use a struct to make passing params during recursion easier.
 typedef struct {
@@ -209,9 +210,7 @@ float commandt_score(haystack_t *haystack, matcher_t *matcher, bool ignore_case)
         size_t haystack_limit = rightmost_match_p[m.needle_length - 1] + 1;
         size_t memo_size = m.needle_length * haystack_limit;
         float memo[memo_size];
-        for (size_t i = 0; i < memo_size; i++) {
-            memo[i] = UNSET_SCORE;
-        }
+        memset(memo, UNSET_SCORE_BYTE, memo_size * sizeof(float));
         m.memo = memo;
         float score = recursive_match(&m, 0, 0, 0, 0.0f);
 #ifdef DEBUG_SCORING

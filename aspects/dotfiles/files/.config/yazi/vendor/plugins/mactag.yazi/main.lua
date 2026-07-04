@@ -9,8 +9,8 @@ end)
 
 local selected_or_hovered = ya.sync(function()
 	local tab, urls = cx.active, {}
-	for _, u in pairs(tab.selected) do
-		urls[#urls + 1] = u
+	for _, f in pairs(tab.selected) do
+		urls[#urls + 1] = f.url or f -- TODO: remove
 	end
 	if #urls == 0 and tab.current.hovered then
 		urls[1] = tab.current.hovered.url

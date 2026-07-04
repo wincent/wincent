@@ -9,7 +9,8 @@ local function info(content)
 end
 
 local selected_path = ya.sync(function()
-	for _, u in pairs(cx.active.selected) do
+	for _, f in pairs(cx.active.selected) do
+		local u = f.url or f -- TODO: remove
 		return u.cache or u
 	end
 end)

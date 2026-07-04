@@ -1,17 +1,27 @@
 --- @since 26.1.22
 --- @sync entry
 
+local PANE = { parent = 1, current = 2, preview = 3 }
+
 local function eq(other)
 	local r = rt.mgr.ratio
-	return other.parent == r.parent and other.current == r.current and other.preview == r.preview
+	if r[1] then
+		return other[1] == r[1] and other[2] == r[2] and other[3] == r[3]
+	else -- TODO: remove
+		return other[1] == r.parent and other[2] == r.current and other[3] == r.preview
+	end
 end
 
 local function get()
 	local r = rt.mgr.ratio
-	return { parent = r.parent, current = r.current, preview = r.preview }
+	if r[1] then
+		return { r[1], r[2], r[3] }
+	else -- TODO: remove
+		return { r.parent, r.current, r.preview }
+	end
 end
 
-local function set(new) rt.mgr.ratio = { new.parent, new.current, new.preview } end
+local function set(new) rt.mgr.ratio = { new[1], new[2], new[3] } end
 
 local function entry(st, job)
 	job = type(job) == "string" and { args = { job } } or job
@@ -22,14 +32,15 @@ local function entry(st, job)
 	local N, O = st.new or get(), st.old or get()
 
 	local act, to = string.match(job.args[1] or "", "(.-)-(.+)")
+	local i = PANE[to]
 	if act == "min" then
-		N[to] = N[to] == O[to] and 0 or O[to]
+		N[i] = N[i] == O[i] and 0 or O[i]
 	elseif act == "max" then
-		local max = N[to] == 9999 and O[to] or 9999
-		N.parent = N.parent == 9999 and O.parent or N.parent
-		N.current = N.current == 9999 and O.current or N.current
-		N.preview = N.preview == 9999 and O.preview or N.preview
-		N[to] = max
+		local max = N[i] == 9999 and O[i] or 9999
+		N[1] = N[1] == 9999 and O[1] or N[1]
+		N[2] = N[2] == 9999 and O[2] or N[2]
+		N[3] = N[3] == 9999 and O[3] or N[3]
+		N[i] = max
 	end
 
 	if act then
