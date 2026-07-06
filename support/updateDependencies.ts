@@ -11,10 +11,89 @@ import {
   sync,
 } from './dependencies.ts';
 
+function parseArgs(argv: Array<string>): {patterns: Array<string>} {
+  const patterns: Array<string> = [];
+
+  for (const arg of argv) {
+    if (arg === '-h' || arg === '--help') {
+      console.log(
+        [
+          'Usage: bin/update-dependencies [pattern...]',
+          '',
+          'Update cached dependencies (fetch, build, sync), recording any',
+          'changes in dependencies.json.',
+          '',
+          'With no patterns, every dependency is updated. Otherwise, only',
+          'dependencies matching at least one pattern are updated. Matching is',
+          'case-insensitive substring matching against both the dependency id',
+          '(eg. "github/wincent/command-t") and its installed path (eg.',
+          '"aspects/nvim/files/.config/nvim/pack/bundle/opt/command-t").',
+          '',
+          'Examples:',
+          '  bin/update-dependencies command-t     # just command-t',
+          '  bin/update-dependencies nvim          # every nvim plugin',
+          '  bin/update-dependencies ferret loupe  # ferret and loupe',
+        ].join('\n'),
+      );
+      process.exit(0);
+    } else if (arg.startsWith('-')) {
+      console.error(`error: unknown option: ${arg}`);
+      process.exit(1);
+    } else {
+      patterns.push(arg);
+    }
+  }
+
+  return {patterns};
+}
+
+function matchesPattern(
+  dependency: {id: string; prefix: string},
+  pattern: string,
+): boolean {
+  const needle = pattern.toLowerCase();
+  return (
+    dependency.id.toLowerCase().includes(needle) ||
+    dependency.prefix.toLowerCase().includes(needle)
+  );
+}
+
+const {patterns} = parseArgs(process.argv.slice(2));
+
 mkdirSync(CACHE_DIR, {recursive: true});
 
 const state = load();
-const DEPENDENCIES = getDependenciesList(state);
+const ALL_DEPENDENCIES = getDependenciesList(state);
+
+let DEPENDENCIES = ALL_DEPENDENCIES;
+
+if (patterns.length > 0) {
+  for (const pattern of patterns) {
+    if (
+      !ALL_DEPENDENCIES.some((dependency) =>
+        matchesPattern(dependency, pattern)
+      )
+    ) {
+      console.warn(`warning: no dependencies matched pattern: ${pattern}`);
+    }
+  }
+
+  DEPENDENCIES = ALL_DEPENDENCIES.filter((dependency) =>
+    patterns.some((pattern) => matchesPattern(dependency, pattern))
+  );
+
+  if (DEPENDENCIES.length === 0) {
+    console.log('No dependencies matched the given pattern(s); nothing to do.');
+    process.exit(0);
+  }
+
+  console.log(
+    `Updating ${DEPENDENCIES.length} of ${ALL_DEPENDENCIES.length} ` +
+      `${ALL_DEPENDENCIES.length === 1 ? 'dependency' : 'dependencies'} ` +
+      `matching: ${patterns.join(', ')}\n`,
+  );
+}
+
 const changelog: Array<{
   prefix: string;
   cacheName: string;

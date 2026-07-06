@@ -174,12 +174,14 @@ export function load(): State {
 }
 
 export function getDependenciesList(state: State): Array<{
+  id: string;
   prefix: string;
   url: string;
   branch: string;
   build?: string;
 }> {
-  return Object.values(state).map(({prefix, url, branch, build}) => ({
+  return Object.entries(state).map(([id, {prefix, url, branch, build}]) => ({
+    id,
     prefix,
     url,
     branch,

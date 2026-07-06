@@ -2,4 +2,4 @@
 
 SUPPORT=$(cd $(dirname "$BASH_SOURCE")/..; echo "$(pwd)/support")
 
-exec node "$SUPPORT/updateDependencies.ts"
+exec node "$SUPPORT/updateDependencies.ts" "$@"
