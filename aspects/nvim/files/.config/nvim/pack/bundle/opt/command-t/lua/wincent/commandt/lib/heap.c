@@ -7,6 +7,7 @@
 
 #include <stdlib.h> /* for free(), NULL */
 
+#include "compare.h" /* for commandt_cmp_score() */
 #include "xmalloc.h" /* for xmalloc() */
 
 #define HEAP_PARENT(index) ((index - 1) / 2)
@@ -19,11 +20,10 @@ static void heap_heapify(heap_t *heap, unsigned idx);
 static int heap_property(heap_t *heap, unsigned parent_idx, unsigned child_idx);
 static void heap_swap(heap_t *heap, unsigned a, unsigned b);
 
-heap_t *heap_new(unsigned capacity, heap_compare_entries comparator) {
+heap_t *heap_new(unsigned capacity) {
     heap_t *heap = xmalloc(sizeof(heap_t));
 
     heap->capacity = capacity;
-    heap->comparator = comparator;
     heap->count = 0;
     heap->entries = xmalloc(capacity * sizeof(void *));
 
@@ -74,13 +74,16 @@ void heap_insert(heap_t *heap, void *value) {
 }
 
 /**
- * Compare values at indices `a_idx` and `b_idx` using the heap's comparator
- * function.
+ * Compare values at indices `a_idx` and `b_idx`.
+ *
+ * The comparator is hard-coded to `commandt_cmp_score()` (rather than dispatched
+ * through a function pointer) because that is the only ordering this heap is
+ * ever used with; calling it directly lets the compiler avoid an indirect call.
  */
 static int heap_compare(heap_t *heap, unsigned a_idx, unsigned b_idx) {
     const void *a = heap->entries[a_idx];
     const void *b = heap->entries[b_idx];
-    return heap->comparator(a, b);
+    return commandt_cmp_score(a, b);
 }
 
 /**

@@ -77,20 +77,27 @@ static float recursive_match(
                 if (distance > 1) {
                     float factor = 1.0f;
                     char last = haystack_contents[j - 1];
-                    if (last == '/') {
+
+                    // Ordered with most common branches first.
+                    if (last >= 'a' && last <= 'z') {
+                        if (d >= 'A' && d <= 'Z') {
+                            factor = 0.8f; // camelCase boundary.
+                        } else {
+                            factor = (1.0f / distance) * 0.75f;
+                        }
+                    } else if (last == '/') {
                         factor = 0.9f;
                     } else if (
                         last == '-' || last == '_' || last == ' ' ||
                         (last >= '0' && last <= '9')
                     ) {
                         factor = 0.8f;
-                    } else if (last >= 'a' && last <= 'z' && d >= 'A' && d <= 'Z') {
-                        factor = 0.8f;
                     } else if (last == '.') {
                         factor = 0.7f;
                     } else {
-                        // If no "special" chars behind char, factor diminishes
-                        // as distance from last matched char increases.
+                        // No "special" char behind this one, so factor
+                        // diminishes as distance from last matched char
+                        // increases.
                         factor = (1.0f / distance) * 0.75f;
                     }
                     score_for_char *= factor;
