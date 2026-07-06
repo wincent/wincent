@@ -58,7 +58,7 @@ On the bright side:
    },
    ```
 
-   Optionally, en entry can include a `"build"` command that is run after checkout to compile native artifacts (for example, Command-T uses `"build": "make build"`); see "Syncing dependencies" below. 
+   Optionally, en entry can include a `"build"` command that is run after checkout to compile native artifacts (for example, Command-T uses `"build": "make build"`); see "Syncing dependencies" below.
 
 2. Run `bin/update-dependencies`.
 
