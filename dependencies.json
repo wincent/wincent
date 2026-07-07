@@ -221,8 +221,8 @@
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-tree.lua",
     "url": "https://github.com/kyazdani42/nvim-tree.lua.git",
     "branch": "master",
-    "previous": "8e8be709c9a93e1ebefde7964884a8b564bfd3e0",
-    "current": "7ff7040bf6c246671eb55cb1727de4fd9f92a106"
+    "previous": "7ff7040bf6c246671eb55cb1727de4fd9f92a106",
+    "current": "35d3511e7ad4cbfa44c78c406db663b6e2a07c0d"
   },
   "github/nvim-treesitter/nvim-treesitter": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-treesitter",
