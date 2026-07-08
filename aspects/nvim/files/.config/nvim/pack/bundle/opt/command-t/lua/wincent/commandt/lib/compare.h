@@ -8,12 +8,7 @@
  *
  * Haystack ordering comparators.
  *
- * These are defined `static inline` in a header (rather than in a `.c` file) so
- * that the compiler can inline them into hot callers: `heap.c` calls
- * `commandt_cmp_score()` on every insert and extract, and matcher.c uses both
- * comparators as `qsort()` callbacks. The build does not use LTO, so putting the
- * definitions in a header is what makes this cross-translation-unit inlining
- * possible.
+ * `static inline` in a header for inlining into hot callers.
  */
 
 #ifndef COMPARE_H
@@ -26,12 +21,12 @@
 #include "str.h" /* for str_t */
 
 /**
- * Orders two `haystack_t` (each passed as a `const void *`) alphabetically by
- * candidate contents, with the shorter string winning ties.
+ * Orders two `haystack_t` alphabetically by candidate contents, with the
+ * shorter string winning ties.
  */
-static inline int commandt_cmp_alpha(const void *a, const void *b) {
-    str_t *a_str = ((haystack_t *)a)->candidate;
-    str_t *b_str = ((haystack_t *)b)->candidate;
+static inline int commandt_cmp_alpha(const haystack_t *a, const haystack_t *b) {
+    str_t *a_str = a->candidate;
+    str_t *b_str = b->candidate;
     const char *a_ptr = a_str->contents;
     const char *b_ptr = b_str->contents;
     size_t a_len = a_str->length;
@@ -45,15 +40,14 @@ static inline int commandt_cmp_alpha(const void *a, const void *b) {
 }
 
 /**
- * Orders two `haystack_t` (each passed as a `const void *`) by score,
- * descending, breaking ties alphabetically.
+ * Orders two `haystack_t` by score, descending, breaking ties alphabetically.
  *
  * Called directly by `heap.c` (the heap's hard-coded comparator) and, via
  * `cmp_score_p()`, by the final `qsort()` in matcher.c.
  */
-static inline int commandt_cmp_score(const void *a, const void *b) {
-    float a_score = ((haystack_t *)a)->score;
-    float b_score = ((haystack_t *)b)->score;
+static inline int commandt_cmp_score(const haystack_t *a, const haystack_t *b) {
+    float a_score = a->score;
+    float b_score = b->score;
     if (a_score > b_score) {
         return -1; // `a` should appear before `b`.
     } else if (a_score < b_score) {

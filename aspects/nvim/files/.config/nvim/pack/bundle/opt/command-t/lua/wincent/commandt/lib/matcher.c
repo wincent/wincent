@@ -16,7 +16,7 @@
 #include "commandt.h" /* for haystack_t, matcher_t, scanner_t */
 #include "compare.h" /* for commandt_cmp_alpha(), commandt_cmp_score() */
 #include "die.h" /* for die() */
-#include "heap.h" /* for HEAP_PEEK(), heap_extract(), heap_free(), heap_insert(), heap_new() */
+#include "heap.h" /* for HEAP_PEEK(), heap_free(), heap_insert(), heap_new(), heap_replace_top() */
 #include "score.h" /* for commandt_score() */
 #include "str.h" /* for str_t */
 #include "xmalloc.h" /* for xmalloc() */
@@ -175,8 +175,8 @@ result_t *commandt_matcher_run(matcher_t *matcher, const char *needle) {
     // Get unsorted matches.
 
     haystack_t **matches = xmalloc(worker_count * limit * sizeof(haystack_t *));
-    pthread_t *threads = xmalloc(worker_count * sizeof(pthread_t));
-    worker_args_t *worker_args = xmalloc(worker_count * sizeof(worker_args_t));
+    pthread_t threads[MAX_THREADS];
+    worker_args_t worker_args[MAX_THREADS];
 
     for (unsigned i = 0; i < worker_count; i++) {
         worker_args[i].worker_count = worker_count;
@@ -214,9 +214,6 @@ result_t *commandt_matcher_run(matcher_t *matcher, const char *needle) {
         );
         heap_free(heap);
     }
-
-    free(threads);
-    free(worker_args);
 
     unsigned count = atomic_load(&matches_count);
     if (needle_length == 0 || (needle_length == 1 && matcher->needle[0] == '.')) {
@@ -333,7 +330,7 @@ static void *get_matches(void *worker_args) {
                     // `max_score_per_char` to the score, so `needle_length *
                     // max_score_per_char` is an upper bound on any score this
                     // candidate could achieve.
-                    float threshold = ((haystack_t *)HEAP_PEEK(heap))->score;
+                    float threshold = HEAP_PEEK(heap)->score;
                     float max_score_per_char =
                         (1.0f / candidate_length + 1.0f / needle_length) / 2.0f;
                     float upper_bound = needle_length * max_score_per_char;
@@ -354,10 +351,10 @@ static void *get_matches(void *worker_args) {
             }
 
             if (heap->count == matcher->limit) {
-                float score = ((haystack_t *)HEAP_PEEK(heap))->score;
-                if (haystack->score >= score) {
-                    heap_insert(heap, haystack);
-                    (void)heap_extract(heap);
+                // Full heap: replace the worst entry (root) in place if this
+                // candidate beats it, avoiding an insert-then-extract.
+                if (commandt_cmp_score(haystack, HEAP_PEEK(heap)) < 0) {
+                    heap_replace_top(heap, haystack);
                 }
             } else {
                 heap_insert(heap, haystack);
