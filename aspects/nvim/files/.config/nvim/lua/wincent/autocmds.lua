@@ -70,7 +70,9 @@ local focus_window = function()
   end
   local conceallevel = autocmds.conceallevel_filetypes[filetype] or 0
   vim.wo.conceallevel = conceallevel
-  require('wincent.statusline').focus_statusline()
+  if filetype == '' or autocmds.statusline_filetype_blacklist[filetype] ~= true then
+    require('wincent.statusline').focus_statusline()
+  end
 end
 
 local blur_window = function()
@@ -99,7 +101,9 @@ local blur_window = function()
   if filetype == '' or autocmds.conceallevel_filetypes[filetype] == nil then
     vim.wo.conceallevel = 0
   end
-  require('wincent.statusline').blur_statusline()
+  if filetype == '' or autocmds.statusline_filetype_blacklist[filetype] ~= true then
+    require('wincent.statusline').blur_statusline()
+  end
 end
 
 -- http://vim.wikia.com/wiki/Make_views_automatic
@@ -266,6 +270,13 @@ autocmds.conceallevel_filetypes = {
 }
 
 autocmds.cursorline_blacklist = {
+  ['CommandTMatchListing'] = true,
+  ['CommandTPrompt'] = true,
+  ['CommandTTitle'] = true,
+  ['command-t'] = true,
+}
+
+autocmds.statusline_filetype_blacklist = {
   ['CommandTMatchListing'] = true,
   ['CommandTPrompt'] = true,
   ['CommandTTitle'] = true,
