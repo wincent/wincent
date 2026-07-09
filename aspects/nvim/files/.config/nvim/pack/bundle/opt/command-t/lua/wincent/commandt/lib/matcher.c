@@ -292,10 +292,7 @@ static void *get_matches(void *worker_args) {
         !(needle_length == 0 ||
           (needle_length == 1 && matcher->needle[0] == '.'));
 
-    // Reserve one extra slot so that we can do an insert-then-extract even
-    // when "full" (effectively allows use of min-heap to maintain a
-    // top-"limit" list of items).
-    heap_t *heap = heap_new(matcher->limit + 1);
+    heap_t *heap = heap_new(matcher->limit);
 
     // Each worker will process a chunk of 64 consecutive needles at a time in
     // order maximize benefit of the CPU cache.
