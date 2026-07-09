@@ -21,6 +21,6 @@
     "node": ">=24.14.1"
   },
   "dependencies": {
-    "typescript": "7.0.1-rc"
+    "typescript": "7.0.2"
   }
 }
