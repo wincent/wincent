@@ -34,7 +34,7 @@ function tmux() {
       read -k 1 -r \
         'REPLY?Trust (and run) this .tmux file? (t = trust, otherwise = skip) '
       echo
-      if [[ $REPLY =~ ^[Tt]$ ]]; then
+      if [[ $REPLY == [Tt] ]]; then
         echo "$DIGEST" >> ~/..tmux.digests
         env "${ENV_OVERRIDES[@]}" ./.tmux
         return

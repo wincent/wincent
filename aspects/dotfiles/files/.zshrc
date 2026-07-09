@@ -236,7 +236,7 @@ zle -N edit-command-line
 bindkey '^x^x' edit-command-line
 
 edit-last-command-output() {
-  if [[ "$TERM" =~ "tmux" ]]; then
+  if [[ "$TERM" == *tmux* ]]; then
     tmux capture-pane -p -S - -E - -J | tac | awk '
       found && !/❯/ { print }
       /❯/ && !found { found=1; next }
@@ -411,7 +411,7 @@ add-zsh-hook preexec -record-start-time
 function -update-ps1() {
   # Check for tmux by looking at $TERM, because $TMUX won't be propagated to any
   # nested sudo shells but $TERM will.
-  local TMUXING=$([[ "$TERM" =~ "tmux" ]] && echo tmux)
+  local TMUXING=$([[ "$TERM" == *tmux* ]] && echo tmux)
   if [ -n "$TMUXING" -a -n "$TMUX" ]; then
     # In a tmux session created in a non-root or root shell.
     local LVL=$(($SHLVL - 1))
