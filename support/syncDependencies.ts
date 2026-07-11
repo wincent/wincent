@@ -5,9 +5,11 @@ import {CACHE_DIR, Repo, build, load, sync} from './dependencies.ts';
 function parseArgs(argv: Array<string>): {
   withLockfile: boolean;
   force: boolean;
+  patterns: Array<string>;
 } {
   let withLockfile = false;
   let force = false;
+  const patterns: Array<string> = [];
 
   for (const arg of argv) {
     if (arg === '--with-lockfile') {
@@ -17,7 +19,7 @@ function parseArgs(argv: Array<string>): {
     } else if (arg === '-h' || arg === '--help') {
       console.log(
         [
-          'Usage: bin/sync-dependencies [--with-lockfile [--force]]',
+          'Usage: bin/sync-dependencies [--with-lockfile [--force]] [pattern...]',
           '',
           '  (no flags)       Mirror mode: rsync each cached repo under',
           '                   .cache/repos into the worktree exactly as it is',
@@ -34,15 +36,28 @@ function parseArgs(argv: Array<string>): {
           '                   for repos that are ahead of or diverged from the',
           '                   lockfile.',
           '',
+          'With no patterns, every dependency is synced. Otherwise, only',
+          'dependencies matching at least one pattern are synced. Matching is',
+          'case-insensitive substring matching against both the dependency id',
+          '(eg. "github/wincent/command-t") and its installed path (eg.',
+          '"aspects/nvim/files/.config/nvim/pack/bundle/opt/command-t").',
+          '',
+          'Examples:',
+          '  bin/sync-dependencies command-t     # just command-t',
+          '  bin/sync-dependencies nvim          # every nvim plugin',
+          '  bin/sync-dependencies ferret loupe  # ferret and loupe',
+          '',
           'Anything skipped (or otherwise not brought to its intended state) is',
           'collected and re-printed in a summary at the end, and makes the',
           'command exit non-zero so it is not lost in the output.',
         ].join('\n'),
       );
       process.exit(0);
-    } else {
-      console.error(`error: unknown argument: ${arg}`);
+    } else if (arg.startsWith('-')) {
+      console.error(`error: unknown option: ${arg}`);
       process.exit(1);
+    } else {
+      patterns.push(arg);
     }
   }
 
@@ -51,10 +66,21 @@ function parseArgs(argv: Array<string>): {
     process.exit(1);
   }
 
-  return {withLockfile, force};
+  return {withLockfile, force, patterns};
 }
 
-const {withLockfile, force} = parseArgs(process.argv.slice(2));
+function matchesPattern(
+  dependency: {id: string; prefix: string},
+  pattern: string,
+): boolean {
+  const needle = pattern.toLowerCase();
+  return (
+    dependency.id.toLowerCase().includes(needle) ||
+    dependency.prefix.toLowerCase().includes(needle)
+  );
+}
+
+const {withLockfile, force, patterns} = parseArgs(process.argv.slice(2));
 
 type Issue = {level: 'error' | 'warning'; prefix: string; message: string};
 const issues: Array<Issue> = [];
@@ -70,8 +96,40 @@ function fail(prefix: string, message: string): void {
 }
 
 const state = load();
+const allEntries = Object.entries(state);
 
-for (const [cacheName, entry] of Object.entries(state)) {
+let entries = allEntries;
+
+if (patterns.length > 0) {
+  for (const pattern of patterns) {
+    if (
+      !allEntries.some(([id, entry]) =>
+        matchesPattern({id, prefix: entry.prefix}, pattern)
+      )
+    ) {
+      console.warn(`warning: no dependencies matched pattern: ${pattern}`);
+    }
+  }
+
+  entries = allEntries.filter(([id, entry]) =>
+    patterns.some((pattern) =>
+      matchesPattern({id, prefix: entry.prefix}, pattern)
+    )
+  );
+
+  if (entries.length === 0) {
+    console.log('No dependencies matched the given pattern(s); nothing to do.');
+    process.exit(0);
+  }
+
+  console.log(
+    `Syncing ${entries.length} of ${allEntries.length} ` +
+      `${allEntries.length === 1 ? 'dependency' : 'dependencies'} ` +
+      `matching: ${patterns.join(', ')}\n`,
+  );
+}
+
+for (const [cacheName, entry] of entries) {
   const {prefix} = entry;
   const cachePath = join(CACHE_DIR, cacheName);
   const repo = new Repo(cachePath);
