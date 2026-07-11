@@ -189,6 +189,66 @@ export function getDependenciesList(state: State): Array<{
   }));
 }
 
+/**
+ * Case-insensitive substring match of `pattern` against a dependency's id (its
+ * key in `dependencies.json`, eg. "github/wincent/command-t") and its installed
+ * prefix path (eg. "aspects/nvim/.../opt/command-t").
+ */
+export function matchesPattern(
+  id: string,
+  prefix: string,
+  pattern: string,
+): boolean {
+  const needle = pattern.toLowerCase();
+  return (
+    id.toLowerCase().includes(needle) || prefix.toLowerCase().includes(needle)
+  );
+}
+
+/**
+ * Filter `items` down to those matching at least one of `patterns`. With no
+ * patterns, `items` is returned unchanged. Otherwise, each pattern that matches
+ * nothing warns (and is skipped), and a summary line prefixed with `verb` (eg.
+ * "Updating", "Syncing") is printed describing the selection. Returns the
+ * filtered list; callers decide what to do when it is empty.
+ */
+export function selectByPatterns<T>(
+  items: Array<T>,
+  patterns: Array<string>,
+  getKey: (item: T) => {id: string; prefix: string},
+  verb: string,
+): Array<T> {
+  if (patterns.length === 0) {
+    return items;
+  }
+
+  for (const pattern of patterns) {
+    if (
+      !items.some((item) => {
+        const {id, prefix} = getKey(item);
+        return matchesPattern(id, prefix, pattern);
+      })
+    ) {
+      console.warn(`warning: no dependencies matched pattern: ${pattern}`);
+    }
+  }
+
+  const filtered = items.filter((item) => {
+    const {id, prefix} = getKey(item);
+    return patterns.some((pattern) => matchesPattern(id, prefix, pattern));
+  });
+
+  if (filtered.length > 0) {
+    console.log(
+      `${verb} ${filtered.length} of ${items.length} ` +
+        `${items.length === 1 ? 'dependency' : 'dependencies'} ` +
+        `matching: ${patterns.join(', ')}\n`,
+    );
+  }
+
+  return filtered;
+}
+
 export function save(state: State): void {
   writeFileSync(DEPENDENCIES_FILE, JSON.stringify(state, null, 2) + '\n');
 }

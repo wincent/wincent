@@ -8,6 +8,7 @@ import {
   getDependenciesList,
   load,
   save,
+  selectByPatterns,
   sync,
 } from './dependencies.ts';
 
@@ -47,17 +48,6 @@ function parseArgs(argv: Array<string>): {patterns: Array<string>} {
   return {patterns};
 }
 
-function matchesPattern(
-  dependency: {id: string; prefix: string},
-  pattern: string,
-): boolean {
-  const needle = pattern.toLowerCase();
-  return (
-    dependency.id.toLowerCase().includes(needle) ||
-    dependency.prefix.toLowerCase().includes(needle)
-  );
-}
-
 const {patterns} = parseArgs(process.argv.slice(2));
 
 mkdirSync(CACHE_DIR, {recursive: true});
@@ -65,33 +55,16 @@ mkdirSync(CACHE_DIR, {recursive: true});
 const state = load();
 const ALL_DEPENDENCIES = getDependenciesList(state);
 
-let DEPENDENCIES = ALL_DEPENDENCIES;
+const DEPENDENCIES = selectByPatterns(
+  ALL_DEPENDENCIES,
+  patterns,
+  (dependency) => dependency,
+  'Updating',
+);
 
-if (patterns.length > 0) {
-  for (const pattern of patterns) {
-    if (
-      !ALL_DEPENDENCIES.some((dependency) =>
-        matchesPattern(dependency, pattern)
-      )
-    ) {
-      console.warn(`warning: no dependencies matched pattern: ${pattern}`);
-    }
-  }
-
-  DEPENDENCIES = ALL_DEPENDENCIES.filter((dependency) =>
-    patterns.some((pattern) => matchesPattern(dependency, pattern))
-  );
-
-  if (DEPENDENCIES.length === 0) {
-    console.log('No dependencies matched the given pattern(s); nothing to do.');
-    process.exit(0);
-  }
-
-  console.log(
-    `Updating ${DEPENDENCIES.length} of ${ALL_DEPENDENCIES.length} ` +
-      `${ALL_DEPENDENCIES.length === 1 ? 'dependency' : 'dependencies'} ` +
-      `matching: ${patterns.join(', ')}\n`,
-  );
+if (patterns.length > 0 && DEPENDENCIES.length === 0) {
+  console.log('No dependencies matched the given pattern(s); nothing to do.');
+  process.exit(0);
 }
 
 const changelog: Array<{
@@ -102,18 +75,13 @@ const changelog: Array<{
   log: string;
 }> = [];
 
-async function updateDependency({prefix, url, branch, build}: {
+async function updateDependency({id: cacheName, prefix, url, branch, build}: {
+  id: string;
   prefix: string;
   url: string;
   branch: string;
   build?: string;
 }) {
-  const parsedUrl = new URL(url);
-  const pathParts = parsedUrl.pathname.replace(/\.git$/, '').split('/').filter(
-    Boolean,
-  );
-  const host = parsedUrl.hostname.split('.')[0];
-  const cacheName = join(host, ...pathParts);
   const cachePath = join(CACHE_DIR, cacheName);
   let repo = new Repo(cachePath);
 

@@ -1,6 +1,13 @@
 import {join} from 'path';
 
-import {CACHE_DIR, Repo, build, load, sync} from './dependencies.ts';
+import {
+  CACHE_DIR,
+  Repo,
+  build,
+  load,
+  selectByPatterns,
+  sync,
+} from './dependencies.ts';
 
 function parseArgs(argv: Array<string>): {
   withLockfile: boolean;
@@ -69,17 +76,6 @@ function parseArgs(argv: Array<string>): {
   return {withLockfile, force, patterns};
 }
 
-function matchesPattern(
-  dependency: {id: string; prefix: string},
-  pattern: string,
-): boolean {
-  const needle = pattern.toLowerCase();
-  return (
-    dependency.id.toLowerCase().includes(needle) ||
-    dependency.prefix.toLowerCase().includes(needle)
-  );
-}
-
 const {withLockfile, force, patterns} = parseArgs(process.argv.slice(2));
 
 type Issue = {level: 'error' | 'warning'; prefix: string; message: string};
@@ -98,35 +94,16 @@ function fail(prefix: string, message: string): void {
 const state = load();
 const allEntries = Object.entries(state);
 
-let entries = allEntries;
+const entries = selectByPatterns(
+  allEntries,
+  patterns,
+  ([id, entry]) => ({id, prefix: entry.prefix}),
+  'Syncing',
+);
 
-if (patterns.length > 0) {
-  for (const pattern of patterns) {
-    if (
-      !allEntries.some(([id, entry]) =>
-        matchesPattern({id, prefix: entry.prefix}, pattern)
-      )
-    ) {
-      console.warn(`warning: no dependencies matched pattern: ${pattern}`);
-    }
-  }
-
-  entries = allEntries.filter(([id, entry]) =>
-    patterns.some((pattern) =>
-      matchesPattern({id, prefix: entry.prefix}, pattern)
-    )
-  );
-
-  if (entries.length === 0) {
-    console.log('No dependencies matched the given pattern(s); nothing to do.');
-    process.exit(0);
-  }
-
-  console.log(
-    `Syncing ${entries.length} of ${allEntries.length} ` +
-      `${allEntries.length === 1 ? 'dependency' : 'dependencies'} ` +
-      `matching: ${patterns.join(', ')}\n`,
-  );
+if (patterns.length > 0 && entries.length === 0) {
+  console.log('No dependencies matched the given pattern(s); nothing to do.');
+  process.exit(0);
 }
 
 for (const [cacheName, entry] of entries) {
