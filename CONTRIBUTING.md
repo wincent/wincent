@@ -23,6 +23,8 @@ In general, the process is:
 2. If there were Neovim plug-in updates, run `bin/update-help-tags`.
 3. Commit the changes with `jj ci -i`, and paste the changelog generated in step "1" in the commit message.
 
+By default `bin/update-dependencies` updates every dependency, but it also accepts one or more optional pattern arguments to update only a subset (for example, `bin/update-dependencies command-t` updates just Command-T, while `bin/update-dependencies nvim` updates every dependency under the nvim aspect); see `bin/update-dependencies --help` for details.
+
 This works okay, but there are some wrinkles:
 
 - The update process is multi-step if theme updates are included, as described in [072ebc6c0f926cd2b](https://github.com/wincent/wincent/commit/072ebc6c0f926cd2bb5eb7fd80febc605c5f2a9f):
@@ -68,6 +70,8 @@ On the bright side:
 
 - **Mirror (default):** `bin/sync-dependencies` rsyncs each cached repo into the worktree exactly as it is currently checked out, with no fetch, checkout, or build. Use this while iterating on a dependency locally (see "Working on subprojects"): edit and build under `.cache/repos/`, sync, then test.
 - **Reconcile:** `bin/sync-dependencies --with-lockfile` checks out the commit pinned in `dependencies.json` for each dependency (fetching only if it is missing), runs its `"build"` hook, then rsyncs. Use this to reproduce the pinned state on a machine, for example after pulling changes made elsewhere. Cached repos that are ahead of or have diverged from the lockfile are skipped with a warning so local work is not clobbered; pass `--force` to check them out anyway.
+
+Both modes also accept one or more optional pattern arguments to limit the sync to a subset of dependencies (for example, `bin/sync-dependencies command-t` or `bin/sync-dependencies --with-lockfile nvim`); with no patterns, every dependency is synced. Matching works the same way as for `bin/update-dependencies` (case-insensitive substring matching against both the dependency id and its installed path); see `bin/sync-dependencies --help` for details.
 
 ## Working with VMs
 
