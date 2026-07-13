@@ -1,4 +1,5 @@
-import {join} from 'path';
+import {join} from 'node:path';
+import {parseArgs} from 'node:util';
 
 import {
   CACHE_DIR,
@@ -9,74 +10,71 @@ import {
   sync,
 } from './dependencies.ts';
 
-function parseArgs(argv: Array<string>): {
-  withLockfile: boolean;
-  force: boolean;
-  patterns: Array<string>;
-} {
-  let withLockfile = false;
-  let force = false;
-  const patterns: Array<string> = [];
-
-  for (const arg of argv) {
-    if (arg === '--with-lockfile') {
-      withLockfile = true;
-    } else if (arg === '--force') {
-      force = true;
-    } else if (arg === '-h' || arg === '--help') {
-      console.log(
-        [
-          'Usage: bin/sync-dependencies [--with-lockfile [--force]] [pattern...]',
-          '',
-          '  (no flags)       Mirror mode: rsync each cached repo under',
-          '                   .cache/repos into the worktree exactly as it is',
-          '                   currently checked out (no fetch, checkout, or',
-          '                   build). Use this while iterating on a dependency',
-          '                   locally.',
-          '  --with-lockfile  Reconcile mode: for each dependency, check out the',
-          '                   commit pinned in dependencies.json (fetching only',
-          '                   if absent), run its build hook, then rsync. Use',
-          '                   this to reproduce the pinned state (eg. after a',
-          '                   pull). Repos that are ahead of or diverged from the',
-          '                   lockfile are skipped with a warning.',
-          '  --force          In reconcile mode, check out the pinned commit even',
-          '                   for repos that are ahead of or diverged from the',
-          '                   lockfile.',
-          '',
-          'With no patterns, every dependency is synced. Otherwise, only',
-          'dependencies matching at least one pattern are synced. Matching is',
-          'case-insensitive substring matching against both the dependency id',
-          '(eg. "github/wincent/command-t") and its installed path (eg.',
-          '"aspects/nvim/files/.config/nvim/pack/bundle/opt/command-t").',
-          '',
-          'Examples:',
-          '  bin/sync-dependencies command-t     # just command-t',
-          '  bin/sync-dependencies nvim          # every nvim plugin',
-          '  bin/sync-dependencies ferret loupe  # ferret and loupe',
-          '',
-          'Anything skipped (or otherwise not brought to its intended state) is',
-          'collected and re-printed in a summary at the end, and makes the',
-          'command exit non-zero so it is not lost in the output.',
-        ].join('\n'),
-      );
-      process.exit(0);
-    } else if (arg.startsWith('-')) {
-      console.error(`error: unknown option: ${arg}`);
-      process.exit(1);
-    } else {
-      patterns.push(arg);
-    }
-  }
-
-  if (force && !withLockfile) {
-    console.error('error: --force only applies with --with-lockfile');
+const {
+  values: {
+    force,
+    help,
+    ['with-lockfile']: withLockfile,
+  },
+  positionals: patterns,
+} = (() => {
+  try {
+    return parseArgs({
+      options: {
+        force: {type: 'boolean', short: 'f'},
+        help: {type: 'boolean', short: 'h'},
+        ['with-lockfile']: {type: 'boolean'},
+      },
+      allowPositionals: true,
+    });
+  } catch (err) {
+    console.error(err);
+    console.log("For more information, try '--help'");
     process.exit(1);
   }
+})();
 
-  return {withLockfile, force, patterns};
+if (force && !withLockfile) {
+  console.error('error: --force only applies with --with-lockfile');
+  process.exit(1);
 }
 
-const {withLockfile, force, patterns} = parseArgs(process.argv.slice(2));
+if (help) {
+  console.log(`
+Usage: bin/sync-dependencies [--with-lockfile [--force]] [pattern...]
+
+  (no flags)       Mirror mode: rsync each cached repo under
+                   .cache/repos into the worktree exactly as it is
+                   currently checked out (no fetch, checkout, or
+                   build). Use this while iterating on a dependency
+                   locally.
+  --with-lockfile  Reconcile mode: for each dependency, check out the
+                   commit pinned in dependencies.json (fetching only
+                   if absent), run its build hook, then rsync. Use
+                   this to reproduce the pinned state (eg. after a
+                   pull). Repos that are ahead of or diverged from the
+                   lockfile are skipped with a warning.
+  --force          In reconcile mode, check out the pinned commit even
+                   for repos that are ahead of or diverged from the
+                   lockfile.
+
+With no patterns, every dependency is synced. Otherwise, only
+dependencies matching at least one pattern are synced. Matching is
+case-insensitive substring matching against both the dependency id
+(eg. "github/wincent/command-t") and its installed path (eg.
+"aspects/nvim/files/.config/nvim/pack/bundle/opt/command-t").
+
+Examples:
+  bin/sync-dependencies command-t     # just command-t
+  bin/sync-dependencies nvim          # every nvim plugin
+  bin/sync-dependencies ferret loupe  # ferret and loupe
+
+Anything skipped (or otherwise not brought to its intended state) is
+collected and re-printed in a summary at the end, and makes the
+command exit non-zero so it is not lost in the output.
+    `.trim());
+  process.exit(0);
+}
 
 type Issue = {level: 'error' | 'warning'; prefix: string; message: string};
 const issues: Array<Issue> = [];

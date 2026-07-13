@@ -1,6 +1,7 @@
-import {mkdirSync} from 'fs';
+import {mkdirSync} from 'node:fs';
+import {join} from 'node:path';
+import {parseArgs} from 'node:util';
 
-import {join} from 'path';
 import {
   CACHE_DIR,
   Repo,
@@ -12,43 +13,44 @@ import {
   sync,
 } from './dependencies.ts';
 
-function parseArgs(argv: Array<string>): {patterns: Array<string>} {
-  const patterns: Array<string> = [];
-
-  for (const arg of argv) {
-    if (arg === '-h' || arg === '--help') {
-      console.log(
-        [
-          'Usage: bin/update-dependencies [pattern...]',
-          '',
-          'Update cached dependencies (fetch, build, sync), recording any',
-          'changes in dependencies.json.',
-          '',
-          'With no patterns, every dependency is updated. Otherwise, only',
-          'dependencies matching at least one pattern are updated. Matching is',
-          'case-insensitive substring matching against both the dependency id',
-          '(eg. "github/wincent/command-t") and its installed path (eg.',
-          '"aspects/nvim/files/.config/nvim/pack/bundle/opt/command-t").',
-          '',
-          'Examples:',
-          '  bin/update-dependencies command-t     # just command-t',
-          '  bin/update-dependencies nvim          # every nvim plugin',
-          '  bin/update-dependencies ferret loupe  # ferret and loupe',
-        ].join('\n'),
-      );
-      process.exit(0);
-    } else if (arg.startsWith('-')) {
-      console.error(`error: unknown option: ${arg}`);
-      process.exit(1);
-    } else {
-      patterns.push(arg);
-    }
+const {
+  values: {help},
+  positionals: patterns,
+} = (() => {
+  try {
+    return parseArgs({
+      options: {
+        help: {type: 'boolean', short: 'h'},
+      },
+      allowPositionals: true,
+    });
+  } catch (err) {
+    console.error(err);
+    console.log("For more information, try '--help'");
+    process.exit(1);
   }
+})();
 
-  return {patterns};
+if (help) {
+  console.log(`
+Usage: bin/update-dependencies [pattern...]
+
+Update cached dependencies (fetch, build, sync), recording any
+changes in dependencies.json.
+
+With no patterns, every dependency is updated. Otherwise, only
+dependencies matching at least one pattern are updated. Matching is
+case-insensitive substring matching against both the dependency id
+(eg. "github/wincent/command-t") and its installed path (eg.
+"aspects/nvim/files/.config/nvim/pack/bundle/opt/command-t").
+
+Examples:
+  bin/update-dependencies command-t     # just command-t
+  bin/update-dependencies nvim          # every nvim plugin
+  bin/update-dependencies ferret loupe  # ferret and loupe
+    `.trim());
+  process.exit(0);
 }
-
-const {patterns} = parseArgs(process.argv.slice(2));
 
 mkdirSync(CACHE_DIR, {recursive: true});
 
