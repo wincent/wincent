@@ -3,8 +3,8 @@
     "prefix": "aspects/dotfiles/files/.config/yazi/vendor/plugins",
     "url": "https://github.com/yazi-rs/plugins.git",
     "branch": "main",
-    "previous": "5d461d85908338371b9433ab6c29707bee3a813b",
-    "current": "8cd50c622898d3ace3ca821f540241965308289a"
+    "previous": "8cd50c622898d3ace3ca821f540241965308289a",
+    "current": "bb758e2fd774738f14cd260642631ebbd568741a"
   },
   "github/mafredri/zsh-async": {
     "prefix": "aspects/dotfiles/files/.zsh/zsh-async",
@@ -24,8 +24,8 @@
     "prefix": "aspects/dotfiles/files/.zsh/zsh-completions",
     "url": "https://github.com/zsh-users/zsh-completions.git",
     "branch": "master",
-    "previous": "24e22843b96588773bed3c139db94701ca605c32",
-    "current": "03bae0bf3f9c4ab894f1f11a31ffe7a1e1029879"
+    "previous": "03bae0bf3f9c4ab894f1f11a31ffe7a1e1029879",
+    "current": "9903bae60284072de3fa0e3e20965f22368c5694"
   },
   "github/zsh-users/zsh-history-substring-search": {
     "prefix": "aspects/dotfiles/files/.zsh/zsh-history-substring-search",
@@ -115,8 +115,8 @@
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/command-t",
     "url": "https://github.com/wincent/command-t.git",
     "branch": "main",
-    "previous": "d14202ed5121478f9415b5b4a88831d035eb104d",
-    "current": "b79fc24b7c0fa1fa920c057652b00cef0bcd2370",
+    "previous": "b79fc24b7c0fa1fa920c057652b00cef0bcd2370",
+    "current": "c1a293f2e5b5a21a0934d95d6b3e7480efc5d46d",
     "build": "make build"
   },
   "github/wincent/corpus": {
@@ -165,29 +165,29 @@
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.ai",
     "url": "https://github.com/nvim-mini/mini.ai.git",
     "branch": "main",
-    "previous": "d73c36349aa7b0bab5f77ad71701a1d42211a1df",
-    "current": "cb20f298ebf5ae91924cd0c6c310712de2ef4086"
+    "previous": "cb20f298ebf5ae91924cd0c6c310712de2ef4086",
+    "current": "25248c6aa002391936a6200f12d1466015987133"
   },
   "github/nvim-mini/mini.extra": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.extra",
     "url": "https://github.com/nvim-mini/mini.extra.git",
     "branch": "main",
-    "previous": "eb21c1117207d3aa1ae532c666c692e94909087e",
-    "current": "e5ecf197f8954d002cb9e85b3715851e2c8d3cd5"
+    "previous": "e5ecf197f8954d002cb9e85b3715851e2c8d3cd5",
+    "current": "9c6affac2b176142f48b185bd7abc5db7ec20ac8"
   },
   "github/nvim-mini/mini.icons": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.icons",
     "url": "https://github.com/nvim-mini/mini.icons.git",
     "branch": "main",
-    "previous": "e56797f90192d81f1fda02e662fc3e8e3d775027",
-    "current": "24dbea2195c477e57d581215839a6ab915f34b14"
+    "previous": "24dbea2195c477e57d581215839a6ab915f34b14",
+    "current": "98faae31e9be1cc054ae63485e58ceb185efcad0"
   },
   "github/nvim-mini/mini.surround": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/mini.surround",
     "url": "https://github.com/nvim-mini/mini.surround.git",
     "branch": "main",
-    "previous": "580e4cb98c5900d9fe743865fb5a5b2178b4ab18",
-    "current": "a2f644f3759edd3d3f8b6a6d55378408bfe6d290"
+    "previous": "a2f644f3759edd3d3f8b6a6d55378408bfe6d290",
+    "current": "c30ec60393b256427512c6996a2b37d9cbcbb66a"
   },
   "github/eagletmt/neco-ghc": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/neco-ghc",
@@ -207,22 +207,22 @@
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-cmp",
     "url": "https://github.com/hrsh7th/nvim-cmp.git",
     "branch": "main",
-    "previous": "da88697d7f45d16852c6b2769dc52387d1ddc45f",
-    "current": "a1d504892f2bc56c2e79b65c6faded2fd21f3eca"
+    "previous": "a1d504892f2bc56c2e79b65c6faded2fd21f3eca",
+    "current": "2ffe79f1f021def8dd1fcd81deb16f1bb0d989f3"
   },
   "github/neovim/nvim-lspconfig": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-lspconfig",
     "url": "https://github.com/neovim/nvim-lspconfig.git",
     "branch": "master",
-    "previous": "292f44408498103c47996ff5c18fd366293840d8",
-    "current": "d224a1920728ba129880efc700d4a0180ac4ecbb"
+    "previous": "d224a1920728ba129880efc700d4a0180ac4ecbb",
+    "current": "d5b6e3db4c17b0146f63a2fc47e2027a754b2cb1"
   },
   "github/kyazdani42/nvim-tree.lua": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-tree.lua",
     "url": "https://github.com/kyazdani42/nvim-tree.lua.git",
     "branch": "master",
-    "previous": "7ff7040bf6c246671eb55cb1727de4fd9f92a106",
-    "current": "35d3511e7ad4cbfa44c78c406db663b6e2a07c0d"
+    "previous": "35d3511e7ad4cbfa44c78c406db663b6e2a07c0d",
+    "current": "cf18a662cd5f200361b6fedfb794eed583e075e1"
   },
   "github/nvim-treesitter/nvim-treesitter": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/nvim-treesitter",

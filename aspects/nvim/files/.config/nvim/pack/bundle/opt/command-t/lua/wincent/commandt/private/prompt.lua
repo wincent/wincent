@@ -86,8 +86,37 @@ function Prompt:set_name(name)
   end
 end
 
+-- Set a status shown right-aligned in the prompt title (eg. a scanning spinner
+-- and the displayed/scanned counts). Pass `nil` to clear it.
+function Prompt:set_status(status)
+  self._status = status
+  if self._window then
+    self._window:set_title(self:title())
+  end
+end
+
 function Prompt:title()
-  return self._name and ('CommandT [' .. self._name .. ']') or 'CommandT'
+  local name = self._name and ('CommandT [' .. self._name .. ']') or 'CommandT'
+  local status = self._status
+  if not status or status == '' then
+    return name
+  end
+  local width = self._window and self._window:width() or nil
+  if not width then
+    -- Window isn't shown yet; fall back to a simple left-aligned concatenation.
+    return name .. ' ' .. status
+  end
+  -- `Window:set_title()` wraps the title in a space on each side, so the usable
+  -- border width is `width - 2`. Name on the left, status on the right, and the
+  -- gap filled with the border segment, spaced off the name and status.
+  local usable = width - 2
+  local fill = usable - vim.api.nvim_strwidth(name) - vim.api.nvim_strwidth(status) - 2
+  if fill < 1 then
+    -- Too narrow for a divider; just separate them (the title may truncate).
+    return name .. ' ' .. status
+  end
+  local divider = string.rep(self._window:border_horizontal(), fill)
+  return name .. ' ' .. divider .. ' ' .. status
 end
 
 function Prompt:show()
@@ -122,6 +151,13 @@ function Prompt:show()
         self._window = nil
       end,
       on_leave = self._on_leave,
+      on_resize = function()
+        -- The window has just been repositioned to the new editor width; rebuild
+        -- the (right-aligned) title so the status snaps back to the right edge.
+        if self._window then
+          self._window:set_title(self:title())
+        end
+      end,
       position = self._position,
       title = self:title(),
       top = top,

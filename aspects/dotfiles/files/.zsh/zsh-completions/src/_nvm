@@ -28,7 +28,7 @@
 # Description
 # -----------
 #
-#  Completion script for nvm v0.40.3 (https://github.com/nvm-sh/nvm).
+#  Completion script for nvm v0.40.5 (https://github.com/nvm-sh/nvm).
 #
 # ------------------------------------------------------------------------------
 # Authors
@@ -65,6 +65,7 @@ __nvm() {
             '--skip-default-packages[When installing, skip the default-packages file if it exists]' \
             '--latest-npm[After installing, attempt to upgrade to the latest working npm on the given node version]' \
             '--no-progress[Disable the progress bar on any downloads]' \
+            '--offline[Install from cache only, without downloading anything]' \
             '--alias=[After installing, set the alias specified to the version specified]' \
             '--default[After installing, set default alias to the version specified]' \
             '--save[After installing, write the specified version to .nvmrc]' \

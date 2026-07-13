@@ -21,9 +21,27 @@ typedef struct {
     float score;
 } haystack_t;
 
+/**
+ * How a scanner produces its candidates.
+ */
+typedef enum {
+    /**
+     * All candidates are present by the time the scanner is returned (the copy,
+     * str, file, and synchronous exec scanners). There is nothing to produce.
+     */
+    SCANNER_EAGER = 0,
+
+    /**
+     * Candidates are produced asynchronously by a background thread reading from
+     * a child process's stdout (see `commandt_scanner_new_exec_async()`).
+     */
+    SCANNER_EXEC,
+} scanner_kind_t;
+
 typedef struct {
     /**
-     * Number of candidates currently stored in the scanner.
+     * Number of candidates currently stored in the scanner. For async scanners
+     * this grows over time and is published/read with release/acquire ordering.
      */
     unsigned count;
 
@@ -49,6 +67,28 @@ typedef struct {
      * Book-keeping detail, needed for call to `munmap()`.
      */
     ssize_t buffer_size;
+
+    /**
+     * @internal
+     *
+     * Maximum number of candidates the scanner may ever hold. Used to size the
+     * matcher's `haystacks` slab up front so it never has to move.
+     */
+    unsigned capacity;
+
+    /**
+     * @internal
+     *
+     * Streaming/async production state. Not read from Lua, but mirrored in the
+     * FFI cdef for layout consistency with the other structs.
+     */
+    int kind; // `scanner_kind_t`.
+    int fd; // Read end of the child's stdout pipe, or -1.
+    int pid; // Child PID, or -1.
+    unsigned drop; // Leading characters to drop from each candidate.
+    unsigned max_files; // Cap on candidate count, or 0 for unlimited.
+    int done; // Non-zero once production has finished.
+    void *thread; // Producer `pthread_t *`, or NULL.
 } scanner_t;
 
 // TODO flesh this out; basically make it a container for instance variables
@@ -86,6 +126,15 @@ typedef struct {
 
     const char *last_needle;
     size_t last_needle_length;
+
+    /**
+     * `haystacks` is a slab sized to the scanner's capacity; `haystacks_size` is
+     * its byte size (for `munmap()`) and `initialized` tracks how many entries
+     * have been set up so far (the rest are set up lazily as an async scanner
+     * streams more candidates in).
+     */
+    size_t haystacks_size;
+    unsigned initialized;
 } matcher_t;
 
 typedef struct {

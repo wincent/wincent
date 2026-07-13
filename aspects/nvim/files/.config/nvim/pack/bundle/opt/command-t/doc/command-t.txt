@@ -555,7 +555,7 @@ truncated. Possible values are:
 - `'middle'`: entries are truncated in the middle (ie. "foo...qux").
 - `'end'`: entries are truncated at the end (ie. "foobarbaz").
 - `true`: same as `'middle'`.
-- `false`: same as `'end'`).
+- `false`: same as `'end'.
 
 Note that when set to `'end'` (or `false`), no ellipsis is shown.
 
@@ -913,7 +913,15 @@ HISTORY                                                     *command-t-history*
 
 main (not yet released) ~
 
+- ...
+
+8.2 (13 July 2026) ~
+
 - fix: show relative paths when falling back to the built-in file scanner.
+- perf: apply several matcher optimizations, delivering a 63% reduction in
+  CPU time and a 21% reduction in wall clock time.
+- feat: `exec`-based scanners now stream in candidates asynchronously, make
+  the match listing UI immediately responsive on open even in massive repos.
 
 8.1 (19 March 2026) ~
 
@@ -931,7 +939,8 @@ main (not yet released) ~
 - perf: improve performance when passing very large values for
   |commandt.setup.height|.
 - fix: fix a race that could cause some results to be omitted.
-- perf: improve performance of scoring code by about 4% (wall-time).
+- perf: apply optimizations, delivering a 19% reduction in CPU time and an
+  11% reduction in wall clock time.
 
 7.0 (23 June 2025) ~
 
@@ -971,6 +980,8 @@ main (not yet released) ~
   (https://github.com/wincent/command-t/issues/430).
 - feat: add |:CommandTFd|
   (https://github.com/wincent/command-t/issues/433).
+- perf: apply optimizations, delivering a 23% reduction in CPU time and an
+  11% reduction in wall clock time.
 
 6.0.0-b.1 (16 December 2022) ~
 

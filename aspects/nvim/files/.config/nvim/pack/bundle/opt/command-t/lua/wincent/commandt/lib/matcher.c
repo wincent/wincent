@@ -20,6 +20,7 @@
 #include "score.h" /* for commandt_score() */
 #include "str.h" /* for str_t */
 #include "xmalloc.h" /* for xmalloc() */
+#include "xmap.h" /* for xmap(), xmunmap() */
 
 // Avoid the overhead of threading when search space is small.
 #define THREAD_THRESHOLD 1000
@@ -34,6 +35,10 @@ typedef struct {
 
     // May need to temporarily override matcher as a result of smart_case.
     bool ignore_case;
+
+    // Snapshot of the scanner's candidate count for this run (an async scanner's
+    // count may keep growing, but a single run works against a fixed snapshot).
+    unsigned candidate_count;
 } worker_args_t;
 
 // Forward declarations.
@@ -60,13 +65,21 @@ matcher_t *commandt_matcher_new(
 
     matcher_t *matcher = xmalloc(sizeof(matcher_t));
     matcher->scanner = scanner;
-    matcher->haystacks = xmalloc(scanner->count * sizeof(haystack_t));
 
-    for (unsigned i = 0; i < scanner->count; i++) {
+    // Size the haystacks slab to the scanner's capacity so it never has to move
+    // as an async scanner streams more candidates in; it is a sparse mmap, so
+    // the reservation only costs physical memory for entries actually touched.
+    unsigned capacity = scanner->capacity;
+    matcher->haystacks_size = (size_t)capacity * sizeof(haystack_t);
+    matcher->haystacks = capacity ? xmap(matcher->haystacks_size) : NULL;
+
+    unsigned count = __atomic_load_n(&scanner->count, __ATOMIC_ACQUIRE);
+    for (unsigned i = 0; i < count; i++) {
         matcher->haystacks[i].candidate = &scanner->candidates[i];
         matcher->haystacks[i].bitmask = UNSET_BITMASK;
         matcher->haystacks[i].score = UNSET_SCORE;
     }
+    matcher->initialized = count;
 
     matcher->always_show_dot_files = always_show_dot_files;
     matcher->ignore_case = ignore_case;
@@ -87,16 +100,29 @@ matcher_t *commandt_matcher_new(
 void commandt_matcher_free(matcher_t *matcher) {
     // Note that we don't free the scanner here (the scanner's owner is
     // responsible for freeing it).
-    free(matcher->haystacks);
+    if (matcher->haystacks && matcher->haystacks_size) {
+        xmunmap(matcher->haystacks, matcher->haystacks_size);
+    }
     free((void *)matcher->last_needle);
     free(matcher);
 }
 
 result_t *commandt_matcher_run(matcher_t *matcher, const char *needle) {
     scanner_t *scanner = matcher->scanner;
-    unsigned candidate_count = scanner->count;
+    unsigned candidate_count = __atomic_load_n(&scanner->count, __ATOMIC_ACQUIRE);
     unsigned limit = matcher->limit;
     atomic_uint matches_count = 0;
+
+    // An async scanner may have streamed in more candidates since the last run
+    // (or since `matcher_new()`); initialize their haystacks now. `count` only
+    // grows and every entry below `candidate_count` is immutable, so no further
+    // synchronization is needed.
+    for (unsigned i = matcher->initialized; i < candidate_count; i++) {
+        matcher->haystacks[i].candidate = &scanner->candidates[i];
+        matcher->haystacks[i].bitmask = UNSET_BITMASK;
+        matcher->haystacks[i].score = UNSET_SCORE;
+    }
+    matcher->initialized = candidate_count;
 
     size_t needle_length = strlen(needle);
     char *needle_copy = xmalloc(needle_length + 1);
@@ -183,6 +209,7 @@ result_t *commandt_matcher_run(matcher_t *matcher, const char *needle) {
         worker_args[i].worker_index = i;
         worker_args[i].matcher = matcher;
         worker_args[i].ignore_case = ignore_case;
+        worker_args[i].candidate_count = candidate_count;
 
         if (i == worker_count - 1) {
             // For the last worker, we'll just use the main thread.
@@ -284,6 +311,7 @@ static void *get_matches(void *worker_args) {
     unsigned worker_index = ((worker_args_t *)worker_args)->worker_index;
     matcher_t *matcher = ((worker_args_t *)worker_args)->matcher;
     bool ignore_case = ((worker_args_t *)worker_args)->ignore_case;
+    unsigned candidate_count = ((worker_args_t *)worker_args)->candidate_count;
     size_t needle_length = matcher->needle_length;
 
     // The empty query and the lone "." query are ordered alphabetically;
@@ -298,11 +326,11 @@ static void *get_matches(void *worker_args) {
     // order maximize benefit of the CPU cache.
     unsigned chunk_size = 64;
     for (unsigned chunk_start = worker_index * chunk_size;
-         chunk_start < matcher->scanner->count;
+         chunk_start < candidate_count;
          chunk_start += worker_count * chunk_size) {
         unsigned chunk_end = chunk_start + chunk_size;
-        if (chunk_end > matcher->scanner->count) {
-            chunk_end = matcher->scanner->count;
+        if (chunk_end > candidate_count) {
+            chunk_end = candidate_count;
         }
         for (unsigned i = chunk_start; i < chunk_end; i++) {
             haystack_t *haystack = matcher->haystacks + i;

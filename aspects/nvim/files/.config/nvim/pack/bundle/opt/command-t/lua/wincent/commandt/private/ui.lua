@@ -6,6 +6,8 @@ local UI = {}
 local MatchListing = require('wincent.commandt.private.match_listing')
 local Prompt = require('wincent.commandt.private.prompt')
 local Settings = require('wincent.commandt.private.settings')
+local group_thousands = require('wincent.commandt.private.group_thousands')
+local select_index = require('wincent.commandt.private.select_index')
 local validate = require('wincent.commandt.private.validate')
 local types = require('wincent.commandt.private.options.types')
 
@@ -20,6 +22,14 @@ local reverse = function(list)
   end
 end
 
+local uv = vim.uv or vim.loop
+
+-- How often (ms) to re-match and repaint while a scan is streaming in.
+local SCAN_INTERVAL = 50
+
+-- Braille spinner frames shown in the prompt title while a scan is streaming.
+local SPINNER = { '⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏' }
+
 function UI.new()
   local self = {
     candidate_count = nil,
@@ -29,10 +39,15 @@ function UI.new()
     match_listing = nil,
     on_close = nil,
     on_open = nil,
+    order = nil,
     prompt = nil,
+    query = nil,
     results = nil,
+    scanning = false,
     selected = nil,
     settings = Settings.new(),
+    _spinner_index = nil,
+    _timer = nil,
   }
   setmetatable(self, { __index = UI })
   return self
@@ -46,7 +61,122 @@ end
 -- (we get this "for free" kind of thanks to WinLeave happening as soon as you
 -- do anything that would move you out)
 
+-- Re-run the current query against the finder and repaint the match listing.
+-- `opts.query_changed` distinguishes a keystroke (reset selection to the best
+-- match) from a streaming refresh (preserve the user's selection).
+function UI:_refresh(opts)
+  opts = opts or {}
+  if not self.current_finder or not self.match_listing then
+    return
+  end
+  local query = self.query or ''
+  local previous_selected = self.selected
+
+  self.results, self.candidate_count = self.current_finder.run(query)
+
+  -- Defer the fallback decision until scanning has finished: a streaming finder
+  -- legitimately reports zero candidates while it is still starting up.
+  if not self.scanning then
+    if #self.results > 0 or self.candidate_count > 0 then
+      -- Once we've proved a finder works, we don't ever want to use fallback.
+      self.current_finder.fallback = nil
+    elseif self.current_finder.fallback then
+      if self.current_finder.stop then
+        self.current_finder.stop()
+      end
+      local finder, name = self.current_finder.fallback()
+      self.current_finder = finder
+      self.prompt.name = name or 'fallback'
+      self.results, self.candidate_count = self.current_finder.run(query)
+    end
+  end
+
+  if self.order == 'reverse' then
+    reverse(self.results)
+  end
+
+  self.selected = select_index(previous_selected, #self.results, self.order, opts.query_changed)
+
+  self.match_listing:update(self.results, { selected = self.selected })
+  self:_update_status()
+end
+
+-- Start the periodic pump that re-matches and repaints as a streaming finder
+-- produces candidates on its background thread.
+function UI:_start_scanning()
+  self.scanning = true
+  self._spinner_index = 1
+  if self._timer == nil then
+    self._timer = uv.new_timer()
+  end
+  self._timer:start(0, SCAN_INTERVAL, function()
+    -- Timer callbacks run in a "fast" context; defer to a normal context so we
+    -- can touch buffers and windows.
+    vim.schedule(function()
+      self:_tick()
+    end)
+  end)
+end
+
+function UI:_tick()
+  if not self.current_finder or not self.scanning then
+    return
+  end
+  local finder = self.current_finder
+  local done = (finder.done == nil) or finder.done()
+  if done then
+    self.scanning = false
+  else
+    self._spinner_index = (self._spinner_index % #SPINNER) + 1
+  end
+  self:_refresh({ query_changed = false })
+  if done then
+    self:_stop_timer()
+    if finder.stop then
+      finder.stop()
+    end
+  end
+end
+
+function UI:_stop_timer()
+  if self._timer then
+    self._timer:stop()
+    if not self._timer:is_closing() then
+      self._timer:close()
+    end
+    self._timer = nil
+  end
+end
+
+function UI:_update_status()
+  if not self.prompt then
+    return
+  end
+  -- Keep the right-hand block hidden until the first candidate has arrived, so an
+  -- empty scan (or the synchronous fallback walk) doesn't show a frozen "0 / 0".
+  -- Once candidates exist, show "displayed / scanned" for every finder, prefixed
+  -- with the spinner while a scan is still streaming.
+  if (self.candidate_count or 0) > 0 then
+    local displayed = self.results and #self.results or 0
+    local status = group_thousands(displayed) .. ' / ' .. group_thousands(self.candidate_count)
+    if self.scanning then
+      status = SPINNER[self._spinner_index or 1] .. ' ' .. status
+    end
+    self.prompt:set_status(status)
+  else
+    self.prompt:set_status(nil)
+  end
+end
+
 function UI:_close()
+  -- Stop any in-progress streaming scan and release the producer thread and
+  -- child process before tearing down the windows.
+  self.scanning = false
+  self:_stop_timer()
+  if self.current_finder and self.current_finder.stop then
+    self.current_finder.stop()
+  end
+
   -- Restore global settings.
   self.settings.hlsearch = nil
 
@@ -150,6 +280,8 @@ function UI:show(finder, options, config)
 
   self.results = nil
   self.selected = nil
+  self.query = ''
+  self.order = options.order
   border = options.prompt.border ~= 'winborder' and options.prompt.border or nil
   self.prompt = Prompt.new({
     border = border,
@@ -158,26 +290,8 @@ function UI:show(finder, options, config)
     margin = options.margin,
     name = config.name,
     on_change = function(query)
-      self.results, self.candidate_count = self.current_finder.run(query)
-      if #self.results > 0 or self.candidate_count > 0 then
-        -- Once we've proved a finder works, we don't ever want to use fallback.
-        self.current_finder.fallback = nil
-      elseif self.current_finder.fallback then
-        self.current_finder, name = self.current_finder.fallback()
-        self.prompt.name = name or 'fallback'
-        self.results = self.current_finder.run(query)
-      end
-      if #self.results == 0 then
-        self.selected = nil
-      else
-        if options.order == 'reverse' then
-          reverse(self.results)
-          self.selected = #self.results
-        else
-          self.selected = 1
-        end
-      end
-      self.match_listing:update(self.results, { selected = self.selected })
+      self.query = query
+      self:_refresh({ query_changed = true })
     end,
     on_leave = function()
       self:_close()
@@ -210,6 +324,12 @@ function UI:show(finder, options, config)
     position = options.position,
   })
   self.prompt:show()
+
+  -- Streaming finders keep producing candidates in the background; drive
+  -- periodic re-matches and repaints until production finishes.
+  if self.current_finder.streaming then
+    self:_start_scanning()
+  end
 
   if self.cmdline_enter_autocmd == nil then
     self.cmdline_enter_autocmd = vim.api.nvim_create_autocmd('CmdlineEnter', {

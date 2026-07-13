@@ -4,8 +4,10 @@
 local ffi = require('ffi')
 
 return function(directory, command, options, name)
+  local c = require('wincent.commandt.private.lib.c')
   local matcher_new = require('wincent.commandt.private.lib.matcher_new')
   local matcher_run = require('wincent.commandt.private.lib.matcher_run')
+  local scanner_new_exec_async = require('wincent.commandt.private.lib.scanner_new_exec_async')
   local drop = 0
   local max_files = 0
   local get_max_files = options.finders[name].max_files
@@ -18,7 +20,16 @@ return function(directory, command, options, name)
     max_files = get_max_files(options) or 0
   end
   local finder = {}
-  finder.scanner = require('wincent.commandt.private.scanners.exec').scanner(command, drop, max_files)
+  -- Exec scanners stream: the command's output is read on a background thread
+  -- and the UI re-matches as candidates arrive (see `UI:_start_scanning()`).
+  finder.scanner = scanner_new_exec_async(command, drop, max_files)
+  finder.streaming = true
+  finder.done = function()
+    return c.commandt_scanner_done(finder.scanner)
+  end
+  finder.stop = function()
+    c.commandt_scanner_stop(finder.scanner)
+  end
   finder.matcher = matcher_new(finder.scanner, options, { lines = vim.o.lines })
   finder.run = function(query)
     local results = matcher_run(finder.matcher, query)

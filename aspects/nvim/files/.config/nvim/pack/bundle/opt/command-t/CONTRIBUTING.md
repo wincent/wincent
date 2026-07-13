@@ -7,7 +7,7 @@ For more details, see the "command-t-development" section in [the documentation]
 # Releasing
 
 1. Update "command-t-history" section in `doc/command-t.txt`.
-2. Edit metadata in `lua/wincent/commandt/version.lua` to reflect new `$VERSION` (remove `prelease = 'main'`).
+2. Edit metadata in `lua/wincent/commandt/version.lua` to reflect new `$VERSION` (and set `prelease = ''`).
 3. Commit using `git commit -p -m "chore: prepare for $VERSION release"`.
 4. Create tag with `git tag -s $VERSION -m "$VERSION release"`.
 5. Fast-forward the `release` branch to match the tag.

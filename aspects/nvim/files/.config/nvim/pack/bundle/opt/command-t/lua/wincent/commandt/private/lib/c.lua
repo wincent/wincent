@@ -24,6 +24,14 @@ ffi.cdef([[
       ssize_t candidates_size;
       char *buffer;
       ssize_t buffer_size;
+      unsigned capacity;
+      int kind;
+      int fd;
+      int pid;
+      unsigned drop;
+      unsigned max_files;
+      int done;
+      void *thread;
   } scanner_t;
 
   typedef struct {
@@ -41,6 +49,8 @@ ffi.cdef([[
       long needle_bitmask;
       const char *last_needle;
       size_t last_needle_length;
+      size_t haystacks_size;
+      unsigned initialized;
   } matcher_t;
 
   typedef struct {
@@ -94,9 +104,17 @@ ffi.cdef([[
   // Scanner functions.
 
   scanner_t *commandt_file_scanner(const char *directory, unsigned max_files);
+  scanner_t *commandt_scanner_new_exec(const char *command, unsigned drop, unsigned max_files);
+  scanner_t *commandt_scanner_new_exec_async(const char *command, unsigned drop, unsigned max_files);
+
+  // Backwards compatiblity shim (for users who `git pull` new Lua but haven't
+  // run `make` yet).
   scanner_t *commandt_scanner_new_command(const char *command, unsigned drop, unsigned max_files);
+
   scanner_t *commandt_scanner_new_copy(const char **candidates, unsigned count);
   scanner_t *commandt_scanner_new_str(str_t *candidates, unsigned count);
+  void commandt_scanner_stop(scanner_t *scanner);
+  bool commandt_scanner_done(scanner_t *scanner);
   void commandt_scanner_free(scanner_t *scanner);
   void commandt_print_scanner(scanner_t *scanner);
 

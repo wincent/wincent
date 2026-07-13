@@ -226,7 +226,10 @@ end
 function Window:set_title(title)
   self._title = title
   self._padded_title = title ~= '' and (' ' .. title .. ' ') or ''
-  self:_reposition()
+  -- Deliberately no `_reposition()` here: the window is sized by the editor and
+  -- margin, not by its title, so a title change must never resize it (a long
+  -- title truncates instead). Otherwise a wide, dynamically-updated title would
+  -- grow the window without bound.
   if self._main_window then
     vim.api.nvim_win_set_config(self._main_window, {
       title = self._position ~= 'bottom' and { { self._padded_title, 'FloatBorder' } } or nil,
@@ -380,6 +383,29 @@ function Window:width()
   return self._width
 end
 
+-- The single-cell character of the horizontal border segment that the title (or
+-- the footer, at the bottom position) rides on. Resolved from the live window so
+-- it works for preset borders (eg. 'double', 'rounded') as well as explicit
+-- lists; falls back to a plain horizontal rule.
+function Window:border_horizontal()
+  if self._main_window == nil then
+    return '─'
+  end
+  local ok, config = pcall(vim.api.nvim_win_get_config, self._main_window)
+  if not ok or type(config.border) ~= 'table' then
+    return '─'
+  end
+  -- Border list is {tl, top, tr, r, br, bottom, bl, l}.
+  local segment = config.border[self._position == 'bottom' and 6 or 2]
+  if type(segment) == 'table' then
+    segment = segment[1] -- May be a {char, highlight} pair.
+  end
+  if type(segment) == 'string' and vim.api.nvim_strwidth(segment) == 1 then
+    return segment
+  end
+  return '─'
+end
+
 function Window:_reposition()
   local position = merge(
     self:_calculate_position(),
@@ -408,11 +434,7 @@ function Window:_calculate_position()
   local editor_width = vim.o.columns
   local border_width = 2
   local minimum_width = 1
-  local width = math.max(
-    border_width + minimum_width,
-    border_width + #self._padded_title,
-    editor_width - 2 * self._margin
-  ) - border_width
+  local width = math.max(border_width + minimum_width, editor_width - 2 * self._margin) - border_width
   local col = math.floor((editor_width - width + border_width) / 2)
   local editor_height = vim.o.lines
   local border_height = 2

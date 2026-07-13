@@ -55,6 +55,8 @@ In the following discussion, note that there are a few sets of confusing, overla
 
 In most ways, the exec finders follow the same life-cycle described above (and in fact we mention some of them in the descriptions of the steps) so I won't repeat the details here. The main differences are in terms of how they interact with the scanners, but they don't have any implications for how opening works. See the "Memory model" section further down for important differences that exist between the different types in relation to memory ownership.
 
+The other significant difference is that exec finders scan _asynchronously_: rather than blocking the editor until the external command (`fd`, `git-ls-files`, `rg`, `find`, and friends) finishes enumerating what could be hundreds of thousands or millions of files, they fork the command and read its output on a background thread while the UI stays responsive, streaming matches in as candidates arrive. The synchronous scanner (`scanner_new_exec()`) still exists and is used by the benchmark suite, but the exec finder itself uses the asynchronous variant (`scanner_new_exec_async()`). See the "Streaming and concurrency" section for the full picture. (The built-in "file" and watchman finders remain synchronous.)
+
 ## Built-in "file" finder life-cycle
 
 Here I'll document only the differences from the other finders:
@@ -118,7 +120,7 @@ Ideally this would all be self-documenting and fool-proof, but for now it relies
     2. In the "exec" scanner (see `scanner.c`).
     3. `watchman_read_string_no_copy()` in the watchman scanner, which is used to read the `"files"` property of the Watchman response (see `watchman.c`).
 - **Scanners** manage access to a list of haystacks to be searched. The come in four varieties:
-  1. Scanners created by `scanner_new_exec()`, called from the "exec" scanner (`scanners/exec.lua`). As the name suggests, this scanner obtains its candidates by running commands like `git-ls-files`, `fd`, `find`, `rg`, and friends.
+  1. Scanners created by `scanner_new_exec()` (synchronous) or `scanner_new_exec_async()` (asynchronous), which obtain their candidates by running commands like `git-ls-files`, `fd`, `find`, `rg`, and friends. The exec finder (`finders/exec.lua`) uses the asynchronous variant, which produces candidates on a background thread (see "Streaming and concurrency"); the synchronous variant, reached via the "exec" scanner (`scanners/exec.lua`), is retained for the benchmark suite. Both allocate and own the same `candidates` and `buffer` slabs.
   2. Scanners created by `scanner_new()`, called from `find.c`. This scanner does not copy the candidate strings (which are slab-allocated), but it _does_ take ownership of the slabs.
   3. Scanners created by `scanner_new_copy()`, called from `test/matcher.lua`, `benchmarks/matcher.lua` and the "list" scanner (`scanners/list.lua`). As the name indicates, this scanner copies the passed in candidates, creating new `str_t` objects. This scanner is suitable and is used for smaller lists of candidates, like help tags, buffers and so on.
   4. Scanners created by `scanner_new_str()`, called from `watchman.lua`.
@@ -127,31 +129,29 @@ Ideally this would all be self-documenting and fool-proof, but for now it relies
 
 So, at the risk of producing documentation that is very prone to becoming out-of-date as things get refactored, these are the four patterns of memory ownership as manifested in the four different varieties of scanner. In summary:
 
-| Scanner pattern      | Has `candidates`? | `candidates` owner           | Has `buffer`? | `buffer` owner                   | `str_t` are slab-allocated? |
-| -------------------- | ----------------- | ---------------------------- | ------------- | -------------------------------- | --------------------------- |
-| `scanner_new_exec()` | Yes               | `scanner_t` (created)        | Yes           | `scanner_t` (created)            | Yes                         |
-| `scanner_new()`      | Yes               | `scanner_t` (assigned)       | Yes           | `scanner_t` (assigned)           | Yes                         |
-| `scanner_new_copy()` | Yes               | `scanner_t` (created)        | No            | n/a                              | No                          |
-| `scanner_new_str()`  | Yes               | `watchman_query_t` (`files`) | Yes           | `wathcman_reponse_t` (`payload`) | Yes                         |
+| Scanner pattern              | Has `candidates`? | `candidates` owner           | Has `buffer`? | `buffer` owner                   | `str_t` are slab-allocated? |
+| ---------------------------- | ----------------- | ---------------------------- | ------------- | -------------------------------- | --------------------------- |
+| `scanner_new_exec[_async]()` | Yes               | `scanner_t` (created)        | Yes           | `scanner_t` (created)            | Yes                         |
+| `scanner_new()`              | Yes               | `scanner_t` (assigned)       | Yes           | `scanner_t` (assigned)           | Yes                         |
+| `scanner_new_copy()`         | Yes               | `scanner_t` (created)        | No            | n/a                              | No                          |
+| `scanner_new_str()`          | Yes               | `watchman_query_t` (`files`) | Yes           | `wathcman_reponse_t` (`payload`) | Yes                         |
 
 Details follow.
 
-### `scanner_new_exec()`
+### `scanner_new_exec()` and `scanner_new_exec_async()`
 
-This is the most common form of scanning in Command-T, used by anything that wraps an external command (eg. `:CommandTGit`, wrapping `git-ls-files`, `:CommandTRipgrep`, wrapping `rg`, and so on).
+This is the most common form of scanning in Command-T, used by anything that wraps an external command (eg. `:CommandTGit`, wrapping `git-ls-files`, `:CommandTRipgrep`, wrapping `rg`, and so on). Two variants share an identical memory-ownership model but differ in when, and on which thread, candidates are produced: `scanner_new_exec()` reads the command to completion synchronously (retained for the benchmark suite, reached via `scanners/exec.lua`), while `scanner_new_exec_async()` returns immediately and produces on a background thread. The exec finder uses the asynchronous variant; see "Streaming and concurrency" for the threading details.
 
-- The main controller (defined in `init.lua`) calls `finders.exec()` to obtain a `finder`:
-  - `finders.exec()` (defined in `finders/exec.lua`) calls `scanner()` (defined in `scanners/exec.lua`) to obtain a `scanner` instance:
-  - `scanner()` calls `lib.scanner_new_exec()` to obtain and return a `scanner`:
-    - `lib.scanner_new_exec()` calls the `scanner_new_exec()` via FFI:
-      - `scanner_new_exec()` creates a `candidates` slab and a `buffer` slab with `xmap()`. The former is used to store zero-copy `str_t` records (created with `str_init()`), while the latter holds the actual command output, into which the `str_t` records index via their `contents` pointers.
-    - `lib.scanner_new_exec()` uses `ffi.gc()` to mark the returned `scanner` object such that when it is garbage-collected, the `commandt_scanner_free()` function will be called:
-      - `commandt_scanner_free()` uses `xmunmap()` to release the `candidates` and `buffer` slabs, and `free()` to deallocate the `scanner_t` struct itself.
-      - Note that it also contains a `for` loop that _would_ call `free` on all of the `str_t` records in `candidates`, but the `for` loop is a no-op because all of those strings are slab-allocated and there is an `if` that checks this condition. (It does this `if` check rather than calling `str_free()` in order to save an unnecessary function call; `str_free()` on a slab-allocated `str_t` is a no-op.)
+- The main controller (defined in `init.lua`) calls `finders.exec()` (defined in `finders/exec.lua`) to obtain a `finder`:
+  - `finders.exec()` calls `lib.scanner_new_exec_async()`, which calls `commandt_scanner_new_exec_async()` via FFI:
+    - That function creates a `candidates` slab and a `buffer` slab with `xmap()`. The former stores zero-copy `str_t` records (created with `str_init()`), while the latter holds the actual command output, into which the `str_t` records index via their `contents` pointers. It then forks the command and spawns the producer thread that fills those slabs. (The synchronous `scanner_new_exec()` is identical except that it fills the slabs inline before returning.)
+  - `lib.scanner_new_exec_async()` uses `ffi.gc()` to mark the returned `scanner` object such that when it is garbage-collected, the `commandt_scanner_free()` function will be called:
+    - `commandt_scanner_free()` first calls `commandt_scanner_stop()` to join the producer thread and reap the child (a no-op for the synchronous scanner and the non-exec scanner kinds), then uses `xmunmap()` to release the `candidates` and `buffer` slabs, and `free()` to deallocate the `scanner_t` struct itself.
+    - Note that it also contains a `for` loop that _would_ call `free` on all of the `str_t` records in `candidates`, but the `for` loop is a no-op because all of those strings are slab-allocated and there is an `if` that checks this condition. (It does this `if` check rather than calling `str_free()` in order to save an unnecessary function call; `str_free()` on a slab-allocated `str_t` is a no-op.)
   - `finders.exec()` passes the `scanner` into `lib.matcher_new()`, and returns a `finder` object that exposes a `run()` function (calling `lib.matcher_run()`); the `finder` object has a reference to the `scanner`, which keeps it alive until the `finder` itself falls out of scope.
 - The returned `finder` is passed into `ui.show()`, which stores a reference in the module-local `current_finder` variable, keeping the `finder` alive until the next time `ui.show()` is called and a different `finder` is passed in.
 
-The overall ownership chain, then, is: the `finder` owns the `scanner`, the `scanner` owns its `candidates` slab and `buffer` slab, and the `str_t` structs in the `candidates` slab do not own their individual `contents` because those are all slab-allocated.
+The overall ownership chain, then, is: the `finder` owns the `scanner`, the `scanner` owns its `candidates` slab and `buffer` slab, and the `str_t` structs in the `candidates` slab do not own their individual `contents` because those are all slab-allocated. The only wrinkle beyond the synchronous case is that `commandt_scanner_free()` joins the producer thread (via `commandt_scanner_stop()`) before releasing the slabs it was writing into.
 
 ### `scanner_new()` as used by the built-in `:CommandT` finder
 
@@ -218,3 +218,47 @@ The overall ownership chain, then, is: the `finder` owns the `scanner`, the `sca
 - The returned `finder` is passed into `ui.show()`, which stores a reference in the module-local `current_finder` variable, keeping the `finder` alive until the next time `ui.show()` is called and a different `finder` is passed in.
 
 This last one has the most complicated ownership chain: the `finder` owns the `scanner`, the `scanner` references the `result` only via the weak table, and the `result` references the `raw` return value from `watchman_query()` (ie. the `watchman_query_t`) which owns the `files` slab, which in turn contains pointers to string `contents` in the `watchman_response_t`. When the `scanner` is garbage collected, the last reference to `result` goes away, which in turn means the last reference to `result.raw` goes away, which causes `commandt_watchman_query_free()` to run, freeing the `files` slab, and calling `watchman_response_free()` which frees the `payload`. This could probably be improved.
+
+# Streaming and concurrency
+
+Exec-based finders (`:CommandTFd`, `:CommandTFind`, `:CommandTGit`, `:CommandTRipgrep`, and any user-defined `command` finder) scan asynchronously, so that opening the finder is instant even in a repository with hundreds of thousands or millions of files, where the external command can take seconds to enumerate them. Instead of running the command to completion and only then showing the UI, Command-T shows the UI immediately and streams matches in as the command produces output.
+
+## The producer thread
+
+`commandt_scanner_new_exec_async()` (in `scanner.c`, wrapped by `lib/scanner_new_exec_async.lua`) allocates the `candidates` and `buffer` slabs exactly as the synchronous scanner does, then forks the command and returns immediately, spawning a background "producer" thread (`exec_producer()`) that owns the read loop. The producer blocking-reads the child's stdout into the `buffer` slab and tokenizes it into zero-copy `str_t` records in the `candidates` slab (via the shared `scanner_tokenize()` helper), publishing its progress by advancing the candidate `count`.
+
+The slabs are large, sparse `mmap()` reservations that are never resized or moved, so production is purely append-only: the producer writes `candidates[count]` and then advances `count`. That single field, `scanner->count`, is the entire synchronization surface between the producer and the consumer. The producer publishes it with a release store (`__atomic_store_n(..., __ATOMIC_RELEASE)`) after fully writing a batch of `str_t` records; the consumer (the matcher, on the main thread) reads it with an acquire load. Because the slabs never move and every entry below `count` is immutable once published, no locks are required, and the release/acquire pair guarantees that a consumer which observes a given `count` also observes the fully-initialized candidates below it.
+
+The tokenizer never writes past the `candidates` slab even when the user's `max_files` is 0 (unlimited): the slab's capacity (`MAX_FILES`) is an unconditional hard cap.
+
+## The consumer (matcher)
+
+The matcher runs on the main thread. `matcher_new()` sizes its `haystacks` slab to the scanner's `capacity` (for an async exec scanner, `MAX_FILES`) with `xmap()`, so, like the other slabs, it never has to move as candidates stream in; only the entries actually touched are faulted into physical memory. Each call to `commandt_matcher_run()` takes an acquire-loaded snapshot of `count`, lazily initializes any `haystack_t` entries that have appeared since the previous run, and has all of its worker threads iterate against that fixed snapshot (rather than re-reading the live `count`), so a single run always works against a consistent candidate set. The existing incremental-narrowing optimization composes with streaming for free: freshly-initialized haystacks carry `UNSET_SCORE` rather than `0.0f`, so the "didn't match last time, skip it" fast path never wrongly skips a newly-arrived candidate. The `result_t` returned by each run is handed to the Lua garbage collector via `ffi.gc()` (in `lib/matcher_run.lua`), so callers never have to free it explicitly.
+
+## Lifecycle and cancellation
+
+The scanner exposes two additional entry points for the async case:
+
+- `commandt_scanner_done()`: an acquire-load of a `done` flag the producer sets when it finishes (or is stopped). Always true for non-async scanners.
+- `commandt_scanner_stop()`: cancels and cleans up. It kills the child's whole process group, joins the producer thread, reaps the child, and closes the pipe. It is idempotent and a no-op for non-async scanners. `commandt_scanner_free()` calls it, so a scanner that is merely garbage-collected without an explicit stop still cleans up.
+
+Two subtleties make cancellation safe:
+
+- **Process-group termination.** The command runs as `/bin/sh -c '<command> 2> /dev/null'`, and because of the redirection (and pipelines like `git ls-files | ...`) the shell _forks_ the real tool rather than replacing itself with it. Killing only the shell would orphan the tool, which keeps the pipe's write end open and leaves the producer blocked in `read()`. So the child is placed in its own process group (`setpgid()`), and `scanner_stop()` signals the whole group (`kill(-pid, ...)`), which terminates the tool too and lets the producer's `read()` return EOF promptly. Without this, closing the finder mid-scan would block the main thread on the join.
+- **Deferred reaping.** The producer never reaps the child; `scanner_stop()` does, but only _after_ joining the producer thread. This keeps the child's PID valid (as an unreaped zombie) for the entire window in which `scanner_stop()` might signal it, so the signal can never race child exit and land on an unrelated, PID-recycled process.
+
+## The UI loop
+
+The UI (`ui.lua`) drives the stream. When a streaming finder is shown, `UI:_start_scanning()` starts a repeating `vim.uv` timer (~50ms). Each tick, marshaled from the timer's "fast" context to a normal context via `vim.schedule()`, re-runs the current query against whatever has been produced so far and repaints the match listing, until `finder.done()` reports completion, at which point the timer is stopped and the producer joined. Keystrokes and timer ticks share a single `UI:_refresh()` path.
+
+A few behaviors fall out of this:
+
+- **Selection is preserved across streaming refreshes.** A keystroke resets the selection to the best match; a streaming refresh keeps the user where they were (clamped), so results filling in underneath don't yank the cursor around.
+- **The fallback decision is deferred until scanning finishes.** A streaming finder legitimately reports zero candidates while it is still starting up, so the fallback to the built-in file finder is only considered once `done` is true (otherwise every scan would briefly flip to the fallback finder).
+- **The prompt title shows progress.** While scanning, the prompt title shows a spinner and a right-aligned "displayed / scanned" count (eg. `CommandT [fd] ──── ⠧ 42 / 706,248`), with the gap filled by the window's own border character (resolved from the live window via `nvim_win_get_config()`, so it matches whatever border the user has configured). The count block only appears once the first candidate has arrived, so an empty scan (or the synchronous fallback walk) never shows a frozen `0 / 0`. Because a full-width title must not make the floating window grow to fit itself, `window.lua` sizes windows from the editor and margin only and lets over-long titles truncate.
+
+## What is still synchronous
+
+The synchronous `scanner_new_exec()` is retained and exercised by the scanner benchmark. The built-in "file" finder (`find.c`, `commandt_file_scanner()`) still walks the filesystem synchronously on the main thread, which is also why the exec finders' fallback to it can briefly block on a cold, large tree; making the file finder stream as well is a natural future extension[^future]. The watchman finder receives its candidates as a single in-memory payload, so it has nothing to stream.
+
+[^future]: One reason I'm not pursuing this now is that the directory traversal would need to pass `FTS_NOCHDIR` (to stop it from changing the process-global working directory along the way), which in turn would make fallback scanning even slower (it is already quite slow compared to a parallel traversal like the one done by `fd`).

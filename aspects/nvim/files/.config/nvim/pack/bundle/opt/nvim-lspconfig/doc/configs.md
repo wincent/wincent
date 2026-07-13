@@ -174,6 +174,7 @@ Nvim by running `:help lspconfig-all`.
 - [just](#just)
 - [kakehashi](#kakehashi)
 - [kcl](#kcl)
+- [kdl_lsp](#kdl_lsp)
 - [koka](#koka)
 - [kotlin_language_server](#kotlin_language_server)
 - [kotlin_lsp](#kotlin_lsp)
@@ -266,6 +267,7 @@ Nvim by running `:help lspconfig-all`.
 - [pyre](#pyre)
 - [pyrefly](#pyrefly)
 - [pyright](#pyright)
+- [pytest_language_server](#pytest_language_server)
 - [qmlls](#qmlls)
 - [quick_lint_js](#quick_lint_js)
 - [r_language_server](#r_language_server)
@@ -349,6 +351,7 @@ Nvim by running `:help lspconfig-all`.
 - [termux_language_server](#termux_language_server)
 - [terraform_lsp](#terraform_lsp)
 - [terraformls](#terraformls)
+- [terragrunt_ls](#terragrunt_ls)
 - [texlab](#texlab)
 - [textlsp](#textlsp)
 - [tflint](#tflint)
@@ -398,6 +401,7 @@ Nvim by running `:help lspconfig-all`.
 - [wasm_language_tools](#wasm_language_tools)
 - [wc_language_server](#wc_language_server)
 - [wgsl_analyzer](#wgsl_analyzer)
+- [wolfram_lsp](#wolfram_lsp)
 - [yamlls](#yamlls)
 - [yang_lsp](#yang_lsp)
 - [yls](#yls)
@@ -7003,6 +7007,33 @@ Default config:
 
 ---
 
+## kdl_lsp
+
+https://github.com/kdl-org/kdl-rs/tree/main/tools/kdl-lsp
+
+Language server for the KDL document language.
+
+Snippet to enable the language server:
+```lua
+vim.lsp.enable('kdl_lsp')
+```
+
+Default config:
+- `cmd` :
+  ```lua
+  { "kdl-lsp" }
+  ```
+- `filetypes` :
+  ```lua
+  { "kdl" }
+  ```
+- `root_markers` :
+  ```lua
+  { ".git" }
+  ```
+
+---
+
 ## koka
 
 https://koka-lang.github.io/koka/doc/index.html
@@ -10296,6 +10327,44 @@ Default config:
 
 ---
 
+## pytest_language_server
+
+https://github.com/bellini666/pytest-language-server
+
+ `pytest-language-server`, a Language Server Protocol implementation for pytest.
+
+ Features:
+ - Go to definition for fixtures (local, conftest.py, and third-party plugins)
+ - Find references for fixtures across the test suite
+ - Hover documentation with fixture signatures, return types, and docstrings
+ - Code completion for available fixtures with hierarchy-aware suggestions
+ - Diagnostics for undeclared fixtures used in test bodies
+ - Code actions (quick fixes) to add missing fixture parameters
+ - Supports fixture overriding and pytest's fixture priority rules
+ - Character-position aware for self-referencing fixtures
+@type vim.lsp.Config
+
+Snippet to enable the language server:
+```lua
+vim.lsp.enable('pytest_language_server')
+```
+
+Default config:
+- `cmd` :
+  ```lua
+  { "pytest-language-server" }
+  ```
+- `filetypes` :
+  ```lua
+  { "python" }
+  ```
+- `root_markers` :
+  ```lua
+  { "pytest.ini", "pyproject.toml", "setup.py", "setup.cfg", ".git" }
+  ```
+
+---
+
 ## qmlls
 
 https://doc.qt.io/qt-6/qtqml-tooling-qmlls.html
@@ -10303,6 +10372,11 @@ https://doc.qt.io/qt-6/qtqml-tooling-qmlls.html
 > QML Language Server is a tool shipped with Qt that helps you write code in your favorite (LSP-supporting) editor.
 
 Source in the [QtDeclarative repository](https://code.qt.io/cgit/qt/qtdeclarative.git/)
+
+Note: On some distros, the cmd of qmlls is `qmlls6`. You can override `cmd`:
+```lua
+vim.lsp.config('qmlls', { cmd = { 'qmlls6' } })
+```
 
 Snippet to enable the language server:
 ```lua
@@ -10953,12 +11027,12 @@ Default config:
   ```lua
   "roslyn_ls"
   ```
-- `on_attach`: [../lsp/roslyn_ls.lua:149](../lsp/roslyn_ls.lua#L149)
+- `on_attach`: [../lsp/roslyn_ls.lua:156](../lsp/roslyn_ls.lua#L156)
 - `on_init` :
   ```lua
   { <function 1> }
   ```
-- `root_dir`: [../lsp/roslyn_ls.lua:149](../lsp/roslyn_ls.lua#L149)
+- `root_dir`: [../lsp/roslyn_ls.lua:156](../lsp/roslyn_ls.lua#L156)
 - `settings` :
   ```lua
   {
@@ -13480,6 +13554,33 @@ Default config:
 
 ---
 
+## terragrunt_ls
+
+https://github.com/gruntwork-io/terragrunt-ls
+
+`terragrunt-ls`, a language server for Terragrunt configuration files.
+
+Snippet to enable the language server:
+```lua
+vim.lsp.enable('terragrunt_ls')
+```
+
+Default config:
+- `cmd` :
+  ```lua
+  { "terragrunt-ls" }
+  ```
+- `filetypes` :
+  ```lua
+  { "hcl" }
+  ```
+- `root_markers` :
+  ```lua
+  { "terragrunt.hcl", ".git" }
+  ```
+
+---
+
 ## texlab
 
 https://github.com/latex-lsp/texlab
@@ -15394,6 +15495,52 @@ Default config:
 - `settings` :
   ```lua
   {}
+  ```
+
+---
+
+## wolfram_lsp
+
+https://github.com/WolframResearch/LSPServer
+
+LSPServer is an official lsp server for Mathematica.
+
+Installation:
+The LSPServer paclet and its dependencies are included in Mathematica or
+Wolfram Engine installation in recent versions (13.0 and later).
+
+If your Mathematica or Wolfram Engine installation is old and LSPServer is
+not included, you can install it manually in a Mathematica environment:
+```mma
+PacletInstall["CodeParser"]
+PacletInstall["CodeInspector"]
+PacletInstall["CodeFormatter"]
+PacletInstall["LSPServer"]
+```
+
+Snippet to enable the language server:
+```lua
+vim.lsp.enable('wolfram_lsp')
+```
+
+Default config:
+- `cmd` :
+  ```lua
+  { "WolframKernel", "-noinit", "-noprompt", "-nopaclet", "-noicon", "-nostartuppaclets", "-run", 'Needs["LSPServer`"];LSPServer`StartServer[]' }
+  ```
+- `filetypes` :
+  ```lua
+  { "mma" }
+  ```
+- `init_options` :
+  ```lua
+  {
+    semanticTokens = true
+  }
+  ```
+- `root_markers` :
+  ```lua
+  { ".git" }
   ```
 
 ---

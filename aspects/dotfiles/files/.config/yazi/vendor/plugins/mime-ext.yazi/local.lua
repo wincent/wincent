@@ -42,6 +42,7 @@ local EXTS = {
 	afm = "application/font-type1",
 	afp = "application/ibm.modcap",
 	ahead = "application/ahead.space",
+	ahk = "text/plain",
 	ai = "application/postscript",
 	aif = "audio/aiff",
 	aifc = "audio/aiff",

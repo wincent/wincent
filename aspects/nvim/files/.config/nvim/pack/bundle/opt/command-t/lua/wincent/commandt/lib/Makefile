@@ -15,10 +15,7 @@ ifeq ($(LBITS),64)
 	# 128 GB.
 	CCFLAGS += -DMMAP_SLAB_SIZE_CONF=137438953472
 else
-	# 32 M candidates.
-	CCFLAGS += -DMAX_FILES_CONF=33554432
-	# 32 GB.
-	CCFLAGS += -DMMAP_SLAB_SIZE_CONF=34359738368
+$(error Command-T requires a 64-bit platform; 32-bit builds are unsupported [LONG_BIT=$(LBITS)])
 endif
 
 ifdef DEBUG

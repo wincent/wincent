@@ -15,11 +15,10 @@
 #define scanner_new commandt_scanner_new
 #define scanner_dump commandt_scanner_dump
 #define scanner_free commandt_scanner_free
-
-// This one is special: ideally, the underlying symbol would be
-// `commandt_scanner_new_exec()`, but I don't want to break userspace (see the
-// note in lib.lua), so it keeps its old name.
-#define scanner_new_exec commandt_scanner_new_command
+#define scanner_new_exec commandt_scanner_new_exec
+#define scanner_new_exec_async commandt_scanner_new_exec_async
+#define scanner_stop commandt_scanner_stop
+#define scanner_done commandt_scanner_done
 
 /**
  * Create a new `scanner_t` struct initialized with `candidates`.
@@ -39,6 +38,28 @@ scanner_t *scanner_new_copy(const char **candidates, unsigned count);
  * would be 2.
  */
 scanner_t *scanner_new_exec(const char *command, unsigned drop, unsigned max_files);
+
+/**
+ * Like `scanner_new_exec()`, but returns immediately and produces candidates on
+ * a background thread, appending them to the slab and publishing `count` as it
+ * goes. The caller polls `scanner_done()` and must call `scanner_stop()` (which
+ * `scanner_free()` also does) to join the producer and reap the child.
+ */
+scanner_t *scanner_new_exec_async(
+    const char *command, unsigned drop, unsigned max_files
+);
+
+/**
+ * Stop an async scanner: unblock and join its producer thread, reap the child,
+ * and close the pipe. A no-op for non-async scanners, and idempotent.
+ */
+void scanner_stop(scanner_t *scanner);
+
+/**
+ * Whether an async scanner has finished producing candidates. Always true for
+ * non-async scanners.
+ */
+bool scanner_done(scanner_t *scanner);
 
 /**
  * Create a new `scanner_t` struct initialized with `candidates` provided by

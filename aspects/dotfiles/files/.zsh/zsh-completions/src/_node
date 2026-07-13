@@ -28,7 +28,7 @@
 # Description
 # -----------
 #
-#  Completion script for Node.js v26.4.0 (https://nodejs.org)
+#  Completion script for Node.js v26.5.0 (https://nodejs.org)
 #
 # ------------------------------------------------------------------------------
 # Authors
@@ -49,7 +49,7 @@ _node_files() {
     fi
   done
 
-  _files -g "*.(js|mjs|ts|mts)"
+  _files -g "*.(js|mjs|ts|mts|cjs|cts)"
 }
 
 _node_args() {
@@ -145,6 +145,7 @@ _node() {
     '--experimental-eventsource[enable experimental EventSource API]' \
     '--experimental-ffi[enable experimental node:ffi module]' \
     '--experimental-import-meta-resolve[experimental ES Module import.meta.resolve() support]' \
+    '--experimental-import-text[experimental support for importing source as text with import attributes]' \
     '--experimental-inspector-network-resource[experimental load network resources via the inspector]' \
     '(--loader --experimental-loader)'{--loader,--experimental-loader}'=[Specify the module of a custom ECMAScript Module loader]: :_files' \
     '--experimental-network-inspection[enable experimental network inspection support]' \

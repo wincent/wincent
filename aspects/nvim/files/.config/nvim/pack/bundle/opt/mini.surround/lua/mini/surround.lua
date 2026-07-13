@@ -485,15 +485,6 @@ local H = {}
 ---   require('mini.surround').setup({}) -- replace {} with your config table
 --- <
 MiniSurround.setup = function(config)
-  -- TODO: Remove after Neovim=0.9 support is dropped
-  if vim.fn.has('nvim-0.10') == 0 then
-    vim.notify(
-      '(mini.surround) Neovim<0.10 is soft deprecated (module works but is not supported).'
-        .. " It will be deprecated after the next 'mini.nvim' release (module might not work)."
-        .. ' Please update your Neovim version.'
-    )
-  end
-
   -- Export module
   _G.MiniSurround = MiniSurround
 
@@ -681,9 +672,9 @@ end
 ---   vim.keymap.set('n', 'yss', 'ys_', { remap = true })
 --- <
 MiniSurround.config = {
-  -- Add custom surroundings to be used on top of builtin ones. For more
-  -- information with examples, see `:h MiniSurround.config`.
-  custom_surroundings = nil,
+  -- Custom surroundings to be used on top of builtin ones.
+  -- For more information with examples, see `:h MiniSurround.config`.
+  custom_surroundings = {},
 
   -- Duration (in ms) of highlight when calling `MiniSurround.highlight()`
   highlight_duration = 500,
@@ -1174,7 +1165,7 @@ H.setup_config = function(config)
   H.check_type('config', config, 'table', true)
   config = vim.tbl_deep_extend('force', vim.deepcopy(H.default_config), config or {})
 
-  H.check_type('custom_surroundings', config.custom_surroundings, 'table', true)
+  H.check_type('custom_surroundings', config.custom_surroundings, 'table')
   H.check_type('highlight_duration', config.highlight_duration, 'number')
   H.check_type('mappings', config.mappings, 'table')
   H.check_type('n_lines', config.n_lines, 'number')
@@ -1299,22 +1290,20 @@ end
 
 -- Work with surrounding info -------------------------------------------------
 H.get_surround_spec = function(surr_type, use_cache)
-  local res
-
   -- Try using cache
-  if use_cache then
-    res = H.cache[surr_type]
-    if res ~= nil then return res end
-  else
-    H.cache = {}
-  end
+  if not use_cache then H.cache = {} end
+  if use_cache and H.cache[surr_type] ~= nil then return H.cache[surr_type] end
 
   -- Prompt user to enter identifier of surrounding
   local char = H.user_surround_id(surr_type)
   if char == nil then return nil end
 
-  -- Get surround specification
-  res = H.make_surrounding_table()[char][surr_type]
+  -- Prefer surrounding specification: custom > built-in > default
+  local res = (H.get_config().custom_surroundings[char] or {})[surr_type]
+  if res == nil then res = (H.builtin_surroundings[char] or {})[surr_type] end
+  if res == nil then res = H.get_default_surrounding(char, surr_type) end
+  -- - NOTE: Make sure that in-place modifications don't affect the source
+  res = vim.deepcopy(res)
 
   -- Allow function returning spec or surrounding region(s)
   if vim.is_callable(res) then res = res() end
@@ -1335,27 +1324,8 @@ H.get_surround_spec = function(surr_type, use_cache)
   return res
 end
 
-H.make_surrounding_table = function()
-  -- Extend builtins with data from `config`
-  local surroundings = vim.deepcopy(H.builtin_surroundings)
-  for char, spec in pairs(H.get_config().custom_surroundings or {}) do
-    local cur_spec = surroundings[char] or {}
-    local default = H.get_default_surrounding_info(char)
-    -- NOTE: Don't use `tbl_deep_extend` to prefer full `input` arrays
-    cur_spec.input = spec.input or cur_spec.input or default.input
-    cur_spec.output = spec.output or cur_spec.output or default.output
-    surroundings[char] = cur_spec
-  end
-
-  -- Use default surrounding info for not supplied single character identifier
-  return setmetatable(surroundings, {
-    __index = function(_, key) return H.get_default_surrounding_info(key) end,
-  })
-end
-
-H.get_default_surrounding_info = function(char)
-  local char_esc = vim.pesc(char)
-  return { input = { char_esc .. '().-()' .. char_esc }, output = { left = char, right = char } }
+H.get_default_surrounding = function(char, surr_type)
+  return surr_type == 'output' and { left = char, right = char } or { vim.pesc(char) .. '().-()' .. vim.pesc(char) }
 end
 
 H.is_surrounding_info = function(x, surr_type)
@@ -1383,7 +1353,7 @@ H.is_region_pair = function(x)
 end
 
 H.is_region_pair_array = function(x)
-  if not H.islist(x) then return false end
+  if not vim.islist(x) then return false end
   for _, v in ipairs(x) do
     if not H.is_region_pair(v) then return false end
   end
@@ -1391,7 +1361,7 @@ H.is_region_pair_array = function(x)
 end
 
 H.is_composed_pattern = function(x)
-  if not (H.islist(x) and #x > 0) then return false end
+  if not (vim.islist(x) and #x > 0) then return false end
   for _, val in ipairs(x) do
     local val_type = type(val)
     if not (val_type == 'table' or val_type == 'string' or vim.is_callable(val)) then return false end
@@ -1560,10 +1530,7 @@ H.get_matched_range_pairs_builtin = function(captures)
   -- Go up parent trees to work with injected languages
   while (vim.tbl_isempty(inner) or vim.tbl_isempty(outer)) and lang_tree ~= nil do
     H.append_lang_ranges(outer, inner, missing_query_langs, buf_id, captures, lang_tree)
-
-    -- `LanguageTree:parent()` was added in Neovim<0.10
-    -- TODO: Drop extra check after compatibility with Neovim=0.9 is dropped
-    lang_tree = lang_tree.parent and lang_tree:parent() or nil
+    lang_tree = lang_tree:parent()
   end
 
   -- Fall back to children trees for injected languages
@@ -1610,7 +1577,7 @@ end
 
 H.get_match_ranges_builtin = function(root, buf_id, query, capture)
   local res = {}
-  -- TODO: Remove `opts.all`after compatibility with Neovim=0.10 is dropped
+  -- TODO: Remove `opts.all` after compatibility with Neovim=0.10 is dropped
   for _, match, metadata in query:iter_matches(root, buf_id, nil, nil, { all = true }) do
     for capture_id, nodes in pairs(match) do
       local mt = metadata[capture_id]
@@ -1622,10 +1589,6 @@ H.get_match_ranges_builtin = function(root, buf_id, query, capture)
 end
 
 H.get_nodes_range_builtin = function(nodes, buf_id, metadata)
-  -- In Neovim<0.10 `Query:iter_matches()` has `match` map to single node.
-  -- TODO: Remove `opts.all`after compatibility with Neovim=0.9 is dropped
-  nodes = type(nodes) == 'table' and nodes or { nodes }
-
   -- Get matched range as spanning from left most node start to right most node
   -- end. This accounts for several matched nodes that are intentionally there
   -- to cover complex cases. Approach is named "quantified captures".
@@ -2347,7 +2310,7 @@ end
 ---@private
 H.cartesian_product = function(arr)
   if not (type(arr) == 'table' and #arr > 0) then return {} end
-  arr = vim.tbl_map(function(x) return H.islist(x) and x or { x } end, arr)
+  arr = vim.tbl_map(function(x) return vim.islist(x) and x or { x } end, arr)
 
   local res, cur_item = {}, {}
   local process
@@ -2375,10 +2338,7 @@ H.wrap_callable_table = function(x)
   return x
 end
 
--- TODO: Remove after compatibility with Neovim=0.9 is dropped
-H.islist = vim.fn.has('nvim-0.10') == 1 and vim.islist or vim.tbl_islist
-H.tbl_flatten = vim.fn.has('nvim-0.10') == 1 and function(x) return vim.iter(x):flatten(math.huge):totable() end
-  or vim.tbl_flatten
+H.tbl_flatten = function(x) return vim.iter(x):flatten(math.huge):totable() end
 
 -- TODO: Remove after compatibility with Neovim=0.10 is dropped
 H.highlight_range = function(...) vim.hl.range(...) end
