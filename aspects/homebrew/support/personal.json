@@ -50,6 +50,14 @@
       "note": null
     },
     {
+      "name": "goat",
+      "tap": "homebrew/core",
+      "description": "General purpose AT Protocol CLI in Go",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
       "name": "libass",
       "tap": "homebrew/core",
       "description": "Subtitle renderer for the ASS/SSA subtitle format",

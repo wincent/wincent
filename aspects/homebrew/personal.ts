@@ -54,6 +54,13 @@ task('install ghostscript formula', when('personal'), async () => {
   });
 });
 
+// General purpose AT Protocol CLI in Go.
+task('install goat formula', when('personal'), async () => {
+  await command('brew', ['install', 'goat'], {
+    creates: '/opt/homebrew/Cellar/goat',
+  });
+});
+
 // Subtitle renderer for the ASS/SSA subtitle format.
 task('install libass formula', when('personal'), async () => {
   await command('brew', ['install', 'libass'], {
