@@ -1,7 +1,7 @@
 {
-  "defaultModel": "claude-opus-4-8",
-  "defaultProvider": "anthropic",
-  "defaultThinkingLevel": "xhigh",
+  "defaultModel": "gpt-5.6-sol",
+  "defaultProvider": "openai-codex",
+  "defaultThinkingLevel": "max",
   "enabledModels": [
     "anthropic/claude-fable-5",
     "anthropic/claude-opus-4-8",
@@ -9,6 +9,7 @@
     "anthropic/claude-haiku-4-5",
     "google/gemini-3.1-pro-preview",
     "google/gemini-flash-latest",
+    "openai-codex/gpt-5.6-sol",
     "openai-codex/gpt-5.5"
   ],
   "extensions": [
