@@ -10,15 +10,15 @@ import {command, handler, task} from 'fig';
 // Taps.
 //
 
-// tart pulls in cirruslabs/cli/softnet, so trust the whole tap.
-task('tap cirruslabs/cli', async () => {
-  await command('brew', ['tap', 'cirruslabs/cli'], {
-    creates: '/opt/homebrew/Library/Taps/cirruslabs/homebrew-cli',
+// tart pulls in openai/tools/softnet, so trust the whole tap.
+task('tap openai/tools', async () => {
+  await command('brew', ['tap', 'openai/tools'], {
+    creates: '/opt/homebrew/Library/Taps/openai/homebrew-tools',
   });
 });
 
-task('trust cirruslabs/cli tap', async () => {
-  await command('brew', ['trust', 'cirruslabs/cli']);
+task('trust openai/tools tap', async () => {
+  await command('brew', ['trust', 'openai/tools']);
 });
 
 task('tap oven-sh/bun', async () => {
@@ -956,7 +956,7 @@ task('install talloc formula', async () => {
 
 // Run macOS and Linux VMs on Apple Hardware.
 task('install tart formula', async () => {
-  await command('brew', ['install', 'cirruslabs/cli/tart'], {
+  await command('brew', ['install', 'openai/tools/tart'], {
     creates: '/opt/homebrew/Cellar/tart',
   });
 });
