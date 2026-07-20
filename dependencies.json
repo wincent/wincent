@@ -122,8 +122,8 @@
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/command-t",
     "url": "https://github.com/wincent/command-t.git",
     "branch": "main",
-    "previous": "c1a293f2e5b5a21a0934d95d6b3e7480efc5d46d",
-    "current": "35db198e75a30e8f28df50639a5422e1d074b4db",
+    "previous": "35db198e75a30e8f28df50639a5422e1d074b4db",
+    "current": "40b7eafdf45475a012b970bf4e30b53926ed68c0",
     "build": "make build"
   },
   "github/wincent/corpus": {
