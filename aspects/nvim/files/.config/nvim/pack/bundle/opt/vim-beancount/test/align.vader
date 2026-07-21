@@ -1,0 +1,45 @@
+Given beancount:
+  2012-12-12 balance Assets:LongLongLongAccount 50.00
+  2012-12-12 balance Assets:Cash 50.00
+  2012-12-12 balance Assets:Cash -50.00
+  2012-12-12 balance Assets:Cash +50.00
+  2012-12-12 price EUR 50.00 USD
+      metadata: 50
+      Assets:Cash  50
+      Assets:Cash  50.00
+      ! Assets:Cash  50.00
+      Assets:Cash         50.00
+      Assets:Cash         50.00 USD
+
+Execute (align):
+  %AlignCommodity
+
+Expect beancount:
+  2012-12-12 balance Assets:LongLongLongAccount  50.00
+  2012-12-12 balance Assets:Cash                 50.00
+  2012-12-12 balance Assets:Cash                -50.00
+  2012-12-12 balance Assets:Cash                +50.00
+  2012-12-12 price EUR                           50.00 USD
+      metadata: 50
+      Assets:Cash                                50
+      Assets:Cash                                50.00
+      ! Assets:Cash                              50.00
+      Assets:Cash                                50.00
+      Assets:Cash                                50.00 USD
+
+Execute (change alignment column and align again):
+  let g:beancount_separator_col=40
+  %AlignCommodity
+
+Expect beancount:
+  2012-12-12 balance Assets:LongLongLongAccount 50.00
+  2012-12-12 balance Assets:Cash       50.00
+  2012-12-12 balance Assets:Cash      -50.00
+  2012-12-12 balance Assets:Cash      +50.00
+  2012-12-12 price EUR                 50.00 USD
+      metadata: 50
+      Assets:Cash                      50
+      Assets:Cash                      50.00
+      ! Assets:Cash                    50.00
+      Assets:Cash                      50.00
+      Assets:Cash                      50.00 USD

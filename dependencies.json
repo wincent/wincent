@@ -62,6 +62,13 @@
     "previous": "ebee297b217eb1ae6e4fe81e39f195cf6d7d5c5c",
     "current": "2179207fd9283986e8443558b4e4fe8fe58b0b24"
   },
+  "github/crispgm/cmp-beancount": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-beancount",
+    "url": "https://github.com/hrsh7th/cmp-buffer.git",
+    "branch": "main",
+    "previous": "86ad0f85d9497ae0c01fe2f604d17a400963af95",
+    "current": "b74fab3656eea9de20a9b8116afa3cfc4ec09657"
+  },
   "github/hrsh7th/cmp-buffer": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-buffer",
     "url": "https://github.com/hrsh7th/cmp-buffer.git",
@@ -357,13 +364,6 @@
     "previous": "719405540a23419822ac2474e9dd6b407eb68b8a",
     "current": "cd72f2d9cfee8d6aba5a180a5ac3ca265b5d3a46"
   },
-  "github/ledger/vim-ledger": {
-    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-ledger",
-    "url": "https://github.com/ledger/vim-ledger.git",
-    "branch": "master",
-    "previous": "6d12e23e7261342f9dd4a23b9dd3a504454df002",
-    "current": "4f2d93dd914f625e2d3db47d97bd9f428fedd68f"
-  },
   "github/tommcdo/vim-lion": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-lion",
     "url": "https://github.com/tommcdo/vim-lion.git",
@@ -440,6 +440,13 @@
     "branch": "main",
     "previous": "8564ce6d29ec7554eb9df578efa882d33b3c23a7",
     "current": "8564ce6d29ec7554eb9df578efa882d33b3c23a7"
+  },
+  "github/nathangrigg/vim-beancount": {
+    "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/vim-beancount",
+    "url": "https://github.com/nathangrigg/vim-beancount.git",
+    "branch": "master",
+    "previous": "589a4f06f3b2fd7cd2356c2ef1dafadf6b7a97cf",
+    "current": "589a4f06f3b2fd7cd2356c2ef1dafadf6b7a97cf"
   },
   "github/tj/n": {
     "prefix": "vendor/n",

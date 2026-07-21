@@ -1,8 +1,0 @@
-Execute:
-  file spec/ledger.ledger
-  Ledger accounts
-
-Expect ledger:
-  Cash
-  Expenses
-  

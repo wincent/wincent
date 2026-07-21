@@ -12,6 +12,13 @@ const {when} = helpers;
 // Formulae.
 //
 
+// Double-entry accounting tool that works on plain text files.
+task('install beancount formula', when('personal'), async () => {
+  await command('brew', ['install', 'beancount'], {
+    creates: '/opt/homebrew/Cellar/beancount',
+  });
+});
+
 // Collection of portable C++ source libraries.
 task('install boost formula', when('personal'), async () => {
   await command('brew', ['install', 'boost'], {
@@ -37,6 +44,13 @@ task('install ctpv formula', when('personal'), async () => {
 task('install edencommon formula', when('personal'), async () => {
   await command('brew', ['install', 'edencommon'], {
     creates: '/opt/homebrew/Cellar/edencommon',
+  });
+});
+
+// Web interface for the double-entry bookkeeping software Beancount.
+task('install fava formula', when('personal'), async () => {
+  await command('brew', ['install', 'fava'], {
+    creates: '/opt/homebrew/Cellar/fava',
   });
 });
 

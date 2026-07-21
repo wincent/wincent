@@ -1,0 +1,153 @@
+beancount.txt  Filetype plugin for beancount files
+
+Author:   Nathan Grigg <http://nathangrigg.net>
+Repo:     https://github.com/nathangrigg/vim-beancount
+License:  Same terms as Vim itself (see |license|).
+
+INTRODUCTION                                          *beancount*
+
+Filetype plugin and functions for working with beancount files.
+
+Contents:
+
+        Commands.............|beancount-commands|
+        Options...............|beancount-options|
+        Completion.........|beancount-completion|
+        Syntax.................|beancount-syntax|
+        Compiler.............|beancount-compiler|
+        Filetype Detection...|beancount-ftdetect|
+
+
+COMMANDS                                              *beancount-commands*
+
+
+                                                      *beancount-:AlignCommodity*
+:AlignCommodity     Adds spaces between an account and commodity so that the
+                    decimal points of the commodities all occur in the column
+                    given by |g:beancount_separator_col|.  If an amount has no
+                    decimal point, the imaginary decimal point to the right
+                    of the least significant digit will align.
+
+                    The command acts on a range, with the default being the
+                    current line. If the cursor happens to be inside that
+                    range and to the right of the account name, the cursor
+                    will be pushed to the right the appropriate amount, so
+                    that it remains on the same character.
+
+                    The script assumes the use of spaces for alignment. It
+                    does not understand tabs.
+
+                    You can use the following insert-mode remap to
+                    automatically align commodities every time you type a
+                    decimal point: >
+
+                        inoremap . .<C-\><C-O>:AlignCommodity<CR>
+<
+                    You may also want to set other mappings for this. For
+                    example, I use >
+
+                        nnoremap <buffer> <leader>= :AlignCommodity<CR>
+                        vnoremap <buffer> <leader>= :AlignCommodity<CR>
+<
+
+                                                      *beancount-:GetContext*
+:GetContext         Uses bean-doctor context to display the context of the
+                    current line.
+
+                    You can use the following normal mode remap to open the
+                    context of the line you're currently on: >
+
+                        nnoremap <buffer> <LocalLeader>c :GetContext<CR>
+<
+
+OPTIONS                                              *beancount-options*
+
+*g:beancount_account_completion*
+  See |beancount-completion|. Can be either 'default' or 'chunks'.
+
+  Default value: 'default'
+
+*g:beancount_detailed_first*
+  If non-zero, accounts higher down the hierarchy will be listed first as
+  completions.
+
+  Default value: 0
+
+*g:beancount_separator_col*
+  The column that the decimal separator is aligned to.
+
+  Default value: 50
+
+*b:beancount_root*
+  Set the root Beancount file. This is used to gather values for the
+  completion. If not set, the current file will be used.
+
+  Default value: not set
+
+
+COMPLETION                                           *beancount-completion*
+
+The plugin sets 'omnifunc' to provide omni completion for account names, tags,
+links, and payees. Omni completion is accessible with |i_CTRL-X_CTRL-O|.
+
+Completion works for values defined |b:beancount_root| and included files.
+
+Account Completion~
+                                                     *beancount-complete-accounts*
+
+Completion is always case sensitive and exact. If the base string includes
+colons, each colon-separated piece can separately match a piece of the
+account.
+
+For example, `Ex:Other` would complete to `Expenses:Donations:Other` or
+`Liabilities:AmericanExpress:InterestOther`.
+
+There is another mode of completion where each colon-separated piece
+has to match at the beginning of that level of the account hierarchy, e.g.
+`Ex:Oth` would match `Expenses:Other` but not `Expenses:Other:Something`
+nor one of the two examples given above.
+`Ex:Oth:` would, however, list all direct sub-accounts of `Expenses:Other`.
+To enable this mode use >
+
+        let g:beancount_account_completion = 'chunks'
+<
+Optionally, the list of candidates can be sorted by the number of levels
+in the account hierarchy (e.g. return 'Expenses:Other' before 'Expenses').
+This behavior can be enabled using >
+
+        let g:beancount_detailed_first = 1
+<
+Deoplete~
+                                                    *beancount-complete-deoplete*
+
+The plugin ships with a source for the deoplete.nvim, which provides
+asynchronous autocompletion. This should just work if deoplete is enabled. The
+options for the account completion do not work for the deoplete source.
+
+SYNTAX                                              *beancount-syntax*
+
+We use the following syntax highlighting groups:
+
+    beanKeyword:  Keywords such as open, close, option.
+    beanOptionTitle: The first argument to the option keyword.
+    beanDate: A date in a beancount directive.
+    beanString: Strings, such as account descriptions.
+    beanComment: Comments.
+    beanAccount: Account names.
+    beanAmount: Monetary amounts.
+    beanCurrency: Currency codes.
+    beanCost: Cost, e.g. {100.00 USD}
+    beanPrice: Price, e.g. @ 100.00 USD
+
+COMPILER                                            *beancount-compiler*
+
+The plugin defines and sets the compiler to "beancount". Simply use the
+command ":make" to run `bean-check` on the current file and load the errors
+into the quickfix window.
+
+FILETYPE DETECTION                                  *beancount-ftdetect*
+
+The plugin considers files of the form `*.bean` and `*.beancount` to be
+beancount files.
+
+  vim:tw=78:et:ft=help:norl:

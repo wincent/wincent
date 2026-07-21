@@ -1,0 +1,15 @@
+matrix:
+  include:
+  - env: TEST_ENV=lint
+    language: python
+    before_script: pip install vim-vint
+    script: vint -s .
+  - env: TEST_ENV=test
+    language: viml
+    before_script: git clone https://github.com/junegunn/vader.vim.git
+    script: |
+      vim -Nu <(cat << VIMRC
+      set rtp+=vader.vim
+      set rtp+=.
+      filetype plugin indent on
+      VIMRC) -c 'Vader! test/*' > /dev/null

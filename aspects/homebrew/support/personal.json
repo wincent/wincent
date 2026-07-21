@@ -2,6 +2,14 @@
   "taps": [],
   "formulae": [
     {
+      "name": "beancount",
+      "tap": "homebrew/core",
+      "description": "Double-entry accounting tool that works on plain text files",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
       "name": "boost",
       "tap": "homebrew/core",
       "description": "Collection of portable C++ source libraries",
@@ -29,6 +37,14 @@
       "name": "edencommon",
       "tap": "homebrew/core",
       "description": "Shared library for Watchman and Eden projects",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
+      "name": "fava",
+      "tap": "homebrew/core",
+      "description": "Web interface for the double-entry bookkeeping software Beancount",
       "args": [],
       "restartService": false,
       "note": null

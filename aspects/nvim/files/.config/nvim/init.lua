@@ -214,6 +214,7 @@ if vim.o.loadplugins then
     'applescript.vim',
 
     -- All of these depend on nvim-cmp.
+    'cmp-beancount',
     'cmp-buffer',
     'cmp-calc',
     'cmp-emoji',
@@ -247,6 +248,7 @@ if vim.o.loadplugins then
     'terminus',
     'vcs-jump',
     'vim-ansible-yaml',
+    'vim-beancount',
     'vim-dispatch',
     'vim-docvim',
     'vim-easydir',
@@ -254,7 +256,6 @@ if vim.o.loadplugins then
     'vim-fugitive',
     'vim-git',
     'vim-kitty',
-    'vim-ledger',
     'vim-lion',
     'vim-projectionist',
     'vim-reason-plus',
