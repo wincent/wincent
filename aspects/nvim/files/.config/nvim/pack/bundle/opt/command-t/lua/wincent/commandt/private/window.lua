@@ -110,6 +110,8 @@ function Window.new(options)
     _main_window = nil,
     _margin = options.margin,
     _namespace = vim.api.nvim_create_namespace(''),
+    _virtual_text_namespace = vim.api.nvim_create_namespace('wincent.commandt.virtual_text'),
+    _virtual_texts = {},
     _on_change = options.on_change,
     _on_close = options.on_close,
     _on_leave = options.on_leave,
@@ -238,6 +240,93 @@ function Window:set_title(title)
   end
 end
 
+-- Place (or replace) a virtual-text annotation, identified by `id`, on one of
+-- the buffer's lines. `chunks` uses the standard `virt_text` shape (a list of
+-- `{ text, highlight }` pairs). `opts`:
+--
+--   line          Line to attach to; negatives count back from the end, so the
+--                 default of `-1` targets the last line.
+--   pos           `virt_text_pos` (eg. 'eol', 'right_align', 'overlay').
+--                 (default: 'eol')
+--   yield_to_text When true (only meaningful with `pos = 'right_align'`), the
+--                 annotation is hidden whenever the real text on its line would
+--                 reach it, handing the full width back to the text.
+--
+-- Rendering goes through an extmark, so (unlike a title or footer) it never
+-- calls `nvim_win_set_config()`, and therefore never disturbs the cursor. The
+-- intent is remembered and re-applied when the window is shown or resized.
+function Window:set_virtual_text(id, chunks, opts)
+  local previous = self._virtual_texts[id]
+  self._virtual_texts[id] = {
+    chunks = chunks,
+    opts = opts or {},
+    -- Carry the extmark id forward so a replaced (or hidden) annotation reuses
+    -- its mark instead of orphaning the previous one.
+    mark = previous and previous.mark or nil,
+  }
+  self:_render_virtual_text(id)
+end
+
+-- Remove a virtual-text annotation previously placed with `set_virtual_text()`.
+function Window:clear_virtual_text(id)
+  local entry = self._virtual_texts[id]
+  self._virtual_texts[id] = nil
+  if entry and entry.mark and self._main_buffer then
+    pcall(vim.api.nvim_buf_del_extmark, self._main_buffer, self._virtual_text_namespace, entry.mark)
+  end
+end
+
+-- (Re-)draw the extmark for a single remembered annotation.
+function Window:_render_virtual_text(id)
+  local entry = self._virtual_texts[id]
+  if entry == nil or self._main_buffer == nil then
+    return
+  end
+  local opts = entry.opts
+  local count = vim.api.nvim_buf_line_count(self._main_buffer)
+  local line = opts.line or -1
+  if line < 0 then
+    line = count + line
+  end
+  line = math.max(0, math.min(line, count - 1))
+  local pos = opts.pos or 'eol'
+
+  -- Optionally yield to the real text: a right-aligned annotation would
+  -- otherwise stay pinned to the edge and force the line to scroll under it.
+  if opts.yield_to_text and pos == 'right_align' then
+    local width = self._width or (self._main_window and vim.api.nvim_win_get_width(self._main_window)) or 0
+    if width > 0 then
+      local mark_width = 0
+      for _, chunk in ipairs(entry.chunks) do
+        mark_width = mark_width + vim.api.nvim_strwidth(chunk[1])
+      end
+      local text = vim.api.nvim_buf_get_lines(self._main_buffer, line, line + 1, false)[1] or ''
+      -- Hide once the text comes within one cell of the annotation.
+      if vim.api.nvim_strwidth(text) > width - mark_width - 1 then
+        if entry.mark then
+          pcall(vim.api.nvim_buf_del_extmark, self._main_buffer, self._virtual_text_namespace, entry.mark)
+          entry.mark = nil
+        end
+        return
+      end
+    end
+  end
+
+  entry.mark = vim.api.nvim_buf_set_extmark(self._main_buffer, self._virtual_text_namespace, line, 0, {
+    id = entry.mark, -- `nil` on first render (Neovim assigns one); reused after.
+    virt_text = entry.chunks,
+    virt_text_pos = pos,
+  })
+end
+
+-- Re-draw every remembered annotation (eg. after a resize changes the width, or
+-- when the window is first shown).
+function Window:_render_all_virtual_text()
+  for id in pairs(self._virtual_texts) do
+    self:_render_virtual_text(id)
+  end
+end
+
 function Window:show()
   if self._main_buffer == nil then
     self._main_buffer = vim.api.nvim_create_buf(
@@ -275,6 +364,8 @@ function Window:show()
       callback = function()
         -- One autocmd will handle both title and main repositioning.
         self:_reposition()
+        -- The new width may change whether right-aligned annotations still fit.
+        self:_render_all_virtual_text()
         if self._on_resize then
           self._on_resize()
         end
@@ -353,6 +444,8 @@ function Window:show()
       {} -- replacement lines
     )
   end
+
+  self:_render_all_virtual_text()
 end
 
 -- Remove highlighting from a specific line.
@@ -381,29 +474,6 @@ end
 
 function Window:width()
   return self._width
-end
-
--- The single-cell character of the horizontal border segment that the title (or
--- the footer, at the bottom position) rides on. Resolved from the live window so
--- it works for preset borders (eg. 'double', 'rounded') as well as explicit
--- lists; falls back to a plain horizontal rule.
-function Window:border_horizontal()
-  if self._main_window == nil then
-    return '─'
-  end
-  local ok, config = pcall(vim.api.nvim_win_get_config, self._main_window)
-  if not ok or type(config.border) ~= 'table' then
-    return '─'
-  end
-  -- Border list is {tl, top, tr, r, br, bottom, bl, l}.
-  local segment = config.border[self._position == 'bottom' and 6 or 2]
-  if type(segment) == 'table' then
-    segment = segment[1] -- May be a {char, highlight} pair.
-  end
-  if type(segment) == 'string' and vim.api.nvim_strwidth(segment) == 1 then
-    return segment
-  end
-  return '─'
 end
 
 function Window:_reposition()

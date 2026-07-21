@@ -13,12 +13,23 @@
 #include "str.h" /* for str_t */
 
 /**
- *  Represents a single "haystack" (ie. a string to be searched for the needle).
+ * @internal
+ *
+ * Represents a single "haystack" (ie. a string to be searched for the needle).
  */
 typedef struct {
     str_t *candidate;
-    long bitmask;
+    uint32_t bitmask;
     float score;
+
+    /**
+     * Index of the leftmost "forbidden" dot (a "." beginning a hidden path
+     * component: at index 0 or immediately after a "/"), or -1 if there is none;
+     * the sentinel -2 means "not yet computed". This is a property of the
+     * candidate alone, so it is computed lazily once and cached for reuse across
+     * searches (including repeated empty-query passes during streaming).
+     */
+    ssize_t first_dot;
 } haystack_t;
 
 /**
@@ -79,19 +90,65 @@ typedef struct {
     /**
      * @internal
      *
-     * Streaming/async production state. Not read from Lua, but mirrored in the
-     * FFI cdef for layout consistency with the other structs.
+     * Streaming/async production state.
      */
     int kind; // `scanner_kind_t`.
+
+    /**
+     * @internal
+     *
+     * Streaming/async production state.
+     */
     int fd; // Read end of the child's stdout pipe, or -1.
+
+    /**
+     * @internal
+     *
+     * Streaming/async production state.
+     */
     int pid; // Child PID, or -1.
+
+    /**
+     * @internal
+     *
+     * Streaming/async production state.
+     */
     unsigned drop; // Leading characters to drop from each candidate.
+
+    /**
+     * @internal
+     *
+     * Streaming/async production state.
+     */
     unsigned max_files; // Cap on candidate count, or 0 for unlimited.
+
+    /**
+     * @internal
+     *
+     * Streaming/async production state.
+     */
     int done; // Non-zero once production has finished.
+
+    /**
+     * @internal
+     *
+     * Streaming/async production state.
+     */
     void *thread; // Producer `pthread_t *`, or NULL.
 } scanner_t;
 
-// TODO flesh this out; basically make it a container for instance variables
+/**
+ * @internal
+ *
+ * Opaque, persistent per-matcher worker pool (defined in `matcher.c`).
+ */
+typedef struct matcher_pool matcher_pool_t;
+
+/**
+ * @internal
+ *
+ * The matcher's instance state.
+ */
 typedef struct {
     /**
      * Note the matcher doesn't take ownership of the `scanner` as these can be
@@ -122,7 +179,7 @@ typedef struct {
      */
     const char *needle;
     size_t needle_length;
-    long needle_bitmask;
+    uint32_t needle_bitmask;
 
     const char *last_needle;
     size_t last_needle_length;
@@ -135,6 +192,13 @@ typedef struct {
      */
     size_t haystacks_size;
     unsigned initialized;
+
+    /**
+     * Persistent worker pool (see `matcher_pool_t`), reused across every run.
+     * `NULL` when the matcher is configured for a single thread (there are no
+     * background workers to pool).
+     */
+    matcher_pool_t *pool;
 } matcher_t;
 
 typedef struct {

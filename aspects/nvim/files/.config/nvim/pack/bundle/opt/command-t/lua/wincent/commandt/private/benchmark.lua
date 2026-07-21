@@ -215,7 +215,7 @@ local variance = function(values)
   for _, value in ipairs(values) do
     result = result + (mean - value) ^ 2
   end
-  return result
+  return result / #values
 end
 
 local DIFFERENCE = 1
@@ -427,8 +427,8 @@ local function benchmark(options)
       local previous_wall_avg = previous.timings[label]['wall (avg)']
       local previous_wall = previous.timings[label].wall
 
-      metrics['cpu (+/-)'] = (cpu_avg - previous_cpu_avg) / cpu_avg * 100
-      metrics['wall (+/-)'] = (wall_avg - previous_wall_avg) / wall_avg * 100
+      metrics['cpu (+/-)'] = (cpu_avg - previous_cpu_avg) / previous_cpu_avg * 100
+      metrics['wall (+/-)'] = (wall_avg - previous_wall_avg) / previous_wall_avg * 100
 
       metrics['cpu (significance)'] = significance(previous_cpu, metrics.cpu)
       metrics['wall (significance)'] = significance(previous_wall, metrics.wall)

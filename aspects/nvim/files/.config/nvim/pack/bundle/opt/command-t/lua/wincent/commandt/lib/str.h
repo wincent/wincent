@@ -33,6 +33,8 @@ typedef struct {
     size_t length;
 
     /**
+     * @internal
+     *
      * A capacity of -1 indicates an immutable (slab-allocated) string that
      * cannot be resized.
      */

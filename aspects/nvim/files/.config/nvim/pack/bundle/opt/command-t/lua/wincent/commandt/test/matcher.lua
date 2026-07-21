@@ -71,6 +71,15 @@ describe('matcher.c', function()
       expect(matcher.match('xyz')).to_equal({})
     end)
 
+    -- This one only fails when built with UndefinedBehaviorSanitizer (CI).
+    it('handles non-letter bytes while caching candidate bitmasks', function()
+      local matcher = get_matcher({ '/', '.', '-', '_', '0', '\255' })
+      matcher.match('')
+      for _, query in ipairs({ 'm', 'n', 'o', 'p' }) do
+        expect(matcher.match(query)).to_equal({})
+      end
+    end)
+
     it('considers the empty string to match everything', function()
       local matcher = get_matcher({ 'foo' })
       expect(matcher.match('')).to_equal({ 'foo' })
@@ -374,6 +383,44 @@ describe('matcher.c', function()
       expect(matcher.match('t.sst')).to_equal({ 'this/.secret/stuff.txt' })
     end)
 
+    it('allows one query dot to search across nested hidden components', function()
+      local candidate = 'a/.b/.c/z'
+      local matcher = get_matcher({ candidate })
+      expect(matcher.match('z')).to_equal({})
+      expect(matcher.match('.z')).to_equal({ candidate })
+      expect(matcher.match('a.z')).to_equal({ candidate })
+    end)
+
+    it('requires another query dot after matching intervening text', function()
+      local candidate = 'a/.b/x/.c/z'
+      local matcher = get_matcher({ candidate })
+      expect(matcher.match('.xz')).to_equal({})
+      expect(matcher.match('.x.z')).to_equal({ candidate })
+    end)
+
+    it('can choose a hidden dot instead of an earlier ordinary dot', function()
+      local candidate = 'a.b/.c'
+      local matcher = get_matcher({ candidate })
+      expect(matcher.match('.c')).to_equal({ candidate })
+    end)
+
+    it('preserves hidden-dot matching when capped', function()
+      local one_hidden = 'a.b/.' .. string.rep('c', 20000)
+      local matcher = get_matcher({ one_hidden })
+      expect(matcher.match('.cc')).to_equal({ one_hidden })
+
+      -- Exercise the fallback across a 64-bit bitset word boundary.
+      matcher = get_matcher({ one_hidden })
+      expect(matcher.match('.' .. string.rep('c', 64))).to_equal({ one_hidden })
+
+      local two_hidden = 'a.b/.c/.' .. string.rep('d', 20000)
+      matcher = get_matcher({ two_hidden })
+      expect(matcher.match('..dd')).to_equal({ two_hidden })
+
+      matcher = get_matcher({ two_hidden })
+      expect(matcher.match('.dd')).to_equal({ two_hidden })
+    end)
+
     it("doesn't show a dotfile just because there was a match at index 0", function()
       pending('fix: see ed01bc6') -- Bug exists in Ruby implementation as well.
       local matcher = get_matcher({ 'src/.flowconfig' })
@@ -388,127 +435,39 @@ describe('matcher.c', function()
         'app/views/api/docs/pagination/_index.md',
       })
 
-      -- To be honest, I don't really like the ranking here, but with
-      -- DEBUG_SCORING we see the calculations:
-      --
-      --           a       p       p       a       p       p       i       n       d
-      --    a:  0.0684     -       -       -       -       -       -       -       -
-      --    p:     -    0.1368     -       -       -       -       -       -       -
-      --    p:     -       -    0.2051     -       -       -       -       -       -
-      --    /:     -       -       -       -       -       -       -       -       -
-      --    v:     -       -       -       -       -       -       -       -       -
-      --    i:     -       -       -       -       -       -       -       -       -
-      --    e:     -       -       -       -       -       -       -       -       -
-      --    w:     -       -       -       -       -       -       -       -       -
-      --    s:     -       -       -       -       -       -       -       -       -
-      --    /:     -       -       -       -       -       -       -       -       -
-      --    a:     -       -       -    0.2667     -       -       -       -       -
-      --    p:     -       -       -       -    0.3350     -       -       -       -
-      --    i:     -       -       -       -       -       -       -       -       -
-      --    /:     -       -       -       -       -       -       -       -       -
-      --    d:     -       -       -       -       -       -       -       -       -
-      --    o:     -       -       -       -       -       -       -       -       -
-      --    c:     -       -       -       -       -       -       -       -       -
-      --    s:     -       -       -       -       -       -       -       -       -
-      --    /:     -       -       -       -       -       -       -       -       -
-      --    p:     -       -       -       -       -    0.3966     -       -       -
-      --    a:     -       -       -       -       -       -       -       -       -
-      --    g:     -       -       -       -       -       -       -       -       -
-      --    i:     -       -       -       -       -       -    0.5880     -       -
-      --    n:     -       -       -       -       -       -       -       -       -
-      --    a:     -       -       -       -       -       -       -       -       -
-      --    t:     -       -       -       -       -       -       -       -       -
-      --    i:     -       -       -       -       -       -    0.5880     -       -
-      --    o:     -       -       -       -       -       -       -       -       -
-      --    n:     -       -       -       -       -       -       -       -       -
-      --    /:     -       -       -       -       -       -       -       -       -
-      --    _:     -       -       -       -       -       -       -       -       -
-      --    i:     -       -       -       -       -       -    0.4513     -       -
-      --    n:     -       -       -       -       -       -       -    0.5197     -
-      --    d:     -       -       -       -       -       -       -       -    0.5880
-      --    e:     -       -       -       -       -       -       -       -       -
-      --    x:     -       -       -       -       -       -       -       -       -
-      --    .:     -       -       -       -       -       -       -       -       -
-      --    m:     -       -       -       -       -       -       -       -       -
-      --    d:     -       -       -       -       -       -       -       -    0.5282
-      --    Final score: 0.588034
-      --
-      --           a       p       p       a       p       p       i       n       d
-      --    a:  0.0672     -       -       -       -       -       -       -       -
-      --    p:     -    0.1344     -       -       -       -       -       -       -
-      --    p:     -       -    0.2016     -       -       -       -       -       -
-      --    /:     -       -       -       -       -       -       -       -       -
-      --    a:     -       -       -    0.2620     -       -       -       -       -
-      --    s:     -       -       -       -       -       -       -       -       -
-      --    s:     -       -       -       -       -       -       -       -       -
-      --    e:     -       -       -       -       -       -       -       -       -
-      --    t:     -       -       -       -       -       -       -       -       -
-      --    s:     -       -       -       -       -       -       -       -       -
-      --    /:     -       -       -       -       -       -       -       -       -
-      --    c:     -       -       -       -       -       -       -       -       -
-      --    o:     -       -       -       -       -       -       -       -       -
-      --    m:     -       -       -       -       -       -       -       -       -
-      --    p:     -       -       -       -    0.5711     -       -       -       -
-      --    o:     -       -       -       -       -       -       -       -       -
-      --    n:     -       -       -       -       -       -       -       -       -
-      --    e:     -       -       -       -       -       -       -       -       -
-      --    n:     -       -       -       -       -       -       -       -       -
-      --    t:     -       -       -       -       -       -       -       -       -
-      --    s:     -       -       -       -       -       -       -       -       -
-      --    /:     -       -       -       -       -       -       -       -       -
-      --    P:     -       -       -       -    0.3225     -       -       -       -
-      --    r:     -       -       -       -       -       -       -       -       -
-      --    i:     -       -       -       -       -       -       -       -       -
-      --    v:     -       -       -       -       -       -       -       -       -
-      --    a:     -       -       -       -       -       -       -       -       -
-      --    c:     -       -       -       -       -       -       -       -       -
-      --    y:     -       -       -       -       -       -       -       -       -
-      --    P:     -       -       -       -       -    0.3762     -       -       -
-      --    a:     -       -       -       -       -       -       -       -       -
-      --    g:     -       -       -       -       -       -       -       -       -
-      --    e:     -       -       -       -       -       -       -       -       -
-      --    /:     -       -       -       -       -       -       -       -       -
-      --    i:     -       -       -       -       -       -    0.4367     -       -
-      --    n:     -       -       -       -       -       -       -    0.5039     -
-      --    d:     -       -       -       -       -       -       -       -    0.5711
-      --    Final score: 0.571059
-      --
-      --           a       p       p       a       p       p       i       n       d
-      --    a:  0.0698     -       -       -       -       -       -       -       -
-      --    p:     -    0.5055     -       -       -       -       -       -       -
-      --    p:     -    0.0960     -       -       -       -       -       -       -
-      --    /:     -       -       -       -       -       -       -       -       -
-      --    a:     -       -       -       -       -       -       -       -       -
-      --    s:     -       -       -       -       -       -       -       -       -
-      --    s:     -       -       -       -       -       -       -       -       -
-      --    e:     -       -       -       -       -       -       -       -       -
-      --    t:     -       -       -       -       -       -       -       -       -
-      --    s:     -       -       -       -       -       -       -       -       -
-      --    /:     -       -       -       -       -       -       -       -       -
-      --    c:     -       -       -       -       -       -       -       -       -
-      --    o:     -       -       -       -       -       -       -       -       -
-      --    m:     -       -       -       -       -       -       -       -       -
-      --    p:     -       -    0.1004     -       -       -       -       -       -
-      --    o:     -       -       -       -       -       -       -       -       -
-      --    n:     -       -       -       -       -       -       -       -       -
-      --    e:     -       -       -       -       -       -       -       -       -
-      --    n:     -       -       -       -       -       -       -       -       -
-      --    t:     -       -       -       -       -       -       -       -       -
-      --    s:     -       -       -       -       -       -       -       -       -
-      --    /:     -       -       -       -       -       -       -       -       -
-      --    A:     -       -       -    0.1633     -       -       -       -       -
-      --    p:     -       -       -       -    0.2331     -       -       -       -
-      --    p:     -       -       -       -       -    0.3029     -       -       -
-      --    /:     -       -       -       -       -       -       -       -       -
-      --    i:     -       -       -       -       -       -    0.3658     -       -
-      --    n:     -       -       -       -       -       -       -    0.4356     -
-      --    d:     -       -       -       -       -       -       -       -    0.5055
-      --    Final score: 0.505476
+      -- "appappind" is best served by the candidate where "app", "App" and "ind"
+      -- can each match as contiguous runs anchored at path-component boundaries
+      -- ("app/.../App/index"); the super-linear consecutive bonus ranks it first.
+      -- The "_index.md" path also matches "ind" contiguously (after "_"), edging
+      -- out "PrivacyPage", whose second "app" can only match as a scattered run.
       expect(matcher.match('appappind')).to_equal({
+        'app/assets/components/App/index.jsx',
         'app/views/api/docs/pagination/_index.md',
         'app/assets/components/PrivacyPage/index.jsx',
-        'app/assets/components/App/index.jsx',
       })
+    end)
+
+    it('retains a pruned match when the query is extended', function()
+      local matcher = get_matcher({ 'a', 'ab' }, { height = 1 })
+
+      -- Give both candidates a zero score, then switch to a non-extension that
+      -- fills the heap with the shorter candidate and prunes the longer one.
+      expect(matcher.match('z')).to_equal({})
+      expect(matcher.match('a')).to_equal({ 'a' })
+
+      -- The pruned candidate still matched "a", so extending the query must
+      -- reconsider it rather than treating its stale zero as a non-match.
+      expect(matcher.match('ab')).to_equal({ 'ab' })
+    end)
+
+    it('matches a pathologically long, low-diversity candidate', function()
+      -- A very long, low-diversity line (eg. minified or generated buffer
+      -- content) makes the exact scorer's work explode. The work cap falls back
+      -- to a greedy pass, so such a candidate is still matched promptly rather
+      -- than hanging; a non-matching candidate is still excluded.
+      local long = string.rep('a', 40000)
+      local matcher = get_matcher({ long, 'zzz' })
+      expect(matcher.match('aaa')).to_equal({ long })
     end)
 
     it('correctly handles a limits', function()

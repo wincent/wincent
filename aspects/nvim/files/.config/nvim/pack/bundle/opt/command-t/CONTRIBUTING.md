@@ -186,11 +186,16 @@ cd FlameGraph
 I also had success straightforwardly with [Samply](https://github.com/mstange/samply):
 
 ```
+# Either, `cargo` install (run with `~/.cargo/bin/samply`):
 cargo install --locked samply
-TIMES=1 ~/.cargo/bin/samply record luajit bin/benchmarks/matcher.lua
+
+# Or, `brew` install (run with `samply`):
+brew install samply
+
+TIMES=10 samply record luajit bin/benchmarks/matcher.lua
 ```
 
-**Note:** Using `TIMES=1` because otherwise the generated `profile.json` is too big and crashes Chrome (but not Safari).
+**Note:** Using `TIMES=10` because otherwise the generated `profile.json` is too big and crashes Chrome (but not Safari).
 
 ### Using PGO (Profile-Guided Optimizations)
 

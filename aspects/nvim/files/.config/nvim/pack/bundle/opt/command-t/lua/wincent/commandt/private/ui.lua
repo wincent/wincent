@@ -7,20 +7,10 @@ local MatchListing = require('wincent.commandt.private.match_listing')
 local Prompt = require('wincent.commandt.private.prompt')
 local Settings = require('wincent.commandt.private.settings')
 local group_thousands = require('wincent.commandt.private.group_thousands')
+local reverse = require('wincent.commandt.private.reverse')
 local select_index = require('wincent.commandt.private.select_index')
 local validate = require('wincent.commandt.private.validate')
 local types = require('wincent.commandt.private.options.types')
-
--- Reverses `list` in place.
-local reverse = function(list)
-  local i = 1
-  local j = #list
-  while i < j do
-    list[i], list[j] = list[j], list[i]
-    i = i + 1
-    j = j - 1
-  end
-end
 
 local uv = vim.uv or vim.loop
 

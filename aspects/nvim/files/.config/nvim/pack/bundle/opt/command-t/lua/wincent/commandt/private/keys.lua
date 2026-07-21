@@ -3,6 +3,8 @@
 
 --- Utility function that returns a list of keys in the given table, `t`.
 ---
+--- Note: key order is undetermined.
+---
 --- @param t table
 --- @return any[]
 local function keys(t)

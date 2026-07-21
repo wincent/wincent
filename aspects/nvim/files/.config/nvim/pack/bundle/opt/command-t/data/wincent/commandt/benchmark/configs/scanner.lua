@@ -185,36 +185,32 @@ return {
           'vendor/vimscriptuploader',
           'vendor/vroom',
         }
-        assert(_G.vim == nil)
-        _G.vim = {
-          api = {
-            nvim_buf_is_valid = function()
-              return true
-            end,
-            nvim_get_option_value = function()
-              return true
-            end,
-            nvim_list_bufs = function()
-              local handles = {}
-              for i = 1, #names do
-                table.insert(handles, i)
-              end
-              return handles
-            end,
-            nvim_buf_get_name = function(handle)
-              return names[handle]
-            end,
-            nvim_buf_is_loaded = function()
-              return true
-            end,
-          },
-          fn = {
-            fnamemodify = function(name, modifier) end,
-          },
+        mocks.vim({ fn = { fnamemodify = true } })
+        -- Buffer-specific API stubs (data-driven, not general-purpose mocks).
+        vim.api = {
+          nvim_buf_is_valid = function()
+            return true
+          end,
+          nvim_get_option_value = function()
+            return true
+          end,
+          nvim_list_bufs = function()
+            local handles = {}
+            for i = 1, #names do
+              table.insert(handles, i)
+            end
+            return handles
+          end,
+          nvim_buf_get_name = function(handle)
+            return names[handle]
+          end,
+          nvim_buf_is_loaded = function()
+            return true
+          end,
         }
       end,
       unstub = function()
-        _G.vim = nil
+        mocks.vim(false)
       end,
     },
     {

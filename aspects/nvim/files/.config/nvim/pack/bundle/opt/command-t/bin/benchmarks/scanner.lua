@@ -3,8 +3,6 @@
 -- SPDX-FileCopyrightText: Copyright 2014-present Greg Hurrell and contributors.
 -- SPDX-License-Identifier: BSD-2-Clause
 
-local ffi = require('ffi')
-
 local pwd = os.getenv('PWD')
 local lua_directory = pwd .. '/' .. debug.getinfo(1).source:match('@?(.*/)') .. '../../lua'
 
@@ -44,11 +42,9 @@ benchmark({
     return scanner
   end,
 
-  run = function(config, setup)
+  run = function(_config, setup)
     local scanner = setup.scanner(pwd) -- For now, only Watchman wants pwd.
-    for i = 1, scanner.count do
-      ffi.string(scanner.candidates[i - 1].contents)
-    end
+    assert(scanner.count > 0)
   end,
 
   teardown = function(config)

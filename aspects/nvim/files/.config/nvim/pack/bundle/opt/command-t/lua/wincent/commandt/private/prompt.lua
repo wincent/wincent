@@ -86,37 +86,28 @@ function Prompt:set_name(name)
   end
 end
 
--- Set a status shown right-aligned in the prompt title (eg. a scanning spinner
--- and the displayed/scanned counts). Pass `nil` to clear it.
+-- Set a status shown right-aligned on the prompt's input line (eg. a scanning
+-- spinner and the matching/scanned counts). Pass `nil` to clear it. The input
+-- text takes priority: the status yields (hides) once the query grows into it.
 function Prompt:set_status(status)
   self._status = status
-  if self._window then
-    self._window:set_title(self:title())
+  if not self._window then
+    return
+  end
+  if status == nil or status == '' then
+    self._window:clear_virtual_text('status')
+  else
+    self._window:set_virtual_text(
+      'status',
+      -- Trailing space keeps the count one cell off the right edge.
+      { { status, 'Comment' }, { ' ' } },
+      { line = -1, pos = 'right_align', yield_to_text = true }
+    )
   end
 end
 
 function Prompt:title()
-  local name = self._name and ('CommandT [' .. self._name .. ']') or 'CommandT'
-  local status = self._status
-  if not status or status == '' then
-    return name
-  end
-  local width = self._window and self._window:width() or nil
-  if not width then
-    -- Window isn't shown yet; fall back to a simple left-aligned concatenation.
-    return name .. ' ' .. status
-  end
-  -- `Window:set_title()` wraps the title in a space on each side, so the usable
-  -- border width is `width - 2`. Name on the left, status on the right, and the
-  -- gap filled with the border segment, spaced off the name and status.
-  local usable = width - 2
-  local fill = usable - vim.api.nvim_strwidth(name) - vim.api.nvim_strwidth(status) - 2
-  if fill < 1 then
-    -- Too narrow for a divider; just separate them (the title may truncate).
-    return name .. ' ' .. status
-  end
-  local divider = string.rep(self._window:border_horizontal(), fill)
-  return name .. ' ' .. divider .. ' ' .. status
+  return self._name and ('CommandT [' .. self._name .. ']') or 'CommandT'
 end
 
 function Prompt:show()
@@ -151,13 +142,6 @@ function Prompt:show()
         self._window = nil
       end,
       on_leave = self._on_leave,
-      on_resize = function()
-        -- The window has just been repositioned to the new editor width; rebuild
-        -- the (right-aligned) title so the status snaps back to the right edge.
-        if self._window then
-          self._window:set_title(self:title())
-        end
-      end,
       position = self._position,
       title = self:title(),
       top = top,

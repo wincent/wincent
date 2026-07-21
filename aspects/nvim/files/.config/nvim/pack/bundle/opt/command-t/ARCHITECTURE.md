@@ -255,7 +255,7 @@ A few behaviors fall out of this:
 
 - **Selection is preserved across streaming refreshes.** A keystroke resets the selection to the best match; a streaming refresh keeps the user where they were (clamped), so results filling in underneath don't yank the cursor around.
 - **The fallback decision is deferred until scanning finishes.** A streaming finder legitimately reports zero candidates while it is still starting up, so the fallback to the built-in file finder is only considered once `done` is true (otherwise every scan would briefly flip to the fallback finder).
-- **The prompt title shows progress.** While scanning, the prompt title shows a spinner and a right-aligned "displayed / scanned" count (eg. `CommandT [fd] ──── ⠧ 42 / 706,248`), with the gap filled by the window's own border character (resolved from the live window via `nvim_win_get_config()`, so it matches whatever border the user has configured). The count block only appears once the first candidate has arrived, so an empty scan (or the synchronous fallback walk) never shows a frozen `0 / 0`. Because a full-width title must not make the floating window grow to fit itself, `window.lua` sizes windows from the editor and margin only and lets over-long titles truncate.
+- **Progress is shown while scanning.** While a scan is streaming, Command-T shows a spinner and a right-aligned "matching / scanned" count (eg. `⠧ 42 / 706,248`). The count only appears once the first candidate has arrived, so an empty scan (or the synchronous fallback walk) never shows a frozen `0 / 0`.
 
 ## What is still synchronous
 

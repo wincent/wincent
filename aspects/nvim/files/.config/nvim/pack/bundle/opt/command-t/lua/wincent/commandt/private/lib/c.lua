@@ -12,46 +12,21 @@ ffi.cdef([[
       ssize_t capacity;
   } str_t;
 
-  typedef struct {
-      str_t *candidate;
-      long bitmask;
-      float score;
-  } haystack_t;
+  // The structs below are allocated and owned by the C library; Lua only ever
+  // holds pointers to them (it never allocates, `sizeof`s, or array-indexes
+  // them), so the cdef only needs to declare the fields Lua actually reads. The
+  // internal/private fields are omitted: in the real C structs they all sort
+  // after the public ones, so leaving them out here doesn't perturb any offset.
+  // (`benchmark_t` is the exception, being returned by value, so it mirrors the
+  // C layout exactly.)
+
+  // Opaque: Lua reads no `matcher_t` fields, it only passes the pointer around.
+  typedef struct matcher matcher_t;
 
   typedef struct {
       unsigned count;
-      str_t *candidates;
-      ssize_t candidates_size;
-      char *buffer;
-      ssize_t buffer_size;
-      unsigned capacity;
-      int kind;
-      int fd;
-      int pid;
-      unsigned drop;
-      unsigned max_files;
-      int done;
-      void *thread;
+      // Trailing internal fields omitted.
   } scanner_t;
-
-  typedef struct {
-      scanner_t *scanner;
-      haystack_t *haystacks;
-      bool always_show_dot_files;
-      bool ignore_case;
-      bool ignore_spaces;
-      bool never_show_dot_files;
-      bool smart_case;
-      unsigned limit;
-      unsigned threads;
-      const char *needle;
-      size_t needle_length;
-      long needle_bitmask;
-      const char *last_needle;
-      size_t last_needle_length;
-      size_t haystacks_size;
-      unsigned initialized;
-  } matcher_t;
 
   typedef struct {
       str_t **matches;
@@ -60,18 +35,10 @@ ffi.cdef([[
   } result_t;
 
   typedef struct {
-      size_t capacity;
-      char *payload;
-      char *ptr;
-      char *end;
-  } watchman_response_t;
-
-  typedef struct {
       unsigned count;
       str_t *files;
       const char *error;
-      size_t files_size;
-      watchman_response_t *response;
+      // Trailing internal fields omitted.
   } watchman_query_t;
 
   typedef struct {

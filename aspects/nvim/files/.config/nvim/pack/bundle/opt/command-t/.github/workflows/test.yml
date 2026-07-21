@@ -48,3 +48,30 @@ jobs:
 
       - name: Run stress tests (debug, scanner benchmarks)
         run: TIMES=1 bin/benchmarks/scanner.lua
+
+      - name: Build extension (UndefinedBehaviorSanitizer)
+        run: make clean build DEBUG=1 CFLAGS='-fsanitize=undefined -fno-sanitize-recover=undefined'
+
+      - name: Run unit tests (UndefinedBehaviorSanitizer)
+        run: bin/test
+        env:
+          UBSAN_OPTIONS: halt_on_error=1:print_stacktrace=1
+
+  asan:
+    name: AddressSanitizer
+    runs-on: ubuntu-22.04
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.event.pull_request.base.repo.full_name
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: leafo/gh-actions-lua@8c9e175e7a3d77e21f809eefbee34a19b858641b # v12.0.0
+        with:
+          luaVersion: luajit-openresty
+
+      - name: Build extension
+        run: make clean build CC=gcc DEBUG=1 CFLAGS='-fsanitize=address -fno-omit-frame-pointer'
+
+      - name: Run unit tests
+        run: |
+          asan_runtime="$(gcc -print-file-name=libasan.so)"
+          test -f "$asan_runtime"
+          LD_PRELOAD="$asan_runtime" ASAN_OPTIONS='detect_leaks=0:halt_on_error=1' bin/test
