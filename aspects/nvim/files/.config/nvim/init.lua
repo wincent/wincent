@@ -158,8 +158,12 @@ vim.opt_local.colorcolumn = '+' .. join(range(0, 254), ',+')
 -- Globals {{{1 ---------------------------------------------------------------
 -------------------------------------------------------------------------------
 
+local python3 = vim.fn.expand('~/.local/share/nvim/python3-venv/bin/python3')
+if vim.fn.file_readable(python3) == 1 then
+  vim.g.python3_host_prog = python3
+end
+
 -- Avoid :checkhealth warnings for providers I don't intend to use.
-vim.g.loaded_python3_provider = 0
 vim.g.loaded_perl_provider = 0
 
 vim.g.mapleader = ' '
