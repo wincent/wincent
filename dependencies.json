@@ -64,10 +64,10 @@
   },
   "github/crispgm/cmp-beancount": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-beancount",
-    "url": "https://github.com/hrsh7th/cmp-buffer.git",
+    "url": "https://github.com/crispgm/cmp-beancount.git",
     "branch": "main",
     "previous": "86ad0f85d9497ae0c01fe2f604d17a400963af95",
-    "current": "b74fab3656eea9de20a9b8116afa3cfc4ec09657"
+    "current": "86ad0f85d9497ae0c01fe2f604d17a400963af95"
   },
   "github/hrsh7th/cmp-buffer": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/cmp-buffer",
