@@ -140,6 +140,13 @@ task('install swift-format formula', when('personal'), async () => {
   });
 });
 
+// Open source continuous file synchronization application.
+task('install syncthing formula', when('personal'), async () => {
+  await command('brew', ['install', 'syncthing'], {
+    creates: '/opt/homebrew/Cellar/syncthing',
+  });
+});
+
 // Maintained ctags implementation.
 task('install universal-ctags formula', when('personal'), async () => {
   await command('brew', ['install', 'universal-ctags'], {
@@ -183,13 +190,6 @@ task('install microsoft-edge cask', when('personal'), async () => {
 task('install omnifocus cask', when('personal'), async () => {
   await command('brew', ['install', '--cask', 'omnifocus'], {
     creates: '/opt/homebrew/Caskroom/omnifocus',
-  });
-});
-
-// File sync and share software.
-task('install resilio-sync cask', when('personal'), async () => {
-  await command('brew', ['install', '--cask', 'resilio-sync'], {
-    creates: '/opt/homebrew/Caskroom/resilio-sync',
   });
 });
 

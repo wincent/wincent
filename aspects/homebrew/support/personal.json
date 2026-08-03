@@ -146,6 +146,14 @@
       "note": null
     },
     {
+      "name": "syncthing",
+      "tap": "homebrew/core",
+      "description": "Open source continuous file synchronization application",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
       "name": "universal-ctags",
       "tap": "homebrew/core",
       "description": "Maintained ctags implementation",
@@ -183,12 +191,6 @@
       "name": "omnifocus",
       "tap": "homebrew/cask",
       "description": "Scheduling application focusing on organisation",
-      "note": null
-    },
-    {
-      "name": "resilio-sync",
-      "tap": "homebrew/cask",
-      "description": "File sync and share software",
       "note": null
     },
     {
