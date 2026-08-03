@@ -335,6 +335,21 @@ and re-run the install (from Neovim):
 :lua require('wincent.treesitter.install')()
 ```
 
+#### Neovim needs a python3 provider
+
+At the time of writing, I haven't automated this install yet, but I may do so in the future:
+
+```
+# Create a venv for the provider.
+python3 -m venv ~/.local/share/nvim/python3-venv
+
+# Install the needed dependency.
+~/.local/share/nvim/python3-venv/bin/pip install pynvim
+
+# Install beancount dependency, for the benefit of cmp-beancount.
+~/.local/share/nvim/python3-venv/bin/pip install beancount
+```
+
 #### Computer forgets hostname after macOS update
 
 Fig uses [the `hostname()` function from the `node:os` module](https://nodejs.org/docs/latest/api/os.html#oshostname) to determine the machine's hostname, and these dotfiles [use a normalized version of the hostname](https://github.com/wincent/wincent/blob/79459993a09fd219ed3127945794daabb225bd35/variables.ts#L14-L35)[^normalized] to produce a simple "handle" that is then used to gate a bunch of machine-specific configuration.
