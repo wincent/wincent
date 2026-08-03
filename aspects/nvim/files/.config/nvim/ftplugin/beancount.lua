@@ -12,8 +12,8 @@ if has_cmp then
       {
         name = 'beancount',
         option = {
-          account = vim.env.BEANCOUNT_FILE
-        }
+          account = vim.env.BEANCOUNT_FILE,
+        },
       },
     }),
   })
