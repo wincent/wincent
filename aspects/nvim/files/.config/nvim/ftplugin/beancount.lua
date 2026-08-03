@@ -9,7 +9,12 @@ if has_cmp then
       { name = 'path' },
 
       -- Custom sources.
-      { name = 'beancount' },
+      {
+        name = 'beancount',
+        option = {
+          account = vim.env.BEANCOUNT_FILE
+        }
+      },
     }),
   })
 end
