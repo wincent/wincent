@@ -1,10 +1,10 @@
 {
-  "defaultModel": "gpt-5.6-sol",
-  "defaultProvider": "openai-codex",
+  "defaultModel": "claude-opus-5",
+  "defaultProvider": "anthropic",
   "defaultThinkingLevel": "max",
   "enabledModels": [
     "anthropic/claude-fable-5",
-    "anthropic/claude-opus-4-8",
+    "anthropic/claude-opus-5",
     "anthropic/claude-sonnet-5",
     "anthropic/claude-haiku-4-5",
     "google/gemini-3.1-pro-preview",
@@ -16,7 +16,7 @@
     "~/.claude/plugins/marketplaces/wincent-agent-plugins/pi/extensions",
     "~/dd/wincent/.pi/agent/extensions"
   ],
-  "lastChangelogVersion": "0.80.10",
+  "lastChangelogVersion": "0.83.0",
   "prompts": [
     "~/.claude/plugins/marketplaces/wincent-agent-plugins/pi/prompts",
     "~/dd/wincent/.pi/agent/prompts"

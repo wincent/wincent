@@ -1,8 +1,8 @@
 {
   "cleanupPeriodDays": 99999,
   "env": {
-    "CLAUDE_CODE_EFFORT_LEVEL": "max",
     "CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING": "1",
+    "CLAUDE_CODE_EFFORT_LEVEL": "max",
     "DISABLE_AUTOUPDATER": "1"
   },
   "permissions": {
@@ -40,17 +40,6 @@
         ]
       }
     ],
-    "PreToolUse": [
-      {
-        "matcher": "Edit|MultiEdit|Write",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "claude-pre-tool-use-hook"
-          }
-        ]
-      }
-    ],
     "PostToolUse": [
       {
         "matcher": "Edit|MultiEdit|Write",
@@ -58,6 +47,17 @@
           {
             "type": "command",
             "command": "claude-post-tool-use-hook"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Edit|MultiEdit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "claude-pre-tool-use-hook"
           }
         ]
       }
@@ -80,23 +80,23 @@
     "padding": 0
   },
   "enabledPlugins": {
+    "atlassian@wincent-agent-plugins": true,
     "claude-md-management@claude-plugins-official": true,
     "feature-dev@claude-plugins-official": true,
-    "hookify@claude-plugins-official": true,
-    "plugin-dev@claude-plugins-official": true,
-    "ralph-loop@claude-plugins-official": true,
-    "skill-creator@claude-plugins-official": true,
-    "typescript-lsp@claude-plugins-official": true,
-    "rust-analyzer-lsp@claude-plugins-official": true,
-    "lua-lsp@claude-plugins-official": true,
-    "swift-lsp@claude-plugins-official": true,
-    "atlassian@wincent-agent-plugins": true,
     "git@wincent-agent-plugins": true,
+    "hookify@claude-plugins-official": true,
     "jj@wincent-agent-plugins": true,
+    "lua-lsp@claude-plugins-official": true,
     "meme@wincent-agent-plugins": true,
+    "plugin-dev@claude-plugins-official": true,
     "pr@wincent-agent-plugins": true,
+    "ralph-loop@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true,
     "session@wincent-agent-plugins": true,
-    "shannon@wincent-agent-plugins": true
+    "shannon@wincent-agent-plugins": true,
+    "skill-creator@claude-plugins-official": true,
+    "swift-lsp@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "wincent-agent-plugins": {
