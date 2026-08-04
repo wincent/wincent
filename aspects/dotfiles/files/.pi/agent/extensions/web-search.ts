@@ -76,7 +76,7 @@ function apiErrors(raw: unknown): string[] {
   return errors.map((error) =>
     isRecord(error) && typeof error['msg'] === 'string'
       ? error['msg']
-      : JSON.stringify(error),
+      : JSON.stringify(error)
   );
 }
 
@@ -90,7 +90,7 @@ function salvageResults(raw: unknown): KagiSearchResult[] {
     return [];
   }
   return data.filter((item): item is KagiSearchResult =>
-    Check(KagiSearchResultSchema, item),
+    Check(KagiSearchResultSchema, item)
   );
 }
 
@@ -176,8 +176,7 @@ async function searchKagi(
 
   let text = formatted || 'No results found.';
   if (issues !== undefined) {
-    text +=
-      `\n\n(Note: part of the Kagi response could not be parsed ` +
+    text += `\n\n(Note: part of the Kagi response could not be parsed ` +
       `(${issues}); some results may be missing.)`;
   }
 
