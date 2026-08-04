@@ -17,13 +17,20 @@ import {Check, Errors} from 'typebox/value';
 
 const KAGI_SEARCH_URL = 'https://kagi.com/api/v0/search';
 
+/**
+ * Kagi sends an explicit `null` (rather than omitting the key) for fields it
+ * has no value for. Most commonly `snippet`, on results whose page has no
+ * usable description.
+ */
+const NullableString = Type.Union([Type.String(), Type.Null()]);
+
 const KagiSearchResultSchema = Type.Object({
   t: Type.Number(),
-  url: Type.Optional(Type.String()),
-  title: Type.Optional(Type.String()),
-  snippet: Type.Optional(Type.String()),
-  published: Type.Optional(Type.String()),
-  list: Type.Optional(Type.Array(Type.String())),
+  url: Type.Optional(NullableString),
+  title: Type.Optional(NullableString),
+  snippet: Type.Optional(NullableString),
+  published: Type.Optional(NullableString),
+  list: Type.Optional(Type.Union([Type.Array(Type.String()), Type.Null()])),
 });
 type KagiSearchResult = Static<typeof KagiSearchResultSchema>;
 
@@ -44,6 +51,48 @@ const KagiResponseSchema = Type.Object({
     ),
   ),
 });
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null;
+}
+
+/** Summarize (at most three) reasons why `raw` failed validation. */
+function describeIssues(raw: unknown): string {
+  return Errors(KagiResponseSchema, raw)
+    .slice(0, 3)
+    .map((e) => `${e.instancePath || '/'}: ${e.message}`)
+    .join('; ');
+}
+
+/**
+ * Errors the API reports about itself, read defensively because we may be
+ * looking at a response that failed validation.
+ */
+function apiErrors(raw: unknown): string[] {
+  const errors = isRecord(raw) ? raw['error'] : undefined;
+  if (!Array.isArray(errors)) {
+    return [];
+  }
+  return errors.map((error) =>
+    isRecord(error) && typeof error['msg'] === 'string'
+      ? error['msg']
+      : JSON.stringify(error),
+  );
+}
+
+/**
+ * Keep whatever individual results still validate when the response as a whole
+ * does not: one unrecognized field shouldn't discard an entire (paid) query.
+ */
+function salvageResults(raw: unknown): KagiSearchResult[] {
+  const data = isRecord(raw) ? raw['data'] : undefined;
+  if (!Array.isArray(data)) {
+    return [];
+  }
+  return data.filter((item): item is KagiSearchResult =>
+    Check(KagiSearchResultSchema, item),
+  );
+}
 
 function formatKagiResults(data: KagiSearchResult[]): string {
   const parts: string[] = [];
@@ -87,42 +136,58 @@ async function searchKagi(
 
   const raw: unknown = await response.json();
 
-  if (!Check(KagiResponseSchema, raw)) {
-    const issues = Errors(KagiResponseSchema, raw)
-      .slice(0, 3)
-      .map((e) => `${e.instancePath || '/'}: ${e.message}`)
-      .join('; ');
+  const valid = Check(KagiResponseSchema, raw);
+  const issues = valid ? undefined : describeIssues(raw);
+
+  // Errors the API reports about itself are always fatal.
+  const errors = apiErrors(raw);
+  if (errors.length) {
+    throw new Error(`Kagi API error: ${errors.join('; ')}`);
+  }
+
+  const data = valid ? raw.data : salvageResults(raw);
+
+  // A bad shape alone is only a warning; give up only when nothing survived.
+  if (issues !== undefined && data.length === 0) {
     throw new Error(
       `Kagi API returned an unexpected response shape: ${issues}`,
     );
   }
-  const json = raw;
 
-  if (json.error?.length) {
-    throw new Error(
-      `Kagi API error: ${json.error.map((e) => e.msg).join('; ')}`,
-    );
-  }
-
-  const formatted = formatKagiResults(json.data);
-  const resultCount = json.data.filter((d) => d.t === 0).length;
+  const formatted = formatKagiResults(data);
+  const resultCount = data.filter((d) => d.t === 0).length;
 
   if (context.hasUI) {
-    // Show API request time and remaining balance as toast only
-    // (doesn't leak into session).
-    const parts = [`${json.meta.ms} ms`];
-    if (typeof json.meta.api_balance === 'number') {
-      parts.push(`balance $${json.meta.api_balance.toFixed(2)}`);
+    if (valid) {
+      // Show API request time and remaining balance as toast only
+      // (doesn't leak into session).
+      const parts = [`${raw.meta.ms} ms`];
+      if (typeof raw.meta.api_balance === 'number') {
+        parts.push(`balance $${raw.meta.api_balance.toFixed(2)}`);
+      }
+      context.ui.notify(`Kagi: ${parts.join(', ')}`, 'info');
+    } else {
+      context.ui.notify(
+        `Kagi: unexpected response shape (${issues})`,
+        'warning',
+      );
     }
-    context.ui.notify(`Kagi: ${parts.join(', ')}`, 'info');
+  }
+
+  let text = formatted || 'No results found.';
+  if (issues !== undefined) {
+    text +=
+      `\n\n(Note: part of the Kagi response could not be parsed ` +
+      `(${issues}); some results may be missing.)`;
   }
 
   return {
-    content: [{type: 'text' as const, text: formatted || 'No results found.'}],
+    content: [{type: 'text' as const, text}],
     details: {
       provider: 'kagi',
       query,
       resultCount,
+      issues,
     },
   };
 }
