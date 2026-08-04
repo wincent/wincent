@@ -482,7 +482,7 @@ What's going on here, cryptographically speaking?
 - Because only the owner has access to the private key, only the owner can make signatures with it; but conversely, because everybody has access to the public key, anybody can verify those signatures.
 - GPG keys have two additional concepts: "subkeys" are keys associated with a primary key; and "usages" describe what role those keys each play (eg. "signing", "encryption").
 - In practice, the primary key is always a "signing" key, and GPG will create one "encryption" subkey by default. Users can add/remove additional subkeys and assign them usages.
-- I create "signing" subkeys for making signatures and I rotate them once per year (I keep my primary key "offline" so that it can't be hacked if my machine is compromised).
+- I create "signing" subkeys for making signatures and I rotate them once every 5 years (I keep my primary key "offline" so that it can't be hacked if my machine is compromised).
 
 So those are the cryptographic primitives. The signature is "Good" in the cryptographic sense, but why the scary "WARNING"? It's because there's a whole other layer on top of this called the "web of trust". A good signature gives us the mathematical certainty that a particular private key _was_ used to produce a given signature, but that tells us nothing about the human world that exists above and around that crypto. That is, the key was used to make the signature, but was it _me_ who used the key? Am I really the handsome Australian man living in Madrid claiming to be Greg Hurrell, or am I in fact part of a clandestine criminal organization operating from a satellite-connected submarine in the Arctic sea?
 
