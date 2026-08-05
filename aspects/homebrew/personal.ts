@@ -19,6 +19,13 @@ task('install beancount formula', when('personal'), async () => {
   });
 });
 
+// Customizable lightweight SQL query tool.
+task('install beanquery formula', when('personal'), async () => {
+  await command('brew', ['install', 'beanquery'], {
+    creates: '/opt/homebrew/Cellar/beanquery',
+  });
+});
+
 // Collection of portable C++ source libraries.
 task('install boost formula', when('personal'), async () => {
   await command('brew', ['install', 'boost'], {

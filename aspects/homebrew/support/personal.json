@@ -10,6 +10,14 @@
       "note": null
     },
     {
+      "name": "beanquery",
+      "tap": "homebrew/core",
+      "description": "Customizable lightweight SQL query tool",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
       "name": "boost",
       "tap": "homebrew/core",
       "description": "Collection of portable C++ source libraries",
