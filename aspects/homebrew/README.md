@@ -78,3 +78,37 @@ For cargo crates where the binary name differs from the crate name (eg. `diesel_
 ```
 
 Annotations are preserved across regeneration (keyed on `name`).
+
+# Notes on specific formulae
+
+The `syncthing` package is installed but not started because it comes with some bad defaults. After installing, set up a config file:
+
+```
+syncthing generate --gui-user $USER --gui-password -
+```
+
+Supply a strong passphrase via standard input, and record it in 1Password.
+
+Then harden the config file:
+
+```
+perl -pi -e '
+  s{<listenAddress>default</listenAddress>}{<listenAddress>tcp://0.0.0.0:22000</listenAddress>};
+  s{<globalAnnounceEnabled>true<}{<globalAnnounceEnabled>false<};
+  s{<announceLANAddresses>true<}{<announceLANAddresses>false<};
+  s{<relaysEnabled>true<}{<relaysEnabled>false<};
+  s{<natEnabled>true<}{<natEnabled>false<};
+  s{<crashReportingEnabled>true<}{<crashReportingEnabled>false<};
+  s{<urAccepted>0<}{<urAccepted>-1<};
+  s{<stunServer>default</stunServer>}{<stunServer></stunServer>};
+  s{<startBrowser>true<}{<startBrowser>false<};
+' ~/Library/Application\ Support/Syncthing/config.xml
+```
+
+Then start the service:
+
+```
+brew services start syncthing
+```
+
+And inspect the web UI at http://127.0.0.1:8384
