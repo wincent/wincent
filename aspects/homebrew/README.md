@@ -81,13 +81,17 @@ Annotations are preserved across regeneration (keyed on `name`).
 
 # Notes on specific formulae
 
-The `syncthing` package is installed but not started because it comes with some bad defaults. After installing, set up a config file:
+The `syncthing` package is installed but not started because it comes with some bad defaults.
+
+## Initial set-up
+
+After installing, set up a config file:
 
 ```
 syncthing generate --gui-user $USER --gui-password -
 ```
 
-Supply a strong passphrase via standard input, and record it in 1Password.
+Supply a strong passphrase via standard input, and record it — along with the device ID — in 1Password.
 
 Then harden the config file:
 
@@ -112,3 +116,7 @@ brew services start syncthing
 ```
 
 And inspect the web UI at http://127.0.0.1:8384
+
+## Migrating to a new machine
+
+Not sure when this will come up, but I'll have to evaluate at that time whether I want to move the config onto the name machine (same device ID, same key etc) or set it up as a new peer. File under "Problem for future Greg".
