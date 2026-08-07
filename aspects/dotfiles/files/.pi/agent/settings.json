@@ -16,7 +16,7 @@
     "~/.claude/plugins/marketplaces/wincent-agent-plugins/pi/extensions",
     "~/dd/wincent/.pi/agent/extensions"
   ],
-  "lastChangelogVersion": "0.83.0",
+  "lastChangelogVersion": "0.84.1",
   "prompts": [
     "~/.claude/plugins/marketplaces/wincent-agent-plugins/pi/prompts",
     "~/dd/wincent/.pi/agent/prompts"
