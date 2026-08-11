@@ -8,11 +8,37 @@
       // it to "$HOME/.local/state".
       "$XDG_CONFIG_HOME/nvim",
       "$HOME/.zsh/.tinted",
-      "$HOME/code/wincent/aspects/nvim/files/.config/nvim",
+      "$HOME/code/wincent/aspects/nvim/files/.config/nvim"
     ],
     "unix_socket": [
       // Make yanking to Clipper work in Neovim.
-      "$HOME/.clipper.sock",
+      "$HOME/.clipper.sock"
+    ]
+  },
+  "network": {
+    // Hide KAGI_API_TOKEN from sandboxed processes.
+    "credentials": [
+      "kagi_search"
+    ],
+    "custom_credentials": {
+      "kagi_search": {
+        "upstream": "https://kagi.com",
+        "credential_key": "env://KAGI_API_TOKEN",
+        "inject_header": "Authorization",
+        "credential_format": "Bot {}",
+        "env_var": "KAGI_API_TOKEN",
+        "endpoint_rules": [
+          {
+            "method": "GET",
+            "path": "/api/v0/search"
+          }
+        ]
+      }
+    }
+  },
+  "environment": {
+    "deny_vars": [
+      "KAGI_API_TOKEN"
     ]
   }
 }
