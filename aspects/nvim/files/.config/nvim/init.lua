@@ -30,7 +30,7 @@ vim.opt.completeopt = vim.opt.completeopt + 'noselect' -- don't automatically se
 vim.opt.cursorline = true -- highlight current line
 vim.opt.diffopt:append('algorithm:histogram') -- use "histogram" in internal diff engine instead of "myers"
 vim.opt.diffopt:append('foldcolumn:0') -- don't show fold column in diff view
-vim.opt.directory = config .. '/nvim/swap//' -- keep swap files out of the way
+vim.opt.directory = config .. '/swap//' -- keep swap files out of the way
 vim.opt.directory = vim.opt.directory + '.' -- fallback
 vim.opt.emoji = false -- don't assume all emoji are double width
 vim.opt.expandtab = true -- always use spaces instead of tabs
