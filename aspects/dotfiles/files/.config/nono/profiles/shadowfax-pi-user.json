@@ -1,0 +1,9 @@
+{
+  "filesystem": {
+    "read": [
+      "$XDG_CONFIG_HOME/nvim",
+      "$HOME/.zsh/.tinted",
+      "$HOME/code/wincent/aspects/nvim/files/.config/nvim"
+    ],
+  }
+}

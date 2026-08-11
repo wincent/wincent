@@ -133,7 +133,7 @@ task('check for decrypted files', when('wincent'), async () => {
 task('make directories', async () => {
   await file({path: '~/.backups', state: 'directory'});
   await file({path: '~/.bitcoin', state: 'directory'});
-  await file({path: '~/.config', state: 'directory'});
+  await file({path: '~/.config/nono/profiles', recurse: true, state: 'directory'});
   await file({mode: '0700', path: '~/.gnupg', state: 'directory'});
   await file({path: '~/.irssi', state: 'directory'});
   await file({path: '~/.mail', state: 'directory'});
