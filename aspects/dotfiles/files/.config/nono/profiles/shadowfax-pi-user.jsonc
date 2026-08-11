@@ -1,0 +1,18 @@
+{
+  "filesystem": {
+    "read": [
+      // Allow Neovim to read its config files (necessary because Pi spawns
+      // a copy of $EDITOR when using `/edit-answer` or CTRL-g).
+      //
+      // Note that even though I don't have $XDG_CONFIG_HOME set, Nono defaults
+      // it to "$HOME/.local/state".
+      "$XDG_CONFIG_HOME/nvim",
+      "$HOME/.zsh/.tinted",
+      "$HOME/code/wincent/aspects/nvim/files/.config/nvim",
+    ],
+    "unix_socket": [
+      // Make yanking to Clipper work in Neovim.
+      "$HOME/.clipper.sock",
+    ]
+  }
+}
