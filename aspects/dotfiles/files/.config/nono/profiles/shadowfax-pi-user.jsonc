@@ -5,7 +5,7 @@
       // a copy of $EDITOR when using `/edit-answer` or CTRL-g).
       //
       // Note that even though I don't have $XDG_CONFIG_HOME set, Nono defaults
-      // it to "$HOME/.local/state".
+      // it to "$HOME/.config".
       "$XDG_CONFIG_HOME/nvim",
       "$HOME/.zsh/.tinted",
       "$HOME/code/wincent/aspects/nvim/files/.config/nvim"
