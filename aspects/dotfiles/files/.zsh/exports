@@ -52,7 +52,7 @@ export CORRECT_IGNORE_FILE='.*|ci'
 export PAGER=less
 
 if builtin command -v nvim &> /dev/null; then
-  export EDITOR=$(builtin command -v nvim)
+  export EDITOR=nvim
 else
   export EDITOR=vim
 fi

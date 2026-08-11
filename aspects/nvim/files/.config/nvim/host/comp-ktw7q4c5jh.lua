@@ -35,3 +35,18 @@ if has_corpus then
     sort = 'stat',
   })
 end
+
+-- Pi vs sandbox workarounds.
+--
+-- Both `/edit-answer` and CTRL-g (edit prompt) both cause Neovim to print error
+-- messages as it tries to write files under ~/.config/.
+if vim.env.SHADOWFAX_SANDBOX_ACTIVE == '1' then
+  -- Two ways of saying "Don't read/write the shadafile on entry/exit"
+  -- (Normally, 'shada' includes "n~/.config/nvim/shada").
+  vim.opt.shada = ''
+  vim.opt.shadafile = 'NONE'
+
+  -- Don't write an undofile for the buffer
+  -- ('undodir' = "~/.config/nvim/undo//,.").
+  vim.opt.undofile = false
+end
