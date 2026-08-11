@@ -159,7 +159,7 @@ vim.opt_local.colorcolumn = '+' .. join(range(0, 254), ',+')
 -------------------------------------------------------------------------------
 
 local python3 = vim.fn.expand('~/.local/share/nvim/python3-venv/bin/python3')
-if vim.fn.file_readable(python3) == 1 then
+if vim.fn.filereadable(python3) == 1 then
   vim.g.python3_host_prog = python3
 end
 
