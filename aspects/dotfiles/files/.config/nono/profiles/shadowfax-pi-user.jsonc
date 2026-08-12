@@ -1,12 +1,8 @@
 {
   "filesystem": {
     "read": [
-      // Allow Neovim to read its config files (necessary because Pi spawns
+      // Allow Neovim to read color configuration (necessary because Pi spawns
       // a copy of $EDITOR when using `/edit-answer` or CTRL-g).
-      //
-      // Note that even though I don't have $XDG_CONFIG_HOME set, Nono defaults
-      // it to "$HOME/.config".
-      "$XDG_CONFIG_HOME/nvim",
       "$HOME/.zsh/.tinted"
     ],
     "unix_socket": [
@@ -15,11 +11,40 @@
     ]
   },
   "network": {
-    // Hide KAGI_API_TOKEN from sandboxed processes.
+    // Hide API tokens from sandboxed processes and restrict their use to the
+    // endpoints Pi needs.
     "credentials": [
+      "anthropic_api_key",
+      "gemini_generation",
       "kagi_search"
     ],
     "custom_credentials": {
+      "anthropic_api_key": {
+        "upstream": "https://api.anthropic.com",
+        "credential_key": "env://ANTHROPIC_API_KEY",
+        "inject_header": "x-api-key",
+        "credential_format": "{}",
+        "env_var": "ANTHROPIC_API_KEY",
+        "endpoint_rules": [
+          {
+            "method": "POST",
+            "path": "/v1/messages"
+          }
+        ]
+      },
+      "gemini_generation": {
+        "upstream": "https://generativelanguage.googleapis.com",
+        "credential_key": "env://GOOGLE_API_KEY",
+        "inject_header": "x-goog-api-key",
+        "credential_format": "{}",
+        "env_var": "GEMINI_API_KEY",
+        "endpoint_rules": [
+          {
+            "method": "POST",
+            "path": "/v1beta/models/*:streamGenerateContent"
+          }
+        ]
+      },
       "kagi_search": {
         "upstream": "https://kagi.com",
         "credential_key": "env://KAGI_API_TOKEN",
@@ -37,6 +62,9 @@
   },
   "environment": {
     "deny_vars": [
+      "ANTHROPIC_API_KEY",
+      "GEMINI_API_KEY",
+      "GOOGLE_API_KEY",
       "KAGI_API_TOKEN"
     ]
   }
