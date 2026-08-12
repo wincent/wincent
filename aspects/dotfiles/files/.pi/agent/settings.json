@@ -26,5 +26,6 @@
     "~/.claude/plugins/marketplaces/wincent-agent-plugins/pi/skills",
     "~/dd/wincent/.pi/agent/skills"
   ],
-  "theme": "dark"
+  "theme": "dark",
+  "hideThinkingBlock": true
 }
