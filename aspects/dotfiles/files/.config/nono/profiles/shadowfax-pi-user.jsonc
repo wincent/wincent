@@ -7,8 +7,7 @@
       // Note that even though I don't have $XDG_CONFIG_HOME set, Nono defaults
       // it to "$HOME/.config".
       "$XDG_CONFIG_HOME/nvim",
-      "$HOME/.zsh/.tinted",
-      "$HOME/code/wincent/aspects/nvim/files/.config/nvim"
+      "$HOME/.zsh/.tinted"
     ],
     "unix_socket": [
       // Make yanking to Clipper work in Neovim.
