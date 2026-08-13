@@ -221,6 +221,14 @@
 	# Requires Git 2.28 or later.
 	defaultBranch = main
 
+	# Added as an option in Git 2.47 (2024-10-06).
+	# reftable format itself was added in 2.45 (2024-04-29).
+	# "reftable" will probably be the default in Git 3.0.
+	# However, jj doesn't support reftable yet
+	# (see https://github.com/jj-vcs/jj/issues/9358),
+	# so we need to steer clear of it for now.
+	defaultRefFormat = files
+
 [interactive]
 	diffFilter = diff-highlight
 	singleKey = true
