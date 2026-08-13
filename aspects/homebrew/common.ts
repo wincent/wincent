@@ -1140,6 +1140,13 @@ task('install cleanshot cask', async () => {
   });
 });
 
+// File finder.
+task('install find-any-file cask', async () => {
+  await command('brew', ['install', '--cask', 'find-any-file'], {
+    creates: '/opt/homebrew/Caskroom/find-any-file',
+  });
+});
+
 // Web browser.
 task('install firefox cask', async () => {
   await command('brew', ['install', '--cask', 'firefox'], {

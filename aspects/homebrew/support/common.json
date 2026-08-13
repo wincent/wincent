@@ -1268,6 +1268,12 @@
       "note": null
     },
     {
+      "name": "find-any-file",
+      "tap": "homebrew/cask",
+      "description": "File finder",
+      "note": null
+    },
+    {
       "name": "firefox",
       "tap": "homebrew/cask",
       "description": "Web browser",
