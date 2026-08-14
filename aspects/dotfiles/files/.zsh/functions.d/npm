@@ -1,11 +1,10 @@
-# Allow corporate dotfiles to override this.
-typeset -ga __npm_launcher=(command npm)
-
-# Temporarily suppress possible corporate shim alias.
-unalias npm 2>/dev/null
-
 function npm () {
   emulate -L zsh
+
+  # Default launcher: `command npm`
+  # (Corporate dotfiles override this.)
+  (( $#__npm_launcher )) || typeset -ga __npm_launcher=(command npm)
+
   case $1 in
     publish|whoami|access|owner|deprecate|unpublish|dist-tag)
       local auth rc
