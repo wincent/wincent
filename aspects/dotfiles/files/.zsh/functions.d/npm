@@ -1,3 +1,7 @@
+# Wrapper for `npm` that reads auth token from 1Password if needed.
+#
+# NOTE: With 2FA enabled, you need to pass `--otp=NNNNNN` when publishing
+# because standard input isn't a TTY when using this wrapper.
 function npm () {
   emulate -L zsh
 
