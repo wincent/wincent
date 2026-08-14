@@ -14,7 +14,7 @@ function npm () {
       [[ $auth == *_authToken=* ]] \
         || { print -u2 "npm: no _authToken after injection"; return 1 }
       rc="$(cat "$HOME/.npmrc")"$'\n'"$auth"
-      $__npm_launcher "$@" --userconfig /dev/stdin <<<"$rc"
+      print -r -- "$rc" | $__npm_launcher "$@" --userconfig /dev/stdin
       ;;
     *)
       $__npm_launcher "$@"
