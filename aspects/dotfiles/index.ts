@@ -111,12 +111,18 @@ task('check for decrypted files', when('wincent'), async () => {
   });
 
   if (result !== null) {
-    const pending = result.status === 0
-      ? result.stdout
-        .trim()
-        .split(/\n/)
-        .filter((line) => line.length)
-      : ['unable to determine encryption status for any file'];
+    const lines = result.stdout
+      .trim()
+      .split(/\n/)
+      .filter((line) => line.length);
+
+    // `wage status` exits 1 when at least one file needs attention, printing
+    // one path per line, so a non-zero status is expected here. It also exits 1
+    // when it bails out early (eg. it can't get at the identity), and the two
+    // are only distinguishable by whether anything came out on standard output.
+    const pending = lines.length === 0 && result.status !== 0
+      ? ['unable to determine encryption status for any file']
+      : lines;
 
     if (pending.length) {
       log.warn(
