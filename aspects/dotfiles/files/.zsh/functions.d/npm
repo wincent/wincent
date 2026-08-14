@@ -1,0 +1,23 @@
+# Allow corporate dotfiles to override this.
+typeset -ga __npm_launcher=(command npm)
+
+# Temporarily suppress possible corporate shim alias.
+unalias npm 2>/dev/null
+
+function npm () {
+  emulate -L zsh
+  case $1 in
+    publish|whoami|access|owner|deprecate|unpublish|dist-tag)
+      local auth rc
+      auth=$(op inject --account my.1password.eu -i "$HOME/.npmrc.tpl") \
+        || { print -u2 "npm: op inject failed"; return 1 }
+      [[ $auth == *_authToken=* ]] \
+        || { print -u2 "npm: no _authToken after injection"; return 1 }
+      rc="$(cat "$HOME/.npmrc")"$'\n'"$auth"
+      $__npm_launcher "$@" --userconfig /dev/stdin <<<"$rc"
+      ;;
+    *)
+      $__npm_launcher "$@"
+      ;;
+  esac
+}

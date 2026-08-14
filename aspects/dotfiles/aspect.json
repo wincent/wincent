@@ -40,6 +40,7 @@
       ".irssi/config",
       ".lbdbrc",
       ".npmrc",
+      ".npmrc.tpl",
       ".pi",
       ".rdebugrc",
       ".rgrc",

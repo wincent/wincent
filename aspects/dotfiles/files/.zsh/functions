@@ -26,6 +26,7 @@ if [[ -o interactive ]]; then
   autoload -Uz history
   autoload -Uz jj
   autoload -Uz jump
+  autoload -Uz npm
   autoload -Uz regmv
   autoload -Uz scratch
   autoload -Uz serve
