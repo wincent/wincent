@@ -11,6 +11,7 @@ set -e
 CONFIG_FILE=".wage.config"
 IDENTITY="$HOME/.config/age/key.txt"
 STATUS_EXIT=0
+TEMP_FILE=
 VERBOSE=0
 
 BOLD=$(tput bold)
@@ -21,6 +22,47 @@ RESET=$(tput sgr0)
 usage() {
   echo "Usage: wage <encrypt|decrypt|status> [--verbose] [file ...]"
   exit 1
+}
+
+cleanup() {
+  if [ -n "$TEMP_FILE" ]; then
+    rm -f "$TEMP_FILE"
+    TEMP_FILE=
+  fi
+}
+
+trap cleanup EXIT
+
+# Creates a temporary file (outside the worktree, so that a crash can never
+# leave plaintext lying around inside the repo) and records it in `TEMP_FILE`
+# so that it gets cleaned up on exit.
+make_temp_file() {
+  cleanup
+  TEMP_FILE=$(umask 077 && mktemp "${TMPDIR:-/tmp}/wage.XXXXXX")
+}
+
+# Compares plaintext ($1) against the decrypted contents of ciphertext ($2).
+#
+# Returns 0 if they match, 1 if they differ, and 2 if the ciphertext could not
+# be decrypted at all (eg. it contains unresolved merge conflict markers, or it
+# was encrypted for a recipient we don't hold the identity for).
+#
+# Note that the comparison is done byte-for-byte via a temporary file rather
+# than via command substitution, because the latter silently strips trailing
+# newlines and NUL bytes, which would mask real differences.
+same() {
+  local PLAINTEXT=$1
+  local CIPHERTEXT=$2
+
+  make_temp_file
+  if ! age --decrypt -i "$IDENTITY" -o "$TEMP_FILE" "$CIPHERTEXT"; then
+    return 2
+  fi
+  if cmp -s "$PLAINTEXT" "$TEMP_FILE"; then
+    return 0
+  else
+    return 1
+  fi
 }
 
 find_repo_root() {
@@ -74,12 +116,24 @@ decrypt() {
 
   if [ -f "$CIPHERTEXT" ]; then
     echo "🔓 ${BOLD}${GREEN}Decrypting:${RESET} ${PLAINTEXT}"
-    (umask 077 && age --decrypt -i "$IDENTITY" -o "$PLAINTEXT" "$CIPHERTEXT")
-    if [[ "$PLAINTEXT" == *.sh ]]; then
-      chmod 700 "$PLAINTEXT"
-    else
-      chmod 600 "$PLAINTEXT"
+
+    # Decrypt to a temporary file and only replace the plaintext once `age` has
+    # succeeded; decrypting straight over the top of it means that a failure
+    # part-way through the payload (eg. corrupt or badly resolved ciphertext)
+    # leaves a truncated plaintext behind, which a subsequent `encrypt` would
+    # then happily make canonical.
+    make_temp_file
+    if ! age --decrypt -i "$IDENTITY" -o "$TEMP_FILE" "$CIPHERTEXT"; then
+      echo "💥 ${BOLD}${RED}Failed to decrypt (leaving plaintext untouched):${RESET} ${CIPHERTEXT}" >&2
+      exit 1
     fi
+    if [[ "$PLAINTEXT" == *.sh ]]; then
+      chmod 700 "$TEMP_FILE"
+    else
+      chmod 600 "$TEMP_FILE"
+    fi
+    mv -f "$TEMP_FILE" "$PLAINTEXT"
+    TEMP_FILE=
   else
     echo "💥 ${BOLD}${RED}Not decrypting (non-file):${RESET} ${CIPHERTEXT}"
   fi
@@ -91,14 +145,23 @@ encrypt() {
 
   if [ -f "$PLAINTEXT" ]; then
     if [ -f "$CIPHERTEXT" -a -f "$IDENTITY" ]; then
-      local DECRYPTED=$(age --decrypt -i "$IDENTITY" "$CIPHERTEXT")
-      if [[ "$DECRYPTED" == "$(cat "$PLAINTEXT")" ]]; then
+      local RESULT=0
+      same "$PLAINTEXT" "$CIPHERTEXT" || RESULT=$?
+      if [ "$RESULT" -eq 0 ]; then
         echo "⏩ ${BOLD}Skipping (already up-to-date):${RESET} ${PLAINTEXT}"
         return
+      elif [ "$RESULT" -eq 2 ]; then
+        # Refuse rather than overwrite: whatever is in there is something we
+        # cannot read, so encrypting over the top of it would discard it
+        # (this is what happens if you save while a merge conflict in the
+        # ciphertext is still unresolved).
+        echo "💥 ${BOLD}${RED}Refusing to encrypt (cannot decrypt existing ciphertext):${RESET} ${CIPHERTEXT}" >&2
+        echo "   ${BOLD}Resolve it by hand; overwriting it would discard its contents.${RESET}" >&2
+        exit 1
       fi
     fi
     echo "🔑 ${BOLD}${GREEN}Encrypting:${RESET} ${PLAINTEXT}"
-    age --encrypt -r $RECIPIENT --armor -o "${CIPHERTEXT}" "$PLAINTEXT"
+    age --encrypt -r "$RECIPIENT" --armor -o "${CIPHERTEXT}" "$PLAINTEXT"
   else
     echo "💥 ${BOLD}${RED}Not encrypting (non-file):${RESET} ${PLAINTEXT}"
   fi
@@ -117,19 +180,47 @@ ignore() {
 
 status() {
   local PLAINTEXT=$1
+  local CIPHERTEXT="${PLAINTEXT}.encrypted"
+  local STATE="decrypted"
+
+  if [ ! -f "$PLAINTEXT" ]; then
+    STATE="encrypted"
+  elif [ -f "$CIPHERTEXT" -a -f "$IDENTITY" ]; then
+    # Existence of the plaintext says nothing about whether it still matches
+    # the ciphertext beside it, which is the state that actually bites when
+    # working on more than one machine (eg. pulling someone else's ciphertext
+    # without decrypting it). Check the contents whenever we hold the identity,
+    # and fall back to the existence check when we don't.
+    local RESULT=0
+    same "$PLAINTEXT" "$CIPHERTEXT" || RESULT=$?
+    if [ "$RESULT" -eq 1 ]; then
+      STATE="diverged"
+    elif [ "$RESULT" -eq 2 ]; then
+      STATE="unreadable"
+    fi
+  fi
 
   if [ "$VERBOSE" -eq 1 ]; then
-    if [ -f "$PLAINTEXT" ]; then
-      echo "${PLAINTEXT}: ${GREEN}decrypted${RESET}"
-    else
-      echo "${PLAINTEXT}: ${RED}encrypted${RESET}"
-      STATUS_EXIT=1
-    fi
-  else
-    if [ ! -f "$PLAINTEXT" ]; then
-      echo "$PLAINTEXT"
-      STATUS_EXIT=1
-    fi
+    case "$STATE" in
+      decrypted)
+        echo "${PLAINTEXT}: ${GREEN}decrypted${RESET}"
+        ;;
+      diverged)
+        echo "${PLAINTEXT}: ${RED}diverged${RESET} (plaintext does not match ciphertext)"
+        ;;
+      unreadable)
+        echo "${PLAINTEXT}: ${RED}unreadable${RESET} (cannot decrypt ciphertext)"
+        ;;
+      encrypted)
+        echo "${PLAINTEXT}: ${RED}encrypted${RESET}"
+        ;;
+    esac
+  elif [ "$STATE" != "decrypted" ]; then
+    echo "$PLAINTEXT"
+  fi
+
+  if [ "$STATE" != "decrypted" ]; then
+    STATUS_EXIT=1
   fi
 }
 
