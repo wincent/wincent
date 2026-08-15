@@ -53,7 +53,7 @@ if [[ -o interactive ]]; then
   # Mnemonic: "[C]lip"
   alias -g C="|clip"
   #
-  # Mnemonic: "[D]lip"
+  # Mnemonic: "[D]elta"
   alias -g D="|delta"
 
   # Mnemonic: "[G]rep"
