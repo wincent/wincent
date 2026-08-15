@@ -220,7 +220,7 @@ As an illustration, consider working on Command-T:
 
 ### Adding a new encrypted file
 
-1. Add the path to the plain-text (unencrypted) file to the list of files in `bin/encrypt`.
+1. Add the path to the plain-text (unencrypted) file to the list of files in `.wage.config`.
 2. Run `bin/encrypt`.
 3. Verify that the path to the plain-text (unencrypted) file got added to the top-level `.gitignore`, and a new ciphertext (encrypted) file exists in the worktree.
 4. Commit the ciphertext file.
@@ -234,25 +234,22 @@ I don't expect to do this very often, but there may be legitimate reasons for do
 # (If everything is decrypted, this command prints nothing.)
 bin/crypt-status
 
-# Proceed to replace the key.
-cd ~/.config/age
+# Create a new "post-quantum" key (`-pq`). The identity goes to standard output
+# and the public key to standard error; nothing is written to disk.
+age-keygen -pq
 
-# Remove old key; this is safe because we have a backup in 1Password.
-rm key.txt
+# Paste the "AGE-SECRET-KEY-PQ-..." line into the "secret-key" field of the
+# "age-key" item in 1Password, and put the public key in `RECIPIENT` in
+# `.wage.config`.
 
-# Create a new "post-quantum" key (`-pq`).
-age-keygen -pq -o ~/.config/age/key.txt
+# Re-encrypt the files with the new key. `WAGE_IDENTITY_URI=` is required here:
+# `wage` otherwise refuses to overwrite ciphertext it cannot read, and the new
+# key cannot read anything encrypted to the old recipient. This is only ok
+# because the first step confirmed we have the plaintext on disk already.
+WAGE_IDENTITY_URI= bin/encrypt
 
-# Confirm permissions are correctly set (ie. 0600).
-ls -laF
-
-# Grab public key (recipient), so we can update `RECIPIENT` in `bin/encrypt`.
-age-keygen -y key.txt
-
-# Re-encrypt files with new key; this is ok only because we have the plaintext on disk already.
-cd -
-bin/encrypt
-
-# Verify metadata for a sample file.
+# Confirm the new key decrypts everything (prints nothing when it does), and
+# verify metadata for a sample file.
+bin/crypt-status
 age-inspect aspects/ssh/templates/.ssh/config.erb.encrypted
 ```

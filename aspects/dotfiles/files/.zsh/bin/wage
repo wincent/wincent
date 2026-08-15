@@ -9,7 +9,15 @@
 set -e
 
 CONFIG_FILE=".wage.config"
-IDENTITY="$HOME/.config/age/key.txt"
+
+# The identity lives in 1Password and nowhere else; there is no on-disk key to
+# fall back to. Set `WAGE_IDENTITY_URI=` (ie. to the empty string) on a machine
+# that is never going to hold the identity, to get the same treatment as one
+# without `op` installed.
+IDENTITY_URI="${WAGE_IDENTITY_URI-op://Private/age-key/secret-key}"
+IDENTITY_ACCOUNT="${WAGE_IDENTITY_ACCOUNT-my.1password.eu}"
+IDENTITY_KEY=
+
 STATUS_EXIT=0
 TEMP_FILE=
 VERBOSE=0
@@ -49,6 +57,63 @@ make_temp_file() {
   TEMP_FILE=$(umask 077 && mktemp "${TMPDIR:-/tmp}/wage.XXXXXX")
 }
 
+# Fetches the identity from 1Password, at most once per run.
+#
+# Returns 1 when this machine is not set up to hold the identity at all, which
+# is not an error: `encrypt` and `status` fall back to weaker checks in that
+# case, exactly as they used to when the key file was absent. Anything else is
+# fatal, deliberately. A machine that can hold the identity but momentarily
+# cannot reach it must never be mistaken for one that cannot hold it, because
+# that is precisely what makes `encrypt` skip its up-to-date check and
+# overwrite a ciphertext it cannot read.
+resolve_identity() {
+  if [ -n "$IDENTITY_KEY" ]; then
+    return 0
+  fi
+
+  if [ -z "$IDENTITY_URI" ] || ! command -v op > /dev/null 2>&1; then
+    return 1
+  fi
+
+  # Declared and assigned separately because `local KEY=$(...)` would throw
+  # away `op`'s exit status. Letting `op` write its own diagnostic to standard
+  # error is deliberate: "You are not currently signed in" is more use than
+  # anything this script could say in its place.
+  local KEY
+  if ! KEY=$(op read --account "$IDENTITY_ACCOUNT" "$IDENTITY_URI"); then
+    echo "💥 ${BOLD}${RED}Could not read identity from 1Password:${RESET} ${IDENTITY_URI}" >&2
+    exit 1
+  fi
+
+  # A renamed item or a mistyped field yields something that is not a key, and
+  # `age` reports that as "no identities found": indistinguishable, by exit
+  # status, from holding the wrong key for a ciphertext. Left unchecked it
+  # would reach `encrypt` as "cannot decrypt existing ciphertext", sending you
+  # off to resolve a conflict that does not exist.
+  case "$KEY" in
+    *AGE-SECRET-KEY-*) ;;
+    *)
+      echo "💥 ${BOLD}${RED}No age secret key found at:${RESET} ${IDENTITY_URI}" >&2
+      exit 1
+      ;;
+  esac
+
+  IDENTITY_KEY="$KEY"
+}
+
+# Decrypts ciphertext ($1) to a file ($2). Callers must have established that
+# `resolve_identity` succeeds before getting here.
+#
+# The key is passed by process substitution, which is a pipe under "/dev/fd":
+# it never touches the disk, and because `printf` is a builtin it never appears
+# as an argument to anything either.
+decrypt_to() {
+  local CIPHERTEXT=$1
+  local OUTPUT=$2
+
+  age --decrypt -i <(printf '%s\n' "$IDENTITY_KEY") -o "$OUTPUT" "$CIPHERTEXT"
+}
+
 # Compares plaintext ($1) against the decrypted contents of ciphertext ($2).
 #
 # Returns 0 if they match, 1 if they differ, and 2 if the ciphertext could not
@@ -63,7 +128,7 @@ same() {
   local CIPHERTEXT=$2
 
   make_temp_file
-  if ! age --decrypt -i "$IDENTITY" -o "$TEMP_FILE" "$CIPHERTEXT"; then
+  if ! decrypt_to "$CIPHERTEXT" "$TEMP_FILE"; then
     return 2
   fi
   if cmp -s "$PLAINTEXT" "$TEMP_FILE"; then
@@ -117,8 +182,8 @@ decrypt() {
   local PLAINTEXT=$1
   local CIPHERTEXT="${PLAINTEXT}.encrypted"
 
-  if [ ! -f "$IDENTITY" ]; then
-    echo "💥 ${BOLD}${RED}Cannot decrypt without identity:${RESET} ${IDENTITY}"
+  if ! resolve_identity; then
+    echo "💥 ${BOLD}${RED}Cannot decrypt without an identity from 1Password${RESET}"
     exit 1
   fi
 
@@ -131,7 +196,7 @@ decrypt() {
     # leaves a truncated plaintext behind, which a subsequent `encrypt` would
     # then happily make canonical.
     make_temp_file
-    if ! age --decrypt -i "$IDENTITY" -o "$TEMP_FILE" "$CIPHERTEXT"; then
+    if ! decrypt_to "$CIPHERTEXT" "$TEMP_FILE"; then
       echo "💥 ${BOLD}${RED}Failed to decrypt (leaving plaintext untouched):${RESET} ${CIPHERTEXT}" >&2
       exit 1
     fi
@@ -152,7 +217,7 @@ encrypt() {
   local CIPHERTEXT="${PLAINTEXT}.encrypted"
 
   if [ -f "$PLAINTEXT" ]; then
-    if [ -f "$CIPHERTEXT" -a -f "$IDENTITY" ]; then
+    if [ -f "$CIPHERTEXT" ] && resolve_identity; then
       local RESULT=0
       same "$PLAINTEXT" "$CIPHERTEXT" || RESULT=$?
       if [ "$RESULT" -eq 0 ]; then
@@ -193,7 +258,7 @@ status() {
 
   if [ ! -f "$PLAINTEXT" ]; then
     STATE="encrypted"
-  elif [ -f "$CIPHERTEXT" -a -f "$IDENTITY" ]; then
+  elif [ -f "$CIPHERTEXT" ] && resolve_identity; then
     # Existence of the plaintext says nothing about whether it still matches
     # the ciphertext beside it, which is the state that actually bites when
     # working on more than one machine (eg. pulling someone else's ciphertext

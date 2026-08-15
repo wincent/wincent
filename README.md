@@ -246,16 +246,13 @@ There are some encrypted files in the repo. If you run `./install dotfiles` you 
 Continue anyway? [y/n]:
 ```
 
-To decrypt these I use my [age](https://github.com/FiloSottile/age) key, stored in 1Password, and placed in:
+To decrypt these I use my [age](https://github.com/FiloSottile/age) key, which is read from 1Password at the point of use rather than kept on disk.
 
-```sh
-mkdir -p ~/.config/age
-chmod 0700 !$
-```
+To decrypt, I run `bin/decrypt`, which relies on the `age` executable and the [1Password CLI](https://developer.1password.com/docs/cli/) (ie. it won't work until after the first Homebrew run, or a `brew install age` and `brew install --cask 1password-cli`). Rather than signing in on the command line, I turn on ["Integrate with 1Password CLI"](https://developer.1password.com/docs/cli/app-integration/) under "Developer" in the desktop app's settings, which authorizes `op` biometrically on demand.
 
-To decrypt, I run `bin/decrypt`, which relies on the `age` executable (ie. it won't work until after the first Homebrew run, or a `brew install age`). The plaintext versions corresponding to these encrypted files are listed in `.gitignore`.
+The plaintext versions corresponding to these encrypted files are listed in `.gitignore`.
 
-In my Neovim config, I have an autocmd that runs `bin/encrypt` automatically anytime I save a new version of the plaintext corresponding to an encrypted file. Committing the changes to the repo is done manually, as it would be for any other file.
+In my Neovim config, I have an autocmd that runs `wage encrypt` automatically anytime I save a new version of the plaintext corresponding to an encrypted file, in any repo that has a `.wage.config`. Failures are reported rather than discarded. Committing the changes to the repo is done manually, as it would be for any other file.
 
 See [CONTRIBUTING](./CONTRIBUTING.md) for notes on adding new encrypted files, or rotating encryption keys.
 
