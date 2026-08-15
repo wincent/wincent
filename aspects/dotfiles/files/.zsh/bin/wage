@@ -14,10 +14,18 @@ STATUS_EXIT=0
 TEMP_FILE=
 VERBOSE=0
 
-BOLD=$(tput bold)
-GREEN=$(tput setaf 2)
-RED=$(tput setaf 1)
-RESET=$(tput sgr0)
+# Only colorize when writing to an interactive terminal.
+if [ -t 1 ]; then
+  BOLD=$(tput bold)
+  GREEN=$(tput setaf 2)
+  RED=$(tput setaf 1)
+  RESET=$(tput sgr0)
+else
+  BOLD=
+  GREEN=
+  RED=
+  RESET=
+fi
 
 usage() {
   echo "Usage: wage <encrypt|decrypt|status> [--verbose] [file ...]"

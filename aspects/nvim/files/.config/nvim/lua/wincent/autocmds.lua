@@ -157,28 +157,33 @@ end
 -- Auto-encrypt files when saved.
 local encrypt = function()
   local file = vim.fn.expand('<afile>:p')
-  local wincent_dir = vim.fn.expand('~/code/wincent')
-
-  -- Only auto-encrypt files within the wincent repo.
-  if vim.fn.stridx(file, wincent_dir) ~= 0 then
-    return
-  end
-
   local encrypted = file .. '.encrypted'
 
   -- Only auto-encrypt if a corresponding .encrypted file exists.
-  if vim.fn.filewritable(encrypted) ~= 1 then
+  if file == '' or vim.fn.filewritable(encrypted) ~= 1 then
     return
   end
 
-  local encrypt_script = wincent_dir .. '/bin/encrypt'
-  if vim.fn.executable(encrypt_script) == 1 then
-    -- Make path relative to repo root
-    local relative_file = file
-    if vim.fn.stridx(file, wincent_dir .. '/') == 0 then
-      relative_file = file:sub(#wincent_dir + 2)
-    end
-    vim.fn.system(vim.fn.fnameescape(encrypt_script) .. ' ' .. vim.fn.shellescape(relative_file))
+  -- ... and the file belongs to a repo managed by `wage`.
+  local config = vim.fs.find('.wage.config', { path = vim.fs.dirname(file), type = 'file', upward = true })[1]
+  if config == nil then
+    return
+  end
+
+  -- `wage` finds its config by searching upwards from the working directory, so
+  -- run it from the directory containing the config we just found.
+  local root = vim.fs.dirname(config)
+  local relative_file = file:sub(#root + 2)
+
+  if vim.fn.executable('wage') ~= 1 then
+    vim.notify('Cannot encrypt ' .. relative_file .. ': `wage` is not executable', vim.log.levels.ERROR)
+    return
+  end
+
+  local result = vim.system({ 'wage', 'encrypt', relative_file }, { cwd = root, text = true }):wait()
+  if result.code ~= 0 then
+    local output = (result.stderr or '') .. (result.stdout or '')
+    vim.notify(vim.trim('`wage encrypt` failed for ' .. relative_file .. ':\n' .. output), vim.log.levels.ERROR)
   end
 end
 
