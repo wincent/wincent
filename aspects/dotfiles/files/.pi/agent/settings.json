@@ -1,16 +1,16 @@
 {
-  "defaultModel": "claude-opus-5",
-  "defaultProvider": "anthropic",
-  "defaultThinkingLevel": "max",
+  "defaultModel": "grok-4.6",
+  "defaultProvider": "xai",
+  "defaultThinkingLevel": "high",
   "enabledModels": [
     "anthropic/claude-fable-5",
     "anthropic/claude-opus-5",
     "anthropic/claude-sonnet-5",
     "anthropic/claude-haiku-4-5",
-    "google/gemini-3.1-pro-preview",
-    "google/gemini-flash-latest",
-    "openai-codex/gpt-5.6-sol",
-    "openai-codex/gpt-5.5"
+    "xai/grok-4.6",
+    "openai/gpt-5.6-sol",
+    "openai/gpt-5.6-luna",
+    "openai/gpt-5.6-terra"
   ],
   "extensions": [
     "~/.claude/plugins/marketplaces/wincent-agent-plugins/pi/extensions",

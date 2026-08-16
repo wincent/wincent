@@ -179,6 +179,17 @@ task('fill templates', async () => {
   }
 });
 
+task('install ~/.pi/agent/auth.json', when('wincent', 'personal'), async () => {
+  await file({
+    path: '~/.pi/agent',
+    state: 'directory',
+  });
+  await template({
+    path: path.home.join('.pi/agent/auth.json'),
+    src: path.aspect.join('templates/.pi/agent/auth.json.erb'),
+  });
+});
+
 task('zcompile shell files', async () => {
   const script = resource.support('compile-zwc');
 
