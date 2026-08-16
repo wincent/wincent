@@ -157,6 +157,8 @@ else
   export GPG_TTY=$(tty)
 fi
 
+export FAVA_READ_ONLY=1
+
 # See: https://cli.github.com/telemetry
 export GH_TELEMETRY=false
 
