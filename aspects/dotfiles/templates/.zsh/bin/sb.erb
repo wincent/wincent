@@ -213,6 +213,12 @@ set -e
 # Drain ref-update commands from stdin (one '<old> <new> <ref>' line each).
 cat > /dev/null
 
+# Don't let subsequent commands mistake `.git` for a worktree.
+GIT_DIR="$(git rev-parse --absolute-git-dir)"
+GIT_WORK_TREE="$(dirname "$GIT_DIR")"
+export GIT_DIR GIT_WORK_TREE
+cd "$GIT_WORK_TREE"
+
 force=0
 i=0
 while [ "$i" -lt "${GIT_PUSH_OPTION_COUNT:-0}" ]; do
