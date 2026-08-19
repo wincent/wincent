@@ -25,6 +25,7 @@
       ".config/picom.conf",
       ".config/pry",
       ".config/screenkey.json",
+      ".config/shadowfax/rc-files",
       ".config/shellbot",
       ".config/sxhkd",
       ".config/tmux",
