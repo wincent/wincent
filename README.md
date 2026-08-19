@@ -241,10 +241,12 @@ There are some encrypted files in the repo. If you run `./install dotfiles` you 
 [notice]  Changed: command `bin/crypt-status`
 [warning] Files not yet decrypted:
 
-... (list of still-encrypted files)
+... (list of files needing attention)
 
 Continue anyway? [y/n]:
 ```
+
+Despite the wording, that list isn't limited to files that are still encrypted: it covers any file whose plaintext is missing, doesn't match the ciphertext beside it, or sits next to a ciphertext that can't be decrypted at all. `bin/crypt-status --verbose` says which is which.
 
 To decrypt these I use my [age](https://github.com/FiloSottile/age) key, which is read from 1Password at the point of use rather than kept on disk.
 
@@ -253,6 +255,33 @@ To decrypt, I run `bin/decrypt`, which relies on the `age` executable and the [1
 The plaintext versions corresponding to these encrypted files are listed in `.gitignore`.
 
 In my Neovim config, I have an autocmd that runs `wage encrypt` automatically anytime I save a new version of the plaintext corresponding to an encrypted file, in any repo that has a `.wage.config`. Failures are reported rather than discarded. Committing the changes to the repo is done manually, as it would be for any other file.
+
+> [!IMPORTANT]
+> Working on two machines has some sharp edges, because a gitignored plaintext is invisible to version control: neither `git status` nor `jj st` will ever tell me that a plaintext has drifted from the ciphertext beside it.
+>
+> `wage` covers the destructive half of that:
+>
+> - `encrypt` decrypts the existing ciphertext first and skips the write when it already matches, so saving a file doesn't churn the ciphertext.
+> - If it _can't_ decrypt what's already there (unresolved conflict markers, or a recipient whose identity I don't hold), it refuses and exits non-zero instead of overwriting it; the Neovim autocmd surfaces that as an error.
+> - `decrypt` writes via a temporary file outside the worktree, so a failed decrypt leaves the plaintext untouched rather than truncated.
+> - `status` compares contents rather than merely checking for existence, so `bin/crypt-status --verbose` distinguishes "decrypted", "diverged" (plaintext doesn't match its ciphertext) and "unreadable".
+>
+> Which leaves, in practice:
+>
+> - **Pulling.** Run `bin/crypt-status --verbose`, then `bin/decrypt` (optionally naming specific paths). Nothing does this for me, and `encrypt` will happily overwrite a ciphertext it _can_ read, so editing and saving a file I pulled but never decrypted discards the pulled version (recoverable, given that the ciphertext was committed).
+> - **Pushing.** Nothing to do: the autocmd means my local changes are already in the ciphertext by the time I commit, and `bin/decrypt` reads the local ciphertext, so it can't undo them.
+> - **Both machines changing the same file.** The ciphertext conflicts and has to be resolved by hand. Saving can't paper over it (`encrypt` refuses), but seeing what happened means extracting both sides:
+>
+> ```
+> KEY=$(op read --account my.1password.eu op://Private/age-key/secret-key)
+> git show :2:path.encrypted | age --decrypt -i <(printf '%s\n' "$KEY") > "$TMPDIR/ours"
+> git show :3:path.encrypted | age --decrypt -i <(printf '%s\n' "$KEY") > "$TMPDIR/theirs"
+> diff -u "$TMPDIR/ours" "$TMPDIR/theirs"
+> ```
+>
+> With `jj`, `jj resolve --list` and `jj log -r 'conflicts()'` locate the conflict, and `jj file show -r <side> path.encrypted` stands in for `git show`.
+>
+> To resolve: pick a side (`git checkout --ours path.encrypted`), `bin/decrypt path`, merge the other side into the plaintext by hand, and save. The autocmd re-encrypts, and the conflict is resolved.
 
 See [CONTRIBUTING](./CONTRIBUTING.md) for notes on adding new encrypted files, or rotating encryption keys.
 
