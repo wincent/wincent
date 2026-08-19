@@ -237,16 +237,25 @@ git config --file ~/.config/git/config.local user.email johndoe@example.com
 There are some encrypted files in the repo. If you run `./install dotfiles` you will see a warning like this:
 
 ```
-[notice]  Task: dotfiles | check for decrypted files
-[notice]  Changed: command `bin/crypt-status`
-[warning] Files not yet decrypted:
+[notice]  Task: dotfiles | check encryption status
+[notice]  Changed: command `bin/crypt-status --porcelain`
+[warning] Encrypted files needing attention:
 
-... (list of files needing attention)
+diverged (plaintext does not match the ciphertext beside it):
+
+  ... (list of files)
+
+  Run `bin/decrypt <file>` to replace the plaintext with the committed
+  ciphertext, or `bin/encrypt <file>` to publish local plaintext edits.
 
 Continue anyway? [y/n]:
 ```
 
-Despite the wording, that list isn't limited to files that are still encrypted: it covers any file whose plaintext is missing, doesn't match the ciphertext beside it, or sits next to a ciphertext that can't be decrypted at all. `bin/crypt-status --verbose` says which is which.
+The files are grouped by state:
+
+- A plaintext that is missing (`encrypted`).
+- A plaintext that doesn't match the ciphertext beside it (`diverged`); and:
+- A ciphertext that can't be decrypted at all (`unreadable`).
 
 To decrypt these I use my [age](https://github.com/FiloSottile/age) key, which is read from 1Password at the point of use rather than kept on disk.
 

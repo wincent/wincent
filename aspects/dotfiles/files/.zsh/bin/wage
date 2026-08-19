@@ -13,6 +13,11 @@
 #      on standard output
 #   2  something went wrong, with a diagnostic on standard error
 #
+# `status` has three output formats: the default one (paths only, suitable for
+# eyeballing), `--verbose` (every file, with its state spelled out in prose) and
+# `--porcelain` ("STATE<TAB>PATH" for each file needing attention, for callers
+# that want to say something more useful than "these paths need attention").
+#
 # The distinction between 1 and 2 matters to callers that want to show the list
 # of paths: without it, an early bail-out (eg. no identity available) looks
 # exactly like "nothing needs attention".
@@ -37,6 +42,7 @@ IDENTITY_URI="${WAGE_IDENTITY_URI-op://Private/age-key/secret-key}"
 IDENTITY_ACCOUNT="${WAGE_IDENTITY_ACCOUNT-my.1password.eu}"
 IDENTITY_KEY=
 
+PORCELAIN=0
 STATUS_EXIT=0
 TEMP_FILE=
 VERBOSE=0
@@ -55,7 +61,7 @@ else
 fi
 
 usage() {
-  echo "Usage: wage <encrypt|decrypt|status> [--verbose] [file ...]" >&2
+  echo "Usage: wage <encrypt|decrypt|status> [--porcelain] [--verbose] [file ...]" >&2
   exit 2
 }
 
@@ -292,7 +298,14 @@ status() {
     fi
   fi
 
-  if [ "$VERBOSE" -eq 1 ]; then
+  if [ "$PORCELAIN" -eq 1 ]; then
+    # Machine-readable, and deliberately limited to the files that need
+    # attention, like the default format: a caller wanting everything can ask
+    # for `--verbose` instead.
+    if [ "$STATE" != "decrypted" ]; then
+      printf '%s\t%s\n' "$STATE" "$PLAINTEXT"
+    fi
+  elif [ "$VERBOSE" -eq 1 ]; then
     case "$STATE" in
       decrypted)
         echo "${PLAINTEXT}: ${GREEN}decrypted${RESET}"
@@ -337,7 +350,9 @@ read_config "$CONFIG_FILE"
 # Parse flags and filter file arguments
 ARGS=()
 for ARG in "$@"; do
-  if [[ "$ARG" == "--verbose" ]]; then
+  if [[ "$ARG" == "--porcelain" ]]; then
+    PORCELAIN=1
+  elif [[ "$ARG" == "--verbose" ]]; then
     VERBOSE=1
   else
     ARGS+=("$ARG")

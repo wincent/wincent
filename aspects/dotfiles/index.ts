@@ -101,35 +101,96 @@ variables(async ({hostHandle, identity, platform, profile}) => {
   };
 });
 
-task('check for decrypted files', when('wincent'), async () => {
+// How to describe each state that `wage status --porcelain` can report, and
+// what to do about it.
+const CRYPT_STATES: {
+  [state: string]: {description: string; remedy: Array<string>};
+} = {
+  diverged: {
+    description: 'plaintext does not match the ciphertext beside it',
+    remedy: [
+      'Run `bin/decrypt <file>` to replace the plaintext with the committed',
+      'ciphertext, or `bin/encrypt <file>` to publish local plaintext edits.',
+    ],
+  },
+  encrypted: {
+    description: 'plaintext is missing',
+    remedy: ['Run `bin/decrypt <file>` to create it.'],
+  },
+  unreadable: {
+    description: 'ciphertext cannot be decrypted',
+    remedy: [
+      'Something else is wrong (eg. unresolved conflict markers in',
+      'the ciphertext, or a recipient whose identity this machine does not',
+      'hold); resolve it by hand.',
+    ],
+  },
+};
+
+task('check encryption status', when('wincent'), async () => {
   if (is('vm')) {
     return;
   }
 
-  const result = await command('bin/crypt-status', [], {
+  const result = await command('bin/crypt-status', ['--porcelain'], {
     failedWhen: () => false,
   });
 
-  if (result !== null) {
-    // `wage status` exits 1 when at least one file needs attention, printing
-    // one path per line, so a non-zero status is expected here. It reserves 2
-    // for "couldn't get far enough to tell" (eg. the identity is unreachable),
-    // which is the only case where there is nothing worth reporting.
-    const pending = result.status === 0 || result.status === 1
-      ? result.stdout
-        .trim()
-        .split(/\n/)
-        .filter((line) => line.length)
-      : ['unable to determine encryption status for any file'];
+  if (result === null) {
+    return;
+  }
 
-    if (pending.length) {
-      log.warn(
-        `Files not yet decrypted:\n\n${pending.join('\n')}\n`,
-      );
+  // `wage status` exits 1 when at least one file needs attention, so a non-zero
+  // status is expected here. It reserves 2 for "couldn't get far enough to
+  // tell" (eg. the identity is unreachable), which is the only case where there
+  // is nothing per-file to report.
+  if (result.status !== 0 && result.status !== 1) {
+    log.warn('Unable to determine encryption status of any file.\n');
 
-      if (!(await prompt.confirm('Continue anyway'))) {
-        fail(`decrypted file check failed`);
+    if (!(await prompt.confirm('Continue anyway'))) {
+      fail('encryption status check failed');
+    }
+
+    return;
+  }
+
+  // One "STATE<TAB>PATH" line per file needing attention; group by state so
+  // that each group can be reported along with its remedy.
+  const grouped = new Map<string, Array<string>>();
+
+  for (const line of result.stdout.split(/\n/)) {
+    const match = line.match(/^(\S+)\t(.+)$/);
+
+    if (match) {
+      const [, state, file] = match;
+      const files = grouped.get(state);
+
+      if (files) {
+        files.push(file);
+      } else {
+        grouped.set(state, [file]);
       }
+    }
+  }
+
+  if (grouped.size) {
+    const sections = [...grouped.entries()].map(([state, files]) => {
+      const info = CRYPT_STATES[state];
+
+      return [
+        info ? `${state} (${info.description}):` : `${state}:`,
+        '',
+        ...files.map((file) => `  ${file}`),
+        ...(info ? ['', ...info.remedy.map((line) => `  ${line}`)] : []),
+      ].join('\n');
+    });
+
+    log.warn(
+      `Encrypted files needing attention:\n\n${sections.join('\n\n')}\n`,
+    );
+
+    if (!(await prompt.confirm('Continue anyway'))) {
+      fail('encryption status check failed');
     }
   }
 });
