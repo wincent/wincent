@@ -176,6 +176,18 @@ const APPLE_INTERNAL_US = {
   },
 };
 
+/**
+ * For keyboards that assume Windows defaults, make them behave more Apple-like.
+ */
+const WINDOWS_MODIFICATIONS = {
+  simple_modifications: [
+    ...swap('left_command', 'left_option'),
+    ...swap('right_command', 'right_option'),
+    ...fromTo('application', 'fn'),
+    ...fromTo('pause', 'power'),
+  ],
+};
+
 const REALFORCE = {
   ...DEVICE_DEFAULTS,
   identifiers: {
@@ -183,12 +195,17 @@ const REALFORCE = {
     product_id: 273,
     vendor_id: 2131,
   },
-  simple_modifications: [
-    ...swap('left_command', 'left_option'),
-    ...swap('right_command', 'right_option'),
-    ...fromTo('application', 'fn'),
-    ...fromTo('pause', 'power'),
-  ],
+  ...WINDOWS_MODIFICATIONS,
+};
+
+const OTHER = {
+  ...DEVICE_DEFAULTS,
+  identifiers: {
+    ...IDENTIFIER_DEFAULTS,
+    product_id: 25449,
+    vendor_id: 25449,
+  },
+  ...WINDOWS_MODIFICATIONS,
 };
 
 const PARAMETER_DEFAULTS = {
@@ -463,7 +480,7 @@ const DEFAULT_PROFILE = {
       },
     ],
   },
-  devices: [REALFORCE, APPLE_INTERNAL_US],
+  devices: [REALFORCE, OTHER, APPLE_INTERNAL_US],
   name: 'Default',
   selected: true,
 };
