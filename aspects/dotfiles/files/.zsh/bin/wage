@@ -5,8 +5,27 @@
 #
 # Note that I use this script from several other repos, so, when making changes,
 # care should be taken to preserve forwards/backwards compatibility.
+#
+# Exit status:
+#
+#   0  success (and, for `status`, everything is decrypted and up-to-date)
+#   1  `status` found at least one file needing attention, one path per line
+#      on standard output
+#   2  something went wrong, with a diagnostic on standard error
+#
+# The distinction between 1 and 2 matters to callers that want to show the list
+# of paths: without it, an early bail-out (eg. no identity available) looks
+# exactly like "nothing needs attention".
 
 set -e
+
+# Anything that fails without being explicitly handled would otherwise exit
+# with whatever status that command chose, which is 1 often enough to muddy the
+# waters above. This fires under the same conditions as `set -e`, so handled
+# failures (`if !`, `||`) are unaffected; `set -E` is what gets the trap into
+# shell functions.
+set -E
+trap 'exit 2' ERR
 
 CONFIG_FILE=".wage.config"
 
@@ -36,8 +55,8 @@ else
 fi
 
 usage() {
-  echo "Usage: wage <encrypt|decrypt|status> [--verbose] [file ...]"
-  exit 1
+  echo "Usage: wage <encrypt|decrypt|status> [--verbose] [file ...]" >&2
+  exit 2
 }
 
 cleanup() {
@@ -82,7 +101,7 @@ resolve_identity() {
   local KEY
   if ! KEY=$(op read --account "$IDENTITY_ACCOUNT" "$IDENTITY_URI"); then
     echo "💥 ${BOLD}${RED}Could not read identity from 1Password:${RESET} ${IDENTITY_URI}" >&2
-    exit 1
+    exit 2
   fi
 
   # A renamed item or a mistyped field yields something that is not a key, and
@@ -94,7 +113,7 @@ resolve_identity() {
     *AGE-SECRET-KEY-*) ;;
     *)
       echo "💥 ${BOLD}${RED}No age secret key found at:${RESET} ${IDENTITY_URI}" >&2
-      exit 1
+      exit 2
       ;;
   esac
 
@@ -148,7 +167,7 @@ find_repo_root() {
     DIR=$(dirname "$DIR")
   done
   echo "${BOLD}${RED}Could not find ${CONFIG_FILE} in any parent directory${RESET}" >&2
-  exit 1
+  exit 2
 }
 
 read_config() {
@@ -169,12 +188,12 @@ read_config() {
 
   if [ -z "$RECIPIENT" ]; then
     echo "${BOLD}${RED}No RECIPIENT found in ${CONFIG}${RESET}" >&2
-    exit 1
+    exit 2
   fi
 
   if [ ${#ITEMS[@]} -eq 0 ]; then
     echo "${BOLD}${RED}No files listed in ${CONFIG}${RESET}" >&2
-    exit 1
+    exit 2
   fi
 }
 
@@ -183,8 +202,8 @@ decrypt() {
   local CIPHERTEXT="${PLAINTEXT}.encrypted"
 
   if ! resolve_identity; then
-    echo "💥 ${BOLD}${RED}Cannot decrypt without an identity from 1Password${RESET}"
-    exit 1
+    echo "💥 ${BOLD}${RED}Cannot decrypt without an identity from 1Password${RESET}" >&2
+    exit 2
   fi
 
   if [ -f "$CIPHERTEXT" ]; then
@@ -198,7 +217,7 @@ decrypt() {
     make_temp_file
     if ! decrypt_to "$CIPHERTEXT" "$TEMP_FILE"; then
       echo "💥 ${BOLD}${RED}Failed to decrypt (leaving plaintext untouched):${RESET} ${CIPHERTEXT}" >&2
-      exit 1
+      exit 2
     fi
     if [[ "$PLAINTEXT" == *.sh ]]; then
       chmod 700 "$TEMP_FILE"
@@ -230,7 +249,7 @@ encrypt() {
         # ciphertext is still unresolved).
         echo "💥 ${BOLD}${RED}Refusing to encrypt (cannot decrypt existing ciphertext):${RESET} ${CIPHERTEXT}" >&2
         echo "   ${BOLD}Resolve it by hand; overwriting it would discard its contents.${RESET}" >&2
-        exit 1
+        exit 2
       fi
     fi
     echo "🔑 ${BOLD}${GREEN}Encrypting:${RESET} ${PLAINTEXT}"
