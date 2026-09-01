@@ -195,6 +195,7 @@ const REALFORCE = {
     product_id: 273,
     vendor_id: 2131,
   },
+  ignore_vendor_events: true,
   ...WINDOWS_MODIFICATIONS,
 };
 
@@ -205,6 +206,8 @@ const OTHER = {
     product_id: 25449,
     vendor_id: 25449,
   },
+  ignore_vendor_events: true,
+  manipulate_caps_lock_led: false,
   ...WINDOWS_MODIFICATIONS,
 };
 
@@ -243,8 +246,7 @@ const VANILLA_PROFILE = {
   selected: false,
   simple_modifications: [],
   virtual_hid_keyboard: {
-    caps_lock_delay_milliseconds: 0,
-    keyboard_type: 'ansi',
+    keyboard_type_v2: 'ansi',
   },
 };
 
