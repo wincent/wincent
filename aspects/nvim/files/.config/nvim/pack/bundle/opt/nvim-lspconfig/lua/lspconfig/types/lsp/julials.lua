@@ -1,5 +1,31 @@
 ---@meta
 
+---@class _.lspconfig.settings.julials.Julia.CellCodeLens
+---Show the `Above` CodeLens action for cells delimited by `#julia.cellDelimiters#`.
+---
+---```lua
+---default = true
+---```
+---@field above? boolean
+---Show the `Below` CodeLens action for cells delimited by `#julia.cellDelimiters#`.
+---
+---```lua
+---default = true
+---```
+---@field below? boolean
+---Show the `Debug` CodeLens action for cells delimited by `#julia.cellDelimiters#`.
+---
+---```lua
+---default = true
+---```
+---@field debug? boolean
+---Show the `Run` CodeLens action for cells delimited by `#julia.cellDelimiters#`.
+---
+---```lua
+---default = true
+---```
+---@field run? boolean
+
 ---@class _.lspconfig.settings.julials.Julia.Execution
 ---Print executed code in REPL and append it to the REPL history.
 ---@field codeInREPL? boolean
@@ -148,6 +174,7 @@
 ---default = {}
 ---```
 ---@field additionalArgs? any[]
+---@field cellCodeLens? _.lspconfig.settings.julials.Julia.CellCodeLens
 ---Cell delimiter regular expressions for Julia files.
 ---
 ---```lua
@@ -180,7 +207,7 @@
 ---@field editor? string
 ---Enable crash reports to be sent to the julia VS Code extension developers.
 ---@field enableCrashReporter? boolean
----Whether to use dynamic package indexing. Disable for reduced functionality with lower resource usage.
+---Whether to use local package indexing. Disable for potentially reduced functionality with lower resource usage.
 ---
 ---```lua
 ---default = true
@@ -188,6 +215,12 @@
 ---@field enableDynamicIndexing? boolean
 ---Enable usage data and errors to be sent to the julia VS Code extension developers.
 ---@field enableTelemetry? boolean
+---Whether to auto-resolve environments in the workspace, for example a `docs/Project.toml` that has no Manifest.toml. Resolution runs Pkg in a background child process and may access the network. If false, only environments with a Manifest.toml are considered. Changing this requires a restart of the language server.
+---
+---```lua
+---default = true
+---```
+---@field enableWorkspaceEnvironmentResolution? boolean
 ---Path to a julia environment. VS Code needs to be reloaded for changes to take effect. Explicitly supports substitution for the `${userHome}`, `${workspaceFolder}`, `${workspaceFolderBasename}`, `${workspaceFolder:<FOLDER_NAME>}`, `${pathSeparator}`, `${env:<ENVIRONMENT_VARIABLE>}`, `${config:<CONFIG_VARIABLE>}` tokens.
 ---@field environmentPath? string
 ---Environment variables that are added to the Julia executable's environment for every Julia process started by this extension. Variables defined here will be merged with (and usually override) the default process environment, but various environment variables will get overridden for some processes for stability reasons.
@@ -219,6 +252,12 @@
 ---default = "release"
 ---```
 ---@field languageServerJuliaupChannel? string
+---Maximum number of concurrently running environment-indexing child processes. Set to 0 for no limit.
+---
+---```lua
+---default = 4
+---```
+---@field maxConcurrentIndexingProcesses? integer
 ---Number of processes to use for testing.
 ---
 ---```lua
@@ -242,12 +281,12 @@
 ---default = true
 ---```
 ---@field showRuntimeDiagnostics? boolean
----Download symbol server cache files from GitHub.
+---Download symbol server cache files from `julia.symbolserverUpstream`.
 ---@field symbolCacheDownload? boolean
 ---Symbol server cache download URL.
 ---
 ---```lua
----default = "https://www.julia-vscode.org/symbolcache"
+---default = "https://symbolcache.julialang.net"
 ---```
 ---@field symbolserverUpstream? string
 ---@field trace? _.lspconfig.settings.julials.Julia.Trace

@@ -1,0 +1,10 @@
+# Scheme name: Jellybeans
+# Scheme author: FredHappyface (https://github.com/fredHappyface), converted to Base16 by https://github.com/nonetrix
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-jellybeans
+ColorForeground=#d5d5d5
+ColorBackground=#121212
+ColorCursor=#d5d5d5
+ColorBoldIsBright=FALSE
+ColorPalette=#121212;#ffa1a1;#bddeab;#ffdca0;#b1d8f6;#fbdaff;#1ab2a8;#d5d5d5;#c5c5c5;#ffa1a1;#bddeab;#ffdca0;#b1d8f6;#fbdaff;#1ab2a8;#ffffff

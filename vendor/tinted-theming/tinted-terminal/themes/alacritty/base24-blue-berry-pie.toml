@@ -31,7 +31,7 @@ yellow = '0x793188'
 blue = '0x38163d'
 magenta = '0xbc93b6'
 cyan = '0x5d5f71'
-white = '0x0a6b7e'
+white = '0xf0e7d5'
 
 [[colors.indexed_colors]]
 index = 16

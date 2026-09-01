@@ -220,6 +220,7 @@
 ---  generateTestForFile = false,
 ---  generateTestForFunction = true,
 ---  generateTestForPackage = false,
+---  implCursor = true,
 ---  playground = true,
 ---  removeTags = false,
 ---  testAtCursor = true,
@@ -272,6 +273,12 @@
 ---default = true
 ---```
 ---@field generateTestForPackage? boolean
+---If true, adds command to generate interface stubs to the editor context menu
+---
+---```lua
+---default = true
+---```
+---@field implCursor? boolean
 ---If true, adds command to upload the current file or selection to the Go Playground
 ---
 ---```lua
@@ -541,7 +548,7 @@
 ---@field go? string
 
 ---@class _.lspconfig.settings.gopls.Go.Trace
----Trace the communication between VS Code and the Go language server.
+---Trace the communication between VS Code and the Go language server. Also requires setting the 'gopls' output channel log level to 'Trace' ('Developer: Set Log Level...').
 ---
 ---```lua
 ---default = "off"
@@ -647,6 +654,7 @@
 ---  generateTestForFile = false,
 ---  generateTestForFunction = true,
 ---  generateTestForPackage = false,
+---  implCursor = true,
 ---  playground = true,
 ---  removeTags = false,
 ---  testAtCursor = true,

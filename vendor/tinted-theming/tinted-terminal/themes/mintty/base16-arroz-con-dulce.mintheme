@@ -1,0 +1,27 @@
+# Arroz con Dulce theme for Mintty
+# Scheme Author: Richard Martinez
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #fff8e7
+Red         = #a11d48
+Green       = #a2380c
+Yellow      = #855500
+Blue        = #5940a0
+Magenta     = #8c1f68
+Cyan        = #98263e
+White       = #4a2c20
+BoldBlack   = #c8a77a
+BoldRed     = #a11d48
+BoldGreen   = #a2380c
+BoldYellow  = #855500
+BoldBlue    = #5940a0
+BoldMagenta = #8c1f68
+BoldCyan    = #98263e
+BoldWhite   = #21110b
+
+# Background & foreground colors
+BackgroundColour = #fff8e7
+ForegroundColour = #4a2c20
+CursorColour     = #4a2c20

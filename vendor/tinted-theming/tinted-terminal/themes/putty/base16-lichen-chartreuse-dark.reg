@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Lichen Chartreuse Dark
+; Scheme system: base16
+; Scheme description: Low-glare chartreuse theme with green-gray neutrals; dark compatibility palette.
+; Scheme author: Aaron Colichia (https://aaron.colichia.org/)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base16-lichen-chartreuse-dark]
+
+; Default Foreground
+; base05 #e0e5da
+"Colour0"="224,229,218"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #e0e5da
+"Colour1"="224,229,218"
+
+; Default Background
+; base00 #151613
+"Colour2"="21,22,19"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #151613
+"Colour3"="21,22,19"
+
+; Cursor Text -- equals to default background
+; base00 #151613
+"Colour4"="21,22,19"
+
+; Cursor Colour -- equals to default foreground
+; base05 #e0e5da
+"Colour5"="224,229,218"
+
+; ANSI Black
+; 30m
+; base00 #151613
+"Colour6"="21,22,19"
+
+; ANSI Black Bright
+; 1;30m
+; base03 #899282
+"Colour7"="137,146,130"
+
+; ANSI Red
+; 31m
+; base08 #e28b82
+"Colour8"="226,139,130"
+
+; ANSI Red Bright
+; 1;31m
+; base08 #e28b82
+"Colour9"="226,139,130"
+
+; ANSI Green
+; 32m
+; base0B #83bda5
+"Colour10"="131,189,165"
+
+; ANSI Green Bright
+; 1;32m
+; base0B #83bda5
+"Colour11"="131,189,165"
+
+; ANSI Yellow
+; 33m
+; base0A #b2d084
+"Colour12"="178,208,132"
+
+; ANSI Yellow Bright
+; 1;33m
+; base0A #b2d084
+"Colour13"="178,208,132"
+
+; ANSI Blue
+; 34m
+; base0D #78adc4
+"Colour14"="120,173,196"
+
+; ANSI Blue Bright
+; 1;34m
+; base0D #78adc4
+"Colour15"="120,173,196"
+
+; ANSI Magenta
+; 35m
+; base0E #bfa6d4
+"Colour16"="191,166,212"
+
+; ANSI Magenta Bright
+; 1;35m
+; base0E #bfa6d4
+"Colour17"="191,166,212"
+
+; ANSI Cyan
+; 36m
+; base0C #9cc6c9
+"Colour18"="156,198,201"
+
+; ANSI Cyan Bright
+; 1;36m
+; base0C #9cc6c9
+"Colour19"="156,198,201"
+
+; ANSI White
+; 37m
+; base05 #e0e5da
+"Colour20"="224,229,218"
+
+; ANSI White Bright
+; 1;37m
+; base07 fcfcfa
+"Colour21"="252,252,250"

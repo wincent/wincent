@@ -23,7 +23,7 @@ let s:gui03        = '6e6a68'
 let s:gui04        = '807d7b'
 let s:gui05        = '928f8e'
 let s:gui06        = 'a5a2a2'
-let s:gui07        = 'f7f7f7'
+let s:gui07        = '090300'
 let s:gui08        = 'db2d20'
 let s:gui09        = 'fded02'
 let s:gui0A        = '807d7c'
@@ -110,7 +110,7 @@ let s:colors = [
   \ '#807d7c',
   \ '#d6d5d4',
   \ '#cdab53',
-  \ '#f7f7f7'
+  \ '#090300'
 \]
 
 if has('nvim')

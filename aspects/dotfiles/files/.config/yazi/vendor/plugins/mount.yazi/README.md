@@ -45,6 +45,10 @@ Note that, the keybindings above are just examples, please tune them up as neede
 - Windows support (I don't use Windows myself, PRs welcome!)
 - Support mount, unmount, and eject the entire disk
 
+## Related projects
+
+- [lsblk-mount.yazi](https://github.com/PHONE1X/lsblk-mount.yazi) - A fork of mount.yazi using lsblk's JSON device tree for more reliable discovery, plus a mountpoint column and error notifications.
+
 ## License
 
 This plugin is MIT-licensed. For more information check the [LICENSE](LICENSE) file.

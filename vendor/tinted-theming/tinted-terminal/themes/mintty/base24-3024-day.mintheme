@@ -19,7 +19,7 @@ BoldYellow  = #4a4543
 BoldBlue    = #807d7c
 BoldMagenta = #d6d5d4
 BoldCyan    = #cdab53
-BoldWhite   = #f7f7f7
+BoldWhite   = #090300
 
 # Background & foreground colors
 BackgroundColour = #f7f7f7

@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Cerulean Signal Light by Aaron Colichia (https://aaron.colichia.org/)
+
+name: Base24 Cerulean Signal Light
+accent: "#006fa8" # base0D
+cursor: "#232b38" # base05
+background: "#f7f9fc" # base00
+foreground: "#232b38" # base05
+details: lighter
+
+terminal_colors:
+  normal:
+    black: "#f7f9fc" # base00
+    red: "#b4233d" # base08
+    yellow: "#6f6300" # base0A
+    green: "#17795e" # base0B
+    cyan: "#00727e" # base0C
+    blue: "#006fa8" # base0D
+    magenta: "#a0007d" # base0E
+    white: "#232b38" # base05
+
+  bright:
+    black: "#637287" # base03
+    red: "#c7354d" # base12
+    yellow: "#7b6500" # base13
+    green: "#247b4e" # base14
+    cyan: "#007787" # base15
+    blue: "#0078b5" # base16
+    magenta: "#b5149e" # base17
+    white: "#141d2a" # base07

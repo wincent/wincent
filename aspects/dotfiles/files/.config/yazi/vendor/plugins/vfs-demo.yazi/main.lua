@@ -11,6 +11,18 @@ end
 
 local function path(value) return root:join(tostring(value):gsub("^/+", "")) end
 
+local function file(url)
+	local f, err = fs.file(Url(path(url.path)))
+	if not f then
+		return nil, err
+	end
+	return File {
+		url = url,
+		cha = f.cha,
+		link_to = f.link_to,
+	}
+end
+
 local function command(name, args)
 	local status, err = Command(name):arg(args):status()
 	if status and status.success then
@@ -35,15 +47,36 @@ function M:SetAttrs(job) return set_attrs(path(job.url.path), job.attrs) end
 function M:Capabilities() return { symlink = true, hard_link = true, trash = true, copy_progressive = true } end
 
 function M:ReadDir(job)
-	local entries, read_err = fs.read_dir(Url(path(job.url.path)), { resolve = true })
-	if not entries then
-		return nil, read_err
+	local files, err = fs.read_dir(Url(path(job.url.path)), { resolve = true })
+	if not files then
+		return nil, err
 	end
 
-	for i, entry in ipairs(entries) do
-		entries[i] = { url = job.url:join(Path.os(entry.name)), cha = entry.cha }
+	for i, file in ipairs(files) do
+		local cha, err = fs.cha(file.url, false)
+		if not cha then
+			return nil, err
+		end
+		files[i] = {
+			cha = cha,
+			file = File {
+				url = job.url:join(file.name),
+				cha = file.cha,
+				link_to = file.link_to,
+			},
+		}
 	end
-	return entries
+	return files
+end
+
+function M:File(job) return file(job.url) end
+
+function M:Revalidate(job)
+	local latest, err = file(job.file.url)
+	if latest and latest.cha.mtime == job.file.cha.mtime then
+		return nil
+	end
+	return latest, err
 end
 
 function M:SymlinkMetadata(job) return fs.cha(Url(path(job.url.path)), false) end

@@ -84,7 +84,8 @@ _arguments \
 _chromium_proxyurls () {
   #TODO: semicolon separated urls not yet implemented
   # mostly copied from _urls
-  local ipre scheme host user uhosts ret=1 expl match glob suf
+  local ipre scheme host user uhosts ret=1 expl glob suf
+  local -a match mbegin mend
   local localhttp
   zstyle -a ":completion:${curcontext}:urls" local localhttp
   local localhttp_servername="$localhttp[1]"

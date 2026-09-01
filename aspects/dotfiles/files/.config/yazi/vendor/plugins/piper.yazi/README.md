@@ -30,7 +30,7 @@ Available variables:
 - `$1`: path of the file being previewed.
 - `$w`: width of the preview area.
 - `$h`: height of the preview area.
-- `$t`: terminal theme mode, either `"dark"` or `"light"`.
+- `$t`: terminal theme mode, either `"dark"` or `"light"`. `"auto"` if the terminal doesn't report a color scheme.
 
 ## Examples
 
@@ -60,7 +60,7 @@ To have `bat` use the appropriate theme (dark vs light) for syntax highlighting:
 
 ```toml
 # Run `bat --list-themes` to list your available themes
-run = 'piper -- bat -p --color=always --theme="$([ "$t" = "dark" ] && echo Dracula || echo GitHub)" "$1"'
+run = 'piper -- bat -p --color=always --theme="$([ "$t" = "light" ] && echo GitHub || echo Dracula)" "$1"'
 ```
 
 ### Preview Markdown with [`glow`](https://github.com/charmbracelet/glow)

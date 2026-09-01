@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Jellybeans",
+	"foreground": "#d5d5d5",
+	"background": "#121212",
+	"black": "#121212",
+	"blue": "#b1d8f6",
+	"brightBlack": "#c5c5c5",
+	"brightBlue": "#b1d8f6",
+	"brightCyan": "#1ab2a8",
+	"brightGreen": "#bddeab",
+	"brightPurple": "#fbdaff",
+	"brightRed": "#ffa1a1",
+	"brightWhite": "#ffffff",
+	"brightYellow": "#ffdca0",
+	"cyan": "#1ab2a8",
+	"green": "#bddeab",
+	"purple": "#fbdaff",
+	"red": "#ffa1a1",
+	"white": "#d5d5d5",
+	"yellow": "#ffdca0"
+},

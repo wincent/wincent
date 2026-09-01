@@ -1,0 +1,27 @@
+# Pastelón de Amarillos Dark theme for Mintty
+# Scheme Author: Richard Martinez (https://sonofmartinus.com)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #180d18
+Red         = #d95361
+Green       = #36aa72
+Yellow      = #d8a93a
+Blue        = #4c84bd
+Magenta     = #b765b0
+Cyan        = #31a99e
+White       = #ffe0a3
+BoldBlack   = #a0747c
+BoldRed     = #ffd052
+BoldGreen   = #3ed2c3
+BoldYellow  = #43d98d
+BoldBlue    = #e581dc
+BoldMagenta = #ed7d51
+BoldCyan    = #64abf4
+BoldWhite   = #fff7e6
+
+# Background & foreground colors
+BackgroundColour = #180d18
+ForegroundColour = #ffe0a3
+CursorColour     = #ffe0a3

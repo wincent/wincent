@@ -19,7 +19,7 @@ set -l color11 "4a/45/43" # Base 13 - Bright Yellow
 set -l color12 "80/7d/7c" # Base 16 - Bright Blue
 set -l color13 "d6/d5/d4" # Base 17 - Bright Magenta
 set -l color14 "cd/ab/53" # Base 15 - Bright Cyan
-set -l color15 "f7/f7/f7" # Base 07 - Bright White
+set -l color15 "09/03/00" # Base 07 - Bright White
 set -l color16 "fd/ed/02" # Base 09
 set -l color17 "6d/16/10" # Base 0F
 set -l color18 "09/03/00" # Base 01
@@ -181,7 +181,7 @@ if test -n "$TINTED_SHELL_ENABLE_BASE24_VARS"; or test -n "$BASE24_SHELL_ENABLE_
   set -gx BASE24_COLOR_04_HEX "807d7b"
   set -gx BASE24_COLOR_05_HEX "928f8e"
   set -gx BASE24_COLOR_06_HEX "a5a2a2"
-  set -gx BASE24_COLOR_07_HEX "f7f7f7"
+  set -gx BASE24_COLOR_07_HEX "090300"
   set -gx BASE24_COLOR_08_HEX "db2d20"
   set -gx BASE24_COLOR_09_HEX "fded02"
   set -gx BASE24_COLOR_0A_HEX "807d7c"

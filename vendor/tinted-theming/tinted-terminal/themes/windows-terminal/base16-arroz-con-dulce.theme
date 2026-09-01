@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Arroz con Dulce",
+	"foreground": "#4a2c20",
+	"background": "#fff8e7",
+	"black": "#fff8e7",
+	"blue": "#5940a0",
+	"brightBlack": "#c8a77a",
+	"brightBlue": "#5940a0",
+	"brightCyan": "#98263e",
+	"brightGreen": "#a2380c",
+	"brightPurple": "#8c1f68",
+	"brightRed": "#a11d48",
+	"brightWhite": "#21110b",
+	"brightYellow": "#855500",
+	"cyan": "#98263e",
+	"green": "#a2380c",
+	"purple": "#8c1f68",
+	"red": "#a11d48",
+	"white": "#4a2c20",
+	"yellow": "#855500"
+},

@@ -20,7 +20,7 @@ color11="ff/ff/55" # Base 13 - Bright Yellow
 color12="55/55/ff" # Base 16 - Bright Blue
 color13="ff/55/ff" # Base 17 - Bright Magenta
 color14="55/ff/ff" # Base 15 - Bright Cyan
-color15="ff/ff/ff" # Base 07 - Bright White
+color15="00/00/00" # Base 07 - Bright White
 color16="bb/bb/00" # Base 09
 color17="5d/00/00" # Base 0F
 color18="00/00/00" # Base 01
@@ -141,7 +141,7 @@ if [ -n "$TINTED_SHELL_ENABLE_BASE24_VARS" ]; then
   export BASE24_COLOR_04_HEX="888888"
   export BASE24_COLOR_05_HEX="a1a1a1"
   export BASE24_COLOR_06_HEX="bbbbbb"
-  export BASE24_COLOR_07_HEX="ffffff"
+  export BASE24_COLOR_07_HEX="000000"
   export BASE24_COLOR_08_HEX="bb0000"
   export BASE24_COLOR_09_HEX="bbbb00"
   export BASE24_COLOR_0A_HEX="5555ff"

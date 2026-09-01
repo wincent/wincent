@@ -1,0 +1,27 @@
+# Cerulean Signal Light theme for Mintty
+# Scheme Author: Aaron Colichia (https://aaron.colichia.org/)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #f7f9fc
+Red         = #b4233d
+Green       = #17795e
+Yellow      = #6f6300
+Blue        = #006fa8
+Magenta     = #a0007d
+Cyan        = #00727e
+White       = #232b38
+BoldBlack   = #637287
+BoldRed     = #c7354d
+BoldGreen   = #247b4e
+BoldYellow  = #7b6500
+BoldBlue    = #0078b5
+BoldMagenta = #b5149e
+BoldCyan    = #007787
+BoldWhite   = #141d2a
+
+# Background & foreground colors
+BackgroundColour = #f7f9fc
+ForegroundColour = #232b38
+CursorColour     = #232b38

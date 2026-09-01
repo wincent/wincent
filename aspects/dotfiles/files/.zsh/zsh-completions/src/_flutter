@@ -25,7 +25,7 @@
 # Description
 # -----------
 #
-#  Completion script for the Flutter.io sdk's cli tool 3.41.1 (https://flutter.dev)
+#  Completion script for the Flutter.io sdk's cli tool 3.47.0 (https://flutter.dev)
 #
 # ------------------------------------------------------------------------------
 # Authors
@@ -149,6 +149,13 @@ _flutter() {
           ;;
         (build)
           _flutter_build && ret=0
+          ;;
+        (clean)
+          _arguments \
+            '(- *)'{-h,--help}'[Print this usage information]' \
+            '--scheme[When cleaning Xcode schemes, clean only the specified scheme]:scheme' \
+            '--include-example[Also clean the example directory]' \
+            && ret=0
           ;;
         (config)
           _arguments \

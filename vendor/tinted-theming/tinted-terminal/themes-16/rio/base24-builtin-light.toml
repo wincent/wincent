@@ -38,4 +38,4 @@ light-green      = '#55ff55' # base14
 light-cyan       = '#55ffff' # base15
 light-blue       = '#5555ff' # base16
 light-magenta    = '#ff55ff' # base17
-light-white      = '#ffffff' # base07
+light-white      = '#000000' # base07

@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Cerulean Signal Light by Aaron Colichia (https://aaron.colichia.org/)
+
+[colors]
+selection-background = '#232b38' # base05
+selection-foreground = '#dde7f1' # base02
+
+cursor         = '#232b38' # base05
+tabs           = '#eef4fb' # base01
+tabs-active    = '#dde7f1' # base02
+
+background     = '#f7f9fc' # base00
+foreground     = '#232b38' # base05
+black          = '#f7f9fc' # base00
+red            = '#b4233d' # base08
+yellow         = '#6f6300' # base0A
+green          = '#17795e' # base0B
+cyan           = '#00727e' # base0C
+blue           = '#006fa8' # base0D
+magenta        = '#a0007d' # base0E
+white          = '#232b38' # base05
+
+dim-foreground   = '#232b38' # base05
+dim-black        = '#eef4fb' # base01
+dim-red          = '#b4233d' # base08
+dim-yellow       = '#6f6300' # base0A
+dim-green        = '#17795e' # base0B
+dim-cyan         = '#00727e' # base0C
+dim-blue         = '#006fa8' # base0D
+dim-magenta      = '#a0007d' # base0E
+dim-white        = '#566579' # base04
+
+light-foreground = '#232b38' # base05
+light-black      = '#637287' # base03
+light-red        = '#c7354d' # base12
+light-yellow     = '#7b6500' # base13
+light-green      = '#247b4e' # base14
+light-cyan       = '#007787' # base15
+light-blue       = '#0078b5' # base16
+light-magenta    = '#b5149e' # base17
+light-white      = '#141d2a' # base07

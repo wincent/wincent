@@ -1,0 +1,10 @@
+# Scheme name: Arroz con Dulce
+# Scheme author: Richard Martinez
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-arroz-con-dulce
+ColorForeground=#4a2c20
+ColorBackground=#fff8e7
+ColorCursor=#4a2c20
+ColorBoldIsBright=FALSE
+ColorPalette=#fff8e7;#a11d48;#a2380c;#855500;#5940a0;#8c1f68;#98263e;#4a2c20;#c8a77a;#a11d48;#a2380c;#855500;#5940a0;#8c1f68;#98263e;#21110b

@@ -1,0 +1,21 @@
+system: "base16"
+name: "Neovim Light"
+author: "https://github.com/neovim/neovim/blob/master/src/nvim/highlight_group.c"
+variant: "light"
+palette:
+  base00: "#e0e2ea" # NvimLightGrey2   — Normal bg
+  base01: "#eef1f8" # NvimLightGrey1   — Float bg (NormalFloat/Pmenu)
+  base02: "#9b9ea4" # NvimLightGrey4   — Visual / StatusLine bg
+  base03: "#4f5258" # NvimDarkGrey4    — Comment
+  base04: "#2c2e33" # NvimDarkGrey3    — dark foreground (ramp)
+  base05: "#14161b" # NvimDarkGrey2    — Normal fg
+  base06: "#07080d" # NvimDarkGrey1    — dark foreground
+  base07: "#07080d" # NvimDarkGrey1    — darkest (no grey below DarkGrey1)
+  base08: "#590008" # NvimDarkRed      — red     (DiagnosticError/Removed)
+  base09: "#8b4513" # SaddleBrown      — orange  (no Nvim* orange exists)
+  base0A: "#6b5300" # NvimDarkYellow   — yellow  (DiagnosticWarn)
+  base0B: "#005523" # NvimDarkGreen    — green   (DiagnosticOk/Added/String)
+  base0C: "#007373" # NvimDarkCyan     — cyan    (DiagnosticInfo/Special/Directory)
+  base0D: "#004c73" # NvimDarkBlue     — blue    (DiagnosticHint/Identifier)
+  base0E: "#470045" # NvimDarkMagenta  — magenta (unused by default highlights)
+  base0F: "#a52a2a" # Brown            — brown   (no Nvim* brown exists)

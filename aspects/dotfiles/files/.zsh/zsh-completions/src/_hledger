@@ -234,7 +234,7 @@ while (( $#state )); do
         ;;
         query)
 
-            local -a accs keywords
+            local -a accs keywords match mbegin mend
             keywords=(
                 'acct\::match account names'
                 'code\::match by transaction code'

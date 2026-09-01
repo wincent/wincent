@@ -1,24 +1,16 @@
---- @since 26.1.22
+--- @since 26.8.15
 --- @sync entry
 
 local PANE = { parent = 1, current = 2, preview = 3 }
 
 local function eq(other)
 	local r = rt.mgr.ratio
-	if r[1] then
-		return other[1] == r[1] and other[2] == r[2] and other[3] == r[3]
-	else -- TODO: remove
-		return other[1] == r.parent and other[2] == r.current and other[3] == r.preview
-	end
+	return other[1] == r[1] and other[2] == r[2] and other[3] == r[3]
 end
 
 local function get()
 	local r = rt.mgr.ratio
-	if r[1] then
-		return { r[1], r[2], r[3] }
-	else -- TODO: remove
-		return { r.parent, r.current, r.preview }
-	end
+	return { r[1], r[2], r[3] }
 end
 
 local function set(new) rt.mgr.ratio = { new[1], new[2], new[3] } end

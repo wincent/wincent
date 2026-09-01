@@ -1,4 +1,4 @@
---- @since 26.5.6
+--- @since 26.8.15
 
 local WINDOWS = ya.target_family() == "windows"
 
@@ -9,9 +9,10 @@ local WINDOWS = ya.target_family() == "windows"
 local CODES = {
 	unknown = 100, -- status cannot/not yet determined
 	excluded = 99, -- ignored directory
-	ignored = 6, -- ignored file
-	untracked = 5,
-	modified = 4,
+	ignored = 7, -- ignored file
+	untracked = 6,
+	unstaged = 5,
+	staged = 4,
 	added = 3,
 	deleted = 2,
 	updated = 1,
@@ -21,12 +22,38 @@ local CODES = {
 local PATTERNS = {
 	{ "!$", CODES.ignored },
 	{ "?$", CODES.untracked },
-	{ "[MT]", CODES.modified },
+	{ ".[MT]", CODES.unstaged },
+	{ "[MT] ", CODES.staged },
 	{ "[AC]", CODES.added },
 	{ "D", CODES.deleted },
 	{ "U", CODES.updated },
 	{ "[AD][AD]", CODES.updated },
 }
+
+local function theme()
+	local t = th.git or {}
+	return {
+		[CODES.unknown] = t.unknown or ui.Style(),
+		[CODES.ignored] = t.ignored or ui.Style():fg("darkgray"),
+		[CODES.untracked] = t.untracked or ui.Style():fg("magenta"),
+		[CODES.unstaged] = t.unstaged or ui.Style():fg("yellow"),
+		[CODES.staged] = t.staged or ui.Style():fg("green"),
+		[CODES.added] = t.added or ui.Style():fg("green"),
+		[CODES.deleted] = t.deleted or ui.Style():fg("red"),
+		[CODES.updated] = t.updated or ui.Style():fg("yellow"),
+		[CODES.clean] = t.clean or ui.Style(),
+	}, {
+		[CODES.unknown] = t.unknown_sign or "",
+		[CODES.ignored] = t.ignored_sign or " ",
+		[CODES.untracked] = t.untracked_sign or "? ",
+		[CODES.unstaged] = t.unstaged_sign or " ",
+		[CODES.staged] = t.staged_sign or " ",
+		[CODES.added] = t.added_sign or " ",
+		[CODES.deleted] = t.deleted_sign or " ",
+		[CODES.updated] = t.updated_sign or " ",
+		[CODES.clean] = t.clean_sign or "",
+	}
+end
 
 ---@param line string
 ---@return CODES, string
@@ -69,6 +96,15 @@ local function root(cwd)
 		end
 		cwd = cwd.parent
 	until not cwd
+end
+
+---@type UnstableFetcher
+local function retry(job)
+	return ya.co(function()
+		for _, file in ipairs(job.files) do
+			coroutine.yield(file, { retry = true })
+		end
+	end)
 end
 
 ---@param changed Changes
@@ -161,27 +197,10 @@ local function setup(st, opts)
 	opts = opts or {}
 	opts.order = opts.order or 1500
 
-	local t = th.git or {}
-	local styles = {
-		[CODES.unknown] = t.unknown or ui.Style(),
-		[CODES.ignored] = t.ignored or ui.Style():fg("darkgray"),
-		[CODES.untracked] = t.untracked or ui.Style():fg("magenta"),
-		[CODES.modified] = t.modified or ui.Style():fg("yellow"),
-		[CODES.added] = t.added or ui.Style():fg("green"),
-		[CODES.deleted] = t.deleted or ui.Style():fg("red"),
-		[CODES.updated] = t.updated or ui.Style():fg("yellow"),
-		[CODES.clean] = t.clean or ui.Style(),
-	}
-	local signs = {
-		[CODES.unknown] = t.unknown_sign or "",
-		[CODES.ignored] = t.ignored_sign or " ",
-		[CODES.untracked] = t.untracked_sign or "? ",
-		[CODES.modified] = t.modified_sign or " ",
-		[CODES.added] = t.added_sign or " ",
-		[CODES.deleted] = t.deleted_sign or " ",
-		[CODES.updated] = t.updated_sign or " ",
-		[CODES.clean] = t.clean_sign or "",
-	}
+	local styles, signs = theme()
+	ps.sub("theme", function()
+		styles, signs = theme()
+	end)
 
 	Linemode:children_add(function(self)
 		if not self._file.in_current then
@@ -211,7 +230,7 @@ local function fetch(_, job)
 	local repo = root(cwd)
 	if not repo then
 		remove(tostring(cwd))
-		return true
+		return require("noop"):fetch(job)
 	end
 
 	local paths = {}
@@ -226,7 +245,8 @@ local function fetch(_, job)
 		:arg(paths)
 		:output()
 	if not output then
-		return true, Err("Cannot spawn `git` command, error: %s", err)
+		ya.err("Cannot spawn `git` command, error: " .. err)
+		return require("noop"):fetch(job)
 	end
 
 	local changed, excluded = {}, {}
@@ -253,7 +273,7 @@ local function fetch(_, job)
 
 	add(tostring(cwd), repo, changed)
 
-	return false
+	return retry(job)
 end
 
 return { setup = setup, fetch = fetch }

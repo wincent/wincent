@@ -346,6 +346,7 @@ __git_flow_feature_list() {
 
 __git_flow_remote() {
   local expl gitdir remotes
+  local -a match mbegin mend
 
   gitdir=$(_call_program gitdir git rev-parse --git-dir 2>/dev/null)
   __git_flow_command_successful || return

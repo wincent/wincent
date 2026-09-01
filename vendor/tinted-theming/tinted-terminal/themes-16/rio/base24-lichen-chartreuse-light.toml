@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Lichen Chartreuse Light by Aaron Colichia (https://aaron.colichia.org/)
+
+[colors]
+selection-background = '#2d302b' # base05
+selection-foreground = '#cfe4ae' # base02
+
+cursor         = '#2d302b' # base05
+tabs           = '#ecefe7' # base01
+tabs-active    = '#cfe4ae' # base02
+
+background     = '#f5f7f2' # base00
+foreground     = '#2d302b' # base05
+black          = '#f5f7f2' # base00
+red            = '#a34740' # base08
+yellow         = '#506b29' # base0A
+green          = '#2f7462' # base0B
+cyan           = '#356569' # base0C
+blue           = '#356e8a' # base0D
+magenta        = '#6e5689' # base0E
+white          = '#2d302b' # base05
+
+dim-foreground   = '#2d302b' # base05
+dim-black        = '#ecefe7' # base01
+dim-red          = '#a34740' # base08
+dim-yellow       = '#506b29' # base0A
+dim-green        = '#2f7462' # base0B
+dim-cyan         = '#356569' # base0C
+dim-blue         = '#356e8a' # base0D
+dim-magenta      = '#6e5689' # base0E
+dim-white        = '#4e5149' # base04
+
+light-foreground = '#2d302b' # base05
+light-black      = '#687161' # base03
+light-red        = '#a34740' # base12
+light-yellow     = '#875e20' # base13
+light-green      = '#506b29' # base14
+light-cyan       = '#3f6464' # base15
+light-blue       = '#3b6d86' # base16
+light-magenta    = '#8a4f67' # base17
+light-white      = '#151613' # base07

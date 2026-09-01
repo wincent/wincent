@@ -1,0 +1,27 @@
+# Lichen Chartreuse Dark theme for Mintty
+# Scheme Author: Aaron Colichia (https://aaron.colichia.org/)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #151613
+Red         = #e28b82
+Green       = #83bda5
+Yellow      = #b2d084
+Blue        = #78adc4
+Magenta     = #bfa6d4
+Cyan        = #9cc6c9
+White       = #e0e5da
+BoldBlack   = #899282
+BoldRed     = #e28b82
+BoldGreen   = #cfe4ae
+BoldYellow  = #d5ad73
+BoldBlue    = #a3b8c2
+BoldMagenta = #d2a0b2
+BoldCyan    = #97c9c9
+BoldWhite   = #fcfcfa
+
+# Background & foreground colors
+BackgroundColour = #151613
+ForegroundColour = #e0e5da
+CursorColour     = #e0e5da

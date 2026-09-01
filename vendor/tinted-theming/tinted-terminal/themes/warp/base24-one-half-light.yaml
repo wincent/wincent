@@ -6,7 +6,7 @@ accent: "#0084bc" # base0D
 cursor: "#cfd0d2" # base05
 background: "#2a2b32" # base00
 foreground: "#cfd0d2" # base05
-details: lighter
+details: darker
 
 terminal_colors:
   normal:

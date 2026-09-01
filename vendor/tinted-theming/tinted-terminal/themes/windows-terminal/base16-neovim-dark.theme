@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Neovim Dark",
+	"foreground": "#e0e2ea",
+	"background": "#14161b",
+	"black": "#14161b",
+	"blue": "#a6dbff",
+	"brightBlack": "#9b9ea4",
+	"brightBlue": "#a6dbff",
+	"brightCyan": "#8cf8f7",
+	"brightGreen": "#b3f6c0",
+	"brightPurple": "#ffcaff",
+	"brightRed": "#ffc0b9",
+	"brightWhite": "#eef1f8",
+	"brightYellow": "#fce094",
+	"cyan": "#8cf8f7",
+	"green": "#b3f6c0",
+	"purple": "#ffcaff",
+	"red": "#ffc0b9",
+	"white": "#e0e2ea",
+	"yellow": "#fce094"
+},

@@ -1,4 +1,3 @@
-
 function! slime#targets#neovim#config() abort
   let config_set = 0
 
@@ -337,3 +336,24 @@ function! slime#targets#neovim#EchoWarningMsg(msg)
   echo a:msg
   echohl None
 endfunction
+
+" Add some more neovim specific configuration options to the defaults
+let g:slime_config_defaults["menu_config"] = 0
+
+" whether to populate the command line with an identifier when configuring
+let g:slime_config_defaults["suggest_default"] = 1
+
+"input PID rather than job ID on the command line when configuring
+let g:slime_config_defaults["input_pid"] = 0
+
+" can be set to a user-defined function to automatically get a job ID. Set as zero here to evaluate to false.
+let g:slime_config_defaults["get_jobid"] = 0
+
+"order of menu if configuring that way
+let g:slime_config_defaults["neovim_menu_order"] = [{'pid': 'pid: '}, {'jobid': 'jobid: '}, {'term_title':''}, {'name': ''}]
+
+"delimiter of menu if configuring that way
+let g:slime_config_defaults["neovim_menu_delimiter"] = ', '
+
+"if set to to a true value, will disable ability to send to unlisted buffers
+let g:slime_config_defaults["neovim_ignore_unlisted"] = 0

@@ -1,0 +1,27 @@
+# Gruvbox Dark Medium (Forest) theme for Mintty
+# Scheme Author: Muhammad Talha (muhammadtalha.quant@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #282828
+Red         = #fb4934
+Green       = #b8bb26
+Yellow      = #fabd2f
+Blue        = #b8bb26
+Magenta     = #96bda2
+Cyan        = #5f6c1f
+White       = #d5c4a1
+BoldBlack   = #665c50
+BoldRed     = #fb4934
+BoldGreen   = #b8bb26
+BoldYellow  = #fabd2f
+BoldBlue    = #b8bb26
+BoldMagenta = #96bda2
+BoldCyan    = #5f6c1f
+BoldWhite   = #fbf1c7
+
+# Background & foreground colors
+BackgroundColour = #282828
+ForegroundColour = #d5c4a1
+CursorColour     = #d5c4a1

@@ -10,7 +10,7 @@ palette:
   base04: "#888888"
   base05: "#a1a1a1"
   base06: "#bbbbbb"
-  base07: "#ffffff"
+  base07: "#000000"
   base08: "#bb0000"
   base09: "#bbbb00"
   base0A: "#5555ff"

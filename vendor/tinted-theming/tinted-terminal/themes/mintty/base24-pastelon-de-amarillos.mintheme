@@ -1,0 +1,27 @@
+# Pastelón de Amarillos theme for Mintty
+# Scheme Author: Richard Martinez (https://sonofmartinus.com)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #fff4d6
+Red         = #a63d4a
+Green       = #327056
+Yellow      = #846600
+Blue        = #365f91
+Magenta     = #784a78
+Cyan        = #276e6c
+White       = #432c3b
+BoldBlack   = #80616b
+BoldRed     = #a86e00
+BoldGreen   = #007b78
+BoldYellow  = #007b4e
+BoldBlue    = #9b3395
+BoldMagenta = #87301f
+BoldCyan    = #005eb8
+BoldWhite   = #1c0f20
+
+# Background & foreground colors
+BackgroundColour = #fff4d6
+ForegroundColour = #432c3b
+CursorColour     = #432c3b

@@ -1,0 +1,43 @@
+# base24 Lichen Chartreuse Light
+# Scheme author: Aaron Colichia (https://aaron.colichia.org/)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#f5f7f2"
+foreground = "#2d302b"
+
+cursor_bg = "#2d302b"
+cursor_border = "#2d302b"
+cursor_fg = "#f5f7f2"
+
+selection_bg = "#2d302b"
+selection_fg = "#cfe4ae"
+
+ansi = [
+  "#f5f7f2",
+  "#a34740",
+  "#2f7462",
+  "#506b29",
+  "#356e8a",
+  "#6e5689",
+  "#356569",
+  "#2d302b"
+]
+brights = [
+  "#687161",
+  "#a34740",
+  "#506b29",
+  "#875e20",
+  "#3b6d86",
+  "#8a4f67",
+  "#3f6464",
+  "#151613"
+]
+
+[colors.indexed]
+16 = "#8b5d27"
+17 = "#8a4f67"
+18 = "#ecefe7"
+19 = "#cfe4ae"
+20 = "#4e5149"
+21 = "#232420"

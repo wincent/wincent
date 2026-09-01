@@ -37,10 +37,10 @@ ya = ya
 -- | Alias | `nil` \| `boolean` \| `number` \| `string` \| `Url` \| `{ [Sendable]: Sendable }` |
 ---@alias Sendable nil|boolean|number|string|Url|{ [Sendable]: Sendable }
 -- An element that can be rendered.
--- |       |                                                                       |
--- | ----- | --------------------------------------------------------------------- |
--- | Alias | `Bar` \| `Border` \| `Clear` \| `Gauge` \| `Line` \| `List` \| `Text` |
----@alias Renderable ui.Bar|ui.Border|ui.Clear|ui.Gauge|ui.Line|ui.List|ui.Text
+-- |       |                                                                                  |
+-- | ----- | -------------------------------------------------------------------------------- |
+-- | Alias | `Bar` \| `Border` \| `Clear` \| `Gauge` \| `Input` \| `Line` \| `List` \| `Text` |
+---@alias Renderable ui.Bar|ui.Border|ui.Clear|ui.Gauge|Input|ui.Line|ui.List|ui.Text
 -- A value that can be covariantly treated as a [`Pos`](/docs/plugins/layout#pos).
 -- |       |                                                                                |
 -- | ----- | ------------------------------------------------------------------------------ |
@@ -101,22 +101,11 @@ ya = ya
 -- | ---- | ------- |
 -- | Type | `Self?` |
 ---@field parent self?
--- Domain of the URL.
--- For the URL `sftp://my-server//root/dog.jpg`, the domain is `my-server`.
--- |      |           |
--- | ---- | --------- |
--- | Type | `string?` |
----@field domain string?
--- Whether the file represented by the URL is a regular file.
--- |      |           |
--- | ---- | --------- |
--- | Type | `boolean` |
----@field is_regular boolean
--- Whether the file represented by the URL is from an archive.
--- |      |           |
--- | ---- | --------- |
--- | Type | `boolean` |
----@field is_archive boolean
+-- Specification of the URL.
+-- |      |                 |
+-- | ---- | --------------- |
+-- | Type | [`Spec`](#spec) |
+---@field spec Spec
 -- Whether the path represented by the URL has a root.
 -- |      |           |
 -- | ---- | --------- |
@@ -248,6 +237,34 @@ ya = ya
 -- | `other` | `string` |
 -- | Return  | `Self`   |
 ---@field __concat fun(self: self, other: string): self
+
+-- The specification of a [`Url`](#url). Use `url.spec` to inspect the URL's kind and provider information.
+---@class (exact) Spec
+-- URL kind.
+-- |      |          |
+-- | ---- | -------- |
+-- | Type | `string` |
+---@field kind string
+-- URL scheme.
+-- |      |          |
+-- | ---- | -------- |
+-- | Type | `string` |
+---@field scheme string
+-- Domain of the URL.
+-- |      |          |
+-- | ---- | -------- |
+-- | Type | `string` |
+---@field domain string
+-- Whether the URL represents a regular file.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `boolean` |
+---@field is_regular boolean
+-- Whether the URL is a search result.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `boolean` |
+---@field is_search boolean
 
 -- One file's characteristics.
 ---@class (exact) Cha
@@ -1579,6 +1596,11 @@ ya = ya
 
 -- Visual mode status.
 ---@class (exact) tab__Mode
+-- Whether in normal mode.
+-- |      |           |
+-- | ---- | --------- |
+-- | Type | `boolean` |
+---@field is_normal boolean
 -- Whether in select mode.
 -- |      |           |
 -- | ---- | --------- |
@@ -1589,11 +1611,6 @@ ya = ya
 -- | ---- | --------- |
 -- | Type | `boolean` |
 ---@field is_unset boolean
--- Whether in select mode, or unset mode.
--- |      |           |
--- | ---- | --------- |
--- | Type | `boolean` |
----@field is_visual boolean
 -- Converts the mode to string.
 -- | In/Out | Type     |
 -- | ------ | -------- |
@@ -1639,20 +1656,20 @@ ya = ya
 -- | Type | `boolean` |
 ---@field show_hidden boolean
 
--- [Url](#url)s of the selected files.
+-- [File](/docs/plugins/types#file)s of the selected files.
 ---@class (exact) tab__Selected
--- Returns the number of selected [Url](#url)s.
+-- Returns the number of selected [File](/docs/plugins/types#file)s.
 -- | In/Out | Type      |
 -- | ------ | --------- |
 -- | `self` | `Self`    |
 -- | Return | `integer` |
 ---@field __len fun(self: self): integer
--- Iterate over the selected [Url](#url)s.
--- | In/Out | Type                                 |
--- | ------ | ------------------------------------ |
--- | `self` | `Self`                               |
--- | Return | `fun(t: self, k: any): integer, Url` |
----@field __pairs fun(self: self): fun(t: self, k: any): integer, Url
+-- Iterate over the selected [File](/docs/plugins/types#file)s.
+-- | In/Out | Type                                  |
+-- | ------ | ------------------------------------- |
+-- | `self` | `Self`                                |
+-- | Return | `fun(t: self, k: any): integer, File` |
+---@field __pairs fun(self: self): fun(t: self, k: any): integer, File
 
 -- State of the preview pane.
 ---@class (exact) tab__Preview
@@ -1670,9 +1687,9 @@ ya = ya
 -- A folder.
 ---@class (exact) tab__Folder
 -- Current working directory.
--- |      |               |
--- | ---- | ------------- |
--- | Type | [`Url`](#url) |
+-- |      |                                  |
+-- | ---- | -------------------------------- |
+-- | Type | [`Url`](/docs/plugins/types#url) |
 ---@field cwd Url
 -- Offset of the folder.
 -- |      |           |
@@ -1890,12 +1907,12 @@ ya = ya
 -- | `self` | `Self`    |
 -- | Return | `integer` |
 ---@field __len fun(self: self): integer
--- Iterate over the url of yanked files.
--- | In/Out | Type                                 |
--- | ------ | ------------------------------------ |
--- | `self` | `Self`                               |
--- | Return | `fun(t: self, k: any): integer, Url` |
----@field __pairs fun(self: self): fun(t: self, k: any): integer, Url
+-- Iterate over the yanked [File](/docs/plugins/types#file)s.
+-- | In/Out | Type                                  |
+-- | ------ | ------------------------------------- |
+-- | `self` | `Self`                                |
+-- | Return | `fun(t: self, k: any): integer, File` |
+---@field __pairs fun(self: self): fun(t: self, k: any): integer, File
 
 
 -- You can access Yazi's runtime through `rt` to obtain startup parameters, terminal properties, [user preferences](/docs/configuration/yazi), etc.
@@ -2004,11 +2021,11 @@ ya = ya
 
 -- User's terminal emulator properties.
 ---@class (exact) rt__Term
--- Whether the terminal is in light mode.
--- |      |           |
--- | ---- | --------- |
--- | Type | `boolean` |
----@field light boolean
+-- Returns whether the terminal is in light mode, or `nil` if the terminal doesn't report a color scheme.
+-- |      |                   |
+-- | ---- | ----------------- |
+-- | Type | `fun(): boolean?` |
+---@field light fun(): boolean?
 
 -- TODO
 ---@class (exact) rt__Plugin
@@ -2543,6 +2560,28 @@ ya = ya
 -- | `url`     | `Url`               |
 -- | Return    | `Url?, Error?`      |
 -- | Available | Async context only  |
+-- Under the hood:
+-- - if `type` is `"file"`, it uses `fs.access():write(true):create_new(true)` to create a new file
+-- - if `type` is `"dir"`, it uses `fs.create("dir", ..)` to create a new directory
+-- so you're able to implement your own custom `fs.unique()` in Lua for some more advanced use cases, for example:
+-- ```lua
+-- local function my_unique(url)
+--   local parent, stem, ext = url.parent, url.stem, url.ext and "." .. url.ext
+--   assert(parent, "url must have a parent")
+--   for i = 1, math.maxinteger do
+--     local ok, err = fs.access():write(true):create_new(true):open(url)
+--     if ok then
+--       return url
+--     elseif err.kind ~= "AlreadyExists" then
+--       return nil, err
+--     end
+--     url = parent:join(string.format("%s-%d%s", stem, i, ext or ""))
+--   end
+--   return nil, Err("failed to create a unique file")
+-- end
+-- ya.dbg(my_unique(Url("/tmp/test.jpg")))  -- /tmp/test.jpg
+-- ya.dbg(my_unique(Url("/tmp/test.jpg")))  -- /tmp/test-1.jpg
+-- ```
 ---@field unique fun(type: "file"|"dir", url: Url): Url?, Error?
 
 -- APIs related to the user interface.
@@ -2738,7 +2777,7 @@ ya = ya
 -- | Available | Async context only |
 ---@field open fun(self: self, url: Url): Fd?, Error?
 
--- This object is created by [`Access:open()`](#access.open) and contains the methods for working with the opened file.
+-- This object is created by [`Access:open()`](#Access.open) and contains the methods for working with the opened file.
 ---@class (exact) Fd
 -- Writes all `bytes` to the file descriptor.
 -- ```lua

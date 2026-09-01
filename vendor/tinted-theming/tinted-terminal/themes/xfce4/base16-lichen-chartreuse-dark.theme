@@ -1,0 +1,10 @@
+# Scheme name: Lichen Chartreuse Dark
+# Scheme author: Aaron Colichia (https://aaron.colichia.org/)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-lichen-chartreuse-dark
+ColorForeground=#e0e5da
+ColorBackground=#151613
+ColorCursor=#e0e5da
+ColorBoldIsBright=FALSE
+ColorPalette=#151613;#e28b82;#83bda5;#b2d084;#78adc4;#bfa6d4;#9cc6c9;#e0e5da;#899282;#e28b82;#83bda5;#b2d084;#78adc4;#bfa6d4;#9cc6c9;#fcfcfa

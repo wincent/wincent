@@ -45,7 +45,7 @@ diff '--color=auto' -u -N st-0.9.3/config.def.h st-0.9.3-mod/config.def.h
 +	[12] = "#20bbfc",  /* blue   */
 +	[13] = "#6855de",  /* magenta*/
 +	[14] = "#4fb8cc",  /* cyan   */
-+	[15] = "#f1f1f1",  /* white  */
++	[15] = "#212121",  /* white  */
 
  	[255] = 0,
 

@@ -30,7 +30,7 @@
 # Description
 # -----------
 #
-#  Completion script for go 1.26.0 (https://go.dev/).
+#  Completion script for go 1.27.0 (https://go.dev/).
 #
 # ------------------------------------------------------------------------------
 # Authors
@@ -484,6 +484,7 @@ case $state in
           '-all[show all the documentation for the package]' \
           '-c[respect case when matching symbols]' \
           '-cmd[treat a command (package main) like a regular package]' \
+          '-ex[include executable examples]' \
           '-http[serve HTML docs over HTTP]' \
           '-short[one-line representation for each symbol]' \
           '-src[show the full source code for the symbol]' \
@@ -1009,6 +1010,8 @@ case $state in
                   '-libgcc[compiler support lib for internal linking; use "none" to disable]:lib:(none)' \
                   '-linkmode[set link mode]:mode:(internal external auto)' \
                   '-linkshared[link against installed Go shared libraries]' \
+                  '-macos[mac OS version to write in build info]:version' \
+                  '-macossdk[mac SDK  version to write in build info]:version' \
                   '-memprofile[write memory profile to file]:file' \
                   '-memprofilerate[set runtime.MemProfileRate to rate]:rate' \
                   '-msan[enable MSan interface]' \

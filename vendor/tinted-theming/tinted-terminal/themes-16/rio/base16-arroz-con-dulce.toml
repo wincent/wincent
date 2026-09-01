@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Arroz con Dulce by Richard Martinez
+
+[colors]
+selection-background = '#4a2c20' # base05
+selection-foreground = '#ead6b8' # base02
+
+cursor         = '#4a2c20' # base05
+tabs           = '#f7ebd3' # base01
+tabs-active    = '#ead6b8' # base02
+
+background     = '#fff8e7' # base00
+foreground     = '#4a2c20' # base05
+black          = '#fff8e7' # base00
+red            = '#a11d48' # base08
+yellow         = '#855500' # base0A
+green          = '#a2380c' # base0B
+cyan           = '#98263e' # base0C
+blue           = '#5940a0' # base0D
+magenta        = '#8c1f68' # base0E
+white          = '#4a2c20' # base05
+
+dim-foreground   = '#4a2c20' # base05
+dim-black        = '#f7ebd3' # base01
+dim-red          = '#a11d48' # base08
+dim-yellow       = '#855500' # base0A
+dim-green        = '#a2380c' # base0B
+dim-cyan         = '#98263e' # base0C
+dim-blue         = '#5940a0' # base0D
+dim-magenta      = '#8c1f68' # base0E
+dim-white        = '#765b45' # base04
+
+light-foreground = '#4a2c20' # base05
+light-black      = '#c8a77a' # base03
+light-red        = '#a11d48' # base08
+light-yellow     = '#855500' # base0A
+light-green      = '#a2380c' # base0B
+light-cyan       = '#98263e' # base0C
+light-blue       = '#5940a0' # base0D
+light-magenta    = '#8c1f68' # base0E
+light-white      = '#21110b' # base07

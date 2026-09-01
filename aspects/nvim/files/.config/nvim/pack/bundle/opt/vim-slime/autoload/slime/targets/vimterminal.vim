@@ -46,9 +46,19 @@ function! slime#targets#vimterminal#send(config, text)
     echoerr "Invalid terminal. Use :SlimeConfig to select a terminal"
     return
   endif
-  " send the text, translating newlines to enter keycode for Windows or any
-  " other platforms where they are not the same
-  call term_sendkeys(bufnr,substitute(a:text,'\n',"\r",'g'))
+  let [bracketed_paste, text_to_paste, has_crlf] = slime#common#bracketed_paste(a:text)
+  if bracketed_paste
+    call term_sendkeys(bufnr, "\e[200~")
+    call term_sendkeys(bufnr, text_to_paste)
+    call term_sendkeys(bufnr, "\e[201~")
+    if has_crlf
+      call term_sendkeys(bufnr, "\n")
+    end
+  else
+    " send the text, translating newlines to enter keycode for Windows or any
+    " other platforms where they are not the same
+    call term_sendkeys(bufnr,substitute(a:text,'\n',"\r",'g'))
+  end
 endfunction
 
 " -------------------------------------------------

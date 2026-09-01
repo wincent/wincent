@@ -1,15 +1,20 @@
---- @since 26.1.22
+--- @since 26.8.15
 
 local M = {}
 
 local function fail(job, s) ya.preview_widget(job, ui.Text.parse(s):area(job.area):wrap(ui.Wrap.YES)) end
+
+local function theme()
+	local light = rt.term.light()
+	return light == true and "light" or light == false and "dark" or "auto"
+end
 
 function M:peek(job)
 	local child, err = Command("sh")
 		:arg({ "-c", job.args[1], "sh", tostring(job.file.path) })
 		:env("w", job.area.w)
 		:env("h", job.area.h)
-		:env("t", rt.term.light and "light" or "dark")
+		:env("t", theme())
 		:env("CYGWIN", "noupcaseenv")
 		:stdout(Command.PIPED)
 		:stderr(Command.PIPED)
@@ -57,18 +62,10 @@ function M.format(job, lines)
 	for i = 1, #lines do
 		lines[i] = lines[i]:gsub("[\r\n]+$", "")
 
-		local icon
-		if th.icon then
-			icon = th.icon:match(File {
-				url = Url(lines[i]),
-				cha = Cha { mode = tonumber(lines[i]:sub(-1) == "/" and "40700" or "100644", 8) },
-			})
-		else -- TODO: remove
-			icon = File({
-				url = Url(lines[i]),
-				cha = Cha { mode = tonumber(lines[i]:sub(-1) == "/" and "40700" or "100644", 8) },
-			}):icon()
-		end
+		local icon = th.icon:match(File {
+			url = Url(lines[i]),
+			cha = Cha { mode = tonumber(lines[i]:sub(-1) == "/" and "40700" or "100644", 8) },
+		})
 
 		if icon then
 			lines[i] = ui.Line { ui.Span(" " .. icon.text .. " "):style(icon.style), lines[i] }

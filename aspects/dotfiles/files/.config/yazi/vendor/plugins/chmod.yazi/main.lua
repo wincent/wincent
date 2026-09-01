@@ -1,14 +1,14 @@
---- @since 26.1.22
+--- @since 26.8.15
 
 local selected_or_hovered = ya.sync(function()
-	local tab, paths = cx.active, {}
-	for _, f in pairs(tab.selected) do
-		paths[#paths + 1] = tostring(f.url or f) -- TODO: remove
+	local tab, urls, paths = cx.active, {}, {}
+	for i, f in pairs(tab.selected) do
+		urls[i], paths[i] = f.url, tostring(f.path)
 	end
 	if #paths == 0 and tab.current.hovered then
-		paths[1] = tostring(tab.current.hovered.url)
+		urls[1], paths[1] = tab.current.hovered.url, tostring(tab.current.hovered.path)
 	end
-	return paths
+	return urls, paths
 end)
 
 local function fail(s, ...)
@@ -20,12 +20,28 @@ local function fail(s, ...)
 	}
 end
 
+local function report(urls)
+	local ops = {}
+	for _, url in ipairs(urls) do
+		local file = fs.file(url)
+		if file then
+			ops[url.parent] = ops[url.parent] or {}
+			ops[url.parent][url.key] = file
+		end
+	end
+	for parent, files in pairs(ops) do
+		ya.emit("update_files", {
+			op = fs.op("upsert", { url = parent, files = files }),
+		})
+	end
+end
+
 return {
 	entry = function()
 		ya.emit("escape", { visual = true })
 
-		local urls = selected_or_hovered()
-		if #urls == 0 then
+		local urls, paths = selected_or_hovered()
+		if #paths == 0 then
 			return ya.notify { title = "Chmod", content = "No file selected", level = "warn", timeout = 5 }
 		end
 
@@ -37,10 +53,12 @@ return {
 			return
 		end
 
-		local output, err = Command("chmod"):arg(value):arg(urls):output()
+		local output, err = Command("chmod"):arg(value):arg(paths):output()
 		if not output then
 			fail("Failed to run chmod: %s", err)
-		elseif not output.status.success then
+		elseif output.status.success then
+			pcall(report, urls) -- TODO: remove `pcall`
+		else
 			fail("Chmod failed with stderr:\n%s", output.stderr:gsub("^chmod:%s*", ""))
 		end
 	end,

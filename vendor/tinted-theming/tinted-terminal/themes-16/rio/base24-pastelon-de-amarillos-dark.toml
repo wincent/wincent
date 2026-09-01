@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Pastelón de Amarillos Dark by Richard Martinez (https://sonofmartinus.com)
+
+[colors]
+selection-background = '#ffe0a3' # base05
+selection-foreground = '#432031' # base02
+
+cursor         = '#ffe0a3' # base05
+tabs           = '#2a1424' # base01
+tabs-active    = '#432031' # base02
+
+background     = '#180d18' # base00
+foreground     = '#ffe0a3' # base05
+black          = '#180d18' # base00
+red            = '#d95361' # base08
+yellow         = '#d8a93a' # base0A
+green          = '#36aa72' # base0B
+cyan           = '#31a99e' # base0C
+blue           = '#4c84bd' # base0D
+magenta        = '#b765b0' # base0E
+white          = '#ffe0a3' # base05
+
+dim-foreground   = '#ffe0a3' # base05
+dim-black        = '#2a1424' # base01
+dim-red          = '#d95361' # base08
+dim-yellow       = '#d8a93a' # base0A
+dim-green        = '#36aa72' # base0B
+dim-cyan         = '#31a99e' # base0C
+dim-blue         = '#4c84bd' # base0D
+dim-magenta      = '#b765b0' # base0E
+dim-white        = '#c39a89' # base04
+
+light-foreground = '#ffe0a3' # base05
+light-black      = '#a0747c' # base03
+light-red        = '#ffd052' # base12
+light-yellow     = '#43d98d' # base13
+light-green      = '#3ed2c3' # base14
+light-cyan       = '#64abf4' # base15
+light-blue       = '#e581dc' # base16
+light-magenta    = '#ed7d51' # base17
+light-white      = '#fff7e6' # base07

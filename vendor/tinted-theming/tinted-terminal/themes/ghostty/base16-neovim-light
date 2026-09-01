@@ -1,0 +1,47 @@
+# vim: ft=ghostty
+# Neovim Light theme for Ghostty
+# Scheme Author: https://github.com/neovim/neovim/blob/master/src/nvim/highlight_group.c
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# Color palette
+palette = 0=#e0e2ea
+palette = 1=#590008
+palette = 2=#005523
+palette = 3=#6b5300
+palette = 4=#004c73
+palette = 5=#470045
+palette = 6=#007373
+palette = 7=#14161b
+palette = 8=#4f5258
+palette = 9=#590008
+palette = 10=#005523
+palette = 11=#6b5300
+palette = 12=#004c73
+palette = 13=#470045
+palette = 14=#007373
+palette = 15=#07080d
+palette = 16=#8b4513
+palette = 17=#a52a2a
+palette = 18=#eef1f8
+palette = 19=#9b9ea4
+palette = 20=#2c2e33
+palette = 21=#07080d
+
+# Foreground & background colors
+background = #e0e2ea
+foreground = #14161b
+cursor-color = #14161b
+selection-background = #14161b
+selection-foreground = #9b9ea4
+search-background = #6b5300
+search-foreground = #eef1f8
+search-selected-background = #8b4513
+search-selected-foreground = #eef1f8
+
+# Set `macos-icon = custom-style` in your main configuration file to enable theming of the app icon.
+#
+# Set the ghost color to the lightest foreground:
+macos-icon-ghost-color = #07080d
+# Replace the official icon's blue background with the designated bright blue color:
+macos-icon-screen-color = #004c73

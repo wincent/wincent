@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Neovim Dark by https://github.com/neovim/neovim/blob/master/src/nvim/highlight_group.c
+
+[colors]
+selection-background = '#e0e2ea' # base05
+selection-foreground = '#4f5258' # base02
+
+cursor         = '#e0e2ea' # base05
+tabs           = '#07080d' # base01
+tabs-active    = '#4f5258' # base02
+
+background     = '#14161b' # base00
+foreground     = '#e0e2ea' # base05
+black          = '#14161b' # base00
+red            = '#ffc0b9' # base08
+yellow         = '#fce094' # base0A
+green          = '#b3f6c0' # base0B
+cyan           = '#8cf8f7' # base0C
+blue           = '#a6dbff' # base0D
+magenta        = '#ffcaff' # base0E
+white          = '#e0e2ea' # base05
+
+dim-foreground   = '#e0e2ea' # base05
+dim-black        = '#07080d' # base01
+dim-red          = '#ffc0b9' # base08
+dim-yellow       = '#fce094' # base0A
+dim-green        = '#b3f6c0' # base0B
+dim-cyan         = '#8cf8f7' # base0C
+dim-blue         = '#a6dbff' # base0D
+dim-magenta      = '#ffcaff' # base0E
+dim-white        = '#c4c6cd' # base04
+
+light-foreground = '#e0e2ea' # base05
+light-black      = '#9b9ea4' # base03
+light-red        = '#ffc0b9' # base08
+light-yellow     = '#fce094' # base0A
+light-green      = '#b3f6c0' # base0B
+light-cyan       = '#8cf8f7' # base0C
+light-blue       = '#a6dbff' # base0D
+light-magenta    = '#ffcaff' # base0E
+light-white      = '#eef1f8' # base07

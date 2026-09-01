@@ -1,63 +1,53 @@
---- @since 25.12.29
+--- @since 26.8.15
 local M = {}
 
 local function stale_cache(file)
 	local url = file.url
-	local cache = url.spec and url.spec.cache or url.scheme.cache -- TODO: remove
-	local lock = cache:join(string.format("%%lock/%s", url:hash(true)))
+	local stamp = url.spec.stamp:join(url:hash(true))
 
-	local f = io.open(tostring(lock), "r")
-	if not f then
+	local fd = fs.access():read(true):open(Url(stamp))
+	if not fd then
 		return true
 	end
 
-	local hash = f:read(32)
-	f:close()
-	return hash ~= file.cha:hash(true)
+	local sig = fd:read(26)
+	ya.drop(fd)
+	return sig ~= file.cha:hash(true)
 end
 
 function M:fetch(job)
-	local updates, unknown, state = {}, {}, {}
-	for i, file in ipairs(job.files) do
-		if file.cha.is_dummy then
-			-- Skip dummy files
-		elseif not file.cache then
-			unknown[#unknown + 1] = file
-		elseif not fs.cha(Url(file.cache)) then
-			updates[file.url], state[i] = "vfs/absent", true
-		elseif stale_cache(file) then
-			updates[file.url], state[i] = "vfs/stale", true
-		else
-			unknown[#unknown + 1] = file
+	return ya.co(function()
+		local updates, unknown = {}, {}
+		for _, file in ipairs(job.files) do
+			if file.cha.is_dummy then
+				coroutine.yield(file, {})
+			elseif not file.cache then
+				unknown[#unknown + 1] = file
+			elseif not fs.cha(Url(file.cache)) then
+				updates[file.url] = coroutine.yield(file, { "vfs/absent" }) and "vfs/absent" or nil
+			elseif stale_cache(file) then
+				updates[file.url] = coroutine.yield(file, { "vfs/stale" }) and "vfs/stale" or nil
+			else
+				unknown[#unknown + 1] = file
+			end
 		end
-	end
 
-	if next(updates) then
-		ya.emit("update_mimes", { updates = updates })
-	end
+		if next(updates) then
+			ya.emit("update_mimes", { updates = updates })
+		end
 
-	if #unknown == 0 then
-		return state
-	else
-		return self.fallback_local(job, unknown, state)
-	end
+		if #unknown > 0 then
+			self.fallback_local(job, unknown)
+		end
+	end)
 end
 
-function M.fallback_local(job, unknown, state)
-	local indices = {}
-	for i, f in ipairs(job.files) do
-		indices[f:hash()] = i
+function M.fallback_local(job, unknown)
+	local next = require(".local"):fetch(ya.dict_merge(job, { files = unknown }))
+	local file, result = next()
+	while file do
+		file, result = next(coroutine.yield(file, result))
 	end
-
-	local result = require(".local"):fetch(ya.dict_merge(job, { files = unknown }))
-	for i, f in ipairs(unknown) do
-		if type(result) == "table" then
-			state[indices[f:hash()]] = result[i]
-		else
-			state[indices[f:hash()]] = result
-		end
-	end
-	return state
 end
 
 return M

@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Neovim Light by https://github.com/neovim/neovim/blob/master/src/nvim/highlight_group.c
+
+name: Base16 Neovim Light
+accent: "#004c73" # base0D
+cursor: "#14161b" # base05
+background: "#e0e2ea" # base00
+foreground: "#14161b" # base05
+details: lighter
+
+terminal_colors:
+  bright:
+    black: "#e0e2ea" # base00
+    red: "#590008" # base08
+    yellow: "#6b5300" # base0A
+    green: "#005523" # base0B
+    cyan: "#007373" # base0C
+    blue: "#004c73" # base0D
+    magenta: "#470045" # base0E
+    white: "#14161b" # base05
+
+  normal:
+    black: "#4f5258" # base03
+    red: "#590008" # base08
+    yellow: "#6b5300" # base0A
+    green: "#005523" # base0B
+    cyan: "#007373" # base0C
+    blue: "#004c73" # base0D
+    magenta: "#470045" # base0E
+    white: "#07080d" # base07

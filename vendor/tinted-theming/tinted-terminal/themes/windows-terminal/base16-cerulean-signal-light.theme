@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Cerulean Signal Light",
+	"foreground": "#232b38",
+	"background": "#f7f9fc",
+	"black": "#f7f9fc",
+	"blue": "#006fa8",
+	"brightBlack": "#637287",
+	"brightBlue": "#006fa8",
+	"brightCyan": "#00727e",
+	"brightGreen": "#17795e",
+	"brightPurple": "#a0007d",
+	"brightRed": "#b4233d",
+	"brightWhite": "#141d2a",
+	"brightYellow": "#6f6300",
+	"cyan": "#00727e",
+	"green": "#17795e",
+	"purple": "#a0007d",
+	"red": "#b4233d",
+	"white": "#232b38",
+	"yellow": "#6f6300"
+},

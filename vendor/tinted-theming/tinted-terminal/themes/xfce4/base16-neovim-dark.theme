@@ -1,0 +1,10 @@
+# Scheme name: Neovim Dark
+# Scheme author: https://github.com/neovim/neovim/blob/master/src/nvim/highlight_group.c
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-neovim-dark
+ColorForeground=#e0e2ea
+ColorBackground=#14161b
+ColorCursor=#e0e2ea
+ColorBoldIsBright=FALSE
+ColorPalette=#14161b;#ffc0b9;#b3f6c0;#fce094;#a6dbff;#ffcaff;#8cf8f7;#e0e2ea;#9b9ea4;#ffc0b9;#b3f6c0;#fce094;#a6dbff;#ffcaff;#8cf8f7;#eef1f8

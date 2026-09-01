@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Cerulean Signal Dark
+; Scheme system: base24
+; Scheme description: Low-glare cerulean interface theme with restrained neon-pink signal accents; dark compatibility palette.
+; Scheme author: Aaron Colichia (https://aaron.colichia.org/)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base24-cerulean-signal-dark]
+
+; Default Foreground
+; base05 #dce6f2
+"Colour0"="220,230,242"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #dce6f2
+"Colour1"="220,230,242"
+
+; Default Background
+; base00 #101722
+"Colour2"="16,23,34"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #101722
+"Colour3"="16,23,34"
+
+; Cursor Text -- equals to default background
+; base00 #101722
+"Colour4"="16,23,34"
+
+; Cursor Colour -- equals to default foreground
+; base05 #dce6f2
+"Colour5"="220,230,242"
+
+; ANSI Black
+; 30m
+; base00 #101722
+"Colour6"="16,23,34"
+
+; ANSI Black Bright
+; 1;30m
+; base03 #8fa0b5
+"Colour7"="143,160,181"
+
+; ANSI Red
+; 31m
+; base08 #ff8a9a
+"Colour8"="255,138,154"
+
+; ANSI Red Bright
+; 1;31m
+; base12 #ff9cac
+"Colour9"="255,156,172"
+
+; ANSI Green
+; 32m
+; base0B #70e1b0
+"Colour10"="112,225,176"
+
+; ANSI Green Bright
+; 1;32m
+; base14 #8be7bd
+"Colour11"="139,231,189"
+
+; ANSI Yellow
+; 33m
+; base0A #e2c85f
+"Colour12"="226,200,95"
+
+; ANSI Yellow Bright
+; 1;33m
+; base13 #f4dc76
+"Colour13"="244,220,118"
+
+; ANSI Blue
+; 34m
+; base0D #7dd3ff
+"Colour14"="125,211,255"
+
+; ANSI Blue Bright
+; 1;34m
+; base16 #9adfff
+"Colour15"="154,223,255"
+
+; ANSI Magenta
+; 35m
+; base0E #ff74d4
+"Colour16"="255,116,212"
+
+; ANSI Magenta Bright
+; 1;35m
+; base17 #ff8bdd
+"Colour17"="255,139,221"
+
+; ANSI Cyan
+; 36m
+; base0C #58d9df
+"Colour18"="88,217,223"
+
+; ANSI Cyan Bright
+; 1;36m
+; base15 #72e7eb
+"Colour19"="114,231,235"
+
+; ANSI White
+; 37m
+; base05 #dce6f2
+"Colour20"="220,230,242"
+
+; ANSI White Bright
+; 1;37m
+; base07 f7f9fc
+"Colour21"="247,249,252"

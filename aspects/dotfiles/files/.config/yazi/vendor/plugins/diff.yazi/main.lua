@@ -1,4 +1,4 @@
---- @since 26.1.22
+--- @since 26.8.15
 
 local function info(content)
 	return ya.notify {
@@ -10,8 +10,7 @@ end
 
 local selected_path = ya.sync(function()
 	for _, f in pairs(cx.active.selected) do
-		local u = f.url or f -- TODO: remove
-		return u.cache or u
+		return f.cache or f.url
 	end
 end)
 

@@ -1,0 +1,43 @@
+# base16 Arroz con Dulce Dark
+# Scheme author: Richard Martinez
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#21140f"
+foreground = "#f2dfc0"
+
+cursor_bg = "#f2dfc0"
+cursor_border = "#f2dfc0"
+cursor_fg = "#21140f"
+
+selection_bg = "#f2dfc0"
+selection_fg = "#3b241a"
+
+ansi = [
+  "#21140f",
+  "#e07a8a",
+  "#d47a50",
+  "#d9a441",
+  "#b99ac8",
+  "#d58ab4",
+  "#d98276",
+  "#f2dfc0"
+]
+brights = [
+  "#a98568",
+  "#e07a8a",
+  "#d47a50",
+  "#d9a441",
+  "#b99ac8",
+  "#d58ab4",
+  "#d98276",
+  "#fff8e7"
+]
+
+[colors.indexed]
+16 = "#e68a4a"
+17 = "#b97755"
+18 = "#2c1a13"
+19 = "#3b241a"
+20 = "#c8a77a"
+21 = "#f8ebd3"

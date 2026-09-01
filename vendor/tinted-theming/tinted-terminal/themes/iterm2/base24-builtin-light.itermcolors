@@ -178,11 +178,11 @@
 		<key>Color Space</key>
 		<string>sRGB</string>
 		<key>Blue Component</key>
-		<real>1.00000000</real>
+		<real>0.00000000</real>
 		<key>Green Component</key>
-		<real>1.00000000</real>
+		<real>0.00000000</real>
 		<key>Red Component</key>
-		<real>1.00000000</real>
+		<real>0.00000000</real>
 	</dict>
 	<key>Background Color</key>
 	<dict>

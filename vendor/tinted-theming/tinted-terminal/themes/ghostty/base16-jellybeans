@@ -1,0 +1,47 @@
+# vim: ft=ghostty
+# Jellybeans theme for Ghostty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface), converted to Base16 by https://github.com/nonetrix
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# Color palette
+palette = 0=#121212
+palette = 1=#ffa1a1
+palette = 2=#bddeab
+palette = 3=#ffdca0
+palette = 4=#b1d8f6
+palette = 5=#fbdaff
+palette = 6=#1ab2a8
+palette = 7=#d5d5d5
+palette = 8=#c5c5c5
+palette = 9=#ffa1a1
+palette = 10=#bddeab
+palette = 11=#ffdca0
+palette = 12=#b1d8f6
+palette = 13=#fbdaff
+palette = 14=#1ab2a8
+palette = 15=#ffffff
+palette = 16=#ffba7b
+palette = 17=#713939
+palette = 18=#929292
+palette = 19=#bdbdbd
+palette = 20=#cdcdcd
+palette = 21=#dedede
+
+# Foreground & background colors
+background = #121212
+foreground = #d5d5d5
+cursor-color = #d5d5d5
+selection-background = #d5d5d5
+selection-foreground = #bdbdbd
+search-background = #ffdca0
+search-foreground = #929292
+search-selected-background = #ffba7b
+search-selected-foreground = #929292
+
+# Set `macos-icon = custom-style` in your main configuration file to enable theming of the app icon.
+#
+# Set the ghost color to the lightest foreground:
+macos-icon-ghost-color = #ffffff
+# Replace the official icon's blue background with the designated bright blue color:
+macos-icon-screen-color = #b1d8f6

@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Pastelón de Amarillos",
+	"foreground": "#432c3b",
+	"background": "#fff4d6",
+	"black": "#fff4d6",
+	"blue": "#365f91",
+	"brightBlack": "#80616b",
+	"brightBlue": "#9b3395",
+	"brightCyan": "#005eb8",
+	"brightGreen": "#007b78",
+	"brightPurple": "#87301f",
+	"brightRed": "#a86e00",
+	"brightWhite": "#1c0f20",
+	"brightYellow": "#007b4e",
+	"cyan": "#276e6c",
+	"green": "#327056",
+	"purple": "#784a78",
+	"red": "#a63d4a",
+	"white": "#432c3b",
+	"yellow": "#846600"
+},

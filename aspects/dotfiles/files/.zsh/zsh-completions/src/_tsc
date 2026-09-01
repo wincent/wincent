@@ -24,7 +24,7 @@
 # Description
 # -----------
 #
-#  Completion script for tsc v5.8.2. (https://www.typescriptlang.org/)
+#  Completion script for tsc v7.0.2 (https://www.typescriptlang.org/)
 #
 # ------------------------------------------------------------------------------
 # Authors
@@ -38,57 +38,72 @@ typeset -A opt_args
 local context state line
 
 local -a module_types=(
-  none commonjs amd umd system es6/es2015 es2020 es2022 esnext node16 node18 nodenext preserve
+  commonjs es6/es2015 es2020 es2022 esnext node16 node18 node20 nodenext preserve
 )
 
 local -a bundle_libraries=(
   es5 es6/es2015 es7/es2016 es2017 es2018 es2019 es2020 es2021 es2022
-  es2023 es2024 esnext dom dom.iterable dom.asynciterable webworker
-  webworker.importscripts webworker.iterable webworker.asynciterable
-  scripthost es2015.core es2015.collection es2015.generator
-  es2015.iterable es2015.promise es2015.proxy es2015.reflect
-  es2015.symbol es2015.symbol.wellknown es2016.array.include
-  es2016.intl es2017.date es2017.object es2017.sharedmemory
-  es2017.string es2017.intl es2017.typedarrays es2018.asyncgenerator
-  es2018.asynciterable/esnext.asynciterable es2018.intl es2018.promise
-  es2018.regexp es2019.array es2019.object es2019.string
-  es2019.symbol/esnext.symbol es2019.intl es2020.bigint/esnext.bigint
-  es2020.date es2020.promise es2020.sharedmemory es2020.string
-  es2020.symbol.wellknown es2020.intl es2020.number es2021.promise
-  es2021.string es2021.weakref/esnext.weakref es2021.intl es2022.array
-  es2022.error es2022.intl es2022.object es2022.sharedmemory
-  es2022.string es2022.regexp es2023.array es2023.collection
-  es2023.intl esnext.array esnext.collection esnext.intl
-  esnext.disposable esnext.string esnext.promise esnext.decorators
-  esnext.object esnext.regexp esnext.iterator decorators
-  decorators.legacy
+  es2023 es2024 es2025 esnext dom dom.iterable dom.asynciterable webworker
+  webworker.importscripts webworker.iterable webworker.asynciterable scripthost
+  es2015.core es2015.collection es2015.generator es2015.iterable es2015.promise
+  es2015.proxy es2015.reflect es2015.symbol es2015.symbol.wellknown
+  es2016.array.include es2016.intl
+  es2017.date es2017.object es2017.sharedmemory es2017.string es2017.intl es2017.typedarrays
+  es2018.asyncgenerator es2018.asynciterable/esnext.asynciterable es2018.intl es2018.promise
+  es2018.regexp
+  es2019.array es2019.object es2019.string es2019.symbol/esnext.symbol es2019.intl
+  es2020.bigint/esnext.bigint es2020.date es2020.promise es2020.sharedmemory es2020.string
+  es2020.symbol.wellknown es2020.intl es2020.number
+  es2021.promise es2021.string es2021.weakref/esnext.weakref es2021.intl
+  es2022.array es2022.error es2022.intl es2022.object es2022.sharedmemory
+  es2022.string es2022.regexp
+  es2023.array es2023.collection es2023.intl
+  es2024.arraybuffer, es2024.collection, es2024.object/esnext.object es2024.promise
+  es2024.regexp/esnext.regexp es2024.sharedmemory es2024.string/esnext.string
+  es2025.collection es2025.float16/esnext.float16, es2025.intl es2025.iterator/esnext.iterator
+  es2025.promise/esnext.promise es2025.regexp
+  esnext.array esnext.collection esnext.date esnext.decorators
+  esnext.disposable esnext.error esnext.intl esnext.sharedmemory esnext.temporal esnext.typedarrays
+  decorators decorators.legacy
 )
 
 local -a targets=(
-  es5 es6/es2015 es2016 es2017 es2018 es2019 es2020 es2021 es2022 es2023 es2024 esnext
+  es6/es2015 es2016 es2017 es2018 es2019 es2020 es2021 es2022 es2023 es2024 es2025 esnext
 )
 
-local -a watch_modes=(
+local -a file_watch_modes=(
   fixedpollinginterval prioritypollinginterval dynamicprioritypolling
   fixedchunksizepolling usefsevents usefseventsonparentdirectory
 )
 
+local -a directory_watch_modes=(
+  usefsevents fixedpollinginterval dynamicprioritypolling fixedchunksizepolling
+)
+
 local -a opts=(
+  # Command-line Options
   '(- *)--all[Show all compiler options]'
   '(-b --build)'{-b,--build}'[Build one or more projects and their dependencies if out of date]'
+  '--checkers[Set the number of checkers per project]:num'
   '(- *)'{-h,--help,-?}'[Print help message]'
+  '--ignoreConfig[Ignore the tsconfig found and build with command line options and files]'
   '--init[Initializes a TypeScript project and creates a tsconfig.json file]'
   '--listFilesOnly[Print names of files that are part of the compilation and then stop processing]'
   '--locale[Set the language of the messaging from TypeScript]:locale'
+  '--pprofDir[Generate pprof CPU/memory profiles to the given directory]:dir:_files -/'
   '(-p --project)'{-p,--project}'[Compile the project given the path to its configuration file]:config:_files'
+  '(-q --quiet)'{-q,--quiet}'[Do not print diagnostics]'
   '--showConfig[Print the final configuration instead of building]'
+  '--singleThreaded[Run in single threaded mode]'
   '(-w --watch)'{-w,--watch}'[Watch input files]'
+  # Modules
   '--allowArbitraryExtensions[Enable importing files with any extension]'
   '--allowImportingTsExtensions[Allow imports to include TypeScript file extensions]'
   '--allowUmdGlobalAccess[Allow accessing UMD globals from modules]'
   '--baseUrl[Specify the base directory to resolve non-relative module names]:url'
-  '(-m --module)'{-m,--module}'[Specify what module code is generated]:type:(($module_types))'
-  '--moduleResolution[Specify how TypeScript looks up a file from a given module specifier]:(node10 node16 nodenext bundler)'
+  '--customConditions[Conditions to set in addition to resolver-specific defaults when resolving imports]:contion'
+  '(-m --module)'{-m,--module}'[Specify what module code is generated]:type:($module_types)'
+  '--moduleResolution[Specify how TypeScript looks up a file from a given module specifier]:module_specifier:(node16 nodenext bundler)'
   '--moduleSuffixes[List of file name suffixes to search when resolving a module]:suffixes'
   "--noResolve[Disallow 'import's from expanding the number of files TypeScript should add to a project]"
   '--noUncheckedSideEffectImports[Check side effect imports]'
@@ -96,23 +111,29 @@ local -a opts=(
   '--resolveJsonModule[Enable importing .json files]'
   "--resolvePackageJsonExports[Use the package.json 'exports' field when resolving package imports]"
   "--resolvePackageJsonImports[Use the package.json 'imports' field when resolving imports]"
+  '--rewriteRelativeImportExtensions[Rewrite ts/tsx/mts/cts file extensions in relative import paths to there JS equivalent in output files]'
   '--rootDir[Specify the root folder within your source files]:dir:_files -/'
   '--rootDirs[Allow multiple folders to be treated as one when resolving modules]:dirs:_files -/'
   "--typeRoots[Specify multiple folders that act like './node_modules/@types']:dirs:_files -/"
   '--types[Specify type package names to be included without being referenced in a source file]:packages'
+  # JavaScript Support
   "--allowJs[Allow JavaScript files to be a part of your program]"
   '--checkJs[Enable error reporting in type-checked JavaScript files]'
   "--maxNodeModuleJsDepth[Specify the maximum folder depth used for checking JavaScript files from 'node_modules']:depth"
+  # Interop Constraints
   "--allowSyntheticDefaultImports[Allow 'import x from y' when a module doesn't have a default export]"
+  '--erasableSyntaxOnly[Do not allow runtime constructs that are not part of ECMAScript]'
   '--esModuleInterop[Emit additional JavaScript to ease support for importing CommonJS modules]'
   '--forceConsistentCasingInFileNames[Ensure that casing is correct in imports]'
   '--isolatedDeclarations[Require sufficient annotation on exports so other tools can trivially generate declaration files]'
   '--isolatedModules[Ensure that each file can be safely transpiled without relying on other imports]'
   '--preserveSymlinks[Disable resolving symlinks to their realpath. This correlates to the same flag in node]'
   '--verbatimModuleSyntax[Do not transform or elide any imports or exports not marked as type-only]'
+  # Type Checking
   '--allowUnreachableCode[Disable error reporting for unreachable code]'
   '--allowUnusedLabels[Disable error reporting for unused labels]'
   "--alwaysStrict[Ensure 'use strict' is always emitted]"
+  '--deduplicatePackages[Deduplicate packages with the same name and version]'
   "--exactOptionalPropertyTypes[Interpret optional property types as written, rather than adding 'undefined']"
   '--noFallthroughCasesInSwitch[Enable error reporting for fallthrough cases in switch statements]'
   '--noImplicitAny[Enable error reporting for expressions and declarations with an implied "any" type]'
@@ -123,6 +144,7 @@ local -a opts=(
   '--noUncheckedIndexedAccess[Add "undefined" to a type when accessed using an index]'
   "--noUnusedLocals[Enable error reporting when local variables aren't read]"
   "--noUnusedParameters[Raise an error when a function parameter isn't read]"
+  '--stableTypeOrdering[Ensure types are ordered stably and deterministically across compilations]'
   '--strict[Enable all strict type-checking options]'
   "--strictBindCallApply[Check that the arguments for 'bind', 'call', and 'apply' methods match the original function]"
   "--strictBuiltinIteratorReturn[Built-in iterators are instantiated with a 'TReturn' type of 'undefined' instead of 'any']"
@@ -130,13 +152,16 @@ local -a opts=(
   "--strictNullChecks[When type checking, take into account 'null' and 'undefined']"
   '--strictPropertyInitialization[Check for class properties that are declared but not set in the constructor]'
   "--useUnknownInCatchVariables[Default catch clause variables as 'unknown' instead of 'any']"
+  # Watch and Build Modes
   "--assumeChangesOnlyAffectDirectDependencies[Have recompiles in projects that use 'incremental' and 'watch' mode]"
+  # Projects
   '--composite[Enable constraints that allow a TypeScript project to be used with project references]'
   '--disableReferencedProjectLoad[Reduce the number of projects loaded automatically by TypeScript]'
   '--disableSolutionSearching[Opt a project out of multi-project reference checking when editing]'
   '--disableSourceOfProjectReferenceRedirect[Disable preferring source files instead of declaration files when referencing composite projects]'
   '(-i --incremental)'{-i,--incremental}'[Save .tsbuildinfo files to allow for incremental compilation of projects]'
   '--tsBuildInfoFile[Specify the path to .tsbuildinfo incremental compilation file]:buildinfo:_files -g "*.tsbuildinfo"'
+  # Emit
   '(-d --declaration)'{-d,--declaration}'[Generate .d.ts files from TypeScript and JavaScript files in your project]'
   '--declarationDir[Specify the output directory for generated declaration files]:dir:_files -/'
   '--declarationMap[Create sourcemaps for d.ts files]'
@@ -158,6 +183,7 @@ local -a opts=(
   '--sourceMap[Create source map files for emitted JavaScript files]'
   '--sourceRoot[Specify the root path for debuggers to find the reference source code]:dir:_files -/'
   '--stripInternal[Disable emitting declarations that have "@internal" in their JSDoc comments]'
+  # Compiler Diagnostics
   '--diagnostics[Output compiler performance information after building]'
   '--explainFiles[Print files read during the compilation including why it was included]'
   '--extendedDiagnostics[Output more detailed compiler performance information after building]'
@@ -167,33 +193,37 @@ local -a opts=(
   '--listFiles[Print all of the files read during the compilation]'
   '--noCheck[Disable full type checking]'
   "--traceResolution[Log paths used during the 'moduleResolution' process]"
+  # Editor Support
   '--disableSizeLimit[Remove the 20mb cap on total source code size for JavaScript files in TypeScript language server]'
   '--plugins[Specify a list of language service plugins to include]:plugins'
+  # Language and Environment
   '--emitDecoratorMetadata[Emit design-type metadata for decorated declarations in source files]'
   '--experimentalDecorators[Enable experimental support for legacy experimental decorators]'
   '--jsx[Specify what JSX code is generated]:type:(preserve react react-native react-jsx react-jsxdev)'
   "--jsxFactory[Specify the JSX factory function used when targeting React JSX emit]:funcname"
   "--jsxFragmentFactory[Specify the JSX Fragment reference used for fragments when targeting React JSX emit]:reference"
-  '--jsxImportSource[Specify module specifier used to import the JSX factory functions]'
-  '--lib[Specify a set of bundled library declaration files that describe the target runtime environment]:lib:(($bundle_libraries))'
+  '--jsxImportSource[Specify module specifier used to import the JSX factory functions]:source:(react)'
+  '*--lib[Specify a set of bundled library declaration files that describe the target runtime environment]:lib:($bundle_libraries)'
+  "--libReplacement[Enable library replacement]"
   '--moduleDetection[Control what method is used to detect module-format JS files]:method:(legacy auto force)'
   '--noLib[Disable including any library files, including the default lib.d.ts]'
   '--reactNamespace[Specify the object invoked for "createElement"]'
-  '(-t --target)'{-t,--target}'[Set the JavaScript language version for emitted JavaScript]:target:(($targets))'
+  '(-t --target)'{-t,--target}'[Set the JavaScript language version for emitted JavaScript]:target:($targets)'
   '--useDefineForClassFields[Emit ECMAScript-standard-compliant class fields]'
+  # Output Formatting
   '--noErrorTruncation[Disable truncating types in error messages]'
   '--preserveWatchOutput[Disable wiping the console in watch mode]'
   "--pretty[Enable color and formatting in TypeScript's output to make compiler errors easier to read]"
+  # Completeness
   '--skipDefaultLibCheck[Skip type checking .d.ts files that are included with TypeScript]'
   '--skipLibCheck[Skip type checking all .d.ts files]'
-  '--watchFile[Specify how the TypeScript watch mode works]:mode:(($watch_modes))'
-  '--watchDirectory[Specify how directories are watched on systems]:mode:(usefsevents fixedpollinginterval dynamicprioritypolling fixedchunksizepolling)'
+  # Watch options
+  '--watchFile[Specify how the TypeScript watch mode works]:mode:($file_watch_modes)'
+  '--watchDirectory[Specify how directories are watched on systems]:mode:($directory_watch_modes)'
   '--fallbackPolling[Specify what approach the watcher should use if the system runs out of native file watchers]:approach:(fixedinterval priorityinterval dynamicpriority fixedchunksize)'
   '--synchronousWatchDirectory[Synchronously call callbacks and update the state of directory watchers on platforms]'
   '--excludeDirectories[Remove a list of directories from the watch process]:dirs:_files -/'
   "--excludeFiles[Remove a list of files from the watch mode's processing]:files:_files"
-  "--libReplacement[Enable library replacement]"
-  "--erasableSyntaxOnly[Ensures that runtime constructs which are not part of ECMAScript are not allowed]"
   '*:: :_files'
 )
 
@@ -203,6 +233,7 @@ if (( $+opt_args[--build] )); then
     '--dry[Show what would be built]'
     '(-f --force)'{-f,--force}'[Build all projects, including those that appear to be up to date]'
     '--clean[Delete the outputs of all projects]'
+    '--builders[Set the number of projects to build concurrently]:num'
     '--stopBuildOnErrors[Skip building downstream projects on error in upstream project]'
   )
 else
@@ -211,7 +242,7 @@ else
   )
 fi
 
-_arguments -C $opts && return 0
+_arguments $opts && return 0
 
 # Local Variables:
 # mode: Shell-Script

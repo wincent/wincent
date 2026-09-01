@@ -1,0 +1,58 @@
+# base16 Neovim Dark 256 - alacritty color config
+# https://github.com/neovim/neovim/blob/master/src/nvim/highlight_group.c
+
+# Default colors
+[colors.primary]
+background = '0x14161b'
+foreground = '0xe0e2ea'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x14161b'
+cursor = '0xe0e2ea'
+
+# Normal colors
+[colors.normal]
+black = '0x14161b'
+red = '0xffc0b9'
+green = '0xb3f6c0'
+yellow = '0xfce094'
+blue = '0xa6dbff'
+magenta = '0xffcaff'
+cyan = '0x8cf8f7'
+white = '0xe0e2ea'
+
+# Bright colors
+[colors.bright]
+black = '0x9b9ea4'
+red = '0xffc0b9'
+green = '0xb3f6c0'
+yellow = '0xfce094'
+blue = '0xa6dbff'
+magenta = '0xffcaff'
+cyan = '0x8cf8f7'
+white = '0xeef1f8'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xffa500"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xcd853f"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x07080d"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x4f5258"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0xc4c6cd"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xeef1f8"

@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Arroz con Dulce by Richard Martinez
+
+name: Base16 Arroz con Dulce
+accent: "#5940a0" # base0D
+cursor: "#4a2c20" # base05
+background: "#fff8e7" # base00
+foreground: "#4a2c20" # base05
+details: lighter
+
+terminal_colors:
+  bright:
+    black: "#fff8e7" # base00
+    red: "#a11d48" # base08
+    yellow: "#855500" # base0A
+    green: "#a2380c" # base0B
+    cyan: "#98263e" # base0C
+    blue: "#5940a0" # base0D
+    magenta: "#8c1f68" # base0E
+    white: "#4a2c20" # base05
+
+  normal:
+    black: "#c8a77a" # base03
+    red: "#a11d48" # base08
+    yellow: "#855500" # base0A
+    green: "#a2380c" # base0B
+    cyan: "#98263e" # base0C
+    blue: "#5940a0" # base0D
+    magenta: "#8c1f68" # base0E
+    white: "#21110b" # base07

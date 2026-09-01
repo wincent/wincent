@@ -1,0 +1,27 @@
+# Neovim Dark theme for Mintty
+# Scheme Author: https://github.com/neovim/neovim/blob/master/src/nvim/highlight_group.c
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #14161b
+Red         = #ffc0b9
+Green       = #b3f6c0
+Yellow      = #fce094
+Blue        = #a6dbff
+Magenta     = #ffcaff
+Cyan        = #8cf8f7
+White       = #e0e2ea
+BoldBlack   = #9b9ea4
+BoldRed     = #ffc0b9
+BoldGreen   = #b3f6c0
+BoldYellow  = #fce094
+BoldBlue    = #a6dbff
+BoldMagenta = #ffcaff
+BoldCyan    = #8cf8f7
+BoldWhite   = #eef1f8
+
+# Background & foreground colors
+BackgroundColour = #14161b
+ForegroundColour = #e0e2ea
+CursorColour     = #e0e2ea

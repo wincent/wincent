@@ -8,21 +8,13 @@ function M.sudo_already()
 	return status and status.success or false, err
 end
 
---- Run a program with `sudo` privilege
+--- Authenticate `sudo` through Yazi's input component
 --- @param program string
---- @param args table
---- @return Output? output
+--- @return boolean authenticated
 --- @return Error? err
-function M.run_with_sudo(program, args)
-	local cmd = Command("sudo")
-		:arg({ "--stdin", "--user", "#" .. ya.uid(), "--", program })
-		:arg(args)
-		:stdin(Command.PIPED)
-		:stdout(Command.PIPED)
-		:stderr(Command.PIPED)
-
+function M.authenticate(program)
 	if M.sudo_already() then
-		return cmd:output()
+		return true
 	end
 
 	local value, event = ya.input {
@@ -31,23 +23,42 @@ function M.run_with_sudo(program, args)
 		obscure = true,
 	}
 	if not value or event ~= 1 then
-		return nil, Err("Sudo password input cancelled")
+		return false, Err("Sudo password input cancelled")
 	end
 
-	local child, err = cmd:spawn()
+	local child, err = Command("sudo")
+		:arg({ "--stdin", "--validate" })
+		:stdin(Command.PIPED)
+		:stdout(Command.PIPED)
+		:stderr(Command.PIPED)
+		:spawn()
 	if not child or err then
-		return nil, err
+		return false, err
 	end
 
 	child:write_all(value .. "\n")
 	child:flush()
 	local output, err = child:wait_with_output()
 	if not output or err then
-		return nil, err
-	elseif output.status.success or M.sudo_already() then
-		return output
+		return false, err
+	elseif not output.status.success then
+		return false, Err("Incorrect sudo password")
 	else
-		return nil, Err("Incorrect sudo password")
+		return true
+	end
+end
+
+--- Run a program with `sudo` privilege
+--- @param program string
+--- @param args table
+--- @return Output? output
+--- @return Error? err
+function M.run_with_sudo(program, args)
+	local authenticated, err = M.authenticate(program)
+	if authenticated then
+		return Command("sudo"):arg({ "--non-interactive", "--", program }):arg(args):output()
+	else
+		return nil, err
 	end
 end
 

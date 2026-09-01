@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Pastelón de Amarillos Dark by Richard Martinez (https://sonofmartinus.com)
+
+name: Base16 Pastelón de Amarillos Dark
+accent: "#5a9fe6" # base0D
+cursor: "#ffe0a3" # base05
+background: "#180d18" # base00
+foreground: "#ffe0a3" # base05
+details: darker
+
+terminal_colors:
+  bright:
+    black: "#180d18" # base00
+    red: "#ff646a" # base08
+    yellow: "#ffc84a" # base0A
+    green: "#3ccb83" # base0B
+    cyan: "#35c4b6" # base0C
+    blue: "#5a9fe6" # base0D
+    magenta: "#d978cf" # base0E
+    white: "#ffe0a3" # base05
+
+  normal:
+    black: "#a0747c" # base03
+    red: "#ff646a" # base08
+    yellow: "#ffc84a" # base0A
+    green: "#3ccb83" # base0B
+    cyan: "#35c4b6" # base0C
+    blue: "#5a9fe6" # base0D
+    magenta: "#d978cf" # base0E
+    white: "#fff7e6" # base07

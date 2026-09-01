@@ -31,7 +31,7 @@ brights = [
   "#5555ff",
   "#ff55ff",
   "#55ffff",
-  "#ffffff"
+  "#000000"
 ]
 
 [colors.indexed]

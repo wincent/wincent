@@ -1,4 +1,4 @@
---- @since 26.5.6
+--- @since 26.8.15
 
 local root = ya.sync(function() return cx.active.current.cwd end)
 
@@ -45,7 +45,7 @@ end
 local function entry()
 	local root = root()
 
-	local tracked, err = output(root, { "diff", "--name-only", "HEAD" })
+	local tracked, err = output(root, { "diff", "--name-only", "--relative", "HEAD" })
 	if err then
 		return fail(err)
 	end
@@ -68,8 +68,10 @@ local function entry()
 			files[#files + 1] = File { url = url, cha = cha }
 		end
 	end
-	ya.emit("update_files", { op = fs.op("part", { id = id, url = Url(cwd), files = files }) })
-	ya.emit("update_files", { op = fs.op("done", { id = id, url = cwd, cha = Cha { mode = tonumber("100644", 8) } }) })
+
+	local dir = File { url = cwd, cha = Cha { mode = tonumber("100644", 8) } }
+	ya.emit("update_files", { op = fs.op("part", { id = id, url = dir.url, files = files }) })
+	ya.emit("update_files", { op = fs.op("done", { id = id, file = dir }) })
 end
 
 return { entry = entry }

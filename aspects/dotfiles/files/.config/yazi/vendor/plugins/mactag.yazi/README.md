@@ -48,13 +48,11 @@ And register it as fetchers in your `~/.config/yazi/yazi.toml`:
 
 ```toml
 [[plugin.prepend_fetchers]]
-id     = "mactag" # Remove if Yazi > v26.1.22
 url    = "*"
 run    = "mactag"
 group  = "mactag"
 
 [[plugin.prepend_fetchers]]
-id     = "mactag" # Remove if Yazi > v26.1.22
 url    = "*/"
 run    = "mactag"
 group  = "mactag"

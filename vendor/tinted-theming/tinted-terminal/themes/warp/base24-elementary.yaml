@@ -27,4 +27,4 @@ terminal_colors:
     cyan: "#3ea7fc" # base15
     blue: "#0855fe" # base16
     magenta: "#fb004f" # base17
-    white: "#8c00eb" # base07
+    white: "#eeeeee" # base07

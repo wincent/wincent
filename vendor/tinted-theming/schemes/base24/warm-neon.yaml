@@ -1,7 +1,7 @@
 system: "base24"
 name: "Warm Neon"
 author: "FredHappyface (https://github.com/fredHappyface)"
-variant: "light"
+variant: "dark"
 palette:
   base00: "#3f3f3f"
   base01: "#000000"

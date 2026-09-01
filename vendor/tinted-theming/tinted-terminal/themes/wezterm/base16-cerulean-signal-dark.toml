@@ -1,0 +1,43 @@
+# base16 Cerulean Signal Dark
+# Scheme author: Aaron Colichia (https://aaron.colichia.org/)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#101722"
+foreground = "#dce6f2"
+
+cursor_bg = "#dce6f2"
+cursor_border = "#dce6f2"
+cursor_fg = "#101722"
+
+selection_bg = "#dce6f2"
+selection_fg = "#173a5a"
+
+ansi = [
+  "#101722",
+  "#ff8a9a",
+  "#70e1b0",
+  "#e2c85f",
+  "#7dd3ff",
+  "#ff74d4",
+  "#58d9df",
+  "#dce6f2"
+]
+brights = [
+  "#8fa0b5",
+  "#ff8a9a",
+  "#70e1b0",
+  "#e2c85f",
+  "#7dd3ff",
+  "#ff74d4",
+  "#58d9df",
+  "#f7f9fc"
+]
+
+[colors.indexed]
+16 = "#f5a35c"
+17 = "#d59b7d"
+18 = "#131c29"
+19 = "#173a5a"
+20 = "#aab8ca"
+21 = "#f1f6fc"

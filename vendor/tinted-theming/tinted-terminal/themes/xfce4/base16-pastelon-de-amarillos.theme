@@ -1,0 +1,10 @@
+# Scheme name: Pastelón de Amarillos
+# Scheme author: Richard Martinez (https://sonofmartinus.com)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-pastelon-de-amarillos
+ColorForeground=#432c3b
+ColorBackground=#fff4d6
+ColorCursor=#432c3b
+ColorBoldIsBright=FALSE
+ColorPalette=#fff4d6;#bd3548;#167451;#946400;#1e5da8;#8d3f89;#007270;#432c3b;#80616b;#bd3548;#167451;#946400;#1e5da8;#8d3f89;#007270;#1c0f20

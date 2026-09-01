@@ -1,0 +1,22 @@
+// Add custom color schemes to the "schemes" array
+{
+	"name": "Lichen Chartreuse Dark",
+	"foreground": "#e0e5da",
+	"background": "#151613",
+	"black": "#151613",
+	"blue": "#78adc4",
+	"brightBlack": "#899282",
+	"brightBlue": "#a3b8c2",
+	"brightCyan": "#97c9c9",
+	"brightGreen": "#cfe4ae",
+	"brightPurple": "#d2a0b2",
+	"brightRed": "#e28b82",
+	"brightWhite": "#fcfcfa",
+	"brightYellow": "#d5ad73",
+	"cyan": "#9cc6c9",
+	"green": "#83bda5",
+	"purple": "#bfa6d4",
+	"red": "#e28b82",
+	"white": "#e0e5da",
+	"yellow": "#b2d084"
+},

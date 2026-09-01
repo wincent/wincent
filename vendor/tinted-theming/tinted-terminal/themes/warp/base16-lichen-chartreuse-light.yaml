@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Lichen Chartreuse Light by Aaron Colichia (https://aaron.colichia.org/)
+
+name: Base16 Lichen Chartreuse Light
+accent: "#356e8a" # base0D
+cursor: "#2d302b" # base05
+background: "#f5f7f2" # base00
+foreground: "#2d302b" # base05
+details: lighter
+
+terminal_colors:
+  bright:
+    black: "#f5f7f2" # base00
+    red: "#a34740" # base08
+    yellow: "#506b29" # base0A
+    green: "#2f7462" # base0B
+    cyan: "#356569" # base0C
+    blue: "#356e8a" # base0D
+    magenta: "#6e5689" # base0E
+    white: "#2d302b" # base05
+
+  normal:
+    black: "#687161" # base03
+    red: "#a34740" # base08
+    yellow: "#506b29" # base0A
+    green: "#2f7462" # base0B
+    cyan: "#356569" # base0C
+    blue: "#356e8a" # base0D
+    magenta: "#6e5689" # base0E
+    white: "#151613" # base07

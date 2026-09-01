@@ -1,0 +1,58 @@
+# base16 Pastelón de Amarillos 256 - alacritty color config
+# Richard Martinez (https://sonofmartinus.com)
+
+# Default colors
+[colors.primary]
+background = '0xfff4d6'
+foreground = '0x432c3b'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0xfff4d6'
+cursor = '0x432c3b'
+
+# Normal colors
+[colors.normal]
+black = '0xfff4d6'
+red = '0xbd3548'
+green = '0x167451'
+yellow = '0x946400'
+blue = '0x1e5da8'
+magenta = '0x8d3f89'
+cyan = '0x007270'
+white = '0x432c3b'
+
+# Bright colors
+[colors.bright]
+black = '0x80616b'
+red = '0xbd3548'
+green = '0x167451'
+yellow = '0x946400'
+blue = '0x1e5da8'
+magenta = '0x8d3f89'
+cyan = '0x007270'
+white = '0x1c0f20'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xad570f"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x7c3528"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0xf2d083"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0xd69b45"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x684653"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0x2f1c2e"

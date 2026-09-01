@@ -1,0 +1,43 @@
+# base16 Neovim Light
+# Scheme author: https://github.com/neovim/neovim/blob/master/src/nvim/highlight_group.c
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#e0e2ea"
+foreground = "#14161b"
+
+cursor_bg = "#14161b"
+cursor_border = "#14161b"
+cursor_fg = "#e0e2ea"
+
+selection_bg = "#14161b"
+selection_fg = "#9b9ea4"
+
+ansi = [
+  "#e0e2ea",
+  "#590008",
+  "#005523",
+  "#6b5300",
+  "#004c73",
+  "#470045",
+  "#007373",
+  "#14161b"
+]
+brights = [
+  "#4f5258",
+  "#590008",
+  "#005523",
+  "#6b5300",
+  "#004c73",
+  "#470045",
+  "#007373",
+  "#07080d"
+]
+
+[colors.indexed]
+16 = "#8b4513"
+17 = "#a52a2a"
+18 = "#eef1f8"
+19 = "#9b9ea4"
+20 = "#2c2e33"
+21 = "#07080d"

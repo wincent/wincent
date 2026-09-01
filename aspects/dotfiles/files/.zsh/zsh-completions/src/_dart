@@ -24,7 +24,7 @@
 # Description
 # -----------
 #
-#  Completion script for dart 3.12.0 (https://dart.dev/)
+#  Completion script for dart 3.13.0 (https://dart.dev/)
 #
 # ------------------------------------------------------------------------------
 # Authors
@@ -60,6 +60,26 @@ _dart() {
            '1: :_dart_subcommands' \
             && ret=0
           ;;
+        (install)
+          _arguments \
+            '(- *)'{-h,--help}'[Print this usage information]' \
+            '--overwrite[Overwrite executables from other packages with the same name]' \
+            '*:package' \
+            && ret=0
+          ;;
+        (installed)
+          _arguments \
+            '(- *)'{-h,--help}'[Print this usage information]' \
+            '(-a --all)'{-a,--all}'[Also list packages which are currently not active]'
+            '*:package' \
+            && ret=0
+          ;;
+        (uninstall)
+          _arguments \
+            '(- *)'{-h,--help}'[Print this usage information]' \
+            '*:package' \
+            && ret=0
+          ;;
         (analyze)
           _arguments \
             '(- *)'{-h,--help}'[Print this usage information]' \
@@ -68,6 +88,9 @@ _dart() {
             '(--no-fatal-warnings --fatal-warnings)--no-fatal-warnings[Do not treat warnings level issue as fatal]' \
             '*: :_files -/' \
             && ret=0
+          ;;
+        (build)
+          _dart_build && ret=0
           ;;
         (compile)
           _dart_compile && ret=0
@@ -178,6 +201,47 @@ _dart() {
             '--js-trace[Emit raw JavaScript stack traces for browser tests]' \
             '(--color --no-color)--color[Use terminal colors]' \
             '(--color --no-color)--no-color[Do not use terminal colors]' \
+            '*: :_files' \
+            && ret=0
+          ;;
+      esac
+      ;;
+  esac
+
+  return ret
+}
+
+(( $+functions[_dart_build] )) ||
+_dart_build() {
+  local ret=1
+
+  local -a commands=(
+    'cli:Build a Dart application with a command line interface (CLI)'
+  )
+
+  _arguments -C \
+    '(- *)'{-h,--help}'[Show help and usage information]' \
+    '1: :(($commands))' \
+    '*:: :->subcmd' && ret=0
+
+  case $state in
+    (subcmd)
+      local -a options=(
+        '(- *)'{-h,--help}'[Show help and usage information]'
+      )
+      case $words[1] in
+        (cli)
+          _arguments \
+            '(- *)'{-h,--help}'[Show help and usage information]' \
+            '(-o --output)'{-o,--output=}'[Write the output to <output>/bundle/]:output:_files -/' \
+            '(-t --target)'{-t,--target=}'[Main entry-point file of the command-line application]:file:_files' \
+            '(-p --packages)'{-p,--packages=}'[Get package locations from the specified file]:file:_files' \
+            '--verbosity=[Set the verbosity level of the compilation]:level:(error warning info all)' \
+            '--depfile=[Path to an output file in Ninja depfile format containing compilation dependencies]:path:_files' \
+            '--target-sanitizer[Build with a specific target sanitizer]:sanitizer:(none asan msan tsan)' \
+            '--target-os[Compile to a specific target operating system]:os:(android fuchsia ios linux macos windows)' \
+            '--target-arch[Compile to a specific target architecture]:arch:(arm arm64 ia32 risv32 riscv64 x64)' \
+            '--root-package=[Package for which hooks are run are outside the packages in packages argument]:name' \
             '*: :_files' \
             && ret=0
           ;;
@@ -538,6 +602,13 @@ _dart_pub_cache() {
             '(-f --force)'{-f,--force}'[Do not ask for confirmation]'
           )
           ;;
+        (gc)
+          opts+=(
+            '(-f --force)'{-f,--force}'[Prune cache without confirmation]'
+            '--collect-recent[Also delete recent files]'
+            '--dry-run[Print list of files that would be deleted]'
+          )
+          ;;
       esac
 
       _arguments "$opts[@]" && ret=0
@@ -553,6 +624,7 @@ _dart_pub_cache_subcommands() {
     "add:Install a package"
     "clean:Clears the global PUB_CACHE"
     "repair:Reinstall cached packages"
+    'gc:Prune unused packages from the system cache'
   )
   _describe -t commands 'command' commands "$@"
 }
@@ -705,17 +777,25 @@ _dart_test_reporter() {
 (( $+functions[_dart_subcommands] )) ||
 _dart_subcommands() {
   local -a commands=(
-    "analyze:Analyze Dart code in a directory"
+    # global
+    "install:Install or upgrade a Dart CLI tool for global use"
+    "installed:List globally installed Dart CLI tools"
+    "uninstall:Remove aglobally instaled Dart CLI tool"
+    # project
+    "build:Build a Dart application including code assets"
     "compile:Compile Dart to various formats"
     "create:Create a new Dart project"
-    "devtools:Open DevTools (optionally connecting to an existing application)"
-    "doc:Generate API documentation for Dart projects"
-    "fix:Apply automated fixes to Dart source code"
-    "format:Idiomatically format Dart source code"
-    "info:Show diagnostic information about the installed tooling"
     "pub:Work with packages"
     "run:Run a Dart program"
     "test:Run tests for a project"
+    # source code
+    "analyze:Analyze Dart code in a directory"
+    "doc:Generate API documentation for Dart projects"
+    "fix:Apply automated fixes to Dart source code"
+    "format:Idiomatically format Dart source code"
+    # tools
+    "devtools:Open DevTools (optionally connecting to an existing application)"
+    "info:Show diagnostic information about the installed tooling"
   )
   _describe -t commands 'command' commands "$@"
 }

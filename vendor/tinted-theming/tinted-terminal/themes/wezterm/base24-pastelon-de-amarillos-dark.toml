@@ -1,0 +1,43 @@
+# base24 Pastelón de Amarillos Dark
+# Scheme author: Richard Martinez (https://sonofmartinus.com)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#180d18"
+foreground = "#ffe0a3"
+
+cursor_bg = "#ffe0a3"
+cursor_border = "#ffe0a3"
+cursor_fg = "#180d18"
+
+selection_bg = "#ffe0a3"
+selection_fg = "#432031"
+
+ansi = [
+  "#180d18",
+  "#d95361",
+  "#36aa72",
+  "#d8a93a",
+  "#4c84bd",
+  "#b765b0",
+  "#31a99e",
+  "#ffe0a3"
+]
+brights = [
+  "#a0747c",
+  "#ffd052",
+  "#3ed2c3",
+  "#43d98d",
+  "#e581dc",
+  "#ed7d51",
+  "#64abf4",
+  "#fff7e6"
+]
+
+[colors.indexed]
+16 = "#d98328"
+17 = "#bd6242"
+18 = "#2a1424"
+19 = "#432031"
+20 = "#c39a89"
+21 = "#ffebc5"

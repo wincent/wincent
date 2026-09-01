@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Neovim Light
+; Scheme system: base16
+; Scheme description: 
+; Scheme author: https://github.com/neovim/neovim/blob/master/src/nvim/highlight_group.c
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base16-neovim-light]
+
+; Default Foreground
+; base05 #14161b
+"Colour0"="20,22,27"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #14161b
+"Colour1"="20,22,27"
+
+; Default Background
+; base00 #e0e2ea
+"Colour2"="224,226,234"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #e0e2ea
+"Colour3"="224,226,234"
+
+; Cursor Text -- equals to default background
+; base00 #e0e2ea
+"Colour4"="224,226,234"
+
+; Cursor Colour -- equals to default foreground
+; base05 #14161b
+"Colour5"="20,22,27"
+
+; ANSI Black
+; 30m
+; base00 #e0e2ea
+"Colour6"="224,226,234"
+
+; ANSI Black Bright
+; 1;30m
+; base03 #4f5258
+"Colour7"="79,82,88"
+
+; ANSI Red
+; 31m
+; base08 #590008
+"Colour8"="89,0,8"
+
+; ANSI Red Bright
+; 1;31m
+; base08 #590008
+"Colour9"="89,0,8"
+
+; ANSI Green
+; 32m
+; base0B #005523
+"Colour10"="0,85,35"
+
+; ANSI Green Bright
+; 1;32m
+; base0B #005523
+"Colour11"="0,85,35"
+
+; ANSI Yellow
+; 33m
+; base0A #6b5300
+"Colour12"="107,83,0"
+
+; ANSI Yellow Bright
+; 1;33m
+; base0A #6b5300
+"Colour13"="107,83,0"
+
+; ANSI Blue
+; 34m
+; base0D #004c73
+"Colour14"="0,76,115"
+
+; ANSI Blue Bright
+; 1;34m
+; base0D #004c73
+"Colour15"="0,76,115"
+
+; ANSI Magenta
+; 35m
+; base0E #470045
+"Colour16"="71,0,69"
+
+; ANSI Magenta Bright
+; 1;35m
+; base0E #470045
+"Colour17"="71,0,69"
+
+; ANSI Cyan
+; 36m
+; base0C #007373
+"Colour18"="0,115,115"
+
+; ANSI Cyan Bright
+; 1;36m
+; base0C #007373
+"Colour19"="0,115,115"
+
+; ANSI White
+; 37m
+; base05 #14161b
+"Colour20"="20,22,27"
+
+; ANSI White Bright
+; 1;37m
+; base07 07080d
+"Colour21"="7,8,13"

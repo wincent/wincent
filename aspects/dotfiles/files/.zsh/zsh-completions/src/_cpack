@@ -24,7 +24,7 @@
 # Description
 # -----------
 #
-#  Completion script for cpack 4.3.0 (https://kitware.com/cmake)
+#  Completion script for cpack 4.4.0 (https://kitware.com/cmake)
 #
 # ------------------------------------------------------------------------------
 # Authors
@@ -51,6 +51,7 @@ _cpack() {
     '-B[Override/define CPACK_PACKAGE_DIRECTORY]:package_directory:_files -/' \
     '--vendor[Override/define CPACK_PACKAGE_VENDOR]:vendor' \
     '--preset[Read arguments from a package preset]' \
+    '--presets-file=[Specify the path to a presets file]:file:_files' \
     '--list-presets[List available package preset]' \
     '(- *)'{--version,-version}=-'[Print version number and exit]::format:(json-v1)' \
     '(- *)--help[Print usage information and exit]' \

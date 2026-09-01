@@ -28,7 +28,7 @@
     <value name="ColorTable12" type="dword" data="00fe5508"/> <!-- base16 - Bright Blue -->
     <value name="ColorTable13" type="dword" data="004f00fb"/> <!-- base17 - Bright Magenta -->
     <value name="ColorTable14" type="dword" data="00fca73e"/> <!-- base15 - Bright Cyan -->
-    <value name="ColorTable15" type="dword" data="00eb008c"/> <!-- base07 - Bright White -->
+    <value name="ColorTable15" type="dword" data="00eeeeee"/> <!-- base07 - Bright White -->
     <value name="ColorTable16" type="dword" data="000bb4fd"/> <!-- base09 -->
     <value name="ColorTable17" type="dword" data="000a0d6b"/> <!-- base0F -->
     <value name="ColorTable18" type="dword" data="00242424"/> <!-- base01 -->

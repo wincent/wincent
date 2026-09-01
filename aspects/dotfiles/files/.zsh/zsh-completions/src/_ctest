@@ -24,7 +24,7 @@
 # Description
 # -----------
 #
-#  Completion script for ctest 4.3.0 (https://kitware.com/cmake)
+#  Completion script for ctest 4.4.0 (https://kitware.com/cmake)
 #
 # ------------------------------------------------------------------------------
 # Authors
@@ -39,6 +39,7 @@ _ctest() {
 
   _arguments \
     '--preset=[Read arguments from a test preset]:preset' \
+    '--presets-file=[Specify the path to a presets file]:file:_files' \
     '--list-presets[List available test presets]' \
     '(-C --build-config)'{-C,--build-config}'[Choose configuration to test]:config' \
     '--progress[Enable short progress output from tests]' \
@@ -67,6 +68,7 @@ _ctest() {
     '*-D[Define a variable for script mode]:var' \
     '(-M --test-model)'{-M,--test-model}'[Set the model for a dashboard]:model' \
     '(-T --test-action)'{-T,--test-action}'[Set the dashboard action to perform]' \
+    '--source-dir[Specify the project source directory]:dir:_files -/' \
     '--group[Specify what build group on the dashboard]:group' \
     \*{-S,--script,-Sp,--script-new-process}'[Execute a dashboard for a configuration]:script:_files' \
     '(-A --add-notes)'{-A,--add-notes}'[Add a notes file with submission]:file:_files' \
@@ -82,7 +84,7 @@ _ctest() {
     '--resource-spec-file[Set the resource spec file to use]:file:_files' \
     '--no-label-summary[Disable timing summary information for labels]' \
     '--no-subproject-summary[Disable timing summary information for subprojects]' \
-    '--test-dir[Specify the directory in which to look for tests]:dir:_files -/' \
+    '(--test-dir --build-dir)'{--test-dir,--build-dir}'[Specify the directory in which to look for tests]:dir:_files -/' \
     '--build-and-test[Configure, build and run a test]' \
     '*--build-target[Specify a specific target to build]:target' \
     '--build-nocmake[Run the build without running cmake first]' \

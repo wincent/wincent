@@ -1,0 +1,10 @@
+# Scheme name: Cerulean Signal Light
+# Scheme author: Aaron Colichia (https://aaron.colichia.org/)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-cerulean-signal-light
+ColorForeground=#232b38
+ColorBackground=#f7f9fc
+ColorCursor=#232b38
+ColorBoldIsBright=FALSE
+ColorPalette=#f7f9fc;#b4233d;#17795e;#6f6300;#006fa8;#a0007d;#00727e;#232b38;#637287;#b4233d;#17795e;#6f6300;#006fa8;#a0007d;#00727e;#141d2a

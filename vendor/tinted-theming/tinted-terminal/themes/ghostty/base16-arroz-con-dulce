@@ -1,0 +1,47 @@
+# vim: ft=ghostty
+# Arroz con Dulce theme for Ghostty
+# Scheme Author: Richard Martinez
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# Color palette
+palette = 0=#fff8e7
+palette = 1=#a11d48
+palette = 2=#a2380c
+palette = 3=#855500
+palette = 4=#5940a0
+palette = 5=#8c1f68
+palette = 6=#98263e
+palette = 7=#4a2c20
+palette = 8=#c8a77a
+palette = 9=#a11d48
+palette = 10=#a2380c
+palette = 11=#855500
+palette = 12=#5940a0
+palette = 13=#8c1f68
+palette = 14=#98263e
+palette = 15=#21110b
+palette = 16=#a3470a
+palette = 17=#653221
+palette = 18=#f7ebd3
+palette = 19=#ead6b8
+palette = 20=#765b45
+palette = 21=#321c14
+
+# Foreground & background colors
+background = #fff8e7
+foreground = #4a2c20
+cursor-color = #4a2c20
+selection-background = #4a2c20
+selection-foreground = #ead6b8
+search-background = #855500
+search-foreground = #f7ebd3
+search-selected-background = #a3470a
+search-selected-foreground = #f7ebd3
+
+# Set `macos-icon = custom-style` in your main configuration file to enable theming of the app icon.
+#
+# Set the ghost color to the lightest foreground:
+macos-icon-ghost-color = #21110b
+# Replace the official icon's blue background with the designated bright blue color:
+macos-icon-screen-color = #5940a0
