@@ -10,7 +10,7 @@ source bin/common
 
 bin/typegen
 
-bin/seed-dependencies
+bin/deps seed
 
 log_info "Running Fig"
 

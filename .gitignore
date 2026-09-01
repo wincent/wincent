@@ -9,8 +9,7 @@
 # For all other ignored items, prefer recording them in directory-local
 # .gitignore files.
 
-# Cache for local clones of dependency Git repos (see
-# `bin/update-dependencies`).
+# Cache for local clones of dependency Git repos (see `bin/deps`).
 /.cache
 
 # Git worktrees (ie. `git worktree add media media`).
