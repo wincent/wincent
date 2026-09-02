@@ -10,14 +10,15 @@
     "xai/grok-4.6",
     "openai/gpt-5.6-sol",
     "openai/gpt-5.6-luna",
-    "openai/gpt-5.6-terra"
+    "openai/gpt-5.6-terra",
+    "openai/gpt-6-astra"
   ],
   "extensions": [
     "~/.claude/plugins/marketplaces/wincent-agent-plugins/pi/extensions",
     "~/dd/wincent/.pi/agent/extensions"
   ],
   "hideThinkingBlock": true,
-  "lastChangelogVersion": "0.84.4",
+  "lastChangelogVersion": "0.85.1",
   "prompts": [
     "~/.claude/plugins/marketplaces/wincent-agent-plugins/pi/prompts",
     "~/dd/wincent/.pi/agent/prompts"
