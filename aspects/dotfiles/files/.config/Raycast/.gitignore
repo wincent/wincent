@@ -1,2 +1,4 @@
 # Don't commit this; it has access tokens in it.
 config.json
+
+/node-compile-cache
