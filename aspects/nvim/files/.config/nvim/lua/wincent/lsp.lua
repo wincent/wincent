@@ -324,13 +324,8 @@ lsp.init = function()
     -- - https://github.com/microsoft/typescript-go/pull/1966
     -- - https://stackoverflow.com/questions/74958055/why-yarn-creates-a-pnp-loader-mjs-and-pnp-cjs-files
     --
-    local has_tsc = vim.fn.executable('tsc') == 1
-    local uses_pnp = function(root)
-      if root then
-        return exists(root .. '/.pnp.cjs') or exists(root .. '/.pnp.loader.mjs')
-      else
-        return false
-      end
+    local uses_pnp = function(bufnr)
+      return vim.fs.root(bufnr, { '.pnp.cjs', '.pnp.loader.mjs' }) ~= nil
     end
 
     -- For Yarn PnP projects, point `typescript-language-server` at the
@@ -357,54 +352,22 @@ lsp.init = function()
         tsserver = { path = find_pnp_tsserver() },
       },
       root_dir = function(bufnr, on_dir)
-        if original_ts_ls_root_dir then
-          original_ts_ls_root_dir(bufnr, function(root)
-            if not has_tsc or uses_pnp(root) then
-              on_dir(root)
-            end
-          end)
+        if uses_pnp(bufnr) and original_ts_ls_root_dir then
+          original_ts_ls_root_dir(bufnr, on_dir)
         end
       end,
     })
     vim.lsp.enable('ts_ls', vim.fn.executable('typescript-language-server') == 1)
 
-    -- As of typescript@7.0-rc the `tsc` executable is now Go:
-    --
-    -- - https://devblogs.microsoft.com/typescript/announcing-typescript-7-0-rc/
-    --
-    -- However, nvim-lspconfig still uses "tsgo" as the config name:
-    --
-    -- - https://github.com/neovim/nvim-lspconfig/blob/fef8b117ad5fb73943913f444f22065c4b834a60/lsp/tsgo.lua
-    --
-    -- So for now, keep using "tsgo" as the config key, but force the use of
-    -- "tsc" as the command.
-    --
-    local original_tsgo_root_dir = vim.lsp.config['tsgo'].root_dir
-    vim.lsp.config('tsgo', {
-      cmd = function(dispatchers, config)
-        local cmd = 'tsc'
-        if (config or {}).root_dir then
-          -- Prefer repo-local `tsc` if present, otherwise global `tsc`.
-          -- But note that if a repo-local `tsc` is < v7 (ie. the JS, not the Go
-          -- implementation), `tsc --lsp --stdio` will fail.
-          local local_cmd = vim.fs.joinpath(config.root_dir, 'node_modules/.bin', cmd)
-          if vim.fn.executable(local_cmd) == 1 then
-            cmd = local_cmd
-          end
-        end
-        return vim.lsp.rpc.start({ cmd, '--lsp', '--stdio' }, dispatchers)
-      end,
+    local original_tsc_root_dir = vim.lsp.config['tsc'].root_dir
+    vim.lsp.config('tsc', {
       root_dir = function(bufnr, on_dir)
-        if original_tsgo_root_dir then
-          original_tsgo_root_dir(bufnr, function(root)
-            if has_tsc and not uses_pnp(root) then
-              on_dir(root)
-            end
-          end)
+        if not uses_pnp(bufnr) and original_tsc_root_dir then
+          original_tsc_root_dir(bufnr, on_dir)
         end
       end,
     })
-    vim.lsp.enable('tsgo', has_tsc)
+    vim.lsp.enable('tsc', vim.fn.executable('tsc') == 1)
 
     vim.lsp.enable('vimls', vim.fn.executable('vim-language-server') == 1)
   end
