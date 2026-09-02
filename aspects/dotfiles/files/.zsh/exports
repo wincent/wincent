@@ -162,6 +162,7 @@ export FAVA_READ_ONLY=1
 # See: https://cli.github.com/telemetry
 export GH_TELEMETRY=false
 
+# Avoid homedir clutter caused by GOPATH default of "$HOME/go".
 export GOPATH=~/code/go
 
 # See: https://docs.brew.sh/Analytics
