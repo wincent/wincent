@@ -171,7 +171,6 @@ vim.g.maplocalleader = '\\'
 
 -- Extension -> filetype mappings.
 vim.g.filetype_m = 'objc'
-vim.g.filetype_pl = 'prolog'
 
 -- Stark highlighting is enough to see the current match; don't need the
 -- centering, which can be annoying.
