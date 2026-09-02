@@ -16,6 +16,7 @@
     "~/.claude/plugins/marketplaces/wincent-agent-plugins/pi/extensions",
     "~/dd/wincent/.pi/agent/extensions"
   ],
+  "hideThinkingBlock": true,
   "lastChangelogVersion": "0.84.4",
   "prompts": [
     "~/.claude/plugins/marketplaces/wincent-agent-plugins/pi/prompts",
@@ -26,6 +27,8 @@
     "~/.claude/plugins/marketplaces/wincent-agent-plugins/pi/skills",
     "~/dd/wincent/.pi/agent/skills"
   ],
-  "theme": "dark",
-  "hideThinkingBlock": true
+  "terminal": {
+    "hyperlinks": true
+  },
+  "theme": "dark"
 }
