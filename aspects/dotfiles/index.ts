@@ -276,14 +276,8 @@ task('create ~/code/.editorconfig', when('wincent'), async () => {
 
 task('create ~/dd', when('wincent', 'work'), async () => {
   await file({
-    path: '~/go/src/github.com/DataDog',
-    recurse: true,
-    state: 'directory',
-  });
-  await file({
     path: '~/dd',
-    src: '~/go/src/github.com/DataDog',
-    state: 'link',
+    state: 'directory',
   });
 });
 
