@@ -13,7 +13,7 @@ vim.filetype.add({
     ['.*/%.zsh/functions%.d/[^./]+'] = 'zsh',
     -- Anything without a dot under "host/".
     ['.*/%.zsh/host/[^./]+'] = 'zsh',
-  }
+  },
 })
 
 -- Override built-in ftdetect which classifies this as "exports" (NFS) filetype.
