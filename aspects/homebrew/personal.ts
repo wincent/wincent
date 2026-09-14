@@ -54,13 +54,6 @@ task('install edencommon formula', when('personal'), async () => {
   });
 });
 
-// Perl lib for reading and writing EXIF metadata.
-task('install exiftool formula', when('personal'), async () => {
-  await command('brew', ['install', 'exiftool'], {
-    creates: '/opt/homebrew/Cellar/exiftool',
-  });
-});
-
 // Web interface for the double-entry bookkeeping software Beancount.
 task('install fava formula', when('personal'), async () => {
   await command('brew', ['install', 'fava'], {

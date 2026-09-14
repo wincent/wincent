@@ -50,14 +50,6 @@
       "note": null
     },
     {
-      "name": "exiftool",
-      "tap": "homebrew/core",
-      "description": "Perl lib for reading and writing EXIF metadata",
-      "args": [],
-      "restartService": false,
-      "note": null
-    },
-    {
       "name": "fava",
       "tap": "homebrew/core",
       "description": "Web interface for the double-entry bookkeeping software Beancount",
