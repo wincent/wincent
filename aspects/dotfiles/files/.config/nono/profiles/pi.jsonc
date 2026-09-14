@@ -20,7 +20,7 @@
   },
 
   "network": {
-    "credentials": ["anthropic_api_key", "kagi_search"],
+    "credentials": ["anthropic_api_key", "kagi_search", "xai_api_key"],
     "custom_credentials": {
       "anthropic_api_key": {
         "upstream": "https://api.anthropic.com",
@@ -41,6 +41,18 @@
         "credential_format": "Bot {}",
         "env_var": "KAGI_API_TOKEN",
         "endpoint_rules": [{"method": "POST", "path": "/api/v1/search"}]
+      },
+      "xai_api_key": {
+        "upstream": "https://api.x.ai",
+        "credential_key": "op://CLI/xai-api-key/credential",
+        "inject_header": "Authorization",
+        "credential_format": "Bearer {}",
+        "env_var": "XAI_API_KEY",
+        "endpoint_rules": [
+          {"method": "POST", "path": "/v1/chat/completions"},
+          {"method": "POST", "path": "/v1/responses"},
+          {"method": "GET", "path": "/v1/models"}
+        ]
       }
     }
   },
@@ -57,7 +69,7 @@
   "filesystem": {
     // Read+write.
     "allow": [
-      // Sessions, models, extension state, auth.json etc
+      // Sessions, models, extension state, etc
       // (TODO: use nono's oauth_capture phantom rewriting).
       "~/.pi"
     ],
