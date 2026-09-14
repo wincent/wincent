@@ -34,6 +34,7 @@ if [[ -o interactive ]]; then
   autoload -Uz ssl
   autoload -Uz subtree
   autoload -Uz swallow
+  autoload -Uz tamper-check
   autoload -Uz tick
   autoload -Uz tmux
   autoload -Uz tw

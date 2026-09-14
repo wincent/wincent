@@ -671,6 +671,10 @@ if [ -e /etc/motd ]; then
   fi
 fi
 
+# Complain loudly if corporate overlords or other misbehaved software mutates
+# our startup files.
+tamper-check "$HOME/.zshrc" "$HOME/.zshenv"
+
 #
 # End profiling (uncomment when necessary)
 #

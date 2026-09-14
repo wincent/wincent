@@ -1,0 +1,71 @@
+# Check that a templated file matches its source; intended mostly to catch
+# corporate dev tooling that mutates my start-up files.
+#
+# Skips lines containing ERB tags, so it only works with simple templates
+# (ie. no interpolation, other than the "template-src" which is used to locate
+# the original template).
+#
+# Not a security barrier; catches "benign" appends and prepends, not wholesale
+# replacements intended to deceive this check.
+#
+# Usage: tamper-check ~/.zshrc ~/.zshenv
+function tamper-check() {
+  emulate -L zsh
+
+  local COLOR_OFF COLOR_ON PROBLEM TEMPLATE_OUTPUT_PATH TEMPLATE_SOURCE_PATH # Strings.
+  local -a ACTUAL_CONTENTS EXPECTED_CONTENTS PROBLEMS # Arrays.
+  local -i I DID_FIND_TEMPLATE_SRC # Integers/booleans.
+
+  for TEMPLATE_OUTPUT_PATH in "$@"; do
+    if [[ ! -r $TEMPLATE_OUTPUT_PATH ]]; then
+      PROBLEMS+=("cannot read ${TEMPLATE_OUTPUT_PATH}")
+      continue
+    fi
+
+    ACTUAL_CONTENTS=("${(@f)$(<$TEMPLATE_OUTPUT_PATH)}")
+    DID_FIND_TEMPLATE_SRC=0
+
+    for (( I = 1; I <= $#ACTUAL_CONTENTS; I++ )); do
+      if [[ $ACTUAL_CONTENTS[I] == *'template-src: '* ]]; then
+        TEMPLATE_SOURCE_PATH=${ACTUAL_CONTENTS[I]#*template-src: }
+        DID_FIND_TEMPLATE_SRC=$I
+        break
+      fi
+    done
+
+    if (( ! DID_FIND_TEMPLATE_SRC )); then
+      PROBLEMS+=("${TEMPLATE_OUTPUT_PATH}: no template-src marker")
+      continue
+    elif [[ ! -r $TEMPLATE_SOURCE_PATH ]]; then
+      PROBLEMS+=("${TEMPLATE_OUTPUT_PATH}: unreadable template: ${TEMPLATE_SOURCE_PATH}")
+      continue
+    fi
+
+    EXPECTED_CONTENTS=("${(@f)$(<$TEMPLATE_SOURCE_PATH)}")
+
+    if (( $#ACTUAL_CONTENTS != $#EXPECTED_CONTENTS )); then
+      PROBLEMS+=("${TEMPLATE_OUTPUT_PATH}: line count differs from ${TEMPLATE_SOURCE_PATH} ($#ACTUAL_CONTENTS vs $#EXPECTED_CONTENTS)")
+      continue
+    fi
+
+    for (( I = 1; I <= $#EXPECTED_CONTENTS; I++ )); do
+      if [[ $EXPECTED_CONTENTS[I] != *'<%'* && $ACTUAL_CONTENTS[I] != "$EXPECTED_CONTENTS[I]" ]]; then
+        PROBLEMS+=("${TEMPLATE_OUTPUT_PATH}: line ${I} differs from ${TEMPLATE_SOURCE_PATH}")
+        break
+      fi
+    done
+  done
+
+  if (( $#PROBLEMS )); then
+    if [[ -t 2 ]]; then
+      COLOR_ON='%F{yellow}' COLOR_OFF='%f'
+      COLOR_ON=${(%)COLOR_ON} COLOR_OFF=${(%)COLOR_OFF}
+    fi
+
+    for PROBLEM in "$PROBLEMS[@]"; do
+      print -u2 -- "${COLOR_ON}tamper-check: ${PROBLEM}${COLOR_OFF}"
+    done
+  fi
+
+  return $(( $#PROBLEMS > 0 ))
+}

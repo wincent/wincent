@@ -30,6 +30,8 @@ FILES_TO_COMPILE+=($HOME/.zsh/host/huertas)
 FILES_TO_COMPILE+=($HOME/.zsh/host/latina)
 FILES_TO_COMPILE+=($HOME/.zsh/host/retiro)
 FILES_TO_COMPILE+=($HOME/.zsh/path)
+FILES_TO_COMPILE+=($HOME/.zsh/zshenv)
+FILES_TO_COMPILE+=($HOME/.zsh/zshrc)
 FILES_TO_COMPILE+=($HOME/.zsh/skim/shell/completion.zsh)
 FILES_TO_COMPILE+=($HOME/.zsh/vars)
 

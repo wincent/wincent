@@ -50,9 +50,7 @@
       ".urlview",
       ".xinitrc",
       ".zsh",
-      ".zshenv",
-      ".zshenv.d",
-      ".zshrc"
+      ".zshenv.d"
     ],
     "templates": [
       ".config/clipper/clipper.json.erb",
@@ -62,9 +60,11 @@
       ".docker/config.json.erb",
       ".fehbg",
       ".gnupg/gpg-agent.conf.erb",
-      ".zsh/bin/asdf.erb",
       ".zsh/bin/asdf-wrapper.erb",
-      ".zsh/bin/sb.erb"
+      ".zsh/bin/asdf.erb",
+      ".zsh/bin/sb.erb",
+      ".zshenv.erb",
+      ".zshrc.erb"
     ]
   }
 }

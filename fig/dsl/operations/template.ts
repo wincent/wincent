@@ -32,6 +32,7 @@ export default async function template({
       figManaged: typeof figManaged === 'string'
         ? figManaged.replace(`${LAQUO}file${RAQUO}`, toPath(src).resolve)
         : '',
+      figTemplatePath: toPath(src).resolve,
     },
   });
 
