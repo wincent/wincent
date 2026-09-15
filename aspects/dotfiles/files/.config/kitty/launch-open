@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+# kitty launch-actions handler: route an OS-level file open (Finder's "Open in
+# kitty", `open -a kitty`, any other LaunchServices invocation) into an already
+# running nvim, falling back to a fresh kitty window running $EDITOR.
+#
+# Usage: launch-open <url> <file-path>
+#
+# Why this is a wrapper instead of two rules in "launch-actions.conf": kitty
+# ignores a launch action's exit status and stops at the first matching rule,
+# so "try nvim-open, otherwise open an editor" cannot be expressed there.
+#
+# Why nvim-open doesn't do the fallback itself: it is also deployed to remote
+# machines and re-invoked over ssh, where there is no kitty to open a window in.
+
+set -u
+
+# kitty invokes launch actions with a launchd-style PATH on macOS, so neither
+# nvim nor kitty is on it. Same workaround as nvim-open.
+export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/sbin:$PATH"
+
+url="${1:?url required}"
+file="${2:?file path required}"
+
+nvim_open="$HOME/.config/nvim/pack/bundle/opt/shannon/bin/nvim-open"
+
+# nvim-open exits non-zero when it cannot find an nvim to talk to, which is
+# precisely the case we want to fall back on. It is also the handler that
+# "open-actions.conf" uses, so a Finder open and a clicked link end up in the
+# same place.
+#
+# `--any-pane` is what distinguishes this from "open-actions.conf": with no
+# click-source pane to exclude, every pane is a candidate, including the
+# focused one. Without it, a request made while the only nvim in the window is
+# focused finds nothing and we open a redundant second nvim.
+#
+# The kitty window id argument is deliberately omitted for the same reason:
+# there is no click-source window when the request comes from the OS.
+if [ -x "$nvim_open" ] && "$nvim_open" --any-pane "$url"; then
+  exit 0
+fi
+
+# No nvim available, so make one. This mirrors the built-in `mime text/*` rule
+# that we displace in "launch-actions.conf".
+exec kitty @ --to "unix:$HOME/.config/kitty/kitty.sock" \
+  launch --type=os-window -- "${EDITOR:-nvim}" -- "$file"
