@@ -7,6 +7,6 @@
   # test -d $SOME_DIR && hash -d $SHORTCUT=$SOME_DIR
 
   # Source if decrypted.
-  local PRIVATE="$HOME/.zsh/hash.private"
+  local PRIVATE="$HOME/.zsh/hash.private.zsh"
   test -e "$PRIVATE" && source "$PRIVATE"
 }

@@ -195,6 +195,6 @@ export WATCHMAN_CONFIG_FILE=$HOME/.config/watchman/config.json
 
 () {
   # Source if decrypted.
-  local PRIVATE="$HOME/.zsh/exports.private"
+  local PRIVATE="$HOME/.zsh/exports.private.zsh"
   test -e "$PRIVATE" && source "$PRIVATE"
 }

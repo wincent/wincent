@@ -294,15 +294,15 @@ fi
 # Other
 #
 
-source $HOME/.zsh/path # Must come first! (Others depend on it.)
+source $HOME/.zsh/path.zsh # Must come first! (Others depend on it.)
 
-source $HOME/.zsh/aliases
-source $HOME/.zsh/common
-source $HOME/.zsh/color
-source $HOME/.zsh/exports
-source $HOME/.zsh/functions
-source $HOME/.zsh/hash
-source $HOME/.zsh/vars
+source $HOME/.zsh/aliases.zsh
+source $HOME/.zsh/common.zsh
+source $HOME/.zsh/color.zsh
+source $HOME/.zsh/exports.zsh
+source $HOME/.zsh/functions.zsh
+source $HOME/.zsh/hash.zsh
+source $HOME/.zsh/vars.zsh
 
 #
 # Third-party
@@ -653,7 +653,7 @@ test -f $LOCAL_RC && source $LOCAL_RC
 
 # If your hostname ever gets unset on macOS, reset with:
 #   sudo scutil --set HostName $desired-host-name
-HOST_RC=$HOME/.zsh/host/$(hostname -s | tr '[:upper:]' '[:lower:]')
+HOST_RC=$HOME/.zsh/host/$(hostname -s | tr '[:upper:]' '[:lower:]').zsh
 test -f $HOST_RC && source $HOST_RC
 
 # Initialize completion after all files have been source (gives host-specific
