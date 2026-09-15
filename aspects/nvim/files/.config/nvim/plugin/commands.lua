@@ -13,10 +13,6 @@ command('Typecheck', function()
   require('wincent.commands.typecheck')()
 end, {})
 
-command('Vim', function()
-  require('wincent.commands.vim')()
-end, {})
-
 -- Markdown previews.
 command('Glow', function(opts)
   require('wincent.commands.glow')(opts.args)
