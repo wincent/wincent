@@ -34,7 +34,7 @@
       },
       "gemini_generation": {
         "upstream": "https://generativelanguage.googleapis.com",
-        "credential_key": "env://GOOGLE_API_KEY",
+        "credential_key": "env://GEMINI_API_KEY",
         "inject_header": "x-goog-api-key",
         "credential_format": "{}",
         "env_var": "GEMINI_API_KEY",
