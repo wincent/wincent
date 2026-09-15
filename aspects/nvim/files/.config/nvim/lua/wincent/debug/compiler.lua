@@ -13,8 +13,7 @@ local function compiler()
 
   -- Sample output starts after the point at which execution stops: `:finish` in
   -- a Vimscript compiler plugin, or the start of a trailing long comment in a
-  -- Lua one (`:finish` has no effect in Lua, so the sample has to be commented
-  -- out in order for the file to parse).
+  -- Lua one.
   local pattern = name:match('%.lua$') and [[^--\[=*\[]] or [[^finish\>]]
 
   local line = vim.fn.search(pattern, 'nw')

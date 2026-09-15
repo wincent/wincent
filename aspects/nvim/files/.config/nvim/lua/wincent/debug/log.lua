@@ -13,8 +13,7 @@ local function log(...)
   local lines = format(...)
 
   if #lines > 0 then
-    -- 'a' to append, 's' to fsync: we are quite likely to be debugging
-    -- something that ends in a crash, and an unflushed log would be useless.
+    -- 'a' to append, 's' to fsync.
     vim.fn.writefile(lines, logfile(), 'as')
   end
 end

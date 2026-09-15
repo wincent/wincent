@@ -1,9 +1,6 @@
 --- Runs `find` and puts the results in the quickfix list.
 ---
---- TODO: make this async. Note that doing so means giving up the jump to the
---- first result that `:cexpr` (and this function) performs, because by the time
---- the results arrive the user will have moved on and won't appreciate having
---- the cursor yanked out from under them.
+--- Not async because we want `:cfirst` to jump to the first result.
 ---
 --- @param args string
 local function find(args)

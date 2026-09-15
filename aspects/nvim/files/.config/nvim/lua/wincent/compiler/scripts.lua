@@ -1,12 +1,6 @@
 --- Returns the "scripts" section of the nearest enclosing "package.json", or an
 --- empty table if there isn't one (or it can't be read, or it is malformed).
 ---
---- Replaces the old `wincent#compiler#find()`, which hand-rolled the upwards
---- traversal. Note that `vim.fs.root()` also fixes a bug in that function: it
---- searched upwards from the working directory even when editing a file
---- elsewhere, because `expand('%') || getcwd()` is a _numeric_ `||` in
---- Vimscript and always evaluates to 0 or 1.
----
 --- @return table<string, string>
 local function scripts()
   local root = vim.fs.root(0, 'package.json')
