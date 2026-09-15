@@ -11,29 +11,19 @@ FILES_TO_COMPILE+=($HOME/.zsh/zsh-completions/src/*)
 FILES_TO_COMPILE+=(/opt/homebrew/share/zsh/site-functions/*)
 FILES_TO_COMPILE+=(/opt/homebrew/Cellar/zsh/5.9/share/zsh/functions/*)
 
+# Other files, targeted by extension.
+FILES_TO_COMPILE+=($HOME/.zsh/*.zsh)
+FILES_TO_COMPILE+=($HOME/.zsh/host/*.zsh)
+
 # Other third-party submodules.
 FILES_TO_COMPILE+=($HOME/.zsh/zsh-autosuggestions/*.zsh)
 FILES_TO_COMPILE+=($HOME/.zsh/zsh-syntax-highlighting/*.zsh)
 FILES_TO_COMPILE+=($HOME/.zsh/zsh-history-substring-search/*.zsh)
 
 # Adding these ones manually for now, until I decide what to do with them.
-# (May want to give them a ".zsh" extension to make them easier to target.)
-# Most things except encrypted files.
 FILES_TO_COMPILE+=($HOME/.zshrc)
-FILES_TO_COMPILE+=($HOME/.zsh/aliases)
-FILES_TO_COMPILE+=($HOME/.zsh/color)
-FILES_TO_COMPILE+=($HOME/.zsh/common)
-FILES_TO_COMPILE+=($HOME/.zsh/exports)
-FILES_TO_COMPILE+=($HOME/.zsh/functions)
-FILES_TO_COMPILE+=($HOME/.zsh/hash)
-FILES_TO_COMPILE+=($HOME/.zsh/host/huertas)
-FILES_TO_COMPILE+=($HOME/.zsh/host/latina)
-FILES_TO_COMPILE+=($HOME/.zsh/host/retiro)
-FILES_TO_COMPILE+=($HOME/.zsh/path)
 FILES_TO_COMPILE+=($HOME/.zsh/zshenv)
 FILES_TO_COMPILE+=($HOME/.zsh/zshrc)
-FILES_TO_COMPILE+=($HOME/.zsh/skim/shell/completion.zsh)
-FILES_TO_COMPILE+=($HOME/.zsh/vars)
 
 for FILE in $FILES_TO_COMPILE; do
   if [[ ! "${FILE}" == *.zwc ]]; then
