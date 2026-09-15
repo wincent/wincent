@@ -1,12 +1,17 @@
 #!/usr/bin/env bash
 # nvim-open: kitty open-actions handler for file:// hyperlinks.
 #
-# Usage: nvim-open <url> [kitty-window-id]
+# Usage: nvim-open [--any-pane] <url> [kitty-window-id]
 #
-# The optional second argument is the @active-kitty-window-id placeholder
+# The optional trailing argument is the @active-kitty-window-id placeholder
 # substituted by kitty open-actions; when present and numeric it pins the
 # click-source window deterministically. Empty or non-numeric values fall
 # back to the focus / sole-ssh heuristics.
+#
+# `--any-pane` is forwarded to find-nvim-socket, and says that no pane
+# originated this request, so none should be excluded as the source. Use it
+# for kitty *launch* actions, where the request comes from the OS (Finder,
+# `open -a kitty`) rather than from a click inside a pane.
 #
 # Routes a click on a file:// URL to nvim:
 #
@@ -14,8 +19,8 @@
 #   to the same script on the remote machine. The recursion bottoms out there,
 #   since on the remote there's no kitty/tmux to redirect into.
 #
-# - Otherwise, finds the nvim running in a sibling tmux pane (via
-#   find-nvim-socket) and dispatches via shannon's private.open RPC.
+# - Otherwise, finds an nvim running in a tmux pane (via find-nvim-socket)
+#   and dispatches via shannon's private.open RPC.
 #
 # Logging is opt-in: set NVIM_OPEN_DEBUG=1 to capture trace output to
 # ${XDG_STATE_HOME:-$HOME/.local/state}/nvim-open/log.
@@ -390,9 +395,17 @@ forward_to_remote() {
     ssh_opts+=("$opt")
   done < <(build_ssh_opts)
 
+  # The request had no originating pane here, so it has none on the remote
+  # either; carry that through rather than letting the remote exclude one.
+  local -a remote_opts=()
+  if [ "$any_pane" -eq 1 ]; then
+    remote_opts+=(--any-pane)
+  fi
+
   log "→ forwarded to $target via ssh (opts='${ssh_opts[*]-}')"
   exec ssh ${ssh_opts[@]+"${ssh_opts[@]}"} "$target" \
-    "\$HOME/.config/nvim/pack/bundle/opt/shannon/bin/nvim-open" "$remote_url"
+    "\$HOME/.config/nvim/pack/bundle/opt/shannon/bin/nvim-open" \
+    ${remote_opts[@]+"${remote_opts[@]}"} "$remote_url"
 }
 
 # Bail early if the path doesn't exist locally — better than dispatching
@@ -440,7 +453,13 @@ handoff_if_binary() {
 dispatch_to_nvim() {
   local script_dir sock expr
   script_dir=$(cd "$(dirname "$0")" && pwd)
-  sock=$("$script_dir/find-nvim-socket" 2>>"$LOG") || {
+
+  local -a find_opts=()
+  if [ "$any_pane" -eq 1 ]; then
+    find_opts+=(--any-pane)
+  fi
+
+  sock=$("$script_dir/find-nvim-socket" ${find_opts[@]+"${find_opts[@]}"} 2>>"$LOG") || {
     log "→ nvim discovery failed (see preceding stderr lines)"
     exit 1
   }
@@ -461,6 +480,23 @@ dispatch_to_nvim() {
 main() {
   log "click: argv=$*"
   log "env: SSH_CONNECTION='${SSH_CONNECTION:-}' KITTY_WINDOW_ID='${KITTY_WINDOW_ID:-}' TMUX='${TMUX:-}'"
+
+  any_pane=0
+  while [ $# -gt 0 ]; do
+    case "$1" in
+      --any-pane)
+        any_pane=1
+        shift
+        ;;
+      --)
+        shift
+        break
+        ;;
+      *)
+        break
+        ;;
+    esac
+  done
 
   url="${1:?url required}"
   kitty_window_id="${2:-}"
