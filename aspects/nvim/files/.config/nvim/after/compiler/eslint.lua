@@ -1,37 +1,19 @@
-if exists(':CompilerSet') != 2
-  command -nargs=* CompilerSet setlocal <args>
-endif
+local scripts = require('wincent.compiler.scripts')
+local set = require('wincent.compiler.set')
 
-let s:lint='eslint\ --format\ stylish'
+set({
+  makeprg = scripts().lint and 'yarn lint --format stylish' or 'eslint --format stylish',
 
-let s:package_path=wincent#compiler#find('package.json')
+  errorformat = {
+    [[%-P%f]],
+    [[%\s%#%l:%c%\s%\+%trror%\s%\+%m]],
+    [[%\s%#%l:%c%\s%\+%tarning%\s%\+%m]],
+    [[%-Q]],
+    [[%-G%.%#]],
+  },
+})
 
-if len(s:package_path) > 1
-  try
-    let s:package_data=json_decode(readfile(s:package_path))
-    if (type(s:package_data) == v:t_dict)
-      if has_key(s:package_data, 'scripts')
-        let s:scripts=s:package_data['scripts']
-        if has_key(s:scripts, 'lint')
-          let s:lint='yarn\ lint\ --format\ stylish'
-        endif
-      endif
-    endif
-  catch
-    " Oh well, it was worth a try...
-  endtry
-endif
-
-execute 'CompilerSet makeprg=' . s:lint
-
-CompilerSet errorformat=
-      \%-P%f,
-      \%\\s%#%l:%c%\\s%\\+%trror%\\s%\\+%m,
-      \%\\s%#%l:%c%\\s%\\+%tarning%\\s%\\+%m,
-      \%-Q,
-      \%-G%.%#
-
-finish " Sample output follows:
+--[==[ Sample output follows:
 yarn run v1.17.3
 $ node scripts/lint.js --format stylish
 
@@ -47,3 +29,4 @@ $ node scripts/lint.js --format stylish
   4 errors and 0 warnings potentially fixable with the `--fix` option.
 
 ✨  Done in 0.84s.
+]==]

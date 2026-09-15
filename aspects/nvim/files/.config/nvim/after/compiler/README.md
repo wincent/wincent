@@ -2,7 +2,9 @@
 
 ## Testing
 
-Do `:call wincent#debug#compiler()` to test a compiler plugin (`:h write-compiler-plugin`).
+Do `:lua wincent.debug.compiler()` to test a compiler plugin (`:h write-compiler-plugin`).
+
+It sources the current buffer, then runs the sample output at the bottom of the file through the resulting `'errorformat'`. In a Vimscript compiler plugin the sample starts after the `finish` line; in a Lua one (where `:finish` has no effect) it starts at the opening delimiter of a trailing long comment (eg. `--[==[`).
 
 ## Formats
 

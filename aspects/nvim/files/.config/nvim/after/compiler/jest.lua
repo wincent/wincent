@@ -1,40 +1,30 @@
-if exists(':CompilerSet') != 2
-  command -nargs=* CompilerSet setlocal <args>
-endif
+local scripts = require('wincent.compiler.scripts')
+local set = require('wincent.compiler.set')
 
-let s:jest='jest'
+local makeprg = 'jest'
 
-let s:package_path=wincent#compiler#find('package.json')
+local available = scripts()
 
-if len(s:package_path) > 1
-  try
-    let s:package_data=json_decode(readfile(s:package_path))
-    if (type(s:package_data) == v:t_dict)
-      if has_key(s:package_data, 'scripts')
-        let s:scripts=s:package_data['scripts']
-        if has_key(s:scripts, 'test')
-          " Let's hope this is actually Jest...
-          let s:jest='yarn\ test'
-        elseif has_key(s:scripts, 'jest')
-          let s:jest='yarn\ jest'
-        endif
-      endif
-    endif
-  catch
-    " Oh well, it was worth a try...
-  endtry
-endif
+if available.test then
+  -- Let's hope this is actually Jest...
+  makeprg = 'yarn test'
+elseif available.jest then
+  makeprg = 'yarn jest'
+end
 
-execute 'CompilerSet makeprg=' . s:jest
+set({
+  makeprg = makeprg,
 
-CompilerSet errorformat=
-      \%-G%[%^\ ]%.%#,
-      \%A%\\s%\\+●\ %m,
-      \%Z%\\s%\\+at\ %.%#\ (%f:%l:%c),
-      \%C%.%#,
-      \%-G%.%#,
+  errorformat = {
+    [[%-G%[%^ ]%.%#]],
+    [[%A%\s%\+● %m]],
+    [[%Z%\s%\+at %.%# (%f:%l:%c)]],
+    [[%C%.%#]],
+    [[%-G%.%#]],
+  },
+})
 
-finish " Sample output follows:
+--[==[ Sample output follows:
 yarn run v1.17.3
 $ workspace-scripts test
 PASS packages/throttle/src/__tests__/index-test.ts
@@ -98,3 +88,4 @@ Ran all test suites.
 Spawned command env BABEL_ENV=jest jest exited with status 1
 error Command failed with exit code 1.
 info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+]==]

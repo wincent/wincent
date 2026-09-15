@@ -1,17 +1,31 @@
+local command = vim.api.nvim_create_user_command
+
 -- TODO: complete `find` arg names too
--- TODO: check escaping (q-args) is correct
-vim.api.nvim_create_user_command('Find', 'call wincent#commands#find(<q-args>)', { complete = 'file', nargs = '*' })
+command('Find', function(opts)
+  require('wincent.commands.find')(opts.args)
+end, { complete = 'file', nargs = '*' })
 
-vim.api.nvim_create_user_command('Lint', 'call wincent#commands#lint()', {})
+command('Lint', function()
+  require('wincent.commands.lint')()
+end, {})
 
-vim.api.nvim_create_user_command('Typecheck', 'call wincent#commands#typecheck()', {})
-vim.api.nvim_create_user_command('Vim', 'call wincent#commands#vim()', {})
+command('Typecheck', function()
+  require('wincent.commands.typecheck')()
+end, {})
+
+command('Vim', function()
+  require('wincent.commands.vim')()
+end, {})
 
 -- Markdown previews.
-vim.api.nvim_create_user_command('Glow', 'call wincent#commands#glow(<q-args>)', { complete = 'file', nargs = '?' })
-vim.api.nvim_create_user_command('Marked', 'call wincent#commands#marked(<q-args>)', { complete = 'file', nargs = '?' })
-vim.api.nvim_create_user_command(
-  'Preview',
-  'call wincent#commands#preview(<q-args>)',
-  { complete = 'file', nargs = '?' }
-)
+command('Glow', function(opts)
+  require('wincent.commands.glow')(opts.args)
+end, { complete = 'file', nargs = '?' })
+
+command('Marked', function(opts)
+  require('wincent.commands.marked')(opts.args)
+end, { complete = 'file', nargs = '?' })
+
+command('Preview', function(opts)
+  require('wincent.commands.preview')(opts.args)
+end, { complete = 'file', nargs = '?' })

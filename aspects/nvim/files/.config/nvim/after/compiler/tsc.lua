@@ -1,17 +1,26 @@
-if exists(':CompilerSet') != 2
-  command -nargs=* CompilerSet setlocal <args>
-endif
+local set = require('wincent.compiler.set')
 
-let s:lint='yarn\ run\ tsc\ --noEmit\ --incremental\ false'
+set({
+  makeprg = 'yarn run tsc --noEmit --incremental false',
 
-execute 'CompilerSet makeprg=' . s:lint
+  errorformat = {
+    -- "Pretty" format: what tsc emits when stdout is a TTY.
+    [[%E%f:%l:%c%\s%\+-%\s%\+%trror%\s%\+TS%n:%\s%\+%m]],
 
-CompilerSet errorformat=
-      \%E%f:%l:%c%\\s%\\+-%\\s%\\+%trror%\\s%\\+TS%n:%\\s%\\+%m,
-      \%-G%[%^\ 0-9]%.%#,
-      \%-G%\\s%#
+    -- Plain format: what tsc emits when stdout is a pipe, which is what
+    -- Dispatch's `:Make` gives it. These must precede the `%-G` filters below,
+    -- which would otherwise discard them for not starting with a space or a
+    -- digit. (`\,` is an escaped literal comma; a bare one would be read as an
+    -- 'errorformat' item separator.)
+    [[%f %#(%l\,%c): %trror TS%n: %m]],
+    [[%trror TS%n: %m]],
 
-finish " Sample output follows:
+    [[%-G%[%^ 0-9]%.%#]],
+    [[%-G%\s%#]],
+  },
+})
+
+--[==[ Sample output follows:
 yarn run v1.17.3
 $ tsc --noEmit
 src/renderer/hooks/usePrevious.ts:24:5 - error TS2322: Type 'T' is not assignable to type 'undefined'.
@@ -56,3 +65,12 @@ Found 6 errors.
 
 error Command failed with exit code 1.
 info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+
+Plain (non-TTY) output for the same errors follows:
+yarn run v1.17.3
+$ tsc --noEmit
+src/renderer/hooks/usePrevious.ts(24,5): error TS2322: Type 'T' is not assignable to type 'undefined'.
+src/renderer/index.tsx(11,14): error TS2552: Cannot find name 'doscument'. Did you mean 'Document'?
+error TS5112: tsconfig.json is present but will not be loaded if files are specified on commandline.
+error Command failed with exit code 1.
+]==]
