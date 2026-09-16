@@ -12,7 +12,7 @@ Sends a desktop notification when pi finishes and is waiting for input. Delegate
 
 ### `web-search.ts`
 
-Registers a `web_search` tool backed by the [Kagi Search API](https://help.kagi.com/kagi/api/search.html) at a cost of $25 per 1,000 queries (ie. 2.5 cents per query). Requires `KAGI_API_TOKEN` in the environment, and throws if unset.
+Registers a `web_search` tool backed by the [Kagi Search API](https://help.kagi.com/kagi/api/search.html) at a cost of $12 per 1,000 queries (ie. 1.2 cents per query). Requires `KAGI_API_TOKEN` in the environment, and throws if unset.
 
 ## Type-checking
 
