@@ -79,8 +79,14 @@ cmd_create() {
 
   wait_for_ssh
 
-  log_info "Installing prerequisites"
-  vm_ssh "sudo apt-get update && sudo apt-get install -y git curl"
+  # Upgrade *before* running `./install`: the `locales` package's postinst
+  # rewrites /etc/locale.gen from debconf and re-runs `locale-gen`, so an
+  # upgrade that runs later can undo the work of the "locale" aspect.
+  log_info "Upgrading system packages and installing prerequisites"
+  vm_ssh "sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install -y git curl"
+
+  # The upgrade above includes `openssh-server`, which may have bounced sshd.
+  wait_for_ssh
 
   log_info "Initializing repo on VM"
   vm_ssh "mkdir -p $VM_REPO_PATH && cd $VM_REPO_PATH && git init -b main && git config receive.denyCurrentBranch updateInstead"
@@ -92,8 +98,8 @@ cmd_create() {
   log_info "Checking out and running install"
   vm_ssh "cd $VM_REPO_PATH && git checkout main && FIG_IDENTITY=wincent SUDO_ASKPASS=echo ./install"
 
-  log_info "Upgrading system packages"
-  vm_ssh "sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get clean"
+  log_info "Cleaning up package cache"
+  vm_ssh "sudo apt-get clean"
 
   # Catch the failure modes that otherwise only show up much later, in daily
   # use: an interrupted `dpkg` transaction, or locales that were configured in
