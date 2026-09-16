@@ -1,19 +1,36 @@
 #!/bin/bash
 
-set -e
+# -E so that shell functions inherit the ERR trap installed below. We don't
+# add `pipefail`, because it would interact badly with the `tart list | grep
+# -q ...` guards: `grep -q` exits at the first match, `tart` then dies of
+# SIGPIPE, and the pipeline would report failure despite the successful match.
+set -eE
 
 REPO_ROOT="${BASH_SOURCE%/*}/.."
 
 source "$REPO_ROOT/bin/common"
 
+# Say *which* step failed, instead of exiting silently.
+trap 'status=$?; log_error "line $LINENO: \`$BASH_COMMAND\` failed with status $status"; exit $status' ERR
+
 VM_BASE="wincent-base"
+
+# `cmd_create` builds under this name and only promotes it to $VM_BASE once the
+# build succeeds, so that a partial image can never be picked up by `bin/vm
+# clone` or `sb create`.
+VM_BUILD="$VM_BASE-building"
+BUILD_VERIFIED=0
+
 VM_USER="admin"
 VM_PASS="admin"
 VM_REPO_PATH="/home/$VM_USER/code/wincent"
 OCI_IMAGE="ghcr.io/cirruslabs/ubuntu:latest"
 REGISTRY="ghcr.io/wincent/wincent-base:latest"
 
-SSH_OPTIONS="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR"
+# Keepalives so that a wedged session fails within a couple of minutes instead
+# of hanging forever, or being silently reaped in the middle of an `apt-get`
+# run.
+SSH_OPTIONS="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR -o ServerAliveInterval=15 -o ServerAliveCountMax=8"
 
 vm_ssh() {
   sshpass -p "$VM_PASS" ssh $SSH_OPTIONS "$VM_USER@$VM_IP" "$@"
@@ -40,19 +57,24 @@ cmd_create() {
     exit 1
   fi
 
-  log_info "Cloning $OCI_IMAGE -> $VM_BASE"
-  tart clone "$OCI_IMAGE" "$VM_BASE"
+  if tart list | grep -q "^local[[:space:]]*$VM_BUILD "; then
+    log_error "leftover VM '$VM_BUILD' from a failed build; discard it with: tart delete $VM_BUILD"
+    exit 1
+  fi
+
+  log_info "Cloning $OCI_IMAGE -> $VM_BUILD"
+  tart clone "$OCI_IMAGE" "$VM_BUILD"
 
   log_info "Configuring VM resources"
-  tart set "$VM_BASE" --disk-size 50 --cpu 4 --memory 8192
+  tart set "$VM_BUILD" --disk-size 50 --cpu 4 --memory 8192
 
   log_info "Starting VM (headless)"
-  tart run "$VM_BASE" --no-graphics &
+  tart run "$VM_BUILD" --no-graphics &
   TART_PID=$!
 
-  trap 'log_info "Stopping VM"; tart stop "$VM_BASE" 2>/dev/null; wait $TART_PID 2>/dev/null' EXIT
+  trap finish_build EXIT INT TERM HUP
 
-  VM_IP=$(tart ip "$VM_BASE" --wait 30)
+  VM_IP=$(tart ip "$VM_BUILD" --wait 30)
   log_info "VM IP: $VM_IP"
 
   wait_for_ssh
@@ -72,6 +94,65 @@ cmd_create() {
 
   log_info "Upgrading system packages"
   vm_ssh "sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get clean"
+
+  # Catch the failure modes that otherwise only show up much later, in daily
+  # use: an interrupted `dpkg` transaction, or locales that were configured in
+  # /etc/locale.gen but never actually generated (which makes every zsh prompt
+  # print "character not in range").
+  log_info "Verifying image"
+  vm_ssh bash -s <<'REMOTE'
+set -eu
+
+if sudo dpkg --audit | grep -q .; then
+  echo 'dpkg reports broken or unconfigured packages' >&2
+  exit 1
+fi
+
+for locale in en_US.utf8 en_AU.utf8; do
+  if ! locale -a | grep -qx "$locale"; then
+    echo "locale $locale was not generated" >&2
+    exit 1
+  fi
+done
+REMOTE
+
+  BUILD_VERIFIED=1
+}
+
+# EXIT/signal handler for `cmd_create`: shut the VM down cleanly, then promote
+# the staging VM to $VM_BASE, but only if the build actually succeeded.
+finish_build() {
+  local status=$?
+
+  # Avoid re-entering this handler via the commands below.
+  trap - EXIT INT TERM HUP
+
+  # A signal can arrive when $? is 0, so don't trust the status alone.
+  if [ "$status" -eq 0 ] && [ "$BUILD_VERIFIED" -ne 1 ]; then
+    status=1
+  fi
+
+  # Flush guest writes before yanking the power: `tart stop` in the middle of
+  # `dpkg` is how you end up with files (such as
+  # /usr/lib/locale/locale-archive) that never made it to disk.
+  vm_ssh sync 2>/dev/null || true
+
+  log_info "Stopping VM"
+  tart stop "$VM_BUILD" 2>/dev/null || true
+  wait $TART_PID 2>/dev/null || true
+
+  if [ "$status" -ne 0 ]; then
+    log_error "BASE IMAGE BUILD FAILED (status $status)"
+    log_error "'$VM_BASE' was not created, so nothing can clone a broken image"
+    log_error "inspect the leftovers with: bin/vm start $VM_BUILD --background && bin/vm ssh $VM_BUILD"
+    log_error "or discard them with:       tart delete $VM_BUILD"
+    exit "$status"
+  fi
+
+  # `tart rename` requires a stopped VM, which is why this happens here and not
+  # at the end of `cmd_create`.
+  log_info "Renaming $VM_BUILD -> $VM_BASE"
+  tart rename "$VM_BUILD" "$VM_BASE"
 
   log_info "Base image '$VM_BASE' is ready"
   log_info "Clone it with: bin/vm clone <name>"
