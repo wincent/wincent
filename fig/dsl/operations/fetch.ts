@@ -11,6 +11,8 @@ import file from './file.ts';
 
 const DIGEST_PREFIX = 'sha256:';
 
+const REDIRECT_STATUS_CODES = new Set([301, 302, 303, 307, 308]);
+
 export default async function fetch({
   dest,
   checksum,
@@ -19,6 +21,7 @@ export default async function fetch({
   mode,
   notify,
   owner,
+  timeout,
   url,
   sudo,
 }: {
@@ -30,6 +33,8 @@ export default async function fetch({
   notify?: Array<string> | string;
   owner?: string;
   sudo?: boolean;
+  /** Socket-inactivity timeout in ms; also covers initial connection. */
+  timeout?: number;
   url: string;
 }): Promise<OperationResult> {
   await log.debug(`Download \`${url}\` to \`${dest}\``);
@@ -59,8 +64,10 @@ export default async function fetch({
   function go(url: string): Promise<OperationResult> {
     requestedURLs.push(url);
     return new Promise((resolve, reject) => {
-      get(url, (response) => {
-        if (response.statusCode === 301 || response.statusCode === 302) {
+      const request = get(url, {timeout}, (response) => {
+        const status = response.statusCode;
+
+        if (status !== undefined && REDIRECT_STATUS_CODES.has(status)) {
           response.resume();
           if (requestedURLs.length > 10) {
             reject(
@@ -76,6 +83,9 @@ export default async function fetch({
               reject(new Error('fetch(): Cannot redirect without Location'));
             }
           }
+        } else if (status === undefined || status < 200 || status > 299) {
+          response.resume();
+          reject(new Error(`fetch(): Unexpected status code ${status}`));
         } else {
           response.pipe(stream);
 
@@ -115,9 +125,19 @@ export default async function fetch({
             }
           });
         }
-      }).on('error', (error) => {
+      });
+
+      request.on('error', (error) => {
         reject(error);
       });
+
+      if (timeout !== undefined) {
+        request.on('timeout', () => {
+          request.destroy(
+            new Error(`fetch(): Timed out after ${timeout}ms of inactivity`),
+          );
+        });
+      }
     });
   }
 
