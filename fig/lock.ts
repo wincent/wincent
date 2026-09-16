@@ -49,14 +49,16 @@ async function tick(queue: Queue) {
   try {
     const value = await next.callback();
     next.resolve(value);
+  } catch (error) {
+    next.reject(error);
+  } finally {
+    // Keep queue draining in both success and failure case, otherwise the queue
+    // stalls.
     queue.items.shift();
     if (queue.items.length) {
       setTimeout(tick, 0, queue);
     } else {
       queue.tickScheduled = false;
     }
-  } catch (error) {
-    queue.tickScheduled = false;
-    next.reject(error);
   }
 }
